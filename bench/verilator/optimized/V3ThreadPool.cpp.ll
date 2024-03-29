@@ -535,13 +535,12 @@ define dso_local void @_ZN12V3ThreadPool6resizeEj(ptr noundef nonnull align 8 de
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, 1
   %12 = icmp eq i64 %11, %7
-  br i1 %12, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit45, label %13
+  br i1 %12, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit36, label %13
 
 13:                                               ; preds = %2
   %14 = load i8, ptr getelementptr inbounds (%class.V3MutexConfig, ptr @_ZZN13V3MutexConfig1sEvE1s, i64 0, i32 1), align 1
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %16, label %20
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %20, label %16
 
 16:                                               ; preds = %13
   %17 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str, i32 noundef 33, i1 noundef zeroext false)
@@ -553,9 +552,8 @@ define dso_local void @_ZN12V3ThreadPool6resizeEj(ptr noundef nonnull align 8 de
 20:                                               ; preds = %13
   %21 = getelementptr inbounds i8, ptr %0, i64 40
   %22 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %23 = and i8 %22, 1
-  %.not.i.i = icmp eq i8 %23, 0
-  br i1 %.not.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %20
   %24 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %21) #30
@@ -563,65 +561,62 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %20
   br i1 %.not.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %28
-  %.06.i.i = phi i32 [ %29, %28 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
+  %.04.i.i = phi i32 [ %29, %28 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
   %25 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %26 = and i8 %25, 1
-  %.not.i2.i.i = icmp eq i8 %26, 0
-  br i1 %.not.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i:   ; preds = %.preheader.i.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i:   ; preds = %.preheader.i.i
   %27 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %21) #30
-  %.not.i.i3.i.i = icmp eq i32 %27, 0
-  br i1 %.not.i.i3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %28
+  %.not.i.i2.i.i = icmp eq i32 %27, 0
+  br i1 %.not.i.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %28
 
-28:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+28:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %29 = add nuw nsw i32 %.06.i.i, 1
+  %29 = add nuw nsw i32 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %29, 50000
   br i1 %exitcond.not.i.i, label %30, label %.preheader.i.i, !llvm.loop !6
 
 30:                                               ; preds = %28
   %31 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %21) #30
-  %.not.i5.i.i = icmp eq i32 %31, 0
-  br i1 %.not.i5.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %32
+  %.not.i.i.i = icmp eq i32 %31, 0
+  br i1 %.not.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %32
 
 32:                                               ; preds = %30
   tail call void @_ZSt20__throw_system_errori(i32 noundef %31) #29
   unreachable
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %.preheader.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i, %20, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %30
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %.preheader.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, %20, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %30
   %33 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %34 = and i8 %33, 1
-  %.not.i.i6 = icmp eq i8 %34, 0
-  br i1 %.not.i.i6, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit16, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i7
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i6, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit14
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i7:   ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i6:   ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
   %35 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #30
-  %.not.i.i.i.i8 = icmp eq i32 %35, 0
-  br i1 %.not.i.i.i.i8, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit16, label %.preheader.i.i9
+  %.not.i.i.i.i7 = icmp eq i32 %35, 0
+  br i1 %.not.i.i.i.i7, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit14, label %.preheader.i.i8
 
-.preheader.i.i9:                                  ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i7, %39
-  %.06.i.i10 = phi i32 [ %40, %39 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i7 ]
+.preheader.i.i8:                                  ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i6, %39
+  %.04.i.i9 = phi i32 [ %40, %39 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i6 ]
   %36 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %37 = and i8 %36, 1
-  %.not.i2.i.i11 = icmp eq i8 %37, 0
-  br i1 %.not.i2.i.i11, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit16, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i12
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i10, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit14
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i12: ; preds = %.preheader.i.i9
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i10: ; preds = %.preheader.i.i8
   %38 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #30
-  %.not.i.i3.i.i13 = icmp eq i32 %38, 0
-  br i1 %.not.i.i3.i.i13, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit16, label %39
+  %.not.i.i2.i.i11 = icmp eq i32 %38, 0
+  br i1 %.not.i.i2.i.i11, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit14, label %39
 
-39:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i12
+39:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i10
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %40 = add nuw nsw i32 %.06.i.i10, 1
-  %exitcond.not.i.i14 = icmp eq i32 %40, 50000
-  br i1 %exitcond.not.i.i14, label %41, label %.preheader.i.i9, !llvm.loop !6
+  %40 = add nuw nsw i32 %.04.i.i9, 1
+  %exitcond.not.i.i12 = icmp eq i32 %40, 50000
+  br i1 %exitcond.not.i.i12, label %41, label %.preheader.i.i8, !llvm.loop !6
 
 41:                                               ; preds = %39
   %42 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #30
-  %.not.i5.i.i15 = icmp eq i32 %42, 0
-  br i1 %.not.i5.i.i15, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit16, label %43
+  %.not.i.i.i13 = icmp eq i32 %42, 0
+  br i1 %.not.i.i.i13, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit14, label %43
 
 43:                                               ; preds = %41
   invoke void @_ZSt20__throw_system_errori(i32 noundef %42) #29
@@ -630,7 +625,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i12: ; preds = %.preheader.i.i9
 .noexc:                                           ; preds = %43
   unreachable
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit16: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i12, %.preheader.i.i9, %41, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i7, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit14: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i10, %.preheader.i.i8, %41, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i6, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
   %44 = getelementptr inbounds i8, ptr %0, i64 80
   %45 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %44, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 90, ptr null)
   %46 = getelementptr inbounds i8, ptr %45, i64 48
@@ -640,7 +635,7 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit16: ; preds = %_ZN10V3Mut
   %50 = icmp eq ptr %48, %49
   br i1 %50, label %67, label %51
 
-51:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit16
+51:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit14
   %52 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str, i32 noundef 38, i1 noundef zeroext false)
           to label %53 unwind label %61
 
@@ -668,15 +663,14 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit16: ; preds = %_ZN10V3Mut
   %62 = landingpad { ptr, i32 }
           cleanup
   %63 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %64 = and i8 %63, 1
-  %.not.i.i17 = icmp eq i8 %64, 0
-  br i1 %.not.i.i17, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit, label %65
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %65, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
 
 65:                                               ; preds = %61
   %66 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
   br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
 
-67:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit16
+67:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit14
   %68 = getelementptr inbounds i8, ptr %0, i64 390
   store atomic i8 1, ptr %68 seq_cst, align 2
   %69 = getelementptr inbounds i8, ptr %0, i64 384
@@ -684,8 +678,8 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit16: ; preds = %_ZN10V3Mut
   %70 = getelementptr inbounds i8, ptr %0, i64 208
   %71 = load ptr, ptr %70, align 8
   %72 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %71) #30
-  %.not.i.i.i = icmp eq i32 %72, 0
-  br i1 %.not.i.i.i, label %_ZNSt3_V222condition_variable_any10notify_allEv.exit, label %73
+  %.not.i.i.i15 = icmp eq i32 %72, 0
+  br i1 %.not.i.i.i15, label %_ZNSt3_V222condition_variable_any10notify_allEv.exit, label %73
 
 73:                                               ; preds = %67
   invoke void @_ZSt20__throw_system_errori(i32 noundef %72) #29
@@ -710,14 +704,14 @@ _ZNSt3_V222condition_variable_any10notify_allEv.exit: ; preds = %67
   %81 = getelementptr inbounds i8, ptr %80, i64 48
   %82 = load ptr, ptr %81, align 8
   %83 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %82) #30
-  %.not.i.i.i18 = icmp eq i32 %83, 0
-  br i1 %.not.i.i.i18, label %_ZNSt3_V222condition_variable_any10notify_allEv.exit20, label %84
+  %.not.i.i.i16 = icmp eq i32 %83, 0
+  br i1 %.not.i.i.i16, label %_ZNSt3_V222condition_variable_any10notify_allEv.exit18, label %84
 
 84:                                               ; preds = %_ZNSt3_V222condition_variable_any10notify_allEv.exit
   invoke void @_ZSt20__throw_system_errori(i32 noundef %83) #29
-          to label %.noexc.i19 unwind label %85
+          to label %.noexc.i17 unwind label %85
 
-.noexc.i19:                                       ; preds = %84
+.noexc.i17:                                       ; preds = %84
   unreachable
 
 85:                                               ; preds = %84
@@ -727,7 +721,7 @@ _ZNSt3_V222condition_variable_any10notify_allEv.exit: ; preds = %67
   tail call void @__clang_call_terminate(ptr %87) #31
   unreachable
 
-_ZNSt3_V222condition_variable_any10notify_allEv.exit20: ; preds = %_ZNSt3_V222condition_variable_any10notify_allEv.exit
+_ZNSt3_V222condition_variable_any10notify_allEv.exit18: ; preds = %_ZNSt3_V222condition_variable_any10notify_allEv.exit
   tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %80) #30
   %88 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %82) #30
   %89 = getelementptr inbounds i8, ptr %0, i64 320
@@ -735,14 +729,14 @@ _ZNSt3_V222condition_variable_any10notify_allEv.exit20: ; preds = %_ZNSt3_V222co
   %91 = getelementptr inbounds i8, ptr %90, i64 48
   %92 = load ptr, ptr %91, align 8
   %93 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %92) #30
-  %.not.i.i.i21 = icmp eq i32 %93, 0
-  br i1 %.not.i.i.i21, label %_ZNSt3_V222condition_variable_any10notify_allEv.exit23, label %94
+  %.not.i.i.i19 = icmp eq i32 %93, 0
+  br i1 %.not.i.i.i19, label %_ZNSt3_V222condition_variable_any10notify_allEv.exit21, label %94
 
-94:                                               ; preds = %_ZNSt3_V222condition_variable_any10notify_allEv.exit20
+94:                                               ; preds = %_ZNSt3_V222condition_variable_any10notify_allEv.exit18
   invoke void @_ZSt20__throw_system_errori(i32 noundef %93) #29
-          to label %.noexc.i22 unwind label %95
+          to label %.noexc.i20 unwind label %95
 
-.noexc.i22:                                       ; preds = %94
+.noexc.i20:                                       ; preds = %94
   unreachable
 
 95:                                               ; preds = %94
@@ -752,151 +746,148 @@ _ZNSt3_V222condition_variable_any10notify_allEv.exit20: ; preds = %_ZNSt3_V222co
   tail call void @__clang_call_terminate(ptr %97) #31
   unreachable
 
-_ZNSt3_V222condition_variable_any10notify_allEv.exit23: ; preds = %_ZNSt3_V222condition_variable_any10notify_allEv.exit20
+_ZNSt3_V222condition_variable_any10notify_allEv.exit21: ; preds = %_ZNSt3_V222condition_variable_any10notify_allEv.exit18
   tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %90) #30
   %98 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %92) #30
   %99 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %100 = and i8 %99, 1
-  %.not.i.i24 = icmp eq i8 %100, 0
-  br i1 %.not.i.i24, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit27, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25
+  %100 = trunc i8 %99 to i1
+  br i1 %100, label %101, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit22
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25: ; preds = %_ZNSt3_V222condition_variable_any10notify_allEv.exit23
-  %101 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
+101:                                              ; preds = %_ZNSt3_V222condition_variable_any10notify_allEv.exit21
+  %102 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
   %.pre = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %.pre60 = and i8 %.pre, 1
-  %102 = icmp eq i8 %.pre60, 0
-  br i1 %102, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit27, label %103
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit22
 
-103:                                              ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25
-  %104 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #30
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit27
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit22: ; preds = %_ZNSt3_V222condition_variable_any10notify_allEv.exit21, %101
+  %103 = phi i8 [ %99, %_ZNSt3_V222condition_variable_any10notify_allEv.exit21 ], [ %.pre, %101 ]
+  %104 = trunc i8 %103 to i1
+  br i1 %104, label %105, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit27: ; preds = %_ZNSt3_V222condition_variable_any10notify_allEv.exit23, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25, %103
-  %105 = load ptr, ptr %8, align 8
-  %106 = icmp eq ptr %105, %8
-  br i1 %106, label %._crit_edge, label %.lr.ph
+105:                                              ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit22
+  %106 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #30
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23
 
-.lr.ph:                                           ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit27, %_ZNSt7__cxx114listISt6threadSaIS1_EE9pop_frontEv.exit
-  %107 = phi ptr [ %114, %_ZNSt7__cxx114listISt6threadSaIS1_EE9pop_frontEv.exit ], [ %105, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit27 ]
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
-  tail call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %108)
-  %109 = load ptr, ptr %8, align 8
-  %110 = load i64, ptr %9, align 8
-  %111 = add i64 %110, -1
-  store i64 %111, ptr %9, align 8
-  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %109) #30
-  %112 = getelementptr inbounds i8, ptr %109, i64 16
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %112, align 8
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23: ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit22, %105
+  %107 = load ptr, ptr %8, align 8
+  %108 = icmp eq ptr %107, %8
+  br i1 %108, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23, %_ZNSt7__cxx114listISt6threadSaIS1_EE9pop_frontEv.exit
+  %109 = phi ptr [ %116, %_ZNSt7__cxx114listISt6threadSaIS1_EE9pop_frontEv.exit ], [ %107, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23 ]
+  %110 = getelementptr inbounds i8, ptr %109, i64 16
+  tail call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %110)
+  %111 = load ptr, ptr %8, align 8
+  %112 = load i64, ptr %9, align 8
+  %113 = add i64 %112, -1
+  store i64 %113, ptr %9, align 8
+  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %111) #30
+  %114 = getelementptr inbounds i8, ptr %111, i64 16
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %114, align 8
   %.not.i.i.i.i.i = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNSt7__cxx114listISt6threadSaIS1_EE9pop_frontEv.exit, label %113
+  br i1 %.not.i.i.i.i.i, label %_ZNSt7__cxx114listISt6threadSaIS1_EE9pop_frontEv.exit, label %115
 
-113:                                              ; preds = %.lr.ph
+115:                                              ; preds = %.lr.ph
   tail call void @_ZSt9terminatev() #31
   unreachable
 
 _ZNSt7__cxx114listISt6threadSaIS1_EE9pop_frontEv.exit: ; preds = %.lr.ph
-  tail call void @_ZdlPv(ptr noundef nonnull %109) #32
-  %114 = load ptr, ptr %8, align 8
-  %115 = icmp eq ptr %114, %8
-  br i1 %115, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  tail call void @_ZdlPv(ptr noundef nonnull %111) #32
+  %116 = load ptr, ptr %8, align 8
+  %117 = icmp eq ptr %116, %8
+  br i1 %117, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit: ; preds = %65, %61, %59
   %.pn = phi { ptr, i32 } [ %60, %59 ], [ %62, %61 ], [ %62, %65 ]
-  %116 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %117 = and i8 %116, 1
-  %.not.i.i28 = icmp eq i8 %117, 0
-  br i1 %.not.i.i28, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit29, label %118
+  %118 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
+  %119 = trunc i8 %118 to i1
+  br i1 %119, label %120, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit24
 
-118:                                              ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
-  %119 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #30
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit29
+120:                                              ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
+  %121 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #30
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit24
 
-._crit_edge:                                      ; preds = %_ZNSt7__cxx114listISt6threadSaIS1_EE9pop_frontEv.exit, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit27
-  br i1 %6, label %120, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit45
+._crit_edge:                                      ; preds = %_ZNSt7__cxx114listISt6threadSaIS1_EE9pop_frontEv.exit, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23
+  br i1 %6, label %122, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit36
 
-120:                                              ; preds = %._crit_edge
-  %121 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %122 = and i8 %121, 1
-  %.not.i.i30 = icmp eq i8 %122, 0
-  br i1 %.not.i.i30, label %.lr.ph58.preheader, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i31
+122:                                              ; preds = %._crit_edge
+  %123 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
+  %124 = trunc i8 %123 to i1
+  br i1 %124, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i25, label %.lr.ph49.preheader
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i31:  ; preds = %120
-  %123 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #30
-  %.not.i.i.i.i32 = icmp eq i32 %123, 0
-  br i1 %.not.i.i.i.i32, label %.lr.ph58.preheader, label %.preheader.i.i33
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i25:  ; preds = %122
+  %125 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #30
+  %.not.i.i.i.i26 = icmp eq i32 %125, 0
+  br i1 %.not.i.i.i.i26, label %.lr.ph49.preheader, label %.preheader.i.i27
 
-.preheader.i.i33:                                 ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i31, %127
-  %.06.i.i34 = phi i32 [ %128, %127 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i31 ]
-  %124 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %125 = and i8 %124, 1
-  %.not.i2.i.i35 = icmp eq i8 %125, 0
-  br i1 %.not.i2.i.i35, label %.lr.ph58.preheader, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i36
+.preheader.i.i27:                                 ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i25, %129
+  %.04.i.i28 = phi i32 [ %130, %129 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i25 ]
+  %126 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
+  %127 = trunc i8 %126 to i1
+  br i1 %127, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i29, label %.lr.ph49.preheader
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i36: ; preds = %.preheader.i.i33
-  %126 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #30
-  %.not.i.i3.i.i37 = icmp eq i32 %126, 0
-  br i1 %.not.i.i3.i.i37, label %.lr.ph58.preheader, label %127
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i29: ; preds = %.preheader.i.i27
+  %128 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #30
+  %.not.i.i2.i.i30 = icmp eq i32 %128, 0
+  br i1 %.not.i.i2.i.i30, label %.lr.ph49.preheader, label %129
 
-127:                                              ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i36
+129:                                              ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i29
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %128 = add nuw nsw i32 %.06.i.i34, 1
-  %exitcond.not.i.i38 = icmp eq i32 %128, 50000
-  br i1 %exitcond.not.i.i38, label %129, label %.preheader.i.i33, !llvm.loop !6
-
-129:                                              ; preds = %127
-  %130 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #30
-  %.not.i5.i.i39 = icmp eq i32 %130, 0
-  br i1 %.not.i5.i.i39, label %.lr.ph58.preheader, label %131
+  %130 = add nuw nsw i32 %.04.i.i28, 1
+  %exitcond.not.i.i31 = icmp eq i32 %130, 50000
+  br i1 %exitcond.not.i.i31, label %131, label %.preheader.i.i27, !llvm.loop !6
 
 131:                                              ; preds = %129
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %130) #29
+  %132 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #30
+  %.not.i.i.i32 = icmp eq i32 %132, 0
+  br i1 %.not.i.i.i32, label %.lr.ph49.preheader, label %133
+
+133:                                              ; preds = %131
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %132) #29
   unreachable
 
-.lr.ph58.preheader:                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i36, %.preheader.i.i33, %129, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i31, %120
+.lr.ph49.preheader:                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i29, %.preheader.i.i27, %131, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i25, %122
   store atomic i8 0, ptr %68 seq_cst, align 2
   store i32 1, ptr %3, align 4
-  br label %.lr.ph58
+  br label %.lr.ph49
 
-.lr.ph58:                                         ; preds = %.lr.ph58.preheader, %132
+.lr.ph49:                                         ; preds = %.lr.ph49.preheader, %134
   store ptr @_ZN12V3ThreadPool11startWorkerEPS_i, ptr %4, align 8
   store ptr %0, ptr %5, align 8
   invoke void @_ZNSt7__cxx114listISt6threadSaIS1_EE9_M_insertIJPFvP12V3ThreadPooliES6_RjEEEvSt14_List_iteratorIS1_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %132 unwind label %136
+          to label %134 unwind label %138
 
-132:                                              ; preds = %.lr.ph58
-  %133 = load i32, ptr %3, align 4
-  %134 = add i32 %133, 1
-  store i32 %134, ptr %3, align 4
-  %135 = icmp ult i32 %134, %.sroa.speculated
-  br i1 %135, label %.lr.ph58, label %._crit_edge59, !llvm.loop !9
+134:                                              ; preds = %.lr.ph49
+  %135 = load i32, ptr %3, align 4
+  %136 = add i32 %135, 1
+  store i32 %136, ptr %3, align 4
+  %137 = icmp ult i32 %136, %.sroa.speculated
+  br i1 %137, label %.lr.ph49, label %._crit_edge50, !llvm.loop !9
 
-136:                                              ; preds = %.lr.ph58
-  %137 = landingpad { ptr, i32 }
+138:                                              ; preds = %.lr.ph49
+  %139 = landingpad { ptr, i32 }
           cleanup
-  %138 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %139 = and i8 %138, 1
-  %.not.i.i42 = icmp eq i8 %139, 0
-  br i1 %.not.i.i42, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit29, label %140
+  %140 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
+  %141 = trunc i8 %140 to i1
+  br i1 %141, label %142, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit24
 
-140:                                              ; preds = %136
-  %141 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit29
+142:                                              ; preds = %138
+  %143 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit24
 
-._crit_edge59:                                    ; preds = %132
-  %142 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %143 = and i8 %142, 1
-  %.not.i.i44 = icmp eq i8 %143, 0
-  br i1 %.not.i.i44, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit45, label %144
+._crit_edge50:                                    ; preds = %134
+  %144 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
+  %145 = trunc i8 %144 to i1
+  br i1 %145, label %146, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit36
 
-144:                                              ; preds = %._crit_edge59
-  %145 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit45
+146:                                              ; preds = %._crit_edge50
+  %147 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit36
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit45: ; preds = %144, %._crit_edge59, %2, %._crit_edge
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit36: ; preds = %146, %._crit_edge50, %2, %._crit_edge
   ret void
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit29: ; preds = %140, %136, %118, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit ], [ %.pn, %118 ], [ %137, %136 ], [ %137, %140 ]
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit24: ; preds = %142, %138, %120, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit ], [ %.pn, %120 ], [ %139, %138 ], [ %139, %142 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -909,9 +900,8 @@ define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(2) ptr @_Z
 define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3MutexConfig10lockConfigEv(ptr noundef nonnull align 1 dereferenceable(2) %0) #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: noreturn
@@ -927,9 +917,8 @@ declare noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorSt
 define linkonce_odr dso_local void @_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %3 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i:      ; preds = %2
   %5 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %1) #30
@@ -937,33 +926,32 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i:      ; preds = %2
   br i1 %.not.i.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i, %9
-  %.06.i = phi i32 [ %10, %9 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i ]
+  %.04.i = phi i32 [ %10, %9 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i ]
   %6 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %7 = and i8 %6, 1
-  %.not.i2.i = icmp eq i8 %7, 0
-  br i1 %.not.i2.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i:     ; preds = %.preheader.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i:     ; preds = %.preheader.i
   %8 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %1) #30
-  %.not.i.i3.i = icmp eq i32 %8, 0
-  br i1 %.not.i.i3.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %9
+  %.not.i.i2.i = icmp eq i32 %8, 0
+  br i1 %.not.i.i2.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %9
 
-9:                                                ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i
+9:                                                ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %10 = add nuw nsw i32 %.06.i, 1
+  %10 = add nuw nsw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %10, 50000
   br i1 %exitcond.not.i, label %11, label %.preheader.i, !llvm.loop !6
 
 11:                                               ; preds = %9
   %12 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %1) #30
-  %.not.i5.i = icmp eq i32 %12, 0
-  br i1 %.not.i5.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %13
+  %.not.i.i = icmp eq i32 %12, 0
+  br i1 %.not.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %13
 
 13:                                               ; preds = %11
   tail call void @_ZSt20__throw_system_errori(i32 noundef %12) #29
   unreachable
 
-_ZN10V3MutexImpISt5mutexE4lockEv.exit:            ; preds = %.preheader.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i, %2, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i, %11
+_ZN10V3MutexImpISt5mutexE4lockEv.exit:            ; preds = %.preheader.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i, %2, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i, %11
   ret void
 }
 
@@ -975,9 +963,8 @@ declare ptr @llvm.ptr.annotation.p0.p0(ptr, ptr, ptr, i32, ptr) #6
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %3 = and i8 %2, 1
-  %.not.i = icmp eq i8 %3, 0
-  br i1 %.not.i, label %_ZN10V3MutexImpISt5mutexE6unlockEv.exit, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %_ZN10V3MutexImpISt5mutexE6unlockEv.exit
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8
@@ -1000,9 +987,8 @@ define dso_local void @_ZN12V3ThreadPool11startWorkerEPS_i(ptr noundef nonnull %
 define dso_local void @_ZN12V3ThreadPool21suspendMultithreadingEv(ptr noundef nonnull align 8 dereferenceable(392) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %4 = and i8 %3, 1
-  %.not.i.i = icmp eq i8 %4, 0
-  br i1 %.not.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %1
   %5 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %2) #30
@@ -1010,33 +996,32 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %1
   br i1 %.not.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %9
-  %.06.i.i = phi i32 [ %10, %9 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
+  %.04.i.i = phi i32 [ %10, %9 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
   %6 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %7 = and i8 %6, 1
-  %.not.i2.i.i = icmp eq i8 %7, 0
-  br i1 %.not.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i:   ; preds = %.preheader.i.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i:   ; preds = %.preheader.i.i
   %8 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %2) #30
-  %.not.i.i3.i.i = icmp eq i32 %8, 0
-  br i1 %.not.i.i3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %9
+  %.not.i.i2.i.i = icmp eq i32 %8, 0
+  br i1 %.not.i.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %9
 
-9:                                                ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+9:                                                ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %10 = add nuw nsw i32 %.06.i.i, 1
+  %10 = add nuw nsw i32 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %10, 50000
   br i1 %exitcond.not.i.i, label %11, label %.preheader.i.i, !llvm.loop !6
 
 11:                                               ; preds = %9
   %12 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %2) #30
-  %.not.i5.i.i = icmp eq i32 %12, 0
-  br i1 %.not.i5.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %13
+  %.not.i.i.i = icmp eq i32 %12, 0
+  br i1 %.not.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %13
 
 13:                                               ; preds = %11
   tail call void @_ZSt20__throw_system_errori(i32 noundef %12) #29
   unreachable
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %.preheader.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i, %1, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %11
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %.preheader.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, %1, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %11
   %14 = getelementptr inbounds i8, ptr %0, i64 224
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %14
@@ -1053,14 +1038,13 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %.preheader.i
 
 20:                                               ; preds = %17, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
   %21 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %22 = and i8 %21, 1
-  %.not.i = icmp eq i8 %22, 0
-  br i1 %.not.i, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.thread, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.thread
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit:        ; preds = %20
   %23 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #30
-  %.not.i.i4 = icmp eq i32 %23, 0
-  br i1 %.not.i.i4, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.thread, label %24
+  %.not.i.i = icmp eq i32 %23, 0
+  br i1 %.not.i.i, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.thread, label %24
 
 24:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit
   %25 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCodeb(i8 2, i1 noundef zeroext false)
@@ -1097,15 +1081,14 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.thread: ; preds = %20, %_ZN10V3MutexIm
 
 41:                                               ; preds = %39
   %42 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-          to label %.invoke20 unwind label %43
+          to label %.invoke13 unwind label %43
 
-43:                                               ; preds = %.invoke20, %.invoke, %54, %52, %41, %39
+43:                                               ; preds = %.invoke13, %.invoke, %54, %52, %41, %39
   %44 = landingpad { ptr, i32 }
           cleanup
   %45 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %46 = and i8 %45, 1
-  %.not.i.i5 = icmp eq i8 %46, 0
-  br i1 %.not.i.i5, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
 
 47:                                               ; preds = %43
   %48 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
@@ -1123,15 +1106,15 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.thread: ; preds = %20, %_ZN10V3MutexIm
 
 54:                                               ; preds = %52
   %55 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-          to label %.invoke20 unwind label %43
+          to label %.invoke13 unwind label %43
 
-.invoke20:                                        ; preds = %41, %54
+.invoke13:                                        ; preds = %41, %54
   %56 = phi ptr [ %55, %54 ], [ %42, %41 ]
   %57 = phi ptr [ @.str.7, %54 ], [ @.str.6, %41 ]
   %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull %57)
           to label %.invoke unwind label %43
 
-.invoke:                                          ; preds = %.invoke20
+.invoke:                                          ; preds = %.invoke13
   invoke void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %58) #29
           to label %.cont unwind label %43
 
@@ -1144,36 +1127,37 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.thread: ; preds = %20, %_ZN10V3MutexIm
   %61 = getelementptr inbounds i8, ptr %0, i64 391
   store atomic i8 1, ptr %61 seq_cst, align 1
   %62 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %63 = and i8 %62, 1
-  %.not.i.i6 = icmp eq i8 %63, 0
-  br i1 %.not.i.i6, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit9, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit7
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %64, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit4
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit7: ; preds = %59
-  %64 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
+64:                                               ; preds = %59
+  %65 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
   %.pre = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %.pre18 = and i8 %.pre, 1
-  %65 = icmp eq i8 %.pre18, 0
-  br i1 %65, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit9, label %66
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit4
 
-66:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit7
-  %67 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #30
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit9
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit4: ; preds = %59, %64
+  %66 = phi i8 [ %62, %59 ], [ %.pre, %64 ]
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit5
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit9: ; preds = %59, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit7, %66
+68:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit4
+  %69 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #30
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit5
+
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit5: ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit4, %68
   ret void
 
 _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit: ; preds = %47, %43, %18
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %44, %43 ], [ %44, %47 ]
-  %68 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %69 = and i8 %68, 1
-  %.not.i.i10 = icmp eq i8 %69, 0
-  br i1 %.not.i.i10, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit11, label %70
+  %70 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %72, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit6
 
-70:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
-  %71 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #30
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit11
+72:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
+  %73 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #30
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit6
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit11: ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit, %70
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit6: ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit, %72
   resume { ptr, i32 } %.pn
 }
 
@@ -1182,9 +1166,8 @@ define dso_local void @_ZN12V3ThreadPool16stopOtherThreadsEv(ptr noundef nonnull
   %2 = getelementptr inbounds i8, ptr %0, i64 388
   store atomic i8 1, ptr %2 seq_cst, align 4
   %3 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %4 = and i8 %3, 1
-  %.not.i.i = icmp eq i8 %4, 0
-  br i1 %.not.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %1
   %5 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #30
@@ -1192,38 +1175,37 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %1
   br i1 %.not.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %9
-  %.06.i.i = phi i32 [ %10, %9 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
+  %.04.i.i = phi i32 [ %10, %9 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
   %6 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %7 = and i8 %6, 1
-  %.not.i2.i.i = icmp eq i8 %7, 0
-  br i1 %.not.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i:   ; preds = %.preheader.i.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i:   ; preds = %.preheader.i.i
   %8 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #30
-  %.not.i.i3.i.i = icmp eq i32 %8, 0
-  br i1 %.not.i.i3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %9
+  %.not.i.i2.i.i = icmp eq i32 %8, 0
+  br i1 %.not.i.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %9
 
-9:                                                ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+9:                                                ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %10 = add nuw nsw i32 %.06.i.i, 1
+  %10 = add nuw nsw i32 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %10, 50000
   br i1 %exitcond.not.i.i, label %11, label %.preheader.i.i, !llvm.loop !6
 
 11:                                               ; preds = %9
   %12 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #30
-  %.not.i5.i.i = icmp eq i32 %12, 0
-  br i1 %.not.i5.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %13
+  %.not.i.i.i = icmp eq i32 %12, 0
+  br i1 %.not.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %13
 
 13:                                               ; preds = %11
   tail call void @_ZSt20__throw_system_errori(i32 noundef %12) #29
   unreachable
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %.preheader.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i, %1, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %11
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %.preheader.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, %1, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %11
   %14 = getelementptr inbounds i8, ptr %0, i64 208
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %15) #30
-  %.not.i.i.i = icmp eq i32 %16, 0
-  br i1 %.not.i.i.i, label %_ZNSt3_V222condition_variable_any10notify_allEv.exit, label %17
+  %.not.i.i.i1 = icmp eq i32 %16, 0
+  br i1 %.not.i.i.i1, label %_ZNSt3_V222condition_variable_any10notify_allEv.exit, label %17
 
 17:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
   invoke void @_ZSt20__throw_system_errori(i32 noundef %16) #29
@@ -1244,9 +1226,8 @@ _ZNSt3_V222condition_variable_any10notify_allEv.exit: ; preds = %_ZN14V3LockGuar
   tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %21) #30
   %22 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %15) #30
   %23 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %24 = and i8 %23, 1
-  %.not.i.i1 = icmp eq i8 %24, 0
-  br i1 %.not.i.i1, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
 
 25:                                               ; preds = %_ZNSt3_V222condition_variable_any10notify_allEv.exit
   %26 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
@@ -1279,9 +1260,8 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit: ; preds = %_ZNSt3_V222cond
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN10V3MutexImpISt5mutexE8try_lockEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %6, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #30
@@ -1304,9 +1284,8 @@ define linkonce_odr dso_local void @_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12V3ThreadPool20resumeMultithreadingEv(ptr noundef nonnull align 8 dereferenceable(392) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %3 = and i8 %2, 1
-  %.not.i = icmp eq i8 %3, 0
-  br i1 %.not.i, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.thread, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.thread
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit:        ; preds = %1
   %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #30
@@ -1323,9 +1302,8 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit:        ; preds = %1
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.thread: ; preds = %1, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit
   %9 = getelementptr inbounds i8, ptr %0, i64 391
   %10 = load atomic i8, ptr %9 seq_cst, align 1
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %12, label %26
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %26, label %12
 
 12:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.thread
   %13 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str, i32 noundef 81, i1 noundef zeroext false)
@@ -1350,9 +1328,8 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.thread: ; preds = %1, %_ZN10V3MutexImp
   %21 = landingpad { ptr, i32 }
           cleanup
   %22 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %23 = and i8 %22, 1
-  %.not.i.i2 = icmp eq i8 %23, 0
-  br i1 %.not.i.i2, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
 
 24:                                               ; preds = %20
   %25 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
@@ -1366,26 +1343,24 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit: ; preds = %20, %24
   %27 = getelementptr inbounds i8, ptr %0, i64 389
   store atomic i8 0, ptr %27 seq_cst, align 1
   %28 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %29 = and i8 %28, 1
-  %.not.i.i3 = icmp eq i8 %29, 0
-  br i1 %.not.i.i3, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit4, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit2
 
 30:                                               ; preds = %26
   %31 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit4
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit2
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit4: ; preds = %26, %30
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit2: ; preds = %26, %30
   %32 = getelementptr inbounds i8, ptr %0, i64 224
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %32
-  br i1 %34, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit8, label %35
+  br i1 %34, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit4, label %35
 
-35:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit4
+35:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit2
   %36 = getelementptr inbounds i8, ptr %0, i64 40
   %37 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %38 = and i8 %37, 1
-  %.not.i.i5 = icmp eq i8 %38, 0
-  br i1 %.not.i.i5, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %35
   %39 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %36) #30
@@ -1393,33 +1368,32 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %35
   br i1 %.not.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %43
-  %.06.i.i = phi i32 [ %44, %43 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
+  %.04.i.i = phi i32 [ %44, %43 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
   %40 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %41 = and i8 %40, 1
-  %.not.i2.i.i = icmp eq i8 %41, 0
-  br i1 %.not.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i:   ; preds = %.preheader.i.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i:   ; preds = %.preheader.i.i
   %42 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %36) #30
-  %.not.i.i3.i.i = icmp eq i32 %42, 0
-  br i1 %.not.i.i3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %43
+  %.not.i.i2.i.i = icmp eq i32 %42, 0
+  br i1 %.not.i.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %43
 
-43:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+43:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %44 = add nuw nsw i32 %.06.i.i, 1
+  %44 = add nuw nsw i32 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %44, 50000
   br i1 %exitcond.not.i.i, label %45, label %.preheader.i.i, !llvm.loop !6
 
 45:                                               ; preds = %43
   %46 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %36) #30
-  %.not.i5.i.i = icmp eq i32 %46, 0
-  br i1 %.not.i5.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %47
+  %.not.i.i.i = icmp eq i32 %46, 0
+  br i1 %.not.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %47
 
 47:                                               ; preds = %45
   tail call void @_ZSt20__throw_system_errori(i32 noundef %46) #29
   unreachable
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %.preheader.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i, %35, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %45
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %.preheader.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, %35, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %45
   %48 = getelementptr inbounds i8, ptr %0, i64 388
   store atomic i8 0, ptr %48 seq_cst, align 4
   %49 = getelementptr inbounds i8, ptr %0, i64 256
@@ -1427,8 +1401,8 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %.preheader.i
   %51 = getelementptr inbounds i8, ptr %50, i64 48
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %52) #30
-  %.not.i.i.i.i6 = icmp eq i32 %53, 0
-  br i1 %.not.i.i.i.i6, label %_ZN12V3ThreadPool18resumeOtherThreadsEv.exit, label %54
+  %.not.i.i.i.i3 = icmp eq i32 %53, 0
+  br i1 %.not.i.i.i.i3, label %_ZN12V3ThreadPool18resumeOtherThreadsEv.exit, label %54
 
 54:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
   invoke void @_ZSt20__throw_system_errori(i32 noundef %53) #29
@@ -1448,15 +1422,14 @@ _ZN12V3ThreadPool18resumeOtherThreadsEv.exit:     ; preds = %_ZN14V3LockGuardImp
   tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %50) #30
   %58 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %52) #30
   %59 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %60 = and i8 %59, 1
-  %.not.i.i7 = icmp eq i8 %60, 0
-  br i1 %.not.i.i7, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit8, label %61
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit4
 
 61:                                               ; preds = %_ZN12V3ThreadPool18resumeOtherThreadsEv.exit
   %62 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #30
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit8
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit4
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit8: ; preds = %61, %_ZN12V3ThreadPool18resumeOtherThreadsEv.exit, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit4
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit4: ; preds = %61, %_ZN12V3ThreadPool18resumeOtherThreadsEv.exit, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit2
   ret void
 }
 
@@ -1495,9 +1468,9 @@ _ZNSt3_V222condition_variable_any10notify_allEv.exit: ; preds = %1
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12V3ThreadPool13workerJobLoopEi(ptr noundef nonnull align 8 dereferenceable(392) %0, i32 %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
-  %4 = getelementptr inbounds i8, ptr %0, i64 390
-  %5 = getelementptr inbounds i8, ptr %0, i64 388
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds i8, ptr %0, i64 390
+  %6 = getelementptr inbounds i8, ptr %0, i64 388
   %7 = getelementptr inbounds i8, ptr %0, i64 389
   %8 = getelementptr inbounds i8, ptr %0, i64 248
   br label %9
@@ -1505,9 +1478,8 @@ define dso_local void @_ZN12V3ThreadPool13workerJobLoopEi(ptr noundef nonnull al
 9:                                                ; preds = %_ZN16VAnyPackagedTaskD2Ev.exit, %2
   %10 = tail call noundef zeroext i1 @_ZN12V3ThreadPool19waitIfStopRequestedEv(ptr noundef nonnull align 8 dereferenceable(392) %0)
   %11 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %12 = and i8 %11, 1
-  %.not.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %9
   %13 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #30
@@ -1515,34 +1487,33 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %9
   br i1 %.not.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %17
-  %.06.i.i = phi i32 [ %18, %17 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
+  %.04.i.i = phi i32 [ %18, %17 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
   %14 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %15 = and i8 %14, 1
-  %.not.i2.i.i = icmp eq i8 %15, 0
-  br i1 %.not.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i:   ; preds = %.preheader.i.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i:   ; preds = %.preheader.i.i
   %16 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #30
-  %.not.i.i3.i.i = icmp eq i32 %16, 0
-  br i1 %.not.i.i3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %17
+  %.not.i.i2.i.i = icmp eq i32 %16, 0
+  br i1 %.not.i.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %17
 
-17:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+17:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %18 = add nuw nsw i32 %.06.i.i, 1
+  %18 = add nuw nsw i32 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %18, 50000
   br i1 %exitcond.not.i.i, label %19, label %.preheader.i.i, !llvm.loop !6
 
 19:                                               ; preds = %17
   %20 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #30
-  %.not.i5.i.i = icmp eq i32 %20, 0
-  br i1 %.not.i5.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %.noexc
+  %.not.i.i.i = icmp eq i32 %20, 0
+  br i1 %.not.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %.noexc
 
 .noexc:                                           ; preds = %19
   tail call void @_ZSt20__throw_system_errori(i32 noundef %20) #29
   unreachable
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i, %.preheader.i.i, %19, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %9
-  %21 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %6, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 90, ptr null)
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, %.preheader.i.i, %19, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %9
+  %21 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %4, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 90, ptr null)
   %22 = getelementptr inbounds i8, ptr %21, i64 48
   %23 = getelementptr inbounds i8, ptr %21, i64 16
   %24 = load ptr, ptr %22, align 8
@@ -1550,24 +1521,22 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3Mutex
   %26 = icmp eq ptr %24, %25
   br i1 %26, label %.lr.ph.i, label %"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool13workerJobLoopEiE3$_0EEvRT_T0_.exit"
 
-.lr.ph.i:                                         ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, %.noexc8
-  %27 = load atomic i8, ptr %4 seq_cst, align 2
-  %28 = and i8 %27, 1
-  %.not.i.i7 = icmp eq i8 %28, 0
-  br i1 %.not.i.i7, label %"_ZZN12V3ThreadPool13workerJobLoopEiENK3$_0clEv.exit.i", label %"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool13workerJobLoopEiE3$_0EEvRT_T0_.exit"
+.lr.ph.i:                                         ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, %.noexc7
+  %27 = load atomic i8, ptr %5 seq_cst, align 2
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool13workerJobLoopEiE3$_0EEvRT_T0_.exit", label %"_ZZN12V3ThreadPool13workerJobLoopEiENK3$_0clEv.exit.i"
 
 "_ZZN12V3ThreadPool13workerJobLoopEiENK3$_0clEv.exit.i": ; preds = %.lr.ph.i
-  %29 = load atomic i8, ptr %5 seq_cst, align 4
-  %30 = and i8 %29, 1
-  %.not.i = icmp eq i8 %30, 0
-  br i1 %.not.i, label %31, label %"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool13workerJobLoopEiE3$_0EEvRT_T0_.exit"
+  %29 = load atomic i8, ptr %6 seq_cst, align 4
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool13workerJobLoopEiE3$_0EEvRT_T0_.exit", label %31
 
 31:                                               ; preds = %"_ZZN12V3ThreadPool13workerJobLoopEiENK3$_0clEv.exit.i"
   invoke void @_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEEEvRT_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(40) %0)
-          to label %.noexc8 unwind label %.loopexit
+          to label %.noexc7 unwind label %.loopexit
 
-.noexc8:                                          ; preds = %31
-  %32 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %6, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 90, ptr null)
+.noexc7:                                          ; preds = %31
+  %32 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %4, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 90, ptr null)
   %33 = getelementptr inbounds i8, ptr %32, i64 48
   %34 = getelementptr inbounds i8, ptr %32, i64 16
   %35 = load ptr, ptr %33, align 8
@@ -1575,11 +1544,10 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3Mutex
   %37 = icmp eq ptr %35, %36
   br i1 %37, label %.lr.ph.i, label %"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool13workerJobLoopEiE3$_0EEvRT_T0_.exit", !llvm.loop !11
 
-"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool13workerJobLoopEiE3$_0EEvRT_T0_.exit": ; preds = %.noexc8, %"_ZZN12V3ThreadPool13workerJobLoopEiENK3$_0clEv.exit.i", %.lr.ph.i, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
-  %38 = load atomic i8, ptr %4 seq_cst, align 2
-  %39 = and i8 %38, 1
-  %.not = icmp eq i8 %39, 0
-  br i1 %.not, label %45, label %96
+"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool13workerJobLoopEiE3$_0EEvRT_T0_.exit": ; preds = %.noexc7, %"_ZZN12V3ThreadPool13workerJobLoopEiENK3$_0clEv.exit.i", %.lr.ph.i, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
+  %38 = load atomic i8, ptr %5 seq_cst, align 2
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %96, label %45
 
 .loopexit:                                        ; preds = %31
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1594,34 +1562,30 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3Mutex
 40:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %41 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %42 = and i8 %41, 1
-  %.not.i.i9 = icmp eq i8 %42, 0
-  br i1 %.not.i.i9, label %_ZN16VAnyPackagedTaskD2Ev.exit18, label %43
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %_ZN16VAnyPackagedTaskD2Ev.exit13
 
 43:                                               ; preds = %40
   %44 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
-  br label %_ZN16VAnyPackagedTaskD2Ev.exit18
+  br label %_ZN16VAnyPackagedTaskD2Ev.exit13
 
 45:                                               ; preds = %"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool13workerJobLoopEiE3$_0EEvRT_T0_.exit"
   %46 = load atomic i8, ptr %7 seq_cst, align 1
-  %47 = and i8 %46, 1
-  %.not.i10 = icmp eq i8 %47, 0
-  br i1 %.not.i10, label %48, label %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread, label %48
 
 48:                                               ; preds = %45
-  %49 = load atomic i8, ptr %4 seq_cst, align 2
-  %50 = and i8 %49, 1
-  %.not2.i = icmp eq i8 %50, 0
-  br i1 %.not2.i, label %_ZNK12V3ThreadPool13stopRequestedEv.exit, label %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread
+  %49 = load atomic i8, ptr %5 seq_cst, align 2
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread, label %_ZNK12V3ThreadPool13stopRequestedEv.exit
 
 _ZNK12V3ThreadPool13stopRequestedEv.exit:         ; preds = %48
-  %51 = load atomic i8, ptr %5 seq_cst, align 4
-  %52 = and i8 %51, 1
-  %.not37 = icmp eq i8 %52, 0
-  br i1 %.not37, label %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread, label %96, !llvm.loop !12
+  %51 = load atomic i8, ptr %6 seq_cst, align 4
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %96, label %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread, !llvm.loop !12
 
 _ZNK12V3ThreadPool13stopRequestedEv.exit.thread:  ; preds = %48, %45, %_ZNK12V3ThreadPool13stopRequestedEv.exit
-  %53 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %6, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 90, ptr null)
+  %53 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %4, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 90, ptr null)
   %54 = getelementptr inbounds i8, ptr %53, i64 48
   %55 = getelementptr inbounds i8, ptr %53, i64 16
   %56 = load ptr, ptr %54, align 8
@@ -1649,21 +1613,21 @@ _ZNK12V3ThreadPool13stopRequestedEv.exit.thread:  ; preds = %48, %45, %_ZNK12V3T
   unreachable
 
 _ZN16VAnyPackagedTaskaSEOS_.exit:                 ; preds = %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread
-  %67 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %6, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 90, ptr null)
+  %67 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %4, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 90, ptr null)
   %68 = getelementptr inbounds i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8, !noalias !13
   %70 = load ptr, ptr %69, align 8
   store ptr null, ptr %69, align 8
-  %71 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %6, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 90, ptr null)
+  %71 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %4, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 90, ptr null)
   %72 = getelementptr inbounds i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %71, i64 32
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 -8
-  %.not.i.i11 = icmp eq ptr %73, %76
+  %.not.i.i = icmp eq ptr %73, %76
   %77 = load ptr, ptr %73, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %77, null
-  br i1 %.not.i.i11, label %84, label %78
+  br i1 %.not.i.i, label %84, label %78
 
 78:                                               ; preds = %_ZN16VAnyPackagedTaskaSEOS_.exit
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaI16VAnyPackagedTaskEE7destroyIS0_EEvRS1_PT_.exit.i.i, label %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i.i.i.i.i
@@ -1713,61 +1677,60 @@ _ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE3popEv.exit: ; preds = %_ZNSt
   br label %96
 
 96:                                               ; preds = %_ZNK12V3ThreadPool13stopRequestedEv.exit, %"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool13workerJobLoopEiE3$_0EEvRT_T0_.exit", %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE3popEv.exit
-  %.sroa.021.1 = phi ptr [ null, %"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool13workerJobLoopEiE3$_0EEvRT_T0_.exit" ], [ null, %_ZNK12V3ThreadPool13stopRequestedEv.exit ], [ %70, %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE3popEv.exit ]
+  %.sroa.016.1 = phi ptr [ null, %"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool13workerJobLoopEiE3$_0EEvRT_T0_.exit" ], [ null, %_ZNK12V3ThreadPool13stopRequestedEv.exit ], [ %70, %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE3popEv.exit ]
   %cond = phi i1 [ false, %"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool13workerJobLoopEiE3$_0EEvRT_T0_.exit" ], [ false, %_ZNK12V3ThreadPool13stopRequestedEv.exit ], [ true, %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE3popEv.exit ]
   %.0 = phi i32 [ 1, %"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool13workerJobLoopEiE3$_0EEvRT_T0_.exit" ], [ 2, %_ZNK12V3ThreadPool13stopRequestedEv.exit ], [ 0, %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE3popEv.exit ]
   %97 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %98 = and i8 %97, 1
-  %.not.i.i12 = icmp eq i8 %98, 0
-  br i1 %.not.i.i12, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit13, label %99
+  %98 = trunc i8 %97 to i1
+  br i1 %98, label %99, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit8
 
 99:                                               ; preds = %96
   %100 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit13
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit8
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit13: ; preds = %96, %99
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit8: ; preds = %96, %99
   br i1 %cond, label %101, label %106
 
-101:                                              ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit13
-  %102 = load ptr, ptr %.sroa.021.1, align 8
+101:                                              ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit8
+  %102 = load ptr, ptr %.sroa.016.1, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 16
   %104 = load ptr, ptr %103, align 8
-  invoke void %104(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.021.1)
-          to label %.thread unwind label %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i17
+  invoke void %104(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.016.1)
+          to label %.thread unwind label %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i12
 
 .thread:                                          ; preds = %101
   %105 = atomicrmw sub ptr %8, i32 1 seq_cst, align 4
   br label %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i
 
-106:                                              ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit13
-  %.not.i.i15 = icmp eq ptr %.sroa.021.1, null
-  br i1 %.not.i.i15, label %_ZN16VAnyPackagedTaskD2Ev.exit, label %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i
+106:                                              ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit8
+  %.not.i.i10 = icmp eq ptr %.sroa.016.1, null
+  br i1 %.not.i.i10, label %_ZN16VAnyPackagedTaskD2Ev.exit, label %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i: ; preds = %.thread, %106
-  %.128 = phi i32 [ 0, %.thread ], [ %.0, %106 ]
-  %107 = load ptr, ptr %.sroa.021.1, align 8
+  %.123 = phi i32 [ 0, %.thread ], [ %.0, %106 ]
+  %107 = load ptr, ptr %.sroa.016.1, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
-  tail call void %109(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.021.1) #30
+  tail call void %109(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.016.1) #30
   br label %_ZN16VAnyPackagedTaskD2Ev.exit
 
 _ZN16VAnyPackagedTaskD2Ev.exit:                   ; preds = %106, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i
-  %.129 = phi i32 [ %.0, %106 ], [ %.128, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i ]
-  %switch = icmp eq i32 %.129, 1
+  %.124 = phi i32 [ %.0, %106 ], [ %.123, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i ]
+  %switch = icmp eq i32 %.124, 1
   br i1 %switch, label %114, label %9
 
-_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i17: ; preds = %101
+_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i12: ; preds = %101
   %110 = landingpad { ptr, i32 }
           cleanup
-  %111 = load ptr, ptr %.sroa.021.1, align 8
+  %111 = load ptr, ptr %.sroa.016.1, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
-  tail call void %113(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.021.1) #30
-  br label %_ZN16VAnyPackagedTaskD2Ev.exit18
+  tail call void %113(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.016.1) #30
+  br label %_ZN16VAnyPackagedTaskD2Ev.exit13
 
-_ZN16VAnyPackagedTaskD2Ev.exit18:                 ; preds = %43, %40, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i17
-  %.pn33 = phi { ptr, i32 } [ %110, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i17 ], [ %lpad.phi, %40 ], [ %lpad.phi, %43 ]
-  resume { ptr, i32 } %.pn33
+_ZN16VAnyPackagedTaskD2Ev.exit13:                 ; preds = %43, %40, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i12
+  %.pn28 = phi { ptr, i32 } [ %110, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i12 ], [ %lpad.phi, %40 ], [ %lpad.phi, %43 ]
+  resume { ptr, i32 } %.pn28
 
 114:                                              ; preds = %_ZN16VAnyPackagedTaskD2Ev.exit
   ret void
@@ -1777,30 +1740,26 @@ _ZN16VAnyPackagedTaskD2Ev.exit18:                 ; preds = %43, %40, %_ZNKSt14d
 define dso_local noundef zeroext i1 @_ZN12V3ThreadPool19waitIfStopRequestedEv(ptr noundef nonnull align 8 dereferenceable(392) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 389
   %3 = load atomic i8, ptr %2 seq_cst, align 1
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %5, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 390
   %7 = load atomic i8, ptr %6 seq_cst, align 2
-  %8 = and i8 %7, 1
-  %.not2.i = icmp eq i8 %8, 0
-  br i1 %.not2.i, label %_ZNK12V3ThreadPool13stopRequestedEv.exit, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit, label %_ZNK12V3ThreadPool13stopRequestedEv.exit
 
 _ZNK12V3ThreadPool13stopRequestedEv.exit:         ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 388
   %10 = load atomic i8, ptr %9 seq_cst, align 4
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
 
 12:                                               ; preds = %_ZNK12V3ThreadPool13stopRequestedEv.exit
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   %14 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %15 = and i8 %14, 1
-  %.not.i.i = icmp eq i8 %15, 0
-  br i1 %.not.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %12
   %16 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %13) #30
@@ -1808,90 +1767,124 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %12
   br i1 %.not.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %20
-  %.06.i.i = phi i32 [ %21, %20 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
+  %.04.i.i = phi i32 [ %21, %20 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
   %17 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %18 = and i8 %17, 1
-  %.not.i2.i.i = icmp eq i8 %18, 0
-  br i1 %.not.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i:   ; preds = %.preheader.i.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i:   ; preds = %.preheader.i.i
   %19 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %13) #30
-  %.not.i.i3.i.i = icmp eq i32 %19, 0
-  br i1 %.not.i.i3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %20
+  %.not.i.i2.i.i = icmp eq i32 %19, 0
+  br i1 %.not.i.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %20
 
-20:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+20:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %21 = add nuw nsw i32 %.06.i.i, 1
+  %21 = add nuw nsw i32 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %21, 50000
   br i1 %exitcond.not.i.i, label %22, label %.preheader.i.i, !llvm.loop !6
 
 22:                                               ; preds = %20
   %23 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %13) #30
-  %.not.i5.i.i = icmp eq i32 %23, 0
-  br i1 %.not.i5.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %24
+  %.not.i.i.i = icmp eq i32 %23, 0
+  br i1 %.not.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %24
 
 24:                                               ; preds = %22
   tail call void @_ZSt20__throw_system_errori(i32 noundef %23) #29
   unreachable
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %.preheader.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i, %12, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %22
-  invoke void @_ZN12V3ThreadPool20waitForResumeRequestEv(ptr noundef nonnull align 8 dereferenceable(392) %0)
-          to label %25 unwind label %30
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %.preheader.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, %12, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %22
+  %25 = getelementptr inbounds i8, ptr %0, i64 384
+  %26 = atomicrmw add ptr %25, i32 1 seq_cst, align 4
+  %27 = getelementptr inbounds i8, ptr %0, i64 320
+  %28 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %27, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 103, ptr null)
+  %29 = getelementptr inbounds i8, ptr %28, i64 48
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %30) #30
+  %.not.i.i.i.i3 = icmp eq i32 %31, 0
+  br i1 %.not.i.i.i.i3, label %_ZNSt3_V222condition_variable_any10notify_oneEv.exit.i, label %32
 
-25:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
-  %26 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %27 = and i8 %26, 1
-  %.not.i.i3 = icmp eq i8 %27, 0
-  br i1 %.not.i.i3, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit, label %28
+32:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %31) #29
+          to label %.noexc.i.i unwind label %33
 
-28:                                               ; preds = %25
-  %29 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #30
+.noexc.i.i:                                       ; preds = %32
+  unreachable
+
+33:                                               ; preds = %32
+  %34 = landingpad { ptr, i32 }
+          catch ptr null
+  %35 = extractvalue { ptr, i32 } %34, 0
+  tail call void @__clang_call_terminate(ptr %35) #31
+  unreachable
+
+_ZNSt3_V222condition_variable_any10notify_oneEv.exit.i: ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
+  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %28) #30
+  %36 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %30) #30
+  %37 = getelementptr inbounds i8, ptr %0, i64 256
+  %38 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %37, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 101, ptr null)
+  %39 = load atomic i8, ptr %9 seq_cst, align 4
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %.lr.ph.i.i, label %.loopexit
+
+.lr.ph.i.i:                                       ; preds = %_ZNSt3_V222condition_variable_any10notify_oneEv.exit.i, %.noexc
+  invoke void @_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEEEvRT_(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef nonnull align 8 dereferenceable(40) %13)
+          to label %.noexc unwind label %48
+
+.noexc:                                           ; preds = %.lr.ph.i.i
+  %41 = load atomic i8, ptr %9 seq_cst, align 4
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !16
+
+.loopexit:                                        ; preds = %.noexc, %_ZNSt3_V222condition_variable_any10notify_oneEv.exit.i
+  %43 = atomicrmw sub ptr %25, i32 1 seq_cst, align 4
+  %44 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
+
+46:                                               ; preds = %.loopexit
+  %47 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #30
   br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
 
-30:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
-  %31 = landingpad { ptr, i32 }
+48:                                               ; preds = %.lr.ph.i.i
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %32 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %33 = and i8 %32, 1
-  %.not.i.i4 = icmp eq i8 %33, 0
-  br i1 %.not.i.i4, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit5, label %34
+  %50 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %52, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit4
 
-34:                                               ; preds = %30
-  %35 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #30
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit5
+52:                                               ; preds = %48
+  %53 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #30
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit4
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit5: ; preds = %30, %34
-  resume { ptr, i32 } %31
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit4: ; preds = %48, %52
+  resume { ptr, i32 } %49
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit: ; preds = %5, %1, %28, %25, %_ZNK12V3ThreadPool13stopRequestedEv.exit
-  %.0.i8 = phi i1 [ false, %_ZNK12V3ThreadPool13stopRequestedEv.exit ], [ true, %25 ], [ true, %28 ], [ false, %1 ], [ false, %5 ]
-  ret i1 %.0.i8
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit: ; preds = %5, %1, %46, %.loopexit, %_ZNK12V3ThreadPool13stopRequestedEv.exit
+  %.0.i7 = phi i1 [ false, %_ZNK12V3ThreadPool13stopRequestedEv.exit ], [ true, %.loopexit ], [ true, %46 ], [ false, %1 ], [ false, %5 ]
+  ret i1 %.0.i7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK12V3ThreadPool13stopRequestedEv(ptr noundef nonnull align 8 dereferenceable(392) %0) #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 389
   %3 = load atomic i8, ptr %2 seq_cst, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %14
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %13, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 390
   %7 = load atomic i8, ptr %6 seq_cst, align 2
-  %8 = and i8 %7, 1
-  %.not2 = icmp eq i8 %8, 0
-  br i1 %.not2, label %9, label %14
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %13, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 388
   %11 = load atomic i8, ptr %10 seq_cst, align 4
-  %12 = and i8 %11, 1
-  %13 = icmp ne i8 %12, 0
-  br label %14
+  %12 = trunc i8 %11 to i1
+  br label %13
 
-14:                                               ; preds = %5, %1, %9
-  %.0 = phi i1 [ %13, %9 ], [ false, %1 ], [ false, %5 ]
+13:                                               ; preds = %5, %1, %9
+  %.0 = phi i1 [ %12, %9 ], [ false, %1 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -1929,16 +1922,14 @@ _ZNSt3_V222condition_variable_any10notify_oneEv.exit: ; preds = %1
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = getelementptr inbounds i8, ptr %0, i64 388
   %18 = load atomic i8, ptr %17 seq_cst, align 4
-  %19 = and i8 %18, 1
-  %.not.i2.i = icmp eq i8 %19, 0
-  br i1 %.not.i2.i, label %"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool20waitForResumeRequestEvE3$_0EEvRT_T0_.exit", label %.lr.ph.i
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %.lr.ph.i, label %"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool20waitForResumeRequestEvE3$_0EEvRT_T0_.exit"
 
 .lr.ph.i:                                         ; preds = %_ZNSt3_V222condition_variable_any10notify_oneEv.exit, %.lr.ph.i
   tail call void @_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEEEvRT_(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(40) %16)
   %20 = load atomic i8, ptr %17 seq_cst, align 4
-  %21 = and i8 %20, 1
-  %.not.i.i = icmp eq i8 %21, 0
-  br i1 %.not.i.i, label %"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool20waitForResumeRequestEvE3$_0EEvRT_T0_.exit", label %.lr.ph.i, !llvm.loop !16
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %.lr.ph.i, label %"_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool20waitForResumeRequestEvE3$_0EEvRT_T0_.exit", !llvm.loop !16
 
 "_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEZN12V3ThreadPool20waitForResumeRequestEvE3$_0EEvRT_T0_.exit": ; preds = %.lr.ph.i, %_ZNSt3_V222condition_variable_any10notify_oneEv.exit
   %22 = atomicrmw sub ptr %2, i32 1 seq_cst, align 4
@@ -2061,8 +2052,8 @@ _ZNSt6futureIvED2Ev.exit:                         ; preds = %42
 
 58:                                               ; preds = %_ZNSt6futureIvED2Ev.exit, %51, %54
   store ptr %2, ptr %9, align 8
-  %.sroa.4231.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %3, ptr %.sroa.4231.0..sroa_idx, align 8
+  %.sroa.4226.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %3, ptr %.sroa.4226.0..sroa_idx, align 8
   %59 = getelementptr inbounds i8, ptr %9, i64 16
   store i32 100, ptr %59, align 8, !alias.scope !21
   invoke void @"_ZN12V3ThreadPool7enqueueISt5_BindIFZNS_8selfTestEvE3$_1iEEEEDaOT_"(ptr dead_on_unwind nonnull writable sret(%"class.std::future") align 8 %8, ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s, ptr noundef nonnull align 8 dereferenceable(20) %9)
@@ -2156,8 +2147,8 @@ _ZNSt6futureIvED2Ev.exit48:                       ; preds = %78
 
 94:                                               ; preds = %_ZNSt6futureIvED2Ev.exit48, %87, %90
   store ptr %2, ptr %13, align 8
-  %.sroa.4231.0..sroa_idx232 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %3, ptr %.sroa.4231.0..sroa_idx232, align 8
+  %.sroa.4226.0..sroa_idx227 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr %3, ptr %.sroa.4226.0..sroa_idx227, align 8
   %95 = getelementptr inbounds i8, ptr %13, i64 16
   store i32 100, ptr %95, align 8, !alias.scope !27
   invoke void @"_ZN12V3ThreadPool7enqueueISt5_BindIFZNS_8selfTestEvE3$_1iEEEEDaOT_"(ptr dead_on_unwind nonnull writable sret(%"class.std::future") align 8 %12, ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s, ptr noundef nonnull align 8 dereferenceable(20) %13)
@@ -2204,8 +2195,8 @@ _ZNSt6futureIvED2Ev.exit60:                       ; preds = %96
 
 112:                                              ; preds = %_ZNSt6futureIvED2Ev.exit60, %105, %108
   store ptr %2, ptr %15, align 8
-  %.sroa.4231.0..sroa_idx234 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %3, ptr %.sroa.4231.0..sroa_idx234, align 8
+  %.sroa.4226.0..sroa_idx229 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %3, ptr %.sroa.4226.0..sroa_idx229, align 8
   %113 = getelementptr inbounds i8, ptr %15, i64 16
   store i32 200, ptr %113, align 8, !alias.scope !30
   invoke void @"_ZN12V3ThreadPool7enqueueISt5_BindIFZNS_8selfTestEvE3$_1iEEEEDaOT_"(ptr dead_on_unwind nonnull writable sret(%"class.std::future") align 8 %14, ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s, ptr noundef nonnull align 8 dereferenceable(20) %15)
@@ -2569,10 +2560,10 @@ _ZNSt6futureIvED2Ev.exit112:                      ; preds = %236
 
 252:                                              ; preds = %_ZNSt6futureIvED2Ev.exit112, %245, %248
   store ptr %2, ptr %23, align 8
-  %.sroa.3.0..sroa_idx224 = getelementptr inbounds i8, ptr %23, i64 8
-  store ptr %4, ptr %.sroa.3.0..sroa_idx224, align 8
-  %.sroa.4.0..sroa_idx226 = getelementptr inbounds i8, ptr %23, i64 16
-  store ptr %3, ptr %.sroa.4.0..sroa_idx226, align 8
+  %.sroa.3.0..sroa_idx219 = getelementptr inbounds i8, ptr %23, i64 8
+  store ptr %4, ptr %.sroa.3.0..sroa_idx219, align 8
+  %.sroa.4.0..sroa_idx221 = getelementptr inbounds i8, ptr %23, i64 16
+  store ptr %3, ptr %.sroa.4.0..sroa_idx221, align 8
   %253 = getelementptr inbounds i8, ptr %23, i64 24
   store i32 100, ptr %253, align 8, !alias.scope !43
   invoke void @"_ZN12V3ThreadPool7enqueueISt5_BindIFZNS_8selfTestEvE3$_2iEEEEDaOT_"(ptr dead_on_unwind nonnull writable sret(%"class.std::future") align 8 %22, ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s, ptr noundef nonnull align 8 dereferenceable(28) %23)
@@ -2842,9 +2833,8 @@ _ZN14V3LockGuardImpI16V3MtDisabledLockEC2ERS0_.exit: ; preds = %_ZN16V3MtDisable
 
 _ZN12V3ThreadPool1sEv.exit153:                    ; preds = %346, %343, %_ZN14V3LockGuardImpI16V3MtDisabledLockEC2ERS0_.exit
   %350 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %351 = and i8 %350, 1
-  %.not.i.i = icmp eq i8 %351, 0
-  br i1 %.not.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i
+  %351 = trunc i8 %350 to i1
+  br i1 %351, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %_ZN12V3ThreadPool1sEv.exit153
   %352 = call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull @_ZZN12V3ThreadPool1sEvE3s_s) #30
@@ -2852,44 +2842,43 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %_ZN12V3ThreadPool1s
   br i1 %.not.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %356
-  %.06.i.i = phi i32 [ %357, %356 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
+  %.04.i.i = phi i32 [ %357, %356 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
   %353 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %354 = and i8 %353, 1
-  %.not.i2.i.i = icmp eq i8 %354, 0
-  br i1 %.not.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+  %354 = trunc i8 %353 to i1
+  br i1 %354, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i:   ; preds = %.preheader.i.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i:   ; preds = %.preheader.i.i
   %355 = call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull @_ZZN12V3ThreadPool1sEvE3s_s) #30
-  %.not.i.i3.i.i = icmp eq i32 %355, 0
-  br i1 %.not.i.i3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %356
+  %.not.i.i2.i.i = icmp eq i32 %355, 0
+  br i1 %.not.i.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %356
 
-356:                                              ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+356:                                              ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %357 = add nuw nsw i32 %.06.i.i, 1
+  %357 = add nuw nsw i32 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %357, 50000
   br i1 %exitcond.not.i.i, label %358, label %.preheader.i.i, !llvm.loop !6
 
 358:                                              ; preds = %356
   %359 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN12V3ThreadPool1sEvE3s_s) #30
-  %.not.i5.i.i = icmp eq i32 %359, 0
-  br i1 %.not.i5.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %360
+  %.not.i.i.i154 = icmp eq i32 %359, 0
+  br i1 %.not.i.i.i154, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %360
 
 360:                                              ; preds = %358
   invoke void @_ZSt20__throw_system_errori(i32 noundef %359) #29
-          to label %.noexc154 unwind label %380
+          to label %.noexc155 unwind label %380
 
-.noexc154:                                        ; preds = %360
+.noexc155:                                        ; preds = %360
   unreachable
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i, %.preheader.i.i, %358, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %_ZN12V3ThreadPool1sEv.exit153
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, %.preheader.i.i, %358, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %_ZN12V3ThreadPool1sEv.exit153
   %361 = load atomic i8, ptr @_ZGVZN12V3ThreadPool1sEvE3s_s acquire, align 8
   %362 = icmp eq i8 %361, 0
-  br i1 %362, label %363, label %_ZN12V3ThreadPool1sEv.exit158, !prof !17
+  br i1 %362, label %363, label %_ZN12V3ThreadPool1sEv.exit159, !prof !17
 
 363:                                              ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
   %364 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  %.not.i155 = icmp eq i32 %364, 0
-  br i1 %.not.i155, label %_ZN12V3ThreadPool1sEv.exit158, label %365
+  %.not.i156 = icmp eq i32 %364, 0
+  br i1 %.not.i156, label %_ZN12V3ThreadPool1sEv.exit159, label %365
 
 365:                                              ; preds = %363
   invoke void @_ZN12V3ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
@@ -2898,21 +2887,20 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3Mutex
 366:                                              ; preds = %365
   %367 = call i32 @__cxa_atexit(ptr nonnull @_ZN12V3ThreadPoolD2Ev, ptr nonnull @_ZZN12V3ThreadPool1sEvE3s_s, ptr nonnull @__dso_handle) #30
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  br label %_ZN12V3ThreadPool1sEv.exit158
+  br label %_ZN12V3ThreadPool1sEv.exit159
 
 368:                                              ; preds = %365
   %369 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  br label %.body156
+  br label %.body157
 
-_ZN12V3ThreadPool1sEv.exit158:                    ; preds = %366, %363, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
+_ZN12V3ThreadPool1sEv.exit159:                    ; preds = %366, %363, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
   %370 = load atomic i8, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 12, i32 0, i32 0) seq_cst, align 1
-  %371 = and i8 %370, 1
-  %.not236 = icmp eq i8 %371, 0
-  br i1 %.not236, label %372, label %388
+  %371 = trunc i8 %370 to i1
+  br i1 %371, label %388, label %372
 
-372:                                              ; preds = %_ZN12V3ThreadPool1sEv.exit158
+372:                                              ; preds = %_ZN12V3ThreadPool1sEv.exit159
   %373 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str, i32 noundef 213, i1 noundef zeroext false)
           to label %374 unwind label %382
 
@@ -2939,39 +2927,37 @@ _ZN12V3ThreadPool1sEv.exit158:                    ; preds = %366, %363, %_ZN14V3
 382:                                              ; preds = %378, %376, %374, %372
   %383 = landingpad { ptr, i32 }
           cleanup
-  br label %.body156
+  br label %.body157
 
-.body156:                                         ; preds = %368, %382
-  %eh.lpad-body157 = phi { ptr, i32 } [ %383, %382 ], [ %369, %368 ]
+.body157:                                         ; preds = %368, %382
+  %eh.lpad-body158 = phi { ptr, i32 } [ %383, %382 ], [ %369, %368 ]
   %384 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %385 = and i8 %384, 1
-  %.not.i.i159 = icmp eq i8 %385, 0
-  br i1 %.not.i.i159, label %.body151, label %386
+  %385 = trunc i8 %384 to i1
+  br i1 %385, label %386, label %.body151
 
-386:                                              ; preds = %.body156
+386:                                              ; preds = %.body157
   %387 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN12V3ThreadPool1sEvE3s_s) #30
   br label %.body151
 
-388:                                              ; preds = %_ZN12V3ThreadPool1sEv.exit158
+388:                                              ; preds = %_ZN12V3ThreadPool1sEv.exit159
   %389 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %390 = and i8 %389, 1
-  %.not.i.i160 = icmp eq i8 %390, 0
-  br i1 %.not.i.i160, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit161, label %391
+  %390 = trunc i8 %389 to i1
+  br i1 %390, label %391, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit160
 
 391:                                              ; preds = %388
   %392 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN12V3ThreadPool1sEvE3s_s) #30
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit161
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit160
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit161: ; preds = %388, %391
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit160: ; preds = %388, %391
   call void @_ZN14V3LockGuardImpI16V3MtDisabledLockED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #30
   %393 = load atomic i8, ptr @_ZGVZN12V3ThreadPool1sEvE3s_s acquire, align 8
   %394 = icmp eq i8 %393, 0
-  br i1 %394, label %395, label %_ZN12V3ThreadPool1sEv.exit165, !prof !17
+  br i1 %394, label %395, label %_ZN12V3ThreadPool1sEv.exit164, !prof !17
 
-395:                                              ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit161
+395:                                              ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit160
   %396 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  %.not.i162 = icmp eq i32 %396, 0
-  br i1 %.not.i162, label %_ZN12V3ThreadPool1sEv.exit165, label %397
+  %.not.i161 = icmp eq i32 %396, 0
+  br i1 %.not.i161, label %_ZN12V3ThreadPool1sEv.exit164, label %397
 
 397:                                              ; preds = %395
   invoke void @_ZN12V3ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
@@ -2980,7 +2966,7 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit161: ; preds = %388, %391
 398:                                              ; preds = %397
   %399 = call i32 @__cxa_atexit(ptr nonnull @_ZN12V3ThreadPoolD2Ev, ptr nonnull @_ZZN12V3ThreadPool1sEvE3s_s, ptr nonnull @__dso_handle) #30
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  br label %_ZN12V3ThreadPool1sEv.exit165
+  br label %_ZN12V3ThreadPool1sEv.exit164
 
 400:                                              ; preds = %397
   %401 = landingpad { ptr, i32 }
@@ -2988,56 +2974,54 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit161: ; preds = %388, %391
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
   br label %.body147
 
-_ZN12V3ThreadPool1sEv.exit165:                    ; preds = %398, %395, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit161
+_ZN12V3ThreadPool1sEv.exit164:                    ; preds = %398, %395, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit160
   %402 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %403 = and i8 %402, 1
-  %.not.i.i166 = icmp eq i8 %403, 0
-  br i1 %.not.i.i166, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit177, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i167
+  %403 = trunc i8 %402 to i1
+  br i1 %403, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i165, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit174
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i167: ; preds = %_ZN12V3ThreadPool1sEv.exit165
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i165: ; preds = %_ZN12V3ThreadPool1sEv.exit164
   %404 = call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull @_ZZN12V3ThreadPool1sEvE3s_s) #30
-  %.not.i.i.i.i168 = icmp eq i32 %404, 0
-  br i1 %.not.i.i.i.i168, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit177, label %.preheader.i.i169
+  %.not.i.i.i.i166 = icmp eq i32 %404, 0
+  br i1 %.not.i.i.i.i166, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit174, label %.preheader.i.i167
 
-.preheader.i.i169:                                ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i167, %408
-  %.06.i.i170 = phi i32 [ %409, %408 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i167 ]
+.preheader.i.i167:                                ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i165, %408
+  %.04.i.i168 = phi i32 [ %409, %408 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i165 ]
   %405 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %406 = and i8 %405, 1
-  %.not.i2.i.i171 = icmp eq i8 %406, 0
-  br i1 %.not.i2.i.i171, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit177, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i172
+  %406 = trunc i8 %405 to i1
+  br i1 %406, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i169, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit174
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i172: ; preds = %.preheader.i.i169
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i169: ; preds = %.preheader.i.i167
   %407 = call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull @_ZZN12V3ThreadPool1sEvE3s_s) #30
-  %.not.i.i3.i.i173 = icmp eq i32 %407, 0
-  br i1 %.not.i.i3.i.i173, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit177, label %408
+  %.not.i.i2.i.i170 = icmp eq i32 %407, 0
+  br i1 %.not.i.i2.i.i170, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit174, label %408
 
-408:                                              ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i172
+408:                                              ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i169
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %409 = add nuw nsw i32 %.06.i.i170, 1
-  %exitcond.not.i.i174 = icmp eq i32 %409, 50000
-  br i1 %exitcond.not.i.i174, label %410, label %.preheader.i.i169, !llvm.loop !6
+  %409 = add nuw nsw i32 %.04.i.i168, 1
+  %exitcond.not.i.i171 = icmp eq i32 %409, 50000
+  br i1 %exitcond.not.i.i171, label %410, label %.preheader.i.i167, !llvm.loop !6
 
 410:                                              ; preds = %408
   %411 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN12V3ThreadPool1sEvE3s_s) #30
-  %.not.i5.i.i175 = icmp eq i32 %411, 0
-  br i1 %.not.i5.i.i175, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit177, label %412
+  %.not.i.i.i172 = icmp eq i32 %411, 0
+  br i1 %.not.i.i.i172, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit174, label %412
 
 412:                                              ; preds = %410
   invoke void @_ZSt20__throw_system_errori(i32 noundef %411) #29
-          to label %.noexc176 unwind label %329
+          to label %.noexc173 unwind label %329
 
-.noexc176:                                        ; preds = %412
+.noexc173:                                        ; preds = %412
   unreachable
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit177: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i172, %.preheader.i.i169, %410, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i167, %_ZN12V3ThreadPool1sEv.exit165
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit174: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i169, %.preheader.i.i167, %410, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i165, %_ZN12V3ThreadPool1sEv.exit164
   %413 = load atomic i8, ptr @_ZGVZN12V3ThreadPool1sEvE3s_s acquire, align 8
   %414 = icmp eq i8 %413, 0
-  br i1 %414, label %415, label %_ZN12V3ThreadPool1sEv.exit181, !prof !17
+  br i1 %414, label %415, label %_ZN12V3ThreadPool1sEv.exit178, !prof !17
 
-415:                                              ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit177
+415:                                              ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit174
   %416 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  %.not.i178 = icmp eq i32 %416, 0
-  br i1 %.not.i178, label %_ZN12V3ThreadPool1sEv.exit181, label %417
+  %.not.i175 = icmp eq i32 %416, 0
+  br i1 %.not.i175, label %_ZN12V3ThreadPool1sEv.exit178, label %417
 
 417:                                              ; preds = %415
   invoke void @_ZN12V3ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
@@ -3046,21 +3030,20 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit177: ; preds = %_ZN10V3Mu
 418:                                              ; preds = %417
   %419 = call i32 @__cxa_atexit(ptr nonnull @_ZN12V3ThreadPoolD2Ev, ptr nonnull @_ZZN12V3ThreadPool1sEvE3s_s, ptr nonnull @__dso_handle) #30
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  br label %_ZN12V3ThreadPool1sEv.exit181
+  br label %_ZN12V3ThreadPool1sEv.exit178
 
 420:                                              ; preds = %417
   %421 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  br label %.body179
+  br label %.body176
 
-_ZN12V3ThreadPool1sEv.exit181:                    ; preds = %418, %415, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit177
+_ZN12V3ThreadPool1sEv.exit178:                    ; preds = %418, %415, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit174
   %422 = load atomic i8, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 12, i32 0, i32 0) seq_cst, align 1
-  %423 = and i8 %422, 1
-  %.not237 = icmp eq i8 %423, 0
-  br i1 %.not237, label %438, label %424
+  %423 = trunc i8 %422 to i1
+  br i1 %423, label %424, label %438
 
-424:                                              ; preds = %_ZN12V3ThreadPool1sEv.exit181
+424:                                              ; preds = %_ZN12V3ThreadPool1sEv.exit178
   %425 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str, i32 noundef 219, i1 noundef zeroext false)
           to label %426 unwind label %432
 
@@ -3079,63 +3062,61 @@ _ZN12V3ThreadPool1sEv.exit181:                    ; preds = %418, %415, %_ZN14V3
 431:                                              ; preds = %430
   unreachable
 
-.body151:                                         ; preds = %386, %.body156, %380, %348
-  %.pn = phi { ptr, i32 } [ %381, %380 ], [ %349, %348 ], [ %eh.lpad-body157, %.body156 ], [ %eh.lpad-body157, %386 ]
+.body151:                                         ; preds = %386, %.body157, %380, %348
+  %.pn = phi { ptr, i32 } [ %381, %380 ], [ %349, %348 ], [ %eh.lpad-body158, %.body157 ], [ %eh.lpad-body158, %386 ]
   call void @_ZN14V3LockGuardImpI16V3MtDisabledLockED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #30
   br label %.body147
 
 432:                                              ; preds = %430, %428, %426, %424
   %433 = landingpad { ptr, i32 }
           cleanup
-  br label %.body179
+  br label %.body176
 
-.body179:                                         ; preds = %420, %432
-  %eh.lpad-body180 = phi { ptr, i32 } [ %433, %432 ], [ %421, %420 ]
+.body176:                                         ; preds = %420, %432
+  %eh.lpad-body177 = phi { ptr, i32 } [ %433, %432 ], [ %421, %420 ]
   %434 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %435 = and i8 %434, 1
-  %.not.i.i182 = icmp eq i8 %435, 0
-  br i1 %.not.i.i182, label %.body147, label %436
+  %435 = trunc i8 %434 to i1
+  br i1 %435, label %436, label %.body147
 
-436:                                              ; preds = %.body179
+436:                                              ; preds = %.body176
   %437 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN12V3ThreadPool1sEvE3s_s) #30
   br label %.body147
 
-438:                                              ; preds = %_ZN12V3ThreadPool1sEv.exit181
+438:                                              ; preds = %_ZN12V3ThreadPool1sEv.exit178
   %439 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %440 = and i8 %439, 1
-  %.not.i.i184 = icmp eq i8 %440, 0
-  br i1 %.not.i.i184, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit185, label %441
+  %440 = trunc i8 %439 to i1
+  br i1 %440, label %441, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit180
 
 441:                                              ; preds = %438
   %442 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN12V3ThreadPool1sEvE3s_s) #30
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit185
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit180
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit185: ; preds = %438, %441
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit180: ; preds = %438, %441
   %443 = load ptr, ptr %27, align 8
   %.not8.i.i.i = icmp eq ptr %443, %27
   br i1 %.not8.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit185, %.lr.ph.i.i.i
-  %.09.i.i.i = phi ptr [ %444, %.lr.ph.i.i.i ], [ %443, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit185 ]
+.lr.ph.i.i.i:                                     ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit180, %.lr.ph.i.i.i
+  %.09.i.i.i = phi ptr [ %444, %.lr.ph.i.i.i ], [ %443, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit180 ]
   %444 = load ptr, ptr %.09.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %.09.i.i.i) #32
-  %.not.i.i.i186 = icmp eq ptr %444, %27
-  br i1 %.not.i.i.i186, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !49
+  %.not.i.i.i181 = icmp eq ptr %444, %27
+  br i1 %.not.i.i.i181, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !49
 
-_ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit185
+_ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit180
   %445 = load ptr, ptr %25, align 8
-  %.not8.i.i.i187 = icmp eq ptr %445, %25
-  br i1 %.not8.i.i.i187, label %_ZNSt7__cxx114listISt6futureIiESaIS2_EED2Ev.exit, label %.lr.ph.i.i.i188
+  %.not8.i.i.i182 = icmp eq ptr %445, %25
+  br i1 %.not8.i.i.i182, label %_ZNSt7__cxx114listISt6futureIiESaIS2_EED2Ev.exit, label %.lr.ph.i.i.i183
 
-.lr.ph.i.i.i188:                                  ; preds = %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIiEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i
-  %.09.i.i.i189 = phi ptr [ %446, %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIiEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i ], [ %445, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit ]
-  %446 = load ptr, ptr %.09.i.i.i189, align 8
-  %447 = getelementptr inbounds i8, ptr %.09.i.i.i189, i64 24
+.lr.ph.i.i.i183:                                  ; preds = %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIiEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i
+  %.09.i.i.i184 = phi ptr [ %446, %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIiEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i ], [ %445, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit ]
+  %446 = load ptr, ptr %.09.i.i.i184, align 8
+  %447 = getelementptr inbounds i8, ptr %.09.i.i.i184, i64 24
   %448 = load ptr, ptr %447, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i190 = icmp eq ptr %448, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i190, label %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIiEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i, label %449
+  %.not.i.i.i.i.i.i.i.i.i.i185 = icmp eq ptr %448, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i185, label %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIiEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i, label %449
 
-449:                                              ; preds = %.lr.ph.i.i.i188
+449:                                              ; preds = %.lr.ph.i.i.i183
   %450 = getelementptr inbounds i8, ptr %448, i64 8
   %451 = load atomic i64, ptr %450 acquire, align 8
   %452 = icmp eq i64 %451, 4294967297
@@ -3203,25 +3184,25 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %482(ptr noundef nonnull align 8 dereferenceable(16) %448) #30
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIiEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i
 
-_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIiEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i, %478, %465, %.lr.ph.i.i.i188
-  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i189) #32
-  %.not.i.i.i191 = icmp eq ptr %446, %25
-  br i1 %.not.i.i.i191, label %_ZNSt7__cxx114listISt6futureIiESaIS2_EED2Ev.exit, label %.lr.ph.i.i.i188, !llvm.loop !50
+_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIiEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i, %478, %465, %.lr.ph.i.i.i183
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i184) #32
+  %.not.i.i.i186 = icmp eq ptr %446, %25
+  br i1 %.not.i.i.i186, label %_ZNSt7__cxx114listISt6futureIiESaIS2_EED2Ev.exit, label %.lr.ph.i.i.i183, !llvm.loop !50
 
 _ZNSt7__cxx114listISt6futureIiESaIS2_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIiEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit
   %483 = load ptr, ptr %5, align 8
-  %.not8.i.i.i192 = icmp eq ptr %483, %5
-  br i1 %.not8.i.i.i192, label %_ZNSt7__cxx114listISt6futureIvESaIS2_EED2Ev.exit, label %.lr.ph.i.i.i193
+  %.not8.i.i.i187 = icmp eq ptr %483, %5
+  br i1 %.not8.i.i.i187, label %_ZNSt7__cxx114listISt6futureIvESaIS2_EED2Ev.exit, label %.lr.ph.i.i.i188
 
-.lr.ph.i.i.i193:                                  ; preds = %_ZNSt7__cxx114listISt6futureIiESaIS2_EED2Ev.exit, %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIvEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i
-  %.09.i.i.i194 = phi ptr [ %484, %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIvEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i ], [ %483, %_ZNSt7__cxx114listISt6futureIiESaIS2_EED2Ev.exit ]
-  %484 = load ptr, ptr %.09.i.i.i194, align 8
-  %485 = getelementptr inbounds i8, ptr %.09.i.i.i194, i64 24
+.lr.ph.i.i.i188:                                  ; preds = %_ZNSt7__cxx114listISt6futureIiESaIS2_EED2Ev.exit, %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIvEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i
+  %.09.i.i.i189 = phi ptr [ %484, %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIvEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i ], [ %483, %_ZNSt7__cxx114listISt6futureIiESaIS2_EED2Ev.exit ]
+  %484 = load ptr, ptr %.09.i.i.i189, align 8
+  %485 = getelementptr inbounds i8, ptr %.09.i.i.i189, i64 24
   %486 = load ptr, ptr %485, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i195 = icmp eq ptr %486, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i195, label %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIvEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i, label %487
+  %.not.i.i.i.i.i.i.i.i.i.i190 = icmp eq ptr %486, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i190, label %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIvEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i, label %487
 
-487:                                              ; preds = %.lr.ph.i.i.i193
+487:                                              ; preds = %.lr.ph.i.i.i188
   %488 = getelementptr inbounds i8, ptr %486, i64 8
   %489 = load atomic i64, ptr %488 acquire, align 8
   %490 = icmp eq i64 %489, 4294967297
@@ -3236,12 +3217,12 @@ _ZNSt7__cxx114listISt6futureIiESaIS2_EED2Ev.exit: ; preds = %_ZNSt16allocator_tr
   %495 = getelementptr inbounds i8, ptr %494, i64 16
   %496 = load ptr, ptr %495, align 8
   call void %496(ptr noundef nonnull align 8 dereferenceable(16) %486) #30
-  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i201
+  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i196
 
 497:                                              ; preds = %487
   %498 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i196 = icmp eq i8 %498, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i196, label %501, label %499
+  %.not.i.i.i.i.i.i.i.i.i.i.i191 = icmp eq i8 %498, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i191, label %501, label %499
 
 499:                                              ; preds = %497
   %500 = add nsw i32 %491, -1
@@ -3253,8 +3234,8 @@ _ZNSt7__cxx114listISt6futureIiESaIS2_EED2Ev.exit: ; preds = %_ZNSt16allocator_tr
   br label %503
 
 503:                                              ; preds = %501, %499
-  %.0.i.i.i.i.i.i.i.i.i.i.i197 = phi i32 [ %491, %499 ], [ %502, %501 ]
-  %504 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i197, 1
+  %.0.i.i.i.i.i.i.i.i.i.i.i192 = phi i32 [ %491, %499 ], [ %502, %501 ]
+  %504 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i192, 1
   br i1 %504, label %505, label %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIvEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i
 
 505:                                              ; preds = %503
@@ -3264,8 +3245,8 @@ _ZNSt7__cxx114listISt6futureIiESaIS2_EED2Ev.exit: ; preds = %_ZNSt16allocator_tr
   call void %508(ptr noundef nonnull align 8 dereferenceable(16) %486) #30
   %509 = getelementptr inbounds i8, ptr %486, i64 12
   %510 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i199 = icmp eq i8 %510, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i199, label %514, label %511
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i194 = icmp eq i8 %510, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i194, label %514, label %511
 
 511:                                              ; preds = %505
   %512 = load i32, ptr %509, align 4
@@ -3278,40 +3259,40 @@ _ZNSt7__cxx114listISt6futureIiESaIS2_EED2Ev.exit: ; preds = %_ZNSt16allocator_tr
   br label %516
 
 516:                                              ; preds = %514, %511
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i200 = phi i32 [ %512, %511 ], [ %515, %514 ]
-  %517 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i200, 1
-  br i1 %517, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i201, label %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIvEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i195 = phi i32 [ %512, %511 ], [ %515, %514 ]
+  %517 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i195, 1
+  br i1 %517, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i196, label %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIvEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i201: ; preds = %516, %492
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i196: ; preds = %516, %492
   %518 = load ptr, ptr %486, align 8
   %519 = getelementptr inbounds i8, ptr %518, i64 24
   %520 = load ptr, ptr %519, align 8
   call void %520(ptr noundef nonnull align 8 dereferenceable(16) %486) #30
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIvEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i
 
-_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIvEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i201, %516, %503, %.lr.ph.i.i.i193
-  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i194) #32
-  %.not.i.i.i198 = icmp eq ptr %484, %5
-  br i1 %.not.i.i.i198, label %_ZNSt7__cxx114listISt6futureIvESaIS2_EED2Ev.exit, label %.lr.ph.i.i.i193, !llvm.loop !51
+_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIvEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i196, %516, %503, %.lr.ph.i.i.i188
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i189) #32
+  %.not.i.i.i193 = icmp eq ptr %484, %5
+  br i1 %.not.i.i.i193, label %_ZNSt7__cxx114listISt6futureIvESaIS2_EED2Ev.exit, label %.lr.ph.i.i.i188, !llvm.loop !51
 
 _ZNSt7__cxx114listISt6futureIvESaIS2_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt6futureIvEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i, %_ZNSt7__cxx114listISt6futureIiESaIS2_EED2Ev.exit
   ret void
 
-.body147:                                         ; preds = %436, %.body179, %339, %400, %329, %.body151
-  %.pn6 = phi { ptr, i32 } [ %.pn, %.body151 ], [ %340, %339 ], [ %330, %329 ], [ %401, %400 ], [ %eh.lpad-body180, %.body179 ], [ %eh.lpad-body180, %436 ]
+.body147:                                         ; preds = %436, %.body176, %339, %400, %329, %.body151
+  %.pn6 = phi { ptr, i32 } [ %.pn, %.body151 ], [ %340, %339 ], [ %330, %329 ], [ %401, %400 ], [ %eh.lpad-body177, %.body176 ], [ %eh.lpad-body177, %436 ]
   %521 = load ptr, ptr %27, align 8
-  %.not8.i.i.i202 = icmp eq ptr %521, %27
-  br i1 %.not8.i.i.i202, label %.body136, label %.lr.ph.i.i.i203
+  %.not8.i.i.i197 = icmp eq ptr %521, %27
+  br i1 %.not8.i.i.i197, label %.body136, label %.lr.ph.i.i.i198
 
-.lr.ph.i.i.i203:                                  ; preds = %.body147, %.lr.ph.i.i.i203
-  %.09.i.i.i204 = phi ptr [ %522, %.lr.ph.i.i.i203 ], [ %521, %.body147 ]
-  %522 = load ptr, ptr %.09.i.i.i204, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i204) #32
-  %.not.i.i.i205 = icmp eq ptr %522, %27
-  br i1 %.not.i.i.i205, label %.body136, label %.lr.ph.i.i.i203, !llvm.loop !49
+.lr.ph.i.i.i198:                                  ; preds = %.body147, %.lr.ph.i.i.i198
+  %.09.i.i.i199 = phi ptr [ %522, %.lr.ph.i.i.i198 ], [ %521, %.body147 ]
+  %522 = load ptr, ptr %.09.i.i.i199, align 8
+  call void @_ZdlPv(ptr noundef %.09.i.i.i199) #32
+  %.not.i.i.i200 = icmp eq ptr %522, %27
+  br i1 %.not.i.i.i200, label %.body136, label %.lr.ph.i.i.i198, !llvm.loop !49
 
-.body136:                                         ; preds = %.lr.ph.i.i.i203, %.body147, %325, %295, %327
-  %.pn6.pn = phi { ptr, i32 } [ %328, %327 ], [ %326, %325 ], [ %296, %295 ], [ %.pn6, %.body147 ], [ %.pn6, %.lr.ph.i.i.i203 ]
+.body136:                                         ; preds = %.lr.ph.i.i.i198, %.body147, %325, %295, %327
+  %.pn6.pn = phi { ptr, i32 } [ %328, %327 ], [ %326, %325 ], [ %296, %295 ], [ %.pn6, %.body147 ], [ %.pn6, %.lr.ph.i.i.i198 ]
   call void @_ZNSt7__cxx114listISt6futureIiESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #30
   br label %.body
 
@@ -3369,9 +3350,8 @@ define internal void @"_ZN12V3ThreadPool7enqueueISt5_BindIFZNS_8selfTestEvE3$_0i
 _ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit: ; preds = %7
   %11 = getelementptr inbounds i8, ptr %1, i64 389
   %12 = load atomic i8, ptr %11 seq_cst, align 1
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %23, label %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread, label %23
 
 _ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread: ; preds = %7, %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit
   %14 = load ptr, ptr %4, align 16
@@ -3400,13 +3380,12 @@ _ZNSt13__future_base13_State_baseV28_S_checkINS_16_Task_state_baseIFvvEEEEEvRKSt
 21:                                               ; preds = %34, %_ZNSt13__future_base13_State_baseV28_S_checkINS_16_Task_state_baseIFvvEEEEEvRKSt10shared_ptrIT_E.exit.i, %15
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23
 
 23:                                               ; preds = %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit
   %24 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %25 = and i8 %24, 1
-  %.not.i.i14 = icmp eq i8 %25, 0
-  br i1 %.not.i.i14, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %23
   %26 = call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %1) #30
@@ -3414,36 +3393,35 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %23
   br i1 %.not.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %30
-  %.06.i.i = phi i32 [ %31, %30 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
+  %.04.i.i = phi i32 [ %31, %30 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
   %27 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %28 = and i8 %27, 1
-  %.not.i2.i.i = icmp eq i8 %28, 0
-  br i1 %.not.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i:   ; preds = %.preheader.i.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i:   ; preds = %.preheader.i.i
   %29 = call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %1) #30
-  %.not.i.i3.i.i = icmp eq i32 %29, 0
-  br i1 %.not.i.i3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %30
+  %.not.i.i2.i.i = icmp eq i32 %29, 0
+  br i1 %.not.i.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %30
 
-30:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+30:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %31 = add nuw nsw i32 %.06.i.i, 1
+  %31 = add nuw nsw i32 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %31, 50000
   br i1 %exitcond.not.i.i, label %32, label %.preheader.i.i, !llvm.loop !6
 
 32:                                               ; preds = %30
   %33 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %1) #30
-  %.not.i5.i.i = icmp eq i32 %33, 0
-  br i1 %.not.i5.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %34
+  %.not.i.i.i = icmp eq i32 %33, 0
+  br i1 %.not.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %34
 
 34:                                               ; preds = %32
   invoke void @_ZSt20__throw_system_errori(i32 noundef %33) #29
-          to label %.noexc15 unwind label %21
+          to label %.noexc14 unwind label %21
 
-.noexc15:                                         ; preds = %34
+.noexc14:                                         ; preds = %34
   unreachable
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i, %.preheader.i.i, %32, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %23
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, %.preheader.i.i, %32, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %23
   %35 = getelementptr inbounds i8, ptr %1, i64 80
   %36 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %35, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 90, ptr null)
   %37 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
@@ -3463,8 +3441,8 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3Mutex
   %44 = getelementptr inbounds i8, ptr %36, i64 64
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 -8
-  %.not.i.i.i = icmp eq ptr %43, %46
-  br i1 %.not.i.i.i, label %50, label %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit.thread
+  %.not.i.i.i16 = icmp eq ptr %43, %46
+  br i1 %.not.i.i.i16, label %50, label %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit.thread
 
 _ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit.thread: ; preds = %38
   %47 = ptrtoint ptr %37 to i64
@@ -3493,9 +3471,8 @@ _ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i: ; p
 _ZN16VAnyPackagedTaskD2Ev.exit:                   ; preds = %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit.thread, %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i
   store ptr null, ptr %6, align 8
   %54 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %55 = and i8 %54, 1
-  %.not.i.i19 = icmp eq i8 %55, 0
-  br i1 %.not.i.i19, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
 
 56:                                               ; preds = %_ZN16VAnyPackagedTaskD2Ev.exit
   %57 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #30
@@ -3505,8 +3482,8 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit: ; preds = %_ZN16VAnyPackag
   %58 = getelementptr inbounds i8, ptr %1, i64 208
   %59 = load ptr, ptr %58, align 8
   %60 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %59) #30
-  %.not.i.i.i20 = icmp eq i32 %60, 0
-  br i1 %.not.i.i.i20, label %_ZNSt3_V222condition_variable_any10notify_oneEv.exit, label %61
+  %.not.i.i.i19 = icmp eq i32 %60, 0
+  br i1 %.not.i.i.i19, label %_ZNSt3_V222condition_variable_any10notify_oneEv.exit, label %61
 
 61:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
   invoke void @_ZSt20__throw_system_errori(i32 noundef %60) #29
@@ -3537,30 +3514,29 @@ _ZNSt3_V222condition_variable_any10notify_oneEv.exit: ; preds = %_ZN14V3LockGuar
   %70 = landingpad { ptr, i32 }
           cleanup
   %71 = load ptr, ptr %6, align 8
-  %.not.i.i21 = icmp eq ptr %71, null
-  br i1 %.not.i.i21, label %_ZN16VAnyPackagedTaskD2Ev.exit23, label %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i22
+  %.not.i.i20 = icmp eq ptr %71, null
+  br i1 %.not.i.i20, label %_ZN16VAnyPackagedTaskD2Ev.exit22, label %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i21
 
-_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i22: ; preds = %69
+_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i21: ; preds = %69
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
   call void %74(ptr noundef nonnull align 8 dereferenceable(8) %71) #30
-  br label %_ZN16VAnyPackagedTaskD2Ev.exit23
+  br label %_ZN16VAnyPackagedTaskD2Ev.exit22
 
-_ZN16VAnyPackagedTaskD2Ev.exit23:                 ; preds = %69, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i22
+_ZN16VAnyPackagedTaskD2Ev.exit22:                 ; preds = %69, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i21
   store ptr null, ptr %6, align 8
   br label %75
 
-75:                                               ; preds = %_ZN16VAnyPackagedTaskD2Ev.exit23, %67
-  %.pn = phi { ptr, i32 } [ %70, %_ZN16VAnyPackagedTaskD2Ev.exit23 ], [ %68, %67 ]
+75:                                               ; preds = %_ZN16VAnyPackagedTaskD2Ev.exit22, %67
+  %.pn = phi { ptr, i32 } [ %70, %_ZN16VAnyPackagedTaskD2Ev.exit22 ], [ %68, %67 ]
   %76 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %77 = and i8 %76, 1
-  %.not.i.i24 = icmp eq i8 %77, 0
-  br i1 %.not.i.i24, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25, label %78
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %78, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23
 
 78:                                               ; preds = %75
   %79 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #30
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23
 
 _ZNSt6futureIvED2Ev.exit:                         ; preds = %_ZNSt3_V222condition_variable_any10notify_oneEv.exit, %_ZNSt13__future_base13_State_baseV28_S_checkINS_16_Task_state_baseIFvvEEEEEvRKSt10shared_ptrIT_E.exit.i
   %80 = getelementptr inbounds i8, ptr %5, i64 8
@@ -3571,13 +3547,13 @@ _ZNSt6futureIvED2Ev.exit:                         ; preds = %_ZNSt3_V222conditio
   call void @_ZNSt13packaged_taskIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #30
   ret void
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25: ; preds = %78, %75, %21
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23: ; preds = %78, %75, %21
   %.pn10 = phi { ptr, i32 } [ %22, %21 ], [ %.pn, %75 ], [ %.pn, %78 ]
   call void @_ZNSt6futureIvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #30
   br label %82
 
-82:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25, %19
-  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25 ], [ %20, %19 ]
+82:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23, %19
+  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23 ], [ %20, %19 ]
   call void @_ZNSt13packaged_taskIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #30
   resume { ptr, i32 } %.pn10.pn
 }
@@ -3679,9 +3655,8 @@ define internal void @"_ZN12V3ThreadPool7enqueueISt5_BindIFZNS_8selfTestEvE3$_1i
 _ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit: ; preds = %7
   %11 = getelementptr inbounds i8, ptr %1, i64 389
   %12 = load atomic i8, ptr %11 seq_cst, align 1
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %23, label %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread, label %23
 
 _ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread: ; preds = %7, %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit
   %14 = load ptr, ptr %4, align 16
@@ -3710,13 +3685,12 @@ _ZNSt13__future_base13_State_baseV28_S_checkINS_16_Task_state_baseIFvvEEEEEvRKSt
 21:                                               ; preds = %34, %_ZNSt13__future_base13_State_baseV28_S_checkINS_16_Task_state_baseIFvvEEEEEvRKSt10shared_ptrIT_E.exit.i, %15
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23
 
 23:                                               ; preds = %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit
   %24 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %25 = and i8 %24, 1
-  %.not.i.i14 = icmp eq i8 %25, 0
-  br i1 %.not.i.i14, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %23
   %26 = call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %1) #30
@@ -3724,36 +3698,35 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %23
   br i1 %.not.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %30
-  %.06.i.i = phi i32 [ %31, %30 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
+  %.04.i.i = phi i32 [ %31, %30 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
   %27 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %28 = and i8 %27, 1
-  %.not.i2.i.i = icmp eq i8 %28, 0
-  br i1 %.not.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i:   ; preds = %.preheader.i.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i:   ; preds = %.preheader.i.i
   %29 = call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %1) #30
-  %.not.i.i3.i.i = icmp eq i32 %29, 0
-  br i1 %.not.i.i3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %30
+  %.not.i.i2.i.i = icmp eq i32 %29, 0
+  br i1 %.not.i.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %30
 
-30:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+30:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %31 = add nuw nsw i32 %.06.i.i, 1
+  %31 = add nuw nsw i32 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %31, 50000
   br i1 %exitcond.not.i.i, label %32, label %.preheader.i.i, !llvm.loop !6
 
 32:                                               ; preds = %30
   %33 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %1) #30
-  %.not.i5.i.i = icmp eq i32 %33, 0
-  br i1 %.not.i5.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %34
+  %.not.i.i.i = icmp eq i32 %33, 0
+  br i1 %.not.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %34
 
 34:                                               ; preds = %32
   invoke void @_ZSt20__throw_system_errori(i32 noundef %33) #29
-          to label %.noexc15 unwind label %21
+          to label %.noexc14 unwind label %21
 
-.noexc15:                                         ; preds = %34
+.noexc14:                                         ; preds = %34
   unreachable
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i, %.preheader.i.i, %32, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %23
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, %.preheader.i.i, %32, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %23
   %35 = getelementptr inbounds i8, ptr %1, i64 80
   %36 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %35, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 90, ptr null)
   %37 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
@@ -3773,8 +3746,8 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3Mutex
   %44 = getelementptr inbounds i8, ptr %36, i64 64
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 -8
-  %.not.i.i.i = icmp eq ptr %43, %46
-  br i1 %.not.i.i.i, label %50, label %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit.thread
+  %.not.i.i.i16 = icmp eq ptr %43, %46
+  br i1 %.not.i.i.i16, label %50, label %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit.thread
 
 _ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit.thread: ; preds = %38
   %47 = ptrtoint ptr %37 to i64
@@ -3803,9 +3776,8 @@ _ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i: ; p
 _ZN16VAnyPackagedTaskD2Ev.exit:                   ; preds = %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit.thread, %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i
   store ptr null, ptr %6, align 8
   %54 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %55 = and i8 %54, 1
-  %.not.i.i19 = icmp eq i8 %55, 0
-  br i1 %.not.i.i19, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
 
 56:                                               ; preds = %_ZN16VAnyPackagedTaskD2Ev.exit
   %57 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #30
@@ -3815,8 +3787,8 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit: ; preds = %_ZN16VAnyPackag
   %58 = getelementptr inbounds i8, ptr %1, i64 208
   %59 = load ptr, ptr %58, align 8
   %60 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %59) #30
-  %.not.i.i.i20 = icmp eq i32 %60, 0
-  br i1 %.not.i.i.i20, label %_ZNSt3_V222condition_variable_any10notify_oneEv.exit, label %61
+  %.not.i.i.i19 = icmp eq i32 %60, 0
+  br i1 %.not.i.i.i19, label %_ZNSt3_V222condition_variable_any10notify_oneEv.exit, label %61
 
 61:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
   invoke void @_ZSt20__throw_system_errori(i32 noundef %60) #29
@@ -3847,30 +3819,29 @@ _ZNSt3_V222condition_variable_any10notify_oneEv.exit: ; preds = %_ZN14V3LockGuar
   %70 = landingpad { ptr, i32 }
           cleanup
   %71 = load ptr, ptr %6, align 8
-  %.not.i.i21 = icmp eq ptr %71, null
-  br i1 %.not.i.i21, label %_ZN16VAnyPackagedTaskD2Ev.exit23, label %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i22
+  %.not.i.i20 = icmp eq ptr %71, null
+  br i1 %.not.i.i20, label %_ZN16VAnyPackagedTaskD2Ev.exit22, label %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i21
 
-_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i22: ; preds = %69
+_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i21: ; preds = %69
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
   call void %74(ptr noundef nonnull align 8 dereferenceable(8) %71) #30
-  br label %_ZN16VAnyPackagedTaskD2Ev.exit23
+  br label %_ZN16VAnyPackagedTaskD2Ev.exit22
 
-_ZN16VAnyPackagedTaskD2Ev.exit23:                 ; preds = %69, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i22
+_ZN16VAnyPackagedTaskD2Ev.exit22:                 ; preds = %69, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i21
   store ptr null, ptr %6, align 8
   br label %75
 
-75:                                               ; preds = %_ZN16VAnyPackagedTaskD2Ev.exit23, %67
-  %.pn = phi { ptr, i32 } [ %70, %_ZN16VAnyPackagedTaskD2Ev.exit23 ], [ %68, %67 ]
+75:                                               ; preds = %_ZN16VAnyPackagedTaskD2Ev.exit22, %67
+  %.pn = phi { ptr, i32 } [ %70, %_ZN16VAnyPackagedTaskD2Ev.exit22 ], [ %68, %67 ]
   %76 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %77 = and i8 %76, 1
-  %.not.i.i24 = icmp eq i8 %77, 0
-  br i1 %.not.i.i24, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25, label %78
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %78, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23
 
 78:                                               ; preds = %75
   %79 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #30
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23
 
 _ZNSt6futureIvED2Ev.exit:                         ; preds = %_ZNSt3_V222condition_variable_any10notify_oneEv.exit, %_ZNSt13__future_base13_State_baseV28_S_checkINS_16_Task_state_baseIFvvEEEEEvRKSt10shared_ptrIT_E.exit.i
   %80 = getelementptr inbounds i8, ptr %5, i64 8
@@ -3881,13 +3852,13 @@ _ZNSt6futureIvED2Ev.exit:                         ; preds = %_ZNSt3_V222conditio
   call void @_ZNSt13packaged_taskIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #30
   ret void
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25: ; preds = %78, %75, %21
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23: ; preds = %78, %75, %21
   %.pn10 = phi { ptr, i32 } [ %22, %21 ], [ %.pn, %75 ], [ %.pn, %78 ]
   call void @_ZNSt6futureIvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #30
   br label %82
 
-82:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25, %19
-  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25 ], [ %20, %19 ]
+82:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23, %19
+  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23 ], [ %20, %19 ]
   call void @_ZNSt13packaged_taskIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #30
   resume { ptr, i32 } %.pn10.pn
 }
@@ -3915,157 +3886,72 @@ _ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNS
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
   br label %_ZN12V3ThreadPool1sEv.exit
 
-common.resume:                                    ; preds = %35, %39, %9
-  %common.resume.op = phi { ptr, i32 } [ %10, %9 ], [ %36, %39 ], [ %36, %35 ]
-  resume { ptr, i32 } %common.resume.op
-
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  br label %common.resume
+  resume { ptr, i32 } %10
 
 _ZN12V3ThreadPool1sEv.exit:                       ; preds = %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit, %4, %7
-  %11 = load atomic i8, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 10, i32 0, i32 0) seq_cst, align 1
-  %12 = and i8 %11, 1
-  %.not.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i, label %13, label %_ZN12V3ThreadPool19waitIfStopRequestedEv.exit
+  %11 = tail call noundef zeroext i1 @_ZN12V3ThreadPool19waitIfStopRequestedEv(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
+  %12 = load ptr, ptr %0, align 8
+  %.not.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i, label %13, label %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i
 
 13:                                               ; preds = %_ZN12V3ThreadPool1sEv.exit
-  %14 = load atomic i8, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 11, i32 0, i32 0) seq_cst, align 2
-  %15 = and i8 %14, 1
-  %.not2.i.i = icmp eq i8 %15, 0
-  br i1 %.not2.i.i, label %_ZNK12V3ThreadPool13stopRequestedEv.exit.i, label %_ZN12V3ThreadPool19waitIfStopRequestedEv.exit
-
-_ZNK12V3ThreadPool13stopRequestedEv.exit.i:       ; preds = %13
-  %16 = load atomic i8, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 9, i32 0, i32 0) seq_cst, align 4
-  %17 = and i8 %16, 1
-  %.not.i2 = icmp eq i8 %17, 0
-  br i1 %.not.i2, label %_ZN12V3ThreadPool19waitIfStopRequestedEv.exit, label %18
-
-18:                                               ; preds = %_ZNK12V3ThreadPool13stopRequestedEv.exit.i
-  %19 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %20 = and i8 %19, 1
-  %.not.i.i.i = icmp eq i8 %20, 0
-  br i1 %.not.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i
-
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i:  ; preds = %18
-  %21 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0)) #30
-  %.not.i.i.i.i.i = icmp eq i32 %21, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i, label %.preheader.i.i.i
-
-.preheader.i.i.i:                                 ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i, %25
-  %.06.i.i.i = phi i32 [ %26, %25 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i ]
-  %22 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %23 = and i8 %22, 1
-  %.not.i2.i.i.i = icmp eq i8 %23, 0
-  br i1 %.not.i2.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i
-
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i: ; preds = %.preheader.i.i.i
-  %24 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0)) #30
-  %.not.i.i3.i.i.i = icmp eq i32 %24, 0
-  br i1 %.not.i.i3.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i, label %25
-
-25:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %26 = add nuw nsw i32 %.06.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %26, 50000
-  br i1 %exitcond.not.i.i.i, label %27, label %.preheader.i.i.i, !llvm.loop !6
-
-27:                                               ; preds = %25
-  %28 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0)) #30
-  %.not.i5.i.i.i = icmp eq i32 %28, 0
-  br i1 %.not.i5.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i, label %29
-
-29:                                               ; preds = %27
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %28) #29
-  unreachable
-
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i, %.preheader.i.i.i, %27, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i, %18
-  invoke void @_ZN12V3ThreadPool20waitForResumeRequestEv(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
-          to label %30 unwind label %35
-
-30:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i
-  %31 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %32 = and i8 %31, 1
-  %.not.i.i3.i = icmp eq i8 %32, 0
-  br i1 %.not.i.i3.i, label %_ZN12V3ThreadPool19waitIfStopRequestedEv.exit, label %33
-
-33:                                               ; preds = %30
-  %34 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0)) #30
-  br label %_ZN12V3ThreadPool19waitIfStopRequestedEv.exit
-
-35:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %38 = and i8 %37, 1
-  %.not.i.i4.i = icmp eq i8 %38, 0
-  br i1 %.not.i.i4.i, label %common.resume, label %39
-
-39:                                               ; preds = %35
-  %40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0)) #30
-  br label %common.resume
-
-_ZN12V3ThreadPool19waitIfStopRequestedEv.exit:    ; preds = %_ZN12V3ThreadPool1sEv.exit, %13, %_ZNK12V3ThreadPool13stopRequestedEv.exit.i, %30, %33
-  %41 = load ptr, ptr %0, align 8
-  %.not.i.i3 = icmp eq ptr %41, null
-  br i1 %.not.i.i3, label %42, label %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i
-
-42:                                               ; preds = %_ZN12V3ThreadPool19waitIfStopRequestedEv.exit
   tail call void @_ZSt20__throw_future_errori(i32 noundef 3) #29
   unreachable
 
-_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i: ; preds = %_ZN12V3ThreadPool19waitIfStopRequestedEv.exit
-  %43 = getelementptr inbounds i8, ptr %41, i64 16
-  %44 = load atomic i32, ptr %43 acquire, align 4
-  %45 = and i32 %44, 2147483647
-  %46 = icmp eq i32 %45, 1
-  br i1 %46, label %.loopexit, label %47
+_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i: ; preds = %_ZN12V3ThreadPool1sEv.exit
+  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = load atomic i32, ptr %14 acquire, align 4
+  %16 = and i32 %15, 2147483647
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %.loopexit, label %18
 
-47:                                               ; preds = %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i
-  %48 = load ptr, ptr %41, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(28) %41)
-  br i1 %51, label %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.backedge, label %52
+18:                                               ; preds = %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i
+  %19 = load ptr, ptr %12, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(28) %12)
+  br i1 %22, label %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.backedge, label %23
 
-_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.backedge: ; preds = %47, %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i
+_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.backedge: ; preds = %18, %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i
   br label %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit, !llvm.loop !58
 
-52:                                               ; preds = %47
-  %53 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #30
-  %54 = load atomic i32, ptr %43 acquire, align 4
-  %55 = and i32 %54, 2147483647
-  %56 = icmp eq i32 %55, 1
-  br i1 %56, label %.critedge35.i.i, label %57
+23:                                               ; preds = %18
+  %24 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #30
+  %25 = load atomic i32, ptr %14 acquire, align 4
+  %26 = and i32 %25, 2147483647
+  %27 = icmp eq i32 %26, 1
+  br i1 %27, label %.critedge35.i.i, label %28
 
-57:                                               ; preds = %52
-  %58 = add nsw i64 %53, 100000000
-  %59 = sdiv i64 %58, 1000000000
-  %.neg.i.i.i.i.i = mul nsw i64 %59, -1000000000
-  %60 = add i64 %.neg.i.i.i.i.i, %58
-  br label %61
+28:                                               ; preds = %23
+  %29 = add nsw i64 %24, 100000000
+  %30 = sdiv i64 %29, 1000000000
+  %.neg.i.i.i.i.i = mul nsw i64 %30, -1000000000
+  %31 = add i64 %.neg.i.i.i.i.i, %29
+  br label %32
 
-61:                                               ; preds = %61, %57
-  %.025.us.i.i.i = phi i32 [ %55, %57 ], [ %66, %61 ]
-  %62 = atomicrmw or ptr %43, i32 -2147483648 monotonic, align 4
-  %63 = or disjoint i32 %.025.us.i.i.i, -2147483648
-  %64 = tail call noundef zeroext i1 @_ZNSt28__atomic_futex_unsigned_base26_M_futex_wait_until_steadyEPjjbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS2_IlS3_ILl1ELl1000000000EEEE(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull %43, i32 noundef %63, i1 noundef zeroext true, i64 %59, i64 %60)
-  %65 = load atomic i32, ptr %43 acquire, align 4
-  %66 = and i32 %65, 2147483647
-  %67 = icmp ne i32 %66, 1
-  %or.cond.not.us.i.i.i = select i1 %64, i1 %67, i1 false
-  br i1 %or.cond.not.us.i.i.i, label %61, label %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i, !llvm.loop !59
+32:                                               ; preds = %32, %28
+  %.025.us.i.i.i = phi i32 [ %26, %28 ], [ %37, %32 ]
+  %33 = atomicrmw or ptr %14, i32 -2147483648 monotonic, align 4
+  %34 = or disjoint i32 %.025.us.i.i.i, -2147483648
+  %35 = tail call noundef zeroext i1 @_ZNSt28__atomic_futex_unsigned_base26_M_futex_wait_until_steadyEPjjbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS2_IlS3_ILl1ELl1000000000EEEE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %14, i32 noundef %34, i1 noundef zeroext true, i64 %30, i64 %31)
+  %36 = load atomic i32, ptr %14 acquire, align 4
+  %37 = and i32 %36, 2147483647
+  %38 = icmp ne i32 %37, 1
+  %or.cond.not.us.i.i.i = select i1 %35, i1 %38, i1 false
+  br i1 %or.cond.not.us.i.i.i, label %32, label %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i, !llvm.loop !59
 
-_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i: ; preds = %61
-  br i1 %67, label %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.backedge, label %.critedge35.i.i
+_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i: ; preds = %32
+  br i1 %38, label %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.backedge, label %.critedge35.i.i
 
-.critedge35.i.i:                                  ; preds = %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i, %52
-  %68 = load ptr, ptr %41, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
-  %70 = load ptr, ptr %69, align 8
-  tail call void %70(ptr noundef nonnull align 8 dereferenceable(28) %41)
+.critedge35.i.i:                                  ; preds = %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i, %23
+  %39 = load ptr, ptr %12, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = load ptr, ptr %40, align 8
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(28) %12)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i, %.critedge35.i.i
@@ -4091,9 +3977,8 @@ define internal void @"_ZN12V3ThreadPool7enqueueISt5_BindIFZNS_8selfTestEvE3$_2i
 _ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit: ; preds = %7
   %11 = getelementptr inbounds i8, ptr %1, i64 389
   %12 = load atomic i8, ptr %11 seq_cst, align 1
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %23, label %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread, label %23
 
 _ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread: ; preds = %7, %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit
   %14 = load ptr, ptr %4, align 16
@@ -4122,13 +4007,12 @@ _ZNSt13__future_base13_State_baseV28_S_checkINS_16_Task_state_baseIFvvEEEEEvRKSt
 21:                                               ; preds = %34, %_ZNSt13__future_base13_State_baseV28_S_checkINS_16_Task_state_baseIFvvEEEEEvRKSt10shared_ptrIT_E.exit.i, %15
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23
 
 23:                                               ; preds = %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit
   %24 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %25 = and i8 %24, 1
-  %.not.i.i14 = icmp eq i8 %25, 0
-  br i1 %.not.i.i14, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %23
   %26 = call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %1) #30
@@ -4136,36 +4020,35 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %23
   br i1 %.not.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %30
-  %.06.i.i = phi i32 [ %31, %30 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
+  %.04.i.i = phi i32 [ %31, %30 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
   %27 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %28 = and i8 %27, 1
-  %.not.i2.i.i = icmp eq i8 %28, 0
-  br i1 %.not.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i:   ; preds = %.preheader.i.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i:   ; preds = %.preheader.i.i
   %29 = call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %1) #30
-  %.not.i.i3.i.i = icmp eq i32 %29, 0
-  br i1 %.not.i.i3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %30
+  %.not.i.i2.i.i = icmp eq i32 %29, 0
+  br i1 %.not.i.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %30
 
-30:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+30:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %31 = add nuw nsw i32 %.06.i.i, 1
+  %31 = add nuw nsw i32 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %31, 50000
   br i1 %exitcond.not.i.i, label %32, label %.preheader.i.i, !llvm.loop !6
 
 32:                                               ; preds = %30
   %33 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %1) #30
-  %.not.i5.i.i = icmp eq i32 %33, 0
-  br i1 %.not.i5.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %34
+  %.not.i.i.i = icmp eq i32 %33, 0
+  br i1 %.not.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %34
 
 34:                                               ; preds = %32
   invoke void @_ZSt20__throw_system_errori(i32 noundef %33) #29
-          to label %.noexc15 unwind label %21
+          to label %.noexc14 unwind label %21
 
-.noexc15:                                         ; preds = %34
+.noexc14:                                         ; preds = %34
   unreachable
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i, %.preheader.i.i, %32, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %23
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, %.preheader.i.i, %32, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %23
   %35 = getelementptr inbounds i8, ptr %1, i64 80
   %36 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %35, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 90, ptr null)
   %37 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
@@ -4185,8 +4068,8 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3Mutex
   %44 = getelementptr inbounds i8, ptr %36, i64 64
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 -8
-  %.not.i.i.i = icmp eq ptr %43, %46
-  br i1 %.not.i.i.i, label %50, label %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit.thread
+  %.not.i.i.i16 = icmp eq ptr %43, %46
+  br i1 %.not.i.i.i16, label %50, label %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit.thread
 
 _ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit.thread: ; preds = %38
   %47 = ptrtoint ptr %37 to i64
@@ -4215,9 +4098,8 @@ _ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i: ; p
 _ZN16VAnyPackagedTaskD2Ev.exit:                   ; preds = %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit.thread, %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i
   store ptr null, ptr %6, align 8
   %54 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %55 = and i8 %54, 1
-  %.not.i.i19 = icmp eq i8 %55, 0
-  br i1 %.not.i.i19, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
 
 56:                                               ; preds = %_ZN16VAnyPackagedTaskD2Ev.exit
   %57 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #30
@@ -4227,8 +4109,8 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit: ; preds = %_ZN16VAnyPackag
   %58 = getelementptr inbounds i8, ptr %1, i64 208
   %59 = load ptr, ptr %58, align 8
   %60 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %59) #30
-  %.not.i.i.i20 = icmp eq i32 %60, 0
-  br i1 %.not.i.i.i20, label %_ZNSt3_V222condition_variable_any10notify_oneEv.exit, label %61
+  %.not.i.i.i19 = icmp eq i32 %60, 0
+  br i1 %.not.i.i.i19, label %_ZNSt3_V222condition_variable_any10notify_oneEv.exit, label %61
 
 61:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
   invoke void @_ZSt20__throw_system_errori(i32 noundef %60) #29
@@ -4259,30 +4141,29 @@ _ZNSt3_V222condition_variable_any10notify_oneEv.exit: ; preds = %_ZN14V3LockGuar
   %70 = landingpad { ptr, i32 }
           cleanup
   %71 = load ptr, ptr %6, align 8
-  %.not.i.i21 = icmp eq ptr %71, null
-  br i1 %.not.i.i21, label %_ZN16VAnyPackagedTaskD2Ev.exit23, label %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i22
+  %.not.i.i20 = icmp eq ptr %71, null
+  br i1 %.not.i.i20, label %_ZN16VAnyPackagedTaskD2Ev.exit22, label %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i21
 
-_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i22: ; preds = %69
+_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i21: ; preds = %69
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
   call void %74(ptr noundef nonnull align 8 dereferenceable(8) %71) #30
-  br label %_ZN16VAnyPackagedTaskD2Ev.exit23
+  br label %_ZN16VAnyPackagedTaskD2Ev.exit22
 
-_ZN16VAnyPackagedTaskD2Ev.exit23:                 ; preds = %69, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i22
+_ZN16VAnyPackagedTaskD2Ev.exit22:                 ; preds = %69, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i21
   store ptr null, ptr %6, align 8
   br label %75
 
-75:                                               ; preds = %_ZN16VAnyPackagedTaskD2Ev.exit23, %67
-  %.pn = phi { ptr, i32 } [ %70, %_ZN16VAnyPackagedTaskD2Ev.exit23 ], [ %68, %67 ]
+75:                                               ; preds = %_ZN16VAnyPackagedTaskD2Ev.exit22, %67
+  %.pn = phi { ptr, i32 } [ %70, %_ZN16VAnyPackagedTaskD2Ev.exit22 ], [ %68, %67 ]
   %76 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %77 = and i8 %76, 1
-  %.not.i.i24 = icmp eq i8 %77, 0
-  br i1 %.not.i.i24, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25, label %78
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %78, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23
 
 78:                                               ; preds = %75
   %79 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #30
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23
 
 _ZNSt6futureIvED2Ev.exit:                         ; preds = %_ZNSt3_V222condition_variable_any10notify_oneEv.exit, %_ZNSt13__future_base13_State_baseV28_S_checkINS_16_Task_state_baseIFvvEEEEEvRKSt10shared_ptrIT_E.exit.i
   %80 = getelementptr inbounds i8, ptr %5, i64 8
@@ -4293,13 +4174,13 @@ _ZNSt6futureIvED2Ev.exit:                         ; preds = %_ZNSt3_V222conditio
   call void @_ZNSt13packaged_taskIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #30
   ret void
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25: ; preds = %78, %75, %21
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23: ; preds = %78, %75, %21
   %.pn10 = phi { ptr, i32 } [ %22, %21 ], [ %.pn, %75 ], [ %.pn, %78 ]
   call void @_ZNSt6futureIvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #30
   br label %82
 
-82:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25, %19
-  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25 ], [ %20, %19 ]
+82:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23, %19
+  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23 ], [ %20, %19 ]
   call void @_ZNSt13packaged_taskIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #30
   resume { ptr, i32 } %.pn10.pn
 }
@@ -4394,9 +4275,8 @@ common.resume:                                    ; preds = %97, %.body.i.i.i.i.
 _ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit: ; preds = %23
   %27 = getelementptr inbounds i8, ptr %1, i64 389
   %28 = load atomic i8, ptr %27 seq_cst, align 1
-  %29 = and i8 %28, 1
-  %.not = icmp eq i8 %29, 0
-  br i1 %.not, label %39, label %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread, label %39
 
 _ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread: ; preds = %23, %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit
   %30 = load ptr, ptr %4, align 16
@@ -4425,13 +4305,12 @@ _ZNSt13__future_base13_State_baseV28_S_checkINS_16_Task_state_baseIFivEEEEEvRKSt
 37:                                               ; preds = %50, %_ZNSt13__future_base13_State_baseV28_S_checkINS_16_Task_state_baseIFivEEEEEvRKSt10shared_ptrIT_E.exit.i, %31
   %38 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23
 
 39:                                               ; preds = %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit
   %40 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %41 = and i8 %40, 1
-  %.not.i.i14 = icmp eq i8 %41, 0
-  br i1 %.not.i.i14, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %39
   %42 = call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %1) #30
@@ -4439,36 +4318,35 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %39
   br i1 %.not.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %46
-  %.06.i.i = phi i32 [ %47, %46 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
+  %.04.i.i = phi i32 [ %47, %46 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
   %43 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %44 = and i8 %43, 1
-  %.not.i2.i.i = icmp eq i8 %44, 0
-  br i1 %.not.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i:   ; preds = %.preheader.i.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i:   ; preds = %.preheader.i.i
   %45 = call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %1) #30
-  %.not.i.i3.i.i = icmp eq i32 %45, 0
-  br i1 %.not.i.i3.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %46
+  %.not.i.i2.i.i = icmp eq i32 %45, 0
+  br i1 %.not.i.i2.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %46
 
-46:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i
+46:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %47 = add nuw nsw i32 %.06.i.i, 1
+  %47 = add nuw nsw i32 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %47, 50000
   br i1 %exitcond.not.i.i, label %48, label %.preheader.i.i, !llvm.loop !6
 
 48:                                               ; preds = %46
   %49 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %1) #30
-  %.not.i5.i.i = icmp eq i32 %49, 0
-  br i1 %.not.i5.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %50
+  %.not.i.i.i = icmp eq i32 %49, 0
+  br i1 %.not.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %50
 
 50:                                               ; preds = %48
   invoke void @_ZSt20__throw_system_errori(i32 noundef %49) #29
-          to label %.noexc15 unwind label %37
+          to label %.noexc14 unwind label %37
 
-.noexc15:                                         ; preds = %50
+.noexc14:                                         ; preds = %50
   unreachable
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i, %.preheader.i.i, %48, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %39
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i, %.preheader.i.i, %48, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %39
   %51 = getelementptr inbounds i8, ptr %1, i64 80
   %52 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %51, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 90, ptr null)
   %53 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
@@ -4487,8 +4365,8 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3Mutex
   %59 = getelementptr inbounds i8, ptr %52, i64 64
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 -8
-  %.not.i.i.i = icmp eq ptr %58, %61
-  br i1 %.not.i.i.i, label %65, label %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit.thread
+  %.not.i.i.i16 = icmp eq ptr %58, %61
+  br i1 %.not.i.i.i16, label %65, label %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit.thread
 
 _ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit.thread: ; preds = %54
   %62 = ptrtoint ptr %53 to i64
@@ -4517,9 +4395,8 @@ _ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i: ; p
 _ZN16VAnyPackagedTaskD2Ev.exit:                   ; preds = %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit.thread, %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEE4pushEOS0_.exit, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i
   store ptr null, ptr %6, align 8
   %69 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %70 = and i8 %69, 1
-  %.not.i.i19 = icmp eq i8 %70, 0
-  br i1 %.not.i.i19, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit, label %71
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %71, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
 
 71:                                               ; preds = %_ZN16VAnyPackagedTaskD2Ev.exit
   %72 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #30
@@ -4529,8 +4406,8 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit: ; preds = %_ZN16VAnyPackag
   %73 = getelementptr inbounds i8, ptr %1, i64 208
   %74 = load ptr, ptr %73, align 8
   %75 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %74) #30
-  %.not.i.i.i20 = icmp eq i32 %75, 0
-  br i1 %.not.i.i.i20, label %_ZNSt3_V222condition_variable_any10notify_oneEv.exit, label %76
+  %.not.i.i.i19 = icmp eq i32 %75, 0
+  br i1 %.not.i.i.i19, label %_ZNSt3_V222condition_variable_any10notify_oneEv.exit, label %76
 
 76:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
   invoke void @_ZSt20__throw_system_errori(i32 noundef %75) #29
@@ -4561,30 +4438,29 @@ _ZNSt3_V222condition_variable_any10notify_oneEv.exit: ; preds = %_ZN14V3LockGuar
   %85 = landingpad { ptr, i32 }
           cleanup
   %86 = load ptr, ptr %6, align 8
-  %.not.i.i21 = icmp eq ptr %86, null
-  br i1 %.not.i.i21, label %_ZN16VAnyPackagedTaskD2Ev.exit23, label %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i22
+  %.not.i.i20 = icmp eq ptr %86, null
+  br i1 %.not.i.i20, label %_ZN16VAnyPackagedTaskD2Ev.exit22, label %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i21
 
-_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i22: ; preds = %84
+_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i21: ; preds = %84
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
   call void %89(ptr noundef nonnull align 8 dereferenceable(8) %86) #30
-  br label %_ZN16VAnyPackagedTaskD2Ev.exit23
+  br label %_ZN16VAnyPackagedTaskD2Ev.exit22
 
-_ZN16VAnyPackagedTaskD2Ev.exit23:                 ; preds = %84, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i22
+_ZN16VAnyPackagedTaskD2Ev.exit22:                 ; preds = %84, %_ZNKSt14default_deleteIN16VAnyPackagedTask13PTWrapperBaseEEclEPS1_.exit.i.i21
   store ptr null, ptr %6, align 8
   br label %90
 
-90:                                               ; preds = %_ZN16VAnyPackagedTaskD2Ev.exit23, %82
-  %.pn = phi { ptr, i32 } [ %85, %_ZN16VAnyPackagedTaskD2Ev.exit23 ], [ %83, %82 ]
+90:                                               ; preds = %_ZN16VAnyPackagedTaskD2Ev.exit22, %82
+  %.pn = phi { ptr, i32 } [ %85, %_ZN16VAnyPackagedTaskD2Ev.exit22 ], [ %83, %82 ]
   %91 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %92 = and i8 %91, 1
-  %.not.i.i24 = icmp eq i8 %92, 0
-  br i1 %.not.i.i24, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25, label %93
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23
 
 93:                                               ; preds = %90
   %94 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #30
-  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25
+  br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23
 
 _ZNSt6futureIiED2Ev.exit:                         ; preds = %_ZNSt3_V222condition_variable_any10notify_oneEv.exit, %_ZNSt13__future_base13_State_baseV28_S_checkINS_16_Task_state_baseIFivEEEEEvRKSt10shared_ptrIT_E.exit.i
   %95 = getelementptr inbounds i8, ptr %5, i64 8
@@ -4595,13 +4471,13 @@ _ZNSt6futureIiED2Ev.exit:                         ; preds = %_ZNSt3_V222conditio
   call void @_ZNSt13packaged_taskIFivEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #30
   ret void
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25: ; preds = %93, %90, %37
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23: ; preds = %93, %90, %37
   %.pn10 = phi { ptr, i32 } [ %38, %37 ], [ %.pn, %90 ], [ %.pn, %93 ]
   call void @_ZNSt6futureIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #30
   br label %97
 
-97:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25, %35
-  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit25 ], [ %36, %35 ]
+97:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23, %35
+  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit23 ], [ %36, %35 ]
   call void @_ZNSt13packaged_taskIFivEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #30
   br label %common.resume
 }
@@ -5153,9 +5029,8 @@ define linkonce_odr dso_local void @_ZN12V3ThreadPoolD2Ev(ptr noundef nonnull al
   %3 = alloca %"class.std::queue", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 391
   %5 = load atomic i8, ptr %4 seq_cst, align 1
-  %6 = and i8 %5, 1
-  %.not24 = icmp eq i8 %6, 0
-  br i1 %.not24, label %8, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
   invoke void @_ZN12V3ThreadPool20resumeMultithreadingEv(ptr noundef nonnull align 8 dereferenceable(392) %0)
@@ -5164,9 +5039,8 @@ define linkonce_odr dso_local void @_ZN12V3ThreadPoolD2Ev(ptr noundef nonnull al
 8:                                                ; preds = %7, %1
   %9 = getelementptr inbounds i8, ptr %0, i64 389
   %10 = load atomic i8, ptr %9 seq_cst, align 1
-  %11 = and i8 %10, 1
-  %.not25 = icmp eq i8 %11, 0
-  br i1 %.not25, label %17, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %17
 
 12:                                               ; preds = %8
   %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.14)
@@ -5183,9 +5057,8 @@ define linkonce_odr dso_local void @_ZN12V3ThreadPoolD2Ev(ptr noundef nonnull al
 17:                                               ; preds = %8
   %18 = getelementptr inbounds i8, ptr %0, i64 388
   %19 = load atomic i8, ptr %18 seq_cst, align 4
-  %20 = and i8 %19, 1
-  %.not26 = icmp eq i8 %20, 0
-  br i1 %.not26, label %26, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %26
 
 21:                                               ; preds = %17
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.15)
@@ -5201,33 +5074,31 @@ define linkonce_odr dso_local void @_ZN12V3ThreadPoolD2Ev(ptr noundef nonnull al
 
 26:                                               ; preds = %17
   %27 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %28 = and i8 %27, 1
-  %.not.i = icmp eq i8 %28, 0
-  br i1 %.not.i, label %._crit_edge.thread, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit, label %._crit_edge.thread
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit:        ; preds = %26
   %29 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #30
   %.not.i.i = icmp eq i32 %29, 0
   br i1 %.not.i.i, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit8
-  %.027 = phi i32 [ %33, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit8 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit ]
+.lr.ph:                                           ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit7
+  %.022 = phi i32 [ %33, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit7 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit ]
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !85
   %30 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %31 = and i8 %30, 1
-  %.not.i6 = icmp eq i8 %31, 0
-  br i1 %.not.i6, label %._crit_edge.thread, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit8
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit7, label %._crit_edge.thread
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit8:       ; preds = %.lr.ph
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit7:       ; preds = %.lr.ph
   %32 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #30
-  %.not.i.i7 = icmp eq i32 %32, 0
-  %33 = add nuw nsw i32 %.027, 1
-  %34 = icmp ugt i32 %.027, 49998
-  %brmerge = or i1 %.not.i.i7, %34
+  %.not.i.i6 = icmp eq i32 %32, 0
+  %33 = add nuw nsw i32 %.022, 1
+  %34 = icmp ugt i32 %.022, 49998
+  %brmerge = or i1 %.not.i.i6, %34
   br i1 %brmerge, label %._crit_edge, label %.lr.ph, !llvm.loop !86
 
-._crit_edge:                                      ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit8
-  br i1 %.not.i.i7, label %._crit_edge.thread, label %35
+._crit_edge:                                      ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit7
+  br i1 %.not.i.i6, label %._crit_edge.thread, label %35
 
 35:                                               ; preds = %._crit_edge
   %36 = getelementptr inbounds i8, ptr %0, i64 248
@@ -5319,9 +5190,8 @@ _ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEEaSEOS4_.exit: ; preds = %_ZNS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @_ZNSt5dequeI16VAnyPackagedTaskSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #30
   %68 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %69 = and i8 %68, 1
-  %.not.i.i9 = icmp eq i8 %69, 0
-  br i1 %.not.i.i9, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit, label %70
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
 
 70:                                               ; preds = %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEEaSEOS4_.exit
   %71 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
@@ -5413,8 +5283,8 @@ _ZNSt3_V222condition_variable_anyD2Ev.exit:       ; preds = %72, %93, %106, %_ZN
   %112 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %111, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 101, ptr null)
   %113 = getelementptr inbounds i8, ptr %112, i64 56
   %114 = load ptr, ptr %113, align 8
-  %.not.i.i.i.i10 = icmp eq ptr %114, null
-  br i1 %.not.i.i.i.i10, label %_ZNSt3_V222condition_variable_anyD2Ev.exit16, label %115
+  %.not.i.i.i.i8 = icmp eq ptr %114, null
+  br i1 %.not.i.i.i.i8, label %_ZNSt3_V222condition_variable_anyD2Ev.exit14, label %115
 
 115:                                              ; preds = %_ZNSt3_V222condition_variable_anyD2Ev.exit
   %116 = getelementptr inbounds i8, ptr %114, i64 8
@@ -5431,12 +5301,12 @@ _ZNSt3_V222condition_variable_anyD2Ev.exit:       ; preds = %72, %93, %106, %_ZN
   %123 = getelementptr inbounds i8, ptr %122, i64 16
   %124 = load ptr, ptr %123, align 8
   call void %124(ptr noundef nonnull align 8 dereferenceable(16) %114) #30
-  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i15
+  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i13
 
 125:                                              ; preds = %115
   %126 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i11 = icmp eq i8 %126, 0
-  br i1 %.not.i.i.i.i.i11, label %129, label %127
+  %.not.i.i.i.i.i9 = icmp eq i8 %126, 0
+  br i1 %.not.i.i.i.i.i9, label %129, label %127
 
 127:                                              ; preds = %125
   %128 = add nsw i32 %119, -1
@@ -5448,9 +5318,9 @@ _ZNSt3_V222condition_variable_anyD2Ev.exit:       ; preds = %72, %93, %106, %_ZN
   br label %131
 
 131:                                              ; preds = %129, %127
-  %.0.i.i.i.i.i12 = phi i32 [ %119, %127 ], [ %130, %129 ]
-  %132 = icmp eq i32 %.0.i.i.i.i.i12, 1
-  br i1 %132, label %133, label %_ZNSt3_V222condition_variable_anyD2Ev.exit16
+  %.0.i.i.i.i.i10 = phi i32 [ %119, %127 ], [ %130, %129 ]
+  %132 = icmp eq i32 %.0.i.i.i.i.i10, 1
+  br i1 %132, label %133, label %_ZNSt3_V222condition_variable_anyD2Ev.exit14
 
 133:                                              ; preds = %131
   %134 = load ptr, ptr %114, align 8
@@ -5459,8 +5329,8 @@ _ZNSt3_V222condition_variable_anyD2Ev.exit:       ; preds = %72, %93, %106, %_ZN
   call void %136(ptr noundef nonnull align 8 dereferenceable(16) %114) #30
   %137 = getelementptr inbounds i8, ptr %114, i64 12
   %138 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i13 = icmp eq i8 %138, 0
-  br i1 %.not.i.i.i.i.i.i.i13, label %142, label %139
+  %.not.i.i.i.i.i.i.i11 = icmp eq i8 %138, 0
+  br i1 %.not.i.i.i.i.i.i.i11, label %142, label %139
 
 139:                                              ; preds = %133
   %140 = load i32, ptr %137, align 4
@@ -5473,26 +5343,26 @@ _ZNSt3_V222condition_variable_anyD2Ev.exit:       ; preds = %72, %93, %106, %_ZN
   br label %144
 
 144:                                              ; preds = %142, %139
-  %.0.i.i.i.i.i.i.i14 = phi i32 [ %140, %139 ], [ %143, %142 ]
-  %145 = icmp eq i32 %.0.i.i.i.i.i.i.i14, 1
-  br i1 %145, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i15, label %_ZNSt3_V222condition_variable_anyD2Ev.exit16
+  %.0.i.i.i.i.i.i.i12 = phi i32 [ %140, %139 ], [ %143, %142 ]
+  %145 = icmp eq i32 %.0.i.i.i.i.i.i.i12, 1
+  br i1 %145, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i13, label %_ZNSt3_V222condition_variable_anyD2Ev.exit14
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i15: ; preds = %144, %120
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i13: ; preds = %144, %120
   %146 = load ptr, ptr %114, align 8
   %147 = getelementptr inbounds i8, ptr %146, i64 24
   %148 = load ptr, ptr %147, align 8
   call void %148(ptr noundef nonnull align 8 dereferenceable(16) %114) #30
-  br label %_ZNSt3_V222condition_variable_anyD2Ev.exit16
+  br label %_ZNSt3_V222condition_variable_anyD2Ev.exit14
 
-_ZNSt3_V222condition_variable_anyD2Ev.exit16:     ; preds = %_ZNSt3_V222condition_variable_anyD2Ev.exit, %131, %144, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i15
+_ZNSt3_V222condition_variable_anyD2Ev.exit14:     ; preds = %_ZNSt3_V222condition_variable_anyD2Ev.exit, %131, %144, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i13
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %112) #30
   %149 = getelementptr inbounds i8, ptr %0, i64 224
   %150 = load ptr, ptr %149, align 8
   %.not8.i.i.i = icmp eq ptr %150, %149
   br i1 %.not8.i.i.i, label %_ZNSt7__cxx114listISt6threadSaIS1_EED2Ev.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZNSt3_V222condition_variable_anyD2Ev.exit16, %_ZNSt16allocator_traitsISaISt10_List_nodeISt6threadEEE7destroyIS1_EEvRS3_PT_.exit.i.i.i
-  %.09.i.i.i = phi ptr [ %153, %_ZNSt16allocator_traitsISaISt10_List_nodeISt6threadEEE7destroyIS1_EEvRS3_PT_.exit.i.i.i ], [ %150, %_ZNSt3_V222condition_variable_anyD2Ev.exit16 ]
+.lr.ph.i.i.i:                                     ; preds = %_ZNSt3_V222condition_variable_anyD2Ev.exit14, %_ZNSt16allocator_traitsISaISt10_List_nodeISt6threadEEE7destroyIS1_EEvRS3_PT_.exit.i.i.i
+  %.09.i.i.i = phi ptr [ %153, %_ZNSt16allocator_traitsISaISt10_List_nodeISt6threadEEE7destroyIS1_EEvRS3_PT_.exit.i.i.i ], [ %150, %_ZNSt3_V222condition_variable_anyD2Ev.exit14 ]
   %151 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 16
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %151, align 8
   %.not.i.i.i.i.i.i = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 0
@@ -5508,11 +5378,11 @@ _ZNSt16allocator_traitsISaISt10_List_nodeISt6threadEEE7destroyIS1_EEvRS3_PT_.exi
   %.not.i.i.i = icmp eq ptr %153, %149
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listISt6threadSaIS1_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !90
 
-_ZNSt7__cxx114listISt6threadSaIS1_EED2Ev.exit:    ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt6threadEEE7destroyIS1_EEvRS3_PT_.exit.i.i.i, %_ZNSt3_V222condition_variable_anyD2Ev.exit16
+_ZNSt7__cxx114listISt6threadSaIS1_EED2Ev.exit:    ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt6threadEEE7destroyIS1_EEvRS3_PT_.exit.i.i.i, %_ZNSt3_V222condition_variable_anyD2Ev.exit14
   %154 = getelementptr inbounds i8, ptr %0, i64 216
   %155 = load ptr, ptr %154, align 8
-  %.not.i.i.i.i17 = icmp eq ptr %155, null
-  br i1 %.not.i.i.i.i17, label %_ZNSt3_V222condition_variable_anyD2Ev.exit23, label %156
+  %.not.i.i.i.i15 = icmp eq ptr %155, null
+  br i1 %.not.i.i.i.i15, label %_ZNSt3_V222condition_variable_anyD2Ev.exit21, label %156
 
 156:                                              ; preds = %_ZNSt7__cxx114listISt6threadSaIS1_EED2Ev.exit
   %157 = getelementptr inbounds i8, ptr %155, i64 8
@@ -5529,12 +5399,12 @@ _ZNSt7__cxx114listISt6threadSaIS1_EED2Ev.exit:    ; preds = %_ZNSt16allocator_tr
   %164 = getelementptr inbounds i8, ptr %163, i64 16
   %165 = load ptr, ptr %164, align 8
   call void %165(ptr noundef nonnull align 8 dereferenceable(16) %155) #30
-  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i22
+  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i20
 
 166:                                              ; preds = %156
   %167 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i18 = icmp eq i8 %167, 0
-  br i1 %.not.i.i.i.i.i18, label %170, label %168
+  %.not.i.i.i.i.i16 = icmp eq i8 %167, 0
+  br i1 %.not.i.i.i.i.i16, label %170, label %168
 
 168:                                              ; preds = %166
   %169 = add nsw i32 %160, -1
@@ -5546,9 +5416,9 @@ _ZNSt7__cxx114listISt6threadSaIS1_EED2Ev.exit:    ; preds = %_ZNSt16allocator_tr
   br label %172
 
 172:                                              ; preds = %170, %168
-  %.0.i.i.i.i.i19 = phi i32 [ %160, %168 ], [ %171, %170 ]
-  %173 = icmp eq i32 %.0.i.i.i.i.i19, 1
-  br i1 %173, label %174, label %_ZNSt3_V222condition_variable_anyD2Ev.exit23
+  %.0.i.i.i.i.i17 = phi i32 [ %160, %168 ], [ %171, %170 ]
+  %173 = icmp eq i32 %.0.i.i.i.i.i17, 1
+  br i1 %173, label %174, label %_ZNSt3_V222condition_variable_anyD2Ev.exit21
 
 174:                                              ; preds = %172
   %175 = load ptr, ptr %155, align 8
@@ -5557,8 +5427,8 @@ _ZNSt7__cxx114listISt6threadSaIS1_EED2Ev.exit:    ; preds = %_ZNSt16allocator_tr
   call void %177(ptr noundef nonnull align 8 dereferenceable(16) %155) #30
   %178 = getelementptr inbounds i8, ptr %155, i64 12
   %179 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i20 = icmp eq i8 %179, 0
-  br i1 %.not.i.i.i.i.i.i.i20, label %183, label %180
+  %.not.i.i.i.i.i.i.i18 = icmp eq i8 %179, 0
+  br i1 %.not.i.i.i.i.i.i.i18, label %183, label %180
 
 180:                                              ; preds = %174
   %181 = load i32, ptr %178, align 4
@@ -5571,18 +5441,18 @@ _ZNSt7__cxx114listISt6threadSaIS1_EED2Ev.exit:    ; preds = %_ZNSt16allocator_tr
   br label %185
 
 185:                                              ; preds = %183, %180
-  %.0.i.i.i.i.i.i.i21 = phi i32 [ %181, %180 ], [ %184, %183 ]
-  %186 = icmp eq i32 %.0.i.i.i.i.i.i.i21, 1
-  br i1 %186, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i22, label %_ZNSt3_V222condition_variable_anyD2Ev.exit23
+  %.0.i.i.i.i.i.i.i19 = phi i32 [ %181, %180 ], [ %184, %183 ]
+  %186 = icmp eq i32 %.0.i.i.i.i.i.i.i19, 1
+  br i1 %186, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i20, label %_ZNSt3_V222condition_variable_anyD2Ev.exit21
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i22: ; preds = %185, %161
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i20: ; preds = %185, %161
   %187 = load ptr, ptr %155, align 8
   %188 = getelementptr inbounds i8, ptr %187, i64 24
   %189 = load ptr, ptr %188, align 8
   call void %189(ptr noundef nonnull align 8 dereferenceable(16) %155) #30
-  br label %_ZNSt3_V222condition_variable_anyD2Ev.exit23
+  br label %_ZNSt3_V222condition_variable_anyD2Ev.exit21
 
-_ZNSt3_V222condition_variable_anyD2Ev.exit23:     ; preds = %_ZNSt7__cxx114listISt6threadSaIS1_EED2Ev.exit, %172, %185, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i22
+_ZNSt3_V222condition_variable_anyD2Ev.exit21:     ; preds = %_ZNSt7__cxx114listISt6threadSaIS1_EED2Ev.exit, %172, %185, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i20
   %190 = getelementptr inbounds i8, ptr %0, i64 160
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %190) #30
   %191 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %48, ptr nonnull @.str.2, ptr nonnull @.str.3, i32 90, ptr null)
@@ -6465,18 +6335,17 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK12V3ThreadPool24willExecut
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
-  br i1 %4, label %10, label %5
+  br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 389
   %7 = load atomic i8, ptr %6 seq_cst, align 1
-  %8 = and i8 %7, 1
-  %9 = icmp ne i8 %8, 0
-  br label %10
+  %8 = trunc i8 %7 to i1
+  br label %9
 
-10:                                               ; preds = %5, %1
-  %11 = phi i1 [ true, %1 ], [ %9, %5 ]
-  ret i1 %11
+9:                                                ; preds = %5, %1
+  %10 = phi i1 [ true, %1 ], [ %8, %5 ]
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7253,15 +7122,14 @@ _ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptr
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %21 = load i8, ptr %5, align 1
-  %22 = and i8 %21, 1
-  %.not = icmp eq i8 %22, 0
-  br i1 %.not, label %27, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %27
 
 23:                                               ; preds = %_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   %25 = atomicrmw xchg ptr %24, i32 1 release, align 4
-  %.not14 = icmp sgt i32 %25, -1
-  br i1 %.not14, label %29, label %26
+  %.not = icmp sgt i32 %25, -1
+  br i1 %.not, label %29, label %26
 
 26:                                               ; preds = %23
   call void @_ZNSt28__atomic_futex_unsigned_base19_M_futex_notify_allEPj(ptr noundef nonnull %24)
@@ -7636,8 +7504,8 @@ define linkonce_odr dso_local void @_ZN12V3ThreadPool21ScopedExclusiveAccessC2Ev
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
   br label %_ZN12V3ThreadPool1sEv.exit
 
-common.resume:                                    ; preds = %87, %78, %69, %60, %43, %23, %9
-  %common.resume.op = phi { ptr, i32 } [ %10, %9 ], [ %24, %23 ], [ %44, %43 ], [ %61, %60 ], [ %70, %69 ], [ %79, %78 ], [ %88, %87 ]
+common.resume:                                    ; preds = %103, %94, %85, %60, %43, %23, %9
+  %common.resume.op = phi { ptr, i32 } [ %10, %9 ], [ %24, %23 ], [ %44, %43 ], [ %61, %60 ], [ %86, %85 ], [ %95, %94 ], [ %104, %103 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
   resume { ptr, i32 } %common.resume.op
 
@@ -7653,9 +7521,8 @@ _ZN12V3ThreadPool1sEv.exit:                       ; preds = %1, %4, %7
 
 _ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit: ; preds = %_ZN12V3ThreadPool1sEv.exit
   %13 = load atomic i8, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 10, i32 0, i32 0) seq_cst, align 1
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread, label %15
 
 15:                                               ; preds = %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit
   %16 = load atomic i8, ptr @_ZGVZN12V3ThreadPool1sEvE3s_s acquire, align 8
@@ -7683,9 +7550,8 @@ _ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit: ; preds = %_ZN12V3ThreadPoo
 
 _ZN12V3ThreadPool1sEv.exit2:                      ; preds = %15, %18, %21
   %25 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %26 = and i8 %25, 1
-  %.not.i3 = icmp eq i8 %26, 0
-  br i1 %.not.i3, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i:      ; preds = %_ZN12V3ThreadPool1sEv.exit2
   %27 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0)) #30
@@ -7693,41 +7559,40 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i:      ; preds = %_ZN12V3ThreadPool1s
   br i1 %.not.i.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i, %31
-  %.06.i = phi i32 [ %32, %31 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i ]
+  %.04.i = phi i32 [ %32, %31 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i ]
   %28 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %29 = and i8 %28, 1
-  %.not.i2.i = icmp eq i8 %29, 0
-  br i1 %.not.i2.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i:     ; preds = %.preheader.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i:     ; preds = %.preheader.i
   %30 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0)) #30
-  %.not.i.i3.i = icmp eq i32 %30, 0
-  br i1 %.not.i.i3.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %31
+  %.not.i.i2.i = icmp eq i32 %30, 0
+  br i1 %.not.i.i2.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %31
 
-31:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i
+31:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %32 = add nuw nsw i32 %.06.i, 1
+  %32 = add nuw nsw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %32, 50000
   br i1 %exitcond.not.i, label %33, label %.preheader.i, !llvm.loop !6
 
 33:                                               ; preds = %31
   %34 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0)) #30
-  %.not.i5.i = icmp eq i32 %34, 0
-  br i1 %.not.i5.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %35
+  %.not.i.i = icmp eq i32 %34, 0
+  br i1 %.not.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %35
 
 35:                                               ; preds = %33
   tail call void @_ZSt20__throw_system_errori(i32 noundef %34) #29
   unreachable
 
-_ZN10V3MutexImpISt5mutexE4lockEv.exit:            ; preds = %.preheader.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i, %_ZN12V3ThreadPool1sEv.exit2, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i, %33
+_ZN10V3MutexImpISt5mutexE4lockEv.exit:            ; preds = %.preheader.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i, %_ZN12V3ThreadPool1sEv.exit2, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i, %33
   %36 = load atomic i8, ptr @_ZGVZN12V3ThreadPool1sEvE3s_s acquire, align 8
   %37 = icmp eq i8 %36, 0
-  br i1 %37, label %38, label %_ZN12V3ThreadPool1sEv.exit5, !prof !17
+  br i1 %37, label %38, label %_ZN12V3ThreadPool1sEv.exit4, !prof !17
 
 38:                                               ; preds = %_ZN10V3MutexImpISt5mutexE4lockEv.exit
   %39 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  %.not.i4 = icmp eq i32 %39, 0
-  br i1 %.not.i4, label %_ZN12V3ThreadPool1sEv.exit5, label %40
+  %.not.i3 = icmp eq i32 %39, 0
+  br i1 %.not.i3, label %_ZN12V3ThreadPool1sEv.exit4, label %40
 
 40:                                               ; preds = %38
   invoke void @_ZN12V3ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
@@ -7736,40 +7601,37 @@ _ZN10V3MutexImpISt5mutexE4lockEv.exit:            ; preds = %.preheader.i, %_ZN1
 41:                                               ; preds = %40
   %42 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12V3ThreadPoolD2Ev, ptr nonnull @_ZZN12V3ThreadPool1sEvE3s_s, ptr nonnull @__dso_handle) #30
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  br label %_ZN12V3ThreadPool1sEv.exit5
+  br label %_ZN12V3ThreadPool1sEv.exit4
 
 43:                                               ; preds = %40
   %44 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN12V3ThreadPool1sEv.exit5:                      ; preds = %_ZN10V3MutexImpISt5mutexE4lockEv.exit, %38, %41
+_ZN12V3ThreadPool1sEv.exit4:                      ; preds = %_ZN10V3MutexImpISt5mutexE4lockEv.exit, %38, %41
   %45 = load atomic i8, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 10, i32 0, i32 0) seq_cst, align 1
-  %46 = and i8 %45, 1
-  %.not.i6 = icmp eq i8 %46, 0
-  br i1 %.not.i6, label %47, label %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread, label %47
 
-47:                                               ; preds = %_ZN12V3ThreadPool1sEv.exit5
+47:                                               ; preds = %_ZN12V3ThreadPool1sEv.exit4
   %48 = load atomic i8, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 11, i32 0, i32 0) seq_cst, align 2
-  %49 = and i8 %48, 1
-  %.not2.i = icmp eq i8 %49, 0
-  br i1 %.not2.i, label %_ZNK12V3ThreadPool13stopRequestedEv.exit, label %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread, label %_ZNK12V3ThreadPool13stopRequestedEv.exit
 
 _ZNK12V3ThreadPool13stopRequestedEv.exit:         ; preds = %47
   %50 = load atomic i8, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 9, i32 0, i32 0) seq_cst, align 4
-  %51 = and i8 %50, 1
-  %.not16 = icmp eq i8 %51, 0
-  br i1 %.not16, label %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread, label %52
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %52, label %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread
 
 52:                                               ; preds = %_ZNK12V3ThreadPool13stopRequestedEv.exit
   %53 = load atomic i8, ptr @_ZGVZN12V3ThreadPool1sEvE3s_s acquire, align 8
   %54 = icmp eq i8 %53, 0
-  br i1 %54, label %55, label %_ZN12V3ThreadPool1sEv.exit8, !prof !17
+  br i1 %54, label %55, label %_ZN12V3ThreadPool1sEv.exit6, !prof !17
 
 55:                                               ; preds = %52
   %56 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  %.not.i7 = icmp eq i32 %56, 0
-  br i1 %.not.i7, label %_ZN12V3ThreadPool1sEv.exit8, label %57
+  %.not.i5 = icmp eq i32 %56, 0
+  br i1 %.not.i5, label %_ZN12V3ThreadPool1sEv.exit6, label %57
 
 57:                                               ; preds = %55
   invoke void @_ZN12V3ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
@@ -7778,95 +7640,132 @@ _ZNK12V3ThreadPool13stopRequestedEv.exit:         ; preds = %47
 58:                                               ; preds = %57
   %59 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12V3ThreadPoolD2Ev, ptr nonnull @_ZZN12V3ThreadPool1sEvE3s_s, ptr nonnull @__dso_handle) #30
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  br label %_ZN12V3ThreadPool1sEv.exit8
+  br label %_ZN12V3ThreadPool1sEv.exit6
 
 60:                                               ; preds = %57
   %61 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN12V3ThreadPool1sEv.exit8:                      ; preds = %52, %55, %58
-  tail call void @_ZN12V3ThreadPool20waitForResumeRequestEv(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
+_ZN12V3ThreadPool1sEv.exit6:                      ; preds = %52, %55, %58
+  %62 = atomicrmw add ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 8, i32 0, i32 0), i32 1 seq_cst, align 4
+  %63 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 7, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), ptr nonnull @.str.2, ptr nonnull @.str.3, i32 103, ptr null)
+  %64 = getelementptr inbounds i8, ptr %63, i64 48
+  %65 = load ptr, ptr %64, align 8
+  %66 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %65) #30
+  %.not.i.i.i.i = icmp eq i32 %66, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt3_V222condition_variable_any10notify_oneEv.exit.i, label %67
+
+67:                                               ; preds = %_ZN12V3ThreadPool1sEv.exit6
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %66) #29
+          to label %.noexc.i.i unwind label %68
+
+.noexc.i.i:                                       ; preds = %67
+  unreachable
+
+68:                                               ; preds = %67
+  %69 = landingpad { ptr, i32 }
+          catch ptr null
+  %70 = extractvalue { ptr, i32 } %69, 0
+  tail call void @__clang_call_terminate(ptr %70) #31
+  unreachable
+
+_ZNSt3_V222condition_variable_any10notify_oneEv.exit.i: ; preds = %_ZN12V3ThreadPool1sEv.exit6
+  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %63) #30
+  %71 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %65) #30
+  %72 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 6, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0), ptr nonnull @.str.2, ptr nonnull @.str.3, i32 101, ptr null)
+  %73 = load atomic i8, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 9, i32 0, i32 0) seq_cst, align 4
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %.lr.ph.i.i, label %_ZN12V3ThreadPool20waitForResumeRequestEv.exit
+
+.lr.ph.i.i:                                       ; preds = %_ZNSt3_V222condition_variable_any10notify_oneEv.exit.i, %.lr.ph.i.i
+  tail call void @_ZNSt3_V222condition_variable_any4waitI10V3MutexImpISt5mutexEEEvRT_(ptr noundef nonnull align 8 dereferenceable(64) %72, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0))
+  %75 = load atomic i8, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 9, i32 0, i32 0) seq_cst, align 4
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %.lr.ph.i.i, label %_ZN12V3ThreadPool20waitForResumeRequestEv.exit, !llvm.loop !16
+
+_ZN12V3ThreadPool20waitForResumeRequestEv.exit:   ; preds = %.lr.ph.i.i, %_ZNSt3_V222condition_variable_any10notify_oneEv.exit.i
+  %77 = atomicrmw sub ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 8, i32 0, i32 0), i32 1 seq_cst, align 4
   br label %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread
 
-_ZNK12V3ThreadPool13stopRequestedEv.exit.thread:  ; preds = %47, %_ZN12V3ThreadPool1sEv.exit5, %_ZN12V3ThreadPool1sEv.exit8, %_ZNK12V3ThreadPool13stopRequestedEv.exit
-  %62 = load atomic i8, ptr @_ZGVZN12V3ThreadPool1sEvE3s_s acquire, align 8
-  %63 = icmp eq i8 %62, 0
-  br i1 %63, label %64, label %_ZN12V3ThreadPool1sEv.exit10, !prof !17
+_ZNK12V3ThreadPool13stopRequestedEv.exit.thread:  ; preds = %47, %_ZN12V3ThreadPool1sEv.exit4, %_ZN12V3ThreadPool20waitForResumeRequestEv.exit, %_ZNK12V3ThreadPool13stopRequestedEv.exit
+  %78 = load atomic i8, ptr @_ZGVZN12V3ThreadPool1sEvE3s_s acquire, align 8
+  %79 = icmp eq i8 %78, 0
+  br i1 %79, label %80, label %_ZN12V3ThreadPool1sEv.exit8, !prof !17
 
-64:                                               ; preds = %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread
-  %65 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  %.not.i9 = icmp eq i32 %65, 0
-  br i1 %.not.i9, label %_ZN12V3ThreadPool1sEv.exit10, label %66
+80:                                               ; preds = %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread
+  %81 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
+  %.not.i7 = icmp eq i32 %81, 0
+  br i1 %.not.i7, label %_ZN12V3ThreadPool1sEv.exit8, label %82
 
-66:                                               ; preds = %64
+82:                                               ; preds = %80
   invoke void @_ZN12V3ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
-          to label %67 unwind label %69
+          to label %83 unwind label %85
 
-67:                                               ; preds = %66
-  %68 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12V3ThreadPoolD2Ev, ptr nonnull @_ZZN12V3ThreadPool1sEvE3s_s, ptr nonnull @__dso_handle) #30
+83:                                               ; preds = %82
+  %84 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12V3ThreadPoolD2Ev, ptr nonnull @_ZZN12V3ThreadPool1sEvE3s_s, ptr nonnull @__dso_handle) #30
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
+  br label %_ZN12V3ThreadPool1sEv.exit8
+
+85:                                               ; preds = %82
+  %86 = landingpad { ptr, i32 }
+          cleanup
+  br label %common.resume
+
+_ZN12V3ThreadPool1sEv.exit8:                      ; preds = %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread, %80, %83
+  tail call void @_ZN12V3ThreadPool16stopOtherThreadsEv(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
+  %87 = load atomic i8, ptr @_ZGVZN12V3ThreadPool1sEvE3s_s acquire, align 8
+  %88 = icmp eq i8 %87, 0
+  br i1 %88, label %89, label %_ZN12V3ThreadPool1sEv.exit10, !prof !17
+
+89:                                               ; preds = %_ZN12V3ThreadPool1sEv.exit8
+  %90 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
+  %.not.i9 = icmp eq i32 %90, 0
+  br i1 %.not.i9, label %_ZN12V3ThreadPool1sEv.exit10, label %91
+
+91:                                               ; preds = %89
+  invoke void @_ZN12V3ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
+          to label %92 unwind label %94
+
+92:                                               ; preds = %91
+  %93 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12V3ThreadPoolD2Ev, ptr nonnull @_ZZN12V3ThreadPool1sEvE3s_s, ptr nonnull @__dso_handle) #30
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
   br label %_ZN12V3ThreadPool1sEv.exit10
 
-69:                                               ; preds = %66
-  %70 = landingpad { ptr, i32 }
+94:                                               ; preds = %91
+  %95 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN12V3ThreadPool1sEv.exit10:                     ; preds = %_ZNK12V3ThreadPool13stopRequestedEv.exit.thread, %64, %67
-  tail call void @_ZN12V3ThreadPool16stopOtherThreadsEv(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
-  %71 = load atomic i8, ptr @_ZGVZN12V3ThreadPool1sEvE3s_s acquire, align 8
-  %72 = icmp eq i8 %71, 0
-  br i1 %72, label %73, label %_ZN12V3ThreadPool1sEv.exit12, !prof !17
+_ZN12V3ThreadPool1sEv.exit10:                     ; preds = %_ZN12V3ThreadPool1sEv.exit8, %89, %92
+  store atomic i8 1, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 10, i32 0, i32 0) seq_cst, align 1
+  br label %_ZN12V3ThreadPool1sEv.exit12
 
-73:                                               ; preds = %_ZN12V3ThreadPool1sEv.exit10
-  %74 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  %.not.i11 = icmp eq i32 %74, 0
-  br i1 %.not.i11, label %_ZN12V3ThreadPool1sEv.exit12, label %75
+_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread: ; preds = %_ZN12V3ThreadPool1sEv.exit, %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit
+  %96 = load atomic i8, ptr @_ZGVZN12V3ThreadPool1sEvE3s_s acquire, align 8
+  %97 = icmp eq i8 %96, 0
+  br i1 %97, label %98, label %_ZN12V3ThreadPool1sEv.exit12, !prof !17
 
-75:                                               ; preds = %73
+98:                                               ; preds = %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread
+  %99 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
+  %.not.i11 = icmp eq i32 %99, 0
+  br i1 %.not.i11, label %_ZN12V3ThreadPool1sEv.exit12, label %100
+
+100:                                              ; preds = %98
   invoke void @_ZN12V3ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
-          to label %76 unwind label %78
+          to label %101 unwind label %103
 
-76:                                               ; preds = %75
-  %77 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12V3ThreadPoolD2Ev, ptr nonnull @_ZZN12V3ThreadPool1sEvE3s_s, ptr nonnull @__dso_handle) #30
+101:                                              ; preds = %100
+  %102 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12V3ThreadPoolD2Ev, ptr nonnull @_ZZN12V3ThreadPool1sEvE3s_s, ptr nonnull @__dso_handle) #30
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
   br label %_ZN12V3ThreadPool1sEv.exit12
 
-78:                                               ; preds = %75
-  %79 = landingpad { ptr, i32 }
+103:                                              ; preds = %100
+  %104 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN12V3ThreadPool1sEv.exit12:                     ; preds = %_ZN12V3ThreadPool1sEv.exit10, %73, %76
-  store atomic i8 1, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 10, i32 0, i32 0) seq_cst, align 1
-  br label %_ZN12V3ThreadPool1sEv.exit14
-
-_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread: ; preds = %_ZN12V3ThreadPool1sEv.exit, %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit
-  %80 = load atomic i8, ptr @_ZGVZN12V3ThreadPool1sEvE3s_s acquire, align 8
-  %81 = icmp eq i8 %80, 0
-  br i1 %81, label %82, label %_ZN12V3ThreadPool1sEv.exit14, !prof !17
-
-82:                                               ; preds = %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread
-  %83 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  %.not.i13 = icmp eq i32 %83, 0
-  br i1 %.not.i13, label %_ZN12V3ThreadPool1sEv.exit14, label %84
-
-84:                                               ; preds = %82
-  invoke void @_ZN12V3ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
-          to label %85 unwind label %87
-
-85:                                               ; preds = %84
-  %86 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12V3ThreadPoolD2Ev, ptr nonnull @_ZZN12V3ThreadPool1sEvE3s_s, ptr nonnull @__dso_handle) #30
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  br label %_ZN12V3ThreadPool1sEv.exit14
-
-87:                                               ; preds = %84
-  %88 = landingpad { ptr, i32 }
-          cleanup
-  br label %common.resume
-
-_ZN12V3ThreadPool1sEv.exit14:                     ; preds = %85, %82, %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread, %_ZN12V3ThreadPool1sEv.exit12
+_ZN12V3ThreadPool1sEv.exit12:                     ; preds = %101, %98, %_ZNK12V3ThreadPool24willExecuteSynchronouslyEv.exit.thread, %_ZN12V3ThreadPool1sEv.exit10
   ret void
 }
 
@@ -7897,11 +7796,10 @@ define linkonce_odr dso_local void @_ZN12V3ThreadPool21ScopedExclusiveAccessD2Ev
 
 _ZN12V3ThreadPool1sEv.exit:                       ; preds = %7, %4, %1
   %11 = load atomic i8, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 10, i32 0, i32 0) seq_cst, align 1
-  %12 = and i8 %11, 1
-  %.not22 = icmp eq i8 %12, 0
+  %12 = trunc i8 %11 to i1
   %13 = load atomic i8, ptr @_ZGVZN12V3ThreadPool1sEvE3s_s acquire, align 8
   %14 = icmp eq i8 %13, 0
-  br i1 %.not22, label %64, label %15
+  br i1 %12, label %15, label %64
 
 15:                                               ; preds = %_ZN12V3ThreadPool1sEv.exit
   br i1 %14, label %16, label %_ZN12V3ThreadPool1sEv.exit4, !prof !17
@@ -8001,9 +7899,8 @@ _ZN12V3ThreadPool18resumeOtherThreadsEv.exit:     ; preds = %_ZN12V3ThreadPool1s
 
 _ZN12V3ThreadPool1sEv.exit12:                     ; preds = %46, %43, %_ZN12V3ThreadPool18resumeOtherThreadsEv.exit
   %50 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %51 = and i8 %50, 1
-  %.not.i13 = icmp eq i8 %51, 0
-  br i1 %.not.i13, label %_ZN10V3MutexImpISt5mutexE6unlockEv.exit.preheader, label %52
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %52, label %_ZN10V3MutexImpISt5mutexE6unlockEv.exit.preheader
 
 52:                                               ; preds = %_ZN12V3ThreadPool1sEv.exit12
   %53 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0)) #30
@@ -8012,15 +7909,15 @@ _ZN12V3ThreadPool1sEv.exit12:                     ; preds = %46, %43, %_ZN12V3Th
 _ZN10V3MutexImpISt5mutexE6unlockEv.exit.preheader: ; preds = %_ZN12V3ThreadPool1sEv.exit12, %52
   br label %_ZN10V3MutexImpISt5mutexE6unlockEv.exit
 
-_ZN10V3MutexImpISt5mutexE6unlockEv.exit:          ; preds = %_ZN10V3MutexImpISt5mutexE6unlockEv.exit.preheader, %_ZN12V3ThreadPool1sEv.exit17
+_ZN10V3MutexImpISt5mutexE6unlockEv.exit:          ; preds = %_ZN10V3MutexImpISt5mutexE6unlockEv.exit.preheader, %_ZN12V3ThreadPool1sEv.exit16
   %54 = load atomic i8, ptr @_ZGVZN12V3ThreadPool1sEvE3s_s acquire, align 8
   %55 = icmp eq i8 %54, 0
-  br i1 %55, label %56, label %_ZN12V3ThreadPool1sEv.exit17, !prof !17
+  br i1 %55, label %56, label %_ZN12V3ThreadPool1sEv.exit16, !prof !17
 
 56:                                               ; preds = %_ZN10V3MutexImpISt5mutexE6unlockEv.exit
   %57 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  %.not.i14 = icmp eq i32 %57, 0
-  br i1 %.not.i14, label %_ZN12V3ThreadPool1sEv.exit17, label %58
+  %.not.i13 = icmp eq i32 %57, 0
+  br i1 %.not.i13, label %_ZN12V3ThreadPool1sEv.exit16, label %58
 
 58:                                               ; preds = %56
   invoke void @_ZN12V3ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
@@ -8029,25 +7926,25 @@ _ZN10V3MutexImpISt5mutexE6unlockEv.exit:          ; preds = %_ZN10V3MutexImpISt5
 59:                                               ; preds = %58
   %60 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12V3ThreadPoolD2Ev, ptr nonnull @_ZZN12V3ThreadPool1sEvE3s_s, ptr nonnull @__dso_handle) #30
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  br label %_ZN12V3ThreadPool1sEv.exit17
+  br label %_ZN12V3ThreadPool1sEv.exit16
 
 61:                                               ; preds = %58
   %62 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body
 
-_ZN12V3ThreadPool1sEv.exit17:                     ; preds = %59, %56, %_ZN10V3MutexImpISt5mutexE6unlockEv.exit
+_ZN12V3ThreadPool1sEv.exit16:                     ; preds = %59, %56, %_ZN10V3MutexImpISt5mutexE6unlockEv.exit
   %63 = load atomic i32, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 8, i32 0, i32 0) seq_cst, align 8
   %.not = icmp eq i32 %63, 0
-  br i1 %.not, label %_ZN12V3ThreadPool1sEv.exit21, label %_ZN10V3MutexImpISt5mutexE6unlockEv.exit, !llvm.loop !125
+  br i1 %.not, label %_ZN12V3ThreadPool1sEv.exit20, label %_ZN10V3MutexImpISt5mutexE6unlockEv.exit, !llvm.loop !125
 
 64:                                               ; preds = %_ZN12V3ThreadPool1sEv.exit
-  br i1 %14, label %65, label %_ZN12V3ThreadPool1sEv.exit21, !prof !17
+  br i1 %14, label %65, label %_ZN12V3ThreadPool1sEv.exit20, !prof !17
 
 65:                                               ; preds = %64
   %66 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  %.not.i18 = icmp eq i32 %66, 0
-  br i1 %.not.i18, label %_ZN12V3ThreadPool1sEv.exit21, label %67
+  %.not.i17 = icmp eq i32 %66, 0
+  br i1 %.not.i17, label %_ZN12V3ThreadPool1sEv.exit20, label %67
 
 67:                                               ; preds = %65
   invoke void @_ZN12V3ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
@@ -8056,14 +7953,14 @@ _ZN12V3ThreadPool1sEv.exit17:                     ; preds = %59, %56, %_ZN10V3Mu
 68:                                               ; preds = %67
   %69 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12V3ThreadPoolD2Ev, ptr nonnull @_ZZN12V3ThreadPool1sEvE3s_s, ptr nonnull @__dso_handle) #30
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  br label %_ZN12V3ThreadPool1sEv.exit21
+  br label %_ZN12V3ThreadPool1sEv.exit20
 
 70:                                               ; preds = %67
   %71 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body
 
-_ZN12V3ThreadPool1sEv.exit21:                     ; preds = %_ZN12V3ThreadPool1sEv.exit17, %64, %65, %68
+_ZN12V3ThreadPool1sEv.exit20:                     ; preds = %_ZN12V3ThreadPool1sEv.exit16, %64, %65, %68
   ret void
 
 .body:                                            ; preds = %21, %48, %70, %61, %30, %9
@@ -8082,9 +7979,8 @@ declare ptr @__errno_location() local_unnamed_addr #20
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN10V3MutexImpISt5mutexE4lockEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %_ZNSt5mutex4lockEv.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit, label %_ZNSt5mutex4lockEv.exit
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit:        ; preds = %1
   %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #30
@@ -8092,33 +7988,32 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit:        ; preds = %1
   br i1 %.not.i.i, label %_ZNSt5mutex4lockEv.exit, label %.preheader
 
 .preheader:                                       ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit, %8
-  %.06 = phi i32 [ %9, %8 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit ]
+  %.04 = phi i32 [ %9, %8 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit ]
   %5 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %6 = and i8 %5, 1
-  %.not.i2 = icmp eq i8 %6, 0
-  br i1 %.not.i2, label %_ZNSt5mutex4lockEv.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3, label %_ZNSt5mutex4lockEv.exit
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4:       ; preds = %.preheader
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3:       ; preds = %.preheader
   %7 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #30
-  %.not.i.i3 = icmp eq i32 %7, 0
-  br i1 %.not.i.i3, label %_ZNSt5mutex4lockEv.exit, label %8
+  %.not.i.i2 = icmp eq i32 %7, 0
+  br i1 %.not.i.i2, label %_ZNSt5mutex4lockEv.exit, label %8
 
-8:                                                ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4
+8:                                                ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %9 = add nuw nsw i32 %.06, 1
+  %9 = add nuw nsw i32 %.04, 1
   %exitcond.not = icmp eq i32 %9, 50000
   br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !6
 
 10:                                               ; preds = %8
   %11 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #30
-  %.not.i5 = icmp eq i32 %11, 0
-  br i1 %.not.i5, label %_ZNSt5mutex4lockEv.exit, label %12
+  %.not.i = icmp eq i32 %11, 0
+  br i1 %.not.i, label %_ZNSt5mutex4lockEv.exit, label %12
 
 12:                                               ; preds = %10
   tail call void @_ZSt20__throw_system_errori(i32 noundef %11) #29
   unreachable
 
-_ZNSt5mutex4lockEv.exit:                          ; preds = %.preheader, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4, %10, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit, %1
+_ZNSt5mutex4lockEv.exit:                          ; preds = %.preheader, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3, %10, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit, %1
   ret void
 }
 
@@ -8130,17 +8025,15 @@ define linkonce_odr dso_local void @_ZN10V3MutexImpISt5mutexE12assumeLockedEv(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3MutexConfig6enableEv(ptr noundef nonnull align 1 dereferenceable(2) %0) #4 comdat align 2 {
   %2 = load i8, ptr %0, align 1
-  %3 = and i8 %2, 1
-  %4 = icmp ne i8 %3, 0
-  ret i1 %4
+  %3 = trunc i8 %2 to i1
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN10V3MutexImpISt5mutexE6unlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #3 comdat align 2 {
   %2 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %6, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
@@ -8217,9 +8110,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
   store ptr null, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %25 = load i8, ptr %5, align 1
-  %26 = and i8 %25, 1
-  %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %27, label %31
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %31, label %27
 
 27:                                               ; preds = %24
   invoke void @_ZSt20__throw_future_errori(i32 noundef 2) #29
@@ -9472,9 +9364,8 @@ define internal fastcc void @"_ZSt10__invoke_rIvRSt5_BindIFZN12V3ThreadPool8self
   %.val.i.i.i = load i32, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %6 = and i8 %5, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %6, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i: ; preds = %1
   %7 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %4) #30
@@ -9482,37 +9373,35 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i: ; preds = %1
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i:                         ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i, %11
-  %.06.i.i.i.i.i.i.i = phi i32 [ %12, %11 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i ]
+  %.04.i.i.i.i.i.i.i = phi i32 [ %12, %11 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i ]
   %8 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %9 = and i8 %8, 1
-  %.not.i2.i.i.i.i.i.i.i = icmp eq i8 %9, 0
-  br i1 %.not.i2.i.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i.i.i.i.i
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i.i.i.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i.i.i.i
   %10 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %4) #30
-  %.not.i.i3.i.i.i.i.i.i.i = icmp eq i32 %10, 0
-  br i1 %.not.i.i3.i.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i, label %11
+  %.not.i.i2.i.i.i.i.i.i.i = icmp eq i32 %10, 0
+  br i1 %.not.i.i2.i.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i, label %11
 
-11:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i.i.i.i.i
+11:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i.i.i.i.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %12 = add nuw nsw i32 %.06.i.i.i.i.i.i.i, 1
+  %12 = add nuw nsw i32 %.04.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %12, 50000
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %13, label %.preheader.i.i.i.i.i.i.i, !llvm.loop !6
 
 13:                                               ; preds = %11
   %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %4) #30
-  %.not.i5.i.i.i.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i, label %15
+  %.not.i.i.i.i.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i, label %15
 
 15:                                               ; preds = %13
   tail call void @_ZSt20__throw_system_errori(i32 noundef %14) #29
   unreachable
 
-_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i, %13, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i, %1
+_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i, %13, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i, %1
   %16 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %17 = and i8 %16, 1
-  %.not.i2.i.i.i.i.i.i = icmp eq i8 %17, 0
-  br i1 %.not.i2.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE6unlockEv.exit.i.i.i.i.i.i, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %_ZN10V3MutexImpISt5mutexE6unlockEv.exit.i.i.i.i.i.i
 
 18:                                               ; preds = %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i
   %19 = load ptr, ptr %0, align 8
@@ -9526,8 +9415,8 @@ _ZN10V3MutexImpISt5mutexE6unlockEv.exit.i.i.i.i.i.i: ; preds = %18, %_ZN10V3Mute
 
 23:                                               ; preds = %_ZN10V3MutexImpISt5mutexE6unlockEv.exit.i.i.i.i.i.i
   %24 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  %.not.i3.i.i.i.i.i.i = icmp eq i32 %24, 0
-  br i1 %.not.i3.i.i.i.i.i.i, label %_ZN12V3ThreadPool1sEv.exit.i.i.i.i.i.i, label %25
+  %.not.i.i.i.i.i.i.i = icmp eq i32 %24, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN12V3ThreadPool1sEv.exit.i.i.i.i.i.i, label %25
 
 25:                                               ; preds = %23
   invoke void @_ZN12V3ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
@@ -9552,9 +9441,8 @@ _ZN12V3ThreadPool1sEv.exit.i.i.i.i.i.i:           ; preds = %26, %23, %_ZN10V3Mu
   %30 = tail call noundef zeroext i1 @_ZN12V3ThreadPool19waitIfStopRequestedEv(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
   %31 = load ptr, ptr %0, align 8
   %32 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %33 = and i8 %32, 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN12V3ThreadPool1sEv.exit.i.i.i.i.i.i
   %34 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %31) #30
@@ -9562,33 +9450,32 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN12V3Thr
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i, %38
-  %.06.i.i.i.i.i.i.i.i = phi i32 [ %39, %38 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i ]
+  %.04.i.i.i.i.i.i.i.i = phi i32 [ %39, %38 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i ]
   %35 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %36 = and i8 %35, 1
-  %.not.i2.i.i.i.i.i.i.i.i = icmp eq i8 %36, 0
-  br i1 %.not.i2.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i.i.i.i.i.i
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i.i.i.i.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i.i.i.i.i
   %37 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %31) #30
-  %.not.i.i3.i.i.i.i.i.i.i.i = icmp eq i32 %37, 0
-  br i1 %.not.i.i3.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i, label %38
+  %.not.i.i2.i.i.i.i.i.i.i.i = icmp eq i32 %37, 0
+  br i1 %.not.i.i2.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i, label %38
 
-38:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i.i.i.i.i.i
+38:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i.i.i.i.i.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %39 = add nuw nsw i32 %.06.i.i.i.i.i.i.i.i, 1
+  %39 = add nuw nsw i32 %.04.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i32 %39, 50000
   br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %40, label %.preheader.i.i.i.i.i.i.i.i, !llvm.loop !6
 
 40:                                               ; preds = %38
   %41 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %31) #30
-  %.not.i5.i.i.i.i.i.i.i.i = icmp eq i32 %41, 0
-  br i1 %.not.i5.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i, label %42
+  %.not.i.i.i2.i.i.i.i.i.i = icmp eq i32 %41, 0
+  br i1 %.not.i.i.i2.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i, label %42
 
 42:                                               ; preds = %40
   tail call void @_ZSt20__throw_system_errori(i32 noundef %41) #29
   unreachable
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i, %40, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i, %_ZN12V3ThreadPool1sEv.exit.i.i.i.i.i.i
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i, %40, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i, %_ZN12V3ThreadPool1sEv.exit.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %43 = icmp slt i32 %.val.i.i.i, 1
   br i1 %43, label %.loopexit.i.i.i.i.i.i, label %44
@@ -9625,9 +9512,8 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i: ; preds = %
   %58 = load ptr, ptr %57, align 8
   store i32 1000, ptr %58, align 4
   %59 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %60 = and i8 %59, 1
-  %.not.i.i4.i.i.i.i.i.i = icmp eq i8 %60, 0
-  br i1 %.not.i.i4.i.i.i.i.i.i, label %"_ZSt13__invoke_implIvRSt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEEJEET_St14__invoke_otherOT0_DpOT1_.exit", label %61
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %"_ZSt13__invoke_implIvRSt5_BindIFZN12V3ThreadPool8selfTestEvE3$_1iEEJEET_St14__invoke_otherOT0_DpOT1_.exit"
 
 61:                                               ; preds = %.loopexit.i.i.i.i.i.i
   %62 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %31) #30
@@ -9637,9 +9523,8 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i: ; preds = %
   %64 = landingpad { ptr, i32 }
           cleanup
   %65 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %66 = and i8 %65, 1
-  %.not.i.i5.i.i.i.i.i.i = icmp eq i8 %66, 0
-  br i1 %.not.i.i5.i.i.i.i.i.i, label %common.resume.i.i.i.i.i.i, label %67
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %common.resume.i.i.i.i.i.i
 
 67:                                               ; preds = %63
   %68 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %31) #30
@@ -10328,9 +10213,8 @@ define internal fastcc void @"_ZSt10__invoke_rIvRSt5_BindIFZN12V3ThreadPool8self
   %.val.i.i.i = load i32, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %7 = and i8 %6, 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i: ; preds = %1
   %8 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %5) #30
@@ -10338,33 +10222,32 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i: ; preds = %1
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i, %12
-  %.06.i.i.i.i.i.i.i.i = phi i32 [ %13, %12 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i ]
+  %.04.i.i.i.i.i.i.i.i = phi i32 [ %13, %12 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i ]
   %9 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %10 = and i8 %9, 1
-  %.not.i2.i.i.i.i.i.i.i.i = icmp eq i8 %10, 0
-  br i1 %.not.i2.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i.i.i.i.i.i
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i.i.i.i.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i.i.i.i.i
   %11 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %5) #30
-  %.not.i.i3.i.i.i.i.i.i.i.i = icmp eq i32 %11, 0
-  br i1 %.not.i.i3.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i, label %12
+  %.not.i.i2.i.i.i.i.i.i.i.i = icmp eq i32 %11, 0
+  br i1 %.not.i.i2.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i, label %12
 
-12:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i.i.i.i.i.i
+12:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i.i.i.i.i.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %13 = add nuw nsw i32 %.06.i.i.i.i.i.i.i.i, 1
+  %13 = add nuw nsw i32 %.04.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i32 %13, 50000
   br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %14, label %.preheader.i.i.i.i.i.i.i.i, !llvm.loop !6
 
 14:                                               ; preds = %12
   %15 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %5) #30
-  %.not.i5.i.i.i.i.i.i.i.i = icmp eq i32 %15, 0
-  br i1 %.not.i5.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i, label %16
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %15, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i, label %16
 
 16:                                               ; preds = %14
   tail call void @_ZSt20__throw_system_errori(i32 noundef %15) #29
   unreachable
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i, %14, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i, %1
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i, %14, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i, %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %17 = icmp slt i32 %.val.i.i.i, 1
   br i1 %17, label %.loopexit.i.i.i.i.i.i, label %18
@@ -10398,9 +10281,8 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i: ; preds = %
 .loopexit.i.i.i.i.i.i:                            ; preds = %27, %.noexc.i.i.i.i.i.i, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %31 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %32 = and i8 %31, 1
-  %.not.i.i2.i.i.i.i.i.i = icmp eq i8 %32, 0
-  br i1 %.not.i.i2.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit.i.i.i.i.i.i, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit.i.i.i.i.i.i
 
 33:                                               ; preds = %.loopexit.i.i.i.i.i.i
   %34 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #30
@@ -10454,52 +10336,49 @@ _ZN12V3ThreadPool1sEv.exit.i.i.i.i.i.i:           ; preds = %40, %37, %_ZN14V3Lo
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   %48 = load ptr, ptr %0, align 8
   %49 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %50 = and i8 %49, 1
-  %.not.i.i3.i.i.i.i.i.i = icmp eq i8 %50, 0
-  br i1 %.not.i.i3.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit13.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i4.i.i.i.i.i.i
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i2.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit10.i.i.i.i.i.i
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i4.i.i.i.i.i.i: ; preds = %"_ZN12V3ThreadPool22requestExclusiveAccessIZZNS_8selfTestEvENK3$_2clEiEUlvE_EEvOT_.exit.i.i.i.i.i.i"
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i2.i.i.i.i.i.i: ; preds = %"_ZN12V3ThreadPool22requestExclusiveAccessIZZNS_8selfTestEvENK3$_2clEiEUlvE_EEvOT_.exit.i.i.i.i.i.i"
   %51 = call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %48) #30
-  %.not.i.i.i.i5.i.i.i.i.i.i = icmp eq i32 %51, 0
-  br i1 %.not.i.i.i.i5.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit13.i.i.i.i.i.i, label %.preheader.i.i6.i.i.i.i.i.i
+  %.not.i.i.i.i3.i.i.i.i.i.i = icmp eq i32 %51, 0
+  br i1 %.not.i.i.i.i3.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit10.i.i.i.i.i.i, label %.preheader.i.i4.i.i.i.i.i.i
 
-.preheader.i.i6.i.i.i.i.i.i:                      ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i4.i.i.i.i.i.i, %55
-  %.06.i.i7.i.i.i.i.i.i = phi i32 [ %56, %55 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i4.i.i.i.i.i.i ]
+.preheader.i.i4.i.i.i.i.i.i:                      ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i2.i.i.i.i.i.i, %55
+  %.04.i.i5.i.i.i.i.i.i = phi i32 [ %56, %55 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i2.i.i.i.i.i.i ]
   %52 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %53 = and i8 %52, 1
-  %.not.i2.i.i8.i.i.i.i.i.i = icmp eq i8 %53, 0
-  br i1 %.not.i2.i.i8.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit13.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i9.i.i.i.i.i.i
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i6.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit10.i.i.i.i.i.i
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i9.i.i.i.i.i.i: ; preds = %.preheader.i.i6.i.i.i.i.i.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i6.i.i.i.i.i.i: ; preds = %.preheader.i.i4.i.i.i.i.i.i
   %54 = call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %48) #30
-  %.not.i.i3.i.i10.i.i.i.i.i.i = icmp eq i32 %54, 0
-  br i1 %.not.i.i3.i.i10.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit13.i.i.i.i.i.i, label %55
+  %.not.i.i2.i.i7.i.i.i.i.i.i = icmp eq i32 %54, 0
+  br i1 %.not.i.i2.i.i7.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit10.i.i.i.i.i.i, label %55
 
-55:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i9.i.i.i.i.i.i
+55:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i6.i.i.i.i.i.i
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %56 = add nuw nsw i32 %.06.i.i7.i.i.i.i.i.i, 1
-  %exitcond.not.i.i11.i.i.i.i.i.i = icmp eq i32 %56, 50000
-  br i1 %exitcond.not.i.i11.i.i.i.i.i.i, label %57, label %.preheader.i.i6.i.i.i.i.i.i, !llvm.loop !6
+  %56 = add nuw nsw i32 %.04.i.i5.i.i.i.i.i.i, 1
+  %exitcond.not.i.i8.i.i.i.i.i.i = icmp eq i32 %56, 50000
+  br i1 %exitcond.not.i.i8.i.i.i.i.i.i, label %57, label %.preheader.i.i4.i.i.i.i.i.i, !llvm.loop !6
 
 57:                                               ; preds = %55
   %58 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %48) #30
-  %.not.i5.i.i12.i.i.i.i.i.i = icmp eq i32 %58, 0
-  br i1 %.not.i5.i.i12.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit13.i.i.i.i.i.i, label %59
+  %.not.i.i.i9.i.i.i.i.i.i = icmp eq i32 %58, 0
+  br i1 %.not.i.i.i9.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit10.i.i.i.i.i.i, label %59
 
 59:                                               ; preds = %57
   call void @_ZSt20__throw_system_errori(i32 noundef %58) #29
   unreachable
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit13.i.i.i.i.i.i: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i9.i.i.i.i.i.i, %.preheader.i.i6.i.i.i.i.i.i, %57, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i4.i.i.i.i.i.i, %"_ZN12V3ThreadPool22requestExclusiveAccessIZZNS_8selfTestEvENK3$_2clEiEUlvE_EEvOT_.exit.i.i.i.i.i.i"
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit10.i.i.i.i.i.i: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i.i6.i.i.i.i.i.i, %.preheader.i.i4.i.i.i.i.i.i, %57, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i2.i.i.i.i.i.i, %"_ZN12V3ThreadPool22requestExclusiveAccessIZZNS_8selfTestEvENK3$_2clEiEUlvE_EEvOT_.exit.i.i.i.i.i.i"
   %60 = getelementptr inbounds i8, ptr %0, i64 16
   %61 = load ptr, ptr %60, align 8
   store i32 1000, ptr %61, align 4
   %62 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %63 = and i8 %62, 1
-  %.not.i.i14.i.i.i.i.i.i = icmp eq i8 %63, 0
-  br i1 %.not.i.i14.i.i.i.i.i.i, label %"_ZSt13__invoke_implIvRSt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEEJEET_St14__invoke_otherOT0_DpOT1_.exit", label %64
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %64, label %"_ZSt13__invoke_implIvRSt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEEJEET_St14__invoke_otherOT0_DpOT1_.exit"
 
-64:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit13.i.i.i.i.i.i
+64:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit10.i.i.i.i.i.i
   %65 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %48) #30
   br label %"_ZSt13__invoke_implIvRSt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEEJEET_St14__invoke_otherOT0_DpOT1_.exit"
 
@@ -10507,15 +10386,14 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit13.i.i.i.i.i.i: ; preds =
   %67 = landingpad { ptr, i32 }
           cleanup
   %68 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %69 = and i8 %68, 1
-  %.not.i.i16.i.i.i.i.i.i = icmp eq i8 %69, 0
-  br i1 %.not.i.i16.i.i.i.i.i.i, label %common.resume.i.i.i.i.i.i, label %70
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %common.resume.i.i.i.i.i.i
 
 70:                                               ; preds = %66
   %71 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #30
   br label %common.resume.i.i.i.i.i.i
 
-"_ZSt13__invoke_implIvRSt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEEJEET_St14__invoke_otherOT0_DpOT1_.exit": ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit13.i.i.i.i.i.i, %64
+"_ZSt13__invoke_implIvRSt5_BindIFZN12V3ThreadPool8selfTestEvE3$_2iEEJEET_St14__invoke_otherOT0_DpOT1_.exit": ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit10.i.i.i.i.i.i, %64
   ret void
 }
 
@@ -11838,162 +11716,77 @@ _ZNKSt14__basic_futureIiE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNS
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
   br label %_ZN12V3ThreadPool1sEv.exit
 
-common.resume:                                    ; preds = %35, %39, %9
-  %common.resume.op = phi { ptr, i32 } [ %10, %9 ], [ %36, %39 ], [ %36, %35 ]
-  resume { ptr, i32 } %common.resume.op
-
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #30
-  br label %common.resume
+  resume { ptr, i32 } %10
 
 _ZN12V3ThreadPool1sEv.exit:                       ; preds = %_ZNKSt14__basic_futureIiE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit, %4, %7
-  %11 = load atomic i8, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 10, i32 0, i32 0) seq_cst, align 1
-  %12 = and i8 %11, 1
-  %.not.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i, label %13, label %_ZN12V3ThreadPool19waitIfStopRequestedEv.exit
+  %11 = tail call noundef zeroext i1 @_ZN12V3ThreadPool19waitIfStopRequestedEv(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
+  %12 = load ptr, ptr %0, align 8
+  %.not.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i, label %13, label %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i
 
 13:                                               ; preds = %_ZN12V3ThreadPool1sEv.exit
-  %14 = load atomic i8, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 11, i32 0, i32 0) seq_cst, align 2
-  %15 = and i8 %14, 1
-  %.not2.i.i = icmp eq i8 %15, 0
-  br i1 %.not2.i.i, label %_ZNK12V3ThreadPool13stopRequestedEv.exit.i, label %_ZN12V3ThreadPool19waitIfStopRequestedEv.exit
-
-_ZNK12V3ThreadPool13stopRequestedEv.exit.i:       ; preds = %13
-  %16 = load atomic i8, ptr getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 9, i32 0, i32 0) seq_cst, align 4
-  %17 = and i8 %16, 1
-  %.not.i2 = icmp eq i8 %17, 0
-  br i1 %.not.i2, label %_ZN12V3ThreadPool19waitIfStopRequestedEv.exit, label %18
-
-18:                                               ; preds = %_ZNK12V3ThreadPool13stopRequestedEv.exit.i
-  %19 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %20 = and i8 %19, 1
-  %.not.i.i.i = icmp eq i8 %20, 0
-  br i1 %.not.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i
-
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i:  ; preds = %18
-  %21 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0)) #30
-  %.not.i.i.i.i.i = icmp eq i32 %21, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i, label %.preheader.i.i.i
-
-.preheader.i.i.i:                                 ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i, %25
-  %.06.i.i.i = phi i32 [ %26, %25 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i ]
-  %22 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %23 = and i8 %22, 1
-  %.not.i2.i.i.i = icmp eq i8 %23, 0
-  br i1 %.not.i2.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i
-
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i: ; preds = %.preheader.i.i.i
-  %24 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0)) #30
-  %.not.i.i3.i.i.i = icmp eq i32 %24, 0
-  br i1 %.not.i.i3.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i, label %25
-
-25:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %26 = add nuw nsw i32 %.06.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %26, 50000
-  br i1 %exitcond.not.i.i.i, label %27, label %.preheader.i.i.i, !llvm.loop !6
-
-27:                                               ; preds = %25
-  %28 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0)) #30
-  %.not.i5.i.i.i = icmp eq i32 %28, 0
-  br i1 %.not.i5.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i, label %29
-
-29:                                               ; preds = %27
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %28) #29
-  unreachable
-
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i.i.i, %.preheader.i.i.i, %27, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i, %18
-  invoke void @_ZN12V3ThreadPool20waitForResumeRequestEv(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
-          to label %30 unwind label %35
-
-30:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i
-  %31 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %32 = and i8 %31, 1
-  %.not.i.i3.i = icmp eq i8 %32, 0
-  br i1 %.not.i.i3.i, label %_ZN12V3ThreadPool19waitIfStopRequestedEv.exit, label %33
-
-33:                                               ; preds = %30
-  %34 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0)) #30
-  br label %_ZN12V3ThreadPool19waitIfStopRequestedEv.exit
-
-35:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %38 = and i8 %37, 1
-  %.not.i.i4.i = icmp eq i8 %38, 0
-  br i1 %.not.i.i4.i, label %common.resume, label %39
-
-39:                                               ; preds = %35
-  %40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%class.V3ThreadPool, ptr @_ZZN12V3ThreadPool1sEvE3s_s, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0)) #30
-  br label %common.resume
-
-_ZN12V3ThreadPool19waitIfStopRequestedEv.exit:    ; preds = %_ZN12V3ThreadPool1sEv.exit, %13, %_ZNK12V3ThreadPool13stopRequestedEv.exit.i, %30, %33
-  %41 = load ptr, ptr %0, align 8
-  %.not.i.i3 = icmp eq ptr %41, null
-  br i1 %.not.i.i3, label %42, label %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i
-
-42:                                               ; preds = %_ZN12V3ThreadPool19waitIfStopRequestedEv.exit
   tail call void @_ZSt20__throw_future_errori(i32 noundef 3) #29
   unreachable
 
-_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i: ; preds = %_ZN12V3ThreadPool19waitIfStopRequestedEv.exit
-  %43 = getelementptr inbounds i8, ptr %41, i64 16
-  %44 = load atomic i32, ptr %43 acquire, align 4
-  %45 = and i32 %44, 2147483647
-  %46 = icmp eq i32 %45, 1
-  br i1 %46, label %.loopexit, label %47
+_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i: ; preds = %_ZN12V3ThreadPool1sEv.exit
+  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = load atomic i32, ptr %14 acquire, align 4
+  %16 = and i32 %15, 2147483647
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %.loopexit, label %18
 
-47:                                               ; preds = %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i
-  %48 = load ptr, ptr %41, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(28) %41)
-  br i1 %51, label %_ZNKSt14__basic_futureIiE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.backedge, label %52
+18:                                               ; preds = %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i
+  %19 = load ptr, ptr %12, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(28) %12)
+  br i1 %22, label %_ZNKSt14__basic_futureIiE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.backedge, label %23
 
-_ZNKSt14__basic_futureIiE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.backedge: ; preds = %47, %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i
+_ZNKSt14__basic_futureIiE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.backedge: ; preds = %18, %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i
   br label %_ZNKSt14__basic_futureIiE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit, !llvm.loop !219
 
-52:                                               ; preds = %47
-  %53 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #30
-  %54 = load atomic i32, ptr %43 acquire, align 4
-  %55 = and i32 %54, 2147483647
-  %56 = icmp eq i32 %55, 1
-  br i1 %56, label %.critedge35.i.i, label %57
+23:                                               ; preds = %18
+  %24 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #30
+  %25 = load atomic i32, ptr %14 acquire, align 4
+  %26 = and i32 %25, 2147483647
+  %27 = icmp eq i32 %26, 1
+  br i1 %27, label %.critedge35.i.i, label %28
 
-57:                                               ; preds = %52
-  %58 = add nsw i64 %53, 100000000
-  %59 = sdiv i64 %58, 1000000000
-  %.neg.i.i.i.i.i = mul nsw i64 %59, -1000000000
-  %60 = add i64 %.neg.i.i.i.i.i, %58
-  br label %61
+28:                                               ; preds = %23
+  %29 = add nsw i64 %24, 100000000
+  %30 = sdiv i64 %29, 1000000000
+  %.neg.i.i.i.i.i = mul nsw i64 %30, -1000000000
+  %31 = add i64 %.neg.i.i.i.i.i, %29
+  br label %32
 
-61:                                               ; preds = %61, %57
-  %.025.us.i.i.i = phi i32 [ %55, %57 ], [ %66, %61 ]
-  %62 = atomicrmw or ptr %43, i32 -2147483648 monotonic, align 4
-  %63 = or disjoint i32 %.025.us.i.i.i, -2147483648
-  %64 = tail call noundef zeroext i1 @_ZNSt28__atomic_futex_unsigned_base26_M_futex_wait_until_steadyEPjjbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS2_IlS3_ILl1ELl1000000000EEEE(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull %43, i32 noundef %63, i1 noundef zeroext true, i64 %59, i64 %60)
-  %65 = load atomic i32, ptr %43 acquire, align 4
-  %66 = and i32 %65, 2147483647
-  %67 = icmp ne i32 %66, 1
-  %or.cond.not.us.i.i.i = select i1 %64, i1 %67, i1 false
-  br i1 %or.cond.not.us.i.i.i, label %61, label %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i, !llvm.loop !59
+32:                                               ; preds = %32, %28
+  %.025.us.i.i.i = phi i32 [ %26, %28 ], [ %37, %32 ]
+  %33 = atomicrmw or ptr %14, i32 -2147483648 monotonic, align 4
+  %34 = or disjoint i32 %.025.us.i.i.i, -2147483648
+  %35 = tail call noundef zeroext i1 @_ZNSt28__atomic_futex_unsigned_base26_M_futex_wait_until_steadyEPjjbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS2_IlS3_ILl1ELl1000000000EEEE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %14, i32 noundef %34, i1 noundef zeroext true, i64 %30, i64 %31)
+  %36 = load atomic i32, ptr %14 acquire, align 4
+  %37 = and i32 %36, 2147483647
+  %38 = icmp ne i32 %37, 1
+  %or.cond.not.us.i.i.i = select i1 %35, i1 %38, i1 false
+  br i1 %or.cond.not.us.i.i.i, label %32, label %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i, !llvm.loop !59
 
-_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i: ; preds = %61
-  br i1 %67, label %_ZNKSt14__basic_futureIiE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.backedge, label %.critedge35.i.i
+_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i: ; preds = %32
+  br i1 %38, label %_ZNKSt14__basic_futureIiE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.backedge, label %.critedge35.i.i
 
-.critedge35.i.i:                                  ; preds = %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i, %52
-  %68 = load ptr, ptr %41, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
-  %70 = load ptr, ptr %69, align 8
-  tail call void %70(ptr noundef nonnull align 8 dereferenceable(28) %41)
+.critedge35.i.i:                                  ; preds = %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i, %23
+  %39 = load ptr, ptr %12, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = load ptr, ptr %40, align 8
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(28) %12)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i, %.critedge35.i.i
-  %71 = tail call noundef i32 @_ZNSt6futureIiE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  ret i32 %71
+  %42 = tail call noundef i32 @_ZNSt6futureIiE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  ret i32 %42
 }
 
 ; Function Attrs: nounwind
@@ -12617,25 +12410,23 @@ define internal noundef zeroext i1 @"_ZZN12V3ThreadPool13workerJobLoopEiENK3$_0c
   %7 = load ptr, ptr %5, align 8
   %8 = load ptr, ptr %6, align 8
   %9 = icmp eq ptr %7, %8
-  br i1 %9, label %10, label %19
+  br i1 %9, label %10, label %18
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %2, i64 390
   %12 = load atomic i8, ptr %11 seq_cst, align 1
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %14, label %19
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %18, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %2, i64 388
   %16 = load atomic i8, ptr %15 seq_cst, align 1
-  %17 = and i8 %16, 1
-  %18 = icmp ne i8 %17, 0
-  br label %19
+  %17 = trunc i8 %16 to i1
+  br label %18
 
-19:                                               ; preds = %14, %10, %1
-  %20 = phi i1 [ true, %10 ], [ true, %1 ], [ %18, %14 ]
-  ret i1 %20
+18:                                               ; preds = %14, %10, %1
+  %19 = phi i1 [ true, %10 ], [ true, %1 ], [ %17, %14 ]
+  ret i1 %19
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12686,9 +12477,8 @@ _ZNSt10shared_ptrISt5mutexEC2ERKS1_.exit:         ; preds = %2, %14, %17
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %_ZNSt10shared_ptrISt5mutexEC2ERKS1_.exit
   store ptr %1, ptr %4, align 8
   %22 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %23 = and i8 %22, 1
-  %.not.i.i = icmp eq i8 %23, 0
-  br i1 %.not.i.i, label %_ZNSt3_V222condition_variable_any7_UnlockI10V3MutexImpISt5mutexEEC2ERS4_.exit, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %_ZNSt3_V222condition_variable_any7_UnlockI10V3MutexImpISt5mutexEEC2ERS4_.exit
 
 24:                                               ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %25 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #30
@@ -12703,14 +12493,13 @@ _ZNSt3_V222condition_variable_any7_UnlockI10V3MutexImpISt5mutexEEC2ERS4_.exit: ;
 
 27:                                               ; preds = %_ZNSt3_V222condition_variable_any7_UnlockI10V3MutexImpISt5mutexEEC2ERS4_.exit
   %28 = load i8, ptr %26, align 8
-  %29 = and i8 %28, 1
-  %.not.i = icmp eq i8 %29, 0
-  br i1 %.not.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %5, align 8
-  %.not1.i.i = icmp eq ptr %31, null
-  br i1 %.not1.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %32
+  %.not.i.i = icmp eq ptr %31, null
+  br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %32
 
 32:                                               ; preds = %30
   %33 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %31) #30
@@ -12719,14 +12508,14 @@ _ZNSt3_V222condition_variable_any7_UnlockI10V3MutexImpISt5mutexEEC2ERS4_.exit: ;
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %27, %30, %32
   invoke void @_ZNSt3_V222condition_variable_any7_UnlockI10V3MutexImpISt5mutexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %_ZNSt11unique_lockISt5mutexED2Ev.exit10 unwind label %71
+          to label %_ZNSt11unique_lockISt5mutexED2Ev.exit9 unwind label %71
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit10:          ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit
+_ZNSt11unique_lockISt5mutexED2Ev.exit9:           ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit
   %34 = load ptr, ptr %8, align 8
-  %.not.i.i.i11 = icmp eq ptr %34, null
-  br i1 %.not.i.i.i11, label %_ZNSt10shared_ptrISt5mutexED2Ev.exit, label %35
+  %.not.i.i.i10 = icmp eq ptr %34, null
+  br i1 %.not.i.i.i10, label %_ZNSt10shared_ptrISt5mutexED2Ev.exit, label %35
 
-35:                                               ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit10
+35:                                               ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit9
   %36 = getelementptr inbounds i8, ptr %34, i64 8
   %37 = load atomic i64, ptr %36 acquire, align 8
   %38 = icmp eq i64 %37, 4294967297
@@ -12745,8 +12534,8 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit10:          ; preds = %_ZNSt11unique_lockI
 
 45:                                               ; preds = %35
   %46 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i12 = icmp eq i8 %46, 0
-  br i1 %.not.i.i.i.i12, label %49, label %47
+  %.not.i.i.i.i11 = icmp eq i8 %46, 0
+  br i1 %.not.i.i.i.i11, label %49, label %47
 
 47:                                               ; preds = %45
   %48 = add nsw i32 %39, -1
@@ -12794,47 +12583,46 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %68(ptr noundef nonnull align 8 dereferenceable(16) %34) #30
   br label %_ZNSt10shared_ptrISt5mutexED2Ev.exit
 
-_ZNSt10shared_ptrISt5mutexED2Ev.exit:             ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit10, %51, %64, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrISt5mutexED2Ev.exit:             ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit9, %51, %64, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 
 69:                                               ; preds = %21
   %70 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit18
+  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit15
 
 71:                                               ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit
   %72 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit18
+  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit15
 
 73:                                               ; preds = %_ZNSt3_V222condition_variable_any7_UnlockI10V3MutexImpISt5mutexEEC2ERS4_.exit
   %74 = landingpad { ptr, i32 }
           cleanup
   %75 = load i8, ptr %26, align 8
-  %76 = and i8 %75, 1
-  %.not.i13 = icmp eq i8 %76, 0
-  br i1 %.not.i13, label %_ZNSt11unique_lockISt5mutexED2Ev.exit15, label %77
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %_ZNSt11unique_lockISt5mutexED2Ev.exit13
 
 77:                                               ; preds = %73
   %78 = load ptr, ptr %5, align 8
-  %.not1.i.i14 = icmp eq ptr %78, null
-  br i1 %.not1.i.i14, label %_ZNSt11unique_lockISt5mutexED2Ev.exit15, label %79
+  %.not.i.i12 = icmp eq ptr %78, null
+  br i1 %.not.i.i12, label %_ZNSt11unique_lockISt5mutexED2Ev.exit13, label %79
 
 79:                                               ; preds = %77
   %80 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %78) #30
   store i8 0, ptr %26, align 8
-  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit15
+  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit13
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit15:          ; preds = %73, %77, %79
+_ZNSt11unique_lockISt5mutexED2Ev.exit13:          ; preds = %73, %77, %79
   invoke void @_ZNSt3_V222condition_variable_any7_UnlockI10V3MutexImpISt5mutexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %_ZNSt11unique_lockISt5mutexED2Ev.exit18 unwind label %81
+          to label %_ZNSt11unique_lockISt5mutexED2Ev.exit15 unwind label %81
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit18:          ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit15, %71, %69
-  %.pn.pn = phi { ptr, i32 } [ %70, %69 ], [ %72, %71 ], [ %74, %_ZNSt11unique_lockISt5mutexED2Ev.exit15 ]
+_ZNSt11unique_lockISt5mutexED2Ev.exit15:          ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit13, %71, %69
+  %.pn.pn = phi { ptr, i32 } [ %70, %69 ], [ %72, %71 ], [ %74, %_ZNSt11unique_lockISt5mutexED2Ev.exit13 ]
   call void @_ZNSt10shared_ptrISt5mutexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   resume { ptr, i32 } %.pn.pn
 
-81:                                               ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit15
+81:                                               ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit13
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
@@ -12849,12 +12637,11 @@ define linkonce_odr dso_local void @_ZNSt3_V222condition_variable_any7_UnlockI10
   %2 = tail call noundef zeroext i1 @_ZSt18uncaught_exceptionv() #35
   %3 = load ptr, ptr %0, align 8
   %4 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
+  %5 = trunc i8 %4 to i1
   br i1 %2, label %6, label %27
 
 6:                                                ; preds = %1
-  br i1 %.not.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i
+  br i1 %5, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit
 
 _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i:      ; preds = %6
   %7 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %3) #30
@@ -12862,27 +12649,26 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i:      ; preds = %6
   br i1 %.not.i.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i, %11
-  %.06.i = phi i32 [ %12, %11 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i ]
+  %.04.i = phi i32 [ %12, %11 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i ]
   %8 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %9 = and i8 %8, 1
-  %.not.i2.i = icmp eq i8 %9, 0
-  br i1 %.not.i2.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i:     ; preds = %.preheader.i
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i:     ; preds = %.preheader.i
   %10 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %3) #30
-  %.not.i.i3.i = icmp eq i32 %10, 0
-  br i1 %.not.i.i3.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %11
+  %.not.i.i2.i = icmp eq i32 %10, 0
+  br i1 %.not.i.i2.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %11
 
-11:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i
+11:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %12 = add nuw nsw i32 %.06.i, 1
+  %12 = add nuw nsw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %12, 50000
   br i1 %exitcond.not.i, label %13, label %.preheader.i, !llvm.loop !6
 
 13:                                               ; preds = %11
   %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #30
-  %.not.i5.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %15
+  %.not.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %15
 
 15:                                               ; preds = %13
   invoke void @_ZSt20__throw_system_errori(i32 noundef %14) #29
@@ -12917,41 +12703,40 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i:     ; preds = %.preheader.i
           to label %37 unwind label %38
 
 27:                                               ; preds = %1
-  br i1 %.not.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i6
+  br i1 %5, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i5, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i6:     ; preds = %27
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i5:     ; preds = %27
   %28 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %3) #30
-  %.not.i.i.i7 = icmp eq i32 %28, 0
-  br i1 %.not.i.i.i7, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %.preheader.i8
+  %.not.i.i.i6 = icmp eq i32 %28, 0
+  br i1 %.not.i.i.i6, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %.preheader.i7
 
-.preheader.i8:                                    ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i6, %32
-  %.06.i9 = phi i32 [ %33, %32 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i6 ]
+.preheader.i7:                                    ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i5, %32
+  %.04.i8 = phi i32 [ %33, %32 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i5 ]
   %29 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %30 = and i8 %29, 1
-  %.not.i2.i10 = icmp eq i8 %30, 0
-  br i1 %.not.i2.i10, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i11
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i9, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit
 
-_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i11:   ; preds = %.preheader.i8
+_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i9:    ; preds = %.preheader.i7
   %31 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %3) #30
-  %.not.i.i3.i12 = icmp eq i32 %31, 0
-  br i1 %.not.i.i3.i12, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %32
+  %.not.i.i2.i10 = icmp eq i32 %31, 0
+  br i1 %.not.i.i2.i10, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %32
 
-32:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i11
+32:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i9
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !5
-  %33 = add nuw nsw i32 %.06.i9, 1
-  %exitcond.not.i13 = icmp eq i32 %33, 50000
-  br i1 %exitcond.not.i13, label %34, label %.preheader.i8, !llvm.loop !6
+  %33 = add nuw nsw i32 %.04.i8, 1
+  %exitcond.not.i11 = icmp eq i32 %33, 50000
+  br i1 %exitcond.not.i11, label %34, label %.preheader.i7, !llvm.loop !6
 
 34:                                               ; preds = %32
   %35 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #30
-  %.not.i5.i14 = icmp eq i32 %35, 0
-  br i1 %.not.i5.i14, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %36
+  %.not.i.i12 = icmp eq i32 %35, 0
+  br i1 %.not.i.i12, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %36
 
 36:                                               ; preds = %34
   tail call void @_ZSt20__throw_system_errori(i32 noundef %35) #29
   unreachable
 
-_ZN10V3MutexImpISt5mutexE4lockEv.exit:            ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i11, %.preheader.i8, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit4.i, %.preheader.i, %34, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i6, %27, %13, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i, %6, %24
+_ZN10V3MutexImpISt5mutexE4lockEv.exit:            ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i9, %.preheader.i7, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit3.i, %.preheader.i, %34, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i5, %27, %13, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i, %6, %24
   ret void
 
 37:                                               ; preds = %25
@@ -12976,9 +12761,9 @@ define internal noundef zeroext i1 @"_ZZN12V3ThreadPool20waitForResumeRequestEvE
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 388
   %4 = load atomic i8, ptr %3 seq_cst, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  ret i1 %.not
+  %5 = trunc i8 %4 to i1
+  %6 = xor i1 %5, true
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable

@@ -26,9 +26,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Intercomm_create_from_groups(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #0 {
   %9 = load i8, ptr @ompi_mpi_param_check, align 1
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %46, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %46
 
 11:                                               ; preds = %8
   %12 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -62,9 +61,8 @@ define i32 @PMPI_Intercomm_create_from_groups(ptr noundef %0, i32 noundef %1, pt
 27:                                               ; preds = %25
   %28 = getelementptr i8, ptr %5, i64 76
   %.val = load i8, ptr %28, align 4
-  %29 = and i8 %.val, 1
-  %.not33 = icmp eq i8 %29, 0
-  br i1 %.not33, label %34, label %30
+  %29 = trunc i8 %.val to i1
+  br i1 %29, label %30, label %34
 
 30:                                               ; preds = %27, %25
   %31 = getelementptr inbounds i8, ptr %6, i64 80
@@ -94,8 +92,8 @@ define i32 @PMPI_Intercomm_create_from_groups(ptr noundef %0, i32 noundef %1, pt
 
 46:                                               ; preds = %40, %8
   %47 = tail call i32 @ompi_intercomm_create_from_groups(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #2
-  %.not32 = icmp eq i32 %47, 0
-  br i1 %.not32, label %52, label %48
+  %.not = icmp eq i32 %47, 0
+  br i1 %.not, label %52, label %48
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds i8, ptr %6, i64 80

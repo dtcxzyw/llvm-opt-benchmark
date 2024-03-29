@@ -132,51 +132,50 @@ if.then.i.i:                                      ; preds = %_ZN4absl13base_inte
   %impl_.i.i = getelementptr inbounds i8, ptr %call, i64 264
   %has_crypto_.i.i.i = getelementptr inbounds i8, ptr %call, i64 272
   %5 = load i8, ptr %has_crypto_.i.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  %7 = load ptr, ptr %impl_.i.i, align 8
-  br i1 %tobool.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i1.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  %6 = load ptr, ptr %impl_.i.i, align 8
+  br i1 %tobool.i.i.i, label %if.then.i.i1.i, label %if.else.i.i.i
 
 if.then.i.i1.i:                                   ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %7, ptr noundef nonnull %call)
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %call)
           to label %invoke.cont.i unwind label %lpad.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %7, ptr noundef nonnull %call)
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %call)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i1.i, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
-  %8 = load i64, ptr %next_.i.i, align 8
-  %inc.i = add i64 %8, 1
+  %7 = load i64, ptr %next_.i.i, align 8
+  %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %next_.i.i, align 8
-  %arrayidx.i = getelementptr inbounds [64 x i32], ptr %call, i64 0, i64 %8
-  %9 = load i32, ptr %arrayidx.i, align 4
-  %10 = load ptr, ptr %l.i, align 8
-  %11 = load atomic i32, ptr %10 monotonic, align 4
-  %and.i.i.i = and i32 %11, 2
-  %12 = atomicrmw xchg ptr %10, i32 %and.i.i.i release, align 4
-  %cmp6.not.i.i.i = icmp ult i32 %12, 8
+  %arrayidx.i = getelementptr inbounds [64 x i32], ptr %call, i64 0, i64 %7
+  %8 = load i32, ptr %arrayidx.i, align 4
+  %9 = load ptr, ptr %l.i, align 8
+  %10 = load atomic i32, ptr %9 monotonic, align 4
+  %and.i.i.i = and i32 %10, 2
+  %11 = atomicrmw xchg ptr %9, i32 %and.i.i.i release, align 4
+  %cmp6.not.i.i.i = icmp ult i32 %11, 8
   br i1 %cmp6.not.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIhEET_v.exit, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %invoke.cont.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef %12) #12
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef %11) #12
           to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIhEET_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then7.i.i.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #13
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #13
   unreachable
 
 lpad.i:                                           ; preds = %if.else.i.i.i, %if.then.i.i1.i
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %l.i) #14
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %14
 
 _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIhEET_v.exit: ; preds = %invoke.cont.i, %if.then7.i.i.i
-  %conv.i = trunc i32 %9 to i8
+  %conv.i = trunc i32 %8 to i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %l.i)
   ret i8 %conv.i
 }
@@ -226,16 +225,16 @@ for.body.i:                                       ; preds = %if.then.i.i, %_ZN4a
   %sub.i.i = add i64 %4, 64
   %5 = inttoptr i64 %sub.i.i to ptr
   %cond.i.i = select i1 %cmp.i.i3, ptr %call.i.i, ptr %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %cond.i.i, i8 0, i64 288, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(288) %cond.i.i, i8 0, i64 288, i1 false)
   %mu_.i.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 256
-  store i32 2, ptr %mu_.i.i.i, align 4
+  store i32 2, ptr %mu_.i.i.i, align 64
   %impl_.i.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 264
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i)
   %arrayidx.i = getelementptr inbounds [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %i.07.i
   store ptr %cond.i.i, ptr %arrayidx.i, align 8
   %mul.i = shl nuw nsw i64 %i.07.i, 6
   %arrayidx5.i = getelementptr inbounds [512 x i32], ptr %seed_material.i, i64 0, i64 %mul.i
-  %6 = load atomic i32, ptr %mu_.i.i.i monotonic, align 4
+  %6 = load atomic i32, ptr %mu_.i.i.i monotonic, align 64
   %and.i.i.i.i.i.i = and i32 %6, 1
   %cmp.not.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i.i, label %if.then.i.i.i.i
@@ -253,10 +252,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4absl13base_inte
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %cond.i.i, ptr noundef nonnull align 16 dereferenceable(256) %arrayidx5.i, i64 256, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %cond.i.i, ptr noundef nonnull align 16 dereferenceable(256) %arrayidx5.i, i64 256, i1 false)
   %next_.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 280
   store i64 64, ptr %next_.i.i, align 8
-  %10 = load atomic i32, ptr %mu_.i.i.i monotonic, align 4
+  %10 = load atomic i32, ptr %mu_.i.i.i monotonic, align 64
   %and.i.i.i.i = and i32 %10, 2
   %11 = atomicrmw xchg ptr %mu_.i.i.i, i32 %and.i.i.i.i release, align 4
   %cmp6.not.i.i.i.i = icmp ult i32 %11, 8
@@ -351,59 +350,58 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then.i:                                        ; preds = %while.body
   store i64 4, ptr %next_.i, align 8
   %5 = load i8, ptr %has_crypto_.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
-  %7 = load ptr, ptr %impl_.i, align 8
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i6
+  %tobool.i.i = trunc i8 %5 to i1
+  %6 = load ptr, ptr %impl_.i, align 8
+  br i1 %tobool.i.i, label %if.then.i.i6, label %if.else.i.i
 
 if.then.i.i6:                                     ; preds = %if.then.i
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %7, ptr noundef nonnull %this)
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %this)
           to label %invoke.cont unwind label %lpad
 
 if.else.i.i:                                      ; preds = %if.then.i
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %7, ptr noundef nonnull %this)
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %this)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.body, %if.then.i.i6, %if.else.i.i
-  %8 = load i64, ptr %next_.i, align 8
-  %9 = shl i64 %8, 2
-  %mul = sub i64 256, %9
+  %7 = load i64, ptr %next_.i, align 8
+  %8 = shl i64 %7, 2
+  %mul = sub i64 256, %8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %mul, i64 %bytes.addr.014)
-  %arrayidx = getelementptr inbounds [64 x i32], ptr %this, i64 0, i64 %8
+  %arrayidx = getelementptr inbounds [64 x i32], ptr %this, i64 0, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.015, ptr nonnull align 4 %arrayidx, i64 %.sroa.speculated, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %out.addr.015, i64 %.sroa.speculated
   %sub4 = sub i64 %bytes.addr.014, %.sroa.speculated
   %sub5 = add i64 %.sroa.speculated, 3
   %div5 = lshr i64 %sub5, 2
-  %10 = load i64, ptr %next_.i, align 8
-  %add7 = add i64 %div5, %10
+  %9 = load i64, ptr %next_.i, align 8
+  %add7 = add i64 %div5, %9
   store i64 %add7, ptr %next_.i, align 8
   %cmp.not = icmp eq i64 %sub4, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !7
 
 lpad:                                             ; preds = %if.else.i.i, %if.then.i.i6
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %l) #14
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %10
 
 while.end:                                        ; preds = %invoke.cont, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit
-  %12 = load ptr, ptr %l, align 8
-  %13 = load atomic i32, ptr %12 monotonic, align 4
-  %and.i.i = and i32 %13, 2
-  %14 = atomicrmw xchg ptr %12, i32 %and.i.i release, align 4
-  %cmp6.not.i.i = icmp ult i32 %14, 8
+  %11 = load ptr, ptr %l, align 8
+  %12 = load atomic i32, ptr %11 monotonic, align 4
+  %and.i.i = and i32 %12, 2
+  %13 = atomicrmw xchg ptr %11, i32 %and.i.i release, align 4
+  %cmp6.not.i.i = icmp ult i32 %13, 8
   br i1 %cmp6.not.i.i, label %_ZN4absl13base_internal14SpinLockHolderD2Ev.exit, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %while.end
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %12, i32 noundef %14) #12
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %11, i32 noundef %13) #12
           to label %_ZN4absl13base_internal14SpinLockHolderD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then7.i.i
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #13
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #13
   unreachable
 
 _ZN4absl13base_internal14SpinLockHolderD2Ev.exit: ; preds = %while.end, %if.then7.i.i
@@ -471,51 +469,50 @@ if.then.i.i:                                      ; preds = %_ZN4absl13base_inte
   %impl_.i.i = getelementptr inbounds i8, ptr %call, i64 264
   %has_crypto_.i.i.i = getelementptr inbounds i8, ptr %call, i64 272
   %5 = load i8, ptr %has_crypto_.i.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  %7 = load ptr, ptr %impl_.i.i, align 8
-  br i1 %tobool.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i1.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  %6 = load ptr, ptr %impl_.i.i, align 8
+  br i1 %tobool.i.i.i, label %if.then.i.i1.i, label %if.else.i.i.i
 
 if.then.i.i1.i:                                   ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %7, ptr noundef nonnull %call)
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %call)
           to label %invoke.cont.i unwind label %lpad.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %7, ptr noundef nonnull %call)
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %call)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i1.i, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
-  %8 = load i64, ptr %next_.i.i, align 8
-  %inc.i = add i64 %8, 1
+  %7 = load i64, ptr %next_.i.i, align 8
+  %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %next_.i.i, align 8
-  %arrayidx.i = getelementptr inbounds [64 x i32], ptr %call, i64 0, i64 %8
-  %9 = load i32, ptr %arrayidx.i, align 4
-  %10 = load ptr, ptr %l.i, align 8
-  %11 = load atomic i32, ptr %10 monotonic, align 4
-  %and.i.i.i = and i32 %11, 2
-  %12 = atomicrmw xchg ptr %10, i32 %and.i.i.i release, align 4
-  %cmp6.not.i.i.i = icmp ult i32 %12, 8
+  %arrayidx.i = getelementptr inbounds [64 x i32], ptr %call, i64 0, i64 %7
+  %8 = load i32, ptr %arrayidx.i, align 4
+  %9 = load ptr, ptr %l.i, align 8
+  %10 = load atomic i32, ptr %9 monotonic, align 4
+  %and.i.i.i = and i32 %10, 2
+  %11 = atomicrmw xchg ptr %9, i32 %and.i.i.i release, align 4
+  %cmp6.not.i.i.i = icmp ult i32 %11, 8
   br i1 %cmp6.not.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateItEET_v.exit, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %invoke.cont.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef %12) #12
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef %11) #12
           to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateItEET_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then7.i.i.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #13
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #13
   unreachable
 
 lpad.i:                                           ; preds = %if.else.i.i.i, %if.then.i.i1.i
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %l.i) #14
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %14
 
 _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateItEET_v.exit: ; preds = %invoke.cont.i, %if.then7.i.i.i
-  %conv.i = trunc i32 %9 to i16
+  %conv.i = trunc i32 %8 to i16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %l.i)
   ret i16 %conv.i
 }
@@ -590,52 +587,51 @@ if.then.i.i:                                      ; preds = %_ZN4absl13base_inte
   %impl_.i.i = getelementptr inbounds i8, ptr %call, i64 264
   %has_crypto_.i.i.i = getelementptr inbounds i8, ptr %call, i64 272
   %5 = load i8, ptr %has_crypto_.i.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i = icmp eq i8 %6, 0
-  %7 = load ptr, ptr %impl_.i.i, align 8
-  br i1 %tobool.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i1.i
+  %tobool.i.i.i = trunc i8 %5 to i1
+  %6 = load ptr, ptr %impl_.i.i, align 8
+  br i1 %tobool.i.i.i, label %if.then.i.i1.i, label %if.else.i.i.i
 
 if.then.i.i1.i:                                   ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %7, ptr noundef nonnull %call)
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %call)
           to label %invoke.cont.i unwind label %lpad.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %7, ptr noundef nonnull %call)
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %call)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i1.i, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
-  %8 = load i64, ptr %next_.i.i, align 8
-  %inc.i = add i64 %8, 1
+  %7 = load i64, ptr %next_.i.i, align 8
+  %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %next_.i.i, align 8
-  %arrayidx.i = getelementptr inbounds [64 x i32], ptr %call, i64 0, i64 %8
-  %9 = load i32, ptr %arrayidx.i, align 4
-  %10 = load ptr, ptr %l.i, align 8
-  %11 = load atomic i32, ptr %10 monotonic, align 4
-  %and.i.i.i = and i32 %11, 2
-  %12 = atomicrmw xchg ptr %10, i32 %and.i.i.i release, align 4
-  %cmp6.not.i.i.i = icmp ult i32 %12, 8
+  %arrayidx.i = getelementptr inbounds [64 x i32], ptr %call, i64 0, i64 %7
+  %8 = load i32, ptr %arrayidx.i, align 4
+  %9 = load ptr, ptr %l.i, align 8
+  %10 = load atomic i32, ptr %9 monotonic, align 4
+  %and.i.i.i = and i32 %10, 2
+  %11 = atomicrmw xchg ptr %9, i32 %and.i.i.i release, align 4
+  %cmp6.not.i.i.i = icmp ult i32 %11, 8
   br i1 %cmp6.not.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIjEET_v.exit, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %invoke.cont.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef %12) #12
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef %11) #12
           to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIjEET_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then7.i.i.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #13
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #13
   unreachable
 
 lpad.i:                                           ; preds = %if.else.i.i.i, %if.then.i.i1.i
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %l.i) #14
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %14
 
 _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIjEET_v.exit: ; preds = %invoke.cont.i, %if.then7.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %l.i)
-  ret i32 %9
+  ret i32 %8
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -708,47 +704,46 @@ if.then.i:                                        ; preds = %_ZN4absl13base_inte
   %impl_.i = getelementptr inbounds i8, ptr %call, i64 264
   %has_crypto_.i.i = getelementptr inbounds i8, ptr %call, i64 272
   %5 = load i8, ptr %has_crypto_.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
-  %7 = load ptr, ptr %impl_.i, align 8
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %5 to i1
+  %6 = load ptr, ptr %impl_.i, align 8
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %7, ptr noundef nonnull %call)
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %call)
           to label %if.end.i unwind label %lpad.i
 
 if.else.i.i:                                      ; preds = %if.then.i
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %7, ptr noundef nonnull %call)
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %call)
           to label %if.end.i unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.else.i.i, %if.then.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %l.i) #14
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %7
 
 if.end.i:                                         ; preds = %if.else.i.i, %if.then.i.i, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
-  %9 = load i64, ptr %next_.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %call, i64 %9
-  %add.i = add i64 %9, 2
+  %8 = load i64, ptr %next_.i, align 8
+  %add.ptr.i = getelementptr inbounds i32, ptr %call, i64 %8
+  %add.i = add i64 %8, 2
   store i64 %add.i, ptr %next_.i, align 8
   %result.0.copyload.i = load i64, ptr %add.ptr.i, align 4
-  %10 = load ptr, ptr %l.i, align 8
-  %11 = load atomic i32, ptr %10 monotonic, align 4
-  %and.i.i.i = and i32 %11, 2
-  %12 = atomicrmw xchg ptr %10, i32 %and.i.i.i release, align 4
-  %cmp6.not.i.i.i = icmp ult i32 %12, 8
+  %9 = load ptr, ptr %l.i, align 8
+  %10 = load atomic i32, ptr %9 monotonic, align 4
+  %and.i.i.i = and i32 %10, 2
+  %11 = atomicrmw xchg ptr %9, i32 %and.i.i.i release, align 4
+  %cmp6.not.i.i.i = icmp ult i32 %11, 8
   br i1 %cmp6.not.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateImEET_v.exit, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef %12) #12
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef %11) #12
           to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateImEET_v.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then7.i.i.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #13
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #13
   unreachable
 
 _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateImEET_v.exit: ; preds = %if.end.i, %if.then7.i.i.i

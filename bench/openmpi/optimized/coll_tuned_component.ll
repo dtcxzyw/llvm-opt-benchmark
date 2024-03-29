@@ -53,23 +53,22 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @tuned_open() #0 {
   %1 = load i8, ptr @ompi_coll_tuned_use_dynamic_rules, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  %4 = load ptr, ptr @ompi_coll_tuned_dynamic_rules_filename, align 8
-  %5 = icmp ne ptr %4, null
-  %or.cond = select i1 %3, i1 %5, i1 false
-  br i1 %or.cond, label %6, label %10
+  %2 = trunc i8 %1 to i1
+  %3 = load ptr, ptr @ompi_coll_tuned_dynamic_rules_filename, align 8
+  %4 = icmp ne ptr %3, null
+  %or.cond = select i1 %2, i1 %4, i1 false
+  br i1 %or.cond, label %5, label %9
 
-6:                                                ; preds = %0
-  %7 = tail call i32 @ompi_coll_tuned_read_rules_config_file(ptr noundef nonnull %4, ptr noundef nonnull getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), i32 noundef 22) #3
-  %8 = icmp sgt i32 %7, -1
-  br i1 %8, label %10, label %9
+5:                                                ; preds = %0
+  %6 = tail call i32 @ompi_coll_tuned_read_rules_config_file(ptr noundef nonnull %3, ptr noundef nonnull getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), i32 noundef 22) #3
+  %7 = icmp sgt i32 %6, -1
+  br i1 %7, label %9, label %8
 
-9:                                                ; preds = %6
+8:                                                ; preds = %5
   store ptr null, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i64 0, i32 2), align 8
-  br label %10
+  br label %9
 
-10:                                               ; preds = %6, %9, %0
+9:                                                ; preds = %5, %8, %0
   ret i32 0
 }
 

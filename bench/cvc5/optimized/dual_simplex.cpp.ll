@@ -2017,8 +2017,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i3, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4cvc58internal18StatisticBaseValueESt14default_deleteIS9_EESt4lessIS5_ESaISt4pairIKS5_SC_EEE11lower_boundERSG_.exit.i, %if.then
-  %__y.addr.0.lcssa.i.i.i12.i = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4cvc58internal18StatisticBaseValueESt14default_deleteIS9_EESt4lessIS5_ESaISt4pairIKS5_SC_EEE11lower_boundERSG_.exit.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %add.ptr.i.i.i, %if.then ]
-  %call.i.i4 = invoke ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN4cvc58internal18StatisticBaseValueESt14default_deleteISB_EEESt10_Select1stISF_ESt4lessIS5_ESaISF_EE22_M_emplace_hint_uniqueIJRS7_S8_INSA_23StatisticReferenceValueIjEESC_ISP_EEEEESt17_Rb_tree_iteratorISF_ESt23_Rb_tree_const_iteratorISF_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %d_stats, ptr %__y.addr.0.lcssa.i.i.i12.i, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8)
+  %__y.addr.0.lcssa.i.i.i13.i = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4cvc58internal18StatisticBaseValueESt14default_deleteIS9_EESt4lessIS5_ESaISt4pairIKS5_SC_EEE11lower_boundERSG_.exit.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %add.ptr.i.i.i, %if.then ]
+  %call.i.i4 = invoke ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN4cvc58internal18StatisticBaseValueESt14default_deleteISB_EEESt10_Select1stISF_ESt4lessIS5_ESaISF_EE22_M_emplace_hint_uniqueIJRS7_S8_INSA_23StatisticReferenceValueIjEESC_ISP_EEEEESt17_Rb_tree_iteratorISF_ESt23_Rb_tree_const_iteratorISF_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %d_stats, ptr %__y.addr.0.lcssa.i.i.i13.i, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i, %if.then.i
@@ -2064,10 +2064,9 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
   %16 = load ptr, ptr %second14, align 8
   %d_internal19 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i8, ptr %d_internal19, align 8
-  %18 = and i8 %17, 1
-  %tobool20 = icmp ne i8 %18, 0
-  %19 = and i1 %tobool20, %internal
-  %frombool26 = zext i1 %19 to i8
+  %tobool20 = trunc i8 %17 to i1
+  %18 = and i1 %tobool20, %internal
+  %frombool26 = zext i1 %18 to i8
   store i8 %frombool26, ptr %d_internal19, align 8
   store ptr %16, ptr %agg.result, align 8
   ret void
@@ -2572,9 +2571,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc58internal23StatisticRefe
 entry:
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i8, ptr %_M_engaged.i.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %if.end, label %if.then
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %d_committed = getelementptr inbounds i8, ptr %this, i64 24
@@ -2582,14 +2580,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %d_value = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load ptr, ptr %d_value, align 8
-  %cmp4 = icmp eq ptr %2, null
+  %1 = load ptr, ptr %d_value, align 8
+  %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %if.then
-  %.sink1 = phi ptr [ %d_committed, %if.then ], [ %2, %if.end ]
-  %3 = load i32, ptr %.sink1, align 4
-  %cmp6 = icmp eq i32 %3, 0
+  %.sink1 = phi ptr [ %d_committed, %if.then ], [ %1, %if.end ]
+  %2 = load i32, ptr %.sink1, align 4
+  %cmp6 = icmp eq i32 %2, 0
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end
@@ -2602,9 +2600,8 @@ define linkonce_odr hidden void @_ZNK4cvc58internal23StatisticReferenceValueIjE9
 entry:
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i8, ptr %_M_engaged.i.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %if.else, label %if.then
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %d_committed = getelementptr inbounds i8, ptr %this, i64 24
@@ -2612,14 +2609,14 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %d_value = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load ptr, ptr %d_value, align 8
-  %cmp.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %d_value, align 8
+  %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %if.else, %if.then
-  %.sink4 = phi ptr [ %d_committed, %if.then ], [ %2, %if.else ]
-  %3 = load i32, ptr %.sink4, align 4
-  %conv7 = zext i32 %3 to i64
+  %.sink4 = phi ptr [ %d_committed, %if.then ], [ %1, %if.else ]
+  %2 = load i32, ptr %.sink4, align 4
+  %conv7 = zext i32 %2 to i64
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.else
@@ -2636,9 +2633,8 @@ entry:
   %ref.tmp = alloca i32, align 4
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i8, ptr %_M_engaged.i.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %if.else, label %if.then
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %d_committed = getelementptr inbounds i8, ptr %this, i64 24
@@ -2647,12 +2643,12 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %d_value = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load ptr, ptr %d_value, align 8
-  %cmp.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %d_value, align 8
+  %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else6, label %if.then4
 
 if.then4:                                         ; preds = %if.else
-  tail call void @_ZN4cvc58internal10safe_printIjEEviRKT_(i32 noundef %fd, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  tail call void @_ZN4cvc58internal10safe_printIjEEviRKT_(i32 noundef %fd, ptr noundef nonnull align 4 dereferenceable(4) %1)
   br label %if.end7
 
 if.else6:                                         ; preds = %if.else

@@ -44,8 +44,8 @@ define void @_ZN13grep_searcher8searcher4mmap10MmapChoice4open17h71e9772264d7faf
   %17 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %18 = alloca ptr, align 8
   %19 = load i8, ptr %1, align 1, !range !4, !alias.scope !5, !noundef !8
-  %trunc.not.i = icmp eq i8 %19, 0
-  br i1 %trunc.not.i, label %_ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.exit.i, label %20
+  %trunc.i = trunc i8 %19 to i1
+  br i1 %trunc.i, label %20, label %_ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.exit.i
 
 20:                                               ; preds = %5
   store i64 0, ptr %0, align 8
@@ -77,23 +77,23 @@ _ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.e
   %.pre.i = load i64, ptr %9, align 8, !range !28, !noalias !14
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %9, i64 8
   %.pre8.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !14
-  %26 = icmp eq i64 %.pre.i, 0
+  %26 = trunc i64 %.pre.i to i1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !14
-  br i1 %26, label %27, label %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit.thread
+  br i1 %26, label %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit.thread, label %27
 
 27:                                               ; preds = %_ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.exit.i
   %.cast.i = ptrtoint ptr %.pre8.i to i64
   %28 = load i64, ptr %21, align 8, !alias.scope !9, !noalias !29, !noundef !8
   %29 = load i8, ptr %24, align 1, !range !4, !alias.scope !9, !noalias !29, !noundef !8
-  %30 = icmp ne i8 %29, 0
+  %30 = trunc i8 %29 to i1
   call void @_ZN7memmap22os9MmapInner3map17h43602e58fe2432d2E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %10, i64 noundef %.cast.i, i32 noundef %25, i64 noundef %28, i1 noundef zeroext %30), !noalias !27
   %31 = load i64, ptr %10, align 8, !range !28, !alias.scope !30, !noalias !33, !noundef !8
-  %trunc.not.i7.i = icmp eq i64 %31, 0
+  %trunc.i7.i = trunc i64 %31 to i1
   %32 = getelementptr inbounds i8, ptr %10, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !30, !noalias !33, !noundef !8
-  br i1 %trunc.not.i7.i, label %35, label %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit
+  br i1 %trunc.i7.i, label %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit, label %35
 
 _ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit.thread: ; preds = %_ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !14
@@ -124,11 +124,11 @@ _ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit: ; preds = %27
   br label %34
 
 40:                                               ; preds = %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit, %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit.thread
-  %.sroa.5.054 = phi ptr [ %.pre8.i, %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit.thread ], [ %33, %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit ]
+  %.sroa.5.055 = phi ptr [ %.pre8.i, %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit.thread ], [ %33, %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
-  %41 = icmp ne ptr %.sroa.5.054, null
+  %41 = icmp ne ptr %.sroa.5.055, null
   call void @llvm.assume(i1 %41)
-  store ptr %.sroa.5.054, ptr %18, align 8
+  store ptr %.sroa.5.055, ptr %18, align 8
   %.not = icmp eq ptr %3, null
   %42 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8
   %43 = icmp ult i64 %42, 6
@@ -238,8 +238,9 @@ _ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit: ; preds = %27
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN13grep_searcher8searcher4mmap10MmapChoice10is_enabled17ha5dde84a0d45cc7dE(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #2 {
   %2 = load i8, ptr %0, align 1, !range !4, !noundef !8
-  %trunc.not = icmp eq i8 %2, 0
-  ret i1 %trunc.not
+  %trunc = trunc i8 %2 to i1
+  %.0 = xor i1 %trunc, true
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

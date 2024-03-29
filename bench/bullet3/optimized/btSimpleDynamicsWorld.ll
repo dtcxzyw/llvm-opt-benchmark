@@ -115,14 +115,13 @@ entry:
   store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTV21btSimpleDynamicsWorld, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ownsConstraintSolver = getelementptr inbounds i8, ptr %this, i64 288
   %0 = load i8, ptr %m_ownsConstraintSolver, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_constraintSolver = getelementptr inbounds i8, ptr %this, i64 280
-  %2 = load ptr, ptr %m_constraintSolver, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %2)
+  %1 = load ptr, ptr %m_constraintSolver, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %1)
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
@@ -130,10 +129,10 @@ if.end:                                           ; preds = %if.then, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #13
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #13
   unreachable
 }
 
@@ -156,21 +155,20 @@ entry:
   store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTV21btSimpleDynamicsWorld, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ownsConstraintSolver.i = getelementptr inbounds i8, ptr %this, i64 288
   %0 = load i8, ptr %m_ownsConstraintSolver.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %_ZN21btSimpleDynamicsWorldD2Ev.exit, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN21btSimpleDynamicsWorldD2Ev.exit
 
 if.then.i:                                        ; preds = %entry
   %m_constraintSolver.i = getelementptr inbounds i8, ptr %this, i64 280
-  %2 = load ptr, ptr %m_constraintSolver.i, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %2)
+  %1 = load ptr, ptr %m_constraintSolver.i, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %1)
           to label %_ZN21btSimpleDynamicsWorldD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #13
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #13
   unreachable
 
 _ZN21btSimpleDynamicsWorldD2Ev.exit:              ; preds = %entry, %if.then.i
@@ -821,14 +819,13 @@ define dso_local void @_ZN21btSimpleDynamicsWorld19setConstraintSolverEP18btCons
 entry:
   %m_ownsConstraintSolver = getelementptr inbounds i8, ptr %this, i64 288
   %0 = load i8, ptr %m_ownsConstraintSolver, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_constraintSolver = getelementptr inbounds i8, ptr %this, i64 280
-  %2 = load ptr, ptr %m_constraintSolver, align 8
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef %2)
+  %1 = load ptr, ptr %m_constraintSolver, align 8
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef %1)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

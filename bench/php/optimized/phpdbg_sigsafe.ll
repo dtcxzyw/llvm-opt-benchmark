@@ -56,41 +56,40 @@ define hidden void @phpdbg_set_sigsafe_mem(ptr noundef %0) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @zend_mm_mem_alloc(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2) #0 {
-  %4 = icmp ult i64 %1, 4194305
+  %4 = icmp ugt i64 %1, 4194304
   %5 = load i8, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 51, i32 1), align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  %7 = select i1 %4, i1 %.not, i1 false
-  br i1 %7, label %8, label %15
+  %6 = trunc i8 %5 to i1
+  %.not4 = select i1 %4, i1 true, i1 %6
+  br i1 %.not4, label %14, label %7
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   store i8 1, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 51, i32 1), align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 51), align 8
-  %10 = ptrtoint ptr %9 to i64
-  %11 = sub i64 0, %2
-  %12 = and i64 %10, %11
-  %13 = add i64 %12, %2
-  %14 = inttoptr i64 %13 to ptr
-  br label %23
+  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 51), align 8
+  %9 = ptrtoint ptr %8 to i64
+  %10 = sub i64 0, %2
+  %11 = and i64 %9, %10
+  %12 = add i64 %11, %2
+  %13 = inttoptr i64 %12 to ptr
+  br label %22
 
-15:                                               ; preds = %3
-  %16 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 2), align 8
-  %17 = tail call i64 @write(i32 noundef %16, ptr noundef nonnull @.str, i64 noundef 139) #7
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  %.not4 = icmp eq ptr %18, null
-  br i1 %.not4, label %20, label %19
+14:                                               ; preds = %3
+  %15 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 2), align 8
+  %16 = tail call i64 @write(i32 noundef %15, ptr noundef nonnull @.str, i64 noundef 139) #7
+  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %19, label %18
 
-19:                                               ; preds = %15
-  tail call void @siglongjmp(ptr noundef nonnull %18, i32 noundef -1) #8
+18:                                               ; preds = %14
+  tail call void @siglongjmp(ptr noundef nonnull %17, i32 noundef -1) #8
   unreachable
 
-20:                                               ; preds = %15
-  %21 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 2), align 8
-  %22 = tail call i64 @write(i32 noundef %21, ptr noundef nonnull @.str.1, i64 noundef 56) #7
-  br label %23
+19:                                               ; preds = %14
+  %20 = load i32, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 39, i64 2), align 8
+  %21 = tail call i64 @write(i32 noundef %20, ptr noundef nonnull @.str.1, i64 noundef 56) #7
+  br label %22
 
-23:                                               ; preds = %20, %8
-  %.0 = phi ptr [ %14, %8 ], [ null, %20 ]
+22:                                               ; preds = %19, %7
+  %.0 = phi ptr [ %13, %7 ], [ null, %19 ]
   ret ptr %.0
 }
 

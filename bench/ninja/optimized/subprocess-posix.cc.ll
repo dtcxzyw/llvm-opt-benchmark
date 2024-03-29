@@ -256,14 +256,13 @@ define dso_local noundef zeroext i1 @_ZN10Subprocess5StartEP13SubprocessSetRKNSt
 34:                                               ; preds = %29
   %35 = getelementptr inbounds i8, ptr %0, i64 40
   %36 = load i8, ptr %35, align 8
-  %37 = and i8 %36, 1
-  %.not45 = icmp eq i8 %37, 0
-  br i1 %.not45, label %38, label %58
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %58, label %38
 
 38:                                               ; preds = %34
   %39 = call i32 @posix_spawn_file_actions_addopen(ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull @.str.5, i32 noundef 0, i32 noundef 0) #19
-  %.not46 = icmp eq i32 %39, 0
-  br i1 %.not46, label %42, label %40
+  %.not45 = icmp eq i32 %39, 0
+  br i1 %.not45, label %42, label %40
 
 40:                                               ; preds = %38
   %41 = call ptr @strerror(i32 noundef %39) #19
@@ -274,8 +273,8 @@ define dso_local noundef zeroext i1 @_ZN10Subprocess5StartEP13SubprocessSetRKNSt
   %43 = getelementptr inbounds i8, ptr %4, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = call i32 @posix_spawn_file_actions_adddup2(ptr noundef nonnull %5, i32 noundef %44, i32 noundef 1) #19
-  %.not47 = icmp eq i32 %45, 0
-  br i1 %.not47, label %48, label %46
+  %.not46 = icmp eq i32 %45, 0
+  br i1 %.not46, label %48, label %46
 
 46:                                               ; preds = %42
   %47 = call ptr @strerror(i32 noundef %45) #19
@@ -285,8 +284,8 @@ define dso_local noundef zeroext i1 @_ZN10Subprocess5StartEP13SubprocessSetRKNSt
 48:                                               ; preds = %42
   %49 = load i32, ptr %43, align 4
   %50 = call i32 @posix_spawn_file_actions_adddup2(ptr noundef nonnull %5, i32 noundef %49, i32 noundef 2) #19
-  %.not48 = icmp eq i32 %50, 0
-  br i1 %.not48, label %53, label %51
+  %.not47 = icmp eq i32 %50, 0
+  br i1 %.not47, label %53, label %51
 
 51:                                               ; preds = %48
   %52 = call ptr @strerror(i32 noundef %50) #19
@@ -296,8 +295,8 @@ define dso_local noundef zeroext i1 @_ZN10Subprocess5StartEP13SubprocessSetRKNSt
 53:                                               ; preds = %48
   %54 = load i32, ptr %43, align 4
   %55 = call i32 @posix_spawn_file_actions_addclose(ptr noundef nonnull %5, i32 noundef %54) #19
-  %.not49 = icmp eq i32 %55, 0
-  br i1 %.not49, label %58, label %56
+  %.not48 = icmp eq i32 %55, 0
+  br i1 %.not48, label %58, label %56
 
 56:                                               ; preds = %53
   %57 = call ptr @strerror(i32 noundef %55) #19
@@ -307,8 +306,8 @@ define dso_local noundef zeroext i1 @_ZN10Subprocess5StartEP13SubprocessSetRKNSt
 58:                                               ; preds = %53, %34
   %.0 = phi i16 [ 72, %34 ], [ 74, %53 ]
   %59 = call i32 @posix_spawnattr_setflags(ptr noundef nonnull %6, i16 noundef signext %.0) #19
-  %.not50 = icmp eq i32 %59, 0
-  br i1 %.not50, label %62, label %60
+  %.not49 = icmp eq i32 %59, 0
+  br i1 %.not49, label %62, label %60
 
 60:                                               ; preds = %58
   %61 = call ptr @strerror(i32 noundef %59) #19
@@ -327,8 +326,8 @@ define dso_local noundef zeroext i1 @_ZN10Subprocess5StartEP13SubprocessSetRKNSt
   %67 = getelementptr inbounds i8, ptr %0, i64 36
   %68 = load ptr, ptr @environ, align 8
   %69 = call i32 @posix_spawn(ptr noundef nonnull %67, ptr noundef nonnull @.str.9, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %68)
-  %.not51 = icmp eq i32 %69, 0
-  br i1 %.not51, label %72, label %70
+  %.not50 = icmp eq i32 %69, 0
+  br i1 %.not50, label %72, label %70
 
 70:                                               ; preds = %62
   %71 = call ptr @strerror(i32 noundef %69) #19
@@ -337,8 +336,8 @@ define dso_local noundef zeroext i1 @_ZN10Subprocess5StartEP13SubprocessSetRKNSt
 
 72:                                               ; preds = %62
   %73 = call i32 @posix_spawnattr_destroy(ptr noundef nonnull %6) #19
-  %.not52 = icmp eq i32 %73, 0
-  br i1 %.not52, label %76, label %74
+  %.not51 = icmp eq i32 %73, 0
+  br i1 %.not51, label %76, label %74
 
 74:                                               ; preds = %72
   %75 = call ptr @strerror(i32 noundef %73) #19
@@ -347,8 +346,8 @@ define dso_local noundef zeroext i1 @_ZN10Subprocess5StartEP13SubprocessSetRKNSt
 
 76:                                               ; preds = %72
   %77 = call i32 @posix_spawn_file_actions_destroy(ptr noundef nonnull %5) #19
-  %.not53 = icmp eq i32 %77, 0
-  br i1 %.not53, label %80, label %78
+  %.not52 = icmp eq i32 %77, 0
+  br i1 %.not52, label %80, label %78
 
 78:                                               ; preds = %76
   %79 = call ptr @strerror(i32 noundef %77) #19
@@ -655,18 +654,17 @@ define dso_local void @_ZN13SubprocessSetD2Ev(ptr noundef nonnull align 8 derefe
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %.not912.i = icmp eq ptr %2, %4
-  br i1 %.not912.i, label %_ZN13SubprocessSet5ClearEv.exit, label %.lr.ph.i
+  %.not11.i = icmp eq ptr %2, %4
+  br i1 %.not11.i, label %_ZN13SubprocessSet5ClearEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %16
   %5 = phi ptr [ %17, %16 ], [ %4, %1 ]
-  %.sroa.05.013.i = phi ptr [ %18, %16 ], [ %2, %1 ]
-  %6 = load ptr, ptr %.sroa.05.013.i, align 8
+  %.sroa.05.012.i = phi ptr [ %18, %16 ], [ %2, %1 ]
+  %6 = load ptr, ptr %.sroa.05.012.i, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not.i = icmp eq i8 %9, 0
-  br i1 %.not.i, label %10, label %16
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %16, label %10
 
 10:                                               ; preds = %.lr.ph.i
   %11 = getelementptr inbounds i8, ptr %6, i64 36
@@ -679,44 +677,44 @@ define dso_local void @_ZN13SubprocessSetD2Ev(ptr noundef nonnull align 8 derefe
 
 16:                                               ; preds = %10, %.lr.ph.i
   %17 = phi ptr [ %5, %.lr.ph.i ], [ %.pre.i, %10 ]
-  %18 = getelementptr inbounds i8, ptr %.sroa.05.013.i, i64 8
-  %.not9.i = icmp eq ptr %18, %17
-  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
+  %18 = getelementptr inbounds i8, ptr %.sroa.05.012.i, i64 8
+  %.not.i = icmp eq ptr %18, %17
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %16
-  %.pre20.i = load ptr, ptr %0, align 8
-  %.not1014.i = icmp eq ptr %.pre20.i, %17
-  br i1 %.not1014.i, label %_ZN13SubprocessSet5ClearEv.exit, label %.lr.ph17.i
+  %.pre19.i = load ptr, ptr %0, align 8
+  %.not913.i = icmp eq ptr %.pre19.i, %17
+  br i1 %.not913.i, label %_ZN13SubprocessSet5ClearEv.exit, label %.lr.ph16.i
 
-.lr.ph17.i:                                       ; preds = %._crit_edge.i, %23
+.lr.ph16.i:                                       ; preds = %._crit_edge.i, %23
   %19 = phi ptr [ %24, %23 ], [ %17, %._crit_edge.i ]
-  %.sroa.01.015.i = phi ptr [ %25, %23 ], [ %.pre20.i, %._crit_edge.i ]
-  %20 = load ptr, ptr %.sroa.01.015.i, align 8
+  %.sroa.01.014.i = phi ptr [ %25, %23 ], [ %.pre19.i, %._crit_edge.i ]
+  %20 = load ptr, ptr %.sroa.01.014.i, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %23, label %22
 
-22:                                               ; preds = %.lr.ph17.i
+22:                                               ; preds = %.lr.ph16.i
   tail call void @_ZN10SubprocessD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %20) #19
   tail call void @_ZdlPv(ptr noundef nonnull %20) #24
-  %.pre21.i = load ptr, ptr %3, align 8
+  %.pre20.i = load ptr, ptr %3, align 8
   br label %23
 
-23:                                               ; preds = %22, %.lr.ph17.i
-  %24 = phi ptr [ %19, %.lr.ph17.i ], [ %.pre21.i, %22 ]
-  %25 = getelementptr inbounds i8, ptr %.sroa.01.015.i, i64 8
-  %.not10.i = icmp eq ptr %25, %24
-  br i1 %.not10.i, label %._crit_edge18.i, label %.lr.ph17.i, !llvm.loop !8
+23:                                               ; preds = %22, %.lr.ph16.i
+  %24 = phi ptr [ %19, %.lr.ph16.i ], [ %.pre20.i, %22 ]
+  %25 = getelementptr inbounds i8, ptr %.sroa.01.014.i, i64 8
+  %.not9.i = icmp eq ptr %25, %24
+  br i1 %.not9.i, label %._crit_edge17.i, label %.lr.ph16.i, !llvm.loop !8
 
-._crit_edge18.i:                                  ; preds = %23
-  %.pre22.i = load ptr, ptr %0, align 8
-  %.not.i.i.i = icmp eq ptr %24, %.pre22.i
+._crit_edge17.i:                                  ; preds = %23
+  %.pre21.i = load ptr, ptr %0, align 8
+  %.not.i.i.i = icmp eq ptr %24, %.pre21.i
   br i1 %.not.i.i.i, label %_ZN13SubprocessSet5ClearEv.exit, label %26
 
-26:                                               ; preds = %._crit_edge18.i
-  store ptr %.pre22.i, ptr %3, align 8
+26:                                               ; preds = %._crit_edge17.i
+  store ptr %.pre21.i, ptr %3, align 8
   br label %_ZN13SubprocessSet5ClearEv.exit
 
-_ZN13SubprocessSet5ClearEv.exit:                  ; preds = %1, %._crit_edge.i, %._crit_edge18.i, %26
+_ZN13SubprocessSet5ClearEv.exit:                  ; preds = %1, %._crit_edge.i, %._crit_edge17.i, %26
   %27 = getelementptr inbounds i8, ptr %0, i64 104
   %28 = tail call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %27, ptr noundef null) #19
   %29 = icmp slt i32 %28, 0
@@ -808,18 +806,17 @@ define dso_local void @_ZN13SubprocessSet5ClearEv(ptr nocapture noundef nonnull 
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %.not912 = icmp eq ptr %2, %4
-  br i1 %.not912, label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit, label %.lr.ph
+  %.not11 = icmp eq ptr %2, %4
+  br i1 %.not11, label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %16
   %5 = phi ptr [ %17, %16 ], [ %4, %1 ]
-  %.sroa.05.013 = phi ptr [ %18, %16 ], [ %2, %1 ]
-  %6 = load ptr, ptr %.sroa.05.013, align 8
+  %.sroa.05.012 = phi ptr [ %18, %16 ], [ %2, %1 ]
+  %6 = load ptr, ptr %.sroa.05.012, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %16
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %16, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds i8, ptr %6, i64 36
@@ -832,44 +829,44 @@ define dso_local void @_ZN13SubprocessSet5ClearEv(ptr nocapture noundef nonnull 
 
 16:                                               ; preds = %.lr.ph, %10
   %17 = phi ptr [ %5, %.lr.ph ], [ %.pre, %10 ]
-  %18 = getelementptr inbounds i8, ptr %.sroa.05.013, i64 8
-  %.not9 = icmp eq ptr %18, %17
-  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  %18 = getelementptr inbounds i8, ptr %.sroa.05.012, i64 8
+  %.not = icmp eq ptr %18, %17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %16
-  %.pre20 = load ptr, ptr %0, align 8
-  %.not1014 = icmp eq ptr %.pre20, %17
-  br i1 %.not1014, label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit, label %.lr.ph17
+  %.pre19 = load ptr, ptr %0, align 8
+  %.not913 = icmp eq ptr %.pre19, %17
+  br i1 %.not913, label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit, label %.lr.ph16
 
-.lr.ph17:                                         ; preds = %._crit_edge, %23
+.lr.ph16:                                         ; preds = %._crit_edge, %23
   %19 = phi ptr [ %24, %23 ], [ %17, %._crit_edge ]
-  %.sroa.01.015 = phi ptr [ %25, %23 ], [ %.pre20, %._crit_edge ]
-  %20 = load ptr, ptr %.sroa.01.015, align 8
+  %.sroa.01.014 = phi ptr [ %25, %23 ], [ %.pre19, %._crit_edge ]
+  %20 = load ptr, ptr %.sroa.01.014, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %23, label %22
 
-22:                                               ; preds = %.lr.ph17
+22:                                               ; preds = %.lr.ph16
   tail call void @_ZN10SubprocessD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %20) #19
   tail call void @_ZdlPv(ptr noundef nonnull %20) #24
-  %.pre21 = load ptr, ptr %3, align 8
+  %.pre20 = load ptr, ptr %3, align 8
   br label %23
 
-23:                                               ; preds = %.lr.ph17, %22
-  %24 = phi ptr [ %19, %.lr.ph17 ], [ %.pre21, %22 ]
-  %25 = getelementptr inbounds i8, ptr %.sroa.01.015, i64 8
-  %.not10 = icmp eq ptr %25, %24
-  br i1 %.not10, label %._crit_edge18, label %.lr.ph17, !llvm.loop !8
+23:                                               ; preds = %.lr.ph16, %22
+  %24 = phi ptr [ %19, %.lr.ph16 ], [ %.pre20, %22 ]
+  %25 = getelementptr inbounds i8, ptr %.sroa.01.014, i64 8
+  %.not9 = icmp eq ptr %25, %24
+  br i1 %.not9, label %._crit_edge17, label %.lr.ph16, !llvm.loop !8
 
-._crit_edge18:                                    ; preds = %23
-  %.pre22 = load ptr, ptr %0, align 8
-  %.not.i.i = icmp eq ptr %24, %.pre22
+._crit_edge17:                                    ; preds = %23
+  %.pre21 = load ptr, ptr %0, align 8
+  %.not.i.i = icmp eq ptr %24, %.pre21
   br i1 %.not.i.i, label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit, label %26
 
-26:                                               ; preds = %._crit_edge18
-  store ptr %.pre22, ptr %3, align 8
+26:                                               ; preds = %._crit_edge17
+  store ptr %.pre21, ptr %3, align 8
   br label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit
 
-_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge, %._crit_edge18, %26
+_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge, %._crit_edge17, %26
   ret void
 }
 

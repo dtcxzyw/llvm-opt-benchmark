@@ -236,23 +236,21 @@ define dso_local void @PerformPortalFetch(ptr nocapture noundef readonly %0, ptr
 20:                                               ; preds = %13
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = load i8, ptr %21, align 8
-  %23 = and i8 %22, 1
-  %.not17 = icmp eq i8 %23, 0
+  %23 = trunc i8 %22 to i1
   %24 = load ptr, ptr @None_Receiver, align 8
-  %spec.select = select i1 %.not17, ptr %1, ptr %24
+  %spec.select = select i1 %23, ptr %24, ptr %1
   %25 = getelementptr inbounds i8, ptr %0, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = tail call i64 @PortalRunFetch(ptr noundef nonnull %14, i32 noundef %26, i64 noundef %28, ptr noundef %spec.select) #7
-  %.not18 = icmp eq ptr %2, null
-  br i1 %.not18, label %35, label %30
+  %.not17 = icmp eq ptr %2, null
+  br i1 %.not17, label %35, label %30
 
 30:                                               ; preds = %20
   %31 = load i8, ptr %21, align 8
-  %32 = and i8 %31, 1
-  %.not19 = icmp eq i8 %32, 0
-  %33 = select i1 %.not19, i32 154, i32 164
+  %32 = trunc i8 %31 to i1
+  %33 = select i1 %32, i32 164, i32 154
   store i32 %33, ptr %2, align 8
   %34 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %29, ptr %34, align 8
@@ -440,9 +438,8 @@ define dso_local void @PersistHoldablePortal(ptr noundef %0) local_unnamed_addr 
   store ptr %45, ptr @CurrentMemoryContext, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 201
   %47 = load i8, ptr %46, align 1
-  %48 = and i8 %47, 1
-  %.not51 = icmp eq i8 %48, 0
-  br i1 %.not51, label %51, label %.preheader
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %.preheader, label %51
 
 .preheader:                                       ; preds = %36, %.preheader
   %49 = load ptr, ptr %39, align 8
@@ -454,8 +451,8 @@ define dso_local void @PersistHoldablePortal(ptr noundef %0) local_unnamed_addr 
   call void @tuplestore_rescan(ptr noundef %52) #7
   %53 = load i32, ptr %27, align 4
   %54 = and i32 %53, 2
-  %.not52 = icmp eq i32 %54, 0
-  br i1 %.not52, label %.loopexit, label %55
+  %.not50 = icmp eq i32 %54, 0
+  br i1 %.not50, label %.loopexit, label %55
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %39, align 8

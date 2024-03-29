@@ -7657,9 +7657,8 @@ if.end80.i:                                       ; preds = %if.then62.i
   br i1 %cond.fr55.i, label %if.then87.i, label %_ZL9decGetIntPK9decNumber.exit
 
 if.then87.i:                                      ; preds = %if.end80.i, %if.then62.i, %if.end46.i
-  %45 = and i8 %37, 1
-  %.not = icmp eq i8 %45, 0
-  %46 = select i1 %.not, i32 20, i32 30
+  %45 = trunc i8 %37 to i1
+  %46 = select i1 %45, i32 30, i32 20
   br label %_ZL9decGetIntPK9decNumber.exit.thread
 
 _ZL9decGetIntPK9decNumber.exit:                   ; preds = %for.cond49.preheader.i, %for.end60.i, %if.end80.i

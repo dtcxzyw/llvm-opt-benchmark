@@ -582,14 +582,14 @@ define hidden void @_ZN4core4iter8adapters11try_process17h5b484b1de32fb81aE(ptr 
           cleanup
   %8 = load i64, ptr %5, align 8, !range !82, !noundef !9
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %.thread, label %18
+  br i1 %.not, label %18, label %19
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !167
   %10 = load i64, ptr %5, align 8, !range !82, !noundef !9
-  %trunc.not = icmp eq i64 %10, 0
+  %trunc = trunc i64 %10 to i1
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %trunc.not, label %12, label %14
+  br i1 %trunc, label %14, label %12
 
 12:                                               ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -608,19 +608,19 @@ define hidden void @_ZN4core4iter8adapters11try_process17h5b484b1de32fb81aE(ptr 
   call void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$iox_query_influxql_rewrite..RewrittenStatement$GT$$GT$17hd941f797a1cf8e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %13
 
-16:                                               ; preds = %18
+16:                                               ; preds = %19
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #15
   unreachable
 
-.thread:                                          ; preds = %18, %6
+18:                                               ; preds = %6, %19
   resume { ptr, i32 } %7
 
-18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
-  invoke void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$iox_query_influxql_rewrite..Error$GT$$GT$17hf757dadb16a11f55E.llvm.17691627424714325278"(ptr noalias noundef nonnull align 8 dereferenceable(32) %19) #16
-          to label %.thread unwind label %16
+19:                                               ; preds = %6
+  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  invoke void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$iox_query_influxql_rewrite..Error$GT$$GT$17hf757dadb16a11f55E.llvm.17691627424714325278"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20) #16
+          to label %18 unwind label %16
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -643,14 +643,14 @@ define hidden void @_ZN4core4iter8adapters11try_process17h8da4caf3f1f10aa5E(ptr 
           cleanup
   %8 = load i64, ptr %5, align 8, !range !82, !noundef !9
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %.thread, label %18
+  br i1 %.not, label %18, label %19
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !189
   %10 = load i64, ptr %5, align 8, !range !82, !noundef !9
-  %trunc.not = icmp eq i64 %10, 0
+  %trunc = trunc i64 %10 to i1
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %trunc.not, label %12, label %14
+  br i1 %trunc, label %14, label %12
 
 12:                                               ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -669,19 +669,19 @@ define hidden void @_ZN4core4iter8adapters11try_process17h8da4caf3f1f10aa5E(ptr 
   call void @"_ZN4core3ptr98drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$GT$17h155c711852423e18E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %13
 
-16:                                               ; preds = %18
+16:                                               ; preds = %19
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #15
   unreachable
 
-.thread:                                          ; preds = %18, %6
+18:                                               ; preds = %6, %19
   resume { ptr, i32 } %7
 
-18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
-  invoke void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$iox_query_influxql_rewrite..Error$GT$$GT$17hf757dadb16a11f55E.llvm.17691627424714325278"(ptr noalias noundef nonnull align 8 dereferenceable(32) %19) #16
-          to label %.thread unwind label %16
+19:                                               ; preds = %6
+  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  invoke void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$iox_query_influxql_rewrite..Error$GT$$GT$17hf757dadb16a11f55E.llvm.17691627424714325278"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20) #16
+          to label %18 unwind label %16
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

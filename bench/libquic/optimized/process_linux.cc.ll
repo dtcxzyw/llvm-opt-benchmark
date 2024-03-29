@@ -45,8 +45,7 @@ _ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLaz
   %2 = load atomic volatile i64, ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, 1
-  %tobool = icmp ne i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   ret i1 %tobool
 }
 
@@ -96,14 +95,13 @@ _ZN4base7Process22CanBackgroundProcessesEv.exit:  ; preds = %entry, %land.lhs.tr
   %2 = load atomic volatile i64, ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, 1
-  %tobool.i.not = icmp eq i8 %5, 0
-  br i1 %tobool.i.not, label %return, label %if.end
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN4base7Process22CanBackgroundProcessesEv.exit
   %cond = select i1 %background, i32 5, i32 0
-  %6 = load i32, ptr %this, align 4
-  %call2 = call i32 @setpriority(i32 noundef 0, i32 noundef %6, i32 noundef %cond) #5
+  %5 = load i32, ptr %this, align 4
+  %call2 = call i32 @setpriority(i32 noundef 0, i32 noundef %5, i32 noundef %cond) #5
   %cmp = icmp eq i32 %call2, 0
   br label %return
 

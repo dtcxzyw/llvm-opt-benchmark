@@ -3012,14 +3012,13 @@ sw.bb:                                            ; preds = %entry
   %3 = load i64, ptr %tmptv2, align 8
   %shr = ashr i64 %3, 47
   %4 = and i64 %shr, 4294967294
-  %cmp6.not = icmp eq i64 %4, 4294967294
   %5 = load i32, ptr %2, align 4
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 4
   %6 = load i32, ptr %arrayidx.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
-  %7 = and i32 %5, 1
-  %8 = icmp eq i32 %7, 0
-  %tobool.not.i = xor i1 %cmp6.not, %8
+  %7 = trunc i32 %5 to i1
+  %8 = icmp ne i64 %4, 4294967294
+  %tobool.not.i = xor i1 %8, %7
   %shr.i = lshr i32 %6, 16
   %conv.i501 = zext nneg i32 %shr.i to i64
   %sub.i = add nsw i64 %conv.i501, -32768
@@ -3937,10 +3936,9 @@ lor.lhs.false437:                                 ; preds = %if.then431
 
 if.then445:                                       ; preds = %lor.lhs.false437, %if.then431
   %128 = load ptr, ptr %pc125, align 8
-  %tobool448.not = icmp eq i32 %call434, 0
-  %129 = and i32 %68, 1
-  %130 = icmp eq i32 %129, 0
-  %cmp451 = xor i1 %130, %tobool448.not
+  %129 = trunc i32 %68 to i1
+  %130 = icmp ne i32 %call434, 0
+  %cmp451 = xor i1 %130, %129
   %conv452 = zext i1 %cmp451 to i32
   call fastcc void @rec_comp_fixup(ptr noundef nonnull %J, ptr noundef %128, i32 noundef %conv452)
   br label %sw.epilog957
@@ -3955,10 +3953,9 @@ if.then456:                                       ; preds = %if.else453
 
 sw.bb460:                                         ; preds = %sw.epilog247, %sw.epilog247
   %131 = and i32 %rc.1, 503316480
-  %cmp465 = icmp ne i32 %131, 0
-  %132 = and i32 %68, 1
-  %133 = icmp eq i32 %132, 0
-  %cmp469 = xor i1 %133, %cmp465
+  %132 = trunc i32 %68 to i1
+  %133 = icmp eq i32 %131, 0
+  %cmp469 = xor i1 %133, %132
   %spec.select491 = select i1 %cmp469, i32 0, i32 %rc.1
   br label %sw.bb473
 

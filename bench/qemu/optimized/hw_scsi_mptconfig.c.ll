@@ -653,17 +653,16 @@ land.lhs.true5.i.i:                               ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %s, i32 noundef %address, i32 noundef -22, i32 noundef -1, i32 noundef -1, i32 noundef 0) #13
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef -22, i32 noundef -1, i32 noundef -1, i32 noundef 0) #13
   br label %trace_mptsas_config_sas_phy.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -682,45 +681,44 @@ if.end:                                           ; preds = %if.end6.i
   %add5.i = add nuw nsw i32 %and4.i, 9
   %cond.i = select i1 %tobool3.not.i, i32 0, i32 %add5.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i13)
-  %7 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i14 = icmp ne i32 %7, 0
-  %8 = load i16, ptr @_TRACE_MPTSAS_CONFIG_SAS_PHY_DSTATE, align 2
-  %tobool4.i.i15 = icmp ne i16 %8, 0
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i14 = icmp ne i32 %6, 0
+  %7 = load i16, ptr @_TRACE_MPTSAS_CONFIG_SAS_PHY_DSTATE, align 2
+  %tobool4.i.i15 = icmp ne i16 %7, 0
   %or.cond.i.i16 = select i1 %tobool.i.i14, i1 %tobool4.i.i15, i1 false
   br i1 %or.cond.i.i16, label %land.lhs.true5.i.i17, label %trace_mptsas_config_sas_phy.exit27
 
 land.lhs.true5.i.i17:                             ; preds = %if.end
-  %9 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i18 = and i32 %9, 32768
+  %8 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i18 = and i32 %8, 32768
   %cmp.i.not.i.i19 = icmp eq i32 %and.i.i.i18, 0
   br i1 %cmp.i.not.i.i19, label %trace_mptsas_config_sas_phy.exit27, label %if.then.i.i20
 
 if.then.i.i20:                                    ; preds = %land.lhs.true5.i.i17
-  %10 = load i8, ptr @message_with_timestamp, align 1
-  %11 = and i8 %10, 1
-  %tobool7.not.i.i21 = icmp eq i8 %11, 0
-  br i1 %tobool7.not.i.i21, label %if.else.i.i26, label %if.then8.i.i22
+  %9 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i21 = trunc i8 %9 to i1
+  br i1 %tobool7.i.i21, label %if.then8.i.i23, label %if.else.i.i22
 
-if.then8.i.i22:                                   ; preds = %if.then.i.i20
-  %call9.i.i23 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i13, ptr noundef null) #13
-  %call10.i.i24 = tail call i32 @qemu_get_thread_id() #13
-  %12 = load i64, ptr %_now.i.i13, align 8
-  %tv_usec.i.i25 = getelementptr inbounds i8, ptr %_now.i.i13, i64 8
-  %13 = load i64, ptr %tv_usec.i.i25, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i24, i64 noundef %12, i64 noundef %13, ptr noundef %s, i32 noundef %address, i32 noundef %and4.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 0) #13
+if.then8.i.i23:                                   ; preds = %if.then.i.i20
+  %call9.i.i24 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i13, ptr noundef null) #13
+  %call10.i.i25 = tail call i32 @qemu_get_thread_id() #13
+  %10 = load i64, ptr %_now.i.i13, align 8
+  %tv_usec.i.i26 = getelementptr inbounds i8, ptr %_now.i.i13, i64 8
+  %11 = load i64, ptr %tv_usec.i.i26, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i25, i64 noundef %10, i64 noundef %11, ptr noundef %s, i32 noundef %address, i32 noundef %and4.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 0) #13
   br label %trace_mptsas_config_sas_phy.exit27
 
-if.else.i.i26:                                    ; preds = %if.then.i.i20
+if.else.i.i22:                                    ; preds = %if.then.i.i20
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, ptr noundef %s, i32 noundef %address, i32 noundef %and4.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 0) #13
   br label %trace_mptsas_config_sas_phy.exit27
 
-trace_mptsas_config_sas_phy.exit27:               ; preds = %if.end, %land.lhs.true5.i.i17, %if.then8.i.i22, %if.else.i.i26
+trace_mptsas_config_sas_phy.exit27:               ; preds = %if.end, %land.lhs.true5.i.i17, %if.then8.i.i23, %if.else.i.i22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i13)
   %sas_addr = getelementptr inbounds i8, ptr %s, i64 3440
-  %14 = load i64, ptr %sas_addr, align 16
+  %12 = load i64, ptr %sas_addr, align 16
   %tobool.not = icmp ne ptr %call.i, null
   %cond = zext i1 %tobool.not to i32
-  %call2 = tail call i64 (ptr, ptr, ...) @mptsas_config_pack_ext(ptr noundef %data, ptr noundef nonnull @.str.35, i32 noundef 1, i32 noundef 0, i32 noundef 15, i32 noundef 19, i32 noundef %cond.i, i64 noundef %14, i32 noundef %cond.i, i32 noundef %and4.i, i32 noundef %cond, i32 noundef 152, i32 noundef 152)
+  %call2 = tail call i64 (ptr, ptr, ...) @mptsas_config_pack_ext(ptr noundef %data, ptr noundef nonnull @.str.35, i32 noundef 1, i32 noundef 0, i32 noundef 15, i32 noundef 19, i32 noundef %cond.i, i64 noundef %12, i32 noundef %cond.i, i32 noundef %and4.i, i32 noundef %cond, i32 noundef 152, i32 noundef 152)
   br label %return
 
 return:                                           ; preds = %trace_mptsas_config_sas_phy.exit27, %trace_mptsas_config_sas_phy.exit
@@ -764,17 +762,16 @@ land.lhs.true5.i.i:                               ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %s, i32 noundef %address, i32 noundef -22, i32 noundef -1, i32 noundef -1, i32 noundef 1) #13
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef -22, i32 noundef -1, i32 noundef -1, i32 noundef 1) #13
   br label %trace_mptsas_config_sas_phy.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -793,39 +790,38 @@ if.end:                                           ; preds = %if.end6.i
   %add5.i = add nuw nsw i32 %and4.i, 9
   %cond.i = select i1 %tobool3.not.i, i32 0, i32 %add5.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i11)
-  %7 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i12 = icmp ne i32 %7, 0
-  %8 = load i16, ptr @_TRACE_MPTSAS_CONFIG_SAS_PHY_DSTATE, align 2
-  %tobool4.i.i13 = icmp ne i16 %8, 0
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i12 = icmp ne i32 %6, 0
+  %7 = load i16, ptr @_TRACE_MPTSAS_CONFIG_SAS_PHY_DSTATE, align 2
+  %tobool4.i.i13 = icmp ne i16 %7, 0
   %or.cond.i.i14 = select i1 %tobool.i.i12, i1 %tobool4.i.i13, i1 false
   br i1 %or.cond.i.i14, label %land.lhs.true5.i.i15, label %trace_mptsas_config_sas_phy.exit25
 
 land.lhs.true5.i.i15:                             ; preds = %if.end
-  %9 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i16 = and i32 %9, 32768
+  %8 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i16 = and i32 %8, 32768
   %cmp.i.not.i.i17 = icmp eq i32 %and.i.i.i16, 0
   br i1 %cmp.i.not.i.i17, label %trace_mptsas_config_sas_phy.exit25, label %if.then.i.i18
 
 if.then.i.i18:                                    ; preds = %land.lhs.true5.i.i15
-  %10 = load i8, ptr @message_with_timestamp, align 1
-  %11 = and i8 %10, 1
-  %tobool7.not.i.i19 = icmp eq i8 %11, 0
-  br i1 %tobool7.not.i.i19, label %if.else.i.i24, label %if.then8.i.i20
+  %9 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i19 = trunc i8 %9 to i1
+  br i1 %tobool7.i.i19, label %if.then8.i.i21, label %if.else.i.i20
 
-if.then8.i.i20:                                   ; preds = %if.then.i.i18
-  %call9.i.i21 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i11, ptr noundef null) #13
-  %call10.i.i22 = tail call i32 @qemu_get_thread_id() #13
-  %12 = load i64, ptr %_now.i.i11, align 8
-  %tv_usec.i.i23 = getelementptr inbounds i8, ptr %_now.i.i11, i64 8
-  %13 = load i64, ptr %tv_usec.i.i23, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i22, i64 noundef %12, i64 noundef %13, ptr noundef %s, i32 noundef %address, i32 noundef %and4.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 1) #13
+if.then8.i.i21:                                   ; preds = %if.then.i.i18
+  %call9.i.i22 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i11, ptr noundef null) #13
+  %call10.i.i23 = tail call i32 @qemu_get_thread_id() #13
+  %10 = load i64, ptr %_now.i.i11, align 8
+  %tv_usec.i.i24 = getelementptr inbounds i8, ptr %_now.i.i11, i64 8
+  %11 = load i64, ptr %tv_usec.i.i24, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i23, i64 noundef %10, i64 noundef %11, ptr noundef %s, i32 noundef %address, i32 noundef %and4.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 1) #13
   br label %trace_mptsas_config_sas_phy.exit25
 
-if.else.i.i24:                                    ; preds = %if.then.i.i18
+if.else.i.i20:                                    ; preds = %if.then.i.i18
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, ptr noundef %s, i32 noundef %address, i32 noundef %and4.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 1) #13
   br label %trace_mptsas_config_sas_phy.exit25
 
-trace_mptsas_config_sas_phy.exit25:               ; preds = %if.end, %land.lhs.true5.i.i15, %if.then8.i.i20, %if.else.i.i24
+trace_mptsas_config_sas_phy.exit25:               ; preds = %if.end, %land.lhs.true5.i.i15, %if.then8.i.i21, %if.else.i.i20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i11)
   %call2 = tail call i64 (ptr, ptr, ...) @mptsas_config_pack_ext(ptr noundef %data, ptr noundef nonnull @.str.38, i32 noundef 1, i32 noundef 1, i32 noundef 15, i32 noundef 19)
   br label %return
@@ -912,17 +908,16 @@ land.lhs.true5.i.i:                               ; preds = %mptsas_device_addr_
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %s, i32 noundef %address, i32 noundef %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 0) #13
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 0) #13
   br label %trace_mptsas_config_sas_device.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -935,8 +930,8 @@ trace_mptsas_config_sas_device.exit:              ; preds = %mptsas_device_addr_
 
 if.end:                                           ; preds = %trace_mptsas_config_sas_device.exit
   %wwn = getelementptr inbounds i8, ptr %call.i10, i64 576
-  %7 = load i64, ptr %wwn, align 8
-  %call2 = tail call i64 (ptr, ptr, ...) @mptsas_config_pack_ext(ptr noundef %data, ptr noundef nonnull @.str.39, i32 noundef 5, i32 noundef 0, i32 noundef 15, i32 noundef 18, i64 noundef %7, i32 noundef %add.i, i32 noundef %retval.0.i, i32 noundef 0, i32 noundef %add5.i, i32 noundef %retval.0.i, i32 noundef 0, i32 noundef 1025, i32 noundef 7, i32 noundef %retval.0.i)
+  %6 = load i64, ptr %wwn, align 8
+  %call2 = tail call i64 (ptr, ptr, ...) @mptsas_config_pack_ext(ptr noundef %data, ptr noundef nonnull @.str.39, i32 noundef 5, i32 noundef 0, i32 noundef 15, i32 noundef 18, i64 noundef %6, i32 noundef %add.i, i32 noundef %retval.0.i, i32 noundef 0, i32 noundef %add5.i, i32 noundef %retval.0.i, i32 noundef 0, i32 noundef 1025, i32 noundef 7, i32 noundef %retval.0.i)
   br label %return
 
 return:                                           ; preds = %trace_mptsas_config_sas_device.exit, %if.end
@@ -1021,17 +1016,16 @@ land.lhs.true5.i.i:                               ; preds = %mptsas_device_addr_
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %s, i32 noundef %address, i32 noundef %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 1) #13
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 1) #13
   br label %trace_mptsas_config_sas_device.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1044,8 +1038,8 @@ trace_mptsas_config_sas_device.exit:              ; preds = %mptsas_device_addr_
 
 if.end:                                           ; preds = %trace_mptsas_config_sas_device.exit
   %wwn = getelementptr inbounds i8, ptr %call.i8, i64 576
-  %7 = load i64, ptr %wwn, align 8
-  %call2 = tail call i64 (ptr, ptr, ...) @mptsas_config_pack_ext(ptr noundef %data, ptr noundef nonnull @.str.42, i32 noundef 0, i32 noundef 1, i32 noundef 15, i32 noundef 18, i64 noundef %7, i32 noundef %add5.i, i32 noundef %retval.0.i, i32 noundef 0)
+  %6 = load i64, ptr %wwn, align 8
+  %call2 = tail call i64 (ptr, ptr, ...) @mptsas_config_pack_ext(ptr noundef %data, ptr noundef nonnull @.str.42, i32 noundef 0, i32 noundef 1, i32 noundef 15, i32 noundef 18, i64 noundef %6, i32 noundef %add5.i, i32 noundef %retval.0.i, i32 noundef 0)
   br label %return
 
 return:                                           ; preds = %trace_mptsas_config_sas_device.exit, %if.end
@@ -1130,17 +1124,16 @@ land.lhs.true5.i.i:                               ; preds = %mptsas_device_addr_
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %s, i32 noundef %address, i32 noundef %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 2) #13
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 2) #13
   br label %trace_mptsas_config_sas_device.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1153,8 +1146,8 @@ trace_mptsas_config_sas_device.exit:              ; preds = %mptsas_device_addr_
 
 if.end:                                           ; preds = %trace_mptsas_config_sas_device.exit
   %wwn = getelementptr inbounds i8, ptr %call.i7, i64 576
-  %7 = load i64, ptr %wwn, align 8
-  %call2 = tail call i64 (ptr, ptr, ...) @mptsas_config_pack_ext(ptr noundef %data, ptr noundef nonnull @.str.43, i32 noundef 1, i32 noundef 2, i32 noundef 15, i32 noundef 18, i64 noundef %7, i32 noundef 0)
+  %6 = load i64, ptr %wwn, align 8
+  %call2 = tail call i64 (ptr, ptr, ...) @mptsas_config_pack_ext(ptr noundef %data, ptr noundef nonnull @.str.43, i32 noundef 1, i32 noundef 2, i32 noundef 15, i32 noundef 18, i64 noundef %6, i32 noundef 0)
   br label %return
 
 return:                                           ; preds = %trace_mptsas_config_sas_device.exit, %if.end
@@ -1167,7 +1160,7 @@ define internal i64 @mptsas_config_pack(ptr noundef %data, ptr nocapture noundef
 entry:
   %ap2.i = alloca [1 x %struct.__va_list_tag], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ap2.i)
   %tobool.not.i = icmp eq ptr %data, null
   br i1 %tobool.not.i, label %vpack.exit.thread, label %if.then
@@ -1175,18 +1168,18 @@ entry:
 vpack.exit.thread:                                ; preds = %entry
   %call4.i9 = call fastcc i64 @vfill(ptr noundef null, ptr noundef %fmt, ptr noundef nonnull %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap2.i)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %if.end6
 
 if.then:                                          ; preds = %entry
-  call void @llvm.va_copy(ptr nonnull %ap2.i, ptr nonnull %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %ap2.i, ptr nonnull %ap)
   %call.i = call fastcc i64 @vfill(ptr noundef null, ptr noundef %fmt, ptr noundef nonnull %ap2.i)
   %call2.i = call noalias ptr @g_malloc(i64 noundef %call.i) #15
   store ptr %call2.i, ptr %data, align 8
-  call void @llvm.va_end(ptr nonnull %ap2.i)
+  call void @llvm.va_end.p0(ptr nonnull %ap2.i)
   %call4.i = call fastcc i64 @vfill(ptr noundef %call2.i, ptr noundef %fmt, ptr noundef nonnull %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap2.i)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %0 = and i64 %call4.i, -1021
   %or.cond = icmp eq i64 %0, 0
   br i1 %or.cond, label %if.end, label %if.else
@@ -1208,17 +1201,8 @@ if.end6:                                          ; preds = %vpack.exit.thread, 
   ret i64 %call4.i10
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #4
-
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc i64 @vfill(ptr noundef %data, ptr nocapture noundef readonly %fmt, ptr nocapture noundef %ap) unnamed_addr #5 {
+define internal fastcc i64 @vfill(ptr noundef %data, ptr nocapture noundef readonly %fmt, ptr nocapture noundef %ap) unnamed_addr #4 {
 entry:
   %overflow_arg_area_p22 = getelementptr inbounds i8, ptr %ap, i64 8
   %0 = getelementptr inbounds i8, ptr %ap, i64 16
@@ -1430,13 +1414,13 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #6
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
 
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1447,7 +1431,7 @@ define internal i64 @mptsas_config_pack_ext(ptr noundef %data, ptr nocapture nou
 entry:
   %ap2.i = alloca [1 x %struct.__va_list_tag], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ap2.i)
   %tobool.not.i = icmp eq ptr %data, null
   br i1 %tobool.not.i, label %vpack.exit.thread, label %if.then
@@ -1455,18 +1439,18 @@ entry:
 vpack.exit.thread:                                ; preds = %entry
   %call4.i9 = call fastcc i64 @vfill(ptr noundef null, ptr noundef %fmt, ptr noundef nonnull %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap2.i)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %if.end5
 
 if.then:                                          ; preds = %entry
-  call void @llvm.va_copy(ptr nonnull %ap2.i, ptr nonnull %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %ap2.i, ptr nonnull %ap)
   %call.i = call fastcc i64 @vfill(ptr noundef null, ptr noundef %fmt, ptr noundef nonnull %ap2.i)
   %call2.i = call noalias ptr @g_malloc(i64 noundef %call.i) #15
   store ptr %call2.i, ptr %data, align 8
-  call void @llvm.va_end(ptr nonnull %ap2.i)
+  call void @llvm.va_end.p0(ptr nonnull %ap2.i)
   %call4.i = call fastcc i64 @vfill(ptr noundef %call2.i, ptr noundef %fmt, ptr noundef nonnull %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap2.i)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %0 = and i64 %call4.i, -65533
   %or.cond = icmp eq i64 %0, 0
   br i1 %or.cond, label %if.end, label %if.else
@@ -1489,25 +1473,34 @@ if.end5:                                          ; preds = %vpack.exit.thread, 
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal void @fill(ptr noundef %data, i64 %size, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #9 {
+define internal void @fill(ptr noundef %data, i64 %size, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #8 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call fastcc i64 @vfill(ptr noundef %data, ptr noundef %fmt, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
 declare ptr @scsi_device_find(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
@@ -1522,13 +1515,13 @@ attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-ve
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #5 = { nofree nounwind sspstrong memory(readwrite, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind sspstrong memory(readwrite, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nounwind }

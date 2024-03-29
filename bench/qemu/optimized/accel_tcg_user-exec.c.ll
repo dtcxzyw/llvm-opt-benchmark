@@ -147,7 +147,6 @@ if.then6:                                         ; preds = %if.else
   %sub = or i64 %address, 4095
   %call9 = tail call fastcc zeroext i1 @pageflags_set_clear(i64 noundef %and7, i64 noundef %sub, i32 noundef 2, i32 noundef 0)
   %call10 = tail call zeroext i1 @tb_invalidate_phys_page_unwind(i64 noundef %and7, i64 noundef %pc) #16
-  %frombool = zext i1 %call10 to i8
   br label %if.end37
 
 if.else11:                                        ; preds = %if.else
@@ -158,7 +157,7 @@ if.else11:                                        ; preds = %if.else
 for.body:                                         ; preds = %if.else11, %if.end29
   %prot.036 = phi i32 [ 0, %if.else11 ], [ %prot.1, %if.end29 ]
   %i.035 = phi i64 [ 0, %if.else11 ], [ %add36, %if.end29 ]
-  %current_tb_invalidated.034 = phi i8 [ 0, %if.else11 ], [ %5, %if.end29 ]
+  %current_tb_invalidated.034 = phi i1 [ false, %if.else11 ], [ %4, %if.end29 ]
   %add14 = add i64 %i.035, %and12
   %call.i28 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @pageflags_root, i64 noundef %add14, i64 noundef %add14) #16
   %tobool.not.i29 = icmp eq ptr %call.i28, null
@@ -184,14 +183,13 @@ if.then23:                                        ; preds = %if.then17
 if.end29:                                         ; preds = %if.then17, %if.then23, %for.body
   %prot.1 = phi i32 [ %or24, %if.then23 ], [ %or19, %if.then17 ], [ %prot.036, %for.body ]
   %call30 = tail call zeroext i1 @tb_invalidate_phys_page_unwind(i64 noundef %add14, i64 noundef %pc) #16
-  %4 = zext i1 %call30 to i8
-  %5 = or i8 %current_tb_invalidated.034, %4
+  %4 = or i1 %current_tb_invalidated.034, %call30
   %add36 = add i64 %i.035, 4096
   %cmp13 = icmp ult i64 %add36, %1
   br i1 %cmp13, label %for.body, label %if.end37, !llvm.loop !6
 
 if.end37:                                         ; preds = %if.end29, %if.then6
-  %current_tb_invalidated.1 = phi i8 [ %frombool, %if.then6 ], [ %5, %if.end29 ]
+  %current_tb_invalidated.1 = phi i1 [ %call10, %if.then6 ], [ %4, %if.end29 ]
   %start.0 = phi i64 [ %and7, %if.then6 ], [ %and12, %if.end29 ]
   %len.0 = phi i64 [ 4096, %if.then6 ], [ %1, %if.end29 ]
   %prot.2 = phi i32 [ %or, %if.then6 ], [ %prot.1, %if.end29 ]
@@ -200,18 +198,16 @@ if.end37:                                         ; preds = %if.end29, %if.then6
   %and41 = and i32 %prot.2, 2
   %or42 = or disjoint i32 %and41, 1
   %prot.3 = select i1 %tobool39.not, i32 %prot.2, i32 %or42
-  %6 = load i64, ptr @guest_base, align 8
-  %add.i = add i64 %6, %start.0
-  %7 = inttoptr i64 %add.i to ptr
+  %5 = load i64, ptr @guest_base, align 8
+  %add.i = add i64 %5, %start.0
+  %6 = inttoptr i64 %add.i to ptr
   %and45 = and i32 %prot.3, 7
-  %call46 = tail call i32 @mprotect(ptr noundef %7, i64 noundef %len.0, i32 noundef %and45) #16
-  %8 = and i8 %current_tb_invalidated.1, 1
-  %.not = icmp eq i8 %8, 0
-  %9 = select i1 %.not, i32 1, i32 2
+  %call46 = tail call i32 @mprotect(ptr noundef %6, i64 noundef %len.0, i32 noundef %and45) #16
+  %7 = select i1 %current_tb_invalidated.1, i32 2, i32 1
   br label %return
 
 return:                                           ; preds = %if.end37, %if.end, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.end ], [ %9, %if.end37 ]
+  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.end ], [ %7, %if.end37 ]
   tail call void @mmap_unlock() #16
   ret i32 %retval.0
 }
@@ -382,30 +378,36 @@ do.body:                                          ; preds = %if.end4
   %or = or i64 %last, 4095
   %and14 = and i32 %flags, 8
   %tobool15.not = icmp eq i32 %and14, 0
-  br i1 %tobool15.not, label %if.then30, label %if.end26
+  br i1 %tobool15.not, label %if.then30, label %if.else17
 
-if.end26:                                         ; preds = %do.body
+if.else17:                                        ; preds = %do.body
+  %2 = trunc i32 %flags to i8
+  %3 = lshr i8 %2, 6
   %and20 = and i32 %flags, -65
-  %and21 = shl i32 %flags, 3
-  %2 = and i32 %and21, 16
-  %spec.select = or i32 %2, %and20
-  %tobool27.not = icmp eq i32 %spec.select, 0
-  %tobool27.not.not = xor i1 %tobool27.not, true
-  %3 = and i32 %flags, 64
-  %tobool29.not = icmp eq i32 %3, 0
-  %or.cond25 = and i1 %tobool29.not, %tobool27.not.not
-  br i1 %or.cond25, label %if.then39.thread, label %if.then30
+  %and21 = and i32 %flags, 2
+  %tobool22.not = icmp eq i32 %and21, 0
+  %or24 = or i32 %and20, 16
+  br i1 %tobool22.not, label %if.end26, label %lor.lhs.false28
 
-if.then30:                                        ; preds = %do.body, %if.end26
-  %tobool29.not36 = phi i1 [ %tobool29.not, %if.end26 ], [ true, %do.body ]
-  %tobool27.not34 = phi i1 [ %tobool27.not, %if.end26 ], [ true, %do.body ]
-  %flags.addr.032 = phi i32 [ %spec.select, %if.end26 ], [ 0, %do.body ]
+if.end26:                                         ; preds = %if.else17
+  %tobool27.not = icmp eq i32 %and20, 0
+  br i1 %tobool27.not, label %if.then30, label %lor.lhs.false28
+
+lor.lhs.false28:                                  ; preds = %if.else17, %if.end26
+  %flags.addr.038 = phi i32 [ %and20, %if.end26 ], [ %or24, %if.else17 ]
+  %tobool29 = trunc i8 %3 to i1
+  br i1 %tobool29, label %if.then30, label %if.then39
+
+if.then30:                                        ; preds = %do.body, %lor.lhs.false28, %if.end26
+  %tobool27.not33 = phi i1 [ false, %lor.lhs.false28 ], [ true, %if.end26 ], [ true, %do.body ]
+  %reset.031 = phi i8 [ %3, %lor.lhs.false28 ], [ %3, %if.end26 ], [ 0, %do.body ]
+  %flags.addr.029 = phi i32 [ %flags.addr.038, %lor.lhs.false28 ], [ 0, %if.end26 ], [ 0, %do.body ]
   %call.i30.i = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @pageflags_root, i64 noundef %and13, i64 noundef %or) #16
   %tobool.not.i31.i = icmp eq ptr %call.i30.i, null
   %add.ptr.i32.i = getelementptr i8, ptr %call.i30.i, i64 -16
   %tobool.not2033.i = icmp eq ptr %add.ptr.i32.i, null
   %tobool.not34.i = or i1 %tobool.not.i31.i, %tobool.not2033.i
-  br i1 %tobool.not34.i, label %pageflags_unset.exit, label %if.end.lr.ph.i
+  br i1 %tobool.not34.i, label %if.end37, label %if.end.lr.ph.i
 
 if.end.lr.ph.i:                                   ; preds = %if.then30
   %sub.i = add i64 %and13, -1
@@ -414,12 +416,12 @@ if.end.lr.ph.i:                                   ; preds = %if.then30
 if.end.i:                                         ; preds = %if.end24.i, %if.end.lr.ph.i
   %add.ptr.i37.i = phi ptr [ %add.ptr.i32.i, %if.end.lr.ph.i ], [ %add.ptr.i.i, %if.end24.i ]
   %call.i36.i = phi ptr [ %call.i30.i, %if.end.lr.ph.i ], [ %call.i.i, %if.end24.i ]
-  %inval_tb.035.i = phi i8 [ 0, %if.end.lr.ph.i ], [ %spec.select.i, %if.end24.i ]
+  %inval_tb.035.i = phi i1 [ false, %if.end.lr.ph.i ], [ %spec.select.i, %if.end24.i ]
   %flags.i = getelementptr i8, ptr %call.i36.i, i64 48
   %4 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %4, 4
-  %tobool1.not.i = icmp eq i32 %and.i, 0
-  %spec.select.i = select i1 %tobool1.not.i, i8 %inval_tb.035.i, i8 1
+  %tobool1.not.i = icmp ne i32 %and.i, 0
+  %spec.select.i = select i1 %tobool1.not.i, i1 true, i1 %inval_tb.035.i
   tail call void @interval_tree_remove(ptr noundef nonnull %call.i36.i, ptr noundef nonnull @pageflags_root) #16
   %last5.i = getelementptr i8, ptr %call.i36.i, i64 32
   %5 = load i64, ptr %last5.i, align 8
@@ -468,41 +470,35 @@ if.end24.i:                                       ; preds = %if.then17.i, %if.th
   %add.ptr.i.i = getelementptr i8, ptr %call.i.i, i64 -16
   %tobool.not20.i = icmp eq ptr %add.ptr.i.i, null
   %tobool.not.i = or i1 %tobool.not.i.i, %tobool.not20.i
-  br i1 %tobool.not.i, label %pageflags_unset.exit, label %if.end.i
+  br i1 %tobool.not.i, label %if.end37, label %if.end.i
 
 while.end.sink.split.i:                           ; preds = %if.else18.i, %if.then13.i
   %call.i36.lcssa54.sink.i = phi ptr [ %call.i36.i, %if.else18.i ], [ %itree.i.i, %if.then13.i ]
   tail call void @interval_tree_insert(ptr noundef nonnull %call.i36.lcssa54.sink.i, ptr noundef nonnull @pageflags_root) #16
-  br label %pageflags_unset.exit
+  br label %if.end37
 
-pageflags_unset.exit:                             ; preds = %if.end24.i, %if.then30, %while.end.sink.split.i
-  %inval_tb.2.i = phi i8 [ 0, %if.then30 ], [ %spec.select.i, %while.end.sink.split.i ], [ %spec.select.i, %if.end24.i ]
-  %8 = and i8 %inval_tb.2.i, 1
-  br i1 %tobool27.not34, label %if.end50, label %if.then39
+if.end37:                                         ; preds = %if.end24.i, %while.end.sink.split.i, %if.then30
+  %inval_tb.2.i = phi i1 [ false, %if.then30 ], [ %spec.select.i, %while.end.sink.split.i ], [ %spec.select.i, %if.end24.i ]
+  br i1 %tobool27.not33, label %if.end50, label %if.then39
 
-if.then39:                                        ; preds = %pageflags_unset.exit
-  %spec.select83 = select i1 %tobool29.not36, i32 -2177, i32 -1
-  br label %if.then39.thread
+if.then39:                                        ; preds = %lor.lhs.false28, %if.end37
+  %inval_tb.047 = phi i1 [ %inval_tb.2.i, %if.end37 ], [ false, %lor.lhs.false28 ]
+  %flags.addr.02846 = phi i32 [ %flags.addr.029, %if.end37 ], [ %flags.addr.038, %lor.lhs.false28 ]
+  %reset.03045 = phi i8 [ %reset.031, %if.end37 ], [ %3, %lor.lhs.false28 ]
+  %tobool40 = trunc i8 %reset.03045 to i1
+  %not = select i1 %tobool40, i32 -1, i32 -2177
+  %call43 = tail call fastcc zeroext i1 @pageflags_set_clear(i64 noundef %and13, i64 noundef %or, i32 noundef %flags.addr.02846, i32 noundef %not)
+  %8 = or i1 %inval_tb.047, %call43
+  br i1 %8, label %if.then52, label %if.end53
 
-if.then39.thread:                                 ; preds = %if.then39, %if.end26
-  %flags.addr.0333968 = phi i32 [ %spec.select, %if.end26 ], [ %flags.addr.032, %if.then39 ]
-  %inval_tb.04066 = phi i8 [ 0, %if.end26 ], [ %8, %if.then39 ]
-  %9 = phi i32 [ -2177, %if.end26 ], [ %spec.select83, %if.then39 ]
-  %call43 = tail call fastcc zeroext i1 @pageflags_set_clear(i64 noundef %and13, i64 noundef %or, i32 noundef %flags.addr.0333968, i32 noundef %9)
-  %10 = zext i1 %call43 to i8
-  %11 = or i8 %inval_tb.04066, %10
-  br label %if.end50
+if.end50:                                         ; preds = %if.end37
+  br i1 %inval_tb.2.i, label %if.then52, label %if.end53
 
-if.end50:                                         ; preds = %pageflags_unset.exit, %if.then39.thread
-  %inval_tb.1 = phi i8 [ %11, %if.then39.thread ], [ %8, %pageflags_unset.exit ]
-  %tobool51.not = icmp eq i8 %inval_tb.1, 0
-  br i1 %tobool51.not, label %if.end53, label %if.then52
-
-if.then52:                                        ; preds = %if.end50
+if.then52:                                        ; preds = %if.then39, %if.end50
   tail call void @tb_invalidate_phys_range(i64 noundef %and13, i64 noundef %or) #16
   br label %if.end53
 
-if.end53:                                         ; preds = %if.then52, %if.end50
+if.end53:                                         ; preds = %if.then39, %if.then52, %if.end50
   ret void
 }
 
@@ -535,13 +531,13 @@ if.end3.lr.ph:                                    ; preds = %if.end3.lr.ph.lr.ph
   %add.ptr.i205222 = phi ptr [ %add.ptr.i205216, %if.end3.lr.ph.lr.ph ], [ %add.ptr.i205, %restart.outer.backedge ]
   %call.i203221 = phi ptr [ %call.i203214, %if.end3.lr.ph.lr.ph ], [ %call.i203, %restart.outer.backedge ]
   %start.addr.0.ph220 = phi i64 [ %start, %if.end3.lr.ph.lr.ph ], [ %start.addr.0.ph.be, %restart.outer.backedge ]
-  %inval_tb.0.ph219 = phi i8 [ 0, %if.end3.lr.ph.lr.ph ], [ %inval_tb.1, %restart.outer.backedge ]
+  %inval_tb.0.ph219 = phi i1 [ false, %if.end3.lr.ph.lr.ph ], [ %inval_tb.1, %restart.outer.backedge ]
   %sub99 = add i64 %start.addr.0.ph220, -1
   br label %if.end3
 
 if.then:                                          ; preds = %restart.outer.backedge, %restart.backedge, %entry
   %start.addr.0.ph.lcssa194 = phi i64 [ %start, %entry ], [ %start.addr.0.ph220, %restart.backedge ], [ %start.addr.0.ph.be, %restart.outer.backedge ]
-  %inval_tb.0.lcssa = phi i8 [ 0, %entry ], [ %inval_tb.1, %restart.backedge ], [ %inval_tb.1, %restart.outer.backedge ]
+  %inval_tb.0.lcssa = phi i1 [ false, %entry ], [ %inval_tb.1, %restart.backedge ], [ %inval_tb.1, %restart.outer.backedge ]
   %tobool1.not = icmp eq i32 %set_flags, 0
   br i1 %tobool1.not, label %done, label %if.then2
 
@@ -646,7 +642,7 @@ pageflags_create_merge.exit:                      ; preds = %if.end34.i, %if.the
 if.end3:                                          ; preds = %if.end3.lr.ph, %restart.backedge
   %add.ptr.i210 = phi ptr [ %add.ptr.i205222, %if.end3.lr.ph ], [ %add.ptr.i, %restart.backedge ]
   %call.i209 = phi ptr [ %call.i203221, %if.end3.lr.ph ], [ %call.i, %restart.backedge ]
-  %inval_tb.0208 = phi i8 [ %inval_tb.0.ph219, %if.end3.lr.ph ], [ %inval_tb.1, %restart.backedge ]
+  %inval_tb.0208 = phi i1 [ %inval_tb.0.ph219, %if.end3.lr.ph ], [ %inval_tb.1, %restart.backedge ]
   %start4 = getelementptr i8, ptr %call.i209, i64 24
   %3 = load i64, ptr %start4, align 8
   %last6 = getelementptr i8, ptr %call.i209, i64 32
@@ -674,7 +670,7 @@ if.then15:                                        ; preds = %lor.lhs.false, %lan
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %lor.lhs.false, %if.end3
-  %inval_tb.1 = phi i8 [ 1, %if.then15 ], [ %inval_tb.0208, %lor.lhs.false ], [ %inval_tb.0208, %if.end3 ]
+  %inval_tb.1 = phi i1 [ true, %if.then15 ], [ %inval_tb.0208, %lor.lhs.false ], [ %inval_tb.0208, %if.end3 ]
   %cmp = icmp eq i64 %start.addr.0.ph220, %3
   %cmp18 = icmp eq i64 %4, %last
   %or.cond102 = select i1 %cmp, i1 %cmp18, i1 false
@@ -906,10 +902,8 @@ if.then124:                                       ; preds = %if.end122
   br label %done
 
 done:                                             ; preds = %if.end90, %if.end42, %if.end74, %if.end122, %if.then124, %if.end38, %if.then56, %if.then63, %if.then21, %if.else, %if.then, %pageflags_create_merge.exit
-  %inval_tb.2 = phi i8 [ %inval_tb.1, %if.then21 ], [ %inval_tb.1, %if.else ], [ %inval_tb.1, %if.end38 ], [ %inval_tb.1, %if.then63 ], [ %inval_tb.1, %if.then56 ], [ %inval_tb.1, %if.then124 ], [ %inval_tb.1, %if.end122 ], [ %inval_tb.0.lcssa, %pageflags_create_merge.exit ], [ %inval_tb.0.lcssa, %if.then ], [ %inval_tb.1, %if.end74 ], [ %inval_tb.1, %if.end42 ], [ %inval_tb.1, %if.end90 ]
-  %6 = and i8 %inval_tb.2, 1
-  %tobool126 = icmp ne i8 %6, 0
-  ret i1 %tobool126
+  %inval_tb.2 = phi i1 [ %inval_tb.1, %if.then21 ], [ %inval_tb.1, %if.else ], [ %inval_tb.1, %if.end38 ], [ %inval_tb.1, %if.then63 ], [ %inval_tb.1, %if.then56 ], [ %inval_tb.1, %if.then124 ], [ %inval_tb.1, %if.end122 ], [ %inval_tb.0.lcssa, %pageflags_create_merge.exit ], [ %inval_tb.0.lcssa, %if.then ], [ %inval_tb.1, %if.end74 ], [ %inval_tb.1, %if.end42 ], [ %inval_tb.1, %if.end90 ]
+  ret i1 %inval_tb.2
 }
 
 declare void @tb_invalidate_phys_range(i64 noundef, i64 noundef) local_unnamed_addr #5

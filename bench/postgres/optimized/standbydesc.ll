@@ -102,9 +102,8 @@ define dso_local void @standby_desc(ptr noundef %0, ptr nocapture noundef readon
 .loopexit26.i:                                    ; preds = %36, %32, %23
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = load i8, ptr %42, align 4
-  %44 = and i8 %43, 1
-  %.not.i = icmp eq i8 %44, 0
-  br i1 %.not.i, label %46, label %45
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %46
 
 45:                                               ; preds = %.loopexit26.i
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.16) #3
@@ -148,9 +147,8 @@ define dso_local void @standby_desc(ptr noundef %0, ptr nocapture noundef readon
   %69 = load i32, ptr %68, align 4
   %70 = getelementptr inbounds i8, ptr %6, i64 8
   %71 = load i8, ptr %70, align 4
-  %72 = and i8 %71, 1
-  %73 = icmp ne i8 %72, 0
-  tail call void @standby_desc_invalidations(ptr noundef %0, i32 noundef %65, ptr noundef nonnull %66, i32 noundef %67, i32 noundef %69, i1 noundef zeroext %73)
+  %72 = trunc i8 %71 to i1
+  tail call void @standby_desc_invalidations(ptr noundef %0, i32 noundef %65, ptr noundef nonnull %66, i32 noundef %67, i32 noundef %69, i1 noundef zeroext %72)
   br label %standby_desc_running_xacts.exit
 
 standby_desc_running_xacts.exit:                  ; preds = %54, %13, %.preheader, %50, %46, %2, %63

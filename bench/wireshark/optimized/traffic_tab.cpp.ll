@@ -4713,39 +4713,38 @@ define void @_ZN10TrafficTab17setNameResolutionEb(ptr noundef nonnull align 8 de
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 121
   %5 = load i8, ptr %4, align 1
-  %6 = and i8 %5, 1
-  %7 = icmp eq i8 %6, 0
-  %8 = xor i1 %7, %1
-  br i1 %8, label %18, label %.preheader
+  %6 = trunc i8 %5 to i1
+  %7 = xor i1 %6, %1
+  br i1 %7, label %.preheader, label %17
 
 .preheader:                                       ; preds = %2
-  %9 = tail call noundef i32 @_ZNK10QTabWidget5countEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %_ZN10TrafficTab20dataModelForTabIndexEi.exit, label %._crit_edge
+  %8 = tail call noundef i32 @_ZNK10QTabWidget5countEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %9 = icmp sgt i32 %8, 0
+  br i1 %9, label %_ZN10TrafficTab20dataModelForTabIndexEi.exit, label %._crit_edge
 
-_ZN10TrafficTab20dataModelForTabIndexEi.exit:     ; preds = %.preheader, %14
-  %.09 = phi i32 [ %15, %14 ], [ 0, %.preheader ]
-  %11 = tail call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.09)
-  %12 = tail call noundef ptr @_ZN10TrafficTab18dataModelForWidgetEP7QWidget(ptr nonnull align 8 poison, ptr noundef %11)
-  %.not = icmp eq ptr %12, null
-  br i1 %.not, label %14, label %13
+_ZN10TrafficTab20dataModelForTabIndexEi.exit:     ; preds = %.preheader, %13
+  %.09 = phi i32 [ %14, %13 ], [ 0, %.preheader ]
+  %10 = tail call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.09)
+  %11 = tail call noundef ptr @_ZN10TrafficTab18dataModelForWidgetEP7QWidget(ptr nonnull align 8 poison, ptr noundef %10)
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %13, label %12
 
-13:                                               ; preds = %_ZN10TrafficTab20dataModelForTabIndexEi.exit
-  tail call void @_ZN13ATapDataModel15setResolveNamesEb(ptr noundef nonnull align 8 dereferenceable(120) %12, i1 noundef zeroext %1)
-  br label %14
+12:                                               ; preds = %_ZN10TrafficTab20dataModelForTabIndexEi.exit
+  tail call void @_ZN13ATapDataModel15setResolveNamesEb(ptr noundef nonnull align 8 dereferenceable(120) %11, i1 noundef zeroext %1)
+  br label %13
 
-14:                                               ; preds = %_ZN10TrafficTab20dataModelForTabIndexEi.exit, %13
-  %15 = add nuw nsw i32 %.09, 1
-  %16 = tail call noundef i32 @_ZNK10QTabWidget5countEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %17 = icmp slt i32 %15, %16
-  br i1 %17, label %_ZN10TrafficTab20dataModelForTabIndexEi.exit, label %._crit_edge, !llvm.loop !116
+13:                                               ; preds = %_ZN10TrafficTab20dataModelForTabIndexEi.exit, %12
+  %14 = add nuw nsw i32 %.09, 1
+  %15 = tail call noundef i32 @_ZNK10QTabWidget5countEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %16 = icmp slt i32 %14, %15
+  br i1 %16, label %_ZN10TrafficTab20dataModelForTabIndexEi.exit, label %._crit_edge, !llvm.loop !116
 
-._crit_edge:                                      ; preds = %14, %.preheader
+._crit_edge:                                      ; preds = %13, %.preheader
   store i8 %3, ptr %4, align 1
   tail call void @_ZN10TrafficTab14tabDataChangedEi(ptr noundef nonnull align 8 dereferenceable(122) %0, i32 noundef -1)
-  br label %18
+  br label %17
 
-18:                                               ; preds = %2, %._crit_edge
+17:                                               ; preds = %2, %._crit_edge
   ret void
 }
 
@@ -4993,19 +4992,19 @@ declare void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBas
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM11TrafficTreeFvbENS_4ListIJbEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 comdat align 2 {
-  switch i32 %0, label %34 [
+  switch i32 %0, label %33 [
     i32 0, label %6
     i32 1, label %9
-    i32 2, label %26
+    i32 2, label %25
   ]
 
 6:                                                ; preds = %5
   %7 = icmp eq ptr %1, null
-  br i1 %7, label %34, label %8
+  br i1 %7, label %33, label %8
 
 8:                                                ; preds = %6
   tail call void @_ZdlPv(ptr noundef nonnull %1) #22
-  br label %34
+  br label %33
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %1, i64 16
@@ -5033,29 +5032,28 @@ _ZN9QtPrivate15FunctionPointerIM11TrafficTreeFvbEE4callINS_4ListIJbEEEvEEvS3_PS1
   %21 = getelementptr i8, ptr %3, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %25 = icmp ne i8 %24, 0
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(88) %11, i1 noundef zeroext %25)
-  br label %34
+  %24 = trunc i8 %23 to i1
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(88) %11, i1 noundef zeroext %24)
+  br label %33
 
-26:                                               ; preds = %5
+25:                                               ; preds = %5
   %.unpack = load i64, ptr %3, align 8
   %.elt7 = getelementptr inbounds i8, ptr %3, i64 8
   %.unpack8 = load i64, ptr %.elt7, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
-  %.unpack9 = load i64, ptr %27, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %.unpack9 = load i64, ptr %26, align 8
   %.elt10 = getelementptr inbounds i8, ptr %1, i64 24
   %.unpack11 = load i64, ptr %.elt10, align 8
-  %28 = icmp eq i64 %.unpack, %.unpack9
-  %29 = icmp eq i64 %.unpack, 0
-  %30 = icmp eq i64 %.unpack8, %.unpack11
-  %31 = or i1 %29, %30
-  %32 = and i1 %28, %31
-  %33 = zext i1 %32 to i8
-  store i8 %33, ptr %4, align 1
-  br label %34
+  %27 = icmp eq i64 %.unpack, %.unpack9
+  %28 = icmp eq i64 %.unpack, 0
+  %29 = icmp eq i64 %.unpack8, %.unpack11
+  %30 = or i1 %28, %29
+  %31 = and i1 %27, %30
+  %32 = zext i1 %31 to i8
+  store i8 %32, ptr %4, align 1
+  br label %33
 
-34:                                               ; preds = %6, %8, %26, %_ZN9QtPrivate15FunctionPointerIM11TrafficTreeFvbEE4callINS_4ListIJbEEEvEEvS3_PS1_PPv.exit, %5
+33:                                               ; preds = %6, %8, %25, %_ZN9QtPrivate15FunctionPointerIM11TrafficTreeFvbEE4callINS_4ListIJbEEEvEEvS3_PS1_PPv.exit, %5
   ret void
 }
 

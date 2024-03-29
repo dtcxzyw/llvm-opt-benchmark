@@ -71,13 +71,12 @@ entry:
 define dso_local noundef ptr @_ZN4absl13base_internal30CurrentThreadIdentityIfPresentEv() local_unnamed_addr #3 {
 entry:
   %0 = load atomic i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_123pthread_key_initializedE.0 acquire, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %return, label %if.end
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_127thread_identity_pthread_keyE, align 4
-  %call1 = tail call ptr @pthread_getspecific(i32 noundef %2) #5
+  %1 = load i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_127thread_identity_pthread_keyE, align 4
+  %call1 = tail call ptr @pthread_getspecific(i32 noundef %1) #5
   br label %return
 
 return:                                           ; preds = %entry, %if.end

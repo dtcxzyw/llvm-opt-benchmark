@@ -1345,9 +1345,8 @@ _ZN6cmListD2Ev.exit:                              ; preds = %_ZSt8_DestroyIPNSt7
 41:                                               ; preds = %_ZN6cmListD2Ev.exit
   %42 = getelementptr inbounds i8, ptr %40, i64 2077
   %43 = load i8, ptr %42, align 1
-  %44 = and i8 %43, 1
-  %.not = icmp eq i8 %44, 0
-  br i1 %.not, label %45, label %.critedge.thread
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %.critedge.thread, label %45
 
 45:                                               ; preds = %41
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #16

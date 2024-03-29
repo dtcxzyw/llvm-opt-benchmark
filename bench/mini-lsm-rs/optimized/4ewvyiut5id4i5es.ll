@@ -57,8 +57,8 @@ define hidden void @"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_intern
 "_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit": ; preds = %3
   %14 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h80d032db150e0d8dE.llvm.18092150996463083177(ptr noundef nonnull %1, i64 noundef %5, i64 noundef %9, i8 noundef 1, i8 noundef 0), !noalias !4
   %15 = extractvalue { i64, i64 } %14, 0
-  %switch.i2.i = icmp eq i64 %15, 0
-  br i1 %switch.i2.i, label %16, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h518f6409cff4e131E.llvm.12023550525612096193.exit"
+  %trunc.i = trunc i64 %15 to i1
+  br i1 %trunc.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h594ba9a59d297a09E.llvm.12023550525612096193.exit", label %16
 
 16:                                               ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit"
   %17 = getelementptr inbounds i8, ptr %1, i64 128
@@ -91,12 +91,9 @@ define hidden void @"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_intern
   tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef 2072, i64 noundef 8) #24, !noalias !26
   br label %28
 
-"_ZN4core6result19Result$LT$T$C$E$GT$3map17h518f6409cff4e131E.llvm.12023550525612096193.exit": ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit"
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h594ba9a59d297a09E.llvm.12023550525612096193.exit"
-
-28:                                               ; preds = %24, %26
+28:                                               ; preds = %26, %24
   %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   %30 = load <2 x i64>, ptr %11, align 8, !noalias !38
   store <2 x i64> %30, ptr %29, align 8, !alias.scope !39
@@ -104,8 +101,8 @@ define hidden void @"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_intern
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %.sroa.8.8..sroa_idx8, ptr noundef nonnull align 8 dereferenceable(2048) %.sroa.8.8..sroa_idx, i64 2048, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h594ba9a59d297a09E.llvm.12023550525612096193.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h594ba9a59d297a09E.llvm.12023550525612096193.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h518f6409cff4e131E.llvm.12023550525612096193.exit", %28
-  %storemerge.i3 = phi i64 [ 0, %28 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h518f6409cff4e131E.llvm.12023550525612096193.exit" ]
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h594ba9a59d297a09E.llvm.12023550525612096193.exit": ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit", %28
+  %storemerge.i3 = phi i64 [ 0, %28 ], [ 1, %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit" ]
   store i64 %storemerge.i3, ptr %0, align 8, !alias.scope !41, !noalias !35
   br label %31
 
@@ -193,77 +190,87 @@ define hidden void @"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$7try_pop17h8
 .lr.ph.preheader:                                 ; preds = %3
   %12 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h80d032db150e0d8dE.llvm.18092150996463083177(ptr noundef nonnull %1, i64 noundef %5, i64 noundef %9, i8 noundef 1, i8 noundef 0), !noalias !65
   %13 = extractvalue { i64, i64 } %12, 0
-  %switch.i2.i73 = icmp eq i64 %13, 0
-  br i1 %switch.i2.i73, label %.lr.ph._crit_edge, label %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit"
+  %switch.i2.i71 = icmp eq i64 %13, 0
+  br i1 %switch.i2.i71, label %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit.thread", label %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit"
 
 .lr.ph:                                           ; preds = %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit"
-  %14 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h80d032db150e0d8dE.llvm.18092150996463083177(ptr noundef nonnull %1, i64 noundef %30, i64 noundef %34, i8 noundef 1, i8 noundef 0), !noalias !65
+  %14 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h80d032db150e0d8dE.llvm.18092150996463083177(ptr noundef nonnull %1, i64 noundef %36, i64 noundef %40, i8 noundef 1, i8 noundef 0), !noalias !65
   %15 = extractvalue { i64, i64 } %14, 0
   %switch.i2.i = icmp eq i64 %15, 0
-  br i1 %switch.i2.i, label %.lr.ph._crit_edge, label %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit"
+  br i1 %switch.i2.i, label %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit.thread", label %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit"
 
-.lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.lcssa71 = phi i64 [ %10, %.lr.ph.preheader ], [ %35, %.lr.ph ]
-  %.lcssa69 = phi i64 [ %9, %.lr.ph.preheader ], [ %34, %.lr.ph ]
-  %.lcssa67 = phi ptr [ %7, %.lr.ph.preheader ], [ %32, %.lr.ph ]
-  %.lcssa65 = phi i64 [ %6, %.lr.ph.preheader ], [ %31, %.lr.ph ]
-  %.lcssa = phi i64 [ %5, %.lr.ph.preheader ], [ %30, %.lr.ph ]
-  %16 = inttoptr i64 %.lcssa71 to ptr
-  %17 = getelementptr inbounds i8, ptr %1, i64 128
-  %18 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %17, i8 noundef 0), !noalias !69
-  %19 = icmp eq i64 %.lcssa, %18
-  br i1 %19, label %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit.i.i", label %21
+"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit": ; preds = %.lr.ph.preheader, %.lr.ph
+  %16 = phi i64 [ %15, %.lr.ph ], [ %13, %.lr.ph.preheader ]
+  %17 = phi i64 [ %36, %.lr.ph ], [ %5, %.lr.ph.preheader ]
+  %18 = phi i64 [ %37, %.lr.ph ], [ %6, %.lr.ph.preheader ]
+  %19 = phi ptr [ %38, %.lr.ph ], [ %7, %.lr.ph.preheader ]
+  %20 = phi i64 [ %40, %.lr.ph ], [ %9, %.lr.ph.preheader ]
+  %21 = phi i64 [ %41, %.lr.ph ], [ %10, %.lr.ph.preheader ]
+  %trunc.i = trunc i64 %16 to i1
+  br i1 %trunc.i, label %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit", label %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit.thread"
 
-"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit.i.i": ; preds = %.lr.ph._crit_edge
-  %20 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h80d032db150e0d8dE.llvm.18092150996463083177(ptr noundef nonnull %17, i64 noundef %.lcssa, i64 noundef %.lcssa69, i8 noundef 1, i8 noundef 0), !noalias !77
-  br label %21
+"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit.thread": ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit", %.lr.ph, %.lr.ph.preheader
+  %.lcssa69 = phi i64 [ %10, %.lr.ph.preheader ], [ %21, %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit" ], [ %41, %.lr.ph ]
+  %.lcssa67 = phi i64 [ %9, %.lr.ph.preheader ], [ %20, %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit" ], [ %40, %.lr.ph ]
+  %.lcssa65 = phi ptr [ %7, %.lr.ph.preheader ], [ %19, %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit" ], [ %38, %.lr.ph ]
+  %.lcssa63 = phi i64 [ %6, %.lr.ph.preheader ], [ %18, %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit" ], [ %37, %.lr.ph ]
+  %.lcssa = phi i64 [ %5, %.lr.ph.preheader ], [ %17, %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit" ], [ %36, %.lr.ph ]
+  %22 = inttoptr i64 %.lcssa69 to ptr
+  %23 = getelementptr inbounds i8, ptr %1, i64 128
+  %24 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %23, i8 noundef 0), !noalias !69
+  %25 = icmp eq i64 %.lcssa, %24
+  br i1 %25, label %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit.i.i", label %27
 
-21:                                               ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit.i.i", %.lr.ph._crit_edge
+"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit.i.i": ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit.thread"
+  %26 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h80d032db150e0d8dE.llvm.18092150996463083177(ptr noundef nonnull %23, i64 noundef %.lcssa, i64 noundef %.lcssa67, i8 noundef 1, i8 noundef 0), !noalias !77
+  br label %27
+
+27:                                               ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit.i.i", %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit.thread"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80), !noalias !83
-  %22 = load ptr, ptr %2, align 8, !alias.scope !80, !noalias !69, !noundef !21
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %26, label %24
+  %28 = load ptr, ptr %2, align 8, !alias.scope !80, !noalias !69, !noundef !21
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %32, label %30
 
-24:                                               ; preds = %21
+30:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !84
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17ha994ee6b9a8d7fc2E.llvm.12023550525612096193, ptr %4, align 8, !alias.scope !85, !noalias !84
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %.lcssa, ptr %25, align 8, !alias.scope !85, !noalias !84
-  call void @_ZN15crossbeam_epoch8internal5Local5defer17h63f66b08c2fc0a6aE(ptr noundef nonnull align 8 %22, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2), !noalias !69
+  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %.lcssa, ptr %31, align 8, !alias.scope !85, !noalias !84
+  call void @_ZN15crossbeam_epoch8internal5Local5defer17h63f66b08c2fc0a6aE(ptr noundef nonnull align 8 %28, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2), !noalias !69
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !84
-  br label %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread33"
+  br label %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread31"
 
-26:                                               ; preds = %21
-  %27 = icmp ne i64 %.lcssa65, 0
-  tail call void @llvm.assume(i1 %27), !noalias !83
-  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa67, i64 noundef 2072, i64 noundef 8) #24, !noalias !88
-  br label %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread33"
+32:                                               ; preds = %27
+  %33 = icmp ne i64 %.lcssa63, 0
+  tail call void @llvm.assume(i1 %33), !noalias !83
+  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa65, i64 noundef 2072, i64 noundef 8) #24, !noalias !88
+  br label %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread31"
 
-"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread33": ; preds = %26, %24
-  %28 = load <2 x i64>, ptr %16, align 8, !noalias !97
-  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
+"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread31": ; preds = %30, %32
+  %34 = load <2 x i64>, ptr %22, align 8, !noalias !97
+  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %22, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(2048) %.sroa.8.8..sroa_idx, i64 2048, i1 false)
   br label %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread"
 
-"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread": ; preds = %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit", %3, %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread33"
-  %29 = phi <2 x i64> [ %28, %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread33" ], [ <i64 0, i64 undef>, %3 ], [ <i64 0, i64 undef>, %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit" ]
-  store <2 x i64> %29, ptr %0, align 8
+"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread": ; preds = %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit", %3, %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread31"
+  %35 = phi <2 x i64> [ %34, %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread31" ], [ <i64 0, i64 undef>, %3 ], [ <i64 0, i64 undef>, %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit" ]
+  store <2 x i64> %35, ptr %0, align 8
   %.sroa.12.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %.sroa.12.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(2048) %.sroa.12, i64 2048, i1 false)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %.sroa.12)
   ret void
 
-"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit": ; preds = %.lr.ph.preheader, %.lr.ph
+"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit": ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit"
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %.sroa.12)
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %.sroa.12)
-  %30 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %1, i8 noundef 2), !noalias !98
-  %31 = and i64 %30, -8
-  %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 2064
-  %34 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %33, i8 noundef 2), !noalias !98
-  %35 = and i64 %34, -8
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread", label %.lr.ph
+  %36 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %1, i8 noundef 2), !noalias !98
+  %37 = and i64 %36, -8
+  %38 = inttoptr i64 %37 to ptr
+  %39 = getelementptr inbounds i8, ptr %38, i64 2064
+  %40 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull %39, i8 noundef 2), !noalias !98
+  %41 = and i64 %40, -8
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread", label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -1773,8 +1780,8 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE
 define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h518f6409cff4e131E.llvm.12023550525612096193"(ptr noalias nocapture noundef writeonly sret({ i64, [258 x i64] }) align 8 dereferenceable(2072) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, { [3 x i64] }, {} }, align 8
   %5 = load i64, ptr %1, align 8, !range !352, !noundef !21
-  %trunc.not = icmp eq i64 %5, 0
-  br i1 %trunc.not, label %6, label %32
+  %trunc = trunc i64 %5 to i1
+  br i1 %trunc, label %32, label %6
 
 6:                                                ; preds = %3
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !nonnull !21, !noundef !21
@@ -1846,7 +1853,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h518f6409cff4e131
   br label %36
 
 36:                                               ; preds = %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal28_$u7b$$u7b$closure$u7d$$u7d$17h2b2cfc0f61835ea6E.llvm.12023550525612096193.exit", %32
-  %storemerge = phi i64 [ 1, %32 ], [ 0, %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal28_$u7b$$u7b$closure$u7d$$u7d$17h2b2cfc0f61835ea6E.llvm.12023550525612096193.exit" ]
+  %storemerge = phi i64 [ 0, %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal28_$u7b$$u7b$closure$u7d$$u7d$17h2b2cfc0f61835ea6E.llvm.12023550525612096193.exit" ], [ 1, %32 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -1854,8 +1861,8 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h518f6409cff4e131
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h594ba9a59d297a09E.llvm.12023550525612096193"(ptr noalias nocapture noundef writeonly sret({ i64, [258 x i64] }) align 8 dereferenceable(2072) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(2072) %1) unnamed_addr #6 {
   %3 = load i64, ptr %1, align 8, !range !352, !noundef !21
-  %trunc.not = icmp eq i64 %3, 0
-  br i1 %trunc.not, label %4, label %7
+  %trunc = trunc i64 %3 to i1
+  br i1 %trunc, label %7, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 8

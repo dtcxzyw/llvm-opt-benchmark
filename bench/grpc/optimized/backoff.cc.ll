@@ -74,26 +74,25 @@ entry:
   %hi.addr.i = alloca double, align 8
   %initial_ = getelementptr inbounds i8, ptr %this, i64 320
   %0 = load i8, ptr %initial_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %initial_, align 8
   %current_backoff_ = getelementptr inbounds i8, ptr %this, i64 328
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %current_backoff_, align 8
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %2, label %_ZN9grpc_core9Timestamp3NowEv.exit
+  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %1, label %_ZN9grpc_core9Timestamp3NowEv.exit
 
-2:                                                ; preds = %if.then
+1:                                                ; preds = %if.then
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
   br label %_ZN9grpc_core9Timestamp3NowEv.exit
 
-_ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %if.then, %2
-  %3 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
-  %4 = load ptr, ptr %3, align 8
-  %vtable.i = load ptr, ptr %4, align 8
-  %5 = load ptr, ptr %vtable.i, align 8
-  %call.i = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
+_ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %if.then, %1
+  %2 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
+  %3 = load ptr, ptr %2, align 8
+  %vtable.i = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %vtable.i, align 8
+  %call.i = tail call i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %cmp.i.i.i = icmp eq i64 %call.i, 9223372036854775807
   %cmp2.i.i.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload, 9223372036854775807
   %or.cond.i.i.i = or i1 %cmp2.i.i.i, %cmp.i.i.i
@@ -127,21 +126,21 @@ if.end:                                           ; preds = %entry
   %current_backoff_9 = getelementptr inbounds i8, ptr %this, i64 328
   %agg.tmp8.sroa.0.0.copyload = load i64, ptr %current_backoff_9, align 8
   %multiplier_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load double, ptr %multiplier_.i, align 8
+  %5 = load double, ptr %multiplier_.i, align 8
   switch i64 %agg.tmp8.sroa.0.0.copyload, label %if.end22.i [
     i64 9223372036854775807, label %if.then.i
     i64 -9223372036854775808, label %if.then13.i
   ]
 
 if.then.i:                                        ; preds = %if.end
-  %cmp.i = fcmp olt double %6, 0.000000e+00
+  %cmp.i = fcmp olt double %5, 0.000000e+00
   br i1 %cmp.i, label %_ZN9grpc_coremlENS_8DurationEd.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
   br label %_ZN9grpc_coremlENS_8DurationEd.exit
 
 if.then13.i:                                      ; preds = %if.end
-  %cmp14.i = fcmp olt double %6, 0.000000e+00
+  %cmp14.i = fcmp olt double %5, 0.000000e+00
   br i1 %cmp14.i, label %_ZN9grpc_coremlENS_8DurationEd.exit, label %cond.false18.i
 
 cond.false18.i:                                   ; preds = %if.then13.i
@@ -149,7 +148,7 @@ cond.false18.i:                                   ; preds = %if.then13.i
 
 if.end22.i:                                       ; preds = %if.end
   %conv.i = sitofp i64 %agg.tmp8.sroa.0.0.copyload to double
-  %mul.i = fmul double %6, %conv.i
+  %mul.i = fmul double %5, %conv.i
   %div.i = fdiv double %mul.i, 1.000000e+03
   %mul.i.i = fmul double %div.i, 1.000000e+03
   %cmp.i4.i = fcmp ult double %mul.i.i, 0x43E0000000000000
@@ -170,22 +169,22 @@ _ZN9grpc_coremlENS_8DurationEd.exit:              ; preds = %if.then.i, %cond.fa
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %retval.sroa.0.0.copyload.i, i64 %retval.sroa.0.0.i)
   store i64 %.sroa.speculated, ptr %current_backoff_9, align 8
   %jitter_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load double, ptr %jitter_.i, align 8
-  %fneg = fneg double %7
+  %6 = load double, ptr %jitter_.i, align 8
+  %fneg = fneg double %6
   %conv.i1 = sitofp i64 %.sroa.speculated to double
   %div.i2 = fdiv double %conv.i1, 1.000000e+03
   %mul = fmul double %div.i2, %fneg
-  %mul28 = fmul double %7, %div.i2
+  %mul28 = fmul double %6, %div.i2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lo.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hi.addr.i)
   store double %mul, ptr %lo.addr.i, align 8
   store double %mul28, ptr %hi.addr.i, align 8
   %cmp.i.i6 = fcmp ole double %mul, %mul28
   %sub.i.i = fsub double %mul28, %mul
-  %8 = tail call double @llvm.fabs.f64(double %sub.i.i)
-  %9 = fcmp one double %8, 0x7FF0000000000000
-  %10 = and i1 %cmp.i.i6, %9
-  br i1 %10, label %if.end.i, label %_ZN4absl12lts_202308027UniformIdRNS0_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeEOT0_SA_SA_.exit
+  %7 = tail call double @llvm.fabs.f64(double %sub.i.i)
+  %8 = fcmp one double %7, 0x7FF0000000000000
+  %9 = and i1 %cmp.i.i6, %8
+  br i1 %9, label %if.end.i, label %_ZN4absl12lts_202308027UniformIdRNS0_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeEOT0_SA_SA_.exit
 
 if.end.i:                                         ; preds = %_ZN9grpc_coremlENS_8DurationEd.exit
   %rand_gen_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -210,18 +209,18 @@ if.end8.i:                                        ; preds = %if.end.i10
 
 _ZN9grpc_core8Duration19FromSecondsAsDoubleEd.exit: ; preds = %_ZN4absl12lts_202308027UniformIdRNS0_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeEOT0_SA_SA_.exit, %if.end.i10, %if.end8.i
   %retval.sroa.0.0.i9 = phi i64 [ %conv9.i, %if.end8.i ], [ 9223372036854775807, %_ZN4absl12lts_202308027UniformIdRNS0_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeEOT0_SA_SA_.exit ], [ -9223372036854775808, %if.end.i10 ]
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %11, label %_ZN9grpc_core9Timestamp3NowEv.exit13
+  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %10, label %_ZN9grpc_core9Timestamp3NowEv.exit13
 
-11:                                               ; preds = %_ZN9grpc_core8Duration19FromSecondsAsDoubleEd.exit
+10:                                               ; preds = %_ZN9grpc_core8Duration19FromSecondsAsDoubleEd.exit
   call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
   br label %_ZN9grpc_core9Timestamp3NowEv.exit13
 
-_ZN9grpc_core9Timestamp3NowEv.exit13:             ; preds = %_ZN9grpc_core8Duration19FromSecondsAsDoubleEd.exit, %11
-  %12 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
-  %13 = load ptr, ptr %12, align 8
-  %vtable.i11 = load ptr, ptr %13, align 8
-  %14 = load ptr, ptr %vtable.i11, align 8
-  %call.i12 = call i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
+_ZN9grpc_core9Timestamp3NowEv.exit13:             ; preds = %_ZN9grpc_core8Duration19FromSecondsAsDoubleEd.exit, %10
+  %11 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
+  %12 = load ptr, ptr %11, align 8
+  %vtable.i11 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %vtable.i11, align 8
+  %call.i12 = call i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
   %agg.tmp36.sroa.0.0.copyload = load i64, ptr %current_backoff_9, align 8
   %cmp.i.i14 = icmp eq i64 %call.i12, 9223372036854775807
   %cmp2.i.i = icmp eq i64 %agg.tmp36.sroa.0.0.copyload, 9223372036854775807
@@ -300,10 +299,10 @@ if.then:
   br label %while.body
 
 while.body:                                       ; preds = %if.then, %while.body
-  %dst.019 = phi i64 [ 60, %if.then ], [ %dec19, %while.body ]
-  %sub = add nsw i64 %dst.019, -4
+  %dst.020 = phi i64 [ 60, %if.then ], [ %dec19, %while.body ]
+  %sub = add nsw i64 %dst.020, -4
   %shr = lshr exact i64 %sub, 1
-  %dec = add nsw i64 %dst.019, -5
+  %dec = add nsw i64 %dst.020, -5
   %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec9
@@ -311,7 +310,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %1 = load i32, ptr %arrayidx10, align 4
   store i32 %1, ptr %arrayidx, align 4
   store i32 %0, ptr %arrayidx10, align 4
-  %dec11 = add nsw i64 %dst.019, -6
+  %dec11 = add nsw i64 %dst.020, -6
   %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec13
@@ -319,7 +318,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %3 = load i32, ptr %arrayidx14, align 8
   store i32 %3, ptr %arrayidx12, align 8
   store i32 %2, ptr %arrayidx14, align 8
-  %dec15 = add nsw i64 %dst.019, -7
+  %dec15 = add nsw i64 %dst.020, -7
   %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
   %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
@@ -327,7 +326,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %5 = load i32, ptr %arrayidx18, align 4
   store i32 %5, ptr %arrayidx16, align 4
   store i32 %4, ptr %arrayidx18, align 4
-  %dec19 = add nsw i64 %dst.019, -8
+  %dec19 = add nsw i64 %dst.020, -8
   %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
   %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
@@ -344,9 +343,8 @@ if.end:                                           ; preds = %while.body
   %cond.i = getelementptr inbounds i8, ptr %this, i64 %and.i
   %has_crypto_.i = getelementptr inbounds i8, ptr %this, i64 280
   %9 = load i8, ptr %has_crypto_.i, align 8
-  %10 = and i8 %9, 1
-  %tobool.not.i = icmp eq i8 %10, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i18
+  %tobool.i = trunc i8 %9 to i1
+  br i1 %tobool.i, label %if.then.i18, label %if.else.i
 
 if.then.i18:                                      ; preds = %if.end
   call void @_ZN4absl12lts_2023080215random_internal11RandenHwAes6AbsorbEPKvPv(ptr noundef nonnull %buffer, ptr noundef nonnull %cond.i)
@@ -395,93 +393,91 @@ while.body.i.i.us:                                ; preds = %entry
 if.then.i.i.i.i.i.i.us:                           ; preds = %while.body.i.i.us
   store i64 2, ptr %next_.i.i.i.i.i.i, align 8
   %4 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i.i.i.i.i.i.i.us = icmp eq i8 %5, 0
-  %6 = load ptr, ptr %impl_.i.i.i.i.i.i, align 8
-  br i1 %tobool.not.i.i.i.i.i.i.i.us, label %if.else.i.i.i.i.i.i.i.us, label %if.then.i.i.i.i.i.i.i.us
-
-if.then.i.i.i.i.i.i.i.us:                         ; preds = %if.then.i.i.i.i.i.i.us
-  tail call void @_ZN4absl12lts_2023080215random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
-  br label %_ZN4absl12lts_2023080215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i.us
+  %tobool.i.i.i.i.i.i.i.us = trunc i8 %4 to i1
+  %5 = load ptr, ptr %impl_.i.i.i.i.i.i, align 8
+  br i1 %tobool.i.i.i.i.i.i.i.us, label %if.then.i.i.i.i.i.i.i.us, label %if.else.i.i.i.i.i.i.i.us
 
 if.else.i.i.i.i.i.i.i.us:                         ; preds = %if.then.i.i.i.i.i.i.us
-  tail call void @_ZN4absl12lts_2023080215random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+  tail call void @_ZN4absl12lts_2023080215random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %5, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
   br label %_ZN4absl12lts_2023080215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i.us
 
-_ZN4absl12lts_2023080215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i.us: ; preds = %if.else.i.i.i.i.i.i.i.us, %if.then.i.i.i.i.i.i.i.us, %while.body.i.i.us
-  %7 = load i64, ptr %next_.i.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i.i.us = add i64 %7, 1
+if.then.i.i.i.i.i.i.i.us:                         ; preds = %if.then.i.i.i.i.i.i.us
+  tail call void @_ZN4absl12lts_2023080215random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %5, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+  br label %_ZN4absl12lts_2023080215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i.us
+
+_ZN4absl12lts_2023080215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i.us: ; preds = %if.then.i.i.i.i.i.i.i.us, %if.else.i.i.i.i.i.i.i.us, %while.body.i.i.us
+  %6 = load i64, ptr %next_.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i.us = add i64 %6, 1
   store i64 %inc.i.i.i.i.i.i.us, ptr %next_.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i.us = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i, i64 %7
-  %8 = load i64, ptr %arrayidx.i.i.i.i.i.i.us, align 8
-  %cmp.i.i.i.us = icmp eq i64 %8, 0
+  %arrayidx.i.i.i.i.i.i.us = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i, i64 %6
+  %7 = load i64, ptr %arrayidx.i.i.i.i.i.i.us, align 8
+  %cmp.i.i.i.us = icmp eq i64 %7, 0
   br i1 %cmp.i.i.i.us, label %_ZN4absl12lts_2023080215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us, label %if.end.i.i.i.us
 
 if.end.i.i.i.us:                                  ; preds = %_ZN4absl12lts_2023080215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i.us
-  %9 = tail call i64 @llvm.ctlz.i64(i64 %8, i1 true), !range !9
-  %shl.i.i.i.us = shl i64 %8, %9
+  %8 = tail call i64 @llvm.ctlz.i64(i64 %7, i1 true), !range !9
+  %shl.i.i.i.us = shl i64 %7, %8
   %shr.i.i.i.us = lshr i64 %shl.i.i.i.us, 11
   %and.i.i.i.us = and i64 %shr.i.i.i.us, 4503599627370495
-  %10 = shl nuw nsw i64 %9, 52
-  %reass.sub = sub nsw i64 %and.i.i.i.us, %10
+  %9 = shl nuw nsw i64 %8, 52
+  %reass.sub = sub nsw i64 %and.i.i.i.us, %9
   %or2.i.i.i.us = add nsw i64 %reass.sub, 4602678819172646912
-  %11 = bitcast i64 %or2.i.i.i.us to double
+  %10 = bitcast i64 %or2.i.i.i.us to double
   br label %_ZN4absl12lts_2023080215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us
 
 _ZN4absl12lts_2023080215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us: ; preds = %if.end.i.i.i.us, %_ZN4absl12lts_2023080215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i.us
-  %retval.0.i.i.i.us = phi double [ %11, %if.end.i.i.i.us ], [ 0.000000e+00, %_ZN4absl12lts_2023080215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i.us ]
-  %12 = tail call double @llvm.fmuladd.f64(double %retval.0.i.i.i.us, double %sub.i.i.i.fr, double %0)
+  %retval.0.i.i.i.us = phi double [ %10, %if.end.i.i.i.us ], [ 0.000000e+00, %_ZN4absl12lts_2023080215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i.us ]
+  %11 = tail call double @llvm.fmuladd.f64(double %retval.0.i.i.i.us, double %sub.i.i.i.fr, double %0)
   br label %_ZN4absl12lts_2023080225uniform_real_distributionIdEclINS0_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEEdRT_.exit
 
 while.body.i.i:                                   ; preds = %entry, %_ZN4absl12lts_2023080215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %13 = phi i64 [ %inc.i.i.i.i.i.i, %_ZN4absl12lts_2023080215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.pre.i.i, %entry ]
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %13, 31
+  %12 = phi i64 [ %inc.i.i.i.i.i.i, %_ZN4absl12lts_2023080215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.pre.i.i, %entry ]
+  %cmp.i.i.i.i.i.i = icmp ugt i64 %12, 31
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN4absl12lts_2023080215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i
   store i64 2, ptr %next_.i.i.i.i.i.i, align 8
-  %14 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i, align 8
-  %15 = and i8 %14, 1
-  %tobool.not.i.i.i.i.i.i.i = icmp eq i8 %15, 0
-  %16 = load ptr, ptr %impl_.i.i.i.i.i.i, align 8
-  br i1 %tobool.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
+  %13 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i, align 8
+  %tobool.i.i.i.i.i.i.i = trunc i8 %13 to i1
+  %14 = load ptr, ptr %impl_.i.i.i.i.i.i, align 8
+  br i1 %tobool.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN4absl12lts_2023080215random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %16, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+  tail call void @_ZN4absl12lts_2023080215random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %14, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
   br label %_ZN4absl12lts_2023080215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZN4absl12lts_2023080215random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %16, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+  tail call void @_ZN4absl12lts_2023080215random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %14, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
   br label %_ZN4absl12lts_2023080215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i
 
 _ZN4absl12lts_2023080215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %while.body.i.i
-  %17 = load i64, ptr %next_.i.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i.i = add i64 %17, 1
+  %15 = load i64, ptr %next_.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i = add i64 %15, 1
   store i64 %inc.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i, i64 %17
-  %18 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %cmp.i.i.i = icmp eq i64 %18, 0
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i, i64 %15
+  %16 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %cmp.i.i.i = icmp eq i64 %16, 0
   br i1 %cmp.i.i.i, label %_ZN4absl12lts_2023080215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZN4absl12lts_2023080215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i
-  %19 = tail call i64 @llvm.ctlz.i64(i64 %18, i1 true), !range !9
-  %shl.i.i.i = shl i64 %18, %19
+  %17 = tail call i64 @llvm.ctlz.i64(i64 %16, i1 true), !range !9
+  %shl.i.i.i = shl i64 %16, %17
   %shr.i.i.i = lshr i64 %shl.i.i.i, 11
   %and.i.i.i = and i64 %shr.i.i.i, 4503599627370495
-  %20 = shl nuw nsw i64 %19, 52
-  %reass.sub5 = sub nsw i64 %and.i.i.i, %20
+  %18 = shl nuw nsw i64 %17, 52
+  %reass.sub5 = sub nsw i64 %and.i.i.i, %18
   %or2.i.i.i = add nsw i64 %reass.sub5, 4602678819172646912
-  %21 = bitcast i64 %or2.i.i.i to double
+  %19 = bitcast i64 %or2.i.i.i to double
   br label %_ZN4absl12lts_2023080215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i
 
 _ZN4absl12lts_2023080215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %if.end.i.i.i, %_ZN4absl12lts_2023080215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i
-  %retval.0.i.i.i = phi double [ %21, %if.end.i.i.i ], [ 0.000000e+00, %_ZN4absl12lts_2023080215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
-  %22 = tail call double @llvm.fmuladd.f64(double %retval.0.i.i.i, double %sub.i.i.i.fr, double %0)
-  %cmp.i.i = fcmp uge double %22, %1
+  %retval.0.i.i.i = phi double [ %19, %if.end.i.i.i ], [ 0.000000e+00, %_ZN4absl12lts_2023080215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
+  %20 = tail call double @llvm.fmuladd.f64(double %retval.0.i.i.i, double %sub.i.i.i.fr, double %0)
+  %cmp.i.i = fcmp uge double %20, %1
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN4absl12lts_2023080225uniform_real_distributionIdEclINS0_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEEdRT_.exit, !llvm.loop !10
 
 _ZN4absl12lts_2023080225uniform_real_distributionIdEclINS0_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %_ZN4absl12lts_2023080215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i, %_ZN4absl12lts_2023080215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us
-  %.us-phi = phi double [ %12, %_ZN4absl12lts_2023080215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %22, %_ZN4absl12lts_2023080215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
+  %.us-phi = phi double [ %11, %_ZN4absl12lts_2023080215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %20, %_ZN4absl12lts_2023080215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
   ret double %.us-phi
 }
 

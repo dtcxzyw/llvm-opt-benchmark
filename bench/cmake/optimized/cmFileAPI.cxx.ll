@@ -1956,9 +1956,8 @@ define dso_local void @_ZN9cmFileAPI12WriteRepliesEv(ptr noundef nonnull align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %27, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %27
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4027,9 +4026,8 @@ define dso_local void @_ZN9cmFileAPI16BuildClientReplyERKNS_11ClientQueryE(ptr d
   tail call void @_ZN9cmFileAPI10BuildReplyERKNS_5QueryE(ptr dead_on_unwind writable sret(%"class.Json::Value") align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(48) %2)
   %7 = getelementptr inbounds i8, ptr %2, i64 48
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %52, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %52
 
 10:                                               ; preds = %3
   %11 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.25)
@@ -8239,9 +8237,8 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIc
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

@@ -52,9 +52,8 @@ define dso_local ptr @tuplesort_begin_heap(ptr noundef %0, i32 noundef %1, ptr n
   %13 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %12, ptr @CurrentMemoryContext, align 8
   %14 = load i8, ptr @trace_sort, align 1
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %22, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %22
 
 16:                                               ; preds = %9
   %17 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
@@ -62,8 +61,8 @@ define dso_local ptr @tuplesort_begin_heap(ptr noundef %0, i32 noundef %1, ptr n
 
 18:                                               ; preds = %16
   %19 = and i32 %8, 1
-  %.not47 = icmp eq i32 %19, 0
-  %20 = select i1 %.not47, i32 102, i32 116
+  %.not = icmp eq i32 %19, 0
+  %20 = select i1 %.not, i32 102, i32 116
   %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1, i32 noundef %6, i32 noundef %20) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 188, ptr noundef nonnull @__func__.tuplesort_begin_heap) #9
   br label %22
@@ -96,8 +95,8 @@ define dso_local ptr @tuplesort_begin_heap(ptr noundef %0, i32 noundef %1, ptr n
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %53
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %51
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %51 ]
   %35 = load ptr, ptr %33, align 8
   %36 = getelementptr %struct.SortSupportData, ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -108,51 +107,49 @@ define dso_local ptr @tuplesort_begin_heap(ptr noundef %0, i32 noundef %1, ptr n
   store i32 %39, ptr %40, align 8
   %41 = getelementptr i8, ptr %5, i64 %indvars.iv
   %42 = load i8, ptr %41, align 1
-  %43 = and i8 %42, 1
-  %44 = getelementptr inbounds i8, ptr %36, i64 13
-  store i8 %43, ptr %44, align 1
+  %43 = getelementptr inbounds i8, ptr %36, i64 13
+  %44 = and i8 %42, 1
+  store i8 %44, ptr %43, align 1
   %45 = getelementptr i16, ptr %2, i64 %indvars.iv
   %46 = load i16, ptr %45, align 2
   %47 = getelementptr inbounds i8, ptr %36, i64 14
   store i16 %46, ptr %47, align 2
   %48 = icmp eq i64 %indvars.iv, 0
-  br i1 %48, label %49, label %53
+  br i1 %48, label %49, label %51
 
 49:                                               ; preds = %.lr.ph
   %50 = load i8, ptr %28, align 8
-  %51 = and i8 %50, 1
-  %52 = icmp ne i8 %51, 0
-  br label %53
+  br label %51
 
-53:                                               ; preds = %49, %.lr.ph
-  %54 = phi i1 [ false, %.lr.ph ], [ %52, %49 ]
-  %55 = getelementptr inbounds i8, ptr %36, i64 32
-  %56 = zext i1 %54 to i8
-  store i8 %56, ptr %55, align 8
-  %57 = getelementptr i32, ptr %3, i64 %indvars.iv
-  %58 = load i32, ptr %57, align 4
-  tail call void @PrepareSortSupportFromOrderingOp(i32 noundef %58, ptr noundef nonnull %36) #9
+51:                                               ; preds = %49, %.lr.ph
+  %52 = phi i8 [ 0, %.lr.ph ], [ %50, %49 ]
+  %53 = getelementptr inbounds i8, ptr %36, i64 32
+  %54 = and i8 %52, 1
+  store i8 %54, ptr %53, align 8
+  %55 = getelementptr i32, ptr %3, i64 %indvars.iv
+  %56 = load i32, ptr %55, align 4
+  tail call void @PrepareSortSupportFromOrderingOp(i32 noundef %56, ptr noundef nonnull %36) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %53
-  %59 = icmp eq i32 %1, 1
-  br i1 %59, label %60, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %51
+  %57 = icmp eq i32 %1, 1
+  br i1 %57, label %58, label %._crit_edge.thread
 
-60:                                               ; preds = %._crit_edge
-  %61 = load ptr, ptr %33, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 40
-  %63 = load ptr, ptr %62, align 8
-  %.not48 = icmp eq ptr %63, null
-  br i1 %.not48, label %64, label %._crit_edge.thread
+58:                                               ; preds = %._crit_edge
+  %59 = load ptr, ptr %33, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 40
+  %61 = load ptr, ptr %60, align 8
+  %.not47 = icmp eq ptr %61, null
+  br i1 %.not47, label %62, label %._crit_edge.thread
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %10, i64 88
-  store ptr %61, ptr %65, align 8
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds i8, ptr %10, i64 88
+  store ptr %59, ptr %63, align 8
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %22, %64, %60, %._crit_edge
+._crit_edge.thread:                               ; preds = %22, %62, %58, %._crit_edge
   store ptr %13, ptr @CurrentMemoryContext, align 8
   ret ptr %10
 }
@@ -215,36 +212,32 @@ define internal i32 @comparetup_heap(ptr nocapture noundef readonly %0, ptr noca
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not18 = icmp eq i8 %10, 0
+  %10 = trunc i8 %9 to i1
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not19 = icmp eq i8 %15, 0
-  br i1 %.not18, label %21, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %10, label %16, label %21
 
 16:                                               ; preds = %3
-  br i1 %.not19, label %17, label %ApplySortComparator.exit.thread15
+  br i1 %15, label %ApplySortComparator.exit.thread15, label %17
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds i8, ptr %5, i64 13
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 1
-  %.not13.i = icmp eq i8 %20, 0
-  %..i = select i1 %.not13.i, i32 1, i32 -1
+  %20 = trunc i8 %19 to i1
+  %..i = select i1 %20, i32 -1, i32 1
   br label %ApplySortComparator.exit.thread
 
 21:                                               ; preds = %3
-  br i1 %.not19, label %26, label %22
+  br i1 %15, label %22, label %26
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds i8, ptr %5, i64 13
   %24 = load i8, ptr %23, align 1
-  %25 = and i8 %24, 1
-  %.not12.i = icmp eq i8 %25, 0
-  %.14.i = select i1 %.not12.i, i32 -1, i32 1
+  %25 = trunc i8 %24 to i1
+  %.12.i = select i1 %25, i32 1, i32 -1
   br label %ApplySortComparator.exit.thread
 
 26:                                               ; preds = %21
@@ -253,9 +246,8 @@ define internal i32 @comparetup_heap(ptr nocapture noundef readonly %0, ptr noca
   %29 = tail call i32 %28(i64 noundef %7, i64 noundef %12, ptr noundef %5) #9
   %30 = getelementptr inbounds i8, ptr %5, i64 12
   %31 = load i8, ptr %30, align 4
-  %32 = and i8 %31, 1
-  %.not.i = icmp eq i8 %32, 0
-  br i1 %.not.i, label %ApplySortComparator.exit, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %ApplySortComparator.exit
 
 33:                                               ; preds = %26
   %34 = icmp slt i32 %29, 0
@@ -272,7 +264,7 @@ ApplySortComparator.exit.thread15:                ; preds = %16, %ApplySortCompa
   br label %ApplySortComparator.exit.thread
 
 ApplySortComparator.exit.thread:                  ; preds = %33, %22, %17, %ApplySortComparator.exit, %ApplySortComparator.exit.thread15
-  %.0 = phi i32 [ %36, %ApplySortComparator.exit.thread15 ], [ %.0.i, %ApplySortComparator.exit ], [ %.14.i, %22 ], [ %..i, %17 ], [ 1, %33 ]
+  %.0 = phi i32 [ %36, %ApplySortComparator.exit.thread15 ], [ %.0.i, %ApplySortComparator.exit ], [ %.12.i, %22 ], [ %..i, %17 ], [ 1, %33 ]
   ret i32 %.0
 }
 
@@ -303,7 +295,7 @@ define internal i32 @comparetup_heap_tiebreak(ptr nocapture noundef readonly %0,
   %22 = getelementptr inbounds i8, ptr %9, i64 40
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %ApplySortAbbrevFullComparator.exit.thread47, label %24
+  br i1 %.not, label %ApplySortAbbrevFullComparator.exit.thread44, label %24
 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds i8, ptr %9, i64 14
@@ -312,33 +304,29 @@ define internal i32 @comparetup_heap_tiebreak(ptr nocapture noundef readonly %0,
   %28 = call fastcc i64 @heap_getattr(ptr noundef nonnull %4, i32 noundef %27, ptr noundef %21, ptr noundef nonnull %6)
   %29 = call fastcc i64 @heap_getattr(ptr noundef nonnull %5, i32 noundef %27, ptr noundef %21, ptr noundef nonnull %7)
   %30 = load i8, ptr %6, align 1
-  %31 = and i8 %30, 1
-  %.not56 = icmp eq i8 %31, 0
+  %31 = trunc i8 %30 to i1
   %32 = load i8, ptr %7, align 1
-  %33 = and i8 %32, 1
-  %.not57 = icmp eq i8 %33, 0
-  br i1 %.not56, label %39, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %31, label %34, label %39
 
 34:                                               ; preds = %24
-  br i1 %.not57, label %35, label %ApplySortAbbrevFullComparator.exit.thread47
+  br i1 %33, label %ApplySortAbbrevFullComparator.exit.thread44, label %35
 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds i8, ptr %9, i64 13
   %37 = load i8, ptr %36, align 1
-  %38 = and i8 %37, 1
-  %.not13.i = icmp eq i8 %38, 0
-  %..i = select i1 %.not13.i, i32 1, i32 -1
+  %38 = trunc i8 %37 to i1
+  %..i = select i1 %38, i32 -1, i32 1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 39:                                               ; preds = %24
-  br i1 %.not57, label %44, label %40
+  br i1 %33, label %40, label %44
 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds i8, ptr %9, i64 13
   %42 = load i8, ptr %41, align 1
-  %43 = and i8 %42, 1
-  %.not12.i = icmp eq i8 %43, 0
-  %.14.i = select i1 %.not12.i, i32 -1, i32 1
+  %43 = trunc i8 %42 to i1
+  %.12.i = select i1 %43, i32 1, i32 -1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 44:                                               ; preds = %39
@@ -347,9 +335,8 @@ define internal i32 @comparetup_heap_tiebreak(ptr nocapture noundef readonly %0,
   %47 = call i32 %46(i64 noundef %28, i64 noundef %29, ptr noundef nonnull %9) #9
   %48 = getelementptr inbounds i8, ptr %9, i64 12
   %49 = load i8, ptr %48, align 4
-  %50 = and i8 %49, 1
-  %.not.i = icmp eq i8 %50, 0
-  br i1 %.not.i, label %ApplySortAbbrevFullComparator.exit, label %51
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %ApplySortAbbrevFullComparator.exit
 
 51:                                               ; preds = %44
   %52 = icmp slt i32 %47, 0
@@ -359,62 +346,57 @@ define internal i32 @comparetup_heap_tiebreak(ptr nocapture noundef readonly %0,
 ApplySortAbbrevFullComparator.exit:               ; preds = %51, %44
   %.0.i = phi i32 [ %53, %51 ], [ %47, %44 ]
   %.not37 = icmp eq i32 %.0.i, 0
-  br i1 %.not37, label %ApplySortAbbrevFullComparator.exit.thread47, label %ApplySortAbbrevFullComparator.exit.thread
+  br i1 %.not37, label %ApplySortAbbrevFullComparator.exit.thread44, label %ApplySortAbbrevFullComparator.exit.thread
 
-ApplySortAbbrevFullComparator.exit.thread47:      ; preds = %34, %ApplySortAbbrevFullComparator.exit, %3
+ApplySortAbbrevFullComparator.exit.thread44:      ; preds = %34, %ApplySortAbbrevFullComparator.exit, %3
   %54 = getelementptr inbounds i8, ptr %2, i64 76
   %55 = load i32, ptr %54, align 4
   %56 = icmp sgt i32 %55, 1
   br i1 %56, label %.lr.ph, label %ApplySortAbbrevFullComparator.exit.thread
 
-.lr.ph:                                           ; preds = %ApplySortAbbrevFullComparator.exit.thread47, %ApplySortComparator.exit.thread53
-  %.064 = phi i32 [ %86, %ApplySortComparator.exit.thread53 ], [ 1, %ApplySortAbbrevFullComparator.exit.thread47 ]
-  %.pn63 = phi ptr [ %.03465, %ApplySortComparator.exit.thread53 ], [ %9, %ApplySortAbbrevFullComparator.exit.thread47 ]
-  %.03465 = getelementptr i8, ptr %.pn63, i64 64
-  %57 = getelementptr i8, ptr %.pn63, i64 78
+.lr.ph:                                           ; preds = %ApplySortAbbrevFullComparator.exit.thread44, %ApplySortComparator.exit.thread50
+  %.057 = phi i32 [ %86, %ApplySortComparator.exit.thread50 ], [ 1, %ApplySortAbbrevFullComparator.exit.thread44 ]
+  %.pn56 = phi ptr [ %.03458, %ApplySortComparator.exit.thread50 ], [ %9, %ApplySortAbbrevFullComparator.exit.thread44 ]
+  %.03458 = getelementptr i8, ptr %.pn56, i64 64
+  %57 = getelementptr i8, ptr %.pn56, i64 78
   %58 = load i16, ptr %57, align 2
   %59 = sext i16 %58 to i32
   %60 = call fastcc i64 @heap_getattr(ptr noundef nonnull %4, i32 noundef %59, ptr noundef %21, ptr noundef nonnull %6)
   %61 = call fastcc i64 @heap_getattr(ptr noundef nonnull %5, i32 noundef %59, ptr noundef %21, ptr noundef nonnull %7)
   %62 = load i8, ptr %6, align 1
-  %63 = and i8 %62, 1
-  %.not58 = icmp eq i8 %63, 0
+  %63 = trunc i8 %62 to i1
   %64 = load i8, ptr %7, align 1
-  %65 = and i8 %64, 1
-  %.not59 = icmp eq i8 %65, 0
-  br i1 %.not58, label %71, label %66
+  %65 = trunc i8 %64 to i1
+  br i1 %63, label %66, label %71
 
 66:                                               ; preds = %.lr.ph
-  br i1 %.not59, label %67, label %ApplySortComparator.exit.thread53
+  br i1 %65, label %ApplySortComparator.exit.thread50, label %67
 
 67:                                               ; preds = %66
-  %68 = getelementptr i8, ptr %.pn63, i64 77
+  %68 = getelementptr i8, ptr %.pn56, i64 77
   %69 = load i8, ptr %68, align 1
-  %70 = and i8 %69, 1
-  %.not13.i43 = icmp eq i8 %70, 0
-  %..i44 = select i1 %.not13.i43, i32 1, i32 -1
+  %70 = trunc i8 %69 to i1
+  %..i41 = select i1 %70, i32 -1, i32 1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 71:                                               ; preds = %.lr.ph
-  br i1 %.not59, label %76, label %72
+  br i1 %65, label %72, label %76
 
 72:                                               ; preds = %71
-  %73 = getelementptr i8, ptr %.pn63, i64 77
+  %73 = getelementptr i8, ptr %.pn56, i64 77
   %74 = load i8, ptr %73, align 1
-  %75 = and i8 %74, 1
-  %.not12.i41 = icmp eq i8 %75, 0
-  %.14.i42 = select i1 %.not12.i41, i32 -1, i32 1
+  %75 = trunc i8 %74 to i1
+  %.12.i40 = select i1 %75, i32 1, i32 -1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 76:                                               ; preds = %71
-  %77 = getelementptr i8, ptr %.pn63, i64 88
+  %77 = getelementptr i8, ptr %.pn56, i64 88
   %78 = load ptr, ptr %77, align 8
-  %79 = call i32 %78(i64 noundef %60, i64 noundef %61, ptr noundef %.03465) #9
-  %80 = getelementptr i8, ptr %.pn63, i64 76
+  %79 = call i32 %78(i64 noundef %60, i64 noundef %61, ptr noundef %.03458) #9
+  %80 = getelementptr i8, ptr %.pn56, i64 76
   %81 = load i8, ptr %80, align 4
-  %82 = and i8 %81, 1
-  %.not.i39 = icmp eq i8 %82, 0
-  br i1 %.not.i39, label %ApplySortComparator.exit, label %83
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %ApplySortComparator.exit
 
 83:                                               ; preds = %76
   %84 = icmp slt i32 %79, 0
@@ -422,18 +404,18 @@ ApplySortAbbrevFullComparator.exit.thread47:      ; preds = %34, %ApplySortAbbre
   br i1 %84, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %83, %76
-  %.0.i40 = phi i32 [ %85, %83 ], [ %79, %76 ]
-  %.not38 = icmp eq i32 %.0.i40, 0
-  br i1 %.not38, label %ApplySortComparator.exit.thread53, label %ApplySortAbbrevFullComparator.exit.thread
+  %.0.i39 = phi i32 [ %85, %83 ], [ %79, %76 ]
+  %.not38 = icmp eq i32 %.0.i39, 0
+  br i1 %.not38, label %ApplySortComparator.exit.thread50, label %ApplySortAbbrevFullComparator.exit.thread
 
-ApplySortComparator.exit.thread53:                ; preds = %66, %ApplySortComparator.exit
-  %86 = add nuw nsw i32 %.064, 1
+ApplySortComparator.exit.thread50:                ; preds = %66, %ApplySortComparator.exit
+  %86 = add nuw nsw i32 %.057, 1
   %87 = load i32, ptr %54, align 4
   %88 = icmp slt i32 %86, %87
   br i1 %88, label %.lr.ph, label %ApplySortAbbrevFullComparator.exit.thread, !llvm.loop !8
 
-ApplySortAbbrevFullComparator.exit.thread:        ; preds = %ApplySortComparator.exit, %ApplySortComparator.exit.thread53, %83, %ApplySortAbbrevFullComparator.exit.thread47, %72, %67, %51, %40, %35, %ApplySortAbbrevFullComparator.exit
-  %.033 = phi i32 [ %.0.i, %ApplySortAbbrevFullComparator.exit ], [ %.14.i, %40 ], [ %..i, %35 ], [ 1, %51 ], [ %.14.i42, %72 ], [ %..i44, %67 ], [ 0, %ApplySortAbbrevFullComparator.exit.thread47 ], [ %.0.i40, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread53 ], [ 1, %83 ]
+ApplySortAbbrevFullComparator.exit.thread:        ; preds = %ApplySortComparator.exit, %ApplySortComparator.exit.thread50, %83, %ApplySortAbbrevFullComparator.exit.thread44, %72, %67, %51, %40, %35, %ApplySortAbbrevFullComparator.exit
+  %.033 = phi i32 [ %.0.i, %ApplySortAbbrevFullComparator.exit ], [ %.12.i, %40 ], [ %..i, %35 ], [ 1, %51 ], [ %.12.i40, %72 ], [ %..i41, %67 ], [ 0, %ApplySortAbbrevFullComparator.exit.thread44 ], [ %.0.i39, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread50 ], [ 1, %83 ]
   ret i32 %.033
 }
 
@@ -540,9 +522,8 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   store ptr %8, ptr @CurrentMemoryContext, align 8
   %10 = tail call ptr @palloc0(i64 noundef 24) #9
   %11 = load i8, ptr @trace_sort, align 1
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %24, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %24
 
 13:                                               ; preds = %5
   %14 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
@@ -555,8 +536,8 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   %19 = load i16, ptr %18, align 4
   %20 = sext i16 %19 to i32
   %21 = and i32 %4, 1
-  %.not60 = icmp eq i32 %21, 0
-  %22 = select i1 %.not60, i32 102, i32 116
+  %.not = icmp eq i32 %21, 0
+  %22 = select i1 %.not, i32 102, i32 116
   %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %20, i32 noundef %2, i32 noundef %22) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 266, ptr noundef nonnull @__func__.tuplesort_begin_cluster) #9
   br label %24
@@ -596,8 +577,8 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   %44 = load ptr, ptr %38, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 80
   %46 = load ptr, ptr %45, align 8
-  %.not61 = icmp eq ptr %46, null
-  br i1 %.not61, label %59, label %47
+  %.not60 = icmp eq ptr %46, null
+  br i1 %.not60, label %59, label %47
 
 47:                                               ; preds = %24
   %48 = tail call ptr @CreateExecutorState() #9
@@ -607,8 +588,8 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   %51 = load ptr, ptr %49, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 232
   %53 = load ptr, ptr %52, align 8
-  %.not62 = icmp eq ptr %53, null
-  br i1 %.not62, label %54, label %56
+  %.not61 = icmp eq ptr %53, null
+  br i1 %.not61, label %54, label %56
 
 54:                                               ; preds = %47
   %55 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %51) #9
@@ -635,8 +616,8 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   %67 = getelementptr inbounds i8, ptr %43, i64 24
   br label %68
 
-68:                                               ; preds = %.lr.ph, %89
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
+68:                                               ; preds = %.lr.ph, %87
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
   %69 = load ptr, ptr %64, align 8
   %70 = getelementptr %struct.SortSupportData, ptr %69, i64 %indvars.iv
   %71 = getelementptr %struct.ScanKeyData, ptr %67, i64 %indvars.iv
@@ -657,31 +638,29 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   %83 = getelementptr inbounds i8, ptr %70, i64 14
   store i16 %82, ptr %83, align 2
   %84 = icmp eq i64 %indvars.iv, 0
-  br i1 %84, label %85, label %89
+  br i1 %84, label %85, label %87
 
 85:                                               ; preds = %68
   %86 = load i8, ptr %42, align 8
-  %87 = and i8 %86, 1
-  %88 = icmp ne i8 %87, 0
-  br label %89
+  br label %87
 
-89:                                               ; preds = %85, %68
-  %90 = phi i1 [ false, %68 ], [ %88, %85 ]
-  %91 = getelementptr inbounds i8, ptr %70, i64 32
-  %92 = zext i1 %90 to i8
-  store i8 %92, ptr %91, align 8
-  %93 = load i32, ptr %71, align 8
-  %94 = and i32 %93, 16777216
-  %.not63 = icmp eq i32 %94, 0
-  %95 = select i1 %.not63, i16 1, i16 5
-  tail call void @PrepareSortSupportFromIndexRel(ptr noundef %1, i16 noundef signext %95, ptr noundef nonnull %70) #9
+87:                                               ; preds = %85, %68
+  %88 = phi i8 [ 0, %68 ], [ %86, %85 ]
+  %89 = getelementptr inbounds i8, ptr %70, i64 32
+  %90 = and i8 %88, 1
+  store i8 %90, ptr %89, align 8
+  %91 = load i32, ptr %71, align 8
+  %92 = and i32 %91, 16777216
+  %.not62 = icmp eq i32 %92, 0
+  %93 = select i1 %.not62, i16 1, i16 5
+  tail call void @PrepareSortSupportFromIndexRel(ptr noundef %1, i16 noundef signext %93, ptr noundef nonnull %70) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %96 = load i32, ptr %30, align 4
-  %97 = sext i32 %96 to i64
-  %98 = icmp slt i64 %indvars.iv.next, %97
-  br i1 %98, label %68, label %._crit_edge, !llvm.loop !9
+  %94 = load i32, ptr %30, align 4
+  %95 = sext i32 %94 to i64
+  %96 = icmp slt i64 %indvars.iv.next, %95
+  br i1 %96, label %68, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %89, %59
+._crit_edge:                                      ; preds = %87, %59
   tail call void @pfree(ptr noundef %43) #9
   store ptr %9, ptr @CurrentMemoryContext, align 8
   ret ptr %6
@@ -724,9 +703,8 @@ define internal void @removeabbrev_cluster(ptr nocapture noundef readonly %0, pt
 define internal i32 @comparetup_cluster(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 72
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %ApplySortComparator.exit.thread17, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %ApplySortComparator.exit.thread16
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %2, i64 80
@@ -735,36 +713,32 @@ define internal i32 @comparetup_cluster(ptr nocapture noundef readonly %0, ptr n
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not20 = icmp eq i8 %14, 0
+  %14 = trunc i8 %13 to i1
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not21 = icmp eq i8 %19, 0
-  br i1 %.not20, label %25, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %14, label %20, label %25
 
 20:                                               ; preds = %7
-  br i1 %.not21, label %21, label %ApplySortComparator.exit.thread17
+  br i1 %19, label %ApplySortComparator.exit.thread16, label %21
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %9, i64 13
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %.not13.i = icmp eq i8 %24, 0
-  %..i = select i1 %.not13.i, i32 1, i32 -1
+  %24 = trunc i8 %23 to i1
+  %..i = select i1 %24, i32 -1, i32 1
   br label %ApplySortComparator.exit.thread
 
 25:                                               ; preds = %7
-  br i1 %.not21, label %30, label %26
+  br i1 %19, label %26, label %30
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds i8, ptr %9, i64 13
   %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  %.not12.i = icmp eq i8 %29, 0
-  %.14.i = select i1 %.not12.i, i32 -1, i32 1
+  %29 = trunc i8 %28 to i1
+  %.12.i = select i1 %29, i32 1, i32 -1
   br label %ApplySortComparator.exit.thread
 
 30:                                               ; preds = %25
@@ -773,9 +747,8 @@ define internal i32 @comparetup_cluster(ptr nocapture noundef readonly %0, ptr n
   %33 = tail call i32 %32(i64 noundef %11, i64 noundef %16, ptr noundef %9) #9
   %34 = getelementptr inbounds i8, ptr %9, i64 12
   %35 = load i8, ptr %34, align 4
-  %36 = and i8 %35, 1
-  %.not.i = icmp eq i8 %36, 0
-  br i1 %.not.i, label %ApplySortComparator.exit, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %ApplySortComparator.exit
 
 37:                                               ; preds = %30
   %38 = icmp slt i32 %33, 0
@@ -784,15 +757,15 @@ define internal i32 @comparetup_cluster(ptr nocapture noundef readonly %0, ptr n
 
 ApplySortComparator.exit:                         ; preds = %37, %30
   %.0.i = phi i32 [ %39, %37 ], [ %33, %30 ]
-  %.not14 = icmp eq i32 %.0.i, 0
-  br i1 %.not14, label %ApplySortComparator.exit.thread17, label %ApplySortComparator.exit.thread
+  %.not = icmp eq i32 %.0.i, 0
+  br i1 %.not, label %ApplySortComparator.exit.thread16, label %ApplySortComparator.exit.thread
 
-ApplySortComparator.exit.thread17:                ; preds = %20, %ApplySortComparator.exit, %3
+ApplySortComparator.exit.thread16:                ; preds = %20, %ApplySortComparator.exit, %3
   %40 = tail call i32 @comparetup_cluster_tiebreak(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
   br label %ApplySortComparator.exit.thread
 
-ApplySortComparator.exit.thread:                  ; preds = %37, %26, %21, %ApplySortComparator.exit, %ApplySortComparator.exit.thread17
-  %.0 = phi i32 [ %40, %ApplySortComparator.exit.thread17 ], [ %.0.i, %ApplySortComparator.exit ], [ %.14.i, %26 ], [ %..i, %21 ], [ 1, %37 ]
+ApplySortComparator.exit.thread:                  ; preds = %37, %26, %21, %ApplySortComparator.exit, %ApplySortComparator.exit.thread16
+  %.0 = phi i32 [ %40, %ApplySortComparator.exit.thread16 ], [ %.0.i, %ApplySortComparator.exit ], [ %.12.i, %26 ], [ %..i, %21 ], [ 1, %37 ]
   ret i32 %.0
 }
 
@@ -813,15 +786,14 @@ define internal i32 @comparetup_cluster_tiebreak(ptr nocapture noundef readonly 
   %16 = load ptr, ptr %11, align 8
   %17 = getelementptr inbounds i8, ptr %2, i64 72
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %60, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %60
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds i8, ptr %13, i64 40
   %22 = load ptr, ptr %21, align 8
-  %.not75 = icmp eq ptr %22, null
-  br i1 %.not75, label %ApplySortAbbrevFullComparator.exit.thread97, label %23
+  %.not = icmp eq ptr %22, null
+  br i1 %.not, label %ApplySortAbbrevFullComparator.exit.thread90, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %11, i64 8
@@ -832,33 +804,29 @@ define internal i32 @comparetup_cluster_tiebreak(ptr nocapture noundef readonly 
   %29 = call fastcc i64 @heap_getattr(ptr noundef %14, i32 noundef %28, ptr noundef %16, ptr noundef nonnull %4)
   %30 = call fastcc i64 @heap_getattr(ptr noundef %15, i32 noundef %28, ptr noundef %16, ptr noundef nonnull %5)
   %31 = load i8, ptr %4, align 1
-  %32 = and i8 %31, 1
-  %.not113 = icmp eq i8 %32, 0
+  %32 = trunc i8 %31 to i1
   %33 = load i8, ptr %5, align 1
-  %34 = and i8 %33, 1
-  %.not114 = icmp eq i8 %34, 0
-  br i1 %.not113, label %40, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %32, label %35, label %40
 
 35:                                               ; preds = %23
-  br i1 %.not114, label %36, label %ApplySortAbbrevFullComparator.exit.thread97
+  br i1 %34, label %ApplySortAbbrevFullComparator.exit.thread90, label %36
 
 36:                                               ; preds = %35
   %37 = getelementptr inbounds i8, ptr %13, i64 13
   %38 = load i8, ptr %37, align 1
-  %39 = and i8 %38, 1
-  %.not13.i = icmp eq i8 %39, 0
-  %..i = select i1 %.not13.i, i32 1, i32 -1
+  %39 = trunc i8 %38 to i1
+  %..i = select i1 %39, i32 -1, i32 1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 40:                                               ; preds = %23
-  br i1 %.not114, label %45, label %41
+  br i1 %34, label %41, label %45
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds i8, ptr %13, i64 13
   %43 = load i8, ptr %42, align 1
-  %44 = and i8 %43, 1
-  %.not12.i = icmp eq i8 %44, 0
-  %.14.i = select i1 %.not12.i, i32 -1, i32 1
+  %44 = trunc i8 %43 to i1
+  %.12.i = select i1 %44, i32 1, i32 -1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 45:                                               ; preds = %40
@@ -867,9 +835,8 @@ define internal i32 @comparetup_cluster_tiebreak(ptr nocapture noundef readonly 
   %48 = call i32 %47(i64 noundef %29, i64 noundef %30, ptr noundef nonnull %13) #9
   %49 = getelementptr inbounds i8, ptr %13, i64 12
   %50 = load i8, ptr %49, align 4
-  %51 = and i8 %50, 1
-  %.not.i = icmp eq i8 %51, 0
-  br i1 %.not.i, label %ApplySortAbbrevFullComparator.exit, label %52
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %52, label %ApplySortAbbrevFullComparator.exit
 
 52:                                               ; preds = %45
   %53 = icmp slt i32 %48, 0
@@ -878,16 +845,16 @@ define internal i32 @comparetup_cluster_tiebreak(ptr nocapture noundef readonly 
 
 ApplySortAbbrevFullComparator.exit:               ; preds = %52, %45
   %.070 = phi i32 [ %54, %52 ], [ %48, %45 ]
-  %.not76 = icmp eq i32 %.070, 0
-  br i1 %.not76, label %ApplySortAbbrevFullComparator.exit.thread97, label %ApplySortAbbrevFullComparator.exit.thread
+  %.not75 = icmp eq i32 %.070, 0
+  br i1 %.not75, label %ApplySortAbbrevFullComparator.exit.thread90, label %ApplySortAbbrevFullComparator.exit.thread
 
-ApplySortAbbrevFullComparator.exit.thread97:      ; preds = %35, %20, %ApplySortAbbrevFullComparator.exit
+ApplySortAbbrevFullComparator.exit.thread90:      ; preds = %35, %20, %ApplySortAbbrevFullComparator.exit
   %55 = getelementptr inbounds i8, ptr %2, i64 76
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %56, 1
   br i1 %57, label %ApplySortAbbrevFullComparator.exit.thread, label %58
 
-58:                                               ; preds = %ApplySortAbbrevFullComparator.exit.thread97
+58:                                               ; preds = %ApplySortAbbrevFullComparator.exit.thread90
   %59 = getelementptr i8, ptr %13, i64 64
   br label %60
 
@@ -905,61 +872,56 @@ ApplySortAbbrevFullComparator.exit.thread97:      ; preds = %35, %20, %ApplySort
   %66 = getelementptr inbounds i8, ptr %2, i64 76
   %67 = load i32, ptr %66, align 4
   %68 = icmp slt i32 %.067, %67
-  br i1 %68, label %.lr.ph132.preheader, label %ApplySortAbbrevFullComparator.exit.thread
+  br i1 %68, label %.lr.ph119.preheader, label %ApplySortAbbrevFullComparator.exit.thread
 
-.lr.ph132.preheader:                              ; preds = %.preheader
+.lr.ph119.preheader:                              ; preds = %.preheader
   %69 = zext nneg i32 %.067 to i64
-  br label %.lr.ph132
+  br label %.lr.ph119
 
-.lr.ph132:                                        ; preds = %.lr.ph132.preheader, %ApplySortComparator.exit.thread104
-  %indvars.iv144 = phi i64 [ %69, %.lr.ph132.preheader ], [ %indvars.iv.next145, %ApplySortComparator.exit.thread104 ]
-  %.1131 = phi ptr [ %.066, %.lr.ph132.preheader ], [ %101, %ApplySortComparator.exit.thread104 ]
+.lr.ph119:                                        ; preds = %.lr.ph119.preheader, %ApplySortComparator.exit.thread97
+  %indvars.iv131 = phi i64 [ %69, %.lr.ph119.preheader ], [ %indvars.iv.next132, %ApplySortComparator.exit.thread97 ]
+  %.1118 = phi ptr [ %.066, %.lr.ph119.preheader ], [ %101, %ApplySortComparator.exit.thread97 ]
   %70 = load ptr, ptr %61, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 12
-  %72 = getelementptr [32 x i16], ptr %71, i64 0, i64 %indvars.iv144
+  %72 = getelementptr [32 x i16], ptr %71, i64 0, i64 %indvars.iv131
   %73 = load i16, ptr %72, align 2
   %74 = sext i16 %73 to i32
   %75 = call fastcc i64 @heap_getattr(ptr noundef %14, i32 noundef %74, ptr noundef %16, ptr noundef nonnull %4)
   %76 = call fastcc i64 @heap_getattr(ptr noundef %15, i32 noundef %74, ptr noundef %16, ptr noundef nonnull %5)
   %77 = load i8, ptr %4, align 1
-  %78 = and i8 %77, 1
-  %.not117 = icmp eq i8 %78, 0
+  %78 = trunc i8 %77 to i1
   %79 = load i8, ptr %5, align 1
-  %80 = and i8 %79, 1
-  %.not118 = icmp eq i8 %80, 0
-  br i1 %.not117, label %86, label %81
+  %80 = trunc i8 %79 to i1
+  br i1 %78, label %81, label %86
 
-81:                                               ; preds = %.lr.ph132
-  br i1 %.not118, label %82, label %ApplySortComparator.exit.thread104
+81:                                               ; preds = %.lr.ph119
+  br i1 %80, label %ApplySortComparator.exit.thread97, label %82
 
 82:                                               ; preds = %81
-  %83 = getelementptr inbounds i8, ptr %.1131, i64 13
+  %83 = getelementptr inbounds i8, ptr %.1118, i64 13
   %84 = load i8, ptr %83, align 1
-  %85 = and i8 %84, 1
-  %.not13.i85 = icmp eq i8 %85, 0
-  %..i86 = select i1 %.not13.i85, i32 1, i32 -1
+  %85 = trunc i8 %84 to i1
+  %..i82 = select i1 %85, i32 -1, i32 1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
-86:                                               ; preds = %.lr.ph132
-  br i1 %.not118, label %91, label %87
+86:                                               ; preds = %.lr.ph119
+  br i1 %80, label %87, label %91
 
 87:                                               ; preds = %86
-  %88 = getelementptr inbounds i8, ptr %.1131, i64 13
+  %88 = getelementptr inbounds i8, ptr %.1118, i64 13
   %89 = load i8, ptr %88, align 1
-  %90 = and i8 %89, 1
-  %.not12.i83 = icmp eq i8 %90, 0
-  %.14.i84 = select i1 %.not12.i83, i32 -1, i32 1
+  %90 = trunc i8 %89 to i1
+  %.12.i81 = select i1 %90, i32 1, i32 -1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 91:                                               ; preds = %86
-  %92 = getelementptr inbounds i8, ptr %.1131, i64 24
+  %92 = getelementptr inbounds i8, ptr %.1118, i64 24
   %93 = load ptr, ptr %92, align 8
-  %94 = call i32 %93(i64 noundef %75, i64 noundef %76, ptr noundef %.1131) #9
-  %95 = getelementptr inbounds i8, ptr %.1131, i64 12
+  %94 = call i32 %93(i64 noundef %75, i64 noundef %76, ptr noundef %.1118) #9
+  %95 = getelementptr inbounds i8, ptr %.1118, i64 12
   %96 = load i8, ptr %95, align 4
-  %97 = and i8 %96, 1
-  %.not.i81 = icmp eq i8 %97, 0
-  br i1 %.not.i81, label %ApplySortComparator.exit, label %98
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %98, label %ApplySortComparator.exit
 
 98:                                               ; preds = %91
   %99 = icmp slt i32 %94, 0
@@ -967,25 +929,25 @@ ApplySortAbbrevFullComparator.exit.thread97:      ; preds = %35, %20, %ApplySort
   br i1 %99, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %98, %91
-  %.0.i82 = phi i32 [ %100, %98 ], [ %94, %91 ]
-  %.not80 = icmp eq i32 %.0.i82, 0
-  br i1 %.not80, label %ApplySortComparator.exit.thread104, label %ApplySortAbbrevFullComparator.exit.thread
+  %.0.i80 = phi i32 [ %100, %98 ], [ %94, %91 ]
+  %.not79 = icmp eq i32 %.0.i80, 0
+  br i1 %.not79, label %ApplySortComparator.exit.thread97, label %ApplySortAbbrevFullComparator.exit.thread
 
-ApplySortComparator.exit.thread104:               ; preds = %81, %ApplySortComparator.exit
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %101 = getelementptr i8, ptr %.1131, i64 64
+ApplySortComparator.exit.thread97:                ; preds = %81, %ApplySortComparator.exit
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %101 = getelementptr i8, ptr %.1118, i64 64
   %102 = load i32, ptr %66, align 4
-  %103 = trunc i64 %indvars.iv.next145 to i32
+  %103 = trunc i64 %indvars.iv.next132 to i32
   %104 = icmp sgt i32 %102, %103
-  br i1 %104, label %.lr.ph132, label %ApplySortAbbrevFullComparator.exit.thread, !llvm.loop !11
+  br i1 %104, label %.lr.ph119, label %ApplySortAbbrevFullComparator.exit.thread, !llvm.loop !11
 
 105:                                              ; preds = %60
   %106 = getelementptr inbounds i8, ptr %11, i64 16
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 232
   %109 = load ptr, ptr %108, align 8
-  %.not77 = icmp eq ptr %109, null
-  br i1 %.not77, label %.thread, label %110
+  %.not76 = icmp eq ptr %109, null
+  br i1 %.not76, label %.thread, label %110
 
 110:                                              ; preds = %105
   %111 = getelementptr inbounds i8, ptr %109, i64 40
@@ -993,9 +955,9 @@ ApplySortComparator.exit.thread104:               ; preds = %81, %ApplySortCompa
   call void @MemoryContextReset(ptr noundef %112) #9
   %.pre = load ptr, ptr %106, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 232
-  %.pre147 = load ptr, ptr %.phi.trans.insert, align 8
-  %.not78 = icmp eq ptr %.pre147, null
-  br i1 %.not78, label %.thread, label %115
+  %.pre134 = load ptr, ptr %.phi.trans.insert, align 8
+  %.not77 = icmp eq ptr %.pre134, null
+  br i1 %.not77, label %.thread, label %115
 
 .thread:                                          ; preds = %105, %110
   %113 = phi ptr [ %.pre, %110 ], [ %107, %105 ]
@@ -1003,7 +965,7 @@ ApplySortComparator.exit.thread104:               ; preds = %81, %ApplySortCompa
   br label %115
 
 115:                                              ; preds = %110, %.thread
-  %116 = phi ptr [ %114, %.thread ], [ %.pre147, %110 ]
+  %116 = phi ptr [ %114, %.thread ], [ %.pre134, %110 ]
   %117 = getelementptr inbounds i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8
   %119 = call ptr @ExecStoreHeapTuple(ptr noundef %14, ptr noundef %118, i1 noundef zeroext false) #9
@@ -1023,80 +985,75 @@ ApplySortComparator.exit.thread104:               ; preds = %81, %ApplySortCompa
   %128 = zext nneg i32 %.067 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %ApplySortComparator.exit93.thread110
-  %129 = phi i32 [ %126, %.lr.ph.preheader ], [ %160, %ApplySortComparator.exit93.thread110 ]
-  %indvars.iv = phi i64 [ %128, %.lr.ph.preheader ], [ %indvars.iv.next, %ApplySortComparator.exit93.thread110 ]
-  %.2126 = phi ptr [ %.066, %.lr.ph.preheader ], [ %161, %ApplySortComparator.exit93.thread110 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %ApplySortComparator.exit86.thread103
+  %129 = phi i32 [ %126, %.lr.ph.preheader ], [ %160, %ApplySortComparator.exit86.thread103 ]
+  %indvars.iv = phi i64 [ %128, %.lr.ph.preheader ], [ %indvars.iv.next, %ApplySortComparator.exit86.thread103 ]
+  %.2113 = phi ptr [ %.066, %.lr.ph.preheader ], [ %161, %ApplySortComparator.exit86.thread103 ]
   %130 = getelementptr [32 x i64], ptr %6, i64 0, i64 %indvars.iv
   %131 = load i64, ptr %130, align 8
   %132 = getelementptr [32 x i8], ptr %7, i64 0, i64 %indvars.iv
   %133 = load i8, ptr %132, align 1
-  %134 = and i8 %133, 1
-  %.not115 = icmp eq i8 %134, 0
+  %134 = trunc i8 %133 to i1
   %135 = getelementptr [32 x i64], ptr %8, i64 0, i64 %indvars.iv
   %136 = load i64, ptr %135, align 8
   %137 = getelementptr [32 x i8], ptr %9, i64 0, i64 %indvars.iv
   %138 = load i8, ptr %137, align 1
-  %139 = and i8 %138, 1
-  %.not116 = icmp eq i8 %139, 0
-  br i1 %.not115, label %145, label %140
+  %139 = trunc i8 %138 to i1
+  br i1 %134, label %140, label %145
 
 140:                                              ; preds = %.lr.ph
-  br i1 %.not116, label %141, label %ApplySortComparator.exit93.thread110
+  br i1 %139, label %ApplySortComparator.exit86.thread103, label %141
 
 141:                                              ; preds = %140
-  %142 = getelementptr inbounds i8, ptr %.2126, i64 13
+  %142 = getelementptr inbounds i8, ptr %.2113, i64 13
   %143 = load i8, ptr %142, align 1
-  %144 = and i8 %143, 1
-  %.not13.i91 = icmp eq i8 %144, 0
-  %..i92 = select i1 %.not13.i91, i32 1, i32 -1
+  %144 = trunc i8 %143 to i1
+  %..i85 = select i1 %144, i32 -1, i32 1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 145:                                              ; preds = %.lr.ph
-  br i1 %.not116, label %150, label %146
+  br i1 %139, label %146, label %150
 
 146:                                              ; preds = %145
-  %147 = getelementptr inbounds i8, ptr %.2126, i64 13
+  %147 = getelementptr inbounds i8, ptr %.2113, i64 13
   %148 = load i8, ptr %147, align 1
-  %149 = and i8 %148, 1
-  %.not12.i89 = icmp eq i8 %149, 0
-  %.14.i90 = select i1 %.not12.i89, i32 -1, i32 1
+  %149 = trunc i8 %148 to i1
+  %.12.i84 = select i1 %149, i32 1, i32 -1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 150:                                              ; preds = %145
-  %151 = getelementptr inbounds i8, ptr %.2126, i64 24
+  %151 = getelementptr inbounds i8, ptr %.2113, i64 24
   %152 = load ptr, ptr %151, align 8
-  %153 = call i32 %152(i64 noundef %131, i64 noundef %136, ptr noundef %.2126) #9
-  %154 = getelementptr inbounds i8, ptr %.2126, i64 12
+  %153 = call i32 %152(i64 noundef %131, i64 noundef %136, ptr noundef %.2113) #9
+  %154 = getelementptr inbounds i8, ptr %.2113, i64 12
   %155 = load i8, ptr %154, align 4
-  %156 = and i8 %155, 1
-  %.not.i87 = icmp eq i8 %156, 0
-  br i1 %.not.i87, label %ApplySortComparator.exit93, label %157
+  %156 = trunc i8 %155 to i1
+  br i1 %156, label %157, label %ApplySortComparator.exit86
 
 157:                                              ; preds = %150
   %158 = icmp slt i32 %153, 0
   %159 = sub i32 0, %153
-  br i1 %158, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortComparator.exit93
+  br i1 %158, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortComparator.exit86
 
-ApplySortComparator.exit93:                       ; preds = %157, %150
-  %.0.i88 = phi i32 [ %159, %157 ], [ %153, %150 ]
-  %.not79 = icmp eq i32 %.0.i88, 0
-  br i1 %.not79, label %ApplySortComparator.exit93.ApplySortComparator.exit93.thread110_crit_edge, label %ApplySortAbbrevFullComparator.exit.thread
+ApplySortComparator.exit86:                       ; preds = %157, %150
+  %.0.i83 = phi i32 [ %159, %157 ], [ %153, %150 ]
+  %.not78 = icmp eq i32 %.0.i83, 0
+  br i1 %.not78, label %ApplySortComparator.exit86.ApplySortComparator.exit86.thread103_crit_edge, label %ApplySortAbbrevFullComparator.exit.thread
 
-ApplySortComparator.exit93.ApplySortComparator.exit93.thread110_crit_edge: ; preds = %ApplySortComparator.exit93
-  %.pre148 = load i32, ptr %125, align 4
-  br label %ApplySortComparator.exit93.thread110
+ApplySortComparator.exit86.ApplySortComparator.exit86.thread103_crit_edge: ; preds = %ApplySortComparator.exit86
+  %.pre135 = load i32, ptr %125, align 4
+  br label %ApplySortComparator.exit86.thread103
 
-ApplySortComparator.exit93.thread110:             ; preds = %ApplySortComparator.exit93.ApplySortComparator.exit93.thread110_crit_edge, %140
-  %160 = phi i32 [ %.pre148, %ApplySortComparator.exit93.ApplySortComparator.exit93.thread110_crit_edge ], [ %129, %140 ]
+ApplySortComparator.exit86.thread103:             ; preds = %ApplySortComparator.exit86.ApplySortComparator.exit86.thread103_crit_edge, %140
+  %160 = phi i32 [ %.pre135, %ApplySortComparator.exit86.ApplySortComparator.exit86.thread103_crit_edge ], [ %129, %140 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %161 = getelementptr i8, ptr %.2126, i64 64
+  %161 = getelementptr i8, ptr %.2113, i64 64
   %162 = trunc i64 %indvars.iv.next to i32
   %163 = icmp sgt i32 %160, %162
   br i1 %163, label %.lr.ph, label %ApplySortAbbrevFullComparator.exit.thread, !llvm.loop !12
 
-ApplySortAbbrevFullComparator.exit.thread:        ; preds = %ApplySortComparator.exit93, %ApplySortComparator.exit93.thread110, %157, %ApplySortComparator.exit, %ApplySortComparator.exit.thread104, %98, %115, %.preheader, %146, %141, %87, %82, %52, %41, %36, %ApplySortAbbrevFullComparator.exit, %ApplySortAbbrevFullComparator.exit.thread97
-  %.0 = phi i32 [ 0, %ApplySortAbbrevFullComparator.exit.thread97 ], [ %.070, %ApplySortAbbrevFullComparator.exit ], [ %.14.i, %41 ], [ %..i, %36 ], [ 1, %52 ], [ %.14.i84, %87 ], [ %..i86, %82 ], [ %.14.i90, %146 ], [ %..i92, %141 ], [ 0, %.preheader ], [ 0, %115 ], [ %.0.i82, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread104 ], [ 1, %98 ], [ %.0.i88, %ApplySortComparator.exit93 ], [ 0, %ApplySortComparator.exit93.thread110 ], [ 1, %157 ]
+ApplySortAbbrevFullComparator.exit.thread:        ; preds = %ApplySortComparator.exit86, %ApplySortComparator.exit86.thread103, %157, %ApplySortComparator.exit, %ApplySortComparator.exit.thread97, %98, %115, %.preheader, %146, %141, %87, %82, %52, %41, %36, %ApplySortAbbrevFullComparator.exit, %ApplySortAbbrevFullComparator.exit.thread90
+  %.0 = phi i32 [ 0, %ApplySortAbbrevFullComparator.exit.thread90 ], [ %.070, %ApplySortAbbrevFullComparator.exit ], [ %.12.i, %41 ], [ %..i, %36 ], [ 1, %52 ], [ %.12.i81, %87 ], [ %..i82, %82 ], [ %.12.i84, %146 ], [ %..i85, %141 ], [ 0, %.preheader ], [ 0, %115 ], [ %.0.i80, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread97 ], [ 1, %98 ], [ %.0.i83, %ApplySortComparator.exit86 ], [ 0, %ApplySortComparator.exit86.thread103 ], [ 1, %157 ]
   ret i32 %.0
 }
 
@@ -1197,9 +1154,8 @@ define internal void @readtup_cluster(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %11, ptr %1, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 72
   %41 = load i8, ptr %40, align 8
-  %42 = and i8 %41, 1
-  %.not27 = icmp eq i8 %42, 0
-  br i1 %.not27, label %53, label %43
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %53
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds i8, ptr %7, i64 8
@@ -1275,9 +1231,8 @@ define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1
   store ptr %12, ptr @CurrentMemoryContext, align 8
   %14 = tail call ptr @palloc(i64 noundef 24) #9
   %15 = load i8, ptr @trace_sort, align 1
-  %16 = and i8 %15, 1
-  %.not = icmp eq i8 %16, 0
-  br i1 %.not, label %24, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %24
 
 17:                                               ; preds = %7
   %18 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
@@ -1286,8 +1241,8 @@ define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1
 19:                                               ; preds = %17
   %20 = select i1 %2, i32 116, i32 102
   %21 = and i32 %6, 1
-  %.not52 = icmp eq i32 %21, 0
-  %22 = select i1 %.not52, i32 102, i32 116
+  %.not = icmp eq i32 %21, 0
+  %22 = select i1 %.not, i32 102, i32 116
   %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %20, i32 noundef %4, i32 noundef %22) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 376, ptr noundef nonnull @__func__.tuplesort_begin_index_btree) #9
   br label %24
@@ -1335,8 +1290,8 @@ define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1
   %48 = getelementptr inbounds i8, ptr %40, i64 24
   br label %49
 
-49:                                               ; preds = %.lr.ph, %70
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
+49:                                               ; preds = %.lr.ph, %68
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
   %50 = load ptr, ptr %45, align 8
   %51 = getelementptr %struct.SortSupportData, ptr %50, i64 %indvars.iv
   %52 = getelementptr %struct.ScanKeyData, ptr %48, i64 %indvars.iv
@@ -1357,31 +1312,29 @@ define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1
   %64 = getelementptr inbounds i8, ptr %51, i64 14
   store i16 %63, ptr %64, align 2
   %65 = icmp eq i64 %indvars.iv, 0
-  br i1 %65, label %66, label %70
+  br i1 %65, label %66, label %68
 
 66:                                               ; preds = %49
   %67 = load i8, ptr %35, align 8
-  %68 = and i8 %67, 1
-  %69 = icmp ne i8 %68, 0
-  br label %70
+  br label %68
 
-70:                                               ; preds = %66, %49
-  %71 = phi i1 [ false, %49 ], [ %69, %66 ]
-  %72 = getelementptr inbounds i8, ptr %51, i64 32
-  %73 = zext i1 %71 to i8
-  store i8 %73, ptr %72, align 8
-  %74 = load i32, ptr %52, align 8
-  %75 = and i32 %74, 16777216
-  %.not53 = icmp eq i32 %75, 0
-  %76 = select i1 %.not53, i16 1, i16 5
-  tail call void @PrepareSortSupportFromIndexRel(ptr noundef %1, i16 noundef signext %76, ptr noundef nonnull %51) #9
+68:                                               ; preds = %66, %49
+  %69 = phi i8 [ 0, %49 ], [ %67, %66 ]
+  %70 = getelementptr inbounds i8, ptr %51, i64 32
+  %71 = and i8 %69, 1
+  store i8 %71, ptr %70, align 8
+  %72 = load i32, ptr %52, align 8
+  %73 = and i32 %72, 16777216
+  %.not52 = icmp eq i32 %73, 0
+  %74 = select i1 %.not52, i16 1, i16 5
+  tail call void @PrepareSortSupportFromIndexRel(ptr noundef %1, i16 noundef signext %74, ptr noundef nonnull %51) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = load i32, ptr %30, align 4
-  %78 = sext i32 %77 to i64
-  %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %49, label %._crit_edge, !llvm.loop !13
+  %75 = load i32, ptr %30, align 4
+  %76 = sext i32 %75 to i64
+  %77 = icmp slt i64 %indvars.iv.next, %76
+  br i1 %77, label %49, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %70, %24
+._crit_edge:                                      ; preds = %68, %24
   tail call void @pfree(ptr noundef %40) #9
   store ptr %13, ptr @CurrentMemoryContext, align 8
   ret ptr %10
@@ -1428,36 +1381,32 @@ define internal i32 @comparetup_index_btree(ptr nocapture noundef readonly %0, p
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not18 = icmp eq i8 %10, 0
+  %10 = trunc i8 %9 to i1
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not19 = icmp eq i8 %15, 0
-  br i1 %.not18, label %21, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %10, label %16, label %21
 
 16:                                               ; preds = %3
-  br i1 %.not19, label %17, label %ApplySortComparator.exit.thread15
+  br i1 %15, label %ApplySortComparator.exit.thread15, label %17
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds i8, ptr %5, i64 13
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 1
-  %.not13.i = icmp eq i8 %20, 0
-  %..i = select i1 %.not13.i, i32 1, i32 -1
+  %20 = trunc i8 %19 to i1
+  %..i = select i1 %20, i32 -1, i32 1
   br label %ApplySortComparator.exit.thread
 
 21:                                               ; preds = %3
-  br i1 %.not19, label %26, label %22
+  br i1 %15, label %22, label %26
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds i8, ptr %5, i64 13
   %24 = load i8, ptr %23, align 1
-  %25 = and i8 %24, 1
-  %.not12.i = icmp eq i8 %25, 0
-  %.14.i = select i1 %.not12.i, i32 -1, i32 1
+  %25 = trunc i8 %24 to i1
+  %.12.i = select i1 %25, i32 1, i32 -1
   br label %ApplySortComparator.exit.thread
 
 26:                                               ; preds = %21
@@ -1466,9 +1415,8 @@ define internal i32 @comparetup_index_btree(ptr nocapture noundef readonly %0, p
   %29 = tail call i32 %28(i64 noundef %7, i64 noundef %12, ptr noundef %5) #9
   %30 = getelementptr inbounds i8, ptr %5, i64 12
   %31 = load i8, ptr %30, align 4
-  %32 = and i8 %31, 1
-  %.not.i = icmp eq i8 %32, 0
-  br i1 %.not.i, label %ApplySortComparator.exit, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %ApplySortComparator.exit
 
 33:                                               ; preds = %26
   %34 = icmp slt i32 %29, 0
@@ -1485,7 +1433,7 @@ ApplySortComparator.exit.thread15:                ; preds = %16, %ApplySortCompa
   br label %ApplySortComparator.exit.thread
 
 ApplySortComparator.exit.thread:                  ; preds = %33, %22, %17, %ApplySortComparator.exit, %ApplySortComparator.exit.thread15
-  %.0 = phi i32 [ %36, %ApplySortComparator.exit.thread15 ], [ %.0.i, %ApplySortComparator.exit ], [ %.14.i, %22 ], [ %..i, %17 ], [ 1, %33 ]
+  %.0 = phi i32 [ %36, %ApplySortComparator.exit.thread15 ], [ %.0.i, %ApplySortComparator.exit ], [ %.12.i, %22 ], [ %..i, %17 ], [ 1, %33 ]
   ret i32 %.0
 }
 
@@ -1510,39 +1458,35 @@ define internal i32 @comparetup_index_btree_tiebreak(ptr nocapture noundef reado
   %20 = getelementptr inbounds i8, ptr %11, i64 40
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %ApplySortAbbrevFullComparator.exit.thread92, label %22
+  br i1 %.not, label %ApplySortAbbrevFullComparator.exit.thread84, label %22
 
 22:                                               ; preds = %3
   %23 = call fastcc i64 @index_getattr(ptr noundef %12, i32 noundef 1, ptr noundef %19, ptr noundef nonnull %4)
   %24 = call fastcc i64 @index_getattr(ptr noundef %13, i32 noundef 1, ptr noundef %19, ptr noundef nonnull %5)
   %25 = load i8, ptr %4, align 1
-  %26 = and i8 %25, 1
-  %.not101 = icmp eq i8 %26, 0
+  %26 = trunc i8 %25 to i1
   %27 = load i8, ptr %5, align 1
-  %28 = and i8 %27, 1
-  %.not102 = icmp eq i8 %28, 0
-  br i1 %.not101, label %34, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %26, label %29, label %34
 
 29:                                               ; preds = %22
-  br i1 %.not102, label %30, label %ApplySortAbbrevFullComparator.exit.thread92
+  br i1 %28, label %ApplySortAbbrevFullComparator.exit.thread84, label %30
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds i8, ptr %11, i64 13
   %32 = load i8, ptr %31, align 1
-  %33 = and i8 %32, 1
-  %.not13.i = icmp eq i8 %33, 0
-  %..i = select i1 %.not13.i, i32 1, i32 -1
+  %33 = trunc i8 %32 to i1
+  %..i = select i1 %33, i32 -1, i32 1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 34:                                               ; preds = %22
-  br i1 %.not102, label %39, label %35
+  br i1 %28, label %35, label %39
 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds i8, ptr %11, i64 13
   %37 = load i8, ptr %36, align 1
-  %38 = and i8 %37, 1
-  %.not12.i = icmp eq i8 %38, 0
-  %.14.i = select i1 %.not12.i, i32 -1, i32 1
+  %38 = trunc i8 %37 to i1
+  %.12.i = select i1 %38, i32 1, i32 -1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 39:                                               ; preds = %34
@@ -1551,9 +1495,8 @@ define internal i32 @comparetup_index_btree_tiebreak(ptr nocapture noundef reado
   %42 = tail call i32 %41(i64 noundef %23, i64 noundef %24, ptr noundef nonnull %11) #9
   %43 = getelementptr inbounds i8, ptr %11, i64 12
   %44 = load i8, ptr %43, align 4
-  %45 = and i8 %44, 1
-  %.not.i = icmp eq i8 %45, 0
-  br i1 %.not.i, label %ApplySortAbbrevFullComparator.exit, label %46
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %ApplySortAbbrevFullComparator.exit
 
 46:                                               ; preds = %39
   %47 = icmp slt i32 %42, 0
@@ -1563,60 +1506,55 @@ define internal i32 @comparetup_index_btree_tiebreak(ptr nocapture noundef reado
 ApplySortAbbrevFullComparator.exit:               ; preds = %46, %39
   %.0.i = phi i32 [ %48, %46 ], [ %42, %39 ]
   %.not67 = icmp eq i32 %.0.i, 0
-  br i1 %.not67, label %ApplySortAbbrevFullComparator.exit.thread92, label %ApplySortAbbrevFullComparator.exit.thread
+  br i1 %.not67, label %ApplySortAbbrevFullComparator.exit.thread84, label %ApplySortAbbrevFullComparator.exit.thread
 
-ApplySortAbbrevFullComparator.exit.thread92:      ; preds = %29, %ApplySortAbbrevFullComparator.exit, %3
+ApplySortAbbrevFullComparator.exit.thread84:      ; preds = %29, %ApplySortAbbrevFullComparator.exit, %3
   %49 = getelementptr inbounds i8, ptr %0, i64 16
   %50 = load i8, ptr %49, align 8
-  %.not69112 = icmp slt i32 %15, 2
-  br i1 %.not69112, label %._crit_edge, label %.lr.ph
+  %.not68100 = icmp slt i32 %15, 2
+  br i1 %.not68100, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %ApplySortAbbrevFullComparator.exit.thread92, %ApplySortComparator.exit.thread98
-  %.pn115 = phi ptr [ %.057116, %ApplySortComparator.exit.thread98 ], [ %11, %ApplySortAbbrevFullComparator.exit.thread92 ]
-  %.1114 = phi i8 [ %spec.select78, %ApplySortComparator.exit.thread98 ], [ %50, %ApplySortAbbrevFullComparator.exit.thread92 ]
-  %.059113 = phi i32 [ %77, %ApplySortComparator.exit.thread98 ], [ 2, %ApplySortAbbrevFullComparator.exit.thread92 ]
-  %.057116 = getelementptr i8, ptr %.pn115, i64 64
-  %51 = call fastcc i64 @index_getattr(ptr noundef %12, i32 noundef %.059113, ptr noundef %19, ptr noundef nonnull %4)
-  %52 = call fastcc i64 @index_getattr(ptr noundef %13, i32 noundef %.059113, ptr noundef %19, ptr noundef nonnull %5)
+.lr.ph:                                           ; preds = %ApplySortAbbrevFullComparator.exit.thread84, %ApplySortComparator.exit.thread90
+  %.pn103 = phi ptr [ %.057104, %ApplySortComparator.exit.thread90 ], [ %11, %ApplySortAbbrevFullComparator.exit.thread84 ]
+  %.1102 = phi i8 [ %spec.select73, %ApplySortComparator.exit.thread90 ], [ %50, %ApplySortAbbrevFullComparator.exit.thread84 ]
+  %.059101 = phi i32 [ %77, %ApplySortComparator.exit.thread90 ], [ 2, %ApplySortAbbrevFullComparator.exit.thread84 ]
+  %.057104 = getelementptr i8, ptr %.pn103, i64 64
+  %51 = call fastcc i64 @index_getattr(ptr noundef %12, i32 noundef %.059101, ptr noundef %19, ptr noundef nonnull %4)
+  %52 = call fastcc i64 @index_getattr(ptr noundef %13, i32 noundef %.059101, ptr noundef %19, ptr noundef nonnull %5)
   %53 = load i8, ptr %4, align 1
-  %54 = and i8 %53, 1
-  %.not103 = icmp eq i8 %54, 0
+  %54 = trunc i8 %53 to i1
   %55 = load i8, ptr %5, align 1
-  %56 = and i8 %55, 1
-  %.not104 = icmp eq i8 %56, 0
-  br i1 %.not103, label %62, label %57
+  %56 = trunc i8 %55 to i1
+  br i1 %54, label %57, label %62
 
 57:                                               ; preds = %.lr.ph
-  br i1 %.not104, label %58, label %ApplySortComparator.exit.thread98
+  br i1 %56, label %ApplySortComparator.exit.thread90, label %58
 
 58:                                               ; preds = %57
-  %59 = getelementptr i8, ptr %.pn115, i64 77
+  %59 = getelementptr i8, ptr %.pn103, i64 77
   %60 = load i8, ptr %59, align 1
-  %61 = and i8 %60, 1
-  %.not13.i88 = icmp eq i8 %61, 0
-  %..i89 = select i1 %.not13.i88, i32 1, i32 -1
+  %61 = trunc i8 %60 to i1
+  %..i81 = select i1 %61, i32 -1, i32 1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 62:                                               ; preds = %.lr.ph
-  br i1 %.not104, label %67, label %63
+  br i1 %56, label %63, label %67
 
 63:                                               ; preds = %62
-  %64 = getelementptr i8, ptr %.pn115, i64 77
+  %64 = getelementptr i8, ptr %.pn103, i64 77
   %65 = load i8, ptr %64, align 1
-  %66 = and i8 %65, 1
-  %.not12.i86 = icmp eq i8 %66, 0
-  %.14.i87 = select i1 %.not12.i86, i32 -1, i32 1
+  %66 = trunc i8 %65 to i1
+  %.12.i80 = select i1 %66, i32 1, i32 -1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 67:                                               ; preds = %62
-  %68 = getelementptr i8, ptr %.pn115, i64 88
+  %68 = getelementptr i8, ptr %.pn103, i64 88
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call i32 %69(i64 noundef %51, i64 noundef %52, ptr noundef %.057116) #9
-  %71 = getelementptr i8, ptr %.pn115, i64 76
+  %70 = tail call i32 %69(i64 noundef %51, i64 noundef %52, ptr noundef %.057104) #9
+  %71 = getelementptr i8, ptr %.pn103, i64 76
   %72 = load i8, ptr %71, align 4
-  %73 = and i8 %72, 1
-  %.not.i84 = icmp eq i8 %73, 0
-  br i1 %.not.i84, label %ApplySortComparator.exit, label %74
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %74, label %ApplySortComparator.exit
 
 74:                                               ; preds = %67
   %75 = icmp slt i32 %70, 0
@@ -1624,105 +1562,104 @@ ApplySortAbbrevFullComparator.exit.thread92:      ; preds = %29, %ApplySortAbbre
   br i1 %75, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %74, %67
-  %.0.i85 = phi i32 [ %76, %74 ], [ %70, %67 ]
-  %.not76 = icmp eq i32 %.0.i85, 0
-  br i1 %.not76, label %ApplySortComparator.exit.thread98, label %ApplySortAbbrevFullComparator.exit.thread
+  %.0.i79 = phi i32 [ %76, %74 ], [ %70, %67 ]
+  %.not72 = icmp eq i32 %.0.i79, 0
+  br i1 %.not72, label %ApplySortComparator.exit.thread90, label %ApplySortAbbrevFullComparator.exit.thread
 
-ApplySortComparator.exit.thread98:                ; preds = %57, %ApplySortComparator.exit
-  %spec.select78 = phi i8 [ 1, %57 ], [ %.1114, %ApplySortComparator.exit ]
-  %77 = add i32 %.059113, 1
-  %.not69 = icmp sgt i32 %77, %15
-  br i1 %.not69, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+ApplySortComparator.exit.thread90:                ; preds = %57, %ApplySortComparator.exit
+  %spec.select73 = phi i8 [ 1, %57 ], [ %.1102, %ApplySortComparator.exit ]
+  %77 = add i32 %.059101, 1
+  %.not68 = icmp sgt i32 %77, %15
+  br i1 %.not68, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %ApplySortComparator.exit.thread98, %ApplySortAbbrevFullComparator.exit.thread92
-  %.1.lcssa = phi i8 [ %50, %ApplySortAbbrevFullComparator.exit.thread92 ], [ %spec.select78, %ApplySortComparator.exit.thread98 ]
+._crit_edge:                                      ; preds = %ApplySortComparator.exit.thread90, %ApplySortAbbrevFullComparator.exit.thread84
+  %.1.lcssa = phi i8 [ %50, %ApplySortAbbrevFullComparator.exit.thread84 ], [ %spec.select73, %ApplySortComparator.exit.thread90 ]
   %78 = getelementptr inbounds i8, ptr %9, i64 16
   %79 = load i8, ptr %78, align 8
-  %80 = and i8 %79, 1
-  %.not70 = icmp eq i8 %80, 0
-  br i1 %.not70, label %107, label %81
+  %80 = trunc i8 %79 to i1
+  br i1 %80, label %81, label %108
 
 81:                                               ; preds = %._crit_edge
   %82 = getelementptr inbounds i8, ptr %9, i64 17
   %83 = load i8, ptr %82, align 1
-  %84 = and i8 %83, 1
-  %.not71 = icmp ne i8 %84, 0
-  %85 = and i8 %.1.lcssa, 1
-  %.not72 = icmp eq i8 %85, 0
-  %or.cond = select i1 %.not71, i1 true, i1 %.not72
-  br i1 %or.cond, label %86, label %107
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %87, label %85
 
-86:                                               ; preds = %81
+85:                                               ; preds = %81
+  %86 = trunc i8 %.1.lcssa to i1
+  br i1 %86, label %108, label %87
+
+87:                                               ; preds = %85, %81
   call void @index_deform_tuple(ptr noundef %12, ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
-  %87 = load ptr, ptr %16, align 8
-  %88 = call ptr @BuildIndexValueDescription(ptr noundef %87, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
-  %89 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %89)
-  %90 = call i32 @errcode(i32 noundef 83906754) #9
-  %91 = load ptr, ptr %16, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 56
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 4
-  %95 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %94) #9
-  %.not75 = icmp eq ptr %88, null
-  br i1 %.not75, label %98, label %96
+  %88 = load ptr, ptr %16, align 8
+  %89 = call ptr @BuildIndexValueDescription(ptr noundef %88, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %90 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %90)
+  %91 = call i32 @errcode(i32 noundef 83906754) #9
+  %92 = load ptr, ptr %16, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 56
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 4
+  %96 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %95) #9
+  %.not71 = icmp eq ptr %89, null
+  br i1 %.not71, label %99, label %97
 
-96:                                               ; preds = %86
-  %97 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10, ptr noundef nonnull %88) #9
-  br label %100
+97:                                               ; preds = %87
+  %98 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10, ptr noundef nonnull %89) #9
+  br label %101
 
-98:                                               ; preds = %86
-  %99 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.11) #9
-  br label %100
+99:                                               ; preds = %87
+  %100 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.11) #9
+  br label %101
 
-100:                                              ; preds = %98, %96
-  %101 = load ptr, ptr %9, align 8
-  %102 = load ptr, ptr %16, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 56
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 4
-  %106 = call i32 @errtableconstraint(ptr noundef %101, ptr noundef nonnull %105) #9
+101:                                              ; preds = %99, %97
+  %102 = load ptr, ptr %9, align 8
+  %103 = load ptr, ptr %16, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 56
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 4
+  %107 = call i32 @errtableconstraint(ptr noundef %102, ptr noundef nonnull %106) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1529, ptr noundef nonnull @__func__.comparetup_index_btree_tiebreak) #9
   unreachable
 
-107:                                              ; preds = %81, %._crit_edge
+108:                                              ; preds = %85, %._crit_edge
   %.val = load i16, ptr %12, align 2
-  %108 = getelementptr i8, ptr %12, i64 2
-  %.val79 = load i16, ptr %108, align 2
-  %109 = zext i16 %.val to i32
-  %110 = shl nuw i32 %109, 16
-  %111 = zext i16 %.val79 to i32
-  %112 = or disjoint i32 %110, %111
-  %.val80 = load i16, ptr %13, align 2
-  %113 = getelementptr i8, ptr %13, i64 2
-  %.val81 = load i16, ptr %113, align 2
-  %114 = zext i16 %.val80 to i32
-  %115 = shl nuw i32 %114, 16
-  %116 = zext i16 %.val81 to i32
-  %117 = or disjoint i32 %115, %116
-  %.not73 = icmp eq i32 %112, %117
-  br i1 %.not73, label %121, label %118
+  %109 = getelementptr i8, ptr %12, i64 2
+  %.val74 = load i16, ptr %109, align 2
+  %110 = zext i16 %.val to i32
+  %111 = shl nuw i32 %110, 16
+  %112 = zext i16 %.val74 to i32
+  %113 = or disjoint i32 %111, %112
+  %.val75 = load i16, ptr %13, align 2
+  %114 = getelementptr i8, ptr %13, i64 2
+  %.val76 = load i16, ptr %114, align 2
+  %115 = zext i16 %.val75 to i32
+  %116 = shl nuw i32 %115, 16
+  %117 = zext i16 %.val76 to i32
+  %118 = or disjoint i32 %116, %117
+  %.not69 = icmp eq i32 %113, %118
+  br i1 %.not69, label %122, label %119
 
-118:                                              ; preds = %107
-  %119 = icmp ult i32 %112, %117
-  %120 = select i1 %119, i32 -1, i32 1
+119:                                              ; preds = %108
+  %120 = icmp ult i32 %113, %118
+  %121 = select i1 %120, i32 -1, i32 1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
-121:                                              ; preds = %107
-  %122 = getelementptr i8, ptr %12, i64 4
-  %.val82 = load i16, ptr %122, align 2
-  %123 = getelementptr i8, ptr %13, i64 4
-  %.val83 = load i16, ptr %123, align 2
-  %.not74 = icmp eq i16 %.val82, %.val83
-  br i1 %.not74, label %ApplySortAbbrevFullComparator.exit.thread, label %124
+122:                                              ; preds = %108
+  %123 = getelementptr i8, ptr %12, i64 4
+  %.val77 = load i16, ptr %123, align 2
+  %124 = getelementptr i8, ptr %13, i64 4
+  %.val78 = load i16, ptr %124, align 2
+  %.not70 = icmp eq i16 %.val77, %.val78
+  br i1 %.not70, label %ApplySortAbbrevFullComparator.exit.thread, label %125
 
-124:                                              ; preds = %121
-  %125 = icmp ult i16 %.val82, %.val83
-  %126 = select i1 %125, i32 -1, i32 1
+125:                                              ; preds = %122
+  %126 = icmp ult i16 %.val77, %.val78
+  %127 = select i1 %126, i32 -1, i32 1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
-ApplySortAbbrevFullComparator.exit.thread:        ; preds = %74, %ApplySortComparator.exit, %63, %58, %46, %35, %30, %121, %ApplySortAbbrevFullComparator.exit, %124, %118
-  %.0 = phi i32 [ %120, %118 ], [ %126, %124 ], [ %.0.i, %ApplySortAbbrevFullComparator.exit ], [ 0, %121 ], [ %.14.i, %35 ], [ %..i, %30 ], [ 1, %46 ], [ %.14.i87, %63 ], [ %..i89, %58 ], [ 1, %74 ], [ %.0.i85, %ApplySortComparator.exit ]
+ApplySortAbbrevFullComparator.exit.thread:        ; preds = %74, %ApplySortComparator.exit, %63, %58, %46, %35, %30, %122, %ApplySortAbbrevFullComparator.exit, %125, %119
+  %.0 = phi i32 [ %121, %119 ], [ %127, %125 ], [ %.0.i, %ApplySortAbbrevFullComparator.exit ], [ 0, %122 ], [ %.12.i, %35 ], [ %..i, %30 ], [ 1, %46 ], [ %.12.i80, %63 ], [ %..i81, %58 ], [ 1, %74 ], [ %.0.i79, %ApplySortComparator.exit ]
   ret i32 %.0
 }
 
@@ -1816,9 +1753,8 @@ define dso_local ptr @tuplesort_begin_index_hash(ptr noundef %0, ptr noundef %1,
   store ptr %11, ptr @CurrentMemoryContext, align 8
   %13 = tail call ptr @palloc(i64 noundef 32) #9
   %14 = load i8, ptr @trace_sort, align 1
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %22, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %22
 
 16:                                               ; preds = %8
   %17 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
@@ -1826,8 +1762,8 @@ define dso_local ptr @tuplesort_begin_index_hash(ptr noundef %0, ptr noundef %1,
 
 18:                                               ; preds = %16
   %19 = and i32 %7, 1
-  %.not30 = icmp eq i32 %19, 0
-  %20 = select i1 %.not30, i32 102, i32 116
+  %.not = icmp eq i32 %19, 0
+  %20 = select i1 %.not, i32 102, i32 116
   %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %20) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 464, ptr noundef nonnull @__func__.tuplesort_begin_index_hash) #9
   br label %22
@@ -1958,9 +1894,8 @@ define dso_local ptr @tuplesort_begin_index_gist(ptr noundef %0, ptr noundef %1,
   store ptr %8, ptr @CurrentMemoryContext, align 8
   %10 = tail call ptr @palloc(i64 noundef 24) #9
   %11 = load i8, ptr @trace_sort, align 1
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %19, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %19
 
 13:                                               ; preds = %5
   %14 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
@@ -1968,8 +1903,8 @@ define dso_local ptr @tuplesort_begin_index_gist(ptr noundef %0, ptr noundef %1,
 
 15:                                               ; preds = %13
   %16 = and i32 %4, 1
-  %.not43 = icmp eq i32 %16, 0
-  %17 = select i1 %.not43, i32 102, i32 116
+  %.not = icmp eq i32 %16, 0
+  %17 = select i1 %.not, i32 102, i32 116
   %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %2, i32 noundef %17) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 510, ptr noundef nonnull @__func__.tuplesort_begin_index_gist) #9
   br label %19
@@ -2016,8 +1951,8 @@ define dso_local ptr @tuplesort_begin_index_gist(ptr noundef %0, ptr noundef %1,
   %42 = getelementptr inbounds i8, ptr %1, i64 432
   br label %43
 
-43:                                               ; preds = %.lr.ph, %59
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
+43:                                               ; preds = %.lr.ph, %57
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %44 = load ptr, ptr %39, align 8
   %45 = getelementptr %struct.SortSupportData, ptr %44, i64 %indvars.iv
   %46 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -2034,26 +1969,24 @@ define dso_local ptr @tuplesort_begin_index_gist(ptr noundef %0, ptr noundef %1,
   %53 = getelementptr inbounds i8, ptr %45, i64 14
   store i16 %52, ptr %53, align 2
   %54 = icmp eq i64 %indvars.iv, 0
-  br i1 %54, label %55, label %59
+  br i1 %54, label %55, label %57
 
 55:                                               ; preds = %43
   %56 = load i8, ptr %30, align 8
-  %57 = and i8 %56, 1
-  %58 = icmp ne i8 %57, 0
-  br label %59
+  br label %57
 
-59:                                               ; preds = %55, %43
-  %60 = phi i1 [ false, %43 ], [ %58, %55 ]
-  %61 = getelementptr inbounds i8, ptr %45, i64 32
-  %62 = zext i1 %60 to i8
-  store i8 %62, ptr %61, align 8
+57:                                               ; preds = %55, %43
+  %58 = phi i8 [ 0, %43 ], [ %56, %55 ]
+  %59 = getelementptr inbounds i8, ptr %45, i64 32
+  %60 = and i8 %58, 1
+  store i8 %60, ptr %59, align 8
   tail call void @PrepareSortSupportFromGistIndexRel(ptr noundef nonnull %1, ptr noundef nonnull %45) #9
-  %63 = load i32, ptr %25, align 4
-  %64 = sext i32 %63 to i64
-  %65 = icmp slt i64 %indvars.iv.next, %64
-  br i1 %65, label %43, label %._crit_edge, !llvm.loop !16
+  %61 = load i32, ptr %25, align 4
+  %62 = sext i32 %61 to i64
+  %63 = icmp slt i64 %indvars.iv.next, %62
+  br i1 %63, label %43, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %59, %19
+._crit_edge:                                      ; preds = %57, %19
   store ptr %9, ptr @CurrentMemoryContext, align 8
   ret ptr %6
 }
@@ -2064,9 +1997,8 @@ declare void @PrepareSortSupportFromGistIndexRel(ptr noundef, ptr noundef) local
 define dso_local ptr @tuplesort_begin_index_brin(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @tuplesort_begin_common(i32 noundef %0, ptr noundef %1, i32 noundef %2) #9
   %5 = load i8, ptr @trace_sort, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %13, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %13
 
 7:                                                ; preds = %3
   %8 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
@@ -2074,8 +2006,8 @@ define dso_local ptr @tuplesort_begin_index_brin(i32 noundef %0, ptr noundef %1,
 
 9:                                                ; preds = %7
   %10 = and i32 %2, 1
-  %.not13 = icmp eq i32 %10, 0
-  %11 = select i1 %.not13, i32 102, i32 116
+  %.not = icmp eq i32 %10, 0
+  %11 = select i1 %.not, i32 102, i32 116
   %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %0, i32 noundef %11) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 568, ptr noundef nonnull @__func__.tuplesort_begin_index_brin) #9
   br label %13
@@ -2225,9 +2157,8 @@ define dso_local ptr @tuplesort_begin_datum(i32 noundef %0, i32 noundef %1, i32 
   store ptr %13, ptr @CurrentMemoryContext, align 8
   %15 = tail call ptr @palloc(i64 noundef 8) #9
   %16 = load i8, ptr @trace_sort, align 1
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %24, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %24
 
 18:                                               ; preds = %7
   %19 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
@@ -2235,8 +2166,8 @@ define dso_local ptr @tuplesort_begin_datum(i32 noundef %0, i32 noundef %1, i32 
 
 20:                                               ; preds = %18
   %21 = and i32 %6, 1
-  %.not34 = icmp eq i32 %21, 0
-  %22 = select i1 %.not34, i32 102, i32 116
+  %.not = icmp eq i32 %21, 0
+  %22 = select i1 %.not, i32 102, i32 116
   %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %4, i32 noundef %22) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 603, ptr noundef nonnull @__func__.tuplesort_begin_datum) #9
   br label %24
@@ -2264,10 +2195,10 @@ define dso_local ptr @tuplesort_begin_datum(i32 noundef %0, i32 noundef %1, i32 
   %34 = getelementptr inbounds i8, ptr %15, i64 4
   store i32 %33, ptr %34, align 4
   %35 = load i8, ptr %9, align 1
-  %36 = and i8 %35, 1
-  %37 = getelementptr inbounds i8, ptr %11, i64 100
-  %38 = xor i8 %36, 1
-  store i8 %38, ptr %37, align 4
+  %36 = getelementptr inbounds i8, ptr %11, i64 100
+  %37 = and i8 %35, 1
+  %38 = xor i8 %37, 1
+  store i8 %38, ptr %36, align 4
   %39 = call ptr @palloc0(i64 noundef 64) #9
   %40 = getelementptr inbounds i8, ptr %11, i64 80
   store ptr %39, ptr %40, align 8
@@ -2280,18 +2211,18 @@ define dso_local ptr @tuplesort_begin_datum(i32 noundef %0, i32 noundef %1, i32 
   %45 = getelementptr inbounds i8, ptr %44, i64 13
   store i8 %10, ptr %45, align 1
   %46 = load i8, ptr %9, align 1
-  %47 = and i8 %46, 1
-  %48 = load ptr, ptr %40, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 32
-  %50 = xor i8 %47, 1
-  store i8 %50, ptr %49, align 8
+  %47 = load ptr, ptr %40, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 32
+  %49 = and i8 %46, 1
+  %50 = xor i8 %49, 1
+  store i8 %50, ptr %48, align 8
   %51 = load ptr, ptr %40, align 8
   call void @PrepareSortSupportFromOrderingOp(i32 noundef %1, ptr noundef %51) #9
   %52 = load ptr, ptr %40, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 40
   %54 = load ptr, ptr %53, align 8
-  %.not37 = icmp eq ptr %54, null
-  br i1 %.not37, label %55, label %57
+  %.not34 = icmp eq ptr %54, null
+  br i1 %.not34, label %55, label %57
 
 55:                                               ; preds = %24
   %56 = getelementptr inbounds i8, ptr %11, i64 88
@@ -2333,38 +2264,34 @@ define internal i32 @comparetup_datum(ptr nocapture noundef readonly %0, ptr noc
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not19 = icmp eq i8 %8, 0
+  %8 = trunc i8 %7 to i1
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not20 = icmp eq i8 %13, 0
+  %13 = trunc i8 %12 to i1
   %14 = getelementptr inbounds i8, ptr %2, i64 80
   %15 = load ptr, ptr %14, align 8
-  br i1 %.not19, label %21, label %16
+  br i1 %8, label %16, label %21
 
 16:                                               ; preds = %3
-  br i1 %.not20, label %17, label %ApplySortComparator.exit.thread16
+  br i1 %13, label %ApplySortComparator.exit.thread15, label %17
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds i8, ptr %15, i64 13
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 1
-  %.not13.i = icmp eq i8 %20, 0
-  %..i = select i1 %.not13.i, i32 1, i32 -1
+  %20 = trunc i8 %19 to i1
+  %..i = select i1 %20, i32 -1, i32 1
   br label %comparetup_datum_tiebreak.exit
 
 21:                                               ; preds = %3
-  br i1 %.not20, label %26, label %22
+  br i1 %13, label %22, label %26
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds i8, ptr %15, i64 13
   %24 = load i8, ptr %23, align 1
-  %25 = and i8 %24, 1
-  %.not12.i = icmp eq i8 %25, 0
-  %.14.i = select i1 %.not12.i, i32 -1, i32 1
+  %25 = trunc i8 %24 to i1
+  %.12.i = select i1 %25, i32 1, i32 -1
   br label %comparetup_datum_tiebreak.exit
 
 26:                                               ; preds = %21
@@ -2373,9 +2300,8 @@ define internal i32 @comparetup_datum(ptr nocapture noundef readonly %0, ptr noc
   %29 = tail call i32 %28(i64 noundef %5, i64 noundef %10, ptr noundef %15) #9
   %30 = getelementptr inbounds i8, ptr %15, i64 12
   %31 = load i8, ptr %30, align 4
-  %32 = and i8 %31, 1
-  %.not.i = icmp eq i8 %32, 0
-  br i1 %.not.i, label %ApplySortComparator.exit, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %ApplySortComparator.exit
 
 33:                                               ; preds = %26
   %34 = icmp slt i32 %29, 0
@@ -2385,52 +2311,48 @@ define internal i32 @comparetup_datum(ptr nocapture noundef readonly %0, ptr noc
 ApplySortComparator.exit:                         ; preds = %33, %26
   %.0.i = phi i32 [ %35, %33 ], [ %29, %26 ]
   %.not = icmp eq i32 %.0.i, 0
-  br i1 %.not, label %ApplySortComparator.exit.ApplySortComparator.exit.thread16_crit_edge, label %comparetup_datum_tiebreak.exit
+  br i1 %.not, label %ApplySortComparator.exit.ApplySortComparator.exit.thread15_crit_edge, label %comparetup_datum_tiebreak.exit
 
-ApplySortComparator.exit.ApplySortComparator.exit.thread16_crit_edge: ; preds = %ApplySortComparator.exit
+ApplySortComparator.exit.ApplySortComparator.exit.thread15_crit_edge: ; preds = %ApplySortComparator.exit
   %.pre = load ptr, ptr %14, align 8
-  br label %ApplySortComparator.exit.thread16
+  br label %ApplySortComparator.exit.thread15
 
-ApplySortComparator.exit.thread16:                ; preds = %ApplySortComparator.exit.ApplySortComparator.exit.thread16_crit_edge, %16
-  %36 = phi ptr [ %.pre, %ApplySortComparator.exit.ApplySortComparator.exit.thread16_crit_edge ], [ %15, %16 ]
+ApplySortComparator.exit.thread15:                ; preds = %ApplySortComparator.exit.ApplySortComparator.exit.thread15_crit_edge, %16
+  %36 = phi ptr [ %.pre, %ApplySortComparator.exit.ApplySortComparator.exit.thread15_crit_edge ], [ %15, %16 ]
   %37 = getelementptr inbounds i8, ptr %36, i64 40
   %38 = load ptr, ptr %37, align 8
-  %.not.i12 = icmp eq ptr %38, null
-  br i1 %.not.i12, label %comparetup_datum_tiebreak.exit, label %39
+  %.not.i = icmp eq ptr %38, null
+  br i1 %.not.i, label %comparetup_datum_tiebreak.exit, label %39
 
-39:                                               ; preds = %ApplySortComparator.exit.thread16
+39:                                               ; preds = %ApplySortComparator.exit.thread15
   %40 = load ptr, ptr %0, align 8
   %41 = ptrtoint ptr %40 to i64
   %42 = load i8, ptr %6, align 8
-  %43 = and i8 %42, 1
-  %.not7.i = icmp eq i8 %43, 0
+  %43 = trunc i8 %42 to i1
   %44 = load ptr, ptr %1, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = load i8, ptr %11, align 8
-  %47 = and i8 %46, 1
-  %.not8.i = icmp eq i8 %47, 0
-  br i1 %.not7.i, label %53, label %48
+  %47 = trunc i8 %46 to i1
+  br i1 %43, label %48, label %53
 
 48:                                               ; preds = %39
-  br i1 %.not8.i, label %49, label %comparetup_datum_tiebreak.exit
+  br i1 %47, label %comparetup_datum_tiebreak.exit, label %49
 
 49:                                               ; preds = %48
   %50 = getelementptr inbounds i8, ptr %36, i64 13
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not13.i.i = icmp eq i8 %52, 0
-  %..i.i = select i1 %.not13.i.i, i32 1, i32 -1
+  %52 = trunc i8 %51 to i1
+  %..i.i = select i1 %52, i32 -1, i32 1
   br label %comparetup_datum_tiebreak.exit
 
 53:                                               ; preds = %39
-  br i1 %.not8.i, label %58, label %54
+  br i1 %47, label %54, label %58
 
 54:                                               ; preds = %53
   %55 = getelementptr inbounds i8, ptr %36, i64 13
   %56 = load i8, ptr %55, align 1
-  %57 = and i8 %56, 1
-  %.not12.i.i = icmp eq i8 %57, 0
-  %.14.i.i = select i1 %.not12.i.i, i32 -1, i32 1
+  %57 = trunc i8 %56 to i1
+  %.12.i.i = select i1 %57, i32 1, i32 -1
   br label %comparetup_datum_tiebreak.exit
 
 58:                                               ; preds = %53
@@ -2439,9 +2361,8 @@ ApplySortComparator.exit.thread16:                ; preds = %ApplySortComparator
   %61 = tail call i32 %60(i64 noundef %41, i64 noundef %45, ptr noundef nonnull %36) #9
   %62 = getelementptr inbounds i8, ptr %36, i64 12
   %63 = load i8, ptr %62, align 4
-  %64 = and i8 %63, 1
-  %.not.i.i = icmp eq i8 %64, 0
-  br i1 %.not.i.i, label %comparetup_datum_tiebreak.exit, label %65
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %65, label %comparetup_datum_tiebreak.exit
 
 65:                                               ; preds = %58
   %66 = icmp slt i32 %61, 0
@@ -2449,8 +2370,8 @@ ApplySortComparator.exit.thread16:                ; preds = %ApplySortComparator
   %68 = select i1 %66, i32 1, i32 %67
   br label %comparetup_datum_tiebreak.exit
 
-comparetup_datum_tiebreak.exit:                   ; preds = %33, %22, %17, %65, %58, %54, %49, %48, %ApplySortComparator.exit.thread16, %ApplySortComparator.exit
-  %.0 = phi i32 [ %.0.i, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread16 ], [ %68, %65 ], [ %61, %58 ], [ 0, %48 ], [ %..i.i, %49 ], [ %.14.i.i, %54 ], [ %.14.i, %22 ], [ %..i, %17 ], [ 1, %33 ]
+comparetup_datum_tiebreak.exit:                   ; preds = %33, %22, %17, %65, %58, %54, %49, %48, %ApplySortComparator.exit.thread15, %ApplySortComparator.exit
+  %.0 = phi i32 [ %.0.i, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread15 ], [ %68, %65 ], [ %61, %58 ], [ 0, %48 ], [ %..i.i, %49 ], [ %.12.i.i, %54 ], [ %.12.i, %22 ], [ %..i, %17 ], [ 1, %33 ]
   ret i32 %.0
 }
 
@@ -2468,36 +2389,32 @@ define internal i32 @comparetup_datum_tiebreak(ptr nocapture noundef readonly %0
   %10 = ptrtoint ptr %9 to i64
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not7 = icmp eq i8 %13, 0
+  %13 = trunc i8 %12 to i1
   %14 = load ptr, ptr %1, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = getelementptr inbounds i8, ptr %1, i64 16
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not8 = icmp eq i8 %18, 0
-  br i1 %.not7, label %24, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %13, label %19, label %24
 
 19:                                               ; preds = %8
-  br i1 %.not8, label %20, label %ApplySortAbbrevFullComparator.exit
+  br i1 %18, label %ApplySortAbbrevFullComparator.exit, label %20
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds i8, ptr %5, i64 13
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not13.i = icmp eq i8 %23, 0
-  %..i = select i1 %.not13.i, i32 1, i32 -1
+  %23 = trunc i8 %22 to i1
+  %..i = select i1 %23, i32 -1, i32 1
   br label %ApplySortAbbrevFullComparator.exit
 
 24:                                               ; preds = %8
-  br i1 %.not8, label %29, label %25
+  br i1 %18, label %25, label %29
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds i8, ptr %5, i64 13
   %27 = load i8, ptr %26, align 1
-  %28 = and i8 %27, 1
-  %.not12.i = icmp eq i8 %28, 0
-  %.14.i = select i1 %.not12.i, i32 -1, i32 1
+  %28 = trunc i8 %27 to i1
+  %.12.i = select i1 %28, i32 1, i32 -1
   br label %ApplySortAbbrevFullComparator.exit
 
 29:                                               ; preds = %24
@@ -2506,9 +2423,8 @@ define internal i32 @comparetup_datum_tiebreak(ptr nocapture noundef readonly %0
   %32 = tail call i32 %31(i64 noundef %10, i64 noundef %15, ptr noundef nonnull %5) #9
   %33 = getelementptr inbounds i8, ptr %5, i64 12
   %34 = load i8, ptr %33, align 4
-  %35 = and i8 %34, 1
-  %.not.i = icmp eq i8 %35, 0
-  br i1 %.not.i, label %ApplySortAbbrevFullComparator.exit, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %ApplySortAbbrevFullComparator.exit
 
 36:                                               ; preds = %29
   %37 = icmp slt i32 %32, 0
@@ -2517,7 +2433,7 @@ define internal i32 @comparetup_datum_tiebreak(ptr nocapture noundef readonly %0
   br label %ApplySortAbbrevFullComparator.exit
 
 ApplySortAbbrevFullComparator.exit:               ; preds = %36, %29, %25, %20, %19, %3
-  %.0 = phi i32 [ 0, %3 ], [ %39, %36 ], [ %32, %29 ], [ 0, %19 ], [ %..i, %20 ], [ %.14.i, %25 ]
+  %.0 = phi i32 [ 0, %3 ], [ %39, %36 ], [ %32, %29 ], [ 0, %19 ], [ %..i, %20 ], [ %.12.i, %25 ]
   ret i32 %.0
 }
 
@@ -2528,16 +2444,14 @@ define internal void @writetup_datum(ptr nocapture noundef readonly %0, ptr noun
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 16
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %23
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %23, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %0, i64 100
   %12 = load i8, ptr %11, align 4
-  %13 = and i8 %12, 1
-  %.not15 = icmp eq i8 %13, 0
-  br i1 %.not15, label %14, label %16
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %16, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2563,8 +2477,8 @@ define internal void @writetup_datum(ptr nocapture noundef readonly %0, ptr noun
   %26 = getelementptr inbounds i8, ptr %0, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
-  %.not16 = icmp eq i32 %28, 0
-  br i1 %.not16, label %30, label %29
+  %.not = icmp eq i32 %28, 0
+  br i1 %.not, label %30, label %29
 
 29:                                               ; preds = %23
   call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #9
@@ -2585,16 +2499,15 @@ define internal void @readtup_datum(ptr noundef %0, ptr noundef %1, ptr noundef 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 100
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %12, label %19
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %19, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = zext i32 %6 to i64
   %15 = tail call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %13, i64 noundef %14) #9
-  %.not19 = icmp eq i64 %15, %14
-  br i1 %.not19, label %29, label %16
+  %.not = icmp eq i64 %15, %14
+  br i1 %.not, label %29, label %16
 
 16:                                               ; preds = %12
   %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -2607,8 +2520,8 @@ define internal void @readtup_datum(ptr noundef %0, ptr noundef %1, ptr noundef 
   %20 = zext i32 %6 to i64
   %21 = tail call ptr @tuplesort_readtup_alloc(ptr noundef nonnull %0, i64 noundef %20) #9
   %22 = tail call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef %21, i64 noundef %20) #9
-  %.not20 = icmp eq i64 %22, %20
-  br i1 %.not20, label %26, label %23
+  %.not19 = icmp eq i64 %22, %20
+  br i1 %.not19, label %26, label %23
 
 23:                                               ; preds = %19
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -2622,29 +2535,29 @@ define internal void @readtup_datum(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %26
-  %.sink25 = phi i64 [ %27, %26 ], [ 0, %4 ]
-  %.sink23.ph = phi i8 [ 0, %26 ], [ 1, %4 ]
+  %.sink24 = phi i64 [ %27, %26 ], [ 0, %4 ]
+  %.sink22.ph = phi i8 [ 0, %26 ], [ 1, %4 ]
   %.sink.ph = phi ptr [ %21, %26 ], [ null, %4 ]
   %28 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 %.sink25, ptr %28, align 8
+  store i64 %.sink24, ptr %28, align 8
   br label %29
 
 29:                                               ; preds = %.sink.split, %12
-  %.sink23 = phi i8 [ 0, %12 ], [ %.sink23.ph, %.sink.split ]
+  %.sink22 = phi i8 [ 0, %12 ], [ %.sink22.ph, %.sink.split ]
   %.sink = phi ptr [ null, %12 ], [ %.sink.ph, %.sink.split ]
   %30 = getelementptr inbounds i8, ptr %1, i64 16
-  store i8 %.sink23, ptr %30, align 8
+  store i8 %.sink22, ptr %30, align 8
   store ptr %.sink, ptr %1, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 96
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 1
-  %.not21 = icmp eq i32 %33, 0
-  br i1 %.not21, label %39, label %34
+  %.not20 = icmp eq i32 %33, 0
+  br i1 %.not20, label %39, label %34
 
 34:                                               ; preds = %29
   %35 = call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 4) #9
-  %.not22 = icmp eq i64 %35, 4
-  br i1 %.not22, label %39, label %36
+  %.not21 = icmp eq i64 %35, 4
+  br i1 %.not21, label %39, label %36
 
 36:                                               ; preds = %34
   %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -2695,10 +2608,10 @@ define dso_local void @tuplesort_puttupleslot(ptr noundef %0, ptr noundef %1) lo
   %29 = load ptr, ptr %28, align 8
   %30 = icmp ne ptr %29, null
   %31 = load i8, ptr %24, align 8
-  %32 = and i8 %31, 1
-  %.not = icmp eq i8 %32, 0
-  %33 = select i1 %30, i1 %.not, i1 false
-  call void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef nonnull %3, i1 noundef zeroext %33) #9
+  %32 = trunc i8 %31 to i1
+  %33 = xor i1 %32, true
+  %34 = select i1 %30, i1 %33, i1 false
+  call void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef nonnull %3, i1 noundef zeroext %34) #9
   store ptr %7, ptr @CurrentMemoryContext, align 8
   ret void
 }
@@ -2750,11 +2663,10 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %35 = getelementptr i8, ptr %33, i64 %34
   %36 = getelementptr inbounds i8, ptr %25, i64 86
   %37 = load i8, ptr %36, align 2
-  %38 = and i8 %37, 1
-  %.not20.i = icmp eq i8 %38, 0
+  %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %25, i64 72
   %40 = load i16, ptr %39, align 4
-  br i1 %.not20.i, label %57, label %41
+  br i1 %38, label %41, label %57
 
 41:                                               ; preds = %29
   switch i16 %40, label %53 [
@@ -2845,9 +2757,8 @@ define dso_local void @tuplesort_putheaptuple(ptr noundef %0, ptr noundef %1) lo
   store ptr %9, ptr %3, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 72
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %.thread, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %23
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %8, i64 8
@@ -2861,28 +2772,31 @@ define dso_local void @tuplesort_putheaptuple(ptr noundef %0, ptr noundef %1) lo
   %22 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %21, ptr %22, align 8
   %.pre = load i8, ptr %10, align 8
-  %.pre16 = and i8 %.pre, 1
-  %23 = icmp eq i8 %.pre16, 0
-  br i1 %23, label %.thread, label %24
+  br label %23
 
-24:                                               ; preds = %13
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+23:                                               ; preds = %13, %2
+  %24 = phi i8 [ %.pre, %13 ], [ %11, %2 ]
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %36
+
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds i8, ptr %0, i64 80
   %28 = load ptr, ptr %27, align 8
-  %.not14 = icmp eq ptr %28, null
-  br i1 %.not14, label %.thread, label %29
+  %29 = getelementptr inbounds i8, ptr %28, i64 40
+  %30 = load ptr, ptr %29, align 8
+  %.not = icmp eq ptr %30, null
+  br i1 %.not, label %36, label %31
 
-29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
-  %31 = load i8, ptr %30, align 8
-  %32 = and i8 %31, 1
-  %.not15 = icmp eq i8 %32, 0
-  br label %.thread
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds i8, ptr %3, i64 16
+  %33 = load i8, ptr %32, align 8
+  %34 = trunc i8 %33 to i1
+  %35 = xor i1 %34, true
+  br label %36
 
-.thread:                                          ; preds = %2, %29, %24, %13
-  %33 = phi i1 [ false, %24 ], [ false, %13 ], [ %.not15, %29 ], [ false, %2 ]
-  call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %3, i1 noundef zeroext %33) #9
+36:                                               ; preds = %31, %26, %23
+  %37 = phi i1 [ false, %26 ], [ false, %23 ], [ %35, %31 ]
+  call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %3, i1 noundef zeroext %37) #9
   store ptr %6, ptr @CurrentMemoryContext, align 8
   ret void
 }
@@ -2912,23 +2826,23 @@ define dso_local void @tuplesort_putindextuplevalues(ptr noundef %0, ptr nocaptu
   %21 = getelementptr inbounds i8, ptr %0, i64 80
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %29, label %23
+  br i1 %.not, label %30, label %23
 
 23:                                               ; preds = %5
   %24 = getelementptr inbounds i8, ptr %22, i64 40
   %25 = load ptr, ptr %24, align 8
   %.not13 = icmp eq ptr %25, null
-  br i1 %.not13, label %29, label %26
+  br i1 %.not13, label %30, label %26
 
 26:                                               ; preds = %23
   %27 = load i8, ptr %18, align 8
-  %28 = and i8 %27, 1
-  %.not14 = icmp eq i8 %28, 0
-  br label %29
+  %28 = trunc i8 %27 to i1
+  %29 = xor i1 %28, true
+  br label %30
 
-29:                                               ; preds = %26, %23, %5
-  %30 = phi i1 [ false, %23 ], [ false, %5 ], [ %.not14, %26 ]
-  call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 noundef zeroext %30) #9
+30:                                               ; preds = %26, %23, %5
+  %31 = phi i1 [ false, %23 ], [ false, %5 ], [ %29, %26 ]
+  call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 noundef zeroext %31) #9
   ret void
 }
 
@@ -2961,11 +2875,10 @@ define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr no
   %18 = getelementptr i8, ptr %16, i64 %17
   %19 = getelementptr inbounds i8, ptr %11, i64 86
   %20 = load i8, ptr %19, align 2
-  %21 = and i8 %20, 1
-  %.not22 = icmp eq i8 %21, 0
+  %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds i8, ptr %11, i64 72
   %23 = load i16, ptr %22, align 8
-  br i1 %.not22, label %40, label %24
+  br i1 %21, label %24, label %40
 
 24:                                               ; preds = %15
   switch i16 %23, label %36 [
@@ -3089,9 +3002,8 @@ define dso_local void @tuplesort_putdatum(ptr noundef %0, i64 noundef %1, i1 nou
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 100
   %13 = load i8, ptr %12, align 4
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %19
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %19, label %15
 
 15:                                               ; preds = %11, %3
   %16 = phi i64 [ %1, %11 ], [ 0, %3 ]
@@ -3117,18 +3029,17 @@ define dso_local void @tuplesort_putdatum(ptr noundef %0, i64 noundef %1, i1 nou
   store ptr %storemerge, ptr %4, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 100
   %28 = load i8, ptr %27, align 4
-  %29 = and i8 %28, 1
-  %.not14 = icmp eq i8 %29, 0
-  br i1 %.not14, label %36, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %36
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i8, ptr %0, i64 80
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 40
   %34 = load ptr, ptr %33, align 8
-  %.not15 = icmp ne ptr %34, null
+  %.not = icmp ne ptr %34, null
   %35 = xor i1 %2, true
-  %spec.select = and i1 %.not15, %35
+  %spec.select = and i1 %.not, %35
   br label %36
 
 36:                                               ; preds = %30, %26
@@ -3279,7 +3190,7 @@ define dso_local noundef zeroext i1 @tuplesort_getdatum(ptr noundef %0, i1 nound
   %12 = load ptr, ptr %11, align 8
   %13 = call zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %7) #9
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  br i1 %13, label %14, label %43
+  br i1 %13, label %14, label %45
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds i8, ptr %0, i64 80
@@ -3300,40 +3211,44 @@ define dso_local noundef zeroext i1 @tuplesort_getdatum(ptr noundef %0, i1 nound
 24:                                               ; preds = %21, %14
   %25 = getelementptr inbounds i8, ptr %7, i64 16
   %26 = load i8, ptr %25, align 8
-  %27 = and i8 %26, 1
-  %.not = icmp eq i8 %27, 0
-  br i1 %.not, label %28, label %32
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %32, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds i8, ptr %0, i64 100
   %30 = load i8, ptr %29, align 4
-  %31 = and i8 %30, 1
-  %.not20 = icmp eq i8 %31, 0
-  br i1 %.not20, label %32, label %35
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %36, label %32
 
 32:                                               ; preds = %28, %24
   %33 = getelementptr inbounds i8, ptr %7, i64 8
   %34 = load i64, ptr %33, align 8
-  br label %42
+  store i64 %34, ptr %3, align 8
+  %35 = and i8 %26, 1
+  br label %44
 
-35:                                               ; preds = %28
-  %36 = load ptr, ptr %7, align 8
-  %37 = ptrtoint ptr %36 to i64
-  br i1 %2, label %38, label %42
+36:                                               ; preds = %28
+  %37 = load ptr, ptr %7, align 8
+  %38 = ptrtoint ptr %37 to i64
+  br i1 %2, label %39, label %43
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %12, i64 4
-  %40 = load i32, ptr %39, align 4
-  %41 = call i64 @datumCopy(i64 noundef %37, i1 noundef zeroext false, i32 noundef %40) #9
-  br label %42
-
-42:                                               ; preds = %35, %38, %32
-  %storemerge22 = phi i64 [ %34, %32 ], [ %41, %38 ], [ %37, %35 ]
-  store i64 %storemerge22, ptr %3, align 8
-  store i8 %27, ptr %4, align 1
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds i8, ptr %12, i64 4
+  %41 = load i32, ptr %40, align 4
+  %42 = call i64 @datumCopy(i64 noundef %38, i1 noundef zeroext false, i32 noundef %41) #9
   br label %43
 
-43:                                               ; preds = %6, %42
+43:                                               ; preds = %36, %39
+  %storemerge = phi i64 [ %42, %39 ], [ %38, %36 ]
+  store i64 %storemerge, ptr %3, align 8
+  br label %44
+
+44:                                               ; preds = %43, %32
+  %storemerge20 = phi i8 [ 0, %43 ], [ %35, %32 ]
+  store i8 %storemerge20, ptr %4, align 1
+  br label %45
+
+45:                                               ; preds = %6, %44
   ret i1 %13
 }
 

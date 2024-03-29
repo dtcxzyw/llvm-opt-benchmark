@@ -2514,33 +2514,32 @@ define hidden void @zif_base64_decode(ptr noundef %0, ptr nocapture noundef writ
   %.0112171 = phi ptr [ %10, %15 ], [ null, %8 ], [ %28, %27 ]
   %.0113170 = phi i32 [ 1, %15 ], [ 0, %8 ], [ 2, %27 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0109173, i32 noundef %.0113170, ptr noundef null, i32 noundef %.0111172, ptr noundef %.0112171) #10
-  br label %42
+  br label %41
 
 .thread151:                                       ; preds = %..thread151_crit_edge, %.thread147, %17
   %30 = phi i8 [ %.pre175, %..thread151_crit_edge ], [ %storemerge, %.thread147 ], [ 0, %17 ]
-  %31 = and i8 %30, 1
-  %32 = icmp ne i8 %31, 0
-  %33 = call ptr @php_base64_decode_ex(ptr noundef nonnull %21, i64 noundef %20, i1 noundef zeroext %32) #10
-  %.not122 = icmp eq ptr %33, null
-  br i1 %.not122, label %40, label %34
+  %31 = trunc i8 %30 to i1
+  %32 = call ptr @php_base64_decode_ex(ptr noundef nonnull %21, i64 noundef %20, i1 noundef zeroext %31) #10
+  %.not122 = icmp eq ptr %32, null
+  br i1 %.not122, label %39, label %33
 
-34:                                               ; preds = %.thread151
-  store ptr %33, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %33, i64 4
-  %36 = load i32, ptr %35, align 4
-  %37 = and i32 %36, 64
-  %.not123 = icmp eq i32 %37, 0
-  %38 = select i1 %.not123, i32 262, i32 6
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %38, ptr %39, align 8
-  br label %42
+33:                                               ; preds = %.thread151
+  store ptr %32, ptr %1, align 8
+  %34 = getelementptr inbounds i8, ptr %32, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 64
+  %.not123 = icmp eq i32 %36, 0
+  %37 = select i1 %.not123, i32 262, i32 6
+  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %37, ptr %38, align 8
+  br label %41
 
-40:                                               ; preds = %.thread151
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %41, align 8
-  br label %42
+39:                                               ; preds = %.thread151
+  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %40, align 8
+  br label %41
 
-42:                                               ; preds = %40, %34, %.thread162
+41:                                               ; preds = %39, %33, %.thread162
   ret void
 }
 

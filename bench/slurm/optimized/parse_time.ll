@@ -299,7 +299,7 @@ switch.early.test:                                ; preds = %45
   ]
 
 116:                                              ; preds = %114, %114
-  %117 = add i32 %storemerge, -1
+  %117 = add nsw i32 %storemerge, -1
   %118 = add i32 %117, %115
   store i32 %118, ptr %8, align 4
   br label %122
@@ -791,133 +791,129 @@ define i32 @time_str2secs(ptr noundef %0) #0 {
 
 16:                                               ; preds = %14
   %17 = load i8, ptr %0, align 1
-  %.not52.i = icmp eq i8 %17, 0
-  br i1 %.not52.i, label %_is_valid_timespec.exit.thread, label %.lr.ph.i
+  %.not51.i = icmp eq i8 %17, 0
+  br i1 %.not51.i, label %_is_valid_timespec.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %16, %29
-  %18 = phi i8 [ %31, %29 ], [ %17, %16 ]
-  %.057.i = phi i8 [ %.1.i, %29 ], [ 0, %16 ]
-  %.03256.i = phi i32 [ %.133.i, %29 ], [ 0, %16 ]
-  %.03455.i = phi i32 [ %.135.i, %29 ], [ 0, %16 ]
-  %.03654.i = phi i32 [ %.137.i, %29 ], [ 0, %16 ]
-  %.03853.i = phi ptr [ %30, %29 ], [ %0, %16 ]
+.lr.ph.i:                                         ; preds = %16, %27
+  %18 = phi i8 [ %29, %27 ], [ %17, %16 ]
+  %.056.i = phi i32 [ %.1.i, %27 ], [ 0, %16 ]
+  %.03255.i = phi i32 [ %.133.i, %27 ], [ 0, %16 ]
+  %.03454.i = phi i32 [ %.135.i, %27 ], [ 0, %16 ]
+  %.03653.i = phi i32 [ %.137.i, %27 ], [ 0, %16 ]
+  %.03852.i = phi ptr [ %28, %27 ], [ %0, %16 ]
   %19 = add i8 %18, -48
-  %or.cond47.i = icmp ult i8 %19, 10
-  br i1 %or.cond47.i, label %20, label %24
+  %or.cond46.i = icmp ult i8 %19, 10
+  br i1 %or.cond46.i, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i
-  %21 = and i8 %.057.i, 1
-  %.not46.i = icmp eq i8 %21, 0
-  %22 = xor i8 %21, 1
-  %23 = zext nneg i8 %22 to i32
-  %spec.select.i = add nsw i32 %.03654.i, %23
-  %spec.select48.i = select i1 %.not46.i, i8 1, i8 %.057.i
-  br label %29
+  %21 = xor i32 %.056.i, 1
+  %spec.select.i = add nsw i32 %.03653.i, %21
+  br label %27
 
-24:                                               ; preds = %.lr.ph.i
+22:                                               ; preds = %.lr.ph.i
   switch i8 %18, label %_is_valid_timespec.exit.thread [
-    i8 45, label %25
-    i8 58, label %27
+    i8 45, label %23
+    i8 58, label %25
   ]
 
-25:                                               ; preds = %24
-  %26 = add nsw i32 %.03455.i, 1
-  %.not45.i = icmp eq i32 %.03256.i, 0
-  br i1 %.not45.i, label %29, label %_is_valid_timespec.exit.thread
+23:                                               ; preds = %22
+  %24 = add nsw i32 %.03454.i, 1
+  %.not45.i = icmp eq i32 %.03255.i, 0
+  br i1 %.not45.i, label %27, label %_is_valid_timespec.exit.thread
 
-27:                                               ; preds = %24
-  %28 = add nsw i32 %.03256.i, 1
-  br label %29
+25:                                               ; preds = %22
+  %26 = add nsw i32 %.03255.i, 1
+  br label %27
 
-29:                                               ; preds = %27, %25, %20
-  %.137.i = phi i32 [ %.03654.i, %25 ], [ %.03654.i, %27 ], [ %spec.select.i, %20 ]
-  %.135.i = phi i32 [ %26, %25 ], [ %.03455.i, %27 ], [ %.03455.i, %20 ]
-  %.133.i = phi i32 [ 0, %25 ], [ %28, %27 ], [ %.03256.i, %20 ]
-  %.1.i = phi i8 [ 0, %25 ], [ 0, %27 ], [ %spec.select48.i, %20 ]
-  %30 = getelementptr inbounds i8, ptr %.03853.i, i64 1
-  %31 = load i8, ptr %30, align 1
-  %.not.i = icmp eq i8 %31, 0
+27:                                               ; preds = %25, %23, %20
+  %.137.i = phi i32 [ %.03653.i, %23 ], [ %.03653.i, %25 ], [ %spec.select.i, %20 ]
+  %.135.i = phi i32 [ %24, %23 ], [ %.03454.i, %25 ], [ %.03454.i, %20 ]
+  %.133.i = phi i32 [ 0, %23 ], [ %26, %25 ], [ %.03255.i, %20 ]
+  %.1.i = phi i32 [ 0, %23 ], [ 0, %25 ], [ 1, %20 ]
+  %28 = getelementptr inbounds i8, ptr %.03852.i, i64 1
+  %29 = load i8, ptr %28, align 1
+  %.not.i = icmp eq i8 %29, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
-._crit_edge.i:                                    ; preds = %29
+._crit_edge.i:                                    ; preds = %27
   %.not43.i = icmp eq i32 %.137.i, 0
-  br i1 %.not43.i, label %_is_valid_timespec.exit.thread, label %32
+  br i1 %.not43.i, label %_is_valid_timespec.exit.thread, label %30
 
-32:                                               ; preds = %._crit_edge.i
-  %33 = icmp sgt i32 %.135.i, 1
-  %34 = icmp sgt i32 %.133.i, 2
-  %or.cond.i = select i1 %33, i1 true, i1 %34
-  br i1 %or.cond.i, label %_is_valid_timespec.exit.thread, label %35
+30:                                               ; preds = %._crit_edge.i
+  %31 = icmp sgt i32 %.135.i, 1
+  %32 = icmp sgt i32 %.133.i, 2
+  %or.cond.i = select i1 %31, i1 true, i1 %32
+  br i1 %or.cond.i, label %_is_valid_timespec.exit.thread, label %33
 
-35:                                               ; preds = %32
+33:                                               ; preds = %30
   %.not44.i = icmp eq i32 %.135.i, 0
-  %36 = icmp eq i32 %.133.i, 1
-  br i1 %.not44.i, label %42, label %37
+  %34 = icmp eq i32 %.133.i, 1
+  br i1 %.not44.i, label %40, label %35
+
+35:                                               ; preds = %33
+  %36 = icmp slt i32 %.137.i, 3
+  %or.cond3.i = and i1 %36, %34
+  br i1 %or.cond3.i, label %_is_valid_timespec.exit.thread, label %37
 
 37:                                               ; preds = %35
-  %38 = icmp slt i32 %.137.i, 3
-  %or.cond3.i = and i1 %38, %36
-  br i1 %or.cond3.i, label %_is_valid_timespec.exit.thread, label %39
-
-39:                                               ; preds = %37
-  %40 = icmp eq i32 %.133.i, 2
-  %41 = icmp slt i32 %.137.i, 4
-  %or.cond5.i = and i1 %41, %40
+  %38 = icmp eq i32 %.133.i, 2
+  %39 = icmp slt i32 %.137.i, 4
+  %or.cond5.i = and i1 %39, %38
   br i1 %or.cond5.i, label %_is_valid_timespec.exit.thread, label %_is_valid_timespec.exit
 
-42:                                               ; preds = %35
-  %43 = icmp slt i32 %.137.i, 2
-  %or.cond7.i = and i1 %43, %36
-  br i1 %or.cond7.i, label %_is_valid_timespec.exit.thread, label %44
+40:                                               ; preds = %33
+  %41 = icmp slt i32 %.137.i, 2
+  %or.cond7.i = and i1 %41, %34
+  br i1 %or.cond7.i, label %_is_valid_timespec.exit.thread, label %42
 
-44:                                               ; preds = %42
-  %45 = icmp eq i32 %.133.i, 2
-  %46 = icmp slt i32 %.137.i, 3
-  %or.cond9.i = and i1 %46, %45
+42:                                               ; preds = %40
+  %43 = icmp eq i32 %.133.i, 2
+  %44 = icmp slt i32 %.137.i, 3
+  %or.cond9.i = and i1 %44, %43
   br i1 %or.cond9.i, label %_is_valid_timespec.exit.thread, label %_is_valid_timespec.exit
 
-_is_valid_timespec.exit:                          ; preds = %44, %39
-  %47 = tail call ptr @xstrchr(ptr noundef nonnull %0, i32 noundef 45) #13
-  %.not12 = icmp eq ptr %47, null
-  br i1 %.not12, label %54, label %48
+_is_valid_timespec.exit:                          ; preds = %42, %37
+  %45 = tail call ptr @xstrchr(ptr noundef nonnull %0, i32 noundef 45) #13
+  %.not12 = icmp eq ptr %45, null
+  br i1 %.not12, label %52, label %46
 
-48:                                               ; preds = %_is_valid_timespec.exit
-  %49 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
-  %50 = load i32, ptr %2, align 4
-  %51 = mul nsw i32 %50, 86400
-  %52 = load i32, ptr %3, align 4
-  %53 = mul nsw i32 %52, 3600
-  br label %62
+46:                                               ; preds = %_is_valid_timespec.exit
+  %47 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
+  %48 = load i32, ptr %2, align 4
+  %49 = mul nsw i32 %48, 86400
+  %50 = load i32, ptr %3, align 4
+  %51 = mul nsw i32 %50, 3600
+  br label %60
 
-54:                                               ; preds = %_is_valid_timespec.exit
-  %55 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
-  %56 = icmp eq i32 %55, 3
-  br i1 %56, label %57, label %60
+52:                                               ; preds = %_is_valid_timespec.exit
+  %53 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
+  %54 = icmp eq i32 %53, 3
+  br i1 %54, label %55, label %58
 
-57:                                               ; preds = %54
-  %58 = load i32, ptr %3, align 4
-  %59 = mul nsw i32 %58, 3600
-  br label %62
+55:                                               ; preds = %52
+  %56 = load i32, ptr %3, align 4
+  %57 = mul nsw i32 %56, 3600
+  br label %60
 
-60:                                               ; preds = %54
-  %61 = load i32, ptr %4, align 4
-  store i32 %61, ptr %5, align 4
-  br label %62
+58:                                               ; preds = %52
+  %59 = load i32, ptr %4, align 4
+  store i32 %59, ptr %5, align 4
+  br label %60
 
-62:                                               ; preds = %57, %60, %48
-  %.sink.in = phi ptr [ %4, %57 ], [ %3, %60 ], [ %4, %48 ]
-  %63 = phi i32 [ %59, %57 ], [ 0, %60 ], [ %53, %48 ]
-  %64 = phi i32 [ 0, %57 ], [ 0, %60 ], [ %51, %48 ]
+60:                                               ; preds = %55, %58, %46
+  %.sink.in = phi ptr [ %4, %55 ], [ %3, %58 ], [ %4, %46 ]
+  %61 = phi i32 [ %57, %55 ], [ 0, %58 ], [ %51, %46 ]
+  %62 = phi i32 [ 0, %55 ], [ 0, %58 ], [ %49, %46 ]
   %.sink = load i32, ptr %.sink.in, align 4
-  %65 = mul nsw i32 %.sink, 60
-  %66 = add nsw i32 %63, %64
-  %67 = add nsw i32 %66, %65
-  %68 = load i32, ptr %5, align 4
-  %69 = add nsw i32 %67, %68
+  %63 = mul nsw i32 %.sink, 60
+  %64 = add nsw i32 %61, %62
+  %65 = add nsw i32 %64, %63
+  %66 = load i32, ptr %5, align 4
+  %67 = add nsw i32 %65, %66
   br label %_is_valid_timespec.exit.thread
 
-_is_valid_timespec.exit.thread:                   ; preds = %24, %25, %16, %44, %42, %39, %37, %32, %._crit_edge.i, %10, %12, %14, %1, %7, %62
-  %.0 = phi i32 [ %69, %62 ], [ -2, %7 ], [ -2, %1 ], [ -1, %14 ], [ -1, %12 ], [ -1, %10 ], [ -2, %._crit_edge.i ], [ -2, %32 ], [ -2, %37 ], [ -2, %39 ], [ -2, %42 ], [ -2, %44 ], [ -2, %16 ], [ -2, %25 ], [ -2, %24 ]
+_is_valid_timespec.exit.thread:                   ; preds = %22, %23, %16, %42, %40, %37, %35, %30, %._crit_edge.i, %10, %12, %14, %1, %7, %60
+  %.0 = phi i32 [ %67, %60 ], [ -2, %7 ], [ -2, %1 ], [ -1, %14 ], [ -1, %12 ], [ -1, %10 ], [ -2, %._crit_edge.i ], [ -2, %30 ], [ -2, %35 ], [ -2, %37 ], [ -2, %40 ], [ -2, %42 ], [ -2, %16 ], [ -2, %23 ], [ -2, %22 ]
   ret i32 %.0
 }
 

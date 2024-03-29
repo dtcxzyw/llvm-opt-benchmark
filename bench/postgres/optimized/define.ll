@@ -79,9 +79,8 @@ define dso_local ptr @defGetString(ptr nocapture noundef readonly %0) local_unna
 21:                                               ; preds = %11
   %22 = getelementptr inbounds i8, ptr %3, i64 4
   %23 = load i8, ptr %22, align 4
-  %24 = and i8 %23, 1
-  %.not = icmp eq i8 %24, 0
-  %25 = select i1 %.not, ptr @.str.4, ptr @.str.3
+  %24 = trunc i8 %23 to i1
+  %25 = select i1 %24, ptr @.str.3, ptr @.str.4
   br label %40
 
 26:                                               ; preds = %11

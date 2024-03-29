@@ -115,32 +115,32 @@ entry:
   %2 = load ptr, ptr %j, align 8
   store ptr %2, ptr %agg.tmp2, align 8
   %d_isConcrete = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load <2 x i8>, ptr %d_isConcrete, align 8
-  %4 = trunc <2 x i8> %3 to <2 x i1>
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %call = call noundef i32 @_ZN4cvc58internal6theory5arith2nl7NlModel7compareENS0_12NodeTemplateILb0EEES6_bb(ptr noundef nonnull align 8 dereferenceable(369) %0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext %5, i1 noundef zeroext %6)
+  %3 = load i8, ptr %d_isConcrete, align 8
+  %tobool = trunc i8 %3 to i1
+  %d_isAbsolute = getelementptr inbounds i8, ptr %this, i64 9
+  %4 = load i8, ptr %d_isAbsolute, align 1
+  %tobool3 = trunc i8 %4 to i1
+  %call = call noundef i32 @_ZN4cvc58internal6theory5arith2nl7NlModel7compareENS0_12NodeTemplateILb0EEES6_bb(ptr noundef nonnull align 8 dereferenceable(369) %0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool3)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %7 = load ptr, ptr %i, align 8
-  %bf.load.i = load i64, ptr %7, align 8
+  %5 = load ptr, ptr %i, align 8
+  %bf.load.i = load i64, ptr %5, align 8
   %bf.clear.i = and i64 %bf.load.i, 1099511627775
-  %8 = load ptr, ptr %j, align 8
-  %bf.load3.i = load i64, ptr %8, align 8
+  %6 = load ptr, ptr %j, align 8
+  %bf.load3.i = load i64, ptr %6, align 8
   %bf.clear4.i = and i64 %bf.load3.i, 1099511627775
   %cmp.i = icmp ult i64 %bf.clear.i, %bf.clear4.i
   br label %return
 
 if.end:                                           ; preds = %entry
   %d_reverse_order = getelementptr inbounds i8, ptr %this, i64 10
-  %9 = load i8, ptr %d_reverse_order, align 2
-  %10 = and i8 %9, 1
-  %tobool7.not = icmp eq i8 %10, 0
+  %7 = load i8, ptr %d_reverse_order, align 2
+  %tobool7 = trunc i8 %7 to i1
   %cmp8 = icmp sgt i32 %call, 0
   %cmp9 = icmp slt i32 %call, 0
-  %cond = select i1 %tobool7.not, i1 %cmp9, i1 %cmp8
+  %cond = select i1 %tobool7, i1 %cmp8, i1 %cmp9
   br label %return
 
 return:                                           ; preds = %if.end, %if.then

@@ -88,9 +88,8 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %15, i64 4
   %21 = load i8, ptr %20, align 4
-  %22 = and i8 %21, 1
-  %.not58 = icmp eq i8 %22, 0
-  br i1 %.not58, label %23, label %114
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %114, label %23
 
 23:                                               ; preds = %19, %16, %14
   %24 = load ptr, ptr @TSParserCacheHash, align 8
@@ -101,16 +100,15 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %25, i64 4
   %29 = load i8, ptr %28, align 4
-  %30 = and i8 %29, 1
-  %.not59 = icmp eq i8 %30, 0
-  br i1 %.not59, label %31, label %113
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %113, label %31
 
 31:                                               ; preds = %27, %23
   %32 = load i32, ptr %2, align 4
   %33 = zext i32 %32 to i64
   %34 = call ptr @SearchSysCache1(i32 noundef 76, i64 noundef %33) #9
-  %.not60 = icmp eq ptr %34, null
-  br i1 %.not60, label %35, label %39
+  %.not58 = icmp eq ptr %34, null
+  br i1 %.not58, label %35, label %39
 
 35:                                               ; preds = %31
   %36 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -129,8 +127,8 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
   %45 = getelementptr i8, ptr %41, i64 %44
   %46 = getelementptr inbounds i8, ptr %45, i64 72
   %47 = load i32, ptr %46, align 4
-  %.not61 = icmp eq i32 %47, 0
-  br i1 %.not61, label %48, label %52
+  %.not59 = icmp eq i32 %47, 0
+  br i1 %.not59, label %48, label %52
 
 48:                                               ; preds = %39
   %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -143,8 +141,8 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
 52:                                               ; preds = %39
   %53 = getelementptr inbounds i8, ptr %45, i64 76
   %54 = load i32, ptr %53, align 4
-  %.not62 = icmp eq i32 %54, 0
-  br i1 %.not62, label %55, label %59
+  %.not60 = icmp eq i32 %54, 0
+  br i1 %.not60, label %55, label %59
 
 55:                                               ; preds = %52
   %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -157,8 +155,8 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
 59:                                               ; preds = %52
   %60 = getelementptr inbounds i8, ptr %45, i64 80
   %61 = load i32, ptr %60, align 4
-  %.not63 = icmp eq i32 %61, 0
-  br i1 %.not63, label %62, label %66
+  %.not61 = icmp eq i32 %61, 0
+  br i1 %.not61, label %62, label %66
 
 62:                                               ; preds = %59
   %63 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -238,8 +236,8 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
   %106 = load ptr, ptr @CacheMemoryContext, align 8
   call void @fmgr_info_cxt(i32 noundef %104, ptr noundef nonnull %105, ptr noundef %106) #9
   %107 = load i32, ptr %94, align 4
-  %.not64 = icmp eq i32 %107, 0
-  br i1 %.not64, label %111, label %108
+  %.not62 = icmp eq i32 %107, 0
+  br i1 %.not62, label %111, label %108
 
 108:                                              ; preds = %.loopexit
   %109 = getelementptr inbounds i8, ptr %.051, i64 176
@@ -362,9 +360,8 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %18, i64 4
   %24 = load i8, ptr %23, align 4
-  %25 = and i8 %24, 1
-  %.not72 = icmp eq i8 %25, 0
-  br i1 %.not72, label %26, label %126
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %126, label %26
 
 26:                                               ; preds = %22, %19, %17
   %27 = load ptr, ptr @TSDictionaryCacheHash, align 8
@@ -375,16 +372,15 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i8, ptr %28, i64 4
   %32 = load i8, ptr %31, align 4
-  %33 = and i8 %32, 1
-  %.not73 = icmp eq i8 %33, 0
-  br i1 %.not73, label %34, label %125
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %125, label %34
 
 34:                                               ; preds = %30, %26
   %35 = load i32, ptr %2, align 4
   %36 = zext i32 %35 to i64
   %37 = call ptr @SearchSysCache1(i32 noundef 74, i64 noundef %36) #9
-  %.not74 = icmp eq ptr %37, null
-  br i1 %.not74, label %38, label %42
+  %.not72 = icmp eq ptr %37, null
+  br i1 %.not72, label %38, label %42
 
 38:                                               ; preds = %34
   %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -403,8 +399,8 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   %48 = getelementptr i8, ptr %44, i64 %47
   %49 = getelementptr inbounds i8, ptr %48, i64 76
   %50 = load i32, ptr %49, align 4
-  %.not75 = icmp eq i32 %50, 0
-  br i1 %.not75, label %51, label %55
+  %.not73 = icmp eq i32 %50, 0
+  br i1 %.not73, label %51, label %55
 
 51:                                               ; preds = %42
   %52 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -417,8 +413,8 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
 55:                                               ; preds = %42
   %56 = zext i32 %50 to i64
   %57 = call ptr @SearchSysCache1(i32 noundef 78, i64 noundef %56) #9
-  %.not76 = icmp eq ptr %57, null
-  br i1 %.not76, label %58, label %62
+  %.not74 = icmp eq ptr %57, null
+  br i1 %.not74, label %58, label %62
 
 58:                                               ; preds = %55
   %59 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -437,8 +433,8 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   %68 = getelementptr i8, ptr %64, i64 %67
   %69 = getelementptr inbounds i8, ptr %68, i64 76
   %70 = load i32, ptr %69, align 4
-  %.not77 = icmp eq i32 %70, 0
-  br i1 %.not77, label %71, label %75
+  %.not75 = icmp eq i32 %70, 0
+  br i1 %.not75, label %71, label %75
 
 71:                                               ; preds = %62
   %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -467,10 +463,10 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   br label %85
 
 85:                                               ; preds = %77, %82
-  %.sink82 = phi ptr [ %81, %77 ], [ %84, %82 ]
+  %.sink79 = phi ptr [ %81, %77 ], [ %84, %82 ]
   %.061 = phi ptr [ %79, %77 ], [ %28, %82 ]
-  %86 = call ptr @MemoryContextStrdup(ptr noundef %.sink82, ptr noundef nonnull %76) #9
-  call void @MemoryContextSetIdentifier(ptr noundef %.sink82, ptr noundef %86) #9
+  %86 = call ptr @MemoryContextStrdup(ptr noundef %.sink79, ptr noundef nonnull %76) #9
+  call void @MemoryContextSetIdentifier(ptr noundef %.sink79, ptr noundef %86) #9
   %87 = ptrtoint ptr %.061 to i64
   %88 = and i64 %87, 7
   %89 = icmp eq i64 %88, 0
@@ -501,23 +497,22 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   %101 = load i32, ptr %2, align 4
   store i32 %101, ptr %.061, align 8
   %102 = getelementptr inbounds i8, ptr %.061, i64 64
-  store ptr %.sink82, ptr %102, align 8
+  store ptr %.sink79, ptr %102, align 8
   %103 = load i32, ptr %69, align 4
   %104 = getelementptr inbounds i8, ptr %.061, i64 8
   store i32 %103, ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %68, i64 72
   %106 = load i32, ptr %105, align 4
-  %.not78 = icmp eq i32 %106, 0
-  br i1 %.not78, label %120, label %107
+  %.not76 = icmp eq i32 %106, 0
+  br i1 %.not76, label %120, label %107
 
 107:                                              ; preds = %.loopexit
   %108 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %.sink82, ptr @CurrentMemoryContext, align 8
+  store ptr %.sink79, ptr @CurrentMemoryContext, align 8
   %109 = call i64 @SysCacheGetAttr(i32 noundef 74, ptr noundef nonnull %37, i16 noundef signext 6, ptr noundef nonnull %5) #9
   %110 = load i8, ptr %5, align 1
-  %111 = and i8 %110, 1
-  %.not79 = icmp eq i8 %111, 0
-  br i1 %.not79, label %112, label %115
+  %111 = trunc i8 %110 to i1
+  br i1 %111, label %115, label %112
 
 112:                                              ; preds = %107
   %113 = call ptr @deserialize_deflist(i64 noundef %109) #9
@@ -621,9 +616,8 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %20, i64 4
   %27 = load i8, ptr %26, align 4
-  %28 = and i8 %27, 1
-  %.not115 = icmp eq i8 %28, 0
-  br i1 %.not115, label %29, label %170
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %170, label %29
 
 29:                                               ; preds = %25, %21, %19
   %30 = load ptr, ptr @TSConfigCacheHash, align 8
@@ -634,16 +628,15 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
 33:                                               ; preds = %29
   %34 = getelementptr inbounds i8, ptr %31, i64 4
   %35 = load i8, ptr %34, align 4
-  %36 = and i8 %35, 1
-  %.not116 = icmp eq i8 %36, 0
-  br i1 %.not116, label %37, label %169
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %169, label %37
 
 37:                                               ; preds = %33, %29
   %38 = load i32, ptr %3, align 4
   %39 = zext i32 %38 to i64
   %40 = call ptr @SearchSysCache1(i32 noundef 72, i64 noundef %39) #9
-  %.not117 = icmp eq ptr %40, null
-  br i1 %.not117, label %41, label %45
+  %.not115 = icmp eq ptr %40, null
+  br i1 %.not115, label %41, label %45
 
 41:                                               ; preds = %37
   %42 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -662,8 +655,8 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %51 = getelementptr i8, ptr %47, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 76
   %53 = load i32, ptr %52, align 4
-  %.not118 = icmp eq i32 %53, 0
-  br i1 %.not118, label %54, label %58
+  %.not116 = icmp eq i32 %53, 0
+  br i1 %.not116, label %54, label %58
 
 54:                                               ; preds = %45
   %55 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -684,8 +677,8 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
 62:                                               ; preds = %58
   %63 = getelementptr inbounds i8, ptr %31, i64 16
   %64 = load ptr, ptr %63, align 8
-  %.not119 = icmp eq ptr %64, null
-  br i1 %.not119, label %78, label %.preheader
+  %.not117 = icmp eq ptr %64, null
+  br i1 %.not117, label %78, label %.preheader
 
 .preheader:                                       ; preds = %62
   %65 = getelementptr inbounds i8, ptr %31, i64 12
@@ -699,8 +692,8 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %69 = load ptr, ptr %63, align 8
   %70 = getelementptr %struct.ListDictionary, ptr %69, i64 %indvars.iv, i32 1
   %71 = load ptr, ptr %70, align 8
-  %.not120 = icmp eq ptr %71, null
-  br i1 %.not120, label %73, label %72
+  %.not118 = icmp eq ptr %71, null
+  br i1 %.not118, label %73, label %72
 
 72:                                               ; preds = %.lr.ph
   call void @pfree(ptr noundef nonnull %71) #9
@@ -715,11 +708,11 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   br i1 %76, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %73
-  %.pre145 = load ptr, ptr %63, align 8
+  %.pre143 = load ptr, ptr %63, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %77 = phi ptr [ %.pre145, %._crit_edge.loopexit ], [ %64, %.preheader ]
+  %77 = phi ptr [ %.pre143, %._crit_edge.loopexit ], [ %64, %.preheader ]
   call void @pfree(ptr noundef %77) #9
   br label %78
 
@@ -733,9 +726,9 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
 82:                                               ; preds = %78
   %83 = getelementptr i8, ptr %.0100, i64 24
   %84 = icmp ult ptr %.0100, %83
-  br i1 %84, label %.lr.ph133.preheader, label %.loopexit
+  br i1 %84, label %.lr.ph131.preheader, label %.loopexit
 
-.lr.ph133.preheader:                              ; preds = %82
+.lr.ph131.preheader:                              ; preds = %82
   %85 = add i64 %79, 24
   %86 = add i64 %79, 8
   %umax = call i64 @llvm.umax.i64(i64 %85, i64 %86)
@@ -751,7 +744,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %92, i8 0, i64 20, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph133.preheader, %82, %91
+.loopexit:                                        ; preds = %.lr.ph131.preheader, %82, %91
   %93 = load i32, ptr %3, align 4
   store i32 %93, ptr %.0100, align 8
   %94 = load i32, ptr %52, align 4
@@ -766,13 +759,13 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %99 = call ptr @index_open(i32 noundef 3609, i32 noundef 1) #9
   %100 = call ptr @systable_beginscan_ordered(ptr noundef %98, ptr noundef %99, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4) #9
   %101 = call ptr @systable_getnext_ordered(ptr noundef %100, i32 noundef 1) #9
-  %.not121134 = icmp eq ptr %101, null
-  br i1 %.not121134, label %._crit_edge139, label %.lr.ph138
+  %.not119132 = icmp eq ptr %101, null
+  br i1 %.not119132, label %._crit_edge137, label %.lr.ph136
 
-.lr.ph138:                                        ; preds = %.loopexit, %146
+.lr.ph136:                                        ; preds = %.loopexit, %146
   %102 = phi ptr [ %147, %146 ], [ %101, %.loopexit ]
-  %.0101136 = phi i32 [ %.1102, %146 ], [ 0, %.loopexit ]
-  %.0104135 = phi i32 [ %.1105, %146 ], [ 0, %.loopexit ]
+  %.0101134 = phi i32 [ %.1102, %146 ], [ 0, %.loopexit ]
+  %.0104133 = phi i32 [ %.1105, %146 ], [ 0, %.loopexit ]
   %103 = getelementptr inbounds i8, ptr %102, i64 16
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 22
@@ -785,15 +778,15 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %or.cond9 = icmp ult i32 %111, -256
   br i1 %or.cond9, label %112, label %115
 
-112:                                              ; preds = %.lr.ph138
+112:                                              ; preds = %.lr.ph136
   %113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %113)
   %114 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %110) #9
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 491, ptr noundef nonnull @__func__.lookup_ts_config_cache) #9
   unreachable
 
-115:                                              ; preds = %.lr.ph138
-  %116 = icmp slt i32 %110, %.0101136
+115:                                              ; preds = %.lr.ph136
+  %116 = icmp slt i32 %110, %.0101134
   br i1 %116, label %117, label %120
 
 117:                                              ; preds = %115
@@ -804,19 +797,19 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   unreachable
 
 120:                                              ; preds = %115
-  %121 = icmp sgt i32 %110, %.0101136
+  %121 = icmp sgt i32 %110, %.0101134
   br i1 %121, label %122, label %135
 
 122:                                              ; preds = %120
-  %123 = icmp sgt i32 %.0104135, 0
+  %123 = icmp sgt i32 %.0104133, 0
   br i1 %123, label %124, label %132
 
 124:                                              ; preds = %122
-  %125 = zext nneg i32 %.0101136 to i64
+  %125 = zext nneg i32 %.0101134 to i64
   %126 = getelementptr [257 x %struct.ListDictionary], ptr %5, i64 0, i64 %125
-  store i32 %.0104135, ptr %126, align 16
+  store i32 %.0104133, ptr %126, align 16
   %127 = load ptr, ptr @CacheMemoryContext, align 8
-  %128 = zext nneg i32 %.0104135 to i64
+  %128 = zext nneg i32 %.0104133 to i64
   %129 = shl nuw nsw i64 %128, 2
   %130 = call ptr @MemoryContextAlloc(ptr noundef %127, i64 noundef %129) #9
   %131 = getelementptr inbounds i8, ptr %126, i64 8
@@ -831,7 +824,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   br label %146
 
 135:                                              ; preds = %120
-  %136 = icmp sgt i32 %.0104135, 99
+  %136 = icmp sgt i32 %.0104133, 99
   br i1 %136, label %137, label %140
 
 137:                                              ; preds = %135
@@ -844,20 +837,20 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
 140:                                              ; preds = %135
   %141 = getelementptr inbounds i8, ptr %108, i64 12
   %142 = load i32, ptr %141, align 4
-  %143 = add nsw i32 %.0104135, 1
-  %144 = sext i32 %.0104135 to i64
+  %143 = add nsw i32 %.0104133, 1
+  %144 = sext i32 %.0104133 to i64
   %145 = getelementptr [100 x i32], ptr %6, i64 0, i64 %144
   store i32 %142, ptr %145, align 4
   br label %146
 
 146:                                              ; preds = %140, %132
   %.1105 = phi i32 [ 1, %132 ], [ %143, %140 ]
-  %.1102 = phi i32 [ %110, %132 ], [ %.0101136, %140 ]
+  %.1102 = phi i32 [ %110, %132 ], [ %.0101134, %140 ]
   %147 = call ptr @systable_getnext_ordered(ptr noundef %100, i32 noundef 1) #9
-  %.not121 = icmp eq ptr %147, null
-  br i1 %.not121, label %._crit_edge139, label %.lr.ph138, !llvm.loop !8
+  %.not119 = icmp eq ptr %147, null
+  br i1 %.not119, label %._crit_edge137, label %.lr.ph136, !llvm.loop !8
 
-._crit_edge139:                                   ; preds = %146, %.loopexit
+._crit_edge137:                                   ; preds = %146, %.loopexit
   %.0104.lcssa = phi i32 [ 0, %.loopexit ], [ %.1105, %146 ]
   %.0101.lcssa = phi i32 [ 0, %.loopexit ], [ %.1102, %146 ]
   call void @systable_endscan_ordered(ptr noundef %100) #9
@@ -866,7 +859,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %148 = icmp sgt i32 %.0104.lcssa, 0
   br i1 %148, label %149, label %167
 
-149:                                              ; preds = %._crit_edge139
+149:                                              ; preds = %._crit_edge137
   %150 = zext nneg i32 %.0101.lcssa to i64
   %151 = getelementptr [257 x %struct.ListDictionary], ptr %5, i64 0, i64 %150
   store i32 %.0104.lcssa, ptr %151, align 16
@@ -892,7 +885,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %162, ptr nonnull align 16 %5, i64 %166, i1 false)
   br label %167
 
-167:                                              ; preds = %149, %._crit_edge139
+167:                                              ; preds = %149, %._crit_edge137
   %168 = getelementptr inbounds i8, ptr %.0100, i64 4
   store i8 1, ptr %168, align 4
   br label %169

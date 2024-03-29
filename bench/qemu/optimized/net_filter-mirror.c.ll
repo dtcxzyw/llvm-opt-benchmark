@@ -137,8 +137,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 28, ptr noundef nonnull @__func__.FILTER_MIRROR) #8
   %vnet_hdr = getelementptr inbounds i8, ptr %call.i, i64 69888
   %0 = load i8, ptr %vnet_hdr, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -248,24 +247,22 @@ if.end:                                           ; preds = %entry
   %call6 = call ptr @qemu_coroutine_create(ptr noundef nonnull @filter_send_co, ptr noundef nonnull %data) #8
   call void @qemu_coroutine_enter(ptr noundef %call6) #8
   %0 = load i8, ptr %done, align 8
-  %1 = and i8 %0, 1
-  %tobool8.not7 = icmp eq i8 %1, 0
-  br i1 %tobool8.not7, label %while.body, label %while.end
+  %tobool87 = trunc i8 %0 to i1
+  br i1 %tobool87, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end, %while.body
   %call9 = call ptr @qemu_get_aio_context() #8
   %call10 = call zeroext i1 @aio_poll(ptr noundef %call9, i1 noundef zeroext true) #8
-  %2 = load i8, ptr %done, align 8
-  %3 = and i8 %2, 1
-  %tobool8.not = icmp eq i8 %3, 0
-  br i1 %tobool8.not, label %while.body, label %while.end, !llvm.loop !5
+  %1 = load i8, ptr %done, align 8
+  %tobool8 = trunc i8 %1 to i1
+  br i1 %tobool8, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %while.body, %if.end
-  %4 = load i32, ptr %ret, align 4
+  %2 = load i32, ptr %ret, align 4
   br label %return
 
 return:                                           ; preds = %entry, %while.end
-  %retval.0 = phi i32 [ %4, %while.end ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %2, %while.end ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -303,16 +300,15 @@ entry:
 if.end.i:                                         ; preds = %entry
   %vnet_hdr.i = getelementptr inbounds i8, ptr %0, i64 69888
   %3 = load i8, ptr %vnet_hdr.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i, label %if.end17.i, label %if.then5.i
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then5.i, label %if.end17.i
 
 if.then5.i:                                       ; preds = %if.end.i
   %netdev.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
-  %5 = load ptr, ptr %netdev.i, align 8
-  %vnet_hdr_len6.i = getelementptr inbounds i8, ptr %5, i64 348
-  %6 = load i32, ptr %vnet_hdr_len6.i, align 4
-  %call9.i = call i32 @htonl(i32 noundef %6) #10
+  %4 = load ptr, ptr %netdev.i, align 8
+  %vnet_hdr_len6.i = getelementptr inbounds i8, ptr %4, i64 348
+  %5 = load i32, ptr %vnet_hdr_len6.i, align 4
+  %call9.i = call i32 @htonl(i32 noundef %5) #10
   store i32 %call9.i, ptr %len.i, align 4
   %call11.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %chr_out.i, ptr noundef nonnull %len.i, i32 noundef 4) #8
   %cmp13.not.i = icmp eq i32 %call11.i, 4
@@ -337,8 +333,8 @@ _filter_send.exit:                                ; preds = %if.end17.i, %err.i
   store i32 %retval.0.i, ptr %ret, align 4
   %done = getelementptr inbounds i8, ptr %opaque, i64 24
   store i8 1, ptr %done, align 8
-  %7 = load ptr, ptr %buf, align 8
-  call void @g_free(ptr noundef %7) #8
+  %6 = load ptr, ptr %buf, align 8
+  call void @g_free(ptr noundef %6) #8
   call void @aio_wait_kick() #8
   ret void
 }
@@ -446,8 +442,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 32, ptr noundef nonnull @__func__.FILTER_REDIRECTOR) #8
   %vnet_hdr = getelementptr inbounds i8, ptr %call.i, i64 69888
   %0 = load i8, ptr %vnet_hdr, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -496,21 +491,20 @@ if.end14:                                         ; preds = %land.lhs.true, %lan
   %rs = getelementptr inbounds i8, ptr %call.i, i64 224
   %vnet_hdr = getelementptr inbounds i8, ptr %call.i, i64 69888
   %2 = load i8, ptr %vnet_hdr, align 8
-  %3 = and i8 %2, 1
-  %tobool15 = icmp ne i8 %3, 0
+  %tobool15 = trunc i8 %2 to i1
   tail call void @net_socket_rs_init(ptr noundef nonnull %rs, ptr noundef nonnull @redirector_rs_finalize, i1 noundef zeroext %tobool15) #8
-  %4 = load ptr, ptr %indev, align 8
-  %tobool17.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %indev, align 8
+  %tobool17.not = icmp eq ptr %3, null
   br i1 %tobool17.not, label %if.end28, label %if.then18
 
 if.then18:                                        ; preds = %if.end14
-  %call20 = tail call ptr @qemu_chr_find(ptr noundef nonnull %4) #8
+  %call20 = tail call ptr @qemu_chr_find(ptr noundef nonnull %3) #8
   %cmp = icmp eq ptr %call20, null
   br i1 %cmp, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %if.then18
-  %5 = load ptr, ptr %indev, align 8
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 301, ptr noundef nonnull @__func__.filter_redirector_setup, i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef %5) #8
+  %4 = load ptr, ptr %indev, align 8
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 301, ptr noundef nonnull @__func__.filter_redirector_setup, i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef %4) #8
   br label %if.end41
 
 if.end23:                                         ; preds = %if.then18
@@ -524,18 +518,18 @@ if.end26:                                         ; preds = %if.end23
 
 if.end28:                                         ; preds = %if.end26, %if.end14
   %outdev29 = getelementptr inbounds i8, ptr %call.i, i64 104
-  %6 = load ptr, ptr %outdev29, align 8
-  %tobool30.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr %outdev29, align 8
+  %tobool30.not = icmp eq ptr %5, null
   br i1 %tobool30.not, label %if.end41, label %if.then31
 
 if.then31:                                        ; preds = %if.end28
-  %call33 = tail call ptr @qemu_chr_find(ptr noundef nonnull %6) #8
+  %call33 = tail call ptr @qemu_chr_find(ptr noundef nonnull %5) #8
   %cmp34 = icmp eq ptr %call33, null
   br i1 %cmp34, label %if.then35, label %if.end37
 
 if.then35:                                        ; preds = %if.then31
-  %7 = load ptr, ptr %outdev29, align 8
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 318, ptr noundef nonnull @__func__.filter_redirector_setup, i32 noundef 3, ptr noundef nonnull @.str.15, ptr noundef %7) #8
+  %6 = load ptr, ptr %outdev29, align 8
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 318, ptr noundef nonnull @__func__.filter_redirector_setup, i32 noundef 3, ptr noundef nonnull @.str.15, ptr noundef %6) #8
   br label %if.end41
 
 if.end37:                                         ; preds = %if.then31

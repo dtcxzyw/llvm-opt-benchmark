@@ -107,31 +107,31 @@ entry:
   store i64 0, ptr %_M_size.i.i.i.i.i, align 8
   %reduce_sequencer_buffer_memory_life_time_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr @FLAGS_quic_reduce_sequencer_buffer_memory_life_time, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  store i8 %2, ptr %reduce_sequencer_buffer_memory_life_time_, align 8
+  %tobool = trunc i8 %1 to i1
+  %frombool = and i8 %1, 1
+  store i8 %frombool, ptr %reduce_sequencer_buffer_memory_life_time_, align 8
   %blocks_ = getelementptr inbounds i8, ptr %this, i64 56
-  br i1 %tobool.not, label %cond.false, label %cond.end
+  br i1 %tobool, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  %3 = icmp ugt i64 %conv2, 2305843009213693951
-  %4 = shl i64 %conv2, 3
-  %5 = select i1 %3, i64 -1, i64 %4
-  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %5) #18
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call, i8 0, i64 %5, i1 false)
+  %2 = icmp ugt i64 %conv2, 2305843009213693951
+  %3 = shl i64 %conv2, 3
+  %4 = select i1 %2, i64 -1, i64 %3
+  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #18
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call, i8 0, i64 %4, i1 false)
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi ptr [ %call, %cond.false ], [ null, %entry ]
   store ptr %cond, ptr %blocks_, align 8
-  %6 = getelementptr inbounds i8, ptr %this, i64 80
-  store i32 0, ptr %6, align 8
+  %5 = getelementptr inbounds i8, ptr %this, i64 80
+  store i32 0, ptr %5, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %6, ptr %_M_left.i.i.i.i.i, align 8
+  store ptr %5, ptr %_M_left.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  store ptr %6, ptr %_M_right.i.i.i.i.i, align 8
+  store ptr %5, ptr %_M_right.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   invoke void @_ZN3net25QuicStreamSequencerBuffer5ClearEv(ptr noundef nonnull align 8 dereferenceable(120) %this)
@@ -141,16 +141,16 @@ invoke.cont8:                                     ; preds = %cond.end
   ret void
 
 lpad7:                                            ; preds = %cond.end
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   %frame_arrival_time_map_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %frame_arrival_time_map_) #19
-  %8 = load ptr, ptr %blocks_, align 8
-  %cmp.not.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %blocks_, align 8
+  %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %ehcleanup, label %_ZNKSt14default_deleteIA_PN3net25QuicStreamSequencerBuffer11BufferBlockEEclIS3_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS4_EE5valueEvE4typeEPS8_.exit.i
 
 _ZNKSt14default_deleteIA_PN3net25QuicStreamSequencerBuffer11BufferBlockEEclIS3_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS4_EE5valueEvE4typeEPS8_.exit.i: ; preds = %lpad7
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %7) #20
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %_ZNKSt14default_deleteIA_PN3net25QuicStreamSequencerBuffer11BufferBlockEEclIS3_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS4_EE5valueEvE4typeEPS8_.exit.i, %lpad7
@@ -160,14 +160,14 @@ ehcleanup:                                        ; preds = %_ZNKSt14default_del
   br i1 %cmp.not4.i.i.i, label %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EED2Ev.exit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %ehcleanup, %while.body.i.i.i
-  %__cur.05.i.i.i = phi ptr [ %9, %while.body.i.i.i ], [ %.pre, %ehcleanup ]
-  %9 = load ptr, ptr %__cur.05.i.i.i, align 8
+  %__cur.05.i.i.i = phi ptr [ %8, %while.body.i.i.i ], [ %.pre, %ehcleanup ]
+  %8 = load ptr, ptr %__cur.05.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #20
-  %cmp.not.i.i.i = icmp eq ptr %9, %gaps_
+  %cmp.not.i.i.i = icmp eq ptr %8, %gaps_
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !5
 
 _ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EED2Ev.exit: ; preds = %while.body.i.i.i, %ehcleanup
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -187,31 +187,30 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::list", align 8
   %reduce_sequencer_buffer_memory_life_time_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %reduce_sequencer_buffer_memory_life_time_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %blocks_ = getelementptr inbounds i8, ptr %this, i64 56
-  %2 = load ptr, ptr %blocks_, align 8
-  %cmp.i.i = icmp ne ptr %2, null
-  %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.i.i
-  br i1 %or.cond, label %for.cond.preheader, label %if.end6
+  %1 = load ptr, ptr %blocks_, align 8
+  %cmp.i.i = icmp eq ptr %1, null
+  %or.cond.not = select i1 %tobool, i1 %cmp.i.i, i1 false
+  br i1 %or.cond.not, label %if.end6, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
   %blocks_count_ = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load i64, ptr %blocks_count_, align 8
-  %cmp11.not = icmp eq i64 %3, 0
+  %2 = load i64, ptr %blocks_count_, align 8
+  %cmp11.not = icmp eq i64 %2, 0
   br i1 %cmp11.not, label %if.end6, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %4 = phi i64 [ %7, %for.inc ], [ %3, %for.cond.preheader ]
+  %3 = phi i64 [ %6, %for.inc ], [ %2, %for.cond.preheader ]
   %i.012 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %5 = load ptr, ptr %blocks_, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %i.012
-  %6 = load ptr, ptr %arrayidx.i, align 8
-  %cmp4.not = icmp eq ptr %6, null
+  %4 = load ptr, ptr %blocks_, align 8
+  %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %i.012
+  %5 = load ptr, ptr %arrayidx.i, align 8
+  %cmp4.not = icmp eq ptr %5, null
   br i1 %cmp4.not, label %for.inc, label %_ZN3net25QuicStreamSequencerBuffer11RetireBlockEm.exit
 
 _ZN3net25QuicStreamSequencerBuffer11RetireBlockEm.exit: ; preds = %for.body
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #20
   %.pre.i = load ptr, ptr %blocks_, align 8
   %arrayidx.i2.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %i.012
   store ptr null, ptr %arrayidx.i2.i, align 8
@@ -219,16 +218,16 @@ _ZN3net25QuicStreamSequencerBuffer11RetireBlockEm.exit: ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZN3net25QuicStreamSequencerBuffer11RetireBlockEm.exit
-  %7 = phi i64 [ %4, %for.body ], [ %.pre, %_ZN3net25QuicStreamSequencerBuffer11RetireBlockEm.exit ]
+  %6 = phi i64 [ %3, %for.body ], [ %.pre, %_ZN3net25QuicStreamSequencerBuffer11RetireBlockEm.exit ]
   %inc = add nuw i64 %i.012, 1
-  %cmp = icmp ult i64 %inc, %7
+  %cmp = icmp ult i64 %inc, %6
   br i1 %cmp, label %for.body, label %if.end6, !llvm.loop !7
 
 if.end6:                                          ; preds = %for.inc, %for.cond.preheader, %entry
   %num_bytes_buffered_ = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %num_bytes_buffered_, align 8
   %total_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 16
-  %8 = load i64, ptr %total_bytes_read_, align 8
+  %7 = load i64, ptr %total_bytes_read_, align 8
   %_M_prev.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %ref.tmp, ptr %_M_prev.i.i.i.i.i, align 8
   store ptr %ref.tmp, ptr %ref.tmp, align 8
@@ -236,23 +235,23 @@ if.end6:                                          ; preds = %for.inc, %for.cond.
   store i64 0, ptr %_M_size.i.i.i.i.i, align 8
   %call5.i.i.i.i.i.i.i2.i = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2.i, i64 16
-  store i64 %8, ptr %_M_storage.i.i.i.i.i.i, align 8
+  store i64 %7, ptr %_M_storage.i.i.i.i.i.i, align 8
   %ref.tmp7.sroa.2.0._M_storage.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2.i, i64 24
   store i64 -1, ptr %ref.tmp7.sroa.2.0._M_storage.i.i.i.i.i.i.sroa_idx, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i2.i, ptr noundef nonnull %ref.tmp) #19
-  %9 = load i64, ptr %_M_size.i.i.i.i.i, align 8
-  %add.i.i.i.i.i = add i64 %9, 1
+  %8 = load i64, ptr %_M_size.i.i.i.i.i, align 8
+  %add.i.i.i.i.i = add i64 %8, 1
   store i64 %add.i.i.i.i.i, ptr %_M_size.i.i.i.i.i, align 8
   %gaps_ = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %gaps_, align 8
-  %cmp.not4.i.i.i.i = icmp eq ptr %10, %gaps_
+  %9 = load ptr, ptr %gaps_, align 8
+  %cmp.not4.i.i.i.i = icmp eq ptr %9, %gaps_
   br i1 %cmp.not4.i.i.i.i, label %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EE5clearEv.exit.i.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end6, %while.body.i.i.i.i
-  %__cur.05.i.i.i.i = phi ptr [ %11, %while.body.i.i.i.i ], [ %10, %if.end6 ]
-  %11 = load ptr, ptr %__cur.05.i.i.i.i, align 8
+  %__cur.05.i.i.i.i = phi ptr [ %10, %while.body.i.i.i.i ], [ %9, %if.end6 ]
+  %10 = load ptr, ptr %__cur.05.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i) #20
-  %cmp.not.i.i.i.i = icmp eq ptr %11, %gaps_
+  %cmp.not.i.i.i.i = icmp eq ptr %10, %gaps_
   br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EE5clearEv.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !5
 
 _ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i, %if.end6
@@ -261,20 +260,20 @@ _ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EE5clearEv.exit.i.
   store ptr %gaps_, ptr %gaps_, align 8
   %_M_size.i.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %_M_size.i.i.i.i.i5, align 8
-  %12 = load ptr, ptr %ref.tmp, align 8
-  %cmp.i.i.i.i = icmp eq ptr %12, %ref.tmp
+  %11 = load ptr, ptr %ref.tmp, align 8
+  %cmp.i.i.i.i = icmp eq ptr %11, %ref.tmp
   br i1 %cmp.i.i.i.i, label %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EEaSEOS5_.exit, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EE5clearEv.exit.i.i
-  store ptr %12, ptr %gaps_, align 8
-  %13 = load ptr, ptr %_M_prev.i.i.i.i.i, align 8
-  store ptr %13, ptr %_M_prev.i.i.i.i.i4, align 8
-  store ptr %gaps_, ptr %13, align 8
-  %14 = load ptr, ptr %gaps_, align 8
-  %_M_prev9.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %11, ptr %gaps_, align 8
+  %12 = load ptr, ptr %_M_prev.i.i.i.i.i, align 8
+  store ptr %12, ptr %_M_prev.i.i.i.i.i4, align 8
+  store ptr %gaps_, ptr %12, align 8
+  %13 = load ptr, ptr %gaps_, align 8
+  %_M_prev9.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %gaps_, ptr %_M_prev9.i.i.i.i, align 8
-  %15 = load i64, ptr %_M_size.i.i.i.i.i, align 8
-  store i64 %15, ptr %_M_size.i.i.i.i.i5, align 8
+  %14 = load i64, ptr %_M_size.i.i.i.i.i, align 8
+  store i64 %14, ptr %_M_size.i.i.i.i.i5, align 8
   store ptr %ref.tmp, ptr %_M_prev.i.i.i.i.i, align 8
   store ptr %ref.tmp, ptr %ref.tmp, align 8
   br label %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EEaSEOS5_.exit
@@ -284,15 +283,15 @@ _ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EEaSEOS5_.exit: ; 
   store i64 0, ptr %_M_size.sink.i.i.i.i, align 8
   %frame_arrival_time_map_ = getelementptr inbounds i8, ptr %this, i64 72
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %16 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %frame_arrival_time_map_, ptr noundef %16)
+  %15 = load ptr, ptr %_M_parent.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %frame_arrival_time_map_, ptr noundef %15)
           to label %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE5clearEv.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EEaSEOS5_.exit
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #21
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #21
   unreachable
 
 _ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE5clearEv.exit: ; preds = %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EEaSEOS5_.exit
@@ -304,15 +303,15 @@ _ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_
   store ptr %add.ptr.i.i, ptr %_M_right.i.i.i, align 8
   %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %_M_node_count.i.i.i, align 8
-  %19 = load ptr, ptr %ref.tmp, align 8
-  %cmp.not4.i.i.i6 = icmp eq ptr %19, %ref.tmp
+  %18 = load ptr, ptr %ref.tmp, align 8
+  %cmp.not4.i.i.i6 = icmp eq ptr %18, %ref.tmp
   br i1 %cmp.not4.i.i.i6, label %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EED2Ev.exit, label %while.body.i.i.i7
 
 while.body.i.i.i7:                                ; preds = %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE5clearEv.exit, %while.body.i.i.i7
-  %__cur.05.i.i.i8 = phi ptr [ %20, %while.body.i.i.i7 ], [ %19, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE5clearEv.exit ]
-  %20 = load ptr, ptr %__cur.05.i.i.i8, align 8
+  %__cur.05.i.i.i8 = phi ptr [ %19, %while.body.i.i.i7 ], [ %18, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE5clearEv.exit ]
+  %19 = load ptr, ptr %__cur.05.i.i.i8, align 8
   call void @_ZdlPv(ptr noundef %__cur.05.i.i.i8) #20
-  %cmp.not.i.i.i9 = icmp eq ptr %20, %ref.tmp
+  %cmp.not.i.i.i9 = icmp eq ptr %19, %ref.tmp
   br i1 %cmp.not.i.i.i9, label %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EED2Ev.exit, label %while.body.i.i.i7, !llvm.loop !5
 
 _ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EED2Ev.exit: ; preds = %while.body.i.i.i7, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE5clearEv.exit
@@ -1261,31 +1260,30 @@ if.end201:                                        ; preds = %if.end186, %if.end2
   %sub212 = sub i64 %add206, %offset.0281
   %spec.select = select i1 %cmp207, i64 %sub212, i64 %sub
   %46 = load i8, ptr %reduce_sequencer_buffer_memory_life_time_, align 8
-  %47 = and i8 %46, 1
-  %tobool.not = icmp ne i8 %47, 0
-  %48 = load ptr, ptr %blocks_, align 8
-  %cmp.i.not.i251 = icmp eq ptr %48, null
-  %or.cond282 = select i1 %tobool.not, i1 %cmp.i.not.i251, i1 false
+  %tobool = trunc i8 %46 to i1
+  %47 = load ptr, ptr %blocks_, align 8
+  %cmp.i.not.i251 = icmp eq ptr %47, null
+  %or.cond282 = select i1 %tobool, i1 %cmp.i.not.i251, i1 false
   br i1 %or.cond282, label %_ZNSt10unique_ptrIA_PN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_deleteIS4_EE5resetIPS3_vEEvT_.exit, label %if.end223
 
 _ZNSt10unique_ptrIA_PN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_deleteIS4_EE5resetIPS3_vEEvT_.exit: ; preds = %if.end201
-  %49 = icmp ugt i64 %44, 2305843009213693951
-  %50 = shl i64 %44, 3
-  %51 = select i1 %49, i64 -1, i64 %50
-  %call218 = call noalias noundef nonnull ptr @_Znam(i64 noundef %51) #18
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call218, i8 0, i64 %51, i1 false)
+  %48 = icmp ugt i64 %44, 2305843009213693951
+  %49 = shl i64 %44, 3
+  %50 = select i1 %48, i64 -1, i64 %49
+  %call218 = call noalias noundef nonnull ptr @_Znam(i64 noundef %50) #18
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call218, i8 0, i64 %50, i1 false)
   store ptr %call218, ptr %blocks_, align 8
   %cmp220276.not = icmp eq i64 %44, 0
   br i1 %cmp220276.not, label %if.end223, label %for.body
 
 for.body:                                         ; preds = %_ZNSt10unique_ptrIA_PN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_deleteIS4_EE5resetIPS3_vEEvT_.exit, %for.body
   %i.0277 = phi i64 [ %inc, %for.body ], [ 0, %_ZNSt10unique_ptrIA_PN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_deleteIS4_EE5resetIPS3_vEEvT_.exit ]
-  %52 = load ptr, ptr %blocks_, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %52, i64 %i.0277
+  %51 = load ptr, ptr %blocks_, align 8
+  %arrayidx.i = getelementptr inbounds ptr, ptr %51, i64 %i.0277
   store ptr null, ptr %arrayidx.i, align 8
   %inc = add nuw i64 %i.0277, 1
-  %53 = load i64, ptr %blocks_count_.i, align 8
-  %cmp220 = icmp ult i64 %inc, %53
+  %52 = load i64, ptr %blocks_count_.i, align 8
+  %cmp220 = icmp ult i64 %inc, %52
   br i1 %cmp220, label %for.body, label %if.end223.loopexit, !llvm.loop !39
 
 if.end223.loopexit:                               ; preds = %for.body
@@ -1293,10 +1291,10 @@ if.end223.loopexit:                               ; preds = %for.body
   br label %if.end223
 
 if.end223:                                        ; preds = %if.end223.loopexit, %_ZNSt10unique_ptrIA_PN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_deleteIS4_EE5resetIPS3_vEEvT_.exit, %if.end201
-  %54 = phi ptr [ %.pre, %if.end223.loopexit ], [ %call218, %_ZNSt10unique_ptrIA_PN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_deleteIS4_EE5resetIPS3_vEEvT_.exit ], [ %48, %if.end201 ]
-  %arrayidx.i252 = getelementptr inbounds ptr, ptr %54, i64 %div1.i
-  %55 = load ptr, ptr %arrayidx.i252, align 8
-  %cmp226 = icmp eq ptr %55, null
+  %53 = phi ptr [ %.pre, %if.end223.loopexit ], [ %call218, %_ZNSt10unique_ptrIA_PN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_deleteIS4_EE5resetIPS3_vEEvT_.exit ], [ %47, %if.end201 ]
+  %arrayidx.i252 = getelementptr inbounds ptr, ptr %53, i64 %div1.i
+  %54 = load ptr, ptr %arrayidx.i252, align 8
+  %cmp226 = icmp eq ptr %54, null
   br i1 %cmp226, label %if.then227, label %if.end231
 
 if.then227:                                       ; preds = %if.end223
@@ -1309,9 +1307,9 @@ if.then227:                                       ; preds = %if.end223
   br label %if.end231
 
 if.end231:                                        ; preds = %if.then227, %if.end223
-  %56 = phi ptr [ %.pre284, %if.then227 ], [ %55, %if.end223 ]
+  %55 = phi ptr [ %.pre284, %if.then227 ], [ %54, %if.end223 ]
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %source_remaining.0278, i64 %spec.select)
-  %add.ptr = getelementptr inbounds i8, ptr %56, i64 %rem2.i
+  %add.ptr = getelementptr inbounds i8, ptr %55, i64 %rem2.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %source.0279, i64 %.sroa.speculated, i1 false)
   %add.ptr235 = getelementptr inbounds i8, ptr %source.0279, i64 %.sroa.speculated
   %sub236 = sub i64 %source_remaining.0278, %.sroa.speculated
@@ -1331,8 +1329,8 @@ if.end250:                                        ; preds = %if.end231
   store i64 %timestamp.coerce, ptr %ref.tmp253.sroa.2.0.second.i.i.sroa_idx, align 8
   %call256 = call { ptr, i8 } @_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE6insertIS5_ImS2_EEENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueES5_ISt17_Rb_tree_iteratorIS7_EbEE4typeEOSD_(ptr noundef nonnull align 8 dereferenceable(48) %frame_arrival_time_map_, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp252)
   %num_bytes_buffered_ = getelementptr inbounds i8, ptr %this, i64 64
-  %57 = load i64, ptr %num_bytes_buffered_, align 8
-  %add257 = add i64 %57, %add238
+  %56 = load i64, ptr %num_bytes_buffered_, align 8
+  %add257 = add i64 %56, %add238
   store i64 %add257, ptr %num_bytes_buffered_, align 8
   br label %return
 
@@ -1784,14 +1782,14 @@ lor.rhs:                                          ; preds = %_ZNSt3mapImN3net25Q
   br i1 %cmp.i3, label %if.then, label %return
 
 if.then:                                          ; preds = %entry, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit, %lor.rhs
-  %__y.addr.0.lcssa.i.i.i10 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
+  %__y.addr.0.lcssa.i.i.i11 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 40
   %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i.i.i.i.i.i, i64 16, i1 false)
-  %call4.i.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i10, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i.i)
+  %call4.i.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i11, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i.i)
           to label %invoke.cont3.i.i unwind label %_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE10_Auto_nodeD2Ev.exit.i.i
 
 invoke.cont3.i.i:                                 ; preds = %if.then
@@ -2574,20 +2572,19 @@ define dso_local void @_ZN3net25QuicStreamSequencerBuffer18ReleaseWholeBufferEv(
 entry:
   %reduce_sequencer_buffer_memory_life_time_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %reduce_sequencer_buffer_memory_life_time_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN3net25QuicStreamSequencerBuffer5ClearEv(ptr noundef nonnull align 8 dereferenceable(120) %this)
   %blocks_ = getelementptr inbounds i8, ptr %this, i64 56
-  %2 = load ptr, ptr %blocks_, align 8
+  %1 = load ptr, ptr %blocks_, align 8
   store ptr null, ptr %blocks_, align 8
-  %tobool.not.i.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %return, label %_ZNKSt14default_deleteIA_PN3net25QuicStreamSequencerBuffer11BufferBlockEEclIS3_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS4_EE5valueEvE4typeEPS8_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_PN3net25QuicStreamSequencerBuffer11BufferBlockEEclIS3_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS4_EE5valueEvE4typeEPS8_.exit.i.i.i: ; preds = %if.end
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #20
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIA_PN3net25QuicStreamSequencerBuffer11BufferBlockEEclIS3_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS4_EE5valueEvE4typeEPS8_.exit.i.i.i, %if.end, %entry
@@ -2680,14 +2677,14 @@ lor.rhs:                                          ; preds = %_ZNSt3mapImN3net25Q
   br i1 %cmp.i3, label %if.then, label %return
 
 if.then:                                          ; preds = %entry, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit, %lor.rhs
-  %__y.addr.0.lcssa.i.i.i10 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
+  %__y.addr.0.lcssa.i.i.i11 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 40
   %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i.i.i.i.i.i, i64 16, i1 false)
-  %call4.i.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i10, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i.i)
+  %call4.i.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i11, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i.i)
           to label %invoke.cont3.i.i unwind label %_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE10_Auto_nodeD2Ev.exit.i.i
 
 invoke.cont3.i.i:                                 ; preds = %if.then

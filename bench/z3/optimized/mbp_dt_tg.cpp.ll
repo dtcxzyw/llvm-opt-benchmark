@@ -164,7 +164,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit: 
 
 for.cond:                                         ; preds = %for.inc, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit ]
-  %progress.0 = phi i8 [ %progress.1, %for.inc ], [ 0, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit ]
+  %progress.0 = phi i1 [ %progress.1, %for.inc ], [ false, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit ]
   %8 = load ptr, ptr %m_nodes.i13, align 8
   %cmp.i.i14 = icmp eq ptr %8, null
   br i1 %cmp.i.i14, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, label %if.end.i.i
@@ -338,9 +338,8 @@ if.then21:                                        ; preds = %if.end19
 
 if.end22:                                         ; preds = %if.end19
   %38 = load i8, ptr %m_use_mdl, align 8
-  %39 = and i8 %38, 1
-  %tobool.not = icmp eq i8 %39, 0
-  br i1 %tobool.not, label %for.inc, label %land.lhs.true23
+  %tobool = trunc i8 %38 to i1
+  br i1 %tobool, label %land.lhs.true23, label %for.inc
 
 land.lhs.true23:                                  ; preds = %if.end22
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i, align 4
@@ -350,53 +349,51 @@ land.lhs.true23:                                  ; preds = %if.end22
 
 land.rhs.i.i.i:                                   ; preds = %land.lhs.true23
   %m_decl.i.i.i.i24 = getelementptr inbounds i8, ptr %11, i64 16
-  %40 = load ptr, ptr %m_decl.i.i.i.i24, align 8
-  %m_info.i.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 24
-  %41 = load ptr, ptr %m_info.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i25 = icmp eq ptr %41, null
+  %39 = load ptr, ptr %m_decl.i.i.i.i24, align 8
+  %m_info.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = load ptr, ptr %m_info.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i25 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i.i.i25, label %for.inc, label %_ZNK11ast_manager6is_notEPK4expr.exit.i
 
 _ZNK11ast_manager6is_notEPK4expr.exit.i:          ; preds = %land.rhs.i.i.i
-  %42 = load i32, ptr %41, align 8
-  %cmp.i.i.i.i.i.i26 = icmp eq i32 %42, 0
-  %m_kind.i.i.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 4
-  %43 = load i32, ptr %m_kind.i.i.i.i.i.i, align 4
-  %cmp2.i.i.i.i.i.i = icmp eq i32 %43, 8
-  %44 = select i1 %cmp.i.i.i.i.i.i26, i1 %cmp2.i.i.i.i.i.i, i1 false
-  br i1 %44, label %land.lhs.true.i, label %for.inc
+  %41 = load i32, ptr %40, align 8
+  %cmp.i.i.i.i.i.i26 = icmp eq i32 %41, 0
+  %m_kind.i.i.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 4
+  %42 = load i32, ptr %m_kind.i.i.i.i.i.i, align 4
+  %cmp2.i.i.i.i.i.i = icmp eq i32 %42, 8
+  %43 = select i1 %cmp.i.i.i.i.i.i26, i1 %cmp2.i.i.i.i.i.i, i1 false
+  br i1 %43, label %land.lhs.true.i, label %for.inc
 
 land.lhs.true.i:                                  ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i
   %m_num_args.i.i = getelementptr inbounds i8, ptr %11, i64 24
-  %45 = load i32, ptr %m_num_args.i.i, align 8
-  %cmp.i27 = icmp eq i32 %45, 1
+  %44 = load i32, ptr %m_num_args.i.i, align 8
+  %cmp.i27 = icmp eq i32 %44, 1
   br i1 %cmp.i27, label %land.lhs.true25, label %for.inc
 
 land.lhs.true25:                                  ; preds = %land.lhs.true.i
   %m_args.i.i = getelementptr inbounds i8, ptr %11, i64 32
-  %46 = load ptr, ptr %m_args.i.i, align 8
-  %call26 = call noundef zeroext i1 @_ZN3mbp9mbp_dt_tg4impl18is_constructor_appEP4exprRS3_S4_(ptr noundef nonnull align 8 dereferenceable(361) %this, ptr noundef %46, ptr noundef nonnull align 8 dereferenceable(8) %cons, ptr noundef nonnull align 8 dereferenceable(8) %rhs)
+  %45 = load ptr, ptr %m_args.i.i, align 8
+  %call26 = call noundef zeroext i1 @_ZN3mbp9mbp_dt_tg4impl18is_constructor_appEP4exprRS3_S4_(ptr noundef nonnull align 8 dereferenceable(361) %this, ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(8) %cons, ptr noundef nonnull align 8 dereferenceable(8) %rhs)
   br i1 %call26, label %if.then27, label %for.inc
 
 if.then27:                                        ; preds = %land.lhs.true25
-  %47 = load ptr, ptr %m_seen.i, align 8
+  %46 = load ptr, ptr %m_seen.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i28)
   store ptr %11, ptr %tmp.i.i.i28, align 8
-  call void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %47, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i28)
+  call void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %46, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i.i.i28)
-  %48 = load ptr, ptr %cons, align 8
-  %49 = load ptr, ptr %rhs, align 8
-  call void @_ZN3mbp9mbp_dt_tg4impl15deconstruct_neqEP4exprS3_(ptr noundef nonnull align 8 dereferenceable(361) %this, ptr noundef %48, ptr noundef %49)
+  %47 = load ptr, ptr %cons, align 8
+  %48 = load ptr, ptr %rhs, align 8
+  call void @_ZN3mbp9mbp_dt_tg4impl15deconstruct_neqEP4exprS3_(ptr noundef nonnull align 8 dereferenceable(361) %this, ptr noundef %47, ptr noundef %48)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then.i.i.i.i, %if.then22.i.i.i.i, %land.rhs.i.i.i, %land.lhs.true23, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %land.lhs.true.i, %if.end22, %land.lhs.true25, %if.end, %if.then27, %if.then21, %if.then18
-  %progress.1 = phi i8 [ %progress.0, %if.end ], [ 1, %if.then18 ], [ 1, %if.then21 ], [ %progress.0, %if.end22 ], [ 1, %if.then27 ], [ %progress.0, %land.lhs.true25 ], [ %progress.0, %land.lhs.true.i ], [ %progress.0, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ %progress.0, %land.lhs.true23 ], [ %progress.0, %land.rhs.i.i.i ], [ %progress.0, %if.then22.i.i.i.i ], [ %progress.0, %if.then.i.i.i.i ]
+  %progress.1 = phi i1 [ %progress.0, %if.end ], [ true, %if.then18 ], [ true, %if.then21 ], [ true, %if.then27 ], [ %progress.0, %land.lhs.true25 ], [ %progress.0, %if.end22 ], [ %progress.0, %land.lhs.true.i ], [ %progress.0, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ %progress.0, %land.lhs.true23 ], [ %progress.0, %land.rhs.i.i.i ], [ %progress.0, %if.then22.i.i.i.i ], [ %progress.0, %if.then.i.i.i.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond, !llvm.loop !8
 
 for.end:                                          ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
-  %50 = and i8 %progress.0, 1
-  %tobool29 = icmp ne i8 %50, 0
-  ret i1 %tobool29
+  ret i1 %progress.0
 }
 
 ; Function Attrs: mustprogress uwtable

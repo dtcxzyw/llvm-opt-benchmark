@@ -108,16 +108,15 @@ land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %fo
   %1 = load ptr, ptr %re.06.us, align 8
   %skip_on_snapshot_load.us = getelementptr inbounds i8, ptr %re.06.us, i64 32
   %2 = load i8, ptr %skip_on_snapshot_load.us, align 8
-  %3 = and i8 %2, 1
-  %tobool2.not.us = icmp eq i8 %3, 0
-  br i1 %tobool2.not.us, label %if.end.us, label %for.inc.us
+  %tobool2.us = trunc i8 %2 to i1
+  br i1 %tobool2.us, label %for.inc.us, label %if.end.us
 
 if.end.us:                                        ; preds = %land.rhs.us
   %func.us = getelementptr inbounds i8, ptr %re.06.us, i64 16
-  %4 = load ptr, ptr %func.us, align 8
+  %3 = load ptr, ptr %func.us, align 8
   %opaque.us = getelementptr inbounds i8, ptr %re.06.us, i64 24
-  %5 = load ptr, ptr %opaque.us, align 8
-  tail call void %4(ptr noundef %5) #5
+  %4 = load ptr, ptr %opaque.us, align 8
+  tail call void %3(ptr noundef %4) #5
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %land.rhs.us
@@ -125,14 +124,14 @@ for.inc.us:                                       ; preds = %if.end.us, %land.rh
   br i1 %tobool.not.us, label %for.end, label %land.rhs.us, !llvm.loop !7
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %land.rhs
-  %re.06 = phi ptr [ %6, %land.rhs ], [ %0, %land.rhs.lr.ph ]
-  %6 = load ptr, ptr %re.06, align 8
+  %re.06 = phi ptr [ %5, %land.rhs ], [ %0, %land.rhs.lr.ph ]
+  %5 = load ptr, ptr %re.06, align 8
   %func = getelementptr inbounds i8, ptr %re.06, i64 16
-  %7 = load ptr, ptr %func, align 8
+  %6 = load ptr, ptr %func, align 8
   %opaque = getelementptr inbounds i8, ptr %re.06, i64 24
-  %8 = load ptr, ptr %opaque, align 8
-  tail call void %7(ptr noundef %8) #5
-  %tobool.not = icmp eq ptr %6, null
+  %7 = load ptr, ptr %opaque, align 8
+  tail call void %6(ptr noundef %7) #5
+  %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !7
 
 for.end:                                          ; preds = %land.rhs, %for.inc.us, %entry

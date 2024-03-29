@@ -231,7 +231,7 @@ invoke.cont317:                                   ; preds = %land.end75
   %call289 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 228, ptr noundef nonnull @.str.38)
   %call305 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 241, ptr noundef nonnull @.str.39)
   %6 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i156 = add nsw i64 %6, 1
+  %inc.i166 = add nsw i64 %6, 1
   %7 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %8 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i = add nsw i64 %8, 1
@@ -241,44 +241,44 @@ invoke.cont317:                                   ; preds = %land.end75
   %9 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %9, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  store i64 %inc.i156, ptr @_ZN10TestObject8sTOCountE, align 8
+  store i64 %inc.i166, ptr @_ZN10TestObject8sTOCountE, align 8
   %10 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %inc3.i160 = add nsw i64 %10, 1
-  store i64 %inc3.i160, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %inc3.i170 = add nsw i64 %10, 1
+  store i64 %inc3.i170, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %call321 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 255, ptr noundef nonnull @.str.40)
-          to label %invoke.cont324 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit429
+          to label %invoke.cont324 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit448
 
 invoke.cont324:                                   ; preds = %invoke.cont317
   %call328 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 256, ptr noundef nonnull @.str.41)
-          to label %invoke.cont329 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit429
+          to label %invoke.cont329 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit448
 
 invoke.cont329:                                   ; preds = %invoke.cont324
   %call332 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 257, ptr noundef nonnull @.str.42)
-          to label %invoke.cont335 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit429
+          to label %invoke.cont335 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit448
 
 invoke.cont335:                                   ; preds = %invoke.cont329
   %call339 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 258, ptr noundef nonnull @.str.43)
-          to label %invoke.cont342 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit429
+          to label %invoke.cont342 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit448
 
 invoke.cont342:                                   ; preds = %invoke.cont335
   %call346 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 259, ptr noundef nonnull @.str.44)
-          to label %invoke.cont347 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit429
+          to label %invoke.cont347 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit448
 
 invoke.cont347:                                   ; preds = %invoke.cont342
   %call350 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 260, ptr noundef nonnull @.str.45)
-          to label %invoke.cont351 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit429
+          to label %invoke.cont351 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit448
 
 invoke.cont351:                                   ; preds = %invoke.cont347
   %call354 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 261, ptr noundef nonnull @.str.46)
-          to label %land.end363 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit429
+          to label %land.end363 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit448
 
 land.end363:                                      ; preds = %invoke.cont351
   %call365 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 265, ptr noundef nonnull @.str.47)
-          to label %invoke.cont367 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit429
+          to label %invoke.cont367 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit448
 
 invoke.cont367:                                   ; preds = %land.end363
   %call370 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 267, ptr noundef nonnull @.str.48)
-          to label %invoke.cont402 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit429
+          to label %invoke.cont402 unwind label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit448
 
 invoke.cont402:                                   ; preds = %invoke.cont367
   %11 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -293,28 +293,28 @@ invoke.cont402:                                   ; preds = %invoke.cont367
   %call392 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 284, ptr noundef nonnull @.str.52)
   %call397 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 287, ptr noundef nonnull @.str.53)
   %13 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i217 = add nsw i64 %13, 1
-  store i64 %inc.i217, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc.i227 = add nsw i64 %13, 1
+  store i64 %inc.i227, ptr @_ZN10TestObject8sTOCountE, align 8
   %14 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc3.i218 = add nsw i64 %14, 1
-  store i64 %inc3.i218, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc3.i228 = add nsw i64 %14, 1
+  store i64 %inc3.i228, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %15 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %inc4.i219 = add nsw i64 %15, 1
-  store i64 %inc4.i219, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
+  %inc4.i229 = add nsw i64 %15, 1
+  store i64 %inc4.i229, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %call406 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 298, ptr noundef nonnull @.str.54)
-          to label %invoke.cont407 unwind label %_ZN10TestObjectD2Ev.exit436
+          to label %invoke.cont407 unwind label %_ZN10TestObjectD2Ev.exit455
 
 invoke.cont407:                                   ; preds = %invoke.cont402
   %call411 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 299, ptr noundef nonnull @.str.55)
-          to label %invoke.cont488 unwind label %_ZN10TestObjectD2Ev.exit436
+          to label %invoke.cont488 unwind label %_ZN10TestObjectD2Ev.exit455
 
 invoke.cont488:                                   ; preds = %invoke.cont407
   %16 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %dec.i226 = add nsw i64 %16, -1
-  store i64 %dec.i226, ptr @_ZN10TestObject8sTOCountE, align 8
+  %dec.i236 = add nsw i64 %16, -1
+  store i64 %dec.i236, ptr @_ZN10TestObject8sTOCountE, align 8
   %17 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %inc3.i227 = add nsw i64 %17, 1
-  store i64 %inc3.i227, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %inc3.i237 = add nsw i64 %17, 1
+  store i64 %inc3.i237, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %call427 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 309, ptr noundef nonnull @.str.56)
   %call441 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 318, ptr noundef nonnull @.str.57)
   %call452 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 331, ptr noundef nonnull @.str.58)
@@ -325,20 +325,19 @@ invoke.cont488:                                   ; preds = %invoke.cont407
   %call484 = call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #5
   store i8 1, ptr %call484, align 1
   %call494 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @.str.61)
-          to label %land.end504 unwind label %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit439
+          to label %land.end504 unwind label %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit458
 
 land.end504:                                      ; preds = %invoke.cont488
   %18 = load i8, ptr %call484, align 1
-  %19 = and i8 %18, 1
-  %tobool503 = icmp ne i8 %19, 0
+  %tobool503 = trunc i8 %18 to i1
   %call506 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool503, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 377, ptr noundef nonnull @.str.63)
-          to label %invoke.cont507 unwind label %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit439
+          to label %invoke.cont507 unwind label %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit458
 
 invoke.cont507:                                   ; preds = %land.end504
   %call511 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 378, ptr noundef nonnull @.str.64)
-          to label %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit249 unwind label %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit439
+          to label %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit261 unwind label %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit458
 
-_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit249: ; preds = %invoke.cont507
+_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit261: ; preds = %invoke.cont507
   call void @_ZdlPv(ptr noundef nonnull %call484) #6
   %call521 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 390, ptr noundef nonnull @.str.61)
   %call524 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 391, ptr noundef nonnull @.str.62)
@@ -347,24 +346,23 @@ _ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit249: ; pr
   %call534 = call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #5
   store i8 1, ptr %call534, align 1
   %call539 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #5
-          to label %invoke.cont548 unwind label %_ZNK5eastl14default_deleteIbEclEPb.exit.i.i.i.i.i447
+          to label %invoke.cont548 unwind label %_ZNK5eastl14default_deleteIbEclEPb.exit.i.i.i.i.i466
 
-invoke.cont548:                                   ; preds = %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit249
+invoke.cont548:                                   ; preds = %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit261
   store float 0x40091EB860000000, ptr %call539, align 4
   store i32 42, ptr %result542, align 8, !alias.scope !5
-  %20 = getelementptr inbounds i8, ptr %result542, i64 8
-  store ptr %call534, ptr %20, align 8, !alias.scope !5
-  %21 = getelementptr inbounds i8, ptr %result542, i64 16
-  store ptr %call539, ptr %21, align 8, !alias.scope !5
-  %22 = getelementptr inbounds i8, ptr %result542, i64 24
-  store i32 1337, ptr %22, align 8, !alias.scope !5
+  %19 = getelementptr inbounds i8, ptr %result542, i64 8
+  store ptr %call534, ptr %19, align 8, !alias.scope !5
+  %20 = getelementptr inbounds i8, ptr %result542, i64 16
+  store ptr %call539, ptr %20, align 8, !alias.scope !5
+  %21 = getelementptr inbounds i8, ptr %result542, i64 24
+  store i32 1337, ptr %21, align 8, !alias.scope !5
   %call552 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 405, ptr noundef nonnull @.str.61)
           to label %land.end562 unwind label %lpad547
 
 land.end562:                                      ; preds = %invoke.cont548
-  %23 = load i8, ptr %call534, align 1
-  %24 = and i8 %23, 1
-  %tobool561 = icmp ne i8 %24, 0
+  %22 = load i8, ptr %call534, align 1
+  %tobool561 = trunc i8 %22 to i1
   %call564 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool561, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 406, ptr noundef nonnull @.str.63)
           to label %invoke.cont565 unwind label %lpad547
 
@@ -373,8 +371,8 @@ invoke.cont565:                                   ; preds = %land.end562
           to label %land.end579 unwind label %lpad547
 
 land.end579:                                      ; preds = %invoke.cont565
-  %25 = load float, ptr %call539, align 4
-  %cmp578 = fcmp oeq float %25, 0x40091EB860000000
+  %23 = load float, ptr %call539, align 4
+  %cmp578 = fcmp oeq float %23, 0x40091EB860000000
   %call581 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp578, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 408, ptr noundef nonnull @.str.68)
           to label %invoke.cont582 unwind label %lpad547
 
@@ -384,27 +382,27 @@ invoke.cont582:                                   ; preds = %land.end579
 
 invoke.cont587:                                   ; preds = %invoke.cont582
   %call591 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.69)
-          to label %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit273 unwind label %lpad547
+          to label %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit286 unwind label %lpad547
 
-_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit273: ; preds = %invoke.cont587
+_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit286: ; preds = %invoke.cont587
   call void @_ZdlPv(ptr noundef nonnull %call539) #6
   call void @_ZdlPv(ptr noundef nonnull %call534) #6
   %call600 = call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #5
   store float 0x40091EB860000000, ptr %call600, align 4
   %call605 = invoke noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #5
-          to label %invoke.cont613 unwind label %_ZNK5eastl14default_deleteIfEclEPf.exit.i.i.i.i.i453
+          to label %invoke.cont613 unwind label %_ZNK5eastl14default_deleteIfEclEPf.exit.i.i.i.i.i472
 
-invoke.cont613:                                   ; preds = %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit273
+invoke.cont613:                                   ; preds = %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit286
   store i16 10, ptr %call605, align 2
   store i32 42, ptr %result607, align 8, !alias.scope !14
-  %26 = getelementptr inbounds i8, ptr %result607, i64 4
-  store i8 1, ptr %26, align 4, !alias.scope !14
-  %27 = getelementptr inbounds i8, ptr %result607, i64 8
-  store ptr %call600, ptr %27, align 8, !alias.scope !14
-  %28 = getelementptr inbounds i8, ptr %result607, i64 16
-  store i32 1337, ptr %28, align 8, !alias.scope !14
-  %29 = getelementptr inbounds i8, ptr %result607, i64 24
-  store ptr %call605, ptr %29, align 8, !alias.scope !14
+  %24 = getelementptr inbounds i8, ptr %result607, i64 4
+  store i8 1, ptr %24, align 4, !alias.scope !14
+  %25 = getelementptr inbounds i8, ptr %result607, i64 8
+  store ptr %call600, ptr %25, align 8, !alias.scope !14
+  %26 = getelementptr inbounds i8, ptr %result607, i64 16
+  store i32 1337, ptr %26, align 8, !alias.scope !14
+  %27 = getelementptr inbounds i8, ptr %result607, i64 24
+  store ptr %call605, ptr %27, align 8, !alias.scope !14
   %call617 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 424, ptr noundef nonnull @.str.61)
           to label %invoke.cont618 unwind label %lpad612
 
@@ -413,8 +411,8 @@ invoke.cont618:                                   ; preds = %invoke.cont613
           to label %land.end632 unwind label %lpad612
 
 land.end632:                                      ; preds = %invoke.cont618
-  %30 = load float, ptr %call600, align 4
-  %cmp631 = fcmp oeq float %30, 0x40091EB860000000
+  %28 = load float, ptr %call600, align 4
+  %cmp631 = fcmp oeq float %28, 0x40091EB860000000
   %call634 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp631, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 426, ptr noundef nonnull @.str.68)
           to label %invoke.cont635 unwind label %lpad612
 
@@ -423,12 +421,12 @@ invoke.cont635:                                   ; preds = %land.end632
           to label %land.end650 unwind label %lpad612
 
 land.end650:                                      ; preds = %invoke.cont635
-  %31 = load i16, ptr %call605, align 2
-  %cmp649 = icmp eq i16 %31, 10
+  %29 = load i16, ptr %call605, align 2
+  %cmp649 = icmp eq i16 %29, 10
   %call652 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp649, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 428, ptr noundef nonnull @.str.70)
-          to label %_ZN10TestObjectD2Ev.exit395 unwind label %lpad612
+          to label %_ZN10TestObjectD2Ev.exit414 unwind label %lpad612
 
-_ZN10TestObjectD2Ev.exit395:                      ; preds = %land.end650
+_ZN10TestObjectD2Ev.exit414:                      ; preds = %land.end650
   call void @_ZdlPv(ptr noundef nonnull %call605) #6
   call void @_ZdlPv(ptr noundef nonnull %call600) #6
   %call656 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 435, ptr noundef nonnull @.str.71)
@@ -450,99 +448,99 @@ _ZN10TestObjectD2Ev.exit395:                      ; preds = %land.end650
   %call747 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 529, ptr noundef nonnull @.str.82)
   %call757 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 535, ptr noundef nonnull @.str.83)
   %call766 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 542, ptr noundef nonnull @.str.82)
-  %32 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %33 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %34 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
+  %30 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %31 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %32 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   store i32 1, ptr %arrayTup, align 16
-  %35 = getelementptr inbounds i8, ptr %arrayTup, i64 4
-  store float 1.000000e+00, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %arrayTup, i64 8
-  store i32 1, ptr %36, align 8
-  %mbThrowOnCopy.i.i.i.i318 = getelementptr inbounds i8, ptr %arrayTup, i64 12
-  store i8 0, ptr %mbThrowOnCopy.i.i.i.i318, align 4
-  %mMagicValue.i.i.i.i320 = getelementptr inbounds i8, ptr %arrayTup, i64 24
-  store i32 32623592, ptr %mMagicValue.i.i.i.i320, align 8
-  %inc5.i.i.i.i323 = add nsw i64 %33, 2
-  %37 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i325 = getelementptr inbounds i8, ptr %arrayTup, i64 16
-  store i64 %inc5.i.i.i.i323, ptr %mId.i.i.i.i325, align 16
+  %33 = getelementptr inbounds i8, ptr %arrayTup, i64 4
+  store float 1.000000e+00, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %arrayTup, i64 8
+  store i32 1, ptr %34, align 8
+  %mbThrowOnCopy.i.i.i.i333 = getelementptr inbounds i8, ptr %arrayTup, i64 12
+  store i8 0, ptr %mbThrowOnCopy.i.i.i.i333, align 4
+  %mMagicValue.i.i.i.i336 = getelementptr inbounds i8, ptr %arrayTup, i64 24
+  store i32 32623592, ptr %mMagicValue.i.i.i.i336, align 8
+  %inc5.i.i.i.i339 = add nsw i64 %31, 2
+  %35 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
+  %mId.i.i.i.i341 = getelementptr inbounds i8, ptr %arrayTup, i64 16
+  store i64 %inc5.i.i.i.i339, ptr %mId.i.i.i.i341, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %arrayTup, i64 32
   store i32 2, ptr %arrayinit.element, align 16
-  %38 = getelementptr inbounds i8, ptr %arrayTup, i64 36
-  store float 2.000000e+00, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %arrayTup, i64 40
-  store i32 2, ptr %39, align 8
-  %mbThrowOnCopy.i.i.i.i332 = getelementptr inbounds i8, ptr %arrayTup, i64 44
-  store i8 0, ptr %mbThrowOnCopy.i.i.i.i332, align 4
-  %mMagicValue.i.i.i.i334 = getelementptr inbounds i8, ptr %arrayTup, i64 56
-  store i32 32623592, ptr %mMagicValue.i.i.i.i334, align 8
-  %inc.i.i.i.i336 = add nsw i64 %32, 4
-  %inc5.i.i.i.i337 = add nsw i64 %33, 4
-  %mId.i.i.i.i339 = getelementptr inbounds i8, ptr %arrayTup, i64 48
-  store i64 %inc5.i.i.i.i337, ptr %mId.i.i.i.i339, align 16
+  %36 = getelementptr inbounds i8, ptr %arrayTup, i64 36
+  store float 2.000000e+00, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %arrayTup, i64 40
+  store i32 2, ptr %37, align 8
+  %mbThrowOnCopy.i.i.i.i348 = getelementptr inbounds i8, ptr %arrayTup, i64 44
+  store i8 0, ptr %mbThrowOnCopy.i.i.i.i348, align 4
+  %mMagicValue.i.i.i.i351 = getelementptr inbounds i8, ptr %arrayTup, i64 56
+  store i32 32623592, ptr %mMagicValue.i.i.i.i351, align 8
+  %inc.i.i.i.i353 = add nsw i64 %30, 4
+  %inc5.i.i.i.i354 = add nsw i64 %31, 4
+  %mId.i.i.i.i356 = getelementptr inbounds i8, ptr %arrayTup, i64 48
+  store i64 %inc5.i.i.i.i354, ptr %mId.i.i.i.i356, align 16
   %arrayinit.element780 = getelementptr inbounds i8, ptr %arrayTup, i64 64
   store i32 3, ptr %arrayinit.element780, align 16
-  %40 = getelementptr inbounds i8, ptr %arrayTup, i64 68
-  store float 3.000000e+00, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %arrayTup, i64 72
-  store i32 3, ptr %41, align 8
-  %mbThrowOnCopy.i.i.i.i346 = getelementptr inbounds i8, ptr %arrayTup, i64 76
-  store i8 0, ptr %mbThrowOnCopy.i.i.i.i346, align 4
-  %mMagicValue.i.i.i.i348 = getelementptr inbounds i8, ptr %arrayTup, i64 88
-  store i32 32623592, ptr %mMagicValue.i.i.i.i348, align 8
-  %inc5.i.i.i.i351 = add nsw i64 %33, 6
-  %mId.i.i.i.i353 = getelementptr inbounds i8, ptr %arrayTup, i64 80
-  store i64 %inc5.i.i.i.i351, ptr %mId.i.i.i.i353, align 16
+  %38 = getelementptr inbounds i8, ptr %arrayTup, i64 68
+  store float 3.000000e+00, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %arrayTup, i64 72
+  store i32 3, ptr %39, align 8
+  %mbThrowOnCopy.i.i.i.i363 = getelementptr inbounds i8, ptr %arrayTup, i64 76
+  store i8 0, ptr %mbThrowOnCopy.i.i.i.i363, align 4
+  %mMagicValue.i.i.i.i366 = getelementptr inbounds i8, ptr %arrayTup, i64 88
+  store i32 32623592, ptr %mMagicValue.i.i.i.i366, align 8
+  %inc5.i.i.i.i369 = add nsw i64 %31, 6
+  %mId.i.i.i.i371 = getelementptr inbounds i8, ptr %arrayTup, i64 80
+  store i64 %inc5.i.i.i.i369, ptr %mId.i.i.i.i371, align 16
   %arrayinit.element787 = getelementptr inbounds i8, ptr %arrayTup, i64 96
-  %inc4.i358 = add nsw i64 %34, 4
-  store i64 %inc4.i358, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
+  %inc4.i376 = add nsw i64 %32, 4
+  store i64 %inc4.i376, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   store i32 4, ptr %arrayinit.element787, align 16
-  %42 = getelementptr inbounds i8, ptr %arrayTup, i64 100
-  store float 4.000000e+00, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %arrayTup, i64 104
-  store i32 4, ptr %43, align 8
-  %mbThrowOnCopy.i.i.i.i360 = getelementptr inbounds i8, ptr %arrayTup, i64 108
-  store i8 0, ptr %mbThrowOnCopy.i.i.i.i360, align 4
-  %mMagicValue.i.i.i.i362 = getelementptr inbounds i8, ptr %arrayTup, i64 120
-  store i32 32623592, ptr %mMagicValue.i.i.i.i362, align 8
-  %inc5.i.i.i.i365 = add nsw i64 %33, 8
-  store i64 %inc5.i.i.i.i365, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc6.i.i.i.i366 = add nsw i64 %37, 4
-  store i64 %inc6.i.i.i.i366, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i367 = getelementptr inbounds i8, ptr %arrayTup, i64 112
-  store i64 %inc5.i.i.i.i365, ptr %mId.i.i.i.i367, align 16
-  %44 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  store i64 %inc.i.i.i.i336, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc3.i394 = add nsw i64 %44, 4
-  store i64 %inc3.i394, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %45 = getelementptr inbounds i8, ptr %arrayTup, i64 128
+  %40 = getelementptr inbounds i8, ptr %arrayTup, i64 100
+  store float 4.000000e+00, ptr %40, align 4
+  %41 = getelementptr inbounds i8, ptr %arrayTup, i64 104
+  store i32 4, ptr %41, align 8
+  %mbThrowOnCopy.i.i.i.i378 = getelementptr inbounds i8, ptr %arrayTup, i64 108
+  store i8 0, ptr %mbThrowOnCopy.i.i.i.i378, align 4
+  %mMagicValue.i.i.i.i381 = getelementptr inbounds i8, ptr %arrayTup, i64 120
+  store i32 32623592, ptr %mMagicValue.i.i.i.i381, align 8
+  %inc5.i.i.i.i384 = add nsw i64 %31, 8
+  store i64 %inc5.i.i.i.i384, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc6.i.i.i.i385 = add nsw i64 %35, 4
+  store i64 %inc6.i.i.i.i385, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
+  %mId.i.i.i.i386 = getelementptr inbounds i8, ptr %arrayTup, i64 112
+  store i64 %inc5.i.i.i.i384, ptr %mId.i.i.i.i386, align 16
+  %42 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  store i64 %inc.i.i.i.i353, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc3.i413 = add nsw i64 %42, 4
+  store i64 %inc3.i413, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %43 = getelementptr inbounds i8, ptr %arrayTup, i64 128
   %_ZN10TestObject16sMagicErrorCountE.promoted = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   br label %arraydestroy.body800
 
-arraydestroy.body800:                             ; preds = %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit402, %_ZN10TestObjectD2Ev.exit395
-  %inc.i.i.i.i399679 = phi i32 [ %_ZN10TestObject16sMagicErrorCountE.promoted, %_ZN10TestObjectD2Ev.exit395 ], [ %inc.i.i.i.i399678, %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit402 ]
-  %arraydestroy.elementPast801 = phi ptr [ %45, %_ZN10TestObjectD2Ev.exit395 ], [ %arraydestroy.element802, %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit402 ]
+arraydestroy.body800:                             ; preds = %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit421, %_ZN10TestObjectD2Ev.exit414
+  %inc.i.i.i.i418698 = phi i32 [ %_ZN10TestObject16sMagicErrorCountE.promoted, %_ZN10TestObjectD2Ev.exit414 ], [ %inc.i.i.i.i418697, %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit421 ]
+  %arraydestroy.elementPast801 = phi ptr [ %43, %_ZN10TestObjectD2Ev.exit414 ], [ %arraydestroy.element802, %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit421 ]
   %arraydestroy.element802 = getelementptr inbounds i8, ptr %arraydestroy.elementPast801, i64 -32
-  %mMagicValue.i.i.i.i396 = getelementptr inbounds i8, ptr %arraydestroy.elementPast801, i64 -8
-  %46 = load i32, ptr %mMagicValue.i.i.i.i396, align 8
-  %cmp.not.i.i.i.i397 = icmp eq i32 %46, 32623592
-  br i1 %cmp.not.i.i.i.i397, label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit402, label %if.then.i.i.i.i398
+  %mMagicValue.i.i.i.i415 = getelementptr inbounds i8, ptr %arraydestroy.elementPast801, i64 -8
+  %44 = load i32, ptr %mMagicValue.i.i.i.i415, align 8
+  %cmp.not.i.i.i.i416 = icmp eq i32 %44, 32623592
+  br i1 %cmp.not.i.i.i.i416, label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit421, label %if.then.i.i.i.i417
 
-if.then.i.i.i.i398:                               ; preds = %arraydestroy.body800
-  %inc.i.i.i.i399 = add nsw i32 %inc.i.i.i.i399679, 1
-  store i32 %inc.i.i.i.i399, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  br label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit402
+if.then.i.i.i.i417:                               ; preds = %arraydestroy.body800
+  %inc.i.i.i.i418 = add nsw i32 %inc.i.i.i.i418698, 1
+  store i32 %inc.i.i.i.i418, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
+  br label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit421
 
-_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit402:    ; preds = %arraydestroy.body800, %if.then.i.i.i.i398
-  %inc.i.i.i.i399678 = phi i32 [ %inc.i.i.i.i399679, %arraydestroy.body800 ], [ %inc.i.i.i.i399, %if.then.i.i.i.i398 ]
-  store i32 0, ptr %mMagicValue.i.i.i.i396, align 8
+_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit421:    ; preds = %arraydestroy.body800, %if.then.i.i.i.i417
+  %inc.i.i.i.i418697 = phi i32 [ %inc.i.i.i.i418698, %arraydestroy.body800 ], [ %inc.i.i.i.i418, %if.then.i.i.i.i417 ]
+  store i32 0, ptr %mMagicValue.i.i.i.i415, align 8
   %arraydestroy.done803 = icmp eq ptr %arraydestroy.element802, %arrayTup
   br i1 %arraydestroy.done803, label %_ZN5eastl10unique_ptrIA_iNS_14default_deleteIS1_EEED2Ev.exit, label %arraydestroy.body800
 
-_ZN5eastl10unique_ptrIA_iNS_14default_deleteIS1_EEED2Ev.exit: ; preds = %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit402
-  %47 = add i64 %44, 8
-  store i64 %32, ptr @_ZN10TestObject8sTOCountE, align 8
-  store i64 %47, ptr @_ZN10TestObject12sTODtorCountE, align 8
+_ZN5eastl10unique_ptrIA_iNS_14default_deleteIS1_EEED2Ev.exit: ; preds = %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit421
+  %45 = add i64 %42, 8
+  store i64 %30, ptr @_ZN10TestObject8sTOCountE, align 8
+  store i64 %45, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %call809 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 606, ptr noundef nonnull @.str.84)
   %call813 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 607, ptr noundef nonnull @.str.85)
   %call823 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 615, ptr noundef nonnull @.str.86)
@@ -551,97 +549,97 @@ _ZN5eastl10unique_ptrIA_iNS_14default_deleteIS1_EEED2Ev.exit: ; preds = %_ZN5eas
   %call839 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 623, ptr noundef nonnull @.str.86)
   %call841 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 624, ptr noundef nonnull @.str.87)
   %call843 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 625, ptr noundef nonnull @.str.88)
-  %48 = load i32, ptr %nErrorCount, align 4
-  ret i32 %48
+  %46 = load i32, ptr %nErrorCount, align 4
+  ret i32 %46
 
 lpad:                                             ; preds = %land.end
-  %49 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %.pre682 = load i32, ptr @_ZN17TestTupleInternal21OperationCountingType16mDestructorCallsE, align 4
+  %.pre701 = load i32, ptr @_ZN17TestTupleInternal21OperationCountingType16mDestructorCallsE, align 4
   br label %ehcleanup78
 
 lpad33:                                           ; preds = %invoke.cont44, %invoke.cont29
-  %50 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
   %.pre = load i32, ptr @_ZN17TestTupleInternal21OperationCountingType16mDestructorCallsE, align 4
   br label %ehcleanup
 
 lpad70:                                           ; preds = %land.end75
-  %51 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %52 = load i32, ptr @_ZN17TestTupleInternal21OperationCountingType16mDestructorCallsE, align 4
-  %inc.i.i.i.i413 = add nsw i32 %52, 1
-  store i32 %inc.i.i.i.i413, ptr @_ZN17TestTupleInternal21OperationCountingType16mDestructorCallsE, align 4
+  %50 = load i32, ptr @_ZN17TestTupleInternal21OperationCountingType16mDestructorCallsE, align 4
+  %inc.i.i.i.i432 = add nsw i32 %50, 1
+  store i32 %inc.i.i.i.i432, ptr @_ZN17TestTupleInternal21OperationCountingType16mDestructorCallsE, align 4
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad70, %lpad33
-  %53 = phi i32 [ %inc.i.i.i.i413, %lpad70 ], [ %.pre, %lpad33 ]
-  %.pn = phi { ptr, i32 } [ %51, %lpad70 ], [ %50, %lpad33 ]
-  %inc.i.i.i.i414 = add nsw i32 %53, 1
-  store i32 %inc.i.i.i.i414, ptr @_ZN17TestTupleInternal21OperationCountingType16mDestructorCallsE, align 4
+  %51 = phi i32 [ %inc.i.i.i.i432, %lpad70 ], [ %.pre, %lpad33 ]
+  %.pn = phi { ptr, i32 } [ %49, %lpad70 ], [ %48, %lpad33 ]
+  %inc.i.i.i.i433 = add nsw i32 %51, 1
+  store i32 %inc.i.i.i.i433, ptr @_ZN17TestTupleInternal21OperationCountingType16mDestructorCallsE, align 4
   br label %ehcleanup78
 
 ehcleanup78:                                      ; preds = %ehcleanup, %lpad
-  %54 = phi i32 [ %inc.i.i.i.i414, %ehcleanup ], [ %.pre682, %lpad ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %49, %lpad ]
-  %inc.i.i.i.i415 = add nsw i32 %54, 1
-  store i32 %inc.i.i.i.i415, ptr @_ZN17TestTupleInternal21OperationCountingType16mDestructorCallsE, align 4
+  %52 = phi i32 [ %inc.i.i.i.i433, %ehcleanup ], [ %.pre701, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %47, %lpad ]
+  %inc.i.i.i.i434 = add nsw i32 %52, 1
+  store i32 %inc.i.i.i.i434, ptr @_ZN17TestTupleInternal21OperationCountingType16mDestructorCallsE, align 4
   br label %eh.resume
 
-_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit429:    ; preds = %invoke.cont317, %invoke.cont324, %invoke.cont329, %invoke.cont335, %invoke.cont342, %invoke.cont347, %invoke.cont351, %land.end363, %invoke.cont367
-  %55 = landingpad { ptr, i32 }
+_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit448:    ; preds = %invoke.cont317, %invoke.cont324, %invoke.cont329, %invoke.cont335, %invoke.cont342, %invoke.cont347, %invoke.cont351, %land.end363, %invoke.cont367
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %56 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %dec.i.i.i.i427 = add nsw i64 %56, -1
-  store i64 %dec.i.i.i.i427, ptr @_ZN10TestObject8sTOCountE, align 8
-  %57 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %inc3.i.i.i.i428 = add nsw i64 %57, 1
-  store i64 %inc3.i.i.i.i428, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %54 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %dec.i.i.i.i446 = add nsw i64 %54, -1
+  store i64 %dec.i.i.i.i446, ptr @_ZN10TestObject8sTOCountE, align 8
+  %55 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %inc3.i.i.i.i447 = add nsw i64 %55, 1
+  store i64 %inc3.i.i.i.i447, ptr @_ZN10TestObject12sTODtorCountE, align 8
   br label %eh.resume
 
-_ZN10TestObjectD2Ev.exit436:                      ; preds = %invoke.cont402, %invoke.cont407
-  %58 = landingpad { ptr, i32 }
+_ZN10TestObjectD2Ev.exit455:                      ; preds = %invoke.cont402, %invoke.cont407
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %59 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %dec.i434 = add nsw i64 %59, -1
-  store i64 %dec.i434, ptr @_ZN10TestObject8sTOCountE, align 8
-  %60 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %inc3.i435 = add nsw i64 %60, 1
-  store i64 %inc3.i435, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %57 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %dec.i453 = add nsw i64 %57, -1
+  store i64 %dec.i453, ptr @_ZN10TestObject8sTOCountE, align 8
+  %58 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %inc3.i454 = add nsw i64 %58, 1
+  store i64 %inc3.i454, ptr @_ZN10TestObject12sTODtorCountE, align 8
   br label %eh.resume
 
-_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit439: ; preds = %invoke.cont507, %land.end504, %invoke.cont488
-  %61 = landingpad { ptr, i32 }
+_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit458: ; preds = %invoke.cont507, %land.end504, %invoke.cont488
+  %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call484) #6
   br label %eh.resume
 
 lpad547:                                          ; preds = %invoke.cont587, %invoke.cont582, %land.end579, %invoke.cont565, %land.end562, %invoke.cont548
-  %62 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEENS1_IfNS2_IfEEEEiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %result542) #7
   br label %eh.resume
 
-_ZNK5eastl14default_deleteIbEclEPb.exit.i.i.i.i.i447: ; preds = %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit249
-  %63 = landingpad { ptr, i32 }
+_ZNK5eastl14default_deleteIbEclEPb.exit.i.i.i.i.i466: ; preds = %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit261
+  %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call534) #6
   br label %eh.resume
 
 lpad612:                                          ; preds = %land.end650, %invoke.cont635, %land.end632, %invoke.cont618, %invoke.cont613
-  %64 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl5tupleIJibNS_10unique_ptrIfNS_14default_deleteIfEEEEiNS1_IsNS2_IsEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %result607) #7
   br label %eh.resume
 
-_ZNK5eastl14default_deleteIfEclEPf.exit.i.i.i.i.i453: ; preds = %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit273
-  %65 = landingpad { ptr, i32 }
+_ZNK5eastl14default_deleteIfEclEPf.exit.i.i.i.i.i472: ; preds = %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit286
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call600) #6
   br label %eh.resume
 
-eh.resume:                                        ; preds = %lpad612, %lpad547, %_ZNK5eastl14default_deleteIfEclEPf.exit.i.i.i.i.i453, %_ZNK5eastl14default_deleteIbEclEPb.exit.i.i.i.i.i447, %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit439, %_ZN10TestObjectD2Ev.exit436, %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit429, %ehcleanup78
-  %.pn21 = phi { ptr, i32 } [ %58, %_ZN10TestObjectD2Ev.exit436 ], [ %55, %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit429 ], [ %.pn.pn, %ehcleanup78 ], [ %61, %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit439 ], [ %63, %_ZNK5eastl14default_deleteIbEclEPb.exit.i.i.i.i.i447 ], [ %65, %_ZNK5eastl14default_deleteIfEclEPf.exit.i.i.i.i.i453 ], [ %62, %lpad547 ], [ %64, %lpad612 ]
+eh.resume:                                        ; preds = %lpad612, %lpad547, %_ZNK5eastl14default_deleteIfEclEPf.exit.i.i.i.i.i472, %_ZNK5eastl14default_deleteIbEclEPb.exit.i.i.i.i.i466, %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit458, %_ZN10TestObjectD2Ev.exit455, %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit448, %ehcleanup78
+  %.pn21 = phi { ptr, i32 } [ %56, %_ZN10TestObjectD2Ev.exit455 ], [ %53, %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit448 ], [ %.pn.pn, %ehcleanup78 ], [ %59, %_ZN5eastl5tupleIJiNS_10unique_ptrIbNS_14default_deleteIbEEEEEED2Ev.exit458 ], [ %61, %_ZNK5eastl14default_deleteIbEclEPb.exit.i.i.i.i.i466 ], [ %63, %_ZNK5eastl14default_deleteIfEclEPf.exit.i.i.i.i.i472 ], [ %60, %lpad547 ], [ %62, %lpad612 ]
   resume { ptr, i32 } %.pn21
 }
 

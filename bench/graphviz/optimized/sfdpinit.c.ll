@@ -123,8 +123,8 @@ define void @sfdp_layout(ptr noundef %0) local_unnamed_addr #0 {
 
 sfdp_init_graph.exit:                             ; preds = %._crit_edge24.i.i, %._crit_edge.i.i
   %48 = load i32, ptr @Ndim, align 4
-  %.fr61 = freeze i32 %48
-  %49 = icmp eq i32 %.fr61, 2
+  %.fr60 = freeze i32 %48
+  %49 = icmp eq i32 %.fr60, 2
   %50 = tail call i32 @agnnodes(ptr noundef %0) #12
   %.not = icmp eq i32 %50, 0
   br i1 %.not, label %203, label %51
@@ -161,8 +161,8 @@ sfdp_init_graph.exit:                             ; preds = %._crit_edge24.i.i, 
   %70 = getelementptr inbounds i8, ptr %52, i64 32
   store i32 %69, ptr %70, align 8
   %71 = call ptr @agattr(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef null) #12
-  %.not.i.i54 = icmp eq ptr %71, null
-  br i1 %.not.i.i54, label %late_smooth.exit.i, label %72
+  %.not.i.i53 = icmp eq ptr %71, null
+  br i1 %.not.i.i53, label %late_smooth.exit.i, label %72
 
 72:                                               ; preds = %59
   %73 = call ptr @agxget(ptr noundef %0, ptr noundef nonnull %71) #12
@@ -321,9 +321,8 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
   store double %149, ptr %150, align 8
   %151 = call { <2 x float>, i8 } @sepFactor(ptr noundef %0) #12
   %.fca.1.extract = extractvalue { <2 x float>, i8 } %151, 1
-  %152 = and i8 %.fca.1.extract, 1
-  %.not50 = icmp eq i8 %152, 0
-  br i1 %.not50, label %159, label %153
+  %152 = trunc i8 %.fca.1.extract to i1
+  br i1 %152, label %153, label %159
 
 153:                                              ; preds = %144
   %.fca.0.extract = extractvalue { <2 x float>, i8 } %151, 0
@@ -341,8 +340,8 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
   %.048 = phi i1 [ true, %153 ], [ true, %144 ], [ %158, %156 ]
   %160 = phi <2 x double> [ %155, %153 ], [ <double 0x3FAC71C71C71C71C, double 0x3FAC71C71C71C71C>, %144 ], [ <double 0x3FAC71C71C71C71C, double 0x3FAC71C71C71C71C>, %156 ]
   %161 = load i8, ptr @Verbose, align 1
-  %.not51 = icmp eq i8 %161, 0
-  br i1 %.not51, label %163, label %162
+  %.not50 = icmp eq i8 %161, 0
+  br i1 %.not50, label %163, label %162
 
 162:                                              ; preds = %159
   call void @spring_electrical_control_print(ptr noundef nonnull %52) #12
@@ -373,8 +372,8 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
   %175 = getelementptr inbounds i8, ptr %5, i64 12
   store i8 1, ptr %175, align 4
   %176 = load i64, ptr %4, align 8
-  %.not60 = icmp eq i64 %176, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph
+  %.not59 = icmp eq i64 %176, 0
+  br i1 %.not59, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %173
   br i1 %.048, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
@@ -390,28 +389,28 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.04755.us = phi i64 [ %184, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
-  %181 = getelementptr inbounds ptr, ptr %164, i64 %.04755.us
+  %.04754.us = phi i64 [ %184, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
+  %181 = getelementptr inbounds ptr, ptr %164, i64 %.04754.us
   %182 = load ptr, ptr %181, align 8
   %183 = call i64 @graphviz_node_induce(ptr noundef %182, ptr noundef null) #12
   call fastcc void @sfdpLayout(ptr noundef %182, ptr noundef nonnull %52, double %179, double %180)
   call void @setEdgeType(ptr noundef %182, i32 noundef 2) #12
   call void @spline_edges(ptr noundef %182) #12
-  %184 = add nuw i64 %.04755.us, 1
+  %184 = add nuw i64 %.04754.us, 1
   %185 = load i64, ptr %4, align 8
   %186 = icmp ult i64 %184, %185
   br i1 %186, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %.04755 = phi i64 [ %191, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
-  %187 = getelementptr inbounds ptr, ptr %164, i64 %.04755
+  %.04754 = phi i64 [ %191, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
+  %187 = getelementptr inbounds ptr, ptr %164, i64 %.04754
   %188 = load ptr, ptr %187, align 8
   %189 = call i64 @graphviz_node_induce(ptr noundef %188, ptr noundef null) #12
   call fastcc void @sfdpLayout(ptr noundef %188, ptr noundef nonnull %52, double %177, double %178)
   %190 = call i32 @removeOverlapWith(ptr noundef %188, ptr noundef nonnull %3) #12
   call void @setEdgeType(ptr noundef %188, i32 noundef 2) #12
   call void @spline_edges(ptr noundef %188) #12
-  %191 = add nuw i64 %.04755, 1
+  %191 = add nuw i64 %.04754, 1
   %192 = load i64, ptr %4, align 8
   %193 = icmp ult i64 %191, %192
   br i1 %193, label %.lr.ph.split, label %._crit_edge
@@ -423,25 +422,25 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
 
 195:                                              ; preds = %._crit_edge, %172
   %196 = load i64, ptr %4, align 8
-  %.not62 = icmp eq i64 %196, 0
-  br i1 %.not62, label %._crit_edge59, label %.lr.ph58
+  %.not61 = icmp eq i64 %196, 0
+  br i1 %.not61, label %._crit_edge58, label %.lr.ph57
 
-.lr.ph58:                                         ; preds = %195, %.lr.ph58
-  %.056 = phi i64 [ %200, %.lr.ph58 ], [ 0, %195 ]
-  %197 = getelementptr inbounds ptr, ptr %164, i64 %.056
+.lr.ph57:                                         ; preds = %195, %.lr.ph57
+  %.055 = phi i64 [ %200, %.lr.ph57 ], [ 0, %195 ]
+  %197 = getelementptr inbounds ptr, ptr %164, i64 %.055
   %198 = load ptr, ptr %197, align 8
   %199 = call i32 @agdelete(ptr noundef %0, ptr noundef %198) #12
-  %200 = add nuw i64 %.056, 1
+  %200 = add nuw i64 %.055, 1
   %201 = load i64, ptr %4, align 8
   %202 = icmp ult i64 %200, %201
-  br i1 %202, label %.lr.ph58, label %._crit_edge59
+  br i1 %202, label %.lr.ph57, label %._crit_edge58
 
-._crit_edge59:                                    ; preds = %.lr.ph58, %195
+._crit_edge58:                                    ; preds = %.lr.ph57, %195
   call void @free(ptr noundef %164) #12
   call void @spring_electrical_control_delete(ptr noundef nonnull %52) #12
   br label %203
 
-203:                                              ; preds = %._crit_edge59, %sfdp_init_graph.exit
+203:                                              ; preds = %._crit_edge58, %sfdp_init_graph.exit
   call void @dotneato_postprocess(ptr noundef %0) #12
   ret void
 }

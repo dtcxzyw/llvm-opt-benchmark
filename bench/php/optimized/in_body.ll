@@ -96,31 +96,30 @@ define hidden i32 @lxb_html_tree_insertion_mode_in_body_text_append(ptr noundef 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 81
   %7 = load i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %.not21 = icmp eq i8 %8, 0
-  br i1 %.not21, label %.loopexit, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
-  %.not2225 = icmp eq i64 %12, 0
-  br i1 %.not2225, label %.loopexit, label %.lr.ph
+  %.not2124 = icmp eq i64 %12, 0
+  br i1 %.not2124, label %.loopexit, label %.lr.ph
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.01826, i64 1
-  %.not22 = icmp eq ptr %15, %13
-  br i1 %.not22, label %.loopexit, label %.lr.ph
+  %15 = getelementptr inbounds i8, ptr %.01825, i64 1
+  %.not21 = icmp eq ptr %15, %13
+  br i1 %.not21, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %14
-  %.01826 = phi ptr [ %15, %14 ], [ %10, %9 ]
-  %16 = load i8, ptr %.01826, align 1
+  %.01825 = phi ptr [ %15, %14 ], [ %10, %9 ]
+  %16 = load i8, ptr %.01825, align 1
   %17 = zext i8 %16 to i64
   %18 = getelementptr inbounds [256 x i8], ptr @lexbor_tokenizer_chars_map, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
-  %.not23 = icmp eq i8 %19, 2
-  br i1 %.not23, label %14, label %20
+  %.not22 = icmp eq i8 %19, 2
+  br i1 %.not22, label %14, label %20
 
 20:                                               ; preds = %.lr.ph
   store i8 0, ptr %6, align 1
@@ -1204,30 +1203,29 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_text(ptr
 34:                                               ; preds = %32
   %35 = getelementptr inbounds i8, ptr %0, i64 81
   %36 = load i8, ptr %35, align 1
-  %37 = and i8 %36, 1
-  %.not21.i = icmp eq i8 %37, 0
-  br i1 %.not21.i, label %lxb_html_tree_insertion_mode_in_body_text_append.exit, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %lxb_html_tree_insertion_mode_in_body_text_append.exit
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %3, align 8
   %40 = load i64, ptr %23, align 8
   %41 = getelementptr inbounds i8, ptr %39, i64 %40
-  %.not2225.i = icmp eq i64 %40, 0
-  br i1 %.not2225.i, label %lxb_html_tree_insertion_mode_in_body_text_append.exit, label %.lr.ph.i
+  %.not2124.i = icmp eq i64 %40, 0
+  br i1 %.not2124.i, label %lxb_html_tree_insertion_mode_in_body_text_append.exit, label %.lr.ph.i
 
 42:                                               ; preds = %.lr.ph.i
-  %43 = getelementptr inbounds i8, ptr %.01826.i, i64 1
-  %.not22.i = icmp eq ptr %43, %41
-  br i1 %.not22.i, label %lxb_html_tree_insertion_mode_in_body_text_append.exit, label %.lr.ph.i
+  %43 = getelementptr inbounds i8, ptr %.01825.i, i64 1
+  %.not21.i = icmp eq ptr %43, %41
+  br i1 %.not21.i, label %lxb_html_tree_insertion_mode_in_body_text_append.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %38, %42
-  %.01826.i = phi ptr [ %43, %42 ], [ %39, %38 ]
-  %44 = load i8, ptr %.01826.i, align 1
+  %.01825.i = phi ptr [ %43, %42 ], [ %39, %38 ]
+  %44 = load i8, ptr %.01825.i, align 1
   %45 = zext i8 %44 to i64
   %46 = getelementptr inbounds [256 x i8], ptr @lexbor_tokenizer_chars_map, i64 0, i64 %45
   %47 = load i8, ptr %46, align 1
-  %.not23.i = icmp eq i8 %47, 2
-  br i1 %.not23.i, label %42, label %48
+  %.not22.i = icmp eq i8 %47, 2
+  br i1 %.not22.i, label %42, label %48
 
 48:                                               ; preds = %.lr.ph.i
   store i8 0, ptr %35, align 1

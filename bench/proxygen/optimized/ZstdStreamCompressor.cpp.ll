@@ -120,9 +120,8 @@ entry:
   %outrange = alloca %"class.folly::Range.10", align 8
   %error_ = getelementptr inbounds i8, ptr %this, i64 21
   %0 = load i8, ptr %error_, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store ptr null, ptr %agg.result, align 8
@@ -140,8 +139,8 @@ if.then2:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   call void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %clone) #8
   %next_.i = getelementptr inbounds i8, ptr %in, i64 32
-  %2 = load ptr, ptr %next_.i, align 8
-  %cmp.i.not = icmp eq ptr %2, %in
+  %1 = load ptr, ptr %next_.i, align 8
+  %cmp.i.not = icmp eq ptr %1, %in
   br i1 %cmp.i.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.end4
@@ -154,7 +153,7 @@ invoke.cont6:                                     ; preds = %if.then5
   br label %if.end8
 
 lpad:                                             ; preds = %if.then.i, %invoke.cont23, %if.end20, %if.then15, %if.then5
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   br label %ehcleanup103
@@ -163,36 +162,35 @@ if.end8:                                          ; preds = %invoke.cont6, %if.e
   %in.addr.0 = phi ptr [ %clone, %invoke.cont6 ], [ %in, %if.end4 ]
   %in.addr.0.sroa.phi = getelementptr inbounds i8, ptr %in.addr.0, i64 8
   %independent_ = getelementptr inbounds i8, ptr %this, i64 20
-  %4 = load i8, ptr %independent_, align 4
-  %5 = and i8 %4, 1
-  %tobool10 = icmp ne i8 %5, 0
-  %6 = select i1 %last, i1 true, i1 %tobool10
-  %cond = select i1 %6, i32 2, i32 1
+  %3 = load i8, ptr %independent_, align 4
+  %tobool10 = trunc i8 %3 to i1
+  %4 = select i1 %last, i1 true, i1 %tobool10
+  %cond = select i1 %4, i32 2, i32 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %codec_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %codec_.i, align 8
-  %cmp.i.not.i = icmp eq ptr %7, null
+  %5 = load ptr, ptr %codec_.i, align 8
+  %cmp.i.not.i = icmp eq ptr %5, null
   br i1 %cmp.i.not.i, label %if.then.i, label %invoke.cont11
 
 if.then.i:                                        ; preds = %if.end8
   %compressionLevel_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %8 = load i32, ptr %compressionLevel_.i, align 8
-  invoke void @_ZN5folly2io14getStreamCodecENS0_9CodecTypeEi(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp.i, i32 noundef 8, i32 noundef %8)
+  %6 = load i32, ptr %compressionLevel_.i, align 8
+  invoke void @_ZN5folly2io14getStreamCodecENS0_9CodecTypeEi(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp.i, i32 noundef 8, i32 noundef %6)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i
-  %9 = load ptr, ptr %ref.tmp.i, align 8
+  %7 = load ptr, ptr %ref.tmp.i, align 8
   store ptr null, ptr %ref.tmp.i, align 8
-  %10 = load ptr, ptr %codec_.i, align 8
-  store ptr %9, ptr %codec_.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %10, null
+  %8 = load ptr, ptr %codec_.i, align 8
+  store ptr %7, ptr %codec_.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EEaSEOS5_.exit.i
 
 _ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EEaSEOS5_.exit.i: ; preds = %.noexc
-  %vtable.i.i.i.i.i.i = load ptr, ptr %10, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %8, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
-  %11 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(49) %10) #8
+  %9 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(49) %8) #8
   %.pr.i = load ptr, ptr %ref.tmp.i, align 8
   %cmp.not.i.i = icmp eq ptr %.pr.i, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5folly2io11StreamCodecEEclEPS2_.exit.i.i
@@ -200,34 +198,33 @@ _ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EEaSEOS5_.exit.i
 _ZNKSt14default_deleteIN5folly2io11StreamCodecEEclEPS2_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EEaSEOS5_.exit.i
   %vtable.i.i.i = load ptr, ptr %.pr.i, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
-  %12 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(49) %.pr.i) #8
+  %10 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(49) %.pr.i) #8
   br label %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5folly2io11StreamCodecEEclEPS2_.exit.i.i, %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EEaSEOS5_.exit.i, %.noexc
   %.pre.i = load ptr, ptr %codec_.i, align 8
   %.pre = load i8, ptr %independent_, align 4
-  %.pre25 = and i8 %.pre, 1
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit.i, %if.end8
-  %.pre-phi = phi i8 [ %.pre25, %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit.i ], [ %5, %if.end8 ]
-  %13 = phi ptr [ %.pre.i, %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit.i ], [ %7, %if.end8 ]
+  %11 = phi i8 [ %.pre, %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit.i ], [ %3, %if.end8 ]
+  %12 = phi ptr [ %.pre.i, %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit.i ], [ %5, %if.end8 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %tobool14.not = icmp eq i8 %.pre-phi, 0
-  br i1 %tobool14.not, label %if.end20, label %if.then15
+  %tobool14 = trunc i8 %11 to i1
+  br i1 %tobool14, label %if.then15, label %if.end20
 
 if.then15:                                        ; preds = %invoke.cont11
-  %14 = load i64, ptr %in.addr.0, align 8
+  %13 = load i64, ptr %in.addr.0, align 8
   %hasValue.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 %14, ptr %agg.tmp, align 8
+  store i64 %13, ptr %agg.tmp, align 8
   store i8 1, ptr %hasValue.i.i, align 8
-  invoke void @_ZN5folly2io11StreamCodec11resetStreamENS_8OptionalImEE(ptr noundef nonnull align 8 dereferenceable(49) %13, ptr noundef nonnull %agg.tmp)
+  invoke void @_ZN5folly2io11StreamCodec11resetStreamENS_8OptionalImEE(ptr noundef nonnull align 8 dereferenceable(49) %12, ptr noundef nonnull %agg.tmp)
           to label %if.end20 unwind label %lpad
 
 if.end20:                                         ; preds = %if.then15, %invoke.cont11
-  %15 = load i64, ptr %in.addr.0, align 8
-  %call24 = invoke noundef i64 @_ZNK5folly2io5Codec19maxCompressedLengthEm(ptr noundef nonnull align 8 dereferenceable(12) %13, i64 noundef %15)
+  %14 = load i64, ptr %in.addr.0, align 8
+  %call24 = invoke noundef i64 @_ZNK5folly2io5Codec19maxCompressedLengthEm(ptr noundef nonnull align 8 dereferenceable(12) %12, i64 noundef %14)
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %if.end20
@@ -236,22 +233,22 @@ invoke.cont23:                                    ; preds = %if.end20
           to label %invoke.cont36 unwind label %lpad
 
 invoke.cont36:                                    ; preds = %invoke.cont23
-  %16 = load ptr, ptr %in.addr.0.sroa.phi, align 8
-  %17 = load i64, ptr %in.addr.0, align 8
-  store ptr %16, ptr %inrange, align 8
+  %15 = load ptr, ptr %in.addr.0.sroa.phi, align 8
+  %16 = load i64, ptr %in.addr.0, align 8
+  store ptr %15, ptr %inrange, align 8
   %e_.i = getelementptr inbounds i8, ptr %inrange, i64 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %16, i64 %17
+  %add.ptr.i = getelementptr inbounds i8, ptr %15, i64 %16
   store ptr %add.ptr.i, ptr %e_.i, align 8
-  %18 = load ptr, ptr %out, align 8
-  %data_.i12 = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = load ptr, ptr %data_.i12, align 8
-  %20 = load i64, ptr %18, align 8
-  %add.ptr.i13 = getelementptr inbounds i8, ptr %19, i64 %20
-  %buf_.i.i = getelementptr inbounds i8, ptr %18, i64 24
-  %21 = load ptr, ptr %buf_.i.i, align 8
-  %capacity_.i.i = getelementptr inbounds i8, ptr %18, i64 16
-  %22 = load i64, ptr %capacity_.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %21, i64 %22
+  %17 = load ptr, ptr %out, align 8
+  %data_.i12 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load ptr, ptr %data_.i12, align 8
+  %19 = load i64, ptr %17, align 8
+  %add.ptr.i13 = getelementptr inbounds i8, ptr %18, i64 %19
+  %buf_.i.i = getelementptr inbounds i8, ptr %17, i64 24
+  %20 = load ptr, ptr %buf_.i.i, align 8
+  %capacity_.i.i = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = load i64, ptr %capacity_.i.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %20, i64 %21
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i13 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -259,49 +256,49 @@ invoke.cont36:                                    ; preds = %invoke.cont23
   %e_.i14 = getelementptr inbounds i8, ptr %outrange, i64 8
   %add.ptr.i15 = getelementptr inbounds i8, ptr %add.ptr.i13, i64 %sub.ptr.sub.i
   store ptr %add.ptr.i15, ptr %e_.i14, align 8
-  %call40 = invoke noundef zeroext i1 @_ZN5folly2io11StreamCodec14compressStreamERNS_5RangeIPKhEERNS2_IPhEENS1_7FlushOpE(ptr noundef nonnull align 8 dereferenceable(49) %13, ptr noundef nonnull align 8 dereferenceable(16) %inrange, ptr noundef nonnull align 8 dereferenceable(16) %outrange, i32 noundef %cond)
+  %call40 = invoke noundef zeroext i1 @_ZN5folly2io11StreamCodec14compressStreamERNS_5RangeIPKhEERNS2_IPhEENS1_7FlushOpE(ptr noundef nonnull align 8 dereferenceable(49) %12, ptr noundef nonnull align 8 dereferenceable(16) %inrange, ptr noundef nonnull align 8 dereferenceable(16) %outrange, i32 noundef %cond)
           to label %invoke.cont39 unwind label %lpad26
 
 invoke.cont39:                                    ; preds = %invoke.cont36
   br i1 %call40, label %invoke.cont98, label %cleanup
 
 lpad26:                                           ; preds = %invoke.cont36
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %out) #8
   br label %ehcleanup103
 
 invoke.cont98:                                    ; preds = %invoke.cont39
-  %24 = load ptr, ptr %out, align 8
-  %25 = load ptr, ptr %outrange, align 8
-  %data_.i16 = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = load ptr, ptr %data_.i16, align 8
-  %27 = load i64, ptr %24, align 8
-  %add.ptr.i17 = getelementptr inbounds i8, ptr %26, i64 %27
-  %sub.ptr.lhs.cast = ptrtoint ptr %25 to i64
+  %23 = load ptr, ptr %out, align 8
+  %24 = load ptr, ptr %outrange, align 8
+  %data_.i16 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = load ptr, ptr %data_.i16, align 8
+  %26 = load i64, ptr %23, align 8
+  %add.ptr.i17 = getelementptr inbounds i8, ptr %25, i64 %26
+  %sub.ptr.lhs.cast = ptrtoint ptr %24 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr.i17 to i64
-  %sub.ptr.sub = add i64 %27, %sub.ptr.lhs.cast
+  %sub.ptr.sub = add i64 %26, %sub.ptr.lhs.cast
   %add.i = sub i64 %sub.ptr.sub, %sub.ptr.rhs.cast
-  store i64 %add.i, ptr %24, align 8
-  br i1 %6, label %if.then100, label %cleanup.thread
+  store i64 %add.i, ptr %23, align 8
+  br i1 %4, label %if.then100, label %cleanup.thread
 
 if.then100:                                       ; preds = %invoke.cont98
-  %28 = load ptr, ptr %codec_.i, align 8
+  %27 = load ptr, ptr %codec_.i, align 8
   store ptr null, ptr %codec_.i, align 8
-  %tobool.not.i.i = icmp eq ptr %28, null
+  %tobool.not.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i, label %cleanup.thread, label %_ZNKSt14default_deleteIN5folly2io11StreamCodecEEclEPS2_.exit.i.i18
 
 _ZNKSt14default_deleteIN5folly2io11StreamCodecEEclEPS2_.exit.i.i18: ; preds = %if.then100
-  %vtable.i.i.i19 = load ptr, ptr %28, align 8
+  %vtable.i.i.i19 = load ptr, ptr %27, align 8
   %vfn.i.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i.i19, i64 8
-  %29 = load ptr, ptr %vfn.i.i.i20, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(49) %28) #8
+  %28 = load ptr, ptr %vfn.i.i.i20, align 8
+  call void %28(ptr noundef nonnull align 8 dereferenceable(49) %27) #8
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %invoke.cont98, %if.then100, %_ZNKSt14default_deleteIN5folly2io11StreamCodecEEclEPS2_.exit.i.i18
-  %30 = load i64, ptr %out, align 8
-  store i64 %30, ptr %agg.result, align 8
+  %29 = load i64, ptr %out, align 8
+  store i64 %29, ptr %agg.result, align 8
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
 
 cleanup:                                          ; preds = %invoke.cont39
@@ -322,16 +319,16 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %cl
   br label %return
 
 ehcleanup103:                                     ; preds = %lpad26, %lpad
-  %.pn = phi { ptr, i32 } [ %23, %lpad26 ], [ %3, %lpad ]
+  %.pn = phi { ptr, i32 } [ %22, %lpad26 ], [ %2, %lpad ]
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %clone) #8
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #8
-  %matches = icmp eq i32 %ehselector.slot.0, %31
+  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #8
+  %matches = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches, label %catch, label %eh.resume
 
 catch:                                            ; preds = %ehcleanup103
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #8
+  %31 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #8
   store i8 1, ptr %error_, align 1
   call void @__cxa_end_catch()
   store ptr null, ptr %agg.result, align 8
@@ -436,8 +433,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8proxygen20ZstdStreamCompressor8hasEr
 entry:
   %error_ = getelementptr inbounds i8, ptr %this, i64 21
   %0 = load i8, ptr %error_, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

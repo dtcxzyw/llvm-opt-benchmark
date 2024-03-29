@@ -425,9 +425,9 @@ fillTypeDesc.exit:                                ; preds = %77
   store i16 %91, ptr %92, align 4
   %93 = getelementptr inbounds i8, ptr %89, i64 78
   %94 = load i8, ptr %93, align 2
-  %95 = and i8 %94, 1
-  %96 = getelementptr inbounds i8, ptr %9, i64 22
-  store i8 %95, ptr %96, align 2
+  %95 = getelementptr inbounds i8, ptr %9, i64 22
+  %96 = and i8 %94, 1
+  store i8 %96, ptr %95, align 2
   %97 = getelementptr inbounds i8, ptr %89, i64 128
   %98 = load i8, ptr %97, align 4
   %99 = getelementptr inbounds i8, ptr %9, i64 23
@@ -483,9 +483,9 @@ fillTypeDesc.exit52:                              ; preds = %110
   store i16 %125, ptr %126, align 4
   %127 = getelementptr inbounds i8, ptr %123, i64 78
   %128 = load i8, ptr %127, align 2
-  %129 = and i8 %128, 1
-  %130 = getelementptr inbounds i8, ptr %9, i64 34
-  store i8 %129, ptr %130, align 2
+  %129 = getelementptr inbounds i8, ptr %9, i64 34
+  %130 = and i8 %128, 1
+  store i8 %130, ptr %129, align 2
   %131 = getelementptr inbounds i8, ptr %123, i64 128
   %132 = load i8, ptr %131, align 4
   %133 = getelementptr inbounds i8, ptr %9, i64 35
@@ -531,9 +531,9 @@ fillTypeDesc.exit54:                              ; preds = %139
   store i16 %154, ptr %155, align 4
   %156 = getelementptr inbounds i8, ptr %152, i64 78
   %157 = load i8, ptr %156, align 2
-  %158 = and i8 %157, 1
-  %159 = getelementptr inbounds i8, ptr %9, i64 46
-  store i8 %158, ptr %159, align 2
+  %158 = getelementptr inbounds i8, ptr %9, i64 46
+  %159 = and i8 %157, 1
+  store i8 %159, ptr %158, align 2
   %160 = getelementptr inbounds i8, ptr %152, i64 128
   %161 = load i8, ptr %160, align 4
   %162 = getelementptr inbounds i8, ptr %9, i64 47
@@ -572,9 +572,9 @@ fillTypeDesc.exit56:                              ; preds = %fillTypeDesc.exit54
   store i16 %181, ptr %182, align 4
   %183 = getelementptr inbounds i8, ptr %179, i64 78
   %184 = load i8, ptr %183, align 2
-  %185 = and i8 %184, 1
-  %186 = getelementptr inbounds i8, ptr %9, i64 58
-  store i8 %185, ptr %186, align 2
+  %185 = getelementptr inbounds i8, ptr %9, i64 58
+  %186 = and i8 %184, 1
+  store i8 %186, ptr %185, align 2
   %187 = getelementptr inbounds i8, ptr %179, i64 128
   %188 = load i8, ptr %187, align 4
   %189 = getelementptr inbounds i8, ptr %9, i64 59
@@ -699,9 +699,9 @@ define dso_local ptr @getSpGistTupleDesc(ptr nocapture noundef readonly %0, ptr 
   store i16 %16, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %1, i64 6
   %19 = load i8, ptr %18, align 2
-  %20 = and i8 %19, 1
-  %21 = getelementptr inbounds i8, ptr %10, i64 110
-  store i8 %20, ptr %21, align 2
+  %20 = getelementptr inbounds i8, ptr %10, i64 110
+  %21 = and i8 %19, 1
+  store i8 %21, ptr %20, align 2
   %22 = getelementptr inbounds i8, ptr %1, i64 7
   %23 = load i8, ptr %22, align 1
   %24 = getelementptr inbounds i8, ptr %10, i64 111
@@ -778,9 +778,9 @@ define dso_local void @initSpGistState(ptr nocapture noundef %0, ptr noundef %1)
   store i16 %27, ptr %28, align 4
   %29 = getelementptr inbounds i8, ptr %0, i64 42
   %30 = load i8, ptr %29, align 2
-  %31 = and i8 %30, 1
-  %32 = getelementptr inbounds i8, ptr %21, i64 110
-  store i8 %31, ptr %32, align 2
+  %31 = getelementptr inbounds i8, ptr %21, i64 110
+  %32 = and i8 %30, 1
+  store i8 %32, ptr %31, align 2
   %33 = getelementptr inbounds i8, ptr %0, i64 43
   %34 = load i8, ptr %33, align 1
   %35 = getelementptr inbounds i8, ptr %21, i64 111
@@ -1527,9 +1527,8 @@ declare ptr @build_reloptions(i64 noundef, i1 noundef zeroext, i32 noundef, i64 
 define dso_local i32 @SpGistGetInnerTypeSize(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 6
   %4 = load i8, ptr %3, align 2
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %33
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %33, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1562,8 +1561,8 @@ define dso_local i32 @SpGistGetInnerTypeSize(ptr nocapture noundef readonly %0, 
 
 26:                                               ; preds = %12
   %27 = and i32 %15, 1
-  %.not13 = icmp eq i32 %27, 0
-  br i1 %.not13, label %30, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %30, label %28
 
 28:                                               ; preds = %26
   %29 = lshr i32 %15, 1
@@ -1611,15 +1610,14 @@ define dso_local noundef ptr @spgFormLeafTuple(ptr nocapture noundef readonly %0
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %10 = getelementptr i8, ptr %3, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
-  %12 = and i8 %11, 1
-  %.not.not = icmp ne i8 %12, 0
+  %12 = trunc i8 %11 to i1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond = select i1 %.not.not, i1 true, i1 %exitcond.not
+  %or.cond = select i1 %12, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %4
-  %.0 = phi i1 [ false, %4 ], [ %.not.not, %.preheader ]
+  %.0 = phi i1 [ false, %4 ], [ %12, %.preheader ]
   %13 = tail call i64 @heap_compute_data_size(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3) #9
   %14 = add i64 %13, 23
   %15 = and i64 %14, -8
@@ -1651,9 +1649,8 @@ define dso_local noundef ptr @spgFormLeafTuple(ptr nocapture noundef readonly %0
 
 31:                                               ; preds = %30
   %32 = load i8, ptr %3, align 1
-  %33 = and i8 %32, 1
-  %.not44 = icmp eq i8 %33, 0
-  br i1 %.not44, label %.sink.split, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %.sink.split
 
 .sink.split:                                      ; preds = %30, %31, %27
   %.sink = phi ptr [ %29, %27 ], [ null, %31 ], [ null, %30 ]
@@ -1673,9 +1670,8 @@ define dso_local noundef ptr @spgFormNodeTuple(ptr nocapture noundef readonly %0
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 66
   %6 = load i8, ptr %5, align 2
-  %7 = and i8 %6, 1
-  %.not.i = icmp eq i8 %7, 0
-  br i1 %.not.i, label %8, label %.thread
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1708,8 +1704,8 @@ define dso_local noundef ptr @spgFormNodeTuple(ptr nocapture noundef readonly %0
 
 28:                                               ; preds = %14
   %29 = and i32 %17, 1
-  %.not13.i = icmp eq i32 %29, 0
-  br i1 %.not13.i, label %32, label %30
+  %.not.i = icmp eq i32 %29, 0
+  br i1 %.not.i, label %32, label %30
 
 30:                                               ; preds = %28
   %31 = lshr i32 %17, 1
@@ -1757,9 +1753,8 @@ define dso_local noundef ptr @spgFormNodeTuple(ptr nocapture noundef readonly %0
   %52 = getelementptr i8, ptr %45, i64 8
   %53 = getelementptr inbounds i8, ptr %0, i64 66
   %54 = load i8, ptr %53, align 2
-  %55 = and i8 %54, 1
-  %.not.i20 = icmp eq i8 %55, 0
-  br i1 %.not.i20, label %57, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %57
 
 56:                                               ; preds = %51
   store i64 %1, ptr %52, align 1
@@ -1797,8 +1792,8 @@ define dso_local noundef ptr @spgFormNodeTuple(ptr nocapture noundef readonly %0
 
 77:                                               ; preds = %63
   %78 = and i32 %66, 1
-  %.not14.i = icmp eq i32 %78, 0
-  br i1 %.not14.i, label %81, label %79
+  %.not.i20 = icmp eq i32 %78, 0
+  br i1 %.not.i20, label %81, label %79
 
 79:                                               ; preds = %77
   %80 = lshr i32 %66, 1
@@ -1827,9 +1822,8 @@ define dso_local noundef ptr @spgFormInnerTuple(ptr nocapture noundef readonly %
 6:                                                ; preds = %5
   %7 = getelementptr inbounds i8, ptr %0, i64 54
   %8 = load i8, ptr %7, align 2
-  %9 = and i8 %8, 1
-  %.not.i = icmp eq i8 %9, 0
-  br i1 %.not.i, label %10, label %SpGistGetInnerTypeSize.exit
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %SpGistGetInnerTypeSize.exit, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 52
@@ -1862,8 +1856,8 @@ define dso_local noundef ptr @spgFormInnerTuple(ptr nocapture noundef readonly %
 
 30:                                               ; preds = %16
   %31 = and i32 %19, 1
-  %.not13.i = icmp eq i32 %31, 0
-  br i1 %.not13.i, label %34, label %32
+  %.not.i = icmp eq i32 %31, 0
+  br i1 %.not.i, label %34, label %32
 
 32:                                               ; preds = %30
   %33 = lshr i32 %19, 1
@@ -1954,9 +1948,8 @@ SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %32, %
   %73 = select i1 %.not, ptr null, ptr %72
   %74 = getelementptr inbounds i8, ptr %0, i64 54
   %75 = load i8, ptr %74, align 2
-  %76 = and i8 %75, 1
-  %.not.i49 = icmp eq i8 %76, 0
-  br i1 %.not.i49, label %78, label %77
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %78
 
 77:                                               ; preds = %71
   store i64 %2, ptr %73, align 1
@@ -1994,8 +1987,8 @@ SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %32, %
 
 98:                                               ; preds = %84
   %99 = and i32 %87, 1
-  %.not14.i = icmp eq i32 %99, 0
-  br i1 %.not14.i, label %102, label %100
+  %.not.i49 = icmp eq i32 %99, 0
+  br i1 %.not.i49, label %102, label %100
 
 100:                                              ; preds = %98
   %101 = lshr i32 %87, 1
@@ -2135,16 +2128,16 @@ define dso_local ptr @spgExtractNodeLabels(ptr nocapture noundef readonly %0, pt
 .preheader:                                       ; preds = %2
   %10 = lshr i32 %4, 3
   %11 = and i32 %10, 8191
-  %.not38 = icmp eq i32 %11, 0
-  br i1 %.not38, label %.loopexit, label %.lr.ph
+  %.not37 = icmp eq i32 %11, 0
+  br i1 %.not37, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %17
-  %.034 = phi ptr [ %21, %17 ], [ %7, %.preheader ]
-  %.02633 = phi i32 [ %18, %17 ], [ 0, %.preheader ]
-  %12 = getelementptr inbounds i8, ptr %.034, i64 6
+  %.033 = phi ptr [ %21, %17 ], [ %7, %.preheader ]
+  %.02632 = phi i32 [ %18, %17 ], [ 0, %.preheader ]
+  %12 = getelementptr inbounds i8, ptr %.033, i64 6
   %13 = load i16, ptr %12, align 2
-  %.not31 = icmp sgt i16 %13, -1
-  br i1 %.not31, label %14, label %17
+  %.not30 = icmp sgt i16 %13, -1
+  br i1 %.not30, label %14, label %17
 
 14:                                               ; preds = %.lr.ph
   %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -2154,10 +2147,10 @@ define dso_local ptr @spgExtractNodeLabels(ptr nocapture noundef readonly %0, pt
   unreachable
 
 17:                                               ; preds = %.lr.ph
-  %18 = add nuw nsw i32 %.02633, 1
+  %18 = add nuw nsw i32 %.02632, 1
   %19 = and i16 %13, 8191
   %20 = zext nneg i16 %19 to i64
-  %21 = getelementptr i8, ptr %.034, i64 %20
+  %21 = getelementptr i8, ptr %.033, i64 %20
   %exitcond.not = icmp eq i32 %18, %11
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
@@ -2167,20 +2160,20 @@ define dso_local ptr @spgExtractNodeLabels(ptr nocapture noundef readonly %0, pt
   %25 = tail call ptr @palloc(i64 noundef %24) #9
   %26 = load i32, ptr %1, align 4
   %27 = and i32 %26, 65528
-  %.not39 = icmp eq i32 %27, 0
-  br i1 %.not39, label %.loopexit, label %.lr.ph37
+  %.not38 = icmp eq i32 %27, 0
+  br i1 %.not38, label %.loopexit, label %.lr.ph36
 
-.lr.ph37:                                         ; preds = %22
+.lr.ph36:                                         ; preds = %22
   %28 = lshr i32 %26, 16
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr i8, ptr %3, i64 %29
   %31 = getelementptr inbounds i8, ptr %0, i64 66
   br label %32
 
-32:                                               ; preds = %.lr.ph37, %46
-  %indvars.iv = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next, %46 ]
-  %.136 = phi ptr [ %30, %.lr.ph37 ], [ %52, %46 ]
-  %33 = getelementptr inbounds i8, ptr %.136, i64 6
+32:                                               ; preds = %.lr.ph36, %46
+  %indvars.iv = phi i64 [ 0, %.lr.ph36 ], [ %indvars.iv.next, %46 ]
+  %.135 = phi ptr [ %30, %.lr.ph36 ], [ %52, %46 ]
+  %33 = getelementptr inbounds i8, ptr %.135, i64 6
   %34 = load i16, ptr %33, align 2
   %.not29 = icmp sgt i16 %34, -1
   br i1 %.not29, label %38, label %35
@@ -2194,10 +2187,9 @@ define dso_local ptr @spgExtractNodeLabels(ptr nocapture noundef readonly %0, pt
 
 38:                                               ; preds = %32
   %39 = load i8, ptr %31, align 2
-  %40 = and i8 %39, 1
-  %.not30 = icmp eq i8 %40, 0
-  %41 = getelementptr i8, ptr %.136, i64 8
-  br i1 %.not30, label %44, label %42
+  %40 = trunc i8 %39 to i1
+  %41 = getelementptr i8, ptr %.135, i64 8
+  br i1 %40, label %42, label %44
 
 42:                                               ; preds = %38
   %43 = load i64, ptr %41, align 8
@@ -2215,7 +2207,7 @@ define dso_local ptr @spgExtractNodeLabels(ptr nocapture noundef readonly %0, pt
   %49 = load i16, ptr %33, align 2
   %50 = and i16 %49, 8191
   %51 = zext nneg i16 %50 to i64
-  %52 = getelementptr i8, ptr %.136, i64 %51
+  %52 = getelementptr i8, ptr %.135, i64 %51
   %53 = load i32, ptr %1, align 4
   %54 = lshr i32 %53, 3
   %55 = and i32 %54, 8191

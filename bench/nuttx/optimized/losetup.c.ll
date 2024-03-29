@@ -306,9 +306,9 @@ define internal noundef i32 @loop_geometry(ptr nocapture noundef readonly %0, pt
   store i8 1, ptr %1, align 4
   %6 = getelementptr inbounds i8, ptr %5, i64 51
   %7 = load i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %9 = getelementptr inbounds i8, ptr %1, i64 2
-  store i8 %8, ptr %9, align 2
+  %8 = getelementptr inbounds i8, ptr %1, i64 2
+  %9 = and i8 %7, 1
+  store i8 %9, ptr %8, align 2
   %10 = getelementptr inbounds i8, ptr %5, i64 40
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 4

@@ -264,39 +264,37 @@ entry:
   tail call void %1(ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 97) #8
   %quit = getelementptr inbounds i8, ptr %opaque, i64 1
   %2 = load i8, ptr %quit, align 1
-  %3 = and i8 %2, 1
-  %tobool.not16 = icmp eq i8 %3, 0
-  br i1 %tobool.not16, label %while.body2.lr.ph, label %while.end35
+  %tobool16 = trunc i8 %2 to i1
+  br i1 %tobool16, label %while.end35, label %while.body2.lr.ph
 
 while.body2.lr.ph:                                ; preds = %entry
   %trigger = getelementptr inbounds i8, ptr %opaque, i64 2
+  %cond = getelementptr inbounds i8, ptr %opaque, i64 64
   %block4 = getelementptr inbounds i8, ptr %opaque, i64 120
   %offset5 = getelementptr inbounds i8, ptr %opaque, i64 128
   %file = getelementptr inbounds i8, ptr %opaque, i64 8
   %stream = getelementptr inbounds i8, ptr %opaque, i64 136
   %originbuf = getelementptr inbounds i8, ptr %opaque, i64 248
   %result16 = getelementptr inbounds i8, ptr %opaque, i64 4
-  %cond = getelementptr inbounds i8, ptr %opaque, i64 64
   br label %while.body2
 
 while.body2:                                      ; preds = %while.body2.lr.ph, %if.end
-  %4 = load i8, ptr %trigger, align 2
-  %5 = and i8 %4, 1
-  %tobool3.not = icmp eq i8 %5, 0
-  br i1 %tobool3.not, label %while.end31, label %if.then
+  %3 = load i8, ptr %trigger, align 2
+  %tobool3 = trunc i8 %3 to i1
+  br i1 %tobool3, label %if.then, label %while.end31
 
 if.then:                                          ; preds = %while.body2
-  %6 = load ptr, ptr %block4, align 8
-  %7 = load i64, ptr %offset5, align 8
+  %4 = load ptr, ptr %block4, align 8
+  %5 = load i64, ptr %offset5, align 8
   store i8 0, ptr %trigger, align 2
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 103) #8
-  %8 = load ptr, ptr %file, align 8
-  %9 = load ptr, ptr %originbuf, align 8
-  %10 = getelementptr i8, ptr %6, i64 24
-  %.val = load ptr, ptr %10, align 8
-  %add.ptr.i = getelementptr i8, ptr %.val, i64 %7
+  %6 = load ptr, ptr %file, align 8
+  %7 = load ptr, ptr %originbuf, align 8
+  %8 = getelementptr i8, ptr %4, i64 24
+  %.val = load ptr, ptr %8, align 8
+  %add.ptr.i = getelementptr i8, ptr %.val, i64 %5
   %call.i = tail call i64 @qemu_target_page_size() #8
-  %call1.i = tail call zeroext i1 @qemu_file_buffer_empty(ptr noundef %8) #8
+  %call1.i = tail call zeroext i1 @qemu_file_buffer_empty(ptr noundef %6) #8
   br i1 %call1.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
@@ -308,8 +306,8 @@ if.end.i:                                         ; preds = %if.then
   br i1 %call2.i, label %do_compress_ram_page.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %add.ptr.i, i64 %call.i, i1 false)
-  %call5.i = tail call i64 @qemu_put_compression_data(ptr noundef %8, ptr noundef nonnull %stream, ptr noundef %9, i64 noundef %call.i) #8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %add.ptr.i, i64 %call.i, i1 false)
+  %call5.i = tail call i64 @qemu_put_compression_data(ptr noundef %6, ptr noundef nonnull %stream, ptr noundef %7, i64 noundef %call.i) #8
   %conv.i = trunc i64 %call5.i to i32
   %cmp.i = icmp slt i32 %conv.i, 0
   br i1 %cmp.i, label %if.then7.i, label %do_compress_ram_page.exit
@@ -317,37 +315,36 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then7.i:                                       ; preds = %if.end4.i
   %call8.i = tail call ptr @migrate_get_current() #8
   %to_dst_file.i = getelementptr inbounds i8, ptr %call8.i, i64 184
-  %11 = load ptr, ptr %to_dst_file.i, align 8
-  tail call void @qemu_file_set_error(ptr noundef %11, i32 noundef %conv.i) #8
+  %9 = load ptr, ptr %to_dst_file.i, align 8
+  tail call void @qemu_file_set_error(ptr noundef %9, i32 noundef %conv.i) #8
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8) #8
-  %call9.i = tail call i32 @qemu_fflush(ptr noundef %8) #8
+  %call9.i = tail call i32 @qemu_fflush(ptr noundef %6) #8
   br label %do_compress_ram_page.exit
 
 do_compress_ram_page.exit:                        ; preds = %if.end.i, %if.end4.i, %if.then7.i
   %retval.0.i = phi i32 [ 0, %if.then7.i ], [ 1, %if.end.i ], [ 2, %if.end4.i ]
-  %12 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %13 = inttoptr i64 %12 to ptr
-  tail call void %13(ptr noundef nonnull @comp_done_lock, ptr noundef nonnull @.str, i32 noundef 108) #8
+  %10 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %11 = inttoptr i64 %10 to ptr
+  tail call void %11(ptr noundef nonnull @comp_done_lock, ptr noundef nonnull @.str, i32 noundef 108) #8
   store i8 1, ptr %opaque, align 8
   store i32 %retval.0.i, ptr %result16, align 4
   tail call void @qemu_cond_signal(ptr noundef nonnull @comp_done_cond) #8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @comp_done_lock, ptr noundef nonnull @.str, i32 noundef 112) #8
-  %14 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %15 = inttoptr i64 %14 to ptr
-  tail call void %15(ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 114) #8
+  %12 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %13 = inttoptr i64 %12 to ptr
+  tail call void %13(ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 114) #8
   br label %if.end
 
 while.end31:                                      ; preds = %while.body2
-  %16 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
-  %17 = inttoptr i64 %16 to ptr
-  tail call void %17(ptr noundef nonnull %cond, ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 116) #8
+  %14 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
+  %15 = inttoptr i64 %14 to ptr
+  tail call void %15(ptr noundef nonnull %cond, ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 116) #8
   br label %if.end
 
 if.end:                                           ; preds = %while.end31, %do_compress_ram_page.exit
-  %18 = load i8, ptr %quit, align 1
-  %19 = and i8 %18, 1
-  %tobool.not = icmp eq i8 %19, 0
-  br i1 %tobool.not, label %while.body2, label %while.end35, !llvm.loop !8
+  %16 = load i8, ptr %quit, align 1
+  %tobool = trunc i8 %16 to i1
+  br i1 %tobool, label %while.end35, label %while.body2, !llvm.loop !8
 
 while.end35:                                      ; preds = %if.end, %entry
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 119) #8
@@ -378,27 +375,25 @@ while.cond2.preheader.preheader:                  ; preds = %while.end
   br label %while.cond2.preheader
 
 while.cond2.preheader:                            ; preds = %while.cond2.preheader.preheader, %for.inc
-  %2 = phi ptr [ %.pre, %while.cond2.preheader.preheader ], [ %10, %for.inc ]
+  %2 = phi ptr [ %.pre, %while.cond2.preheader.preheader ], [ %8, %for.inc ]
   %indvars.iv = phi i64 [ 0, %while.cond2.preheader.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx11 = getelementptr %struct.CompressParam, ptr %2, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx11, align 8
-  %4 = and i8 %3, 1
-  %tobool.not12 = icmp eq i8 %4, 0
-  br i1 %tobool.not12, label %while.end9, label %for.inc
+  %tobool12 = trunc i8 %3 to i1
+  br i1 %tobool12, label %for.inc, label %while.end9
 
 while.end9:                                       ; preds = %while.cond2.preheader, %while.end9
-  %5 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
-  %6 = inttoptr i64 %5 to ptr
-  tail call void %6(ptr noundef nonnull @comp_done_cond, ptr noundef nonnull @comp_done_lock, ptr noundef nonnull @.str, i32 noundef 255) #8
-  %7 = load ptr, ptr @comp_param, align 8
-  %arrayidx = getelementptr %struct.CompressParam, ptr %7, i64 %indvars.iv
-  %8 = load i8, ptr %arrayidx, align 8
-  %9 = and i8 %8, 1
-  %tobool.not = icmp eq i8 %9, 0
-  br i1 %tobool.not, label %while.end9, label %for.inc, !llvm.loop !9
+  %4 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
+  %5 = inttoptr i64 %4 to ptr
+  tail call void %5(ptr noundef nonnull @comp_done_cond, ptr noundef nonnull @comp_done_lock, ptr noundef nonnull @.str, i32 noundef 255) #8
+  %6 = load ptr, ptr @comp_param, align 8
+  %arrayidx = getelementptr %struct.CompressParam, ptr %6, i64 %indvars.iv
+  %7 = load i8, ptr %arrayidx, align 8
+  %tobool = trunc i8 %7 to i1
+  br i1 %tobool, label %for.inc, label %while.end9, !llvm.loop !9
 
 for.inc:                                          ; preds = %while.end9, %while.cond2.preheader
-  %10 = phi ptr [ %2, %while.cond2.preheader ], [ %7, %while.end9 ]
+  %8 = phi ptr [ %2, %while.cond2.preheader ], [ %6, %while.end9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %while.cond2.preheader, !llvm.loop !10
@@ -413,24 +408,23 @@ while.end22.preheader:                            ; preds = %for.end
 
 while.end22:                                      ; preds = %while.end22.preheader, %if.end37
   %indvars.iv18 = phi i64 [ 0, %while.end22.preheader ], [ %indvars.iv.next19, %if.end37 ]
-  %11 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %12 = inttoptr i64 %11 to ptr
-  %13 = load ptr, ptr @comp_param, align 8
-  %mutex = getelementptr %struct.CompressParam, ptr %13, i64 %indvars.iv18, i32 5
-  tail call void %12(ptr noundef %mutex, ptr noundef nonnull @.str, i32 noundef 261) #8
-  %14 = load ptr, ptr @comp_param, align 8
-  %arrayidx28 = getelementptr %struct.CompressParam, ptr %14, i64 %indvars.iv18
+  %9 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %10 = inttoptr i64 %9 to ptr
+  %11 = load ptr, ptr @comp_param, align 8
+  %mutex = getelementptr %struct.CompressParam, ptr %11, i64 %indvars.iv18, i32 5
+  tail call void %10(ptr noundef %mutex, ptr noundef nonnull @.str, i32 noundef 261) #8
+  %12 = load ptr, ptr @comp_param, align 8
+  %arrayidx28 = getelementptr %struct.CompressParam, ptr %12, i64 %indvars.iv18
   %quit = getelementptr inbounds i8, ptr %arrayidx28, i64 1
-  %15 = load i8, ptr %quit, align 1
-  %16 = and i8 %15, 1
-  %tobool29.not = icmp eq i8 %16, 0
-  br i1 %tobool29.not, label %if.then30, label %if.end37
+  %13 = load i8, ptr %quit, align 1
+  %tobool29 = trunc i8 %13 to i1
+  br i1 %tobool29, label %if.end37, label %if.then30
 
 if.then30:                                        ; preds = %while.end22
   %call33 = tail call i32 @compress_send_queued_data(ptr noundef %arrayidx28) #8
   %file = getelementptr inbounds i8, ptr %arrayidx28, i64 8
-  %17 = load ptr, ptr %file, align 8
-  %call34 = tail call zeroext i1 @qemu_file_buffer_empty(ptr noundef %17) #8
+  %14 = load ptr, ptr %file, align 8
+  %call34 = tail call zeroext i1 @qemu_file_buffer_empty(ptr noundef %14) #8
   br i1 %call34, label %if.end36, label %if.else
 
 if.else:                                          ; preds = %if.then30
@@ -446,8 +440,8 @@ if.end36:                                         ; preds = %if.then30
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end36, %while.end22
-  %18 = phi ptr [ %.pre23, %if.end36 ], [ %14, %while.end22 ]
-  %mutex40 = getelementptr %struct.CompressParam, ptr %18, i64 %indvars.iv18, i32 5
+  %15 = phi ptr [ %.pre23, %if.end36 ], [ %12, %while.end22 ]
+  %mutex40 = getelementptr %struct.CompressParam, ptr %15, i64 %indvars.iv18, i32 5
   tail call void @qemu_mutex_unlock_impl(ptr noundef %mutex40, ptr noundef nonnull @.str, i32 noundef 268) #8
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count21
@@ -480,12 +474,11 @@ entry:
 entry.split.us:                                   ; preds = %entry
   %2 = load ptr, ptr @comp_param, align 8
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %tobool4.not.us2126 = icmp eq i8 %4, 0
-  br i1 %tobool4.not.us2126, label %for.cond.us.lr.ph.lr.ph, label %if.then
+  %tobool4.us2126 = trunc i8 %3 to i1
+  br i1 %tobool4.us2126, label %if.then, label %for.cond.us.lr.ph.lr.ph
 
 for.cond.us.lr.ph.lr.ph:                          ; preds = %entry.split.us
-  %5 = zext nneg i32 %call1 to i64
+  %4 = zext nneg i32 %call1 to i64
   %wide.trip.count40 = zext nneg i32 %call1 to i64
   br i1 %tobool.not, label %for.cond.us.us, label %for.cond.us.lr.ph
 
@@ -496,11 +489,10 @@ for.cond.us.us:                                   ; preds = %for.cond.us.lr.ph.l
 
 for.body.us.us:                                   ; preds = %for.cond.us.us
   %arrayidx.us.us = getelementptr %struct.CompressParam, ptr %2, i64 %indvars.iv37
-  %6 = load i8, ptr %arrayidx.us.us, align 8
-  %7 = and i8 %6, 1
-  %tobool4.not.us.us = icmp eq i8 %7, 0
+  %5 = load i8, ptr %arrayidx.us.us, align 8
+  %tobool4.us.us = trunc i8 %5 to i1
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  br i1 %tobool4.not.us.us, label %for.cond.us.us, label %if.then.loopexit, !llvm.loop !12
+  br i1 %tobool4.us.us, label %if.then.loopexit, label %for.cond.us.us, !llvm.loop !12
 
 for.cond.us:                                      ; preds = %for.cond.us.lr.ph, %for.body.us
   %indvars.iv = phi i64 [ 1, %for.cond.us.lr.ph ], [ %indvars.iv.next, %for.body.us ]
@@ -508,50 +500,48 @@ for.cond.us:                                      ; preds = %for.cond.us.lr.ph, 
   br i1 %exitcond.not, label %for.cond.for.end_crit_edge.us, label %for.body.us, !llvm.loop !12
 
 for.body.us:                                      ; preds = %for.cond.us
-  %arrayidx.us = getelementptr %struct.CompressParam, ptr %10, i64 %indvars.iv
-  %8 = load i8, ptr %arrayidx.us, align 8
-  %9 = and i8 %8, 1
-  %tobool4.not.us = icmp eq i8 %9, 0
+  %arrayidx.us = getelementptr %struct.CompressParam, ptr %7, i64 %indvars.iv
+  %6 = load i8, ptr %arrayidx.us, align 8
+  %tobool4.us = trunc i8 %6 to i1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %tobool4.not.us, label %for.cond.us, label %if.then.loopexit42, !llvm.loop !12
+  br i1 %tobool4.us, label %if.then.loopexit42, label %for.cond.us, !llvm.loop !12
 
 for.cond.us.lr.ph:                                ; preds = %for.cond.us.lr.ph.lr.ph, %for.cond.for.end_crit_edge.us
-  %10 = phi ptr [ %13, %for.cond.for.end_crit_edge.us ], [ %2, %for.cond.us.lr.ph.lr.ph ]
+  %7 = phi ptr [ %10, %for.cond.for.end_crit_edge.us ], [ %2, %for.cond.us.lr.ph.lr.ph ]
   br label %for.cond.us
 
 for.cond.for.end_crit_edge.us:                    ; preds = %for.cond.us
-  %11 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
-  %12 = inttoptr i64 %11 to ptr
-  tail call void %12(ptr noundef nonnull @comp_done_cond, ptr noundef nonnull @comp_done_lock, ptr noundef nonnull @.str, i32 noundef 319) #8
-  %13 = load ptr, ptr @comp_param, align 8
-  %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %tobool4.not.us21 = icmp eq i8 %15, 0
-  br i1 %tobool4.not.us21, label %for.cond.us.lr.ph, label %if.then
+  %8 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
+  %9 = inttoptr i64 %8 to ptr
+  tail call void %9(ptr noundef nonnull @comp_done_cond, ptr noundef nonnull @comp_done_lock, ptr noundef nonnull @.str, i32 noundef 319) #8
+  %10 = load ptr, ptr @comp_param, align 8
+  %11 = load i8, ptr %10, align 8
+  %tobool4.us21 = trunc i8 %11 to i1
+  br i1 %tobool4.us21, label %if.then, label %for.cond.us.lr.ph
 
 entry.split:                                      ; preds = %entry
   br i1 %tobool.not, label %if.then22, label %while.end30
 
 if.then.loopexit:                                 ; preds = %for.body.us.us
-  %cmp.us.us.le = icmp ult i64 %indvars.iv37, %5
+  %cmp.us.us.le = icmp ult i64 %indvars.iv37, %4
   br label %if.then
 
 if.then.loopexit42:                               ; preds = %for.body.us
-  %cmp.us.le = icmp ult i64 %indvars.iv, %5
+  %cmp.us.le = icmp ult i64 %indvars.iv, %4
   br label %if.then
 
 if.then:                                          ; preds = %for.cond.for.end_crit_edge.us, %if.then.loopexit42, %if.then.loopexit, %entry.split.us
-  %arrayidx.lcssa.us = phi ptr [ %2, %entry.split.us ], [ %arrayidx.us.us, %if.then.loopexit ], [ %arrayidx.us, %if.then.loopexit42 ], [ %13, %for.cond.for.end_crit_edge.us ]
+  %arrayidx.lcssa.us = phi ptr [ %2, %entry.split.us ], [ %arrayidx.us.us, %if.then.loopexit ], [ %arrayidx.us, %if.then.loopexit42 ], [ %10, %for.cond.for.end_crit_edge.us ]
   %cmp.lcssa11.us = phi i1 [ true, %entry.split.us ], [ %cmp.us.us.le, %if.then.loopexit ], [ %cmp.us.le, %if.then.loopexit42 ], [ true, %for.cond.for.end_crit_edge.us ]
-  %16 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %17 = inttoptr i64 %16 to ptr
+  %12 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %13 = inttoptr i64 %12 to ptr
   %mutex = getelementptr inbounds i8, ptr %arrayidx.lcssa.us, i64 16
-  tail call void %17(ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 296) #8
+  tail call void %13(ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 296) #8
   store i8 0, ptr %arrayidx.lcssa.us, align 8
   %call16 = tail call i32 %send_queued_data(ptr noundef nonnull %arrayidx.lcssa.us) #8
   %file = getelementptr inbounds i8, ptr %arrayidx.lcssa.us, i64 8
-  %18 = load ptr, ptr %file, align 8
-  %call17 = tail call zeroext i1 @qemu_file_buffer_empty(ptr noundef %18) #8
+  %14 = load ptr, ptr %file, align 8
+  %call17 = tail call zeroext i1 @qemu_file_buffer_empty(ptr noundef %14) #8
   br i1 %call17, label %if.end, label %if.else
 
 if.else:                                          ; preds = %if.then
@@ -574,21 +564,21 @@ if.end:                                           ; preds = %if.then
   br label %return
 
 if.then22.loopexit:                               ; preds = %for.cond.us.us
-  %cmp.us.us.le46 = icmp ult i64 %indvars.iv37, %5
+  %cmp.us.us.le46 = icmp ult i64 %indvars.iv37, %4
   br label %if.then22
 
 if.then22:                                        ; preds = %if.then22.loopexit, %entry.split
   %.us-phi = phi i1 [ false, %entry.split ], [ %cmp.us.us.le46, %if.then22.loopexit ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @comp_done_lock, ptr noundef nonnull @.str, i32 noundef 310) #8
-  %19 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i64 0, i32 1), align 8
-  %inc23 = add i64 %19, 1
+  %15 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i64 0, i32 1), align 8
+  %inc23 = add i64 %15, 1
   store i64 %inc23, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i64 0, i32 1), align 8
   br label %return
 
 while.end30:                                      ; preds = %entry.split, %while.end30
-  %20 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
-  %21 = inttoptr i64 %20 to ptr
-  tail call void %21(ptr noundef nonnull @comp_done_cond, ptr noundef nonnull @comp_done_lock, ptr noundef nonnull @.str, i32 noundef 319) #8
+  %16 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
+  %17 = inttoptr i64 %16 to ptr
+  tail call void %17(ptr noundef nonnull @comp_done_cond, ptr noundef nonnull @comp_done_lock, ptr noundef nonnull @.str, i32 noundef 319) #8
   br label %while.end30
 
 return:                                           ; preds = %if.then22, %if.end
@@ -618,35 +608,33 @@ while.cond2.preheader.preheader:                  ; preds = %if.end
   br label %while.cond2.preheader
 
 while.cond2.preheader:                            ; preds = %while.cond2.preheader.preheader, %for.inc
-  %2 = phi ptr [ %.pre, %while.cond2.preheader.preheader ], [ %10, %for.inc ]
+  %2 = phi ptr [ %.pre, %while.cond2.preheader.preheader ], [ %8, %for.inc ]
   %indvars.iv = phi i64 [ 0, %while.cond2.preheader.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx3 = getelementptr %struct.DecompressParam, ptr %2, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx3, align 8
-  %4 = and i8 %3, 1
-  %tobool.not4 = icmp eq i8 %4, 0
-  br i1 %tobool.not4, label %while.end9, label %for.inc
+  %tobool4 = trunc i8 %3 to i1
+  br i1 %tobool4, label %for.inc, label %while.end9
 
 while.end9:                                       ; preds = %while.cond2.preheader, %while.end9
-  %5 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
-  %6 = inttoptr i64 %5 to ptr
-  tail call void %6(ptr noundef nonnull @decomp_done_cond, ptr noundef nonnull @decomp_done_lock, ptr noundef nonnull @.str, i32 noundef 397) #8
-  %7 = load ptr, ptr @decomp_param, align 8
-  %arrayidx = getelementptr %struct.DecompressParam, ptr %7, i64 %indvars.iv
-  %8 = load i8, ptr %arrayidx, align 8
-  %9 = and i8 %8, 1
-  %tobool.not = icmp eq i8 %9, 0
-  br i1 %tobool.not, label %while.end9, label %for.inc, !llvm.loop !13
+  %4 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
+  %5 = inttoptr i64 %4 to ptr
+  tail call void %5(ptr noundef nonnull @decomp_done_cond, ptr noundef nonnull @decomp_done_lock, ptr noundef nonnull @.str, i32 noundef 397) #8
+  %6 = load ptr, ptr @decomp_param, align 8
+  %arrayidx = getelementptr %struct.DecompressParam, ptr %6, i64 %indvars.iv
+  %7 = load i8, ptr %arrayidx, align 8
+  %tobool = trunc i8 %7 to i1
+  br i1 %tobool, label %for.inc, label %while.end9, !llvm.loop !13
 
 for.inc:                                          ; preds = %while.end9, %while.cond2.preheader
-  %10 = phi ptr [ %2, %while.cond2.preheader ], [ %7, %while.end9 ]
+  %8 = phi ptr [ %2, %while.cond2.preheader ], [ %6, %while.end9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %while.cond2.preheader, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %if.end
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @decomp_done_lock, ptr noundef nonnull @.str, i32 noundef 400) #8
-  %11 = load ptr, ptr @decomp_file, align 8
-  %call13 = tail call i32 @qemu_file_get_error(ptr noundef %11) #8
+  %9 = load ptr, ptr @decomp_file, align 8
+  %call13 = tail call i32 @qemu_file_get_error(ptr noundef %9) #8
   br label %return
 
 return:                                           ; preds = %entry, %for.end
@@ -838,9 +826,8 @@ entry:
   tail call void %1(ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 355) #8
   %quit = getelementptr inbounds i8, ptr %opaque, i64 1
   %2 = load i8, ptr %quit, align 1
-  %3 = and i8 %2, 1
-  %tobool.not18 = icmp eq i8 %3, 0
-  br i1 %tobool.not18, label %while.body2.lr.ph, label %while.end42
+  %tobool18 = trunc i8 %2 to i1
+  br i1 %tobool18, label %while.end42, label %while.body2.lr.ph
 
 while.body2.lr.ph:                                ; preds = %entry
   %des3 = getelementptr inbounds i8, ptr %opaque, i64 112
@@ -855,33 +842,33 @@ while.body2.lr.ph:                                ; preds = %entry
   br label %while.body2
 
 while.body2:                                      ; preds = %while.body2.lr.ph, %if.end41
-  %4 = load ptr, ptr %des3, align 8
-  %tobool4.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %des3, align 8
+  %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %while.end37, label %if.then
 
 if.then:                                          ; preds = %while.body2
-  %5 = load i32, ptr %len6, align 8
+  %4 = load i32, ptr %len6, align 8
   store ptr null, ptr %des3, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 361) #8
   %call = tail call i64 @qemu_target_page_size() #8
-  %6 = load ptr, ptr %compbuf, align 8
+  %5 = load ptr, ptr %compbuf, align 8
   %call.i = tail call i32 @inflateReset(ptr noundef nonnull %stream) #8
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true
 
 if.end.i:                                         ; preds = %if.then
-  store i32 %5, ptr %avail_in.i, align 8
-  store ptr %6, ptr %stream, align 8
+  store i32 %4, ptr %avail_in.i, align 8
+  store ptr %5, ptr %stream, align 8
   %conv1.i = trunc i64 %call to i32
   store i32 %conv1.i, ptr %avail_out.i, align 8
-  store ptr %4, ptr %next_out.i, align 8
+  store ptr %3, ptr %next_out.i, align 8
   %call2.i = tail call i32 @inflate(ptr noundef nonnull %stream, i32 noundef 0) #8
   %cmp3.not.i = icmp eq i32 %call2.i, 1
   br i1 %cmp3.not.i, label %qemu_uncompress_data.exit, label %land.lhs.true
 
 qemu_uncompress_data.exit:                        ; preds = %if.end.i
-  %7 = load i64, ptr %total_out.i, align 8
-  %conv7.i = trunc i64 %7 to i32
+  %6 = load i64, ptr %total_out.i, align 8
+  %conv7.i = trunc i64 %6 to i32
   %cmp = icmp slt i32 %conv7.i, 0
   br i1 %cmp, label %land.lhs.true, label %while.end20
 
@@ -889,40 +876,38 @@ land.lhs.true:                                    ; preds = %if.end.i, %if.then,
   %retval.0.i17 = phi i32 [ %conv7.i, %qemu_uncompress_data.exit ], [ -1, %if.then ], [ -1, %if.end.i ]
   %call11 = tail call ptr @migrate_get_current() #8
   %decompress_error_check = getelementptr inbounds i8, ptr %call11, i64 1656
-  %8 = load i8, ptr %decompress_error_check, align 8
-  %9 = and i8 %8, 1
-  %tobool12.not = icmp eq i8 %9, 0
-  br i1 %tobool12.not, label %while.end20, label %if.then14
+  %7 = load i8, ptr %decompress_error_check, align 8
+  %tobool12 = trunc i8 %7 to i1
+  br i1 %tobool12, label %if.then14, label %while.end20
 
 if.then14:                                        ; preds = %land.lhs.true
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.9) #8
-  %10 = load ptr, ptr @decomp_file, align 8
-  tail call void @qemu_file_set_error(ptr noundef %10, i32 noundef %retval.0.i17) #8
+  %8 = load ptr, ptr @decomp_file, align 8
+  tail call void @qemu_file_set_error(ptr noundef %8, i32 noundef %retval.0.i17) #8
   br label %while.end20
 
 while.end20:                                      ; preds = %if.then14, %land.lhs.true, %qemu_uncompress_data.exit
-  %11 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %12 = inttoptr i64 %11 to ptr
-  tail call void %12(ptr noundef nonnull @decomp_done_lock, ptr noundef nonnull @.str, i32 noundef 372) #8
+  %9 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %10 = inttoptr i64 %9 to ptr
+  tail call void %10(ptr noundef nonnull @decomp_done_lock, ptr noundef nonnull @.str, i32 noundef 372) #8
   store i8 1, ptr %opaque, align 8
   tail call void @qemu_cond_signal(ptr noundef nonnull @decomp_done_cond) #8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @decomp_done_lock, ptr noundef nonnull @.str, i32 noundef 375) #8
-  %13 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %14 = inttoptr i64 %13 to ptr
-  tail call void %14(ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 377) #8
+  %11 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %12 = inttoptr i64 %11 to ptr
+  tail call void %12(ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 377) #8
   br label %if.end41
 
 while.end37:                                      ; preds = %while.body2
-  %15 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
-  %16 = inttoptr i64 %15 to ptr
-  tail call void %16(ptr noundef nonnull %cond, ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 379) #8
+  %13 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
+  %14 = inttoptr i64 %13 to ptr
+  tail call void %14(ptr noundef nonnull %cond, ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 379) #8
   br label %if.end41
 
 if.end41:                                         ; preds = %while.end37, %while.end20
-  %17 = load i8, ptr %quit, align 1
-  %18 = and i8 %17, 1
-  %tobool.not = icmp eq i8 %18, 0
-  br i1 %tobool.not, label %while.body2, label %while.end42, !llvm.loop !18
+  %15 = load i8, ptr %quit, align 1
+  %tobool = trunc i8 %15 to i1
+  br i1 %tobool, label %while.end42, label %while.body2, !llvm.loop !18
 
 while.end42:                                      ; preds = %if.end41, %entry
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 382) #8
@@ -956,42 +941,41 @@ for.body.us:                                      ; preds = %while.cond.us, %for
   %indvars.iv = phi i64 [ 0, %while.cond.us ], [ %indvars.iv.next, %for.cond.us ]
   %arrayidx.us = getelementptr %struct.DecompressParam, ptr %2, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx.us, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.us = icmp eq i8 %4, 0
-  br i1 %tobool.not.us, label %for.cond.us, label %glib_autoptr_cleanup_QemuLockable.exit
+  %tobool.us = trunc i8 %3 to i1
+  br i1 %tobool.us, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.cond.us
 
 for.cond.while.end29_crit_edge.us:                ; preds = %for.cond.us
-  %5 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
-  %6 = inttoptr i64 %5 to ptr
-  tail call void %6(ptr noundef nonnull @decomp_done_cond, ptr noundef nonnull @decomp_done_lock, ptr noundef nonnull @.str, i32 noundef 502) #8
+  %4 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
+  %5 = inttoptr i64 %4 to ptr
+  tail call void %5(ptr noundef nonnull @decomp_done_cond, ptr noundef nonnull @decomp_done_lock, ptr noundef nonnull @.str, i32 noundef 502) #8
   br label %while.cond.us
 
 while.cond:                                       ; preds = %entry, %while.cond
-  %7 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
-  %8 = inttoptr i64 %7 to ptr
-  tail call void %8(ptr noundef nonnull @decomp_done_cond, ptr noundef nonnull @decomp_done_lock, ptr noundef nonnull @.str, i32 noundef 502) #8
+  %6 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
+  %7 = inttoptr i64 %6 to ptr
+  tail call void %7(ptr noundef nonnull @decomp_done_cond, ptr noundef nonnull @decomp_done_lock, ptr noundef nonnull @.str, i32 noundef 502) #8
   br label %while.cond
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body.us
   store i8 0, ptr %arrayidx.us, align 8
-  %9 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %10 = inttoptr i64 %9 to ptr
+  %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %9 = inttoptr i64 %8 to ptr
   %mutex = getelementptr %struct.DecompressParam, ptr %2, i64 %indvars.iv, i32 2
-  tail call void %10(ptr noundef %mutex, ptr noundef nonnull @.str, i32 noundef 493) #8
-  %11 = load ptr, ptr @decomp_param, align 8
-  %compbuf = getelementptr %struct.DecompressParam, ptr %11, i64 %indvars.iv, i32 5
-  %12 = load ptr, ptr %compbuf, align 8
+  tail call void %9(ptr noundef %mutex, ptr noundef nonnull @.str, i32 noundef 493) #8
+  %10 = load ptr, ptr @decomp_param, align 8
+  %compbuf = getelementptr %struct.DecompressParam, ptr %10, i64 %indvars.iv, i32 5
+  %11 = load ptr, ptr %compbuf, align 8
   %conv = sext i32 %len to i64
-  %call12 = tail call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %12, i64 noundef %conv) #8
-  %13 = load ptr, ptr @decomp_param, align 8
-  %des = getelementptr %struct.DecompressParam, ptr %13, i64 %indvars.iv, i32 4
+  %call12 = tail call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %11, i64 noundef %conv) #8
+  %12 = load ptr, ptr @decomp_param, align 8
+  %des = getelementptr %struct.DecompressParam, ptr %12, i64 %indvars.iv, i32 4
   store ptr %host, ptr %des, align 8
-  %len17 = getelementptr %struct.DecompressParam, ptr %13, i64 %indvars.iv, i32 6
+  %len17 = getelementptr %struct.DecompressParam, ptr %12, i64 %indvars.iv, i32 6
   store i32 %len, ptr %len17, align 8
-  %cond = getelementptr %struct.DecompressParam, ptr %13, i64 %indvars.iv, i32 3
+  %cond = getelementptr %struct.DecompressParam, ptr %12, i64 %indvars.iv, i32 3
   tail call void @qemu_cond_signal(ptr noundef %cond) #8
-  %14 = load ptr, ptr @decomp_param, align 8
-  %mutex22 = getelementptr %struct.DecompressParam, ptr %14, i64 %indvars.iv, i32 2
+  %13 = load ptr, ptr @decomp_param, align 8
+  %mutex22 = getelementptr %struct.DecompressParam, ptr %13, i64 %indvars.iv, i32 2
   tail call void @qemu_mutex_unlock_impl(ptr noundef %mutex22, ptr noundef nonnull @.str, i32 noundef 498) #8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @decomp_done_lock, ptr noundef nonnull @.str.10, i32 noundef 132) #8
   ret void

@@ -108,7 +108,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN18FunctionInvocation11make_randomEbR9CGContextPK4TypePK12CVQualifiers(i1 noundef zeroext %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector", align 8
-  br i1 %0, label %.thread38, label %6
+  br i1 %0, label %.thread37, label %6
 
 6:                                                ; preds = %4
   %7 = tail call noundef zeroext i1 @_Z17pure_rnd_flipcoinjPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef 50, ptr noundef null, ptr noundef null)
@@ -124,9 +124,9 @@ define dso_local noundef ptr @_ZN18FunctionInvocation11make_randomEbR9CGContextP
   %15 = sub i64 %13, %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %11, %12
-  br i1 %.not.i.i.i.i, label %.thread40, label %19
+  br i1 %.not.i.i.i.i, label %.thread39, label %19
 
-.thread40:                                        ; preds = %8
+.thread39:                                        ; preds = %8
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   %17 = getelementptr inbounds i8, ptr null, i64 %15
   %18 = getelementptr inbounds i8, ptr %5, i64 16
@@ -153,9 +153,9 @@ define dso_local noundef ptr @_ZN18FunctionInvocation11make_randomEbR9CGContextP
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %22, ptr align 8 %12, i64 %15, i1 false)
   br label %_ZNSt6vectorIP8FunctionSaIS1_EEC2ERKS3_.exit
 
-_ZNSt6vectorIP8FunctionSaIS1_EEC2ERKS3_.exit:     ; preds = %.thread40, %21
-  %26 = phi ptr [ %16, %.thread40 ], [ %23, %21 ]
-  %27 = phi ptr [ null, %.thread40 ], [ %22, %21 ]
+_ZNSt6vectorIP8FunctionSaIS1_EEC2ERKS3_.exit:     ; preds = %.thread39, %21
+  %26 = phi ptr [ %16, %.thread39 ], [ %23, %21 ]
+  %27 = phi ptr [ null, %.thread39 ], [ %22, %21 ]
   %28 = getelementptr inbounds i8, ptr %27, i64 %15
   store ptr %28, ptr %26, align 8
   %29 = invoke noundef ptr @_ZN8Function11choose_funcESt6vectorIPS_SaIS1_EERK9CGContextPK4TypePK12CVQualifiers(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %2, ptr noundef %3)
@@ -174,8 +174,8 @@ _ZNSt6vectorIP8FunctionSaIS1_EEC2ERKS3_.exit:     ; preds = %.thread40, %21
   %34 = landingpad { ptr, i32 }
           cleanup
   %35 = load ptr, ptr %5, align 8
-  %.not.i.i.i33 = icmp eq ptr %35, null
-  br i1 %.not.i.i.i33, label %_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit34, label %_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit34.sink.split
+  %.not.i.i.i32 = icmp eq ptr %35, null
+  br i1 %.not.i.i.i32, label %_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit33, label %_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit33.sink.split
 
 _ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit:         ; preds = %32, %30
   %.not = icmp eq ptr %29, null
@@ -190,9 +190,8 @@ _ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit:         ; preds = %32, %30
   %39 = call noundef zeroext i1 @_ZN22FunctionInvocationUser16build_invocationEP8FunctionR9CGContext(ptr noundef nonnull align 8 dereferenceable(65) %37, ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(216) %1)
   %40 = getelementptr inbounds i8, ptr %37, i64 40
   %41 = load i8, ptr %40, align 8
-  %42 = and i8 %41, 1
-  %.not32 = icmp eq i8 %42, 0
-  br i1 %.not32, label %43, label %.thread
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %.thread, label %43
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i8, ptr %37, i64 56
@@ -210,7 +209,7 @@ _ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit:         ; preds = %32, %30
 53:                                               ; preds = %36
   %54 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit34.sink.split
+  br label %_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit33.sink.split
 
 _ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit.thread:  ; preds = %6, %_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit
   %55 = call noundef zeroext i1 @_ZN8Function23reach_max_functions_cntEv()
@@ -229,23 +228,23 @@ _ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit.thread:  ; preds = %6, %_ZNSt6vectorIP8
 60:                                               ; preds = %56
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit34.sink.split
+  br label %_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit33.sink.split
 
 62:                                               ; preds = %_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit.thread
   %63 = call noundef ptr @_ZN22FunctionInvocationUser29build_invocation_and_functionER9CGContextPK4TypePK12CVQualifiers(ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %2, ptr noundef %3)
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %.thread38, label %.thread
+  br i1 %64, label %.thread37, label %.thread
 
-.thread38:                                        ; preds = %4, %62
+.thread37:                                        ; preds = %4, %62
   %65 = call noundef i32 @_ZN13Probabilities8get_probE8ProbName(i32 noundef 14)
   %66 = call noundef zeroext i1 @_Z12rnd_flipcoinjPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %65, ptr noundef null, ptr noundef null)
   br i1 %66, label %67, label %69
 
-67:                                               ; preds = %.thread38
+67:                                               ; preds = %.thread37
   %68 = call noundef ptr @_ZN18FunctionInvocation17make_random_unaryER9CGContextPK4Type(ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %2)
   br label %.thread
 
-69:                                               ; preds = %.thread38
+69:                                               ; preds = %.thread37
   %70 = call noundef ptr @_ZN18FunctionInvocation18make_random_binaryER9CGContextPK4Type(ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %2)
   br label %.thread
 
@@ -253,14 +252,14 @@ _ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit.thread:  ; preds = %6, %_ZNSt6vectorIP8
   %.0 = phi ptr [ %57, %58 ], [ %68, %67 ], [ %70, %69 ], [ %63, %62 ], [ %37, %38 ], [ %37, %43 ]
   ret ptr %.0
 
-_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit34.sink.split: ; preds = %33, %53, %60
+_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit33.sink.split: ; preds = %33, %53, %60
   %.sink = phi ptr [ %57, %60 ], [ %37, %53 ], [ %35, %33 ]
   %.pn.ph = phi { ptr, i32 } [ %61, %60 ], [ %54, %53 ], [ %34, %33 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #22
-  br label %_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit34
+  br label %_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit33
 
-_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit34:       ; preds = %_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit34.sink.split, %33
-  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %.pn.ph, %_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit34.sink.split ]
+_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit33:       ; preds = %_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit33.sink.split, %33
+  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %.pn.ph, %_ZNSt6vectorIP8FunctionSaIS1_EED2Ev.exit33.sink.split ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1176,8 +1175,7 @@ define dso_local noundef zeroext i1 @_ZN18FunctionInvocation21BinaryOpWorksForFl
   %2 = icmp ult i32 %0, 11
   %switch.cast = trunc i32 %0 to i11
   %switch.downshift = lshr i11 -17, %switch.cast
-  %3 = and i11 %switch.downshift, 1
-  %switch.masked = icmp ne i11 %3, 0
+  %switch.masked = trunc i11 %switch.downshift to i1
   %.0 = select i1 %2, i1 %switch.masked, i1 false
   ret i1 %.0
 }

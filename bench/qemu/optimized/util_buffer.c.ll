@@ -30,20 +30,14 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @buffer_init(ptr nocapture noundef writeonly %buffer, ptr noundef %name, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call noalias ptr @g_strdup_vprintf(ptr noundef %name, ptr noundef nonnull %ap) #12
   store ptr %call, ptr %buffer, align 8
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
-
-declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
+declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @buffer_shrink(ptr nocapture noundef %buffer) local_unnamed_addr #0 {
@@ -139,17 +133,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %9 = load i8, ptr @message_with_timestamp, align 1
-  %10 = and i8 %9, 1
-  %tobool7.not.i.i = icmp eq i8 %10, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %9 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
-  %11 = load i64, ptr %_now.i.i, align 8
+  %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %12 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef nonnull %..str, i64 noundef %0, i64 noundef %5) #12
+  %11 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %..str, i64 noundef %0, i64 noundef %5) #12
   br label %trace_buffer_resize.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -159,10 +152,10 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_buffer_resize.exit:                         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %avg_size = getelementptr inbounds i8, ptr %buffer, i64 24
-  %13 = load i64, ptr %avg_size, align 8
-  %14 = load i64, ptr %capacity, align 8
-  %shl = shl i64 %14, 7
-  %cond11 = tail call i64 @llvm.umax.i64(i64 %13, i64 %shl)
+  %12 = load i64, ptr %avg_size, align 8
+  %13 = load i64, ptr %capacity, align 8
+  %shl = shl i64 %13, 7
+  %cond11 = tail call i64 @llvm.umax.i64(i64 %12, i64 %shl)
   store i64 %cond11, ptr %avg_size, align 8
   ret void
 }
@@ -187,7 +180,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @buffer_empty(ptr nocapture noundef readonly %buffer) local_unnamed_addr #3 {
+define dso_local i32 @buffer_empty(ptr nocapture noundef readonly %buffer) local_unnamed_addr #2 {
 entry:
   %offset = getelementptr inbounds i8, ptr %buffer, i64 16
   %0 = load i64, ptr %offset, align 8
@@ -197,7 +190,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @buffer_end(ptr nocapture noundef readonly %buffer) local_unnamed_addr #3 {
+define dso_local ptr @buffer_end(ptr nocapture noundef readonly %buffer) local_unnamed_addr #2 {
 entry:
   %buffer1 = getelementptr inbounds i8, ptr %buffer, i64 32
   %0 = load ptr, ptr %buffer1, align 8
@@ -267,17 +260,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %5 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
-  %7 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %..str, i64 noundef %1) #12
+  %7 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %..str, i64 noundef %1) #12
   br label %trace_buffer_free.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -287,19 +279,19 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_buffer_free.exit:                           ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %buffer1 = getelementptr inbounds i8, ptr %buffer, i64 32
-  %9 = load ptr, ptr %buffer1, align 8
+  %8 = load ptr, ptr %buffer1, align 8
+  tail call void @g_free(ptr noundef %8) #12
+  %9 = load ptr, ptr %buffer, align 8
   tail call void @g_free(ptr noundef %9) #12
-  %10 = load ptr, ptr %buffer, align 8
-  tail call void @g_free(ptr noundef %10) #12
   store ptr null, ptr %buffer1, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
   ret void
 }
 
-declare void @g_free(ptr noundef) local_unnamed_addr #2
+declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @buffer_append(ptr nocapture noundef %buffer, ptr nocapture noundef readonly %data, i64 noundef %len) local_unnamed_addr #4 {
+define dso_local void @buffer_append(ptr nocapture noundef %buffer, ptr nocapture noundef readonly %data, i64 noundef %len) local_unnamed_addr #3 {
 entry:
   %buffer1 = getelementptr inbounds i8, ptr %buffer, i64 32
   %0 = load ptr, ptr %buffer1, align 8
@@ -314,7 +306,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @buffer_advance(ptr nocapture noundef %buffer, i64 noundef %len) local_unnamed_addr #0 {
@@ -375,7 +367,7 @@ buffer_shrink.exit:                               ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @buffer_move_empty(ptr nocapture noundef %to, ptr nocapture noundef %from) local_unnamed_addr #0 {
@@ -405,17 +397,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %6 = load i8, ptr @message_with_timestamp, align 1
-  %7 = and i8 %6, 1
-  %tobool7.not.i.i = icmp eq i8 %7, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %6 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
-  %8 = load i64, ptr %_now.i.i, align 8
+  %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %..str, i64 noundef %1, ptr noundef nonnull %cond6) #12
+  %8 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %..str, i64 noundef %1, ptr noundef nonnull %cond6) #12
   br label %trace_buffer_move_empty.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -425,8 +416,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_buffer_move_empty.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %offset7 = getelementptr inbounds i8, ptr %to, i64 16
-  %10 = load i64, ptr %offset7, align 8
-  %cmp = icmp eq i64 %10, 0
+  %9 = load i64, ptr %offset7, align 8
+  %cmp = icmp eq i64 %9, 0
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %trace_buffer_move_empty.exit
@@ -435,24 +426,24 @@ if.else:                                          ; preds = %trace_buffer_move_e
 
 if.end:                                           ; preds = %trace_buffer_move_empty.exit
   %buffer = getelementptr inbounds i8, ptr %to, i64 32
-  %11 = load ptr, ptr %buffer, align 8
-  tail call void @g_free(ptr noundef %11) #12
-  %12 = load i64, ptr %offset, align 8
-  store i64 %12, ptr %offset7, align 8
+  %10 = load ptr, ptr %buffer, align 8
+  tail call void @g_free(ptr noundef %10) #12
+  %11 = load i64, ptr %offset, align 8
+  store i64 %11, ptr %offset7, align 8
   %capacity = getelementptr inbounds i8, ptr %from, i64 8
-  %13 = load i64, ptr %capacity, align 8
+  %12 = load i64, ptr %capacity, align 8
   %capacity10 = getelementptr inbounds i8, ptr %to, i64 8
-  store i64 %13, ptr %capacity10, align 8
+  store i64 %12, ptr %capacity10, align 8
   %buffer11 = getelementptr inbounds i8, ptr %from, i64 32
-  %14 = load ptr, ptr %buffer11, align 8
-  store ptr %14, ptr %buffer, align 8
+  %13 = load ptr, ptr %buffer11, align 8
+  store ptr %13, ptr %buffer, align 8
   store ptr null, ptr %buffer11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %capacity, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @buffer_move(ptr nocapture noundef %to, ptr nocapture noundef %from) local_unnamed_addr #0 {
@@ -492,17 +483,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %7 = load i8, ptr @message_with_timestamp, align 1
-  %8 = and i8 %7, 1
-  %tobool7.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %7 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
-  %9 = load i64, ptr %_now.i.i, align 8
+  %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %..str, i64 noundef %2, ptr noundef nonnull %cond7) #12
+  %9 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %..str, i64 noundef %2, ptr noundef nonnull %cond7) #12
   br label %trace_buffer_move.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -511,34 +501,34 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_buffer_move.exit:                           ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %11 = load i64, ptr %offset1, align 8
+  %10 = load i64, ptr %offset1, align 8
   %capacity.i = getelementptr inbounds i8, ptr %to, i64 8
-  %12 = load i64, ptr %capacity.i, align 8
-  %13 = load i64, ptr %offset, align 8
-  %sub.i = sub i64 %12, %13
-  %cmp.i = icmp ult i64 %sub.i, %11
+  %11 = load i64, ptr %capacity.i, align 8
+  %12 = load i64, ptr %offset, align 8
+  %sub.i = sub i64 %11, %12
+  %cmp.i = icmp ult i64 %sub.i, %10
   br i1 %cmp.i, label %if.then.i, label %buffer_reserve.exit
 
 if.then.i:                                        ; preds = %trace_buffer_move.exit
-  tail call fastcc void @buffer_adj_size(ptr noundef nonnull %to, i64 noundef %11)
+  tail call fastcc void @buffer_adj_size(ptr noundef nonnull %to, i64 noundef %10)
   %.pre = load i64, ptr %offset1, align 8
   %.pre15 = load i64, ptr %offset, align 8
   br label %buffer_reserve.exit
 
 buffer_reserve.exit:                              ; preds = %trace_buffer_move.exit, %if.then.i
-  %14 = phi i64 [ %13, %trace_buffer_move.exit ], [ %.pre15, %if.then.i ]
-  %15 = phi i64 [ %11, %trace_buffer_move.exit ], [ %.pre, %if.then.i ]
+  %13 = phi i64 [ %12, %trace_buffer_move.exit ], [ %.pre15, %if.then.i ]
+  %14 = phi i64 [ %10, %trace_buffer_move.exit ], [ %.pre, %if.then.i ]
   %buffer = getelementptr inbounds i8, ptr %from, i64 32
-  %16 = load ptr, ptr %buffer, align 8
+  %15 = load ptr, ptr %buffer, align 8
   %buffer1.i = getelementptr inbounds i8, ptr %to, i64 32
-  %17 = load ptr, ptr %buffer1.i, align 8
-  %add.ptr.i = getelementptr i8, ptr %17, i64 %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %16, i64 %15, i1 false)
-  %18 = load i64, ptr %offset, align 8
-  %add.i = add i64 %18, %15
+  %16 = load ptr, ptr %buffer1.i, align 8
+  %add.ptr.i = getelementptr i8, ptr %16, i64 %13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %15, i64 %14, i1 false)
+  %17 = load i64, ptr %offset, align 8
+  %add.i = add i64 %17, %14
   store i64 %add.i, ptr %offset, align 8
-  %19 = load ptr, ptr %buffer, align 8
-  tail call void @g_free(ptr noundef %19) #12
+  %18 = load ptr, ptr %buffer, align 8
+  tail call void @g_free(ptr noundef %18) #12
   %capacity = getelementptr inbounds i8, ptr %from, i64 8
   store ptr null, ptr %buffer, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %capacity, i8 0, i64 16, i1 false)
@@ -549,16 +539,22 @@ return:                                           ; preds = %buffer_reserve.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
 
-declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
-declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
+declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @qemu_get_thread_id() local_unnamed_addr #2
+declare i32 @qemu_get_thread_id() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9
@@ -573,14 +569,14 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }

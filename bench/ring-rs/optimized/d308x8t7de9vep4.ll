@@ -103,14 +103,13 @@ define hidden { i8, i8 } @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7ne
   %6 = load i8, ptr %5, align 1
   store i8 2, ptr %3, align 8
   %7 = icmp eq i8 %4, 2
-  br i1 %7, label %8, label %15
+  br i1 %7, label %8, label %16
 
 8:                                                ; preds = %2
   %9 = tail call { i8, i8 } @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31cac2ea7eb6cd09E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
   %.fca.0.extract.i = extractvalue { i8, i8 } %9, 0
-  %10 = and i8 %.fca.0.extract.i, 1
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h33fe672103cff923E.exit", label %11
+  %10 = trunc i8 %.fca.0.extract.i to i1
+  br i1 %10, label %11, label %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h33fe672103cff923E.exit"
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 80
@@ -121,39 +120,40 @@ define hidden { i8, i8 } @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7ne
 
 "_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h33fe672103cff923E.exit": ; preds = %8, %11
   %.fca.1.extract.i = extractvalue { i8, i8 } %9, 1
-  br label %15
+  %15 = and i8 %.fca.0.extract.i, 1
+  br label %16
 
-15:                                               ; preds = %2, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h33fe672103cff923E.exit"
+16:                                               ; preds = %2, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h33fe672103cff923E.exit"
   %.sroa.6.0 = phi i8 [ %.fca.1.extract.i, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h33fe672103cff923E.exit" ], [ %6, %2 ]
-  %.sroa.0.013 = phi i8 [ %10, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h33fe672103cff923E.exit" ], [ %4, %2 ]
-  %.not = icmp eq i8 %.sroa.0.013, 0
-  br i1 %.not, label %18, label %16
+  %.sroa.0.012 = phi i8 [ %15, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h33fe672103cff923E.exit" ], [ %4, %2 ]
+  %17 = trunc i8 %.sroa.0.012 to i1
+  br i1 %17, label %18, label %20
 
-16:                                               ; preds = %15
+18:                                               ; preds = %16
   %.val = load ptr, ptr %1, align 8, !nonnull !67, !align !71, !noundef !67
   %.val2.i = load i8, ptr %.val, align 1, !noundef !67
-  %17 = icmp eq i8 %.val2.i, %.sroa.6.0
-  br i1 %17, label %20, label %18
+  %19 = icmp eq i8 %.val2.i, %.sroa.6.0
+  br i1 %19, label %22, label %20
 
-18:                                               ; preds = %16, %15
-  %19 = load i8, ptr %3, align 8, !range !66, !noundef !67
-  %.not7 = icmp eq i8 %19, 2
-  br i1 %.not7, label %24, label %23
+20:                                               ; preds = %18, %16
+  %21 = load i8, ptr %3, align 8, !range !66, !noundef !67
+  %.not = icmp eq i8 %21, 2
+  br i1 %.not, label %26, label %25
 
-20:                                               ; preds = %16, %24
-  %.sroa.0.0 = phi i8 [ 0, %24 ], [ 1, %16 ]
-  %21 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
-  %22 = insertvalue { i8, i8 } %21, i8 %.sroa.6.0, 1
-  ret { i8, i8 } %22
+22:                                               ; preds = %18, %26
+  %.sroa.0.0 = phi i8 [ 0, %26 ], [ 1, %18 ]
+  %23 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
+  %24 = insertvalue { i8, i8 } %23, i8 %.sroa.6.0, 1
+  ret { i8, i8 } %24
 
-23:                                               ; preds = %18
+25:                                               ; preds = %20
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.bb7da592cc2a4db35d4d49e42ec38fbb.0, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bb7da592cc2a4db35d4d49e42ec38fbb.2) #11
   unreachable
 
-24:                                               ; preds = %18
-  store i8 %.sroa.0.013, ptr %3, align 8
+26:                                               ; preds = %20
+  store i8 %.sroa.0.012, ptr %3, align 8
   store i8 %.sroa.6.0, ptr %5, align 1
-  br label %20
+  br label %22
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -164,14 +164,13 @@ define hidden { i8, i8 } @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7ne
   %6 = load i8, ptr %5, align 1
   store i8 2, ptr %3, align 8
   %7 = icmp eq i8 %4, 2
-  br i1 %7, label %8, label %15
+  br i1 %7, label %8, label %16
 
 8:                                                ; preds = %2
   %9 = tail call { i8, i8 } @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h910ed96031d477caE.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
   %.fca.0.extract.i = extractvalue { i8, i8 } %9, 0
-  %10 = and i8 %.fca.0.extract.i, 1
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbea90df5b20bdb0dE.exit", label %11
+  %10 = trunc i8 %.fca.0.extract.i to i1
+  br i1 %10, label %11, label %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbea90df5b20bdb0dE.exit"
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 80
@@ -182,39 +181,40 @@ define hidden { i8, i8 } @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7ne
 
 "_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbea90df5b20bdb0dE.exit": ; preds = %8, %11
   %.fca.1.extract.i = extractvalue { i8, i8 } %9, 1
-  br label %15
+  %15 = and i8 %.fca.0.extract.i, 1
+  br label %16
 
-15:                                               ; preds = %2, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbea90df5b20bdb0dE.exit"
+16:                                               ; preds = %2, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbea90df5b20bdb0dE.exit"
   %.sroa.6.0 = phi i8 [ %.fca.1.extract.i, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbea90df5b20bdb0dE.exit" ], [ %6, %2 ]
-  %.sroa.0.013 = phi i8 [ %10, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbea90df5b20bdb0dE.exit" ], [ %4, %2 ]
-  %.not = icmp eq i8 %.sroa.0.013, 0
-  br i1 %.not, label %18, label %16
+  %.sroa.0.012 = phi i8 [ %15, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbea90df5b20bdb0dE.exit" ], [ %4, %2 ]
+  %17 = trunc i8 %.sroa.0.012 to i1
+  br i1 %17, label %18, label %20
 
-16:                                               ; preds = %15
+18:                                               ; preds = %16
   %.val = load ptr, ptr %1, align 8, !nonnull !67, !align !71, !noundef !67
   %.val2.i = load i8, ptr %.val, align 1, !noundef !67
-  %17 = icmp eq i8 %.val2.i, %.sroa.6.0
-  br i1 %17, label %20, label %18
+  %19 = icmp eq i8 %.val2.i, %.sroa.6.0
+  br i1 %19, label %22, label %20
 
-18:                                               ; preds = %16, %15
-  %19 = load i8, ptr %3, align 8, !range !66, !noundef !67
-  %.not7 = icmp eq i8 %19, 2
-  br i1 %.not7, label %24, label %23
+20:                                               ; preds = %18, %16
+  %21 = load i8, ptr %3, align 8, !range !66, !noundef !67
+  %.not = icmp eq i8 %21, 2
+  br i1 %.not, label %26, label %25
 
-20:                                               ; preds = %16, %24
-  %.sroa.0.0 = phi i8 [ 0, %24 ], [ 1, %16 ]
-  %21 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
-  %22 = insertvalue { i8, i8 } %21, i8 %.sroa.6.0, 1
-  ret { i8, i8 } %22
+22:                                               ; preds = %18, %26
+  %.sroa.0.0 = phi i8 [ 0, %26 ], [ 1, %18 ]
+  %23 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
+  %24 = insertvalue { i8, i8 } %23, i8 %.sroa.6.0, 1
+  ret { i8, i8 } %24
 
-23:                                               ; preds = %18
+25:                                               ; preds = %20
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.bb7da592cc2a4db35d4d49e42ec38fbb.0, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bb7da592cc2a4db35d4d49e42ec38fbb.2) #11
   unreachable
 
-24:                                               ; preds = %18
-  store i8 %.sroa.0.013, ptr %3, align 8
+26:                                               ; preds = %20
+  store i8 %.sroa.0.012, ptr %3, align 8
   store i8 %.sroa.6.0, ptr %5, align 1
-  br label %20
+  br label %22
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

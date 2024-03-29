@@ -38,14 +38,12 @@ define dso_local noundef i32 @check_enable_rls(i32 noundef %0, i32 noundef %1, i
   %18 = getelementptr i8, ptr %14, i64 %17
   %19 = getelementptr inbounds i8, ptr %18, i64 123
   %20 = load i8, ptr %19, align 1
-  %21 = and i8 %20, 1
-  %.not23 = icmp eq i8 %21, 0
+  %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds i8, ptr %18, i64 124
   %23 = load i8, ptr %22, align 4
-  %24 = and i8 %23, 1
-  %.not24 = icmp eq i8 %24, 0
+  %24 = trunc i8 %23 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %11) #4
-  br i1 %.not23, label %43, label %25
+  br i1 %21, label %25, label %43
 
 25:                                               ; preds = %12
   %26 = tail call zeroext i1 @has_bypassrls_privilege(i32 noundef %7) #4
@@ -56,7 +54,7 @@ define dso_local noundef i32 @check_enable_rls(i32 noundef %0, i32 noundef %1, i
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %27
-  br i1 %.not24, label %43, label %30
+  br i1 %24, label %30, label %43
 
 30:                                               ; preds = %29
   %31 = tail call zeroext i1 @InNoForceRLSOperation() #4
@@ -64,9 +62,8 @@ define dso_local noundef i32 @check_enable_rls(i32 noundef %0, i32 noundef %1, i
 
 32:                                               ; preds = %30, %27
   %33 = load i8, ptr @row_security, align 1
-  %34 = and i8 %33, 1
-  %.not25 = icmp ne i8 %34, 0
-  %brmerge = or i1 %.not25, %2
+  %34 = trunc i8 %33 to i1
+  %brmerge = or i1 %34, %2
   br i1 %brmerge, label %43, label %35
 
 35:                                               ; preds = %32
@@ -120,10 +117,53 @@ define dso_local noundef i64 @row_security_active(ptr nocapture noundef readonly
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
-  %5 = tail call i32 @check_enable_rls(i32 noundef %4, i32 noundef 0, i1 noundef zeroext true), !range !5
-  %6 = icmp eq i32 %5, 2
-  %7 = zext i1 %6 to i64
-  ret i64 %7
+  %5 = tail call i32 @GetUserId() #4
+  %6 = icmp ult i32 %4, 16384
+  br i1 %6, label %check_enable_rls.exit, label %7
+
+7:                                                ; preds = %1
+  %8 = and i64 %3, 4294967295
+  %9 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %8) #4
+  %.not22.i = icmp eq ptr %9, null
+  br i1 %.not22.i, label %check_enable_rls.exit, label %10
+
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %14 = load i8, ptr %13, align 2
+  %15 = zext i8 %14 to i64
+  %16 = getelementptr i8, ptr %12, i64 %15
+  %17 = getelementptr inbounds i8, ptr %16, i64 123
+  %18 = load i8, ptr %17, align 1
+  %19 = trunc i8 %18 to i1
+  %20 = getelementptr inbounds i8, ptr %16, i64 124
+  %21 = load i8, ptr %20, align 4
+  %22 = trunc i8 %21 to i1
+  tail call void @ReleaseSysCache(ptr noundef nonnull %9) #4
+  br i1 %19, label %23, label %check_enable_rls.exit
+
+23:                                               ; preds = %10
+  %24 = tail call zeroext i1 @has_bypassrls_privilege(i32 noundef %5) #4
+  br i1 %24, label %check_enable_rls.exit, label %25
+
+25:                                               ; preds = %23
+  %26 = tail call zeroext i1 @object_ownercheck(i32 noundef 1259, i32 noundef %4, i32 noundef %5) #4
+  br i1 %26, label %27, label %30
+
+27:                                               ; preds = %25
+  br i1 %22, label %28, label %check_enable_rls.exit
+
+28:                                               ; preds = %27
+  %29 = tail call zeroext i1 @InNoForceRLSOperation() #4
+  br i1 %29, label %check_enable_rls.exit, label %30
+
+30:                                               ; preds = %28, %25
+  br label %check_enable_rls.exit
+
+check_enable_rls.exit:                            ; preds = %1, %7, %10, %23, %27, %28, %30
+  %31 = phi i64 [ 0, %1 ], [ 0, %7 ], [ 0, %10 ], [ 0, %23 ], [ 0, %28 ], [ 0, %27 ], [ 1, %30 ]
+  ret i64 %31
 }
 
 ; Function Attrs: nounwind uwtable
@@ -135,10 +175,53 @@ define dso_local noundef i64 @row_security_active_name(ptr nocapture noundef rea
   %6 = tail call ptr @textToQualifiedNameList(ptr noundef %5) #4
   %7 = tail call ptr @makeRangeVarFromNameList(ptr noundef %6) #4
   %8 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %7, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null) #4
-  %9 = tail call i32 @check_enable_rls(i32 noundef %8, i32 noundef 0, i1 noundef zeroext true), !range !5
-  %10 = icmp eq i32 %9, 2
-  %11 = zext i1 %10 to i64
-  ret i64 %11
+  %9 = tail call i32 @GetUserId() #4
+  %10 = icmp ult i32 %8, 16384
+  br i1 %10, label %check_enable_rls.exit, label %11
+
+11:                                               ; preds = %1
+  %12 = zext i32 %8 to i64
+  %13 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %12) #4
+  %.not22.i = icmp eq ptr %13, null
+  br i1 %.not22.i, label %check_enable_rls.exit, label %14
+
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 22
+  %18 = load i8, ptr %17, align 2
+  %19 = zext i8 %18 to i64
+  %20 = getelementptr i8, ptr %16, i64 %19
+  %21 = getelementptr inbounds i8, ptr %20, i64 123
+  %22 = load i8, ptr %21, align 1
+  %23 = trunc i8 %22 to i1
+  %24 = getelementptr inbounds i8, ptr %20, i64 124
+  %25 = load i8, ptr %24, align 4
+  %26 = trunc i8 %25 to i1
+  tail call void @ReleaseSysCache(ptr noundef nonnull %13) #4
+  br i1 %23, label %27, label %check_enable_rls.exit
+
+27:                                               ; preds = %14
+  %28 = tail call zeroext i1 @has_bypassrls_privilege(i32 noundef %9) #4
+  br i1 %28, label %check_enable_rls.exit, label %29
+
+29:                                               ; preds = %27
+  %30 = tail call zeroext i1 @object_ownercheck(i32 noundef 1259, i32 noundef %8, i32 noundef %9) #4
+  br i1 %30, label %31, label %34
+
+31:                                               ; preds = %29
+  br i1 %26, label %32, label %check_enable_rls.exit
+
+32:                                               ; preds = %31
+  %33 = tail call zeroext i1 @InNoForceRLSOperation() #4
+  br i1 %33, label %check_enable_rls.exit, label %34
+
+34:                                               ; preds = %32, %29
+  br label %check_enable_rls.exit
+
+check_enable_rls.exit:                            ; preds = %1, %11, %14, %27, %31, %32, %34
+  %35 = phi i64 [ 0, %1 ], [ 0, %11 ], [ 0, %14 ], [ 0, %27 ], [ 0, %32 ], [ 0, %31 ], [ 1, %34 ]
+  ret i64 %35
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
@@ -166,4 +249,3 @@ attributes #5 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 3}

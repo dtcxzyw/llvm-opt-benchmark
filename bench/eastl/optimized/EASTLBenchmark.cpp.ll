@@ -123,7 +123,7 @@ if.end17:                                         ; preds = %if.then2, %if.else1
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE7sprintfEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pFormat, ...) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %arguments)
+  call void @llvm.va_start.p0(ptr nonnull %arguments)
   %mRemainingSizeField.i.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i = icmp slt i8 %0, 0
@@ -140,7 +140,7 @@ cond.false.i:                                     ; preds = %entry
 
 _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit: ; preds = %cond.true.i, %cond.false.i
   %call3 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE22append_sprintf_va_listEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pFormat, ptr noundef nonnull %arguments)
-  call void @llvm.va_end(ptr nonnull %arguments)
+  call void @llvm.va_end.p0(ptr nonnull %arguments)
   ret ptr %this
 }
 
@@ -1666,9 +1666,6 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 declare noundef ptr @_ZnamPKcijS0_i(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE22append_sprintf_va_listEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pFormat, ptr noundef %arguments) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
@@ -1693,7 +1690,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i4.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call void @llvm.va_copy(ptr nonnull %argumentsSaved, ptr %arguments)
+  call void @llvm.va_copy.p0(ptr nonnull %argumentsSaved, ptr %arguments)
   %4 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i33 = icmp slt i8 %4, 0
   %5 = load ptr, ptr %this, align 8
@@ -1710,8 +1707,8 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.va_end(ptr %arguments)
-  call void @llvm.va_copy(ptr %arguments, ptr nonnull %argumentsSaved)
+  call void @llvm.va_end.p0(ptr %arguments)
+  call void @llvm.va_copy.p0(ptr %arguments, ptr nonnull %argumentsSaved)
   %conv10 = sext i32 %call.i to i64
   %add11 = add i64 %cond.i, %conv10
   call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %add11)
@@ -1740,8 +1737,8 @@ for.body.preheader:                               ; preds = %if.then18
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %n.056 = phi i64 [ %mul36, %for.inc ], [ %cond.i39, %for.body.preheader ]
-  call void @llvm.va_end(ptr %arguments)
-  call void @llvm.va_copy(ptr %arguments, ptr nonnull %argumentsSaved)
+  call void @llvm.va_end.p0(ptr %arguments)
+  call void @llvm.va_copy.p0(ptr %arguments, ptr nonnull %argumentsSaved)
   call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %n.056)
   %sub = sub i64 %n.056, %cond.i
   %9 = load i8, ptr %mRemainingSizeField.i.i, align 1
@@ -1800,15 +1797,9 @@ cond.false.i:                                     ; preds = %if.then40
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then18, %cond.false.i, %cond.true.i, %if.end38
-  call void @llvm.va_end(ptr nonnull %argumentsSaved)
+  call void @llvm.va_end.p0(ptr nonnull %argumentsSaved)
   ret ptr %this
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl12basic_stringIcNS_9allocatorEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1916,7 +1907,7 @@ if.end11:                                         ; preds = %cond.false.i.i26, %
 declare noundef i32 @_ZN2EA4StdC9VsnprintfEPcmPKcP13__va_list_tag(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pBegin, ptr noundef %pEnd) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2022,9 +2013,8 @@ entry:
   tail call void @_ZN9Benchmark6ResultC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %mValue.i, ptr noundef nonnull align 8 dereferenceable(88) %args)
   %call4 = call noundef ptr @_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKS2_(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef nonnull align 1 dereferenceable(1) %canInsert, ptr noundef nonnull align 8 dereferenceable(88) %mValue.i)
   %0 = load i8, ptr %canInsert, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %cmp.i = icmp eq ptr %call4, %this
@@ -2033,26 +2023,26 @@ if.then:                                          ; preds = %entry
 lor.lhs.false2.i:                                 ; preds = %if.then
   %mValue.i5 = getelementptr inbounds i8, ptr %call4, i64 32
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 55
-  %2 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
-  %tobool.i.i.i.i.i.i.i.i = icmp slt i8 %2, 0
-  %3 = load ptr, ptr %mValue.i, align 8
-  %spec.select.i.i.i.i.i.i.i = select i1 %tobool.i.i.i.i.i.i.i.i, ptr %3, ptr %mValue.i
+  %1 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
+  %tobool.i.i.i.i.i.i.i.i = icmp slt i8 %1, 0
+  %2 = load ptr, ptr %mValue.i, align 8
+  %spec.select.i.i.i.i.i.i.i = select i1 %tobool.i.i.i.i.i.i.i.i, ptr %2, ptr %mValue.i
   %mnSize.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 40
-  %4 = load i64, ptr %mnSize.i.i.i.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %4
-  %conv.i.i.i.i.i.i.i.i.i = zext nneg i8 %2 to i64
+  %3 = load i64, ptr %mnSize.i.i.i.i.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %3
+  %conv.i.i.i.i.i.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i.i.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i.i.i.i.i.i
   %add.ptr.i1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %mValue.i, i64 %sub.i.i.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i.i = select i1 %tobool.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i.i.i.i
   %mRemainingSizeField.i.i.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %call4, i64 55
-  %5 = load i8, ptr %mRemainingSizeField.i.i.i5.i.i.i.i.i, align 1
-  %tobool.i.i.i6.i.i.i.i.i = icmp slt i8 %5, 0
-  %6 = load ptr, ptr %mValue.i5, align 8
-  %spec.select.i.i7.i.i.i.i.i = select i1 %tobool.i.i.i6.i.i.i.i.i, ptr %6, ptr %mValue.i5
+  %4 = load i8, ptr %mRemainingSizeField.i.i.i5.i.i.i.i.i, align 1
+  %tobool.i.i.i6.i.i.i.i.i = icmp slt i8 %4, 0
+  %5 = load ptr, ptr %mValue.i5, align 8
+  %spec.select.i.i7.i.i.i.i.i = select i1 %tobool.i.i.i6.i.i.i.i.i, ptr %5, ptr %mValue.i5
   %mnSize.i.i.i10.i.i.i.i.i = getelementptr inbounds i8, ptr %call4, i64 40
-  %7 = load i64, ptr %mnSize.i.i.i10.i.i.i.i.i, align 8
-  %add.ptr.i.i.i11.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 %7
-  %conv.i.i.i.i12.i.i.i.i.i = zext nneg i8 %5 to i64
+  %6 = load i64, ptr %mnSize.i.i.i10.i.i.i.i.i, align 8
+  %add.ptr.i.i.i11.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 %6
+  %conv.i.i.i.i12.i.i.i.i.i = zext nneg i8 %4 to i64
   %sub.i.i.i.i13.i.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i12.i.i.i.i.i
   %add.ptr.i1.i.i14.i.i.i.i.i = getelementptr inbounds i8, ptr %mValue.i5, i64 %sub.i.i.i.i13.i.i.i.i.i
   %cond.i.i15.i.i.i.i.i = select i1 %tobool.i.i.i6.i.i.i.i.i, ptr %add.ptr.i.i.i11.i.i.i.i.i, ptr %add.ptr.i1.i.i14.i.i.i.i.i
@@ -2075,12 +2065,12 @@ _ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i.i:       ; preds = %lor.lhs.false2.i
   %call.i.fr.i.i.i.i.i.i = freeze i32 %call.i.i.i.i.i.i.i
   %cmp5.not.i.i.i.i.i.i = icmp eq i32 %call.i.fr.i.i.i.i.i.i, 0
   %cmp6.i.i.i.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i.i.i.i, %sub.ptr.sub3.i.i.i.i.i.i
-  %8 = icmp slt i32 %call.i.fr.i.i.i.i.i.i, 0
-  %9 = select i1 %cmp5.not.i.i.i.i.i.i, i1 %cmp6.i.i.i.i.i.i, i1 %8
+  %7 = icmp slt i32 %call.i.fr.i.i.i.i.i.i, 0
+  %8 = select i1 %cmp5.not.i.i.i.i.i.i, i1 %cmp6.i.i.i.i.i.i, i1 %7
   br label %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit.i
 
 _ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit.i: ; preds = %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i.i, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i.i
-  %cmp.i.i.i.i.i = phi i1 [ %cmp610.i.i.i.i.i.i, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i.i ], [ %9, %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i.i ]
+  %cmp.i.i.i.i.i = phi i1 [ %cmp610.i.i.i.i.i.i, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i.i ], [ %8, %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i.i ]
   %not.cmp.i.i.i.i.i = xor i1 %cmp.i.i.i.i.i, true
   %spec.select.i = zext i1 %not.cmp.i.i.i.i.i to i32
   br label %_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKS2_PNS_11rbtree_nodeIS2_EE.exit
@@ -2089,40 +2079,40 @@ _ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfI
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit.i ]
   call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %call.i.i.i.i, ptr noundef %call4, ptr noundef nonnull %this, i32 noundef %side.0.i)
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
-  %10 = load i64, ptr %mnSize.i, align 8
-  %inc.i = add i64 %10, 1
+  %9 = load i64, ptr %mnSize.i, align 8
+  %inc.i = add i64 %9, 1
   store i64 %inc.i, ptr %mnSize.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
   %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 119
-  %11 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
-  %tobool.i.i.i.i.i.i = icmp slt i8 %11, 0
+  %10 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
+  %tobool.i.i.i.i.i.i = icmp slt i8 %10, 0
   br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end
   %msNotes.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 96
-  %12 = load ptr, ptr %msNotes.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %msNotes.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %12) #15
+  call void @_ZdaPv(ptr noundef nonnull %11) #15
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit.i.i.i
 
 _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit.i.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end
   %mRemainingSizeField.i.i.i1.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 55
-  %13 = load i8, ptr %mRemainingSizeField.i.i.i1.i.i.i, align 1
-  %tobool.i.i.i2.i.i.i = icmp slt i8 %13, 0
+  %12 = load i8, ptr %mRemainingSizeField.i.i.i1.i.i.i, align 1
+  %tobool.i.i.i2.i.i.i = icmp slt i8 %12, 0
   br i1 %tobool.i.i.i2.i.i.i, label %if.then.i.i3.i.i.i, label %_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIS2_EE.exit
 
 if.then.i.i3.i.i.i:                               ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit.i.i.i
-  %14 = load ptr, ptr %mValue.i, align 8
-  %tobool.not.i.i.i4.i.i.i = icmp eq ptr %14, null
+  %13 = load ptr, ptr %mValue.i, align 8
+  %tobool.not.i.i.i4.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i4.i.i.i, label %_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIS2_EE.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i5.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i5.i.i.i: ; preds = %if.then.i.i3.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %14) #15
+  call void @_ZdaPv(ptr noundef nonnull %13) #15
   br label %_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIS2_EE.exit
 
 _ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIS2_EE.exit: ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit.i.i.i, %if.then.i.i3.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i5.i.i.i
@@ -2130,8 +2120,8 @@ _ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfI
   br label %return
 
 return:                                           ; preds = %_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIS2_EE.exit, %_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKS2_PNS_11rbtree_nodeIS2_EE.exit
-  %retval.sroa.0.0 = phi ptr [ %call4, %_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIS2_EE.exit ], [ %call.i.i.i.i, %_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKS2_PNS_11rbtree_nodeIS2_EE.exit ]
-  %retval.sroa.3.0 = phi i8 [ 0, %_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIS2_EE.exit ], [ 1, %_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKS2_PNS_11rbtree_nodeIS2_EE.exit ]
+  %retval.sroa.0.0 = phi ptr [ %call.i.i.i.i, %_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKS2_PNS_11rbtree_nodeIS2_EE.exit ], [ %call4, %_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIS2_EE.exit ]
+  %retval.sroa.3.0 = phi i8 [ 1, %_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKS2_PNS_11rbtree_nodeIS2_EE.exit ], [ 0, %_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIS2_EE.exit ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -2424,14 +2414,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef ptr @_ZN5eastl15RBTreeDecrementEPKNS_16rbtree_node_baseE(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
 
 declare void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 declare noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @_GLOBAL__sub_I_EASTLBenchmark.cpp() #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_EASTLBenchmark.cpp() #11 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr @_ZN9Benchmark12gEnvironmentE, align 8
   store i8 23, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 23), align 1
@@ -2448,6 +2438,15 @@ entry:
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5eastl3setIN9Benchmark6ResultENS_4lessIS2_EENS_9allocatorEED2Ev, ptr nonnull @_ZN9Benchmark10gResultSetE, ptr nonnull @__dso_handle) #17
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13
@@ -2470,10 +2469,10 @@ attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #15 = { builtin nounwind }

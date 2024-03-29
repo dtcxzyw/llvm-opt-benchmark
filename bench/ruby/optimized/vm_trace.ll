@@ -195,21 +195,21 @@ define hidden void @rb_hook_list_free(ptr noundef %0) local_unnamed_addr #0 {
   store i32 0, ptr %7, align 8
   store i8 0, ptr %2, align 8
   %9 = load ptr, ptr %0, align 8
-  %.not19.i = icmp eq ptr %9, null
-  br i1 %.not19.i, label %._crit_edge.i.thread, label %.lr.ph.i
+  %.not18.i = icmp eq ptr %9, null
+  br i1 %.not18.i, label %._crit_edge.i.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %22
   %10 = phi ptr [ %23, %22 ], [ %9, %6 ]
-  %.020.i = phi ptr [ %.1.i, %22 ], [ %0, %6 ]
+  %.019.i = phi ptr [ %.1.i, %22 ], [ %0, %6 ]
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 2
-  %.not18.i = icmp eq i32 %12, 0
-  br i1 %.not18.i, label %16, label %13
+  %.not17.i = icmp eq i32 %12, 0
+  br i1 %.not17.i, label %16, label %13
 
 13:                                               ; preds = %.lr.ph.i
   %14 = getelementptr inbounds i8, ptr %10, i64 24
   %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %.020.i, align 8
+  store ptr %15, ptr %.019.i, align 8
   tail call void @ruby_xfree(ptr noundef nonnull %10) #4
   br label %22
 
@@ -223,7 +223,7 @@ define hidden void @rb_hook_list_free(ptr noundef %0) local_unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %16, %13
-  %.1.i = phi ptr [ %.020.i, %13 ], [ %21, %16 ]
+  %.1.i = phi ptr [ %.019.i, %13 ], [ %21, %16 ]
   %23 = load ptr, ptr %.1.i, align 8
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
@@ -232,16 +232,14 @@ define hidden void @rb_hook_list_free(ptr noundef %0) local_unnamed_addr #0 {
   %.pr = load i32, ptr %7, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 17
   %25 = load i8, ptr %24, align 1
-  %26 = and i8 %25, 1
-  %.not17.i = icmp eq i8 %26, 0
-  br i1 %.not17.i, label %32, label %30
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %30, label %32
 
 ._crit_edge.i.thread:                             ; preds = %6
   %27 = getelementptr inbounds i8, ptr %0, i64 17
   %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  %.not17.i3 = icmp eq i8 %29, 0
-  br i1 %.not17.i3, label %32, label %.thread
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %.thread, label %32
 
 30:                                               ; preds = %._crit_edge.i
   %31 = icmp eq i32 %.pr, 0
@@ -465,87 +463,13 @@ define dso_local i32 @rb_thread_remove_event_hook_with_data(i64 noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_remove_event_hook(ptr noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i32 @rb_remove_event_hook(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 48
   %.val = load ptr, ptr %4, align 8
-  %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %rb_ec_ractor_hooks.exit.i, label %5
-
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %.val, i64 24
-  %7 = load ptr, ptr %6, align 8
-  br label %rb_ec_ractor_hooks.exit.i
-
-rb_ec_ractor_hooks.exit.i:                        ; preds = %5, %1
-  %.0.i.i.i = phi ptr [ %7, %5 ], [ null, %1 ]
-  %8 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
-  %.01.i = load ptr, ptr %8, align 8
-  %.not2.i = icmp eq ptr %.01.i, null
-  br i1 %.not2.i, label %remove_event_hook.exit, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %rb_ec_ractor_hooks.exit.i
-  %9 = icmp eq ptr %0, null
-  %10 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
-  br i1 %9, label %.lr.ph.split.us.split.us.split.i, label %.lr.ph.split.split.us.split.i
-
-.lr.ph.split.us.split.us.split.i:                 ; preds = %.lr.ph.i, %18
-  %.04.us.us.i = phi ptr [ %.0.us.us.i, %18 ], [ %.01.i, %.lr.ph.i ]
-  %.0183.us.us.i = phi i32 [ %.1.us.us.i, %18 ], [ 0, %.lr.ph.i ]
-  %11 = getelementptr inbounds i8, ptr %.04.us.us.i, i64 32
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %18
-
-14:                                               ; preds = %.lr.ph.split.us.split.us.split.i
-  %15 = load i32, ptr %.04.us.us.i, align 8
-  %16 = or i32 %15, 2
-  store i32 %16, ptr %.04.us.us.i, align 8
-  %17 = add i32 %.0183.us.us.i, 1
-  store i8 1, ptr %10, align 8
-  br label %18
-
-18:                                               ; preds = %14, %.lr.ph.split.us.split.us.split.i
-  %.1.us.us.i = phi i32 [ %17, %14 ], [ %.0183.us.us.i, %.lr.ph.split.us.split.us.split.i ]
-  %19 = getelementptr inbounds i8, ptr %.04.us.us.i, i64 24
-  %.0.us.us.i = load ptr, ptr %19, align 8
-  %.not.us.us.i = icmp eq ptr %.0.us.us.i, null
-  br i1 %.not.us.us.i, label %remove_event_hook.exit, label %.lr.ph.split.us.split.us.split.i, !llvm.loop !12
-
-.lr.ph.split.split.us.split.i:                    ; preds = %.lr.ph.i, %31
-  %.04.us5.i = phi ptr [ %.0.us9.i, %31 ], [ %.01.i, %.lr.ph.i ]
-  %.0183.us6.i = phi i32 [ %.1.us8.i, %31 ], [ 0, %.lr.ph.i ]
-  %20 = getelementptr inbounds i8, ptr %.04.us5.i, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, %0
-  br i1 %22, label %23, label %31
-
-23:                                               ; preds = %.lr.ph.split.split.us.split.i
-  %24 = getelementptr inbounds i8, ptr %.04.us5.i, i64 32
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %31
-
-27:                                               ; preds = %23
-  %28 = load i32, ptr %.04.us5.i, align 8
-  %29 = or i32 %28, 2
-  store i32 %29, ptr %.04.us5.i, align 8
-  %30 = add i32 %.0183.us6.i, 1
-  store i8 1, ptr %10, align 8
-  br label %31
-
-31:                                               ; preds = %27, %23, %.lr.ph.split.split.us.split.i
-  %.1.us8.i = phi i32 [ %30, %27 ], [ %.0183.us6.i, %23 ], [ %.0183.us6.i, %.lr.ph.split.split.us.split.i ]
-  %32 = getelementptr inbounds i8, ptr %.04.us5.i, i64 24
-  %.0.us9.i = load ptr, ptr %32, align 8
-  %.not.us10.i = icmp eq ptr %.0.us9.i, null
-  br i1 %.not.us10.i, label %remove_event_hook.exit, label %.lr.ph.split.split.us.split.i, !llvm.loop !12
-
-remove_event_hook.exit:                           ; preds = %31, %18, %rb_ec_ractor_hooks.exit.i
-  %.018.lcssa.i = phi i32 [ 0, %rb_ec_ractor_hooks.exit.i ], [ %.1.us.us.i, %18 ], [ %.1.us8.i, %31 ]
-  tail call fastcc void @clean_hooks_check(ptr noundef nonnull %8)
-  ret i32 %.018.lcssa.i
+  %5 = tail call fastcc i32 @remove_event_hook(ptr %.val, ptr noundef null, ptr noundef %0, i64 noundef 36)
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -575,97 +499,82 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %10, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
-  br i1 %9, label %.lr.ph.split.us.split.us.split.us, label %.lr.ph.split.us.split.us.split
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %19
+  %.04.us.us = phi ptr [ %.0.us.us, %19 ], [ %.01, %.lr.ph.split.us ]
+  %.0183.us.us = phi i32 [ %.1.us.us, %19 ], [ 0, %.lr.ph.split.us ]
+  %12 = getelementptr inbounds i8, ptr %.04.us.us, i64 32
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, %0
+  %or.cond.us.us = or i1 %9, %14
+  br i1 %or.cond.us.us, label %15, label %19
 
-.lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split.us
-  %.04.us.us.us = phi ptr [ %.0.us.us.us, %.lr.ph.split.us.split.us.split.us ], [ %.01, %.lr.ph.split.us.split.us ]
-  %.0183.us.us.us = phi i32 [ %14, %.lr.ph.split.us.split.us.split.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %12 = load i32, ptr %.04.us.us.us, align 8
-  %13 = or i32 %12, 2
-  store i32 %13, ptr %.04.us.us.us, align 8
-  %14 = add i32 %.0183.us.us.us, 1
+15:                                               ; preds = %.lr.ph.split.us.split.us
+  %16 = load i32, ptr %.04.us.us, align 8
+  %17 = or i32 %16, 2
+  store i32 %17, ptr %.04.us.us, align 8
+  %18 = add i32 %.0183.us.us, 1
   store i8 1, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %.04.us.us.us, i64 24
-  %.0.us.us.us = load ptr, ptr %15, align 8
-  %.not.us.us.us = icmp eq ptr %.0.us.us.us, null
-  br i1 %.not.us.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us.split.us, !llvm.loop !12
+  br label %19
 
-.lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %23
-  %.04.us.us = phi ptr [ %.0.us.us, %23 ], [ %.01, %.lr.ph.split.us.split.us ]
-  %.0183.us.us = phi i32 [ %.1.us.us, %23 ], [ 0, %.lr.ph.split.us.split.us ]
-  %16 = getelementptr inbounds i8, ptr %.04.us.us, i64 32
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, %0
-  br i1 %18, label %19, label %23
-
-19:                                               ; preds = %.lr.ph.split.us.split.us.split
-  %20 = load i32, ptr %.04.us.us, align 8
-  %21 = or i32 %20, 2
-  store i32 %21, ptr %.04.us.us, align 8
-  %22 = add i32 %.0183.us.us, 1
-  store i8 1, ptr %11, align 8
-  br label %23
-
-23:                                               ; preds = %19, %.lr.ph.split.us.split.us.split
-  %.1.us.us = phi i32 [ %22, %19 ], [ %.0183.us.us, %.lr.ph.split.us.split.us.split ]
-  %24 = getelementptr inbounds i8, ptr %.04.us.us, i64 24
-  %.0.us.us = load ptr, ptr %24, align 8
+19:                                               ; preds = %15, %.lr.ph.split.us.split.us
+  %.1.us.us = phi i32 [ %18, %15 ], [ %.0183.us.us, %.lr.ph.split.us.split.us ]
+  %20 = getelementptr inbounds i8, ptr %.04.us.us, i64 24
+  %.0.us.us = load ptr, ptr %20, align 8
   %.not.us.us = icmp eq ptr %.0.us.us, null
-  br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us.split, !llvm.loop !12
+  br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !12
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
   br i1 %9, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.us.split.split
 
-.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %32
-  %.04.us.us23 = phi ptr [ %.0.us.us27, %32 ], [ %.01, %.lr.ph.split.us.split ]
-  %.0183.us.us24 = phi i32 [ %.1.us.us26, %32 ], [ 0, %.lr.ph.split.us.split ]
-  %25 = getelementptr inbounds i8, ptr %.04.us.us23, i64 16
-  %26 = load i64, ptr %25, align 8
-  %27 = icmp eq i64 %26, %2
-  br i1 %27, label %28, label %32
+.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %28
+  %.04.us.us23 = phi ptr [ %.0.us.us27, %28 ], [ %.01, %.lr.ph.split.us.split ]
+  %.0183.us.us24 = phi i32 [ %.1.us.us26, %28 ], [ 0, %.lr.ph.split.us.split ]
+  %21 = getelementptr inbounds i8, ptr %.04.us.us23, i64 16
+  %22 = load i64, ptr %21, align 8
+  %23 = icmp eq i64 %22, %2
+  br i1 %23, label %24, label %28
 
-28:                                               ; preds = %.lr.ph.split.us.split.split.us
-  %29 = load i32, ptr %.04.us.us23, align 8
-  %30 = or i32 %29, 2
-  store i32 %30, ptr %.04.us.us23, align 8
-  %31 = add i32 %.0183.us.us24, 1
+24:                                               ; preds = %.lr.ph.split.us.split.split.us
+  %25 = load i32, ptr %.04.us.us23, align 8
+  %26 = or i32 %25, 2
+  store i32 %26, ptr %.04.us.us23, align 8
+  %27 = add i32 %.0183.us.us24, 1
   store i8 1, ptr %11, align 8
-  br label %32
+  br label %28
 
-32:                                               ; preds = %28, %.lr.ph.split.us.split.split.us
-  %.1.us.us26 = phi i32 [ %31, %28 ], [ %.0183.us.us24, %.lr.ph.split.us.split.split.us ]
-  %33 = getelementptr inbounds i8, ptr %.04.us.us23, i64 24
-  %.0.us.us27 = load ptr, ptr %33, align 8
+28:                                               ; preds = %24, %.lr.ph.split.us.split.split.us
+  %.1.us.us26 = phi i32 [ %27, %24 ], [ %.0183.us.us24, %.lr.ph.split.us.split.split.us ]
+  %29 = getelementptr inbounds i8, ptr %.04.us.us23, i64 24
+  %.0.us.us27 = load ptr, ptr %29, align 8
   %.not.us.us28 = icmp eq ptr %.0.us.us27, null
   br i1 %.not.us.us28, label %._crit_edge, label %.lr.ph.split.us.split.split.us, !llvm.loop !12
 
-.lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %45
-  %.04.us = phi ptr [ %.0.us, %45 ], [ %.01, %.lr.ph.split.us.split ]
-  %.0183.us = phi i32 [ %.1.us, %45 ], [ 0, %.lr.ph.split.us.split ]
-  %34 = getelementptr inbounds i8, ptr %.04.us, i64 32
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, %0
-  br i1 %36, label %37, label %45
+.lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %41
+  %.04.us = phi ptr [ %.0.us, %41 ], [ %.01, %.lr.ph.split.us.split ]
+  %.0183.us = phi i32 [ %.1.us, %41 ], [ 0, %.lr.ph.split.us.split ]
+  %30 = getelementptr inbounds i8, ptr %.04.us, i64 32
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp eq ptr %31, %0
+  br i1 %32, label %33, label %41
 
-37:                                               ; preds = %.lr.ph.split.us.split.split
-  %38 = getelementptr inbounds i8, ptr %.04.us, i64 16
-  %39 = load i64, ptr %38, align 8
-  %40 = icmp eq i64 %39, %2
-  br i1 %40, label %41, label %45
+33:                                               ; preds = %.lr.ph.split.us.split.split
+  %34 = getelementptr inbounds i8, ptr %.04.us, i64 16
+  %35 = load i64, ptr %34, align 8
+  %36 = icmp eq i64 %35, %2
+  br i1 %36, label %37, label %41
 
-41:                                               ; preds = %37
-  %42 = load i32, ptr %.04.us, align 8
-  %43 = or i32 %42, 2
-  store i32 %43, ptr %.04.us, align 8
-  %44 = add i32 %.0183.us, 1
+37:                                               ; preds = %33
+  %38 = load i32, ptr %.04.us, align 8
+  %39 = or i32 %38, 2
+  store i32 %39, ptr %.04.us, align 8
+  %40 = add i32 %.0183.us, 1
   store i8 1, ptr %11, align 8
-  br label %45
+  br label %41
 
-45:                                               ; preds = %41, %37, %.lr.ph.split.us.split.split
-  %.1.us = phi i32 [ %44, %41 ], [ %.0183.us, %37 ], [ %.0183.us, %.lr.ph.split.us.split.split ]
-  %46 = getelementptr inbounds i8, ptr %.04.us, i64 24
-  %.0.us = load ptr, ptr %46, align 8
+41:                                               ; preds = %37, %33, %.lr.ph.split.us.split.split
+  %.1.us = phi i32 [ %40, %37 ], [ %.0183.us, %33 ], [ %.0183.us, %.lr.ph.split.us.split.split ]
+  %42 = getelementptr inbounds i8, ptr %.04.us, i64 24
+  %.0.us = load ptr, ptr %42, align 8
   %.not.us = icmp eq ptr %.0.us, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !12
 
@@ -675,128 +584,204 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
   br i1 %9, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
 
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %54
-  %.04.us5.us = phi ptr [ %.0.us9.us, %54 ], [ %.01, %.lr.ph.split.split.us ]
-  %.0183.us6.us = phi i32 [ %.1.us8.us, %54 ], [ 0, %.lr.ph.split.split.us ]
-  %47 = getelementptr inbounds i8, ptr %.04.us5.us, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq ptr %48, %1
-  br i1 %49, label %50, label %54
+.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %50
+  %.04.us5.us = phi ptr [ %.0.us9.us, %50 ], [ %.01, %.lr.ph.split.split.us ]
+  %.0183.us6.us = phi i32 [ %.1.us8.us, %50 ], [ 0, %.lr.ph.split.split.us ]
+  %43 = getelementptr inbounds i8, ptr %.04.us5.us, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, %1
+  br i1 %45, label %46, label %50
 
-50:                                               ; preds = %.lr.ph.split.split.us.split.us
-  %51 = load i32, ptr %.04.us5.us, align 8
-  %52 = or i32 %51, 2
-  store i32 %52, ptr %.04.us5.us, align 8
-  %53 = add i32 %.0183.us6.us, 1
+46:                                               ; preds = %.lr.ph.split.split.us.split.us
+  %47 = load i32, ptr %.04.us5.us, align 8
+  %48 = or i32 %47, 2
+  store i32 %48, ptr %.04.us5.us, align 8
+  %49 = add i32 %.0183.us6.us, 1
   store i8 1, ptr %11, align 8
-  br label %54
+  br label %50
 
-54:                                               ; preds = %50, %.lr.ph.split.split.us.split.us
-  %.1.us8.us = phi i32 [ %53, %50 ], [ %.0183.us6.us, %.lr.ph.split.split.us.split.us ]
-  %55 = getelementptr inbounds i8, ptr %.04.us5.us, i64 24
-  %.0.us9.us = load ptr, ptr %55, align 8
+50:                                               ; preds = %46, %.lr.ph.split.split.us.split.us
+  %.1.us8.us = phi i32 [ %49, %46 ], [ %.0183.us6.us, %.lr.ph.split.split.us.split.us ]
+  %51 = getelementptr inbounds i8, ptr %.04.us5.us, i64 24
+  %.0.us9.us = load ptr, ptr %51, align 8
   %.not.us10.us = icmp eq ptr %.0.us9.us, null
   br i1 %.not.us10.us, label %._crit_edge, label %.lr.ph.split.split.us.split.us, !llvm.loop !12
 
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %67
-  %.04.us5 = phi ptr [ %.0.us9, %67 ], [ %.01, %.lr.ph.split.split.us ]
-  %.0183.us6 = phi i32 [ %.1.us8, %67 ], [ 0, %.lr.ph.split.split.us ]
-  %56 = getelementptr inbounds i8, ptr %.04.us5, i64 8
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %63
+  %.04.us5 = phi ptr [ %.0.us9, %63 ], [ %.01, %.lr.ph.split.split.us ]
+  %.0183.us6 = phi i32 [ %.1.us8, %63 ], [ 0, %.lr.ph.split.split.us ]
+  %52 = getelementptr inbounds i8, ptr %.04.us5, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp eq ptr %53, %1
+  br i1 %54, label %55, label %63
+
+55:                                               ; preds = %.lr.ph.split.split.us.split
+  %56 = getelementptr inbounds i8, ptr %.04.us5, i64 32
   %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, %1
-  br i1 %58, label %59, label %67
+  %58 = icmp eq ptr %57, %0
+  br i1 %58, label %59, label %63
 
-59:                                               ; preds = %.lr.ph.split.split.us.split
-  %60 = getelementptr inbounds i8, ptr %.04.us5, i64 32
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, %0
-  br i1 %62, label %63, label %67
-
-63:                                               ; preds = %59
-  %64 = load i32, ptr %.04.us5, align 8
-  %65 = or i32 %64, 2
-  store i32 %65, ptr %.04.us5, align 8
-  %66 = add i32 %.0183.us6, 1
+59:                                               ; preds = %55
+  %60 = load i32, ptr %.04.us5, align 8
+  %61 = or i32 %60, 2
+  store i32 %61, ptr %.04.us5, align 8
+  %62 = add i32 %.0183.us6, 1
   store i8 1, ptr %11, align 8
-  br label %67
+  br label %63
 
-67:                                               ; preds = %63, %59, %.lr.ph.split.split.us.split
-  %.1.us8 = phi i32 [ %66, %63 ], [ %.0183.us6, %59 ], [ %.0183.us6, %.lr.ph.split.split.us.split ]
-  %68 = getelementptr inbounds i8, ptr %.04.us5, i64 24
-  %.0.us9 = load ptr, ptr %68, align 8
+63:                                               ; preds = %59, %55, %.lr.ph.split.split.us.split
+  %.1.us8 = phi i32 [ %62, %59 ], [ %.0183.us6, %55 ], [ %.0183.us6, %.lr.ph.split.split.us.split ]
+  %64 = getelementptr inbounds i8, ptr %.04.us5, i64 24
+  %.0.us9 = load ptr, ptr %64, align 8
   %.not.us10 = icmp eq ptr %.0.us9, null
   br i1 %.not.us10, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !12
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %9, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %80
-  %.04.us13 = phi ptr [ %.0.us17, %80 ], [ %.01, %.lr.ph.split.split ]
-  %.0183.us14 = phi i32 [ %.1.us16, %80 ], [ 0, %.lr.ph.split.split ]
-  %69 = getelementptr inbounds i8, ptr %.04.us13, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, %1
-  br i1 %71, label %72, label %80
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %76
+  %.04.us13 = phi ptr [ %.0.us17, %76 ], [ %.01, %.lr.ph.split.split ]
+  %.0183.us14 = phi i32 [ %.1.us16, %76 ], [ 0, %.lr.ph.split.split ]
+  %65 = getelementptr inbounds i8, ptr %.04.us13, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, %1
+  br i1 %67, label %68, label %76
 
-72:                                               ; preds = %.lr.ph.split.split.split.us
-  %73 = getelementptr inbounds i8, ptr %.04.us13, i64 16
-  %74 = load i64, ptr %73, align 8
-  %75 = icmp eq i64 %74, %2
-  br i1 %75, label %76, label %80
+68:                                               ; preds = %.lr.ph.split.split.split.us
+  %69 = getelementptr inbounds i8, ptr %.04.us13, i64 16
+  %70 = load i64, ptr %69, align 8
+  %71 = icmp eq i64 %70, %2
+  br i1 %71, label %72, label %76
 
-76:                                               ; preds = %72
-  %77 = load i32, ptr %.04.us13, align 8
-  %78 = or i32 %77, 2
-  store i32 %78, ptr %.04.us13, align 8
-  %79 = add i32 %.0183.us14, 1
+72:                                               ; preds = %68
+  %73 = load i32, ptr %.04.us13, align 8
+  %74 = or i32 %73, 2
+  store i32 %74, ptr %.04.us13, align 8
+  %75 = add i32 %.0183.us14, 1
   store i8 1, ptr %11, align 8
-  br label %80
+  br label %76
 
-80:                                               ; preds = %76, %72, %.lr.ph.split.split.split.us
-  %.1.us16 = phi i32 [ %79, %76 ], [ %.0183.us14, %72 ], [ %.0183.us14, %.lr.ph.split.split.split.us ]
-  %81 = getelementptr inbounds i8, ptr %.04.us13, i64 24
-  %.0.us17 = load ptr, ptr %81, align 8
+76:                                               ; preds = %72, %68, %.lr.ph.split.split.split.us
+  %.1.us16 = phi i32 [ %75, %72 ], [ %.0183.us14, %68 ], [ %.0183.us14, %.lr.ph.split.split.split.us ]
+  %77 = getelementptr inbounds i8, ptr %.04.us13, i64 24
+  %.0.us17 = load ptr, ptr %77, align 8
   %.not.us18 = icmp eq ptr %.0.us17, null
   br i1 %.not.us18, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !12
 
-.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %97
-  %.04 = phi ptr [ %.0, %97 ], [ %.01, %.lr.ph.split.split ]
-  %.0183 = phi i32 [ %.1, %97 ], [ 0, %.lr.ph.split.split ]
-  %82 = getelementptr inbounds i8, ptr %.04, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = icmp eq ptr %83, %1
-  br i1 %84, label %85, label %97
+.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %93
+  %.04 = phi ptr [ %.0, %93 ], [ %.01, %.lr.ph.split.split ]
+  %.0183 = phi i32 [ %.1, %93 ], [ 0, %.lr.ph.split.split ]
+  %78 = getelementptr inbounds i8, ptr %.04, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp eq ptr %79, %1
+  br i1 %80, label %81, label %93
 
-85:                                               ; preds = %.lr.ph.split.split.split
-  %86 = getelementptr inbounds i8, ptr %.04, i64 32
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp eq ptr %87, %0
-  br i1 %88, label %89, label %97
+81:                                               ; preds = %.lr.ph.split.split.split
+  %82 = getelementptr inbounds i8, ptr %.04, i64 32
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp eq ptr %83, %0
+  br i1 %84, label %85, label %93
+
+85:                                               ; preds = %81
+  %86 = getelementptr inbounds i8, ptr %.04, i64 16
+  %87 = load i64, ptr %86, align 8
+  %88 = icmp eq i64 %87, %2
+  br i1 %88, label %89, label %93
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %.04, i64 16
-  %91 = load i64, ptr %90, align 8
-  %92 = icmp eq i64 %91, %2
-  br i1 %92, label %93, label %97
-
-93:                                               ; preds = %89
-  %94 = load i32, ptr %.04, align 8
-  %95 = or i32 %94, 2
-  store i32 %95, ptr %.04, align 8
-  %96 = add i32 %.0183, 1
+  %90 = load i32, ptr %.04, align 8
+  %91 = or i32 %90, 2
+  store i32 %91, ptr %.04, align 8
+  %92 = add i32 %.0183, 1
   store i8 1, ptr %11, align 8
-  br label %97
+  br label %93
 
-97:                                               ; preds = %85, %93, %89, %.lr.ph.split.split.split
-  %.1 = phi i32 [ %96, %93 ], [ %.0183, %89 ], [ %.0183, %85 ], [ %.0183, %.lr.ph.split.split.split ]
-  %98 = getelementptr inbounds i8, ptr %.04, i64 24
-  %.0 = load ptr, ptr %98, align 8
+93:                                               ; preds = %81, %89, %85, %.lr.ph.split.split.split
+  %.1 = phi i32 [ %92, %89 ], [ %.0183, %85 ], [ %.0183, %81 ], [ %.0183, %.lr.ph.split.split.split ]
+  %94 = getelementptr inbounds i8, ptr %.04, i64 24
+  %.0 = load ptr, ptr %94, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %97, %80, %67, %54, %45, %32, %23, %.lr.ph.split.us.split.us.split.us, %rb_ec_ractor_hooks.exit
-  %.018.lcssa = phi i32 [ 0, %rb_ec_ractor_hooks.exit ], [ %14, %.lr.ph.split.us.split.us.split.us ], [ %.1.us.us, %23 ], [ %.1.us.us26, %32 ], [ %.1.us, %45 ], [ %.1.us8.us, %54 ], [ %.1.us8, %67 ], [ %.1.us16, %80 ], [ %.1, %97 ]
-  tail call fastcc void @clean_hooks_check(ptr noundef nonnull %7)
+._crit_edge:                                      ; preds = %93, %76, %63, %50, %41, %28, %19, %rb_ec_ractor_hooks.exit
+  %.018.lcssa = phi i32 [ 0, %rb_ec_ractor_hooks.exit ], [ %.1.us.us, %19 ], [ %.1.us.us26, %28 ], [ %.1.us, %41 ], [ %.1.us8.us, %50 ], [ %.1.us8, %63 ], [ %.1.us16, %76 ], [ %.1, %93 ]
+  %95 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+  %96 = load i8, ptr %95, align 8
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %98, label %clean_hooks_check.exit
+
+98:                                               ; preds = %._crit_edge
+  %99 = getelementptr inbounds i8, ptr %.0.i.i, i64 28
+  %100 = load i32, ptr %99, align 4
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %clean_hooks_check.exit
+
+102:                                              ; preds = %98
+  %103 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %104 = load i32, ptr %103, align 8
+  store i32 0, ptr %103, align 8
+  store i8 0, ptr %95, align 8
+  %105 = load ptr, ptr %7, align 8
+  %.not18.i.i = icmp eq ptr %105, null
+  br i1 %.not18.i.i, label %._crit_edge.i.thread.i, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %102, %118
+  %106 = phi ptr [ %119, %118 ], [ %105, %102 ]
+  %.019.i.i = phi ptr [ %.1.i.i, %118 ], [ %7, %102 ]
+  %107 = load i32, ptr %106, align 8
+  %108 = and i32 %107, 2
+  %.not17.i.i = icmp eq i32 %108, 0
+  br i1 %.not17.i.i, label %112, label %109
+
+109:                                              ; preds = %.lr.ph.i.i
+  %110 = getelementptr inbounds i8, ptr %106, i64 24
+  %111 = load ptr, ptr %110, align 8
+  store ptr %111, ptr %.019.i.i, align 8
+  tail call void @ruby_xfree(ptr noundef nonnull %106) #4
+  br label %118
+
+112:                                              ; preds = %.lr.ph.i.i
+  %113 = getelementptr inbounds i8, ptr %106, i64 4
+  %114 = load i32, ptr %113, align 4
+  %115 = load i32, ptr %103, align 8
+  %116 = or i32 %115, %114
+  store i32 %116, ptr %103, align 8
+  %117 = getelementptr inbounds i8, ptr %106, i64 24
+  br label %118
+
+118:                                              ; preds = %112, %109
+  %.1.i.i = phi ptr [ %.019.i.i, %109 ], [ %117, %112 ]
+  %119 = load ptr, ptr %.1.i.i, align 8
+  %.not.i.i20 = icmp eq ptr %119, null
+  br i1 %.not.i.i20, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
+
+._crit_edge.i.i:                                  ; preds = %118
+  %.pr.i = load i32, ptr %103, align 8
+  %120 = getelementptr inbounds i8, ptr %.0.i.i, i64 33
+  %121 = load i8, ptr %120, align 1
+  %122 = trunc i8 %121 to i1
+  br i1 %122, label %126, label %128
+
+._crit_edge.i.thread.i:                           ; preds = %102
+  %123 = getelementptr inbounds i8, ptr %.0.i.i, i64 33
+  %124 = load i8, ptr %123, align 1
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %.thread.i, label %128
+
+126:                                              ; preds = %._crit_edge.i.i
+  %127 = icmp eq i32 %.pr.i, 0
+  br i1 %127, label %.thread.i, label %clean_hooks_check.exit
+
+.thread.i:                                        ; preds = %126, %._crit_edge.i.thread.i
+  tail call void @ruby_xfree(ptr noundef nonnull %7) #4
+  br label %clean_hooks_check.exit
+
+128:                                              ; preds = %._crit_edge.i.thread.i, %._crit_edge.i.i
+  %129 = phi i32 [ 0, %._crit_edge.i.thread.i ], [ %.pr.i, %._crit_edge.i.i ]
+  tail call fastcc void @update_global_event_hook(i32 noundef %104, i32 noundef %129)
+  br label %clean_hooks_check.exit
+
+clean_hooks_check.exit:                           ; preds = %._crit_edge, %98, %126, %.thread.i, %128
   ret i32 %.018.lcssa
 }
 
@@ -814,59 +799,7 @@ define dso_local i32 @rb_remove_event_hook_with_data(ptr noundef %0, i64 noundef
 define hidden void @rb_ec_clear_current_thread_trace_func(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %rb_ec_ractor_hooks.exit.i, label %3
-
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %.val, i64 24
-  %5 = load ptr, ptr %4, align 8
-  br label %rb_ec_ractor_hooks.exit.i
-
-rb_ec_ractor_hooks.exit.i:                        ; preds = %3, %1
-  %.0.i.i.i = phi ptr [ %5, %3 ], [ null, %1 ]
-  %6 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
-  %.01.i = load ptr, ptr %6, align 8
-  %.not2.i = icmp eq ptr %.01.i, null
-  br i1 %.not2.i, label %remove_event_hook.exit, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %rb_ec_ractor_hooks.exit.i
-  %7 = icmp eq ptr %.val, inttoptr (i64 1 to ptr)
-  %8 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
-  br i1 %7, label %.lr.ph.split.us.split.us.split.us.i, label %.lr.ph.split.us.split.us.split.i
-
-.lr.ph.split.us.split.us.split.us.i:              ; preds = %.lr.ph.i, %.lr.ph.split.us.split.us.split.us.i
-  %.04.us.us.us.i = phi ptr [ %.0.us.us.us.i, %.lr.ph.split.us.split.us.split.us.i ], [ %.01.i, %.lr.ph.i ]
-  %9 = load i32, ptr %.04.us.us.us.i, align 8
-  %10 = or i32 %9, 2
-  store i32 %10, ptr %.04.us.us.us.i, align 8
-  store i8 1, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %.04.us.us.us.i, i64 24
-  %.0.us.us.us.i = load ptr, ptr %11, align 8
-  %.not.us.us.us.i = icmp eq ptr %.0.us.us.us.i, null
-  br i1 %.not.us.us.us.i, label %remove_event_hook.exit, label %.lr.ph.split.us.split.us.split.us.i, !llvm.loop !12
-
-.lr.ph.split.us.split.us.split.i:                 ; preds = %.lr.ph.i, %18
-  %.04.us.us.i = phi ptr [ %.0.us.us.i, %18 ], [ %.01.i, %.lr.ph.i ]
-  %12 = getelementptr inbounds i8, ptr %.04.us.us.i, i64 32
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, %.val
-  br i1 %14, label %15, label %18
-
-15:                                               ; preds = %.lr.ph.split.us.split.us.split.i
-  %16 = load i32, ptr %.04.us.us.i, align 8
-  %17 = or i32 %16, 2
-  store i32 %17, ptr %.04.us.us.i, align 8
-  store i8 1, ptr %8, align 8
-  br label %18
-
-18:                                               ; preds = %15, %.lr.ph.split.us.split.us.split.i
-  %19 = getelementptr inbounds i8, ptr %.04.us.us.i, i64 24
-  %.0.us.us.i = load ptr, ptr %19, align 8
-  %.not.us.us.i = icmp eq ptr %.0.us.us.i, null
-  br i1 %.not.us.us.i, label %remove_event_hook.exit, label %.lr.ph.split.us.split.us.split.i, !llvm.loop !12
-
-remove_event_hook.exit:                           ; preds = %18, %.lr.ph.split.us.split.us.split.us.i, %rb_ec_ractor_hooks.exit.i
-  tail call fastcc void @clean_hooks_check(ptr noundef nonnull %6)
+  %3 = tail call fastcc i32 @remove_event_hook(ptr %.val, ptr noundef %.val, ptr noundef null, i64 noundef 36)
   ret void
 }
 
@@ -874,38 +807,7 @@ remove_event_hook.exit:                           ; preds = %18, %.lr.ph.split.u
 define hidden void @rb_ec_clear_all_trace_func(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %rb_ec_ractor_hooks.exit.i, label %3
-
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %.val, i64 24
-  %5 = load ptr, ptr %4, align 8
-  br label %rb_ec_ractor_hooks.exit.i
-
-rb_ec_ractor_hooks.exit.i:                        ; preds = %3, %1
-  %.0.i.i.i = phi ptr [ %5, %3 ], [ null, %1 ]
-  %6 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
-  %.01.i = load ptr, ptr %6, align 8
-  %.not2.i = icmp eq ptr %.01.i, null
-  br i1 %.not2.i, label %remove_event_hook.exit, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %rb_ec_ractor_hooks.exit.i
-  %7 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
-  br label %.lr.ph.split.us.split.us.split.us.i
-
-.lr.ph.split.us.split.us.split.us.i:              ; preds = %.lr.ph.split.us.split.us.split.us.i, %.lr.ph.i
-  %.04.us.us.us.i = phi ptr [ %.0.us.us.us.i, %.lr.ph.split.us.split.us.split.us.i ], [ %.01.i, %.lr.ph.i ]
-  %8 = load i32, ptr %.04.us.us.us.i, align 8
-  %9 = or i32 %8, 2
-  store i32 %9, ptr %.04.us.us.us.i, align 8
-  store i8 1, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %.04.us.us.us.i, i64 24
-  %.0.us.us.us.i = load ptr, ptr %10, align 8
-  %.not.us.us.us.i = icmp eq ptr %.0.us.us.us.i, null
-  br i1 %.not.us.us.us.i, label %remove_event_hook.exit, label %.lr.ph.split.us.split.us.split.us.i, !llvm.loop !12
-
-remove_event_hook.exit:                           ; preds = %.lr.ph.split.us.split.us.split.us.i, %rb_ec_ractor_hooks.exit.i
-  tail call fastcc void @clean_hooks_check(ptr noundef nonnull %6)
+  %3 = tail call fastcc i32 @remove_event_hook(ptr %.val, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef null, i64 noundef 36)
   ret void
 }
 
@@ -921,7 +823,7 @@ define hidden void @rb_exec_event_hooks(ptr noundef %0, ptr noundef %1, i32 noun
   %10 = getelementptr inbounds i8, ptr %8, i64 112
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %.not, label %74, label %13
+  br i1 %.not, label %105, label %13
 
 13:                                               ; preds = %3
   br i1 %12, label %16, label %14
@@ -929,7 +831,7 @@ define hidden void @rb_exec_event_hooks(ptr noundef %0, ptr noundef %1, i32 noun
 14:                                               ; preds = %13
   %15 = load i32, ptr %11, align 8
   %.not44 = icmp ult i32 %15, 65536
-  br i1 %.not44, label %16, label %204
+  br i1 %.not44, label %16, label %266
 
 16:                                               ; preds = %14, %13
   store ptr %0, ptr %10, align 8
@@ -1049,311 +951,450 @@ exec_hooks_body.exit.loopexit.i:                  ; preds = %70
 exec_hooks_body.exit.i:                           ; preds = %exec_hooks_body.exit.loopexit.i, %25
   %73 = phi i32 [ %72, %exec_hooks_body.exit.loopexit.i ], [ %27, %25 ]
   store i32 %73, ptr %26, align 4
-  tail call fastcc void @clean_hooks_check(ptr noundef nonnull %21)
+  %74 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+  %75 = load i8, ptr %74, align 8
+  %76 = trunc i8 %75 to i1
+  %77 = icmp eq i32 %73, 0
+  %or.cond.i.i = select i1 %76, i1 %77, i1 false
+  br i1 %or.cond.i.i, label %78, label %exec_hooks_unprotected.exit
+
+78:                                               ; preds = %exec_hooks_body.exit.i
+  %79 = load i32, ptr %22, align 8
+  store i32 0, ptr %22, align 8
+  store i8 0, ptr %74, align 8
+  %80 = load ptr, ptr %21, align 8
+  %.not18.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not18.i.i.i.i, label %._crit_edge.i.thread.i.i.i, label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %78, %93
+  %81 = phi ptr [ %94, %93 ], [ %80, %78 ]
+  %.019.i.i.i.i = phi ptr [ %.1.i.i.i.i, %93 ], [ %21, %78 ]
+  %82 = load i32, ptr %81, align 8
+  %83 = and i32 %82, 2
+  %.not17.i.i.i.i = icmp eq i32 %83, 0
+  br i1 %.not17.i.i.i.i, label %87, label %84
+
+84:                                               ; preds = %.lr.ph.i.i.i.i
+  %85 = getelementptr inbounds i8, ptr %81, i64 24
+  %86 = load ptr, ptr %85, align 8
+  store ptr %86, ptr %.019.i.i.i.i, align 8
+  tail call void @ruby_xfree(ptr noundef nonnull %81) #4
+  br label %93
+
+87:                                               ; preds = %.lr.ph.i.i.i.i
+  %88 = getelementptr inbounds i8, ptr %81, i64 4
+  %89 = load i32, ptr %88, align 4
+  %90 = load i32, ptr %22, align 8
+  %91 = or i32 %90, %89
+  store i32 %91, ptr %22, align 8
+  %92 = getelementptr inbounds i8, ptr %81, i64 24
+  br label %93
+
+93:                                               ; preds = %87, %84
+  %.1.i.i.i.i = phi ptr [ %.019.i.i.i.i, %84 ], [ %92, %87 ]
+  %94 = load ptr, ptr %.1.i.i.i.i, align 8
+  %.not.i.i.i.i = icmp eq ptr %94, null
+  br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !10
+
+._crit_edge.i.i.i.i:                              ; preds = %93
+  %.pr.i.i.i = load i32, ptr %22, align 8
+  %95 = getelementptr inbounds i8, ptr %.0.i.i, i64 33
+  %96 = load i8, ptr %95, align 1
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %101, label %103
+
+._crit_edge.i.thread.i.i.i:                       ; preds = %78
+  %98 = getelementptr inbounds i8, ptr %.0.i.i, i64 33
+  %99 = load i8, ptr %98, align 1
+  %100 = trunc i8 %99 to i1
+  br i1 %100, label %.thread.i.i.i, label %103
+
+101:                                              ; preds = %._crit_edge.i.i.i.i
+  %102 = icmp eq i32 %.pr.i.i.i, 0
+  br i1 %102, label %.thread.i.i.i, label %exec_hooks_unprotected.exit
+
+.thread.i.i.i:                                    ; preds = %101, %._crit_edge.i.thread.i.i.i
+  tail call void @ruby_xfree(ptr noundef nonnull %21) #4
   br label %exec_hooks_unprotected.exit
 
-exec_hooks_unprotected.exit:                      ; preds = %rb_ec_ractor_hooks.exit, %exec_hooks_body.exit.i
+103:                                              ; preds = %._crit_edge.i.thread.i.i.i, %._crit_edge.i.i.i.i
+  %104 = phi i32 [ 0, %._crit_edge.i.thread.i.i.i ], [ %.pr.i.i.i, %._crit_edge.i.i.i.i ]
+  tail call fastcc void @update_global_event_hook(i32 noundef %79, i32 noundef %104)
+  br label %exec_hooks_unprotected.exit
+
+exec_hooks_unprotected.exit:                      ; preds = %rb_ec_ractor_hooks.exit, %exec_hooks_body.exit.i, %101, %.thread.i.i.i, %103
   store ptr %11, ptr %10, align 8
-  br label %204
+  br label %266
 
-74:                                               ; preds = %3
-  br i1 %12, label %75, label %204
+105:                                              ; preds = %3
+  br i1 %12, label %106, label %266
 
-75:                                               ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %0, i64 24
-  %77 = load i64, ptr %76, align 8
-  %78 = load i64, ptr @rb_mRubyVMFrozenCore, align 8
-  %.not39 = icmp eq i64 %77, %78
-  br i1 %.not39, label %204, label %79
+106:                                              ; preds = %105
+  %107 = getelementptr inbounds i8, ptr %0, i64 24
+  %108 = load i64, ptr %107, align 8
+  %109 = load i64, ptr @rb_mRubyVMFrozenCore, align 8
+  %.not39 = icmp eq i64 %108, %109
+  br i1 %.not39, label %266, label %110
 
-79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %8, i64 120
-  %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %8, i64 64
-  %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %8, i64 72
-  %85 = load i64, ptr %84, align 8
-  store i64 %85, ptr %82, align 8
-  store i64 4, ptr %80, align 8
+110:                                              ; preds = %106
+  %111 = getelementptr inbounds i8, ptr %8, i64 120
+  %112 = load i64, ptr %111, align 8
+  %113 = getelementptr inbounds i8, ptr %8, i64 64
+  %114 = load i64, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %8, i64 72
+  %116 = load i64, ptr %115, align 8
+  store i64 %116, ptr %113, align 8
+  store i64 4, ptr %111, align 8
   store ptr %0, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   %.val.i47 = load i32, ptr %0, align 8
-  %86 = getelementptr inbounds i8, ptr %1, i64 8
-  %87 = load i32, ptr %86, align 8
-  %88 = and i32 %87, %.val.i47
-  %.not.i.i48 = icmp eq i32 %88, 0
-  br i1 %.not.i.i48, label %exec_hooks_protected.exit.thread, label %89
+  %117 = getelementptr inbounds i8, ptr %1, i64 8
+  %118 = load i32, ptr %117, align 8
+  %119 = and i32 %118, %.val.i47
+  %.not.i.i48 = icmp eq i32 %119, 0
+  br i1 %.not.i.i48, label %exec_hooks_protected.exit.thread, label %120
 
-exec_hooks_protected.exit.thread:                 ; preds = %79
+exec_hooks_protected.exit.thread:                 ; preds = %110
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
   br label %.thread
 
-89:                                               ; preds = %79
-  %90 = getelementptr inbounds i8, ptr %1, i64 12
-  %91 = load i32, ptr %90, align 4
-  %92 = add i32 %91, 1
-  store i32 %92, ptr %90, align 4
-  %93 = tail call i32 @rb_ec_reset_raised(ptr noundef nonnull %8) #4
-  store volatile i32 %93, ptr %4, align 4
+120:                                              ; preds = %110
+  %121 = getelementptr inbounds i8, ptr %1, i64 12
+  %122 = load i32, ptr %121, align 4
+  %123 = add i32 %122, 1
+  store i32 %123, ptr %121, align 4
+  %124 = tail call i32 @rb_ec_reset_raised(ptr noundef nonnull %8) #4
+  store volatile i32 %124, ptr %4, align 4
   store ptr %8, ptr %5, align 8
-  %94 = getelementptr inbounds i8, ptr %6, i64 64
-  store i32 0, ptr %94, align 8
+  %125 = getelementptr inbounds i8, ptr %6, i64 64
+  store i32 0, ptr %125, align 8
   store i64 36, ptr %6, align 8
-  %95 = getelementptr inbounds i8, ptr %8, i64 24
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr %96, ptr %97, align 8
-  %98 = getelementptr i8, ptr %8, i64 48
-  %.0.1.val.i = load ptr, ptr %98, align 8
+  %126 = getelementptr inbounds i8, ptr %8, i64 24
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds i8, ptr %6, i64 56
+  store ptr %127, ptr %128, align 8
+  %129 = getelementptr i8, ptr %8, i64 48
+  %.0.1.val.i = load ptr, ptr %129, align 8
   %.not.i.i.i = icmp eq ptr %.0.1.val.i, null
-  br i1 %.not.i.i.i, label %rb_ec_ractor_ptr.exit.i.i, label %99
+  br i1 %.not.i.i.i, label %rb_ec_ractor_ptr.exit.i.i, label %130
 
-99:                                               ; preds = %89
-  %100 = getelementptr inbounds i8, ptr %.0.1.val.i, i64 32
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 88
-  %103 = getelementptr inbounds i8, ptr %.0.1.val.i, i64 24
-  %104 = load ptr, ptr %103, align 8
+130:                                              ; preds = %120
+  %131 = getelementptr inbounds i8, ptr %.0.1.val.i, i64 32
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 88
+  %134 = getelementptr inbounds i8, ptr %.0.1.val.i, i64 24
+  %135 = load ptr, ptr %134, align 8
   br label %rb_ec_ractor_ptr.exit.i.i
 
-rb_ec_ractor_ptr.exit.i.i:                        ; preds = %99, %89
-  %.in.i.i = phi ptr [ %102, %99 ], [ inttoptr (i64 88 to ptr), %89 ]
-  %.0.i2.i.i = phi ptr [ %101, %99 ], [ null, %89 ]
-  %.0.i6.i.i = phi ptr [ %104, %99 ], [ null, %89 ]
-  %105 = load ptr, ptr %.in.i.i, align 8
-  %.not.i19.i = icmp eq ptr %105, %.0.i6.i.i
-  br i1 %.not.i19.i, label %106, label %rb_ec_vm_lock_rec.exit.i
+rb_ec_ractor_ptr.exit.i.i:                        ; preds = %130, %120
+  %.in.i.i = phi ptr [ %133, %130 ], [ inttoptr (i64 88 to ptr), %120 ]
+  %.0.i2.i.i = phi ptr [ %132, %130 ], [ null, %120 ]
+  %.0.i6.i.i = phi ptr [ %135, %130 ], [ null, %120 ]
+  %136 = load ptr, ptr %.in.i.i, align 8
+  %.not.i19.i = icmp eq ptr %136, %.0.i6.i.i
+  br i1 %.not.i19.i, label %137, label %rb_ec_vm_lock_rec.exit.i
 
-106:                                              ; preds = %rb_ec_ractor_ptr.exit.i.i
-  %107 = getelementptr inbounds i8, ptr %.0.i2.i.i, i64 96
-  %108 = load i32, ptr %107, align 8
+137:                                              ; preds = %rb_ec_ractor_ptr.exit.i.i
+  %138 = getelementptr inbounds i8, ptr %.0.i2.i.i, i64 96
+  %139 = load i32, ptr %138, align 8
   br label %rb_ec_vm_lock_rec.exit.i
 
-rb_ec_vm_lock_rec.exit.i:                         ; preds = %106, %rb_ec_ractor_ptr.exit.i.i
-  %.0.i20.i = phi i32 [ %108, %106 ], [ 0, %rb_ec_ractor_ptr.exit.i.i ]
-  %109 = getelementptr inbounds i8, ptr %6, i64 68
-  store i32 %.0.i20.i, ptr %109, align 4
-  %110 = getelementptr inbounds i8, ptr %6, i64 16
-  %111 = tail call ptr @llvm.frameaddress.p0(i32 0)
-  store ptr %111, ptr %110, align 8
-  %112 = tail call ptr @llvm.stacksave.p0()
-  %113 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %112, ptr %113, align 8
-  %114 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %110)
-  %.not.i = icmp eq i32 %114, 0
-  br i1 %.not.i, label %136, label %115
+rb_ec_vm_lock_rec.exit.i:                         ; preds = %137, %rb_ec_ractor_ptr.exit.i.i
+  %.0.i20.i = phi i32 [ %139, %137 ], [ 0, %rb_ec_ractor_ptr.exit.i.i ]
+  %140 = getelementptr inbounds i8, ptr %6, i64 68
+  store i32 %.0.i20.i, ptr %140, align 4
+  %141 = getelementptr inbounds i8, ptr %6, i64 16
+  %142 = tail call ptr @llvm.frameaddress.p0(i32 0)
+  store ptr %142, ptr %141, align 8
+  %143 = tail call ptr @llvm.stacksave.p0()
+  %144 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %143, ptr %144, align 8
+  %145 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %141)
+  %.not.i = icmp eq i32 %145, 0
+  br i1 %.not.i, label %167, label %146
 
-115:                                              ; preds = %rb_ec_vm_lock_rec.exit.i
+146:                                              ; preds = %rb_ec_vm_lock_rec.exit.i
   %.0..0..0..0..0..0.2.i = load volatile ptr, ptr %5, align 8
-  %116 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0.2.i, i64 24
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 64
-  %119 = load i32, ptr %118, align 8
-  store i32 0, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %117, i64 68
-  %121 = load i32, ptr %120, align 4
-  %122 = getelementptr i8, ptr %.0..0..0..0..0..0.2.i, i64 48
-  %.val.i.i.i = load ptr, ptr %122, align 8
+  %147 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0.2.i, i64 24
+  %148 = load ptr, ptr %147, align 8
+  %149 = getelementptr inbounds i8, ptr %148, i64 64
+  %150 = load i32, ptr %149, align 8
+  store i32 0, ptr %149, align 8
+  %151 = getelementptr inbounds i8, ptr %148, i64 68
+  %152 = load i32, ptr %151, align 4
+  %153 = getelementptr i8, ptr %.0..0..0..0..0..0.2.i, i64 48
+  %.val.i.i.i = load ptr, ptr %153, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %rb_ec_ractor_ptr.exit.i.i.i.i, label %123
+  br i1 %.not.i.i.i.i.i, label %rb_ec_ractor_ptr.exit.i.i.i.i, label %154
 
-123:                                              ; preds = %115
-  %124 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 32
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 88
-  %127 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
-  %128 = load ptr, ptr %127, align 8
+154:                                              ; preds = %146
+  %155 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 32
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds i8, ptr %156, i64 88
+  %158 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
+  %159 = load ptr, ptr %158, align 8
   br label %rb_ec_ractor_ptr.exit.i.i.i.i
 
-rb_ec_ractor_ptr.exit.i.i.i.i:                    ; preds = %123, %115
-  %.in.i.i.i.i = phi ptr [ %126, %123 ], [ inttoptr (i64 88 to ptr), %115 ]
-  %.0.i2.i.i.i.i = phi ptr [ %125, %123 ], [ null, %115 ]
-  %.0.i6.i.i.i.i = phi ptr [ %128, %123 ], [ null, %115 ]
-  %129 = load ptr, ptr %.in.i.i.i.i, align 8
-  %.not.i.i.i.i = icmp eq ptr %129, %.0.i6.i.i.i.i
-  br i1 %.not.i.i.i.i, label %130, label %rb_ec_vm_lock_rec.exit.i.i.i
+rb_ec_ractor_ptr.exit.i.i.i.i:                    ; preds = %154, %146
+  %.in.i.i.i.i = phi ptr [ %157, %154 ], [ inttoptr (i64 88 to ptr), %146 ]
+  %.0.i2.i.i.i.i = phi ptr [ %156, %154 ], [ null, %146 ]
+  %.0.i6.i.i.i.i = phi ptr [ %159, %154 ], [ null, %146 ]
+  %160 = load ptr, ptr %.in.i.i.i.i, align 8
+  %.not.i.i.i.i49 = icmp eq ptr %160, %.0.i6.i.i.i.i
+  br i1 %.not.i.i.i.i49, label %161, label %rb_ec_vm_lock_rec.exit.i.i.i
 
-130:                                              ; preds = %rb_ec_ractor_ptr.exit.i.i.i.i
-  %131 = getelementptr inbounds i8, ptr %.0.i2.i.i.i.i, i64 96
-  %132 = load i32, ptr %131, align 8
+161:                                              ; preds = %rb_ec_ractor_ptr.exit.i.i.i.i
+  %162 = getelementptr inbounds i8, ptr %.0.i2.i.i.i.i, i64 96
+  %163 = load i32, ptr %162, align 8
   br label %rb_ec_vm_lock_rec.exit.i.i.i
 
-rb_ec_vm_lock_rec.exit.i.i.i:                     ; preds = %130, %rb_ec_ractor_ptr.exit.i.i.i.i
-  %.0.i.i.i.i = phi i32 [ %132, %130 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i.i ]
-  %.not.i.i21.i = icmp eq i32 %.0.i.i.i.i, %121
-  br i1 %.not.i.i21.i, label %134, label %133
+rb_ec_vm_lock_rec.exit.i.i.i:                     ; preds = %161, %rb_ec_ractor_ptr.exit.i.i.i.i
+  %.0.i.i.i.i = phi i32 [ %163, %161 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i.i ]
+  %.not.i.i21.i = icmp eq i32 %.0.i.i.i.i, %152
+  br i1 %.not.i.i21.i, label %165, label %164
 
-133:                                              ; preds = %rb_ec_vm_lock_rec.exit.i.i.i
-  call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0..0..0.2.i, i32 noundef %121, i32 noundef %.0.i.i.i.i) #4
+164:                                              ; preds = %rb_ec_vm_lock_rec.exit.i.i.i
+  call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0..0..0.2.i, i32 noundef %152, i32 noundef %.0.i.i.i.i) #4
   %.0..0..0..0..0..0.4.pre.pre.i = load ptr, ptr %5, align 8
-  br label %134
+  br label %165
 
-134:                                              ; preds = %133, %rb_ec_vm_lock_rec.exit.i.i.i
-  %.0..0..0.4.pre.i = phi ptr [ %.0..0..0..0..0..0.4.pre.pre.i, %133 ], [ %.0..0..0..0..0..0.2.i, %rb_ec_vm_lock_rec.exit.i.i.i ]
-  %135 = icmp ne i32 %119, 0
-  call void @llvm.assume(i1 %135)
-  br label %exec_hooks_body.exit.i49
+165:                                              ; preds = %164, %rb_ec_vm_lock_rec.exit.i.i.i
+  %.0..0..0.4.pre.i = phi ptr [ %.0..0..0..0..0..0.4.pre.pre.i, %164 ], [ %.0..0..0..0..0..0.2.i, %rb_ec_vm_lock_rec.exit.i.i.i ]
+  %166 = icmp ne i32 %150, 0
+  call void @llvm.assume(i1 %166)
+  br label %exec_hooks_body.exit.i50
 
-136:                                              ; preds = %rb_ec_vm_lock_rec.exit.i
-  store ptr %6, ptr %95, align 8
-  %.027.i.i50 = load ptr, ptr %1, align 8
-  %.not28.i.i51 = icmp eq ptr %.027.i.i50, null
-  br i1 %.not28.i.i51, label %exec_hooks_body.exit.i49, label %.lr.ph.i.i52
+167:                                              ; preds = %rb_ec_vm_lock_rec.exit.i
+  store ptr %6, ptr %126, align 8
+  %.027.i.i61 = load ptr, ptr %1, align 8
+  %.not28.i.i62 = icmp eq ptr %.027.i.i61, null
+  br i1 %.not28.i.i62, label %exec_hooks_body.exit.i50, label %.lr.ph.i.i63
 
-.lr.ph.i.i52:                                     ; preds = %136
-  %137 = getelementptr inbounds i8, ptr %8, i64 16
-  %138 = getelementptr inbounds i8, ptr %0, i64 32
-  %139 = getelementptr inbounds i8, ptr %0, i64 48
-  br label %140
+.lr.ph.i.i63:                                     ; preds = %167
+  %168 = getelementptr inbounds i8, ptr %8, i64 16
+  %169 = getelementptr inbounds i8, ptr %0, i64 32
+  %170 = getelementptr inbounds i8, ptr %0, i64 48
+  br label %171
 
-140:                                              ; preds = %177, %.lr.ph.i.i52
-  %.029.i.i53 = phi ptr [ %.027.i.i50, %.lr.ph.i.i52 ], [ %.0.i22.i, %177 ]
-  %141 = load i32, ptr %.029.i.i53, align 8
-  %142 = and i32 %141, 2
-  %.not24.i.i54 = icmp eq i32 %142, 0
-  br i1 %.not24.i.i54, label %143, label %177
+171:                                              ; preds = %208, %.lr.ph.i.i63
+  %.029.i.i64 = phi ptr [ %.027.i.i61, %.lr.ph.i.i63 ], [ %.0.i22.i, %208 ]
+  %172 = load i32, ptr %.029.i.i64, align 8
+  %173 = and i32 %172, 2
+  %.not24.i.i65 = icmp eq i32 %173, 0
+  br i1 %.not24.i.i65, label %174, label %208
 
-143:                                              ; preds = %140
-  %144 = load i32, ptr %0, align 8
-  %145 = getelementptr inbounds i8, ptr %.029.i.i53, i64 4
-  %146 = load i32, ptr %145, align 4
-  %147 = and i32 %146, %144
-  %.not25.i.i55 = icmp eq i32 %147, 0
-  br i1 %.not25.i.i55, label %177, label %148
+174:                                              ; preds = %171
+  %175 = load i32, ptr %0, align 8
+  %176 = getelementptr inbounds i8, ptr %.029.i.i64, i64 4
+  %177 = load i32, ptr %176, align 4
+  %178 = and i32 %177, %175
+  %.not25.i.i66 = icmp eq i32 %178, 0
+  br i1 %.not25.i.i66, label %208, label %179
 
-148:                                              ; preds = %143
-  %149 = getelementptr inbounds i8, ptr %.029.i.i53, i64 32
-  %150 = load ptr, ptr %149, align 8
-  %151 = icmp eq ptr %150, null
-  br i1 %151, label %154, label %152
+179:                                              ; preds = %174
+  %180 = getelementptr inbounds i8, ptr %.029.i.i64, i64 32
+  %181 = load ptr, ptr %180, align 8
+  %182 = icmp eq ptr %181, null
+  br i1 %182, label %185, label %183
 
-152:                                              ; preds = %148
-  %.val.i.i56 = load ptr, ptr %98, align 8
-  %153 = icmp eq ptr %150, %.val.i.i56
-  br i1 %153, label %154, label %177
+183:                                              ; preds = %179
+  %.val.i.i67 = load ptr, ptr %129, align 8
+  %184 = icmp eq ptr %181, %.val.i.i67
+  br i1 %184, label %185, label %208
 
-154:                                              ; preds = %152, %148
-  %155 = getelementptr inbounds i8, ptr %.029.i.i53, i64 40
-  %156 = load i32, ptr %155, align 8
-  %157 = icmp eq i32 %156, 0
-  br i1 %157, label %162, label %158
+185:                                              ; preds = %183, %179
+  %186 = getelementptr inbounds i8, ptr %.029.i.i64, i64 40
+  %187 = load i32, ptr %186, align 8
+  %188 = icmp eq i32 %187, 0
+  br i1 %188, label %193, label %189
 
-158:                                              ; preds = %154
-  %159 = load ptr, ptr %137, align 8
-  %160 = call i32 @rb_vm_get_sourceline(ptr noundef %159) #4
-  %161 = icmp eq i32 %156, %160
-  br i1 %161, label %._crit_edge30.i.i57, label %177
+189:                                              ; preds = %185
+  %190 = load ptr, ptr %168, align 8
+  %191 = call i32 @rb_vm_get_sourceline(ptr noundef %190) #4
+  %192 = icmp eq i32 %187, %191
+  br i1 %192, label %._crit_edge30.i.i68, label %208
 
-._crit_edge30.i.i57:                              ; preds = %158
-  %.pre.i.i58 = load i32, ptr %.029.i.i53, align 8
-  br label %162
+._crit_edge30.i.i68:                              ; preds = %189
+  %.pre.i.i69 = load i32, ptr %.029.i.i64, align 8
+  br label %193
 
-162:                                              ; preds = %._crit_edge30.i.i57, %154
-  %163 = phi i32 [ %.pre.i.i58, %._crit_edge30.i.i57 ], [ %141, %154 ]
-  %164 = and i32 %163, 4
-  %.not26.i.i59 = icmp eq i32 %164, 0
-  %165 = getelementptr inbounds i8, ptr %.029.i.i53, i64 8
-  %166 = load ptr, ptr %165, align 8
-  br i1 %.not26.i.i59, label %167, label %174
+193:                                              ; preds = %._crit_edge30.i.i68, %185
+  %194 = phi i32 [ %.pre.i.i69, %._crit_edge30.i.i68 ], [ %172, %185 ]
+  %195 = and i32 %194, 4
+  %.not26.i.i70 = icmp eq i32 %195, 0
+  %196 = getelementptr inbounds i8, ptr %.029.i.i64, i64 8
+  %197 = load ptr, ptr %196, align 8
+  br i1 %.not26.i.i70, label %198, label %205
 
-167:                                              ; preds = %162
-  %168 = load i32, ptr %0, align 8
-  %169 = getelementptr inbounds i8, ptr %.029.i.i53, i64 16
-  %170 = load i64, ptr %169, align 8
-  %171 = load i64, ptr %76, align 8
-  %172 = load i64, ptr %138, align 8
-  %173 = load i64, ptr %139, align 8
-  call void %166(i32 noundef %168, i64 noundef %170, i64 noundef %171, i64 noundef %172, i64 noundef %173) #4
-  br label %177
+198:                                              ; preds = %193
+  %199 = load i32, ptr %0, align 8
+  %200 = getelementptr inbounds i8, ptr %.029.i.i64, i64 16
+  %201 = load i64, ptr %200, align 8
+  %202 = load i64, ptr %107, align 8
+  %203 = load i64, ptr %169, align 8
+  %204 = load i64, ptr %170, align 8
+  call void %197(i32 noundef %199, i64 noundef %201, i64 noundef %202, i64 noundef %203, i64 noundef %204) #4
+  br label %208
 
-174:                                              ; preds = %162
-  %175 = getelementptr inbounds i8, ptr %.029.i.i53, i64 16
-  %176 = load i64, ptr %175, align 8
-  call void %166(i64 noundef %176, ptr noundef nonnull %0) #4
-  br label %177
+205:                                              ; preds = %193
+  %206 = getelementptr inbounds i8, ptr %.029.i.i64, i64 16
+  %207 = load i64, ptr %206, align 8
+  call void %197(i64 noundef %207, ptr noundef nonnull %0) #4
+  br label %208
 
-177:                                              ; preds = %174, %167, %158, %152, %143, %140
-  %178 = getelementptr inbounds i8, ptr %.029.i.i53, i64 24
-  %.0.i22.i = load ptr, ptr %178, align 8
+208:                                              ; preds = %205, %198, %189, %183, %174, %171
+  %209 = getelementptr inbounds i8, ptr %.029.i.i64, i64 24
+  %.0.i22.i = load ptr, ptr %209, align 8
   %.not.i23.i = icmp eq ptr %.0.i22.i, null
-  br i1 %.not.i23.i, label %exec_hooks_body.exit.i49, label %140, !llvm.loop !13
+  br i1 %.not.i23.i, label %exec_hooks_body.exit.i50, label %171, !llvm.loop !13
 
-exec_hooks_body.exit.i49:                         ; preds = %177, %136, %134
-  %.0..0..0.4.i = phi ptr [ %.0..0..0.4.pre.i, %134 ], [ %8, %136 ], [ %8, %177 ]
-  %179 = phi i32 [ %119, %134 ], [ 0, %136 ], [ 0, %177 ]
-  %180 = load ptr, ptr %97, align 8
-  %181 = getelementptr inbounds i8, ptr %.0..0..0.4.i, i64 24
-  store ptr %180, ptr %181, align 8
-  %182 = load i32, ptr %90, align 4
-  %183 = add i32 %182, -1
-  store i32 %183, ptr %90, align 4
-  call fastcc void @clean_hooks_check(ptr noundef %1)
+exec_hooks_body.exit.i50:                         ; preds = %208, %167, %165
+  %.0..0..0.4.i = phi ptr [ %.0..0..0.4.pre.i, %165 ], [ %8, %167 ], [ %8, %208 ]
+  %210 = phi i32 [ %150, %165 ], [ 0, %167 ], [ 0, %208 ]
+  %211 = load ptr, ptr %128, align 8
+  %212 = getelementptr inbounds i8, ptr %.0..0..0.4.i, i64 24
+  store ptr %211, ptr %212, align 8
+  %213 = load i32, ptr %121, align 4
+  %214 = add i32 %213, -1
+  store i32 %214, ptr %121, align 4
+  %215 = getelementptr inbounds i8, ptr %1, i64 16
+  %216 = load i8, ptr %215, align 8
+  %217 = trunc i8 %216 to i1
+  %218 = icmp eq i32 %214, 0
+  %or.cond.i.i51 = select i1 %217, i1 %218, i1 false
+  br i1 %or.cond.i.i51, label %219, label %exec_hooks_postcheck.exit.i
+
+219:                                              ; preds = %exec_hooks_body.exit.i50
+  %220 = load i32, ptr %117, align 8
+  store i32 0, ptr %117, align 8
+  store i8 0, ptr %215, align 8
+  %221 = load ptr, ptr %1, align 8
+  %.not18.i.i.i.i52 = icmp eq ptr %221, null
+  br i1 %.not18.i.i.i.i52, label %._crit_edge.i.thread.i.i.i60, label %.lr.ph.i.i.i.i53
+
+.lr.ph.i.i.i.i53:                                 ; preds = %219, %234
+  %222 = phi ptr [ %235, %234 ], [ %221, %219 ]
+  %.019.i.i.i.i54 = phi ptr [ %.1.i.i.i.i56, %234 ], [ %1, %219 ]
+  %223 = load i32, ptr %222, align 8
+  %224 = and i32 %223, 2
+  %.not17.i.i.i.i55 = icmp eq i32 %224, 0
+  br i1 %.not17.i.i.i.i55, label %228, label %225
+
+225:                                              ; preds = %.lr.ph.i.i.i.i53
+  %226 = getelementptr inbounds i8, ptr %222, i64 24
+  %227 = load ptr, ptr %226, align 8
+  store ptr %227, ptr %.019.i.i.i.i54, align 8
+  call void @ruby_xfree(ptr noundef nonnull %222) #4
+  br label %234
+
+228:                                              ; preds = %.lr.ph.i.i.i.i53
+  %229 = getelementptr inbounds i8, ptr %222, i64 4
+  %230 = load i32, ptr %229, align 4
+  %231 = load i32, ptr %117, align 8
+  %232 = or i32 %231, %230
+  store i32 %232, ptr %117, align 8
+  %233 = getelementptr inbounds i8, ptr %222, i64 24
+  br label %234
+
+234:                                              ; preds = %228, %225
+  %.1.i.i.i.i56 = phi ptr [ %.019.i.i.i.i54, %225 ], [ %233, %228 ]
+  %235 = load ptr, ptr %.1.i.i.i.i56, align 8
+  %.not.i.i.i24.i = icmp eq ptr %235, null
+  br i1 %.not.i.i.i24.i, label %._crit_edge.i.i.i.i57, label %.lr.ph.i.i.i.i53, !llvm.loop !10
+
+._crit_edge.i.i.i.i57:                            ; preds = %234
+  %.pr.i.i.i58 = load i32, ptr %117, align 8
+  %236 = getelementptr inbounds i8, ptr %1, i64 17
+  %237 = load i8, ptr %236, align 1
+  %238 = trunc i8 %237 to i1
+  br i1 %238, label %242, label %244
+
+._crit_edge.i.thread.i.i.i60:                     ; preds = %219
+  %239 = getelementptr inbounds i8, ptr %1, i64 17
+  %240 = load i8, ptr %239, align 1
+  %241 = trunc i8 %240 to i1
+  br i1 %241, label %.thread.i.i.i59, label %244
+
+242:                                              ; preds = %._crit_edge.i.i.i.i57
+  %243 = icmp eq i32 %.pr.i.i.i58, 0
+  br i1 %243, label %.thread.i.i.i59, label %exec_hooks_postcheck.exit.i
+
+.thread.i.i.i59:                                  ; preds = %242, %._crit_edge.i.thread.i.i.i60
+  call void @ruby_xfree(ptr noundef nonnull %1) #4
+  br label %exec_hooks_postcheck.exit.i
+
+244:                                              ; preds = %._crit_edge.i.thread.i.i.i60, %._crit_edge.i.i.i.i57
+  %245 = phi i32 [ 0, %._crit_edge.i.thread.i.i.i60 ], [ %.pr.i.i.i58, %._crit_edge.i.i.i.i57 ]
+  call fastcc void @update_global_event_hook(i32 noundef %220, i32 noundef %245)
+  br label %exec_hooks_postcheck.exit.i
+
+exec_hooks_postcheck.exit.i:                      ; preds = %244, %.thread.i.i.i59, %242, %exec_hooks_body.exit.i50
   %.0..0..0..0..0..0.5.i = load volatile i32, ptr %4, align 4
   %.not18.i = icmp eq i32 %.0..0..0..0..0..0.5.i, 0
-  br i1 %.not18.i, label %exec_hooks_protected.exit, label %184
+  br i1 %.not18.i, label %exec_hooks_protected.exit, label %246
 
-184:                                              ; preds = %exec_hooks_body.exit.i49
-  %185 = call i32 @rb_ec_set_raised(ptr noundef %8) #4
+246:                                              ; preds = %exec_hooks_postcheck.exit.i
+  %247 = call i32 @rb_ec_set_raised(ptr noundef %8) #4
   br label %exec_hooks_protected.exit
 
-exec_hooks_protected.exit:                        ; preds = %exec_hooks_body.exit.i49, %184
+exec_hooks_protected.exit:                        ; preds = %exec_hooks_postcheck.exit.i, %246
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  %186 = icmp eq i32 %179, 0
-  %.pre = load i64, ptr %82, align 8
-  br i1 %186, label %.thread, label %188
+  %248 = icmp eq i32 %210, 0
+  %.pre = load i64, ptr %113, align 8
+  br i1 %248, label %.thread, label %250
 
 .thread:                                          ; preds = %exec_hooks_protected.exit, %exec_hooks_protected.exit.thread
-  %187 = phi i64 [ %.pre, %exec_hooks_protected.exit ], [ %85, %exec_hooks_protected.exit.thread ]
-  store i64 %81, ptr %80, align 8
+  %249 = phi i64 [ %.pre, %exec_hooks_protected.exit ], [ %116, %exec_hooks_protected.exit.thread ]
+  store i64 %112, ptr %111, align 8
   store ptr null, ptr %10, align 8
-  store i64 %187, ptr %84, align 8
-  store i64 %83, ptr %82, align 8
-  br label %204
+  store i64 %249, ptr %115, align 8
+  store i64 %114, ptr %113, align 8
+  br label %266
 
-188:                                              ; preds = %exec_hooks_protected.exit
+250:                                              ; preds = %exec_hooks_protected.exit
   store ptr null, ptr %10, align 8
-  store i64 %.pre, ptr %84, align 8
-  store i64 %83, ptr %82, align 8
+  store i64 %.pre, ptr %115, align 8
+  store i64 %114, ptr %113, align 8
   %.not41 = icmp eq i32 %2, 0
-  br i1 %.not41, label %199, label %189
+  br i1 %.not41, label %261, label %251
 
-189:                                              ; preds = %188
-  %190 = getelementptr inbounds i8, ptr %8, i64 16
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr i8, ptr %191, i64 32
-  %.val45 = load ptr, ptr %192, align 8
+251:                                              ; preds = %250
+  %252 = getelementptr inbounds i8, ptr %8, i64 16
+  %253 = load ptr, ptr %252, align 8
+  %254 = getelementptr i8, ptr %253, i64 32
+  %.val45 = load ptr, ptr %254, align 8
   %.val45.val = load i64, ptr %.val45, align 8
-  %193 = and i64 %.val45.val, 32
-  %.not42 = icmp eq i64 %193, 0
-  br i1 %.not42, label %198, label %194
+  %255 = and i64 %.val45.val, 32
+  %.not42 = icmp eq i64 %255, 0
+  br i1 %.not42, label %260, label %256
 
-194:                                              ; preds = %189
-  %195 = load ptr, ptr %95, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 56
-  %197 = load ptr, ptr %196, align 8
-  store ptr %197, ptr %95, align 8
-  br label %198
+256:                                              ; preds = %251
+  %257 = load ptr, ptr %126, align 8
+  %258 = getelementptr inbounds i8, ptr %257, i64 56
+  %259 = load ptr, ptr %258, align 8
+  store ptr %259, ptr %126, align 8
+  br label %260
 
-198:                                              ; preds = %194, %189
+260:                                              ; preds = %256, %251
   call void @rb_vm_pop_frame(ptr noundef nonnull %8) #4
-  br label %199
+  br label %261
 
-199:                                              ; preds = %198, %188
-  %200 = load ptr, ptr %95, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 64
-  store i32 %179, ptr %201, align 8
-  %202 = load ptr, ptr %95, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 16
-  call void @llvm.eh.sjlj.longjmp(ptr nonnull %203)
+261:                                              ; preds = %260, %250
+  %262 = load ptr, ptr %126, align 8
+  %263 = getelementptr inbounds i8, ptr %262, i64 64
+  store i32 %210, ptr %263, align 8
+  %264 = load ptr, ptr %126, align 8
+  %265 = getelementptr inbounds i8, ptr %264, i64 16
+  call void @llvm.eh.sjlj.longjmp(ptr nonnull %265)
   unreachable
 
-204:                                              ; preds = %.thread, %74, %75, %exec_hooks_unprotected.exit, %14
+266:                                              ; preds = %.thread, %105, %106, %exec_hooks_unprotected.exit, %14
   ret void
 }
 
@@ -2646,7 +2687,7 @@ define dso_local noundef i64 @rb_tracepoint_disable(i64 noundef %0) #0 {
   %6 = load i32, ptr @ruby_vm_event_local_num, align 4
   %7 = add i32 %6, -1
   store i32 %7, ptr @ruby_vm_event_local_num, align 4
-  br label %57
+  br label %24
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2663,100 +2704,21 @@ define dso_local noundef i64 @rb_tracepoint_disable(i64 noundef %0) #0 {
   %17 = getelementptr i8, ptr %15, i64 48
   %.val.i = load ptr, ptr %17, align 8
   %18 = tail call fastcc i32 @remove_event_hook(ptr %.val.i, ptr noundef %16, ptr noundef nonnull @tp_call_trace, i64 noundef %0)
-  br label %57
+  br label %24
 
 19:                                               ; preds = %8
   %20 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %21, i64 48
   %.val.i13 = load ptr, ptr %22, align 8
-  %.not.i.i.i = icmp eq ptr %.val.i13, null
-  br i1 %.not.i.i.i, label %rb_ec_ractor_hooks.exit.i, label %23
+  %23 = tail call fastcc i32 @remove_event_hook(ptr %.val.i13, ptr noundef null, ptr noundef nonnull @tp_call_trace, i64 noundef %0)
+  br label %24
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %.val.i13, i64 24
-  %25 = load ptr, ptr %24, align 8
-  br label %rb_ec_ractor_hooks.exit.i
-
-rb_ec_ractor_hooks.exit.i:                        ; preds = %23, %19
-  %.0.i.i.i = phi ptr [ %25, %23 ], [ null, %19 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
-  %.01.i = load ptr, ptr %26, align 8
-  %.not2.i = icmp eq ptr %.01.i, null
-  br i1 %.not2.i, label %remove_event_hook.exit, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %rb_ec_ractor_hooks.exit.i
-  %27 = icmp eq i64 %0, 36
-  %28 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
-  br i1 %27, label %.lr.ph.split.split.us.split.i, label %.lr.ph.split.split.split.i
-
-.lr.ph.split.split.us.split.i:                    ; preds = %.lr.ph.i, %39
-  %.04.us5.i = phi ptr [ %.0.us9.i, %39 ], [ %.01.i, %.lr.ph.i ]
-  %29 = getelementptr inbounds i8, ptr %.04.us5.i, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, @tp_call_trace
-  br i1 %31, label %32, label %39
-
-32:                                               ; preds = %.lr.ph.split.split.us.split.i
-  %33 = getelementptr inbounds i8, ptr %.04.us5.i, i64 32
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %39
-
-36:                                               ; preds = %32
-  %37 = load i32, ptr %.04.us5.i, align 8
-  %38 = or i32 %37, 2
-  store i32 %38, ptr %.04.us5.i, align 8
-  store i8 1, ptr %28, align 8
-  br label %39
-
-39:                                               ; preds = %36, %32, %.lr.ph.split.split.us.split.i
-  %40 = getelementptr inbounds i8, ptr %.04.us5.i, i64 24
-  %.0.us9.i = load ptr, ptr %40, align 8
-  %.not.us10.i = icmp eq ptr %.0.us9.i, null
-  br i1 %.not.us10.i, label %remove_event_hook.exit, label %.lr.ph.split.split.us.split.i, !llvm.loop !12
-
-.lr.ph.split.split.split.i:                       ; preds = %.lr.ph.i, %55
-  %.04.i = phi ptr [ %.0.i, %55 ], [ %.01.i, %.lr.ph.i ]
-  %41 = getelementptr inbounds i8, ptr %.04.i, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, @tp_call_trace
-  br i1 %43, label %44, label %55
-
-44:                                               ; preds = %.lr.ph.split.split.split.i
-  %45 = getelementptr inbounds i8, ptr %.04.i, i64 32
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %55
-
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %.04.i, i64 16
-  %50 = load i64, ptr %49, align 8
-  %51 = icmp eq i64 %50, %0
-  br i1 %51, label %52, label %55
-
-52:                                               ; preds = %48
-  %53 = load i32, ptr %.04.i, align 8
-  %54 = or i32 %53, 2
-  store i32 %54, ptr %.04.i, align 8
-  store i8 1, ptr %28, align 8
-  br label %55
-
-55:                                               ; preds = %52, %48, %44, %.lr.ph.split.split.split.i
-  %56 = getelementptr inbounds i8, ptr %.04.i, i64 24
-  %.0.i = load ptr, ptr %56, align 8
-  %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %remove_event_hook.exit, label %.lr.ph.split.split.split.i, !llvm.loop !12
-
-remove_event_hook.exit:                           ; preds = %55, %39, %rb_ec_ractor_hooks.exit.i
-  tail call fastcc void @clean_hooks_check(ptr noundef nonnull %26)
-  br label %57
-
-57:                                               ; preds = %11, %remove_event_hook.exit, %5
-  %58 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 0, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr null, ptr %59, align 8
+24:                                               ; preds = %11, %19, %5
+  %25 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 0, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr null, ptr %26, align 8
   ret i64 36
 }
 
@@ -2843,21 +2805,21 @@ rb_hook_list_remove_tracepoint.exit:              ; preds = %27
   store i32 0, ptr %38, align 8
   store i8 0, ptr %33, align 8
   %40 = load ptr, ptr %32, align 8
-  %.not19.i.i = icmp eq ptr %40, null
-  br i1 %.not19.i.i, label %._crit_edge.i.thread.i, label %.lr.ph.i.i
+  %.not18.i.i = icmp eq ptr %40, null
+  br i1 %.not18.i.i, label %._crit_edge.i.thread.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %37, %53
   %41 = phi ptr [ %54, %53 ], [ %40, %37 ]
-  %.020.i.i = phi ptr [ %.1.i.i, %53 ], [ %32, %37 ]
+  %.019.i.i = phi ptr [ %.1.i.i, %53 ], [ %32, %37 ]
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 2
-  %.not18.i.i = icmp eq i32 %43, 0
-  br i1 %.not18.i.i, label %47, label %44
+  %.not17.i.i = icmp eq i32 %43, 0
+  br i1 %.not17.i.i, label %47, label %44
 
 44:                                               ; preds = %.lr.ph.i.i
   %45 = getelementptr inbounds i8, ptr %41, i64 24
   %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %.020.i.i, align 8
+  store ptr %46, ptr %.019.i.i, align 8
   tail call void @ruby_xfree(ptr noundef nonnull %41) #4
   br label %53
 
@@ -2871,7 +2833,7 @@ rb_hook_list_remove_tracepoint.exit:              ; preds = %27
   br label %53
 
 53:                                               ; preds = %47, %44
-  %.1.i.i = phi ptr [ %.020.i.i, %44 ], [ %52, %47 ]
+  %.1.i.i = phi ptr [ %.019.i.i, %44 ], [ %52, %47 ]
   %54 = load ptr, ptr %.1.i.i, align 8
   %.not.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
@@ -2880,16 +2842,14 @@ rb_hook_list_remove_tracepoint.exit:              ; preds = %27
   %.pr.i = load i32, ptr %38, align 8
   %55 = getelementptr inbounds i8, ptr %32, i64 17
   %56 = load i8, ptr %55, align 1
-  %57 = and i8 %56, 1
-  %.not17.i.i = icmp eq i8 %57, 0
-  br i1 %.not17.i.i, label %63, label %61
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %61, label %63
 
 ._crit_edge.i.thread.i:                           ; preds = %37
   %58 = getelementptr inbounds i8, ptr %32, i64 17
   %59 = load i8, ptr %58, align 1
-  %60 = and i8 %59, 1
-  %.not17.i3.i = icmp eq i8 %60, 0
-  br i1 %.not17.i3.i, label %63, label %.thread.i
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %.thread.i, label %63
 
 61:                                               ; preds = %._crit_edge.i.i
   %62 = icmp eq i32 %.pr.i, 0
@@ -4998,97 +4958,51 @@ define internal noundef i64 @set_trace_func(i64 %0, i64 noundef returned %1) #0 
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 48
   %.val.i = load ptr, ptr %5, align 8
-  %.not.i.i.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i.i.i, label %rb_ec_ractor_hooks.exit.i.i, label %6
+  %6 = tail call fastcc i32 @remove_event_hook(ptr %.val.i, ptr noundef null, ptr noundef nonnull @call_trace_func, i64 noundef 36)
+  %7 = icmp eq i64 %1, 4
+  br i1 %7, label %29, label %8
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %.val.i, i64 24
-  %8 = load ptr, ptr %7, align 8
-  br label %rb_ec_ractor_hooks.exit.i.i
+8:                                                ; preds = %2
+  %9 = tail call i64 @rb_obj_is_proc(i64 noundef %1) #4
+  %.not = icmp eq i64 %9, 0
+  br i1 %.not, label %10, label %12
 
-rb_ec_ractor_hooks.exit.i.i:                      ; preds = %6, %2
-  %.0.i.i.i.i = phi ptr [ %8, %6 ], [ null, %2 ]
-  %9 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 16
-  %.01.i.i = load ptr, ptr %9, align 8
-  %.not2.i.i = icmp eq ptr %.01.i.i, null
-  br i1 %.not2.i.i, label %rb_remove_event_hook.exit, label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %rb_ec_ractor_hooks.exit.i.i
-  %10 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
-  br label %.lr.ph.split.split.us.split.i.i
-
-.lr.ph.split.split.us.split.i.i:                  ; preds = %21, %.lr.ph.i.i
-  %.04.us5.i.i = phi ptr [ %.0.us9.i.i, %21 ], [ %.01.i.i, %.lr.ph.i.i ]
-  %11 = getelementptr inbounds i8, ptr %.04.us5.i.i, i64 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, @call_trace_func
-  br i1 %13, label %14, label %21
-
-14:                                               ; preds = %.lr.ph.split.split.us.split.i.i
-  %15 = getelementptr inbounds i8, ptr %.04.us5.i.i, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %21
-
-18:                                               ; preds = %14
-  %19 = load i32, ptr %.04.us5.i.i, align 8
-  %20 = or i32 %19, 2
-  store i32 %20, ptr %.04.us5.i.i, align 8
-  store i8 1, ptr %10, align 8
-  br label %21
-
-21:                                               ; preds = %18, %14, %.lr.ph.split.split.us.split.i.i
-  %22 = getelementptr inbounds i8, ptr %.04.us5.i.i, i64 24
-  %.0.us9.i.i = load ptr, ptr %22, align 8
-  %.not.us10.i.i = icmp eq ptr %.0.us9.i.i, null
-  br i1 %.not.us10.i.i, label %rb_remove_event_hook.exit, label %.lr.ph.split.split.us.split.i.i, !llvm.loop !12
-
-rb_remove_event_hook.exit:                        ; preds = %21, %rb_ec_ractor_hooks.exit.i.i
-  tail call fastcc void @clean_hooks_check(ptr noundef nonnull %9)
-  %23 = icmp eq i64 %1, 4
-  br i1 %23, label %45, label %24
-
-24:                                               ; preds = %rb_remove_event_hook.exit
-  %25 = tail call i64 @rb_obj_is_proc(i64 noundef %1) #4
-  %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %26, label %28
-
-26:                                               ; preds = %24
-  %27 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %27, ptr noundef nonnull @.str.105) #17
+10:                                               ; preds = %8
+  %11 = load i64, ptr @rb_eTypeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.105) #17
   unreachable
 
-28:                                               ; preds = %24
-  %29 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #23
-  store i32 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
-  store i32 255, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
-  store ptr @call_trace_func, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 16
-  store i64 %1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %29, i64 32
-  store ptr null, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %29, i64 40
-  store i32 0, ptr %34, align 8
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr i8, ptr %35, i64 48
-  %.val.i.i = load ptr, ptr %36, align 8, !nonnull !11, !noundef !11
-  %37 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
-  %40 = getelementptr inbounds i8, ptr %38, i64 24
-  %41 = load i32, ptr %40, align 8
-  %42 = load ptr, ptr %39, align 8
-  %43 = getelementptr inbounds i8, ptr %29, i64 24
-  store ptr %42, ptr %43, align 8
-  store ptr %29, ptr %39, align 8
-  %44 = or i32 %41, 255
-  store i32 %44, ptr %40, align 8
-  tail call fastcc void @update_global_event_hook(i32 noundef %41, i32 noundef %44)
-  br label %45
+12:                                               ; preds = %8
+  %13 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #23
+  store i32 1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  store i32 255, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr @call_trace_func, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  store i64 %1, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %13, i64 32
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %13, i64 40
+  store i32 0, ptr %18, align 8
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr i8, ptr %19, i64 48
+  %.val.i.i = load ptr, ptr %20, align 8, !nonnull !11, !noundef !11
+  %21 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = getelementptr inbounds i8, ptr %22, i64 24
+  %25 = load i32, ptr %24, align 8
+  %26 = load ptr, ptr %23, align 8
+  %27 = getelementptr inbounds i8, ptr %13, i64 24
+  store ptr %26, ptr %27, align 8
+  store ptr %13, ptr %23, align 8
+  %28 = or i32 %25, 255
+  store i32 %28, ptr %24, align 8
+  tail call fastcc void @update_global_event_hook(i32 noundef %25, i32 noundef %28)
+  br label %29
 
-45:                                               ; preds = %rb_remove_event_hook.exit, %28
+29:                                               ; preds = %2, %12
   ret i64 %1
 }
 
@@ -5101,116 +5015,49 @@ define internal noundef i64 @thread_set_trace_func_m(i64 noundef %0, i64 noundef
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #4
   %6 = getelementptr i8, ptr %4, i64 48
   %.val = load ptr, ptr %6, align 8
-  %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %rb_ec_ractor_hooks.exit.i, label %7
+  %7 = tail call fastcc i32 @remove_event_hook(ptr %.val, ptr noundef %5, ptr noundef nonnull @call_trace_func, i64 noundef 36)
+  %8 = icmp eq i64 %1, 4
+  br i1 %8, label %27, label %9
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %.val, i64 24
-  %9 = load ptr, ptr %8, align 8
-  br label %rb_ec_ractor_hooks.exit.i
+9:                                                ; preds = %2
+  %10 = tail call i64 @rb_obj_is_proc(i64 noundef %1) #4
+  %.not.i = icmp eq i64 %10, 0
+  br i1 %.not.i, label %11, label %thread_add_trace_func.exit
 
-rb_ec_ractor_hooks.exit.i:                        ; preds = %7, %2
-  %.0.i.i.i = phi ptr [ %9, %7 ], [ null, %2 ]
-  %10 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
-  %.01.i = load ptr, ptr %10, align 8
-  %.not2.i = icmp eq ptr %.01.i, null
-  br i1 %.not2.i, label %remove_event_hook.exit, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %rb_ec_ractor_hooks.exit.i
-  %11 = icmp eq ptr %5, inttoptr (i64 1 to ptr)
-  %12 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
-  br i1 %11, label %.lr.ph.split.split.us.split.us.i, label %.lr.ph.split.split.us.split.i
-
-.lr.ph.split.split.us.split.us.i:                 ; preds = %.lr.ph.i, %19
-  %.04.us5.us.i = phi ptr [ %.0.us9.us.i, %19 ], [ %.01.i, %.lr.ph.i ]
-  %13 = getelementptr inbounds i8, ptr %.04.us5.us.i, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, @call_trace_func
-  br i1 %15, label %16, label %19
-
-16:                                               ; preds = %.lr.ph.split.split.us.split.us.i
-  %17 = load i32, ptr %.04.us5.us.i, align 8
-  %18 = or i32 %17, 2
-  store i32 %18, ptr %.04.us5.us.i, align 8
-  store i8 1, ptr %12, align 8
-  br label %19
-
-19:                                               ; preds = %16, %.lr.ph.split.split.us.split.us.i
-  %20 = getelementptr inbounds i8, ptr %.04.us5.us.i, i64 24
-  %.0.us9.us.i = load ptr, ptr %20, align 8
-  %.not.us10.us.i = icmp eq ptr %.0.us9.us.i, null
-  br i1 %.not.us10.us.i, label %remove_event_hook.exit, label %.lr.ph.split.split.us.split.us.i, !llvm.loop !12
-
-.lr.ph.split.split.us.split.i:                    ; preds = %.lr.ph.i, %31
-  %.04.us5.i = phi ptr [ %.0.us9.i, %31 ], [ %.01.i, %.lr.ph.i ]
-  %21 = getelementptr inbounds i8, ptr %.04.us5.i, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, @call_trace_func
-  br i1 %23, label %24, label %31
-
-24:                                               ; preds = %.lr.ph.split.split.us.split.i
-  %25 = getelementptr inbounds i8, ptr %.04.us5.i, i64 32
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, %5
-  br i1 %27, label %28, label %31
-
-28:                                               ; preds = %24
-  %29 = load i32, ptr %.04.us5.i, align 8
-  %30 = or i32 %29, 2
-  store i32 %30, ptr %.04.us5.i, align 8
-  store i8 1, ptr %12, align 8
-  br label %31
-
-31:                                               ; preds = %28, %24, %.lr.ph.split.split.us.split.i
-  %32 = getelementptr inbounds i8, ptr %.04.us5.i, i64 24
-  %.0.us9.i = load ptr, ptr %32, align 8
-  %.not.us10.i = icmp eq ptr %.0.us9.i, null
-  br i1 %.not.us10.i, label %remove_event_hook.exit, label %.lr.ph.split.split.us.split.i, !llvm.loop !12
-
-remove_event_hook.exit:                           ; preds = %31, %19, %rb_ec_ractor_hooks.exit.i
-  tail call fastcc void @clean_hooks_check(ptr noundef nonnull %10)
-  %33 = icmp eq i64 %1, 4
-  br i1 %33, label %52, label %34
-
-34:                                               ; preds = %remove_event_hook.exit
-  %35 = tail call i64 @rb_obj_is_proc(i64 noundef %1) #4
-  %.not.i = icmp eq i64 %35, 0
-  br i1 %.not.i, label %36, label %thread_add_trace_func.exit
-
-36:                                               ; preds = %34
-  %37 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %37, ptr noundef nonnull @.str.105) #17
+11:                                               ; preds = %9
+  %12 = load i64, ptr @rb_eTypeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %12, ptr noundef nonnull @.str.105) #17
   unreachable
 
-thread_add_trace_func.exit:                       ; preds = %34
-  %38 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #23
-  store i32 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
-  store i32 255, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
-  store ptr @call_trace_func, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 16
-  store i64 %1, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 32
-  %43 = getelementptr inbounds i8, ptr %38, i64 40
-  store i32 0, ptr %43, align 8
-  store ptr %5, ptr %42, align 8
+thread_add_trace_func.exit:                       ; preds = %9
+  %13 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #23
+  store i32 1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  store i32 255, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr @call_trace_func, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  store i64 %1, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %13, i64 32
+  %18 = getelementptr inbounds i8, ptr %13, i64 40
+  store i32 0, ptr %18, align 8
+  store ptr %5, ptr %17, align 8
   %.val.i.i = load ptr, ptr %6, align 8, !nonnull !11, !noundef !11
-  %44 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
-  %47 = getelementptr inbounds i8, ptr %45, i64 24
-  %48 = load i32, ptr %47, align 8
-  %49 = load ptr, ptr %46, align 8
-  %50 = getelementptr inbounds i8, ptr %38, i64 24
-  store ptr %49, ptr %50, align 8
-  store ptr %38, ptr %46, align 8
-  %51 = or i32 %48, 255
-  store i32 %51, ptr %47, align 8
-  tail call fastcc void @update_global_event_hook(i32 noundef %48, i32 noundef %51)
-  br label %52
+  %19 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = load i32, ptr %22, align 8
+  %24 = load ptr, ptr %21, align 8
+  %25 = getelementptr inbounds i8, ptr %13, i64 24
+  store ptr %24, ptr %25, align 8
+  store ptr %13, ptr %21, align 8
+  %26 = or i32 %23, 255
+  store i32 %26, ptr %22, align 8
+  tail call fastcc void @update_global_event_hook(i32 noundef %23, i32 noundef %26)
+  br label %27
 
-52:                                               ; preds = %remove_event_hook.exit, %thread_add_trace_func.exit
+27:                                               ; preds = %2, %thread_add_trace_func.exit
   ret i64 %1
 }
 
@@ -5894,91 +5741,6 @@ declare void @rb_objspace_set_event_hook(i32 noundef) local_unnamed_addr #1
 declare void @rb_yjit_tracing_invalidate_all() local_unnamed_addr #1
 
 declare void @rb_rjit_tracing_invalidate_all(i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @clean_hooks_check(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %clean_hooks.exit, label %5
-
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
-  %7 = load i32, ptr %6, align 4
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %clean_hooks.exit
-
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = load i32, ptr %10, align 8
-  store i32 0, ptr %10, align 8
-  store i8 0, ptr %2, align 8
-  %12 = load ptr, ptr %0, align 8
-  %.not19.i = icmp eq ptr %12, null
-  br i1 %.not19.i, label %._crit_edge.i.thread, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %9, %25
-  %13 = phi ptr [ %26, %25 ], [ %12, %9 ]
-  %.020.i = phi ptr [ %.1.i, %25 ], [ %0, %9 ]
-  %14 = load i32, ptr %13, align 8
-  %15 = and i32 %14, 2
-  %.not18.i = icmp eq i32 %15, 0
-  br i1 %.not18.i, label %19, label %16
-
-16:                                               ; preds = %.lr.ph.i
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %.020.i, align 8
-  tail call void @ruby_xfree(ptr noundef nonnull %13) #4
-  br label %25
-
-19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds i8, ptr %13, i64 4
-  %21 = load i32, ptr %20, align 4
-  %22 = load i32, ptr %10, align 8
-  %23 = or i32 %22, %21
-  store i32 %23, ptr %10, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 24
-  br label %25
-
-25:                                               ; preds = %19, %16
-  %.1.i = phi ptr [ %.020.i, %16 ], [ %24, %19 ]
-  %26 = load ptr, ptr %.1.i, align 8
-  %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
-
-._crit_edge.i:                                    ; preds = %25
-  %.pr = load i32, ptr %10, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 17
-  %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  %.not17.i = icmp eq i8 %29, 0
-  br i1 %.not17.i, label %35, label %33
-
-._crit_edge.i.thread:                             ; preds = %9
-  %30 = getelementptr inbounds i8, ptr %0, i64 17
-  %31 = load i8, ptr %30, align 1
-  %32 = and i8 %31, 1
-  %.not17.i3 = icmp eq i8 %32, 0
-  br i1 %.not17.i3, label %35, label %.thread
-
-33:                                               ; preds = %._crit_edge.i
-  %34 = icmp eq i32 %.pr, 0
-  br i1 %34, label %.thread, label %clean_hooks.exit
-
-.thread:                                          ; preds = %._crit_edge.i.thread, %33
-  tail call void @ruby_xfree(ptr noundef nonnull %0) #4
-  br label %clean_hooks.exit
-
-35:                                               ; preds = %._crit_edge.i.thread, %._crit_edge.i
-  %36 = phi i32 [ 0, %._crit_edge.i.thread ], [ %.pr, %._crit_edge.i ]
-  tail call fastcc void @update_global_event_hook(i32 noundef %11, i32 noundef %36)
-  br label %clean_hooks.exit
-
-clean_hooks.exit:                                 ; preds = %35, %.thread, %33, %5, %1
-  ret void
-}
 
 declare i32 @rb_vm_get_sourceline(ptr noundef) local_unnamed_addr #1
 

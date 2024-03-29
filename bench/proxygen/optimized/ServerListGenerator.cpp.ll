@@ -202,11 +202,10 @@ cleanup.done:                                     ; preds = %entry
 _ZNK5folly9EventBase19isInEventBaseThreadEv.exit: ; preds = %cleanup.done
   %strictLoopThread_.i = getelementptr inbounds i8, ptr %base, i64 57
   %3 = load i8, ptr %strictLoopThread_.i, align 1
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  %cmp.i2.i = icmp eq i64 %2, 0
-  %spec.select.i = and i1 %cmp.i2.i, %tobool.not.i
-  br i1 %spec.select.i, label %cleanup.done26, label %cond.false13
+  %tobool.i = trunc i8 %3 to i1
+  %cmp.i2.i = icmp ne i64 %2, 0
+  %spec.select.i.not = or i1 %cmp.i2.i, %tobool.i
+  br i1 %spec.select.i.not, label %cond.false13, label %cleanup.done26
 
 cond.false13:                                     ; preds = %_ZNK5folly9EventBase19isInEventBaseThreadEv.exit
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp15, ptr noundef nonnull @.str, i32 noundef 22)
@@ -222,7 +221,7 @@ cleanup.action25:                                 ; preds = %invoke.cont18
   unreachable
 
 lpad17:                                           ; preds = %invoke.cont18, %cond.false13
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp15) #12
   unreachable
@@ -262,10 +261,9 @@ lor.rhs:                                          ; preds = %entry
 lor.end:                                          ; preds = %lor.rhs
   %strictLoopThread_.i = getelementptr inbounds i8, ptr %0, i64 57
   %2 = load i8, ptr %strictLoopThread_.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp ne i8 %3, 0
+  %tobool.i = trunc i8 %2 to i1
   %cmp.i2.i = icmp ne i64 %1, 0
-  %spec.select.i.not = or i1 %cmp.i2.i, %tobool.not.i
+  %spec.select.i.not = or i1 %cmp.i2.i, %tobool.i
   br i1 %spec.select.i.not, label %cond.false, label %cleanup.done
 
 cond.false:                                       ; preds = %lor.end
@@ -282,7 +280,7 @@ cleanup.action:                                   ; preds = %invoke.cont
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %cond.false
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #12
   unreachable
@@ -705,16 +703,16 @@ cleanup.done:                                     ; preds = %if.end
 land.lhs.true22:                                  ; preds = %cleanup.done
   %takeOwnershipOfGenerator_ = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i8, ptr %takeOwnershipOfGenerator_, align 8
-  %4 = and i8 %3, 1
-  %tobool23.not = icmp eq i8 %4, 0
-  %brmerge = or i1 %tobool23.not, %cmp
+  %tobool23 = trunc i8 %3 to i1
+  %tobool23.not = xor i1 %tobool23, true
+  %brmerge = or i1 %cmp, %tobool23.not
   br i1 %brmerge, label %if.end26, label %delete.notnull
 
 delete.notnull:                                   ; preds = %land.lhs.true22
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %5 = load ptr, ptr %vfn, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  %4 = load ptr, ptr %vfn, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   br label %if.end26
 
 if.end26:                                         ; preds = %land.lhs.true22, %delete.notnull, %cleanup.done
@@ -769,17 +767,16 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt3mapINSt7__cxx
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN5folly13SocketAddressEEvPT_.exit.i.i.i.i ], [ %3, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit ]
   %external_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 26
   %5 = load i8, ptr %external_.i.i.i.i.i.i, align 2
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN5folly13SocketAddressEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
+  %tobool.i.i.i.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZSt8_DestroyIN5folly13SocketAddressEEvPT_.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i
-  %7 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
-  %isnull.i.i.i.i.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
+  %isnull.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %isnull.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5folly13SocketAddressEEvPT_.exit.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #16
   br label %_ZSt8_DestroyIN5folly13SocketAddressEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN5folly13SocketAddressEEvPT_.exit.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i.i
@@ -792,29 +789,28 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN5fol
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit
-  %8 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %3, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit ]
-  %tobool.not.i.i.i = icmp eq ptr %8, null
+  %7 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %3, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit ]
+  %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN5folly13SocketAddressESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #16
   br label %_ZNSt6vectorIN5folly13SocketAddressESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5folly13SocketAddressESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
   %external_.i = getelementptr inbounds i8, ptr %this, i64 58
-  %9 = load i8, ptr %external_.i, align 2
-  %10 = and i8 %9, 1
-  %tobool.not.i = icmp eq i8 %10, 0
-  br i1 %tobool.not.i, label %_ZN5folly13SocketAddressD2Ev.exit, label %if.then.i
+  %8 = load i8, ptr %external_.i, align 2
+  %tobool.i = trunc i8 %8 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN5folly13SocketAddressD2Ev.exit
 
 if.then.i:                                        ; preds = %_ZNSt6vectorIN5folly13SocketAddressESaIS1_EED2Ev.exit
   %address = getelementptr inbounds i8, ptr %this, i64 32
-  %11 = load ptr, ptr %address, align 8
-  %isnull.i.i = icmp eq ptr %11, null
+  %9 = load ptr, ptr %address, align 8
+  %isnull.i.i = icmp eq ptr %9, null
   br i1 %isnull.i.i, label %_ZN5folly13SocketAddressD2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %if.then.i
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #16
   br label %_ZN5folly13SocketAddressD2Ev.exit
 
 _ZN5folly13SocketAddressD2Ev.exit:                ; preds = %_ZNSt6vectorIN5folly13SocketAddressESaIS1_EED2Ev.exit, %if.then.i, %delete.notnull.i.i

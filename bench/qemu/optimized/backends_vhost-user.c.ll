@@ -93,14 +93,13 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i26, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #5
   %started = getelementptr inbounds i8, ptr %b, i64 776
   %1 = load i8, ptr %started, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %set_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 240
-  %3 = load ptr, ptr %set_guest_notifiers, align 8
-  %tobool4.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %set_guest_notifiers, align 8
+  %tobool4.not = icmp eq ptr %2, null
   br i1 %tobool4.not, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end
@@ -109,18 +108,18 @@ if.then5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %dev = getelementptr inbounds i8, ptr %b, i64 128
-  %4 = load ptr, ptr %vdev, align 8
-  %call8 = tail call i32 @vhost_dev_enable_notifiers(ptr noundef nonnull %dev, ptr noundef %4) #5
+  %3 = load ptr, ptr %vdev, align 8
+  %call8 = tail call i32 @vhost_dev_enable_notifiers(ptr noundef nonnull %dev, ptr noundef %3) #5
   %cmp = icmp slt i32 %call8, 0
   br i1 %cmp, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end6
-  %5 = load ptr, ptr %set_guest_notifiers, align 8
+  %4 = load ptr, ptr %set_guest_notifiers, align 8
   %parent = getelementptr inbounds i8, ptr %call.i25, i64 40
-  %6 = load ptr, ptr %parent, align 8
+  %5 = load ptr, ptr %parent, align 8
   %nvqs = getelementptr inbounds i8, ptr %b, i64 568
-  %7 = load i32, ptr %nvqs, align 8
-  %call13 = tail call i32 %5(ptr noundef %6, i32 noundef %7, i1 noundef zeroext true) #5
+  %6 = load i32, ptr %nvqs, align 8
+  %call13 = tail call i32 %4(ptr noundef %5, i32 noundef %6, i1 noundef zeroext true) #5
   %cmp14 = icmp slt i32 %call13, 0
   br i1 %cmp14, label %if.then15, label %if.end16
 
@@ -129,18 +128,18 @@ if.then15:                                        ; preds = %if.end10
   br label %err_host_notifiers
 
 if.end16:                                         ; preds = %if.end10
-  %8 = load ptr, ptr %vdev, align 8
-  %guest_features = getelementptr inbounds i8, ptr %8, i64 184
-  %9 = load i64, ptr %guest_features, align 8
+  %7 = load ptr, ptr %vdev, align 8
+  %guest_features = getelementptr inbounds i8, ptr %7, i64 184
+  %8 = load i64, ptr %guest_features, align 8
   %acked_features = getelementptr inbounds i8, ptr %b, i64 592
-  store i64 %9, ptr %acked_features, align 8
-  %call21 = tail call i32 @vhost_dev_start(ptr noundef nonnull %dev, ptr noundef %8, i1 noundef zeroext true) #5
+  store i64 %8, ptr %acked_features, align 8
+  %call21 = tail call i32 @vhost_dev_start(ptr noundef nonnull %dev, ptr noundef %7, i1 noundef zeroext true) #5
   %cmp22 = icmp slt i32 %call21, 0
   br i1 %cmp22, label %if.then23, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end16
-  %10 = load i32, ptr %nvqs, align 8
-  %cmp2727.not = icmp eq i32 %10, 0
+  %9 = load i32, ptr %nvqs, align 8
+  %cmp2727.not = icmp eq i32 %9, 0
   br i1 %cmp2727.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -149,21 +148,21 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 if.then23:                                        ; preds = %if.end16
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4) #5
-  %11 = load ptr, ptr %set_guest_notifiers, align 8
-  %12 = load ptr, ptr %parent, align 8
-  %13 = load i32, ptr %nvqs, align 8
-  %call36 = tail call i32 %11(ptr noundef %12, i32 noundef %13, i1 noundef zeroext false) #5
+  %10 = load ptr, ptr %set_guest_notifiers, align 8
+  %11 = load ptr, ptr %parent, align 8
+  %12 = load i32, ptr %nvqs, align 8
+  %call36 = tail call i32 %10(ptr noundef %11, i32 noundef %12, i1 noundef zeroext false) #5
   br label %err_host_notifiers
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.028 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %14 = load ptr, ptr %vdev, align 8
-  %15 = load i32, ptr %vq_index, align 4
-  %add = add i32 %15, %i.028
-  tail call void @vhost_virtqueue_mask(ptr noundef nonnull %dev, ptr noundef %14, i32 noundef %add, i1 noundef zeroext false) #5
+  %13 = load ptr, ptr %vdev, align 8
+  %14 = load i32, ptr %vq_index, align 4
+  %add = add i32 %14, %i.028
+  tail call void @vhost_virtqueue_mask(ptr noundef nonnull %dev, ptr noundef %13, i32 noundef %add, i1 noundef zeroext false) #5
   %inc = add nuw i32 %i.028, 1
-  %16 = load i32, ptr %nvqs, align 8
-  %cmp27 = icmp ult i32 %inc, %16
+  %15 = load i32, ptr %nvqs, align 8
+  %cmp27 = icmp ult i32 %inc, %15
   br i1 %cmp27, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
@@ -171,8 +170,8 @@ for.end:                                          ; preds = %for.body, %for.cond
   br label %return
 
 err_host_notifiers:                               ; preds = %if.then23, %if.then15
-  %17 = load ptr, ptr %vdev, align 8
-  tail call void @vhost_dev_disable_notifiers(ptr noundef nonnull %dev, ptr noundef %17) #5
+  %16 = load ptr, ptr %vdev, align 8
+  tail call void @vhost_dev_disable_notifiers(ptr noundef nonnull %dev, ptr noundef %16) #5
   br label %return
 
 return:                                           ; preds = %if.end6, %entry, %err_host_notifiers, %for.end, %if.then5
@@ -203,25 +202,24 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i13, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #5
   %started = getelementptr inbounds i8, ptr %b, i64 776
   %1 = load i8, ptr %started, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %dev = getelementptr inbounds i8, ptr %b, i64 128
-  %3 = load ptr, ptr %vdev, align 8
-  tail call void @vhost_dev_stop(ptr noundef nonnull %dev, ptr noundef %3, i1 noundef zeroext true) #5
+  %2 = load ptr, ptr %vdev, align 8
+  tail call void @vhost_dev_stop(ptr noundef nonnull %dev, ptr noundef %2, i1 noundef zeroext true) #5
   %set_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 240
-  %4 = load ptr, ptr %set_guest_notifiers, align 8
-  %tobool5.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %set_guest_notifiers, align 8
+  %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.end15, label %if.then6
 
 if.then6:                                         ; preds = %if.end
   %parent = getelementptr inbounds i8, ptr %call.i12, i64 40
-  %5 = load ptr, ptr %parent, align 8
+  %4 = load ptr, ptr %parent, align 8
   %nvqs = getelementptr inbounds i8, ptr %b, i64 568
-  %6 = load i32, ptr %nvqs, align 8
-  %call9 = tail call i32 %4(ptr noundef %5, i32 noundef %6, i1 noundef zeroext false) #5
+  %5 = load i32, ptr %nvqs, align 8
+  %call9 = tail call i32 %3(ptr noundef %4, i32 noundef %5, i1 noundef zeroext false) #5
   %cmp = icmp slt i32 %call9, 0
   br i1 %cmp, label %if.then10, label %if.end15
 
@@ -231,8 +229,8 @@ if.then10:                                        ; preds = %if.then6
   unreachable
 
 if.end15:                                         ; preds = %if.end, %if.then6
-  %7 = load ptr, ptr %vdev, align 8
-  tail call void @vhost_dev_disable_notifiers(ptr noundef nonnull %dev, ptr noundef %7) #5
+  %6 = load ptr, ptr %vdev, align 8
+  tail call void @vhost_dev_disable_notifiers(ptr noundef nonnull %dev, ptr noundef %6) #5
   store i8 0, ptr %started, align 8
   br label %return
 
@@ -328,9 +326,8 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.14, i32 noundef 26, ptr noundef nonnull @__func__.VHOST_USER_BACKEND) #5
   %completed = getelementptr inbounds i8, ptr %call.i, i64 777
   %0 = load i8, ptr %completed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 132, ptr noundef nonnull @__func__.set_chardev, ptr noundef nonnull @.str.16) #5
@@ -338,8 +335,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %chr_name = getelementptr inbounds i8, ptr %call.i, i64 40
-  %2 = load ptr, ptr %chr_name, align 8
-  tail call void @g_free(ptr noundef %2) #5
+  %1 = load ptr, ptr %chr_name, align 8
+  tail call void @g_free(ptr noundef %1) #5
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #5
   store ptr %call1, ptr %chr_name, align 8
   %call4 = tail call ptr @qemu_chr_find(ptr noundef %call1) #5
@@ -347,8 +344,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  %3 = load ptr, ptr %chr_name, align 8
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 142, ptr noundef nonnull @__func__.set_chardev, i32 noundef 3, ptr noundef nonnull @.str.17, ptr noundef %3) #5
+  %2 = load ptr, ptr %chr_name, align 8
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 142, ptr noundef nonnull @__func__.set_chardev, i32 noundef 3, ptr noundef nonnull @.str.17, ptr noundef %2) #5
   br label %return
 
 if.end7:                                          ; preds = %if.end

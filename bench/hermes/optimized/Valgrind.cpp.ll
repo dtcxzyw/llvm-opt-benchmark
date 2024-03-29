@@ -12,9 +12,8 @@ entry:
   %_zzq_args = alloca [6 x i64], align 16
   %_zzq_result = alloca i64, align 8
   %0 = load i8, ptr @_ZL16NotUnderValgrind, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   store volatile i64 4097, ptr %_zzq_args, align 16
@@ -28,11 +27,11 @@ if.end:                                           ; preds = %entry
   store volatile i64 0, ptr %arrayidx4, align 16
   %arrayidx5 = getelementptr inbounds i8, ptr %_zzq_args, i64 40
   store volatile i64 0, ptr %arrayidx5, align 8
-  %2 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %_zzq_args, i64 0) #3, !srcloc !4
-  store volatile i64 %2, ptr %_zzq_result, align 8
+  %1 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %_zzq_args, i64 0) #3, !srcloc !4
+  store volatile i64 %1, ptr %_zzq_result, align 8
   %_zzq_result.0._zzq_result.0._zzq_result.0._zzq_result.0. = load volatile i64, ptr %_zzq_result, align 8
-  %3 = and i64 %_zzq_result.0._zzq_result.0._zzq_result.0._zzq_result.0., 4294967295
-  %tobool7 = icmp ne i64 %3, 0
+  %2 = and i64 %_zzq_result.0._zzq_result.0._zzq_result.0._zzq_result.0., 4294967295
+  %tobool7 = icmp ne i64 %2, 0
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -46,15 +45,14 @@ entry:
   %_zzq_args = alloca [6 x i64], align 16
   %_zzq_result = alloca i64, align 8
   %0 = load i8, ptr @_ZL16NotUnderValgrind, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %do.body, label %do.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %do.end, label %do.body
 
 do.body:                                          ; preds = %entry
   store volatile i64 4098, ptr %_zzq_args, align 16
-  %2 = ptrtoint ptr %Addr to i64
+  %1 = ptrtoint ptr %Addr to i64
   %arrayidx1 = getelementptr inbounds i8, ptr %_zzq_args, i64 8
-  store volatile i64 %2, ptr %arrayidx1, align 8
+  store volatile i64 %1, ptr %arrayidx1, align 8
   %arrayidx2 = getelementptr inbounds i8, ptr %_zzq_args, i64 16
   store volatile i64 %Len, ptr %arrayidx2, align 16
   %arrayidx3 = getelementptr inbounds i8, ptr %_zzq_args, i64 24
@@ -63,8 +61,8 @@ do.body:                                          ; preds = %entry
   store volatile i64 0, ptr %arrayidx4, align 16
   %arrayidx5 = getelementptr inbounds i8, ptr %_zzq_args, i64 40
   store volatile i64 0, ptr %arrayidx5, align 8
-  %3 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %_zzq_args, i64 0) #3, !srcloc !5
-  store volatile i64 %3, ptr %_zzq_result, align 8
+  %2 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %_zzq_args, i64 0) #3, !srcloc !5
+  store volatile i64 %2, ptr %_zzq_result, align 8
   %_zzq_result.0._zzq_result.0._zzq_result.0._zzq_result.0. = load volatile i64, ptr %_zzq_result, align 8
   br label %do.end
 

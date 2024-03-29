@@ -228,9 +228,8 @@ define dso_local void @write_csvlog(ptr noundef %0) local_unnamed_addr #0 {
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 44) #2
   %90 = getelementptr inbounds i8, ptr %0, i64 7
   %91 = load i8, ptr %90, align 1
-  %92 = and i8 %91, 1
-  %.not57 = icmp eq i8 %92, 0
-  br i1 %.not57, label %93, label %96
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %96, label %93
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds i8, ptr %0, i64 88
@@ -270,14 +269,14 @@ define dso_local void @write_csvlog(ptr noundef %0) local_unnamed_addr #0 {
   call void @initStringInfo(ptr noundef nonnull %5) #2
   %108 = getelementptr inbounds i8, ptr %0, i64 24
   %109 = load ptr, ptr %108, align 8
-  %.not58 = icmp eq ptr %109, null
+  %.not57 = icmp eq ptr %109, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.not60 = icmp eq ptr %.pre, null
-  br i1 %.not58, label %114, label %110
+  %.not59 = icmp eq ptr %.pre, null
+  br i1 %.not57, label %114, label %110
 
 110:                                              ; preds = %107
-  br i1 %.not60, label %.thread, label %111
+  br i1 %.not59, label %.thread, label %111
 
 111:                                              ; preds = %110
   %112 = getelementptr inbounds i8, ptr %0, i64 16
@@ -286,7 +285,7 @@ define dso_local void @write_csvlog(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 114:                                              ; preds = %107
-  br i1 %.not60, label %.thread, label %115
+  br i1 %.not59, label %.thread, label %115
 
 115:                                              ; preds = %114
   %116 = getelementptr inbounds i8, ptr %0, i64 16
@@ -304,8 +303,8 @@ define dso_local void @write_csvlog(ptr noundef %0) local_unnamed_addr #0 {
 120:                                              ; preds = %.thread, %104
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 44) #2
   %121 = load ptr, ptr @application_name, align 8
-  %.not61 = icmp eq ptr %121, null
-  br i1 %.not61, label %123, label %122
+  %.not60 = icmp eq ptr %121, null
+  br i1 %.not60, label %123, label %122
 
 122:                                              ; preds = %120
   call fastcc void @appendCSVLiteral(ptr noundef nonnull %2, ptr noundef nonnull %121)
@@ -317,21 +316,21 @@ define dso_local void @write_csvlog(ptr noundef %0) local_unnamed_addr #0 {
   call fastcc void @appendCSVLiteral(ptr noundef nonnull %2, ptr noundef %124)
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 44) #2
   %125 = load ptr, ptr @MyProc, align 8
-  %.not62 = icmp eq ptr %125, null
-  br i1 %.not62, label %134, label %126
+  %.not61 = icmp eq ptr %125, null
+  br i1 %.not61, label %134, label %126
 
 126:                                              ; preds = %123
   %127 = getelementptr inbounds i8, ptr %125, i64 848
   %128 = load ptr, ptr %127, align 8
-  %.not63 = icmp eq ptr %128, null
-  br i1 %.not63, label %134, label %129
+  %.not62 = icmp eq ptr %128, null
+  br i1 %.not62, label %134, label %129
 
 129:                                              ; preds = %126
   %130 = getelementptr inbounds i8, ptr %128, i64 60
   %131 = load i32, ptr %130, align 4
   %132 = load i32, ptr @MyProcPid, align 4
-  %.not64 = icmp eq i32 %131, %132
-  br i1 %.not64, label %134, label %133
+  %.not63 = icmp eq i32 %131, %132
+  br i1 %.not63, label %134, label %133
 
 133:                                              ; preds = %129
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str, i32 noundef %131) #2

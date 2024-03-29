@@ -481,9 +481,8 @@ define dso_local void @AtEOXact_Inval(i1 noundef zeroext %0) local_unnamed_addr 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %2, i64 44
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %10, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
   tail call void @RelationCacheInitFilePreInvalidate() #5
@@ -515,11 +514,11 @@ define dso_local void @AtEOXact_Inval(i1 noundef zeroext %0) local_unnamed_addr 
   %26 = sext i32 %21 to i64
   %27 = getelementptr %union.SharedInvalidationMessage, ptr %25, i64 %26
   tail call void @SendSharedInvalidMessages(ptr noundef %27, i32 noundef %22) #5
-  %.pre2 = load i32, ptr %19, align 4
+  %.pre1 = load i32, ptr %19, align 4
   br label %28
 
 28:                                               ; preds = %24, %10
-  %29 = phi i32 [ %.pre2, %24 ], [ %18, %10 ]
+  %29 = phi i32 [ %.pre1, %24 ], [ %18, %10 ]
   %30 = getelementptr i8, ptr %11, i64 32
   %31 = load i32, ptr %30, align 4
   %32 = sub i32 %29, %31
@@ -537,9 +536,8 @@ ProcessInvalidationMessagesMulti.exit:            ; preds = %28, %34
   %38 = load ptr, ptr @transInvalInfo, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 44
   %40 = load i8, ptr %39, align 4
-  %41 = and i8 %40, 1
-  %.not1 = icmp eq i8 %41, 0
-  br i1 %.not1, label %ProcessInvalidationMessages.exit, label %42
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %42, label %ProcessInvalidationMessages.exit
 
 42:                                               ; preds = %ProcessInvalidationMessagesMulti.exit
   tail call void @RelationCacheInitFilePostInvalidate() #5
@@ -940,9 +938,8 @@ CommandEndInvalidationMessages.exit:              ; preds = %9, %32
   store i32 %69, ptr %72, align 4
   %73 = getelementptr inbounds i8, ptr %2, i64 44
   %74 = load i8, ptr %73, align 4
-  %75 = and i8 %74, 1
-  %.not24 = icmp eq i8 %75, 0
-  br i1 %.not24, label %79, label %76
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %79
 
 76:                                               ; preds = %52
   %77 = load ptr, ptr %2, align 8
@@ -1275,10 +1272,9 @@ RegisterSnapshotInvalidation.exit:                ; preds = %30, %AddInvalidatio
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds i8, ptr %58, i64 113
   %61 = load i8, ptr %60, align 1
-  %62 = and i8 %61, 1
-  %.not33 = icmp eq i8 %62, 0
+  %62 = trunc i8 %61 to i1
   %63 = load i32, ptr @MyDatabaseId, align 4
-  %spec.select = select i1 %.not33, i32 %63, i32 0
+  %spec.select = select i1 %62, i32 0, i32 %63
   br label %97
 
 64:                                               ; preds = %RegisterSnapshotInvalidation.exit
@@ -1633,10 +1629,9 @@ define dso_local void @CacheInvalidateRelcache(ptr nocapture noundef readonly %0
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 113
   %7 = load i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
+  %8 = trunc i8 %7 to i1
   %9 = load i32, ptr @MyDatabaseId, align 4
-  %.0 = select i1 %.not, i32 %9, i32 0
+  %.0 = select i1 %8, i32 0, i32 %9
   tail call fastcc void @RegisterRelcacheInvalidation(i32 noundef %.0, i32 noundef %3)
   ret void
 }
@@ -1660,10 +1655,9 @@ define dso_local void @CacheInvalidateRelcacheByTuple(ptr nocapture noundef read
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %7, i64 113
   %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
+  %11 = trunc i8 %10 to i1
   %12 = load i32, ptr @MyDatabaseId, align 4
-  %.0 = select i1 %.not, i32 %12, i32 0
+  %.0 = select i1 %11, i32 0, i32 %12
   tail call fastcc void @RegisterRelcacheInvalidation(i32 noundef %.0, i32 noundef %8)
   ret void
 }
@@ -1694,10 +1688,9 @@ define dso_local void @CacheInvalidateRelcacheByRelid(i32 noundef %0) local_unna
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i8, ptr %13, i64 113
   %16 = load i8, ptr %15, align 1
-  %17 = and i8 %16, 1
-  %.not.i = icmp eq i8 %17, 0
+  %17 = trunc i8 %16 to i1
   %18 = load i32, ptr @MyDatabaseId, align 4
-  %.0.i = select i1 %.not.i, i32 %18, i32 0
+  %.0.i = select i1 %17, i32 0, i32 %18
   tail call fastcc void @RegisterRelcacheInvalidation(i32 noundef %.0.i, i32 noundef %14)
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #5
   ret void

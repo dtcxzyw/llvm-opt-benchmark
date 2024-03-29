@@ -261,18 +261,17 @@ land.lhs.true5.i.i:                               ; preds = %if.end6
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call.i.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 186) #13
   %conv.i.i.i = trunc i64 %call.i.i.i to i32
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %conv.i.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %size, ptr noundef %call) #13
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %conv.i.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %size, ptr noundef %call) #13
   br label %trace_qemu_anon_ram_alloc.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -310,18 +309,17 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call.i.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 186) #13
   %conv.i.i.i = trunc i64 %call.i.i.i to i32
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %conv.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %ptr, i64 noundef %size) #13
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %conv.i.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %ptr, i64 noundef %size) #13
   br label %trace_qemu_anon_ram_free.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1101,19 +1099,17 @@ entry:
   %context = getelementptr inbounds i8, ptr %arg, i64 232
   %5 = load ptr, ptr %context, align 8
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %tobool.not5 = icmp eq i8 %7, 0
-  br i1 %tobool.not5, label %while.end9, label %while.end12
+  %tobool5 = trunc i8 %6 to i1
+  br i1 %tobool5, label %while.end12, label %while.end9
 
 while.end9:                                       ; preds = %entry, %while.end9
-  %8 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
-  %9 = inttoptr i64 %8 to ptr
-  tail call void %9(ptr noundef nonnull @page_cond, ptr noundef nonnull @page_mutex, ptr noundef nonnull @.str, i32 noundef 386) #13
-  %10 = load ptr, ptr %context, align 8
-  %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
-  br i1 %tobool.not, label %while.end9, label %while.end12, !llvm.loop !9
+  %7 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
+  %8 = inttoptr i64 %7 to ptr
+  tail call void %8(ptr noundef nonnull @page_cond, ptr noundef nonnull @page_mutex, ptr noundef nonnull @.str, i32 noundef 386) #13
+  %9 = load ptr, ptr %context, align 8
+  %10 = load i8, ptr %9, align 8
+  %tobool = trunc i8 %10 to i1
+  br i1 %tobool, label %while.end12, label %while.end9, !llvm.loop !9
 
 while.end12:                                      ; preds = %while.end9, %entry
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @page_mutex, ptr noundef nonnull @.str, i32 noundef 388) #13
@@ -1127,14 +1123,14 @@ land.lhs.true:                                    ; preds = %while.end12
 
 if.then:                                          ; preds = %land.lhs.true
   %call15 = tail call ptr @__errno_location() #14
-  %13 = load i32, ptr %call15, align 4
-  %sub = sub i32 0, %13
-  %14 = sext i32 %sub to i64
-  %15 = inttoptr i64 %14 to ptr
+  %11 = load i32, ptr %call15, align 4
+  %sub = sub i32 0, %11
+  %12 = sext i32 %sub to i64
+  %13 = inttoptr i64 %12 to ptr
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %while.end12
-  %ret.0 = phi ptr [ %15, %if.then ], [ null, %land.lhs.true ], [ null, %while.end12 ]
+  %ret.0 = phi ptr [ %13, %if.then ], [ null, %land.lhs.true ], [ null, %while.end12 ]
   ret ptr %ret.0
 }
 
@@ -1149,19 +1145,17 @@ entry:
   %context = getelementptr inbounds i8, ptr %arg, i64 232
   %2 = load ptr, ptr %context, align 8
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %tobool.not8 = icmp eq i8 %4, 0
-  br i1 %tobool.not8, label %while.end8, label %while.end11
+  %tobool8 = trunc i8 %3 to i1
+  br i1 %tobool8, label %while.end11, label %while.end8
 
 while.end8:                                       ; preds = %entry, %while.end8
-  %5 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
-  %6 = inttoptr i64 %5 to ptr
-  call void %6(ptr noundef nonnull @page_cond, ptr noundef nonnull @page_mutex, ptr noundef nonnull @.str, i32 noundef 343) #13
-  %7 = load ptr, ptr %context, align 8
-  %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %tobool.not = icmp eq i8 %9, 0
-  br i1 %tobool.not, label %while.end8, label %while.end11, !llvm.loop !10
+  %4 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
+  %5 = inttoptr i64 %4 to ptr
+  call void %5(ptr noundef nonnull @page_cond, ptr noundef nonnull @page_mutex, ptr noundef nonnull @.str, i32 noundef 343) #13
+  %6 = load ptr, ptr %context, align 8
+  %7 = load i8, ptr %6, align 8
+  %tobool = trunc i8 %7 to i1
+  br i1 %tobool, label %while.end11, label %while.end8, !llvm.loop !10
 
 while.end11:                                      ; preds = %while.end8, %entry
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @page_mutex, ptr noundef nonnull @.str, i32 noundef 345) #13
@@ -1175,24 +1169,24 @@ while.end11:                                      ; preds = %while.end8, %entry
 
 if.else:                                          ; preds = %while.end11
   %numpages17 = getelementptr inbounds i8, ptr %arg, i64 8
-  %10 = load i64, ptr %numpages17, align 8
+  %8 = load i64, ptr %numpages17, align 8
   %hpagesize18 = getelementptr inbounds i8, ptr %arg, i64 16
-  %11 = load i64, ptr %hpagesize18, align 8
-  %cmp9.not = icmp eq i64 %10, 0
+  %9 = load i64, ptr %hpagesize18, align 8
+  %cmp9.not = icmp eq i64 %8, 0
   br i1 %cmp9.not, label %if.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.else
-  %12 = load ptr, ptr %arg, align 8
+  %10 = load ptr, ptr %arg, align 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %i.011 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %addr.010 = phi ptr [ %add.ptr, %for.body ], [ %12, %for.body.preheader ]
-  %13 = load i8, ptr %addr.010, align 1
-  store volatile i8 %13, ptr %addr.010, align 1
-  %add.ptr = getelementptr i8, ptr %addr.010, i64 %11
+  %addr.010 = phi ptr [ %add.ptr, %for.body ], [ %10, %for.body.preheader ]
+  %11 = load i8, ptr %addr.010, align 1
+  store volatile i8 %11, ptr %addr.010, align 1
+  %add.ptr = getelementptr i8, ptr %addr.010, i64 %9
   %inc = add nuw i64 %i.011, 1
-  %exitcond.not = icmp eq i64 %inc, %10
+  %exitcond.not = icmp eq i64 %inc, %8
   br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !11
 
 if.end:                                           ; preds = %for.body, %if.else, %while.end11

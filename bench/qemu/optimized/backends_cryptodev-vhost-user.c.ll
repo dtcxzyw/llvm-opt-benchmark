@@ -456,9 +456,8 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #4
   %opened = getelementptr inbounds i8, ptr %call.i, i64 1288
   %0 = load i8, ptr %opened, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 365, ptr noundef nonnull @__func__.cryptodev_vhost_user_set_chardev, ptr noundef nonnull @.str.15) #4
@@ -466,8 +465,8 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %chr_name = getelementptr inbounds i8, ptr %call.i, i64 1280
-  %2 = load ptr, ptr %chr_name, align 8
-  tail call void @g_free(ptr noundef %2) #4
+  %1 = load ptr, ptr %chr_name, align 8
+  tail call void @g_free(ptr noundef %1) #4
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #4
   store ptr %call1, ptr %chr_name, align 8
   br label %if.end

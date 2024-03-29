@@ -312,15 +312,14 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
   %1 = load ptr, ptr %next, align 8
   %removed = getelementptr inbounds i8, ptr %mon_fdset_fd.026, i64 4
   %2 = load i8, ptr %removed, align 4
-  %3 = and i8 %2, 1
-  %tobool1.not = icmp eq i8 %3, 0
-  br i1 %tobool1.not, label %lor.lhs.false, label %land.lhs.true4
+  %tobool1 = trunc i8 %2 to i1
+  br i1 %tobool1, label %land.lhs.true4, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.rhs
-  %4 = load ptr, ptr %dup_fds, align 8
-  %cmp = icmp eq ptr %4, null
-  %5 = load i32, ptr @mon_refcount, align 4
-  %cmp3 = icmp eq i32 %5, 0
+  %3 = load ptr, ptr %dup_fds, align 8
+  %cmp = icmp eq ptr %3, null
+  %4 = load i32, ptr @mon_refcount, align 4
+  %cmp3 = icmp eq i32 %4, 0
   %or.cond = select i1 %cmp, i1 %cmp3, i1 false
   br i1 %or.cond, label %land.lhs.true4, label %for.inc
 
@@ -329,26 +328,26 @@ land.lhs.true4:                                   ; preds = %lor.lhs.false, %lan
   br i1 %call, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %land.lhs.true4
-  %6 = load i32, ptr %mon_fdset_fd.026, align 8
-  %call5 = tail call i32 @close(i32 noundef %6) #9
+  %5 = load i32, ptr %mon_fdset_fd.026, align 8
+  %call5 = tail call i32 @close(i32 noundef %5) #9
   %opaque = getelementptr inbounds i8, ptr %mon_fdset_fd.026, i64 8
-  %7 = load ptr, ptr %opaque, align 8
-  tail call void @g_free(ptr noundef %7) #9
-  %8 = load ptr, ptr %next, align 8
-  %cmp8.not = icmp eq ptr %8, null
+  %6 = load ptr, ptr %opaque, align 8
+  tail call void @g_free(ptr noundef %6) #9
+  %7 = load ptr, ptr %next, align 8
+  %cmp8.not = icmp eq ptr %7, null
   %le_prev18.phi.trans.insert = getelementptr inbounds i8, ptr %mon_fdset_fd.026, i64 24
   %.pre27 = load ptr, ptr %le_prev18.phi.trans.insert, align 8
   br i1 %cmp8.not, label %if.end, label %if.then9
 
 if.then9:                                         ; preds = %if.then
-  %le_prev14 = getelementptr inbounds i8, ptr %8, i64 24
+  %le_prev14 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %.pre27, ptr %le_prev14, align 8
   %.pre = load ptr, ptr %next, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %if.then9
-  %9 = phi ptr [ %.pre, %if.then9 ], [ null, %if.then ]
-  store ptr %9, ptr %.pre27, align 8
+  %8 = phi ptr [ %.pre, %if.then9 ], [ null, %if.then ]
+  store ptr %8, ptr %.pre27, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   tail call void @g_free(ptr noundef nonnull %mon_fdset_fd.026) #9
   br label %for.inc
@@ -359,32 +358,32 @@ for.inc:                                          ; preds = %lor.lhs.false, %lan
 
 for.end:                                          ; preds = %for.inc
   %.pre28 = load ptr, ptr %fds, align 8
-  %10 = icmp eq ptr %.pre28, null
-  br i1 %10, label %land.lhs.true27, label %if.end53
+  %9 = icmp eq ptr %.pre28, null
+  br i1 %9, label %land.lhs.true27, label %if.end53
 
 land.lhs.true27:                                  ; preds = %entry, %for.end
   %dup_fds28 = getelementptr inbounds i8, ptr %mon_fdset, i64 16
-  %11 = load ptr, ptr %dup_fds28, align 8
-  %cmp30 = icmp eq ptr %11, null
+  %10 = load ptr, ptr %dup_fds28, align 8
+  %cmp30 = icmp eq ptr %10, null
   br i1 %cmp30, label %do.body32, label %if.end53
 
 do.body32:                                        ; preds = %land.lhs.true27
   %next33 = getelementptr inbounds i8, ptr %mon_fdset, i64 24
-  %12 = load ptr, ptr %next33, align 8
-  %cmp35.not = icmp eq ptr %12, null
+  %11 = load ptr, ptr %next33, align 8
+  %cmp35.not = icmp eq ptr %11, null
   %le_prev47.phi.trans.insert = getelementptr inbounds i8, ptr %mon_fdset, i64 32
   %.pre30 = load ptr, ptr %le_prev47.phi.trans.insert, align 8
   br i1 %cmp35.not, label %if.end43, label %if.then36
 
 if.then36:                                        ; preds = %do.body32
-  %le_prev42 = getelementptr inbounds i8, ptr %12, i64 32
+  %le_prev42 = getelementptr inbounds i8, ptr %11, i64 32
   store ptr %.pre30, ptr %le_prev42, align 8
   %.pre29 = load ptr, ptr %next33, align 8
   br label %if.end43
 
 if.end43:                                         ; preds = %do.body32, %if.then36
-  %13 = phi ptr [ %.pre29, %if.then36 ], [ null, %do.body32 ]
-  store ptr %13, ptr %.pre30, align 8
+  %12 = phi ptr [ %.pre29, %if.then36 ], [ null, %do.body32 ]
+  store ptr %12, ptr %.pre30, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next33, i8 0, i64 16, i1 false)
   tail call void @g_free(ptr noundef nonnull %mon_fdset) #9
   br label %if.end53

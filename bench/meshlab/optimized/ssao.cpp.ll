@@ -503,19 +503,18 @@ _ZN12MeshDocument17MeshRangeIterator5beginEv.exit: ; preds = %46
           to label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader unwind label %.loopexit.split-lp
 
 _ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader: ; preds = %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit
-  %.not57 = icmp eq ptr %47, %48
-  br i1 %.not57, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge, label %.lr.ph
+  %.not56 = icmp eq ptr %47, %48
+  br i1 %.not56, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
-  %.sroa.050.058 = phi ptr [ %57, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit ], [ %47, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader ]
-  %49 = getelementptr inbounds i8, ptr %.sroa.050.058, i64 1220
+  %.sroa.050.057 = phi ptr [ %57, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit ], [ %47, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader ]
+  %49 = getelementptr inbounds i8, ptr %.sroa.050.057, i64 1220
   %50 = load i8, ptr %49, align 4
-  %51 = and i8 %50, 1
-  %.not56 = icmp eq i8 %51, 0
-  br i1 %.not56, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit, label %52
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %52, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
 
 52:                                               ; preds = %.lr.ph
-  %53 = getelementptr inbounds i8, ptr %.sroa.050.058, i64 1240
+  %53 = getelementptr inbounds i8, ptr %.sroa.050.057, i64 1240
   %54 = load i32, ptr %53, align 8
   %55 = invoke noundef ptr @_ZNK9QGLWidget7contextEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
           to label %56 unwind label %.loopexit
@@ -535,7 +534,7 @@ _ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader: ; preds = %_ZN12MeshD
   br label %236
 
 _ZN12MeshDocument17MeshRangeIterator3endEv.exit:  ; preds = %.lr.ph, %56
-  %57 = load ptr, ptr %.sroa.050.058, align 8
+  %57 = load ptr, ptr %.sroa.050.057, align 8
   %.not = icmp eq ptr %57, %48
   br i1 %.not, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge, label %.lr.ph
 
@@ -843,9 +842,8 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit48:          ; preds = %140
 187:                                              ; preds = %186
   %188 = getelementptr inbounds i8, ptr %0, i64 8
   %189 = load i8, ptr %188, align 8
-  %190 = and i8 %189, 1
-  %.not.i = icmp eq i8 %190, 0
-  br i1 %.not.i, label %_ZN14DecorateShader6unbindEv.exit, label %191
+  %190 = trunc i8 %189 to i1
+  br i1 %190, label %191, label %_ZN14DecorateShader6unbindEv.exit
 
 191:                                              ; preds = %187
   invoke void @glPopAttrib()
@@ -1007,14 +1005,13 @@ define noundef zeroext i1 @_ZN4SSAO5setupEv(ptr noundef nonnull align 8 derefere
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   store ptr @.str.12, ptr %8, align 8
   call void (ptr, ptr, ...) @_ZNK14QMessageLogger7warningEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.23) #23
-  br label %52
+  br label %51
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not4 = icmp eq i8 %12, 0
-  br i1 %.not4, label %13, label %52
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %51, label %13
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr @__glewGenFramebuffers, align 8
@@ -1038,7 +1035,7 @@ define noundef zeroext i1 @_ZN4SSAO5setupEv(ptr noundef nonnull align 8 derefere
   %25 = icmp eq i32 %24, 36053
   %26 = zext i1 %25 to i8
   store i8 %26, ptr %10, align 8
-  br i1 %25, label %27, label %52
+  br i1 %25, label %27, label %51
 
 27:                                               ; preds = %13
   %28 = load ptr, ptr @__glewBindFramebuffer, align 8
@@ -1073,12 +1070,11 @@ define noundef zeroext i1 @_ZN4SSAO5setupEv(ptr noundef nonnull align 8 derefere
   %48 = load ptr, ptr @__glewBindFramebuffer, align 8
   call void %48(i32 noundef 36160, i32 noundef 0)
   %49 = load i8, ptr %10, align 8
-  %50 = and i8 %49, 1
-  %51 = icmp ne i8 %50, 0
-  br label %52
+  %50 = trunc i8 %49 to i1
+  br label %51
 
-52:                                               ; preds = %13, %9, %27, %6
-  %.0 = phi i1 [ %51, %27 ], [ false, %6 ], [ true, %9 ], [ false, %13 ]
+51:                                               ; preds = %13, %9, %27, %6
+  %.0 = phi i1 [ %50, %27 ], [ false, %6 ], [ true, %9 ], [ false, %13 ]
   ret i1 %.0
 }
 

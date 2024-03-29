@@ -157,9 +157,8 @@ define noundef i64 @_Z18fast_rv32i_c_fsdspP11processor_t6insn_tm(ptr nocapture n
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %48, i64 3801
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not37 = icmp eq i8 %52, 0
-  br i1 %.not37, label %.critedge, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %.critedge
 
 53:                                               ; preds = %49
   store i8 8, ptr %5, align 8
@@ -287,9 +286,8 @@ define noundef i64 @_Z18fast_rv64i_c_fsdspP11processor_t6insn_tm(ptr nocapture n
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %48, i64 3801
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not37 = icmp eq i8 %52, 0
-  br i1 %.not37, label %.critedge, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %.critedge
 
 53:                                               ; preds = %49
   store i8 8, ptr %5, align 8
@@ -399,9 +397,8 @@ define noundef i64 @_Z20logged_rv32i_c_fsdspP11processor_t6insn_tm(ptr nocapture
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %48, i64 3801
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not37 = icmp eq i8 %52, 0
-  br i1 %.not37, label %.critedge, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %.critedge
 
 53:                                               ; preds = %49
   store i8 8, ptr %5, align 8
@@ -513,9 +510,8 @@ define noundef i64 @_Z20logged_rv64i_c_fsdspP11processor_t6insn_tm(ptr nocapture
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %48, i64 3801
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not37 = icmp eq i8 %52, 0
-  br i1 %.not37, label %.critedge, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %.critedge
 
 53:                                               ; preds = %49
   store i8 8, ptr %5, align 8
@@ -625,9 +621,8 @@ define noundef i64 @_Z18fast_rv32e_c_fsdspP11processor_t6insn_tm(ptr nocapture n
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %48, i64 3801
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not37 = icmp eq i8 %52, 0
-  br i1 %.not37, label %.critedge, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %.critedge
 
 53:                                               ; preds = %49
   store i8 8, ptr %5, align 8
@@ -739,9 +734,8 @@ define noundef i64 @_Z18fast_rv64e_c_fsdspP11processor_t6insn_tm(ptr nocapture n
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %48, i64 3801
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not37 = icmp eq i8 %52, 0
-  br i1 %.not37, label %.critedge, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %.critedge
 
 53:                                               ; preds = %49
   store i8 8, ptr %5, align 8
@@ -851,9 +845,8 @@ define noundef i64 @_Z20logged_rv32e_c_fsdspP11processor_t6insn_tm(ptr nocapture
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %48, i64 3801
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not37 = icmp eq i8 %52, 0
-  br i1 %.not37, label %.critedge, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %.critedge
 
 53:                                               ; preds = %49
   store i8 8, ptr %5, align 8
@@ -965,9 +958,8 @@ define noundef i64 @_Z20logged_rv64e_c_fsdspP11processor_t6insn_tm(ptr nocapture
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %48, i64 3801
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not37 = icmp eq i8 %52, 0
-  br i1 %.not37, label %.critedge, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %.critedge
 
 53:                                               ; preds = %49
   store i8 8, ptr %5, align 8
@@ -1007,9 +999,8 @@ define noundef i64 @_Z20logged_rv64e_c_fsdspP11processor_t6insn_tm(ptr nocapture
 define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

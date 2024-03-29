@@ -682,13 +682,13 @@ define dso_local void @SetUserIdAndContext(i32 noundef %0, i1 noundef zeroext %1
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @has_rolreplication(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @superuser_arg(i32 noundef %0) #21
-  br i1 %2, label %17, label %3
+  br i1 %2, label %16, label %3
 
 3:                                                ; preds = %1
   %4 = zext i32 %0 to i64
   %5 = tail call ptr @SearchSysCache1(i32 noundef 11, i64 noundef %4) #21
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %17, label %6
+  br i1 %.not, label %16, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -700,12 +700,11 @@ define dso_local zeroext i1 @has_rolreplication(i32 noundef %0) local_unnamed_ad
   %13 = getelementptr inbounds i8, ptr %12, i64 73
   %14 = load i8, ptr %13, align 1
   tail call void @ReleaseSysCache(ptr noundef nonnull %5) #21
-  %15 = and i8 %14, 1
-  %16 = icmp ne i8 %15, 0
-  br label %17
+  %15 = trunc i8 %14 to i1
+  br label %16
 
-17:                                               ; preds = %3, %6, %1
-  %.0 = phi i1 [ true, %1 ], [ %16, %6 ], [ false, %3 ]
+16:                                               ; preds = %3, %6, %1
+  %.0 = phi i1 [ true, %1 ], [ %15, %6 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -762,10 +761,10 @@ define dso_local void @InitializeSessionUserId(ptr noundef %0, i32 noundef %1, i
   store i32 %25, ptr @AuthenticatedUserId, align 4
   %27 = getelementptr inbounds i8, ptr %24, i64 68
   %28 = load i8, ptr %27, align 4
-  %29 = and i8 %28, 1
-  %30 = icmp ne i8 %29, 0
+  %29 = trunc i8 %28 to i1
+  %30 = and i8 %28, 1
   store i32 %25, ptr @SessionUserId, align 4
-  store i8 %29, ptr @SessionUserIsSuperuser, align 1
+  store i8 %30, ptr @SessionUserIsSuperuser, align 1
   store i1 false, ptr @SetRoleIsActive, align 1
   store i32 %25, ptr @OuterUserId, align 4
   store i32 %25, ptr @CurrentUserId, align 4
@@ -773,9 +772,8 @@ define dso_local void @InitializeSessionUserId(ptr noundef %0, i32 noundef %1, i
   %32 = getelementptr inbounds i8, ptr %31, i64 80
   store i32 %25, ptr %32, align 8
   %33 = load i8, ptr @IsUnderPostmaster, align 1
-  %34 = and i8 %33, 1
-  %.not31 = icmp eq i8 %34, 0
-  br i1 %.not31, label %56, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %56
 
 35:                                               ; preds = %18
   br i1 %2, label %44, label %36
@@ -783,9 +781,8 @@ define dso_local void @InitializeSessionUserId(ptr noundef %0, i32 noundef %1, i
 36:                                               ; preds = %35
   %37 = getelementptr inbounds i8, ptr %24, i64 72
   %38 = load i8, ptr %37, align 4
-  %39 = and i8 %38, 1
-  %.not32 = icmp eq i8 %39, 0
-  br i1 %.not32, label %40, label %44
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %44, label %40
 
 40:                                               ; preds = %36
   %41 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #22
@@ -799,7 +796,7 @@ define dso_local void @InitializeSessionUserId(ptr noundef %0, i32 noundef %1, i
   %45 = getelementptr inbounds i8, ptr %24, i64 76
   %46 = load i32, ptr %45, align 4
   %47 = icmp slt i32 %46, 0
-  %brmerge = or i1 %30, %47
+  %brmerge = or i1 %47, %29
   br i1 %brmerge, label %56, label %48
 
 48:                                               ; preds = %44
@@ -818,7 +815,7 @@ define dso_local void @InitializeSessionUserId(ptr noundef %0, i32 noundef %1, i
 
 56:                                               ; preds = %44, %48, %18
   tail call void @SetConfigOption(ptr noundef nonnull @.str.35, ptr noundef nonnull %26, i32 noundef 4, i32 noundef 10) #21
-  %57 = select i1 %30, ptr @.str.37, ptr @.str.38
+  %57 = select i1 %29, ptr @.str.37, ptr @.str.38
   tail call void @SetConfigOption(ptr noundef nonnull @.str.36, ptr noundef nonnull %57, i32 noundef 0, i32 noundef 1) #21
   tail call void @ReleaseSysCache(ptr noundef nonnull %.0) #21
   ret void
@@ -903,30 +900,29 @@ define dso_local i32 @GetCurrentRoleId() local_unnamed_addr #8 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @SetCurrentRoleId(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %.not = icmp ne i32 %0, 0
-  br i1 %.not, label %9, label %3
+  br i1 %.not, label %8, label %3
 
 3:                                                ; preds = %2
   %4 = load i32, ptr @SessionUserId, align 4
   %.not6 = icmp eq i32 %4, 0
-  br i1 %.not6, label %11, label %5
+  br i1 %.not6, label %10, label %5
 
 5:                                                ; preds = %3
   %6 = load i8, ptr @SessionUserIsSuperuser, align 1
-  %7 = and i8 %6, 1
-  %8 = icmp ne i8 %7, 0
-  br label %9
+  %7 = trunc i8 %6 to i1
+  br label %8
 
-9:                                                ; preds = %2, %5
+8:                                                ; preds = %2, %5
   %.03 = phi i32 [ %4, %5 ], [ %0, %2 ]
-  %.0 = phi i1 [ %8, %5 ], [ %1, %2 ]
+  %.0 = phi i1 [ %7, %5 ], [ %1, %2 ]
   store i1 %.not, ptr @SetRoleIsActive, align 1
   store i32 %.03, ptr @OuterUserId, align 4
   store i32 %.03, ptr @CurrentUserId, align 4
-  %10 = select i1 %.0, ptr @.str.37, ptr @.str.38
-  tail call void @SetConfigOption(ptr noundef nonnull @.str.36, ptr noundef nonnull %10, i32 noundef 0, i32 noundef 1) #21
-  br label %11
+  %9 = select i1 %.0, ptr @.str.37, ptr @.str.38
+  tail call void @SetConfigOption(ptr noundef nonnull @.str.36, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 1) #21
+  br label %10
 
-11:                                               ; preds = %3, %9
+10:                                               ; preds = %3, %8
   ret void
 }
 
@@ -1932,10 +1928,10 @@ define internal void @UnlinkLockFiles(i32 %0, i64 %1) #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load i32, ptr %4, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph16, label %._crit_edge
+  br i1 %7, label %.lr.ph13, label %._crit_edge
 
-.lr.ph16:                                         ; preds = %.lr.ph, %.lr.ph16
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph16 ], [ 0, %.lr.ph ]
+.lr.ph13:                                         ; preds = %.lr.ph, %.lr.ph13
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph13 ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr %union.ListCell, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
@@ -1944,14 +1940,13 @@ define internal void @UnlinkLockFiles(i32 %0, i64 %1) #0 {
   %12 = load i32, ptr %4, align 4
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph16, label %._crit_edge
+  br i1 %14, label %.lr.ph13, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph16, %.lr.ph, %2
+._crit_edge:                                      ; preds = %.lr.ph13, %.lr.ph, %2
   store ptr null, ptr @lock_files, align 8
   %15 = load i8, ptr @IsPostmasterEnvironment, align 1
-  %16 = and i8 %15, 1
-  %.not8 = icmp eq i8 %16, 0
-  %17 = select i1 %.not8, i32 18, i32 15
+  %16 = trunc i8 %15 to i1
+  %17 = select i1 %16, i32 15, i32 18
   %18 = tail call zeroext i1 @errstart(i32 noundef %17, ptr noundef null) #21
   br i1 %18, label %19, label %21
 

@@ -54,15 +54,14 @@ define dso_local double @scalararraysel_containment(ptr noundef %0, ptr nocaptur
 29:                                               ; preds = %20
   %30 = getelementptr inbounds i8, ptr %1, i64 32
   %31 = load i8, ptr %30, align 8
-  %32 = and i8 %31, 1
-  %.not38 = icmp eq i8 %32, 0
-  br i1 %.not38, label %39, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %39
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds i8, ptr %8, i64 16
   %35 = load ptr, ptr %34, align 8
-  %.not43 = icmp eq ptr %35, null
-  br i1 %.not43, label %113, label %36
+  %.not42 = icmp eq ptr %35, null
+  br i1 %.not42, label %113, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %8, i64 24
@@ -77,14 +76,14 @@ define dso_local double @scalararraysel_containment(ptr noundef %0, ptr nocaptur
   %42 = call ptr @lookup_type_cache(i32 noundef %3, i32 noundef 64) #10
   %43 = getelementptr inbounds i8, ptr %42, i64 128
   %44 = load i32, ptr %43, align 8
-  %.not39 = icmp eq i32 %44, 0
-  br i1 %.not39, label %45, label %51
+  %.not38 = icmp eq i32 %44, 0
+  br i1 %.not38, label %45, label %51
 
 45:                                               ; preds = %39
   %46 = getelementptr inbounds i8, ptr %8, i64 16
   %47 = load ptr, ptr %46, align 8
-  %.not40 = icmp eq ptr %47, null
-  br i1 %.not40, label %113, label %48
+  %.not39 = icmp eq ptr %47, null
+  br i1 %.not39, label %113, label %48
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds i8, ptr %8, i64 24
@@ -96,8 +95,8 @@ define dso_local double @scalararraysel_containment(ptr noundef %0, ptr nocaptur
   %52 = xor i1 %4, %5
   %53 = getelementptr inbounds i8, ptr %8, i64 16
   %54 = load ptr, ptr %53, align 8
-  %.not41 = icmp eq ptr %54, null
-  br i1 %.not41, label %102, label %55
+  %.not40 = icmp eq ptr %54, null
+  br i1 %.not40, label %102, label %55
 
 55:                                               ; preds = %51
   %56 = call zeroext i1 @statistic_proc_security_check(ptr noundef nonnull %8, i32 noundef %44) #10
@@ -125,8 +124,8 @@ define dso_local double @scalararraysel_containment(ptr noundef %0, ptr nocaptur
 ..thread_crit_edge:                               ; preds = %67
   %.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert45 = getelementptr inbounds i8, ptr %11, i64 40
-  %.pre46 = load i32, ptr %.phi.trans.insert45, align 8
+  %.phi.trans.insert44 = getelementptr inbounds i8, ptr %11, i64 40
+  %.pre45 = load i32, ptr %.phi.trans.insert44, align 8
   br label %.thread
 
 70:                                               ; preds = %67
@@ -147,7 +146,7 @@ define dso_local double @scalararraysel_containment(ptr noundef %0, ptr nocaptur
   br label %92
 
 .thread:                                          ; preds = %..thread_crit_edge, %70
-  %81 = phi i32 [ %.pre46, %..thread_crit_edge ], [ 0, %70 ]
+  %81 = phi i32 [ %.pre45, %..thread_crit_edge ], [ 0, %70 ]
   %82 = phi ptr [ %.pre, %..thread_crit_edge ], [ null, %70 ]
   %83 = getelementptr inbounds i8, ptr %10, i64 16
   %84 = load ptr, ptr %83, align 8
@@ -191,8 +190,8 @@ mcelem_array_contain_overlap_selec.exit.loopexit: ; preds = %102
 mcelem_array_contain_overlap_selec.exit:          ; preds = %mcelem_array_contain_overlap_selec.exit.loopexit, %102, %96
   %.2 = phi double [ %101, %96 ], [ 5.000000e-03, %102 ], [ 0x3F747AE140000000, %mcelem_array_contain_overlap_selec.exit.loopexit ]
   %103 = load ptr, ptr %53, align 8
-  %.not42 = icmp eq ptr %103, null
-  br i1 %.not42, label %107, label %104
+  %.not41 = icmp eq ptr %103, null
+  br i1 %.not41, label %107, label %104
 
 104:                                              ; preds = %mcelem_array_contain_overlap_selec.exit
   %105 = getelementptr inbounds i8, ptr %8, i64 24
@@ -1097,15 +1096,14 @@ define dso_local i64 @arraycontsel(ptr nocapture noundef readonly %0) local_unna
 36:                                               ; preds = %23
   %37 = getelementptr inbounds i8, ptr %24, i64 32
   %38 = load i8, ptr %37, align 8
-  %39 = and i8 %38, 1
-  %.not26 = icmp eq i8 %39, 0
-  br i1 %.not26, label %46, label %40
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %46
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %4, i64 16
   %42 = load ptr, ptr %41, align 8
-  %.not30 = icmp eq ptr %42, null
-  br i1 %.not30, label %135, label %43
+  %.not28 = icmp eq ptr %42, null
+  br i1 %.not28, label %135, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds i8, ptr %4, i64 24
@@ -1115,9 +1113,8 @@ define dso_local i64 @arraycontsel(ptr nocapture noundef readonly %0) local_unna
 
 46:                                               ; preds = %36
   %47 = load i8, ptr %6, align 1
-  %48 = and i8 %47, 1
-  %.not27 = icmp eq i8 %48, 0
-  br i1 %.not27, label %49, label %53
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %53, label %49
 
 49:                                               ; preds = %46
   %50 = icmp eq i32 %12, 2751
@@ -1133,8 +1130,8 @@ define dso_local i64 @arraycontsel(ptr nocapture noundef readonly %0) local_unna
   %54 = getelementptr inbounds i8, ptr %24, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = call i32 @get_base_element_type(i32 noundef %55) #10
-  %.not28 = icmp eq i32 %56, 0
-  br i1 %.not28, label %119, label %57
+  %.not26 = icmp eq i32 %56, 0
+  br i1 %.not26, label %119, label %57
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1262,8 +1259,8 @@ calc_arraycontsel.exit:                           ; preds = %69, %116, %118
   %.019 = phi double [ %.0.i, %calc_arraycontsel.exit ], [ %121, %119 ]
   %123 = getelementptr inbounds i8, ptr %4, i64 16
   %124 = load ptr, ptr %123, align 8
-  %.not29 = icmp eq ptr %124, null
-  br i1 %.not29, label %128, label %125
+  %.not27 = icmp eq ptr %124, null
+  br i1 %.not27, label %128, label %125
 
 125:                                              ; preds = %122
   %126 = getelementptr inbounds i8, ptr %4, i64 24
@@ -1319,86 +1316,82 @@ define internal fastcc double @mcelem_array_selec(ptr noundef %0, ptr noundef %1
   %16 = sext i16 %15 to i32
   %17 = getelementptr inbounds i8, ptr %1, i64 10
   %18 = load i8, ptr %17, align 2
-  %19 = and i8 %18, 1
-  %20 = icmp ne i8 %19, 0
-  %21 = getelementptr inbounds i8, ptr %1, i64 11
-  %22 = load i8, ptr %21, align 1
-  call void @deconstruct_array(ptr noundef %0, i32 noundef %13, i32 noundef %16, i1 noundef zeroext %20, i8 noundef signext %22, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %10) #10
-  %23 = load i32, ptr %10, align 4
-  %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph.preheader, label %._crit_edge.thread
+  %19 = trunc i8 %18 to i1
+  %20 = getelementptr inbounds i8, ptr %1, i64 11
+  %21 = load i8, ptr %20, align 1
+  call void @deconstruct_array(ptr noundef %0, i32 noundef %13, i32 noundef %16, i1 noundef zeroext %19, i8 noundef signext %21, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %10) #10
+  %22 = load i32, ptr %10, align 4
+  %23 = icmp sgt i32 %22, 0
+  br i1 %23, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %9
-  %wide.trip.count = zext nneg i32 %23 to i64
+  %wide.trip.count = zext nneg i32 %22 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %36
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
-  %.03845 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %36 ]
-  %.03944 = phi i8 [ 0, %.lr.ph.preheader ], [ %.140, %36 ]
-  %25 = load ptr, ptr %12, align 8
-  %26 = getelementptr i8, ptr %25, i64 %indvars.iv
-  %27 = load i8, ptr %26, align 1
-  %28 = and i8 %27, 1
-  %.not = icmp eq i8 %28, 0
-  br i1 %.not, label %29, label %36
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %35
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
+  %.03845 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %35 ]
+  %.03944 = phi i1 [ false, %.lr.ph.preheader ], [ %.140, %35 ]
+  %24 = load ptr, ptr %12, align 8
+  %25 = getelementptr i8, ptr %24, i64 %indvars.iv
+  %26 = load i8, ptr %25, align 1
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %35, label %28
 
-29:                                               ; preds = %.lr.ph
-  %30 = load ptr, ptr %11, align 8
-  %31 = getelementptr i64, ptr %30, i64 %indvars.iv
-  %32 = load i64, ptr %31, align 8
-  %33 = add i32 %.03845, 1
-  %34 = sext i32 %.03845 to i64
-  %35 = getelementptr i64, ptr %30, i64 %34
-  store i64 %32, ptr %35, align 8
-  br label %36
+28:                                               ; preds = %.lr.ph
+  %29 = load ptr, ptr %11, align 8
+  %30 = getelementptr i64, ptr %29, i64 %indvars.iv
+  %31 = load i64, ptr %30, align 8
+  %32 = add i32 %.03845, 1
+  %33 = sext i32 %.03845 to i64
+  %34 = getelementptr i64, ptr %29, i64 %33
+  store i64 %31, ptr %34, align 8
+  br label %35
 
-36:                                               ; preds = %.lr.ph, %29
-  %.140 = phi i8 [ %.03944, %29 ], [ 1, %.lr.ph ]
-  %.1 = phi i32 [ %33, %29 ], [ %.03845, %.lr.ph ]
+35:                                               ; preds = %.lr.ph, %28
+  %.140 = phi i1 [ %.03944, %28 ], [ true, %.lr.ph ]
+  %.1 = phi i32 [ %32, %28 ], [ %.03845, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %36
-  %37 = and i8 %.140, 1
-  %38 = icmp ne i8 %37, 0
-  %39 = icmp eq i32 %8, 2751
-  %or.cond = and i1 %39, %38
-  br i1 %or.cond, label %54, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %35
+  %36 = icmp eq i32 %8, 2751
+  %or.cond = and i1 %36, %.140
+  br i1 %or.cond, label %51, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %9, %._crit_edge
   %.038.lcssa51 = phi i32 [ %.1, %._crit_edge ], [ 0, %9 ]
-  %40 = load ptr, ptr %11, align 8
-  %41 = sext i32 %.038.lcssa51 to i64
-  call void @qsort_arg(ptr noundef %40, i64 noundef %41, i64 noundef 8, ptr noundef nonnull @element_compare, ptr noundef nonnull %1) #10
-  %42 = and i32 %8, -2
-  %or.cond3 = icmp eq i32 %42, 2750
-  br i1 %or.cond3, label %43, label %46
+  %37 = load ptr, ptr %11, align 8
+  %38 = sext i32 %.038.lcssa51 to i64
+  call void @qsort_arg(ptr noundef %37, i64 noundef %38, i64 noundef 8, ptr noundef nonnull @element_compare, ptr noundef nonnull %1) #10
+  %39 = and i32 %8, -2
+  %or.cond3 = icmp eq i32 %39, 2750
+  br i1 %or.cond3, label %40, label %43
+
+40:                                               ; preds = %._crit_edge.thread
+  %41 = load ptr, ptr %11, align 8
+  %42 = call fastcc double @mcelem_array_contain_overlap_selec(ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %41, i32 noundef %.038.lcssa51, i32 noundef %8, ptr noundef nonnull %1)
+  br label %51
 
 43:                                               ; preds = %._crit_edge.thread
-  %44 = load ptr, ptr %11, align 8
-  %45 = call fastcc double @mcelem_array_contain_overlap_selec(ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %44, i32 noundef %.038.lcssa51, i32 noundef %8, ptr noundef nonnull %1)
-  br label %54
+  %44 = icmp eq i32 %8, 2752
+  br i1 %44, label %45, label %48
 
-46:                                               ; preds = %._crit_edge.thread
-  %47 = icmp eq i32 %8, 2752
-  br i1 %47, label %48, label %51
+45:                                               ; preds = %43
+  %46 = load ptr, ptr %11, align 8
+  %47 = call fastcc double @mcelem_array_contained_selec(ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %46, i32 noundef %.038.lcssa51, ptr noundef %6, i32 noundef %7, ptr noundef nonnull %1)
+  br label %51
 
-48:                                               ; preds = %46
-  %49 = load ptr, ptr %11, align 8
-  %50 = call fastcc double @mcelem_array_contained_selec(ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %49, i32 noundef %.038.lcssa51, ptr noundef %6, i32 noundef %7, ptr noundef nonnull %1)
-  br label %54
-
-51:                                               ; preds = %46
-  %52 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %52)
-  %53 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %8) #10
+48:                                               ; preds = %43
+  %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %49)
+  %50 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %8) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 495, ptr noundef nonnull @__func__.mcelem_array_selec) #10
   unreachable
 
-54:                                               ; preds = %43, %48, %._crit_edge
-  %.042 = phi double [ 0.000000e+00, %._crit_edge ], [ %45, %43 ], [ %50, %48 ]
+51:                                               ; preds = %40, %45, %._crit_edge
+  %.042 = phi double [ 0.000000e+00, %._crit_edge ], [ %42, %40 ], [ %47, %45 ]
   %.sink52 = load ptr, ptr %11, align 8
   call void @pfree(ptr noundef %.sink52) #10
   %.sink = load ptr, ptr %12, align 8

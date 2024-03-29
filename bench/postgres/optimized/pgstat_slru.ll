@@ -188,9 +188,8 @@ define dso_local noundef zeroext i1 @pgstat_slru_flush(i1 noundef zeroext %0) lo
   %2 = load ptr, ptr @pgStatLocal, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 17232
   %4 = load i8, ptr @have_slrustats, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %34, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %34
 
 6:                                                ; preds = %1
   br i1 %0, label %9, label %7

@@ -550,8 +550,7 @@ entry:
 define dso_local noundef zeroext i1 @_ZN4absl22ShouldPrependLogPrefixEv() local_unnamed_addr #0 {
 entry:
   %0 = load atomic i8, ptr @_ZN4absl12_GLOBAL__N_118prepend_log_prefixE.0 acquire, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.i = icmp ne i8 %1, 0
+  %tobool.i.i = trunc i8 %0 to i1
   ret i1 %tobool.i.i
 }
 

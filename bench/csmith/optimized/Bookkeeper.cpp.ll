@@ -476,8 +476,8 @@ define dso_local noundef i32 @_ZN10Bookkeeper15stat_blk_depthsEv() local_unnamed
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %1, align 8
-  %.not11 = icmp eq ptr %3, %4
-  br i1 %.not11, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq ptr %3, %4
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %17
   %5 = phi ptr [ %18, %17 ], [ %4, %0 ]
@@ -488,9 +488,8 @@ define dso_local noundef i32 @_ZN10Bookkeeper15stat_blk_depthsEv() local_unnamed
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 267
   %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %12, label %17
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %17, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds i8, ptr %8, i64 192
@@ -498,11 +497,11 @@ define dso_local noundef i32 @_ZN10Bookkeeper15stat_blk_depthsEv() local_unnamed
   %15 = tail call noundef i32 @_ZN10Bookkeeper24stat_blk_depths_for_stmtEPK9Statement(ptr noundef %14)
   %16 = add nsw i32 %15, %.089
   %.pre = load ptr, ptr %2, align 8
-  %.pre12 = load ptr, ptr %1, align 8
+  %.pre11 = load ptr, ptr %1, align 8
   br label %17
 
 17:                                               ; preds = %.lr.ph, %12
-  %18 = phi ptr [ %5, %.lr.ph ], [ %.pre12, %12 ]
+  %18 = phi ptr [ %5, %.lr.ph ], [ %.pre11, %12 ]
   %19 = phi ptr [ %6, %.lr.ph ], [ %.pre, %12 ]
   %.1 = phi i32 [ %.089, %.lr.ph ], [ %16, %12 ]
   %20 = add nuw i64 %.010, 1
@@ -526,8 +525,8 @@ define dso_local void @_ZN10Bookkeeper23output_stmts_statisticsERSo(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %.not11.i = icmp eq ptr %4, %5
-  br i1 %.not11.i, label %_ZN10Bookkeeper15stat_blk_depthsEv.exit, label %.lr.ph.i
+  %.not.i = icmp eq ptr %4, %5
+  br i1 %.not.i, label %_ZN10Bookkeeper15stat_blk_depthsEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %18
   %6 = phi ptr [ %19, %18 ], [ %5, %1 ]
@@ -538,9 +537,8 @@ define dso_local void @_ZN10Bookkeeper23output_stmts_statisticsERSo(ptr noundef 
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 267
   %11 = load i8, ptr %10, align 1
-  %12 = and i8 %11, 1
-  %.not.i = icmp eq i8 %12, 0
-  br i1 %.not.i, label %13, label %18
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %18, label %13
 
 13:                                               ; preds = %.lr.ph.i
   %14 = getelementptr inbounds i8, ptr %9, i64 192
@@ -548,11 +546,11 @@ define dso_local void @_ZN10Bookkeeper23output_stmts_statisticsERSo(ptr noundef 
   %16 = tail call noundef i32 @_ZN10Bookkeeper24stat_blk_depths_for_stmtEPK9Statement(ptr noundef %15)
   %17 = add nsw i32 %16, %.089.i
   %.pre.i = load ptr, ptr %3, align 8
-  %.pre12.i = load ptr, ptr %2, align 8
+  %.pre11.i = load ptr, ptr %2, align 8
   br label %18
 
 18:                                               ; preds = %13, %.lr.ph.i
-  %19 = phi ptr [ %6, %.lr.ph.i ], [ %.pre12.i, %13 ]
+  %19 = phi ptr [ %6, %.lr.ph.i ], [ %.pre11.i, %13 ]
   %20 = phi ptr [ %7, %.lr.ph.i ], [ %.pre.i, %13 ]
   %.1.i = phi i32 [ %.089.i, %.lr.ph.i ], [ %17, %13 ]
   %21 = add nuw i64 %.010.i, 1
@@ -678,9 +676,8 @@ define dso_local void @_ZN10Bookkeeper17output_statisticsERSo(ptr noundef nonnul
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %34, double noundef %32)
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %37 = load i8, ptr @_ZN10Bookkeeper16rely_on_int_sizeE, align 1
-  %38 = and i8 %37, 1
-  %.not = icmp eq i8 %38, 0
-  br i1 %.not, label %44, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %44
 
 39:                                               ; preds = %1
   %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.13)
@@ -691,9 +688,8 @@ define dso_local void @_ZN10Bookkeeper17output_statisticsERSo(ptr noundef nonnul
 
 44:                                               ; preds = %39, %1
   %45 = load i8, ptr @_ZN10Bookkeeper16rely_on_ptr_sizeE, align 1
-  %46 = and i8 %45, 1
-  %.not18 = icmp eq i8 %46, 0
-  br i1 %.not18, label %52, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %52
 
 47:                                               ; preds = %44
   %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.16)
@@ -768,8 +764,8 @@ define dso_local void @_ZN10Bookkeeper22output_expr_statisticsERSo(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %.not7.i = icmp eq ptr %4, %5
-  br i1 %.not7.i, label %_ZN10Bookkeeper16stat_expr_depthsEv.exit, label %.lr.ph.i
+  %.not.i = icmp eq ptr %4, %5
+  br i1 %.not.i, label %_ZN10Bookkeeper16stat_expr_depthsEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %16
   %6 = phi ptr [ %17, %16 ], [ %5, %1 ]
@@ -779,20 +775,19 @@ define dso_local void @_ZN10Bookkeeper22output_expr_statisticsERSo(ptr noundef n
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 267
   %11 = load i8, ptr %10, align 1
-  %12 = and i8 %11, 1
-  %.not.i = icmp eq i8 %12, 0
-  br i1 %.not.i, label %13, label %16
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %16, label %13
 
 13:                                               ; preds = %.lr.ph.i
   %14 = getelementptr inbounds i8, ptr %9, i64 192
   %15 = load ptr, ptr %14, align 8
   tail call void @_ZN10Bookkeeper25stat_expr_depths_for_stmtEPK9Statement(ptr noundef %15)
   %.pre.i = load ptr, ptr %3, align 8
-  %.pre8.i = load ptr, ptr %2, align 8
+  %.pre7.i = load ptr, ptr %2, align 8
   br label %16
 
 16:                                               ; preds = %13, %.lr.ph.i
-  %17 = phi ptr [ %6, %.lr.ph.i ], [ %.pre8.i, %13 ]
+  %17 = phi ptr [ %6, %.lr.ph.i ], [ %.pre7.i, %13 ]
   %18 = phi ptr [ %7, %.lr.ph.i ], [ %.pre.i, %13 ]
   %19 = add nuw i64 %.06.i, 1
   %20 = ptrtoint ptr %18 to i64
@@ -1600,8 +1595,8 @@ define dso_local void @_ZN10Bookkeeper16stat_expr_depthsEv() local_unnamed_addr 
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %1, align 8
-  %.not7 = icmp eq ptr %3, %4
-  br i1 %.not7, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq ptr %3, %4
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %15
   %5 = phi ptr [ %16, %15 ], [ %4, %0 ]
@@ -1611,20 +1606,19 @@ define dso_local void @_ZN10Bookkeeper16stat_expr_depthsEv() local_unnamed_addr 
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 267
   %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %12, label %15
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %15, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds i8, ptr %8, i64 192
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZN10Bookkeeper25stat_expr_depths_for_stmtEPK9Statement(ptr noundef %14)
   %.pre = load ptr, ptr %2, align 8
-  %.pre8 = load ptr, ptr %1, align 8
+  %.pre7 = load ptr, ptr %1, align 8
   br label %15
 
 15:                                               ; preds = %.lr.ph, %12
-  %16 = phi ptr [ %5, %.lr.ph ], [ %.pre8, %12 ]
+  %16 = phi ptr [ %5, %.lr.ph ], [ %.pre7, %12 ]
   %17 = phi ptr [ %6, %.lr.ph ], [ %.pre, %12 ]
   %18 = add nuw i64 %.06, 1
   %19 = ptrtoint ptr %17 to i64
@@ -1713,9 +1707,8 @@ define dso_local void @_ZN10Bookkeeper22record_bitfields_readsEPK8Variable(ptr n
 8:                                                ; preds = %5, %1
   %9 = getelementptr inbounds i8, ptr %0, i64 83
   %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %15, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
   %13 = load i32, ptr @_ZN10Bookkeeper16rhs_bitfield_cntE, align 4
@@ -1743,9 +1736,8 @@ define dso_local void @_ZN10Bookkeeper23record_bitfields_writesEPK8Variable(ptr 
 8:                                                ; preds = %5, %1
   %9 = getelementptr inbounds i8, ptr %0, i64 83
   %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %15, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
   %13 = load i32, ptr @_ZN10Bookkeeper16lhs_bitfield_cntE, align 4
@@ -1826,9 +1818,8 @@ define dso_local void @_ZN10Bookkeeper22record_volatile_accessEPK8Variableib(ptr
 11:                                               ; preds = %8, %7
   %12 = getelementptr inbounds i8, ptr %0, i64 83
   %13 = load i8, ptr %12, align 1
-  %14 = and i8 %13, 1
-  %.not.i = icmp eq i8 %14, 0
-  br i1 %.not.i, label %_ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit, label %_ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit.sink.split
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %_ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit.sink.split, label %_ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit
 
 15:                                               ; preds = %3
   br i1 %6, label %16, label %19
@@ -1842,32 +1833,31 @@ define dso_local void @_ZN10Bookkeeper22record_volatile_accessEPK8Variableib(ptr
 19:                                               ; preds = %16, %15
   %20 = getelementptr inbounds i8, ptr %0, i64 83
   %21 = load i8, ptr %20, align 1
-  %22 = and i8 %21, 1
-  %.not.i14 = icmp eq i8 %22, 0
-  br i1 %.not.i14, label %_ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit, label %_ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit.sink.split
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %_ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit.sink.split, label %_ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit
 
 _ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit.sink.split: ; preds = %19, %11
-  %_ZN10Bookkeeper16rhs_bitfield_cntE.sink21 = phi ptr [ @_ZN10Bookkeeper16lhs_bitfield_cntE, %11 ], [ @_ZN10Bookkeeper16rhs_bitfield_cntE, %19 ]
-  %23 = load i32, ptr %_ZN10Bookkeeper16rhs_bitfield_cntE.sink21, align 4
+  %_ZN10Bookkeeper16rhs_bitfield_cntE.sink20 = phi ptr [ @_ZN10Bookkeeper16lhs_bitfield_cntE, %11 ], [ @_ZN10Bookkeeper16rhs_bitfield_cntE, %19 ]
+  %23 = load i32, ptr %_ZN10Bookkeeper16rhs_bitfield_cntE.sink20, align 4
   %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %_ZN10Bookkeeper16rhs_bitfield_cntE.sink21, align 4
+  store i32 %24, ptr %_ZN10Bookkeeper16rhs_bitfield_cntE.sink20, align 4
   br label %_ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit
 
 _ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit: ; preds = %_ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit.sink.split, %19, %11
-  %.not15 = icmp slt i32 %1, 0
-  br i1 %.not15, label %._crit_edge, label %.lr.ph
+  %.not14 = icmp slt i32 %1, 0
+  br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit
   %25 = getelementptr inbounds i8, ptr %0, i64 104
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %31
-  %.016.us = phi i32 [ %34, %31 ], [ 0, %.lr.ph ]
-  %26 = tail call noundef zeroext i1 @_ZNK12CVQualifiers23is_volatile_after_derefEi(ptr noundef nonnull align 8 dereferenceable(96) %25, i32 noundef %.016.us)
+  %.015.us = phi i32 [ %34, %31 ], [ 0, %.lr.ph ]
+  %26 = tail call noundef zeroext i1 @_ZNK12CVQualifiers23is_volatile_after_derefEi(ptr noundef nonnull align 8 dereferenceable(96) %25, i32 noundef %.015.us)
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %.lr.ph.split.us
-  %.not13.us = icmp eq i32 %.016.us, 0
+  %.not13.us = icmp eq i32 %.015.us, 0
   br i1 %.not13.us, label %31, label %28
 
 28:                                               ; preds = %27
@@ -1877,21 +1867,21 @@ _ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit: ; preds = %_ZN10Bookk
   br label %31
 
 31:                                               ; preds = %27, %28, %.lr.ph.split.us
-  %_ZN10Bookkeeper18write_volatile_cntE.sink23 = phi ptr [ @_ZN10Bookkeeper22write_non_volatile_cntE, %.lr.ph.split.us ], [ @_ZN10Bookkeeper18write_volatile_cntE, %28 ], [ @_ZN10Bookkeeper18write_volatile_cntE, %27 ]
-  %32 = load i32, ptr %_ZN10Bookkeeper18write_volatile_cntE.sink23, align 4
+  %_ZN10Bookkeeper18write_volatile_cntE.sink22 = phi ptr [ @_ZN10Bookkeeper22write_non_volatile_cntE, %.lr.ph.split.us ], [ @_ZN10Bookkeeper18write_volatile_cntE, %28 ], [ @_ZN10Bookkeeper18write_volatile_cntE, %27 ]
+  %32 = load i32, ptr %_ZN10Bookkeeper18write_volatile_cntE.sink22, align 4
   %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %_ZN10Bookkeeper18write_volatile_cntE.sink23, align 4
-  %34 = add nuw i32 %.016.us, 1
-  %exitcond18.not = icmp eq i32 %.016.us, %1
-  br i1 %exitcond18.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !22
+  store i32 %33, ptr %_ZN10Bookkeeper18write_volatile_cntE.sink22, align 4
+  %34 = add nuw i32 %.015.us, 1
+  %exitcond17.not = icmp eq i32 %.015.us, %1
+  br i1 %exitcond17.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %40
-  %.016 = phi i32 [ %43, %40 ], [ 0, %.lr.ph ]
-  %35 = tail call noundef zeroext i1 @_ZNK12CVQualifiers23is_volatile_after_derefEi(ptr noundef nonnull align 8 dereferenceable(96) %25, i32 noundef %.016)
+  %.015 = phi i32 [ %43, %40 ], [ 0, %.lr.ph ]
+  %35 = tail call noundef zeroext i1 @_ZNK12CVQualifiers23is_volatile_after_derefEi(ptr noundef nonnull align 8 dereferenceable(96) %25, i32 noundef %.015)
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %.lr.ph.split
-  %.not12 = icmp eq i32 %.016, 0
+  %.not12 = icmp eq i32 %.015, 0
   br i1 %.not12, label %40, label %37
 
 37:                                               ; preds = %36
@@ -1901,12 +1891,12 @@ _ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit: ; preds = %_ZN10Bookk
   br label %40
 
 40:                                               ; preds = %.lr.ph.split, %36, %37
-  %_ZN10Bookkeeper21read_non_volatile_cntE.sink25 = phi ptr [ @_ZN10Bookkeeper17read_volatile_cntE, %37 ], [ @_ZN10Bookkeeper17read_volatile_cntE, %36 ], [ @_ZN10Bookkeeper21read_non_volatile_cntE, %.lr.ph.split ]
-  %41 = load i32, ptr %_ZN10Bookkeeper21read_non_volatile_cntE.sink25, align 4
+  %_ZN10Bookkeeper21read_non_volatile_cntE.sink24 = phi ptr [ @_ZN10Bookkeeper17read_volatile_cntE, %37 ], [ @_ZN10Bookkeeper17read_volatile_cntE, %36 ], [ @_ZN10Bookkeeper21read_non_volatile_cntE, %.lr.ph.split ]
+  %41 = load i32, ptr %_ZN10Bookkeeper21read_non_volatile_cntE.sink24, align 4
   %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %_ZN10Bookkeeper21read_non_volatile_cntE.sink25, align 4
-  %43 = add nuw i32 %.016, 1
-  %exitcond.not = icmp eq i32 %.016, %1
+  store i32 %42, ptr %_ZN10Bookkeeper21read_non_volatile_cntE.sink24, align 4
+  %43 = add nuw i32 %.015, 1
+  %exitcond.not = icmp eq i32 %.015, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %40, %31, %_ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit

@@ -1068,9 +1068,8 @@ define linkonce_odr void @_ZN17ns16550_factory_tC2Ev(ptr noundef nonnull align 8
 
 12:                                               ; preds = %10
   %13 = extractvalue { ptr, i8 } %11, 1
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %29
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %29, label %15
 
 15:                                               ; preds = %12
   %16 = call ptr @__cxa_allocate_exception(i64 16) #19

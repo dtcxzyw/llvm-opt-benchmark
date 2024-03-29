@@ -349,9 +349,8 @@ define dso_local void @_ZN31EditDistanceTest_TestEmpty_Test8TestBodyEv(ptr nocap
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %27, %28
   %29 = load i8, ptr %2, align 8
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %33, label %55
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %55, label %33
 
 31:                                               ; preds = %33
   %32 = landingpad { ptr, i32 }
@@ -462,9 +461,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %55, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit22: ; preds = %63, %64
   %65 = load i8, ptr %9, align 8
-  %66 = and i8 %65, 1
-  %.not46 = icmp eq i8 %66, 0
-  br i1 %.not46, label %69, label %91
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %91, label %69
 
 67:                                               ; preds = %69
   %68 = landingpad { ptr, i32 }
@@ -574,9 +572,8 @@ _ZN7testing15AssertionResultD2Ev.exit33:          ; preds = %91, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit34: ; preds = %98, %99
   %100 = load i8, ptr %16, align 8
-  %101 = and i8 %100, 1
-  %.not47 = icmp eq i8 %101, 0
-  br i1 %.not47, label %104, label %126
+  %101 = trunc i8 %100 to i1
+  br i1 %101, label %126, label %104
 
 102:                                              ; preds = %104
   %103 = landingpad { ptr, i32 }
@@ -738,9 +735,8 @@ define dso_local void @_ZN37EditDistanceTest_TestMaxDistance_Test8TestBodyEv(ptr
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %17, %18
   %19 = load i8, ptr %2, align 8
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %23, label %44
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %44, label %23
 
 21:                                               ; preds = %23
   %22 = landingpad { ptr, i32 }
@@ -890,9 +886,8 @@ define dso_local void @_ZN43EditDistanceTest_TestAllowReplacements_Test8TestBody
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %34, %35
   %36 = load i8, ptr %2, align 8
-  %37 = and i8 %36, 1
-  %.not = icmp eq i8 %37, 0
-  br i1 %.not, label %40, label %62
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %62, label %40
 
 38:                                               ; preds = %40
   %39 = landingpad { ptr, i32 }
@@ -1003,9 +998,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %62, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit31: ; preds = %70, %71
   %72 = load i8, ptr %9, align 8
-  %73 = and i8 %72, 1
-  %.not67 = icmp eq i8 %73, 0
-  br i1 %.not67, label %76, label %98
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %98, label %76
 
 74:                                               ; preds = %76
   %75 = landingpad { ptr, i32 }
@@ -1116,9 +1110,8 @@ _ZN7testing15AssertionResultD2Ev.exit42:          ; preds = %98, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit43: ; preds = %106, %107
   %108 = load i8, ptr %16, align 8
-  %109 = and i8 %108, 1
-  %.not68 = icmp eq i8 %109, 0
-  br i1 %.not68, label %112, label %134
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %134, label %112
 
 110:                                              ; preds = %112
   %111 = landingpad { ptr, i32 }
@@ -1228,9 +1221,8 @@ _ZN7testing15AssertionResultD2Ev.exit54:          ; preds = %134, %_ZNKSt14defau
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit55: ; preds = %141, %142
   %143 = load i8, ptr %23, align 8
-  %144 = and i8 %143, 1
-  %.not69 = icmp eq i8 %144, 0
-  br i1 %.not69, label %147, label %169
+  %144 = trunc i8 %143 to i1
+  br i1 %144, label %169, label %147
 
 145:                                              ; preds = %147
   %146 = landingpad { ptr, i32 }
@@ -1371,9 +1363,8 @@ define dso_local void @_ZN32EditDistanceTest_TestBasics_Test8TestBodyEv(ptr noca
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %27, %28
   %29 = load i8, ptr %2, align 8
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %33, label %55
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %55, label %33
 
 31:                                               ; preds = %33
   %32 = landingpad { ptr, i32 }
@@ -1484,9 +1475,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %55, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit22: ; preds = %63, %64
   %65 = load i8, ptr %9, align 8
-  %66 = and i8 %65, 1
-  %.not46 = icmp eq i8 %66, 0
-  br i1 %.not46, label %69, label %91
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %91, label %69
 
 67:                                               ; preds = %69
   %68 = landingpad { ptr, i32 }
@@ -1596,9 +1586,8 @@ _ZN7testing15AssertionResultD2Ev.exit33:          ; preds = %91, %_ZNKSt14defaul
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit34: ; preds = %98, %99
   %100 = load i8, ptr %16, align 8
-  %101 = and i8 %100, 1
-  %.not47 = icmp eq i8 %101, 0
-  br i1 %.not47, label %104, label %126
+  %101 = trunc i8 %100 to i1
+  br i1 %101, label %126, label %104
 
 102:                                              ; preds = %104
   %103 = landingpad { ptr, i32 }

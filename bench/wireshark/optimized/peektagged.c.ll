@@ -831,9 +831,9 @@ define internal fastcc i32 @peektagged_read_packet(ptr nocapture noundef readonl
 122:                                              ; preds = %113
   %123 = getelementptr inbounds i8, ptr %0, i64 144
   %124 = load i32, ptr %123, align 8
-  switch i32 %124, label %195 [
+  switch i32 %124, label %194 [
     i32 22, label %125
-    i32 1, label %183
+    i32 1, label %182
   ]
 
 125:                                              ; preds = %122
@@ -949,22 +949,21 @@ define internal fastcc i32 @peektagged_read_packet(ptr nocapture noundef readonl
 switch.lookup:                                    ; preds = %161
   %switch.cast = trunc i32 %switch.tableidx to i4
   %switch.downshift = lshr i4 -5, %switch.cast
-  %163 = and i4 %switch.downshift, 1
-  %switch.masked = icmp ne i4 %163, 0
-  %164 = zext i16 %.sroa.72.0 to i32
-  %165 = call i32 @ieee80211_chan_to_mhz(i32 noundef %164, i1 noundef zeroext %switch.masked) #7
-  %.not191 = icmp eq i32 %165, 0
-  %166 = or disjoint i16 %.sroa.53383.3, 2
-  %spec.select548 = select i1 %.not191, i16 %.sroa.53383.3, i16 %166
-  %spec.select549 = select i1 %.not191, i32 %.sroa.77.0, i32 %165
+  %switch.masked = trunc i4 %switch.downshift to i1
+  %163 = zext i16 %.sroa.72.0 to i32
+  %164 = call i32 @ieee80211_chan_to_mhz(i32 noundef %163, i1 noundef zeroext %switch.masked) #7
+  %.not191 = icmp eq i32 %164, 0
+  %165 = or disjoint i16 %.sroa.53383.3, 2
+  %spec.select548 = select i1 %.not191, i16 %.sroa.53383.3, i16 %165
+  %spec.select549 = select i1 %.not191, i32 %.sroa.77.0, i32 %164
   br label %.thread225
 
 .thread225:                                       ; preds = %161, %switch.lookup, %154, %156, %158
   %.sroa.53383.4 = phi i16 [ %.sroa.53383.3, %156 ], [ %159, %158 ], [ %.sroa.53383.3, %161 ], [ %.sroa.53383.3, %154 ], [ %spec.select548, %switch.lookup ]
   %.sroa.72.3 = phi i16 [ %.sroa.72.0, %156 ], [ %160, %158 ], [ %.sroa.72.0, %161 ], [ %.sroa.72.0, %154 ], [ %.sroa.72.0, %switch.lookup ]
   %.sroa.77.3 = phi i32 [ %.sroa.77.0, %156 ], [ %.sroa.77.0, %158 ], [ %.sroa.77.0, %161 ], [ %.sroa.77.0, %154 ], [ %spec.select549, %switch.lookup ]
-  %167 = getelementptr inbounds i8, ptr %2, i64 80
-  store i32 -1, ptr %167, align 8
+  %166 = getelementptr inbounds i8, ptr %2, i64 80
+  store i32 -1, ptr %166, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 84
   %.sroa.5368.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 88
   store i32 0, ptr %.sroa.3.0..sroa_idx, align 4
@@ -1003,79 +1002,79 @@ switch.lookup:                                    ; preds = %161
   store i8 %.sroa.85.0, ptr %.sroa.85.0..sroa_idx, align 1
   %.sroa.86.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 122
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.86.0..sroa_idx, i8 0, i64 30, i1 false)
-  %168 = load i32, ptr %9, align 4
-  %.not192 = icmp eq i32 %168, 0
-  br i1 %.not192, label %170, label %169
+  %167 = load i32, ptr %9, align 4
+  %.not192 = icmp eq i32 %167, 0
+  br i1 %.not192, label %169, label %168
+
+168:                                              ; preds = %.thread225
+  store i32 4, ptr %166, align 8
+  br label %180
 
 169:                                              ; preds = %.thread225
-  store i32 4, ptr %167, align 8
-  br label %181
+  %170 = load i32, ptr %109, align 4
+  %171 = icmp ult i32 %170, 4
+  br i1 %171, label %175, label %172
 
-170:                                              ; preds = %.thread225
-  %171 = load i32, ptr %109, align 4
-  %172 = icmp ult i32 %171, 4
-  br i1 %172, label %176, label %173
+172:                                              ; preds = %169
+  %173 = load i32, ptr %108, align 8
+  %174 = icmp ult i32 %173, 4
+  br i1 %174, label %175, label %177
 
-173:                                              ; preds = %170
-  %174 = load i32, ptr %108, align 8
-  %175 = icmp ult i32 %174, 4
-  br i1 %175, label %176, label %178
-
-176:                                              ; preds = %173, %170
+175:                                              ; preds = %172, %169
   store i32 -13, ptr %4, align 4
-  %177 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.21) #7
-  store ptr %177, ptr %5, align 8
+  %176 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.21) #7
+  store ptr %176, ptr %5, align 8
   br label %._crit_edge.thread
 
-178:                                              ; preds = %173
-  store i32 0, ptr %167, align 8
-  %179 = add i32 %171, -4
-  store i32 %179, ptr %109, align 4
-  %180 = add i32 %174, -4
-  store i32 %180, ptr %108, align 8
-  br label %181
+177:                                              ; preds = %172
+  store i32 0, ptr %166, align 8
+  %178 = add i32 %170, -4
+  store i32 %178, ptr %109, align 4
+  %179 = add i32 %173, -4
+  store i32 %179, ptr %108, align 8
+  br label %180
 
-181:                                              ; preds = %178, %169
-  %.0143 = phi i32 [ 0, %169 ], [ 4, %178 ]
-  %182 = getelementptr inbounds i8, ptr %2, i64 84
-  store i8 0, ptr %182, align 4
-  br label %195
+180:                                              ; preds = %177, %168
+  %.0143 = phi i32 [ 0, %168 ], [ 4, %177 ]
+  %181 = getelementptr inbounds i8, ptr %2, i64 84
+  store i8 0, ptr %181, align 4
+  br label %194
 
-183:                                              ; preds = %122
-  %184 = load i32, ptr %109, align 4
-  %185 = icmp ult i32 %184, 4
-  br i1 %185, label %189, label %186
+182:                                              ; preds = %122
+  %183 = load i32, ptr %109, align 4
+  %184 = icmp ult i32 %183, 4
+  br i1 %184, label %188, label %185
 
-186:                                              ; preds = %183
-  %187 = load i32, ptr %108, align 8
-  %188 = icmp ult i32 %187, 4
-  br i1 %188, label %189, label %191
+185:                                              ; preds = %182
+  %186 = load i32, ptr %108, align 8
+  %187 = icmp ult i32 %186, 4
+  br i1 %187, label %188, label %190
 
-189:                                              ; preds = %186, %183
+188:                                              ; preds = %185, %182
   store i32 -13, ptr %4, align 4
-  %190 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.22) #7
-  store ptr %190, ptr %5, align 8
+  %189 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.22) #7
+  store ptr %189, ptr %5, align 8
   br label %._crit_edge.thread
 
-191:                                              ; preds = %186
-  %192 = getelementptr inbounds i8, ptr %2, i64 80
-  store i32 0, ptr %192, align 8
-  %193 = add i32 %184, -4
-  store i32 %193, ptr %109, align 4
-  %194 = add i32 %187, -4
-  store i32 %194, ptr %108, align 8
-  br label %195
+190:                                              ; preds = %185
+  %191 = getelementptr inbounds i8, ptr %2, i64 80
+  store i32 0, ptr %191, align 8
+  %192 = add i32 %183, -4
+  store i32 %192, ptr %109, align 4
+  %193 = add i32 %186, -4
+  store i32 %193, ptr %108, align 8
+  br label %194
 
-195:                                              ; preds = %191, %181, %122
-  %.1 = phi i32 [ 0, %122 ], [ 4, %191 ], [ %.0143, %181 ]
-  %196 = load i32, ptr %108, align 8
-  %197 = call i32 @wtap_read_packet_bytes(ptr noundef %1, ptr noundef %3, i32 noundef %196, ptr noundef %4, ptr noundef %5) #7
-  %.not193 = icmp eq i32 %197, 0
+194:                                              ; preds = %190, %180, %122
+  %.1 = phi i32 [ 0, %122 ], [ 4, %190 ], [ %.0143, %180 ]
+  %195 = load i32, ptr %108, align 8
+  %196 = call i32 @wtap_read_packet_bytes(ptr noundef %1, ptr noundef %3, i32 noundef %195, ptr noundef %4, ptr noundef %5) #7
+  %.not193 = icmp eq i32 %196, 0
   %..1 = select i1 %.not193, i32 -1, i32 %.1
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %6, %195, %._crit_edge, %17, %189, %176, %120, %102, %97, %94, %91, %34, %29, %24
-  %.0142 = phi i32 [ -1, %102 ], [ 0, %189 ], [ 0, %176 ], [ -1, %120 ], [ -1, %97 ], [ -1, %94 ], [ -1, %91 ], [ -1, %34 ], [ -1, %29 ], [ -1, %24 ], [ -1, %17 ], [ -1, %._crit_edge ], [ %..1, %195 ], [ -1, %6 ]
+._crit_edge.thread:                               ; preds = %6, %194, %._crit_edge, %17, %188, %175, %120, %102, %97, %94, %91, %34, %29, %24
+  %.0142 = phi i32 [ -1, %102 ], [ 0, %188 ], [ 0, %175 ], [ -1, %120 ], [ -1, %97 ], [ -1, %94 ], [ -1, %91 ], [ -1, %34 ], [ -1, %29 ], [ -1, %24 ], [ -1, %17 ], [ -1, %._crit_edge ], [ %..1, %194 ], [ -1, %6 ]
   ret i32 %.0142
 }
 

@@ -316,45 +316,44 @@ entry:
   %mnp = alloca %"struct.EA::Thread::ConditionParameters", align 1
   %mtp = alloca %"struct.EA::Thread::MutexParameters", align 1
   %0 = load i8, ptr %this, align 8
-  %1 = and i8 %0, 1
-  %tobool.not8 = icmp eq i8 %1, 0
-  %tobool2 = icmp ne ptr %pThreadPoolParameters, null
-  %or.cond = and i1 %tobool2, %tobool.not8
-  br i1 %or.cond, label %land.lhs.true, label %return
+  %tobool = trunc i8 %0 to i1
+  %tobool2 = icmp eq ptr %pThreadPoolParameters, null
+  %or.cond.not = or i1 %tobool2, %tobool
+  br i1 %or.cond.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %mnCurrentCount = getelementptr inbounds i8, ptr %this, i64 12
-  %2 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
-  %cmp = icmp eq i32 %2, 0
+  %1 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
+  %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then3, label %return
 
 if.then3:                                         ; preds = %land.lhs.true
   store i8 1, ptr %this, align 8
-  %3 = load i32, ptr %pThreadPoolParameters, align 8
+  %2 = load i32, ptr %pThreadPoolParameters, align 8
   %mnMinCount5 = getelementptr inbounds i8, ptr %this, i64 4
-  store i32 %3, ptr %mnMinCount5, align 4
+  store i32 %2, ptr %mnMinCount5, align 4
   %mnMaxCount = getelementptr inbounds i8, ptr %pThreadPoolParameters, i64 4
-  %4 = load i32, ptr %mnMaxCount, align 4
+  %3 = load i32, ptr %mnMaxCount, align 4
   %mnMaxCount6 = getelementptr inbounds i8, ptr %this, i64 8
-  store i32 %4, ptr %mnMaxCount6, align 8
+  store i32 %3, ptr %mnMaxCount6, align 8
   %mnInitialCount = getelementptr inbounds i8, ptr %pThreadPoolParameters, i64 8
-  %5 = load i32, ptr %mnInitialCount, align 8
-  store atomic i32 %5, ptr %mnCurrentCount seq_cst, align 4
+  %4 = load i32, ptr %mnInitialCount, align 8
+  store atomic i32 %4, ptr %mnCurrentCount seq_cst, align 4
   %mnIdleTimeoutMilliseconds = getelementptr inbounds i8, ptr %pThreadPoolParameters, i64 16
   %mnIdleTimeoutMilliseconds9 = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnIdleTimeoutMilliseconds9, ptr noundef nonnull align 8 dereferenceable(16) %mnIdleTimeoutMilliseconds, i64 16, i1 false)
   %mnProcessorMask = getelementptr inbounds i8, ptr %pThreadPoolParameters, i64 32
-  %6 = load i32, ptr %mnProcessorMask, align 8
+  %5 = load i32, ptr %mnProcessorMask, align 8
   %mnProcessorMask10 = getelementptr inbounds i8, ptr %this, i64 40
-  store i32 %6, ptr %mnProcessorMask10, align 8
+  store i32 %5, ptr %mnProcessorMask10, align 8
   %mDefaultThreadParameters = getelementptr inbounds i8, ptr %pThreadPoolParameters, i64 40
   %mDefaultThreadParameters11 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %mDefaultThreadParameters11, ptr noundef nonnull align 8 dereferenceable(41) %mDefaultThreadParameters, i64 41, i1 false)
   %call12 = tail call noundef i32 @_ZN2EA6Thread17GetProcessorCountEv()
   %mnProcessorCount = getelementptr inbounds i8, ptr %this, i64 44
   store i32 %call12, ptr %mnProcessorCount, align 4
-  %7 = load i32, ptr %mnMaxCount6, align 8
-  %cmp14 = icmp ugt i32 %7, 16
+  %6 = load i32, ptr %mnMaxCount6, align 8
+  %cmp14 = icmp ugt i32 %6, 16
   br i1 %cmp14, label %if.then15, label %if.end
 
 if.then15:                                        ; preds = %if.then3
@@ -362,31 +361,31 @@ if.then15:                                        ; preds = %if.then3
   br label %if.end
 
 if.end:                                           ; preds = %if.then15, %if.then3
-  %8 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
-  %9 = load i32, ptr %mnMinCount5, align 4
-  %cmp20 = icmp slt i32 %8, %9
+  %7 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
+  %8 = load i32, ptr %mnMinCount5, align 4
+  %cmp20 = icmp slt i32 %7, %8
   br i1 %cmp20, label %if.then21, label %if.end25
 
 if.then21:                                        ; preds = %if.end
-  store atomic i32 %9, ptr %mnCurrentCount seq_cst, align 4
+  store atomic i32 %8, ptr %mnCurrentCount seq_cst, align 4
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then21, %if.end
-  %10 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
-  %11 = load i32, ptr %mnMaxCount6, align 8
-  %cmp29 = icmp sgt i32 %10, %11
+  %9 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
+  %10 = load i32, ptr %mnMaxCount6, align 8
+  %cmp29 = icmp sgt i32 %9, %10
   br i1 %cmp29, label %if.then30, label %if.end34
 
 if.then30:                                        ; preds = %if.end25
-  store atomic i32 %11, ptr %mnCurrentCount seq_cst, align 4
+  store atomic i32 %10, ptr %mnCurrentCount seq_cst, align 4
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then30, %if.end25
-  %12 = load i32, ptr %mnProcessorCount, align 4
-  %notmask = shl nsw i32 -1, %12
+  %11 = load i32, ptr %mnProcessorCount, align 4
+  %notmask = shl nsw i32 -1, %11
   %sub = xor i32 %notmask, -1
-  %13 = load i32, ptr %mnProcessorMask10, align 8
-  %and = and i32 %13, %sub
+  %12 = load i32, ptr %mnProcessorMask10, align 8
+  %and = and i32 %12, %sub
   %cmp37 = icmp eq i32 %and, 0
   br i1 %cmp37, label %if.then38, label %if.end40
 
@@ -397,8 +396,8 @@ if.then38:                                        ; preds = %if.end34
 if.end40:                                         ; preds = %if.then38, %if.end34
   store ptr null, ptr %mDefaultThreadParameters11, align 8
   %mnProcessor = getelementptr inbounds i8, ptr %this, i64 84
-  %14 = load i32, ptr %mnProcessor, align 4
-  %cmp43.not = icmp eq i32 %14, -2
+  %13 = load i32, ptr %mnProcessor, align 4
+  %cmp43.not = icmp eq i32 %13, -2
   br i1 %cmp43.not, label %if.end47, label %if.then44
 
 if.then44:                                        ; preds = %if.end40
@@ -413,9 +412,9 @@ if.end47:                                         ; preds = %if.then44, %if.end4
   %mThreadMutex = getelementptr inbounds i8, ptr %this, i64 160
   %call49 = call noundef zeroext i1 @_ZN2EA6Thread5Mutex4InitEPKNS0_15MutexParametersE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull %mtp)
   %call51 = call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
-  %15 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
+  %14 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
   store atomic i32 0, ptr %mnCurrentCount seq_cst, align 4
-  call void @_ZN2EA6Thread10ThreadPool17AdjustThreadCountEj(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %15)
+  call void @_ZN2EA6Thread10ThreadPool17AdjustThreadCountEj(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %14)
   %call57 = call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex)
   br label %return
 
@@ -698,9 +697,8 @@ define dso_local noundef zeroext i1 @_ZN2EA6Thread10ThreadPool8ShutdownENS1_7Job
 entry:
   %ref.tmp22 = alloca %"struct.EA::Thread::ThreadTime", align 8
   %0 = load i8, ptr %this, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end30, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end30
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %this, align 8
@@ -712,24 +710,24 @@ if.then:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.then
   %mpNodeHead.i.i = getelementptr inbounds i8, ptr %this, i64 248
-  %2 = load ptr, ptr %mpNodeHead.i.i, align 8
-  %mpNext.i.i = getelementptr inbounds i8, ptr %2, i64 40
-  %3 = load ptr, ptr %mpNext.i.i, align 8
+  %1 = load ptr, ptr %mpNodeHead.i.i, align 8
+  %mpNext.i.i = getelementptr inbounds i8, ptr %1, i64 40
+  %2 = load ptr, ptr %mpNext.i.i, align 8
   %mpNodeTail.i.i = getelementptr inbounds i8, ptr %this, i64 256
-  %4 = load ptr, ptr %mpNodeTail.i.i, align 8
-  %cmp.i.i = icmp eq ptr %3, %4
+  %3 = load ptr, ptr %mpNodeTail.i.i, align 8
+  %cmp.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i, label %if.end, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then4, %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
-  %pNode.08.i = phi ptr [ %5, %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i ], [ %3, %if.then4 ]
+  %pNode.08.i = phi ptr [ %4, %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i ], [ %2, %if.then4 ]
   %mpNext2.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 40
-  %5 = load ptr, ptr %mpNext2.i, align 8
+  %4 = load ptr, ptr %mpNext2.i, align 8
   %mpPrev.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 32
-  %6 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev4.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %6, ptr %mpPrev4.i, align 8
-  %mpNext6.i = getelementptr inbounds i8, ptr %6, i64 40
-  store ptr %5, ptr %mpNext6.i, align 8
+  %5 = load ptr, ptr %mpPrev.i, align 8
+  %mpPrev4.i = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %5, ptr %mpPrev4.i, align 8
+  %mpNext6.i = getelementptr inbounds i8, ptr %5, i64 40
+  store ptr %4, ptr %mpNext6.i, align 8
   %call.i.i = tail call noundef ptr @_ZN2EA6Thread12GetAllocatorEv()
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %delete.notnull.i.i, label %if.then.i.i
@@ -737,8 +735,8 @@ while.body.i:                                     ; preds = %if.then4, %_ZN2EA6T
 if.then.i.i:                                      ; preds = %while.body.i
   %vtable.i.i = load ptr, ptr %call.i.i, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
-  %7 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, ptr noundef nonnull %pNode.08.i, i64 noundef 0)
+  %6 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, ptr noundef nonnull %pNode.08.i, i64 noundef 0)
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
 
 delete.notnull.i.i:                               ; preds = %while.body.i
@@ -746,8 +744,8 @@ delete.notnull.i.i:                               ; preds = %while.body.i
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
 
 _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i: ; preds = %delete.notnull.i.i, %if.then.i.i
-  %8 = load ptr, ptr %mpNodeTail.i.i, align 8
-  %cmp.not.i = icmp eq ptr %5, %8
+  %7 = load ptr, ptr %mpNodeTail.i.i, align 8
+  %cmp.not.i = icmp eq ptr %4, %7
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
@@ -757,12 +755,12 @@ while.end.i:                                      ; preds = %_ZN2EA6Thread7detai
 
 if.end:                                           ; preds = %while.end.i, %if.then4, %if.then
   %mpNodeHead.i = getelementptr inbounds i8, ptr %this, i64 216
-  %9 = load ptr, ptr %mpNodeHead.i, align 8, !noalias !9
-  %mpNext.i = getelementptr inbounds i8, ptr %9, i64 16
-  %10 = load ptr, ptr %mpNext.i, align 8, !noalias !9
+  %8 = load ptr, ptr %mpNodeHead.i, align 8, !noalias !9
+  %mpNext.i = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = load ptr, ptr %mpNext.i, align 8, !noalias !9
   %mpNodeTail.i = getelementptr inbounds i8, ptr %this, i64 224
-  %11 = load ptr, ptr %mpNodeTail.i, align 8, !noalias !12
-  %cmp.i.not27 = icmp eq ptr %11, %10
+  %10 = load ptr, ptr %mpNodeTail.i, align 8, !noalias !12
+  %cmp.i.not27 = icmp eq ptr %10, %9
   br i1 %cmp.i.not27, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
@@ -770,36 +768,36 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end16
-  %it.sroa.0.028 = phi ptr [ %10, %for.body.lr.ph ], [ %it.sroa.0.1, %if.end16 ]
-  %12 = load ptr, ptr %it.sroa.0.028, align 8
-  %mbQuit = getelementptr inbounds i8, ptr %12, i64 1
+  %it.sroa.0.028 = phi ptr [ %9, %for.body.lr.ph ], [ %it.sroa.0.1, %if.end16 ]
+  %11 = load ptr, ptr %it.sroa.0.028, align 8
+  %mbQuit = getelementptr inbounds i8, ptr %11, i64 1
   store volatile i8 1, ptr %mbQuit, align 1
-  %mpThread = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load ptr, ptr %mpThread, align 8
-  %call9 = tail call noundef i32 @_ZNK2EA6Thread6Thread9GetStatusEPl(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef null)
+  %mpThread = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = load ptr, ptr %mpThread, align 8
+  %call9 = tail call noundef i32 @_ZNK2EA6Thread6Thread9GetStatusEPl(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef null)
   %cmp10.not = icmp eq i32 %call9, 1
   br i1 %cmp10.not, label %if.else, label %if.then11
 
 if.then11:                                        ; preds = %for.body
-  %14 = load ptr, ptr %mpNodeHead.i, align 8, !noalias !15
-  %mpNext.i.i4 = getelementptr inbounds i8, ptr %14, i64 16
-  %15 = load ptr, ptr %mpNext.i.i4, align 8, !noalias !15
-  %16 = load ptr, ptr %mpNodeTail.i, align 8, !noalias !15
-  %cmp.i.i6 = icmp eq ptr %15, %16
+  %13 = load ptr, ptr %mpNodeHead.i, align 8, !noalias !15
+  %mpNext.i.i4 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = load ptr, ptr %mpNext.i.i4, align 8, !noalias !15
+  %15 = load ptr, ptr %mpNodeTail.i, align 8, !noalias !15
+  %cmp.i.i6 = icmp eq ptr %14, %15
   br i1 %cmp.i.i6, label %if.end16, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then11
   %mpNext.i7 = getelementptr inbounds i8, ptr %it.sroa.0.028, i64 16
-  %17 = load ptr, ptr %mpNext.i7, align 8, !noalias !15
+  %16 = load ptr, ptr %mpNext.i7, align 8, !noalias !15
   %mpPrev.i8 = getelementptr inbounds i8, ptr %it.sroa.0.028, i64 8
-  %18 = load ptr, ptr %mpPrev.i8, align 8, !noalias !15
-  %mpPrev5.i = getelementptr inbounds i8, ptr %17, i64 8
-  store ptr %18, ptr %mpPrev5.i, align 8, !noalias !15
-  %19 = load ptr, ptr %mpNext.i7, align 8, !noalias !15
-  %mpNext10.i = getelementptr inbounds i8, ptr %18, i64 16
-  store ptr %19, ptr %mpNext10.i, align 8, !noalias !15
-  %20 = load i64, ptr %mnSize.i9, align 8, !noalias !15
-  %dec.i = add i64 %20, -1
+  %17 = load ptr, ptr %mpPrev.i8, align 8, !noalias !15
+  %mpPrev5.i = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %17, ptr %mpPrev5.i, align 8, !noalias !15
+  %18 = load ptr, ptr %mpNext.i7, align 8, !noalias !15
+  %mpNext10.i = getelementptr inbounds i8, ptr %17, i64 16
+  store ptr %18, ptr %mpNext10.i, align 8, !noalias !15
+  %19 = load i64, ptr %mnSize.i9, align 8, !noalias !15
+  %dec.i = add i64 %19, -1
   store i64 %dec.i, ptr %mnSize.i9, align 8, !noalias !15
   %call.i.i10 = tail call noundef ptr @_ZN2EA6Thread12GetAllocatorEv(), !noalias !15
   %tobool.not.i.i11 = icmp eq ptr %call.i.i10, null
@@ -808,8 +806,8 @@ if.then.i:                                        ; preds = %if.then11
 if.then.i.i12:                                    ; preds = %if.then.i
   %vtable.i.i13 = load ptr, ptr %call.i.i10, align 8, !noalias !15
   %vfn.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i13, i64 32
-  %21 = load ptr, ptr %vfn.i.i14, align 8, !noalias !15
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i10, ptr noundef nonnull %it.sroa.0.028, i64 noundef 0), !noalias !15
+  %20 = load ptr, ptr %vfn.i.i14, align 8, !noalias !15
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i10, ptr noundef nonnull %it.sroa.0.028, i64 noundef 0), !noalias !15
   br label %if.end16
 
 delete.notnull.i.i15:                             ; preds = %if.then.i
@@ -818,23 +816,23 @@ delete.notnull.i.i15:                             ; preds = %if.then.i
 
 if.else:                                          ; preds = %for.body
   %mpNext.i.i16 = getelementptr inbounds i8, ptr %it.sroa.0.028, i64 16
-  %22 = load ptr, ptr %mpNext.i.i16, align 8
+  %21 = load ptr, ptr %mpNext.i.i16, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %delete.notnull.i.i15, %if.then.i.i12, %if.then11, %if.else
-  %it.sroa.0.1 = phi ptr [ %22, %if.else ], [ %17, %if.then.i.i12 ], [ %17, %delete.notnull.i.i15 ], [ %15, %if.then11 ]
-  %cmp.i.not = icmp eq ptr %11, %it.sroa.0.1
+  %it.sroa.0.1 = phi ptr [ %21, %if.else ], [ %16, %if.then.i.i12 ], [ %16, %delete.notnull.i.i15 ], [ %14, %if.then11 ]
+  %cmp.i.not = icmp eq ptr %10, %it.sroa.0.1
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %if.end16, %if.end
   %mThreadCondition = getelementptr inbounds i8, ptr %this, i64 112
   %call17 = tail call noundef zeroext i1 @_ZN2EA6Thread9Condition6SignalEb(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition, i1 noundef zeroext true)
   %call19 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex)
-  %23 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpNext.i1829 = getelementptr inbounds i8, ptr %23, i64 16
-  %24 = load ptr, ptr %mpNext.i1829, align 8
-  %25 = load ptr, ptr %mpNodeTail.i, align 8
-  %cmp.i2030 = icmp eq ptr %24, %25
+  %22 = load ptr, ptr %mpNodeHead.i, align 8
+  %mpNext.i1829 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = load ptr, ptr %mpNext.i1829, align 8
+  %24 = load ptr, ptr %mpNodeTail.i, align 8
+  %cmp.i2030 = icmp eq ptr %23, %24
   br i1 %cmp.i2030, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %for.end
@@ -846,11 +844,11 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i64 1000000, ptr %tv_nsec.i, align 8
   call void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22)
   fence seq_cst
-  %26 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpNext.i18 = getelementptr inbounds i8, ptr %26, i64 16
-  %27 = load ptr, ptr %mpNext.i18, align 8
-  %28 = load ptr, ptr %mpNodeTail.i, align 8
-  %cmp.i20 = icmp eq ptr %27, %28
+  %25 = load ptr, ptr %mpNodeHead.i, align 8
+  %mpNext.i18 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = load ptr, ptr %mpNext.i18, align 8
+  %27 = load ptr, ptr %mpNodeTail.i, align 8
+  %cmp.i20 = icmp eq ptr %26, %27
   br i1 %cmp.i20, label %while.end, label %while.body, !llvm.loop !19
 
 while.end:                                        ; preds = %while.body, %for.end
@@ -858,11 +856,11 @@ while.end:                                        ; preds = %while.body, %for.en
   %mnPauseCount = getelementptr inbounds i8, ptr %this, i64 52
   store atomic i32 0, ptr %mnPauseCount seq_cst, align 4
   %call28 = call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex)
-  %29 = icmp eq i32 %call, 0
+  %28 = icmp eq i32 %call, 0
   br label %if.end30
 
 if.end30:                                         ; preds = %entry, %while.end
-  %nResult.0 = phi i1 [ %29, %while.end ], [ true, %entry ]
+  %nResult.0 = phi i1 [ %28, %while.end ], [ true, %entry ]
   ret i1 %nResult.0
 }
 
@@ -1194,10 +1192,10 @@ for.cond:                                         ; preds = %for.cond.preheader,
 for.body:                                         ; preds = %for.cond, %for.body
   %it.sroa.0.067 = phi ptr [ %it.sroa.0.0, %for.body ], [ %it.sroa.0.063, %for.cond ]
   %nResult.266 = phi i32 [ %spec.select9, %for.body ], [ %nResult.1, %for.cond ]
-  %bJobExists.065 = phi i8 [ %spec.select, %for.body ], [ 0, %for.cond ]
+  %bJobExists.065 = phi i1 [ %spec.select, %for.body ], [ false, %for.cond ]
   %21 = load i32, ptr %it.sroa.0.067, align 8
   %cmp62 = icmp eq i32 %21, %nJob
-  %spec.select = select i1 %cmp62, i8 1, i8 %bJobExists.065
+  %spec.select = select i1 %cmp62, i1 true, i1 %bJobExists.065
   %spec.select9 = select i1 %cmp62, i32 -2, i32 %nResult.266
   %it.sroa.0.0.in = getelementptr inbounds i8, ptr %it.sroa.0.067, i64 40
   %it.sroa.0.0 = load ptr, ptr %it.sroa.0.0.in, align 8
@@ -1205,7 +1203,7 @@ for.body:                                         ; preds = %for.cond, %for.body
   br i1 %cmp.i33.not, label %for.end, label %for.body, !llvm.loop !38
 
 for.end:                                          ; preds = %for.body, %for.cond
-  %bJobExists.0.lcssa = phi i8 [ 0, %for.cond ], [ %spec.select, %for.body ]
+  %bJobExists.0.lcssa = phi i1 [ false, %for.cond ], [ %spec.select, %for.body ]
   %nResult.2.lcssa = phi i32 [ %nResult.1, %for.cond ], [ %spec.select9, %for.body ]
   %22 = load ptr, ptr %mpNodeHead.i34, align 8, !noalias !39
   %23 = load ptr, ptr %mpNodeTail.i36, align 8, !noalias !42
@@ -1217,23 +1215,22 @@ for.end:                                          ; preds = %for.body, %for.cond
 for.body72:                                       ; preds = %for.end, %for.inc81
   %it66.sroa.0.074 = phi ptr [ %it66.sroa.0.0, %for.inc81 ], [ %it66.sroa.0.070, %for.end ]
   %nResult.473 = phi i32 [ %nResult.5, %for.inc81 ], [ %nResult.2.lcssa, %for.end ]
-  %bJobExists.272 = phi i8 [ %bJobExists.3, %for.inc81 ], [ %bJobExists.0.lcssa, %for.end ]
+  %bJobExists.272 = phi i1 [ %bJobExists.3, %for.inc81 ], [ %bJobExists.0.lcssa, %for.end ]
   %24 = load ptr, ptr %it66.sroa.0.074, align 8
   %25 = load volatile i8, ptr %24, align 8
-  %26 = and i8 %25, 1
-  %tobool75.not = icmp eq i8 %26, 0
-  br i1 %tobool75.not, label %for.inc81, label %land.lhs.true76
+  %tobool75 = trunc i8 %25 to i1
+  br i1 %tobool75, label %land.lhs.true76, label %for.inc81
 
 land.lhs.true76:                                  ; preds = %for.body72
   %mCurrentJob = getelementptr inbounds i8, ptr %24, i64 24
-  %27 = load i32, ptr %mCurrentJob, align 8
-  %cmp78 = icmp eq i32 %27, %nJob
-  %spec.select10 = select i1 %cmp78, i8 1, i8 %bJobExists.272
+  %26 = load i32, ptr %mCurrentJob, align 8
+  %cmp78 = icmp eq i32 %26, %nJob
+  %spec.select10 = select i1 %cmp78, i1 true, i1 %bJobExists.272
   %spec.select11 = select i1 %cmp78, i32 -2, i32 %nResult.473
   br label %for.inc81
 
 for.inc81:                                        ; preds = %land.lhs.true76, %for.body72
-  %bJobExists.3 = phi i8 [ %bJobExists.272, %for.body72 ], [ %spec.select10, %land.lhs.true76 ]
+  %bJobExists.3 = phi i1 [ %bJobExists.272, %for.body72 ], [ %spec.select10, %land.lhs.true76 ]
   %nResult.5 = phi i32 [ %nResult.473, %for.body72 ], [ %spec.select11, %land.lhs.true76 ]
   %it66.sroa.0.0.in = getelementptr inbounds i8, ptr %it66.sroa.0.074, i64 16
   %it66.sroa.0.0 = load ptr, ptr %it66.sroa.0.0.in, align 8
@@ -1241,22 +1238,20 @@ for.inc81:                                        ; preds = %land.lhs.true76, %f
   br i1 %cmp.i37.not, label %for.end83, label %for.body72, !llvm.loop !45
 
 for.end83:                                        ; preds = %for.inc81, %for.end
-  %bJobExists.2.lcssa = phi i8 [ %bJobExists.0.lcssa, %for.end ], [ %bJobExists.3, %for.inc81 ]
+  %bJobExists.2.lcssa = phi i1 [ %bJobExists.0.lcssa, %for.end ], [ %bJobExists.3, %for.inc81 ]
   %nResult.4.lcssa = phi i32 [ %nResult.2.lcssa, %for.end ], [ %nResult.5, %for.inc81 ]
   %call85 = call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex53)
-  %28 = and i8 %bJobExists.2.lcssa, 1
-  %tobool86.not = icmp eq i8 %28, 0
-  br i1 %tobool86.not, label %if.end99, label %lor.rhs
+  br i1 %bJobExists.2.lcssa, label %lor.rhs, label %if.end99
 
 lor.rhs:                                          ; preds = %for.end83
   %call88 = call { i64, i64 } @_ZN2EA6Thread13GetThreadTimeEv()
-  %29 = extractvalue { i64, i64 } %call88, 0
-  %30 = extractvalue { i64, i64 } %call88, 1
-  %31 = load i64, ptr %timeoutAbsolute, align 8
-  %cmp.i39 = icmp eq i64 %29, %31
-  %32 = load i64, ptr %tv_nsec2.i41, align 8
-  %cmp3.i42 = icmp sge i64 %30, %32
-  %cmp6.i43 = icmp sge i64 %29, %31
+  %27 = extractvalue { i64, i64 } %call88, 0
+  %28 = extractvalue { i64, i64 } %call88, 1
+  %29 = load i64, ptr %timeoutAbsolute, align 8
+  %cmp.i39 = icmp eq i64 %27, %29
+  %30 = load i64, ptr %tv_nsec2.i41, align 8
+  %cmp3.i42 = icmp sge i64 %28, %30
+  %cmp6.i43 = icmp sge i64 %27, %29
   %cond.i44 = select i1 %cmp.i39, i1 %cmp3.i42, i1 %cmp6.i43
   br i1 %cond.i44, label %if.end99, label %if.end92
 
@@ -1288,9 +1283,8 @@ entry:
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %mbQuit = getelementptr inbounds i8, ptr %pContext, i64 1
   %1 = load volatile i8, ptr %mbQuit, align 1
-  %2 = and i8 %1, 1
-  %tobool.not44 = icmp eq i8 %2, 0
-  br i1 %tobool.not44, label %while.body.lr.ph, label %while.end
+  %tobool44 = trunc i8 %1 to i1
+  br i1 %tobool44, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %mpNodeHead.i = getelementptr inbounds i8, ptr %0, i64 248
@@ -1303,33 +1297,33 @@ while.body.lr.ph:                                 ; preds = %entry
   %mpFunction = getelementptr inbounds i8, ptr %pContext, i64 40
   %mnIdleTimeoutMilliseconds = getelementptr inbounds i8, ptr %0, i64 24
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  %3 = getelementptr inbounds i8, ptr %timeoutAbsolute, i64 8
+  %2 = getelementptr inbounds i8, ptr %timeoutAbsolute, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end52
-  %4 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpNext.i = getelementptr inbounds i8, ptr %4, i64 40
-  %5 = load ptr, ptr %mpNext.i, align 8
-  %6 = load ptr, ptr %mpNodeTail.i, align 8
-  %cmp.i = icmp eq ptr %5, %6
+  %3 = load ptr, ptr %mpNodeHead.i, align 8
+  %mpNext.i = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = load ptr, ptr %mpNext.i, align 8
+  %5 = load ptr, ptr %mpNodeTail.i, align 8
+  %cmp.i = icmp eq ptr %4, %5
   br i1 %cmp.i, label %if.else29, label %if.then
 
 if.then:                                          ; preds = %while.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mCurrentJob, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  %7 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpNext.i.i = getelementptr inbounds i8, ptr %7, i64 40
-  %8 = load ptr, ptr %mpNext.i.i, align 8
-  %9 = load ptr, ptr %mpNodeTail.i, align 8
-  %cmp.i.i = icmp eq ptr %8, %9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mCurrentJob, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  %6 = load ptr, ptr %mpNodeHead.i, align 8
+  %mpNext.i.i = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = load ptr, ptr %mpNext.i.i, align 8
+  %8 = load ptr, ptr %mpNodeTail.i, align 8
+  %cmp.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.i, label %_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9pop_frontEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %mpNext2.i = getelementptr inbounds i8, ptr %8, i64 40
-  %10 = load ptr, ptr %mpNext2.i, align 8
-  store ptr %10, ptr %mpNext.i.i, align 8
-  %11 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpPrev.i = getelementptr inbounds i8, ptr %10, i64 32
-  store ptr %11, ptr %mpPrev.i, align 8
+  %mpNext2.i = getelementptr inbounds i8, ptr %7, i64 40
+  %9 = load ptr, ptr %mpNext2.i, align 8
+  store ptr %9, ptr %mpNext.i.i, align 8
+  %10 = load ptr, ptr %mpNodeHead.i, align 8
+  %mpPrev.i = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr %10, ptr %mpPrev.i, align 8
   %call.i.i = call noundef ptr @_ZN2EA6Thread12GetAllocatorEv()
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %delete.notnull.i.i, label %if.then.i.i
@@ -1337,44 +1331,44 @@ if.then.i:                                        ; preds = %if.then
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %call.i.i, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
-  %12 = load ptr, ptr %vfn.i.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, ptr noundef nonnull %8, i64 noundef 0)
+  %11 = load ptr, ptr %vfn.i.i, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, ptr noundef nonnull %7, i64 noundef 0)
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
 
 delete.notnull.i.i:                               ; preds = %if.then.i
-  call void @_ZdlPv(ptr noundef nonnull %8) #15
+  call void @_ZdlPv(ptr noundef nonnull %7) #15
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
 
 _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i: ; preds = %delete.notnull.i.i, %if.then.i.i
-  %13 = load i64, ptr %mnSize.i, align 8
-  %dec.i = add i64 %13, -1
+  %12 = load i64, ptr %mnSize.i, align 8
+  %dec.i = add i64 %12, -1
   store i64 %dec.i, ptr %mnSize.i, align 8
   br label %_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9pop_frontEv.exit
 
 _ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9pop_frontEv.exit: ; preds = %if.then, %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
   store volatile i8 1, ptr %pContext, align 8
-  %14 = atomicrmw add ptr %mnActiveCount, i32 1 seq_cst, align 4
+  %13 = atomicrmw add ptr %mnActiveCount, i32 1 seq_cst, align 4
   %call6 = call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex)
-  %15 = load ptr, ptr %mpRunnable, align 8
-  %tobool8.not = icmp eq ptr %15, null
+  %14 = load ptr, ptr %mpRunnable, align 8
+  %tobool8.not = icmp eq ptr %14, null
   br i1 %tobool8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9pop_frontEv.exit
-  %16 = load ptr, ptr %mpContext, align 8
-  %vtable = load ptr, ptr %15, align 8
+  %15 = load ptr, ptr %mpContext, align 8
+  %vtable = load ptr, ptr %14, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %17 = load ptr, ptr %vfn, align 8
-  %call13 = call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %16)
+  %16 = load ptr, ptr %vfn, align 8
+  %call13 = call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %15)
   br label %if.end24
 
 if.else:                                          ; preds = %_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9pop_frontEv.exit
-  %18 = load ptr, ptr %mpFunction, align 8
-  %tobool15.not = icmp eq ptr %18, null
+  %17 = load ptr, ptr %mpFunction, align 8
+  %tobool15.not = icmp eq ptr %17, null
   br i1 %tobool15.not, label %if.else22, label %if.then16
 
 if.then16:                                        ; preds = %if.else
-  %19 = load ptr, ptr %mpContext, align 8
-  %call21 = call noundef i64 %18(ptr noundef %19)
+  %18 = load ptr, ptr %mpContext, align 8
+  %call21 = call noundef i64 %17(ptr noundef %18)
   br label %if.end24
 
 if.else22:                                        ; preds = %if.else
@@ -1383,55 +1377,55 @@ if.else22:                                        ; preds = %if.else
 
 if.end24:                                         ; preds = %if.then16, %if.else22, %if.then9
   %call25 = call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
-  %20 = atomicrmw sub ptr %mnActiveCount, i32 1 seq_cst, align 4
+  %19 = atomicrmw sub ptr %mnActiveCount, i32 1 seq_cst, align 4
   store volatile i8 0, ptr %pContext, align 8
   br label %if.end52
 
 if.else29:                                        ; preds = %while.body
   %call30 = call { i64, i64 } @_ZN2EA6Thread13GetThreadTimeEv()
-  %21 = extractvalue { i64, i64 } %call30, 0
-  %22 = extractvalue { i64, i64 } %call30, 1
-  %23 = load i64, ptr %mnIdleTimeoutMilliseconds, align 8
-  %add.i.i = add nsw i64 %23, %21
-  %24 = load i64, ptr %tv_nsec.i.i, align 8
-  %add4.i.i = add nsw i64 %24, %22
+  %20 = extractvalue { i64, i64 } %call30, 0
+  %21 = extractvalue { i64, i64 } %call30, 1
+  %22 = load i64, ptr %mnIdleTimeoutMilliseconds, align 8
+  %add.i.i = add nsw i64 %22, %20
+  %23 = load i64, ptr %tv_nsec.i.i, align 8
+  %add4.i.i = add nsw i64 %23, %21
   %cmp.i.i31 = icmp sgt i64 %add4.i.i, 999999999
   %sub.i.i = add nsw i64 %add4.i.i, -1000000000
   %retval.sroa.5.0.i = select i1 %cmp.i.i31, i64 %sub.i.i, i64 %add4.i.i
   %inc.i.i = zext i1 %cmp.i.i31 to i64
   %retval.sroa.0.0.i = add nsw i64 %add.i.i, %inc.i.i
   store i64 %retval.sroa.0.0.i, ptr %timeoutAbsolute, align 8
-  store i64 %retval.sroa.5.0.i, ptr %3, align 8
-  %25 = load i64, ptr getelementptr inbounds (%"struct.EA::Thread::ThreadTime", ptr @_ZN2EA6ThreadL12kTimeoutNoneE, i64 0, i32 0, i32 1), align 8
-  %cmp.i32 = icmp eq i64 %24, %25
-  %26 = load i64, ptr @_ZN2EA6ThreadL12kTimeoutNoneE, align 8
-  %cmp3.i = icmp eq i64 %23, %26
-  %27 = select i1 %cmp.i32, i1 %cmp3.i, i1 false
-  br i1 %27, label %if.then35, label %if.else36
+  store i64 %retval.sroa.5.0.i, ptr %2, align 8
+  %24 = load i64, ptr getelementptr inbounds (%"struct.EA::Thread::ThreadTime", ptr @_ZN2EA6ThreadL12kTimeoutNoneE, i64 0, i32 0, i32 1), align 8
+  %cmp.i32 = icmp eq i64 %23, %24
+  %25 = load i64, ptr @_ZN2EA6ThreadL12kTimeoutNoneE, align 8
+  %cmp3.i = icmp eq i64 %22, %25
+  %26 = select i1 %cmp.i32, i1 %cmp3.i, i1 false
+  br i1 %26, label %if.then35, label %if.else36
 
 if.then35:                                        ; preds = %if.else29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeoutAbsolute, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE, i64 16, i1 false)
   br label %if.end47
 
 if.else36:                                        ; preds = %if.else29
-  %cmp.i34 = icmp eq i64 %24, 0
-  %cmp3.i35 = icmp eq i64 %23, 0
-  %28 = select i1 %cmp.i34, i1 %cmp3.i35, i1 false
-  br i1 %28, label %if.then39, label %if.else40
+  %cmp.i34 = icmp eq i64 %23, 0
+  %cmp3.i35 = icmp eq i64 %22, 0
+  %27 = select i1 %cmp.i34, i1 %cmp3.i35, i1 false
+  br i1 %27, label %if.then39, label %if.else40
 
 if.then39:                                        ; preds = %if.else36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeoutAbsolute, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL17kTimeoutImmediateE, i64 16, i1 false)
   br label %if.end47
 
 if.else40:                                        ; preds = %if.else36
-  %cmp.i37 = icmp eq i64 %retval.sroa.5.0.i, %25
-  %cmp3.i38 = icmp eq i64 %retval.sroa.0.0.i, %26
-  %29 = select i1 %cmp.i37, i1 %cmp3.i38, i1 false
-  br i1 %29, label %if.then42, label %if.end47
+  %cmp.i37 = icmp eq i64 %retval.sroa.5.0.i, %24
+  %cmp3.i38 = icmp eq i64 %retval.sroa.0.0.i, %25
+  %28 = select i1 %cmp.i37, i1 %cmp3.i38, i1 false
+  br i1 %28, label %if.then42, label %if.end47
 
 if.then42:                                        ; preds = %if.else40
   %sub4.i = add i64 %retval.sroa.5.0.i, -1000000
-  store i64 %sub4.i, ptr %3, align 8
+  store i64 %sub4.i, ptr %2, align 8
   %cmp.i40 = icmp slt i64 %sub4.i, 0
   br i1 %cmp.i40, label %if.then.i41, label %if.end47
 
@@ -1439,7 +1433,7 @@ if.then.i41:                                      ; preds = %if.then42
   %dec.i42 = add nsw i64 %retval.sroa.0.0.i, -1
   store i64 %dec.i42, ptr %timeoutAbsolute, align 8
   %add.i = add nsw i64 %retval.sroa.5.0.i, 999000000
-  store i64 %add.i, ptr %3, align 8
+  store i64 %add.i, ptr %2, align 8
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then.i41, %if.then42, %if.then39, %if.else40, %if.then35
@@ -1452,10 +1446,9 @@ if.then49:                                        ; preds = %if.end47
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end47, %if.then49, %if.end24
-  %30 = load volatile i8, ptr %mbQuit, align 1
-  %31 = and i8 %30, 1
-  %tobool.not = icmp eq i8 %31, 0
-  br i1 %tobool.not, label %while.body, label %while.end, !llvm.loop !47
+  %29 = load volatile i8, ptr %mbQuit, align 1
+  %tobool = trunc i8 %29 to i1
+  br i1 %tobool, label %while.end, label %while.body, !llvm.loop !47
 
 while.end:                                        ; preds = %if.end52, %entry
   call void @_ZN2EA6Thread10ThreadPool12RemoveThreadEPNS1_10ThreadInfoE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %pContext)
@@ -1582,40 +1575,39 @@ if.end18:                                         ; preds = %while.cond.i, %if.e
 define dso_local noundef i32 @_ZN2EA6Thread10ThreadPool8QueueJobERKNS1_3JobEPPNS0_6ThreadEb(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %job, ptr noundef writeonly %ppThread, i1 zeroext %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load i8, ptr %this, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %return, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %mThreadMutex = getelementptr inbounds i8, ptr %this, i64 160
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %mnActiveCount = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load atomic i32, ptr %mnActiveCount seq_cst, align 8
+  %2 = load atomic i32, ptr %mnActiveCount seq_cst, align 8
   %mnCurrentCount = getelementptr inbounds i8, ptr %this, i64 12
-  %4 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
-  %cmp.not = icmp slt i32 %3, %4
+  %3 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
+  %cmp.not = icmp slt i32 %2, %3
   br i1 %cmp.not, label %lor.lhs.false, label %land.lhs.true
 
 lor.lhs.false:                                    ; preds = %if.then
   %mpNodeHead.i = getelementptr inbounds i8, ptr %this, i64 248
-  %5 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpNext.i = getelementptr inbounds i8, ptr %5, i64 40
-  %6 = load ptr, ptr %mpNext.i, align 8
+  %4 = load ptr, ptr %mpNodeHead.i, align 8
+  %mpNext.i = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = load ptr, ptr %mpNext.i, align 8
   %mpNodeTail.i = getelementptr inbounds i8, ptr %this, i64 256
-  %7 = load ptr, ptr %mpNodeTail.i, align 8
-  %cmp.i = icmp eq ptr %6, %7
+  %6 = load ptr, ptr %mpNodeTail.i, align 8
+  %cmp.i = icmp eq ptr %5, %6
   br i1 %cmp.i, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %if.then
-  %8 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
+  %7 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
   %mnMaxCount = getelementptr inbounds i8, ptr %this, i64 8
-  %9 = load i32, ptr %mnMaxCount, align 8
-  %cmp7 = icmp slt i32 %8, %9
+  %8 = load i32, ptr %mnMaxCount, align 8
+  %cmp7 = icmp slt i32 %7, %8
   br i1 %cmp7, label %if.then8, label %if.end
 
 if.then8:                                         ; preds = %land.lhs.true
-  %10 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
-  %add = add nsw i32 %10, 1
+  %9 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
+  %add = add nsw i32 %9, 1
   tail call void @_ZN2EA6Thread10ThreadPool17AdjustThreadCountEj(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %add)
   br label %if.end
 
@@ -1627,8 +1619,8 @@ if.end:                                           ; preds = %if.then8, %land.lhs
 if.then.i.i:                                      ; preds = %if.end
   %vtable.i.i = load ptr, ptr %call.i.i, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
-  %11 = load ptr, ptr %vfn.i.i, align 8
-  %call2.i.i = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, i64 noundef 48, ptr noundef null, i32 noundef 0)
+  %10 = load ptr, ptr %vfn.i.i, align 8
+  %call2.i.i = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, i64 noundef 48, ptr noundef null, i32 noundef 0)
   br label %_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9push_backERKS3_.exit
 
 if.else.i.i:                                      ; preds = %if.end
@@ -1641,30 +1633,30 @@ _ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocat
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable.i.i2.i.i, i8 0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call3.sink.i.i, ptr noundef nonnull align 8 dereferenceable(32) %job, i64 32, i1 false)
   %mpNodeTail.i2 = getelementptr inbounds i8, ptr %this, i64 256
-  %12 = load ptr, ptr %mpNodeTail.i2, align 8
-  %mpPrev.i = getelementptr inbounds i8, ptr %12, i64 32
-  %13 = load ptr, ptr %mpPrev.i, align 8
+  %11 = load ptr, ptr %mpNodeTail.i2, align 8
+  %mpPrev.i = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = load ptr, ptr %mpPrev.i, align 8
   %mpPrev2.i = getelementptr inbounds i8, ptr %call3.sink.i.i, i64 32
-  store ptr %13, ptr %mpPrev2.i, align 8
-  %14 = load ptr, ptr %mpNodeTail.i2, align 8
+  store ptr %12, ptr %mpPrev2.i, align 8
+  %13 = load ptr, ptr %mpNodeTail.i2, align 8
   %mpNext.i3 = getelementptr inbounds i8, ptr %call3.sink.i.i, i64 40
-  store ptr %14, ptr %mpNext.i3, align 8
-  %mpNext5.i = getelementptr inbounds i8, ptr %13, i64 40
+  store ptr %13, ptr %mpNext.i3, align 8
+  %mpNext5.i = getelementptr inbounds i8, ptr %12, i64 40
   store ptr %call3.sink.i.i, ptr %mpNext5.i, align 8
-  %15 = load ptr, ptr %mpNodeTail.i2, align 8
-  %mpPrev7.i = getelementptr inbounds i8, ptr %15, i64 32
+  %14 = load ptr, ptr %mpNodeTail.i2, align 8
+  %mpPrev7.i = getelementptr inbounds i8, ptr %14, i64 32
   store ptr %call3.sink.i.i, ptr %mpPrev7.i, align 8
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 264
-  %16 = load i64, ptr %mnSize.i, align 8
-  %inc.i = add i64 %16, 1
+  %15 = load i64, ptr %mnSize.i, align 8
+  %inc.i = add i64 %15, 1
   store i64 %inc.i, ptr %mnSize.i, align 8
   %mpNodeHead.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  %17 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !59
+  %16 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !59
   %mpNodeTail.i.i = getelementptr inbounds i8, ptr %this, i64 224
-  %18 = load ptr, ptr %mpNodeTail.i.i, align 8, !noalias !62
-  %it.sroa.0.0.in5.i = getelementptr inbounds i8, ptr %17, i64 16
+  %17 = load ptr, ptr %mpNodeTail.i.i, align 8, !noalias !62
+  %it.sroa.0.0.in5.i = getelementptr inbounds i8, ptr %16, i64 16
   %it.sroa.0.06.i = load ptr, ptr %it.sroa.0.0.in5.i, align 8
-  %cmp.i.not7.i = icmp eq ptr %18, %it.sroa.0.06.i
+  %cmp.i.not7.i = icmp eq ptr %17, %it.sroa.0.06.i
   br i1 %cmp.i.not7.i, label %_ZN2EA6Thread10ThreadPool10FixThreadsEv.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9push_backERKS3_.exit
@@ -1673,29 +1665,29 @@ for.body.lr.ph.i:                                 ; preds = %_ZN2EA6Thread11simp
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %it.sroa.0.08.i = phi ptr [ %it.sroa.0.06.i, %for.body.lr.ph.i ], [ %it.sroa.0.0.i, %for.inc.i ]
-  %19 = load ptr, ptr %it.sroa.0.08.i, align 8
-  %mpThread.i = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load ptr, ptr %mpThread.i, align 8
-  %call5.i = tail call noundef i32 @_ZNK2EA6Thread6Thread9GetStatusEPl(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef null)
+  %18 = load ptr, ptr %it.sroa.0.08.i, align 8
+  %mpThread.i = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = load ptr, ptr %mpThread.i, align 8
+  %call5.i = tail call noundef i32 @_ZNK2EA6Thread6Thread9GetStatusEPl(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef null)
   %cmp.i4 = icmp eq i32 %call5.i, 2
   br i1 %cmp.i4, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %21 = load ptr, ptr %mpThread.i, align 8
+  %20 = load ptr, ptr %mpThread.i, align 8
   %call7.i = tail call noundef ptr @_ZN2EA6Thread6Thread36GetGlobalRunnableFunctionUserWrapperEv()
-  %call8.i = tail call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @_ZN2EA6Thread10ThreadPool14ThreadFunctionEPv, ptr noundef nonnull %19, ptr noundef nonnull %mDefaultThreadParameters.i, ptr noundef %call7.i)
+  %call8.i = tail call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @_ZN2EA6Thread10ThreadPool14ThreadFunctionEPv, ptr noundef nonnull %18, ptr noundef nonnull %mDefaultThreadParameters.i, ptr noundef %call7.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %it.sroa.0.0.in.i = getelementptr inbounds i8, ptr %it.sroa.0.08.i, i64 16
   %it.sroa.0.0.i = load ptr, ptr %it.sroa.0.0.in.i, align 8
-  %cmp.i.not.i = icmp eq ptr %18, %it.sroa.0.0.i
+  %cmp.i.not.i = icmp eq ptr %17, %it.sroa.0.0.i
   br i1 %cmp.i.not.i, label %_ZN2EA6Thread10ThreadPool10FixThreadsEv.exit, label %for.body.i, !llvm.loop !30
 
 _ZN2EA6Thread10ThreadPool10FixThreadsEv.exit:     ; preds = %for.inc.i, %_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9push_backERKS3_.exit
   %mnPauseCount = getelementptr inbounds i8, ptr %this, i64 52
-  %22 = load atomic i32, ptr %mnPauseCount seq_cst, align 4
-  %cmp13 = icmp eq i32 %22, 0
+  %21 = load atomic i32, ptr %mnPauseCount seq_cst, align 4
+  %cmp13 = icmp eq i32 %21, 0
   br i1 %cmp13, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %_ZN2EA6Thread10ThreadPool10FixThreadsEv.exit

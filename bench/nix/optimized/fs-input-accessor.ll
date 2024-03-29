@@ -2061,9 +2061,8 @@ define linkonce_odr void @_ZN3nix13InputAccessorD2Ev(ptr noundef nonnull align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not.i.i.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 13:                                               ; preds = %2
   store i8 0, ptr %10, align 8
@@ -2090,8 +2089,8 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %2, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %.not.i.i.i.i2 = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i2, label %_ZNSt23enable_shared_from_thisIN3nix13InputAccessorEED2Ev.exit, label %22
+  %.not.i.i.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i.i.i, label %_ZNSt23enable_shared_from_thisIN3nix13InputAccessorEED2Ev.exit, label %22
 
 22:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   %23 = getelementptr inbounds i8, ptr %21, i64 12
@@ -2692,9 +2691,8 @@ _ZN3nix19PosixSourceAccessorD2Ev.exit:            ; preds = %_ZNKSt7__cxx1112bas
   %28 = getelementptr inbounds i8, ptr %0, i64 24
   %29 = getelementptr inbounds i8, ptr %0, i64 56
   %30 = load i8, ptr %29, align 8
-  %31 = and i8 %30, 1
-  %.not.i.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
 
 32:                                               ; preds = %_ZN3nix19PosixSourceAccessorD2Ev.exit
   store i8 0, ptr %29, align 8
@@ -2721,8 +2719,8 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i: ; preds = %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i, %_ZN3nix19PosixSourceAccessorD2Ev.exit
   %39 = getelementptr inbounds i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
-  %.not.i.i.i.i2.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i.i2.i, label %_ZN3nix13InputAccessorD2Ev.exit, label %41
+  %.not.i.i.i.i.i = icmp eq ptr %40, null
+  br i1 %.not.i.i.i.i.i, label %_ZN3nix13InputAccessorD2Ev.exit, label %41
 
 41:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
   %42 = getelementptr inbounds i8, ptr %40, i64 12

@@ -366,7 +366,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   br i1 %35, label %.split.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %33
-  br i1 %42, label %.lr.ph, label %.preheader112.thread
+  br i1 %42, label %.lr.ph, label %.preheader111.thread
 
 .split.us:                                        ; preds = %33
   br i1 %42, label %.lr.ph.us, label %._crit_edge.us.thread
@@ -380,26 +380,26 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   br i1 %42, label %60, label %157
 
 43:                                               ; preds = %.lr.ph.us, %43
-  %indvars.iv175 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next176, %43 ]
-  %44 = getelementptr [0 x ptr], ptr %48, i64 0, i64 %indvars.iv175
+  %indvars.iv174 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next175, %43 ]
+  %44 = getelementptr [0 x ptr], ptr %48, i64 0, i64 %indvars.iv174
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 64
-  %47 = getelementptr ptr, ptr %41, i64 %indvars.iv175
+  %47 = getelementptr ptr, ptr %41, i64 %indvars.iv174
   store ptr %46, ptr %47, align 8
-  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
-  %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
-  br i1 %exitcond179.not, label %._crit_edge.us, label %43, !llvm.loop !11
+  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
+  %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
+  br i1 %exitcond178.not, label %._crit_edge.us, label %43, !llvm.loop !11
 
 .lr.ph.us:                                        ; preds = %.split.us
   %48 = getelementptr inbounds i8, ptr %36, i64 80
-  %wide.trip.count178 = zext nneg i32 %38 to i64
+  %wide.trip.count177 = zext nneg i32 %38 to i64
   br label %43
 
-.preheader112.thread:                             ; preds = %RenumberEnumType.exit, %.split.preheader
-  %.lcssa224 = phi i64 [ %39, %.split.preheader ], [ %152, %RenumberEnumType.exit ]
-  %.lcssa218 = phi ptr [ %41, %.split.preheader ], [ %154, %RenumberEnumType.exit ]
-  tail call void @pg_qsort(ptr noundef %.lcssa218, i64 noundef %.lcssa224, i64 noundef 8, ptr noundef nonnull @sort_order_cmp) #10
-  br label %.preheader112._crit_edge
+.preheader111.thread:                             ; preds = %RenumberEnumType.exit, %.split.preheader
+  %.lcssa223 = phi i64 [ %39, %.split.preheader ], [ %152, %RenumberEnumType.exit ]
+  %.lcssa217 = phi ptr [ %41, %.split.preheader ], [ %154, %RenumberEnumType.exit ]
+  tail call void @pg_qsort(ptr noundef %.lcssa217, i64 noundef %.lcssa223, i64 noundef 8, ptr noundef nonnull @sort_order_cmp) #10
+  br label %.preheader111._crit_edge
 
 .lr.ph:                                           ; preds = %.split.preheader, %RenumberEnumType.exit
   %49 = phi i1 [ %155, %RenumberEnumType.exit ], [ %42, %.split.preheader ]
@@ -420,15 +420,15 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   store ptr %58, ptr %59, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader112, label %55, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader111, label %55, !llvm.loop !11
 
-.preheader112:                                    ; preds = %55
+.preheader111:                                    ; preds = %55
   tail call void @pg_qsort(ptr noundef nonnull %50, i64 noundef %51, i64 noundef 8, ptr noundef nonnull @sort_order_cmp) #10
-  br i1 %49, label %.lr.ph138.preheader, label %.preheader112._crit_edge
+  br i1 %49, label %.lr.ph137.preheader, label %.preheader111._crit_edge
 
-.lr.ph138.preheader:                              ; preds = %.preheader112
-  %wide.trip.count173 = zext nneg i32 %52 to i64
-  br label %.lr.ph138
+.lr.ph137.preheader:                              ; preds = %.preheader111
+  %wide.trip.count172 = zext nneg i32 %52 to i64
+  br label %.lr.ph137
 
 60:                                               ; preds = %._crit_edge.us
   %61 = zext nneg i32 %38 to i64
@@ -446,9 +446,9 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %73 = fadd float %72, 1.000000e+00
   br label %157
 
-.lr.ph138:                                        ; preds = %.lr.ph138.preheader, %85
-  %indvars.iv170 = phi i64 [ 0, %.lr.ph138.preheader ], [ %indvars.iv.next171, %85 ]
-  %74 = getelementptr ptr, ptr %50, i64 %indvars.iv170
+.lr.ph137:                                        ; preds = %.lr.ph137.preheader, %85
+  %indvars.iv169 = phi i64 [ 0, %.lr.ph137.preheader ], [ %indvars.iv.next170, %85 ]
+  %74 = getelementptr ptr, ptr %50, i64 %indvars.iv169
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8
@@ -461,12 +461,12 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %89, label %85
 
-85:                                               ; preds = %.lr.ph138
-  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
-  %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count173
-  br i1 %exitcond174.not, label %.preheader112._crit_edge, label %.lr.ph138, !llvm.loop !12
+85:                                               ; preds = %.lr.ph137
+  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
+  %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
+  br i1 %exitcond173.not, label %.preheader111._crit_edge, label %.lr.ph137, !llvm.loop !12
 
-.preheader112._crit_edge:                         ; preds = %.preheader112, %85, %.preheader112.thread
+.preheader111._crit_edge:                         ; preds = %.preheader111, %85, %.preheader111.thread
   %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %86)
   %87 = tail call i32 @errcode(i32 noundef 50856066) #10
@@ -474,9 +474,9 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 351, ptr noundef nonnull @__func__.AddEnumLabel) #10
   unreachable
 
-89:                                               ; preds = %.lr.ph138
-  %90 = trunc i64 %indvars.iv170 to i32
-  %sext = shl i64 %indvars.iv170, 32
+89:                                               ; preds = %.lr.ph137
+  %90 = trunc i64 %indvars.iv169 to i32
+  %sext = shl i64 %indvars.iv169, 32
   %91 = ashr exact i64 %sext, 32
   %92 = getelementptr ptr, ptr %50, i64 %91
   %93 = load ptr, ptr %92, align 8
@@ -538,7 +538,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %147
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %147 ], [ %wide.trip.count173, %.lr.ph.i.preheader ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %147 ], [ %wide.trip.count172, %.lr.ph.i.preheader ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %131 = getelementptr ptr, ptr %50, i64 %indvars.iv.next.i
   %132 = load ptr, ptr %131, align 8
@@ -578,7 +578,7 @@ RenumberEnumType.exit:                            ; preds = %147
   %153 = shl nsw i64 %152, 3
   %154 = tail call ptr @palloc(i64 noundef %153) #10
   %155 = icmp sgt i32 %151, 0
-  br i1 %155, label %.lr.ph, label %.preheader112.thread
+  br i1 %155, label %.lr.ph, label %.preheader111.thread
 
 156:                                              ; preds = %128
   %.0..0..0..0.9 = load volatile float, ptr %11, align 4
@@ -591,26 +591,25 @@ RenumberEnumType.exit:                            ; preds = %147
   %.0 = phi float [ %73, %60 ], [ %104, %101 ], [ %109, %106 ], [ %.0..0..0..0.9, %156 ], [ 1.000000e+00, %._crit_edge.us ], [ 1.000000e+00, %._crit_edge.us.thread ]
   %.fr = freeze i32 %159
   %161 = load i8, ptr @IsBinaryUpgrade, align 1
-  %162 = and i8 %161, 1
-  %.not104 = icmp eq i8 %162, 0
-  br i1 %.not104, label %.preheader, label %186
+  %162 = trunc i8 %161 to i1
+  br i1 %162, label %186, label %.preheader
 
 .preheader:                                       ; preds = %157
-  %.not108145 = icmp sgt i32 %.fr, 0
-  br i1 %.not108145, label %.lr.ph148.us.preheader, label %.critedge
+  %.not107144 = icmp sgt i32 %.fr, 0
+  br i1 %.not107144, label %.lr.ph147.us.preheader, label %.critedge
 
-.lr.ph148.us.preheader:                           ; preds = %.preheader
-  %wide.trip.count183 = zext nneg i32 %.fr to i64
-  br label %.lr.ph148.us
+.lr.ph147.us.preheader:                           ; preds = %.preheader
+  %wide.trip.count182 = zext nneg i32 %.fr to i64
+  br label %.lr.ph147.us
 
-.lr.ph148.us:                                     ; preds = %.lr.ph148.us.backedge, %.lr.ph148.us.preheader
+.lr.ph147.us:                                     ; preds = %.lr.ph147.us.backedge, %.lr.ph147.us.preheader
   %163 = tail call i32 @GetNewOidWithIndex(ptr noundef %34, i32 noundef 3502, i16 noundef signext 1) #10
   store i32 %163, ptr %7, align 4
   br label %164
 
-164:                                              ; preds = %.lr.ph148.us, %183
-  %indvars.iv180 = phi i64 [ 0, %.lr.ph148.us ], [ %indvars.iv.next181, %183 ]
-  %165 = getelementptr ptr, ptr %160, i64 %indvars.iv180
+164:                                              ; preds = %.lr.ph147.us, %183
+  %indvars.iv179 = phi i64 [ 0, %.lr.ph147.us ], [ %indvars.iv.next180, %183 ]
+  %165 = getelementptr ptr, ptr %160, i64 %indvars.iv179
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 16
   %168 = load ptr, ptr %167, align 8
@@ -620,8 +619,8 @@ RenumberEnumType.exit:                            ; preds = %147
   %172 = getelementptr i8, ptr %168, i64 %171
   %173 = load i32, ptr %172, align 4
   %174 = and i32 %173, 1
-  %.not105.us = icmp eq i32 %174, 0
-  br i1 %.not105.us, label %175, label %183
+  %.not104.us = icmp eq i32 %174, 0
+  br i1 %.not104.us, label %175, label %183
 
 175:                                              ; preds = %164
   %176 = getelementptr inbounds i8, ptr %172, i64 8
@@ -630,35 +629,35 @@ RenumberEnumType.exit:                            ; preds = %147
   br i1 %178, label %180, label %179
 
 179:                                              ; preds = %175
-  %.not106.us = icmp ugt i32 %173, %163
-  br i1 %.not106.us, label %183, label %181
+  %.not105.us = icmp ugt i32 %173, %163
+  br i1 %.not105.us, label %183, label %181
 
 180:                                              ; preds = %175
-  %.not107.us = icmp ult i32 %173, %163
-  br i1 %.not107.us, label %183, label %181
+  %.not106.us = icmp ult i32 %173, %163
+  br i1 %.not106.us, label %183, label %181
 
 181:                                              ; preds = %180, %179
   %182 = and i32 %163, 1
-  %.not109.us = icmp eq i32 %182, 0
-  br i1 %.not109.us, label %.lr.ph148.us.backedge, label %.loopexit
+  %.not108.us = icmp eq i32 %182, 0
+  br i1 %.not108.us, label %.lr.ph147.us.backedge, label %.loopexit
 
-.lr.ph148.us.backedge:                            ; preds = %181, %..critedge_crit_edge.us
-  br label %.lr.ph148.us
+.lr.ph147.us.backedge:                            ; preds = %181, %..critedge_crit_edge.us
+  br label %.lr.ph147.us
 
 183:                                              ; preds = %180, %179, %164
-  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
-  %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
-  br i1 %exitcond184.not, label %..critedge_crit_edge.us, label %164, !llvm.loop !14
+  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
+  %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182
+  br i1 %exitcond183.not, label %..critedge_crit_edge.us, label %164, !llvm.loop !14
 
 ..critedge_crit_edge.us:                          ; preds = %183
   %184 = and i32 %163, 1
   %185 = icmp eq i32 %184, 0
-  br i1 %185, label %.loopexit, label %.lr.ph148.us.backedge
+  br i1 %185, label %.loopexit, label %.lr.ph147.us.backedge
 
 186:                                              ; preds = %157
   %187 = load i32, ptr @binary_upgrade_next_pg_enum_oid, align 4
-  %.not110 = icmp eq i32 %187, 0
-  br i1 %.not110, label %188, label %192
+  %.not109 = icmp eq i32 %187, 0
+  br i1 %.not109, label %188, label %192
 
 188:                                              ; preds = %186
   %189 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -824,8 +823,8 @@ define dso_local void @RenameEnumLabel(i32 noundef %0, ptr noundef %1, ptr nound
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %.03136 = phi i8 [ 0, %.lr.ph ], [ %.1, %19 ]
-  %.03235 = phi ptr [ null, %.lr.ph ], [ %spec.select, %19 ]
+  %.03135 = phi i1 [ false, %.lr.ph ], [ %.1, %19 ]
+  %.03234 = phi ptr [ null, %.lr.ph ], [ %spec.select, %19 ]
   %20 = getelementptr [0 x ptr], ptr %18, i64 0, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 80
@@ -838,10 +837,10 @@ define dso_local void @RenameEnumLabel(i32 noundef %0, ptr noundef %1, ptr nound
   %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %1) #11
   %30 = icmp eq i32 %29, 0
   %31 = getelementptr inbounds i8, ptr %21, i64 64
-  %spec.select = select i1 %30, ptr %31, ptr %.03235
+  %spec.select = select i1 %30, ptr %31, ptr %.03234
   %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %2) #11
   %33 = icmp eq i32 %32, 0
-  %.1 = select i1 %33, i8 1, i8 %.03136
+  %.1 = select i1 %33, i1 true, i1 %.03135
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !15
@@ -859,32 +858,30 @@ define dso_local void @RenameEnumLabel(i32 noundef %0, ptr noundef %1, ptr nound
   unreachable
 
 37:                                               ; preds = %._crit_edge
-  %38 = and i8 %.1, 1
-  %39 = icmp eq i8 %38, 0
-  br i1 %39, label %44, label %40
+  br i1 %.1, label %38, label %42
 
-40:                                               ; preds = %37
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %41)
-  %42 = tail call i32 @errcode(i32 noundef 290948) #10
-  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %2) #10
+38:                                               ; preds = %37
+  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %39)
+  %40 = tail call i32 @errcode(i32 noundef 290948) #10
+  %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %2) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 599, ptr noundef nonnull @__func__.RenameEnumLabel) #10
   unreachable
 
-44:                                               ; preds = %37
-  %45 = tail call ptr @heap_copytuple(ptr noundef nonnull %spec.select) #10
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 22
-  %49 = load i8, ptr %48, align 2
-  %50 = zext i8 %49 to i64
-  %51 = getelementptr i8, ptr %47, i64 %50
+42:                                               ; preds = %37
+  %43 = tail call ptr @heap_copytuple(ptr noundef nonnull %spec.select) #10
+  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 22
+  %47 = load i8, ptr %46, align 2
+  %48 = zext i8 %47 to i64
+  %49 = getelementptr i8, ptr %45, i64 %48
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %14) #10
-  %52 = getelementptr inbounds i8, ptr %51, i64 12
-  tail call void @namestrcpy(ptr noundef nonnull %52, ptr noundef %2) #10
-  %53 = getelementptr inbounds i8, ptr %45, i64 4
-  tail call void @CatalogTupleUpdate(ptr noundef %12, ptr noundef nonnull %53, ptr noundef %45) #10
-  tail call void @heap_freetuple(ptr noundef %45) #10
+  %50 = getelementptr inbounds i8, ptr %49, i64 12
+  tail call void @namestrcpy(ptr noundef nonnull %50, ptr noundef %2) #10
+  %51 = getelementptr inbounds i8, ptr %43, i64 4
+  tail call void @CatalogTupleUpdate(ptr noundef %12, ptr noundef nonnull %51, ptr noundef %43) #10
+  tail call void @heap_freetuple(ptr noundef %43) #10
   tail call void @table_close(ptr noundef %12, i32 noundef 3) #10
   ret void
 }
@@ -900,17 +897,16 @@ define dso_local zeroext i1 @EnumUncommitted(i32 noundef %0) local_unnamed_addr 
   store i32 %0, ptr %2, align 4
   %4 = load ptr, ptr @uncommitted_enums, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+  br i1 %5, label %10, label %6
 
 6:                                                ; preds = %1
   %7 = call ptr @hash_search(ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull %3) #10
   %8 = load i8, ptr %3, align 1
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
-  br label %11
+  %9 = trunc i8 %8 to i1
+  br label %10
 
-11:                                               ; preds = %1, %6
-  %.0 = phi i1 [ %10, %6 ], [ false, %1 ]
+10:                                               ; preds = %1, %6
+  %.0 = phi i1 [ %9, %6 ], [ false, %1 ]
   ret i1 %.0
 }
 

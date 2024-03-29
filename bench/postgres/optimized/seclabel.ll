@@ -462,7 +462,7 @@ define dso_local ptr @GetSecurityLabel(ptr nocapture noundef readonly %0, ptr no
   %6 = alloca i8, align 1
   %7 = load i32, ptr %0, align 4
   %8 = tail call zeroext i1 @IsSharedRelation(i32 noundef %7) #8
-  br i1 %8, label %9, label %34
+  br i1 %8, label %9, label %33
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %3)
@@ -481,81 +481,78 @@ define dso_local ptr @GetSecurityLabel(ptr nocapture noundef readonly %0, ptr no
   call void @ScanKeyInit(ptr noundef nonnull %16, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 67, i64 noundef %18) #8
   %19 = call ptr @table_open(i32 noundef 3592, i32 noundef 1) #8
   %20 = load i8, ptr @criticalSharedRelcachesBuilt, align 1
-  %21 = and i8 %20, 1
-  %22 = icmp ne i8 %21, 0
-  %23 = call ptr @systable_beginscan(ptr noundef %19, i32 noundef 3593, i1 noundef zeroext %22, ptr noundef null, i32 noundef 3, ptr noundef nonnull %3) #8
-  %24 = call ptr @systable_getnext(ptr noundef %23) #8
-  %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %GetSharedSecurityLabel.exit, label %25
+  %21 = trunc i8 %20 to i1
+  %22 = call ptr @systable_beginscan(ptr noundef %19, i32 noundef 3593, i1 noundef zeroext %21, ptr noundef null, i32 noundef 3, ptr noundef nonnull %3) #8
+  %23 = call ptr @systable_getnext(ptr noundef %22) #8
+  %.not.i = icmp eq ptr %23, null
+  br i1 %.not.i, label %GetSharedSecurityLabel.exit, label %24
 
-25:                                               ; preds = %9
-  %26 = getelementptr inbounds i8, ptr %19, i64 64
-  %27 = load ptr, ptr %26, align 8
-  %28 = call fastcc i64 @heap_getattr(ptr noundef nonnull %24, i32 noundef 4, ptr noundef %27, ptr noundef nonnull %4)
-  %29 = load i8, ptr %4, align 1
-  %30 = and i8 %29, 1
-  %.not12.i = icmp eq i8 %30, 0
-  br i1 %.not12.i, label %31, label %GetSharedSecurityLabel.exit
+24:                                               ; preds = %9
+  %25 = getelementptr inbounds i8, ptr %19, i64 64
+  %26 = load ptr, ptr %25, align 8
+  %27 = call fastcc i64 @heap_getattr(ptr noundef nonnull %23, i32 noundef 4, ptr noundef %26, ptr noundef nonnull %4)
+  %28 = load i8, ptr %4, align 1
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %GetSharedSecurityLabel.exit, label %30
 
-31:                                               ; preds = %25
-  %32 = inttoptr i64 %28 to ptr
-  %33 = call ptr @text_to_cstring(ptr noundef %32) #8
+30:                                               ; preds = %24
+  %31 = inttoptr i64 %27 to ptr
+  %32 = call ptr @text_to_cstring(ptr noundef %31) #8
   br label %GetSharedSecurityLabel.exit
 
-GetSharedSecurityLabel.exit:                      ; preds = %9, %25, %31
-  %.0.i = phi ptr [ null, %25 ], [ %33, %31 ], [ null, %9 ]
-  call void @systable_endscan(ptr noundef %23) #8
+GetSharedSecurityLabel.exit:                      ; preds = %9, %24, %30
+  %.0.i = phi ptr [ null, %24 ], [ %32, %30 ], [ null, %9 ]
+  call void @systable_endscan(ptr noundef %22) #8
   call void @table_close(ptr noundef %19, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %61
-
-34:                                               ; preds = %2
-  %35 = getelementptr inbounds i8, ptr %0, i64 4
-  %36 = load i32, ptr %35, align 4
-  %37 = zext i32 %36 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %37) #8
-  %38 = getelementptr inbounds i8, ptr %5, i64 72
-  %39 = load i32, ptr %0, align 4
-  %40 = zext i32 %39 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %38, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %40) #8
-  %41 = getelementptr inbounds i8, ptr %5, i64 144
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = load i32, ptr %42, align 4
-  %44 = sext i32 %43 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %41, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %44) #8
-  %45 = getelementptr inbounds i8, ptr %5, i64 216
-  %46 = call ptr @cstring_to_text(ptr noundef %1) #8
-  %47 = ptrtoint ptr %46 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %45, i16 noundef signext 4, i16 noundef zeroext 3, i32 noundef 67, i64 noundef %47) #8
-  %48 = call ptr @table_open(i32 noundef 3596, i32 noundef 1) #8
-  %49 = call ptr @systable_beginscan(ptr noundef %48, i32 noundef 3597, i1 noundef zeroext true, ptr noundef null, i32 noundef 4, ptr noundef nonnull %5) #8
-  %50 = call ptr @systable_getnext(ptr noundef %49) #8
-  %.not = icmp eq ptr %50, null
-  br i1 %.not, label %60, label %51
-
-51:                                               ; preds = %34
-  %52 = getelementptr inbounds i8, ptr %48, i64 64
-  %53 = load ptr, ptr %52, align 8
-  %54 = call fastcc i64 @heap_getattr(ptr noundef nonnull %50, i32 noundef 5, ptr noundef %53, ptr noundef nonnull %6)
-  %55 = load i8, ptr %6, align 1
-  %56 = and i8 %55, 1
-  %.not18 = icmp eq i8 %56, 0
-  br i1 %.not18, label %57, label %60
-
-57:                                               ; preds = %51
-  %58 = inttoptr i64 %54 to ptr
-  %59 = call ptr @text_to_cstring(ptr noundef %58) #8
   br label %60
 
-60:                                               ; preds = %51, %57, %34
-  %.0 = phi ptr [ null, %51 ], [ %59, %57 ], [ null, %34 ]
-  call void @systable_endscan(ptr noundef %49) #8
-  call void @table_close(ptr noundef %48, i32 noundef 1) #8
-  br label %61
+33:                                               ; preds = %2
+  %34 = getelementptr inbounds i8, ptr %0, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = zext i32 %35 to i64
+  call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %36) #8
+  %37 = getelementptr inbounds i8, ptr %5, i64 72
+  %38 = load i32, ptr %0, align 4
+  %39 = zext i32 %38 to i64
+  call void @ScanKeyInit(ptr noundef nonnull %37, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %39) #8
+  %40 = getelementptr inbounds i8, ptr %5, i64 144
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = load i32, ptr %41, align 4
+  %43 = sext i32 %42 to i64
+  call void @ScanKeyInit(ptr noundef nonnull %40, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %43) #8
+  %44 = getelementptr inbounds i8, ptr %5, i64 216
+  %45 = call ptr @cstring_to_text(ptr noundef %1) #8
+  %46 = ptrtoint ptr %45 to i64
+  call void @ScanKeyInit(ptr noundef nonnull %44, i16 noundef signext 4, i16 noundef zeroext 3, i32 noundef 67, i64 noundef %46) #8
+  %47 = call ptr @table_open(i32 noundef 3596, i32 noundef 1) #8
+  %48 = call ptr @systable_beginscan(ptr noundef %47, i32 noundef 3597, i1 noundef zeroext true, ptr noundef null, i32 noundef 4, ptr noundef nonnull %5) #8
+  %49 = call ptr @systable_getnext(ptr noundef %48) #8
+  %.not = icmp eq ptr %49, null
+  br i1 %.not, label %59, label %50
 
-61:                                               ; preds = %60, %GetSharedSecurityLabel.exit
-  %.016 = phi ptr [ %.0.i, %GetSharedSecurityLabel.exit ], [ %.0, %60 ]
+50:                                               ; preds = %33
+  %51 = getelementptr inbounds i8, ptr %47, i64 64
+  %52 = load ptr, ptr %51, align 8
+  %53 = call fastcc i64 @heap_getattr(ptr noundef nonnull %49, i32 noundef 5, ptr noundef %52, ptr noundef nonnull %6)
+  %54 = load i8, ptr %6, align 1
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %59, label %56
+
+56:                                               ; preds = %50
+  %57 = inttoptr i64 %53 to ptr
+  %58 = call ptr @text_to_cstring(ptr noundef %57) #8
+  br label %59
+
+59:                                               ; preds = %50, %56, %33
+  %.0 = phi ptr [ null, %50 ], [ %58, %56 ], [ null, %33 ]
+  call void @systable_endscan(ptr noundef %48) #8
+  call void @table_close(ptr noundef %47, i32 noundef 1) #8
+  br label %60
+
+60:                                               ; preds = %59, %GetSharedSecurityLabel.exit
+  %.016 = phi ptr [ %.0.i, %GetSharedSecurityLabel.exit ], [ %.0, %59 ]
   ret ptr %.016
 }
 
@@ -614,11 +611,10 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %33 = getelementptr i8, ptr %31, i64 %32
   %34 = getelementptr inbounds i8, ptr %23, i64 86
   %35 = load i8, ptr %34, align 2
-  %36 = and i8 %35, 1
-  %.not20.i = icmp eq i8 %36, 0
+  %36 = trunc i8 %35 to i1
   %37 = getelementptr inbounds i8, ptr %23, i64 72
   %38 = load i16, ptr %37, align 4
-  br i1 %.not20.i, label %55, label %39
+  br i1 %36, label %39, label %55
 
 39:                                               ; preds = %27
   switch i16 %38, label %51 [

@@ -625,36 +625,32 @@ _ZSt4copyIPKhPhET0_T_S4_S3_.exit:                 ; preds = %20, %_ZNSt6vectorIh
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %30
   %.not.i = icmp eq ptr %35, null
-  %39 = zext i1 %.not.i to i8
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %_ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEaSEc.exit.i.i.i.i.i
-  %.09.i.i.i.i.i = phi i64 [ %46, %_ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEaSEc.exit.i.i.i.i.i ], [ %11, %.lr.ph.i.i.i.i.i.preheader ]
-  %.058.i.i.i.i.i = phi ptr [ %45, %_ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEaSEc.exit.i.i.i.i.i ], [ %13, %.lr.ph.i.i.i.i.i.preheader ]
-  %.sroa.3.07.i.i.i.i.i = phi i8 [ %.sroa.3.1.i.i.i.i.i, %_ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEaSEc.exit.i.i.i.i.i ], [ %39, %.lr.ph.i.i.i.i.i.preheader ]
-  %40 = and i8 %.sroa.3.07.i.i.i.i.i, 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %40, 0
-  br i1 %.not.i.i.i.i.i.i, label %41, label %_ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEaSEc.exit.i.i.i.i.i
+  %.09.i.i.i.i.i = phi i64 [ %44, %_ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEaSEc.exit.i.i.i.i.i ], [ %11, %.lr.ph.i.i.i.i.i.preheader ]
+  %.058.i.i.i.i.i = phi ptr [ %43, %_ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEaSEc.exit.i.i.i.i.i ], [ %13, %.lr.ph.i.i.i.i.i.preheader ]
+  %.sroa.3.07.i.i.i.i.i = phi i1 [ %.sroa.3.1.i.i.i.i.i, %_ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEaSEc.exit.i.i.i.i.i ], [ %.not.i, %.lr.ph.i.i.i.i.i.preheader ]
+  br i1 %.sroa.3.07.i.i.i.i.i, label %_ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEaSEc.exit.i.i.i.i.i, label %39
 
-41:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %42 = load i8, ptr %.058.i.i.i.i.i, align 1
-  %43 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc(ptr noundef nonnull align 8 dereferenceable(64) %35, i8 noundef signext %42)
-          to label %.noexc10 unwind label %49
+39:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %40 = load i8, ptr %.058.i.i.i.i.i, align 1
+  %41 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc(ptr noundef nonnull align 8 dereferenceable(64) %35, i8 noundef signext %40)
+          to label %.noexc10 unwind label %47
 
-.noexc10:                                         ; preds = %41
-  %44 = icmp eq i32 %43, -1
-  %spec.select.i.i.i.i.i = select i1 %44, i8 1, i8 %.sroa.3.07.i.i.i.i.i
+.noexc10:                                         ; preds = %39
+  %42 = icmp eq i32 %41, -1
   br label %_ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEaSEc.exit.i.i.i.i.i
 
 _ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEaSEc.exit.i.i.i.i.i: ; preds = %.noexc10, %.lr.ph.i.i.i.i.i
-  %.sroa.3.1.i.i.i.i.i = phi i8 [ %.sroa.3.07.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %.noexc10 ]
-  %45 = getelementptr inbounds i8, ptr %.058.i.i.i.i.i, i64 1
-  %46 = add nsw i64 %.09.i.i.i.i.i, -1
-  %47 = icmp sgt i64 %.09.i.i.i.i.i, 1
-  br i1 %47, label %.lr.ph.i.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, !llvm.loop !4
+  %.sroa.3.1.i.i.i.i.i = phi i1 [ true, %.lr.ph.i.i.i.i.i ], [ %42, %.noexc10 ]
+  %43 = getelementptr inbounds i8, ptr %.058.i.i.i.i.i, i64 1
+  %44 = add nsw i64 %.09.i.i.i.i.i, -1
+  %45 = icmp sgt i64 %.09.i.i.i.i.i, 1
+  br i1 %45, label %.lr.ph.i.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, !llvm.loop !4
 
 .thread29:                                        ; preds = %_ZSt4copyIPKhPhET0_T_S4_S3_.exit
-  %48 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit12
 
@@ -663,14 +659,14 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt19ostreambuf_i
   call void @_ZdlPv(ptr noundef nonnull %13) #16
   ret void
 
-49:                                               ; preds = %41
-  %50 = landingpad { ptr, i32 }
+47:                                               ; preds = %39
+  %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %3) #15
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit12
 
-_ZNSt6vectorIhSaIhEED2Ev.exit12:                  ; preds = %.thread29, %.thread34, %49
-  %.pn32 = phi { ptr, i32 } [ %48, %.thread29 ], [ %50, %49 ], [ %28, %.thread34 ]
+_ZNSt6vectorIhSaIhEED2Ev.exit12:                  ; preds = %.thread29, %.thread34, %47
+  %.pn32 = phi { ptr, i32 } [ %46, %.thread29 ], [ %48, %47 ], [ %28, %.thread34 ]
   call void @_ZdlPv(ptr noundef nonnull %13) #16
   resume { ptr, i32 } %.pn32
 }

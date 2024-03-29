@@ -87,8 +87,8 @@ define hidden void @_Z13RemoveUVSeamsP6aiMeshP10aiVector3tIfE(ptr nocapture noun
 entry:
   %mNumFaces = getelementptr inbounds i8, ptr %mesh, i64 8
   %0 = load i32, ptr %mNumFaces, align 8
-  %cmp66.not = icmp eq i32 %0, 0
-  br i1 %cmp66.not, label %for.end132, label %for.body.lr.ph
+  %cmp63.not = icmp eq i32 %0, 0
+  br i1 %cmp63.not, label %for.end132, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %mFaces = getelementptr inbounds i8, ptr %mesh, i64 208
@@ -110,11 +110,11 @@ for.cond3.preheader:                              ; preds = %for.body
 
 for.body6:                                        ; preds = %for.cond3.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond3.preheader ], [ %indvars.iv.next, %for.inc ]
-  %round_to_zero.062 = phi i8 [ 0, %for.cond3.preheader ], [ %round_to_zero.1, %for.inc ]
-  %one.061 = phi i8 [ 0, %for.cond3.preheader ], [ %one.1, %for.inc ]
-  %zero.060 = phi i8 [ 0, %for.cond3.preheader ], [ %zero.1, %for.inc ]
-  %large.059 = phi i32 [ %2, %for.cond3.preheader ], [ %large.1, %for.inc ]
-  %smallV.058 = phi i32 [ %2, %for.cond3.preheader ], [ %smallV.1, %for.inc ]
+  %round_to_zero.059 = phi i1 [ false, %for.cond3.preheader ], [ %round_to_zero.1, %for.inc ]
+  %one.058 = phi i8 [ 0, %for.cond3.preheader ], [ %one.1, %for.inc ]
+  %zero.057 = phi i8 [ 0, %for.cond3.preheader ], [ %zero.1, %for.inc ]
+  %large.056 = phi i32 [ %2, %for.cond3.preheader ], [ %large.1, %for.inc ]
+  %smallV.055 = phi i32 [ %2, %for.cond3.preheader ], [ %smallV.1, %for.inc ]
   %arrayidx8 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx8, align 4
   %idxprom9 = zext i32 %4 to i64
@@ -122,12 +122,12 @@ for.body6:                                        ; preds = %for.cond3.preheader
   %5 = load float, ptr %arrayidx10, align 4
   %cmp11 = fcmp olt float %5, 0x3FB99999A0000000
   %cmp19 = fcmp ugt float %5, 0x3F847AE140000000
-  %zero.0. = select i1 %cmp19, i8 %zero.060, i8 1
+  %zero.0. = select i1 %cmp19, i8 %zero.057, i8 1
   %6 = trunc i64 %indvars.iv to i32
-  %smallV.1 = select i1 %cmp11, i32 %6, i32 %smallV.058
-  %zero.1 = select i1 %cmp11, i8 %zero.0., i8 %zero.060
+  %smallV.1 = select i1 %cmp11, i32 %6, i32 %smallV.055
+  %zero.1 = select i1 %cmp11, i8 %zero.0., i8 %zero.057
   %7 = and i1 %cmp11, %cmp19
-  %round_to_zero.1 = select i1 %7, i8 1, i8 %round_to_zero.062
+  %round_to_zero.1 = select i1 %7, i1 true, i1 %round_to_zero.059
   %cmp29 = fcmp ogt float %5, 0x3FECCCCCC0000000
   br i1 %cmp29, label %if.then30, label %for.inc
 
@@ -139,8 +139,8 @@ if.then38:                                        ; preds = %if.then30
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body6, %if.then38, %if.then30
-  %large.1 = phi i32 [ %6, %if.then38 ], [ %6, %if.then30 ], [ %large.059, %for.body6 ]
-  %one.1 = phi i8 [ 1, %if.then38 ], [ %one.061, %if.then30 ], [ %one.061, %for.body6 ]
+  %large.1 = phi i32 [ %6, %if.then38 ], [ %6, %if.then30 ], [ %large.056, %for.body6 ]
+  %one.1 = phi i8 [ 1, %if.then38 ], [ %one.058, %if.then30 ], [ %one.058, %for.body6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body6, !llvm.loop !4
@@ -152,90 +152,81 @@ for.end:                                          ; preds = %for.inc
   br i1 %or.cond, label %for.inc130, label %for.body50.lr.ph
 
 for.body50.lr.ph:                                 ; preds = %for.end
-  %8 = and i8 %zero.1, 1
-  %tobool.not = icmp eq i8 %8, 0
-  %9 = and i8 %one.1, 1
-  %tobool75.not = icmp eq i8 %9, 0
-  %or.cond57 = select i1 %tobool75.not, i1 true, i1 %tobool.not
-  %10 = and i8 %round_to_zero.1, 1
-  %tobool88.not = icmp eq i8 %10, 0
-  %or.cond57.fr = freeze i1 %or.cond57
-  br i1 %or.cond57.fr, label %for.body50.us, label %for.body50
+  %tobool = trunc i8 %zero.1 to i1
+  %tobool75 = trunc i8 %one.1 to i1
+  br i1 %tobool75, label %for.body50.us, label %for.body50
 
 for.body50.us:                                    ; preds = %for.body50.lr.ph, %for.inc126.us
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %for.inc126.us ], [ 0, %for.body50.lr.ph ]
-  %11 = load ptr, ptr %mIndices, align 8
-  %arrayidx53.us = getelementptr inbounds i32, ptr %11, i64 %indvars.iv72
-  %12 = load i32, ptr %arrayidx53.us, align 4
-  %idxprom54.us = zext i32 %12 to i64
+  %8 = load ptr, ptr %mIndices, align 8
+  %arrayidx53.us = getelementptr inbounds i32, ptr %8, i64 %indvars.iv72
+  %9 = load i32, ptr %arrayidx53.us, align 4
+  %idxprom54.us = zext i32 %9 to i64
   %arrayidx55.us = getelementptr inbounds %class.aiVector3t, ptr %out, i64 %idxprom54.us
-  %13 = load float, ptr %arrayidx55.us, align 4
-  %cmp57.us = fcmp ogt float %13, 0x3FECCCCCC0000000
-  %or.cond55.us = select i1 %cmp57.us, i1 %tobool.not, i1 false
-  br i1 %or.cond55.us, label %for.inc126.us.sink.split, label %if.else66.us
+  %10 = load float, ptr %arrayidx55.us, align 4
+  %cmp57.us = fcmp ule float %10, 0x3FECCCCCC0000000
+  %brmerge = select i1 %cmp57.us, i1 true, i1 %tobool
+  br i1 %brmerge, label %if.else83.us, label %for.inc126.us.sink.split
 
-if.else66.us:                                     ; preds = %for.body50.us
-  %cmp73.us = fcmp olt float %13, 0x3FB99999A0000000
-  %or.cond56.us = select i1 %cmp73.us, i1 %tobool75.not, i1 false
-  br i1 %or.cond56.us, label %for.inc126.us.sink.split, label %for.inc126.us
+if.else83.us:                                     ; preds = %for.body50.us
+  br i1 %tobool, label %if.then87.us, label %for.inc126.us
 
-for.inc126.us.sink.split:                         ; preds = %for.body50.us, %if.else66.us
-  %.sink = phi float [ 1.000000e+00, %if.else66.us ], [ 0.000000e+00, %for.body50.us ]
+if.then87.us:                                     ; preds = %if.else83.us
+  br i1 %round_to_zero.1, label %land.lhs.true89.us, label %land.lhs.true106.us
+
+land.lhs.true106.us:                              ; preds = %if.then87.us
+  %cmp113.us = fcmp ugt float %10, 0x3F847AE140000000
+  br i1 %cmp113.us, label %for.inc126.us, label %for.inc126.us.sink.split
+
+land.lhs.true89.us:                               ; preds = %if.then87.us
+  %cmp96.us = fcmp ult float %10, 0x3FEFAE1480000000
+  br i1 %cmp96.us, label %for.inc126.us, label %for.inc126.us.sink.split
+
+for.inc126.us.sink.split:                         ; preds = %land.lhs.true89.us, %land.lhs.true106.us, %for.body50.us
+  %.sink = phi float [ 0.000000e+00, %for.body50.us ], [ 1.000000e+00, %land.lhs.true106.us ], [ 0.000000e+00, %land.lhs.true89.us ]
   store float %.sink, ptr %arrayidx55.us, align 4
   br label %for.inc126.us
 
-for.inc126.us:                                    ; preds = %for.inc126.us.sink.split, %if.else66.us
+for.inc126.us:                                    ; preds = %for.inc126.us.sink.split, %land.lhs.true89.us, %land.lhs.true106.us, %if.else83.us
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %14 = load i32, ptr %arrayidx, align 8
-  %15 = zext i32 %14 to i64
-  %cmp49.us = icmp ult i64 %indvars.iv.next73, %15
+  %11 = load i32, ptr %arrayidx, align 8
+  %12 = zext i32 %11 to i64
+  %cmp49.us = icmp ult i64 %indvars.iv.next73, %12
   br i1 %cmp49.us, label %for.body50.us, label %for.inc130, !llvm.loop !6
 
 for.body50:                                       ; preds = %for.body50.lr.ph, %for.inc126
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %for.inc126 ], [ 0, %for.body50.lr.ph ]
-  %16 = load ptr, ptr %mIndices, align 8
-  %arrayidx53 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv69
-  %17 = load i32, ptr %arrayidx53, align 4
-  %idxprom54 = zext i32 %17 to i64
+  %13 = load ptr, ptr %mIndices, align 8
+  %arrayidx53 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv69
+  %14 = load i32, ptr %arrayidx53, align 4
+  %idxprom54 = zext i32 %14 to i64
   %arrayidx55 = getelementptr inbounds %class.aiVector3t, ptr %out, i64 %idxprom54
-  %18 = load float, ptr %arrayidx55, align 4
-  %cmp57 = fcmp ogt float %18, 0x3FECCCCCC0000000
-  %or.cond55 = select i1 %cmp57, i1 %tobool.not, i1 false
-  br i1 %or.cond55, label %for.inc126.sink.split, label %if.else66
+  %15 = load float, ptr %arrayidx55, align 4
+  %cmp57 = fcmp ule float %15, 0x3FECCCCCC0000000
+  %brmerge66 = select i1 %cmp57, i1 true, i1 %tobool
+  br i1 %brmerge66, label %if.else66, label %for.inc126.sink.split
 
 if.else66:                                        ; preds = %for.body50
-  %cmp73 = fcmp olt float %18, 0x3FB99999A0000000
-  %or.cond56 = select i1 %cmp73, i1 %tobool75.not, i1 false
-  br i1 %or.cond56, label %for.inc126.sink.split, label %if.else83
+  %cmp73 = fcmp uge float %15, 0x3FB99999A0000000
+  br i1 %cmp73, label %for.inc126, label %for.inc126.sink.split
 
-if.else83:                                        ; preds = %if.else66
-  br i1 %tobool88.not, label %land.lhs.true106, label %land.lhs.true89
-
-land.lhs.true89:                                  ; preds = %if.else83
-  %cmp96 = fcmp ult float %18, 0x3FEFAE1480000000
-  br i1 %cmp96, label %for.inc126, label %for.inc126.sink.split
-
-land.lhs.true106:                                 ; preds = %if.else83
-  %cmp113 = fcmp ugt float %18, 0x3F847AE140000000
-  br i1 %cmp113, label %for.inc126, label %for.inc126.sink.split
-
-for.inc126.sink.split:                            ; preds = %land.lhs.true106, %land.lhs.true89, %if.else66, %for.body50
-  %.sink79 = phi float [ 0.000000e+00, %for.body50 ], [ 1.000000e+00, %if.else66 ], [ 0.000000e+00, %land.lhs.true89 ], [ 1.000000e+00, %land.lhs.true106 ]
+for.inc126.sink.split:                            ; preds = %if.else66, %for.body50
+  %.sink79 = phi float [ 0.000000e+00, %for.body50 ], [ 1.000000e+00, %if.else66 ]
   store float %.sink79, ptr %arrayidx55, align 4
   br label %for.inc126
 
-for.inc126:                                       ; preds = %for.inc126.sink.split, %land.lhs.true89, %land.lhs.true106
+for.inc126:                                       ; preds = %for.inc126.sink.split, %if.else66
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %19 = load i32, ptr %arrayidx, align 8
-  %20 = zext i32 %19 to i64
-  %cmp49 = icmp ult i64 %indvars.iv.next70, %20
+  %16 = load i32, ptr %arrayidx, align 8
+  %17 = zext i32 %16 to i64
+  %cmp49 = icmp ult i64 %indvars.iv.next70, %17
   br i1 %cmp49, label %for.body50, label %for.inc130, !llvm.loop !6
 
 for.inc130:                                       ; preds = %for.inc126, %for.inc126.us, %for.end, %for.body
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %21 = load i32, ptr %mNumFaces, align 8
-  %22 = zext i32 %21 to i64
-  %cmp = icmp ult i64 %indvars.iv.next76, %22
+  %18 = load i32, ptr %mNumFaces, align 8
+  %19 = zext i32 %18 to i64
+  %cmp = icmp ult i64 %indvars.iv.next76, %19
   br i1 %cmp, label %for.body, label %for.end132, !llvm.loop !7
 
 for.end132:                                       ; preds = %for.inc130, %entry

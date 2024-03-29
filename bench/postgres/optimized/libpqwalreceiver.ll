@@ -719,9 +719,8 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture nounde
 
 8:                                                ; preds = %7, %2
   %9 = load i8, ptr %1, align 8
-  %10 = and i8 %9, 1
-  %.not42 = icmp eq i8 %10, 0
-  br i1 %.not42, label %12, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %8
   call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.33) #12
@@ -735,9 +734,8 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture nounde
   %17 = trunc i64 %14 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.34, i32 noundef %16, i32 noundef %17) #12
   %18 = load i8, ptr %1, align 8
-  %19 = and i8 %18, 1
-  %.not43 = icmp eq i8 %19, 0
-  br i1 %.not43, label %96, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %95
 
 20:                                               ; preds = %12
   call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.35) #12
@@ -746,8 +744,8 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture nounde
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.36, i32 noundef %22) #12
   %23 = getelementptr inbounds i8, ptr %1, i64 48
   %24 = load ptr, ptr %23, align 8
-  %.not44 = icmp eq ptr %24, null
-  br i1 %.not44, label %26, label %25
+  %.not42 = icmp eq ptr %24, null
+  br i1 %.not42, label %26, label %25
 
 25:                                               ; preds = %20
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.37, ptr noundef nonnull %24) #12
@@ -756,9 +754,8 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture nounde
 26:                                               ; preds = %25, %20
   %27 = getelementptr inbounds i8, ptr %1, i64 56
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not45 = icmp eq i8 %29, 0
-  br i1 %.not45, label %35, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %35
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr %0, align 8
@@ -773,8 +770,8 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture nounde
 35:                                               ; preds = %34, %30, %26
   %36 = getelementptr inbounds i8, ptr %1, i64 64
   %37 = load ptr, ptr %36, align 8
-  %.not46 = icmp eq ptr %37, null
-  br i1 %.not46, label %44, label %38
+  %.not43 = icmp eq ptr %37, null
+  br i1 %.not43, label %44, label %38
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr %0, align 8
@@ -801,144 +798,140 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture nounde
   %49 = getelementptr inbounds i8, ptr %46, i64 16
   %50 = load i32, ptr %48, align 4
   %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %.lr.ph27.i, label %stringlist_to_identifierstr.exit
+  br i1 %51, label %.lr.ph26.i, label %stringlist_to_identifierstr.exit
 
-.lr.ph27.i:                                       ; preds = %.lr.ph.i, %63
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %63 ], [ 0, %.lr.ph.i ]
-  %.0142325.i = phi i8 [ %.1.i, %63 ], [ 1, %.lr.ph.i ]
+.lr.ph26.i:                                       ; preds = %.lr.ph.i, %62
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %62 ], [ 0, %.lr.ph.i ]
+  %.0142224.i = phi i1 [ false, %62 ], [ true, %.lr.ph.i ]
   %52 = load ptr, ptr %49, align 8
   %53 = getelementptr %union.ListCell, ptr %52, i64 %indvars.iv.i
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = and i8 %.0142325.i, 1
-  %.not18.i = icmp eq i8 %57, 0
-  br i1 %.not18.i, label %58, label %59
+  br i1 %.0142224.i, label %58, label %57
 
-58:                                               ; preds = %.lr.ph27.i
+57:                                               ; preds = %.lr.ph26.i
   call void @appendStringInfoChar(ptr noundef nonnull %3, i8 noundef signext 44) #12
-  br label %59
+  br label %58
 
-59:                                               ; preds = %58, %.lr.ph27.i
-  %.1.i = phi i8 [ %.0142325.i, %58 ], [ 0, %.lr.ph27.i ]
-  %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #13
-  %61 = call ptr @PQescapeIdentifier(ptr noundef %47, ptr noundef %56, i64 noundef %60) #12
-  %.not19.i = icmp eq ptr %61, null
-  br i1 %.not19.i, label %stringlist_to_identifierstr.exit.thread, label %63
+58:                                               ; preds = %57, %.lr.ph26.i
+  %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #13
+  %60 = call ptr @PQescapeIdentifier(ptr noundef %47, ptr noundef %56, i64 noundef %59) #12
+  %.not18.i = icmp eq ptr %60, null
+  br i1 %.not18.i, label %stringlist_to_identifierstr.exit.thread, label %62
 
-stringlist_to_identifierstr.exit.thread:          ; preds = %59
-  %62 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %62) #12
+stringlist_to_identifierstr.exit.thread:          ; preds = %58
+  %61 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %61) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %68
+  br label %67
 
-63:                                               ; preds = %59
-  call void @appendStringInfoString(ptr noundef nonnull %3, ptr noundef nonnull %61) #12
-  call void @PQfreemem(ptr noundef nonnull %61) #12
+62:                                               ; preds = %58
+  call void @appendStringInfoString(ptr noundef nonnull %3, ptr noundef nonnull %60) #12
+  call void @PQfreemem(ptr noundef nonnull %60) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %64 = load i32, ptr %48, align 4
-  %65 = sext i32 %64 to i64
-  %66 = icmp slt i64 %indvars.iv.next.i, %65
-  br i1 %66, label %.lr.ph27.i, label %stringlist_to_identifierstr.exit
+  %63 = load i32, ptr %48, align 4
+  %64 = sext i32 %63 to i64
+  %65 = icmp slt i64 %indvars.iv.next.i, %64
+  br i1 %65, label %.lr.ph26.i, label %stringlist_to_identifierstr.exit
 
-stringlist_to_identifierstr.exit:                 ; preds = %63, %44, %.lr.ph.i
-  %67 = load ptr, ptr %3, align 8
+stringlist_to_identifierstr.exit:                 ; preds = %62, %44, %.lr.ph.i
+  %66 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %.not47 = icmp eq ptr %67, null
-  br i1 %.not47, label %68, label %75
+  %.not44 = icmp eq ptr %66, null
+  br i1 %.not44, label %67, label %74
 
-68:                                               ; preds = %stringlist_to_identifierstr.exit.thread, %stringlist_to_identifierstr.exit
-  %69 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %69)
-  %70 = call i32 @errcode(i32 noundef 8389) #12
-  %71 = load ptr, ptr %0, align 8
-  %72 = call ptr @PQerrorMessage(ptr noundef %71) #12
-  %73 = call ptr @pchomp(ptr noundef %72) #12
-  %74 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, ptr noundef %73) #12
+67:                                               ; preds = %stringlist_to_identifierstr.exit.thread, %stringlist_to_identifierstr.exit
+  %68 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %68)
+  %69 = call i32 @errcode(i32 noundef 8389) #12
+  %70 = load ptr, ptr %0, align 8
+  %71 = call ptr @PQerrorMessage(ptr noundef %70) #12
+  %72 = call ptr @pchomp(ptr noundef %71) #12
+  %73 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, ptr noundef %72) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 609, ptr noundef nonnull @__func__.libpqrcv_startstreaming) #12
   unreachable
 
-75:                                               ; preds = %stringlist_to_identifierstr.exit
-  %76 = load ptr, ptr %0, align 8
-  %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #13
-  %78 = call ptr @PQescapeLiteral(ptr noundef %76, ptr noundef nonnull %67, i64 noundef %77) #12
-  %.not48 = icmp eq ptr %78, null
-  br i1 %.not48, label %79, label %86
+74:                                               ; preds = %stringlist_to_identifierstr.exit
+  %75 = load ptr, ptr %0, align 8
+  %76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #13
+  %77 = call ptr @PQescapeLiteral(ptr noundef %75, ptr noundef nonnull %66, i64 noundef %76) #12
+  %.not45 = icmp eq ptr %77, null
+  br i1 %.not45, label %78, label %85
 
-79:                                               ; preds = %75
-  %80 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %80)
-  %81 = call i32 @errcode(i32 noundef 8389) #12
-  %82 = load ptr, ptr %0, align 8
-  %83 = call ptr @PQerrorMessage(ptr noundef %82) #12
-  %84 = call ptr @pchomp(ptr noundef %83) #12
-  %85 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, ptr noundef %84) #12
+78:                                               ; preds = %74
+  %79 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %79)
+  %80 = call i32 @errcode(i32 noundef 8389) #12
+  %81 = load ptr, ptr %0, align 8
+  %82 = call ptr @PQerrorMessage(ptr noundef %81) #12
+  %83 = call ptr @pchomp(ptr noundef %82) #12
+  %84 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, ptr noundef %83) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 616, ptr noundef nonnull @__func__.libpqrcv_startstreaming) #12
   unreachable
 
-86:                                               ; preds = %75
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.41, ptr noundef nonnull %78) #12
-  call void @PQfreemem(ptr noundef nonnull %78) #12
-  call void @pfree(ptr noundef nonnull %67) #12
-  %87 = getelementptr inbounds i8, ptr %1, i64 40
-  %88 = load i8, ptr %87, align 8
-  %89 = and i8 %88, 1
-  %.not49 = icmp eq i8 %89, 0
-  br i1 %.not49, label %95, label %90
+85:                                               ; preds = %74
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.41, ptr noundef nonnull %77) #12
+  call void @PQfreemem(ptr noundef nonnull %77) #12
+  call void @pfree(ptr noundef nonnull %66) #12
+  %86 = getelementptr inbounds i8, ptr %1, i64 40
+  %87 = load i8, ptr %86, align 8
+  %88 = trunc i8 %87 to i1
+  br i1 %88, label %89, label %94
 
-90:                                               ; preds = %86
-  %91 = load ptr, ptr %0, align 8
-  %92 = call i32 @PQserverVersion(ptr noundef %91) #12
-  %93 = icmp sgt i32 %92, 139999
-  br i1 %93, label %94, label %95
+89:                                               ; preds = %85
+  %90 = load ptr, ptr %0, align 8
+  %91 = call i32 @PQserverVersion(ptr noundef %90) #12
+  %92 = icmp sgt i32 %91, 139999
+  br i1 %92, label %93, label %94
 
-94:                                               ; preds = %90
+93:                                               ; preds = %89
   call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.42) #12
-  br label %95
+  br label %94
 
-95:                                               ; preds = %94, %90, %86
+94:                                               ; preds = %93, %89, %85
   call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext 41) #12
-  br label %99
+  br label %98
 
-96:                                               ; preds = %12
-  %97 = getelementptr inbounds i8, ptr %1, i64 24
-  %98 = load i32, ptr %97, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.43, i32 noundef %98) #12
-  br label %99
+95:                                               ; preds = %12
+  %96 = getelementptr inbounds i8, ptr %1, i64 24
+  %97 = load i32, ptr %96, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.43, i32 noundef %97) #12
+  br label %98
 
-99:                                               ; preds = %96, %95
-  %100 = load ptr, ptr %0, align 8
-  %101 = load ptr, ptr %4, align 8
-  %102 = call fastcc ptr @libpqrcv_PQexec(ptr noundef %100, ptr noundef %101)
-  %103 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %103) #12
-  %104 = call i32 @PQresultStatus(ptr noundef %102) #12
-  %105 = icmp ne i32 %104, 1
-  br i1 %105, label %107, label %106
+98:                                               ; preds = %95, %94
+  %99 = load ptr, ptr %0, align 8
+  %100 = load ptr, ptr %4, align 8
+  %101 = call fastcc ptr @libpqrcv_PQexec(ptr noundef %99, ptr noundef %100)
+  %102 = load ptr, ptr %4, align 8
+  call void @pfree(ptr noundef %102) #12
+  %103 = call i32 @PQresultStatus(ptr noundef %101) #12
+  %104 = icmp ne i32 %103, 1
+  br i1 %104, label %106, label %105
 
-106:                                              ; preds = %99
-  call void @PQclear(ptr noundef %102) #12
-  br label %116
+105:                                              ; preds = %98
+  call void @PQclear(ptr noundef %101) #12
+  br label %115
 
-107:                                              ; preds = %99
-  %108 = call i32 @PQresultStatus(ptr noundef %102) #12
-  %.not50 = icmp eq i32 %108, 8
-  call void @PQclear(ptr noundef %102) #12
-  br i1 %.not50, label %116, label %109
+106:                                              ; preds = %98
+  %107 = call i32 @PQresultStatus(ptr noundef %101) #12
+  %.not46 = icmp eq i32 %107, 8
+  call void @PQclear(ptr noundef %101) #12
+  br i1 %.not46, label %115, label %108
 
-109:                                              ; preds = %107
-  %110 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %110)
-  %111 = call i32 @errcode(i32 noundef 16908800) #12
-  %112 = load ptr, ptr %0, align 8
-  %113 = call ptr @PQerrorMessage(ptr noundef %112) #12
-  %114 = call ptr @pchomp(ptr noundef %113) #12
-  %115 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, ptr noundef %114) #12
+108:                                              ; preds = %106
+  %109 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %109)
+  %110 = call i32 @errcode(i32 noundef 16908800) #12
+  %111 = load ptr, ptr %0, align 8
+  %112 = call ptr @PQerrorMessage(ptr noundef %111) #12
+  %113 = call ptr @pchomp(ptr noundef %112) #12
+  %114 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, ptr noundef %113) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 646, ptr noundef nonnull @__func__.libpqrcv_startstreaming) #12
   unreachable
 
-116:                                              ; preds = %107, %106
-  ret i1 %105
+115:                                              ; preds = %106, %105
+  ret i1 %104
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1228,9 +1221,8 @@ define internal ptr @libpqrcv_create_slot(ptr nocapture noundef readonly %0, ptr
 13:                                               ; preds = %12, %7
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not = icmp eq i8 %16, 0
-  br i1 %.not, label %28, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %28
 
 17:                                               ; preds = %13
   call void @appendStringInfoString(ptr noundef nonnull %8, ptr noundef nonnull @.str.53) #12
@@ -1238,7 +1230,7 @@ define internal ptr @libpqrcv_create_slot(ptr nocapture noundef readonly %0, ptr
 
 18:                                               ; preds = %17
   call void @appendStringInfoChar(ptr noundef nonnull %8, i8 noundef signext 40) #12
-  br i1 %3, label %.thread30, label %.thread36
+  br i1 %3, label %.thread29, label %.thread35
 
 .thread:                                          ; preds = %17
   br i1 %3, label %19, label %20
@@ -1249,31 +1241,31 @@ define internal ptr @libpqrcv_create_slot(ptr nocapture noundef readonly %0, ptr
   br label %20
 
 20:                                               ; preds = %.thread, %19
-  br i1 %4, label %.thread33, label %22
+  br i1 %4, label %.thread32, label %22
 
-.thread36:                                        ; preds = %18
-  br i1 %4, label %.thread37, label %.thread32
+.thread35:                                        ; preds = %18
+  br i1 %4, label %.thread36, label %.thread31
 
-.thread30:                                        ; preds = %18
+.thread29:                                        ; preds = %18
   call void @appendStringInfoString(ptr noundef nonnull %8, ptr noundef nonnull @.str.54) #12
   call void @appendStringInfoString(ptr noundef nonnull %8, ptr noundef nonnull @.str.55) #12
-  br i1 %4, label %.thread37, label %.thread32
+  br i1 %4, label %.thread36, label %.thread31
 
-.thread33:                                        ; preds = %20
+.thread32:                                        ; preds = %20
   call void @appendStringInfoString(ptr noundef nonnull %8, ptr noundef nonnull @.str.56) #12
   call void @appendStringInfoChar(ptr noundef nonnull %8, i8 noundef signext 32) #12
   br label %22
 
-.thread37:                                        ; preds = %.thread30, %.thread36
+.thread36:                                        ; preds = %.thread29, %.thread35
   call void @appendStringInfoString(ptr noundef nonnull %8, ptr noundef nonnull @.str.56) #12
   call void @appendStringInfoString(ptr noundef nonnull %8, ptr noundef nonnull @.str.55) #12
-  br label %.thread32
+  br label %.thread31
 
-.thread32:                                        ; preds = %.thread36, %.thread37, %.thread30
+.thread31:                                        ; preds = %.thread35, %.thread36, %.thread29
   %21 = icmp ult i32 %5, 3
   br i1 %21, label %switch.lookup, label %27
 
-22:                                               ; preds = %20, %.thread33
+22:                                               ; preds = %20, %.thread32
   switch i32 %5, label %31 [
     i32 0, label %23
     i32 1, label %24
@@ -1292,14 +1284,14 @@ define internal ptr @libpqrcv_create_slot(ptr nocapture noundef readonly %0, ptr
   call void @appendStringInfoString(ptr noundef nonnull %8, ptr noundef nonnull @.str.62) #12
   br label %31
 
-switch.lookup:                                    ; preds = %.thread32
+switch.lookup:                                    ; preds = %.thread31
   %26 = zext nneg i32 %5 to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.libpqrcv_create_slot, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @appendStringInfoString(ptr noundef nonnull %8, ptr noundef nonnull %switch.load) #12
   br label %27
 
-27:                                               ; preds = %.thread32, %switch.lookup
+27:                                               ; preds = %.thread31, %switch.lookup
   call void @appendStringInfoChar(ptr noundef nonnull %8, i8 noundef signext 41) #12
   br label %31
 
@@ -1321,8 +1313,8 @@ switch.lookup:                                    ; preds = %.thread32
   %35 = load ptr, ptr %8, align 8
   call void @pfree(ptr noundef %35) #12
   %36 = call i32 @PQresultStatus(ptr noundef %34) #12
-  %.not26 = icmp eq i32 %36, 2
-  br i1 %.not26, label %44, label %37
+  %.not = icmp eq i32 %36, 2
+  br i1 %.not, label %44, label %37
 
 37:                                               ; preds = %31
   call void @PQclear(ptr noundef %34) #12
@@ -1337,8 +1329,8 @@ switch.lookup:                                    ; preds = %.thread32
   unreachable
 
 44:                                               ; preds = %31
-  %.not27 = icmp eq ptr %6, null
-  br i1 %.not27, label %49, label %45
+  %.not26 = icmp eq ptr %6, null
+  br i1 %.not26, label %49, label %45
 
 45:                                               ; preds = %44
   %46 = call ptr @PQgetvalue(ptr noundef %34, i32 noundef 0, i32 noundef 1) #12
@@ -1349,8 +1341,8 @@ switch.lookup:                                    ; preds = %.thread32
 
 49:                                               ; preds = %45, %44
   %50 = call i32 @PQgetisnull(ptr noundef %34, i32 noundef 0, i32 noundef 2) #12
-  %.not28 = icmp eq i32 %50, 0
-  br i1 %.not28, label %51, label %54
+  %.not27 = icmp eq i32 %50, 0
+  br i1 %.not27, label %51, label %54
 
 51:                                               ; preds = %49
   %52 = call ptr @PQgetvalue(ptr noundef %34, i32 noundef 0, i32 noundef 2) #12

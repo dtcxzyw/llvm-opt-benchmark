@@ -602,9 +602,8 @@ define dso_local noundef i32 @ExecuteSqlCommandBuf(ptr noundef %0, ptr noundef %
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 464
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %ExecuteSimpleCommands.exit, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %ExecuteSimpleCommands.exit
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 440
@@ -646,8 +645,8 @@ define dso_local noundef i32 @ExecuteSqlCommandBuf(ptr noundef %0, ptr noundef %
   br label %33
 
 33:                                               ; preds = %72, %.lr.ph.i
-  %.035.i = phi ptr [ %1, %.lr.ph.i ], [ %73, %72 ]
-  %34 = load i8, ptr %.035.i, align 1
+  %.033.i = phi ptr [ %1, %.lr.ph.i ], [ %73, %72 ]
+  %34 = load i8, ptr %.033.i, align 1
   %35 = icmp eq i8 %34, 10
   %.pre.i = load ptr, ptr %22, align 8
   br i1 %35, label %36, label %40
@@ -722,9 +721,8 @@ ExecuteSqlCommand.exit.i:                         ; preds = %51, %50, %44, %44, 
 
 57:                                               ; preds = %56
   %58 = load i8, ptr %30, align 4
-  %59 = and i8 %58, 1
-  %.not.i = icmp eq i8 %59, 0
-  br i1 %.not.i, label %60, label %68
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %68, label %60
 
 60:                                               ; preds = %57
   store i32 0, ptr %21, align 8
@@ -732,9 +730,8 @@ ExecuteSqlCommand.exit.i:                         ; preds = %51, %50, %44, %44, 
 
 61:                                               ; preds = %56
   %62 = load i8, ptr %29, align 4
-  %63 = and i8 %62, 1
-  %.not33.i = icmp eq i8 %63, 0
-  br i1 %.not33.i, label %64, label %68
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %68, label %64
 
 64:                                               ; preds = %61
   %65 = load i8, ptr %30, align 4
@@ -756,7 +753,7 @@ ExecuteSqlCommand.exit.i:                         ; preds = %51, %50, %44, %44, 
   br label %72
 
 72:                                               ; preds = %71, %69, %68, %64, %60, %55, %54, %ExecuteSqlCommand.exit.i, %43, %41
-  %73 = getelementptr i8, ptr %.035.i, i64 1
+  %73 = getelementptr i8, ptr %.033.i, i64 1
   %exitcond.not.i = icmp eq ptr %73, %20
   br i1 %exitcond.not.i, label %ExecuteSimpleCommands.exit, label %33, !llvm.loop !7
 
@@ -840,9 +837,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @EndDBCopyMode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 464
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %25, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %25
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 440
@@ -861,8 +857,8 @@ define dso_local void @EndDBCopyMode(ptr noundef %0, ptr noundef %1) local_unnam
 14:                                               ; preds = %6
   %15 = tail call ptr @PQgetResult(ptr noundef %11) #8
   %16 = tail call i32 @PQresultStatus(ptr noundef %15) #8
-  %.not13 = icmp eq i32 %16, 1
-  br i1 %.not13, label %20, label %17
+  %.not = icmp eq i32 %16, 1
+  br i1 %.not, label %20, label %17
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %7, align 8
@@ -874,8 +870,8 @@ define dso_local void @EndDBCopyMode(ptr noundef %0, ptr noundef %1) local_unnam
   tail call void @PQclear(ptr noundef %15) #8
   %21 = load ptr, ptr %7, align 8
   %22 = tail call ptr @PQgetResult(ptr noundef %21) #8
-  %.not14 = icmp eq ptr %22, null
-  br i1 %.not14, label %24, label %23
+  %.not13 = icmp eq ptr %22, null
+  br i1 %.not13, label %24, label %23
 
 23:                                               ; preds = %20
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef %1) #8

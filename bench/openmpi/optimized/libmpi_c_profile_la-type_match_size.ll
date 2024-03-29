@@ -19,9 +19,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Type_match_size(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = load i8, ptr @ompi_mpi_param_check, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %11, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %3
   %7 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -47,8 +46,8 @@ switch.lookup:                                    ; preds = %11
   %switch.offset = add nuw nsw i16 %switch.idx.mult, 4096
   %13 = tail call ptr @ompi_datatype_match_size(i32 noundef %1, i16 noundef zeroext %switch.offset, i16 noundef zeroext -16384) #2
   store ptr %13, ptr %2, align 8
-  %.not9 = icmp eq ptr %13, @ompi_mpi_datatype_null
-  br i1 %.not9, label %14, label %16
+  %.not = icmp eq ptr %13, @ompi_mpi_datatype_null
+  br i1 %.not, label %14, label %16
 
 14:                                               ; preds = %.thread, %switch.lookup
   %15 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 13, ptr noundef nonnull @FUNC_NAME) #2

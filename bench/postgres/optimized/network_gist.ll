@@ -554,15 +554,14 @@ define dso_local i64 @inet_gist_compress(ptr nocapture noundef readonly %0) loca
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 26
   %6 = load i8, ptr %5, align 2
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %50, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %50
 
 8:                                                ; preds = %1
   %9 = tail call ptr @palloc(i64 noundef 32) #8
   %10 = load i64, ptr %4, align 8
-  %.not40 = icmp eq i64 %10, 0
-  br i1 %.not40, label %.sink.split, label %11
+  %.not = icmp eq i64 %10, 0
+  br i1 %.not, label %.sink.split, label %11
 
 11:                                               ; preds = %8
   %12 = inttoptr i64 %10 to ptr
@@ -570,17 +569,17 @@ define dso_local i64 @inet_gist_compress(ptr nocapture noundef readonly %0) loca
   %14 = tail call ptr @palloc0(i64 noundef 20) #8
   %15 = load i8, ptr %13, align 1
   %16 = and i8 %15, 1
-  %.not41 = icmp eq i8 %16, 0
+  %.not40 = icmp eq i8 %16, 0
   %17 = getelementptr inbounds i8, ptr %13, i64 1
   %18 = getelementptr inbounds i8, ptr %13, i64 4
-  %19 = select i1 %.not41, ptr %18, ptr %17
+  %19 = select i1 %.not40, ptr %18, ptr %17
   %20 = load i8, ptr %19, align 1
   %21 = getelementptr inbounds i8, ptr %14, i64 1
   store i8 %20, ptr %21, align 1
   %22 = load i8, ptr %13, align 1
   %23 = and i8 %22, 1
-  %.not42 = icmp eq i8 %23, 0
-  %24 = select i1 %.not42, ptr %18, ptr %17
+  %.not41 = icmp eq i8 %23, 0
+  %24 = select i1 %.not41, ptr %18, ptr %17
   %25 = getelementptr inbounds i8, ptr %24, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = getelementptr inbounds i8, ptr %14, i64 2
@@ -592,8 +591,8 @@ define dso_local i64 @inet_gist_compress(ptr nocapture noundef readonly %0) loca
   %31 = getelementptr inbounds i8, ptr %14, i64 4
   %32 = load i8, ptr %13, align 1
   %33 = and i8 %32, 1
-  %.not43 = icmp eq i8 %33, 0
-  %34 = select i1 %.not43, ptr %18, ptr %17
+  %.not42 = icmp eq i8 %33, 0
+  %34 = select i1 %.not42, ptr %18, ptr %17
   %35 = getelementptr inbounds i8, ptr %34, i64 2
   %36 = select i1 %28, i64 16, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %31, ptr noundef nonnull align 1 dereferenceable(4) %35, i64 %36, i1 false)

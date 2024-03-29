@@ -6407,7 +6407,7 @@ entry:
   ret ptr null
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6649,9 +6649,9 @@ lpad6:                                            ; preds = %try.cont, %catch
 if.end:                                           ; preds = %entry
   %mValue = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i8, ptr %mValue, align 8
-  %6 = and i8 %5, 1
   %mValue8 = getelementptr inbounds i8, ptr %this, i64 8
-  store i8 %6, ptr %mValue8, align 8
+  %frombool = and i8 %5, 1
+  store i8 %frombool, ptr %mValue8, align 8
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -6664,9 +6664,8 @@ entry:
   %ref.tmp = alloca %"class.std::allocator.0", align 1
   %mValue = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %mValue, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %cond = select i1 %tobool.not, ptr @.str.77, ptr @.str.76
+  %tobool = trunc i8 %0 to i1
+  %cond = select i1 %tobool, ptr @.str.76, ptr @.str.77
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc unwind label %lpad
@@ -6676,13 +6675,13 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  %call.i.i = select i1 %tobool.not, i64 5, i64 4
+  %call.i.i = select i1 %tobool, i64 4, i64 5
   %add.ptr.i = getelementptr inbounds i8, ptr %cond, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %cond, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #18
   br label %lpad.body
@@ -6692,12 +6691,12 @@ invoke.cont:                                      ; preds = %.noexc
   ret void
 
 lpad:                                             ; preds = %call.i.noexc, %entry
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -6707,9 +6706,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK7openvdb5v11_013TypedMetadataIbE6asB
 entry:
   %mValue = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %mValue, align 8
-  %1 = and i8 %0, 1
-  %2 = icmp ne i8 %1, 0
-  ret i1 %2
+  %1 = trunc i8 %0 to i1
+  ret i1 %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7594,7 +7592,7 @@ attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind memory(read) }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

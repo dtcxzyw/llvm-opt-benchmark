@@ -169,9 +169,8 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %2, %11
 define noundef zeroext i1 @_ZNK19TrafficTypesRowData7checkedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -1606,130 +1605,129 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
 _ZN19TrafficTypesRowDataC2ERKS_.exit:             ; preds = %15, %27
   %29 = getelementptr inbounds i8, ptr %19, i64 32
   %30 = load i8, ptr %29, align 8
-  %31 = and i8 %30, 1
-  switch i32 %3, label %61 [
-    i32 0, label %32
-    i32 10, label %52
+  switch i32 %3, label %60 [
+    i32 0, label %31
+    i32 10, label %51
     i32 256, label %.invoke
-    i32 257, label %59
+    i32 257, label %58
   ]
 
-32:                                               ; preds = %_ZN19TrafficTypesRowDataC2ERKS_.exit
-  %33 = load i32, ptr %8, align 4
-  switch i32 %33, label %61 [
-    i32 1, label %34
+31:                                               ; preds = %_ZN19TrafficTypesRowDataC2ERKS_.exit
+  %32 = load i32, ptr %8, align 4
+  switch i32 %32, label %60 [
+    i32 1, label %33
     i32 3, label %.invoke
   ]
 
-34:                                               ; preds = %32
+33:                                               ; preds = %31
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   store ptr %22, ptr %5, align 8, !alias.scope !19
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %24, ptr %35, align 8, !alias.scope !19
-  %36 = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 %26, ptr %36, align 8, !alias.scope !19
-  br i1 %.not.i.i.i.i, label %_ZNK19TrafficTypesRowData4nameEv.exit, label %37
+  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %24, ptr %34, align 8, !alias.scope !19
+  %35 = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 %26, ptr %35, align 8, !alias.scope !19
+  br i1 %.not.i.i.i.i, label %_ZNK19TrafficTypesRowData4nameEv.exit, label %36
 
-37:                                               ; preds = %34
-  %38 = atomicrmw add ptr %22, i32 1 seq_cst, align 4, !noalias !19
+36:                                               ; preds = %33
+  %37 = atomicrmw add ptr %22, i32 1 seq_cst, align 4, !noalias !19
   br label %_ZNK19TrafficTypesRowData4nameEv.exit
 
-_ZNK19TrafficTypesRowData4nameEv.exit:            ; preds = %34, %37
+_ZNK19TrafficTypesRowData4nameEv.exit:            ; preds = %33, %36
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
-          to label %39 unwind label %44
+          to label %38 unwind label %43
 
-39:                                               ; preds = %_ZNK19TrafficTypesRowData4nameEv.exit
-  %40 = load ptr, ptr %5, align 8
-  %.not.i.i.i = icmp eq ptr %40, null
+38:                                               ; preds = %_ZNK19TrafficTypesRowData4nameEv.exit
+  %39 = load ptr, ptr %5, align 8
+  %.not.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %39
-  %41 = atomicrmw sub ptr %40, i32 1 seq_cst, align 4
-  %.not.i.i = icmp eq i32 %41, 1
-  br i1 %.not.i.i, label %42, label %_ZN7QStringD2Ev.exit
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %38
+  %40 = atomicrmw sub ptr %39, i32 1 seq_cst, align 4
+  %.not.i.i = icmp eq i32 %40, 1
+  br i1 %.not.i.i, label %41, label %_ZN7QStringD2Ev.exit
 
-42:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
-  %43 = load ptr, ptr %5, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %43, i64 noundef 2, i64 noundef 8) #19
+41:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
+  %42 = load ptr, ptr %5, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %42, i64 noundef 2, i64 noundef 8) #19
   br label %_ZN7QStringD2Ev.exit
 
-44:                                               ; preds = %_ZNK19TrafficTypesRowData4nameEv.exit
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %_ZNK19TrafficTypesRowData4nameEv.exit
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %46 = load ptr, ptr %5, align 8
-  %.not.i.i.i14 = icmp eq ptr %46, null
+  %45 = load ptr, ptr %5, align 8
+  %.not.i.i.i14 = icmp eq ptr %45, null
   br i1 %.not.i.i.i14, label %_ZN7QStringD2Ev.exit17, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15:    ; preds = %44
-  %47 = atomicrmw sub ptr %46, i32 1 seq_cst, align 4
-  %.not.i.i16 = icmp eq i32 %47, 1
-  br i1 %.not.i.i16, label %48, label %_ZN7QStringD2Ev.exit17
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15:    ; preds = %43
+  %46 = atomicrmw sub ptr %45, i32 1 seq_cst, align 4
+  %.not.i.i16 = icmp eq i32 %46, 1
+  br i1 %.not.i.i16, label %47, label %_ZN7QStringD2Ev.exit17
 
-48:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15
-  %49 = load ptr, ptr %5, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %49, i64 noundef 2, i64 noundef 8) #19
+47:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15
+  %48 = load ptr, ptr %5, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %48, i64 noundef 2, i64 noundef 8) #19
   br label %_ZN7QStringD2Ev.exit17
 
-50:                                               ; preds = %.invoke, %59
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %.invoke, %58
+  %50 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7QStringD2Ev.exit17
 
-52:                                               ; preds = %_ZN19TrafficTypesRowDataC2ERKS_.exit
-  %53 = load i32, ptr %8, align 4
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %61
+51:                                               ; preds = %_ZN19TrafficTypesRowDataC2ERKS_.exit
+  %52 = load i32, ptr %8, align 4
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %60
 
-55:                                               ; preds = %52
-  %56 = shl nuw nsw i8 %31, 1
-  %57 = zext nneg i8 %56 to i32
+54:                                               ; preds = %51
+  %55 = trunc i8 %30 to i1
+  %56 = select i1 %55, i32 2, i32 0
   br label %.invoke
 
-.invoke:                                          ; preds = %32, %_ZN19TrafficTypesRowDataC2ERKS_.exit, %55
-  %58 = phi i32 [ %57, %55 ], [ %20, %_ZN19TrafficTypesRowDataC2ERKS_.exit ], [ %20, %32 ]
-  invoke void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %58)
-          to label %_ZN7QStringD2Ev.exit unwind label %50
+.invoke:                                          ; preds = %31, %_ZN19TrafficTypesRowDataC2ERKS_.exit, %54
+  %57 = phi i32 [ %56, %54 ], [ %20, %_ZN19TrafficTypesRowDataC2ERKS_.exit ], [ %20, %31 ]
+  invoke void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %57)
+          to label %_ZN7QStringD2Ev.exit unwind label %49
 
-59:                                               ; preds = %_ZN19TrafficTypesRowDataC2ERKS_.exit
-  %60 = icmp ne i8 %31, 0
-  invoke void @_ZN8QVariantC1Eb(ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext %60)
-          to label %_ZN7QStringD2Ev.exit unwind label %50
+58:                                               ; preds = %_ZN19TrafficTypesRowDataC2ERKS_.exit
+  %59 = trunc i8 %30 to i1
+  invoke void @_ZN8QVariantC1Eb(ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext %59)
+          to label %_ZN7QStringD2Ev.exit unwind label %49
 
-61:                                               ; preds = %52, %_ZN19TrafficTypesRowDataC2ERKS_.exit, %32
+60:                                               ; preds = %51, %_ZN19TrafficTypesRowDataC2ERKS_.exit, %31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %62 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 2, ptr %62, align 8
+  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 2, ptr %61, align 8
   br label %_ZN7QStringD2Ev.exit
 
-_ZN7QStringD2Ev.exit:                             ; preds = %.invoke, %42, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %39, %59, %61
+_ZN7QStringD2Ev.exit:                             ; preds = %.invoke, %41, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %38, %58, %60
   br i1 %.not.i.i.i.i, label %_ZN19TrafficTypesRowDataD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %_ZN7QStringD2Ev.exit
-  %63 = atomicrmw sub ptr %22, i32 1 seq_cst, align 4
-  %.not.i.i.i19 = icmp eq i32 %63, 1
-  br i1 %.not.i.i.i19, label %64, label %_ZN19TrafficTypesRowDataD2Ev.exit
+  %62 = atomicrmw sub ptr %22, i32 1 seq_cst, align 4
+  %.not.i.i.i19 = icmp eq i32 %62, 1
+  br i1 %.not.i.i.i19, label %63, label %_ZN19TrafficTypesRowDataD2Ev.exit
 
-64:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i
+63:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %22, i64 noundef 2, i64 noundef 8) #19
   br label %_ZN19TrafficTypesRowDataD2Ev.exit
 
-_ZN7QStringD2Ev.exit17:                           ; preds = %48, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15, %44, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %45, %44 ], [ %45, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15 ], [ %45, %48 ]
+_ZN7QStringD2Ev.exit17:                           ; preds = %47, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15, %43, %49
+  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %44, %43 ], [ %44, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15 ], [ %44, %47 ]
   br i1 %.not.i.i.i.i, label %_ZN19TrafficTypesRowDataD2Ev.exit23, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i21
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i21:  ; preds = %_ZN7QStringD2Ev.exit17
-  %65 = atomicrmw sub ptr %22, i32 1 seq_cst, align 4
-  %.not.i.i.i22 = icmp eq i32 %65, 1
-  br i1 %.not.i.i.i22, label %66, label %_ZN19TrafficTypesRowDataD2Ev.exit23
+  %64 = atomicrmw sub ptr %22, i32 1 seq_cst, align 4
+  %.not.i.i.i22 = icmp eq i32 %64, 1
+  br i1 %.not.i.i.i22, label %65, label %_ZN19TrafficTypesRowDataD2Ev.exit23
 
-66:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i21
+65:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i21
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %22, i64 noundef 2, i64 noundef 8) #19
   br label %_ZN19TrafficTypesRowDataD2Ev.exit23
 
-_ZN19TrafficTypesRowDataD2Ev.exit23:              ; preds = %_ZN7QStringD2Ev.exit17, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i21, %66
+_ZN19TrafficTypesRowDataD2Ev.exit23:              ; preds = %_ZN7QStringD2Ev.exit17, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i21, %65
   resume { ptr, i32 } %.pn
 
-_ZN19TrafficTypesRowDataD2Ev.exit:                ; preds = %64, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %_ZN7QStringD2Ev.exit, %_ZNK11QModelIndex7isValidEv.exit.thread
+_ZN19TrafficTypesRowDataD2Ev.exit:                ; preds = %63, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %_ZN7QStringD2Ev.exit, %_ZNK11QModelIndex7isValidEv.exit.thread
   ret void
 }
 
@@ -1914,7 +1912,7 @@ _ZN5QListI19TrafficTypesRowDataEixEx.exit:        ; preds = %_ZNK17QArrayDataPoi
 
 44:                                               ; preds = %.lr.ph, %81
   %45 = phi i64 [ 0, %.lr.ph ], [ %83, %81 ]
-  %.01967 = phi i32 [ 0, %.lr.ph ], [ %82, %81 ]
+  %.01966 = phi i32 [ 0, %.lr.ph ], [ %82, %81 ]
   %46 = load ptr, ptr %19, align 8
   %.not.i.i.i.i24 = icmp eq ptr %46, null
   br i1 %.not.i.i.i.i24, label %_ZN5QListI19TrafficTypesRowDataE6detachEv.exit.i28, label %_ZNK17QArrayDataPointerI19TrafficTypesRowDataE11needsDetachEv.exit.i.i.i25
@@ -1947,9 +1945,8 @@ _ZNK17QArrayDataPointerI19TrafficTypesRowDataE11needsDetachEv.exit.thread.i.i.i.
   %53 = load ptr, ptr %30, align 8
   %54 = getelementptr %class.TrafficTypesRowData, ptr %53, i64 %45, i32 3
   %55 = load i8, ptr %54, align 8
-  %56 = and i8 %55, 1
-  %.not66 = icmp eq i8 %56, 0
-  br i1 %.not66, label %81, label %57
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %81
 
 57:                                               ; preds = %52
   %58 = load ptr, ptr %19, align 8
@@ -2025,7 +2022,7 @@ _ZNK17QArrayDataPointerI19TrafficTypesRowDataE11needsDetachEv.exit.thread.i.i.i.
   br label %_ZN5QListIiED2Ev.exit56
 
 81:                                               ; preds = %52, %79
-  %82 = add i32 %.01967, 1
+  %82 = add i32 %.01966, 1
   %83 = sext i32 %82 to i64
   %84 = load i64, ptr %20, align 8
   %85 = icmp sgt i64 %84, %83
@@ -3483,9 +3480,9 @@ define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI19TrafficTypesRowDataE
   store i64 %66, ptr %65, align 8
   %68 = getelementptr i8, ptr %57, i64 -8
   %69 = load i8, ptr %68, align 8
-  %70 = and i8 %69, 1
-  %71 = getelementptr inbounds i8, ptr %57, i64 32
-  store i8 %70, ptr %71, align 8
+  %70 = getelementptr inbounds i8, ptr %57, i64 32
+  %71 = and i8 %69, 1
+  store i8 %71, ptr %70, align 8
   %72 = add i64 %.09, -1
   %73 = load i64, ptr %18, align 8
   %.not7 = icmp eq i64 %72, %73
@@ -3515,9 +3512,9 @@ define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI19TrafficTypesRowDataE
   store i64 %86, ptr %85, align 8
   %88 = getelementptr inbounds i8, ptr %2, i64 32
   %89 = load i8, ptr %88, align 8
-  %90 = and i8 %89, 1
-  %91 = getelementptr inbounds i8, ptr %74, i64 32
-  store i8 %90, ptr %91, align 8
+  %90 = getelementptr inbounds i8, ptr %74, i64 32
+  %91 = and i8 %89, 1
+  store i8 %91, ptr %90, align 8
   br label %92
 
 92:                                               ; preds = %._crit_edge, %21
@@ -3964,9 +3961,9 @@ define linkonce_odr void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveIP19Traff
   store i64 %45, ptr %44, align 8
   %47 = getelementptr inbounds i8, ptr %33, i64 32
   %48 = load i8, ptr %47, align 8
-  %49 = and i8 %48, 1
-  %50 = getelementptr inbounds i8, ptr %32, i64 32
-  store i8 %49, ptr %50, align 8
+  %49 = getelementptr inbounds i8, ptr %32, i64 32
+  %50 = and i8 %48, 1
+  store i8 %50, ptr %49, align 8
   %51 = getelementptr i8, ptr %.1, i64 40
   %52 = getelementptr i8, ptr %33, i64 40
   %.not6 = icmp eq ptr %51, %6
@@ -4142,9 +4139,9 @@ define linkonce_odr void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveISt16reve
   store i64 %57, ptr %56, align 8
   %59 = getelementptr i8, ptr %42, i64 -8
   %60 = load i8, ptr %59, align 8
-  %61 = and i8 %60, 1
-  %62 = getelementptr i8, ptr %43, i64 -8
-  store i8 %61, ptr %62, align 8
+  %61 = getelementptr i8, ptr %43, i64 -8
+  %62 = and i8 %60, 1
+  store i8 %62, ptr %61, align 8
   %63 = load ptr, ptr %2, align 8
   %64 = getelementptr i8, ptr %63, i64 -40
   store ptr %64, ptr %2, align 8
@@ -5326,9 +5323,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN5QListI19TrafficTypesRowDataE
   store i64 %29, ptr %28, align 8
   %31 = getelementptr inbounds i8, ptr %16, i64 32
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %34 = getelementptr inbounds i8, ptr %17, i64 32
-  store i8 %33, ptr %34, align 8
+  %33 = getelementptr inbounds i8, ptr %17, i64 32
+  %34 = and i8 %32, 1
+  store i8 %34, ptr %33, align 8
   %35 = icmp slt i64 %spec.select, %8
   br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !71
 
@@ -5371,9 +5368,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN5QListI19TrafficTypesRowDataE
   store i64 %58, ptr %57, align 8
   %60 = getelementptr inbounds i8, ptr %45, i64 32
   %61 = load i8, ptr %60, align 8
-  %62 = and i8 %61, 1
-  %63 = getelementptr inbounds i8, ptr %46, i64 32
-  store i8 %62, ptr %63, align 8
+  %62 = getelementptr inbounds i8, ptr %46, i64 32
+  %63 = and i8 %61, 1
+  store i8 %63, ptr %62, align 8
   br label %64
 
 64:                                               ; preds = %42, %38, %._crit_edge
@@ -5533,9 +5530,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i10.i.i: ; preds = %_ZN19TrafficType
   store i64 %120, ptr %86, align 8
   %122 = getelementptr inbounds i8, ptr %81, i64 32
   %123 = load i8, ptr %122, align 8
-  %124 = and i8 %123, 1
-  %125 = getelementptr inbounds i8, ptr %111, i64 32
-  store i8 %124, ptr %125, align 8
+  %124 = getelementptr inbounds i8, ptr %111, i64 32
+  %125 = and i8 %123, 1
+  store i8 %125, ptr %124, align 8
   %126 = icmp sgt i64 %.0911.i, %1
   br i1 %126, label %80, label %.loopexit, !llvm.loop !78
 
@@ -5645,9 +5642,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIN5QListI19TrafficTypesRowDa
   store i64 %38, ptr %37, align 8
   %40 = getelementptr i8, ptr %.sroa.05.08.i.i.i.i.i, i64 -8
   %41 = load i8, ptr %40, align 8
-  %42 = and i8 %41, 1
-  %43 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i, i64 -8
-  store i8 %42, ptr %43, align 8
+  %42 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i, i64 -8
+  %43 = and i8 %41, 1
+  store i8 %43, ptr %42, align 8
   %44 = add nsw i64 %.010.i.i.i.i.i, -1
   %45 = icmp ugt i64 %.010.i.i.i.i.i, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN5QListI19TrafficTypesRowDataE8iteratorES3_ET0_T_S5_S4_.exit, !llvm.loop !79
@@ -5829,9 +5826,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i10.i: ; preds = %_ZN19TrafficTypesR
   store i64 %52, ptr %24, align 8
   %54 = getelementptr i8, ptr %.sroa.012.0, i64 -8
   %55 = load i8, ptr %54, align 8
-  %56 = and i8 %55, 1
-  %57 = getelementptr inbounds i8, ptr %.sroa.012.0, i64 32
-  store i8 %56, ptr %57, align 8
+  %56 = getelementptr inbounds i8, ptr %.sroa.012.0, i64 32
+  %57 = and i8 %55, 1
+  store i8 %57, ptr %56, align 8
   br label %17, !llvm.loop !87
 
 58:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN17TrafficTypesModelC1EPP6_GListP7QObjectE3$_0EclI19TrafficTypesRowDataN5QListISB_E8iteratorEEEbRT_T0_.exit"

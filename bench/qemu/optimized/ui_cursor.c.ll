@@ -515,11 +515,11 @@ if.end46.us88.us:                                 ; preds = %if.else33.us80.us, 
   br i1 %cmp6.us95.us, label %for.body8.us75.us, label %for.end.us121.loopexit, !llvm.loop !12
 
 for.cond4.preheader:                              ; preds = %for.cond4.preheader.lr.ph.split, %for.end
-  %18 = phi i16 [ %26, %for.end ], [ %0, %for.cond4.preheader.lr.ph.split ]
-  %19 = phi i16 [ %27, %for.end ], [ %1, %for.cond4.preheader.lr.ph.split ]
-  %20 = phi i16 [ %28, %for.end ], [ %0, %for.cond4.preheader.lr.ph.split ]
+  %18 = phi i16 [ %25, %for.end ], [ %0, %for.cond4.preheader.lr.ph.split ]
+  %19 = phi i16 [ %26, %for.end ], [ %1, %for.cond4.preheader.lr.ph.split ]
+  %20 = phi i16 [ %27, %for.end ], [ %0, %for.cond4.preheader.lr.ph.split ]
   %image.addr.0108 = phi ptr [ %add.ptr55, %for.end ], [ %image, %for.cond4.preheader.lr.ph.split ]
-  %has_inverted_colors.0107 = phi i8 [ %has_inverted_colors.1.lcssa, %for.end ], [ 0, %for.cond4.preheader.lr.ph.split ]
+  %has_inverted_colors.0107 = phi i1 [ %has_inverted_colors.1.lcssa, %for.end ], [ false, %for.cond4.preheader.lr.ph.split ]
   %mask.addr.0104 = phi ptr [ %add.ptr, %for.end ], [ %mask, %for.cond4.preheader.lr.ph.split ]
   %data.0103 = phi ptr [ %data.1.lcssa, %for.end ], [ %data1, %for.cond4.preheader.lr.ph.split ]
   %y.0102 = phi i32 [ %inc57, %for.end ], [ 0, %for.cond4.preheader.lr.ph.split ]
@@ -527,7 +527,7 @@ for.cond4.preheader:                              ; preds = %for.cond4.preheader
   br i1 %cmp668.not, label %for.end, label %for.body8
 
 for.body8:                                        ; preds = %for.cond4.preheader, %for.body8
-  %has_inverted_colors.172 = phi i8 [ %has_inverted_colors.2, %for.body8 ], [ %has_inverted_colors.0107, %for.cond4.preheader ]
+  %has_inverted_colors.172 = phi i1 [ %has_inverted_colors.2, %for.body8 ], [ %has_inverted_colors.0107, %for.cond4.preheader ]
   %data.171 = phi ptr [ %incdec.ptr, %for.body8 ], [ %data.0103, %for.cond4.preheader ]
   %x.070 = phi i32 [ %inc, %for.body8 ], [ 0, %for.cond4.preheader ]
   %bit.069 = phi i8 [ %spec.store.select, %for.body8 ], [ -128, %for.cond4.preheader ]
@@ -540,20 +540,20 @@ for.body8:                                        ; preds = %for.cond4.preheader
   %arrayidx36 = getelementptr i8, ptr %image.addr.0108, i64 %idxprom
   %22 = load i8, ptr %arrayidx36, align 1
   %and3965 = and i8 %22, %bit.069
-  %tobool40.not = icmp eq i8 %and3965, 0
-  %. = select i1 %tobool40.not, i32 0, i32 -2147483648
-  %or43.or175 = select i1 %tobool40.not, i32 %or43, i32 %or
+  %tobool40.not = icmp ne i8 %and3965, 0
+  %. = select i1 %tobool40.not, i32 -2147483648, i32 0
+  %has_inverted_colors.172. = select i1 %tobool40.not, i1 true, i1 %has_inverted_colors.172
+  %or43.or175 = select i1 %tobool40.not, i32 %or, i32 %or43
   %or43.sink173 = select i1 %tobool11.not, i32 %or43.or175, i32 %.
-  %23 = select i1 %tobool11.not, i1 true, i1 %tobool40.not
-  %has_inverted_colors.2 = select i1 %23, i8 %has_inverted_colors.172, i8 1
+  %has_inverted_colors.2 = select i1 %tobool11.not, i1 %has_inverted_colors.172, i1 %has_inverted_colors.172.
   store i32 %or43.sink173, ptr %data.171, align 4
-  %24 = lshr i8 %bit.069, 1
+  %23 = lshr i8 %bit.069, 1
   %cmp50 = icmp ult i8 %bit.069, 2
-  %spec.store.select = select i1 %cmp50, i8 -128, i8 %24
+  %spec.store.select = select i1 %cmp50, i8 -128, i8 %23
   %inc = add nuw nsw i32 %x.070, 1
   %incdec.ptr = getelementptr i8, ptr %data.171, i64 4
-  %25 = load i16, ptr %c, align 4
-  %conv5 = zext i16 %25 to i32
+  %24 = load i16, ptr %c, align 4
+  %conv5 = zext i16 %24 to i32
   %cmp6 = icmp ult i32 %inc, %conv5
   br i1 %cmp6, label %for.body8, label %for.end.loopexit, !llvm.loop !12
 
@@ -562,25 +562,23 @@ for.end.loopexit:                                 ; preds = %for.body8
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond4.preheader
-  %26 = phi i16 [ %18, %for.cond4.preheader ], [ %25, %for.end.loopexit ]
-  %27 = phi i16 [ %19, %for.cond4.preheader ], [ %.pre, %for.end.loopexit ]
-  %28 = phi i16 [ 0, %for.cond4.preheader ], [ %25, %for.end.loopexit ]
+  %25 = phi i16 [ %18, %for.cond4.preheader ], [ %24, %for.end.loopexit ]
+  %26 = phi i16 [ %19, %for.cond4.preheader ], [ %.pre, %for.end.loopexit ]
+  %27 = phi i16 [ 0, %for.cond4.preheader ], [ %24, %for.end.loopexit ]
   %data.1.lcssa = phi ptr [ %data.0103, %for.cond4.preheader ], [ %incdec.ptr, %for.end.loopexit ]
-  %has_inverted_colors.1.lcssa = phi i8 [ %has_inverted_colors.0107, %for.cond4.preheader ], [ %has_inverted_colors.2, %for.end.loopexit ]
+  %has_inverted_colors.1.lcssa = phi i1 [ %has_inverted_colors.0107, %for.cond4.preheader ], [ %has_inverted_colors.2, %for.end.loopexit ]
   %add.ptr = getelementptr i8, ptr %mask.addr.0104, i64 %div1.i
   %add.ptr55 = getelementptr i8, ptr %image.addr.0108, i64 %div1.i
   %inc57 = add nuw nsw i32 %y.0102, 1
-  %conv = zext i16 %27 to i32
+  %conv = zext i16 %26 to i32
   %cmp2 = icmp ult i32 %inc57, %conv
   br i1 %cmp2, label %for.cond4.preheader, label %for.end58, !llvm.loop !11
 
 for.end58:                                        ; preds = %for.end
-  %29 = and i8 %has_inverted_colors.1.lcssa, 1
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %if.end143, label %for.cond63.preheader
+  br i1 %has_inverted_colors.1.lcssa, label %for.cond63.preheader, label %if.end143
 
 for.cond63.preheader:                             ; preds = %for.end58
-  %cmp66140.not = icmp eq i16 %27, 0
+  %cmp66140.not = icmp eq i16 %26, 0
   br i1 %cmp66140.not, label %for.cond126.preheader, label %for.cond69.preheader.lr.ph
 
 for.cond69.preheader.lr.ph:                       ; preds = %for.cond63.preheader
@@ -588,12 +586,12 @@ for.cond69.preheader.lr.ph:                       ; preds = %for.cond63.preheade
   br label %for.cond69.preheader
 
 for.cond69.preheader:                             ; preds = %for.cond69.preheader.lr.ph, %for.inc121
-  %31 = phi i16 [ %26, %for.cond69.preheader.lr.ph ], [ %55, %for.inc121 ]
-  %32 = phi i16 [ %26, %for.cond69.preheader.lr.ph ], [ %56, %for.inc121 ]
-  %33 = phi i16 [ %26, %for.cond69.preheader.lr.ph ], [ %57, %for.inc121 ]
+  %28 = phi i16 [ %25, %for.cond69.preheader.lr.ph ], [ %52, %for.inc121 ]
+  %29 = phi i16 [ %25, %for.cond69.preheader.lr.ph ], [ %53, %for.inc121 ]
+  %30 = phi i16 [ %25, %for.cond69.preheader.lr.ph ], [ %54, %for.inc121 ]
   %data.2142 = phi ptr [ %data1, %for.cond69.preheader.lr.ph ], [ %data.3.lcssa, %for.inc121 ]
   %y.1141 = phi i32 [ 0, %for.cond69.preheader.lr.ph ], [ %inc122.pre-phi, %for.inc121 ]
-  %cmp72132.not = icmp eq i16 %33, 0
+  %cmp72132.not = icmp eq i16 %30, 0
   br i1 %cmp72132.not, label %for.cond69.preheader.for.inc121_crit_edge, label %for.body74.lr.ph
 
 for.cond69.preheader.for.inc121_crit_edge:        ; preds = %for.cond69.preheader
@@ -601,19 +599,19 @@ for.cond69.preheader.for.inc121_crit_edge:        ; preds = %for.cond69.preheade
   br label %for.inc121
 
 for.body74.lr.ph:                                 ; preds = %for.cond69.preheader
-  %conv71131 = zext i16 %33 to i32
+  %conv71131 = zext i16 %30 to i32
   %cmp93.not = icmp eq i32 %y.1141, 0
   %add103 = add nuw nsw i32 %y.1141, 1
   br i1 %cmp93.not, label %for.body74.us, label %for.body74
 
 for.body74.us:                                    ; preds = %for.body74.lr.ph, %for.inc117.us
-  %34 = phi i16 [ %41, %for.inc117.us ], [ %31, %for.body74.lr.ph ]
+  %31 = phi i16 [ %38, %for.inc117.us ], [ %28, %for.body74.lr.ph ]
   %conv71136.us = phi i32 [ %conv71.us, %for.inc117.us ], [ %conv71131, %for.body74.lr.ph ]
-  %35 = phi i16 [ %41, %for.inc117.us ], [ %33, %for.body74.lr.ph ]
+  %32 = phi i16 [ %38, %for.inc117.us ], [ %30, %for.body74.lr.ph ]
   %data.3135.us = phi ptr [ %incdec.ptr119.us, %for.inc117.us ], [ %data.2142, %for.body74.lr.ph ]
   %x.1133.us = phi i32 [ %inc118.us, %for.inc117.us ], [ 0, %for.body74.lr.ph ]
-  %36 = load i32, ptr %data.3135.us, align 4
-  %cmp75.us = icmp eq i32 %36, 0
+  %33 = load i32, ptr %data.3135.us, align 4
+  %cmp75.us = icmp eq i32 %33, 0
   br i1 %cmp75.us, label %land.lhs.true77.us, label %for.inc117.us
 
 land.lhs.true77.us:                               ; preds = %for.body74.us
@@ -622,8 +620,8 @@ land.lhs.true77.us:                               ; preds = %for.body74.us
 
 land.lhs.true80.us:                               ; preds = %land.lhs.true77.us
   %arrayidx81.us = getelementptr i8, ptr %data.3135.us, i64 -4
-  %37 = load i32, ptr %arrayidx81.us, align 4
-  %cmp82.us = icmp eq i32 %37, -2147483648
+  %34 = load i32, ptr %arrayidx81.us, align 4
+  %cmp82.us = icmp eq i32 %34, -2147483648
   br i1 %cmp82.us, label %if.then114.us, label %lor.lhs.false.us
 
 lor.lhs.false.us:                                 ; preds = %land.lhs.true80.us, %land.lhs.true77.us
@@ -633,21 +631,21 @@ lor.lhs.false.us:                                 ; preds = %land.lhs.true80.us,
 
 land.lhs.true88.us:                               ; preds = %lor.lhs.false.us
   %arrayidx89.us = getelementptr i8, ptr %data.3135.us, i64 4
-  %38 = load i32, ptr %arrayidx89.us, align 4
-  %cmp90.us = icmp eq i32 %38, -2147483648
+  %35 = load i32, ptr %arrayidx89.us, align 4
+  %cmp90.us = icmp eq i32 %35, -2147483648
   br i1 %cmp90.us, label %if.then114.us, label %lor.lhs.false92.us
 
 lor.lhs.false92.us:                               ; preds = %land.lhs.true88.us, %lor.lhs.false.us
-  %39 = load i16, ptr %height, align 2
-  %conv105.us = zext i16 %39 to i32
+  %36 = load i16, ptr %height, align 2
+  %conv105.us = zext i16 %36 to i32
   %cmp106.us = icmp ult i32 %add103, %conv105.us
   br i1 %cmp106.us, label %land.lhs.true108.us, label %for.inc117.us
 
 land.lhs.true108.us:                              ; preds = %lor.lhs.false92.us
-  %idxprom110.us = zext i16 %35 to i64
+  %idxprom110.us = zext i16 %32 to i64
   %arrayidx111.us = getelementptr i32, ptr %data.3135.us, i64 %idxprom110.us
-  %40 = load i32, ptr %arrayidx111.us, align 4
-  %cmp112.us = icmp eq i32 %40, -2147483648
+  %37 = load i32, ptr %arrayidx111.us, align 4
+  %cmp112.us = icmp eq i32 %37, -2147483648
   br i1 %cmp112.us, label %if.then114.us, label %for.inc117.us
 
 if.then114.us:                                    ; preds = %land.lhs.true108.us, %land.lhs.true88.us, %land.lhs.true80.us
@@ -656,18 +654,18 @@ if.then114.us:                                    ; preds = %land.lhs.true108.us
   br label %for.inc117.us
 
 for.inc117.us:                                    ; preds = %if.then114.us, %land.lhs.true108.us, %lor.lhs.false92.us, %for.body74.us
-  %41 = phi i16 [ %.pre155, %if.then114.us ], [ %34, %land.lhs.true108.us ], [ %34, %lor.lhs.false92.us ], [ %34, %for.body74.us ]
+  %38 = phi i16 [ %.pre155, %if.then114.us ], [ %31, %land.lhs.true108.us ], [ %31, %lor.lhs.false92.us ], [ %31, %for.body74.us ]
   %inc118.us = add nuw nsw i32 %x.1133.us, 1
   %incdec.ptr119.us = getelementptr i8, ptr %data.3135.us, i64 4
-  %conv71.us = zext i16 %41 to i32
+  %conv71.us = zext i16 %38 to i32
   %cmp72.us = icmp ult i32 %inc118.us, %conv71.us
   br i1 %cmp72.us, label %for.body74.us, label %for.inc121, !llvm.loop !13
 
 for.cond126.preheader:                            ; preds = %for.inc121, %for.cond63.preheader
-  %42 = phi i16 [ 0, %for.cond63.preheader ], [ %58, %for.inc121 ]
-  %43 = phi i16 [ %26, %for.cond63.preheader ], [ %55, %for.inc121 ]
-  %conv128143 = zext i16 %43 to i32
-  %conv130144 = zext i16 %42 to i32
+  %39 = phi i16 [ 0, %for.cond63.preheader ], [ %55, %for.inc121 ]
+  %40 = phi i16 [ %25, %for.cond63.preheader ], [ %52, %for.inc121 ]
+  %conv128143 = zext i16 %40 to i32
+  %conv130144 = zext i16 %39 to i32
   %mul145 = mul nuw i32 %conv130144, %conv128143
   %cmp131146 = icmp sgt i32 %mul145, 0
   br i1 %cmp131146, label %for.body133.lr.ph, label %if.end143
@@ -677,14 +675,14 @@ for.body133.lr.ph:                                ; preds = %for.cond126.prehead
   br label %for.body133
 
 for.body74:                                       ; preds = %for.body74.lr.ph, %for.inc117
-  %44 = phi i16 [ %53, %for.inc117 ], [ %31, %for.body74.lr.ph ]
-  %45 = phi i16 [ %54, %for.inc117 ], [ %32, %for.body74.lr.ph ]
+  %41 = phi i16 [ %50, %for.inc117 ], [ %28, %for.body74.lr.ph ]
+  %42 = phi i16 [ %51, %for.inc117 ], [ %29, %for.body74.lr.ph ]
   %conv71136 = phi i32 [ %conv71, %for.inc117 ], [ %conv71131, %for.body74.lr.ph ]
-  %46 = phi i16 [ %54, %for.inc117 ], [ %33, %for.body74.lr.ph ]
+  %43 = phi i16 [ %51, %for.inc117 ], [ %30, %for.body74.lr.ph ]
   %data.3135 = phi ptr [ %incdec.ptr119, %for.inc117 ], [ %data.2142, %for.body74.lr.ph ]
   %x.1133 = phi i32 [ %inc118, %for.inc117 ], [ 0, %for.body74.lr.ph ]
-  %47 = load i32, ptr %data.3135, align 4
-  %cmp75 = icmp eq i32 %47, 0
+  %44 = load i32, ptr %data.3135, align 4
+  %cmp75 = icmp eq i32 %44, 0
   br i1 %cmp75, label %land.lhs.true77, label %for.inc117
 
 land.lhs.true77:                                  ; preds = %for.body74
@@ -693,8 +691,8 @@ land.lhs.true77:                                  ; preds = %for.body74
 
 land.lhs.true80:                                  ; preds = %land.lhs.true77
   %arrayidx81 = getelementptr i8, ptr %data.3135, i64 -4
-  %48 = load i32, ptr %arrayidx81, align 4
-  %cmp82 = icmp eq i32 %48, -2147483648
+  %45 = load i32, ptr %arrayidx81, align 4
+  %cmp82 = icmp eq i32 %45, -2147483648
   br i1 %cmp82, label %if.then114, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true80, %land.lhs.true77
@@ -704,28 +702,28 @@ lor.lhs.false:                                    ; preds = %land.lhs.true80, %l
 
 land.lhs.true88:                                  ; preds = %lor.lhs.false
   %arrayidx89 = getelementptr i8, ptr %data.3135, i64 4
-  %49 = load i32, ptr %arrayidx89, align 4
-  %cmp90 = icmp eq i32 %49, -2147483648
+  %46 = load i32, ptr %arrayidx89, align 4
+  %cmp90 = icmp eq i32 %46, -2147483648
   br i1 %cmp90, label %if.then114, label %lor.lhs.false92
 
 lor.lhs.false92:                                  ; preds = %land.lhs.true88, %lor.lhs.false
-  %conv97 = zext i16 %46 to i64
+  %conv97 = zext i16 %43 to i64
   %sub = sub nsw i64 0, %conv97
   %arrayidx99 = getelementptr i32, ptr %data.3135, i64 %sub
-  %50 = load i32, ptr %arrayidx99, align 4
-  %cmp100 = icmp eq i32 %50, -2147483648
+  %47 = load i32, ptr %arrayidx99, align 4
+  %cmp100 = icmp eq i32 %47, -2147483648
   br i1 %cmp100, label %if.then114, label %lor.lhs.false102
 
 lor.lhs.false102:                                 ; preds = %lor.lhs.false92
-  %51 = load i16, ptr %height, align 2
-  %conv105 = zext i16 %51 to i32
+  %48 = load i16, ptr %height, align 2
+  %conv105 = zext i16 %48 to i32
   %cmp106 = icmp ult i32 %add103, %conv105
   br i1 %cmp106, label %land.lhs.true108, label %for.inc117
 
 land.lhs.true108:                                 ; preds = %lor.lhs.false102
   %arrayidx111 = getelementptr i32, ptr %data.3135, i64 %conv97
-  %52 = load i32, ptr %arrayidx111, align 4
-  %cmp112 = icmp eq i32 %52, -2147483648
+  %49 = load i32, ptr %arrayidx111, align 4
+  %cmp112 = icmp eq i32 %49, -2147483648
   br i1 %cmp112, label %if.then114, label %for.inc117
 
 if.then114:                                       ; preds = %land.lhs.true108, %lor.lhs.false92, %land.lhs.true88, %land.lhs.true80
@@ -734,32 +732,32 @@ if.then114:                                       ; preds = %land.lhs.true108, %
   br label %for.inc117
 
 for.inc117:                                       ; preds = %for.body74, %lor.lhs.false102, %land.lhs.true108, %if.then114
-  %53 = phi i16 [ %44, %for.body74 ], [ %44, %lor.lhs.false102 ], [ %44, %land.lhs.true108 ], [ %.pre154, %if.then114 ]
-  %54 = phi i16 [ %45, %for.body74 ], [ %45, %lor.lhs.false102 ], [ %45, %land.lhs.true108 ], [ %.pre154, %if.then114 ]
+  %50 = phi i16 [ %41, %for.body74 ], [ %41, %lor.lhs.false102 ], [ %41, %land.lhs.true108 ], [ %.pre154, %if.then114 ]
+  %51 = phi i16 [ %42, %for.body74 ], [ %42, %lor.lhs.false102 ], [ %42, %land.lhs.true108 ], [ %.pre154, %if.then114 ]
   %inc118 = add nuw nsw i32 %x.1133, 1
   %incdec.ptr119 = getelementptr i8, ptr %data.3135, i64 4
-  %conv71 = zext i16 %54 to i32
+  %conv71 = zext i16 %51 to i32
   %cmp72 = icmp ult i32 %inc118, %conv71
   br i1 %cmp72, label %for.body74, label %for.inc121, !llvm.loop !13
 
 for.inc121:                                       ; preds = %for.inc117, %for.inc117.us, %for.cond69.preheader.for.inc121_crit_edge
   %inc122.pre-phi = phi i32 [ %.pre158, %for.cond69.preheader.for.inc121_crit_edge ], [ %add103, %for.inc117.us ], [ %add103, %for.inc117 ]
-  %55 = phi i16 [ %31, %for.cond69.preheader.for.inc121_crit_edge ], [ %41, %for.inc117.us ], [ %53, %for.inc117 ]
-  %56 = phi i16 [ %32, %for.cond69.preheader.for.inc121_crit_edge ], [ %41, %for.inc117.us ], [ %54, %for.inc117 ]
-  %57 = phi i16 [ 0, %for.cond69.preheader.for.inc121_crit_edge ], [ %41, %for.inc117.us ], [ %54, %for.inc117 ]
+  %52 = phi i16 [ %28, %for.cond69.preheader.for.inc121_crit_edge ], [ %38, %for.inc117.us ], [ %50, %for.inc117 ]
+  %53 = phi i16 [ %29, %for.cond69.preheader.for.inc121_crit_edge ], [ %38, %for.inc117.us ], [ %51, %for.inc117 ]
+  %54 = phi i16 [ 0, %for.cond69.preheader.for.inc121_crit_edge ], [ %38, %for.inc117.us ], [ %51, %for.inc117 ]
   %data.3.lcssa = phi ptr [ %data.2142, %for.cond69.preheader.for.inc121_crit_edge ], [ %incdec.ptr119.us, %for.inc117.us ], [ %incdec.ptr119, %for.inc117 ]
-  %58 = load i16, ptr %height, align 2
-  %conv65 = zext i16 %58 to i32
+  %55 = load i16, ptr %height, align 2
+  %conv65 = zext i16 %55 to i32
   %cmp66 = icmp ult i32 %inc122.pre-phi, %conv65
   br i1 %cmp66, label %for.cond69.preheader, label %for.cond126.preheader, !llvm.loop !14
 
 for.body133:                                      ; preds = %for.body133.lr.ph, %for.inc139
-  %59 = phi i16 [ %42, %for.body133.lr.ph ], [ %62, %for.inc139 ]
-  %60 = phi i16 [ %43, %for.body133.lr.ph ], [ %63, %for.inc139 ]
+  %56 = phi i16 [ %39, %for.body133.lr.ph ], [ %59, %for.inc139 ]
+  %57 = phi i16 [ %40, %for.body133.lr.ph ], [ %60, %for.inc139 ]
   %data.4148 = phi ptr [ %data1, %for.body133.lr.ph ], [ %incdec.ptr141, %for.inc139 ]
   %x.2147 = phi i32 [ 0, %for.body133.lr.ph ], [ %inc140, %for.inc139 ]
-  %61 = load i32, ptr %data.4148, align 4
-  %cmp134 = icmp eq i32 %61, -2147483648
+  %58 = load i32, ptr %data.4148, align 4
+  %cmp134 = icmp eq i32 %58, -2147483648
   br i1 %cmp134, label %if.then136, label %for.inc139
 
 if.then136:                                       ; preds = %for.body133
@@ -769,12 +767,12 @@ if.then136:                                       ; preds = %for.body133
   br label %for.inc139
 
 for.inc139:                                       ; preds = %for.body133, %if.then136
-  %62 = phi i16 [ %59, %for.body133 ], [ %.pre157, %if.then136 ]
-  %63 = phi i16 [ %60, %for.body133 ], [ %.pre156, %if.then136 ]
+  %59 = phi i16 [ %56, %for.body133 ], [ %.pre157, %if.then136 ]
+  %60 = phi i16 [ %57, %for.body133 ], [ %.pre156, %if.then136 ]
   %inc140 = add nuw nsw i32 %x.2147, 1
   %incdec.ptr141 = getelementptr i8, ptr %data.4148, i64 4
-  %conv128 = zext i16 %63 to i32
-  %conv130 = zext i16 %62 to i32
+  %conv128 = zext i16 %60 to i32
+  %conv130 = zext i16 %59 to i32
   %mul = mul nuw i32 %conv130, %conv128
   %cmp131 = icmp slt i32 %inc140, %mul
   br i1 %cmp131, label %for.body133, label %if.end143, !llvm.loop !15

@@ -101,18 +101,17 @@ if.end6.i:                                        ; preds = %entry
 if.end.i.i:                                       ; preds = %if.end6.i
   %auto_tune_receive_window_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load i8, ptr %auto_tune_receive_window_.i.i, align 8
-  %8 = and i8 %7, 1
-  %tobool.not.i2.i = icmp eq i8 %8, 0
-  br i1 %tobool.not.i2.i, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i, label %if.end6.i.i
+  %tobool.i.i = trunc i8 %7 to i1
+  br i1 %tobool.i.i, label %if.end6.i.i, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
-  %9 = load ptr, ptr %this, align 8
-  %sent_packet_manager_.i.i.i = getelementptr inbounds i8, ptr %9, i64 3192
-  %10 = load ptr, ptr %sent_packet_manager_.i.i.i, align 8
-  %vtable9.i.i = load ptr, ptr %10, align 8
+  %8 = load ptr, ptr %this, align 8
+  %sent_packet_manager_.i.i.i = getelementptr inbounds i8, ptr %8, i64 3192
+  %9 = load ptr, ptr %sent_packet_manager_.i.i.i, align 8
+  %vtable9.i.i = load ptr, ptr %9, align 8
   %vfn10.i.i = getelementptr inbounds i8, ptr %vtable9.i.i, i64 152
-  %11 = load ptr, ptr %vfn10.i.i, align 8
-  %call11.i.i = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %10 = load ptr, ptr %vfn10.i.i, align 8
+  %call11.i.i = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
   %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %call11.i.i, i64 40
   %retval.sroa.2.0.copyload.i.i.i = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i.i, align 8
   %cmp.i1.i.i = icmp eq i64 %retval.sroa.2.0.copyload.i.i.i, 0
@@ -125,27 +124,27 @@ if.end15.i.i:                                     ; preds = %if.end6.i.i
   br i1 %cmp.i.i.not.i.i, label %if.end26.i.i, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i
 
 if.end26.i.i:                                     ; preds = %if.end15.i.i
-  %12 = load i64, ptr %receive_window_size_.i.i, align 8
-  %mul.i.i = shl i64 %12, 1
+  %11 = load i64, ptr %receive_window_size_.i.i, align 8
+  %mul.i.i = shl i64 %11, 1
   %receive_window_size_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %13 = load i64, ptr %receive_window_size_limit_.i.i, align 8
-  %14 = tail call i64 @llvm.umin.i64(i64 %13, i64 %mul.i.i)
-  store i64 %14, ptr %receive_window_size_.i.i, align 8
+  %12 = load i64, ptr %receive_window_size_limit_.i.i, align 8
+  %13 = tail call i64 @llvm.umin.i64(i64 %12, i64 %mul.i.i)
+  store i64 %13, ptr %receive_window_size_.i.i, align 8
   br label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i
 
 _ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i: ; preds = %if.end26.i.i, %if.end15.i.i, %if.end6.i.i, %if.end.i.i, %if.end6.i
-  %15 = load i64, ptr %receive_window_size_.i.i, align 8
-  %sub7.i = sub i64 %15, %sub.i
-  %16 = load i64, ptr %receive_window_offset_.i, align 8
-  %add.i = add i64 %16, %sub7.i
+  %14 = load i64, ptr %receive_window_size_.i.i, align 8
+  %sub7.i = sub i64 %14, %sub.i
+  %15 = load i64, ptr %receive_window_offset_.i, align 8
+  %add.i = add i64 %15, %sub7.i
   store i64 %add.i, ptr %receive_window_offset_.i, align 8
-  %17 = load ptr, ptr %this, align 8
+  %16 = load ptr, ptr %this, align 8
   %id_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %18 = load i32, ptr %id_.i, align 8
-  %vtable.i = load ptr, ptr %17, align 8
+  %17 = load i32, ptr %id_.i, align 8
+  %vtable.i = load ptr, ptr %16, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 240
-  %19 = load ptr, ptr %vfn.i, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(3372) %17, i32 noundef %18, i64 noundef %add.i)
+  %18 = load ptr, ptr %vfn.i, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(3372) %16, i32 noundef %17, i64 noundef %add.i)
   br label %_ZN3net18QuicFlowController21MaybeSendWindowUpdateEv.exit
 
 _ZN3net18QuicFlowController21MaybeSendWindowUpdateEv.exit: ; preds = %entry, %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i
@@ -183,18 +182,17 @@ if.end6:                                          ; preds = %if.end
 if.end.i:                                         ; preds = %if.end6
   %auto_tune_receive_window_.i = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load i8, ptr %auto_tune_receive_window_.i, align 8
-  %8 = and i8 %7, 1
-  %tobool.not.i2 = icmp eq i8 %8, 0
-  br i1 %tobool.not.i2, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit, label %if.end6.i
+  %tobool.i = trunc i8 %7 to i1
+  br i1 %tobool.i, label %if.end6.i, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  %9 = load ptr, ptr %this, align 8
-  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %9, i64 3192
-  %10 = load ptr, ptr %sent_packet_manager_.i.i, align 8
-  %vtable9.i = load ptr, ptr %10, align 8
+  %8 = load ptr, ptr %this, align 8
+  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %8, i64 3192
+  %9 = load ptr, ptr %sent_packet_manager_.i.i, align 8
+  %vtable9.i = load ptr, ptr %9, align 8
   %vfn10.i = getelementptr inbounds i8, ptr %vtable9.i, i64 152
-  %11 = load ptr, ptr %vfn10.i, align 8
-  %call11.i = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %10 = load ptr, ptr %vfn10.i, align 8
+  %call11.i = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
   %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call11.i, i64 40
   %retval.sroa.2.0.copyload.i.i = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i, align 8
   %cmp.i1.i = icmp eq i64 %retval.sroa.2.0.copyload.i.i, 0
@@ -207,27 +205,27 @@ if.end15.i:                                       ; preds = %if.end6.i
   br i1 %cmp.i.i.not.i, label %if.end26.i, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit
 
 if.end26.i:                                       ; preds = %if.end15.i
-  %12 = load i64, ptr %receive_window_size_.i, align 8
-  %mul.i = shl i64 %12, 1
+  %11 = load i64, ptr %receive_window_size_.i, align 8
+  %mul.i = shl i64 %11, 1
   %receive_window_size_limit_.i = getelementptr inbounds i8, ptr %this, i64 64
-  %13 = load i64, ptr %receive_window_size_limit_.i, align 8
-  %14 = tail call i64 @llvm.umin.i64(i64 %13, i64 %mul.i)
-  store i64 %14, ptr %receive_window_size_.i, align 8
+  %12 = load i64, ptr %receive_window_size_limit_.i, align 8
+  %13 = tail call i64 @llvm.umin.i64(i64 %12, i64 %mul.i)
+  store i64 %13, ptr %receive_window_size_.i, align 8
   br label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit
 
 _ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit: ; preds = %if.end6, %if.end.i, %if.end6.i, %if.end15.i, %if.end26.i
-  %15 = load i64, ptr %receive_window_size_.i, align 8
-  %sub7 = sub i64 %15, %sub
-  %16 = load i64, ptr %receive_window_offset_, align 8
-  %add = add i64 %16, %sub7
+  %14 = load i64, ptr %receive_window_size_.i, align 8
+  %sub7 = sub i64 %14, %sub
+  %15 = load i64, ptr %receive_window_offset_, align 8
+  %add = add i64 %15, %sub7
   store i64 %add, ptr %receive_window_offset_, align 8
-  %17 = load ptr, ptr %this, align 8
+  %16 = load ptr, ptr %this, align 8
   %id_ = getelementptr inbounds i8, ptr %this, i64 8
-  %18 = load i32, ptr %id_, align 8
-  %vtable = load ptr, ptr %17, align 8
+  %17 = load i32, ptr %id_, align 8
+  %vtable = load ptr, ptr %16, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
-  %19 = load ptr, ptr %vfn, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(3372) %17, i32 noundef %18, i64 noundef %add)
+  %18 = load ptr, ptr %vfn, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(3372) %16, i32 noundef %17, i64 noundef %add)
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit
@@ -464,18 +462,17 @@ entry:
 if.end:                                           ; preds = %entry
   %auto_tune_receive_window_ = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load i8, ptr %auto_tune_receive_window_, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.end33, label %if.end6
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.end6, label %if.end33
 
 if.end6:                                          ; preds = %if.end
-  %6 = load ptr, ptr %this, align 8
-  %sent_packet_manager_.i = getelementptr inbounds i8, ptr %6, i64 3192
-  %7 = load ptr, ptr %sent_packet_manager_.i, align 8
-  %vtable9 = load ptr, ptr %7, align 8
+  %5 = load ptr, ptr %this, align 8
+  %sent_packet_manager_.i = getelementptr inbounds i8, ptr %5, i64 3192
+  %6 = load ptr, ptr %sent_packet_manager_.i, align 8
+  %vtable9 = load ptr, ptr %6, align 8
   %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 152
-  %8 = load ptr, ptr %vfn10, align 8
-  %call11 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %7 = load ptr, ptr %vfn10, align 8
+  %call11 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %call11, i64 40
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i, align 8
   %cmp.i1 = icmp eq i64 %retval.sroa.2.0.copyload.i, 0
@@ -489,12 +486,12 @@ if.end15:                                         ; preds = %if.end6
 
 if.end26:                                         ; preds = %if.end15
   %receive_window_size_ = getelementptr inbounds i8, ptr %this, i64 56
-  %9 = load i64, ptr %receive_window_size_, align 8
-  %mul = shl i64 %9, 1
+  %8 = load i64, ptr %receive_window_size_, align 8
+  %mul = shl i64 %8, 1
   %receive_window_size_limit_ = getelementptr inbounds i8, ptr %this, i64 64
-  %10 = load i64, ptr %receive_window_size_limit_, align 8
-  %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 %mul)
-  store i64 %11, ptr %receive_window_size_, align 8
+  %9 = load i64, ptr %receive_window_size_limit_, align 8
+  %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 %mul)
+  store i64 %10, ptr %receive_window_size_, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.end26, %if.end15, %if.end6, %if.end, %entry

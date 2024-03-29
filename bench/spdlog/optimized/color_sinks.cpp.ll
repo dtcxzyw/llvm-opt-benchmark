@@ -989,8 +989,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN6spdlog5sinks14ansicolor_sinkIN
 entry:
   %should_do_colors_ = getelementptr inbounds i8, ptr %this, i64 464
   %0 = load i8, ptr %should_do_colors_, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -1035,25 +1034,24 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 invoke.cont3:                                     ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %should_do_colors_ = getelementptr inbounds i8, ptr %this, i64 464
   %3 = load i8, ptr %should_do_colors_, align 8
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.else, label %land.lhs.true
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %invoke.cont3
-  %5 = load i64, ptr %color_range_end, align 8
-  %6 = load i64, ptr %color_range_start, align 8
-  %cmp = icmp ugt i64 %5, %6
+  %4 = load i64, ptr %color_range_end, align 8
+  %5 = load i64, ptr %color_range_start, align 8
+  %cmp = icmp ugt i64 %4, %5
   br i1 %cmp, label %invoke.cont7, label %if.else
 
 invoke.cont7:                                     ; preds = %land.lhs.true
-  %7 = load ptr, ptr %ptr_.i.i, align 8
+  %6 = load ptr, ptr %ptr_.i.i, align 8
   %target_file_.i = getelementptr inbounds i8, ptr %this, i64 448
-  %8 = load ptr, ptr %target_file_.i, align 8
-  %call2.i = call i64 @fwrite(ptr noundef %7, i64 noundef 1, i64 noundef %6, ptr noundef %8)
+  %7 = load ptr, ptr %target_file_.i, align 8
+  %call2.i = call i64 @fwrite(ptr noundef %6, i64 noundef 1, i64 noundef %5, ptr noundef %7)
   %level = getelementptr inbounds i8, ptr %msg, i64 16
-  %9 = load i32, ptr %level, align 8
-  %conv = sext i32 %9 to i64
-  %cmp.i = icmp ugt i32 %9, 6
+  %8 = load i32, ptr %level, align 8
+  %conv = sext i32 %8 to i64
+  %cmp.i = icmp ugt i32 %8, 6
   br i1 %cmp.i, label %if.then.i, label %invoke.cont15
 
 if.then.i:                                        ; preds = %invoke.cont7
@@ -1068,57 +1066,57 @@ invoke.cont15:                                    ; preds = %invoke.cont7
   %arrayidx.i.i = getelementptr inbounds [7 x %"class.std::__cxx11::basic_string"], ptr %colors_, i64 0, i64 %conv
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i) #15
   %call2.i11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i) #15
-  %10 = load ptr, ptr %target_file_.i, align 8
-  %call3.i = call i64 @fwrite(ptr noundef %call.i, i64 noundef 1, i64 noundef %call2.i11, ptr noundef %10)
-  %11 = load i64, ptr %color_range_start, align 8
-  %12 = load i64, ptr %color_range_end, align 8
-  %13 = load ptr, ptr %ptr_.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %11
-  %sub.i = sub i64 %12, %11
-  %14 = load ptr, ptr %target_file_.i, align 8
-  %call2.i15 = call i64 @fwrite(ptr noundef %add.ptr.i, i64 noundef 1, i64 noundef %sub.i, ptr noundef %14)
+  %9 = load ptr, ptr %target_file_.i, align 8
+  %call3.i = call i64 @fwrite(ptr noundef %call.i, i64 noundef 1, i64 noundef %call2.i11, ptr noundef %9)
+  %10 = load i64, ptr %color_range_start, align 8
+  %11 = load i64, ptr %color_range_end, align 8
+  %12 = load ptr, ptr %ptr_.i.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 %10
+  %sub.i = sub i64 %11, %10
+  %13 = load ptr, ptr %target_file_.i, align 8
+  %call2.i15 = call i64 @fwrite(ptr noundef %add.ptr.i, i64 noundef 1, i64 noundef %sub.i, ptr noundef %13)
   %reset = getelementptr inbounds i8, ptr %this, i64 16
-  %15 = load ptr, ptr %reset, align 8
+  %14 = load ptr, ptr %reset, align 8
   %size_.i.i16 = getelementptr inbounds i8, ptr %this, i64 24
-  %16 = load i64, ptr %size_.i.i16, align 8
-  %17 = load ptr, ptr %target_file_.i, align 8
-  %call3.i18 = call i64 @fwrite(ptr noundef %15, i64 noundef 1, i64 noundef %16, ptr noundef %17)
-  %18 = load i64, ptr %color_range_end, align 8
+  %15 = load i64, ptr %size_.i.i16, align 8
+  %16 = load ptr, ptr %target_file_.i, align 8
+  %call3.i18 = call i64 @fwrite(ptr noundef %14, i64 noundef 1, i64 noundef %15, ptr noundef %16)
+  %17 = load i64, ptr %color_range_end, align 8
   %size_.i19 = getelementptr inbounds i8, ptr %formatted, i64 16
-  %19 = load i64, ptr %size_.i19, align 8
-  %20 = load ptr, ptr %ptr_.i.i, align 8
-  %add.ptr.i21 = getelementptr inbounds i8, ptr %20, i64 %18
-  %sub.i22 = sub i64 %19, %18
-  %21 = load ptr, ptr %target_file_.i, align 8
-  %call2.i24 = call i64 @fwrite(ptr noundef %add.ptr.i21, i64 noundef 1, i64 noundef %sub.i22, ptr noundef %21)
+  %18 = load i64, ptr %size_.i19, align 8
+  %19 = load ptr, ptr %ptr_.i.i, align 8
+  %add.ptr.i21 = getelementptr inbounds i8, ptr %19, i64 %17
+  %sub.i22 = sub i64 %18, %17
+  %20 = load ptr, ptr %target_file_.i, align 8
+  %call2.i24 = call i64 @fwrite(ptr noundef %add.ptr.i21, i64 noundef 1, i64 noundef %sub.i22, ptr noundef %20)
   br label %if.end
 
 lpad2:                                            ; preds = %if.then.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(288) %formatted) #15
   %call1.i.i.i25 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %21
 
 if.else:                                          ; preds = %land.lhs.true, %invoke.cont3
   %size_.i26 = getelementptr inbounds i8, ptr %formatted, i64 16
-  %23 = load i64, ptr %size_.i26, align 8
-  %24 = load ptr, ptr %ptr_.i.i, align 8
+  %22 = load i64, ptr %size_.i26, align 8
+  %23 = load ptr, ptr %ptr_.i.i, align 8
   %target_file_.i28 = getelementptr inbounds i8, ptr %this, i64 448
-  %25 = load ptr, ptr %target_file_.i28, align 8
-  %call2.i29 = call i64 @fwrite(ptr noundef %24, i64 noundef 1, i64 noundef %23, ptr noundef %25)
+  %24 = load ptr, ptr %target_file_.i28, align 8
+  %call2.i29 = call i64 @fwrite(ptr noundef %23, i64 noundef 1, i64 noundef %22, ptr noundef %24)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %invoke.cont15
   %target_file_ = getelementptr inbounds i8, ptr %this, i64 448
-  %26 = load ptr, ptr %target_file_, align 8
-  %call22 = call i32 @fflush(ptr noundef %26)
-  %27 = load ptr, ptr %ptr_.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %27, %store_.i
+  %25 = load ptr, ptr %target_file_, align 8
+  %call22 = call i32 @fflush(ptr noundef %25)
+  %26 = load ptr, ptr %ptr_.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %26, %store_.i
   br i1 %cmp.not.i.i, label %_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEED2Ev.exit, label %if.then.i.i30
 
 if.then.i.i30:                                    ; preds = %if.end
-  call void @_ZdlPv(ptr noundef %27) #17
+  call void @_ZdlPv(ptr noundef %26) #17
   br label %_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEED2Ev.exit
 
 _ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEED2Ev.exit: ; preds = %if.end, %if.then.i.i30
@@ -1890,8 +1888,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN6spdlog5sinks14ansicolor_sinkIN
 entry:
   %should_do_colors_ = getelementptr inbounds i8, ptr %this, i64 464
   %0 = load i8, ptr %should_do_colors_, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -1925,25 +1922,24 @@ entry:
 invoke.cont3:                                     ; preds = %entry
   %should_do_colors_ = getelementptr inbounds i8, ptr %this, i64 464
   %2 = load i8, ptr %should_do_colors_, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.else, label %land.lhs.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %invoke.cont3
-  %4 = load i64, ptr %color_range_end, align 8
-  %5 = load i64, ptr %color_range_start, align 8
-  %cmp = icmp ugt i64 %4, %5
+  %3 = load i64, ptr %color_range_end, align 8
+  %4 = load i64, ptr %color_range_start, align 8
+  %cmp = icmp ugt i64 %3, %4
   br i1 %cmp, label %invoke.cont7, label %if.else
 
 invoke.cont7:                                     ; preds = %land.lhs.true
-  %6 = load ptr, ptr %ptr_.i.i, align 8
+  %5 = load ptr, ptr %ptr_.i.i, align 8
   %target_file_.i = getelementptr inbounds i8, ptr %this, i64 448
-  %7 = load ptr, ptr %target_file_.i, align 8
-  %call2.i = call i64 @fwrite(ptr noundef %6, i64 noundef 1, i64 noundef %5, ptr noundef %7)
+  %6 = load ptr, ptr %target_file_.i, align 8
+  %call2.i = call i64 @fwrite(ptr noundef %5, i64 noundef 1, i64 noundef %4, ptr noundef %6)
   %level = getelementptr inbounds i8, ptr %msg, i64 16
-  %8 = load i32, ptr %level, align 8
-  %conv = sext i32 %8 to i64
-  %cmp.i = icmp ugt i32 %8, 6
+  %7 = load i32, ptr %level, align 8
+  %conv = sext i32 %7 to i64
+  %cmp.i = icmp ugt i32 %7, 6
   br i1 %cmp.i, label %if.then.i, label %invoke.cont15
 
 if.then.i:                                        ; preds = %invoke.cont7
@@ -1958,56 +1954,56 @@ invoke.cont15:                                    ; preds = %invoke.cont7
   %arrayidx.i.i = getelementptr inbounds [7 x %"class.std::__cxx11::basic_string"], ptr %colors_, i64 0, i64 %conv
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i) #15
   %call2.i11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i) #15
-  %9 = load ptr, ptr %target_file_.i, align 8
-  %call3.i = call i64 @fwrite(ptr noundef %call.i, i64 noundef 1, i64 noundef %call2.i11, ptr noundef %9)
-  %10 = load i64, ptr %color_range_start, align 8
-  %11 = load i64, ptr %color_range_end, align 8
-  %12 = load ptr, ptr %ptr_.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 %10
-  %sub.i = sub i64 %11, %10
-  %13 = load ptr, ptr %target_file_.i, align 8
-  %call2.i15 = call i64 @fwrite(ptr noundef %add.ptr.i, i64 noundef 1, i64 noundef %sub.i, ptr noundef %13)
+  %8 = load ptr, ptr %target_file_.i, align 8
+  %call3.i = call i64 @fwrite(ptr noundef %call.i, i64 noundef 1, i64 noundef %call2.i11, ptr noundef %8)
+  %9 = load i64, ptr %color_range_start, align 8
+  %10 = load i64, ptr %color_range_end, align 8
+  %11 = load ptr, ptr %ptr_.i.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 %9
+  %sub.i = sub i64 %10, %9
+  %12 = load ptr, ptr %target_file_.i, align 8
+  %call2.i15 = call i64 @fwrite(ptr noundef %add.ptr.i, i64 noundef 1, i64 noundef %sub.i, ptr noundef %12)
   %reset = getelementptr inbounds i8, ptr %this, i64 16
-  %14 = load ptr, ptr %reset, align 8
+  %13 = load ptr, ptr %reset, align 8
   %size_.i.i16 = getelementptr inbounds i8, ptr %this, i64 24
-  %15 = load i64, ptr %size_.i.i16, align 8
-  %16 = load ptr, ptr %target_file_.i, align 8
-  %call3.i18 = call i64 @fwrite(ptr noundef %14, i64 noundef 1, i64 noundef %15, ptr noundef %16)
-  %17 = load i64, ptr %color_range_end, align 8
+  %14 = load i64, ptr %size_.i.i16, align 8
+  %15 = load ptr, ptr %target_file_.i, align 8
+  %call3.i18 = call i64 @fwrite(ptr noundef %13, i64 noundef 1, i64 noundef %14, ptr noundef %15)
+  %16 = load i64, ptr %color_range_end, align 8
   %size_.i19 = getelementptr inbounds i8, ptr %formatted, i64 16
-  %18 = load i64, ptr %size_.i19, align 8
-  %19 = load ptr, ptr %ptr_.i.i, align 8
-  %add.ptr.i21 = getelementptr inbounds i8, ptr %19, i64 %17
-  %sub.i22 = sub i64 %18, %17
-  %20 = load ptr, ptr %target_file_.i, align 8
-  %call2.i24 = call i64 @fwrite(ptr noundef %add.ptr.i21, i64 noundef 1, i64 noundef %sub.i22, ptr noundef %20)
+  %17 = load i64, ptr %size_.i19, align 8
+  %18 = load ptr, ptr %ptr_.i.i, align 8
+  %add.ptr.i21 = getelementptr inbounds i8, ptr %18, i64 %16
+  %sub.i22 = sub i64 %17, %16
+  %19 = load ptr, ptr %target_file_.i, align 8
+  %call2.i24 = call i64 @fwrite(ptr noundef %add.ptr.i21, i64 noundef 1, i64 noundef %sub.i22, ptr noundef %19)
   br label %if.end
 
 lpad2:                                            ; preds = %if.then.i, %entry
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(288) %formatted) #15
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %20
 
 if.else:                                          ; preds = %land.lhs.true, %invoke.cont3
   %size_.i25 = getelementptr inbounds i8, ptr %formatted, i64 16
-  %22 = load i64, ptr %size_.i25, align 8
-  %23 = load ptr, ptr %ptr_.i.i, align 8
+  %21 = load i64, ptr %size_.i25, align 8
+  %22 = load ptr, ptr %ptr_.i.i, align 8
   %target_file_.i27 = getelementptr inbounds i8, ptr %this, i64 448
-  %24 = load ptr, ptr %target_file_.i27, align 8
-  %call2.i28 = call i64 @fwrite(ptr noundef %23, i64 noundef 1, i64 noundef %22, ptr noundef %24)
+  %23 = load ptr, ptr %target_file_.i27, align 8
+  %call2.i28 = call i64 @fwrite(ptr noundef %22, i64 noundef 1, i64 noundef %21, ptr noundef %23)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %invoke.cont15
   %target_file_ = getelementptr inbounds i8, ptr %this, i64 448
-  %25 = load ptr, ptr %target_file_, align 8
-  %call22 = call i32 @fflush(ptr noundef %25)
-  %26 = load ptr, ptr %ptr_.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %26, %store_.i
+  %24 = load ptr, ptr %target_file_, align 8
+  %call22 = call i32 @fflush(ptr noundef %24)
+  %25 = load ptr, ptr %ptr_.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %25, %store_.i
   br i1 %cmp.not.i.i, label %_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  call void @_ZdlPv(ptr noundef %26) #17
+  call void @_ZdlPv(ptr noundef %25) #17
   br label %_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEED2Ev.exit
 
 _ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEED2Ev.exit: ; preds = %if.end, %if.then.i.i

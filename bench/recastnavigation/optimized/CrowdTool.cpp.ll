@@ -325,15 +325,14 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
 21:                                               ; preds = %1
   %22 = getelementptr inbounds i8, ptr %0, i64 100978
   %23 = load i8, ptr %22, align 2
-  %24 = and i8 %23, 1
-  %.not = icmp eq i8 %24, 0
-  br i1 %.not, label %29, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %29
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %18, i64 624
   %27 = load ptr, ptr %26, align 8
-  %.not415 = icmp eq ptr %27, null
-  br i1 %.not415, label %29, label %28
+  %.not414 = icmp eq ptr %27, null
+  br i1 %.not414, label %29, label %28
 
 28:                                               ; preds = %25
   tail call void @_Z23duDebugDrawNavMeshNodesP11duDebugDrawRK14dtNavMeshQuery(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(104) %27)
@@ -346,36 +345,34 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext false)
   %33 = getelementptr inbounds i8, ptr %0, i64 100971
   %34 = load i8, ptr %33, align 1
-  %35 = and i8 %34, 1
-  %.not416 = icmp eq i8 %35, 0
-  br i1 %.not416, label %.loopexit454, label %.preheader453
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %.preheader437, label %.loopexit438
 
-.preheader453:                                    ; preds = %29
+.preheader437:                                    ; preds = %29
   %36 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %.lr.ph457, label %.loopexit454
+  br i1 %37, label %.lr.ph441, label %.loopexit438
 
-.lr.ph457:                                        ; preds = %.preheader453
+.lr.ph441:                                        ; preds = %.preheader437
   %38 = getelementptr inbounds i8, ptr %0, i64 100980
   %39 = getelementptr inbounds i8, ptr %0, i64 48
   br label %40
 
-40:                                               ; preds = %.lr.ph457, %.loopexit452
-  %.0385456 = phi i32 [ 0, %.lr.ph457 ], [ %57, %.loopexit452 ]
+40:                                               ; preds = %.lr.ph441, %.loopexit436
+  %.0385440 = phi i32 [ 0, %.lr.ph441 ], [ %57, %.loopexit436 ]
   %41 = load i8, ptr %38, align 4
   %42 = and i8 %41, 1
   %43 = icmp ne i8 %42, 0
   %44 = load i32, ptr %39, align 8
-  %.not440 = icmp eq i32 %.0385456, %44
-  %or.cond443 = select i1 %43, i1 true, i1 %.not440
-  br i1 %or.cond443, label %45, label %.loopexit452
+  %.not425 = icmp eq i32 %.0385440, %44
+  %or.cond427 = select i1 %43, i1 true, i1 %.not425
+  br i1 %or.cond427, label %45, label %.loopexit436
 
 45:                                               ; preds = %40
-  %46 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %.0385456)
+  %46 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %.0385440)
   %47 = load i8, ptr %46, align 8
-  %48 = and i8 %47, 1
-  %.not441 = icmp eq i8 %48, 0
-  br i1 %.not441, label %.loopexit452, label %49
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %.loopexit436
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds i8, ptr %46, i64 32
@@ -383,7 +380,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   %52 = getelementptr inbounds i8, ptr %46, i64 40
   %53 = load i32, ptr %52, align 8
   %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %.lr.ph.preheader, label %.loopexit452
+  br i1 %54, label %.lr.ph.preheader, label %.loopexit436
 
 .lr.ph.preheader:                                 ; preds = %49
   %wide.trip.count = zext nneg i32 %53 to i64
@@ -396,21 +393,21 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   tail call void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(100) %13, i32 noundef %56, i32 noundef 419430399)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit452, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %.loopexit436, label %.lr.ph, !llvm.loop !5
 
-.loopexit452:                                     ; preds = %.lr.ph, %49, %40, %45
-  %57 = add nuw nsw i32 %.0385456, 1
+.loopexit436:                                     ; preds = %.lr.ph, %49, %40, %45
+  %57 = add nuw nsw i32 %.0385440, 1
   %58 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %59 = icmp slt i32 %57, %58
-  br i1 %59, label %40, label %.loopexit454, !llvm.loop !7
+  br i1 %59, label %40, label %.loopexit438, !llvm.loop !7
 
-.loopexit454:                                     ; preds = %.loopexit452, %.preheader453, %29
+.loopexit438:                                     ; preds = %.loopexit436, %.preheader437, %29
   %60 = getelementptr inbounds i8, ptr %0, i64 44
   %61 = load i32, ptr %60, align 4
-  %.not417 = icmp eq i32 %61, 0
-  br i1 %.not417, label %70, label %62
+  %.not415 = icmp eq i32 %61, 0
+  br i1 %.not415, label %70, label %62
 
-62:                                               ; preds = %.loopexit454
+62:                                               ; preds = %.loopexit438
   %63 = getelementptr inbounds i8, ptr %0, i64 32
   %64 = load float, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %0, i64 36
@@ -421,43 +418,41 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   tail call void @_Z16duDebugDrawCrossP11duDebugDrawffffjf(ptr noundef nonnull %4, float noundef %64, float noundef %67, float noundef %69, float noundef %8, i32 noundef -1056964609, float noundef 2.000000e+00)
   br label %70
 
-70:                                               ; preds = %62, %.loopexit454
+70:                                               ; preds = %62, %.loopexit438
   %71 = getelementptr inbounds i8, ptr %0, i64 100977
   %72 = load i8, ptr %71, align 1
-  %73 = and i8 %72, 1
-  %.not418 = icmp eq i8 %73, 0
-  br i1 %.not418, label %141, label %.preheader451
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %.preheader435, label %141
 
-.preheader451:                                    ; preds = %70
+.preheader435:                                    ; preds = %70
   %74 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %.lr.ph460, label %._crit_edge
+  br i1 %75, label %.lr.ph444, label %._crit_edge
 
-.lr.ph460:                                        ; preds = %.preheader451, %84
-  %.0387459 = phi float [ %.1, %84 ], [ 0xC7EFFFFFE0000000, %.preheader451 ]
-  %.0388458 = phi i32 [ %85, %84 ], [ 0, %.preheader451 ]
-  %76 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %.0388458)
+.lr.ph444:                                        ; preds = %.preheader435, %84
+  %.0387443 = phi float [ %.1, %84 ], [ 0xC7EFFFFFE0000000, %.preheader435 ]
+  %.0388442 = phi i32 [ %85, %84 ], [ 0, %.preheader435 ]
+  %76 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %.0388442)
   %77 = load i8, ptr %76, align 8
-  %78 = and i8 %77, 1
-  %.not439 = icmp eq i8 %78, 0
-  br i1 %.not439, label %84, label %79
+  %78 = trunc i8 %77 to i1
+  br i1 %78, label %79, label %84
 
-79:                                               ; preds = %.lr.ph460
+79:                                               ; preds = %.lr.ph444
   %80 = getelementptr inbounds i8, ptr %76, i64 12
   %81 = load float, ptr %80, align 4
-  %82 = fcmp ogt float %.0387459, %81
-  %83 = select i1 %82, float %.0387459, float %81
+  %82 = fcmp ogt float %.0387443, %81
+  %83 = select i1 %82, float %.0387443, float %81
   br label %84
 
-84:                                               ; preds = %.lr.ph460, %79
-  %.1 = phi float [ %83, %79 ], [ %.0387459, %.lr.ph460 ]
-  %85 = add nuw nsw i32 %.0388458, 1
+84:                                               ; preds = %.lr.ph444, %79
+  %.1 = phi float [ %83, %79 ], [ %.0387443, %.lr.ph444 ]
+  %85 = add nuw nsw i32 %.0388442, 1
   %86 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %87 = icmp slt i32 %85, %86
-  br i1 %87, label %.lr.ph460, label %._crit_edge, !llvm.loop !8
+  br i1 %87, label %.lr.ph444, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %84, %.preheader451
-  %.0387.lcssa = phi float [ 0xC7EFFFFFE0000000, %.preheader451 ], [ %.1, %84 ]
+._crit_edge:                                      ; preds = %84, %.preheader435
+  %.0387.lcssa = phi float [ 0xC7EFFFFFE0000000, %.preheader435 ], [ %.1, %84 ]
   %88 = fadd float %.0387.lcssa, 1.000000e+00
   %89 = load ptr, ptr %4, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 32
@@ -471,42 +466,42 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   %97 = load i32, ptr %96, align 4
   %98 = getelementptr inbounds i8, ptr %93, i64 48
   %99 = load i32, ptr %98, align 4
-  %.not419466 = icmp sgt i32 %97, %99
-  br i1 %.not419466, label %._crit_edge470, label %.lr.ph469
+  %.not416450 = icmp sgt i32 %97, %99
+  br i1 %.not416450, label %._crit_edge454, label %.lr.ph453
 
-.lr.ph469:                                        ; preds = %._crit_edge
+.lr.ph453:                                        ; preds = %._crit_edge
   %100 = getelementptr inbounds i8, ptr %93, i64 44
   %101 = load i32, ptr %94, align 4
   %102 = load i32, ptr %100, align 4
   %103 = icmp sgt i32 %101, %102
-  br i1 %103, label %._crit_edge470, label %.lr.ph469.split
+  br i1 %103, label %._crit_edge454, label %.lr.ph453.split
 
-.lr.ph469.split:                                  ; preds = %.lr.ph469, %._crit_edge465
-  %104 = phi i32 [ %135, %._crit_edge465 ], [ %99, %.lr.ph469 ]
-  %105 = phi i32 [ %136, %._crit_edge465 ], [ %102, %.lr.ph469 ]
-  %.0389467 = phi i32 [ %137, %._crit_edge465 ], [ %97, %.lr.ph469 ]
+.lr.ph453.split:                                  ; preds = %.lr.ph453, %._crit_edge449
+  %104 = phi i32 [ %135, %._crit_edge449 ], [ %99, %.lr.ph453 ]
+  %105 = phi i32 [ %136, %._crit_edge449 ], [ %102, %.lr.ph453 ]
+  %.0389451 = phi i32 [ %137, %._crit_edge449 ], [ %97, %.lr.ph453 ]
   %106 = load i32, ptr %94, align 4
-  %.not437461 = icmp sgt i32 %106, %105
-  br i1 %.not437461, label %._crit_edge465, label %.lr.ph464
+  %.not423445 = icmp sgt i32 %106, %105
+  br i1 %.not423445, label %._crit_edge449, label %.lr.ph448
 
-.lr.ph464:                                        ; preds = %.lr.ph469.split
-  %107 = sitofp i32 %.0389467 to float
+.lr.ph448:                                        ; preds = %.lr.ph453.split
+  %107 = sitofp i32 %.0389451 to float
   %108 = fmul float %95, %107
   %109 = tail call float @llvm.fmuladd.f32(float %107, float %95, float %95)
   br label %110
 
-110:                                              ; preds = %.lr.ph464, %132
-  %.0390462 = phi i32 [ %106, %.lr.ph464 ], [ %133, %132 ]
-  %111 = tail call noundef i32 @_ZNK15dtProximityGrid14getItemCountAtEii(ptr noundef nonnull align 8 dereferenceable(52) %93, i32 noundef %.0390462, i32 noundef %.0389467)
-  %.not438 = icmp eq i32 %111, 0
-  br i1 %.not438, label %132, label %112
+110:                                              ; preds = %.lr.ph448, %132
+  %.0390446 = phi i32 [ %106, %.lr.ph448 ], [ %133, %132 ]
+  %111 = tail call noundef i32 @_ZNK15dtProximityGrid14getItemCountAtEii(ptr noundef nonnull align 8 dereferenceable(52) %93, i32 noundef %.0390446, i32 noundef %.0389451)
+  %.not424 = icmp eq i32 %111, 0
+  br i1 %.not424, label %132, label %112
 
 112:                                              ; preds = %110
   %113 = mul nsw i32 %111, 40
   %114 = tail call noundef i32 @llvm.smin.i32(i32 %113, i32 255)
   %115 = shl i32 %114, 24
   %116 = or disjoint i32 %115, 128
-  %117 = sitofp i32 %.0390462 to float
+  %117 = sitofp i32 %.0390446 to float
   %118 = fmul float %95, %117
   %119 = load ptr, ptr %4, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 48
@@ -528,44 +523,44 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   br label %132
 
 132:                                              ; preds = %110, %112
-  %133 = add nsw i32 %.0390462, 1
+  %133 = add nsw i32 %.0390446, 1
   %134 = load i32, ptr %100, align 4
-  %.not437.not = icmp slt i32 %.0390462, %134
-  br i1 %.not437.not, label %110, label %._crit_edge465.loopexit, !llvm.loop !9
+  %.not423.not = icmp slt i32 %.0390446, %134
+  br i1 %.not423.not, label %110, label %._crit_edge449.loopexit, !llvm.loop !9
 
-._crit_edge465.loopexit:                          ; preds = %132
+._crit_edge449.loopexit:                          ; preds = %132
   %.pre = load i32, ptr %98, align 4
-  br label %._crit_edge465
+  br label %._crit_edge449
 
-._crit_edge465:                                   ; preds = %._crit_edge465.loopexit, %.lr.ph469.split
-  %135 = phi i32 [ %.pre, %._crit_edge465.loopexit ], [ %104, %.lr.ph469.split ]
-  %136 = phi i32 [ %134, %._crit_edge465.loopexit ], [ %105, %.lr.ph469.split ]
-  %137 = add nsw i32 %.0389467, 1
-  %.not419.not = icmp slt i32 %.0389467, %135
-  br i1 %.not419.not, label %.lr.ph469.split, label %._crit_edge470, !llvm.loop !10
+._crit_edge449:                                   ; preds = %._crit_edge449.loopexit, %.lr.ph453.split
+  %135 = phi i32 [ %.pre, %._crit_edge449.loopexit ], [ %104, %.lr.ph453.split ]
+  %136 = phi i32 [ %134, %._crit_edge449.loopexit ], [ %105, %.lr.ph453.split ]
+  %137 = add nsw i32 %.0389451, 1
+  %.not416.not = icmp slt i32 %.0389451, %135
+  br i1 %.not416.not, label %.lr.ph453.split, label %._crit_edge454, !llvm.loop !10
 
-._crit_edge470:                                   ; preds = %._crit_edge465, %.lr.ph469, %._crit_edge
+._crit_edge454:                                   ; preds = %._crit_edge449, %.lr.ph453, %._crit_edge
   %138 = load ptr, ptr %4, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 72
   %140 = load ptr, ptr %139, align 8
   tail call void %140(ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %141
 
-141:                                              ; preds = %._crit_edge470, %70
+141:                                              ; preds = %._crit_edge454, %70
   %142 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %143 = icmp sgt i32 %142, 0
-  br i1 %143, label %.lr.ph478, label %.preheader450
+  br i1 %143, label %.lr.ph462, label %.preheader434
 
-.lr.ph478:                                        ; preds = %141
+.lr.ph462:                                        ; preds = %141
   %144 = getelementptr inbounds i8, ptr %0, i64 96
   br label %159
 
-.preheader450:                                    ; preds = %207, %141
+.preheader434:                                    ; preds = %207, %141
   %145 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %146 = icmp sgt i32 %145, 0
-  br i1 %146, label %.lr.ph493, label %.preheader449
+  br i1 %146, label %.lr.ph477, label %.preheader433
 
-.lr.ph493:                                        ; preds = %.preheader450
+.lr.ph477:                                        ; preds = %.preheader434
   %147 = getelementptr inbounds i8, ptr %0, i64 100980
   %148 = getelementptr inbounds i8, ptr %0, i64 48
   %149 = getelementptr inbounds i8, ptr %0, i64 100969
@@ -580,17 +575,16 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   %158 = getelementptr inbounds i8, ptr %0, i64 72
   br label %214
 
-159:                                              ; preds = %.lr.ph478, %207
-  %indvars.iv513 = phi i64 [ 0, %.lr.ph478 ], [ %indvars.iv.next514, %207 ]
-  %160 = trunc i64 %indvars.iv513 to i32
+159:                                              ; preds = %.lr.ph462, %207
+  %indvars.iv497 = phi i64 [ 0, %.lr.ph462 ], [ %indvars.iv.next498, %207 ]
+  %160 = trunc i64 %indvars.iv497 to i32
   %161 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %160)
   %162 = load i8, ptr %161, align 8
-  %163 = and i8 %162, 1
-  %.not436 = icmp eq i8 %163, 0
-  br i1 %.not436, label %207, label %164
+  %163 = trunc i8 %162 to i1
+  br i1 %163, label %164, label %207
 
 164:                                              ; preds = %159
-  %165 = getelementptr inbounds [128 x %"struct.CrowdToolState::AgentTrail"], ptr %144, i64 0, i64 %indvars.iv513
+  %165 = getelementptr inbounds [128 x %"struct.CrowdToolState::AgentTrail"], ptr %144, i64 0, i64 %indvars.iv497
   %166 = getelementptr inbounds i8, ptr %161, i64 416
   %167 = load ptr, ptr %4, align 8
   %168 = getelementptr inbounds i8, ptr %167, i64 32
@@ -602,26 +596,26 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   br label %173
 
 173:                                              ; preds = %164, %173
-  %.0393475 = phi float [ 1.000000e+00, %164 ], [ %182, %173 ]
-  %.0394474 = phi i32 [ 0, %164 ], [ %202, %173 ]
-  %.sroa.0.0.in473 = phi ptr [ %166, %164 ], [ %179, %173 ]
-  %.sroa.3.0.in472 = phi ptr [ %170, %164 ], [ %191, %173 ]
-  %.sroa.6.0.in471 = phi ptr [ %171, %164 ], [ %194, %173 ]
-  %.sroa.0.0 = load float, ptr %.sroa.0.0.in473, align 4
-  %.sroa.3.0 = load float, ptr %.sroa.3.0.in472, align 4
-  %.sroa.6.0 = load float, ptr %.sroa.6.0.in471, align 4
+  %.0393459 = phi float [ 1.000000e+00, %164 ], [ %182, %173 ]
+  %.0394458 = phi i32 [ 0, %164 ], [ %202, %173 ]
+  %.sroa.0.0.in457 = phi ptr [ %166, %164 ], [ %179, %173 ]
+  %.sroa.3.0.in456 = phi ptr [ %170, %164 ], [ %191, %173 ]
+  %.sroa.6.0.in455 = phi ptr [ %171, %164 ], [ %194, %173 ]
+  %.sroa.0.0 = load float, ptr %.sroa.0.0.in457, align 4
+  %.sroa.3.0 = load float, ptr %.sroa.3.0.in456, align 4
+  %.sroa.6.0 = load float, ptr %.sroa.6.0.in455, align 4
   %174 = load i32, ptr %172, align 4
-  %reass.sub = sub i32 %174, %.0394474
+  %reass.sub = sub i32 %174, %.0394458
   %175 = add i32 %reass.sub, 64
   %176 = srem i32 %175, 64
   %177 = mul nsw i32 %176, 3
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds [192 x float], ptr %165, i64 0, i64 %178
-  %180 = sitofp i32 %.0394474 to float
+  %180 = sitofp i32 %.0394458 to float
   %181 = fmul float %180, 1.562500e-02
   %182 = fsub float 1.000000e+00, %181
   %183 = fadd float %.sroa.3.0, 0x3FB99999A0000000
-  %184 = fmul float %.0393475, 1.280000e+02
+  %184 = fmul float %.0393459, 1.280000e+02
   %185 = fptosi float %184 to i32
   %186 = shl i32 %185, 24
   %187 = load ptr, ptr %4, align 8
@@ -641,9 +635,9 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   %200 = getelementptr inbounds i8, ptr %199, i64 48
   %201 = load ptr, ptr %200, align 8
   tail call void %201(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %190, float noundef %193, float noundef %195, i32 noundef %198)
-  %202 = add nuw nsw i32 %.0394474, 1
-  %exitcond512.not = icmp eq i32 %202, 63
-  br i1 %exitcond512.not, label %203, label %173, !llvm.loop !12
+  %202 = add nuw nsw i32 %.0394458, 1
+  %exitcond496.not = icmp eq i32 %202, 63
+  br i1 %exitcond496.not, label %203, label %173, !llvm.loop !12
 
 203:                                              ; preds = %173
   %204 = load ptr, ptr %4, align 8
@@ -653,52 +647,50 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   br label %207
 
 207:                                              ; preds = %159, %203
-  %indvars.iv.next514 = add nuw nsw i64 %indvars.iv513, 1
+  %indvars.iv.next498 = add nuw nsw i64 %indvars.iv497, 1
   %208 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %209 = sext i32 %208 to i64
-  %210 = icmp slt i64 %indvars.iv.next514, %209
-  br i1 %210, label %159, label %.preheader450, !llvm.loop !13
+  %210 = icmp slt i64 %indvars.iv.next498, %209
+  br i1 %210, label %159, label %.preheader434, !llvm.loop !13
 
-.preheader449:                                    ; preds = %429, %.preheader450
+.preheader433:                                    ; preds = %429, %.preheader434
   %211 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %212 = icmp sgt i32 %211, 0
-  br i1 %212, label %.lr.ph495, label %.preheader448
+  br i1 %212, label %.lr.ph479, label %.preheader432
 
-.lr.ph495:                                        ; preds = %.preheader449
+.lr.ph479:                                        ; preds = %.preheader433
   %213 = getelementptr inbounds i8, ptr %0, i64 48
   br label %435
 
-214:                                              ; preds = %.lr.ph493, %429
-  %.0395492 = phi i32 [ 0, %.lr.ph493 ], [ %430, %429 ]
+214:                                              ; preds = %.lr.ph477, %429
+  %.0395476 = phi i32 [ 0, %.lr.ph477 ], [ %430, %429 ]
   %215 = load i8, ptr %147, align 4
   %216 = and i8 %215, 1
   %217 = icmp ne i8 %216, 0
   %218 = load i32, ptr %148, align 8
-  %.not426 = icmp eq i32 %.0395492, %218
-  %or.cond445 = select i1 %217, i1 true, i1 %.not426
-  br i1 %or.cond445, label %219, label %429
+  %.not418 = icmp eq i32 %.0395476, %218
+  %or.cond429 = select i1 %217, i1 true, i1 %.not418
+  br i1 %or.cond429, label %219, label %429
 
 219:                                              ; preds = %214
-  %220 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %.0395492)
+  %220 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %.0395476)
   %221 = load i8, ptr %220, align 8
-  %222 = and i8 %221, 1
-  %.not427 = icmp eq i8 %222, 0
-  br i1 %.not427, label %429, label %223
+  %222 = trunc i8 %221 to i1
+  br i1 %222, label %223, label %429
 
 223:                                              ; preds = %219
   %224 = getelementptr inbounds i8, ptr %220, i64 480
   %225 = load float, ptr %224, align 8
   %226 = getelementptr inbounds i8, ptr %220, i64 416
   %227 = load i8, ptr %149, align 1
-  %228 = and i8 %227, 1
-  %.not428 = icmp eq i8 %228, 0
-  br i1 %.not428, label %301, label %229
+  %228 = trunc i8 %227 to i1
+  br i1 %228, label %229, label %301
 
 229:                                              ; preds = %223
   %230 = getelementptr inbounds i8, ptr %220, i64 588
   %231 = load i32, ptr %230, align 4
-  %.not429 = icmp eq i32 %231, 0
-  br i1 %.not429, label %301, label %232
+  %.not419 = icmp eq i32 %231, 0
+  br i1 %.not419, label %301, label %232
 
 232:                                              ; preds = %229
   %233 = load ptr, ptr %4, align 8
@@ -707,16 +699,16 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   tail call void %235(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 1, float noundef 2.000000e+00)
   %236 = load i32, ptr %230, align 4
   %237 = icmp sgt i32 %236, 0
-  br i1 %237, label %.lr.ph481, label %._crit_edge482
+  br i1 %237, label %.lr.ph465, label %._crit_edge466
 
-.lr.ph481:                                        ; preds = %232
+.lr.ph465:                                        ; preds = %232
   %238 = getelementptr inbounds i8, ptr %220, i64 520
   br label %239
 
-239:                                              ; preds = %.lr.ph481, %239
-  %indvars.iv516 = phi i64 [ 0, %.lr.ph481 ], [ %indvars.iv.next517, %239 ]
-  %240 = icmp eq i64 %indvars.iv516, 0
-  %241 = trunc i64 %indvars.iv516 to i32
+239:                                              ; preds = %.lr.ph465, %239
+  %indvars.iv500 = phi i64 [ 0, %.lr.ph465 ], [ %indvars.iv.next501, %239 ]
+  %240 = icmp eq i64 %indvars.iv500, 0
+  %241 = trunc i64 %indvars.iv500 to i32
   %242 = mul i32 %241, 3
   %243 = add i32 %242, -3
   %244 = sext i32 %243 to i64
@@ -744,26 +736,26 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   %265 = getelementptr inbounds i8, ptr %264, i64 48
   %266 = load ptr, ptr %265, align 8
   tail call void %266(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %258, float noundef %261, float noundef %263, i32 noundef -1073741696)
-  %indvars.iv.next517 = add nuw nsw i64 %indvars.iv516, 1
+  %indvars.iv.next501 = add nuw nsw i64 %indvars.iv500, 1
   %267 = load i32, ptr %230, align 4
   %268 = sext i32 %267 to i64
-  %269 = icmp slt i64 %indvars.iv.next517, %268
-  br i1 %269, label %239, label %._crit_edge482, !llvm.loop !14
+  %269 = icmp slt i64 %indvars.iv.next501, %268
+  br i1 %269, label %239, label %._crit_edge466, !llvm.loop !14
 
-._crit_edge482:                                   ; preds = %239, %232
+._crit_edge466:                                   ; preds = %239, %232
   %.lcssa = phi i32 [ %236, %232 ], [ %267, %239 ]
-  %.not430 = icmp eq i32 %.lcssa, 0
-  br i1 %.not430, label %297, label %270
+  %.not420 = icmp eq i32 %.lcssa, 0
+  br i1 %.not420, label %297, label %270
 
-270:                                              ; preds = %._crit_edge482
+270:                                              ; preds = %._crit_edge466
   %271 = getelementptr inbounds i8, ptr %220, i64 568
   %272 = add nsw i32 %.lcssa, -1
   %273 = sext i32 %272 to i64
   %274 = getelementptr inbounds [4 x i8], ptr %271, i64 0, i64 %273
   %275 = load i8, ptr %274, align 1
   %276 = and i8 %275, 4
-  %.not431 = icmp eq i8 %276, 0
-  br i1 %.not431, label %297, label %277
+  %.not421 = icmp eq i8 %276, 0
+  br i1 %.not421, label %297, label %277
 
 277:                                              ; preds = %270
   %278 = getelementptr inbounds i8, ptr %220, i64 520
@@ -789,7 +781,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   tail call void %296(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %290, float noundef %292, float noundef %293, i32 noundef -1073741632)
   br label %297
 
-297:                                              ; preds = %277, %270, %._crit_edge482
+297:                                              ; preds = %277, %270, %._crit_edge466
   %298 = load ptr, ptr %4, align 8
   %299 = getelementptr inbounds i8, ptr %298, i64 72
   %300 = load ptr, ptr %299, align 8
@@ -798,9 +790,8 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
 
 301:                                              ; preds = %229, %297, %223
   %302 = load i8, ptr %150, align 2
-  %303 = and i8 %302, 1
-  %.not432 = icmp eq i8 %303, 0
-  br i1 %.not432, label %357, label %304
+  %303 = trunc i8 %302 to i1
+  br i1 %303, label %304, label %357
 
 304:                                              ; preds = %301
   %305 = getelementptr inbounds i8, ptr %220, i64 48
@@ -825,16 +816,16 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   %321 = getelementptr inbounds i8, ptr %220, i64 284
   %322 = load i32, ptr %321, align 4
   %323 = icmp sgt i32 %322, 0
-  br i1 %323, label %.lr.ph486, label %._crit_edge487
+  br i1 %323, label %.lr.ph470, label %._crit_edge471
 
-.lr.ph486:                                        ; preds = %304
+.lr.ph470:                                        ; preds = %304
   %324 = getelementptr inbounds i8, ptr %220, i64 60
   %325 = getelementptr inbounds i8, ptr %220, i64 424
   br label %326
 
-326:                                              ; preds = %.lr.ph486, %326
-  %indvars.iv519 = phi i64 [ 0, %.lr.ph486 ], [ %indvars.iv.next520, %326 ]
-  %327 = getelementptr inbounds [8 x %"struct.dtLocalBoundary::Segment"], ptr %324, i64 0, i64 %indvars.iv519
+326:                                              ; preds = %.lr.ph470, %326
+  %indvars.iv503 = phi i64 [ 0, %.lr.ph470 ], [ %indvars.iv.next504, %326 ]
+  %327 = getelementptr inbounds [8 x %"struct.dtLocalBoundary::Segment"], ptr %324, i64 0, i64 %indvars.iv503
   %328 = getelementptr inbounds i8, ptr %327, i64 12
   %329 = load float, ptr %327, align 4
   %330 = load float, ptr %226, align 4
@@ -860,24 +851,23 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   %349 = load float, ptr %348, align 4
   %350 = fadd float %349, 0x3FC99999A0000000
   tail call void @_Z13duAppendArrowP11duDebugDrawffffffffj(ptr noundef nonnull %4, float noundef %329, float noundef %347, float noundef %333, float noundef %336, float noundef %350, float noundef %339, float noundef 0.000000e+00, float noundef 0x3FD3333340000000, i32 noundef %.0399)
-  %indvars.iv.next520 = add nuw nsw i64 %indvars.iv519, 1
+  %indvars.iv.next504 = add nuw nsw i64 %indvars.iv503, 1
   %351 = load i32, ptr %321, align 4
   %352 = sext i32 %351 to i64
-  %353 = icmp slt i64 %indvars.iv.next520, %352
-  br i1 %353, label %326, label %._crit_edge487, !llvm.loop !15
+  %353 = icmp slt i64 %indvars.iv.next504, %352
+  br i1 %353, label %326, label %._crit_edge471, !llvm.loop !15
 
-._crit_edge487:                                   ; preds = %326, %304
+._crit_edge471:                                   ; preds = %326, %304
   %354 = load ptr, ptr %4, align 8
   %355 = getelementptr inbounds i8, ptr %354, i64 72
   %356 = load ptr, ptr %355, align 8
   tail call void %356(ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %357
 
-357:                                              ; preds = %._crit_edge487, %301
+357:                                              ; preds = %._crit_edge471, %301
   %358 = load i8, ptr %151, align 2
-  %359 = and i8 %358, 1
-  %.not433 = icmp eq i8 %359, 0
-  br i1 %.not433, label %405, label %360
+  %359 = trunc i8 %358 to i1
+  br i1 %359, label %360, label %405
 
 360:                                              ; preds = %357
   %361 = load float, ptr %226, align 4
@@ -896,19 +886,19 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   %372 = getelementptr inbounds i8, ptr %220, i64 408
   %373 = load i32, ptr %372, align 8
   %374 = icmp sgt i32 %373, 0
-  br i1 %374, label %.lr.ph490, label %._crit_edge491
+  br i1 %374, label %.lr.ph474, label %._crit_edge475
 
-.lr.ph490:                                        ; preds = %360
+.lr.ph474:                                        ; preds = %360
   %375 = getelementptr inbounds i8, ptr %220, i64 360
   br label %376
 
-376:                                              ; preds = %.lr.ph490, %398
-  %indvars.iv522 = phi i64 [ 0, %.lr.ph490 ], [ %indvars.iv.next523, %398 ]
-  %377 = getelementptr inbounds [6 x %struct.dtCrowdNeighbour], ptr %375, i64 0, i64 %indvars.iv522
+376:                                              ; preds = %.lr.ph474, %398
+  %indvars.iv506 = phi i64 [ 0, %.lr.ph474 ], [ %indvars.iv.next507, %398 ]
+  %377 = getelementptr inbounds [6 x %struct.dtCrowdNeighbour], ptr %375, i64 0, i64 %indvars.iv506
   %378 = load i32, ptr %377, align 8
   %379 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %378)
-  %.not435 = icmp eq ptr %379, null
-  br i1 %.not435, label %398, label %380
+  %.not422 = icmp eq ptr %379, null
+  br i1 %.not422, label %398, label %380
 
 380:                                              ; preds = %376
   %381 = load float, ptr %226, align 4
@@ -933,24 +923,23 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   br label %398
 
 398:                                              ; preds = %376, %380
-  %indvars.iv.next523 = add nuw nsw i64 %indvars.iv522, 1
+  %indvars.iv.next507 = add nuw nsw i64 %indvars.iv506, 1
   %399 = load i32, ptr %372, align 8
   %400 = sext i32 %399 to i64
-  %401 = icmp slt i64 %indvars.iv.next523, %400
-  br i1 %401, label %376, label %._crit_edge491, !llvm.loop !16
+  %401 = icmp slt i64 %indvars.iv.next507, %400
+  br i1 %401, label %376, label %._crit_edge475, !llvm.loop !16
 
-._crit_edge491:                                   ; preds = %398, %360
+._crit_edge475:                                   ; preds = %398, %360
   %402 = load ptr, ptr %4, align 8
   %403 = getelementptr inbounds i8, ptr %402, i64 72
   %404 = load ptr, ptr %403, align 8
   tail call void %404(ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %405
 
-405:                                              ; preds = %._crit_edge491, %357
+405:                                              ; preds = %._crit_edge475, %357
   %406 = load i8, ptr %152, align 1
-  %407 = and i8 %406, 1
-  %.not434 = icmp eq i8 %407, 0
-  br i1 %.not434, label %429, label %408
+  %407 = trunc i8 %406 to i1
+  br i1 %407, label %408, label %429
 
 408:                                              ; preds = %405
   %409 = load ptr, ptr %4, align 8
@@ -980,30 +969,29 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   br label %429
 
 429:                                              ; preds = %214, %405, %408, %219
-  %430 = add nuw nsw i32 %.0395492, 1
+  %430 = add nuw nsw i32 %.0395476, 1
   %431 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %432 = icmp slt i32 %430, %431
-  br i1 %432, label %214, label %.preheader449, !llvm.loop !17
+  br i1 %432, label %214, label %.preheader433, !llvm.loop !17
 
-.preheader448:                                    ; preds = %450, %.preheader449
+.preheader432:                                    ; preds = %450, %.preheader433
   %433 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %434 = icmp sgt i32 %433, 0
-  br i1 %434, label %.lr.ph497, label %._crit_edge498
+  br i1 %434, label %.lr.ph481, label %._crit_edge482
 
-435:                                              ; preds = %.lr.ph495, %450
-  %.0401494 = phi i32 [ 0, %.lr.ph495 ], [ %451, %450 ]
-  %436 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %.0401494)
+435:                                              ; preds = %.lr.ph479, %450
+  %.0401478 = phi i32 [ 0, %.lr.ph479 ], [ %451, %450 ]
+  %436 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %.0401478)
   %437 = load i8, ptr %436, align 8
-  %438 = and i8 %437, 1
-  %.not425 = icmp eq i8 %438, 0
-  br i1 %.not425, label %450, label %439
+  %438 = trunc i8 %437 to i1
+  br i1 %438, label %439, label %450
 
 439:                                              ; preds = %435
   %440 = getelementptr inbounds i8, ptr %436, i64 480
   %441 = load float, ptr %440, align 8
   %442 = getelementptr inbounds i8, ptr %436, i64 416
   %443 = load i32, ptr %213, align 8
-  %444 = icmp eq i32 %443, %.0401494
+  %444 = icmp eq i32 %443, %.0401478
   %spec.select = select i1 %444, i32 -2147483393, i32 536870912
   %445 = load float, ptr %442, align 4
   %446 = getelementptr inbounds i8, ptr %436, i64 420
@@ -1014,20 +1002,19 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   br label %450
 
 450:                                              ; preds = %435, %439
-  %451 = add nuw nsw i32 %.0401494, 1
+  %451 = add nuw nsw i32 %.0401478, 1
   %452 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %453 = icmp slt i32 %451, %452
-  br i1 %453, label %435, label %.preheader448, !llvm.loop !18
+  br i1 %453, label %435, label %.preheader432, !llvm.loop !18
 
-.lr.ph497:                                        ; preds = %.preheader448, %479
-  %.0405496 = phi i32 [ %480, %479 ], [ 0, %.preheader448 ]
-  %454 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %.0405496)
+.lr.ph481:                                        ; preds = %.preheader432, %479
+  %.0405480 = phi i32 [ %480, %479 ], [ 0, %.preheader432 ]
+  %454 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %.0405480)
   %455 = load i8, ptr %454, align 8
-  %456 = and i8 %455, 1
-  %.not424 = icmp eq i8 %456, 0
-  br i1 %.not424, label %479, label %457
+  %456 = trunc i8 %455 to i1
+  br i1 %456, label %457, label %479
 
-457:                                              ; preds = %.lr.ph497
+457:                                              ; preds = %.lr.ph481
   %458 = getelementptr inbounds i8, ptr %454, i64 480
   %459 = getelementptr inbounds i8, ptr %454, i64 484
   %460 = load float, ptr %459, align 4
@@ -1061,46 +1048,44 @@ switch.lookup:                                    ; preds = %457
   tail call void @_Z19duDebugDrawCylinderP11duDebugDrawffffffj(ptr noundef nonnull %4, float noundef %469, float noundef %472, float noundef %475, float noundef %476, float noundef %477, float noundef %478, i32 noundef %.0404)
   br label %479
 
-479:                                              ; preds = %.lr.ph497, %467
-  %480 = add nuw nsw i32 %.0405496, 1
+479:                                              ; preds = %.lr.ph481, %467
+  %480 = add nuw nsw i32 %.0405480, 1
   %481 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %482 = icmp slt i32 %480, %481
-  br i1 %482, label %.lr.ph497, label %._crit_edge498, !llvm.loop !19
+  br i1 %482, label %.lr.ph481, label %._crit_edge482, !llvm.loop !19
 
-._crit_edge498:                                   ; preds = %479, %.preheader448
+._crit_edge482:                                   ; preds = %479, %.preheader432
   %483 = getelementptr inbounds i8, ptr %0, i64 100972
   %484 = load i8, ptr %483, align 4
-  %485 = and i8 %484, 1
-  %.not420 = icmp eq i8 %485, 0
-  br i1 %.not420, label %.loopexit, label %.preheader
+  %485 = trunc i8 %484 to i1
+  br i1 %485, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %._crit_edge498
+.preheader:                                       ; preds = %._crit_edge482
   %486 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %487 = icmp sgt i32 %486, 0
-  br i1 %487, label %.lr.ph504, label %.loopexit
+  br i1 %487, label %.lr.ph488, label %.loopexit
 
-.lr.ph504:                                        ; preds = %.preheader
+.lr.ph488:                                        ; preds = %.preheader
   %488 = getelementptr inbounds i8, ptr %0, i64 100980
   %489 = getelementptr inbounds i8, ptr %0, i64 48
   %490 = getelementptr inbounds i8, ptr %0, i64 80
   br label %491
 
-491:                                              ; preds = %.lr.ph504, %621
-  %.0403503 = phi i32 [ 0, %.lr.ph504 ], [ %622, %621 ]
+491:                                              ; preds = %.lr.ph488, %621
+  %.0403487 = phi i32 [ 0, %.lr.ph488 ], [ %622, %621 ]
   %492 = load i8, ptr %488, align 4
   %493 = and i8 %492, 1
   %494 = icmp ne i8 %493, 0
   %495 = load i32, ptr %489, align 8
-  %.not422 = icmp eq i32 %.0403503, %495
-  %or.cond447 = select i1 %494, i1 true, i1 %.not422
-  br i1 %or.cond447, label %496, label %621
+  %.not417 = icmp eq i32 %.0403487, %495
+  %or.cond431 = select i1 %494, i1 true, i1 %.not417
+  br i1 %or.cond431, label %496, label %621
 
 496:                                              ; preds = %491
-  %497 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %.0403503)
+  %497 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %.0403487)
   %498 = load i8, ptr %497, align 8
-  %499 = and i8 %498, 1
-  %.not423 = icmp eq i8 %499, 0
-  br i1 %.not423, label %621, label %500
+  %499 = trunc i8 %498 to i1
+  br i1 %499, label %500, label %621
 
 500:                                              ; preds = %496
   %501 = load ptr, ptr %490, align 8
@@ -1122,28 +1107,28 @@ switch.lookup:                                    ; preds = %457
   tail call void %515(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 3, float noundef 1.000000e+00)
   %516 = load i32, ptr %501, align 8
   %517 = icmp sgt i32 %516, 0
-  br i1 %517, label %.lr.ph501, label %._crit_edge502
+  br i1 %517, label %.lr.ph485, label %._crit_edge486
 
-.lr.ph501:                                        ; preds = %500
+.lr.ph485:                                        ; preds = %500
   %518 = getelementptr inbounds i8, ptr %501, i64 8
   %519 = getelementptr inbounds i8, ptr %501, i64 16
   %520 = getelementptr inbounds i8, ptr %501, i64 24
   %521 = getelementptr inbounds i8, ptr %501, i64 48
   br label %522
 
-522:                                              ; preds = %.lr.ph501, %522
-  %indvars.iv525 = phi i64 [ 0, %.lr.ph501 ], [ %indvars.iv.next526, %522 ]
+522:                                              ; preds = %.lr.ph485, %522
+  %indvars.iv509 = phi i64 [ 0, %.lr.ph485 ], [ %indvars.iv.next510, %522 ]
   %523 = load ptr, ptr %518, align 8
-  %524 = mul nuw nsw i64 %indvars.iv525, 3
+  %524 = mul nuw nsw i64 %indvars.iv509, 3
   %525 = getelementptr inbounds float, ptr %523, i64 %524
   %526 = load ptr, ptr %519, align 8
-  %527 = getelementptr inbounds float, ptr %526, i64 %indvars.iv525
+  %527 = getelementptr inbounds float, ptr %526, i64 %indvars.iv509
   %528 = load float, ptr %527, align 4
   %529 = load ptr, ptr %520, align 8
-  %530 = getelementptr inbounds float, ptr %529, i64 %indvars.iv525
+  %530 = getelementptr inbounds float, ptr %529, i64 %indvars.iv509
   %531 = load float, ptr %530, align 4
   %532 = load ptr, ptr %521, align 8
-  %533 = getelementptr inbounds float, ptr %532, i64 %indvars.iv525
+  %533 = getelementptr inbounds float, ptr %532, i64 %indvars.iv509
   %534 = load float, ptr %533, align 4
   %535 = fmul float %531, 2.550000e+02
   %536 = fptosi float %535 to i32
@@ -1229,41 +1214,40 @@ switch.lookup:                                    ; preds = %457
   %613 = getelementptr inbounds i8, ptr %612, i64 48
   %614 = load ptr, ptr %613, align 8
   tail call void %614(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %608, float noundef %508, float noundef %611, i32 noundef %577)
-  %indvars.iv.next526 = add nuw nsw i64 %indvars.iv525, 1
+  %indvars.iv.next510 = add nuw nsw i64 %indvars.iv509, 1
   %615 = load i32, ptr %501, align 8
   %616 = sext i32 %615 to i64
-  %617 = icmp slt i64 %indvars.iv.next526, %616
-  br i1 %617, label %522, label %._crit_edge502, !llvm.loop !20
+  %617 = icmp slt i64 %indvars.iv.next510, %616
+  br i1 %617, label %522, label %._crit_edge486, !llvm.loop !20
 
-._crit_edge502:                                   ; preds = %522, %500
+._crit_edge486:                                   ; preds = %522, %500
   %618 = load ptr, ptr %4, align 8
   %619 = getelementptr inbounds i8, ptr %618, i64 72
   %620 = load ptr, ptr %619, align 8
   tail call void %620(ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %621
 
-621:                                              ; preds = %491, %496, %._crit_edge502
-  %622 = add nuw nsw i32 %.0403503, 1
+621:                                              ; preds = %491, %496, %._crit_edge486
+  %622 = add nuw nsw i32 %.0403487, 1
   %623 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %624 = icmp slt i32 %622, %623
   br i1 %624, label %491, label %.loopexit, !llvm.loop !21
 
-.loopexit:                                        ; preds = %621, %.preheader, %._crit_edge498
+.loopexit:                                        ; preds = %621, %.preheader, %._crit_edge482
   %625 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %626 = icmp sgt i32 %625, 0
-  br i1 %626, label %.lr.ph507, label %._crit_edge508
+  br i1 %626, label %.lr.ph491, label %._crit_edge492
 
-.lr.ph507:                                        ; preds = %.loopexit
+.lr.ph491:                                        ; preds = %.loopexit
   %627 = getelementptr inbounds i8, ptr %0, i64 48
   br label %628
 
-628:                                              ; preds = %.lr.ph507, %678
-  %.0391505 = phi i32 [ 0, %.lr.ph507 ], [ %679, %678 ]
-  %629 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %.0391505)
+628:                                              ; preds = %.lr.ph491, %678
+  %.0391489 = phi i32 [ 0, %.lr.ph491 ], [ %679, %678 ]
+  %629 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %.0391489)
   %630 = load i8, ptr %629, align 8
-  %631 = and i8 %630, 1
-  %.not421 = icmp eq i8 %631, 0
-  br i1 %.not421, label %678, label %632
+  %631 = trunc i8 %630 to i1
+  br i1 %631, label %632, label %678
 
 632:                                              ; preds = %628
   %633 = getelementptr inbounds i8, ptr %629, i64 480
@@ -1275,18 +1259,18 @@ switch.lookup:                                    ; preds = %457
   %639 = getelementptr inbounds i8, ptr %629, i64 440
   %640 = getelementptr inbounds i8, ptr %629, i64 592
   %641 = load i8, ptr %640, align 8
-  %switch.tableidx533 = add i8 %641, -1
-  %642 = icmp ult i8 %switch.tableidx533, 6
-  br i1 %642, label %switch.lookup532, label %644
+  %switch.tableidx517 = add i8 %641, -1
+  %642 = icmp ult i8 %switch.tableidx517, 6
+  br i1 %642, label %switch.lookup516, label %644
 
-switch.lookup532:                                 ; preds = %632
-  %643 = zext nneg i8 %switch.tableidx533 to i64
-  %switch.gep534 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN14CrowdToolState12handleRenderEv.1, i64 0, i64 %643
-  %switch.load535 = load i32, ptr %switch.gep534, align 4
+switch.lookup516:                                 ; preds = %632
+  %643 = zext nneg i8 %switch.tableidx517 to i64
+  %switch.gep518 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN14CrowdToolState12handleRenderEv.1, i64 0, i64 %643
+  %switch.load519 = load i32, ptr %switch.gep518, align 4
   br label %644
 
-644:                                              ; preds = %switch.lookup532, %632
-  %.0 = phi i32 [ -1059267364, %632 ], [ %switch.load535, %switch.lookup532 ]
+644:                                              ; preds = %switch.lookup516, %632
+  %.0 = phi i32 [ -1059267364, %632 ], [ %switch.load519, %switch.lookup516 ]
   %645 = load float, ptr %637, align 4
   %646 = getelementptr inbounds i8, ptr %629, i64 420
   %647 = load float, ptr %646, align 4
@@ -1307,7 +1291,7 @@ switch.lookup532:                                 ; preds = %632
   %661 = load float, ptr %660, align 4
   %662 = fadd float %654, %661
   %663 = load i32, ptr %627, align 8
-  %664 = icmp eq i32 %663, %.0391505
+  %664 = icmp eq i32 %663, %.0391489
   %665 = select i1 %664, float 2.000000e+00, float 1.000000e+00
   tail call void @_Z16duDebugDrawArrowP11duDebugDrawffffffffjf(ptr noundef nonnull %4, float noundef %651, float noundef %653, float noundef %654, float noundef %656, float noundef %659, float noundef %662, float noundef 0.000000e+00, float noundef 0x3FD99999A0000000, i32 noundef -1056980992, float noundef %665)
   %666 = load float, ptr %637, align 4
@@ -1326,19 +1310,19 @@ switch.lookup532:                                 ; preds = %632
   br label %678
 
 678:                                              ; preds = %628, %644
-  %679 = add nuw nsw i32 %.0391505, 1
+  %679 = add nuw nsw i32 %.0391489, 1
   %680 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %681 = icmp slt i32 %679, %680
-  br i1 %681, label %628, label %._crit_edge508, !llvm.loop !22
+  br i1 %681, label %628, label %._crit_edge492, !llvm.loop !22
 
-._crit_edge508:                                   ; preds = %678, %.loopexit
+._crit_edge492:                                   ; preds = %678, %.loopexit
   %682 = load ptr, ptr %4, align 8
   %683 = getelementptr inbounds i8, ptr %682, i64 16
   %684 = load ptr, ptr %683, align 8
   tail call void %684(ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext true)
   br label %685
 
-685:                                              ; preds = %1, %._crit_edge508
+685:                                              ; preds = %1, %._crit_edge492
   ret void
 }
 
@@ -1403,9 +1387,8 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
 29:                                               ; preds = %23, %12, %4
   %30 = getelementptr inbounds i8, ptr %0, i64 100978
   %31 = load i8, ptr %30, align 2
-  %32 = and i8 %31, 1
-  %.not80 = icmp eq i8 %32, 0
-  br i1 %.not80, label %.loopexit104, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %.loopexit97
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1414,36 +1397,36 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
   %37 = getelementptr inbounds i8, ptr %36, i64 136
   %38 = load ptr, ptr %37, align 8
   %39 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(200) %35)
-  %.not81 = icmp eq ptr %39, null
-  br i1 %.not81, label %.loopexit104, label %40
+  %.not80 = icmp eq ptr %39, null
+  br i1 %.not80, label %.loopexit97, label %40
 
 40:                                               ; preds = %33
   %41 = getelementptr inbounds i8, ptr %39, i64 624
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 88
   %44 = load ptr, ptr %43, align 8
-  %.not83 = icmp eq ptr %44, null
-  br i1 %.not83, label %.loopexit104, label %.preheader103
+  %.not82 = icmp eq ptr %44, null
+  br i1 %.not82, label %.loopexit97, label %.preheader96
 
-.preheader103:                                    ; preds = %40
+.preheader96:                                     ; preds = %40
   %45 = getelementptr inbounds i8, ptr %44, i64 28
   %46 = load i32, ptr %45, align 4
   %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %.lr.ph109, label %.loopexit104
+  br i1 %47, label %.lr.ph102, label %.loopexit97
 
-.lr.ph109:                                        ; preds = %.preheader103
+.lr.ph102:                                        ; preds = %.preheader96
   %48 = getelementptr inbounds i8, ptr %44, i64 8
   %49 = getelementptr inbounds i8, ptr %44, i64 16
   br label %50
 
-50:                                               ; preds = %.lr.ph109, %._crit_edge
-  %51 = phi i32 [ %46, %.lr.ph109 ], [ %83, %._crit_edge ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next, %._crit_edge ]
+50:                                               ; preds = %.lr.ph102, %._crit_edge
+  %51 = phi i32 [ %46, %.lr.ph102 ], [ %83, %._crit_edge ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next, %._crit_edge ]
   %52 = load ptr, ptr %48, align 8
   %53 = getelementptr inbounds i16, ptr %52, i64 %indvars.iv
-  %.070105 = load i16, ptr %53, align 2
-  %.not96106 = icmp eq i16 %.070105, -1
-  br i1 %.not96106, label %._crit_edge, label %.lr.ph
+  %.07098 = load i16, ptr %53, align 2
+  %.not8999 = icmp eq i16 %.07098, -1
+  br i1 %.not8999, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %50
   %54 = load ptr, ptr %44, align 8
@@ -1456,11 +1439,11 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %56 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %54, %.lr.ph ]
-  %.070107 = phi i16 [ %.070, %.lr.ph.splitthread-pre-split ], [ %.070105, %.lr.ph ]
-  %57 = zext i16 %.070107 to i64
+  %.070100 = phi i16 [ %.070, %.lr.ph.splitthread-pre-split ], [ %.07098, %.lr.ph ]
+  %57 = zext i16 %.070100 to i64
   %58 = getelementptr inbounds %struct.dtNode, ptr %56, i64 %57
-  %.not97 = icmp eq ptr %56, null
-  br i1 %.not97, label %80, label %59
+  %.not90 = icmp eq ptr %56, null
+  br i1 %.not90, label %80, label %59
 
 59:                                               ; preds = %.lr.ph.split
   %60 = load float, ptr %58, align 4
@@ -1473,8 +1456,8 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
   %67 = load float, ptr %66, align 4
   %68 = fpext float %67 to double
   %69 = call i32 @gluProject(double noundef %61, double noundef %65, double noundef %68, ptr noundef %2, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %.not98 = icmp eq i32 %69, 0
-  br i1 %.not98, label %80, label %70
+  %.not91 = icmp eq i32 %69, 0
+  br i1 %.not91, label %80, label %70
 
 70:                                               ; preds = %59
   %71 = getelementptr inbounds i8, ptr %58, i64 16
@@ -1493,51 +1476,49 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
   %81 = load ptr, ptr %49, align 8
   %82 = getelementptr inbounds i16, ptr %81, i64 %57
   %.070 = load i16, ptr %82, align 2
-  %.not96 = icmp eq i16 %.070, -1
-  br i1 %.not96, label %._crit_edge.loopexit116, label %.lr.ph.splitthread-pre-split, !llvm.loop !23
+  %.not89 = icmp eq i16 %.070, -1
+  br i1 %.not89, label %._crit_edge.loopexit109, label %.lr.ph.splitthread-pre-split, !llvm.loop !23
 
-._crit_edge.loopexit116:                          ; preds = %80
+._crit_edge.loopexit109:                          ; preds = %80
   %.pre = load i32, ptr %45, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge.loopexit116, %50
-  %83 = phi i32 [ %.pre, %._crit_edge.loopexit116 ], [ %51, %50 ], [ %51, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge.loopexit109, %50
+  %83 = phi i32 [ %.pre, %._crit_edge.loopexit109 ], [ %51, %50 ], [ %51, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next, %84
-  br i1 %85, label %50, label %.loopexit104, !llvm.loop !24
+  br i1 %85, label %50, label %.loopexit97, !llvm.loop !24
 
-.loopexit104:                                     ; preds = %._crit_edge, %.preheader103, %33, %40, %29
+.loopexit97:                                      ; preds = %._crit_edge, %.preheader96, %33, %40, %29
   %86 = getelementptr inbounds i8, ptr %0, i64 100976
   %87 = load i8, ptr %86, align 8
-  %88 = and i8 %87, 1
-  %.not84 = icmp eq i8 %88, 0
-  br i1 %.not84, label %.loopexit102, label %89
+  %88 = trunc i8 %87 to i1
+  br i1 %88, label %89, label %.loopexit95
 
-89:                                               ; preds = %.loopexit104
+89:                                               ; preds = %.loopexit97
   %90 = getelementptr inbounds i8, ptr %0, i64 8
   %91 = load ptr, ptr %90, align 8
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 136
   %94 = load ptr, ptr %93, align 8
   %95 = call noundef ptr %94(ptr noundef nonnull align 8 dereferenceable(200) %91)
-  %.not85 = icmp eq ptr %95, null
-  br i1 %.not85, label %.loopexit102, label %.preheader101
+  %.not83 = icmp eq ptr %95, null
+  br i1 %.not83, label %.loopexit95, label %.preheader94
 
-.preheader101:                                    ; preds = %89
+.preheader94:                                     ; preds = %89
   %96 = call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %95)
   %97 = icmp sgt i32 %96, 0
-  br i1 %97, label %.lr.ph111, label %.loopexit102
+  br i1 %97, label %.lr.ph104, label %.loopexit95
 
-.lr.ph111:                                        ; preds = %.preheader101, %123
-  %.071110 = phi i32 [ %124, %123 ], [ 0, %.preheader101 ]
-  %98 = call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %95, i32 noundef %.071110)
+.lr.ph104:                                        ; preds = %.preheader94, %123
+  %.071103 = phi i32 [ %124, %123 ], [ 0, %.preheader94 ]
+  %98 = call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %95, i32 noundef %.071103)
   %99 = load i8, ptr %98, align 8
-  %100 = and i8 %99, 1
-  %.not94 = icmp eq i8 %100, 0
-  br i1 %.not94, label %123, label %101
+  %100 = trunc i8 %99 to i1
+  br i1 %100, label %101, label %123
 
-101:                                              ; preds = %.lr.ph111
+101:                                              ; preds = %.lr.ph104
   %102 = getelementptr inbounds i8, ptr %98, i64 416
   %103 = getelementptr inbounds i8, ptr %98, i64 484
   %104 = load float, ptr %103, align 4
@@ -1552,11 +1533,11 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
   %113 = load float, ptr %112, align 4
   %114 = fpext float %113 to double
   %115 = call i32 @gluProject(double noundef %106, double noundef %111, double noundef %114, ptr noundef %2, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %.not95 = icmp eq i32 %115, 0
-  br i1 %.not95, label %123, label %116
+  %.not88 = icmp eq i32 %115, 0
+  br i1 %.not88, label %123, label %116
 
 116:                                              ; preds = %101
-  %117 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.2, i32 noundef %.071110) #16
+  %117 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.2, i32 noundef %.071103) #16
   %118 = load double, ptr %5, align 8
   %119 = fptosi double %118 to i32
   %120 = load double, ptr %6, align 8
@@ -1565,83 +1546,80 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
   call void @_Z13imguiDrawTextiiiPKcj(i32 noundef %119, i32 noundef %122, i32 noundef 1, ptr noundef nonnull %8, i32 noundef -603979776)
   br label %123
 
-123:                                              ; preds = %101, %116, %.lr.ph111
-  %124 = add nuw nsw i32 %.071110, 1
+123:                                              ; preds = %101, %116, %.lr.ph104
+  %124 = add nuw nsw i32 %.071103, 1
   %125 = call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %95)
   %126 = icmp slt i32 %124, %125
-  br i1 %126, label %.lr.ph111, label %.loopexit102, !llvm.loop !25
+  br i1 %126, label %.lr.ph104, label %.loopexit95, !llvm.loop !25
 
-.loopexit102:                                     ; preds = %123, %.preheader101, %89, %.loopexit104
+.loopexit95:                                      ; preds = %123, %.preheader94, %89, %.loopexit97
   %127 = getelementptr inbounds i8, ptr %0, i64 48
   %128 = load i32, ptr %127, align 8
-  %.not86 = icmp eq i32 %128, -1
-  br i1 %.not86, label %.loopexit100, label %129
+  %.not84 = icmp eq i32 %128, -1
+  br i1 %.not84, label %.loopexit93, label %129
 
-129:                                              ; preds = %.loopexit102
+129:                                              ; preds = %.loopexit95
   %130 = getelementptr inbounds i8, ptr %0, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 136
   %134 = load ptr, ptr %133, align 8
   %135 = call noundef ptr %134(ptr noundef nonnull align 8 dereferenceable(200) %131)
-  %.not87 = icmp eq ptr %135, null
-  br i1 %.not87, label %.loopexit100, label %.preheader99
+  %.not85 = icmp eq ptr %135, null
+  br i1 %.not85, label %.loopexit93, label %.preheader92
 
-.preheader99:                                     ; preds = %129
+.preheader92:                                     ; preds = %129
   %136 = call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %135)
   %137 = icmp sgt i32 %136, 0
-  br i1 %137, label %.lr.ph115, label %.loopexit100
+  br i1 %137, label %.lr.ph108, label %.loopexit93
 
-.lr.ph115:                                        ; preds = %.preheader99
+.lr.ph108:                                        ; preds = %.preheader92
   %138 = getelementptr inbounds i8, ptr %0, i64 100980
   %139 = getelementptr inbounds i8, ptr %0, i64 100974
   br label %140
 
-140:                                              ; preds = %.lr.ph115, %.loopexit
-  %.072114 = phi i32 [ 0, %.lr.ph115 ], [ %191, %.loopexit ]
+140:                                              ; preds = %.lr.ph108, %.loopexit
+  %.072107 = phi i32 [ 0, %.lr.ph108 ], [ %191, %.loopexit ]
   %141 = load i8, ptr %138, align 4
   %142 = and i8 %141, 1
   %143 = icmp ne i8 %142, 0
   %144 = load i32, ptr %127, align 8
-  %.not89 = icmp eq i32 %.072114, %144
-  %or.cond = select i1 %143, i1 true, i1 %.not89
+  %.not86 = icmp eq i32 %.072107, %144
+  %or.cond = select i1 %143, i1 true, i1 %.not86
   br i1 %or.cond, label %145, label %.loopexit
 
 145:                                              ; preds = %140
-  %146 = call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %135, i32 noundef %.072114)
+  %146 = call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %135, i32 noundef %.072107)
   %147 = load i8, ptr %146, align 8
-  %148 = and i8 %147, 1
-  %.not90 = icmp eq i8 %148, 0
-  br i1 %.not90, label %.loopexit, label %149
+  %148 = trunc i8 %147 to i1
+  br i1 %148, label %149, label %.loopexit
 
 149:                                              ; preds = %145
   %150 = getelementptr inbounds i8, ptr %146, i64 480
   %151 = load float, ptr %150, align 8
   %152 = load i8, ptr %139, align 2
-  %153 = and i8 %152, 1
-  %.not91 = icmp eq i8 %153, 0
-  br i1 %.not91, label %.loopexit, label %.preheader
+  %153 = trunc i8 %152 to i1
+  br i1 %153, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %149
   %154 = getelementptr inbounds i8, ptr %146, i64 408
   %155 = load i32, ptr %154, align 8
   %156 = icmp sgt i32 %155, 0
-  br i1 %156, label %.lr.ph113, label %.loopexit
+  br i1 %156, label %.lr.ph106, label %.loopexit
 
-.lr.ph113:                                        ; preds = %.preheader
+.lr.ph106:                                        ; preds = %.preheader
   %157 = getelementptr inbounds i8, ptr %146, i64 360
   %158 = fpext float %151 to double
   br label %159
 
-159:                                              ; preds = %.lr.ph113, %187
-  %indvars.iv118 = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next119, %187 ]
-  %160 = getelementptr inbounds [6 x %struct.dtCrowdNeighbour], ptr %157, i64 0, i64 %indvars.iv118
+159:                                              ; preds = %.lr.ph106, %187
+  %indvars.iv111 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next112, %187 ]
+  %160 = getelementptr inbounds [6 x %struct.dtCrowdNeighbour], ptr %157, i64 0, i64 %indvars.iv111
   %161 = load i32, ptr %160, align 8
   %162 = call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %135, i32 noundef %161)
   %163 = load i8, ptr %162, align 8
-  %164 = and i8 %163, 1
-  %.not92 = icmp eq i8 %164, 0
-  br i1 %.not92, label %187, label %165
+  %164 = trunc i8 %163 to i1
+  br i1 %164, label %165, label %187
 
 165:                                              ; preds = %159
   %166 = getelementptr inbounds i8, ptr %162, i64 416
@@ -1655,8 +1633,8 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
   %174 = load float, ptr %173, align 8
   %175 = fpext float %174 to double
   %176 = call i32 @gluProject(double noundef %168, double noundef %172, double noundef %175, ptr noundef %2, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %.not93 = icmp eq i32 %176, 0
-  br i1 %.not93, label %187, label %177
+  %.not87 = icmp eq i32 %176, 0
+  br i1 %.not87, label %187, label %177
 
 177:                                              ; preds = %165
   %178 = getelementptr inbounds i8, ptr %160, i64 4
@@ -1672,26 +1650,25 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
   br label %187
 
 187:                                              ; preds = %165, %177, %159
-  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
+  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %188 = load i32, ptr %154, align 8
   %189 = sext i32 %188 to i64
-  %190 = icmp slt i64 %indvars.iv.next119, %189
+  %190 = icmp slt i64 %indvars.iv.next112, %189
   br i1 %190, label %159, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %187, %.preheader, %140, %149, %145
-  %191 = add nuw nsw i32 %.072114, 1
+  %191 = add nuw nsw i32 %.072107, 1
   %192 = call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %135)
   %193 = icmp slt i32 %191, %192
-  br i1 %193, label %140, label %.loopexit100, !llvm.loop !27
+  br i1 %193, label %140, label %.loopexit93, !llvm.loop !27
 
-.loopexit100:                                     ; preds = %.loopexit, %.preheader99, %129, %.loopexit102
+.loopexit93:                                      ; preds = %.loopexit, %.preheader92, %129, %.loopexit95
   %194 = getelementptr inbounds i8, ptr %0, i64 100979
   %195 = load i8, ptr %194, align 1
-  %196 = and i8 %195, 1
-  %.not88 = icmp eq i8 %196, 0
-  br i1 %.not88, label %200, label %197
+  %196 = trunc i8 %195 to i1
+  br i1 %196, label %197, label %200
 
-197:                                              ; preds = %.loopexit100
+197:                                              ; preds = %.loopexit93
   call void @_ZN11GraphParams7setRectEiiiii(ptr noundef nonnull align 4 dereferenceable(48) %9, i32 noundef 300, i32 noundef 10, i32 noundef 500, i32 noundef 200, i32 noundef 8)
   call void @_ZN11GraphParams13setValueRangeEffiPKc(ptr noundef nonnull align 4 dereferenceable(48) %9, float noundef 0.000000e+00, float noundef 2.000000e+00, i32 noundef 4, ptr noundef nonnull @.str.4)
   call void @_Z19drawGraphBackgroundPK11GraphParams(ptr noundef nonnull %9)
@@ -1703,7 +1680,7 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
   call void @_Z9drawGraphPK11GraphParamsPK12ValueHistoryiPKcj(ptr noundef nonnull %9, ptr noundef nonnull %199, i32 noundef 0, ptr noundef nonnull @.str.7, i32 noundef -2141167520)
   br label %200
 
-200:                                              ; preds = %197, %.loopexit100
+200:                                              ; preds = %197, %.loopexit93
   ret void
 }
 
@@ -1726,9 +1703,8 @@ declare void @_Z9drawGraphPK11GraphParamsPK12ValueHistoryiPKcj(ptr noundef, ptr 
 define dso_local void @_ZN14CrowdToolState12handleUpdateEf(ptr noundef nonnull align 8 dereferenceable(101001) %0, float noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 101000
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %7, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
   tail call void @_ZN14CrowdToolState10updateTickEf(ptr noundef nonnull align 8 dereferenceable(101001) %0, float noundef %1)
@@ -1778,9 +1754,8 @@ define dso_local void @_ZN14CrowdToolState10updateTickEf(ptr noundef nonnull ali
   %25 = trunc i64 %indvars.iv to i32
   %26 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %14, i32 noundef %25)
   %27 = load i8, ptr %26, align 8
-  %28 = and i8 %27, 1
-  %.not22 = icmp eq i8 %28, 0
-  br i1 %.not22, label %46, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %46
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds [128 x %"struct.CrowdToolState::AgentTrail"], ptr %23, i64 0, i64 %indvars.iv
@@ -1853,7 +1828,7 @@ define dso_local void @_ZN14CrowdToolState8addAgentEPKf(ptr noundef nonnull alig
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %89, label %6
+  br i1 %.not, label %88, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %5, align 8
@@ -1885,113 +1860,109 @@ define dso_local void @_ZN14CrowdToolState8addAgentEPKf(ptr noundef nonnull alig
   %28 = getelementptr inbounds i8, ptr %3, i64 28
   %29 = getelementptr inbounds i8, ptr %0, i64 100982
   %30 = load i8, ptr %29, align 2
-  %31 = and i8 %30, 1
-  store i8 %31, ptr %28, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 100983
-  %33 = load i8, ptr %32, align 1
-  %34 = and i8 %33, 1
-  %.not16 = icmp eq i8 %34, 0
-  br i1 %.not16, label %37, label %35
+  %spec.store.select = and i8 %30, 1
+  store i8 %spec.store.select, ptr %28, align 4
+  %31 = getelementptr inbounds i8, ptr %0, i64 100983
+  %32 = load i8, ptr %31, align 1
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
-35:                                               ; preds = %6
-  %36 = or disjoint i8 %31, 8
-  store i8 %36, ptr %28, align 4
-  br label %37
+34:                                               ; preds = %6
+  %35 = or disjoint i8 %spec.store.select, 8
+  store i8 %35, ptr %28, align 4
+  br label %36
 
-37:                                               ; preds = %35, %6
-  %38 = phi i8 [ %36, %35 ], [ %31, %6 ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 100984
-  %40 = load i8, ptr %39, align 8
-  %41 = and i8 %40, 1
-  %.not17 = icmp eq i8 %41, 0
-  br i1 %.not17, label %44, label %42
+36:                                               ; preds = %34, %6
+  %37 = phi i8 [ %35, %34 ], [ %spec.store.select, %6 ]
+  %38 = getelementptr inbounds i8, ptr %0, i64 100984
+  %39 = load i8, ptr %38, align 8
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %43
 
-42:                                               ; preds = %37
-  %43 = or i8 %38, 16
-  store i8 %43, ptr %28, align 4
-  br label %44
+41:                                               ; preds = %36
+  %42 = or i8 %37, 16
+  store i8 %42, ptr %28, align 4
+  br label %43
 
-44:                                               ; preds = %42, %37
-  %45 = phi i8 [ %43, %42 ], [ %38, %37 ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 100985
-  %47 = load i8, ptr %46, align 1
-  %48 = and i8 %47, 1
-  %.not18 = icmp eq i8 %48, 0
-  br i1 %.not18, label %51, label %49
+43:                                               ; preds = %41, %36
+  %44 = phi i8 [ %42, %41 ], [ %37, %36 ]
+  %45 = getelementptr inbounds i8, ptr %0, i64 100985
+  %46 = load i8, ptr %45, align 1
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %50
 
-49:                                               ; preds = %44
-  %50 = or i8 %45, 2
-  store i8 %50, ptr %28, align 4
-  br label %51
+48:                                               ; preds = %43
+  %49 = or i8 %44, 2
+  store i8 %49, ptr %28, align 4
+  br label %50
 
-51:                                               ; preds = %49, %44
-  %52 = phi i8 [ %50, %49 ], [ %45, %44 ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 100992
-  %54 = load i8, ptr %53, align 8
-  %55 = and i8 %54, 1
-  %.not19 = icmp eq i8 %55, 0
-  br i1 %.not19, label %58, label %56
+50:                                               ; preds = %48, %43
+  %51 = phi i8 [ %49, %48 ], [ %44, %43 ]
+  %52 = getelementptr inbounds i8, ptr %0, i64 100992
+  %53 = load i8, ptr %52, align 8
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %57
 
-56:                                               ; preds = %51
-  %57 = or i8 %52, 4
-  store i8 %57, ptr %28, align 4
-  br label %58
+55:                                               ; preds = %50
+  %56 = or i8 %51, 4
+  store i8 %56, ptr %28, align 4
+  br label %57
 
-58:                                               ; preds = %56, %51
-  %59 = getelementptr inbounds i8, ptr %0, i64 100988
-  %60 = load float, ptr %59, align 4
-  %61 = fptoui float %60 to i8
-  %62 = getelementptr inbounds i8, ptr %3, i64 29
-  store i8 %61, ptr %62, align 1
-  %63 = getelementptr inbounds i8, ptr %0, i64 100996
-  %64 = load float, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %3, i64 24
-  store float %64, ptr %65, align 8
-  %66 = call noundef i32 @_ZN7dtCrowd8addAgentEPKfPK18dtCrowdAgentParams(ptr noundef nonnull align 8 dereferenceable(5072) %10, ptr noundef %1, ptr noundef nonnull %3)
-  %.not20 = icmp eq i32 %66, -1
-  br i1 %.not20, label %89, label %67
+57:                                               ; preds = %55, %50
+  %58 = getelementptr inbounds i8, ptr %0, i64 100988
+  %59 = load float, ptr %58, align 4
+  %60 = fptoui float %59 to i8
+  %61 = getelementptr inbounds i8, ptr %3, i64 29
+  store i8 %60, ptr %61, align 1
+  %62 = getelementptr inbounds i8, ptr %0, i64 100996
+  %63 = load float, ptr %62, align 4
+  %64 = getelementptr inbounds i8, ptr %3, i64 24
+  store float %63, ptr %64, align 8
+  %65 = call noundef i32 @_ZN7dtCrowd8addAgentEPKfPK18dtCrowdAgentParams(ptr noundef nonnull align 8 dereferenceable(5072) %10, ptr noundef %1, ptr noundef nonnull %3)
+  %.not15 = icmp eq i32 %65, -1
+  br i1 %.not15, label %88, label %66
 
-67:                                               ; preds = %58
-  %68 = getelementptr inbounds i8, ptr %0, i64 44
-  %69 = load i32, ptr %68, align 4
-  %.not21 = icmp eq i32 %69, 0
-  br i1 %.not21, label %73, label %70
+66:                                               ; preds = %57
+  %67 = getelementptr inbounds i8, ptr %0, i64 44
+  %68 = load i32, ptr %67, align 4
+  %.not16 = icmp eq i32 %68, 0
+  br i1 %.not16, label %72, label %69
 
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %0, i64 32
-  %72 = call noundef zeroext i1 @_ZN7dtCrowd17requestMoveTargetEijPKf(ptr noundef nonnull align 8 dereferenceable(5072) %10, i32 noundef %66, i32 noundef %69, ptr noundef nonnull %71)
-  br label %73
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds i8, ptr %0, i64 32
+  %71 = call noundef zeroext i1 @_ZN7dtCrowd17requestMoveTargetEijPKf(ptr noundef nonnull align 8 dereferenceable(5072) %10, i32 noundef %65, i32 noundef %68, ptr noundef nonnull %70)
+  br label %72
 
-73:                                               ; preds = %70, %67
-  %74 = getelementptr inbounds i8, ptr %0, i64 96
-  %75 = sext i32 %66 to i64
-  %76 = getelementptr inbounds [128 x %"struct.CrowdToolState::AgentTrail"], ptr %74, i64 0, i64 %75
-  %77 = getelementptr inbounds i8, ptr %1, i64 4
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
-  br label %79
+72:                                               ; preds = %69, %66
+  %73 = getelementptr inbounds i8, ptr %0, i64 96
+  %74 = sext i32 %65 to i64
+  %75 = getelementptr inbounds [128 x %"struct.CrowdToolState::AgentTrail"], ptr %73, i64 0, i64 %74
+  %76 = getelementptr inbounds i8, ptr %1, i64 4
+  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  br label %78
 
-79:                                               ; preds = %73, %79
-  %indvars.iv = phi i64 [ 0, %73 ], [ %indvars.iv.next, %79 ]
-  %80 = mul nuw nsw i64 %indvars.iv, 3
-  %81 = getelementptr inbounds [192 x float], ptr %76, i64 0, i64 %80
-  %82 = load float, ptr %1, align 4
-  store float %82, ptr %81, align 4
-  %83 = load float, ptr %77, align 4
-  %84 = getelementptr inbounds i8, ptr %81, i64 4
-  store float %83, ptr %84, align 4
-  %85 = load float, ptr %78, align 4
-  %86 = getelementptr inbounds i8, ptr %81, i64 8
-  store float %85, ptr %86, align 4
+78:                                               ; preds = %72, %78
+  %indvars.iv = phi i64 [ 0, %72 ], [ %indvars.iv.next, %78 ]
+  %79 = mul nuw nsw i64 %indvars.iv, 3
+  %80 = getelementptr inbounds [192 x float], ptr %75, i64 0, i64 %79
+  %81 = load float, ptr %1, align 4
+  store float %81, ptr %80, align 4
+  %82 = load float, ptr %76, align 4
+  %83 = getelementptr inbounds i8, ptr %80, i64 4
+  store float %82, ptr %83, align 4
+  %84 = load float, ptr %77, align 4
+  %85 = getelementptr inbounds i8, ptr %80, i64 8
+  store float %84, ptr %85, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %87, label %79, !llvm.loop !29
+  br i1 %exitcond.not, label %86, label %78, !llvm.loop !29
 
-87:                                               ; preds = %79
-  %88 = getelementptr inbounds i8, ptr %76, i64 768
-  store i32 0, ptr %88, align 4
-  br label %89
+86:                                               ; preds = %78
+  %87 = getelementptr inbounds i8, ptr %75, i64 768
+  store i32 0, ptr %87, align 4
+  br label %88
 
-89:                                               ; preds = %2, %87, %58
+88:                                               ; preds = %2, %86, %57
   ret void
 }
 
@@ -2057,29 +2028,28 @@ define dso_local void @_ZN14CrowdToolState13setMoveTargetEPKfb(ptr noundef nonnu
 17:                                               ; preds = %7
   %18 = getelementptr inbounds i8, ptr %0, i64 48
   %19 = load i32, ptr %18, align 8
-  %.not47 = icmp eq i32 %19, -1
-  br i1 %.not47, label %.preheader, label %24
+  %.not45 = icmp eq i32 %19, -1
+  br i1 %.not45, label %.preheader, label %24
 
 .preheader:                                       ; preds = %17
   %20 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %16)
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.lr.ph56, label %.loopexit
+  br i1 %21, label %.lr.ph52, label %.loopexit
 
-.lr.ph56:                                         ; preds = %.preheader
+.lr.ph52:                                         ; preds = %.preheader
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   %23 = getelementptr inbounds i8, ptr %4, i64 8
   br label %57
 
 24:                                               ; preds = %17
   %25 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %19)
-  %.not49 = icmp eq ptr %25, null
-  br i1 %.not49, label %.loopexit, label %26
+  %.not46 = icmp eq ptr %25, null
+  br i1 %.not46, label %.loopexit, label %26
 
 26:                                               ; preds = %24
   %27 = load i8, ptr %25, align 8
-  %28 = and i8 %27, 1
-  %.not50 = icmp eq i8 %28, 0
-  br i1 %.not50, label %.loopexit, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %.loopexit
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %25, i64 416
@@ -2114,13 +2084,12 @@ define dso_local void @_ZN14CrowdToolState13setMoveTargetEPKfb(ptr noundef nonnu
   %56 = call noundef zeroext i1 @_ZN7dtCrowd19requestMoveVelocityEiPKf(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %55, ptr noundef nonnull %4)
   br label %.loopexit
 
-57:                                               ; preds = %.lr.ph56, %86
-  %.055 = phi i32 [ 0, %.lr.ph56 ], [ %87, %86 ]
-  %58 = call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %.055)
+57:                                               ; preds = %.lr.ph52, %86
+  %.051 = phi i32 [ 0, %.lr.ph52 ], [ %87, %86 ]
+  %58 = call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %.051)
   %59 = load i8, ptr %58, align 8
-  %60 = and i8 %59, 1
-  %.not48 = icmp eq i8 %60, 0
-  br i1 %.not48, label %86, label %61
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %86
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds i8, ptr %58, i64 416
@@ -2136,8 +2105,8 @@ define dso_local void @_ZN14CrowdToolState13setMoveTargetEPKfb(ptr noundef nonnu
   %72 = fmul float %67, %67
   %73 = fmul float %71, %71
   %74 = fadd float %72, %73
-  %sqrt.i.i51 = call float @llvm.sqrt.f32(float %74)
-  %75 = fdiv float 1.000000e+00, %sqrt.i.i51
+  %sqrt.i.i47 = call float @llvm.sqrt.f32(float %74)
+  %75 = fdiv float 1.000000e+00, %sqrt.i.i47
   %76 = fmul float %71, %75
   %77 = insertelement <2 x float> poison, float %75, i64 0
   %78 = shufflevector <2 x float> %77, <2 x float> poison, <2 x i32> zeroinitializer
@@ -2149,11 +2118,11 @@ define dso_local void @_ZN14CrowdToolState13setMoveTargetEPKfb(ptr noundef nonnu
   store <2 x float> %83, ptr %4, align 8
   %84 = fmul float %64, %76
   store float %84, ptr %23, align 8
-  %85 = call noundef zeroext i1 @_ZN7dtCrowd19requestMoveVelocityEiPKf(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %.055, ptr noundef nonnull %4)
+  %85 = call noundef zeroext i1 @_ZN7dtCrowd19requestMoveVelocityEiPKf(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %.051, ptr noundef nonnull %4)
   br label %86
 
 86:                                               ; preds = %57, %61
-  %87 = add nuw nsw i32 %.055, 1
+  %87 = add nuw nsw i32 %.051, 1
   %88 = call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %16)
   %89 = icmp slt i32 %87, %88
   br i1 %89, label %57, label %.loopexit, !llvm.loop !30
@@ -2167,23 +2136,22 @@ define dso_local void @_ZN14CrowdToolState13setMoveTargetEPKfb(ptr noundef nonnu
   %96 = getelementptr inbounds i8, ptr %0, i64 48
   %97 = load i32, ptr %96, align 8
   %.not43 = icmp eq i32 %97, -1
-  br i1 %.not43, label %.preheader52, label %100
+  br i1 %.not43, label %.preheader48, label %100
 
-.preheader52:                                     ; preds = %90
+.preheader48:                                     ; preds = %90
   %98 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %16)
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %.lr.ph, label %.loopexit
 
 100:                                              ; preds = %90
   %101 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %97)
-  %.not45 = icmp eq ptr %101, null
-  br i1 %.not45, label %.loopexit, label %102
+  %.not44 = icmp eq ptr %101, null
+  br i1 %.not44, label %.loopexit, label %102
 
 102:                                              ; preds = %100
   %103 = load i8, ptr %101, align 8
-  %104 = and i8 %103, 1
-  %.not46 = icmp eq i8 %104, 0
-  br i1 %.not46, label %.loopexit, label %105
+  %104 = trunc i8 %103 to i1
+  br i1 %104, label %105, label %.loopexit
 
 105:                                              ; preds = %102
   %106 = load i32, ptr %96, align 8
@@ -2191,26 +2159,25 @@ define dso_local void @_ZN14CrowdToolState13setMoveTargetEPKfb(ptr noundef nonnu
   %108 = tail call noundef zeroext i1 @_ZN7dtCrowd17requestMoveTargetEijPKf(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %106, i32 noundef %107, ptr noundef nonnull %94)
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader52, %115
-  %.03754 = phi i32 [ %116, %115 ], [ 0, %.preheader52 ]
-  %109 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %.03754)
+.lr.ph:                                           ; preds = %.preheader48, %115
+  %.03750 = phi i32 [ %116, %115 ], [ 0, %.preheader48 ]
+  %109 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %.03750)
   %110 = load i8, ptr %109, align 8
-  %111 = and i8 %110, 1
-  %.not44 = icmp eq i8 %111, 0
-  br i1 %.not44, label %115, label %112
+  %111 = trunc i8 %110 to i1
+  br i1 %111, label %112, label %115
 
 112:                                              ; preds = %.lr.ph
   %113 = load i32, ptr %93, align 4
-  %114 = tail call noundef zeroext i1 @_ZN7dtCrowd17requestMoveTargetEijPKf(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %.03754, i32 noundef %113, ptr noundef nonnull %94)
+  %114 = tail call noundef zeroext i1 @_ZN7dtCrowd17requestMoveTargetEijPKf(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %.03750, i32 noundef %113, ptr noundef nonnull %94)
   br label %115
 
 115:                                              ; preds = %.lr.ph, %112
-  %116 = add nuw nsw i32 %.03754, 1
+  %116 = add nuw nsw i32 %.03750, 1
   %117 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %16)
   %118 = icmp slt i32 %116, %117
   br i1 %118, label %.lr.ph, label %.loopexit, !llvm.loop !31
 
-.loopexit:                                        ; preds = %115, %86, %.preheader52, %.preheader, %105, %102, %100, %29, %26, %24, %3
+.loopexit:                                        ; preds = %115, %86, %.preheader48, %.preheader, %105, %102, %100, %29, %26, %24, %3
   ret void
 }
 
@@ -2247,14 +2214,13 @@ define dso_local noundef i32 @_ZN14CrowdToolState13hitTestAgentsEPKfS1_(ptr noca
   br label %22
 
 22:                                               ; preds = %.lr.ph, %90
-  %.01430 = phi i32 [ 0, %.lr.ph ], [ %91, %90 ]
-  %.01529 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.1, %90 ]
-  %.01628 = phi i32 [ -1, %.lr.ph ], [ %.117, %90 ]
-  %23 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %13, i32 noundef %.01430)
+  %.01429 = phi i32 [ 0, %.lr.ph ], [ %91, %90 ]
+  %.01528 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.1, %90 ]
+  %.01627 = phi i32 [ -1, %.lr.ph ], [ %.117, %90 ]
+  %23 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %13, i32 noundef %.01429)
   %24 = load i8, ptr %23, align 8
-  %25 = and i8 %24, 1
-  %.not20 = icmp eq i8 %25, 0
-  br i1 %.not20, label %90, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %90
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %23, i64 416
@@ -2287,8 +2253,8 @@ define dso_local noundef i32 @_ZN14CrowdToolState13hitTestAgentsEPKfS1_(ptr noca
   br label %46
 
 46:                                               ; preds = %83, %26
-  %.025 = phi float [ 0.000000e+00, %26 ], [ %.227, %83 ]
-  %.023 = phi float [ 0x47EFFFFFE0000000, %26 ], [ %.2, %83 ]
+  %.024 = phi float [ 0.000000e+00, %26 ], [ %.226, %83 ]
+  %.022 = phi float [ 0x47EFFFFFE0000000, %26 ], [ %.2, %83 ]
   %47 = phi float [ 0x47EFFFFFE0000000, %26 ], [ %84, %83 ]
   %48 = phi float [ 0x47EFFFFFE0000000, %26 ], [ %85, %83 ]
   %indvars.iv.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i, %83 ]
@@ -2328,19 +2294,19 @@ define dso_local noundef i32 @_ZN14CrowdToolState13hitTestAgentsEPKfS1_(ptr noca
   %76 = fcmp ogt float %71, %75
   %.039.i = select i1 %76, float %75, float %71
   %.0.i = select i1 %76, float %71, float %75
-  %77 = fcmp ogt float %.039.i, %.025
-  %.126 = select i1 %77, float %.039.i, float %.025
-  %78 = select i1 %77, float %.023, float %47
-  %79 = select i1 %77, float %.023, float %48
+  %77 = fcmp ogt float %.039.i, %.024
+  %.125 = select i1 %77, float %.039.i, float %.024
+  %78 = select i1 %77, float %.022, float %47
+  %79 = select i1 %77, float %.022, float %48
   %80 = fcmp olt float %.0.i, %79
-  %.124 = select i1 %80, float %.0.i, float %.023
+  %.123 = select i1 %80, float %.0.i, float %.022
   %81 = select i1 %80, float %.0.i, float %78
-  %82 = fcmp ogt float %.126, %81
+  %82 = fcmp ogt float %.125, %81
   br i1 %82, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit, label %83
 
 83:                                               ; preds = %64, %60
-  %.227 = phi float [ %.025, %60 ], [ %.126, %64 ]
-  %.2 = phi float [ %.023, %60 ], [ %.124, %64 ]
+  %.226 = phi float [ %.024, %60 ], [ %.125, %64 ]
+  %.2 = phi float [ %.022, %60 ], [ %.123, %64 ]
   %84 = phi float [ %47, %60 ], [ %81, %64 ]
   %85 = phi float [ %48, %60 ], [ %81, %64 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2349,22 +2315,22 @@ define dso_local noundef i32 @_ZN14CrowdToolState13hitTestAgentsEPKfS1_(ptr noca
   br i1 %exitcond.i, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit, label %46, !llvm.loop !32
 
 _ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit:          ; preds = %54, %60, %64, %83
-  %.3 = phi float [ %.025, %54 ], [ %.025, %60 ], [ %.227, %83 ], [ %.126, %64 ]
+  %.3 = phi float [ %.024, %54 ], [ %.024, %60 ], [ %.226, %83 ], [ %.125, %64 ]
   %.lcssa.i = phi i1 [ %49, %54 ], [ %49, %60 ], [ %86, %83 ], [ %49, %64 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   %87 = fcmp ogt float %.3, 0.000000e+00
   %or.cond = select i1 %.lcssa.i, i1 %87, i1 false
-  %88 = fcmp olt float %.3, %.01529
-  %or.cond21 = select i1 %or.cond, i1 %88, i1 false
-  br i1 %or.cond21, label %89, label %90
+  %88 = fcmp olt float %.3, %.01528
+  %or.cond20 = select i1 %or.cond, i1 %88, i1 false
+  br i1 %or.cond20, label %89, label %90
 
 89:                                               ; preds = %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit
   br label %90
 
 90:                                               ; preds = %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit, %89, %22
-  %.117 = phi i32 [ %.01430, %89 ], [ %.01628, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit ], [ %.01628, %22 ]
-  %.1 = phi float [ %.3, %89 ], [ %.01529, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit ], [ %.01529, %22 ]
-  %91 = add nuw nsw i32 %.01430, 1
+  %.117 = phi i32 [ %.01429, %89 ], [ %.01627, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit ], [ %.01627, %22 ]
+  %.1 = phi float [ %.3, %89 ], [ %.01528, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit ], [ %.01528, %22 ]
+  %91 = add nuw nsw i32 %.01429, 1
   %92 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %13)
   %93 = icmp slt i32 %91, %92
   br i1 %93, label %22, label %.loopexit, !llvm.loop !33
@@ -2393,66 +2359,65 @@ define dso_local void @_ZN14CrowdToolState17updateAgentParamsEv(ptr nocapture no
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 100982
   %12 = load i8, ptr %11, align 2
-  %13 = and i8 %12, 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 100983
-  %15 = load i8, ptr %14, align 1
-  %16 = shl i8 %15, 3
-  %17 = and i8 %16, 8
-  %.1 = or disjoint i8 %17, %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 100984
-  %19 = load i8, ptr %18, align 8
-  %20 = shl i8 %19, 4
-  %21 = and i8 %20, 16
-  %.2 = or disjoint i8 %.1, %21
-  %22 = getelementptr inbounds i8, ptr %0, i64 100985
-  %23 = load i8, ptr %22, align 1
-  %24 = shl i8 %23, 1
-  %25 = and i8 %24, 2
-  %.4 = or disjoint i8 %.2, %25
-  %26 = getelementptr inbounds i8, ptr %0, i64 100992
-  %27 = load i8, ptr %26, align 8
-  %28 = shl i8 %27, 2
-  %29 = and i8 %28, 4
-  %.5 = or disjoint i8 %.4, %29
-  %30 = getelementptr inbounds i8, ptr %0, i64 100988
-  %31 = load float, ptr %30, align 4
-  %32 = fptoui float %31 to i8
-  %33 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %9)
-  %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.lr.ph, label %.loopexit
+  %spec.select = and i8 %12, 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 100983
+  %14 = load i8, ptr %13, align 1
+  %15 = trunc i8 %14 to i1
+  %16 = or disjoint i8 %spec.select, 8
+  %.1 = select i1 %15, i8 %16, i8 %spec.select
+  %17 = getelementptr inbounds i8, ptr %0, i64 100984
+  %18 = load i8, ptr %17, align 8
+  %19 = trunc i8 %18 to i1
+  %20 = or disjoint i8 %.1, 16
+  %.2 = select i1 %19, i8 %20, i8 %.1
+  %21 = getelementptr inbounds i8, ptr %0, i64 100985
+  %22 = load i8, ptr %21, align 1
+  %23 = trunc i8 %22 to i1
+  %24 = or disjoint i8 %.2, 2
+  %.4 = select i1 %23, i8 %24, i8 %.2
+  %25 = getelementptr inbounds i8, ptr %0, i64 100992
+  %26 = load i8, ptr %25, align 8
+  %27 = trunc i8 %26 to i1
+  %28 = or i8 %.4, 4
+  %.5 = select i1 %27, i8 %28, i8 %.4
+  %29 = getelementptr inbounds i8, ptr %0, i64 100988
+  %30 = load float, ptr %29, align 4
+  %31 = fptoui float %30 to i8
+  %32 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %9)
+  %33 = icmp sgt i32 %32, 0
+  br i1 %33, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %10
-  %35 = getelementptr inbounds i8, ptr %2, i64 28
-  %36 = getelementptr inbounds i8, ptr %2, i64 29
-  %37 = getelementptr inbounds i8, ptr %0, i64 100996
-  %38 = getelementptr inbounds i8, ptr %2, i64 24
-  br label %39
+  %34 = getelementptr inbounds i8, ptr %2, i64 28
+  %35 = getelementptr inbounds i8, ptr %2, i64 29
+  %36 = getelementptr inbounds i8, ptr %0, i64 100996
+  %37 = getelementptr inbounds i8, ptr %2, i64 24
+  br label %38
 
-39:                                               ; preds = %.lr.ph, %46
-  %.01829 = phi i32 [ 0, %.lr.ph ], [ %47, %46 ]
-  %40 = call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %9, i32 noundef %.01829)
-  %41 = load i8, ptr %40, align 8
-  %42 = and i8 %41, 1
-  %.not28 = icmp eq i8 %42, 0
-  br i1 %.not28, label %46, label %43
+38:                                               ; preds = %.lr.ph, %45
+  %.01822 = phi i32 [ 0, %.lr.ph ], [ %46, %45 ]
+  %39 = call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %9, i32 noundef %.01822)
+  %40 = load i8, ptr %39, align 8
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %42, label %45
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %40, i64 480
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %44, i64 40, i1 false)
-  store i8 %.5, ptr %35, align 4
-  store i8 %32, ptr %36, align 1
-  %45 = load float, ptr %37, align 4
-  store float %45, ptr %38, align 8
-  call void @_ZN7dtCrowd21updateAgentParametersEiPK18dtCrowdAgentParams(ptr noundef nonnull align 8 dereferenceable(5072) %9, i32 noundef %.01829, ptr noundef nonnull %2)
-  br label %46
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds i8, ptr %39, i64 480
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %43, i64 40, i1 false)
+  store i8 %.5, ptr %34, align 4
+  store i8 %31, ptr %35, align 1
+  %44 = load float, ptr %36, align 4
+  store float %44, ptr %37, align 8
+  call void @_ZN7dtCrowd21updateAgentParametersEiPK18dtCrowdAgentParams(ptr noundef nonnull align 8 dereferenceable(5072) %9, i32 noundef %.01822, ptr noundef nonnull %2)
+  br label %45
 
-46:                                               ; preds = %39, %43
-  %47 = add nuw nsw i32 %.01829, 1
-  %48 = call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %9)
-  %49 = icmp slt i32 %47, %48
-  br i1 %49, label %39, label %.loopexit, !llvm.loop !34
+45:                                               ; preds = %38, %42
+  %46 = add nuw nsw i32 %.01822, 1
+  %47 = call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %9)
+  %48 = icmp slt i32 %46, %47
+  br i1 %48, label %38, label %.loopexit, !llvm.loop !34
 
-.loopexit:                                        ; preds = %46, %10, %5, %1
+.loopexit:                                        ; preds = %45, %10, %5, %1
   ret void
 }
 
@@ -2595,7 +2560,7 @@ define dso_local void @_ZN9CrowdTool10handleMenuEv(ptr nocapture noundef nonnull
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %239, label %4
+  br i1 %.not, label %220, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 100968
@@ -2617,32 +2582,32 @@ define dso_local void @_ZN9CrowdTool10handleMenuEv(ptr nocapture noundef nonnull
   %12 = phi i32 [ %.pre, %._crit_edge ], [ 0, %10 ]
   %13 = icmp eq i32 %12, 1
   %14 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.9, i1 noundef zeroext %13, i1 noundef zeroext true)
-  br i1 %14, label %15, label %._crit_edge85
+  br i1 %14, label %15, label %._crit_edge63
 
-._crit_edge85:                                    ; preds = %11
-  %.pre86 = load i32, ptr %6, align 8
+._crit_edge63:                                    ; preds = %11
+  %.pre64 = load i32, ptr %6, align 8
   br label %16
 
 15:                                               ; preds = %11
   store i32 1, ptr %6, align 8
   br label %16
 
-16:                                               ; preds = %._crit_edge85, %15
-  %17 = phi i32 [ %.pre86, %._crit_edge85 ], [ 1, %15 ]
+16:                                               ; preds = %._crit_edge63, %15
+  %17 = phi i32 [ %.pre64, %._crit_edge63 ], [ 1, %15 ]
   %18 = icmp eq i32 %17, 2
   %19 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.10, i1 noundef zeroext %18, i1 noundef zeroext true)
-  br i1 %19, label %20, label %._crit_edge87
+  br i1 %19, label %20, label %._crit_edge65
 
-._crit_edge87:                                    ; preds = %16
-  %.pre88 = load i32, ptr %6, align 8
+._crit_edge65:                                    ; preds = %16
+  %.pre66 = load i32, ptr %6, align 8
   br label %21
 
 20:                                               ; preds = %16
   store i32 2, ptr %6, align 8
   br label %21
 
-21:                                               ; preds = %._crit_edge87, %20
-  %22 = phi i32 [ %.pre88, %._crit_edge87 ], [ 2, %20 ]
+21:                                               ; preds = %._crit_edge65, %20
+  %22 = phi i32 [ %.pre66, %._crit_edge65 ], [ 2, %20 ]
   %23 = icmp eq i32 %22, 3
   %24 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.11, i1 noundef zeroext %23, i1 noundef zeroext true)
   br i1 %24, label %25, label %26
@@ -2655,351 +2620,329 @@ define dso_local void @_ZN9CrowdTool10handleMenuEv(ptr nocapture noundef nonnull
   tail call void @_Z18imguiSeparatorLinev()
   %27 = getelementptr inbounds i8, ptr %3, i64 100981
   %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  %30 = icmp ne i8 %29, 0
-  %31 = tail call noundef zeroext i1 @_Z13imguiCollapsePKcS0_bb(ptr noundef nonnull @.str.12, ptr noundef null, i1 noundef zeroext %30, i1 noundef zeroext true)
-  %.pre89 = load i8, ptr %27, align 1
-  br i1 %31, label %32, label %35
+  %29 = trunc i8 %28 to i1
+  %30 = tail call noundef zeroext i1 @_Z13imguiCollapsePKcS0_bb(ptr noundef nonnull @.str.12, ptr noundef null, i1 noundef zeroext %29, i1 noundef zeroext true)
+  %.pre67 = load i8, ptr %27, align 1
+  br i1 %30, label %31, label %34
 
-32:                                               ; preds = %26
-  %33 = and i8 %.pre89, 1
-  %34 = xor i8 %33, 1
-  store i8 %34, ptr %27, align 1
-  br label %35
+31:                                               ; preds = %26
+  %32 = and i8 %.pre67, 1
+  %33 = xor i8 %32, 1
+  store i8 %33, ptr %27, align 1
+  br label %34
 
-35:                                               ; preds = %32, %26
-  %36 = phi i8 [ %34, %32 ], [ %.pre89, %26 ]
-  %37 = and i8 %36, 1
-  %.not64 = icmp eq i8 %37, 0
-  br i1 %.not64, label %104, label %38
+34:                                               ; preds = %31, %26
+  %35 = phi i8 [ %33, %31 ], [ %.pre67, %26 ]
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %98
 
-38:                                               ; preds = %35
+37:                                               ; preds = %34
   tail call void @_Z11imguiIndentv()
-  %39 = getelementptr inbounds i8, ptr %3, i64 100983
-  %40 = load i8, ptr %39, align 1
-  %41 = and i8 %40, 1
-  %42 = icmp ne i8 %41, 0
-  %43 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.13, i1 noundef zeroext %42, i1 noundef zeroext true)
-  br i1 %43, label %44, label %49
+  %38 = getelementptr inbounds i8, ptr %3, i64 100983
+  %39 = load i8, ptr %38, align 1
+  %40 = trunc i8 %39 to i1
+  %41 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.13, i1 noundef zeroext %40, i1 noundef zeroext true)
+  br i1 %41, label %42, label %47
 
-44:                                               ; preds = %38
-  %45 = load i8, ptr %39, align 1
-  %46 = and i8 %45, 1
-  %47 = xor i8 %46, 1
-  store i8 %47, ptr %39, align 1
-  %48 = load ptr, ptr %2, align 8
-  tail call void @_ZN14CrowdToolState17updateAgentParamsEv(ptr noundef nonnull align 8 dereferenceable(101001) %48)
-  br label %49
+42:                                               ; preds = %37
+  %43 = load i8, ptr %38, align 1
+  %44 = and i8 %43, 1
+  %45 = xor i8 %44, 1
+  store i8 %45, ptr %38, align 1
+  %46 = load ptr, ptr %2, align 8
+  tail call void @_ZN14CrowdToolState17updateAgentParamsEv(ptr noundef nonnull align 8 dereferenceable(101001) %46)
+  br label %47
 
-49:                                               ; preds = %44, %38
-  %50 = getelementptr inbounds i8, ptr %3, i64 100984
-  %51 = load i8, ptr %50, align 4
-  %52 = and i8 %51, 1
-  %53 = icmp ne i8 %52, 0
-  %54 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.14, i1 noundef zeroext %53, i1 noundef zeroext true)
-  br i1 %54, label %55, label %60
+47:                                               ; preds = %42, %37
+  %48 = getelementptr inbounds i8, ptr %3, i64 100984
+  %49 = load i8, ptr %48, align 4
+  %50 = trunc i8 %49 to i1
+  %51 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.14, i1 noundef zeroext %50, i1 noundef zeroext true)
+  br i1 %51, label %52, label %57
 
-55:                                               ; preds = %49
-  %56 = load i8, ptr %50, align 4
-  %57 = and i8 %56, 1
-  %58 = xor i8 %57, 1
-  store i8 %58, ptr %50, align 4
-  %59 = load ptr, ptr %2, align 8
-  tail call void @_ZN14CrowdToolState17updateAgentParamsEv(ptr noundef nonnull align 8 dereferenceable(101001) %59)
-  br label %60
+52:                                               ; preds = %47
+  %53 = load i8, ptr %48, align 4
+  %54 = and i8 %53, 1
+  %55 = xor i8 %54, 1
+  store i8 %55, ptr %48, align 4
+  %56 = load ptr, ptr %2, align 8
+  tail call void @_ZN14CrowdToolState17updateAgentParamsEv(ptr noundef nonnull align 8 dereferenceable(101001) %56)
+  br label %57
 
-60:                                               ; preds = %55, %49
-  %61 = getelementptr inbounds i8, ptr %3, i64 100982
-  %62 = load i8, ptr %61, align 2
-  %63 = and i8 %62, 1
-  %64 = icmp ne i8 %63, 0
-  %65 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.15, i1 noundef zeroext %64, i1 noundef zeroext true)
-  br i1 %65, label %66, label %71
+57:                                               ; preds = %52, %47
+  %58 = getelementptr inbounds i8, ptr %3, i64 100982
+  %59 = load i8, ptr %58, align 2
+  %60 = trunc i8 %59 to i1
+  %61 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.15, i1 noundef zeroext %60, i1 noundef zeroext true)
+  br i1 %61, label %62, label %67
 
-66:                                               ; preds = %60
-  %67 = load i8, ptr %61, align 2
-  %68 = and i8 %67, 1
-  %69 = xor i8 %68, 1
-  store i8 %69, ptr %61, align 2
-  %70 = load ptr, ptr %2, align 8
-  tail call void @_ZN14CrowdToolState17updateAgentParamsEv(ptr noundef nonnull align 8 dereferenceable(101001) %70)
-  br label %71
+62:                                               ; preds = %57
+  %63 = load i8, ptr %58, align 2
+  %64 = and i8 %63, 1
+  %65 = xor i8 %64, 1
+  store i8 %65, ptr %58, align 2
+  %66 = load ptr, ptr %2, align 8
+  tail call void @_ZN14CrowdToolState17updateAgentParamsEv(ptr noundef nonnull align 8 dereferenceable(101001) %66)
+  br label %67
 
-71:                                               ; preds = %66, %60
-  %72 = getelementptr inbounds i8, ptr %3, i64 100985
-  %73 = load i8, ptr %72, align 1
+67:                                               ; preds = %62, %57
+  %68 = getelementptr inbounds i8, ptr %3, i64 100985
+  %69 = load i8, ptr %68, align 1
+  %70 = trunc i8 %69 to i1
+  %71 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.16, i1 noundef zeroext %70, i1 noundef zeroext true)
+  br i1 %71, label %72, label %77
+
+72:                                               ; preds = %67
+  %73 = load i8, ptr %68, align 1
   %74 = and i8 %73, 1
-  %75 = icmp ne i8 %74, 0
-  %76 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.16, i1 noundef zeroext %75, i1 noundef zeroext true)
-  br i1 %76, label %77, label %82
+  %75 = xor i8 %74, 1
+  store i8 %75, ptr %68, align 1
+  %76 = load ptr, ptr %2, align 8
+  tail call void @_ZN14CrowdToolState17updateAgentParamsEv(ptr noundef nonnull align 8 dereferenceable(101001) %76)
+  br label %77
 
-77:                                               ; preds = %71
-  %78 = load i8, ptr %72, align 1
-  %79 = and i8 %78, 1
-  %80 = xor i8 %79, 1
-  store i8 %80, ptr %72, align 1
+77:                                               ; preds = %72, %67
+  %78 = getelementptr inbounds i8, ptr %3, i64 100988
+  %79 = tail call noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef nonnull @.str.17, ptr noundef nonnull %78, float noundef 0.000000e+00, float noundef 3.000000e+00, float noundef 1.000000e+00, i1 noundef zeroext true)
+  br i1 %79, label %80, label %82
+
+80:                                               ; preds = %77
   %81 = load ptr, ptr %2, align 8
   tail call void @_ZN14CrowdToolState17updateAgentParamsEv(ptr noundef nonnull align 8 dereferenceable(101001) %81)
   br label %82
 
-82:                                               ; preds = %77, %71
-  %83 = getelementptr inbounds i8, ptr %3, i64 100988
-  %84 = tail call noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef nonnull @.str.17, ptr noundef nonnull %83, float noundef 0.000000e+00, float noundef 3.000000e+00, float noundef 1.000000e+00, i1 noundef zeroext true)
-  br i1 %84, label %85, label %87
+82:                                               ; preds = %80, %77
+  %83 = getelementptr inbounds i8, ptr %3, i64 100992
+  %84 = load i8, ptr %83, align 4
+  %85 = trunc i8 %84 to i1
+  %86 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.18, i1 noundef zeroext %85, i1 noundef zeroext true)
+  br i1 %86, label %87, label %92
 
-85:                                               ; preds = %82
-  %86 = load ptr, ptr %2, align 8
-  tail call void @_ZN14CrowdToolState17updateAgentParamsEv(ptr noundef nonnull align 8 dereferenceable(101001) %86)
-  br label %87
+87:                                               ; preds = %82
+  %88 = load i8, ptr %83, align 4
+  %89 = and i8 %88, 1
+  %90 = xor i8 %89, 1
+  store i8 %90, ptr %83, align 4
+  %91 = load ptr, ptr %2, align 8
+  tail call void @_ZN14CrowdToolState17updateAgentParamsEv(ptr noundef nonnull align 8 dereferenceable(101001) %91)
+  br label %92
 
-87:                                               ; preds = %85, %82
-  %88 = getelementptr inbounds i8, ptr %3, i64 100992
-  %89 = load i8, ptr %88, align 4
-  %90 = and i8 %89, 1
-  %91 = icmp ne i8 %90, 0
-  %92 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.18, i1 noundef zeroext %91, i1 noundef zeroext true)
-  br i1 %92, label %93, label %98
+92:                                               ; preds = %87, %82
+  %93 = getelementptr inbounds i8, ptr %3, i64 100996
+  %94 = tail call noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef nonnull @.str.19, ptr noundef nonnull %93, float noundef 0.000000e+00, float noundef 2.000000e+01, float noundef 0x3F847AE140000000, i1 noundef zeroext true)
+  br i1 %94, label %95, label %97
 
-93:                                               ; preds = %87
-  %94 = load i8, ptr %88, align 4
-  %95 = and i8 %94, 1
-  %96 = xor i8 %95, 1
-  store i8 %96, ptr %88, align 4
-  %97 = load ptr, ptr %2, align 8
-  tail call void @_ZN14CrowdToolState17updateAgentParamsEv(ptr noundef nonnull align 8 dereferenceable(101001) %97)
+95:                                               ; preds = %92
+  %96 = load ptr, ptr %2, align 8
+  tail call void @_ZN14CrowdToolState17updateAgentParamsEv(ptr noundef nonnull align 8 dereferenceable(101001) %96)
+  br label %97
+
+97:                                               ; preds = %95, %92
+  tail call void @_Z13imguiUnindentv()
   br label %98
 
-98:                                               ; preds = %93, %87
-  %99 = getelementptr inbounds i8, ptr %3, i64 100996
-  %100 = tail call noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef nonnull @.str.19, ptr noundef nonnull %99, float noundef 0.000000e+00, float noundef 2.000000e+01, float noundef 0x3F847AE140000000, i1 noundef zeroext true)
-  br i1 %100, label %101, label %103
+98:                                               ; preds = %97, %34
+  %99 = load i8, ptr %5, align 4
+  %100 = trunc i8 %99 to i1
+  %101 = tail call noundef zeroext i1 @_Z13imguiCollapsePKcS0_bb(ptr noundef nonnull @.str.20, ptr noundef null, i1 noundef zeroext %100, i1 noundef zeroext true)
+  %.pre68 = load i8, ptr %5, align 4
+  br i1 %101, label %102, label %105
 
-101:                                              ; preds = %98
-  %102 = load ptr, ptr %2, align 8
-  tail call void @_ZN14CrowdToolState17updateAgentParamsEv(ptr noundef nonnull align 8 dereferenceable(101001) %102)
-  br label %103
+102:                                              ; preds = %98
+  %103 = and i8 %.pre68, 1
+  %104 = xor i8 %103, 1
+  store i8 %104, ptr %5, align 4
+  br label %105
 
-103:                                              ; preds = %101, %98
-  tail call void @_Z13imguiUnindentv()
-  br label %104
+105:                                              ; preds = %102, %98
+  %106 = phi i8 [ %104, %102 ], [ %.pre68, %98 ]
+  %107 = trunc i8 %106 to i1
+  br i1 %107, label %108, label %163
 
-104:                                              ; preds = %103, %35
-  %105 = load i8, ptr %5, align 4
-  %106 = and i8 %105, 1
-  %107 = icmp ne i8 %106, 0
-  %108 = tail call noundef zeroext i1 @_Z13imguiCollapsePKcS0_bb(ptr noundef nonnull @.str.20, ptr noundef null, i1 noundef zeroext %107, i1 noundef zeroext true)
-  %.pre90 = load i8, ptr %5, align 4
-  br i1 %108, label %109, label %112
-
-109:                                              ; preds = %104
-  %110 = and i8 %.pre90, 1
-  %111 = xor i8 %110, 1
-  store i8 %111, ptr %5, align 4
-  br label %112
-
-112:                                              ; preds = %109, %104
-  %113 = phi i8 [ %111, %109 ], [ %.pre90, %104 ]
-  %114 = and i8 %113, 1
-  %.not71 = icmp eq i8 %114, 0
-  br i1 %.not71, label %176, label %115
-
-115:                                              ; preds = %112
+108:                                              ; preds = %105
   tail call void @_Z11imguiIndentv()
-  %116 = getelementptr inbounds i8, ptr %3, i64 100969
-  %117 = load i8, ptr %116, align 1
-  %118 = and i8 %117, 1
-  %119 = icmp ne i8 %118, 0
-  %120 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.21, i1 noundef zeroext %119, i1 noundef zeroext true)
-  br i1 %120, label %121, label %125
+  %109 = getelementptr inbounds i8, ptr %3, i64 100969
+  %110 = load i8, ptr %109, align 1
+  %111 = trunc i8 %110 to i1
+  %112 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.21, i1 noundef zeroext %111, i1 noundef zeroext true)
+  br i1 %112, label %113, label %117
 
-121:                                              ; preds = %115
-  %122 = load i8, ptr %116, align 1
-  %123 = and i8 %122, 1
-  %124 = xor i8 %123, 1
-  store i8 %124, ptr %116, align 1
-  br label %125
+113:                                              ; preds = %108
+  %114 = load i8, ptr %109, align 1
+  %115 = and i8 %114, 1
+  %116 = xor i8 %115, 1
+  store i8 %116, ptr %109, align 1
+  br label %117
 
-125:                                              ; preds = %121, %115
-  %126 = getelementptr inbounds i8, ptr %3, i64 100970
-  %127 = load i8, ptr %126, align 2
-  %128 = and i8 %127, 1
-  %129 = icmp ne i8 %128, 0
-  %130 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.22, i1 noundef zeroext %129, i1 noundef zeroext true)
+117:                                              ; preds = %113, %108
+  %118 = getelementptr inbounds i8, ptr %3, i64 100970
+  %119 = load i8, ptr %118, align 2
+  %120 = trunc i8 %119 to i1
+  %121 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.22, i1 noundef zeroext %120, i1 noundef zeroext true)
+  br i1 %121, label %122, label %126
+
+122:                                              ; preds = %117
+  %123 = load i8, ptr %118, align 2
+  %124 = and i8 %123, 1
+  %125 = xor i8 %124, 1
+  store i8 %125, ptr %118, align 2
+  br label %126
+
+126:                                              ; preds = %122, %117
+  %127 = getelementptr inbounds i8, ptr %3, i64 100971
+  %128 = load i8, ptr %127, align 1
+  %129 = trunc i8 %128 to i1
+  %130 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.23, i1 noundef zeroext %129, i1 noundef zeroext true)
   br i1 %130, label %131, label %135
 
-131:                                              ; preds = %125
-  %132 = load i8, ptr %126, align 2
+131:                                              ; preds = %126
+  %132 = load i8, ptr %127, align 1
   %133 = and i8 %132, 1
   %134 = xor i8 %133, 1
-  store i8 %134, ptr %126, align 2
+  store i8 %134, ptr %127, align 1
   br label %135
 
-135:                                              ; preds = %131, %125
-  %136 = getelementptr inbounds i8, ptr %3, i64 100971
-  %137 = load i8, ptr %136, align 1
-  %138 = and i8 %137, 1
-  %139 = icmp ne i8 %138, 0
-  %140 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.23, i1 noundef zeroext %139, i1 noundef zeroext true)
-  br i1 %140, label %141, label %145
+135:                                              ; preds = %131, %126
+  %136 = getelementptr inbounds i8, ptr %3, i64 100972
+  %137 = load i8, ptr %136, align 4
+  %138 = trunc i8 %137 to i1
+  %139 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.24, i1 noundef zeroext %138, i1 noundef zeroext true)
+  br i1 %139, label %140, label %144
 
-141:                                              ; preds = %135
-  %142 = load i8, ptr %136, align 1
-  %143 = and i8 %142, 1
-  %144 = xor i8 %143, 1
-  store i8 %144, ptr %136, align 1
-  br label %145
+140:                                              ; preds = %135
+  %141 = load i8, ptr %136, align 4
+  %142 = and i8 %141, 1
+  %143 = xor i8 %142, 1
+  store i8 %143, ptr %136, align 4
+  br label %144
 
-145:                                              ; preds = %141, %135
-  %146 = getelementptr inbounds i8, ptr %3, i64 100972
-  %147 = load i8, ptr %146, align 4
-  %148 = and i8 %147, 1
-  %149 = icmp ne i8 %148, 0
-  %150 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.24, i1 noundef zeroext %149, i1 noundef zeroext true)
-  br i1 %150, label %151, label %155
+144:                                              ; preds = %140, %135
+  %145 = getelementptr inbounds i8, ptr %3, i64 100973
+  %146 = load i8, ptr %145, align 1
+  %147 = trunc i8 %146 to i1
+  %148 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.25, i1 noundef zeroext %147, i1 noundef zeroext true)
+  br i1 %148, label %149, label %153
 
-151:                                              ; preds = %145
-  %152 = load i8, ptr %146, align 4
-  %153 = and i8 %152, 1
-  %154 = xor i8 %153, 1
-  store i8 %154, ptr %146, align 4
-  br label %155
+149:                                              ; preds = %144
+  %150 = load i8, ptr %145, align 1
+  %151 = and i8 %150, 1
+  %152 = xor i8 %151, 1
+  store i8 %152, ptr %145, align 1
+  br label %153
 
-155:                                              ; preds = %151, %145
-  %156 = getelementptr inbounds i8, ptr %3, i64 100973
-  %157 = load i8, ptr %156, align 1
-  %158 = and i8 %157, 1
-  %159 = icmp ne i8 %158, 0
-  %160 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.25, i1 noundef zeroext %159, i1 noundef zeroext true)
-  br i1 %160, label %161, label %165
+153:                                              ; preds = %149, %144
+  %154 = getelementptr inbounds i8, ptr %3, i64 100974
+  %155 = load i8, ptr %154, align 2
+  %156 = trunc i8 %155 to i1
+  %157 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.26, i1 noundef zeroext %156, i1 noundef zeroext true)
+  br i1 %157, label %158, label %162
 
-161:                                              ; preds = %155
-  %162 = load i8, ptr %156, align 1
-  %163 = and i8 %162, 1
-  %164 = xor i8 %163, 1
-  store i8 %164, ptr %156, align 1
-  br label %165
+158:                                              ; preds = %153
+  %159 = load i8, ptr %154, align 2
+  %160 = and i8 %159, 1
+  %161 = xor i8 %160, 1
+  store i8 %161, ptr %154, align 2
+  br label %162
 
-165:                                              ; preds = %161, %155
-  %166 = getelementptr inbounds i8, ptr %3, i64 100974
-  %167 = load i8, ptr %166, align 2
-  %168 = and i8 %167, 1
-  %169 = icmp ne i8 %168, 0
-  %170 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.26, i1 noundef zeroext %169, i1 noundef zeroext true)
-  br i1 %170, label %171, label %175
-
-171:                                              ; preds = %165
-  %172 = load i8, ptr %166, align 2
-  %173 = and i8 %172, 1
-  %174 = xor i8 %173, 1
-  store i8 %174, ptr %166, align 2
-  br label %175
-
-175:                                              ; preds = %171, %165
+162:                                              ; preds = %158, %153
   tail call void @_Z13imguiUnindentv()
-  br label %176
+  br label %163
 
-176:                                              ; preds = %175, %112
-  %177 = getelementptr inbounds i8, ptr %3, i64 100975
-  %178 = load i8, ptr %177, align 1
-  %179 = and i8 %178, 1
-  %180 = icmp ne i8 %179, 0
-  %181 = tail call noundef zeroext i1 @_Z13imguiCollapsePKcS0_bb(ptr noundef nonnull @.str.27, ptr noundef null, i1 noundef zeroext %180, i1 noundef zeroext true)
-  %.pre91 = load i8, ptr %177, align 1
-  br i1 %181, label %182, label %185
+163:                                              ; preds = %162, %105
+  %164 = getelementptr inbounds i8, ptr %3, i64 100975
+  %165 = load i8, ptr %164, align 1
+  %166 = trunc i8 %165 to i1
+  %167 = tail call noundef zeroext i1 @_Z13imguiCollapsePKcS0_bb(ptr noundef nonnull @.str.27, ptr noundef null, i1 noundef zeroext %166, i1 noundef zeroext true)
+  %.pre69 = load i8, ptr %164, align 1
+  br i1 %167, label %168, label %171
 
-182:                                              ; preds = %176
-  %183 = and i8 %.pre91, 1
-  %184 = xor i8 %183, 1
-  store i8 %184, ptr %177, align 1
-  br label %185
+168:                                              ; preds = %163
+  %169 = and i8 %.pre69, 1
+  %170 = xor i8 %169, 1
+  store i8 %170, ptr %164, align 1
+  br label %171
 
-185:                                              ; preds = %182, %176
-  %186 = phi i8 [ %184, %182 ], [ %.pre91, %176 ]
-  %187 = and i8 %186, 1
-  %.not79 = icmp eq i8 %187, 0
-  br i1 %.not79, label %239, label %188
+171:                                              ; preds = %168, %163
+  %172 = phi i8 [ %170, %168 ], [ %.pre69, %163 ]
+  %173 = trunc i8 %172 to i1
+  br i1 %173, label %174, label %220
 
-188:                                              ; preds = %185
+174:                                              ; preds = %171
   tail call void @_Z11imguiIndentv()
-  %189 = getelementptr inbounds i8, ptr %3, i64 100976
-  %190 = load i8, ptr %189, align 4
-  %191 = and i8 %190, 1
-  %192 = icmp ne i8 %191, 0
-  %193 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.28, i1 noundef zeroext %192, i1 noundef zeroext true)
-  br i1 %193, label %194, label %198
+  %175 = getelementptr inbounds i8, ptr %3, i64 100976
+  %176 = load i8, ptr %175, align 4
+  %177 = trunc i8 %176 to i1
+  %178 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.28, i1 noundef zeroext %177, i1 noundef zeroext true)
+  br i1 %178, label %179, label %183
 
-194:                                              ; preds = %188
-  %195 = load i8, ptr %189, align 4
-  %196 = and i8 %195, 1
-  %197 = xor i8 %196, 1
-  store i8 %197, ptr %189, align 4
-  br label %198
+179:                                              ; preds = %174
+  %180 = load i8, ptr %175, align 4
+  %181 = and i8 %180, 1
+  %182 = xor i8 %181, 1
+  store i8 %182, ptr %175, align 4
+  br label %183
 
-198:                                              ; preds = %194, %188
-  %199 = getelementptr inbounds i8, ptr %3, i64 100977
-  %200 = load i8, ptr %199, align 1
-  %201 = and i8 %200, 1
-  %202 = icmp ne i8 %201, 0
-  %203 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.29, i1 noundef zeroext %202, i1 noundef zeroext true)
-  br i1 %203, label %204, label %208
+183:                                              ; preds = %179, %174
+  %184 = getelementptr inbounds i8, ptr %3, i64 100977
+  %185 = load i8, ptr %184, align 1
+  %186 = trunc i8 %185 to i1
+  %187 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.29, i1 noundef zeroext %186, i1 noundef zeroext true)
+  br i1 %187, label %188, label %192
 
-204:                                              ; preds = %198
-  %205 = load i8, ptr %199, align 1
-  %206 = and i8 %205, 1
-  %207 = xor i8 %206, 1
-  store i8 %207, ptr %199, align 1
-  br label %208
+188:                                              ; preds = %183
+  %189 = load i8, ptr %184, align 1
+  %190 = and i8 %189, 1
+  %191 = xor i8 %190, 1
+  store i8 %191, ptr %184, align 1
+  br label %192
 
-208:                                              ; preds = %204, %198
-  %209 = getelementptr inbounds i8, ptr %3, i64 100978
-  %210 = load i8, ptr %209, align 2
-  %211 = and i8 %210, 1
-  %212 = icmp ne i8 %211, 0
-  %213 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.30, i1 noundef zeroext %212, i1 noundef zeroext true)
-  br i1 %213, label %214, label %218
+192:                                              ; preds = %188, %183
+  %193 = getelementptr inbounds i8, ptr %3, i64 100978
+  %194 = load i8, ptr %193, align 2
+  %195 = trunc i8 %194 to i1
+  %196 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.30, i1 noundef zeroext %195, i1 noundef zeroext true)
+  br i1 %196, label %197, label %201
 
-214:                                              ; preds = %208
-  %215 = load i8, ptr %209, align 2
-  %216 = and i8 %215, 1
-  %217 = xor i8 %216, 1
-  store i8 %217, ptr %209, align 2
-  br label %218
+197:                                              ; preds = %192
+  %198 = load i8, ptr %193, align 2
+  %199 = and i8 %198, 1
+  %200 = xor i8 %199, 1
+  store i8 %200, ptr %193, align 2
+  br label %201
 
-218:                                              ; preds = %214, %208
-  %219 = getelementptr inbounds i8, ptr %3, i64 100979
-  %220 = load i8, ptr %219, align 1
-  %221 = and i8 %220, 1
-  %222 = icmp ne i8 %221, 0
-  %223 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.31, i1 noundef zeroext %222, i1 noundef zeroext true)
-  br i1 %223, label %224, label %228
+201:                                              ; preds = %197, %192
+  %202 = getelementptr inbounds i8, ptr %3, i64 100979
+  %203 = load i8, ptr %202, align 1
+  %204 = trunc i8 %203 to i1
+  %205 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.31, i1 noundef zeroext %204, i1 noundef zeroext true)
+  br i1 %205, label %206, label %210
 
-224:                                              ; preds = %218
-  %225 = load i8, ptr %219, align 1
-  %226 = and i8 %225, 1
-  %227 = xor i8 %226, 1
-  store i8 %227, ptr %219, align 1
-  br label %228
+206:                                              ; preds = %201
+  %207 = load i8, ptr %202, align 1
+  %208 = and i8 %207, 1
+  %209 = xor i8 %208, 1
+  store i8 %209, ptr %202, align 1
+  br label %210
 
-228:                                              ; preds = %224, %218
-  %229 = getelementptr inbounds i8, ptr %3, i64 100980
-  %230 = load i8, ptr %229, align 4
-  %231 = and i8 %230, 1
-  %232 = icmp ne i8 %231, 0
-  %233 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.32, i1 noundef zeroext %232, i1 noundef zeroext true)
-  br i1 %233, label %234, label %238
+210:                                              ; preds = %206, %201
+  %211 = getelementptr inbounds i8, ptr %3, i64 100980
+  %212 = load i8, ptr %211, align 4
+  %213 = trunc i8 %212 to i1
+  %214 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.32, i1 noundef zeroext %213, i1 noundef zeroext true)
+  br i1 %214, label %215, label %219
 
-234:                                              ; preds = %228
-  %235 = load i8, ptr %229, align 4
-  %236 = and i8 %235, 1
-  %237 = xor i8 %236, 1
-  store i8 %237, ptr %229, align 4
-  br label %238
+215:                                              ; preds = %210
+  %216 = load i8, ptr %211, align 4
+  %217 = and i8 %216, 1
+  %218 = xor i8 %217, 1
+  store i8 %218, ptr %211, align 4
+  br label %219
 
-238:                                              ; preds = %234, %228
+219:                                              ; preds = %215, %210
   tail call void @_Z13imguiUnindentv()
-  br label %239
+  br label %220
 
-239:                                              ; preds = %1, %238, %185
+220:                                              ; preds = %1, %219, %171
   ret void
 }
 
@@ -3226,9 +3169,8 @@ define dso_local void @_ZN9CrowdTool19handleRenderOverlayEPdS0_Pi(ptr nocapture 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %18, i64 101000
   %21 = load i8, ptr %20, align 8
-  %22 = and i8 %21, 1
-  %.not14 = icmp eq i8 %22, 0
-  br i1 %.not14, label %24, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %24
 
 23:                                               ; preds = %19
   tail call void @_Z13imguiDrawTextiiiPKcj(i32 noundef 280, i32 noundef %16, i32 noundef 0, ptr noundef nonnull @.str.38, i32 noundef -15720193)

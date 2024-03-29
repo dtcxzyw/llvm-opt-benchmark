@@ -219,9 +219,8 @@ define dso_local noundef i32 @vhost_vsock_common_pre_save(ptr nocapture noundef 
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 1280
   %vhost_dev.val = load i8, ptr %0, align 8
-  %1 = and i8 %vhost_dev.val, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %if.else
+  %tobool.i = trunc i8 %vhost_dev.val to i1
+  br i1 %tobool.i, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 222, ptr noundef nonnull @__PRETTY_FUNCTION__.vhost_vsock_common_pre_save) #7

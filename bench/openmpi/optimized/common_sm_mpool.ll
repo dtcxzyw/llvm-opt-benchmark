@@ -188,9 +188,8 @@ define internal void @sm_module_finalize(ptr nocapture noundef %0) #0 {
   %12 = load ptr, ptr %2, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i8, ptr @opal_uses_threads, align 1
-  %15 = and i8 %14, 1
-  %.not.i = icmp eq i8 %15, 0
-  br i1 %.not.i, label %19, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %19
 
 16:                                               ; preds = %11
   %17 = atomicrmw volatile add ptr %13, i32 -1 monotonic, align 4
@@ -224,8 +223,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %16, %19
   tail call void %30(ptr noundef nonnull %25) #8
   %31 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %32 = load ptr, ptr %31, align 8
-  %.not.i10 = icmp eq ptr %32, null
-  br i1 %.not.i10, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %32, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %2, align 8

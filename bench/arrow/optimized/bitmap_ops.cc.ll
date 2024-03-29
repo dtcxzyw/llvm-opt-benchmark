@@ -1272,15 +1272,16 @@ invoke.cont4:                                     ; preds = %invoke.cont
   store ptr null, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !27
   store ptr %2, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !27
   store ptr null, ptr %storage_.i.i, align 8, !noalias !27
+  %is_cpu_.i = getelementptr inbounds i8, ptr %1, i64 9
+  %3 = load i8, ptr %is_cpu_.i, align 1
+  %tobool.i = trunc i8 %3 to i1
   %is_mutable_.i = getelementptr inbounds i8, ptr %1, i64 8
-  %3 = load <2 x i8>, ptr %is_mutable_.i, align 8
-  %4 = trunc <2 x i8> %3 to <2 x i1>
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %7 = select i1 %6, i1 %5, i1 false
+  %4 = load i8, ptr %is_mutable_.i, align 8
+  %tobool2.i = trunc i8 %4 to i1
+  %5 = select i1 %tobool.i, i1 %tobool2.i, i1 false
   %data_.i = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = load ptr, ptr %data_.i, align 8
-  %cond.i = select i1 %7, ptr %8, ptr null
+  %6 = load ptr, ptr %data_.i, align 8
+  %cond.i = select i1 %5, ptr %6, ptr null
   invoke void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferModeE0EEEvPKhlllPh(ptr noundef %data, i64 noundef %offset, i64 noundef %length, i64 noundef 0, ptr noundef %cond.i)
           to label %invoke.cont8 unwind label %lpad7
 
@@ -1297,22 +1298,22 @@ for.body:                                         ; preds = %invoke.cont8, %for.
   %i.016 = phi i64 [ %inc, %for.body ], [ %length, %invoke.cont8 ]
   %rem.i = srem i64 %i.016, 8
   %arrayidx.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL15kFlippedBitmaskE, i64 0, i64 %rem.i
-  %9 = load i8, ptr %arrayidx.i, align 1
+  %7 = load i8, ptr %arrayidx.i, align 1
   %div.i = sdiv i64 %i.016, 8
   %arrayidx1.i = getelementptr inbounds i8, ptr %cond.i, i64 %div.i
-  %10 = load i8, ptr %arrayidx1.i, align 1
-  %and2.i = and i8 %10, %9
+  %8 = load i8, ptr %arrayidx1.i, align 1
+  %and2.i = and i8 %8, %7
   store i8 %and2.i, ptr %arrayidx1.i, align 1
   %inc = add nsw i64 %i.016, 1
   %exitcond.not = icmp eq i64 %inc, %mul
   br i1 %exitcond.not, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, label %for.body, !llvm.loop !28
 
 lpad7:                                            ; preds = %invoke.cont4
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN5arrow6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %buffer) #19
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #19
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %9
 
 _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit:      ; preds = %for.body, %invoke.cont8
   store ptr null, ptr %agg.result, align 8
@@ -1360,15 +1361,16 @@ invoke.cont4:                                     ; preds = %invoke.cont
   store ptr null, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !35
   store ptr %2, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !35
   store ptr null, ptr %storage_.i.i, align 8, !noalias !35
+  %is_cpu_.i = getelementptr inbounds i8, ptr %1, i64 9
+  %3 = load i8, ptr %is_cpu_.i, align 1
+  %tobool.i = trunc i8 %3 to i1
   %is_mutable_.i = getelementptr inbounds i8, ptr %1, i64 8
-  %3 = load <2 x i8>, ptr %is_mutable_.i, align 8
-  %4 = trunc <2 x i8> %3 to <2 x i1>
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %7 = select i1 %6, i1 %5, i1 false
+  %4 = load i8, ptr %is_mutable_.i, align 8
+  %tobool2.i = trunc i8 %4 to i1
+  %5 = select i1 %tobool.i, i1 %tobool2.i, i1 false
   %data_.i = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = load ptr, ptr %data_.i, align 8
-  %cond.i = select i1 %7, ptr %8, ptr null
+  %6 = load ptr, ptr %data_.i, align 8
+  %cond.i = select i1 %5, ptr %6, ptr null
   invoke void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferModeE1EEEvPKhlllPh(ptr noundef %data, i64 noundef %offset, i64 noundef %length, i64 noundef 0, ptr noundef %cond.i)
           to label %invoke.cont8 unwind label %lpad7
 
@@ -1385,22 +1387,22 @@ for.body:                                         ; preds = %invoke.cont8, %for.
   %i.016 = phi i64 [ %inc, %for.body ], [ %length, %invoke.cont8 ]
   %rem.i = srem i64 %i.016, 8
   %arrayidx.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL15kFlippedBitmaskE, i64 0, i64 %rem.i
-  %9 = load i8, ptr %arrayidx.i, align 1
+  %7 = load i8, ptr %arrayidx.i, align 1
   %div.i = sdiv i64 %i.016, 8
   %arrayidx1.i = getelementptr inbounds i8, ptr %cond.i, i64 %div.i
-  %10 = load i8, ptr %arrayidx1.i, align 1
-  %and2.i = and i8 %10, %9
+  %8 = load i8, ptr %arrayidx1.i, align 1
+  %and2.i = and i8 %8, %7
   store i8 %and2.i, ptr %arrayidx1.i, align 1
   %inc = add nsw i64 %i.016, 1
   %exitcond.not = icmp eq i64 %inc, %mul
   br i1 %exitcond.not, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, label %for.body, !llvm.loop !36
 
 lpad7:                                            ; preds = %invoke.cont4
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN5arrow6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %buffer) #19
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #19
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %9
 
 _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit:      ; preds = %for.body, %invoke.cont8
   store ptr null, ptr %agg.result, align 8
@@ -1432,16 +1434,17 @@ invoke.cont5:                                     ; preds = %invoke.cont
   %storage_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load <2 x ptr>, ptr %storage_.i.i, align 8, !noalias !37
   %2 = extractelement <2 x ptr> %1, i64 0
+  %is_cpu_.i = getelementptr inbounds i8, ptr %2, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i, i8 0, i64 16, i1 false)
+  %3 = load i8, ptr %is_cpu_.i, align 1
+  %tobool.i = trunc i8 %3 to i1
   %is_mutable_.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load <2 x i8>, ptr %is_mutable_.i, align 8
-  %4 = trunc <2 x i8> %3 to <2 x i1>
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %7 = select i1 %6, i1 %5, i1 false
+  %4 = load i8, ptr %is_mutable_.i, align 8
+  %tobool2.i = trunc i8 %4 to i1
+  %5 = select i1 %tobool.i, i1 %tobool2.i, i1 false
   %data_.i = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = load ptr, ptr %data_.i, align 8
-  %cond.i = select i1 %7, ptr %8, ptr null
+  %6 = load ptr, ptr %data_.i, align 8
+  %cond.i = select i1 %5, ptr %6, ptr null
   %div.i = sdiv i64 %offset, 8
   %rem.i = srem i64 %offset, 8
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %div.i
@@ -1466,15 +1469,15 @@ while.body.i:                                     ; preds = %if.end36.i, %while.
   %dest_offset.addr.048.i = phi i64 [ %add51.i, %if.end36.i ], [ 0, %while.body.preheader.i ]
   %add3.i = add nsw i64 %length.addr.051.i, %offset
   %rem4.i = srem i64 %add3.i, 8
-  %9 = and i64 %rem4.i, 255
-  %tobool.not.i6 = icmp eq i64 %9, 0
-  %10 = trunc i64 %rem4.i to i8
-  %conv6.i = select i1 %tobool.not.i6, i8 8, i8 %10
+  %7 = and i64 %rem4.i, 255
+  %tobool.not.i = icmp eq i64 %7, 0
+  %8 = trunc i64 %rem4.i to i8
+  %conv6.i = select i1 %tobool.not.i, i8 8, i8 %8
   %rem7.i = and i64 %dest_offset.addr.048.i, 7
-  %11 = trunc i64 %rem7.i to i8
-  %conv9.i = sub nuw nsw i8 8, %11
-  %12 = trunc i64 %rem7.i to i32
-  %shl.i = shl nuw nsw i32 255, %12
+  %9 = trunc i64 %rem7.i to i8
+  %conv9.i = sub nuw nsw i8 8, %9
+  %10 = trunc i64 %rem7.i to i32
+  %shl.i = shl nuw nsw i32 255, %10
   %cmp13.i = icmp ult i64 %length.addr.051.i, 9
   br i1 %cmp13.i, label %land.lhs.true.i, label %if.end.i
 
@@ -1484,8 +1487,8 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   br i1 %cmp16.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %13 = trunc i64 %add15.i to i32
-  %conv20.i = sub nuw nsw i32 8, %13
+  %11 = trunc i64 %add15.i to i32
+  %conv20.i = sub nuw nsw i32 8, %11
   %shl23.i = shl nuw nsw i32 %shl.i, %conv20.i
   %conv26.i = and i32 %shl23.i, 254
   %shr.i = lshr i32 %conv26.i, %conv20.i
@@ -1497,34 +1500,34 @@ if.end.i:                                         ; preds = %if.then.i, %land.lh
   br i1 %cmp28.i, label %if.then29.i, label %if.else.i
 
 if.then29.i:                                      ; preds = %if.end.i
-  %14 = load i8, ptr %add.ptr.i, align 1
-  %conv.i36.i = zext i8 %14 to i32
+  %12 = load i8, ptr %add.ptr.i, align 1
+  %conv.i36.i = zext i8 %12 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i36.i, 8
   %add.i37.i = or disjoint i32 %shl.i.i, %conv.i36.i
   br label %if.end36.i
 
 if.else.i:                                        ; preds = %if.end.i
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %j_src.049.i
-  %15 = load i16, ptr %gep.i, align 1
-  %16 = zext i16 %15 to i32
+  %13 = load i16, ptr %gep.i, align 1
+  %14 = zext i16 %13 to i32
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.else.i, %if.then29.i
-  %.sink.i = phi i32 [ %16, %if.else.i ], [ %add.i37.i, %if.then29.i ]
+  %.sink.i = phi i32 [ %14, %if.else.i ], [ %add.i37.i, %if.then29.i ]
   %conv2.i43.i = zext nneg i8 %conv6.i to i32
   %shr.i44.i = lshr i32 %.sink.i, %conv2.i43.i
   %conv3.i45.i = trunc i32 %shr.i44.i to i8
   %rev.i.i46.i = call noundef i8 @llvm.bitreverse.i8(i8 %conv3.i45.i)
   %arrayidx38.i = getelementptr inbounds i8, ptr %cond.i, i64 %i_dest.050.i
-  %17 = load i8, ptr %arrayidx38.i, align 1
-  %18 = trunc i32 %left_trailing_mask_dest.0.in.i to i8
-  %19 = xor i8 %18, -1
-  %conv40.i = and i8 %17, %19
+  %15 = load i8, ptr %arrayidx38.i, align 1
+  %16 = trunc i32 %left_trailing_mask_dest.0.in.i to i8
+  %17 = xor i8 %16, -1
+  %conv40.i = and i8 %15, %17
   %conv41.i = zext i8 %rev.i.i46.i to i32
-  %shl44.i = shl nuw nsw i32 %conv41.i, %12
+  %shl44.i = shl nuw nsw i32 %conv41.i, %10
   %and46.i = and i32 %shl44.i, %left_trailing_mask_dest.0.in.i
-  %20 = trunc i32 %and46.i to i8
-  %conv49.i = or i8 %conv40.i, %20
+  %18 = trunc i32 %and46.i to i8
+  %conv49.i = or i8 %conv40.i, %18
   store i8 %conv49.i, ptr %arrayidx38.i, align 1
   %conv50.i = zext nneg i8 %conv9.i to i64
   %add51.i = add nuw nsw i64 %dest_offset.addr.048.i, %conv50.i
@@ -1538,8 +1541,8 @@ if.end36.i:                                       ; preds = %if.else.i, %if.then
 
 _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit:      ; preds = %if.end36.i, %invoke.cont5
   store ptr null, ptr %agg.result, align 8
-  %storage_.i.i7 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store <2 x ptr> %1, ptr %storage_.i.i7, align 8
+  %storage_.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store <2 x ptr> %1, ptr %storage_.i.i6, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, %if.then
@@ -2321,27 +2324,25 @@ entry:
 cond.true:                                        ; preds = %entry
   %is_cpu_.i = getelementptr inbounds i8, ptr %0, i64 9
   %1 = load i8, ptr %is_cpu_.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   %data_.i = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load ptr, ptr %data_.i, align 8
-  %cond.i = select i1 %tobool.not.i, ptr null, ptr %3
+  %2 = load ptr, ptr %data_.i, align 8
+  %cond.i = select i1 %tobool.i, ptr %2, ptr null
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi ptr [ %cond.i, %cond.true ], [ null, %entry ]
-  %4 = load ptr, ptr %right, align 8
-  %cmp.i3.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %right, align 8
+  %cmp.i3.not = icmp eq ptr %3, null
   br i1 %cmp.i3.not, label %cond.end8, label %cond.true4
 
 cond.true4:                                       ; preds = %cond.end
-  %is_cpu_.i4 = getelementptr inbounds i8, ptr %4, i64 9
-  %5 = load i8, ptr %is_cpu_.i4, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i5 = icmp eq i8 %6, 0
-  %data_.i6 = getelementptr inbounds i8, ptr %4, i64 16
-  %7 = load ptr, ptr %data_.i6, align 8
-  %cond.i7 = select i1 %tobool.not.i5, ptr null, ptr %7
+  %is_cpu_.i4 = getelementptr inbounds i8, ptr %3, i64 9
+  %4 = load i8, ptr %is_cpu_.i4, align 1
+  %tobool.i5 = trunc i8 %4 to i1
+  %data_.i6 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = load ptr, ptr %data_.i6, align 8
+  %cond.i7 = select i1 %tobool.i5, ptr %5, ptr null
   br label %cond.end8
 
 cond.end8:                                        ; preds = %cond.end, %cond.true4
@@ -2400,16 +2401,17 @@ invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !51
   %2 = extractelement <2 x ptr> %1, i64 0
+  %is_cpu_.i.i = getelementptr inbounds i8, ptr %2, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !48
+  %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !48
+  %tobool.i.i = trunc i8 %3 to i1
   %is_mutable_.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load <2 x i8>, ptr %is_mutable_.i.i, align 8, !noalias !48
-  %4 = trunc <2 x i8> %3 to <2 x i1>
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %7 = select i1 %6, i1 %5, i1 false
+  %4 = load i8, ptr %is_mutable_.i.i, align 8, !noalias !48
+  %tobool2.i.i = trunc i8 %4 to i1
+  %5 = select i1 %tobool.i.i, i1 %tobool2.i.i, i1 false
   %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = load ptr, ptr %data_.i.i, align 8, !noalias !48
-  %cond.i.i = select i1 %7, ptr %8, ptr null
+  %6 = load ptr, ptr %data_.i.i, align 8, !noalias !48
+  %cond.i.i = select i1 %5, ptr %6, ptr null
   call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !48
   store ptr null, ptr %agg.result, align 8, !alias.scope !48
   store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !48
@@ -2954,16 +2956,17 @@ invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !62
   %2 = extractelement <2 x ptr> %1, i64 0
+  %is_cpu_.i.i = getelementptr inbounds i8, ptr %2, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !59
+  %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !59
+  %tobool.i.i = trunc i8 %3 to i1
   %is_mutable_.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load <2 x i8>, ptr %is_mutable_.i.i, align 8, !noalias !59
-  %4 = trunc <2 x i8> %3 to <2 x i1>
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %7 = select i1 %6, i1 %5, i1 false
+  %4 = load i8, ptr %is_mutable_.i.i, align 8, !noalias !59
+  %tobool2.i.i = trunc i8 %4 to i1
+  %5 = select i1 %tobool.i.i, i1 %tobool2.i.i, i1 false
   %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = load ptr, ptr %data_.i.i, align 8, !noalias !59
-  %cond.i.i = select i1 %7, ptr %8, ptr null
+  %6 = load ptr, ptr %data_.i.i, align 8, !noalias !59
+  %cond.i.i = select i1 %5, ptr %6, ptr null
   call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !59
   store ptr null, ptr %agg.result, align 8, !alias.scope !59
   store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !59
@@ -3508,16 +3511,17 @@ invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !73
   %2 = extractelement <2 x ptr> %1, i64 0
+  %is_cpu_.i.i = getelementptr inbounds i8, ptr %2, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !70
+  %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !70
+  %tobool.i.i = trunc i8 %3 to i1
   %is_mutable_.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load <2 x i8>, ptr %is_mutable_.i.i, align 8, !noalias !70
-  %4 = trunc <2 x i8> %3 to <2 x i1>
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %7 = select i1 %6, i1 %5, i1 false
+  %4 = load i8, ptr %is_mutable_.i.i, align 8, !noalias !70
+  %tobool2.i.i = trunc i8 %4 to i1
+  %5 = select i1 %tobool.i.i, i1 %tobool2.i.i, i1 false
   %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = load ptr, ptr %data_.i.i, align 8, !noalias !70
-  %cond.i.i = select i1 %7, ptr %8, ptr null
+  %6 = load ptr, ptr %data_.i.i, align 8, !noalias !70
+  %cond.i.i = select i1 %5, ptr %6, ptr null
   call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !70
   store ptr null, ptr %agg.result, align 8, !alias.scope !70
   store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !70
@@ -4062,16 +4066,17 @@ invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !84
   %2 = extractelement <2 x ptr> %1, i64 0
+  %is_cpu_.i.i = getelementptr inbounds i8, ptr %2, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !81
+  %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !81
+  %tobool.i.i = trunc i8 %3 to i1
   %is_mutable_.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load <2 x i8>, ptr %is_mutable_.i.i, align 8, !noalias !81
-  %4 = trunc <2 x i8> %3 to <2 x i1>
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %7 = select i1 %6, i1 %5, i1 false
+  %4 = load i8, ptr %is_mutable_.i.i, align 8, !noalias !81
+  %tobool2.i.i = trunc i8 %4 to i1
+  %5 = select i1 %tobool.i.i, i1 %tobool2.i.i, i1 false
   %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = load ptr, ptr %data_.i.i, align 8, !noalias !81
-  %cond.i.i = select i1 %7, ptr %8, ptr null
+  %6 = load ptr, ptr %data_.i.i, align 8, !noalias !81
+  %cond.i.i = select i1 %5, ptr %6, ptr null
   call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !81
   store ptr null, ptr %agg.result, align 8, !alias.scope !81
   store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !81
@@ -4620,16 +4625,17 @@ invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !95
   %2 = extractelement <2 x ptr> %1, i64 0
+  %is_cpu_.i.i = getelementptr inbounds i8, ptr %2, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !92
+  %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !92
+  %tobool.i.i = trunc i8 %3 to i1
   %is_mutable_.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load <2 x i8>, ptr %is_mutable_.i.i, align 8, !noalias !92
-  %4 = trunc <2 x i8> %3 to <2 x i1>
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %7 = select i1 %6, i1 %5, i1 false
+  %4 = load i8, ptr %is_mutable_.i.i, align 8, !noalias !92
+  %tobool2.i.i = trunc i8 %4 to i1
+  %5 = select i1 %tobool.i.i, i1 %tobool2.i.i, i1 false
   %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = load ptr, ptr %data_.i.i, align 8, !noalias !92
-  %cond.i.i = select i1 %7, ptr %8, ptr null
+  %6 = load ptr, ptr %data_.i.i, align 8, !noalias !92
+  %cond.i.i = select i1 %5, ptr %6, ptr null
   call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !92
   store ptr null, ptr %agg.result, align 8, !alias.scope !92
   store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !92

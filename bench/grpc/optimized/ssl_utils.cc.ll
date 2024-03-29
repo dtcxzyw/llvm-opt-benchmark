@@ -1038,23 +1038,33 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %input_text.sroa.2.0.text_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %delimiter_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_finish.i.i = getelementptr inbounds i8, ptr %splits.i, i64 8
+  br label %for.body.outer
+
+for.body.outer:                                   ; preds = %for.inc, %for.body.lr.ph
+  %i.073.ph = phi i64 [ %inc160, %for.inc ], [ 0, %for.body.lr.ph ]
+  %peer_identity_property_name.072.ph = phi ptr [ %peer_identity_property_name.1, %for.inc ], [ null, %for.body.lr.ph ]
+  %has_spiffe_id.071.ph = phi i1 [ %has_spiffe_id.1, %for.inc ], [ false, %for.body.lr.ph ]
+  %uri_count.070.ph = phi i32 [ %uri_count.1, %for.inc ], [ 0, %for.body.lr.ph ]
+  %spiffe_length.069.ph = phi i64 [ %spiffe_length.1, %for.inc ], [ 0, %for.body.lr.ph ]
+  %spiffe_data.068.ph = phi ptr [ %spiffe_data.1, %for.inc ], [ null, %for.body.lr.ph ]
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.073 = phi i64 [ 0, %for.body.lr.ph ], [ %inc160, %for.inc ]
-  %peer_identity_property_name.072 = phi ptr [ null, %for.body.lr.ph ], [ %peer_identity_property_name.1, %for.inc ]
-  %has_spiffe_id.071 = phi i8 [ 0, %for.body.lr.ph ], [ %has_spiffe_id.1, %for.inc ]
-  %uri_count.070 = phi i32 [ 0, %for.body.lr.ph ], [ %uri_count.1, %for.inc ]
-  %spiffe_length.069 = phi i64 [ 0, %for.body.lr.ph ], [ %spiffe_length.1, %for.inc ]
-  %spiffe_data.068 = phi ptr [ null, %for.body.lr.ph ], [ %spiffe_data.1, %for.inc ]
+for.body:                                         ; preds = %for.body.outer, %for.inc.thread
+  %i.073 = phi i64 [ %inc16093, %for.inc.thread ], [ %i.073.ph, %for.body.outer ]
+  %peer_identity_property_name.072 = phi ptr [ @.str.14, %for.inc.thread ], [ %peer_identity_property_name.072.ph, %for.body.outer ]
   %2 = load ptr, ptr %peer, align 8
   %arrayidx = getelementptr inbounds %struct.tsi_peer_property, ptr %2, i64 %i.073
   %3 = load ptr, ptr %arrayidx, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %for.inc, label %if.end6
 
-lpad.loopexit:                                    ; preds = %if.then10.invoke, %if.then18, %if.then33, %if.then105, %if.then3.i, %if.end4.i
-  %lpad.loopexit55 = landingpad { ptr, i32 }
+lpad.loopexit.loopexit:                           ; preds = %if.then33
+  %lpad.loopexit115 = landingpad { ptr, i32 }
+          cleanup
+  br label %lpad.body
+
+lpad.loopexit.loopexit.split-lp:                  ; preds = %if.then141.invoke.invoke, %if.end4.i, %if.then3.i, %if.then105, %if.then18
+  %lpad.loopexit.split-lp116 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
@@ -1063,24 +1073,15 @@ lpad.loopexit.split-lp:                           ; preds = %if.then170.invoke, 
           cleanup
   br label %lpad.body
 
-lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i, %if.then.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %if.then.i.i.i.i ], [ %18, %lpad.i ], [ %lpad.loopexit55, %lpad.loopexit ], [ %lpad.loopexit.split-lp56, %lpad.loopexit.split-lp ]
+lpad.body:                                        ; preds = %lpad.loopexit.loopexit, %lpad.loopexit.loopexit.split-lp, %lpad.loopexit.split-lp, %lpad.i, %if.then.i.i.i.i
+  %eh.lpad-body = phi { ptr, i32 } [ %15, %if.then.i.i.i.i ], [ %15, %lpad.i ], [ %lpad.loopexit.split-lp56, %lpad.loopexit.split-lp ], [ %lpad.loopexit115, %lpad.loopexit.loopexit ], [ %lpad.loopexit.split-lp116, %lpad.loopexit.loopexit.split-lp ]
   call void @_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 
 if.end6:                                          ; preds = %for.body
   %call8 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(13) @.str.11) #24
   %cmp9 = icmp eq i32 %call8, 0
-  br i1 %cmp9, label %if.then10.invoke, label %if.else
-
-if.then10.invoke:                                 ; preds = %if.end6, %if.else137, %if.else125, %if.else89, %if.else77, %if.else65, %if.else53, %if.else41
-  %4 = phi ptr [ @.str.15, %if.else41 ], [ @.str.16, %if.else53 ], [ @.str.17, %if.else65 ], [ @.str.18, %if.else77 ], [ @.str.20, %if.else89 ], [ @.str.24, %if.else125 ], [ @.str.26, %if.else137 ], [ @.str.11, %if.end6 ]
-  %value144 = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %5 = load ptr, ptr %value144, align 8
-  %length147 = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %6 = load i64, ptr %length147, align 8
-  invoke void @grpc_auth_context_add_property(ptr noundef nonnull %call.i, ptr noundef nonnull %4, ptr noundef %5, i64 noundef %6)
-          to label %for.inc unwind label %lpad.loopexit
+  br i1 %cmp9, label %if.then141.invoke.invoke, label %if.else
 
 if.else:                                          ; preds = %if.end6
   %call16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(25) @.str.12) #24
@@ -1091,11 +1092,11 @@ if.then18:                                        ; preds = %if.else
   %cmp19 = icmp eq ptr %peer_identity_property_name.072, null
   %spec.store.select = select i1 %cmp19, ptr @.str.13, ptr %peer_identity_property_name.072
   %value24 = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %7 = load ptr, ptr %value24, align 8
+  %4 = load ptr, ptr %value24, align 8
   %length27 = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %8 = load i64, ptr %length27, align 8
-  invoke void @grpc_auth_context_add_property(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef %7, i64 noundef %8)
-          to label %for.inc unwind label %lpad.loopexit
+  %5 = load i64, ptr %length27, align 8
+  invoke void @grpc_auth_context_add_property(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef %4, i64 noundef %5)
+          to label %for.inc unwind label %lpad.loopexit.loopexit.split-lp
 
 if.else29:                                        ; preds = %if.else
   %call31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(30) @.str.14) #24
@@ -1104,36 +1105,36 @@ if.else29:                                        ; preds = %if.else
 
 if.then33:                                        ; preds = %if.else29
   %value36 = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %9 = load ptr, ptr %value36, align 8
+  %6 = load ptr, ptr %value36, align 8
   %length39 = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %10 = load i64, ptr %length39, align 8
-  invoke void @grpc_auth_context_add_property(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14, ptr noundef %9, i64 noundef %10)
-          to label %for.inc unwind label %lpad.loopexit
+  %7 = load i64, ptr %length39, align 8
+  invoke void @grpc_auth_context_add_property(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14, ptr noundef %6, i64 noundef %7)
+          to label %for.inc.thread unwind label %lpad.loopexit.loopexit
 
 if.else41:                                        ; preds = %if.else29
   %call43 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(14) @.str.15) #24
   %cmp44 = icmp eq i32 %call43, 0
-  br i1 %cmp44, label %if.then10.invoke, label %if.else53
+  br i1 %cmp44, label %if.then141.invoke.invoke, label %if.else53
 
 if.else53:                                        ; preds = %if.else41
   %call55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(20) @.str.16) #24
   %cmp56 = icmp eq i32 %call55, 0
-  br i1 %cmp56, label %if.then10.invoke, label %if.else65
+  br i1 %cmp56, label %if.then141.invoke.invoke, label %if.else65
 
 if.else65:                                        ; preds = %if.else53
   %call67 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(19) @.str.17) #24
   %cmp68 = icmp eq i32 %call67, 0
-  br i1 %cmp68, label %if.then10.invoke, label %if.else77
+  br i1 %cmp68, label %if.then141.invoke.invoke, label %if.else77
 
 if.else77:                                        ; preds = %if.else65
   %call79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(15) @.str.18) #24
   %cmp80 = icmp eq i32 %call79, 0
-  br i1 %cmp80, label %if.then10.invoke, label %if.else89
+  br i1 %cmp80, label %if.then141.invoke.invoke, label %if.else89
 
 if.else89:                                        ; preds = %if.else77
   %call91 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(9) @.str.19) #24
   %cmp92 = icmp eq i32 %call91, 0
-  br i1 %cmp92, label %if.then10.invoke, label %if.else101
+  br i1 %cmp92, label %if.then141.invoke.invoke, label %if.else101
 
 if.else101:                                       ; preds = %if.else89
   %call103 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(9) @.str.21) #24
@@ -1142,88 +1143,88 @@ if.else101:                                       ; preds = %if.else89
 
 if.then105:                                       ; preds = %if.else101
   %value108 = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %11 = load ptr, ptr %value108, align 8
+  %8 = load ptr, ptr %value108, align 8
   %length111 = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %12 = load i64, ptr %length111, align 8
-  invoke void @grpc_auth_context_add_property(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.22, ptr noundef %11, i64 noundef %12)
-          to label %invoke.cont112 unwind label %lpad.loopexit
+  %9 = load i64, ptr %length111, align 8
+  invoke void @grpc_auth_context_add_property(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.22, ptr noundef %8, i64 noundef %9)
+          to label %invoke.cont112 unwind label %lpad.loopexit.loopexit.split-lp
 
 invoke.cont112:                                   ; preds = %if.then105
-  %inc = add nsw i32 %uri_count.070, 1
-  %13 = load ptr, ptr %value108, align 8
-  %14 = load i64, ptr %length111, align 8
+  %inc = add nsw i32 %uri_count.070.ph, 1
+  %10 = load ptr, ptr %value108, align 8
+  %11 = load i64, ptr %length111, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %splits.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %cmp.not.i.i = icmp ult i64 %14, 9
+  %cmp.not.i.i = icmp ult i64 %11, 9
   br i1 %cmp.not.i.i, label %invoke.cont117.thread, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i: ; preds = %invoke.cont112
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %13, ptr noundef nonnull dereferenceable(9) @.str.39, i64 9)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %10, ptr noundef nonnull dereferenceable(9) @.str.39, i64 9)
   %cmp7.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp7.i.i, label %if.end.i, label %invoke.cont117.thread
 
 if.end.i:                                         ; preds = %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
-  %cmp.i = icmp ugt i64 %14, 2048
+  %cmp.i = icmp ugt i64 %11, 2048
   br i1 %cmp.i, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.end.i
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 234, i32 noundef 1, ptr noundef nonnull @.str.40)
-          to label %invoke.cont117.thread unwind label %lpad.loopexit
+          to label %invoke.cont117.thread unwind label %lpad.loopexit.loopexit.split-lp
 
 if.end4.i:                                        ; preds = %if.end.i
-  store i64 %14, ptr %ref.tmp.i, align 8, !alias.scope !22
-  store ptr %13, ptr %input_text.sroa.2.0.text_.sroa_idx.i.i.i, align 8, !alias.scope !22
+  store i64 %11, ptr %ref.tmp.i, align 8, !alias.scope !22
+  store ptr %10, ptr %input_text.sroa.2.0.text_.sroa_idx.i.i.i, align 8, !alias.scope !22
   store i8 47, ptr %delimiter_.i.i.i, align 8, !alias.scope !22
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   invoke void @_ZNK4absl12lts_2023080216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_(ptr nonnull sret(%"class.std::vector.5") align 8 %splits.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i)
-          to label %.noexc47 unwind label %lpad.loopexit
+          to label %.noexc47 unwind label %lpad.loopexit.loopexit.split-lp
 
 .noexc47:                                         ; preds = %if.end4.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  %15 = load ptr, ptr %_M_finish.i.i, align 8
-  %16 = load ptr, ptr %splits.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %16 to i64
+  %12 = load ptr, ptr %_M_finish.i.i, align 8
+  %13 = load ptr, ptr %splits.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %cmp8.i = icmp ult i64 %sub.ptr.sub.i.i, 64
   br i1 %cmp8.i, label %if.then16.invoke.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %.noexc47
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %16, i64 48
-  %17 = load i64, ptr %add.ptr.i.i, align 8
-  %cmp.i.i = icmp eq i64 %17, 0
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = load i64, ptr %add.ptr.i.i, align 8
+  %cmp.i.i = icmp eq i64 %14, 0
   br i1 %cmp.i.i, label %if.then16.invoke.i, label %if.end12.i
 
 lpad.i:                                           ; preds = %if.then16.invoke.i
-  %18 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %19 = load ptr, ptr %splits.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %19, null
+  %16 = load ptr, ptr %splits.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i.i, label %lpad.body, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %lpad.i
-  call void @_ZdlPv(ptr noundef nonnull %19) #23
+  call void @_ZdlPv(ptr noundef nonnull %16) #23
   br label %lpad.body
 
 if.end12.i:                                       ; preds = %lor.lhs.false.i
-  %add.ptr.i1.i = getelementptr inbounds i8, ptr %16, i64 32
-  %20 = load i64, ptr %add.ptr.i1.i, align 8
-  %cmp15.i = icmp ugt i64 %20, 255
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %13, i64 32
+  %17 = load i64, ptr %add.ptr.i1.i, align 8
+  %cmp15.i = icmp ugt i64 %17, 255
   br i1 %cmp15.i, label %if.then16.invoke.i, label %if.then119
 
 if.then16.invoke.i:                               ; preds = %if.end12.i, %lor.lhs.false.i, %.noexc47
-  %21 = phi i32 [ 243, %if.end12.i ], [ 239, %lor.lhs.false.i ], [ 239, %.noexc47 ]
-  %22 = phi ptr [ @.str.42, %if.end12.i ], [ @.str.41, %lor.lhs.false.i ], [ @.str.41, %.noexc47 ]
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef %21, i32 noundef 1, ptr noundef nonnull %22)
+  %18 = phi i32 [ 243, %if.end12.i ], [ 239, %lor.lhs.false.i ], [ 239, %.noexc47 ]
+  %19 = phi ptr [ @.str.42, %if.end12.i ], [ @.str.41, %lor.lhs.false.i ], [ @.str.41, %.noexc47 ]
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef %18, i32 noundef 1, ptr noundef nonnull %19)
           to label %cleanup.i.thread unwind label %lpad.i
 
 cleanup.i.thread:                                 ; preds = %if.then16.invoke.i
-  %23 = load ptr, ptr %splits.i, align 8
-  %tobool.not.i.i.i2.i50 = icmp eq ptr %23, null
+  %20 = load ptr, ptr %splits.i, align 8
+  %tobool.not.i.i.i2.i50 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i2.i50, label %invoke.cont117, label %if.then.i.i.i3.i.thread
 
 if.then.i.i.i3.i.thread:                          ; preds = %cleanup.i.thread
-  call void @_ZdlPv(ptr noundef nonnull %23) #23
+  call void @_ZdlPv(ptr noundef nonnull %20) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %splits.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   br label %for.inc
@@ -1239,43 +1240,65 @@ invoke.cont117:                                   ; preds = %cleanup.i.thread
   br label %for.inc
 
 if.then119:                                       ; preds = %if.end12.i
-  call void @_ZdlPv(ptr noundef nonnull %16) #23
+  call void @_ZdlPv(ptr noundef nonnull %13) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %splits.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %24 = load ptr, ptr %value108, align 8
-  %25 = load i64, ptr %length111, align 8
+  %21 = load ptr, ptr %value108, align 8
+  %22 = load i64, ptr %length111, align 8
   br label %for.inc
 
 if.else125:                                       ; preds = %if.else101
   %call127 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(11) @.str.23) #24
   %cmp128 = icmp eq i32 %call127, 0
-  br i1 %cmp128, label %if.then10.invoke, label %if.else137
+  br i1 %cmp128, label %if.then141.invoke.invoke, label %if.else137
 
 if.else137:                                       ; preds = %if.else125
   %call139 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.25) #24
   %cmp140 = icmp eq i32 %call139, 0
-  br i1 %cmp140, label %if.then10.invoke, label %for.inc
+  br i1 %cmp140, label %if.then141.invoke.invoke, label %for.inc
 
-for.inc:                                          ; preds = %if.then10.invoke, %invoke.cont117, %if.then.i.i.i3.i.thread, %invoke.cont117.thread, %if.then33, %if.then119, %if.else137, %if.then18, %for.body
-  %spiffe_data.1 = phi ptr [ %spiffe_data.068, %for.body ], [ %spiffe_data.068, %if.then18 ], [ %spiffe_data.068, %if.then33 ], [ %24, %if.then119 ], [ %spiffe_data.068, %invoke.cont117 ], [ %spiffe_data.068, %if.else137 ], [ %spiffe_data.068, %invoke.cont117.thread ], [ %spiffe_data.068, %if.then.i.i.i3.i.thread ], [ %spiffe_data.068, %if.then10.invoke ]
-  %spiffe_length.1 = phi i64 [ %spiffe_length.069, %for.body ], [ %spiffe_length.069, %if.then18 ], [ %spiffe_length.069, %if.then33 ], [ %25, %if.then119 ], [ %spiffe_length.069, %invoke.cont117 ], [ %spiffe_length.069, %if.else137 ], [ %spiffe_length.069, %invoke.cont117.thread ], [ %spiffe_length.069, %if.then.i.i.i3.i.thread ], [ %spiffe_length.069, %if.then10.invoke ]
-  %uri_count.1 = phi i32 [ %uri_count.070, %for.body ], [ %uri_count.070, %if.then18 ], [ %uri_count.070, %if.then33 ], [ %inc, %if.then119 ], [ %inc, %invoke.cont117 ], [ %uri_count.070, %if.else137 ], [ %inc, %invoke.cont117.thread ], [ %inc, %if.then.i.i.i3.i.thread ], [ %uri_count.070, %if.then10.invoke ]
-  %has_spiffe_id.1 = phi i8 [ %has_spiffe_id.071, %for.body ], [ %has_spiffe_id.071, %if.then18 ], [ %has_spiffe_id.071, %if.then33 ], [ 1, %if.then119 ], [ %has_spiffe_id.071, %invoke.cont117 ], [ %has_spiffe_id.071, %if.else137 ], [ %has_spiffe_id.071, %invoke.cont117.thread ], [ %has_spiffe_id.071, %if.then.i.i.i3.i.thread ], [ %has_spiffe_id.071, %if.then10.invoke ]
-  %peer_identity_property_name.1 = phi ptr [ %peer_identity_property_name.072, %for.body ], [ %spec.store.select, %if.then18 ], [ @.str.14, %if.then33 ], [ %peer_identity_property_name.072, %if.then119 ], [ %peer_identity_property_name.072, %invoke.cont117 ], [ %peer_identity_property_name.072, %if.else137 ], [ %peer_identity_property_name.072, %invoke.cont117.thread ], [ %peer_identity_property_name.072, %if.then.i.i.i3.i.thread ], [ %peer_identity_property_name.072, %if.then10.invoke ]
+if.then141.invoke.invoke:                         ; preds = %if.end6, %if.else41, %if.else53, %if.else65, %if.else77, %if.else89, %if.else125, %if.else137
+  %23 = phi ptr [ @.str.15, %if.else41 ], [ @.str.16, %if.else53 ], [ @.str.17, %if.else65 ], [ @.str.18, %if.else77 ], [ @.str.20, %if.else89 ], [ @.str.24, %if.else125 ], [ @.str.26, %if.else137 ], [ @.str.11, %if.end6 ]
+  %value = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %24 = load ptr, ptr %value, align 8
+  %length = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %25 = load i64, ptr %length, align 8
+  invoke void @grpc_auth_context_add_property(ptr noundef nonnull %call.i, ptr noundef nonnull %23, ptr noundef %24, i64 noundef %25)
+          to label %for.inc unwind label %lpad.loopexit.loopexit.split-lp
+
+for.inc:                                          ; preds = %for.body, %if.then141.invoke.invoke, %invoke.cont117, %if.then.i.i.i3.i.thread, %invoke.cont117.thread, %if.then119, %if.else137, %if.then18
+  %spiffe_data.1 = phi ptr [ %spiffe_data.068.ph, %if.then18 ], [ %21, %if.then119 ], [ %spiffe_data.068.ph, %invoke.cont117 ], [ %spiffe_data.068.ph, %if.else137 ], [ %spiffe_data.068.ph, %invoke.cont117.thread ], [ %spiffe_data.068.ph, %if.then.i.i.i3.i.thread ], [ %spiffe_data.068.ph, %if.then141.invoke.invoke ], [ %spiffe_data.068.ph, %for.body ]
+  %spiffe_length.1 = phi i64 [ %spiffe_length.069.ph, %if.then18 ], [ %22, %if.then119 ], [ %spiffe_length.069.ph, %invoke.cont117 ], [ %spiffe_length.069.ph, %if.else137 ], [ %spiffe_length.069.ph, %invoke.cont117.thread ], [ %spiffe_length.069.ph, %if.then.i.i.i3.i.thread ], [ %spiffe_length.069.ph, %if.then141.invoke.invoke ], [ %spiffe_length.069.ph, %for.body ]
+  %uri_count.1 = phi i32 [ %uri_count.070.ph, %if.then18 ], [ %inc, %if.then119 ], [ %inc, %invoke.cont117 ], [ %uri_count.070.ph, %if.else137 ], [ %inc, %invoke.cont117.thread ], [ %inc, %if.then.i.i.i3.i.thread ], [ %uri_count.070.ph, %if.then141.invoke.invoke ], [ %uri_count.070.ph, %for.body ]
+  %has_spiffe_id.1 = phi i1 [ %has_spiffe_id.071.ph, %if.then18 ], [ true, %if.then119 ], [ %has_spiffe_id.071.ph, %invoke.cont117 ], [ %has_spiffe_id.071.ph, %if.else137 ], [ %has_spiffe_id.071.ph, %invoke.cont117.thread ], [ %has_spiffe_id.071.ph, %if.then.i.i.i3.i.thread ], [ %has_spiffe_id.071.ph, %if.then141.invoke.invoke ], [ %has_spiffe_id.071.ph, %for.body ]
+  %peer_identity_property_name.1 = phi ptr [ %spec.store.select, %if.then18 ], [ %peer_identity_property_name.072, %if.then119 ], [ %peer_identity_property_name.072, %invoke.cont117 ], [ %peer_identity_property_name.072, %if.else137 ], [ %peer_identity_property_name.072, %invoke.cont117.thread ], [ %peer_identity_property_name.072, %if.then.i.i.i3.i.thread ], [ %peer_identity_property_name.072, %if.then141.invoke.invoke ], [ %peer_identity_property_name.072, %for.body ]
   %inc160 = add nuw i64 %i.073, 1
   %26 = load i64, ptr %property_count, align 8
   %cmp3 = icmp ult i64 %inc160, %26
-  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !25
+  br i1 %cmp3, label %for.body.outer, label %for.end, !llvm.loop !25
+
+for.inc.thread:                                   ; preds = %if.then33
+  %inc16093 = add nuw i64 %i.073, 1
+  %27 = load i64, ptr %property_count, align 8
+  %cmp394 = icmp ult i64 %inc16093, %27
+  br i1 %cmp394, label %for.body, label %for.end.thread100, !llvm.loop !25
+
+for.end.thread100:                                ; preds = %for.inc.thread
+  %28 = icmp eq i32 %uri_count.070.ph, 1
+  br label %do.body163
 
 for.end:                                          ; preds = %for.inc
-  %27 = and i8 %has_spiffe_id.1, 1
-  %28 = icmp eq i8 %27, 0
   %29 = icmp eq i32 %uri_count.1, 1
   %cmp161.not = icmp eq ptr %peer_identity_property_name.1, null
   br i1 %cmp161.not, label %if.end174, label %do.body163
 
-do.body163:                                       ; preds = %for.end
-  %call167 = invoke i32 @grpc_auth_context_set_peer_identity_property_name(ptr noundef nonnull %call.i, ptr noundef nonnull %peer_identity_property_name.1)
+do.body163:                                       ; preds = %for.end.thread100, %for.end
+  %30 = phi i1 [ %28, %for.end.thread100 ], [ %29, %for.end ]
+  %spiffe_data.195110 = phi ptr [ %spiffe_data.068.ph, %for.end.thread100 ], [ %spiffe_data.1, %for.end ]
+  %spiffe_length.196109 = phi i64 [ %spiffe_length.069.ph, %for.end.thread100 ], [ %spiffe_length.1, %for.end ]
+  %has_spiffe_id.198108 = phi i1 [ %has_spiffe_id.071.ph, %for.end.thread100 ], [ %has_spiffe_id.1, %for.end ]
+  %peer_identity_property_name.199107 = phi ptr [ @.str.14, %for.end.thread100 ], [ %peer_identity_property_name.1, %for.end ]
+  %call167 = invoke i32 @grpc_auth_context_set_peer_identity_property_name(ptr noundef nonnull %call.i, ptr noundef nonnull %peer_identity_property_name.199107)
           to label %invoke.cont166 unwind label %lpad.loopexit.split-lp
 
 invoke.cont166:                                   ; preds = %do.body163
@@ -1283,31 +1306,35 @@ invoke.cont166:                                   ; preds = %do.body163
   br i1 %cmp168.not, label %if.end174, label %if.then170.invoke
 
 if.then170.invoke:                                ; preds = %do.body186, %do.body178, %invoke.cont166
-  %30 = phi i32 [ 323, %invoke.cont166 ], [ 328, %do.body178 ], [ 329, %do.body186 ]
-  %31 = phi ptr [ @.str.27, %invoke.cont166 ], [ @.str.28, %do.body178 ], [ @.str.29, %do.body186 ]
-  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef %30, ptr noundef nonnull %31) #25
+  %31 = phi i32 [ 323, %invoke.cont166 ], [ 328, %do.body178 ], [ 329, %do.body186 ]
+  %32 = phi ptr [ @.str.27, %invoke.cont166 ], [ @.str.28, %do.body178 ], [ @.str.29, %do.body186 ]
+  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef %31, ptr noundef nonnull %32) #25
           to label %if.then170.cont unwind label %lpad.loopexit.split-lp
 
 if.then170.cont:                                  ; preds = %if.then170.invoke
   unreachable
 
 if.end174:                                        ; preds = %invoke.cont166, %for.end
-  br i1 %28, label %nrvo.skipdtor, label %if.then175
+  %has_spiffe_id.0.lcssa87 = phi i1 [ %has_spiffe_id.198108, %invoke.cont166 ], [ %has_spiffe_id.1, %for.end ]
+  %uri_count.0.lcssa86 = phi i1 [ %30, %invoke.cont166 ], [ %29, %for.end ]
+  %spiffe_length.0.lcssa85 = phi i64 [ %spiffe_length.196109, %invoke.cont166 ], [ %spiffe_length.1, %for.end ]
+  %spiffe_data.0.lcssa84 = phi ptr [ %spiffe_data.195110, %invoke.cont166 ], [ %spiffe_data.1, %for.end ]
+  br i1 %has_spiffe_id.0.lcssa87, label %if.then175, label %nrvo.skipdtor
 
 if.then175:                                       ; preds = %if.end174
-  br i1 %29, label %do.body178, label %if.else197
+  br i1 %uri_count.0.lcssa86, label %do.body178, label %if.else197
 
 do.body178:                                       ; preds = %if.then175
-  %cmp179.not = icmp eq i64 %spiffe_length.1, 0
+  %cmp179.not = icmp eq i64 %spiffe_length.0.lcssa85, 0
   br i1 %cmp179.not, label %if.then170.invoke, label %do.body186
 
 do.body186:                                       ; preds = %do.body178
-  %cmp187.not = icmp eq ptr %spiffe_data.1, null
+  %cmp187.not = icmp eq ptr %spiffe_data.0.lcssa84, null
   br i1 %cmp187.not, label %if.then170.invoke, label %do.end193
 
 do.end193:                                        ; preds = %do.body186
-  %32 = load ptr, ptr %agg.result, align 8
-  invoke void @grpc_auth_context_add_property(ptr noundef %32, ptr noundef nonnull @.str.30, ptr noundef nonnull %spiffe_data.1, i64 noundef %spiffe_length.1)
+  %33 = load ptr, ptr %agg.result, align 8
+  invoke void @grpc_auth_context_add_property(ptr noundef %33, ptr noundef nonnull @.str.30, ptr noundef nonnull %spiffe_data.0.lcssa84, i64 noundef %spiffe_length.0.lcssa85)
           to label %nrvo.skipdtor unwind label %lpad.loopexit.split-lp
 
 if.else197:                                       ; preds = %if.then175
@@ -2276,9 +2303,8 @@ invoke.cont40:                                    ; preds = %land.lhs.true39, %i
   %retval.0.i9 = phi ptr [ %atomic-temp.i.0.i.i7, %land.lhs.true39 ], [ %call1.i1112, %if.end.i10 ]
   %not_use_system_ssl_roots_.i = getelementptr inbounds i8, ptr %retval.0.i9, i64 6
   %22 = load i8, ptr %not_use_system_ssl_roots_.i, align 2
-  %23 = and i8 %22, 1
-  %tobool.i.not = icmp eq i8 %23, 0
-  br i1 %tobool.i.not, label %if.then44, label %if.end47
+  %tobool.i = trunc i8 %22 to i1
+  br i1 %tobool.i, label %if.end47, label %if.then44
 
 if.then44:                                        ; preds = %invoke.cont40
   invoke void @_ZN9grpc_core19LoadSystemRootCertsEv(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp45)
@@ -2289,11 +2315,11 @@ invoke.cont46:                                    ; preds = %if.then44
   br label %if.end47
 
 if.end47:                                         ; preds = %invoke.cont46, %invoke.cont40, %if.end26
-  %24 = load ptr, ptr %agg.result, align 8
-  %tobool49.not = icmp eq ptr %24, null
-  %25 = load i64, ptr %data, align 8
-  %conv56 = and i64 %25, 255
-  %cond58 = select i1 %tobool49.not, i64 %conv56, i64 %25
+  %23 = load ptr, ptr %agg.result, align 8
+  %tobool49.not = icmp eq ptr %23, null
+  %24 = load i64, ptr %data, align 8
+  %conv56 = and i64 %24, 255
+  %cond58 = select i1 %tobool49.not, i64 %conv56, i64 %24
   %cmp59 = icmp eq i64 %cond58, 0
   %or.cond1 = and i1 %ovrd_res.0, %cmp59
   br i1 %or.cond1, label %if.then62, label %if.end69
@@ -2304,20 +2330,20 @@ if.then62:                                        ; preds = %if.end47
 
 invoke.cont64:                                    ; preds = %if.then62
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i14)
-  %26 = load i64, ptr %agg.tmp63, align 8
-  %cmp.i.i15 = icmp eq i64 %26, 0
+  %25 = load i64, ptr %agg.tmp63, align 8
+  %cmp.i.i15 = icmp eq i64 %25, 0
   br i1 %cmp.i.i15, label %invoke.cont66, label %cond.false.i16
 
 cond.false.i16:                                   ; preds = %invoke.cont64
-  store i64 %26, ptr %agg.tmp.i14, align 8
-  %and.i.i.i.i17 = and i64 %26, 1
+  store i64 %25, ptr %agg.tmp.i14, align 8
+  %and.i.i.i.i17 = and i64 %25, 1
   %cmp.i.i.i.i18 = icmp eq i64 %and.i.i.i.i17, 0
   br i1 %cmp.i.i.i.i18, label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i21, label %if.then.i.i.i19
 
 if.then.i.i.i19:                                  ; preds = %cond.false.i16
-  %sub.i.i.i.i20 = add nsw i64 %26, -1
-  %27 = inttoptr i64 %sub.i.i.i.i20 to ptr
-  %28 = atomicrmw add ptr %27, i32 1 monotonic, align 4
+  %sub.i.i.i.i20 = add nsw i64 %25, -1
+  %26 = inttoptr i64 %sub.i.i.i.i20 to ptr
+  %27 = atomicrmw add ptr %26, i32 1 monotonic, align 4
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i21
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i21:   ; preds = %if.then.i.i.i19, %cond.false.i16
@@ -2325,24 +2351,24 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i21:   ; preds = %if.then.i.i.i19, %c
           to label %cleanup.action.i24 unwind label %lpad.i23
 
 cleanup.action.i24:                               ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i21
-  %29 = load i64, ptr %agg.tmp.i14, align 8
-  %and.i.i.i1.i25 = and i64 %29, 1
+  %28 = load i64, ptr %agg.tmp.i14, align 8
+  %and.i.i.i1.i25 = and i64 %28, 1
   %cmp.i.i.i2.i26 = icmp eq i64 %and.i.i.i1.i25, 0
   br i1 %cmp.i.i.i2.i26, label %invoke.cont66, label %if.then.i.i3.i27
 
 if.then.i.i3.i27:                                 ; preds = %cleanup.action.i24
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %29)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %28)
           to label %invoke.cont66 unwind label %terminate.lpad.i.i28
 
 terminate.lpad.i.i28:                             ; preds = %if.then.i.i3.i27
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #22
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #22
   unreachable
 
 lpad.i23:                                         ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i21
-  %32 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i14) #21
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp63) #21
@@ -2350,20 +2376,20 @@ lpad.i23:                                         ; preds = %_ZN4absl12lts_20230
 
 invoke.cont66:                                    ; preds = %if.then.i.i3.i27, %cleanup.action.i24, %invoke.cont64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i14)
-  %33 = load i64, ptr %agg.tmp63, align 8
-  %and.i.i.i32 = and i64 %33, 1
+  %32 = load i64, ptr %agg.tmp63, align 8
+  %and.i.i.i32 = and i64 %32, 1
   %cmp.i.i.i33 = icmp eq i64 %and.i.i.i32, 0
   br i1 %cmp.i.i.i33, label %if.end69, label %if.then.i.i34
 
 if.then.i.i34:                                    ; preds = %invoke.cont66
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %33)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %32)
           to label %if.end69 unwind label %terminate.lpad.i35
 
 terminate.lpad.i35:                               ; preds = %if.then.i.i34
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #22
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #22
   unreachable
 
 if.end69:                                         ; preds = %if.then.i.i34, %invoke.cont66, %if.end47
@@ -2371,7 +2397,7 @@ if.end69:                                         ; preds = %if.then.i.i34, %inv
   ret void
 
 ehcleanup70:                                      ; preds = %lpad.i23, %ehcleanup, %lpad
-  %.pn4 = phi { ptr, i32 } [ %11, %lpad ], [ %32, %lpad.i23 ], [ %.pn, %ehcleanup ]
+  %.pn4 = phi { ptr, i32 } [ %11, %lpad ], [ %31, %lpad.i23 ], [ %.pn, %ehcleanup ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %default_root_certs_path) #21
   resume { ptr, i32 } %.pn4
 }

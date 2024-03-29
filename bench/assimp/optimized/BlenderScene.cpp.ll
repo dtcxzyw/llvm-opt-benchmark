@@ -26756,7 +26756,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i.i66, %lpad.i.i52, %lpad.i.i38, %lpad.i.i28, %lpad.i.i
   %exception.sink = phi ptr [ %exception, %lpad ], [ %exception.i.i65, %lpad.i.i66 ], [ %exception.i.i51, %lpad.i.i52 ], [ %exception.i.i37, %lpad.i.i38 ], [ %exception.i.i27, %lpad.i.i28 ], [ %exception.i.i, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %34, %lpad ], [ %30, %lpad.i.i66 ], [ %23, %lpad.i.i52 ], [ %18, %lpad.i.i38 ], [ %11, %lpad.i.i28 ], [ %3, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %lpad ], [ %27, %lpad.i.i66 ], [ %21, %lpad.i.i52 ], [ %16, %lpad.i.i38 ], [ %10, %lpad.i.i28 ], [ %3, %lpad.i.i ]
   tail call void @__cxa_free_exception(ptr %exception.sink) #18
   resume { ptr, i32 } %common.resume.op
 
@@ -26772,16 +26772,15 @@ if.end.i.i:                                       ; preds = %if.then
   %f.sroa.8.0.extract.shift.i.i = lshr i32 %4, 24
   %mLe.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i8, ptr %mLe.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit
+  %tobool.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %7 = and i32 %4, 255
+  %6 = and i32 %4, 255
   br label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit:  ; preds = %if.end.i.i, %if.then.i.i.i
-  %f.sroa.8.0.i.i = phi i32 [ %f.sroa.8.0.extract.shift.i.i, %if.end.i.i ], [ %7, %if.then.i.i.i ]
+  %f.sroa.8.0.i.i = phi i32 [ %f.sroa.8.0.extract.shift.i.i, %if.end.i.i ], [ %6, %if.then.i.i.i ]
   %f.sroa.6.0.i.i = phi i32 [ %f.sroa.6.0.extract.shift.i.i, %if.end.i.i ], [ %f.sroa.4.0.extract.shift.i.i, %if.then.i.i.i ]
   %f.sroa.4.0.in.i.i = phi i32 [ %f.sroa.4.0.extract.shift.i.i, %if.end.i.i ], [ %f.sroa.6.0.extract.shift.i.i, %if.then.i.i.i ]
   %f.sroa.0.0.in.i.i = phi i32 [ %4, %if.end.i.i ], [ %f.sroa.8.0.extract.shift.i.i, %if.then.i.i.i ]
@@ -26804,13 +26803,13 @@ if.else:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.else
   %reader8 = getelementptr inbounds i8, ptr %db, i64 128
-  %8 = load ptr, ptr %reader8, align 8
-  %mCurrent.i.i16 = getelementptr inbounds i8, ptr %8, i64 24
-  %9 = load ptr, ptr %mCurrent.i.i16, align 8
-  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %9, i64 2
-  %mLimit.i.i18 = getelementptr inbounds i8, ptr %8, i64 40
-  %10 = load ptr, ptr %mLimit.i.i18, align 8
-  %cmp.i.i19 = icmp ugt ptr %add.ptr.i.i17, %10
+  %7 = load ptr, ptr %reader8, align 8
+  %mCurrent.i.i16 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = load ptr, ptr %mCurrent.i.i16, align 8
+  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %8, i64 2
+  %mLimit.i.i18 = getelementptr inbounds i8, ptr %7, i64 40
+  %9 = load ptr, ptr %mLimit.i.i18, align 8
+  %cmp.i.i19 = icmp ugt ptr %add.ptr.i.i17, %9
   br i1 %cmp.i.i19, label %if.then.i.i26, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit
 
 if.then.i.i26:                                    ; preds = %if.then6
@@ -26823,19 +26822,18 @@ invoke.cont.i.i29:                                ; preds = %if.then.i.i26
   unreachable
 
 lpad.i.i28:                                       ; preds = %if.then.i.i26
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit:  ; preds = %if.then6
-  %12 = load i16, ptr %9, align 1
-  %f.sroa.4.0.extract.shift.i.i20 = lshr i16 %12, 8
-  %mLe.i.i21 = getelementptr inbounds i8, ptr %8, i64 48
-  %13 = load i8, ptr %mLe.i.i21, align 8
-  %14 = and i8 %13, 1
-  %tobool.not.i.i22 = icmp eq i8 %14, 0
-  %spec.select.i.i = select i1 %tobool.not.i.i22, i16 %12, i16 %f.sroa.4.0.extract.shift.i.i20
-  %spec.select2.v.i.i = select i1 %tobool.not.i.i22, i16 %f.sroa.4.0.extract.shift.i.i20, i16 %12
+  %11 = load i16, ptr %8, align 1
+  %f.sroa.4.0.extract.shift.i.i20 = lshr i16 %11, 8
+  %mLe.i.i21 = getelementptr inbounds i8, ptr %7, i64 48
+  %12 = load i8, ptr %mLe.i.i21, align 8
+  %tobool.i.i22 = trunc i8 %12 to i1
+  %spec.select.i.i = select i1 %tobool.i.i22, i16 %f.sroa.4.0.extract.shift.i.i20, i16 %11
+  %spec.select2.v.i.i = select i1 %tobool.i.i22, i16 %11, i16 %f.sroa.4.0.extract.shift.i.i20
   store ptr %add.ptr.i.i17, ptr %mCurrent.i.i16, align 8
   %f.sroa.4.0.insert.ext.i.i23 = shl i16 %spec.select.i.i, 8
   %f.sroa.0.0.insert.ext.i.i24 = and i16 %spec.select2.v.i.i, 255
@@ -26850,13 +26848,13 @@ if.else12:                                        ; preds = %if.else
 
 if.then15:                                        ; preds = %if.else12
   %reader17 = getelementptr inbounds i8, ptr %db, i64 128
-  %15 = load ptr, ptr %reader17, align 8
-  %mCurrent.i.i32 = getelementptr inbounds i8, ptr %15, i64 24
-  %16 = load ptr, ptr %mCurrent.i.i32, align 8
-  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %16, i64 1
-  %mLimit.i.i34 = getelementptr inbounds i8, ptr %15, i64 40
-  %17 = load ptr, ptr %mLimit.i.i34, align 8
-  %cmp.i.i35 = icmp ugt ptr %add.ptr.i.i33, %17
+  %13 = load ptr, ptr %reader17, align 8
+  %mCurrent.i.i32 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = load ptr, ptr %mCurrent.i.i32, align 8
+  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %14, i64 1
+  %mLimit.i.i34 = getelementptr inbounds i8, ptr %13, i64 40
+  %15 = load ptr, ptr %mLimit.i.i34, align 8
+  %cmp.i.i35 = icmp ugt ptr %add.ptr.i.i33, %15
   br i1 %cmp.i.i35, label %if.then.i.i36, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit
 
 if.then.i.i36:                                    ; preds = %if.then15
@@ -26869,14 +26867,14 @@ invoke.cont.i.i39:                                ; preds = %if.then.i.i36
   unreachable
 
 lpad.i.i38:                                       ; preds = %if.then.i.i36
-  %18 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit:  ; preds = %if.then15
-  %19 = load i8, ptr %16, align 1
+  %17 = load i8, ptr %14, align 1
   store ptr %add.ptr.i.i33, ptr %mCurrent.i.i32, align 8
-  %conv.i40 = zext i8 %19 to i32
+  %conv.i40 = zext i8 %17 to i32
   br label %if.end41
 
 if.else21:                                        ; preds = %if.else12
@@ -26886,13 +26884,13 @@ if.else21:                                        ; preds = %if.else12
 
 if.then24:                                        ; preds = %if.else21
   %reader25 = getelementptr inbounds i8, ptr %db, i64 128
-  %20 = load ptr, ptr %reader25, align 8
-  %mCurrent.i.i43 = getelementptr inbounds i8, ptr %20, i64 24
-  %21 = load ptr, ptr %mCurrent.i.i43, align 8
-  %add.ptr.i.i44 = getelementptr inbounds i8, ptr %21, i64 4
-  %mLimit.i.i45 = getelementptr inbounds i8, ptr %20, i64 40
-  %22 = load ptr, ptr %mLimit.i.i45, align 8
-  %cmp.i.i46 = icmp ugt ptr %add.ptr.i.i44, %22
+  %18 = load ptr, ptr %reader25, align 8
+  %mCurrent.i.i43 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = load ptr, ptr %mCurrent.i.i43, align 8
+  %add.ptr.i.i44 = getelementptr inbounds i8, ptr %19, i64 4
+  %mLimit.i.i45 = getelementptr inbounds i8, ptr %18, i64 40
+  %20 = load ptr, ptr %mLimit.i.i45, align 8
+  %cmp.i.i46 = icmp ugt ptr %add.ptr.i.i44, %20
   br i1 %cmp.i.i46, label %if.then.i.i50, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit
 
 if.then.i.i50:                                    ; preds = %if.then24
@@ -26905,18 +26903,17 @@ invoke.cont.i.i53:                                ; preds = %if.then.i.i50
   unreachable
 
 lpad.i.i52:                                       ; preds = %if.then.i.i50
-  %23 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit:  ; preds = %if.then24
-  %24 = load i32, ptr %21, align 1
-  %mLe.i.i47 = getelementptr inbounds i8, ptr %20, i64 48
-  %25 = load i8, ptr %mLe.i.i47, align 8
-  %26 = and i8 %25, 1
-  %tobool.not.i.i48 = icmp eq i8 %26, 0
-  %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %24)
-  %spec.select.i.i49 = select i1 %tobool.not.i.i48, i32 %f.2.insert.insert.i.i, i32 %24
+  %22 = load i32, ptr %19, align 1
+  %mLe.i.i47 = getelementptr inbounds i8, ptr %18, i64 48
+  %23 = load i8, ptr %mLe.i.i47, align 8
+  %tobool.i.i48 = trunc i8 %23 to i1
+  %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %22)
+  %spec.select.i.i49 = select i1 %tobool.i.i48, i32 %22, i32 %f.2.insert.insert.i.i
   %f.0.i.i = bitcast i32 %spec.select.i.i49 to float
   store ptr %add.ptr.i.i44, ptr %mCurrent.i.i43, align 8
   %conv = fptosi float %f.0.i.i to i32
@@ -26929,13 +26926,13 @@ if.else28:                                        ; preds = %if.else21
 
 if.then31:                                        ; preds = %if.else28
   %reader32 = getelementptr inbounds i8, ptr %db, i64 128
-  %27 = load ptr, ptr %reader32, align 8
-  %mCurrent.i.i56 = getelementptr inbounds i8, ptr %27, i64 24
-  %28 = load ptr, ptr %mCurrent.i.i56, align 8
-  %add.ptr.i.i57 = getelementptr inbounds i8, ptr %28, i64 8
-  %mLimit.i.i58 = getelementptr inbounds i8, ptr %27, i64 40
-  %29 = load ptr, ptr %mLimit.i.i58, align 8
-  %cmp.i.i59 = icmp ugt ptr %add.ptr.i.i57, %29
+  %24 = load ptr, ptr %reader32, align 8
+  %mCurrent.i.i56 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = load ptr, ptr %mCurrent.i.i56, align 8
+  %add.ptr.i.i57 = getelementptr inbounds i8, ptr %25, i64 8
+  %mLimit.i.i58 = getelementptr inbounds i8, ptr %24, i64 40
+  %26 = load ptr, ptr %mLimit.i.i58, align 8
+  %cmp.i.i59 = icmp ugt ptr %add.ptr.i.i57, %26
   br i1 %cmp.i.i59, label %if.then.i.i64, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit
 
 if.then.i.i64:                                    ; preds = %if.then31
@@ -26948,18 +26945,17 @@ invoke.cont.i.i67:                                ; preds = %if.then.i.i64
   unreachable
 
 lpad.i.i66:                                       ; preds = %if.then.i.i64
-  %30 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit:  ; preds = %if.then31
-  %31 = load i64, ptr %28, align 1
-  %mLe.i.i60 = getelementptr inbounds i8, ptr %27, i64 48
-  %32 = load i8, ptr %mLe.i.i60, align 8
-  %33 = and i8 %32, 1
-  %tobool.not.i.i61 = icmp eq i8 %33, 0
-  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %31)
-  %spec.select.i.i62 = select i1 %tobool.not.i.i61, i64 %f.4.insert.insert.i.i, i64 %31
+  %28 = load i64, ptr %25, align 1
+  %mLe.i.i60 = getelementptr inbounds i8, ptr %24, i64 48
+  %29 = load i8, ptr %mLe.i.i60, align 8
+  %tobool.i.i61 = trunc i8 %29 to i1
+  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %28)
+  %spec.select.i.i62 = select i1 %tobool.i.i61, i64 %28, i64 %f.4.insert.insert.i.i
   %f.0.i.i63 = bitcast i64 %spec.select.i.i62 to double
   store ptr %add.ptr.i.i57, ptr %mCurrent.i.i56, align 8
   %conv35 = fptosi double %f.0.i.i63 to i32
@@ -26975,7 +26971,7 @@ invoke.cont:                                      ; preds = %if.else36
   unreachable
 
 lpad:                                             ; preds = %if.else36
-  %34 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -27205,10 +27201,9 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetI2Ev.exit:  ; preds = %if.then7
   %f.sroa.4.0.extract.shift.i.i = lshr i16 %9, 8
   %mLe.i.i = getelementptr inbounds i8, ptr %5, i64 48
   %10 = load i8, ptr %mLe.i.i, align 8
-  %11 = and i8 %10, 1
-  %tobool.not.i.i = icmp eq i8 %11, 0
-  %spec.select.i.i = select i1 %tobool.not.i.i, i16 %9, i16 %f.sroa.4.0.extract.shift.i.i
-  %spec.select2.v.i.i = select i1 %tobool.not.i.i, i16 %f.sroa.4.0.extract.shift.i.i, i16 %9
+  %tobool.i.i = trunc i8 %10 to i1
+  %spec.select.i.i = select i1 %tobool.i.i, i16 %f.sroa.4.0.extract.shift.i.i, i16 %9
+  %spec.select2.v.i.i = select i1 %tobool.i.i, i16 %9, i16 %f.sroa.4.0.extract.shift.i.i
   store ptr %add.ptr.i.i8, ptr %mCurrent.i.i7, align 8
   %f.sroa.4.0.insert.ext.i.i = shl i16 %spec.select.i.i, 8
   %f.sroa.0.0.insert.ext.i.i = and i16 %spec.select2.v.i.i, 255
@@ -27636,7 +27631,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i.i67, %lpad.i.i53, %lpad.i.i39, %lpad.i.i28, %lpad.i.i
   %exception.sink = phi ptr [ %exception, %lpad ], [ %exception.i.i66, %lpad.i.i67 ], [ %exception.i.i52, %lpad.i.i53 ], [ %exception.i.i38, %lpad.i.i39 ], [ %exception.i.i27, %lpad.i.i28 ], [ %exception.i.i, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %34, %lpad ], [ %30, %lpad.i.i67 ], [ %23, %lpad.i.i53 ], [ %18, %lpad.i.i39 ], [ %11, %lpad.i.i28 ], [ %3, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %lpad ], [ %27, %lpad.i.i67 ], [ %21, %lpad.i.i53 ], [ %16, %lpad.i.i39 ], [ %10, %lpad.i.i28 ], [ %3, %lpad.i.i ]
   tail call void @__cxa_free_exception(ptr %exception.sink) #18
   resume { ptr, i32 } %common.resume.op
 
@@ -27652,16 +27647,15 @@ if.end.i.i:                                       ; preds = %if.then
   %f.sroa.8.0.extract.shift.i.i = lshr i32 %4, 24
   %mLe.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i8, ptr %mLe.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit
+  %tobool.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %7 = and i32 %4, 255
+  %6 = and i32 %4, 255
   br label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit:  ; preds = %if.end.i.i, %if.then.i.i.i
-  %f.sroa.8.0.i.i = phi i32 [ %f.sroa.8.0.extract.shift.i.i, %if.end.i.i ], [ %7, %if.then.i.i.i ]
+  %f.sroa.8.0.i.i = phi i32 [ %f.sroa.8.0.extract.shift.i.i, %if.end.i.i ], [ %6, %if.then.i.i.i ]
   %f.sroa.6.0.i.i = phi i32 [ %f.sroa.6.0.extract.shift.i.i, %if.end.i.i ], [ %f.sroa.4.0.extract.shift.i.i, %if.then.i.i.i ]
   %f.sroa.4.0.in.i.i = phi i32 [ %f.sroa.4.0.extract.shift.i.i, %if.end.i.i ], [ %f.sroa.6.0.extract.shift.i.i, %if.then.i.i.i ]
   %f.sroa.0.0.in.i.i = phi i32 [ %4, %if.end.i.i ], [ %f.sroa.8.0.extract.shift.i.i, %if.then.i.i.i ]
@@ -27686,13 +27680,13 @@ if.else:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.else
   %reader8 = getelementptr inbounds i8, ptr %db, i64 128
-  %8 = load ptr, ptr %reader8, align 8
-  %mCurrent.i.i16 = getelementptr inbounds i8, ptr %8, i64 24
-  %9 = load ptr, ptr %mCurrent.i.i16, align 8
-  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %9, i64 2
-  %mLimit.i.i18 = getelementptr inbounds i8, ptr %8, i64 40
-  %10 = load ptr, ptr %mLimit.i.i18, align 8
-  %cmp.i.i19 = icmp ugt ptr %add.ptr.i.i17, %10
+  %7 = load ptr, ptr %reader8, align 8
+  %mCurrent.i.i16 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = load ptr, ptr %mCurrent.i.i16, align 8
+  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %8, i64 2
+  %mLimit.i.i18 = getelementptr inbounds i8, ptr %7, i64 40
+  %9 = load ptr, ptr %mLimit.i.i18, align 8
+  %cmp.i.i19 = icmp ugt ptr %add.ptr.i.i17, %9
   br i1 %cmp.i.i19, label %if.then.i.i26, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit
 
 if.then.i.i26:                                    ; preds = %if.then6
@@ -27705,19 +27699,18 @@ invoke.cont.i.i29:                                ; preds = %if.then.i.i26
   unreachable
 
 lpad.i.i28:                                       ; preds = %if.then.i.i26
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit:  ; preds = %if.then6
-  %12 = load i16, ptr %9, align 1
-  %f.sroa.4.0.extract.shift.i.i20 = lshr i16 %12, 8
-  %mLe.i.i21 = getelementptr inbounds i8, ptr %8, i64 48
-  %13 = load i8, ptr %mLe.i.i21, align 8
-  %14 = and i8 %13, 1
-  %tobool.not.i.i22 = icmp eq i8 %14, 0
-  %spec.select.i.i = select i1 %tobool.not.i.i22, i16 %12, i16 %f.sroa.4.0.extract.shift.i.i20
-  %spec.select2.v.i.i = select i1 %tobool.not.i.i22, i16 %f.sroa.4.0.extract.shift.i.i20, i16 %12
+  %11 = load i16, ptr %8, align 1
+  %f.sroa.4.0.extract.shift.i.i20 = lshr i16 %11, 8
+  %mLe.i.i21 = getelementptr inbounds i8, ptr %7, i64 48
+  %12 = load i8, ptr %mLe.i.i21, align 8
+  %tobool.i.i22 = trunc i8 %12 to i1
+  %spec.select.i.i = select i1 %tobool.i.i22, i16 %f.sroa.4.0.extract.shift.i.i20, i16 %11
+  %spec.select2.v.i.i = select i1 %tobool.i.i22, i16 %11, i16 %f.sroa.4.0.extract.shift.i.i20
   store ptr %add.ptr.i.i17, ptr %mCurrent.i.i16, align 8
   %f.sroa.4.0.insert.ext.i.i23 = shl i16 %spec.select.i.i, 8
   %f.sroa.0.0.insert.ext.i.i24 = and i16 %spec.select2.v.i.i, 255
@@ -27733,13 +27726,13 @@ if.else12:                                        ; preds = %if.else
 
 if.then15:                                        ; preds = %if.else12
   %reader17 = getelementptr inbounds i8, ptr %db, i64 128
-  %15 = load ptr, ptr %reader17, align 8
-  %mCurrent.i.i33 = getelementptr inbounds i8, ptr %15, i64 24
-  %16 = load ptr, ptr %mCurrent.i.i33, align 8
-  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %16, i64 1
-  %mLimit.i.i35 = getelementptr inbounds i8, ptr %15, i64 40
-  %17 = load ptr, ptr %mLimit.i.i35, align 8
-  %cmp.i.i36 = icmp ugt ptr %add.ptr.i.i34, %17
+  %13 = load ptr, ptr %reader17, align 8
+  %mCurrent.i.i33 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = load ptr, ptr %mCurrent.i.i33, align 8
+  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %14, i64 1
+  %mLimit.i.i35 = getelementptr inbounds i8, ptr %13, i64 40
+  %15 = load ptr, ptr %mLimit.i.i35, align 8
+  %cmp.i.i36 = icmp ugt ptr %add.ptr.i.i34, %15
   br i1 %cmp.i.i36, label %if.then.i.i37, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit
 
 if.then.i.i37:                                    ; preds = %if.then15
@@ -27752,14 +27745,14 @@ invoke.cont.i.i40:                                ; preds = %if.then.i.i37
   unreachable
 
 lpad.i.i39:                                       ; preds = %if.then.i.i37
-  %18 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit:  ; preds = %if.then15
-  %19 = load i8, ptr %16, align 1
+  %17 = load i8, ptr %14, align 1
   store ptr %add.ptr.i.i34, ptr %mCurrent.i.i33, align 8
-  %conv.i41 = uitofp i8 %19 to float
+  %conv.i41 = uitofp i8 %17 to float
   store float %conv.i41, ptr %out, align 4
   br label %if.end40
 
@@ -27770,13 +27763,13 @@ if.else21:                                        ; preds = %if.else12
 
 if.then24:                                        ; preds = %if.else21
   %reader25 = getelementptr inbounds i8, ptr %db, i64 128
-  %20 = load ptr, ptr %reader25, align 8
-  %mCurrent.i.i44 = getelementptr inbounds i8, ptr %20, i64 24
-  %21 = load ptr, ptr %mCurrent.i.i44, align 8
-  %add.ptr.i.i45 = getelementptr inbounds i8, ptr %21, i64 4
-  %mLimit.i.i46 = getelementptr inbounds i8, ptr %20, i64 40
-  %22 = load ptr, ptr %mLimit.i.i46, align 8
-  %cmp.i.i47 = icmp ugt ptr %add.ptr.i.i45, %22
+  %18 = load ptr, ptr %reader25, align 8
+  %mCurrent.i.i44 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = load ptr, ptr %mCurrent.i.i44, align 8
+  %add.ptr.i.i45 = getelementptr inbounds i8, ptr %19, i64 4
+  %mLimit.i.i46 = getelementptr inbounds i8, ptr %18, i64 40
+  %20 = load ptr, ptr %mLimit.i.i46, align 8
+  %cmp.i.i47 = icmp ugt ptr %add.ptr.i.i45, %20
   br i1 %cmp.i.i47, label %if.then.i.i51, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit
 
 if.then.i.i51:                                    ; preds = %if.then24
@@ -27789,18 +27782,17 @@ invoke.cont.i.i54:                                ; preds = %if.then.i.i51
   unreachable
 
 lpad.i.i53:                                       ; preds = %if.then.i.i51
-  %23 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit:  ; preds = %if.then24
-  %24 = load i32, ptr %21, align 1
-  %mLe.i.i48 = getelementptr inbounds i8, ptr %20, i64 48
-  %25 = load i8, ptr %mLe.i.i48, align 8
-  %26 = and i8 %25, 1
-  %tobool.not.i.i49 = icmp eq i8 %26, 0
-  %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %24)
-  %spec.select.i.i50 = select i1 %tobool.not.i.i49, i32 %f.2.insert.insert.i.i, i32 %24
+  %22 = load i32, ptr %19, align 1
+  %mLe.i.i48 = getelementptr inbounds i8, ptr %18, i64 48
+  %23 = load i8, ptr %mLe.i.i48, align 8
+  %tobool.i.i49 = trunc i8 %23 to i1
+  %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %22)
+  %spec.select.i.i50 = select i1 %tobool.i.i49, i32 %22, i32 %f.2.insert.insert.i.i
   store ptr %add.ptr.i.i45, ptr %mCurrent.i.i44, align 8
   store i32 %spec.select.i.i50, ptr %out, align 4
   br label %if.end40
@@ -27812,13 +27804,13 @@ if.else28:                                        ; preds = %if.else21
 
 if.then31:                                        ; preds = %if.else28
   %reader32 = getelementptr inbounds i8, ptr %db, i64 128
-  %27 = load ptr, ptr %reader32, align 8
-  %mCurrent.i.i57 = getelementptr inbounds i8, ptr %27, i64 24
-  %28 = load ptr, ptr %mCurrent.i.i57, align 8
-  %add.ptr.i.i58 = getelementptr inbounds i8, ptr %28, i64 8
-  %mLimit.i.i59 = getelementptr inbounds i8, ptr %27, i64 40
-  %29 = load ptr, ptr %mLimit.i.i59, align 8
-  %cmp.i.i60 = icmp ugt ptr %add.ptr.i.i58, %29
+  %24 = load ptr, ptr %reader32, align 8
+  %mCurrent.i.i57 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = load ptr, ptr %mCurrent.i.i57, align 8
+  %add.ptr.i.i58 = getelementptr inbounds i8, ptr %25, i64 8
+  %mLimit.i.i59 = getelementptr inbounds i8, ptr %24, i64 40
+  %26 = load ptr, ptr %mLimit.i.i59, align 8
+  %cmp.i.i60 = icmp ugt ptr %add.ptr.i.i58, %26
   br i1 %cmp.i.i60, label %if.then.i.i65, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit
 
 if.then.i.i65:                                    ; preds = %if.then31
@@ -27831,18 +27823,17 @@ invoke.cont.i.i68:                                ; preds = %if.then.i.i65
   unreachable
 
 lpad.i.i67:                                       ; preds = %if.then.i.i65
-  %30 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit:  ; preds = %if.then31
-  %31 = load i64, ptr %28, align 1
-  %mLe.i.i61 = getelementptr inbounds i8, ptr %27, i64 48
-  %32 = load i8, ptr %mLe.i.i61, align 8
-  %33 = and i8 %32, 1
-  %tobool.not.i.i62 = icmp eq i8 %33, 0
-  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %31)
-  %spec.select.i.i63 = select i1 %tobool.not.i.i62, i64 %f.4.insert.insert.i.i, i64 %31
+  %28 = load i64, ptr %25, align 1
+  %mLe.i.i61 = getelementptr inbounds i8, ptr %24, i64 48
+  %29 = load i8, ptr %mLe.i.i61, align 8
+  %tobool.i.i62 = trunc i8 %29 to i1
+  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %28)
+  %spec.select.i.i63 = select i1 %tobool.i.i62, i64 %28, i64 %f.4.insert.insert.i.i
   %f.0.i.i64 = bitcast i64 %spec.select.i.i63 to double
   store ptr %add.ptr.i.i58, ptr %mCurrent.i.i57, align 8
   %conv = fptrunc double %f.0.i.i64 to float
@@ -27859,7 +27850,7 @@ invoke.cont:                                      ; preds = %if.else35
   unreachable
 
 lpad:                                             ; preds = %if.else35
-  %34 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -27922,7 +27913,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 
 common.resume:                                    ; preds = %lpad.i.i17, %lpad.i.i
   %exception.i.i16.sink = phi ptr [ %exception.i.i16, %lpad.i.i17 ], [ %exception.i.i, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad.i.i17 ], [ %3, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad.i.i17 ], [ %3, %lpad.i.i ]
   tail call void @__cxa_free_exception(ptr %exception.i.i16.sink) #18
   resume { ptr, i32 } %common.resume.op
 
@@ -27935,10 +27926,9 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit:  ; preds = %if.then
   %4 = load i32, ptr %1, align 1
   %mLe.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i8, ptr %mLe.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
+  %tobool.i.i = trunc i8 %5 to i1
   %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %4)
-  %spec.select.i.i = select i1 %tobool.not.i.i, i32 %f.2.insert.insert.i.i, i32 %4
+  %spec.select.i.i = select i1 %tobool.i.i, i32 %4, i32 %f.2.insert.insert.i.i
   %f.0.i.i = bitcast i32 %spec.select.i.i to float
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i, align 8
   %mul = fmul float %f.0.i.i, 2.550000e+02
@@ -27953,13 +27943,13 @@ if.else:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.else
   %reader7 = getelementptr inbounds i8, ptr %db, i64 128
-  %7 = load ptr, ptr %reader7, align 8
-  %mCurrent.i.i7 = getelementptr inbounds i8, ptr %7, i64 24
-  %8 = load ptr, ptr %mCurrent.i.i7, align 8
-  %add.ptr.i.i8 = getelementptr inbounds i8, ptr %8, i64 8
-  %mLimit.i.i9 = getelementptr inbounds i8, ptr %7, i64 40
-  %9 = load ptr, ptr %mLimit.i.i9, align 8
-  %cmp.i.i10 = icmp ugt ptr %add.ptr.i.i8, %9
+  %6 = load ptr, ptr %reader7, align 8
+  %mCurrent.i.i7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = load ptr, ptr %mCurrent.i.i7, align 8
+  %add.ptr.i.i8 = getelementptr inbounds i8, ptr %7, i64 8
+  %mLimit.i.i9 = getelementptr inbounds i8, ptr %6, i64 40
+  %8 = load ptr, ptr %mLimit.i.i9, align 8
+  %cmp.i.i10 = icmp ugt ptr %add.ptr.i.i8, %8
   br i1 %cmp.i.i10, label %if.then.i.i15, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit
 
 if.then.i.i15:                                    ; preds = %if.then6
@@ -27972,18 +27962,17 @@ invoke.cont.i.i18:                                ; preds = %if.then.i.i15
   unreachable
 
 lpad.i.i17:                                       ; preds = %if.then.i.i15
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit:  ; preds = %if.then6
-  %11 = load i64, ptr %8, align 1
-  %mLe.i.i11 = getelementptr inbounds i8, ptr %7, i64 48
-  %12 = load i8, ptr %mLe.i.i11, align 8
-  %13 = and i8 %12, 1
-  %tobool.not.i.i12 = icmp eq i8 %13, 0
-  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %11)
-  %spec.select.i.i13 = select i1 %tobool.not.i.i12, i64 %f.4.insert.insert.i.i, i64 %11
+  %10 = load i64, ptr %7, align 1
+  %mLe.i.i11 = getelementptr inbounds i8, ptr %6, i64 48
+  %11 = load i8, ptr %mLe.i.i11, align 8
+  %tobool.i.i12 = trunc i8 %11 to i1
+  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %10)
+  %spec.select.i.i13 = select i1 %tobool.i.i12, i64 %10, i64 %f.4.insert.insert.i.i
   %f.0.i.i14 = bitcast i64 %spec.select.i.i13 to double
   store ptr %add.ptr.i.i8, ptr %mCurrent.i.i7, align 8
   %mul10 = fmul double %f.0.i.i14, 2.550000e+02
@@ -28264,7 +28253,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i.i65, %lpad.i.i51, %lpad.i.i38, %lpad.i.i28, %lpad.i.i
   %exception.sink = phi ptr [ %exception, %lpad ], [ %exception.i.i64, %lpad.i.i65 ], [ %exception.i.i50, %lpad.i.i51 ], [ %exception.i.i37, %lpad.i.i38 ], [ %exception.i.i27, %lpad.i.i28 ], [ %exception.i.i, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %33, %lpad ], [ %29, %lpad.i.i65 ], [ %22, %lpad.i.i51 ], [ %17, %lpad.i.i38 ], [ %10, %lpad.i.i28 ], [ %3, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %lpad ], [ %26, %lpad.i.i65 ], [ %20, %lpad.i.i51 ], [ %15, %lpad.i.i38 ], [ %9, %lpad.i.i28 ], [ %3, %lpad.i.i ]
   tail call void @__cxa_free_exception(ptr %exception.sink) #18
   resume { ptr, i32 } %common.resume.op
 
@@ -28277,10 +28266,9 @@ if.end.i.i:                                       ; preds = %if.then
   %4 = load i32, ptr %1, align 1
   %mLe.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i8, ptr %mLe.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
+  %tobool.i.i = trunc i8 %5 to i1
   %f.sroa.8.0.extract.shift.i.i = lshr i32 %4, 24
-  %spec.select = select i1 %tobool.not.i.i, i32 %f.sroa.8.0.extract.shift.i.i, i32 %4
+  %spec.select = select i1 %tobool.i.i, i32 %4, i32 %f.sroa.8.0.extract.shift.i.i
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i, align 8
   %conv.i = trunc i32 %spec.select to i8
   br label %if.end41
@@ -28292,13 +28280,13 @@ if.else:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.else
   %reader8 = getelementptr inbounds i8, ptr %db, i64 128
-  %7 = load ptr, ptr %reader8, align 8
-  %mCurrent.i.i16 = getelementptr inbounds i8, ptr %7, i64 24
-  %8 = load ptr, ptr %mCurrent.i.i16, align 8
-  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %8, i64 2
-  %mLimit.i.i18 = getelementptr inbounds i8, ptr %7, i64 40
-  %9 = load ptr, ptr %mLimit.i.i18, align 8
-  %cmp.i.i19 = icmp ugt ptr %add.ptr.i.i17, %9
+  %6 = load ptr, ptr %reader8, align 8
+  %mCurrent.i.i16 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = load ptr, ptr %mCurrent.i.i16, align 8
+  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %7, i64 2
+  %mLimit.i.i18 = getelementptr inbounds i8, ptr %6, i64 40
+  %8 = load ptr, ptr %mLimit.i.i18, align 8
+  %cmp.i.i19 = icmp ugt ptr %add.ptr.i.i17, %8
   br i1 %cmp.i.i19, label %if.then.i.i26, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit
 
 if.then.i.i26:                                    ; preds = %if.then6
@@ -28311,18 +28299,17 @@ invoke.cont.i.i29:                                ; preds = %if.then.i.i26
   unreachable
 
 lpad.i.i28:                                       ; preds = %if.then.i.i26
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit:  ; preds = %if.then6
-  %11 = load i16, ptr %8, align 1
-  %f.sroa.4.0.extract.shift.i.i20 = lshr i16 %11, 8
-  %mLe.i.i21 = getelementptr inbounds i8, ptr %7, i64 48
-  %12 = load i8, ptr %mLe.i.i21, align 8
-  %13 = and i8 %12, 1
-  %tobool.not.i.i22 = icmp eq i8 %13, 0
-  %spec.select2.v.i.i = select i1 %tobool.not.i.i22, i16 %f.sroa.4.0.extract.shift.i.i20, i16 %11
+  %10 = load i16, ptr %7, align 1
+  %f.sroa.4.0.extract.shift.i.i20 = lshr i16 %10, 8
+  %mLe.i.i21 = getelementptr inbounds i8, ptr %6, i64 48
+  %11 = load i8, ptr %mLe.i.i21, align 8
+  %tobool.i.i22 = trunc i8 %11 to i1
+  %spec.select2.v.i.i = select i1 %tobool.i.i22, i16 %10, i16 %f.sroa.4.0.extract.shift.i.i20
   store ptr %add.ptr.i.i17, ptr %mCurrent.i.i16, align 8
   %conv2.i = trunc i16 %spec.select2.v.i.i to i8
   br label %if.end41
@@ -28334,13 +28321,13 @@ if.else12:                                        ; preds = %if.else
 
 if.then15:                                        ; preds = %if.else12
   %reader17 = getelementptr inbounds i8, ptr %db, i64 128
-  %14 = load ptr, ptr %reader17, align 8
-  %mCurrent.i.i32 = getelementptr inbounds i8, ptr %14, i64 24
-  %15 = load ptr, ptr %mCurrent.i.i32, align 8
-  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %15, i64 1
-  %mLimit.i.i34 = getelementptr inbounds i8, ptr %14, i64 40
-  %16 = load ptr, ptr %mLimit.i.i34, align 8
-  %cmp.i.i35 = icmp ugt ptr %add.ptr.i.i33, %16
+  %12 = load ptr, ptr %reader17, align 8
+  %mCurrent.i.i32 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = load ptr, ptr %mCurrent.i.i32, align 8
+  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %13, i64 1
+  %mLimit.i.i34 = getelementptr inbounds i8, ptr %12, i64 40
+  %14 = load ptr, ptr %mLimit.i.i34, align 8
+  %cmp.i.i35 = icmp ugt ptr %add.ptr.i.i33, %14
   br i1 %cmp.i.i35, label %if.then.i.i36, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit
 
 if.then.i.i36:                                    ; preds = %if.then15
@@ -28353,12 +28340,12 @@ invoke.cont.i.i39:                                ; preds = %if.then.i.i36
   unreachable
 
 lpad.i.i38:                                       ; preds = %if.then.i.i36
-  %17 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit:  ; preds = %if.then15
-  %18 = load i8, ptr %15, align 1
+  %16 = load i8, ptr %13, align 1
   store ptr %add.ptr.i.i33, ptr %mCurrent.i.i32, align 8
   br label %if.end41
 
@@ -28369,13 +28356,13 @@ if.else21:                                        ; preds = %if.else12
 
 if.then24:                                        ; preds = %if.else21
   %reader25 = getelementptr inbounds i8, ptr %db, i64 128
-  %19 = load ptr, ptr %reader25, align 8
-  %mCurrent.i.i42 = getelementptr inbounds i8, ptr %19, i64 24
-  %20 = load ptr, ptr %mCurrent.i.i42, align 8
-  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %20, i64 4
-  %mLimit.i.i44 = getelementptr inbounds i8, ptr %19, i64 40
-  %21 = load ptr, ptr %mLimit.i.i44, align 8
-  %cmp.i.i45 = icmp ugt ptr %add.ptr.i.i43, %21
+  %17 = load ptr, ptr %reader25, align 8
+  %mCurrent.i.i42 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = load ptr, ptr %mCurrent.i.i42, align 8
+  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %18, i64 4
+  %mLimit.i.i44 = getelementptr inbounds i8, ptr %17, i64 40
+  %19 = load ptr, ptr %mLimit.i.i44, align 8
+  %cmp.i.i45 = icmp ugt ptr %add.ptr.i.i43, %19
   br i1 %cmp.i.i45, label %if.then.i.i49, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit
 
 if.then.i.i49:                                    ; preds = %if.then24
@@ -28388,18 +28375,17 @@ invoke.cont.i.i52:                                ; preds = %if.then.i.i49
   unreachable
 
 lpad.i.i51:                                       ; preds = %if.then.i.i49
-  %22 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit:  ; preds = %if.then24
-  %23 = load i32, ptr %20, align 1
-  %mLe.i.i46 = getelementptr inbounds i8, ptr %19, i64 48
-  %24 = load i8, ptr %mLe.i.i46, align 8
-  %25 = and i8 %24, 1
-  %tobool.not.i.i47 = icmp eq i8 %25, 0
-  %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %23)
-  %spec.select.i.i48 = select i1 %tobool.not.i.i47, i32 %f.2.insert.insert.i.i, i32 %23
+  %21 = load i32, ptr %18, align 1
+  %mLe.i.i46 = getelementptr inbounds i8, ptr %17, i64 48
+  %22 = load i8, ptr %mLe.i.i46, align 8
+  %tobool.i.i47 = trunc i8 %22 to i1
+  %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %21)
+  %spec.select.i.i48 = select i1 %tobool.i.i47, i32 %21, i32 %f.2.insert.insert.i.i
   %f.0.i.i = bitcast i32 %spec.select.i.i48 to float
   store ptr %add.ptr.i.i43, ptr %mCurrent.i.i42, align 8
   %conv = fptosi float %f.0.i.i to i8
@@ -28412,13 +28398,13 @@ if.else28:                                        ; preds = %if.else21
 
 if.then31:                                        ; preds = %if.else28
   %reader32 = getelementptr inbounds i8, ptr %db, i64 128
-  %26 = load ptr, ptr %reader32, align 8
-  %mCurrent.i.i55 = getelementptr inbounds i8, ptr %26, i64 24
-  %27 = load ptr, ptr %mCurrent.i.i55, align 8
-  %add.ptr.i.i56 = getelementptr inbounds i8, ptr %27, i64 8
-  %mLimit.i.i57 = getelementptr inbounds i8, ptr %26, i64 40
-  %28 = load ptr, ptr %mLimit.i.i57, align 8
-  %cmp.i.i58 = icmp ugt ptr %add.ptr.i.i56, %28
+  %23 = load ptr, ptr %reader32, align 8
+  %mCurrent.i.i55 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = load ptr, ptr %mCurrent.i.i55, align 8
+  %add.ptr.i.i56 = getelementptr inbounds i8, ptr %24, i64 8
+  %mLimit.i.i57 = getelementptr inbounds i8, ptr %23, i64 40
+  %25 = load ptr, ptr %mLimit.i.i57, align 8
+  %cmp.i.i58 = icmp ugt ptr %add.ptr.i.i56, %25
   br i1 %cmp.i.i58, label %if.then.i.i63, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit
 
 if.then.i.i63:                                    ; preds = %if.then31
@@ -28431,18 +28417,17 @@ invoke.cont.i.i66:                                ; preds = %if.then.i.i63
   unreachable
 
 lpad.i.i65:                                       ; preds = %if.then.i.i63
-  %29 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit:  ; preds = %if.then31
-  %30 = load i64, ptr %27, align 1
-  %mLe.i.i59 = getelementptr inbounds i8, ptr %26, i64 48
-  %31 = load i8, ptr %mLe.i.i59, align 8
-  %32 = and i8 %31, 1
-  %tobool.not.i.i60 = icmp eq i8 %32, 0
-  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %30)
-  %spec.select.i.i61 = select i1 %tobool.not.i.i60, i64 %f.4.insert.insert.i.i, i64 %30
+  %27 = load i64, ptr %24, align 1
+  %mLe.i.i59 = getelementptr inbounds i8, ptr %23, i64 48
+  %28 = load i8, ptr %mLe.i.i59, align 8
+  %tobool.i.i60 = trunc i8 %28 to i1
+  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %27)
+  %spec.select.i.i61 = select i1 %tobool.i.i60, i64 %27, i64 %f.4.insert.insert.i.i
   %f.0.i.i62 = bitcast i64 %spec.select.i.i61 to double
   store ptr %add.ptr.i.i56, ptr %mCurrent.i.i55, align 8
   %conv35 = fptosi double %f.0.i.i62 to i8
@@ -28458,12 +28443,12 @@ invoke.cont:                                      ; preds = %if.else36
   unreachable
 
 lpad:                                             ; preds = %if.else36
-  %33 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.end41:                                         ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit, %if.end.i.i
-  %conv2.i.sink = phi i8 [ %conv2.i, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %conv, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %conv35, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %18, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %conv.i, %if.end.i.i ]
+  %conv2.i.sink = phi i8 [ %conv2.i, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %conv, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %conv35, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %16, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %conv.i, %if.end.i.i ]
   store i8 %conv2.i.sink, ptr %out, align 1
   ret void
 }
@@ -28494,23 +28479,22 @@ _ZN17DeadlyImportErrorC2IJRA8_KcRPS1_RA17_S1_RKNSt7__cxx1112basic_stringIcSt11ch
 define linkonce_odr hidden void @_ZNK6Assimp7Blender9Structure7ConvertINS0_7PointerEEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(8) %dest, ptr noundef nonnull align 8 dereferenceable(232) %db) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %db, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %reader3 = getelementptr inbounds i8, ptr %db, i64 128
-  %2 = load ptr, ptr %reader3, align 8
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  %reader = getelementptr inbounds i8, ptr %db, i64 128
+  %1 = load ptr, ptr %reader, align 8
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call noundef i64 @_ZN6Assimp12StreamReaderILb1ELb1EE3GetImEET_v(ptr noundef nonnull align 8 dereferenceable(49) %2)
+  %call.i = tail call noundef i64 @_ZN6Assimp12StreamReaderILb1ELb1EE3GetImEET_v(ptr noundef nonnull align 8 dereferenceable(49) %1)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %mCurrent.i.i = getelementptr inbounds i8, ptr %2, i64 24
-  %3 = load ptr, ptr %mCurrent.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 4
-  %mLimit.i.i = getelementptr inbounds i8, ptr %2, i64 40
-  %4 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %4
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %2 = load ptr, ptr %mCurrent.i.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = load ptr, ptr %mLimit.i.i, align 8
+  %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %3
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end
@@ -28523,31 +28507,30 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception.i.i) #18
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %4
 
 if.end.i.i:                                       ; preds = %if.end
-  %6 = load i32, ptr %3, align 1
-  %f.sroa.4.0.extract.shift.i.i = lshr i32 %6, 8
-  %f.sroa.6.0.extract.shift.i.i = lshr i32 %6, 16
-  %f.sroa.8.0.extract.shift.i.i = lshr i32 %6, 24
-  %mLe.i.i = getelementptr inbounds i8, ptr %2, i64 48
-  %7 = load i8, ptr %mLe.i.i, align 8
-  %8 = and i8 %7, 1
-  %tobool.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit
+  %5 = load i32, ptr %2, align 1
+  %f.sroa.4.0.extract.shift.i.i = lshr i32 %5, 8
+  %f.sroa.6.0.extract.shift.i.i = lshr i32 %5, 16
+  %f.sroa.8.0.extract.shift.i.i = lshr i32 %5, 24
+  %mLe.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %6 = load i8, ptr %mLe.i.i, align 8
+  %tobool.i.i = trunc i8 %6 to i1
+  br i1 %tobool.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %9 = and i32 %6, 255
+  %7 = and i32 %5, 255
   br label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit:  ; preds = %if.end.i.i, %if.then.i.i.i
-  %f.sroa.8.0.i.i = phi i32 [ %f.sroa.8.0.extract.shift.i.i, %if.end.i.i ], [ %9, %if.then.i.i.i ]
+  %f.sroa.8.0.i.i = phi i32 [ %f.sroa.8.0.extract.shift.i.i, %if.end.i.i ], [ %7, %if.then.i.i.i ]
   %f.sroa.6.0.i.i = phi i32 [ %f.sroa.6.0.extract.shift.i.i, %if.end.i.i ], [ %f.sroa.4.0.extract.shift.i.i, %if.then.i.i.i ]
   %f.sroa.4.0.in.i.i = phi i32 [ %f.sroa.4.0.extract.shift.i.i, %if.end.i.i ], [ %f.sroa.6.0.extract.shift.i.i, %if.then.i.i.i ]
-  %f.sroa.0.0.in.i.i = phi i32 [ %6, %if.end.i.i ], [ %f.sroa.8.0.extract.shift.i.i, %if.then.i.i.i ]
+  %f.sroa.0.0.in.i.i = phi i32 [ %5, %if.end.i.i ], [ %f.sroa.8.0.extract.shift.i.i, %if.then.i.i.i ]
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i, align 8
   %f.sroa.8.0.insert.shift.i.i = shl nuw i32 %f.sroa.8.0.i.i, 24
   %f.sroa.6.0.insert.ext.i.i = shl i32 %f.sroa.6.0.i.i, 16
@@ -29287,16 +29270,15 @@ if.end:                                           ; preds = %entry
   %f.sroa.16.0.extract.shift = lshr i64 %3, 56
   %mLe = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load i8, ptr %mLe, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.then.i, label %_ZN6Assimp6Intern6GetterILb1EmLb1EEclEPmb.exit
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %_ZN6Assimp6Intern6GetterILb1EmLb1EEclEPmb.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %6 = and i64 %3, 255
+  %5 = and i64 %3, 255
   br label %_ZN6Assimp6Intern6GetterILb1EmLb1EEclEPmb.exit
 
 _ZN6Assimp6Intern6GetterILb1EmLb1EEclEPmb.exit:   ; preds = %if.end, %if.then.i
-  %f.sroa.16.0 = phi i64 [ %f.sroa.16.0.extract.shift, %if.end ], [ %6, %if.then.i ]
+  %f.sroa.16.0 = phi i64 [ %f.sroa.16.0.extract.shift, %if.end ], [ %5, %if.then.i ]
   %f.sroa.14.0 = phi i64 [ %f.sroa.14.0.extract.shift, %if.end ], [ %f.sroa.4.0.extract.shift, %if.then.i ]
   %f.sroa.12.0 = phi i64 [ %f.sroa.12.0.extract.shift, %if.end ], [ %f.sroa.6.0.extract.shift, %if.then.i ]
   %f.sroa.10.0 = phi i64 [ %f.sroa.10.0.extract.shift, %if.end ], [ %f.sroa.8.0.extract.shift, %if.then.i ]
@@ -42509,7 +42491,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 
 common.resume:                                    ; preds = %lpad.i.i18, %lpad.i.i
   %exception.i.i17.sink = phi ptr [ %exception.i.i17, %lpad.i.i18 ], [ %exception.i.i, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad.i.i18 ], [ %3, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad.i.i18 ], [ %3, %lpad.i.i ]
   tail call void @__cxa_free_exception(ptr %exception.i.i17.sink) #18
   resume { ptr, i32 } %common.resume.op
 
@@ -42522,10 +42504,9 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit:  ; preds = %if.then
   %4 = load i32, ptr %1, align 1
   %mLe.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i8, ptr %mLe.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
+  %tobool.i.i = trunc i8 %5 to i1
   %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %4)
-  %spec.select.i.i = select i1 %tobool.not.i.i, i32 %f.2.insert.insert.i.i, i32 %4
+  %spec.select.i.i = select i1 %tobool.i.i, i32 %4, i32 %f.2.insert.insert.i.i
   %f.0.i.i = bitcast i32 %spec.select.i.i to float
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i, align 8
   %cmp = fcmp ogt float %f.0.i.i, 1.000000e+00
@@ -42542,13 +42523,13 @@ if.else:                                          ; preds = %entry
 
 if.then7:                                         ; preds = %if.else
   %reader8 = getelementptr inbounds i8, ptr %db, i64 128
-  %7 = load ptr, ptr %reader8, align 8
-  %mCurrent.i.i8 = getelementptr inbounds i8, ptr %7, i64 24
-  %8 = load ptr, ptr %mCurrent.i.i8, align 8
-  %add.ptr.i.i9 = getelementptr inbounds i8, ptr %8, i64 8
-  %mLimit.i.i10 = getelementptr inbounds i8, ptr %7, i64 40
-  %9 = load ptr, ptr %mLimit.i.i10, align 8
-  %cmp.i.i11 = icmp ugt ptr %add.ptr.i.i9, %9
+  %6 = load ptr, ptr %reader8, align 8
+  %mCurrent.i.i8 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = load ptr, ptr %mCurrent.i.i8, align 8
+  %add.ptr.i.i9 = getelementptr inbounds i8, ptr %7, i64 8
+  %mLimit.i.i10 = getelementptr inbounds i8, ptr %6, i64 40
+  %8 = load ptr, ptr %mLimit.i.i10, align 8
+  %cmp.i.i11 = icmp ugt ptr %add.ptr.i.i9, %8
   br i1 %cmp.i.i11, label %if.then.i.i16, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit
 
 if.then.i.i16:                                    ; preds = %if.then7
@@ -42561,18 +42542,17 @@ invoke.cont.i.i19:                                ; preds = %if.then.i.i16
   unreachable
 
 lpad.i.i18:                                       ; preds = %if.then.i.i16
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit:  ; preds = %if.then7
-  %11 = load i64, ptr %8, align 1
-  %mLe.i.i12 = getelementptr inbounds i8, ptr %7, i64 48
-  %12 = load i8, ptr %mLe.i.i12, align 8
-  %13 = and i8 %12, 1
-  %tobool.not.i.i13 = icmp eq i8 %13, 0
-  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %11)
-  %spec.select.i.i14 = select i1 %tobool.not.i.i13, i64 %f.4.insert.insert.i.i, i64 %11
+  %10 = load i64, ptr %7, align 1
+  %mLe.i.i12 = getelementptr inbounds i8, ptr %6, i64 48
+  %11 = load i8, ptr %mLe.i.i12, align 8
+  %tobool.i.i13 = trunc i8 %11 to i1
+  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %10)
+  %spec.select.i.i14 = select i1 %tobool.i.i13, i64 %10, i64 %f.4.insert.insert.i.i
   %f.0.i.i15 = bitcast i64 %spec.select.i.i14 to double
   store ptr %add.ptr.i.i9, ptr %mCurrent.i.i8, align 8
   %mul11 = fmul double %f.0.i.i15, 3.276700e+04
@@ -42617,7 +42597,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i.i65, %lpad.i.i51, %lpad.i.i38, %lpad.i.i28, %lpad.i.i
   %exception.sink = phi ptr [ %exception, %lpad ], [ %exception.i.i64, %lpad.i.i65 ], [ %exception.i.i50, %lpad.i.i51 ], [ %exception.i.i37, %lpad.i.i38 ], [ %exception.i.i27, %lpad.i.i28 ], [ %exception.i.i, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %33, %lpad ], [ %29, %lpad.i.i65 ], [ %22, %lpad.i.i51 ], [ %17, %lpad.i.i38 ], [ %10, %lpad.i.i28 ], [ %3, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %lpad ], [ %26, %lpad.i.i65 ], [ %20, %lpad.i.i51 ], [ %15, %lpad.i.i38 ], [ %9, %lpad.i.i28 ], [ %3, %lpad.i.i ]
   tail call void @__cxa_free_exception(ptr %exception.sink) #18
   resume { ptr, i32 } %common.resume.op
 
@@ -42630,12 +42610,11 @@ if.end.i.i:                                       ; preds = %if.then
   %4 = load i32, ptr %1, align 1
   %mLe.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i8, ptr %mLe.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
+  %tobool.i.i = trunc i8 %5 to i1
   %f.sroa.8.0.extract.shift.i.i = lshr i32 %4, 24
-  %f.sroa.4.0.in.i.i.v = select i1 %tobool.not.i.i, i32 16, i32 8
+  %f.sroa.4.0.in.i.i.v = select i1 %tobool.i.i, i32 8, i32 16
   %f.sroa.4.0.in.i.i = lshr i32 %4, %f.sroa.4.0.in.i.i.v
-  %f.sroa.0.0.in.i.i = select i1 %tobool.not.i.i, i32 %f.sroa.8.0.extract.shift.i.i, i32 %4
+  %f.sroa.0.0.in.i.i = select i1 %tobool.i.i, i32 %4, i32 %f.sroa.8.0.extract.shift.i.i
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i, align 8
   %f.sroa.4.0.insert.ext.i.i = shl nuw i32 %f.sroa.4.0.in.i.i, 8
   %f.sroa.0.0.insert.ext.i.i = and i32 %f.sroa.0.0.in.i.i, 255
@@ -42650,13 +42629,13 @@ if.else:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.else
   %reader8 = getelementptr inbounds i8, ptr %db, i64 128
-  %7 = load ptr, ptr %reader8, align 8
-  %mCurrent.i.i16 = getelementptr inbounds i8, ptr %7, i64 24
-  %8 = load ptr, ptr %mCurrent.i.i16, align 8
-  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %8, i64 2
-  %mLimit.i.i18 = getelementptr inbounds i8, ptr %7, i64 40
-  %9 = load ptr, ptr %mLimit.i.i18, align 8
-  %cmp.i.i19 = icmp ugt ptr %add.ptr.i.i17, %9
+  %6 = load ptr, ptr %reader8, align 8
+  %mCurrent.i.i16 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = load ptr, ptr %mCurrent.i.i16, align 8
+  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %7, i64 2
+  %mLimit.i.i18 = getelementptr inbounds i8, ptr %6, i64 40
+  %8 = load ptr, ptr %mLimit.i.i18, align 8
+  %cmp.i.i19 = icmp ugt ptr %add.ptr.i.i17, %8
   br i1 %cmp.i.i19, label %if.then.i.i26, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit
 
 if.then.i.i26:                                    ; preds = %if.then6
@@ -42669,19 +42648,18 @@ invoke.cont.i.i29:                                ; preds = %if.then.i.i26
   unreachable
 
 lpad.i.i28:                                       ; preds = %if.then.i.i26
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit:  ; preds = %if.then6
-  %11 = load i16, ptr %8, align 1
-  %f.sroa.4.0.extract.shift.i.i20 = lshr i16 %11, 8
-  %mLe.i.i21 = getelementptr inbounds i8, ptr %7, i64 48
-  %12 = load i8, ptr %mLe.i.i21, align 8
-  %13 = and i8 %12, 1
-  %tobool.not.i.i22 = icmp eq i8 %13, 0
-  %spec.select.i.i = select i1 %tobool.not.i.i22, i16 %11, i16 %f.sroa.4.0.extract.shift.i.i20
-  %spec.select2.v.i.i = select i1 %tobool.not.i.i22, i16 %f.sroa.4.0.extract.shift.i.i20, i16 %11
+  %10 = load i16, ptr %7, align 1
+  %f.sroa.4.0.extract.shift.i.i20 = lshr i16 %10, 8
+  %mLe.i.i21 = getelementptr inbounds i8, ptr %6, i64 48
+  %11 = load i8, ptr %mLe.i.i21, align 8
+  %tobool.i.i22 = trunc i8 %11 to i1
+  %spec.select.i.i = select i1 %tobool.i.i22, i16 %f.sroa.4.0.extract.shift.i.i20, i16 %10
+  %spec.select2.v.i.i = select i1 %tobool.i.i22, i16 %10, i16 %f.sroa.4.0.extract.shift.i.i20
   store ptr %add.ptr.i.i17, ptr %mCurrent.i.i16, align 8
   %f.sroa.4.0.insert.ext.i.i23 = shl i16 %spec.select.i.i, 8
   %f.sroa.0.0.insert.ext.i.i24 = and i16 %spec.select2.v.i.i, 255
@@ -42695,13 +42673,13 @@ if.else12:                                        ; preds = %if.else
 
 if.then15:                                        ; preds = %if.else12
   %reader17 = getelementptr inbounds i8, ptr %db, i64 128
-  %14 = load ptr, ptr %reader17, align 8
-  %mCurrent.i.i32 = getelementptr inbounds i8, ptr %14, i64 24
-  %15 = load ptr, ptr %mCurrent.i.i32, align 8
-  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %15, i64 1
-  %mLimit.i.i34 = getelementptr inbounds i8, ptr %14, i64 40
-  %16 = load ptr, ptr %mLimit.i.i34, align 8
-  %cmp.i.i35 = icmp ugt ptr %add.ptr.i.i33, %16
+  %12 = load ptr, ptr %reader17, align 8
+  %mCurrent.i.i32 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = load ptr, ptr %mCurrent.i.i32, align 8
+  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %13, i64 1
+  %mLimit.i.i34 = getelementptr inbounds i8, ptr %12, i64 40
+  %14 = load ptr, ptr %mLimit.i.i34, align 8
+  %cmp.i.i35 = icmp ugt ptr %add.ptr.i.i33, %14
   br i1 %cmp.i.i35, label %if.then.i.i36, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit
 
 if.then.i.i36:                                    ; preds = %if.then15
@@ -42714,14 +42692,14 @@ invoke.cont.i.i39:                                ; preds = %if.then.i.i36
   unreachable
 
 lpad.i.i38:                                       ; preds = %if.then.i.i36
-  %17 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit:  ; preds = %if.then15
-  %18 = load i8, ptr %15, align 1
+  %16 = load i8, ptr %13, align 1
   store ptr %add.ptr.i.i33, ptr %mCurrent.i.i32, align 8
-  %conv2.i = zext i8 %18 to i16
+  %conv2.i = zext i8 %16 to i16
   br label %if.end41
 
 if.else21:                                        ; preds = %if.else12
@@ -42731,13 +42709,13 @@ if.else21:                                        ; preds = %if.else12
 
 if.then24:                                        ; preds = %if.else21
   %reader25 = getelementptr inbounds i8, ptr %db, i64 128
-  %19 = load ptr, ptr %reader25, align 8
-  %mCurrent.i.i42 = getelementptr inbounds i8, ptr %19, i64 24
-  %20 = load ptr, ptr %mCurrent.i.i42, align 8
-  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %20, i64 4
-  %mLimit.i.i44 = getelementptr inbounds i8, ptr %19, i64 40
-  %21 = load ptr, ptr %mLimit.i.i44, align 8
-  %cmp.i.i45 = icmp ugt ptr %add.ptr.i.i43, %21
+  %17 = load ptr, ptr %reader25, align 8
+  %mCurrent.i.i42 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = load ptr, ptr %mCurrent.i.i42, align 8
+  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %18, i64 4
+  %mLimit.i.i44 = getelementptr inbounds i8, ptr %17, i64 40
+  %19 = load ptr, ptr %mLimit.i.i44, align 8
+  %cmp.i.i45 = icmp ugt ptr %add.ptr.i.i43, %19
   br i1 %cmp.i.i45, label %if.then.i.i49, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit
 
 if.then.i.i49:                                    ; preds = %if.then24
@@ -42750,18 +42728,17 @@ invoke.cont.i.i52:                                ; preds = %if.then.i.i49
   unreachable
 
 lpad.i.i51:                                       ; preds = %if.then.i.i49
-  %22 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit:  ; preds = %if.then24
-  %23 = load i32, ptr %20, align 1
-  %mLe.i.i46 = getelementptr inbounds i8, ptr %19, i64 48
-  %24 = load i8, ptr %mLe.i.i46, align 8
-  %25 = and i8 %24, 1
-  %tobool.not.i.i47 = icmp eq i8 %25, 0
-  %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %23)
-  %spec.select.i.i48 = select i1 %tobool.not.i.i47, i32 %f.2.insert.insert.i.i, i32 %23
+  %21 = load i32, ptr %18, align 1
+  %mLe.i.i46 = getelementptr inbounds i8, ptr %17, i64 48
+  %22 = load i8, ptr %mLe.i.i46, align 8
+  %tobool.i.i47 = trunc i8 %22 to i1
+  %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %21)
+  %spec.select.i.i48 = select i1 %tobool.i.i47, i32 %21, i32 %f.2.insert.insert.i.i
   %f.0.i.i = bitcast i32 %spec.select.i.i48 to float
   store ptr %add.ptr.i.i43, ptr %mCurrent.i.i42, align 8
   %conv = fptosi float %f.0.i.i to i16
@@ -42774,13 +42751,13 @@ if.else28:                                        ; preds = %if.else21
 
 if.then31:                                        ; preds = %if.else28
   %reader32 = getelementptr inbounds i8, ptr %db, i64 128
-  %26 = load ptr, ptr %reader32, align 8
-  %mCurrent.i.i55 = getelementptr inbounds i8, ptr %26, i64 24
-  %27 = load ptr, ptr %mCurrent.i.i55, align 8
-  %add.ptr.i.i56 = getelementptr inbounds i8, ptr %27, i64 8
-  %mLimit.i.i57 = getelementptr inbounds i8, ptr %26, i64 40
-  %28 = load ptr, ptr %mLimit.i.i57, align 8
-  %cmp.i.i58 = icmp ugt ptr %add.ptr.i.i56, %28
+  %23 = load ptr, ptr %reader32, align 8
+  %mCurrent.i.i55 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = load ptr, ptr %mCurrent.i.i55, align 8
+  %add.ptr.i.i56 = getelementptr inbounds i8, ptr %24, i64 8
+  %mLimit.i.i57 = getelementptr inbounds i8, ptr %23, i64 40
+  %25 = load ptr, ptr %mLimit.i.i57, align 8
+  %cmp.i.i58 = icmp ugt ptr %add.ptr.i.i56, %25
   br i1 %cmp.i.i58, label %if.then.i.i63, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit
 
 if.then.i.i63:                                    ; preds = %if.then31
@@ -42793,18 +42770,17 @@ invoke.cont.i.i66:                                ; preds = %if.then.i.i63
   unreachable
 
 lpad.i.i65:                                       ; preds = %if.then.i.i63
-  %29 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit:  ; preds = %if.then31
-  %30 = load i64, ptr %27, align 1
-  %mLe.i.i59 = getelementptr inbounds i8, ptr %26, i64 48
-  %31 = load i8, ptr %mLe.i.i59, align 8
-  %32 = and i8 %31, 1
-  %tobool.not.i.i60 = icmp eq i8 %32, 0
-  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %30)
-  %spec.select.i.i61 = select i1 %tobool.not.i.i60, i64 %f.4.insert.insert.i.i, i64 %30
+  %27 = load i64, ptr %24, align 1
+  %mLe.i.i59 = getelementptr inbounds i8, ptr %23, i64 48
+  %28 = load i8, ptr %mLe.i.i59, align 8
+  %tobool.i.i60 = trunc i8 %28 to i1
+  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %27)
+  %spec.select.i.i61 = select i1 %tobool.i.i60, i64 %27, i64 %f.4.insert.insert.i.i
   %f.0.i.i62 = bitcast i64 %spec.select.i.i61 to double
   store ptr %add.ptr.i.i56, ptr %mCurrent.i.i55, align 8
   %conv35 = fptosi double %f.0.i.i62 to i16
@@ -42820,7 +42796,7 @@ invoke.cont:                                      ; preds = %if.else36
   unreachable
 
 lpad:                                             ; preds = %if.else36
-  %33 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -52456,32 +52432,31 @@ if.end:                                           ; preds = %entry
   %size = getelementptr inbounds i8, ptr %call, i64 40
   %2 = load i64, ptr %size, align 8
   %3 = load i8, ptr %db, align 8
-  %4 = and i8 %3, 1
-  %tobool2.not = icmp eq i8 %4, 0
-  %5 = select i1 %tobool2.not, i64 2, i64 3
-  %div17 = lshr i64 %2, %5
+  %tobool2 = trunc i8 %3 to i1
+  %4 = select i1 %tobool2, i64 3, i64 2
+  %div17 = lshr i64 %2, %4
   %reader = getelementptr inbounds i8, ptr %db, i64 128
-  %6 = load ptr, ptr %reader, align 8
-  %mCurrent.i = getelementptr inbounds i8, ptr %6, i64 24
-  %7 = load ptr, ptr %mCurrent.i, align 8
-  %mBuffer.i = getelementptr inbounds i8, ptr %6, i64 16
-  %8 = load ptr, ptr %mBuffer.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
+  %5 = load ptr, ptr %reader, align 8
+  %mCurrent.i = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = load ptr, ptr %mCurrent.i, align 8
+  %mBuffer.i = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = load ptr, ptr %mBuffer.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sext = shl i64 %sub.ptr.sub.i, 32
   %conv5 = ashr exact i64 %sext, 32
-  %9 = load i64, ptr %call, align 8
-  %10 = load i64, ptr %ptrval, align 8
+  %8 = load i64, ptr %call, align 8
+  %9 = load i64, ptr %ptrval, align 8
   %address = getelementptr inbounds i8, ptr %call, i64 48
-  %11 = load i64, ptr %address, align 8
-  %sub = sub i64 %10, %11
-  %add = add i64 %sub, %9
-  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %add
+  %10 = load i64, ptr %address, align 8
+  %sub = sub i64 %9, %10
+  %add = add i64 %sub, %8
+  %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %add
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
-  %mLimit.i.i = getelementptr inbounds i8, ptr %6, i64 40
-  %12 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %12, %add.ptr.i
+  %mLimit.i.i = getelementptr inbounds i8, ptr %5, i64 40
+  %11 = load ptr, ptr %mLimit.i.i, align 8
+  %cmp.i.i = icmp ult ptr %11, %add.ptr.i
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -52496,11 +52471,11 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i29, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %13, %lpad.i.i ], [ %18, %lpad.i.i29 ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %lpad.i.i ], [ %17, %lpad.i.i29 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.then.i.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception.i.i) #18
   br label %common.resume
@@ -52514,23 +52489,23 @@ for.body:                                         ; preds = %_ZN6Assimp12StreamR
   %i.033 = phi i64 [ %inc, %for.body ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit ]
   store i64 0, ptr %val10, align 8
   call void @_ZNK6Assimp7Blender9Structure7ConvertINS0_7PointerEEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(8) %val10, ptr noundef nonnull align 8 dereferenceable(232) %db)
-  %14 = load ptr, ptr %out, align 8
-  %add.ptr.i19 = getelementptr inbounds %"class.std::shared_ptr.254", ptr %14, i64 %i.033
+  %13 = load ptr, ptr %out, align 8
+  %add.ptr.i19 = getelementptr inbounds %"class.std::shared_ptr.254", ptr %13, i64 %i.033
   %call12 = call noundef zeroext i1 @_ZNK6Assimp7Blender9Structure14ResolvePointerISt10shared_ptrNS0_8MaterialEEEbRT_IT0_ERKNS0_7PointerERKNS0_12FileDatabaseERKNS0_5FieldEb(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i19, ptr noundef nonnull align 8 dereferenceable(8) %val10, ptr noundef nonnull align 8 dereferenceable(232) %db, ptr noundef nonnull align 8 dereferenceable(100) %f, i1 noundef zeroext false)
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %div17
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !246
 
 for.end:                                          ; preds = %for.body, %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %15 = load ptr, ptr %reader, align 8
-  %mBuffer.i20 = getelementptr inbounds i8, ptr %15, i64 16
-  %16 = load ptr, ptr %mBuffer.i20, align 8
-  %add.ptr.i21 = getelementptr inbounds i8, ptr %16, i64 %conv5
-  %mCurrent.i.i22 = getelementptr inbounds i8, ptr %15, i64 24
+  %14 = load ptr, ptr %reader, align 8
+  %mBuffer.i20 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = load ptr, ptr %mBuffer.i20, align 8
+  %add.ptr.i21 = getelementptr inbounds i8, ptr %15, i64 %conv5
+  %mCurrent.i.i22 = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %add.ptr.i21, ptr %mCurrent.i.i22, align 8
-  %mLimit.i.i23 = getelementptr inbounds i8, ptr %15, i64 40
-  %17 = load ptr, ptr %mLimit.i.i23, align 8
-  %cmp.i.i24 = icmp ult ptr %17, %add.ptr.i21
+  %mLimit.i.i23 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = load ptr, ptr %mLimit.i.i23, align 8
+  %cmp.i.i24 = icmp ult ptr %16, %add.ptr.i21
   %cmp4.i.i25 = icmp slt i64 %conv5, 0
   %or.cond.i.i26 = or i1 %cmp4.i.i25, %cmp.i.i24
   br i1 %or.cond.i.i26, label %if.then.i.i27, label %return
@@ -52545,7 +52520,7 @@ invoke.cont.i.i30:                                ; preds = %if.then.i.i27
   unreachable
 
 lpad.i.i29:                                       ; preds = %if.then.i.i27
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception.i.i28) #18
   br label %common.resume
@@ -54889,7 +54864,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 
 common.resume:                                    ; preds = %lpad.i.i17, %lpad.i.i
   %exception.i.i16.sink = phi ptr [ %exception.i.i16, %lpad.i.i17 ], [ %exception.i.i, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad.i.i17 ], [ %3, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad.i.i17 ], [ %3, %lpad.i.i ]
   tail call void @__cxa_free_exception(ptr %exception.i.i16.sink) #18
   resume { ptr, i32 } %common.resume.op
 
@@ -54902,10 +54877,9 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit:  ; preds = %if.then
   %4 = load i32, ptr %1, align 1
   %mLe.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i8, ptr %mLe.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
+  %tobool.i.i = trunc i8 %5 to i1
   %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %4)
-  %spec.select.i.i = select i1 %tobool.not.i.i, i32 %f.2.insert.insert.i.i, i32 %4
+  %spec.select.i.i = select i1 %tobool.i.i, i32 %4, i32 %f.2.insert.insert.i.i
   %f.0.i.i = bitcast i32 %spec.select.i.i to float
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i, align 8
   %mul = fmul float %f.0.i.i, 2.550000e+02
@@ -54920,13 +54894,13 @@ if.else:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.else
   %reader7 = getelementptr inbounds i8, ptr %db, i64 128
-  %7 = load ptr, ptr %reader7, align 8
-  %mCurrent.i.i7 = getelementptr inbounds i8, ptr %7, i64 24
-  %8 = load ptr, ptr %mCurrent.i.i7, align 8
-  %add.ptr.i.i8 = getelementptr inbounds i8, ptr %8, i64 8
-  %mLimit.i.i9 = getelementptr inbounds i8, ptr %7, i64 40
-  %9 = load ptr, ptr %mLimit.i.i9, align 8
-  %cmp.i.i10 = icmp ugt ptr %add.ptr.i.i8, %9
+  %6 = load ptr, ptr %reader7, align 8
+  %mCurrent.i.i7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = load ptr, ptr %mCurrent.i.i7, align 8
+  %add.ptr.i.i8 = getelementptr inbounds i8, ptr %7, i64 8
+  %mLimit.i.i9 = getelementptr inbounds i8, ptr %6, i64 40
+  %8 = load ptr, ptr %mLimit.i.i9, align 8
+  %cmp.i.i10 = icmp ugt ptr %add.ptr.i.i8, %8
   br i1 %cmp.i.i10, label %if.then.i.i15, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit
 
 if.then.i.i15:                                    ; preds = %if.then6
@@ -54939,18 +54913,17 @@ invoke.cont.i.i18:                                ; preds = %if.then.i.i15
   unreachable
 
 lpad.i.i17:                                       ; preds = %if.then.i.i15
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit:  ; preds = %if.then6
-  %11 = load i64, ptr %8, align 1
-  %mLe.i.i11 = getelementptr inbounds i8, ptr %7, i64 48
-  %12 = load i8, ptr %mLe.i.i11, align 8
-  %13 = and i8 %12, 1
-  %tobool.not.i.i12 = icmp eq i8 %13, 0
-  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %11)
-  %spec.select.i.i13 = select i1 %tobool.not.i.i12, i64 %f.4.insert.insert.i.i, i64 %11
+  %10 = load i64, ptr %7, align 1
+  %mLe.i.i11 = getelementptr inbounds i8, ptr %6, i64 48
+  %11 = load i8, ptr %mLe.i.i11, align 8
+  %tobool.i.i12 = trunc i8 %11 to i1
+  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %10)
+  %spec.select.i.i13 = select i1 %tobool.i.i12, i64 %10, i64 %f.4.insert.insert.i.i
   %f.0.i.i14 = bitcast i64 %spec.select.i.i13 to double
   store ptr %add.ptr.i.i8, ptr %mCurrent.i.i7, align 8
   %mul10 = fmul double %f.0.i.i14, 2.550000e+02
@@ -54995,7 +54968,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i.i65, %lpad.i.i51, %lpad.i.i38, %lpad.i.i28, %lpad.i.i
   %exception.sink = phi ptr [ %exception, %lpad ], [ %exception.i.i64, %lpad.i.i65 ], [ %exception.i.i50, %lpad.i.i51 ], [ %exception.i.i37, %lpad.i.i38 ], [ %exception.i.i27, %lpad.i.i28 ], [ %exception.i.i, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %33, %lpad ], [ %29, %lpad.i.i65 ], [ %22, %lpad.i.i51 ], [ %17, %lpad.i.i38 ], [ %10, %lpad.i.i28 ], [ %3, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %lpad ], [ %26, %lpad.i.i65 ], [ %20, %lpad.i.i51 ], [ %15, %lpad.i.i38 ], [ %9, %lpad.i.i28 ], [ %3, %lpad.i.i ]
   tail call void @__cxa_free_exception(ptr %exception.sink) #18
   resume { ptr, i32 } %common.resume.op
 
@@ -55008,10 +54981,9 @@ if.end.i.i:                                       ; preds = %if.then
   %4 = load i32, ptr %1, align 1
   %mLe.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i8, ptr %mLe.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
+  %tobool.i.i = trunc i8 %5 to i1
   %f.sroa.8.0.extract.shift.i.i = lshr i32 %4, 24
-  %spec.select = select i1 %tobool.not.i.i, i32 %f.sroa.8.0.extract.shift.i.i, i32 %4
+  %spec.select = select i1 %tobool.i.i, i32 %4, i32 %f.sroa.8.0.extract.shift.i.i
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i, align 8
   %conv.i = trunc i32 %spec.select to i8
   br label %if.end41
@@ -55023,13 +54995,13 @@ if.else:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.else
   %reader8 = getelementptr inbounds i8, ptr %db, i64 128
-  %7 = load ptr, ptr %reader8, align 8
-  %mCurrent.i.i16 = getelementptr inbounds i8, ptr %7, i64 24
-  %8 = load ptr, ptr %mCurrent.i.i16, align 8
-  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %8, i64 2
-  %mLimit.i.i18 = getelementptr inbounds i8, ptr %7, i64 40
-  %9 = load ptr, ptr %mLimit.i.i18, align 8
-  %cmp.i.i19 = icmp ugt ptr %add.ptr.i.i17, %9
+  %6 = load ptr, ptr %reader8, align 8
+  %mCurrent.i.i16 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = load ptr, ptr %mCurrent.i.i16, align 8
+  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %7, i64 2
+  %mLimit.i.i18 = getelementptr inbounds i8, ptr %6, i64 40
+  %8 = load ptr, ptr %mLimit.i.i18, align 8
+  %cmp.i.i19 = icmp ugt ptr %add.ptr.i.i17, %8
   br i1 %cmp.i.i19, label %if.then.i.i26, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit
 
 if.then.i.i26:                                    ; preds = %if.then6
@@ -55042,18 +55014,17 @@ invoke.cont.i.i29:                                ; preds = %if.then.i.i26
   unreachable
 
 lpad.i.i28:                                       ; preds = %if.then.i.i26
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit:  ; preds = %if.then6
-  %11 = load i16, ptr %8, align 1
-  %f.sroa.4.0.extract.shift.i.i20 = lshr i16 %11, 8
-  %mLe.i.i21 = getelementptr inbounds i8, ptr %7, i64 48
-  %12 = load i8, ptr %mLe.i.i21, align 8
-  %13 = and i8 %12, 1
-  %tobool.not.i.i22 = icmp eq i8 %13, 0
-  %spec.select2.v.i.i = select i1 %tobool.not.i.i22, i16 %f.sroa.4.0.extract.shift.i.i20, i16 %11
+  %10 = load i16, ptr %7, align 1
+  %f.sroa.4.0.extract.shift.i.i20 = lshr i16 %10, 8
+  %mLe.i.i21 = getelementptr inbounds i8, ptr %6, i64 48
+  %11 = load i8, ptr %mLe.i.i21, align 8
+  %tobool.i.i22 = trunc i8 %11 to i1
+  %spec.select2.v.i.i = select i1 %tobool.i.i22, i16 %10, i16 %f.sroa.4.0.extract.shift.i.i20
   store ptr %add.ptr.i.i17, ptr %mCurrent.i.i16, align 8
   %conv2.i = trunc i16 %spec.select2.v.i.i to i8
   br label %if.end41
@@ -55065,13 +55036,13 @@ if.else12:                                        ; preds = %if.else
 
 if.then15:                                        ; preds = %if.else12
   %reader17 = getelementptr inbounds i8, ptr %db, i64 128
-  %14 = load ptr, ptr %reader17, align 8
-  %mCurrent.i.i32 = getelementptr inbounds i8, ptr %14, i64 24
-  %15 = load ptr, ptr %mCurrent.i.i32, align 8
-  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %15, i64 1
-  %mLimit.i.i34 = getelementptr inbounds i8, ptr %14, i64 40
-  %16 = load ptr, ptr %mLimit.i.i34, align 8
-  %cmp.i.i35 = icmp ugt ptr %add.ptr.i.i33, %16
+  %12 = load ptr, ptr %reader17, align 8
+  %mCurrent.i.i32 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = load ptr, ptr %mCurrent.i.i32, align 8
+  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %13, i64 1
+  %mLimit.i.i34 = getelementptr inbounds i8, ptr %12, i64 40
+  %14 = load ptr, ptr %mLimit.i.i34, align 8
+  %cmp.i.i35 = icmp ugt ptr %add.ptr.i.i33, %14
   br i1 %cmp.i.i35, label %if.then.i.i36, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit
 
 if.then.i.i36:                                    ; preds = %if.then15
@@ -55084,12 +55055,12 @@ invoke.cont.i.i39:                                ; preds = %if.then.i.i36
   unreachable
 
 lpad.i.i38:                                       ; preds = %if.then.i.i36
-  %17 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit:  ; preds = %if.then15
-  %18 = load i8, ptr %15, align 1
+  %16 = load i8, ptr %13, align 1
   store ptr %add.ptr.i.i33, ptr %mCurrent.i.i32, align 8
   br label %if.end41
 
@@ -55100,13 +55071,13 @@ if.else21:                                        ; preds = %if.else12
 
 if.then24:                                        ; preds = %if.else21
   %reader25 = getelementptr inbounds i8, ptr %db, i64 128
-  %19 = load ptr, ptr %reader25, align 8
-  %mCurrent.i.i42 = getelementptr inbounds i8, ptr %19, i64 24
-  %20 = load ptr, ptr %mCurrent.i.i42, align 8
-  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %20, i64 4
-  %mLimit.i.i44 = getelementptr inbounds i8, ptr %19, i64 40
-  %21 = load ptr, ptr %mLimit.i.i44, align 8
-  %cmp.i.i45 = icmp ugt ptr %add.ptr.i.i43, %21
+  %17 = load ptr, ptr %reader25, align 8
+  %mCurrent.i.i42 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = load ptr, ptr %mCurrent.i.i42, align 8
+  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %18, i64 4
+  %mLimit.i.i44 = getelementptr inbounds i8, ptr %17, i64 40
+  %19 = load ptr, ptr %mLimit.i.i44, align 8
+  %cmp.i.i45 = icmp ugt ptr %add.ptr.i.i43, %19
   br i1 %cmp.i.i45, label %if.then.i.i49, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit
 
 if.then.i.i49:                                    ; preds = %if.then24
@@ -55119,18 +55090,17 @@ invoke.cont.i.i52:                                ; preds = %if.then.i.i49
   unreachable
 
 lpad.i.i51:                                       ; preds = %if.then.i.i49
-  %22 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit:  ; preds = %if.then24
-  %23 = load i32, ptr %20, align 1
-  %mLe.i.i46 = getelementptr inbounds i8, ptr %19, i64 48
-  %24 = load i8, ptr %mLe.i.i46, align 8
-  %25 = and i8 %24, 1
-  %tobool.not.i.i47 = icmp eq i8 %25, 0
-  %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %23)
-  %spec.select.i.i48 = select i1 %tobool.not.i.i47, i32 %f.2.insert.insert.i.i, i32 %23
+  %21 = load i32, ptr %18, align 1
+  %mLe.i.i46 = getelementptr inbounds i8, ptr %17, i64 48
+  %22 = load i8, ptr %mLe.i.i46, align 8
+  %tobool.i.i47 = trunc i8 %22 to i1
+  %f.2.insert.insert.i.i = tail call i32 @llvm.bswap.i32(i32 %21)
+  %spec.select.i.i48 = select i1 %tobool.i.i47, i32 %21, i32 %f.2.insert.insert.i.i
   %f.0.i.i = bitcast i32 %spec.select.i.i48 to float
   store ptr %add.ptr.i.i43, ptr %mCurrent.i.i42, align 8
   %conv = fptoui float %f.0.i.i to i8
@@ -55143,13 +55113,13 @@ if.else28:                                        ; preds = %if.else21
 
 if.then31:                                        ; preds = %if.else28
   %reader32 = getelementptr inbounds i8, ptr %db, i64 128
-  %26 = load ptr, ptr %reader32, align 8
-  %mCurrent.i.i55 = getelementptr inbounds i8, ptr %26, i64 24
-  %27 = load ptr, ptr %mCurrent.i.i55, align 8
-  %add.ptr.i.i56 = getelementptr inbounds i8, ptr %27, i64 8
-  %mLimit.i.i57 = getelementptr inbounds i8, ptr %26, i64 40
-  %28 = load ptr, ptr %mLimit.i.i57, align 8
-  %cmp.i.i58 = icmp ugt ptr %add.ptr.i.i56, %28
+  %23 = load ptr, ptr %reader32, align 8
+  %mCurrent.i.i55 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = load ptr, ptr %mCurrent.i.i55, align 8
+  %add.ptr.i.i56 = getelementptr inbounds i8, ptr %24, i64 8
+  %mLimit.i.i57 = getelementptr inbounds i8, ptr %23, i64 40
+  %25 = load ptr, ptr %mLimit.i.i57, align 8
+  %cmp.i.i58 = icmp ugt ptr %add.ptr.i.i56, %25
   br i1 %cmp.i.i58, label %if.then.i.i63, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit
 
 if.then.i.i63:                                    ; preds = %if.then31
@@ -55162,18 +55132,17 @@ invoke.cont.i.i66:                                ; preds = %if.then.i.i63
   unreachable
 
 lpad.i.i65:                                       ; preds = %if.then.i.i63
-  %29 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit:  ; preds = %if.then31
-  %30 = load i64, ptr %27, align 1
-  %mLe.i.i59 = getelementptr inbounds i8, ptr %26, i64 48
-  %31 = load i8, ptr %mLe.i.i59, align 8
-  %32 = and i8 %31, 1
-  %tobool.not.i.i60 = icmp eq i8 %32, 0
-  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %30)
-  %spec.select.i.i61 = select i1 %tobool.not.i.i60, i64 %f.4.insert.insert.i.i, i64 %30
+  %27 = load i64, ptr %24, align 1
+  %mLe.i.i59 = getelementptr inbounds i8, ptr %23, i64 48
+  %28 = load i8, ptr %mLe.i.i59, align 8
+  %tobool.i.i60 = trunc i8 %28 to i1
+  %f.4.insert.insert.i.i = tail call i64 @llvm.bswap.i64(i64 %27)
+  %spec.select.i.i61 = select i1 %tobool.i.i60, i64 %27, i64 %f.4.insert.insert.i.i
   %f.0.i.i62 = bitcast i64 %spec.select.i.i61 to double
   store ptr %add.ptr.i.i56, ptr %mCurrent.i.i55, align 8
   %conv35 = fptoui double %f.0.i.i62 to i8
@@ -55189,12 +55158,12 @@ invoke.cont:                                      ; preds = %if.else36
   unreachable
 
 lpad:                                             ; preds = %if.else36
-  %33 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.end41:                                         ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit, %if.end.i.i
-  %conv2.i.sink = phi i8 [ %conv2.i, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %conv, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %conv35, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %18, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %conv.i, %if.end.i.i ]
+  %conv2.i.sink = phi i8 [ %conv2.i, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %conv, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %conv35, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %16, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %conv.i, %if.end.i.i ]
   store i8 %conv2.i.sink, ptr %out, align 1
   ret void
 }

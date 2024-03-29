@@ -41,9 +41,8 @@ define ptr @mca_rcache_base_module_create(ptr noundef %0, ptr noundef %1, ptr no
 
 7:                                                ; preds = %5
   %8 = load i8, ptr @opal_leave_pinned_pipeline, align 1
-  %9 = and i8 %8, 1
-  %.not22 = icmp eq i8 %9, 0
-  br i1 %.not22, label %40, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %40
 
 10:                                               ; preds = %7, %5
   %11 = tail call i32 @mca_base_framework_open(ptr noundef nonnull @opal_memory_base_framework, i32 noundef 0) #5
@@ -75,9 +74,8 @@ define ptr @mca_rcache_base_module_create(ptr noundef %0, ptr noundef %1, ptr no
 
 27:                                               ; preds = %25
   %28 = load i8, ptr @opal_leave_pinned_pipeline, align 1
-  %29 = and i8 %28, 1
-  %.not23 = icmp eq i8 %29, 0
-  br i1 %.not23, label %39, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %39
 
 30:                                               ; preds = %27, %25
   %31 = load ptr, ptr @opal_show_help, align 8
@@ -95,19 +93,19 @@ define ptr @mca_rcache_base_module_create(ptr noundef %0, ptr noundef %1, ptr no
   br label %40
 
 40:                                               ; preds = %7, %39, %3
-  %.01828 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_rcache_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not2529 = icmp eq ptr %.01828, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_rcache_base_framework, i64 0, i32 12, i32 1)
-  br i1 %.not2529, label %.thread, label %.lr.ph
+  %.01825 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_rcache_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
+  %.not2226 = icmp eq ptr %.01825, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_rcache_base_framework, i64 0, i32 12, i32 1)
+  br i1 %.not2226, label %.thread, label %.lr.ph
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds i8, ptr %.01830, i64 16
+  %42 = getelementptr inbounds i8, ptr %.01827, i64 16
   %.018 = load volatile ptr, ptr %42, align 8
-  %.not25 = icmp eq ptr %.018, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_rcache_base_framework, i64 0, i32 12, i32 1)
-  br i1 %.not25, label %.thread, label %.lr.ph, !llvm.loop !4
+  %.not22 = icmp eq ptr %.018, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_rcache_base_framework, i64 0, i32 12, i32 1)
+  br i1 %.not22, label %.thread, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %40, %41
-  %.01830 = phi ptr [ %.018, %41 ], [ %.01828, %40 ]
-  %43 = getelementptr inbounds i8, ptr %.01830, i64 40
+  %.01827 = phi ptr [ %.018, %41 ], [ %.01825, %40 ]
+  %43 = getelementptr inbounds i8, ptr %.01827, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 84
   %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %0) #6
@@ -241,9 +239,8 @@ define noundef i32 @mca_rcache_base_module_destroy(ptr noundef readnone %0) loca
 24:                                               ; preds = %8, %23
   %25 = getelementptr inbounds i8, ptr %.015, i64 8
   %26 = load i8, ptr @opal_uses_threads, align 1
-  %27 = and i8 %26, 1
-  %.not.i = icmp eq i8 %27, 0
-  br i1 %.not.i, label %31, label %28
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %31
 
 28:                                               ; preds = %24
   %29 = atomicrmw volatile add ptr %25, i32 -1 monotonic, align 4
@@ -276,8 +273,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %28, %31
   tail call void %41(ptr noundef nonnull %.015) #5
   %42 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %43 = load ptr, ptr %42, align 8
-  %.not.i19 = icmp eq ptr %43, null
-  br i1 %.not.i19, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !8
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %36
   tail call void @free(ptr noundef %.015) #5

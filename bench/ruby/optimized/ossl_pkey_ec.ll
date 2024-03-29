@@ -322,8 +322,8 @@ define internal i64 @ossl_s_builtin_curves(i64 %0) #0 {
 
 rb_long2int_inline.exit:                          ; preds = %1
   %5 = trunc i64 %2 to i32
-  %6 = icmp ult i64 %2, 1152921504606846976
-  br i1 %6, label %rbimpl_size_mul_or_raise.exit, label %7
+  %6 = icmp ugt i64 %2, 1152921504606846975
+  br i1 %6, label %7, label %rbimpl_size_mul_or_raise.exit
 
 7:                                                ; preds = %rb_long2int_inline.exit
   tail call void @ruby_malloc_size_overflow(i64 noundef 16, i64 noundef %2) #8

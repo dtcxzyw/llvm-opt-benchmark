@@ -242,8 +242,7 @@ define noundef zeroext i1 @_ZNK5arrow4util8ArrowLog9IsEnabledEv(ptr nocapture no
 entry:
   %is_enabled_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %is_enabled_, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -282,9 +281,8 @@ entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow4util7CerrLogE, i64 0, i32 0, i64 2), ptr %this, align 8
   %has_logged_ = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %has_logged_, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -292,8 +290,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %severity_ = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load i32, ptr %severity_, align 8
-  %cmp = icmp eq i32 %2, 3
+  %1 = load i32, ptr %severity_, align 8
+  %cmp = icmp eq i32 %1, 3
   br i1 %cmp, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
@@ -308,10 +306,10 @@ if.end4:                                          ; preds = %if.end
   ret void
 
 terminate.lpad:                                   ; preds = %if.then2, %if.then
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #17
   unreachable
 }
 
@@ -321,9 +319,8 @@ entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow4util7CerrLogE, i64 0, i32 0, i64 2), ptr %this, align 8
   %has_logged_.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %has_logged_.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -331,8 +328,8 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %severity_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load i32, ptr %severity_.i, align 8
-  %cmp.i = icmp eq i32 %2, 3
+  %1 = load i32, ptr %severity_.i, align 8
+  %cmp.i = icmp eq i32 %1, 3
   br i1 %cmp.i, label %if.then2.i, label %_ZN5arrow4util7CerrLogD2Ev.exit
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -344,10 +341,10 @@ invoke.cont3.i:                                   ; preds = %if.then2.i
   unreachable
 
 terminate.lpad.i:                                 ; preds = %if.then2.i, %if.then.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #17
   unreachable
 
 _ZN5arrow4util7CerrLogD2Ev.exit:                  ; preds = %if.end.i

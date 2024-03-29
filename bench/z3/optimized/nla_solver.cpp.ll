@@ -306,9 +306,8 @@ entry:
   %1 = load ptr, ptr %this, align 8
   %m_use_nra_model.i.i = getelementptr inbounds i8, ptr %1, i64 4688
   %2 = load i8, ptr %m_use_nra_model.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.i.i.not = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not, label %if.end, label %if.then
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_nra = getelementptr inbounds i8, ptr %1, i64 4696
@@ -327,8 +326,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %m_use_nra_model.i = getelementptr inbounds i8, ptr %0, i64 4688
   %1 = load i8, ptr %m_use_nra_model.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   ret i1 %tobool.i
 }
 

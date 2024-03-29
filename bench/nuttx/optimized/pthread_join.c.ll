@@ -28,9 +28,8 @@ define i32 @pthread_join(i32 noundef %0, ptr noundef writeonly %1) local_unnamed
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 9
   %17 = load i8, ptr %16, align 1
-  %18 = and i8 %17, 1
-  %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %19, label %.sink.split
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %.sink.split, label %19
 
 19:                                               ; preds = %14
   %20 = call i32 @sched_lock() #2
@@ -41,13 +40,12 @@ define i32 @pthread_join(i32 noundef %0, ptr noundef writeonly %1) local_unnamed
   store i8 %24, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %21, i64 10
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %.not20 = icmp eq i8 %27, 0
-  br i1 %.not20, label %32, label %28
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %32
 
 28:                                               ; preds = %19
-  %.not22 = icmp eq ptr %1, null
-  br i1 %.not22, label %44, label %29
+  %.not20 = icmp eq ptr %1, null
+  br i1 %.not20, label %44, label %29
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds i8, ptr %21, i64 80
@@ -60,9 +58,9 @@ define i32 @pthread_join(i32 noundef %0, ptr noundef writeonly %1) local_unnamed
   %34 = load ptr, ptr %3, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = call i32 @nxsem_wait_uninterruptible(ptr noundef nonnull %35) #2
-  %.not21 = icmp eq ptr %1, null
+  %.not = icmp eq ptr %1, null
   %.pre = load ptr, ptr %3, align 8
-  br i1 %.not21, label %40, label %37
+  br i1 %.not, label %40, label %37
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds i8, ptr %.pre, i64 80

@@ -158,9 +158,8 @@ define hidden void @_ZN6hermes2vm24JSCallableProxyBuildMetaEPKNS0_6GCCellERNS0_8
 entry:
   %hasValue_.i.i = getelementptr inbounds i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %if.then.i, label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %jsObjectOverlapSlots_.i = getelementptr inbounds i8, ptr %mb, i64 208
@@ -581,12 +580,12 @@ _ZSt20uninitialized_copy_nISt16reverse_iteratorIPN6hermes2vm17PinnedHermesValueE
   %28 = extractvalue { i32, i64 } %call6.i, 1
   %cmp.i53 = icmp ne i32 %27, 0
   %spec.select = zext i1 %cmp.i53 to i32
-  %spec.select121 = select i1 %cmp.i53, i64 %28, i64 undef
+  %spec.select120 = select i1 %cmp.i53, i64 %28, i64 undef
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZSt20uninitialized_copy_nISt16reverse_iteratorIPN6hermes2vm17PinnedHermesValueEEjS5_ET1_T_T0_S6_.exit, %if.then39
   %retval.sroa.0.0 = phi i32 [ %call40, %if.then39 ], [ %spec.select, %_ZSt20uninitialized_copy_nISt16reverse_iteratorIPN6hermes2vm17PinnedHermesValueEEjS5_ET1_T_T0_S6_.exit ]
-  %retval.sroa.11.0 = phi i64 [ undef, %if.then39 ], [ %spec.select121, %_ZSt20uninitialized_copy_nISt16reverse_iteratorIPN6hermes2vm17PinnedHermesValueEEjS5_ET1_T_T0_S6_.exit ]
+  %retval.sroa.11.0 = phi i64 [ undef, %if.then39 ], [ %spec.select120, %_ZSt20uninitialized_copy_nISt16reverse_iteratorIPN6hermes2vm17PinnedHermesValueEEjS5_ET1_T_T0_S6_.exit ]
   %29 = load i32, ptr %nativeCallFrameDepth_.i, align 8
   %dec.i = add i32 %29, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
@@ -604,8 +603,8 @@ if.end74:                                         ; preds = %if.end63
   %call81 = call noundef i32 @_ZN6hermes2vm9ArrayImpl18setStorageEndIndexENS0_6HandleIS1_EERNS0_7RuntimeEj(ptr %call68, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %conv.i.i66) #4
   %31 = load i64, ptr %arrayidx.i.i58, align 8
   %32 = and i64 %31, 4294967295
-  %cmp125.not = icmp eq i64 %32, 0
-  br i1 %cmp125.not, label %for.end, label %for.body.lr.ph
+  %cmp124.not = icmp eq i64 %32, 0
+  br i1 %cmp124.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end74
   %invariant.gep = getelementptr i8, ptr %retval.sroa.0.0.copyload.i, i64 -64
@@ -616,8 +615,8 @@ for.body.lr.ph:                                   ; preds = %if.end74
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit
-  %i.0126 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit ]
-  %conv.i = sext i32 %i.0126 to i64
+  %i.0125 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit ]
+  %conv.i = sext i32 %i.0125 to i64
   %idx.neg.i.i.i69 = sub nsw i64 0, %conv.i
   %gep = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %invariant.gep, i64 %idx.neg.i.i.i69
   %agg.tmp84.sroa.0.0.copyload = load i64, ptr %gep, align 8
@@ -725,7 +724,7 @@ _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE
   %cond.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i, ptr null, ptr %39
   %beginIndex_.i = getelementptr inbounds i8, ptr %38, i64 20
   %40 = load i32, ptr %beginIndex_.i, align 4
-  %sub.i = sub i32 %i.0126, %40
+  %sub.i = sub i32 %i.0125, %40
   %cmp.i.i.i.i = icmp ult i32 %sub.i, 4096
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -768,7 +767,7 @@ if.then.i.i2.i.i:                                 ; preds = %_ZN6hermes2vm18Segm
 
 _ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i, %if.then.i.i2.i.i
   store i32 %retval.sroa.0.0.i, ptr %retval.0.i.i.i.i, align 4
-  %inc = add nuw i32 %i.0126, 1
+  %inc = add nuw i32 %i.0125, 1
   %46 = load i64, ptr %arrayidx.i.i58, align 8
   %conv.i.i68 = trunc i64 %46 to i32
   %cmp = icmp ult i32 %inc, %conv.i.i68
@@ -822,13 +821,13 @@ if.else:                                          ; preds = %for.end
   %54 = extractvalue { i32, i64 } %call151, 0
   %55 = extractvalue { i32, i64 } %call151, 1
   %cmp.i95 = icmp ne i32 %54, 0
-  %spec.select122 = zext i1 %cmp.i95 to i32
-  %spec.select123 = select i1 %cmp.i95, i64 %55, i64 undef
+  %spec.select121 = zext i1 %cmp.i95 to i32
+  %spec.select122 = select i1 %cmp.i95, i64 %55, i64 undef
   br label %cleanup160
 
 cleanup160:                                       ; preds = %if.else, %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit, %if.then94, %if.end63, %_ZN6hermes2vm7Runtime10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit33, %if.then123, %cleanup
-  %retval.sroa.0.1 = phi i32 [ %call125, %if.then123 ], [ %retval.sroa.0.0, %cleanup ], [ 0, %_ZN6hermes2vm7Runtime10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit33 ], [ 0, %if.end63 ], [ 0, %if.then94 ], [ 1, %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit ], [ %spec.select122, %if.else ]
-  %retval.sroa.11.1 = phi i64 [ undef, %if.then123 ], [ %retval.sroa.11.0, %cleanup ], [ undef, %_ZN6hermes2vm7Runtime10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit33 ], [ undef, %if.end63 ], [ undef, %if.then94 ], [ %49, %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit ], [ %spec.select123, %if.else ]
+  %retval.sroa.0.1 = phi i32 [ %call125, %if.then123 ], [ %retval.sroa.0.0, %cleanup ], [ 0, %_ZN6hermes2vm7Runtime10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit33 ], [ 0, %if.end63 ], [ 0, %if.then94 ], [ 1, %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit ], [ %spec.select121, %if.else ]
+  %retval.sroa.11.1 = phi i64 [ undef, %if.then123 ], [ %retval.sroa.11.0, %cleanup ], [ undef, %_ZN6hermes2vm7Runtime10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit33 ], [ undef, %if.end63 ], [ undef, %if.then94 ], [ %49, %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit ], [ %spec.select122, %if.else ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #4
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.1, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.11.1, 1

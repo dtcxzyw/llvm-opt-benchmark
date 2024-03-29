@@ -384,19 +384,18 @@ if.end3:                                          ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %.compoundliteral.sroa.2.0.create_opts.sroa_idx, ptr noundef nonnull align 4 dereferenceable(68) %.compoundliteral.sroa.2, i64 68, i1 false)
   %has_preallocation = getelementptr inbounds i8, ptr %create_options, i64 88
   %2 = load i8, ptr %has_preallocation, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end8, label %if.then6
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.end3
   %preallocation7 = getelementptr inbounds i8, ptr %create_options, i64 92
-  %4 = load i32, ptr %preallocation7, align 4
+  %3 = load i32, ptr %preallocation7, align 4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end3
-  %preallocation.0 = phi i32 [ %4, %if.then6 ], [ 0, %if.end3 ]
+  %preallocation.0 = phi i32 [ %3, %if.then6 ], [ 0, %if.end3 ]
   %size = getelementptr inbounds i8, ptr %create_options, i64 80
-  %5 = load i64, ptr %size, align 8
+  %4 = load i64, ptr %size, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %data.i)
   %call.i = tail call ptr @blk_co_new_with_bs(ptr noundef nonnull %call, i64 noundef 10, i64 noundef 15, ptr noundef %errp) #9
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -407,7 +406,7 @@ if.end.i:                                         ; preds = %if.end8
   %spec.store.select.i = select i1 %cmp.i, i32 0, i32 %preallocation.0
   store ptr %call.i, ptr %data.i, align 8
   %.compoundliteral.sroa.2.0.data.sroa_idx.i = getelementptr inbounds i8, ptr %data.i, i64 8
-  store i64 %5, ptr %.compoundliteral.sroa.2.0.data.sroa_idx.i, align 8
+  store i64 %4, ptr %.compoundliteral.sroa.2.0.data.sroa_idx.i, align 8
   %.compoundliteral.sroa.3.0.data.sroa_idx.i = getelementptr inbounds i8, ptr %data.i, i64 16
   store i32 %spec.store.select.i, ptr %.compoundliteral.sroa.3.0.data.sroa_idx.i, align 8
   %call6.i = call ptr @qcrypto_block_create(ptr noundef nonnull %create_opts, ptr noundef null, ptr noundef nonnull @block_crypto_create_init_func, ptr noundef nonnull @block_crypto_create_write_func, ptr noundef nonnull %data.i, ptr noundef %errp) #9
@@ -713,15 +712,14 @@ entry:
   store i64 %or3, ptr %nperm, align 8
   %updating_keys = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %updating_keys, align 8
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %or4 = or i64 %or3, 2
   store i64 %or4, ptr %nperm, align 8
-  %5 = load i64, ptr %nshared, align 8
-  %and5 = and i64 %5, -4
+  %4 = load i64, ptr %nshared, align 8
+  %and5 = and i64 %4, -4
   store i64 %and5, ptr %nshared, align 8
   br label %if.end
 

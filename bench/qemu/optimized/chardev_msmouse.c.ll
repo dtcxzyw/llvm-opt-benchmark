@@ -245,15 +245,15 @@ sw.bb3:                                           ; preds = %if.end
   %7 = load ptr, ptr %u4, align 8
   %down = getelementptr inbounds i8, ptr %7, i64 4
   %8 = load i8, ptr %down, align 4
-  %9 = and i8 %8, 1
   %btns = getelementptr inbounds i8, ptr %call.i, i64 172
-  %10 = load i32, ptr %7, align 4
-  %idxprom7 = zext i32 %10 to i64
+  %9 = load i32, ptr %7, align 4
+  %idxprom7 = zext i32 %9 to i64
   %arrayidx8 = getelementptr [10 x i8], ptr %btns, i64 0, i64 %idxprom7
-  store i8 %9, ptr %arrayidx8, align 1
+  %frombool = and i8 %8, 1
+  store i8 %frombool, ptr %arrayidx8, align 1
   %btnc = getelementptr inbounds i8, ptr %call.i, i64 182
-  %11 = load i32, ptr %7, align 4
-  %idxprom10 = zext i32 %11 to i64
+  %10 = load i32, ptr %7, align 4
+  %idxprom10 = zext i32 %10 to i64
   %arrayidx11 = getelementptr [10 x i8], ptr %btnc, i64 0, i64 %idxprom10
   store i8 1, ptr %arrayidx11, align 1
   br label %sw.epilog
@@ -299,34 +299,31 @@ if.end:                                           ; preds = %entry
   store i8 %8, ptr %arrayidx18.i, align 2
   %btns.i = getelementptr inbounds i8, ptr %call.i, i64 172
   %9 = load i8, ptr %btns.i, align 4
-  %10 = shl i8 %9, 5
-  %11 = and i8 %10, 32
-  %conv11.i = or disjoint i8 %11, %4
+  %tobool.i = trunc i8 %9 to i1
+  %cond.i = select i1 %tobool.i, i8 32, i8 0
+  %conv11.i = or disjoint i8 %cond.i, %4
   %arrayidx29.i = getelementptr i8, ptr %call.i, i64 174
-  %12 = load i8, ptr %arrayidx29.i, align 2
-  %13 = shl i8 %12, 4
-  %14 = and i8 %13, 16
-  %or2616.i = or disjoint i8 %conv11.i, %14
-  %or3517.i = or disjoint i8 %or2616.i, 64
-  store i8 %or3517.i, ptr %bytes.i, align 4
+  %10 = load i8, ptr %arrayidx29.i, align 2
+  %tobool30.i = trunc i8 %10 to i1
+  %cond32.i = select i1 %tobool30.i, i8 16, i8 0
+  %or26.i = or disjoint i8 %conv11.i, %cond32.i
+  %or35.i = or disjoint i8 %or26.i, 64
+  store i8 %or35.i, ptr %bytes.i, align 4
   %arrayidx38.i = getelementptr i8, ptr %call.i, i64 173
-  %15 = load i8, ptr %arrayidx38.i, align 1
-  %16 = and i8 %15, 1
-  %tobool39.not.i = icmp eq i8 %16, 0
-  br i1 %tobool39.not.i, label %lor.lhs.false.i, label %if.then.i
+  %11 = load i8, ptr %arrayidx38.i, align 1
+  %tobool39.i = trunc i8 %11 to i1
+  br i1 %tobool39.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
   %arrayidx41.i = getelementptr i8, ptr %call.i, i64 183
-  %17 = load i8, ptr %arrayidx41.i, align 1
-  %18 = and i8 %17, 1
-  %tobool42.not.i = icmp eq i8 %18, 0
-  br i1 %tobool42.not.i, label %if.end.i, label %if.then.i
+  %12 = load i8, ptr %arrayidx41.i, align 1
+  %tobool42.i = trunc i8 %12 to i1
+  br i1 %tobool42.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end
-  %19 = shl i8 %15, 5
-  %20 = and i8 %19, 32
+  %cond48.i = phi i8 [ 0, %lor.lhs.false.i ], [ 32, %if.end ]
   %arrayidx49.i = getelementptr inbounds i8, ptr %bytes.i, i64 3
-  store i8 %20, ptr %arrayidx49.i, align 1
+  store i8 %cond48.i, ptr %arrayidx49.i, align 1
   %arrayidx54.i = getelementptr i8, ptr %call.i, i64 183
   store i8 0, ptr %arrayidx54.i, align 1
   br label %if.end.i

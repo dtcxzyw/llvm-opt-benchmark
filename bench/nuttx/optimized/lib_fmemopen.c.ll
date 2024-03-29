@@ -112,9 +112,8 @@ define ptr @fmemopen(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
 50:                                               ; preds = %44
   %51 = getelementptr inbounds i8, ptr %5, i64 24
   %52 = load i8, ptr %51, align 8
-  %53 = and i8 %52, 1
-  %.not41 = icmp eq i8 %53, 0
-  br i1 %.not41, label %56, label %54
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %56
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %5, align 8
@@ -277,9 +276,8 @@ define internal i32 @fmemopen_seek(ptr nocapture noundef %0, ptr nocapture nound
 define internal noundef i32 @fmemopen_close(ptr nocapture noundef %0) #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %7, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8

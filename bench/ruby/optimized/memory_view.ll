@@ -279,7 +279,7 @@ define dso_local i64 @rb_memory_view_parse_item_format(ptr noundef %0, ptr nound
   %14 = alloca i32, align 4
   %15 = alloca i64, align 8
   %16 = icmp eq ptr %0, null
-  br i1 %16, label %124, label %17
+  br i1 %16, label %120, label %17
 
 17:                                               ; preds = %4
   store i64 4, ptr %5, align 8
@@ -349,11 +349,11 @@ define dso_local i64 @rb_memory_view_parse_item_format(ptr noundef %0, ptr nound
 
 41:                                               ; preds = %38
   %.not72 = icmp eq ptr %3, null
-  br i1 %.not72, label %124, label %42
+  br i1 %.not72, label %120, label %42
 
 42:                                               ; preds = %41
   store ptr %.lcssa9295, ptr %3, align 8
-  br label %124
+  br label %120
 
 43:                                               ; preds = %38
   %44 = load i64, ptr %8, align 8
@@ -416,7 +416,7 @@ calculate_padding.exit78:                         ; preds = %59, %61
   %67 = icmp ne ptr %1, null
   %68 = icmp ne ptr %2, null
   %or.cond3 = and i1 %67, %68
-  br i1 %or.cond3, label %69, label %124
+  br i1 %or.cond3, label %69, label %120
 
 69:                                               ; preds = %66
   %70 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %.050.ph.lcssa89137, i64 noundef 32) #18
@@ -428,11 +428,11 @@ calculate_padding.exit78:                         ; preds = %59, %61
 .lr.ph117:                                        ; preds = %69
   br i1 %19, label %.lr.ph117.split.us, label %calculate_padding.exit81
 
-.lr.ph117.split.us:                               ; preds = %.lr.ph117, %96
-  %72 = phi i8 [ %101, %96 ], [ %71, %.lr.ph117 ]
-  %73 = phi ptr [ %100, %96 ], [ %.promoted91103, %.lr.ph117 ]
-  %.056115.us = phi i64 [ %.157.us, %96 ], [ 0, %.lr.ph117 ]
-  %.058114.us = phi i64 [ %99, %96 ], [ 0, %.lr.ph117 ]
+.lr.ph117.split.us:                               ; preds = %.lr.ph117, %94
+  %72 = phi i8 [ %99, %94 ], [ %71, %.lr.ph117 ]
+  %73 = phi ptr [ %98, %94 ], [ %.promoted91103, %.lr.ph117 ]
+  %.056115.us = phi i64 [ %.157.us, %94 ], [ 0, %.lr.ph117 ]
+  %.058114.us = phi i64 [ %97, %94 ], [ 0, %.lr.ph117 ]
   store i64 0, ptr %13, align 8
   store i32 0, ptr %14, align 4
   store i64 0, ptr %15, align 8
@@ -456,134 +456,130 @@ calculate_padding.exit81.us:                      ; preds = %77, %.lr.ph117.spli
 
 calculate_padding.exit81.us._crit_edge:           ; preds = %calculate_padding.exit81.us
   %.pre131 = load i64, ptr %15, align 8
-  br label %96
+  br label %94
 
 83:                                               ; preds = %calculate_padding.exit81.us
   %84 = load i32, ptr %14, align 4
   %85 = icmp ne i32 %84, 2
   %switch.tableidx = add i8 %72, -69
   %86 = icmp ult i8 %switch.tableidx, 50
-  br i1 %86, label %switch.hole_check, label %89
+  br i1 %86, label %switch.hole_check, label %87
 
 switch.hole_check:                                ; preds = %83
   %switch.maskindex = zext nneg i8 %switch.tableidx to i64
   %switch.shifted = lshr i64 565170451644933, %switch.maskindex
-  %87 = and i64 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i64 %87, 0
-  br i1 %switch.lobit.not, label %89, label %switch.lookup
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %87
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %switch.cast = zext nneg i8 %switch.tableidx to i50
   %switch.downshift = lshr i50 -2216203125253, %switch.cast
-  %88 = and i50 %switch.downshift, 1
-  %switch.masked = icmp ne i50 %88, 0
-  br label %89
+  %switch.masked = trunc i50 %switch.downshift to i1
+  br label %87
 
-89:                                               ; preds = %switch.lookup, %switch.hole_check, %83
+87:                                               ; preds = %switch.lookup, %switch.hole_check, %83
   %.055.us = phi i1 [ %85, %83 ], [ %85, %switch.hole_check ], [ %switch.masked, %switch.lookup ]
-  %90 = add i64 %.056115.us, 1
-  %91 = getelementptr %struct.rb_memory_view_item_component_t, ptr %70, i64 %.056115.us
-  %92 = load i8, ptr %12, align 1
-  %93 = and i8 %92, 1
-  %94 = zext i1 %.055.us to i8
-  %95 = load i64, ptr %15, align 8
-  store i8 %72, ptr %91, align 8
-  %.sroa.2.0..sroa_idx.us = getelementptr inbounds i8, ptr %91, i64 1
-  store i8 %93, ptr %.sroa.2.0..sroa_idx.us, align 1
-  %.sroa.3.0..sroa_idx.us = getelementptr inbounds i8, ptr %91, i64 2
-  store i8 %94, ptr %.sroa.3.0..sroa_idx.us, align 2
-  %.sroa.44.0..sroa_idx.us = getelementptr inbounds i8, ptr %91, i64 8
+  %88 = add i64 %.056115.us, 1
+  %89 = getelementptr %struct.rb_memory_view_item_component_t, ptr %70, i64 %.056115.us
+  %90 = load i8, ptr %12, align 1
+  %91 = and i8 %90, 1
+  %92 = zext i1 %.055.us to i8
+  %93 = load i64, ptr %15, align 8
+  store i8 %72, ptr %89, align 8
+  %.sroa.2.0..sroa_idx.us = getelementptr inbounds i8, ptr %89, i64 1
+  store i8 %91, ptr %.sroa.2.0..sroa_idx.us, align 1
+  %.sroa.3.0..sroa_idx.us = getelementptr inbounds i8, ptr %89, i64 2
+  store i8 %92, ptr %.sroa.3.0..sroa_idx.us, align 2
+  %.sroa.44.0..sroa_idx.us = getelementptr inbounds i8, ptr %89, i64 8
   store i64 %82, ptr %.sroa.44.0..sroa_idx.us, align 8
-  %.sroa.5.0..sroa_idx.us = getelementptr inbounds i8, ptr %91, i64 16
+  %.sroa.5.0..sroa_idx.us = getelementptr inbounds i8, ptr %89, i64 16
   store i64 %74, ptr %.sroa.5.0..sroa_idx.us, align 8
-  %.sroa.6.0..sroa_idx.us = getelementptr inbounds i8, ptr %91, i64 24
-  store i64 %95, ptr %.sroa.6.0..sroa_idx.us, align 8
-  br label %96
+  %.sroa.6.0..sroa_idx.us = getelementptr inbounds i8, ptr %89, i64 24
+  store i64 %93, ptr %.sroa.6.0..sroa_idx.us, align 8
+  br label %94
 
-96:                                               ; preds = %calculate_padding.exit81.us._crit_edge, %89
-  %97 = phi i64 [ %95, %89 ], [ %.pre131, %calculate_padding.exit81.us._crit_edge ]
-  %.157.us = phi i64 [ %90, %89 ], [ %.056115.us, %calculate_padding.exit81.us._crit_edge ]
-  %98 = mul i64 %97, %74
-  %99 = add i64 %98, %82
-  %100 = load ptr, ptr %11, align 8
-  %101 = load i8, ptr %100, align 1
-  %.not68.us = icmp eq i8 %101, 0
+94:                                               ; preds = %calculate_padding.exit81.us._crit_edge, %87
+  %95 = phi i64 [ %93, %87 ], [ %.pre131, %calculate_padding.exit81.us._crit_edge ]
+  %.157.us = phi i64 [ %88, %87 ], [ %.056115.us, %calculate_padding.exit81.us._crit_edge ]
+  %96 = mul i64 %95, %74
+  %97 = add i64 %96, %82
+  %98 = load ptr, ptr %11, align 8
+  %99 = load i8, ptr %98, align 1
+  %.not68.us = icmp eq i8 %99, 0
   br i1 %.not68.us, label %._crit_edge118, label %.lr.ph117.split.us, !llvm.loop !15
 
-calculate_padding.exit81:                         ; preds = %.lr.ph117, %118
-  %102 = phi i8 [ %123, %118 ], [ %71, %.lr.ph117 ]
-  %103 = phi ptr [ %122, %118 ], [ %.promoted91103, %.lr.ph117 ]
-  %.056115 = phi i64 [ %.157, %118 ], [ 0, %.lr.ph117 ]
-  %.058114 = phi i64 [ %121, %118 ], [ 0, %.lr.ph117 ]
+calculate_padding.exit81:                         ; preds = %.lr.ph117, %114
+  %100 = phi i8 [ %119, %114 ], [ %71, %.lr.ph117 ]
+  %101 = phi ptr [ %118, %114 ], [ %.promoted91103, %.lr.ph117 ]
+  %.056115 = phi i64 [ %.157, %114 ], [ 0, %.lr.ph117 ]
+  %.058114 = phi i64 [ %117, %114 ], [ 0, %.lr.ph117 ]
   store i64 0, ptr %13, align 8
   store i32 0, ptr %14, align 4
   store i64 0, ptr %15, align 8
-  %104 = call fastcc i64 @get_format_size(ptr noundef nonnull %103, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %11, ptr noundef null), !range !13
-  %.not69 = icmp eq i8 %102, 120
-  br i1 %.not69, label %calculate_padding.exit81._crit_edge, label %105
+  %102 = call fastcc i64 @get_format_size(ptr noundef nonnull %101, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %11, ptr noundef null), !range !13
+  %.not69 = icmp eq i8 %100, 120
+  br i1 %.not69, label %calculate_padding.exit81._crit_edge, label %103
 
 calculate_padding.exit81._crit_edge:              ; preds = %calculate_padding.exit81
   %.pre130 = load i64, ptr %15, align 8
-  br label %118
+  br label %114
 
-105:                                              ; preds = %calculate_padding.exit81
-  %106 = load i32, ptr %14, align 4
-  %107 = icmp ne i32 %106, 2
-  %switch.tableidx163 = add i8 %102, -69
-  %108 = icmp ult i8 %switch.tableidx163, 50
-  br i1 %108, label %switch.hole_check164, label %111
+103:                                              ; preds = %calculate_padding.exit81
+  %104 = load i32, ptr %14, align 4
+  %105 = icmp ne i32 %104, 2
+  %switch.tableidx163 = add i8 %100, -69
+  %106 = icmp ult i8 %switch.tableidx163, 50
+  br i1 %106, label %switch.hole_check164, label %107
 
-switch.hole_check164:                             ; preds = %105
+switch.hole_check164:                             ; preds = %103
   %switch.maskindex166 = zext nneg i8 %switch.tableidx163 to i64
   %switch.shifted167 = lshr i64 565170451644933, %switch.maskindex166
-  %109 = and i64 %switch.shifted167, 1
-  %switch.lobit168.not = icmp eq i64 %109, 0
-  br i1 %switch.lobit168.not, label %111, label %switch.lookup165
+  %switch.lobit168 = trunc i64 %switch.shifted167 to i1
+  br i1 %switch.lobit168, label %switch.lookup165, label %107
 
 switch.lookup165:                                 ; preds = %switch.hole_check164
   %switch.cast169 = zext nneg i8 %switch.tableidx163 to i50
   %switch.downshift171 = lshr i50 -2216203125253, %switch.cast169
-  %110 = and i50 %switch.downshift171, 1
-  %switch.masked172 = icmp ne i50 %110, 0
-  br label %111
+  %switch.masked172 = trunc i50 %switch.downshift171 to i1
+  br label %107
 
-111:                                              ; preds = %switch.lookup165, %switch.hole_check164, %105
-  %.055 = phi i1 [ %107, %105 ], [ %107, %switch.hole_check164 ], [ %switch.masked172, %switch.lookup165 ]
-  %112 = add i64 %.056115, 1
-  %113 = getelementptr %struct.rb_memory_view_item_component_t, ptr %70, i64 %.056115
-  %114 = load i8, ptr %12, align 1
-  %115 = and i8 %114, 1
-  %116 = zext i1 %.055 to i8
-  %117 = load i64, ptr %15, align 8
-  store i8 %102, ptr %113, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %113, i64 1
-  store i8 %115, ptr %.sroa.2.0..sroa_idx, align 1
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %113, i64 2
-  store i8 %116, ptr %.sroa.3.0..sroa_idx, align 2
-  %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %113, i64 8
+107:                                              ; preds = %switch.lookup165, %switch.hole_check164, %103
+  %.055 = phi i1 [ %105, %103 ], [ %105, %switch.hole_check164 ], [ %switch.masked172, %switch.lookup165 ]
+  %108 = add i64 %.056115, 1
+  %109 = getelementptr %struct.rb_memory_view_item_component_t, ptr %70, i64 %.056115
+  %110 = load i8, ptr %12, align 1
+  %111 = and i8 %110, 1
+  %112 = zext i1 %.055 to i8
+  %113 = load i64, ptr %15, align 8
+  store i8 %100, ptr %109, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 1
+  store i8 %111, ptr %.sroa.2.0..sroa_idx, align 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 2
+  store i8 %112, ptr %.sroa.3.0..sroa_idx, align 2
+  %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 8
   store i64 %.058114, ptr %.sroa.44.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %113, i64 16
-  store i64 %104, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %113, i64 24
-  store i64 %117, ptr %.sroa.6.0..sroa_idx, align 8
-  br label %118
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 16
+  store i64 %102, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 24
+  store i64 %113, ptr %.sroa.6.0..sroa_idx, align 8
+  br label %114
 
-118:                                              ; preds = %calculate_padding.exit81._crit_edge, %111
-  %119 = phi i64 [ %117, %111 ], [ %.pre130, %calculate_padding.exit81._crit_edge ]
-  %.157 = phi i64 [ %112, %111 ], [ %.056115, %calculate_padding.exit81._crit_edge ]
-  %120 = mul i64 %119, %104
-  %121 = add i64 %120, %.058114
-  %122 = load ptr, ptr %11, align 8
-  %123 = load i8, ptr %122, align 1
-  %.not68 = icmp eq i8 %123, 0
+114:                                              ; preds = %calculate_padding.exit81._crit_edge, %107
+  %115 = phi i64 [ %113, %107 ], [ %.pre130, %calculate_padding.exit81._crit_edge ]
+  %.157 = phi i64 [ %108, %107 ], [ %.056115, %calculate_padding.exit81._crit_edge ]
+  %116 = mul i64 %115, %102
+  %117 = add i64 %116, %.058114
+  %118 = load ptr, ptr %11, align 8
+  %119 = load i8, ptr %118, align 1
+  %.not68 = icmp eq i8 %119, 0
   br i1 %.not68, label %._crit_edge118, label %calculate_padding.exit81, !llvm.loop !15
 
-._crit_edge118:                                   ; preds = %118, %96, %69
+._crit_edge118:                                   ; preds = %114, %94, %69
   store ptr %70, ptr %1, align 8
   store i64 %.050.ph.lcssa89137, ptr %2, align 8
-  br label %124
+  br label %120
 
-124:                                              ; preds = %66, %._crit_edge118, %41, %42, %4
+120:                                              ; preds = %66, %._crit_edge118, %41, %42, %4
   %.0 = phi i64 [ 1, %4 ], [ -1, %42 ], [ -1, %41 ], [ %.1, %._crit_edge118 ], [ %.1, %66 ]
   ret i64 %.0
 }
@@ -673,15 +669,15 @@ define internal fastcc noundef i64 @get_format_size(ptr noundef %0, ptr nocaptur
 
 .lr.ph:                                           ; preds = %35, %.lr.ph
   %37 = phi i8 [ %47, %.lr.ph ], [ %13, %35 ]
-  %.082 = phi i64 [ %43, %.lr.ph ], [ 0, %35 ]
-  %.181 = phi i32 [ %44, %.lr.ph ], [ %.058, %35 ]
+  %.079 = phi i64 [ %43, %.lr.ph ], [ 0, %35 ]
+  %.178 = phi i32 [ %44, %.lr.ph ], [ %.058, %35 ]
   %38 = zext nneg i8 %37 to i64
-  %39 = mul i64 %.082, 10
+  %39 = mul i64 %.079, 10
   %40 = getelementptr [0 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %38
   %41 = load i8, ptr %40, align 1
   %42 = sext i8 %41 to i64
   %43 = add i64 %39, %42
-  %44 = add i32 %.181, 1
+  %44 = add i32 %.178, 1
   %45 = sext i32 %44 to i64
   %46 = getelementptr i8, ptr %0, i64 %45
   %47 = load i8, ptr %46, align 1
@@ -726,9 +722,8 @@ define internal fastcc noundef i64 @get_format_size(ptr noundef %0, ptr nocaptur
 
 52:                                               ; preds = %50, %50
   %53 = load i8, ptr %1, align 1
-  %54 = and i8 %53, 1
-  %.not73 = icmp eq i8 %54, 0
-  br i1 %.not73, label %56, label %55
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %56
 
 55:                                               ; preds = %52
   store i64 2, ptr %2, align 8
@@ -744,9 +739,8 @@ define internal fastcc noundef i64 @get_format_size(ptr noundef %0, ptr nocaptur
 
 58:                                               ; preds = %50, %50
   %59 = load i8, ptr %1, align 1
-  %60 = and i8 %59, 1
-  %.not72 = icmp eq i8 %60, 0
-  br i1 %.not72, label %62, label %61
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %62
 
 61:                                               ; preds = %58
   store i64 8, ptr %2, align 8
@@ -774,8 +768,8 @@ define internal fastcc noundef i64 @get_format_size(ptr noundef %0, ptr nocaptur
 
 67:                                               ; preds = %50
   store i64 -1, ptr %2, align 8
-  %.not74 = icmp eq ptr %6, null
-  br i1 %.not74, label %72, label %68
+  %.not71 = icmp eq ptr %6, null
+  br i1 %.not71, label %72, label %68
 
 68:                                               ; preds = %67
   %69 = load i64, ptr @rb_eArgError, align 8
@@ -980,13 +974,12 @@ define internal fastcc i64 @extract_item_member(ptr nocapture noundef readonly %
 23:                                               ; preds = %3
   %24 = getelementptr inbounds i8, ptr %1, i64 2
   %25 = load i8, ptr %24, align 2
-  %26 = and i8 %25, 1
-  %.not = icmp eq i8 %26, 0
-  %.not.i = icmp eq i64 %9, 0
-  br i1 %.not, label %27, label %39
+  %26 = trunc i8 %25 to i1
+  %.not.i23 = icmp eq i64 %9, 0
+  br i1 %26, label %39, label %27
 
 27:                                               ; preds = %23
-  br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %28
+  br i1 %.not.i23, label %ruby_nonempty_memcpy.exit, label %28
 
 28:                                               ; preds = %27
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr align 1 %11, i64 %9, i1 false)
@@ -1020,7 +1013,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %27, %28
   br i1 %exitcond.not, label %switch_endianness.exit, label %.lr.ph.i, !llvm.loop !22
 
 39:                                               ; preds = %23
-  br i1 %.not.i, label %switch_endianness.exit, label %40
+  br i1 %.not.i23, label %switch_endianness.exit, label %40
 
 40:                                               ; preds = %39
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr align 1 %11, i64 %9, i1 false)
@@ -1081,9 +1074,8 @@ switch_endianness.exit:                           ; preds = %.lr.ph.i, %40, %39,
 61:                                               ; preds = %switch_endianness.exit
   %62 = getelementptr inbounds i8, ptr %1, i64 1
   %63 = load i8, ptr %62, align 1
-  %64 = and i8 %63, 1
-  %.not26 = icmp eq i8 %64, 0
-  br i1 %.not26, label %73, label %65
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %65, label %73
 
 65:                                               ; preds = %61
   %66 = load i64, ptr %4, align 8
@@ -1110,9 +1102,8 @@ switch_endianness.exit:                           ; preds = %.lr.ph.i, %40, %39,
 78:                                               ; preds = %switch_endianness.exit, %switch_endianness.exit, %switch_endianness.exit
   %79 = getelementptr inbounds i8, ptr %1, i64 1
   %80 = load i8, ptr %79, align 1
-  %81 = and i8 %80, 1
-  %.not25 = icmp eq i8 %81, 0
-  br i1 %.not25, label %90, label %82
+  %81 = trunc i8 %80 to i1
+  br i1 %81, label %82, label %90
 
 82:                                               ; preds = %78
   %83 = load i64, ptr %4, align 8
@@ -1144,15 +1135,14 @@ switch_endianness.exit:                           ; preds = %.lr.ph.i, %40, %39,
 99:                                               ; preds = %switch_endianness.exit
   %100 = getelementptr inbounds i8, ptr %1, i64 1
   %101 = load i8, ptr %100, align 1
-  %102 = and i8 %101, 1
-  %.not24 = icmp eq i8 %102, 0
+  %102 = trunc i8 %101 to i1
   %103 = load i64, ptr %4, align 8
   %104 = add i64 %103, 4611686018427387904
-  %or.cond.i38 = icmp sgt i64 %104, -1
-  br i1 %.not24, label %111, label %105
+  %or.cond.i30 = icmp sgt i64 %104, -1
+  br i1 %102, label %105, label %111
 
 105:                                              ; preds = %99
-  br i1 %or.cond.i38, label %106, label %109
+  br i1 %or.cond.i30, label %106, label %109
 
 106:                                              ; preds = %105
   %107 = shl nsw i64 %103, 1
@@ -1164,7 +1154,7 @@ switch_endianness.exit:                           ; preds = %.lr.ph.i, %40, %39,
   br label %rb_long2num_inline.exit
 
 111:                                              ; preds = %99
-  br i1 %or.cond.i38, label %112, label %115
+  br i1 %or.cond.i30, label %112, label %115
 
 112:                                              ; preds = %111
   %113 = shl nsw i64 %103, 1
@@ -1178,11 +1168,10 @@ switch_endianness.exit:                           ; preds = %.lr.ph.i, %40, %39,
 117:                                              ; preds = %switch_endianness.exit
   %118 = getelementptr inbounds i8, ptr %1, i64 1
   %119 = load i8, ptr %118, align 1
-  %120 = and i8 %119, 1
-  %.not23 = icmp eq i8 %120, 0
+  %120 = trunc i8 %119 to i1
   %121 = load i64, ptr %4, align 8
   %122 = icmp ult i64 %121, 4611686018427387904
-  br i1 %.not23, label %129, label %123
+  br i1 %120, label %123, label %129
 
 123:                                              ; preds = %117
   br i1 %122, label %124, label %127
@@ -1216,8 +1205,8 @@ switch_endianness.exit:                           ; preds = %.lr.ph.i, %40, %39,
 138:                                              ; preds = %switch_endianness.exit
   %139 = load i64, ptr %4, align 8
   %140 = add i64 %139, 4611686018427387904
-  %or.cond.i44 = icmp sgt i64 %140, -1
-  br i1 %or.cond.i44, label %141, label %144
+  %or.cond.i38 = icmp sgt i64 %140, -1
+  br i1 %or.cond.i38, label %141, label %144
 
 141:                                              ; preds = %138
   %142 = shl nsw i64 %139, 1

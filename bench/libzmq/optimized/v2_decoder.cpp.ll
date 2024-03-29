@@ -307,9 +307,8 @@ if.end9:                                          ; preds = %entry
   %_allocator.i = getelementptr inbounds i8, ptr %this, i64 40
   %_zero_copy = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load i8, ptr %_zero_copy, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.then15, label %lor.rhs
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %lor.rhs, label %if.then15
 
 lor.rhs:                                          ; preds = %if.end9
   %call12 = tail call noundef ptr @_ZN3zmq31shared_message_memory_allocator4dataEv(ptr noundef nonnull align 8 dereferenceable(40) %_allocator.i)
@@ -326,16 +325,16 @@ if.then15:                                        ; preds = %if.end9, %lor.rhs
   br label %if.end26
 
 if.else:                                          ; preds = %lor.rhs
-  %3 = load ptr, ptr %_allocator.i, align 8
+  %2 = load ptr, ptr %_allocator.i, align 8
   %_msg_content.i = getelementptr inbounds i8, ptr %this, i64 64
-  %4 = load ptr, ptr %_msg_content.i, align 8
-  %call21 = tail call noundef i32 @_ZN3zmq5msg_t4initEPvmPFvS1_S1_ES1_PNS0_9content_tE(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress, ptr noundef %read_pos_, i64 noundef %msg_size_, ptr noundef nonnull @_ZN3zmq31shared_message_memory_allocator12call_dec_refEPvS1_, ptr noundef %3, ptr noundef %4)
+  %3 = load ptr, ptr %_msg_content.i, align 8
+  %call21 = tail call noundef i32 @_ZN3zmq5msg_t4initEPvmPFvS1_S1_ES1_PNS0_9content_tE(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress, ptr noundef %read_pos_, i64 noundef %msg_size_, ptr noundef nonnull @_ZN3zmq31shared_message_memory_allocator12call_dec_refEPvS1_, ptr noundef %2, ptr noundef %3)
   %call23 = tail call noundef zeroext i1 @_ZNK3zmq5msg_t8is_zcmsgEv(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress)
   br i1 %call23, label %if.then24, label %if.end26
 
 if.then24:                                        ; preds = %if.else
-  %5 = load ptr, ptr %_msg_content.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 40
+  %4 = load ptr, ptr %_msg_content.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %incdec.ptr.i, ptr %_msg_content.i, align 8
   tail call void @_ZN3zmq31shared_message_memory_allocator7inc_refEv(ptr noundef nonnull align 8 dereferenceable(40) %_allocator.i)
   br label %if.end26
@@ -347,16 +346,16 @@ if.end26:                                         ; preds = %if.else, %if.then24
 
 do.body:                                          ; preds = %if.end26
   %call29 = tail call ptr @__errno_location() #15
-  %6 = load i32, ptr %call29, align 4
-  %cmp30.not = icmp eq i32 %6, 12
+  %5 = load i32, ptr %call29, align 4
+  %cmp30.not = icmp eq i32 %5, 12
   br i1 %cmp30.not, label %do.end, label %if.then32
 
 if.then32:                                        ; preds = %do.body
-  %call34 = tail call ptr @strerror(i32 noundef %6) #14
+  %call34 = tail call ptr @strerror(i32 noundef %5) #14
+  %6 = load ptr, ptr @stderr, align 8
+  %call35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef %call34, ptr noundef nonnull @.str.1, i32 noundef 114) #16
   %7 = load ptr, ptr @stderr, align 8
-  %call35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef %call34, ptr noundef nonnull @.str.1, i32 noundef 114) #16
-  %8 = load ptr, ptr @stderr, align 8
-  %call36 = tail call i32 @fflush(ptr noundef %8)
+  %call36 = tail call i32 @fflush(ptr noundef %7)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call34)
   br label %do.end
 
@@ -366,12 +365,12 @@ do.end:                                           ; preds = %do.body, %if.then32
   br i1 %cmp41.not, label %do.end51, label %if.then44
 
 if.then44:                                        ; preds = %do.end
-  %9 = load i32, ptr %call29, align 4
-  %call47 = tail call ptr @strerror(i32 noundef %9) #14
+  %8 = load i32, ptr %call29, align 4
+  %call47 = tail call ptr @strerror(i32 noundef %8) #14
+  %9 = load ptr, ptr @stderr, align 8
+  %call48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str, ptr noundef %call47, ptr noundef nonnull @.str.1, i32 noundef 116) #16
   %10 = load ptr, ptr @stderr, align 8
-  %call48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str, ptr noundef %call47, ptr noundef nonnull @.str.1, i32 noundef 116) #16
-  %11 = load ptr, ptr @stderr, align 8
-  %call49 = tail call i32 @fflush(ptr noundef %11)
+  %call49 = tail call i32 @fflush(ptr noundef %10)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call47)
   br label %do.end51
 
@@ -381,8 +380,8 @@ do.end51:                                         ; preds = %do.end, %if.then44
 
 if.end53:                                         ; preds = %if.end26
   %_msg_flags = getelementptr inbounds i8, ptr %this, i64 96
-  %12 = load i8, ptr %_msg_flags, align 8
-  tail call void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress, i8 noundef zeroext %12)
+  %11 = load i8, ptr %_msg_flags, align 8
+  tail call void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress, i8 noundef zeroext %11)
   %call56 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress)
   %call58 = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress)
   %_read_pos.i = getelementptr inbounds i8, ptr %this, i64 24

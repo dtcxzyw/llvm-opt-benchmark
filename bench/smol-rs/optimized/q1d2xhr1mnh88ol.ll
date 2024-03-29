@@ -722,83 +722,83 @@ define internal fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h3
   %.val = load i64, ptr %1, align 8, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %.val16 = load i8, ptr %4, align 8, !range !75, !noundef !4
-  %.not18 = icmp eq i8 %.val16, 0
-  br i1 %.not18, label %5, label %9
+  %5 = trunc i8 %.val16 to i1
+  br i1 %5, label %10, label %6
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = icmp ult i64 %.val, %7
-  br i1 %8, label %.loopexit, label %14
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = load i64, ptr %7, align 8, !noundef !4
+  %9 = icmp ult i64 %.val, %8
+  br i1 %9, label %.loopexit, label %15
 
-9:                                                ; preds = %14, %2
-  %.011 = phi i64 [ %.val, %2 ], [ %15, %14 ]
-  %.not23 = icmp eq i64 %.011, 0
-  br i1 %.not23, label %.loopexit, label %.lr.ph
+10:                                               ; preds = %15, %2
+  %.011 = phi i64 [ %.val, %2 ], [ %16, %15 ]
+  %.not22 = icmp eq i64 %.011, 0
+  br i1 %.not22, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %9
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %1, i64 9
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %.promoted = load ptr, ptr %10, align 8
-  %.promoted25 = load i8, ptr %11, align 1, !alias.scope !76
-  %.promoted26 = load i64, ptr %12, align 8
-  %13 = icmp eq i8 %.promoted25, 0
+.lr.ph:                                           ; preds = %10
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds i8, ptr %1, i64 9
+  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %.promoted = load ptr, ptr %11, align 8
+  %.promoted24 = load i8, ptr %12, align 1, !alias.scope !76
+  %.promoted25 = load i64, ptr %13, align 8
+  %14 = trunc i8 %.promoted24 to i1
   %.sroa.4.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.4, i64 7
-  br label %16
+  br label %17
 
-14:                                               ; preds = %5
-  %15 = sub i64 %.val, %7
-  br label %9
+15:                                               ; preds = %6
+  %16 = sub i64 %.val, %8
+  br label %10
 
-16:                                               ; preds = %.lr.ph, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
-  %17 = phi i64 [ %.promoted26, %.lr.ph ], [ %26, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
-  %trunc.not.i.i.i = phi i1 [ %13, %.lr.ph ], [ true, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
-  %18 = phi ptr [ %.promoted, %.lr.ph ], [ %23, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
-  %.124 = phi i64 [ %.011, %.lr.ph ], [ %19, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
-  %19 = add i64 %.124, -1
-  %20 = icmp eq ptr %18, null
-  br i1 %20, label %.loopexit, label %21
+17:                                               ; preds = %.lr.ph, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
+  %18 = phi i64 [ %.promoted25, %.lr.ph ], [ %27, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
+  %trunc.i.i.i = phi i1 [ %14, %.lr.ph ], [ false, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
+  %19 = phi ptr [ %.promoted, %.lr.ph ], [ %24, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
+  %.123 = phi i64 [ %.011, %.lr.ph ], [ %20, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
+  %20 = add i64 %.123, -1
+  %21 = icmp eq ptr %19, null
+  br i1 %21, label %.loopexit, label %22
 
-.loopexit:                                        ; preds = %16, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit", %9, %5
+.loopexit:                                        ; preds = %17, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit", %10, %6
   ret void
 
-21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %18, i64 32
-  %23 = load ptr, ptr %22, align 8, !noundef !4
-  store ptr %23, ptr %10, align 8
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds i8, ptr %19, i64 32
+  %24 = load ptr, ptr %23, align 8, !noundef !4
+  store ptr %24, ptr %11, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  store i8 0, ptr %11, align 1, !alias.scope !76
-  br i1 %trunc.not.i.i.i, label %24, label %"_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u20$as$u20$event_listener..notify..NotificationPrivate$GT$8next_tag17hf0df2ab6e876bd37E.exit"
+  store i8 0, ptr %12, align 1, !alias.scope !76
+  br i1 %trunc.i.i.i, label %"_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u20$as$u20$event_listener..notify..NotificationPrivate$GT$8next_tag17hf0df2ab6e876bd37E.exit", label %25
 
-24:                                               ; preds = %21
+25:                                               ; preds = %22
   tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.0fa89ed10688b635e1331aca50fe0be6.3.llvm.3826330461689352739, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0fa89ed10688b635e1331aca50fe0be6.4.llvm.3826330461689352739) #14, !noalias !76
   unreachable
 
-"_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u20$as$u20$event_listener..notify..NotificationPrivate$GT$8next_tag17hf0df2ab6e876bd37E.exit": ; preds = %21
+"_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u20$as$u20$event_listener..notify..NotificationPrivate$GT$8next_tag17hf0df2ab6e876bd37E.exit": ; preds = %22
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.4)
-  %.sroa.0.0.copyload = load i8, ptr %18, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 1
+  %.sroa.0.0.copyload = load i8, ptr %19, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.0..sroa_idx, i64 23, i1 false)
-  store i8 1, ptr %18, align 8
-  %.sroa.4.0..0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 1
+  store i8 1, ptr %19, align 8
+  %.sroa.4.0..0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 1
   store i8 %.val16, ptr %.sroa.4.0..0..sroa_idx, align 1
   %.not14 = icmp eq i8 %.sroa.0.0.copyload, 2
-  br i1 %.not14, label %25, label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
+  br i1 %.not14, label %26, label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
 
-25:                                               ; preds = %"_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u20$as$u20$event_listener..notify..NotificationPrivate$GT$8next_tag17hf0df2ab6e876bd37E.exit"
+26:                                               ; preds = %"_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u20$as$u20$event_listener..notify..NotificationPrivate$GT$8next_tag17hf0df2ab6e876bd37E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.4.8..sroa_idx, i64 16, i1 false)
   call void @_ZN14event_listener4Task4wake17h0f7a18696dd04c4fE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3)
   br label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
 
-"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit": ; preds = %25, %"_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u20$as$u20$event_listener..notify..NotificationPrivate$GT$8next_tag17hf0df2ab6e876bd37E.exit"
+"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit": ; preds = %26, %"_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u20$as$u20$event_listener..notify..NotificationPrivate$GT$8next_tag17hf0df2ab6e876bd37E.exit"
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.4)
-  %26 = add i64 %17, 1
-  store i64 %26, ptr %12, align 8
-  %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %.loopexit, label %16
+  %27 = add i64 %18, 1
+  store i64 %27, ptr %13, align 8
+  %.not = icmp eq i64 %20, 0
+  br i1 %.not, label %.loopexit, label %17
 }
 
 ; Function Attrs: cold nonlazybind uwtable
@@ -870,9 +870,9 @@ define hidden void @"_ZN14event_listener3sys14Inner$LT$T$GT$6remove17he1c2357fed
   %6 = alloca { i8, [23 x i8] }, align 8
   %7 = alloca { i8, [23 x i8] }, align 8
   %8 = load i64, ptr %2, align 8, !range !86, !noundef !4
-  %trunc.not = icmp eq i64 %8, 0
+  %trunc = trunc i64 %8 to i1
   %9 = getelementptr inbounds i8, ptr %2, i64 8
-  br i1 %trunc.not, label %22, label %10
+  br i1 %trunc, label %10, label %22
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %2, i64 32
@@ -1045,8 +1045,8 @@ define hidden void @"_ZN14event_listener3sys14Inner$LT$T$GT$6remove17he1c2357fed
 define hidden void @"_ZN14event_listener3sys14Inner$LT$T$GT$6remove28_$u7b$$u7b$closure$u7d$$u7d$17h184627b8bca56f9fE.llvm.3826330461689352739"(ptr noalias nocapture noundef align 1 dereferenceable(1) %0) unnamed_addr #1 {
   %2 = load i8, ptr %0, align 1, !range !75, !noundef !4
   store i8 0, ptr %0, align 1
-  %trunc.not = icmp eq i8 %2, 0
-  br i1 %trunc.not, label %3, label %4
+  %trunc = trunc i8 %2 to i1
+  br i1 %trunc, label %4, label %3
 
 3:                                                ; preds = %1
   tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.0fa89ed10688b635e1331aca50fe0be6.3.llvm.3826330461689352739, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0fa89ed10688b635e1331aca50fe0be6.4.llvm.3826330461689352739) #14
@@ -1479,8 +1479,8 @@ define hidden void @"_ZN57_$LT$F$u20$as$u20$event_listener..notify..TagProducer$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
   %2 = load i8, ptr %0, align 1, !range !75, !alias.scope !163, !noundef !4
   store i8 0, ptr %0, align 1, !alias.scope !163
-  %trunc.not.i = icmp eq i8 %2, 0
-  br i1 %trunc.not.i, label %3, label %"_ZN14event_listener3sys14Inner$LT$T$GT$6remove28_$u7b$$u7b$closure$u7d$$u7d$17h184627b8bca56f9fE.llvm.3826330461689352739.exit"
+  %trunc.i = trunc i8 %2 to i1
+  br i1 %trunc.i, label %"_ZN14event_listener3sys14Inner$LT$T$GT$6remove28_$u7b$$u7b$closure$u7d$$u7d$17h184627b8bca56f9fE.llvm.3826330461689352739.exit", label %3
 
 3:                                                ; preds = %1
   tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.0fa89ed10688b635e1331aca50fe0be6.3.llvm.3826330461689352739, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0fa89ed10688b635e1331aca50fe0be6.4.llvm.3826330461689352739) #14, !noalias !163

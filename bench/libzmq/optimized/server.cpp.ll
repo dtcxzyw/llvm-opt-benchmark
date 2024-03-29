@@ -324,15 +324,15 @@ if.end12.i.i:                                     ; preds = %if.else.i.i, %while
 if.then.i:                                        ; preds = %if.end12.i.i, %if.then.i.i
   %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa25.i.i, %if.then.i.i ], [ %__y.0.lcssa26.i.i, %if.end12.i.i ]
   %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %retval.sroa.4.0.i.ph.i
-  br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjN3zmq8server_t9outpipe_tEESt10_Select1stIS5_ESt4lessIjESaIS5_EE17_M_emplace_uniqueIJRjRS4_EEES0_ISt17_Rb_tree_iteratorIS5_EbEDpOT_.exit, label %lor.rhs.i.i.i
+  br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjN3zmq8server_t9outpipe_tEESt10_Select1stIS5_ESt4lessIjESaIS5_EE17_M_emplace_uniqueIJRjRS4_EEES0_ISt17_Rb_tree_iteratorIS5_EbEDpOT_.exit.thread, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i, i64 32
   %6 = load i32, ptr %_M_storage.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp ult i32 %spec.select10, %6
-  br label %_ZNSt8_Rb_treeIjSt4pairIKjN3zmq8server_t9outpipe_tEESt10_Select1stIS5_ESt4lessIjESaIS5_EE17_M_emplace_uniqueIJRjRS4_EEES0_ISt17_Rb_tree_iteratorIS5_EbEDpOT_.exit
+  br label %_ZNSt8_Rb_treeIjSt4pairIKjN3zmq8server_t9outpipe_tEESt10_Select1stIS5_ESt4lessIjESaIS5_EE17_M_emplace_uniqueIJRjRS4_EEES0_ISt17_Rb_tree_iteratorIS5_EbEDpOT_.exit.thread
 
-_ZNSt8_Rb_treeIjSt4pairIKjN3zmq8server_t9outpipe_tEESt10_Select1stIS5_ESt4lessIjESaIS5_EE17_M_emplace_uniqueIJRjRS4_EEES0_ISt17_Rb_tree_iteratorIS5_EbEDpOT_.exit: ; preds = %if.then.i, %lor.rhs.i.i.i
+_ZNSt8_Rb_treeIjSt4pairIKjN3zmq8server_t9outpipe_tEESt10_Select1stIS5_ESt4lessIjESaIS5_EE17_M_emplace_uniqueIJRjRS4_EEES0_ISt17_Rb_tree_iteratorIS5_EbEDpOT_.exit.thread: ; preds = %if.then.i, %lor.rhs.i.i.i
   %7 = phi i1 [ true, %if.then.i ], [ %cmp.i.i.i.i, %lor.rhs.i.i.i ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %7, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #13
   %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 1920
@@ -350,7 +350,7 @@ if.then15:                                        ; preds = %if.end12.i.i
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.4)
   br label %do.end19
 
-do.end19:                                         ; preds = %_ZNSt8_Rb_treeIjSt4pairIKjN3zmq8server_t9outpipe_tEESt10_Select1stIS5_ESt4lessIjESaIS5_EE17_M_emplace_uniqueIJRjRS4_EEES0_ISt17_Rb_tree_iteratorIS5_EbEDpOT_.exit, %if.then15
+do.end19:                                         ; preds = %_ZNSt8_Rb_treeIjSt4pairIKjN3zmq8server_t9outpipe_tEESt10_Select1stIS5_ESt4lessIjESaIS5_EE17_M_emplace_uniqueIJRjRS4_EEES0_ISt17_Rb_tree_iteratorIS5_EbEDpOT_.exit.thread, %if.then15
   %_fq = getelementptr inbounds i8, ptr %this, i64 1832
   tail call void @_ZN3zmq4fq_t6attachEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(41) %_fq, ptr noundef nonnull %pipe_)
   ret void
@@ -461,15 +461,14 @@ do.body17:                                        ; preds = %for.body, %if.then1
   %it.sroa.0.011 = phi ptr [ %add.ptr.i.i, %if.then13 ], [ %it.sroa.0.013, %for.body ]
   %active = getelementptr inbounds i8, ptr %it.sroa.0.011, i64 48
   %4 = load i8, ptr %active, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %do.end26, label %if.then22
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.then22, label %do.end26
 
 if.then22:                                        ; preds = %do.body17
+  %5 = load ptr, ptr @stderr, align 8
+  %call23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 72) #15
   %6 = load ptr, ptr @stderr, align 8
-  %call23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 72) #15
-  %7 = load ptr, ptr @stderr, align 8
-  %call24 = tail call i32 @fflush(ptr noundef %7)
+  %call24 = tail call i32 @fflush(ptr noundef %6)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.6)
   br label %do.end26
 

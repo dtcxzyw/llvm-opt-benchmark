@@ -294,22 +294,19 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %entry
   br i1 %cmp.not5.i.i, label %_Z7displayIPKN3sat7literalEEvRSoRKT_S7_PKc.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit, %_ZN3satlsERSoNS_7literalE.exit.i.i
-  %first.0.i = phi i8 [ %first.1.i, %_ZN3satlsERSoNS_7literalE.exit.i.i ], [ 1, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ]
+  %first.0.i = phi i1 [ false, %_ZN3satlsERSoNS_7literalE.exit.i.i ], [ true, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ]
   %it.06.i.i = phi ptr [ %incdec.ptr.i.i, %_ZN3satlsERSoNS_7literalE.exit.i.i ], [ %0, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ]
-  %3 = and i8 %first.0.i, 1
-  %tobool.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %if.end.i.i3
+  br i1 %first.0.i, label %if.end.i.i3, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.12)
   br label %if.end.i.i3
 
 if.end.i.i3:                                      ; preds = %if.else.i.i, %for.body.i.i
-  %first.1.i = phi i8 [ %first.0.i, %if.else.i.i ], [ 0, %for.body.i.i ]
   %agg.tmp.sroa.0.0.copyload.i.i = load i32, ptr %it.06.i.i, align 4
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
-  %4 = select i1 %.b, i32 -2, i32 0
-  %cmp.i.i.i.i = icmp eq i32 %4, %agg.tmp.sroa.0.0.copyload.i.i
+  %3 = select i1 %.b, i32 -2, i32 0
+  %cmp.i.i.i.i = icmp eq i32 %3, %agg.tmp.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i3
@@ -317,8 +314,8 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i3
   br label %_ZN3satlsERSoNS_7literalE.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i3
-  %5 = and i32 %agg.tmp.sroa.0.0.copyload.i.i, 1
-  %tobool.i.not.i.i.i = icmp eq i32 %5, 0
+  %4 = and i32 %agg.tmp.sroa.0.0.copyload.i.i, 1
+  %tobool.i.not.i.i.i = icmp eq i32 %4, 0
   %cond.i.i.i = select i1 %tobool.i.not.i.i.i, ptr @.str.13, ptr @.str.11
   %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %cond.i.i.i)
   %shr.i.i.i.i = lshr i32 %agg.tmp.sroa.0.0.copyload.i.i, 1

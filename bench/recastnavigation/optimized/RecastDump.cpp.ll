@@ -224,9 +224,9 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 define internal void @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #3 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call i32 @vsnprintf(ptr noundef nonnull %3, i64 noundef 256, ptr noundef %1, ptr noundef nonnull %4) #11
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %13
 
@@ -1145,9 +1145,8 @@ define void @_Z15duLogBuildTimesR9rcContexti(ptr noundef nonnull align 8 derefer
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.28)
   %5 = getelementptr inbounds i8, ptr %0, i64 9
   %6 = load i8, ptr %5, align 1
-  %7 = and i8 %6, 1
-  %.not.i.i = icmp eq i8 %7, 0
-  br i1 %.not.i.i, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i: ; preds = %2
   %8 = load ptr, ptr %0, align 8
@@ -1168,557 +1167,533 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i: ; preds = %2
 
 _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit:    ; preds = %2, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i, %13
   %19 = load i8, ptr %5, align 1
-  %20 = and i8 %19, 1
-  %.not.i.i53 = icmp eq i8 %20, 0
-  br i1 %.not.i.i53, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit55, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i54
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i53, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit54
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i54: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i53: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 56
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3)
   %25 = icmp slt i32 %24, 0
-  br i1 %25, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit55, label %26
+  br i1 %25, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit54, label %26
 
-26:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i54
+26:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i53
   %27 = sitofp i32 %24 to float
   %28 = fdiv float %27, 1.000000e+03
   %29 = fpext float %28 to double
   %30 = fmul float %4, %27
   %31 = fpext float %30 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.30, double noundef %29, double noundef %31)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit55
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit54
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit55:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i54, %26
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit54:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i53, %26
   %32 = load i8, ptr %5, align 1
-  %33 = and i8 %32, 1
-  %.not.i.i56 = icmp eq i8 %33, 0
-  br i1 %.not.i.i56, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit58, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i57
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i55, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit56
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i57: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit55
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i55: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit54
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 56
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 7)
   %38 = icmp slt i32 %37, 0
-  br i1 %38, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit58, label %39
+  br i1 %38, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit56, label %39
 
-39:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i57
+39:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i55
   %40 = sitofp i32 %37 to float
   %41 = fdiv float %40, 1.000000e+03
   %42 = fpext float %41 to double
   %43 = fmul float %4, %40
   %44 = fpext float %43 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.31, double noundef %42, double noundef %44)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit58
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit56
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit58:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit55, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i57, %39
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit56:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit54, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i55, %39
   %45 = load i8, ptr %5, align 1
-  %46 = and i8 %45, 1
-  %.not.i.i59 = icmp eq i8 %46, 0
-  br i1 %.not.i.i59, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit61, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i60
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i57, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit58
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i60: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit58
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i57: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit56
   %47 = load ptr, ptr %0, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 56
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef i32 %49(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 8)
   %51 = icmp slt i32 %50, 0
-  br i1 %51, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit61, label %52
+  br i1 %51, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit58, label %52
 
-52:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i60
+52:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i57
   %53 = sitofp i32 %50 to float
   %54 = fdiv float %53, 1.000000e+03
   %55 = fpext float %54 to double
   %56 = fmul float %4, %53
   %57 = fpext float %56 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.32, double noundef %55, double noundef %57)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit61
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit58
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit61:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit58, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i60, %52
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit58:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit56, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i57, %52
   %58 = load i8, ptr %5, align 1
-  %59 = and i8 %58, 1
-  %.not.i.i62 = icmp eq i8 %59, 0
-  br i1 %.not.i.i62, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit64, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i63
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i59, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit60
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i63: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit61
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i59: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit58
   %60 = load ptr, ptr %0, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 56
   %62 = load ptr, ptr %61, align 8
   %63 = tail call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 13)
   %64 = icmp slt i32 %63, 0
-  br i1 %64, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit64, label %65
+  br i1 %64, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit60, label %65
 
-65:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i63
+65:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i59
   %66 = sitofp i32 %63 to float
   %67 = fdiv float %66, 1.000000e+03
   %68 = fpext float %67 to double
   %69 = fmul float %4, %66
   %70 = fpext float %69 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.33, double noundef %68, double noundef %70)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit64
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit60
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit64:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit61, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i63, %65
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit60:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit58, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i59, %65
   %71 = load i8, ptr %5, align 1
-  %72 = and i8 %71, 1
-  %.not.i.i65 = icmp eq i8 %72, 0
-  br i1 %.not.i.i65, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit67, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i66
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i61, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit62
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i66: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit64
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i61: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit60
   %73 = load ptr, ptr %0, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 56
   %75 = load ptr, ptr %74, align 8
   %76 = tail call noundef i32 %75(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 9)
   %77 = icmp slt i32 %76, 0
-  br i1 %77, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit67, label %78
+  br i1 %77, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit62, label %78
 
-78:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i66
+78:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i61
   %79 = sitofp i32 %76 to float
   %80 = fdiv float %79, 1.000000e+03
   %81 = fpext float %80 to double
   %82 = fmul float %4, %79
   %83 = fpext float %82 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.34, double noundef %81, double noundef %83)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit67
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit62
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit67:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit64, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i66, %78
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit62:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit60, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i61, %78
   %84 = load i8, ptr %5, align 1
-  %85 = and i8 %84, 1
-  %.not.i.i68 = icmp eq i8 %85, 0
-  br i1 %.not.i.i68, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit70, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i69
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i63, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit64
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i69: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit67
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i63: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit62
   %86 = load ptr, ptr %0, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 56
   %88 = load ptr, ptr %87, align 8
   %89 = tail call noundef i32 %88(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 14)
   %90 = icmp slt i32 %89, 0
-  br i1 %90, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit70, label %91
+  br i1 %90, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit64, label %91
 
-91:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i69
+91:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i63
   %92 = sitofp i32 %89 to float
   %93 = fdiv float %92, 1.000000e+03
   %94 = fpext float %93 to double
   %95 = fmul float %4, %92
   %96 = fpext float %95 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.35, double noundef %94, double noundef %96)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit70
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit64
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit70:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit67, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i69, %91
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit64:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit62, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i63, %91
   %97 = load i8, ptr %5, align 1
-  %98 = and i8 %97, 1
-  %.not.i.i71 = icmp eq i8 %98, 0
-  br i1 %.not.i.i71, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit73, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i72
+  %98 = trunc i8 %97 to i1
+  br i1 %98, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i65, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit66
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i72: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit70
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i65: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit64
   %99 = load ptr, ptr %0, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 56
   %101 = load ptr, ptr %100, align 8
   %102 = tail call noundef i32 %101(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 16)
   %103 = icmp slt i32 %102, 0
-  br i1 %103, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit73, label %104
+  br i1 %103, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit66, label %104
 
-104:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i72
+104:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i65
   %105 = sitofp i32 %102 to float
   %106 = fdiv float %105, 1.000000e+03
   %107 = fpext float %106 to double
   %108 = fmul float %4, %105
   %109 = fpext float %108 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.36, double noundef %107, double noundef %109)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit73
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit66
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit73:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit70, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i72, %104
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit66:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit64, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i65, %104
   %110 = load i8, ptr %5, align 1
-  %111 = and i8 %110, 1
-  %.not.i.i74 = icmp eq i8 %111, 0
-  br i1 %.not.i.i74, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit76, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i75
+  %111 = trunc i8 %110 to i1
+  br i1 %111, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i67, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit68
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i75: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit73
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i67: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit66
   %112 = load ptr, ptr %0, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 56
   %114 = load ptr, ptr %113, align 8
   %115 = tail call noundef i32 %114(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 15)
   %116 = icmp slt i32 %115, 0
-  br i1 %116, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit76, label %117
+  br i1 %116, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit68, label %117
 
-117:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i75
+117:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i67
   %118 = sitofp i32 %115 to float
   %119 = fdiv float %118, 1.000000e+03
   %120 = fpext float %119 to double
   %121 = fmul float %4, %118
   %122 = fpext float %121 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.37, double noundef %120, double noundef %122)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit76
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit68
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit76:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit73, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i75, %117
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit68:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit66, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i67, %117
   %123 = load i8, ptr %5, align 1
-  %124 = and i8 %123, 1
-  %.not.i.i77 = icmp eq i8 %124, 0
-  br i1 %.not.i.i77, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit79, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i78
+  %124 = trunc i8 %123 to i1
+  br i1 %124, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i69, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit70
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i78: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit76
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i69: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit68
   %125 = load ptr, ptr %0, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 56
   %127 = load ptr, ptr %126, align 8
   %128 = tail call noundef i32 %127(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 17)
   %129 = icmp slt i32 %128, 0
-  br i1 %129, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit79, label %130
+  br i1 %129, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit70, label %130
 
-130:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i78
+130:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i69
   %131 = sitofp i32 %128 to float
   %132 = fdiv float %131, 1.000000e+03
   %133 = fpext float %132 to double
   %134 = fmul float %4, %131
   %135 = fpext float %134 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.38, double noundef %133, double noundef %135)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit79
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit70
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit79:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit76, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i78, %130
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit70:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit68, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i69, %130
   %136 = load i8, ptr %5, align 1
-  %137 = and i8 %136, 1
-  %.not.i.i80 = icmp eq i8 %137, 0
-  br i1 %.not.i.i80, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit82, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i81
+  %137 = trunc i8 %136 to i1
+  br i1 %137, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i71, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit72
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i81: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit79
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i71: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit70
   %138 = load ptr, ptr %0, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 56
   %140 = load ptr, ptr %139, align 8
   %141 = tail call noundef i32 %140(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 18)
   %142 = icmp slt i32 %141, 0
-  br i1 %142, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit82, label %143
+  br i1 %142, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit72, label %143
 
-143:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i81
+143:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i71
   %144 = sitofp i32 %141 to float
   %145 = fdiv float %144, 1.000000e+03
   %146 = fpext float %145 to double
   %147 = fmul float %4, %144
   %148 = fpext float %147 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.39, double noundef %146, double noundef %148)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit82
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit72
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit82:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit79, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i81, %143
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit72:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit70, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i71, %143
   %149 = load i8, ptr %5, align 1
-  %150 = and i8 %149, 1
-  %.not.i.i83 = icmp eq i8 %150, 0
-  br i1 %.not.i.i83, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit85, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i84
+  %150 = trunc i8 %149 to i1
+  br i1 %150, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i73, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit74
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i84: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit82
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i73: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit72
   %151 = load ptr, ptr %0, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 56
   %153 = load ptr, ptr %152, align 8
   %154 = tail call noundef i32 %153(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 19)
   %155 = icmp slt i32 %154, 0
-  br i1 %155, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit85, label %156
+  br i1 %155, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit74, label %156
 
-156:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i84
+156:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i73
   %157 = sitofp i32 %154 to float
   %158 = fdiv float %157, 1.000000e+03
   %159 = fpext float %158 to double
   %160 = fmul float %4, %157
   %161 = fpext float %160 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.40, double noundef %159, double noundef %161)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit85
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit74
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit85:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit82, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i84, %156
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit74:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit72, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i73, %156
   %162 = load i8, ptr %5, align 1
-  %163 = and i8 %162, 1
-  %.not.i.i86 = icmp eq i8 %163, 0
-  br i1 %.not.i.i86, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit88, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i87
+  %163 = trunc i8 %162 to i1
+  br i1 %163, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i75, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit76
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i87: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit85
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i75: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit74
   %164 = load ptr, ptr %0, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 56
   %166 = load ptr, ptr %165, align 8
   %167 = tail call noundef i32 %166(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 20)
   %168 = icmp slt i32 %167, 0
-  br i1 %168, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit88, label %169
+  br i1 %168, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit76, label %169
 
-169:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i87
+169:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i75
   %170 = sitofp i32 %167 to float
   %171 = fdiv float %170, 1.000000e+03
   %172 = fpext float %171 to double
   %173 = fmul float %4, %170
   %174 = fpext float %173 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.41, double noundef %172, double noundef %174)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit88
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit76
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit88:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit85, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i87, %169
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit76:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit74, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i75, %169
   %175 = load i8, ptr %5, align 1
-  %176 = and i8 %175, 1
-  %.not.i.i89 = icmp eq i8 %176, 0
-  br i1 %.not.i.i89, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit91, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i90
+  %176 = trunc i8 %175 to i1
+  br i1 %176, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i77, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit78
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i90: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit88
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i77: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit76
   %177 = load ptr, ptr %0, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 56
   %179 = load ptr, ptr %178, align 8
   %180 = tail call noundef i32 %179(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 21)
   %181 = icmp slt i32 %180, 0
-  br i1 %181, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit91, label %182
+  br i1 %181, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit78, label %182
 
-182:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i90
+182:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i77
   %183 = sitofp i32 %180 to float
   %184 = fdiv float %183, 1.000000e+03
   %185 = fpext float %184 to double
   %186 = fmul float %4, %183
   %187 = fpext float %186 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.42, double noundef %185, double noundef %187)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit91
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit78
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit91:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit88, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i90, %182
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit78:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit76, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i77, %182
   %188 = load i8, ptr %5, align 1
-  %189 = and i8 %188, 1
-  %.not.i.i92 = icmp eq i8 %189, 0
-  br i1 %.not.i.i92, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit94, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i93
+  %189 = trunc i8 %188 to i1
+  br i1 %189, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i79, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit80
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i93: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit91
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i79: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit78
   %190 = load ptr, ptr %0, align 8
   %191 = getelementptr inbounds i8, ptr %190, i64 56
   %192 = load ptr, ptr %191, align 8
   %193 = tail call noundef i32 %192(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 22)
   %194 = icmp slt i32 %193, 0
-  br i1 %194, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit94, label %195
+  br i1 %194, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit80, label %195
 
-195:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i93
+195:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i79
   %196 = sitofp i32 %193 to float
   %197 = fdiv float %196, 1.000000e+03
   %198 = fpext float %197 to double
   %199 = fmul float %4, %196
   %200 = fpext float %199 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.43, double noundef %198, double noundef %200)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit94
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit80
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit94:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit91, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i93, %195
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit80:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit78, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i79, %195
   %201 = load i8, ptr %5, align 1
-  %202 = and i8 %201, 1
-  %.not.i.i95 = icmp eq i8 %202, 0
-  br i1 %.not.i.i95, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit97, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i96
+  %202 = trunc i8 %201 to i1
+  br i1 %202, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i81, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit82
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i96: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit94
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i81: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit80
   %203 = load ptr, ptr %0, align 8
   %204 = getelementptr inbounds i8, ptr %203, i64 56
   %205 = load ptr, ptr %204, align 8
   %206 = tail call noundef i32 %205(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 23)
   %207 = icmp slt i32 %206, 0
-  br i1 %207, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit97, label %208
+  br i1 %207, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit82, label %208
 
-208:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i96
+208:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i81
   %209 = sitofp i32 %206 to float
   %210 = fdiv float %209, 1.000000e+03
   %211 = fpext float %210 to double
   %212 = fmul float %4, %209
   %213 = fpext float %212 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.44, double noundef %211, double noundef %213)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit97
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit82
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit97:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit94, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i96, %208
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit82:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit80, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i81, %208
   %214 = load i8, ptr %5, align 1
-  %215 = and i8 %214, 1
-  %.not.i.i98 = icmp eq i8 %215, 0
-  br i1 %.not.i.i98, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit100, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i99
+  %215 = trunc i8 %214 to i1
+  br i1 %215, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i83, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit84
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i99: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit97
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i83: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit82
   %216 = load ptr, ptr %0, align 8
   %217 = getelementptr inbounds i8, ptr %216, i64 56
   %218 = load ptr, ptr %217, align 8
   %219 = tail call noundef i32 %218(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 24)
   %220 = icmp slt i32 %219, 0
-  br i1 %220, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit100, label %221
+  br i1 %220, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit84, label %221
 
-221:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i99
+221:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i83
   %222 = sitofp i32 %219 to float
   %223 = fdiv float %222, 1.000000e+03
   %224 = fpext float %223 to double
   %225 = fmul float %4, %222
   %226 = fpext float %225 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.45, double noundef %224, double noundef %226)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit100
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit84
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit100: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit97, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i99, %221
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit84:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit82, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i83, %221
   %227 = load i8, ptr %5, align 1
-  %228 = and i8 %227, 1
-  %.not.i.i101 = icmp eq i8 %228, 0
-  br i1 %.not.i.i101, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit103, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i102
+  %228 = trunc i8 %227 to i1
+  br i1 %228, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i85, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit86
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i102: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit100
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i85: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit84
   %229 = load ptr, ptr %0, align 8
   %230 = getelementptr inbounds i8, ptr %229, i64 56
   %231 = load ptr, ptr %230, align 8
   %232 = tail call noundef i32 %231(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 25)
   %233 = icmp slt i32 %232, 0
-  br i1 %233, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit103, label %234
+  br i1 %233, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit86, label %234
 
-234:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i102
+234:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i85
   %235 = sitofp i32 %232 to float
   %236 = fdiv float %235, 1.000000e+03
   %237 = fpext float %236 to double
   %238 = fmul float %4, %235
   %239 = fpext float %238 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.46, double noundef %237, double noundef %239)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit103
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit86
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit103: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit100, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i102, %234
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit86:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit84, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i85, %234
   %240 = load i8, ptr %5, align 1
-  %241 = and i8 %240, 1
-  %.not.i.i104 = icmp eq i8 %241, 0
-  br i1 %.not.i.i104, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit106, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i105
+  %241 = trunc i8 %240 to i1
+  br i1 %241, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i87, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit88
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i105: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit103
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i87: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit86
   %242 = load ptr, ptr %0, align 8
   %243 = getelementptr inbounds i8, ptr %242, i64 56
   %244 = load ptr, ptr %243, align 8
   %245 = tail call noundef i32 %244(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 4)
   %246 = icmp slt i32 %245, 0
-  br i1 %246, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit106, label %247
+  br i1 %246, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit88, label %247
 
-247:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i105
+247:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i87
   %248 = sitofp i32 %245 to float
   %249 = fdiv float %248, 1.000000e+03
   %250 = fpext float %249 to double
   %251 = fmul float %4, %248
   %252 = fpext float %251 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.47, double noundef %250, double noundef %252)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit106
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit88
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit106: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit103, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i105, %247
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit88:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit86, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i87, %247
   %253 = load i8, ptr %5, align 1
-  %254 = and i8 %253, 1
-  %.not.i.i107 = icmp eq i8 %254, 0
-  br i1 %.not.i.i107, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit109, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i108
+  %254 = trunc i8 %253 to i1
+  br i1 %254, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i89, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit90
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i108: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit106
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i89: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit88
   %255 = load ptr, ptr %0, align 8
   %256 = getelementptr inbounds i8, ptr %255, i64 56
   %257 = load ptr, ptr %256, align 8
   %258 = tail call noundef i32 %257(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 5)
   %259 = icmp slt i32 %258, 0
-  br i1 %259, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit109, label %260
+  br i1 %259, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit90, label %260
 
-260:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i108
+260:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i89
   %261 = sitofp i32 %258 to float
   %262 = fdiv float %261, 1.000000e+03
   %263 = fpext float %262 to double
   %264 = fmul float %4, %261
   %265 = fpext float %264 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.48, double noundef %263, double noundef %265)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit109
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit90
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit109: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit106, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i108, %260
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit90:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit88, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i89, %260
   %266 = load i8, ptr %5, align 1
-  %267 = and i8 %266, 1
-  %.not.i.i110 = icmp eq i8 %267, 0
-  br i1 %.not.i.i110, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit112, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i111
+  %267 = trunc i8 %266 to i1
+  br i1 %267, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i91, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit92
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i111: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit109
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i91: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit90
   %268 = load ptr, ptr %0, align 8
   %269 = getelementptr inbounds i8, ptr %268, i64 56
   %270 = load ptr, ptr %269, align 8
   %271 = tail call noundef i32 %270(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 6)
   %272 = icmp slt i32 %271, 0
-  br i1 %272, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit112, label %273
+  br i1 %272, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit92, label %273
 
-273:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i111
+273:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i91
   %274 = sitofp i32 %271 to float
   %275 = fdiv float %274, 1.000000e+03
   %276 = fpext float %275 to double
   %277 = fmul float %4, %274
   %278 = fpext float %277 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.49, double noundef %276, double noundef %278)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit112
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit92
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit112: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit109, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i111, %273
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit92:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit90, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i91, %273
   %279 = load i8, ptr %5, align 1
-  %280 = and i8 %279, 1
-  %.not.i.i113 = icmp eq i8 %280, 0
-  br i1 %.not.i.i113, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit115, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i114
+  %280 = trunc i8 %279 to i1
+  br i1 %280, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i93, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit94
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i114: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit112
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i93: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit92
   %281 = load ptr, ptr %0, align 8
   %282 = getelementptr inbounds i8, ptr %281, i64 56
   %283 = load ptr, ptr %282, align 8
   %284 = tail call noundef i32 %283(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 11)
   %285 = icmp slt i32 %284, 0
-  br i1 %285, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit115, label %286
+  br i1 %285, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit94, label %286
 
-286:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i114
+286:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i93
   %287 = sitofp i32 %284 to float
   %288 = fdiv float %287, 1.000000e+03
   %289 = fpext float %288 to double
   %290 = fmul float %4, %287
   %291 = fpext float %290 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.50, double noundef %289, double noundef %291)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit115
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit94
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit115: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit112, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i114, %286
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit94:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit92, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i93, %286
   %292 = load i8, ptr %5, align 1
-  %293 = and i8 %292, 1
-  %.not.i.i116 = icmp eq i8 %293, 0
-  br i1 %.not.i.i116, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit118, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i117
+  %293 = trunc i8 %292 to i1
+  br i1 %293, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i95, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit96
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i117: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit115
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i95: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit94
   %294 = load ptr, ptr %0, align 8
   %295 = getelementptr inbounds i8, ptr %294, i64 56
   %296 = load ptr, ptr %295, align 8
   %297 = tail call noundef i32 %296(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 26)
   %298 = icmp slt i32 %297, 0
-  br i1 %298, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit118, label %299
+  br i1 %298, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit96, label %299
 
-299:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i117
+299:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i95
   %300 = sitofp i32 %297 to float
   %301 = fdiv float %300, 1.000000e+03
   %302 = fpext float %301 to double
   %303 = fmul float %4, %300
   %304 = fpext float %303 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.51, double noundef %302, double noundef %304)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit118
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit96
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit118: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit115, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i117, %299
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit96:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit94, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i95, %299
   %305 = load i8, ptr %5, align 1
-  %306 = and i8 %305, 1
-  %.not.i.i119 = icmp eq i8 %306, 0
-  br i1 %.not.i.i119, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit121, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i120
+  %306 = trunc i8 %305 to i1
+  br i1 %306, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i97, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit98
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i120: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit118
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i97: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit96
   %307 = load ptr, ptr %0, align 8
   %308 = getelementptr inbounds i8, ptr %307, i64 56
   %309 = load ptr, ptr %308, align 8
   %310 = tail call noundef i32 %309(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 12)
   %311 = icmp slt i32 %310, 0
-  br i1 %311, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit121, label %312
+  br i1 %311, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit98, label %312
 
-312:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i120
+312:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i97
   %313 = sitofp i32 %310 to float
   %314 = fdiv float %313, 1.000000e+03
   %315 = fpext float %314 to double
   %316 = fmul float %4, %313
   %317 = fpext float %316 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.52, double noundef %315, double noundef %317)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit121
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit98
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit121: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit118, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i120, %312
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit98:  ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit96, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i97, %312
   %318 = load i8, ptr %5, align 1
-  %319 = and i8 %318, 1
-  %.not.i.i122 = icmp eq i8 %319, 0
-  br i1 %.not.i.i122, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit124, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i123
+  %319 = trunc i8 %318 to i1
+  br i1 %319, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i99, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit100
 
-_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i123: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit121
+_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i99: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit98
   %320 = load ptr, ptr %0, align 8
   %321 = getelementptr inbounds i8, ptr %320, i64 56
   %322 = load ptr, ptr %321, align 8
   %323 = tail call noundef i32 %322(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 27)
   %324 = icmp slt i32 %323, 0
-  br i1 %324, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit124, label %325
+  br i1 %324, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit100, label %325
 
-325:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i123
+325:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i99
   %326 = sitofp i32 %323 to float
   %327 = fdiv float %326, 1.000000e+03
   %328 = fpext float %327 to double
   %329 = fmul float %4, %326
   %330 = fpext float %329 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, double noundef %328, double noundef %330)
-  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit124
+  br label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit100
 
-_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit124: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit121, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i123, %325
+_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit100: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit98, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i99, %325
   %331 = fdiv float %3, 1.000000e+03
   %332 = fpext float %331 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.54, double noundef %332)
@@ -1729,14 +1704,14 @@ declare void @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9

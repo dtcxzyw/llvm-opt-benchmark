@@ -7090,9 +7090,9 @@ default.unreachable17:                            ; preds = %57, %1
   %.sroa.69.8.insert.ext.i = zext nneg i8 %16 to i64
   %17 = inttoptr i64 %.sroa.69.8.insert.ext.i to ptr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1407
-  %trunc.not.i = icmp eq i8 %16, 0
+  %trunc.i = trunc i8 %16 to i1
   %18 = insertelement <2 x ptr> <ptr null, ptr poison>, ptr %17, i64 1
-  br i1 %trunc.not.i, label %25, label %57
+  br i1 %trunc.i, label %57, label %25
 
 19:                                               ; preds = %11
   %20 = landingpad { ptr, i32 }

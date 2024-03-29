@@ -28,21 +28,19 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local zeroext i1 @semihosting_enabled(i1 noundef zeroext %is_user) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr @semihosting, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %land.end, label %land.rhs
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %2 = load i8, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 1), align 1
-  %3 = and i8 %2, 1
-  %tobool2 = icmp ne i8 %3, 0
+  %1 = load i8, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i64 0, i32 1), align 1
+  %tobool2 = trunc i8 %1 to i1
   %not.is_user = xor i1 %is_user, true
-  %4 = select i1 %not.is_user, i1 true, i1 %tobool2
+  %2 = select i1 %not.is_user, i1 true, i1 %tobool2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %5 = phi i1 [ false, %entry ], [ %4, %land.rhs ]
-  ret i1 %5
+  %3 = phi i1 [ false, %entry ], [ %2, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable

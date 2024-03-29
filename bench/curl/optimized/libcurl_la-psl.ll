@@ -13,9 +13,8 @@ entry:
 if.then:                                          ; preds = %entry
   %dynamic = getelementptr inbounds i8, ptr %pslcache, i64 16
   %1 = load i8, ptr %dynamic, align 8
-  %2 = and i8 %1, 1
-  %tobool1.not = icmp eq i8 %2, 0
-  br i1 %tobool1.not, label %if.end, label %if.then2
+  %tobool1 = trunc i8 %1 to i1
+  br i1 %tobool1, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
   tail call void @psl_free(ptr noundef nonnull %0) #2
@@ -81,9 +80,8 @@ if.then14:                                        ; preds = %lor.lhs.false11, %i
 land.lhs.true:                                    ; preds = %if.then14
   %dynamic20 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i8, ptr %dynamic20, align 8
-  %8 = and i8 %7, 1
-  %tobool21.not = icmp eq i8 %8, 0
-  br i1 %tobool21.not, label %if.end24, label %if.end36
+  %tobool21 = trunc i8 %7 to i1
+  br i1 %tobool21, label %if.end36, label %if.end24
 
 if.end24:                                         ; preds = %land.lhs.true
   %call23 = tail call ptr @psl_builtin() #2
@@ -92,19 +90,18 @@ if.end24:                                         ; preds = %land.lhs.true
 
 if.then26:                                        ; preds = %if.then14, %if.end24
   %psl1.031 = phi ptr [ %call23, %if.end24 ], [ %call16, %if.then14 ]
-  %9 = load ptr, ptr %0, align 8
-  %tobool.not.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %0, align 8
+  %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %Curl_psl_destroy.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then26
   %dynamic.i = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load i8, ptr %dynamic.i, align 8
-  %11 = and i8 %10, 1
-  %tobool1.not.i = icmp eq i8 %11, 0
-  br i1 %tobool1.not.i, label %Curl_psl_destroy.exit, label %if.then2.i
+  %9 = load i8, ptr %dynamic.i, align 8
+  %tobool1.i = trunc i8 %9 to i1
+  br i1 %tobool1.i, label %if.then2.i, label %Curl_psl_destroy.exit
 
 if.then2.i:                                       ; preds = %if.then.i
-  tail call void @psl_free(ptr noundef nonnull %9) #2
+  tail call void @psl_free(ptr noundef nonnull %8) #2
   br label %Curl_psl_destroy.exit
 
 Curl_psl_destroy.exit:                            ; preds = %if.then.i, %if.then2.i, %if.then26

@@ -43,15 +43,15 @@ define void @prte_setup_hostname() local_unnamed_addr #0 {
   %9 = load ptr, ptr @prte_strip_prefix, align 8
   %10 = call ptr @PMIx_Argv_split(ptr noundef %9, i32 noundef 44) #7
   %11 = load ptr, ptr %10, align 8
-  %.not28.not35 = icmp eq ptr %11, null
-  br i1 %.not28.not35, label %.critedge33, label %.lr.ph
+  %.not28.not34 = icmp eq ptr %11, null
+  br i1 %.not28.not34, label %.critedge32, label %.lr.ph
 
 12:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.next
   %14 = load ptr, ptr %13, align 8
   %.not28.not = icmp eq ptr %14, null
-  br i1 %.not28.not, label %.critedge33, label %.lr.ph, !llvm.loop !4
+  br i1 %.not28.not, label %.critedge32, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %8, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %8 ]
@@ -66,47 +66,47 @@ define void @prte_setup_hostname() local_unnamed_addr #0 {
   %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
   %22 = trunc i64 %21 to i32
   %23 = icmp slt i32 %20, %22
-  br i1 %23, label %.lr.ph38.preheader, label %.critedge
+  br i1 %23, label %.lr.ph37.preheader, label %.critedge
 
-.lr.ph38.preheader:                               ; preds = %19
+.lr.ph37.preheader:                               ; preds = %19
   %sext = shl i64 %16, 32
   %24 = ashr exact i64 %sext, 32
-  %sext45 = shl i64 %21, 32
-  %wide.trip.count = ashr exact i64 %sext45, 32
-  br label %.lr.ph38
+  %sext44 = shl i64 %21, 32
+  %wide.trip.count = ashr exact i64 %sext44, 32
+  br label %.lr.ph37
 
-.lr.ph38:                                         ; preds = %.lr.ph38.preheader, %.critedge2
-  %indvars.iv42 = phi i64 [ %24, %.lr.ph38.preheader ], [ %indvars.iv.next43, %.critedge2 ]
-  %25 = getelementptr inbounds [65 x i8], ptr %1, i64 0, i64 %indvars.iv42
+.lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.critedge2
+  %indvars.iv41 = phi i64 [ %24, %.lr.ph37.preheader ], [ %indvars.iv.next42, %.critedge2 ]
+  %25 = getelementptr inbounds [65 x i8], ptr %1, i64 0, i64 %indvars.iv41
   %26 = load i8, ptr %25, align 1
   %27 = add i8 %26, -58
   %or.cond = icmp ult i8 %27, -9
   br i1 %or.cond, label %.critedge2, label %28
 
-.critedge2:                                       ; preds = %.lr.ph38
-  %indvars.iv.next43 = add nsw i64 %indvars.iv42, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph38, !llvm.loop !6
+.critedge2:                                       ; preds = %.lr.ph37
+  %indvars.iv.next42 = add nsw i64 %indvars.iv41, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph37, !llvm.loop !6
 
-28:                                               ; preds = %.lr.ph38
-  %sext46 = shl i64 %indvars.iv42, 32
-  %29 = ashr exact i64 %sext46, 32
+28:                                               ; preds = %.lr.ph37
+  %sext45 = shl i64 %indvars.iv41, 32
+  %29 = ashr exact i64 %sext45, 32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge2, %19, %28
-  %.sink49 = phi i64 [ %29, %28 ], [ %16, %19 ], [ %16, %.critedge2 ]
-  %30 = getelementptr inbounds [65 x i8], ptr %1, i64 0, i64 %.sink49
+  %.sink48 = phi i64 [ %29, %28 ], [ %16, %19 ], [ %16, %.critedge2 ]
+  %30 = getelementptr inbounds [65 x i8], ptr %1, i64 0, i64 %.sink48
   %31 = call noalias ptr @strdup(ptr noundef nonnull %30) #7
   store ptr %31, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
   %32 = call i32 @PMIx_Argv_append_unique_nosize(ptr noundef nonnull getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 8), ptr noundef %31) #7
   br label %34
 
-.critedge33:                                      ; preds = %12, %8
+.critedge32:                                      ; preds = %12, %8
   %33 = call noalias ptr @strdup(ptr noundef nonnull %1) #7
   store ptr %33, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
   br label %34
 
-34:                                               ; preds = %.critedge, %.critedge33
+34:                                               ; preds = %.critedge, %.critedge32
   call void @PMIx_Argv_free(ptr noundef nonnull %10) #7
   %.pre = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
   br label %37
@@ -129,9 +129,8 @@ define void @prte_setup_hostname() local_unnamed_addr #0 {
 
 43:                                               ; preds = %40
   %44 = load i8, ptr @prte_keep_fqdn_hostnames, align 1
-  %45 = and i8 %44, 1
-  %.not31 = icmp eq i8 %45, 0
-  br i1 %.not31, label %.sink.split, label %46
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %.sink.split
 
 46:                                               ; preds = %43
   store i8 0, ptr %42, align 1
@@ -139,9 +138,9 @@ define void @prte_setup_hostname() local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %43, %46
-  %.sink50 = phi ptr [ %47, %46 ], [ %41, %43 ]
+  %.sink49 = phi ptr [ %47, %46 ], [ %41, %43 ]
   %.sink = phi i8 [ 46, %46 ], [ 0, %43 ]
-  %48 = call i32 @PMIx_Argv_append_unique_nosize(ptr noundef nonnull getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 8), ptr noundef %.sink50) #7
+  %48 = call i32 @PMIx_Argv_append_unique_nosize(ptr noundef nonnull getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 8), ptr noundef %.sink49) #7
   store i8 %.sink, ptr %42, align 1
   br label %49
 
@@ -194,8 +193,8 @@ define noundef zeroext i1 @prte_check_host_is_local(ptr noundef %0) local_unname
 .preheader:                                       ; preds = %8
   %11 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 8), align 8
   %12 = load ptr, ptr %11, align 8
-  %.not12 = icmp eq ptr %12, null
-  br i1 %.not12, label %._crit_edge, label %.lr.ph
+  %.not11 = icmp eq ptr %12, null
+  br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 13:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -213,9 +212,8 @@ define noundef zeroext i1 @prte_check_host_is_local(ptr noundef %0) local_unname
 
 ._crit_edge:                                      ; preds = %13, %.preheader
   %19 = load i8, ptr @prte_do_not_resolve, align 1
-  %20 = and i8 %19, 1
-  %.not11 = icmp eq i8 %20, 0
-  br i1 %.not11, label %21, label %.loopexit
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge
   %22 = tail call zeroext i1 @pmix_ifislocal(ptr noundef %0) #7

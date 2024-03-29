@@ -393,8 +393,8 @@ define hidden void @_ZNK5ceres8internal34PowerSeriesExpansionPreconditioner26Rig
   store i64 0, ptr %6, align 8
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i8, ptr %6, i64 8
-  %.not.i13 = icmp eq i32 %25, 0
-  br i1 %.not.i13, label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit, label %28
+  %.not.i = icmp eq i32 %25, 0
+  br i1 %.not.i, label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit, label %28
 
 28:                                               ; preds = %3
   %29 = icmp sgt i32 %25, 0
@@ -404,9 +404,9 @@ define hidden void @_ZNK5ceres8internal34PowerSeriesExpansionPreconditioner26Rig
   %31 = shl nuw nsw i64 %26, 3
   %32 = tail call noalias ptr @malloc(i64 noundef %31) #25
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.noexc15, label %.sink.split.i
+  br i1 %33, label %.noexc14, label %.sink.split.i
 
-.noexc15:                                         ; preds = %30
+.noexc14:                                         ; preds = %30
   %34 = tail call ptr @__cxa_allocate_exception(i64 8) #23
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %34, align 8
   tail call void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #21
@@ -433,31 +433,31 @@ _ZNK5ceres8internal34PowerSeriesExpansionPreconditioner8num_rowsEv.exit: ; preds
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %7, i64 8
-  %.not.i16 = icmp eq i32 %42, 0
-  br i1 %.not.i16, label %55, label %45
+  %.not.i15 = icmp eq i32 %42, 0
+  br i1 %.not.i15, label %55, label %45
 
 45:                                               ; preds = %_ZNK5ceres8internal34PowerSeriesExpansionPreconditioner8num_rowsEv.exit
   %46 = icmp sgt i32 %42, 0
-  br i1 %46, label %47, label %.sink.split.i17
+  br i1 %46, label %47, label %.sink.split.i16
 
 47:                                               ; preds = %45
   %48 = shl nuw nsw i64 %43, 3
   %49 = tail call noalias ptr @malloc(i64 noundef %48) #25
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %.sink.split.i17
+  br i1 %50, label %51, label %.sink.split.i16
 
 51:                                               ; preds = %47
   %52 = tail call ptr @__cxa_allocate_exception(i64 8) #23
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %52, align 8
   invoke void @__cxa_throw(ptr nonnull %52, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #21
-          to label %.noexc20 unwind label %53
+          to label %.noexc19 unwind label %53
 
-.noexc20:                                         ; preds = %51
+.noexc19:                                         ; preds = %51
   unreachable
 
-.sink.split.i17:                                  ; preds = %47, %45
-  %.sink.i18 = phi ptr [ %49, %47 ], [ null, %45 ]
-  store ptr %.sink.i18, ptr %7, align 8
+.sink.split.i16:                                  ; preds = %47, %45
+  %.sink.i17 = phi ptr [ %49, %47 ], [ null, %45 ]
+  store ptr %.sink.i17, ptr %7, align 8
   br label %55
 
 53:                                               ; preds = %51
@@ -465,7 +465,7 @@ _ZNK5ceres8internal34PowerSeriesExpansionPreconditioner8num_rowsEv.exit: ; preds
           cleanup
   br label %.body
 
-55:                                               ; preds = %_ZNK5ceres8internal34PowerSeriesExpansionPreconditioner8num_rowsEv.exit, %.sink.split.i17
+55:                                               ; preds = %_ZNK5ceres8internal34PowerSeriesExpansionPreconditioner8num_rowsEv.exit, %.sink.split.i16
   store i64 %43, ptr %44, align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 96
   %57 = load ptr, ptr %56, align 8
@@ -479,9 +479,8 @@ _ZN5ceres8internal15ParallelSetZeroIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1EL
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
   %61 = getelementptr inbounds i8, ptr %60, i64 16
   %62 = load i8, ptr %61, align 8
-  %63 = and i8 %62, 1
-  %.not.i = icmp eq i8 %63, 0
-  br i1 %.not.i, label %64, label %71
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %71, label %64
 
 64:                                               ; preds = %_ZN5ceres8internal15ParallelSetZeroIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS2_6StrideILi0ELi0EEEEEEEvPNS0_11ContextImplEiRT_.exit
   invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull @.str, i32 noundef 146)
@@ -542,14 +541,14 @@ _ZN5ceres8internal15ParallelSetZeroIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1EL
   %93 = load i32, ptr %58, align 4
   %94 = trunc i64 %90 to i32
   invoke void @_ZN5ceres8internal15ParallelSetZeroEPNS0_11ContextImplEiPdi(ptr noundef %92, i32 noundef %93, ptr noundef %91, i32 noundef %94)
-          to label %95 unwind label %.loopexit23
+          to label %95 unwind label %.loopexit22
 
 95:                                               ; preds = %89
   %96 = load ptr, ptr %9, align 8
   %97 = load ptr, ptr %7, align 8
   %98 = load ptr, ptr %6, align 8
   invoke void @_ZNK5ceres8internal23ImplicitSchurComplement49InversePowerSeriesOperatorRightMultiplyAccumulateEPKdPd(ptr noundef nonnull align 8 dereferenceable(144) %96, ptr noundef %97, ptr noundef %98)
-          to label %99 unwind label %.loopexit23
+          to label %99 unwind label %.loopexit22
 
 99:                                               ; preds = %95
   %100 = load ptr, ptr %56, align 8
@@ -557,7 +556,7 @@ _ZN5ceres8internal15ParallelSetZeroIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1EL
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %8, ptr noundef nonnull align 8 dereferenceable(17) %5, i64 17, i1 false)
   store ptr %6, ptr %87, align 8, !alias.scope !4
   invoke void @_ZN5ceres8internal14ParallelAssignIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS2_6StrideILi0ELi0EEEEENS2_13CwiseBinaryOpINS2_8internal13scalar_sum_opIddEEKS8_KS5_EEEEvPNS0_11ContextImplEiRT_RKT0_(ptr noundef %100, i32 noundef %101, ptr noundef nonnull align 8 dereferenceable(19) %5, ptr noundef nonnull align 8 dereferenceable(33) %8)
-          to label %102 unwind label %.loopexit23
+          to label %102 unwind label %.loopexit22
 
 102:                                              ; preds = %99
   %103 = load i32, ptr %88, align 8
@@ -661,7 +660,7 @@ _ZN5ceres8internal15ParallelSetZeroIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1EL
           cleanup
   br label %.body
 
-.loopexit23:                                      ; preds = %95, %99, %89
+.loopexit22:                                      ; preds = %95, %99, %89
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %155
@@ -671,8 +670,8 @@ _ZN5ceres8internal15ParallelSetZeroIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1EL
           cleanup
   br label %155
 
-155:                                              ; preds = %.loopexit.split-lp, %.loopexit23
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit23 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+155:                                              ; preds = %.loopexit.split-lp, %.loopexit22
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit22 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %156 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %156) #23
   %.pre = load ptr, ptr %6, align 8

@@ -104,7 +104,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 12:                                               ; preds = %.backedge, %9
   %13 = phi ptr [ null, %9 ], [ %.be, %.backedge ]
-  %.0 = phi i8 [ 0, %9 ], [ %.0.be, %.backedge ]
+  %.0 = phi i1 [ false, %9 ], [ %.0.be, %.backedge ]
   %14 = call i32 @getopt_long(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.22, ptr noundef nonnull @main.long_options, ptr noundef nonnull %6) #14
   switch i32 %14, label %82 [
     i32 -1, label %86
@@ -139,8 +139,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %5, align 8
-  %.not61 = icmp eq ptr %19, null
-  br i1 %.not61, label %20, label %22
+  %.not60 = icmp eq ptr %19, null
+  br i1 %.not60, label %20, label %22
 
 20:                                               ; preds = %18
   %21 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #14
@@ -168,8 +168,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 29:                                               ; preds = %12
   %30 = load ptr, ptr @clusters, align 8
-  %.not59 = icmp eq ptr %30, null
-  br i1 %.not59, label %32, label %31
+  %.not58 = icmp eq ptr %30, null
+  br i1 %.not58, label %32, label %31
 
 31:                                               ; preds = %29
   call void @list_destroy(ptr noundef nonnull %30) #14
@@ -179,8 +179,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store ptr null, ptr @clusters, align 8
   %33 = load ptr, ptr @optarg, align 8
   %34 = call i32 @slurm_get_cluster_info(ptr noundef nonnull @clusters, ptr noundef %33, i16 noundef zeroext 0) #14
-  %.not60 = icmp eq i32 %34, 0
-  br i1 %.not60, label %37, label %35
+  %.not59 = icmp eq i32 %34, 0
+  br i1 %.not59, label %37, label %35
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr @optarg, align 8
@@ -220,17 +220,17 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 48:                                               ; preds = %12
   %49 = load ptr, ptr @optarg, align 8
   %50 = call i32 @xstrcmp(ptr noundef %49, ptr noundef nonnull @.str.26) #14
-  %.not57 = icmp eq i32 %50, 0
-  br i1 %.not57, label %.backedge, label %51
+  %.not56 = icmp eq i32 %50, 0
+  br i1 %.not56, label %.backedge, label %51
 
 .backedge:                                        ; preds = %48, %12, %78, %74, %66, %63, %_addto_name_char_list.exit, %47, %46, %44, %43, %40, %37, %28, %27, %22
   %.be = phi ptr [ %13, %78 ], [ %13, %74 ], [ %13, %66 ], [ %13, %63 ], [ %62, %_addto_name_char_list.exit ], [ %13, %47 ], [ %13, %46 ], [ %13, %44 ], [ %13, %43 ], [ %13, %40 ], [ %13, %37 ], [ %13, %28 ], [ %13, %27 ], [ %13, %22 ], [ %13, %12 ], [ %13, %48 ]
-  %.0.be = phi i8 [ %.0, %78 ], [ %.0, %74 ], [ %.0, %66 ], [ %.0, %63 ], [ 0, %_addto_name_char_list.exit ], [ %.0, %47 ], [ %.0, %46 ], [ %.0, %44 ], [ %.0, %43 ], [ %.0, %40 ], [ %.0, %37 ], [ %.0, %28 ], [ %.0, %27 ], [ %.0, %22 ], [ 1, %12 ], [ 1, %48 ]
+  %.0.be = phi i1 [ %.0, %78 ], [ %.0, %74 ], [ %.0, %66 ], [ %.0, %63 ], [ false, %_addto_name_char_list.exit ], [ %.0, %47 ], [ %.0, %46 ], [ %.0, %44 ], [ %.0, %43 ], [ %.0, %40 ], [ %.0, %37 ], [ %.0, %28 ], [ %.0, %27 ], [ %.0, %22 ], [ true, %12 ], [ true, %48 ]
   br label %12, !llvm.loop !7
 
 51:                                               ; preds = %48
-  %.not58 = icmp eq ptr %13, null
-  br i1 %.not58, label %53, label %.thread
+  %.not57 = icmp eq ptr %13, null
+  br i1 %.not57, label %53, label %.thread
 
 .thread:                                          ; preds = %51
   %52 = load ptr, ptr @optarg, align 8
@@ -297,8 +297,8 @@ _addto_name_char_list.exit:                       ; preds = %56, %58
   %75 = load ptr, ptr @optarg, align 8
   store ptr %75, ptr @data_parser, align 8
   %76 = call i32 @serializer_g_init(ptr noundef nonnull @.str.28, ptr noundef null) #14
-  %.not56 = icmp eq i32 %76, 0
-  br i1 %.not56, label %.backedge, label %77
+  %.not55 = icmp eq i32 %76, 0
+  br i1 %.not55, label %.backedge, label %77
 
 77:                                               ; preds = %74
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.29) #15
@@ -309,8 +309,8 @@ _addto_name_char_list.exit:                       ; preds = %56, %58
   %79 = load ptr, ptr @optarg, align 8
   store ptr %79, ptr @data_parser, align 8
   %80 = call i32 @serializer_g_init(ptr noundef nonnull @.str.31, ptr noundef null) #14
-  %.not55 = icmp eq i32 %80, 0
-  br i1 %.not55, label %.backedge, label %81
+  %.not54 = icmp eq i32 %80, 0
+  br i1 %.not54, label %.backedge, label %81
 
 81:                                               ; preds = %78
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.32) #15
@@ -339,18 +339,17 @@ _addto_name_char_list.exit:                       ; preds = %56, %58
   br label %93
 
 93:                                               ; preds = %88, %86
-  %.not37 = icmp eq i8 %.0, 0
-  br i1 %.not37, label %104, label %94
+  br i1 %.0, label %94, label %104
 
 94:                                               ; preds = %93
   %95 = load ptr, ptr %11, align 8
-  %.not45 = icmp eq ptr %95, null
-  br i1 %.not45, label %99, label %96
+  %.not44 = icmp eq ptr %95, null
+  br i1 %.not44, label %99, label %96
 
 96:                                               ; preds = %94
   %97 = call i32 @list_count(ptr noundef nonnull %95) #14
-  %.not46 = icmp eq i32 %97, 0
-  br i1 %.not46, label %99, label %98
+  %.not45 = icmp eq i32 %97, 0
+  br i1 %.not45, label %99, label %98
 
 98:                                               ; preds = %96
   call void @list_destroy(ptr noundef nonnull %95) #14
@@ -359,8 +358,8 @@ _addto_name_char_list.exit:                       ; preds = %56, %58
 
 99:                                               ; preds = %98, %96, %94
   %100 = load i32, ptr @verbosity, align 4
-  %.not48 = icmp eq i32 %100, 0
-  br i1 %.not48, label %135, label %101
+  %.not47 = icmp eq i32 %100, 0
+  br i1 %.not47, label %135, label %101
 
 101:                                              ; preds = %99
   %102 = load ptr, ptr @stderr, align 8
@@ -377,47 +376,47 @@ _addto_name_char_list.exit:                       ; preds = %56, %58
 
 109:                                              ; preds = %104
   %110 = call i32 @list_count(ptr noundef nonnull %107) #14
-  %.not38 = icmp eq i32 %110, 0
-  br i1 %.not38, label %thread-pre-split.thread, label %111
+  %.not37 = icmp eq i32 %110, 0
+  br i1 %.not37, label %thread-pre-split.thread, label %111
 
 111:                                              ; preds = %109
   %112 = load ptr, ptr @stderr, align 8
   %113 = call i64 @fwrite(ptr nonnull @.str.35, i64 17, i64 1, ptr %112) #16
   %114 = call ptr @list_iterator_create(ptr noundef nonnull %107) #14
   %115 = call ptr @list_next(ptr noundef %114) #14
-  %.not4484 = icmp eq ptr %115, null
-  br i1 %.not4484, label %._crit_edge, label %.lr.ph
+  %.not4383 = icmp eq ptr %115, null
+  br i1 %.not4383, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %111, %.lr.ph
   %116 = phi ptr [ %119, %.lr.ph ], [ %115, %111 ]
   %117 = load ptr, ptr @stderr, align 8
   %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef nonnull @.str.36, ptr noundef nonnull %116) #17
   %119 = call ptr @list_next(ptr noundef %114) #14
-  %.not44 = icmp eq ptr %119, null
-  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  %.not43 = icmp eq ptr %119, null
+  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %111
   call void @list_iterator_destroy(ptr noundef %114) #14
   br label %135
 
 thread-pre-split:                                 ; preds = %104
-  %.not39 = icmp eq ptr %107, null
-  br i1 %.not39, label %121, label %thread-pre-split.thread
+  %.not38 = icmp eq ptr %107, null
+  br i1 %.not38, label %121, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %109, %thread-pre-split
   %120 = call i32 @list_count(ptr noundef nonnull %107) #14
-  %.not40 = icmp eq i32 %120, 0
-  br i1 %.not40, label %121, label %135
+  %.not39 = icmp eq i32 %120, 0
+  br i1 %.not39, label %121, label %135
 
 121:                                              ; preds = %thread-pre-split.thread, %thread-pre-split
-  %.not39110 = phi i1 [ false, %thread-pre-split.thread ], [ true, %thread-pre-split ]
+  %.not38109 = phi i1 [ false, %thread-pre-split.thread ], [ true, %thread-pre-split ]
   %122 = call i32 @getuid() #14
   %123 = call ptr @uid_to_string_or_null(i32 noundef %122) #14
-  %.not41 = icmp eq ptr %123, null
-  br i1 %.not41, label %135, label %124
+  %.not40 = icmp eq ptr %123, null
+  br i1 %.not40, label %135, label %124
 
 124:                                              ; preds = %121
-  br i1 %.not39110, label %125, label %127
+  br i1 %.not38109, label %125, label %127
 
 125:                                              ; preds = %124
   %126 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #14
@@ -428,8 +427,8 @@ thread-pre-split.thread:                          ; preds = %109, %thread-pre-sp
   %128 = phi ptr [ %126, %125 ], [ %107, %124 ]
   call void @list_append(ptr noundef %128, ptr noundef nonnull %123) #14
   %129 = load i32, ptr @verbosity, align 4
-  %.not43 = icmp eq i32 %129, 0
-  br i1 %.not43, label %135, label %130
+  %.not42 = icmp eq i32 %129, 0
+  br i1 %.not42, label %135, label %130
 
 130:                                              ; preds = %127
   %131 = load ptr, ptr @stderr, align 8
@@ -448,116 +447,113 @@ thread-pre-split.thread:                          ; preds = %109, %thread-pre-sp
 
 140:                                              ; preds = %135
   %141 = call i32 @list_count(ptr noundef nonnull %138) #14
-  %.not49 = icmp eq i32 %141, 0
-  br i1 %.not49, label %thread-pre-split64, label %142
+  %.not48 = icmp eq i32 %141, 0
+  br i1 %.not48, label %thread-pre-split63, label %142
 
 142:                                              ; preds = %140
   %143 = call ptr @list_iterator_create(ptr noundef nonnull %138) #14
   %144 = load ptr, ptr @stderr, align 8
   %145 = call i64 @fwrite(ptr nonnull @.str.37, i64 20, i64 1, ptr %144) #16
   %146 = call ptr @list_next(ptr noundef %143) #14
-  %.not5185 = icmp eq ptr %146, null
-  br i1 %.not5185, label %._crit_edge88, label %.lr.ph87
+  %.not5084 = icmp eq ptr %146, null
+  br i1 %.not5084, label %._crit_edge87, label %.lr.ph86
 
-.lr.ph87:                                         ; preds = %142, %.lr.ph87
-  %147 = phi ptr [ %150, %.lr.ph87 ], [ %146, %142 ]
+.lr.ph86:                                         ; preds = %142, %.lr.ph86
+  %147 = phi ptr [ %150, %.lr.ph86 ], [ %146, %142 ]
   %148 = load ptr, ptr @stderr, align 8
   %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.36, ptr noundef nonnull %147) #17
   %150 = call ptr @list_next(ptr noundef %143) #14
-  %.not51 = icmp eq ptr %150, null
-  br i1 %.not51, label %._crit_edge88, label %.lr.ph87, !llvm.loop !10
+  %.not50 = icmp eq ptr %150, null
+  br i1 %.not50, label %._crit_edge87, label %.lr.ph86, !llvm.loop !10
 
-._crit_edge88:                                    ; preds = %.lr.ph87, %142
+._crit_edge87:                                    ; preds = %.lr.ph86, %142
   call void @list_iterator_destroy(ptr noundef %143) #14
   br label %156
 
-thread-pre-split64:                               ; preds = %140
-  %.pr65 = load i32, ptr @verbosity, align 4
+thread-pre-split63:                               ; preds = %140
+  %.pr64 = load i32, ptr @verbosity, align 4
   br label %151
 
-151:                                              ; preds = %thread-pre-split64, %135
-  %152 = phi i32 [ %.pr65, %thread-pre-split64 ], [ %136, %135 ]
-  %.not50 = icmp eq i32 %152, 0
-  br i1 %.not50, label %156, label %153
+151:                                              ; preds = %thread-pre-split63, %135
+  %152 = phi i32 [ %.pr64, %thread-pre-split63 ], [ %136, %135 ]
+  %.not49 = icmp eq i32 %152, 0
+  br i1 %.not49, label %156, label %153
 
 153:                                              ; preds = %151
   %154 = load ptr, ptr @stderr, align 8
   %155 = call i64 @fwrite(ptr nonnull @.str.38, i64 27, i64 1, ptr %154) #16
   br label %156
 
-156:                                              ; preds = %151, %153, %._crit_edge88
+156:                                              ; preds = %151, %153, %._crit_edge87
   %157 = load ptr, ptr @clusters, align 8
-  %.not52 = icmp eq ptr %157, null
-  br i1 %.not52, label %171, label %158
+  %.not51 = icmp eq ptr %157, null
+  br i1 %.not51, label %170, label %158
 
 158:                                              ; preds = %156
   %159 = call ptr @list_iterator_create(ptr noundef nonnull %157) #14
   %160 = call ptr @list_next(ptr noundef %159) #14
   store ptr %160, ptr @working_cluster_rec, align 8
-  %.not11.i = icmp eq ptr %160, null
-  br i1 %.not11.i, label %_multi_cluster.exit, label %.lr.ph.i
+  %.not10.i = icmp eq ptr %160, null
+  br i1 %.not10.i, label %_multi_cluster.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %158, %164
-  %161 = phi ptr [ %170, %164 ], [ %160, %158 ]
-  %.013.i = phi i8 [ %.1.i, %164 ], [ 1, %158 ]
-  %.0712.i = phi i32 [ %spec.select.i, %164 ], [ 0, %158 ]
-  %162 = and i8 %.013.i, 1
-  %.not9.i = icmp eq i8 %162, 0
-  br i1 %.not9.i, label %163, label %164
+.lr.ph.i:                                         ; preds = %158, %163
+  %161 = phi ptr [ %169, %163 ], [ %160, %158 ]
+  %.012.i = phi i1 [ false, %163 ], [ true, %158 ]
+  %.0711.i = phi i32 [ %spec.select.i, %163 ], [ 0, %158 ]
+  br i1 %.012.i, label %163, label %162
 
-163:                                              ; preds = %.lr.ph.i
+162:                                              ; preds = %.lr.ph.i
   %putchar.i = call i32 @putchar(i32 10)
   %.pre.i = load ptr, ptr @working_cluster_rec, align 8
-  br label %164
+  br label %163
 
-164:                                              ; preds = %163, %.lr.ph.i
-  %165 = phi ptr [ %.pre.i, %163 ], [ %161, %.lr.ph.i ]
-  %.1.i = phi i8 [ %.013.i, %163 ], [ 0, %.lr.ph.i ]
-  %166 = getelementptr inbounds i8, ptr %165, i64 272
-  %167 = load ptr, ptr %166, align 8
-  %168 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, ptr noundef %167)
-  %169 = call fastcc i32 @_single_cluster(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %5)
-  %.not10.i = icmp eq i32 %169, 0
-  %spec.select.i = select i1 %.not10.i, i32 %.0712.i, i32 1
-  %170 = call ptr @list_next(ptr noundef %159) #14
-  store ptr %170, ptr @working_cluster_rec, align 8
-  %.not.i62 = icmp eq ptr %170, null
-  br i1 %.not.i62, label %_multi_cluster.exit, label %.lr.ph.i, !llvm.loop !11
+163:                                              ; preds = %162, %.lr.ph.i
+  %164 = phi ptr [ %161, %.lr.ph.i ], [ %.pre.i, %162 ]
+  %165 = getelementptr inbounds i8, ptr %164, i64 272
+  %166 = load ptr, ptr %165, align 8
+  %167 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, ptr noundef %166)
+  %168 = call fastcc i32 @_single_cluster(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %5)
+  %.not9.i = icmp eq i32 %168, 0
+  %spec.select.i = select i1 %.not9.i, i32 %.0711.i, i32 1
+  %169 = call ptr @list_next(ptr noundef %159) #14
+  store ptr %169, ptr @working_cluster_rec, align 8
+  %.not.i61 = icmp eq ptr %169, null
+  br i1 %.not.i61, label %_multi_cluster.exit, label %.lr.ph.i, !llvm.loop !11
 
-_multi_cluster.exit:                              ; preds = %164, %158
-  %.07.lcssa.i = phi i32 [ 0, %158 ], [ %spec.select.i, %164 ]
+_multi_cluster.exit:                              ; preds = %163, %158
+  %.07.lcssa.i = phi i32 [ 0, %158 ], [ %spec.select.i, %163 ]
   call void @list_iterator_destroy(ptr noundef %159) #14
-  br label %173
+  br label %172
 
-171:                                              ; preds = %156
-  %172 = call fastcc i32 @_single_cluster(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %5)
-  br label %173
+170:                                              ; preds = %156
+  %171 = call fastcc i32 @_single_cluster(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %5)
+  br label %172
 
-173:                                              ; preds = %_multi_cluster.exit, %171
-  %storemerge = phi i32 [ %172, %171 ], [ %.07.lcssa.i, %_multi_cluster.exit ]
+172:                                              ; preds = %_multi_cluster.exit, %170
+  %storemerge = phi i32 [ %171, %170 ], [ %.07.lcssa.i, %_multi_cluster.exit ]
   store i32 %storemerge, ptr @exit_code, align 4
-  %174 = load ptr, ptr %5, align 8
-  %.not53 = icmp eq ptr %174, null
-  br i1 %.not53, label %176, label %175
+  %173 = load ptr, ptr %5, align 8
+  %.not52 = icmp eq ptr %173, null
+  br i1 %.not52, label %175, label %174
 
-175:                                              ; preds = %173
-  call void @list_destroy(ptr noundef nonnull %174) #14
-  br label %176
+174:                                              ; preds = %172
+  call void @list_destroy(ptr noundef nonnull %173) #14
+  br label %175
 
-176:                                              ; preds = %175, %173
+175:                                              ; preds = %174, %172
   store ptr null, ptr %5, align 8
-  %177 = load ptr, ptr %11, align 8
-  %.not54 = icmp eq ptr %177, null
-  br i1 %.not54, label %179, label %178
+  %176 = load ptr, ptr %11, align 8
+  %.not53 = icmp eq ptr %176, null
+  br i1 %.not53, label %178, label %177
 
-178:                                              ; preds = %176
-  call void @list_destroy(ptr noundef nonnull %177) #14
-  br label %179
+177:                                              ; preds = %175
+  call void @list_destroy(ptr noundef nonnull %176) #14
+  br label %178
 
-179:                                              ; preds = %178, %176
+178:                                              ; preds = %177, %175
   store ptr null, ptr %11, align 8
-  %180 = load i32, ptr @exit_code, align 4
-  call void @exit(i32 noundef %180) #15
+  %179 = load i32, ptr @exit_code, align 4
+  call void @exit(i32 noundef %179) #15
   unreachable
 }
 
@@ -813,11 +809,10 @@ define internal noundef i32 @_addto_name_char_list_internal(ptr noundef %0, ptr 
 
 12:                                               ; preds = %3
   %13 = load i8, ptr %2, align 1
-  %14 = and i8 %13, 1
-  %.not9 = icmp eq i8 %14, 0
+  %14 = trunc i8 %13 to i1
   %15 = tail call i64 @strtoul(ptr nocapture noundef nonnull %1, ptr noundef null, i32 noundef 10) #14
   %16 = trunc i64 %15 to i32
-  br i1 %.not9, label %22, label %17
+  br i1 %14, label %17, label %22
 
 17:                                               ; preds = %12
   %18 = tail call ptr @gid_to_string_or_null(i32 noundef %16) #14

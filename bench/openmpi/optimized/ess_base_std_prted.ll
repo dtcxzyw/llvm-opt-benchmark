@@ -160,7 +160,7 @@ define noundef i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 {
   %16 = load volatile i64, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @prte_ess_base_signals, i64 0, i32 2), align 8
   %17 = trunc i64 %16 to i32
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %19, label %.loopexit236
+  br i1 %18, label %19, label %.loopexit235
 
 19:                                               ; preds = %0
   %20 = shl i64 %16, 7
@@ -171,14 +171,14 @@ define noundef i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 {
   br i1 %23, label %291, label %.preheader
 
 .preheader:                                       ; preds = %19
-  %.0135243 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @prte_ess_base_signals, i64 0, i32 1, i32 1), align 8
-  %.not244 = icmp eq ptr %.0135243, getelementptr inbounds (%struct.pmix_list_t, ptr @prte_ess_base_signals, i64 0, i32 1)
-  br i1 %.not244, label %.loopexit236, label %.lr.ph
+  %.0135242 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @prte_ess_base_signals, i64 0, i32 1, i32 1), align 8
+  %.not243 = icmp eq ptr %.0135242, getelementptr inbounds (%struct.pmix_list_t, ptr @prte_ess_base_signals, i64 0, i32 1)
+  br i1 %.not243, label %.loopexit235, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %.0135246 = phi ptr [ %.0135, %.lr.ph ], [ %.0135243, %.preheader ]
-  %24 = getelementptr inbounds i8, ptr %.0135246, i64 152
+  %.0135245 = phi ptr [ %.0135, %.lr.ph ], [ %.0135242, %.preheader ]
+  %24 = getelementptr inbounds i8, ptr %.0135245, i64 152
   %25 = load i32, ptr %24, align 8
   %26 = load ptr, ptr @forward_signals_events, align 8
   %27 = getelementptr inbounds %struct.event, ptr %26, i64 %indvars.iv
@@ -186,46 +186,46 @@ define noundef i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 {
   %29 = tail call i32 @prte_event_assign(ptr noundef %27, ptr noundef %28, i32 noundef %25, i16 noundef signext 24, ptr noundef nonnull @signal_forward_callback, ptr noundef %27) #16
   %30 = tail call i32 @event_add(ptr noundef %27, ptr noundef null) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = getelementptr inbounds i8, ptr %.0135246, i64 120
+  %31 = getelementptr inbounds i8, ptr %.0135245, i64 120
   %.0135 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %.0135, getelementptr inbounds (%struct.pmix_list_t, ptr @prte_ess_base_signals, i64 0, i32 1)
-  br i1 %.not, label %.loopexit236, label %.lr.ph, !llvm.loop !4
+  br i1 %.not, label %.loopexit235, label %.lr.ph, !llvm.loop !4
 
-.loopexit236:                                     ; preds = %.lr.ph, %.preheader, %0
+.loopexit235:                                     ; preds = %.lr.ph, %.preheader, %0
   store i1 true, ptr @signals_set, align 1
   %32 = load ptr, ptr @prte_hwloc_topology, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %36
 
-34:                                               ; preds = %.loopexit236
+34:                                               ; preds = %.loopexit235
   %35 = tail call i32 @prte_hwloc_base_get_topology() #16
   %.not176 = icmp eq i32 %35, 0
-  br i1 %.not176, label %._crit_edge266, label %291
+  br i1 %.not176, label %._crit_edge265, label %291
 
-._crit_edge266:                                   ; preds = %34
+._crit_edge265:                                   ; preds = %34
   %.pre = load ptr, ptr @prte_hwloc_topology, align 8
   br label %36
 
-36:                                               ; preds = %._crit_edge266, %.loopexit236
-  %37 = phi ptr [ %.pre, %._crit_edge266 ], [ %32, %.loopexit236 ]
+36:                                               ; preds = %._crit_edge265, %.loopexit235
+  %37 = phi ptr [ %.pre, %._crit_edge265 ], [ %32, %.loopexit235 ]
   %38 = tail call ptr @prte_hwloc_base_get_topo_signature(ptr noundef %37) #16
   store ptr %38, ptr @prte_topo_signature, align 8
   %39 = load ptr, ptr @prte_hwloc_topology, align 8
   %40 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %39, i32 noundef 0, i32 noundef 0) #18
   %41 = getelementptr inbounds i8, ptr %40, i64 224
   %42 = load i32, ptr %41, align 8
-  %.not251 = icmp eq i32 %42, 0
-  br i1 %.not251, label %.loopexit, label %.lr.ph248
+  %.not250 = icmp eq i32 %42, 0
+  br i1 %.not250, label %.loopexit, label %.lr.ph247
 
-.lr.ph248:                                        ; preds = %36
+.lr.ph247:                                        ; preds = %36
   %43 = getelementptr inbounds i8, ptr %40, i64 216
   %44 = load ptr, ptr %43, align 8
   %wide.trip.count = zext i32 %42 to i64
   br label %45
 
-45:                                               ; preds = %.lr.ph248, %80
-  %indvars.iv259 = phi i64 [ 0, %.lr.ph248 ], [ %indvars.iv.next260, %80 ]
-  %46 = getelementptr inbounds %struct.hwloc_info_s, ptr %44, i64 %indvars.iv259
+45:                                               ; preds = %.lr.ph247, %80
+  %indvars.iv258 = phi i64 [ 0, %.lr.ph247 ], [ %indvars.iv.next259, %80 ]
+  %46 = getelementptr inbounds %struct.hwloc_info_s, ptr %44, i64 %indvars.iv258
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %80, label %49
@@ -242,36 +242,36 @@ define noundef i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 {
   br i1 %55, label %56, label %80
 
 56:                                               ; preds = %53
-  %57 = trunc i64 %indvars.iv259 to i32
+  %57 = trunc i64 %indvars.iv258 to i32
   tail call void @free(ptr noundef nonnull %47) #16
   %58 = load ptr, ptr %43, align 8
-  %59 = getelementptr inbounds %struct.hwloc_info_s, ptr %58, i64 %indvars.iv259, i32 1
+  %59 = getelementptr inbounds %struct.hwloc_info_s, ptr %58, i64 %indvars.iv258, i32 1
   %60 = load ptr, ptr %59, align 8
   tail call void @free(ptr noundef %60) #16
   %61 = load i32, ptr %41, align 8
   %62 = add i32 %61, -1
   %63 = icmp ugt i32 %62, %57
-  br i1 %63, label %.lr.ph250, label %.._crit_edge_crit_edge
+  br i1 %63, label %.lr.ph249, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %56
-  %.pre267 = zext i32 %62 to i64
+  %.pre266 = zext i32 %62 to i64
   br label %._crit_edge
 
-.lr.ph250:                                        ; preds = %56, %.lr.ph250
-  %indvars.iv263 = phi i64 [ %indvars.iv.next264, %.lr.ph250 ], [ %indvars.iv259, %56 ]
+.lr.ph249:                                        ; preds = %56, %.lr.ph249
+  %indvars.iv262 = phi i64 [ %indvars.iv.next263, %.lr.ph249 ], [ %indvars.iv258, %56 ]
   %64 = load ptr, ptr %43, align 8
-  %65 = getelementptr inbounds %struct.hwloc_info_s, ptr %64, i64 %indvars.iv263
-  %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
-  %66 = getelementptr inbounds %struct.hwloc_info_s, ptr %64, i64 %indvars.iv.next264
+  %65 = getelementptr inbounds %struct.hwloc_info_s, ptr %64, i64 %indvars.iv262
+  %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
+  %66 = getelementptr inbounds %struct.hwloc_info_s, ptr %64, i64 %indvars.iv.next263
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %66, i64 16, i1 false)
   %67 = load i32, ptr %41, align 8
   %68 = add i32 %67, -1
   %69 = zext i32 %68 to i64
-  %70 = icmp ult i64 %indvars.iv.next264, %69
-  br i1 %70, label %.lr.ph250, label %._crit_edge, !llvm.loop !6
+  %70 = icmp ult i64 %indvars.iv.next263, %69
+  br i1 %70, label %.lr.ph249, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph250, %.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre267, %.._crit_edge_crit_edge ], [ %69, %.lr.ph250 ]
+._crit_edge:                                      ; preds = %.lr.ph249, %.._crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %.pre266, %.._crit_edge_crit_edge ], [ %69, %.lr.ph249 ]
   %71 = load ptr, ptr %43, align 8
   %72 = getelementptr inbounds %struct.hwloc_info_s, ptr %71, i64 %.pre-phi
   store ptr null, ptr %72, align 8
@@ -287,8 +287,8 @@ define noundef i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 {
   br label %.loopexit
 
 80:                                               ; preds = %53, %45, %49
-  %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next260, %wide.trip.count
+  %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next259, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %45, !llvm.loop !7
 
 .loopexit:                                        ; preds = %80, %36, %._crit_edge
@@ -446,9 +446,8 @@ define noundef i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 {
   %157 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %157) #16
   %158 = load i8, ptr @prte_debug_daemons_file_flag, align 1
-  %159 = and i8 %158, 1
-  %.not184 = icmp eq i8 %159, 0
-  br i1 %.not184, label %175, label %160
+  %159 = trunc i8 %158 to i1
+  br i1 %159, label %160, label %175
 
 160:                                              ; preds = %150
   %161 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 7), align 8
@@ -477,8 +476,8 @@ define noundef i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 {
 
 175:                                              ; preds = %167, %173, %169, %150
   %176 = call i32 @pmix_server_init() #16
-  %.not185 = icmp eq i32 %176, 0
-  br i1 %.not185, label %177, label %291
+  %.not184 = icmp eq i32 %176, 0
+  br i1 %.not184, label %177, label %291
 
 177:                                              ; preds = %175
   %178 = call i32 @pmix_mca_base_framework_open(ptr noundef nonnull @prte_prtereachable_base_framework, i32 noundef 0) #16
@@ -535,16 +534,16 @@ define noundef i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 {
   %194 = load ptr, ptr %2, align 8
   %195 = call i32 @PMIx_Value_load(ptr noundef nonnull %4, ptr noundef %194, i16 noundef zeroext 3) #16
   %196 = call i32 @PMIx_Store_internal(ptr noundef nonnull @prte_process_info, ptr noundef nonnull @.str.27, ptr noundef nonnull %4) #16
-  %.not190 = icmp eq i32 %196, 0
+  %.not189 = icmp eq i32 %196, 0
   call void @PMIx_Value_destruct(ptr noundef nonnull %4) #16
-  br i1 %.not190, label %197, label %291
+  br i1 %.not189, label %197, label %291
 
 197:                                              ; preds = %193
   %198 = load ptr, ptr %2, align 8
   call void @free(ptr noundef %198) #16
   %199 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 2), align 8
-  %.not191 = icmp eq ptr %199, null
-  br i1 %.not191, label %208, label %200
+  %.not190 = icmp eq ptr %199, null
+  br i1 %.not190, label %208, label %200
 
 200:                                              ; preds = %197
   %201 = call i32 @prte_rml_parse_uris(ptr noundef nonnull %199, ptr noundef nonnull getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 1), ptr noundef null) #16
@@ -562,9 +561,9 @@ define noundef i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 {
   %205 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 2), align 8
   %206 = call i32 @PMIx_Value_load(ptr noundef nonnull %4, ptr noundef %205, i16 noundef zeroext 3) #16
   %207 = call i32 @PMIx_Store_internal(ptr noundef nonnull getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 1), ptr noundef nonnull @.str.27, ptr noundef nonnull %4) #16
-  %.not193 = icmp eq i32 %207, 0
+  %.not192 = icmp eq i32 %207, 0
   call void @PMIx_Value_destruct(ptr noundef nonnull %4) #16
-  br i1 %.not193, label %208, label %291
+  br i1 %.not192, label %208, label %291
 
 208:                                              ; preds = %204, %197
   %209 = call i32 @prte_errmgr_base_select() #16
@@ -720,8 +719,8 @@ define noundef i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 {
   br label %269
 
 269:                                              ; preds = %257, %262, %267, %244
-  %.b204 = load i1, ptr @plm_in_use, align 1
-  br i1 %.b204, label %270, label %275
+  %.b203 = load i1, ptr @plm_in_use, align 1
+  br i1 %.b203, label %270, label %275
 
 270:                                              ; preds = %269
   %271 = load ptr, ptr @prte_plm, align 8
@@ -831,8 +830,8 @@ define noundef i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 {
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %304
   %313 = getelementptr inbounds i8, ptr %.0141, i64 96
   %314 = load ptr, ptr %313, align 8
-  %.not235 = icmp eq ptr %314, null
-  br i1 %.not235, label %317, label %315
+  %.not234 = icmp eq ptr %314, null
+  br i1 %.not234, label %317, label %315
 
 315:                                              ; preds = %pmix_obj_run_destructors.exit
   %316 = getelementptr inbounds i8, ptr %.0141, i64 56
@@ -927,9 +926,8 @@ define internal void @signal_forward_callback(i32 %0, i16 signext %1, ptr nounde
   store i8 3, ptr %4, align 1
   %5 = tail call i32 @event_get_fd(ptr noundef %2) #16
   %6 = load i8, ptr @prte_execute_quiet, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %8, label %11
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %11, label %8
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr @stderr, align 8

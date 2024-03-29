@@ -195,9 +195,8 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   store ptr %4, ptr %5, align 8
   %16 = call i32 @opal_info_dup(ptr noundef %1, ptr noundef nonnull %5) #9
   %17 = load i8, ptr @opal_uses_threads, align 1
-  %18 = and i8 %17, 1
-  %.not2 = icmp eq i8 %18, 0
-  br i1 %.not2, label %21, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %21
 
 19:                                               ; preds = %opal_obj_run_constructors.exit
   %20 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #9
@@ -206,9 +205,8 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
 21:                                               ; preds = %opal_obj_run_constructors.exit, %19
   %22 = call i32 @mca_io_romio_dist_MPI_File_delete(ptr noundef %0, ptr noundef nonnull %4) #9
   %23 = load i8, ptr @opal_uses_threads, align 1
-  %24 = and i8 %23, 1
-  %.not3 = icmp eq i8 %24, 0
-  br i1 %.not3, label %27, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %27
 
 25:                                               ; preds = %21
   %26 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #9
@@ -219,28 +217,27 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   %29 = getelementptr inbounds i8, ptr %28, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
-  %.not6.i4 = icmp eq ptr %31, null
-  br i1 %.not6.i4, label %opal_obj_run_destructors.exit, label %.lr.ph.i5
+  %.not6.i2 = icmp eq ptr %31, null
+  br i1 %.not6.i2, label %opal_obj_run_destructors.exit, label %.lr.ph.i3
 
-.lr.ph.i5:                                        ; preds = %27, %.lr.ph.i5
-  %32 = phi ptr [ %34, %.lr.ph.i5 ], [ %31, %27 ]
-  %.07.i6 = phi ptr [ %33, %.lr.ph.i5 ], [ %30, %27 ]
+.lr.ph.i3:                                        ; preds = %27, %.lr.ph.i3
+  %32 = phi ptr [ %34, %.lr.ph.i3 ], [ %31, %27 ]
+  %.07.i4 = phi ptr [ %33, %.lr.ph.i3 ], [ %30, %27 ]
   call void %32(ptr noundef nonnull %4) #9
-  %33 = getelementptr inbounds i8, ptr %.07.i6, i64 8
+  %33 = getelementptr inbounds i8, ptr %.07.i4, i64 8
   %34 = load ptr, ptr %33, align 8
-  %.not.i7 = icmp eq ptr %34, null
-  br i1 %.not.i7, label %opal_obj_run_destructors.exit, label %.lr.ph.i5, !llvm.loop !6
+  %.not.i5 = icmp eq ptr %34, null
+  br i1 %.not.i5, label %opal_obj_run_destructors.exit, label %.lr.ph.i3, !llvm.loop !6
 
-opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i5, %27
+opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i3, %27
   ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @register_datarep(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = load i8, ptr @opal_uses_threads, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %10, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
   %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #9
@@ -249,9 +246,8 @@ define internal i32 @register_datarep(ptr noundef %0, ptr noundef %1, ptr nounde
 10:                                               ; preds = %5, %8
   %11 = tail call i32 @mca_io_romio_dist_MPI_Register_datarep(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #9
   %12 = load i8, ptr @opal_uses_threads, align 1
-  %13 = and i8 %12, 1
-  %.not5 = icmp eq i8 %13, 0
-  br i1 %.not5, label %16, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %10
   %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_io_romio341_mutex, i64 0, i32 1)) #9

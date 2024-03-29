@@ -270,113 +270,111 @@ if.then2.i:                                       ; preds = %if.then
   %bf.load.i = load i16, ptr %tcpi_delivery_rate_app_limited.i, align 2
   %is_delivery_rate_app_limited.i = getelementptr inbounds i8, ptr %call, i64 72
   %10 = load i8, ptr %_M_engaged.i.i.i.i1.i.i.i.i, align 1
-  %11 = and i8 %10, 1
-  %tobool.i.not.i.i = icmp eq i8 %11, 0
-  br i1 %tobool.i.not.i.i, label %if.else.i.i, label %_ZNSt8optionalIbEaSIRKhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIbES6_IbNSt5decayIS9_E4typeEEEEESt16is_constructibleIbJS9_EESt13is_assignableIRbS9_EEERS0_E4typeEOS9_.exit.i
+  %tobool.i.i.i = trunc i8 %10 to i1
+  br i1 %tobool.i.i.i, label %_ZNSt8optionalIbEaSIRKhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIbES6_IbNSt5decayIS9_E4typeEEEEESt16is_constructibleIbJS9_EESt13is_assignableIRbS9_EEERS0_E4typeEOS9_.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then2.i
   store i8 1, ptr %_M_engaged.i.i.i.i1.i.i.i.i, align 1
   br label %_ZNSt8optionalIbEaSIRKhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIbES6_IbNSt5decayIS9_E4typeEEEEESt16is_constructibleIbJS9_EESt13is_assignableIRbS9_EEERS0_E4typeEOS9_.exit.i
 
 _ZNSt8optionalIbEaSIRKhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIbES6_IbNSt5decayIS9_E4typeEEEEESt16is_constructibleIbJS9_EESt13is_assignableIRbS9_EEERS0_E4typeEOS9_.exit.i: ; preds = %if.else.i.i, %if.then2.i
-  %12 = lshr i16 %bf.load.i, 8
-  %13 = trunc i16 %12 to i8
-  %frombool.sink.i.i = and i8 %13, 1
-  store i8 %frombool.sink.i.i, ptr %is_delivery_rate_app_limited.i, align 1
+  %11 = lshr i16 %bf.load.i, 8
+  %12 = trunc i16 %11 to i8
+  %frombool.i.i.i.sink.i.i = and i8 %12, 1
+  store i8 %frombool.i.i.i.sink.i.i, ptr %is_delivery_rate_app_limited.i, align 1
   %tcpi_snd_cwnd.i = getelementptr inbounds i8, ptr %call, i64 1088
-  %14 = load i32, ptr %tcpi_snd_cwnd.i, align 4
+  %13 = load i32, ptr %tcpi_snd_cwnd.i, align 4
   %congestion_window.i = getelementptr inbounds i8, ptr %call, i64 200
-  %ref.tmp4.sroa.0.0.insert.ext.i = zext i32 %14 to i64
+  %ref.tmp4.sroa.0.0.insert.ext.i = zext i32 %13 to i64
   %ref.tmp4.sroa.0.0.insert.insert.i = or disjoint i64 %ref.tmp4.sroa.0.0.insert.ext.i, 4294967296
   store i64 %ref.tmp4.sroa.0.0.insert.insert.i, ptr %congestion_window.i, align 8
   %tcpi_reordering.i = getelementptr inbounds i8, ptr %call, i64 1096
-  %15 = load i32, ptr %tcpi_reordering.i, align 4
+  %14 = load i32, ptr %tcpi_reordering.i, align 4
   %reordering.i = getelementptr inbounds i8, ptr %call, i64 216
-  %ref.tmp5.sroa.0.0.insert.ext.i = zext i32 %15 to i64
+  %ref.tmp5.sroa.0.0.insert.ext.i = zext i32 %14 to i64
   %ref.tmp5.sroa.0.0.insert.insert.i = or disjoint i64 %ref.tmp5.sroa.0.0.insert.ext.i, 4294967296
   store i64 %ref.tmp5.sroa.0.0.insert.insert.i, ptr %reordering.i, align 8
   %tcpi_total_retrans.i = getelementptr inbounds i8, ptr %call, i64 1108
-  %16 = load i32, ptr %tcpi_total_retrans.i, align 4
+  %15 = load i32, ptr %tcpi_total_retrans.i, align 4
   %packet_retx.i = getelementptr inbounds i8, ptr %call, i64 76
-  %ref.tmp6.sroa.0.0.insert.ext.i = zext i32 %16 to i64
+  %ref.tmp6.sroa.0.0.insert.ext.i = zext i32 %15 to i64
   %ref.tmp6.sroa.0.0.insert.insert.i = or disjoint i64 %ref.tmp6.sroa.0.0.insert.ext.i, 4294967296
   store i64 %ref.tmp6.sroa.0.0.insert.insert.i, ptr %packet_retx.i, align 4
   %tcpi_pacing_rate.i = getelementptr inbounds i8, ptr %call, i64 1112
-  %17 = load i64, ptr %tcpi_pacing_rate.i, align 8
+  %16 = load i64, ptr %tcpi_pacing_rate.i, align 8
   %pacing_rate.i = getelementptr inbounds i8, ptr %call, i64 168
-  store i64 %17, ptr %pacing_rate.i, align 8
+  store i64 %16, ptr %pacing_rate.i, align 8
   store i8 1, ptr %_M_engaged.i.i.i.i10.i.i.i.i, align 8
   %tcpi_notsent_bytes.i = getelementptr inbounds i8, ptr %call, i64 1152
   %data_notsent.i = getelementptr inbounds i8, ptr %call, i64 152
-  %18 = load i8, ptr %_M_engaged.i.i.i.i9.i.i.i.i, align 8
-  %19 = and i8 %18, 1
-  %tobool.i.not.i40.i = icmp eq i8 %19, 0
-  %20 = load i32, ptr %tcpi_notsent_bytes.i, align 4
-  br i1 %tobool.i.not.i40.i, label %if.else.i41.i, label %_ZNSt8optionalImEaSIRKjEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarImES6_ImNSt5decayIS9_E4typeEEEEESt16is_constructibleImJS9_EESt13is_assignableIRmS9_EEERS0_E4typeEOS9_.exit.i
+  %17 = load i8, ptr %_M_engaged.i.i.i.i9.i.i.i.i, align 8
+  %tobool.i.i40.i = trunc i8 %17 to i1
+  %18 = load i32, ptr %tcpi_notsent_bytes.i, align 4
+  br i1 %tobool.i.i40.i, label %_ZNSt8optionalImEaSIRKjEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarImES6_ImNSt5decayIS9_E4typeEEEEESt16is_constructibleImJS9_EESt13is_assignableIRmS9_EEERS0_E4typeEOS9_.exit.i, label %if.else.i41.i
 
 if.else.i41.i:                                    ; preds = %_ZNSt8optionalIbEaSIRKhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIbES6_IbNSt5decayIS9_E4typeEEEEESt16is_constructibleIbJS9_EESt13is_assignableIRbS9_EEERS0_E4typeEOS9_.exit.i
   store i8 1, ptr %_M_engaged.i.i.i.i9.i.i.i.i, align 8
   br label %_ZNSt8optionalImEaSIRKjEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarImES6_ImNSt5decayIS9_E4typeEEEEESt16is_constructibleImJS9_EESt13is_assignableIRmS9_EEERS0_E4typeEOS9_.exit.i
 
 _ZNSt8optionalImEaSIRKjEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarImES6_ImNSt5decayIS9_E4typeEEEEESt16is_constructibleImJS9_EESt13is_assignableIRmS9_EEERS0_E4typeEOS9_.exit.i: ; preds = %if.else.i41.i, %_ZNSt8optionalIbEaSIRKhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIbES6_IbNSt5decayIS9_E4typeEEEEESt16is_constructibleIbJS9_EESt13is_assignableIRbS9_EEERS0_E4typeEOS9_.exit.i
-  %conv.sink.i.i = zext i32 %20 to i64
-  store i64 %conv.sink.i.i, ptr %data_notsent.i, align 8
+  %conv.i.i.i.sink.i.i = zext i32 %18 to i64
+  store i64 %conv.i.i.i.sink.i.i, ptr %data_notsent.i, align 8
   %tcpi_min_rtt.i = getelementptr inbounds i8, ptr %call, i64 1156
-  %21 = load i32, ptr %tcpi_min_rtt.i, align 4
-  %cmp9.not.i = icmp eq i32 %21, -1
+  %19 = load i32, ptr %tcpi_min_rtt.i, align 4
+  %cmp9.not.i = icmp eq i32 %19, -1
   br i1 %cmp9.not.i, label %if.end19.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %_ZNSt8optionalImEaSIRKjEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarImES6_ImNSt5decayIS9_E4typeEEEEESt16is_constructibleImJS9_EESt13is_assignableIRmS9_EEERS0_E4typeEOS9_.exit.i
   %min_rtt.i = getelementptr inbounds i8, ptr %call, i64 184
-  %ref.tmp11.sroa.0.0.insert.ext.i = zext i32 %21 to i64
+  %ref.tmp11.sroa.0.0.insert.ext.i = zext i32 %19 to i64
   %ref.tmp11.sroa.0.0.insert.insert.i = or disjoint i64 %ref.tmp11.sroa.0.0.insert.ext.i, 4294967296
   store i64 %ref.tmp11.sroa.0.0.insert.insert.i, ptr %min_rtt.i, align 8
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then10.i, %_ZNSt8optionalImEaSIRKjEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarImES6_ImNSt5decayIS9_E4typeEEEEESt16is_constructibleImJS9_EESt13is_assignableIRmS9_EEERS0_E4typeEOS9_.exit.i
   %tcpi_data_segs_out.i = getelementptr inbounds i8, ptr %call, i64 1164
-  %22 = load i32, ptr %tcpi_data_segs_out.i, align 4
+  %20 = load i32, ptr %tcpi_data_segs_out.i, align 4
   %packet_sent.i = getelementptr inbounds i8, ptr %call, i64 92
-  %ref.tmp14.sroa.0.0.insert.ext.i = zext i32 %22 to i64
+  %ref.tmp14.sroa.0.0.insert.ext.i = zext i32 %20 to i64
   %ref.tmp14.sroa.0.0.insert.insert.i = or disjoint i64 %ref.tmp14.sroa.0.0.insert.ext.i, 4294967296
   store i64 %ref.tmp14.sroa.0.0.insert.insert.i, ptr %packet_sent.i, align 4
   %tcpi_delivery_rate.i = getelementptr inbounds i8, ptr %call, i64 1168
-  %23 = load i64, ptr %tcpi_delivery_rate.i, align 8
-  store i64 %23, ptr %metrics, align 8
+  %21 = load i64, ptr %tcpi_delivery_rate.i, align 8
+  store i64 %21, ptr %metrics, align 8
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8
   %tcpi_busy_time.i = getelementptr inbounds i8, ptr %call, i64 1176
-  %24 = load i64, ptr %tcpi_busy_time.i, align 8
+  %22 = load i64, ptr %tcpi_busy_time.i, align 8
   %busy_usec.i = getelementptr inbounds i8, ptr %call, i64 232
-  store i64 %24, ptr %busy_usec.i, align 8
+  store i64 %22, ptr %busy_usec.i, align 8
   store i8 1, ptr %_M_engaged.i.i.i.i17.i.i.i.i, align 8
   %tcpi_rwnd_limited.i = getelementptr inbounds i8, ptr %call, i64 1184
-  %25 = load i64, ptr %tcpi_rwnd_limited.i, align 8
+  %23 = load i64, ptr %tcpi_rwnd_limited.i, align 8
   %rwnd_limited_usec.i = getelementptr inbounds i8, ptr %call, i64 248
-  store i64 %25, ptr %rwnd_limited_usec.i, align 8
+  store i64 %23, ptr %rwnd_limited_usec.i, align 8
   store i8 1, ptr %_M_engaged.i.i.i.i18.i.i.i.i, align 8
   %tcpi_sndbuf_limited.i = getelementptr inbounds i8, ptr %call, i64 1192
-  %26 = load i64, ptr %tcpi_sndbuf_limited.i, align 8
+  %24 = load i64, ptr %tcpi_sndbuf_limited.i, align 8
   %sndbuf_limited_usec.i = getelementptr inbounds i8, ptr %call, i64 264
-  store i64 %26, ptr %sndbuf_limited_usec.i, align 8
+  store i64 %24, ptr %sndbuf_limited_usec.i, align 8
   store i8 1, ptr %_M_engaged.i.i.i.i19.i.i.i.i, align 8
   %cmp22.i = icmp ugt i32 %8, 216
   br i1 %cmp22.i, label %if.then23.i, label %if.end
 
 if.then23.i:                                      ; preds = %if.end19.i
   %tcpi_bytes_sent.i = getelementptr inbounds i8, ptr %call, i64 1208
-  %27 = load i64, ptr %tcpi_bytes_sent.i, align 8
+  %25 = load i64, ptr %tcpi_bytes_sent.i, align 8
   %data_sent.i = getelementptr inbounds i8, ptr %call, i64 136
-  store i64 %27, ptr %data_sent.i, align 8
+  store i64 %25, ptr %data_sent.i, align 8
   store i8 1, ptr %_M_engaged.i.i.i.i8.i.i.i.i, align 8
   %tcpi_bytes_retrans.i = getelementptr inbounds i8, ptr %call, i64 1216
-  %28 = load i64, ptr %tcpi_bytes_retrans.i, align 8
+  %26 = load i64, ptr %tcpi_bytes_retrans.i, align 8
   %data_retx.i = getelementptr inbounds i8, ptr %call, i64 120
-  store i64 %28, ptr %data_retx.i, align 8
+  store i64 %26, ptr %data_retx.i, align 8
   store i8 1, ptr %_M_engaged.i.i.i.i7.i.i.i.i, align 8
   %tcpi_dsack_dups.i = getelementptr inbounds i8, ptr %call, i64 1224
-  %29 = load i32, ptr %tcpi_dsack_dups.i, align 4
+  %27 = load i32, ptr %tcpi_dsack_dups.i, align 4
   %packet_spurious_retx.i = getelementptr inbounds i8, ptr %call, i64 84
-  %ref.tmp26.sroa.0.0.insert.ext.i = zext i32 %29 to i64
+  %ref.tmp26.sroa.0.0.insert.ext.i = zext i32 %27 to i64
   %ref.tmp26.sroa.0.0.insert.insert.i = or disjoint i64 %ref.tmp26.sroa.0.0.insert.ext.i, 4294967296
   store i64 %ref.tmp26.sroa.0.0.insert.insert.i, ptr %packet_spurious_retx.i, align 4
   br label %if.end
@@ -385,11 +383,11 @@ if.end:                                           ; preds = %if.then23.i, %if.en
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(16) %ts_, i64 16, i1 false)
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %head_ = getelementptr inbounds i8, ptr %this, i64 8
-  %30 = load ptr, ptr %head_, align 8
-  %tobool.not = icmp eq ptr %30, null
+  %28 = load ptr, ptr %head_, align 8
+  %tobool.not = icmp eq ptr %28, null
   %tail_ = getelementptr inbounds i8, ptr %this, i64 16
-  %31 = load ptr, ptr %tail_, align 8
-  %next_ = getelementptr inbounds i8, ptr %31, i64 16
+  %29 = load ptr, ptr %tail_, align 8
+  %next_ = getelementptr inbounds i8, ptr %29, i64 16
   %next_.sink = select i1 %tobool.not, ptr %tail_, ptr %next_
   %tail_.sink = select i1 %tobool.not, ptr %head_, ptr %tail_
   store ptr %call, ptr %next_.sink, align 8
@@ -398,10 +396,10 @@ if.end:                                           ; preds = %if.then23.i, %if.en
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.end
-  %32 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #16
+  %31 = extractvalue { ptr, i32 } %30, 0
+  tail call void @__clang_call_terminate(ptr %31) #16
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %if.end
@@ -859,18 +857,17 @@ sw.bb17:                                          ; preds = %while.body
 sw.bb21:                                          ; preds = %while.body
   %add.ptr3.val52 = load i8, ptr %add.ptr3, align 1
   %2 = load i8, ptr %_M_engaged.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %_ZNSt8optionalIbEaSIhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIbES4_IbNSt5decayIS7_E4typeEEEEESt16is_constructibleIbJS7_EESt13is_assignableIRbS7_EEERS0_E4typeEOS7_.exit
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %_ZNSt8optionalIbEaSIhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIbES4_IbNSt5decayIS7_E4typeEEEEESt16is_constructibleIbJS7_EESt13is_assignableIRbS7_EEERS0_E4typeEOS7_.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %sw.bb21
   store i8 1, ptr %_M_engaged.i.i, align 1
   br label %_ZNSt8optionalIbEaSIhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIbES4_IbNSt5decayIS7_E4typeEEEEESt16is_constructibleIbJS7_EESt13is_assignableIRbS7_EEERS0_E4typeEOS7_.exit
 
 _ZNSt8optionalIbEaSIhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIbES4_IbNSt5decayIS7_E4typeEEEEESt16is_constructibleIbJS7_EESt13is_assignableIRbS7_EEERS0_E4typeEOS7_.exit: ; preds = %sw.bb21, %if.else.i
-  %frombool.sink.in.i = icmp ne i8 %add.ptr3.val52, 0
-  %frombool.sink.i = zext i1 %frombool.sink.in.i to i8
-  store i8 %frombool.sink.i, ptr %is_delivery_rate_app_limited, align 1
+  %frombool.i.i.i.sink.in.i = icmp ne i8 %add.ptr3.val52, 0
+  %frombool.i.i.i.sink.i = zext i1 %frombool.i.i.i.sink.in.i to i8
+  store i8 %frombool.i.i.i.sink.i, ptr %is_delivery_rate_app_limited, align 1
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %while.body
@@ -909,34 +906,32 @@ sw.bb41:                                          ; preds = %while.body
 
 sw.bb45:                                          ; preds = %while.body
   %add.ptr3.val49 = load i64, ptr %add.ptr3, align 1
-  %4 = load i8, ptr %_M_engaged.i.i71, align 4
-  %5 = and i8 %4, 1
-  %tobool.i.not.i72 = icmp eq i8 %5, 0
-  br i1 %tobool.i.not.i72, label %if.else.i73, label %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit
+  %3 = load i8, ptr %_M_engaged.i.i71, align 4
+  %tobool.i.i72 = trunc i8 %3 to i1
+  br i1 %tobool.i.i72, label %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit, label %if.else.i73
 
 if.else.i73:                                      ; preds = %sw.bb45
   store i8 1, ptr %_M_engaged.i.i71, align 4
   br label %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit
 
 _ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit: ; preds = %sw.bb45, %if.else.i73
-  %conv.sink.i = trunc i64 %add.ptr3.val49 to i32
-  store i32 %conv.sink.i, ptr %packet_sent, align 4
+  %conv.i.i.i.sink.i = trunc i64 %add.ptr3.val49 to i32
+  store i32 %conv.i.i.i.sink.i, ptr %packet_sent, align 4
   br label %sw.epilog
 
 sw.bb49:                                          ; preds = %while.body
   %add.ptr3.val50 = load i64, ptr %add.ptr3, align 1
-  %6 = load i8, ptr %_M_engaged.i.i74, align 4
-  %7 = and i8 %6, 1
-  %tobool.i.not.i75 = icmp eq i8 %7, 0
-  br i1 %tobool.i.not.i75, label %if.else.i77, label %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit78
+  %4 = load i8, ptr %_M_engaged.i.i74, align 4
+  %tobool.i.i75 = trunc i8 %4 to i1
+  br i1 %tobool.i.i75, label %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit78, label %if.else.i76
 
-if.else.i77:                                      ; preds = %sw.bb49
+if.else.i76:                                      ; preds = %sw.bb49
   store i8 1, ptr %_M_engaged.i.i74, align 4
   br label %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit78
 
-_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit78: ; preds = %sw.bb49, %if.else.i77
-  %conv.sink.i76 = trunc i64 %add.ptr3.val50 to i32
-  store i32 %conv.sink.i76, ptr %packet_retx, align 4
+_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit78: ; preds = %sw.bb49, %if.else.i76
+  %conv.i.i.i.sink.i77 = trunc i64 %add.ptr3.val50 to i32
+  store i32 %conv.i.i.i.sink.i77, ptr %packet_retx, align 4
   br label %sw.epilog
 
 sw.bb53:                                          ; preds = %while.body
@@ -981,8 +976,8 @@ sw.bb73:                                          ; preds = %while.body
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb73, %sw.bb69, %sw.bb65, %sw.bb61, %sw.bb57, %sw.bb53, %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit78, %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit, %sw.bb41, %sw.bb37, %sw.bb33, %sw.bb29, %sw.bb25, %_ZNSt8optionalIbEaSIhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIbES4_IbNSt5decayIS7_E4typeEEEEESt16is_constructibleIbJS7_EESt13is_assignableIRbS7_EEERS0_E4typeEOS7_.exit, %sw.bb17, %sw.bb13, %sw.bb9, %sw.bb5, %sw.bb, %while.body
-  %8 = load i16, ptr %add.ptr, align 2
-  %conv77 = zext i16 %8 to i64
+  %5 = load i16, ptr %add.ptr, align 2
+  %conv77 = zext i16 %5 to i64
   %sub78 = add nuw nsw i64 %conv77, 3
   %and = and i64 %sub78, 131068
   %add80 = add nuw nsw i64 %and, %offset.086

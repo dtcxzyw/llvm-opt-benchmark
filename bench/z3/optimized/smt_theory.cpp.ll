@@ -287,20 +287,18 @@ define hidden noundef zeroext i1 @_ZN3smt6theory9lazy_pushEv(ptr nocapture nound
 entry:
   %m_lazy = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load i8, ptr %m_lazy, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_lazy_scopes = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load i32, ptr %m_lazy_scopes, align 8
-  %inc = add i32 %2, 1
+  %1 = load i32, ptr %m_lazy_scopes, align 8
+  %inc = add i32 %1, 1
   store i32 %inc, ptr %m_lazy_scopes, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %tobool3 = icmp ne i8 %1, 0
-  ret i1 %tobool3
+  ret i1 %tobool
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -325,35 +323,35 @@ define hidden void @_ZN3smt6theory10force_pushEv(ptr noundef nonnull align 8 der
 entry:
   %m_lazy = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load i8, ptr %m_lazy, align 4
-  %1 = and i8 %0, 1
+  %frombool.i = and i8 %0, 1
   store i8 0, ptr %m_lazy, align 4
   %m_lazy_scopes = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load i32, ptr %m_lazy_scopes, align 8
-  %cmp.not5 = icmp eq i32 %2, 0
-  br i1 %cmp.not5, label %for.end, label %for.body
+  %1 = load i32, ptr %m_lazy_scopes, align 8
+  %cmp.not7 = icmp eq i32 %1, 0
+  br i1 %cmp.not7, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
-  %3 = load ptr, ptr %vfn, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(53) %this)
+  %2 = load ptr, ptr %vfn, align 8
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(53) %this)
           to label %for.inc unwind label %lpad
 
 for.inc:                                          ; preds = %for.body
-  %4 = load i32, ptr %m_lazy_scopes, align 8
-  %dec = add i32 %4, -1
+  %3 = load i32, ptr %m_lazy_scopes, align 8
+  %dec = add i32 %3, -1
   store i32 %dec, ptr %m_lazy_scopes, align 8
   %cmp.not = icmp eq i32 %dec, 0
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !4
 
 lpad:                                             ; preds = %for.body
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  store i8 %1, ptr %m_lazy, align 4
-  resume { ptr, i32 } %5
+  store i8 %frombool.i, ptr %m_lazy, align 4
+  resume { ptr, i32 } %4
 
 for.end:                                          ; preds = %for.inc, %entry
-  store i8 %1, ptr %m_lazy, align 4
+  store i8 %frombool.i, ptr %m_lazy, align 4
   ret void
 }
 
@@ -645,8 +643,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 invoke.cont25:                                    ; preds = %for.body
   %m_left_assoc.i.i = getelementptr inbounds i8, ptr %14, i64 17
   %bf.load.i.i = load i16, ptr %m_left_assoc.i.i, align 1
-  %15 = and i16 %bf.load.i.i, 3
-  %16 = icmp eq i16 %15, 3
+  %bf.cast.i.i = trunc i16 %bf.load.i.i to i1
+  %15 = and i16 %bf.load.i.i, 2
+  %bf.cast4.i.i = icmp ne i16 %15, 0
+  %16 = and i1 %bf.cast4.i.i, %bf.cast.i.i
   br i1 %16, label %land.lhs.true, label %if.else32
 
 land.lhs.true:                                    ; preds = %invoke.cont25

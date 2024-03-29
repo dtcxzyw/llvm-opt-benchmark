@@ -719,9 +719,8 @@ define hidden void @_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadat
 entry:
   %hasValue_.i.i = getelementptr inbounds i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %if.then.i, label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %jsObjectOverlapSlots_.i = getelementptr inbounds i8, ptr %mb, i64 208
@@ -1892,7 +1891,7 @@ for.cond.preheader.i:                             ; preds = %_ZN6hermes2vm13Muta
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %19 = ptrtoint ptr %runtime to i64
-  %invariant.gep46 = getelementptr i8, ptr %add.ptr.i.i, i64 -64
+  %invariant.gep45 = getelementptr i8, ptr %add.ptr.i.i, i64 -64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -2057,8 +2056,8 @@ for.inc.i:                                        ; preds = %if.end47.i, %_ZNK6h
   %sext.i41.i = shl i64 %elemIdx.082.i, 32
   %conv.i.i42.i = ashr exact i64 %sext.i41.i, 32
   %idx.neg.i.i.i.i43.i = sub nsw i64 0, %conv.i.i42.i
-  %gep47 = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %invariant.gep46, i64 %idx.neg.i.i.i.i43.i
-  store i64 %.sink.i, ptr %gep47, align 8
+  %gep46 = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %invariant.gep45, i64 %idx.neg.i.i.i.i43.i
+  store i64 %.sink.i, ptr %gep46, align 8
   %inc.i23 = add nuw i64 %elemIdx.082.i, 1
   %exitcond87.not.i = icmp eq i64 %inc.i23, %6
   br i1 %exitcond87.not.i, label %if.end46, label %for.body.i, !llvm.loop !16
@@ -2804,17 +2803,21 @@ define hidden void @_ZN6hermes2vm22BoundFunctionBuildMetaEPKNS0_6GCCellERNS0_8Me
 entry:
   %hasValue_.i.i = getelementptr inbounds i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
 
-_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %entry
+_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+
+_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, %entry
+  %.sink = phi i32 [ 3, %entry ], [ 1, %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit ]
   %jsObjectOverlapSlots_.i = getelementptr inbounds i8, ptr %mb, i64 208
-  store i32 3, ptr %jsObjectOverlapSlots_.i, align 8
+  store i32 %.sink, ptr %jsObjectOverlapSlots_.i, align 8
   store i8 1, ptr %hasValue_.i.i, align 4
   br label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
 
-_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %entry, %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit
   tail call void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) %mb) #11
   %vtp_.i.i = getelementptr inbounds i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm8JSObject2vtE, ptr %vtp_.i.i, align 8
@@ -3555,17 +3558,21 @@ define hidden void @_ZN6hermes2vm23NativeFunctionBuildMetaEPKNS0_6GCCellERNS0_8M
 entry:
   %hasValue_.i.i = getelementptr inbounds i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
 
-_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %entry
+_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+
+_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, %entry
+  %.sink = phi i32 [ 5, %entry ], [ 1, %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit ]
   %jsObjectOverlapSlots_.i = getelementptr inbounds i8, ptr %mb, i64 208
-  store i32 5, ptr %jsObjectOverlapSlots_.i, align 8
+  store i32 %.sink, ptr %jsObjectOverlapSlots_.i, align 8
   store i8 1, ptr %hasValue_.i.i, align 4
   br label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
 
-_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %entry, %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit
   tail call void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) %mb) #11
   %vtp_.i.i = getelementptr inbounds i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm8JSObject2vtE, ptr %vtp_.i.i, align 8
@@ -3955,17 +3962,20 @@ define hidden void @_ZN6hermes2vm26NativeConstructorBuildMetaEPKNS0_6GCCellERNS0
 entry:
   %hasValue_.i.i = getelementptr inbounds i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i, align 4
-  %1 = and i8 %0, 1
-  %or.cond.not.not = icmp eq i8 %1, 0
-  br i1 %or.cond.not.not, label %_ZN6hermes2vm23NativeFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, label %_ZN6hermes2vm23NativeFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, label %_ZN6hermes2vm23NativeFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
 
-_ZN6hermes2vm23NativeFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %entry
+_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %_ZN6hermes2vm23NativeFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm23NativeFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+
+_ZN6hermes2vm23NativeFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, %entry
   %jsObjectOverlapSlots_.i = getelementptr inbounds i8, ptr %mb, i64 208
   store i32 5, ptr %jsObjectOverlapSlots_.i, align 8
   store i8 1, ptr %hasValue_.i.i, align 4
   br label %_ZN6hermes2vm23NativeFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
 
-_ZN6hermes2vm23NativeFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %entry, %_ZN6hermes2vm23NativeFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+_ZN6hermes2vm23NativeFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %_ZN6hermes2vm23NativeFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit
   tail call void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) %mb) #11
   %vtp_.i.i.i = getelementptr inbounds i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm8JSObject2vtE, ptr %vtp_.i.i.i, align 8
@@ -4003,17 +4013,21 @@ define hidden void @_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metad
 entry:
   %hasValue_.i.i = getelementptr inbounds i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
 
-_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %entry
+_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+
+_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, %entry
+  %.sink = phi i32 [ 5, %entry ], [ 1, %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit ]
   %jsObjectOverlapSlots_.i = getelementptr inbounds i8, ptr %mb, i64 208
-  store i32 5, ptr %jsObjectOverlapSlots_.i, align 8
+  store i32 %.sink, ptr %jsObjectOverlapSlots_.i, align 8
   store i8 1, ptr %hasValue_.i.i, align 4
   br label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
 
-_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %entry, %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit
   tail call void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) %mb) #11
   %vtp_.i.i = getelementptr inbounds i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm8JSObject2vtE, ptr %vtp_.i.i, align 8
@@ -4055,17 +4069,20 @@ define hidden void @_ZN6hermes2vm24JSAsyncFunctionBuildMetaEPKNS0_6GCCellERNS0_8
 entry:
   %hasValue_.i.i = getelementptr inbounds i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i, align 4
-  %1 = and i8 %0, 1
-  %or.cond.not.not = icmp eq i8 %1, 0
-  br i1 %or.cond.not.not, label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
 
-_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %entry
+_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+
+_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, %entry
   %jsObjectOverlapSlots_.i = getelementptr inbounds i8, ptr %mb, i64 208
   store i32 5, ptr %jsObjectOverlapSlots_.i, align 8
   store i8 1, ptr %hasValue_.i.i, align 4
   br label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
 
-_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %entry, %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit
   tail call void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) %mb) #11
   %vtp_.i.i.i = getelementptr inbounds i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm8JSObject2vtE, ptr %vtp_.i.i.i, align 8
@@ -4105,17 +4122,20 @@ define hidden void @_ZN6hermes2vm28JSGeneratorFunctionBuildMetaEPKNS0_6GCCellERN
 entry:
   %hasValue_.i.i = getelementptr inbounds i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i, align 4
-  %1 = and i8 %0, 1
-  %or.cond.not.not = icmp eq i8 %1, 0
-  br i1 %or.cond.not.not, label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
 
-_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %entry
+_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+
+_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, %entry
   %jsObjectOverlapSlots_.i = getelementptr inbounds i8, ptr %mb, i64 208
   store i32 5, ptr %jsObjectOverlapSlots_.i, align 8
   store i8 1, ptr %hasValue_.i.i, align 4
   br label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
 
-_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %entry, %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit
   tail call void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) %mb) #11
   %vtp_.i.i.i = getelementptr inbounds i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm8JSObject2vtE, ptr %vtp_.i.i.i, align 8
@@ -4174,17 +4194,20 @@ define hidden void @_ZN6hermes2vm31GeneratorInnerFunctionBuildMetaEPKNS0_6GCCell
 entry:
   %hasValue_.i.i = getelementptr inbounds i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i, align 4
-  %1 = and i8 %0, 1
-  %or.cond.not.not = icmp eq i8 %1, 0
-  br i1 %or.cond.not.not, label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
 
-_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %entry
+_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+
+_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, %entry
   %jsObjectOverlapSlots_.i = getelementptr inbounds i8, ptr %mb, i64 208
   store i32 5, ptr %jsObjectOverlapSlots_.i, align 8
   store i8 1, ptr %hasValue_.i.i, align 4
   br label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
 
-_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %entry, %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; preds = %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit
   tail call void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) %mb) #11
   %vtp_.i.i.i = getelementptr inbounds i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm8JSObject2vtE, ptr %vtp_.i.i.i, align 8
@@ -4734,8 +4757,8 @@ _ZN6hermes2vm21ScopedNativeCallFrameC2ERNS0_7RuntimeEjNS0_11HermesValueES4_S4_.e
   store i64 %agg.tmp.sroa.0.0.copyload.i.i23, ptr %arrayidx23.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -56
   store i64 %retval.sroa.0.0.copyload.i28, ptr %arrayidx.i.i, align 8
-  %cmp83.not = icmp eq i32 %21, 0
-  br i1 %cmp83.not, label %if.end63, label %for.body.lr.ph
+  %cmp82.not = icmp eq i32 %21, 0
+  br i1 %cmp82.not, label %if.end63, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6hermes2vm21ScopedNativeCallFrameC2ERNS0_7RuntimeEjNS0_11HermesValueES4_S4_.exit
   %invariant.gep = getelementptr i8, ptr %add.ptr.i.i, i64 -64
@@ -4746,16 +4769,16 @@ if.then:                                          ; preds = %_ZN6hermes2vm7Runti
   br label %cleanup
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.084 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %for.body ]
+  %i.083 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %for.body ]
   %agg.tmp.sroa.0.0.copyload.i.i33 = load i64, ptr %retval.0.i.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i34 = and i64 %agg.tmp.sroa.0.0.copyload.i.i33, 281474976710655
   %27 = inttoptr i64 %and.i.i.i.i.i34 to ptr
-  %add = add nuw i32 %i.084, 1
+  %add = add nuw i32 %i.083, 1
   %add.ptr.i.i.i.i35 = getelementptr inbounds i8, ptr %27, i64 8
   %idxprom.i = zext i32 %add to i64
   %arrayidx.i = getelementptr inbounds %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i35, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i36 = load i64, ptr %arrayidx.i, align 8
-  %conv.i = sext i32 %i.084 to i64
+  %conv.i = sext i32 %i.083 to i64
   %idx.neg.i.i.i = sub nsw i64 0, %conv.i
   %gep = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %invariant.gep, i64 %idx.neg.i.i.i
   store i64 %retval.sroa.0.0.copyload.i36, ptr %gep, align 8

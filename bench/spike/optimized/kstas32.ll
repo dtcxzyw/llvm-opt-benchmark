@@ -167,9 +167,9 @@ define noundef i64 @_Z18fast_rv64i_kstas32P11processor_t6insn_tm(ptr nocapture n
   %41 = xor i32 %37, %36
   %42 = xor i32 %41, -1
   %43 = or i32 %40, %42
-  %44 = icmp slt i32 %43, 0
-  %spec.select14.i = select i1 %44, i32 %37, i32 %39
-  br i1 %44, label %47, label %45
+  %44 = icmp sgt i32 %43, -1
+  %spec.select14.i = select i1 %44, i32 %39, i32 %37
+  br i1 %44, label %45, label %47
 
 45:                                               ; preds = %20
   %46 = load ptr, ptr %32, align 8
@@ -188,9 +188,9 @@ define noundef i64 @_Z18fast_rv64i_kstas32P11processor_t6insn_tm(ptr nocapture n
   %56 = xor i32 %54, %52
   %57 = and i32 %55, %56
   %58 = icmp slt i32 %57, 0
-  %spec.select14.i70 = select i1 %58, i32 %54, i32 %52
-  %.not66 = icmp sgt i32 %57, -1
-  br i1 %.not66, label %61, label %59
+  %spec.select14.i69 = select i1 %58, i32 %54, i32 %52
+  %.not = icmp sgt i32 %57, -1
+  br i1 %.not, label %61, label %59
 
 59:                                               ; preds = %47
   %60 = load ptr, ptr %32, align 8
@@ -203,7 +203,7 @@ define noundef i64 @_Z18fast_rv64i_kstas32P11processor_t6insn_tm(ptr nocapture n
 
 62:                                               ; preds = %61
   %63 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %23
-  %64 = zext i32 %spec.select14.i70 to i64
+  %64 = zext i32 %spec.select14.i69 to i64
   %65 = or disjoint i64 %49, %64
   store i64 %65, ptr %63, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
@@ -298,9 +298,9 @@ define noundef i64 @_Z20logged_rv64i_kstas32P11processor_t6insn_tm(ptr noundef %
   %41 = xor i32 %37, %36
   %42 = xor i32 %41, -1
   %43 = or i32 %40, %42
-  %44 = icmp slt i32 %43, 0
-  %spec.select14.i = select i1 %44, i32 %37, i32 %39
-  br i1 %44, label %47, label %45
+  %44 = icmp sgt i32 %43, -1
+  %spec.select14.i = select i1 %44, i32 %39, i32 %37
+  br i1 %44, label %45, label %47
 
 45:                                               ; preds = %20
   %46 = load ptr, ptr %32, align 8
@@ -319,9 +319,9 @@ define noundef i64 @_Z20logged_rv64i_kstas32P11processor_t6insn_tm(ptr noundef %
   %56 = xor i32 %54, %52
   %57 = and i32 %55, %56
   %58 = icmp slt i32 %57, 0
-  %spec.select14.i73 = select i1 %58, i32 %54, i32 %52
-  %.not69 = icmp sgt i32 %57, -1
-  br i1 %.not69, label %61, label %59
+  %spec.select14.i72 = select i1 %58, i32 %54, i32 %52
+  %.not = icmp sgt i32 %57, -1
+  br i1 %.not, label %61, label %59
 
 59:                                               ; preds = %47
   %60 = load ptr, ptr %32, align 8
@@ -329,7 +329,7 @@ define noundef i64 @_Z20logged_rv64i_kstas32P11processor_t6insn_tm(ptr noundef %
   br label %61
 
 61:                                               ; preds = %59, %47
-  %62 = zext i32 %spec.select14.i73 to i64
+  %62 = zext i32 %spec.select14.i72 to i64
   %63 = or disjoint i64 %49, %62
   %64 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %23
   %65 = getelementptr inbounds i8, ptr %0, i64 3672
@@ -529,9 +529,9 @@ define noundef i64 @_Z18fast_rv64e_kstas32P11processor_t6insn_tm(ptr nocapture n
   %63 = xor i32 %59, %58
   %64 = xor i32 %63, -1
   %65 = or i32 %62, %64
-  %66 = icmp slt i32 %65, 0
-  %spec.select14.i = select i1 %66, i32 %59, i32 %61
-  br i1 %66, label %69, label %67
+  %66 = icmp sgt i32 %65, -1
+  %spec.select14.i = select i1 %66, i32 %61, i32 %59
+  br i1 %66, label %67, label %69
 
 67:                                               ; preds = %51
   %68 = load ptr, ptr %54, align 8
@@ -550,9 +550,9 @@ define noundef i64 @_Z18fast_rv64e_kstas32P11processor_t6insn_tm(ptr nocapture n
   %78 = xor i32 %76, %74
   %79 = and i32 %77, %78
   %80 = icmp slt i32 %79, 0
-  %spec.select14.i78 = select i1 %80, i32 %76, i32 %74
-  %.not74 = icmp sgt i32 %79, -1
-  br i1 %.not74, label %83, label %81
+  %spec.select14.i77 = select i1 %80, i32 %76, i32 %74
+  %.not = icmp sgt i32 %79, -1
+  br i1 %.not, label %83, label %81
 
 81:                                               ; preds = %69
   %82 = load ptr, ptr %54, align 8
@@ -564,7 +564,7 @@ define noundef i64 @_Z18fast_rv64e_kstas32P11processor_t6insn_tm(ptr nocapture n
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %84
 
 84:                                               ; preds = %83
-  %85 = zext i32 %spec.select14.i78 to i64
+  %85 = zext i32 %spec.select14.i77 to i64
   %86 = or disjoint i64 %71, %85
   store i64 %86, ptr %31, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
@@ -702,9 +702,9 @@ define noundef i64 @_Z20logged_rv64e_kstas32P11processor_t6insn_tm(ptr noundef %
   %63 = xor i32 %59, %58
   %64 = xor i32 %63, -1
   %65 = or i32 %62, %64
-  %66 = icmp slt i32 %65, 0
-  %spec.select14.i = select i1 %66, i32 %59, i32 %61
-  br i1 %66, label %69, label %67
+  %66 = icmp sgt i32 %65, -1
+  %spec.select14.i = select i1 %66, i32 %61, i32 %59
+  br i1 %66, label %67, label %69
 
 67:                                               ; preds = %51
   %68 = load ptr, ptr %54, align 8
@@ -723,9 +723,9 @@ define noundef i64 @_Z20logged_rv64e_kstas32P11processor_t6insn_tm(ptr noundef %
   %78 = xor i32 %76, %74
   %79 = and i32 %77, %78
   %80 = icmp slt i32 %79, 0
-  %spec.select14.i81 = select i1 %80, i32 %76, i32 %74
-  %.not77 = icmp sgt i32 %79, -1
-  br i1 %.not77, label %83, label %81
+  %spec.select14.i80 = select i1 %80, i32 %76, i32 %74
+  %.not = icmp sgt i32 %79, -1
+  br i1 %.not, label %83, label %81
 
 81:                                               ; preds = %69
   %82 = load ptr, ptr %54, align 8
@@ -733,7 +733,7 @@ define noundef i64 @_Z20logged_rv64e_kstas32P11processor_t6insn_tm(ptr noundef %
   br label %83
 
 83:                                               ; preds = %81, %69
-  %84 = zext i32 %spec.select14.i81 to i64
+  %84 = zext i32 %spec.select14.i80 to i64
   %85 = or disjoint i64 %71, %84
   %86 = getelementptr inbounds i8, ptr %0, i64 3672
   %87 = shl nuw nsw i64 %22, 4
@@ -808,9 +808,8 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %.loopexit, %111
 define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1009,9 +1008,8 @@ define linkonce_odr ptr @_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

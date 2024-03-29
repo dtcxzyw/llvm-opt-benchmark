@@ -322,8 +322,8 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
   %61 = tail call ptr @data_set_list(ptr noundef %60) #6
   %62 = getelementptr inbounds i8, ptr %1, i64 112
   %63 = load i8, ptr %62, align 8
-  %.not97 = icmp eq i8 %63, 0
-  br i1 %.not97, label %.loopexit, label %.lr.ph
+  %.not96 = icmp eq i8 %63, 0
+  br i1 %.not96, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %58, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %58 ]
@@ -361,24 +361,23 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
   %84 = tail call ptr @data_set_list(ptr noundef %83) #6
   %85 = getelementptr inbounds i8, ptr %1, i64 128
   %86 = load i64, ptr %85, align 8
-  %.not98 = icmp eq i64 %86, 0
-  br i1 %.not98, label %.loopexit, label %.lr.ph96
+  %.not97 = icmp eq i64 %86, 0
+  br i1 %.not97, label %.loopexit, label %.lr.ph95
 
-.lr.ph96:                                         ; preds = %82, %111
-  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %111 ], [ 0, %82 ]
+.lr.ph95:                                         ; preds = %82, %111
+  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %111 ], [ 0, %82 ]
   %87 = load ptr, ptr %80, align 8
-  %88 = getelementptr inbounds %struct.parser_s, ptr %87, i64 %indvars.iv101
+  %88 = getelementptr inbounds %struct.parser_s, ptr %87, i64 %indvars.iv100
   %89 = getelementptr inbounds i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4
   %91 = icmp eq i32 %90, 3
   br i1 %91, label %111, label %92
 
-92:                                               ; preds = %.lr.ph96
+92:                                               ; preds = %.lr.ph95
   %93 = getelementptr inbounds i8, ptr %88, i64 88
   %94 = load i8, ptr %93, align 8
-  %95 = and i8 %94, 1
-  %.not90 = icmp eq i8 %95, 0
-  br i1 %.not90, label %101, label %96
+  %95 = trunc i8 %94 to i1
+  br i1 %95, label %96, label %101
 
 96:                                               ; preds = %92
   %97 = tail call ptr @data_list_append(ptr noundef %84) #6
@@ -392,13 +391,13 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
   tail call void @_set_ref(ptr noundef %102, ptr noundef nonnull %88, ptr noundef %2)
   %103 = getelementptr inbounds i8, ptr %88, i64 24
   %104 = load ptr, ptr %103, align 8
-  %.not91 = icmp eq ptr %104, null
-  br i1 %.not91, label %111, label %105
+  %.not90 = icmp eq ptr %104, null
+  br i1 %.not90, label %111, label %105
 
 105:                                              ; preds = %101
   %106 = load i8, ptr %104, align 1
-  %.not92 = icmp eq i8 %106, 0
-  br i1 %.not92, label %111, label %107
+  %.not91 = icmp eq i8 %106, 0
+  br i1 %.not91, label %111, label %107
 
 107:                                              ; preds = %105
   %108 = tail call ptr @data_key_set(ptr noundef %102, ptr noundef nonnull @.str.2) #6
@@ -406,11 +405,11 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
   %110 = tail call ptr @data_set_string(ptr noundef %108, ptr noundef %109) #6
   br label %111
 
-111:                                              ; preds = %101, %105, %107, %.lr.ph96
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+111:                                              ; preds = %101, %105, %107, %.lr.ph95
+  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %112 = load i64, ptr %85, align 8
-  %113 = icmp ugt i64 %112, %indvars.iv.next102
-  br i1 %113, label %.lr.ph96, label %.loopexit, !llvm.loop !8
+  %113 = icmp ugt i64 %112, %indvars.iv.next101
+  br i1 %113, label %.lr.ph95, label %.loopexit, !llvm.loop !8
 
 114:                                              ; preds = %79
   %115 = getelementptr inbounds i8, ptr %1, i64 16
@@ -556,9 +555,8 @@ define i32 @data_parser_p_specify(ptr noundef %0, ptr noundef %1) local_unnamed_
   store ptr %17, ptr %8, align 8
   %18 = call i32 @data_dict_for_each(ptr noundef %17, ptr noundef nonnull @_foreach_check_skip, ptr noundef nonnull %3) #6
   %19 = load i8, ptr %10, align 8
-  %20 = and i8 %19, 1
-  %.not10 = icmp eq i8 %20, 0
-  br i1 %.not10, label %25, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %25
 
 21:                                               ; preds = %15
   %22 = call i32 @get_log_level() #6
@@ -571,13 +569,13 @@ define i32 @data_parser_p_specify(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 25:                                               ; preds = %15
   %26 = load ptr, ptr %7, align 8
-  %.not11 = icmp eq ptr %26, null
-  br i1 %.not11, label %29, label %27
+  %.not10 = icmp eq ptr %26, null
+  br i1 %.not10, label %29, label %27
 
 27:                                               ; preds = %25
   %28 = call i32 @data_get_type(ptr noundef nonnull %26) #6
-  %.not12 = icmp eq i32 %28, 3
-  br i1 %.not12, label %31, label %29
+  %.not11 = icmp eq i32 %28, 3
+  br i1 %.not11, label %31, label %29
 
 29:                                               ; preds = %27, %25
   %30 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.5) #6

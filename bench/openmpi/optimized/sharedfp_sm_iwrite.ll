@@ -111,9 +111,8 @@ define i32 @mca_sharedfp_sm_write_ordered_begin(ptr noundef %0, ptr noundef %1, 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds i8, ptr %0, i64 160
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not = icmp eq i8 %16, 0
-  br i1 %.not, label %18, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %13
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.4) #4
@@ -150,8 +149,8 @@ define i32 @mca_sharedfp_sm_write_ordered_begin(ptr noundef %0, ptr noundef %1, 
   %39 = getelementptr inbounds i8, ptr %36, i64 152
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 %38(ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, ptr noundef %.056, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef 0, ptr noundef %34, ptr noundef %40) #4
-  %.not61 = icmp eq i32 %41, 0
-  br i1 %.not61, label %42, label %104
+  %.not = icmp eq i32 %41, 0
+  br i1 %.not, label %42, label %104
 
 42:                                               ; preds = %32
   %43 = load i32, ptr %22, align 4
@@ -174,35 +173,35 @@ define i32 @mca_sharedfp_sm_write_ordered_begin(ptr noundef %0, ptr noundef %1, 
   br label %50
 
 50:                                               ; preds = %50, %.lr.ph.split.us
-  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %50 ], [ 0, %.lr.ph.split.us ]
-  %.05568.us = phi i64 [ %53, %50 ], [ 0, %.lr.ph.split.us ]
-  %51 = getelementptr inbounds i64, ptr %.056, i64 %indvars.iv76
+  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %50 ], [ 0, %.lr.ph.split.us ]
+  %.05567.us = phi i64 [ %53, %50 ], [ 0, %.lr.ph.split.us ]
+  %51 = getelementptr inbounds i64, ptr %.056, i64 %indvars.iv75
   %52 = load i64, ptr %51, align 8
-  %53 = add nsw i64 %52, %.05568.us
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count
+  %53 = add nsw i64 %52, %.05567.us
+  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %61
   %54 = phi i32 [ %62, %61 ], [ %46, %.lr.ph ]
   %55 = phi i32 [ %63, %61 ], [ 1, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %61 ], [ 0, %.lr.ph ]
-  %.05568 = phi i64 [ %58, %61 ], [ 0, %.lr.ph ]
+  %.05567 = phi i64 [ %58, %61 ], [ 0, %.lr.ph ]
   %56 = getelementptr inbounds i64, ptr %.056, i64 %indvars.iv
   %57 = load i64, ptr %56, align 8
-  %58 = add nsw i64 %57, %.05568
-  %.not66 = icmp eq i32 %55, 0
-  br i1 %.not66, label %61, label %59
+  %58 = add nsw i64 %57, %.05567
+  %.not65 = icmp eq i32 %55, 0
+  br i1 %.not65, label %61, label %59
 
 59:                                               ; preds = %.lr.ph.split
   %60 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %60, ptr noundef nonnull @.str.5, i64 noundef %58) #4
   %.pre = load i32, ptr @mca_sharedfp_sm_verbose, align 4
-  %.pre85 = load i32, ptr %45, align 8
+  %.pre84 = load i32, ptr %45, align 8
   br label %61
 
 61:                                               ; preds = %.lr.ph.split, %59
-  %62 = phi i32 [ %54, %.lr.ph.split ], [ %.pre85, %59 ]
+  %62 = phi i32 [ %54, %.lr.ph.split ], [ %.pre84, %59 ]
   %63 = phi i32 [ 0, %.lr.ph.split ], [ %.pre, %59 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = sext i32 %62 to i64
@@ -213,13 +212,13 @@ define i32 @mca_sharedfp_sm_write_ordered_begin(ptr noundef %0, ptr noundef %1, 
   %.055.lcssa = phi i64 [ 0, %.preheader ], [ %53, %50 ], [ %58, %61 ]
   %66 = trunc i64 %.055.lcssa to i32
   %67 = call i32 @mca_sharedfp_sm_request_position(ptr noundef nonnull %0, i32 noundef %66, ptr noundef nonnull %7) #4
-  %.not62 = icmp eq i32 %67, 0
-  br i1 %.not62, label %68, label %104
+  %.not61 = icmp eq i32 %67, 0
+  br i1 %.not61, label %68, label %104
 
 68:                                               ; preds = %._crit_edge
   %69 = load i32, ptr @mca_sharedfp_sm_verbose, align 4
-  %.not63 = icmp eq i32 %69, 0
-  br i1 %.not63, label %73, label %70
+  %.not62 = icmp eq i32 %69, 0
+  br i1 %.not62, label %73, label %70
 
 70:                                               ; preds = %68
   %71 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
@@ -234,24 +233,24 @@ define i32 @mca_sharedfp_sm_write_ordered_begin(ptr noundef %0, ptr noundef %1, 
   store i64 %76, ptr %.056, align 8
   %77 = load i32, ptr %45, align 8
   %78 = icmp sgt i32 %77, 1
-  br i1 %78, label %.lr.ph72.preheader, label %.loopexit
+  br i1 %78, label %.lr.ph71.preheader, label %.loopexit
 
-.lr.ph72.preheader:                               ; preds = %73
-  %wide.trip.count82 = zext nneg i32 %77 to i64
-  br label %.lr.ph72
+.lr.ph71.preheader:                               ; preds = %73
+  %wide.trip.count81 = zext nneg i32 %77 to i64
+  br label %.lr.ph71
 
-.lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
-  %79 = phi i64 [ %76, %.lr.ph72.preheader ], [ %82, %.lr.ph72 ]
-  %indvars.iv79 = phi i64 [ 1, %.lr.ph72.preheader ], [ %indvars.iv.next80, %.lr.ph72 ]
-  %80 = getelementptr inbounds i64, ptr %.056, i64 %indvars.iv79
+.lr.ph71:                                         ; preds = %.lr.ph71.preheader, %.lr.ph71
+  %79 = phi i64 [ %76, %.lr.ph71.preheader ], [ %82, %.lr.ph71 ]
+  %indvars.iv78 = phi i64 [ 1, %.lr.ph71.preheader ], [ %indvars.iv.next79, %.lr.ph71 ]
+  %80 = getelementptr inbounds i64, ptr %.056, i64 %indvars.iv78
   %81 = load i64, ptr %80, align 8
   %82 = add nsw i64 %81, %79
   store i64 %82, ptr %80, align 8
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
-  br i1 %exitcond83.not, label %.loopexit, label %.lr.ph72, !llvm.loop !8
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
+  br i1 %exitcond82.not, label %.loopexit, label %.lr.ph71, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.lr.ph72, %73, %42
+.loopexit:                                        ; preds = %.lr.ph71, %73, %42
   %83 = load ptr, ptr %33, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 328
   %85 = load ptr, ptr %84, align 8
@@ -260,8 +259,8 @@ define i32 @mca_sharedfp_sm_write_ordered_begin(ptr noundef %0, ptr noundef %1, 
   %88 = getelementptr inbounds i8, ptr %85, i64 248
   %89 = load ptr, ptr %88, align 8
   %90 = call i32 %87(ptr noundef %.056, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef 0, ptr noundef %83, ptr noundef %89) #4
-  %.not64 = icmp eq i32 %90, 0
-  br i1 %.not64, label %91, label %104
+  %.not63 = icmp eq i32 %90, 0
+  br i1 %.not63, label %91, label %104
 
 91:                                               ; preds = %.loopexit
   %92 = load i64, ptr %6, align 8
@@ -271,8 +270,8 @@ define i32 @mca_sharedfp_sm_write_ordered_begin(ptr noundef %0, ptr noundef %1, 
   %96 = load i64, ptr %95, align 8
   %97 = udiv i64 %94, %96
   %98 = load i32, ptr @mca_sharedfp_sm_verbose, align 4
-  %.not65 = icmp eq i32 %98, 0
-  br i1 %.not65, label %101, label %99
+  %.not64 = icmp eq i32 %98, 0
+  br i1 %.not64, label %101, label %99
 
 99:                                               ; preds = %91
   %100 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
@@ -287,8 +286,8 @@ define i32 @mca_sharedfp_sm_write_ordered_begin(ptr noundef %0, ptr noundef %1, 
 
 104:                                              ; preds = %.loopexit, %._crit_edge, %32, %101
   %.054 = phi i32 [ %41, %32 ], [ %67, %._crit_edge ], [ %90, %.loopexit ], [ %103, %101 ]
-  %.not67 = icmp eq ptr %.056, null
-  br i1 %.not67, label %106, label %105
+  %.not66 = icmp eq ptr %.056, null
+  br i1 %.not66, label %106, label %105
 
 105:                                              ; preds = %104
   call void @free(ptr noundef nonnull %.056) #4

@@ -414,8 +414,8 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1bdc09758e832aa1
 define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha74f305e285d4163E.llvm.10337276369283751160"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   %4 = load i8, ptr %1, align 8, !range !77, !noundef !5
-  %trunc.not = icmp eq i8 %4, 0
-  br i1 %trunc.not, label %5, label %9
+  %trunc = trunc i8 %4 to i1
+  br i1 %trunc, label %9, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 1

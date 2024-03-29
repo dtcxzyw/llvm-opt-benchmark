@@ -926,9 +926,8 @@ if.end49:                                         ; preds = %if.else
   br i1 %cmp51, label %if.then52, label %if.end66
 
 if.then52:                                        ; preds = %if.end49
-  %12 = and i8 %haveValue.0, 1
-  %tobool.not = icmp eq i8 %12, 0
-  br i1 %tobool.not, label %if.else58, label %if.then53
+  %tobool = trunc i8 %haveValue.0 to i1
+  br i1 %tobool, label %if.then53, label %if.else58
 
 if.then53:                                        ; preds = %if.then52
   %cmp54.not = icmp eq i32 %nullValue.0, %value18.0
@@ -939,7 +938,7 @@ if.then55:                                        ; preds = %if.then53
   br label %return
 
 if.else58:                                        ; preds = %if.then52
-  %13 = load i32, ptr %nullValue12, align 4
+  %12 = load i32, ptr %nullValue12, align 4
   br i1 %cmp60.not, label %if.end63, label %if.then61
 
 if.then61:                                        ; preds = %if.else58
@@ -948,10 +947,10 @@ if.then61:                                        ; preds = %if.else58
 
 if.end63:                                         ; preds = %if.else58, %if.then61, %if.then53
   %haveValue.1 = phi i8 [ %haveValue.0, %if.then53 ], [ 1, %if.then61 ], [ 1, %if.else58 ]
-  %trieValue.1 = phi i32 [ %trieValue.0, %if.then53 ], [ %13, %if.then61 ], [ %13, %if.else58 ]
-  %14 = load i32, ptr %dataNullOffset, align 8
-  %15 = and i32 %c.0, -512
-  %and65 = add nuw nsw i32 %15, 512
+  %trieValue.1 = phi i32 [ %trieValue.0, %if.then53 ], [ %12, %if.then61 ], [ %12, %if.else58 ]
+  %13 = load i32, ptr %dataNullOffset, align 8
+  %14 = and i32 %c.0, -512
+  %and65 = add nuw nsw i32 %14, 512
   br label %do.cond171
 
 if.end66:                                         ; preds = %if.end49
@@ -969,13 +968,13 @@ if.end69:                                         ; preds = %if.end66, %if.then2
   %and79 = and i32 %i3Block.0, 32767
   %sub102 = add nsw i32 %dataBlockLength.0, -1
   %not = sub nsw i32 0, %dataBlockLength.0
-  %16 = sext i32 %i3.0 to i64
-  %17 = zext nneg i32 %i3Block.0 to i64
-  %invariant.gep = getelementptr i16, ptr %7, i64 %17
+  %15 = sext i32 %i3.0 to i64
+  %16 = zext nneg i32 %i3Block.0 to i64
+  %invariant.gep = getelementptr i16, ptr %7, i64 %16
   br label %do.body70
 
 do.body70:                                        ; preds = %do.cond, %if.end69
-  %indvars.iv334 = phi i64 [ %indvars.iv.next335, %do.cond ], [ %16, %if.end69 ]
+  %indvars.iv334 = phi i64 [ %indvars.iv.next335, %do.cond ], [ %15, %if.end69 ]
   %haveValue.2 = phi i8 [ %haveValue.5, %do.cond ], [ %haveValue.0, %if.end69 ]
   %value18.2 = phi i32 [ %value18.5, %do.cond ], [ %value18.0, %if.end69 ]
   %trieValue.2 = phi i32 [ %trieValue.7, %do.cond ], [ %trieValue.0, %if.end69 ]
@@ -985,21 +984,21 @@ do.body70:                                        ; preds = %do.cond, %if.end69
 
 if.then73:                                        ; preds = %do.body70
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv334
-  %18 = load i16, ptr %gep, align 2
-  %conv77 = zext i16 %18 to i32
+  %17 = load i16, ptr %gep, align 2
+  %conv77 = zext i16 %17 to i32
   br label %if.end94
 
 if.else78:                                        ; preds = %do.body70
-  %19 = trunc i64 %indvars.iv334 to i32
-  %and80 = and i32 %19, -8
+  %18 = trunc i64 %indvars.iv334 to i32
+  %and80 = and i32 %18, -8
   %add81 = add nsw i32 %and80, %and79
-  %shr82 = ashr i32 %19, 3
+  %shr82 = ashr i32 %18, 3
   %add83 = add nsw i32 %add81, %shr82
-  %and84 = and i32 %19, 7
+  %and84 = and i32 %18, 7
   %idxprom85 = sext i32 %add83 to i64
   %arrayidx86 = getelementptr inbounds i16, ptr %7, i64 %idxprom85
-  %20 = load i16, ptr %arrayidx86, align 2
-  %conv87 = zext i16 %20 to i32
+  %19 = load i16, ptr %arrayidx86, align 2
+  %conv87 = zext i16 %19 to i32
   %mul = shl nuw nsw i32 %and84, 1
   %add88 = add nuw nsw i32 %mul, 2
   %shl = shl nuw i32 %conv87, %add88
@@ -1008,8 +1007,8 @@ if.else78:                                        ; preds = %do.body70
   %add90 = add i32 %inc, %add83
   %idxprom91 = sext i32 %add90 to i64
   %arrayidx92 = getelementptr inbounds i16, ptr %7, i64 %idxprom91
-  %21 = load i16, ptr %arrayidx92, align 2
-  %conv93 = zext i16 %21 to i32
+  %20 = load i16, ptr %arrayidx92, align 2
+  %conv93 = zext i16 %20 to i32
   %or = or disjoint i32 %and89, %conv93
   br label %if.end94
 
@@ -1026,14 +1025,13 @@ if.then99:                                        ; preds = %if.end94
   br label %do.cond
 
 if.else101:                                       ; preds = %if.end94
-  %22 = load i32, ptr %dataNullOffset, align 8
-  %cmp104 = icmp eq i32 %block.0, %22
+  %21 = load i32, ptr %dataNullOffset, align 8
+  %cmp104 = icmp eq i32 %block.0, %21
   br i1 %cmp104, label %if.then105, label %if.else120
 
 if.then105:                                       ; preds = %if.else101
-  %23 = and i8 %haveValue.2, 1
-  %tobool106.not = icmp eq i8 %23, 0
-  br i1 %tobool106.not, label %if.else112, label %if.then107
+  %tobool106 = trunc i8 %haveValue.2 to i1
+  br i1 %tobool106, label %if.then107, label %if.else112
 
 if.then107:                                       ; preds = %if.then105
   %cmp108.not = icmp eq i32 %nullValue.0, %value18.2
@@ -1044,7 +1042,7 @@ if.then109:                                       ; preds = %if.then107
   br label %return
 
 if.else112:                                       ; preds = %if.then105
-  %24 = load i32, ptr %nullValue12, align 4
+  %22 = load i32, ptr %nullValue12, align 4
   br i1 %cmp60.not, label %if.end117, label %if.then115
 
 if.then115:                                       ; preds = %if.else112
@@ -1053,7 +1051,7 @@ if.then115:                                       ; preds = %if.else112
 
 if.end117:                                        ; preds = %if.else112, %if.then115, %if.then107
   %haveValue.3 = phi i8 [ %haveValue.2, %if.then107 ], [ 1, %if.then115 ], [ 1, %if.else112 ]
-  %trieValue.3 = phi i32 [ %trieValue.2, %if.then107 ], [ %24, %if.then115 ], [ %24, %if.else112 ]
+  %trieValue.3 = phi i32 [ %trieValue.2, %if.then107 ], [ %22, %if.then115 ], [ %22, %if.else112 ]
   %add118 = add nsw i32 %c.1, %dataBlockLength.0
   %and119 = and i32 %add118, %not
   br label %do.cond
@@ -1071,28 +1069,27 @@ if.else120:                                       ; preds = %if.else101
 sw.bb.i134:                                       ; preds = %if.else120
   %idxprom.i135 = zext nneg i32 %add123 to i64
   %arrayidx.i136 = getelementptr inbounds i16, ptr %agg.tmp124.sroa.0.0.copyload, i64 %idxprom.i135
-  %25 = load i16, ptr %arrayidx.i136, align 2
-  %conv.i137 = zext i16 %25 to i32
+  %23 = load i16, ptr %arrayidx.i136, align 2
+  %conv.i137 = zext i16 %23 to i32
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit138
 
 sw.bb1.i131:                                      ; preds = %if.else120
   %idxprom2.i132 = zext nneg i32 %add123 to i64
   %arrayidx3.i133 = getelementptr inbounds i32, ptr %agg.tmp124.sroa.0.0.copyload, i64 %idxprom2.i132
-  %26 = load i32, ptr %arrayidx3.i133, align 4
+  %24 = load i32, ptr %arrayidx3.i133, align 4
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit138
 
 sw.bb4.i126:                                      ; preds = %if.else120
   %idxprom5.i127 = zext nneg i32 %add123 to i64
   %arrayidx6.i128 = getelementptr inbounds i8, ptr %agg.tmp124.sroa.0.0.copyload, i64 %idxprom5.i127
-  %27 = load i8, ptr %arrayidx6.i128, align 1
-  %conv7.i129 = zext i8 %27 to i32
+  %25 = load i8, ptr %arrayidx6.i128, align 1
+  %conv7.i129 = zext i8 %25 to i32
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit138
 
 _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit138: ; preds = %if.else120, %sw.bb.i134, %sw.bb1.i131, %sw.bb4.i126
-  %retval.0.i130 = phi i32 [ %conv7.i129, %sw.bb4.i126 ], [ %26, %sw.bb1.i131 ], [ %conv.i137, %sw.bb.i134 ], [ -1, %if.else120 ]
-  %28 = and i8 %haveValue.2, 1
-  %tobool128.not = icmp eq i8 %28, 0
-  br i1 %tobool128.not, label %if.else141, label %if.then129
+  %retval.0.i130 = phi i32 [ %conv7.i129, %sw.bb4.i126 ], [ %24, %sw.bb1.i131 ], [ %conv.i137, %sw.bb.i134 ], [ -1, %if.else120 ]
+  %tobool128 = trunc i8 %haveValue.2 to i1
+  br i1 %tobool128, label %if.then129, label %if.else141
 
 if.then129:                                       ; preds = %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit138
   %cmp130.not = icmp eq i32 %retval.0.i130, %trieValue.2
@@ -1102,8 +1099,8 @@ if.then131:                                       ; preds = %if.then129
   br i1 %cmp13.not, label %if.then137, label %lor.lhs.false133
 
 lor.lhs.false133:                                 ; preds = %if.then131
-  %29 = load i32, ptr %nullValue12, align 4
-  %cmp.i = icmp eq i32 %retval.0.i130, %29
+  %26 = load i32, ptr %nullValue12, align 4
+  %cmp.i = icmp eq i32 %retval.0.i130, %26
   br i1 %cmp.i, label %_ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %lor.lhs.false133
@@ -1120,8 +1117,8 @@ if.then137:                                       ; preds = %_ZN12_GLOBAL__N_116
   br label %return
 
 if.else141:                                       ; preds = %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit138
-  %30 = load i32, ptr %nullValue12, align 4
-  %cmp.i139 = icmp eq i32 %retval.0.i130, %30
+  %27 = load i32, ptr %nullValue12, align 4
+  %cmp.i139 = icmp eq i32 %retval.0.i130, %27
   %brmerge = or i1 %cmp13.not, %cmp.i139
   %nullValue.0.mux = select i1 %cmp.i139, i32 %nullValue.0, i32 %retval.0.i130
   br i1 %brmerge, label %_ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit145, label %if.then2.i142
@@ -1161,7 +1158,7 @@ while.body.preheader:                             ; preds = %if.end147.thread, %
   %value18.4344353 = phi i32 [ %value18.4, %while.body.lr.ph ], [ %value18.2, %if.end147.thread ]
   %trieValue.4345352 = phi i32 [ %trieValue.4, %while.body.lr.ph ], [ %retval.0.i130, %if.end147.thread ]
   %inc148198346351 = phi i32 [ %inc148198, %while.body.lr.ph ], [ %inc148198340, %if.end147.thread ]
-  %31 = zext nneg i32 %add123 to i64
+  %28 = zext nneg i32 %add123 to i64
   br label %while.body
 
 while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
@@ -1176,16 +1173,16 @@ while.body.lr.ph.split.us.split.us:               ; preds = %while.body.lr.ph.sp
   %inc153.us.us268 = add nuw nsw i32 %add123, 1
   %idxprom.i155.us.us269 = zext nneg i32 %inc153.us.us268 to i64
   %arrayidx.i156.us.us270 = getelementptr inbounds i16, ptr %agg.tmp151.sroa.0.0.copyload.us, i64 %idxprom.i155.us.us269
-  %32 = load i16, ptr %arrayidx.i156.us.us270, align 2
-  %conv.i157.us.us271 = zext i16 %32 to i32
+  %29 = load i16, ptr %arrayidx.i156.us.us270, align 2
+  %conv.i157.us.us271 = zext i16 %29 to i32
   %cmp156.not.us.us272 = icmp eq i32 %trieValue.4, %conv.i157.us.us271
   br i1 %cmp156.not.us.us272, label %if.end166.us.us, label %return
 
 while.body.us.us:                                 ; preds = %if.end166.us.us
-  %indvars.iv.next332 = add i64 %indvars.iv331, 1
+  %indvars.iv.next332 = add nuw nsw i64 %indvars.iv331, 1
   %arrayidx.i156.us.us = getelementptr inbounds i16, ptr %agg.tmp151.sroa.0.0.copyload.us, i64 %indvars.iv.next332
-  %33 = load i16, ptr %arrayidx.i156.us.us, align 2
-  %conv.i157.us.us = zext i16 %33 to i32
+  %30 = load i16, ptr %arrayidx.i156.us.us, align 2
+  %conv.i157.us.us = zext i16 %30 to i32
   %cmp156.not.us.us = icmp eq i32 %trieValue.4, %conv.i157.us.us
   br i1 %cmp156.not.us.us, label %if.end166.us.us, label %return, !llvm.loop !4
 
@@ -1201,15 +1198,15 @@ while.body.lr.ph.split.us.split.us212:            ; preds = %while.body.lr.ph.sp
   %inc153.us.us217277 = add nuw nsw i32 %add123, 1
   %idxprom2.i152.us.us278 = zext nneg i32 %inc153.us.us217277 to i64
   %arrayidx3.i153.us.us279 = getelementptr inbounds i32, ptr %agg.tmp151.sroa.0.0.copyload.us, i64 %idxprom2.i152.us.us278
-  %34 = load i32, ptr %arrayidx3.i153.us.us279, align 4
-  %cmp156.not.us.us220280 = icmp eq i32 %34, %trieValue.4
+  %31 = load i32, ptr %arrayidx3.i153.us.us279, align 4
+  %cmp156.not.us.us220280 = icmp eq i32 %31, %trieValue.4
   br i1 %cmp156.not.us.us220280, label %if.end166.us.us221, label %return
 
 while.body.us.us213:                              ; preds = %if.end166.us.us221
-  %indvars.iv.next329 = add i64 %indvars.iv328, 1
+  %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
   %arrayidx3.i153.us.us = getelementptr inbounds i32, ptr %agg.tmp151.sroa.0.0.copyload.us, i64 %indvars.iv.next329
-  %35 = load i32, ptr %arrayidx3.i153.us.us, align 4
-  %cmp156.not.us.us220 = icmp eq i32 %35, %trieValue.4
+  %32 = load i32, ptr %arrayidx3.i153.us.us, align 4
+  %cmp156.not.us.us220 = icmp eq i32 %32, %trieValue.4
   br i1 %cmp156.not.us.us220, label %if.end166.us.us221, label %return, !llvm.loop !4
 
 if.end166.us.us221:                               ; preds = %while.body.lr.ph.split.us.split.us212, %while.body.us.us213
@@ -1224,16 +1221,16 @@ while.body.lr.ph.split.us.split.us231:            ; preds = %while.body.lr.ph.sp
   %inc153.us.us236285 = add nuw nsw i32 %add123, 1
   %idxprom5.i147.us.us286 = zext nneg i32 %inc153.us.us236285 to i64
   %arrayidx6.i148.us.us287 = getelementptr inbounds i8, ptr %agg.tmp151.sroa.0.0.copyload.us, i64 %idxprom5.i147.us.us286
-  %36 = load i8, ptr %arrayidx6.i148.us.us287, align 1
-  %conv7.i149.us.us288 = zext i8 %36 to i32
+  %33 = load i8, ptr %arrayidx6.i148.us.us287, align 1
+  %conv7.i149.us.us288 = zext i8 %33 to i32
   %cmp156.not.us.us239289 = icmp eq i32 %trieValue.4, %conv7.i149.us.us288
   br i1 %cmp156.not.us.us239289, label %if.end166.us.us240, label %return
 
 while.body.us.us232:                              ; preds = %if.end166.us.us240
-  %indvars.iv.next326 = add i64 %indvars.iv325, 1
+  %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
   %arrayidx6.i148.us.us = getelementptr inbounds i8, ptr %agg.tmp151.sroa.0.0.copyload.us, i64 %indvars.iv.next326
-  %37 = load i8, ptr %arrayidx6.i148.us.us, align 1
-  %conv7.i149.us.us = zext i8 %37 to i32
+  %34 = load i8, ptr %arrayidx6.i148.us.us, align 1
+  %conv7.i149.us.us = zext i8 %34 to i32
   %cmp156.not.us.us239 = icmp eq i32 %trieValue.4, %conv7.i149.us.us
   br i1 %cmp156.not.us.us239, label %if.end166.us.us240, label %return, !llvm.loop !4
 
@@ -1257,12 +1254,12 @@ if.end166.us.us255:                               ; preds = %while.body.lr.ph.sp
   br i1 %cmp150.not.us.us258, label %do.cond, label %if.end166.us.us255, !llvm.loop !4
 
 while.body:                                       ; preds = %while.body.preheader, %if.end166
-  %indvars.iv = phi i64 [ %31, %while.body.preheader ], [ %indvars.iv.next, %if.end166 ]
+  %indvars.iv = phi i64 [ %28, %while.body.preheader ], [ %indvars.iv.next, %if.end166 ]
   %inc148204 = phi i32 [ %inc148198346351, %while.body.preheader ], [ %inc148, %if.end166 ]
   %c.2202 = phi i32 [ %c.1, %while.body.preheader ], [ %inc148204, %if.end166 ]
   %trieValue.5201 = phi i32 [ %trieValue.4345352, %while.body.preheader ], [ %trieValue.6, %if.end166 ]
   %agg.tmp151.sroa.0.0.copyload = load ptr, ptr %data125, align 8
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   switch i8 %0, label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit158 [
     i8 0, label %sw.bb.i154
     i8 1, label %sw.bb1.i151
@@ -1271,29 +1268,29 @@ while.body:                                       ; preds = %while.body.preheade
 
 sw.bb.i154:                                       ; preds = %while.body
   %arrayidx.i156 = getelementptr inbounds i16, ptr %agg.tmp151.sroa.0.0.copyload, i64 %indvars.iv.next
-  %38 = load i16, ptr %arrayidx.i156, align 2
-  %conv.i157 = zext i16 %38 to i32
+  %35 = load i16, ptr %arrayidx.i156, align 2
+  %conv.i157 = zext i16 %35 to i32
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit158
 
 sw.bb1.i151:                                      ; preds = %while.body
   %arrayidx3.i153 = getelementptr inbounds i32, ptr %agg.tmp151.sroa.0.0.copyload, i64 %indvars.iv.next
-  %39 = load i32, ptr %arrayidx3.i153, align 4
+  %36 = load i32, ptr %arrayidx3.i153, align 4
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit158
 
 sw.bb4.i146:                                      ; preds = %while.body
   %arrayidx6.i148 = getelementptr inbounds i8, ptr %agg.tmp151.sroa.0.0.copyload, i64 %indvars.iv.next
-  %40 = load i8, ptr %arrayidx6.i148, align 1
-  %conv7.i149 = zext i8 %40 to i32
+  %37 = load i8, ptr %arrayidx6.i148, align 1
+  %conv7.i149 = zext i8 %37 to i32
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit158
 
 _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit158: ; preds = %while.body, %sw.bb.i154, %sw.bb1.i151, %sw.bb4.i146
-  %retval.0.i150 = phi i32 [ %conv7.i149, %sw.bb4.i146 ], [ %39, %sw.bb1.i151 ], [ %conv.i157, %sw.bb.i154 ], [ -1, %while.body ]
+  %retval.0.i150 = phi i32 [ %conv7.i149, %sw.bb4.i146 ], [ %36, %sw.bb1.i151 ], [ %conv.i157, %sw.bb.i154 ], [ -1, %while.body ]
   %cmp156.not = icmp eq i32 %retval.0.i150, %trieValue.5201
   br i1 %cmp156.not, label %if.end166, label %if.then157
 
 if.then157:                                       ; preds = %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit158
-  %41 = load i32, ptr %nullValue12, align 4
-  %cmp.i159 = icmp eq i32 %retval.0.i150, %41
+  %38 = load i32, ptr %nullValue12, align 4
+  %cmp.i159 = icmp eq i32 %retval.0.i150, %38
   br i1 %cmp.i159, label %_ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit165, label %if.then2.i162
 
 if.then2.i162:                                    ; preds = %if.then157
@@ -1327,16 +1324,16 @@ do.cond171:                                       ; preds = %do.cond, %if.end63,
   %value18.6 = phi i32 [ %value18.0, %if.then47 ], [ %nullValue.0, %if.end63 ], [ %value18.5, %do.cond ]
   %trieValue.8 = phi i32 [ %trieValue.0, %if.then47 ], [ %trieValue.1, %if.end63 ], [ %trieValue.7, %do.cond ]
   %c.4 = phi i32 [ %add48, %if.then47 ], [ %and65, %if.end63 ], [ %c.3, %do.cond ]
-  %prevBlock.3 = phi i32 [ %prevBlock.0, %if.then47 ], [ %14, %if.end63 ], [ %prevBlock.2, %do.cond ]
+  %prevBlock.3 = phi i32 [ %prevBlock.0, %if.then47 ], [ %13, %if.end63 ], [ %prevBlock.2, %do.cond ]
   %prevI3Block.2 = phi i32 [ %prevI3Block.0, %if.then47 ], [ %conv42, %if.end63 ], [ %prevI3Block.1, %do.cond ]
-  %42 = load i32, ptr %highStart, align 8
-  %cmp173 = icmp slt i32 %c.4, %42
+  %39 = load i32, ptr %highStart, align 8
+  %cmp173 = icmp slt i32 %c.4, %39
   br i1 %cmp173, label %do.body, label %do.end174, !llvm.loop !7
 
 do.end174:                                        ; preds = %do.cond171
   %dataLength176 = getelementptr inbounds i8, ptr %t, i64 20
-  %43 = load i32, ptr %dataLength176, align 4
-  %sub177 = add nsw i32 %43, -2
+  %40 = load i32, ptr %dataLength176, align 4
+  %sub177 = add nsw i32 %40, -2
   %agg.tmp178.sroa.0.0.copyload = load ptr, ptr %data125, align 8
   switch i8 %0, label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit178 [
     i8 0, label %sw.bb.i174
@@ -1347,27 +1344,27 @@ do.end174:                                        ; preds = %do.cond171
 sw.bb.i174:                                       ; preds = %do.end174
   %idxprom.i175 = sext i32 %sub177 to i64
   %arrayidx.i176 = getelementptr inbounds i16, ptr %agg.tmp178.sroa.0.0.copyload, i64 %idxprom.i175
-  %44 = load i16, ptr %arrayidx.i176, align 2
-  %conv.i177 = zext i16 %44 to i32
+  %41 = load i16, ptr %arrayidx.i176, align 2
+  %conv.i177 = zext i16 %41 to i32
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit178
 
 sw.bb1.i171:                                      ; preds = %do.end174
   %idxprom2.i172 = sext i32 %sub177 to i64
   %arrayidx3.i173 = getelementptr inbounds i32, ptr %agg.tmp178.sroa.0.0.copyload, i64 %idxprom2.i172
-  %45 = load i32, ptr %arrayidx3.i173, align 4
+  %42 = load i32, ptr %arrayidx3.i173, align 4
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit178
 
 sw.bb4.i166:                                      ; preds = %do.end174
   %idxprom5.i167 = sext i32 %sub177 to i64
   %arrayidx6.i168 = getelementptr inbounds i8, ptr %agg.tmp178.sroa.0.0.copyload, i64 %idxprom5.i167
-  %46 = load i8, ptr %arrayidx6.i168, align 1
-  %conv7.i169 = zext i8 %46 to i32
+  %43 = load i8, ptr %arrayidx6.i168, align 1
+  %conv7.i169 = zext i8 %43 to i32
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit178
 
 _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit178: ; preds = %do.end174, %sw.bb.i174, %sw.bb1.i171, %sw.bb4.i166
-  %retval.0.i170 = phi i32 [ %conv7.i169, %sw.bb4.i166 ], [ %45, %sw.bb1.i171 ], [ %conv.i177, %sw.bb.i174 ], [ -1, %do.end174 ]
-  %47 = load i32, ptr %nullValue12, align 4
-  %cmp.i179 = icmp eq i32 %retval.0.i170, %47
+  %retval.0.i170 = phi i32 [ %conv7.i169, %sw.bb4.i166 ], [ %42, %sw.bb1.i171 ], [ %conv.i177, %sw.bb.i174 ], [ -1, %do.end174 ]
+  %44 = load i32, ptr %nullValue12, align 4
+  %cmp.i179 = icmp eq i32 %retval.0.i170, %44
   %brmerge186 = or i1 %cmp13.not, %cmp.i179
   %nullValue.0.mux187 = select i1 %cmp.i179, i32 %nullValue.0, i32 %retval.0.i170
   br i1 %brmerge186, label %_ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit185, label %if.then2.i182

@@ -532,9 +532,9 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit45: ; preds = %94, %88
 _ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit47: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit45, %84
   %98 = getelementptr inbounds i8, ptr %1, i64 80
   %99 = load i8, ptr %98, align 8
-  %100 = and i8 %99, 1
-  %101 = getelementptr inbounds i8, ptr %0, i64 80
-  store i8 %100, ptr %101, align 8
+  %100 = getelementptr inbounds i8, ptr %0, i64 80
+  %101 = and i8 %99, 1
+  store i8 %101, ptr %100, align 8
   ret void
 }
 
@@ -839,9 +839,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %18
   %26 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef %.059, i32 noundef %15)
   %27 = extractvalue { ptr, i8 } %26, 0
   %28 = extractvalue { ptr, i8 } %26, 1
-  %29 = and i8 %28, 1
-  %.not71 = icmp eq i8 %29, 0
-  br i1 %.not71, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread62, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread62
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread62: ; preds = %14, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
   %.165 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.059, %14 ]
@@ -1366,10 +1365,10 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %104
   %.0.i = phi ptr [ %107, %106 ], [ %.4, %104 ]
   %108 = getelementptr inbounds i8, ptr %0, i64 80
   %109 = load i8, ptr %108, align 8
-  %110 = and i8 %109, 1
   store i8 48, ptr %.0.i, align 1
-  %111 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  store i8 %110, ptr %111, align 1
+  %110 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %111 = and i8 %109, 1
+  store i8 %111, ptr %110, align 1
   %112 = getelementptr inbounds i8, ptr %.0.i, i64 2
   br label %113
 
@@ -1901,9 +1900,9 @@ _ZN4i18n12phonenumbers12NumberFormat51_internal_set_domestic_carrier_code_format
 105:                                              ; preds = %103
   %106 = getelementptr inbounds i8, ptr %1, i64 80
   %107 = load i8, ptr %106, align 8
-  %108 = and i8 %107, 1
-  %109 = getelementptr inbounds i8, ptr %0, i64 80
-  store i8 %108, ptr %109, align 8
+  %108 = getelementptr inbounds i8, ptr %0, i64 80
+  %109 = and i8 %107, 1
+  store i8 %109, ptr %108, align 8
   br label %110
 
 110:                                              ; preds = %105, %103
@@ -2555,9 +2554,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %18
   %26 = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef %.061, i32 noundef %15)
   %27 = extractvalue { ptr, i8 } %26, 0
   %28 = extractvalue { ptr, i8 } %26, 1
-  %29 = and i8 %28, 1
-  %.not81 = icmp eq i8 %29, 0
-  br i1 %.not81, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread64
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread64: ; preds = %14, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
   %.167 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.061, %14 ]
@@ -2655,8 +2653,8 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc32_internal_mutable_example_numberB5cxx11
   br i1 %.not26, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 77:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
-  %trunc82 = trunc i32 %.06071 to i8
-  switch i8 %trunc82, label %133 [
+  %trunc81 = trunc i32 %.06071 to i8
+  switch i8 %trunc81, label %133 [
     i8 72, label %78
     i8 74, label %103
   ]
@@ -6312,9 +6310,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %51
   %59 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef %.0396, i32 noundef %48)
   %60 = extractvalue { ptr, i8 } %59, 0
   %61 = extractvalue { ptr, i8 } %59, 1
-  %62 = and i8 %61, 1
-  %.not446 = icmp eq i8 %62, 0
-  br i1 %.not446, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread399, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread399
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread399: ; preds = %47, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
   %.1402 = phi ptr [ %60, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0396, %47 ]
@@ -9702,12 +9699,12 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit553: ; preds = %
   %.0.i552 = phi ptr [ %457, %456 ], [ %.15, %454 ]
   %458 = getelementptr inbounds i8, ptr %0, i64 276
   %459 = load i8, ptr %458, align 4
-  %460 = and i8 %459, 1
   store i8 -112, ptr %.0.i552, align 1
-  %461 = getelementptr inbounds i8, ptr %.0.i552, i64 1
-  store i8 1, ptr %461, align 1
-  %462 = getelementptr inbounds i8, ptr %.0.i552, i64 2
-  store i8 %460, ptr %462, align 1
+  %460 = getelementptr inbounds i8, ptr %.0.i552, i64 1
+  store i8 1, ptr %460, align 1
+  %461 = getelementptr inbounds i8, ptr %.0.i552, i64 2
+  %462 = and i8 %459, 1
+  store i8 %462, ptr %461, align 1
   %463 = getelementptr inbounds i8, ptr %.0.i552, i64 3
   br label %464
 
@@ -9976,12 +9973,12 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit582: ; preds = %
   %.0.i581 = phi ptr [ %587, %586 ], [ %.19, %584 ]
   %588 = getelementptr inbounds i8, ptr %0, i64 277
   %589 = load i8, ptr %588, align 1
-  %590 = and i8 %589, 1
   store i8 -80, ptr %.0.i581, align 1
-  %591 = getelementptr inbounds i8, ptr %.0.i581, i64 1
-  store i8 1, ptr %591, align 1
-  %592 = getelementptr inbounds i8, ptr %.0.i581, i64 2
-  store i8 %590, ptr %592, align 1
+  %590 = getelementptr inbounds i8, ptr %.0.i581, i64 1
+  store i8 1, ptr %590, align 1
+  %591 = getelementptr inbounds i8, ptr %.0.i581, i64 2
+  %592 = and i8 %589, 1
+  store i8 %592, ptr %591, align 1
   %593 = getelementptr inbounds i8, ptr %.0.i581, i64 3
   br label %594
 
@@ -10561,12 +10558,12 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit647: ; preds = %
   %.0.i646 = phi ptr [ %871, %870 ], [ %.28, %868 ]
   %872 = getelementptr inbounds i8, ptr %0, i64 278
   %873 = load i8, ptr %872, align 2
-  %874 = and i8 %873, 1
   store i8 -128, ptr %.0.i646, align 1
-  %875 = getelementptr inbounds i8, ptr %.0.i646, i64 1
-  store i8 2, ptr %875, align 1
-  %876 = getelementptr inbounds i8, ptr %.0.i646, i64 2
-  store i8 %874, ptr %876, align 1
+  %874 = getelementptr inbounds i8, ptr %.0.i646, i64 1
+  store i8 2, ptr %874, align 1
+  %875 = getelementptr inbounds i8, ptr %.0.i646, i64 2
+  %876 = and i8 %873, 1
+  store i8 %876, ptr %875, align 1
   %877 = getelementptr inbounds i8, ptr %.0.i646, i64 3
   br label %878
 
@@ -12528,9 +12525,9 @@ _ZN4i18n12phonenumbers13PhoneMetadata30_internal_mutable_sms_servicesEv.exit: ; 
 557:                                              ; preds = %555
   %558 = getelementptr inbounds i8, ptr %1, i64 276
   %559 = load i8, ptr %558, align 4
-  %560 = and i8 %559, 1
-  %561 = getelementptr inbounds i8, ptr %0, i64 276
-  store i8 %560, ptr %561, align 4
+  %560 = getelementptr inbounds i8, ptr %0, i64 276
+  %561 = and i8 %559, 1
+  store i8 %561, ptr %560, align 4
   br label %562
 
 562:                                              ; preds = %557, %555
@@ -12541,9 +12538,9 @@ _ZN4i18n12phonenumbers13PhoneMetadata30_internal_mutable_sms_servicesEv.exit: ; 
 564:                                              ; preds = %562
   %565 = getelementptr inbounds i8, ptr %1, i64 277
   %566 = load i8, ptr %565, align 1
-  %567 = and i8 %566, 1
-  %568 = getelementptr inbounds i8, ptr %0, i64 277
-  store i8 %567, ptr %568, align 1
+  %567 = getelementptr inbounds i8, ptr %0, i64 277
+  %568 = and i8 %566, 1
+  store i8 %568, ptr %567, align 1
   br label %569
 
 569:                                              ; preds = %564, %562
@@ -12554,9 +12551,9 @@ _ZN4i18n12phonenumbers13PhoneMetadata30_internal_mutable_sms_servicesEv.exit: ; 
 571:                                              ; preds = %569
   %572 = getelementptr inbounds i8, ptr %1, i64 278
   %573 = load i8, ptr %572, align 2
-  %574 = and i8 %573, 1
-  %575 = getelementptr inbounds i8, ptr %0, i64 278
-  store i8 %574, ptr %575, align 2
+  %574 = getelementptr inbounds i8, ptr %0, i64 278
+  %575 = and i8 %573, 1
+  store i8 %575, ptr %574, align 2
   br label %576
 
 576:                                              ; preds = %571, %569
@@ -13318,9 +13315,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %14
   %22 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef %.028, i32 noundef %11)
   %23 = extractvalue { ptr, i8 } %22, 0
   %24 = extractvalue { ptr, i8 } %22, 1
-  %25 = and i8 %24, 1
-  %.not42 = icmp eq i8 %25, 0
-  br i1 %.not42, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31: ; preds = %10, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
   %.134 = phi ptr [ %23, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.028, %10 ]

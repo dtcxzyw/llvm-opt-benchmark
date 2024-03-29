@@ -184,18 +184,17 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vinput, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 43, ptr noundef nonnull @__func__.VHOST_USER_INPUT) #3
   %active = getelementptr inbounds i8, ptr %vinput, i64 584
   %0 = load i8, ptr %active, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %vhost1 = getelementptr inbounds i8, ptr %call.i, i64 592
-  %2 = load ptr, ptr %vhost1, align 8
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  %vhost = getelementptr inbounds i8, ptr %call.i, i64 592
+  %1 = load ptr, ptr %vhost, align 8
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  tail call void @vhost_user_backend_start(ptr noundef %2) #3
+  tail call void @vhost_user_backend_start(ptr noundef %1) #3
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @vhost_user_backend_stop(ptr noundef %2) #3
+  tail call void @vhost_user_backend_stop(ptr noundef %1) #3
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then

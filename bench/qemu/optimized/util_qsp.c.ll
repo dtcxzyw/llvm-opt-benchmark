@@ -686,24 +686,22 @@ entry:
   store i32 %sort_by, ptr %sort_by.addr, align 4
   %call = call ptr @g_tree_new_full(ptr noundef nonnull @qsp_tree_cmp, ptr noundef nonnull %sort_by.addr, ptr noundef nonnull @g_free, ptr noundef null) #16
   %0 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %qsp_init.exit
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %qsp_init.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %2 = cmpxchg ptr @qsp_initializing, i8 0, i8 1 seq_cst seq_cst, align 1
-  %3 = extractvalue { i8, i1 } %2, 1
-  %4 = extractvalue { i8, i1 } %2, 0
-  %5 = and i8 %4, 1
-  %6 = icmp eq i8 %5, 0
-  %_old.0.i.i = select i1 %3, i1 true, i1 %6
+  %1 = cmpxchg ptr @qsp_initializing, i8 0, i8 1 seq_cst seq_cst, align 1
+  %2 = extractvalue { i8, i1 } %1, 1
+  %3 = extractvalue { i8, i1 } %1, 0
+  %4 = and i8 %3, 1
+  %5 = icmp eq i8 %4, 0
+  %_old.0.i.i = select i1 %2, i1 true, i1 %5
   br i1 %_old.0.i.i, label %if.then.i.i, label %while.cond16.preheader.i.i
 
 while.cond16.preheader.i.i:                       ; preds = %if.end.i
-  %7 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %8 = and i8 %7, 1
-  %tobool23.not2.i.i = icmp eq i8 %8, 0
-  br i1 %tobool23.not2.i.i, label %while.body26.i.i, label %qsp_init.exit
+  %6 = load atomic i8, ptr @qsp_initialized monotonic, align 1
+  %tobool232.i.i = trunc i8 %6 to i1
+  br i1 %tobool232.i.i, label %qsp_init.exit, label %while.body26.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store i1 true, ptr @qsp_qemu_path_len, align 8
@@ -714,10 +712,9 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 while.body26.i.i:                                 ; preds = %while.cond16.preheader.i.i, %while.body26.i.i
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
-  %9 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %10 = and i8 %9, 1
-  %tobool23.not.i.i = icmp eq i8 %10, 0
-  br i1 %tobool23.not.i.i, label %while.body26.i.i, label %qsp_init.exit, !llvm.loop !6
+  %7 = load atomic i8, ptr @qsp_initialized monotonic, align 1
+  %tobool23.i.i = trunc i8 %7 to i1
+  br i1 %tobool23.i.i, label %qsp_init.exit, label %while.body26.i.i, !llvm.loop !6
 
 qsp_init.exit:                                    ; preds = %while.body26.i.i, %entry, %while.cond16.preheader.i.i, %if.then.i.i
   %call1 = call noalias ptr @g_malloc0_n(i64 noundef %max, i64 noundef 56) #17
@@ -730,39 +727,39 @@ qsp_init.exit:                                    ; preds = %while.body26.i.i, %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %coalesce_ht.i)
   %call.i.i.i = call ptr @get_ptr_rcu_reader() #16
   %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
-  %11 = load i32, ptr %depth.i.i.i, align 4
-  %inc.i.i.i = add i32 %11, 1
+  %8 = load i32, ptr %depth.i.i.i, align 4
+  %inc.i.i.i = add i32 %8, 1
   store i32 %inc.i.i.i, ptr %depth.i.i.i, align 4
-  %cmp.not.i.i.i = icmp eq i32 %11, 0
+  %cmp.not.i.i.i = icmp eq i32 %8, 0
   br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %rcu_read_auto_lock.exit.i
 
 while.end.i.i.i:                                  ; preds = %qsp_init.exit
-  %12 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
-  %conv8.i.i.i = and i64 %12, 4294967295
+  %9 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
+  %conv8.i.i.i = and i64 %9, 4294967295
   store atomic i64 %conv8.i.i.i, ptr %call.i.i.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
   fence seq_cst
   br label %rcu_read_auto_lock.exit.i
 
 rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %qsp_init.exit
-  %13 = load atomic i64, ptr @qsp_snapshot monotonic, align 8
+  %10 = load atomic i64, ptr @qsp_snapshot monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !9
   call void @qht_init(ptr noundef nonnull %ht.i, ptr noundef nonnull @qsp_entry_no_thread_cmp, i64 noundef 64, i32 noundef 3) #16
   call void @qht_iter(ptr noundef nonnull @qsp_ht, ptr noundef nonnull @qsp_aggregate, ptr noundef nonnull %ht.i) #16
-  %tobool1.not.i = icmp eq i64 %13, 0
+  %tobool1.not.i = icmp eq i64 %10, 0
   br i1 %tobool1.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %rcu_read_auto_lock.exit.i
-  %14 = inttoptr i64 %13 to ptr
-  %ht2.i = getelementptr inbounds i8, ptr %14, i64 16
+  %11 = inttoptr i64 %10 to ptr
+  %ht2.i = getelementptr inbounds i8, ptr %11, i64 16
   call void @qht_iter(ptr noundef nonnull %ht2.i, ptr noundef nonnull @qsp_iter_diff, ptr noundef nonnull %ht.i) #16
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %rcu_read_auto_lock.exit.i
   %call.i.i3.i = call ptr @get_ptr_rcu_reader() #16
   %depth.i.i4.i = getelementptr inbounds i8, ptr %call.i.i3.i, i64 12
-  %15 = load i32, ptr %depth.i.i4.i, align 4
-  %cmp.not.i.i5.i = icmp eq i32 %15, 0
+  %12 = load i32, ptr %depth.i.i4.i, align 4
+  %cmp.not.i.i5.i = icmp eq i32 %12, 0
   br i1 %cmp.not.i.i5.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.inc.i
@@ -770,7 +767,7 @@ if.else.i.i.i:                                    ; preds = %for.inc.i
   unreachable
 
 if.end.i.i.i:                                     ; preds = %for.inc.i
-  %dec.i.i.i = add i32 %15, -1
+  %dec.i.i.i = add i32 %12, -1
   store i32 %dec.i.i.i, ptr %depth.i.i4.i, align 4
   %cmp2.not.i.i.i = icmp eq i32 %dec.i.i.i, 0
   br i1 %cmp2.not.i.i.i, label %while.end.i.i6.i, label %glib_autoptr_cleanup_RCUReadAuto.exit.i
@@ -780,10 +777,9 @@ while.end.i.i6.i:                                 ; preds = %if.end.i.i.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
   %waiting.i.i.i = getelementptr inbounds i8, ptr %call.i.i3.i, i64 8
-  %16 = load atomic i8, ptr %waiting.i.i.i monotonic, align 8
-  %17 = and i8 %16, 1
-  %tobool.not.i.i.i = icmp eq i8 %17, 0
-  br i1 %tobool.not.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit.i, label %while.end21.i.i.i
+  %13 = load atomic i8, ptr %waiting.i.i.i monotonic, align 8
+  %tobool.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i, label %while.end21.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit.i
 
 while.end21.i.i.i:                                ; preds = %while.end.i.i6.i
   store atomic i8 0, ptr %waiting.i.i.i monotonic, align 8
@@ -808,23 +804,23 @@ qsp_mktree.exit:                                  ; preds = %glib_autoptr_cleanu
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %coalesce_ht.i)
   call void @g_tree_foreach(ptr noundef %call, ptr noundef nonnull @qsp_tree_report, ptr noundef nonnull %rep) #16
   call void @g_tree_destroy(ptr noundef %call) #16
-  %18 = load i64, ptr %n_entries, align 8
-  %cmp35.not.i = icmp eq i64 %18, 0
+  %14 = load i64, ptr %n_entries, align 8
+  %cmp35.not.i = icmp eq i64 %14, 0
   br i1 %cmp35.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %qsp_mktree.exit
-  %19 = load ptr, ptr %rep, align 8
+  %15 = load ptr, ptr %rep, align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %max_len.037.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %spec.select.i, %for.body.i ]
   %i.036.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
-  %callsite_at.i = getelementptr %struct.QSPReportEntry, ptr %19, i64 %i.036.i, i32 1
-  %20 = load ptr, ptr %callsite_at.i, align 8
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #19
+  %callsite_at.i = getelementptr %struct.QSPReportEntry, ptr %15, i64 %i.036.i, i32 1
+  %16 = load ptr, ptr %callsite_at.i, align 8
+  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #19
   %spec.select.i = call i64 @llvm.umax.i64(i64 %call.i, i64 %max_len.037.i)
   %inc.i = add nuw i64 %i.036.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %18
+  %exitcond.not.i = icmp eq i64 %inc.i, %14
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %for.body.i, %qsp_mktree.exit
@@ -843,75 +839,75 @@ for.end.i:                                        ; preds = %for.body.i, %qsp_mk
   %arrayidx10.i = getelementptr i8, ptr %call8.i, i64 %conv9.i
   store i8 0, ptr %arrayidx10.i, align 1
   %call11.i = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.17, ptr noundef %call8.i) #16
-  %21 = load i64, ptr %n_entries, align 8
-  %cmp1438.not.i = icmp eq i64 %21, 0
+  %17 = load i64, ptr %n_entries, align 8
+  %cmp1438.not.i = icmp eq i64 %17, 0
   br i1 %cmp1438.not.i, label %pr_report.exit, label %for.body16.i
 
 for.body16.i:                                     ; preds = %for.end.i, %if.end25.i
   %i.139.i = phi i64 [ %inc34.i, %if.end25.i ], [ 0, %for.end.i ]
-  %22 = load ptr, ptr %rep, align 8
-  %arrayidx19.i = getelementptr %struct.QSPReportEntry, ptr %22, i64 %i.139.i
+  %18 = load ptr, ptr %rep, align 8
+  %arrayidx19.i = getelementptr %struct.QSPReportEntry, ptr %18, i64 %i.139.i
   %call20.i = call ptr @g_string_new(ptr noundef null) #16
   %typename.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 16
-  %23 = load ptr, ptr %typename.i, align 8
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call20.i, ptr noundef nonnull @.str.18, ptr noundef %23) #16
+  %19 = load ptr, ptr %typename.i, align 8
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call20.i, ptr noundef nonnull @.str.18, ptr noundef %19) #16
   %n_objs.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 48
-  %24 = load i32, ptr %n_objs.i, align 8
-  %cmp21.i = icmp ugt i32 %24, 1
+  %20 = load i32, ptr %n_objs.i, align 8
+  %cmp21.i = icmp ugt i32 %20, 1
   br i1 %cmp21.i, label %if.then23.i, label %if.else.i
 
 if.then23.i:                                      ; preds = %for.body16.i
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call20.i, ptr noundef nonnull @.str.19, i32 noundef %24) #16
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call20.i, ptr noundef nonnull @.str.19, i32 noundef %20) #16
   br label %if.end25.i
 
 if.else.i:                                        ; preds = %for.body16.i
-  %25 = load ptr, ptr %arrayidx19.i, align 8
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call20.i, ptr noundef nonnull @.str.20, ptr noundef %25) #16
+  %21 = load ptr, ptr %arrayidx19.i, align 8
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call20.i, ptr noundef nonnull @.str.20, ptr noundef %21) #16
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.else.i, %if.then23.i
   %callsite_at26.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 8
-  %26 = load ptr, ptr %callsite_at26.i, align 8
-  %call28.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #19
+  %22 = load ptr, ptr %callsite_at26.i, align 8
+  %call28.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #19
   %conv29.i = trunc i64 %call28.i to i32
   %sub30.i = sub i32 %conv.i, %conv29.i
   %time_s.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 24
-  %27 = load double, ptr %time_s.i, align 8
+  %23 = load double, ptr %time_s.i, align 8
   %n_acqs.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 40
-  %28 = load i64, ptr %n_acqs.i, align 8
+  %24 = load i64, ptr %n_acqs.i, align 8
   %ns_avg.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 32
-  %29 = load double, ptr %ns_avg.i, align 8
-  %mul.i = fmul double %29, 1.000000e-03
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call20.i, ptr noundef nonnull @.str.21, ptr noundef %26, i32 noundef %sub30.i, ptr noundef nonnull @.str.16, double noundef %27, i64 noundef %28, double noundef %mul.i) #16
-  %30 = load ptr, ptr %call20.i, align 8
-  %call31.i = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.22, ptr noundef %30) #16
+  %25 = load double, ptr %ns_avg.i, align 8
+  %mul.i = fmul double %25, 1.000000e-03
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call20.i, ptr noundef nonnull @.str.21, ptr noundef %22, i32 noundef %sub30.i, ptr noundef nonnull @.str.16, double noundef %23, i64 noundef %24, double noundef %mul.i) #16
+  %26 = load ptr, ptr %call20.i, align 8
+  %call31.i = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.22, ptr noundef %26) #16
   %call32.i = call ptr @g_string_free(ptr noundef nonnull %call20.i, i32 noundef 1) #16
   %inc34.i = add nuw i64 %i.139.i, 1
-  %31 = load i64, ptr %n_entries, align 8
-  %cmp14.i = icmp ult i64 %inc34.i, %31
+  %27 = load i64, ptr %n_entries, align 8
+  %cmp14.i = icmp ult i64 %inc34.i, %27
   br i1 %cmp14.i, label %for.body16.i, label %pr_report.exit, !llvm.loop !12
 
 pr_report.exit:                                   ; preds = %if.end25.i, %for.end.i
   %call36.i = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.17, ptr noundef %call8.i) #16
   call void @g_free(ptr noundef %call8.i) #16
-  %32 = load i64, ptr %n_entries, align 8
-  %cmp5.not.i = icmp eq i64 %32, 0
+  %28 = load i64, ptr %n_entries, align 8
+  %cmp5.not.i = icmp eq i64 %28, 0
   br i1 %cmp5.not.i, label %report_destroy.exit, label %for.body.i5
 
 for.body.i5:                                      ; preds = %pr_report.exit, %for.body.i5
   %i.06.i = phi i64 [ %inc.i7, %for.body.i5 ], [ 0, %pr_report.exit ]
-  %33 = load ptr, ptr %rep, align 8
-  %callsite_at.i6 = getelementptr %struct.QSPReportEntry, ptr %33, i64 %i.06.i, i32 1
-  %34 = load ptr, ptr %callsite_at.i6, align 8
-  call void @g_free(ptr noundef %34) #16
+  %29 = load ptr, ptr %rep, align 8
+  %callsite_at.i6 = getelementptr %struct.QSPReportEntry, ptr %29, i64 %i.06.i, i32 1
+  %30 = load ptr, ptr %callsite_at.i6, align 8
+  call void @g_free(ptr noundef %30) #16
   %inc.i7 = add nuw i64 %i.06.i, 1
-  %35 = load i64, ptr %n_entries, align 8
-  %cmp.i = icmp ult i64 %inc.i7, %35
+  %31 = load i64, ptr %n_entries, align 8
+  %cmp.i = icmp ult i64 %inc.i7, %31
   br i1 %cmp.i, label %for.body.i5, label %report_destroy.exit, !llvm.loop !13
 
 report_destroy.exit:                              ; preds = %for.body.i5, %pr_report.exit
-  %36 = load ptr, ptr %rep, align 8
-  call void @g_free(ptr noundef %36) #16
+  %32 = load ptr, ptr %rep, align 8
+  call void @g_free(ptr noundef %32) #16
   ret void
 }
 
@@ -1125,24 +1121,22 @@ define dso_local void @qsp_reset() local_unnamed_addr #3 {
 entry:
   %call = tail call noalias dereferenceable_or_null(88) ptr @g_malloc_n(i64 noundef 1, i64 noundef 88) #17
   %0 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %qsp_init.exit
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %qsp_init.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %2 = cmpxchg ptr @qsp_initializing, i8 0, i8 1 seq_cst seq_cst, align 1
-  %3 = extractvalue { i8, i1 } %2, 1
-  %4 = extractvalue { i8, i1 } %2, 0
-  %5 = and i8 %4, 1
-  %6 = icmp eq i8 %5, 0
-  %_old.0.i.i = select i1 %3, i1 true, i1 %6
+  %1 = cmpxchg ptr @qsp_initializing, i8 0, i8 1 seq_cst seq_cst, align 1
+  %2 = extractvalue { i8, i1 } %1, 1
+  %3 = extractvalue { i8, i1 } %1, 0
+  %4 = and i8 %3, 1
+  %5 = icmp eq i8 %4, 0
+  %_old.0.i.i = select i1 %2, i1 true, i1 %5
   br i1 %_old.0.i.i, label %if.then.i.i, label %while.cond16.preheader.i.i
 
 while.cond16.preheader.i.i:                       ; preds = %if.end.i
-  %7 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %8 = and i8 %7, 1
-  %tobool23.not2.i.i = icmp eq i8 %8, 0
-  br i1 %tobool23.not2.i.i, label %while.body26.i.i, label %qsp_init.exit
+  %6 = load atomic i8, ptr @qsp_initialized monotonic, align 1
+  %tobool232.i.i = trunc i8 %6 to i1
+  br i1 %tobool232.i.i, label %qsp_init.exit, label %while.body26.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store i1 true, ptr @qsp_qemu_path_len, align 8
@@ -1153,23 +1147,22 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 while.body26.i.i:                                 ; preds = %while.cond16.preheader.i.i, %while.body26.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
-  %9 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %10 = and i8 %9, 1
-  %tobool23.not.i.i = icmp eq i8 %10, 0
-  br i1 %tobool23.not.i.i, label %while.body26.i.i, label %qsp_init.exit, !llvm.loop !6
+  %7 = load atomic i8, ptr @qsp_initialized monotonic, align 1
+  %tobool23.i.i = trunc i8 %7 to i1
+  br i1 %tobool23.i.i, label %qsp_init.exit, label %while.body26.i.i, !llvm.loop !6
 
 qsp_init.exit:                                    ; preds = %while.body26.i.i, %entry, %while.cond16.preheader.i.i, %if.then.i.i
   %ht = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @qht_init(ptr noundef nonnull %ht, ptr noundef nonnull @qsp_entry_cmp, i64 noundef 64, i32 noundef 3) #16
   tail call void @qht_iter(ptr noundef nonnull @qsp_ht, ptr noundef nonnull @qsp_aggregate, ptr noundef nonnull %ht) #16
-  %11 = ptrtoint ptr %call to i64
-  %12 = atomicrmw xchg ptr @qsp_snapshot, i64 %11 seq_cst, align 8
-  %tobool.not = icmp eq i64 %12, 0
+  %8 = ptrtoint ptr %call to i64
+  %9 = atomicrmw xchg ptr @qsp_snapshot, i64 %8 seq_cst, align 8
+  %tobool.not = icmp eq i64 %9, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %qsp_init.exit
-  %13 = inttoptr i64 %12 to ptr
-  tail call void @call_rcu1(ptr noundef nonnull %13, ptr noundef nonnull @qsp_snapshot_destroy) #16
+  %10 = inttoptr i64 %9 to ptr
+  tail call void @call_rcu1(ptr noundef nonnull %10, ptr noundef nonnull @qsp_snapshot_destroy) #16
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %qsp_init.exit
@@ -1335,24 +1328,22 @@ entry:
   %type4 = getelementptr inbounds i8, ptr %callsite, i64 20
   store i32 %type, ptr %type4, align 4
   %0 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %qsp_init.exit
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %qsp_init.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %2 = cmpxchg ptr @qsp_initializing, i8 0, i8 1 seq_cst seq_cst, align 1
-  %3 = extractvalue { i8, i1 } %2, 1
-  %4 = extractvalue { i8, i1 } %2, 0
-  %5 = and i8 %4, 1
-  %6 = icmp eq i8 %5, 0
-  %_old.0.i.i = select i1 %3, i1 true, i1 %6
+  %1 = cmpxchg ptr @qsp_initializing, i8 0, i8 1 seq_cst seq_cst, align 1
+  %2 = extractvalue { i8, i1 } %1, 1
+  %3 = extractvalue { i8, i1 } %1, 0
+  %4 = and i8 %3, 1
+  %5 = icmp eq i8 %4, 0
+  %_old.0.i.i = select i1 %2, i1 true, i1 %5
   br i1 %_old.0.i.i, label %if.then.i.i, label %while.cond16.preheader.i.i
 
 while.cond16.preheader.i.i:                       ; preds = %if.end.i
-  %7 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %8 = and i8 %7, 1
-  %tobool23.not2.i.i = icmp eq i8 %8, 0
-  br i1 %tobool23.not2.i.i, label %while.body26.i.i, label %qsp_init.exit
+  %6 = load atomic i8, ptr @qsp_initialized monotonic, align 1
+  %tobool232.i.i = trunc i8 %6 to i1
+  br i1 %tobool232.i.i, label %qsp_init.exit, label %while.body26.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store i1 true, ptr @qsp_qemu_path_len, align 8
@@ -1363,26 +1354,25 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 while.body26.i.i:                                 ; preds = %while.cond16.preheader.i.i, %while.body26.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
-  %9 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %10 = and i8 %9, 1
-  %tobool23.not.i.i = icmp eq i8 %10, 0
-  br i1 %tobool23.not.i.i, label %while.body26.i.i, label %qsp_init.exit, !llvm.loop !6
+  %7 = load atomic i8, ptr @qsp_initialized monotonic, align 1
+  %tobool23.i.i = trunc i8 %7 to i1
+  br i1 %tobool23.i.i, label %qsp_init.exit, label %while.body26.i.i, !llvm.loop !6
 
 qsp_init.exit:                                    ; preds = %while.body26.i.i, %entry, %while.cond16.preheader.i.i, %if.then.i.i
-  %11 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @qsp_thread)
-  store ptr %11, ptr %orig, align 8
+  %8 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @qsp_thread)
+  store ptr %8, ptr %orig, align 8
   %callsite5 = getelementptr inbounds i8, ptr %orig, i64 8
   store ptr %callsite, ptr %callsite5, align 8
-  %12 = ptrtoint ptr %11 to i64
-  %13 = load ptr, ptr %callsite, align 8
-  %14 = ptrtoint ptr %13 to i64
-  %15 = load i32, ptr %line3, align 8
-  %16 = load i32, ptr %type4, align 4
-  %conv.i.i.i.i = trunc i64 %12 to i32
-  %shr.i.i.i.i = lshr i64 %12, 32
+  %9 = ptrtoint ptr %8 to i64
+  %10 = load ptr, ptr %callsite, align 8
+  %11 = ptrtoint ptr %10 to i64
+  %12 = load i32, ptr %line3, align 8
+  %13 = load i32, ptr %type4, align 4
+  %conv.i.i.i.i = trunc i64 %9 to i32
+  %shr.i.i.i.i = lshr i64 %9, 32
   %conv1.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
-  %conv2.i.i.i.i = trunc i64 %14 to i32
-  %shr3.i.i.i.i = lshr i64 %14, 32
+  %conv2.i.i.i.i = trunc i64 %11 to i32
+  %shr3.i.i.i.i = lshr i64 %11, 32
   %conv4.i.i.i.i = trunc i64 %shr3.i.i.i.i to i32
   %mul.i.i.i.i = mul i32 %conv.i.i.i.i, -2048144777
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 606290985
@@ -1412,11 +1402,11 @@ qsp_init.exit:                                    ; preds = %while.body26.i.i, %
   %mul32.i.i.i.i = mul i32 %or.i40.i.i.i.i, 668265263
   %or.i41.i.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %mul32.i.i.i.i, i32 %mul32.i.i.i.i, i32 17)
   %mul36.i.i.i.i = mul i32 %or.i41.i.i.i.i, 668265263
-  %mul37.i.i.i.i = mul i32 %15, -1028477379
+  %mul37.i.i.i.i = mul i32 %12, -1028477379
   %add38.i.i.i.i = add i32 %mul36.i.i.i.i, %mul37.i.i.i.i
   %or.i42.i.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %add38.i.i.i.i, i32 %add38.i.i.i.i, i32 17)
   %mul40.i.i.i.i = mul i32 %or.i42.i.i.i.i, 668265263
-  %mul41.i.i.i.i = mul i32 %16, -1028477379
+  %mul41.i.i.i.i = mul i32 %13, -1028477379
   %add42.i.i.i.i = add i32 %mul40.i.i.i.i, %mul41.i.i.i.i
   %or.i43.i.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %add42.i.i.i.i, i32 %add42.i.i.i.i, i32 17)
   %mul44.i.i.i.i = mul i32 %or.i43.i.i.i.i, 668265263

@@ -6782,9 +6782,8 @@ _get_qos_list_str.exit:                           ; preds = %21, %._crit_edge.i
 38:                                               ; preds = %37
   %39 = getelementptr inbounds i8, ptr %2, i64 1
   %40 = load i8, ptr %39, align 1
-  %41 = and i8 %40, 1
-  %.not29 = icmp eq i8 %41, 0
-  br i1 %.not29, label %45, label %42
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
   %43 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.204) #20
@@ -6798,9 +6797,8 @@ _get_qos_list_str.exit:                           ; preds = %21, %._crit_edge.i
 
 47:                                               ; preds = %37
   %48 = load i8, ptr %2, align 8
-  %49 = and i8 %48, 1
-  %.not28 = icmp eq i8 %49, 0
-  br i1 %.not28, label %53, label %50
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %53
 
 50:                                               ; preds = %47
   %51 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.204) #20
@@ -6817,8 +6815,8 @@ _get_qos_list_str.exit:                           ; preds = %21, %._crit_edge.i
   %57 = phi ptr [ %55, %53 ], [ %46, %45 ]
   store ptr %57, ptr %5, align 8
   %58 = tail call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @slurm_find_char_in_list, ptr noundef %57) #20
-  %.not30 = icmp eq ptr %58, null
-  br i1 %.not30, label %59, label %60
+  %.not28 = icmp eq ptr %58, null
+  br i1 %.not28, label %59, label %60
 
 59:                                               ; preds = %56
   tail call void @list_append(ptr noundef %0, ptr noundef %57) #20

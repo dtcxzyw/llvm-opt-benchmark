@@ -77,9 +77,8 @@ define internal i32 @sm_add_procs(ptr nocapture noundef %0, i64 noundef %1, ptr 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %0, i64 560
   %21 = load i8, ptr %20, align 8
-  %22 = and i8 %21, 1
-  %.not = icmp eq i8 %22, 0
-  br i1 %.not, label %23, label %85
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %85, label %23
 
 23:                                               ; preds = %19
   %24 = add i32 %17, 2
@@ -203,15 +202,15 @@ sm_btl_first_time_init.exit:                      ; preds = %mca_smsc_base_has_f
   %95 = getelementptr inbounds i8, ptr %94, i64 40
   %96 = load i32, ptr %95, align 8
   %97 = load i32, ptr %88, align 8
-  %.not43 = icmp eq i32 %96, %97
-  br i1 %.not43, label %98, label %102
+  %.not42 = icmp eq i32 %96, %97
+  br i1 %.not42, label %98, label %102
 
 98:                                               ; preds = %92
   %99 = getelementptr inbounds i8, ptr %94, i64 52
   %100 = load i16, ptr %99, align 4
   %101 = and i16 %100, 12
-  %or.cond48.not = icmp eq i16 %101, 12
-  br i1 %or.cond48.not, label %104, label %102
+  %or.cond47.not = icmp eq i16 %101, 12
+  br i1 %or.cond47.not, label %104, label %102
 
 102:                                              ; preds = %98, %92
   %103 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
@@ -226,17 +225,17 @@ sm_btl_first_time_init.exit:                      ; preds = %mca_smsc_base_has_f
 106:                                              ; preds = %104
   %107 = trunc i64 %indvars.iv to i32
   %108 = call i32 @opal_bitmap_set_bit(ptr noundef nonnull %4, i32 noundef %107) #12
-  %.not46 = icmp eq i32 %108, 0
-  br i1 %.not46, label %._crit_edge, label %sm_btl_first_time_init.exit.thread
+  %.not45 = icmp eq i32 %108, 0
+  br i1 %.not45, label %._crit_edge, label %sm_btl_first_time_init.exit.thread
 
 ._crit_edge:                                      ; preds = %106
   %.pre = load ptr, ptr %93, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 40
-  %.pre62 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre61 = load i32, ptr %.phi.trans.insert, align 8
   br label %109
 
 109:                                              ; preds = %._crit_edge, %104
-  %110 = phi i32 [ %.pre62, %._crit_edge ], [ %96, %104 ]
+  %110 = phi i32 [ %.pre61, %._crit_edge ], [ %96, %104 ]
   %111 = phi ptr [ %.pre, %._crit_edge ], [ %94, %104 ]
   %112 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
@@ -263,8 +262,8 @@ sm_btl_first_time_init.exit:                      ; preds = %mca_smsc_base_has_f
 
 120:                                              ; preds = %109
   %121 = load i16, ptr %118, align 8
-  %.not.i49 = icmp eq i16 %121, 13
-  br i1 %.not.i49, label %122, label %.thread77.i
+  %.not.i48 = icmp eq i16 %121, 13
+  br i1 %.not.i48, label %122, label %.thread77.i
 
 122:                                              ; preds = %120
   %123 = icmp eq i32 %117, 0
@@ -318,8 +317,8 @@ sm_btl_first_time_init.exit:                      ; preds = %mca_smsc_base_has_f
   call void %140(ptr noundef nonnull %132) #12
   %141 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %142 = load ptr, ptr %141, align 8
-  %.not.i.i51 = icmp eq ptr %142, null
-  br i1 %.not.i.i51, label %opal_obj_run_constructors.exit.i, label %.lr.ph.i.i, !llvm.loop !4
+  %.not.i.i50 = icmp eq ptr %142, null
+  br i1 %.not.i.i50, label %opal_obj_run_constructors.exit.i, label %.lr.ph.i.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i, %136
   %143 = load i16, ptr %6, align 2
@@ -344,9 +343,9 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i, %136
   %152 = load i32, ptr %113, align 8
   %153 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %11, i32 noundef %152) #12
   %154 = load i32, ptr %115, align 4
-  %cond65 = icmp eq i32 %154, -1
-  %spec.select66 = select i1 %cond65, i32 -4, i32 %154
-  store i32 %spec.select66, ptr %91, align 4
+  %cond64 = icmp eq i32 %154, -1
+  %spec.select65 = select i1 %cond64, i32 -4, i32 %154
+  store i32 %spec.select65, ptr %91, align 4
   %155 = call i32 @PMIx_Info_load(ptr noundef nonnull %13, ptr noundef nonnull @.str.4, ptr noundef null, i16 noundef zeroext 1) #12
   %156 = call i32 @PMIx_Get(ptr noundef nonnull %11, ptr noundef nonnull %148, ptr noundef nonnull %13, i64 noundef 1, ptr noundef nonnull %12) #12
   call void @PMIx_Info_destruct(ptr noundef nonnull %13) #12
@@ -459,7 +458,7 @@ opal_obj_run_constructors.exit73.i:               ; preds = %.lr.ph.i70.i, %193
   br label %init_sm_endpoint.exit
 
 init_sm_endpoint.exit.thread:                     ; preds = %127, %164, %175, %182, %109, %.thread91.i, %.thread95.i
-  %.0.i50.ph = phi i32 [ -46, %.thread95.i ], [ -2, %.thread91.i ], [ %.04876.i, %127 ], [ %156, %164 ], [ -2, %175 ], [ -1, %182 ], [ -46, %109 ]
+  %.0.i49.ph = phi i32 [ -46, %.thread95.i ], [ -2, %.thread91.i ], [ %.04876.i, %127 ], [ %156, %164 ], [ -2, %175 ], [ -1, %182 ], [ -46, %109 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 260, ptr nonnull %8)
@@ -490,7 +489,7 @@ init_sm_endpoint.exit:                            ; preds = %opal_obj_run_constr
   br i1 %exitcond.not, label %sm_btl_first_time_init.exit.thread, label %92, !llvm.loop !6
 
 sm_btl_first_time_init.exit.thread:               ; preds = %106, %206, %85, %mca_smsc_base_has_feature.exit.thread.i, %62, %51, %44, %23, %42, %34, %init_sm_endpoint.exit.thread, %16, %5
-  %.033 = phi i32 [ -2, %5 ], [ 0, %16 ], [ %.0.i50.ph, %init_sm_endpoint.exit.thread ], [ %84, %mca_smsc_base_has_feature.exit.thread.i ], [ %71, %62 ], [ %61, %51 ], [ %50, %44 ], [ -2, %23 ], [ -2, %42 ], [ -2, %34 ], [ 0, %85 ], [ %108, %106 ], [ 0, %206 ]
+  %.033 = phi i32 [ -2, %5 ], [ 0, %16 ], [ %.0.i49.ph, %init_sm_endpoint.exit.thread ], [ %84, %mca_smsc_base_has_feature.exit.thread.i ], [ %71, %62 ], [ %61, %51 ], [ %50, %44 ], [ -2, %23 ], [ -2, %42 ], [ -2, %34 ], [ 0, %85 ], [ %108, %106 ], [ 0, %206 ]
   ret i32 %.033
 }
 
@@ -546,9 +545,8 @@ fini_sm_endpoint.exit:                            ; preds = %.lr.ph.i.i, %7, %10
 define internal noundef i32 @sm_finalize(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 560
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %28, label %.preheader
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %.preheader, label %28
 
 .preheader:                                       ; preds = %1
   %5 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 7), align 8
@@ -683,11 +681,10 @@ define noundef i32 @mca_btl_sm_free(ptr nocapture readnone %0, ptr noundef %1) #
   %12 = getelementptr inbounds i8, ptr %1, i64 152
   %13 = load ptr, ptr %12, align 8
   %14 = load i8, ptr @opal_uses_threads, align 1
-  %15 = and i8 %14, 1
-  %.not.i.i = icmp eq i8 %15, 0
+  %15 = trunc i8 %14 to i1
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load volatile i64, ptr %16, align 8
-  br i1 %.not.i.i, label %35, label %18
+  br i1 %15, label %18, label %35
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds i8, ptr %1, i64 16
@@ -873,11 +870,10 @@ mca_smsc_base_has_feature.exit:                   ; preds = %.critedge, %40
   %67 = getelementptr inbounds i8, ptr %46, i64 152
   %68 = load ptr, ptr %67, align 8
   %69 = load i8, ptr @opal_uses_threads, align 1
-  %70 = and i8 %69, 1
-  %.not.i.i = icmp eq i8 %70, 0
+  %70 = trunc i8 %69 to i1
   %71 = getelementptr inbounds i8, ptr %68, i64 24
   %72 = load volatile i64, ptr %71, align 8
-  br i1 %.not.i.i, label %90, label %73
+  br i1 %70, label %73, label %90
 
 73:                                               ; preds = %63
   %74 = getelementptr inbounds i8, ptr %46, i64 16
@@ -1064,9 +1060,8 @@ define internal fastcc ptr @mca_btl_sm_frag_alloc(ptr noundef %0, ptr noundef %1
   %.sroa.4.i.i.i = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = load i8, ptr @opal_uses_threads, align 1
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %35, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %35
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1328,10 +1323,9 @@ opal_obj_run_destructors.exit25:                  ; preds = %.lr.ph.i22, %opal_o
 
 29:                                               ; preds = %26
   %30 = load i8, ptr @opal_uses_threads, align 1
-  %31 = and i8 %30, 1
-  %.not.i26 = icmp eq i8 %31, 0
+  %31 = trunc i8 %30 to i1
   %32 = load volatile i64, ptr getelementptr inbounds (i8, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 12), i64 24), align 8
-  br i1 %.not.i26, label %46, label %33
+  br i1 %31, label %33, label %46
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds i8, ptr %28, i64 16
@@ -1378,8 +1372,8 @@ opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare
   %52 = icmp ne ptr %51, getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 12, i32 0, i32 2, i32 0, i32 0)
   %53 = load i64, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 12, i32 4), align 8
   %.not.i4.i = icmp eq i64 %53, 0
-  %or.cond27 = select i1 %52, i1 true, i1 %.not.i4.i
-  br i1 %or.cond27, label %opal_free_list_return.exit, label %54
+  %or.cond26 = select i1 %52, i1 true, i1 %.not.i4.i
+  br i1 %or.cond26, label %opal_free_list_return.exit, label %54
 
 54:                                               ; preds = %46
   %55 = load volatile i32, ptr getelementptr inbounds (%struct.mca_btl_sm_component_t, ptr @mca_btl_sm_component, i64 0, i32 12, i32 13, i32 1), align 8

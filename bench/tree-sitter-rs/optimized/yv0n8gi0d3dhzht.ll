@@ -126,9 +126,9 @@ define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @"_ZN3std3s
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h07f341921912d644E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !37, !noundef !14
-  %trunc.not = icmp eq i64 %3, 0
+  %trunc = trunc i64 %3 to i1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %trunc.not, label %5, label %12
+  br i1 %trunc, label %12, label %5
 
 5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
@@ -169,9 +169,9 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h8b2d01e2561b8481E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable_or_null(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !37, !noundef !14
-  %trunc.not = icmp eq i64 %3, 0
+  %trunc = trunc i64 %3 to i1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %trunc.not, label %5, label %7
+  br i1 %trunc, label %7, label %5
 
 5:                                                ; preds = %2
   %6 = tail call noundef i64 @"_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h8077bed39f497e69E.llvm.12157559801303395692"(ptr noalias noundef align 8 dereferenceable_or_null(16) %1)
@@ -765,9 +765,9 @@ define hidden { ptr, i64 } @_ZN21tree_sitter_highlight5c_lib6unwrap17hda07cec63f
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = alloca { { i64, { i8, i8 }, [6 x i8] } }, align 8
   %5 = load i64, ptr %0, align 8, !range !37, !noundef !14
-  %trunc.not = icmp eq i64 %5, 0
+  %trunc = trunc i64 %5 to i1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %trunc.not, label %7, label %13
+  br i1 %trunc, label %13, label %7
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %6, align 8, !nonnull !14, !align !54, !noundef !14

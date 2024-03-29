@@ -239,14 +239,13 @@ define internal i32 @smb_connection_state(ptr noundef %0, ptr nocapture noundef 
 
 18:                                               ; preds = %16, %16
   %19 = load i8, ptr %4, align 1
-  %20 = and i8 %19, 1
-  %.not47 = icmp eq i8 %20, 0
-  br i1 %.not47, label %65, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %65
 
 21:                                               ; preds = %18, %10
   %22 = call fastcc i32 @smb_send_message(ptr noundef nonnull %0, i8 noundef zeroext 114, ptr noundef nonnull @.str.3, i64 noundef 15)
-  %.not48 = icmp eq i32 %22, 0
-  br i1 %.not48, label %24, label %23
+  %.not47 = icmp eq i32 %22, 0
+  br i1 %.not47, label %24, label %23
 
 23:                                               ; preds = %21
   call void @Curl_conncontrol(ptr noundef nonnull %6, i32 noundef 1) #12
@@ -271,8 +270,8 @@ define internal i32 @smb_connection_state(ptr noundef %0, ptr nocapture noundef 
 
 29:                                               ; preds = %26, %26
   %30 = load ptr, ptr %3, align 8
-  %.not49 = icmp eq ptr %30, null
-  br i1 %.not49, label %65, label %31
+  %.not48 = icmp eq ptr %30, null
+  br i1 %.not48, label %65, label %31
 
 31:                                               ; preds = %29
   %32 = load i32, ptr %7, align 8
@@ -290,8 +289,8 @@ define internal i32 @smb_connection_state(ptr noundef %0, ptr nocapture noundef 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %30, i64 9
   %39 = load i32, ptr %38, align 1
-  %.not51 = icmp eq i32 %39, 0
-  br i1 %.not51, label %41, label %40
+  %.not50 = icmp eq i32 %39, 0
+  br i1 %.not50, label %41, label %40
 
 40:                                               ; preds = %37, %33
   call void @Curl_conncontrol(ptr noundef nonnull %6, i32 noundef 1) #12
@@ -307,24 +306,24 @@ define internal i32 @smb_connection_state(ptr noundef %0, ptr nocapture noundef 
   %47 = getelementptr inbounds i8, ptr %6, i64 864
   store i32 %46, ptr %47, align 8
   %48 = call fastcc i32 @smb_send_setup(ptr noundef nonnull %0)
-  %.not52 = icmp eq i32 %48, 0
-  br i1 %.not52, label %50, label %49
+  %.not51 = icmp eq i32 %48, 0
+  br i1 %.not51, label %50, label %49
 
 49:                                               ; preds = %41
   call void @Curl_conncontrol(ptr noundef nonnull %6, i32 noundef 1) #12
   br label %65
 
 50:                                               ; preds = %41
-  %.val53 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %.val53, i64 824
+  %.val52 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds i8, ptr %.val52, i64 824
   store i32 3, ptr %51, align 8
   br label %63
 
 52:                                               ; preds = %31
   %53 = getelementptr inbounds i8, ptr %30, i64 9
   %54 = load i32, ptr %53, align 1
-  %.not50 = icmp eq i32 %54, 0
-  br i1 %.not50, label %56, label %55
+  %.not49 = icmp eq i32 %54, 0
+  br i1 %.not49, label %56, label %55
 
 55:                                               ; preds = %52
   call void @Curl_conncontrol(ptr noundef nonnull %6, i32 noundef 1) #12
@@ -335,8 +334,8 @@ define internal i32 @smb_connection_state(ptr noundef %0, ptr nocapture noundef 
   %58 = load i16, ptr %57, align 1
   %59 = getelementptr inbounds i8, ptr %6, i64 868
   store i16 %58, ptr %59, align 4
-  %.val54 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds i8, ptr %.val54, i64 824
+  %.val53 = load ptr, ptr %5, align 8
+  %60 = getelementptr inbounds i8, ptr %.val53, i64 824
   store i32 4, ptr %60, align 8
   store i8 1, ptr %1, align 1
   br label %63

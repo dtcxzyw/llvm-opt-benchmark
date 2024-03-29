@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @task_cgroup_memory_init() local_unnamed_addr #0 {
   %1 = tail call i32 @cgroup_g_initialize(i32 noundef 2) #4
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %2, label %57
+  br i1 %.not, label %2, label %58
 
 2:                                                ; preds = %0
   %3 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 3), align 1
@@ -52,80 +52,78 @@ define noundef i32 @task_cgroup_memory_init() local_unnamed_addr #0 {
   %5 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 7), align 8
   %6 = and i8 %5, 1
   store i8 %6, ptr @constrain_swap_space, align 1
-  %.not1 = icmp eq i8 %4, 0
-  %7 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 4), align 4
-  %storemerge = select i1 %.not1, float 1.000000e+02, float %7
+  %7 = trunc i8 %3 to i1
+  %8 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 4), align 4
+  %storemerge = select i1 %7, float %8, float 1.000000e+02
   store float %storemerge, ptr @allowed_ram_space, align 4
-  %8 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 8), align 4
-  store float %8, ptr @allowed_swap_space, align 4
-  %9 = load ptr, ptr @conf, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4208
-  %11 = load i64, ptr %10, align 8
-  store i64 %11, ptr @totalram, align 8
-  %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %15
+  %9 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 8), align 4
+  store float %9, ptr @allowed_swap_space, align 4
+  %10 = load ptr, ptr @conf, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 4208
+  %12 = load i64, ptr %11, align 8
+  store i64 %12, ptr @totalram, align 8
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %14, label %16
 
-13:                                               ; preds = %2
-  %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #4
+14:                                               ; preds = %2
+  %15 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #4
   %.pre = load i64, ptr @totalram, align 8
-  br label %15
+  br label %16
 
-15:                                               ; preds = %13, %2
-  %16 = phi i64 [ %.pre, %13 ], [ %11, %2 ]
-  %17 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 5), align 8
-  %18 = shl i64 %16, 20
-  %19 = uitofp i64 %18 to double
-  %20 = fpext float %17 to double
-  %21 = fdiv double %20, 1.000000e+02
-  %22 = fmul double %21, %19
-  %23 = fptoui double %22 to i64
-  store i64 %23, ptr @max_ram, align 8
-  %24 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 9), align 8
-  %25 = fpext float %24 to double
-  %26 = fdiv double %25, 1.000000e+02
-  %27 = fmul double %26, %19
-  %28 = fptoui double %27 to i64
-  %29 = add i64 %28, %23
-  store i64 %29, ptr @max_swap, align 8
-  %30 = load i64, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 6), align 8
-  %31 = shl i64 %30, 20
-  store i64 %31, ptr @min_ram_space, align 8
-  %32 = tail call i32 @get_log_level() #4
-  %33 = icmp sgt i32 %32, 4
-  br i1 %33, label %34, label %55
+16:                                               ; preds = %14, %2
+  %17 = phi i64 [ %.pre, %14 ], [ %12, %2 ]
+  %18 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 5), align 8
+  %19 = shl i64 %17, 20
+  %20 = uitofp i64 %19 to double
+  %21 = fpext float %18 to double
+  %22 = fdiv double %21, 1.000000e+02
+  %23 = fmul double %22, %20
+  %24 = fptoui double %23 to i64
+  store i64 %24, ptr @max_ram, align 8
+  %25 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 9), align 8
+  %26 = fpext float %25 to double
+  %27 = fdiv double %26, 1.000000e+02
+  %28 = fmul double %27, %20
+  %29 = fptoui double %28 to i64
+  %30 = add i64 %29, %24
+  store i64 %30, ptr @max_swap, align 8
+  %31 = load i64, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 6), align 8
+  %32 = shl i64 %31, 20
+  store i64 %32, ptr @min_ram_space, align 8
+  %33 = tail call i32 @get_log_level() #4
+  %34 = icmp sgt i32 %33, 4
+  br i1 %34, label %35, label %56
 
-34:                                               ; preds = %15
-  %35 = load i64, ptr @totalram, align 8
-  %36 = load float, ptr @allowed_ram_space, align 4
-  %37 = fpext float %36 to double
-  %38 = load i8, ptr @constrain_ram_space, align 1
-  %39 = and i8 %38, 1
-  %.not2 = icmp eq i8 %39, 0
-  %40 = select i1 %.not2, ptr @.str.3, ptr @.str.2
-  %41 = load float, ptr @allowed_swap_space, align 4
-  %42 = fpext float %41 to double
-  %43 = load i8, ptr @constrain_swap_space, align 1
-  %44 = and i8 %43, 1
-  %.not3 = icmp eq i8 %44, 0
-  %45 = select i1 %.not3, ptr @.str.3, ptr @.str.2
-  %46 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 5), align 8
-  %47 = fpext float %46 to double
-  %48 = load i64, ptr @max_ram, align 8
-  %49 = lshr i64 %48, 20
-  %50 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 9), align 8
-  %51 = fpext float %50 to double
-  %52 = load i64, ptr @max_swap, align 8
-  %53 = lshr i64 %52, 20
-  %54 = load i64, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 6), align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.1, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_cgroup_memory_init, i64 noundef %35, double noundef %37, ptr noundef nonnull %40, double noundef %42, ptr noundef nonnull %45, double noundef %47, i64 noundef %49, double noundef %51, i64 noundef %53, i64 noundef %54) #4
-  br label %55
+35:                                               ; preds = %16
+  %36 = load i64, ptr @totalram, align 8
+  %37 = load float, ptr @allowed_ram_space, align 4
+  %38 = fpext float %37 to double
+  %39 = load i8, ptr @constrain_ram_space, align 1
+  %40 = trunc i8 %39 to i1
+  %41 = select i1 %40, ptr @.str.2, ptr @.str.3
+  %42 = load float, ptr @allowed_swap_space, align 4
+  %43 = fpext float %42 to double
+  %44 = load i8, ptr @constrain_swap_space, align 1
+  %45 = trunc i8 %44 to i1
+  %46 = select i1 %45, ptr @.str.2, ptr @.str.3
+  %47 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 5), align 8
+  %48 = fpext float %47 to double
+  %49 = load i64, ptr @max_ram, align 8
+  %50 = lshr i64 %49, 20
+  %51 = load float, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 9), align 8
+  %52 = fpext float %51 to double
+  %53 = load i64, ptr @max_swap, align 8
+  %54 = lshr i64 %53, 20
+  %55 = load i64, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 6), align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.1, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_cgroup_memory_init, i64 noundef %36, double noundef %38, ptr noundef nonnull %41, double noundef %43, ptr noundef nonnull %46, double noundef %48, i64 noundef %50, double noundef %52, i64 noundef %54, i64 noundef %55) #4
+  br label %56
 
-55:                                               ; preds = %34, %15
-  %56 = tail call i32 @setenv(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 0) #4
-  br label %57
+56:                                               ; preds = %35, %16
+  %57 = tail call i32 @setenv(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 0) #4
+  br label %58
 
-57:                                               ; preds = %0, %55
-  %.0 = phi i32 [ 0, %55 ], [ -1, %0 ]
+58:                                               ; preds = %0, %56
+  %.0 = phi i32 [ 0, %56 ], [ -1, %0 ]
   ret i32 %.0
 }
 
@@ -222,12 +220,12 @@ define internal fastcc noundef i32 @_memcg_initialize(i64 noundef %0, i1 noundef
   %..08.i = tail call i64 @llvm.umin.i64(i64 %18, i64 %21)
   %.0.i = select i1 %20, i64 %19, i64 %..08.i
   %22 = icmp ult i64 %13, %19
-  %..08.i30 = tail call i64 @llvm.umin.i64(i64 %13, i64 %21)
-  %.0.i31 = select i1 %22, i64 %19, i64 %..08.i30
+  %..08.i28 = tail call i64 @llvm.umin.i64(i64 %13, i64 %21)
+  %.0.i29 = select i1 %22, i64 %19, i64 %..08.i28
   br label %swap_limit_in_bytes.exit
 
 swap_limit_in_bytes.exit:                         ; preds = %5, %11
-  %.0.i3112 = phi i64 [ %.0.i3, %5 ], [ %.0.i31, %11 ]
+  %.0.i2912 = phi i64 [ %.0.i3, %5 ], [ %.0.i29, %11 ]
   %23 = phi i64 [ %8, %5 ], [ %19, %11 ]
   %.0.i410 = phi i64 [ %.0.i3, %5 ], [ %.0.i, %11 ]
   %.pre-phi11.i = phi double [ %.pre.i, %5 ], [ %14, %11 ]
@@ -240,8 +238,8 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
   %30 = icmp ult i64 %29, %23
   %31 = load i64, ptr @max_swap, align 8
   %..i = tail call i64 @llvm.umin.i64(i64 %29, i64 %31)
-  %.0.i33 = select i1 %30, i64 %23, i64 %..i
-  %32 = icmp ugt i64 %.0.i3112, %.0.i410
+  %.0.i31 = select i1 %30, i64 %23, i64 %..i
+  %32 = icmp ugt i64 %.0.i2912, %.0.i410
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %swap_limit_in_bytes.exit
@@ -251,16 +249,15 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
 
 36:                                               ; preds = %33
   %37 = select i1 %1, ptr @.str.12, ptr @.str.13
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.11, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._memcg_initialize, i64 noundef %.0.i3112, i64 noundef %.0.i410, ptr noundef nonnull %37) #4
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.11, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._memcg_initialize, i64 noundef %.0.i2912, i64 noundef %.0.i410, ptr noundef nonnull %37) #4
   br label %38
 
 38:                                               ; preds = %33, %36, %swap_limit_in_bytes.exit
-  %.022 = phi i64 [ %.0.i3112, %swap_limit_in_bytes.exit ], [ %.0.i410, %36 ], [ %.0.i410, %33 ]
+  %.022 = phi i64 [ %.0.i2912, %swap_limit_in_bytes.exit ], [ %.0.i410, %36 ], [ %.0.i410, %33 ]
   call void @cgroup_init_limits(ptr noundef nonnull %3) #4
   %39 = load i8, ptr @constrain_ram_space, align 1
-  %40 = and i8 %39, 1
-  %.not = icmp eq i8 %40, 0
-  %spec.select = select i1 %.not, i64 %.0.i33, i64 %.0.i410
+  %40 = trunc i8 %39 to i1
+  %spec.select = select i1 %40, i64 %.0.i410, i64 %.0.i31
   %41 = getelementptr inbounds i8, ptr %3, i64 64
   store i64 %spec.select, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %3, i64 72
@@ -270,14 +267,13 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
   %44 = getelementptr inbounds i8, ptr %3, i64 88
   store i64 -2, ptr %44, align 8
   %45 = load i8, ptr @constrain_swap_space, align 1
-  %46 = and i8 %45, 1
-  %.not26 = icmp eq i8 %46, 0
-  br i1 %.not26, label %56, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %56
 
 47:                                               ; preds = %38
   %48 = load i64, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 10), align 8
   store i64 %48, ptr %44, align 8
-  store i64 %.0.i33, ptr %43, align 8
+  store i64 %.0.i31, ptr %43, align 8
   %49 = call i32 @get_log_level() #4
   %50 = icmp sgt i32 %49, 2
   br i1 %50, label %51, label %62
@@ -285,7 +281,7 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
 51:                                               ; preds = %47
   %52 = select i1 %1, ptr @.str.12, ptr @.str.13
   %53 = lshr i64 %spec.select, 20
-  %54 = lshr i64 %.0.i33, 20
+  %54 = lshr i64 %.0.i31, 20
   %55 = load i64, ptr %44, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._memcg_initialize, ptr noundef nonnull %52, i64 noundef %0, i64 noundef %53, i64 noundef %54, i64 noundef %55) #4
   br label %62
@@ -306,13 +302,13 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
 
 63:                                               ; preds = %62
   %64 = call i32 @cgroup_g_constrain_set(i32 noundef 2, i32 noundef 3, ptr noundef nonnull %3) #4
-  %.not27 = icmp eq i32 %64, 0
-  br i1 %.not27, label %67, label %68
+  %.not = icmp eq i32 %64, 0
+  br i1 %.not, label %67, label %68
 
 65:                                               ; preds = %62
   %66 = call i32 @cgroup_g_constrain_set(i32 noundef 2, i32 noundef 4, ptr noundef nonnull %3) #4
-  %.not28 = icmp eq i32 %66, 0
-  br i1 %.not28, label %67, label %68
+  %.not26 = icmp eq i32 %66, 0
+  br i1 %.not26, label %67, label %68
 
 67:                                               ; preds = %65, %63
   br label %68

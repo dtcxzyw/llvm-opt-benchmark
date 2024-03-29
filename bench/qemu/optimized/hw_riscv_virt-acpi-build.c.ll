@@ -408,9 +408,8 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %patched = getelementptr inbounds i8, ptr %build_opaque, i64 24
   %0 = load i8, ptr %patched, align 8
-  %1 = and i8 %0, 1
-  %tobool1.not = icmp eq i8 %1, 0
-  br i1 %tobool1.not, label %if.end, label %return
+  %tobool1 = trunc i8 %0 to i1
+  br i1 %tobool1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   store i8 1, ptr %patched, align 8
@@ -418,38 +417,38 @@ if.end:                                           ; preds = %lor.lhs.false
   %call = call ptr @qdev_get_machine() #10
   %call.i = call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #10
   call fastcc void @virt_acpi_build(ptr noundef %call.i, ptr noundef nonnull %tables)
-  %2 = load ptr, ptr %build_opaque, align 8
-  %3 = load ptr, ptr %tables, align 8
-  %call.i6 = call i32 @acpi_data_len(ptr noundef %3) #10
+  %1 = load ptr, ptr %build_opaque, align 8
+  %2 = load ptr, ptr %tables, align 8
+  %call.i6 = call i32 @acpi_data_len(ptr noundef %2) #10
   %conv.i = zext i32 %call.i6 to i64
-  call void @memory_region_ram_resize(ptr noundef %2, i64 noundef %conv.i, ptr noundef nonnull @error_abort) #10
-  %call1.i = call ptr @memory_region_get_ram_ptr(ptr noundef %2) #10
-  %4 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i, ptr align 1 %4, i64 %conv.i, i1 false)
-  call void @memory_region_set_dirty(ptr noundef %2, i64 noundef 0, i64 noundef %conv.i) #10
+  call void @memory_region_ram_resize(ptr noundef %1, i64 noundef %conv.i, ptr noundef nonnull @error_abort) #10
+  %call1.i = call ptr @memory_region_get_ram_ptr(ptr noundef %1) #10
+  %3 = load ptr, ptr %2, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i, ptr align 1 %3, i64 %conv.i, i1 false)
+  call void @memory_region_set_dirty(ptr noundef %1, i64 noundef 0, i64 noundef %conv.i) #10
   %rsdp_mr = getelementptr inbounds i8, ptr %build_opaque, i64 8
-  %5 = load ptr, ptr %rsdp_mr, align 8
+  %4 = load ptr, ptr %rsdp_mr, align 8
   %rsdp = getelementptr inbounds i8, ptr %tables, i64 8
-  %6 = load ptr, ptr %rsdp, align 8
-  %call.i7 = call i32 @acpi_data_len(ptr noundef %6) #10
+  %5 = load ptr, ptr %rsdp, align 8
+  %call.i7 = call i32 @acpi_data_len(ptr noundef %5) #10
   %conv.i8 = zext i32 %call.i7 to i64
-  call void @memory_region_ram_resize(ptr noundef %5, i64 noundef %conv.i8, ptr noundef nonnull @error_abort) #10
-  %call1.i9 = call ptr @memory_region_get_ram_ptr(ptr noundef %5) #10
-  %7 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i9, ptr align 1 %7, i64 %conv.i8, i1 false)
-  call void @memory_region_set_dirty(ptr noundef %5, i64 noundef 0, i64 noundef %conv.i8) #10
+  call void @memory_region_ram_resize(ptr noundef %4, i64 noundef %conv.i8, ptr noundef nonnull @error_abort) #10
+  %call1.i9 = call ptr @memory_region_get_ram_ptr(ptr noundef %4) #10
+  %6 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i9, ptr align 1 %6, i64 %conv.i8, i1 false)
+  call void @memory_region_set_dirty(ptr noundef %4, i64 noundef 0, i64 noundef %conv.i8) #10
   %linker_mr = getelementptr inbounds i8, ptr %build_opaque, i64 16
-  %8 = load ptr, ptr %linker_mr, align 8
+  %7 = load ptr, ptr %linker_mr, align 8
   %linker = getelementptr inbounds i8, ptr %tables, i64 40
-  %9 = load ptr, ptr %linker, align 8
-  %10 = load ptr, ptr %9, align 8
-  %call.i10 = call i32 @acpi_data_len(ptr noundef %10) #10
+  %8 = load ptr, ptr %linker, align 8
+  %9 = load ptr, ptr %8, align 8
+  %call.i10 = call i32 @acpi_data_len(ptr noundef %9) #10
   %conv.i11 = zext i32 %call.i10 to i64
-  call void @memory_region_ram_resize(ptr noundef %8, i64 noundef %conv.i11, ptr noundef nonnull @error_abort) #10
-  %call1.i12 = call ptr @memory_region_get_ram_ptr(ptr noundef %8) #10
-  %11 = load ptr, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i12, ptr align 1 %11, i64 %conv.i11, i1 false)
-  call void @memory_region_set_dirty(ptr noundef %8, i64 noundef 0, i64 noundef %conv.i11) #10
+  call void @memory_region_ram_resize(ptr noundef %7, i64 noundef %conv.i11, ptr noundef nonnull @error_abort) #10
+  %call1.i12 = call ptr @memory_region_get_ram_ptr(ptr noundef %7) #10
+  %10 = load ptr, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i12, ptr align 1 %10, i64 %conv.i11, i1 false)
+  call void @memory_region_set_dirty(ptr noundef %7, i64 noundef 0, i64 noundef %conv.i11) #10
   call void @acpi_build_tables_cleanup(ptr noundef nonnull %tables, i1 noundef zeroext true) #10
   br label %return
 

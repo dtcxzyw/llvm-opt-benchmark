@@ -754,8 +754,8 @@ _init_config.exit:                                ; preds = %88
 
 130:                                              ; preds = %129
   %131 = call ptr @getenv(ptr noundef nonnull @.str.187) #19
-  %.not.i286 = icmp eq ptr %131, null
-  br i1 %.not.i286, label %132, label %133
+  %.not.i277 = icmp eq ptr %131, null
+  br i1 %.not.i277, label %132, label %133
 
 132:                                              ; preds = %130
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.188) #21
@@ -813,9 +813,9 @@ _parse_commandline.exit:                          ; preds = %137, %141
   br label %154
 
 154:                                              ; preds = %151, %154
-  %.0110793 = phi i32 [ 0, %151 ], [ %156, %154 ]
+  %.0110782 = phi i32 [ 0, %151 ], [ %156, %154 ]
   %155 = call i32 @gettimeofday(ptr noundef nonnull %32, ptr noundef null) #19
-  %156 = add nuw nsw i32 %.0110793, 1
+  %156 = add nuw nsw i32 %.0110782, 1
   %exitcond.not = icmp eq i32 %156, 1000
   br i1 %exitcond.not, label %157, label %154, !llvm.loop !9
 
@@ -849,8 +849,8 @@ _parse_commandline.exit:                          ; preds = %137, %141
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %27, ptr noundef nonnull @.str.198, ptr noundef %174) #19
   %175 = load ptr, ptr %27, align 8
   %176 = call noalias ptr @fopen(ptr noundef %175, ptr noundef nonnull @.str.199)
-  %.not.i287 = icmp eq ptr %176, null
-  br i1 %.not.i287, label %_verify_clustername.exit, label %177
+  %.not.i278 = icmp eq ptr %176, null
+  br i1 %.not.i278, label %_verify_clustername.exit, label %177
 
 177:                                              ; preds = %173
   %178 = call ptr @fgets(ptr noundef nonnull %28, i32 noundef 512, ptr noundef nonnull %176)
@@ -891,8 +891,8 @@ _verify_clustername.exit:                         ; preds = %173, %181
 
 195:                                              ; preds = %190
   %196 = call i32 @setpriority(i32 noundef 0, i32 noundef %191, i32 noundef %193) #19
-  %.not.i288 = icmp eq i32 %196, 0
-  br i1 %.not.i288, label %_update_nice.exit, label %197
+  %.not.i279 = icmp eq i32 %196, 0
+  br i1 %.not.i279, label %_update_nice.exit, label %197
 
 197:                                              ; preds = %195
   %198 = load i32, ptr @new_nice, align 4
@@ -901,26 +901,25 @@ _verify_clustername.exit:                         ; preds = %173, %181
 
 _update_nice.exit:                                ; preds = %_verify_clustername.exit, %190, %195, %197
   %.b169 = load i1, ptr @original, align 1
-  br i1 %.b169, label %.preheader2508, label %200
+  br i1 %.b169, label %.preheader2497, label %200
 
 200:                                              ; preds = %_update_nice.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
   %201 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 176), align 8
   %202 = call i32 @read_pidfile(ptr noundef %201, ptr noundef nonnull %26) #19
-  %.not.i289 = icmp eq i32 %202, 0
-  br i1 %.not.i289, label %_kill_old_slurmctld.exit, label %203
+  %.not.i280 = icmp eq i32 %202, 0
+  br i1 %.not.i280, label %_kill_old_slurmctld.exit, label %203
 
 203:                                              ; preds = %200
   %204 = load i8, ptr @ignore_state_errors, align 1
-  %205 = and i8 %204, 1
-  %.not3.i290 = icmp eq i8 %205, 0
-  br i1 %.not3.i290, label %206, label %210
+  %205 = trunc i8 %204 to i1
+  br i1 %205, label %210, label %206
 
 206:                                              ; preds = %203
   %207 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 183), align 8
   %208 = call ptr @xstrstr(ptr noundef %207, ptr noundef nonnull @.str.206) #19
-  %.not4.i291 = icmp eq ptr %208, null
-  br i1 %.not4.i291, label %210, label %209
+  %.not3.i281 = icmp eq ptr %208, null
+  br i1 %.not3.i281, label %210, label %209
 
 209:                                              ; preds = %206
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.207) #21
@@ -954,17 +953,17 @@ _update_nice.exit:                                ; preds = %_verify_clustername
 
 _kill_old_slurmctld.exit:                         ; preds = %200, %221
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
-  br label %.preheader2508
+  br label %.preheader2497
 
-.preheader2508:                                   ; preds = %_kill_old_slurmctld.exit, %_update_nice.exit
+.preheader2497:                                   ; preds = %_kill_old_slurmctld.exit, %_update_nice.exit
   br label %224
 
-224:                                              ; preds = %.preheader2508, %224
-  %.0112794 = phi i32 [ %225, %224 ], [ 0, %.preheader2508 ]
-  call void @fd_set_close_on_exec(i32 noundef %.0112794) #19
-  %225 = add nuw nsw i32 %.0112794, 1
-  %exitcond1227.not = icmp eq i32 %225, 3
-  br i1 %exitcond1227.not, label %226, label %224, !llvm.loop !10
+224:                                              ; preds = %.preheader2497, %224
+  %.0112783 = phi i32 [ %225, %224 ], [ 0, %.preheader2497 ]
+  call void @fd_set_close_on_exec(i32 noundef %.0112783) #19
+  %225 = add nuw nsw i32 %.0112783, 1
+  %exitcond1216.not = icmp eq i32 %225, 3
+  br i1 %exitcond1216.not, label %226, label %224, !llvm.loop !10
 
 226:                                              ; preds = %224
   %.b168 = load i1, ptr @original, align 1
@@ -1021,9 +1020,9 @@ _become_slurm_user.exit.thread:                   ; preds = %242
 
 243:                                              ; preds = %242
   %.b175185 = load i1, ptr @under_systemd, align 1
-  br i1 %.b175185, label %_become_slurm_user.exit.thread340, label %244
+  br i1 %.b175185, label %_become_slurm_user.exit.thread329, label %244
 
-_become_slurm_user.exit.thread340:                ; preds = %243
+_become_slurm_user.exit.thread329:                ; preds = %243
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   br label %288
@@ -1032,8 +1031,8 @@ _become_slurm_user.exit.thread340:                ; preds = %243
   %245 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 176), align 8
   %246 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 187), align 8
   %247 = call i32 @xstrcmp(ptr noundef %245, ptr noundef %246) #19
-  %.not.i292 = icmp eq i32 %247, 0
-  br i1 %.not.i292, label %248, label %_init_pidfile.exit
+  %.not.i282 = icmp eq i32 %247, 0
+  br i1 %.not.i282, label %248, label %_init_pidfile.exit
 
 248:                                              ; preds = %244
   %249 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.210) #19
@@ -1066,8 +1065,8 @@ _init_pidfile.exit:                               ; preds = %244, %248
 
 264:                                              ; preds = %261
   %265 = call i32 @setgroups(i64 noundef 0, ptr noundef null) #19
-  %.not.i295 = icmp eq i32 %265, 0
-  br i1 %.not.i295, label %267, label %266
+  %.not.i285 = icmp eq i32 %265, 0
+  br i1 %.not.i285, label %267, label %266
 
 266:                                              ; preds = %264
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.222) #21
@@ -1114,14 +1113,14 @@ _init_pidfile.exit:                               ; preds = %244, %248
 280:                                              ; preds = %277, %275
   %281 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
   %282 = call i32 @getuid() #19
-  %.not9.i293 = icmp eq i32 %281, %282
-  br i1 %.not9.i293, label %_become_slurm_user.exit, label %283
+  %.not9.i283 = icmp eq i32 %281, %282
+  br i1 %.not9.i283, label %_become_slurm_user.exit, label %283
 
 283:                                              ; preds = %280
   %284 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
   %285 = call i32 @setuid(i32 noundef %284) #19
-  %.not10.i294 = icmp eq i32 %285, 0
-  br i1 %.not10.i294, label %_become_slurm_user.exit, label %286
+  %.not10.i284 = icmp eq i32 %285, 0
+  br i1 %.not10.i284, label %_become_slurm_user.exit, label %286
 
 286:                                              ; preds = %283
   %287 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
@@ -1129,17 +1128,17 @@ _init_pidfile.exit:                               ; preds = %244, %248
   unreachable
 
 _become_slurm_user.exit:                          ; preds = %283, %280
-  %.b.i296.pr = load i1, ptr @original, align 1
+  %.b.i286.pr = load i1, ptr @original, align 1
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
-  br i1 %.b.i296.pr, label %323, label %288
+  br i1 %.b.i286.pr, label %323, label %288
 
-288:                                              ; preds = %_become_slurm_user.exit.thread340, %_become_slurm_user.exit
+288:                                              ; preds = %_become_slurm_user.exit.thread329, %_become_slurm_user.exit
   %289 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 178), align 4
   %290 = zext i16 %289 to i32
   store i32 %290, ptr @listen_nports, align 4
-  %.not.i297 = icmp eq i16 %289, 0
-  br i1 %.not.i297, label %291, label %292
+  %.not.i287 = icmp eq i16 %289, 0
+  br i1 %.not.i287, label %291, label %292
 
 291:                                              ; preds = %288
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.118) #21
@@ -1151,9 +1150,9 @@ _become_slurm_user.exit:                          ; preds = %283, %280
   store ptr %294, ptr @listen_fds, align 8
   %295 = load i32, ptr @listen_nports, align 4
   %296 = icmp sgt i32 %295, 0
-  br i1 %296, label %.lr.ph.i298, label %_open_ports.exit
+  br i1 %296, label %.lr.ph.i288, label %_open_ports.exit
 
-.lr.ph.i298:                                      ; preds = %292, %319
+.lr.ph.i288:                                      ; preds = %292, %319
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %319 ], [ 0, %292 ]
   %297 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 177), align 8
   %298 = trunc i64 %indvars.iv.i to i32
@@ -1172,11 +1171,11 @@ _become_slurm_user.exit:                          ; preds = %283, %280
   %309 = icmp eq i32 %308, -1
   br i1 %309, label %310, label %311
 
-310:                                              ; preds = %.lr.ph.i298
+310:                                              ; preds = %.lr.ph.i288
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.119) #21
   unreachable
 
-311:                                              ; preds = %.lr.ph.i298
+311:                                              ; preds = %.lr.ph.i288
   %312 = call i32 @slurm_get_stream_addr(i32 noundef %308, ptr noundef nonnull %24) #19
   %.not14.i = icmp eq i32 %312, 0
   br i1 %.not14.i, label %315, label %313
@@ -1199,7 +1198,7 @@ _become_slurm_user.exit:                          ; preds = %283, %280
   %320 = load i32, ptr @listen_nports, align 4
   %321 = sext i32 %320 to i64
   %322 = icmp slt i64 %indvars.iv.next.i, %321
-  br i1 %322, label %.lr.ph.i298, label %_open_ports.exit, !llvm.loop !11
+  br i1 %322, label %.lr.ph.i288, label %_open_ports.exit, !llvm.loop !11
 
 323:                                              ; preds = %_become_slurm_user.exit.thread, %_become_slurm_user.exit
   %324 = call ptr @getenv(ptr noundef nonnull @.str.98) #19
@@ -1238,7 +1237,7 @@ _open_ports.exit:                                 ; preds = %319, %.lr.ph18.i, %
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   call void @set_slurmctld_state_loc()
-  br i1 %.not.i287, label %343, label %358
+  br i1 %.not.i278, label %343, label %358
 
 343:                                              ; preds = %_open_ports.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
@@ -1255,8 +1254,8 @@ _open_ports.exit:                                 ; preds = %319, %.lr.ph18.i, %
 
 349:                                              ; preds = %348, %343
   %350 = call noalias ptr @fopen(ptr noundef %345, ptr noundef nonnull @.str.203)
-  %.not.i299 = icmp eq ptr %350, null
-  br i1 %.not.i299, label %351, label %352
+  %.not.i289 = icmp eq ptr %350, null
+  br i1 %.not.i289, label %351, label %352
 
 351:                                              ; preds = %349
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.204, ptr noundef nonnull @__func__._create_clustername_file, ptr noundef %345) #21
@@ -1289,13 +1288,13 @@ _create_clustername_file.exit:                    ; preds = %352
 360:                                              ; preds = %359, %358
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   %361 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 175), align 8
-  %.not.i300 = icmp eq ptr %361, null
-  br i1 %.not.i300, label %.thread.i301, label %362
+  %.not.i290 = icmp eq ptr %361, null
+  br i1 %.not.i290, label %.thread.i291, label %362
 
 362:                                              ; preds = %360
   %363 = load i8, ptr %361, align 1
   %364 = icmp eq i8 %363, 47
-  br i1 %364, label %365, label %.thread.i301
+  br i1 %364, label %365, label %.thread.i291
 
 365:                                              ; preds = %362
   %366 = call ptr @xstrdup(ptr noundef nonnull %361) #19
@@ -1306,41 +1305,41 @@ _create_clustername_file.exit:                    ; preds = %352
   %.sink.i = select i1 %368, ptr %369, ptr %367
   store i8 0, ptr %.sink.i, align 1
   %370 = call i32 @access(ptr noundef %366, i32 noundef 2) #19
-  %.not6.i304 = icmp eq i32 %370, 0
-  br i1 %.not6.i304, label %371, label %.thread14.i
+  %.not6.i294 = icmp eq i32 %370, 0
+  br i1 %.not6.i294, label %371, label %374
 
 371:                                              ; preds = %365
   %372 = call i32 @chdir(ptr noundef %366) #19
   %373 = icmp slt i32 %372, 0
-  br i1 %373, label %.thread14.i, label %375
+  br i1 %373, label %374, label %.thread11.i
 
-.thread14.i:                                      ; preds = %371, %365
-  %374 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.230, ptr noundef %366) #19
-  call void @slurm_xfree(ptr noundef nonnull %22) #19
-  br label %.thread.i301
-
-375:                                              ; preds = %371
+.thread11.i:                                      ; preds = %371
   call void @slurm_xfree(ptr noundef nonnull %22) #19
   br label %_set_work_dir.exit
 
-.thread.i301:                                     ; preds = %.thread14.i, %362, %360
+374:                                              ; preds = %371, %365
+  %375 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.230, ptr noundef %366) #19
+  call void @slurm_xfree(ptr noundef nonnull %22) #19
+  br label %.thread.i291
+
+.thread.i291:                                     ; preds = %374, %362, %360
   %376 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 195), align 8
   %377 = call i32 @access(ptr noundef %376, i32 noundef 2) #19
-  %.not8.i302 = icmp eq i32 %377, 0
-  br i1 %.not8.i302, label %378, label %382
+  %.not7.i292 = icmp eq i32 %377, 0
+  br i1 %.not7.i292, label %378, label %382
 
-378:                                              ; preds = %.thread.i301
+378:                                              ; preds = %.thread.i291
   %379 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 195), align 8
   %380 = call i32 @chdir(ptr noundef %379) #19
   %381 = icmp slt i32 %380, 0
   br i1 %381, label %382, label %_set_work_dir.exit
 
-382:                                              ; preds = %378, %.thread.i301
+382:                                              ; preds = %378, %.thread.i291
   %383 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 195), align 8
   %384 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.230, ptr noundef %383) #19
   %385 = call i32 @access(ptr noundef nonnull @.str.231, i32 noundef 2) #19
-  %.not10.i303 = icmp eq i32 %385, 0
-  br i1 %.not10.i303, label %386, label %389
+  %.not8.i293 = icmp eq i32 %385, 0
+  br i1 %.not8.i293, label %386, label %389
 
 386:                                              ; preds = %382
   %387 = call i32 @chdir(ptr noundef nonnull @.str.231) #19
@@ -1360,7 +1359,7 @@ _create_clustername_file.exit:                    ; preds = %352
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.233) #19
   br label %_set_work_dir.exit
 
-_set_work_dir.exit:                               ; preds = %375, %378, %389, %391, %394
+_set_work_dir.exit:                               ; preds = %.thread11.i, %378, %389, %391, %394
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   br label %395
 
@@ -1457,11 +1456,11 @@ _set_work_dir.exit:                               ; preds = %375, %378, %389, %3
 
 439:                                              ; preds = %434
   %440 = load i64, ptr %21, align 16
-  %.not.i305 = icmp ne i64 %440, -1
+  %.not.i295 = icmp ne i64 %440, -1
   %441 = load i32, ptr @max_server_threads, align 4
   %442 = zext nneg i32 %441 to i64
   %443 = icmp ult i64 %440, %442
-  %or.cond.i = select i1 %.not.i305, i1 %443, i1 false
+  %or.cond.i = select i1 %.not.i295, i1 %443, i1 false
   br i1 %or.cond.i, label %444, label %_test_thread_limit.exit
 
 444:                                              ; preds = %439
@@ -1588,9 +1587,8 @@ _test_thread_limit.exit:                          ; preds = %437, %439, %444, %4
 
 497:                                              ; preds = %496
   %498 = load i8, ptr @slurmctld_primary, align 1
-  %499 = and i8 %498, 1
-  %.not197 = icmp eq i8 %499, 0
-  br i1 %.not197, label %500, label %504
+  %499 = trunc i8 %498 to i1
+  br i1 %499, label %504, label %500
 
 500:                                              ; preds = %497
   %501 = call i32 @get_log_level() #19
@@ -1604,8 +1602,8 @@ _test_thread_limit.exit:                          ; preds = %437, %439, %444, %4
 504:                                              ; preds = %500, %503, %497, %496
   %.0 = phi i1 [ false, %496 ], [ false, %497 ], [ true, %503 ], [ true, %500 ]
   %505 = call i32 @select_g_init(i1 noundef zeroext false) #19
-  %.not198 = icmp eq i32 %505, 0
-  br i1 %.not198, label %507, label %506
+  %.not197 = icmp eq i32 %505, 0
+  br i1 %.not197, label %507, label %506
 
 506:                                              ; preds = %504
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.23) #21
@@ -1613,8 +1611,8 @@ _test_thread_limit.exit:                          ; preds = %437, %439, %444, %4
 
 507:                                              ; preds = %504
   %508 = call i32 @gres_init() #19
-  %.not199 = icmp eq i32 %508, 0
-  br i1 %.not199, label %510, label %509
+  %.not198 = icmp eq i32 %508, 0
+  br i1 %.not198, label %510, label %509
 
 509:                                              ; preds = %507
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.24) #21
@@ -1622,8 +1620,8 @@ _test_thread_limit.exit:                          ; preds = %437, %439, %444, %4
 
 510:                                              ; preds = %507
   %511 = call i32 @preempt_g_init() #19
-  %.not200 = icmp eq i32 %511, 0
-  br i1 %.not200, label %513, label %512
+  %.not199 = icmp eq i32 %511, 0
+  br i1 %.not199, label %513, label %512
 
 512:                                              ; preds = %510
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.25) #21
@@ -1631,8 +1629,8 @@ _test_thread_limit.exit:                          ; preds = %437, %439, %444, %4
 
 513:                                              ; preds = %510
   %514 = call i32 @acct_gather_conf_init() #19
-  %.not201 = icmp eq i32 %514, 0
-  br i1 %.not201, label %516, label %515
+  %.not200 = icmp eq i32 %514, 0
+  br i1 %.not200, label %516, label %515
 
 515:                                              ; preds = %513
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.26) #21
@@ -1640,8 +1638,8 @@ _test_thread_limit.exit:                          ; preds = %437, %439, %444, %4
 
 516:                                              ; preds = %513
   %517 = call i32 @jobacct_gather_init() #19
-  %.not202 = icmp eq i32 %517, 0
-  br i1 %.not202, label %519, label %518
+  %.not201 = icmp eq i32 %517, 0
+  br i1 %.not201, label %519, label %518
 
 518:                                              ; preds = %516
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.27) #21
@@ -1649,8 +1647,8 @@ _test_thread_limit.exit:                          ; preds = %437, %439, %444, %4
 
 519:                                              ; preds = %516
   %520 = call i32 @job_submit_g_init(i1 noundef zeroext false) #19
-  %.not203 = icmp eq i32 %520, 0
-  br i1 %.not203, label %522, label %521
+  %.not202 = icmp eq i32 %520, 0
+  br i1 %.not202, label %522, label %521
 
 521:                                              ; preds = %519
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.28) #21
@@ -1658,8 +1656,8 @@ _test_thread_limit.exit:                          ; preds = %437, %439, %444, %4
 
 522:                                              ; preds = %519
   %523 = call i32 @prep_g_init(ptr noundef nonnull %35) #19
-  %.not204 = icmp eq i32 %523, 0
-  br i1 %.not204, label %525, label %524
+  %.not203 = icmp eq i32 %523, 0
+  br i1 %.not203, label %525, label %524
 
 524:                                              ; preds = %522
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.29) #21
@@ -1667,8 +1665,8 @@ _test_thread_limit.exit:                          ; preds = %437, %439, %444, %4
 
 525:                                              ; preds = %522
   %526 = call i32 @ext_sensors_init() #19
-  %.not205 = icmp eq i32 %526, 0
-  br i1 %.not205, label %528, label %527
+  %.not204 = icmp eq i32 %526, 0
+  br i1 %.not204, label %528, label %527
 
 527:                                              ; preds = %525
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.30) #21
@@ -1676,8 +1674,8 @@ _test_thread_limit.exit:                          ; preds = %437, %439, %444, %4
 
 528:                                              ; preds = %525
   %529 = call i32 @node_features_g_init() #19
-  %.not206 = icmp eq i32 %529, 0
-  br i1 %.not206, label %531, label %530
+  %.not205 = icmp eq i32 %529, 0
+  br i1 %.not205, label %531, label %530
 
 530:                                              ; preds = %528
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.31) #21
@@ -1685,8 +1683,8 @@ _test_thread_limit.exit:                          ; preds = %437, %439, %444, %4
 
 531:                                              ; preds = %528
   %532 = call i32 @mpi_g_daemon_init() #19
-  %.not207 = icmp eq i32 %532, 0
-  br i1 %.not207, label %534, label %533
+  %.not206 = icmp eq i32 %532, 0
+  br i1 %.not206, label %534, label %533
 
 533:                                              ; preds = %531
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.32) #21
@@ -1694,8 +1692,8 @@ _test_thread_limit.exit:                          ; preds = %437, %439, %444, %4
 
 534:                                              ; preds = %531
   %535 = call i32 @serializer_g_init(ptr noundef null, ptr noundef null) #19
-  %.not208 = icmp eq i32 %535, 0
-  br i1 %.not208, label %537, label %536
+  %.not207 = icmp eq i32 %535, 0
+  br i1 %.not207, label %537, label %536
 
 536:                                              ; preds = %534
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.33) #21
@@ -1703,8 +1701,8 @@ _test_thread_limit.exit:                          ; preds = %437, %439, %444, %4
 
 537:                                              ; preds = %534
   %538 = call i32 @switch_init(i1 noundef zeroext true) #19
-  %.not209 = icmp eq i32 %538, 0
-  br i1 %.not209, label %540, label %539
+  %.not208 = icmp eq i32 %538, 0
+  br i1 %.not208, label %540, label %539
 
 539:                                              ; preds = %537
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.34) #21
@@ -1716,8 +1714,8 @@ _test_thread_limit.exit:                          ; preds = %437, %439, %444, %4
   br i1 %.b165, label %544, label %541
 
 541:                                              ; preds = %540
-  %.b174210 = load i1, ptr @under_systemd, align 1
-  br i1 %.b174210, label %542, label %544
+  %.b174209 = load i1, ptr @under_systemd, align 1
+  br i1 %.b174209, label %542, label %544
 
 542:                                              ; preds = %541
   %543 = call i32 @getpid() #19
@@ -1732,27 +1730,26 @@ _test_thread_limit.exit:                          ; preds = %437, %439, %444, %4
   %549 = getelementptr inbounds i8, ptr %13, i64 8
   %550 = getelementptr inbounds i8, ptr %12, i64 8
   %551 = getelementptr inbounds i8, ptr %5, i64 4
-  %.pre1228 = load i8, ptr @slurmctld_primary, align 1
+  %.pre1217 = load i8, ptr @slurmctld_primary, align 1
   br label %552
 
 552:                                              ; preds = %.backedge, %544
-  %553 = phi i8 [ %1501, %.backedge ], [ %.pre1228, %544 ]
-  %.b178211 = load i1, ptr @reconfig, align 1
+  %553 = phi i8 [ %1498, %.backedge ], [ %.pre1217, %544 ]
+  %.b178210 = load i1, ptr @reconfig, align 1
   store i64 0, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 8), align 8
   store i64 0, ptr @control_time, align 8
   store i1 false, ptr @reconfig, align 1
-  %554 = and i8 %553, 1
-  %.not212 = icmp ne i8 %554, 0
-  %brmerge = or i1 %.0, %.not212
+  %554 = trunc i8 %553 to i1
+  %brmerge = or i1 %.0, %554
   br i1 %brmerge, label %565, label %555
 
 555:                                              ; preds = %552
   %556 = call i32 @sched_g_fini() #19
   call void @main_sched_fini() #19
   %557 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 116), align 4
-  %.not.i306 = icmp sgt i16 %557, -1
-  br i1 %.not.i306, label %controller_fini_scheduling.exit, label %558
+  %.not.i296 = icmp sgt i16 %557, -1
+  br i1 %.not.i296, label %controller_fini_scheduling.exit, label %558
 
 558:                                              ; preds = %555
   call void @gs_fini() #19
@@ -1761,8 +1758,8 @@ _test_thread_limit.exit:                          ; preds = %437, %439, %444, %4
 controller_fini_scheduling.exit:                  ; preds = %555, %558
   call fastcc void @_run_primary_prog(i1 noundef zeroext false)
   %559 = call i32 @acct_storage_g_init() #19
-  %.not213 = icmp eq i32 %559, 0
-  br i1 %.not213, label %561, label %560
+  %.not211 = icmp eq i32 %559, 0
+  br i1 %.not211, label %561, label %560
 
 560:                                              ; preds = %controller_fini_scheduling.exit
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.35) #21
@@ -1770,8 +1767,8 @@ controller_fini_scheduling.exit:                  ; preds = %555, %558
 
 561:                                              ; preds = %controller_fini_scheduling.exit
   %562 = call i32 @bb_g_init() #19
-  %.not214 = icmp eq i32 %562, 0
-  br i1 %.not214, label %564, label %563
+  %.not212 = icmp eq i32 %562, 0
+  br i1 %.not212, label %564, label %563
 
 563:                                              ; preds = %561
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.36) #21
@@ -1785,8 +1782,8 @@ controller_fini_scheduling.exit:                  ; preds = %555, %558
 
 565:                                              ; preds = %552
   %566 = call i32 @acct_storage_g_init() #19
-  %.not215 = icmp eq i32 %566, 0
-  br i1 %.not215, label %568, label %567
+  %.not213 = icmp eq i32 %566, 0
+  br i1 %.not213, label %568, label %567
 
 567:                                              ; preds = %565
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.35) #21
@@ -1797,8 +1794,8 @@ controller_fini_scheduling.exit:                  ; preds = %555, %558
   call void @trigger_primary_ctld_res_ctrl() #19
   call void @ctld_assoc_mgr_init()
   %569 = call i32 @bb_g_init() #19
-  %.not216 = icmp eq i32 %569, 0
-  br i1 %.not216, label %571, label %570
+  %.not214 = icmp eq i32 %569, 0
+  br i1 %.not214, label %571, label %570
 
 570:                                              ; preds = %568
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.37) #21
@@ -1810,8 +1807,8 @@ controller_fini_scheduling.exit:                  ; preds = %555, %558
   %573 = load i32, ptr @recover, align 4
   %574 = icmp ne i32 %573, 0
   %575 = call i32 @switch_g_restore(ptr noundef %572, i1 noundef zeroext %574) #19
-  %.not217 = icmp eq i32 %575, 0
-  br i1 %.not217, label %577, label %576
+  %.not215 = icmp eq i32 %575, 0
+  br i1 %.not215, label %577, label %576
 
 576:                                              ; preds = %571
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.38) #21
@@ -1819,8 +1816,8 @@ controller_fini_scheduling.exit:                  ; preds = %555, %558
 
 577:                                              ; preds = %571, %564
   %578 = load ptr, ptr @acct_db_conn, align 8
-  %.not218 = icmp eq ptr %578, null
-  br i1 %.not218, label %579, label %597
+  %.not216 = icmp eq ptr %578, null
+  br i1 %.not216, label %579, label %597
 
 579:                                              ; preds = %577
   %580 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
@@ -1833,8 +1830,8 @@ controller_fini_scheduling.exit:                  ; preds = %555, %558
   %586 = tail call ptr @__errno_location() #20
   %587 = load i32, ptr %586, align 4
   %588 = call i32 @assoc_mgr_init(ptr noundef %585, ptr noundef null, i32 noundef %587) #19
-  %.not219 = icmp eq i32 %588, 0
-  br i1 %.not219, label %597, label %589
+  %.not217 = icmp eq i32 %588, 0
+  br i1 %.not217, label %597, label %589
 
 589:                                              ; preds = %579
   %590 = load i16, ptr @accounting_enforce, align 2
@@ -1853,8 +1850,8 @@ controller_fini_scheduling.exit:                  ; preds = %555, %558
 
 597:                                              ; preds = %579, %589, %577
   %598 = call i32 @priority_g_init() #19
-  %.not220 = icmp eq i32 %598, 0
-  br i1 %.not220, label %600, label %599
+  %.not218 = icmp eq i32 %598, 0
+  br i1 %.not218, label %600, label %599
 
 599:                                              ; preds = %597
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.41) #21
@@ -1862,18 +1859,17 @@ controller_fini_scheduling.exit:                  ; preds = %555, %558
 
 600:                                              ; preds = %597
   %601 = load i8, ptr @slurmctld_primary, align 1
-  %602 = and i8 %601, 1
-  %.not221 = icmp ne i8 %602, 0
-  %brmerge282 = or i1 %.0, %.not221
-  %brmerge282.not = xor i1 %brmerge282, true
-  %brmerge283 = select i1 %brmerge282.not, i1 true, i1 %.b178211
-  br i1 %brmerge283, label %613, label %603
+  %602 = trunc i8 %601 to i1
+  %brmerge273 = or i1 %.0, %602
+  %brmerge273.not = xor i1 %brmerge273, true
+  %brmerge274 = select i1 %brmerge273.not, i1 true, i1 %.b178210
+  br i1 %brmerge274, label %613, label %603
 
 603:                                              ; preds = %600
   %604 = load i32, ptr @recover, align 4
   %605 = call i32 @read_slurm_conf(i32 noundef %604) #19
-  %.not222 = icmp eq i32 %605, 0
-  br i1 %.not222, label %609, label %606
+  %.not219 = icmp eq i32 %605, 0
+  br i1 %.not219, label %609, label %606
 
 606:                                              ; preds = %603
   %607 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 168), align 8
@@ -1884,8 +1880,8 @@ controller_fini_scheduling.exit:                  ; preds = %555, %558
 609:                                              ; preds = %603
   call void @configless_update() #19
   %610 = load ptr, ptr @conf_includes_list, align 8
-  %.not223 = icmp eq ptr %610, null
-  br i1 %.not223, label %613, label %611
+  %.not220 = icmp eq ptr %610, null
+  br i1 %.not220, label %613, label %611
 
 611:                                              ; preds = %609
   %612 = call i32 @list_flush(ptr noundef nonnull %610) #19
@@ -1893,10 +1889,9 @@ controller_fini_scheduling.exit:                  ; preds = %555, %558
 
 613:                                              ; preds = %600, %609, %611
   %614 = load i8, ptr @slurmctld_primary, align 1
-  %615 = and i8 %614, 1
-  %.not224 = icmp ne i8 %615, 0
-  %brmerge284 = or i1 %.0, %.not224
-  br i1 %brmerge284, label %616, label %621
+  %615 = trunc i8 %614 to i1
+  %brmerge275 = or i1 %.0, %615
+  br i1 %brmerge275, label %616, label %621
 
 616:                                              ; preds = %613
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.main.config_write_lock) #19
@@ -1921,7 +1916,7 @@ controller_fini_scheduling.exit:                  ; preds = %555, %558
   br label %625
 
 625:                                              ; preds = %624, %621
-  br i1 %.b178211, label %634, label %626
+  br i1 %.b178210, label %634, label %626
 
 626:                                              ; preds = %625
   call fastcc void @_run_primary_prog(i1 noundef zeroext true)
@@ -1929,15 +1924,13 @@ controller_fini_scheduling.exit:                  ; preds = %555, %558
   store i64 %627, ptr @control_time, align 8
   call void @heartbeat_start() #19
   %628 = load i8, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 8), align 8
-  %629 = and i8 %628, 1
-  %.not225 = icmp eq i8 %629, 0
-  br i1 %.not225, label %630, label %634
+  %629 = trunc i8 %628 to i1
+  br i1 %629, label %634, label %630
 
 630:                                              ; preds = %626
   %631 = load i8, ptr @slurmctld_primary, align 1
-  %632 = and i8 %631, 1
-  %.not226 = icmp eq i8 %632, 0
-  br i1 %.not226, label %634, label %633
+  %632 = trunc i8 %631 to i1
+  br i1 %632, label %633, label %634
 
 633:                                              ; preds = %630
   call void @trigger_primary_ctld_res_op() #19
@@ -1952,1696 +1945,1688 @@ controller_fini_scheduling.exit:                  ; preds = %555, %558
   %638 = load i16, ptr @running_cache, align 2
   store i32 0, ptr %19, align 4
   %639 = call ptr @next_node(ptr noundef nonnull %19) #19
-  %.not2131.i = icmp eq ptr %639, null
-  br i1 %.not2131.i, label %_send_future_cloud_to_db.exit, label %.lr.ph.i307
+  %.not2130.i = icmp eq ptr %639, null
+  br i1 %.not2130.i, label %_send_future_cloud_to_db.exit, label %.lr.ph.i297
 
-.lr.ph.i307:                                      ; preds = %634
-  %.not20.i308 = icmp eq i16 %638, 0
-  %640 = zext i1 %.not20.i308 to i8
-  br label %641
+.lr.ph.i297:                                      ; preds = %634
+  %.not20.i298 = icmp eq i16 %638, 0
+  br label %640
 
-641:                                              ; preds = %685, %.lr.ph.i307
-  %642 = phi ptr [ %639, %.lr.ph.i307 ], [ %688, %685 ]
-  %.033.i = phi i8 [ %640, %.lr.ph.i307 ], [ %.3.i, %685 ]
-  %.01332.i = phi ptr [ null, %.lr.ph.i307 ], [ %.215.i, %685 ]
-  %643 = getelementptr inbounds i8, ptr %642, i64 304
-  %644 = load i32, ptr %643, align 8
-  %645 = and i32 %644, 15
-  %646 = icmp ne i32 %645, 6
-  %647 = and i32 %644, 4096
-  %.not23.i = icmp eq i32 %647, 0
-  %or.cond30.i = and i1 %646, %.not23.i
-  br i1 %or.cond30.i, label %685, label %648
+640:                                              ; preds = %683, %.lr.ph.i297
+  %641 = phi ptr [ %639, %.lr.ph.i297 ], [ %686, %683 ]
+  %.032.i = phi i1 [ %.not20.i298, %.lr.ph.i297 ], [ %.3.i, %683 ]
+  %.01331.i = phi ptr [ null, %.lr.ph.i297 ], [ %.215.i, %683 ]
+  %642 = getelementptr inbounds i8, ptr %641, i64 304
+  %643 = load i32, ptr %642, align 8
+  %644 = and i32 %643, 15
+  %645 = icmp ne i32 %644, 6
+  %646 = and i32 %643, 4096
+  %.not23.i = icmp eq i32 %646, 0
+  %or.cond.i299 = and i1 %645, %.not23.i
+  br i1 %or.cond.i299, label %683, label %647
 
-648:                                              ; preds = %641
-  %649 = and i8 %.033.i, 1
-  %.not24.i = icmp eq i8 %649, 0
-  %650 = icmp ne ptr %.01332.i, null
-  %or.cond.i309 = select i1 %.not24.i, i1 true, i1 %650
-  br i1 %or.cond.i309, label %672, label %651
+647:                                              ; preds = %640
+  %648 = icmp eq ptr %.01331.i, null
+  %or.cond.not.i = select i1 %.032.i, i1 %648, i1 false
+  br i1 %or.cond.not.i, label %649, label %670
 
-651:                                              ; preds = %648
+649:                                              ; preds = %647
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %20, i8 0, i64 80, i1 false)
   store i16 2, ptr %545, align 4
   store i32 1, ptr %546, align 8
-  %652 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #19
-  store ptr %652, ptr %20, align 8
-  %653 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
-  %654 = call ptr @xstrdup(ptr noundef %653) #19
-  call void @list_append(ptr noundef %652, ptr noundef %654) #19
-  %655 = call ptr @list_create(ptr noundef null) #19
-  store ptr %655, ptr %547, align 8
-  call void @list_append(ptr noundef %655, ptr noundef nonnull @.str.85) #19
-  %656 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #19
-  store ptr %656, ptr %548, align 8
-  %657 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.86, i32 noundef 6) #19
+  %650 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #19
+  store ptr %650, ptr %20, align 8
+  %651 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  %652 = call ptr @xstrdup(ptr noundef %651) #19
+  call void @list_append(ptr noundef %650, ptr noundef %652) #19
+  %653 = call ptr @list_create(ptr noundef null) #19
+  store ptr %653, ptr %547, align 8
+  call void @list_append(ptr noundef %653, ptr noundef nonnull @.str.85) #19
+  %654 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #19
+  store ptr %654, ptr %548, align 8
+  %655 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.86, i32 noundef 6) #19
+  call void @list_append(ptr noundef %654, ptr noundef %655) #19
+  %656 = load ptr, ptr %548, align 8
+  %657 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.87, i64 noundef 4096) #19
   call void @list_append(ptr noundef %656, ptr noundef %657) #19
-  %658 = load ptr, ptr %548, align 8
-  %659 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.87, i64 noundef 4096) #19
-  call void @list_append(ptr noundef %658, ptr noundef %659) #19
-  %660 = load ptr, ptr @acct_db_conn, align 8
-  %661 = call i32 @getuid() #19
-  %662 = call ptr @acct_storage_g_get_events(ptr noundef %660, i32 noundef %661, ptr noundef nonnull %20) #19
-  %.not.i310 = icmp eq ptr %662, null
-  %spec.select.i = select i1 %.not.i310, i8 0, i8 %.033.i
-  %663 = load ptr, ptr %20, align 8
-  %.not25.i = icmp eq ptr %663, null
-  br i1 %.not25.i, label %665, label %664
+  %658 = load ptr, ptr @acct_db_conn, align 8
+  %659 = call i32 @getuid() #19
+  %660 = call ptr @acct_storage_g_get_events(ptr noundef %658, i32 noundef %659, ptr noundef nonnull %20) #19
+  %.not.i303 = icmp ne ptr %660, null
+  %661 = load ptr, ptr %20, align 8
+  %.not25.i = icmp eq ptr %661, null
+  br i1 %.not25.i, label %663, label %662
 
-664:                                              ; preds = %651
-  call void @list_destroy(ptr noundef nonnull %663) #19
-  br label %665
+662:                                              ; preds = %649
+  call void @list_destroy(ptr noundef nonnull %661) #19
+  br label %663
 
-665:                                              ; preds = %664, %651
+663:                                              ; preds = %662, %649
   store ptr null, ptr %20, align 8
-  %666 = load ptr, ptr %547, align 8
-  %.not26.i = icmp eq ptr %666, null
-  br i1 %.not26.i, label %668, label %667
+  %664 = load ptr, ptr %547, align 8
+  %.not26.i = icmp eq ptr %664, null
+  br i1 %.not26.i, label %666, label %665
 
-667:                                              ; preds = %665
-  call void @list_destroy(ptr noundef nonnull %666) #19
-  br label %668
+665:                                              ; preds = %663
+  call void @list_destroy(ptr noundef nonnull %664) #19
+  br label %666
 
-668:                                              ; preds = %667, %665
+666:                                              ; preds = %665, %663
   store ptr null, ptr %547, align 8
-  %669 = load ptr, ptr %548, align 8
-  %.not27.i = icmp eq ptr %669, null
-  br i1 %.not27.i, label %671, label %670
+  %667 = load ptr, ptr %548, align 8
+  %.not27.i = icmp eq ptr %667, null
+  br i1 %.not27.i, label %669, label %668
 
-670:                                              ; preds = %668
-  call void @list_destroy(ptr noundef nonnull %669) #19
-  br label %671
+668:                                              ; preds = %666
+  call void @list_destroy(ptr noundef nonnull %667) #19
+  br label %669
 
-671:                                              ; preds = %670, %668
+669:                                              ; preds = %668, %666
   store ptr null, ptr %548, align 8
-  br label %672
+  br label %670
 
-672:                                              ; preds = %671, %648
-  %.114.i = phi ptr [ %.01332.i, %648 ], [ %662, %671 ]
-  %.2.i = phi i8 [ %.033.i, %648 ], [ %spec.select.i, %671 ]
+670:                                              ; preds = %669, %647
+  %.114.i = phi ptr [ %.01331.i, %647 ], [ %660, %669 ]
+  %.2.i = phi i1 [ %.032.i, %647 ], [ %.not.i303, %669 ]
   %.not28.i = icmp eq ptr %.114.i, null
-  br i1 %.not28.i, label %677, label %673
+  br i1 %.not28.i, label %675, label %671
 
-673:                                              ; preds = %672
-  %674 = getelementptr inbounds i8, ptr %642, i64 256
-  %675 = load ptr, ptr %674, align 8
-  %676 = call ptr @list_find_first(ptr noundef nonnull %.114.i, ptr noundef nonnull @_find_node_event, ptr noundef %675) #19
-  %.not29.i = icmp eq ptr %676, null
-  br i1 %.not29.i, label %677, label %685
+671:                                              ; preds = %670
+  %672 = getelementptr inbounds i8, ptr %641, i64 256
+  %673 = load ptr, ptr %672, align 8
+  %674 = call ptr @list_find_first(ptr noundef nonnull %.114.i, ptr noundef nonnull @_find_node_event, ptr noundef %673) #19
+  %.not29.i = icmp eq ptr %674, null
+  br i1 %.not29.i, label %675, label %683
 
-677:                                              ; preds = %673, %672
-  %678 = load ptr, ptr @acct_db_conn, align 8
-  %679 = load i32, ptr %643, align 8
-  %680 = and i32 %679, 15
-  %681 = icmp eq i32 %680, 6
-  %682 = select i1 %681, ptr @.str.88, ptr @.str.89
-  %683 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
-  %684 = call i32 @clusteracct_storage_g_node_down(ptr noundef %678, ptr noundef nonnull %642, i64 noundef %637, ptr noundef nonnull %682, i32 noundef %683) #19
-  br label %685
+675:                                              ; preds = %671, %670
+  %676 = load ptr, ptr @acct_db_conn, align 8
+  %677 = load i32, ptr %642, align 8
+  %678 = and i32 %677, 15
+  %679 = icmp eq i32 %678, 6
+  %680 = select i1 %679, ptr @.str.88, ptr @.str.89
+  %681 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %682 = call i32 @clusteracct_storage_g_node_down(ptr noundef %676, ptr noundef nonnull %641, i64 noundef %637, ptr noundef nonnull %680, i32 noundef %681) #19
+  br label %683
 
-685:                                              ; preds = %677, %673, %641
-  %.215.i = phi ptr [ %.114.i, %673 ], [ %.114.i, %677 ], [ %.01332.i, %641 ]
-  %.3.i = phi i8 [ %.2.i, %673 ], [ %.2.i, %677 ], [ %.033.i, %641 ]
-  %686 = load i32, ptr %19, align 4
-  %687 = add nsw i32 %686, 1
-  store i32 %687, ptr %19, align 4
-  %688 = call ptr @next_node(ptr noundef nonnull %19) #19
-  %.not21.i311 = icmp eq ptr %688, null
-  br i1 %.not21.i311, label %._crit_edge.i312, label %641, !llvm.loop !13
+683:                                              ; preds = %675, %671, %640
+  %.215.i = phi ptr [ %.114.i, %671 ], [ %.114.i, %675 ], [ %.01331.i, %640 ]
+  %.3.i = phi i1 [ %.2.i, %671 ], [ %.2.i, %675 ], [ %.032.i, %640 ]
+  %684 = load i32, ptr %19, align 4
+  %685 = add nsw i32 %684, 1
+  store i32 %685, ptr %19, align 4
+  %686 = call ptr @next_node(ptr noundef nonnull %19) #19
+  %.not21.i300 = icmp eq ptr %686, null
+  br i1 %.not21.i300, label %._crit_edge.i301, label %640, !llvm.loop !13
 
-._crit_edge.i312:                                 ; preds = %685
-  %.not22.i313 = icmp eq ptr %.215.i, null
-  br i1 %.not22.i313, label %_send_future_cloud_to_db.exit, label %689
+._crit_edge.i301:                                 ; preds = %683
+  %.not22.i302 = icmp eq ptr %.215.i, null
+  br i1 %.not22.i302, label %_send_future_cloud_to_db.exit, label %687
 
-689:                                              ; preds = %._crit_edge.i312
+687:                                              ; preds = %._crit_edge.i301
   call void @list_destroy(ptr noundef nonnull %.215.i) #19
   br label %_send_future_cloud_to_db.exit
 
-_send_future_cloud_to_db.exit:                    ; preds = %634, %._crit_edge.i312, %689
+_send_future_cloud_to_db.exit:                    ; preds = %634, %._crit_edge.i301, %687
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20)
-  %690 = load ptr, ptr @acct_db_conn, align 8
-  %691 = call i32 @fed_mgr_init(ptr noundef %690) #19
+  %688 = load ptr, ptr @acct_db_conn, align 8
+  %689 = call i32 @fed_mgr_init(ptr noundef %688) #19
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._restore_job_dependencies.job_fed_lock) #19
-  %692 = load ptr, ptr @job_list, align 8
-  %693 = call ptr @list_iterator_create(ptr noundef %692) #19
-  %694 = call ptr @list_next(ptr noundef %693) #19
-  %.not9.i314 = icmp eq ptr %694, null
-  br i1 %.not9.i314, label %_restore_job_dependencies.exit, label %.lr.ph.i315
+  %690 = load ptr, ptr @job_list, align 8
+  %691 = call ptr @list_iterator_create(ptr noundef %690) #19
+  %692 = call ptr @list_next(ptr noundef %691) #19
+  %.not9.i304 = icmp eq ptr %692, null
+  br i1 %.not9.i304, label %_restore_job_dependencies.exit, label %.lr.ph.i305
 
-.lr.ph.i315:                                      ; preds = %_send_future_cloud_to_db.exit, %703
-  %695 = phi ptr [ %704, %703 ], [ %694, %_send_future_cloud_to_db.exit ]
-  %696 = getelementptr inbounds i8, ptr %695, i64 216
-  %697 = load ptr, ptr %696, align 8
-  %.not7.i316 = icmp eq ptr %697, null
-  br i1 %.not7.i316, label %703, label %698
+.lr.ph.i305:                                      ; preds = %_send_future_cloud_to_db.exit, %701
+  %693 = phi ptr [ %702, %701 ], [ %692, %_send_future_cloud_to_db.exit ]
+  %694 = getelementptr inbounds i8, ptr %693, i64 216
+  %695 = load ptr, ptr %694, align 8
+  %.not7.i306 = icmp eq ptr %695, null
+  br i1 %.not7.i306, label %701, label %696
 
-698:                                              ; preds = %.lr.ph.i315
-  %699 = getelementptr inbounds i8, ptr %697, i64 120
-  %700 = load ptr, ptr %699, align 8
-  %.not8.i317 = icmp eq ptr %700, null
-  br i1 %.not8.i317, label %703, label %701
+696:                                              ; preds = %.lr.ph.i305
+  %697 = getelementptr inbounds i8, ptr %695, i64 120
+  %698 = load ptr, ptr %697, align 8
+  %.not8.i307 = icmp eq ptr %698, null
+  br i1 %.not8.i307, label %701, label %699
 
-701:                                              ; preds = %698
-  %702 = call i32 @list_for_each(ptr noundef nonnull %700, ptr noundef nonnull @_init_dep_job_ptr, ptr noundef null) #19
-  br label %703
+699:                                              ; preds = %696
+  %700 = call i32 @list_for_each(ptr noundef nonnull %698, ptr noundef nonnull @_init_dep_job_ptr, ptr noundef null) #19
+  br label %701
 
-703:                                              ; preds = %701, %698, %.lr.ph.i315
-  %704 = call ptr @list_next(ptr noundef %693) #19
-  %.not.i318 = icmp eq ptr %704, null
-  br i1 %.not.i318, label %_restore_job_dependencies.exit, label %.lr.ph.i315, !llvm.loop !14
+701:                                              ; preds = %699, %696, %.lr.ph.i305
+  %702 = call ptr @list_next(ptr noundef %691) #19
+  %.not.i308 = icmp eq ptr %702, null
+  br i1 %.not.i308, label %_restore_job_dependencies.exit, label %.lr.ph.i305, !llvm.loop !14
 
-_restore_job_dependencies.exit:                   ; preds = %703, %_send_future_cloud_to_db.exit
-  call void @list_iterator_destroy(ptr noundef %693) #19
+_restore_job_dependencies.exit:                   ; preds = %701, %_send_future_cloud_to_db.exit
+  call void @list_iterator_destroy(ptr noundef %691) #19
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._restore_job_dependencies.job_fed_lock) #19
   call void @sync_job_priorities() #19
-  %705 = call i32 @mcs_g_init() #19
-  %.not227 = icmp eq i32 %705, 0
-  br i1 %.not227, label %707, label %706
+  %703 = call i32 @mcs_g_init() #19
+  %.not221 = icmp eq i32 %703, 0
+  br i1 %.not221, label %705, label %704
 
-706:                                              ; preds = %_restore_job_dependencies.exit
+704:                                              ; preds = %_restore_job_dependencies.exit
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.45) #21
   unreachable
 
-707:                                              ; preds = %_restore_job_dependencies.exit
-  %708 = call i32 @pthread_attr_init(ptr noundef nonnull %36) #19
-  %.not228 = icmp eq i32 %708, 0
-  br i1 %.not228, label %711, label %709
+705:                                              ; preds = %_restore_job_dependencies.exit
+  %706 = call i32 @pthread_attr_init(ptr noundef nonnull %36) #19
+  %.not222 = icmp eq i32 %706, 0
+  br i1 %.not222, label %709, label %707
 
-709:                                              ; preds = %707
-  %710 = tail call ptr @__errno_location() #20
-  store i32 %708, ptr %710, align 4
+707:                                              ; preds = %705
+  %708 = tail call ptr @__errno_location() #20
+  store i32 %706, ptr %708, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.46) #21
   unreachable
 
-711:                                              ; preds = %707
-  %712 = call i32 @pthread_attr_setscope(ptr noundef nonnull %36, i32 noundef 0) #19
-  %.not229 = icmp eq i32 %712, 0
-  br i1 %.not229, label %716, label %713
+709:                                              ; preds = %705
+  %710 = call i32 @pthread_attr_setscope(ptr noundef nonnull %36, i32 noundef 0) #19
+  %.not223 = icmp eq i32 %710, 0
+  br i1 %.not223, label %714, label %711
 
-713:                                              ; preds = %711
-  %714 = tail call ptr @__errno_location() #20
-  store i32 %712, ptr %714, align 4
-  %715 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.47) #19
-  br label %716
+711:                                              ; preds = %709
+  %712 = tail call ptr @__errno_location() #20
+  store i32 %710, ptr %712, align 4
+  %713 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.47) #19
+  br label %714
 
-716:                                              ; preds = %713, %711
-  %717 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %36, i64 noundef 1048576) #19
-  %.not230 = icmp eq i32 %717, 0
-  br i1 %.not230, label %721, label %718
+714:                                              ; preds = %711, %709
+  %715 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %36, i64 noundef 1048576) #19
+  %.not224 = icmp eq i32 %715, 0
+  br i1 %.not224, label %719, label %716
 
-718:                                              ; preds = %716
-  %719 = tail call ptr @__errno_location() #20
-  store i32 %717, ptr %719, align 4
-  %720 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48) #19
-  br label %721
+716:                                              ; preds = %714
+  %717 = tail call ptr @__errno_location() #20
+  store i32 %715, ptr %717, align 4
+  %718 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48) #19
+  br label %719
 
-721:                                              ; preds = %716, %718
-  %722 = call i32 @pthread_create(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 20), ptr noundef nonnull %36, ptr noundef nonnull @_slurmctld_rpc_mgr, ptr noundef null) #19
-  %.not231 = icmp eq i32 %722, 0
-  br i1 %.not231, label %725, label %723
+719:                                              ; preds = %714, %716
+  %720 = call i32 @pthread_create(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 20), ptr noundef nonnull %36, ptr noundef nonnull @_slurmctld_rpc_mgr, ptr noundef null) #19
+  %.not225 = icmp eq i32 %720, 0
+  br i1 %.not225, label %723, label %721
 
-723:                                              ; preds = %721
-  %724 = tail call ptr @__errno_location() #20
-  store i32 %722, ptr %724, align 4
+721:                                              ; preds = %719
+  %722 = tail call ptr @__errno_location() #20
+  store i32 %720, ptr %722, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.49, ptr noundef nonnull @__func__.main) #21
   unreachable
 
-725:                                              ; preds = %721
-  %726 = call i32 @pthread_attr_destroy(ptr noundef nonnull %36) #19
-  %.not232 = icmp eq i32 %726, 0
-  br i1 %.not232, label %730, label %727
+723:                                              ; preds = %719
+  %724 = call i32 @pthread_attr_destroy(ptr noundef nonnull %36) #19
+  %.not226 = icmp eq i32 %724, 0
+  br i1 %.not226, label %728, label %725
 
-727:                                              ; preds = %725
-  %728 = tail call ptr @__errno_location() #20
-  store i32 %726, ptr %728, align 4
-  %729 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50) #19
-  br label %730
+725:                                              ; preds = %723
+  %726 = tail call ptr @__errno_location() #20
+  store i32 %724, ptr %726, align 4
+  %727 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50) #19
+  br label %728
 
-730:                                              ; preds = %727, %725
-  %731 = call i32 @pthread_attr_init(ptr noundef nonnull %37) #19
-  %.not233 = icmp eq i32 %731, 0
-  br i1 %.not233, label %734, label %732
+728:                                              ; preds = %725, %723
+  %729 = call i32 @pthread_attr_init(ptr noundef nonnull %37) #19
+  %.not227 = icmp eq i32 %729, 0
+  br i1 %.not227, label %732, label %730
 
-732:                                              ; preds = %730
-  %733 = tail call ptr @__errno_location() #20
-  store i32 %731, ptr %733, align 4
+730:                                              ; preds = %728
+  %731 = tail call ptr @__errno_location() #20
+  store i32 %729, ptr %731, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.46) #21
   unreachable
 
-734:                                              ; preds = %730
-  %735 = call i32 @pthread_attr_setscope(ptr noundef nonnull %37, i32 noundef 0) #19
-  %.not234 = icmp eq i32 %735, 0
-  br i1 %.not234, label %739, label %736
+732:                                              ; preds = %728
+  %733 = call i32 @pthread_attr_setscope(ptr noundef nonnull %37, i32 noundef 0) #19
+  %.not228 = icmp eq i32 %733, 0
+  br i1 %.not228, label %737, label %734
 
-736:                                              ; preds = %734
-  %737 = tail call ptr @__errno_location() #20
-  store i32 %735, ptr %737, align 4
-  %738 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.47) #19
-  br label %739
+734:                                              ; preds = %732
+  %735 = tail call ptr @__errno_location() #20
+  store i32 %733, ptr %735, align 4
+  %736 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.47) #19
+  br label %737
 
-739:                                              ; preds = %736, %734
-  %740 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %37, i64 noundef 1048576) #19
-  %.not235 = icmp eq i32 %740, 0
-  br i1 %.not235, label %744, label %741
+737:                                              ; preds = %734, %732
+  %738 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %37, i64 noundef 1048576) #19
+  %.not229 = icmp eq i32 %738, 0
+  br i1 %.not229, label %742, label %739
 
-741:                                              ; preds = %739
-  %742 = tail call ptr @__errno_location() #20
-  store i32 %740, ptr %742, align 4
-  %743 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48) #19
-  br label %744
+739:                                              ; preds = %737
+  %740 = tail call ptr @__errno_location() #20
+  store i32 %738, ptr %740, align 4
+  %741 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48) #19
+  br label %742
 
-744:                                              ; preds = %739, %741
-  %745 = call i32 @pthread_create(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 18), ptr noundef nonnull %37, ptr noundef nonnull @_slurmctld_signal_hand, ptr noundef null) #19
-  %.not236 = icmp eq i32 %745, 0
-  br i1 %.not236, label %748, label %746
+742:                                              ; preds = %737, %739
+  %743 = call i32 @pthread_create(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 18), ptr noundef nonnull %37, ptr noundef nonnull @_slurmctld_signal_hand, ptr noundef null) #19
+  %.not230 = icmp eq i32 %743, 0
+  br i1 %.not230, label %746, label %744
 
-746:                                              ; preds = %744
-  %747 = tail call ptr @__errno_location() #20
-  store i32 %745, ptr %747, align 4
+744:                                              ; preds = %742
+  %745 = tail call ptr @__errno_location() #20
+  store i32 %743, ptr %745, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.49, ptr noundef nonnull @__func__.main) #21
   unreachable
 
-748:                                              ; preds = %744
-  %749 = call i32 @pthread_attr_destroy(ptr noundef nonnull %37) #19
-  %.not237 = icmp eq i32 %749, 0
-  br i1 %.not237, label %753, label %750
+746:                                              ; preds = %742
+  %747 = call i32 @pthread_attr_destroy(ptr noundef nonnull %37) #19
+  %.not231 = icmp eq i32 %747, 0
+  br i1 %.not231, label %751, label %748
 
-750:                                              ; preds = %748
-  %751 = tail call ptr @__errno_location() #20
-  store i32 %749, ptr %751, align 4
-  %752 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50) #19
-  br label %753
+748:                                              ; preds = %746
+  %749 = tail call ptr @__errno_location() #20
+  store i32 %747, ptr %749, align 4
+  %750 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50) #19
+  br label %751
 
-753:                                              ; preds = %750, %748
-  %754 = call i32 @pthread_attr_init(ptr noundef nonnull %38) #19
-  %.not238 = icmp eq i32 %754, 0
-  br i1 %.not238, label %757, label %755
+751:                                              ; preds = %748, %746
+  %752 = call i32 @pthread_attr_init(ptr noundef nonnull %38) #19
+  %.not232 = icmp eq i32 %752, 0
+  br i1 %.not232, label %755, label %753
 
-755:                                              ; preds = %753
-  %756 = tail call ptr @__errno_location() #20
-  store i32 %754, ptr %756, align 4
+753:                                              ; preds = %751
+  %754 = tail call ptr @__errno_location() #20
+  store i32 %752, ptr %754, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.46) #21
   unreachable
 
-757:                                              ; preds = %753
-  %758 = call i32 @pthread_attr_setscope(ptr noundef nonnull %38, i32 noundef 0) #19
-  %.not239 = icmp eq i32 %758, 0
-  br i1 %.not239, label %762, label %759
+755:                                              ; preds = %751
+  %756 = call i32 @pthread_attr_setscope(ptr noundef nonnull %38, i32 noundef 0) #19
+  %.not233 = icmp eq i32 %756, 0
+  br i1 %.not233, label %760, label %757
 
-759:                                              ; preds = %757
-  %760 = tail call ptr @__errno_location() #20
-  store i32 %758, ptr %760, align 4
-  %761 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.47) #19
-  br label %762
+757:                                              ; preds = %755
+  %758 = tail call ptr @__errno_location() #20
+  store i32 %756, ptr %758, align 4
+  %759 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.47) #19
+  br label %760
 
-762:                                              ; preds = %759, %757
-  %763 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %38, i64 noundef 1048576) #19
-  %.not240 = icmp eq i32 %763, 0
-  br i1 %.not240, label %767, label %764
+760:                                              ; preds = %757, %755
+  %761 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %38, i64 noundef 1048576) #19
+  %.not234 = icmp eq i32 %761, 0
+  br i1 %.not234, label %765, label %762
 
-764:                                              ; preds = %762
-  %765 = tail call ptr @__errno_location() #20
-  store i32 %763, ptr %765, align 4
-  %766 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48) #19
-  br label %767
+762:                                              ; preds = %760
+  %763 = tail call ptr @__errno_location() #20
+  store i32 %761, ptr %763, align 4
+  %764 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48) #19
+  br label %765
 
-767:                                              ; preds = %762, %764
-  %768 = call i32 @pthread_create(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 17), ptr noundef nonnull %38, ptr noundef nonnull @slurmctld_state_save, ptr noundef null) #19
-  %.not241 = icmp eq i32 %768, 0
-  br i1 %.not241, label %771, label %769
+765:                                              ; preds = %760, %762
+  %766 = call i32 @pthread_create(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 17), ptr noundef nonnull %38, ptr noundef nonnull @slurmctld_state_save, ptr noundef null) #19
+  %.not235 = icmp eq i32 %766, 0
+  br i1 %.not235, label %769, label %767
 
-769:                                              ; preds = %767
-  %770 = tail call ptr @__errno_location() #20
-  store i32 %768, ptr %770, align 4
+767:                                              ; preds = %765
+  %768 = tail call ptr @__errno_location() #20
+  store i32 %766, ptr %768, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.49, ptr noundef nonnull @__func__.main) #21
   unreachable
 
-771:                                              ; preds = %767
-  %772 = call i32 @pthread_attr_destroy(ptr noundef nonnull %38) #19
-  %.not242 = icmp eq i32 %772, 0
-  br i1 %.not242, label %776, label %773
+769:                                              ; preds = %765
+  %770 = call i32 @pthread_attr_destroy(ptr noundef nonnull %38) #19
+  %.not236 = icmp eq i32 %770, 0
+  br i1 %.not236, label %774, label %771
 
-773:                                              ; preds = %771
-  %774 = tail call ptr @__errno_location() #20
-  store i32 %772, ptr %774, align 4
-  %775 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50) #19
-  br label %776
+771:                                              ; preds = %769
+  %772 = tail call ptr @__errno_location() #20
+  store i32 %770, ptr %772, align 4
+  %773 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50) #19
+  br label %774
 
-776:                                              ; preds = %773, %771
+774:                                              ; preds = %771, %769
   call void @power_save_init() #19
-  %777 = call i32 @pthread_attr_init(ptr noundef nonnull %39) #19
-  %.not243 = icmp eq i32 %777, 0
-  br i1 %.not243, label %780, label %778
+  %775 = call i32 @pthread_attr_init(ptr noundef nonnull %39) #19
+  %.not237 = icmp eq i32 %775, 0
+  br i1 %.not237, label %778, label %776
 
-778:                                              ; preds = %776
-  %779 = tail call ptr @__errno_location() #20
-  store i32 %777, ptr %779, align 4
+776:                                              ; preds = %774
+  %777 = tail call ptr @__errno_location() #20
+  store i32 %775, ptr %777, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.46) #21
   unreachable
 
-780:                                              ; preds = %776
-  %781 = call i32 @pthread_attr_setscope(ptr noundef nonnull %39, i32 noundef 0) #19
-  %.not244 = icmp eq i32 %781, 0
-  br i1 %.not244, label %785, label %782
+778:                                              ; preds = %774
+  %779 = call i32 @pthread_attr_setscope(ptr noundef nonnull %39, i32 noundef 0) #19
+  %.not238 = icmp eq i32 %779, 0
+  br i1 %.not238, label %783, label %780
 
-782:                                              ; preds = %780
-  %783 = tail call ptr @__errno_location() #20
-  store i32 %781, ptr %783, align 4
-  %784 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.47) #19
-  br label %785
+780:                                              ; preds = %778
+  %781 = tail call ptr @__errno_location() #20
+  store i32 %779, ptr %781, align 4
+  %782 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.47) #19
+  br label %783
 
-785:                                              ; preds = %782, %780
-  %786 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %39, i64 noundef 1048576) #19
-  %.not245 = icmp eq i32 %786, 0
-  br i1 %.not245, label %790, label %787
+783:                                              ; preds = %780, %778
+  %784 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %39, i64 noundef 1048576) #19
+  %.not239 = icmp eq i32 %784, 0
+  br i1 %.not239, label %788, label %785
 
-787:                                              ; preds = %785
-  %788 = tail call ptr @__errno_location() #20
-  store i32 %786, ptr %788, align 4
-  %789 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48) #19
-  br label %790
+785:                                              ; preds = %783
+  %786 = tail call ptr @__errno_location() #20
+  store i32 %784, ptr %786, align 4
+  %787 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48) #19
+  br label %788
 
-790:                                              ; preds = %785, %787
-  %791 = call i32 @pthread_create(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 19), ptr noundef nonnull %39, ptr noundef nonnull @_purge_files_thread, ptr noundef null) #19
-  %.not246 = icmp eq i32 %791, 0
-  br i1 %.not246, label %794, label %792
+788:                                              ; preds = %783, %785
+  %789 = call i32 @pthread_create(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 19), ptr noundef nonnull %39, ptr noundef nonnull @_purge_files_thread, ptr noundef null) #19
+  %.not240 = icmp eq i32 %789, 0
+  br i1 %.not240, label %792, label %790
 
-792:                                              ; preds = %790
-  %793 = tail call ptr @__errno_location() #20
-  store i32 %791, ptr %793, align 4
+790:                                              ; preds = %788
+  %791 = tail call ptr @__errno_location() #20
+  store i32 %789, ptr %791, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.49, ptr noundef nonnull @__func__.main) #21
   unreachable
 
-794:                                              ; preds = %790
-  %795 = call i32 @pthread_attr_destroy(ptr noundef nonnull %39) #19
-  %.not247 = icmp eq i32 %795, 0
-  br i1 %.not247, label %799, label %796
+792:                                              ; preds = %788
+  %793 = call i32 @pthread_attr_destroy(ptr noundef nonnull %39) #19
+  %.not241 = icmp eq i32 %793, 0
+  br i1 %.not241, label %797, label %794
 
-796:                                              ; preds = %794
-  %797 = tail call ptr @__errno_location() #20
-  store i32 %795, ptr %797, align 4
-  %798 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50) #19
-  br label %799
+794:                                              ; preds = %792
+  %795 = tail call ptr @__errno_location() #20
+  store i32 %793, ptr %795, align 4
+  %796 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50) #19
+  br label %797
 
-799:                                              ; preds = %796, %794
-  %800 = call i32 @pthread_attr_init(ptr noundef nonnull %40) #19
-  %.not248 = icmp eq i32 %800, 0
-  br i1 %.not248, label %803, label %801
+797:                                              ; preds = %794, %792
+  %798 = call i32 @pthread_attr_init(ptr noundef nonnull %40) #19
+  %.not242 = icmp eq i32 %798, 0
+  br i1 %.not242, label %801, label %799
 
-801:                                              ; preds = %799
-  %802 = tail call ptr @__errno_location() #20
-  store i32 %800, ptr %802, align 4
+799:                                              ; preds = %797
+  %800 = tail call ptr @__errno_location() #20
+  store i32 %798, ptr %800, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.46) #21
   unreachable
 
-803:                                              ; preds = %799
-  %804 = call i32 @pthread_attr_setscope(ptr noundef nonnull %40, i32 noundef 0) #19
-  %.not249 = icmp eq i32 %804, 0
-  br i1 %.not249, label %808, label %805
+801:                                              ; preds = %797
+  %802 = call i32 @pthread_attr_setscope(ptr noundef nonnull %40, i32 noundef 0) #19
+  %.not243 = icmp eq i32 %802, 0
+  br i1 %.not243, label %806, label %803
 
-805:                                              ; preds = %803
-  %806 = tail call ptr @__errno_location() #20
-  store i32 %804, ptr %806, align 4
-  %807 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.47) #19
-  br label %808
+803:                                              ; preds = %801
+  %804 = tail call ptr @__errno_location() #20
+  store i32 %802, ptr %804, align 4
+  %805 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.47) #19
+  br label %806
 
-808:                                              ; preds = %805, %803
-  %809 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %40, i64 noundef 1048576) #19
-  %.not250 = icmp eq i32 %809, 0
-  br i1 %.not250, label %813, label %810
+806:                                              ; preds = %803, %801
+  %807 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %40, i64 noundef 1048576) #19
+  %.not244 = icmp eq i32 %807, 0
+  br i1 %.not244, label %811, label %808
 
-810:                                              ; preds = %808
-  %811 = tail call ptr @__errno_location() #20
-  store i32 %809, ptr %811, align 4
-  %812 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48) #19
-  br label %813
+808:                                              ; preds = %806
+  %809 = tail call ptr @__errno_location() #20
+  store i32 %807, ptr %809, align 4
+  %810 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48) #19
+  br label %811
 
-813:                                              ; preds = %808, %810
-  %814 = call i32 @pthread_create(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 15), ptr noundef nonnull %40, ptr noundef nonnull @_acct_update_thread, ptr noundef null) #19
-  %.not251 = icmp eq i32 %814, 0
-  br i1 %.not251, label %817, label %815
+811:                                              ; preds = %806, %808
+  %812 = call i32 @pthread_create(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 15), ptr noundef nonnull %40, ptr noundef nonnull @_acct_update_thread, ptr noundef null) #19
+  %.not245 = icmp eq i32 %812, 0
+  br i1 %.not245, label %815, label %813
 
-815:                                              ; preds = %813
-  %816 = tail call ptr @__errno_location() #20
-  store i32 %814, ptr %816, align 4
+813:                                              ; preds = %811
+  %814 = tail call ptr @__errno_location() #20
+  store i32 %812, ptr %814, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.49, ptr noundef nonnull @__func__.main) #21
   unreachable
 
-817:                                              ; preds = %813
-  %818 = call i32 @pthread_attr_destroy(ptr noundef nonnull %40) #19
-  %.not252 = icmp eq i32 %818, 0
-  br i1 %.not252, label %822, label %819
+815:                                              ; preds = %811
+  %816 = call i32 @pthread_attr_destroy(ptr noundef nonnull %40) #19
+  %.not246 = icmp eq i32 %816, 0
+  br i1 %.not246, label %820, label %817
 
-819:                                              ; preds = %817
-  %820 = tail call ptr @__errno_location() #20
-  store i32 %818, ptr %820, align 4
-  %821 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50) #19
-  br label %822
+817:                                              ; preds = %815
+  %818 = tail call ptr @__errno_location() #20
+  store i32 %816, ptr %818, align 4
+  %819 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50) #19
+  br label %820
 
-822:                                              ; preds = %819, %817
-  %823 = call i32 @sched_g_init() #19
-  %.not.i320 = icmp eq i32 %823, 0
-  br i1 %.not.i320, label %824, label %825
+820:                                              ; preds = %817, %815
+  %821 = call i32 @sched_g_init() #19
+  %.not.i310 = icmp eq i32 %821, 0
+  br i1 %.not.i310, label %822, label %823
 
-824:                                              ; preds = %822
+822:                                              ; preds = %820
   call void @main_sched_init() #19
-  br i1 %.b178211, label %.thread342, label %827
+  br i1 %.b178210, label %.thread331, label %825
 
-.thread342:                                       ; preds = %824
+.thread331:                                       ; preds = %822
   call void @gs_init() #19
   br label %_post_reconfig.exit
 
-825:                                              ; preds = %822
-  %826 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.84) #19
+823:                                              ; preds = %820
+  %824 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.84) #19
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.51) #21
   unreachable
 
-827:                                              ; preds = %824
+825:                                              ; preds = %822
   %.b = load i1, ptr @original, align 1
-  br i1 %.b, label %828, label %_post_reconfig.exit
+  br i1 %.b, label %826, label %_post_reconfig.exit
 
-828:                                              ; preds = %827
+826:                                              ; preds = %825
   call void @notify_parent_of_success()
-  %.b173254 = load i1, ptr @under_systemd, align 1
-  br i1 %.b173254, label %_update_pidfile.exit, label %829
+  %.b173248 = load i1, ptr @under_systemd, align 1
+  br i1 %.b173248, label %_update_pidfile.exit, label %827
 
-829:                                              ; preds = %828
-  %830 = call ptr @getenv(ptr noundef nonnull @.str.94) #19
-  %.not.i321 = icmp eq ptr %830, null
-  br i1 %.not.i321, label %831, label %835
+827:                                              ; preds = %826
+  %828 = call ptr @getenv(ptr noundef nonnull @.str.94) #19
+  %.not.i311 = icmp eq ptr %828, null
+  br i1 %.not.i311, label %829, label %833
 
-831:                                              ; preds = %829
-  %832 = call i32 @get_log_level() #19
-  %833 = icmp sgt i32 %832, 4
-  br i1 %833, label %834, label %_update_pidfile.exit
+829:                                              ; preds = %827
+  %830 = call i32 @get_log_level() #19
+  %831 = icmp sgt i32 %830, 4
+  br i1 %831, label %832, label %_update_pidfile.exit
 
-834:                                              ; preds = %831
+832:                                              ; preds = %829
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.211, ptr noundef nonnull @__func__._update_pidfile) #19
   br label %_update_pidfile.exit
 
-835:                                              ; preds = %829
-  %836 = call i32 @atoi(ptr nocapture noundef nonnull %830) #22
-  store i32 %836, ptr @pidfd, align 4
-  %837 = call i32 @update_pidfile(i32 noundef %836) #19
+833:                                              ; preds = %827
+  %834 = call i32 @atoi(ptr nocapture noundef nonnull %828) #22
+  store i32 %834, ptr @pidfd, align 4
+  %835 = call i32 @update_pidfile(i32 noundef %834) #19
   br label %_update_pidfile.exit
 
-_update_pidfile.exit:                             ; preds = %835, %834, %831, %828
-  %838 = load i8, ptr @running_configless, align 1
-  %839 = and i8 %838, 1
-  %.not.i322 = icmp eq i8 %839, 0
-  br i1 %.not.i322, label %841, label %840
+_update_pidfile.exit:                             ; preds = %833, %832, %829, %826
+  %836 = load i8, ptr @running_configless, align 1
+  %837 = trunc i8 %836 to i1
+  br i1 %837, label %838, label %839
 
-840:                                              ; preds = %_update_pidfile.exit
+838:                                              ; preds = %_update_pidfile.exit
   call void @configless_update() #19
   call void @push_reconfig_to_slurmd() #19
   call void @sackd_mgr_push_reconfig() #19
   br label %_post_reconfig.exit
 
-841:                                              ; preds = %_update_pidfile.exit
+839:                                              ; preds = %_update_pidfile.exit
   call void @msg_to_slurmd(i32 noundef 1003) #19
   br label %_post_reconfig.exit
 
-_post_reconfig.exit:                              ; preds = %841, %840, %.thread342, %827
+_post_reconfig.exit:                              ; preds = %839, %838, %.thread331, %825
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %16, i8 0, i64 20, i1 false)
-  %842 = call i64 @time(ptr noundef null) #19
-  store i64 %842, ptr @_slurmctld_background.last_full_sched_time, align 8
-  store i64 %842, ptr @_slurmctld_background.last_sched_time, align 8
-  store i64 %842, ptr @_slurmctld_background.last_group_time, align 8
-  store i64 %842, ptr @_slurmctld_background.last_checkpoint_time, align 8
-  store i64 %842, ptr @_slurmctld_background.last_health_check_time, align 8
-  store i64 %842, ptr @_slurmctld_background.last_trigger, align 8
-  store i64 %842, ptr @_slurmctld_background.last_purge_job_time, align 8
-  store i64 %842, ptr @_slurmctld_background.last_assert_primary_time, align 8
-  store i64 %842, ptr @_slurmctld_background.last_timelimit_time, align 8
-  store i64 %842, ptr @_slurmctld_background.last_ctld_bu_ping, align 8
-  store i64 %842, ptr @_slurmctld_background.last_resv_time, align 8
-  store i64 %842, ptr @_slurmctld_background.last_no_resp_msg_time, align 8
-  store i64 %842, ptr @_slurmctld_background.last_uid_update, align 8
-  store i64 %842, ptr @_slurmctld_background.last_ext_sensors_time, align 8
-  store i64 %842, ptr @_slurmctld_background.last_acct_gather_node_time, align 8
-  store i64 %842, ptr @_slurmctld_background.last_config_list_update_time, align 8
-  store i64 %842, ptr @_slurmctld_background.last_ping_srun_time, align 8
-  store i64 %842, ptr @_slurmctld_background.last_node_acct, align 8
-  %843 = call i32 @get_log_level() #19
-  %844 = icmp sgt i32 %843, 6
-  br i1 %844, label %845, label %847
+  %840 = call i64 @time(ptr noundef null) #19
+  store i64 %840, ptr @_slurmctld_background.last_full_sched_time, align 8
+  store i64 %840, ptr @_slurmctld_background.last_sched_time, align 8
+  store i64 %840, ptr @_slurmctld_background.last_group_time, align 8
+  store i64 %840, ptr @_slurmctld_background.last_checkpoint_time, align 8
+  store i64 %840, ptr @_slurmctld_background.last_health_check_time, align 8
+  store i64 %840, ptr @_slurmctld_background.last_trigger, align 8
+  store i64 %840, ptr @_slurmctld_background.last_purge_job_time, align 8
+  store i64 %840, ptr @_slurmctld_background.last_assert_primary_time, align 8
+  store i64 %840, ptr @_slurmctld_background.last_timelimit_time, align 8
+  store i64 %840, ptr @_slurmctld_background.last_ctld_bu_ping, align 8
+  store i64 %840, ptr @_slurmctld_background.last_resv_time, align 8
+  store i64 %840, ptr @_slurmctld_background.last_no_resp_msg_time, align 8
+  store i64 %840, ptr @_slurmctld_background.last_uid_update, align 8
+  store i64 %840, ptr @_slurmctld_background.last_ext_sensors_time, align 8
+  store i64 %840, ptr @_slurmctld_background.last_acct_gather_node_time, align 8
+  store i64 %840, ptr @_slurmctld_background.last_config_list_update_time, align 8
+  store i64 %840, ptr @_slurmctld_background.last_ping_srun_time, align 8
+  store i64 %840, ptr @_slurmctld_background.last_node_acct, align 8
+  %841 = call i32 @get_log_level() #19
+  %842 = icmp sgt i32 %841, 6
+  br i1 %842, label %843, label %845
 
-845:                                              ; preds = %_post_reconfig.exit
-  %846 = call i32 @getpid() #19
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.135, i32 noundef %846) #19
-  br label %847
+843:                                              ; preds = %_post_reconfig.exit
+  %844 = call i32 @getpid() #19
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.135, i32 noundef %844) #19
+  br label %845
 
-847:                                              ; preds = %845, %_post_reconfig.exit
-  %848 = call i32 @pthread_mutex_lock(ptr noundef nonnull @shutdown_mutex) #19
-  %.not39.i = icmp eq i32 %848, 0
-  br i1 %.not39.i, label %.lr.ph.i324, label %._crit_edge.i323
+845:                                              ; preds = %843, %_post_reconfig.exit
+  %846 = call i32 @pthread_mutex_lock(ptr noundef nonnull @shutdown_mutex) #19
+  %.not39.i = icmp eq i32 %846, 0
+  br i1 %.not39.i, label %.lr.ph.i313, label %._crit_edge.i312
 
-._crit_edge.i323:                                 ; preds = %847, %1255
-  %.lcssa15.i = phi i32 [ %1257, %1255 ], [ %848, %847 ]
-  %849 = tail call ptr @__errno_location() #20
-  store i32 %.lcssa15.i, ptr %849, align 4
+._crit_edge.i312:                                 ; preds = %845, %1252
+  %.lcssa15.i = phi i32 [ %1254, %1252 ], [ %846, %845 ]
+  %847 = tail call ptr @__errno_location() #20
+  store i32 %.lcssa15.i, ptr %847, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 2076, ptr noundef nonnull @__func__._slurmctld_background) #21
   unreachable
 
-.lr.ph.i324:                                      ; preds = %847, %1255
-  %850 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
-  %.not112.i = icmp eq i64 %850, 0
-  br i1 %.not112.i, label %851, label %858
+.lr.ph.i313:                                      ; preds = %845, %1252
+  %848 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
+  %.not112.i = icmp eq i64 %848, 0
+  br i1 %.not112.i, label %849, label %856
 
-851:                                              ; preds = %.lr.ph.i324
+849:                                              ; preds = %.lr.ph.i313
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  %852 = call i64 @time(ptr noundef null) #19
-  %853 = add nsw i64 %852, 1
-  store i64 %853, ptr %18, align 8
-  %854 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @shutdown_cond, ptr noundef nonnull @shutdown_mutex, ptr noundef nonnull %18) #19
-  switch i32 %854, label %855 [
-    i32 110, label %858
-    i32 0, label %858
+  %850 = call i64 @time(ptr noundef null) #19
+  %851 = add nsw i64 %850, 1
+  store i64 %851, ptr %18, align 8
+  %852 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @shutdown_cond, ptr noundef nonnull @shutdown_mutex, ptr noundef nonnull %18) #19
+  switch i32 %852, label %853 [
+    i32 110, label %856
+    i32 0, label %856
   ]
 
-855:                                              ; preds = %851
-  %856 = tail call ptr @__errno_location() #20
-  store i32 %854, ptr %856, align 4
-  %857 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.53, i32 noundef 2081, ptr noundef nonnull @__func__._slurmctld_background) #19
-  br label %858
+853:                                              ; preds = %849
+  %854 = tail call ptr @__errno_location() #20
+  store i32 %852, ptr %854, align 4
+  %855 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.53, i32 noundef 2081, ptr noundef nonnull @__func__._slurmctld_background) #19
+  br label %856
 
-858:                                              ; preds = %855, %851, %851, %.lr.ph.i324
-  %859 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @shutdown_mutex) #19
-  %.not113.i = icmp eq i32 %859, 0
-  br i1 %.not113.i, label %862, label %860
+856:                                              ; preds = %853, %849, %849, %.lr.ph.i313
+  %857 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @shutdown_mutex) #19
+  %.not113.i = icmp eq i32 %857, 0
+  br i1 %.not113.i, label %860, label %858
 
-860:                                              ; preds = %858
-  %861 = tail call ptr @__errno_location() #20
-  store i32 %859, ptr %861, align 4
+858:                                              ; preds = %856
+  %859 = tail call ptr @__errno_location() #20
+  store i32 %857, ptr %859, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, i32 noundef 2083, ptr noundef nonnull @__func__._slurmctld_background) #21
   unreachable
 
-862:                                              ; preds = %858
-  %863 = call i64 @time(ptr noundef null) #19
-  %864 = call i32 @gettimeofday(ptr noundef nonnull %14, ptr noundef null) #19
-  %865 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 174), align 8
-  %866 = icmp ult i16 %865, 4
-  %867 = icmp eq i16 %865, 4
-  %..i = select i1 %867, double 6.000000e+01, double 1.000000e+00
-  %.087.i = select i1 %866, double 3.000000e+02, double %..i
-  %868 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 101), align 8
-  %869 = add i32 %868, -1
-  %or.cond3.i = icmp ult i32 %869, 59
-  %870 = call i32 @llvm.umax.i32(i32 %868, i32 10)
-  %.089.i = select i1 %or.cond3.i, i32 %870, i32 60
-  %871 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 191), align 2
-  %.not114.i = icmp eq i16 %871, 0
-  br i1 %.not114.i, label %875, label %872
+860:                                              ; preds = %856
+  %861 = call i64 @time(ptr noundef null) #19
+  %862 = call i32 @gettimeofday(ptr noundef nonnull %14, ptr noundef null) #19
+  %863 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 174), align 8
+  %864 = icmp ult i16 %863, 4
+  %865 = icmp eq i16 %863, 4
+  %..i = select i1 %865, double 6.000000e+01, double 1.000000e+00
+  %.087.i = select i1 %864, double 3.000000e+02, double %..i
+  %866 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 101), align 8
+  %867 = add i32 %866, -1
+  %or.cond3.i = icmp ult i32 %867, 59
+  %868 = call i32 @llvm.umax.i32(i32 %866, i32 10)
+  %.089.i = select i1 %or.cond3.i, i32 %868, i32 60
+  %869 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 191), align 2
+  %.not114.i = icmp eq i16 %869, 0
+  br i1 %.not114.i, label %873, label %870
 
-872:                                              ; preds = %862
-  %873 = udiv i16 %871, 3
-  %874 = zext nneg i16 %873 to i32
-  br label %875
+870:                                              ; preds = %860
+  %871 = udiv i16 %869, 3
+  %872 = zext nneg i16 %871 to i32
+  br label %873
 
-875:                                              ; preds = %872, %862
-  %.088.i = phi i32 [ %874, %872 ], [ 100, %862 ]
-  %876 = load i64, ptr @_slurmctld_background.last_ping_node_time, align 8
-  %.not115.i = icmp eq i64 %876, 0
-  br i1 %.not115.i, label %877, label %881
+873:                                              ; preds = %870, %860
+  %.088.i = phi i32 [ %872, %870 ], [ 100, %860 ]
+  %874 = load i64, ptr @_slurmctld_background.last_ping_node_time, align 8
+  %.not115.i = icmp eq i64 %874, 0
+  br i1 %.not115.i, label %875, label %879
 
-877:                                              ; preds = %875
-  %878 = add nsw i64 %863, 3
-  %879 = zext nneg i32 %.088.i to i64
-  %880 = sub i64 %878, %879
-  store i64 %880, ptr @_slurmctld_background.last_ping_node_time, align 8
-  br label %881
+875:                                              ; preds = %873
+  %876 = add nsw i64 %861, 3
+  %877 = zext nneg i32 %.088.i to i64
+  %878 = sub i64 %876, %877
+  store i64 %878, ptr @_slurmctld_background.last_ping_node_time, align 8
+  br label %879
 
-881:                                              ; preds = %877, %875
-  %882 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
-  %.not116.i = icmp eq i64 %882, 0
-  br i1 %.not116.i, label %920, label %883
+879:                                              ; preds = %875, %873
+  %880 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
+  %.not116.i = icmp eq i64 %880, 0
+  br i1 %.not116.i, label %918, label %881
 
-883:                                              ; preds = %881
+881:                                              ; preds = %879
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  %884 = load i8, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 8), align 8
-  %885 = and i8 %884, 1
-  %886 = zext nneg i8 %885 to i32
-  %887 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #19
-  %888 = load i64, ptr %13, align 8
-  %889 = add nsw i64 %888, 30
-  store i64 %889, ptr %12, align 8
-  %890 = load i64, ptr %549, align 8
-  %891 = mul nsw i64 %890, 1000
-  store i64 %891, ptr %550, align 8
-  %892 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 14)) #19
-  %.not.i.i = icmp eq i32 %892, 0
-  br i1 %.not.i.i, label %.preheader.i.i, label %895
+  %882 = load i8, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 8), align 8
+  %883 = and i8 %882, 1
+  %884 = zext nneg i8 %883 to i32
+  %885 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #19
+  %886 = load i64, ptr %13, align 8
+  %887 = add nsw i64 %886, 30
+  store i64 %887, ptr %12, align 8
+  %888 = load i64, ptr %549, align 8
+  %889 = mul nsw i64 %888, 1000
+  store i64 %889, ptr %550, align 8
+  %890 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 14)) #19
+  %.not.i.i = icmp eq i32 %890, 0
+  br i1 %.not.i.i, label %.preheader.i.i, label %893
 
-.preheader.i.i:                                   ; preds = %883
-  %893 = load i32, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 10), align 4
-  %894 = icmp sgt i32 %893, %886
-  br i1 %894, label %.lr.ph.i.i, label %._crit_edge.i.i
+.preheader.i.i:                                   ; preds = %881
+  %891 = load i32, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 10), align 4
+  %892 = icmp sgt i32 %891, %884
+  br i1 %892, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-895:                                              ; preds = %883
-  %896 = tail call ptr @__errno_location() #20
-  store i32 %892, ptr %896, align 4
+893:                                              ; preds = %881
+  %894 = tail call ptr @__errno_location() #20
+  store i32 %890, ptr %894, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 1979, ptr noundef nonnull @__func__._flush_rpcs) #21
   unreachable
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %901
-  %897 = call i32 @pthread_cond_timedwait(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 13), ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 14), ptr noundef nonnull %12) #19
-  switch i32 %897, label %898 [
-    i32 110, label %901
-    i32 0, label %901
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %899
+  %895 = call i32 @pthread_cond_timedwait(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 13), ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 14), ptr noundef nonnull %12) #19
+  switch i32 %895, label %896 [
+    i32 110, label %899
+    i32 0, label %899
   ]
 
-898:                                              ; preds = %.lr.ph.i.i
-  %899 = tail call ptr @__errno_location() #20
-  store i32 %897, ptr %899, align 4
-  %900 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.53, i32 noundef 1982, ptr noundef nonnull @__func__._flush_rpcs) #19
-  br label %901
+896:                                              ; preds = %.lr.ph.i.i
+  %897 = tail call ptr @__errno_location() #20
+  store i32 %895, ptr %897, align 4
+  %898 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.53, i32 noundef 1982, ptr noundef nonnull @__func__._flush_rpcs) #19
+  br label %899
 
-901:                                              ; preds = %898, %.lr.ph.i.i, %.lr.ph.i.i
-  %902 = load i32, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 10), align 4
-  %903 = icmp sgt i32 %902, %886
-  br i1 %903, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !15
+899:                                              ; preds = %896, %.lr.ph.i.i, %.lr.ph.i.i
+  %900 = load i32, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 10), align 4
+  %901 = icmp sgt i32 %900, %884
+  br i1 %901, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !15
 
-._crit_edge.i.i:                                  ; preds = %901, %.preheader.i.i
-  %904 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 14)) #19
-  %.not12.i.i = icmp eq i32 %904, 0
-  br i1 %.not12.i.i, label %_flush_rpcs.exit.i, label %905
+._crit_edge.i.i:                                  ; preds = %899, %.preheader.i.i
+  %902 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 14)) #19
+  %.not12.i.i = icmp eq i32 %902, 0
+  br i1 %.not12.i.i, label %_flush_rpcs.exit.i, label %903
 
-905:                                              ; preds = %._crit_edge.i.i
-  %906 = tail call ptr @__errno_location() #20
-  store i32 %904, ptr %906, align 4
+903:                                              ; preds = %._crit_edge.i.i
+  %904 = tail call ptr @__errno_location() #20
+  store i32 %902, ptr %904, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, i32 noundef 1990, ptr noundef nonnull @__func__._flush_rpcs) #21
   unreachable
 
 _flush_rpcs.exit.i:                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  %907 = call i32 @report_locks_set() #19
-  %.not136.i = icmp eq i32 %907, 0
-  br i1 %.not136.i, label %908, label %918
+  %905 = call i32 @report_locks_set() #19
+  %.not134.i = icmp eq i32 %905, 0
+  br i1 %.not134.i, label %906, label %916
 
-908:                                              ; preds = %_flush_rpcs.exit.i
-  %909 = call i32 @get_log_level() #19
-  %910 = icmp sgt i32 %909, 2
-  br i1 %910, label %911, label %912
+906:                                              ; preds = %_flush_rpcs.exit.i
+  %907 = call i32 @get_log_level() #19
+  %908 = icmp sgt i32 %907, 2
+  br i1 %908, label %909, label %910
 
-911:                                              ; preds = %908
+909:                                              ; preds = %906
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.137) #19
-  br label %912
+  br label %910
 
-912:                                              ; preds = %911, %908
+910:                                              ; preds = %909, %906
   call void @schedule_front_end_save() #19
   call void @schedule_job_save() #19
   call void @schedule_node_save() #19
   call void @schedule_part_save() #19
   call void @schedule_resv_save() #19
   call void @schedule_trigger_save() #19
-  %913 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 195), align 8
-  %914 = call i32 @select_g_state_save(ptr noundef %913) #19
-  %915 = call i32 @dump_assoc_mgr_state() #19
-  %916 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 195), align 8
-  %917 = call i32 @fed_mgr_state_save(ptr noundef %916) #19
-  br label %1258
+  %911 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 195), align 8
+  %912 = call i32 @select_g_state_save(ptr noundef %911) #19
+  %913 = call i32 @dump_assoc_mgr_state() #19
+  %914 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 195), align 8
+  %915 = call i32 @fed_mgr_state_save(ptr noundef %914) #19
+  br label %1255
 
-918:                                              ; preds = %_flush_rpcs.exit.i
-  %919 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.138, i32 noundef 30) #19
-  br label %1258
+916:                                              ; preds = %_flush_rpcs.exit.i
+  %917 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.138, i32 noundef 30) #19
+  br label %1255
 
-920:                                              ; preds = %881
-  %921 = load i64, ptr @_slurmctld_background.last_resv_time, align 8
-  %922 = call double @difftime(i64 noundef %863, i64 noundef %921) #20
-  %923 = fcmp ult double %922, 5.000000e+00
-  br i1 %923, label %938, label %924
+918:                                              ; preds = %879
+  %919 = load i64, ptr @_slurmctld_background.last_resv_time, align 8
+  %920 = call double @difftime(i64 noundef %861, i64 noundef %919) #20
+  %921 = fcmp ult double %920, 5.000000e+00
+  br i1 %921, label %936, label %922
 
-924:                                              ; preds = %920
+922:                                              ; preds = %918
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #19
-  %925 = call i64 @time(ptr noundef null) #19
-  store i64 %925, ptr @_slurmctld_background.last_resv_time, align 8
-  %926 = call i32 @set_node_maint_mode(i1 noundef zeroext false) #19
-  %927 = icmp sgt i32 %926, 0
-  br i1 %927, label %928, label %queue_job_scheduler.exit.i
+  %923 = call i64 @time(ptr noundef null) #19
+  store i64 %923, ptr @_slurmctld_background.last_resv_time, align 8
+  %924 = call i32 @set_node_maint_mode(i1 noundef zeroext false) #19
+  %925 = icmp sgt i32 %924, 0
+  br i1 %925, label %926, label %queue_job_scheduler.exit.i
 
-928:                                              ; preds = %924
-  %929 = call i32 @pthread_mutex_lock(ptr noundef nonnull @sched_cnt_mutex) #19
-  %.not.i137.i = icmp eq i32 %929, 0
-  br i1 %.not.i137.i, label %932, label %930
+926:                                              ; preds = %922
+  %927 = call i32 @pthread_mutex_lock(ptr noundef nonnull @sched_cnt_mutex) #19
+  %.not.i135.i = icmp eq i32 %927, 0
+  br i1 %.not.i135.i, label %930, label %928
 
-930:                                              ; preds = %928
-  %931 = tail call ptr @__errno_location() #20
-  store i32 %929, ptr %931, align 4
+928:                                              ; preds = %926
+  %929 = tail call ptr @__errno_location() #20
+  store i32 %927, ptr %929, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 1179, ptr noundef nonnull @__func__.queue_job_scheduler) #21
   unreachable
 
-932:                                              ; preds = %928
-  %933 = load i32, ptr @job_sched_cnt, align 4
-  %934 = add nsw i32 %933, 1
-  store i32 %934, ptr @job_sched_cnt, align 4
-  %935 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @sched_cnt_mutex) #19
-  %.not5.i.i = icmp eq i32 %935, 0
-  br i1 %.not5.i.i, label %queue_job_scheduler.exit.i, label %936
+930:                                              ; preds = %926
+  %931 = load i32, ptr @job_sched_cnt, align 4
+  %932 = add nsw i32 %931, 1
+  store i32 %932, ptr @job_sched_cnt, align 4
+  %933 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @sched_cnt_mutex) #19
+  %.not5.i.i = icmp eq i32 %933, 0
+  br i1 %.not5.i.i, label %queue_job_scheduler.exit.i, label %934
 
-936:                                              ; preds = %932
-  %937 = tail call ptr @__errno_location() #20
-  store i32 %935, ptr %937, align 4
+934:                                              ; preds = %930
+  %935 = tail call ptr @__errno_location() #20
+  store i32 %933, ptr %935, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, i32 noundef 1181, ptr noundef nonnull @__func__.queue_job_scheduler) #21
   unreachable
 
-queue_job_scheduler.exit.i:                       ; preds = %932, %924
+queue_job_scheduler.exit.i:                       ; preds = %930, %922
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #19
-  br label %938
+  br label %936
 
-938:                                              ; preds = %queue_job_scheduler.exit.i, %920
-  %.0.i = phi i64 [ %925, %queue_job_scheduler.exit.i ], [ %863, %920 ]
-  %939 = load i64, ptr @_slurmctld_background.last_no_resp_msg_time, align 8
-  %940 = call double @difftime(i64 noundef %.0.i, i64 noundef %939) #20
-  %941 = fcmp ult double %940, %.087.i
-  br i1 %941, label %944, label %942
+936:                                              ; preds = %queue_job_scheduler.exit.i, %918
+  %.0.i = phi i64 [ %923, %queue_job_scheduler.exit.i ], [ %861, %918 ]
+  %937 = load i64, ptr @_slurmctld_background.last_no_resp_msg_time, align 8
+  %938 = call double @difftime(i64 noundef %.0.i, i64 noundef %937) #20
+  %939 = fcmp ult double %938, %.087.i
+  br i1 %939, label %942, label %940
 
-942:                                              ; preds = %938
+940:                                              ; preds = %936
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock2) #19
-  %943 = call i64 @time(ptr noundef null) #19
-  store i64 %943, ptr @_slurmctld_background.last_no_resp_msg_time, align 8
+  %941 = call i64 @time(ptr noundef null) #19
+  store i64 %941, ptr @_slurmctld_background.last_no_resp_msg_time, align 8
   call void @node_no_resp_msg() #19
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock2) #19
-  br label %944
+  br label %942
 
-944:                                              ; preds = %942, %938
-  %.1.i = phi i64 [ %943, %942 ], [ %.0.i, %938 ]
+942:                                              ; preds = %940, %936
+  %.1.i = phi i64 [ %941, %940 ], [ %.0.i, %936 ]
   call void @validate_all_reservations(i1 noundef zeroext true) #19
-  %945 = load i64, ptr @_slurmctld_background.last_timelimit_time, align 8
-  %946 = call double @difftime(i64 noundef %.1.i, i64 noundef %945) #20
-  %947 = fcmp ult double %946, 3.000000e+01
-  br i1 %947, label %954, label %948
+  %943 = load i64, ptr @_slurmctld_background.last_timelimit_time, align 8
+  %944 = call double @difftime(i64 noundef %.1.i, i64 noundef %943) #20
+  %945 = fcmp ult double %944, 3.000000e+01
+  br i1 %945, label %952, label %946
 
-948:                                              ; preds = %944
+946:                                              ; preds = %942
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.job_write_lock) #19
-  %949 = call i64 @time(ptr noundef null) #19
-  store i64 %949, ptr @_slurmctld_background.last_timelimit_time, align 8
-  %950 = call i32 @get_log_level() #19
-  %951 = icmp sgt i32 %950, 5
-  br i1 %951, label %952, label %953
+  %947 = call i64 @time(ptr noundef null) #19
+  store i64 %947, ptr @_slurmctld_background.last_timelimit_time, align 8
+  %948 = call i32 @get_log_level() #19
+  %949 = icmp sgt i32 %948, 5
+  br i1 %949, label %950, label %951
 
-952:                                              ; preds = %948
+950:                                              ; preds = %946
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.139) #19
-  br label %953
+  br label %951
 
-953:                                              ; preds = %952, %948
+951:                                              ; preds = %950, %946
   call void @job_time_limit() #19
   call void @job_resv_check() #19
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.job_write_lock) #19
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #19
   call void @check_node_timers() #19
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #19
-  br label %954
+  br label %952
 
-954:                                              ; preds = %953, %944
-  %.2.i325 = phi i64 [ %949, %953 ], [ %.1.i, %944 ]
-  %955 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 59), align 4
-  %.not117.i = icmp eq i16 %955, 0
-  br i1 %.not117.i, label %968, label %956
+952:                                              ; preds = %951, %942
+  %.2.i314 = phi i64 [ %947, %951 ], [ %.1.i, %942 ]
+  %953 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 59), align 4
+  %.not117.i = icmp eq i16 %953, 0
+  br i1 %.not117.i, label %966, label %954
 
-956:                                              ; preds = %954
-  %957 = load i64, ptr @_slurmctld_background.last_health_check_time, align 8
-  %958 = call double @difftime(i64 noundef %.2.i325, i64 noundef %957) #20
-  %959 = uitofp i16 %955 to double
-  %960 = fcmp ult double %958, %959
-  br i1 %960, label %968, label %961
+954:                                              ; preds = %952
+  %955 = load i64, ptr @_slurmctld_background.last_health_check_time, align 8
+  %956 = call double @difftime(i64 noundef %.2.i314, i64 noundef %955) #20
+  %957 = uitofp i16 %953 to double
+  %958 = fcmp ult double %956, %957
+  br i1 %958, label %966, label %959
 
-961:                                              ; preds = %956
-  %962 = call zeroext i1 @is_ping_done() #19
-  br i1 %962, label %963, label %968
+959:                                              ; preds = %954
+  %960 = call zeroext i1 @is_ping_done() #19
+  br i1 %960, label %961, label %966
+
+961:                                              ; preds = %959
+  call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #19
+  %962 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 60), align 2
+  %.not118.i = icmp sgt i16 %962, -1
+  br i1 %.not118.i, label %963, label %965
 
 963:                                              ; preds = %961
-  call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #19
-  %964 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 60), align 2
-  %.not118.i = icmp sgt i16 %964, -1
-  br i1 %.not118.i, label %965, label %967
+  %964 = call i64 @time(ptr noundef null) #19
+  store i64 %964, ptr @_slurmctld_background.last_health_check_time, align 8
+  br label %965
 
-965:                                              ; preds = %963
-  %966 = call i64 @time(ptr noundef null) #19
-  store i64 %966, ptr @_slurmctld_background.last_health_check_time, align 8
-  br label %967
-
-967:                                              ; preds = %965, %963
-  %.3.i328 = phi i64 [ %.2.i325, %963 ], [ %966, %965 ]
+965:                                              ; preds = %963, %961
+  %.3.i317 = phi i64 [ %.2.i314, %961 ], [ %964, %963 ]
   call void @run_health_check() #19
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #19
-  br label %968
+  br label %966
 
-968:                                              ; preds = %967, %961, %956, %954
-  %.4.i = phi i64 [ %.3.i328, %967 ], [ %.2.i325, %961 ], [ %.2.i325, %956 ], [ %.2.i325, %954 ]
-  %969 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 16), align 8
-  %.not119.i = icmp eq i16 %969, 0
-  br i1 %.not119.i, label %979, label %970
+966:                                              ; preds = %965, %959, %954, %952
+  %.4.i = phi i64 [ %.3.i317, %965 ], [ %.2.i314, %959 ], [ %.2.i314, %954 ], [ %.2.i314, %952 ]
+  %967 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 16), align 8
+  %.not119.i = icmp eq i16 %967, 0
+  br i1 %.not119.i, label %977, label %968
 
-970:                                              ; preds = %968
-  %971 = load i64, ptr @_slurmctld_background.last_acct_gather_node_time, align 8
-  %972 = call double @difftime(i64 noundef %.4.i, i64 noundef %971) #20
-  %973 = uitofp i16 %969 to double
-  %974 = fcmp ult double %972, %973
-  br i1 %974, label %979, label %975
+968:                                              ; preds = %966
+  %969 = load i64, ptr @_slurmctld_background.last_acct_gather_node_time, align 8
+  %970 = call double @difftime(i64 noundef %.4.i, i64 noundef %969) #20
+  %971 = uitofp i16 %967 to double
+  %972 = fcmp ult double %970, %971
+  br i1 %972, label %977, label %973
 
-975:                                              ; preds = %970
-  %976 = call zeroext i1 @is_ping_done() #19
-  br i1 %976, label %977, label %979
+973:                                              ; preds = %968
+  %974 = call zeroext i1 @is_ping_done() #19
+  br i1 %974, label %975, label %977
 
-977:                                              ; preds = %975
+975:                                              ; preds = %973
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #19
-  %978 = call i64 @time(ptr noundef null) #19
-  store i64 %978, ptr @_slurmctld_background.last_acct_gather_node_time, align 8
+  %976 = call i64 @time(ptr noundef null) #19
+  store i64 %976, ptr @_slurmctld_background.last_acct_gather_node_time, align 8
   call void @update_nodes_acct_gather_data() #19
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #19
-  br label %979
+  br label %977
 
-979:                                              ; preds = %977, %975, %970, %968
-  %.5.i = phi i64 [ %978, %977 ], [ %.4.i, %975 ], [ %.4.i, %970 ], [ %.4.i, %968 ]
-  %980 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 47), align 8
-  %.not120.i = icmp eq i16 %980, 0
-  br i1 %.not120.i, label %991, label %981
+977:                                              ; preds = %975, %973, %968, %966
+  %.5.i = phi i64 [ %976, %975 ], [ %.4.i, %973 ], [ %.4.i, %968 ], [ %.4.i, %966 ]
+  %978 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 47), align 8
+  %.not120.i = icmp eq i16 %978, 0
+  br i1 %.not120.i, label %989, label %979
 
-981:                                              ; preds = %979
-  %982 = load i64, ptr @_slurmctld_background.last_ext_sensors_time, align 8
-  %983 = call double @difftime(i64 noundef %.5.i, i64 noundef %982) #20
-  %984 = uitofp i16 %980 to double
-  %985 = fcmp ult double %983, %984
-  br i1 %985, label %991, label %986
+979:                                              ; preds = %977
+  %980 = load i64, ptr @_slurmctld_background.last_ext_sensors_time, align 8
+  %981 = call double @difftime(i64 noundef %.5.i, i64 noundef %980) #20
+  %982 = uitofp i16 %978 to double
+  %983 = fcmp ult double %981, %982
+  br i1 %983, label %989, label %984
 
-986:                                              ; preds = %981
-  %987 = call zeroext i1 @is_ping_done() #19
-  br i1 %987, label %988, label %991
+984:                                              ; preds = %979
+  %985 = call zeroext i1 @is_ping_done() #19
+  br i1 %985, label %986, label %989
 
-988:                                              ; preds = %986
+986:                                              ; preds = %984
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #19
-  %989 = call i64 @time(ptr noundef null) #19
-  store i64 %989, ptr @_slurmctld_background.last_ext_sensors_time, align 8
-  %990 = call i32 @ext_sensors_g_update_component_data() #19
+  %987 = call i64 @time(ptr noundef null) #19
+  store i64 %987, ptr @_slurmctld_background.last_ext_sensors_time, align 8
+  %988 = call i32 @ext_sensors_g_update_component_data() #19
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #19
-  br label %991
+  br label %989
 
-991:                                              ; preds = %988, %986, %981, %979
-  %.6.i = phi i64 [ %989, %988 ], [ %.5.i, %986 ], [ %.5.i, %981 ], [ %.5.i, %979 ]
-  %992 = load i64, ptr @_slurmctld_background.last_ping_node_time, align 8
-  %993 = call double @difftime(i64 noundef %.6.i, i64 noundef %992) #20
-  %994 = sitofp i32 %.088.i to double
-  %995 = fcmp ult double %993, %994
-  br i1 %995, label %996, label %999
+989:                                              ; preds = %986, %984, %979, %977
+  %.6.i = phi i64 [ %987, %986 ], [ %.5.i, %984 ], [ %.5.i, %979 ], [ %.5.i, %977 ]
+  %990 = load i64, ptr @_slurmctld_background.last_ping_node_time, align 8
+  %991 = call double @difftime(i64 noundef %.6.i, i64 noundef %990) #20
+  %992 = sitofp i32 %.088.i to double
+  %993 = fcmp ult double %991, %992
+  br i1 %993, label %994, label %997
 
-996:                                              ; preds = %991
-  %997 = load i8, ptr @ping_nodes_now, align 1
-  %998 = and i8 %997, 1
-  %.not121.i = icmp eq i8 %998, 0
-  br i1 %.not121.i, label %1003, label %999
+994:                                              ; preds = %989
+  %995 = load i8, ptr @ping_nodes_now, align 1
+  %996 = trunc i8 %995 to i1
+  br i1 %996, label %997, label %1001
 
-999:                                              ; preds = %996, %991
-  %1000 = call zeroext i1 @is_ping_done() #19
-  br i1 %1000, label %1001, label %1003
+997:                                              ; preds = %994, %989
+  %998 = call zeroext i1 @is_ping_done() #19
+  br i1 %998, label %999, label %1001
 
-1001:                                             ; preds = %999
+999:                                              ; preds = %997
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #19
-  %1002 = call i64 @time(ptr noundef null) #19
-  store i64 %1002, ptr @_slurmctld_background.last_ping_node_time, align 8
+  %1000 = call i64 @time(ptr noundef null) #19
+  store i64 %1000, ptr @_slurmctld_background.last_ping_node_time, align 8
   store i8 0, ptr @ping_nodes_now, align 1
   call void @ping_nodes() #19
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #19
-  br label %1003
+  br label %1001
 
-1003:                                             ; preds = %1001, %999, %996
-  %.7.i = phi i64 [ %1002, %1001 ], [ %.6.i, %999 ], [ %.6.i, %996 ]
-  %1004 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 62), align 8
-  %.not122.i = icmp eq i16 %1004, 0
-  br i1 %.not122.i, label %1016, label %1005
+1001:                                             ; preds = %999, %997, %994
+  %.7.i = phi i64 [ %1000, %999 ], [ %.6.i, %997 ], [ %.6.i, %994 ]
+  %1002 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 62), align 8
+  %.not121.i = icmp eq i16 %1002, 0
+  br i1 %.not121.i, label %1014, label %1003
 
-1005:                                             ; preds = %1003
-  %1006 = load i64, ptr @_slurmctld_background.last_ping_srun_time, align 8
-  %1007 = sub nsw i64 %.7.i, %1006
-  %1008 = udiv i16 %1004, 3
-  %1009 = zext nneg i16 %1008 to i64
-  %.not123.i = icmp slt i64 %1007, %1009
-  br i1 %.not123.i, label %1016, label %1010
+1003:                                             ; preds = %1001
+  %1004 = load i64, ptr @_slurmctld_background.last_ping_srun_time, align 8
+  %1005 = sub nsw i64 %.7.i, %1004
+  %1006 = udiv i16 %1002, 3
+  %1007 = zext nneg i16 %1006 to i64
+  %.not122.i = icmp slt i64 %1005, %1007
+  br i1 %.not122.i, label %1014, label %1008
 
-1010:                                             ; preds = %1005
+1008:                                             ; preds = %1003
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.job_read_lock) #19
-  %1011 = call i64 @time(ptr noundef null) #19
-  store i64 %1011, ptr @_slurmctld_background.last_ping_srun_time, align 8
-  %1012 = call i32 @get_log_level() #19
-  %1013 = icmp sgt i32 %1012, 5
-  br i1 %1013, label %1014, label %1015
+  %1009 = call i64 @time(ptr noundef null) #19
+  store i64 %1009, ptr @_slurmctld_background.last_ping_srun_time, align 8
+  %1010 = call i32 @get_log_level() #19
+  %1011 = icmp sgt i32 %1010, 5
+  br i1 %1011, label %1012, label %1013
 
-1014:                                             ; preds = %1010
+1012:                                             ; preds = %1008
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.140) #19
-  br label %1015
+  br label %1013
 
-1015:                                             ; preds = %1014, %1010
+1013:                                             ; preds = %1012, %1008
   call void @srun_ping() #19
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.job_read_lock) #19
-  br label %1016
+  br label %1014
 
-1016:                                             ; preds = %1015, %1005, %1003
-  %.8.i = phi i64 [ %1011, %1015 ], [ %.7.i, %1005 ], [ %.7.i, %1003 ]
-  %1017 = load i8, ptr @want_nodes_reboot, align 1
-  %1018 = and i8 %1017, 1
-  %.not124.i = icmp eq i8 %1018, 0
-  br i1 %.not124.i, label %1102, label %1019
+1014:                                             ; preds = %1013, %1003, %1001
+  %.8.i = phi i64 [ %1009, %1013 ], [ %.7.i, %1003 ], [ %.7.i, %1001 ]
+  %1015 = load i8, ptr @want_nodes_reboot, align 1
+  %1016 = trunc i8 %1015 to i1
+  br i1 %1016, label %1017, label %1100
 
-1019:                                             ; preds = %1016
+1017:                                             ; preds = %1014
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %1020 = call i64 @time(ptr noundef null) #19
+  %1018 = call i64 @time(ptr noundef null) #19
   store i8 0, ptr @want_nodes_reboot, align 1
   store i32 0, ptr %11, align 4
-  %1021 = call ptr @next_node(ptr noundef nonnull %11) #19
-  %.not51.i.i = icmp eq ptr %1021, null
-  br i1 %.not51.i.i, label %_queue_reboot_msg.exit.i, label %.lr.ph.i138.i
+  %1019 = call ptr @next_node(ptr noundef nonnull %11) #19
+  %.not51.i.i = icmp eq ptr %1019, null
+  br i1 %.not51.i.i, label %_queue_reboot_msg.exit.i, label %.lr.ph.i136.i
 
-.lr.ph.i138.i:                                    ; preds = %1019, %1089
-  %1022 = phi ptr [ %1092, %1089 ], [ %1021, %1019 ]
-  %.04152.i.i = phi ptr [ %.2.i.i, %1089 ], [ null, %1019 ]
-  %1023 = getelementptr inbounds i8, ptr %1022, i64 304
-  %1024 = load i32, ptr %1023, align 8
-  %1025 = zext i32 %1024 to i64
-  %1026 = and i64 %1025, 65536
-  %.not44.i.i = icmp eq i64 %1026, 0
-  br i1 %.not44.i.i, label %1089, label %1027
+.lr.ph.i136.i:                                    ; preds = %1017, %1087
+  %1020 = phi ptr [ %1090, %1087 ], [ %1019, %1017 ]
+  %.04152.i.i = phi ptr [ %.2.i.i, %1087 ], [ null, %1017 ]
+  %1021 = getelementptr inbounds i8, ptr %1020, i64 304
+  %1022 = load i32, ptr %1021, align 8
+  %1023 = zext i32 %1022 to i64
+  %1024 = and i64 %1023, 65536
+  %.not44.i.i = icmp eq i64 %1024, 0
+  br i1 %.not44.i.i, label %1087, label %1025
 
-1027:                                             ; preds = %.lr.ph.i138.i
-  %1028 = and i64 %1025, 1048576
-  %.not45.i.i = icmp eq i64 %1028, 0
-  br i1 %.not45.i.i, label %1035, label %1029
+1025:                                             ; preds = %.lr.ph.i136.i
+  %1026 = and i64 %1023, 1048576
+  %.not45.i.i = icmp eq i64 %1026, 0
+  br i1 %.not45.i.i, label %1033, label %1027
 
-1029:                                             ; preds = %1027
-  %1030 = call i32 @get_log_level() #19
-  %1031 = icmp sgt i32 %1030, 5
-  br i1 %1031, label %1032, label %1089
+1027:                                             ; preds = %1025
+  %1028 = call i32 @get_log_level() #19
+  %1029 = icmp sgt i32 %1028, 5
+  br i1 %1029, label %1030, label %1087
 
-1032:                                             ; preds = %1029
-  %1033 = getelementptr inbounds i8, ptr %1022, i64 256
-  %1034 = load ptr, ptr %1033, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.145, ptr noundef nonnull @__func__._queue_reboot_msg, ptr noundef %1034) #19
-  br label %1089
+1030:                                             ; preds = %1027
+  %1031 = getelementptr inbounds i8, ptr %1020, i64 256
+  %1032 = load ptr, ptr %1031, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.145, ptr noundef nonnull @__func__._queue_reboot_msg, ptr noundef %1032) #19
+  br label %1087
 
-1035:                                             ; preds = %1027
-  %1036 = and i64 %1025, 1024
-  %.not46.i.i = icmp eq i64 %1036, 0
-  br i1 %.not46.i.i, label %1038, label %1037
+1033:                                             ; preds = %1025
+  %1034 = and i64 %1023, 1024
+  %.not46.i.i = icmp eq i64 %1034, 0
+  br i1 %.not46.i.i, label %1036, label %1035
 
-1037:                                             ; preds = %1035
+1035:                                             ; preds = %1033
   store i8 1, ptr @want_nodes_reboot, align 1
-  br label %1089
+  br label %1087
 
-1038:                                             ; preds = %1035
-  %1039 = and i32 %1024, 15
-  %1040 = icmp eq i32 %1039, 2
-  %1041 = and i64 %1025, 18432
-  %1042 = icmp eq i64 %1041, 0
-  %or.cond49.i.i = and i1 %1040, %1042
-  br i1 %or.cond49.i.i, label %1043, label %1047
+1036:                                             ; preds = %1033
+  %1037 = and i32 %1022, 15
+  %1038 = icmp eq i32 %1037, 2
+  %1039 = and i64 %1023, 18432
+  %1040 = icmp eq i64 %1039, 0
+  %or.cond49.i.i = and i1 %1038, %1040
+  br i1 %or.cond49.i.i, label %1041, label %1045
 
-1043:                                             ; preds = %1038
-  %1044 = getelementptr inbounds i8, ptr %1022, i64 448
-  %1045 = load i16, ptr %1044, align 8
-  %1046 = icmp eq i16 %1045, 0
-  br i1 %1046, label %.critedge.i.i, label %.thread50.i.i
+1041:                                             ; preds = %1036
+  %1042 = getelementptr inbounds i8, ptr %1020, i64 448
+  %1043 = load i16, ptr %1042, align 8
+  %1044 = icmp eq i16 %1043, 0
+  br i1 %1044, label %.critedge.i.i, label %.thread50.i.i
 
-1047:                                             ; preds = %1038
-  switch i32 %1039, label %.thread50.i.i [
-    i32 6, label %1048
+1045:                                             ; preds = %1036
+  switch i32 %1037, label %.thread50.i.i [
+    i32 6, label %1046
     i32 1, label %.critedge.i.i
   ]
 
-1048:                                             ; preds = %1047
-  %1049 = getelementptr inbounds i8, ptr %1022, i64 224
-  %1050 = load i64, ptr %1049, align 8
-  %1051 = icmp eq i64 %1050, 0
-  br i1 %1051, label %.critedge.i.i, label %.thread50.i.i
+1046:                                             ; preds = %1045
+  %1047 = getelementptr inbounds i8, ptr %1020, i64 224
+  %1048 = load i64, ptr %1047, align 8
+  %1049 = icmp eq i64 %1048, 0
+  br i1 %1049, label %.critedge.i.i, label %.thread50.i.i
 
-.thread50.i.i:                                    ; preds = %1048, %1047, %1043
+.thread50.i.i:                                    ; preds = %1046, %1045, %1041
   store i8 1, ptr @want_nodes_reboot, align 1
-  br label %1089
+  br label %1087
 
-.critedge.i.i:                                    ; preds = %1048, %1047, %1043
-  %1052 = icmp eq ptr %.04152.i.i, null
-  br i1 %1052, label %1053, label %.critedge._crit_edge.i.i
+.critedge.i.i:                                    ; preds = %1046, %1045, %1041
+  %1050 = icmp eq ptr %.04152.i.i, null
+  br i1 %1050, label %1051, label %.critedge._crit_edge.i.i
 
 .critedge._crit_edge.i.i:                         ; preds = %.critedge.i.i
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.04152.i.i, i64 32
   %.pre.i.i = load i16, ptr %.phi.trans.insert.i.i, align 8
-  br label %1060
+  br label %1058
 
-1053:                                             ; preds = %.critedge.i.i
-  %1054 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.53, i32 noundef 1921, ptr noundef nonnull @__func__._queue_reboot_msg) #19
-  %1055 = getelementptr inbounds i8, ptr %1054, i64 36
-  store i32 1015, ptr %1055, align 4
-  %1056 = getelementptr inbounds i8, ptr %1054, i64 4
-  store i16 0, ptr %1056, align 4
-  %1057 = call ptr @hostlist_create(ptr noundef null) #19
-  %1058 = getelementptr inbounds i8, ptr %1054, i64 24
-  store ptr %1057, ptr %1058, align 8
-  %1059 = getelementptr inbounds i8, ptr %1054, i64 32
-  store i16 10496, ptr %1059, align 8
-  br label %1060
+1051:                                             ; preds = %.critedge.i.i
+  %1052 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.53, i32 noundef 1921, ptr noundef nonnull @__func__._queue_reboot_msg) #19
+  %1053 = getelementptr inbounds i8, ptr %1052, i64 36
+  store i32 1015, ptr %1053, align 4
+  %1054 = getelementptr inbounds i8, ptr %1052, i64 4
+  store i16 0, ptr %1054, align 4
+  %1055 = call ptr @hostlist_create(ptr noundef null) #19
+  %1056 = getelementptr inbounds i8, ptr %1052, i64 24
+  store ptr %1055, ptr %1056, align 8
+  %1057 = getelementptr inbounds i8, ptr %1052, i64 32
+  store i16 10496, ptr %1057, align 8
+  br label %1058
 
-1060:                                             ; preds = %1053, %.critedge._crit_edge.i.i
-  %1061 = phi i16 [ 10496, %1053 ], [ %.pre.i.i, %.critedge._crit_edge.i.i ]
-  %.1.i.i = phi ptr [ %1054, %1053 ], [ %.04152.i.i, %.critedge._crit_edge.i.i ]
-  %1062 = getelementptr inbounds i8, ptr %1022, i64 352
-  %1063 = load i16, ptr %1062, align 8
-  %1064 = icmp ugt i16 %1061, %1063
-  br i1 %1064, label %1065, label %1067
+1058:                                             ; preds = %1051, %.critedge._crit_edge.i.i
+  %1059 = phi i16 [ 10496, %1051 ], [ %.pre.i.i, %.critedge._crit_edge.i.i ]
+  %.1.i.i = phi ptr [ %1052, %1051 ], [ %.04152.i.i, %.critedge._crit_edge.i.i ]
+  %1060 = getelementptr inbounds i8, ptr %1020, i64 352
+  %1061 = load i16, ptr %1060, align 8
+  %1062 = icmp ugt i16 %1059, %1061
+  br i1 %1062, label %1063, label %1065
 
-1065:                                             ; preds = %1060
-  %1066 = getelementptr inbounds i8, ptr %.1.i.i, i64 32
-  store i16 %1063, ptr %1066, align 8
-  br label %1067
+1063:                                             ; preds = %1058
+  %1064 = getelementptr inbounds i8, ptr %.1.i.i, i64 32
+  store i16 %1061, ptr %1064, align 8
+  br label %1065
 
-1067:                                             ; preds = %1065, %1060
-  %1068 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
+1065:                                             ; preds = %1063, %1058
+  %1066 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
+  %1067 = load ptr, ptr %1066, align 8
+  %1068 = getelementptr inbounds i8, ptr %1020, i64 256
   %1069 = load ptr, ptr %1068, align 8
-  %1070 = getelementptr inbounds i8, ptr %1022, i64 256
-  %1071 = load ptr, ptr %1070, align 8
-  %1072 = call i32 @hostlist_push_host(ptr noundef %1069, ptr noundef %1071) #19
-  %1073 = load i32, ptr %.1.i.i, align 8
-  %1074 = add i32 %1073, 1
-  store i32 %1074, ptr %.1.i.i, align 8
-  %1075 = load i32, ptr %1023, align 8
-  %1076 = and i32 %1075, -1114128
-  %1077 = or disjoint i32 %1076, 1048577
-  store i32 %1077, ptr %1023, align 8
-  %1078 = load ptr, ptr @avail_node_bitmap, align 8
-  %1079 = getelementptr inbounds i8, ptr %1022, i64 192
-  %1080 = load i32, ptr %1079, align 8
-  %1081 = zext i32 %1080 to i64
-  call void @bit_clear(ptr noundef %1078, i64 noundef %1081) #19
-  %1082 = load ptr, ptr @idle_node_bitmap, align 8
-  %1083 = load i32, ptr %1079, align 8
-  %1084 = zext i32 %1083 to i64
-  call void @bit_clear(ptr noundef %1082, i64 noundef %1084) #19
-  %1085 = getelementptr inbounds i8, ptr %1022, i64 24
-  store i64 %1020, ptr %1085, align 8
-  call void @set_node_reason(ptr noundef nonnull %1022, ptr noundef nonnull @.str.146, i64 noundef %1020) #19
-  %1086 = load ptr, ptr @acct_db_conn, align 8
-  %1087 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
-  %1088 = call i32 @clusteracct_storage_g_node_down(ptr noundef %1086, ptr noundef nonnull %1022, i64 noundef %1020, ptr noundef null, i32 noundef %1087) #19
-  br label %1089
+  %1070 = call i32 @hostlist_push_host(ptr noundef %1067, ptr noundef %1069) #19
+  %1071 = load i32, ptr %.1.i.i, align 8
+  %1072 = add i32 %1071, 1
+  store i32 %1072, ptr %.1.i.i, align 8
+  %1073 = load i32, ptr %1021, align 8
+  %1074 = and i32 %1073, -1114128
+  %1075 = or disjoint i32 %1074, 1048577
+  store i32 %1075, ptr %1021, align 8
+  %1076 = load ptr, ptr @avail_node_bitmap, align 8
+  %1077 = getelementptr inbounds i8, ptr %1020, i64 192
+  %1078 = load i32, ptr %1077, align 8
+  %1079 = zext i32 %1078 to i64
+  call void @bit_clear(ptr noundef %1076, i64 noundef %1079) #19
+  %1080 = load ptr, ptr @idle_node_bitmap, align 8
+  %1081 = load i32, ptr %1077, align 8
+  %1082 = zext i32 %1081 to i64
+  call void @bit_clear(ptr noundef %1080, i64 noundef %1082) #19
+  %1083 = getelementptr inbounds i8, ptr %1020, i64 24
+  store i64 %1018, ptr %1083, align 8
+  call void @set_node_reason(ptr noundef nonnull %1020, ptr noundef nonnull @.str.146, i64 noundef %1018) #19
+  %1084 = load ptr, ptr @acct_db_conn, align 8
+  %1085 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %1086 = call i32 @clusteracct_storage_g_node_down(ptr noundef %1084, ptr noundef nonnull %1020, i64 noundef %1018, ptr noundef null, i32 noundef %1085) #19
+  br label %1087
 
-1089:                                             ; preds = %1067, %.thread50.i.i, %1037, %1032, %1029, %.lr.ph.i138.i
-  %.2.i.i = phi ptr [ %.04152.i.i, %1032 ], [ %.04152.i.i, %1029 ], [ %.04152.i.i, %1037 ], [ %.1.i.i, %1067 ], [ %.04152.i.i, %.thread50.i.i ], [ %.04152.i.i, %.lr.ph.i138.i ]
-  %1090 = load i32, ptr %11, align 4
-  %1091 = add nsw i32 %1090, 1
-  store i32 %1091, ptr %11, align 4
-  %1092 = call ptr @next_node(ptr noundef nonnull %11) #19
-  %.not.i139.i = icmp eq ptr %1092, null
-  br i1 %.not.i139.i, label %._crit_edge.i140.i, label %.lr.ph.i138.i, !llvm.loop !16
+1087:                                             ; preds = %1065, %.thread50.i.i, %1035, %1030, %1027, %.lr.ph.i136.i
+  %.2.i.i = phi ptr [ %.04152.i.i, %1030 ], [ %.04152.i.i, %1027 ], [ %.04152.i.i, %1035 ], [ %.1.i.i, %1065 ], [ %.04152.i.i, %.thread50.i.i ], [ %.04152.i.i, %.lr.ph.i136.i ]
+  %1088 = load i32, ptr %11, align 4
+  %1089 = add nsw i32 %1088, 1
+  store i32 %1089, ptr %11, align 4
+  %1090 = call ptr @next_node(ptr noundef nonnull %11) #19
+  %.not.i137.i = icmp eq ptr %1090, null
+  br i1 %.not.i137.i, label %._crit_edge.i138.i, label %.lr.ph.i136.i, !llvm.loop !16
 
-._crit_edge.i140.i:                               ; preds = %1089
+._crit_edge.i138.i:                               ; preds = %1087
   %.not43.i.i = icmp eq ptr %.2.i.i, null
-  br i1 %.not43.i.i, label %_queue_reboot_msg.exit.i, label %1093
+  br i1 %.not43.i.i, label %_queue_reboot_msg.exit.i, label %1091
 
-1093:                                             ; preds = %._crit_edge.i140.i
-  %1094 = getelementptr inbounds i8, ptr %.2.i.i, i64 24
-  %1095 = load ptr, ptr %1094, align 8
-  call void @hostlist_uniq(ptr noundef %1095) #19
-  %1096 = load ptr, ptr %1094, align 8
-  %1097 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %1096) #19
-  store ptr %1097, ptr %10, align 8
-  %1098 = call i32 @get_log_level() #19
-  %1099 = icmp sgt i32 %1098, 4
-  br i1 %1099, label %1100, label %1101
+1091:                                             ; preds = %._crit_edge.i138.i
+  %1092 = getelementptr inbounds i8, ptr %.2.i.i, i64 24
+  %1093 = load ptr, ptr %1092, align 8
+  call void @hostlist_uniq(ptr noundef %1093) #19
+  %1094 = load ptr, ptr %1092, align 8
+  %1095 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %1094) #19
+  store ptr %1095, ptr %10, align 8
+  %1096 = call i32 @get_log_level() #19
+  %1097 = icmp sgt i32 %1096, 4
+  br i1 %1097, label %1098, label %1099
 
-1100:                                             ; preds = %1093
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.147, ptr noundef %1097) #19
-  br label %1101
+1098:                                             ; preds = %1091
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.147, ptr noundef %1095) #19
+  br label %1099
 
-1101:                                             ; preds = %1100, %1093
+1099:                                             ; preds = %1098, %1091
   call void @slurm_xfree(ptr noundef nonnull %10) #19
   call void @set_agent_arg_r_uid(ptr noundef nonnull %.2.i.i, i32 noundef -1) #19
   call void @agent_queue_request(ptr noundef nonnull %.2.i.i) #19
-  store i64 %1020, ptr @last_node_update, align 8
+  store i64 %1018, ptr @last_node_update, align 8
   call void @schedule_node_save() #19
   br label %_queue_reboot_msg.exit.i
 
-_queue_reboot_msg.exit.i:                         ; preds = %1101, %._crit_edge.i140.i, %1019
+_queue_reboot_msg.exit.i:                         ; preds = %1099, %._crit_edge.i138.i, %1017
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #19
-  br label %1102
+  br label %1100
 
-1102:                                             ; preds = %_queue_reboot_msg.exit.i, %1016
+1100:                                             ; preds = %_queue_reboot_msg.exit.i, %1014
   call void @agent_trigger(i32 noundef 60, i1 noundef zeroext true, i1 noundef zeroext true) #19
-  %1103 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 55), align 8
-  %.not125.i = icmp eq i16 %1103, 0
-  br i1 %.not125.i, label %1115, label %1104
+  %1101 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 55), align 8
+  %.not123.i = icmp eq i16 %1101, 0
+  br i1 %.not123.i, label %1113, label %1102
 
-1104:                                             ; preds = %1102
-  %1105 = load i64, ptr @_slurmctld_background.last_group_time, align 8
-  %1106 = call double @difftime(i64 noundef %.8.i, i64 noundef %1105) #20
-  %1107 = uitofp i16 %1103 to double
-  %1108 = fcmp ult double %1106, %1107
-  br i1 %1108, label %1115, label %1109
+1102:                                             ; preds = %1100
+  %1103 = load i64, ptr @_slurmctld_background.last_group_time, align 8
+  %1104 = call double @difftime(i64 noundef %.8.i, i64 noundef %1103) #20
+  %1105 = uitofp i16 %1101 to double
+  %1106 = fcmp ult double %1104, %1105
+  br i1 %1106, label %1113, label %1107
 
-1109:                                             ; preds = %1104
+1107:                                             ; preds = %1102
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._remove_qos.part_write_lock) #19
-  %1110 = call i64 @time(ptr noundef null) #19
-  store i64 %1110, ptr @_slurmctld_background.last_group_time, align 8
+  %1108 = call i64 @time(ptr noundef null) #19
+  store i64 %1108, ptr @_slurmctld_background.last_group_time, align 8
+  %1109 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 56), align 2
+  %1110 = icmp ne i16 %1109, 0
+  call void @load_part_uid_allow_list(i1 noundef zeroext %1110) #19
   %1111 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 56), align 2
-  %1112 = icmp ne i16 %1111, 0
-  call void @load_part_uid_allow_list(i1 noundef zeroext %1112) #19
-  %1113 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 56), align 2
-  %1114 = zext i16 %1113 to i32
-  call void @reservation_update_groups(i32 noundef %1114) #19
+  %1112 = zext i16 %1111 to i32
+  call void @reservation_update_groups(i32 noundef %1112) #19
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._remove_qos.part_write_lock) #19
   call void @group_cache_cleanup() #19
-  br label %1115
+  br label %1113
 
-1115:                                             ; preds = %1109, %1104, %1102
-  %.9.i = phi i64 [ %1110, %1109 ], [ %.8.i, %1104 ], [ %.8.i, %1102 ]
-  %1116 = load i64, ptr @_slurmctld_background.last_purge_job_time, align 8
-  %1117 = call double @difftime(i64 noundef %.9.i, i64 noundef %1116) #20
-  %1118 = sitofp i32 %.089.i to double
-  %1119 = fcmp ult double %1117, %1118
-  br i1 %1119, label %1136, label %1120
+1113:                                             ; preds = %1107, %1102, %1100
+  %.9.i = phi i64 [ %1108, %1107 ], [ %.8.i, %1102 ], [ %.8.i, %1100 ]
+  %1114 = load i64, ptr @_slurmctld_background.last_purge_job_time, align 8
+  %1115 = call double @difftime(i64 noundef %.9.i, i64 noundef %1114) #20
+  %1116 = sitofp i32 %.089.i to double
+  %1117 = fcmp ult double %1115, %1116
+  br i1 %1117, label %1134, label %1118
 
-1120:                                             ; preds = %1115
-  %1121 = call i32 @pthread_mutex_lock(ptr noundef nonnull @check_bf_running_lock) #19
-  %.not126.i = icmp eq i32 %1121, 0
-  br i1 %.not126.i, label %1124, label %1122
+1118:                                             ; preds = %1113
+  %1119 = call i32 @pthread_mutex_lock(ptr noundef nonnull @check_bf_running_lock) #19
+  %.not124.i = icmp eq i32 %1119, 0
+  br i1 %.not124.i, label %1122, label %1120
 
-1122:                                             ; preds = %1120
-  %1123 = tail call ptr @__errno_location() #20
-  store i32 %1121, ptr %1123, align 4
+1120:                                             ; preds = %1118
+  %1121 = tail call ptr @__errno_location() #20
+  store i32 %1119, ptr %1121, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 2253, ptr noundef nonnull @__func__._slurmctld_background) #21
   unreachable
 
-1124:                                             ; preds = %1120
-  %1125 = load i32, ptr getelementptr inbounds (%struct.diag_stats, ptr @slurmctld_diag_stats, i64 0, i32 20), align 4
-  %.not127.i = icmp eq i32 %1125, 0
-  br i1 %.not127.i, label %1126, label %1132
+1122:                                             ; preds = %1118
+  %1123 = load i32, ptr getelementptr inbounds (%struct.diag_stats, ptr @slurmctld_diag_stats, i64 0, i32 20), align 4
+  %.not125.i = icmp eq i32 %1123, 0
+  br i1 %.not125.i, label %1124, label %1130
 
-1126:                                             ; preds = %1124
+1124:                                             ; preds = %1122
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.purge_job_locks) #19
-  %1127 = call i64 @time(ptr noundef null) #19
-  store i64 %1127, ptr @_slurmctld_background.last_purge_job_time, align 8
-  %1128 = call i32 @get_log_level() #19
-  %1129 = icmp sgt i32 %1128, 5
-  br i1 %1129, label %1130, label %1131
+  %1125 = call i64 @time(ptr noundef null) #19
+  store i64 %1125, ptr @_slurmctld_background.last_purge_job_time, align 8
+  %1126 = call i32 @get_log_level() #19
+  %1127 = icmp sgt i32 %1126, 5
+  br i1 %1127, label %1128, label %1129
 
-1130:                                             ; preds = %1126
+1128:                                             ; preds = %1124
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.141) #19
-  br label %1131
+  br label %1129
 
-1131:                                             ; preds = %1130, %1126
+1129:                                             ; preds = %1128, %1124
   call void @purge_old_job() #19
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.purge_job_locks) #19
-  br label %1132
+  br label %1130
 
-1132:                                             ; preds = %1131, %1124
-  %.10.i = phi i64 [ %.9.i, %1124 ], [ %1127, %1131 ]
-  %1133 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @check_bf_running_lock) #19
-  %.not128.i = icmp eq i32 %1133, 0
-  br i1 %.not128.i, label %1136, label %1134
+1130:                                             ; preds = %1129, %1122
+  %.10.i = phi i64 [ %.9.i, %1122 ], [ %1125, %1129 ]
+  %1131 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @check_bf_running_lock) #19
+  %.not126.i = icmp eq i32 %1131, 0
+  br i1 %.not126.i, label %1134, label %1132
 
-1134:                                             ; preds = %1132
-  %1135 = tail call ptr @__errno_location() #20
-  store i32 %1133, ptr %1135, align 4
+1132:                                             ; preds = %1130
+  %1133 = tail call ptr @__errno_location() #20
+  store i32 %1131, ptr %1133, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, i32 noundef 2262, ptr noundef nonnull @__func__._slurmctld_background) #21
   unreachable
 
-1136:                                             ; preds = %1132, %1115
-  %.11.i = phi i64 [ %.10.i, %1132 ], [ %.9.i, %1115 ]
-  %1137 = load i64, ptr @_slurmctld_background.last_full_sched_time, align 8
-  %1138 = call double @difftime(i64 noundef %.11.i, i64 noundef %1137) #20
-  %1139 = load i32, ptr @sched_interval, align 4
-  %1140 = sitofp i32 %1139 to double
-  %1141 = fcmp oge double %1138, %1140
-  %1142 = call i32 @pthread_mutex_lock(ptr noundef nonnull @sched_cnt_mutex) #19
-  %.not132.i = icmp eq i32 %1142, 0
-  br i1 %1141, label %1143, label %1150
+1134:                                             ; preds = %1130, %1113
+  %.11.i = phi i64 [ %.10.i, %1130 ], [ %.9.i, %1113 ]
+  %1135 = load i64, ptr @_slurmctld_background.last_full_sched_time, align 8
+  %1136 = call double @difftime(i64 noundef %.11.i, i64 noundef %1135) #20
+  %1137 = load i32, ptr @sched_interval, align 4
+  %1138 = sitofp i32 %1137 to double
+  %1139 = fcmp oge double %1136, %1138
+  %1140 = call i32 @pthread_mutex_lock(ptr noundef nonnull @sched_cnt_mutex) #19
+  %.not130.i = icmp eq i32 %1140, 0
+  br i1 %1139, label %1141, label %1148
 
-1143:                                             ; preds = %1136
-  br i1 %.not132.i, label %1146, label %1144
+1141:                                             ; preds = %1134
+  br i1 %.not130.i, label %1144, label %1142
 
-1144:                                             ; preds = %1143
-  %1145 = tail call ptr @__errno_location() #20
-  store i32 %1142, ptr %1145, align 4
+1142:                                             ; preds = %1141
+  %1143 = tail call ptr @__errno_location() #20
+  store i32 %1140, ptr %1143, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 2266, ptr noundef nonnull @__func__._slurmctld_background) #21
   unreachable
 
-1146:                                             ; preds = %1143
+1144:                                             ; preds = %1141
   store i32 0, ptr @job_sched_cnt, align 4
-  %1147 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @sched_cnt_mutex) #19
-  %.not133.i = icmp eq i32 %1147, 0
-  br i1 %.not133.i, label %.critedge.i, label %1148
+  %1145 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @sched_cnt_mutex) #19
+  %.not131.i = icmp eq i32 %1145, 0
+  br i1 %.not131.i, label %.critedge.i, label %1146
 
-1148:                                             ; preds = %1146
-  %1149 = tail call ptr @__errno_location() #20
-  store i32 %1147, ptr %1149, align 4
+1146:                                             ; preds = %1144
+  %1147 = tail call ptr @__errno_location() #20
+  store i32 %1145, ptr %1147, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, i32 noundef 2270, ptr noundef nonnull @__func__._slurmctld_background) #21
   unreachable
 
-.critedge.i:                                      ; preds = %1146
+.critedge.i:                                      ; preds = %1144
   store i64 %.11.i, ptr @_slurmctld_background.last_full_sched_time, align 8
   br label %.thread4.i
 
-1150:                                             ; preds = %1136
-  br i1 %.not132.i, label %1153, label %1151
+1148:                                             ; preds = %1134
+  br i1 %.not130.i, label %1151, label %1149
 
-1151:                                             ; preds = %1150
-  %1152 = tail call ptr @__errno_location() #20
-  store i32 %1142, ptr %1152, align 4
+1149:                                             ; preds = %1148
+  %1150 = tail call ptr @__errno_location() #20
+  store i32 %1140, ptr %1150, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 2273, ptr noundef nonnull @__func__._slurmctld_background) #21
   unreachable
 
-1153:                                             ; preds = %1150
-  %1154 = load i32, ptr @job_sched_cnt, align 4
-  %.not130.i = icmp eq i32 %1154, 0
-  br i1 %.not130.i, label %1161, label %1155
+1151:                                             ; preds = %1148
+  %1152 = load i32, ptr @job_sched_cnt, align 4
+  %.not128.i = icmp eq i32 %1152, 0
+  br i1 %.not128.i, label %1159, label %1153
 
-1155:                                             ; preds = %1153
-  %1156 = load i64, ptr @_slurmctld_background.last_sched_time, align 8
-  %1157 = call double @difftime(i64 noundef %.11.i, i64 noundef %1156) #20
-  %1158 = load i32, ptr @batch_sched_delay, align 4
-  %1159 = sitofp i32 %1158 to double
-  %1160 = fcmp ult double %1157, %1159
-  br i1 %1160, label %1161, label %.thread.i326
+1153:                                             ; preds = %1151
+  %1154 = load i64, ptr @_slurmctld_background.last_sched_time, align 8
+  %1155 = call double @difftime(i64 noundef %.11.i, i64 noundef %1154) #20
+  %1156 = load i32, ptr @batch_sched_delay, align 4
+  %1157 = sitofp i32 %1156 to double
+  %1158 = fcmp ult double %1155, %1157
+  br i1 %1158, label %1159, label %.thread.i315
 
-1161:                                             ; preds = %1155, %1153
-  %1162 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @sched_cnt_mutex) #19
-  %.not131.i = icmp eq i32 %1162, 0
-  br i1 %.not131.i, label %1169, label %1164
+1159:                                             ; preds = %1153, %1151
+  %1160 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @sched_cnt_mutex) #19
+  %.not129.i = icmp eq i32 %1160, 0
+  br i1 %.not129.i, label %1167, label %1162
 
-.thread.i326:                                     ; preds = %1155
+.thread.i315:                                     ; preds = %1153
   store i32 0, ptr @job_sched_cnt, align 4
-  %1163 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @sched_cnt_mutex) #19
-  %.not1312.i = icmp eq i32 %1163, 0
-  br i1 %.not1312.i, label %.thread4.i, label %1164
+  %1161 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @sched_cnt_mutex) #19
+  %.not1292.i = icmp eq i32 %1161, 0
+  br i1 %.not1292.i, label %.thread4.i, label %1162
 
-1164:                                             ; preds = %.thread.i326, %1161
-  %1165 = phi i32 [ %1163, %.thread.i326 ], [ %1162, %1161 ]
-  %1166 = tail call ptr @__errno_location() #20
-  store i32 %1165, ptr %1166, align 4
+1162:                                             ; preds = %.thread.i315, %1159
+  %1163 = phi i32 [ %1161, %.thread.i315 ], [ %1160, %1159 ]
+  %1164 = tail call ptr @__errno_location() #20
+  store i32 %1163, ptr %1164, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, i32 noundef 2280, ptr noundef nonnull @__func__._slurmctld_background) #21
   unreachable
 
-.thread4.i:                                       ; preds = %.thread.i326, %.critedge.i
+.thread4.i:                                       ; preds = %.thread.i315, %.critedge.i
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._update_cluster_tres.job_write_lock) #19
-  %1167 = call i64 @time(ptr noundef null) #19
-  store i64 %1167, ptr @_slurmctld_background.last_sched_time, align 8
-  %1168 = call i32 @bb_g_load_state(i1 noundef zeroext false) #19
+  %1165 = call i64 @time(ptr noundef null) #19
+  store i64 %1165, ptr @_slurmctld_background.last_sched_time, align 8
+  %1166 = call i32 @bb_g_load_state(i1 noundef zeroext false) #19
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._update_cluster_tres.job_write_lock) #19
-  call void @schedule(i1 noundef zeroext %1141) #19
+  call void @schedule(i1 noundef zeroext %1139) #19
   call void @set_job_elig_time() #19
-  br label %1169
+  br label %1167
 
-1169:                                             ; preds = %.thread4.i, %1161
-  %.12.i = phi i64 [ %1167, %.thread4.i ], [ %.11.i, %1161 ]
-  %1170 = load i64, ptr @_slurmctld_background.last_config_list_update_time, align 8
-  %1171 = call double @difftime(i64 noundef %.12.i, i64 noundef %1170) #20
-  %1172 = fcmp ult double %1171, 6.000000e+01
-  br i1 %1172, label %1174, label %1173
+1167:                                             ; preds = %.thread4.i, %1159
+  %.12.i = phi i64 [ %1165, %.thread4.i ], [ %.11.i, %1159 ]
+  %1168 = load i64, ptr @_slurmctld_background.last_config_list_update_time, align 8
+  %1169 = call double @difftime(i64 noundef %.12.i, i64 noundef %1168) #20
+  %1170 = fcmp ult double %1169, 6.000000e+01
+  br i1 %1170, label %1172, label %1171
 
-1173:                                             ; preds = %1169
+1171:                                             ; preds = %1167
   store i64 %.12.i, ptr @_slurmctld_background.last_config_list_update_time, align 8
   call void @consolidate_config_list(i1 noundef zeroext false, i1 noundef zeroext false) #19
-  br label %1174
+  br label %1172
 
-1174:                                             ; preds = %1173, %1169
-  %1175 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 182), align 2
-  %.not134.i = icmp eq i16 %1175, 0
-  br i1 %.not134.i, label %1183, label %1176
+1172:                                             ; preds = %1171, %1167
+  %1173 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 182), align 2
+  %.not132.i = icmp eq i16 %1173, 0
+  br i1 %.not132.i, label %1181, label %1174
 
-1176:                                             ; preds = %1174
-  %1177 = load i64, ptr @_slurmctld_background.last_ctld_bu_ping, align 8
-  %1178 = call double @difftime(i64 noundef %.12.i, i64 noundef %1177) #20
-  %1179 = uitofp i16 %1175 to double
-  %1180 = fcmp ogt double %1178, %1179
-  br i1 %1180, label %1181, label %1183
+1174:                                             ; preds = %1172
+  %1175 = load i64, ptr @_slurmctld_background.last_ctld_bu_ping, align 8
+  %1176 = call double @difftime(i64 noundef %.12.i, i64 noundef %1175) #20
+  %1177 = uitofp i16 %1173 to double
+  %1178 = fcmp ogt double %1176, %1177
+  br i1 %1178, label %1179, label %1181
 
-1181:                                             ; preds = %1176
-  %1182 = call i32 @ping_controllers(i1 noundef zeroext true) #19
+1179:                                             ; preds = %1174
+  %1180 = call i32 @ping_controllers(i1 noundef zeroext true) #19
   store i64 %.12.i, ptr @_slurmctld_background.last_ctld_bu_ping, align 8
-  br label %1183
+  br label %1181
 
-1183:                                             ; preds = %1181, %1176, %1174
-  %1184 = load i64, ptr @_slurmctld_background.last_trigger, align 8
-  %1185 = call double @difftime(i64 noundef %.12.i, i64 noundef %1184) #20
-  %1186 = fcmp ogt double %1185, 1.500000e+01
-  br i1 %1186, label %1187, label %1189
+1181:                                             ; preds = %1179, %1174, %1172
+  %1182 = load i64, ptr @_slurmctld_background.last_trigger, align 8
+  %1183 = call double @difftime(i64 noundef %.12.i, i64 noundef %1182) #20
+  %1184 = fcmp ogt double %1183, 1.500000e+01
+  br i1 %1184, label %1185, label %1187
 
-1187:                                             ; preds = %1183
+1185:                                             ; preds = %1181
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.job_node_read_lock) #19
-  %1188 = call i64 @time(ptr noundef null) #19
-  store i64 %1188, ptr @_slurmctld_background.last_trigger, align 8
+  %1186 = call i64 @time(ptr noundef null) #19
+  store i64 %1186, ptr @_slurmctld_background.last_trigger, align 8
   call void @trigger_process() #19
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.job_node_read_lock) #19
-  br label %1189
+  br label %1187
 
-1189:                                             ; preds = %1187, %1183
-  %.13.i = phi i64 [ %1188, %1187 ], [ %.12.i, %1183 ]
-  %1190 = load i64, ptr @_slurmctld_background.last_checkpoint_time, align 8
-  %1191 = call double @difftime(i64 noundef %.13.i, i64 noundef %1190) #20
-  %1192 = fcmp ult double %1191, 3.000000e+02
-  br i1 %1192, label %1204, label %1193
+1187:                                             ; preds = %1185, %1181
+  %.13.i = phi i64 [ %1186, %1185 ], [ %.12.i, %1181 ]
+  %1188 = load i64, ptr @_slurmctld_background.last_checkpoint_time, align 8
+  %1189 = call double @difftime(i64 noundef %.13.i, i64 noundef %1188) #20
+  %1190 = fcmp ult double %1189, 3.000000e+02
+  br i1 %1190, label %1202, label %1191
 
-1193:                                             ; preds = %1189
-  %1194 = call i64 @time(ptr noundef null) #19
-  store i64 %1194, ptr @_slurmctld_background.last_checkpoint_time, align 8
-  %1195 = call i32 @get_log_level() #19
-  %1196 = icmp sgt i32 %1195, 5
-  br i1 %1196, label %1197, label %1198
+1191:                                             ; preds = %1187
+  %1192 = call i64 @time(ptr noundef null) #19
+  store i64 %1192, ptr @_slurmctld_background.last_checkpoint_time, align 8
+  %1193 = call i32 @get_log_level() #19
+  %1194 = icmp sgt i32 %1193, 5
+  br i1 %1194, label %1195, label %1196
 
-1197:                                             ; preds = %1193
+1195:                                             ; preds = %1191
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.142) #19
-  br label %1198
+  br label %1196
 
-1198:                                             ; preds = %1197, %1193
+1196:                                             ; preds = %1195, %1191
   call void @schedule_front_end_save() #19
   call void @schedule_job_save() #19
   call void @schedule_node_save() #19
   call void @schedule_part_save() #19
   call void @schedule_resv_save() #19
   call void @schedule_trigger_save() #19
-  %1199 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 195), align 8
-  %1200 = call i32 @select_g_state_save(ptr noundef %1199) #19
-  %1201 = call i32 @dump_assoc_mgr_state() #19
-  %1202 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 195), align 8
-  %1203 = call i32 @fed_mgr_state_save(ptr noundef %1202) #19
-  br label %1204
+  %1197 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 195), align 8
+  %1198 = call i32 @select_g_state_save(ptr noundef %1197) #19
+  %1199 = call i32 @dump_assoc_mgr_state() #19
+  %1200 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 195), align 8
+  %1201 = call i32 @fed_mgr_state_save(ptr noundef %1200) #19
+  br label %1202
 
-1204:                                             ; preds = %1198, %1189
-  %.14.i = phi i64 [ %1194, %1198 ], [ %.13.i, %1189 ]
-  %1205 = load i64, ptr @_slurmctld_background.last_node_acct, align 8
-  %1206 = call double @difftime(i64 noundef %.14.i, i64 noundef %1205) #20
-  %1207 = fcmp ult double %1206, 3.000000e+02
-  br i1 %1207, label %1212, label %1208
+1202:                                             ; preds = %1196, %1187
+  %.14.i = phi i64 [ %1192, %1196 ], [ %.13.i, %1187 ]
+  %1203 = load i64, ptr @_slurmctld_background.last_node_acct, align 8
+  %1204 = call double @difftime(i64 noundef %.14.i, i64 noundef %1203) #20
+  %1205 = fcmp ult double %1204, 3.000000e+02
+  br i1 %1205, label %1210, label %1206
 
-1208:                                             ; preds = %1204
-  %1209 = call i64 @time(ptr noundef null) #19
-  store i64 %1209, ptr @_slurmctld_background.last_node_acct, align 8
-  %1210 = load ptr, ptr @acct_db_conn, align 8
-  %1211 = call i32 @clusteracct_storage_g_cluster_tres(ptr noundef %1210, ptr noundef null, ptr noundef null, i64 noundef 0, i16 noundef zeroext 10496) #19
-  br label %1212
+1206:                                             ; preds = %1202
+  %1207 = call i64 @time(ptr noundef null) #19
+  store i64 %1207, ptr @_slurmctld_background.last_node_acct, align 8
+  %1208 = load ptr, ptr @acct_db_conn, align 8
+  %1209 = call i32 @clusteracct_storage_g_cluster_tres(ptr noundef %1208, ptr noundef null, ptr noundef null, i64 noundef 0, i16 noundef zeroext 10496) #19
+  br label %1210
 
-1212:                                             ; preds = %1208, %1204
-  %.15.i = phi i64 [ %1209, %1208 ], [ %.14.i, %1204 ]
-  %1213 = load i32, ptr getelementptr inbounds (%struct.diag_stats, ptr @slurmctld_diag_stats, i64 0, i32 14), align 4
-  %1214 = zext i32 %1213 to i64
-  %1215 = call double @difftime(i64 noundef %.15.i, i64 noundef %1214) #20
-  %1216 = fcmp ult double %1215, 3.000000e+01
-  br i1 %1216, label %1222, label %1217
+1210:                                             ; preds = %1206, %1202
+  %.15.i = phi i64 [ %1207, %1206 ], [ %.14.i, %1202 ]
+  %1211 = load i32, ptr getelementptr inbounds (%struct.diag_stats, ptr @slurmctld_diag_stats, i64 0, i32 14), align 4
+  %1212 = zext i32 %1211 to i64
+  %1213 = call double @difftime(i64 noundef %.15.i, i64 noundef %1212) #20
+  %1214 = fcmp ult double %1213, 3.000000e+01
+  br i1 %1214, label %1220, label %1215
 
-1217:                                             ; preds = %1212
+1215:                                             ; preds = %1210
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.job_read_lock) #19
   store i32 0, ptr getelementptr inbounds (%struct.diag_stats, ptr @slurmctld_diag_stats, i64 0, i32 16), align 4
   store i32 0, ptr getelementptr inbounds (%struct.diag_stats, ptr @slurmctld_diag_stats, i64 0, i32 15), align 8
-  %1218 = call i64 @time(ptr noundef null) #19
-  %1219 = trunc i64 %1218 to i32
-  store i32 %1219, ptr getelementptr inbounds (%struct.diag_stats, ptr @slurmctld_diag_stats, i64 0, i32 14), align 4
-  %1220 = load ptr, ptr @job_list, align 8
-  %1221 = call i32 @list_for_each_ro(ptr noundef %1220, ptr noundef nonnull @_foreach_job_running, ptr noundef null) #19
+  %1216 = call i64 @time(ptr noundef null) #19
+  %1217 = trunc i64 %1216 to i32
+  store i32 %1217, ptr getelementptr inbounds (%struct.diag_stats, ptr @slurmctld_diag_stats, i64 0, i32 14), align 4
+  %1218 = load ptr, ptr @job_list, align 8
+  %1219 = call i32 @list_for_each_ro(ptr noundef %1218, ptr noundef nonnull @_foreach_job_running, ptr noundef null) #19
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.job_read_lock) #19
-  br label %1222
+  br label %1220
 
-1222:                                             ; preds = %1217, %1212
-  %1223 = load i64, ptr @last_proc_req_start, align 8
-  %1224 = icmp eq i64 %1223, 0
-  br i1 %1224, label %1225, label %1229
+1220:                                             ; preds = %1215, %1210
+  %1221 = load i64, ptr @last_proc_req_start, align 8
+  %1222 = icmp eq i64 %1221, 0
+  br i1 %1222, label %1223, label %1227
 
-1225:                                             ; preds = %1222
+1223:                                             ; preds = %1220
   store i64 %.15.i, ptr @last_proc_req_start, align 8
-  %1226 = srem i64 %.15.i, 86400
-  %1227 = add i64 %.15.i, 86400
-  %1228 = sub i64 %1227, %1226
-  store i64 %1228, ptr @next_stats_reset, align 8
-  br label %1235
+  %1224 = srem i64 %.15.i, 86400
+  %1225 = add i64 %.15.i, 86400
+  %1226 = sub i64 %1225, %1224
+  store i64 %1226, ptr @next_stats_reset, align 8
+  br label %1233
 
-1229:                                             ; preds = %1222
-  %1230 = load i64, ptr @next_stats_reset, align 8
-  %.not135.i = icmp slt i64 %.15.i, %1230
-  br i1 %.not135.i, label %1235, label %1231
+1227:                                             ; preds = %1220
+  %1228 = load i64, ptr @next_stats_reset, align 8
+  %.not133.i = icmp slt i64 %.15.i, %1228
+  br i1 %.not133.i, label %1233, label %1229
 
-1231:                                             ; preds = %1229
-  %1232 = srem i64 %.15.i, 86400
-  %1233 = add i64 %.15.i, 86400
-  %1234 = sub i64 %1233, %1232
-  store i64 %1234, ptr @next_stats_reset, align 8
+1229:                                             ; preds = %1227
+  %1230 = srem i64 %.15.i, 86400
+  %1231 = add i64 %.15.i, 86400
+  %1232 = sub i64 %1231, %1230
+  store i64 %1232, ptr @next_stats_reset, align 8
   call void @reset_stats(i32 noundef 0) #19
-  br label %1235
+  br label %1233
 
-1235:                                             ; preds = %1231, %1229, %1225
+1233:                                             ; preds = %1229, %1227, %1223
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.config_read_lock) #19
-  %1236 = load i8, ptr @slurmctld_primary, align 1
-  %1237 = and i8 %1236, 1
-  %1238 = icmp ne i8 %1237, 0
-  %1239 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 182), align 2
-  %1240 = icmp ne i16 %1239, 0
-  %or.cond6.i = select i1 %1238, i1 %1240, i1 false
-  br i1 %or.cond6.i, label %1241, label %1248
+  %1234 = load i8, ptr @slurmctld_primary, align 1
+  %1235 = trunc i8 %1234 to i1
+  %1236 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 182), align 2
+  %1237 = icmp ne i16 %1236, 0
+  %or.cond6.i = select i1 %1235, i1 %1237, i1 false
+  br i1 %or.cond6.i, label %1238, label %1245
 
-1241:                                             ; preds = %1235
-  %1242 = load i64, ptr @_slurmctld_background.last_assert_primary_time, align 8
-  %1243 = call double @difftime(i64 noundef %.15.i, i64 noundef %1242) #20
-  %1244 = uitofp i16 %1239 to double
-  %1245 = fcmp ult double %1243, %1244
-  br i1 %1245, label %1248, label %1246
+1238:                                             ; preds = %1233
+  %1239 = load i64, ptr @_slurmctld_background.last_assert_primary_time, align 8
+  %1240 = call double @difftime(i64 noundef %.15.i, i64 noundef %1239) #20
+  %1241 = uitofp i16 %1236 to double
+  %1242 = fcmp ult double %1240, %1241
+  br i1 %1242, label %1245, label %1243
 
-1246:                                             ; preds = %1241
-  %1247 = call i64 @time(ptr noundef null) #19
-  store i64 %1247, ptr @_slurmctld_background.last_assert_primary_time, align 8
+1243:                                             ; preds = %1238
+  %1244 = call i64 @time(ptr noundef null) #19
+  store i64 %1244, ptr @_slurmctld_background.last_assert_primary_time, align 8
   call fastcc void @_shutdown_backup_controller()
-  br label %1248
+  br label %1245
 
-1248:                                             ; preds = %1246, %1241, %1235
-  %.16.i = phi i64 [ %1247, %1246 ], [ %.15.i, %1241 ], [ %.15.i, %1235 ]
+1245:                                             ; preds = %1243, %1238, %1233
+  %.16.i = phi i64 [ %1244, %1243 ], [ %.15.i, %1238 ], [ %.15.i, %1233 ]
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.config_read_lock) #19
-  %1249 = load i64, ptr @_slurmctld_background.last_uid_update, align 8
-  %1250 = call double @difftime(i64 noundef %.16.i, i64 noundef %1249) #20
-  %1251 = fcmp ult double %1250, 3.600000e+03
-  br i1 %1251, label %1255, label %1252
+  %1246 = load i64, ptr @_slurmctld_background.last_uid_update, align 8
+  %1247 = call double @difftime(i64 noundef %.16.i, i64 noundef %1246) #20
+  %1248 = fcmp ult double %1247, 3.600000e+03
+  br i1 %1248, label %1252, label %1249
 
-1252:                                             ; preds = %1248
-  %1253 = call i64 @time(ptr noundef null) #19
-  store i64 %1253, ptr @_slurmctld_background.last_uid_update, align 8
-  %1254 = call i32 @assoc_mgr_set_missing_uids() #19
-  br label %1255
+1249:                                             ; preds = %1245
+  %1250 = call i64 @time(ptr noundef null) #19
+  store i64 %1250, ptr @_slurmctld_background.last_uid_update, align 8
+  %1251 = call i32 @assoc_mgr_set_missing_uids() #19
+  br label %1252
 
-1255:                                             ; preds = %1252, %1248
-  %1256 = call i32 @gettimeofday(ptr noundef nonnull %15, ptr noundef null) #19
+1252:                                             ; preds = %1249, %1245
+  %1253 = call i32 @gettimeofday(ptr noundef nonnull %15, ptr noundef null) #19
   call void @slurm_diff_tv_str(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, i32 noundef 20, ptr noundef nonnull @__func__._slurmctld_background, i64 noundef 0, ptr noundef nonnull %17) #19
-  %1257 = call i32 @pthread_mutex_lock(ptr noundef nonnull @shutdown_mutex) #19
-  %.not.i327 = icmp eq i32 %1257, 0
-  br i1 %.not.i327, label %.lr.ph.i324, label %._crit_edge.i323
+  %1254 = call i32 @pthread_mutex_lock(ptr noundef nonnull @shutdown_mutex) #19
+  %.not.i316 = icmp eq i32 %1254, 0
+  br i1 %.not.i316, label %.lr.ph.i313, label %._crit_edge.i312
 
-1258:                                             ; preds = %918, %912
-  %1259 = call i32 @get_log_level() #19
-  %1260 = icmp sgt i32 %1259, 6
-  br i1 %1260, label %1261, label %_slurmctld_background.exit
+1255:                                             ; preds = %916, %910
+  %1256 = call i32 @get_log_level() #19
+  %1257 = icmp sgt i32 %1256, 6
+  br i1 %1257, label %1258, label %_slurmctld_background.exit
 
-1261:                                             ; preds = %1258
+1258:                                             ; preds = %1255
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.143) #19
   br label %_slurmctld_background.exit
 
-_slurmctld_background.exit:                       ; preds = %1258, %1261
+_slurmctld_background.exit:                       ; preds = %1255, %1258
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
-  %1262 = call i32 @sched_g_fini() #19
+  %1259 = call i32 @sched_g_fini() #19
   call void @main_sched_fini() #19
-  %1263 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 116), align 4
-  %.not.i329 = icmp sgt i16 %1263, -1
-  br i1 %.not.i329, label %controller_fini_scheduling.exit330, label %1264
+  %1260 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 116), align 4
+  %.not.i318 = icmp sgt i16 %1260, -1
+  br i1 %.not.i318, label %controller_fini_scheduling.exit319, label %1261
 
-1264:                                             ; preds = %_slurmctld_background.exit
+1261:                                             ; preds = %_slurmctld_background.exit
   call void @gs_fini() #19
-  br label %controller_fini_scheduling.exit330
+  br label %controller_fini_scheduling.exit319
 
-controller_fini_scheduling.exit330:               ; preds = %_slurmctld_background.exit, %1264
+controller_fini_scheduling.exit319:               ; preds = %_slurmctld_background.exit, %1261
   call void @agent_fini() #19
-  %1265 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 195), align 8
-  %1266 = call i32 @switch_g_save(ptr noundef %1265) #19
-  %1267 = call i32 @priority_g_fini() #19
+  %1262 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 195), align 8
+  %1263 = call i32 @switch_g_save(ptr noundef %1262) #19
+  %1264 = call i32 @priority_g_fini() #19
   call void @shutdown_state_save() #19
-  %1268 = call i32 @pthread_mutex_lock(ptr noundef nonnull @purge_thread_lock) #19
-  %.not255 = icmp eq i32 %1268, 0
-  br i1 %.not255, label %1271, label %1269
+  %1265 = call i32 @pthread_mutex_lock(ptr noundef nonnull @purge_thread_lock) #19
+  %.not249 = icmp eq i32 %1265, 0
+  br i1 %.not249, label %1268, label %1266
 
-1269:                                             ; preds = %controller_fini_scheduling.exit330
-  %1270 = tail call ptr @__errno_location() #20
-  store i32 %1268, ptr %1270, align 4
+1266:                                             ; preds = %controller_fini_scheduling.exit319
+  %1267 = tail call ptr @__errno_location() #20
+  store i32 %1265, ptr %1267, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 722, ptr noundef nonnull @__func__.main) #21
   unreachable
 
-1271:                                             ; preds = %controller_fini_scheduling.exit330
-  %1272 = call i32 @pthread_cond_signal(ptr noundef nonnull @purge_thread_cond) #19
-  %.not256 = icmp eq i32 %1272, 0
-  br i1 %.not256, label %1276, label %1273
+1268:                                             ; preds = %controller_fini_scheduling.exit319
+  %1269 = call i32 @pthread_cond_signal(ptr noundef nonnull @purge_thread_cond) #19
+  %.not250 = icmp eq i32 %1269, 0
+  br i1 %.not250, label %1273, label %1270
 
-1273:                                             ; preds = %1271
-  %1274 = tail call ptr @__errno_location() #20
-  store i32 %1272, ptr %1274, align 4
-  %1275 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53, i32 noundef 723, ptr noundef nonnull @__func__.main) #19
-  br label %1276
+1270:                                             ; preds = %1268
+  %1271 = tail call ptr @__errno_location() #20
+  store i32 %1269, ptr %1271, align 4
+  %1272 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53, i32 noundef 723, ptr noundef nonnull @__func__.main) #19
+  br label %1273
 
-1276:                                             ; preds = %1273, %1271
-  %1277 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @purge_thread_lock) #19
-  %.not257 = icmp eq i32 %1277, 0
-  br i1 %.not257, label %1280, label %1278
+1273:                                             ; preds = %1270, %1268
+  %1274 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @purge_thread_lock) #19
+  %.not251 = icmp eq i32 %1274, 0
+  br i1 %.not251, label %1277, label %1275
 
-1278:                                             ; preds = %1276
-  %1279 = tail call ptr @__errno_location() #20
-  store i32 %1277, ptr %1279, align 4
+1275:                                             ; preds = %1273
+  %1276 = tail call ptr @__errno_location() #20
+  store i32 %1274, ptr %1276, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, i32 noundef 724, ptr noundef nonnull @__func__.main) #21
   unreachable
 
-1280:                                             ; preds = %1276
-  %1281 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 19), align 8
-  %.not258 = icmp eq i64 %1281, 0
-  br i1 %.not258, label %.thread346, label %1282
+1277:                                             ; preds = %1273
+  %1278 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 19), align 8
+  %.not252 = icmp eq i64 %1278, 0
+  br i1 %.not252, label %.thread335, label %1279
 
-1282:                                             ; preds = %1280
-  %1283 = call i32 @pthread_join(i64 noundef %1281, ptr noundef null) #19
+1279:                                             ; preds = %1277
+  %1280 = call i32 @pthread_join(i64 noundef %1278, ptr noundef null) #19
   store i64 0, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 19), align 8
-  %.not259 = icmp eq i32 %1283, 0
-  br i1 %.not259, label %.thread346, label %1284
+  %.not253 = icmp eq i32 %1280, 0
+  br i1 %.not253, label %.thread335, label %1281
 
-1284:                                             ; preds = %1282
-  %1285 = tail call ptr @__errno_location() #20
-  store i32 %1283, ptr %1285, align 4
-  %1286 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56, ptr noundef nonnull @__func__.main) #19
-  br label %.thread346
+1281:                                             ; preds = %1279
+  %1282 = tail call ptr @__errno_location() #20
+  store i32 %1280, ptr %1282, align 4
+  %1283 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56, ptr noundef nonnull @__func__.main) #19
+  br label %.thread335
 
-.thread346:                                       ; preds = %1280, %1284, %1282
-  %1287 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 18), align 8
-  %.not260 = icmp eq i64 %1287, 0
-  br i1 %.not260, label %.thread349, label %1288
+.thread335:                                       ; preds = %1277, %1281, %1279
+  %1284 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 18), align 8
+  %.not254 = icmp eq i64 %1284, 0
+  br i1 %.not254, label %.thread338, label %1285
 
-1288:                                             ; preds = %.thread346
-  %1289 = call i32 @pthread_join(i64 noundef %1287, ptr noundef null) #19
+1285:                                             ; preds = %.thread335
+  %1286 = call i32 @pthread_join(i64 noundef %1284, ptr noundef null) #19
   store i64 0, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 18), align 8
-  %.not261 = icmp eq i32 %1289, 0
-  br i1 %.not261, label %.thread349, label %1290
+  %.not255 = icmp eq i32 %1286, 0
+  br i1 %.not255, label %.thread338, label %1287
 
-1290:                                             ; preds = %1288
-  %1291 = tail call ptr @__errno_location() #20
-  store i32 %1289, ptr %1291, align 4
-  %1292 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56, ptr noundef nonnull @__func__.main) #19
-  br label %.thread349
+1287:                                             ; preds = %1285
+  %1288 = tail call ptr @__errno_location() #20
+  store i32 %1286, ptr %1288, align 4
+  %1289 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56, ptr noundef nonnull @__func__.main) #19
+  br label %.thread338
 
-.thread349:                                       ; preds = %.thread346, %1290, %1288
-  %1293 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 20), align 8
-  %.not262 = icmp eq i64 %1293, 0
-  br i1 %.not262, label %.thread352, label %1294
+.thread338:                                       ; preds = %.thread335, %1287, %1285
+  %1290 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 20), align 8
+  %.not256 = icmp eq i64 %1290, 0
+  br i1 %.not256, label %.thread341, label %1291
 
-1294:                                             ; preds = %.thread349
-  %1295 = call i32 @pthread_join(i64 noundef %1293, ptr noundef null) #19
+1291:                                             ; preds = %.thread338
+  %1292 = call i32 @pthread_join(i64 noundef %1290, ptr noundef null) #19
   store i64 0, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 20), align 8
-  %.not263 = icmp eq i32 %1295, 0
-  br i1 %.not263, label %.thread352, label %1296
+  %.not257 = icmp eq i32 %1292, 0
+  br i1 %.not257, label %.thread341, label %1293
 
-1296:                                             ; preds = %1294
-  %1297 = tail call ptr @__errno_location() #20
-  store i32 %1295, ptr %1297, align 4
-  %1298 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56, ptr noundef nonnull @__func__.main) #19
-  br label %.thread352
+1293:                                             ; preds = %1291
+  %1294 = tail call ptr @__errno_location() #20
+  store i32 %1292, ptr %1294, align 4
+  %1295 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56, ptr noundef nonnull @__func__.main) #19
+  br label %.thread341
 
-.thread352:                                       ; preds = %.thread349, %1296, %1294
-  %1299 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 17), align 8
-  %.not264 = icmp eq i64 %1299, 0
-  br i1 %.not264, label %.thread355, label %1300
+.thread341:                                       ; preds = %.thread338, %1293, %1291
+  %1296 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 17), align 8
+  %.not258 = icmp eq i64 %1296, 0
+  br i1 %.not258, label %.thread344, label %1297
 
-1300:                                             ; preds = %.thread352
-  %1301 = call i32 @pthread_join(i64 noundef %1299, ptr noundef null) #19
+1297:                                             ; preds = %.thread341
+  %1298 = call i32 @pthread_join(i64 noundef %1296, ptr noundef null) #19
   store i64 0, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 17), align 8
-  %.not265 = icmp eq i32 %1301, 0
-  br i1 %.not265, label %.thread355, label %1302
+  %.not259 = icmp eq i32 %1298, 0
+  br i1 %.not259, label %.thread344, label %1299
 
-1302:                                             ; preds = %1300
-  %1303 = tail call ptr @__errno_location() #20
-  store i32 %1301, ptr %1303, align 4
-  %1304 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56, ptr noundef nonnull @__func__.main) #19
-  br label %.thread355
+1299:                                             ; preds = %1297
+  %1300 = tail call ptr @__errno_location() #20
+  store i32 %1298, ptr %1300, align 4
+  %1301 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56, ptr noundef nonnull @__func__.main) #19
+  br label %.thread344
 
-.thread355:                                       ; preds = %.thread352, %1302, %1300
-  %1305 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 2)) #19
-  %.not266 = icmp eq i32 %1305, 0
-  br i1 %.not266, label %1308, label %1306
+.thread344:                                       ; preds = %.thread341, %1299, %1297
+  %1302 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 2)) #19
+  %.not260 = icmp eq i32 %1302, 0
+  br i1 %.not260, label %1305, label %1303
 
-1306:                                             ; preds = %.thread355
-  %1307 = tail call ptr @__errno_location() #20
-  store i32 %1305, ptr %1307, align 4
+1303:                                             ; preds = %.thread344
+  %1304 = tail call ptr @__errno_location() #20
+  store i32 %1302, ptr %1304, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 729, ptr noundef nonnull @__func__.main) #21
   unreachable
 
-1308:                                             ; preds = %.thread355
-  %1309 = call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 1)) #19
-  %.not267 = icmp eq i32 %1309, 0
-  br i1 %.not267, label %1313, label %1310
+1305:                                             ; preds = %.thread344
+  %1306 = call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 1)) #19
+  %.not261 = icmp eq i32 %1306, 0
+  br i1 %.not261, label %1310, label %1307
 
-1310:                                             ; preds = %1308
-  %1311 = tail call ptr @__errno_location() #20
-  store i32 %1309, ptr %1311, align 4
-  %1312 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.53, i32 noundef 730, ptr noundef nonnull @__func__.main) #19
-  br label %1313
+1307:                                             ; preds = %1305
+  %1308 = tail call ptr @__errno_location() #20
+  store i32 %1306, ptr %1308, align 4
+  %1309 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.53, i32 noundef 730, ptr noundef nonnull @__func__.main) #19
+  br label %1310
 
-1313:                                             ; preds = %1310, %1308
-  %1314 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 2)) #19
-  %.not268 = icmp eq i32 %1314, 0
-  br i1 %.not268, label %1317, label %1315
+1310:                                             ; preds = %1307, %1305
+  %1311 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 2)) #19
+  %.not262 = icmp eq i32 %1311, 0
+  br i1 %.not262, label %1314, label %1312
 
-1315:                                             ; preds = %1313
-  %1316 = tail call ptr @__errno_location() #20
-  store i32 %1314, ptr %1316, align 4
+1312:                                             ; preds = %1310
+  %1313 = tail call ptr @__errno_location() #20
+  store i32 %1311, ptr %1313, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, i32 noundef 731, ptr noundef nonnull @__func__.main) #21
   unreachable
 
-1317:                                             ; preds = %1313
-  %1318 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 15), align 8
-  %.not269 = icmp eq i64 %1318, 0
-  br i1 %.not269, label %.thread358, label %1319
+1314:                                             ; preds = %1310
+  %1315 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 15), align 8
+  %.not263 = icmp eq i64 %1315, 0
+  br i1 %.not263, label %.thread347, label %1316
 
-1319:                                             ; preds = %1317
-  %1320 = call i32 @pthread_join(i64 noundef %1318, ptr noundef null) #19
+1316:                                             ; preds = %1314
+  %1317 = call i32 @pthread_join(i64 noundef %1315, ptr noundef null) #19
   store i64 0, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 15), align 8
-  %.not270 = icmp eq i32 %1320, 0
-  br i1 %.not270, label %.thread358, label %1321
+  %.not264 = icmp eq i32 %1317, 0
+  br i1 %.not264, label %.thread347, label %1318
 
-1321:                                             ; preds = %1319
-  %1322 = tail call ptr @__errno_location() #20
-  store i32 %1320, ptr %1322, align 4
-  %1323 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56, ptr noundef nonnull @__func__.main) #19
-  br label %.thread358
+1318:                                             ; preds = %1316
+  %1319 = tail call ptr @__errno_location() #20
+  store i32 %1317, ptr %1319, align 4
+  %1320 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56, ptr noundef nonnull @__func__.main) #19
+  br label %.thread347
 
-.thread358:                                       ; preds = %1317, %1319, %1321
+.thread347:                                       ; preds = %1314, %1316, %1318
   call void @track_script_flush() #19
   call void @slurmscriptd_flush() #19
-  %1324 = call i32 @bb_g_fini() #19
-  %1325 = call i32 @mcs_g_fini() #19
-  %1326 = call i32 @fed_mgr_fini() #19
+  %1321 = call i32 @bb_g_fini() #19
+  %1322 = call i32 @mcs_g_fini() #19
+  %1323 = call i32 @fed_mgr_fini() #19
   call void @ctld_assoc_mgr_fini()
-  %1327 = call i32 @acct_storage_g_close_connection(ptr noundef nonnull @acct_db_conn) #19
-  %1328 = call i32 @acct_storage_g_fini() #19
+  %1324 = call i32 @acct_storage_g_close_connection(ptr noundef nonnull @acct_db_conn) #19
+  %1325 = call i32 @acct_storage_g_fini() #19
   call void @slurm_persist_conn_recv_server_fini() #19
   call void @power_save_fini() #19
-  %.b177271 = load i1, ptr @reconfig, align 1
-  br i1 %.b177271, label %1329, label %1502
+  %.b177265 = load i1, ptr @reconfig, align 1
+  br i1 %.b177265, label %1326, label %1499
 
-1329:                                             ; preds = %.thread358
-  %1330 = call i32 @get_log_level() #19
-  %1331 = icmp sgt i32 %1330, 2
-  br i1 %1331, label %1332, label %1333
+1326:                                             ; preds = %.thread347
+  %1327 = call i32 @get_log_level() #19
+  %1328 = icmp sgt i32 %1327, 2
+  br i1 %1328, label %1329, label %1330
 
-1332:                                             ; preds = %1329
+1329:                                             ; preds = %1326
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.58) #19
-  br label %1333
+  br label %1330
 
-1333:                                             ; preds = %1332, %1329
+1330:                                             ; preds = %1329, %1326
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -3651,354 +3636,354 @@ controller_fini_scheduling.exit330:               ; preds = %_slurmctld_backgrou
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i64 -1, ptr %5, align 8
   call void @conmgr_quiesce(i1 noundef zeroext true) #19
-  %1334 = call i32 @getrlimit(i32 noundef 7, ptr noundef nonnull %3) #19
-  %1335 = icmp slt i32 %1334, 0
-  br i1 %1335, label %1336, label %1338
+  %1331 = call i32 @getrlimit(i32 noundef 7, ptr noundef nonnull %3) #19
+  %1332 = icmp slt i32 %1331, 0
+  br i1 %1332, label %1333, label %1335
 
-1336:                                             ; preds = %1333
-  %1337 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.92) #19
+1333:                                             ; preds = %1330
+  %1334 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.92) #19
   store i64 4096, ptr %3, align 8
-  br label %1338
+  br label %1335
 
-1338:                                             ; preds = %1336, %1333
-  %1339 = load ptr, ptr @environ, align 8
-  %1340 = call ptr @env_array_copy(ptr noundef %1339) #19
-  store ptr %1340, ptr %4, align 8
-  %1341 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.93) #19
+1335:                                             ; preds = %1333, %1330
+  %1336 = load ptr, ptr @environ, align 8
+  %1337 = call ptr @env_array_copy(ptr noundef %1336) #19
+  store ptr %1337, ptr %4, align 8
+  %1338 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.93) #19
+  %1339 = load i32, ptr @pidfd, align 4
+  %.not.i320 = icmp eq i32 %1339, -1
+  br i1 %.not.i320, label %1343, label %1340
+
+1340:                                             ; preds = %1335
+  %1341 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.95, i32 noundef %1339) #19
   %1342 = load i32, ptr @pidfd, align 4
-  %.not.i331 = icmp eq i32 %1342, -1
-  br i1 %.not.i331, label %1346, label %1343
+  call void @fd_set_noclose_on_exec(i32 noundef %1342) #19
+  br label %1343
 
-1343:                                             ; preds = %1338
-  %1344 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.95, i32 noundef %1342) #19
-  %1345 = load i32, ptr @pidfd, align 4
-  call void @fd_set_noclose_on_exec(i32 noundef %1345) #19
-  br label %1346
+1343:                                             ; preds = %1340, %1335
+  %1344 = load i32, ptr @listen_nports, align 4
+  %.not54.i = icmp eq i32 %1344, 0
+  br i1 %.not54.i, label %.preheader2074, label %1345
 
-1346:                                             ; preds = %1343, %1338
-  %1347 = load i32, ptr @listen_nports, align 4
-  %.not54.i = icmp eq i32 %1347, 0
-  br i1 %.not54.i, label %.preheader2085, label %1348
-
-1348:                                             ; preds = %1346
+1345:                                             ; preds = %1343
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
-  %1349 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.95, i32 noundef %1347) #19
-  %1350 = load i32, ptr @listen_nports, align 4
-  %1351 = icmp sgt i32 %1350, 0
-  br i1 %1351, label %.lr.ph.i335, label %._crit_edge.i332
+  %1346 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.95, i32 noundef %1344) #19
+  %1347 = load i32, ptr @listen_nports, align 4
+  %1348 = icmp sgt i32 %1347, 0
+  br i1 %1348, label %.lr.ph.i324, label %._crit_edge.i321
 
-.lr.ph.i335:                                      ; preds = %1348, %.lr.ph.i335
-  %indvars.iv.i336 = phi i64 [ %indvars.iv.next.i337, %.lr.ph.i335 ], [ 0, %1348 ]
+.lr.ph.i324:                                      ; preds = %1345, %.lr.ph.i324
+  %indvars.iv.i325 = phi i64 [ %indvars.iv.next.i326, %.lr.ph.i324 ], [ 0, %1345 ]
+  %1349 = load ptr, ptr @listen_fds, align 8
+  %1350 = getelementptr inbounds %struct.pollfd, ptr %1349, i64 %indvars.iv.i325
+  %1351 = load i32, ptr %1350, align 4
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @.str.97, i32 noundef %1351) #19
   %1352 = load ptr, ptr @listen_fds, align 8
-  %1353 = getelementptr inbounds %struct.pollfd, ptr %1352, i64 %indvars.iv.i336
+  %1353 = getelementptr inbounds %struct.pollfd, ptr %1352, i64 %indvars.iv.i325
   %1354 = load i32, ptr %1353, align 4
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @.str.97, i32 noundef %1354) #19
-  %1355 = load ptr, ptr @listen_fds, align 8
-  %1356 = getelementptr inbounds %struct.pollfd, ptr %1355, i64 %indvars.iv.i336
-  %1357 = load i32, ptr %1356, align 4
-  call void @fd_set_noclose_on_exec(i32 noundef %1357) #19
-  %indvars.iv.next.i337 = add nuw nsw i64 %indvars.iv.i336, 1
-  %1358 = load i32, ptr @listen_nports, align 4
-  %1359 = sext i32 %1358 to i64
-  %1360 = icmp slt i64 %indvars.iv.next.i337, %1359
-  br i1 %1360, label %.lr.ph.i335, label %._crit_edge.i332, !llvm.loop !17
+  call void @fd_set_noclose_on_exec(i32 noundef %1354) #19
+  %indvars.iv.next.i326 = add nuw nsw i64 %indvars.iv.i325, 1
+  %1355 = load i32, ptr @listen_nports, align 4
+  %1356 = sext i32 %1355 to i64
+  %1357 = icmp slt i64 %indvars.iv.next.i326, %1356
+  br i1 %1357, label %.lr.ph.i324, label %._crit_edge.i321, !llvm.loop !17
 
-._crit_edge.i332:                                 ; preds = %.lr.ph.i335, %1348
-  %1361 = load ptr, ptr %6, align 8
-  %1362 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, ptr noundef %1361) #19
+._crit_edge.i321:                                 ; preds = %.lr.ph.i324, %1345
+  %1358 = load ptr, ptr %6, align 8
+  %1359 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, ptr noundef %1358) #19
   call void @slurm_xfree(ptr noundef nonnull %6) #19
-  br label %.preheader2085
+  br label %.preheader2074
 
-.preheader2085:                                   ; preds = %._crit_edge.i332, %1346
-  br label %1363
+.preheader2074:                                   ; preds = %._crit_edge.i321, %1343
+  br label %1360
 
-1363:                                             ; preds = %.preheader2085, %1363
-  %.04373.i = phi i32 [ %1364, %1363 ], [ 0, %.preheader2085 ]
+1360:                                             ; preds = %.preheader2074, %1360
+  %.04373.i = phi i32 [ %1361, %1360 ], [ 0, %.preheader2074 ]
   call void @fd_set_noclose_on_exec(i32 noundef %.04373.i) #19
-  %1364 = add nuw nsw i32 %.04373.i, 1
-  %exitcond.not.i = icmp eq i32 %1364, 3
-  br i1 %exitcond.not.i, label %1365, label %1363, !llvm.loop !18
+  %1361 = add nuw nsw i32 %.04373.i, 1
+  %exitcond.not.i = icmp eq i32 %1361, 3
+  br i1 %exitcond.not.i, label %1362, label %1360, !llvm.loop !18
 
-1365:                                             ; preds = %1363
-  %.b.i333 = load i1, ptr @daemonize, align 1
-  br i1 %.b.i333, label %1366, label %1369
+1362:                                             ; preds = %1360
+  %.b.i322 = load i1, ptr @daemonize, align 1
+  br i1 %.b.i322, label %1363, label %1366
 
-1366:                                             ; preds = %1365
+1363:                                             ; preds = %1362
   %.b5355.i = load i1, ptr @under_systemd, align 1
-  br i1 %.b5355.i, label %1369, label %1367
+  br i1 %.b5355.i, label %1366, label %1364
 
-1367:                                             ; preds = %1366
-  %1368 = call i32 @slurmscriptd_fini() #19
+1364:                                             ; preds = %1363
+  %1365 = call i32 @slurmscriptd_fini() #19
   br label %.loopexit
 
-1369:                                             ; preds = %1366, %1365
-  %1370 = call i32 @pipe(ptr noundef nonnull %5) #19
-  %1371 = icmp slt i32 %1370, 0
-  br i1 %1371, label %1372, label %1374
+1366:                                             ; preds = %1363, %1362
+  %1367 = call i32 @pipe(ptr noundef nonnull %5) #19
+  %1368 = icmp slt i32 %1367, 0
+  br i1 %1368, label %1369, label %1371
 
-1372:                                             ; preds = %1369
-  %1373 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.100, ptr noundef nonnull @__func__._try_to_reconfig) #19
+1369:                                             ; preds = %1366
+  %1370 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.100, ptr noundef nonnull @__func__._try_to_reconfig) #19
   br label %_try_to_reconfig.exit
 
-1374:                                             ; preds = %1369
-  %1375 = load i32, ptr %551, align 4
-  %1376 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.95, i32 noundef %1375) #19
-  %1377 = call i32 @fork() #19
-  %1378 = icmp slt i32 %1377, 0
-  br i1 %1378, label %1379, label %1381
+1371:                                             ; preds = %1366
+  %1372 = load i32, ptr %551, align 4
+  %1373 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.95, i32 noundef %1372) #19
+  %1374 = call i32 @fork() #19
+  %1375 = icmp slt i32 %1374, 0
+  br i1 %1375, label %1376, label %1378
 
-1379:                                             ; preds = %1374
-  %1380 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.101, ptr noundef nonnull @__func__._try_to_reconfig) #19
+1376:                                             ; preds = %1371
+  %1377 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.101, ptr noundef nonnull @__func__._try_to_reconfig) #19
   br label %_try_to_reconfig.exit
 
-1381:                                             ; preds = %1374
-  %.not56.i = icmp eq i32 %1377, 0
-  br i1 %.not56.i, label %.loopexit, label %1382
+1378:                                             ; preds = %1371
+  %.not56.i = icmp eq i32 %1374, 0
+  br i1 %.not56.i, label %.loopexit, label %1379
 
-1382:                                             ; preds = %1381
-  %1383 = load i32, ptr %551, align 4
-  %1384 = call i32 @close(i32 noundef %1383) #19
+1379:                                             ; preds = %1378
+  %1380 = load i32, ptr %551, align 4
+  %1381 = call i32 @close(i32 noundef %1380) #19
   br label %.lr.ph74.i
 
-.lr.ph74.i:                                       ; preds = %.lr.ph74.i.backedge, %1382
-  %.041.ph122.i = phi ptr [ %8, %1382 ], [ %1421, %.lr.ph74.i.backedge ]
-  %.042.ph120.i = phi i32 [ 4, %1382 ], [ %1422, %.lr.ph74.i.backedge ]
-  %1385 = zext nneg i32 %.042.ph120.i to i64
-  %1386 = icmp eq i32 %.042.ph120.i, 4
-  %1387 = load i32, ptr %5, align 8
-  %1388 = call i64 @read(i32 noundef %1387, ptr noundef %.041.ph122.i, i64 noundef %1385) #19
-  %1389 = trunc i64 %1388 to i32
-  %1390 = icmp eq i32 %1389, 0
-  br i1 %1386, label %.lr.ph74.split.split.us.i, label %.lr.ph74.split.us.split.us.i
+.lr.ph74.i:                                       ; preds = %.lr.ph74.i.backedge, %1379
+  %.041.ph122.i = phi ptr [ %8, %1379 ], [ %1418, %.lr.ph74.i.backedge ]
+  %.042.ph120.i = phi i32 [ 4, %1379 ], [ %1419, %.lr.ph74.i.backedge ]
+  %1382 = zext nneg i32 %.042.ph120.i to i64
+  %1383 = icmp eq i32 %.042.ph120.i, 4
+  %1384 = load i32, ptr %5, align 8
+  %1385 = call i64 @read(i32 noundef %1384, ptr noundef %.041.ph122.i, i64 noundef %1382) #19
+  %1386 = trunc i64 %1385 to i32
+  %1387 = icmp eq i32 %1386, 0
+  br i1 %1383, label %.lr.ph74.split.split.us.i, label %.lr.ph74.split.us.split.us.i
 
 .lr.ph74.split.us.split.us.i:                     ; preds = %.lr.ph74.i
-  br i1 %1390, label %.split.us.i, label %.lr.ph118.i.preheader
+  br i1 %1387, label %.split.us.i, label %.lr.ph118.i.preheader
 
 .lr.ph118.i.preheader:                            ; preds = %.lr.ph74.split.us.split.us.i
-  %1391 = icmp slt i32 %1389, 0
-  br i1 %1391, label %.lr.ph, label %.split77.us.i
+  %1388 = icmp slt i32 %1386, 0
+  br i1 %1388, label %.lr.ph, label %.split77.us.i
 
 .lr.ph:                                           ; preds = %.lr.ph118.i.preheader
-  %1392 = tail call ptr @__errno_location() #20
-  br label %1394
+  %1389 = tail call ptr @__errno_location() #20
+  br label %1391
 
-.lr.ph118.i:                                      ; preds = %1396
-  %1393 = icmp slt i32 %1399, 0
-  br i1 %1393, label %1394, label %.split77.us.i
+.lr.ph118.i:                                      ; preds = %1393
+  %1390 = icmp slt i32 %1396, 0
+  br i1 %1390, label %1391, label %.split77.us.i
 
-1394:                                             ; preds = %.lr.ph, %.lr.ph118.i
-  %1395 = load i32, ptr %1392, align 4
-  switch i32 %1395, label %.split81.us.i [
-    i32 11, label %1396
-    i32 4, label %1396
+1391:                                             ; preds = %.lr.ph, %.lr.ph118.i
+  %1392 = load i32, ptr %1389, align 4
+  switch i32 %1392, label %.split81.us.i [
+    i32 11, label %1393
+    i32 4, label %1393
   ]
 
-1396:                                             ; preds = %1394, %1394
-  %1397 = load i32, ptr %5, align 8
-  %1398 = call i64 @read(i32 noundef %1397, ptr noundef %.041.ph122.i, i64 noundef %1385) #19
-  %1399 = trunc i64 %1398 to i32
-  %1400 = icmp eq i32 %1399, 0
-  br i1 %1400, label %.split.us.i, label %.lr.ph118.i
+1393:                                             ; preds = %1391, %1391
+  %1394 = load i32, ptr %5, align 8
+  %1395 = call i64 @read(i32 noundef %1394, ptr noundef %.041.ph122.i, i64 noundef %1382) #19
+  %1396 = trunc i64 %1395 to i32
+  %1397 = icmp eq i32 %1396, 0
+  br i1 %1397, label %.split.us.i, label %.lr.ph118.i
 
 .lr.ph74.split.split.us.i:                        ; preds = %.lr.ph74.i
-  br i1 %1390, label %.split84.us.i, label %.lr.ph102.preheader.i.preheader
+  br i1 %1387, label %.split84.us.i, label %.lr.ph102.preheader.i.preheader
 
 .lr.ph102.preheader.i.preheader:                  ; preds = %.lr.ph74.split.split.us.i
-  %1401 = icmp slt i32 %1389, 0
-  br i1 %1401, label %.lr.ph796, label %.split77.us.i
+  %1398 = icmp slt i32 %1386, 0
+  br i1 %1398, label %.lr.ph785, label %.split77.us.i
 
-.lr.ph796:                                        ; preds = %.lr.ph102.preheader.i.preheader
-  %1402 = tail call ptr @__errno_location() #20
-  br label %1404
+.lr.ph785:                                        ; preds = %.lr.ph102.preheader.i.preheader
+  %1399 = tail call ptr @__errno_location() #20
+  br label %1401
 
-.lr.ph102.preheader.i:                            ; preds = %1406
-  %1403 = icmp slt i32 %1409, 0
-  br i1 %1403, label %1404, label %.split77.us.i
+.lr.ph102.preheader.i:                            ; preds = %1403
+  %1400 = icmp slt i32 %1406, 0
+  br i1 %1400, label %1401, label %.split77.us.i
 
-1404:                                             ; preds = %.lr.ph796, %.lr.ph102.preheader.i
-  %1405 = load i32, ptr %1402, align 4
-  switch i32 %1405, label %.split81.us.i [
-    i32 11, label %1406
-    i32 4, label %1406
+1401:                                             ; preds = %.lr.ph785, %.lr.ph102.preheader.i
+  %1402 = load i32, ptr %1399, align 4
+  switch i32 %1402, label %.split81.us.i [
+    i32 11, label %1403
+    i32 4, label %1403
   ]
 
-1406:                                             ; preds = %1404, %1404
-  %1407 = load i32, ptr %5, align 8
-  %1408 = call i64 @read(i32 noundef %1407, ptr noundef %.041.ph122.i, i64 noundef %1385) #19
-  %1409 = trunc i64 %1408 to i32
-  %1410 = icmp eq i32 %1409, 0
-  br i1 %1410, label %.split84.us.i, label %.lr.ph102.preheader.i
+1403:                                             ; preds = %1401, %1401
+  %1404 = load i32, ptr %5, align 8
+  %1405 = call i64 @read(i32 noundef %1404, ptr noundef %.041.ph122.i, i64 noundef %1382) #19
+  %1406 = trunc i64 %1405 to i32
+  %1407 = icmp eq i32 %1406, 0
+  br i1 %1407, label %.split84.us.i, label %.lr.ph102.preheader.i
 
-.split84.us.i:                                    ; preds = %.lr.ph74.split.split.us.i, %1406
+.split84.us.i:                                    ; preds = %.lr.ph74.split.split.us.i, %1403
+  %1408 = call i32 @get_log_level() #19
+  %1409 = icmp sgt i32 %1408, 4
+  br i1 %1409, label %1410, label %1431
+
+1410:                                             ; preds = %.split84.us.i
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.53, i32 noundef 1064, ptr noundef nonnull @__func__._try_to_reconfig) #19
+  br label %1431
+
+.split.us.i:                                      ; preds = %.lr.ph74.split.us.split.us.i, %1393
   %1411 = call i32 @get_log_level() #19
   %1412 = icmp sgt i32 %1411, 4
-  br i1 %1412, label %1413, label %1434
+  br i1 %1412, label %1413, label %1431
 
-1413:                                             ; preds = %.split84.us.i
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.53, i32 noundef 1064, ptr noundef nonnull @__func__._try_to_reconfig) #19
-  br label %1434
+1413:                                             ; preds = %.split.us.i
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.53, i32 noundef 1064, ptr noundef nonnull @__func__._try_to_reconfig, i32 noundef %.042.ph120.i, i32 noundef 4) #19
+  br label %1431
 
-.split.us.i:                                      ; preds = %.lr.ph74.split.us.split.us.i, %1396
+.split81.us.i:                                    ; preds = %1391, %1401
+  %.042.ph120158.i = phi i32 [ 4, %1401 ], [ %.042.ph120.i, %1391 ]
   %1414 = call i32 @get_log_level() #19
   %1415 = icmp sgt i32 %1414, 4
-  br i1 %1415, label %1416, label %1434
+  br i1 %1415, label %1416, label %1431
 
-1416:                                             ; preds = %.split.us.i
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.53, i32 noundef 1064, ptr noundef nonnull @__func__._try_to_reconfig, i32 noundef %.042.ph120.i, i32 noundef 4) #19
-  br label %1434
-
-.split81.us.i:                                    ; preds = %1394, %1404
-  %.042.ph120158.i = phi i32 [ 4, %1404 ], [ %.042.ph120.i, %1394 ]
-  %1417 = call i32 @get_log_level() #19
-  %1418 = icmp sgt i32 %1417, 4
-  br i1 %1418, label %1419, label %1434
-
-1419:                                             ; preds = %.split81.us.i
+1416:                                             ; preds = %.split81.us.i
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.53, i32 noundef 1064, ptr noundef nonnull @__func__._try_to_reconfig, i32 noundef %.042.ph120158.i, i32 noundef 4) #19
-  br label %1434
+  br label %1431
 
 .split77.us.i:                                    ; preds = %.lr.ph118.i, %.lr.ph102.preheader.i, %.lr.ph118.i.preheader, %.lr.ph102.preheader.i.preheader
-  %.us-phi78.i = phi i64 [ %1388, %.lr.ph102.preheader.i.preheader ], [ %1388, %.lr.ph118.i.preheader ], [ %1408, %.lr.ph102.preheader.i ], [ %1398, %.lr.ph118.i ]
-  %.us-phi79.i = phi i32 [ %1389, %.lr.ph102.preheader.i.preheader ], [ %1389, %.lr.ph118.i.preheader ], [ %1409, %.lr.ph102.preheader.i ], [ %1399, %.lr.ph118.i ]
-  %1420 = and i64 %.us-phi78.i, 2147483647
-  %1421 = getelementptr inbounds i8, ptr %.041.ph122.i, i64 %1420
-  %1422 = sub i32 %.042.ph120.i, %.us-phi79.i
-  %1423 = icmp sgt i32 %1422, 0
-  %1424 = call i32 @get_log_level() #19
-  br i1 %1423, label %1425, label %.outer._crit_edge.i
+  %.us-phi78.i = phi i64 [ %1385, %.lr.ph102.preheader.i.preheader ], [ %1385, %.lr.ph118.i.preheader ], [ %1405, %.lr.ph102.preheader.i ], [ %1395, %.lr.ph118.i ]
+  %.us-phi79.i = phi i32 [ %1386, %.lr.ph102.preheader.i.preheader ], [ %1386, %.lr.ph118.i.preheader ], [ %1406, %.lr.ph102.preheader.i ], [ %1396, %.lr.ph118.i ]
+  %1417 = and i64 %.us-phi78.i, 2147483647
+  %1418 = getelementptr inbounds i8, ptr %.041.ph122.i, i64 %1417
+  %1419 = sub i32 %.042.ph120.i, %.us-phi79.i
+  %1420 = icmp sgt i32 %1419, 0
+  %1421 = call i32 @get_log_level() #19
+  br i1 %1420, label %1422, label %.outer._crit_edge.i
 
-1425:                                             ; preds = %.split77.us.i
-  %1426 = icmp sgt i32 %1424, 6
-  br i1 %1426, label %1427, label %.lr.ph74.i.backedge
+1422:                                             ; preds = %.split77.us.i
+  %1423 = icmp sgt i32 %1421, 6
+  br i1 %1423, label %1424, label %.lr.ph74.i.backedge
 
-1427:                                             ; preds = %1425
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.53, i32 noundef 1064, ptr noundef nonnull @__func__._try_to_reconfig, i32 noundef %1422, i32 noundef 4) #19
+1424:                                             ; preds = %1422
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.53, i32 noundef 1064, ptr noundef nonnull @__func__._try_to_reconfig, i32 noundef %1419, i32 noundef 4) #19
   br label %.lr.ph74.i.backedge
 
-.lr.ph74.i.backedge:                              ; preds = %1427, %1425
+.lr.ph74.i.backedge:                              ; preds = %1424, %1422
   br label %.lr.ph74.i, !llvm.loop !19
 
 .outer._crit_edge.i:                              ; preds = %.split77.us.i
-  %1428 = icmp sgt i32 %1424, 2
-  br i1 %1428, label %1429, label %1430
+  %1425 = icmp sgt i32 %1421, 2
+  br i1 %1425, label %1426, label %1427
 
-1429:                                             ; preds = %.outer._crit_edge.i
+1426:                                             ; preds = %.outer._crit_edge.i
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.106) #19
-  br label %1430
+  br label %1427
 
-1430:                                             ; preds = %1429, %.outer._crit_edge.i
+1427:                                             ; preds = %1426, %.outer._crit_edge.i
   %.b5259.i = load i1, ptr @under_systemd, align 1
-  br i1 %.b5259.i, label %1431, label %_try_to_reconfig.exit
+  br i1 %.b5259.i, label %1428, label %_try_to_reconfig.exit
 
-1431:                                             ; preds = %1430
-  %1432 = call i32 @waitpid(i32 noundef %1377, ptr noundef nonnull %9, i32 noundef 0) #19
-  %1433 = load i32, ptr %8, align 4
-  call void @xsystemd_change_mainpid(i32 noundef %1433) #19
+1428:                                             ; preds = %1427
+  %1429 = call i32 @waitpid(i32 noundef %1374, ptr noundef nonnull %9, i32 noundef 0) #19
+  %1430 = load i32, ptr %8, align 4
+  call void @xsystemd_change_mainpid(i32 noundef %1430) #19
   br label %_try_to_reconfig.exit
 
-1434:                                             ; preds = %1419, %.split81.us.i, %1416, %.split.us.i, %1413, %.split84.us.i
-  %1435 = load i32, ptr %5, align 8
-  %1436 = call i32 @close(i32 noundef %1435) #19
-  %1437 = load ptr, ptr %4, align 8
-  call void @env_array_free(ptr noundef %1437) #19
-  %1438 = call i32 @waitpid(i32 noundef %1377, ptr noundef nonnull %9, i32 noundef 0) #19
-  %1439 = call i32 @get_log_level() #19
-  %1440 = icmp sgt i32 %1439, 2
-  br i1 %1440, label %1441, label %_try_to_reconfig.exit
+1431:                                             ; preds = %1416, %.split81.us.i, %1413, %.split.us.i, %1410, %.split84.us.i
+  %1432 = load i32, ptr %5, align 8
+  %1433 = call i32 @close(i32 noundef %1432) #19
+  %1434 = load ptr, ptr %4, align 8
+  call void @env_array_free(ptr noundef %1434) #19
+  %1435 = call i32 @waitpid(i32 noundef %1374, ptr noundef nonnull %9, i32 noundef 0) #19
+  %1436 = call i32 @get_log_level() #19
+  %1437 = icmp sgt i32 %1436, 2
+  br i1 %1437, label %1438, label %_try_to_reconfig.exit
 
-1441:                                             ; preds = %1434
+1438:                                             ; preds = %1431
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.107) #19
   br label %_try_to_reconfig.exit
 
-.loopexit:                                        ; preds = %1381, %1367
-  %1442 = load i64, ptr %3, align 8
-  %1443 = icmp ugt i64 %1442, 3
-  br i1 %1443, label %.lr.ph128.i, label %._crit_edge129.i
+.loopexit:                                        ; preds = %1378, %1364
+  %1439 = load i64, ptr %3, align 8
+  %1440 = icmp ugt i64 %1439, 3
+  br i1 %1440, label %.lr.ph128.i, label %._crit_edge129.i
 
 .lr.ph128.i:                                      ; preds = %.loopexit
   %.pre167.i = load i32, ptr @pidfd, align 4
-  br label %1444
+  br label %1441
 
-1444:                                             ; preds = %.loopexit.i, %.lr.ph128.i
-  %1445 = phi i64 [ %1442, %.lr.ph128.i ], [ %1463, %.loopexit.i ]
-  %1446 = phi i32 [ %.pre167.i, %.lr.ph128.i ], [ %1464, %.loopexit.i ]
+1441:                                             ; preds = %.loopexit.i, %.lr.ph128.i
+  %1442 = phi i64 [ %1439, %.lr.ph128.i ], [ %1460, %.loopexit.i ]
+  %1443 = phi i32 [ %.pre167.i, %.lr.ph128.i ], [ %1461, %.loopexit.i ]
   %indvars.iv164.i = phi i64 [ 3, %.lr.ph128.i ], [ %indvars.iv.next165.i, %.loopexit.i ]
-  %1447 = load i32, ptr %551, align 4
-  %1448 = zext i32 %1447 to i64
-  %1449 = icmp eq i64 %indvars.iv164.i, %1448
-  %1450 = zext i32 %1446 to i64
-  %1451 = icmp eq i64 %indvars.iv164.i, %1450
-  %or.cond61.i = select i1 %1449, i1 true, i1 %1451
+  %1444 = load i32, ptr %551, align 4
+  %1445 = zext i32 %1444 to i64
+  %1446 = icmp eq i64 %indvars.iv164.i, %1445
+  %1447 = zext i32 %1443 to i64
+  %1448 = icmp eq i64 %indvars.iv164.i, %1447
+  %or.cond61.i = select i1 %1446, i1 true, i1 %1448
   br i1 %or.cond61.i, label %.loopexit.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %1444
-  %1452 = load i32, ptr @listen_nports, align 4
-  %1453 = icmp sgt i32 %1452, 0
-  br i1 %1453, label %.lr.ph125.i, label %.critedge.i334
+.preheader.i:                                     ; preds = %1441
+  %1449 = load i32, ptr @listen_nports, align 4
+  %1450 = icmp sgt i32 %1449, 0
+  br i1 %1450, label %.lr.ph125.i, label %.critedge.i323
 
 .lr.ph125.i:                                      ; preds = %.preheader.i
-  %1454 = load ptr, ptr @listen_fds, align 8
-  %wide.trip.count.i = zext nneg i32 %1452 to i64
-  br label %1456
+  %1451 = load ptr, ptr @listen_fds, align 8
+  %wide.trip.count.i = zext nneg i32 %1449 to i64
+  br label %1453
 
-1455:                                             ; preds = %1456
+1452:                                             ; preds = %1453
   %indvars.iv.next161.i = add nuw nsw i64 %indvars.iv160.i, 1
   %exitcond163.not.i = icmp eq i64 %indvars.iv.next161.i, %wide.trip.count.i
-  br i1 %exitcond163.not.i, label %.critedge.i334, label %1456, !llvm.loop !20
+  br i1 %exitcond163.not.i, label %.critedge.i323, label %1453, !llvm.loop !20
 
-1456:                                             ; preds = %1455, %.lr.ph125.i
-  %indvars.iv160.i = phi i64 [ 0, %.lr.ph125.i ], [ %indvars.iv.next161.i, %1455 ]
-  %1457 = getelementptr inbounds %struct.pollfd, ptr %1454, i64 %indvars.iv160.i
-  %1458 = load i32, ptr %1457, align 4
-  %1459 = zext i32 %1458 to i64
-  %1460 = icmp eq i64 %indvars.iv164.i, %1459
-  br i1 %1460, label %.loopexit.i, label %1455
+1453:                                             ; preds = %1452, %.lr.ph125.i
+  %indvars.iv160.i = phi i64 [ 0, %.lr.ph125.i ], [ %indvars.iv.next161.i, %1452 ]
+  %1454 = getelementptr inbounds %struct.pollfd, ptr %1451, i64 %indvars.iv160.i
+  %1455 = load i32, ptr %1454, align 4
+  %1456 = zext i32 %1455 to i64
+  %1457 = icmp eq i64 %indvars.iv164.i, %1456
+  br i1 %1457, label %.loopexit.i, label %1452
 
-.critedge.i334:                                   ; preds = %1455, %.preheader.i
-  %1461 = trunc i64 %indvars.iv164.i to i32
-  %1462 = call i32 @close(i32 noundef %1461) #19
+.critedge.i323:                                   ; preds = %1452, %.preheader.i
+  %1458 = trunc i64 %indvars.iv164.i to i32
+  %1459 = call i32 @close(i32 noundef %1458) #19
   %.pre.i = load i32, ptr @pidfd, align 4
   %.pre168.i = load i64, ptr %3, align 8
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %1456, %.critedge.i334, %1444
-  %1463 = phi i64 [ %.pre168.i, %.critedge.i334 ], [ %1445, %1444 ], [ %1445, %1456 ]
-  %1464 = phi i32 [ %.pre.i, %.critedge.i334 ], [ %1446, %1444 ], [ %1446, %1456 ]
+.loopexit.i:                                      ; preds = %1453, %.critedge.i323, %1441
+  %1460 = phi i64 [ %.pre168.i, %.critedge.i323 ], [ %1442, %1441 ], [ %1442, %1453 ]
+  %1461 = phi i32 [ %.pre.i, %.critedge.i323 ], [ %1443, %1441 ], [ %1443, %1453 ]
   %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 1
-  %1465 = icmp ugt i64 %1463, %indvars.iv.next165.i
-  br i1 %1465, label %1444, label %._crit_edge129.i, !llvm.loop !21
+  %1462 = icmp ugt i64 %1460, %indvars.iv.next165.i
+  br i1 %1462, label %1441, label %._crit_edge129.i, !llvm.loop !21
 
 ._crit_edge129.i:                                 ; preds = %.loopexit.i, %.loopexit
   %.b5157.i = load i1, ptr @under_systemd, align 1
-  br i1 %.b5157.i, label %1466, label %1472
+  br i1 %.b5157.i, label %1463, label %1469
 
-1466:                                             ; preds = %._crit_edge129.i
-  %1467 = call i32 @fork() #19
-  %1468 = icmp slt i32 %1467, 0
-  br i1 %1468, label %1469, label %1470
+1463:                                             ; preds = %._crit_edge129.i
+  %1464 = call i32 @fork() #19
+  %1465 = icmp slt i32 %1464, 0
+  br i1 %1465, label %1466, label %1467
 
-1469:                                             ; preds = %1466
+1466:                                             ; preds = %1463
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.108) #21
   unreachable
 
-1470:                                             ; preds = %1466
-  %.not58.i = icmp eq i32 %1467, 0
-  br i1 %.not58.i, label %1472, label %1471
+1467:                                             ; preds = %1463
+  %.not58.i = icmp eq i32 %1464, 0
+  br i1 %.not58.i, label %1469, label %1468
 
-1471:                                             ; preds = %1470
+1468:                                             ; preds = %1467
   call void @exit(i32 noundef 0) #21
   unreachable
 
-1472:                                             ; preds = %1470, %._crit_edge129.i
-  %1473 = load ptr, ptr @main_argv, align 8
-  %1474 = load ptr, ptr %4, align 8
-  %1475 = call i32 @execve(ptr noundef nonnull @binary, ptr noundef %1473, ptr noundef %1474) #19
+1469:                                             ; preds = %1467, %._crit_edge129.i
+  %1470 = load ptr, ptr @main_argv, align 8
+  %1471 = load ptr, ptr %4, align 8
+  %1472 = call i32 @execve(ptr noundef nonnull @binary, ptr noundef %1470, ptr noundef %1471) #19
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.109) #21
   unreachable
 
-_try_to_reconfig.exit:                            ; preds = %1372, %1379, %1430, %1431, %1434, %1441
-  %.040.i = phi i32 [ -1, %1372 ], [ -1, %1379 ], [ 0, %1431 ], [ 0, %1430 ], [ -1, %1441 ], [ -1, %1434 ]
+_try_to_reconfig.exit:                            ; preds = %1369, %1376, %1427, %1428, %1431, %1438
+  %.040.i = phi i32 [ -1, %1369 ], [ -1, %1376 ], [ 0, %1428 ], [ 0, %1427 ], [ -1, %1438 ], [ -1, %1431 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -4007,136 +3992,134 @@ _try_to_reconfig.exit:                            ; preds = %1372, %1379, %1430,
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   store i32 %.040.i, ptr @reconfig_rc, align 4
-  %1476 = call i32 @pthread_mutex_lock(ptr noundef nonnull @reconfig_mutex) #19
-  %.not276 = icmp eq i32 %1476, 0
-  br i1 %.not276, label %.preheader, label %1478
+  %1473 = call i32 @pthread_mutex_lock(ptr noundef nonnull @reconfig_mutex) #19
+  %.not267 = icmp eq i32 %1473, 0
+  br i1 %.not267, label %.preheader, label %1475
 
 .preheader:                                       ; preds = %_try_to_reconfig.exit
-  %1477 = load i32, ptr @reconfig_threads, align 4
-  %.not277799 = icmp eq i32 %1477, 0
-  br i1 %.not277799, label %._crit_edge, label %.lr.ph800
+  %1474 = load i32, ptr @reconfig_threads, align 4
+  %.not268788 = icmp eq i32 %1474, 0
+  br i1 %.not268788, label %._crit_edge, label %.lr.ph789
 
-1478:                                             ; preds = %_try_to_reconfig.exit
-  %1479 = tail call ptr @__errno_location() #20
-  store i32 %1476, ptr %1479, align 4
+1475:                                             ; preds = %_try_to_reconfig.exit
+  %1476 = tail call ptr @__errno_location() #20
+  store i32 %1473, ptr %1476, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 756, ptr noundef nonnull @__func__.main) #21
   unreachable
 
-.lr.ph800:                                        ; preds = %.preheader, %1489
-  %1480 = call i32 @pthread_cond_broadcast(ptr noundef nonnull @reconfig_cond) #19
-  %.not280 = icmp eq i32 %1480, 0
-  br i1 %.not280, label %1484, label %1481
+.lr.ph789:                                        ; preds = %.preheader, %1486
+  %1477 = call i32 @pthread_cond_broadcast(ptr noundef nonnull @reconfig_cond) #19
+  %.not271 = icmp eq i32 %1477, 0
+  br i1 %.not271, label %1481, label %1478
 
-1481:                                             ; preds = %.lr.ph800
-  %1482 = tail call ptr @__errno_location() #20
-  store i32 %1480, ptr %1482, align 4
-  %1483 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.53, i32 noundef 758, ptr noundef nonnull @__func__.main) #19
-  br label %1484
+1478:                                             ; preds = %.lr.ph789
+  %1479 = tail call ptr @__errno_location() #20
+  store i32 %1477, ptr %1479, align 4
+  %1480 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.53, i32 noundef 758, ptr noundef nonnull @__func__.main) #19
+  br label %1481
 
-1484:                                             ; preds = %1481, %.lr.ph800
-  %1485 = call i32 @pthread_cond_wait(ptr noundef nonnull @reconfig_cond, ptr noundef nonnull @reconfig_mutex) #19
-  %.not281 = icmp eq i32 %1485, 0
-  br i1 %.not281, label %1489, label %1486
+1481:                                             ; preds = %1478, %.lr.ph789
+  %1482 = call i32 @pthread_cond_wait(ptr noundef nonnull @reconfig_cond, ptr noundef nonnull @reconfig_mutex) #19
+  %.not272 = icmp eq i32 %1482, 0
+  br i1 %.not272, label %1486, label %1483
 
-1486:                                             ; preds = %1484
-  %1487 = tail call ptr @__errno_location() #20
-  store i32 %1485, ptr %1487, align 4
-  %1488 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.53, i32 noundef 759, ptr noundef nonnull @__func__.main) #19
-  br label %1489
+1483:                                             ; preds = %1481
+  %1484 = tail call ptr @__errno_location() #20
+  store i32 %1482, ptr %1484, align 4
+  %1485 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.53, i32 noundef 759, ptr noundef nonnull @__func__.main) #19
+  br label %1486
 
-1489:                                             ; preds = %1484, %1486
-  %1490 = load i32, ptr @reconfig_threads, align 4
-  %.not277 = icmp eq i32 %1490, 0
-  br i1 %.not277, label %._crit_edge, label %.lr.ph800, !llvm.loop !22
+1486:                                             ; preds = %1481, %1483
+  %1487 = load i32, ptr @reconfig_threads, align 4
+  %.not268 = icmp eq i32 %1487, 0
+  br i1 %.not268, label %._crit_edge, label %.lr.ph789, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %1489, %.preheader
-  %1491 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @reconfig_mutex) #19
-  %.not278 = icmp eq i32 %1491, 0
-  br i1 %.not278, label %1494, label %1492
+._crit_edge:                                      ; preds = %1486, %.preheader
+  %1488 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @reconfig_mutex) #19
+  %.not269 = icmp eq i32 %1488, 0
+  br i1 %.not269, label %1491, label %1489
 
-1492:                                             ; preds = %._crit_edge
-  %1493 = tail call ptr @__errno_location() #20
-  store i32 %1491, ptr %1493, align 4
+1489:                                             ; preds = %._crit_edge
+  %1490 = tail call ptr @__errno_location() #20
+  store i32 %1488, ptr %1490, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, i32 noundef 761, ptr noundef nonnull @__func__.main) #21
   unreachable
 
-1494:                                             ; preds = %._crit_edge
+1491:                                             ; preds = %._crit_edge
   %.pre = load i8, ptr @slurmctld_primary, align 1
-  %1495 = load i32, ptr @reconfig_rc, align 4
-  %.not279 = icmp eq i32 %1495, 0
-  br i1 %.not279, label %1496, label %.backedge
+  %1492 = load i32, ptr @reconfig_rc, align 4
+  %.not270 = icmp eq i32 %1492, 0
+  br i1 %.not270, label %1493, label %.backedge
 
-1496:                                             ; preds = %1494
-  %1497 = call i32 @get_log_level() #19
-  %1498 = icmp sgt i32 %1497, 2
-  br i1 %1498, label %1499, label %1500
+1493:                                             ; preds = %1491
+  %1494 = call i32 @get_log_level() #19
+  %1495 = icmp sgt i32 %1494, 2
+  br i1 %1495, label %1496, label %1497
 
-1499:                                             ; preds = %1496
+1496:                                             ; preds = %1493
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.60) #19
-  br label %1500
+  br label %1497
 
-1500:                                             ; preds = %1499, %1496
+1497:                                             ; preds = %1496, %1493
   call void @_exit(i32 noundef 0) #21
   unreachable
 
-.backedge:                                        ; preds = %1510, %1494
-  %1501 = phi i8 [ %.pre, %1494 ], [ %1511, %1510 ]
+.backedge:                                        ; preds = %1506, %1491
+  %1498 = phi i8 [ %.pre, %1491 ], [ %1507, %1506 ]
   store i32 2, ptr @recover, align 4
   br label %552
 
-1502:                                             ; preds = %.thread358
+1499:                                             ; preds = %.thread347
   call void @heartbeat_stop() #19
-  %1503 = load i8, ptr @slurmctld_primary, align 1
-  %1504 = and i8 %1503, 1
-  %.not272 = icmp eq i8 %1504, 0
-  br i1 %.not272, label %1506, label %1505
+  %1500 = load i8, ptr @slurmctld_primary, align 1
+  %1501 = trunc i8 %1500 to i1
+  br i1 %1501, label %1502, label %1503
 
-1505:                                             ; preds = %1502
+1502:                                             ; preds = %1499
   call fastcc void @_run_primary_prog(i1 noundef zeroext false)
-  br label %1506
+  br label %1503
 
-1506:                                             ; preds = %1505, %1502
-  %1507 = load i8, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 8), align 8
-  %1508 = and i8 %1507, 1
-  %1509 = icmp eq i8 %1508, 0
-  br i1 %1509, label %1513, label %1510
+1503:                                             ; preds = %1502, %1499
+  %1504 = load i8, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 8), align 8
+  %.mask = and i8 %1504, 1
+  %1505 = icmp eq i8 %.mask, 0
+  br i1 %1505, label %1509, label %1506
 
-1510:                                             ; preds = %1506
-  %1511 = load i8, ptr @slurmctld_primary, align 1
-  %1512 = and i8 %1511, 1
-  %.not274 = icmp eq i8 %1512, 0
-  br i1 %.not274, label %.backedge, label %1513
+1506:                                             ; preds = %1503
+  %1507 = load i8, ptr @slurmctld_primary, align 1
+  %1508 = trunc i8 %1507 to i1
+  br i1 %1508, label %1509, label %.backedge
 
-1513:                                             ; preds = %1510, %1506
-  %1514 = call i32 @slurmscriptd_fini() #19
-  %1515 = call i32 @jobcomp_g_fini() #19
-  %1516 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 176), align 8
-  %1517 = call i32 @unlink(ptr noundef %1516) #19
-  %1518 = icmp slt i32 %1517, 0
-  br i1 %1518, label %1519, label %1524
+1509:                                             ; preds = %1506, %1503
+  %1510 = call i32 @slurmscriptd_fini() #19
+  %1511 = call i32 @jobcomp_g_fini() #19
+  %1512 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 176), align 8
+  %1513 = call i32 @unlink(ptr noundef %1512) #19
+  %1514 = icmp slt i32 %1513, 0
+  br i1 %1514, label %1515, label %1520
 
-1519:                                             ; preds = %1513
-  %1520 = call i32 @get_log_level() #19
-  %1521 = icmp sgt i32 %1520, 3
-  br i1 %1521, label %1522, label %1524
+1515:                                             ; preds = %1509
+  %1516 = call i32 @get_log_level() #19
+  %1517 = icmp sgt i32 %1516, 3
+  br i1 %1517, label %1518, label %1520
 
-1522:                                             ; preds = %1519
-  %1523 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 176), align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.61, ptr noundef %1523) #19
-  br label %1524
+1518:                                             ; preds = %1515
+  %1519 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 176), align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.61, ptr noundef %1519) #19
+  br label %1520
 
-1524:                                             ; preds = %1519, %1522, %1513
+1520:                                             ; preds = %1515, %1518, %1509
   call fastcc void @_close_ports()
   call void @log_fini() #19
   call void @sched_log_fini() #19
-  %.b179275 = load i1, ptr @dump_core, align 1
-  br i1 %.b179275, label %1525, label %1526
+  %.b179266 = load i1, ptr @dump_core, align 1
+  br i1 %.b179266, label %1521, label %1522
 
-1525:                                             ; preds = %1524
+1521:                                             ; preds = %1520
   call void @abort() #21
   unreachable
 
-1526:                                             ; preds = %1524
+1522:                                             ; preds = %1520
   call void @exit(i32 noundef 0) #21
   unreachable
 }
@@ -5211,288 +5194,285 @@ define internal noalias noundef ptr @_slurmctld_rpc_mgr(ptr nocapture readnone %
   br i1 %.not.i5968, label %.preheader.i.lr.ph, label %.outer._crit_edge
 
 .preheader.i.lr.ph:                               ; preds = %16, %.outer.backedge
-  %.021.ph69 = phi i32 [ %75, %.outer.backedge ], [ 0, %16 ]
+  %.021.ph69 = phi i32 [ %74, %.outer.backedge ], [ 0, %16 ]
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader.i.lr.ph, %64
+.preheader.i:                                     ; preds = %.preheader.i.lr.ph, %63
   %20 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
-  %.not1521.i = icmp eq i64 %20, 0
-  br i1 %.not1521.i, label %.lr.ph.i, label %.loopexit.i
+  %.not1520.i = icmp eq i64 %20, 0
+  br i1 %.not1520.i, label %.lr.ph.i, label %.loopexit.i
 
-.outer._crit_edge:                                ; preds = %.outer.backedge, %64, %16
-  %.lcssa45 = phi i32 [ %19, %16 ], [ %65, %64 ], [ %90, %.outer.backedge ]
+.outer._crit_edge:                                ; preds = %.outer.backedge, %63, %16
+  %.lcssa45 = phi i32 [ %19, %16 ], [ %64, %63 ], [ %89, %.outer.backedge ]
   %21 = tail call ptr @__errno_location() #20
   store i32 %.lcssa45, ptr %21, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 1451, ptr noundef nonnull @__func__._wait_for_server_thread) #21
   unreachable
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %43
-  %.022.i = phi i8 [ %.1.i, %43 ], [ 1, %.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %42
+  %.021.i = phi i1 [ false, %42 ], [ true, %.preheader.i ]
   %22 = load i32, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 10), align 4
   %23 = load i32, ptr @max_server_threads, align 4
   %24 = icmp ult i32 %22, %23
   br i1 %24, label %.loopexit.i.thread, label %25
 
 25:                                               ; preds = %.lr.ph.i
-  %26 = and i8 %.022.i, 1
-  %.not16.i = icmp eq i8 %26, 0
-  br i1 %.not16.i, label %38, label %27
+  br i1 %.021.i, label %26, label %37
 
-27:                                               ; preds = %25
-  %28 = call i64 @time(ptr noundef null) #19
-  %29 = load i64, ptr @_wait_for_server_thread.last_print_time, align 8
-  %30 = call double @difftime(i64 noundef %28, i64 noundef %29) #20
-  %31 = fcmp ogt double %30, 2.000000e+00
-  br i1 %31, label %32, label %38
+26:                                               ; preds = %25
+  %27 = call i64 @time(ptr noundef null) #19
+  %28 = load i64, ptr @_wait_for_server_thread.last_print_time, align 8
+  %29 = call double @difftime(i64 noundef %27, i64 noundef %28) #20
+  %30 = fcmp ogt double %29, 2.000000e+00
+  br i1 %30, label %31, label %37
 
-32:                                               ; preds = %27
-  %33 = call i32 @get_log_level() #19
-  %34 = icmp sgt i32 %33, 3
-  br i1 %34, label %35, label %37
+31:                                               ; preds = %26
+  %32 = call i32 @get_log_level() #19
+  %33 = icmp sgt i32 %32, 3
+  br i1 %33, label %34, label %36
 
-35:                                               ; preds = %32
-  %36 = load i32, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 10), align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.129, i32 noundef %36) #19
+34:                                               ; preds = %31
+  %35 = load i32, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 10), align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.129, i32 noundef %35) #19
+  br label %36
+
+36:                                               ; preds = %34, %31
+  store i64 %27, ptr @_wait_for_server_thread.last_print_time, align 8
   br label %37
 
-37:                                               ; preds = %35, %32
-  store i64 %28, ptr @_wait_for_server_thread.last_print_time, align 8
-  br label %38
+37:                                               ; preds = %36, %26, %25
+  %38 = call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 13), ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 14)) #19
+  %.not16.i = icmp eq i32 %38, 0
+  br i1 %.not16.i, label %42, label %39
 
-38:                                               ; preds = %37, %27, %25
-  %.1.i = phi i8 [ %.022.i, %25 ], [ 0, %37 ], [ 0, %27 ]
-  %39 = call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 13), ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 14)) #19
-  %.not17.i = icmp eq i32 %39, 0
-  br i1 %.not17.i, label %43, label %40
+39:                                               ; preds = %37
+  %40 = tail call ptr @__errno_location() #20
+  store i32 %38, ptr %40, align 4
+  %41 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.53, i32 noundef 1479, ptr noundef nonnull @__func__._wait_for_server_thread) #19
+  br label %42
 
-40:                                               ; preds = %38
-  %41 = tail call ptr @__errno_location() #20
-  store i32 %39, ptr %41, align 4
-  %42 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.53, i32 noundef 1479, ptr noundef nonnull @__func__._wait_for_server_thread) #19
-  br label %43
-
-43:                                               ; preds = %40, %38
-  %44 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
-  %.not15.i = icmp eq i64 %44, 0
+42:                                               ; preds = %39, %37
+  %43 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
+  %.not15.i = icmp eq i64 %43, 0
   br i1 %.not15.i, label %.lr.ph.i, label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.preheader.i, %43
-  %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 14)) #19
-  %.not18.i = icmp eq i32 %45, 0
-  br i1 %.not18.i, label %_wait_for_server_thread.exit, label %.loopexit
+.loopexit.i:                                      ; preds = %.preheader.i, %42
+  %44 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 14)) #19
+  %.not17.i = icmp eq i32 %44, 0
+  br i1 %.not17.i, label %_wait_for_server_thread.exit, label %.loopexit
 
 .loopexit.i.thread:                               ; preds = %.lr.ph.i
-  %46 = add nuw nsw i32 %22, 1
-  store i32 %46, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 10), align 4
-  %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 14)) #19
-  %.not18.i40 = icmp eq i32 %47, 0
-  br i1 %.not18.i40, label %50, label %.loopexit
+  %45 = add nuw nsw i32 %22, 1
+  store i32 %45, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 10), align 4
+  %46 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 14)) #19
+  %.not17.i40 = icmp eq i32 %46, 0
+  br i1 %.not17.i40, label %49, label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.i.thread, %.loopexit.i
-  %48 = phi i32 [ %45, %.loopexit.i ], [ %47, %.loopexit.i.thread ]
-  %49 = tail call ptr @__errno_location() #20
-  store i32 %48, ptr %49, align 4
+  %47 = phi i32 [ %44, %.loopexit.i ], [ %46, %.loopexit.i.thread ]
+  %48 = tail call ptr @__errno_location() #20
+  store i32 %47, ptr %48, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, i32 noundef 1481, ptr noundef nonnull @__func__._wait_for_server_thread) #21
   unreachable
 
-50:                                               ; preds = %.loopexit.i.thread
-  %51 = load ptr, ptr @listen_fds, align 8
-  %52 = load i32, ptr @listen_nports, align 4
-  %53 = sext i32 %52 to i64
-  %54 = call i32 @poll(ptr noundef %51, i64 noundef %53, i32 noundef -1) #19
-  %55 = icmp eq i32 %54, -1
-  br i1 %55, label %59, label %.preheader
+49:                                               ; preds = %.loopexit.i.thread
+  %50 = load ptr, ptr @listen_fds, align 8
+  %51 = load i32, ptr @listen_nports, align 4
+  %52 = sext i32 %51 to i64
+  %53 = call i32 @poll(ptr noundef %50, i64 noundef %52, i32 noundef -1) #19
+  %54 = icmp eq i32 %53, -1
+  br i1 %54, label %58, label %.preheader
 
-.preheader:                                       ; preds = %50
-  %56 = load i32, ptr @listen_nports, align 4
-  %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.lr.ph, label %._crit_edge62
+.preheader:                                       ; preds = %49
+  %55 = load i32, ptr @listen_nports, align 4
+  %56 = icmp sgt i32 %55, 0
+  br i1 %56, label %.lr.ph, label %._crit_edge62
 
 .lr.ph:                                           ; preds = %.preheader
-  %58 = load ptr, ptr @listen_fds, align 8
-  br label %66
+  %57 = load ptr, ptr @listen_fds, align 8
+  br label %65
 
-59:                                               ; preds = %50
-  %60 = tail call ptr @__errno_location() #20
-  %61 = load i32, ptr %60, align 4
-  %.not38 = icmp eq i32 %61, 4
-  br i1 %.not38, label %64, label %62
+58:                                               ; preds = %49
+  %59 = tail call ptr @__errno_location() #20
+  %60 = load i32, ptr %59, align 4
+  %.not38 = icmp eq i32 %60, 4
+  br i1 %.not38, label %63, label %61
 
-62:                                               ; preds = %59
-  %63 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.124) #19
-  br label %64
+61:                                               ; preds = %58
+  %62 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.124) #19
+  br label %63
 
-64:                                               ; preds = %62, %59
+63:                                               ; preds = %61, %58
   call void @server_thread_decr()
-  %65 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 14)) #19
-  %.not.i = icmp eq i32 %65, 0
+  %64 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 14)) #19
+  %.not.i = icmp eq i32 %64, 0
   br i1 %.not.i, label %.preheader.i, label %.outer._crit_edge, !llvm.loop !28
 
-66:                                               ; preds = %.lr.ph, %72
-  %.02061 = phi i32 [ 0, %.lr.ph ], [ %73, %72 ]
-  %67 = add nsw i32 %.02061, %.021.ph69
-  %68 = srem i32 %67, %56
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds %struct.pollfd, ptr %58, i64 %69, i32 2
-  %71 = load i16, ptr %70, align 2
-  %.not = icmp eq i16 %71, 0
-  br i1 %.not, label %72, label %._crit_edge62
+65:                                               ; preds = %.lr.ph, %71
+  %.02061 = phi i32 [ 0, %.lr.ph ], [ %72, %71 ]
+  %66 = add nsw i32 %.02061, %.021.ph69
+  %67 = srem i32 %66, %55
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds %struct.pollfd, ptr %57, i64 %68, i32 2
+  %70 = load i16, ptr %69, align 2
+  %.not = icmp eq i16 %70, 0
+  br i1 %.not, label %71, label %._crit_edge62
 
-72:                                               ; preds = %66
-  %73 = add nuw nsw i32 %.02061, 1
-  %exitcond.not = icmp eq i32 %73, %56
-  br i1 %exitcond.not, label %._crit_edge62, label %66, !llvm.loop !29
+71:                                               ; preds = %65
+  %72 = add nuw nsw i32 %.02061, 1
+  %exitcond.not = icmp eq i32 %72, %55
+  br i1 %exitcond.not, label %._crit_edge62, label %65, !llvm.loop !29
 
-._crit_edge62:                                    ; preds = %72, %66, %.preheader
-  %.1 = phi i32 [ 0, %.preheader ], [ %68, %66 ], [ %56, %72 ]
-  %74 = add nsw i32 %.1, 1
-  %75 = srem i32 %74, %56
-  %76 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.53, i32 noundef 1350, ptr noundef nonnull @__func__._slurmctld_rpc_mgr) #19
-  store ptr %76, ptr %2, align 8
-  %77 = load ptr, ptr @listen_fds, align 8
-  %78 = sext i32 %.1 to i64
-  %79 = getelementptr inbounds %struct.pollfd, ptr %77, i64 %78
-  %80 = load i32, ptr %79, align 4
-  %81 = call i32 @slurm_accept_msg_conn(i32 noundef %80, ptr noundef nonnull %3) #19
-  %82 = load ptr, ptr %2, align 8
-  store i32 %81, ptr %82, align 4
-  %83 = icmp eq i32 %81, -1
-  br i1 %83, label %84, label %91
+._crit_edge62:                                    ; preds = %71, %65, %.preheader
+  %.1 = phi i32 [ 0, %.preheader ], [ %67, %65 ], [ %55, %71 ]
+  %73 = add nsw i32 %.1, 1
+  %74 = srem i32 %73, %55
+  %75 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.53, i32 noundef 1350, ptr noundef nonnull @__func__._slurmctld_rpc_mgr) #19
+  store ptr %75, ptr %2, align 8
+  %76 = load ptr, ptr @listen_fds, align 8
+  %77 = sext i32 %.1 to i64
+  %78 = getelementptr inbounds %struct.pollfd, ptr %76, i64 %77
+  %79 = load i32, ptr %78, align 4
+  %80 = call i32 @slurm_accept_msg_conn(i32 noundef %79, ptr noundef nonnull %3) #19
+  %81 = load ptr, ptr %2, align 8
+  store i32 %80, ptr %81, align 4
+  %82 = icmp eq i32 %80, -1
+  br i1 %82, label %83, label %90
 
-84:                                               ; preds = %._crit_edge62
-  %85 = tail call ptr @__errno_location() #20
-  %86 = load i32, ptr %85, align 4
-  %.not37 = icmp eq i32 %86, 4
-  br i1 %.not37, label %89, label %87
+83:                                               ; preds = %._crit_edge62
+  %84 = tail call ptr @__errno_location() #20
+  %85 = load i32, ptr %84, align 4
+  %.not37 = icmp eq i32 %85, 4
+  br i1 %.not37, label %88, label %86
 
-87:                                               ; preds = %84
-  %88 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.125) #19
-  br label %89
+86:                                               ; preds = %83
+  %87 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.125) #19
+  br label %88
 
-89:                                               ; preds = %87, %84
+88:                                               ; preds = %86, %83
   call void @server_thread_decr()
   call void @slurm_xfree(ptr noundef nonnull %2) #19
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %100, %130, %128, %89
-  %90 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 14)) #19
-  %.not.i59 = icmp eq i32 %90, 0
+.outer.backedge:                                  ; preds = %99, %129, %127, %88
+  %89 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 14)) #19
+  %.not.i59 = icmp eq i32 %89, 0
   br i1 %.not.i59, label %.preheader.i.lr.ph, label %.outer._crit_edge, !llvm.loop !28
 
-91:                                               ; preds = %._crit_edge62
-  %92 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
-  %93 = and i64 %92, 67108864
-  %.not29 = icmp eq i64 %93, 0
-  br i1 %.not29, label %98, label %94
+90:                                               ; preds = %._crit_edge62
+  %91 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %92 = and i64 %91, 67108864
+  %.not29 = icmp eq i64 %92, 0
+  br i1 %.not29, label %97, label %93
 
-94:                                               ; preds = %91
-  %95 = call i32 @get_log_level() #19
-  %96 = icmp sgt i32 %95, 3
-  br i1 %96, label %97, label %98
+93:                                               ; preds = %90
+  %94 = call i32 @get_log_level() #19
+  %95 = icmp sgt i32 %94, 3
+  br i1 %95, label %96, label %97
 
-97:                                               ; preds = %94
+96:                                               ; preds = %93
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.126, ptr noundef nonnull @__func__._slurmctld_rpc_mgr, ptr noundef nonnull %3) #19
-  br label %98
+  br label %97
 
-98:                                               ; preds = %91, %94, %97
-  %99 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
-  %.not30 = icmp eq i64 %99, 0
-  br i1 %.not30, label %105, label %100
+97:                                               ; preds = %90, %93, %96
+  %98 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
+  %.not30 = icmp eq i64 %98, 0
+  br i1 %.not30, label %104, label %99
 
-100:                                              ; preds = %98
-  %101 = load i32, ptr getelementptr inbounds (%struct.diag_stats, ptr @slurmctld_diag_stats, i64 0, i32 1), align 4
-  %102 = add nsw i32 %101, 1
-  store i32 %102, ptr getelementptr inbounds (%struct.diag_stats, ptr @slurmctld_diag_stats, i64 0, i32 1), align 4
-  %103 = load ptr, ptr %2, align 8
-  %104 = call ptr @_service_connection(ptr noundef %103)
+99:                                               ; preds = %97
+  %100 = load i32, ptr getelementptr inbounds (%struct.diag_stats, ptr @slurmctld_diag_stats, i64 0, i32 1), align 4
+  %101 = add nsw i32 %100, 1
+  store i32 %101, ptr getelementptr inbounds (%struct.diag_stats, ptr @slurmctld_diag_stats, i64 0, i32 1), align 4
+  %102 = load ptr, ptr %2, align 8
+  %103 = call ptr @_service_connection(ptr noundef %102)
   br label %.outer.backedge
 
-105:                                              ; preds = %98
-  %106 = call i32 @pthread_attr_init(ptr noundef nonnull %6) #19
-  %.not31 = icmp eq i32 %106, 0
-  br i1 %.not31, label %109, label %107
+104:                                              ; preds = %97
+  %105 = call i32 @pthread_attr_init(ptr noundef nonnull %6) #19
+  %.not31 = icmp eq i32 %105, 0
+  br i1 %.not31, label %108, label %106
 
-107:                                              ; preds = %105
-  %108 = tail call ptr @__errno_location() #20
-  store i32 %106, ptr %108, align 4
+106:                                              ; preds = %104
+  %107 = tail call ptr @__errno_location() #20
+  store i32 %105, ptr %107, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.46) #21
   unreachable
 
-109:                                              ; preds = %105
-  %110 = call i32 @pthread_attr_setscope(ptr noundef nonnull %6, i32 noundef 0) #19
-  %.not32 = icmp eq i32 %110, 0
-  br i1 %.not32, label %114, label %111
+108:                                              ; preds = %104
+  %109 = call i32 @pthread_attr_setscope(ptr noundef nonnull %6, i32 noundef 0) #19
+  %.not32 = icmp eq i32 %109, 0
+  br i1 %.not32, label %113, label %110
 
-111:                                              ; preds = %109
-  %112 = tail call ptr @__errno_location() #20
-  store i32 %110, ptr %112, align 4
-  %113 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.47) #19
-  br label %114
+110:                                              ; preds = %108
+  %111 = tail call ptr @__errno_location() #20
+  store i32 %109, ptr %111, align 4
+  %112 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.47) #19
+  br label %113
 
-114:                                              ; preds = %111, %109
-  %115 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %6, i64 noundef 1048576) #19
-  %.not33 = icmp eq i32 %115, 0
-  br i1 %.not33, label %119, label %116
+113:                                              ; preds = %110, %108
+  %114 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %6, i64 noundef 1048576) #19
+  %.not33 = icmp eq i32 %114, 0
+  br i1 %.not33, label %118, label %115
 
-116:                                              ; preds = %114
-  %117 = tail call ptr @__errno_location() #20
-  store i32 %115, ptr %117, align 4
-  %118 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48) #19
-  br label %119
+115:                                              ; preds = %113
+  %116 = tail call ptr @__errno_location() #20
+  store i32 %114, ptr %116, align 4
+  %117 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48) #19
+  br label %118
 
-119:                                              ; preds = %114, %116
-  %120 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %6, i32 noundef 1) #19
-  %.not34 = icmp eq i32 %120, 0
-  br i1 %.not34, label %123, label %121
+118:                                              ; preds = %113, %115
+  %119 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %6, i32 noundef 1) #19
+  %.not34 = icmp eq i32 %119, 0
+  br i1 %.not34, label %122, label %120
 
-121:                                              ; preds = %119
-  %122 = tail call ptr @__errno_location() #20
-  store i32 %120, ptr %122, align 4
+120:                                              ; preds = %118
+  %121 = tail call ptr @__errno_location() #20
+  store i32 %119, ptr %121, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.127, ptr noundef nonnull @__func__._slurmctld_rpc_mgr) #21
   unreachable
 
-123:                                              ; preds = %119
-  %124 = load ptr, ptr %2, align 8
-  %125 = call i32 @pthread_create(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @_service_connection, ptr noundef %124) #19
-  %.not35 = icmp eq i32 %125, 0
-  br i1 %.not35, label %128, label %126
+122:                                              ; preds = %118
+  %123 = load ptr, ptr %2, align 8
+  %124 = call i32 @pthread_create(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @_service_connection, ptr noundef %123) #19
+  %.not35 = icmp eq i32 %124, 0
+  br i1 %.not35, label %127, label %125
 
-126:                                              ; preds = %123
-  %127 = tail call ptr @__errno_location() #20
-  store i32 %125, ptr %127, align 4
+125:                                              ; preds = %122
+  %126 = tail call ptr @__errno_location() #20
+  store i32 %124, ptr %126, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.49, ptr noundef nonnull @__func__._slurmctld_rpc_mgr) #21
   unreachable
 
-128:                                              ; preds = %123
-  %129 = call i32 @pthread_attr_destroy(ptr noundef nonnull %6) #19
-  %.not36 = icmp eq i32 %129, 0
-  br i1 %.not36, label %.outer.backedge, label %130
+127:                                              ; preds = %122
+  %128 = call i32 @pthread_attr_destroy(ptr noundef nonnull %6) #19
+  %.not36 = icmp eq i32 %128, 0
+  br i1 %.not36, label %.outer.backedge, label %129
 
-130:                                              ; preds = %128
-  %131 = tail call ptr @__errno_location() #20
-  store i32 %129, ptr %131, align 4
-  %132 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50) #19
+129:                                              ; preds = %127
+  %130 = tail call ptr @__errno_location() #20
+  store i32 %128, ptr %130, align 4
+  %131 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50) #19
   br label %.outer.backedge
 
 _wait_for_server_thread.exit:                     ; preds = %.loopexit.i
   %.b28 = load i1, ptr @reconfig, align 1
-  br i1 %.b28, label %138, label %133
+  br i1 %.b28, label %137, label %132
 
-133:                                              ; preds = %_wait_for_server_thread.exit
-  %134 = call i32 @get_log_level() #19
-  %135 = icmp sgt i32 %134, 6
-  br i1 %135, label %136, label %137
+132:                                              ; preds = %_wait_for_server_thread.exit
+  %133 = call i32 @get_log_level() #19
+  %134 = icmp sgt i32 %133, 6
+  br i1 %134, label %135, label %136
 
-136:                                              ; preds = %133
+135:                                              ; preds = %132
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.128, ptr noundef nonnull @__func__._slurmctld_rpc_mgr) #19
-  br label %137
+  br label %136
 
-137:                                              ; preds = %136, %133
+136:                                              ; preds = %135, %132
   call void @rate_limit_shutdown() #19
   call void @rpc_queue_shutdown() #19
-  br label %138
+  br label %137
 
-138:                                              ; preds = %_wait_for_server_thread.exit, %137
+137:                                              ; preds = %_wait_for_server_thread.exit, %136
   ret ptr null
 }
 
@@ -8426,8 +8406,7 @@ define internal noalias noundef ptr @_shutdown_bu_thread(ptr noundef %0) #4 {
   %6 = load i32, ptr %0, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load i8, ptr %7, align 4
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
+  %9 = trunc i8 %8 to i1
   call void @slurm_xfree(ptr noundef nonnull %2) #19
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #19
   %10 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
@@ -8439,7 +8418,7 @@ define internal noalias noundef ptr @_shutdown_bu_thread(ptr noundef %0) #4 {
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   call void @slurm_set_addr(ptr noundef nonnull %4, i16 noundef zeroext %12, ptr noundef %16) #19
-  br i1 %.not, label %19, label %17
+  br i1 %9, label %17, label %19
 
 17:                                               ; preds = %1
   store i16 2, ptr %5, align 2
@@ -8514,10 +8493,10 @@ define internal noalias noundef ptr @_shutdown_bu_thread(ptr noundef %0) #4 {
   br label %57
 
 57:                                               ; preds = %30, %51, %47, %44, %37, %40
-  %.not21 = phi i1 [ false, %30 ], [ true, %40 ], [ true, %37 ], [ true, %47 ], [ true, %44 ], [ false, %51 ]
+  %.not20 = phi i1 [ false, %30 ], [ true, %40 ], [ true, %37 ], [ true, %47 ], [ true, %44 ], [ false, %51 ]
   %58 = call i32 @pthread_mutex_lock(ptr noundef nonnull @bu_mutex) #19
-  %.not20 = icmp eq i32 %58, 0
-  br i1 %.not20, label %61, label %59
+  %.not = icmp eq i32 %58, 0
+  br i1 %.not, label %61, label %59
 
 59:                                               ; preds = %57
   %60 = tail call ptr @__errno_location() #20
@@ -8526,7 +8505,7 @@ define internal noalias noundef ptr @_shutdown_bu_thread(ptr noundef %0) #4 {
   unreachable
 
 61:                                               ; preds = %57
-  br i1 %.not21, label %63, label %62
+  br i1 %.not20, label %63, label %62
 
 62:                                               ; preds = %61
   store i1 true, ptr @bu_rc, align 4
@@ -8537,8 +8516,8 @@ define internal noalias noundef ptr @_shutdown_bu_thread(ptr noundef %0) #4 {
   %65 = add nsw i32 %64, -1
   store i32 %65, ptr @bu_thread_cnt, align 4
   %66 = call i32 @pthread_cond_signal(ptr noundef nonnull @bu_cond) #19
-  %.not22 = icmp eq i32 %66, 0
-  br i1 %.not22, label %70, label %67
+  %.not21 = icmp eq i32 %66, 0
+  br i1 %.not21, label %70, label %67
 
 67:                                               ; preds = %63
   %68 = tail call ptr @__errno_location() #20
@@ -8548,8 +8527,8 @@ define internal noalias noundef ptr @_shutdown_bu_thread(ptr noundef %0) #4 {
 
 70:                                               ; preds = %67, %63
   %71 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @bu_mutex) #19
-  %.not23 = icmp eq i32 %71, 0
-  br i1 %.not23, label %74, label %72
+  %.not22 = icmp eq i32 %71, 0
+  br i1 %.not22, label %74, label %72
 
 72:                                               ; preds = %70
   %73 = tail call ptr @__errno_location() #20

@@ -1056,17 +1056,16 @@ if.end:                                           ; preds = %entry
   %1 = load i64, ptr %size, align 8
   %has_preallocation = getelementptr inbounds i8, ptr %create_options, i64 24
   %2 = load i8, ptr %has_preallocation, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  %preallocation = getelementptr inbounds i8, ptr %create_options, i64 28
-  br i1 %tobool.not, label %if.end2.thread, label %if.end2
+  %tobool = trunc i8 %2 to i1
+  %preallocation3.phi.trans.insert = getelementptr inbounds i8, ptr %create_options, i64 28
+  br i1 %tobool, label %if.end2, label %if.end2.thread
 
 if.end2.thread:                                   ; preds = %if.end
-  store i32 0, ptr %preallocation, align 4
+  store i32 0, ptr %preallocation3.phi.trans.insert, align 4
   br label %sw.epilog
 
 if.end2:                                          ; preds = %if.end
-  %.pre = load i32, ptr %preallocation, align 4
+  %.pre = load i32, ptr %preallocation3.phi.trans.insert, align 4
   switch i32 %.pre, label %sw.default [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb4
@@ -1098,8 +1097,8 @@ if.then9:                                         ; preds = %if.end7
   br label %exit
 
 if.end10:                                         ; preds = %if.end7
-  %4 = load ptr, ptr %u, align 8
-  %call = tail call ptr @bdrv_co_open_blockdev_ref(ptr noundef %4, ptr noundef %errp) #13
+  %3 = load ptr, ptr %u, align 8
+  %call = tail call ptr @bdrv_co_open_blockdev_ref(ptr noundef %3, ptr noundef %errp) #13
   %tobool11.not = icmp eq ptr %call, null
   br i1 %tobool11.not, label %exit, label %if.end13
 
@@ -1154,40 +1153,40 @@ if.end29:                                         ; preds = %if.then28, %if.end1
   call void @qemu_uuid_generate(ptr noundef nonnull %uuid) #13
   %uuid_last_snap = getelementptr inbounds i8, ptr %header, i64 408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %uuid_last_snap, ptr noundef nonnull align 4 dereferenceable(16) %uuid, i64 16, i1 false)
-  %5 = load i64, ptr %uuid_image, align 1
-  %6 = getelementptr inbounds i8, ptr %header, i64 400
-  %7 = load i64, ptr %6, align 1
-  %call33.i = call { i64, i64 } @qemu_uuid_bswap(i64 %5, i64 %7) #13
-  %8 = extractvalue { i64, i64 } %call33.i, 0
-  %9 = extractvalue { i64, i64 } %call33.i, 1
-  store i64 %8, ptr %uuid_image, align 1
-  store i64 %9, ptr %6, align 1
-  %10 = load i64, ptr %uuid_last_snap, align 1
-  %11 = getelementptr inbounds i8, ptr %header, i64 416
-  %12 = load i64, ptr %11, align 1
-  %call37.i = call { i64, i64 } @qemu_uuid_bswap(i64 %10, i64 %12) #13
-  %13 = extractvalue { i64, i64 } %call37.i, 0
-  %14 = extractvalue { i64, i64 } %call37.i, 1
-  store i64 %13, ptr %uuid_last_snap, align 1
-  store i64 %14, ptr %11, align 1
+  %4 = load i64, ptr %uuid_image, align 1
+  %5 = getelementptr inbounds i8, ptr %header, i64 400
+  %6 = load i64, ptr %5, align 1
+  %call33.i = call { i64, i64 } @qemu_uuid_bswap(i64 %4, i64 %6) #13
+  %7 = extractvalue { i64, i64 } %call33.i, 0
+  %8 = extractvalue { i64, i64 } %call33.i, 1
+  store i64 %7, ptr %uuid_image, align 1
+  store i64 %8, ptr %5, align 1
+  %9 = load i64, ptr %uuid_last_snap, align 1
+  %10 = getelementptr inbounds i8, ptr %header, i64 416
+  %11 = load i64, ptr %10, align 1
+  %call37.i = call { i64, i64 } @qemu_uuid_bswap(i64 %9, i64 %11) #13
+  %12 = extractvalue { i64, i64 } %call37.i, 0
+  %13 = extractvalue { i64, i64 } %call37.i, 1
+  store i64 %12, ptr %uuid_last_snap, align 1
+  store i64 %13, ptr %10, align 1
   %uuid_link.i = getelementptr inbounds i8, ptr %header, i64 424
-  %15 = load i64, ptr %uuid_link.i, align 1
-  %16 = getelementptr inbounds i8, ptr %header, i64 432
-  %17 = load i64, ptr %16, align 1
-  %call42.i = call { i64, i64 } @qemu_uuid_bswap(i64 %15, i64 %17) #13
-  %18 = extractvalue { i64, i64 } %call42.i, 0
-  %19 = extractvalue { i64, i64 } %call42.i, 1
-  store i64 %18, ptr %uuid_link.i, align 1
-  store i64 %19, ptr %16, align 1
+  %14 = load i64, ptr %uuid_link.i, align 1
+  %15 = getelementptr inbounds i8, ptr %header, i64 432
+  %16 = load i64, ptr %15, align 1
+  %call42.i = call { i64, i64 } @qemu_uuid_bswap(i64 %14, i64 %16) #13
+  %17 = extractvalue { i64, i64 } %call42.i, 0
+  %18 = extractvalue { i64, i64 } %call42.i, 1
+  store i64 %17, ptr %uuid_link.i, align 1
+  store i64 %18, ptr %15, align 1
   %uuid_parent.i = getelementptr inbounds i8, ptr %header, i64 440
-  %20 = load i64, ptr %uuid_parent.i, align 1
-  %21 = getelementptr inbounds i8, ptr %header, i64 448
-  %22 = load i64, ptr %21, align 1
-  %call47.i = call { i64, i64 } @qemu_uuid_bswap(i64 %20, i64 %22) #13
-  %23 = extractvalue { i64, i64 } %call47.i, 0
-  %24 = extractvalue { i64, i64 } %call47.i, 1
-  store i64 %23, ptr %uuid_parent.i, align 1
-  store i64 %24, ptr %21, align 1
+  %19 = load i64, ptr %uuid_parent.i, align 1
+  %20 = getelementptr inbounds i8, ptr %header, i64 448
+  %21 = load i64, ptr %20, align 1
+  %call47.i = call { i64, i64 } @qemu_uuid_bswap(i64 %19, i64 %21) #13
+  %22 = extractvalue { i64, i64 } %call47.i, 0
+  %23 = extractvalue { i64, i64 } %call47.i, 1
+  store i64 %22, ptr %uuid_parent.i, align 1
+  store i64 %23, ptr %20, align 1
   %call30 = call i32 @blk_co_pwrite(ptr noundef nonnull %call14, i64 noundef 0, i64 noundef 512, ptr noundef nonnull %header, i32 noundef 0) #13
   %cmp31 = icmp slt i32 %call30, 0
   br i1 %cmp31, label %if.then33, label %if.end34
@@ -1214,8 +1213,8 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br i1 %cmp26, label %for.body.us, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.body.lr.ph
-  %25 = shl nuw nsw i64 %umax60, 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call39, i8 -1, i64 %25, i1 false)
+  %24 = shl nuw nsw i64 %umax60, 2
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call39, i8 -1, i64 %24, i1 false)
   br label %for.end
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us

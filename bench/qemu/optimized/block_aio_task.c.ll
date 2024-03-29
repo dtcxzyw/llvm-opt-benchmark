@@ -44,19 +44,18 @@ if.end4:                                          ; preds = %if.end
   store i8 1, ptr %waiting, align 4
   tail call void @qemu_coroutine_yield() #6
   %2 = load i8, ptr %waiting, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end8, label %if.else7
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.else7, label %if.end8
 
 if.else7:                                         ; preds = %if.end4
   tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 69, ptr noundef nonnull @__PRETTY_FUNCTION__.aio_task_pool_wait_one) #5
   unreachable
 
 if.end8:                                          ; preds = %if.end4
-  %4 = load i32, ptr %busy_tasks, align 8
+  %3 = load i32, ptr %busy_tasks, align 8
   %max_busy_tasks = getelementptr inbounds i8, ptr %pool, i64 12
-  %5 = load i32, ptr %max_busy_tasks, align 4
-  %cmp10 = icmp slt i32 %4, %5
+  %4 = load i32, ptr %max_busy_tasks, align 4
+  %cmp10 = icmp slt i32 %3, %4
   br i1 %cmp10, label %if.end13, label %if.else12
 
 if.else12:                                        ; preds = %if.end8
@@ -179,14 +178,13 @@ if.end10:                                         ; preds = %if.then7, %land.lhs
   tail call void @g_free(ptr noundef nonnull %opaque) #6
   %waiting = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i8, ptr %waiting, align 4
-  %8 = and i8 %7, 1
-  %tobool.not = icmp eq i8 %8, 0
-  br i1 %tobool.not, label %if.end13, label %if.then11
+  %tobool = trunc i8 %7 to i1
+  br i1 %tobool, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %if.end10
   store i8 0, ptr %waiting, align 4
-  %9 = load ptr, ptr %0, align 8
-  tail call void @aio_co_wake(ptr noundef %9) #6
+  %8 = load ptr, ptr %0, align 8
+  tail call void @aio_co_wake(ptr noundef %8) #6
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %if.end10

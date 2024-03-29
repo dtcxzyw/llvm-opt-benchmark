@@ -863,9 +863,8 @@ define internal noundef i64 @rb_fiddle_ptr_call_free(i64 noundef %0) #0 {
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %2, i64 24
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not8.i = icmp eq i8 %10, 0
-  br i1 %.not8.i, label %11, label %fiddle_ptr_free_ptr.exit
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %fiddle_ptr_free_ptr.exit, label %11
 
 11:                                               ; preds = %7
   store i8 1, ptr %8, align 8
@@ -881,9 +880,8 @@ define internal i64 @rb_fiddle_ptr_freed_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiddle_ptr_data_type) #10
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %6 = select i1 %.not, i64 0, i64 20
+  %5 = trunc i8 %4 to i1
+  %6 = select i1 %5, i64 20, i64 0
   ret i64 %6
 }
 
@@ -1699,9 +1697,8 @@ define internal void @fiddle_ptr_free(ptr noundef %0) #0 {
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not8.i = icmp eq i8 %9, 0
-  br i1 %.not8.i, label %10, label %fiddle_ptr_free_ptr.exit
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %fiddle_ptr_free_ptr.exit, label %10
 
 10:                                               ; preds = %6
   store i8 1, ptr %7, align 8

@@ -215,23 +215,22 @@ define internal noundef i32 @archive_read_format_lha_read_header(ptr noundef %0,
 
 15:                                               ; preds = %2
   store i1 true, ptr @lha_crc16_init.crc16init, align 4
-  br label %.preheader17.i
+  br label %.preheader16.i
 
-.preheader17.i:                                   ; preds = %24, %15
+.preheader16.i:                                   ; preds = %24, %15
   %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %24 ]
   %16 = trunc i64 %indvars.iv.i to i32
   br label %17
 
-17:                                               ; preds = %17, %.preheader17.i
-  %.0.in19.i = phi i32 [ %16, %.preheader17.i ], [ %22, %17 ]
-  %.01418.i = phi i32 [ 8, %.preheader17.i ], [ %23, %17 ]
-  %18 = lshr i32 %.0.in19.i, 1
+17:                                               ; preds = %17, %.preheader16.i
+  %.0.in18.i = phi i32 [ %16, %.preheader16.i ], [ %22, %17 ]
+  %.01417.i = phi i32 [ 8, %.preheader16.i ], [ %23, %17 ]
+  %18 = lshr i32 %.0.in18.i, 1
   %19 = and i32 %18, 32767
-  %20 = and i32 %.0.in19.i, 1
-  %.not16.i = icmp eq i32 %20, 0
-  %21 = select i1 %.not16.i, i32 0, i32 40961
-  %22 = xor i32 %21, %19
-  %23 = add nsw i32 %.01418.i, -1
+  %20 = trunc i32 %.0.in18.i to i1
+  %21 = select i1 %20, i32 40961, i32 0
+  %22 = xor i32 %19, %21
+  %23 = add nsw i32 %.01417.i, -1
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %24, label %17, !llvm.loop !9
 
@@ -241,11 +240,11 @@ define internal noundef i32 @archive_read_format_lha_read_header(ptr noundef %0,
   store i16 %.0.i, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %.preheader.i, label %.preheader17.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.preheader.i, label %.preheader16.i, !llvm.loop !10
 
 .preheader.i:                                     ; preds = %24, %.preheader.i
-  %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %.preheader.i ], [ 0, %24 ]
-  %26 = getelementptr inbounds [256 x i16], ptr @crc16tbl, i64 0, i64 %indvars.iv23.i
+  %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %.preheader.i ], [ 0, %24 ]
+  %26 = getelementptr inbounds [256 x i16], ptr @crc16tbl, i64 0, i64 %indvars.iv22.i
   %27 = load i16, ptr %26, align 2
   %28 = lshr i16 %27, 8
   %29 = and i16 %27, 255
@@ -253,11 +252,11 @@ define internal noundef i32 @archive_read_format_lha_read_header(ptr noundef %0,
   %31 = getelementptr inbounds [256 x i16], ptr @crc16tbl, i64 0, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = xor i16 %28, %32
-  %34 = getelementptr inbounds [2 x [256 x i16]], ptr @crc16tbl, i64 0, i64 1, i64 %indvars.iv23.i
+  %34 = getelementptr inbounds [2 x [256 x i16]], ptr @crc16tbl, i64 0, i64 1, i64 %indvars.iv22.i
   store i16 %33, ptr %34, align 2
-  %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
-  %exitcond26.not.i = icmp eq i64 %indvars.iv.next24.i, 256
-  br i1 %exitcond26.not.i, label %lha_crc16_init.exit, label %.preheader.i, !llvm.loop !11
+  %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
+  %exitcond25.not.i = icmp eq i64 %indvars.iv.next23.i, 256
+  br i1 %exitcond25.not.i, label %lha_crc16_init.exit, label %.preheader.i, !llvm.loop !11
 
 lha_crc16_init.exit:                              ; preds = %.preheader.i, %2
   %35 = getelementptr inbounds i8, ptr %0, i64 16

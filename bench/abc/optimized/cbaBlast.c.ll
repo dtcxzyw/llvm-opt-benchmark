@@ -3064,7 +3064,7 @@ define void @Cba_BlastTable(ptr noundef %0, ptr nocapture noundef readonly %1, p
 
 .lr.ph:                                           ; preds = %6
   %20 = shl nuw i32 1, %3
-  %.not45 = icmp eq i32 %3, 31
+  %.not44 = icmp eq i32 %3, 31
   %21 = icmp sgt i32 %3, 0
   %22 = icmp slt i32 %3, 6
   %23 = icmp eq i32 %3, 0
@@ -3081,27 +3081,27 @@ define void @Cba_BlastTable(ptr noundef %0, ptr nocapture noundef readonly %1, p
   br label %30
 
 30:                                               ; preds = %.lr.ph, %Vec_IntPush.exit
-  %.044 = phi i32 [ 0, %.lr.ph ], [ %96, %Vec_IntPush.exit ]
+  %.043 = phi i32 [ 0, %.lr.ph ], [ %96, %Vec_IntPush.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %17, i8 0, i64 %16, i1 false)
-  br i1 %.not45, label %._crit_edge43.thread49, label %.preheader.lr.ph
+  br i1 %.not44, label %._crit_edge42.thread48, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %30
-  br i1 %21, label %.preheader.us, label %._crit_edge43.thread
+  br i1 %21, label %.preheader.us, label %._crit_edge42.thread
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.03542.us = phi i32 [ %53, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %31 = mul nsw i32 %.03542.us, %3
-  %32 = and i32 %.03542.us, 63
+  %.03541.us = phi i32 [ %53, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %31 = mul nsw i32 %.03541.us, %3
+  %32 = and i32 %.03541.us, 63
   %33 = zext nneg i32 %32 to i64
   %34 = shl nuw i64 1, %33
-  %35 = lshr i32 %.03542.us, 6
+  %35 = lshr i32 %.03541.us, 6
   %36 = zext nneg i32 %35 to i64
   %37 = getelementptr inbounds i64, ptr %17, i64 %36
   br label %38
 
 38:                                               ; preds = %.preheader.us, %51
-  %.03641.us = phi i32 [ 0, %.preheader.us ], [ %52, %51 ]
-  %39 = add nuw nsw i32 %.03641.us, %31
+  %.03640.us = phi i32 [ 0, %.preheader.us ], [ %52, %51 ]
+  %39 = add nuw nsw i32 %.03640.us, %31
   %40 = lshr i32 %39, 6
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds i64, ptr %1, i64 %41
@@ -3120,23 +3120,22 @@ define void @Cba_BlastTable(ptr noundef %0, ptr nocapture noundef readonly %1, p
   br label %51
 
 51:                                               ; preds = %48, %38
-  %52 = add nuw nsw i32 %.03641.us, 1
+  %52 = add nuw nsw i32 %.03640.us, 1
   %exitcond.not = icmp eq i32 %52, %3
   br i1 %exitcond.not, label %._crit_edge.us, label %38, !llvm.loop !47
 
 ._crit_edge.us:                                   ; preds = %51
-  %53 = add nuw nsw i32 %.03542.us, 1
-  %exitcond47.not = icmp eq i32 %53, %smax
-  br i1 %exitcond47.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !48
+  %53 = add nuw nsw i32 %.03541.us, 1
+  %exitcond46.not = icmp eq i32 %53, %smax
+  br i1 %exitcond46.not, label %._crit_edge42, label %.preheader.us, !llvm.loop !48
 
-._crit_edge43:                                    ; preds = %._crit_edge.us
-  br i1 %22, label %._crit_edge43.thread, label %._crit_edge43.thread49
+._crit_edge42:                                    ; preds = %._crit_edge.us
+  br i1 %22, label %._crit_edge42.thread, label %._crit_edge42.thread48
 
-._crit_edge43.thread:                             ; preds = %.preheader.lr.ph, %._crit_edge43
+._crit_edge42.thread:                             ; preds = %.preheader.lr.ph, %._crit_edge42
   %54 = load i64, ptr %17, align 8
-  %55 = and i64 %54, 1
-  %.not.i = icmp eq i64 %55, 0
-  %56 = select i1 %.not.i, i64 0, i64 3
+  %55 = trunc i64 %54 to i1
+  %56 = select i1 %55, i64 3, i64 0
   %.025.i = select i1 %23, i64 %56, i64 %54
   %57 = and i64 %.025.i, 3
   %58 = mul nuw nsw i64 %57, 5
@@ -3154,20 +3153,20 @@ define void @Cba_BlastTable(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %66 = mul nuw i64 %65, 4294967297
   %.5.i = select i1 %29, i64 %66, i64 %.429.i
   store i64 %.5.i, ptr %17, align 8
-  br label %._crit_edge43.thread49
+  br label %._crit_edge42.thread48
 
-._crit_edge43.thread49:                           ; preds = %30, %._crit_edge43.thread, %._crit_edge43
+._crit_edge42.thread48:                           ; preds = %30, %._crit_edge42.thread, %._crit_edge42
   %67 = call i32 @Kit_TruthToGia(ptr noundef %0, ptr noundef %17, i32 noundef %3, ptr noundef nonnull %calloc, ptr noundef nonnull %7, i32 noundef 1) #20
   %68 = load i32, ptr %18, align 4
   %69 = load i32, ptr %5, align 8
   %70 = icmp eq i32 %68, %69
   br i1 %70, label %71, label %.Vec_IntGrow.exit10_crit_edge.i
 
-.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %._crit_edge43.thread49
+.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %._crit_edge42.thread48
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
-71:                                               ; preds = %._crit_edge43.thread49
+71:                                               ; preds = %._crit_edge42.thread48
   %72 = icmp slt i32 %68, 16
   br i1 %72, label %73, label %80
 
@@ -3220,14 +3219,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %94 = sext i32 %92 to i64
   %95 = getelementptr inbounds i32, ptr %91, i64 %94
   store i32 %67, ptr %95, align 4
-  %96 = add nuw nsw i32 %.044, 1
-  %exitcond48.not = icmp eq i32 %96, %4
-  br i1 %exitcond48.not, label %._crit_edge, label %30, !llvm.loop !49
+  %96 = add nuw nsw i32 %.043, 1
+  %exitcond47.not = icmp eq i32 %96, %4
+  br i1 %exitcond47.not, label %._crit_edge, label %30, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit
   %.pre = load ptr, ptr %8, align 8
-  %.not.i40 = icmp eq ptr %.pre, null
-  br i1 %.not.i40, label %Vec_IntFree.exit, label %97
+  %.not.i = icmp eq ptr %.pre, null
+  br i1 %.not.i, label %Vec_IntFree.exit, label %97
 
 97:                                               ; preds = %._crit_edge
   call void @free(ptr noundef nonnull %.pre) #20

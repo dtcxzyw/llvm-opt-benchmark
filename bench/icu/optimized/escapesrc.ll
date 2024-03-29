@@ -515,9 +515,8 @@ land.lhs.true63:                                  ; preds = %if.else56
   %idxprom66 = zext nneg i8 %12 to i64
   %arrayidx67 = getelementptr inbounds [256 x i8], ptr @_ZL10oldIllegal, i64 0, i64 %idxprom66
   %13 = load i8, ptr %arrayidx67, align 1
-  %14 = and i8 %13, 1
-  %tobool68.not = icmp eq i8 %14, 0
-  br i1 %tobool68.not, label %if.end155.thread, label %for.inc
+  %tobool68 = trunc i8 %13 to i1
+  br i1 %tobool68, label %for.inc, label %if.end155.thread
 
 if.end155.thread:                                 ; preds = %land.lhs.true63
   %conv7457 = zext nneg i8 %12 to i32
@@ -545,20 +544,20 @@ cond.true82:                                      ; preds = %cond.true
   %and83 = and i32 %conv74, 15
   %idxprom84 = zext nneg i32 %and83 to i64
   %arrayidx85 = getelementptr inbounds [17 x i8], ptr @.str.10, i64 0, i64 %idxprom84
-  %15 = load i8, ptr %arrayidx85, align 1
-  %conv8683 = zext i8 %15 to i32
+  %14 = load i8, ptr %arrayidx85, align 1
+  %conv8683 = zext i8 %14 to i32
   %idxprom87 = sext i32 %inc71 to i64
   %arrayidx88 = getelementptr inbounds i8, ptr %call58, i64 %idxprom87
-  %16 = load i8, ptr %arrayidx88, align 1
-  %17 = lshr i8 %16, 5
-  %shr = zext nneg i8 %17 to i32
+  %15 = load i8, ptr %arrayidx88, align 1
+  %16 = lshr i8 %15, 5
+  %shr = zext nneg i8 %16 to i32
   %shl = shl nuw nsw i32 1, %shr
   %and90 = and i32 %shl, %conv8683
   %tobool91.not = icmp eq i32 %and90, 0
   br i1 %tobool91.not, label %if.then150, label %land.lhs.true92
 
 land.lhs.true92:                                  ; preds = %cond.true82
-  %and94 = and i8 %16, 63
+  %and94 = and i8 %15, 63
   br label %land.lhs.true122
 
 cond.false:                                       ; preds = %cond.true
@@ -569,13 +568,13 @@ cond.false:                                       ; preds = %cond.true
 land.lhs.true97:                                  ; preds = %cond.false
   %idxprom98 = sext i32 %inc71 to i64
   %arrayidx99 = getelementptr inbounds i8, ptr %call58, i64 %idxprom98
-  %18 = load i8, ptr %arrayidx99, align 1
-  %conv100 = zext i8 %18 to i32
+  %17 = load i8, ptr %arrayidx99, align 1
+  %conv100 = zext i8 %17 to i32
   %shr101 = lshr i32 %conv100, 4
   %idxprom102 = zext nneg i32 %shr101 to i64
   %arrayidx103 = getelementptr inbounds [17 x i8], ptr @.str.11, i64 0, i64 %idxprom102
-  %19 = load i8, ptr %arrayidx103, align 1
-  %conv104 = sext i8 %19 to i32
+  %18 = load i8, ptr %arrayidx103, align 1
+  %conv104 = sext i8 %18 to i32
   %shl105 = shl nuw nsw i32 1, %sub
   %and106 = and i32 %shl105, %conv104
   %tobool107.not = icmp eq i32 %and106, 0
@@ -592,8 +591,8 @@ land.lhs.true114:                                 ; preds = %land.lhs.true108
   %or = or disjoint i32 %and111, %shl109
   %idxprom115 = sext i32 %inc112 to i64
   %arrayidx116 = getelementptr inbounds i8, ptr %call58, i64 %idxprom115
-  %20 = load i8, ptr %arrayidx116, align 1
-  %sub118 = xor i8 %20, -128
+  %19 = load i8, ptr %arrayidx116, align 1
+  %sub118 = xor i8 %19, -128
   %cmp121 = icmp ult i8 %sub118, 64
   br i1 %cmp121, label %land.lhs.true122, label %if.then150
 
@@ -621,17 +620,17 @@ land.lhs.true132:                                 ; preds = %land.lhs.true130, %
   %c.1 = phi i32 [ %or125, %land.lhs.true122 ], [ %and131, %land.lhs.true130 ]
   %idxprom133 = sext i32 %i.1 to i64
   %arrayidx134 = getelementptr inbounds i8, ptr %call58, i64 %idxprom133
-  %21 = load i8, ptr %arrayidx134, align 1
-  %sub136 = xor i8 %21, -128
+  %20 = load i8, ptr %arrayidx134, align 1
+  %sub136 = xor i8 %20, -128
   %cmp139 = icmp ult i8 %sub136, 64
   br i1 %cmp139, label %if.end155, label %if.then150
 
 if.then150:                                       ; preds = %land.lhs.true132, %cond.false128, %land.lhs.true122, %land.lhs.true114, %land.lhs.true108, %land.lhs.true97, %cond.false, %cond.true82, %if.then77
+  %21 = load ptr, ptr @stderr, align 8
+  %call152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.12, i32 noundef %conv57) #14
   %22 = load ptr, ptr @stderr, align 8
-  %call152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.12, i32 noundef %conv57) #14
-  %23 = load ptr, ptr @stderr, align 8
   %call153 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %linestr) #13
-  %call154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.13, ptr noundef %call153) #14
+  %call154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.13, ptr noundef %call153) #14
   br label %return
 
 if.end155:                                        ; preds = %land.lhs.true132

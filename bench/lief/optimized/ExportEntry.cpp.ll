@@ -197,9 +197,8 @@ define noundef i32 @_ZNK4LIEF2PE11ExportEntry7addressEv(ptr nocapture noundef no
 define noundef zeroext i1 @_ZNK4LIEF2PE11ExportEntry9is_externEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 68
   %3 = load i8, ptr %2, align 4
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -371,9 +370,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF2PElsERSoRKNS0_11
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %1, i64 68
   %36 = load i8, ptr %35, align 4
-  %37 = and i8 %36, 1
-  %.not = icmp eq i8 %37, 0
-  br i1 %.not, label %38, label %44
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %44, label %38
 
 38:                                               ; preds = %34
   %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 10)

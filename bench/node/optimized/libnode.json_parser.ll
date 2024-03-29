@@ -342,9 +342,11 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
 
 if.end:                                           ; preds = %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit
   %call33 = call i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i204.sroa.0.0, ptr nonnull %retval.i171.sroa.0.0, ptr nonnull %call11.i) #8
-  %5 = and i16 %call33, 257
-  %brmerge.not = icmp eq i16 %5, 257
-  %.mux21 = and i16 %call33, 1
+  %tobool.i228 = trunc i16 %call33 to i1
+  %5 = and i16 %call33, 256
+  %.not23 = icmp ne i16 %5, 0
+  %brmerge.not = and i1 %.not23, %tobool.i228
+  %.mux22 = and i16 %call33, 1
   br i1 %brmerge.not, label %if.end40, label %cleanup
 
 if.end40:                                         ; preds = %if.end
@@ -363,7 +365,7 @@ if.end61:                                         ; preds = %lor.rhs
 
 cleanup:                                          ; preds = %if.end, %lor.rhs, %if.end40, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread, %if.end61
   %retval.sroa.0.0 = phi i16 [ %6, %if.end61 ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit ], [ 0, %if.end ], [ 0, %if.end40 ], [ 0, %lor.rhs ]
-  %retval.sroa.3.0 = phi i16 [ 1, %if.end61 ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit ], [ %.mux21, %if.end ], [ 0, %if.end40 ], [ 0, %lor.rhs ]
+  %retval.sroa.3.0 = phi i16 [ 1, %if.end61 ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit ], [ %.mux22, %if.end ], [ 0, %if.end40 ], [ 0, %lor.rhs ]
   call void @_ZN4node6errors15PrinterTryCatchD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %bootstrapCatch) #8
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i171.sroa.0.0) #8
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #8

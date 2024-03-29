@@ -2423,7 +2423,7 @@ if.end81.fold.split:                              ; preds = %if.then68
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then68, %if.end81.fold.split, %if.end65
-  %tobool122.not = phi i1 [ true, %if.end65 ], [ false, %if.then68 ], [ true, %if.end81.fold.split ]
+  %isconnected.0 = phi i1 [ false, %if.end65 ], [ true, %if.then68 ], [ false, %if.end81.fold.split ]
   %30 = load i32, ptr %addr, align 8
   switch i32 %30, label %if.else121 [
     i32 2, label %if.then89
@@ -2470,8 +2470,8 @@ land.lhs.true5.i:                                 ; preds = %if.end.i82
 if.then7.i:                                       ; preds = %land.lhs.true5.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %myhost.i, i8 0, i64 256, i1 false)
   %call9.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(4) @.str.19, ptr noundef nonnull dereferenceable(1) %35, i64 noundef 3) #15
-  %cmp10.not.not.i = icmp eq i32 %call9.i, 0
-  br i1 %cmp10.not.not.i, label %if.end22.thread.i, label %if.end22.i
+  %cmp10.i = icmp eq i32 %call9.i, 0
+  br i1 %cmp10.i, label %if.end22.thread.i, label %if.end22.i
 
 if.end22.thread.i:                                ; preds = %if.then7.i
   %add.ptr.i = getelementptr inbounds i8, ptr %35, i64 3
@@ -2514,7 +2514,7 @@ if.end37.i:                                       ; preds = %if.then24.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end37.i
-  br i1 %cmp10.not.not.i, label %if.then40.i, label %if.then60.i
+  br i1 %cmp10.i, label %if.then40.i, label %if.then60.i
 
 if.then40.i:                                      ; preds = %sw.bb.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.22, ptr noundef nonnull %dev.096.i) #13
@@ -2532,7 +2532,7 @@ if.then54.i:                                      ; preds = %land.lhs.true46.i
   br label %if.then108.i
 
 if.end58.i:                                       ; preds = %if.end37.i
-  br i1 %cmp10.not.not.i, label %if.then149.i, label %if.then60.i
+  br i1 %cmp10.i, label %if.then149.i, label %if.then60.i
 
 if.then60.i:                                      ; preds = %if.end58.i, %sw.bb.i, %if.end22.i
   %dev.097109.i = phi ptr [ %dev.096.i, %if.end58.i ], [ %add.ptr20.i, %if.end22.i ], [ %dev.096.i, %sw.bb.i ]
@@ -2848,7 +2848,7 @@ if.else121:                                       ; preds = %bindlocal.exit, %if
   %bf.clear109 = and i8 %bf.load108, -5
   %bf.set = or disjoint i8 %bf.clear109, %bf.shl
   store i8 %bf.set, ptr %sock_connected, align 4
-  br i1 %tobool122.not, label %land.lhs.true134, label %if.then123
+  br i1 %isconnected.0, label %if.then123, label %land.lhs.true134
 
 if.then123:                                       ; preds = %if.else121
   %cf.val = load ptr, ptr %ctx1, align 8

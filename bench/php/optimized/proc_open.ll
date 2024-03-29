@@ -145,9 +145,8 @@ define internal void @proc_open_rsrc_dtor(ptr nocapture noundef readonly %0) #0 
 
 30:                                               ; preds = %46, %._crit_edge
   %31 = load i8, ptr %28, align 4
-  %32 = and i8 %31, 1
-  %.not.i = icmp eq i8 %32, 0
-  br i1 %.not.i, label %36, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %36
 
 33:                                               ; preds = %30
   %34 = load i32, ptr %29, align 8
@@ -165,12 +164,12 @@ define internal void @proc_open_rsrc_dtor(ptr nocapture noundef readonly %0) #0 
   %41 = load i32, ptr %2, align 4
   %42 = and i32 %41, 127
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %.critedge.thread37
+  br i1 %43, label %44, label %.critedge.thread36
 
 44:                                               ; preds = %40
   store i8 1, ptr %28, align 4
   store i32 %41, ptr %29, align 8
-  br label %.critedge.thread37
+  br label %.critedge.thread36
 
 waitpid_cached.exit:                              ; preds = %33, %36
   %.0.i = phi i32 [ %35, %33 ], [ %38, %36 ]
@@ -185,33 +184,33 @@ waitpid_cached.exit:                              ; preds = %33, %36
 
 .critedge:                                        ; preds = %waitpid_cached.exit
   %50 = icmp slt i32 %.0.i, 1
-  br i1 %50, label %.critedge.thread, label %.critedge..critedge.thread37_crit_edge
+  br i1 %50, label %.critedge.thread, label %.critedge..critedge.thread36_crit_edge
 
-.critedge..critedge.thread37_crit_edge:           ; preds = %.critedge
-  %.pre45 = load i32, ptr %2, align 4
-  br label %.critedge.thread37
+.critedge..critedge.thread36_crit_edge:           ; preds = %.critedge
+  %.pre44 = load i32, ptr %2, align 4
+  br label %.critedge.thread36
 
-.critedge.thread37:                               ; preds = %.critedge..critedge.thread37_crit_edge, %44, %40
-  %51 = phi i32 [ %.pre45, %.critedge..critedge.thread37_crit_edge ], [ %41, %44 ], [ %41, %40 ]
+.critedge.thread36:                               ; preds = %.critedge..critedge.thread36_crit_edge, %44, %40
+  %51 = phi i32 [ %.pre44, %.critedge..critedge.thread36_crit_edge ], [ %41, %44 ], [ %41, %40 ]
   %52 = and i32 %51, 127
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %.critedge.thread
 
-54:                                               ; preds = %.critedge.thread37
+54:                                               ; preds = %.critedge.thread36
   %55 = lshr i32 %51, 8
   %56 = and i32 %55, 255
   store i32 %56, ptr %2, align 4
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %46, %.critedge.thread37, %54, %.critedge
-  %storemerge = phi i32 [ -1, %.critedge ], [ %56, %54 ], [ %51, %.critedge.thread37 ], [ -1, %46 ]
+.critedge.thread:                                 ; preds = %46, %.critedge.thread36, %54, %.critedge
+  %storemerge = phi i32 [ -1, %.critedge ], [ %56, %54 ], [ %51, %.critedge.thread36 ], [ -1, %46 ]
   store i32 %storemerge, ptr @file_globals, align 8
   %57 = getelementptr inbounds i8, ptr %4, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %4, i64 32
   %60 = load ptr, ptr %59, align 8
-  %.not.i33 = icmp eq ptr %60, null
-  br i1 %.not.i33, label %62, label %61
+  %.not.i = icmp eq ptr %60, null
+  br i1 %.not.i, label %62, label %61
 
 61:                                               ; preds = %.critedge.thread
   call void @_efree(ptr noundef nonnull %60) #13
@@ -427,7 +426,7 @@ define hidden void @zif_proc_get_status(ptr noundef %0, ptr noundef %1) local_un
   %.0113.ph = phi i32 [ 14, %7 ], [ 0, %6 ]
   %.0107.ph = phi i32 [ 9, %7 ], [ 1, %6 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.0107.ph, i32 noundef %.0115.ph, ptr noundef null, i32 noundef %.0113.ph, ptr noundef %.0114.ph) #13
-  br label %71
+  br label %70
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr %8, align 8
@@ -440,7 +439,7 @@ define hidden void @zif_proc_get_status(ptr noundef %0, ptr noundef %1) local_un
   %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
-  br label %71
+  br label %70
 
 20:                                               ; preds = %12
   %21 = tail call ptr @_zend_new_array_0() #13
@@ -468,9 +467,8 @@ define hidden void @zif_proc_get_status(ptr noundef %0, ptr noundef %1) local_un
   tail call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i64 noundef 3, i64 noundef %33) #13
   %34 = getelementptr inbounds i8, ptr %15, i64 44
   %35 = load i8, ptr %34, align 4
-  %36 = and i8 %35, 1
-  %.not.i = icmp eq i8 %36, 0
-  br i1 %.not.i, label %41, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %41
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds i8, ptr %15, i64 40
@@ -536,18 +534,17 @@ waitpid_cached.exit:                              ; preds = %37, %41, %45, %49
   %.1109 = phi i1 [ false, %65 ], [ %60, %53 ]
   %.2.in = phi i1 [ %66, %65 ], [ %narrow, %53 ]
   %68 = load i8, ptr %34, align 4
-  %69 = and i8 %68, 1
-  %70 = icmp ne i8 %69, 0
-  call void @add_assoc_bool_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.3, i64 noundef 6, i1 noundef zeroext %70) #13
+  %69 = trunc i8 %68 to i1
+  call void @add_assoc_bool_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.3, i64 noundef 6, i1 noundef zeroext %69) #13
   call void @add_assoc_bool_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.4, i64 noundef 7, i1 noundef zeroext %.2.in) #13
   call void @add_assoc_bool_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, i64 noundef 8, i1 noundef zeroext %.1109) #13
   call void @add_assoc_bool_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.6, i64 noundef 7, i1 noundef zeroext %.0110) #13
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, i64 noundef 8, i64 noundef %.1112) #13
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.8, i64 noundef 7, i64 noundef %.1117) #13
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.9, i64 noundef 7, i64 noundef %.0118) #13
-  br label %71
+  br label %70
 
-71:                                               ; preds = %67, %17, %11
+70:                                               ; preds = %67, %17, %11
   ret void
 }
 

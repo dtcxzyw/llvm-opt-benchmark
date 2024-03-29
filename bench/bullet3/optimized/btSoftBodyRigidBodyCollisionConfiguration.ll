@@ -138,37 +138,36 @@ invoke.cont13:                                    ; preds = %invoke.cont10
   store i8 1, ptr %m_swapped.i.i9, align 8
   %m_ownsCollisionAlgorithmPool = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %m_ownsCollisionAlgorithmPool, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end35, label %land.lhs.true
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end35
 
 land.lhs.true:                                    ; preds = %invoke.cont13
   %m_collisionAlgorithmPool = getelementptr inbounds i8, ptr %this, i64 32
-  %2 = load ptr, ptr %m_collisionAlgorithmPool, align 8
-  %tobool18.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %m_collisionAlgorithmPool, align 8
+  %tobool18.not = icmp eq ptr %1, null
   br i1 %tobool18.not, label %if.end35, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %3 = load i32, ptr %2, align 8
-  %cmp = icmp slt i32 %3, 248
+  %2 = load i32, ptr %1, align 8
+  %cmp = icmp slt i32 %2, 248
   br i1 %cmp, label %if.then26, label %if.end35
 
 if.then26:                                        ; preds = %if.then
-  %m_pool.i = getelementptr inbounds i8, ptr %2, i64 24
-  %4 = load ptr, ptr %m_pool.i, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %4)
+  %m_pool.i = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = load ptr, ptr %m_pool.i, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %3)
           to label %_ZN15btPoolAllocatorD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then26
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #6
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #6
   unreachable
 
 _ZN15btPoolAllocatorD2Ev.exit:                    ; preds = %if.then26
-  %7 = load ptr, ptr %m_collisionAlgorithmPool, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %7)
+  %6 = load ptr, ptr %m_collisionAlgorithmPool, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %6)
           to label %invoke.cont29 unwind label %lpad
 
 invoke.cont29:                                    ; preds = %_ZN15btPoolAllocatorD2Ev.exit
@@ -177,13 +176,13 @@ invoke.cont29:                                    ; preds = %_ZN15btPoolAllocato
 
 invoke.cont31:                                    ; preds = %invoke.cont29
   %m_defaultMaxCollisionAlgorithmPoolSize = getelementptr inbounds i8, ptr %constructionInfo, i64 20
-  %8 = load i32, ptr %m_defaultMaxCollisionAlgorithmPoolSize, align 4
+  %7 = load i32, ptr %m_defaultMaxCollisionAlgorithmPoolSize, align 4
   store i32 248, ptr %call32, align 8
   %m_maxElements.i = getelementptr inbounds i8, ptr %call32, i64 4
-  store i32 %8, ptr %m_maxElements.i, align 4
+  store i32 %7, ptr %m_maxElements.i, align 4
   %m_mutex.i = getelementptr inbounds i8, ptr %call32, i64 32
   store i32 0, ptr %m_mutex.i, align 4
-  %mul.i = mul nsw i32 %8, 248
+  %mul.i = mul nsw i32 %7, 248
   %conv.i = zext i32 %mul.i to i64
   %call.i13 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %conv.i, i32 noundef 16)
           to label %call.i.noexc unwind label %lpad
@@ -193,10 +192,10 @@ call.i.noexc:                                     ; preds = %invoke.cont31
   store ptr %call.i13, ptr %m_pool.i12, align 8
   %m_firstFree.i = getelementptr inbounds i8, ptr %call32, i64 16
   store ptr %call.i13, ptr %m_firstFree.i, align 8
-  %9 = load i32, ptr %m_maxElements.i, align 4
+  %8 = load i32, ptr %m_maxElements.i, align 4
   %m_freeCount.i = getelementptr inbounds i8, ptr %call32, i64 8
-  store i32 %9, ptr %m_freeCount.i, align 8
-  %dec5.i = add nsw i32 %9, -1
+  store i32 %8, ptr %m_freeCount.i, align 8
+  %dec5.i = add nsw i32 %8, -1
   %tobool.not6.i = icmp eq i32 %dec5.i, 0
   br i1 %tobool.not6.i, label %invoke.cont33, label %while.body.preheader.i
 
@@ -205,14 +204,14 @@ while.body.preheader.i:                           ; preds = %call.i.noexc
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
-  %10 = phi i32 [ %11, %while.body.i ], [ %.pre.i, %while.body.preheader.i ]
+  %9 = phi i32 [ %10, %while.body.i ], [ %.pre.i, %while.body.preheader.i ]
   %dec8.i = phi i32 [ %dec.i, %while.body.i ], [ %dec5.i, %while.body.preheader.i ]
   %p.07.i = phi ptr [ %add.ptr10.i, %while.body.i ], [ %call.i13, %while.body.preheader.i ]
-  %idx.ext.i = sext i32 %10 to i64
+  %idx.ext.i = sext i32 %9 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %p.07.i, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %p.07.i, align 8
-  %11 = load i32, ptr %call32, align 8
-  %idx.ext9.i = sext i32 %11 to i64
+  %10 = load i32, ptr %call32, align 8
+  %idx.ext9.i = sext i32 %10 to i64
   %add.ptr10.i = getelementptr inbounds i8, ptr %p.07.i, i64 %idx.ext9.i
   %dec.i = add nsw i32 %dec8.i, -1
   %tobool.not.i = icmp eq i32 %dec.i, 0
@@ -225,10 +224,10 @@ invoke.cont33:                                    ; preds = %while.body.i, %call
   br label %if.end35
 
 lpad:                                             ; preds = %invoke.cont31, %invoke.cont29, %_ZN15btPoolAllocatorD2Ev.exit, %invoke.cont10, %invoke.cont6, %invoke.cont3, %invoke.cont2, %entry
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN31btDefaultCollisionConfigurationD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #7
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %11
 
 if.end35:                                         ; preds = %if.then, %invoke.cont33, %land.lhs.true, %invoke.cont13
   ret void
@@ -467,9 +466,8 @@ entry:
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 24)
   %m_swapped = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i8, ptr %m_swapped, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp ne i8 %3, 0
-  tail call void @_ZN29btSoftRigidCollisionAlgorithmC1EP20btPersistentManifoldRK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS7_b(ptr noundef nonnull align 8 dereferenceable(17) %call, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap, i1 noundef zeroext %tobool.not)
+  %tobool = trunc i8 %2 to i1
+  tail call void @_ZN29btSoftRigidCollisionAlgorithmC1EP20btPersistentManifoldRK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS7_b(ptr noundef nonnull align 8 dereferenceable(17) %call, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap, i1 noundef zeroext %tobool)
   ret ptr %call
 }
 

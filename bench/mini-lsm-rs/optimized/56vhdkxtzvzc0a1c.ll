@@ -244,9 +244,9 @@ default.unreachable:                              ; preds = %2
 define hidden noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h1006d54870bc8330E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, ptr }, align 8
   %4 = load i64, ptr %0, align 8, !range !36, !noundef !11
-  %trunc.not = icmp eq i64 %4, 0
+  %trunc = trunc i64 %4 to i1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %trunc.not, label %6, label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hd0ffc9b095270f0cE.llvm.1533238098547642317.exit"
+  br i1 %trunc, label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hd0ffc9b095270f0cE.llvm.1533238098547642317.exit", label %6
 
 6:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
@@ -319,9 +319,9 @@ default.unreachable:                              ; preds = %6
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h6ab144b3967aac6dE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !36, !noundef !11
-  %trunc.not = icmp eq i64 %3, 0
+  %trunc = trunc i64 %3 to i1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %trunc.not, label %5, label %7
+  br i1 %trunc, label %7, label %5
 
 5:                                                ; preds = %2
   %6 = tail call noundef align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17he6fc582a07496eb2E.llvm.1533238098547642317"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable_or_null(16) %1)
@@ -335,9 +335,9 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys6commo
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17ha854bd608303d4d6E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !36, !noundef !11
-  %trunc.not = icmp eq i64 %3, 0
+  %trunc = trunc i64 %3 to i1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %trunc.not, label %5, label %12
+  br i1 %trunc, label %12, label %5
 
 5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
@@ -1302,8 +1302,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hb78e763a434eb26eE"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8, !range !36, !noundef !11
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %7, label %3
+  %.not.not = icmp eq i64 %2, 0
+  br i1 %.not.not, label %7, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1313,7 +1313,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 
 7:                                                ; preds = %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h9217d05fd4f8a77dE.llvm.1533238098547642317.exit", %3, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select = select i1 %.not, ptr null, ptr %8
+  %spec.select = select i1 %.not.not, ptr null, ptr %8
   ret ptr %spec.select
 
 9:                                                ; preds = %3
@@ -1344,8 +1344,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hc9dd734823f7a5c3E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8, !range !36, !noundef !11
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %7, label %3
+  %.not.not = icmp eq i64 %2, 0
+  br i1 %.not.not, label %7, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1355,7 +1355,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 
 7:                                                ; preds = %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hd832304ec3fd3eddE.llvm.1533238098547642317.exit", %3, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select = select i1 %.not, ptr null, ptr %8
+  %spec.select = select i1 %.not.not, ptr null, ptr %8
   ret ptr %spec.select
 
 9:                                                ; preds = %3

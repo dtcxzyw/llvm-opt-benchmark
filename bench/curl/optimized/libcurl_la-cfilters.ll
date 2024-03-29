@@ -588,48 +588,47 @@ if.then8:                                         ; preds = %if.end
 
 land.lhs.true:                                    ; preds = %if.then8
   %4 = load i8, ptr %done, align 1
-  %5 = and i8 %4, 1
-  %tobool11.not = icmp eq i8 %5, 0
-  br i1 %tobool11.not, label %return, label %if.then12
+  %tobool11 = trunc i8 %4 to i1
+  br i1 %tobool11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
-  %6 = load ptr, ptr %conn, align 8
-  %cfilter.i.i = getelementptr inbounds i8, ptr %6, i64 432
+  %5 = load ptr, ptr %conn, align 8
+  %cfilter.i.i = getelementptr inbounds i8, ptr %5, i64 432
   br label %for.body.us.i.i
 
 for.body.us.i.i:                                  ; preds = %for.inc.us.i.i, %if.then12
   %cmp.us.i.i = phi i1 [ false, %for.inc.us.i.i ], [ true, %if.then12 ]
   %i.06.us.i.i = phi i64 [ 1, %for.inc.us.i.i ], [ 0, %if.then12 ]
   %arrayidx.us.i.i = getelementptr inbounds [2 x ptr], ptr %cfilter.i.i, i64 0, i64 %i.06.us.i.i
-  %7 = load ptr, ptr %arrayidx.us.i.i, align 8
-  %tobool.not6.i.us.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %arrayidx.us.i.i, align 8
+  %tobool.not6.i.us.i.i = icmp eq ptr %6, null
   br i1 %tobool.not6.i.us.i.i, label %for.inc.us.i.i, label %for.body.us.i.us.i.i
 
 for.body.us.i.us.i.i:                             ; preds = %for.body.us.i.i, %for.inc.us.i.us.i.i
-  %cf.addr.07.us.i.us.i.i = phi ptr [ %10, %for.inc.us.i.us.i.i ], [ %7, %for.body.us.i.i ]
-  %8 = load ptr, ptr %cf.addr.07.us.i.us.i.i, align 8
-  %cntrl.us.i.us.i.i = getelementptr inbounds i8, ptr %8, i64 80
-  %9 = load ptr, ptr %cntrl.us.i.us.i.i, align 8
-  %cmp.us.i.us.i.i = icmp eq ptr %9, @Curl_cf_def_cntrl
+  %cf.addr.07.us.i.us.i.i = phi ptr [ %9, %for.inc.us.i.us.i.i ], [ %6, %for.body.us.i.i ]
+  %7 = load ptr, ptr %cf.addr.07.us.i.us.i.i, align 8
+  %cntrl.us.i.us.i.i = getelementptr inbounds i8, ptr %7, i64 80
+  %8 = load ptr, ptr %cntrl.us.i.us.i.i, align 8
+  %cmp.us.i.us.i.i = icmp eq ptr %8, @Curl_cf_def_cntrl
   br i1 %cmp.us.i.us.i.i, label %for.inc.us.i.us.i.i, label %if.end.us.i.us.i.i
 
 if.end.us.i.us.i.i:                               ; preds = %for.body.us.i.us.i.i
-  %call.us.i.us.i.i = tail call i32 %9(ptr noundef nonnull %cf.addr.07.us.i.us.i.i, ptr noundef %data, i32 noundef 256, i32 noundef 0, ptr noundef null) #11
+  %call.us.i.us.i.i = tail call i32 %8(ptr noundef nonnull %cf.addr.07.us.i.us.i.i, ptr noundef %data, i32 noundef 256, i32 noundef 0, ptr noundef null) #11
   br label %for.inc.us.i.us.i.i
 
 for.inc.us.i.us.i.i:                              ; preds = %if.end.us.i.us.i.i, %for.body.us.i.us.i.i
   %next.us.i.us.i.i = getelementptr inbounds i8, ptr %cf.addr.07.us.i.us.i.i, i64 8
-  %10 = load ptr, ptr %next.us.i.us.i.i, align 8
-  %tobool.not.us.i.us.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %next.us.i.us.i.i, align 8
+  %tobool.not.us.i.us.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.us.i.us.i.i, label %for.inc.us.i.i, label %for.body.us.i.us.i.i, !llvm.loop !10
 
 for.inc.us.i.i:                                   ; preds = %for.inc.us.i.us.i.i, %for.body.us.i.i
   br i1 %cmp.us.i.i, label %for.body.us.i.i, label %Curl_conn_ev_update_info.exit, !llvm.loop !11
 
 Curl_conn_ev_update_info.exit:                    ; preds = %for.inc.us.i.i
-  %11 = load ptr, ptr %conn, align 8
-  %12 = getelementptr i8, ptr %11, i64 432
-  %.val = load ptr, ptr %12, align 8
+  %10 = load ptr, ptr %conn, align 8
+  %11 = getelementptr i8, ptr %10, i64 432
+  %.val = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %connected.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %appconnected.i)
   %tobool.not.i = icmp eq ptr %.val, null
@@ -637,57 +636,57 @@ Curl_conn_ev_update_info.exit:                    ; preds = %for.inc.us.i.i
 
 if.then.i:                                        ; preds = %Curl_conn_ev_update_info.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %connected.i, i8 0, i64 16, i1 false)
-  %13 = load ptr, ptr %.val, align 8
-  %query.i = getelementptr inbounds i8, ptr %13, i64 104
-  %14 = load ptr, ptr %query.i, align 8
-  %call.i = call i32 %14(ptr noundef nonnull %.val, ptr noundef nonnull %data, i32 noundef 4, ptr noundef null, ptr noundef nonnull %connected.i) #11
-  %15 = load i64, ptr %connected.i, align 8
-  %tobool1.i = icmp ne i64 %15, 0
+  %12 = load ptr, ptr %.val, align 8
+  %query.i = getelementptr inbounds i8, ptr %12, i64 104
+  %13 = load ptr, ptr %query.i, align 8
+  %call.i = call i32 %13(ptr noundef nonnull %.val, ptr noundef nonnull %data, i32 noundef 4, ptr noundef null, ptr noundef nonnull %connected.i) #11
+  %14 = load i64, ptr %connected.i, align 8
+  %tobool1.i = icmp ne i64 %14, 0
   %tv_usec.i = getelementptr inbounds i8, ptr %connected.i, i64 8
-  %16 = load i32, ptr %tv_usec.i, align 8
-  %tobool2.i = icmp ne i32 %16, 0
+  %15 = load i32, ptr %tv_usec.i, align 8
+  %tobool2.i = icmp ne i32 %15, 0
   %or.cond.i = select i1 %tobool1.i, i1 true, i1 %tobool2.i
   br i1 %or.cond.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  call void @Curl_pgrsTimeWas(ptr noundef nonnull %data, i32 noundef 5, i64 %15, i32 %16) #11
+  call void @Curl_pgrsTimeWas(ptr noundef nonnull %data, i32 noundef 5, i64 %14, i32 %15) #11
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i, %if.then.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %appconnected.i, i8 0, i64 16, i1 false)
-  %17 = load ptr, ptr %.val, align 8
-  %query5.i = getelementptr inbounds i8, ptr %17, i64 104
-  %18 = load ptr, ptr %query5.i, align 8
-  %call6.i = call i32 %18(ptr noundef nonnull %.val, ptr noundef nonnull %data, i32 noundef 5, ptr noundef null, ptr noundef nonnull %appconnected.i) #11
-  %19 = load i64, ptr %appconnected.i, align 8
-  %tobool8.i = icmp ne i64 %19, 0
+  %16 = load ptr, ptr %.val, align 8
+  %query5.i = getelementptr inbounds i8, ptr %16, i64 104
+  %17 = load ptr, ptr %query5.i, align 8
+  %call6.i = call i32 %17(ptr noundef nonnull %.val, ptr noundef nonnull %data, i32 noundef 5, ptr noundef null, ptr noundef nonnull %appconnected.i) #11
+  %18 = load i64, ptr %appconnected.i, align 8
+  %tobool8.i = icmp ne i64 %18, 0
   %tv_usec10.i = getelementptr inbounds i8, ptr %appconnected.i, i64 8
-  %20 = load i32, ptr %tv_usec10.i, align 8
-  %tobool11.i = icmp ne i32 %20, 0
+  %19 = load i32, ptr %tv_usec10.i, align 8
+  %tobool11.i = icmp ne i32 %19, 0
   %or.cond1.i = select i1 %tobool8.i, i1 true, i1 %tobool11.i
   br i1 %or.cond1.i, label %if.then12.i, label %conn_report_connect_stats.exit
 
 if.then12.i:                                      ; preds = %if.end.i
-  call void @Curl_pgrsTimeWas(ptr noundef nonnull %data, i32 noundef 6, i64 %19, i32 %20) #11
+  call void @Curl_pgrsTimeWas(ptr noundef nonnull %data, i32 noundef 6, i64 %18, i32 %19) #11
   br label %conn_report_connect_stats.exit
 
 conn_report_connect_stats.exit:                   ; preds = %Curl_conn_ev_update_info.exit, %if.end.i, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %connected.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %appconnected.i)
-  %21 = load ptr, ptr %conn, align 8
-  %keepalive = getelementptr inbounds i8, ptr %21, i64 728
+  %20 = load ptr, ptr %conn, align 8
+  %keepalive = getelementptr inbounds i8, ptr %20, i64 728
   %call16 = call { i64, i32 } @Curl_now() #11
-  %22 = extractvalue { i64, i32 } %call16, 0
-  %23 = extractvalue { i64, i32 } %call16, 1
-  store i64 %22, ptr %keepalive, align 8
-  %tmp.sroa.2.0.keepalive.sroa_idx = getelementptr inbounds i8, ptr %21, i64 736
-  store i32 %23, ptr %tmp.sroa.2.0.keepalive.sroa_idx, align 8
+  %21 = extractvalue { i64, i32 } %call16, 0
+  %22 = extractvalue { i64, i32 } %call16, 1
+  store i64 %21, ptr %keepalive, align 8
+  %tmp.sroa.2.0.keepalive.sroa_idx = getelementptr inbounds i8, ptr %20, i64 736
+  store i32 %22, ptr %tmp.sroa.2.0.keepalive.sroa_idx, align 8
   br label %return
 
 if.then18:                                        ; preds = %if.then8
-  %24 = load ptr, ptr %conn, align 8
-  %25 = getelementptr i8, ptr %24, i64 432
-  %.val17 = load ptr, ptr %25, align 8
+  %23 = load ptr, ptr %conn, align 8
+  %24 = getelementptr i8, ptr %23, i64 432
+  %.val17 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %connected.i18)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %appconnected.i19)
   %tobool.not.i20 = icmp eq ptr %.val17, null
@@ -695,38 +694,38 @@ if.then18:                                        ; preds = %if.then8
 
 if.then.i21:                                      ; preds = %if.then18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %connected.i18, i8 0, i64 16, i1 false)
-  %26 = load ptr, ptr %.val17, align 8
-  %query.i22 = getelementptr inbounds i8, ptr %26, i64 104
-  %27 = load ptr, ptr %query.i22, align 8
-  %call.i23 = call i32 %27(ptr noundef nonnull %.val17, ptr noundef nonnull %data, i32 noundef 4, ptr noundef null, ptr noundef nonnull %connected.i18) #11
-  %28 = load i64, ptr %connected.i18, align 8
-  %tobool1.i24 = icmp ne i64 %28, 0
+  %25 = load ptr, ptr %.val17, align 8
+  %query.i22 = getelementptr inbounds i8, ptr %25, i64 104
+  %26 = load ptr, ptr %query.i22, align 8
+  %call.i23 = call i32 %26(ptr noundef nonnull %.val17, ptr noundef nonnull %data, i32 noundef 4, ptr noundef null, ptr noundef nonnull %connected.i18) #11
+  %27 = load i64, ptr %connected.i18, align 8
+  %tobool1.i24 = icmp ne i64 %27, 0
   %tv_usec.i25 = getelementptr inbounds i8, ptr %connected.i18, i64 8
-  %29 = load i32, ptr %tv_usec.i25, align 8
-  %tobool2.i26 = icmp ne i32 %29, 0
+  %28 = load i32, ptr %tv_usec.i25, align 8
+  %tobool2.i26 = icmp ne i32 %28, 0
   %or.cond.i27 = select i1 %tobool1.i24, i1 true, i1 %tobool2.i26
   br i1 %or.cond.i27, label %if.then3.i36, label %if.end.i28
 
 if.then3.i36:                                     ; preds = %if.then.i21
-  call void @Curl_pgrsTimeWas(ptr noundef nonnull %data, i32 noundef 5, i64 %28, i32 %29) #11
+  call void @Curl_pgrsTimeWas(ptr noundef nonnull %data, i32 noundef 5, i64 %27, i32 %28) #11
   br label %if.end.i28
 
 if.end.i28:                                       ; preds = %if.then3.i36, %if.then.i21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %appconnected.i19, i8 0, i64 16, i1 false)
-  %30 = load ptr, ptr %.val17, align 8
-  %query5.i29 = getelementptr inbounds i8, ptr %30, i64 104
-  %31 = load ptr, ptr %query5.i29, align 8
-  %call6.i30 = call i32 %31(ptr noundef nonnull %.val17, ptr noundef nonnull %data, i32 noundef 5, ptr noundef null, ptr noundef nonnull %appconnected.i19) #11
-  %32 = load i64, ptr %appconnected.i19, align 8
-  %tobool8.i31 = icmp ne i64 %32, 0
+  %29 = load ptr, ptr %.val17, align 8
+  %query5.i29 = getelementptr inbounds i8, ptr %29, i64 104
+  %30 = load ptr, ptr %query5.i29, align 8
+  %call6.i30 = call i32 %30(ptr noundef nonnull %.val17, ptr noundef nonnull %data, i32 noundef 5, ptr noundef null, ptr noundef nonnull %appconnected.i19) #11
+  %31 = load i64, ptr %appconnected.i19, align 8
+  %tobool8.i31 = icmp ne i64 %31, 0
   %tv_usec10.i32 = getelementptr inbounds i8, ptr %appconnected.i19, i64 8
-  %33 = load i32, ptr %tv_usec10.i32, align 8
-  %tobool11.i33 = icmp ne i32 %33, 0
+  %32 = load i32, ptr %tv_usec10.i32, align 8
+  %tobool11.i33 = icmp ne i32 %32, 0
   %or.cond1.i34 = select i1 %tobool8.i31, i1 true, i1 %tobool11.i33
   br i1 %or.cond1.i34, label %if.then12.i35, label %conn_report_connect_stats.exit37
 
 if.then12.i35:                                    ; preds = %if.end.i28
-  call void @Curl_pgrsTimeWas(ptr noundef nonnull %data, i32 noundef 6, i64 %32, i32 %33) #11
+  call void @Curl_pgrsTimeWas(ptr noundef nonnull %data, i32 noundef 6, i64 %31, i32 %32) #11
   br label %conn_report_connect_stats.exit37
 
 conn_report_connect_stats.exit37:                 ; preds = %if.then18, %if.end.i28, %if.then12.i35
@@ -1910,7 +1909,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %0 = trunc i64 %indvars.iv.i to i32
   %shl.i = shl nuw nsw i32 1, %0
-  %shl1.i = shl i32 65536, %0
+  %shl1.i = shl nuw nsw i32 65536, %0
   %or.i = shl nuw nsw i32 65537, %0
   %and.i = and i32 %or.i, %call
   %tobool2.not.i = icmp eq i32 %and.i, 0

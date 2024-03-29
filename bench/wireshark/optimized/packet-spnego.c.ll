@@ -359,9 +359,8 @@ define internal i32 @dissect_spnego_krb5(ptr noundef %0, ptr noundef %1, ptr nou
 
 19:                                               ; preds = %4
   %20 = load i8, ptr %7, align 1
-  %21 = and i8 %20, 1
-  %.not = icmp eq i8 %21, 0
-  br i1 %.not, label %43, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %43
 
 22:                                               ; preds = %19
   %23 = call i32 @dissect_ber_identifier(ptr noundef %1, ptr noundef %15, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9) #6

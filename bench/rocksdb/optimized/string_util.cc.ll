@@ -844,15 +844,13 @@ entry:
   br i1 %cmp.i.not6, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %escaped.08 = phi i8 [ %escaped.1, %for.inc ], [ 0, %entry ]
+  %escaped.08 = phi i1 [ %escaped.1, %for.inc ], [ false, %entry ]
   %__begin1.sroa.0.07 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %call, %entry ]
   %0 = load i8, ptr %__begin1.sroa.0.07, align 1
-  %1 = and i8 %escaped.08, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  br i1 %escaped.08, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  switch i8 %0, label %invoke.cont [
+  switch i8 %0, label %if.end.invoke [
     i8 114, label %if.end.i
     i8 110, label %if.end.fold.split.i
   ]
@@ -863,30 +861,26 @@ if.end.fold.split.i:                              ; preds = %if.then
 if.end.i:                                         ; preds = %if.end.fold.split.i, %if.then
   %retval.0.i.i.i.ph.i = phi ptr [ @_ZZN7rocksdb12UnescapeCharEcE11convert_map, %if.then ], [ getelementptr inbounds ([2 x %"struct.std::pair"], ptr @_ZZN7rocksdb12UnescapeCharEcE11convert_map, i64 0, i64 1, i32 0), %if.end.fold.split.i ]
   %second.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.ph.i, i64 1
-  %2 = load i8, ptr %second.i, align 1
-  br label %invoke.cont
+  %1 = load i8, ptr %second.i, align 1
+  br label %if.end.invoke
 
-invoke.cont:                                      ; preds = %if.end.i, %if.then
-  %retval.0.i = phi i8 [ %2, %if.end.i ], [ %0, %if.then ]
-  %call7 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %retval.0.i)
-          to label %for.inc unwind label %lpad
-
-lpad:                                             ; preds = %if.end, %invoke.cont
-  %3 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %if.end.invoke
+  %2 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #22
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %2
 
 if.else:                                          ; preds = %for.body
   %cmp = icmp eq i8 %0, 92
-  br i1 %cmp, label %for.inc, label %if.end
+  br i1 %cmp, label %for.inc, label %if.end.invoke
 
-if.end:                                           ; preds = %if.else
-  %call10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %0)
+if.end.invoke:                                    ; preds = %if.then, %if.end.i, %if.else
+  %3 = phi i8 [ %0, %if.else ], [ %1, %if.end.i ], [ %0, %if.then ]
+  %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %3)
           to label %for.inc unwind label %lpad
 
-for.inc:                                          ; preds = %if.else, %invoke.cont, %if.end
-  %escaped.1 = phi i8 [ %escaped.08, %if.end ], [ 0, %invoke.cont ], [ 1, %if.else ]
+for.inc:                                          ; preds = %if.end.invoke, %if.else
+  %escaped.1 = phi i1 [ true, %if.else ], [ false, %if.end.invoke ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 1
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %call1
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body

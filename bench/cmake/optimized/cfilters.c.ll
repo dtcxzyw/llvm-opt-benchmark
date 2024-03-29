@@ -566,9 +566,8 @@ define dso_local i32 @Curl_conn_connect(ptr noundef %0, i32 noundef %1, i1 nound
 
 24:                                               ; preds = %19
   %25 = load i8, ptr %3, align 1
-  %26 = and i8 %25, 1
-  %.not27 = icmp eq i8 %26, 0
-  br i1 %.not27, label %95, label %27
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %95
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %9, align 8
@@ -665,25 +664,25 @@ conn_report_connect_stats.exit:                   ; preds = %Curl_conn_ev_update
 .critedge:                                        ; preds = %19
   %71 = load ptr, ptr %9, align 8
   %72 = getelementptr i8, ptr %71, i64 432
-  %.val28 = load ptr, ptr %72, align 8
+  %.val27 = load ptr, ptr %72, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %.not.i29 = icmp eq ptr %.val28, null
-  br i1 %.not.i29, label %conn_report_connect_stats.exit32, label %73
+  %.not.i28 = icmp eq ptr %.val27, null
+  br i1 %.not.i28, label %conn_report_connect_stats.exit31, label %73
 
 73:                                               ; preds = %.critedge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %74 = load ptr, ptr %.val28, align 8
+  %74 = load ptr, ptr %.val27, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 104
   %76 = load ptr, ptr %75, align 8
-  %77 = call i32 %76(ptr noundef nonnull %.val28, ptr noundef nonnull %0, i32 noundef 4, ptr noundef null, ptr noundef nonnull %5) #11
+  %77 = call i32 %76(ptr noundef nonnull %.val27, ptr noundef nonnull %0, i32 noundef 4, ptr noundef null, ptr noundef nonnull %5) #11
   %78 = load i64, ptr %5, align 8
   %79 = icmp ne i64 %78, 0
   %80 = getelementptr inbounds i8, ptr %5, i64 8
   %81 = load i32, ptr %80, align 8
   %82 = icmp ne i32 %81, 0
-  %or.cond.i30 = select i1 %79, i1 true, i1 %82
-  br i1 %or.cond.i30, label %83, label %84
+  %or.cond.i29 = select i1 %79, i1 true, i1 %82
+  br i1 %or.cond.i29, label %83, label %84
 
 83:                                               ; preds = %73
   call void @Curl_pgrsTimeWas(ptr noundef nonnull %0, i32 noundef 5, i64 %78, i32 %81) #11
@@ -691,29 +690,29 @@ conn_report_connect_stats.exit:                   ; preds = %Curl_conn_ev_update
 
 84:                                               ; preds = %83, %73
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %85 = load ptr, ptr %.val28, align 8
+  %85 = load ptr, ptr %.val27, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 104
   %87 = load ptr, ptr %86, align 8
-  %88 = call i32 %87(ptr noundef nonnull %.val28, ptr noundef nonnull %0, i32 noundef 5, ptr noundef null, ptr noundef nonnull %6) #11
+  %88 = call i32 %87(ptr noundef nonnull %.val27, ptr noundef nonnull %0, i32 noundef 5, ptr noundef null, ptr noundef nonnull %6) #11
   %89 = load i64, ptr %6, align 8
   %90 = icmp ne i64 %89, 0
   %91 = getelementptr inbounds i8, ptr %6, i64 8
   %92 = load i32, ptr %91, align 8
   %93 = icmp ne i32 %92, 0
-  %or.cond5.i31 = select i1 %90, i1 true, i1 %93
-  br i1 %or.cond5.i31, label %94, label %conn_report_connect_stats.exit32
+  %or.cond5.i30 = select i1 %90, i1 true, i1 %93
+  br i1 %or.cond5.i30, label %94, label %conn_report_connect_stats.exit31
 
 94:                                               ; preds = %84
   call void @Curl_pgrsTimeWas(ptr noundef nonnull %0, i32 noundef 6, i64 %89, i32 %92) #11
-  br label %conn_report_connect_stats.exit32
+  br label %conn_report_connect_stats.exit31
 
-conn_report_connect_stats.exit32:                 ; preds = %.critedge, %84, %94
+conn_report_connect_stats.exit31:                 ; preds = %.critedge, %84, %94
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %95
 
-95:                                               ; preds = %24, %15, %conn_report_connect_stats.exit32, %conn_report_connect_stats.exit, %4
-  %.0 = phi i32 [ 2, %4 ], [ 0, %15 ], [ %23, %conn_report_connect_stats.exit32 ], [ 0, %conn_report_connect_stats.exit ], [ 0, %24 ]
+95:                                               ; preds = %24, %15, %conn_report_connect_stats.exit31, %conn_report_connect_stats.exit, %4
+  %.0 = phi i32 [ 2, %4 ], [ 0, %15 ], [ %23, %conn_report_connect_stats.exit31 ], [ 0, %conn_report_connect_stats.exit ], [ 0, %24 ]
   ret i32 %.0
 }
 

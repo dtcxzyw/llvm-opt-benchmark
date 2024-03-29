@@ -122,9 +122,8 @@ define internal fastcc void @AppendStringToManifest(ptr nocapture noundef %0, pt
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %4 = getelementptr inbounds i8, ptr %0, i64 34
   %5 = load i8, ptr %4, align 2
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %._crit_edge, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
   %.pre = shl i64 %3, 32
@@ -181,8 +180,8 @@ define dso_local void @AddFileToBackupManifest(ptr nocapture noundef %0, i32 nou
   %10 = alloca [64 x i8], align 16
   store i64 %4, ptr %7, align 8
   %.val = load ptr, ptr %0, align 8
-  %.not27 = icmp eq ptr %.val, null
-  br i1 %.not27, label %75, label %11
+  %.not25 = icmp eq ptr %.val, null
+  br i1 %.not25, label %75, label %11
 
 11:                                               ; preds = %6
   %.not = icmp eq i32 %1, 0
@@ -197,9 +196,8 @@ define dso_local void @AddFileToBackupManifest(ptr nocapture noundef %0, i32 nou
   call void @initStringInfo(ptr noundef nonnull %9) #7
   %15 = getelementptr inbounds i8, ptr %0, i64 33
   %16 = load i8, ptr %15, align 1
-  %17 = and i8 %16, 1
-  %.not24 = icmp eq i8 %17, 0
-  br i1 %.not24, label %19, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14
   call void @appendStringInfoChar(ptr noundef nonnull %9, i8 noundef signext 10) #7
@@ -215,9 +213,8 @@ define dso_local void @AddFileToBackupManifest(ptr nocapture noundef %0, i32 nou
   %22 = trunc i64 %21 to i32
   %23 = getelementptr inbounds i8, ptr %0, i64 32
   %24 = load i8, ptr %23, align 8
-  %25 = and i8 %24, 1
-  %.not25 = icmp eq i8 %25, 0
-  br i1 %.not25, label %26, label %29
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %29, label %26
 
 26:                                               ; preds = %20
   %27 = call zeroext i1 @pg_verify_mbstr(i32 noundef 6, ptr noundef %.0, i32 noundef %22, i1 noundef zeroext true) #7
@@ -265,8 +262,8 @@ define dso_local void @AddFileToBackupManifest(ptr nocapture noundef %0, i32 nou
   store i32 %51, ptr %43, align 8
   call void @appendStringInfoChar(ptr noundef nonnull %9, i8 noundef signext 34) #7
   %52 = load i32, ptr %5, align 8
-  %.not26 = icmp eq i32 %52, 0
-  br i1 %.not26, label %72, label %53
+  %.not24 = icmp eq i32 %52, 0
+  br i1 %.not24, label %72, label %53
 
 53:                                               ; preds = %41
   %54 = call i32 @pg_checksum_final(ptr noundef nonnull %5, ptr noundef nonnull %10) #7
@@ -343,8 +340,8 @@ declare ptr @pg_checksum_type_name(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @AddWALInfoToBackupManifest(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8
-  %.not54 = icmp eq ptr %.val, null
-  br i1 %.not54, label %54, label %6
+  %.not53 = icmp eq ptr %.val, null
+  br i1 %.not53, label %53, label %6
 
 6:                                                ; preds = %5
   tail call fastcc void @AppendStringToManifest(ptr noundef nonnull %0, ptr noundef nonnull @.str.15)
@@ -358,13 +355,13 @@ define dso_local void @AddWALInfoToBackupManifest(ptr nocapture noundef %0, i64 
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load i32, ptr %8, align 4
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph69, label %.critedge
+  br i1 %11, label %.lr.ph68, label %.critedge
 
-.lr.ph69:                                         ; preds = %.lr.ph, %48
-  %12 = phi i32 [ %49, %48 ], [ %10, %.lr.ph ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.lr.ph ]
-  %.0415867 = phi i8 [ %.142, %48 ], [ 1, %.lr.ph ]
-  %.05966 = phi i64 [ %.1, %48 ], [ %3, %.lr.ph ]
+.lr.ph68:                                         ; preds = %.lr.ph, %47
+  %12 = phi i32 [ %48, %47 ], [ %10, %.lr.ph ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.lr.ph ]
+  %.0415766 = phi i1 [ %.142, %47 ], [ true, %.lr.ph ]
+  %.05865 = phi i64 [ %.1, %47 ], [ %3, %.lr.ph ]
   %13 = load ptr, ptr %9, align 8
   %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
@@ -373,85 +370,83 @@ define dso_local void @AddWALInfoToBackupManifest(ptr nocapture noundef %0, i64 
   %18 = icmp ne i64 %17, 0
   %19 = icmp ult i64 %17, %1
   %or.cond = and i1 %18, %19
-  br i1 %or.cond, label %48, label %20
+  br i1 %or.cond, label %47, label %20
 
-20:                                               ; preds = %.lr.ph69
-  %21 = and i8 %.0415867, 1
-  %.not50 = icmp eq i8 %21, 0
+20:                                               ; preds = %.lr.ph68
   %.pre = load i32, ptr %15, align 8
-  %.not51 = icmp eq i32 %.pre, %4
-  %or.cond77 = select i1 %.not50, i1 true, i1 %.not51
-  br i1 %or.cond77, label %25, label %.split
+  %.not50 = icmp ne i32 %.pre, %4
+  %or.cond76.not = select i1 %.0415766, i1 %.not50, i1 false
+  br i1 %or.cond76.not, label %.split, label %24
 
 .split:                                           ; preds = %20
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %22)
-  %23 = load i32, ptr %15, align 8
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, i32 noundef %2, i32 noundef %23) #7
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %21)
+  %22 = load i32, ptr %15, align 8
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, i32 noundef %2, i32 noundef %22) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 254, ptr noundef nonnull @__func__.AddWALInfoToBackupManifest) #7
   unreachable
 
-25:                                               ; preds = %20
-  %26 = icmp eq i32 %.pre, %2
-  br i1 %26, label %34, label %27
+24:                                               ; preds = %20
+  %25 = icmp eq i32 %.pre, %2
+  br i1 %25, label %33, label %26
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %15, i64 8
-  %29 = load i64, ptr %28, align 8
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %.split62, label %34
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds i8, ptr %15, i64 8
+  %28 = load i64, ptr %27, align 8
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %.split61, label %33
 
-.split62:                                         ; preds = %27
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %31)
-  %32 = load i32, ptr %15, align 8
-  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, i32 noundef %2, i32 noundef %32) #7
+.split61:                                         ; preds = %26
+  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %30)
+  %31 = load i32, ptr %15, align 8
+  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, i32 noundef %2, i32 noundef %31) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 278, ptr noundef nonnull @__func__.AddWALInfoToBackupManifest) #7
   unreachable
 
-34:                                               ; preds = %25, %27
-  %.043 = phi i64 [ %29, %27 ], [ %1, %25 ]
-  %35 = select i1 %.not50, ptr @.str.4, ptr @.str.20
-  %36 = lshr i64 %.043, 32
-  %37 = trunc i64 %36 to i32
-  %38 = trunc i64 %.043 to i32
-  %39 = lshr i64 %.05966, 32
-  %40 = trunc i64 %39 to i32
-  %41 = trunc i64 %.05966 to i32
-  %42 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.19, ptr noundef nonnull %35, i32 noundef %.pre, i32 noundef %37, i32 noundef %38, i32 noundef %40, i32 noundef %41) #7
-  tail call fastcc void @AppendStringToManifest(ptr noundef nonnull %0, ptr noundef %42)
-  tail call void @pfree(ptr noundef %42) #7
-  %43 = load i32, ptr %15, align 8
-  %44 = icmp eq i32 %43, %2
-  br i1 %44, label %.split65, label %45
+33:                                               ; preds = %24, %26
+  %.043 = phi i64 [ %28, %26 ], [ %1, %24 ]
+  %34 = select i1 %.0415766, ptr @.str.20, ptr @.str.4
+  %35 = lshr i64 %.043, 32
+  %36 = trunc i64 %35 to i32
+  %37 = trunc i64 %.043 to i32
+  %38 = lshr i64 %.05865, 32
+  %39 = trunc i64 %38 to i32
+  %40 = trunc i64 %.05865 to i32
+  %41 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.19, ptr noundef nonnull %34, i32 noundef %.pre, i32 noundef %36, i32 noundef %37, i32 noundef %39, i32 noundef %40) #7
+  tail call fastcc void @AppendStringToManifest(ptr noundef nonnull %0, ptr noundef %41)
+  tail call void @pfree(ptr noundef %41) #7
+  %42 = load i32, ptr %15, align 8
+  %43 = icmp eq i32 %42, %2
+  br i1 %43, label %.split64, label %44
 
-45:                                               ; preds = %34
-  %46 = getelementptr inbounds i8, ptr %15, i64 8
-  %47 = load i64, ptr %46, align 8
-  %.pre73 = load i32, ptr %8, align 4
-  br label %48
+44:                                               ; preds = %33
+  %45 = getelementptr inbounds i8, ptr %15, i64 8
+  %46 = load i64, ptr %45, align 8
+  %.pre72 = load i32, ptr %8, align 4
+  br label %47
 
-48:                                               ; preds = %.lr.ph69, %45
-  %49 = phi i32 [ %.pre73, %45 ], [ %12, %.lr.ph69 ]
-  %.142 = phi i8 [ 0, %45 ], [ %.0415867, %.lr.ph69 ]
-  %.1 = phi i64 [ %47, %45 ], [ %.05966, %.lr.ph69 ]
+47:                                               ; preds = %.lr.ph68, %44
+  %48 = phi i32 [ %.pre72, %44 ], [ %12, %.lr.ph68 ]
+  %.142 = phi i1 [ false, %44 ], [ %.0415766, %.lr.ph68 ]
+  %.1 = phi i64 [ %46, %44 ], [ %.05865, %.lr.ph68 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = sext i32 %49 to i64
-  %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %.lr.ph69, label %.critedge
+  %49 = sext i32 %48 to i64
+  %50 = icmp slt i64 %indvars.iv.next, %49
+  br i1 %50, label %.lr.ph68, label %.critedge
 
-.critedge:                                        ; preds = %48, %.lr.ph, %6
-  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %52)
-  %53 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, i32 noundef %2, i32 noundef %4) #7
+.critedge:                                        ; preds = %47, %.lr.ph, %6
+  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %51)
+  %52 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, i32 noundef %2, i32 noundef %4) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 305, ptr noundef nonnull @__func__.AddWALInfoToBackupManifest) #7
   unreachable
 
-.split65:                                         ; preds = %34
+.split64:                                         ; preds = %33
   tail call fastcc void @AppendStringToManifest(ptr noundef nonnull %0, ptr noundef nonnull @.str.15)
-  br label %54
+  br label %53
 
-54:                                               ; preds = %5, %.split65
+53:                                               ; preds = %5, %.split64
   ret void
 }
 

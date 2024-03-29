@@ -8659,8 +8659,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3DfgPeephole17associativ
   %24 = getelementptr inbounds i8, ptr %..i, i64 72
   %25 = getelementptr inbounds i8, ptr %..i85, i64 72
   %26 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5opAddERKS_S1_(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %25)
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %22)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 27:                                               ; preds = %2
   br i1 %13, label %.thread, label %63
@@ -8720,18 +8719,14 @@ _ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i:     ; preds = %35
 _ZN9DfgVertex4userIPS_EERT_v.exit.i.i:            ; preds = %35
   %.pr.i.i = load ptr, ptr %53, align 8
   %.not.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %.not.i.i, label %60, label %_ZN13V3DfgPeephole4makeI6DfgAddJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit
+  br i1 %.not.i.i, label %60, label %.loopexit.sink.split
 
 60:                                               ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %_ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i
   %61 = getelementptr inbounds i8, ptr %0, i64 32
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %53, align 8
   store ptr %52, ptr %61, align 8
-  br label %_ZN13V3DfgPeephole4makeI6DfgAddJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit
-
-_ZN13V3DfgPeephole4makeI6DfgAddJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit: ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %60
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %52)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 63:                                               ; preds = %.thread, %33, %28, %27
   br i1 %14, label %64, label %100
@@ -8791,18 +8786,14 @@ _ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i95:   ; preds = %72
 _ZN9DfgVertex4userIPS_EERT_v.exit.i.i96:          ; preds = %72
   %.pr.i.i97 = load ptr, ptr %90, align 8
   %.not.i.i98 = icmp eq ptr %.pr.i.i97, null
-  br i1 %.not.i.i98, label %97, label %_ZN13V3DfgPeephole4makeI6DfgAddJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit
+  br i1 %.not.i.i98, label %97, label %.loopexit.sink.split
 
 97:                                               ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %_ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i95
   %98 = getelementptr inbounds i8, ptr %0, i64 32
   %99 = load ptr, ptr %98, align 8
   store ptr %99, ptr %90, align 8
   store ptr %89, ptr %98, align 8
-  br label %_ZN13V3DfgPeephole4makeI6DfgAddJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit
-
-_ZN13V3DfgPeephole4makeI6DfgAddJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %97
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %89)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 100:                                              ; preds = %64, %70, %65, %63
   %101 = load ptr, ptr %3, align 8
@@ -8811,7 +8802,7 @@ _ZN13V3DfgPeephole4makeI6DfgAddJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; pred
   %103 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i99117, 1
   %.not83115118 = icmp eq ptr %101, null
   %.not83119 = or i1 %.not83115118, %103
-  br i1 %.not83119, label %._crit_edge, label %.lr.ph
+  br i1 %.not83119, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %100
   %104 = getelementptr inbounds i8, ptr %0, i64 40
@@ -8822,7 +8813,7 @@ _ZN13V3DfgPeephole4makeI6DfgAddJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; pred
 107:                                              ; preds = %.lr.ph, %148
   %108 = phi ptr [ %101, %.lr.ph ], [ %150, %148 ]
   %.068121 = phi ptr [ %1, %.lr.ph ], [ %.1, %148 ]
-  %.069120 = phi i8 [ 0, %.lr.ph ], [ %.170, %148 ]
+  %.069120 = phi i1 [ false, %.lr.ph ], [ %.170, %148 ]
   %109 = getelementptr inbounds i8, ptr %108, i64 24
   %110 = load ptr, ptr %109, align 8
   %.not.i = icmp eq ptr %110, null
@@ -8831,7 +8822,7 @@ _ZN13V3DfgPeephole4makeI6DfgAddJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; pred
 _ZNK9DfgVertex16hasMultipleSinksEv.exit:          ; preds = %107
   %111 = load ptr, ptr %110, align 8
   %.not116 = icmp eq ptr %111, null
-  br i1 %.not116, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, label %._crit_edge.loopexit
+  br i1 %.not116, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, label %.loopexit
 
 _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %107, %_ZNK9DfgVertex16hasMultipleSinksEv.exit
   %112 = tail call noundef zeroext i1 @_ZN13V3DfgPeephole13checkApplyingE19VDfgPeepholePattern(ptr noundef nonnull align 8 dereferenceable(1328) %0, i32 60)
@@ -8912,7 +8903,7 @@ _ZN13V3DfgPeephole4makeI6DfgAddJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDp
   br label %148
 
 148:                                              ; preds = %_ZN13V3DfgPeephole4makeI6DfgAddJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread
-  %.170 = phi i8 [ 1, %_ZN13V3DfgPeephole4makeI6DfgAddJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
+  %.170 = phi i1 [ true, %_ZN13V3DfgPeephole4makeI6DfgAddJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
   %.1 = phi ptr [ %138, %_ZN13V3DfgPeephole4makeI6DfgAddJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.068121, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
   %149 = getelementptr inbounds i8, ptr %.1, i64 88
   %150 = load ptr, ptr %149, align 8
@@ -8921,16 +8912,15 @@ _ZN13V3DfgPeephole4makeI6DfgAddJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDp
   %152 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i99, 1
   %.not83115 = icmp eq ptr %150, null
   %.not83 = or i1 %.not83115, %152
-  br i1 %.not83, label %._crit_edge.loopexit, label %107, !llvm.loop !16
+  br i1 %.not83, label %.loopexit, label %107, !llvm.loop !16
 
-._crit_edge.loopexit:                             ; preds = %148, %_ZNK9DfgVertex16hasMultipleSinksEv.exit
-  %.069.lcssa.ph = phi i8 [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.170, %148 ]
-  %153 = and i8 %.069.lcssa.ph, 1
-  %154 = icmp ne i8 %153, 0
-  br label %._crit_edge
+.loopexit.sink.split:                             ; preds = %97, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %60, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %17
+  %.sink = phi ptr [ %22, %17 ], [ %52, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i ], [ %52, %60 ], [ %89, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96 ], [ %89, %97 ]
+  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %.sink)
+  br label %.loopexit
 
-._crit_edge:                                      ; preds = %100, %._crit_edge.loopexit, %_ZN13V3DfgPeephole4makeI6DfgAddJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit, %_ZN13V3DfgPeephole4makeI6DfgAddJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit, %17
-  %.0 = phi i1 [ true, %17 ], [ true, %_ZN13V3DfgPeephole4makeI6DfgAddJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit ], [ true, %_ZN13V3DfgPeephole4makeI6DfgAddJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit ], [ false, %100 ], [ %154, %._crit_edge.loopexit ]
+.loopexit:                                        ; preds = %148, %_ZNK9DfgVertex16hasMultipleSinksEv.exit, %.loopexit.sink.split, %100
+  %.0 = phi i1 [ false, %100 ], [ true, %.loopexit.sink.split ], [ %.170, %148 ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ]
   ret i1 %.0
 }
 
@@ -9130,9 +9120,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3DfgPeephole13checkApply
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds [66 x i8], ptr %6, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
-  %10 = and i8 %9, 1
-  %.not = icmp ne i8 %10, 0
-  br i1 %.not, label %11, label %34
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %34
 
 11:                                               ; preds = %2
   %12 = tail call noundef i32 @_ZL5debugv()
@@ -9179,7 +9168,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3DfgPeephole13checkApply
   br label %34
 
 34:                                               ; preds = %2, %28
-  ret i1 %.not
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9612,9 +9601,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
   %26 = call i32 @llvm.umax.i32(i32 %19, i32 %24)
   %27 = load i8, ptr getelementptr inbounds (%class.V3Global, ptr @v3Global, i64 0, i32 22, i32 190), align 2
-  %28 = and i8 %27, 1
-  %.not = icmp eq i8 %28, 0
-  br i1 %.not, label %37, label %.thread
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %.thread, label %37
 
 29:                                               ; preds = %.noexc, %7
   %30 = landingpad { ptr, i32 }
@@ -9689,9 +9677,8 @@ declare noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIc
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK9V3Options9availableEv(ptr noundef nonnull align 8 dereferenceable(1560) %0) #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1558
   %3 = load i8, ptr %2, align 2
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -10776,9 +10763,8 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBi
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1
@@ -11556,8 +11542,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3DfgPeephole17associativ
   %24 = getelementptr inbounds i8, ptr %..i, i64 72
   %25 = getelementptr inbounds i8, ptr %..i85, i64 72
   %26 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5opAndERKS_S1_(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %25)
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %22)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 27:                                               ; preds = %2
   br i1 %13, label %.thread, label %63
@@ -11617,18 +11602,14 @@ _ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i:     ; preds = %35
 _ZN9DfgVertex4userIPS_EERT_v.exit.i.i:            ; preds = %35
   %.pr.i.i = load ptr, ptr %53, align 8
   %.not.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %.not.i.i, label %60, label %_ZN13V3DfgPeephole4makeI6DfgAndJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit
+  br i1 %.not.i.i, label %60, label %.loopexit.sink.split
 
 60:                                               ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %_ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i
   %61 = getelementptr inbounds i8, ptr %0, i64 32
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %53, align 8
   store ptr %52, ptr %61, align 8
-  br label %_ZN13V3DfgPeephole4makeI6DfgAndJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit
-
-_ZN13V3DfgPeephole4makeI6DfgAndJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit: ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %60
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %52)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 63:                                               ; preds = %.thread, %33, %28, %27
   br i1 %14, label %64, label %100
@@ -11688,18 +11669,14 @@ _ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i95:   ; preds = %72
 _ZN9DfgVertex4userIPS_EERT_v.exit.i.i96:          ; preds = %72
   %.pr.i.i97 = load ptr, ptr %90, align 8
   %.not.i.i98 = icmp eq ptr %.pr.i.i97, null
-  br i1 %.not.i.i98, label %97, label %_ZN13V3DfgPeephole4makeI6DfgAndJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit
+  br i1 %.not.i.i98, label %97, label %.loopexit.sink.split
 
 97:                                               ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %_ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i95
   %98 = getelementptr inbounds i8, ptr %0, i64 32
   %99 = load ptr, ptr %98, align 8
   store ptr %99, ptr %90, align 8
   store ptr %89, ptr %98, align 8
-  br label %_ZN13V3DfgPeephole4makeI6DfgAndJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit
-
-_ZN13V3DfgPeephole4makeI6DfgAndJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %97
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %89)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 100:                                              ; preds = %64, %70, %65, %63
   %101 = load ptr, ptr %3, align 8
@@ -11708,7 +11685,7 @@ _ZN13V3DfgPeephole4makeI6DfgAndJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; pred
   %103 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i99117, 3
   %.not83115118 = icmp eq ptr %101, null
   %.not83119 = or i1 %.not83115118, %103
-  br i1 %.not83119, label %._crit_edge, label %.lr.ph
+  br i1 %.not83119, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %100
   %104 = getelementptr inbounds i8, ptr %0, i64 40
@@ -11719,7 +11696,7 @@ _ZN13V3DfgPeephole4makeI6DfgAndJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; pred
 107:                                              ; preds = %.lr.ph, %148
   %108 = phi ptr [ %101, %.lr.ph ], [ %150, %148 ]
   %.068121 = phi ptr [ %1, %.lr.ph ], [ %.1, %148 ]
-  %.069120 = phi i8 [ 0, %.lr.ph ], [ %.170, %148 ]
+  %.069120 = phi i1 [ false, %.lr.ph ], [ %.170, %148 ]
   %109 = getelementptr inbounds i8, ptr %108, i64 24
   %110 = load ptr, ptr %109, align 8
   %.not.i = icmp eq ptr %110, null
@@ -11728,7 +11705,7 @@ _ZN13V3DfgPeephole4makeI6DfgAndJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; pred
 _ZNK9DfgVertex16hasMultipleSinksEv.exit:          ; preds = %107
   %111 = load ptr, ptr %110, align 8
   %.not116 = icmp eq ptr %111, null
-  br i1 %.not116, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, label %._crit_edge.loopexit
+  br i1 %.not116, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, label %.loopexit
 
 _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %107, %_ZNK9DfgVertex16hasMultipleSinksEv.exit
   %112 = tail call noundef zeroext i1 @_ZN13V3DfgPeephole13checkApplyingE19VDfgPeepholePattern(ptr noundef nonnull align 8 dereferenceable(1328) %0, i32 60)
@@ -11809,7 +11786,7 @@ _ZN13V3DfgPeephole4makeI6DfgAndJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDp
   br label %148
 
 148:                                              ; preds = %_ZN13V3DfgPeephole4makeI6DfgAndJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread
-  %.170 = phi i8 [ 1, %_ZN13V3DfgPeephole4makeI6DfgAndJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
+  %.170 = phi i1 [ true, %_ZN13V3DfgPeephole4makeI6DfgAndJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
   %.1 = phi ptr [ %138, %_ZN13V3DfgPeephole4makeI6DfgAndJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.068121, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
   %149 = getelementptr inbounds i8, ptr %.1, i64 88
   %150 = load ptr, ptr %149, align 8
@@ -11818,16 +11795,15 @@ _ZN13V3DfgPeephole4makeI6DfgAndJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDp
   %152 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i99, 3
   %.not83115 = icmp eq ptr %150, null
   %.not83 = or i1 %.not83115, %152
-  br i1 %.not83, label %._crit_edge.loopexit, label %107, !llvm.loop !47
+  br i1 %.not83, label %.loopexit, label %107, !llvm.loop !47
 
-._crit_edge.loopexit:                             ; preds = %148, %_ZNK9DfgVertex16hasMultipleSinksEv.exit
-  %.069.lcssa.ph = phi i8 [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.170, %148 ]
-  %153 = and i8 %.069.lcssa.ph, 1
-  %154 = icmp ne i8 %153, 0
-  br label %._crit_edge
+.loopexit.sink.split:                             ; preds = %97, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %60, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %17
+  %.sink = phi ptr [ %22, %17 ], [ %52, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i ], [ %52, %60 ], [ %89, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96 ], [ %89, %97 ]
+  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %.sink)
+  br label %.loopexit
 
-._crit_edge:                                      ; preds = %100, %._crit_edge.loopexit, %_ZN13V3DfgPeephole4makeI6DfgAndJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit, %_ZN13V3DfgPeephole4makeI6DfgAndJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit, %17
-  %.0 = phi i1 [ true, %17 ], [ true, %_ZN13V3DfgPeephole4makeI6DfgAndJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit ], [ true, %_ZN13V3DfgPeephole4makeI6DfgAndJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit ], [ false, %100 ], [ %154, %._crit_edge.loopexit ]
+.loopexit:                                        ; preds = %148, %_ZNK9DfgVertex16hasMultipleSinksEv.exit, %.loopexit.sink.split, %100
+  %.0 = phi i1 [ false, %100 ], [ true, %.loopexit.sink.split ], [ %.170, %148 ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ]
   ret i1 %.0
 }
 
@@ -13269,9 +13245,8 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUn
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1
@@ -14287,8 +14262,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3DfgPeephole17associativ
   %24 = getelementptr inbounds i8, ptr %..i, i64 72
   %25 = getelementptr inbounds i8, ptr %..i89, i64 72
   %26 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8opConcatERKS_S1_(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %25)
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %22)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 27:                                               ; preds = %2
   br i1 %13, label %.thread, label %69
@@ -14354,18 +14328,14 @@ _ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i:     ; preds = %35
 _ZN9DfgVertex4userIPS_EERT_v.exit.i.i:            ; preds = %35
   %.pr.i.i = load ptr, ptr %59, align 8
   %.not.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %.not.i.i, label %66, label %_ZN13V3DfgPeephole4makeI9DfgConcatJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit
+  br i1 %.not.i.i, label %66, label %.loopexit.sink.split
 
 66:                                               ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %_ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i
   %67 = getelementptr inbounds i8, ptr %0, i64 32
   %68 = load ptr, ptr %67, align 8
   store ptr %68, ptr %59, align 8
   store ptr %58, ptr %67, align 8
-  br label %_ZN13V3DfgPeephole4makeI9DfgConcatJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit
-
-_ZN13V3DfgPeephole4makeI9DfgConcatJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit: ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %66
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %58)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 69:                                               ; preds = %.thread, %33, %28, %27
   br i1 %14, label %70, label %112
@@ -14431,18 +14401,14 @@ _ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i99:   ; preds = %78
 _ZN9DfgVertex4userIPS_EERT_v.exit.i.i100:         ; preds = %78
   %.pr.i.i101 = load ptr, ptr %102, align 8
   %.not.i.i102 = icmp eq ptr %.pr.i.i101, null
-  br i1 %.not.i.i102, label %109, label %_ZN13V3DfgPeephole4makeI9DfgConcatJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit
+  br i1 %.not.i.i102, label %109, label %.loopexit.sink.split
 
 109:                                              ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i100, %_ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i99
   %110 = getelementptr inbounds i8, ptr %0, i64 32
   %111 = load ptr, ptr %110, align 8
   store ptr %111, ptr %102, align 8
   store ptr %101, ptr %110, align 8
-  br label %_ZN13V3DfgPeephole4makeI9DfgConcatJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit
-
-_ZN13V3DfgPeephole4makeI9DfgConcatJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i100, %109
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %101)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 112:                                              ; preds = %70, %76, %71, %69
   %113 = load ptr, ptr %3, align 8
@@ -14451,7 +14417,7 @@ _ZN13V3DfgPeephole4makeI9DfgConcatJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; p
   %115 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i103121, 10
   %.not87119122 = icmp eq ptr %113, null
   %.not87123 = or i1 %.not87119122, %115
-  br i1 %.not87123, label %._crit_edge, label %.lr.ph
+  br i1 %.not87123, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %112
   %116 = getelementptr inbounds i8, ptr %0, i64 40
@@ -14462,7 +14428,7 @@ _ZN13V3DfgPeephole4makeI9DfgConcatJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; p
 119:                                              ; preds = %.lr.ph, %173
   %120 = phi ptr [ %113, %.lr.ph ], [ %175, %173 ]
   %.072125 = phi ptr [ %1, %.lr.ph ], [ %.1, %173 ]
-  %.073124 = phi i8 [ 0, %.lr.ph ], [ %.174, %173 ]
+  %.073124 = phi i1 [ false, %.lr.ph ], [ %.174, %173 ]
   %121 = getelementptr inbounds i8, ptr %120, i64 24
   %122 = load ptr, ptr %121, align 8
   %.not.i = icmp eq ptr %122, null
@@ -14471,7 +14437,7 @@ _ZN13V3DfgPeephole4makeI9DfgConcatJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; p
 _ZNK9DfgVertex16hasMultipleSinksEv.exit:          ; preds = %119
   %123 = load ptr, ptr %122, align 8
   %.not120 = icmp eq ptr %123, null
-  br i1 %.not120, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, label %._crit_edge.loopexit
+  br i1 %.not120, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, label %.loopexit
 
 _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %119, %_ZNK9DfgVertex16hasMultipleSinksEv.exit
   %124 = tail call noundef zeroext i1 @_ZN13V3DfgPeephole13checkApplyingE19VDfgPeepholePattern(ptr noundef nonnull align 8 dereferenceable(1328) %0, i32 60)
@@ -14565,7 +14531,7 @@ _ZN13V3DfgPeephole4makeI9DfgConcatJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTyp
   br label %173
 
 173:                                              ; preds = %_ZN13V3DfgPeephole4makeI9DfgConcatJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread
-  %.174 = phi i8 [ 1, %_ZN13V3DfgPeephole4makeI9DfgConcatJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.073124, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
+  %.174 = phi i1 [ true, %_ZN13V3DfgPeephole4makeI9DfgConcatJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.073124, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
   %.1 = phi ptr [ %163, %_ZN13V3DfgPeephole4makeI9DfgConcatJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.072125, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
   %174 = getelementptr inbounds i8, ptr %.1, i64 88
   %175 = load ptr, ptr %174, align 8
@@ -14574,16 +14540,15 @@ _ZN13V3DfgPeephole4makeI9DfgConcatJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTyp
   %177 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i103, 10
   %.not87119 = icmp eq ptr %175, null
   %.not87 = or i1 %.not87119, %177
-  br i1 %.not87, label %._crit_edge.loopexit, label %119, !llvm.loop !112
+  br i1 %.not87, label %.loopexit, label %119, !llvm.loop !112
 
-._crit_edge.loopexit:                             ; preds = %173, %_ZNK9DfgVertex16hasMultipleSinksEv.exit
-  %.073.lcssa.ph = phi i8 [ %.073124, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.174, %173 ]
-  %178 = and i8 %.073.lcssa.ph, 1
-  %179 = icmp ne i8 %178, 0
-  br label %._crit_edge
+.loopexit.sink.split:                             ; preds = %109, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i100, %66, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %17
+  %.sink = phi ptr [ %22, %17 ], [ %58, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i ], [ %58, %66 ], [ %101, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i100 ], [ %101, %109 ]
+  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %.sink)
+  br label %.loopexit
 
-._crit_edge:                                      ; preds = %112, %._crit_edge.loopexit, %_ZN13V3DfgPeephole4makeI9DfgConcatJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit, %_ZN13V3DfgPeephole4makeI9DfgConcatJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit, %17
-  %.0 = phi i1 [ true, %17 ], [ true, %_ZN13V3DfgPeephole4makeI9DfgConcatJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit ], [ true, %_ZN13V3DfgPeephole4makeI9DfgConcatJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit ], [ false, %112 ], [ %179, %._crit_edge.loopexit ]
+.loopexit:                                        ; preds = %173, %_ZNK9DfgVertex16hasMultipleSinksEv.exit, %.loopexit.sink.split, %112
+  %.0 = phi i1 [ false, %112 ], [ true, %.loopexit.sink.split ], [ %.174, %173 ], [ %.073124, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ]
   ret i1 %.0
 }
 
@@ -15939,9 +15904,8 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN18V3DfgCacheInternal6KeySe
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1
@@ -16820,9 +16784,8 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN18V3DfgCacheInternal10KeyT
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1
@@ -18334,8 +18297,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3DfgPeephole17associativ
   %24 = getelementptr inbounds i8, ptr %..i, i64 72
   %25 = getelementptr inbounds i8, ptr %..i85, i64 72
   %26 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5opMulERKS_S1_(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %25)
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %22)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 27:                                               ; preds = %2
   br i1 %13, label %.thread, label %63
@@ -18395,18 +18357,14 @@ _ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i:     ; preds = %35
 _ZN9DfgVertex4userIPS_EERT_v.exit.i.i:            ; preds = %35
   %.pr.i.i = load ptr, ptr %53, align 8
   %.not.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %.not.i.i, label %60, label %_ZN13V3DfgPeephole4makeI6DfgMulJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit
+  br i1 %.not.i.i, label %60, label %.loopexit.sink.split
 
 60:                                               ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %_ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i
   %61 = getelementptr inbounds i8, ptr %0, i64 32
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %53, align 8
   store ptr %52, ptr %61, align 8
-  br label %_ZN13V3DfgPeephole4makeI6DfgMulJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit
-
-_ZN13V3DfgPeephole4makeI6DfgMulJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit: ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %60
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %52)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 63:                                               ; preds = %.thread, %33, %28, %27
   br i1 %14, label %64, label %100
@@ -18466,18 +18424,14 @@ _ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i95:   ; preds = %72
 _ZN9DfgVertex4userIPS_EERT_v.exit.i.i96:          ; preds = %72
   %.pr.i.i97 = load ptr, ptr %90, align 8
   %.not.i.i98 = icmp eq ptr %.pr.i.i97, null
-  br i1 %.not.i.i98, label %97, label %_ZN13V3DfgPeephole4makeI6DfgMulJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit
+  br i1 %.not.i.i98, label %97, label %.loopexit.sink.split
 
 97:                                               ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %_ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i95
   %98 = getelementptr inbounds i8, ptr %0, i64 32
   %99 = load ptr, ptr %98, align 8
   store ptr %99, ptr %90, align 8
   store ptr %89, ptr %98, align 8
-  br label %_ZN13V3DfgPeephole4makeI6DfgMulJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit
-
-_ZN13V3DfgPeephole4makeI6DfgMulJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %97
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %89)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 100:                                              ; preds = %64, %70, %65, %63
   %101 = load ptr, ptr %3, align 8
@@ -18486,7 +18440,7 @@ _ZN13V3DfgPeephole4makeI6DfgMulJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; pred
   %103 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i99117, 52
   %.not83115118 = icmp eq ptr %101, null
   %.not83119 = or i1 %.not83115118, %103
-  br i1 %.not83119, label %._crit_edge, label %.lr.ph
+  br i1 %.not83119, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %100
   %104 = getelementptr inbounds i8, ptr %0, i64 40
@@ -18497,7 +18451,7 @@ _ZN13V3DfgPeephole4makeI6DfgMulJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; pred
 107:                                              ; preds = %.lr.ph, %148
   %108 = phi ptr [ %101, %.lr.ph ], [ %150, %148 ]
   %.068121 = phi ptr [ %1, %.lr.ph ], [ %.1, %148 ]
-  %.069120 = phi i8 [ 0, %.lr.ph ], [ %.170, %148 ]
+  %.069120 = phi i1 [ false, %.lr.ph ], [ %.170, %148 ]
   %109 = getelementptr inbounds i8, ptr %108, i64 24
   %110 = load ptr, ptr %109, align 8
   %.not.i = icmp eq ptr %110, null
@@ -18506,7 +18460,7 @@ _ZN13V3DfgPeephole4makeI6DfgMulJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; pred
 _ZNK9DfgVertex16hasMultipleSinksEv.exit:          ; preds = %107
   %111 = load ptr, ptr %110, align 8
   %.not116 = icmp eq ptr %111, null
-  br i1 %.not116, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, label %._crit_edge.loopexit
+  br i1 %.not116, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, label %.loopexit
 
 _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %107, %_ZNK9DfgVertex16hasMultipleSinksEv.exit
   %112 = tail call noundef zeroext i1 @_ZN13V3DfgPeephole13checkApplyingE19VDfgPeepholePattern(ptr noundef nonnull align 8 dereferenceable(1328) %0, i32 60)
@@ -18587,7 +18541,7 @@ _ZN13V3DfgPeephole4makeI6DfgMulJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDp
   br label %148
 
 148:                                              ; preds = %_ZN13V3DfgPeephole4makeI6DfgMulJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread
-  %.170 = phi i8 [ 1, %_ZN13V3DfgPeephole4makeI6DfgMulJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
+  %.170 = phi i1 [ true, %_ZN13V3DfgPeephole4makeI6DfgMulJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
   %.1 = phi ptr [ %138, %_ZN13V3DfgPeephole4makeI6DfgMulJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.068121, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
   %149 = getelementptr inbounds i8, ptr %.1, i64 88
   %150 = load ptr, ptr %149, align 8
@@ -18596,16 +18550,15 @@ _ZN13V3DfgPeephole4makeI6DfgMulJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDp
   %152 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i99, 52
   %.not83115 = icmp eq ptr %150, null
   %.not83 = or i1 %.not83115, %152
-  br i1 %.not83, label %._crit_edge.loopexit, label %107, !llvm.loop !241
+  br i1 %.not83, label %.loopexit, label %107, !llvm.loop !241
 
-._crit_edge.loopexit:                             ; preds = %148, %_ZNK9DfgVertex16hasMultipleSinksEv.exit
-  %.069.lcssa.ph = phi i8 [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.170, %148 ]
-  %153 = and i8 %.069.lcssa.ph, 1
-  %154 = icmp ne i8 %153, 0
-  br label %._crit_edge
+.loopexit.sink.split:                             ; preds = %97, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %60, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %17
+  %.sink = phi ptr [ %22, %17 ], [ %52, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i ], [ %52, %60 ], [ %89, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96 ], [ %89, %97 ]
+  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %.sink)
+  br label %.loopexit
 
-._crit_edge:                                      ; preds = %100, %._crit_edge.loopexit, %_ZN13V3DfgPeephole4makeI6DfgMulJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit, %_ZN13V3DfgPeephole4makeI6DfgMulJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit, %17
-  %.0 = phi i1 [ true, %17 ], [ true, %_ZN13V3DfgPeephole4makeI6DfgMulJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit ], [ true, %_ZN13V3DfgPeephole4makeI6DfgMulJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit ], [ false, %100 ], [ %154, %._crit_edge.loopexit ]
+.loopexit:                                        ; preds = %148, %_ZNK9DfgVertex16hasMultipleSinksEv.exit, %.loopexit.sink.split, %100
+  %.0 = phi i1 [ false, %100 ], [ true, %.loopexit.sink.split ], [ %.170, %148 ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ]
   ret i1 %.0
 }
 
@@ -19187,8 +19140,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3DfgPeephole17associativ
   %24 = getelementptr inbounds i8, ptr %..i, i64 72
   %25 = getelementptr inbounds i8, ptr %..i85, i64 72
   %26 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6opMulSERKS_S1_(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %25)
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %22)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 27:                                               ; preds = %2
   br i1 %13, label %.thread, label %63
@@ -19248,18 +19200,14 @@ _ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i:     ; preds = %35
 _ZN9DfgVertex4userIPS_EERT_v.exit.i.i:            ; preds = %35
   %.pr.i.i = load ptr, ptr %53, align 8
   %.not.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %.not.i.i, label %60, label %_ZN13V3DfgPeephole4makeI7DfgMulSJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit
+  br i1 %.not.i.i, label %60, label %.loopexit.sink.split
 
 60:                                               ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %_ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i
   %61 = getelementptr inbounds i8, ptr %0, i64 32
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %53, align 8
   store ptr %52, ptr %61, align 8
-  br label %_ZN13V3DfgPeephole4makeI7DfgMulSJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit
-
-_ZN13V3DfgPeephole4makeI7DfgMulSJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit: ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %60
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %52)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 63:                                               ; preds = %.thread, %33, %28, %27
   br i1 %14, label %64, label %100
@@ -19319,18 +19267,14 @@ _ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i95:   ; preds = %72
 _ZN9DfgVertex4userIPS_EERT_v.exit.i.i96:          ; preds = %72
   %.pr.i.i97 = load ptr, ptr %90, align 8
   %.not.i.i98 = icmp eq ptr %.pr.i.i97, null
-  br i1 %.not.i.i98, label %97, label %_ZN13V3DfgPeephole4makeI7DfgMulSJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit
+  br i1 %.not.i.i98, label %97, label %.loopexit.sink.split
 
 97:                                               ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %_ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i95
   %98 = getelementptr inbounds i8, ptr %0, i64 32
   %99 = load ptr, ptr %98, align 8
   store ptr %99, ptr %90, align 8
   store ptr %89, ptr %98, align 8
-  br label %_ZN13V3DfgPeephole4makeI7DfgMulSJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit
-
-_ZN13V3DfgPeephole4makeI7DfgMulSJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %97
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %89)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 100:                                              ; preds = %64, %70, %65, %63
   %101 = load ptr, ptr %3, align 8
@@ -19339,7 +19283,7 @@ _ZN13V3DfgPeephole4makeI7DfgMulSJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; pre
   %103 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i99117, 54
   %.not83115118 = icmp eq ptr %101, null
   %.not83119 = or i1 %.not83115118, %103
-  br i1 %.not83119, label %._crit_edge, label %.lr.ph
+  br i1 %.not83119, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %100
   %104 = getelementptr inbounds i8, ptr %0, i64 40
@@ -19350,7 +19294,7 @@ _ZN13V3DfgPeephole4makeI7DfgMulSJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; pre
 107:                                              ; preds = %.lr.ph, %148
   %108 = phi ptr [ %101, %.lr.ph ], [ %150, %148 ]
   %.068121 = phi ptr [ %1, %.lr.ph ], [ %.1, %148 ]
-  %.069120 = phi i8 [ 0, %.lr.ph ], [ %.170, %148 ]
+  %.069120 = phi i1 [ false, %.lr.ph ], [ %.170, %148 ]
   %109 = getelementptr inbounds i8, ptr %108, i64 24
   %110 = load ptr, ptr %109, align 8
   %.not.i = icmp eq ptr %110, null
@@ -19359,7 +19303,7 @@ _ZN13V3DfgPeephole4makeI7DfgMulSJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; pre
 _ZNK9DfgVertex16hasMultipleSinksEv.exit:          ; preds = %107
   %111 = load ptr, ptr %110, align 8
   %.not116 = icmp eq ptr %111, null
-  br i1 %.not116, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, label %._crit_edge.loopexit
+  br i1 %.not116, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, label %.loopexit
 
 _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %107, %_ZNK9DfgVertex16hasMultipleSinksEv.exit
   %112 = tail call noundef zeroext i1 @_ZN13V3DfgPeephole13checkApplyingE19VDfgPeepholePattern(ptr noundef nonnull align 8 dereferenceable(1328) %0, i32 60)
@@ -19440,7 +19384,7 @@ _ZN13V3DfgPeephole4makeI7DfgMulSJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeD
   br label %148
 
 148:                                              ; preds = %_ZN13V3DfgPeephole4makeI7DfgMulSJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread
-  %.170 = phi i8 [ 1, %_ZN13V3DfgPeephole4makeI7DfgMulSJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
+  %.170 = phi i1 [ true, %_ZN13V3DfgPeephole4makeI7DfgMulSJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
   %.1 = phi ptr [ %138, %_ZN13V3DfgPeephole4makeI7DfgMulSJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.068121, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
   %149 = getelementptr inbounds i8, ptr %.1, i64 88
   %150 = load ptr, ptr %149, align 8
@@ -19449,16 +19393,15 @@ _ZN13V3DfgPeephole4makeI7DfgMulSJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeD
   %152 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i99, 54
   %.not83115 = icmp eq ptr %150, null
   %.not83 = or i1 %.not83115, %152
-  br i1 %.not83, label %._crit_edge.loopexit, label %107, !llvm.loop !266
+  br i1 %.not83, label %.loopexit, label %107, !llvm.loop !266
 
-._crit_edge.loopexit:                             ; preds = %148, %_ZNK9DfgVertex16hasMultipleSinksEv.exit
-  %.069.lcssa.ph = phi i8 [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.170, %148 ]
-  %153 = and i8 %.069.lcssa.ph, 1
-  %154 = icmp ne i8 %153, 0
-  br label %._crit_edge
+.loopexit.sink.split:                             ; preds = %97, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %60, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %17
+  %.sink = phi ptr [ %22, %17 ], [ %52, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i ], [ %52, %60 ], [ %89, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96 ], [ %89, %97 ]
+  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %.sink)
+  br label %.loopexit
 
-._crit_edge:                                      ; preds = %100, %._crit_edge.loopexit, %_ZN13V3DfgPeephole4makeI7DfgMulSJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit, %_ZN13V3DfgPeephole4makeI7DfgMulSJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit, %17
-  %.0 = phi i1 [ true, %17 ], [ true, %_ZN13V3DfgPeephole4makeI7DfgMulSJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit ], [ true, %_ZN13V3DfgPeephole4makeI7DfgMulSJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit ], [ false, %100 ], [ %154, %._crit_edge.loopexit ]
+.loopexit:                                        ; preds = %148, %_ZNK9DfgVertex16hasMultipleSinksEv.exit, %.loopexit.sink.split, %100
+  %.0 = phi i1 [ false, %100 ], [ true, %.loopexit.sink.split ], [ %.170, %148 ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ]
   ret i1 %.0
 }
 
@@ -20254,8 +20197,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3DfgPeephole17associativ
   %24 = getelementptr inbounds i8, ptr %..i, i64 72
   %25 = getelementptr inbounds i8, ptr %..i85, i64 72
   %26 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4opOrERKS_S1_(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %25)
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %22)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 27:                                               ; preds = %2
   br i1 %13, label %.thread, label %63
@@ -20315,18 +20257,14 @@ _ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i:     ; preds = %35
 _ZN9DfgVertex4userIPS_EERT_v.exit.i.i:            ; preds = %35
   %.pr.i.i = load ptr, ptr %53, align 8
   %.not.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %.not.i.i, label %60, label %_ZN13V3DfgPeephole4makeI5DfgOrJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit
+  br i1 %.not.i.i, label %60, label %.loopexit.sink.split
 
 60:                                               ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %_ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i
   %61 = getelementptr inbounds i8, ptr %0, i64 32
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %53, align 8
   store ptr %52, ptr %61, align 8
-  br label %_ZN13V3DfgPeephole4makeI5DfgOrJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit
-
-_ZN13V3DfgPeephole4makeI5DfgOrJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit: ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %60
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %52)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 63:                                               ; preds = %.thread, %33, %28, %27
   br i1 %14, label %64, label %100
@@ -20386,18 +20324,14 @@ _ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i95:   ; preds = %72
 _ZN9DfgVertex4userIPS_EERT_v.exit.i.i96:          ; preds = %72
   %.pr.i.i97 = load ptr, ptr %90, align 8
   %.not.i.i98 = icmp eq ptr %.pr.i.i97, null
-  br i1 %.not.i.i98, label %97, label %_ZN13V3DfgPeephole4makeI5DfgOrJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit
+  br i1 %.not.i.i98, label %97, label %.loopexit.sink.split
 
 97:                                               ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %_ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i95
   %98 = getelementptr inbounds i8, ptr %0, i64 32
   %99 = load ptr, ptr %98, align 8
   store ptr %99, ptr %90, align 8
   store ptr %89, ptr %98, align 8
-  br label %_ZN13V3DfgPeephole4makeI5DfgOrJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit
-
-_ZN13V3DfgPeephole4makeI5DfgOrJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %97
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %89)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 100:                                              ; preds = %64, %70, %65, %63
   %101 = load ptr, ptr %3, align 8
@@ -20406,7 +20340,7 @@ _ZN13V3DfgPeephole4makeI5DfgOrJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; preds
   %103 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i99117, 62
   %.not83115118 = icmp eq ptr %101, null
   %.not83119 = or i1 %.not83115118, %103
-  br i1 %.not83119, label %._crit_edge, label %.lr.ph
+  br i1 %.not83119, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %100
   %104 = getelementptr inbounds i8, ptr %0, i64 40
@@ -20417,7 +20351,7 @@ _ZN13V3DfgPeephole4makeI5DfgOrJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; preds
 107:                                              ; preds = %.lr.ph, %148
   %108 = phi ptr [ %101, %.lr.ph ], [ %150, %148 ]
   %.068121 = phi ptr [ %1, %.lr.ph ], [ %.1, %148 ]
-  %.069120 = phi i8 [ 0, %.lr.ph ], [ %.170, %148 ]
+  %.069120 = phi i1 [ false, %.lr.ph ], [ %.170, %148 ]
   %109 = getelementptr inbounds i8, ptr %108, i64 24
   %110 = load ptr, ptr %109, align 8
   %.not.i = icmp eq ptr %110, null
@@ -20426,7 +20360,7 @@ _ZN13V3DfgPeephole4makeI5DfgOrJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; preds
 _ZNK9DfgVertex16hasMultipleSinksEv.exit:          ; preds = %107
   %111 = load ptr, ptr %110, align 8
   %.not116 = icmp eq ptr %111, null
-  br i1 %.not116, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, label %._crit_edge.loopexit
+  br i1 %.not116, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, label %.loopexit
 
 _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %107, %_ZNK9DfgVertex16hasMultipleSinksEv.exit
   %112 = tail call noundef zeroext i1 @_ZN13V3DfgPeephole13checkApplyingE19VDfgPeepholePattern(ptr noundef nonnull align 8 dereferenceable(1328) %0, i32 60)
@@ -20507,7 +20441,7 @@ _ZN13V3DfgPeephole4makeI5DfgOrJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT
   br label %148
 
 148:                                              ; preds = %_ZN13V3DfgPeephole4makeI5DfgOrJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread
-  %.170 = phi i8 [ 1, %_ZN13V3DfgPeephole4makeI5DfgOrJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
+  %.170 = phi i1 [ true, %_ZN13V3DfgPeephole4makeI5DfgOrJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
   %.1 = phi ptr [ %138, %_ZN13V3DfgPeephole4makeI5DfgOrJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.068121, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
   %149 = getelementptr inbounds i8, ptr %.1, i64 88
   %150 = load ptr, ptr %149, align 8
@@ -20516,16 +20450,15 @@ _ZN13V3DfgPeephole4makeI5DfgOrJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT
   %152 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i99, 62
   %.not83115 = icmp eq ptr %150, null
   %.not83 = or i1 %.not83115, %152
-  br i1 %.not83, label %._crit_edge.loopexit, label %107, !llvm.loop !303
+  br i1 %.not83, label %.loopexit, label %107, !llvm.loop !303
 
-._crit_edge.loopexit:                             ; preds = %148, %_ZNK9DfgVertex16hasMultipleSinksEv.exit
-  %.069.lcssa.ph = phi i8 [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.170, %148 ]
-  %153 = and i8 %.069.lcssa.ph, 1
-  %154 = icmp ne i8 %153, 0
-  br label %._crit_edge
+.loopexit.sink.split:                             ; preds = %97, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %60, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %17
+  %.sink = phi ptr [ %22, %17 ], [ %52, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i ], [ %52, %60 ], [ %89, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96 ], [ %89, %97 ]
+  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %.sink)
+  br label %.loopexit
 
-._crit_edge:                                      ; preds = %100, %._crit_edge.loopexit, %_ZN13V3DfgPeephole4makeI5DfgOrJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit, %_ZN13V3DfgPeephole4makeI5DfgOrJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit, %17
-  %.0 = phi i1 [ true, %17 ], [ true, %_ZN13V3DfgPeephole4makeI5DfgOrJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit ], [ true, %_ZN13V3DfgPeephole4makeI5DfgOrJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit ], [ false, %100 ], [ %154, %._crit_edge.loopexit ]
+.loopexit:                                        ; preds = %148, %_ZNK9DfgVertex16hasMultipleSinksEv.exit, %.loopexit.sink.split, %100
+  %.0 = phi i1 [ false, %100 ], [ true, %.loopexit.sink.split ], [ %.170, %148 ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ]
   ret i1 %.0
 }
 
@@ -23993,8 +23926,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3DfgPeephole17associativ
   %24 = getelementptr inbounds i8, ptr %..i, i64 72
   %25 = getelementptr inbounds i8, ptr %..i85, i64 72
   %26 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5opXorERKS_S1_(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %25)
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %22)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 27:                                               ; preds = %2
   br i1 %13, label %.thread, label %63
@@ -24054,18 +23986,14 @@ _ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i:     ; preds = %35
 _ZN9DfgVertex4userIPS_EERT_v.exit.i.i:            ; preds = %35
   %.pr.i.i = load ptr, ptr %53, align 8
   %.not.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %.not.i.i, label %60, label %_ZN13V3DfgPeephole4makeI6DfgXorJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit
+  br i1 %.not.i.i, label %60, label %.loopexit.sink.split
 
 60:                                               ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %_ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i
   %61 = getelementptr inbounds i8, ptr %0, i64 32
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %53, align 8
   store ptr %52, ptr %61, align 8
-  br label %_ZN13V3DfgPeephole4makeI6DfgXorJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit
-
-_ZN13V3DfgPeephole4makeI6DfgXorJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit: ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %60
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %52)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 63:                                               ; preds = %.thread, %33, %28, %27
   br i1 %14, label %64, label %100
@@ -24125,18 +24053,14 @@ _ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i95:   ; preds = %72
 _ZN9DfgVertex4userIPS_EERT_v.exit.i.i96:          ; preds = %72
   %.pr.i.i97 = load ptr, ptr %90, align 8
   %.not.i.i98 = icmp eq ptr %.pr.i.i97, null
-  br i1 %.not.i.i98, label %97, label %_ZN13V3DfgPeephole4makeI6DfgXorJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit
+  br i1 %.not.i.i98, label %97, label %.loopexit.sink.split
 
 97:                                               ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %_ZN9DfgVertex4userIPS_EERT_v.exit.thread.i.i95
   %98 = getelementptr inbounds i8, ptr %0, i64 32
   %99 = load ptr, ptr %98, align 8
   store ptr %99, ptr %90, align 8
   store ptr %89, ptr %98, align 8
-  br label %_ZN13V3DfgPeephole4makeI6DfgXorJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit
-
-_ZN13V3DfgPeephole4makeI6DfgXorJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; preds = %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %97
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %89)
-  br label %._crit_edge
+  br label %.loopexit.sink.split
 
 100:                                              ; preds = %64, %70, %65, %63
   %101 = load ptr, ptr %3, align 8
@@ -24145,7 +24069,7 @@ _ZN13V3DfgPeephole4makeI6DfgXorJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; pred
   %103 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i99117, 83
   %.not83115118 = icmp eq ptr %101, null
   %.not83119 = or i1 %.not83115118, %103
-  br i1 %.not83119, label %._crit_edge, label %.lr.ph
+  br i1 %.not83119, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %100
   %104 = getelementptr inbounds i8, ptr %0, i64 40
@@ -24156,7 +24080,7 @@ _ZN13V3DfgPeephole4makeI6DfgXorJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; pred
 107:                                              ; preds = %.lr.ph, %148
   %108 = phi ptr [ %101, %.lr.ph ], [ %150, %148 ]
   %.068121 = phi ptr [ %1, %.lr.ph ], [ %.1, %148 ]
-  %.069120 = phi i8 [ 0, %.lr.ph ], [ %.170, %148 ]
+  %.069120 = phi i1 [ false, %.lr.ph ], [ %.170, %148 ]
   %109 = getelementptr inbounds i8, ptr %108, i64 24
   %110 = load ptr, ptr %109, align 8
   %.not.i = icmp eq ptr %110, null
@@ -24165,7 +24089,7 @@ _ZN13V3DfgPeephole4makeI6DfgXorJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit: ; pred
 _ZNK9DfgVertex16hasMultipleSinksEv.exit:          ; preds = %107
   %111 = load ptr, ptr %110, align 8
   %.not116 = icmp eq ptr %111, null
-  br i1 %.not116, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, label %._crit_edge.loopexit
+  br i1 %.not116, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, label %.loopexit
 
 _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %107, %_ZNK9DfgVertex16hasMultipleSinksEv.exit
   %112 = tail call noundef zeroext i1 @_ZN13V3DfgPeephole13checkApplyingE19VDfgPeepholePattern(ptr noundef nonnull align 8 dereferenceable(1328) %0, i32 60)
@@ -24246,7 +24170,7 @@ _ZN13V3DfgPeephole4makeI6DfgXorJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDp
   br label %148
 
 148:                                              ; preds = %_ZN13V3DfgPeephole4makeI6DfgXorJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread
-  %.170 = phi i8 [ 1, %_ZN13V3DfgPeephole4makeI6DfgXorJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
+  %.170 = phi i1 [ true, %_ZN13V3DfgPeephole4makeI6DfgXorJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
   %.1 = phi ptr [ %138, %_ZN13V3DfgPeephole4makeI6DfgXorJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit ], [ %.068121, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
   %149 = getelementptr inbounds i8, ptr %.1, i64 88
   %150 = load ptr, ptr %149, align 8
@@ -24255,16 +24179,15 @@ _ZN13V3DfgPeephole4makeI6DfgXorJP9DfgVertexPS1_EEEPT_P8FileLineP12AstNodeDTypeDp
   %152 = icmp ne i16 %.sroa.0.0.copyload.i.i.i.i99, 83
   %.not83115 = icmp eq ptr %150, null
   %.not83 = or i1 %.not83115, %152
-  br i1 %.not83, label %._crit_edge.loopexit, label %107, !llvm.loop !442
+  br i1 %.not83, label %.loopexit, label %107, !llvm.loop !442
 
-._crit_edge.loopexit:                             ; preds = %148, %_ZNK9DfgVertex16hasMultipleSinksEv.exit
-  %.069.lcssa.ph = phi i8 [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.170, %148 ]
-  %153 = and i8 %.069.lcssa.ph, 1
-  %154 = icmp ne i8 %153, 0
-  br label %._crit_edge
+.loopexit.sink.split:                             ; preds = %97, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96, %60, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i, %17
+  %.sink = phi ptr [ %22, %17 ], [ %52, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i ], [ %52, %60 ], [ %89, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i96 ], [ %89, %97 ]
+  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef nonnull %.sink)
+  br label %.loopexit
 
-._crit_edge:                                      ; preds = %100, %._crit_edge.loopexit, %_ZN13V3DfgPeephole4makeI6DfgXorJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit, %_ZN13V3DfgPeephole4makeI6DfgXorJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit, %17
-  %.0 = phi i1 [ true, %17 ], [ true, %_ZN13V3DfgPeephole4makeI6DfgXorJP8DfgConstP9DfgVertexEEEPT_S5_DpT0_.exit ], [ true, %_ZN13V3DfgPeephole4makeI6DfgXorJP9DfgVertexP8DfgConstEEEPT_S3_DpT0_.exit ], [ false, %100 ], [ %154, %._crit_edge.loopexit ]
+.loopexit:                                        ; preds = %148, %_ZNK9DfgVertex16hasMultipleSinksEv.exit, %.loopexit.sink.split, %100
+  %.0 = phi i1 [ false, %100 ], [ true, %.loopexit.sink.split ], [ %.170, %148 ], [ %.069120, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ]
   ret i1 %.0
 }
 

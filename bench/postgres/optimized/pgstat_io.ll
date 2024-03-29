@@ -268,9 +268,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @pgstat_count_io_op_time(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.timespec, align 8
   %7 = load i8, ptr @track_io_timing, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %._crit_edge, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %5
   %.pre = zext i32 %0 to i64
@@ -361,9 +360,8 @@ declare void @pgstat_snapshot_fixed(i32 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @pgstat_flush_io(i1 noundef zeroext %0) local_unnamed_addr #3 {
   %2 = load i8, ptr @have_iostats, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %33, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %33
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @pgStatLocal, align 8
@@ -562,8 +560,7 @@ define dso_local noundef zeroext i1 @pgstat_tracks_io_bktype(i32 noundef %0) loc
   %2 = icmp ult i32 %0, 14
   %switch.cast = trunc i32 %0 to i14
   %switch.downshift = lshr i14 -4356, %switch.cast
-  %3 = and i14 %switch.downshift, 1
-  %switch.masked = icmp ne i14 %3, 0
+  %switch.masked = trunc i14 %switch.downshift to i1
   %.0 = select i1 %2, i1 %switch.masked, i1 false
   ret i1 %.0
 }

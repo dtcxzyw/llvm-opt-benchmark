@@ -564,9 +564,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   %26 = call i32 @llvm.umax.i32(i32 %19, i32 %24)
   %27 = load i8, ptr getelementptr inbounds (%class.V3Global, ptr @v3Global, i64 0, i32 22, i32 190), align 2
-  %28 = and i8 %27, 1
-  %.not = icmp eq i8 %28, 0
-  br i1 %.not, label %37, label %.thread
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %.thread, label %37
 
 29:                                               ; preds = %.noexc, %7
   %30 = landingpad { ptr, i32 }
@@ -773,9 +772,8 @@ declare noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIc
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK9V3Options9availableEv(ptr noundef nonnull align 8 dereferenceable(1560) %0) #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1558
   %3 = load i8, ptr %2, align 2
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1986,9 +1984,8 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP13AstNodeVarRe
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not16 = icmp eq i8 %18, 0
-  br i1 %.not16, label %.critedge, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %11, i64 260
@@ -1997,9 +1994,8 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP13AstNodeVarRe
   store i64 %22, ptr %20, align 4
   %23 = getelementptr inbounds i8, ptr %0, i64 33
   %24 = load i8, ptr %23, align 1
-  %25 = and i8 %24, 1
-  %.not17 = icmp eq i8 %25, 0
-  br i1 %.not17, label %.critedge, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %.critedge
 
 26:                                               ; preds = %19
   %27 = load ptr, ptr %10, align 8
@@ -2010,18 +2006,18 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP13AstNodeVarRe
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %19, %26, %15
-  %.sroa.0.0.copyload.i18 = load i8, ptr %13, align 8
-  %31 = add i8 %.sroa.0.0.copyload.i18, -1
-  %spec.select.i19 = icmp ult i8 %31, 2
-  br i1 %spec.select.i19, label %32, label %.critedge2
+  %.sroa.0.0.copyload.i16 = load i8, ptr %13, align 8
+  %31 = add i8 %.sroa.0.0.copyload.i16, -1
+  %spec.select.i17 = icmp ult i8 %31, 2
+  br i1 %spec.select.i17, label %32, label %.critedge2
 
 32:                                               ; preds = %.critedge
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 260
   %35 = load i64, ptr %34, align 4
   %36 = and i64 %35, 16384
-  %.not22 = icmp eq i64 %36, 0
-  br i1 %.not22, label %37, label %.critedge2
+  %.not20 = icmp eq i64 %36, 0
+  br i1 %.not20, label %37, label %.critedge2
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds i8, ptr %33, i64 249
@@ -2362,9 +2358,8 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP7AstRand(ptr n
   %4 = load i8, ptr %3, align 2
   %5 = getelementptr inbounds i8, ptr %1, i64 152
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %8, label %11
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %11, label %8
 
 8:                                                ; preds = %2
   store i8 1, ptr %3, align 2
@@ -3685,9 +3680,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit21: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   %18 = call i32 @llvm.umax.i32(i32 %11, i32 %16)
   %19 = load i8, ptr getelementptr inbounds (%class.V3Global, ptr @v3Global, i64 0, i32 22, i32 190), align 2
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %30, label %29
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %29, label %30
 
 21:                                               ; preds = %.noexc, %7
   %22 = landingpad { ptr, i32 }
@@ -3789,9 +3783,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit21: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   %18 = call i32 @llvm.umax.i32(i32 %11, i32 %16)
   %19 = load i8, ptr getelementptr inbounds (%class.V3Global, ptr @v3Global, i64 0, i32 22, i32 190), align 2
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %30, label %29
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %29, label %30
 
 21:                                               ; preds = %.noexc, %7
   %22 = landingpad { ptr, i32 }

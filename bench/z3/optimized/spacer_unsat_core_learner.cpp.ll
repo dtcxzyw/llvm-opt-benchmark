@@ -427,21 +427,15 @@ invoke.cont19:                                    ; preds = %land.rhs.i, %call.i
   %tobool23 = select i1 %not.call20, i1 %done.085, i1 false
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.084, i64 8
   %cmp18.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
-  br i1 %cmp18.not, label %for.end.loopexit, label %for.body
+  br i1 %cmp18.not, label %for.end, label %for.body
 
-for.end.loopexit:                                 ; preds = %invoke.cont19
-  %frombool24 = zext i1 %tobool23 to i8
-  br label %for.end
-
-for.end:                                          ; preds = %for.end.loopexit, %_ZNK11ast_manager13proof_parents3endEv.exit
-  %done.0.lcssa = phi i8 [ 1, %_ZNK11ast_manager13proof_parents3endEv.exit ], [ %frombool24, %for.end.loopexit ]
-  %tobool25 = icmp ne i8 %done.0.lcssa, 0
-  invoke void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %m_closed.i, ptr noundef %call4, i1 noundef zeroext %tobool25)
+for.end:                                          ; preds = %invoke.cont19, %_ZNK11ast_manager13proof_parents3endEv.exit
+  %done.0.lcssa = phi i1 [ true, %_ZNK11ast_manager13proof_parents3endEv.exit ], [ %tobool23, %invoke.cont19 ]
+  invoke void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %m_closed.i, ptr noundef %call4, i1 noundef zeroext %done.0.lcssa)
           to label %if.end27 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end27:                                         ; preds = %for.end
-  %tobool28.not = icmp eq i8 %done.0.lcssa, 0
-  br i1 %tobool28.not, label %if.then29, label %while.cond.backedge
+  br i1 %done.0.lcssa, label %while.cond.backedge, label %if.then29
 
 while.cond.backedge:                              ; preds = %.noexc, %call.i.i.noexc47, %if.end27, %invoke.cont32, %invoke.cont30, %if.then34, %_ZN6vectorIPN6spacer17unsat_core_pluginELb0EjE3endEv.exit.i, %invoke.cont5
   br label %while.cond, !llvm.loop !7

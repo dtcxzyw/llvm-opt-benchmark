@@ -38,9 +38,8 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i64 @ordered_set_transition(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %7, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
   %6 = tail call fastcc ptr @ordered_set_startup(ptr noundef nonnull %0, i1 noundef zeroext false)
@@ -56,9 +55,8 @@ define dso_local i64 @ordered_set_transition(ptr noundef %0) local_unnamed_addr 
   %.0 = phi ptr [ %6, %5 ], [ %10, %7 ]
   %12 = getelementptr i8, ptr %0, i64 56
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not8 = icmp eq i8 %14, 0
-  br i1 %.not8, label %15, label %23
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %23, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr i8, ptr %0, i64 48
@@ -96,9 +94,9 @@ define internal fastcc noundef ptr @ordered_set_startup(ptr noundef %0, i1 nound
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %._crit_edge174
+  br i1 %12, label %13, label %._crit_edge173
 
-._crit_edge174:                                   ; preds = %8
+._crit_edge173:                                   ; preds = %8
   %.pre = load ptr, ptr @CurrentMemoryContext, align 8
   br label %166
 
@@ -152,7 +150,7 @@ list_length.exit:                                 ; preds = %24
   br i1 %1, label %38, label %130
 
 list_length.exit.thread:                          ; preds = %24
-  br i1 %1, label %38, label %.thread155
+  br i1 %1, label %38, label %.thread154
 
 38:                                               ; preds = %list_length.exit.thread, %list_length.exit
   %39 = phi i32 [ 0, %list_length.exit.thread ], [ %37, %list_length.exit ]
@@ -188,10 +186,10 @@ list_length.exit.thread:                          ; preds = %24
   %59 = getelementptr inbounds i8, ptr %14, i64 40
   %60 = load i32, ptr %57, align 4
   %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %.lr.ph164, label %._crit_edge
+  br i1 %61, label %.lr.ph163, label %._crit_edge
 
-.lr.ph164:                                        ; preds = %.lr.ph, %.lr.ph164
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph164 ], [ 0, %.lr.ph ]
+.lr.ph163:                                        ; preds = %.lr.ph, %.lr.ph163
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph163 ], [ 0, %.lr.ph ]
   %62 = load ptr, ptr %58, align 8
   %63 = getelementptr %union.ListCell, ptr %62, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8
@@ -220,25 +218,25 @@ list_length.exit.thread:                          ; preds = %24
   store i32 %81, ptr %83, align 4
   %84 = getelementptr inbounds i8, ptr %64, i64 16
   %85 = load i8, ptr %84, align 4
-  %86 = and i8 %85, 1
-  %87 = load ptr, ptr %56, align 8
-  %88 = getelementptr i8, ptr %87, i64 %indvars.iv
-  store i8 %86, ptr %88, align 1
+  %86 = load ptr, ptr %56, align 8
+  %87 = getelementptr i8, ptr %86, i64 %indvars.iv
+  %88 = and i8 %85, 1
+  store i8 %88, ptr %87, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %89 = load i32, ptr %57, align 4
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next, %90
-  br i1 %91, label %.lr.ph164, label %._crit_edge
+  br i1 %91, label %.lr.ph163, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph164, %.lr.ph, %38
-  %.0138.lcssa = phi i64 [ 0, %38 ], [ 0, %.lr.ph ], [ %indvars.iv.next, %.lr.ph164 ]
+._crit_edge:                                      ; preds = %.lr.ph163, %.lr.ph, %38
+  %.0138.lcssa = phi i64 [ 0, %38 ], [ 0, %.lr.ph ], [ %indvars.iv.next, %.lr.ph163 ]
   %92 = getelementptr inbounds i8, ptr %14, i64 40
   %93 = load ptr, ptr %92, align 8
   br i1 %41, label %94, label %100
 
 94:                                               ; preds = %._crit_edge
-  %.not.i150 = icmp eq ptr %93, null
-  br i1 %.not.i150, label %103, label %95
+  %.not.i149 = icmp eq ptr %93, null
+  br i1 %.not.i149, label %103, label %95
 
 95:                                               ; preds = %94
   %96 = getelementptr inbounds i8, ptr %93, i64 4
@@ -277,19 +275,19 @@ list_length.exit.thread:                          ; preds = %24
   %118 = load i32, ptr %116, align 8
   %119 = add i32 %118, 1
   %120 = call ptr @CreateTemplateTupleDesc(i32 noundef %119) #10
-  %.not147166 = icmp slt i32 %118, 1
-  br i1 %.not147166, label %._crit_edge170, label %.lr.ph169
+  %.not147165 = icmp slt i32 %118, 1
+  br i1 %.not147165, label %._crit_edge169, label %.lr.ph168
 
-.lr.ph169:                                        ; preds = %103, %.lr.ph169
-  %.1167 = phi i32 [ %123, %.lr.ph169 ], [ 1, %103 ]
-  %121 = trunc i32 %.1167 to i16
+.lr.ph168:                                        ; preds = %103, %.lr.ph168
+  %.1166 = phi i32 [ %123, %.lr.ph168 ], [ 1, %103 ]
+  %121 = trunc i32 %.1166 to i16
   %122 = load ptr, ptr %117, align 8
   call void @TupleDescCopyEntry(ptr noundef %120, i16 noundef signext %121, ptr noundef %122, i16 noundef signext %121) #10
-  %123 = add i32 %.1167, 1
+  %123 = add i32 %.1166, 1
   %.not147 = icmp sgt i32 %123, %118
-  br i1 %.not147, label %._crit_edge170, label %.lr.ph169, !llvm.loop !5
+  br i1 %.not147, label %._crit_edge169, label %.lr.ph168, !llvm.loop !5
 
-._crit_edge170:                                   ; preds = %.lr.ph169, %103
+._crit_edge169:                                   ; preds = %.lr.ph168, %103
   %124 = trunc i32 %119 to i16
   call void @TupleDescInitEntry(ptr noundef %120, i16 noundef signext %124, ptr noundef nonnull @.str.6, i32 noundef 23, i32 noundef -1, i32 noundef 0) #10
   %125 = load ptr, ptr %117, align 8
@@ -297,8 +295,8 @@ list_length.exit.thread:                          ; preds = %24
   store ptr %120, ptr %117, align 8
   br label %126
 
-126:                                              ; preds = %100, %._crit_edge170
-  %127 = phi ptr [ %120, %._crit_edge170 ], [ %101, %100 ]
+126:                                              ; preds = %100, %._crit_edge169
+  %127 = phi ptr [ %120, %._crit_edge169 ], [ %101, %100 ]
   %128 = call ptr @MakeSingleTupleTableSlot(ptr noundef %127, ptr noundef nonnull @TTSOpsMinimalTuple) #10
   %129 = getelementptr inbounds i8, ptr %29, i64 40
   store ptr %128, ptr %129, align 8
@@ -306,14 +304,14 @@ list_length.exit.thread:                          ; preds = %24
 
 130:                                              ; preds = %list_length.exit
   %.not144 = icmp eq i32 %37, 1
-  br i1 %.not144, label %131, label %.thread155
+  br i1 %.not144, label %131, label %.thread154
 
 131:                                              ; preds = %130
   %132 = load i8, ptr %19, align 2
   %133 = icmp eq i8 %132, 104
-  br i1 %133, label %.thread155, label %136
+  br i1 %133, label %.thread154, label %136
 
-.thread155:                                       ; preds = %list_length.exit.thread, %131, %130
+.thread154:                                       ; preds = %list_length.exit.thread, %131, %130
   %134 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %134)
   %135 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #10
@@ -346,9 +344,9 @@ list_length.exit.thread:                          ; preds = %24
   store i32 %153, ptr %154, align 8
   %155 = getelementptr inbounds i8, ptr %138, i64 16
   %156 = load i8, ptr %155, align 4
-  %157 = and i8 %156, 1
-  %158 = getelementptr inbounds i8, ptr %29, i64 124
-  store i8 %157, ptr %158, align 4
+  %157 = getelementptr inbounds i8, ptr %29, i64 124
+  %158 = and i8 %156, 1
+  store i8 %158, ptr %157, align 4
   %159 = load i32, ptr %145, align 8
   %160 = getelementptr inbounds i8, ptr %29, i64 108
   %161 = getelementptr inbounds i8, ptr %29, i64 110
@@ -362,9 +360,9 @@ list_length.exit.thread:                          ; preds = %24
   store ptr %29, ptr %165, align 8
   br label %166
 
-166:                                              ; preds = %._crit_edge174, %163
-  %167 = phi ptr [ %28, %163 ], [ %.pre, %._crit_edge174 ]
-  %.0 = phi ptr [ %29, %163 ], [ %11, %._crit_edge174 ]
+166:                                              ; preds = %._crit_edge173, %163
+  %167 = phi ptr [ %28, %163 ], [ %.pre, %._crit_edge173 ]
+  %.0 = phi ptr [ %29, %163 ], [ %11, %._crit_edge173 ]
   %168 = load ptr, ptr %3, align 8
   store ptr %168, ptr @CurrentMemoryContext, align 8
   %169 = call ptr @palloc(i64 noundef 40) #10
@@ -375,7 +373,7 @@ list_length.exit.thread:                          ; preds = %24
   %172 = getelementptr inbounds i8, ptr %.0, i64 24
   %173 = load i8, ptr %172, align 8
   %174 = and i8 %173, 1
-  %spec.select149 = zext nneg i8 %174 to i32
+  %spec.select148 = zext nneg i8 %174 to i32
   br i1 %1, label %175, label %190
 
 175:                                              ; preds = %166
@@ -392,8 +390,8 @@ list_length.exit.thread:                          ; preds = %24
   %186 = getelementptr inbounds i8, ptr %.0, i64 88
   %187 = load ptr, ptr %186, align 8
   %188 = load i32, ptr @work_mem, align 4
-  %189 = call ptr @tuplesort_begin_heap(ptr noundef %177, i32 noundef %179, ptr noundef %181, ptr noundef %183, ptr noundef %185, ptr noundef %187, i32 noundef %188, ptr noundef null, i32 noundef %spec.select149) #10
-  br label %203
+  %189 = call ptr @tuplesort_begin_heap(ptr noundef %177, i32 noundef %179, ptr noundef %181, ptr noundef %183, ptr noundef %185, ptr noundef %187, i32 noundef %188, ptr noundef null, i32 noundef %spec.select148) #10
+  br label %202
 
 190:                                              ; preds = %166
   %191 = getelementptr inbounds i8, ptr %.0, i64 104
@@ -404,22 +402,21 @@ list_length.exit.thread:                          ; preds = %24
   %196 = load i32, ptr %195, align 8
   %197 = getelementptr inbounds i8, ptr %.0, i64 124
   %198 = load i8, ptr %197, align 4
-  %199 = and i8 %198, 1
-  %200 = icmp ne i8 %199, 0
-  %201 = load i32, ptr @work_mem, align 4
-  %202 = call ptr @tuplesort_begin_datum(i32 noundef %192, i32 noundef %194, i32 noundef %196, i1 noundef zeroext %200, i32 noundef %201, ptr noundef null, i32 noundef %spec.select149) #10
-  br label %203
+  %199 = trunc i8 %198 to i1
+  %200 = load i32, ptr @work_mem, align 4
+  %201 = call ptr @tuplesort_begin_datum(i32 noundef %192, i32 noundef %194, i32 noundef %196, i1 noundef zeroext %199, i32 noundef %200, ptr noundef null, i32 noundef %spec.select148) #10
+  br label %202
 
-203:                                              ; preds = %190, %175
-  %.sink = phi ptr [ %189, %175 ], [ %202, %190 ]
-  %204 = getelementptr inbounds i8, ptr %169, i64 16
-  store ptr %.sink, ptr %204, align 8
-  %205 = getelementptr inbounds i8, ptr %169, i64 24
-  store i64 0, ptr %205, align 8
-  %206 = getelementptr inbounds i8, ptr %169, i64 32
-  store i8 0, ptr %206, align 8
-  %207 = ptrtoint ptr %169 to i64
-  call void @AggRegisterCallback(ptr noundef nonnull %0, ptr noundef nonnull @ordered_set_shutdown, i64 noundef %207) #10
+202:                                              ; preds = %190, %175
+  %.sink = phi ptr [ %189, %175 ], [ %201, %190 ]
+  %203 = getelementptr inbounds i8, ptr %169, i64 16
+  store ptr %.sink, ptr %203, align 8
+  %204 = getelementptr inbounds i8, ptr %169, i64 24
+  store i64 0, ptr %204, align 8
+  %205 = getelementptr inbounds i8, ptr %169, i64 32
+  store i8 0, ptr %205, align 8
+  %206 = ptrtoint ptr %169 to i64
+  call void @AggRegisterCallback(ptr noundef nonnull %0, ptr noundef nonnull @ordered_set_shutdown, i64 noundef %206) #10
   store ptr %167, ptr @CurrentMemoryContext, align 8
   ret ptr %169
 }
@@ -431,9 +428,8 @@ define dso_local noundef i64 @ordered_set_transition_multi(ptr noundef %0) local
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %8, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
   %7 = tail call fastcc ptr @ordered_set_startup(ptr noundef nonnull %0, i1 noundef zeroext true)
@@ -477,10 +473,10 @@ define dso_local noundef i64 @ordered_set_transition_multi(ptr noundef %0) local
   store i64 %28, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %27, i64 8
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %34 = load ptr, ptr %25, align 8
-  %35 = getelementptr i8, ptr %34, i64 %indvars.iv
-  store i8 %33, ptr %35, align 1
+  %33 = load ptr, ptr %25, align 8
+  %34 = getelementptr i8, ptr %33, i64 %indvars.iv
+  %35 = and i8 %32, 1
+  store i8 %35, ptr %34, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %26, !llvm.loop !7
 
@@ -532,9 +528,8 @@ define dso_local i64 @percentile_disc_final(ptr nocapture noundef %0) local_unna
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = getelementptr i8, ptr %0, i64 56
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %10, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 28
@@ -548,8 +543,8 @@ define dso_local i64 @percentile_disc_final(ptr nocapture noundef %0) local_unna
   %14 = fcmp ogt double %12, 1.000000e+00
   %or.cond = or i1 %13, %14
   %15 = fcmp uno double %12, 0.000000e+00
-  %or.cond29 = or i1 %15, %or.cond
-  br i1 %or.cond29, label %16, label %20
+  %or.cond26 = or i1 %15, %or.cond
+  br i1 %or.cond26, label %16, label %20
 
 16:                                               ; preds = %10
   %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -562,9 +557,8 @@ define dso_local i64 @percentile_disc_final(ptr nocapture noundef %0) local_unna
 20:                                               ; preds = %10
   %21 = getelementptr inbounds i8, ptr %0, i64 40
   %22 = load i8, ptr %21, align 8
-  %23 = and i8 %22, 1
-  %.not26 = icmp eq i8 %23, 0
-  br i1 %.not26, label %26, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %26
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %0, i64 28
@@ -587,11 +581,10 @@ define dso_local i64 @percentile_disc_final(ptr nocapture noundef %0) local_unna
 34:                                               ; preds = %26
   %35 = getelementptr inbounds i8, ptr %28, i64 32
   %36 = load i8, ptr %35, align 8
-  %37 = and i8 %36, 1
-  %.not27 = icmp eq i8 %37, 0
+  %37 = trunc i8 %36 to i1
   %38 = getelementptr inbounds i8, ptr %28, i64 16
   %39 = load ptr, ptr %38, align 8
-  br i1 %.not27, label %40, label %41
+  br i1 %37, label %41, label %40
 
 40:                                               ; preds = %34
   tail call void @tuplesort_performsort(ptr noundef %39) #10
@@ -640,9 +633,8 @@ define dso_local i64 @percentile_disc_final(ptr nocapture noundef %0) local_unna
 
 64:                                               ; preds = %57
   %65 = load i8, ptr %3, align 1
-  %66 = and i8 %65, 1
-  %.not28 = icmp eq i8 %66, 0
-  br i1 %.not28, label %69, label %67
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %69
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds i8, ptr %0, i64 28
@@ -694,9 +686,8 @@ define internal fastcc i64 @percentile_cont_final_common(ptr nocapture noundef %
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = getelementptr i8, ptr %0, i64 56
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %12, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %12
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 28
@@ -710,8 +701,8 @@ define internal fastcc i64 @percentile_cont_final_common(ptr nocapture noundef %
   %16 = fcmp ogt double %14, 1.000000e+00
   %or.cond = or i1 %15, %16
   %17 = fcmp uno double %14, 0.000000e+00
-  %or.cond42 = or i1 %17, %or.cond
-  br i1 %or.cond42, label %18, label %22
+  %or.cond38 = or i1 %17, %or.cond
+  br i1 %or.cond38, label %18, label %22
 
 18:                                               ; preds = %12
   %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -724,9 +715,8 @@ define internal fastcc i64 @percentile_cont_final_common(ptr nocapture noundef %
 22:                                               ; preds = %12
   %23 = getelementptr inbounds i8, ptr %0, i64 40
   %24 = load i8, ptr %23, align 8
-  %25 = and i8 %24, 1
-  %.not38 = icmp eq i8 %25, 0
-  br i1 %.not38, label %28, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %28
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %0, i64 28
@@ -749,11 +739,10 @@ define internal fastcc i64 @percentile_cont_final_common(ptr nocapture noundef %
 36:                                               ; preds = %28
   %37 = getelementptr inbounds i8, ptr %30, i64 32
   %38 = load i8, ptr %37, align 8
-  %39 = and i8 %38, 1
-  %.not39 = icmp eq i8 %39, 0
+  %39 = trunc i8 %38 to i1
   %40 = getelementptr inbounds i8, ptr %30, i64 16
   %41 = load ptr, ptr %40, align 8
-  br i1 %.not39, label %42, label %43
+  br i1 %39, label %43, label %42
 
 42:                                               ; preds = %36
   tail call void @tuplesort_performsort(ptr noundef %41) #10
@@ -799,9 +788,8 @@ define internal fastcc i64 @percentile_cont_final_common(ptr nocapture noundef %
 
 65:                                               ; preds = %59
   %66 = load i8, ptr %5, align 1
-  %67 = and i8 %66, 1
-  %.not40 = icmp eq i8 %67, 0
-  br i1 %.not40, label %70, label %68
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %70
 
 68:                                               ; preds = %65
   %69 = getelementptr inbounds i8, ptr %0, i64 28
@@ -830,9 +818,8 @@ define internal fastcc i64 @percentile_cont_final_common(ptr nocapture noundef %
 
 80:                                               ; preds = %74
   %81 = load i8, ptr %5, align 1
-  %82 = and i8 %81, 1
-  %.not41 = icmp eq i8 %82, 0
-  br i1 %.not41, label %85, label %83
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %85
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds i8, ptr %0, i64 28
@@ -892,14 +879,13 @@ define dso_local i64 @percentile_disc_multi_final(ptr nocapture noundef %0) loca
   store i8 1, ptr %6, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %12, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %12
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %11, align 4
-  br label %131
+  br label %130
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds i8, ptr %0, i64 32
@@ -913,19 +899,18 @@ define dso_local i64 @percentile_disc_multi_final(ptr nocapture noundef %0) loca
 19:                                               ; preds = %12
   %20 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %20, align 4
-  br label %131
+  br label %130
 
 21:                                               ; preds = %12
   %22 = getelementptr i8, ptr %0, i64 56
   %23 = load i8, ptr %22, align 8
-  %24 = and i8 %23, 1
-  %.not58 = icmp eq i8 %24, 0
-  br i1 %.not58, label %27, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %27
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %26, align 4
-  br label %131
+  br label %130
 
 27:                                               ; preds = %21
   %28 = getelementptr i8, ptr %0, i64 48
@@ -943,7 +928,7 @@ define dso_local i64 @percentile_disc_multi_final(ptr nocapture noundef %0) loca
   %37 = load i32, ptr %36, align 8
   %38 = call ptr @construct_empty_array(i32 noundef %37) #10
   %39 = ptrtoint ptr %38 to i64
-  br label %131
+  br label %130
 
 40:                                               ; preds = %27
   %41 = load ptr, ptr %2, align 8
@@ -986,11 +971,10 @@ define dso_local i64 @percentile_disc_multi_final(ptr nocapture noundef %0) loca
   %67 = trunc i64 %indvars.iv to i32
   %68 = getelementptr inbounds i8, ptr %15, i64 32
   %69 = load i8, ptr %68, align 8
-  %70 = and i8 %69, 1
-  %.not59 = icmp eq i8 %70, 0
+  %70 = trunc i8 %69 to i1
   %71 = getelementptr inbounds i8, ptr %15, i64 16
   %72 = load ptr, ptr %71, align 8
-  br i1 %.not59, label %73, label %74
+  br i1 %70, label %74, label %73
 
 73:                                               ; preds = %66
   call void @tuplesort_performsort(ptr noundef %72) #10
@@ -1004,27 +988,27 @@ define dso_local i64 @percentile_disc_multi_final(ptr nocapture noundef %0) loca
 75:                                               ; preds = %74, %73
   %76 = load i32, ptr %4, align 4
   %77 = icmp sgt i32 %76, %67
-  br i1 %77, label %.lr.ph65, label %.loopexit
+  br i1 %77, label %.lr.ph63, label %.loopexit
 
-.lr.ph65:                                         ; preds = %75
+.lr.ph63:                                         ; preds = %75
   %78 = getelementptr inbounds i8, ptr %15, i64 16
   br label %79
 
-79:                                               ; preds = %.lr.ph65, %101
-  %80 = phi i8 [ 1, %.lr.ph65 ], [ %102, %101 ]
-  %81 = phi i64 [ 0, %.lr.ph65 ], [ %103, %101 ]
-  %indvars.iv70 = phi i64 [ %indvars.iv, %.lr.ph65 ], [ %indvars.iv.next71, %101 ]
-  %.05364 = phi i64 [ 0, %.lr.ph65 ], [ %.1, %101 ]
-  %82 = getelementptr %struct.pct_info, ptr %44, i64 %indvars.iv70
+79:                                               ; preds = %.lr.ph63, %101
+  %80 = phi i8 [ 1, %.lr.ph63 ], [ %102, %101 ]
+  %81 = phi i64 [ 0, %.lr.ph63 ], [ %103, %101 ]
+  %indvars.iv68 = phi i64 [ %indvars.iv, %.lr.ph63 ], [ %indvars.iv.next69, %101 ]
+  %.05362 = phi i64 [ 0, %.lr.ph63 ], [ %.1, %101 ]
+  %82 = getelementptr %struct.pct_info, ptr %44, i64 %indvars.iv68
   %83 = load i64, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %82, i64 24
   %85 = load i32, ptr %84, align 8
-  %86 = icmp sgt i64 %83, %.05364
+  %86 = icmp sgt i64 %83, %.05362
   br i1 %86, label %87, label %101
 
 87:                                               ; preds = %79
   %88 = load ptr, ptr %78, align 8
-  %89 = xor i64 %.05364, -1
+  %89 = xor i64 %.05362, -1
   %90 = add i64 %83, %89
   %91 = call zeroext i1 @tuplesort_skiptuples(ptr noundef %88, i64 noundef %90, i1 noundef zeroext true) #10
   br i1 %91, label %95, label %92
@@ -1043,7 +1027,7 @@ define dso_local i64 @percentile_disc_multi_final(ptr nocapture noundef %0) loca
 
 ._crit_edge:                                      ; preds = %95
   %.pre = load i64, ptr %5, align 8
-  %.pre73 = load i8, ptr %6, align 1
+  %.pre71 = load i8, ptr %6, align 1
   br label %101
 
 98:                                               ; preds = %95
@@ -1054,18 +1038,18 @@ define dso_local i64 @percentile_disc_multi_final(ptr nocapture noundef %0) loca
   unreachable
 
 101:                                              ; preds = %._crit_edge, %79
-  %102 = phi i8 [ %80, %79 ], [ %.pre73, %._crit_edge ]
+  %102 = phi i8 [ %80, %79 ], [ %.pre71, %._crit_edge ]
   %103 = phi i64 [ %81, %79 ], [ %.pre, %._crit_edge ]
-  %.1 = phi i64 [ %.05364, %79 ], [ %83, %._crit_edge ]
+  %.1 = phi i64 [ %.05362, %79 ], [ %83, %._crit_edge ]
   %104 = sext i32 %85 to i64
   %105 = getelementptr i64, ptr %48, i64 %104
   store i64 %103, ptr %105, align 8
-  %106 = and i8 %102, 1
-  %107 = getelementptr i8, ptr %51, i64 %104
-  store i8 %106, ptr %107, align 1
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %106 = getelementptr i8, ptr %51, i64 %104
+  %107 = and i8 %102, 1
+  store i8 %107, ptr %106, align 1
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %108 = load i32, ptr %4, align 4
-  %109 = trunc i64 %indvars.iv.next71 to i32
+  %109 = trunc i64 %indvars.iv.next69 to i32
   %110 = icmp sgt i32 %108, %109
   br i1 %110, label %79, label %.loopexit, !llvm.loop !10
 
@@ -1084,16 +1068,15 @@ define dso_local i64 @percentile_disc_multi_final(ptr nocapture noundef %0) loca
   %122 = sext i16 %121 to i32
   %123 = getelementptr inbounds i8, ptr %117, i64 110
   %124 = load i8, ptr %123, align 2
-  %125 = and i8 %124, 1
-  %126 = icmp ne i8 %125, 0
-  %127 = getelementptr inbounds i8, ptr %117, i64 111
-  %128 = load i8, ptr %127, align 1
-  %129 = call ptr @construct_md_array(ptr noundef %48, ptr noundef %51, i32 noundef %112, ptr noundef %113, ptr noundef %116, i32 noundef %119, i32 noundef %122, i1 noundef zeroext %126, i8 noundef signext %128) #10
-  %130 = ptrtoint ptr %129 to i64
-  br label %131
+  %125 = trunc i8 %124 to i1
+  %126 = getelementptr inbounds i8, ptr %117, i64 111
+  %127 = load i8, ptr %126, align 1
+  %128 = call ptr @construct_md_array(ptr noundef %48, ptr noundef %51, i32 noundef %112, ptr noundef %113, ptr noundef %116, i32 noundef %119, i32 noundef %122, i1 noundef zeroext %125, i8 noundef signext %127) #10
+  %129 = ptrtoint ptr %128 to i64
+  br label %130
 
-131:                                              ; preds = %.loopexit, %34, %25, %19, %10
-  %.0 = phi i64 [ 0, %10 ], [ 0, %19 ], [ 0, %25 ], [ %39, %34 ], [ %130, %.loopexit ]
+130:                                              ; preds = %.loopexit, %34, %25, %19, %10
+  %.0 = phi i64 [ 0, %10 ], [ 0, %19 ], [ 0, %25 ], [ %39, %34 ], [ %129, %.loopexit ]
   ret i64 %.0
 }
 
@@ -1126,42 +1109,41 @@ define internal fastcc ptr @setup_pct_info(i32 noundef %0, ptr nocapture noundef
   store i32 %15, ptr %14, align 8
   %16 = getelementptr i8, ptr %2, i64 %indvars.iv58
   %17 = load i8, ptr %16, align 1
-  %18 = and i8 %17, 1
-  %.not.us = icmp eq i8 %18, 0
-  br i1 %.not.us, label %20, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %37, label %19
 
 19:                                               ; preds = %.lr.ph.split.us
+  %20 = getelementptr i64, ptr %1, i64 %indvars.iv58
+  %21 = load double, ptr %20, align 8
+  %22 = fcmp olt double %21, 0.000000e+00
+  %23 = fcmp ogt double %21, 1.000000e+00
+  %or.cond.us = or i1 %22, %23
+  %24 = fcmp uno double %21, 0.000000e+00
+  %or.cond52.us = or i1 %24, %or.cond.us
+  br i1 %or.cond52.us, label %.split.us, label %25
+
+25:                                               ; preds = %19
+  %26 = fmul double %21, %12
+  %27 = tail call double @llvm.floor.f64(double %26)
+  %28 = fadd double %27, 1.000000e+00
+  %29 = fptosi double %28 to i64
+  store i64 %29, ptr %13, align 8
+  %30 = tail call double @llvm.ceil.f64(double %26)
+  %31 = fadd double %30, 1.000000e+00
+  %32 = fptosi double %31 to i64
+  %33 = getelementptr inbounds i8, ptr %13, i64 8
+  store i64 %32, ptr %33, align 8
+  %34 = fneg double %27
+  %35 = tail call double @llvm.fmuladd.f64(double %21, double %12, double %34)
+  %36 = getelementptr inbounds i8, ptr %13, i64 16
+  store double %35, ptr %36, align 8
+  br label %38
+
+37:                                               ; preds = %.lr.ph.split.us
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   br label %38
 
-20:                                               ; preds = %.lr.ph.split.us
-  %21 = getelementptr i64, ptr %1, i64 %indvars.iv58
-  %22 = load double, ptr %21, align 8
-  %23 = fcmp olt double %22, 0.000000e+00
-  %24 = fcmp ogt double %22, 1.000000e+00
-  %or.cond.us = or i1 %23, %24
-  %25 = fcmp uno double %22, 0.000000e+00
-  %or.cond52.us = or i1 %25, %or.cond.us
-  br i1 %or.cond52.us, label %.split.us, label %26
-
-26:                                               ; preds = %20
-  %27 = fmul double %22, %12
-  %28 = tail call double @llvm.floor.f64(double %27)
-  %29 = fadd double %28, 1.000000e+00
-  %30 = fptosi double %29 to i64
-  store i64 %30, ptr %13, align 8
-  %31 = tail call double @llvm.ceil.f64(double %27)
-  %32 = fadd double %31, 1.000000e+00
-  %33 = fptosi double %32 to i64
-  %34 = getelementptr inbounds i8, ptr %13, i64 8
-  store i64 %33, ptr %34, align 8
-  %35 = fneg double %28
-  %36 = tail call double @llvm.fmuladd.f64(double %22, double %12, double %35)
-  %37 = getelementptr inbounds i8, ptr %13, i64 16
-  store double %36, ptr %37, align 8
-  br label %38
-
-38:                                               ; preds = %26, %19
+38:                                               ; preds = %37, %25
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
   br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
@@ -1174,9 +1156,8 @@ define internal fastcc ptr @setup_pct_info(i32 noundef %0, ptr nocapture noundef
   store i32 %41, ptr %40, align 8
   %42 = getelementptr i8, ptr %2, i64 %indvars.iv
   %43 = load i8, ptr %42, align 1
-  %44 = and i8 %43, 1
-  %.not = icmp eq i8 %44, 0
-  br i1 %.not, label %46, label %45
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %46
 
 45:                                               ; preds = %.lr.ph.split
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
@@ -1192,8 +1173,8 @@ define internal fastcc ptr @setup_pct_info(i32 noundef %0, ptr nocapture noundef
   %or.cond52 = or i1 %51, %or.cond
   br i1 %or.cond52, label %.split.us, label %55
 
-.split.us:                                        ; preds = %46, %20
-  %.us-phi = phi double [ %22, %20 ], [ %48, %46 ]
+.split.us:                                        ; preds = %46, %19
+  %.us-phi = phi double [ %21, %19 ], [ %48, %46 ]
   %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %52)
   %53 = tail call i32 @errcode(i32 noundef 50331778) #10
@@ -1245,9 +1226,8 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr nocapture nou
   store i64 0, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %17, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %17
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds i8, ptr %0, i64 28
@@ -1271,9 +1251,8 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr nocapture nou
 26:                                               ; preds = %17
   %27 = getelementptr i8, ptr %0, i64 56
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not74 = icmp eq i8 %29, 0
-  br i1 %.not74, label %32, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i8, ptr %0, i64 28
@@ -1339,11 +1318,10 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr nocapture nou
   %72 = trunc i64 %indvars.iv to i32
   %73 = getelementptr inbounds i8, ptr %20, i64 32
   %74 = load i8, ptr %73, align 8
-  %75 = and i8 %74, 1
-  %.not75 = icmp eq i8 %75, 0
+  %75 = trunc i8 %74 to i1
   %76 = getelementptr inbounds i8, ptr %20, i64 16
   %77 = load ptr, ptr %76, align 8
-  br i1 %.not75, label %78, label %79
+  br i1 %75, label %79, label %78
 
 78:                                               ; preds = %71
   call void @tuplesort_performsort(ptr noundef %77) #10
@@ -1357,27 +1335,27 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr nocapture nou
 80:                                               ; preds = %79, %78
   %81 = load i32, ptr %8, align 4
   %82 = icmp sgt i32 %81, %72
-  br i1 %82, label %.lr.ph83, label %.loopexit
+  br i1 %82, label %.lr.ph79, label %.loopexit
 
-.lr.ph83:                                         ; preds = %80
+.lr.ph79:                                         ; preds = %80
   %83 = getelementptr inbounds i8, ptr %20, i64 16
   br label %84
 
-84:                                               ; preds = %.lr.ph83, %136
-  %indvars.iv88 = phi i64 [ %indvars.iv, %.lr.ph83 ], [ %indvars.iv.next89, %136 ]
-  %.06882 = phi i64 [ 0, %.lr.ph83 ], [ %.2, %136 ]
-  %85 = getelementptr %struct.pct_info, ptr %49, i64 %indvars.iv88
+84:                                               ; preds = %.lr.ph79, %136
+  %indvars.iv84 = phi i64 [ %indvars.iv, %.lr.ph79 ], [ %indvars.iv.next85, %136 ]
+  %.06878 = phi i64 [ 0, %.lr.ph79 ], [ %.2, %136 ]
+  %85 = getelementptr %struct.pct_info, ptr %49, i64 %indvars.iv84
   %86 = load i64, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %85, i64 8
   %88 = load i64, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %85, i64 24
   %90 = load i32, ptr %89, align 8
-  %91 = icmp sgt i64 %86, %.06882
+  %91 = icmp sgt i64 %86, %.06878
   br i1 %91, label %92, label %111
 
 92:                                               ; preds = %84
   %93 = load ptr, ptr %83, align 8
-  %94 = xor i64 %.06882, -1
+  %94 = xor i64 %.06878, -1
   %95 = add i64 %86, %94
   %96 = call zeroext i1 @tuplesort_skiptuples(ptr noundef %93, i64 noundef %95, i1 noundef zeroext true) #10
   br i1 %96, label %100, label %97
@@ -1396,9 +1374,8 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr nocapture nou
 
 103:                                              ; preds = %100
   %104 = load i8, ptr %11, align 1
-  %105 = and i8 %104, 1
-  %.not76 = icmp eq i8 %105, 0
-  br i1 %.not76, label %109, label %106
+  %105 = trunc i8 %104 to i1
+  br i1 %105, label %106, label %109
 
 106:                                              ; preds = %103, %100
   %107 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -1413,7 +1390,7 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr nocapture nou
   br label %115
 
 111:                                              ; preds = %84
-  %112 = icmp eq i64 %86, %.06882
+  %112 = icmp eq i64 %86, %.06878
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %111
@@ -1422,7 +1399,7 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr nocapture nou
   br label %115
 
 115:                                              ; preds = %111, %113, %109
-  %.1 = phi i64 [ %86, %109 ], [ %.06882, %113 ], [ %.06882, %111 ]
+  %.1 = phi i64 [ %86, %109 ], [ %.06878, %113 ], [ %.06878, %111 ]
   %116 = icmp sgt i64 %88, %.1
   br i1 %116, label %117, label %128
 
@@ -1433,9 +1410,8 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr nocapture nou
 
 120:                                              ; preds = %117
   %121 = load i8, ptr %11, align 1
-  %122 = and i8 %121, 1
-  %.not77 = icmp eq i8 %122, 0
-  br i1 %.not77, label %126, label %123
+  %122 = trunc i8 %121 to i1
+  br i1 %122, label %123, label %126
 
 123:                                              ; preds = %120, %117
   %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -1468,9 +1444,9 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr nocapture nou
   store i64 %.sink, ptr %138, align 8
   %139 = getelementptr i8, ptr %56, i64 %137
   store i8 0, ptr %139, align 1
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %140 = load i32, ptr %8, align 4
-  %141 = trunc i64 %indvars.iv.next89 to i32
+  %141 = trunc i64 %indvars.iv.next85 to i32
   %142 = icmp sgt i32 %140, %141
   br i1 %142, label %84, label %.loopexit, !llvm.loop !13
 
@@ -1505,9 +1481,8 @@ define dso_local i64 @mode_final(ptr nocapture noundef %0) local_unnamed_addr #0
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %8, label %.sink.split
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %.sink.split, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1523,8 +1498,8 @@ define dso_local i64 @mode_final(ptr nocapture noundef %0) local_unnamed_addr #0
   %17 = getelementptr inbounds i8, ptr %16, i64 128
   %18 = getelementptr inbounds i8, ptr %16, i64 136
   %19 = load i32, ptr %18, align 8
-  %.not55 = icmp eq i32 %19, 0
-  br i1 %.not55, label %20, label %27
+  %.not = icmp eq i32 %19, 0
+  br i1 %.not, label %20, label %27
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds i8, ptr %16, i64 116
@@ -1541,15 +1516,13 @@ define dso_local i64 @mode_final(ptr nocapture noundef %0) local_unnamed_addr #0
   %28 = phi ptr [ %.pre, %20 ], [ %16, %15 ]
   %29 = getelementptr inbounds i8, ptr %28, i64 110
   %30 = load i8, ptr %29, align 2
-  %31 = and i8 %30, 1
-  %.not56 = icmp eq i8 %31, 0
+  %31 = trunc i8 %30 to i1
   %32 = getelementptr inbounds i8, ptr %11, i64 32
   %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, 1
-  %.not57 = icmp eq i8 %34, 0
+  %34 = trunc i8 %33 to i1
   %35 = getelementptr inbounds i8, ptr %11, i64 16
   %36 = load ptr, ptr %35, align 8
-  br i1 %.not57, label %37, label %38
+  br i1 %34, label %38, label %37
 
 37:                                               ; preds = %27
   tail call void @tuplesort_performsort(ptr noundef %36) #10
@@ -1577,13 +1550,12 @@ define dso_local i64 @mode_final(ptr nocapture noundef %0) local_unnamed_addr #0
 42:                                               ; preds = %.outer, %45
   %43 = load ptr, ptr %40, align 8
   %44 = call zeroext i1 @tuplesort_getdatum(ptr noundef %43, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
-  br i1 %44, label %45, label %82
+  br i1 %44, label %45, label %83
 
 45:                                               ; preds = %42
   %46 = load i8, ptr %3, align 1
-  %47 = and i8 %46, 1
-  %.not60 = icmp eq i8 %47, 0
-  br i1 %.not60, label %48, label %42, !llvm.loop !14
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %42, label %48, !llvm.loop !14
 
 48:                                               ; preds = %45
   %49 = icmp eq i64 %.045.ph, 0
@@ -1592,7 +1564,7 @@ define dso_local i64 @mode_final(ptr nocapture noundef %0) local_unnamed_addr #0
 50:                                               ; preds = %48
   %51 = load i64, ptr %2, align 8
   %52 = load i64, ptr %4, align 8
-  br label %.thread73
+  br label %.thread
 
 53:                                               ; preds = %48
   %54 = load i64, ptr %4, align 8
@@ -1603,13 +1575,12 @@ define dso_local i64 @mode_final(ptr nocapture noundef %0) local_unnamed_addr #0
   %57 = load i32, ptr %41, align 8
   %58 = load i64, ptr %2, align 8
   %59 = call i64 @FunctionCall2Coll(ptr noundef nonnull %17, i32 noundef %57, i64 noundef %58, i64 noundef %.048.ph) #10
-  %.not78 = icmp eq i64 %59, 0
-  br i1 %.not78, label %73, label %60
+  %.not70 = icmp eq i64 %59, 0
+  br i1 %.not70, label %73, label %60
 
 60:                                               ; preds = %56
-  %61 = and i8 %.042.ph, 1
-  %.not62 = icmp eq i8 %61, 0
-  br i1 %.not62, label %64, label %62
+  %61 = trunc i8 %.042.ph to i1
+  br i1 %61, label %62, label %64
 
 62:                                               ; preds = %60
   %63 = add i64 %.050.ph, 1
@@ -1621,9 +1592,9 @@ define dso_local i64 @mode_final(ptr nocapture noundef %0) local_unnamed_addr #0
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %64
-  br i1 %.not56, label %.thread, label %.thread73
+  br i1 %31, label %.thread, label %.thread61
 
-.thread:                                          ; preds = %67
+.thread61:                                        ; preds = %67
   %68 = inttoptr i64 %.040.ph to ptr
   call void @pfree(ptr noundef %68) #10
   br label %70
@@ -1631,74 +1602,76 @@ define dso_local i64 @mode_final(ptr nocapture noundef %0) local_unnamed_addr #0
 69:                                               ; preds = %64, %62
   %.151 = phi i64 [ %63, %62 ], [ %.050.ph, %64 ]
   %.146 = phi i64 [ %.045.ph, %62 ], [ %65, %64 ]
-  br i1 %.not56, label %70, label %.thread73
+  br i1 %31, label %.thread, label %70
 
-70:                                               ; preds = %.thread, %69
-  %.14172 = phi i64 [ %.048.ph, %.thread ], [ %.040.ph, %69 ]
-  %.14371 = phi i8 [ 1, %.thread ], [ %.042.ph, %69 ]
-  %.14670 = phi i64 [ %65, %.thread ], [ %.146, %69 ]
-  %.15169 = phi i64 [ %65, %.thread ], [ %.151, %69 ]
+70:                                               ; preds = %.thread61, %69
+  %.14169 = phi i64 [ %.048.ph, %.thread61 ], [ %.040.ph, %69 ]
+  %.14368 = phi i8 [ 1, %.thread61 ], [ %.042.ph, %69 ]
+  %.14667 = phi i64 [ %65, %.thread61 ], [ %.146, %69 ]
+  %.15166 = phi i64 [ %65, %.thread61 ], [ %.151, %69 ]
   %71 = load i64, ptr %2, align 8
   %72 = inttoptr i64 %71 to ptr
   call void @pfree(ptr noundef %72) #10
-  br label %.thread73
+  br label %.thread
 
 73:                                               ; preds = %56, %53
-  %74 = and i8 %.042.ph, 1
-  %.not61 = icmp eq i8 %74, 0
-  %or.cond = select i1 %.not56, i1 %.not61, i1 false
-  br i1 %or.cond, label %75, label %77
+  br i1 %31, label %78, label %74
 
-75:                                               ; preds = %73
-  %76 = inttoptr i64 %.048.ph to ptr
-  call void @pfree(ptr noundef %76) #10
-  br label %77
+74:                                               ; preds = %73
+  %75 = trunc i8 %.042.ph to i1
+  br i1 %75, label %78, label %76
 
-77:                                               ; preds = %75, %73
-  %78 = load i64, ptr %2, align 8
-  %79 = load i64, ptr %4, align 8
-  br label %.thread73
+76:                                               ; preds = %74
+  %77 = inttoptr i64 %.048.ph to ptr
+  call void @pfree(ptr noundef %77) #10
+  br label %78
 
-.thread73:                                        ; preds = %67, %50, %69, %70, %77
-  %.252 = phi i64 [ 1, %50 ], [ %.15169, %70 ], [ %.151, %69 ], [ %.050.ph, %77 ], [ %65, %67 ]
-  %.149 = phi i64 [ %51, %50 ], [ %.048.ph, %70 ], [ %.048.ph, %69 ], [ %78, %77 ], [ %.048.ph, %67 ]
-  %.247 = phi i64 [ 1, %50 ], [ %.14670, %70 ], [ %.146, %69 ], [ 1, %77 ], [ %65, %67 ]
-  %.244 = phi i8 [ 1, %50 ], [ %.14371, %70 ], [ %.042.ph, %69 ], [ 0, %77 ], [ 1, %67 ]
-  %.2 = phi i64 [ %51, %50 ], [ %.14172, %70 ], [ %.040.ph, %69 ], [ %.040.ph, %77 ], [ %.048.ph, %67 ]
-  %.1 = phi i64 [ %52, %50 ], [ %.039.ph, %70 ], [ %.039.ph, %69 ], [ %79, %77 ], [ %.039.ph, %67 ]
-  %80 = load volatile i32, ptr @InterruptPending, align 4
-  %.not63 = icmp eq i32 %80, 0
-  br i1 %.not63, label %.outer.backedge, label %81
+78:                                               ; preds = %76, %74, %73
+  %79 = load i64, ptr %2, align 8
+  %80 = load i64, ptr %4, align 8
+  br label %.thread
 
-.outer.backedge:                                  ; preds = %.thread73, %81
+.thread:                                          ; preds = %67, %50, %69, %70, %78
+  %.252 = phi i64 [ 1, %50 ], [ %.15166, %70 ], [ %.151, %69 ], [ %.050.ph, %78 ], [ %65, %67 ]
+  %.149 = phi i64 [ %51, %50 ], [ %.048.ph, %70 ], [ %.048.ph, %69 ], [ %79, %78 ], [ %.048.ph, %67 ]
+  %.247 = phi i64 [ 1, %50 ], [ %.14667, %70 ], [ %.146, %69 ], [ 1, %78 ], [ %65, %67 ]
+  %.244 = phi i8 [ 1, %50 ], [ %.14368, %70 ], [ %.042.ph, %69 ], [ 0, %78 ], [ 1, %67 ]
+  %.2 = phi i64 [ %51, %50 ], [ %.14169, %70 ], [ %.040.ph, %69 ], [ %.040.ph, %78 ], [ %.048.ph, %67 ]
+  %.1 = phi i64 [ %52, %50 ], [ %.039.ph, %70 ], [ %.039.ph, %69 ], [ %80, %78 ], [ %.039.ph, %67 ]
+  %81 = load volatile i32, ptr @InterruptPending, align 4
+  %.not56 = icmp eq i32 %81, 0
+  br i1 %.not56, label %.outer.backedge, label %82
+
+.outer.backedge:                                  ; preds = %.thread, %82
   br label %.outer, !llvm.loop !14
 
-81:                                               ; preds = %.thread73
+82:                                               ; preds = %.thread
   call void @ProcessInterrupts() #10
   br label %.outer.backedge
 
-82:                                               ; preds = %42
-  %83 = and i8 %.042.ph, 1
-  %.not58 = icmp eq i8 %83, 0
-  %or.cond64 = select i1 %.not56, i1 %.not58, i1 false
-  br i1 %or.cond64, label %84, label %86
+83:                                               ; preds = %42
+  br i1 %31, label %88, label %84
 
-84:                                               ; preds = %82
-  %85 = inttoptr i64 %.048.ph to ptr
-  call void @pfree(ptr noundef %85) #10
-  br label %86
+84:                                               ; preds = %83
+  %85 = trunc i8 %.042.ph to i1
+  br i1 %85, label %88, label %86
 
-86:                                               ; preds = %84, %82
-  %.not59 = icmp eq i64 %.050.ph, 0
-  br i1 %.not59, label %.sink.split, label %88
-
-.sink.split:                                      ; preds = %86, %8, %1
-  %87 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %87, align 4
+86:                                               ; preds = %84
+  %87 = inttoptr i64 %.048.ph to ptr
+  call void @pfree(ptr noundef %87) #10
   br label %88
 
-88:                                               ; preds = %.sink.split, %86
-  %.0 = phi i64 [ %.040.ph, %86 ], [ 0, %.sink.split ]
+88:                                               ; preds = %86, %84, %83
+  %.not55 = icmp eq i64 %.050.ph, 0
+  br i1 %.not55, label %.sink.split, label %90
+
+.sink.split:                                      ; preds = %88, %8, %1
+  %89 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %89, align 4
+  br label %90
+
+90:                                               ; preds = %.sink.split, %88
+  %.0 = phi i64 [ %.040.ph, %88 ], [ 0, %.sink.split ]
   ret i64 %.0
 }
 
@@ -1728,9 +1701,8 @@ define internal fastcc i64 @hypothetical_rank_common(ptr nocapture noundef reado
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %13, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %3
   store i64 0, ptr %2, align 8
@@ -1743,8 +1715,8 @@ define internal fastcc i64 @hypothetical_rank_common(ptr nocapture noundef reado
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %2, align 8
   %18 = and i32 %7, 1
-  %.not45 = icmp eq i32 %18, 0
-  br i1 %.not45, label %22, label %19
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %22, label %19
 
 19:                                               ; preds = %13
   %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -1786,10 +1758,10 @@ define internal fastcc i64 @hypothetical_rank_common(ptr nocapture noundef reado
   store i64 %39, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %38, i64 8
   %43 = load i8, ptr %42, align 8
-  %44 = and i8 %43, 1
-  %45 = load ptr, ptr %36, align 8
-  %46 = getelementptr i8, ptr %45, i64 %indvars.iv
-  store i8 %44, ptr %46, align 1
+  %44 = load ptr, ptr %36, align 8
+  %45 = getelementptr i8, ptr %44, i64 %indvars.iv
+  %46 = and i8 %43, 1
+  store i8 %46, ptr %45, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %37, !llvm.loop !15
 
@@ -1818,20 +1790,20 @@ define internal fastcc i64 @hypothetical_rank_common(ptr nocapture noundef reado
   store i8 1, ptr %59, align 8
   %60 = load ptr, ptr %56, align 8
   %61 = tail call zeroext i1 @tuplesort_gettupleslot(ptr noundef %60, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %29, ptr noundef null) #10
-  br i1 %61, label %.lr.ph53, label %slot_getattr.exit._crit_edge
+  br i1 %61, label %.lr.ph51, label %slot_getattr.exit._crit_edge
 
-.lr.ph53:                                         ; preds = %._crit_edge
+.lr.ph51:                                         ; preds = %._crit_edge
   %62 = getelementptr inbounds i8, ptr %29, i64 6
   %63 = add nsw i32 %23, 1
   %64 = sext i32 %23 to i64
   br label %65
 
-65:                                               ; preds = %.lr.ph53, %80
-  %.04351 = phi i64 [ 1, %.lr.ph53 ], [ %77, %80 ]
+65:                                               ; preds = %.lr.ph51, %80
+  %.04349 = phi i64 [ 1, %.lr.ph51 ], [ %77, %80 ]
   %66 = load i16, ptr %62, align 2
   %67 = sext i16 %66 to i32
-  %.not49 = icmp slt i32 %23, %67
-  br i1 %.not49, label %slot_getattr.exit, label %slot_getsomeattrs.exit.i
+  %.not47 = icmp slt i32 %23, %67
+  br i1 %.not47, label %slot_getattr.exit, label %slot_getsomeattrs.exit.i
 
 slot_getsomeattrs.exit.i:                         ; preds = %65
   tail call void @slot_getsomeattrs_int(ptr noundef nonnull %29, i32 noundef %63) #10
@@ -1841,21 +1813,20 @@ slot_getattr.exit:                                ; preds = %65, %slot_getsomeat
   %68 = load ptr, ptr %52, align 8
   %69 = getelementptr i8, ptr %68, i64 %64
   %70 = load i8, ptr %69, align 1
-  %71 = and i8 %70, 1
-  %72 = load ptr, ptr %49, align 8
-  %73 = getelementptr i64, ptr %72, i64 %64
-  %74 = load i64, ptr %73, align 8
-  %.not46 = icmp ne i8 %71, 0
-  %75 = and i64 %74, 4294967295
-  %.not47 = icmp eq i64 %75, 0
-  %or.cond = select i1 %.not46, i1 true, i1 %.not47
+  %71 = load ptr, ptr %49, align 8
+  %72 = getelementptr i64, ptr %71, i64 %64
+  %73 = load i64, ptr %72, align 8
+  %74 = trunc i8 %70 to i1
+  %75 = and i64 %73, 4294967295
+  %.not45 = icmp eq i64 %75, 0
+  %or.cond = select i1 %74, i1 true, i1 %.not45
   br i1 %or.cond, label %76, label %slot_getattr.exit._crit_edge
 
 76:                                               ; preds = %slot_getattr.exit
-  %77 = add i64 %.04351, 1
+  %77 = add i64 %.04349, 1
   %78 = load volatile i32, ptr @InterruptPending, align 4
-  %.not48 = icmp eq i32 %78, 0
-  br i1 %.not48, label %80, label %79
+  %.not46 = icmp eq i32 %78, 0
+  br i1 %.not46, label %80, label %79
 
 79:                                               ; preds = %76
   tail call void @ProcessInterrupts() #10
@@ -1867,7 +1838,7 @@ slot_getattr.exit:                                ; preds = %65, %slot_getsomeat
   br i1 %82, label %65, label %slot_getattr.exit._crit_edge, !llvm.loop !16
 
 slot_getattr.exit._crit_edge:                     ; preds = %80, %slot_getattr.exit, %._crit_edge
-  %.043.lcssa = phi i64 [ 1, %._crit_edge ], [ %.04351, %slot_getattr.exit ], [ %77, %80 ]
+  %.043.lcssa = phi i64 [ 1, %._crit_edge ], [ %.04349, %slot_getattr.exit ], [ %77, %80 ]
   %83 = load ptr, ptr %30, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
@@ -1925,9 +1896,8 @@ define dso_local i64 @hypothetical_dense_rank_final(ptr nocapture noundef readon
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %12, label %180
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %180, label %12
 
 12:                                               ; preds = %1
   %13 = load i64, ptr %8, align 8
@@ -1935,8 +1905,8 @@ define dso_local i64 @hypothetical_dense_rank_final(ptr nocapture noundef readon
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  %.not88 = icmp eq ptr %17, null
-  br i1 %.not88, label %18, label %28
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %18, label %28
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds i8, ptr %15, i64 8
@@ -1956,8 +1926,8 @@ define dso_local i64 @hypothetical_dense_rank_final(ptr nocapture noundef readon
 28:                                               ; preds = %18, %12
   %.077 = phi ptr [ %17, %12 ], [ %27, %18 ]
   %29 = and i32 %7, 1
-  %.not89 = icmp eq i32 %29, 0
-  br i1 %.not89, label %33, label %30
+  %.not88 = icmp eq i32 %29, 0
+  br i1 %.not88, label %33, label %30
 
 30:                                               ; preds = %28
   %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -2033,10 +2003,10 @@ define dso_local i64 @hypothetical_dense_rank_final(ptr nocapture noundef readon
   store i64 %74, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %73, i64 8
   %78 = load i8, ptr %77, align 8
-  %79 = and i8 %78, 1
-  %80 = load ptr, ptr %71, align 8
-  %81 = getelementptr i8, ptr %80, i64 %indvars.iv
-  store i8 %79, ptr %81, align 1
+  %79 = load ptr, ptr %71, align 8
+  %80 = getelementptr i8, ptr %79, i64 %indvars.iv
+  %81 = and i8 %78, 1
+  store i8 %81, ptr %80, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %72, !llvm.loop !17
 
@@ -2068,9 +2038,9 @@ define dso_local i64 @hypothetical_dense_rank_final(ptr nocapture noundef readon
   %97 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %96, ptr noundef nonnull @TTSOpsMinimalTuple) #10
   %98 = load ptr, ptr %90, align 8
   %99 = call zeroext i1 @tuplesort_gettupleslot(ptr noundef %98, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %64, ptr noundef nonnull %3) #10
-  br i1 %99, label %.lr.ph107, label %slot_getattr.exit._crit_edge
+  br i1 %99, label %.lr.ph105, label %slot_getattr.exit._crit_edge
 
-.lr.ph107:                                        ; preds = %._crit_edge
+.lr.ph105:                                        ; preds = %._crit_edge
   %100 = add nsw i32 %34, 1
   %101 = sext i32 %34 to i64
   %102 = getelementptr inbounds i8, ptr %.077, i64 24
@@ -2078,70 +2048,69 @@ define dso_local i64 @hypothetical_dense_rank_final(ptr nocapture noundef readon
   %104 = icmp eq ptr %.078.fr, null
   %105 = getelementptr inbounds i8, ptr %.077, i64 40
   %106 = getelementptr inbounds i8, ptr %.078.fr, i64 32
-  br i1 %104, label %.lr.ph107.split.us, label %.lr.ph107.split
+  br i1 %104, label %.lr.ph105.split.us, label %.lr.ph105.split
 
-.lr.ph107.split.us:                               ; preds = %.lr.ph107, %134
-  %.079105.us = phi i64 [ %131, %134 ], [ 1, %.lr.ph107 ]
-  %.081104.us = phi ptr [ %.083102.us, %134 ], [ %97, %.lr.ph107 ]
-  %.082103.us = phi i64 [ %.1.us, %134 ], [ 0, %.lr.ph107 ]
-  %.083102.us = phi ptr [ %.081104.us, %134 ], [ %64, %.lr.ph107 ]
-  %.084101.us = phi i64 [ %130, %134 ], [ 0, %.lr.ph107 ]
-  %107 = getelementptr inbounds i8, ptr %.083102.us, i64 6
+.lr.ph105.split.us:                               ; preds = %.lr.ph105, %134
+  %.079103.us = phi i64 [ %131, %134 ], [ 1, %.lr.ph105 ]
+  %.081102.us = phi ptr [ %.083100.us, %134 ], [ %97, %.lr.ph105 ]
+  %.082101.us = phi i64 [ %.1.us, %134 ], [ 0, %.lr.ph105 ]
+  %.083100.us = phi ptr [ %.081102.us, %134 ], [ %64, %.lr.ph105 ]
+  %.08499.us = phi i64 [ %130, %134 ], [ 0, %.lr.ph105 ]
+  %107 = getelementptr inbounds i8, ptr %.083100.us, i64 6
   %108 = load i16, ptr %107, align 2
   %109 = sext i16 %108 to i32
-  %.not98.us = icmp slt i32 %34, %109
-  br i1 %.not98.us, label %slot_getattr.exit.us, label %slot_getsomeattrs.exit.i.us
+  %.not96.us = icmp slt i32 %34, %109
+  br i1 %.not96.us, label %slot_getattr.exit.us, label %slot_getsomeattrs.exit.i.us
 
-slot_getsomeattrs.exit.i.us:                      ; preds = %.lr.ph107.split.us
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %.083102.us, i32 noundef %100) #10
+slot_getsomeattrs.exit.i.us:                      ; preds = %.lr.ph105.split.us
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %.083100.us, i32 noundef %100) #10
   br label %slot_getattr.exit.us
 
-slot_getattr.exit.us:                             ; preds = %slot_getsomeattrs.exit.i.us, %.lr.ph107.split.us
-  %110 = getelementptr inbounds i8, ptr %.083102.us, i64 32
+slot_getattr.exit.us:                             ; preds = %slot_getsomeattrs.exit.i.us, %.lr.ph105.split.us
+  %110 = getelementptr inbounds i8, ptr %.083100.us, i64 32
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr i8, ptr %111, i64 %101
   %113 = load i8, ptr %112, align 1
-  %114 = and i8 %113, 1
-  %115 = getelementptr inbounds i8, ptr %.083102.us, i64 24
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr i64, ptr %116, i64 %101
-  %118 = load i64, ptr %117, align 8
-  %.not90.us = icmp ne i8 %114, 0
-  %119 = and i64 %118, 4294967295
-  %.not91.us = icmp eq i64 %119, 0
-  %or.cond97.us = select i1 %.not90.us, i1 true, i1 %.not91.us
-  br i1 %or.cond97.us, label %120, label %slot_getattr.exit._crit_edge
+  %114 = getelementptr inbounds i8, ptr %.083100.us, i64 24
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr i64, ptr %115, i64 %101
+  %117 = load i64, ptr %116, align 8
+  %118 = trunc i8 %113 to i1
+  %119 = and i64 %117, 4294967295
+  %.not89.us = icmp eq i64 %119, 0
+  %or.cond95.us = select i1 %118, i1 true, i1 %.not89.us
+  br i1 %or.cond95.us, label %120, label %slot_getattr.exit._crit_edge
 
 120:                                              ; preds = %slot_getattr.exit.us
-  store ptr %.083102.us, ptr %102, align 8
-  store ptr %.081104.us, ptr %103, align 8
-  %121 = icmp eq ptr %.081104.us, null
-  %.pre134 = load i64, ptr %3, align 8
+  store ptr %.083100.us, ptr %102, align 8
+  store ptr %.081102.us, ptr %103, align 8
+  %121 = icmp eq ptr %.081102.us, null
+  %.pre132 = load i64, ptr %3, align 8
   br i1 %121, label %129, label %122
 
 122:                                              ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %.081104.us, i64 4
+  %123 = getelementptr inbounds i8, ptr %.081102.us, i64 4
   %124 = load i16, ptr %123, align 4
   %125 = and i16 %124, 2
-  %.not92.us = icmp eq i16 %125, 0
-  %126 = icmp eq i64 %.pre134, %.084101.us
-  %or.cond.us = select i1 %.not92.us, i1 %126, i1 false
+  %.not90.us = icmp eq i16 %125, 0
+  %126 = icmp eq i64 %.pre132, %.08499.us
+  %or.cond.us = select i1 %.not90.us, i1 %126, i1 false
   br i1 %or.cond.us, label %ExecQualAndReset.exit.thread.us, label %129
 
 ExecQualAndReset.exit.thread.us:                  ; preds = %122
   %127 = load ptr, ptr %105, align 8
   call void @MemoryContextReset(ptr noundef %127) #10
-  %128 = add i64 %.082103.us, 1
-  %.pre133 = load i64, ptr %3, align 8
+  %128 = add i64 %.082101.us, 1
+  %.pre131 = load i64, ptr %3, align 8
   br label %129
 
 129:                                              ; preds = %ExecQualAndReset.exit.thread.us, %122, %120
-  %130 = phi i64 [ %.pre134, %120 ], [ %.pre134, %122 ], [ %.pre133, %ExecQualAndReset.exit.thread.us ]
-  %.1.us = phi i64 [ %.082103.us, %120 ], [ %.082103.us, %122 ], [ %128, %ExecQualAndReset.exit.thread.us ]
-  %131 = add i64 %.079105.us, 1
+  %130 = phi i64 [ %.pre132, %120 ], [ %.pre132, %122 ], [ %.pre131, %ExecQualAndReset.exit.thread.us ]
+  %.1.us = phi i64 [ %.082101.us, %120 ], [ %.082101.us, %122 ], [ %128, %ExecQualAndReset.exit.thread.us ]
+  %131 = add i64 %.079103.us, 1
   %132 = load volatile i32, ptr @InterruptPending, align 4
-  %.not93.us = icmp eq i32 %132, 0
-  br i1 %.not93.us, label %134, label %133
+  %.not91.us = icmp eq i32 %132, 0
+  br i1 %.not91.us, label %134, label %133
 
 133:                                              ; preds = %129
   call void @ProcessInterrupts() #10
@@ -2149,55 +2118,54 @@ ExecQualAndReset.exit.thread.us:                  ; preds = %122
 
 134:                                              ; preds = %133, %129
   %135 = load ptr, ptr %90, align 8
-  %136 = call zeroext i1 @tuplesort_gettupleslot(ptr noundef %135, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %.081104.us, ptr noundef nonnull %3) #10
-  br i1 %136, label %.lr.ph107.split.us, label %slot_getattr.exit._crit_edge, !llvm.loop !18
+  %136 = call zeroext i1 @tuplesort_gettupleslot(ptr noundef %135, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %.081102.us, ptr noundef nonnull %3) #10
+  br i1 %136, label %.lr.ph105.split.us, label %slot_getattr.exit._crit_edge, !llvm.loop !18
 
-.lr.ph107.split:                                  ; preds = %.lr.ph107, %168
-  %.079105 = phi i64 [ %165, %168 ], [ 1, %.lr.ph107 ]
-  %.081104 = phi ptr [ %.083102, %168 ], [ %97, %.lr.ph107 ]
-  %.082103 = phi i64 [ %.1, %168 ], [ 0, %.lr.ph107 ]
-  %.083102 = phi ptr [ %.081104, %168 ], [ %64, %.lr.ph107 ]
-  %.084101 = phi i64 [ %164, %168 ], [ 0, %.lr.ph107 ]
-  %137 = getelementptr inbounds i8, ptr %.083102, i64 6
+.lr.ph105.split:                                  ; preds = %.lr.ph105, %168
+  %.079103 = phi i64 [ %165, %168 ], [ 1, %.lr.ph105 ]
+  %.081102 = phi ptr [ %.083100, %168 ], [ %97, %.lr.ph105 ]
+  %.082101 = phi i64 [ %.1, %168 ], [ 0, %.lr.ph105 ]
+  %.083100 = phi ptr [ %.081102, %168 ], [ %64, %.lr.ph105 ]
+  %.08499 = phi i64 [ %164, %168 ], [ 0, %.lr.ph105 ]
+  %137 = getelementptr inbounds i8, ptr %.083100, i64 6
   %138 = load i16, ptr %137, align 2
   %139 = sext i16 %138 to i32
-  %.not98 = icmp slt i32 %34, %139
-  br i1 %.not98, label %slot_getattr.exit, label %slot_getsomeattrs.exit.i
+  %.not96 = icmp slt i32 %34, %139
+  br i1 %.not96, label %slot_getattr.exit, label %slot_getsomeattrs.exit.i
 
-slot_getsomeattrs.exit.i:                         ; preds = %.lr.ph107.split
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %.083102, i32 noundef %100) #10
+slot_getsomeattrs.exit.i:                         ; preds = %.lr.ph105.split
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %.083100, i32 noundef %100) #10
   br label %slot_getattr.exit
 
-slot_getattr.exit:                                ; preds = %.lr.ph107.split, %slot_getsomeattrs.exit.i
-  %140 = getelementptr inbounds i8, ptr %.083102, i64 32
+slot_getattr.exit:                                ; preds = %.lr.ph105.split, %slot_getsomeattrs.exit.i
+  %140 = getelementptr inbounds i8, ptr %.083100, i64 32
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr i8, ptr %141, i64 %101
   %143 = load i8, ptr %142, align 1
-  %144 = and i8 %143, 1
-  %145 = getelementptr inbounds i8, ptr %.083102, i64 24
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr i64, ptr %146, i64 %101
-  %148 = load i64, ptr %147, align 8
-  %.not90 = icmp ne i8 %144, 0
-  %149 = and i64 %148, 4294967295
-  %.not91 = icmp eq i64 %149, 0
-  %or.cond97 = select i1 %.not90, i1 true, i1 %.not91
-  br i1 %or.cond97, label %150, label %slot_getattr.exit._crit_edge
+  %144 = getelementptr inbounds i8, ptr %.083100, i64 24
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr i64, ptr %145, i64 %101
+  %147 = load i64, ptr %146, align 8
+  %148 = trunc i8 %143 to i1
+  %149 = and i64 %147, 4294967295
+  %.not89 = icmp eq i64 %149, 0
+  %or.cond95 = select i1 %148, i1 true, i1 %.not89
+  br i1 %or.cond95, label %150, label %slot_getattr.exit._crit_edge
 
 150:                                              ; preds = %slot_getattr.exit
-  store ptr %.083102, ptr %102, align 8
-  store ptr %.081104, ptr %103, align 8
-  %151 = icmp eq ptr %.081104, null
-  %.pre132 = load i64, ptr %3, align 8
+  store ptr %.083100, ptr %102, align 8
+  store ptr %.081102, ptr %103, align 8
+  %151 = icmp eq ptr %.081102, null
+  %.pre130 = load i64, ptr %3, align 8
   br i1 %151, label %163, label %152
 
 152:                                              ; preds = %150
-  %153 = getelementptr inbounds i8, ptr %.081104, i64 4
+  %153 = getelementptr inbounds i8, ptr %.081102, i64 4
   %154 = load i16, ptr %153, align 4
   %155 = and i16 %154, 2
-  %.not92 = icmp eq i16 %155, 0
-  %156 = icmp eq i64 %.pre132, %.084101
-  %or.cond = select i1 %.not92, i1 %156, i1 false
+  %.not90 = icmp eq i16 %155, 0
+  %156 = icmp eq i64 %.pre130, %.08499
+  %or.cond = select i1 %.not90, i1 %156, i1 false
   br i1 %or.cond, label %ExecQualAndReset.exit, label %163
 
 ExecQualAndReset.exit:                            ; preds = %152
@@ -2209,22 +2177,22 @@ ExecQualAndReset.exit:                            ; preds = %152
   %160 = call i64 %159(ptr noundef nonnull %.078.fr, ptr noundef nonnull %.077, ptr noundef nonnull %2) #10
   store ptr %158, ptr @CurrentMemoryContext, align 8
   %.fr = freeze i64 %160
-  %.not99 = icmp ne i64 %.fr, 0
+  %.not97 = icmp ne i64 %.fr, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   %161 = load ptr, ptr %105, align 8
   call void @MemoryContextReset(ptr noundef %161) #10
-  %162 = zext i1 %.not99 to i64
-  %spec.select = add i64 %.082103, %162
-  %.pre131 = load i64, ptr %3, align 8
+  %162 = zext i1 %.not97 to i64
+  %spec.select = add i64 %.082101, %162
+  %.pre129 = load i64, ptr %3, align 8
   br label %163
 
 163:                                              ; preds = %ExecQualAndReset.exit, %152, %150
-  %164 = phi i64 [ %.pre132, %150 ], [ %.pre132, %152 ], [ %.pre131, %ExecQualAndReset.exit ]
-  %.1 = phi i64 [ %.082103, %150 ], [ %.082103, %152 ], [ %spec.select, %ExecQualAndReset.exit ]
-  %165 = add i64 %.079105, 1
+  %164 = phi i64 [ %.pre130, %150 ], [ %.pre130, %152 ], [ %.pre129, %ExecQualAndReset.exit ]
+  %.1 = phi i64 [ %.082101, %150 ], [ %.082101, %152 ], [ %spec.select, %ExecQualAndReset.exit ]
+  %165 = add i64 %.079103, 1
   %166 = load volatile i32, ptr @InterruptPending, align 4
-  %.not93 = icmp eq i32 %166, 0
-  br i1 %.not93, label %168, label %167
+  %.not91 = icmp eq i32 %166, 0
+  br i1 %.not91, label %168, label %167
 
 167:                                              ; preds = %163
   call void @ProcessInterrupts() #10
@@ -2232,14 +2200,14 @@ ExecQualAndReset.exit:                            ; preds = %152
 
 168:                                              ; preds = %163, %167
   %169 = load ptr, ptr %90, align 8
-  %170 = call zeroext i1 @tuplesort_gettupleslot(ptr noundef %169, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %.081104, ptr noundef nonnull %3) #10
-  br i1 %170, label %.lr.ph107.split, label %slot_getattr.exit._crit_edge, !llvm.loop !18
+  %170 = call zeroext i1 @tuplesort_gettupleslot(ptr noundef %169, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %.081102, ptr noundef nonnull %3) #10
+  br i1 %170, label %.lr.ph105.split, label %slot_getattr.exit._crit_edge, !llvm.loop !18
 
 slot_getattr.exit._crit_edge:                     ; preds = %168, %slot_getattr.exit, %134, %slot_getattr.exit.us, %._crit_edge
-  %.083.lcssa = phi ptr [ %64, %._crit_edge ], [ %.083102.us, %slot_getattr.exit.us ], [ %.081104.us, %134 ], [ %.083102, %slot_getattr.exit ], [ %.081104, %168 ]
-  %.082.lcssa = phi i64 [ 0, %._crit_edge ], [ %.082103.us, %slot_getattr.exit.us ], [ %.1.us, %134 ], [ %.082103, %slot_getattr.exit ], [ %.1, %168 ]
-  %.081.lcssa = phi ptr [ %97, %._crit_edge ], [ %.081104.us, %slot_getattr.exit.us ], [ %.083102.us, %134 ], [ %.081104, %slot_getattr.exit ], [ %.083102, %168 ]
-  %.079.lcssa = phi i64 [ 1, %._crit_edge ], [ %.079105.us, %slot_getattr.exit.us ], [ %131, %134 ], [ %.079105, %slot_getattr.exit ], [ %165, %168 ]
+  %.083.lcssa = phi ptr [ %64, %._crit_edge ], [ %.083100.us, %slot_getattr.exit.us ], [ %.081102.us, %134 ], [ %.083100, %slot_getattr.exit ], [ %.081102, %168 ]
+  %.082.lcssa = phi i64 [ 0, %._crit_edge ], [ %.082101.us, %slot_getattr.exit.us ], [ %.1.us, %134 ], [ %.082101, %slot_getattr.exit ], [ %.1, %168 ]
+  %.081.lcssa = phi ptr [ %97, %._crit_edge ], [ %.081102.us, %slot_getattr.exit.us ], [ %.083100.us, %134 ], [ %.081102, %slot_getattr.exit ], [ %.083100, %168 ]
+  %.079.lcssa = phi i64 [ 1, %._crit_edge ], [ %.079103.us, %slot_getattr.exit.us ], [ %131, %134 ], [ %.079103, %slot_getattr.exit ], [ %165, %168 ]
   %171 = getelementptr inbounds i8, ptr %.083.lcssa, i64 8
   %172 = load ptr, ptr %171, align 8
   %173 = getelementptr inbounds i8, ptr %172, i64 24

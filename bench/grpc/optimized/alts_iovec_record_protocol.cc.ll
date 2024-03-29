@@ -88,9 +88,8 @@ if.then.i:                                        ; preds = %if.then
 if.end:                                           ; preds = %entry
   %is_integrity_only = getelementptr inbounds i8, ptr %rp, i64 24
   %0 = load i8, ptr %is_integrity_only, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then1, label %if.end2
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end2, label %if.then1
 
 if.then1:                                         ; preds = %if.end
   %cmp.i24.not = icmp eq ptr %error_details, null
@@ -104,10 +103,9 @@ if.then.i25:                                      ; preds = %if.then1
 
 if.end2:                                          ; preds = %if.end
   %is_protect = getelementptr inbounds i8, ptr %rp, i64 25
-  %2 = load i8, ptr %is_protect, align 1
-  %3 = and i8 %2, 1
-  %tobool3.not = icmp eq i8 %3, 0
-  br i1 %tobool3.not, label %if.then4, label %if.end5
+  %1 = load i8, ptr %is_protect, align 1
+  %tobool3 = trunc i8 %1 to i1
+  br i1 %tobool3, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end2
   %cmp.i32.not = icmp eq ptr %error_details, null
@@ -166,8 +164,8 @@ if.then.i14.i:                                    ; preds = %if.then9.i
 
 if.end10.i:                                       ; preds = %if.end6.i
   %tag_length.i = getelementptr inbounds i8, ptr %rp, i64 16
-  %4 = load i64, ptr %tag_length.i, align 8
-  %cmp12.not.i = icmp eq i64 %4, %agg.tmp6.sroa.2.0.copyload
+  %2 = load i64, ptr %tag_length.i, align 8
+  %cmp12.not.i = icmp eq i64 %2, %agg.tmp6.sroa.2.0.copyload
   br i1 %cmp12.not.i, label %if.end9, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end10.i
@@ -188,8 +186,8 @@ for.body.i:                                       ; preds = %if.end9, %for.body.
   %i.06.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end9 ]
   %total_length.05.i = phi i64 [ %add.i41, %for.body.i ], [ 0, %if.end9 ]
   %iov_len.i = getelementptr inbounds %struct.iovec, ptr %unprotected_vec, i64 %i.06.i, i32 1
-  %5 = load i64, ptr %iov_len.i, align 8
-  %add.i41 = add i64 %5, %total_length.05.i
+  %3 = load i64, ptr %iov_len.i, align 8
+  %add.i41 = add i64 %3, %total_length.05.i
   %inc.i = add nuw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %unprotected_vec_length
   br i1 %exitcond.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %for.body.i, !llvm.loop !4
@@ -200,8 +198,8 @@ _ZL16get_total_lengthPK5iovecm.exit:              ; preds = %for.body.i
 
 if.end14:                                         ; preds = %if.end9, %_ZL16get_total_lengthPK5iovecm.exit
   %add55 = phi i64 [ %add, %_ZL16get_total_lengthPK5iovecm.exit ], [ %agg.tmp6.sroa.2.0.copyload, %if.end9 ]
-  %6 = trunc i64 %add55 to i32
-  %conv.i = add i32 %6, 4
+  %4 = trunc i64 %add55 to i32
+  %conv.i = add i32 %4, 4
   %shr.i.i = lshr i32 %conv.i, 24
   %conv2.i.i = trunc i32 %shr.i.i to i8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %header.coerce0, i64 3
@@ -220,19 +218,19 @@ if.end14:                                         ; preds = %if.end9, %_ZL16get_
   store <4 x i8> <i8 6, i8 0, i8 0, i8 0>, ptr %add.ptr.i, align 1
   store i64 0, ptr %bytes_written, align 8
   %crypter = getelementptr inbounds i8, ptr %rp, i64 8
-  %7 = load ptr, ptr %crypter, align 8
-  %8 = load ptr, ptr %rp, align 8
-  %call15 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %8)
-  %9 = load ptr, ptr %rp, align 8
-  %call17 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %9)
-  %call19 = call noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %7, ptr noundef %call15, i64 noundef %call17, ptr noundef %unprotected_vec, i64 noundef %unprotected_vec_length, ptr noundef null, i64 noundef 0, ptr noundef nonnull byval(%struct.iovec) align 8 %tag, ptr noundef nonnull %bytes_written, ptr noundef %error_details)
+  %5 = load ptr, ptr %crypter, align 8
+  %6 = load ptr, ptr %rp, align 8
+  %call15 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %6)
+  %7 = load ptr, ptr %rp, align 8
+  %call17 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %7)
+  %call19 = call noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %5, ptr noundef %call15, i64 noundef %call17, ptr noundef %unprotected_vec, i64 noundef %unprotected_vec_length, ptr noundef null, i64 noundef 0, ptr noundef nonnull byval(%struct.iovec) align 8 %tag, ptr noundef nonnull %bytes_written, ptr noundef %error_details)
   %cmp20.not = icmp eq i32 %call19, 0
   br i1 %cmp20.not, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.end14
-  %10 = load i64, ptr %bytes_written, align 8
-  %11 = load i64, ptr %tag_length.i, align 8
-  %cmp24.not = icmp eq i64 %10, %11
+  %8 = load i64, ptr %bytes_written, align 8
+  %9 = load i64, ptr %tag_length.i, align 8
+  %cmp24.not = icmp eq i64 %8, %9
   br i1 %cmp24.not, label %if.end26, label %if.then25
 
 if.then25:                                        ; preds = %if.end22
@@ -240,8 +238,8 @@ if.then25:                                        ; preds = %if.end22
   br label %return
 
 if.end26:                                         ; preds = %if.end22
-  %12 = load ptr, ptr %rp, align 8
-  %call28 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %12, ptr noundef %error_details)
+  %10 = load ptr, ptr %rp, align 8
+  %call28 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %10, ptr noundef %error_details)
   br label %return
 
 return:                                           ; preds = %if.then.i22.i, %if.then13.i, %if.then.i14.i, %if.then9.i, %if.then.i6.i, %if.then5.i, %if.then.i.i, %if.then2.i, %if.then.i33, %if.then4, %if.then.i25, %if.then1, %if.then.i, %if.then, %if.end14, %if.end26, %if.then25
@@ -295,9 +293,8 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %0 = load i8, ptr %is_overflow, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.then4
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.end3
   %cmp.i.not = icmp eq ptr %error_details, null
@@ -335,9 +332,8 @@ if.then.i:                                        ; preds = %if.then
 if.end:                                           ; preds = %entry
   %is_integrity_only = getelementptr inbounds i8, ptr %rp, i64 24
   %0 = load i8, ptr %is_integrity_only, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then1, label %if.end2
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end2, label %if.then1
 
 if.then1:                                         ; preds = %if.end
   %cmp.i22.not = icmp eq ptr %error_details, null
@@ -351,10 +347,9 @@ if.then.i23:                                      ; preds = %if.then1
 
 if.end2:                                          ; preds = %if.end
   %is_protect = getelementptr inbounds i8, ptr %rp, i64 25
-  %2 = load i8, ptr %is_protect, align 1
-  %3 = and i8 %2, 1
-  %tobool3.not = icmp eq i8 %3, 0
-  br i1 %tobool3.not, label %if.end5, label %if.then4
+  %1 = load i8, ptr %is_protect, align 1
+  %tobool3 = trunc i8 %1 to i1
+  br i1 %tobool3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end2
   %cmp.i30.not = icmp eq ptr %error_details, null
@@ -413,8 +408,8 @@ if.then.i14.i:                                    ; preds = %if.then9.i
 
 if.end10.i:                                       ; preds = %if.end6.i
   %tag_length.i = getelementptr inbounds i8, ptr %rp, i64 16
-  %4 = load i64, ptr %tag_length.i, align 8
-  %cmp12.not.i = icmp eq i64 %4, %agg.tmp6.sroa.2.0.copyload
+  %2 = load i64, ptr %tag_length.i, align 8
+  %cmp12.not.i = icmp eq i64 %2, %agg.tmp6.sroa.2.0.copyload
   br i1 %cmp12.not.i, label %if.end9, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end10.i
@@ -435,8 +430,8 @@ for.body.i:                                       ; preds = %if.end9, %for.body.
   %i.06.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end9 ]
   %total_length.05.i = phi i64 [ %add.i39, %for.body.i ], [ 0, %if.end9 ]
   %iov_len.i = getelementptr inbounds %struct.iovec, ptr %protected_vec, i64 %i.06.i, i32 1
-  %5 = load i64, ptr %iov_len.i, align 8
-  %add.i39 = add i64 %5, %total_length.05.i
+  %3 = load i64, ptr %iov_len.i, align 8
+  %add.i39 = add i64 %3, %total_length.05.i
   %inc.i = add nuw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %protected_vec_length
   br i1 %exitcond.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %for.body.i, !llvm.loop !4
@@ -447,8 +442,8 @@ _ZL16get_total_lengthPK5iovecm.exit:              ; preds = %for.body.i
 
 if.end.i:                                         ; preds = %if.end9, %_ZL16get_total_lengthPK5iovecm.exit
   %add60 = phi i64 [ %add, %_ZL16get_total_lengthPK5iovecm.exit ], [ %agg.tmp6.sroa.2.0.copyload, %if.end9 ]
-  %6 = load i32, ptr %header.coerce0, align 1
-  %conv.i = zext i32 %6 to i64
+  %4 = load i32, ptr %header.coerce0, align 1
+  %conv.i = zext i32 %4 to i64
   %add.i41 = add i64 %add60, 4
   %cmp1.not.i = icmp eq i64 %add.i41, %conv.i
   br i1 %cmp1.not.i, label %if.end3.i47, label %if.then2.i42
@@ -465,8 +460,8 @@ if.then.i6.i44:                                   ; preds = %if.then2.i42
 
 if.end3.i47:                                      ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %header.coerce0, i64 4
-  %7 = load i32, ptr %add.ptr.i, align 1
-  %cmp6.not.i = icmp eq i32 %7, 6
+  %5 = load i32, ptr %add.ptr.i, align 1
+  %cmp6.not.i = icmp eq i32 %5, 6
   br i1 %cmp6.not.i, label %if.end14, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end3.i47
@@ -483,15 +478,15 @@ if.end14:                                         ; preds = %if.end3.i47
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp18, i8 0, i64 16, i1 false)
   store i64 0, ptr %bytes_written, align 8
   %crypter = getelementptr inbounds i8, ptr %rp, i64 8
-  %8 = load ptr, ptr %crypter, align 8
-  %9 = load ptr, ptr %rp, align 8
-  %call15 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %9)
-  %10 = load ptr, ptr %rp, align 8
-  %call17 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %10)
-  %call19 = call noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %8, ptr noundef %call15, i64 noundef %call17, ptr noundef %protected_vec, i64 noundef %protected_vec_length, ptr noundef nonnull %tag, i64 noundef 1, ptr noundef nonnull byval(%struct.iovec) align 8 %agg.tmp18, ptr noundef nonnull %bytes_written, ptr noundef %error_details)
+  %6 = load ptr, ptr %crypter, align 8
+  %7 = load ptr, ptr %rp, align 8
+  %call15 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %7)
+  %8 = load ptr, ptr %rp, align 8
+  %call17 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %8)
+  %call19 = call noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %6, ptr noundef %call15, i64 noundef %call17, ptr noundef %protected_vec, i64 noundef %protected_vec_length, ptr noundef nonnull %tag, i64 noundef 1, ptr noundef nonnull byval(%struct.iovec) align 8 %agg.tmp18, ptr noundef nonnull %bytes_written, ptr noundef %error_details)
   %cmp20 = icmp ne i32 %call19, 0
-  %11 = load i64, ptr %bytes_written, align 8
-  %cmp21 = icmp ne i64 %11, 0
+  %9 = load i64, ptr %bytes_written, align 8
+  %cmp21 = icmp ne i64 %9, 0
   %or.cond = select i1 %cmp20, i1 true, i1 %cmp21
   br i1 %or.cond, label %if.then22, label %if.end23
 
@@ -500,8 +495,8 @@ if.then22:                                        ; preds = %if.end14
   br label %return
 
 if.end23:                                         ; preds = %if.end14
-  %12 = load ptr, ptr %rp, align 8
-  %call25 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %12, ptr noundef %error_details)
+  %10 = load ptr, ptr %rp, align 8
+  %call25 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %10, ptr noundef %error_details)
   br label %return
 
 return:                                           ; preds = %if.then.i14.i49, %if.then7.i, %if.then.i6.i44, %if.then2.i42, %if.then.i22.i, %if.then13.i, %if.then.i14.i, %if.then9.i, %if.then.i6.i, %if.then5.i, %if.then.i.i, %if.then2.i, %if.then.i31, %if.then4, %if.then.i23, %if.then1, %if.then.i, %if.then, %if.end23, %if.then22
@@ -617,9 +612,8 @@ if.then.i:                                        ; preds = %if.then
 if.end:                                           ; preds = %entry
   %is_integrity_only = getelementptr inbounds i8, ptr %rp, i64 24
   %0 = load i8, ptr %is_integrity_only, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end2, label %if.then1
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
   %cmp.i29.not = icmp eq ptr %error_details, null
@@ -633,10 +627,9 @@ if.then.i30:                                      ; preds = %if.then1
 
 if.end2:                                          ; preds = %if.end
   %is_protect = getelementptr inbounds i8, ptr %rp, i64 25
-  %2 = load i8, ptr %is_protect, align 1
-  %3 = and i8 %2, 1
-  %tobool3.not = icmp eq i8 %3, 0
-  br i1 %tobool3.not, label %if.then4, label %if.end5
+  %1 = load i8, ptr %is_protect, align 1
+  %tobool3 = trunc i8 %1 to i1
+  br i1 %tobool3, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end2
   %cmp.i37.not = icmp eq ptr %error_details, null
@@ -656,8 +649,8 @@ for.body.i:                                       ; preds = %if.end5, %for.body.
   %i.06.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end5 ]
   %total_length.05.i = phi i64 [ %add.i45, %for.body.i ], [ 0, %if.end5 ]
   %iov_len.i = getelementptr inbounds %struct.iovec, ptr %unprotected_vec, i64 %i.06.i, i32 1
-  %4 = load i64, ptr %iov_len.i, align 8
-  %add.i45 = add i64 %4, %total_length.05.i
+  %2 = load i64, ptr %iov_len.i, align 8
+  %add.i45 = add i64 %2, %total_length.05.i
   %inc.i = add nuw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %unprotected_vec_length
   br i1 %exitcond.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %for.body.i, !llvm.loop !4
@@ -680,8 +673,8 @@ if.then.i47:                                      ; preds = %if.then7
 if.end8:                                          ; preds = %_ZL16get_total_lengthPK5iovecm.exit
   %add = add i64 %total_length.0.lcssa.i, 8
   %tag_length = getelementptr inbounds i8, ptr %rp, i64 16
-  %5 = load i64, ptr %tag_length, align 8
-  %add10 = add i64 %add, %5
+  %3 = load i64, ptr %tag_length, align 8
+  %add10 = add i64 %add, %3
   %cmp11.not = icmp eq i64 %add10, %protected_frame.coerce1
   br i1 %cmp11.not, label %if.end20, label %if.then12
 
@@ -696,9 +689,9 @@ if.then.i55:                                      ; preds = %if.then12
   br label %return
 
 if.end20:                                         ; preds = %if.end8
-  %add15 = add i64 %5, %total_length.0.lcssa.i
-  %6 = trunc i64 %add15 to i32
-  %conv.i = add i32 %6, 4
+  %add15 = add i64 %3, %total_length.0.lcssa.i
+  %4 = trunc i64 %add15 to i32
+  %conv.i = add i32 %4, 4
   %shr.i.i = lshr i32 %conv.i, 24
   %conv2.i.i = trunc i32 %shr.i.i to i8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %protected_frame.coerce0, i64 3
@@ -716,27 +709,27 @@ if.end20:                                         ; preds = %if.end8
   %add.ptr.i = getelementptr inbounds i8, ptr %protected_frame.coerce0, i64 4
   store <4 x i8> <i8 6, i8 0, i8 0, i8 0>, ptr %add.ptr.i, align 1
   %add.ptr = getelementptr inbounds i8, ptr %protected_frame.coerce0, i64 8
-  %7 = load i64, ptr %tag_length, align 8
-  %add26 = add i64 %7, %total_length.0.lcssa.i
+  %5 = load i64, ptr %tag_length, align 8
+  %add26 = add i64 %5, %total_length.0.lcssa.i
   store i64 0, ptr %bytes_written, align 8
   %crypter = getelementptr inbounds i8, ptr %rp, i64 8
-  %8 = load ptr, ptr %crypter, align 8
-  %9 = load ptr, ptr %rp, align 8
-  %call27 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %9)
-  %10 = load ptr, ptr %rp, align 8
-  %call29 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %10)
+  %6 = load ptr, ptr %crypter, align 8
+  %7 = load ptr, ptr %rp, align 8
+  %call27 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %7)
+  %8 = load ptr, ptr %rp, align 8
+  %call29 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %8)
   store ptr %add.ptr, ptr %agg.tmp, align 8
   %ciphertext.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 %add26, ptr %ciphertext.sroa.2.0.agg.tmp.sroa_idx, align 8
-  %call30 = call noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %8, ptr noundef %call27, i64 noundef %call29, ptr noundef null, i64 noundef 0, ptr noundef %unprotected_vec, i64 noundef %unprotected_vec_length, ptr noundef nonnull byval(%struct.iovec) align 8 %agg.tmp, ptr noundef nonnull %bytes_written, ptr noundef %error_details)
+  %call30 = call noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %6, ptr noundef %call27, i64 noundef %call29, ptr noundef null, i64 noundef 0, ptr noundef %unprotected_vec, i64 noundef %unprotected_vec_length, ptr noundef nonnull byval(%struct.iovec) align 8 %agg.tmp, ptr noundef nonnull %bytes_written, ptr noundef %error_details)
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end33, label %return
 
 if.end33:                                         ; preds = %if.end20
-  %11 = load i64, ptr %bytes_written, align 8
-  %12 = load i64, ptr %tag_length, align 8
-  %add35 = add i64 %12, %total_length.0.lcssa.i
-  %cmp36.not = icmp eq i64 %11, %add35
+  %9 = load i64, ptr %bytes_written, align 8
+  %10 = load i64, ptr %tag_length, align 8
+  %add35 = add i64 %10, %total_length.0.lcssa.i
+  %cmp36.not = icmp eq i64 %9, %add35
   br i1 %cmp36.not, label %if.end38, label %if.then37
 
 if.then37:                                        ; preds = %if.end33
@@ -744,8 +737,8 @@ if.then37:                                        ; preds = %if.end33
   br label %return
 
 if.end38:                                         ; preds = %if.end33
-  %13 = load ptr, ptr %rp, align 8
-  %call40 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %13, ptr noundef %error_details)
+  %11 = load ptr, ptr %rp, align 8
+  %call40 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %11, ptr noundef %error_details)
   br label %return
 
 return:                                           ; preds = %if.then.i55, %if.then12, %if.then.i47, %if.then7, %if.then.i38, %if.then4, %if.then.i30, %if.then1, %if.then.i, %if.then, %if.end20, %if.end38, %if.then37
@@ -773,9 +766,8 @@ if.then.i:                                        ; preds = %if.then
 if.end:                                           ; preds = %entry
   %is_integrity_only = getelementptr inbounds i8, ptr %rp, i64 24
   %0 = load i8, ptr %is_integrity_only, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end2, label %if.then1
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
   %cmp.i29.not = icmp eq ptr %error_details, null
@@ -789,10 +781,9 @@ if.then.i30:                                      ; preds = %if.then1
 
 if.end2:                                          ; preds = %if.end
   %is_protect = getelementptr inbounds i8, ptr %rp, i64 25
-  %2 = load i8, ptr %is_protect, align 1
-  %3 = and i8 %2, 1
-  %tobool3.not = icmp eq i8 %3, 0
-  br i1 %tobool3.not, label %if.end5, label %if.then4
+  %1 = load i8, ptr %is_protect, align 1
+  %tobool3 = trunc i8 %1 to i1
+  br i1 %tobool3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end2
   %cmp.i37.not = icmp eq ptr %error_details, null
@@ -812,8 +803,8 @@ for.body.i:                                       ; preds = %if.end5, %for.body.
   %i.06.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end5 ]
   %total_length.05.i = phi i64 [ %add.i45, %for.body.i ], [ 0, %if.end5 ]
   %iov_len.i = getelementptr inbounds %struct.iovec, ptr %protected_vec, i64 %i.06.i, i32 1
-  %4 = load i64, ptr %iov_len.i, align 8
-  %add.i45 = add i64 %4, %total_length.05.i
+  %2 = load i64, ptr %iov_len.i, align 8
+  %add.i45 = add i64 %2, %total_length.05.i
   %inc.i = add nuw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %protected_vec_length
   br i1 %exitcond.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %for.body.i, !llvm.loop !4
@@ -821,8 +812,8 @@ for.body.i:                                       ; preds = %if.end5, %for.body.
 _ZL16get_total_lengthPK5iovecm.exit:              ; preds = %for.body.i, %if.end5
   %total_length.0.lcssa.i = phi i64 [ 0, %if.end5 ], [ %add.i45, %for.body.i ]
   %tag_length = getelementptr inbounds i8, ptr %rp, i64 16
-  %5 = load i64, ptr %tag_length, align 8
-  %cmp6 = icmp ult i64 %total_length.0.lcssa.i, %5
+  %3 = load i64, ptr %tag_length, align 8
+  %cmp6 = icmp ult i64 %total_length.0.lcssa.i, %3
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %_ZL16get_total_lengthPK5iovecm.exit
@@ -865,9 +856,9 @@ if.then.i63:                                      ; preds = %if.then14
 
 if.end15:                                         ; preds = %if.end11
   %iov_len16 = getelementptr inbounds i8, ptr %unprotected_data, i64 8
-  %6 = load i64, ptr %iov_len16, align 8
-  %sub = sub i64 %total_length.0.lcssa.i, %5
-  %cmp18.not = icmp eq i64 %6, %sub
+  %4 = load i64, ptr %iov_len16, align 8
+  %sub = sub i64 %total_length.0.lcssa.i, %3
+  %cmp18.not = icmp eq i64 %4, %sub
   br i1 %cmp18.not, label %if.end20, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
@@ -882,12 +873,12 @@ if.end20:                                         ; preds = %if.end15
 if.end25:                                         ; preds = %if.end20
   store i64 0, ptr %bytes_written, align 8
   %crypter = getelementptr inbounds i8, ptr %rp, i64 8
-  %7 = load ptr, ptr %crypter, align 8
-  %8 = load ptr, ptr %rp, align 8
-  %call26 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %8)
-  %9 = load ptr, ptr %rp, align 8
-  %call28 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %9)
-  %call29 = call noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %7, ptr noundef %call26, i64 noundef %call28, ptr noundef null, i64 noundef 0, ptr noundef %protected_vec, i64 noundef %protected_vec_length, ptr noundef nonnull byval(%struct.iovec) align 8 %unprotected_data, ptr noundef nonnull %bytes_written, ptr noundef %error_details)
+  %5 = load ptr, ptr %crypter, align 8
+  %6 = load ptr, ptr %rp, align 8
+  %call26 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %6)
+  %7 = load ptr, ptr %rp, align 8
+  %call28 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %7)
+  %call29 = call noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %5, ptr noundef %call26, i64 noundef %call28, ptr noundef null, i64 noundef 0, ptr noundef %protected_vec, i64 noundef %protected_vec_length, ptr noundef nonnull byval(%struct.iovec) align 8 %unprotected_data, ptr noundef nonnull %bytes_written, ptr noundef %error_details)
   %cmp30.not = icmp eq i32 %call29, 0
   br i1 %cmp30.not, label %if.end32, label %if.then31
 
@@ -896,10 +887,10 @@ if.then31:                                        ; preds = %if.end25
   br label %return
 
 if.end32:                                         ; preds = %if.end25
-  %10 = load i64, ptr %bytes_written, align 8
-  %11 = load i64, ptr %tag_length, align 8
-  %sub34 = sub i64 %total_length.0.lcssa.i, %11
-  %cmp35.not = icmp eq i64 %10, %sub34
+  %8 = load i64, ptr %bytes_written, align 8
+  %9 = load i64, ptr %tag_length, align 8
+  %sub34 = sub i64 %total_length.0.lcssa.i, %9
+  %cmp35.not = icmp eq i64 %8, %sub34
   br i1 %cmp35.not, label %if.end37, label %if.then36
 
 if.then36:                                        ; preds = %if.end32
@@ -907,8 +898,8 @@ if.then36:                                        ; preds = %if.end32
   br label %return
 
 if.end37:                                         ; preds = %if.end32
-  %12 = load ptr, ptr %rp, align 8
-  %call39 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %12, ptr noundef %error_details)
+  %10 = load ptr, ptr %rp, align 8
+  %call39 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %10, ptr noundef %error_details)
   br label %return
 
 return:                                           ; preds = %if.then.i63, %if.then14, %if.then.i55, %if.then10, %if.then.i47, %if.then7, %if.then.i38, %if.then4, %if.then.i30, %if.then1, %if.then.i, %if.then, %if.end20, %if.end37, %if.then36, %if.then31, %if.then19

@@ -113,15 +113,13 @@ land.lhs.true:                                    ; preds = %_ZNK11ast_manager6i
   br i1 %call7, label %for.inc, label %if.then8
 
 if.then8:                                         ; preds = %land.lhs.true
-  %10 = and i8 %found_ite.08, 1
-  %tobool.not = icmp eq i8 %10, 0
-  br i1 %tobool.not, label %for.inc, label %if.then9
+  %tobool = trunc i8 %found_ite.08 to i1
+  br i1 %tobool, label %if.then9, label %for.inc
 
 if.then9:                                         ; preds = %if.then8
-  %11 = load i8, ptr %m_conservative, align 8
-  %12 = and i8 %11, 1
-  %tobool10.not = icmp eq i8 %12, 0
-  br i1 %tobool10.not, label %for.inc, label %return
+  %10 = load i8, ptr %m_conservative, align 8
+  %tobool10 = trunc i8 %10 to i1
+  br i1 %tobool10, label %return, label %for.inc
 
 for.inc:                                          ; preds = %land.rhs.i.i, %for.body, %if.then8, %_ZNK11ast_manager6is_iteEPK4expr.exit, %land.lhs.true, %if.then9
   %found_ite.1 = phi i8 [ %found_ite.08, %land.lhs.true ], [ %found_ite.08, %if.then9 ], [ %found_ite.08, %_ZNK11ast_manager6is_iteEPK4expr.exit ], [ 1, %if.then8 ], [ %found_ite.08, %for.body ], [ %found_ite.08, %land.rhs.i.i ]
@@ -130,12 +128,11 @@ for.inc:                                          ; preds = %land.rhs.i.i, %for.
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !4
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %13 = and i8 %found_ite.1, 1
-  %14 = icmp ne i8 %13, 0
+  %11 = trunc i8 %found_ite.1 to i1
   br label %return
 
 return:                                           ; preds = %if.then9, %for.cond.preheader, %for.end.loopexit, %cond.false.i4.i.i
-  %retval.0 = phi i1 [ false, %cond.false.i4.i.i ], [ false, %for.cond.preheader ], [ %14, %for.end.loopexit ], [ false, %if.then9 ]
+  %retval.0 = phi i1 [ false, %cond.false.i4.i.i ], [ false, %for.cond.preheader ], [ %11, %for.end.loopexit ], [ false, %if.then9 ]
   ret i1 %retval.0
 }
 
@@ -534,15 +531,13 @@ land.lhs.true.i:                                  ; preds = %_ZNK11ast_manager6i
   br i1 %call7.i, label %for.inc.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %land.lhs.true.i
-  %10 = and i8 %found_ite.08.i, 1
-  %tobool.not.i = icmp eq i8 %10, 0
-  br i1 %tobool.not.i, label %for.inc.i, label %if.then9.i
+  %tobool.i = trunc i8 %found_ite.08.i to i1
+  br i1 %tobool.i, label %if.then9.i, label %for.inc.i
 
 if.then9.i:                                       ; preds = %if.then8.i
-  %11 = load i8, ptr %m_conservative.i, align 8
-  %12 = and i8 %11, 1
-  %tobool10.not.i = icmp eq i8 %12, 0
-  br i1 %tobool10.not.i, label %for.inc.i, label %return
+  %10 = load i8, ptr %m_conservative.i, align 8
+  %tobool10.i = trunc i8 %10 to i1
+  br i1 %tobool10.i, label %return, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then9.i, %if.then8.i, %land.lhs.true.i, %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %land.rhs.i.i.i, %for.body.i
   %found_ite.1.i = phi i8 [ %found_ite.08.i, %land.lhs.true.i ], [ %found_ite.08.i, %if.then9.i ], [ %found_ite.08.i, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ 1, %if.then8.i ], [ %found_ite.08.i, %for.body.i ], [ %found_ite.08.i, %land.rhs.i.i.i ]
@@ -551,10 +546,9 @@ for.inc.i:                                        ; preds = %if.then9.i, %if.the
   br i1 %exitcond.not.i, label %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit, label %for.body.i, !llvm.loop !4
 
 _ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit: ; preds = %for.inc.i
-  %13 = and i8 %found_ite.1.i, 1
-  %.not = icmp ne i8 %13, 0
+  %11 = trunc i8 %found_ite.1.i to i1
   %cmp8 = icmp ne i32 %num_args, 0
-  %or.cond = and i1 %.not, %cmp8
+  %or.cond = and i1 %cmp8, %11
   br i1 %or.cond, label %for.body, label %return
 
 for.cond:                                         ; preds = %_Z9is_groundPK4expr.exit
@@ -565,24 +559,24 @@ for.cond:                                         ; preds = %_Z9is_groundPK4expr
 for.body:                                         ; preds = %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit ]
   %arrayidx = getelementptr inbounds ptr, ptr %args, i64 %indvars.iv
-  %14 = load ptr, ptr %arrayidx, align 8
-  %m_kind.i.i.i = getelementptr inbounds i8, ptr %14, i64 4
+  %12 = load ptr, ptr %arrayidx, align 8
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %12, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
   %cmp.i.i = icmp eq i32 %bf.clear.i.i.i, 0
   br i1 %cmp.i.i, label %_Z9is_groundPK4expr.exit, label %return
 
 _Z9is_groundPK4expr.exit:                         ; preds = %for.body
-  %m_num_args.i.i.i = getelementptr inbounds i8, ptr %14, i64 24
-  %15 = load i32, ptr %m_num_args.i.i.i, align 8
-  %cmp.i.i.i5 = icmp eq i32 %15, 0
-  %m_args.i.i.i = getelementptr inbounds i8, ptr %14, i64 32
-  %idx.ext.i.i.i = zext i32 %15 to i64
+  %m_num_args.i.i.i = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = load i32, ptr %m_num_args.i.i.i, align 8
+  %cmp.i.i.i5 = icmp eq i32 %13, 0
+  %m_args.i.i.i = getelementptr inbounds i8, ptr %12, i64 32
+  %idx.ext.i.i.i = zext i32 %13 to i64
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %m_args.i.i.i, i64 %idx.ext.i.i.i
   %cond.i.i.i = select i1 %cmp.i.i.i5, ptr @_ZN3app16g_constant_flagsE, ptr %add.ptr.i.i.i
   %bf.load.i.i = load i32, ptr %cond.i.i.i, align 4
-  %16 = and i32 %bf.load.i.i, 65536
-  %tobool.i.i.not = icmp eq i32 %16, 0
+  %14 = and i32 %bf.load.i.i, 65536
+  %tobool.i.i.not = icmp eq i32 %14, 0
   br i1 %tobool.i.i.not, label %return, label %for.cond
 
 return:                                           ; preds = %if.then9.i, %_Z9is_groundPK4expr.exit, %for.cond, %for.body, %for.cond.preheader.i, %cond.false.i4.i.i.i, %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit

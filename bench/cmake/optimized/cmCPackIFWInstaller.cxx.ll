@@ -7135,14 +7135,13 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
 
 914:                                              ; preds = %.noexc715
   %915 = load i8, ptr %893, align 1
-  %916 = and i8 %915, 1
-  %.not.i = icmp ne i8 %916, 0
+  %916 = trunc i8 %915 to i1
   %917 = load i8, ptr %894, align 2
-  %918 = and i8 %917, 1
-  %.not2.i = icmp eq i8 %918, 0
-  %919 = select i1 %.not.i, i1 %.not2.i, i1 false
+  %918 = trunc i8 %917 to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  br i1 %919, label %920, label %947
+  %not. = xor i1 %916, true
+  %919 = select i1 %not., i1 true, i1 %918
+  br i1 %919, label %947, label %920
 
 920:                                              ; preds = %914
   %921 = load ptr, ptr %885, align 8
@@ -8183,9 +8182,8 @@ define linkonce_odr dso_local void @_ZN25cmCPackIFWResourcesParser20CharacterDat
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %57, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %57
 
 14:                                               ; preds = %3
   %15 = sext i32 %2 to i64

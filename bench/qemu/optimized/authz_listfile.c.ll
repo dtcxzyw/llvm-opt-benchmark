@@ -152,9 +152,8 @@ if.end:                                           ; preds = %entry
 if.end5:                                          ; preds = %if.end
   %refresh = getelementptr inbounds i8, ptr %call.i, i64 56
   %1 = load i8, ptr %refresh, align 8
-  %2 = and i8 %1, 1
-  %tobool6.not = icmp eq i8 %2, 0
-  br i1 %tobool6.not, label %return, label %if.end8
+  %tobool6 = trunc i8 %1 to i1
+  br i1 %tobool6, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end5
   %call9 = tail call ptr @qemu_file_monitor_new(ptr noundef %errp) #5
@@ -164,8 +163,8 @@ if.end8:                                          ; preds = %if.end5
   br i1 %tobool11.not, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end8
-  %3 = load ptr, ptr %filename, align 8
-  %call15 = tail call noalias ptr @g_path_get_dirname(ptr noundef %3) #5
+  %2 = load ptr, ptr %filename, align 8
+  %call15 = tail call noalias ptr @g_path_get_dirname(ptr noundef %2) #5
   %call16 = tail call i32 @g_str_equal(ptr noundef %call15, ptr noundef nonnull @.str.12) #5
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %if.end19, label %if.then18
@@ -175,8 +174,8 @@ if.then18:                                        ; preds = %if.end13
   br label %cleanup
 
 if.end19:                                         ; preds = %if.end13
-  %4 = load ptr, ptr %filename, align 8
-  %call21 = tail call noalias ptr @g_path_get_basename(ptr noundef %4) #5
+  %3 = load ptr, ptr %filename, align 8
+  %call21 = tail call noalias ptr @g_path_get_basename(ptr noundef %3) #5
   %call22 = tail call i32 @g_str_equal(ptr noundef %call21, ptr noundef nonnull @.str.12) #5
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %if.end25, label %if.then24
@@ -186,8 +185,8 @@ if.then24:                                        ; preds = %if.end19
   br label %cleanup
 
 if.end25:                                         ; preds = %if.end19
-  %5 = load ptr, ptr %file_monitor, align 8
-  %call27 = tail call i64 @qemu_file_monitor_add_watch(ptr noundef %5, ptr noundef %call15, ptr noundef %call21, ptr noundef nonnull @qauthz_list_file_event, ptr noundef nonnull %call.i, ptr noundef %errp) #5
+  %4 = load ptr, ptr %file_monitor, align 8
+  %call27 = tail call i64 @qemu_file_monitor_add_watch(ptr noundef %4, ptr noundef %call15, ptr noundef %call21, ptr noundef nonnull @qauthz_list_file_event, ptr noundef nonnull %call.i, ptr noundef %errp) #5
   %file_watch = getelementptr inbounds i8, ptr %call.i, i64 72
   store i64 %call27, ptr %file_watch, align 8
   br label %cleanup
@@ -234,8 +233,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_LIST_FILE) #5
   %refresh = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load i8, ptr %refresh, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -298,17 +296,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %fauthz, ptr noundef %0) #5
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %fauthz, ptr noundef %0) #5
   br label %trace_qauthz_list_file_load.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -317,29 +314,29 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_qauthz_list_file_load.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %8 = load ptr, ptr %filename, align 8
-  %call = call i32 @g_file_get_contents(ptr noundef %8, ptr noundef nonnull %content, ptr noundef nonnull %len, ptr noundef nonnull %err) #5
+  %7 = load ptr, ptr %filename, align 8
+  %call = call i32 @g_file_get_contents(ptr noundef %7, ptr noundef nonnull %content, ptr noundef nonnull %len, ptr noundef nonnull %err) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %trace_qauthz_list_file_load.exit
-  %9 = load ptr, ptr %filename, align 8
-  %10 = load ptr, ptr %err, align 8
-  %message = getelementptr inbounds i8, ptr %10, i64 8
-  %11 = load ptr, ptr %message, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 64, ptr noundef nonnull @__func__.qauthz_list_file_load, ptr noundef nonnull @.str.15, ptr noundef %9, ptr noundef %11) #5
+  %8 = load ptr, ptr %filename, align 8
+  %9 = load ptr, ptr %err, align 8
+  %message = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %message, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 64, ptr noundef nonnull @__func__.qauthz_list_file_load, ptr noundef nonnull @.str.15, ptr noundef %8, ptr noundef %10) #5
   br label %cleanup.thread
 
 if.end:                                           ; preds = %trace_qauthz_list_file_load.exit
-  %12 = load ptr, ptr %content, align 8
-  %call3 = call ptr @qobject_from_json(ptr noundef %12, ptr noundef %errp) #5
+  %11 = load ptr, ptr %content, align 8
+  %call3 = call ptr @qobject_from_json(ptr noundef %11, ptr noundef %errp) #5
   %tobool4.not = icmp eq ptr %call3, null
   br i1 %tobool4.not, label %cleanup.thread, label %if.end6
 
 if.end6:                                          ; preds = %if.end
   %obj.val.i = load i32, ptr %call3, align 8
-  %13 = add i32 %obj.val.i, -1
-  %or.cond.i.i14 = icmp ult i32 %13, 6
+  %12 = add i32 %obj.val.i, -1
+  %or.cond.i.i14 = icmp ult i32 %12, 6
   br i1 %or.cond.i.i14, label %qobject_check_type.exit, label %if.else.i.i15
 
 if.else.i.i15:                                    ; preds = %if.end6
@@ -351,8 +348,8 @@ qobject_check_type.exit:                          ; preds = %if.end6
   br i1 %cmp.i.not, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %qobject_check_type.exit
-  %14 = load ptr, ptr %filename, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 76, ptr noundef nonnull @__func__.qauthz_list_file_load, ptr noundef nonnull @.str.16, ptr noundef %14) #5
+  %13 = load ptr, ptr %filename, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 76, ptr noundef nonnull @__func__.qauthz_list_file_load, ptr noundef nonnull @.str.16, ptr noundef %13) #5
   br label %lor.lhs.false.i
 
 if.end11:                                         ; preds = %qobject_check_type.exit
@@ -369,8 +366,8 @@ lor.lhs.false.i:                                  ; preds = %if.then9, %if.end11
   %v.0 = phi ptr [ %call12, %if.end11 ], [ null, %if.then9 ]
   call void @visit_free(ptr noundef %v.0) #5
   %refcnt.i = getelementptr inbounds i8, ptr %call3, i64 8
-  %15 = load i64, ptr %refcnt.i, align 8
-  %tobool1.not.i = icmp eq i64 %15, 0
+  %14 = load i64, ptr %refcnt.i, align 8
+  %tobool1.not.i = icmp eq i64 %14, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
@@ -378,7 +375,7 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %dec.i = add i64 %15, -1
+  %dec.i = add i64 %14, -1
   store i64 %dec.i, ptr %refcnt.i, align 8
   %cmp.i16 = icmp eq i64 %dec.i, 0
   br i1 %cmp.i16, label %if.then5.i, label %qobject_unref_impl.exit
@@ -389,17 +386,17 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
 
 qobject_unref_impl.exit:                          ; preds = %cleanup.thread, %land.lhs.true.i, %if.then5.i
   %ret.021 = phi ptr [ null, %cleanup.thread ], [ %ret.0, %land.lhs.true.i ], [ %ret.0, %if.then5.i ]
-  %16 = load ptr, ptr %err, align 8
-  %tobool16.not = icmp eq ptr %16, null
+  %15 = load ptr, ptr %err, align 8
+  %tobool16.not = icmp eq ptr %15, null
   br i1 %tobool16.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %qobject_unref_impl.exit
-  call void @g_error_free(ptr noundef nonnull %16) #5
+  call void @g_error_free(ptr noundef nonnull %15) #5
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then17, %qobject_unref_impl.exit
-  %17 = load ptr, ptr %content, align 8
-  call void @g_free(ptr noundef %17) #5
+  %16 = load ptr, ptr %content, align 8
+  call void @g_free(ptr noundef %16) #5
   ret ptr %ret.021
 }
 
@@ -448,17 +445,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %5 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = call i32 @qemu_get_thread_id() #5
-  %7 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %opaque, ptr noundef %1, i32 noundef %cond) #5
+  %7 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %opaque, ptr noundef %1, i32 noundef %cond) #5
   br label %trace_qauthz_list_file_refresh.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -467,13 +463,13 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_qauthz_list_file_refresh.exit:              ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %9 = load ptr, ptr %list, align 8
-  %tobool5.not = icmp eq ptr %9, null
+  %8 = load ptr, ptr %list, align 8
+  %tobool5.not = icmp eq ptr %8, null
   br i1 %tobool5.not, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %trace_qauthz_list_file_refresh.exit
-  %10 = load ptr, ptr %err, align 8
-  call void @error_report_err(ptr noundef %10) #5
+  %9 = load ptr, ptr %err, align 8
+  call void @error_report_err(ptr noundef %9) #5
   br label %if.end7
 
 if.end7:                                          ; preds = %entry, %if.then6, %trace_qauthz_list_file_refresh.exit

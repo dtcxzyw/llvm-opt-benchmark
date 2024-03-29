@@ -390,9 +390,8 @@ define dso_local nonnull ptr @find_rendezvous_variable(ptr noundef %0) local_unn
   %11 = phi ptr [ %9, %6 ], [ %4, %1 ]
   %12 = call ptr @hash_search(ptr noundef %11, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #17
   %13 = load i8, ptr %2, align 1
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %17
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %17, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %12, i64 64

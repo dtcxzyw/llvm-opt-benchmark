@@ -86,9 +86,8 @@ define noundef i32 @ompi_comm_failure_detector_register_params() local_unnamed_a
   %1 = tail call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @comm_detector_enable) #10
   %2 = tail call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @comm_detector_use_thread) #10
   %3 = load i8, ptr @comm_detector_use_thread, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %10, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %0
   %6 = load double, ptr @comm_heartbeat_period, align 8
@@ -113,15 +112,13 @@ define i32 @ompi_comm_failure_detector_init() local_unnamed_addr #0 {
   %1 = load ptr, ptr @opal_sync_event_base, align 8
   store ptr %1, ptr @fd_event_base, align 8
   %2 = load i8, ptr @ompi_ftmpi_enabled, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %40, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %40
 
 4:                                                ; preds = %0
   %5 = load i8, ptr @comm_detector_enable, align 1
-  %6 = and i8 %5, 1
-  %.not12 = icmp eq i8 %6, 0
-  br i1 %.not12, label %40, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %40
 
 7:                                                ; preds = %4
   %8 = tail call i32 @ompi_comm_rbcast_register_cb_type(ptr noundef nonnull @fd_heartbeat_recv_cb) #10
@@ -137,9 +134,8 @@ define i32 @ompi_comm_failure_detector_init() local_unnamed_addr #0 {
 13:                                               ; preds = %10
   store i32 %11, ptr @comm_heartbeat_request_cb_type, align 4
   %14 = load i8, ptr @comm_detector_use_thread, align 1
-  %15 = and i8 %14, 1
-  %.not13 = icmp eq i8 %15, 0
-  br i1 %.not13, label %40, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %40
 
 16:                                               ; preds = %13
   %17 = tail call ptr @opal_event_base_create() #10
@@ -157,8 +153,8 @@ define i32 @ompi_comm_failure_detector_init() local_unnamed_addr #0 {
   store i8 1, ptr @opal_uses_threads, align 1
   %23 = load i32, ptr @opal_class_init_epoch, align 4
   %24 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_thread_t_class, i64 0, i32 4), align 8
-  %.not14 = icmp eq i32 %23, %24
-  br i1 %.not14, label %26, label %25
+  %.not = icmp eq i32 %23, %24
+  br i1 %.not, label %26, label %25
 
 25:                                               ; preds = %21
   tail call void @opal_class_initialize(ptr noundef nonnull @opal_thread_t_class) #10
@@ -185,8 +181,8 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %26
   store ptr @fd_progress, ptr getelementptr inbounds (%struct.opal_thread_t, ptr @fd_thread, i64 0, i32 1), align 8
   store ptr null, ptr getelementptr inbounds (%struct.opal_thread_t, ptr @fd_thread, i64 0, i32 2), align 8
   %32 = tail call i32 @opal_thread_start(ptr noundef nonnull @fd_thread) #10
-  %.not15 = icmp eq i32 %32, 0
-  br i1 %.not15, label %.preheader, label %38
+  %.not12 = icmp eq i32 %32, 0
+  br i1 %.not12, label %.preheader, label %38
 
 .preheader:                                       ; preds = %opal_obj_run_constructors.exit, %.preheader
   %33 = load volatile i32, ptr @fd_thread_active, align 4
@@ -269,19 +265,19 @@ define internal noundef i32 @fd_heartbeat_recv_cb(ptr nocapture noundef readonly
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @fd_heartbeat_request_cb(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 248
-  %.val51 = load ptr, ptr %3, align 8
-  %4 = getelementptr i8, ptr %.val51, i64 16
-  %.val51.val = load i32, ptr %4, align 8
+  %.val49 = load ptr, ptr %3, align 8
+  %4 = getelementptr i8, ptr %.val49, i64 16
+  %.val49.val = load i32, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 220
   %6 = load i32, ptr %5, align 4
-  %7 = sub nsw i32 %.val51.val, %6
+  %7 = sub nsw i32 %.val49.val, %6
   %8 = getelementptr inbounds i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %7, %9
-  %11 = srem i32 %10, %.val51.val
+  %11 = srem i32 %10, %.val49.val
   %12 = load i32, ptr getelementptr inbounds (%struct.comm_detector_t, ptr @comm_world_detector, i64 0, i32 3), align 4
   %13 = add nsw i32 %12, %7
-  %14 = srem i32 %13, %.val51.val
+  %14 = srem i32 %13, %.val49.val
   %15 = icmp slt i32 %11, %14
   br i1 %15, label %16, label %27
 
@@ -339,9 +335,8 @@ define internal noundef i32 @fd_heartbeat_request_cb(ptr noundef %0, ptr nocaptu
 50:                                               ; preds = %40
   %51 = getelementptr inbounds i8, ptr %44, i64 8
   %52 = load i8, ptr @opal_uses_threads, align 1
-  %53 = and i8 %52, 1
-  %.not.i.i.i.i.i = icmp eq i8 %53, 0
-  br i1 %.not.i.i.i.i.i, label %56, label %54
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %56
 
 54:                                               ; preds = %50
   %55 = atomicrmw volatile add ptr %51, i32 1 monotonic, align 4
@@ -363,14 +358,13 @@ ompi_comm_peer_lookup.exit:                       ; preds = %29, %40, %54, %56
 
 63:                                               ; preds = %ompi_comm_peer_lookup.exit
   %64 = load i8, ptr @opal_uses_threads, align 1
-  %65 = and i8 %64, 1
-  %.not.i = icmp eq i8 %65, 0
-  br i1 %.not.i, label %.thread.i, label %66
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %.thread.i
 
 66:                                               ; preds = %63
   %67 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_bml_lock, i64 0, i32 1, i32 0, i32 0)) #10
-  %.pre.i = load ptr, ptr %60, align 8
-  %68 = icmp eq ptr %.pre.i, null
+  %.pr.i = load ptr, ptr %60, align 8
+  %68 = icmp eq ptr %.pr.i, null
   br i1 %68, label %.thread.i, label %71
 
 .thread.i:                                        ; preds = %66, %63
@@ -380,9 +374,8 @@ ompi_comm_peer_lookup.exit:                       ; preds = %29, %40, %54, %56
 
 71:                                               ; preds = %.thread.i, %66
   %72 = load i8, ptr @opal_uses_threads, align 1
-  %73 = and i8 %72, 1
-  %.not4.i = icmp eq i8 %73, 0
-  br i1 %.not4.i, label %mca_bml_base_get_endpoint.exit, label %74
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %74, label %mca_bml_base_get_endpoint.exit
 
 74:                                               ; preds = %71
   %75 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_bml_lock, i64 0, i32 1, i32 0, i32 0)) #10
@@ -392,8 +385,8 @@ mca_bml_base_get_endpoint.exit:                   ; preds = %ompi_comm_peer_look
   %76 = load ptr, ptr %60, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 184
   %78 = load i64, ptr %77, align 8
-  %.not.i54 = icmp eq i64 %78, 0
-  br i1 %.not.i54, label %mca_bml_base_btl_array_get_index.exit, label %79
+  %.not.i = icmp eq i64 %78, 0
+  br i1 %.not.i, label %mca_bml_base_btl_array_get_index.exit, label %79
 
 79:                                               ; preds = %mca_bml_base_get_endpoint.exit
   %80 = getelementptr inbounds i8, ptr %76, i64 208
@@ -403,9 +396,8 @@ mca_bml_base_get_endpoint.exit:                   ; preds = %ompi_comm_peer_look
 mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_get_endpoint.exit, %79
   %.0.i = phi ptr [ %81, %79 ], [ null, %mca_bml_base_get_endpoint.exit ]
   %82 = load i8, ptr @opal_uses_threads, align 1
-  %83 = and i8 %82, 1
-  %.not45 = icmp eq i8 %83, 0
-  br i1 %.not45, label %86, label %84
+  %83 = trunc i8 %82 to i1
+  br i1 %83, label %84, label %86
 
 84:                                               ; preds = %mca_bml_base_btl_array_get_index.exit
   %85 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.comm_detector_t, ptr @comm_world_detector, i64 0, i32 17, i32 1, i32 0, i32 0)) #10
@@ -413,16 +405,16 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_get_en
 
 86:                                               ; preds = %mca_bml_base_btl_array_get_index.exit, %84
   %87 = load ptr, ptr getelementptr inbounds (%struct.comm_detector_t, ptr @comm_world_detector, i64 0, i32 12), align 8
-  %.not46 = icmp eq ptr %87, null
-  br i1 %.not46, label %94, label %88
+  %.not45 = icmp eq ptr %87, null
+  br i1 %.not45, label %94, label %88
 
 88:                                               ; preds = %86
   %89 = load ptr, ptr getelementptr inbounds (%struct.comm_detector_t, ptr @comm_world_detector, i64 0, i32 9), align 8
   %90 = getelementptr i8, ptr %89, i64 8
-  %.val50 = load ptr, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %.val50, i64 264
+  %.val48 = load ptr, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %.val48, i64 264
   %92 = load ptr, ptr %91, align 8
-  %93 = tail call i32 %92(ptr noundef %.val50, ptr noundef nonnull %87) #10
+  %93 = tail call i32 %92(ptr noundef %.val48, ptr noundef nonnull %87) #10
   br label %94
 
 94:                                               ; preds = %88, %86
@@ -430,17 +422,17 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_get_en
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 256
   %98 = load ptr, ptr %97, align 8
-  %.not47 = icmp eq ptr %98, null
-  br i1 %.not47, label %110, label %99
+  %.not46 = icmp eq ptr %98, null
+  br i1 %.not46, label %110, label %99
 
 99:                                               ; preds = %94
   %100 = getelementptr i8, ptr %.0.i, i64 16
-  %.val53 = load ptr, ptr %100, align 8
-  %101 = tail call ptr %98(ptr noundef nonnull %96, ptr noundef %.val53, ptr noundef nonnull getelementptr inbounds (%struct.comm_detector_t, ptr @comm_world_detector, i64 0, i32 11), i64 noundef 4, i32 noundef 0) #10
+  %.val51 = load ptr, ptr %100, align 8
+  %101 = tail call ptr %98(ptr noundef nonnull %96, ptr noundef %.val51, ptr noundef nonnull getelementptr inbounds (%struct.comm_detector_t, ptr @comm_world_detector, i64 0, i32 11), i64 noundef 4, i32 noundef 0) #10
   store ptr %101, ptr getelementptr inbounds (%struct.comm_detector_t, ptr @comm_world_detector, i64 0, i32 12), align 8
   %102 = load ptr, ptr getelementptr inbounds (%struct.comm_detector_t, ptr @comm_world_detector, i64 0, i32 16), align 8
-  %.not48 = icmp eq ptr %102, null
-  br i1 %.not48, label %104, label %103
+  %.not47 = icmp eq ptr %102, null
+  br i1 %.not47, label %104, label %103
 
 103:                                              ; preds = %99
   tail call void @free(ptr noundef nonnull %102) #10
@@ -462,9 +454,8 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_get_en
   %112 = load i64, ptr %111, align 8
   store i64 %112, ptr getelementptr inbounds (%struct.comm_detector_t, ptr @comm_world_detector, i64 0, i32 15), align 8
   %113 = load i8, ptr @opal_uses_threads, align 1
-  %114 = and i8 %113, 1
-  %.not49 = icmp eq i8 %114, 0
-  br i1 %.not49, label %117, label %115
+  %114 = trunc i8 %113 to i1
+  br i1 %114, label %115, label %117
 
 115:                                              ; preds = %110
   %116 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.comm_detector_t, ptr @comm_world_detector, i64 0, i32 17, i32 1, i32 0, i32 0)) #10
@@ -491,12 +482,11 @@ define internal noundef ptr @fd_progress(ptr nocapture readnone %0) #0 {
   %4 = tail call i32 @ompi_comm_start_detector(ptr noundef nonnull @ompi_mpi_comm_world), !range !7
   %.not = icmp eq i32 %4, 0
   %5 = load i8, ptr @opal_uses_threads, align 1
-  %6 = and i8 %5, 1
-  %.not.i2 = icmp eq i8 %6, 0
+  %6 = trunc i8 %5 to i1
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %1
-  br i1 %.not.i2, label %10, label %8
+  br i1 %6, label %8, label %10
 
 8:                                                ; preds = %7
   %9 = atomicrmw volatile add ptr @fd_thread_active, i32 -1 monotonic, align 4
@@ -510,33 +500,33 @@ define internal noundef ptr @fd_progress(ptr nocapture readnone %0) #0 {
   br label %opal_thread_add_fetch_32.exit
 
 14:                                               ; preds = %1
-  br i1 %.not.i2, label %17, label %15
+  br i1 %6, label %15, label %17
 
 15:                                               ; preds = %14
   %16 = atomicrmw volatile add ptr @fd_thread_active, i32 1 monotonic, align 4
-  br label %opal_thread_add_fetch_32.exit4.preheader
+  br label %opal_thread_add_fetch_32.exit3.preheader
 
 17:                                               ; preds = %14
   %18 = load volatile i32, ptr @fd_thread_active, align 4
   %19 = add nsw i32 %18, 1
   store volatile i32 %19, ptr @fd_thread_active, align 4
   %20 = load volatile i32, ptr @fd_thread_active, align 4
-  br label %opal_thread_add_fetch_32.exit4.preheader
+  br label %opal_thread_add_fetch_32.exit3.preheader
 
-opal_thread_add_fetch_32.exit4.preheader:         ; preds = %15, %17
-  br label %opal_thread_add_fetch_32.exit4
+opal_thread_add_fetch_32.exit3.preheader:         ; preds = %15, %17
+  br label %opal_thread_add_fetch_32.exit3
 
-opal_thread_add_fetch_32.exit4:                   ; preds = %opal_thread_add_fetch_32.exit4.preheader, %opal_thread_add_fetch_32.exit4
+opal_thread_add_fetch_32.exit3:                   ; preds = %opal_thread_add_fetch_32.exit3.preheader, %opal_thread_add_fetch_32.exit3
   %21 = load volatile i32, ptr @fd_thread_active, align 4
   %22 = icmp eq i32 %21, 1
-  br i1 %22, label %opal_thread_add_fetch_32.exit4, label %23, !llvm.loop !8
+  br i1 %22, label %opal_thread_add_fetch_32.exit3, label %23, !llvm.loop !8
 
-23:                                               ; preds = %opal_thread_add_fetch_32.exit4
+23:                                               ; preds = %opal_thread_add_fetch_32.exit3
   %24 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
   %25 = call i32 %24(ptr noundef null, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef 0, i32 noundef -30, ptr noundef nonnull @ompi_mpi_comm_self, ptr noundef nonnull %2) #10
   %26 = load volatile i32, ptr @fd_thread_active, align 4
-  %.not17 = icmp eq i32 %26, 0
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not15 = icmp eq i32 %26, 0
+  br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %.lr.ph
   %27 = load ptr, ptr @fd_event_base, align 8
@@ -552,8 +542,8 @@ opal_thread_add_fetch_32.exit4:                   ; preds = %opal_thread_add_fet
   %32 = load ptr, ptr %2, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 128
   %34 = load ptr, ptr %33, align 8
-  %.not.i5 = icmp eq ptr %34, null
-  br i1 %.not.i5, label %ompi_request_cancel.exit, label %35
+  %.not.i = icmp eq ptr %34, null
+  br i1 %.not.i, label %ompi_request_cancel.exit, label %35
 
 35:                                               ; preds = %._crit_edge
   %36 = call i32 %34(ptr noundef nonnull %32, i32 noundef 1) #10
@@ -621,9 +611,8 @@ define noundef i32 @ompi_comm_failure_detector_finalize() local_unnamed_addr #0 
 15:                                               ; preds = %._crit_edge
   %16 = load volatile i32, ptr @fd_thread_active, align 4
   %17 = load i8, ptr @opal_uses_threads, align 1
-  %18 = and i8 %17, 1
-  %.not.i = icmp eq i8 %18, 0
-  br i1 %.not.i, label %22, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %22
 
 19:                                               ; preds = %15
   %20 = sub nsw i32 0, %16
@@ -707,15 +696,13 @@ define noundef i32 @ompi_comm_failure_detector_start() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0
   %4 = load i8, ptr @comm_detector_use_thread, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %15, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %15
 
 6:                                                ; preds = %3
   %7 = load i8, ptr @opal_uses_threads, align 1
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %11, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
   %10 = atomicrmw volatile add ptr @fd_thread_active, i32 1 monotonic, align 4
@@ -903,9 +890,8 @@ define internal fastcc void @fd_heartbeat_send(ptr noundef %0) unnamed_addr #0 {
 
 29:                                               ; preds = %25
   %30 = load i8, ptr @opal_uses_threads, align 1
-  %31 = and i8 %30, 1
-  %.not.i = icmp eq i8 %31, 0
-  br i1 %.not.i, label %35, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %35
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %0, i64 144
@@ -947,9 +933,8 @@ define internal fastcc void @fd_heartbeat_send(ptr noundef %0) unnamed_addr #0 {
 
 59:                                               ; preds = %58, %53
   %60 = load i8, ptr @opal_uses_threads, align 1
-  %61 = and i8 %60, 1
-  %.not14.i = icmp eq i8 %61, 0
-  br i1 %.not14.i, label %fd_heartbeat_rdma_put.exit, label %62
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %62, label %fd_heartbeat_rdma_put.exit
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds i8, ptr %0, i64 144
@@ -999,9 +984,8 @@ define internal fastcc void @fd_heartbeat_send(ptr noundef %0) unnamed_addr #0 {
 93:                                               ; preds = %83
   %94 = getelementptr inbounds i8, ptr %87, i64 8
   %95 = load i8, ptr @opal_uses_threads, align 1
-  %96 = and i8 %95, 1
-  %.not.i.i.i.i.i = icmp eq i8 %96, 0
-  br i1 %.not.i.i.i.i.i, label %99, label %97
+  %96 = trunc i8 %95 to i1
+  br i1 %96, label %97, label %99
 
 97:                                               ; preds = %93
   %98 = atomicrmw volatile add ptr %94, i32 1 monotonic, align 4
@@ -1160,9 +1144,8 @@ define internal void @fd_event_cb(i32 %0, i16 signext %1, ptr noundef %2) #0 {
 72:                                               ; preds = %62
   %73 = getelementptr inbounds i8, ptr %66, i64 8
   %74 = load i8, ptr @opal_uses_threads, align 1
-  %75 = and i8 %74, 1
-  %.not.i.i.i.i.i = icmp eq i8 %75, 0
-  br i1 %.not.i.i.i.i.i, label %78, label %76
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %78
 
 76:                                               ; preds = %72
   %77 = atomicrmw volatile add ptr %73, i32 1 monotonic, align 4
@@ -1179,9 +1162,8 @@ ompi_comm_peer_lookup.exit:                       ; preds = %51, %62, %76, %78
   %.0.i.i.i.i = phi ptr [ %59, %51 ], [ %66, %78 ], [ %66, %76 ], [ %66, %62 ]
   %82 = getelementptr i8, ptr %.0.i.i.i.i, i64 64
   %.val50 = load i8, ptr %82, align 8
-  %83 = and i8 %.val50, 1
-  %.not52 = icmp eq i8 %83, 0
-  br i1 %.not52, label %95, label %84
+  %83 = trunc i8 %.val50 to i1
+  br i1 %83, label %84, label %95
 
 84:                                               ; preds = %ompi_comm_peer_lookup.exit
   %85 = load double, ptr %16, align 8
@@ -1305,9 +1287,8 @@ define internal fastcc void @fd_heartbeat_request(ptr noundef %0) unnamed_addr #
 40:                                               ; preds = %30
   %41 = getelementptr inbounds i8, ptr %34, i64 8
   %42 = load i8, ptr @opal_uses_threads, align 1
-  %43 = and i8 %42, 1
-  %.not.i.i.i.i.i = icmp eq i8 %43, 0
-  br i1 %.not.i.i.i.i.i, label %46, label %44
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %46
 
 44:                                               ; preds = %40
   %45 = atomicrmw volatile add ptr %41, i32 1 monotonic, align 4
@@ -1324,10 +1305,9 @@ ompi_comm_peer_lookup.exit:                       ; preds = %22, %30, %44, %46
   %.0.i.i.i.i = phi ptr [ %27, %22 ], [ %34, %46 ], [ %34, %44 ], [ %34, %30 ]
   %50 = getelementptr i8, ptr %.0.i.i.i.i, i64 64
   %.val65 = load i8, ptr %50, align 8
-  %51 = and i8 %.val65, 1
-  %.not69 = icmp eq i8 %51, 0
+  %51 = trunc i8 %.val65 to i1
   %52 = add i32 %21, %.056
-  br i1 %.not69, label %22, label %53
+  br i1 %51, label %53, label %22
 
 53:                                               ; preds = %ompi_comm_peer_lookup.exit
   %54 = getelementptr inbounds i8, ptr %2, i64 220
@@ -1359,14 +1339,13 @@ ompi_comm_peer_lookup.exit:                       ; preds = %22, %30, %44, %46
 
 67:                                               ; preds = %63
   %68 = load i8, ptr @opal_uses_threads, align 1
-  %69 = and i8 %68, 1
-  %.not.i = icmp eq i8 %69, 0
-  br i1 %.not.i, label %.thread.i, label %70
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %.thread.i
 
 70:                                               ; preds = %67
   %71 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_bml_lock, i64 0, i32 1, i32 0, i32 0)) #10
-  %.pre.i = load ptr, ptr %64, align 8
-  %72 = icmp eq ptr %.pre.i, null
+  %.pr.i = load ptr, ptr %64, align 8
+  %72 = icmp eq ptr %.pr.i, null
   br i1 %72, label %.thread.i, label %75
 
 .thread.i:                                        ; preds = %70, %67
@@ -1376,9 +1355,8 @@ ompi_comm_peer_lookup.exit:                       ; preds = %22, %30, %44, %46
 
 75:                                               ; preds = %.thread.i, %70
   %76 = load i8, ptr @opal_uses_threads, align 1
-  %77 = and i8 %76, 1
-  %.not4.i = icmp eq i8 %77, 0
-  br i1 %.not4.i, label %mca_bml_base_get_endpoint.exit, label %78
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %78, label %mca_bml_base_get_endpoint.exit
 
 78:                                               ; preds = %75
   %79 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @mca_bml_lock, i64 0, i32 1, i32 0, i32 0)) #10
@@ -1388,8 +1366,8 @@ mca_bml_base_get_endpoint.exit:                   ; preds = %63, %75, %78
   %80 = load ptr, ptr %64, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 184
   %82 = load i64, ptr %81, align 8
-  %.not.i68 = icmp eq i64 %82, 0
-  br i1 %.not.i68, label %mca_bml_base_btl_array_get_index.exit, label %83
+  %.not.i = icmp eq i64 %82, 0
+  br i1 %.not.i, label %mca_bml_base_btl_array_get_index.exit, label %83
 
 83:                                               ; preds = %mca_bml_base_get_endpoint.exit
   %84 = getelementptr inbounds i8, ptr %80, i64 208

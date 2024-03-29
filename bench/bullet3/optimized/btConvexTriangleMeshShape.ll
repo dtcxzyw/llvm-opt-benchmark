@@ -892,81 +892,80 @@ define internal void @_ZZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTr
 entry:
   %first = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %first, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %ref4 = getelementptr inbounds i8, ptr %this, i64 12
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  %ref = getelementptr inbounds i8, ptr %this, i64 12
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref4, ptr noundef nonnull align 4 dereferenceable(16) %triangle, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref, ptr noundef nonnull align 4 dereferenceable(16) %triangle, i64 16, i1 false)
   store i8 0, ptr %first, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %arrayidx11.i = getelementptr inbounds i8, ptr %triangle, i64 8
-  %2 = load float, ptr %arrayidx11.i, align 4
+  %1 = load float, ptr %arrayidx11.i, align 4
   %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 20
-  %3 = load float, ptr %arrayidx13.i, align 4
-  %sub14.i = fsub float %2, %3
+  %2 = load float, ptr %arrayidx13.i, align 4
+  %sub14.i = fsub float %1, %2
   %arrayidx6 = getelementptr inbounds i8, ptr %triangle, i64 16
   %arrayidx11.i12 = getelementptr inbounds i8, ptr %triangle, i64 24
-  %4 = load float, ptr %arrayidx11.i12, align 4
-  %sub14.i14 = fsub float %4, %3
+  %3 = load float, ptr %arrayidx11.i12, align 4
+  %sub14.i14 = fsub float %3, %2
   %arrayidx11 = getelementptr inbounds i8, ptr %triangle, i64 32
   %arrayidx11.i24 = getelementptr inbounds i8, ptr %triangle, i64 40
-  %5 = load float, ptr %arrayidx11.i24, align 4
-  %sub14.i26 = fsub float %5, %3
-  %6 = fneg float %sub14.i14
-  %add14.i = fadd float %2, %4
-  %add14.i49 = fadd float %add14.i, %5
-  %add14.i61 = fadd float %3, %add14.i49
+  %4 = load float, ptr %arrayidx11.i24, align 4
+  %sub14.i26 = fsub float %4, %2
+  %5 = fneg float %sub14.i14
+  %add14.i = fadd float %1, %3
+  %add14.i49 = fadd float %add14.i, %4
+  %add14.i61 = fadd float %2, %add14.i49
   %sum = getelementptr inbounds i8, ptr %this, i64 28
-  %7 = load <2 x float>, ptr %triangle, align 4
-  %8 = load <2 x float>, ptr %ref4, align 4
-  %9 = fsub <2 x float> %7, %8
-  %sub.i = extractelement <2 x float> %9, i64 0
-  %10 = fsub <2 x float> %7, %8
-  %sub8.i = extractelement <2 x float> %10, i64 1
-  %11 = load <2 x float>, ptr %arrayidx6, align 4
-  %12 = fsub <2 x float> %11, %8
-  %sub.i8 = extractelement <2 x float> %12, i64 0
-  %13 = fsub <2 x float> %11, %8
-  %sub8.i11 = extractelement <2 x float> %13, i64 1
-  %14 = load <2 x float>, ptr %arrayidx11, align 4
-  %15 = fsub <2 x float> %14, %8
-  %sub.i20 = extractelement <2 x float> %15, i64 0
-  %16 = fsub <2 x float> %14, %8
-  %sub8.i23 = extractelement <2 x float> %16, i64 1
-  %neg.i = fmul float %sub8.i23, %6
-  %17 = tail call float @llvm.fmuladd.f32(float %sub8.i11, float %sub14.i26, float %neg.i)
-  %18 = fneg float %sub.i8
-  %neg23.i = fmul float %sub14.i26, %18
-  %19 = tail call float @llvm.fmuladd.f32(float %sub14.i14, float %sub.i20, float %neg23.i)
-  %mul24.i = fmul float %sub8.i, %19
-  %20 = tail call float @llvm.fmuladd.f32(float %sub.i, float %17, float %mul24.i)
-  %21 = fneg float %sub8.i11
-  %neg36.i = fmul float %sub.i20, %21
-  %22 = tail call float @llvm.fmuladd.f32(float %sub.i8, float %sub8.i23, float %neg36.i)
-  %23 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i, float %22, float %20)
-  %24 = tail call noundef float @llvm.fabs.f32(float %23)
-  %mul = fmul float %24, 2.500000e-01
-  %25 = fadd <2 x float> %7, %11
-  %26 = fadd <2 x float> %25, %14
-  %27 = fadd <2 x float> %8, %26
-  %28 = insertelement <2 x float> poison, float %mul, i64 0
-  %29 = shufflevector <2 x float> %28, <2 x float> poison, <2 x i32> zeroinitializer
-  %30 = fmul <2 x float> %27, %29
+  %6 = load <2 x float>, ptr %triangle, align 4
+  %7 = load <2 x float>, ptr %ref, align 4
+  %8 = fsub <2 x float> %6, %7
+  %sub.i = extractelement <2 x float> %8, i64 0
+  %9 = fsub <2 x float> %6, %7
+  %sub8.i = extractelement <2 x float> %9, i64 1
+  %10 = load <2 x float>, ptr %arrayidx6, align 4
+  %11 = fsub <2 x float> %10, %7
+  %sub.i8 = extractelement <2 x float> %11, i64 0
+  %12 = fsub <2 x float> %10, %7
+  %sub8.i11 = extractelement <2 x float> %12, i64 1
+  %13 = load <2 x float>, ptr %arrayidx11, align 4
+  %14 = fsub <2 x float> %13, %7
+  %sub.i20 = extractelement <2 x float> %14, i64 0
+  %15 = fsub <2 x float> %13, %7
+  %sub8.i23 = extractelement <2 x float> %15, i64 1
+  %neg.i = fmul float %sub8.i23, %5
+  %16 = tail call float @llvm.fmuladd.f32(float %sub8.i11, float %sub14.i26, float %neg.i)
+  %17 = fneg float %sub.i8
+  %neg23.i = fmul float %sub14.i26, %17
+  %18 = tail call float @llvm.fmuladd.f32(float %sub14.i14, float %sub.i20, float %neg23.i)
+  %mul24.i = fmul float %sub8.i, %18
+  %19 = tail call float @llvm.fmuladd.f32(float %sub.i, float %16, float %mul24.i)
+  %20 = fneg float %sub8.i11
+  %neg36.i = fmul float %sub.i20, %20
+  %21 = tail call float @llvm.fmuladd.f32(float %sub.i8, float %sub8.i23, float %neg36.i)
+  %22 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i, float %21, float %19)
+  %23 = tail call noundef float @llvm.fabs.f32(float %22)
+  %mul = fmul float %23, 2.500000e-01
+  %24 = fadd <2 x float> %6, %10
+  %25 = fadd <2 x float> %24, %13
+  %26 = fadd <2 x float> %7, %25
+  %27 = insertelement <2 x float> poison, float %mul, i64 0
+  %28 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> zeroinitializer
+  %29 = fmul <2 x float> %26, %28
   %mul8.i.i = fmul float %add14.i61, %mul
-  %31 = load <2 x float>, ptr %sum, align 4
-  %32 = fadd <2 x float> %31, %30
-  store <2 x float> %32, ptr %sum, align 4
+  %30 = load <2 x float>, ptr %sum, align 4
+  %31 = fadd <2 x float> %30, %29
+  store <2 x float> %31, ptr %sum, align 4
   %arrayidx12.i71 = getelementptr inbounds i8, ptr %this, i64 36
-  %33 = load float, ptr %arrayidx12.i71, align 4
-  %add13.i = fadd float %33, %mul8.i.i
+  %32 = load float, ptr %arrayidx12.i71, align 4
+  %add13.i = fadd float %32, %mul8.i.i
   store float %add13.i, ptr %arrayidx12.i71, align 4
   %volume = getelementptr inbounds i8, ptr %this, i64 44
-  %34 = load float, ptr %volume, align 4
-  %add = fadd float %34, %24
+  %33 = load float, ptr %volume, align 4
+  %add = fadd float %33, %23
   store float %add, ptr %volume, align 4
   br label %if.end
 

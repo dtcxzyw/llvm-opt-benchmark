@@ -44,30 +44,30 @@ entry:
   store ptr %call1, ptr %call, align 8
   %enabled = getelementptr inbounds i8, ptr %port, i64 36
   %1 = load i8, ptr %enabled, align 4
-  %2 = and i8 %1, 1
   %enabled3 = getelementptr inbounds i8, ptr %call, i64 8
-  store i8 %2, ptr %enabled3, align 8
+  %frombool = and i8 %1, 1
+  store i8 %frombool, ptr %enabled3, align 8
   %nic.i = getelementptr inbounds i8, ptr %port, i64 48
-  %3 = load ptr, ptr %nic.i, align 8
-  %call.i = tail call ptr @qemu_get_queue(ptr noundef %3) #9
+  %2 = load ptr, ptr %nic.i, align 8
+  %call.i = tail call ptr @qemu_get_queue(ptr noundef %2) #9
   %link_down.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %4 = load i32, ptr %link_down.i, align 8
-  %tobool.not.i = icmp eq i32 %4, 0
+  %3 = load i32, ptr %link_down.i, align 8
+  %tobool.not.i = icmp eq i32 %3, 0
   %link_up = getelementptr inbounds i8, ptr %call, i64 9
   %frombool5 = zext i1 %tobool.not.i to i8
   store i8 %frombool5, ptr %link_up, align 1
   %speed = getelementptr inbounds i8, ptr %port, i64 40
-  %5 = load i32, ptr %speed, align 8
+  %4 = load i32, ptr %speed, align 8
   %speed6 = getelementptr inbounds i8, ptr %call, i64 12
-  store i32 %5, ptr %speed6, align 4
+  store i32 %4, ptr %speed6, align 4
   %duplex = getelementptr inbounds i8, ptr %port, i64 44
-  %6 = load i8, ptr %duplex, align 4
-  %conv = zext i8 %6 to i32
+  %5 = load i8, ptr %duplex, align 4
+  %conv = zext i8 %5 to i32
   %duplex7 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %conv, ptr %duplex7, align 8
   %autoneg = getelementptr inbounds i8, ptr %port, i64 45
-  %7 = load i8, ptr %autoneg, align 1
-  %conv8 = zext i8 %7 to i32
+  %6 = load i8, ptr %autoneg, align 1
+  %conv8 = zext i8 %6 to i32
   %autoneg9 = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %conv8, ptr %autoneg9, align 4
   ret ptr %call
@@ -161,9 +161,8 @@ entry:
   %call = tail call ptr @qemu_get_queue(ptr noundef %0) #9
   %enabled = getelementptr inbounds i8, ptr %port, i64 36
   %1 = load i8, ptr %enabled, align 4
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call1 = tail call i64 @qemu_sendv_packet(ptr noundef %call, ptr noundef %iov, i32 noundef %iovcnt) #9
@@ -208,8 +207,7 @@ define dso_local zeroext i1 @fp_port_enabled(ptr nocapture noundef readonly %por
 entry:
   %enabled = getelementptr inbounds i8, ptr %port, i64 36
   %0 = load i8, ptr %enabled, align 4
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -388,16 +386,15 @@ entry:
   %call.i = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #9
   %enabled.i = getelementptr inbounds i8, ptr %call.i, i64 36
   %0 = load i8, ptr %enabled.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %fp_port_receive_iov.exit, label %if.end.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end.i, label %fp_port_receive_iov.exit
 
 if.end.i:                                         ; preds = %entry
   %world.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %2 = load ptr, ptr %world.i, align 8
+  %1 = load ptr, ptr %world.i, align 8
   %pport.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  %3 = load i32, ptr %pport.i, align 8
-  %call1.i = call i64 @world_ingress(ptr noundef %2, i32 noundef %3, ptr noundef nonnull %iov, i32 noundef 1) #9
+  %2 = load i32, ptr %pport.i, align 8
+  %call1.i = call i64 @world_ingress(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %iov, i32 noundef 1) #9
   br label %fp_port_receive_iov.exit
 
 fp_port_receive_iov.exit:                         ; preds = %entry, %if.end.i
@@ -411,16 +408,15 @@ entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #9
   %enabled = getelementptr inbounds i8, ptr %call, i64 36
   %0 = load i8, ptr %enabled, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %world = getelementptr inbounds i8, ptr %call, i64 8
-  %2 = load ptr, ptr %world, align 8
+  %1 = load ptr, ptr %world, align 8
   %pport = getelementptr inbounds i8, ptr %call, i64 32
-  %3 = load i32, ptr %pport, align 8
-  %call1 = tail call i64 @world_ingress(ptr noundef %2, i32 noundef %3, ptr noundef %iov, i32 noundef %iovcnt) #9
+  %2 = load i32, ptr %pport, align 8
+  %call1 = tail call i64 @world_ingress(ptr noundef %1, i32 noundef %2, ptr noundef %iov, i32 noundef %iovcnt) #9
   br label %return
 
 return:                                           ; preds = %entry, %if.end

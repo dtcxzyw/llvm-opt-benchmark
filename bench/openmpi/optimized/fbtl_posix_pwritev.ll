@@ -88,17 +88,17 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
 
 44:                                               ; preds = %40, %44
   %indvars.iv = phi i64 [ 0, %40 ], [ %indvars.iv.next, %44 ]
-  %.04770 = phi i64 [ %43, %40 ], [ %51, %44 ]
-  %.04869 = phi i64 [ 0, %40 ], [ %48, %44 ]
-  %.04968 = phi i64 [ 0, %40 ], [ %53, %44 ]
+  %.04769 = phi i64 [ %43, %40 ], [ %51, %44 ]
+  %.04868 = phi i64 [ 0, %40 ], [ %48, %44 ]
+  %.04967 = phi i64 [ 0, %40 ], [ %53, %44 ]
   %45 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %39, i64 %indvars.iv
   %46 = getelementptr inbounds i8, ptr %45, i64 16
   %47 = load i64, ptr %46, align 8
-  %48 = add i64 %47, %.04869
+  %48 = add i64 %47, %.04868
   %49 = getelementptr inbounds i8, ptr %45, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = ptrtoint ptr %50 to i64
-  %52 = sub i64 %.04968, %.04770
+  %52 = sub i64 %.04967, %.04769
   %53 = add i64 %52, %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -119,21 +119,20 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   %63 = icmp ugt i64 %61, %62
   %64 = load i64, ptr @mca_fbtl_posix_max_gap_size, align 8
   %65 = icmp ugt i64 %60, %64
-  %or.cond59 = select i1 %63, i1 true, i1 %65
-  br i1 %or.cond59, label %.critedge, label %66
+  %or.cond58 = select i1 %63, i1 true, i1 %65
+  br i1 %or.cond58, label %.critedge, label %66
 
 66:                                               ; preds = %59
   %67 = load i8, ptr @ompi_mpi_thread_multiple, align 1
-  %68 = and i8 %67, 1
-  %.not55 = icmp eq i8 %68, 0
-  br i1 %.not55, label %69, label %.critedge
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %.critedge, label %69
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds i8, ptr %0, i64 16
   %71 = load i32, ptr %70, align 8
   %72 = and i32 %71, 2048
-  %.not56 = icmp eq i32 %72, 0
-  br i1 %.not56, label %.critedge, label %162
+  %.not55 = icmp eq i32 %72, 0
+  br i1 %.not55, label %.critedge, label %162
 
 .critedge:                                        ; preds = %54, %59, %66, %69
   %73 = call noalias dereferenceable_or_null(1600) ptr @malloc(i64 noundef 1600) #11
@@ -267,7 +266,7 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %149, label %150, label %152
 
 150:                                              ; preds = %146
-  %151 = add nsw i64 %148, %.078111.i
+  %151 = add nuw nsw i64 %148, %.078111.i
   br label %158
 
 152:                                              ; preds = %146
@@ -307,11 +306,11 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   %169 = ptrtoint ptr %168 to i64
   %170 = call i32 @mca_fbtl_posix_lock(ptr noundef nonnull %2, ptr noundef nonnull %0, i32 noundef 1, i64 noundef %169, i64 noundef %166, i32 noundef 10, ptr noundef nonnull %3) #9
   %171 = icmp sgt i32 %170, 0
-  br i1 %171, label %172, label %.preheader.i60
+  br i1 %171, label %172, label %.preheader.i59
 
-.preheader.i60:                                   ; preds = %164
-  %.not.i61 = icmp eq i64 %166, 0
-  br i1 %.not.i61, label %mca_fbtl_posix_pwritev_single.exit, label %.lr.ph.i62
+.preheader.i59:                                   ; preds = %164
+  %.not.i60 = icmp eq i64 %166, 0
+  br i1 %.not.i60, label %mca_fbtl_posix_pwritev_single.exit, label %.lr.ph.i61
 
 172:                                              ; preds = %164
   %173 = tail call ptr @__errno_location() #10
@@ -320,13 +319,13 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.1, i32 noundef %170, ptr noundef %175) #9
   br label %mca_fbtl_posix_pwritev_single.exit
 
-176:                                              ; preds = %.lr.ph.i62
+176:                                              ; preds = %.lr.ph.i61
   %177 = add i64 %190, %.03135.i
   %178 = icmp ult i64 %177, %166
-  br i1 %178, label %.lr.ph.i62, label %mca_fbtl_posix_pwritev_single.exit, !llvm.loop !7
+  br i1 %178, label %.lr.ph.i61, label %mca_fbtl_posix_pwritev_single.exit, !llvm.loop !7
 
-.lr.ph.i62:                                       ; preds = %.preheader.i60, %176
-  %.03135.i = phi i64 [ %177, %176 ], [ 0, %.preheader.i60 ]
+.lr.ph.i61:                                       ; preds = %.preheader.i59, %176
+  %.03135.i = phi i64 [ %177, %176 ], [ 0, %.preheader.i59 ]
   %179 = load i32, ptr %0, align 8
   %180 = load ptr, ptr %4, align 8
   %181 = load ptr, ptr %180, align 8
@@ -342,23 +341,23 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   %191 = icmp eq i64 %190, -1
   br i1 %191, label %192, label %176
 
-192:                                              ; preds = %.lr.ph.i62
+192:                                              ; preds = %.lr.ph.i61
   %193 = tail call ptr @__errno_location() #10
   %194 = load i32, ptr %193, align 4
   %195 = call ptr @strerror(i32 noundef %194) #9
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %195) #9
   br label %mca_fbtl_posix_pwritev_single.exit
 
-mca_fbtl_posix_pwritev_single.exit:               ; preds = %176, %.preheader.i60, %172, %192
-  %.0.i = phi i64 [ -1, %172 ], [ -1, %192 ], [ 0, %.preheader.i60 ], [ %177, %176 ]
+mca_fbtl_posix_pwritev_single.exit:               ; preds = %176, %.preheader.i59, %172, %192
+  %.0.i = phi i64 [ -1, %172 ], [ -1, %192 ], [ 0, %.preheader.i59 ], [ %177, %176 ]
   call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #9
   br label %mca_fbtl_posix_pwritev_generic.exit
 
 mca_fbtl_posix_pwritev_generic.exit:              ; preds = %._crit_edge.i, %154, %142, %102, %75, %162, %mca_fbtl_posix_pwritev_single.exit
   %.052 = phi i64 [ %163, %162 ], [ %.0.i, %mca_fbtl_posix_pwritev_single.exit ], [ -2, %75 ], [ -2, %102 ], [ -1, %142 ], [ -1, %154 ], [ %.280.i, %._crit_edge.i ]
   %196 = load i32, ptr %8, align 4
-  %.not57 = icmp eq i32 %196, 0
-  br i1 %.not57, label %198, label %197
+  %.not56 = icmp eq i32 %196, 0
+  br i1 %.not56, label %198, label %197
 
 197:                                              ; preds = %mca_fbtl_posix_pwritev_generic.exit
   call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #9

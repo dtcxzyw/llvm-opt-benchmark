@@ -2011,7 +2011,7 @@ entry:
   br i1 %cmp26, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %for.end
-  %bReturnValue.029 = phi i8 [ %bReturnValue.2, %for.end ], [ 1, %entry ]
+  %bReturnValue.029 = phi i1 [ %bReturnValue.2, %for.end ], [ true, %entry ]
   %pASCIIArray.addr.028 = phi ptr [ %incdec.ptr, %for.end ], [ %pASCIIArray, %entry ]
   %pBinaryData8.027 = phi ptr [ %incdec.ptr37, %for.end ], [ %pBinaryData, %entry ]
   store i8 0, ptr %pBinaryData8.027, align 1
@@ -2019,7 +2019,7 @@ while.body:                                       ; preds = %entry, %for.end
 
 for.body:                                         ; preds = %while.body, %if.end31
   %j.025 = phi i32 [ 4, %while.body ], [ %sub36, %if.end31 ]
-  %bReturnValue.124 = phi i8 [ %bReturnValue.029, %while.body ], [ %bReturnValue.2, %if.end31 ]
+  %bReturnValue.124 = phi i1 [ %bReturnValue.029, %while.body ], [ %bReturnValue.2, %if.end31 ]
   %pASCIIArray.addr.123 = phi ptr [ %pASCIIArray.addr.028, %while.body ], [ %incdec.ptr, %if.end31 ]
   %conv352122 = phi i8 [ 0, %while.body ], [ %conv35, %if.end31 ]
   %0 = load i8, ptr %pASCIIArray.addr.123, align 1
@@ -2035,7 +2035,7 @@ if.then5:                                         ; preds = %if.else
   %or.cond = icmp ult i8 %1, 6
   %narrow = add nsw i8 %0, -39
   %spec.select19 = select i1 %or.cond, i8 %narrow, i8 48
-  %spec.select20 = select i1 %or.cond, i8 %bReturnValue.124, i8 0
+  %spec.select20 = select i1 %or.cond, i1 %bReturnValue.124, i1 false
   br label %if.end31
 
 if.else14:                                        ; preds = %if.else
@@ -2051,7 +2051,7 @@ if.else21:                                        ; preds = %if.else14
 
 if.end31:                                         ; preds = %if.then5, %if.else21, %if.else14, %for.body
   %cTemp.0 = phi i8 [ 48, %for.body ], [ 48, %if.else14 ], [ %spec.select, %if.else21 ], [ %spec.select19, %if.then5 ]
-  %bReturnValue.2 = phi i8 [ 0, %for.body ], [ 0, %if.else14 ], [ %bReturnValue.124, %if.else21 ], [ %spec.select20, %if.then5 ]
+  %bReturnValue.2 = phi i1 [ false, %for.body ], [ false, %if.else14 ], [ %bReturnValue.124, %if.else21 ], [ %spec.select20, %if.then5 ]
   %conv33 = zext nneg i8 %cTemp.0 to i32
   %sub34 = add nuw nsw i32 %conv33, 208
   %shl = shl i32 %sub34, %j.025
@@ -2066,15 +2066,10 @@ if.end31:                                         ; preds = %if.then5, %if.else2
 for.end:                                          ; preds = %if.end31
   %incdec.ptr37 = getelementptr inbounds i8, ptr %pBinaryData8.027, i64 1
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp, label %while.body, label %while.end.loopexit, !llvm.loop !30
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !30
 
-while.end.loopexit:                               ; preds = %for.end
-  %4 = and i8 %bReturnValue.2, 1
-  %5 = icmp ne i8 %4, 0
-  br label %while.end
-
-while.end:                                        ; preds = %while.end.loopexit, %entry
-  %bReturnValue.0.lcssa = phi i1 [ true, %entry ], [ %5, %while.end.loopexit ]
+while.end:                                        ; preds = %for.end, %entry
+  %bReturnValue.0.lcssa = phi i1 [ true, %entry ], [ %bReturnValue.2, %for.end ]
   ret i1 %bReturnValue.0.lcssa
 }
 
@@ -2086,7 +2081,7 @@ entry:
   br i1 %cmp26, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %for.end
-  %bReturnValue.029 = phi i8 [ %bReturnValue.2, %for.end ], [ 1, %entry ]
+  %bReturnValue.029 = phi i1 [ %bReturnValue.2, %for.end ], [ true, %entry ]
   %pASCIIArray.addr.028 = phi ptr [ %incdec.ptr, %for.end ], [ %pASCIIArray, %entry ]
   %pBinaryData8.027 = phi ptr [ %incdec.ptr37, %for.end ], [ %pBinaryData, %entry ]
   store i8 0, ptr %pBinaryData8.027, align 1
@@ -2094,7 +2089,7 @@ while.body:                                       ; preds = %entry, %for.end
 
 for.body:                                         ; preds = %while.body, %if.end31
   %j.025 = phi i32 [ 4, %while.body ], [ %sub36, %if.end31 ]
-  %bReturnValue.124 = phi i8 [ %bReturnValue.029, %while.body ], [ %bReturnValue.2, %if.end31 ]
+  %bReturnValue.124 = phi i1 [ %bReturnValue.029, %while.body ], [ %bReturnValue.2, %if.end31 ]
   %pASCIIArray.addr.123 = phi ptr [ %pASCIIArray.addr.028, %while.body ], [ %incdec.ptr, %if.end31 ]
   %conv352122 = phi i8 [ 0, %while.body ], [ %conv35, %if.end31 ]
   %0 = load i16, ptr %pASCIIArray.addr.123, align 2
@@ -2110,7 +2105,7 @@ if.then5:                                         ; preds = %if.else
   %or.cond = icmp ult i16 %1, 6
   %sub = add nsw i16 %0, -39
   %spec.select19 = select i1 %or.cond, i16 %sub, i16 48
-  %spec.select20 = select i1 %or.cond, i8 %bReturnValue.124, i8 0
+  %spec.select20 = select i1 %or.cond, i1 %bReturnValue.124, i1 false
   br label %if.end31
 
 if.else14:                                        ; preds = %if.else
@@ -2126,7 +2121,7 @@ if.else21:                                        ; preds = %if.else14
 
 if.end31:                                         ; preds = %if.then5, %if.else21, %if.else14, %for.body
   %cTemp.0 = phi i16 [ 48, %for.body ], [ 48, %if.else14 ], [ %spec.select, %if.else21 ], [ %spec.select19, %if.then5 ]
-  %bReturnValue.2 = phi i8 [ 0, %for.body ], [ 0, %if.else14 ], [ %bReturnValue.124, %if.else21 ], [ %spec.select20, %if.then5 ]
+  %bReturnValue.2 = phi i1 [ false, %for.body ], [ false, %if.else14 ], [ %bReturnValue.124, %if.else21 ], [ %spec.select20, %if.then5 ]
   %conv33 = zext i16 %cTemp.0 to i32
   %sub34 = add nuw nsw i32 %conv33, 208
   %shl = shl i32 %sub34, %j.025
@@ -2141,15 +2136,10 @@ if.end31:                                         ; preds = %if.then5, %if.else2
 for.end:                                          ; preds = %if.end31
   %incdec.ptr37 = getelementptr inbounds i8, ptr %pBinaryData8.027, i64 1
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp, label %while.body, label %while.end.loopexit, !llvm.loop !32
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !32
 
-while.end.loopexit:                               ; preds = %for.end
-  %4 = and i8 %bReturnValue.2, 1
-  %5 = icmp ne i8 %4, 0
-  br label %while.end
-
-while.end:                                        ; preds = %while.end.loopexit, %entry
-  %bReturnValue.0.lcssa = phi i1 [ true, %entry ], [ %5, %while.end.loopexit ]
+while.end:                                        ; preds = %for.end, %entry
+  %bReturnValue.0.lcssa = phi i1 [ true, %entry ], [ %bReturnValue.2, %for.end ]
   ret i1 %bReturnValue.0.lcssa
 }
 
@@ -2161,7 +2151,7 @@ entry:
   br i1 %cmp26, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %for.end
-  %bReturnValue.029 = phi i8 [ %bReturnValue.2, %for.end ], [ 1, %entry ]
+  %bReturnValue.029 = phi i1 [ %bReturnValue.2, %for.end ], [ true, %entry ]
   %pASCIIArray.addr.028 = phi ptr [ %incdec.ptr, %for.end ], [ %pASCIIArray, %entry ]
   %pBinaryData8.027 = phi ptr [ %incdec.ptr25, %for.end ], [ %pBinaryData, %entry ]
   store i8 0, ptr %pBinaryData8.027, align 1
@@ -2169,7 +2159,7 @@ while.body:                                       ; preds = %entry, %for.end
 
 for.body:                                         ; preds = %while.body, %if.end21
   %j.025 = phi i32 [ 4, %while.body ], [ %sub24, %if.end21 ]
-  %bReturnValue.124 = phi i8 [ %bReturnValue.029, %while.body ], [ %bReturnValue.2, %if.end21 ]
+  %bReturnValue.124 = phi i1 [ %bReturnValue.029, %while.body ], [ %bReturnValue.2, %if.end21 ]
   %pASCIIArray.addr.123 = phi ptr [ %pASCIIArray.addr.028, %while.body ], [ %incdec.ptr, %if.end21 ]
   %conv232122 = phi i8 [ 0, %while.body ], [ %conv23, %if.end21 ]
   %0 = load i32, ptr %pASCIIArray.addr.123, align 4
@@ -2185,7 +2175,7 @@ if.then4:                                         ; preds = %if.else
   %or.cond = icmp ult i32 %1, 6
   %sub = add nsw i32 %0, -39
   %spec.select19 = select i1 %or.cond, i32 %sub, i32 48
-  %spec.select20 = select i1 %or.cond, i8 %bReturnValue.124, i8 0
+  %spec.select20 = select i1 %or.cond, i1 %bReturnValue.124, i1 false
   br label %if.end21
 
 if.else9:                                         ; preds = %if.else
@@ -2201,7 +2191,7 @@ if.else14:                                        ; preds = %if.else9
 
 if.end21:                                         ; preds = %if.then4, %if.else14, %if.else9, %for.body
   %cTemp.0 = phi i32 [ 48, %for.body ], [ 48, %if.else9 ], [ %spec.select, %if.else14 ], [ %spec.select19, %if.then4 ]
-  %bReturnValue.2 = phi i8 [ 0, %for.body ], [ 0, %if.else9 ], [ %bReturnValue.124, %if.else14 ], [ %spec.select20, %if.then4 ]
+  %bReturnValue.2 = phi i1 [ false, %for.body ], [ false, %if.else9 ], [ %bReturnValue.124, %if.else14 ], [ %spec.select20, %if.then4 ]
   %sub22 = add i32 %cTemp.0, 208
   %shl = shl i32 %sub22, %j.025
   %3 = trunc i32 %shl to i8
@@ -2215,15 +2205,10 @@ if.end21:                                         ; preds = %if.then4, %if.else1
 for.end:                                          ; preds = %if.end21
   %incdec.ptr25 = getelementptr inbounds i8, ptr %pBinaryData8.027, i64 1
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp, label %while.body, label %while.end.loopexit, !llvm.loop !34
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !34
 
-while.end.loopexit:                               ; preds = %for.end
-  %4 = and i8 %bReturnValue.2, 1
-  %5 = icmp ne i8 %4, 0
-  br label %while.end
-
-while.end:                                        ; preds = %while.end.loopexit, %entry
-  %bReturnValue.0.lcssa = phi i1 [ true, %entry ], [ %5, %while.end.loopexit ]
+while.end:                                        ; preds = %for.end, %entry
+  %bReturnValue.0.lcssa = phi i1 [ true, %entry ], [ %bReturnValue.2, %for.end ]
   ret i1 %bReturnValue.0.lcssa
 }
 
@@ -2553,7 +2538,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end22.us
   %i.022.us = phi i64 [ %inc30.us, %if.end22.us ], [ 0, %for.body.lr.ph ]
-  %bReadToken.021.us = phi i8 [ %bReadToken.1.us, %if.end22.us ], [ 0, %for.body.lr.ph ]
+  %bReadToken.021.us = phi i1 [ %bReadToken.1.us, %if.end22.us ], [ false, %for.body.lr.ph ]
   %bFoundToken.020.us = phi i8 [ %bFoundToken.1.us, %if.end22.us ], [ 0, %for.body.lr.ph ]
   %nTokenIndex.019.us = phi i64 [ %nTokenIndex.1.us, %if.end22.us ], [ 0, %for.body.lr.ph ]
   %pSource.addr.018.us = phi ptr [ %incdec.ptr27.us, %if.end22.us ], [ %pSource, %for.body.lr.ph ]
@@ -2567,9 +2552,7 @@ if.then5.us:                                      ; preds = %for.body.us
   br i1 %cmp8.not.us, label %if.else18.us, label %if.then9.us
 
 if.then9.us:                                      ; preds = %if.then5.us
-  %1 = and i8 %bReadToken.021.us, 1
-  %tobool10.not.us = icmp eq i8 %1, 0
-  br i1 %tobool10.not.us, label %if.else.us, label %return
+  br i1 %bReadToken.021.us, label %return, label %if.else.us
 
 if.else.us:                                       ; preds = %if.then9.us
   %tobool12.not.us = icmp eq ptr %pToken.addr.017.us, null
@@ -2587,16 +2570,15 @@ if.then15.us:                                     ; preds = %land.lhs.true13.us
   br label %if.end22.us
 
 if.else18.us:                                     ; preds = %if.then5.us
-  %2 = and i8 %bFoundToken.020.us, 1
-  %tobool19.not.us = icmp eq i8 %2, 0
-  %spec.select.us = select i1 %tobool19.not.us, i8 %bReadToken.021.us, i8 1
+  %tobool19.us = trunc i8 %bFoundToken.020.us to i1
+  %spec.select.us = select i1 %tobool19.us, i1 true, i1 %bReadToken.021.us
   br label %if.end22.us
 
 if.end22.us:                                      ; preds = %if.else18.us, %if.then15.us, %land.lhs.true13.us, %if.else.us
   %pToken.addr.1.us = phi ptr [ %incdec.ptr.us, %if.then15.us ], [ %pToken.addr.017.us, %land.lhs.true13.us ], [ null, %if.else.us ], [ %pToken.addr.017.us, %if.else18.us ]
   %nTokenIndex.1.us = phi i64 [ %add.us, %if.then15.us ], [ %nTokenIndex.019.us, %land.lhs.true13.us ], [ %nTokenIndex.019.us, %if.else.us ], [ %nTokenIndex.019.us, %if.else18.us ]
   %bFoundToken.1.us = phi i8 [ 1, %if.then15.us ], [ 1, %land.lhs.true13.us ], [ 1, %if.else.us ], [ %bFoundToken.020.us, %if.else18.us ]
-  %bReadToken.1.us = phi i8 [ %bReadToken.021.us, %if.then15.us ], [ %bReadToken.021.us, %land.lhs.true13.us ], [ %bReadToken.021.us, %if.else.us ], [ %spec.select.us, %if.else18.us ]
+  %bReadToken.1.us = phi i1 [ false, %if.then15.us ], [ false, %land.lhs.true13.us ], [ false, %if.else.us ], [ %spec.select.us, %if.else18.us ]
   %incdec.ptr27.us = getelementptr inbounds i8, ptr %pSource.addr.018.us, i64 1
   %inc30.us = add nuw i64 %i.022.us, 1
   %exitcond28.not = icmp eq i64 %inc30.us, %nSourceLength
@@ -2604,23 +2586,21 @@ if.end22.us:                                      ; preds = %if.else18.us, %if.t
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end22
   %i.022 = phi i64 [ %inc30, %if.end22 ], [ 0, %for.body.lr.ph ]
-  %bReadToken.021 = phi i8 [ %bReadToken.1, %if.end22 ], [ 0, %for.body.lr.ph ]
+  %bReadToken.021 = phi i1 [ %bReadToken.1, %if.end22 ], [ false, %for.body.lr.ph ]
   %bFoundToken.020 = phi i8 [ %bFoundToken.1, %if.end22 ], [ 0, %for.body.lr.ph ]
   %nTokenIndex.019 = phi i64 [ %nTokenIndex.1, %if.end22 ], [ 0, %for.body.lr.ph ]
   %pSource.addr.018 = phi ptr [ %incdec.ptr27, %if.end22 ], [ %pSource, %for.body.lr.ph ]
   %pToken.addr.017 = phi ptr [ %pToken.addr.1, %if.end22 ], [ %pToken, %for.body.lr.ph ]
-  %3 = load i8, ptr %pSource.addr.018, align 1
-  %cmp4.not = icmp eq i8 %3, 0
+  %1 = load i8, ptr %pSource.addr.018, align 1
+  %cmp4.not = icmp eq i8 %1, 0
   br i1 %cmp4.not, label %for.end, label %if.then5
 
 if.then5:                                         ; preds = %for.body
-  %cmp8.not = icmp eq i8 %3, %c
+  %cmp8.not = icmp eq i8 %1, %c
   br i1 %cmp8.not, label %if.else18, label %if.then9
 
 if.then9:                                         ; preds = %if.then5
-  %4 = and i8 %bReadToken.021, 1
-  %tobool10.not = icmp eq i8 %4, 0
-  br i1 %tobool10.not, label %if.else, label %return
+  br i1 %bReadToken.021, label %return, label %if.else
 
 if.else:                                          ; preds = %if.then9
   %tobool12.not = icmp eq ptr %pToken.addr.017, null
@@ -2632,24 +2612,23 @@ land.lhs.true13:                                  ; preds = %if.else
   br i1 %cmp14, label %if.then15, label %if.end22
 
 if.then15:                                        ; preds = %land.lhs.true13
-  store i8 %3, ptr %pToken.addr.017, align 1
+  store i8 %1, ptr %pToken.addr.017, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %pToken.addr.017, i64 1
   store i8 0, ptr %incdec.ptr, align 1
   br label %if.end22
 
 if.else18:                                        ; preds = %if.then5
-  %5 = and i8 %bFoundToken.020, 1
-  %tobool19.not = icmp eq i8 %5, 0
-  %spec.select = select i1 %tobool19.not, i8 %bReadToken.021, i8 1
+  %tobool19 = trunc i8 %bFoundToken.020 to i1
+  %spec.select = select i1 %tobool19, i1 true, i1 %bReadToken.021
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else18, %if.then15, %land.lhs.true13, %if.else
   %pToken.addr.1 = phi ptr [ %incdec.ptr, %if.then15 ], [ %pToken.addr.017, %land.lhs.true13 ], [ null, %if.else ], [ %pToken.addr.017, %if.else18 ]
   %nTokenIndex.1 = phi i64 [ %add, %if.then15 ], [ %nTokenIndex.019, %land.lhs.true13 ], [ %nTokenIndex.019, %if.else ], [ %nTokenIndex.019, %if.else18 ]
   %bFoundToken.1 = phi i8 [ 1, %if.then15 ], [ 1, %land.lhs.true13 ], [ 1, %if.else ], [ %bFoundToken.020, %if.else18 ]
-  %bReadToken.1 = phi i8 [ %bReadToken.021, %if.then15 ], [ %bReadToken.021, %land.lhs.true13 ], [ %bReadToken.021, %if.else ], [ %spec.select, %if.else18 ]
-  %6 = load ptr, ptr %ppNewSource, align 8
-  %incdec.ptr25 = getelementptr inbounds i8, ptr %6, i64 1
+  %bReadToken.1 = phi i1 [ false, %if.then15 ], [ false, %land.lhs.true13 ], [ false, %if.else ], [ %spec.select, %if.else18 ]
+  %2 = load ptr, ptr %ppNewSource, align 8
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %2, i64 1
   store ptr %incdec.ptr25, ptr %ppNewSource, align 8
   %incdec.ptr27 = getelementptr inbounds i8, ptr %pSource.addr.018, i64 1
   %inc30 = add nuw i64 %i.022, 1
@@ -2658,8 +2637,7 @@ if.end22:                                         ; preds = %if.else18, %if.then
 
 for.end:                                          ; preds = %if.end22, %for.body, %if.end22.us, %for.body.us, %for.cond.preheader
   %bFoundToken.0.lcssa = phi i8 [ 0, %for.cond.preheader ], [ %bFoundToken.020.us, %for.body.us ], [ %bFoundToken.1.us, %if.end22.us ], [ %bFoundToken.020, %for.body ], [ %bFoundToken.1, %if.end22 ]
-  %7 = and i8 %bFoundToken.0.lcssa, 1
-  %tobool31 = icmp ne i8 %7, 0
+  %tobool31 = trunc i8 %bFoundToken.0.lcssa to i1
   br label %return
 
 return:                                           ; preds = %if.then9, %if.then9.us, %if.end, %for.end
@@ -2693,7 +2671,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end22.us
   %i.022.us = phi i64 [ %inc30.us, %if.end22.us ], [ 0, %for.body.lr.ph ]
-  %bReadToken.021.us = phi i8 [ %bReadToken.1.us, %if.end22.us ], [ 0, %for.body.lr.ph ]
+  %bReadToken.021.us = phi i1 [ %bReadToken.1.us, %if.end22.us ], [ false, %for.body.lr.ph ]
   %bFoundToken.020.us = phi i8 [ %bFoundToken.1.us, %if.end22.us ], [ 0, %for.body.lr.ph ]
   %nTokenIndex.019.us = phi i64 [ %nTokenIndex.1.us, %if.end22.us ], [ 0, %for.body.lr.ph ]
   %pSource.addr.018.us = phi ptr [ %incdec.ptr27.us, %if.end22.us ], [ %pSource, %for.body.lr.ph ]
@@ -2707,9 +2685,7 @@ if.then5.us:                                      ; preds = %for.body.us
   br i1 %cmp8.not.us, label %if.else18.us, label %if.then9.us
 
 if.then9.us:                                      ; preds = %if.then5.us
-  %1 = and i8 %bReadToken.021.us, 1
-  %tobool10.not.us = icmp eq i8 %1, 0
-  br i1 %tobool10.not.us, label %if.else.us, label %return
+  br i1 %bReadToken.021.us, label %return, label %if.else.us
 
 if.else.us:                                       ; preds = %if.then9.us
   %tobool12.not.us = icmp eq ptr %pToken.addr.017.us, null
@@ -2727,16 +2703,15 @@ if.then15.us:                                     ; preds = %land.lhs.true13.us
   br label %if.end22.us
 
 if.else18.us:                                     ; preds = %if.then5.us
-  %2 = and i8 %bFoundToken.020.us, 1
-  %tobool19.not.us = icmp eq i8 %2, 0
-  %spec.select.us = select i1 %tobool19.not.us, i8 %bReadToken.021.us, i8 1
+  %tobool19.us = trunc i8 %bFoundToken.020.us to i1
+  %spec.select.us = select i1 %tobool19.us, i1 true, i1 %bReadToken.021.us
   br label %if.end22.us
 
 if.end22.us:                                      ; preds = %if.else18.us, %if.then15.us, %land.lhs.true13.us, %if.else.us
   %pToken.addr.1.us = phi ptr [ %incdec.ptr.us, %if.then15.us ], [ %pToken.addr.017.us, %land.lhs.true13.us ], [ null, %if.else.us ], [ %pToken.addr.017.us, %if.else18.us ]
   %nTokenIndex.1.us = phi i64 [ %add.us, %if.then15.us ], [ %nTokenIndex.019.us, %land.lhs.true13.us ], [ %nTokenIndex.019.us, %if.else.us ], [ %nTokenIndex.019.us, %if.else18.us ]
   %bFoundToken.1.us = phi i8 [ 1, %if.then15.us ], [ 1, %land.lhs.true13.us ], [ 1, %if.else.us ], [ %bFoundToken.020.us, %if.else18.us ]
-  %bReadToken.1.us = phi i8 [ %bReadToken.021.us, %if.then15.us ], [ %bReadToken.021.us, %land.lhs.true13.us ], [ %bReadToken.021.us, %if.else.us ], [ %spec.select.us, %if.else18.us ]
+  %bReadToken.1.us = phi i1 [ false, %if.then15.us ], [ false, %land.lhs.true13.us ], [ false, %if.else.us ], [ %spec.select.us, %if.else18.us ]
   %incdec.ptr27.us = getelementptr inbounds i8, ptr %pSource.addr.018.us, i64 2
   %inc30.us = add nuw i64 %i.022.us, 1
   %exitcond28.not = icmp eq i64 %inc30.us, %nSourceLength
@@ -2744,23 +2719,21 @@ if.end22.us:                                      ; preds = %if.else18.us, %if.t
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end22
   %i.022 = phi i64 [ %inc30, %if.end22 ], [ 0, %for.body.lr.ph ]
-  %bReadToken.021 = phi i8 [ %bReadToken.1, %if.end22 ], [ 0, %for.body.lr.ph ]
+  %bReadToken.021 = phi i1 [ %bReadToken.1, %if.end22 ], [ false, %for.body.lr.ph ]
   %bFoundToken.020 = phi i8 [ %bFoundToken.1, %if.end22 ], [ 0, %for.body.lr.ph ]
   %nTokenIndex.019 = phi i64 [ %nTokenIndex.1, %if.end22 ], [ 0, %for.body.lr.ph ]
   %pSource.addr.018 = phi ptr [ %incdec.ptr27, %if.end22 ], [ %pSource, %for.body.lr.ph ]
   %pToken.addr.017 = phi ptr [ %pToken.addr.1, %if.end22 ], [ %pToken, %for.body.lr.ph ]
-  %3 = load i16, ptr %pSource.addr.018, align 2
-  %cmp4.not = icmp eq i16 %3, 0
+  %1 = load i16, ptr %pSource.addr.018, align 2
+  %cmp4.not = icmp eq i16 %1, 0
   br i1 %cmp4.not, label %for.end, label %if.then5
 
 if.then5:                                         ; preds = %for.body
-  %cmp8.not = icmp eq i16 %3, %c
+  %cmp8.not = icmp eq i16 %1, %c
   br i1 %cmp8.not, label %if.else18, label %if.then9
 
 if.then9:                                         ; preds = %if.then5
-  %4 = and i8 %bReadToken.021, 1
-  %tobool10.not = icmp eq i8 %4, 0
-  br i1 %tobool10.not, label %if.else, label %return
+  br i1 %bReadToken.021, label %return, label %if.else
 
 if.else:                                          ; preds = %if.then9
   %tobool12.not = icmp eq ptr %pToken.addr.017, null
@@ -2772,24 +2745,23 @@ land.lhs.true13:                                  ; preds = %if.else
   br i1 %cmp14, label %if.then15, label %if.end22
 
 if.then15:                                        ; preds = %land.lhs.true13
-  store i16 %3, ptr %pToken.addr.017, align 2
+  store i16 %1, ptr %pToken.addr.017, align 2
   %incdec.ptr = getelementptr inbounds i8, ptr %pToken.addr.017, i64 2
   store i16 0, ptr %incdec.ptr, align 2
   br label %if.end22
 
 if.else18:                                        ; preds = %if.then5
-  %5 = and i8 %bFoundToken.020, 1
-  %tobool19.not = icmp eq i8 %5, 0
-  %spec.select = select i1 %tobool19.not, i8 %bReadToken.021, i8 1
+  %tobool19 = trunc i8 %bFoundToken.020 to i1
+  %spec.select = select i1 %tobool19, i1 true, i1 %bReadToken.021
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else18, %if.then15, %land.lhs.true13, %if.else
   %pToken.addr.1 = phi ptr [ %incdec.ptr, %if.then15 ], [ %pToken.addr.017, %land.lhs.true13 ], [ null, %if.else ], [ %pToken.addr.017, %if.else18 ]
   %nTokenIndex.1 = phi i64 [ %add, %if.then15 ], [ %nTokenIndex.019, %land.lhs.true13 ], [ %nTokenIndex.019, %if.else ], [ %nTokenIndex.019, %if.else18 ]
   %bFoundToken.1 = phi i8 [ 1, %if.then15 ], [ 1, %land.lhs.true13 ], [ 1, %if.else ], [ %bFoundToken.020, %if.else18 ]
-  %bReadToken.1 = phi i8 [ %bReadToken.021, %if.then15 ], [ %bReadToken.021, %land.lhs.true13 ], [ %bReadToken.021, %if.else ], [ %spec.select, %if.else18 ]
-  %6 = load ptr, ptr %ppNewSource, align 8
-  %incdec.ptr25 = getelementptr inbounds i8, ptr %6, i64 2
+  %bReadToken.1 = phi i1 [ false, %if.then15 ], [ false, %land.lhs.true13 ], [ false, %if.else ], [ %spec.select, %if.else18 ]
+  %2 = load ptr, ptr %ppNewSource, align 8
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %2, i64 2
   store ptr %incdec.ptr25, ptr %ppNewSource, align 8
   %incdec.ptr27 = getelementptr inbounds i8, ptr %pSource.addr.018, i64 2
   %inc30 = add nuw i64 %i.022, 1
@@ -2798,8 +2770,7 @@ if.end22:                                         ; preds = %if.else18, %if.then
 
 for.end:                                          ; preds = %if.end22, %for.body, %if.end22.us, %for.body.us, %for.cond.preheader
   %bFoundToken.0.lcssa = phi i8 [ 0, %for.cond.preheader ], [ %bFoundToken.020.us, %for.body.us ], [ %bFoundToken.1.us, %if.end22.us ], [ %bFoundToken.020, %for.body ], [ %bFoundToken.1, %if.end22 ]
-  %7 = and i8 %bFoundToken.0.lcssa, 1
-  %tobool31 = icmp ne i8 %7, 0
+  %tobool31 = trunc i8 %bFoundToken.0.lcssa to i1
   br label %return
 
 return:                                           ; preds = %if.then9, %if.then9.us, %if.end, %for.end
@@ -2833,7 +2804,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end20.us
   %i.022.us = phi i64 [ %inc28.us, %if.end20.us ], [ 0, %for.body.lr.ph ]
-  %bReadToken.021.us = phi i8 [ %bReadToken.1.us, %if.end20.us ], [ 0, %for.body.lr.ph ]
+  %bReadToken.021.us = phi i1 [ %bReadToken.1.us, %if.end20.us ], [ false, %for.body.lr.ph ]
   %bFoundToken.020.us = phi i8 [ %bFoundToken.1.us, %if.end20.us ], [ 0, %for.body.lr.ph ]
   %nTokenIndex.019.us = phi i64 [ %nTokenIndex.1.us, %if.end20.us ], [ 0, %for.body.lr.ph ]
   %pSource.addr.018.us = phi ptr [ %incdec.ptr25.us, %if.end20.us ], [ %pSource, %for.body.lr.ph ]
@@ -2847,9 +2818,7 @@ if.then5.us:                                      ; preds = %for.body.us
   br i1 %cmp6.not.us, label %if.else16.us, label %if.then7.us
 
 if.then7.us:                                      ; preds = %if.then5.us
-  %1 = and i8 %bReadToken.021.us, 1
-  %tobool8.not.us = icmp eq i8 %1, 0
-  br i1 %tobool8.not.us, label %if.else.us, label %return
+  br i1 %bReadToken.021.us, label %return, label %if.else.us
 
 if.else.us:                                       ; preds = %if.then7.us
   %tobool10.not.us = icmp eq ptr %pToken.addr.017.us, null
@@ -2867,16 +2836,15 @@ if.then13.us:                                     ; preds = %land.lhs.true11.us
   br label %if.end20.us
 
 if.else16.us:                                     ; preds = %if.then5.us
-  %2 = and i8 %bFoundToken.020.us, 1
-  %tobool17.not.us = icmp eq i8 %2, 0
-  %spec.select.us = select i1 %tobool17.not.us, i8 %bReadToken.021.us, i8 1
+  %tobool17.us = trunc i8 %bFoundToken.020.us to i1
+  %spec.select.us = select i1 %tobool17.us, i1 true, i1 %bReadToken.021.us
   br label %if.end20.us
 
 if.end20.us:                                      ; preds = %if.else16.us, %if.then13.us, %land.lhs.true11.us, %if.else.us
   %pToken.addr.1.us = phi ptr [ %incdec.ptr.us, %if.then13.us ], [ %pToken.addr.017.us, %land.lhs.true11.us ], [ null, %if.else.us ], [ %pToken.addr.017.us, %if.else16.us ]
   %nTokenIndex.1.us = phi i64 [ %add.us, %if.then13.us ], [ %nTokenIndex.019.us, %land.lhs.true11.us ], [ %nTokenIndex.019.us, %if.else.us ], [ %nTokenIndex.019.us, %if.else16.us ]
   %bFoundToken.1.us = phi i8 [ 1, %if.then13.us ], [ 1, %land.lhs.true11.us ], [ 1, %if.else.us ], [ %bFoundToken.020.us, %if.else16.us ]
-  %bReadToken.1.us = phi i8 [ %bReadToken.021.us, %if.then13.us ], [ %bReadToken.021.us, %land.lhs.true11.us ], [ %bReadToken.021.us, %if.else.us ], [ %spec.select.us, %if.else16.us ]
+  %bReadToken.1.us = phi i1 [ false, %if.then13.us ], [ false, %land.lhs.true11.us ], [ false, %if.else.us ], [ %spec.select.us, %if.else16.us ]
   %incdec.ptr25.us = getelementptr inbounds i8, ptr %pSource.addr.018.us, i64 4
   %inc28.us = add nuw i64 %i.022.us, 1
   %exitcond28.not = icmp eq i64 %inc28.us, %nSourceLength
@@ -2884,23 +2852,21 @@ if.end20.us:                                      ; preds = %if.else16.us, %if.t
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end20
   %i.022 = phi i64 [ %inc28, %if.end20 ], [ 0, %for.body.lr.ph ]
-  %bReadToken.021 = phi i8 [ %bReadToken.1, %if.end20 ], [ 0, %for.body.lr.ph ]
+  %bReadToken.021 = phi i1 [ %bReadToken.1, %if.end20 ], [ false, %for.body.lr.ph ]
   %bFoundToken.020 = phi i8 [ %bFoundToken.1, %if.end20 ], [ 0, %for.body.lr.ph ]
   %nTokenIndex.019 = phi i64 [ %nTokenIndex.1, %if.end20 ], [ 0, %for.body.lr.ph ]
   %pSource.addr.018 = phi ptr [ %incdec.ptr25, %if.end20 ], [ %pSource, %for.body.lr.ph ]
   %pToken.addr.017 = phi ptr [ %pToken.addr.1, %if.end20 ], [ %pToken, %for.body.lr.ph ]
-  %3 = load i32, ptr %pSource.addr.018, align 4
-  %cmp4.not = icmp eq i32 %3, 0
+  %1 = load i32, ptr %pSource.addr.018, align 4
+  %cmp4.not = icmp eq i32 %1, 0
   br i1 %cmp4.not, label %for.end, label %if.then5
 
 if.then5:                                         ; preds = %for.body
-  %cmp6.not = icmp eq i32 %3, %c
+  %cmp6.not = icmp eq i32 %1, %c
   br i1 %cmp6.not, label %if.else16, label %if.then7
 
 if.then7:                                         ; preds = %if.then5
-  %4 = and i8 %bReadToken.021, 1
-  %tobool8.not = icmp eq i8 %4, 0
-  br i1 %tobool8.not, label %if.else, label %return
+  br i1 %bReadToken.021, label %return, label %if.else
 
 if.else:                                          ; preds = %if.then7
   %tobool10.not = icmp eq ptr %pToken.addr.017, null
@@ -2912,24 +2878,23 @@ land.lhs.true11:                                  ; preds = %if.else
   br i1 %cmp12, label %if.then13, label %if.end20
 
 if.then13:                                        ; preds = %land.lhs.true11
-  store i32 %3, ptr %pToken.addr.017, align 4
+  store i32 %1, ptr %pToken.addr.017, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %pToken.addr.017, i64 4
   store i32 0, ptr %incdec.ptr, align 4
   br label %if.end20
 
 if.else16:                                        ; preds = %if.then5
-  %5 = and i8 %bFoundToken.020, 1
-  %tobool17.not = icmp eq i8 %5, 0
-  %spec.select = select i1 %tobool17.not, i8 %bReadToken.021, i8 1
+  %tobool17 = trunc i8 %bFoundToken.020 to i1
+  %spec.select = select i1 %tobool17, i1 true, i1 %bReadToken.021
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else16, %if.then13, %land.lhs.true11, %if.else
   %pToken.addr.1 = phi ptr [ %incdec.ptr, %if.then13 ], [ %pToken.addr.017, %land.lhs.true11 ], [ null, %if.else ], [ %pToken.addr.017, %if.else16 ]
   %nTokenIndex.1 = phi i64 [ %add, %if.then13 ], [ %nTokenIndex.019, %land.lhs.true11 ], [ %nTokenIndex.019, %if.else ], [ %nTokenIndex.019, %if.else16 ]
   %bFoundToken.1 = phi i8 [ 1, %if.then13 ], [ 1, %land.lhs.true11 ], [ 1, %if.else ], [ %bFoundToken.020, %if.else16 ]
-  %bReadToken.1 = phi i8 [ %bReadToken.021, %if.then13 ], [ %bReadToken.021, %land.lhs.true11 ], [ %bReadToken.021, %if.else ], [ %spec.select, %if.else16 ]
-  %6 = load ptr, ptr %ppNewSource, align 8
-  %incdec.ptr23 = getelementptr inbounds i8, ptr %6, i64 4
+  %bReadToken.1 = phi i1 [ false, %if.then13 ], [ false, %land.lhs.true11 ], [ false, %if.else ], [ %spec.select, %if.else16 ]
+  %2 = load ptr, ptr %ppNewSource, align 8
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %2, i64 4
   store ptr %incdec.ptr23, ptr %ppNewSource, align 8
   %incdec.ptr25 = getelementptr inbounds i8, ptr %pSource.addr.018, i64 4
   %inc28 = add nuw i64 %i.022, 1
@@ -2938,8 +2903,7 @@ if.end20:                                         ; preds = %if.else16, %if.then
 
 for.end:                                          ; preds = %if.end20, %for.body, %if.end20.us, %for.body.us, %for.cond.preheader
   %bFoundToken.0.lcssa = phi i8 [ 0, %for.cond.preheader ], [ %bFoundToken.020.us, %for.body.us ], [ %bFoundToken.1.us, %if.end20.us ], [ %bFoundToken.020, %for.body ], [ %bFoundToken.1, %if.end20 ]
-  %7 = and i8 %bFoundToken.0.lcssa, 1
-  %tobool29 = icmp ne i8 %7, 0
+  %tobool29 = trunc i8 %bFoundToken.0.lcssa to i1
   br label %return
 
 return:                                           ; preds = %if.then7, %if.then7.us, %if.end, %for.end

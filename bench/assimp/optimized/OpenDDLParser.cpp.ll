@@ -2307,20 +2307,19 @@ while.body.i48:                                   ; preds = %land.rhs.i46, %land
 _ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit52: ; preds = %land.rhs.i46, %while.body.i48, %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit, %if.end27
   %in.addr.0.lcssa.i51 = phi ptr [ %end, %if.end27 ], [ %end, %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit ], [ %in.addr.09.i47, %land.rhs.i46 ], [ %scevgep.i45, %while.body.i48 ]
   %23 = load i8, ptr %error, align 1
-  %24 = and i8 %23, 1
-  %tobool.not = icmp eq i8 %24, 0
-  br i1 %tobool.not, label %if.then29, label %return
+  %tobool = trunc i8 %23 to i1
+  br i1 %tobool, label %return, label %if.then29
 
 if.then29:                                        ; preds = %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit52
   %m_stack.i = getelementptr inbounds i8, ptr %this, i64 56
-  %25 = load ptr, ptr %m_stack.i, align 8
+  %24 = load ptr, ptr %m_stack.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %26 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %25, %26
+  %25 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %24, %25
   br i1 %cmp.i.i.i, label %return, label %_ZN10ODDLParser13OpenDDLParser3topEv.exit.i
 
 _ZN10ODDLParser13OpenDDLParser3topEv.exit.i:      ; preds = %if.then29
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 -8
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 -8
   store ptr %add.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %return
 

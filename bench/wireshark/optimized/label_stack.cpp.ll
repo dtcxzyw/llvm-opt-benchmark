@@ -909,9 +909,8 @@ define void @_ZN10LabelStack10paintEventEP11QPaintEvent(ptr noundef nonnull alig
   %8 = alloca %class.QStyleOption, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 72
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %12, label %13
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %2
   tail call void @_ZN6QLabel10paintEventEP11QPaintEvent(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)

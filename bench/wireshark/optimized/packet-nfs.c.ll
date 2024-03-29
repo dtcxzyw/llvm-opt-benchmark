@@ -3885,7 +3885,7 @@ proto_item_set_generated.exit:                    ; preds = %53, %proto_item_set
   call void @g_free(ptr noundef %94) #18
   %101 = load i32, ptr @nfs_file_name_full_snooping, align 4
   %.not52.i = icmp eq i32 %101, 0
-  br i1 %.not52.i, label %.thread69.i, label %102
+  br i1 %.not52.i, label %.thread68.i, label %102
 
 102:                                              ; preds = %89
   store ptr null, ptr %11, align 8
@@ -3894,7 +3894,7 @@ proto_item_set_generated.exit:                    ; preds = %53, %proto_item_set
   call fastcc void @nfs_full_name_snoop(ptr noundef nonnull %2, ptr noundef nonnull %88, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %103 = load ptr, ptr %11, align 8
   %.not53.i = icmp eq ptr %103, null
-  br i1 %.not53.i, label %.thread69.i, label %104
+  br i1 %.not53.i, label %.thread68.i, label %104
 
 104:                                              ; preds = %102
   %105 = getelementptr inbounds i8, ptr %88, i64 56
@@ -3902,7 +3902,7 @@ proto_item_set_generated.exit:                    ; preds = %53, %proto_item_set
   %106 = load i32, ptr %13, align 4
   %107 = getelementptr inbounds i8, ptr %88, i64 48
   store i32 %106, ptr %107, align 8
-  br label %.thread69.i
+  br label %.thread68.i
 
 108:                                              ; preds = %83, %77
   store i32 %4, ptr %14, align 4
@@ -3922,17 +3922,17 @@ proto_item_set_generated.exit:                    ; preds = %53, %proto_item_set
   %117 = load ptr, ptr @nfs_name_snoop_known, align 8
   %118 = call ptr @wmem_tree_lookup32_array(ptr noundef %117, ptr noundef nonnull %15) #18
   %.not55.i = icmp eq ptr %118, null
-  br i1 %.not55.i, label %nfs_name_snoop_fh.exit, label %.thread69.i
+  br i1 %.not55.i, label %nfs_name_snoop_fh.exit, label %.thread68.i
 
-.thread69.i:                                      ; preds = %108, %104, %102, %89
-  %.14672.i = phi ptr [ %118, %108 ], [ %88, %89 ], [ %88, %102 ], [ %88, %104 ]
+.thread68.i:                                      ; preds = %108, %104, %102, %89
+  %.14671.i = phi ptr [ %118, %108 ], [ %88, %89 ], [ %88, %102 ], [ %88, %104 ]
   %.not56.i = icmp eq i32 %5, 0
   %119 = load i32, ptr @hf_nfs_name, align 4
-  %120 = getelementptr inbounds i8, ptr %.14672.i, i64 24
+  %120 = getelementptr inbounds i8, ptr %.14671.i, i64 24
   %121 = load ptr, ptr %120, align 8
   br i1 %.not56.i, label %proto_item_set_hidden.exit.i, label %122
 
-122:                                              ; preds = %.thread69.i
+122:                                              ; preds = %.thread68.i
   %123 = call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %119, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %121) #18
   %.not.i.i = icmp eq ptr %123, null
   br i1 %.not.i.i, label %proto_item_set_generated.exit.thread.i, label %124
@@ -3950,17 +3950,17 @@ proto_item_set_generated.exit:                    ; preds = %53, %proto_item_set
   store i32 %130, ptr %128, align 4
   br label %proto_item_set_hidden.exit.thread.i
 
-proto_item_set_hidden.exit.i:                     ; preds = %.thread69.i
+proto_item_set_hidden.exit.i:                     ; preds = %.thread68.i
   %131 = call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %119, ptr noundef %0, i32 noundef %1, i32 noundef 0, ptr noundef %121) #18
-  %.not.i59.i = icmp eq ptr %131, null
-  br i1 %.not.i59.i, label %proto_item_set_generated.exit.thread81.i, label %proto_item_set_hidden.exit.thread.i
+  %.not.i58.i = icmp eq ptr %131, null
+  br i1 %.not.i58.i, label %proto_item_set_generated.exit.thread80.i, label %proto_item_set_hidden.exit.thread.i
 
 proto_item_set_hidden.exit.thread.i:              ; preds = %proto_item_set_hidden.exit.i, %127, %124
-  %.075.i = phi ptr [ %131, %proto_item_set_hidden.exit.i ], [ %123, %124 ], [ %123, %127 ]
-  %132 = getelementptr inbounds i8, ptr %.075.i, i64 32
+  %.074.i = phi ptr [ %131, %proto_item_set_hidden.exit.i ], [ %123, %124 ], [ %123, %127 ]
+  %132 = getelementptr inbounds i8, ptr %.074.i, i64 32
   %133 = load ptr, ptr %132, align 8
-  %.not5.i60.i = icmp eq ptr %133, null
-  br i1 %.not5.i60.i, label %proto_item_set_generated.exit.i, label %134
+  %.not5.i59.i = icmp eq ptr %133, null
+  br i1 %.not5.i59.i, label %proto_item_set_generated.exit.i, label %134
 
 134:                                              ; preds = %proto_item_set_hidden.exit.thread.i
   %135 = getelementptr inbounds i8, ptr %133, i64 28
@@ -3970,79 +3970,78 @@ proto_item_set_hidden.exit.thread.i:              ; preds = %proto_item_set_hidd
   br label %proto_item_set_generated.exit.i
 
 proto_item_set_generated.exit.i:                  ; preds = %134, %proto_item_set_hidden.exit.thread.i
-  %138 = getelementptr inbounds i8, ptr %.14672.i, i64 56
+  %138 = getelementptr inbounds i8, ptr %.14671.i, i64 56
   %139 = load ptr, ptr %138, align 8
   %.not57.i = icmp eq ptr %139, null
-  br i1 %.not57.i, label %proto_item_set_generated.exit66.i, label %144
+  br i1 %.not57.i, label %proto_item_set_generated.exit65.i, label %144
 
-proto_item_set_generated.exit.thread81.i:         ; preds = %proto_item_set_hidden.exit.i
-  %140 = getelementptr inbounds i8, ptr %.14672.i, i64 56
+proto_item_set_generated.exit.thread80.i:         ; preds = %proto_item_set_hidden.exit.i
+  %140 = getelementptr inbounds i8, ptr %.14671.i, i64 56
   %141 = load ptr, ptr %140, align 8
-  %.not5782.i = icmp eq ptr %141, null
-  br i1 %.not5782.i, label %proto_item_set_generated.exit66.i, label %proto_item_set_hidden.exit63.i
+  %.not5781.i = icmp eq ptr %141, null
+  br i1 %.not5781.i, label %proto_item_set_generated.exit65.i, label %proto_item_set_hidden.exit62.i
 
 proto_item_set_generated.exit.thread.i:           ; preds = %122
-  %142 = getelementptr inbounds i8, ptr %.14672.i, i64 56
+  %142 = getelementptr inbounds i8, ptr %.14671.i, i64 56
   %143 = load ptr, ptr %142, align 8
-  %.not5779.i = icmp eq ptr %143, null
-  br i1 %.not5779.i, label %proto_item_set_generated.exit66.i, label %.thread80.i
+  %.not5778.i = icmp eq ptr %143, null
+  br i1 %.not5778.i, label %proto_item_set_generated.exit65.i, label %.thread79.i
 
 144:                                              ; preds = %proto_item_set_generated.exit.i
-  br i1 %.not56.i, label %proto_item_set_hidden.exit63.i, label %.thread80.i
+  br i1 %.not56.i, label %proto_item_set_hidden.exit62.i, label %.thread79.i
 
-.thread80.i:                                      ; preds = %144, %proto_item_set_generated.exit.thread.i
+.thread79.i:                                      ; preds = %144, %proto_item_set_generated.exit.thread.i
   %145 = phi ptr [ %139, %144 ], [ %143, %proto_item_set_generated.exit.thread.i ]
   %146 = load i32, ptr @hf_nfs_full_name, align 4
   %147 = call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %146, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %145) #18
-  %.not.i61.i = icmp eq ptr %147, null
-  br i1 %.not.i61.i, label %proto_item_set_generated.exit66.i, label %148
+  %.not.i60.i = icmp eq ptr %147, null
+  br i1 %.not.i60.i, label %proto_item_set_generated.exit65.i, label %148
 
-148:                                              ; preds = %.thread80.i
+148:                                              ; preds = %.thread79.i
   %149 = getelementptr inbounds i8, ptr %147, i64 32
   %150 = load ptr, ptr %149, align 8
-  %.not5.i62.i = icmp eq ptr %150, null
-  br i1 %.not5.i62.i, label %proto_item_set_hidden.exit63.thread.i, label %151
+  %.not5.i61.i = icmp eq ptr %150, null
+  br i1 %.not5.i61.i, label %proto_item_set_hidden.exit62.thread.i, label %151
 
 151:                                              ; preds = %148
   %152 = getelementptr inbounds i8, ptr %150, i64 28
   %153 = load i32, ptr %152, align 4
   %154 = or i32 %153, 1
   store i32 %154, ptr %152, align 4
-  br label %proto_item_set_hidden.exit63.thread.i
+  br label %proto_item_set_hidden.exit62.thread.i
 
-proto_item_set_hidden.exit63.i:                   ; preds = %144, %proto_item_set_generated.exit.thread81.i
-  %155 = phi ptr [ %139, %144 ], [ %141, %proto_item_set_generated.exit.thread81.i ]
+proto_item_set_hidden.exit62.i:                   ; preds = %144, %proto_item_set_generated.exit.thread80.i
+  %155 = phi ptr [ %139, %144 ], [ %141, %proto_item_set_generated.exit.thread80.i ]
   %156 = load i32, ptr @hf_nfs_full_name, align 4
   %157 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %3, i32 noundef %156, ptr noundef %0, i32 noundef %1, i32 noundef 0, ptr noundef nonnull %155, ptr noundef nonnull @.str.1400, ptr noundef nonnull %155) #18
-  %.not.i64.i = icmp eq ptr %157, null
-  br i1 %.not.i64.i, label %proto_item_set_generated.exit66.i, label %proto_item_set_hidden.exit63.thread.i
+  %.not.i63.i = icmp eq ptr %157, null
+  br i1 %.not.i63.i, label %proto_item_set_generated.exit65.i, label %proto_item_set_hidden.exit62.thread.i
 
-proto_item_set_hidden.exit63.thread.i:            ; preds = %proto_item_set_hidden.exit63.i, %151, %148
-  %.186.i = phi ptr [ %157, %proto_item_set_hidden.exit63.i ], [ %147, %148 ], [ %147, %151 ]
-  %158 = getelementptr inbounds i8, ptr %.186.i, i64 32
+proto_item_set_hidden.exit62.thread.i:            ; preds = %proto_item_set_hidden.exit62.i, %151, %148
+  %.185.i = phi ptr [ %157, %proto_item_set_hidden.exit62.i ], [ %147, %148 ], [ %147, %151 ]
+  %158 = getelementptr inbounds i8, ptr %.185.i, i64 32
   %159 = load ptr, ptr %158, align 8
-  %.not5.i65.i = icmp eq ptr %159, null
-  br i1 %.not5.i65.i, label %proto_item_set_generated.exit66.i, label %160
+  %.not5.i64.i = icmp eq ptr %159, null
+  br i1 %.not5.i64.i, label %proto_item_set_generated.exit65.i, label %160
 
-160:                                              ; preds = %proto_item_set_hidden.exit63.thread.i
+160:                                              ; preds = %proto_item_set_hidden.exit62.thread.i
   %161 = getelementptr inbounds i8, ptr %159, i64 28
   %162 = load i32, ptr %161, align 4
   %163 = or i32 %162, 2
   store i32 %163, ptr %161, align 4
-  br label %proto_item_set_generated.exit66.i
+  br label %proto_item_set_generated.exit65.i
 
-proto_item_set_generated.exit66.i:                ; preds = %160, %proto_item_set_hidden.exit63.thread.i, %proto_item_set_hidden.exit63.i, %.thread80.i, %proto_item_set_generated.exit.thread.i, %proto_item_set_generated.exit.thread81.i, %proto_item_set_generated.exit.i
-  %164 = getelementptr inbounds i8, ptr %.14672.i, i64 64
+proto_item_set_generated.exit65.i:                ; preds = %160, %proto_item_set_hidden.exit62.thread.i, %proto_item_set_hidden.exit62.i, %.thread79.i, %proto_item_set_generated.exit.thread.i, %proto_item_set_generated.exit.thread80.i, %proto_item_set_generated.exit.i
+  %164 = getelementptr inbounds i8, ptr %.14671.i, i64 64
   %165 = load i8, ptr %164, align 8
-  %166 = and i8 %165, 1
-  %.not58.i = icmp eq i8 %166, 0
-  br i1 %.not58.i, label %nfs_name_snoop_fh.exit, label %167
+  %166 = trunc i8 %165 to i1
+  br i1 %166, label %167, label %nfs_name_snoop_fh.exit
 
-167:                                              ; preds = %proto_item_set_generated.exit66.i
+167:                                              ; preds = %proto_item_set_generated.exit65.i
   %168 = call ptr @proto_tree_add_expert(ptr noundef %3, ptr noundef nonnull %2, ptr noundef nonnull @ei_nfs_file_system_cycle, ptr noundef %0, i32 noundef 0, i32 noundef 0) #18
   br label %nfs_name_snoop_fh.exit
 
-nfs_name_snoop_fh.exit:                           ; preds = %108, %proto_item_set_generated.exit66.i, %167
+nfs_name_snoop_fh.exit:                           ; preds = %108, %proto_item_set_generated.exit65.i, %167
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)

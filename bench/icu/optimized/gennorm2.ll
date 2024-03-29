@@ -739,13 +739,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp75, label %if.then76, label %if.end111
 
 if.then76:                                        ; preds = %for.body
-  %35 = and i8 %doMinus.081, 1
-  %tobool77.not = icmp eq i8 %35, 0
-  br i1 %tobool77.not, label %if.end81, label %if.then78
+  %tobool77 = trunc i8 %doMinus.081 to i1
+  br i1 %tobool77, label %if.then78, label %if.end81
 
 if.then78:                                        ; preds = %if.then76
-  %36 = load ptr, ptr @stderr, align 8
-  %37 = call i64 @fwrite(ptr nonnull @.str.9, i64 50, i64 1, ptr %36) #18
+  %35 = load ptr, ptr @stderr, align 8
+  %36 = call i64 @fwrite(ptr nonnull @.str.9, i64 50, i64 1, ptr %35) #18
   call void @exit(i32 noundef 1) #17
   unreachable
 
@@ -758,18 +757,18 @@ invoke.cont82:                                    ; preds = %if.end81
           to label %invoke.cont87 unwind label %lpad84
 
 invoke.cont87:                                    ; preds = %invoke.cont82
-  %38 = load i32, ptr %errorCode.i.i, align 8
-  %cmp.i.i41 = icmp sgt i32 %38, 0
+  %37 = load i32, ptr %errorCode.i.i, align 8
+  %cmp.i.i41 = icmp sgt i32 %37, 0
   br i1 %cmp.i.i41, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont87
-  %39 = load ptr, ptr %b2, align 8
-  %isnull.i = icmp eq ptr %39, null
+  %38 = load ptr, ptr %b2, align 8
+  %isnull.i = icmp eq ptr %38, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then.i
-  call void @_ZN6icu_7522Normalizer2DataBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(860) %39) #15
-  call void @_ZdlPv(ptr noundef nonnull %39) #20
+  call void @_ZN6icu_7522Normalizer2DataBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(860) %38) #15
+  call void @_ZdlPv(ptr noundef nonnull %38) #20
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %if.then.i
@@ -790,18 +789,18 @@ invoke.cont91:                                    ; preds = %_ZN6icu_7512LocalPo
           to label %invoke.cont96 unwind label %lpad93
 
 invoke.cont96:                                    ; preds = %invoke.cont91
-  %40 = load i32, ptr %errorCode.i.i, align 8
-  %cmp.i.i44 = icmp sgt i32 %40, 0
+  %39 = load i32, ptr %errorCode.i.i, align 8
+  %cmp.i.i44 = icmp sgt i32 %39, 0
   br i1 %cmp.i.i44, label %if.else.i49, label %if.then.i45
 
 if.then.i45:                                      ; preds = %invoke.cont96
-  %41 = load ptr, ptr %diff, align 8
-  %isnull.i46 = icmp eq ptr %41, null
+  %40 = load ptr, ptr %diff, align 8
+  %isnull.i46 = icmp eq ptr %40, null
   br i1 %isnull.i46, label %delete.end.i48, label %delete.notnull.i47
 
 delete.notnull.i47:                               ; preds = %if.then.i45
-  call void @_ZN6icu_7522Normalizer2DataBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(860) %41) #15
-  call void @_ZdlPv(ptr noundef nonnull %41) #20
+  call void @_ZN6icu_7522Normalizer2DataBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(860) %40) #15
+  call void @_ZdlPv(ptr noundef nonnull %40) #20
   br label %delete.end.i48
 
 delete.end.i48:                                   ; preds = %delete.notnull.i47, %if.then.i45
@@ -818,35 +817,35 @@ _ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErro
           to label %invoke.cont100 unwind label %lpad45.loopexit
 
 invoke.cont100:                                   ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit50
-  %42 = load ptr, ptr %b2, align 8
-  %43 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZN6icu_75L7optionsE, i64 0, i64 6, i32 6), align 2
-  %tobool103.not = icmp eq i8 %43, 0
+  %41 = load ptr, ptr %b2, align 8
+  %42 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZN6icu_75L7optionsE, i64 0, i64 6, i32 6), align 2
+  %tobool103.not = icmp eq i8 %42, 0
   br i1 %tobool103.not, label %if.end106, label %if.then104
 
 if.then104:                                       ; preds = %invoke.cont100
-  %44 = load ptr, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZN6icu_75L7optionsE, i64 0, i64 6, i32 1), align 8
-  invoke void @_ZN6icu_7522Normalizer2DataBuilder17setUnicodeVersionEPKc(ptr noundef nonnull align 8 dereferenceable(860) %42, ptr noundef %44)
+  %43 = load ptr, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZN6icu_75L7optionsE, i64 0, i64 6, i32 1), align 8
+  invoke void @_ZN6icu_7522Normalizer2DataBuilder17setUnicodeVersionEPKc(ptr noundef nonnull align 8 dereferenceable(860) %41, ptr noundef %43)
           to label %if.end106 unwind label %lpad45.loopexit
 
 lpad84:                                           ; preds = %invoke.cont82
-  %45 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call83) #20
   br label %ehcleanup
 
 lpad93:                                           ; preds = %invoke.cont91
-  %46 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call92) #20
   br label %ehcleanup
 
 if.end106:                                        ; preds = %if.then104, %invoke.cont100
-  %47 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZN6icu_75L7optionsE, i64 0, i64 9, i32 6), align 2
-  %tobool107.not = icmp eq i8 %47, 0
+  %46 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZN6icu_75L7optionsE, i64 0, i64 9, i32 6), align 2
+  %tobool107.not = icmp eq i8 %46, 0
   br i1 %tobool107.not, label %for.inc, label %if.then108
 
 if.then108:                                       ; preds = %if.end106
-  %optimization.i51 = getelementptr inbounds i8, ptr %42, i64 432
+  %optimization.i51 = getelementptr inbounds i8, ptr %41, i64 432
   store i32 1, ptr %optimization.i51, align 8
   br label %for.inc
 
@@ -855,14 +854,14 @@ if.end111:                                        ; preds = %for.body
           to label %invoke.cont115 unwind label %lpad45.loopexit
 
 invoke.cont115:                                   ; preds = %if.end111
-  %48 = load ptr, ptr %agg.tmp112, align 8
-  %49 = load i32, ptr %32, align 8
-  %call3.i53 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %filename, ptr noundef %48, i32 noundef %49, ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i.i)
+  %47 = load ptr, ptr %agg.tmp112, align 8
+  %48 = load i32, ptr %32, align 8
+  %call3.i53 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %filename, ptr noundef %47, i32 noundef %48, ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i.i)
           to label %invoke.cont118 unwind label %lpad45.loopexit
 
 invoke.cont118:                                   ; preds = %invoke.cont115
-  %50 = load ptr, ptr %filename, align 8
-  invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %f, ptr noundef %50, i32 noundef 8)
+  %49 = load ptr, ptr %filename, align 8
+  invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %f, ptr noundef %49, i32 noundef 8)
           to label %invoke.cont122 unwind label %lpad45.loopexit
 
 invoke.cont122:                                   ; preds = %invoke.cont118
@@ -877,14 +876,14 @@ invoke.cont124:                                   ; preds = %invoke.cont122
   br i1 %call125, label %if.then126, label %if.end131
 
 if.then126:                                       ; preds = %invoke.cont124
-  %51 = load ptr, ptr @stderr, align 8
-  %52 = load ptr, ptr %filename, align 8
-  %call130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.10, ptr noundef %52) #18
+  %50 = load ptr, ptr @stderr, align 8
+  %51 = load ptr, ptr %filename, align 8
+  %call130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.10, ptr noundef %51) #18
   call void @exit(i32 noundef 4) #17
   unreachable
 
 lpad123:                                          ; preds = %invoke.cont133, %invoke.cont132, %if.end131, %invoke.cont122
-  %53 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %f) #15
   br label %ehcleanup
@@ -906,95 +905,94 @@ invoke.cont134:                                   ; preds = %invoke.cont133
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end106, %if.then108, %invoke.cont134
-  %builder.1 = phi ptr [ %builder.080, %invoke.cont134 ], [ %42, %if.then108 ], [ %42, %if.end106 ]
+  %builder.1 = phi ptr [ %builder.080, %invoke.cont134 ], [ %41, %if.then108 ], [ %41, %if.end106 ]
   %doMinus.1 = phi i8 [ %doMinus.081, %invoke.cont134 ], [ 1, %if.then108 ], [ 1, %if.end106 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc
-  %54 = and i8 %doMinus.1, 1
-  %55 = icmp ne i8 %54, 0
-  br i1 %55, label %if.then137, label %if.else
+  %53 = trunc i8 %doMinus.1 to i1
+  br i1 %53, label %if.then137, label %if.else
 
 if.then137:                                       ; preds = %for.end
-  %56 = load ptr, ptr %b1, align 8
-  %57 = load ptr, ptr %b2, align 8
-  %58 = load ptr, ptr %diff, align 8
-  invoke void @_ZN6icu_7522Normalizer2DataBuilder11computeDiffERKS0_S2_RS0_(ptr noundef nonnull align 8 dereferenceable(860) %56, ptr noundef nonnull align 8 dereferenceable(860) %57, ptr noundef nonnull align 8 dereferenceable(860) %58)
+  %54 = load ptr, ptr %b1, align 8
+  %55 = load ptr, ptr %b2, align 8
+  %56 = load ptr, ptr %diff, align 8
+  invoke void @_ZN6icu_7522Normalizer2DataBuilder11computeDiffERKS0_S2_RS0_(ptr noundef nonnull align 8 dereferenceable(860) %54, ptr noundef nonnull align 8 dereferenceable(860) %55, ptr noundef nonnull align 8 dereferenceable(860) %56)
           to label %invoke.cont144.invoke unwind label %lpad45.loopexit.split-lp
 
 invoke.cont144.invoke:                            ; preds = %if.then137, %if.else
-  %59 = phi ptr [ %builder.1, %if.else ], [ %58, %if.then137 ]
-  %60 = load ptr, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZN6icu_75L7optionsE, i64 0, i64 5, i32 1), align 16
-  invoke void @_ZNK6icu_7522Normalizer2DataBuilder13writeDataFileEPKcb(ptr noundef nonnull align 8 dereferenceable(860) %59, ptr noundef %60, i1 noundef zeroext %55)
+  %57 = phi ptr [ %builder.1, %if.else ], [ %56, %if.then137 ]
+  %58 = load ptr, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZN6icu_75L7optionsE, i64 0, i64 5, i32 1), align 16
+  invoke void @_ZNK6icu_7522Normalizer2DataBuilder13writeDataFileEPKcb(ptr noundef nonnull align 8 dereferenceable(860) %57, ptr noundef %58, i1 noundef zeroext %53)
           to label %if.end159 unwind label %lpad45.loopexit.split-lp
 
 if.else:                                          ; preds = %for.end
-  %61 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZN6icu_75L7optionsE, i64 0, i64 8, i32 6), align 2
-  %tobool148.not = icmp eq i8 %61, 0
+  %59 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZN6icu_75L7optionsE, i64 0, i64 8, i32 6), align 2
+  %tobool148.not = icmp eq i8 %59, 0
   br i1 %tobool148.not, label %if.else151, label %invoke.cont144.invoke
 
 if.else151:                                       ; preds = %if.else
-  %62 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZN6icu_75L7optionsE, i64 0, i64 7, i32 6), align 2
-  %tobool152.not = icmp eq i8 %62, 0
-  %63 = load ptr, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZN6icu_75L7optionsE, i64 0, i64 5, i32 1), align 16
+  %60 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZN6icu_75L7optionsE, i64 0, i64 7, i32 6), align 2
+  %tobool152.not = icmp eq i8 %60, 0
+  %61 = load ptr, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZN6icu_75L7optionsE, i64 0, i64 5, i32 1), align 16
   br i1 %tobool152.not, label %if.else155, label %if.then153
 
 if.then153:                                       ; preds = %if.else151
-  invoke void @_ZN6icu_7522Normalizer2DataBuilder16writeCSourceFileEPKc(ptr noundef nonnull align 8 dereferenceable(860) %builder.1, ptr noundef %63)
+  invoke void @_ZN6icu_7522Normalizer2DataBuilder16writeCSourceFileEPKc(ptr noundef nonnull align 8 dereferenceable(860) %builder.1, ptr noundef %61)
           to label %if.end159 unwind label %lpad45.loopexit.split-lp
 
 if.else155:                                       ; preds = %if.else151
-  invoke void @_ZN6icu_7522Normalizer2DataBuilder15writeBinaryFileEPKc(ptr noundef nonnull align 8 dereferenceable(860) %builder.1, ptr noundef %63)
+  invoke void @_ZN6icu_7522Normalizer2DataBuilder15writeBinaryFileEPKc(ptr noundef nonnull align 8 dereferenceable(860) %builder.1, ptr noundef %61)
           to label %if.end159 unwind label %lpad45.loopexit.split-lp
 
 if.end159:                                        ; preds = %invoke.cont144.invoke, %if.else155, %if.then153
-  %64 = load i32, ptr %errorCode.i.i, align 8
-  %65 = load i8, ptr %needToRelease.i.i, align 4
-  %tobool.not.i.i.i = icmp eq i8 %65, 0
+  %62 = load i32, ptr %errorCode.i.i, align 8
+  %63 = load i8, ptr %needToRelease.i.i, align 4
+  %tobool.not.i.i.i = icmp eq i8 %63, 0
   br i1 %tobool.not.i.i.i, label %_ZN6icu_7510CharStringD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end159
-  %66 = load ptr, ptr %filename, align 8
-  invoke void @uprv_free_75(ptr noundef %66)
+  %64 = load ptr, ptr %filename, align 8
+  invoke void @uprv_free_75(ptr noundef %64)
           to label %_ZN6icu_7510CharStringD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
-  %67 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #17
+  %66 = extractvalue { ptr, i32 } %65, 0
+  call void @__clang_call_terminate(ptr %66) #17
   unreachable
 
 _ZN6icu_7510CharStringD2Ev.exit:                  ; preds = %if.end159, %if.then.i.i.i
-  %69 = load ptr, ptr %diff, align 8
-  %isnull.i55 = icmp eq ptr %69, null
+  %67 = load ptr, ptr %diff, align 8
+  %isnull.i55 = icmp eq ptr %67, null
   br i1 %isnull.i55, label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit, label %delete.notnull.i56
 
 delete.notnull.i56:                               ; preds = %_ZN6icu_7510CharStringD2Ev.exit
-  call void @_ZN6icu_7522Normalizer2DataBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(860) %69) #15
-  call void @_ZdlPv(ptr noundef nonnull %69) #20
+  call void @_ZN6icu_7522Normalizer2DataBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(860) %67) #15
+  call void @_ZdlPv(ptr noundef nonnull %67) #20
   br label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit: ; preds = %_ZN6icu_7510CharStringD2Ev.exit, %delete.notnull.i56
-  %70 = load ptr, ptr %b2, align 8
-  %isnull.i58 = icmp eq ptr %70, null
+  %68 = load ptr, ptr %b2, align 8
+  %isnull.i58 = icmp eq ptr %68, null
   br i1 %isnull.i58, label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit61, label %delete.notnull.i59
 
 delete.notnull.i59:                               ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit
-  call void @_ZN6icu_7522Normalizer2DataBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(860) %70) #15
-  call void @_ZdlPv(ptr noundef nonnull %70) #20
+  call void @_ZN6icu_7522Normalizer2DataBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(860) %68) #15
+  call void @_ZdlPv(ptr noundef nonnull %68) #20
   br label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit61
 
 _ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit61: ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit, %delete.notnull.i59
-  %71 = load ptr, ptr %b1, align 8
-  %isnull.i62 = icmp eq ptr %71, null
+  %69 = load ptr, ptr %b1, align 8
+  %isnull.i62 = icmp eq ptr %69, null
   br i1 %isnull.i62, label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit65, label %delete.notnull.i63
 
 delete.notnull.i63:                               ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit61
-  call void @_ZN6icu_7522Normalizer2DataBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(860) %71) #15
-  call void @_ZdlPv(ptr noundef nonnull %71) #20
+  call void @_ZN6icu_7522Normalizer2DataBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(860) %69) #15
+  call void @_ZdlPv(ptr noundef nonnull %69) #20
   br label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit65
 
 _ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit65: ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit61, %delete.notnull.i63
@@ -1002,7 +1000,7 @@ _ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit65: ; preds = %_Z
   br label %return
 
 ehcleanup:                                        ; preds = %lpad45.loopexit, %lpad45.loopexit.split-lp, %lpad123, %lpad93, %lpad84
-  %.pn = phi { ptr, i32 } [ %46, %lpad93 ], [ %45, %lpad84 ], [ %53, %lpad123 ], [ %lpad.loopexit, %lpad45.loopexit ], [ %lpad.loopexit.split-lp, %lpad45.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %45, %lpad93 ], [ %44, %lpad84 ], [ %52, %lpad123 ], [ %lpad.loopexit, %lpad45.loopexit ], [ %lpad.loopexit.split-lp, %lpad45.loopexit.split-lp ]
   call void @_ZN6icu_7510CharStringD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %filename) #15
   br label %ehcleanup162
 
@@ -1019,7 +1017,7 @@ ehcleanup165:                                     ; preds = %ehcleanup162, %lpad
   resume { ptr, i32 } %.pn.pn.pn
 
 return:                                           ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit65, %if.then8
-  %retval.0 = phi i32 [ %argc.addr.0.lobit, %if.then8 ], [ %64, %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit65 ]
+  %retval.0 = phi i32 [ %argc.addr.0.lobit, %if.then8 ], [ %62, %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit65 ]
   ret i32 %retval.0
 }
 

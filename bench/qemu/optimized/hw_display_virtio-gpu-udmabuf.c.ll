@@ -38,8 +38,7 @@ if.end:                                           ; preds = %entry
   %call1 = tail call ptr @object_resolve_path(ptr noundef nonnull @.str, ptr noundef null) #9
   %call2 = call i32 @object_child_foreach(ptr noundef %call1, ptr noundef nonnull @find_memory_backend_type, ptr noundef nonnull %memfd_backend) #9
   %0 = load i8, ptr %memfd_backend, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -176,9 +175,8 @@ while.end.i27.i:                                  ; preds = %if.end.i.i
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i24.i, i64 8
   %11 = load atomic i8, ptr %waiting.i.i monotonic, align 8
-  %12 = and i8 %11, 1
-  %tobool.not.i.i = icmp eq i8 %12, 0
-  br i1 %tobool.not.i.i, label %rcu_read_unlock.exit.i, label %while.end21.i.i
+  %tobool.i.i = trunc i8 %11 to i1
+  br i1 %tobool.i.i, label %while.end21.i.i, label %rcu_read_unlock.exit.i
 
 while.end21.i.i:                                  ; preds = %while.end.i27.i
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
@@ -191,8 +189,8 @@ rcu_read_unlock.exit.i:                           ; preds = %while.end21.i.i, %w
 
 lor.lhs.false.i:                                  ; preds = %rcu_read_unlock.exit.i
   %fd.i = getelementptr inbounds i8, ptr %call5.i, i64 360
-  %13 = load i32, ptr %fd.i, align 8
-  %cmp6.i = icmp slt i32 %13, 0
+  %12 = load i32, ptr %fd.i, align 8
+  %cmp6.i = icmp slt i32 %12, 0
   br i1 %cmp6.i, label %if.then8.i, label %if.end9.i
 
 if.then8.i:                                       ; preds = %lor.lhs.false.i, %rcu_read_unlock.exit.i
@@ -201,22 +199,22 @@ if.then8.i:                                       ; preds = %lor.lhs.false.i, %r
 
 if.end9.i:                                        ; preds = %lor.lhs.false.i
   %arrayidx13.i = getelementptr [0 x %struct.udmabuf_create_item], ptr %list11.i, i64 0, i64 %idxprom.i
-  store i32 %13, ptr %arrayidx13.i, align 8
-  %14 = load i64, ptr %offset.i, align 8
+  store i32 %12, ptr %arrayidx13.i, align 8
+  %13 = load i64, ptr %offset.i, align 8
   %offset17.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 8
-  store i64 %14, ptr %offset17.i, align 8
-  %15 = load ptr, ptr %iov.i, align 8
-  %iov_len.i = getelementptr %struct.iovec, ptr %15, i64 %idxprom.i, i32 1
-  %16 = load i64, ptr %iov_len.i, align 8
+  store i64 %13, ptr %offset17.i, align 8
+  %14 = load ptr, ptr %iov.i, align 8
+  %iov_len.i = getelementptr %struct.iovec, ptr %14, i64 %idxprom.i, i32 1
+  %15 = load i64, ptr %iov_len.i, align 8
   %size.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 16
-  store i64 %16, ptr %size.i, align 8
+  store i64 %15, ptr %size.i, align 8
   %inc.i = add nuw i32 %i.031.i, 1
-  %17 = load i32, ptr %iov_cnt, align 8
-  %cmp3.i = icmp ult i32 %inc.i, %17
+  %16 = load i32, ptr %iov_cnt, align 8
+  %cmp3.i = icmp ult i32 %inc.i, %16
   br i1 %cmp3.i, label %for.body.i, label %for.end.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %if.end9.i, %if.end.i
-  %.lcssa.i = phi i32 [ 0, %if.end.i ], [ %17, %if.end9.i ]
+  %.lcssa.i = phi i32 [ 0, %if.end.i ], [ %16, %if.end9.i ]
   %count.i = getelementptr inbounds i8, ptr %call1.i, i64 4
   store i32 %.lcssa.i, ptr %count.i, align 4
   store i32 1, ptr %call1.i, align 8
@@ -227,8 +225,8 @@ for.end.i:                                        ; preds = %if.end9.i, %if.end.
 
 if.then29.i:                                      ; preds = %for.end.i
   %call30.i = tail call ptr @__errno_location() #12
-  %18 = load i32, ptr %call30.i, align 4
-  %call31.i = call ptr @strerror(i32 noundef %18) #9
+  %17 = load i32, ptr %call30.i, align 4
+  %call31.i = call ptr @strerror(i32 noundef %17) #9
   call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.virtio_gpu_create_udmabuf, ptr noundef %call31.i) #9
   br label %if.end32.i
 
@@ -238,14 +236,14 @@ if.end32.i:                                       ; preds = %if.then29.i, %for.e
 
 virtio_gpu_create_udmabuf.exit:                   ; preds = %if.else, %if.then8.i, %if.end32.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset.i)
-  %19 = load i32, ptr %dmabuf_fd, align 8
-  %cmp5 = icmp slt i32 %19, 0
+  %18 = load i32, ptr %dmabuf_fd, align 8
+  %cmp5 = icmp slt i32 %18, 0
   br i1 %cmp5, label %return, label %if.end
 
 if.end:                                           ; preds = %virtio_gpu_create_udmabuf.exit
   %blob_size.i = getelementptr inbounds i8, ptr %res, i64 56
-  %20 = load i64, ptr %blob_size.i, align 8
-  %call.i11 = call ptr @mmap64(ptr noundef null, i64 noundef %20, i32 noundef 1, i32 noundef 1, i32 noundef %19, i64 noundef 0) #9
+  %19 = load i64, ptr %blob_size.i, align 8
+  %call.i11 = call ptr @mmap64(ptr noundef null, i64 noundef %19, i32 noundef 1, i32 noundef 1, i32 noundef %18, i64 noundef 0) #9
   %remapped.i = getelementptr inbounds i8, ptr %res, i64 80
   store ptr %call.i11, ptr %remapped.i, align 8
   %magicptr = ptrtoint ptr %call.i11 to i64
@@ -256,8 +254,8 @@ if.end:                                           ; preds = %virtio_gpu_create_u
 
 virtio_gpu_remap_udmabuf.exit.thread:             ; preds = %if.end
   %call2.i = tail call ptr @__errno_location() #12
-  %21 = load i32, ptr %call2.i, align 4
-  %call3.i = call ptr @strerror(i32 noundef %21) #9
+  %20 = load i32, ptr %call2.i, align 4
+  %call3.i = call ptr @strerror(i32 noundef %20) #9
   call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.virtio_gpu_remap_udmabuf, ptr noundef %call3.i) #9
   store ptr null, ptr %remapped.i, align 8
   br label %return

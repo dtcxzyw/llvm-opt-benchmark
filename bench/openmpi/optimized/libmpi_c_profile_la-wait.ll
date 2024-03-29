@@ -24,9 +24,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Wait(ptr noundef %0, ptr noundef %1) #0 {
   %3 = load i8, ptr @ompi_mpi_param_check, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %13, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %13
 
 5:                                                ; preds = %2
   %6 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -38,8 +37,8 @@ define i32 @PMPI_Wait(ptr noundef %0, ptr noundef %1) #0 {
   br label %10
 
 10:                                               ; preds = %8, %5
-  %.not17 = icmp eq ptr %0, null
-  br i1 %.not17, label %11, label %13
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %11, label %13
 
 11:                                               ; preds = %10
   %12 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 7, ptr noundef nonnull @FUNC_NAME) #2
@@ -51,8 +50,8 @@ define i32 @PMPI_Wait(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %13
-  %.not18 = icmp eq ptr %1, null
-  br i1 %.not18, label %29, label %17
+  %.not16 = icmp eq ptr %1, null
+  br i1 %.not16, label %29, label %17
 
 17:                                               ; preds = %16
   %18 = load <2 x i32>, ptr @ompi_status_empty, align 8

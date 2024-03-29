@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ExecInitNode(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %123, label %5
+  br i1 %4, label %122, label %5
 
 5:                                                ; preds = %3
   tail call void @check_stack_depth() #6
@@ -281,19 +281,18 @@ define dso_local ptr @ExecInitNode(ptr noundef %0, ptr noundef %1, i32 noundef %
   %114 = getelementptr inbounds i8, ptr %1, i64 196
   %115 = load i32, ptr %114, align 4
   %.not155 = icmp eq i32 %115, 0
-  br i1 %.not155, label %123, label %116
+  br i1 %.not155, label %122, label %116
 
 116:                                              ; preds = %._crit_edge
   %117 = getelementptr inbounds i8, ptr %.0148, i64 144
   %118 = load i8, ptr %117, align 8
-  %119 = and i8 %118, 1
-  %120 = icmp ne i8 %119, 0
-  %121 = tail call ptr @InstrAlloc(i32 noundef 1, i32 noundef %115, i1 noundef zeroext %120) #6
-  %122 = getelementptr inbounds i8, ptr %.0148, i64 40
-  store ptr %121, ptr %122, align 8
-  br label %123
+  %119 = trunc i8 %118 to i1
+  %120 = tail call ptr @InstrAlloc(i32 noundef 1, i32 noundef %115, i1 noundef zeroext %119) #6
+  %121 = getelementptr inbounds i8, ptr %.0148, i64 40
+  store ptr %120, ptr %121, align 8
+  br label %122
 
-123:                                              ; preds = %._crit_edge, %116, %3
+122:                                              ; preds = %._crit_edge, %116, %3
   %.0 = phi ptr [ null, %3 ], [ %.0148, %116 ], [ %.0148, %._crit_edge ]
   ret ptr %.0
 }
@@ -831,9 +830,8 @@ define internal noundef zeroext i1 @ExecShutdownNode_walker(ptr noundef %0, ptr 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %6, i64 4
   %9 = load i8, ptr %8, align 4
-  %10 = and i8 %9, 1
-  %.not19 = icmp eq i8 %10, 0
-  br i1 %.not19, label %12, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
   tail call void @InstrStartNode(ptr noundef nonnull %6) #6
@@ -877,15 +875,14 @@ define internal noundef zeroext i1 @ExecShutdownNode_walker(ptr noundef %0, ptr 
 
 21:                                               ; preds = %12, %20, %19, %18, %17, %16, %15
   %22 = load ptr, ptr %5, align 8
-  %.not20 = icmp eq ptr %22, null
-  br i1 %.not20, label %28, label %23
+  %.not19 = icmp eq ptr %22, null
+  br i1 %.not19, label %28, label %23
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %22, i64 4
   %25 = load i8, ptr %24, align 4
-  %26 = and i8 %25, 1
-  %.not21 = icmp eq i8 %26, 0
-  br i1 %.not21, label %28, label %27
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %28
 
 27:                                               ; preds = %23
   tail call void @InstrStopNode(ptr noundef nonnull %22, double noundef 0.000000e+00) #6

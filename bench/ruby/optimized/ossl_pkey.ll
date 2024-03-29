@@ -2948,8 +2948,8 @@ define internal i64 @pkey_gen_cb_yield(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = tail call i32 @EVP_PKEY_CTX_get_keygen_info(ptr noundef %2, i32 noundef -1) #8
   %4 = sext i32 %3 to i64
-  %5 = icmp sgt i32 %3, -1
-  br i1 %5, label %rbimpl_size_mul_or_raise.exit, label %6
+  %5 = icmp slt i32 %3, 0
+  br i1 %5, label %6, label %rbimpl_size_mul_or_raise.exit
 
 6:                                                ; preds = %1
   tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %4) #9

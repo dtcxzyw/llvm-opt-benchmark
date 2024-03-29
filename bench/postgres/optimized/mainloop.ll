@@ -64,9 +64,8 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   %15 = icmp eq ptr %14, %0
   %16 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 17), align 8
   %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  %18 = select i1 %15, i1 %.not, i1 false
-  %19 = zext i1 %18 to i8
+  %18 = xor i8 %17, 1
+  %19 = select i1 %15, i8 %18, i8 0
   store i8 %19, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
   store i64 0, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 24), align 8
   store i64 1, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 25), align 8
@@ -107,28 +106,27 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   %38 = getelementptr inbounds i8, ptr %24, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %42, label %.preheader295
+  br i1 %40, label %42, label %.preheader260
 
-.preheader295:                                    ; preds = %37
-  %.0..0..0..0.57303 = load volatile i32, ptr %4, align 4
-  %41 = icmp eq i32 %.0..0..0..0.57303, 0
-  br i1 %41, label %.lr.ph304, label %.loopexit
+.preheader260:                                    ; preds = %37
+  %.0..0..0..0.57268 = load volatile i32, ptr %4, align 4
+  %41 = icmp eq i32 %.0..0..0..0.57268, 0
+  br i1 %41, label %.lr.ph269, label %.loopexit
 
 42:                                               ; preds = %1, %26, %30, %32, %37
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str) #10
   call void @exit(i32 noundef 1) #11
   unreachable
 
-.lr.ph304:                                        ; preds = %.preheader295, %.backedge
+.lr.ph269:                                        ; preds = %.preheader260, %.backedge
   %43 = load volatile i32, ptr @cancel_pressed, align 4
-  %.not200 = icmp eq i32 %43, 0
-  br i1 %.not200, label %49, label %44
+  %.not = icmp eq i32 %43, 0
+  br i1 %.not, label %49, label %44
 
-44:                                               ; preds = %.lr.ph304
+44:                                               ; preds = %.lr.ph269
   %45 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
-  %46 = and i8 %45, 1
-  %.not201 = icmp eq i8 %46, 0
-  br i1 %.not201, label %47, label %48
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %48, label %47
 
 47:                                               ; preds = %44
   store volatile i32 3, ptr %4, align 4
@@ -138,10 +136,10 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   store volatile i32 0, ptr @cancel_pressed, align 4
   br label %49
 
-49:                                               ; preds = %48, %.lr.ph304
+49:                                               ; preds = %48, %.lr.ph269
   %50 = call i32 @__sigsetjmp(ptr noundef nonnull @sigint_interrupt_jmp, i32 noundef 1) #12
-  %.not202 = icmp eq i32 %50, 0
-  br i1 %.not202, label %61, label %51
+  %.not200 = icmp eq i32 %50, 0
+  br i1 %.not200, label %61, label %51
 
 51:                                               ; preds = %49
   call void @psql_scan_finish(ptr noundef %20) #10
@@ -156,9 +154,8 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   store i64 1, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 25), align 8
   store volatile i32 0, ptr @cancel_pressed, align 4
   %52 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
-  %53 = and i8 %52, 1
-  %.not203 = icmp eq i8 %53, 0
-  br i1 %.not203, label %60, label %54
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %60
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr @stdout, align 8
@@ -179,9 +176,8 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   %62 = load ptr, ptr @stdout, align 8
   %63 = call i32 @fflush(ptr noundef %62)
   %64 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
-  %65 = and i8 %64, 1
-  %.not204 = icmp eq i8 %65, 0
-  br i1 %.not204, label %86, label %66
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %86
 
 66:                                               ; preds = %61
   %.0..0..0..0.112 = load volatile ptr, ptr %2, align 8
@@ -196,16 +192,15 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
 
 71:                                               ; preds = %70, %66
   %.0..0..0..0.42 = load volatile i8, ptr %7, align 1
-  %72 = and i8 %.0..0..0..0.42, 1
-  %.not207 = icmp eq i8 %72, 0
-  br i1 %.not207, label %91, label %73
+  %72 = trunc i8 %.0..0..0..0.42 to i1
+  br i1 %72, label %73, label %91
 
 73:                                               ; preds = %71
   %.0..0..0..0.113 = load volatile ptr, ptr %2, align 8
   %74 = getelementptr inbounds i8, ptr %.0..0..0..0.113, i64 8
   %75 = load i64, ptr %74, align 8
-  %.not208 = icmp eq i64 %75, 0
-  br i1 %.not208, label %85, label %76
+  %.not203 = icmp eq i64 %75, 0
+  br i1 %.not203, label %85, label %76
 
 76:                                               ; preds = %73
   %77 = call ptr @get_prompt(i32 noundef 0, ptr noundef %21) #10
@@ -225,13 +220,13 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
 
 86:                                               ; preds = %61
   %87 = call ptr @gets_fromFile(ptr noundef %0) #10
-  %.not205 = icmp eq ptr %87, null
-  br i1 %.not205, label %88, label %.thread262
+  %.not201 = icmp eq ptr %87, null
+  br i1 %.not201, label %88, label %.thread229
 
 88:                                               ; preds = %86
   %89 = call i32 @ferror(ptr noundef %0) #10
-  %.not206 = icmp eq i32 %89, 0
-  br i1 %.not206, label %.thread, label %90
+  %.not202 = icmp eq i32 %89, 0
+  br i1 %.not202, label %.thread, label %90
 
 90:                                               ; preds = %88
   store volatile i32 1, ptr %4, align 4
@@ -243,13 +238,12 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   %.0..0..0..0.115 = load volatile ptr, ptr %2, align 8
   %93 = call ptr @gets_interactive(ptr noundef %92, ptr noundef %.0..0..0..0.115) #10
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %.thread, label %.thread262
+  br i1 %94, label %.thread, label %.thread229
 
 .thread:                                          ; preds = %88, %90, %91
   %95 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
-  %96 = and i8 %95, 1
-  %.not242 = icmp eq i8 %96, 0
-  br i1 %.not242, label %.loopexit, label %97
+  %96 = trunc i8 %95 to i1
+  br i1 %96, label %97, label %.loopexit
 
 97:                                               ; preds = %.thread
   %.0..0..0..0.40 = load volatile i32, ptr %8, align 4
@@ -259,30 +253,29 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   %99 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 39), align 8
   %100 = icmp slt i32 %.0..0..0..0.41, %99
   %101 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 32), align 2
-  %102 = and i8 %101, 1
-  %.not252 = icmp eq i8 %102, 0
+  %102 = trunc i8 %101 to i1
   br i1 %100, label %103, label %108
 
 103:                                              ; preds = %97
-  br i1 %.not252, label %104, label %.backedge
+  br i1 %102, label %.backedge, label %104
 
 104:                                              ; preds = %103
   %105 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 22), align 8
   %106 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.2, ptr noundef %105) #10
   br label %.backedge
 
-.backedge:                                        ; preds = %352, %360, %362, %359, %103, %104, %139, %186
+.backedge:                                        ; preds = %352, %360, %362, %359, %103, %104, %139, %185
   %.0..0..0..0.57 = load volatile i32, ptr %4, align 4
   %107 = icmp eq i32 %.0..0..0..0.57, 0
-  br i1 %107, label %.lr.ph304, label %.loopexit, !llvm.loop !5
+  br i1 %107, label %.lr.ph269, label %.loopexit, !llvm.loop !5
 
 108:                                              ; preds = %97
-  %109 = select i1 %.not252, ptr @.str.4, ptr @.str.3
+  %109 = select i1 %102, ptr @.str.3, ptr @.str.4
   %110 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %109)
   br label %.loopexit
 
-.thread262:                                       ; preds = %86, %91
-  %.0264 = phi ptr [ %93, %91 ], [ %87, %86 ]
+.thread229:                                       ; preds = %86, %91
+  %.0231 = phi ptr [ %93, %91 ], [ %87, %86 ]
   store volatile i32 0, ptr %8, align 4
   %111 = load i64, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 24), align 8
   %112 = add i64 %111, 1
@@ -293,37 +286,36 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   %or.cond3 = select i1 %113, i1 %115, i1 false
   br i1 %or.cond3, label %116, label %thread-pre-split
 
-116:                                              ; preds = %.thread262
-  %117 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0264, ptr noundef nonnull dereferenceable(4) @.str.5, i64 noundef 3) #13
+116:                                              ; preds = %.thread229
+  %117 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0231, ptr noundef nonnull dereferenceable(4) @.str.5, i64 noundef 3) #13
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %119, label %thread-pre-split.thread
 
 119:                                              ; preds = %116
-  %120 = getelementptr i8, ptr %.0264, i64 3
+  %120 = getelementptr i8, ptr %.0231, i64 3
   %121 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %120) #13
   %122 = add i64 %121, 1
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0264, ptr align 1 %120, i64 %122, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0231, ptr align 1 %120, i64 %122, i1 false)
   %.pr.pre = load i64, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 24), align 8
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %119, %.thread262
-  %123 = phi i64 [ %112, %.thread262 ], [ %.pr.pre, %119 ]
+thread-pre-split:                                 ; preds = %119, %.thread229
+  %123 = phi i64 [ %112, %.thread229 ], [ %.pr.pre, %119 ]
   %124 = icmp eq i64 %123, 1
   br i1 %124, label %thread-pre-split.thread, label %134
 
 thread-pre-split.thread:                          ; preds = %116, %thread-pre-split
   %125 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
-  %126 = and i8 %125, 1
-  %.not209 = icmp eq i8 %126, 0
-  br i1 %.not209, label %127, label %134
+  %126 = trunc i8 %125 to i1
+  br i1 %126, label %134, label %127
 
 127:                                              ; preds = %thread-pre-split.thread
-  %128 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0264, ptr noundef nonnull dereferenceable(6) @.str.6, i64 noundef 5) #13
+  %128 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0231, ptr noundef nonnull dereferenceable(6) @.str.6, i64 noundef 5) #13
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %130, label %134
 
 130:                                              ; preds = %127
-  call void @free(ptr noundef nonnull %.0264) #10
+  call void @free(ptr noundef nonnull %.0231) #10
   %131 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.7)
   %132 = load ptr, ptr @stdout, align 8
   %133 = call i32 @fflush(ptr noundef %132)
@@ -331,7 +323,7 @@ thread-pre-split.thread:                          ; preds = %116, %thread-pre-sp
   br label %.loopexit
 
 134:                                              ; preds = %127, %thread-pre-split.thread, %thread-pre-split
-  %135 = load i8, ptr %.0264, align 1
+  %135 = load i8, ptr %.0231, align 1
   %136 = icmp eq i8 %135, 0
   br i1 %136, label %137, label %140
 
@@ -340,51 +332,49 @@ thread-pre-split.thread:                          ; preds = %116, %thread-pre-sp
   br i1 %138, label %140, label %139
 
 139:                                              ; preds = %137
-  call void @free(ptr noundef nonnull %.0264) #10
+  call void @free(ptr noundef nonnull %.0231) #10
   br label %.backedge
 
 140:                                              ; preds = %137, %134
   %141 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
-  %142 = and i8 %141, 1
-  %.not210 = icmp eq i8 %142, 0
-  br i1 %.not210, label %.thread284, label %143
+  %142 = trunc i8 %141 to i1
+  br i1 %142, label %143, label %.thread249
 
 143:                                              ; preds = %140
-  %144 = call i32 @pg_strncasecmp(ptr noundef nonnull %.0264, ptr noundef nonnull @.str.8, i64 noundef 4) #10
+  %144 = call i32 @pg_strncasecmp(ptr noundef nonnull %.0231, ptr noundef nonnull @.str.8, i64 noundef 4) #10
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %146, label %148
 
 146:                                              ; preds = %143
-  %147 = getelementptr i8, ptr %.0264, i64 4
+  %147 = getelementptr i8, ptr %.0231, i64 4
   br label %select.unfold
 
 148:                                              ; preds = %143
-  %149 = call i32 @pg_strncasecmp(ptr noundef nonnull %.0264, ptr noundef nonnull @.str.9, i64 noundef 4) #10
+  %149 = call i32 @pg_strncasecmp(ptr noundef nonnull %.0231, ptr noundef nonnull @.str.9, i64 noundef 4) #10
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %154, label %151
 
 151:                                              ; preds = %148
-  %152 = call i32 @pg_strncasecmp(ptr noundef nonnull %.0264, ptr noundef nonnull @.str.10, i64 noundef 4) #10
+  %152 = call i32 @pg_strncasecmp(ptr noundef nonnull %.0231, ptr noundef nonnull @.str.10, i64 noundef 4) #10
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %154, label %156
 
 154:                                              ; preds = %151, %148
-  %155 = getelementptr i8, ptr %.0264, i64 4
+  %155 = getelementptr i8, ptr %.0231, i64 4
   br label %select.unfold
 
 156:                                              ; preds = %151
-  %157 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0264, ptr noundef nonnull dereferenceable(3) @.str.4, i64 noundef 2) #13
+  %157 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0231, ptr noundef nonnull dereferenceable(3) @.str.4, i64 noundef 2) #13
   %158 = icmp eq i32 %157, 0
-  %159 = getelementptr i8, ptr %.0264, i64 2
-  br i1 %158, label %select.unfold, label %.thread284
+  %159 = getelementptr i8, ptr %.0231, i64 2
+  br i1 %158, label %select.unfold, label %.thread249
 
 select.unfold:                                    ; preds = %156, %154, %146
   %.0191 = phi ptr [ %147, %146 ], [ %155, %154 ], [ %159, %156 ]
-  %.0189 = phi i8 [ 1, %146 ], [ 0, %154 ], [ 0, %156 ]
-  %.0187 = phi i8 [ 0, %146 ], [ 1, %154 ], [ 0, %156 ]
+  %.0187 = phi i1 [ false, %146 ], [ true, %154 ], [ false, %156 ]
   %.0186 = phi i1 [ false, %146 ], [ false, %154 ], [ true, %156 ]
-  %.not211 = icmp eq ptr %.0191, null
-  br i1 %.not211, label %179, label %.preheader
+  %.not204 = icmp eq ptr %.0191, null
+  br i1 %.not204, label %179, label %.preheader
 
 .preheader:                                       ; preds = %select.unfold
   %160 = call ptr @__ctype_b_loc() #14
@@ -398,286 +388,278 @@ select.unfold:                                    ; preds = %156, %154, %146
   %165 = getelementptr i16, ptr %161, i64 %164
   %166 = load i16, ptr %165, align 2
   %167 = and i16 %166, 8192
-  %.not212 = icmp eq i16 %167, 0
+  %.not205 = icmp eq i16 %167, 0
   %168 = getelementptr i8, ptr %.1192, i64 1
-  br i1 %.not212, label %169, label %162, !llvm.loop !7
+  br i1 %.not205, label %169, label %162, !llvm.loop !7
 
 169:                                              ; preds = %162
   %170 = icmp eq i8 %163, 59
-  %spec.select254.idx = zext i1 %170 to i64
-  %spec.select254 = getelementptr i8, ptr %.1192, i64 %spec.select254.idx
+  %spec.select223.idx = zext i1 %170 to i64
+  %spec.select223 = getelementptr i8, ptr %.1192, i64 %spec.select223.idx
   br label %171
 
 171:                                              ; preds = %171, %169
-  %.3194 = phi ptr [ %spec.select254, %169 ], [ %177, %171 ]
+  %.3194 = phi ptr [ %spec.select223, %169 ], [ %177, %171 ]
   %172 = load i8, ptr %.3194, align 1
   %173 = zext i8 %172 to i64
   %174 = getelementptr i16, ptr %161, i64 %173
   %175 = load i16, ptr %174, align 2
   %176 = and i16 %175, 8192
-  %.not213 = icmp eq i16 %176, 0
+  %.not206 = icmp eq i16 %176, 0
   %177 = getelementptr i8, ptr %.3194, i64 1
-  br i1 %.not213, label %178, label %171, !llvm.loop !8
+  br i1 %.not206, label %178, label %171, !llvm.loop !8
 
 178:                                              ; preds = %171
-  %.not214 = icmp eq i8 %172, 0
-  %spec.select255 = select i1 %.not214, i8 %.0189, i8 0
-  %spec.select256 = select i1 %.not214, i8 %.0187, i8 0
-  br label %179
+  %.not207 = icmp eq i8 %172, 0
+  %spec.select224 = and i1 %.not207, %145
+  %spec.select225 = and i1 %.not207, %.0187
+  br i1 %spec.select224, label %180, label %190
 
-179:                                              ; preds = %178, %select.unfold
-  %.1190 = phi i8 [ %.0189, %select.unfold ], [ %spec.select255, %178 ]
-  %.1188 = phi i8 [ %.0187, %select.unfold ], [ %spec.select256, %178 ]
-  %180 = and i8 %.1190, 1
-  %.not215 = icmp eq i8 %180, 0
-  br i1 %.not215, label %191, label %181
+179:                                              ; preds = %select.unfold
+  br i1 %145, label %180, label %190
 
-181:                                              ; preds = %179
+180:                                              ; preds = %178, %179
+  %.1188276 = phi i1 [ %spec.select225, %178 ], [ %.0187, %179 ]
   %.0..0..0..0.116 = load volatile ptr, ptr %2, align 8
-  %182 = getelementptr inbounds i8, ptr %.0..0..0..0.116, i64 8
-  %183 = load i64, ptr %182, align 8
-  %.not216 = icmp eq i64 %183, 0
-  br i1 %.not216, label %186, label %184
+  %181 = getelementptr inbounds i8, ptr %.0..0..0..0.116, i64 8
+  %182 = load i64, ptr %181, align 8
+  %.not208 = icmp eq i64 %182, 0
+  br i1 %.not208, label %185, label %183
 
-184:                                              ; preds = %181
-  %185 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.11)
-  br label %191
+183:                                              ; preds = %180
+  %184 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.11)
+  br i1 %.1188276, label %191, label %207
 
-186:                                              ; preds = %181
-  %187 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.12)
-  %188 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.13) #10
-  call void @free(ptr noundef nonnull %.0264) #10
-  %189 = load ptr, ptr @stdout, align 8
-  %190 = call i32 @fflush(ptr noundef %189)
+185:                                              ; preds = %180
+  %186 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.12)
+  %187 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.13) #10
+  call void @free(ptr noundef nonnull %.0231) #10
+  %188 = load ptr, ptr @stdout, align 8
+  %189 = call i32 @fflush(ptr noundef %188)
   br label %.backedge
 
-191:                                              ; preds = %184, %179
-  %192 = and i8 %.1188, 1
-  %.not217 = icmp eq i8 %192, 0
-  br i1 %.not217, label %209, label %193
+190:                                              ; preds = %178, %179
+  %.1188275 = phi i1 [ %spec.select225, %178 ], [ %.0187, %179 ]
+  br i1 %.1188275, label %191, label %207
 
-193:                                              ; preds = %191
+191:                                              ; preds = %183, %190
   %.0..0..0..0.117 = load volatile ptr, ptr %2, align 8
-  %194 = getelementptr inbounds i8, ptr %.0..0..0..0.117, i64 8
-  %195 = load i64, ptr %194, align 8
-  %.not218 = icmp eq i64 %195, 0
-  br i1 %.not218, label %206, label %196
+  %192 = getelementptr inbounds i8, ptr %.0..0..0..0.117, i64 8
+  %193 = load i64, ptr %192, align 8
+  %.not209 = icmp eq i64 %193, 0
+  br i1 %.not209, label %204, label %194
 
-196:                                              ; preds = %193
+194:                                              ; preds = %191
   %.0..0..0..0.44 = load volatile i32, ptr %6, align 4
-  %197 = icmp eq i32 %.0..0..0..0.44, 0
-  br i1 %197, label %202, label %198
+  %195 = icmp eq i32 %.0..0..0..0.44, 0
+  br i1 %195, label %200, label %196
+
+196:                                              ; preds = %194
+  %.0..0..0..0.45 = load volatile i32, ptr %6, align 4
+  %197 = icmp eq i32 %.0..0..0..0.45, 1
+  br i1 %197, label %200, label %198
 
 198:                                              ; preds = %196
-  %.0..0..0..0.45 = load volatile i32, ptr %6, align 4
-  %199 = icmp eq i32 %.0..0..0..0.45, 1
-  br i1 %199, label %202, label %200
-
-200:                                              ; preds = %198
   %.0..0..0..0.46 = load volatile i32, ptr %6, align 4
-  %201 = icmp eq i32 %.0..0..0..0.46, 6
-  br i1 %201, label %202, label %204
+  %199 = icmp eq i32 %.0..0..0..0.46, 6
+  br i1 %199, label %200, label %202
 
-202:                                              ; preds = %200, %198, %196
-  %203 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.14)
-  br i1 %.0186, label %210, label %.thread284
+200:                                              ; preds = %198, %196, %194
+  %201 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.14)
+  br i1 %.0186, label %208, label %.thread249
 
-204:                                              ; preds = %200
-  %205 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.15)
-  br i1 %.0186, label %210, label %.thread284
+202:                                              ; preds = %198
+  %203 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.15)
+  br i1 %.0186, label %208, label %.thread249
 
-206:                                              ; preds = %193
-  call void @free(ptr noundef nonnull %.0264) #10
-  %207 = load ptr, ptr @stdout, align 8
-  %208 = call i32 @fflush(ptr noundef %207)
+204:                                              ; preds = %191
+  call void @free(ptr noundef nonnull %.0231) #10
+  %205 = load ptr, ptr @stdout, align 8
+  %206 = call i32 @fflush(ptr noundef %205)
   store volatile i32 0, ptr %4, align 4
   br label %.loopexit
 
-209:                                              ; preds = %191
-  br i1 %.0186, label %210, label %.thread284
+207:                                              ; preds = %183, %190
+  br i1 %.0186, label %208, label %.thread249
 
-210:                                              ; preds = %202, %204, %209
+208:                                              ; preds = %200, %202, %207
   %.0..0..0..0.118 = load volatile ptr, ptr %2, align 8
-  %211 = getelementptr inbounds i8, ptr %.0..0..0..0.118, i64 8
-  %212 = load i64, ptr %211, align 8
-  %.not219 = icmp eq i64 %212, 0
-  br i1 %.not219, label %.thread284, label %213
+  %209 = getelementptr inbounds i8, ptr %.0..0..0..0.118, i64 8
+  %210 = load i64, ptr %209, align 8
+  %.not210 = icmp eq i64 %210, 0
+  br i1 %.not210, label %.thread249, label %211
 
-213:                                              ; preds = %210
+211:                                              ; preds = %208
   %.0..0..0..0.47 = load volatile i32, ptr %6, align 4
-  %.not220 = icmp eq i32 %.0..0..0..0.47, 0
-  br i1 %.not220, label %.thread284, label %214
+  %.not211 = icmp eq i32 %.0..0..0..0.47, 0
+  br i1 %.not211, label %.thread249, label %212
+
+212:                                              ; preds = %211
+  %.0..0..0..0.48 = load volatile i32, ptr %6, align 4
+  %.not212 = icmp eq i32 %.0..0..0..0.48, 1
+  br i1 %.not212, label %.thread249, label %213
+
+213:                                              ; preds = %212
+  %.0..0..0..0.49 = load volatile i32, ptr %6, align 4
+  %.not213 = icmp eq i32 %.0..0..0..0.49, 6
+  br i1 %.not213, label %.thread249, label %214
 
 214:                                              ; preds = %213
-  %.0..0..0..0.48 = load volatile i32, ptr %6, align 4
-  %.not221 = icmp eq i32 %.0..0..0..0.48, 1
-  br i1 %.not221, label %.thread284, label %215
+  %215 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.15)
+  br label %.thread249
 
-215:                                              ; preds = %214
-  %.0..0..0..0.49 = load volatile i32, ptr %6, align 4
-  %.not222 = icmp eq i32 %.0..0..0..0.49, 6
-  br i1 %.not222, label %.thread284, label %216
+.thread249:                                       ; preds = %156, %200, %202, %207, %208, %211, %212, %213, %214, %140
+  %216 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 40), align 4
+  %217 = icmp eq i32 %216, 3
+  br i1 %217, label %218, label %225
 
-216:                                              ; preds = %215
-  %217 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.15)
-  br label %.thread284
+218:                                              ; preds = %.thread249
+  %219 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
+  %220 = trunc i8 %219 to i1
+  br i1 %220, label %225, label %221
 
-.thread284:                                       ; preds = %156, %202, %204, %209, %210, %213, %214, %215, %216, %140
-  %218 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 40), align 4
-  %219 = icmp eq i32 %218, 3
-  br i1 %219, label %220, label %227
+221:                                              ; preds = %218
+  %222 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %.0231)
+  %223 = load ptr, ptr @stdout, align 8
+  %224 = call i32 @fflush(ptr noundef %223)
+  br label %225
 
-220:                                              ; preds = %.thread284
-  %221 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
-  %222 = and i8 %221, 1
-  %.not223 = icmp eq i8 %222, 0
-  br i1 %.not223, label %223, label %227
-
-223:                                              ; preds = %220
-  %224 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %.0264)
-  %225 = load ptr, ptr @stdout, align 8
-  %226 = call i32 @fflush(ptr noundef %225)
-  br label %227
-
-227:                                              ; preds = %223, %220, %.thread284
+225:                                              ; preds = %221, %218, %.thread249
   %.0..0..0..0.119 = load volatile ptr, ptr %2, align 8
-  %228 = getelementptr inbounds i8, ptr %.0..0..0..0.119, i64 8
-  %229 = load i64, ptr %228, align 8
-  %.not224 = icmp eq i64 %229, 0
-  br i1 %.not224, label %234, label %230
+  %226 = getelementptr inbounds i8, ptr %.0..0..0..0.119, i64 8
+  %227 = load i64, ptr %226, align 8
+  %.not214 = icmp eq i64 %227, 0
+  br i1 %.not214, label %232, label %228
 
-230:                                              ; preds = %227
+228:                                              ; preds = %225
   %.0..0..0..0.120 = load volatile ptr, ptr %2, align 8
   call void @appendPQExpBufferChar(ptr noundef %.0..0..0..0.120, i8 noundef signext 10) #10
   %.0..0..0..0.121 = load volatile ptr, ptr %2, align 8
-  %231 = getelementptr inbounds i8, ptr %.0..0..0..0.121, i64 8
-  %232 = load i64, ptr %231, align 8
-  %233 = trunc i64 %232 to i32
-  br label %234
+  %229 = getelementptr inbounds i8, ptr %.0..0..0..0.121, i64 8
+  %230 = load i64, ptr %229, align 8
+  %231 = trunc i64 %230 to i32
+  br label %232
 
-234:                                              ; preds = %227, %230
-  %.0174 = phi i32 [ %233, %230 ], [ -1, %227 ]
-  %235 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 31), align 1
-  %236 = and i8 %235, 1
-  store volatile i8 %236, ptr %9, align 1
-  %237 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0264) #13
-  %238 = trunc i64 %237 to i32
-  %239 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
-  %240 = call zeroext i1 @standard_strings() #10
-  call void @psql_scan_setup(ptr noundef %20, ptr noundef nonnull %.0264, i32 noundef %238, i32 noundef %239, i1 noundef zeroext %240) #10
-  br label %241
+232:                                              ; preds = %225, %228
+  %.0174 = phi i32 [ %231, %228 ], [ -1, %225 ]
+  %233 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 31), align 1
+  %234 = and i8 %233, 1
+  store volatile i8 %234, ptr %9, align 1
+  %235 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0231) #13
+  %236 = trunc i64 %235 to i32
+  %237 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %238 = call zeroext i1 @standard_strings() #10
+  call void @psql_scan_setup(ptr noundef %20, ptr noundef nonnull %.0231, i32 noundef %236, i32 noundef %237, i1 noundef zeroext %238) #10
+  br label %239
 
-241:                                              ; preds = %337, %234
-  %.0182 = phi i8 [ 0, %234 ], [ %.3185, %337 ]
-  %.0178 = phi i8 [ 1, %234 ], [ %.1179, %337 ]
-  %.1175 = phi i32 [ %.0174, %234 ], [ %.2176, %337 ]
-  %.1 = phi ptr [ %.0264, %234 ], [ %.2, %337 ]
-  %242 = and i8 %.0178, 1
-  %.not225 = icmp eq i8 %242, 0
-  br i1 %.not225, label %243, label %.critedge
+239:                                              ; preds = %337, %232
+  %.0182 = phi i8 [ 0, %232 ], [ %.3185, %337 ]
+  %.0178 = phi i8 [ 1, %232 ], [ %.1179, %337 ]
+  %.1175 = phi i32 [ %.0174, %232 ], [ %.2176, %337 ]
+  %.1 = phi ptr [ %.0231, %232 ], [ %.2, %337 ]
+  %240 = trunc i8 %.0178 to i1
+  br i1 %240, label %.critedge, label %241
 
-243:                                              ; preds = %241
+241:                                              ; preds = %239
   %.0..0..0..0.36 = load volatile i8, ptr %9, align 1
-  %244 = and i8 %.0..0..0..0.36, 1
-  %.not226 = icmp eq i8 %244, 0
-  br i1 %.not226, label %.critedge, label %.thread289
+  %242 = trunc i8 %.0..0..0..0.36 to i1
+  br i1 %242, label %.thread254, label %.critedge
 
-.critedge:                                        ; preds = %241, %243
+.critedge:                                        ; preds = %239, %241
   %.0..0..0..0.50 = load volatile i32, ptr %6, align 4
   store i32 %.0..0..0..0.50, ptr %10, align 4
   %.0..0..0..0.122 = load volatile ptr, ptr %2, align 8
-  %245 = getelementptr inbounds i8, ptr %.0..0..0..0.122, i64 8
-  %246 = load i64, ptr %245, align 8
+  %243 = getelementptr inbounds i8, ptr %.0..0..0..0.122, i64 8
+  %244 = load i64, ptr %243, align 8
   %.0..0..0..0.123 = load volatile ptr, ptr %2, align 8
-  %247 = call i32 @psql_scan(ptr noundef %20, ptr noundef %.0..0..0..0.123, ptr noundef nonnull %10) #10
-  %248 = load i32, ptr %10, align 4
-  store volatile i32 %248, ptr %6, align 4
+  %245 = call i32 @psql_scan(ptr noundef %20, ptr noundef %.0..0..0..0.123, ptr noundef nonnull %10) #10
+  %246 = load i32, ptr %10, align 4
+  store volatile i32 %246, ptr %6, align 4
   %.0..0..0..0.124 = load volatile ptr, ptr %2, align 8
-  %249 = icmp eq ptr %.0..0..0..0.124, null
-  br i1 %249, label %254, label %250
+  %247 = icmp eq ptr %.0..0..0..0.124, null
+  br i1 %247, label %252, label %248
 
-250:                                              ; preds = %.critedge
+248:                                              ; preds = %.critedge
   %.0..0..0..0.125 = load volatile ptr, ptr %2, align 8
-  %251 = getelementptr inbounds i8, ptr %.0..0..0..0.125, i64 16
-  %252 = load i64, ptr %251, align 8
-  %253 = icmp eq i64 %252, 0
-  br i1 %253, label %254, label %255
+  %249 = getelementptr inbounds i8, ptr %.0..0..0..0.125, i64 16
+  %250 = load i64, ptr %249, align 8
+  %251 = icmp eq i64 %250, 0
+  br i1 %251, label %252, label %253
 
-254:                                              ; preds = %.critedge, %250
+252:                                              ; preds = %.critedge, %248
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str) #10
   call void @exit(i32 noundef 1) #11
   unreachable
 
-255:                                              ; preds = %250
+253:                                              ; preds = %248
   %.0..0..0..0.126 = load volatile ptr, ptr %2, align 8
-  %256 = load ptr, ptr %.0..0..0..0.126, align 8
-  %257 = getelementptr i8, ptr %256, i64 %246
+  %254 = load ptr, ptr %.0..0..0..0.126, align 8
+  %255 = getelementptr i8, ptr %254, i64 %244
   %.promoted = load i64, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 25), align 8
-  %258 = load i8, ptr %257, align 1
-  %.not227301 = icmp eq i8 %258, 0
-  br i1 %.not227301, label %._crit_edge, label %.lr.ph
+  %256 = load i8, ptr %255, align 1
+  %.not215266 = icmp eq i8 %256, 0
+  br i1 %.not215266, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %255, %265
-  %259 = phi i8 [ %267, %265 ], [ %258, %255 ]
-  %.0177302 = phi ptr [ %261, %265 ], [ %257, %255 ]
-  %260 = phi i64 [ %266, %265 ], [ %.promoted, %255 ]
-  %261 = getelementptr i8, ptr %.0177302, i64 1
-  %262 = icmp eq i8 %259, 10
-  br i1 %262, label %263, label %265
+.lr.ph:                                           ; preds = %253, %263
+  %257 = phi i8 [ %265, %263 ], [ %256, %253 ]
+  %.0177267 = phi ptr [ %259, %263 ], [ %255, %253 ]
+  %258 = phi i64 [ %264, %263 ], [ %.promoted, %253 ]
+  %259 = getelementptr i8, ptr %.0177267, i64 1
+  %260 = icmp eq i8 %257, 10
+  br i1 %260, label %261, label %263
 
-263:                                              ; preds = %.lr.ph
-  %264 = add i64 %260, 1
-  store i64 %264, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 25), align 8
-  br label %265
+261:                                              ; preds = %.lr.ph
+  %262 = add i64 %258, 1
+  store i64 %262, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 25), align 8
+  br label %263
 
-265:                                              ; preds = %263, %.lr.ph
-  %266 = phi i64 [ %264, %263 ], [ %260, %.lr.ph ]
-  %267 = load i8, ptr %261, align 1
-  %.not227 = icmp eq i8 %267, 0
-  br i1 %.not227, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+263:                                              ; preds = %261, %.lr.ph
+  %264 = phi i64 [ %262, %261 ], [ %258, %.lr.ph ]
+  %265 = load i8, ptr %259, align 1
+  %.not215 = icmp eq i8 %265, 0
+  br i1 %.not215, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %265, %255
-  %268 = phi i64 [ %.promoted, %255 ], [ %266, %265 ]
-  switch i32 %247, label %337 [
-    i32 3, label %269
-    i32 0, label %273
-    i32 1, label %290
+._crit_edge:                                      ; preds = %263, %253
+  %266 = phi i64 [ %.promoted, %253 ], [ %264, %263 ]
+  switch i32 %245, label %337 [
+    i32 3, label %267
+    i32 0, label %271
+    i32 1, label %289
   ]
 
-269:                                              ; preds = %._crit_edge
-  %270 = add i64 %268, 1
-  store i64 %270, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 25), align 8
-  %271 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 33), align 1
-  %272 = and i8 %271, 1
-  %.not228 = icmp eq i8 %272, 0
-  br i1 %.not228, label %.thread289, label %273
+267:                                              ; preds = %._crit_edge
+  %268 = add i64 %266, 1
+  store i64 %268, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 25), align 8
+  %269 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 33), align 1
+  %270 = trunc i8 %269 to i1
+  br i1 %270, label %271, label %.thread254
 
-273:                                              ; preds = %._crit_edge, %269
-  %274 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
-  %275 = and i8 %274, 1
-  %.not233 = icmp ne i8 %275, 0
-  %276 = and i8 %.0182, 1
-  %.not234 = icmp eq i8 %276, 0
-  %or.cond257 = select i1 %.not233, i1 %.not234, i1 false
-  br i1 %or.cond257, label %277, label %278
+271:                                              ; preds = %._crit_edge, %267
+  %272 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
+  %273 = trunc i8 %272 to i1
+  br i1 %273, label %274, label %277
 
-277:                                              ; preds = %273
+274:                                              ; preds = %271
+  %275 = trunc i8 %.0182 to i1
+  br i1 %275, label %277, label %276
+
+276:                                              ; preds = %274
   call void @pg_append_history(ptr noundef %.1, ptr noundef %24) #10
   call void @pg_send_history(ptr noundef %24) #10
-  br label %278
+  br label %277
 
-278:                                              ; preds = %277, %273
-  %.1183 = phi i8 [ 1, %277 ], [ %.0182, %273 ]
-  %279 = call zeroext i1 @conditional_active(ptr noundef %21) #10
-  br i1 %279, label %280, label %285
+277:                                              ; preds = %276, %274, %271
+  %.1183 = phi i8 [ %.0182, %274 ], [ 1, %276 ], [ %.0182, %271 ]
+  %278 = call zeroext i1 @conditional_active(ptr noundef %21) #10
+  br i1 %278, label %279, label %284
 
-280:                                              ; preds = %278
+279:                                              ; preds = %277
   %.0..0..0..0.127 = load volatile ptr, ptr %2, align 8
-  %281 = load ptr, ptr %.0..0..0..0.127, align 8
-  %282 = call zeroext i1 @SendQuery(ptr noundef %281) #10
-  %283 = zext i1 %282 to i8
-  %284 = select i1 %282, i32 1, i32 5
-  store volatile i32 %284, ptr %5, align 4
+  %280 = load ptr, ptr %.0..0..0..0.127, align 8
+  %281 = call zeroext i1 @SendQuery(ptr noundef %280) #10
+  %282 = zext i1 %281 to i8
+  %283 = select i1 %281, i32 1, i32 5
+  store volatile i32 %283, ptr %5, align 4
   store i64 1, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 25), align 8
   %.0..0..0..0.105 = load volatile ptr, ptr %3, align 8
   %.0..0..0..0.128 = load volatile ptr, ptr %2, align 8
@@ -687,58 +669,57 @@ select.unfold:                                    ; preds = %156, %154, %146
   call void @resetPQExpBuffer(ptr noundef %.0..0..0..0.129) #10
   br label %337
 
-285:                                              ; preds = %278
-  %286 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
-  %287 = and i8 %286, 1
-  %.not235 = icmp eq i8 %287, 0
-  br i1 %.not235, label %289, label %288
+284:                                              ; preds = %277
+  %285 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
+  %286 = trunc i8 %285 to i1
+  br i1 %286, label %287, label %288
 
-288:                                              ; preds = %285
+287:                                              ; preds = %284
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.16) #10
-  br label %289
+  br label %288
 
-289:                                              ; preds = %288, %285
+288:                                              ; preds = %287, %284
   store volatile i32 1, ptr %5, align 4
   store i64 1, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 25), align 8
   br label %337
 
-290:                                              ; preds = %._crit_edge
+289:                                              ; preds = %._crit_edge
   %.0..0..0..0.130 = load volatile ptr, ptr %2, align 8
-  %291 = getelementptr inbounds i8, ptr %.0..0..0..0.130, i64 8
-  %292 = load i64, ptr %291, align 8
-  %293 = sext i32 %.1175 to i64
-  %294 = icmp eq i64 %292, %293
-  br i1 %294, label %295, label %301
+  %290 = getelementptr inbounds i8, ptr %.0..0..0..0.130, i64 8
+  %291 = load i64, ptr %290, align 8
+  %292 = sext i32 %.1175 to i64
+  %293 = icmp eq i64 %291, %292
+  br i1 %293, label %294, label %300
 
-295:                                              ; preds = %290
+294:                                              ; preds = %289
   %.0..0..0..0.131 = load volatile ptr, ptr %2, align 8
-  %296 = load ptr, ptr %.0..0..0..0.131, align 8
+  %295 = load ptr, ptr %.0..0..0..0.131, align 8
   %.0..0..0..0.132 = load volatile ptr, ptr %2, align 8
-  %297 = getelementptr inbounds i8, ptr %.0..0..0..0.132, i64 8
-  %298 = load i64, ptr %297, align 8
-  %299 = add i64 %298, -1
-  store i64 %299, ptr %297, align 8
-  %300 = getelementptr i8, ptr %296, i64 %299
-  store i8 0, ptr %300, align 1
+  %296 = getelementptr inbounds i8, ptr %.0..0..0..0.132, i64 8
+  %297 = load i64, ptr %296, align 8
+  %298 = add i64 %297, -1
+  store i64 %298, ptr %296, align 8
+  %299 = getelementptr i8, ptr %295, i64 %298
+  store i8 0, ptr %299, align 1
   call void @pg_send_history(ptr noundef %24) #10
-  br label %301
+  br label %300
 
-301:                                              ; preds = %295, %290
-  %302 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
-  %303 = and i8 %302, 1
-  %.not229 = icmp ne i8 %303, 0
-  %304 = and i8 %.0182, 1
-  %.not230 = icmp eq i8 %304, 0
-  %or.cond258 = select i1 %.not229, i1 %.not230, i1 false
-  br i1 %or.cond258, label %305, label %306
+300:                                              ; preds = %294, %289
+  %301 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
+  %302 = trunc i8 %301 to i1
+  br i1 %302, label %303, label %306
 
-305:                                              ; preds = %301
+303:                                              ; preds = %300
+  %304 = trunc i8 %.0182 to i1
+  br i1 %304, label %306, label %305
+
+305:                                              ; preds = %303
   call void @pg_append_history(ptr noundef %.1, ptr noundef %24) #10
   call void @pg_send_history(ptr noundef %24) #10
   br label %306
 
-306:                                              ; preds = %305, %301
-  %.2184 = phi i8 [ 1, %305 ], [ %.0182, %301 ]
+306:                                              ; preds = %305, %303, %300
+  %.2184 = phi i8 [ %.0182, %303 ], [ 1, %305 ], [ %.0182, %300 ]
   %.0..0..0..0.133 = load volatile ptr, ptr %2, align 8
   %.0..0..0..0.106 = load volatile ptr, ptr %3, align 8
   %307 = call i32 @HandleSlashCmds(ptr noundef %20, ptr noundef %21, ptr noundef %.0..0..0..0.133, ptr noundef %.0..0..0..0.106) #10
@@ -774,8 +755,8 @@ select.unfold:                                    ; preds = %156, %154, %146
   %.0..0..0..0.137 = load volatile ptr, ptr %2, align 8
   %318 = getelementptr inbounds i8, ptr %.0..0..0..0.137, i64 8
   %319 = load i64, ptr %318, align 8
-  %.not231 = icmp eq i64 %319, 0
-  br i1 %.not231, label %328, label %320
+  %.not216 = icmp eq i64 %319, 0
+  br i1 %.not216, label %328, label %320
 
 320:                                              ; preds = %317
   %.0..0..0..0.138 = load volatile ptr, ptr %2, align 8
@@ -786,8 +767,8 @@ select.unfold:                                    ; preds = %156, %154, %146
   %324 = getelementptr i8, ptr %321, i64 %323
   %325 = getelementptr i8, ptr %324, i64 -1
   %326 = load i8, ptr %325, align 1
-  %.not232 = icmp eq i8 %326, 10
-  br i1 %.not232, label %328, label %327
+  %.not217 = icmp eq i8 %326, 10
+  br i1 %.not217, label %328, label %327
 
 327:                                              ; preds = %320
   %.0..0..0..0.140 = load volatile ptr, ptr %2, align 8
@@ -815,30 +796,28 @@ select.unfold:                                    ; preds = %156, %154, %146
 335:                                              ; preds = %315
   %.0..0..0..0.54 = load volatile i32, ptr %5, align 4
   %336 = icmp eq i32 %.0..0..0..0.54, 3
-  br i1 %336, label %.thread289, label %337
+  br i1 %336, label %.thread254, label %337
 
-337:                                              ; preds = %._crit_edge, %328, %335, %311, %280, %289
-  %.3185 = phi i8 [ %.1183, %280 ], [ %.1183, %289 ], [ %.2184, %311 ], [ 0, %328 ], [ %.2184, %335 ], [ %.0182, %._crit_edge ]
-  %.1179 = phi i8 [ %283, %280 ], [ 1, %289 ], [ %314, %311 ], [ %309, %328 ], [ %309, %335 ], [ %.0178, %._crit_edge ]
-  %.2176 = phi i32 [ -1, %280 ], [ %.1175, %289 ], [ -1, %311 ], [ -1, %328 ], [ -1, %335 ], [ %.1175, %._crit_edge ]
-  %.2 = phi ptr [ %.1, %280 ], [ %.1, %289 ], [ %.1, %311 ], [ %330, %328 ], [ %.1, %335 ], [ %.1, %._crit_edge ]
-  %338 = and i32 %247, -2
+337:                                              ; preds = %._crit_edge, %328, %335, %311, %279, %288
+  %.3185 = phi i8 [ %.1183, %279 ], [ %.1183, %288 ], [ %.2184, %311 ], [ 0, %328 ], [ %.2184, %335 ], [ %.0182, %._crit_edge ]
+  %.1179 = phi i8 [ %282, %279 ], [ 1, %288 ], [ %314, %311 ], [ %309, %328 ], [ %309, %335 ], [ %.0178, %._crit_edge ]
+  %.2176 = phi i32 [ -1, %279 ], [ %.1175, %288 ], [ -1, %311 ], [ -1, %328 ], [ -1, %335 ], [ %.1175, %._crit_edge ]
+  %.2 = phi ptr [ %.1, %279 ], [ %.1, %288 ], [ %.1, %311 ], [ %330, %328 ], [ %.1, %335 ], [ %.1, %._crit_edge ]
+  %338 = and i32 %245, -2
   %or.cond5 = icmp eq i32 %338, 2
-  br i1 %or.cond5, label %.thread289, label %241, !llvm.loop !10
+  br i1 %or.cond5, label %.thread254, label %239, !llvm.loop !10
 
-.thread289:                                       ; preds = %269, %337, %335, %243
-  %.4 = phi i8 [ %.3185, %337 ], [ %.2184, %335 ], [ %.0182, %243 ], [ %.0182, %269 ]
-  %.2180 = phi i8 [ %.1179, %337 ], [ %309, %335 ], [ %.0178, %243 ], [ %.0178, %269 ]
-  %.3 = phi ptr [ %.2, %337 ], [ %.1, %335 ], [ %.1, %243 ], [ %.1, %269 ]
+.thread254:                                       ; preds = %267, %337, %335, %241
+  %.4 = phi i8 [ %.3185, %337 ], [ %.2184, %335 ], [ %.0182, %241 ], [ %.0182, %267 ]
+  %.2180 = phi i8 [ %.1179, %337 ], [ %309, %335 ], [ %.0178, %241 ], [ %.0178, %267 ]
+  %.3 = phi ptr [ %.2, %337 ], [ %.1, %335 ], [ %.1, %241 ], [ %.1, %267 ]
   %339 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
-  %340 = and i8 %339, 1
-  %.not236 = icmp eq i8 %340, 0
-  br i1 %.not236, label %349, label %341
+  %340 = trunc i8 %339 to i1
+  br i1 %340, label %341, label %349
 
-341:                                              ; preds = %.thread289
-  %342 = and i8 %.4, 1
-  %.not237 = icmp eq i8 %342, 0
-  br i1 %.not237, label %343, label %344
+341:                                              ; preds = %.thread254
+  %342 = trunc i8 %.4 to i1
+  br i1 %342, label %344, label %343
 
 343:                                              ; preds = %341
   call void @pg_append_history(ptr noundef %.3, ptr noundef %24) #10
@@ -855,7 +834,7 @@ select.unfold:                                    ; preds = %156, %154, %146
   call void @pg_send_history(ptr noundef %24) #10
   br label %349
 
-349:                                              ; preds = %344, %348, %.thread289
+349:                                              ; preds = %344, %348, %.thread254
   call void @psql_scan_finish(ptr noundef %20) #10
   call void @free(ptr noundef %.3) #10
   %.0..0..0..0.55 = load volatile i32, ptr %5, align 4
@@ -868,20 +847,17 @@ select.unfold:                                    ; preds = %156, %154, %146
 
 352:                                              ; preds = %349
   %353 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
-  %354 = and i8 %353, 1
-  %.not238 = icmp eq i8 %354, 0
-  br i1 %.not238, label %355, label %.backedge
+  %354 = trunc i8 %353 to i1
+  br i1 %354, label %.backedge, label %355
 
 355:                                              ; preds = %352
-  %356 = and i8 %.2180, 1
-  %.not239 = icmp eq i8 %356, 0
-  br i1 %.not239, label %357, label %360
+  %356 = trunc i8 %.2180 to i1
+  br i1 %356, label %360, label %357
 
 357:                                              ; preds = %355
   %.0..0..0..0.37 = load volatile i8, ptr %9, align 1
-  %358 = and i8 %.0..0..0..0.37, 1
-  %.not240 = icmp eq i8 %358, 0
-  br i1 %.not240, label %360, label %359
+  %358 = trunc i8 %.0..0..0..0.37 to i1
+  br i1 %358, label %359, label %360
 
 359:                                              ; preds = %357
   store volatile i32 3, ptr %4, align 4
@@ -889,25 +865,24 @@ select.unfold:                                    ; preds = %156, %154, %146
 
 360:                                              ; preds = %357, %355
   %361 = load ptr, ptr @pset, align 8
-  %.not241 = icmp eq ptr %361, null
-  br i1 %.not241, label %362, label %.backedge
+  %.not218 = icmp eq ptr %361, null
+  br i1 %.not218, label %362, label %.backedge
 
 362:                                              ; preds = %360
   store volatile i32 2, ptr %4, align 4
   br label %.backedge
 
-.loopexit:                                        ; preds = %.backedge, %.thread, %.preheader295, %108, %351, %206, %130, %60, %47
+.loopexit:                                        ; preds = %.backedge, %.thread, %.preheader260, %108, %351, %204, %130, %60, %47
   %.0..0..0..0.144 = load volatile ptr, ptr %2, align 8
   %363 = getelementptr inbounds i8, ptr %.0..0..0..0.144, i64 8
   %364 = load i64, ptr %363, align 8
-  %.not244 = icmp eq i64 %364, 0
-  br i1 %.not244, label %385, label %365
+  %.not219 = icmp eq i64 %364, 0
+  br i1 %.not219, label %385, label %365
 
 365:                                              ; preds = %.loopexit
   %366 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
-  %367 = and i8 %366, 1
-  %.not245 = icmp eq i8 %367, 0
-  br i1 %.not245, label %368, label %385
+  %367 = trunc i8 %366 to i1
+  br i1 %367, label %385, label %368
 
 368:                                              ; preds = %365
   %.0..0..0..0.58 = load volatile i32, ptr %4, align 4
@@ -922,46 +897,44 @@ select.unfold:                                    ; preds = %156, %154, %146
   %.0..0..0..0.145 = load volatile ptr, ptr %2, align 8
   %373 = load ptr, ptr %.0..0..0..0.145, align 8
   %374 = call zeroext i1 @SendQuery(ptr noundef %373) #10
-  br i1 %374, label %.critedge260, label %379
+  br i1 %374, label %.critedge227, label %379
 
 375:                                              ; preds = %370
   %376 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
-  %377 = and i8 %376, 1
-  %.not246 = icmp eq i8 %377, 0
-  br i1 %.not246, label %.critedge260, label %378
+  %377 = trunc i8 %376 to i1
+  br i1 %377, label %378, label %.critedge227
 
 378:                                              ; preds = %375
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.16) #10
-  br label %.critedge260
+  br label %.critedge227
 
 379:                                              ; preds = %372
   %.0..0..0..0.38 = load volatile i8, ptr %9, align 1
-  %380 = and i8 %.0..0..0..0.38, 1
-  %.not247 = icmp eq i8 %380, 0
-  br i1 %.not247, label %.critedge260, label %381
+  %380 = trunc i8 %.0..0..0..0.38 to i1
+  br i1 %380, label %381, label %.critedge227
 
 381:                                              ; preds = %379
   store volatile i32 3, ptr %4, align 4
   br label %385
 
-.critedge260:                                     ; preds = %378, %375, %379, %372
+.critedge227:                                     ; preds = %378, %375, %379, %372
   %382 = load ptr, ptr @pset, align 8
   %383 = icmp eq ptr %382, null
   br i1 %383, label %384, label %385
 
-384:                                              ; preds = %.critedge260
+384:                                              ; preds = %.critedge227
   store volatile i32 2, ptr %4, align 4
   br label %385
 
-385:                                              ; preds = %381, %384, %.critedge260, %368, %365, %.loopexit
+385:                                              ; preds = %381, %384, %.critedge227, %368, %365, %.loopexit
   %.0..0..0..0.56 = load volatile i32, ptr %5, align 4
-  %.not248 = icmp eq i32 %.0..0..0..0.56, 3
-  br i1 %.not248, label %395, label %386
+  %.not220 = icmp eq i32 %.0..0..0..0.56, 3
+  br i1 %.not220, label %395, label %386
 
 386:                                              ; preds = %385
   %.0..0..0..0.59 = load volatile i32, ptr %4, align 4
-  %.not249 = icmp eq i32 %.0..0..0..0.59, 3
-  br i1 %.not249, label %395, label %387
+  %.not221 = icmp eq i32 %.0..0..0..0.59, 3
+  br i1 %.not221, label %395, label %387
 
 387:                                              ; preds = %386
   %388 = call zeroext i1 @conditional_stack_empty(ptr noundef %21) #10
@@ -970,15 +943,13 @@ select.unfold:                                    ; preds = %156, %154, %146
 389:                                              ; preds = %387
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17) #10
   %.0..0..0..0.39 = load volatile i8, ptr %9, align 1
-  %390 = and i8 %.0..0..0..0.39, 1
-  %.not250 = icmp eq i8 %390, 0
-  br i1 %.not250, label %395, label %391
+  %390 = trunc i8 %.0..0..0..0.39 to i1
+  br i1 %390, label %391, label %395
 
 391:                                              ; preds = %389
   %392 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 20), align 8
-  %393 = and i8 %392, 1
-  %.not251 = icmp eq i8 %393, 0
-  br i1 %.not251, label %394, label %395
+  %393 = trunc i8 %392 to i1
+  br i1 %393, label %395, label %394
 
 394:                                              ; preds = %391
   store volatile i32 3, ptr %4, align 4

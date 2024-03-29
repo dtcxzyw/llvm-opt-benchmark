@@ -1110,7 +1110,7 @@ if.end15:                                         ; preds = %if.then10, %if.end7
 
 if.end25:                                         ; preds = %if.end15
   %shl = shl nuw nsw i32 %8, 3
-  %or = or i32 %shl, %7
+  %or = or disjoint i32 %shl, %7
   store i32 %or, ptr %call, align 4
   call void @g_free(ptr noundef nonnull %4) #9
   br label %return
@@ -1567,13 +1567,13 @@ if.then18:                                        ; preds = %if.end16
 if.end19:                                         ; preds = %if.end16
   %call20 = call ptr @blk_by_name(ptr noundef nonnull %6) #9
   %tobool21.not = icmp eq ptr %call20, null
-  br i1 %tobool21.not, label %if.then22, label %if.end39
+  br i1 %tobool21.not, label %if.then22, label %if.end39.thread
 
 if.then22:                                        ; preds = %if.end19
   %8 = load ptr, ptr %str, align 8
   %call23 = call ptr @bdrv_lookup_bs(ptr noundef null, ptr noundef %8, ptr noundef null) #9
-  %tobool24.not = icmp eq ptr %call23, null
-  br i1 %tobool24.not, label %if.then37, label %if.then25
+  %tobool24.not.not = icmp eq ptr %call23, null
+  br i1 %tobool24.not.not, label %if.end51.critedge, label %if.then25
 
 if.then25:                                        ; preds = %if.then22
   %call26 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %call23) #9
@@ -1594,60 +1594,67 @@ cond.end:                                         ; preds = %if.then25, %cond.fa
 
 if.end35:                                         ; preds = %cond.end
   %tobool36.not = icmp eq ptr %call29, null
-  br i1 %tobool36.not, label %if.then37, label %if.end39
+  br i1 %tobool36.not, label %fail, label %if.end39
 
-if.then37:                                        ; preds = %if.then22, %if.end35
-  %blk_created.042 = phi i8 [ 1, %if.end35 ], [ 0, %if.then22 ]
-  %call38 = call ptr @object_get_typename(ptr noundef %call.i) #9
-  %9 = load ptr, ptr %str, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.9, i32 noundef 162, ptr noundef nonnull @__func__.set_drive_helper, ptr noundef nonnull @.str.42, ptr noundef %call38, ptr noundef %name, ptr noundef %9) #9
-  br label %fail
-
-if.end39:                                         ; preds = %if.end19, %if.end35
-  %blk.048 = phi ptr [ %call29, %if.end35 ], [ %call20, %if.end19 ]
-  %blk_created.047 = phi i8 [ 1, %if.end35 ], [ 0, %if.end19 ]
-  %call40 = call i32 @blk_attach_dev(ptr noundef nonnull %blk.048, ptr noundef %call.i) #9
+if.end39:                                         ; preds = %if.end35
+  %call40 = call i32 @blk_attach_dev(ptr noundef nonnull %call29, ptr noundef %call.i) #9
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %if.then42, label %if.end48
 
-if.then42:                                        ; preds = %if.end39
-  %call43 = call ptr @blk_legacy_dinfo(ptr noundef nonnull %blk.048) #9
+if.end39.thread:                                  ; preds = %if.end19
+  %call4054 = call i32 @blk_attach_dev(ptr noundef nonnull %call20, ptr noundef %call.i) #9
+  %cmp4155 = icmp slt i32 %call4054, 0
+  br i1 %cmp4155, label %if.then42, label %if.end48.thread
+
+if.end48.thread:                                  ; preds = %if.end39.thread
+  store ptr %call20, ptr %call1, align 8
+  br label %if.end51
+
+if.then42:                                        ; preds = %if.end39.thread, %if.end39
+  %blk.04857 = phi ptr [ %call20, %if.end39.thread ], [ %call29, %if.end39 ]
+  %call43 = call ptr @blk_legacy_dinfo(ptr noundef nonnull %blk.04857) #9
   %tobool44.not = icmp eq ptr %call43, null
   br i1 %tobool44.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then42
-  %10 = load i32, ptr %call43, align 8
-  %cmp45.not = icmp eq i32 %10, 0
+  %9 = load i32, ptr %call43, align 8
+  %cmp45.not = icmp eq i32 %9, 0
   br i1 %cmp45.not, label %if.else, label %if.then46
 
 if.then46:                                        ; preds = %land.lhs.true
-  %11 = load ptr, ptr %str, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.9, i32 noundef 172, ptr noundef nonnull @__func__.set_drive_helper, ptr noundef nonnull @.str.43, ptr noundef %11) #9
-  br label %fail
+  %10 = load ptr, ptr %str, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.9, i32 noundef 172, ptr noundef nonnull @__func__.set_drive_helper, ptr noundef nonnull @.str.43, ptr noundef %10) #9
+  br i1 %tobool21.not, label %if.then50, label %if.end51
 
 if.else:                                          ; preds = %land.lhs.true, %if.then42
-  %12 = load ptr, ptr %str, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.9, i32 noundef 175, ptr noundef nonnull @__func__.set_drive_helper, ptr noundef nonnull @.str.44, ptr noundef %12) #9
-  br label %fail
+  %11 = load ptr, ptr %str, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.9, i32 noundef 175, ptr noundef nonnull @__func__.set_drive_helper, ptr noundef nonnull @.str.44, ptr noundef %11) #9
+  br i1 %tobool21.not, label %if.then50, label %if.end51
 
 if.end48:                                         ; preds = %if.end39
-  store ptr %blk.048, ptr %call1, align 8
-  br label %fail
+  store ptr %call29, ptr %call1, align 8
+  br i1 %tobool21.not, label %if.then50, label %if.end51
 
-fail:                                             ; preds = %if.then46, %if.else, %if.end48, %if.then37
-  %blk_created.1 = phi i8 [ %blk_created.047, %if.then46 ], [ %blk_created.047, %if.else ], [ %blk_created.047, %if.end48 ], [ %blk_created.042, %if.then37 ]
-  %blk.1 = phi ptr [ %blk.048, %if.then46 ], [ %blk.048, %if.else ], [ %blk.048, %if.end48 ], [ null, %if.then37 ]
-  %tobool49.not = icmp eq i8 %blk_created.1, 0
-  br i1 %tobool49.not, label %if.end51, label %if.then50
+fail:                                             ; preds = %if.end35
+  %call38 = call ptr @object_get_typename(ptr noundef %call.i) #9
+  %12 = load ptr, ptr %str, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.9, i32 noundef 162, ptr noundef nonnull @__func__.set_drive_helper, ptr noundef nonnull @.str.42, ptr noundef %call38, ptr noundef %name, ptr noundef %12) #9
+  br i1 %tobool24.not.not, label %if.end51, label %if.then50
 
-if.then50:                                        ; preds = %cond.end, %fail
-  %blk.152 = phi ptr [ %blk.1, %fail ], [ %call29, %cond.end ]
+if.then50:                                        ; preds = %if.end48, %if.else, %if.then46, %cond.end, %fail
+  %blk.152 = phi ptr [ null, %fail ], [ %call29, %cond.end ], [ %blk.04857, %if.then46 ], [ %blk.04857, %if.else ], [ %call29, %if.end48 ]
   call void @blk_unref(ptr noundef %blk.152) #9
   br label %if.end51
 
-if.end51:                                         ; preds = %if.then50, %fail
+if.end51.critedge:                                ; preds = %if.then22
+  %call38.c = call ptr @object_get_typename(ptr noundef %call.i) #9
   %13 = load ptr, ptr %str, align 8
-  call void @g_free(ptr noundef %13) #9
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.9, i32 noundef 162, ptr noundef nonnull @__func__.set_drive_helper, ptr noundef nonnull @.str.42, ptr noundef %call38.c, ptr noundef %name, ptr noundef %13) #9
+  br label %if.end51
+
+if.end51:                                         ; preds = %if.end51.critedge, %if.end48.thread, %if.end48, %if.else, %if.then46, %if.then50, %fail
+  %14 = load ptr, ptr %str, align 8
+  call void @g_free(ptr noundef %14) #9
   br label %return
 
 return:                                           ; preds = %check_prop_still_unset.exit, %if.then6, %entry, %if.end51, %if.then18, %if.end14

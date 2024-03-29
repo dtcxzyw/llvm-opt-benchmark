@@ -25,9 +25,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @MPIX_Comm_is_revoked(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @ompi_mpi_param_check, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %26, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %26
 
 5:                                                ; preds = %2
   %6 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -58,8 +57,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %10, %ompi_comm_inva
   br label %30
 
 19:                                               ; preds = %ompi_comm_invalid.exit
-  %.not21 = icmp eq ptr %1, null
-  br i1 %.not21, label %20, label %26
+  %.not20 = icmp eq ptr %1, null
+  br i1 %.not20, label %20, label %26
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds i8, ptr %0, i64 296

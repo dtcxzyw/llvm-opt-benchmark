@@ -977,9 +977,8 @@ if.end:                                           ; preds = %if.then, %entry
   %stream_ = getelementptr inbounds i8, ptr %this, i64 8
   %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %stream_, i8 noundef signext 91)
   %0 = load i8, ptr @_ZN7logging12_GLOBAL__N_116g_log_process_idE, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end8, label %if.then3
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %if.end
   %call.i = call noundef i32 @getpid() #20
@@ -988,10 +987,9 @@ if.then3:                                         ; preds = %if.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %2 = load i8, ptr @_ZN7logging12_GLOBAL__N_115g_log_thread_idE, align 1
-  %3 = and i8 %2, 1
-  %tobool9.not = icmp eq i8 %3, 0
-  br i1 %tobool9.not, label %if.end15, label %if.then10
+  %1 = load i8, ptr @_ZN7logging12_GLOBAL__N_115g_log_thread_idE, align 1
+  %tobool9 = trunc i8 %1 to i1
+  br i1 %tobool9, label %if.then10, label %if.end15
 
 if.then10:                                        ; preds = %if.end8
   %call12 = call noundef i32 @_ZN4base14PlatformThread9CurrentIdEv()
@@ -1000,10 +998,9 @@ if.then10:                                        ; preds = %if.end8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then10, %if.end8
-  %4 = load i8, ptr @_ZN7logging12_GLOBAL__N_115g_log_timestampE, align 1
-  %5 = and i8 %4, 1
-  %tobool16.not = icmp eq i8 %5, 0
-  br i1 %tobool16.not, label %if.end57, label %if.then17
+  %2 = load i8, ptr @_ZN7logging12_GLOBAL__N_115g_log_timestampE, align 1
+  %tobool16 = trunc i8 %2 to i1
+  br i1 %tobool16, label %if.then17, label %if.end57
 
 if.then17:                                        ; preds = %if.end15
   %call18 = call i64 @time(ptr noundef null) #20
@@ -1013,42 +1010,41 @@ if.then17:                                        ; preds = %if.end15
   %call23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %stream_, i8 48)
   %call28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call23, i32 2)
   %tm_mon = getelementptr inbounds i8, ptr %local_time, i64 16
-  %6 = load i32, ptr %tm_mon, align 8
-  %add29 = add nsw i32 %6, 1
+  %3 = load i32, ptr %tm_mon, align 8
+  %add29 = add nsw i32 %3, 1
   %call30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call28, i32 noundef %add29)
   %call35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call30, i32 2)
   %tm_mday = getelementptr inbounds i8, ptr %local_time, i64 12
-  %7 = load i32, ptr %tm_mday, align 4
-  %call36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call35, i32 noundef %7)
+  %4 = load i32, ptr %tm_mday, align 4
+  %call36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call35, i32 noundef %4)
   %call37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call36, i8 noundef signext 47)
   %call42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call37, i32 2)
   %tm_hour = getelementptr inbounds i8, ptr %local_time, i64 8
-  %8 = load i32, ptr %tm_hour, align 8
-  %call43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call42, i32 noundef %8)
+  %5 = load i32, ptr %tm_hour, align 8
+  %call43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call42, i32 noundef %5)
   %call48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call43, i32 2)
   %tm_min = getelementptr inbounds i8, ptr %local_time, i64 4
-  %9 = load i32, ptr %tm_min, align 4
-  %call49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call48, i32 noundef %9)
+  %6 = load i32, ptr %tm_min, align 4
+  %call49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call48, i32 noundef %6)
   %call54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call49, i32 2)
-  %10 = load i32, ptr %local_time, align 8
-  %call55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call54, i32 noundef %10)
+  %7 = load i32, ptr %local_time, align 8
+  %call55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call54, i32 noundef %7)
   %call56 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call55, i8 noundef signext 58)
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then17, %if.end15
-  %11 = load i8, ptr @_ZN7logging12_GLOBAL__N_115g_log_tickcountE, align 1
-  %12 = and i8 %11, 1
-  %tobool58.not = icmp eq i8 %12, 0
-  br i1 %tobool58.not, label %if.end64, label %if.then59
+  %8 = load i8, ptr @_ZN7logging12_GLOBAL__N_115g_log_tickcountE, align 1
+  %tobool58 = trunc i8 %8 to i1
+  br i1 %tobool58, label %if.then59, label %if.end64
 
 if.then59:                                        ; preds = %if.end57
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
   %call.i6 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #20
-  %13 = load i64, ptr %ts.i, align 8
-  %mul.i = mul nsw i64 %13, 1000000
+  %9 = load i64, ptr %ts.i, align 8
+  %mul.i = mul nsw i64 %9, 1000000
   %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
-  %14 = load i64, ptr %tv_nsec.i, align 8
-  %div.i = sdiv i64 %14, 1000
+  %10 = load i64, ptr %tv_nsec.i, align 8
+  %div.i = sdiv i64 %10, 1000
   %add.i = add nsw i64 %div.i, %mul.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
   %call62 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %stream_, i64 noundef %add.i)
@@ -1056,29 +1052,29 @@ if.then59:                                        ; preds = %if.end57
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then59, %if.end57
-  %15 = load i32, ptr %this, align 8
-  %cmp65 = icmp sgt i32 %15, -1
+  %11 = load i32, ptr %this, align 8
+  %cmp65 = icmp sgt i32 %11, -1
   br i1 %cmp65, label %if.then66, label %if.else
 
 if.then66:                                        ; preds = %if.end64
-  %cmp1.i = icmp ult i32 %15, 4
+  %cmp1.i = icmp ult i32 %11, 4
   br i1 %cmp1.i, label %if.then.i, label %_ZN7logging12_GLOBAL__N_117log_severity_nameEi.exit
 
 if.then.i:                                        ; preds = %if.then66
-  %idxprom.i = zext nneg i32 %15 to i64
+  %idxprom.i = zext nneg i32 %11 to i64
   %arrayidx.i = getelementptr inbounds [4 x ptr], ptr @_ZN7logging12_GLOBAL__N_118log_severity_namesE, i64 0, i64 %idxprom.i
-  %16 = load ptr, ptr %arrayidx.i, align 8
+  %12 = load ptr, ptr %arrayidx.i, align 8
   br label %_ZN7logging12_GLOBAL__N_117log_severity_nameEi.exit
 
 _ZN7logging12_GLOBAL__N_117log_severity_nameEi.exit: ; preds = %if.then66, %if.then.i
-  %retval.0.i = phi ptr [ %16, %if.then.i ], [ @.str.19, %if.then66 ]
+  %retval.0.i = phi ptr [ %12, %if.then.i ], [ @.str.19, %if.then66 ]
   %call70 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_, ptr noundef %retval.0.i)
   br label %if.end75
 
 if.else:                                          ; preds = %if.end64
   %call72 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_, ptr noundef nonnull @.str.9)
-  %17 = load i32, ptr %this, align 8
-  %sub = sub nsw i32 0, %17
+  %13 = load i32, ptr %this, align 8
+  %sub = sub nsw i32 0, %13
   %call74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call72, i32 noundef %sub)
   br label %if.end75
 

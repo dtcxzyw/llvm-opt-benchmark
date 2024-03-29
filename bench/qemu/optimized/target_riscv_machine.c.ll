@@ -239,8 +239,7 @@ define internal zeroext i1 @pmp_needed(ptr nocapture noundef readonly %opaque) #
 entry:
   %pmp = getelementptr inbounds i8, ptr %opaque, i64 19153
   %0 = load i8, ptr %pmp, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -320,8 +319,7 @@ define internal zeroext i1 @debug_needed(ptr nocapture noundef readonly %opaque)
 entry:
   %debug = getelementptr inbounds i8, ptr %opaque, i64 19154
   %0 = load i8, ptr %debug, align 2
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -332,8 +330,7 @@ define internal zeroext i1 @smstateen_needed(ptr nocapture noundef readonly %opa
 entry:
   %ext_smstateen = getelementptr inbounds i8, ptr %opaque, i64 19025
   %0 = load i8, ptr %ext_smstateen, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -342,8 +339,7 @@ define internal zeroext i1 @jvt_needed(ptr nocapture noundef readonly %opaque) #
 entry:
   %ext_zcmt = getelementptr inbounds i8, ptr %opaque, i64 19005
   %0 = load i8, ptr %ext_zcmt, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

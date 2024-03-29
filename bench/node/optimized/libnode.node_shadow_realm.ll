@@ -320,9 +320,8 @@ entry:
   store i64 %2, ptr %ref.tmp.i.i, align 8
   %call.i.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE10_M_emplaceIJRPFvPvERSF_mEEESt4pairINS4_14_Node_iteratorIS2_Lb1ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %cleanup_hooks_.i.i, ptr noundef nonnull align 8 dereferenceable(8) %cb.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %arg.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i)
   %3 = extractvalue { ptr, i8 } %call.i.i.i.i, 1
-  %4 = and i8 %3, 1
-  %tobool.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i.i, label %do.body5.i.i, label %_ZN4node11Environment14AddCleanupHookEPFvPvES1_.exit
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %_ZN4node11Environment14AddCleanupHookEPFvPvES1_.exit, label %do.body5.i.i
 
 do.body5.i.i:                                     ; preds = %entry
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node12CleanupQueue3AddEPFvPvES1_E4args) #13
@@ -508,30 +507,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %async_hooks_after_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %async_hooks_after_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_async_hooks_after_function_.i9 = getelementptr inbounds i8, ptr %14, i64 2928
-  %15 = load ptr, ptr %per_realm_async_hooks_after_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_async_hooks_after_function_.i9 = getelementptr inbounds i8, ptr %13, i64 2928
+  %14 = load ptr, ptr %per_realm_async_hooks_after_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -612,30 +609,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %async_hooks_before_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %async_hooks_before_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_async_hooks_before_function_.i9 = getelementptr inbounds i8, ptr %14, i64 2936
-  %15 = load ptr, ptr %per_realm_async_hooks_before_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_async_hooks_before_function_.i9 = getelementptr inbounds i8, ptr %13, i64 2936
+  %14 = load ptr, ptr %per_realm_async_hooks_before_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -712,30 +707,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %async_hooks_callback_trampoline_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %async_hooks_callback_trampoline_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_async_hooks_callback_trampoline_.i9 = getelementptr inbounds i8, ptr %14, i64 2944
-  %15 = load ptr, ptr %per_realm_async_hooks_callback_trampoline_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_async_hooks_callback_trampoline_.i9 = getelementptr inbounds i8, ptr %13, i64 2944
+  %14 = load ptr, ptr %per_realm_async_hooks_callback_trampoline_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -812,30 +805,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i169.not = icmp eq i16 %10, 0
-  br i1 %tobool.i169.not, label %if.end.sink.split, label %if.end
+  %tobool.i169 = trunc i16 %call41 to i1
+  br i1 %tobool.i169, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i181, ptr %async_hooks_binding_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %async_hooks_binding_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_async_hooks_binding_.i9 = getelementptr inbounds i8, ptr %14, i64 2952
-  %15 = load ptr, ptr %per_realm_async_hooks_binding_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i166.not = icmp eq i16 %16, 0
-  br i1 %tobool.i166.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_async_hooks_binding_.i9 = getelementptr inbounds i8, ptr %13, i64 2952
+  %14 = load ptr, ptr %per_realm_async_hooks_binding_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i166 = trunc i16 %call73 to i1
+  br i1 %tobool.i166, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -912,30 +903,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %async_hooks_destroy_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %async_hooks_destroy_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_async_hooks_destroy_function_.i9 = getelementptr inbounds i8, ptr %14, i64 2960
-  %15 = load ptr, ptr %per_realm_async_hooks_destroy_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_async_hooks_destroy_function_.i9 = getelementptr inbounds i8, ptr %13, i64 2960
+  %14 = load ptr, ptr %per_realm_async_hooks_destroy_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -1012,30 +1001,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %async_hooks_init_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %async_hooks_init_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_async_hooks_init_function_.i9 = getelementptr inbounds i8, ptr %14, i64 2968
-  %15 = load ptr, ptr %per_realm_async_hooks_init_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_async_hooks_init_function_.i9 = getelementptr inbounds i8, ptr %13, i64 2968
+  %14 = load ptr, ptr %per_realm_async_hooks_init_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -1112,30 +1099,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %async_hooks_promise_resolve_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %async_hooks_promise_resolve_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_async_hooks_promise_resolve_function_.i9 = getelementptr inbounds i8, ptr %14, i64 2976
-  %15 = load ptr, ptr %per_realm_async_hooks_promise_resolve_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_async_hooks_promise_resolve_function_.i9 = getelementptr inbounds i8, ptr %13, i64 2976
+  %14 = load ptr, ptr %per_realm_async_hooks_promise_resolve_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -1212,30 +1197,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i169.not = icmp eq i16 %10, 0
-  br i1 %tobool.i169.not, label %if.end.sink.split, label %if.end
+  %tobool.i169 = trunc i16 %call41 to i1
+  br i1 %tobool.i169, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i181, ptr %buffer_prototype_object_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %buffer_prototype_object_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_buffer_prototype_object_.i9 = getelementptr inbounds i8, ptr %14, i64 2984
-  %15 = load ptr, ptr %per_realm_buffer_prototype_object_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i166.not = icmp eq i16 %16, 0
-  br i1 %tobool.i166.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_buffer_prototype_object_.i9 = getelementptr inbounds i8, ptr %13, i64 2984
+  %14 = load ptr, ptr %per_realm_buffer_prototype_object_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i166 = trunc i16 %call73 to i1
+  br i1 %tobool.i166, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -1312,30 +1295,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %crypto_key_object_constructor_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %crypto_key_object_constructor_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_crypto_key_object_constructor_.i9 = getelementptr inbounds i8, ptr %14, i64 2992
-  %15 = load ptr, ptr %per_realm_crypto_key_object_constructor_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_crypto_key_object_constructor_.i9 = getelementptr inbounds i8, ptr %13, i64 2992
+  %14 = load ptr, ptr %per_realm_crypto_key_object_constructor_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -1412,30 +1393,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %crypto_key_object_private_constructor_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %crypto_key_object_private_constructor_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_crypto_key_object_private_constructor_.i9 = getelementptr inbounds i8, ptr %14, i64 3000
-  %15 = load ptr, ptr %per_realm_crypto_key_object_private_constructor_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_crypto_key_object_private_constructor_.i9 = getelementptr inbounds i8, ptr %13, i64 3000
+  %14 = load ptr, ptr %per_realm_crypto_key_object_private_constructor_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -1512,30 +1491,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %crypto_key_object_public_constructor_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %crypto_key_object_public_constructor_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_crypto_key_object_public_constructor_.i9 = getelementptr inbounds i8, ptr %14, i64 3008
-  %15 = load ptr, ptr %per_realm_crypto_key_object_public_constructor_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_crypto_key_object_public_constructor_.i9 = getelementptr inbounds i8, ptr %13, i64 3008
+  %14 = load ptr, ptr %per_realm_crypto_key_object_public_constructor_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -1612,30 +1589,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %crypto_key_object_secret_constructor_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %crypto_key_object_secret_constructor_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_crypto_key_object_secret_constructor_.i9 = getelementptr inbounds i8, ptr %14, i64 3016
-  %15 = load ptr, ptr %per_realm_crypto_key_object_secret_constructor_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_crypto_key_object_secret_constructor_.i9 = getelementptr inbounds i8, ptr %13, i64 3016
+  %14 = load ptr, ptr %per_realm_crypto_key_object_secret_constructor_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -1712,30 +1687,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %domexception_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %domexception_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_domexception_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3024
-  %15 = load ptr, ptr %per_realm_domexception_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_domexception_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3024
+  %14 = load ptr, ptr %per_realm_domexception_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -1812,30 +1785,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %enhance_fatal_stack_after_inspector_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %enhance_fatal_stack_after_inspector_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_enhance_fatal_stack_after_inspector_.i9 = getelementptr inbounds i8, ptr %14, i64 3032
-  %15 = load ptr, ptr %per_realm_enhance_fatal_stack_after_inspector_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_enhance_fatal_stack_after_inspector_.i9 = getelementptr inbounds i8, ptr %13, i64 3032
+  %14 = load ptr, ptr %per_realm_enhance_fatal_stack_after_inspector_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -1912,30 +1883,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %enhance_fatal_stack_before_inspector_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %enhance_fatal_stack_before_inspector_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_enhance_fatal_stack_before_inspector_.i9 = getelementptr inbounds i8, ptr %14, i64 3040
-  %15 = load ptr, ptr %per_realm_enhance_fatal_stack_before_inspector_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_enhance_fatal_stack_before_inspector_.i9 = getelementptr inbounds i8, ptr %13, i64 3040
+  %14 = load ptr, ptr %per_realm_enhance_fatal_stack_before_inspector_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -2012,30 +1981,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %get_source_map_error_source_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %get_source_map_error_source_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_get_source_map_error_source_.i9 = getelementptr inbounds i8, ptr %14, i64 3048
-  %15 = load ptr, ptr %per_realm_get_source_map_error_source_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_get_source_map_error_source_.i9 = getelementptr inbounds i8, ptr %13, i64 3048
+  %14 = load ptr, ptr %per_realm_get_source_map_error_source_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -2112,30 +2079,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %host_import_module_dynamically_callback_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %host_import_module_dynamically_callback_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_host_import_module_dynamically_callback_.i9 = getelementptr inbounds i8, ptr %14, i64 3056
-  %15 = load ptr, ptr %per_realm_host_import_module_dynamically_callback_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_host_import_module_dynamically_callback_.i9 = getelementptr inbounds i8, ptr %13, i64 3056
+  %14 = load ptr, ptr %per_realm_host_import_module_dynamically_callback_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -2212,30 +2177,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %host_initialize_import_meta_object_callback_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %host_initialize_import_meta_object_callback_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_host_initialize_import_meta_object_callback_.i9 = getelementptr inbounds i8, ptr %14, i64 3064
-  %15 = load ptr, ptr %per_realm_host_initialize_import_meta_object_callback_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_host_initialize_import_meta_object_callback_.i9 = getelementptr inbounds i8, ptr %13, i64 3064
+  %14 = load ptr, ptr %per_realm_host_initialize_import_meta_object_callback_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -2312,30 +2275,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %http2session_on_altsvc_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_altsvc_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_altsvc_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3072
-  %15 = load ptr, ptr %per_realm_http2session_on_altsvc_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_http2session_on_altsvc_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3072
+  %14 = load ptr, ptr %per_realm_http2session_on_altsvc_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -2412,30 +2373,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %http2session_on_error_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_error_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_error_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3080
-  %15 = load ptr, ptr %per_realm_http2session_on_error_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_http2session_on_error_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3080
+  %14 = load ptr, ptr %per_realm_http2session_on_error_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -2512,30 +2471,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %http2session_on_frame_error_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_frame_error_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_frame_error_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3088
-  %15 = load ptr, ptr %per_realm_http2session_on_frame_error_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_http2session_on_frame_error_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3088
+  %14 = load ptr, ptr %per_realm_http2session_on_frame_error_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -2612,30 +2569,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %http2session_on_goaway_data_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_goaway_data_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_goaway_data_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3096
-  %15 = load ptr, ptr %per_realm_http2session_on_goaway_data_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_http2session_on_goaway_data_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3096
+  %14 = load ptr, ptr %per_realm_http2session_on_goaway_data_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -2712,30 +2667,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %http2session_on_headers_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_headers_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_headers_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3104
-  %15 = load ptr, ptr %per_realm_http2session_on_headers_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_http2session_on_headers_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3104
+  %14 = load ptr, ptr %per_realm_http2session_on_headers_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -2812,30 +2765,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %http2session_on_origin_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_origin_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_origin_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3112
-  %15 = load ptr, ptr %per_realm_http2session_on_origin_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_http2session_on_origin_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3112
+  %14 = load ptr, ptr %per_realm_http2session_on_origin_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -2912,30 +2863,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %http2session_on_ping_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_ping_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_ping_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3120
-  %15 = load ptr, ptr %per_realm_http2session_on_ping_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_http2session_on_ping_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3120
+  %14 = load ptr, ptr %per_realm_http2session_on_ping_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -3012,30 +2961,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %http2session_on_priority_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_priority_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_priority_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3128
-  %15 = load ptr, ptr %per_realm_http2session_on_priority_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_http2session_on_priority_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3128
+  %14 = load ptr, ptr %per_realm_http2session_on_priority_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -3112,30 +3059,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %http2session_on_settings_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_settings_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_settings_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3136
-  %15 = load ptr, ptr %per_realm_http2session_on_settings_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_http2session_on_settings_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3136
+  %14 = load ptr, ptr %per_realm_http2session_on_settings_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -3212,30 +3157,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %http2session_on_stream_close_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_stream_close_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_stream_close_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3144
-  %15 = load ptr, ptr %per_realm_http2session_on_stream_close_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_http2session_on_stream_close_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3144
+  %14 = load ptr, ptr %per_realm_http2session_on_stream_close_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -3312,30 +3255,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %http2session_on_stream_trailers_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %http2session_on_stream_trailers_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_http2session_on_stream_trailers_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3152
-  %15 = load ptr, ptr %per_realm_http2session_on_stream_trailers_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_http2session_on_stream_trailers_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3152
+  %14 = load ptr, ptr %per_realm_http2session_on_stream_trailers_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -3412,30 +3353,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %internal_binding_loader_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %internal_binding_loader_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_internal_binding_loader_.i9 = getelementptr inbounds i8, ptr %14, i64 3160
-  %15 = load ptr, ptr %per_realm_internal_binding_loader_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_internal_binding_loader_.i9 = getelementptr inbounds i8, ptr %13, i64 3160
+  %14 = load ptr, ptr %per_realm_internal_binding_loader_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -3512,30 +3451,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %immediate_callback_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %immediate_callback_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_immediate_callback_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3168
-  %15 = load ptr, ptr %per_realm_immediate_callback_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_immediate_callback_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3168
+  %14 = load ptr, ptr %per_realm_immediate_callback_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -3612,30 +3549,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %inspector_console_extension_installer_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %inspector_console_extension_installer_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_inspector_console_extension_installer_.i9 = getelementptr inbounds i8, ptr %14, i64 3176
-  %15 = load ptr, ptr %per_realm_inspector_console_extension_installer_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_inspector_console_extension_installer_.i9 = getelementptr inbounds i8, ptr %13, i64 3176
+  %14 = load ptr, ptr %per_realm_inspector_console_extension_installer_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -3712,30 +3647,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %inspector_disable_async_hooks_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %inspector_disable_async_hooks_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_inspector_disable_async_hooks_.i9 = getelementptr inbounds i8, ptr %14, i64 3184
-  %15 = load ptr, ptr %per_realm_inspector_disable_async_hooks_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_inspector_disable_async_hooks_.i9 = getelementptr inbounds i8, ptr %13, i64 3184
+  %14 = load ptr, ptr %per_realm_inspector_disable_async_hooks_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -3812,30 +3745,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %inspector_enable_async_hooks_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %inspector_enable_async_hooks_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_inspector_enable_async_hooks_.i9 = getelementptr inbounds i8, ptr %14, i64 3192
-  %15 = load ptr, ptr %per_realm_inspector_enable_async_hooks_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_inspector_enable_async_hooks_.i9 = getelementptr inbounds i8, ptr %13, i64 3192
+  %14 = load ptr, ptr %per_realm_inspector_enable_async_hooks_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -3912,30 +3843,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %maybe_cache_generated_source_map_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %maybe_cache_generated_source_map_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_maybe_cache_generated_source_map_.i9 = getelementptr inbounds i8, ptr %14, i64 3200
-  %15 = load ptr, ptr %per_realm_maybe_cache_generated_source_map_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_maybe_cache_generated_source_map_.i9 = getelementptr inbounds i8, ptr %13, i64 3200
+  %14 = load ptr, ptr %per_realm_maybe_cache_generated_source_map_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -4012,30 +3941,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %messaging_deserialize_create_object_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %messaging_deserialize_create_object_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_messaging_deserialize_create_object_.i9 = getelementptr inbounds i8, ptr %14, i64 3208
-  %15 = load ptr, ptr %per_realm_messaging_deserialize_create_object_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_messaging_deserialize_create_object_.i9 = getelementptr inbounds i8, ptr %13, i64 3208
+  %14 = load ptr, ptr %per_realm_messaging_deserialize_create_object_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -4112,30 +4039,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i169.not = icmp eq i16 %10, 0
-  br i1 %tobool.i169.not, label %if.end.sink.split, label %if.end
+  %tobool.i169 = trunc i16 %call41 to i1
+  br i1 %tobool.i169, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i181, ptr %message_port_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %message_port_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_message_port_.i9 = getelementptr inbounds i8, ptr %14, i64 3216
-  %15 = load ptr, ptr %per_realm_message_port_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i166.not = icmp eq i16 %16, 0
-  br i1 %tobool.i166.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_message_port_.i9 = getelementptr inbounds i8, ptr %13, i64 3216
+  %14 = load ptr, ptr %per_realm_message_port_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i166 = trunc i16 %call73 to i1
+  br i1 %tobool.i166, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -4212,30 +4137,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %builtin_module_require_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %builtin_module_require_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_builtin_module_require_.i9 = getelementptr inbounds i8, ptr %14, i64 3224
-  %15 = load ptr, ptr %per_realm_builtin_module_require_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_builtin_module_require_.i9 = getelementptr inbounds i8, ptr %13, i64 3224
+  %14 = load ptr, ptr %per_realm_builtin_module_require_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -4312,30 +4235,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %performance_entry_callback_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %performance_entry_callback_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_performance_entry_callback_.i9 = getelementptr inbounds i8, ptr %14, i64 3232
-  %15 = load ptr, ptr %per_realm_performance_entry_callback_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_performance_entry_callback_.i9 = getelementptr inbounds i8, ptr %13, i64 3232
+  %14 = load ptr, ptr %per_realm_performance_entry_callback_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -4412,30 +4333,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %prepare_stack_trace_callback_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %prepare_stack_trace_callback_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_prepare_stack_trace_callback_.i9 = getelementptr inbounds i8, ptr %14, i64 3240
-  %15 = load ptr, ptr %per_realm_prepare_stack_trace_callback_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_prepare_stack_trace_callback_.i9 = getelementptr inbounds i8, ptr %13, i64 3240
+  %14 = load ptr, ptr %per_realm_prepare_stack_trace_callback_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -4512,30 +4431,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i169.not = icmp eq i16 %10, 0
-  br i1 %tobool.i169.not, label %if.end.sink.split, label %if.end
+  %tobool.i169 = trunc i16 %call41 to i1
+  br i1 %tobool.i169, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i181, ptr %process_object_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %process_object_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_process_object_.i9 = getelementptr inbounds i8, ptr %14, i64 3248
-  %15 = load ptr, ptr %per_realm_process_object_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i166.not = icmp eq i16 %16, 0
-  br i1 %tobool.i166.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_process_object_.i9 = getelementptr inbounds i8, ptr %13, i64 3248
+  %14 = load ptr, ptr %per_realm_process_object_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i166 = trunc i16 %call73 to i1
+  br i1 %tobool.i166, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -4612,30 +4529,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i169.not = icmp eq i16 %10, 0
-  br i1 %tobool.i169.not, label %if.end.sink.split, label %if.end
+  %tobool.i169 = trunc i16 %call41 to i1
+  br i1 %tobool.i169, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i181, ptr %primordials_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %primordials_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_primordials_.i9 = getelementptr inbounds i8, ptr %14, i64 3256
-  %15 = load ptr, ptr %per_realm_primordials_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i166.not = icmp eq i16 %16, 0
-  br i1 %tobool.i166.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_primordials_.i9 = getelementptr inbounds i8, ptr %13, i64 3256
+  %14 = load ptr, ptr %per_realm_primordials_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i166 = trunc i16 %call73 to i1
+  br i1 %tobool.i166, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -4712,30 +4627,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i169.not = icmp eq i16 %10, 0
-  br i1 %tobool.i169.not, label %if.end.sink.split, label %if.end
+  %tobool.i169 = trunc i16 %call41 to i1
+  br i1 %tobool.i169, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i181, ptr %primordials_safe_map_prototype_object_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %primordials_safe_map_prototype_object_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_primordials_safe_map_prototype_object_.i9 = getelementptr inbounds i8, ptr %14, i64 3264
-  %15 = load ptr, ptr %per_realm_primordials_safe_map_prototype_object_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i166.not = icmp eq i16 %16, 0
-  br i1 %tobool.i166.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_primordials_safe_map_prototype_object_.i9 = getelementptr inbounds i8, ptr %13, i64 3264
+  %14 = load ptr, ptr %per_realm_primordials_safe_map_prototype_object_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i166 = trunc i16 %call73 to i1
+  br i1 %tobool.i166, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -4812,30 +4725,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i169.not = icmp eq i16 %10, 0
-  br i1 %tobool.i169.not, label %if.end.sink.split, label %if.end
+  %tobool.i169 = trunc i16 %call41 to i1
+  br i1 %tobool.i169, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i181, ptr %primordials_safe_set_prototype_object_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %primordials_safe_set_prototype_object_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_primordials_safe_set_prototype_object_.i9 = getelementptr inbounds i8, ptr %14, i64 3272
-  %15 = load ptr, ptr %per_realm_primordials_safe_set_prototype_object_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i166.not = icmp eq i16 %16, 0
-  br i1 %tobool.i166.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_primordials_safe_set_prototype_object_.i9 = getelementptr inbounds i8, ptr %13, i64 3272
+  %14 = load ptr, ptr %per_realm_primordials_safe_set_prototype_object_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i166 = trunc i16 %call73 to i1
+  br i1 %tobool.i166, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -4912,30 +4823,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i169.not = icmp eq i16 %10, 0
-  br i1 %tobool.i169.not, label %if.end.sink.split, label %if.end
+  %tobool.i169 = trunc i16 %call41 to i1
+  br i1 %tobool.i169, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i181, ptr %primordials_safe_weak_map_prototype_object_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %primordials_safe_weak_map_prototype_object_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_primordials_safe_weak_map_prototype_object_.i9 = getelementptr inbounds i8, ptr %14, i64 3280
-  %15 = load ptr, ptr %per_realm_primordials_safe_weak_map_prototype_object_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i166.not = icmp eq i16 %16, 0
-  br i1 %tobool.i166.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_primordials_safe_weak_map_prototype_object_.i9 = getelementptr inbounds i8, ptr %13, i64 3280
+  %14 = load ptr, ptr %per_realm_primordials_safe_weak_map_prototype_object_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i166 = trunc i16 %call73 to i1
+  br i1 %tobool.i166, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -5012,30 +4921,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i169.not = icmp eq i16 %10, 0
-  br i1 %tobool.i169.not, label %if.end.sink.split, label %if.end
+  %tobool.i169 = trunc i16 %call41 to i1
+  br i1 %tobool.i169, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i181 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i181, ptr %primordials_safe_weak_set_prototype_object_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %primordials_safe_weak_set_prototype_object_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_primordials_safe_weak_set_prototype_object_.i9 = getelementptr inbounds i8, ptr %14, i64 3288
-  %15 = load ptr, ptr %per_realm_primordials_safe_weak_set_prototype_object_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i166.not = icmp eq i16 %16, 0
-  br i1 %tobool.i166.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_primordials_safe_weak_set_prototype_object_.i9 = getelementptr inbounds i8, ptr %13, i64 3288
+  %14 = load ptr, ptr %per_realm_primordials_safe_weak_set_prototype_object_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i166 = trunc i16 %call73 to i1
+  br i1 %tobool.i166, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -5112,30 +5019,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %promise_hook_handler_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %promise_hook_handler_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_promise_hook_handler_.i9 = getelementptr inbounds i8, ptr %14, i64 3296
-  %15 = load ptr, ptr %per_realm_promise_hook_handler_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_promise_hook_handler_.i9 = getelementptr inbounds i8, ptr %13, i64 3296
+  %14 = load ptr, ptr %per_realm_promise_hook_handler_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -5212,30 +5117,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %promise_reject_callback_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %promise_reject_callback_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_promise_reject_callback_.i9 = getelementptr inbounds i8, ptr %14, i64 3304
-  %15 = load ptr, ptr %per_realm_promise_reject_callback_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_promise_reject_callback_.i9 = getelementptr inbounds i8, ptr %13, i64 3304
+  %14 = load ptr, ptr %per_realm_promise_reject_callback_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -5312,30 +5215,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %snapshot_serialize_callback_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %snapshot_serialize_callback_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_snapshot_serialize_callback_.i9 = getelementptr inbounds i8, ptr %14, i64 3312
-  %15 = load ptr, ptr %per_realm_snapshot_serialize_callback_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_snapshot_serialize_callback_.i9 = getelementptr inbounds i8, ptr %13, i64 3312
+  %14 = load ptr, ptr %per_realm_snapshot_serialize_callback_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -5412,30 +5313,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %snapshot_deserialize_callback_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %snapshot_deserialize_callback_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_snapshot_deserialize_callback_.i9 = getelementptr inbounds i8, ptr %14, i64 3320
-  %15 = load ptr, ptr %per_realm_snapshot_deserialize_callback_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_snapshot_deserialize_callback_.i9 = getelementptr inbounds i8, ptr %13, i64 3320
+  %14 = load ptr, ptr %per_realm_snapshot_deserialize_callback_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -5512,30 +5411,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %snapshot_deserialize_main_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %snapshot_deserialize_main_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_snapshot_deserialize_main_.i9 = getelementptr inbounds i8, ptr %14, i64 3328
-  %15 = load ptr, ptr %per_realm_snapshot_deserialize_main_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_snapshot_deserialize_main_.i9 = getelementptr inbounds i8, ptr %13, i64 3328
+  %14 = load ptr, ptr %per_realm_snapshot_deserialize_main_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -5612,30 +5509,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %source_map_cache_getter_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %source_map_cache_getter_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_source_map_cache_getter_.i9 = getelementptr inbounds i8, ptr %14, i64 3336
-  %15 = load ptr, ptr %per_realm_source_map_cache_getter_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_source_map_cache_getter_.i9 = getelementptr inbounds i8, ptr %13, i64 3336
+  %14 = load ptr, ptr %per_realm_source_map_cache_getter_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -5712,30 +5607,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %tick_callback_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %tick_callback_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_tick_callback_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3344
-  %15 = load ptr, ptr %per_realm_tick_callback_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_tick_callback_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3344
+  %14 = load ptr, ptr %per_realm_tick_callback_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -5812,30 +5705,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %timers_callback_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %timers_callback_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_timers_callback_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3352
-  %15 = load ptr, ptr %per_realm_timers_callback_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_timers_callback_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3352
+  %14 = load ptr, ptr %per_realm_timers_callback_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -5912,30 +5803,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %tls_wrap_constructor_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %tls_wrap_constructor_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_tls_wrap_constructor_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3360
-  %15 = load ptr, ptr %per_realm_tls_wrap_constructor_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_tls_wrap_constructor_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3360
+  %14 = load ptr, ptr %per_realm_tls_wrap_constructor_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -6012,30 +5901,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %trace_category_state_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %trace_category_state_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_trace_category_state_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3368
-  %15 = load ptr, ptr %per_realm_trace_category_state_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_trace_category_state_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3368
+  %14 = load ptr, ptr %per_realm_trace_category_state_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -6112,30 +5999,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %udp_constructor_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %udp_constructor_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_udp_constructor_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3376
-  %15 = load ptr, ptr %per_realm_udp_constructor_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_udp_constructor_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3376
+  %14 = load ptr, ptr %per_realm_udp_constructor_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -6212,30 +6097,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %url_constructor_function_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %url_constructor_function_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_url_constructor_function_.i9 = getelementptr inbounds i8, ptr %14, i64 3384
-  %15 = load ptr, ptr %per_realm_url_constructor_function_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_url_constructor_function_.i9 = getelementptr inbounds i8, ptr %13, i64 3384
+  %14 = load ptr, ptr %per_realm_url_constructor_function_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -6312,30 +6195,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %wasm_streaming_compilation_impl_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %wasm_streaming_compilation_impl_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_wasm_streaming_compilation_impl_.i9 = getelementptr inbounds i8, ptr %14, i64 3392
-  %15 = load ptr, ptr %per_realm_wasm_streaming_compilation_impl_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_wasm_streaming_compilation_impl_.i9 = getelementptr inbounds i8, ptr %13, i64 3392
+  %14 = load ptr, ptr %per_realm_wasm_streaming_compilation_impl_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -6412,30 +6293,28 @@ if.then:                                          ; preds = %_ZN2v814PersistentB
   %add1.i = add i64 %8, 608
   %9 = inttoptr i64 %add1.i to ptr
   %call41 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call11, ptr nonnull %call12, ptr %6, ptr %9) #13
-  %10 = and i16 %call41, 1
-  %tobool.i188.not = icmp eq i16 %10, 0
-  br i1 %tobool.i188.not, label %if.end.sink.split, label %if.end
+  %tobool.i188 = trunc i16 %call41 to i1
+  br i1 %tobool.i188, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %11 = load i64, ptr %value.coerce, align 8
-  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %11) #13
+  %10 = load i64, ptr %value.coerce, align 8
+  %call2.i158 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %10) #13
   store ptr %call2.i158, ptr %wasm_streaming_object_constructor_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %12 = load ptr, ptr %vfn, align 8
-  %call = call ptr %12(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
+  %11 = load ptr, ptr %vfn, align 8
+  %call = call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   call void @_ZN2v812api_internal8MakeWeakEPPm(ptr noundef nonnull %wasm_streaming_object_constructor_) #13
   %call47 = call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #13
   %env_.i7 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %env_.i7, align 8
-  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %13, i64 96
-  %14 = load ptr, ptr %isolate_data_.i.i8, align 8
-  %per_realm_wasm_streaming_object_constructor_.i9 = getelementptr inbounds i8, ptr %14, i64 3400
-  %15 = load ptr, ptr %per_realm_wasm_streaming_object_constructor_.i9, align 8
-  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %15, ptr nonnull %value.coerce) #13
-  %16 = and i16 %call73, 1
-  %tobool.i185.not = icmp eq i16 %16, 0
-  br i1 %tobool.i185.not, label %if.end.sink.split, label %if.end
+  %12 = load ptr, ptr %env_.i7, align 8
+  %isolate_data_.i.i8 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %isolate_data_.i.i8, align 8
+  %per_realm_wasm_streaming_object_constructor_.i9 = getelementptr inbounds i8, ptr %13, i64 3400
+  %14 = load ptr, ptr %per_realm_wasm_streaming_object_constructor_.i9, align 8
+  %call73 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call47, ptr nonnull %call, ptr %14, ptr nonnull %value.coerce) #13
+  %tobool.i185 = trunc i16 %call73 to i1
+  br i1 %tobool.i185, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %if.then
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #13
@@ -6458,8 +6337,8 @@ entry:
   %flags_.i = getelementptr inbounds i8, ptr %1, i64 2064
   %2 = load i64, ptr %flags_.i, align 8
   %and.i = and i64 %2, 256
-  %tobool.i.not5 = icmp eq i64 %and.i, 0
-  br i1 %tobool.i.not5, label %if.then, label %if.end8
+  %tobool.i5.not = icmp eq i64 %and.i, 0
+  br i1 %tobool.i5.not, label %if.then, label %if.end8
 
 if.then:                                          ; preds = %entry
   %call2 = call ptr @_ZN4node5Realm19ExecuteBootstrapperEPKc(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef nonnull @.str) #13
@@ -6505,9 +6384,8 @@ lor.rhs:                                          ; preds = %_ZN4node21FIXED_ONE
   %9 = load ptr, ptr %vfn55, align 8
   %call56 = call ptr %9(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   %call79 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %call56, ptr %call.i.i, ptr nonnull %call38) #13
-  %10 = and i16 %call79, 1
-  %tobool.i.not = icmp eq i16 %10, 0
-  br i1 %tobool.i.not, label %cleanup, label %if.end82
+  %tobool.i = trunc i16 %call79 to i1
+  br i1 %tobool.i, label %if.end82, label %cleanup
 
 if.end82:                                         ; preds = %lor.rhs
   %call84 = call ptr @_ZN4node5Realm19ExecuteBootstrapperEPKc(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef nonnull @.str.3) #13
@@ -6515,14 +6393,14 @@ if.end82:                                         ; preds = %lor.rhs
   br i1 %cmp.i118, label %cleanup, label %if.end91
 
 if.end91:                                         ; preds = %if.end82
-  %11 = load ptr, ptr %isolate_, align 8
-  %12 = ptrtoint ptr %11 to i64
-  %add1.i = add i64 %12, 632
-  %13 = inttoptr i64 %add1.i to ptr
+  %10 = load ptr, ptr %isolate_, align 8
+  %11 = ptrtoint ptr %10 to i64
+  %add1.i = add i64 %11, 632
+  %12 = inttoptr i64 %add1.i to ptr
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end82, %lor.rhs, %_ZN4node21FIXED_ONE_BYTE_STRINGILi4EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit, %if.end8, %if.then, %if.end91
-  %retval.sroa.0.0 = phi ptr [ %13, %if.end91 ], [ null, %if.then ], [ null, %if.end8 ], [ null, %_ZN4node21FIXED_ONE_BYTE_STRINGILi4EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ null, %lor.rhs ], [ null, %if.end82 ]
+  %retval.sroa.0.0 = phi ptr [ %12, %if.end91 ], [ null, %if.then ], [ null, %if.end8 ], [ null, %_ZN4node21FIXED_ONE_BYTE_STRINGILi4EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ null, %lor.rhs ], [ null, %if.end82 ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #13
   ret ptr %retval.sroa.0.0
 }
@@ -6778,7 +6656,7 @@ for.cond:                                         ; preds = %for.body, %if.then
 for.body:                                         ; preds = %for.cond
   %add.ptr16 = getelementptr inbounds i8, ptr %__it.sroa.0.0, i64 8
   %call4.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr16) #13
-  br i1 %call4.i, label %if.then.i22, label %for.cond, !llvm.loop !14
+  br i1 %call4.i, label %if.then.i23, label %for.cond, !llvm.loop !14
 
 if.end21:                                         ; preds = %for.cond, %entry
   %call2.i = tail call noundef i64 @_ZNK4node12CleanupQueue19CleanupHookCallback4HashclERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i) #13
@@ -6830,7 +6708,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
 _ZNKSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS2_m.exit: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i.i
   %13 = load ptr, ptr %__prev_p.0.i.i, align 8
   %tobool.not = icmp eq ptr %13, null
-  br i1 %tobool.not, label %if.end33, label %if.then.i22
+  br i1 %tobool.not, label %if.end33, label %if.then.i23
 
 if.end33:                                         ; preds = %if.end3.i.i, %lor.lhs.false.i.i, %if.then27, %_ZNKSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS2_m.exit, %if.end21
   %_M_rehash_policy.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -6838,74 +6716,73 @@ if.end33:                                         ; preds = %if.end3.i.i, %lor.l
   %15 = load i64, ptr %_M_element_count.i, align 8
   %call3.i = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i, i64 noundef %14, i64 noundef %15, i64 noundef 1) #13
   %16 = extractvalue { i8, i64 } %call3.i, 0
-  %17 = and i8 %16, 1
-  %tobool.not.i = icmp eq i8 %17, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i12
+  %tobool.i = trunc i8 %16 to i1
+  br i1 %tobool.i, label %if.then.i19, label %if.end.i
 
-if.then.i12:                                      ; preds = %if.end33
-  %18 = extractvalue { i8, i64 } %call3.i, 1
-  tail call void @_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %18)
-  %19 = load i64, ptr %_M_bucket_count.i, align 8
-  %rem.i.i.i.i = urem i64 %call2.i, %19
+if.then.i19:                                      ; preds = %if.end33
+  %17 = extractvalue { i8, i64 } %call3.i, 1
+  tail call void @_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %17)
+  %18 = load i64, ptr %_M_bucket_count.i, align 8
+  %rem.i.i.i.i = urem i64 %call2.i, %18
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i12, %if.end33
-  %__bkt.addr.0.i = phi i64 [ %rem.i.i.i.i, %if.then.i12 ], [ %rem.i.i.i, %if.end33 ]
+if.end.i:                                         ; preds = %if.then.i19, %if.end33
+  %__bkt.addr.0.i = phi i64 [ %rem.i.i.i.i, %if.then.i19 ], [ %rem.i.i.i, %if.end33 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 32
   store i64 %call2.i, ptr %add.ptr.i, align 8
-  %20 = load ptr, ptr %this, align 8
-  %arrayidx.i.i13 = getelementptr inbounds ptr, ptr %20, i64 %__bkt.addr.0.i
-  %21 = load ptr, ptr %arrayidx.i.i13, align 8
-  %tobool.not.i.i14 = icmp eq ptr %21, null
+  %19 = load ptr, ptr %this, align 8
+  %arrayidx.i.i13 = getelementptr inbounds ptr, ptr %19, i64 %__bkt.addr.0.i
+  %20 = load ptr, ptr %arrayidx.i.i13, align 8
+  %tobool.not.i.i14 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i14, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %call5.i.i.i.i, align 8
-  %23 = load ptr, ptr %arrayidx.i.i13, align 8
-  store ptr %call5.i.i.i.i, ptr %23, align 8
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %call5.i.i.i.i, align 8
+  %22 = load ptr, ptr %arrayidx.i.i13, align 8
+  store ptr %call5.i.i.i.i, ptr %22, align 8
   br label %cleanup
 
 if.else.i.i:                                      ; preds = %if.end.i
   %_M_before_begin.i.i15 = getelementptr inbounds i8, ptr %this, i64 16
-  %24 = load ptr, ptr %_M_before_begin.i.i15, align 8
-  store ptr %24, ptr %call5.i.i.i.i, align 8
+  %23 = load ptr, ptr %_M_before_begin.i.i15, align 8
+  store ptr %23, ptr %call5.i.i.i.i, align 8
   store ptr %call5.i.i.i.i, ptr %_M_before_begin.i.i15, align 8
-  %tobool13.not.i.i = icmp eq ptr %24, null
+  %tobool13.not.i.i = icmp eq ptr %23, null
   br i1 %tobool13.not.i.i, label %if.end.i.i18, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %if.else.i.i
-  %25 = load i64, ptr %_M_bucket_count.i, align 8
-  %add.ptr.i.i.i.i16 = getelementptr inbounds i8, ptr %24, i64 32
-  %26 = load i64, ptr %add.ptr.i.i.i.i16, align 8
-  %rem.i.i.i.i.i17 = urem i64 %26, %25
-  %arrayidx17.i.i = getelementptr inbounds ptr, ptr %20, i64 %rem.i.i.i.i.i17
+  %24 = load i64, ptr %_M_bucket_count.i, align 8
+  %add.ptr.i.i.i.i16 = getelementptr inbounds i8, ptr %23, i64 32
+  %25 = load i64, ptr %add.ptr.i.i.i.i16, align 8
+  %rem.i.i.i.i.i17 = urem i64 %25, %24
+  %arrayidx17.i.i = getelementptr inbounds ptr, ptr %19, i64 %rem.i.i.i.i.i17
   store ptr %call5.i.i.i.i, ptr %arrayidx17.i.i, align 8
   %.pre = load ptr, ptr %this, align 8
   br label %if.end.i.i18
 
 if.end.i.i18:                                     ; preds = %if.then14.i.i, %if.else.i.i
-  %27 = phi ptr [ %.pre, %if.then14.i.i ], [ %20, %if.else.i.i ]
-  %arrayidx20.i.i = getelementptr inbounds ptr, ptr %27, i64 %__bkt.addr.0.i
+  %26 = phi ptr [ %.pre, %if.then14.i.i ], [ %19, %if.else.i.i ]
+  %arrayidx20.i.i = getelementptr inbounds ptr, ptr %26, i64 %__bkt.addr.0.i
   store ptr %_M_before_begin.i.i15, ptr %arrayidx20.i.i, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end.i.i18, %if.then.i.i
-  %28 = load i64, ptr %_M_element_count.i, align 8
-  %inc.i = add i64 %28, 1
+  %27 = load i64, ptr %_M_element_count.i, align 8
+  %inc.i = add i64 %27, 1
   store i64 %inc.i, ptr %_M_element_count.i, align 8
   br label %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
 
-if.then.i22:                                      ; preds = %for.body, %_ZNKSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS2_m.exit
+if.then.i23:                                      ; preds = %for.body, %_ZNKSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS2_m.exit
   %retval.sroa.0.0.ph = phi ptr [ %13, %_ZNKSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS2_m.exit ], [ %__it.sroa.0.0, %for.body ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #15
   br label %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
 
-_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %cleanup, %if.then.i22
-  %retval.sroa.4.038 = phi i8 [ 1, %cleanup ], [ 0, %if.then.i22 ]
-  %retval.sroa.0.036 = phi ptr [ %call5.i.i.i.i, %cleanup ], [ %retval.sroa.0.0.ph, %if.then.i22 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.036, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.038, 1
+_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %cleanup, %if.then.i23
+  %retval.sroa.4.039 = phi i8 [ 1, %cleanup ], [ 0, %if.then.i23 ]
+  %retval.sroa.0.037 = phi ptr [ %call5.i.i.i.i, %cleanup ], [ %retval.sroa.0.0.ph, %if.then.i23 ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.037, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.039, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 

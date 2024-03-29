@@ -94,7 +94,7 @@ land.rhs18.lr.ph:                                 ; preds = %if.end
   br i1 %cmp10, label %land.rhs18.us, label %land.rhs18
 
 land.rhs18.us:                                    ; preds = %land.rhs18.lr.ph, %for.inc.us
-  %4 = phi i8 [ %6, %for.inc.us ], [ %3, %land.rhs18.lr.ph ]
+  %4 = phi i8 [ %5, %for.inc.us ], [ %3, %land.rhs18.lr.ph ]
   %escape.025.us = phi i8 [ %escape.1.us, %for.inc.us ], [ 0, %land.rhs18.lr.ph ]
   %c.124.us = phi i32 [ %c.2.us, %for.inc.us ], [ 1023, %land.rhs18.lr.ph ]
   %content.addr.023.us = phi ptr [ %content.addr.1.us, %for.inc.us ], [ %content, %land.rhs18.lr.ph ]
@@ -104,9 +104,8 @@ land.rhs18.us:                                    ; preds = %land.rhs18.lr.ph, %
   br i1 %tobool20.not.us, label %for.end43, label %for.body22.us
 
 for.body22.us:                                    ; preds = %land.rhs18.us
-  %5 = and i8 %escape.025.us, 1
-  %tobool23.not.us = icmp eq i8 %5, 0
-  br i1 %tobool23.not.us, label %if.then24.us, label %if.end40.us
+  %tobool23.us = trunc i8 %escape.025.us to i1
+  br i1 %tobool23.us, label %if.end40.us, label %if.then24.us
 
 if.then24.us:                                     ; preds = %for.body22.us
   switch i8 %4, label %if.end40.us [
@@ -129,12 +128,12 @@ for.inc.us:                                       ; preds = %if.then24.us, %sw.b
   %c.2.us = phi i32 [ %dec19.us, %if.end40.us ], [ %dec19.us, %sw.bb.us ], [ 0, %if.then24.us ]
   %escape.1.us = phi i8 [ 0, %if.end40.us ], [ 1, %sw.bb.us ], [ %escape.025.us, %if.then24.us ]
   %incdec.ptr42.us = getelementptr inbounds i8, ptr %str.addr.222.us, i64 1
-  %6 = load i8, ptr %incdec.ptr42.us, align 1
-  %tobool17.not.us = icmp eq i8 %6, 0
+  %5 = load i8, ptr %incdec.ptr42.us, align 1
+  %tobool17.not.us = icmp eq i8 %5, 0
   br i1 %tobool17.not.us, label %for.end43, label %land.rhs18.us, !llvm.loop !6
 
 land.rhs18:                                       ; preds = %land.rhs18.lr.ph, %for.inc
-  %7 = phi i8 [ %8, %for.inc ], [ %3, %land.rhs18.lr.ph ]
+  %6 = phi i8 [ %7, %for.inc ], [ %3, %land.rhs18.lr.ph ]
   %c.124 = phi i32 [ %c.2, %for.inc ], [ 1023, %land.rhs18.lr.ph ]
   %content.addr.023 = phi ptr [ %content.addr.1, %for.inc ], [ %content, %land.rhs18.lr.ph ]
   %str.addr.222 = phi ptr [ %incdec.ptr42, %for.inc ], [ %incdec.ptr5, %land.rhs18.lr.ph ]
@@ -143,7 +142,7 @@ land.rhs18:                                       ; preds = %land.rhs18.lr.ph, %
   br i1 %tobool20.not, label %if.end46, label %if.then24
 
 if.then24:                                        ; preds = %land.rhs18
-  switch i8 %7, label %if.end40 [
+  switch i8 %6, label %if.end40 [
     i8 34, label %return
     i8 44, label %for.inc
     i8 13, label %for.inc
@@ -152,24 +151,23 @@ if.then24:                                        ; preds = %land.rhs18
 
 if.end40:                                         ; preds = %if.then24
   %incdec.ptr41 = getelementptr inbounds i8, ptr %content.addr.023, i64 1
-  store i8 %7, ptr %content.addr.023, align 1
+  store i8 %6, ptr %content.addr.023, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then24, %if.then24, %if.then24, %if.end40
   %content.addr.1 = phi ptr [ %incdec.ptr41, %if.end40 ], [ %content.addr.023, %if.then24 ], [ %content.addr.023, %if.then24 ], [ %content.addr.023, %if.then24 ]
   %c.2 = phi i32 [ %dec19, %if.end40 ], [ 0, %if.then24 ], [ 0, %if.then24 ], [ 0, %if.then24 ]
   %incdec.ptr42 = getelementptr inbounds i8, ptr %str.addr.222, i64 1
-  %8 = load i8, ptr %incdec.ptr42, align 1
-  %tobool17.not = icmp eq i8 %8, 0
+  %7 = load i8, ptr %incdec.ptr42, align 1
+  %tobool17.not = icmp eq i8 %7, 0
   br i1 %tobool17.not, label %if.end46, label %land.rhs18, !llvm.loop !6
 
 for.end43:                                        ; preds = %land.rhs18.us, %for.inc.us
   %str.addr.2.lcssa.ph = phi ptr [ %str.addr.222.us, %land.rhs18.us ], [ %incdec.ptr42.us, %for.inc.us ]
   %content.addr.0.lcssa.ph = phi ptr [ %content.addr.023.us, %land.rhs18.us ], [ %content.addr.1.us, %for.inc.us ]
   %escape.0.lcssa.ph = phi i8 [ %escape.025.us, %land.rhs18.us ], [ %escape.1.us, %for.inc.us ]
-  %9 = and i8 %escape.0.lcssa.ph, 1
-  %10 = icmp eq i8 %9, 0
-  br i1 %10, label %if.end46, label %return
+  %8 = trunc i8 %escape.0.lcssa.ph to i1
+  br i1 %8, label %return, label %if.end46
 
 if.end46:                                         ; preds = %land.rhs18, %for.inc, %if.end, %for.end43
   %content.addr.0.lcssa46 = phi ptr [ %content.addr.0.lcssa.ph, %for.end43 ], [ %content, %if.end ], [ %content.addr.023, %land.rhs18 ], [ %content.addr.1, %for.inc ]
@@ -657,8 +655,8 @@ entry:
 
 for.cond:                                         ; preds = %if.end212, %entry
   %chlg.addr.promoted = phi ptr [ %chlg, %entry ], [ %storemerge, %if.end212 ]
-  %foundAuth.0 = phi i8 [ 0, %entry ], [ %foundAuth.3, %if.end212 ]
-  %foundAuthInt.0 = phi i8 [ 0, %entry ], [ %foundAuthInt.3, %if.end212 ]
+  %foundAuth.0 = phi i1 [ false, %entry ], [ %foundAuth.3, %if.end212 ]
+  %foundAuthInt.0 = phi i1 [ false, %entry ], [ %foundAuthInt.3, %if.end212 ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %for.cond
@@ -759,8 +757,8 @@ if.end63:                                         ; preds = %if.then58
 
 while.cond68.preheader:                           ; preds = %if.end63, %if.end92
   %token.047 = phi ptr [ %call93, %if.end92 ], [ %call64, %if.end63 ]
-  %foundAuthInt.146 = phi i8 [ %foundAuthInt.2, %if.end92 ], [ %foundAuthInt.0, %if.end63 ]
-  %foundAuth.145 = phi i8 [ %foundAuth.2, %if.end92 ], [ %foundAuth.0, %if.end63 ]
+  %foundAuthInt.146 = phi i1 [ %foundAuthInt.2, %if.end92 ], [ %foundAuthInt.0, %if.end63 ]
+  %foundAuth.145 = phi i1 [ %foundAuth.2, %if.end92 ], [ %foundAuth.0, %if.end63 ]
   br label %while.cond68
 
 while.cond68:                                     ; preds = %while.cond68.preheader, %while.body81
@@ -782,47 +780,43 @@ while.end83:                                      ; preds = %while.cond68
 
 if.else87:                                        ; preds = %while.end83
   %call88 = call i32 @curl_strequal(ptr noundef nonnull %token.1, ptr noundef nonnull @.str.12) #10
-  %tobool89.not = icmp eq i32 %call88, 0
-  %spec.select = select i1 %tobool89.not, i8 %foundAuthInt.146, i8 1
+  %tobool89.not = icmp ne i32 %call88, 0
+  %spec.select = select i1 %tobool89.not, i1 true, i1 %foundAuthInt.146
   br label %if.end92
 
 if.end92:                                         ; preds = %if.else87, %while.end83
-  %foundAuth.2 = phi i8 [ 1, %while.end83 ], [ %foundAuth.145, %if.else87 ]
-  %foundAuthInt.2 = phi i8 [ %foundAuthInt.146, %while.end83 ], [ %spec.select, %if.else87 ]
+  %foundAuth.2 = phi i1 [ true, %while.end83 ], [ %foundAuth.145, %if.else87 ]
+  %foundAuthInt.2 = phi i1 [ %foundAuthInt.146, %while.end83 ], [ %spec.select, %if.else87 ]
   %call93 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %tok_buf) #10
   %tobool66.not = icmp eq ptr %call93, null
   br i1 %tobool66.not, label %while.end94, label %while.cond68.preheader, !llvm.loop !13
 
 while.end94:                                      ; preds = %if.end92, %if.end63
-  %foundAuth.1.lcssa = phi i8 [ %foundAuth.0, %if.end63 ], [ %foundAuth.2, %if.end92 ]
-  %foundAuthInt.1.lcssa = phi i8 [ %foundAuthInt.0, %if.end63 ], [ %foundAuthInt.2, %if.end92 ]
+  %foundAuth.1.lcssa = phi i1 [ %foundAuth.0, %if.end63 ], [ %foundAuth.2, %if.end92 ]
+  %foundAuthInt.1.lcssa = phi i1 [ %foundAuthInt.0, %if.end63 ], [ %foundAuthInt.2, %if.end92 ]
   %24 = load ptr, ptr @Curl_cfree, align 8
   call void %24(ptr noundef nonnull %call60) #10
-  %25 = and i8 %foundAuth.1.lcssa, 1
-  %tobool95.not = icmp eq i8 %25, 0
-  br i1 %tobool95.not, label %if.else103, label %if.then96
+  br i1 %foundAuth.1.lcssa, label %if.then96, label %if.else103
 
 if.then96:                                        ; preds = %while.end94
-  %26 = load ptr, ptr @Curl_cfree, align 8
-  %27 = load ptr, ptr %qop.i, align 8
-  call void %26(ptr noundef %27) #10
-  %28 = load ptr, ptr @Curl_cstrdup, align 8
-  %call97 = call ptr %28(ptr noundef nonnull @.str.11) #10
+  %25 = load ptr, ptr @Curl_cfree, align 8
+  %26 = load ptr, ptr %qop.i, align 8
+  call void %25(ptr noundef %26) #10
+  %27 = load ptr, ptr @Curl_cstrdup, align 8
+  %call97 = call ptr %27(ptr noundef nonnull @.str.11) #10
   store ptr %call97, ptr %qop.i, align 8
   %tobool100.not = icmp eq ptr %call97, null
   br i1 %tobool100.not, label %return, label %if.end190
 
 if.else103:                                       ; preds = %while.end94
-  %29 = and i8 %foundAuthInt.1.lcssa, 1
-  %tobool104.not = icmp eq i8 %29, 0
-  br i1 %tobool104.not, label %if.end190, label %if.then105
+  br i1 %foundAuthInt.1.lcssa, label %if.then105, label %if.end190
 
 if.then105:                                       ; preds = %if.else103
-  %30 = load ptr, ptr @Curl_cfree, align 8
-  %31 = load ptr, ptr %qop.i, align 8
-  call void %30(ptr noundef %31) #10
-  %32 = load ptr, ptr @Curl_cstrdup, align 8
-  %call107 = call ptr %32(ptr noundef nonnull @.str.12) #10
+  %28 = load ptr, ptr @Curl_cfree, align 8
+  %29 = load ptr, ptr %qop.i, align 8
+  call void %28(ptr noundef %29) #10
+  %30 = load ptr, ptr @Curl_cstrdup, align 8
+  %call107 = call ptr %30(ptr noundef nonnull @.str.12) #10
   store ptr %call107, ptr %qop.i, align 8
   %tobool110.not = icmp eq ptr %call107, null
   br i1 %tobool110.not, label %return, label %if.end190
@@ -833,11 +827,11 @@ if.else115:                                       ; preds = %if.else54
   br i1 %tobool118.not, label %if.else168, label %if.then119
 
 if.then119:                                       ; preds = %if.else115
-  %33 = load ptr, ptr @Curl_cfree, align 8
-  %34 = load ptr, ptr %algorithm.i, align 8
-  call void %33(ptr noundef %34) #10
-  %35 = load ptr, ptr @Curl_cstrdup, align 8
-  %call121 = call ptr %35(ptr noundef nonnull %content) #10
+  %31 = load ptr, ptr @Curl_cfree, align 8
+  %32 = load ptr, ptr %algorithm.i, align 8
+  call void %31(ptr noundef %32) #10
+  %33 = load ptr, ptr @Curl_cstrdup, align 8
+  %call121 = call ptr %33(ptr noundef nonnull %content) #10
   store ptr %call121, ptr %algorithm.i, align 8
   %tobool124.not = icmp eq ptr %call121, null
   br i1 %tobool124.not, label %return, label %if.end126
@@ -913,15 +907,15 @@ if.then176:                                       ; preds = %if.then172
   br label %if.end190
 
 if.end190:                                        ; preds = %if.then12, %if.then34, %if.else103, %if.then105, %if.then96, %if.then176, %if.then172, %if.else168, %if.then130, %if.then141, %if.then153, %if.then159, %if.then147, %if.then135, %if.then46, %if.then24, %if.then28
-  %foundAuth.3 = phi i8 [ %foundAuth.0, %if.then12 ], [ %foundAuth.0, %if.then28 ], [ %foundAuth.0, %if.then24 ], [ %foundAuth.0, %if.then34 ], [ %foundAuth.0, %if.then46 ], [ %foundAuth.1.lcssa, %if.then96 ], [ %foundAuth.1.lcssa, %if.then105 ], [ %foundAuth.1.lcssa, %if.else103 ], [ %foundAuth.0, %if.then130 ], [ %foundAuth.0, %if.then135 ], [ %foundAuth.0, %if.then141 ], [ %foundAuth.0, %if.then147 ], [ %foundAuth.0, %if.then153 ], [ %foundAuth.0, %if.then159 ], [ %foundAuth.0, %if.then176 ], [ %foundAuth.0, %if.then172 ], [ %foundAuth.0, %if.else168 ]
-  %foundAuthInt.3 = phi i8 [ %foundAuthInt.0, %if.then12 ], [ %foundAuthInt.0, %if.then28 ], [ %foundAuthInt.0, %if.then24 ], [ %foundAuthInt.0, %if.then34 ], [ %foundAuthInt.0, %if.then46 ], [ %foundAuthInt.1.lcssa, %if.then96 ], [ %foundAuthInt.1.lcssa, %if.then105 ], [ %foundAuthInt.1.lcssa, %if.else103 ], [ %foundAuthInt.0, %if.then130 ], [ %foundAuthInt.0, %if.then135 ], [ %foundAuthInt.0, %if.then141 ], [ %foundAuthInt.0, %if.then147 ], [ %foundAuthInt.0, %if.then153 ], [ %foundAuthInt.0, %if.then159 ], [ %foundAuthInt.0, %if.then176 ], [ %foundAuthInt.0, %if.then172 ], [ %foundAuthInt.0, %if.else168 ]
+  %foundAuth.3 = phi i1 [ %foundAuth.0, %if.then12 ], [ %foundAuth.0, %if.then28 ], [ %foundAuth.0, %if.then24 ], [ %foundAuth.0, %if.then34 ], [ %foundAuth.0, %if.then46 ], [ true, %if.then96 ], [ false, %if.then105 ], [ false, %if.else103 ], [ %foundAuth.0, %if.then130 ], [ %foundAuth.0, %if.then135 ], [ %foundAuth.0, %if.then141 ], [ %foundAuth.0, %if.then147 ], [ %foundAuth.0, %if.then153 ], [ %foundAuth.0, %if.then159 ], [ %foundAuth.0, %if.then176 ], [ %foundAuth.0, %if.then172 ], [ %foundAuth.0, %if.else168 ]
+  %foundAuthInt.3 = phi i1 [ %foundAuthInt.0, %if.then12 ], [ %foundAuthInt.0, %if.then28 ], [ %foundAuthInt.0, %if.then24 ], [ %foundAuthInt.0, %if.then34 ], [ %foundAuthInt.0, %if.then46 ], [ %foundAuthInt.1.lcssa, %if.then96 ], [ true, %if.then105 ], [ false, %if.else103 ], [ %foundAuthInt.0, %if.then130 ], [ %foundAuthInt.0, %if.then135 ], [ %foundAuthInt.0, %if.then141 ], [ %foundAuthInt.0, %if.then147 ], [ %foundAuthInt.0, %if.then153 ], [ %foundAuthInt.0, %if.then159 ], [ %foundAuthInt.0, %if.then176 ], [ %foundAuthInt.0, %if.then172 ], [ %foundAuthInt.0, %if.else168 ]
   %chlg.addr.promoted49 = load ptr, ptr %chlg.addr, align 8
   br label %while.cond191
 
 while.cond191:                                    ; preds = %while.body204, %if.end190
   %incdec.ptr20550 = phi ptr [ %incdec.ptr205, %while.body204 ], [ %chlg.addr.promoted49, %if.end190 ]
-  %36 = load i8, ptr %incdec.ptr20550, align 1
-  switch i8 %36, label %if.end212 [
+  %34 = load i8, ptr %incdec.ptr20550, align 1
+  switch i8 %34, label %if.end212 [
     i8 9, label %while.body204
     i8 32, label %while.body204
     i8 44, label %if.then210
@@ -950,19 +944,19 @@ land.lhs.true:                                    ; preds = %for.end
   br i1 %tobool218.not, label %return, label %if.end220
 
 if.end220:                                        ; preds = %land.lhs.true, %for.end
-  %37 = load ptr, ptr %digest, align 8
-  %tobool222.not = icmp eq ptr %37, null
+  %35 = load ptr, ptr %digest, align 8
+  %tobool222.not = icmp eq ptr %35, null
   br i1 %tobool222.not, label %return, label %if.end224
 
 if.end224:                                        ; preds = %if.end220
-  %38 = load ptr, ptr %qop.i, align 8
-  %tobool226.not = icmp eq ptr %38, null
+  %36 = load ptr, ptr %qop.i, align 8
+  %tobool226.not = icmp eq ptr %36, null
   br i1 %tobool226.not, label %land.lhs.true227, label %if.end232
 
 land.lhs.true227:                                 ; preds = %if.end224
-  %39 = load i8, ptr %algo.i, align 4
-  %40 = and i8 %39, 1
-  %tobool230.not = icmp eq i8 %40, 0
+  %37 = load i8, ptr %algo.i, align 4
+  %38 = and i8 %37, 1
+  %tobool230.not = icmp eq i8 %38, 0
   br i1 %tobool230.not, label %if.end232, label %return
 
 if.end232:                                        ; preds = %land.lhs.true227, %if.end224

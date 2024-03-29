@@ -588,9 +588,8 @@ define dso_local i64 @enum_last(ptr nocapture noundef readonly %0) local_unnamed
 define dso_local i64 @enum_range_bounds(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %9
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -602,9 +601,8 @@ define dso_local i64 @enum_range_bounds(ptr nocapture noundef readonly %0) local
   %.0 = phi i32 [ %8, %5 ], [ 0, %1 ]
   %10 = getelementptr i8, ptr %0, i64 56
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not10 = icmp eq i8 %12, 0
-  br i1 %.not10, label %13, label %17
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %17, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr i8, ptr %0, i64 48
@@ -644,8 +642,8 @@ define internal fastcc ptr @enum_range_internal(i32 noundef %0, i32 noundef %1, 
   %9 = call ptr @palloc(i64 noundef 512) #7
   %.not = icmp eq i32 %1, 0
   %10 = zext i1 %.not to i8
-  %.not45.not = icmp eq i32 %2, 0
-  br i1 %.not45.not, label %.split.us, label %.split
+  %.not43.not = icmp eq i32 %2, 0
+  br i1 %.not43.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %3
   %11 = call ptr @systable_getnext_ordered(ptr noundef %8, i32 noundef 1) #7
@@ -665,19 +663,17 @@ define internal fastcc ptr @enum_range_internal(i32 noundef %0, i32 noundef %1, 
   %17 = zext i8 %16 to i64
   %18 = getelementptr i8, ptr %14, i64 %17
   %19 = load i32, ptr %18, align 4
-  %20 = and i8 %.031.us53, 1
-  %.not42.us = icmp eq i8 %20, 0
-  %21 = icmp eq i32 %19, %1
-  %or.cond.us = select i1 %.not42.us, i1 %21, i1 false
-  %.132.us = select i1 %or.cond.us, i8 1, i8 %.031.us53
-  %22 = and i8 %.132.us, 1
-  %.not43.us = icmp eq i8 %22, 0
-  br i1 %.not43.us, label %34, label %23
+  %20 = trunc i8 %.031.us53 to i1
+  %21 = icmp ne i32 %19, %1
+  %or.cond.not.us = select i1 %20, i1 true, i1 %21
+  %.132.us = select i1 %or.cond.not.us, i8 %.031.us53, i8 1
+  %22 = trunc i8 %.132.us to i1
+  br i1 %22, label %23, label %34
 
 23:                                               ; preds = %.lr.ph
   call fastcc void @check_safe_enum_use(ptr nonnull %14)
-  %.not44.us = icmp slt i32 %.033.us52, %.036.us51
-  br i1 %.not44.us, label %29, label %24
+  %.not42.us = icmp slt i32 %.033.us52, %.036.us51
+  br i1 %.not42.us, label %29, label %24
 
 24:                                               ; preds = %23
   %25 = shl i32 %.036.us51, 1
@@ -721,19 +717,17 @@ define internal fastcc ptr @enum_range_internal(i32 noundef %0, i32 noundef %1, 
   %42 = zext i8 %41 to i64
   %43 = getelementptr i8, ptr %39, i64 %42
   %44 = load i32, ptr %43, align 4
-  %45 = and i8 %.031, 1
-  %.not42 = icmp eq i8 %45, 0
-  %46 = icmp eq i32 %44, %1
-  %or.cond = select i1 %.not42, i1 %46, i1 false
-  %.132 = select i1 %or.cond, i8 1, i8 %.031
-  %47 = and i8 %.132, 1
-  %.not43 = icmp eq i8 %47, 0
-  br i1 %.not43, label %59, label %48
+  %45 = trunc i8 %.031 to i1
+  %46 = icmp ne i32 %44, %1
+  %or.cond.not = select i1 %45, i1 true, i1 %46
+  %.132 = select i1 %or.cond.not, i8 %.031, i8 1
+  %47 = trunc i8 %.132 to i1
+  br i1 %47, label %48, label %59
 
 48:                                               ; preds = %37
   call fastcc void @check_safe_enum_use(ptr nonnull %39)
-  %.not44 = icmp slt i32 %.033, %.036
-  br i1 %.not44, label %54, label %49
+  %.not42 = icmp slt i32 %.033, %.036
+  br i1 %.not42, label %54, label %49
 
 49:                                               ; preds = %48
   %50 = shl i32 %.036, 1

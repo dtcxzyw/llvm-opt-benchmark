@@ -412,57 +412,53 @@ define linkonce_odr noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKN3nix
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %43, i64 8
   %47 = load i8, ptr %46, align 8
-  %48 = and i8 %47, 1
+  %48 = trunc i8 %47 to i1
   %49 = getelementptr inbounds i8, ptr %45, i64 8
   %50 = load i8, ptr %49, align 8
-  %51 = and i8 %48, %50
-  %.not.i.i.i.i = icmp eq i8 %51, 0
-  br i1 %.not.i.i.i.i, label %_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i, label %52
+  %51 = xor i8 %50, %47
+  %52 = trunc i8 %51 to i1
+  %.not.i.i.i.i = xor i1 %48, true
+  %brmerge.i.i.i.i = or i1 %.not.i.i.i.i, %52
+  br i1 %brmerge.i.i.i.i, label %_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i, label %53
 
-52:                                               ; preds = %41
-  %53 = load i64, ptr %43, align 8
-  %54 = load i64, ptr %45, align 8
-  %55 = icmp eq i64 %53, %54
-  br i1 %55, label %59, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix11RealisationESt4lessIS5_ESaISt4pairIKS5_S7_EEEbRKSt3mapIT_T0_T1_T2_ESL_.exit
+53:                                               ; preds = %41
+  %54 = load i64, ptr %43, align 8
+  %55 = load i64, ptr %45, align 8
+  %56 = icmp eq i64 %54, %55
+  br i1 %56, label %57, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix11RealisationESt4lessIS5_ESaISt4pairIKS5_S7_EEEbRKSt3mapIT_T0_T1_T2_ESL_.exit
 
 _ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i: ; preds = %41
-  %56 = icmp ne i8 %48, 0
-  %57 = and i8 %50, 1
-  %58 = icmp eq i8 %57, 0
-  %not..i.i.i.i = xor i1 %56, %58
-  br i1 %not..i.i.i.i, label %59, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix11RealisationESt4lessIS5_ESaISt4pairIKS5_S7_EEEbRKSt3mapIT_T0_T1_T2_ESL_.exit
+  br i1 %52, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix11RealisationESt4lessIS5_ESaISt4pairIKS5_S7_EEEbRKSt3mapIT_T0_T1_T2_ESL_.exit, label %57
 
-59:                                               ; preds = %_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i, %52
-  %60 = load ptr, ptr %0, align 8
-  %61 = load ptr, ptr %1, align 8
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
-  %63 = load i8, ptr %62, align 8
-  %64 = and i8 %63, 1
-  %65 = getelementptr inbounds i8, ptr %61, i64 8
-  %66 = load i8, ptr %65, align 8
-  %67 = and i8 %64, %66
-  %.not.i.i.i.i.i = icmp eq i8 %67, 0
-  br i1 %.not.i.i.i.i.i, label %_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i.i, label %68
+57:                                               ; preds = %_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i, %53
+  %58 = load ptr, ptr %0, align 8
+  %59 = load ptr, ptr %1, align 8
+  %60 = getelementptr inbounds i8, ptr %58, i64 8
+  %61 = load i8, ptr %60, align 8
+  %62 = trunc i8 %61 to i1
+  %63 = getelementptr inbounds i8, ptr %59, i64 8
+  %64 = load i8, ptr %63, align 8
+  %65 = xor i8 %64, %61
+  %66 = trunc i8 %65 to i1
+  %.not.i.i.i.i.i = xor i1 %62, true
+  %brmerge.i.i.i.i.i = or i1 %.not.i.i.i.i.i, %66
+  br i1 %brmerge.i.i.i.i.i, label %_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i.i, label %67
 
-68:                                               ; preds = %59
-  %69 = load i64, ptr %60, align 8
-  %70 = load i64, ptr %61, align 8
-  %71 = icmp eq i64 %69, %70
-  br i1 %71, label %75, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix11RealisationESt4lessIS5_ESaISt4pairIKS5_S7_EEEbRKSt3mapIT_T0_T1_T2_ESL_.exit
+67:                                               ; preds = %57
+  %68 = load i64, ptr %58, align 8
+  %69 = load i64, ptr %59, align 8
+  %70 = icmp eq i64 %68, %69
+  br i1 %70, label %71, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix11RealisationESt4lessIS5_ESaISt4pairIKS5_S7_EEEbRKSt3mapIT_T0_T1_T2_ESL_.exit
 
-_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i.i: ; preds = %59
-  %72 = icmp ne i8 %64, 0
-  %73 = and i8 %66, 1
-  %74 = icmp eq i8 %73, 0
-  %not..i.i.i.i.i = xor i1 %72, %74
-  br i1 %not..i.i.i.i.i, label %75, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix11RealisationESt4lessIS5_ESaISt4pairIKS5_S7_EEEbRKSt3mapIT_T0_T1_T2_ESL_.exit
+_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i.i: ; preds = %57
+  br i1 %66, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix11RealisationESt4lessIS5_ESaISt4pairIKS5_S7_EEEbRKSt3mapIT_T0_T1_T2_ESL_.exit, label %71
 
-75:                                               ; preds = %_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i.i, %68
+71:                                               ; preds = %_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i.i, %67
   br label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix11RealisationESt4lessIS5_ESaISt4pairIKS5_S7_EEEbRKSt3mapIT_T0_T1_T2_ESL_.exit
 
-_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix11RealisationESt4lessIS5_ESaISt4pairIKS5_S7_EEEbRKSt3mapIT_T0_T1_T2_ESL_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %75, %_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i.i, %68, %_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i, %52, %33, %.loopexit, %2
-  %76 = phi i1 [ false, %2 ], [ false, %.loopexit ], [ false, %33 ], [ false, %_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i ], [ false, %52 ], [ false, %_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i.i ], [ true, %75 ], [ false, %68 ], [ false, %.lr.ph.i.i.i.i.i.i ]
-  ret i1 %76
+_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix11RealisationESt4lessIS5_ESaISt4pairIKS5_S7_EEEbRKSt3mapIT_T0_T1_T2_ESL_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %71, %_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i.i, %67, %_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i, %53, %33, %.loopexit, %2
+  %72 = phi i1 [ false, %2 ], [ false, %.loopexit ], [ false, %33 ], [ false, %_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i ], [ false, %53 ], [ false, %_ZSteqINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES4_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS6_ERKSF_IS9_E.exit.i.i.i.i ], [ true, %71 ], [ false, %67 ], [ false, %.lr.ph.i.i.i.i.i.i ]
+  ret i1 %72
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -699,21 +695,14 @@ _ZNKSt8__detail10_Synth3wayclISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsI
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %46, i64 8
   %50 = load i8, ptr %49, align 8
-  %51 = and i8 %50, 1
-  %.not.i.i.i = icmp eq i8 %51, 0
+  %51 = trunc i8 %50 to i1
   %52 = getelementptr inbounds i8, ptr %48, i64 8
   %53 = load i8, ptr %52, align 8
-  %54 = and i8 %53, 1
-  %.not7.i.i.i = icmp eq i8 %54, 0
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i.i.i, label %55
+  %54 = trunc i8 %53 to i1
+  %55 = select i1 %51, i1 %54, i1 false
+  br i1 %55, label %56, label %._crit_edge.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i:                            ; preds = %44
-  br i1 %.not7.i.i.i, label %select.unfold.i.i.i, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit
-
-55:                                               ; preds = %44
-  br i1 %.not7.i.i.i, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit, label %56
-
-56:                                               ; preds = %55
+56:                                               ; preds = %44
   %57 = load i64, ptr %46, align 8
   %58 = load i64, ptr %48, align 8
   %59 = icmp slt i64 %57, %58
@@ -721,37 +710,44 @@ _ZNKSt8__detail10_Synth3wayclISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsI
   %61 = icmp eq i64 %57, %58
   br i1 %61, label %select.unfold.i.i.i, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit
 
-select.unfold.i.i.i:                              ; preds = %56, %._crit_edge.i.i.i.i.i
-  %62 = load ptr, ptr %0, align 8
-  %63 = load ptr, ptr %1, align 8
-  %64 = getelementptr inbounds i8, ptr %62, i64 8
-  %65 = load i8, ptr %64, align 8
-  %66 = and i8 %65, 1
-  %.not.i.i.i.i = icmp eq i8 %66, 0
-  %67 = getelementptr inbounds i8, ptr %63, i64 8
-  %68 = load i8, ptr %67, align 8
-  %69 = and i8 %68, 1
-  br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %70
+._crit_edge.i.i.i.i.i:                            ; preds = %44
+  %.not.i.i.i.i.i = xor i1 %51, true
+  %.mux.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %54, i1 false
+  %62 = select i1 %.mux.i.i.i.i.i, i8 -1, i8 1
+  %63 = xor i1 %.mux.i.i.i.i.i, %51
+  br i1 %63, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit, label %select.unfold.i.i.i
+
+select.unfold.i.i.i:                              ; preds = %._crit_edge.i.i.i.i.i, %56
+  %64 = load ptr, ptr %0, align 8
+  %65 = load ptr, ptr %1, align 8
+  %66 = getelementptr inbounds i8, ptr %64, i64 8
+  %67 = load i8, ptr %66, align 8
+  %68 = trunc i8 %67 to i1
+  %69 = getelementptr inbounds i8, ptr %65, i64 8
+  %70 = load i8, ptr %69, align 8
+  %71 = trunc i8 %70 to i1
+  %72 = select i1 %68, i1 %71, i1 false
+  br i1 %72, label %73, label %._crit_edge.i.i.i.i.i.i
+
+73:                                               ; preds = %select.unfold.i.i.i
+  %74 = load i64, ptr %64, align 8
+  %75 = load i64, ptr %65, align 8
+  %76 = icmp slt i64 %74, %75
+  %77 = select i1 %76, i8 -1, i8 1
+  %78 = icmp eq i64 %74, %75
+  %spec.select.i.i.i.i = select i1 %78, i8 0, i8 %77
+  br label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %select.unfold.i.i.i
-  %sext.i.i.i.i = sub nsw i8 0, %69
+  %.not.i.i.i.i.i.i = xor i1 %68, true
+  %.mux.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 %71, i1 false
+  %79 = select i1 %.mux.i.i.i.i.i.i, i8 -1, i8 1
+  %80 = xor i1 %.mux.i.i.i.i.i.i, %68
+  %spec.select7.i.i.i.i = select i1 %80, i8 %79, i8 0
   br label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit
 
-70:                                               ; preds = %select.unfold.i.i.i
-  %.not.i.i.i.i.i.i = icmp eq i8 %69, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit, label %71
-
-71:                                               ; preds = %70
-  %72 = load i64, ptr %62, align 8
-  %73 = load i64, ptr %63, align 8
-  %74 = icmp slt i64 %72, %73
-  %75 = select i1 %74, i8 -1, i8 1
-  %76 = icmp eq i64 %72, %73
-  %spec.select.i.i.i.i = select i1 %76, i8 0, i8 %75
-  br label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit
-
-_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit: ; preds = %.lr.ph.i.i.i.i, %15, %71, %70, %._crit_edge.i.i.i.i.i.i, %56, %55, %._crit_edge.i.i.i.i.i, %34, %24, %_ZNKSt8__detail10_Synth3wayclISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix11RealisationESt4lessIS8_ESaISt4pairIKS8_SA_EEESH_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit
-  %.sroa.05.0 = phi i8 [ -1, %_ZNKSt8__detail10_Synth3wayclISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix11RealisationESt4lessIS8_ESaISt4pairIKS8_SA_EEESH_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit ], [ %32, %24 ], [ %42, %34 ], [ %60, %56 ], [ %spec.select.i.i.i.i, %71 ], [ 1, %70 ], [ %sext.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ -1, %._crit_edge.i.i.i.i.i ], [ 1, %55 ], [ %18, %15 ], [ 1, %.lr.ph.i.i.i.i ]
+_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit: ; preds = %.lr.ph.i.i.i.i, %15, %._crit_edge.i.i.i.i.i.i, %73, %._crit_edge.i.i.i.i.i, %56, %34, %24, %_ZNKSt8__detail10_Synth3wayclISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix11RealisationESt4lessIS8_ESaISt4pairIKS8_SA_EEESH_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit
+  %.sroa.05.0 = phi i8 [ -1, %_ZNKSt8__detail10_Synth3wayclISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix11RealisationESt4lessIS8_ESaISt4pairIKS8_SA_EEESH_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit ], [ %32, %24 ], [ %42, %34 ], [ %60, %56 ], [ %spec.select.i.i.i.i, %73 ], [ %spec.select7.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %62, %._crit_edge.i.i.i.i.i ], [ %18, %15 ], [ 1, %.lr.ph.i.i.i.i ]
   ret i8 %.sroa.05.0
 }
 

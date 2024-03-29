@@ -417,8 +417,8 @@ _ZN6cineon5Block5CheckEv.exit:                    ; preds = %if.end.i, %if.then7
   %6 = load i8, ptr %bitDepth.i, align 2
   %pixelsPerLine.i = getelementptr inbounds i8, ptr %this, i64 208
   %7 = load i32, ptr %pixelsPerLine.i, align 8
-  %cmp57 = icmp ugt i8 %5, 1
-  br i1 %cmp57, label %for.body.preheader, label %land.lhs.true23
+  %cmp52 = icmp ugt i8 %5, 1
+  br i1 %cmp52, label %for.body.preheader, label %land.lhs.true23
 
 for.body.preheader:                               ; preds = %_ZN6cineon5Block5CheckEv.exit
   %wide.trip.count = zext i8 %5 to i64
@@ -426,64 +426,61 @@ for.body.preheader:                               ; preds = %_ZN6cineon5Block5Ch
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %consistentDepth.059 = phi i8 [ 1, %for.body.preheader ], [ %consistentDepth.1, %for.inc ]
-  %consistentWidth.058 = phi i8 [ 1, %for.body.preheader ], [ %consistentWidth.1, %for.inc ]
+  %consistentDepth.054 = phi i8 [ 1, %for.body.preheader ], [ %consistentDepth.1, %for.inc ]
+  %consistentWidth.053 = phi i8 [ 1, %for.body.preheader ], [ %consistentWidth.1, %for.inc ]
   %or.cond.i = icmp ugt i64 %indvars.iv, 7
-  br i1 %or.cond.i, label %_ZNK6cineon13GenericHeader8BitDepthEi.exit, label %if.end.i39
+  br i1 %or.cond.i, label %_ZNK6cineon13GenericHeader8BitDepthEi.exit, label %if.end.i38
 
-if.end.i39:                                       ; preds = %for.body
-  %bitDepth.i41 = getelementptr inbounds [8 x %"struct.cineon::ImageElement"], ptr %chan.i, i64 0, i64 %indvars.iv, i32 1
-  %8 = load i8, ptr %bitDepth.i41, align 2
+if.end.i38:                                       ; preds = %for.body
+  %bitDepth.i40 = getelementptr inbounds [8 x %"struct.cineon::ImageElement"], ptr %chan.i, i64 0, i64 %indvars.iv, i32 1
+  %8 = load i8, ptr %bitDepth.i40, align 2
   br label %_ZNK6cineon13GenericHeader8BitDepthEi.exit
 
-_ZNK6cineon13GenericHeader8BitDepthEi.exit:       ; preds = %for.body, %if.end.i39
-  %retval.0.i = phi i8 [ %8, %if.end.i39 ], [ -1, %for.body ]
+_ZNK6cineon13GenericHeader8BitDepthEi.exit:       ; preds = %for.body, %if.end.i38
+  %retval.0.i = phi i8 [ %8, %if.end.i38 ], [ -1, %for.body ]
   %cmp10.not = icmp eq i8 %retval.0.i, %6
   br i1 %cmp10.not, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %_ZNK6cineon13GenericHeader8BitDepthEi.exit
-  %9 = and i8 %consistentWidth.058, 1
-  %tobool.not = icmp eq i8 %9, 0
-  br i1 %tobool.not, label %if.end84, label %if.end12
+  %tobool = trunc i8 %consistentWidth.053 to i1
+  br i1 %tobool, label %if.end12, label %if.end84
 
 if.end12:                                         ; preds = %if.then, %_ZNK6cineon13GenericHeader8BitDepthEi.exit
-  %consistentDepth.1 = phi i8 [ 0, %if.then ], [ %consistentDepth.059, %_ZNK6cineon13GenericHeader8BitDepthEi.exit ]
-  br i1 %or.cond.i, label %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit, label %if.end.i43
+  %consistentDepth.1 = phi i8 [ 0, %if.then ], [ %consistentDepth.054, %_ZNK6cineon13GenericHeader8BitDepthEi.exit ]
+  br i1 %or.cond.i, label %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit, label %if.end.i42
 
-if.end.i43:                                       ; preds = %if.end12
-  %pixelsPerLine.i46 = getelementptr inbounds [8 x %"struct.cineon::ImageElement"], ptr %chan.i, i64 0, i64 %indvars.iv, i32 3
-  %10 = load i32, ptr %pixelsPerLine.i46, align 4
+if.end.i42:                                       ; preds = %if.end12
+  %pixelsPerLine.i45 = getelementptr inbounds [8 x %"struct.cineon::ImageElement"], ptr %chan.i, i64 0, i64 %indvars.iv, i32 3
+  %9 = load i32, ptr %pixelsPerLine.i45, align 4
   br label %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit
 
-_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit: ; preds = %if.end12, %if.end.i43
-  %retval.0.i47 = phi i32 [ %10, %if.end.i43 ], [ -1, %if.end12 ]
-  %cmp15.not = icmp eq i32 %retval.0.i47, %7
+_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit: ; preds = %if.end12, %if.end.i42
+  %retval.0.i46 = phi i32 [ %9, %if.end.i42 ], [ -1, %if.end12 ]
+  %cmp15.not = icmp eq i32 %retval.0.i46, %7
   br i1 %cmp15.not, label %for.inc, label %if.then16
 
 if.then16:                                        ; preds = %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit
-  %11 = and i8 %consistentDepth.1, 1
-  %tobool17.not = icmp eq i8 %11, 0
-  br i1 %tobool17.not, label %if.end84, label %for.inc
+  %tobool17 = trunc i8 %consistentDepth.1 to i1
+  br i1 %tobool17, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit, %if.then16
-  %consistentWidth.1 = phi i8 [ 0, %if.then16 ], [ %consistentWidth.058, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit ]
+  %consistentWidth.1 = phi i8 [ 0, %if.then16 ], [ %consistentWidth.053, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
-for.end:                                          ; preds = %for.inc
-  %12 = and i8 %consistentDepth.1, 1
-  %13 = icmp eq i8 %12, 0
-  %14 = and i8 %consistentWidth.1, 1
-  %15 = icmp eq i8 %14, 0
-  %16 = select i1 %13, i1 true, i1 %15
-  br i1 %16, label %if.end84, label %land.lhs.true23
+for.end:                                          ; preds = %for.inc, %if.then16
+  %consistentWidth.2.ph = phi i8 [ %consistentWidth.1, %for.inc ], [ 0, %if.then16 ]
+  %10 = trunc i8 %consistentDepth.1 to i1
+  %11 = trunc i8 %consistentWidth.2.ph to i1
+  %12 = select i1 %10, i1 %11, i1 false
+  br i1 %12, label %land.lhs.true23, label %if.end84
 
-land.lhs.true23:                                  ; preds = %_ZN6cineon5Block5CheckEv.exit, %for.end
+land.lhs.true23:                                  ; preds = %for.end, %_ZN6cineon5Block5CheckEv.exit
   %endOfLinePadding.i = getelementptr inbounds i8, ptr %this, i64 692
-  %17 = load i32, ptr %endOfLinePadding.i, align 4
-  %18 = add i32 %17, 1
-  %cmp26 = icmp ult i32 %18, 2
+  %13 = load i32, ptr %endOfLinePadding.i, align 4
+  %14 = add i32 %13, 1
+  %cmp26 = icmp ult i32 %14, 2
   br i1 %cmp26, label %land.lhs.true27, label %if.end84
 
 land.lhs.true27:                                  ; preds = %land.lhs.true23
@@ -509,8 +506,8 @@ lor.lhs.false38:                                  ; preds = %lor.lhs.false34
   %cmp41 = icmp eq i32 %size, 3
   %or.cond3 = and i1 %cmp41, %cmp39
   %cmp43 = icmp eq i32 %.old, 0
-  %or.cond35 = and i1 %or.cond3, %cmp43
-  br i1 %or.cond35, label %land.lhs.true44, label %if.end84
+  %or.cond34 = and i1 %or.cond3, %cmp43
+  br i1 %or.cond34, label %land.lhs.true44, label %if.end84
 
 land.lhs.true42:                                  ; preds = %lor.lhs.false34, %lor.lhs.false, %land.lhs.true27
   %cmp43.old = icmp eq i32 %.old, 0
@@ -524,57 +521,57 @@ land.lhs.true44:                                  ; preds = %lor.lhs.false38, %l
 
 if.then48:                                        ; preds = %land.lhs.true44
   %fd = getelementptr inbounds i8, ptr %this, i64 2056
-  %19 = load ptr, ptr %fd, align 8
+  %15 = load ptr, ptr %fd, align 8
   %imageOffset.i = getelementptr inbounds i8, ptr %this, i64 12
-  %20 = load i32, ptr %imageOffset.i, align 4
-  %21 = load i32, ptr %y1.i, align 4
+  %16 = load i32, ptr %imageOffset.i, align 4
+  %17 = load i32, ptr %y1.i, align 4
   %call52 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %header)
-  %22 = lshr i8 %6, 3
-  %div32 = zext nneg i8 %22 to i32
+  %18 = lshr i8 %6, 3
+  %div32 = zext nneg i8 %18 to i32
   %mul = mul nuw nsw i32 %div32, %conv
-  %mul53 = mul i32 %mul, %21
+  %mul53 = mul i32 %mul, %17
   %mul54 = mul i32 %mul53, %call52
-  %add = add i32 %mul54, %20
+  %add = add i32 %mul54, %16
   %conv55 = zext i32 %add to i64
-  %vtable = load ptr, ptr %19, align 8
+  %vtable = load ptr, ptr %15, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %23 = load ptr, ptr %vfn, align 8
-  %call56 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %19, i64 noundef %conv55, i32 noundef 0)
+  %19 = load ptr, ptr %vfn, align 8
+  %call56 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %conv55, i32 noundef 0)
   br i1 %call56, label %if.end60, label %return
 
 if.end60:                                         ; preds = %if.then48
   %call62 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %header)
-  %24 = load i32, ptr %y2.i, align 4
-  %25 = load i32, ptr %y1.i, align 4
-  %sub64 = add i32 %24, 1
-  %add65 = sub i32 %sub64, %25
+  %20 = load i32, ptr %y2.i, align 4
+  %21 = load i32, ptr %y1.i, align 4
+  %sub64 = add i32 %20, 1
+  %add65 = sub i32 %sub64, %21
   %mul66 = mul i32 %call62, %conv
   %mul67 = mul i32 %mul66, %add65
   %conv68 = zext i32 %mul67 to i64
   %conv69 = zext nneg i8 %6 to i64
   %mul70 = mul nuw nsw i64 %conv68, %conv69
   %div7133 = lshr i64 %mul70, 3
-  %26 = load ptr, ptr %fd, align 8
-  %vtable73 = load ptr, ptr %26, align 8
+  %22 = load ptr, ptr %fd, align 8
+  %vtable73 = load ptr, ptr %22, align 8
   %vfn74 = getelementptr inbounds i8, ptr %vtable73, i64 48
-  %27 = load ptr, ptr %vfn74, align 8
-  %call75 = tail call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef %data, i64 noundef %div7133)
+  %23 = load ptr, ptr %vfn74, align 8
+  %call75 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %data, i64 noundef %div7133)
   %cmp76.not = icmp eq i64 %call75, %div7133
   br i1 %cmp76.not, label %if.end78, label %return
 
 if.end78:                                         ; preds = %if.end60
-  %28 = load i32, ptr %header, align 8
-  %call.i = tail call noundef zeroext i1 @_ZNK6cineon6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2048) %header, i32 noundef %28)
+  %24 = load i32, ptr %header, align 8
+  %call.i = tail call noundef zeroext i1 @_ZNK6cineon6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2048) %header, i32 noundef %24)
   br i1 %call.i, label %if.then81, label %return
 
 if.then81:                                        ; preds = %if.end78
   tail call void @_ZN6cineon21EndianSwapImageBufferENS_8DataSizeEPvi(i32 noundef %size, ptr noundef %data, i32 noundef %mul67)
   br label %return
 
-if.end84:                                         ; preds = %if.then16, %if.then, %land.lhs.true44, %land.lhs.true42, %lor.lhs.false38, %land.lhs.true23, %for.end
+if.end84:                                         ; preds = %if.then, %for.end, %land.lhs.true44, %land.lhs.true42, %lor.lhs.false38, %land.lhs.true23
   %codec = getelementptr inbounds i8, ptr %this, i64 2064
-  %29 = load ptr, ptr %codec, align 8
-  %cmp85 = icmp eq ptr %29, null
+  %25 = load ptr, ptr %codec, align 8
+  %cmp85 = icmp eq ptr %25, null
   br i1 %cmp85, label %if.then86, label %if.end89
 
 if.then86:                                        ; preds = %if.end84
@@ -587,19 +584,19 @@ invoke.cont:                                      ; preds = %if.then86
   br label %if.end89
 
 lpad:                                             ; preds = %if.then86
-  %30 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call87) #12
-  resume { ptr, i32 } %30
+  resume { ptr, i32 } %26
 
 if.end89:                                         ; preds = %invoke.cont, %if.end84
-  %31 = phi ptr [ %call87, %invoke.cont ], [ %29, %if.end84 ]
+  %27 = phi ptr [ %call87, %invoke.cont ], [ %25, %if.end84 ]
   %rio = getelementptr inbounds i8, ptr %this, i64 2072
-  %32 = load ptr, ptr %rio, align 8
-  %vtable92 = load ptr, ptr %31, align 8
+  %28 = load ptr, ptr %rio, align 8
+  %vtable92 = load ptr, ptr %27, align 8
   %vfn93 = getelementptr inbounds i8, ptr %vtable92, i64 24
-  %33 = load ptr, ptr %vfn93, align 8
-  %call94 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(2048) %header, ptr noundef %32, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data, i32 noundef %size)
+  %29 = load ptr, ptr %vfn93, align 8
+  %call94 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 4 dereferenceable(2048) %header, ptr noundef %28, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data, i32 noundef %size)
   br label %return
 
 return:                                           ; preds = %if.end78, %if.then81, %if.end60, %if.then48, %if.end89

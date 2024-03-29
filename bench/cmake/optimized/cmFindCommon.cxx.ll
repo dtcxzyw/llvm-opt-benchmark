@@ -1292,11 +1292,11 @@ define dso_local noundef zeroext i1 @_ZN12cmFindCommon24ComputeIfDebugModeWanted
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
   %9 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %.noexc unwind label %24
+          to label %.noexc unwind label %23
 
 .noexc:                                           ; preds = %7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %.noexc11 unwind label %24
+          to label %.noexc11 unwind label %23
 
 .noexc11:                                         ; preds = %.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds ([22 x i8], ptr @.str.19, i64 0, i64 21))
@@ -1310,46 +1310,45 @@ define dso_local noundef zeroext i1 @_ZN12cmFindCommon24ComputeIfDebugModeWanted
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc11
   %12 = invoke noundef zeroext i1 @_ZNK10cmMakefile4IsOnERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520) %8, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %13 unwind label %26
+          to label %13 unwind label %25
 
 13:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  br i1 %12, label %22, label %14
+  br i1 %12, label %21, label %14
 
 14:                                               ; preds = %13
   %15 = load ptr, ptr %4, align 8
   %16 = invoke noundef ptr @_ZNK10cmMakefile16GetCMakeInstanceEv(ptr noundef nonnull align 8 dereferenceable(3520) %15)
-          to label %17 unwind label %26
+          to label %17 unwind label %25
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %16, i64 269
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 1
-  %21 = icmp ne i8 %20, 0
-  br label %22
+  %20 = trunc i8 %19 to i1
+  br label %21
 
-22:                                               ; preds = %17, %13
-  %.ph = phi i1 [ %21, %17 ], [ true, %13 ]
+21:                                               ; preds = %17, %13
+  %.ph = phi i1 [ %20, %17 ], [ true, %13 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
   br label %.critedge
 
-.critedge:                                        ; preds = %1, %22
-  %23 = phi i1 [ %.ph, %22 ], [ true, %1 ]
-  ret i1 %23
+.critedge:                                        ; preds = %1, %21
+  %22 = phi i1 [ %.ph, %21 ], [ true, %1 ]
+  ret i1 %22
 
-24:                                               ; preds = %.noexc, %7
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %.noexc, %7
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-26:                                               ; preds = %14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body
 
-.body:                                            ; preds = %24, %10, %26
-  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ], [ %11, %10 ]
+.body:                                            ; preds = %23, %10, %25
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ], [ %11, %10 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
   resume { ptr, i32 } %.pn
 }

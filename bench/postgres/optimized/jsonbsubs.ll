@@ -299,17 +299,15 @@ define internal noundef zeroext i1 @jsonb_subscript_check_subscripts(ptr nocaptu
   %12 = getelementptr inbounds i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %.lr.ph, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %.lr.ph
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %5, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 1
-  %.not29 = icmp eq i8 %20, 0
-  br i1 %.not29, label %21, label %.lr.ph
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %.lr.ph, label %21
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds i8, ptr %7, i64 8
@@ -337,23 +335,20 @@ define internal noundef zeroext i1 @jsonb_subscript_check_subscripts(ptr nocaptu
   %34 = load ptr, ptr %28, align 8
   %35 = getelementptr i8, ptr %34, i64 %indvars.iv
   %36 = load i8, ptr %35, align 1
-  %37 = and i8 %36, 1
-  %.not30 = icmp eq i8 %37, 0
-  br i1 %.not30, label %68, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %68
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr %29, align 8
   %40 = getelementptr i8, ptr %39, i64 %indvars.iv
   %41 = load i8, ptr %40, align 1
-  %42 = and i8 %41, 1
-  %.not31 = icmp eq i8 %42, 0
-  br i1 %.not31, label %53, label %43
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %53
 
 43:                                               ; preds = %38
   %44 = load i8, ptr %5, align 8
-  %45 = and i8 %44, 1
-  %.not32 = icmp eq i8 %45, 0
-  br i1 %.not32, label %50, label %46
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %50
 
 46:                                               ; preds = %43
   %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
@@ -397,8 +392,8 @@ define internal noundef zeroext i1 @jsonb_subscript_check_subscripts(ptr nocaptu
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load i32, ptr %8, align 8
   %70 = sext i32 %69 to i64
-  %.not37 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %.not37, label %33, label %.loopexit, !llvm.loop !7
+  %.not = icmp slt i64 %indvars.iv.next, %70
+  br i1 %.not, label %33, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %68, %3, %26, %50
   %71 = phi i1 [ false, %50 ], [ true, %26 ], [ true, %3 ], [ true, %68 ]
@@ -438,9 +433,8 @@ define internal void @jsonb_subscript_assign(ptr nocapture readnone %0, ptr noca
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 88
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %14, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %3
   store i32 0, ptr %4, align 8
@@ -458,15 +452,13 @@ define internal void @jsonb_subscript_assign(ptr nocapture readnone %0, ptr noca
   %20 = getelementptr inbounds i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not12 = icmp eq i8 %23, 0
-  br i1 %.not12, label %33, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %33
 
 24:                                               ; preds = %19
   %25 = load i8, ptr %9, align 8
-  %26 = and i8 %25, 1
-  %.not13 = icmp eq i8 %26, 0
-  br i1 %.not13, label %29, label %27
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %29
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %5, i64 24
@@ -511,9 +503,8 @@ define internal void @jsonb_subscript_fetch_old(ptr nocapture readnone %0, ptr n
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %12, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %12
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %5, i64 104
@@ -535,7 +526,7 @@ define internal void @jsonb_subscript_fetch_old(ptr nocapture readnone %0, ptr n
   br label %24
 
 24:                                               ; preds = %12, %10
-  %.sink = phi i64 [ %23, %12 ], [ 0, %10 ]
+  %.sink = phi i64 [ 0, %10 ], [ %23, %12 ]
   %25 = getelementptr inbounds i8, ptr %5, i64 96
   store i64 %.sink, ptr %25, align 8
   ret void

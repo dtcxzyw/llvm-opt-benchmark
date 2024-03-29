@@ -3347,8 +3347,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN27dependent_expr_state_tactic7
 entry:
   %m_updated = getelementptr inbounds i8, ptr %this, i64 344
   %0 = load i8, ptr %m_updated, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -3523,8 +3522,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZThn16_N27dependent_expr_state_t
 entry:
   %m_updated.i = getelementptr inbounds i8, ptr %this, i64 328
   %0 = load i8, ptr %m_updated.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   ret i1 %tobool.i
 }
 
@@ -8278,40 +8276,38 @@ entry:
   %t13 = alloca %class.ref.97, align 8
   %m_use_sat = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %m_use_sat, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else12, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
   %m_inc_use_sat = getelementptr inbounds i8, ptr %this, i64 41
-  %2 = load i8, ptr %m_inc_use_sat, align 1
-  %3 = and i8 %2, 1
-  %tobool2.not = icmp eq i8 %3, 0
-  %m_m4 = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load ptr, ptr %m_m4, align 8
-  %m_p5 = getelementptr inbounds i8, ptr %this, i64 24
-  br i1 %tobool2.not, label %if.else, label %if.then3
+  %1 = load i8, ptr %m_inc_use_sat, align 1
+  %tobool2 = trunc i8 %1 to i1
+  %m_m = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load ptr, ptr %m_m, align 8
+  %m_p = getelementptr inbounds i8, ptr %this, i64 24
+  br i1 %tobool2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  %call = tail call noundef ptr @_Z17mk_inc_sat_solverR11ast_managerRK10params_refb(ptr noundef nonnull align 8 dereferenceable(976) %4, ptr noundef nonnull align 8 dereferenceable(8) %m_p5, i1 noundef zeroext true)
+  %call = tail call noundef ptr @_Z17mk_inc_sat_solverR11ast_managerRK10params_refb(ptr noundef nonnull align 8 dereferenceable(976) %2, ptr noundef nonnull align 8 dereferenceable(8) %m_p, i1 noundef zeroext true)
   br label %if.end24
 
 if.else:                                          ; preds = %if.then
-  %call6 = tail call noundef ptr @_Z14mk_qfbv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %4, ptr noundef nonnull align 8 dereferenceable(8) %m_p5)
+  %call6 = tail call noundef ptr @_Z14mk_qfbv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %2, ptr noundef nonnull align 8 dereferenceable(8) %m_p)
   store ptr %call6, ptr %t, align 8
   %tobool.not.i.i = icmp eq ptr %call6, null
   br i1 %tobool.not.i.i, label %_ZN3refI6tacticEC2EPS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %call6, i64 8
-  %5 = load i32, ptr %m_ref_count.i.i.i, align 8
-  %inc.i.i.i = add i32 %5, 1
+  %3 = load i32, ptr %m_ref_count.i.i.i, align 8
+  %inc.i.i.i = add i32 %3, 1
   store i32 %inc.i.i.i, ptr %m_ref_count.i.i.i, align 8
   br label %_ZN3refI6tacticEC2EPS0_.exit
 
 _ZN3refI6tacticEC2EPS0_.exit:                     ; preds = %if.else, %if.then.i.i
-  %6 = load ptr, ptr %m_m4, align 8
-  %call11 = invoke noundef ptr @_Z16mk_tactic2solverR11ast_managerP6tacticRK10params_refbbbRK6symbol(ptr noundef nonnull align 8 dereferenceable(976) %6, ptr noundef %call6, ptr noundef nonnull align 8 dereferenceable(8) %m_p5, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) @_ZN6symbol4nullE)
+  %4 = load ptr, ptr %m_m, align 8
+  %call11 = invoke noundef ptr @_Z16mk_tactic2solverR11ast_managerP6tacticRK10params_refbbbRK6symbol(ptr noundef nonnull align 8 dereferenceable(976) %4, ptr noundef %call6, ptr noundef nonnull align 8 dereferenceable(8) %m_p, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) @_ZN6symbol4nullE)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %_ZN3refI6tacticEC2EPS0_.exit
@@ -8319,50 +8315,50 @@ invoke.cont10:                                    ; preds = %_ZN3refI6tacticEC2E
 
 if.then.i.i4:                                     ; preds = %invoke.cont10
   %m_ref_count.i.i.i5 = getelementptr inbounds i8, ptr %call6, i64 8
-  %7 = load i32, ptr %m_ref_count.i.i.i5, align 8
-  %dec.i.i.i = add i32 %7, -1
+  %5 = load i32, ptr %m_ref_count.i.i.i5, align 8
+  %dec.i.i.i = add i32 %5, -1
   store i32 %dec.i.i.i, ptr %m_ref_count.i.i.i5, align 8
   %cmp.i.i.i = icmp eq i32 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end24
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i4
   %vtable.i.i.i.i = load ptr, ptr %call6, align 8
-  %8 = load ptr, ptr %vtable.i.i.i.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %call6) #17
+  %6 = load ptr, ptr %vtable.i.i.i.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %call6) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call6)
           to label %if.end24 unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #18
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #18
   unreachable
 
 lpad:                                             ; preds = %_ZN3refI6tacticEC2EPS0_.exit
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.else12:                                        ; preds = %entry
   %m_m14 = getelementptr inbounds i8, ptr %this, i64 16
-  %12 = load ptr, ptr %m_m14, align 8
+  %10 = load ptr, ptr %m_m14, align 8
   %m_p15 = getelementptr inbounds i8, ptr %this, i64 24
-  %call16 = tail call noundef ptr @_Z17mk_qfaufbv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %12, ptr noundef nonnull align 8 dereferenceable(8) %m_p15)
+  %call16 = tail call noundef ptr @_Z17mk_qfaufbv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %10, ptr noundef nonnull align 8 dereferenceable(8) %m_p15)
   store ptr %call16, ptr %t13, align 8
   %tobool.not.i.i6 = icmp eq ptr %call16, null
   br i1 %tobool.not.i.i6, label %_ZN3refI6tacticEC2EPS0_.exit10, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %if.else12
   %m_ref_count.i.i.i8 = getelementptr inbounds i8, ptr %call16, i64 8
-  %13 = load i32, ptr %m_ref_count.i.i.i8, align 8
-  %inc.i.i.i9 = add i32 %13, 1
+  %11 = load i32, ptr %m_ref_count.i.i.i8, align 8
+  %inc.i.i.i9 = add i32 %11, 1
   store i32 %inc.i.i.i9, ptr %m_ref_count.i.i.i8, align 8
   br label %_ZN3refI6tacticEC2EPS0_.exit10
 
 _ZN3refI6tacticEC2EPS0_.exit10:                   ; preds = %if.else12, %if.then.i.i7
-  %14 = load ptr, ptr %m_m14, align 8
-  %call23 = invoke noundef ptr @_Z16mk_tactic2solverR11ast_managerP6tacticRK10params_refbbbRK6symbol(ptr noundef nonnull align 8 dereferenceable(976) %14, ptr noundef %call16, ptr noundef nonnull align 8 dereferenceable(8) %m_p15, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) @_ZN6symbol4nullE)
+  %12 = load ptr, ptr %m_m14, align 8
+  %call23 = invoke noundef ptr @_Z16mk_tactic2solverR11ast_managerP6tacticRK10params_refbbbRK6symbol(ptr noundef nonnull align 8 dereferenceable(976) %12, ptr noundef %call16, ptr noundef nonnull align 8 dereferenceable(8) %m_p15, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) @_ZN6symbol4nullE)
           to label %invoke.cont22 unwind label %lpad18
 
 invoke.cont22:                                    ; preds = %_ZN3refI6tacticEC2EPS0_.exit10
@@ -8370,28 +8366,28 @@ invoke.cont22:                                    ; preds = %_ZN3refI6tacticEC2E
 
 if.then.i.i12:                                    ; preds = %invoke.cont22
   %m_ref_count.i.i.i13 = getelementptr inbounds i8, ptr %call16, i64 8
-  %15 = load i32, ptr %m_ref_count.i.i.i13, align 8
-  %dec.i.i.i14 = add i32 %15, -1
+  %13 = load i32, ptr %m_ref_count.i.i.i13, align 8
+  %dec.i.i.i14 = add i32 %13, -1
   store i32 %dec.i.i.i14, ptr %m_ref_count.i.i.i13, align 8
   %cmp.i.i.i15 = icmp eq i32 %dec.i.i.i14, 0
   br i1 %cmp.i.i.i15, label %if.then.i.i.i16, label %if.end24
 
 if.then.i.i.i16:                                  ; preds = %if.then.i.i12
   %vtable.i.i.i.i17 = load ptr, ptr %call16, align 8
-  %16 = load ptr, ptr %vtable.i.i.i.i17, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(12) %call16) #17
+  %14 = load ptr, ptr %vtable.i.i.i.i17, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(12) %call16) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call16)
           to label %if.end24 unwind label %terminate.lpad.i18
 
 terminate.lpad.i18:                               ; preds = %if.then.i.i.i16
-  %17 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #18
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #18
   unreachable
 
 lpad18:                                           ; preds = %_ZN3refI6tacticEC2EPS0_.exit10
-  %19 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -8399,13 +8395,13 @@ if.end24:                                         ; preds = %if.then.i.i.i16, %i
   %sat.0 = phi ptr [ %call, %if.then3 ], [ %call11, %invoke.cont10 ], [ %call11, %if.then.i.i4 ], [ %call11, %if.then.i.i.i ], [ %call23, %invoke.cont22 ], [ %call23, %if.then.i.i12 ], [ %call23, %if.then.i.i.i16 ]
   %vtable = load ptr, ptr %sat.0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
-  %20 = load ptr, ptr %vfn, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(96) %sat.0, i1 noundef zeroext true)
+  %18 = load ptr, ptr %vfn, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(96) %sat.0, i1 noundef zeroext true)
   ret ptr %sat.0
 
 eh.resume:                                        ; preds = %lpad18, %lpad
   %t13.sink = phi ptr [ %t13, %lpad18 ], [ %t, %lpad ]
-  %.pn = phi { ptr, i32 } [ %19, %lpad18 ], [ %11, %lpad ]
+  %.pn = phi { ptr, i32 } [ %17, %lpad18 ], [ %9, %lpad ]
   call void @_ZN3refI6tacticED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %t13.sink) #17
   resume { ptr, i32 } %.pn
 }

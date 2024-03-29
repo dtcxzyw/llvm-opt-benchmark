@@ -571,8 +571,8 @@ define dso_local zeroext i1 @hashgettuple(ptr noundef %0, i32 noundef %1) #0 {
   store i8 1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 32
   %7 = load i32, ptr %6, align 4
-  %.not15 = icmp eq i32 %7, -1
-  br i1 %.not15, label %8, label %10
+  %.not = icmp eq i32 %7, -1
+  br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %2
   %9 = tail call zeroext i1 @_hash_first(ptr noundef nonnull %0, i32 noundef %1) #7
@@ -581,9 +581,8 @@ define dso_local zeroext i1 @hashgettuple(ptr noundef %0, i32 noundef %1) #0 {
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 50
   %12 = load i8, ptr %11, align 2
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %31, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %31
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %4, i64 16
@@ -795,9 +794,9 @@ define dso_local void @hashbucketcleanup(ptr noundef %0, i32 noundef %1, i32 nou
   br label %18
 
 18:                                               ; preds = %16, %13
-  %.not109 = icmp eq ptr %11, null
-  %.not111 = icmp eq ptr %8, null
-  %.not112 = icmp eq ptr %9, null
+  %.not107 = icmp eq ptr %11, null
+  %.not109 = icmp eq ptr %8, null
+  %.not110 = icmp eq ptr %9, null
   %19 = getelementptr inbounds i8, ptr %0, i64 56
   %20 = getelementptr inbounds i8, ptr %0, i64 40
   %21 = getelementptr inbounds i8, ptr %0, i64 48
@@ -805,7 +804,7 @@ define dso_local void @hashbucketcleanup(ptr noundef %0, i32 noundef %1, i32 nou
   br label %23
 
 23:                                               ; preds = %.backedge, %18
-  %.091 = phi i8 [ 0, %18 ], [ %.1, %.backedge ]
+  %.091 = phi i1 [ false, %18 ], [ %.1, %.backedge ]
   %.090 = phi i32 [ %2, %18 ], [ %154, %.backedge ]
   %.0 = phi i32 [ %3, %18 ], [ %151, %.backedge ]
   call void @vacuum_delay_point() #7
@@ -841,90 +840,90 @@ BufferGetPage.exit:                               ; preds = %25, %31
   %44 = add nuw nsw i32 %43, 262120
   %45 = lshr i32 %44, 2
   %46 = trunc i32 %45 to i16
-  %.not121130 = icmp eq i16 %46, 0
-  %.not121 = select i1 %42, i1 true, i1 %.not121130
-  br i1 %.not121, label %._crit_edge.thread, label %.lr.ph
+  %.not119128 = icmp eq i16 %46, 0
+  %.not119 = select i1 %42, i1 true, i1 %.not119128
+  br i1 %.not119, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %BufferGetPage.exit
   %47 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
-  br i1 %.not109, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not107, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %10, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %62
-  %.092123.us.us = phi i16 [ %63, %62 ], [ 1, %.lr.ph.split.us ]
-  %.094122.us.us = phi i32 [ %.195.us.us, %62 ], [ 0, %.lr.ph.split.us ]
-  %48 = zext i16 %.092123.us.us to i64
+  %.092121.us.us = phi i16 [ %63, %62 ], [ 1, %.lr.ph.split.us ]
+  %.094120.us.us = phi i32 [ %.195.us.us, %62 ], [ 0, %.lr.ph.split.us ]
+  %48 = zext i16 %.092121.us.us to i64
   %49 = add nsw i64 %48, -1
   %50 = getelementptr [0 x %struct.ItemIdData], ptr %47, i64 0, i64 %49
-  %.val115.us.us = load i32, ptr %50, align 4
-  %51 = and i32 %.val115.us.us, 32767
+  %.val113.us.us = load i32, ptr %50, align 4
+  %51 = and i32 %.val113.us.us, 32767
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr i8, ptr %.0.i.i, i64 %52
   %54 = call i32 @_hash_get_indextuple_hashkey(ptr noundef %53) #7
   %55 = call i32 @_hash_hashkey2bucket(i32 noundef %54, i32 noundef %5, i32 noundef %6, i32 noundef %7) #7
-  %.not110.not.us.us = icmp eq i32 %55, %1
-  br i1 %.not110.not.us.us, label %.critedge114.us.us, label %.critedge.us.us
+  %.not108.not.us.us = icmp eq i32 %55, %1
+  br i1 %.not108.not.us.us, label %.critedge112.us.us, label %.critedge.us.us
 
 .critedge.us.us:                                  ; preds = %.lr.ph.split.us.split.us
-  %56 = add i32 %.094122.us.us, 1
-  %57 = sext i32 %.094122.us.us to i64
+  %56 = add i32 %.094120.us.us, 1
+  %57 = sext i32 %.094120.us.us to i64
   %58 = getelementptr [2048 x i16], ptr %14, i64 0, i64 %57
-  store i16 %.092123.us.us, ptr %58, align 2
+  store i16 %.092121.us.us, ptr %58, align 2
   br label %62
 
-.critedge114.us.us:                               ; preds = %.lr.ph.split.us.split.us
-  br i1 %.not112, label %62, label %59
+.critedge112.us.us:                               ; preds = %.lr.ph.split.us.split.us
+  br i1 %.not110, label %62, label %59
 
-59:                                               ; preds = %.critedge114.us.us
+59:                                               ; preds = %.critedge112.us.us
   %60 = load double, ptr %9, align 8
   %61 = fadd double %60, 1.000000e+00
   store double %61, ptr %9, align 8
   br label %62
 
-62:                                               ; preds = %59, %.critedge114.us.us, %.critedge.us.us
-  %.195.us.us = phi i32 [ %56, %.critedge.us.us ], [ %.094122.us.us, %59 ], [ %.094122.us.us, %.critedge114.us.us ]
-  %63 = add i16 %.092123.us.us, 1
+62:                                               ; preds = %59, %.critedge112.us.us, %.critedge.us.us
+  %.195.us.us = phi i32 [ %56, %.critedge.us.us ], [ %.094120.us.us, %59 ], [ %.094120.us.us, %.critedge112.us.us ]
+  %63 = add i16 %.092121.us.us, 1
   %.not.us.us = icmp ugt i16 %63, %46
   br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !8
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  br i1 %.not112, label %._crit_edge.thread, label %.lr.ph.split.us.split.split
+  br i1 %.not110, label %._crit_edge.thread, label %.lr.ph.split.us.split.split
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split
   %.promoted = load double, ptr %9, align 8
   %64 = add nsw i16 %46, 1
   %umax = call i16 @llvm.umax.i16(i16 %64, i16 2)
-  br label %.critedge114.us
+  br label %.critedge112.us
 
-.critedge114.us:                                  ; preds = %.critedge114.us, %.lr.ph.split.us.split.split
-  %65 = phi double [ %.promoted, %.lr.ph.split.us.split.split ], [ %66, %.critedge114.us ]
-  %.092123.us = phi i16 [ 1, %.lr.ph.split.us.split.split ], [ %67, %.critedge114.us ]
+.critedge112.us:                                  ; preds = %.critedge112.us, %.lr.ph.split.us.split.split
+  %65 = phi double [ %.promoted, %.lr.ph.split.us.split.split ], [ %66, %.critedge112.us ]
+  %.092121.us = phi i16 [ 1, %.lr.ph.split.us.split.split ], [ %67, %.critedge112.us ]
   %66 = fadd double %65, 1.000000e+00
-  %67 = add nuw i16 %.092123.us, 1
+  %67 = add nuw i16 %.092121.us, 1
   %exitcond = icmp eq i16 %67, %umax
-  br i1 %exitcond, label %._crit_edge.split.us.split.split, label %.critedge114.us, !llvm.loop !8
+  br i1 %exitcond, label %._crit_edge.split.us.split.split, label %.critedge112.us, !llvm.loop !8
 
-._crit_edge.split.us.split.split:                 ; preds = %.critedge114.us
+._crit_edge.split.us.split.split:                 ; preds = %.critedge112.us
   store double %66, ptr %9, align 8
   br label %._crit_edge.thread
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %89
-  %.092123 = phi i16 [ %90, %89 ], [ 1, %.lr.ph ]
-  %.094122 = phi i32 [ %.195, %89 ], [ 0, %.lr.ph ]
-  %68 = zext i16 %.092123 to i64
+  %.092121 = phi i16 [ %90, %89 ], [ 1, %.lr.ph ]
+  %.094120 = phi i32 [ %.195, %89 ], [ 0, %.lr.ph ]
+  %68 = zext i16 %.092121 to i64
   %69 = add nsw i64 %68, -1
   %70 = getelementptr [0 x %struct.ItemIdData], ptr %47, i64 0, i64 %69
-  %.val115 = load i32, ptr %70, align 4
-  %71 = and i32 %.val115, 32767
+  %.val113 = load i32, ptr %70, align 4
+  %71 = and i32 %.val113, 32767
   %72 = zext nneg i32 %71 to i64
   %73 = getelementptr i8, ptr %.0.i.i, i64 %72
   %74 = call zeroext i1 %11(ptr noundef %73, ptr noundef %12) #7
   br i1 %74, label %75, label %79
 
 75:                                               ; preds = %.lr.ph.split
-  br i1 %.not111, label %.critedge, label %76
+  br i1 %.not109, label %.critedge, label %76
 
 76:                                               ; preds = %75
   %77 = load double, ptr %8, align 8
@@ -933,33 +932,33 @@ BufferGetPage.exit:                               ; preds = %25, %31
   br label %.critedge
 
 79:                                               ; preds = %.lr.ph.split
-  br i1 %10, label %80, label %.critedge114
+  br i1 %10, label %80, label %.critedge112
 
 80:                                               ; preds = %79
   %81 = call i32 @_hash_get_indextuple_hashkey(ptr noundef %73) #7
   %82 = call i32 @_hash_hashkey2bucket(i32 noundef %81, i32 noundef %5, i32 noundef %6, i32 noundef %7) #7
-  %.not110.not = icmp eq i32 %82, %1
-  br i1 %.not110.not, label %.critedge114, label %.critedge
+  %.not108.not = icmp eq i32 %82, %1
+  br i1 %.not108.not, label %.critedge112, label %.critedge
 
 .critedge:                                        ; preds = %76, %75, %80
-  %83 = add i32 %.094122, 1
-  %84 = sext i32 %.094122 to i64
+  %83 = add i32 %.094120, 1
+  %84 = sext i32 %.094120 to i64
   %85 = getelementptr [2048 x i16], ptr %14, i64 0, i64 %84
-  store i16 %.092123, ptr %85, align 2
+  store i16 %.092121, ptr %85, align 2
   br label %89
 
-.critedge114:                                     ; preds = %79, %80
-  br i1 %.not112, label %89, label %86
+.critedge112:                                     ; preds = %79, %80
+  br i1 %.not110, label %89, label %86
 
-86:                                               ; preds = %.critedge114
+86:                                               ; preds = %.critedge112
   %87 = load double, ptr %9, align 8
   %88 = fadd double %87, 1.000000e+00
   store double %88, ptr %9, align 8
   br label %89
 
-89:                                               ; preds = %.critedge, %86, %.critedge114
-  %.195 = phi i32 [ %83, %.critedge ], [ %.094122, %86 ], [ %.094122, %.critedge114 ]
-  %90 = add i16 %.092123, 1
+89:                                               ; preds = %.critedge, %86, %.critedge112
+  %.195 = phi i32 [ %83, %.critedge ], [ %.094120, %86 ], [ %.094120, %.critedge112 ]
+  %90 = add i16 %.092121, 1
   %.not = icmp ugt i16 %90, %46
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
@@ -980,7 +979,7 @@ BufferGetPage.exit:                               ; preds = %25, %31
   %98 = add i32 %97, 1
   store volatile i32 %98, ptr @CritSectionCount, align 4
   call void @PageIndexMultiDelete(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %14, i32 noundef %.094.lcssa) #7
-  br i1 %.not111, label %108, label %99
+  br i1 %.not109, label %108, label %99
 
 99:                                               ; preds = %96
   %100 = load double, ptr %8, align 8
@@ -1031,9 +1030,8 @@ BufferGetPage.exit:                               ; preds = %25, %31
   call void @XLogBeginInsert() #7
   call void @XLogRegisterData(ptr noundef nonnull %15, i32 noundef 2) #7
   %125 = load i8, ptr %22, align 1
-  %126 = and i8 %125, 1
-  %.not106 = icmp eq i8 %126, 0
-  br i1 %.not106, label %127, label %128
+  %126 = trunc i8 %125 to i1
+  br i1 %126, label %128, label %127
 
 127:                                              ; preds = %122
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %2, i8 noundef zeroext 42) #7
@@ -1052,7 +1050,7 @@ BufferGetPage.exit:                               ; preds = %25, %31
   %134 = zext nneg i32 %133 to i64
   %135 = getelementptr ptr, ptr %132, i64 %134
   %136 = load ptr, ptr %135, align 8
-  br label %BufferGetPage.exit117
+  br label %BufferGetPage.exit115
 
 137:                                              ; preds = %128
   %138 = load ptr, ptr @BufferBlocks, align 8
@@ -1060,19 +1058,19 @@ BufferGetPage.exit:                               ; preds = %25, %31
   %140 = sext i32 %139 to i64
   %141 = shl nsw i64 %140, 13
   %142 = getelementptr i8, ptr %138, i64 %141
-  br label %BufferGetPage.exit117
+  br label %BufferGetPage.exit115
 
-BufferGetPage.exit117:                            ; preds = %131, %137
-  %.0.i.i116 = phi ptr [ %136, %131 ], [ %142, %137 ]
+BufferGetPage.exit115:                            ; preds = %131, %137
+  %.0.i.i114 = phi ptr [ %136, %131 ], [ %142, %137 ]
   %143 = lshr i64 %130, 32
   %144 = trunc i64 %143 to i32
-  store i32 %144, ptr %.0.i.i116, align 4
+  store i32 %144, ptr %.0.i.i114, align 4
   %145 = trunc i64 %130 to i32
-  %146 = getelementptr inbounds i8, ptr %.0.i.i116, i64 4
+  %146 = getelementptr inbounds i8, ptr %.0.i.i114, i64 4
   store i32 %145, ptr %146, align 4
   br label %147
 
-147:                                              ; preds = %108, %116, %119, %BufferGetPage.exit117
+147:                                              ; preds = %108, %116, %119, %BufferGetPage.exit115
   %148 = load volatile i32, ptr @CritSectionCount, align 4
   %149 = add i32 %148, -1
   store volatile i32 %149, ptr @CritSectionCount, align 4
@@ -1080,9 +1078,9 @@ BufferGetPage.exit117:                            ; preds = %131, %137
 
 150:                                              ; preds = %._crit_edge.thread, %147, %._crit_edge
   %151 = phi i32 [ %94, %147 ], [ %94, %._crit_edge ], [ %92, %._crit_edge.thread ]
-  %.1 = phi i8 [ 1, %147 ], [ %.091, %._crit_edge ], [ %.091, %._crit_edge.thread ]
-  %.not120 = icmp eq i32 %151, -1
-  br i1 %.not120, label %157, label %152
+  %.1 = phi i1 [ true, %147 ], [ %.091, %._crit_edge ], [ %.091, %._crit_edge.thread ]
+  %.not118 = icmp eq i32 %151, -1
+  br i1 %.not118, label %157, label %152
 
 152:                                              ; preds = %150
   %153 = icmp eq i32 %.0, %3
@@ -1101,8 +1099,8 @@ BufferGetPage.exit117:                            ; preds = %131, %137
   br label %23
 
 157:                                              ; preds = %150
-  %.not107 = icmp eq i32 %.090, %2
-  br i1 %.not107, label %159, label %158
+  %.not106 = icmp eq i32 %.090, %2
+  br i1 %.not106, label %159, label %158
 
 158:                                              ; preds = %157
   call void @_hash_relbuf(ptr noundef %0, i32 noundef %.090) #7
@@ -1122,7 +1120,7 @@ BufferGetPage.exit117:                            ; preds = %131, %137
   %165 = zext nneg i32 %164 to i64
   %166 = getelementptr ptr, ptr %163, i64 %165
   %167 = load ptr, ptr %166, align 8
-  br label %BufferGetPage.exit119
+  br label %BufferGetPage.exit117
 
 168:                                              ; preds = %160
   %169 = load ptr, ptr @BufferBlocks, align 8
@@ -1130,14 +1128,14 @@ BufferGetPage.exit117:                            ; preds = %131, %137
   %171 = sext i32 %170 to i64
   %172 = shl nsw i64 %171, 13
   %173 = getelementptr i8, ptr %169, i64 %172
-  br label %BufferGetPage.exit119
+  br label %BufferGetPage.exit117
 
-BufferGetPage.exit119:                            ; preds = %162, %168
-  %.0.i.i118 = phi ptr [ %167, %162 ], [ %173, %168 ]
-  %174 = getelementptr inbounds i8, ptr %.0.i.i118, i64 16
+BufferGetPage.exit117:                            ; preds = %162, %168
+  %.0.i.i116 = phi ptr [ %167, %162 ], [ %173, %168 ]
+  %174 = getelementptr inbounds i8, ptr %.0.i.i116, i64 16
   %175 = load i16, ptr %174, align 4
   %176 = zext i16 %175 to i64
-  %177 = getelementptr i8, ptr %.0.i.i118, i64 %176
+  %177 = getelementptr i8, ptr %.0.i.i116, i64 %176
   %178 = load volatile i32, ptr @CritSectionCount, align 4
   %179 = add i32 %178, 1
   store volatile i32 %179, ptr @CritSectionCount, align 4
@@ -1152,7 +1150,7 @@ BufferGetPage.exit119:                            ; preds = %162, %168
   %186 = icmp eq i8 %185, 112
   br i1 %186, label %187, label %202
 
-187:                                              ; preds = %BufferGetPage.exit119
+187:                                              ; preds = %BufferGetPage.exit117
   %188 = load i32, ptr @wal_level, align 4
   %189 = icmp sgt i32 %188, 0
   br i1 %189, label %196, label %190
@@ -1173,36 +1171,34 @@ BufferGetPage.exit119:                            ; preds = %162, %168
   %197 = call i64 @XLogInsert(i8 noundef zeroext 12, i8 noundef zeroext -96) #7
   %198 = lshr i64 %197, 32
   %199 = trunc i64 %198 to i32
-  store i32 %199, ptr %.0.i.i118, align 4
+  store i32 %199, ptr %.0.i.i116, align 4
   %200 = trunc i64 %197 to i32
-  %201 = getelementptr inbounds i8, ptr %.0.i.i118, i64 4
+  %201 = getelementptr inbounds i8, ptr %.0.i.i116, i64 4
   store i32 %200, ptr %201, align 4
   br label %202
 
-202:                                              ; preds = %BufferGetPage.exit119, %190, %193, %196
+202:                                              ; preds = %BufferGetPage.exit117, %190, %193, %196
   %203 = load volatile i32, ptr @CritSectionCount, align 4
   %204 = add i32 %203, -1
   store volatile i32 %204, ptr @CritSectionCount, align 4
   br label %205
 
 205:                                              ; preds = %202, %159
-  %206 = and i8 %.1, 1
-  %.not108 = icmp eq i8 %206, 0
-  br i1 %.not108, label %210, label %207
+  br i1 %.1, label %206, label %209
 
-207:                                              ; preds = %205
-  %208 = call zeroext i1 @IsBufferCleanupOK(i32 noundef %2) #7
-  br i1 %208, label %209, label %210
+206:                                              ; preds = %205
+  %207 = call zeroext i1 @IsBufferCleanupOK(i32 noundef %2) #7
+  br i1 %207, label %208, label %209
 
-209:                                              ; preds = %207
+208:                                              ; preds = %206
   call void @_hash_squeezebucket(ptr noundef %0, i32 noundef %1, i32 noundef %3, i32 noundef %2, ptr noundef %4) #7
-  br label %211
+  br label %210
 
-210:                                              ; preds = %207, %205
+209:                                              ; preds = %206, %205
   call void @LockBuffer(i32 noundef %2, i32 noundef 0) #7
-  br label %211
+  br label %210
 
-211:                                              ; preds = %210, %209
+210:                                              ; preds = %209, %208
   ret void
 }
 

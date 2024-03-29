@@ -433,9 +433,8 @@ define dso_local noundef zeroext i1 @_ZN24cmInstallScriptGenerator7ComputeEP16cm
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %17, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %17
 
 8:                                                ; preds = %2
   %9 = tail call noundef i32 @_ZNK16cmLocalGenerator15GetPolicyStatusEN10cmPolicies8PolicyIDE(ptr noundef nonnull align 8 dereferenceable(824) %1, i32 noundef 87)
@@ -488,16 +487,14 @@ define dso_local void @_ZNK24cmInstallScriptGenerator9GetScriptERKNSt7__cxx1112b
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = getelementptr inbounds i8, ptr %1, i64 248
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %35, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %35
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %1, i64 104
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not6 = icmp eq i8 %16, 0
-  br i1 %.not6, label %35, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %35
 
 17:                                               ; preds = %13
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #9
@@ -506,19 +503,19 @@ define dso_local void @_ZNK24cmInstallScriptGenerator9GetScriptERKNSt7__cxx1112b
 
 .noexc:                                           ; preds = %17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %.noexc10 unwind label %27
+          to label %.noexc9 unwind label %27
 
-.noexc10:                                         ; preds = %.noexc
+.noexc9:                                          ; preds = %.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([24 x i8], ptr @.str.1, i64 0, i64 23))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %19
 
-19:                                               ; preds = %.noexc10
+19:                                               ; preds = %.noexc9
   %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #9
   br label %.body
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc10
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc9
   invoke void @_ZN21cmGeneratorExpression20ReplaceInstallPrefixERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %21 unwind label %29
 
@@ -574,9 +571,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   ret void
 
 36:                                               ; preds = %33, %31, %.body
-  %.pn8 = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ], [ %.pn, %.body ]
+  %.pn7 = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ], [ %.pn, %.body ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
-  resume { ptr, i32 } %.pn8
+  resume { ptr, i32 } %.pn7
 }
 
 declare void @_ZN21cmGeneratorExpression20ReplaceInstallPrefixERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
@@ -593,10 +590,9 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define dso_local void @_ZNK24cmInstallScriptGenerator20AddScriptInstallRuleERSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(249) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 232
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
+  %7 = trunc i8 %6 to i1
   %8 = icmp sgt i32 %2, 0
-  br i1 %.not, label %12, label %9
+  br i1 %7, label %9, label %12
 
 9:                                                ; preds = %4
   br i1 %8, label %.lr.ph.i.i, label %_ZlsRSo23cmScriptGeneratorIndent.exit
@@ -638,16 +634,14 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 define dso_local void @_ZN24cmInstallScriptGenerator21GenerateScriptActionsERSo23cmScriptGeneratorIndent(ptr noundef nonnull align 8 dereferenceable(249) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %12, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not6 = icmp eq i8 %10, 0
-  br i1 %.not6, label %12, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
   tail call void @_ZN17cmScriptGenerator21GenerateScriptActionsERSo23cmScriptGeneratorIndent(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2)
@@ -657,10 +651,9 @@ define dso_local void @_ZN24cmInstallScriptGenerator21GenerateScriptActionsERSo2
   %13 = getelementptr inbounds i8, ptr %0, i64 200
   %14 = getelementptr inbounds i8, ptr %0, i64 232
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not.i = icmp eq i8 %16, 0
+  %16 = trunc i8 %15 to i1
   %17 = icmp sgt i32 %2, 0
-  br i1 %.not.i, label %21, label %18
+  br i1 %16, label %18, label %21
 
 18:                                               ; preds = %12
   br i1 %17, label %.lr.ph.i.i.i, label %_ZNK24cmInstallScriptGenerator20AddScriptInstallRuleERSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -705,10 +698,9 @@ define dso_local void @_ZN24cmInstallScriptGenerator23GenerateScriptForConfigERS
   call void @_ZNK24cmInstallScriptGenerator9GetScriptERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(249) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %6 = getelementptr inbounds i8, ptr %0, i64 232
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
+  %8 = trunc i8 %7 to i1
   %9 = icmp sgt i32 %3, 0
-  br i1 %.not.i, label %13, label %10
+  br i1 %8, label %10, label %13
 
 10:                                               ; preds = %4
   br i1 %9, label %.lr.ph.i.i.i, label %_ZlsRSo23cmScriptGeneratorIndent.exit.i
@@ -716,7 +708,7 @@ define dso_local void @_ZN24cmInstallScriptGenerator23GenerateScriptForConfigERS
 .lr.ph.i.i.i:                                     ; preds = %10, %.noexc
   %.03.i.i.i = phi i32 [ %12, %.noexc ], [ 0, %10 ]
   %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.5)
-          to label %.noexc unwind label %.loopexit.split-lp.loopexit
+          to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i.i.i
   %12 = add nuw nsw i32 %.03.i.i.i, 1
@@ -729,7 +721,7 @@ define dso_local void @_ZN24cmInstallScriptGenerator23GenerateScriptForConfigERS
 .lr.ph.i.i8.i:                                    ; preds = %13, %.noexc5
   %.03.i.i9.i = phi i32 [ %15, %.noexc5 ], [ 0, %13 ]
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.5)
-          to label %.noexc5 unwind label %.loopexit
+          to label %.noexc5 unwind label %.loopexit.split-lp.loopexit
 
 .noexc5:                                          ; preds = %.lr.ph.i.i8.i
   %15 = add nuw nsw i32 %.03.i.i9.i, 1
@@ -754,12 +746,12 @@ _ZNK24cmInstallScriptGenerator20AddScriptInstallRuleERSo23cmScriptGeneratorInden
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #9
   ret void
 
-.loopexit:                                        ; preds = %.lr.ph.i.i8.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %.lr.ph.i.i.i
+.loopexit.split-lp.loopexit:                      ; preds = %.lr.ph.i.i8.i
   %lpad.loopexit9 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

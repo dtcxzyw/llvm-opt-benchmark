@@ -130,9 +130,8 @@ define hidden void @_ZN5ceres8internal42GradientProblemSolverStateUpdatingCallba
 define hidden noundef i32 @_ZN5ceres8internal42GradientProblemSolverStateUpdatingCallbackclERKNS_16IterationSummaryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 6
   %4 = load i8, ptr %3, align 2
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %_ZSt6copy_nIPKdiPdET1_T_T0_S3_.exit, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %_ZSt6copy_nIPKdiPdET1_T_T0_S3_.exit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -296,9 +295,8 @@ define hidden noundef i32 @_ZN5ceres8internal15LoggingCallbackclERKNS_16Iteratio
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #11
   %70 = getelementptr inbounds i8, ptr %0, i64 12
   %71 = load i8, ptr %70, align 4
-  %72 = and i8 %71, 1
-  %.not = icmp eq i8 %72, 0
-  br i1 %.not, label %77, label %73
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %73, label %77
 
 73:                                               ; preds = %69
   %74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull align 8 dereferenceable(32) %3)

@@ -27,9 +27,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Comm_test_inter(ptr noundef %0, ptr noundef writeonly %1) #0 {
   %3 = load i8, ptr @ompi_mpi_param_check, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %._crit_edge, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 224

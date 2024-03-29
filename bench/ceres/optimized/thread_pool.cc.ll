@@ -687,9 +687,8 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %.critedge
   %17 = getelementptr inbounds i8, ptr %0, i64 104
   %18 = getelementptr inbounds i8, ptr %0, i64 168
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not.i2.i = icmp eq i8 %20, 0
-  br i1 %.not.i2.i, label %_ZNSt18condition_variable4waitIZN5ceres8internal15ConcurrentQueueISt8functionIFvvEEE4WaitEPS6_EUlvE_EEvRSt11unique_lockISt5mutexET_.exit, label %_ZZN5ceres8internal15ConcurrentQueueISt8functionIFvvEEE4WaitEPS4_ENKUlvE_clEv.exit.i
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %_ZZN5ceres8internal15ConcurrentQueueISt8functionIFvvEEE4WaitEPS4_ENKUlvE_clEv.exit.i, label %_ZNSt18condition_variable4waitIZN5ceres8internal15ConcurrentQueueISt8functionIFvvEEE4WaitEPS6_EUlvE_EEvRSt11unique_lockISt5mutexET_.exit
 
 _ZZN5ceres8internal15ConcurrentQueueISt8functionIFvvEEE4WaitEPS4_ENKUlvE_clEv.exit.i: ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %.noexc
   %21 = load ptr, ptr %16, align 8
@@ -703,9 +702,8 @@ _ZZN5ceres8internal15ConcurrentQueueISt8functionIFvvEEE4WaitEPS4_ENKUlvE_clEv.ex
 
 .noexc:                                           ; preds = %23
   %24 = load i8, ptr %18, align 8
-  %25 = and i8 %24, 1
-  %.not.i.i = icmp eq i8 %25, 0
-  br i1 %.not.i.i, label %_ZNSt18condition_variable4waitIZN5ceres8internal15ConcurrentQueueISt8functionIFvvEEE4WaitEPS6_EUlvE_EEvRSt11unique_lockISt5mutexET_.exit, label %_ZZN5ceres8internal15ConcurrentQueueISt8functionIFvvEEE4WaitEPS4_ENKUlvE_clEv.exit.i, !llvm.loop !7
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %_ZZN5ceres8internal15ConcurrentQueueISt8functionIFvvEEE4WaitEPS4_ENKUlvE_clEv.exit.i, label %_ZNSt18condition_variable4waitIZN5ceres8internal15ConcurrentQueueISt8functionIFvvEEE4WaitEPS6_EUlvE_EEvRSt11unique_lockISt5mutexET_.exit, !llvm.loop !7
 
 _ZNSt18condition_variable4waitIZN5ceres8internal15ConcurrentQueueISt8functionIFvvEEE4WaitEPS6_EUlvE_EEvRSt11unique_lockISt5mutexET_.exit: ; preds = %.noexc, %_ZZN5ceres8internal15ConcurrentQueueISt8functionIFvvEEE4WaitEPS4_ENKUlvE_clEv.exit.i, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %26 = invoke noundef zeroext i1 @_ZN5ceres8internal15ConcurrentQueueISt8functionIFvvEEE11PopUnlockedEPS4_(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull %1)
@@ -713,14 +711,13 @@ _ZNSt18condition_variable4waitIZN5ceres8internal15ConcurrentQueueISt8functionIFv
 
 27:                                               ; preds = %_ZNSt18condition_variable4waitIZN5ceres8internal15ConcurrentQueueISt8functionIFvvEEE4WaitEPS6_EUlvE_EEvRSt11unique_lockISt5mutexET_.exit
   %28 = load i8, ptr %12, align 8
-  %29 = and i8 %28, 1
-  %.not.i8 = icmp eq i8 %29, 0
-  br i1 %.not.i8, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %4, align 8
-  %.not1.i.i = icmp eq ptr %31, null
-  br i1 %.not1.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %32
+  %.not.i.i = icmp eq ptr %31, null
+  br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %32
 
 32:                                               ; preds = %30
   %33 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %31) #14
@@ -742,20 +739,19 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %27, %30, %32
 34:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %35 = load i8, ptr %12, align 8
-  %36 = and i8 %35, 1
-  %.not.i9 = icmp eq i8 %36, 0
-  br i1 %.not.i9, label %_ZNSt11unique_lockISt5mutexED2Ev.exit11, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %_ZNSt11unique_lockISt5mutexED2Ev.exit9
 
 37:                                               ; preds = %34
   %38 = load ptr, ptr %4, align 8
-  %.not1.i.i10 = icmp eq ptr %38, null
-  br i1 %.not1.i.i10, label %_ZNSt11unique_lockISt5mutexED2Ev.exit11, label %39
+  %.not.i.i8 = icmp eq ptr %38, null
+  br i1 %.not.i.i8, label %_ZNSt11unique_lockISt5mutexED2Ev.exit9, label %39
 
 39:                                               ; preds = %37
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %38) #14
-  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit11
+  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit9
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit11:          ; preds = %34, %37, %39
+_ZNSt11unique_lockISt5mutexED2Ev.exit9:           ; preds = %34, %37, %39
   resume { ptr, i32 } %lpad.phi
 }
 

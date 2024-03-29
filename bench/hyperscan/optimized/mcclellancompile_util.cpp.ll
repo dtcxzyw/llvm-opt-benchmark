@@ -654,7 +654,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %46 = phi ptr [ %52, %for.inc ], [ %43, %for.cond.preheader ]
   %conv69 = phi i64 [ %conv, %for.inc ], [ 1, %for.cond.preheader ]
   %s.068 = phi i32 [ %inc, %for.inc ], [ 1, %for.cond.preheader ]
-  %changed.067 = phi i8 [ %changed.1, %for.inc ], [ 0, %for.cond.preheader ]
+  %changed.067 = phi i1 [ %changed.1, %for.inc ], [ false, %for.cond.preheader ]
   %add.ptr.i = getelementptr inbounds i32, ptr %bob_dist.sroa.0.0, i64 %conv69
   %47 = load i32, ptr %add.ptr.i, align 4
   %cmp5 = icmp ugt i32 %47, %max_offset
@@ -688,7 +688,7 @@ invoke.cont15:                                    ; preds = %land.lhs.true, %inv
 for.inc:                                          ; preds = %invoke.cont15, %for.body, %invoke.cont7
   %51 = phi ptr [ %45, %invoke.cont7 ], [ %45, %for.body ], [ %.pre87, %invoke.cont15 ]
   %52 = phi ptr [ %46, %invoke.cont7 ], [ %46, %for.body ], [ %.pre, %invoke.cont15 ]
-  %changed.1 = phi i8 [ %changed.067, %invoke.cont7 ], [ %changed.067, %for.body ], [ 1, %invoke.cont15 ]
+  %changed.1 = phi i1 [ %changed.067, %invoke.cont7 ], [ %changed.067, %for.body ], [ true, %invoke.cont15 ]
   %inc = add i32 %s.068, 1
   %conv = zext i32 %inc to i64
   %sub.ptr.lhs.cast.i = ptrtoint ptr %52 to i64
@@ -699,9 +699,7 @@ for.inc:                                          ; preds = %invoke.cont15, %for
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc
-  %53 = and i8 %changed.1, 1
-  %54 = icmp eq i8 %53, 0
-  br i1 %54, label %if.then.i.i.i23, label %if.end19
+  br i1 %changed.1, label %if.end19, label %if.then.i.i.i23
 
 if.end19:                                         ; preds = %for.end
   %cmp68.i.i.i.i.i.not = icmp ult i64 %sub.ptr.div.i, 4
@@ -709,47 +707,47 @@ if.end19:                                         ; preds = %for.end
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %if.end19
   %shr.i.i.i.i.i = lshr i64 %sub.ptr.div.i, 2
-  %55 = mul nuw nsw i64 %shr.i.i.i.i.i, 384
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %51, i64 %55
+  %53 = mul nuw nsw i64 %shr.i.i.i.i.i, 384
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %51, i64 %53
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.end22.i.i.i.i.i, %for.body.preheader.i.i.i.i.i
   %__trip_count.070.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %if.end22.i.i.i.i.i ], [ %shr.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
   %__first.sroa.0.069.i.i.i.i.i = phi ptr [ %incdec.ptr.i26.i.i.i.i.i, %if.end22.i.i.i.i.i ], [ %51, %for.body.preheader.i.i.i.i.i ]
-  %56 = getelementptr i8, ptr %__first.sroa.0.069.i.i.i.i.i, i64 40
-  %call.val.i.i.i.i.i.i = load i64, ptr %56, align 8
-  %57 = getelementptr i8, ptr %__first.sroa.0.069.i.i.i.i.i, i64 72
-  %call.val1.i.i.i.i.i.i = load i64, ptr %57, align 8
+  %54 = getelementptr i8, ptr %__first.sroa.0.069.i.i.i.i.i, i64 40
+  %call.val.i.i.i.i.i.i = load i64, ptr %54, align 8
+  %55 = getelementptr i8, ptr %__first.sroa.0.069.i.i.i.i.i, i64 72
+  %call.val1.i.i.i.i.i.i = load i64, ptr %55, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp ne i64 %call.val.i.i.i.i.i.i, 0
   %tobool.not.i.i3.i.i.i.i.i.i.i = icmp ne i64 %call.val1.i.i.i.i.i.i, 0
   %spec.select.i.not.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %tobool.not.i.i3.i.i.i.i.i.i.i
   br i1 %spec.select.i.not.i.i.i.i.i.i, label %invoke.cont21, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i
-  %58 = getelementptr i8, ptr %__first.sroa.0.069.i.i.i.i.i, i64 136
-  %call.val.i9.i.i.i.i.i = load i64, ptr %58, align 8
-  %59 = getelementptr i8, ptr %__first.sroa.0.069.i.i.i.i.i, i64 168
-  %call.val1.i10.i.i.i.i.i = load i64, ptr %59, align 8
+  %56 = getelementptr i8, ptr %__first.sroa.0.069.i.i.i.i.i, i64 136
+  %call.val.i9.i.i.i.i.i = load i64, ptr %56, align 8
+  %57 = getelementptr i8, ptr %__first.sroa.0.069.i.i.i.i.i, i64 168
+  %call.val1.i10.i.i.i.i.i = load i64, ptr %57, align 8
   %tobool.not.i.i.i.i11.i.i.i.i.i = icmp ne i64 %call.val.i9.i.i.i.i.i, 0
   %tobool.not.i.i3.i.i12.i.i.i.i.i = icmp ne i64 %call.val1.i10.i.i.i.i.i, 0
   %spec.select.i.not.i13.i.i.i.i.i = select i1 %tobool.not.i.i.i.i11.i.i.i.i.i, i1 true, i1 %tobool.not.i.i3.i.i12.i.i.i.i.i
   br i1 %spec.select.i.not.i13.i.i.i.i.i, label %return.loopexit.split.loop.exit59.i.i.i.i.i, label %if.end10.i.i.i.i.i
 
 if.end10.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %60 = getelementptr i8, ptr %__first.sroa.0.069.i.i.i.i.i, i64 232
-  %call.val.i15.i.i.i.i.i = load i64, ptr %60, align 8
-  %61 = getelementptr i8, ptr %__first.sroa.0.069.i.i.i.i.i, i64 264
-  %call.val1.i16.i.i.i.i.i = load i64, ptr %61, align 8
+  %58 = getelementptr i8, ptr %__first.sroa.0.069.i.i.i.i.i, i64 232
+  %call.val.i15.i.i.i.i.i = load i64, ptr %58, align 8
+  %59 = getelementptr i8, ptr %__first.sroa.0.069.i.i.i.i.i, i64 264
+  %call.val1.i16.i.i.i.i.i = load i64, ptr %59, align 8
   %tobool.not.i.i.i.i17.i.i.i.i.i = icmp ne i64 %call.val.i15.i.i.i.i.i, 0
   %tobool.not.i.i3.i.i18.i.i.i.i.i = icmp ne i64 %call.val1.i16.i.i.i.i.i, 0
   %spec.select.i.not.i19.i.i.i.i.i = select i1 %tobool.not.i.i.i.i17.i.i.i.i.i, i1 true, i1 %tobool.not.i.i3.i.i18.i.i.i.i.i
   br i1 %spec.select.i.not.i19.i.i.i.i.i, label %return.loopexit.split.loop.exit61.i.i.i.i.i, label %if.end16.i.i.i.i.i
 
 if.end16.i.i.i.i.i:                               ; preds = %if.end10.i.i.i.i.i
-  %62 = getelementptr i8, ptr %__first.sroa.0.069.i.i.i.i.i, i64 328
-  %call.val.i21.i.i.i.i.i = load i64, ptr %62, align 8
-  %63 = getelementptr i8, ptr %__first.sroa.0.069.i.i.i.i.i, i64 360
-  %call.val1.i22.i.i.i.i.i = load i64, ptr %63, align 8
+  %60 = getelementptr i8, ptr %__first.sroa.0.069.i.i.i.i.i, i64 328
+  %call.val.i21.i.i.i.i.i = load i64, ptr %60, align 8
+  %61 = getelementptr i8, ptr %__first.sroa.0.069.i.i.i.i.i, i64 360
+  %call.val1.i22.i.i.i.i.i = load i64, ptr %61, align 8
   %tobool.not.i.i.i.i23.i.i.i.i.i = icmp ne i64 %call.val.i21.i.i.i.i.i, 0
   %tobool.not.i.i3.i.i24.i.i.i.i.i = icmp ne i64 %call.val1.i22.i.i.i.i.i, 0
   %spec.select.i.not.i25.i.i.i.i.i = select i1 %tobool.not.i.i.i.i23.i.i.i.i.i, i1 true, i1 %tobool.not.i.i3.i.i24.i.i.i.i.i
@@ -777,10 +775,10 @@ for.end.i.i.i.i.i:                                ; preds = %for.end.loopexit.i.
   ]
 
 sw.bb.i.i.i.i.i:                                  ; preds = %for.end.i.i.i.i.i
-  %64 = getelementptr i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i, i64 40
-  %call.val.i31.i.i.i.i.i = load i64, ptr %64, align 8
-  %65 = getelementptr i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i, i64 72
-  %call.val1.i32.i.i.i.i.i = load i64, ptr %65, align 8
+  %62 = getelementptr i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i, i64 40
+  %call.val.i31.i.i.i.i.i = load i64, ptr %62, align 8
+  %63 = getelementptr i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i, i64 72
+  %call.val1.i32.i.i.i.i.i = load i64, ptr %63, align 8
   %tobool.not.i.i.i.i33.i.i.i.i.i = icmp ne i64 %call.val.i31.i.i.i.i.i, 0
   %tobool.not.i.i3.i.i34.i.i.i.i.i = icmp ne i64 %call.val1.i32.i.i.i.i.i, 0
   %spec.select.i.not.i35.i.i.i.i.i = select i1 %tobool.not.i.i.i.i33.i.i.i.i.i, i1 true, i1 %tobool.not.i.i3.i.i34.i.i.i.i.i
@@ -792,10 +790,10 @@ if.end29.i.i.i.i.i:                               ; preds = %sw.bb.i.i.i.i.i
 
 sw.bb31.i.i.i.i.i:                                ; preds = %if.end29.i.i.i.i.i, %for.end.i.i.i.i.i
   %__first.sroa.0.1.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr.i36.i.i.i.i.i, %if.end29.i.i.i.i.i ]
-  %66 = getelementptr i8, ptr %__first.sroa.0.1.i.i.i.i.i, i64 40
-  %call.val.i37.i.i.i.i.i = load i64, ptr %66, align 8
-  %67 = getelementptr i8, ptr %__first.sroa.0.1.i.i.i.i.i, i64 72
-  %call.val1.i38.i.i.i.i.i = load i64, ptr %67, align 8
+  %64 = getelementptr i8, ptr %__first.sroa.0.1.i.i.i.i.i, i64 40
+  %call.val.i37.i.i.i.i.i = load i64, ptr %64, align 8
+  %65 = getelementptr i8, ptr %__first.sroa.0.1.i.i.i.i.i, i64 72
+  %call.val1.i38.i.i.i.i.i = load i64, ptr %65, align 8
   %tobool.not.i.i.i.i39.i.i.i.i.i = icmp ne i64 %call.val.i37.i.i.i.i.i, 0
   %tobool.not.i.i3.i.i40.i.i.i.i.i = icmp ne i64 %call.val1.i38.i.i.i.i.i, 0
   %spec.select.i.not.i41.i.i.i.i.i = select i1 %tobool.not.i.i.i.i39.i.i.i.i.i, i1 true, i1 %tobool.not.i.i3.i.i40.i.i.i.i.i
@@ -807,10 +805,10 @@ if.end36.i.i.i.i.i:                               ; preds = %sw.bb31.i.i.i.i.i
 
 sw.bb38.i.i.i.i.i:                                ; preds = %if.end36.i.i.i.i.i, %for.end.i.i.i.i.i
   %__first.sroa.0.2.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr.i42.i.i.i.i.i, %if.end36.i.i.i.i.i ]
-  %68 = getelementptr i8, ptr %__first.sroa.0.2.i.i.i.i.i, i64 40
-  %call.val.i43.i.i.i.i.i = load i64, ptr %68, align 8
-  %69 = getelementptr i8, ptr %__first.sroa.0.2.i.i.i.i.i, i64 72
-  %call.val1.i44.i.i.i.i.i = load i64, ptr %69, align 8
+  %66 = getelementptr i8, ptr %__first.sroa.0.2.i.i.i.i.i, i64 40
+  %call.val.i43.i.i.i.i.i = load i64, ptr %66, align 8
+  %67 = getelementptr i8, ptr %__first.sroa.0.2.i.i.i.i.i, i64 72
+  %call.val1.i44.i.i.i.i.i = load i64, ptr %67, align 8
   %tobool.not.i.i.i.i45.i.i.i.i.i = icmp ne i64 %call.val.i43.i.i.i.i.i, 0
   %tobool.not.i.i3.i.i46.i.i.i.i.i = icmp ne i64 %call.val1.i44.i.i.i.i.i, 0
   %spec.select.i.not.i47.i.i.i.i.i = select i1 %tobool.not.i.i.i.i45.i.i.i.i.i, i1 true, i1 %tobool.not.i.i3.i.i46.i.i.i.i.i

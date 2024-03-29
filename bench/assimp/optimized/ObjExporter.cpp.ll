@@ -1289,105 +1289,104 @@ for.body.i:                                       ; preds = %_ZNSt6vectorIN6Assi
 _ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEE7getKeysERSt6vectorIS2_SaIS2_EE.exit: ; preds = %for.body.i, %_ZNSt6vectorIN6Assimp11ObjExporter10vertexDataESaIS2_EE6resizeEm.exit.i
   %useVc = getelementptr inbounds i8, ptr %this, i64 888
   %15 = load i8, ptr %useVc, align 8
-  %16 = and i8 %15, 1
-  %tobool9.not = icmp eq i8 %16, 0
-  %call12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.41)
-  %17 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %18 = load ptr, ptr %vp, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %18 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %call15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call12, i64 noundef %sub.ptr.div.i)
-  %endl17 = getelementptr inbounds i8, ptr %this, i64 1088
-  br i1 %tobool9.not, label %if.then10, label %if.else
+  %tobool9 = trunc i8 %15 to i1
+  %call39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.41)
+  %16 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %17 = load ptr, ptr %vp, align 8
+  %sub.ptr.lhs.cast.i36 = ptrtoint ptr %16 to i64
+  %sub.ptr.rhs.cast.i37 = ptrtoint ptr %17 to i64
+  %sub.ptr.sub.i38 = sub i64 %sub.ptr.lhs.cast.i36, %sub.ptr.rhs.cast.i37
+  %sub.ptr.div.i39 = sdiv exact i64 %sub.ptr.sub.i38, 24
+  %call42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call39, i64 noundef %sub.ptr.div.i39)
+  %endl44 = getelementptr inbounds i8, ptr %this, i64 1088
+  br i1 %tobool9, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %_ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEE7getKeysERSt6vectorIS2_SaIS2_EE.exit
-  %call16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call15, ptr noundef nonnull @.str.42)
-  %call18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call16, ptr noundef nonnull align 8 dereferenceable(32) %endl17)
-  %19 = load ptr, ptr %vp, align 8
-  %20 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.i.not111 = icmp eq ptr %19, %20
-  br i1 %cmp.i.not111, label %if.end85, label %for.body
+  %call16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call42, ptr noundef nonnull @.str.42)
+  %call18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call16, ptr noundef nonnull align 8 dereferenceable(32) %endl44)
+  %18 = load ptr, ptr %vp, align 8
+  %19 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %cmp.i.not109 = icmp eq ptr %18, %19
+  br i1 %cmp.i.not109, label %if.end85, label %for.body
 
 for.body:                                         ; preds = %if.then10, %for.body
-  %__begin2.sroa.0.0112 = phi ptr [ %incdec.ptr.i, %for.body ], [ %19, %if.then10 ]
+  %__begin2.sroa.0.0110 = phi ptr [ %incdec.ptr.i, %for.body ], [ %18, %if.then10 ]
   %call26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.43)
-  %21 = load float, ptr %__begin2.sroa.0.0112, align 4
-  %call28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call26, float noundef %21)
+  %20 = load float, ptr %__begin2.sroa.0.0110, align 4
+  %call28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call26, float noundef %20)
   %call29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call28, ptr noundef nonnull @.str.16)
-  %y = getelementptr inbounds i8, ptr %__begin2.sroa.0.0112, i64 4
-  %22 = load float, ptr %y, align 4
-  %call31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call29, float noundef %22)
+  %y = getelementptr inbounds i8, ptr %__begin2.sroa.0.0110, i64 4
+  %21 = load float, ptr %y, align 4
+  %call31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call29, float noundef %21)
   %call32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call31, ptr noundef nonnull @.str.16)
-  %z = getelementptr inbounds i8, ptr %__begin2.sroa.0.0112, i64 8
-  %23 = load float, ptr %z, align 4
-  %call34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call32, float noundef %23)
-  %call36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call34, ptr noundef nonnull align 8 dereferenceable(32) %endl17)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0112, i64 24
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %20
+  %z = getelementptr inbounds i8, ptr %__begin2.sroa.0.0110, i64 8
+  %22 = load float, ptr %z, align 4
+  %call34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call32, float noundef %22)
+  %call36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call34, ptr noundef nonnull align 8 dereferenceable(32) %endl44)
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0110, i64 24
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %19
   br i1 %cmp.i.not, label %if.end85, label %for.body
 
 if.else:                                          ; preds = %_ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEE7getKeysERSt6vectorIS2_SaIS2_EE.exit
-  %call43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call15, ptr noundef nonnull @.str.44)
-  %call45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call43, ptr noundef nonnull align 8 dereferenceable(32) %endl17)
-  %24 = load ptr, ptr %vp, align 8
-  %25 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.i41.not109 = icmp eq ptr %24, %25
-  br i1 %cmp.i41.not109, label %if.end85, label %for.body56
+  %call43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call42, ptr noundef nonnull @.str.44)
+  %call45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call43, ptr noundef nonnull align 8 dereferenceable(32) %endl44)
+  %23 = load ptr, ptr %vp, align 8
+  %24 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %cmp.i41.not111 = icmp eq ptr %23, %24
+  br i1 %cmp.i41.not111, label %if.end85, label %for.body56
 
 for.body56:                                       ; preds = %if.else, %for.body56
-  %__begin248.sroa.0.0110 = phi ptr [ %incdec.ptr.i42, %for.body56 ], [ %24, %if.else ]
+  %__begin248.sroa.0.0112 = phi ptr [ %incdec.ptr.i42, %for.body56 ], [ %23, %if.else ]
   %call60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.43)
-  %26 = load float, ptr %__begin248.sroa.0.0110, align 4
-  %call63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call60, float noundef %26)
+  %25 = load float, ptr %__begin248.sroa.0.0112, align 4
+  %call63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call60, float noundef %25)
   %call64 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call63, ptr noundef nonnull @.str.16)
-  %y66 = getelementptr inbounds i8, ptr %__begin248.sroa.0.0110, i64 4
-  %27 = load float, ptr %y66, align 4
-  %call67 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call64, float noundef %27)
+  %y66 = getelementptr inbounds i8, ptr %__begin248.sroa.0.0112, i64 4
+  %26 = load float, ptr %y66, align 4
+  %call67 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call64, float noundef %26)
   %call68 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call67, ptr noundef nonnull @.str.16)
-  %z70 = getelementptr inbounds i8, ptr %__begin248.sroa.0.0110, i64 8
-  %28 = load float, ptr %z70, align 4
-  %call71 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call68, float noundef %28)
+  %z70 = getelementptr inbounds i8, ptr %__begin248.sroa.0.0112, i64 8
+  %27 = load float, ptr %z70, align 4
+  %call71 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call68, float noundef %27)
   %call72 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call71, ptr noundef nonnull @.str.16)
-  %vc = getelementptr inbounds i8, ptr %__begin248.sroa.0.0110, i64 12
-  %29 = load float, ptr %vc, align 4
-  %call73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call72, float noundef %29)
+  %vc = getelementptr inbounds i8, ptr %__begin248.sroa.0.0112, i64 12
+  %28 = load float, ptr %vc, align 4
+  %call73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call72, float noundef %28)
   %call74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call73, ptr noundef nonnull @.str.16)
-  %g = getelementptr inbounds i8, ptr %__begin248.sroa.0.0110, i64 16
-  %30 = load float, ptr %g, align 4
-  %call76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call74, float noundef %30)
+  %g = getelementptr inbounds i8, ptr %__begin248.sroa.0.0112, i64 16
+  %29 = load float, ptr %g, align 4
+  %call76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call74, float noundef %29)
   %call77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call76, ptr noundef nonnull @.str.16)
-  %b = getelementptr inbounds i8, ptr %__begin248.sroa.0.0110, i64 20
-  %31 = load float, ptr %b, align 4
-  %call79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call77, float noundef %31)
-  %call81 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call79, ptr noundef nonnull align 8 dereferenceable(32) %endl17)
-  %incdec.ptr.i42 = getelementptr inbounds i8, ptr %__begin248.sroa.0.0110, i64 24
-  %cmp.i41.not = icmp eq ptr %incdec.ptr.i42, %25
+  %b = getelementptr inbounds i8, ptr %__begin248.sroa.0.0112, i64 20
+  %30 = load float, ptr %b, align 4
+  %call79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call77, float noundef %30)
+  %call81 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call79, ptr noundef nonnull align 8 dereferenceable(32) %endl44)
+  %incdec.ptr.i42 = getelementptr inbounds i8, ptr %__begin248.sroa.0.0112, i64 24
+  %cmp.i41.not = icmp eq ptr %incdec.ptr.i42, %24
   br i1 %cmp.i41.not, label %if.end85, label %for.body56
 
-if.end85:                                         ; preds = %for.body56, %for.body, %if.else, %if.then10
+if.end85:                                         ; preds = %for.body, %for.body56, %if.then10, %if.else
   %endl87 = getelementptr inbounds i8, ptr %this, i64 1088
   %call88 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %endl87)
   %vt = getelementptr inbounds i8, ptr %this, i64 816
   %_M_node_count.i.i.i43 = getelementptr inbounds i8, ptr %this, i64 1000
-  %32 = load i64, ptr %_M_node_count.i.i.i43, align 8
-  call void @_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %vt, i64 noundef %32)
+  %31 = load i64, ptr %_M_node_count.i.i.i43, align 8
+  call void @_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %vt, i64 noundef %31)
   %_M_left.i.i.i44 = getelementptr inbounds i8, ptr %this, i64 984
-  %33 = load ptr, ptr %_M_left.i.i.i44, align 8
+  %32 = load ptr, ptr %_M_left.i.i.i44, align 8
   %add.ptr.i.i.i45 = getelementptr inbounds i8, ptr %this, i64 968
-  %cmp.i.not6.i = icmp eq ptr %33, %add.ptr.i.i.i45
+  %cmp.i.not6.i = icmp eq ptr %32, %add.ptr.i.i.i45
   br i1 %cmp.i.not6.i, label %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit, label %for.body.i46
 
 for.body.i46:                                     ; preds = %if.end85, %for.body.i46
-  %it.sroa.0.07.i = phi ptr [ %call.i.i50, %for.body.i46 ], [ %33, %if.end85 ]
+  %it.sroa.0.07.i = phi ptr [ %call.i.i50, %for.body.i46 ], [ %32, %if.end85 ]
   %_M_storage.i.i.i47 = getelementptr inbounds i8, ptr %it.sroa.0.07.i, i64 32
   %second.i48 = getelementptr inbounds i8, ptr %it.sroa.0.07.i, i64 44
-  %34 = load i32, ptr %second.i48, align 4
-  %35 = load ptr, ptr %vt, align 8
-  %36 = sext i32 %34 to i64
-  %37 = getelementptr %class.aiVector3t, ptr %35, i64 %36
-  %add.ptr.i.i49 = getelementptr i8, ptr %37, i64 -12
+  %33 = load i32, ptr %second.i48, align 4
+  %34 = load ptr, ptr %vt, align 8
+  %35 = sext i32 %33 to i64
+  %36 = getelementptr %class.aiVector3t, ptr %34, i64 %35
+  %add.ptr.i.i49 = getelementptr i8, ptr %36, i64 -12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i49, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i47, i64 12, i1 false)
   %call.i.i50 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.07.i) #23
   %cmp.i.not.i = icmp eq ptr %call.i.i50, %add.ptr.i.i.i45
@@ -1396,59 +1395,59 @@ for.body.i46:                                     ; preds = %if.end85, %for.body
 _ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit: ; preds = %for.body.i46, %if.end85
   %call90 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.41)
   %_M_finish.i51 = getelementptr inbounds i8, ptr %this, i64 824
-  %38 = load ptr, ptr %_M_finish.i51, align 8
-  %39 = load ptr, ptr %vt, align 8
-  %sub.ptr.lhs.cast.i52 = ptrtoint ptr %38 to i64
-  %sub.ptr.rhs.cast.i53 = ptrtoint ptr %39 to i64
+  %37 = load ptr, ptr %_M_finish.i51, align 8
+  %38 = load ptr, ptr %vt, align 8
+  %sub.ptr.lhs.cast.i52 = ptrtoint ptr %37 to i64
+  %sub.ptr.rhs.cast.i53 = ptrtoint ptr %38 to i64
   %sub.ptr.sub.i54 = sub i64 %sub.ptr.lhs.cast.i52, %sub.ptr.rhs.cast.i53
   %sub.ptr.div.i55 = sdiv exact i64 %sub.ptr.sub.i54, 12
   %call93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call90, i64 noundef %sub.ptr.div.i55)
   %call94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call93, ptr noundef nonnull @.str.45)
   %call96 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call94, ptr noundef nonnull align 8 dereferenceable(32) %endl87)
-  %40 = load ptr, ptr %vt, align 8
-  %41 = load ptr, ptr %_M_finish.i51, align 8
-  %cmp.i57.not113 = icmp eq ptr %40, %41
+  %39 = load ptr, ptr %vt, align 8
+  %40 = load ptr, ptr %_M_finish.i51, align 8
+  %cmp.i57.not113 = icmp eq ptr %39, %40
   br i1 %cmp.i57.not113, label %for.end121, label %for.body104
 
 for.body104:                                      ; preds = %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit, %for.body104
-  %__begin1.sroa.0.0114 = phi ptr [ %incdec.ptr.i58, %for.body104 ], [ %40, %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit ]
+  %__begin1.sroa.0.0114 = phi ptr [ %incdec.ptr.i58, %for.body104 ], [ %39, %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit ]
   %call108 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.46)
-  %42 = load float, ptr %__begin1.sroa.0.0114, align 4
-  %call110 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call108, float noundef %42)
+  %41 = load float, ptr %__begin1.sroa.0.0114, align 4
+  %call110 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call108, float noundef %41)
   %call111 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call110, ptr noundef nonnull @.str.16)
   %y112 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0114, i64 4
-  %43 = load float, ptr %y112, align 4
-  %call113 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call111, float noundef %43)
+  %42 = load float, ptr %y112, align 4
+  %call113 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call111, float noundef %42)
   %call114 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call113, ptr noundef nonnull @.str.16)
   %z115 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0114, i64 8
-  %44 = load float, ptr %z115, align 4
-  %call116 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call114, float noundef %44)
+  %43 = load float, ptr %z115, align 4
+  %call116 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call114, float noundef %43)
   %call118 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call116, ptr noundef nonnull align 8 dereferenceable(32) %endl87)
   %incdec.ptr.i58 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0114, i64 12
-  %cmp.i57.not = icmp eq ptr %incdec.ptr.i58, %41
+  %cmp.i57.not = icmp eq ptr %incdec.ptr.i58, %40
   br i1 %cmp.i57.not, label %for.end121, label %for.body104
 
 for.end121:                                       ; preds = %for.body104, %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit
   %call124 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %endl87)
   %vn = getelementptr inbounds i8, ptr %this, i64 792
   %_M_node_count.i.i.i59 = getelementptr inbounds i8, ptr %this, i64 944
-  %45 = load i64, ptr %_M_node_count.i.i.i59, align 8
-  call void @_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %vn, i64 noundef %45)
+  %44 = load i64, ptr %_M_node_count.i.i.i59, align 8
+  call void @_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %vn, i64 noundef %44)
   %_M_left.i.i.i60 = getelementptr inbounds i8, ptr %this, i64 928
-  %46 = load ptr, ptr %_M_left.i.i.i60, align 8
+  %45 = load ptr, ptr %_M_left.i.i.i60, align 8
   %add.ptr.i.i.i61 = getelementptr inbounds i8, ptr %this, i64 912
-  %cmp.i.not6.i62 = icmp eq ptr %46, %add.ptr.i.i.i61
+  %cmp.i.not6.i62 = icmp eq ptr %45, %add.ptr.i.i.i61
   br i1 %cmp.i.not6.i62, label %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit70, label %for.body.i63
 
 for.body.i63:                                     ; preds = %for.end121, %for.body.i63
-  %it.sroa.0.07.i64 = phi ptr [ %call.i.i68, %for.body.i63 ], [ %46, %for.end121 ]
+  %it.sroa.0.07.i64 = phi ptr [ %call.i.i68, %for.body.i63 ], [ %45, %for.end121 ]
   %_M_storage.i.i.i65 = getelementptr inbounds i8, ptr %it.sroa.0.07.i64, i64 32
   %second.i66 = getelementptr inbounds i8, ptr %it.sroa.0.07.i64, i64 44
-  %47 = load i32, ptr %second.i66, align 4
-  %48 = load ptr, ptr %vn, align 8
-  %49 = sext i32 %47 to i64
-  %50 = getelementptr %class.aiVector3t, ptr %48, i64 %49
-  %add.ptr.i.i67 = getelementptr i8, ptr %50, i64 -12
+  %46 = load i32, ptr %second.i66, align 4
+  %47 = load ptr, ptr %vn, align 8
+  %48 = sext i32 %46 to i64
+  %49 = getelementptr %class.aiVector3t, ptr %47, i64 %48
+  %add.ptr.i.i67 = getelementptr i8, ptr %49, i64 -12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i67, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i65, i64 12, i1 false)
   %call.i.i68 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.07.i64) #23
   %cmp.i.not.i69 = icmp eq ptr %call.i.i68, %add.ptr.i.i.i61
@@ -1457,58 +1456,58 @@ for.body.i63:                                     ; preds = %for.end121, %for.bo
 _ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit70: ; preds = %for.body.i63, %for.end121
   %call126 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.41)
   %_M_finish.i71 = getelementptr inbounds i8, ptr %this, i64 800
-  %51 = load ptr, ptr %_M_finish.i71, align 8
-  %52 = load ptr, ptr %vn, align 8
-  %sub.ptr.lhs.cast.i72 = ptrtoint ptr %51 to i64
-  %sub.ptr.rhs.cast.i73 = ptrtoint ptr %52 to i64
+  %50 = load ptr, ptr %_M_finish.i71, align 8
+  %51 = load ptr, ptr %vn, align 8
+  %sub.ptr.lhs.cast.i72 = ptrtoint ptr %50 to i64
+  %sub.ptr.rhs.cast.i73 = ptrtoint ptr %51 to i64
   %sub.ptr.sub.i74 = sub i64 %sub.ptr.lhs.cast.i72, %sub.ptr.rhs.cast.i73
   %sub.ptr.div.i75 = sdiv exact i64 %sub.ptr.sub.i74, 12
   %call129 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call126, i64 noundef %sub.ptr.div.i75)
   %call130 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call129, ptr noundef nonnull @.str.47)
   %call132 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call130, ptr noundef nonnull align 8 dereferenceable(32) %endl87)
-  %53 = load ptr, ptr %vn, align 8
-  %54 = load ptr, ptr %_M_finish.i71, align 8
-  %cmp.i77.not115 = icmp eq ptr %53, %54
+  %52 = load ptr, ptr %vn, align 8
+  %53 = load ptr, ptr %_M_finish.i71, align 8
+  %cmp.i77.not115 = icmp eq ptr %52, %53
   br i1 %cmp.i77.not115, label %for.end160, label %for.body143
 
 for.body143:                                      ; preds = %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit70, %for.body143
-  %__begin1135.sroa.0.0116 = phi ptr [ %incdec.ptr.i78, %for.body143 ], [ %53, %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit70 ]
+  %__begin1135.sroa.0.0116 = phi ptr [ %incdec.ptr.i78, %for.body143 ], [ %52, %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit70 ]
   %call147 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.48)
-  %55 = load float, ptr %__begin1135.sroa.0.0116, align 4
-  %call149 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call147, float noundef %55)
+  %54 = load float, ptr %__begin1135.sroa.0.0116, align 4
+  %call149 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call147, float noundef %54)
   %call150 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call149, ptr noundef nonnull @.str.16)
   %y151 = getelementptr inbounds i8, ptr %__begin1135.sroa.0.0116, i64 4
-  %56 = load float, ptr %y151, align 4
-  %call152 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call150, float noundef %56)
+  %55 = load float, ptr %y151, align 4
+  %call152 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call150, float noundef %55)
   %call153 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call152, ptr noundef nonnull @.str.16)
   %z154 = getelementptr inbounds i8, ptr %__begin1135.sroa.0.0116, i64 8
-  %57 = load float, ptr %z154, align 4
-  %call155 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call153, float noundef %57)
+  %56 = load float, ptr %z154, align 4
+  %call155 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call153, float noundef %56)
   %call157 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call155, ptr noundef nonnull align 8 dereferenceable(32) %endl87)
   %incdec.ptr.i78 = getelementptr inbounds i8, ptr %__begin1135.sroa.0.0116, i64 12
-  %cmp.i77.not = icmp eq ptr %incdec.ptr.i78, %54
+  %cmp.i77.not = icmp eq ptr %incdec.ptr.i78, %53
   br i1 %cmp.i77.not, label %for.end160, label %for.body143
 
 for.end160:                                       ; preds = %for.body143, %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit70
   %call163 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %endl87)
   %mMeshes = getelementptr inbounds i8, ptr %this, i64 1064
-  %58 = load ptr, ptr %mMeshes, align 8
+  %57 = load ptr, ptr %mMeshes, align 8
   %_M_finish.i79 = getelementptr inbounds i8, ptr %this, i64 1072
-  %59 = load ptr, ptr %_M_finish.i79, align 8
-  %cmp.i80.not121 = icmp eq ptr %58, %59
+  %58 = load ptr, ptr %_M_finish.i79, align 8
+  %cmp.i80.not121 = icmp eq ptr %57, %58
   br i1 %cmp.i80.not121, label %for.end273, label %for.body173
 
 for.body173:                                      ; preds = %for.end160, %for.end267
-  %__begin1165.sroa.0.0122 = phi ptr [ %incdec.ptr.i92, %for.end267 ], [ %58, %for.end160 ]
+  %__begin1165.sroa.0.0122 = phi ptr [ %incdec.ptr.i92, %for.end267 ], [ %57, %for.end160 ]
   %call176 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.49)
   %call177 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call176, ptr noundef nonnull align 8 dereferenceable(32) %__begin1165.sroa.0.0122)
   %call178 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call177, ptr noundef nonnull @.str.50)
   %faces = getelementptr inbounds i8, ptr %__begin1165.sroa.0.0122, i64 64
   %_M_finish.i81 = getelementptr inbounds i8, ptr %__begin1165.sroa.0.0122, i64 72
-  %60 = load ptr, ptr %_M_finish.i81, align 8
-  %61 = load ptr, ptr %faces, align 8
-  %sub.ptr.lhs.cast.i82 = ptrtoint ptr %60 to i64
-  %sub.ptr.rhs.cast.i83 = ptrtoint ptr %61 to i64
+  %59 = load ptr, ptr %_M_finish.i81, align 8
+  %60 = load ptr, ptr %faces, align 8
+  %sub.ptr.lhs.cast.i82 = ptrtoint ptr %59 to i64
+  %sub.ptr.rhs.cast.i83 = ptrtoint ptr %60 to i64
   %sub.ptr.sub.i84 = sub i64 %sub.ptr.lhs.cast.i82, %sub.ptr.rhs.cast.i83
   %sub.ptr.div.i85 = ashr exact i64 %sub.ptr.sub.i84, 5
   %call180 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call178, i64 noundef %sub.ptr.div.i85)
@@ -1534,37 +1533,37 @@ if.then195:                                       ; preds = %if.end193
   br label %if.end201
 
 if.end201:                                        ; preds = %if.then195, %if.end193
-  %62 = load ptr, ptr %faces, align 8
-  %63 = load ptr, ptr %_M_finish.i81, align 8
-  %cmp.i87.not119 = icmp eq ptr %62, %63
+  %61 = load ptr, ptr %faces, align 8
+  %62 = load ptr, ptr %_M_finish.i81, align 8
+  %cmp.i87.not119 = icmp eq ptr %61, %62
   br i1 %cmp.i87.not119, label %for.end267, label %for.body212
 
 for.body212:                                      ; preds = %if.end201, %for.end261
-  %__begin2204.sroa.0.0120 = phi ptr [ %incdec.ptr.i91, %for.end261 ], [ %62, %if.end201 ]
-  %64 = load i8, ptr %__begin2204.sroa.0.0120, align 8
-  %call215 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %this, i8 noundef signext %64)
+  %__begin2204.sroa.0.0120 = phi ptr [ %incdec.ptr.i91, %for.end261 ], [ %61, %if.end201 ]
+  %63 = load i8, ptr %__begin2204.sroa.0.0120, align 8
+  %call215 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %this, i8 noundef signext %63)
   %call216 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call215, i8 noundef signext 32)
   %indices = getelementptr inbounds i8, ptr %__begin2204.sroa.0.0120, i64 8
-  %65 = load ptr, ptr %indices, align 8
+  %64 = load ptr, ptr %indices, align 8
   %_M_finish.i88 = getelementptr inbounds i8, ptr %__begin2204.sroa.0.0120, i64 16
-  %66 = load ptr, ptr %_M_finish.i88, align 8
-  %cmp.i89.not117 = icmp eq ptr %65, %66
+  %65 = load ptr, ptr %_M_finish.i88, align 8
+  %cmp.i89.not117 = icmp eq ptr %64, %65
   br i1 %cmp.i89.not117, label %for.end261, label %for.body223
 
 for.body223:                                      ; preds = %for.body212, %for.inc259
-  %__begin3.sroa.0.0118 = phi ptr [ %incdec.ptr.i90, %for.inc259 ], [ %65, %for.body212 ]
+  %__begin3.sroa.0.0118 = phi ptr [ %incdec.ptr.i90, %for.inc259 ], [ %64, %for.body212 ]
   %call226 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %this, i8 noundef signext 32)
-  %67 = load i32, ptr %__begin3.sroa.0.0118, align 4
-  %call228 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call226, i32 noundef %67)
-  %68 = load i8, ptr %__begin2204.sroa.0.0120, align 8
-  %cmp.not = icmp eq i8 %68, 112
+  %66 = load i32, ptr %__begin3.sroa.0.0118, align 4
+  %call228 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call226, i32 noundef %66)
+  %67 = load i8, ptr %__begin2204.sroa.0.0120, align 8
+  %cmp.not = icmp eq i8 %67, 112
   br i1 %cmp.not, label %for.inc259, label %if.then230
 
 if.then230:                                       ; preds = %for.body223
   %vt231 = getelementptr inbounds i8, ptr %__begin3.sroa.0.0118, i64 8
-  %69 = load i32, ptr %vt231, align 4
-  %tobool232.not = icmp ne i32 %69, 0
-  %cmp235 = icmp eq i8 %68, 102
+  %68 = load i32, ptr %vt231, align 4
+  %tobool232.not = icmp ne i32 %68, 0
+  %cmp235 = icmp eq i8 %67, 102
   %or.cond = or i1 %cmp235, %tobool232.not
   br i1 %or.cond, label %if.end239, label %if.end246
 
@@ -1579,37 +1578,37 @@ if.then242:                                       ; preds = %if.end239
   br label %if.end246
 
 if.end246:                                        ; preds = %if.then230, %if.then242, %if.end239
-  %70 = load i8, ptr %__begin2204.sroa.0.0120, align 8
-  %cmp249 = icmp eq i8 %70, 102
+  %69 = load i8, ptr %__begin2204.sroa.0.0120, align 8
+  %cmp249 = icmp eq i8 %69, 102
   br i1 %cmp249, label %land.lhs.true, label %for.inc259
 
 land.lhs.true:                                    ; preds = %if.end246
   %vn250 = getelementptr inbounds i8, ptr %__begin3.sroa.0.0118, i64 4
-  %71 = load i32, ptr %vn250, align 4
-  %tobool251.not = icmp eq i32 %71, 0
+  %70 = load i32, ptr %vn250, align 4
+  %tobool251.not = icmp eq i32 %70, 0
   br i1 %tobool251.not, label %for.inc259, label %if.then252
 
 if.then252:                                       ; preds = %land.lhs.true
   %call254 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %this, i8 noundef signext 47)
-  %72 = load i32, ptr %vn250, align 4
-  %call256 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call254, i32 noundef %72)
+  %71 = load i32, ptr %vn250, align 4
+  %call256 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call254, i32 noundef %71)
   br label %for.inc259
 
 for.inc259:                                       ; preds = %for.body223, %if.then252, %land.lhs.true, %if.end246
   %incdec.ptr.i90 = getelementptr inbounds i8, ptr %__begin3.sroa.0.0118, i64 12
-  %cmp.i89.not = icmp eq ptr %incdec.ptr.i90, %66
+  %cmp.i89.not = icmp eq ptr %incdec.ptr.i90, %65
   br i1 %cmp.i89.not, label %for.end261, label %for.body223
 
 for.end261:                                       ; preds = %for.inc259, %for.body212
   %call264 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %endl87)
   %incdec.ptr.i91 = getelementptr inbounds i8, ptr %__begin2204.sroa.0.0120, i64 32
-  %cmp.i87.not = icmp eq ptr %incdec.ptr.i91, %63
+  %cmp.i87.not = icmp eq ptr %incdec.ptr.i91, %62
   br i1 %cmp.i87.not, label %for.end267, label %for.body212
 
 for.end267:                                       ; preds = %for.end261, %if.end201
   %call270 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %endl87)
   %incdec.ptr.i92 = getelementptr inbounds i8, ptr %__begin1165.sroa.0.0122, i64 88
-  %cmp.i80.not = icmp eq ptr %incdec.ptr.i92, %59
+  %cmp.i80.not = icmp eq ptr %incdec.ptr.i92, %58
   br i1 %cmp.i80.not, label %for.end273, label %for.body173
 
 for.end273:                                       ; preds = %for.end267, %for.end160
@@ -2318,23 +2317,21 @@ while.body.i.i.preheader:                         ; preds = %if.then.i.i, %if.en
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end15.i.i
   %out.addr.124.i.i = phi ptr [ %out.addr.2.i.i, %if.end15.i.i ], [ %out.addr.124.i.i.ph, %while.body.i.i.preheader ]
-  %mustPrint.023.i.i = phi i8 [ %mustPrint.1.i.i, %if.end15.i.i ], [ 0, %while.body.i.i.preheader ]
+  %mustPrint.023.i.i = phi i1 [ %or.cond1.i.i, %if.end15.i.i ], [ false, %while.body.i.i.preheader ]
   %cur.022.i.i = phi i32 [ %div16.i.i, %if.end15.i.i ], [ 1000000000, %while.body.i.i.preheader ]
   %written.121.i.i = phi i32 [ %written.2.i.i, %if.end15.i.i ], [ %written.121.i.i.ph, %while.body.i.i.preheader ]
   %number.addr.120.i.i = phi i32 [ %number.addr.2.i.i, %if.end15.i.i ], [ %number.addr.120.i.i.ph, %while.body.i.i.preheader ]
   %div.i.i = sdiv i32 %number.addr.120.i.i, %cur.022.i.i
   %sub11.i.i.recomposed = srem i32 %number.addr.120.i.i, %cur.022.i.i
-  %8 = and i8 %mustPrint.023.i.i, 1
-  %tobool.i.i = icmp ne i8 %8, 0
   %cmp3.i.i = icmp ne i32 %div.i.i, 0
-  %or.cond.i.i = select i1 %tobool.i.i, i1 true, i1 %cmp3.i.i
+  %or.cond.i.i = select i1 %mustPrint.023.i.i, i1 true, i1 %cmp3.i.i
   %cmp5.i.i = icmp eq i32 %cur.022.i.i, 1
   %or.cond1.i.i = or i1 %cmp5.i.i, %or.cond.i.i
   br i1 %or.cond1.i.i, label %if.then6.i.i, label %if.end15.i.i
 
 if.then6.i.i:                                     ; preds = %while.body.i.i
-  %9 = trunc i32 %div.i.i to i8
-  %conv8.i.i = add i8 %9, 48
+  %8 = trunc i32 %div.i.i to i8
+  %conv8.i.i = add i8 %8, 48
   %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %out.addr.124.i.i, i64 1
   store i8 %conv8.i.i, ptr %out.addr.124.i.i, align 1
   %inc10.i.i = add nuw nsw i32 %written.121.i.i, 1
@@ -2344,7 +2341,6 @@ if.then6.i.i:                                     ; preds = %while.body.i.i
 if.end15.i.i:                                     ; preds = %if.then6.i.i, %while.body.i.i
   %number.addr.2.i.i = phi i32 [ %sub11.i.i.recomposed, %if.then6.i.i ], [ %number.addr.120.i.i, %while.body.i.i ]
   %written.2.i.i = phi i32 [ %inc10.i.i, %if.then6.i.i ], [ %written.121.i.i, %while.body.i.i ]
-  %mustPrint.1.i.i = phi i8 [ 1, %if.then6.i.i ], [ %mustPrint.023.i.i, %while.body.i.i ]
   %out.addr.2.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.124.i.i, %while.body.i.i ]
   %div16.i.i = sdiv i32 %cur.022.i.i, 10
   %cmp2.i.i = icmp ult i32 %written.2.i.i, 13
@@ -2368,7 +2364,7 @@ call.i6.noexc:                                    ; preds = %_ZN6Assimp13ASSIMP_
           to label %invoke.cont10 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #20
   br label %eh.resume
@@ -2384,12 +2380,12 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   br label %return
 
 lpad9:                                            ; preds = %call.i6.noexc, %_ZN6Assimp13ASSIMP_itoa10ILm13EEEjRAT__ci.exit
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad11:                                           ; preds = %invoke.cont10
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #20
   br label %eh.resume
@@ -2399,7 +2395,7 @@ return:                                           ; preds = %invoke.cont12, %inv
 
 eh.resume:                                        ; preds = %lpad11, %lpad.i, %lpad9, %lpad
   %ref.tmp8.sink = phi ptr [ %ref.tmp, %lpad ], [ %ref.tmp8, %lpad9 ], [ %ref.tmp8, %lpad.i ], [ %ref.tmp8, %lpad11 ]
-  %.pn4 = phi { ptr, i32 } [ %7, %lpad ], [ %11, %lpad9 ], [ %10, %lpad.i ], [ %12, %lpad11 ]
+  %.pn4 = phi { ptr, i32 } [ %7, %lpad ], [ %10, %lpad9 ], [ %9, %lpad.i ], [ %11, %lpad11 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8.sink) #20
   resume { ptr, i32 } %.pn4
 }

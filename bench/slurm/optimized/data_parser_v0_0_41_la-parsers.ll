@@ -3628,7 +3628,7 @@ define internal i32 @_v41_parse_UINT64_NO_VAL(ptr nocapture noundef readonly %0,
     i32 6, label %10
     i32 3, label %22
     i32 5, label %42
-    i32 4, label %find_parser_by_type.exit49
+    i32 4, label %find_parser_by_type.exit47
     i32 2, label %47
     i32 7, label %47
     i32 0, label %49
@@ -3641,8 +3641,8 @@ define internal i32 @_v41_parse_UINT64_NO_VAL(ptr nocapture noundef readonly %0,
 
 10:                                               ; preds = %5
   %11 = call i32 @_v41_parse_FLOAT64_NO_VAL(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %.not44 = icmp eq i32 %11, 0
-  br i1 %.not44, label %12, label %52
+  %.not42 = icmp eq i32 %11, 0
+  br i1 %.not42, label %12, label %52
 
 12:                                               ; preds = %10
   %13 = load double, ptr %6, align 8
@@ -3693,9 +3693,8 @@ find_parser_by_type.exit:                         ; preds = %23, %24
 30:                                               ; preds = %find_parser_by_type.exit
   %31 = getelementptr inbounds i8, ptr %7, i64 1
   %32 = load i8, ptr %31, align 1
-  %33 = and i8 %32, 1
-  %.not42 = icmp eq i8 %33, 0
-  br i1 %.not42, label %35, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %35
 
 34:                                               ; preds = %30
   store i64 -1, ptr %1, align 8
@@ -3703,9 +3702,8 @@ find_parser_by_type.exit:                         ; preds = %23, %24
 
 35:                                               ; preds = %30
   %36 = load i8, ptr %7, align 8
-  %37 = and i8 %36, 1
-  %.not43 = icmp eq i8 %37, 0
-  br i1 %.not43, label %38, label %39
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %39, label %38
 
 38:                                               ; preds = %35
   store i64 -2, ptr %1, align 8
@@ -3720,13 +3718,13 @@ find_parser_by_type.exit:                         ; preds = %23, %24
 42:                                               ; preds = %5
   %43 = tail call i32 @data_convert_type(ptr noundef %2, i32 noundef 4) #18
   %.not = icmp eq i32 %43, 4
-  br i1 %.not, label %find_parser_by_type.exit49, label %44
+  br i1 %.not, label %find_parser_by_type.exit47, label %44
 
 44:                                               ; preds = %42
   %45 = tail call i32 (ptr, ptr, ptr, ptr, ptr, i32, ptr, ...) @_parse_error_funcname(ptr noundef %0, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @__func__._v41_parse_UINT64_NO_VAL, ptr noundef nonnull @.str.768, i32 noundef 9202, ptr noundef nonnull @.str.769, ptr noundef %2)
   br label %52
 
-find_parser_by_type.exit49:                       ; preds = %5, %42
+find_parser_by_type.exit47:                       ; preds = %5, %42
   %46 = tail call i32 @parse(ptr noundef %1, i64 noundef 8, ptr noundef nonnull getelementptr inbounds ([481 x %struct.parser_s], ptr @parsers, i64 0, i64 3, i32 0), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   br label %52
 
@@ -3743,8 +3741,8 @@ find_parser_by_type.exit49:                       ; preds = %5, %42
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.772) #20
   unreachable
 
-52:                                               ; preds = %34, %39, %38, %find_parser_by_type.exit, %16, %20, %19, %10, %47, %find_parser_by_type.exit49, %44, %9
-  %.037 = phi i32 [ 9202, %47 ], [ %46, %find_parser_by_type.exit49 ], [ 9202, %44 ], [ 0, %9 ], [ %11, %10 ], [ 0, %19 ], [ 0, %20 ], [ 0, %16 ], [ %29, %find_parser_by_type.exit ], [ 0, %38 ], [ 0, %39 ], [ 0, %34 ]
+52:                                               ; preds = %34, %39, %38, %find_parser_by_type.exit, %16, %20, %19, %10, %47, %find_parser_by_type.exit47, %44, %9
+  %.037 = phi i32 [ 9202, %47 ], [ %46, %find_parser_by_type.exit47 ], [ 9202, %44 ], [ 0, %9 ], [ %11, %10 ], [ 0, %19 ], [ 0, %20 ], [ 0, %16 ], [ %29, %find_parser_by_type.exit ], [ 0, %38 ], [ 0, %39 ], [ 0, %34 ]
   ret i32 %.037
 }
 
@@ -4053,7 +4051,7 @@ define internal i32 @_v41_parse_INT64_NO_VAL(ptr nocapture noundef readonly %0, 
     i32 6, label %10
     i32 3, label %22
     i32 5, label %42
-    i32 4, label %find_parser_by_type.exit48
+    i32 4, label %find_parser_by_type.exit46
     i32 2, label %47
     i32 7, label %47
     i32 0, label %49
@@ -4066,8 +4064,8 @@ define internal i32 @_v41_parse_INT64_NO_VAL(ptr nocapture noundef readonly %0, 
 
 10:                                               ; preds = %5
   %11 = call i32 @_v41_parse_FLOAT64_NO_VAL(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %.not43 = icmp eq i32 %11, 0
-  br i1 %.not43, label %12, label %51
+  %.not41 = icmp eq i32 %11, 0
+  br i1 %.not41, label %12, label %51
 
 12:                                               ; preds = %10
   %13 = load double, ptr %6, align 8
@@ -4118,9 +4116,8 @@ find_parser_by_type.exit:                         ; preds = %23, %24
 30:                                               ; preds = %find_parser_by_type.exit
   %31 = getelementptr inbounds i8, ptr %7, i64 1
   %32 = load i8, ptr %31, align 1
-  %33 = and i8 %32, 1
-  %.not41 = icmp eq i8 %33, 0
-  br i1 %.not41, label %35, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %35
 
 34:                                               ; preds = %30
   store i64 -1, ptr %1, align 8
@@ -4128,9 +4125,8 @@ find_parser_by_type.exit:                         ; preds = %23, %24
 
 35:                                               ; preds = %30
   %36 = load i8, ptr %7, align 8
-  %37 = and i8 %36, 1
-  %.not42 = icmp eq i8 %37, 0
-  br i1 %.not42, label %38, label %39
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %39, label %38
 
 38:                                               ; preds = %35
   store i64 -2, ptr %1, align 8
@@ -4145,13 +4141,13 @@ find_parser_by_type.exit:                         ; preds = %23, %24
 42:                                               ; preds = %5
   %43 = tail call i32 @data_convert_type(ptr noundef %2, i32 noundef 4) #18
   %.not = icmp eq i32 %43, 4
-  br i1 %.not, label %find_parser_by_type.exit48, label %44
+  br i1 %.not, label %find_parser_by_type.exit46, label %44
 
 44:                                               ; preds = %42
   %45 = tail call i32 (ptr, ptr, ptr, ptr, ptr, i32, ptr, ...) @_parse_error_funcname(ptr noundef %0, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @__func__._v41_parse_INT64_NO_VAL, ptr noundef nonnull @.str.778, i32 noundef 9202, ptr noundef nonnull @.str.769, ptr noundef %2)
   br label %51
 
-find_parser_by_type.exit48:                       ; preds = %5, %42
+find_parser_by_type.exit46:                       ; preds = %5, %42
   %46 = tail call i32 @parse(ptr noundef %1, i64 noundef 8, ptr noundef nonnull getelementptr inbounds ([481 x %struct.parser_s], ptr @parsers, i64 0, i64 8, i32 0), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   br label %51
 
@@ -4167,8 +4163,8 @@ find_parser_by_type.exit48:                       ; preds = %5, %42
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.772) #20
   unreachable
 
-51:                                               ; preds = %34, %39, %38, %find_parser_by_type.exit, %16, %20, %19, %10, %47, %find_parser_by_type.exit48, %44, %9
-  %.036 = phi i32 [ 9202, %47 ], [ %46, %find_parser_by_type.exit48 ], [ 9202, %44 ], [ 0, %9 ], [ %11, %10 ], [ 0, %19 ], [ 0, %20 ], [ 0, %16 ], [ %29, %find_parser_by_type.exit ], [ 0, %38 ], [ 0, %39 ], [ 0, %34 ]
+51:                                               ; preds = %34, %39, %38, %find_parser_by_type.exit, %16, %20, %19, %10, %47, %find_parser_by_type.exit46, %44, %9
+  %.036 = phi i32 [ 9202, %47 ], [ %46, %find_parser_by_type.exit46 ], [ 9202, %44 ], [ 0, %9 ], [ %11, %10 ], [ 0, %19 ], [ 0, %20 ], [ 0, %16 ], [ %29, %find_parser_by_type.exit ], [ 0, %38 ], [ 0, %39 ], [ 0, %34 ]
   ret i32 %.036
 }
 
@@ -4383,8 +4379,8 @@ define internal i32 @_v41_parse_FLOAT64_NO_VAL(ptr nocapture noundef readonly %0
 
 10:                                               ; preds = %5
   %11 = call i32 @_v41_parse_INT64_NO_VAL(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %.not42 = icmp eq i32 %11, 0
-  br i1 %.not42, label %12, label %48
+  %.not40 = icmp eq i32 %11, 0
+  br i1 %.not40, label %12, label %48
 
 12:                                               ; preds = %10
   %13 = load i64, ptr %6, align 8
@@ -4432,9 +4428,8 @@ find_parser_by_type.exit:                         ; preds = %19, %20
 26:                                               ; preds = %find_parser_by_type.exit
   %27 = getelementptr inbounds i8, ptr %7, i64 1
   %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  %.not40 = icmp eq i8 %29, 0
-  br i1 %.not40, label %31, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %31
 
 30:                                               ; preds = %26
   store double 0x41EFFFFFFFE00000, ptr %1, align 8
@@ -4442,9 +4437,8 @@ find_parser_by_type.exit:                         ; preds = %19, %20
 
 31:                                               ; preds = %26
   %32 = load i8, ptr %7, align 8
-  %33 = and i8 %32, 1
-  %.not41 = icmp eq i8 %33, 0
-  br i1 %.not41, label %34, label %35
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %35, label %34
 
 34:                                               ; preds = %31
   store double 0x41EFFFFFFFC00000, ptr %1, align 8
@@ -6364,10 +6358,9 @@ _v41_parse_disabled.exit:                         ; preds = %5, %12
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_v41_dump_CONTROLLER_PING_RESULT(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #3 {
   %5 = load i8, ptr %1, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  %.str.857..str.856 = select i1 %.not, ptr @.str.857, ptr @.str.856
-  %7 = tail call ptr @data_set_string(ptr noundef %2, ptr noundef nonnull %.str.857..str.856) #18
+  %6 = trunc i8 %5 to i1
+  %.str.856..str.857 = select i1 %6, ptr @.str.856, ptr @.str.857
+  %7 = tail call ptr @data_set_string(ptr noundef %2, ptr noundef nonnull %.str.856..str.857) #18
   ret i32 0
 }
 
@@ -12641,10 +12634,10 @@ define internal noundef i32 @_parse_error_funcname(ptr nocapture noundef readonl
   %11 = alloca [128 x i8], align 16
   store ptr null, ptr %8, align 8
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 128, ptr noundef nonnull @.str.773, ptr noundef %3, ptr noundef %4) #18
-  call void @llvm.va_start(ptr nonnull %9)
+  call void @llvm.va_start.p0(ptr nonnull %9)
   %13 = call ptr @vxstrfmt(ptr noundef %6, ptr noundef nonnull %9) #18
   store ptr %13, ptr %10, align 8
-  call void @llvm.va_end(ptr nonnull %9)
+  call void @llvm.va_end.p0(ptr nonnull %9)
   %14 = getelementptr inbounds i8, ptr %1, i64 112
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 2
@@ -12672,13 +12665,7 @@ declare void @fatal_abort(ptr noundef, ...) local_unnamed_addr #7
 ; Function Attrs: nofree nounwind
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 declare ptr @vxstrfmt(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 declare ptr @openapi_fmt_rel_path_str(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -12970,7 +12957,7 @@ declare i32 @fuzzy_match_tres(ptr noundef, ptr noundef) #4
 declare ptr @slurmdb_make_tres_string(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
+declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_parse_foreach_CSV_STRING_list(ptr noundef %0, ptr noundef %1) #3 {
@@ -13124,7 +13111,7 @@ declare ptr @hostlist_iterator_create(ptr noundef) local_unnamed_addr #4
 declare ptr @hostlist_next(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 
 declare void @hostlist_iterator_destroy(ptr noundef) local_unnamed_addr #4
 
@@ -13270,7 +13257,7 @@ declare ptr @sig_num2name(i32 noundef) local_unnamed_addr #4
 declare i32 @sig_name2num(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @__libc_current_sigrtmax() local_unnamed_addr #12
+declare i32 @__libc_current_sigrtmax() local_unnamed_addr #11
 
 declare ptr @bit_fmt_full(ptr noundef) local_unnamed_addr #4
 
@@ -13373,7 +13360,7 @@ declare i32 @fmt_job_id_string(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @list_pop(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 declare ptr @rpc_num2string(i16 noundef zeroext) local_unnamed_addr #4
 
@@ -13394,7 +13381,7 @@ declare i64 @bit_size(ptr noundef) local_unnamed_addr #4
 declare i32 @bit_test(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #14
+declare ptr @__errno_location() local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @_dump_tres_nct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #3 {
@@ -13617,7 +13604,7 @@ find_parser_by_type.exit:                         ; preds = %65, %66
 declare i32 @list_count(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_foreach_populate_g_tres_list(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #15 {
+define internal noundef i32 @_foreach_populate_g_tres_list(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #14 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 20
@@ -13723,7 +13710,7 @@ declare ptr @hostlist_nth(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare void @fatal(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #12
+declare i64 @time(ptr noundef) local_unnamed_addr #11
 
 declare i32 @slurm_get_select_nodeinfo(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
@@ -13910,6 +13897,12 @@ declare void @slurm_init_job_desc_msg(ptr noundef) local_unnamed_addr #4
 
 declare void @slurm_free_shares_request_msg(ptr noundef) local_unnamed_addr #4
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #16
 
@@ -13931,13 +13924,13 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nounwind }

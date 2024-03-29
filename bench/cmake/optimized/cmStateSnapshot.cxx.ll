@@ -618,12 +618,11 @@ define dso_local void @_ZN15cmStateSnapshot9SetPolicyEN10cmPolicies8PolicyIDENS0
   %21 = getelementptr %"struct.cmStateDetail::PolicyStackEntry", ptr %20, i64 %.sroa.4.0
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load i8, ptr %22, align 8
-  %24 = and i8 %23, 1
-  %.not11 = icmp eq i8 %24, 0
+  %24 = trunc i8 %23 to i1
   %25 = load ptr, ptr %10, align 8
   %26 = getelementptr i64, ptr %25, i64 %.sroa.4.0
   %27 = getelementptr i8, ptr %26, i64 -8
-  br i1 %.not11, label %.critedge, label %11
+  br i1 %24, label %11, label %.critedge
 
 .critedge:                                        ; preds = %16, %11
   ret void
@@ -639,97 +638,93 @@ define dso_local noundef i32 @_ZNK15cmStateSnapshot9GetPolicyEN10cmPolicies8Poli
   br i1 %or.cond, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = zext i1 %2 to i8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8
-  br label %11
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = load i64, ptr %8, align 8
+  br label %10
 
-11:                                               ; preds = %._crit_edge, %6
-  %.sroa.0.0.copyload.sink.in = phi ptr [ %43, %._crit_edge ], [ %8, %6 ]
-  %.sroa.2.0.copyload.sink = phi i64 [ %.sroa.2.0.copyload, %._crit_edge ], [ %10, %6 ]
-  %.015 = phi i8 [ %.1.lcssa, %._crit_edge ], [ %7, %6 ]
+10:                                               ; preds = %._crit_edge, %6
+  %.sroa.0.0.copyload.sink.in = phi ptr [ %41, %._crit_edge ], [ %7, %6 ]
+  %.sroa.2.0.copyload.sink = phi i64 [ %.sroa.2.0.copyload, %._crit_edge ], [ %9, %6 ]
+  %.015 = phi i1 [ %.1.lcssa, %._crit_edge ], [ %2, %6 ]
   %.sroa.0.0.copyload.sink = load ptr, ptr %.sroa.0.0.copyload.sink.in, align 8
-  %12 = load ptr, ptr %.sroa.0.0.copyload.sink, align 8
-  %13 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %12, i64 %.sroa.2.0.copyload.sink
-  %.sroa.5.0.in = getelementptr i8, ptr %13, i64 -96
-  %.sroa.026.0.in = getelementptr i8, ptr %13, i64 -104
+  %11 = load ptr, ptr %.sroa.0.0.copyload.sink, align 8
+  %12 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %11, i64 %.sroa.2.0.copyload.sink
+  %.sroa.5.0.in = getelementptr i8, ptr %12, i64 -96
+  %.sroa.026.0.in = getelementptr i8, ptr %12, i64 -104
   %.sroa.5.0 = load i64, ptr %.sroa.5.0.in, align 8
   %.sroa.026.0 = load ptr, ptr %.sroa.026.0.in, align 8
-  %14 = load ptr, ptr %.sroa.026.0, align 8
-  %15 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %14, i64 %.sroa.5.0
-  %16 = getelementptr i8, ptr %15, i64 -360
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr i8, ptr %15, i64 -352
-  %19 = load i64, ptr %18, align 8
-  %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %20, i64 %19
-  %22 = getelementptr i8, ptr %21, i64 -176
-  %.sroa.020.0.copyload = load ptr, ptr %22, align 8
-  %.sroa.4.0..sroa_idx = getelementptr i8, ptr %21, i64 -168
-  %.sroa.25.0..sroa_idx = getelementptr i8, ptr %21, i64 -152
+  %13 = load ptr, ptr %.sroa.026.0, align 8
+  %14 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %13, i64 %.sroa.5.0
+  %15 = getelementptr i8, ptr %14, i64 -360
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr i8, ptr %14, i64 -352
+  %18 = load i64, ptr %17, align 8
+  %19 = load ptr, ptr %16, align 8
+  %20 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %19, i64 %18
+  %21 = getelementptr i8, ptr %20, i64 -176
+  %.sroa.020.0.copyload = load ptr, ptr %21, align 8
+  %.sroa.4.0..sroa_idx = getelementptr i8, ptr %20, i64 -168
+  %.sroa.25.0..sroa_idx = getelementptr i8, ptr %20, i64 -152
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8
-  %.sroa.4.039 = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  %.not3440 = icmp eq i64 %.sroa.4.039, %.sroa.25.0.copyload
-  br i1 %.not3440, label %._crit_edge, label %.lr.ph
+  %.sroa.4.038 = load i64, ptr %.sroa.4.0..sroa_idx, align 8
+  %.not39 = icmp eq i64 %.sroa.4.038, %.sroa.25.0.copyload
+  br i1 %.not39, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %11
-  %23 = getelementptr inbounds i8, ptr %.sroa.020.0.copyload, i64 24
-  br label %24
+.lr.ph:                                           ; preds = %10
+  %22 = getelementptr inbounds i8, ptr %.sroa.020.0.copyload, i64 24
+  br label %23
 
-24:                                               ; preds = %.lr.ph, %36
-  %.sroa.4.042 = phi i64 [ %.sroa.4.039, %.lr.ph ], [ %.sroa.4.0, %36 ]
-  %.141 = phi i8 [ %.015, %.lr.ph ], [ %.2, %36 ]
-  %25 = and i8 %.141, 1
-  %.not = icmp eq i8 %25, 0
-  br i1 %.not, label %26, label %36
+23:                                               ; preds = %.lr.ph, %34
+  %.sroa.4.041 = phi i64 [ %.sroa.4.038, %.lr.ph ], [ %.sroa.4.0, %34 ]
+  %.140 = phi i1 [ %.015, %.lr.ph ], [ false, %34 ]
+  br i1 %.140, label %34, label %24
 
-26:                                               ; preds = %24
-  %27 = load ptr, ptr %.sroa.020.0.copyload, align 8
-  %28 = getelementptr %"struct.cmStateDetail::PolicyStackEntry", ptr %27, i64 %.sroa.4.042
-  %29 = getelementptr i8, ptr %28, i64 -72
-  %30 = tail call noundef zeroext i1 @_ZNK10cmPolicies9PolicyMap9IsDefinedENS_8PolicyIDE(ptr noundef nonnull align 8 dereferenceable(64) %29, i32 noundef %1)
-  br i1 %30, label %31, label %36
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %.sroa.020.0.copyload, align 8
+  %26 = getelementptr %"struct.cmStateDetail::PolicyStackEntry", ptr %25, i64 %.sroa.4.041
+  %27 = getelementptr i8, ptr %26, i64 -72
+  %28 = tail call noundef zeroext i1 @_ZNK10cmPolicies9PolicyMap9IsDefinedENS_8PolicyIDE(ptr noundef nonnull align 8 dereferenceable(64) %27, i32 noundef %1)
+  br i1 %28, label %29, label %34
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %.sroa.020.0.copyload, align 8
-  %33 = getelementptr %"struct.cmStateDetail::PolicyStackEntry", ptr %32, i64 %.sroa.4.042
-  %34 = getelementptr i8, ptr %33, i64 -72
-  %35 = tail call noundef i32 @_ZNK10cmPolicies9PolicyMap3GetENS_8PolicyIDE(ptr noundef nonnull align 8 dereferenceable(64) %34, i32 noundef %1)
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %.sroa.020.0.copyload, align 8
+  %31 = getelementptr %"struct.cmStateDetail::PolicyStackEntry", ptr %30, i64 %.sroa.4.041
+  %32 = getelementptr i8, ptr %31, i64 -72
+  %33 = tail call noundef i32 @_ZNK10cmPolicies9PolicyMap3GetENS_8PolicyIDE(ptr noundef nonnull align 8 dereferenceable(64) %32, i32 noundef %1)
   br label %.loopexit
 
-36:                                               ; preds = %24, %26
-  %.2 = phi i8 [ %.141, %26 ], [ 0, %24 ]
-  %37 = load ptr, ptr %23, align 8
-  %38 = getelementptr i64, ptr %37, i64 %.sroa.4.042
-  %39 = getelementptr i8, ptr %38, i64 -8
-  %.sroa.4.0 = load i64, ptr %39, align 8
-  %.not34 = icmp eq i64 %.sroa.4.0, %.sroa.25.0.copyload
-  br i1 %.not34, label %._crit_edge.loopexit, label %24, !llvm.loop !10
+34:                                               ; preds = %23, %24
+  %35 = load ptr, ptr %22, align 8
+  %36 = getelementptr i64, ptr %35, i64 %.sroa.4.041
+  %37 = getelementptr i8, ptr %36, i64 -8
+  %.sroa.4.0 = load i64, ptr %37, align 8
+  %.not = icmp eq i64 %.sroa.4.0, %.sroa.25.0.copyload
+  br i1 %.not, label %._crit_edge.loopexit, label %23, !llvm.loop !10
 
-._crit_edge.loopexit:                             ; preds = %36
+._crit_edge.loopexit:                             ; preds = %34
   %.pre = load ptr, ptr %.sroa.026.0, align 8
   %.phi.trans.insert = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %.pre, i64 %.sroa.5.0
-  %.phi.trans.insert45 = getelementptr i8, ptr %.phi.trans.insert, i64 -360
-  %.sroa.018.0.copyload.pre = load ptr, ptr %.phi.trans.insert45, align 8
+  %.phi.trans.insert44 = getelementptr i8, ptr %.phi.trans.insert, i64 -360
+  %.sroa.018.0.copyload.pre = load ptr, ptr %.phi.trans.insert44, align 8
   %.sroa.219.0..sroa_idx.phi.trans.insert = getelementptr i8, ptr %.phi.trans.insert, i64 -352
   %.sroa.219.0.copyload.pre = load i64, ptr %.sroa.219.0..sroa_idx.phi.trans.insert, align 8
-  %.pre48 = load ptr, ptr %.sroa.018.0.copyload.pre, align 8
+  %.pre47 = load ptr, ptr %.sroa.018.0.copyload.pre, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
-  %40 = phi ptr [ %20, %11 ], [ %.pre48, %._crit_edge.loopexit ]
-  %.sroa.219.0.copyload = phi i64 [ %19, %11 ], [ %.sroa.219.0.copyload.pre, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i8 [ %.015, %11 ], [ %.2, %._crit_edge.loopexit ]
-  %41 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %40, i64 %.sroa.219.0.copyload
-  %.sroa.2.0..sroa_idx = getelementptr i8, ptr %41, i64 -184
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %10
+  %38 = phi ptr [ %19, %10 ], [ %.pre47, %._crit_edge.loopexit ]
+  %.sroa.219.0.copyload = phi i64 [ %18, %10 ], [ %.sroa.219.0.copyload.pre, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i1 [ %.015, %10 ], [ false, %._crit_edge.loopexit ]
+  %39 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %38, i64 %.sroa.219.0.copyload
+  %.sroa.2.0..sroa_idx = getelementptr i8, ptr %39, i64 -184
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %42 = icmp eq i64 %.sroa.2.0.copyload, 0
-  %43 = getelementptr i8, ptr %41, i64 -192
-  br i1 %42, label %.loopexit, label %11, !llvm.loop !11
+  %40 = icmp eq i64 %.sroa.2.0.copyload, 0
+  %41 = getelementptr i8, ptr %39, i64 -192
+  br i1 %40, label %.loopexit, label %10, !llvm.loop !11
 
-.loopexit:                                        ; preds = %._crit_edge, %3, %31
-  %.0 = phi i32 [ %35, %31 ], [ %4, %3 ], [ %4, %._crit_edge ]
+.loopexit:                                        ; preds = %._crit_edge, %3, %29
+  %.0 = phi i32 [ %33, %29 ], [ %4, %3 ], [ %4, %._crit_edge ]
   ret i32 %.0
 }
 

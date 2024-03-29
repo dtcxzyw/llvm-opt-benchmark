@@ -276,9 +276,8 @@ PinLocalBuffer.exit:                              ; preds = %20, %35, %40
   %53 = load ptr, ptr @LocalBufHash, align 8
   %54 = call ptr @hash_search(ptr noundef %53, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #13
   %55 = load i8, ptr %6, align 1
-  %56 = and i8 %55, 1
-  %.not20 = icmp eq i8 %56, 0
-  br i1 %.not20, label %60, label %57
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %60
 
 57:                                               ; preds = %50
   %58 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -512,7 +511,7 @@ GetLocalBufferStorage.exit:                       ; preds = %._crit_edge.i, %56
 84:                                               ; preds = %GetLocalBufferStorage.exit, %PinLocalBuffer.exit
   %85 = and i32 %14, 8388608
   %.not39 = icmp eq i32 %85, 0
-  br i1 %.not39, label %108, label %86
+  br i1 %.not39, label %107, label %86
 
 86:                                               ; preds = %84
   %87 = load ptr, ptr @LocalBufferBlockPointers, align 8
@@ -530,56 +529,55 @@ GetLocalBufferStorage.exit:                       ; preds = %._crit_edge.i, %56
   %98 = load i32, ptr %97, align 4
   tail call void @PageSetChecksumInplace(ptr noundef %92, i32 noundef %98) #13
   %99 = load i8, ptr @track_io_timing, align 1
-  %100 = and i8 %99, 1
-  %101 = icmp ne i8 %100, 0
-  %102 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %101) #13
-  %103 = getelementptr i8, ptr %12, i64 12
-  %.val42 = load i32, ptr %103, align 4
-  %104 = load i32, ptr %97, align 4
+  %100 = trunc i8 %99 to i1
+  %101 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %100) #13
+  %102 = getelementptr i8, ptr %12, i64 12
+  %.val42 = load i32, ptr %102, align 4
+  %103 = load i32, ptr %97, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store ptr %92, ptr %1, align 8
-  call void @smgrwritev(ptr noundef %96, i32 noundef %.val42, i32 noundef %104, ptr noundef nonnull %1, i32 noundef 1, i1 noundef zeroext false) #13
+  call void @smgrwritev(ptr noundef %96, i32 noundef %.val42, i32 noundef %103, ptr noundef nonnull %1, i32 noundef 1, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 2, i32 noundef 6, i64 %102, i32 noundef 1) #13
-  %105 = and i32 %14, -12320769
-  store volatile i32 %105, ptr %13, align 4
-  %106 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 7), align 8
-  %107 = add i64 %106, 1
-  store i64 %107, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 7), align 8
-  br label %108
+  call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 2, i32 noundef 6, i64 %101, i32 noundef 1) #13
+  %104 = and i32 %14, -12320769
+  store volatile i32 %104, ptr %13, align 4
+  %105 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 7), align 8
+  %106 = add i64 %105, 1
+  store i64 %106, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 7), align 8
+  br label %107
 
-108:                                              ; preds = %86, %84
-  %.036 = phi i32 [ %105, %86 ], [ %14, %84 ]
-  %109 = and i32 %.036, 33554432
-  %.not40 = icmp eq i32 %109, 0
-  br i1 %.not40, label %119, label %110
+107:                                              ; preds = %86, %84
+  %.036 = phi i32 [ %104, %86 ], [ %14, %84 ]
+  %108 = and i32 %.036, 33554432
+  %.not40 = icmp eq i32 %108, 0
+  br i1 %.not40, label %118, label %109
 
-110:                                              ; preds = %108
-  %111 = load ptr, ptr @LocalBufHash, align 8
-  %112 = call ptr @hash_search(ptr noundef %111, ptr noundef %12, i32 noundef 2, ptr noundef null) #13
-  %.not41 = icmp eq ptr %112, null
-  br i1 %.not41, label %113, label %116
+109:                                              ; preds = %107
+  %110 = load ptr, ptr @LocalBufHash, align 8
+  %111 = call ptr @hash_search(ptr noundef %110, ptr noundef %12, i32 noundef 2, ptr noundef null) #13
+  %.not41 = icmp eq ptr %111, null
+  br i1 %.not41, label %112, label %115
 
-113:                                              ; preds = %110
-  %114 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %114)
-  %115 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #13
+112:                                              ; preds = %109
+  %113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %113)
+  %114 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 279, ptr noundef nonnull @__func__.GetLocalVictimBuffer) #13
   unreachable
 
-116:                                              ; preds = %110
+115:                                              ; preds = %109
   store <4 x i32> <i32 0, i32 0, i32 0, i32 -1>, ptr %12, align 4
-  %117 = getelementptr inbounds i8, ptr %12, i64 16
-  store i32 -1, ptr %117, align 4
-  %118 = and i32 %.036, 262143
-  store volatile i32 %118, ptr %13, align 4
+  %116 = getelementptr inbounds i8, ptr %12, i64 16
+  store i32 -1, ptr %116, align 4
+  %117 = and i32 %.036, 262143
+  store volatile i32 %117, ptr %13, align 4
   call void @pgstat_count_io_op(i32 noundef 1, i32 noundef 2, i32 noundef 0) #13
-  br label %119
+  br label %118
 
-119:                                              ; preds = %116, %108
+118:                                              ; preds = %115, %107
   %.val = load i32, ptr %19, align 4
-  %120 = add i32 %.val, 1
-  ret i32 %120
+  %119 = add i32 %.val, 1
+  ret i32 %119
 }
 
 ; Function Attrs: cold
@@ -617,8 +615,8 @@ define dso_local i32 @ExtendBufferedRelLocal(ptr nocapture noundef readonly byva
 
 LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   %.078 = phi i32 [ %3, %13 ], [ %spec.select, %15 ]
-  %.not87 = icmp eq i32 %.078, 0
-  br i1 %.not87, label %._crit_edge, label %.lr.ph.preheader
+  %.not = icmp eq i32 %.078, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %LimitAdditionalLocalPins.exit
   %wide.trip.count = zext i32 %.078 to i64
@@ -655,7 +653,7 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   br i1 %36, label %41, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  br i1 %.not87, label %._crit_edge86.critedge, label %.lr.ph81
+  br i1 %.not, label %._crit_edge86.critedge, label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %.preheader
   %37 = getelementptr inbounds i8, ptr %32, i64 8
@@ -681,8 +679,8 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   unreachable
 
 53:                                               ; preds = %.lr.ph81, %113
-  %indvars.iv91 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next92, %113 ]
-  %54 = getelementptr i32, ptr %5, i64 %indvars.iv91
+  %indvars.iv90 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next91, %113 ]
+  %54 = getelementptr i32, ptr %5, i64 %indvars.iv90
   %55 = load i32, ptr %54, align 4
   %56 = xor i32 %55, -1
   %57 = load ptr, ptr @LocalBufferDescriptors, align 8
@@ -690,7 +688,7 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   %59 = getelementptr %struct.BufferDesc, ptr %57, i64 %58
   %60 = load ptr, ptr @CurrentResourceOwner, align 8
   call void @ResourceOwnerEnlarge(ptr noundef %60) #13
-  %61 = trunc i64 %indvars.iv91 to i32
+  %61 = trunc i64 %indvars.iv90 to i32
   %62 = add i32 %33, %61
   %63 = load <2 x i32>, ptr %32, align 4
   store <2 x i32> %63, ptr %8, align 8
@@ -701,9 +699,8 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   %65 = load ptr, ptr @LocalBufHash, align 8
   %66 = call ptr @hash_search(ptr noundef %65, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %9) #13
   %67 = load i8, ptr %9, align 1
-  %68 = and i8 %67, 1
-  %.not = icmp eq i8 %68, 0
-  br i1 %.not, label %108, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %108
 
 69:                                               ; preds = %53
   %70 = getelementptr i8, ptr %59, i64 20
@@ -779,48 +776,46 @@ PinLocalBuffer.exit:                              ; preds = %UnpinLocalBuffer.ex
   br label %113
 
 113:                                              ; preds = %PinLocalBuffer.exit, %108
-  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %exitcond95.not = icmp eq i64 %indvars.iv.next92, %.pre-phi
-  br i1 %exitcond95.not, label %._crit_edge82, label %53, !llvm.loop !8
+  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
+  %exitcond94.not = icmp eq i64 %indvars.iv.next91, %.pre-phi
+  br i1 %exitcond94.not, label %._crit_edge82, label %53, !llvm.loop !8
 
 ._crit_edge82:                                    ; preds = %113
   %114 = load i8, ptr @track_io_timing, align 1
-  %115 = and i8 %114, 1
-  %116 = icmp ne i8 %115, 0
-  %117 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %116) #13
+  %115 = trunc i8 %114 to i1
+  %116 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %115) #13
   call void @smgrzeroextend(ptr noundef nonnull %32, i32 noundef %1, i32 noundef %33, i32 noundef %.078, i1 noundef zeroext false) #13
-  call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 2, i32 noundef 1, i64 %117, i32 noundef %.078) #13
-  br i1 %.not87, label %._crit_edge86, label %.lr.ph85
+  call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 2, i32 noundef 1, i64 %116, i32 noundef %.078) #13
+  br i1 %.not, label %._crit_edge86, label %.lr.ph85
 
 .lr.ph85:                                         ; preds = %._crit_edge82, %.lr.ph85
-  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.lr.ph85 ], [ 0, %._crit_edge82 ]
-  %118 = getelementptr i32, ptr %5, i64 %indvars.iv96
-  %119 = load i32, ptr %118, align 4
-  %120 = xor i32 %119, -1
-  %121 = load ptr, ptr @LocalBufferDescriptors, align 8
-  %122 = zext i32 %120 to i64
-  %123 = getelementptr %struct.BufferDesc, ptr %121, i64 %122, i32 2
-  %124 = load volatile i32, ptr %123, align 4
-  %125 = or i32 %124, 16777216
-  store volatile i32 %125, ptr %123, align 4
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next97, %.pre-phi
-  br i1 %exitcond100.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !9
+  %indvars.iv95 = phi i64 [ %indvars.iv.next96, %.lr.ph85 ], [ 0, %._crit_edge82 ]
+  %117 = getelementptr i32, ptr %5, i64 %indvars.iv95
+  %118 = load i32, ptr %117, align 4
+  %119 = xor i32 %118, -1
+  %120 = load ptr, ptr @LocalBufferDescriptors, align 8
+  %121 = zext i32 %119 to i64
+  %122 = getelementptr %struct.BufferDesc, ptr %120, i64 %121, i32 2
+  %123 = load volatile i32, ptr %122, align 4
+  %124 = or i32 %123, 16777216
+  store volatile i32 %124, ptr %122, align 4
+  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
+  %exitcond99.not = icmp eq i64 %indvars.iv.next96, %.pre-phi
+  br i1 %exitcond99.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !9
 
 ._crit_edge86.critedge:                           ; preds = %.preheader
-  %126 = load i8, ptr @track_io_timing, align 1
-  %127 = and i8 %126, 1
-  %128 = icmp ne i8 %127, 0
-  %129 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %128) #13
+  %125 = load i8, ptr @track_io_timing, align 1
+  %126 = trunc i8 %125 to i1
+  %127 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %126) #13
   tail call void @smgrzeroextend(ptr noundef %32, i32 noundef %1, i32 noundef %33, i32 noundef %.078, i1 noundef zeroext false) #13
-  tail call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 2, i32 noundef 1, i64 %129, i32 noundef %.078) #13
+  tail call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 2, i32 noundef 1, i64 %127, i32 noundef %.078) #13
   br label %._crit_edge86
 
 ._crit_edge86:                                    ; preds = %.lr.ph85, %._crit_edge86.critedge, %._crit_edge82
   store i32 %.078, ptr %6, align 4
-  %130 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 7), align 8
-  %131 = add i64 %130, %.pre-phi
-  store i64 %131, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 7), align 8
+  %128 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 7), align 8
+  %129 = add i64 %128, %.pre-phi
+  store i64 %129, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i64 0, i32 7), align 8
   ret i32 %33
 }
 

@@ -292,13 +292,12 @@ sw.default:                                       ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 32737, %switch.maskindex
-  %1 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %1, 0
-  br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [15 x i8], ptr @switch.table._ZN6icu_756number4impl10AffixUtils15getFieldForTypeENS1_16AffixPatternTypeE, i64 0, i64 %2
+  %1 = sext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [15 x i8], ptr @switch.table._ZN6icu_756number4impl10AffixUtils15getFieldForTypeENS1_16AffixPatternTypeE, i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }

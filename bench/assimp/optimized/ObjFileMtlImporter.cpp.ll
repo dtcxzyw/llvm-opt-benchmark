@@ -2989,15 +2989,15 @@ if.end121:                                        ; preds = %if.then22, %if.then
   store i8 0, ptr %clamp, align 1
   call void @_ZN6Assimp18ObjFileMtlImporter16getTextureOptionERbRiRP8aiString(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 1 dereferenceable(1) %clamp, ptr noundef nonnull align 4 dereferenceable(4) %clampIndex, ptr noundef nonnull align 8 dereferenceable(8) %out)
   %36 = load i8, ptr %clamp, align 1
-  %37 = and i8 %36, 1
-  %38 = load ptr, ptr %m_pModel, align 8
-  %mCurrentMaterial124 = getelementptr inbounds i8, ptr %38, i64 64
-  %39 = load ptr, ptr %mCurrentMaterial124, align 8
-  %clamp125 = getelementptr inbounds i8, ptr %39, i64 20560
-  %40 = load i32, ptr %clampIndex, align 4
-  %idxprom = sext i32 %40 to i64
+  %37 = load ptr, ptr %m_pModel, align 8
+  %mCurrentMaterial124 = getelementptr inbounds i8, ptr %37, i64 64
+  %38 = load ptr, ptr %mCurrentMaterial124, align 8
+  %clamp125 = getelementptr inbounds i8, ptr %38, i64 20560
+  %39 = load i32, ptr %clampIndex, align 4
+  %idxprom = sext i32 %39 to i64
   %arrayidx = getelementptr inbounds [20 x i8], ptr %clamp125, i64 0, i64 %idxprom
-  store i8 %37, ptr %arrayidx, align 1
+  %frombool = and i8 %36, 1
+  store i8 %frombool, ptr %arrayidx, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %texture126) #17
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %m_DataIt, align 8
   %m_DataItEnd = getelementptr inbounds i8, ptr %this, i64 40
@@ -3007,8 +3007,8 @@ if.end121:                                        ; preds = %if.then22, %if.then
 
 invoke.cont132:                                   ; preds = %if.end121
   store ptr %call133, ptr %m_DataIt, align 8
-  %41 = load ptr, ptr %out, align 8
-  %cmp136.not = icmp eq ptr %41, null
+  %40 = load ptr, ptr %out, align 8
+  %cmp136.not = icmp eq ptr %40, null
   br i1 %cmp136.not, label %if.end139, label %if.then137
 
 if.then137:                                       ; preds = %invoke.cont132
@@ -3019,18 +3019,18 @@ if.then137:                                       ; preds = %invoke.cont132
 if.end.i:                                         ; preds = %if.then137
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %texture126) #17
   %conv.i42 = trunc i64 %call2.i to i32
-  store i32 %conv.i42, ptr %41, align 4
-  %data.i43 = getelementptr inbounds i8, ptr %41, i64 4
+  store i32 %conv.i42, ptr %40, align 4
+  %data.i43 = getelementptr inbounds i8, ptr %40, i64 4
   %call3.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %texture126) #17
-  %42 = load i32, ptr %41, align 4
-  %conv5.i = zext i32 %42 to i64
+  %41 = load i32, ptr %40, align 4
+  %conv5.i = zext i32 %41 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i43, ptr align 1 %call3.i, i64 %conv5.i, i1 false)
   %arrayidx.i44 = getelementptr inbounds [1024 x i8], ptr %data.i43, i64 0, i64 %conv5.i
   store i8 0, ptr %arrayidx.i44, align 1
   br label %if.end139
 
 lpad131:                                          ; preds = %if.end121
-  %43 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %texture126) #17
   br label %eh.resume
@@ -3043,7 +3043,7 @@ return:                                           ; preds = %if.else72, %if.end1
   ret void
 
 eh.resume:                                        ; preds = %lpad131, %ehcleanup
-  %.pn19 = phi { ptr, i32 } [ %43, %lpad131 ], [ %.pn, %ehcleanup ]
+  %.pn19 = phi { ptr, i32 } [ %42, %lpad131 ], [ %.pn, %ehcleanup ]
   resume { ptr, i32 } %.pn19
 }
 

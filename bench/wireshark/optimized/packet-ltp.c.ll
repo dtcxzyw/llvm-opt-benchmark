@@ -2284,25 +2284,24 @@ define internal noundef i32 @ltp_stats_tree_packet(ptr noundef %0, ptr noundef %
 switch.hole_check:                                ; preds = %61
   %switch.maskindex = zext nneg i8 %62 to i16
   %switch.shifted = lshr i16 -3169, %switch.maskindex
-  %64 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %64, 0
-  br i1 %switch.lobit.not, label %.thread50, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %.thread50
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %65 = zext nneg i8 %62 to i64
-  %switch.gep = getelementptr inbounds [16 x i64], ptr @switch.table.ltp_stats_tree_packet, i64 0, i64 %65
+  %64 = zext nneg i8 %62 to i64
+  %switch.gep = getelementptr inbounds [16 x i64], ptr @switch.table.ltp_stats_tree_packet, i64 0, i64 %64
   %switch.load = load i64, ptr %switch.gep, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 %switch.load
-  %67 = load ptr, ptr %47, align 8
-  %68 = tail call ptr @address_to_display(ptr noundef %67, ptr noundef nonnull %66) #7
-  %.not46 = icmp eq ptr %68, null
-  br i1 %.not46, label %.thread50, label %69
+  %65 = getelementptr inbounds i8, ptr %1, i64 %switch.load
+  %66 = load ptr, ptr %47, align 8
+  %67 = tail call ptr @address_to_display(ptr noundef %66, ptr noundef nonnull %65) #7
+  %.not46 = icmp eq ptr %67, null
+  br i1 %.not46, label %.thread50, label %68
 
-69:                                               ; preds = %switch.lookup
-  %70 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %68, i32 noundef %53, i32 noundef 0, i32 noundef 1) #7
+68:                                               ; preds = %switch.lookup
+  %69 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %67, i32 noundef %53, i32 noundef 0, i32 noundef 1) #7
   br label %.thread50
 
-.thread50:                                        ; preds = %switch.hole_check, %61, %69, %switch.lookup
+.thread50:                                        ; preds = %switch.hole_check, %61, %68, %switch.lookup
   ret i32 1
 }
 

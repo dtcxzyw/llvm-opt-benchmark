@@ -659,19 +659,18 @@ lpad:                                             ; preds = %switch.lookup, %inv
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -17, %switch.maskindex
-  %3 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %3, 0
-  br i1 %switch.lobit.not, label %nrvo.skipdtor, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %nrvo.skipdtor
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb, i64 0, i64 %4
+  %3 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %switch.load)
+  %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %switch.load)
           to label %invoke.cont5.invoke unwind label %lpad
 
 invoke.cont5.invoke:                              ; preds = %switch.lookup
-  %6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2)
+  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2)
           to label %nrvo.skipdtor unwind label %lpad
 
 nrvo.skipdtor:                                    ; preds = %switch.hole_check, %entry, %invoke.cont5.invoke
@@ -727,19 +726,18 @@ lpad.i:                                           ; preds = %invoke.cont5.invoke
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -17, %switch.maskindex
-  %3 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %3, 0
-  br i1 %switch.lobit.not, label %invoke.cont, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %invoke.cont
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb, i64 0, i64 %4
+  %3 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %switch.load)
+  %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %switch.load)
           to label %invoke.cont5.invoke.i unwind label %lpad.i
 
 invoke.cont5.invoke.i:                            ; preds = %switch.lookup
-  %6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.2)
+  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.2)
           to label %invoke.cont unwind label %lpad.i
 
 invoke.cont:                                      ; preds = %switch.hole_check, %entry, %invoke.cont5.invoke.i
@@ -749,15 +747,15 @@ invoke.cont:                                      ; preds = %switch.hole_check, 
 invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %7 = load i32, ptr %this, align 8, !noalias !7
-  %cmp.i = icmp eq i32 %7, 0
+  %6 = load i32, ptr %this, align 8, !noalias !7
+  %cmp.i = icmp eq i32 %6, 0
   %cond.i = select i1 %cmp.i, ptr @.str.4, ptr @.str.5
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14, !noalias !7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull %cond.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont5 unwind label %lpad.i2
 
 lpad.i2:                                          ; preds = %invoke.cont3
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14
   br label %ehcleanup
@@ -773,19 +771,19 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   ret void
 
 lpad2:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont5
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #14
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad.i, %lpad.i2, %lpad6, %lpad2
-  %.pn = phi { ptr, i32 } [ %10, %lpad6 ], [ %9, %lpad2 ], [ %2, %lpad.i ], [ %8, %lpad.i2 ]
+  %.pn = phi { ptr, i32 } [ %9, %lpad6 ], [ %8, %lpad2 ], [ %2, %lpad.i ], [ %7, %lpad.i2 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
   resume { ptr, i32 } %.pn
 }
@@ -924,19 +922,18 @@ lpad.i:                                           ; preds = %invoke.cont5.invoke
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -17, %switch.maskindex
-  %3 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %3, 0
-  br i1 %switch.lobit.not, label %invoke.cont, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %invoke.cont
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb, i64 0, i64 %4
+  %3 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %switch.load)
+  %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %switch.load)
           to label %invoke.cont5.invoke.i unwind label %lpad.i
 
 invoke.cont5.invoke.i:                            ; preds = %switch.lookup
-  %6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.2)
+  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.2)
           to label %invoke.cont unwind label %lpad.i
 
 invoke.cont:                                      ; preds = %switch.hole_check, %entry, %invoke.cont5.invoke.i
@@ -951,7 +948,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad.i2
 
 lpad.i2:                                          ; preds = %invoke.cont3
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14
   br label %ehcleanup
@@ -967,19 +964,19 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   ret void
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont5
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #14
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad.i, %lpad.i2, %lpad6, %lpad2
-  %.pn = phi { ptr, i32 } [ %9, %lpad6 ], [ %8, %lpad2 ], [ %2, %lpad.i ], [ %7, %lpad.i2 ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad6 ], [ %7, %lpad2 ], [ %2, %lpad.i ], [ %6, %lpad.i2 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
   resume { ptr, i32 } %.pn
 }
@@ -1130,19 +1127,18 @@ lpad.i:                                           ; preds = %invoke.cont5.invoke
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -17, %switch.maskindex
-  %3 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %3, 0
-  br i1 %switch.lobit.not, label %invoke.cont, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %invoke.cont
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb, i64 0, i64 %4
+  %3 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull %switch.load)
+  %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull %switch.load)
           to label %invoke.cont5.invoke.i unwind label %lpad.i
 
 invoke.cont5.invoke.i:                            ; preds = %switch.lookup
-  %6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str.2)
+  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str.2)
           to label %invoke.cont unwind label %lpad.i
 
 invoke.cont:                                      ; preds = %switch.hole_check, %entry, %invoke.cont5.invoke.i
@@ -1169,28 +1165,28 @@ if.then.i:                                        ; preds = %invoke.cont8
           to label %_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #13
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #13
   unreachable
 
 _ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD2Ev.exit: ; preds = %if.then.i
   ret void
 
 lpad3:                                            ; preds = %invoke.cont, %invoke.cont4
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup12
 
 lpad7:                                            ; preds = %invoke.cont8, %invoke.cont6
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #14
   br label %ehcleanup12
 
 ehcleanup12:                                      ; preds = %lpad3, %lpad7, %lpad.i
-  %.pn.pn = phi { ptr, i32 } [ %2, %lpad.i ], [ %10, %lpad7 ], [ %9, %lpad3 ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad.i ], [ %9, %lpad7 ], [ %8, %lpad3 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #14
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #14
   resume { ptr, i32 } %.pn.pn
@@ -1601,19 +1597,18 @@ lpad.i:                                           ; preds = %invoke.cont5.invoke
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -17, %switch.maskindex
-  %3 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %3, 0
-  br i1 %switch.lobit.not, label %invoke.cont, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %invoke.cont
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb, i64 0, i64 %4
+  %3 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull %switch.load)
+  %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull %switch.load)
           to label %invoke.cont5.invoke.i unwind label %lpad.i
 
 invoke.cont5.invoke.i:                            ; preds = %switch.lookup
-  %6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str.2)
+  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str.2)
           to label %invoke.cont unwind label %lpad.i
 
 invoke.cont:                                      ; preds = %switch.hole_check, %entry, %invoke.cont5.invoke.i
@@ -1640,28 +1635,28 @@ if.then.i:                                        ; preds = %invoke.cont8
           to label %_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #13
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #13
   unreachable
 
 _ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD2Ev.exit: ; preds = %if.then.i
   ret void
 
 lpad3:                                            ; preds = %invoke.cont, %invoke.cont4
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup12
 
 lpad7:                                            ; preds = %invoke.cont8, %invoke.cont6
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #14
   br label %ehcleanup12
 
 ehcleanup12:                                      ; preds = %lpad3, %lpad7, %lpad.i
-  %.pn.pn = phi { ptr, i32 } [ %2, %lpad.i ], [ %10, %lpad7 ], [ %9, %lpad3 ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad.i ], [ %9, %lpad7 ], [ %8, %lpad3 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #14
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #14
   resume { ptr, i32 } %.pn.pn

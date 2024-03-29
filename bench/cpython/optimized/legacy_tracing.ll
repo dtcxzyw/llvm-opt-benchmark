@@ -88,9 +88,8 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %interp, align 8
   %sys_profile_initialized = getelementptr inbounds i8, ptr %2, i64 414959
   %3 = load i8, ptr %sys_profile_initialized, align 1
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.then2, label %if.end33
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.end33, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   store i8 1, ptr %sys_profile_initialized, align 1
@@ -113,13 +112,13 @@ if.end.i:                                         ; preds = %if.end8
   br i1 %cmp.not.i.i, label %Py_XDECREF.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %5 = load i64, ptr %call2.i, align 8
-  %6 = and i64 %5, 2147483648
-  %cmp.i2.not.i.i = icmp eq i64 %6, 0
+  %4 = load i64, ptr %call2.i, align 8
+  %5 = and i64 %4, 2147483648
+  %cmp.i2.not.i.i = icmp eq i64 %5, 0
   br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %Py_XDECREF.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %dec.i.i.i = add i64 %5, -1
+  %dec.i.i.i = add i64 %4, -1
   store i64 %dec.i.i.i, ptr %call2.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %Py_XDECREF.exit.i
@@ -129,13 +128,13 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then.i.i, %if.end.i
-  %7 = load i64, ptr %call.i, align 8
-  %8 = and i64 %7, 2147483648
-  %cmp.i8.not.i = icmp eq i64 %8, 0
+  %6 = load i64, ptr %call.i, align 8
+  %7 = and i64 %6, 2147483648
+  %cmp.i8.not.i = icmp eq i64 %7, 0
   br i1 %cmp.i8.not.i, label %if.end.i.i, label %if.end12
 
 if.end.i.i:                                       ; preds = %Py_XDECREF.exit.i
-  %dec.i.i = add i64 %7, -1
+  %dec.i.i = add i64 %6, -1
   store i64 %dec.i.i, ptr %call.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.end12
@@ -173,19 +172,19 @@ if.end33:                                         ; preds = %if.end28, %if.end
   %cmp34 = icmp ne ptr %func, null
   %conv = zext i1 %cmp34 to i64
   %c_profilefunc = getelementptr inbounds i8, ptr %tstate, i64 72
-  %9 = load ptr, ptr %c_profilefunc, align 8
-  %cmp35 = icmp ne ptr %9, null
+  %8 = load ptr, ptr %c_profilefunc, align 8
+  %cmp35 = icmp ne ptr %8, null
   %conv36.neg = sext i1 %cmp35 to i64
   %sub = add nsw i64 %conv36.neg, %conv
   store ptr %func, ptr %c_profilefunc, align 8
   %c_profileobj = getelementptr inbounds i8, ptr %tstate, i64 88
-  %10 = load ptr, ptr %c_profileobj, align 8
+  %9 = load ptr, ptr %c_profileobj, align 8
   %cmp.not.i.i9 = icmp eq ptr %arg, null
   br i1 %cmp.not.i.i9, label %_Py_XNewRef.exit, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %if.end33
-  %11 = load i32, ptr %arg, align 8
-  %add.i.i.i = add i32 %11, 1
+  %10 = load i32, ptr %arg, align 8
+  %add.i.i.i = add i32 %10, 1
   %cmp.i.i.i11 = icmp eq i32 %add.i.i.i, 0
   br i1 %cmp.i.i.i11, label %_Py_XNewRef.exit, label %if.end.i.i.i12
 
@@ -195,35 +194,35 @@ if.end.i.i.i12:                                   ; preds = %if.then.i.i10
 
 _Py_XNewRef.exit:                                 ; preds = %if.end33, %if.then.i.i10, %if.end.i.i.i12
   store ptr %arg, ptr %c_profileobj, align 8
-  %cmp.not.i = icmp eq ptr %10, null
+  %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_Py_XNewRef.exit
-  %12 = load i64, ptr %10, align 8
-  %13 = and i64 %12, 2147483648
-  %cmp.i2.not.i = icmp eq i64 %13, 0
+  %11 = load i64, ptr %9, align 8
+  %12 = and i64 %11, 2147483648
+  %cmp.i2.not.i = icmp eq i64 %12, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i14, label %Py_XDECREF.exit
 
 if.end.i.i14:                                     ; preds = %if.then.i
-  %dec.i.i15 = add i64 %12, -1
-  store i64 %dec.i.i15, ptr %10, align 8
+  %dec.i.i15 = add i64 %11, -1
+  store i64 %dec.i.i15, ptr %9, align 8
   %cmp.i.i16 = icmp eq i64 %dec.i.i15, 0
   br i1 %cmp.i.i16, label %if.then1.i.i17, label %Py_XDECREF.exit
 
 if.then1.i.i17:                                   ; preds = %if.end.i.i14
-  tail call void @_Py_Dealloc(ptr noundef nonnull %10) #4
+  tail call void @_Py_Dealloc(ptr noundef nonnull %9) #4
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %_Py_XNewRef.exit, %if.then.i, %if.end.i.i14, %if.then1.i.i17
-  %14 = load ptr, ptr %interp, align 8
-  %sys_profiling_threads = getelementptr inbounds i8, ptr %14, i64 414968
-  %15 = load i64, ptr %sys_profiling_threads, align 8
-  %add = add i64 %sub, %15
+  %13 = load ptr, ptr %interp, align 8
+  %sys_profiling_threads = getelementptr inbounds i8, ptr %13, i64 414968
+  %14 = load i64, ptr %sys_profiling_threads, align 8
+  %add = add i64 %sub, %14
   store i64 %add, ptr %sys_profiling_threads, align 8
-  %16 = load ptr, ptr %interp, align 8
-  %sys_profiling_threads43 = getelementptr inbounds i8, ptr %16, i64 414968
-  %17 = load i64, ptr %sys_profiling_threads43, align 8
-  %tobool44.not = icmp eq i64 %17, 0
+  %15 = load ptr, ptr %interp, align 8
+  %sys_profiling_threads43 = getelementptr inbounds i8, ptr %15, i64 414968
+  %16 = load i64, ptr %sys_profiling_threads43, align 8
+  %tobool44.not = icmp eq i64 %16, 0
   %spec.store.select = select i1 %tobool44.not, i32 0, i32 12319
   %call47 = tail call i32 @_PyMonitoring_SetEvents(i32 noundef 6, i32 noundef %spec.store.select) #4
   br label %return
@@ -746,9 +745,8 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %interp, align 8
   %sys_trace_initialized = getelementptr inbounds i8, ptr %2, i64 414960
   %3 = load i8, ptr %sys_trace_initialized, align 8
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.then2, label %if.end41
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.end41, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   store i8 1, ptr %sys_trace_initialized, align 8
@@ -771,13 +769,13 @@ if.end.i:                                         ; preds = %if.end8
   br i1 %cmp.not.i.i, label %Py_XDECREF.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %5 = load i64, ptr %call2.i, align 8
-  %6 = and i64 %5, 2147483648
-  %cmp.i2.not.i.i = icmp eq i64 %6, 0
+  %4 = load i64, ptr %call2.i, align 8
+  %5 = and i64 %4, 2147483648
+  %cmp.i2.not.i.i = icmp eq i64 %5, 0
   br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %Py_XDECREF.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %dec.i.i.i = add i64 %5, -1
+  %dec.i.i.i = add i64 %4, -1
   store i64 %dec.i.i.i, ptr %call2.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %Py_XDECREF.exit.i
@@ -787,13 +785,13 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then.i.i, %if.end.i
-  %7 = load i64, ptr %call.i, align 8
-  %8 = and i64 %7, 2147483648
-  %cmp.i8.not.i = icmp eq i64 %8, 0
+  %6 = load i64, ptr %call.i, align 8
+  %7 = and i64 %6, 2147483648
+  %cmp.i8.not.i = icmp eq i64 %7, 0
   br i1 %cmp.i8.not.i, label %if.end.i.i, label %if.end12
 
 if.end.i.i:                                       ; preds = %Py_XDECREF.exit.i
-  %dec.i.i = add i64 %7, -1
+  %dec.i.i = add i64 %6, -1
   store i64 %dec.i.i, ptr %call.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.end12
@@ -817,13 +815,13 @@ if.end.i13:                                       ; preds = %if.end12
   br i1 %cmp.not.i.i17, label %Py_XDECREF.exit.i20, label %if.then.i.i18
 
 if.then.i.i18:                                    ; preds = %if.end.i13
-  %9 = load i64, ptr %call2.i16, align 8
-  %10 = and i64 %9, 2147483648
-  %cmp.i2.not.i.i19 = icmp eq i64 %10, 0
+  %8 = load i64, ptr %call2.i16, align 8
+  %9 = and i64 %8, 2147483648
+  %cmp.i2.not.i.i19 = icmp eq i64 %9, 0
   br i1 %cmp.i2.not.i.i19, label %if.end.i.i.i27, label %Py_XDECREF.exit.i20
 
 if.end.i.i.i27:                                   ; preds = %if.then.i.i18
-  %dec.i.i.i28 = add i64 %9, -1
+  %dec.i.i.i28 = add i64 %8, -1
   store i64 %dec.i.i.i28, ptr %call2.i16, align 8
   %cmp.i.i.i29 = icmp eq i64 %dec.i.i.i28, 0
   br i1 %cmp.i.i.i29, label %if.then1.i.i.i30, label %Py_XDECREF.exit.i20
@@ -833,13 +831,13 @@ if.then1.i.i.i30:                                 ; preds = %if.end.i.i.i27
   br label %Py_XDECREF.exit.i20
 
 Py_XDECREF.exit.i20:                              ; preds = %if.then1.i.i.i30, %if.end.i.i.i27, %if.then.i.i18, %if.end.i13
-  %11 = load i64, ptr %call.i11, align 8
-  %12 = and i64 %11, 2147483648
-  %cmp.i8.not.i21 = icmp eq i64 %12, 0
+  %10 = load i64, ptr %call.i11, align 8
+  %11 = and i64 %10, 2147483648
+  %cmp.i8.not.i21 = icmp eq i64 %11, 0
   br i1 %cmp.i8.not.i21, label %if.end.i.i23, label %if.end16
 
 if.end.i.i23:                                     ; preds = %Py_XDECREF.exit.i20
-  %dec.i.i24 = add i64 %11, -1
+  %dec.i.i24 = add i64 %10, -1
   store i64 %dec.i.i24, ptr %call.i11, align 8
   %cmp.i.i25 = icmp eq i64 %dec.i.i24, 0
   br i1 %cmp.i.i25, label %if.then1.i.i26, label %if.end16
@@ -882,19 +880,19 @@ if.end41:                                         ; preds = %if.end36, %if.end
   %cmp42 = icmp ne ptr %func, null
   %conv = zext i1 %cmp42 to i64
   %c_tracefunc = getelementptr inbounds i8, ptr %tstate, i64 80
-  %13 = load ptr, ptr %c_tracefunc, align 8
-  %cmp43 = icmp ne ptr %13, null
+  %12 = load ptr, ptr %c_tracefunc, align 8
+  %cmp43 = icmp ne ptr %12, null
   %conv44.neg = sext i1 %cmp43 to i64
   %sub = add nsw i64 %conv44.neg, %conv
   store ptr %func, ptr %c_tracefunc, align 8
   %c_traceobj = getelementptr inbounds i8, ptr %tstate, i64 96
-  %14 = load ptr, ptr %c_traceobj, align 8
+  %13 = load ptr, ptr %c_traceobj, align 8
   %cmp.not.i.i32 = icmp eq ptr %arg, null
   br i1 %cmp.not.i.i32, label %_Py_XNewRef.exit, label %if.then.i.i33
 
 if.then.i.i33:                                    ; preds = %if.end41
-  %15 = load i32, ptr %arg, align 8
-  %add.i.i.i = add i32 %15, 1
+  %14 = load i32, ptr %arg, align 8
+  %add.i.i.i = add i32 %14, 1
   %cmp.i.i.i34 = icmp eq i32 %add.i.i.i, 0
   br i1 %cmp.i.i.i34, label %_Py_XNewRef.exit, label %if.end.i.i.i35
 
@@ -904,51 +902,51 @@ if.end.i.i.i35:                                   ; preds = %if.then.i.i33
 
 _Py_XNewRef.exit:                                 ; preds = %if.end41, %if.then.i.i33, %if.end.i.i.i35
   store ptr %arg, ptr %c_traceobj, align 8
-  %cmp.not.i = icmp eq ptr %14, null
+  %cmp.not.i = icmp eq ptr %13, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_Py_XNewRef.exit
-  %16 = load i64, ptr %14, align 8
-  %17 = and i64 %16, 2147483648
-  %cmp.i2.not.i = icmp eq i64 %17, 0
+  %15 = load i64, ptr %13, align 8
+  %16 = and i64 %15, 2147483648
+  %cmp.i2.not.i = icmp eq i64 %16, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i37, label %Py_XDECREF.exit
 
 if.end.i.i37:                                     ; preds = %if.then.i
-  %dec.i.i38 = add i64 %16, -1
-  store i64 %dec.i.i38, ptr %14, align 8
+  %dec.i.i38 = add i64 %15, -1
+  store i64 %dec.i.i38, ptr %13, align 8
   %cmp.i.i39 = icmp eq i64 %dec.i.i38, 0
   br i1 %cmp.i.i39, label %if.then1.i.i40, label %Py_XDECREF.exit
 
 if.then1.i.i40:                                   ; preds = %if.end.i.i37
-  tail call void @_Py_Dealloc(ptr noundef nonnull %14) #4
+  tail call void @_Py_Dealloc(ptr noundef nonnull %13) #4
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %_Py_XNewRef.exit, %if.then.i, %if.end.i.i37, %if.then1.i.i40
-  %18 = load ptr, ptr %interp, align 8
-  %sys_tracing_threads = getelementptr inbounds i8, ptr %18, i64 414976
-  %19 = load i64, ptr %sys_tracing_threads, align 8
-  %add = add i64 %sub, %19
+  %17 = load ptr, ptr %interp, align 8
+  %sys_tracing_threads = getelementptr inbounds i8, ptr %17, i64 414976
+  %18 = load i64, ptr %sys_tracing_threads, align 8
+  %add = add i64 %sub, %18
   store i64 %add, ptr %sys_tracing_threads, align 8
-  %20 = load ptr, ptr %interp, align 8
-  %sys_tracing_threads51 = getelementptr inbounds i8, ptr %20, i64 414976
-  %21 = load i64, ptr %sys_tracing_threads51, align 8
-  %tobool52.not = icmp eq i64 %21, 0
+  %19 = load ptr, ptr %interp, align 8
+  %sys_tracing_threads51 = getelementptr inbounds i8, ptr %19, i64 414976
+  %20 = load i64, ptr %sys_tracing_threads51, align 8
+  %tobool52.not = icmp eq i64 %20, 0
   br i1 %tobool52.not, label %if.end63, label %if.then53
 
 if.then53:                                        ; preds = %Py_XDECREF.exit
   %call54 = tail call ptr @PyEval_GetFrame() #4
   %f_trace_opcodes = getelementptr inbounds i8, ptr %call54, i64 45
-  %22 = load i8, ptr %f_trace_opcodes, align 1
-  %tobool55.not = icmp eq i8 %22, 0
+  %21 = load i8, ptr %f_trace_opcodes, align 1
+  %tobool55.not = icmp eq i8 %21, 0
   br i1 %tobool55.not, label %if.end63, label %if.then56
 
 if.then56:                                        ; preds = %if.then53
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %events.i)
   %f_frame.i = getelementptr inbounds i8, ptr %call54, i64 24
-  %23 = load ptr, ptr %f_frame.i, align 8
-  %24 = load ptr, ptr %23, align 8
+  %22 = load ptr, ptr %f_frame.i, align 8
+  %23 = load ptr, ptr %22, align 8
   store i32 0, ptr %events.i, align 4
-  %call.i41 = call i32 @_PyMonitoring_GetLocalEvents(ptr noundef %24, i32 noundef 7, ptr noundef nonnull %events.i) #4
+  %call.i41 = call i32 @_PyMonitoring_GetLocalEvents(ptr noundef %23, i32 noundef 7, ptr noundef nonnull %events.i) #4
   %cmp.i42 = icmp slt i32 %call.i41, 0
   br i1 %cmp.i42, label %_PyEval_SetOpcodeTrace.exit.thread51, label %if.end.i43
 
@@ -957,8 +955,8 @@ _PyEval_SetOpcodeTrace.exit.thread51:             ; preds = %if.then56
   br label %return
 
 if.end.i43:                                       ; preds = %if.then56
-  %25 = load i32, ptr %events.i, align 4
-  %and.i = and i32 %25, 64
+  %24 = load i32, ptr %events.i, align 4
+  %and.i = and i32 %24, 64
   %tobool2.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool2.not.i, label %_PyEval_SetOpcodeTrace.exit, label %_PyEval_SetOpcodeTrace.exit.thread
 
@@ -967,9 +965,9 @@ _PyEval_SetOpcodeTrace.exit.thread:               ; preds = %if.end.i43
   br label %if.end63
 
 _PyEval_SetOpcodeTrace.exit:                      ; preds = %if.end.i43
-  %or.i = or disjoint i32 %25, 64
+  %or.i = or disjoint i32 %24, 64
   store i32 %or.i, ptr %events.i, align 4
-  %call11.i = call i32 @_PyMonitoring_SetLocalEvents(ptr noundef %24, i32 noundef 7, i32 noundef %or.i) #4
+  %call11.i = call i32 @_PyMonitoring_SetLocalEvents(ptr noundef %23, i32 noundef 7, i32 noundef %or.i) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %events.i)
   %cmp58.not = icmp eq i32 %call11.i, 0
   br i1 %cmp58.not, label %if.end63, label %return

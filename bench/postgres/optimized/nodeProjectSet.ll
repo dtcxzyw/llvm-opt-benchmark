@@ -65,9 +65,9 @@ list_length.exit:                                 ; preds = %3, %15
   %32 = getelementptr inbounds i8, ptr %4, i64 128
   %33 = load i32, ptr %30, align 4
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.lr.ph55, label %._crit_edge
+  br i1 %34, label %.lr.ph53, label %._crit_edge
 
-.lr.ph55:                                         ; preds = %.lr.ph, %53
+.lr.ph53:                                         ; preds = %.lr.ph, %53
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.lr.ph ]
   %35 = load ptr, ptr %31, align 8
   %36 = getelementptr %union.ListCell, ptr %35, i64 %indvars.iv
@@ -75,36 +75,34 @@ list_length.exit:                                 ; preds = %3, %15
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %39, align 4
-  switch i32 %40, label %.thread48 [
+  switch i32 %40, label %.thread46 [
     i32 13, label %41
     i32 15, label %45
   ]
 
-41:                                               ; preds = %.lr.ph55
+41:                                               ; preds = %.lr.ph53
   %42 = getelementptr inbounds i8, ptr %39, i64 12
   %43 = load i8, ptr %42, align 4
-  %44 = and i8 %43, 1
-  %.not44 = icmp eq i8 %44, 0
-  br i1 %.not44, label %.thread48, label %49
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %49, label %.thread46
 
-45:                                               ; preds = %.lr.ph55
+45:                                               ; preds = %.lr.ph53
   %46 = getelementptr inbounds i8, ptr %39, i64 16
   %47 = load i8, ptr %46, align 8
-  %48 = and i8 %47, 1
-  %.not45 = icmp eq i8 %48, 0
-  br i1 %.not45, label %.thread48, label %49
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %.thread46
 
 49:                                               ; preds = %45, %41
   %50 = load ptr, ptr %32, align 8
   %51 = tail call ptr @ExecInitFunctionResultSet(ptr noundef nonnull %39, ptr noundef %50, ptr noundef nonnull %4) #2
   br label %53
 
-.thread48:                                        ; preds = %.lr.ph55, %41, %45
+.thread46:                                        ; preds = %.lr.ph53, %41, %45
   %52 = tail call ptr @ExecInitExpr(ptr noundef nonnull %39, ptr noundef nonnull %4) #2
   br label %53
 
-53:                                               ; preds = %.thread48, %49
-  %.sink = phi ptr [ %52, %.thread48 ], [ %51, %49 ]
+53:                                               ; preds = %.thread46, %49
+  %.sink = phi ptr [ %52, %.thread46 ], [ %51, %49 ]
   %54 = load ptr, ptr %23, align 8
   %55 = getelementptr ptr, ptr %54, i64 %indvars.iv
   store ptr %.sink, ptr %55, align 8
@@ -112,7 +110,7 @@ list_length.exit:                                 ; preds = %3, %15
   %56 = load i32, ptr %30, align 4
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph55, label %._crit_edge
+  br i1 %58, label %.lr.ph53, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph, %list_length.exit
   %59 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -140,14 +138,13 @@ define internal noundef ptr @ExecProjectSet(ptr nocapture noundef %0) #0 {
   tail call void @MemoryContextReset(ptr noundef %8) #2
   %9 = getelementptr inbounds i8, ptr %0, i64 220
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %.not22 = icmp eq i8 %11, 0
-  br i1 %.not22, label %14, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %14
 
 12:                                               ; preds = %4
   %13 = tail call fastcc ptr @ExecProjectSRF(ptr noundef nonnull %0, i1 noundef zeroext true)
-  %.not23 = icmp eq ptr %13, null
-  br i1 %.not23, label %14, label %.loopexit
+  %.not22 = icmp eq ptr %13, null
+  br i1 %.not22, label %14, label %.loopexit
 
 14:                                               ; preds = %12, %4
   %15 = getelementptr inbounds i8, ptr %6, i64 24
@@ -179,14 +176,14 @@ ExecProcNode.exit:                                ; preds = %18, %23
   %29 = getelementptr inbounds i8, ptr %26, i64 4
   %30 = load i16, ptr %29, align 4
   %31 = and i16 %30, 2
-  %.not24 = icmp eq i16 %31, 0
-  br i1 %.not24, label %32, label %.loopexit
+  %.not23 = icmp eq i16 %31, 0
+  br i1 %.not23, label %32, label %.loopexit
 
 32:                                               ; preds = %28
   store ptr %26, ptr %15, align 8
   %33 = tail call fastcc ptr @ExecProjectSRF(ptr noundef nonnull %0, i1 noundef zeroext false)
-  %.not25 = icmp eq ptr %33, null
-  br i1 %.not25, label %34, label %.loopexit
+  %.not24 = icmp eq ptr %33, null
+  br i1 %.not24, label %34, label %.loopexit
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %7, align 8
@@ -269,11 +266,7 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr nocapture noundef %0, i1 
   %15 = getelementptr inbounds i8, ptr %0, i64 216
   %16 = load i32, ptr %15, align 8
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %2
-  store ptr %13, ptr @CurrentMemoryContext, align 8
-  br label %80
+  br i1 %17, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
   %18 = getelementptr inbounds i8, ptr %0, i64 200
@@ -284,17 +277,17 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr nocapture noundef %0, i1 
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %48
-  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %48 ], [ 0, %.lr.ph ]
-  %.03943.us = phi i8 [ %.2.us, %48 ], [ 0, %.lr.ph ]
+  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %48 ], [ 0, %.lr.ph ]
+  %.03942.us = phi i1 [ %.2.us, %48 ], [ false, %.lr.ph ]
   %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr ptr, ptr %23, i64 %indvars.iv45
+  %24 = getelementptr ptr, ptr %23, i64 %indvars.iv44
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %19, align 8
-  %27 = getelementptr i32, ptr %26, i64 %indvars.iv45
+  %27 = getelementptr i32, ptr %26, i64 %indvars.iv44
   %28 = load ptr, ptr %20, align 8
-  %29 = getelementptr i64, ptr %28, i64 %indvars.iv45
+  %29 = getelementptr i64, ptr %28, i64 %indvars.iv44
   %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr i8, ptr %30, i64 %indvars.iv45
+  %31 = getelementptr i8, ptr %30, i64 %indvars.iv44
   %32 = load i32, ptr %27, align 4
   %33 = icmp eq i32 %32, 2
   br i1 %33, label %47, label %34
@@ -317,8 +310,8 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr nocapture noundef %0, i1 
   %43 = tail call i64 @ExecMakeFunctionResultSet(ptr noundef nonnull %25, ptr noundef %6, ptr noundef %42, ptr noundef %31, ptr noundef nonnull %27) #2
   store i64 %43, ptr %29, align 8
   %44 = load i32, ptr %27, align 4
-  %.not41.us = icmp eq i32 %44, 2
-  %spec.select.us = select i1 %.not41.us, i8 %.03943.us, i8 1
+  %.not.us = icmp ne i32 %44, 2
+  %spec.select.us = select i1 %.not.us, i1 true, i1 %.03942.us
   %45 = icmp eq i32 %44, 1
   br i1 %45, label %46, label %48
 
@@ -332,16 +325,16 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr nocapture noundef %0, i1 
   br label %48
 
 48:                                               ; preds = %47, %46, %41, %37
-  %.2.us = phi i8 [ %.03943.us, %47 ], [ %.03943.us, %37 ], [ %spec.select.us, %46 ], [ %spec.select.us, %41 ]
-  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %.2.us = phi i1 [ %.03942.us, %47 ], [ %.03942.us, %37 ], [ %spec.select.us, %46 ], [ %spec.select.us, %41 ]
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %49 = load i32, ptr %15, align 8
   %50 = sext i32 %49 to i64
-  %51 = icmp slt i64 %indvars.iv.next46, %50
+  %51 = icmp slt i64 %indvars.iv.next45, %50
   br i1 %51, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !5
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph ]
-  %.03943 = phi i8 [ %.2, %73 ], [ 0, %.lr.ph ]
+  %.03942 = phi i1 [ %.2, %73 ], [ false, %.lr.ph ]
   %52 = load ptr, ptr %18, align 8
   %53 = getelementptr ptr, ptr %52, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8
@@ -360,8 +353,8 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr nocapture noundef %0, i1 
   %65 = tail call i64 @ExecMakeFunctionResultSet(ptr noundef nonnull %54, ptr noundef %6, ptr noundef %64, ptr noundef %60, ptr noundef %56) #2
   store i64 %65, ptr %58, align 8
   %66 = load i32, ptr %56, align 4
-  %.not41 = icmp eq i32 %66, 2
-  %spec.select = select i1 %.not41, i8 %.03943, i8 1
+  %.not = icmp ne i32 %66, 2
+  %spec.select = select i1 %.not, i1 true, i1 %.03942
   %67 = icmp eq i32 %66, 1
   br i1 %67, label %68, label %73
 
@@ -378,7 +371,7 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr nocapture noundef %0, i1 
   br label %73
 
 73:                                               ; preds = %63, %68, %69
-  %.2 = phi i8 [ %.03943, %69 ], [ %spec.select, %68 ], [ %spec.select, %63 ]
+  %.2 = phi i1 [ %.03942, %69 ], [ %spec.select, %68 ], [ %spec.select, %63 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = load i32, ptr %15, align 8
   %75 = sext i32 %74 to i64
@@ -386,18 +379,20 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr nocapture noundef %0, i1 
   br i1 %76, label %.lr.ph.split, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %73, %48
-  %.039.lcssa = phi i8 [ %.2.us, %48 ], [ %.2, %73 ]
+  %.039.lcssa = phi i1 [ %.2.us, %48 ], [ %.2, %73 ]
   store ptr %13, ptr @CurrentMemoryContext, align 8
-  %77 = and i8 %.039.lcssa, 1
-  %.not = icmp eq i8 %77, 0
-  br i1 %.not, label %80, label %78
+  br i1 %.039.lcssa, label %77, label %79
 
-78:                                               ; preds = %._crit_edge
-  %79 = tail call ptr @ExecStoreVirtualTuple(ptr noundef nonnull %4) #2
-  br label %80
+77:                                               ; preds = %._crit_edge
+  %78 = tail call ptr @ExecStoreVirtualTuple(ptr noundef nonnull %4) #2
+  br label %79
 
-80:                                               ; preds = %._crit_edge.thread, %._crit_edge, %78
-  %.0 = phi ptr [ %4, %78 ], [ null, %._crit_edge ], [ null, %._crit_edge.thread ]
+.critedge:                                        ; preds = %2
+  store ptr %13, ptr @CurrentMemoryContext, align 8
+  br label %79
+
+79:                                               ; preds = %.critedge, %._crit_edge, %77
+  %.0 = phi ptr [ %4, %77 ], [ null, %._crit_edge ], [ null, %.critedge ]
   ret ptr %.0
 }
 

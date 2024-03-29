@@ -450,9 +450,8 @@ dotneato_basename.exit:                           ; preds = %.critedge2.i, %9, %
 40:                                               ; preds = %31, %dotneato_basename.exit
   %41 = getelementptr inbounds i8, ptr %0, i64 20
   %42 = load i8, ptr %41, align 4
-  %43 = and i8 %42, 1
-  %.not124 = icmp eq i8 %43, 0
-  br i1 %.not124, label %45, label %44
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %45
 
 44:                                               ; preds = %40
   tail call void @gvconfig(ptr noundef nonnull %0, i1 noundef zeroext true) #20
@@ -474,29 +473,29 @@ dotneato_basename.exit:                           ; preds = %.critedge2.i, %9, %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %55
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %55 ]
-  %.0105228 = phi i64 [ 0, %.lr.ph.preheader ], [ %.1, %55 ]
+  %.0105226 = phi i64 [ 0, %.lr.ph.preheader ], [ %.1, %55 ]
   %50 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
-  %.not148 = icmp eq ptr %51, null
-  br i1 %.not148, label %55, label %52
+  %.not146 = icmp eq ptr %51, null
+  br i1 %.not146, label %55, label %52
 
 52:                                               ; preds = %.lr.ph
   %53 = load i8, ptr %51, align 1
-  %.not149 = icmp ne i8 %53, 45
-  %54 = zext i1 %.not149 to i64
-  %spec.select = add i64 %.0105228, %54
+  %.not147 = icmp ne i8 %53, 45
+  %54 = zext i1 %.not147 to i64
+  %spec.select = add i64 %.0105226, %54
   br label %55
 
 55:                                               ; preds = %52, %.lr.ph
-  %.1 = phi i64 [ %.0105228, %.lr.ph ], [ %spec.select, %52 ]
+  %.1 = phi i64 [ %.0105226, %.lr.ph ], [ %spec.select, %52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %55
   %56 = add i64 %.1, 1
-  %.not.i150 = icmp eq i64 %56, 0
-  br i1 %.not.i150, label %.thread.i, label %58
+  %.not.i148 = icmp eq i64 %56, 0
+  br i1 %.not.i148, label %.thread.i, label %58
 
 .thread.i:                                        ; preds = %._crit_edge
   %57 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 8) #23
@@ -529,28 +528,28 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %.thread
   %69 = phi ptr [ %57, %.thread.i ], [ %63, %.thread ]
   %70 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %69, ptr %70, align 8
-  br i1 %49, label %.lr.ph232, label %._crit_edge233.thread
+  br i1 %49, label %.lr.ph230, label %._crit_edge231.thread
 
-.lr.ph232:                                        ; preds = %gv_calloc.exit
+.lr.ph230:                                        ; preds = %gv_calloc.exit
   %71 = add nsw i32 %1, -1
   %72 = getelementptr inbounds i8, ptr %0, i64 21
   %73 = getelementptr inbounds i8, ptr %0, i64 40
   br label %.outer
 
-.outer:                                           ; preds = %.thread188, %.lr.ph232
-  %.2231.ph = phi i64 [ %.3, %.thread188 ], [ 0, %.lr.ph232 ]
-  %.0106230.ph = phi i32 [ %.0106230, %.thread188 ], [ 0, %.lr.ph232 ]
-  %storemerge125229.ph = phi i32 [ %281, %.thread188 ], [ 1, %.lr.ph232 ]
+.outer:                                           ; preds = %.thread186, %.lr.ph230
+  %.2229.ph = phi i64 [ %.3, %.thread186 ], [ 0, %.lr.ph230 ]
+  %.0106228.ph = phi i32 [ %.0106228, %.thread186 ], [ 0, %.lr.ph230 ]
+  %storemerge124227.ph = phi i32 [ %281, %.thread186 ], [ 1, %.lr.ph230 ]
   br label %74
 
-74:                                               ; preds = %.outer, %.thread188.thread
-  %.0106230 = phi i32 [ 1, %.thread188.thread ], [ %.0106230.ph, %.outer ]
-  %storemerge125229 = phi i32 [ %283, %.thread188.thread ], [ %storemerge125229.ph, %.outer ]
-  %75 = sext i32 %storemerge125229 to i64
+74:                                               ; preds = %.outer, %.thread186.thread
+  %.0106228 = phi i32 [ 1, %.thread186.thread ], [ %.0106228.ph, %.outer ]
+  %storemerge124227 = phi i32 [ %283, %.thread186.thread ], [ %storemerge124227.ph, %.outer ]
+  %75 = sext i32 %storemerge124227 to i64
   %76 = getelementptr inbounds ptr, ptr %2, i64 %75
   %77 = load ptr, ptr %76, align 8
-  %.not131 = icmp eq ptr %77, null
-  br i1 %.not131, label %.thread188, label %78
+  %.not130 = icmp eq ptr %77, null
+  br i1 %.not130, label %.thread186, label %78
 
 78:                                               ; preds = %74
   %79 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(3) @.str.5, i64 noundef 2) #26
@@ -573,8 +572,8 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %.thread
   %92 = load ptr, ptr %91, align 8
   %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.4, ptr noundef %86, ptr noundef %88, ptr noundef %90, ptr noundef %92) #24
   %94 = load i32, ptr @GvExitOnUsage, align 4
-  %.not147 = icmp eq i32 %94, 0
-  br i1 %.not147, label %338, label %95
+  %.not145 = icmp eq i32 %94, 0
+  br i1 %.not145, label %338, label %95
 
 95:                                               ; preds = %84
   tail call fastcc void @graphviz_exit(i32 noundef 0) #21
@@ -591,7 +590,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %.thread
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %99, %96
-  %103 = tail call i32 @dotneato_usage(i32 noundef 0)
+  %103 = tail call i32 @dotneato_usage(i32 noundef 0), !range !4
   br label %338
 
 104:                                              ; preds = %99
@@ -620,60 +619,60 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %.thread
 
 111:                                              ; preds = %107
   %112 = load i8, ptr %108, align 1
-  %.not146 = icmp eq i8 %112, 0
-  br i1 %.not146, label %114, label %113
+  %.not144 = icmp eq i8 %112, 0
+  br i1 %.not144, label %114, label %113
 
 113:                                              ; preds = %111
   tail call fastcc void @global_def(ptr noundef nonnull %108, i32 noundef 0)
-  br label %.thread188
+  br label %.thread186
 
 114:                                              ; preds = %111
   %115 = load ptr, ptr @stderr, align 8
   %116 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 29, i64 1, ptr %115) #25
-  %117 = tail call i32 @dotneato_usage(i32 noundef 1)
+  %117 = tail call i32 @dotneato_usage(i32 noundef 1), !range !4
   br label %338
 
 118:                                              ; preds = %107
   %119 = load i8, ptr %108, align 1
-  %.not145 = icmp eq i8 %119, 0
-  br i1 %.not145, label %121, label %120
+  %.not143 = icmp eq i8 %119, 0
+  br i1 %.not143, label %121, label %120
 
 120:                                              ; preds = %118
   tail call fastcc void @global_def(ptr noundef nonnull %108, i32 noundef 1)
-  br label %.thread188
+  br label %.thread186
 
 121:                                              ; preds = %118
   %122 = load ptr, ptr @stderr, align 8
   %123 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 29, i64 1, ptr %122) #25
-  %124 = tail call i32 @dotneato_usage(i32 noundef 1)
+  %124 = tail call i32 @dotneato_usage(i32 noundef 1), !range !4
   br label %338
 
 125:                                              ; preds = %107
   %126 = load i8, ptr %108, align 1
-  %.not144 = icmp eq i8 %126, 0
-  br i1 %.not144, label %128, label %127
+  %.not142 = icmp eq i8 %126, 0
+  br i1 %.not142, label %128, label %127
 
 127:                                              ; preds = %125
   tail call fastcc void @global_def(ptr noundef nonnull %108, i32 noundef 2)
-  br label %.thread188
+  br label %.thread186
 
 128:                                              ; preds = %125
   %129 = load ptr, ptr @stderr, align 8
   %130 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 29, i64 1, ptr %129) #25
-  %131 = tail call i32 @dotneato_usage(i32 noundef 1)
+  %131 = tail call i32 @dotneato_usage(i32 noundef 1), !range !4
   br label %338
 
 132:                                              ; preds = %107
   %133 = load i8, ptr %108, align 1
-  %.not.i151 = icmp eq i8 %133, 0
-  br i1 %.not.i151, label %134, label %getFlagOpt.exit
+  %.not.i149 = icmp eq i8 %133, 0
+  br i1 %.not.i149, label %134, label %getFlagOpt.exit
 
 134:                                              ; preds = %132
-  %135 = icmp slt i32 %storemerge125229, %71
+  %135 = icmp slt i32 %storemerge124227, %71
   br i1 %135, label %136, label %142
 
 136:                                              ; preds = %134
-  %137 = add nsw i32 %storemerge125229, 1
+  %137 = add nsw i32 %storemerge124227, 1
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds ptr, ptr %2, i64 %138
   %140 = load ptr, ptr %139, align 8
@@ -686,14 +685,14 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %.thread
 142:                                              ; preds = %136, %136, %134
   %143 = load ptr, ptr @stderr, align 8
   %144 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 29, i64 1, ptr %143) #25
-  %145 = tail call i32 @dotneato_usage(i32 noundef 1)
+  %145 = tail call i32 @dotneato_usage(i32 noundef 1), !range !4
   br label %338
 
 getFlagOpt.exit:                                  ; preds = %136, %132
-  %.0171 = phi i32 [ %storemerge125229, %132 ], [ %137, %136 ]
+  %.0169 = phi i32 [ %storemerge124227, %132 ], [ %137, %136 ]
   %.0.i = phi ptr [ %108, %132 ], [ %140, %136 ]
   %146 = tail call zeroext i1 @gvjobs_output_langname(ptr noundef %0, ptr noundef nonnull %.0.i) #20
-  br i1 %146, label %.thread188, label %147
+  br i1 %146, label %.thread186, label %147
 
 147:                                              ; preds = %getFlagOpt.exit
   %148 = load ptr, ptr @stderr, align 8
@@ -714,8 +713,8 @@ getFlagOpt.exit:                                  ; preds = %136, %132
 
 158:                                              ; preds = %156, %154
   %159 = load i32, ptr @GvExitOnUsage, align 4
-  %.not143 = icmp eq i32 %159, 0
-  br i1 %.not143, label %338, label %160
+  %.not141 = icmp eq i32 %159, 0
+  br i1 %.not141, label %338, label %160
 
 160:                                              ; preds = %158
   tail call fastcc void @graphviz_exit(i32 noundef 1) #21
@@ -723,20 +722,20 @@ getFlagOpt.exit:                                  ; preds = %136, %132
 
 161:                                              ; preds = %107
   %162 = load i8, ptr %108, align 1
-  %.not.i152 = icmp eq i8 %162, 0
-  br i1 %.not.i152, label %163, label %getFlagOpt.exit154
+  %.not.i150 = icmp eq i8 %162, 0
+  br i1 %.not.i150, label %163, label %getFlagOpt.exit152
 
 163:                                              ; preds = %161
-  %164 = icmp slt i32 %storemerge125229, %71
+  %164 = icmp slt i32 %storemerge124227, %71
   br i1 %164, label %165, label %171
 
 165:                                              ; preds = %163
-  %166 = add nsw i32 %storemerge125229, 1
+  %166 = add nsw i32 %storemerge124227, 1
   %167 = sext i32 %166 to i64
   %168 = getelementptr inbounds ptr, ptr %2, i64 %167
   %169 = load ptr, ptr %168, align 8
   %170 = load i8, ptr %169, align 1
-  switch i8 %170, label %getFlagOpt.exit154 [
+  switch i8 %170, label %getFlagOpt.exit152 [
     i8 0, label %171
     i8 45, label %171
   ]
@@ -744,20 +743,20 @@ getFlagOpt.exit:                                  ; preds = %136, %132
 171:                                              ; preds = %165, %165, %163
   %172 = load ptr, ptr @stderr, align 8
   %173 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 29, i64 1, ptr %172) #25
-  %174 = tail call i32 @dotneato_usage(i32 noundef 1)
+  %174 = tail call i32 @dotneato_usage(i32 noundef 1), !range !4
   br label %338
 
-getFlagOpt.exit154:                               ; preds = %165, %161
-  %.1172 = phi i32 [ %storemerge125229, %161 ], [ %166, %165 ]
-  %.0.i153 = phi ptr [ %108, %161 ], [ %169, %165 ]
-  %175 = tail call i32 @gvlayout_select(ptr noundef %0, ptr noundef nonnull %.0.i153) #20
+getFlagOpt.exit152:                               ; preds = %165, %161
+  %.1170 = phi i32 [ %storemerge124227, %161 ], [ %166, %165 ]
+  %.0.i151 = phi ptr [ %108, %161 ], [ %169, %165 ]
+  %175 = tail call i32 @gvlayout_select(ptr noundef %0, ptr noundef nonnull %.0.i151) #20
   %176 = icmp eq i32 %175, 999
-  br i1 %176, label %177, label %.thread188.thread
+  br i1 %176, label %177, label %.thread186.thread
 
-177:                                              ; preds = %getFlagOpt.exit154
+177:                                              ; preds = %getFlagOpt.exit152
   %178 = load ptr, ptr @stderr, align 8
-  %179 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %178, ptr noundef nonnull @.str.17, ptr noundef nonnull %.0.i153) #24
-  %180 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i153, ptr noundef nonnull dereferenceable(4) @.str.18) #26
+  %179 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %178, ptr noundef nonnull @.str.17, ptr noundef nonnull %.0.i151) #24
+  %180 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i151, ptr noundef nonnull dereferenceable(4) @.str.18) #26
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %182, label %185
 
@@ -767,7 +766,7 @@ getFlagOpt.exit154:                               ; preds = %165, %161
   br label %194
 
 185:                                              ; preds = %177
-  %186 = tail call ptr @gvplugin_list(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %.0.i153) #20
+  %186 = tail call ptr @gvplugin_list(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %.0.i151) #20
   %187 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %186) #26
   %188 = icmp ugt i64 %187, 1
   %189 = load ptr, ptr @stderr, align 8
@@ -783,8 +782,8 @@ getFlagOpt.exit154:                               ; preds = %165, %161
 
 194:                                              ; preds = %190, %192, %182
   %195 = load i32, ptr @GvExitOnUsage, align 4
-  %.not141 = icmp eq i32 %195, 0
-  br i1 %.not141, label %338, label %196
+  %.not139 = icmp eq i32 %195, 0
+  br i1 %.not139, label %338, label %196
 
 196:                                              ; preds = %194
   tail call fastcc void @graphviz_exit(i32 noundef 1) #21
@@ -793,24 +792,24 @@ getFlagOpt.exit154:                               ; preds = %165, %161
 197:                                              ; preds = %107
   %198 = tail call ptr @gvplugin_graph(ptr noundef %0) #20
   store ptr %198, ptr @P_graph, align 8
-  br label %.thread188
+  br label %.thread186
 
 199:                                              ; preds = %107
   %200 = load i8, ptr %108, align 1
-  %.not.i155 = icmp eq i8 %200, 0
-  br i1 %.not.i155, label %201, label %getFlagOpt.exit157
+  %.not.i153 = icmp eq i8 %200, 0
+  br i1 %.not.i153, label %201, label %getFlagOpt.exit155
 
 201:                                              ; preds = %199
-  %202 = icmp slt i32 %storemerge125229, %71
+  %202 = icmp slt i32 %storemerge124227, %71
   br i1 %202, label %203, label %209
 
 203:                                              ; preds = %201
-  %204 = add nsw i32 %storemerge125229, 1
+  %204 = add nsw i32 %storemerge124227, 1
   %205 = sext i32 %204 to i64
   %206 = getelementptr inbounds ptr, ptr %2, i64 %205
   %207 = load ptr, ptr %206, align 8
   %208 = load i8, ptr %207, align 1
-  switch i8 %208, label %getFlagOpt.exit157 [
+  switch i8 %208, label %getFlagOpt.exit155 [
     i8 0, label %209
     i8 45, label %209
   ]
@@ -818,12 +817,12 @@ getFlagOpt.exit154:                               ; preds = %165, %161
 209:                                              ; preds = %203, %203, %201
   %210 = load ptr, ptr @stderr, align 8
   %211 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 29, i64 1, ptr %210) #25
-  %212 = tail call i32 @dotneato_usage(i32 noundef 1)
+  %212 = tail call i32 @dotneato_usage(i32 noundef 1), !range !4
   br label %338
 
-getFlagOpt.exit157:                               ; preds = %203, %199
-  %.2173 = phi i32 [ %storemerge125229, %199 ], [ %204, %203 ]
-  %.0.i156 = phi ptr [ %108, %199 ], [ %207, %203 ]
+getFlagOpt.exit155:                               ; preds = %203, %199
+  %.2171 = phi i32 [ %storemerge124227, %199 ], [ %204, %203 ]
+  %.0.i154 = phi ptr [ %108, %199 ], [ %207, %203 ]
   %213 = load i64, ptr @use_library.cnt, align 8
   %214 = icmp eq i64 %213, 0
   %215 = add i64 %213, 1
@@ -836,28 +835,28 @@ getFlagOpt.exit157:                               ; preds = %203, %199
   %221 = add i64 %220, 1
   store i64 %221, ptr @use_library.cnt, align 8
   %222 = getelementptr inbounds ptr, ptr %219, i64 %220
-  store ptr %.0.i156, ptr %222, align 8
+  store ptr %.0.i154, ptr %222, align 8
   %223 = getelementptr inbounds ptr, ptr %219, i64 %221
   store ptr null, ptr %223, align 8
   store ptr %219, ptr %73, align 8
-  br label %.thread188
+  br label %.thread186
 
 224:                                              ; preds = %107
   %225 = load i8, ptr %108, align 1
-  %.not.i158 = icmp eq i8 %225, 0
-  br i1 %.not.i158, label %226, label %getFlagOpt.exit160
+  %.not.i156 = icmp eq i8 %225, 0
+  br i1 %.not.i156, label %226, label %getFlagOpt.exit158
 
 226:                                              ; preds = %224
-  %227 = icmp slt i32 %storemerge125229, %71
+  %227 = icmp slt i32 %storemerge124227, %71
   br i1 %227, label %228, label %234
 
 228:                                              ; preds = %226
-  %229 = add nsw i32 %storemerge125229, 1
+  %229 = add nsw i32 %storemerge124227, 1
   %230 = sext i32 %229 to i64
   %231 = getelementptr inbounds ptr, ptr %2, i64 %230
   %232 = load ptr, ptr %231, align 8
   %233 = load i8, ptr %232, align 1
-  switch i8 %233, label %getFlagOpt.exit160 [
+  switch i8 %233, label %getFlagOpt.exit158 [
     i8 0, label %234
     i8 45, label %234
   ]
@@ -865,25 +864,24 @@ getFlagOpt.exit157:                               ; preds = %203, %199
 234:                                              ; preds = %228, %228, %226
   %235 = load ptr, ptr @stderr, align 8
   %236 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 29, i64 1, ptr %235) #25
-  %237 = tail call i32 @dotneato_usage(i32 noundef 1)
+  %237 = tail call i32 @dotneato_usage(i32 noundef 1), !range !4
   br label %338
 
-getFlagOpt.exit160:                               ; preds = %228, %224
-  %.3174 = phi i32 [ %storemerge125229, %224 ], [ %229, %228 ]
-  %.0.i159 = phi ptr [ %108, %224 ], [ %232, %228 ]
+getFlagOpt.exit158:                               ; preds = %228, %224
+  %.3172 = phi i32 [ %storemerge124227, %224 ], [ %229, %228 ]
+  %.0.i157 = phi ptr [ %108, %224 ], [ %232, %228 ]
   %238 = load i8, ptr %72, align 1
-  %239 = and i8 %238, 1
-  %.not138 = icmp eq i8 %239, 0
-  br i1 %.not138, label %240, label %.thread188
+  %239 = trunc i8 %238 to i1
+  br i1 %239, label %.thread186, label %240
 
-240:                                              ; preds = %getFlagOpt.exit160
-  tail call void @gvjobs_output_filename(ptr noundef nonnull %0, ptr noundef nonnull %.0.i159) #20
-  br label %.thread188
+240:                                              ; preds = %getFlagOpt.exit158
+  tail call void @gvjobs_output_filename(ptr noundef nonnull %0, ptr noundef nonnull %.0.i157) #20
+  br label %.thread186
 
 241:                                              ; preds = %107
   %242 = load i8, ptr %108, align 1
-  %.not136 = icmp eq i8 %242, 0
-  br i1 %.not136, label %255, label %243
+  %.not135 = icmp eq i8 %242, 0
+  br i1 %.not135, label %255, label %243
 
 243:                                              ; preds = %241
   %244 = tail call i32 @atoi(ptr nocapture noundef nonnull %108) #26
@@ -893,7 +891,7 @@ getFlagOpt.exit160:                               ; preds = %228, %224
 246:                                              ; preds = %243
   %247 = load ptr, ptr @stderr, align 8
   %248 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %247, ptr noundef nonnull @.str.23, ptr noundef nonnull %108) #24
-  br label %.thread188
+  br label %.thread186
 
 249:                                              ; preds = %243
   %250 = icmp eq i32 %244, 1
@@ -901,20 +899,20 @@ getFlagOpt.exit160:                               ; preds = %228, %224
 
 251:                                              ; preds = %249
   %252 = tail call i32 @agseterr(i32 noundef 1) #20
-  br label %.thread188
+  br label %.thread186
 
 253:                                              ; preds = %249
   %254 = tail call i32 @agseterr(i32 noundef 2) #20
-  br label %.thread188
+  br label %.thread186
 
 255:                                              ; preds = %241
   %256 = tail call i32 @agseterr(i32 noundef 1) #20
-  br label %.thread188
+  br label %.thread186
 
 257:                                              ; preds = %107
   %258 = load i8, ptr %108, align 1
-  %.not135 = icmp eq i8 %258, 0
-  br i1 %.not135, label %269, label %259
+  %.not134 = icmp eq i8 %258, 0
+  br i1 %.not134, label %269, label %259
 
 259:                                              ; preds = %257
   %260 = tail call double @atof(ptr noundef nonnull %108) #26
@@ -925,66 +923,66 @@ getFlagOpt.exit160:                               ; preds = %228, %224
 262:                                              ; preds = %259
   %263 = load ptr, ptr @stderr, align 8
   %264 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %263, ptr noundef nonnull @.str.24, ptr noundef nonnull %108) #24
-  %265 = tail call i32 @dotneato_usage(i32 noundef 1)
+  %265 = tail call i32 @dotneato_usage(i32 noundef 1), !range !4
   br label %338
 
 266:                                              ; preds = %259
   %267 = fcmp oeq double %260, 0.000000e+00
-  br i1 %267, label %268, label %.thread188
+  br i1 %267, label %268, label %.thread186
 
 268:                                              ; preds = %266
   store double 7.200000e+01, ptr @PSinputscale, align 8
-  br label %.thread188
+  br label %.thread186
 
 269:                                              ; preds = %257
   store double 7.200000e+01, ptr @PSinputscale, align 8
-  br label %.thread188
+  br label %.thread186
 
 270:                                              ; preds = %107
   store i8 1, ptr @Reduce, align 1
-  br label %.thread188
+  br label %.thread186
 
 271:                                              ; preds = %107
   store i8 1, ptr @Y_invert, align 1
-  br label %.thread188
+  br label %.thread186
 
 272:                                              ; preds = %107
   %273 = sext i8 %110 to i32
   %274 = load ptr, ptr %28, align 8
   %275 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.25, ptr noundef %274, i32 noundef %273) #20
-  %276 = tail call i32 @dotneato_usage(i32 noundef 1)
+  %276 = tail call i32 @dotneato_usage(i32 noundef 1), !range !4
   br label %338
 
 277:                                              ; preds = %104
   %278 = load ptr, ptr %70, align 8
-  %279 = add i64 %.2231.ph, 1
-  %280 = getelementptr inbounds ptr, ptr %278, i64 %.2231.ph
+  %279 = add i64 %.2229.ph, 1
+  %280 = getelementptr inbounds ptr, ptr %278, i64 %.2229.ph
   store ptr %77, ptr %280, align 8
-  br label %.thread188
+  br label %.thread186
 
-.thread188:                                       ; preds = %74, %269, %266, %268, %255, %251, %253, %246, %getFlagOpt.exit160, %240, %getFlagOpt.exit, %271, %270, %getFlagOpt.exit157, %197, %127, %120, %113, %277
-  %.4 = phi i32 [ %storemerge125229, %277 ], [ %storemerge125229, %271 ], [ %storemerge125229, %270 ], [ %storemerge125229, %269 ], [ %storemerge125229, %268 ], [ %storemerge125229, %266 ], [ %storemerge125229, %255 ], [ %storemerge125229, %246 ], [ %storemerge125229, %251 ], [ %storemerge125229, %253 ], [ %.3174, %240 ], [ %.3174, %getFlagOpt.exit160 ], [ %.2173, %getFlagOpt.exit157 ], [ %storemerge125229, %197 ], [ %.0171, %getFlagOpt.exit ], [ %storemerge125229, %127 ], [ %storemerge125229, %120 ], [ %storemerge125229, %113 ], [ %storemerge125229, %74 ]
-  %.3 = phi i64 [ %279, %277 ], [ %.2231.ph, %271 ], [ %.2231.ph, %270 ], [ %.2231.ph, %269 ], [ %.2231.ph, %268 ], [ %.2231.ph, %266 ], [ %.2231.ph, %255 ], [ %.2231.ph, %246 ], [ %.2231.ph, %251 ], [ %.2231.ph, %253 ], [ %.2231.ph, %240 ], [ %.2231.ph, %getFlagOpt.exit160 ], [ %.2231.ph, %getFlagOpt.exit157 ], [ %.2231.ph, %197 ], [ %.2231.ph, %getFlagOpt.exit ], [ %.2231.ph, %127 ], [ %.2231.ph, %120 ], [ %.2231.ph, %113 ], [ %.2231.ph, %74 ]
+.thread186:                                       ; preds = %74, %269, %266, %268, %255, %251, %253, %246, %getFlagOpt.exit158, %240, %getFlagOpt.exit, %271, %270, %getFlagOpt.exit155, %197, %127, %120, %113, %277
+  %.4 = phi i32 [ %storemerge124227, %277 ], [ %storemerge124227, %271 ], [ %storemerge124227, %270 ], [ %storemerge124227, %269 ], [ %storemerge124227, %268 ], [ %storemerge124227, %266 ], [ %storemerge124227, %255 ], [ %storemerge124227, %246 ], [ %storemerge124227, %251 ], [ %storemerge124227, %253 ], [ %.3172, %getFlagOpt.exit158 ], [ %.3172, %240 ], [ %.2171, %getFlagOpt.exit155 ], [ %storemerge124227, %197 ], [ %.0169, %getFlagOpt.exit ], [ %storemerge124227, %127 ], [ %storemerge124227, %120 ], [ %storemerge124227, %113 ], [ %storemerge124227, %74 ]
+  %.3 = phi i64 [ %279, %277 ], [ %.2229.ph, %271 ], [ %.2229.ph, %270 ], [ %.2229.ph, %269 ], [ %.2229.ph, %268 ], [ %.2229.ph, %266 ], [ %.2229.ph, %255 ], [ %.2229.ph, %246 ], [ %.2229.ph, %251 ], [ %.2229.ph, %253 ], [ %.2229.ph, %getFlagOpt.exit158 ], [ %.2229.ph, %240 ], [ %.2229.ph, %getFlagOpt.exit155 ], [ %.2229.ph, %197 ], [ %.2229.ph, %getFlagOpt.exit ], [ %.2229.ph, %127 ], [ %.2229.ph, %120 ], [ %.2229.ph, %113 ], [ %.2229.ph, %74 ]
   %281 = add nsw i32 %.4, 1
   %282 = icmp slt i32 %281, %1
-  br i1 %282, label %.outer, label %._crit_edge233
+  br i1 %282, label %.outer, label %._crit_edge231
 
-.thread188.thread:                                ; preds = %getFlagOpt.exit154
-  %283 = add nsw i32 %.1172, 1
+.thread186.thread:                                ; preds = %getFlagOpt.exit152
+  %283 = add nsw i32 %.1170, 1
   %284 = icmp slt i32 %283, %1
-  br i1 %284, label %74, label %._crit_edge233.thread269
+  br i1 %284, label %74, label %._crit_edge231.thread267
 
-._crit_edge233:                                   ; preds = %.thread188
-  %285 = icmp eq i32 %.0106230, 0
-  br i1 %285, label %._crit_edge233.thread, label %._crit_edge233.thread269
+._crit_edge231:                                   ; preds = %.thread186
+  %285 = icmp eq i32 %.0106228, 0
+  br i1 %285, label %._crit_edge231.thread, label %._crit_edge231.thread267
 
-._crit_edge233.thread:                            ; preds = %gv_calloc.exit, %._crit_edge233
+._crit_edge231.thread:                            ; preds = %gv_calloc.exit, %._crit_edge231
   %286 = load ptr, ptr %28, align 8
   %287 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(11) @.str.26) #26
   %288 = icmp eq i32 %287, 0
   br i1 %288, label %300, label %289
 
-289:                                              ; preds = %._crit_edge233.thread
+289:                                              ; preds = %._crit_edge231.thread
   %290 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(13) @.str.27) #26
   %291 = icmp eq i32 %290, 0
   br i1 %291, label %300, label %292
@@ -1004,14 +1002,14 @@ getFlagOpt.exit160:                               ; preds = %228, %224
   %299 = icmp eq i8 %strcmpload, 0
   br i1 %299, label %300, label %301
 
-300:                                              ; preds = %298, %295, %292, %289, %._crit_edge233.thread
+300:                                              ; preds = %298, %295, %292, %289, %._crit_edge231.thread
   br label %301
 
 301:                                              ; preds = %300, %298
   %.0104 = phi ptr [ @.str.18, %300 ], [ %286, %298 ]
   %302 = tail call i32 @gvlayout_select(ptr noundef nonnull %0, ptr noundef nonnull %.0104) #20
   %303 = icmp eq i32 %302, 999
-  br i1 %303, label %304, label %._crit_edge233.thread269
+  br i1 %303, label %304, label %._crit_edge231.thread267
 
 304:                                              ; preds = %301
   %305 = load ptr, ptr @stderr, align 8
@@ -1042,26 +1040,26 @@ getFlagOpt.exit160:                               ; preds = %228, %224
 
 321:                                              ; preds = %317, %319, %309
   %322 = load i32, ptr @GvExitOnUsage, align 4
-  %.not127 = icmp eq i32 %322, 0
-  br i1 %.not127, label %338, label %323
+  %.not126 = icmp eq i32 %322, 0
+  br i1 %.not126, label %338, label %323
 
 323:                                              ; preds = %321
   tail call fastcc void @graphviz_exit(i32 noundef 1) #21
   unreachable
 
-._crit_edge233.thread269:                         ; preds = %.thread188.thread, %301, %._crit_edge233
+._crit_edge231.thread267:                         ; preds = %.thread186.thread, %301, %._crit_edge231
   %324 = getelementptr inbounds i8, ptr %0, i64 288
   %325 = load ptr, ptr %324, align 8
-  %.not128 = icmp eq ptr %325, null
-  br i1 %.not128, label %329, label %326
+  %.not127 = icmp eq ptr %325, null
+  br i1 %.not127, label %329, label %326
 
-326:                                              ; preds = %._crit_edge233.thread269
+326:                                              ; preds = %._crit_edge231.thread267
   %327 = getelementptr inbounds i8, ptr %325, i64 96
   %328 = load ptr, ptr %327, align 8
-  %.not129 = icmp eq ptr %328, null
-  br i1 %.not129, label %329, label %334
+  %.not128 = icmp eq ptr %328, null
+  br i1 %.not128, label %329, label %334
 
-329:                                              ; preds = %326, %._crit_edge233.thread269
+329:                                              ; preds = %326, %._crit_edge231.thread267
   %330 = tail call zeroext i1 @gvjobs_output_langname(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #20
   br i1 %330, label %334, label %331
 
@@ -1072,8 +1070,8 @@ getFlagOpt.exit160:                               ; preds = %228, %224
 
 334:                                              ; preds = %329, %326
   %335 = tail call ptr @agattr(ptr noundef null, i32 noundef 1, ptr noundef nonnull @.str.32, ptr noundef null) #20
-  %.not130 = icmp eq ptr %335, null
-  br i1 %.not130, label %336, label %338
+  %.not129 = icmp eq ptr %335, null
+  br i1 %.not129, label %336, label %338
 
 336:                                              ; preds = %334
   %337 = tail call ptr @agattr(ptr noundef null, i32 noundef 1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33) #20
@@ -1962,16 +1960,16 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_copy(ptr nonnull %3, ptr nonnull %4)
+  call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
   %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull %3) #20
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   br label %vagxbprint.exit
 
 8:                                                ; preds = %2
@@ -2079,7 +2077,7 @@ agxbnext.exit.i:                                  ; preds = %37, %35
 
 vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %45, %48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2659,20 +2657,20 @@ gv_realloc.exit:                                  ; preds = %12, %19, %21
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #15
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #16
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #16
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #16
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #17
@@ -2728,3 +2726,4 @@ attributes #28 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{i32 -2147483647, i32 -2147483648}

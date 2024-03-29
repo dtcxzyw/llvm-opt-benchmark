@@ -81,8 +81,8 @@ define dso_local void @XLogCheckInvalidPages() local_unnamed_addr #0 {
 4:                                                ; preds = %0
   call void @hash_seq_init(ptr noundef nonnull %1, ptr noundef nonnull %2) #7
   %5 = call ptr @hash_seq_search(ptr noundef nonnull %1) #7
-  %.not12 = icmp eq ptr %5, null
-  br i1 %.not12, label %.critedge, label %.lr.ph
+  %.not8 = icmp eq ptr %5, null
+  br i1 %.not8, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %report_invalid_page.exit
   %6 = phi ptr [ %17, %report_invalid_page.exit ], [ %5, %4 ]
@@ -103,10 +103,9 @@ define dso_local void @XLogCheckInvalidPages() local_unnamed_addr #0 {
   br i1 %14, label %.sink.split.i, label %report_invalid_page.exit
 
 .sink.split.i:                                    ; preds = %.lr.ph
-  %15 = and i8 %12, 1
-  %.not11 = icmp eq i8 %15, 0
-  %..i = select i1 %.not11, i32 99, i32 96
-  %.str.12..str.13.i = select i1 %.not11, ptr @.str.13, ptr @.str.12
+  %15 = trunc i8 %12 to i1
+  %..i = select i1 %15, i32 96, i32 99
+  %.str.12..str.13.i = select i1 %15, ptr @.str.12, ptr @.str.13
   %16 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull %.str.12..str.13.i, i32 noundef %10, ptr noundef %13) #7
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %..i, ptr noundef nonnull @__func__.report_invalid_page) #7
   br label %report_invalid_page.exit
@@ -119,9 +118,8 @@ report_invalid_page.exit:                         ; preds = %.lr.ph, %.sink.spli
 
 ._crit_edge:                                      ; preds = %report_invalid_page.exit
   %18 = load i8, ptr @ignore_invalid_pages, align 1
-  %19 = and i8 %18, 1
-  %.not7 = icmp eq i8 %19, 0
-  %20 = select i1 %.not7, i32 23, i32 19
+  %19 = trunc i8 %18 to i1
+  %20 = select i1 %19, i32 19, i32 23
   %21 = call zeroext i1 @errstart(i32 noundef %20, ptr noundef null) #7
   br i1 %21, label %22, label %.critedge
 
@@ -202,8 +200,8 @@ define dso_local i32 @XLogReadBufferForRedoExtended(ptr noundef %0, i8 noundef z
   unreachable
 
 30:                                               ; preds = %17
-  %brmerge42.demorgan = and i1 %19, %.not
-  br i1 %brmerge42.demorgan, label %31, label %34
+  %brmerge41.demorgan = and i1 %19, %.not
+  br i1 %brmerge41.demorgan, label %31, label %34
 
 31:                                               ; preds = %30
   %32 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #8
@@ -215,11 +213,10 @@ define dso_local i32 @XLogReadBufferForRedoExtended(ptr noundef %0, i8 noundef z
 34:                                               ; preds = %30
   %35 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %22, i64 0, i64 %23, i32 7
   %36 = load i8, ptr %35, align 2
-  %37 = and i8 %36, 1
-  %.not39 = icmp eq i8 %37, 0
+  %37 = trunc i8 %36 to i1
   %38 = load i32, ptr %7, align 4
   %39 = load i32, ptr %8, align 4
-  br i1 %.not39, label %78, label %40
+  br i1 %37, label %40, label %78
 
 40:                                               ; preds = %34
   %41 = select i1 %3, i32 2, i32 1
@@ -297,8 +294,8 @@ BufferGetPage.exit:                               ; preds = %45, %51
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %80 = call i32 @XLogReadBufferExtended(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, i32 noundef %38, i32 noundef %39, i32 noundef %2, i32 noundef %79)
   store i32 %80, ptr %4, align 4
-  %.not46 = icmp eq i32 %80, 0
-  br i1 %.not46, label %102, label %81
+  %.not45 = icmp eq i32 %80, 0
+  br i1 %.not45, label %102, label %81
 
 81:                                               ; preds = %78
   %82 = add i32 %2, -3
@@ -331,7 +328,7 @@ thread-pre-split:                                 ; preds = %85, %84
   %92 = zext nneg i32 %91 to i64
   %93 = getelementptr ptr, ptr %90, i64 %92
   %94 = load ptr, ptr %93, align 8
-  br label %BufferGetPage.exit45
+  br label %BufferGetPage.exit44
 
 95:                                               ; preds = %86
   %96 = load ptr, ptr @BufferBlocks, align 8
@@ -339,18 +336,18 @@ thread-pre-split:                                 ; preds = %85, %84
   %98 = sext i32 %97 to i64
   %99 = shl nsw i64 %98, 13
   %100 = getelementptr i8, ptr %96, i64 %99
-  br label %BufferGetPage.exit45
+  br label %BufferGetPage.exit44
 
-BufferGetPage.exit45:                             ; preds = %89, %95
-  %.0.i.i44 = phi ptr [ %94, %89 ], [ %100, %95 ]
-  %.val43 = load i64, ptr %.0.i.i44, align 4
-  %101 = call i64 @llvm.fshl.i64(i64 %.val43, i64 %.val43, i64 32)
-  %.not40 = icmp ule i64 %11, %101
-  %. = zext i1 %.not40 to i32
+BufferGetPage.exit44:                             ; preds = %89, %95
+  %.0.i.i43 = phi ptr [ %94, %89 ], [ %100, %95 ]
+  %.val42 = load i64, ptr %.0.i.i43, align 4
+  %101 = call i64 @llvm.fshl.i64(i64 %.val42, i64 %.val42, i64 32)
+  %.not39 = icmp ule i64 %11, %101
+  %. = zext i1 %.not39 to i32
   br label %102
 
-102:                                              ; preds = %78, %BufferGetPage.exit45, %72, %76
-  %.0 = phi i32 [ 2, %76 ], [ 2, %72 ], [ %., %BufferGetPage.exit45 ], [ 3, %78 ]
+102:                                              ; preds = %78, %BufferGetPage.exit44, %72, %76
+  %.0 = phi i32 [ 2, %76 ], [ 2, %72 ], [ %., %BufferGetPage.exit44 ], [ 3, %78 ]
   ret i32 %.0
 }
 
@@ -475,9 +472,8 @@ define internal fastcc void @log_invalid_page(i64 %0, i32 %1, i32 noundef %2, i3
   %8 = alloca %struct.HASHCTL, align 8
   %9 = zext i1 %4 to i8
   %10 = load i8, ptr @reachedConsistency, align 1
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %22, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %22
 
 12:                                               ; preds = %5
   %.sroa.025.0.extract.trunc.i = trunc i64 %0 to i32
@@ -497,9 +493,8 @@ define internal fastcc void @log_invalid_page(i64 %0, i32 %1, i32 noundef %2, i3
 report_invalid_page.exit:                         ; preds = %12, %.sink.split.i
   tail call void @pfree(ptr noundef %13) #7
   %16 = load i8, ptr @ignore_invalid_pages, align 1
-  %17 = and i8 %16, 1
-  %.not15 = icmp eq i8 %17, 0
-  %18 = select i1 %.not15, i32 23, i32 19
+  %17 = trunc i8 %16 to i1
+  %18 = select i1 %17, i32 19, i32 23
   %19 = tail call zeroext i1 @errstart(i32 noundef %18, ptr noundef null) #7
   br i1 %19, label %20, label %22
 
@@ -513,25 +508,25 @@ report_invalid_page.exit:                         ; preds = %12, %.sink.split.i
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %22
-  %.sroa.025.0.extract.trunc.i20 = trunc i64 %0 to i32
-  %.sroa.226.0.extract.shift.i21 = lshr i64 %0, 32
-  %.sroa.226.0.extract.trunc.i22 = trunc i64 %.sroa.226.0.extract.shift.i21 to i32
-  %25 = tail call ptr @GetRelationPath(i32 noundef %.sroa.226.0.extract.trunc.i22, i32 noundef %.sroa.025.0.extract.trunc.i20, i32 noundef %1, i32 noundef -1, i32 noundef %2) #7
+  %.sroa.025.0.extract.trunc.i15 = trunc i64 %0 to i32
+  %.sroa.226.0.extract.shift.i16 = lshr i64 %0, 32
+  %.sroa.226.0.extract.trunc.i17 = trunc i64 %.sroa.226.0.extract.shift.i16 to i32
+  %25 = tail call ptr @GetRelationPath(i32 noundef %.sroa.226.0.extract.trunc.i17, i32 noundef %.sroa.025.0.extract.trunc.i15, i32 noundef %1, i32 noundef -1, i32 noundef %2) #7
   %26 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #7
-  br i1 %26, label %.sink.split.i23, label %report_invalid_page.exit26
+  br i1 %26, label %.sink.split.i18, label %report_invalid_page.exit21
 
-.sink.split.i23:                                  ; preds = %24
-  %..i24 = select i1 %4, i32 96, i32 99
-  %.str.12..str.13.i25 = select i1 %4, ptr @.str.12, ptr @.str.13
-  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull %.str.12..str.13.i25, i32 noundef %3, ptr noundef %25) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %..i24, ptr noundef nonnull @__func__.report_invalid_page) #7
-  br label %report_invalid_page.exit26
+.sink.split.i18:                                  ; preds = %24
+  %..i19 = select i1 %4, i32 96, i32 99
+  %.str.12..str.13.i20 = select i1 %4, ptr @.str.12, ptr @.str.13
+  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull %.str.12..str.13.i20, i32 noundef %3, ptr noundef %25) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %..i19, ptr noundef nonnull @__func__.report_invalid_page) #7
+  br label %report_invalid_page.exit21
 
-report_invalid_page.exit26:                       ; preds = %24, %.sink.split.i23
+report_invalid_page.exit21:                       ; preds = %24, %.sink.split.i18
   tail call void @pfree(ptr noundef %25) #7
   br label %28
 
-28:                                               ; preds = %report_invalid_page.exit26, %22
+28:                                               ; preds = %report_invalid_page.exit21, %22
   %29 = load ptr, ptr @invalid_page_tab, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %35
@@ -556,9 +551,8 @@ report_invalid_page.exit26:                       ; preds = %24, %.sink.split.i2
   store i32 %3, ptr %38, align 8
   %39 = call ptr @hash_search(ptr noundef %36, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7) #7
   %40 = load i8, ptr %7, align 1
-  %41 = and i8 %40, 1
-  %.not18 = icmp eq i8 %41, 0
-  br i1 %.not18, label %42, label %44
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %44, label %42
 
 42:                                               ; preds = %35
   %43 = getelementptr inbounds i8, ptr %39, i64 20

@@ -12,9 +12,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Finalize() #0 {
   %1 = load i8, ptr @ompi_mpi_param_check, align 1
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %8, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %8
 
 3:                                                ; preds = %0
   %4 = load volatile i32, ptr @ompi_instance_count, align 4

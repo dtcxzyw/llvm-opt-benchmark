@@ -2214,10 +2214,9 @@ if.else.i.i:                                      ; preds = %for.cond.preheader.
 
 _ZNK6icu_756BMPSet12containsSlowEiii.exit:        ; preds = %if.else.i.i, %if.else154, %if.end.i.i, %lor.lhs.false.i.i, %for.cond.preheader.i.i
   %retval.0.i.i = phi i32 [ %19, %if.else154 ], [ %20, %lor.lhs.false.i.i ], [ %20, %if.end.i.i ], [ %20, %for.cond.preheader.i.i ], [ %shr.hi.addr.0.i.i, %if.else.i.i ]
-  %27 = and i32 %retval.0.i.i, 1
-  %28 = icmp eq i32 %27, 0
-  %cmp167.not = xor i1 %cmp27.not, %28
-  br i1 %cmp167.not, label %if.end171, label %return
+  %27 = trunc i32 %retval.0.i.i to i1
+  %28 = xor i1 %cmp27.not, %27
+  br i1 %28, label %return, label %if.end171
 
 if.end171:                                        ; preds = %_ZNK6icu_756BMPSet12containsSlowEiii.exit, %if.then149
   %add.ptr172 = getelementptr inbounds i8, ptr %s.addr.9, i64 3
@@ -2294,11 +2293,10 @@ if.then234:                                       ; preds = %land.lhs.true228
   %arrayidx236 = getelementptr inbounds [64 x i32], ptr %table7FF, i64 0, i64 %idxprom235
   %37 = load i32, ptr %arrayidx236, align 4
   %and238 = and i32 %conv122, 31
-  %38 = shl nuw i32 1, %and238
-  %39 = and i32 %37, %38
-  %40 = icmp eq i32 %39, 0
-  %cmp243.not = xor i1 %cmp27.not, %40
-  br i1 %cmp243.not, label %if.end246, label %return
+  %38 = lshr i32 %37, %and238
+  %39 = trunc i32 %38 to i1
+  %40 = xor i1 %cmp27.not, %39
+  br i1 %40, label %return, label %if.end246
 
 if.end246:                                        ; preds = %if.then234
   %incdec.ptr247 = getelementptr inbounds i8, ptr %s.addr.9, i64 2
@@ -2417,11 +2415,10 @@ if.then45:                                        ; preds = %if.end42
   %arrayidx48 = getelementptr inbounds [64 x i32], ptr %table7FF, i64 0, i64 %idxprom47
   %14 = load i32, ptr %arrayidx48, align 4
   %shr = ashr i32 %call, 6
-  %15 = shl nuw i32 1, %shr
-  %16 = and i32 %14, %15
-  %17 = icmp eq i32 %16, 0
-  %cmp52.not = xor i1 %cmp.not, %17
-  br i1 %cmp52.not, label %do.cond99, label %if.then53
+  %15 = lshr i32 %14, %shr
+  %16 = trunc i32 %15 to i1
+  %17 = xor i1 %cmp.not, %16
+  br i1 %17, label %if.then53, label %do.cond99
 
 if.then53:                                        ; preds = %if.then45
   %add54 = add nsw i32 %13, 1
@@ -2501,10 +2498,9 @@ if.else.i.i:                                      ; preds = %for.cond.preheader.
 
 _ZNK6icu_756BMPSet12containsSlowEiii.exit:        ; preds = %if.else.i.i, %if.else72, %if.end.i.i, %lor.lhs.false.i.i, %for.cond.preheader.i.i
   %retval.0.i.i = phi i32 [ %19, %if.else72 ], [ %20, %lor.lhs.false.i.i ], [ %20, %if.end.i.i ], [ %20, %for.cond.preheader.i.i ], [ %shr.hi.addr.0.i.i, %if.else.i.i ]
-  %27 = and i32 %retval.0.i.i, 1
-  %28 = icmp eq i32 %27, 0
-  %cmp81.not = xor i1 %cmp.not, %28
-  br i1 %cmp81.not, label %do.cond99, label %if.then82
+  %27 = trunc i32 %retval.0.i.i to i1
+  %28 = xor i1 %cmp.not, %27
+  br i1 %28, label %if.then82, label %do.cond99
 
 if.then82:                                        ; preds = %_ZNK6icu_756BMPSet12containsSlowEiii.exit
   %add83 = add nsw i32 %13, 1
@@ -2555,10 +2551,9 @@ if.else.i.i43:                                    ; preds = %for.cond.preheader.
 
 _ZNK6icu_756BMPSet12containsSlowEiii.exit55:      ; preds = %if.else.i.i43, %if.else86, %if.end.i.i32, %lor.lhs.false.i.i36, %for.cond.preheader.i.i39
   %retval.0.i.i34 = phi i32 [ %29, %if.else86 ], [ %30, %lor.lhs.false.i.i36 ], [ %30, %if.end.i.i32 ], [ %30, %for.cond.preheader.i.i39 ], [ %shr.hi.addr.0.i.i51, %if.else.i.i43 ]
-  %37 = and i32 %retval.0.i.i34, 1
-  %38 = icmp eq i32 %37, 0
-  %cmp93.not = xor i1 %cmp.not, %38
-  br i1 %cmp93.not, label %do.cond99, label %if.then94
+  %37 = trunc i32 %retval.0.i.i34 to i1
+  %38 = xor i1 %cmp.not, %37
+  br i1 %38, label %if.then94, label %do.cond99
 
 if.then94:                                        ; preds = %_ZNK6icu_756BMPSet12containsSlowEiii.exit55
   %add95 = add nsw i32 %13, 1

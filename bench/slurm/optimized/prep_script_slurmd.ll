@@ -206,14 +206,13 @@ define i32 @slurmd_script(ptr nocapture noundef %0, ptr noundef %1, i1 noundef z
 
 77:                                               ; preds = %66
   %78 = load i8, ptr %7, align 1
-  %79 = and i8 %78, 1
-  %.not.i = icmp eq i8 %79, 0
-  br i1 %.not.i, label %80, label %_run_spank_job_script.exit
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %_run_spank_job_script.exit, label %80
 
 80:                                               ; preds = %77
   %81 = load i32, ptr %5, align 4
-  %.not15.i = icmp eq i32 %81, 0
-  br i1 %.not15.i, label %84, label %82
+  %.not.i = icmp eq i32 %81, 0
+  br i1 %.not.i, label %84, label %82
 
 82:                                               ; preds = %80
   %83 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.65, ptr noundef nonnull %12, i32 noundef %81) #8

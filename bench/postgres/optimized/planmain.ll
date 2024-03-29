@@ -63,9 +63,8 @@ list_length.exit:                                 ; preds = %3
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 118
   %39 = load i8, ptr %38, align 2
-  %40 = and i8 %39, 1
-  %.not76 = icmp eq i8 %40, 0
-  br i1 %.not76, label %54, label %41
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %54
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds i8, ptr %0, i64 24

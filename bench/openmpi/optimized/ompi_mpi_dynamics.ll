@@ -28,9 +28,8 @@ declare void @opal_finalize_append_cleanup(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal noundef i32 @ompi_mpi_dynamics_finalize() #3 {
   %1 = load i8, ptr @ompi_mpi_dynamics_enabled, align 1
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %3, label %5
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %5, label %3
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @ompi_mpi_dynamics_disabled_msg, align 8
@@ -45,9 +44,8 @@ define internal noundef i32 @ompi_mpi_dynamics_finalize() #3 {
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @ompi_mpi_dynamics_is_enabled(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @ompi_mpi_dynamics_enabled, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp ne i8 %3, 0
-  br i1 %.not, label %8, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @opal_show_help, align 8
@@ -56,7 +54,7 @@ define noundef zeroext i1 @ompi_mpi_dynamics_is_enabled(ptr noundef %0) local_un
   br label %8
 
 8:                                                ; preds = %1, %4
-  ret i1 %.not
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

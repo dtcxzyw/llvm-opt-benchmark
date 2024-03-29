@@ -91,16 +91,14 @@ rb_current_ractor.exit:                           ; preds = %vm_locked.exit, %vm
 .preheader.i:                                     ; preds = %rb_current_ractor.exit
   %24 = getelementptr inbounds i8, ptr %2, i64 456
   %25 = load i8, ptr %24, align 8
-  %26 = and i8 %25, 1
-  %.not1112.i = icmp eq i8 %26, 0
-  br i1 %.not1112.i, label %vm_lock_enter.exit, label %.lr.ph.i
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %.lr.ph.i, label %vm_lock_enter.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   tail call void @rb_ractor_sched_barrier_join(ptr noundef nonnull %2, ptr noundef %.0.i.i) #5
   %27 = load i8, ptr %24, align 8
-  %28 = and i8 %27, 1
-  %.not11.i = icmp eq i8 %28, 0
-  br i1 %.not11.i, label %vm_lock_enter.exit, label %.lr.ph.i, !llvm.loop !7
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %.lr.ph.i, label %vm_lock_enter.exit, !llvm.loop !7
 
 vm_lock_enter.exit:                               ; preds = %.lr.ph.i, %rb_current_ractor.exit, %.preheader.i
   store ptr %.0.i.i, ptr %3, align 8
@@ -214,16 +212,14 @@ vm_locked.exit:                                   ; preds = %2, %6, %10
 .preheader.i:                                     ; preds = %14
   %18 = getelementptr inbounds i8, ptr %3, i64 456
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not1112.i = icmp eq i8 %20, 0
-  br i1 %.not1112.i, label %.loopexit.i, label %.lr.ph.i
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   tail call void @rb_ractor_sched_barrier_join(ptr noundef nonnull %3, ptr noundef %0) #5
   %21 = load i8, ptr %18, align 8
-  %22 = and i8 %21, 1
-  %.not11.i = icmp eq i8 %22, 0
-  br i1 %.not11.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !7
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.preheader.i, %14
   store ptr %0, ptr %4, align 8
@@ -293,16 +289,14 @@ rb_current_ractor.exit:                           ; preds = %0, %3, %7
 .preheader.i:                                     ; preds = %rb_current_ractor.exit
   %13 = getelementptr inbounds i8, ptr %1, i64 456
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not1112.i = icmp eq i8 %15, 0
-  br i1 %.not1112.i, label %vm_lock_enter.exit, label %.lr.ph.i
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.lr.ph.i, label %vm_lock_enter.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   tail call void @rb_ractor_sched_barrier_join(ptr noundef nonnull %1, ptr noundef %.0.i.i) #5
   %16 = load i8, ptr %13, align 8
-  %17 = and i8 %16, 1
-  %.not11.i = icmp eq i8 %17, 0
-  br i1 %.not11.i, label %vm_lock_enter.exit, label %.lr.ph.i, !llvm.loop !7
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %.lr.ph.i, label %vm_lock_enter.exit, !llvm.loop !7
 
 vm_lock_enter.exit:                               ; preds = %.lr.ph.i, %rb_current_ractor.exit, %.preheader.i
   %18 = getelementptr inbounds i8, ptr %1, i64 96

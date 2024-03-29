@@ -292,8 +292,7 @@ entry:
 define internal noundef zeroext i1 @qobject_output_type_bool(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef readonly %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %0 = load i8, ptr %obj, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %call1 = tail call ptr @qbool_from_bool(i1 noundef zeroext %tobool) #7
   tail call fastcc void @qobject_output_add_obj(ptr noundef %v, ptr noundef %name, ptr noundef %call1)
   ret i1 true

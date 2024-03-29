@@ -48,12 +48,11 @@ define dso_local noundef zeroext i1 @RestoreArchivedFile(ptr noundef %0, ptr nou
   %9 = alloca i64, align 8
   %10 = alloca i32, align 4
   %11 = load i8, ptr @ArchiveRecoveryRequested, align 1
-  %12 = and i8 %11, 1
-  %.not47 = icmp eq i8 %12, 0
+  %12 = trunc i8 %11 to i1
   %13 = load ptr, ptr @recoveryRestoreCommand, align 8
-  %14 = icmp eq ptr %13, null
-  %or.cond9 = select i1 %.not47, i1 true, i1 %14
-  br i1 %or.cond9, label %100, label %15
+  %14 = icmp ne ptr %13, null
+  %or.cond9.not = select i1 %12, i1 %14, i1 false
+  br i1 %or.cond9.not, label %15, label %100
 
 15:                                               ; preds = %5
   %strcmpload = load i8, ptr %13, align 1
@@ -155,13 +154,12 @@ define dso_local noundef zeroext i1 @RestoreArchivedFile(ptr noundef %0, ptr nou
   br i1 %.not50, label %75, label %68
 
 68:                                               ; preds = %65
-  %69 = icmp sge i64 %67, %3
+  %69 = icmp slt i64 %67, %3
   %70 = load i8, ptr @StandbyMode, align 1
-  %71 = and i8 %70, 1
-  %.not51 = icmp eq i8 %71, 0
-  %or.cond52.not = or i1 %69, %.not51
-  %spec.select53 = select i1 %or.cond52.not, i32 22, i32 14
-  %72 = call zeroext i1 @errstart(i32 noundef %spec.select53, ptr noundef null) #10
+  %71 = trunc i8 %70 to i1
+  %or.cond51 = and i1 %69, %71
+  %spec.select52 = select i1 %or.cond51, i32 14, i32 22
+  %72 = call zeroext i1 @errstart(i32 noundef %spec.select52, ptr noundef null) #10
   br i1 %72, label %73, label %102
 
 73:                                               ; preds = %68
@@ -185,8 +183,8 @@ define dso_local noundef zeroext i1 @RestoreArchivedFile(ptr noundef %0, ptr nou
 81:                                               ; preds = %60
   %82 = tail call ptr @__errno_location() #11
   %83 = load i32, ptr %82, align 4
-  %.not55 = icmp eq i32 %83, 2
-  %84 = select i1 %.not55, i32 15, i32 22
+  %.not54 = icmp eq i32 %83, 2
+  %84 = select i1 %.not54, i32 15, i32 22
   %85 = call zeroext i1 @errstart(i32 noundef %84, ptr noundef null) #10
   br i1 %85, label %86, label %90
 
@@ -509,9 +507,8 @@ IsTLHistoryFileName.exit:                         ; preds = %21
 
 IsTLHistoryFileName.exit.thread:                  ; preds = %18, %21, %27, %IsTLHistoryFileName.exit
   %28 = load i8, ptr @IsUnderPostmaster, align 1
-  %29 = and i8 %28, 1
-  %.not4 = icmp eq i8 %29, 0
-  br i1 %.not4, label %31, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %31
 
 30:                                               ; preds = %IsTLHistoryFileName.exit.thread
   call void @PgArchWakeup() #10

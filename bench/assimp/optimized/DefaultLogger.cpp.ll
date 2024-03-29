@@ -693,9 +693,8 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %noRepeatMsg = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i8, ptr %noRepeatMsg, align 8
-  %2 = and i8 %1, 1
-  %tobool5.not = icmp eq i8 %2, 0
-  br i1 %tobool5.not, label %if.then6, label %for.end
+  %tobool5 = trunc i8 %1 to i1
+  br i1 %tobool5, label %for.end, label %if.then6
 
 if.then6:                                         ; preds = %if.then
   store i8 1, ptr %noRepeatMsg, align 8
@@ -706,46 +705,46 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   %lastMsg9 = getelementptr inbounds i8, ptr %this, i64 41
   %add = add i64 %call, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %lastMsg9, ptr align 1 %message, i64 %add, i1 false)
-  %3 = load i64, ptr %lastLen, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %lastMsg9, i64 %3
+  %2 = load i64, ptr %lastLen, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %lastMsg9, i64 %2
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %add.ptr)
   %endptr = getelementptr inbounds i8, ptr %add.ptr, i64 %strlen
   store i16 10, ptr %endptr, align 1
   %noRepeatMsg18 = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %noRepeatMsg18, align 8
-  %4 = load i64, ptr %lastLen, align 8
-  %inc = add i64 %4, 1
+  %3 = load i64, ptr %lastLen, align 8
+  %inc = add i64 %3, 1
   store i64 %inc, ptr %lastLen, align 8
   %m_StreamArray = getelementptr inbounds i8, ptr %this, i64 16
-  %5 = load ptr, ptr %m_StreamArray, align 8
+  %4 = load ptr, ptr %m_StreamArray, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not8 = icmp eq ptr %5, %6
+  %5 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i.not8 = icmp eq ptr %4, %5
   br i1 %cmp.i.not8, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.else, %for.inc
-  %7 = phi ptr [ %12, %for.inc ], [ %6, %if.else ]
-  %it.sroa.0.09 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %5, %if.else ]
-  %8 = load ptr, ptr %it.sroa.0.09, align 8
-  %9 = load i32, ptr %8, align 8
-  %and = and i32 %9, %ErrorSev
+  %6 = phi ptr [ %11, %for.inc ], [ %5, %if.else ]
+  %it.sroa.0.09 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %4, %if.else ]
+  %7 = load ptr, ptr %it.sroa.0.09, align 8
+  %8 = load i32, ptr %7, align 8
+  %and = and i32 %8, %ErrorSev
   %tobool28.not = icmp eq i32 %and, 0
   br i1 %tobool28.not, label %for.inc, label %if.then29
 
 if.then29:                                        ; preds = %for.body
-  %m_pStream = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = load ptr, ptr %m_pStream, align 8
-  %vtable = load ptr, ptr %10, align 8
+  %m_pStream = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = load ptr, ptr %m_pStream, align 8
+  %vtable = load ptr, ptr %9, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %11 = load ptr, ptr %vfn, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %lastMsg9)
+  %10 = load ptr, ptr %vfn, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %lastMsg9)
   %.pre = load ptr, ptr %_M_finish.i, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then29
-  %12 = phi ptr [ %7, %for.body ], [ %.pre, %if.then29 ]
+  %11 = phi ptr [ %6, %for.body ], [ %.pre, %if.then29 ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.09, i64 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %12
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %11
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %if.else, %if.then, %if.then6

@@ -79,9 +79,8 @@ define internal void @value_free(ptr nocapture noundef readonly %0) #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not4 = icmp eq i8 %7, 0
-  br i1 %.not4, label %9, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %4
   tail call void @tvb_free_chain(ptr noundef nonnull %3) #9
@@ -104,9 +103,8 @@ define internal noundef zeroext i1 @val_from_literal(ptr nocapture noundef %0, p
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not4.i = icmp eq i8 %10, 0
-  br i1 %.not4.i, label %value_free.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %value_free.exit
 
 11:                                               ; preds = %7
   tail call void @tvb_free_chain(ptr noundef nonnull %6) #9
@@ -152,9 +150,8 @@ define internal noundef zeroext i1 @val_from_string(ptr nocapture noundef %0, pt
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not4.i = icmp eq i8 %10, 0
-  br i1 %.not4.i, label %value_free.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %value_free.exit
 
 11:                                               ; preds = %7
   tail call void @tvb_free_chain(ptr noundef nonnull %6) #9
@@ -198,9 +195,8 @@ define internal noundef zeroext i1 @val_from_charconst(ptr nocapture noundef %0,
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not4.i = icmp eq i8 %9, 0
-  br i1 %.not4.i, label %value_free.exit, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %value_free.exit
 
 10:                                               ; preds = %6
   tail call void @tvb_free_chain(ptr noundef nonnull %5) #9
@@ -373,9 +369,8 @@ define internal void @value_set(ptr nocapture noundef %0, ptr noundef %1, ptr no
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not4.i = icmp eq i8 %11, 0
-  br i1 %.not4.i, label %value_free.exit, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %value_free.exit
 
 12:                                               ; preds = %8
   tail call void @tvb_free_chain(ptr noundef nonnull %7) #9

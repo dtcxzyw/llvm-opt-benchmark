@@ -99,9 +99,8 @@ define dso_local i32 @CreateSchemaCommand(ptr noundef %0, ptr noundef %1, i32 no
   %42 = load i32, ptr %5, align 4
   call void @check_can_set_role(i32 noundef %42, i32 noundef %.056) #4
   %43 = load i8, ptr @allowSystemTableMods, align 1
-  %44 = and i8 %43, 1
-  %.not67 = icmp eq i8 %44, 0
-  br i1 %.not67, label %45, label %52
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %52, label %45
 
 45:                                               ; preds = %41
   %46 = call zeroext i1 @IsReservedName(ptr noundef %.054) #4
@@ -119,14 +118,13 @@ define dso_local i32 @CreateSchemaCommand(ptr noundef %0, ptr noundef %1, i32 no
 52:                                               ; preds = %45, %41
   %53 = getelementptr inbounds i8, ptr %0, i64 32
   %54 = load i8, ptr %53, align 8
-  %55 = and i8 %54, 1
-  %.not68 = icmp eq i8 %55, 0
-  br i1 %.not68, label %65, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %65
 
 56:                                               ; preds = %52
   %57 = call i32 @get_namespace_oid(ptr noundef %.054, i1 noundef zeroext true) #4
-  %.not69 = icmp eq i32 %57, 0
-  br i1 %.not69, label %65, label %58
+  %.not67 = icmp eq i32 %57, 0
+  br i1 %.not67, label %65, label %58
 
 58:                                               ; preds = %56
   store i32 2615, ptr %7, align 8
@@ -146,8 +144,8 @@ define dso_local i32 @CreateSchemaCommand(ptr noundef %0, ptr noundef %1, i32 no
 
 65:                                               ; preds = %56, %52
   %66 = load i32, ptr %5, align 4
-  %.not70 = icmp eq i32 %66, %.056
-  br i1 %.not70, label %70, label %67
+  %.not68 = icmp eq i32 %66, %.056
+  br i1 %.not68, label %70, label %67
 
 67:                                               ; preds = %65
   %68 = load i32, ptr %6, align 4
@@ -173,8 +171,8 @@ define dso_local i32 @CreateSchemaCommand(ptr noundef %0, ptr noundef %1, i32 no
 
 78:                                               ; preds = %74
   %79 = load i8, ptr %.057, align 1
-  %.not71 = icmp eq i8 %79, 0
-  br i1 %.not71, label %81, label %80
+  %.not69 = icmp eq i8 %79, 0
+  br i1 %.not69, label %81, label %80
 
 80:                                               ; preds = %78
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %8, ptr noundef nonnull @.str.5, ptr noundef nonnull %.057) #4
@@ -194,17 +192,17 @@ define dso_local i32 @CreateSchemaCommand(ptr noundef %0, ptr noundef %1, i32 no
   %86 = load ptr, ptr %85, align 8
   %87 = call ptr @transformCreateSchemaStmtElements(ptr noundef %86, ptr noundef %.054) #4
   %88 = getelementptr inbounds i8, ptr %87, i64 4
-  %.not72 = icmp eq ptr %87, null
-  br i1 %.not72, label %._crit_edge, label %.lr.ph
+  %.not70 = icmp eq ptr %87, null
+  br i1 %.not70, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %81
   %89 = getelementptr inbounds i8, ptr %87, i64 16
   %90 = load i32, ptr %88, align 4
   %91 = icmp sgt i32 %90, 0
-  br i1 %91, label %.lr.ph79, label %._crit_edge
+  br i1 %91, label %.lr.ph77, label %._crit_edge
 
-.lr.ph79:                                         ; preds = %.lr.ph, %.lr.ph79
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph79 ], [ 0, %.lr.ph ]
+.lr.ph77:                                         ; preds = %.lr.ph, %.lr.ph77
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph77 ], [ 0, %.lr.ph ]
   %92 = load ptr, ptr %89, align 8
   %93 = getelementptr %union.ListCell, ptr %92, i64 %indvars.iv
   %94 = load ptr, ptr %93, align 8
@@ -227,9 +225,9 @@ define dso_local i32 @CreateSchemaCommand(ptr noundef %0, ptr noundef %1, i32 no
   %102 = load i32, ptr %88, align 4
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next, %103
-  br i1 %104, label %.lr.ph79, label %._crit_edge
+  br i1 %104, label %.lr.ph77, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph79, %.lr.ph, %81
+._crit_edge:                                      ; preds = %.lr.ph77, %.lr.ph, %81
   call void @AtEOXact_GUC(i1 noundef zeroext true, i32 noundef %72) #4
   %105 = load i32, ptr %5, align 4
   %106 = load i32, ptr %6, align 4
@@ -368,9 +366,8 @@ define dso_local { i64, i32 } @RenameSchema(ptr noundef %0, ptr noundef %1) loca
 
 34:                                               ; preds = %31, %27
   %35 = load i8, ptr @allowSystemTableMods, align 1
-  %36 = and i8 %35, 1
-  %.not27 = icmp eq i8 %36, 0
-  br i1 %.not27, label %37, label %44
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %44, label %37
 
 37:                                               ; preds = %34
   %38 = tail call zeroext i1 @IsReservedName(ptr noundef %1) #4
@@ -391,8 +388,8 @@ define dso_local { i64, i32 } @RenameSchema(ptr noundef %0, ptr noundef %1) loca
   %46 = getelementptr inbounds i8, ptr %5, i64 4
   tail call void @CatalogTupleUpdate(ptr noundef %3, ptr noundef nonnull %46, ptr noundef nonnull %5) #4
   %47 = load ptr, ptr @object_access_hook, align 8
-  %.not28 = icmp eq ptr %47, null
-  br i1 %.not28, label %49, label %48
+  %.not27 = icmp eq ptr %47, null
+  br i1 %.not27, label %49, label %48
 
 48:                                               ; preds = %44
   tail call void @RunObjectPostAlterHook(i32 noundef 2615, i32 noundef %17, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #4
@@ -500,9 +497,8 @@ define internal fastcc void @AlterSchemaOwner_internal(ptr noundef %0, ptr nound
   store i64 %31, ptr %32, align 16
   %33 = call i64 @SysCacheGetAttr(i32 noundef 35, ptr noundef nonnull %0, i16 noundef signext 4, ptr noundef nonnull %7) #4
   %34 = load i8, ptr %7, align 1
-  %35 = and i8 %34, 1
-  %.not25 = icmp eq i8 %35, 0
-  br i1 %.not25, label %36, label %44
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %44, label %36
 
 36:                                               ; preds = %30
   %37 = inttoptr i64 %33 to ptr
@@ -529,8 +525,8 @@ define internal fastcc void @AlterSchemaOwner_internal(ptr noundef %0, ptr nound
 
 50:                                               ; preds = %3, %44
   %51 = load ptr, ptr @object_access_hook, align 8
-  %.not26 = icmp eq ptr %51, null
-  br i1 %.not26, label %54, label %52
+  %.not25 = icmp eq ptr %51, null
+  br i1 %.not25, label %54, label %52
 
 52:                                               ; preds = %50
   %53 = load i32, ptr %13, align 4

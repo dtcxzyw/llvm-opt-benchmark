@@ -1204,7 +1204,7 @@ _ZN6vectorIP13mbp_tg_pluginLb0EjE3endEv.exit:     ; preds = %do.body
   br i1 %cmp.not41, label %do.end, label %for.body
 
 for.body:                                         ; preds = %_ZN6vectorIP13mbp_tg_pluginLb0EjE3endEv.exit, %for.inc
-  %progress.043 = phi i8 [ %progress.1, %for.inc ], [ 0, %_ZN6vectorIP13mbp_tg_pluginLb0EjE3endEv.exit ]
+  %progress.043 = phi i1 [ %progress.1, %for.inc ], [ false, %_ZN6vectorIP13mbp_tg_pluginLb0EjE3endEv.exit ]
   %__begin3.042 = phi ptr [ %incdec.ptr, %for.inc ], [ %0, %_ZN6vectorIP13mbp_tg_pluginLb0EjE3endEv.exit ]
   %3 = load ptr, ptr %__begin3.042, align 8
   %vtable = load ptr, ptr %3, align 8
@@ -1616,15 +1616,13 @@ _ZN3mbp7mbp_qel4impl8add_varsEP13mbp_tg_pluginR10ref_vectorI3app11ast_managerE.e
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZN3mbp7mbp_qel4impl8add_varsEP13mbp_tg_pluginR10ref_vectorI3app11ast_managerE.exit
-  %progress.1 = phi i8 [ 1, %_ZN3mbp7mbp_qel4impl8add_varsEP13mbp_tg_pluginR10ref_vectorI3app11ast_managerE.exit ], [ %progress.043, %for.body ]
+  %progress.1 = phi i1 [ true, %_ZN3mbp7mbp_qel4impl8add_varsEP13mbp_tg_pluginR10ref_vectorI3app11ast_managerE.exit ], [ %progress.043, %for.body ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.042, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %do.cond, label %for.body
 
 do.cond:                                          ; preds = %for.inc
-  %51 = and i8 %progress.1, 1
-  %tobool.not = icmp eq i8 %51, 0
-  br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !11
+  br i1 %progress.1, label %do.body, label %do.end, !llvm.loop !11
 
 do.end:                                           ; preds = %do.body, %_ZN6vectorIP13mbp_tg_pluginLb0EjE3endEv.exit, %do.cond
   ret void

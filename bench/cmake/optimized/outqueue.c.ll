@@ -164,9 +164,8 @@ define dso_local zeroext i1 @lzma_outq_is_readable(ptr nocapture noundef readonl
   %14 = zext i32 %.0 to i64
   %15 = getelementptr inbounds %struct.lzma_outbuf, ptr %13, i64 %14, i32 4
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %18 = icmp ne i8 %17, 0
-  ret i1 %18
+  %17 = trunc i8 %16 to i1
+  ret i1 %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -196,9 +195,8 @@ define dso_local noundef i32 @lzma_outq_read(ptr noalias noundef %0, ptr noalias
   %22 = getelementptr inbounds %struct.lzma_outbuf, ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 32
   %24 = load i8, ptr %23, align 8
-  %25 = and i8 %24, 1
-  %.not = icmp eq i8 %25, 0
-  br i1 %.not, label %42, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %42
 
 26:                                               ; preds = %19
   %27 = load ptr, ptr %22, align 8

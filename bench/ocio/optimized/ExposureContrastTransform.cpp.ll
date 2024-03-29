@@ -210,7 +210,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt10shared_ptrIN
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #5
 
 declare noundef nonnull align 8 dereferenceable(248) ptr @_ZN19OpenColorIO_v2_4dev22ExposureContrastOpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #6
@@ -857,9 +857,8 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit: ; preds = %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getExposurePropertyEv.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %tobool.i5.in.in = phi i8 [ %5, %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getExposurePropertyEv.exit ], [ %6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %6, %if.end8.sink.split.i.i.i.i ]
-  %tobool.i5.in = and i8 %tobool.i5.in.in, 1
-  %tobool.i5 = icmp ne i8 %tobool.i5.in, 0
+  %tobool.i5.in = phi i8 [ %5, %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getExposurePropertyEv.exit ], [ %6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %6, %if.end8.sink.split.i.i.i.i ]
+  %tobool.i5 = trunc i8 %tobool.i5.in to i1
   ret i1 %tobool.i5
 }
 
@@ -1196,9 +1195,8 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit: ; preds = %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getContrastPropertyEv.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %tobool.i5.in.in = phi i8 [ %5, %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getContrastPropertyEv.exit ], [ %6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %6, %if.end8.sink.split.i.i.i.i ]
-  %tobool.i5.in = and i8 %tobool.i5.in.in, 1
-  %tobool.i5 = icmp ne i8 %tobool.i5.in, 0
+  %tobool.i5.in = phi i8 [ %5, %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getContrastPropertyEv.exit ], [ %6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %6, %if.end8.sink.split.i.i.i.i ]
+  %tobool.i5 = trunc i8 %tobool.i5.in to i1
   ret i1 %tobool.i5
 }
 
@@ -1535,9 +1533,8 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit: ; preds = %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData16getGammaPropertyEv.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %tobool.i5.in.in = phi i8 [ %5, %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData16getGammaPropertyEv.exit ], [ %6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %6, %if.end8.sink.split.i.i.i.i ]
-  %tobool.i5.in = and i8 %tobool.i5.in.in, 1
-  %tobool.i5 = icmp ne i8 %tobool.i5.in, 0
+  %tobool.i5.in = phi i8 [ %5, %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData16getGammaPropertyEv.exit ], [ %6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %6, %if.end8.sink.split.i.i.i.i ]
+  %tobool.i5 = trunc i8 %tobool.i5.in to i1
   ret i1 %tobool.i5
 }
 
@@ -1796,7 +1793,7 @@ attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind memory(read) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nosync nounwind memory(none) }

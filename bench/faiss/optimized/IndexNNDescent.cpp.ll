@@ -171,7 +171,7 @@ define void @_ZN5faiss14IndexNNDescent3addElPKf(ptr noundef nonnull align 8 dere
 
 18:                                               ; preds = %14
   invoke void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #16
-          to label %90 unwind label %19
+          to label %89 unwind label %19
 
 19:                                               ; preds = %18, %12, %8
   %20 = landingpad { ptr, i32 }
@@ -192,9 +192,8 @@ define void @_ZN5faiss14IndexNNDescent3addElPKf(ptr noundef nonnull align 8 dere
 24:                                               ; preds = %3
   %25 = getelementptr inbounds i8, ptr %0, i64 25
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not10 = icmp eq i8 %27, 0
-  br i1 %.not10, label %28, label %44
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %44, label %28
 
 28:                                               ; preds = %24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
@@ -217,7 +216,7 @@ define void @_ZN5faiss14IndexNNDescent3addElPKf(ptr noundef nonnull align 8 dere
 
 38:                                               ; preds = %34
   invoke void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #16
-          to label %90 unwind label %39
+          to label %89 unwind label %39
 
 39:                                               ; preds = %38, %32, %28
   %40 = landingpad { ptr, i32 }
@@ -231,15 +230,15 @@ define void @_ZN5faiss14IndexNNDescent3addElPKf(ptr noundef nonnull align 8 dere
   br label %43
 
 43:                                               ; preds = %41, %39
-  %.pn11 = phi { ptr, i32 } [ %40, %39 ], [ %42, %41 ]
+  %.pn10 = phi { ptr, i32 } [ %40, %39 ], [ %42, %41 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   br label %common.resume
 
 44:                                               ; preds = %24
   %45 = getelementptr inbounds i8, ptr %0, i64 16
   %46 = load i64, ptr %45, align 8
-  %.not13 = icmp eq i64 %46, 0
-  br i1 %.not13, label %50, label %47
+  %.not12 = icmp eq i64 %46, 0
+  br i1 %.not12, label %50, label %47
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr @stderr, align 8
@@ -278,8 +277,8 @@ define void @_ZN5faiss14IndexNNDescent3addElPKf(ptr noundef nonnull align 8 dere
   store ptr %65, ptr %67, align 8
   br label %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
 
-common.resume:                                    ; preds = %23, %43, %85, %_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i17, %68
-  %common.resume.op = phi { ptr, i32 } [ %69, %68 ], [ %.pn11, %43 ], [ %.pn, %23 ], [ %86, %85 ], [ %86, %_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i17 ]
+common.resume:                                    ; preds = %23, %43, %84, %_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i16, %68
+  %common.resume.op = phi { ptr, i32 } [ %69, %68 ], [ %.pn10, %43 ], [ %.pn, %23 ], [ %85, %84 ], [ %85, %_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i16 ]
   resume { ptr, i32 } %common.resume.op
 
 68:                                               ; preds = %60
@@ -302,32 +301,31 @@ _ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit: ; preds = 
   %77 = trunc i64 %76 to i32
   %78 = getelementptr inbounds i8, ptr %0, i64 24
   %79 = load i8, ptr %78, align 8
-  %80 = and i8 %79, 1
-  %81 = icmp ne i8 %80, 0
-  invoke void @_ZN5faiss9NNDescent5buildERNS_16DistanceComputerEib(ptr noundef nonnull align 8 dereferenceable(88) %75, ptr noundef nonnull align 8 dereferenceable(8) %.0.i, i32 noundef %77, i1 noundef zeroext %81)
-          to label %_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit unwind label %85
+  %80 = trunc i8 %79 to i1
+  invoke void @_ZN5faiss9NNDescent5buildERNS_16DistanceComputerEib(ptr noundef nonnull align 8 dereferenceable(88) %75, ptr noundef nonnull align 8 dereferenceable(8) %.0.i, i32 noundef %77, i1 noundef zeroext %80)
+          to label %_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit unwind label %84
 
 _ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
-  %82 = load ptr, ptr %.0.i, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 40
-  %84 = load ptr, ptr %83, align 8
-  tail call void %84(ptr noundef nonnull align 8 dereferenceable(8) %.0.i) #8
+  %81 = load ptr, ptr %.0.i, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 40
+  %83 = load ptr, ptr %82, align 8
+  tail call void %83(ptr noundef nonnull align 8 dereferenceable(8) %.0.i) #8
   ret void
 
-85:                                               ; preds = %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
-  %86 = landingpad { ptr, i32 }
+84:                                               ; preds = %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
+  %85 = landingpad { ptr, i32 }
           cleanup
-  %.not.i16 = icmp eq ptr %.0.i, null
-  br i1 %.not.i16, label %common.resume, label %_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i17
+  %.not.i15 = icmp eq ptr %.0.i, null
+  br i1 %.not.i15, label %common.resume, label %_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i16
 
-_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i17: ; preds = %85
-  %87 = load ptr, ptr %.0.i, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 40
-  %89 = load ptr, ptr %88, align 8
-  tail call void %89(ptr noundef nonnull align 8 dereferenceable(8) %.0.i) #8
+_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i16: ; preds = %84
+  %86 = load ptr, ptr %.0.i, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 40
+  %88 = load ptr, ptr %87, align 8
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(8) %.0.i) #8
   br label %common.resume
 
-90:                                               ; preds = %38, %18
+89:                                               ; preds = %38, %18
   unreachable
 }
 
@@ -427,9 +425,8 @@ define void @_ZNK5faiss14IndexNNDescent6searchElPKflPfPlPKNS_16SearchParametersE
 49:                                               ; preds = %31
   %50 = getelementptr inbounds i8, ptr %0, i64 24
   %51 = load i8, ptr %50, align 8
-  %52 = and i8 %51, 1
-  %.not18 = icmp eq i8 %52, 0
-  br i1 %.not18, label %57, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %57
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds i8, ptr %0, i64 56
@@ -450,8 +447,8 @@ define void @_ZNK5faiss14IndexNNDescent6searchElPKflPfPlPKNS_16SearchParametersE
   br i1 %65, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %57, %.lr.ph
-  %storemerge27 = phi i64 [ %68, %.lr.ph ], [ 0, %57 ]
-  %66 = add nsw i64 %storemerge27, %64
+  %storemerge26 = phi i64 [ %68, %.lr.ph ], [ 0, %57 ]
+  %66 = add nsw i64 %storemerge26, %64
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %66, i64 %1)
   store i64 %.sroa.speculated, ptr %15, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @_ZNK5faiss14IndexNNDescent6searchElPKflPfPlPKNS_16SearchParametersE.omp_outlined, ptr nonnull %0, ptr nonnull %15, ptr nonnull %14, ptr nonnull %11, ptr nonnull %9, ptr nonnull %10, ptr nonnull %8)
@@ -471,30 +468,30 @@ define void @_ZNK5faiss14IndexNNDescent6searchElPKflPfPlPKNS_16SearchParametersE
 .preheader:                                       ; preds = %._crit_edge
   %73 = load i64, ptr %9, align 8
   %74 = mul nsw i64 %73, %1
-  %.not30 = icmp eq i64 %74, 0
-  br i1 %.not30, label %.loopexit, label %.lr.ph29
+  %.not29 = icmp eq i64 %74, 0
+  br i1 %.not29, label %.loopexit, label %.lr.ph28
 
-.lr.ph29:                                         ; preds = %.preheader, %.lr.ph29
-  %.028 = phi i64 [ %79, %.lr.ph29 ], [ 0, %.preheader ]
+.lr.ph28:                                         ; preds = %.preheader, %.lr.ph28
+  %.027 = phi i64 [ %79, %.lr.ph28 ], [ 0, %.preheader ]
   %75 = load ptr, ptr %10, align 8
-  %76 = getelementptr inbounds float, ptr %75, i64 %.028
+  %76 = getelementptr inbounds float, ptr %75, i64 %.027
   %77 = load float, ptr %76, align 4
   %78 = fneg float %77
   store float %78, ptr %76, align 4
-  %79 = add nuw i64 %.028, 1
+  %79 = add nuw i64 %.027, 1
   %80 = load i64, ptr %9, align 8
   %81 = mul nsw i64 %80, %1
   %82 = icmp ult i64 %79, %81
-  br i1 %82, label %.lr.ph29, label %.loopexit, !llvm.loop !7
+  br i1 %82, label %.lr.ph28, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.lr.ph29, %.preheader, %._crit_edge
+.loopexit:                                        ; preds = %.lr.ph28, %.preheader, %._crit_edge
   ret void
 
 83:                                               ; preds = %45, %47, %27, %29
   %.sink = phi ptr [ %12, %29 ], [ %12, %27 ], [ %13, %47 ], [ %13, %45 ]
-  %.pn19.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ], [ %48, %47 ], [ %46, %45 ]
+  %.pn18.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ], [ %48, %47 ], [ %46, %45 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #8
-  resume { ptr, i32 } %.pn19.pn
+  resume { ptr, i32 } %.pn18.pn
 
 84:                                               ; preds = %44, %26
   unreachable
@@ -637,9 +634,8 @@ define void @_ZN5faiss14IndexNNDescentD2Ev(ptr noundef nonnull align 8 dereferen
   store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss14IndexNNDescentE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %13, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 136
@@ -1083,9 +1079,8 @@ define linkonce_odr void @_ZN5faiss18IndexNNDescentFlatD2Ev(ptr noundef nonnull 
   store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss14IndexNNDescentE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %_ZN5faiss14IndexNNDescentD2Ev.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZN5faiss14IndexNNDescentD2Ev.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 136
@@ -1112,9 +1107,8 @@ define linkonce_odr void @_ZN5faiss18IndexNNDescentFlatD0Ev(ptr noundef nonnull 
   store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss14IndexNNDescentE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.i.i = icmp eq i8 %4, 0
-  br i1 %.not.i.i, label %_ZN5faiss18IndexNNDescentFlatD2Ev.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZN5faiss18IndexNNDescentFlatD2Ev.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 136

@@ -238,56 +238,58 @@ define void @_ZN3nix8LogStore11getBuildLogB5cxx11ERKNS_9StorePathE(ptr dead_on_u
   call void @_ZN3nix5Store22getBuildDerivationPathERKNS_9StorePathE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.2") align 8 %4, ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %9 = getelementptr inbounds i8, ptr %4, i64 32
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %.thread, label %_ZNRSt8optionalIN3nix9StorePathEE5valueEv.exit
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %_ZNRSt8optionalIN3nix9StorePathEE5valueEv.exit, label %12
 
-.thread:                                          ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 0, ptr %12, align 8
-  br label %_ZNSt8optionalIN3nix9StorePathEED2Ev.exit
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 0, ptr %13, align 8
+  br label %18
 
 _ZNRSt8optionalIN3nix9StorePathEE5valueEv.exit:   ; preds = %3
-  %13 = load ptr, ptr %1, align 8
-  %14 = load ptr, ptr %13, align 8
-  invoke void %14(ptr dead_on_unwind writable sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %17 unwind label %15
+  %14 = load ptr, ptr %1, align 8
+  %15 = load ptr, ptr %14, align 8
+  invoke void %15(ptr dead_on_unwind writable sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %_ZNRSt8optionalIN3nix9StorePathEE5valueEv.exit._crit_edge unwind label %16
 
-15:                                               ; preds = %_ZNRSt8optionalIN3nix9StorePathEE5valueEv.exit
-  %16 = landingpad { ptr, i32 }
+_ZNRSt8optionalIN3nix9StorePathEE5valueEv.exit._crit_edge: ; preds = %_ZNRSt8optionalIN3nix9StorePathEE5valueEv.exit
+  %.pre = load i8, ptr %9, align 8
+  br label %18
+
+16:                                               ; preds = %_ZNRSt8optionalIN3nix9StorePathEE5valueEv.exit
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8optionalIN3nix9StorePathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #13
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %17
 
-17:                                               ; preds = %_ZNRSt8optionalIN3nix9StorePathEE5valueEv.exit
-  %.pre = load i8, ptr %9, align 8
-  %.pre3 = and i8 %.pre, 1
-  %18 = icmp eq i8 %.pre3, 0
-  br i1 %18, label %_ZNSt8optionalIN3nix9StorePathEED2Ev.exit, label %19
+18:                                               ; preds = %_ZNRSt8optionalIN3nix9StorePathEE5valueEv.exit._crit_edge, %12
+  %19 = phi i8 [ %.pre, %_ZNRSt8optionalIN3nix9StorePathEE5valueEv.exit._crit_edge ], [ %10, %12 ]
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %_ZNSt8optionalIN3nix9StorePathEED2Ev.exit
 
-19:                                               ; preds = %17
+21:                                               ; preds = %18
   store i8 0, ptr %9, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
-  %22 = icmp eq ptr %20, %21
-  br i1 %22, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %24 = icmp eq ptr %22, %23
+  br i1 %24, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i: ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
-  %24 = load i64, ptr %23, align 8
-  %25 = icmp ult i64 %24, 16
-  call void @llvm.assume(i1 %25)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i: ; preds = %21
+  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = load i64, ptr %25, align 8
+  %27 = icmp ult i64 %26, 16
+  call void @llvm.assume(i1 %27)
   br label %_ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %19
-  call void @_ZdlPv(ptr noundef %20) #16
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %21
+  call void @_ZdlPv(ptr noundef %22) #16
   br label %_ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   br label %_ZNSt8optionalIN3nix9StorePathEED2Ev.exit
 
-_ZNSt8optionalIN3nix9StorePathEED2Ev.exit:        ; preds = %.thread, %17, %_ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i
+_ZNSt8optionalIN3nix9StorePathEED2Ev.exit:        ; preds = %18, %_ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i
   ret void
 }
 
@@ -297,9 +299,8 @@ declare void @_ZN3nix5Store22getBuildDerivationPathERKNS_9StorePathE(ptr dead_on
 define linkonce_odr void @_ZNSt8optionalIN3nix9StorePathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.i.i.i = icmp eq i8 %4, 0
-  br i1 %.not.i.i.i, label %_ZNSt14_Optional_baseIN3nix9StorePathELb0ELb0EED2Ev.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZNSt14_Optional_baseIN3nix9StorePathELb0ELb0EED2Ev.exit
 
 5:                                                ; preds = %1
   store i8 0, ptr %2, align 8

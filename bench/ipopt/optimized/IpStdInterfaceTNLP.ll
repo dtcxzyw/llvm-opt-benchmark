@@ -1655,15 +1655,14 @@ define noundef zeroext i1 @_ZN5Ipopt16StdInterfaceTNLP18get_starting_pointEibPdb
 15:                                               ; preds = %14
   %16 = getelementptr inbounds i8, ptr %0, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %20, label %19
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %20
 
 19:                                               ; preds = %15
   tail call void @_ZN5Ipopt10IpBlasCopyEiPKdiPdi(i32 noundef %1, ptr noundef nonnull %17, i32 noundef 1, ptr noundef %5, i32 noundef 1)
   br label %20
 
 20:                                               ; preds = %15, %19
-  %.0 = phi i8 [ 1, %19 ], [ 0, %15 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 104
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
@@ -1674,7 +1673,7 @@ define noundef zeroext i1 @_ZN5Ipopt16StdInterfaceTNLP18get_starting_pointEibPdb
   br label %25
 
 25:                                               ; preds = %20, %24, %14
-  %.1 = phi i8 [ %.0, %24 ], [ 1, %14 ], [ 0, %20 ]
+  %.1 = phi i1 [ %18, %24 ], [ true, %14 ], [ false, %20 ]
   br i1 %8, label %26, label %31
 
 26:                                               ; preds = %25
@@ -1688,9 +1687,8 @@ define noundef zeroext i1 @_ZN5Ipopt16StdInterfaceTNLP18get_starting_pointEibPdb
   br label %31
 
 31:                                               ; preds = %26, %30, %25
-  %.2 = phi i8 [ %.1, %30 ], [ %.1, %25 ], [ 0, %26 ]
-  %32 = icmp ne i8 %.2, 0
-  ret i1 %32
+  %.2 = phi i1 [ %.1, %30 ], [ %.1, %25 ], [ false, %26 ]
+  ret i1 %.2
 }
 
 ; Function Attrs: mustprogress uwtable

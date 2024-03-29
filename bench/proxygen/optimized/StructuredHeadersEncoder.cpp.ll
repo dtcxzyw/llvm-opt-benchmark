@@ -1275,7 +1275,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
   unreachable
 
 common.resume:                                    ; preds = %lpad.i, %lpad.i.i.i38, %lpad.i.i.i27, %lpad.i.i.i17, %lpad.i.i.i11, %lpad.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i.i.i ], [ %4, %lpad.i.i.i11 ], [ %7, %lpad.i.i.i17 ], [ %11, %lpad.i.i.i27 ], [ %14, %lpad.i.i.i38 ], [ %17, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i.i.i ], [ %4, %lpad.i.i.i11 ], [ %7, %lpad.i.i.i17 ], [ %10, %lpad.i.i.i27 ], [ %13, %lpad.i.i.i38 ], [ %16, %lpad.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -1347,19 +1347,19 @@ _ZN5boost3getIbbJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_13a
   %storage_.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %input, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i14)
   %8 = load i8, ptr %storage_.i.i.i.i.i.i19, align 8
-  %9 = and i8 %8, 1
+  %tobool = trunc i8 %8 to i1
   %outputStream_.i20 = getelementptr inbounds i8, ptr %this, i64 160
   %call.i21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %outputStream_.i20, i8 noundef signext 63)
-  %cond.i = or disjoint i8 %9, 48
+  %cond.i = select i1 %tobool, i8 49, i8 48
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call.i21, i8 noundef signext %cond.i)
   br label %return
 
 sw.bb13:                                          ; preds = %if.end
   %value14 = getelementptr inbounds i8, ptr %input, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i22)
-  %10 = load i32, ptr %value14, align 8
-  %.lobit.i.i.i.i.i.i23 = ashr i32 %10, 31
-  %retval.0.i.i.i.i.i.i24 = xor i32 %.lobit.i.i.i.i.i.i23, %10
+  %9 = load i32, ptr %value14, align 8
+  %.lobit.i.i.i.i.i.i23 = ashr i32 %9, 31
+  %retval.0.i.i.i.i.i.i24 = xor i32 %.lobit.i.i.i.i.i.i23, %9
   %switch.i.i.not.i.i.i25 = icmp eq i32 %retval.0.i.i.i.i.i.i24, 2
   br i1 %switch.i.i.not.i.i.i25, label %_ZN5boost3getIdbJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_13add_referenceIKT_E4typeERKNS_7variantIT0_JDpT1_EEE.exit, label %if.then.i.i.i26
 
@@ -1372,7 +1372,7 @@ invoke.cont.i.i.i28:                              ; preds = %if.then.i.i.i26
   unreachable
 
 lpad.i.i.i27:                                     ; preds = %if.then.i.i.i26
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i22) #20
   br label %common.resume
@@ -1380,17 +1380,17 @@ lpad.i.i.i27:                                     ; preds = %if.then.i.i.i26
 _ZN5boost3getIdbJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_13add_referenceIKT_E4typeERKNS_7variantIT0_JDpT1_EEE.exit: ; preds = %sw.bb13
   %storage_.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %input, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i22)
-  %12 = load double, ptr %storage_.i.i.i.i.i.i29, align 8
+  %11 = load double, ptr %storage_.i.i.i.i.i.i29, align 8
   %outputStream_.i30 = getelementptr inbounds i8, ptr %this, i64 160
-  %call.i31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %outputStream_.i30, double noundef %12)
+  %call.i31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %outputStream_.i30, double noundef %11)
   br label %return
 
 sw.bb17:                                          ; preds = %if.end
   %value18 = getelementptr inbounds i8, ptr %input, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i32)
-  %13 = load i32, ptr %value18, align 8
-  %.lobit.i.i.i.i.i.i33 = ashr i32 %13, 31
-  %retval.0.i.i.i.i.i.i34 = xor i32 %.lobit.i.i.i.i.i.i33, %13
+  %12 = load i32, ptr %value18, align 8
+  %.lobit.i.i.i.i.i.i33 = ashr i32 %12, 31
+  %retval.0.i.i.i.i.i.i34 = xor i32 %.lobit.i.i.i.i.i.i33, %12
   %switch.i.i.i.i.i35 = icmp ult i32 %retval.0.i.i.i.i.i.i34, 3
   br i1 %switch.i.i.i.i.i35, label %if.then.i.i.i37, label %_ZN5boost3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbJldS6_EEENS_13add_referenceIKT_E4typeERKNS_7variantIT0_JDpT1_EEE.exit40
 
@@ -1403,7 +1403,7 @@ invoke.cont.i.i.i39:                              ; preds = %if.then.i.i.i37
   unreachable
 
 lpad.i.i.i38:                                     ; preds = %if.then.i.i.i37
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i32) #20
   br label %common.resume
@@ -1415,14 +1415,14 @@ _ZN5boost3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbJldS6_EEENS_1
   %outputStream_.i41 = getelementptr inbounds i8, ptr %this, i64 160
   %call.i42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %outputStream_.i41, ptr noundef nonnull @.str.16)
   %call3.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %storage_.i.i.i.i.i.i36) #20
-  %15 = extractvalue { i64, ptr } %call3.i, 0
-  %16 = extractvalue { i64, ptr } %call3.i, 1
-  call void @_ZN5folly12base64EncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, i64 %15, ptr %16)
+  %14 = extractvalue { i64, ptr } %call3.i, 0
+  %15 = extractvalue { i64, ptr } %call3.i, 1
+  call void @_ZN5folly12base64EncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, i64 %14, ptr %15)
   %call4.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %outputStream_.i41, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %_ZN8proxygen24StructuredHeadersEncoder19encodeBinaryContentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %_ZN5boost3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbJldS6_EEENS_13add_referenceIKT_E4typeERKNS_7variantIT0_JDpT1_EEE.exit40
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
   br label %common.resume
@@ -1521,9 +1521,8 @@ _ZN8proxygen24StructuredHeadersEncoder11skipBooleanERKNS_17StructuredHeaders20St
   %storage_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.022, i64 56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
   %4 = load i8, ptr %storage_.i.i.i.i.i.i.i, align 1
-  %5 = and i8 %4, 1
-  %tobool.i.not = icmp eq i8 %5, 0
-  br i1 %tobool.i.not, label %if.then21, label %if.end29
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %if.end29, label %if.then21
 
 if.then21:                                        ; preds = %if.end17, %_ZN8proxygen24StructuredHeadersEncoder11skipBooleanERKNS_17StructuredHeaders20StructuredHeaderItemE.exit
   %call22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %outputStream_.i, ptr noundef nonnull @.str.14)
@@ -1532,8 +1531,8 @@ if.then21:                                        ; preds = %if.end17, %_ZN8prox
   br i1 %cmp26.not, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.then21, %_ZN8proxygen24StructuredHeadersEncoder11skipBooleanERKNS_17StructuredHeaders20StructuredHeaderItemE.exit
-  %6 = load ptr, ptr %it.sroa.0.022, align 8
-  %cmp.i11.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr %it.sroa.0.022, align 8
+  %cmp.i11.not = icmp eq ptr %5, null
   br i1 %cmp.i11.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %if.end29
@@ -1603,13 +1602,12 @@ _ZN5boost3getIbbJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_13a
   %storage_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %input, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
   %3 = load i8, ptr %storage_.i.i.i.i.i.i, align 8
-  %4 = and i8 %3, 1
-  %tobool = icmp ne i8 %4, 0
+  %tobool = trunc i8 %3 to i1
   br label %land.end
 
 land.end:                                         ; preds = %_ZN5boost3getIbbJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_13add_referenceIKT_E4typeERKNS_7variantIT0_JDpT1_EEE.exit, %entry
-  %5 = phi i1 [ false, %entry ], [ %tobool, %_ZN5boost3getIbbJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_13add_referenceIKT_E4typeERKNS_7variantIT0_JDpT1_EEE.exit ]
-  ret i1 %5
+  %4 = phi i1 [ false, %entry ], [ %tobool, %_ZN5boost3getIbbJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_13add_referenceIKT_E4typeERKNS_7variantIT0_JDpT1_EEE.exit ]
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1703,9 +1701,8 @@ _ZN8proxygen24StructuredHeadersEncoder11skipBooleanERKNS_17StructuredHeaders20St
   %storage_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it2.sroa.0.051, i64 56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
   %6 = load i8, ptr %storage_.i.i.i.i.i.i.i, align 1
-  %7 = and i8 %6, 1
-  %tobool.i.not = icmp eq i8 %7, 0
-  br i1 %tobool.i.not, label %if.end48, label %for.inc
+  %tobool.i = trunc i8 %6 to i1
+  br i1 %tobool.i, label %for.inc, label %if.end48
 
 if.end48:                                         ; preds = %if.end38, %_ZN8proxygen24StructuredHeadersEncoder11skipBooleanERKNS_17StructuredHeaders20StructuredHeaderItemE.exit
   %call44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %outputStream_.i, ptr noundef nonnull @.str.14)
@@ -1720,8 +1717,8 @@ for.inc:                                          ; preds = %_ZN8proxygen24Struc
 
 for.end:                                          ; preds = %for.inc, %if.end10
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %it1.sroa.0.053, i64 88
-  %8 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i24.not = icmp eq ptr %incdec.ptr.i.i.i.i, %8
+  %7 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i24.not = icmp eq ptr %incdec.ptr.i.i.i.i, %7
   br i1 %cmp.i24.not, label %return, label %for.inc68
 
 for.inc68:                                        ; preds = %for.end
@@ -1859,9 +1856,8 @@ _ZN5boost9iostreams6detail13double_objectINS1_12basic_bufferIcSaIcEEENS_14is_con
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alloc.i.i.i.i)
   %initialized_.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %7 = load i8, ptr %initialized_.i.i.i, align 8
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i = icmp eq i8 %8, 0
-  br i1 %tobool.not.i.i.i, label %_ZN5boost9iostreams6detail18indirect_streambufINS0_18back_insert_deviceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_S8_NS0_6outputEED2Ev.exit, label %if.then.i.i.i
+  %tobool.i.i.i = trunc i8 %7 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZN5boost9iostreams6detail18indirect_streambufINS0_18back_insert_deviceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_S8_NS0_6outputEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %_ZN5boost9iostreams6detail13double_objectINS1_12basic_bufferIcSaIcEEENS_14is_convertibleINS0_6outputENS1_12two_sequenceEEEED2Ev.exit.i
   store i8 0, ptr %initialized_.i.i.i, align 8
@@ -1872,10 +1868,10 @@ _ZN5boost9iostreams6detail18indirect_streambufINS0_18back_insert_deviceINSt7__cx
   ret void
 
 terminate.lpad:                                   ; preds = %lpad
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #22
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #22
   unreachable
 }
 
@@ -3002,9 +2998,8 @@ _ZN5boost9iostreams6detail13double_objectINS1_12basic_bufferIcSaIcEEENS_14is_con
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alloc.i.i.i)
   %initialized_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i8, ptr %initialized_.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i, label %_ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_18back_insert_deviceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEED2Ev.exit, label %if.then.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_18back_insert_deviceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %_ZN5boost9iostreams6detail13double_objectINS1_12basic_bufferIcSaIcEEENS_14is_convertibleINS0_6outputENS1_12two_sequenceEEEED2Ev.exit
   store i8 0, ptr %initialized_.i.i, align 8
@@ -3037,9 +3032,8 @@ _ZN5boost9iostreams6detail13double_objectINS1_12basic_bufferIcSaIcEEENS_14is_con
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alloc.i.i.i.i)
   %initialized_.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i8, ptr %initialized_.i.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i.i, label %_ZN5boost9iostreams6detail18indirect_streambufINS0_18back_insert_deviceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_S8_NS0_6outputEED2Ev.exit, label %if.then.i.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZN5boost9iostreams6detail18indirect_streambufINS0_18back_insert_deviceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_S8_NS0_6outputEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %_ZN5boost9iostreams6detail13double_objectINS1_12basic_bufferIcSaIcEEENS_14is_convertibleINS0_6outputENS1_12two_sequenceEEEED2Ev.exit.i
   store i8 0, ptr %initialized_.i.i.i, align 8
@@ -3913,24 +3907,22 @@ entry:
 invoke.cont.i:                                    ; preds = %entry
   %initialized_.i.i.i = getelementptr inbounds i8, ptr %c1.coerce, i64 8
   %0 = load i8, ptr %initialized_.i.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   store i8 0, ptr %initialized_.i.i.i, align 8
   br label %invoke.cont
 
 lpad.i:                                           ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  %4 = tail call ptr @__cxa_begin_catch(ptr %3) #20
+  %2 = extractvalue { ptr, i32 } %1, 0
+  %3 = tail call ptr @__cxa_begin_catch(ptr %2) #20
   %initialized_.i.i1.i = getelementptr inbounds i8, ptr %c1.coerce, i64 8
-  %5 = load i8, ptr %initialized_.i.i1.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i2.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i2.i, label %try.cont.i, label %if.then.i.i3.i
+  %4 = load i8, ptr %initialized_.i.i1.i, align 8
+  %tobool.i.i2.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i2.i, label %if.then.i.i3.i, label %try.cont.i
 
 if.then.i.i3.i:                                   ; preds = %lpad.i
   store i8 0, ptr %initialized_.i.i1.i, align 8
@@ -3941,16 +3933,16 @@ try.cont.i:                                       ; preds = %if.then.i.i3.i, %lp
           to label %unreachable.i unwind label %lpad6.i
 
 lpad6.i:                                          ; preds = %try.cont.i
-  %7 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
           to label %lpad.body unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad6.i
-  %8 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #22
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #22
   unreachable
 
 unreachable.i:                                    ; preds = %try.cont.i
@@ -3961,26 +3953,26 @@ invoke.cont:                                      ; preds = %if.then.i.i.i, %inv
   ret i32 %call.i
 
 lpad.body:                                        ; preds = %lpad6.i
-  %10 = extractvalue { ptr, i32 } %7, 0
-  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #20
+  %8 = extractvalue { ptr, i32 } %5, 0
+  %9 = tail call ptr @__cxa_begin_catch(ptr %8) #20
   store i32 0, ptr %c2.coerce, align 4
   invoke void @__cxa_rethrow() #23
           to label %unreachable unwind label %lpad9
 
 lpad9:                                            ; preds = %lpad.body
-  %12 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
 eh.resume:                                        ; preds = %lpad9
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %10
 
 terminate.lpad:                                   ; preds = %lpad9
-  %13 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #22
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #22
   unreachable
 
 unreachable:                                      ; preds = %lpad.body

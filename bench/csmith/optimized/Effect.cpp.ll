@@ -231,14 +231,14 @@ define dso_local noundef nonnull align 8 dereferenceable(74) ptr @_ZN6EffectaSER
   %8 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIPK8VariableSaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = getelementptr inbounds i8, ptr %1, i64 72
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
-  store i8 %11, ptr %12, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = and i8 %10, 1
+  store i8 %12, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 73
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 73
-  store i8 %15, ptr %16, align 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 73
+  %16 = and i8 %14, 1
+  store i8 %16, ptr %15, align 1
   br label %17
 
 17:                                               ; preds = %2, %4

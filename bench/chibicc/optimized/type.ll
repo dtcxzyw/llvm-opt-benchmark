@@ -73,13 +73,12 @@ lor.rhs:                                          ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 287, %switch.maskindex
-  %2 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %2, 0
-  br i1 %switch.lobit.not, label %lor.rhs, label %lor.end
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %lor.end, label %lor.rhs
 
 lor.end:                                          ; preds = %switch.hole_check, %lor.rhs
-  %3 = phi i1 [ %switch.i, %lor.rhs ], [ true, %switch.hole_check ]
-  ret i1 %3
+  %2 = phi i1 [ %switch.i, %lor.rhs ], [ true, %switch.hole_check ]
+  ret i1 %2
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -881,13 +880,12 @@ if.then40:                                        ; preds = %if.end29
 if.end44:                                         ; preds = %if.end29
   %is_unsigned = getelementptr inbounds i8, ptr %ty2.addr.0, i64 12
   %11 = load i8, ptr %is_unsigned, align 4
-  %12 = and i8 %11, 1
-  %tobool45.not = icmp eq i8 %12, 0
-  %spec.select.ty2.addr.0 = select i1 %tobool45.not, ptr %spec.select, ptr %ty2.addr.0
+  %tobool45 = trunc i8 %11 to i1
+  %ty2.addr.0.spec.select = select i1 %tobool45, ptr %ty2.addr.0, ptr %spec.select
   br label %return
 
 return:                                           ; preds = %if.end44, %if.then40, %if.then28, %if.then21, %if.then14, %if.then7, %if.then2, %if.then
-  %retval.0 = phi ptr [ %call.i.i, %if.then ], [ %call.i.i28, %if.then2 ], [ %call.i.i33, %if.then7 ], [ %3, %if.then14 ], [ %4, %if.then21 ], [ %5, %if.then28 ], [ %cond, %if.then40 ], [ %spec.select.ty2.addr.0, %if.end44 ]
+  %retval.0 = phi ptr [ %call.i.i, %if.then ], [ %call.i.i28, %if.then2 ], [ %call.i.i33, %if.then7 ], [ %3, %if.then14 ], [ %4, %if.then21 ], [ %5, %if.then28 ], [ %cond, %if.then40 ], [ %ty2.addr.0.spec.select, %if.end44 ]
   ret ptr %retval.0
 }
 

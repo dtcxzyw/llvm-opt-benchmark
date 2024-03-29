@@ -193,19 +193,18 @@ declare zeroext i1 @extent_dss_mergeable(ptr noundef, ptr noundef) local_unnamed
 define hidden zeroext i1 @ehooks_default_merge(ptr nocapture readnone %extent_hooks, ptr noundef %addr_a, i64 %size_a, ptr noundef %addr_b, i64 %size_b, i1 zeroext %committed, i32 %arena_ind) #1 {
 entry:
   %0 = load i8, ptr @tsd_booted, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %tsdn_fetch.exit, label %if.end.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end.i, label %tsdn_fetch.exit
 
 if.end.i:                                         ; preds = %entry
-  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i = getelementptr inbounds i8, ptr %2, i64 824
-  %3 = load i8, ptr %state.i, align 8
-  %cmp6.i.not = icmp eq i8 %3, 0
+  %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
+  %state.i = getelementptr inbounds i8, ptr %1, i64 824
+  %2 = load i8, ptr %state.i, align 8
+  %cmp6.i.not = icmp eq i8 %2, 0
   br i1 %cmp6.i.not, label %tsdn_fetch.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #6
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #6
   br label %tsdn_fetch.exit
 
 tsdn_fetch.exit:                                  ; preds = %if.then11.i, %if.end.i, %entry
@@ -258,23 +257,22 @@ declare void @pages_unmark_guards(ptr noundef, ptr noundef) local_unnamed_addr #
 define internal noundef ptr @ehooks_default_alloc(ptr nocapture readnone %extent_hooks, ptr noundef %new_addr, i64 noundef %size, i64 noundef %alignment, ptr noundef %zero, ptr noundef %commit, i32 noundef %arena_ind) #1 {
 entry:
   %0 = load i8, ptr @tsd_booted, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %tsdn_fetch.exit, label %if.end.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end.i, label %tsdn_fetch.exit
 
 if.end.i:                                         ; preds = %entry
-  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i = getelementptr inbounds i8, ptr %2, i64 824
-  %3 = load i8, ptr %state.i, align 8
-  %cmp6.i.not = icmp eq i8 %3, 0
+  %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
+  %state.i = getelementptr inbounds i8, ptr %1, i64 824
+  %2 = load i8, ptr %state.i, align 8
+  %cmp6.i.not = icmp eq i8 %2, 0
   br i1 %cmp6.i.not, label %tsdn_fetch.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #6
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #6
   br label %tsdn_fetch.exit
 
 tsdn_fetch.exit:                                  ; preds = %if.then11.i, %if.end.i, %entry
-  %retval.i.0 = phi ptr [ null, %entry ], [ %call13.i, %if.then11.i ], [ %2, %if.end.i ]
+  %retval.i.0 = phi ptr [ null, %entry ], [ %call13.i, %if.then11.i ], [ %1, %if.end.i ]
   %add = add i64 %alignment, 4095
   %and = and i64 %add, -4096
   %call1 = tail call ptr @ehooks_default_alloc_impl(ptr noundef %retval.i.0, ptr noundef %new_addr, i64 noundef %size, i64 noundef %and, ptr noundef %zero, ptr noundef %commit, i32 noundef %arena_ind)

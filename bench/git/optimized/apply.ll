@@ -2501,8 +2501,8 @@ read_patch_file.exit:                             ; preds = %if.else.i
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i, i8 0, i64 16, i1 false)
   %5 = load i64, ptr %len.i, align 8
-  %cmp1506.not = icmp eq i64 %5, 0
-  br i1 %cmp1506.not, label %while.end, label %while.body.lr.ph
+  %cmp1508.not = icmp eq i64 %5, 0
+  br i1 %cmp1508.not, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %read_patch_file.exit
   %6 = trunc i32 %options to i16
@@ -2535,19 +2535,19 @@ while.body.lr.ph:                                 ; preds = %read_patch_file.exi
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end54
-  %offset.0510 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end54 ]
-  %listp.0509 = phi ptr [ %list, %while.body.lr.ph ], [ %listp.2, %if.end54 ]
-  %skipped_patch.0508 = phi i32 [ 0, %while.body.lr.ph ], [ %skipped_patch.1, %if.end54 ]
-  %flush_attributes.0507 = phi i32 [ 0, %while.body.lr.ph ], [ %flush_attributes.1, %if.end54 ]
+  %offset.0512 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end54 ]
+  %listp.0511 = phi ptr [ %list, %while.body.lr.ph ], [ %listp.2, %if.end54 ]
+  %skipped_patch.0510 = phi i32 [ 0, %while.body.lr.ph ], [ %skipped_patch.1, %if.end54 ]
+  %flush_attributes.0509 = phi i32 [ 0, %while.body.lr.ph ], [ %flush_attributes.1, %if.end54 ]
   %call2 = call ptr @xcalloc(i64 noundef 1, i64 noundef 352) #21
   %inaccurate_eof = getelementptr inbounds i8, ptr %call2, i64 64
   %bf.load = load i16, ptr %inaccurate_eof, align 8
   %bf.clear = and i16 %bf.load, -60
   %bf.set14 = or disjoint i16 %bf.set, %bf.clear
   %9 = load ptr, ptr %buf.i, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %offset.0510
+  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %offset.0512
   %10 = load i64, ptr %len.i, align 8
-  %sub = sub i64 %10, %offset.0510
+  %sub = sub i64 %10, %offset.0512
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %dummy.i.i)
   store i16 %bf.set14, ptr %inaccurate_eof, align 8
   %is_delete.i.i = getelementptr inbounds i8, ptr %call2, i64 36
@@ -4291,7 +4291,7 @@ lor.lhs.false:                                    ; preds = %patch_stats.exit
   br i1 %tobool33.not, label %if.then34, label %if.else
 
 if.then34:                                        ; preds = %lor.lhs.false, %patch_stats.exit
-  store ptr %call2, ptr %listp.0509, align 8
+  store ptr %call2, ptr %listp.0511, align 8
   %next = getelementptr inbounds i8, ptr %call2, i64 232
   br label %if.end36
 
@@ -4302,7 +4302,7 @@ if.else:                                          ; preds = %lor.lhs.false
   br label %if.end36
 
 if.end36:                                         ; preds = %if.else, %if.then34
-  %listp.1 = phi ptr [ %listp.0509, %if.else ], [ %next, %if.then34 ]
+  %listp.1 = phi ptr [ %listp.0511, %if.else ], [ %next, %if.then34 ]
   %210 = load ptr, ptr %call2, align 8
   %tobool37.not = icmp eq ptr %210, null
   br i1 %tobool37.not, label %lor.lhs.false41, label %land.lhs.true
@@ -4348,25 +4348,25 @@ _.exit:                                           ; preds = %if.then51, %if.end3
 if.end53:                                         ; preds = %_.exit, %if.else49
   call void @release_patch(ptr noundef nonnull %call2)
   call void @free(ptr noundef %call2) #21
-  %inc = add nsw i32 %skipped_patch.0508, 1
+  %inc = add nsw i32 %skipped_patch.0510, 1
   br label %if.end54
 
 if.end54:                                         ; preds = %lor.lhs.false41, %land.lhs.true43, %if.then47, %if.end53
-  %flush_attributes.1 = phi i32 [ 1, %if.then47 ], [ %flush_attributes.0507, %land.lhs.true43 ], [ %flush_attributes.0507, %lor.lhs.false41 ], [ %flush_attributes.0507, %if.end53 ]
-  %skipped_patch.1 = phi i32 [ %skipped_patch.0508, %if.then47 ], [ %skipped_patch.0508, %land.lhs.true43 ], [ %skipped_patch.0508, %lor.lhs.false41 ], [ %inc, %if.end53 ]
-  %listp.2 = phi ptr [ %listp.1, %if.then47 ], [ %listp.1, %land.lhs.true43 ], [ %listp.1, %lor.lhs.false41 ], [ %listp.0509, %if.end53 ]
+  %flush_attributes.1 = phi i32 [ 1, %if.then47 ], [ %flush_attributes.0509, %land.lhs.true43 ], [ %flush_attributes.0509, %lor.lhs.false41 ], [ %flush_attributes.0509, %if.end53 ]
+  %skipped_patch.1 = phi i32 [ %skipped_patch.0510, %if.then47 ], [ %skipped_patch.0510, %land.lhs.true43 ], [ %skipped_patch.0510, %lor.lhs.false41 ], [ %inc, %if.end53 ]
+  %listp.2 = phi ptr [ %listp.1, %if.then47 ], [ %listp.1, %land.lhs.true43 ], [ %listp.1, %lor.lhs.false41 ], [ %listp.0511, %if.end53 ]
   %conv = zext nneg i32 %add108.i to i64
-  %add = add i64 %offset.0510, %conv
+  %add = add i64 %offset.0512, %conv
   %215 = load i64, ptr %len.i, align 8
   %cmp1 = icmp ult i64 %add, %215
   br i1 %cmp1, label %while.body, label %while.end, !llvm.loop !25
 
 while.end:                                        ; preds = %if.end54, %read_patch_file.exit, %if.then20
-  %flush_attributes.0479 = phi i32 [ %flush_attributes.0507, %if.then20 ], [ 0, %read_patch_file.exit ], [ %flush_attributes.1, %if.end54 ]
-  %skipped_patch.0464 = phi i32 [ %skipped_patch.0508, %if.then20 ], [ 0, %read_patch_file.exit ], [ %skipped_patch.1, %if.end54 ]
+  %flush_attributes.0481 = phi i32 [ %flush_attributes.0509, %if.then20 ], [ 0, %read_patch_file.exit ], [ %flush_attributes.1, %if.end54 ]
+  %skipped_patch.0466 = phi i32 [ %skipped_patch.0510, %if.then20 ], [ 0, %read_patch_file.exit ], [ %skipped_patch.1, %if.end54 ]
   %list.0.list.0.list.0.list.0.68 = load ptr, ptr %list, align 8
   %tobool55 = icmp ne ptr %list.0.list.0.list.0.list.0.68, null
-  %tobool57 = icmp ne i32 %skipped_patch.0464, 0
+  %tobool57 = icmp ne i32 %skipped_patch.0466, 0
   %or.cond = select i1 %tobool55, i1 true, i1 %tobool57
   br i1 %or.cond, label %if.end65, label %if.then58
 
@@ -4509,8 +4509,8 @@ lor.lhs.false105:                                 ; preds = %if.end103
   %231 = load i32, ptr %apply106, align 8
   %tobool107.not = icmp eq i32 %231, 0
   %cond.i138 = icmp eq ptr %list.0.list.0.list.0.list.0.68, null
-  %or.cond399 = or i1 %cond.i138, %tobool107.not
-  br i1 %or.cond399, label %if.end120, label %for.body.lr.ph.i.i139
+  %or.cond401 = or i1 %cond.i138, %tobool107.not
+  br i1 %or.cond401, label %if.end120, label %for.body.lr.ph.i.i139
 
 if.then108:                                       ; preds = %if.end103
   %cond.i138.old = icmp eq ptr %list.0.list.0.list.0.list.0.68, null
@@ -6044,11 +6044,7 @@ if.else.i234:                                     ; preds = %while.body.i221
   br i1 %cmp.i.i236, label %if.then.i.i281, label %if.end3.i.i237
 
 if.then.i.i281:                                   ; preds = %if.else.i234
-  br i1 %cmp11.i.i, label %if.then2.i.i, label %if.then5.i244
-
-if.then2.i.i:                                     ; preds = %if.then.i.i281
-  %call.i.i282 = call fastcc i32 @remove_file(ptr noundef %state, ptr noundef nonnull %l.034.i, i32 noundef 1), !range !5
-  br label %write_out_one_result.exit.i
+  br i1 %cmp6.i.i, label %if.then5.i244, label %write_out_one_result.exit.i.thread
 
 if.end3.i.i237:                                   ; preds = %if.else.i234
   %is_new.i.i238 = getelementptr inbounds i8, ptr %l.034.i, i64 32
@@ -6080,17 +6076,22 @@ if.then20.i.i:                                    ; preds = %if.end10.i.i
   %call21.i.i = call fastcc i32 @create_file(ptr noundef %state, ptr noundef nonnull %l.034.i), !range !5
   br label %write_out_one_result.exit.i
 
-write_out_one_result.exit.i:                      ; preds = %if.then20.i.i, %if.then12.i.i280, %if.then2.i.i
-  %retval.0.i.i277 = phi i32 [ %call.i.i282, %if.then2.i.i ], [ %call17.i.i, %if.then12.i.i280 ], [ %call21.i.i, %if.then20.i.i ]
+write_out_one_result.exit.i:                      ; preds = %if.then20.i.i, %if.then12.i.i280
+  %retval.0.i.i277 = phi i32 [ %call17.i.i, %if.then12.i.i280 ], [ %call21.i.i, %if.then20.i.i ]
   %tobool2.not.i278 = icmp eq i32 %retval.0.i.i277, 0
   br i1 %tobool2.not.i278, label %if.end.i279, label %write_out_results.exit.thread
+
+write_out_one_result.exit.i.thread:               ; preds = %if.then.i.i281
+  %call.i.i282 = call fastcc i32 @remove_file(ptr noundef %state, ptr noundef nonnull %l.034.i, i32 noundef 1), !range !5
+  %tobool2.not.i278390 = icmp eq i32 %call.i.i282, 0
+  br i1 %tobool2.not.i278390, label %if.end15.i223, label %write_out_results.exit.thread
 
 write_out_one_result.exit.thread.i:               ; preds = %if.then5.i.i
   %call8.i.i243 = call fastcc i32 @create_file(ptr noundef %state, ptr noundef nonnull %l.034.i), !range !5
   %tobool2.not43.i = icmp eq i32 %call8.i.i243, 0
   br i1 %tobool2.not43.i, label %if.then5.i244, label %write_out_results.exit.thread
 
-write_out_results.exit.thread:                    ; preds = %write_out_one_result.exit.i, %write_out_one_result.exit.thread.i
+write_out_results.exit.thread:                    ; preds = %write_out_one_result.exit.i, %write_out_one_result.exit.thread.i, %write_out_one_result.exit.i.thread
   call void @string_list_clear(ptr noundef nonnull %cpath.i, i32 noundef 0) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %cpath.i)
   br label %end
@@ -6406,8 +6407,8 @@ if.then11.i:                                      ; preds = %452
   %call12.i260 = call ptr @string_list_append(ptr noundef nonnull %cpath.i, ptr noundef %455) #21
   br label %if.end15.i223
 
-if.end15.i223:                                    ; preds = %if.then11.i, %452, %if.end.i279, %if.then5.i.i, %while.body.i221
-  %errs.3.i = phi i32 [ 1, %if.then11.i ], [ %453, %452 ], [ %errs.133.i, %if.end.i279 ], [ 1, %while.body.i221 ], [ %errs.133.i, %if.then5.i.i ]
+if.end15.i223:                                    ; preds = %write_out_one_result.exit.i.thread, %if.then11.i, %452, %if.end.i279, %if.then5.i.i, %while.body.i221
+  %errs.3.i = phi i32 [ 1, %if.then11.i ], [ %453, %452 ], [ %errs.133.i, %if.end.i279 ], [ 1, %while.body.i221 ], [ %errs.133.i, %if.then5.i.i ], [ %errs.133.i, %write_out_one_result.exit.i.thread ]
   %next.i224 = getelementptr inbounds i8, ptr %l.034.i, i64 232
   %456 = load ptr, ptr %next.i224, align 8
   %tobool.not.i225 = icmp eq ptr %456, null
@@ -6428,18 +6429,18 @@ if.then17.i229:                                   ; preds = %for.end.i226
   %cmp18.i = icmp sgt i32 %458, -1
   %459 = load ptr, ptr %cpath.i, align 8
   %tobool21.not39.i = icmp ne ptr %459, null
-  %or.cond.i230.not706 = select i1 %cmp18.i, i1 %tobool21.not39.i, i1 false
+  %or.cond.i230.not708 = select i1 %cmp18.i, i1 %tobool21.not39.i, i1 false
   %460 = load i64, ptr %nr.phi.trans.insert.i, align 8
-  %cmp24.i513 = icmp sgt i64 %460, 0
-  %or.cond705 = select i1 %or.cond.i230.not706, i1 %cmp24.i513, i1 false
-  br i1 %or.cond705, label %for.body25.i, label %if.end29.i
+  %cmp24.i515 = icmp sgt i64 %460, 0
+  %or.cond707 = select i1 %or.cond.i230.not708, i1 %cmp24.i515, i1 false
+  br i1 %or.cond707, label %for.body25.i, label %if.end29.i
 
 for.body25.i:                                     ; preds = %if.then17.i229, %for.body25.i
-  %item.040.i514 = phi ptr [ %incdec.ptr.i, %for.body25.i ], [ %459, %if.then17.i229 ]
+  %item.040.i516 = phi ptr [ %incdec.ptr.i, %for.body25.i ], [ %459, %if.then17.i229 ]
   %461 = load ptr, ptr @stderr, align 8
-  %462 = load ptr, ptr %item.040.i514, align 8
+  %462 = load ptr, ptr %item.040.i516, align 8
   %call26.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %461, ptr noundef nonnull @.str.219, ptr noundef %462) #24
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %item.040.i514, i64 16
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %item.040.i516, i64 16
   %463 = load ptr, ptr %cpath.i, align 8
   %464 = load i64, ptr %nr.phi.trans.insert.i, align 8
   %add.ptr.i231 = getelementptr inbounds %struct.string_list_item, ptr %463, i64 %464
@@ -6837,7 +6838,7 @@ if.then161:                                       ; preds = %land.lhs.true157
   br label %if.end162
 
 if.end162:                                        ; preds = %if.then161, %land.lhs.true157, %if.end155
-  %tobool163.not = icmp eq i32 %flush_attributes.0479, 0
+  %tobool163.not = icmp eq i32 %flush_attributes.0481, 0
   br i1 %tobool163.not, label %end, label %if.then164
 
 if.then164:                                       ; preds = %if.end162

@@ -59,9 +59,9 @@ define void @zif_dl(ptr noundef %0, ptr nocapture noundef writeonly %1) local_un
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
-  br i1 %cond, label %6, label %.thread82
+  br i1 %cond, label %6, label %.thread81
 
-.thread82:                                        ; preds = %2
+.thread81:                                        ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #4
   br label %14
 
@@ -85,21 +85,20 @@ define void @zif_dl(ptr noundef %0, ptr nocapture noundef writeonly %1) local_un
   %.pre = load ptr, ptr %3, align 8
   br label %15
 
-14:                                               ; preds = %12, %.thread82
-  %.093 = phi i32 [ 1, %.thread82 ], [ 9, %12 ]
-  %.06692 = phi i32 [ 0, %.thread82 ], [ 1, %12 ]
-  %.06791 = phi i32 [ 0, %.thread82 ], [ 4, %12 ]
-  %.06890 = phi ptr [ null, %.thread82 ], [ %7, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.093, i32 noundef %.06692, ptr noundef null, i32 noundef %.06791, ptr noundef %.06890) #4
+14:                                               ; preds = %12, %.thread81
+  %.092 = phi i32 [ 1, %.thread81 ], [ 9, %12 ]
+  %.06691 = phi i32 [ 0, %.thread81 ], [ 1, %12 ]
+  %.06790 = phi i32 [ 0, %.thread81 ], [ 4, %12 ]
+  %.06889 = phi ptr [ null, %.thread81 ], [ %7, %12 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.092, i32 noundef %.06691, ptr noundef null, i32 noundef %.06790, ptr noundef %.06889) #4
   br label %32
 
 15:                                               ; preds = %._crit_edge, %.thread
   %16 = phi ptr [ %.pre, %._crit_edge ], [ %11, %.thread ]
   %17 = getelementptr inbounds i8, ptr %16, i64 24
   %18 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 2), align 1
-  %19 = and i8 %18, 1
-  %.not76 = icmp eq i8 %19, 0
-  br i1 %.not76, label %20, label %22
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %22, label %20
 
 20:                                               ; preds = %15
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str) #4

@@ -962,28 +962,27 @@ _ZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConf
 if.end:                                           ; preds = %entry
   %server_config_valid_ = getelementptr inbounds i8, ptr %this, i64 184
   %4 = load i8, ptr %server_config_valid_, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.then2, label %if.end3
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %6 = load atomic volatile i64, ptr @_ZZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateEE24atomic_histogram_pointer acquire, align 8
-  %7 = inttoptr i64 %6 to ptr
-  %tobool.not.i3 = icmp eq i64 %6, 0
+  %5 = load atomic volatile i64, ptr @_ZZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateEE24atomic_histogram_pointer acquire, align 8
+  %6 = inttoptr i64 %5 to ptr
+  %tobool.not.i3 = icmp eq i64 %5, 0
   br i1 %tobool.not.i3, label %if.then.i7, label %_ZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateE.exit9
 
 if.then.i7:                                       ; preds = %if.then2
   %call2.i8 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @.str.32, i32 noundef 1, i32 noundef 6, i32 noundef 7, i32 noundef 1)
-  %8 = ptrtoint ptr %call2.i8 to i64
-  store atomic volatile i64 %8, ptr @_ZZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateEE24atomic_histogram_pointer release, align 8
+  %7 = ptrtoint ptr %call2.i8 to i64
+  store atomic volatile i64 %7, ptr @_ZZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateEE24atomic_histogram_pointer release, align 8
   br label %_ZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateE.exit9
 
 _ZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateE.exit9: ; preds = %if.then2, %if.then.i7
-  %histogram_pointer.0.i4 = phi ptr [ %7, %if.then2 ], [ %call2.i8, %if.then.i7 ]
+  %histogram_pointer.0.i4 = phi ptr [ %6, %if.then2 ], [ %call2.i8, %if.then.i7 ]
   %vtable.i5 = load ptr, ptr %histogram_pointer.0.i4, align 8
   %vfn.i6 = getelementptr inbounds i8, ptr %vtable.i5, i64 40
-  %9 = load ptr, ptr %vfn.i6, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i4, i32 noundef 1)
+  %8 = load ptr, ptr %vfn.i6, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i4, i32 noundef 1)
   br label %return
 
 if.end3:                                          ; preds = %if.end
@@ -997,8 +996,8 @@ _ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit.thread: ; 
 
 if.end.i:                                         ; preds = %if.end3
   %scfg_.i = getelementptr inbounds i8, ptr %this, i64 216
-  %10 = load ptr, ptr %scfg_.i, align 8
-  %tobool.not.i10 = icmp eq ptr %10, null
+  %9 = load ptr, ptr %scfg_.i, align 8
+  %tobool.not.i10 = icmp eq ptr %9, null
   br i1 %tobool.not.i10, label %if.then3.i, label %_ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit.thread29
 
 _ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit.thread29: ; preds = %if.end.i
@@ -1007,18 +1006,18 @@ _ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit.thread29: 
 
 if.then3.i:                                       ; preds = %if.end.i
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %11 = load ptr, ptr %agg.tmp.i, align 8
-  %12 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  %13 = load i64, ptr %12, align 8
-  %call6.i = call noundef ptr @_ZN3net12CryptoFramer12ParseMessageEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr %11, i64 %13)
-  %14 = load ptr, ptr %scfg_.i, align 8
+  %10 = load ptr, ptr %agg.tmp.i, align 8
+  %11 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %12 = load i64, ptr %11, align 8
+  %call6.i = call noundef ptr @_ZN3net12CryptoFramer12ParseMessageEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr %10, i64 %12)
+  %13 = load ptr, ptr %scfg_.i, align 8
   store ptr %call6.i, ptr %scfg_.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %14, null
+  %tobool.not.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i, label %_ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit, label %_ZNKSt14default_deleteIN3net22CryptoHandshakeMessageEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN3net22CryptoHandshakeMessageEEclEPS1_.exit.i.i.i: ; preds = %if.then3.i
-  call void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %14) #20
-  call void @_ZdlPv(ptr noundef nonnull %14) #22
+  call void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %13) #20
+  call void @_ZdlPv(ptr noundef nonnull %13) #22
   %.pre.i = load ptr, ptr %scfg_.i, align 8
   br label %_ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit
 
@@ -1029,23 +1028,23 @@ _ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit: ; preds =
   br i1 %tobool5.not, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %_ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit.thread, %_ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit
-  %15 = load atomic volatile i64, ptr @_ZZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateEE24atomic_histogram_pointer acquire, align 8
-  %16 = inttoptr i64 %15 to ptr
-  %tobool.not.i11 = icmp eq i64 %15, 0
+  %14 = load atomic volatile i64, ptr @_ZZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateEE24atomic_histogram_pointer acquire, align 8
+  %15 = inttoptr i64 %14 to ptr
+  %tobool.not.i11 = icmp eq i64 %14, 0
   br i1 %tobool.not.i11, label %if.then.i16, label %_ZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateE.exit18
 
 if.then.i16:                                      ; preds = %if.then6
   %call2.i17 = call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @.str.32, i32 noundef 1, i32 noundef 6, i32 noundef 7, i32 noundef 1)
-  %17 = ptrtoint ptr %call2.i17 to i64
-  store atomic volatile i64 %17, ptr @_ZZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateEE24atomic_histogram_pointer release, align 8
+  %16 = ptrtoint ptr %call2.i17 to i64
+  store atomic volatile i64 %16, ptr @_ZZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateEE24atomic_histogram_pointer release, align 8
   br label %_ZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateE.exit18
 
 _ZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateE.exit18: ; preds = %if.then6, %if.then.i16
-  %histogram_pointer.0.i13 = phi ptr [ %16, %if.then6 ], [ %call2.i17, %if.then.i16 ]
+  %histogram_pointer.0.i13 = phi ptr [ %15, %if.then6 ], [ %call2.i17, %if.then.i16 ]
   %vtable.i14 = load ptr, ptr %histogram_pointer.0.i13, align 8
   %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 40
-  %18 = load ptr, ptr %vfn.i15, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i13, i32 noundef 2)
+  %17 = load ptr, ptr %vfn.i15, align 8
+  call void %17(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i13, i32 noundef 2)
   br label %return
 
 if.end7:                                          ; preds = %_ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit.thread29, %_ZNK3net22QuicCryptoClientConfig11CachedState15GetServerConfigEv.exit
@@ -1055,19 +1054,19 @@ if.end7:                                          ; preds = %_ZNK3net22QuicCrypt
   br i1 %call9, label %do.body11, label %return
 
 do.body11:                                        ; preds = %if.end7
-  %19 = load atomic volatile i64, ptr @_ZZNK3net22QuicCryptoClientConfig11CachedState10IsCompleteENS_12QuicWallTimeEE24atomic_histogram_pointer acquire, align 8
-  %20 = inttoptr i64 %19 to ptr
-  %tobool13.not = icmp eq i64 %19, 0
+  %18 = load atomic volatile i64, ptr @_ZZNK3net22QuicCryptoClientConfig11CachedState10IsCompleteENS_12QuicWallTimeEE24atomic_histogram_pointer acquire, align 8
+  %19 = inttoptr i64 %18 to ptr
+  %tobool13.not = icmp eq i64 %18, 0
   br i1 %tobool13.not, label %if.then14, label %if.end24
 
 if.then14:                                        ; preds = %do.body11
   %call23 = call noundef ptr @_ZN4base9Histogram14FactoryTimeGetEPKcNS_9TimeDeltaES3_ji(ptr noundef nonnull @.str, i64 60000000, i64 1728000000000, i32 noundef 50, i32 noundef 1)
-  %21 = ptrtoint ptr %call23 to i64
-  store atomic volatile i64 %21, ptr @_ZZNK3net22QuicCryptoClientConfig11CachedState10IsCompleteENS_12QuicWallTimeEE24atomic_histogram_pointer release, align 8
+  %20 = ptrtoint ptr %call23 to i64
+  store atomic volatile i64 %20, ptr @_ZZNK3net22QuicCryptoClientConfig11CachedState10IsCompleteENS_12QuicWallTimeEE24atomic_histogram_pointer release, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then14, %do.body11
-  %histogram_pointer.0 = phi ptr [ %20, %do.body11 ], [ %call23, %if.then14 ]
+  %histogram_pointer.0 = phi ptr [ %19, %do.body11 ], [ %call23, %if.then14 ]
   %call25 = call noundef i64 @_ZNK3net12QuicWallTime13ToUNIXSecondsEv(ptr noundef nonnull align 8 dereferenceable(8) %now)
   %call27 = call noundef i64 @_ZNK3net12QuicWallTime13ToUNIXSecondsEv(ptr noundef nonnull align 8 dereferenceable(8) %expiration_time_)
   %sub = sub i64 %call25, %call27
@@ -1095,23 +1094,23 @@ _ZN4base9TimeDelta11FromSecondsEl.exit:           ; preds = %cond.true.i.i, %con
   %retval.sroa.0.0.i.i = phi i64 [ %call1.i.i, %cond.true.i.i ], [ %sub.i.i.i, %cond.true5.i.i ], [ %mul.i.i, %cond.false10.i.i ]
   store i64 %retval.sroa.0.0.i.i, ptr %ref.tmp, align 8
   call void @_ZN4base13HistogramBase7AddTimeERKNS_9TimeDeltaE(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %22 = load atomic volatile i64, ptr @_ZZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateEE24atomic_histogram_pointer acquire, align 8
-  %23 = inttoptr i64 %22 to ptr
-  %tobool.not.i19 = icmp eq i64 %22, 0
+  %21 = load atomic volatile i64, ptr @_ZZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateEE24atomic_histogram_pointer acquire, align 8
+  %22 = inttoptr i64 %21 to ptr
+  %tobool.not.i19 = icmp eq i64 %21, 0
   br i1 %tobool.not.i19, label %if.then.i24, label %_ZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateE.exit26
 
 if.then.i24:                                      ; preds = %_ZN4base9TimeDelta11FromSecondsEl.exit
   %call2.i25 = call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @.str.32, i32 noundef 1, i32 noundef 6, i32 noundef 7, i32 noundef 1)
-  %24 = ptrtoint ptr %call2.i25 to i64
-  store atomic volatile i64 %24, ptr @_ZZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateEE24atomic_histogram_pointer release, align 8
+  %23 = ptrtoint ptr %call2.i25 to i64
+  store atomic volatile i64 %23, ptr @_ZZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateEE24atomic_histogram_pointer release, align 8
   br label %_ZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateE.exit26
 
 _ZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateE.exit26: ; preds = %_ZN4base9TimeDelta11FromSecondsEl.exit, %if.then.i24
-  %histogram_pointer.0.i21 = phi ptr [ %23, %_ZN4base9TimeDelta11FromSecondsEl.exit ], [ %call2.i25, %if.then.i24 ]
+  %histogram_pointer.0.i21 = phi ptr [ %22, %_ZN4base9TimeDelta11FromSecondsEl.exit ], [ %call2.i25, %if.then.i24 ]
   %vtable.i22 = load ptr, ptr %histogram_pointer.0.i21, align 8
   %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 40
-  %25 = load ptr, ptr %vfn.i23, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i21, i32 noundef 3)
+  %24 = load ptr, ptr %vfn.i23, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i21, i32 noundef 3)
   br label %return
 
 return:                                           ; preds = %if.end7, %_ZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateE.exit26, %_ZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateE.exit18, %_ZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateE.exit9, %_ZN3net12_GLOBAL__N_131RecordInchoateClientHelloReasonENS_22QuicCryptoClientConfig11CachedState17ServerConfigStateE.exit
@@ -2184,8 +2183,7 @@ define dso_local noundef zeroext i1 @_ZNK3net22QuicCryptoClientConfig11CachedSta
 entry:
   %server_config_valid_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load i8, ptr %server_config_valid_, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -2276,43 +2274,43 @@ entry:
   %call12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %server_config_sig_11, ptr noundef nonnull align 8 dereferenceable(32) %server_config_sig_)
   %server_config_valid_ = getelementptr inbounds i8, ptr %other, i64 184
   %0 = load i8, ptr %server_config_valid_, align 8
-  %1 = and i8 %0, 1
   %server_config_valid_13 = getelementptr inbounds i8, ptr %this, i64 184
-  store i8 %1, ptr %server_config_valid_13, align 8
+  %frombool = and i8 %0, 1
+  store i8 %frombool, ptr %server_config_valid_13, align 8
   %server_designated_connection_ids_ = getelementptr inbounds i8, ptr %other, i64 224
   %server_designated_connection_ids_14 = getelementptr inbounds i8, ptr %this, i64 224
   %call.i = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZNSt5dequeImSaImEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(80) %server_designated_connection_ids_14, ptr noundef nonnull align 8 dereferenceable(80) %server_designated_connection_ids_)
   %expiration_time_ = getelementptr inbounds i8, ptr %other, i64 192
   %expiration_time_16 = getelementptr inbounds i8, ptr %this, i64 192
-  %2 = load i64, ptr %expiration_time_, align 8
-  store i64 %2, ptr %expiration_time_16, align 8
+  %1 = load i64, ptr %expiration_time_, align 8
+  store i64 %1, ptr %expiration_time_16, align 8
   %proof_verify_details_ = getelementptr inbounds i8, ptr %other, i64 208
-  %3 = load ptr, ptr %proof_verify_details_, align 8
-  %cmp.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %proof_verify_details_, align 8
+  %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %proof_verify_details_18 = getelementptr inbounds i8, ptr %this, i64 208
-  %vtable = load ptr, ptr %3, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %4 = load ptr, ptr %vfn, align 8
-  %call21 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %5 = load ptr, ptr %proof_verify_details_18, align 8
+  %3 = load ptr, ptr %vfn, align 8
+  %call21 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %4 = load ptr, ptr %proof_verify_details_18, align 8
   store ptr %call21, ptr %proof_verify_details_18, align 8
-  %tobool.not.i.i = icmp eq ptr %5, null
+  %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.end, label %_ZNKSt14default_deleteIN3net18ProofVerifyDetailsEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN3net18ProofVerifyDetailsEEclEPS1_.exit.i.i: ; preds = %if.then
-  %vtable.i.i.i = load ptr, ptr %5, align 8
+  %vtable.i.i.i = load ptr, ptr %4, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
-  %6 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  %5 = load ptr, ptr %vfn.i.i.i, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
   br label %if.end
 
 if.end:                                           ; preds = %_ZNKSt14default_deleteIN3net18ProofVerifyDetailsEEclEPS1_.exit.i.i, %if.then, %entry
   %generation_counter_ = getelementptr inbounds i8, ptr %this, i64 200
-  %7 = load i64, ptr %generation_counter_, align 8
-  %inc = add i64 %7, 1
+  %6 = load i64, ptr %generation_counter_, align 8
+  %inc = add i64 %6, 1
   store i64 %inc, ptr %generation_counter_, align 8
   ret void
 }
@@ -2597,8 +2595,8 @@ call.i.i.noexc:                                   ; preds = %lor.rhs.i
   br i1 %call.i.i7, label %if.then.i, label %invoke.cont13
 
 if.then.i:                                        ; preds = %call.i.i.noexc, %_ZNSt3mapIN3net12QuicServerIdEPNS0_22QuicCryptoClientConfig11CachedStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit.i, %invoke.cont
-  %__y.addr.0.lcssa.i.i.i10.i = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapIN3net12QuicServerIdEPNS0_22QuicCryptoClientConfig11CachedStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit.i ], [ %__y.addr.1.i.i.i.i, %call.i.i.noexc ], [ %add.ptr.i.i.i, %invoke.cont ]
-  %call.i3.i8 = invoke ptr @_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_PNS0_22QuicCryptoClientConfig11CachedStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJS2_IS1_S6_EEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %cached_states_, ptr %__y.addr.0.lcssa.i.i.i10.i, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp11)
+  %__y.addr.0.lcssa.i.i.i11.i = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapIN3net12QuicServerIdEPNS0_22QuicCryptoClientConfig11CachedStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit.i ], [ %__y.addr.1.i.i.i.i, %call.i.i.noexc ], [ %add.ptr.i.i.i, %invoke.cont ]
+  %call.i3.i8 = invoke ptr @_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_PNS0_22QuicCryptoClientConfig11CachedStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJS2_IS1_S6_EEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %cached_states_, ptr %__y.addr.0.lcssa.i.i.i11.i, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp11)
           to label %invoke.cont13 unwind label %lpad12.loopexit.split-lp
 
 invoke.cont13:                                    ; preds = %call.i.i.noexc, %if.then.i
@@ -2950,19 +2948,18 @@ invoke.cont27:                                    ; preds = %call.i.i.noexc90, %
   %18 = load ptr, ptr %second.i85, align 8
   %server_config_valid_.i = getelementptr inbounds i8, ptr %18, i64 184
   %19 = load i8, ptr %server_config_valid_.i, align 8
-  %20 = and i8 %19, 1
-  %tobool.i.not = icmp eq i8 %20, 0
-  br i1 %tobool.i.not, label %cleanup, label %if.end31
+  %tobool.i = trunc i8 %19 to i1
+  br i1 %tobool.i, label %if.end31, label %cleanup
 
 if.end31:                                         ; preds = %invoke.cont27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i94)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i95)
-  %21 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i98 = icmp eq ptr %21, null
+  %20 = load ptr, ptr %_M_parent.i.i.i.i, align 8
+  %cmp.not5.i.i.i.i98 = icmp eq ptr %20, null
   br i1 %cmp.not5.i.i.i.i98, label %if.then.i114, label %while.body.i.i.i.i99
 
 while.body.i.i.i.i99:                             ; preds = %if.end31, %call.i.i.i.i.i.noexc116
-  %__x.addr.07.i.i.i.i100 = phi ptr [ %__x.addr.1.i.i.i.i106, %call.i.i.i.i.i.noexc116 ], [ %21, %if.end31 ]
+  %__x.addr.07.i.i.i.i100 = phi ptr [ %__x.addr.1.i.i.i.i106, %call.i.i.i.i.i.noexc116 ], [ %20, %if.end31 ]
   %__y.addr.06.i.i.i.i101 = phi ptr [ %__y.addr.1.i.i.i.i103, %call.i.i.i.i.i.noexc116 ], [ %add.ptr.i.i.i.i, %if.end31 ]
   %_M_storage.i.i.i.i.i.i102 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i100, i64 32
   %call.i.i.i.i.i117 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %_M_storage.i.i.i.i.i.i102, ptr noundef nonnull align 8 dereferenceable(44) %suffix_server_id)
@@ -3003,12 +3000,12 @@ invoke.cont33:                                    ; preds = %call.i.i.noexc118, 
           to label %invoke.cont35 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont35:                                    ; preds = %invoke.cont33
-  %22 = load i16, ptr %port_.i.i, align 8
+  %21 = load i16, ptr %port_.i.i, align 8
   %port_3.i.i124 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i112, i64 112
-  store i16 %22, ptr %port_3.i.i124, align 8
-  %23 = load i32, ptr %privacy_mode_.i, align 8
+  store i16 %21, ptr %port_3.i.i124, align 8
+  %22 = load i32, ptr %privacy_mode_.i, align 8
   %privacy_mode_3.i126 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i112, i64 120
-  store i32 %23, ptr %privacy_mode_3.i126, align 8
+  store i32 %22, ptr %privacy_mode_3.i126, align 8
   invoke void @_ZN3net22QuicCryptoClientConfig11CachedState14InitializeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(384) %server_state, ptr noundef nonnull align 8 dereferenceable(384) %18)
           to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -5341,9 +5338,8 @@ entry:
   %call = tail call noundef ptr @_ZN3net22QuicCryptoClientConfig14LookupOrCreateERKNS_12QuicServerIdE(ptr noundef nonnull align 8 dereferenceable(248) %canonical_crypto_config, ptr noundef nonnull align 8 dereferenceable(44) %canonical_server_id)
   %server_config_valid_.i = getelementptr inbounds i8, ptr %call, i64 184
   %0 = load i8, ptr %server_config_valid_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %return, label %if.end
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %call3 = tail call noundef ptr @_ZN3net22QuicCryptoClientConfig14LookupOrCreateERKNS_12QuicServerIdE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(44) %server_id)

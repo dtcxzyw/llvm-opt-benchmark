@@ -390,9 +390,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %82 = call ptr @get_controlfile(ptr noundef nonnull %.3, ptr noundef nonnull %4) #12
   store ptr %82, ptr @ControlFile, align 8
   %83 = load i8, ptr %4, align 1
-  %84 = and i8 %83, 1
-  %.not45 = icmp eq i8 %84, 0
-  br i1 %.not45, label %85, label %86
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %86, label %85
 
 85:                                               ; preds = %81
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.22) #12
@@ -402,8 +401,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 86:                                               ; preds = %81
   %87 = getelementptr inbounds i8, ptr %82, i64 8
   %88 = load i32, ptr %87, align 8
-  %.not46 = icmp eq i32 %88, 1300
-  br i1 %.not46, label %90, label %89
+  %.not45 = icmp eq i32 %88, 1300
+  br i1 %.not45, label %90, label %89
 
 89:                                               ; preds = %86
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.23) #12
@@ -413,8 +412,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 90:                                               ; preds = %86
   %91 = getelementptr inbounds i8, ptr %82, i64 216
   %92 = load i32, ptr %91, align 8
-  %.not47 = icmp eq i32 %92, 8192
-  br i1 %.not47, label %97, label %93
+  %.not46 = icmp eq i32 %92, 8192
+  br i1 %.not46, label %97, label %93
 
 93:                                               ; preds = %90
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.24) #12
@@ -479,8 +478,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   ]
 
 116:                                              ; preds = %115, %115
-  %.b4350 = load i1, ptr @showprogress, align 1
-  br i1 %.b4350, label %117, label %125
+  %.b4349 = load i1, ptr @showprogress, align 1
+  br i1 %.b4349, label %117, label %125
 
 117:                                              ; preds = %116
   %118 = call fastcc i64 @scan_directory(ptr noundef nonnull %.3, ptr noundef nonnull @.str.30, i1 noundef zeroext true)
@@ -499,8 +498,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %126 = call fastcc i64 @scan_directory(ptr noundef nonnull %.3, ptr noundef nonnull @.str.30, i1 noundef zeroext false)
   %127 = call fastcc i64 @scan_directory(ptr noundef nonnull %.3, ptr noundef nonnull @.str.31, i1 noundef zeroext false)
   %128 = call fastcc i64 @scan_directory(ptr noundef nonnull %.3, ptr noundef nonnull @.str.32, i1 noundef zeroext false)
-  %.b4251 = load i1, ptr @showprogress, align 1
-  br i1 %.b4251, label %129, label %148
+  %.b4250 = load i1, ptr @showprogress, align 1
+  br i1 %.b4250, label %129, label %148
 
 129:                                              ; preds = %125
   %130 = call i64 @time(ptr noundef null) #12
@@ -596,8 +595,8 @@ progress_report.exit:                             ; preds = %135, %137
   %.b = load i1, ptr @do_sync, align 1
   %not..b = xor i1 %.b, true
   call void @update_controlfile(ptr noundef nonnull %.3, ptr noundef %181, i1 noundef zeroext %not..b) #12
-  %.b4452 = load i1, ptr @verbose, align 1
-  br i1 %.b4452, label %182, label %.sink.split
+  %.b4451 = load i1, ptr @verbose, align 1
+  br i1 %.b4451, label %182, label %.sink.split
 
 182:                                              ; preds = %180
   %183 = load ptr, ptr @ControlFile, align 8

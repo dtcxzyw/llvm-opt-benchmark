@@ -76,9 +76,8 @@ _ZSt5countISt19_Bit_const_iteratorbENSt15iterator_traitsIT_E15difference_typeES2
   %__n.0.lcssa.i.i = phi i64 [ 0, %entry ], [ %spec.select.i.i, %for.body.i.i ]
   %d_ignoreFullySpecified = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i8, ptr %d_ignoreFullySpecified, align 8
-  %6 = and i8 %5, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  %tobool = trunc i8 %5 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %_ZSt5countISt19_Bit_const_iteratorbENSt15iterator_traitsIT_E15difference_typeES2_S2_RKT0_.exit
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -92,8 +91,8 @@ land.lhs.true:                                    ; preds = %_ZSt5countISt19_Bit
 
 if.end:                                           ; preds = %land.lhs.true, %_ZSt5countISt19_Bit_const_iteratorbENSt15iterator_traitsIT_E15difference_typeES2_S2_RKT0_.exit
   %d_root = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load ptr, ptr %d_root, align 8
-  %call6 = tail call noundef ptr @_ZN4cvc58internal6theory11quantifiers9IndexTrie6addRecEPNS2_13IndexTrieNodeEmmRKSt6vectorIbSaIbEERKS6_INS0_12NodeTemplateILb1EEESaISC_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %7, i64 noundef 0, i64 noundef %__n.0.lcssa.i.i, ptr noundef nonnull align 8 dereferenceable(40) %mask, ptr noundef nonnull align 8 dereferenceable(24) %values)
+  %6 = load ptr, ptr %d_root, align 8
+  %call6 = tail call noundef ptr @_ZN4cvc58internal6theory11quantifiers9IndexTrie6addRecEPNS2_13IndexTrieNodeEmmRKSt6vectorIbSaIbEERKS6_INS0_12NodeTemplateILb1EEESaISC_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %6, i64 noundef 0, i64 noundef %__n.0.lcssa.i.i, ptr noundef nonnull align 8 dereferenceable(40) %mask, ptr noundef nonnull align 8 dereferenceable(24) %values)
   store ptr %call6, ptr %d_root, align 8
   br label %return
 

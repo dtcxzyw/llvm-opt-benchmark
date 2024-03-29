@@ -140,9 +140,8 @@ lor.lhs.false:                                    ; preds = %_ZN12_GLOBAL__N_17G
 if.end:                                           ; preds = %lor.lhs.false
   %enforce_write_quota = getelementptr inbounds i8, ptr %1, i64 1
   %3 = load i8, ptr %enforce_write_quota, align 1
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.then2, label %if.end5
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %call4 = tail call i32 @BIO_write(ptr noundef nonnull %2, ptr noundef %in, i32 noundef %inl)
@@ -151,8 +150,8 @@ if.then2:                                         ; preds = %if.end
 if.end5:                                          ; preds = %if.end
   tail call void @BIO_clear_retry_flags(ptr noundef nonnull %bio)
   %write_quota = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = load i64, ptr %write_quota, align 8
-  %cmp6 = icmp eq i64 %5, 0
+  %4 = load i64, ptr %write_quota, align 8
+  %cmp6 = icmp eq i64 %4, 0
   br i1 %cmp6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end5
@@ -162,16 +161,15 @@ if.then7:                                         ; preds = %if.end5
   br label %return
 
 if.end9:                                          ; preds = %if.end5
-  %6 = load i8, ptr %1, align 8
-  %7 = and i8 %6, 1
-  %tobool10.not = icmp eq i8 %7, 0
+  %5 = load i8, ptr %1, align 8
+  %tobool10 = trunc i8 %5 to i1
   %conv = sext i32 %inl to i64
-  %cmp12 = icmp ult i64 %5, %conv
-  %or.cond = and i1 %cmp12, %tobool10.not
-  %conv15 = trunc i64 %5 to i32
-  %inl.addr.0 = select i1 %or.cond, i32 %conv15, i32 %inl
-  %8 = load ptr, ptr %next_bio, align 8
-  %call18 = tail call i32 @BIO_write(ptr noundef %8, ptr noundef %in, i32 noundef %inl.addr.0)
+  %cmp12 = icmp uge i64 %4, %conv
+  %or.cond.not = or i1 %cmp12, %tobool10
+  %conv15 = trunc i64 %4 to i32
+  %inl.addr.0 = select i1 %or.cond.not, i32 %inl, i32 %conv15
+  %6 = load ptr, ptr %next_bio, align 8
+  %call18 = tail call i32 @BIO_write(ptr noundef %6, ptr noundef %in, i32 noundef %inl.addr.0)
   %cmp19 = icmp slt i32 %call18, 1
   br i1 %cmp19, label %if.then20, label %if.else
 
@@ -180,13 +178,12 @@ if.then20:                                        ; preds = %if.end9
   br label %return
 
 if.else:                                          ; preds = %if.end9
-  %9 = load i8, ptr %1, align 8
-  %10 = and i8 %9, 1
-  %tobool22.not = icmp eq i8 %10, 0
-  %11 = zext nneg i32 %call18 to i64
-  %conv23 = select i1 %tobool22.not, i64 %11, i64 1
-  %12 = load i64, ptr %write_quota, align 8
-  %sub = sub i64 %12, %conv23
+  %7 = load i8, ptr %1, align 8
+  %tobool22 = trunc i8 %7 to i1
+  %8 = zext nneg i32 %call18 to i64
+  %conv23 = select i1 %tobool22, i64 1, i64 %8
+  %9 = load i64, ptr %write_quota, align 8
+  %sub = sub i64 %9, %conv23
   store i64 %sub, ptr %write_quota, align 8
   br label %return
 
@@ -229,15 +226,14 @@ if.then3:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   %4 = load i8, ptr %1, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
+  %tobool = trunc i8 %4 to i1
   %conv = sext i32 %outl to i64
-  %cmp7 = icmp ult i64 %3, %conv
-  %or.cond = and i1 %cmp7, %tobool.not
+  %cmp7 = icmp uge i64 %3, %conv
+  %or.cond.not = or i1 %cmp7, %tobool
   %conv10 = trunc i64 %3 to i32
-  %outl.addr.0 = select i1 %or.cond, i32 %conv10, i32 %outl
-  %6 = load ptr, ptr %next_bio, align 8
-  %call13 = tail call i32 @BIO_read(ptr noundef %6, ptr noundef %out, i32 noundef %outl.addr.0)
+  %outl.addr.0 = select i1 %or.cond.not, i32 %outl, i32 %conv10
+  %5 = load ptr, ptr %next_bio, align 8
+  %call13 = tail call i32 @BIO_read(ptr noundef %5, ptr noundef %out, i32 noundef %outl.addr.0)
   %cmp14 = icmp slt i32 %call13, 1
   br i1 %cmp14, label %if.then15, label %if.else
 
@@ -246,13 +242,12 @@ if.then15:                                        ; preds = %if.end5
   br label %return
 
 if.else:                                          ; preds = %if.end5
-  %7 = load i8, ptr %1, align 8
-  %8 = and i8 %7, 1
-  %tobool17.not = icmp eq i8 %8, 0
-  %9 = zext nneg i32 %call13 to i64
-  %conv18 = select i1 %tobool17.not, i64 %9, i64 1
-  %10 = load i64, ptr %read_quota, align 8
-  %sub = sub i64 %10, %conv18
+  %6 = load i8, ptr %1, align 8
+  %tobool17 = trunc i8 %6 to i1
+  %7 = zext nneg i32 %call13 to i64
+  %conv18 = select i1 %tobool17, i64 1, i64 %7
+  %8 = load i64, ptr %read_quota, align 8
+  %sub = sub i64 %8, %conv18
   store i64 %sub, ptr %read_quota, align 8
   br label %return
 

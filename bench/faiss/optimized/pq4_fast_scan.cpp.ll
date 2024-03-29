@@ -63,45 +63,45 @@ define void @_ZNK5faiss13CodePackerPQ46pack_1EPKhmPh(ptr nocapture noundef nonnu
   %18 = urem i64 %.0, %.fr
   %19 = sub nuw i64 %.0, %18
   %20 = urem i64 %.0, %.fr
-  %21 = icmp ult i64 %20, 16
+  %21 = icmp ugt i64 %20, 15
   %22 = and i64 %20, 15
   %23 = icmp ult i64 %22, 8
   %24 = shl nuw nsw i64 %22, 1
   %25 = add nsw i64 %24, -15
   %.0.i.i = select i1 %23, i64 %24, i64 %25
-  %.sink20.i = select i1 %21, i8 -16, i8 15
+  %.sink20.i = select i1 %21, i8 15, i8 -16
   br i1 %21, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.01825.us = phi i64 [ %53, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %26 = getelementptr inbounds i8, ptr %1, i64 %.01825.us
   %27 = load i8, ptr %26, align 1
-  %28 = and i8 %27, 15
-  %29 = load i64, ptr %17, align 8
-  %30 = and i64 %.01825.us, 9223372036854775807
-  %31 = add i64 %29, 1
-  %32 = lshr i64 %31, 1
-  %33 = mul i64 %19, %32
-  %34 = getelementptr inbounds i8, ptr %.019, i64 %33
-  %35 = mul i64 %30, %.fr
-  %36 = getelementptr i8, ptr %34, i64 %35
+  %28 = load i64, ptr %17, align 8
+  %29 = and i64 %.01825.us, 9223372036854775807
+  %30 = add i64 %28, 1
+  %31 = lshr i64 %30, 1
+  %32 = mul i64 %19, %31
+  %33 = getelementptr inbounds i8, ptr %.019, i64 %32
+  %34 = mul i64 %29, %.fr
+  %35 = shl i8 %27, 4
+  %36 = getelementptr i8, ptr %33, i64 %34
   %37 = getelementptr i8, ptr %36, i64 %.0.i.i
   %38 = load i8, ptr %37, align 1
   %39 = and i8 %.sink20.i, %38
-  %40 = or i8 %39, %28
+  %40 = or i8 %39, %35
   store i8 %40, ptr %37, align 1
-  %41 = lshr i8 %27, 4
-  %42 = load i64, ptr %17, align 8
-  %43 = add i64 %42, 1
-  %44 = lshr i64 %43, 1
-  %45 = mul i64 %19, %44
-  %46 = getelementptr inbounds i8, ptr %.019, i64 %45
-  %47 = getelementptr i8, ptr %46, i64 %35
+  %41 = load i64, ptr %17, align 8
+  %42 = add i64 %41, 1
+  %43 = lshr i64 %42, 1
+  %44 = mul i64 %19, %43
+  %45 = getelementptr inbounds i8, ptr %.019, i64 %44
+  %46 = and i8 %27, -16
+  %47 = getelementptr i8, ptr %45, i64 %34
   %48 = getelementptr i8, ptr %47, i64 16
   %49 = getelementptr i8, ptr %48, i64 %.0.i.i
   %50 = load i8, ptr %49, align 1
   %51 = and i8 %50, %.sink20.i
-  %52 = or i8 %51, %41
+  %52 = or i8 %51, %46
   store i8 %52, ptr %49, align 1
   %53 = add nuw i64 %.01825.us, 1
   %54 = load i64, ptr %15, align 8
@@ -112,32 +112,32 @@ define void @_ZNK5faiss13CodePackerPQ46pack_1EPKhmPh(ptr nocapture noundef nonnu
   %.01825 = phi i64 [ %83, %.lr.ph.split ], [ 0, %.lr.ph ]
   %56 = getelementptr inbounds i8, ptr %1, i64 %.01825
   %57 = load i8, ptr %56, align 1
-  %58 = load i64, ptr %17, align 8
-  %59 = and i64 %.01825, 9223372036854775807
-  %60 = add i64 %58, 1
-  %61 = lshr i64 %60, 1
-  %62 = mul i64 %19, %61
-  %63 = getelementptr inbounds i8, ptr %.019, i64 %62
-  %64 = mul i64 %59, %.fr
-  %65 = shl i8 %57, 4
-  %66 = getelementptr i8, ptr %63, i64 %64
+  %58 = and i8 %57, 15
+  %59 = load i64, ptr %17, align 8
+  %60 = and i64 %.01825, 9223372036854775807
+  %61 = add i64 %59, 1
+  %62 = lshr i64 %61, 1
+  %63 = mul i64 %19, %62
+  %64 = getelementptr inbounds i8, ptr %.019, i64 %63
+  %65 = mul i64 %60, %.fr
+  %66 = getelementptr i8, ptr %64, i64 %65
   %67 = getelementptr i8, ptr %66, i64 %.0.i.i
   %68 = load i8, ptr %67, align 1
   %69 = and i8 %.sink20.i, %68
-  %70 = or i8 %69, %65
+  %70 = or i8 %69, %58
   store i8 %70, ptr %67, align 1
-  %71 = load i64, ptr %17, align 8
-  %72 = add i64 %71, 1
-  %73 = lshr i64 %72, 1
-  %74 = mul i64 %19, %73
-  %75 = getelementptr inbounds i8, ptr %.019, i64 %74
-  %76 = and i8 %57, -16
-  %77 = getelementptr i8, ptr %75, i64 %64
+  %71 = lshr i8 %57, 4
+  %72 = load i64, ptr %17, align 8
+  %73 = add i64 %72, 1
+  %74 = lshr i64 %73, 1
+  %75 = mul i64 %19, %74
+  %76 = getelementptr inbounds i8, ptr %.019, i64 %75
+  %77 = getelementptr i8, ptr %76, i64 %65
   %78 = getelementptr i8, ptr %77, i64 16
   %79 = getelementptr i8, ptr %78, i64 %.0.i.i
   %80 = load i8, ptr %79, align 1
   %81 = and i8 %80, %.sink20.i
-  %82 = or i8 %81, %76
+  %82 = or i8 %81, %71
   store i8 %82, ptr %79, align 1
   %83 = add nuw i64 %.01825, 1
   %84 = load i64, ptr %15, align 8
@@ -177,7 +177,7 @@ define void @_ZNK5faiss13CodePackerPQ48unpack_1EPKhmPh(ptr nocapture noundef non
   %17 = getelementptr inbounds i8, ptr %0, i64 32
   %18 = urem i64 %.018, %.fr26
   %19 = sub nuw i64 %.018, %18
-  %20 = icmp ult i64 %18, 16
+  %20 = icmp ugt i64 %18, 15
   %21 = and i64 %18, 15
   %22 = icmp ult i64 %21, 8
   %23 = shl nuw nsw i64 %21, 1
@@ -197,11 +197,11 @@ define void @_ZNK5faiss13CodePackerPQ48unpack_1EPKhmPh(ptr nocapture noundef non
   %32 = getelementptr i8, ptr %30, i64 %31
   %33 = getelementptr i8, ptr %32, i64 %.0.i.i
   %34 = load i8, ptr %33, align 1
-  %35 = and i8 %34, 15
+  %35 = lshr i8 %34, 4
   %36 = getelementptr i8, ptr %32, i64 16
   %37 = getelementptr i8, ptr %36, i64 %.0.i.i
   %38 = load i8, ptr %37, align 1
-  %39 = shl i8 %38, 4
+  %39 = and i8 %38, -16
   %40 = or disjoint i8 %39, %35
   %41 = getelementptr inbounds i8, ptr %3, i64 %.01924.us
   store i8 %40, ptr %41, align 1
@@ -222,11 +222,11 @@ define void @_ZNK5faiss13CodePackerPQ48unpack_1EPKhmPh(ptr nocapture noundef non
   %52 = getelementptr i8, ptr %50, i64 %51
   %53 = getelementptr i8, ptr %52, i64 %.0.i.i
   %54 = load i8, ptr %53, align 1
-  %55 = lshr i8 %54, 4
+  %55 = and i8 %54, 15
   %56 = getelementptr i8, ptr %52, i64 16
   %57 = getelementptr i8, ptr %56, i64 %.0.i.i
   %58 = load i8, ptr %57, align 1
-  %59 = and i8 %58, -16
+  %59 = shl i8 %58, 4
   %60 = or disjoint i8 %59, %55
   %61 = getelementptr inbounds i8, ptr %3, i64 %.01924
   store i8 %60, ptr %61, align 1
@@ -682,7 +682,7 @@ define noundef zeroext i8 @_ZN5faiss22pq4_get_packed_elementEPKhmmmm(ptr nocaptu
   %10 = mul i64 %9, %6
   %11 = getelementptr inbounds i8, ptr %0, i64 %10
   %12 = urem i64 %3, %1
-  %13 = icmp ult i64 %12, 16
+  %13 = icmp ugt i64 %12, 15
   %14 = and i64 %12, 15
   %15 = icmp ult i64 %14, 8
   %16 = shl nuw nsw i64 %14, 1
@@ -698,7 +698,7 @@ define noundef zeroext i8 @_ZN5faiss22pq4_get_packed_elementEPKhmmmm(ptr nocaptu
   %25 = load i8, ptr %24, align 1
   %26 = lshr i8 %25, 4
   %27 = and i8 %25, 15
-  %.0 = select i1 %13, i8 %27, i8 %26
+  %.0 = select i1 %13, i8 %26, i8 %27
   ret i8 %.0
 }
 
@@ -711,7 +711,7 @@ define void @_ZN5faiss22pq4_set_packed_elementEPhhmmmm(ptr nocapture noundef %0,
   %11 = mul i64 %10, %7
   %12 = getelementptr inbounds i8, ptr %0, i64 %11
   %13 = urem i64 %4, %2
-  %14 = icmp ult i64 %13, 16
+  %14 = icmp ugt i64 %13, 15
   %15 = and i64 %13, 15
   %16 = icmp ult i64 %15, 8
   %17 = shl nuw nsw i64 %15, 1
@@ -722,8 +722,8 @@ define void @_ZN5faiss22pq4_set_packed_elementEPhhmmmm(ptr nocapture noundef %0,
   %21 = lshr i64 %5, 1
   %22 = mul i64 %21, %2
   %23 = shl i8 %1, 4
-  %.sink20 = select i1 %14, i8 -16, i8 15
-  %.sink19 = select i1 %14, i8 %1, i8 %23
+  %.sink20 = select i1 %14, i8 15, i8 -16
+  %.sink19 = select i1 %14, i8 %23, i8 %1
   %24 = getelementptr i8, ptr %12, i64 %22
   %25 = getelementptr i8, ptr %24, i64 %20
   %26 = getelementptr i8, ptr %25, i64 %.0.i

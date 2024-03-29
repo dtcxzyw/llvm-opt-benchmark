@@ -3685,9 +3685,9 @@ define { double, double } @_ZNK15SequenceDiagram11getKeyRangeERbN3QCP10SignDomai
 _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit: ; preds = %3, %8
   %.sroa.0.0.i.i = phi ptr [ %10, %8 ], [ null, %3 ]
   %11 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sroa.0.0.i.i1117 = select i1 %.not.i.i, ptr null, ptr %11
-  %.not1518 = icmp eq ptr %.sroa.0.0.i.i, %.sroa.0.0.i.i1117
-  br i1 %.not1518, label %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge, label %.lr.ph
+  %.sroa.0.0.i.i1116 = select i1 %.not.i.i, ptr null, ptr %11
+  %.not17 = icmp eq ptr %.sroa.0.0.i.i, %.sroa.0.0.i.i1116
+  br i1 %.not17, label %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge, label %.lr.ph
 
 _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge: ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit
   %.fca.0.load.pre = load double, ptr %4, align 8
@@ -3698,13 +3698,12 @@ _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge: ; preds
   br label %13
 
 13:                                               ; preds = %.lr.ph, %26
-  %.020 = phi i8 [ 0, %.lr.ph ], [ %.1, %26 ]
-  %.sroa.012.019 = phi ptr [ %.sroa.0.0.i.i, %.lr.ph ], [ %27, %26 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.012.019, i64 32
+  %.019 = phi i8 [ 0, %.lr.ph ], [ %.1, %26 ]
+  %.sroa.012.018 = phi ptr [ %.sroa.0.0.i.i, %.lr.ph ], [ %27, %26 ]
+  %14 = getelementptr inbounds i8, ptr %.sroa.012.018, i64 32
   %15 = load double, ptr %14, align 8
-  %16 = and i8 %.020, 1
-  %.not = icmp eq i8 %16, 0
-  br i1 %.not, label %17, label %18
+  %16 = trunc i8 %.019 to i1
+  br i1 %16, label %18, label %17
 
 17:                                               ; preds = %13
   store double %15, ptr %12, align 8
@@ -3730,19 +3729,23 @@ _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge: ; preds
   br label %26
 
 26:                                               ; preds = %21, %25, %22, %17
-  %.fca.0.load22 = phi double [ %15, %21 ], [ %19, %25 ], [ %19, %22 ], [ %15, %17 ]
-  %.1 = phi i8 [ %.020, %21 ], [ %.020, %25 ], [ %.020, %22 ], [ 1, %17 ]
-  %27 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.012.019) #25
+  %.fca.0.load21 = phi double [ %15, %21 ], [ %19, %25 ], [ %19, %22 ], [ %15, %17 ]
+  %.1 = phi i8 [ %.019, %21 ], [ %.019, %25 ], [ %.019, %22 ], [ 1, %17 ]
+  %27 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.012.018) #25
   %28 = load ptr, ptr %6, align 8
   %.not.i.i10 = icmp eq ptr %28, null
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %.sroa.0.0.i.i11 = select i1 %.not.i.i10, ptr null, ptr %29
-  %.not15 = icmp eq ptr %27, %.sroa.0.0.i.i11
-  br i1 %.not15, label %._crit_edge, label %13, !llvm.loop !57
+  %.not = icmp eq ptr %27, %.sroa.0.0.i.i11
+  br i1 %.not, label %._crit_edge.loopexit, label %13, !llvm.loop !57
 
-._crit_edge:                                      ; preds = %26, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge
-  %.fca.0.load = phi double [ %.fca.0.load.pre, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge ], [ %.fca.0.load22, %26 ]
-  %.0.lcssa = phi i8 [ 0, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge ], [ 1, %26 ]
+._crit_edge.loopexit:                             ; preds = %26
+  %30 = and i8 %.1, 1
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge, %._crit_edge.loopexit
+  %.fca.0.load = phi double [ %.fca.0.load.pre, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge ], [ %.fca.0.load21, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i8 [ 0, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge ], [ %30, %._crit_edge.loopexit ]
   store i8 %.0.lcssa, ptr %1, align 1
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8

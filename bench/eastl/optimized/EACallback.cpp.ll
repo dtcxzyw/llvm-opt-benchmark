@@ -152,30 +152,29 @@ call2.i.noexc:                                    ; preds = %if.then.i
   store atomic i32 0, ptr %mbStarted seq_cst, align 4
   %mbEnableRefCount.i = getelementptr inbounds i8, ptr %this, i64 57
   %4 = load i8, ptr %mbEnableRefCount.i, align 1
-  %5 = and i8 %4, 1
-  %tobool5.not.i = icmp eq i8 %5, 0
-  br i1 %tobool5.not.i, label %if.end, label %if.then6.i
+  %tobool5.i = trunc i8 %4 to i1
+  br i1 %tobool5.i, label %if.then6.i, label %if.end
 
 if.then6.i:                                       ; preds = %call2.i.noexc
   %mpFunction.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %6 = load ptr, ptr %mpFunction.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %mpFunction.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %if.end, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then6.i
   %mpFunctionArg.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %7 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
-  invoke void %6(ptr noundef nonnull %this, ptr noundef %7, i64 noundef 1, i64 noundef 0)
+  %6 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
+  invoke void %5(ptr noundef nonnull %this, ptr noundef %6, i64 noundef 1, i64 noundef 0)
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then6.i, %call2.i.noexc, %if.then, %if.then.i.i.i, %invoke.cont
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i.i.i, %if.then.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #18
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #18
   unreachable
 }
 
@@ -210,20 +209,19 @@ if.then:                                          ; preds = %entry
   store atomic i32 0, ptr %mbStarted seq_cst, align 4
   %mbEnableRefCount = getelementptr inbounds i8, ptr %this, i64 57
   %3 = load i8, ptr %mbEnableRefCount, align 1
-  %4 = and i8 %3, 1
-  %tobool5.not = icmp eq i8 %4, 0
-  br i1 %tobool5.not, label %if.end7, label %if.then6
+  %tobool5 = trunc i8 %3 to i1
+  br i1 %tobool5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.then
   %mpFunction.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %5 = load ptr, ptr %mpFunction.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %mpFunction.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.end7, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then6
   %mpFunctionArg.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %6 = load ptr, ptr %mpFunctionArg.i.i, align 8
-  tail call void %5(ptr noundef nonnull %this, ptr noundef %6, i64 noundef 1, i64 noundef 0)
+  %5 = load ptr, ptr %mpFunctionArg.i.i, align 8
+  tail call void %4(ptr noundef nonnull %this, ptr noundef %5, i64 noundef 1, i64 noundef 0)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then.i.i, %if.then6, %if.then, %entry
@@ -257,27 +255,26 @@ call2.i.noexc.i:                                  ; preds = %if.then.i.i
   store atomic i32 0, ptr %mbStarted.i seq_cst, align 4
   %mbEnableRefCount.i.i = getelementptr inbounds i8, ptr %this, i64 57
   %4 = load i8, ptr %mbEnableRefCount.i.i, align 1
-  %5 = and i8 %4, 1
-  %tobool5.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool5.not.i.i, label %_ZN2EA4StdC8CallbackD2Ev.exit, label %if.then6.i.i
+  %tobool5.i.i = trunc i8 %4 to i1
+  br i1 %tobool5.i.i, label %if.then6.i.i, label %_ZN2EA4StdC8CallbackD2Ev.exit
 
 if.then6.i.i:                                     ; preds = %call2.i.noexc.i
   %mpFunction.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %6 = load ptr, ptr %mpFunction.i.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %mpFunction.i.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i, label %_ZN2EA4StdC8CallbackD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then6.i.i
   %mpFunctionArg.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %7 = load ptr, ptr %mpFunctionArg.i.i.i.i, align 8
-  invoke void %6(ptr noundef nonnull %this, ptr noundef %7, i64 noundef 1, i64 noundef 0)
+  %6 = load ptr, ptr %mpFunctionArg.i.i.i.i, align 8
+  invoke void %5(ptr noundef nonnull %this, ptr noundef %6, i64 noundef 1, i64 noundef 0)
           to label %_ZN2EA4StdC8CallbackD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i.i, %if.then.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #18
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #18
   unreachable
 
 _ZN2EA4StdC8CallbackD2Ev.exit:                    ; preds = %entry, %if.then.i, %call2.i.noexc.i, %if.then6.i.i, %if.then.i.i.i.i
@@ -306,20 +303,19 @@ if.then.i:                                        ; preds = %entry
   store atomic i32 0, ptr %mbStarted.i seq_cst, align 4
   %mbEnableRefCount.i = getelementptr inbounds i8, ptr %pCallback, i64 57
   %6 = load i8, ptr %mbEnableRefCount.i, align 1
-  %7 = and i8 %6, 1
-  %tobool5.not.i = icmp eq i8 %7, 0
-  br i1 %tobool5.not.i, label %_ZN2EA4StdC8Callback4StopEv.exit, label %if.then6.i
+  %tobool5.i = trunc i8 %6 to i1
+  br i1 %tobool5.i, label %if.then6.i, label %_ZN2EA4StdC8Callback4StopEv.exit
 
 if.then6.i:                                       ; preds = %if.then.i
   %mpFunction.i.i.i = getelementptr inbounds i8, ptr %pCallback, i64 32
-  %8 = load ptr, ptr %mpFunction.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %mpFunction.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %_ZN2EA4StdC8Callback4StopEv.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then6.i
   %mpFunctionArg.i.i.i = getelementptr inbounds i8, ptr %pCallback, i64 40
-  %9 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
-  tail call void %8(ptr noundef nonnull %pCallback, ptr noundef %9, i64 noundef 1, i64 noundef 0)
+  %8 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
+  tail call void %7(ptr noundef nonnull %pCallback, ptr noundef %8, i64 noundef 1, i64 noundef 0)
   br label %_ZN2EA4StdC8Callback4StopEv.exit
 
 _ZN2EA4StdC8Callback4StopEv.exit:                 ; preds = %entry, %if.then.i, %if.then6.i, %if.then.i.i.i
@@ -773,16 +769,15 @@ entry:
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %mbRunning = getelementptr inbounds i8, ptr %this, i64 137
   %0 = load volatile i8, ptr %mbRunning, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end17, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end17
 
 if.then:                                          ; preds = %entry
   store volatile i8 0, ptr %mbRunning, align 1
   %mbThreadStarted.i = getelementptr inbounds i8, ptr %this, i64 240
-  %2 = cmpxchg ptr %mbThreadStarted.i, i32 1, i32 0 seq_cst seq_cst, align 4
-  %3 = extractvalue { i32, i1 } %2, 1
-  br i1 %3, label %if.then.i, label %_ZN2EA4StdC15CallbackManager10StopThreadEv.exit
+  %1 = cmpxchg ptr %mbThreadStarted.i, i32 1, i32 0 seq_cst seq_cst, align 4
+  %2 = extractvalue { i32, i1 } %1, 1
+  br i1 %2, label %if.then.i, label %_ZN2EA4StdC15CallbackManager10StopThreadEv.exit
 
 if.then.i:                                        ; preds = %if.then
   %mThread.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -795,14 +790,14 @@ _ZN2EA4StdC15CallbackManager10StopThreadEv.exit:  ; preds = %if.then, %if.then.i
   tail call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %mStopwatch)
   %mCallbackArray = getelementptr inbounds i8, ptr %this, i64 8
   %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load ptr, ptr %mpEnd.i, align 8
-  %5 = load ptr, ptr %mCallbackArray, align 8
-  %cmp9.not = icmp eq ptr %4, %5
+  %3 = load ptr, ptr %mpEnd.i, align 8
+  %4 = load ptr, ptr %mCallbackArray, align 8
+  %cmp9.not = icmp eq ptr %3, %4
   br i1 %cmp9.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN2EA4StdC15CallbackManager10StopThreadEv.exit
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
@@ -810,44 +805,43 @@ for.body.preheader:                               ; preds = %_ZN2EA4StdC15Callba
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %i.010 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %6 = load ptr, ptr %mCallbackArray, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %6, i64 %i.010
-  %7 = load ptr, ptr %arrayidx.i, align 8
-  %tobool6.not = icmp eq ptr %7, null
+  %5 = load ptr, ptr %mCallbackArray, align 8
+  %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %i.010
+  %6 = load ptr, ptr %arrayidx.i, align 8
+  %tobool6.not = icmp eq ptr %6, null
   br i1 %tobool6.not, label %for.inc, label %if.then7
 
 if.then7:                                         ; preds = %for.body
   store ptr null, ptr %arrayidx.i, align 8
   %call13 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mMutex)
-  %mbStarted.i = getelementptr inbounds i8, ptr %7, i64 52
-  %8 = load atomic i32, ptr %mbStarted.i seq_cst, align 4
-  %tobool.not.i = icmp eq i32 %8, 0
+  %mbStarted.i = getelementptr inbounds i8, ptr %6, i64 52
+  %7 = load atomic i32, ptr %mbStarted.i seq_cst, align 4
+  %tobool.not.i = icmp eq i32 %7, 0
   br i1 %tobool.not.i, label %_ZN2EA4StdC8Callback4StopEv.exit, label %if.then.i7
 
 if.then.i7:                                       ; preds = %if.then7
-  %mpCallbackManager.i = getelementptr inbounds i8, ptr %7, i64 24
-  %9 = load ptr, ptr %mpCallbackManager.i, align 8
-  %vtable.i = load ptr, ptr %9, align 8
+  %mpCallbackManager.i = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %mpCallbackManager.i, align 8
+  %vtable.i = load ptr, ptr %8, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
-  %10 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %7)
+  %9 = load ptr, ptr %vfn.i, align 8
+  %call2.i = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %6)
   store atomic i32 0, ptr %mbStarted.i seq_cst, align 4
-  %mbEnableRefCount.i = getelementptr inbounds i8, ptr %7, i64 57
-  %11 = load i8, ptr %mbEnableRefCount.i, align 1
-  %12 = and i8 %11, 1
-  %tobool5.not.i = icmp eq i8 %12, 0
-  br i1 %tobool5.not.i, label %_ZN2EA4StdC8Callback4StopEv.exit, label %if.then6.i
+  %mbEnableRefCount.i = getelementptr inbounds i8, ptr %6, i64 57
+  %10 = load i8, ptr %mbEnableRefCount.i, align 1
+  %tobool5.i = trunc i8 %10 to i1
+  br i1 %tobool5.i, label %if.then6.i, label %_ZN2EA4StdC8Callback4StopEv.exit
 
 if.then6.i:                                       ; preds = %if.then.i7
-  %mpFunction.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
-  %13 = load ptr, ptr %mpFunction.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %13, null
+  %mpFunction.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
+  %11 = load ptr, ptr %mpFunction.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i, label %_ZN2EA4StdC8Callback4StopEv.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then6.i
-  %mpFunctionArg.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
-  %14 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
-  tail call void %13(ptr noundef nonnull %7, ptr noundef %14, i64 noundef 1, i64 noundef 0)
+  %mpFunctionArg.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
+  %12 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
+  tail call void %11(ptr noundef nonnull %6, ptr noundef %12, i64 noundef 1, i64 noundef 0)
   br label %_ZN2EA4StdC8Callback4StopEv.exit
 
 _ZN2EA4StdC8Callback4StopEv.exit:                 ; preds = %if.then7, %if.then.i7, %if.then6.i, %if.then.i.i.i
@@ -864,8 +858,8 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZN2EA4StdC15CallbackManager10StopThreadEv.exit
-  %15 = phi ptr [ %.pre, %for.end.loopexit ], [ %4, %_ZN2EA4StdC15CallbackManager10StopThreadEv.exit ]
-  store ptr %15, ptr %mpEnd.i, align 8
+  %13 = phi ptr [ %.pre, %for.end.loopexit ], [ %3, %_ZN2EA4StdC15CallbackManager10StopThreadEv.exit ]
+  store ptr %13, ptr %mpEnd.i, align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %for.end, %entry
@@ -915,9 +909,8 @@ entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mbRunning = getelementptr inbounds i8, ptr %this, i64 137
   %0 = load volatile i8, ptr %mbRunning, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end12
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %entry
   %frombool = zext i1 %bAsync to i8
@@ -929,12 +922,12 @@ if.then:                                          ; preds = %entry
   %mStopwatch = getelementptr inbounds i8, ptr %this, i64 96
   %mnUnits.i.i = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mStopwatch, i8 0, i64 16, i1 false)
-  %2 = load i32, ptr %mnUnits.i.i, align 8
-  %cmp.i.i = icmp eq i32 %2, 1
+  %1 = load i32, ptr %mnUnits.i.i, align 8
+  %cmp.i.i = icmp eq i32 %1, 1
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else.i.i
 
 if.then2.i.i:                                     ; preds = %if.then
-  %3 = tail call noundef i64 @llvm.x86.rdtsc()
+  %2 = tail call noundef i64 @llvm.x86.rdtsc()
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit
 
 if.else.i.i:                                      ; preds = %if.then
@@ -949,27 +942,26 @@ if.then.i.i.i:                                    ; preds = %if.else.i.i
 
 _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i: ; preds = %if.then.i.i.i, %if.else.i.i
   %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %ts.i.i.i, i64 8
-  %4 = load i64, ptr %tv_nsec.i.i.i, align 8
-  %5 = load i64, ptr %ts.i.i.i, align 8
-  %mul.i.i.i = mul i64 %5, 1000000000
-  %add.i.i.i = add i64 %mul.i.i.i, %4
+  %3 = load i64, ptr %tv_nsec.i.i.i, align 8
+  %4 = load i64, ptr %ts.i.i.i, align 8
+  %mul.i.i.i = mul i64 %4, 1000000000
+  %add.i.i.i = add i64 %mul.i.i.i, %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i)
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit
 
 _ZN2EA4StdC9Stopwatch7RestartEv.exit:             ; preds = %if.then2.i.i, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i
-  %.sink.i.i = phi i64 [ %3, %if.then2.i.i ], [ %add.i.i.i, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i ]
+  %.sink.i.i = phi i64 [ %2, %if.then2.i.i ], [ %add.i.i.i, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i ]
   store i64 %.sink.i.i, ptr %mStopwatch, align 8
-  %6 = load i8, ptr %mbAsync, align 2
-  %7 = and i8 %6, 1
-  %tobool7.not = icmp ne i8 %7, 0
-  %brmerge.not = and i1 %tobool7.not, %bAsyncStart
-  br i1 %brmerge.not, label %if.then.i, label %if.end12
+  %5 = load i8, ptr %mbAsync, align 2
+  %tobool7 = trunc i8 %5 to i1
+  %brmerge.demorgan = and i1 %tobool7, %bAsyncStart
+  br i1 %brmerge.demorgan, label %if.then.i, label %if.end12
 
 if.then.i:                                        ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit
   %mbThreadStarted.i = getelementptr inbounds i8, ptr %this, i64 240
-  %8 = cmpxchg ptr %mbThreadStarted.i, i32 0, i32 1 seq_cst seq_cst, align 4
-  %9 = extractvalue { i32, i1 } %8, 1
-  br i1 %9, label %if.then2.i, label %_ZN2EA4StdC15CallbackManager11StartThreadEv.exit
+  %6 = cmpxchg ptr %mbThreadStarted.i, i32 0, i32 1 seq_cst seq_cst, align 4
+  %7 = extractvalue { i32, i1 } %6, 1
+  br i1 %7, label %if.then2.i, label %_ZN2EA4StdC15CallbackManager11StartThreadEv.exit
 
 if.then2.i:                                       ; preds = %if.then.i
   %mpName.i = getelementptr inbounds i8, ptr %this, i64 272
@@ -978,18 +970,17 @@ if.then2.i:                                       ; preds = %if.then.i
   %call4.i = call noundef ptr @_ZN2EA6Thread6Thread36GetGlobalRunnableFunctionUserWrapperEv()
   %call5.i = call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %mThread.i, ptr noundef nonnull @_ZN2EA4StdC15CallbackManager9RunStaticEPv, ptr noundef nonnull %this, ptr noundef nonnull %mThreadParam, ptr noundef %call4.i)
   %cmp.i = icmp ne i64 %call5.i, 0
-  %10 = zext i1 %cmp.i to i8
+  %8 = zext i1 %cmp.i to i8
   br label %_ZN2EA4StdC15CallbackManager11StartThreadEv.exit
 
 _ZN2EA4StdC15CallbackManager11StartThreadEv.exit: ; preds = %if.then.i, %if.then2.i
-  %retval.0.i = phi i8 [ %10, %if.then2.i ], [ 1, %if.then.i ]
+  %retval.0.i = phi i8 [ %8, %if.then2.i ], [ 1, %if.then.i ]
   store volatile i8 %retval.0.i, ptr %mbRunning, align 1
   br label %if.end12
 
 if.end12:                                         ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit, %_ZN2EA4StdC15CallbackManager11StartThreadEv.exit, %entry
-  %11 = load volatile i8, ptr %mbRunning, align 1
-  %12 = and i8 %11, 1
-  %tobool14 = icmp ne i8 %12, 0
+  %9 = load volatile i8, ptr %mbRunning, align 1
+  %tobool14 = trunc i8 %9 to i1
   ret i1 %tobool14
 }
 
@@ -998,15 +989,14 @@ define dso_local noundef zeroext i1 @_ZN2EA4StdC15CallbackManager11StartThreadEv
 entry:
   %mbAsync = getelementptr inbounds i8, ptr %this, i64 138
   %0 = load i8, ptr %mbAsync, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %mbThreadStarted = getelementptr inbounds i8, ptr %this, i64 240
-  %2 = cmpxchg ptr %mbThreadStarted, i32 0, i32 1 seq_cst seq_cst, align 4
-  %3 = extractvalue { i32, i1 } %2, 1
-  br i1 %3, label %if.then2, label %return
+  %1 = cmpxchg ptr %mbThreadStarted, i32 0, i32 1 seq_cst seq_cst, align 4
+  %2 = extractvalue { i32, i1 } %1, 1
+  br i1 %2, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.then
   %mThreadParam = getelementptr inbounds i8, ptr %this, i64 248
@@ -1121,9 +1111,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %7 = phi ptr [ %4, %for.body.lr.ph ], [ %39, %for.inc ]
+  %7 = phi ptr [ %4, %for.body.lr.ph ], [ %36, %for.inc ]
   %sub.ptr.lhs.cast.i84 = phi i64 [ %sub.ptr.lhs.cast.i78, %for.body.lr.ph ], [ %sub.ptr.lhs.cast.i, %for.inc ]
-  %8 = phi ptr [ %3, %for.body.lr.ph ], [ %40, %for.inc ]
+  %8 = phi ptr [ %3, %for.body.lr.ph ], [ %37, %for.inc ]
   %i.083 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %arrayidx.i = getelementptr inbounds ptr, ptr %8, i64 %i.083
   %9 = load ptr, ptr %arrayidx.i, align 8
@@ -1191,48 +1181,46 @@ if.then29:                                        ; preds = %land.lhs.true
   store i64 %19, ptr %mLastCallbackEvent, align 8
   %mbOneShot = getelementptr inbounds i8, ptr %9, i64 56
   %20 = load i8, ptr %mbOneShot, align 8
-  %21 = and i8 %20, 1
-  %tobool32.not = icmp eq i8 %21, 0
-  br i1 %tobool32.not, label %if.else, label %if.then33
+  %tobool32 = trunc i8 %20 to i1
+  br i1 %tobool32, label %if.then33, label %if.else
 
 if.then33:                                        ; preds = %if.then29
   %mbStarted.i = getelementptr inbounds i8, ptr %9, i64 52
-  %22 = load atomic i32, ptr %mbStarted.i seq_cst, align 4
-  %tobool.not.i72 = icmp eq i32 %22, 0
+  %21 = load atomic i32, ptr %mbStarted.i seq_cst, align 4
+  %tobool.not.i72 = icmp eq i32 %21, 0
   br i1 %tobool.not.i72, label %for.inc, label %if.then.i73
 
 if.then.i73:                                      ; preds = %if.then33
   %mpCallbackManager.i = getelementptr inbounds i8, ptr %9, i64 24
-  %23 = load ptr, ptr %mpCallbackManager.i, align 8
-  %vtable.i = load ptr, ptr %23, align 8
+  %22 = load ptr, ptr %mpCallbackManager.i, align 8
+  %vtable.i = load ptr, ptr %22, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
-  %24 = load ptr, ptr %vfn.i, align 8
-  %call2.i = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %9)
+  %23 = load ptr, ptr %vfn.i, align 8
+  %call2.i = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull %9)
   store atomic i32 0, ptr %mbStarted.i seq_cst, align 4
   %mbEnableRefCount.i = getelementptr inbounds i8, ptr %9, i64 57
-  %25 = load i8, ptr %mbEnableRefCount.i, align 1
-  %26 = and i8 %25, 1
-  %tobool5.not.i = icmp eq i8 %26, 0
-  br i1 %tobool5.not.i, label %for.inc, label %if.then6.i
+  %24 = load i8, ptr %mbEnableRefCount.i, align 1
+  %tobool5.i = trunc i8 %24 to i1
+  br i1 %tobool5.i, label %if.then6.i, label %for.inc
 
 if.then6.i:                                       ; preds = %if.then.i73
-  %27 = load ptr, ptr %mpFunction.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %27, null
+  %25 = load ptr, ptr %mpFunction.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i, label %for.inc, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then6.i
   %mpFunctionArg.i.i.i = getelementptr inbounds i8, ptr %9, i64 40
-  %28 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
-  call void %27(ptr noundef nonnull %9, ptr noundef %28, i64 noundef 1, i64 noundef 0)
+  %26 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
+  call void %25(ptr noundef nonnull %9, ptr noundef %26, i64 noundef 1, i64 noundef 0)
   br label %for.inc
 
 if.else:                                          ; preds = %if.then29
   %mPrecision.i = getelementptr inbounds i8, ptr %9, i64 16
-  %29 = load i64, ptr %mPrecision.i, align 8
-  %conv = trunc i64 %29 to i32
+  %27 = load i64, ptr %mPrecision.i, align 8
+  %conv = trunc i64 %27 to i32
   %mPeriod.i = getelementptr inbounds i8, ptr %9, i64 8
-  %30 = load i64, ptr %mPeriod.i, align 8
-  %add = add nsw i64 %30, %19
+  %28 = load i64, ptr %mPeriod.i, align 8
+  %add = add nsw i64 %28, %19
   store i64 %add, ptr %mNextCallbackEvent, align 8
   %tobool38.not = icmp eq i32 %conv, 0
   br i1 %tobool38.not, label %if.end50, label %if.then39
@@ -1242,11 +1230,11 @@ if.then39:                                        ; preds = %if.else
   %sub.i = add i32 %reass.add, -1
   %call.i = call noundef i32 @_ZN2EA4StdC24RandomLinearCongruential19RandomUint32UniformEj(ptr noundef nonnull align 4 dereferenceable(4) %mRandom, i32 noundef %sub.i)
   %add.i = sub i32 %call.i, %conv
-  %31 = load i64, ptr %mNextCallbackEvent, align 8
+  %29 = load i64, ptr %mNextCallbackEvent, align 8
   %conv44 = sext i32 %add.i to i64
-  %add45 = add nsw i64 %31, %conv44
-  %32 = load i64, ptr %pTUI.0.sroa.phi52, align 8
-  %cmp47 = icmp sgt i64 %add45, %32
+  %add45 = add nsw i64 %29, %conv44
+  %30 = load i64, ptr %pTUI.0.sroa.phi52, align 8
+  %cmp47 = icmp sgt i64 %add45, %30
   br i1 %cmp47, label %if.then48, label %if.end50
 
 if.then48:                                        ; preds = %if.then39
@@ -1254,20 +1242,19 @@ if.then48:                                        ; preds = %if.then39
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then39, %if.then48, %if.else
-  %33 = phi i64 [ %31, %if.then39 ], [ %add45, %if.then48 ], [ %add, %if.else ]
-  %34 = load i8, ptr %mbAsync, align 2
-  %35 = and i8 %34, 1
-  %tobool51.not = icmp eq i8 %35, 0
-  br i1 %tobool51.not, label %for.inc, label %if.then52
+  %31 = phi i64 [ %29, %if.then39 ], [ %add45, %if.then48 ], [ %add, %if.else ]
+  %32 = load i8, ptr %mbAsync, align 2
+  %tobool51 = trunc i8 %32 to i1
+  br i1 %tobool51, label %if.then52, label %for.inc
 
 if.then52:                                        ; preds = %if.end50
-  %36 = load ptr, ptr %pTUI.0.sroa.phi60, align 8
-  %37 = load i64, ptr %36, align 8
-  %cmp55 = icmp sgt i64 %37, %33
+  %33 = load ptr, ptr %pTUI.0.sroa.phi60, align 8
+  %34 = load i64, ptr %33, align 8
+  %cmp55 = icmp sgt i64 %34, %31
   br i1 %cmp55, label %if.then56, label %for.inc
 
 if.then56:                                        ; preds = %if.then52
-  store i64 %33, ptr %36, align 8
+  store i64 %31, ptr %33, align 8
   br label %for.inc
 
 if.else64:                                        ; preds = %for.body
@@ -1276,17 +1263,17 @@ if.else64:                                        ; preds = %for.body
   %reass.sub.i = add i64 %sub.ptr.lhs.cast.i84, -8
   %mul.i = sub i64 %reass.sub.i, %sub.ptr.rhs.cast.i77
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %arrayidx.i, ptr nonnull align 8 %add.ptr.i, i64 %mul.i, i1 false)
-  %38 = load ptr, ptr %mpEnd.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %38, i64 -8
+  %35 = load ptr, ptr %mpEnd.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %35, i64 -8
   store ptr %incdec.ptr.i, ptr %mpEnd.i, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then.i.i.i, %if.then6.i, %if.then.i73, %if.then33, %if.else64, %_ZN2EA4StdC8Callback4CallEmm.exit, %land.lhs.true, %if.end50, %if.then56, %if.then52, %sw.epilog
   %inc = add nuw i64 %i.083, 1
-  %39 = load ptr, ptr %mpEnd.i, align 8
-  %40 = load ptr, ptr %mCallbackArray, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %39 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %40 to i64
+  %36 = load ptr, ptr %mpEnd.i, align 8
+  %37 = load ptr, ptr %mCallbackArray, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %36 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i
@@ -1308,9 +1295,8 @@ entry:
   %ref.tmp = alloca %"struct.EA::Thread::ThreadTime", align 8
   %mbRunning = getelementptr inbounds i8, ptr %this, i64 137
   %0 = load volatile i8, ptr %mbRunning, align 1
-  %1 = and i8 %0, 1
-  %tobool.not9 = icmp eq i8 %1, 0
-  br i1 %tobool.not9, label %while.end, label %while.body.lr.ph
+  %tobool9 = trunc i8 %0 to i1
+  br i1 %tobool9, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %mNSecPerTickLastTimeMeasured = getelementptr inbounds i8, ptr %this, i64 152
@@ -1325,62 +1311,62 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end36
   call void @_ZN2EA4StdC15CallbackManager14UpdateInternalERlS2_S2_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull align 8 dereferenceable(8) %curTick, ptr noundef nonnull align 8 dereferenceable(8) %curTime, ptr noundef nonnull align 8 dereferenceable(8) %curUserEvent)
-  %2 = load i64, ptr %curTime, align 8
-  %3 = load i64, ptr %mNSecPerTickLastTimeMeasured, align 8
-  %add = add nsw i64 %3, 50000000
-  %cmp = icmp sgt i64 %2, %add
+  %1 = load i64, ptr %curTime, align 8
+  %2 = load i64, ptr %mNSecPerTickLastTimeMeasured, align 8
+  %add = add nsw i64 %2, 50000000
+  %cmp = icmp sgt i64 %1, %add
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  %conv = sitofp i64 %2 to double
-  %conv3 = sitofp i64 %3 to double
+  %conv = sitofp i64 %1 to double
+  %conv3 = sitofp i64 %2 to double
   %sub = fsub double %conv, %conv3
-  %4 = load i64, ptr %curTick, align 8
-  %conv4 = sitofp i64 %4 to double
-  %5 = load i64, ptr %mNSecPerTickLastTickMeasured, align 8
-  %conv5 = sitofp i64 %5 to double
+  %3 = load i64, ptr %curTick, align 8
+  %conv4 = sitofp i64 %3 to double
+  %4 = load i64, ptr %mNSecPerTickLastTickMeasured, align 8
+  %conv5 = sitofp i64 %4 to double
   %sub6 = fsub double %conv4, %conv5
   %div = fdiv double %sub, %sub6
   store double %div, ptr %mNSecPerTick, align 8
-  store i64 %2, ptr %mNSecPerTickLastTimeMeasured, align 8
-  store i64 %4, ptr %mNSecPerTickLastTickMeasured, align 8
+  store i64 %1, ptr %mNSecPerTickLastTimeMeasured, align 8
+  store i64 %3, ptr %mNSecPerTickLastTickMeasured, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.body
-  %6 = load ptr, ptr %mCallbackArray, align 8
-  %7 = load ptr, ptr %mpEnd.i, align 8
-  %cmp.i = icmp eq ptr %6, %7
+  %5 = load ptr, ptr %mCallbackArray, align 8
+  %6 = load ptr, ptr %mpEnd.i, align 8
+  %cmp.i = icmp eq ptr %5, %6
   br i1 %cmp.i, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %8 = load i64, ptr %mNextCallbackEventTime, align 8
-  %cmp10 = icmp slt i64 %8, %2
+  %7 = load i64, ptr %mNextCallbackEventTime, align 8
+  %cmp10 = icmp slt i64 %7, %1
   br i1 %cmp10, label %if.then11, label %if.end14
 
 if.then11:                                        ; preds = %if.then9
-  %add12 = add nsw i64 %2, 100000000
+  %add12 = add nsw i64 %1, 100000000
   store i64 %add12, ptr %mNextCallbackEventTime, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then11, %if.then9
-  %9 = phi i64 [ %add12, %if.then11 ], [ %8, %if.then9 ]
-  %10 = load i64, ptr %mNextCallbackEventTick, align 8
-  %11 = load i64, ptr %curTick, align 8
-  %cmp15 = icmp slt i64 %10, %11
+  %8 = phi i64 [ %add12, %if.then11 ], [ %7, %if.then9 ]
+  %9 = load i64, ptr %mNextCallbackEventTick, align 8
+  %10 = load i64, ptr %curTick, align 8
+  %cmp15 = icmp slt i64 %9, %10
   br i1 %cmp15, label %if.then16, label %if.end33
 
 if.then16:                                        ; preds = %if.end14
-  %add17 = add nsw i64 %11, 1000
+  %add17 = add nsw i64 %10, 1000
   store i64 %add17, ptr %mNextCallbackEventTick, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.end14, %if.then16
-  %12 = phi i64 [ %10, %if.end14 ], [ %add17, %if.then16 ]
-  %sub21 = sub nsw i64 %9, %2
-  %sub23 = sub nsw i64 %12, %11
+  %11 = phi i64 [ %9, %if.end14 ], [ %add17, %if.then16 ]
+  %sub21 = sub nsw i64 %8, %1
+  %sub23 = sub nsw i64 %11, %10
   %conv24 = sitofp i64 %sub23 to double
-  %13 = load double, ptr %mNSecPerTick, align 8
-  %mul = fmul double %13, %conv24
+  %12 = load double, ptr %mNSecPerTick, align 8
+  %mul = fmul double %12, %conv24
   %conv26 = fptosi double %mul to i64
   %..i = call noundef i64 @llvm.smin.i64(i64 %sub21, i64 %conv26)
   %div2910 = udiv i64 %..i, 2000000
@@ -1400,10 +1386,9 @@ if.else:                                          ; preds = %if.end, %if.end33
 if.end36:                                         ; preds = %if.end33, %if.else
   %ref.tmp.sink = phi ptr [ %ref.tmp, %if.else ], [ @_ZN2EA6ThreadL13kTimeoutYieldE, %if.end33 ]
   call void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sink)
-  %14 = load volatile i8, ptr %mbRunning, align 1
-  %15 = and i8 %14, 1
-  %tobool.not = icmp eq i8 %15, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !8
+  %13 = load volatile i8, ptr %mbRunning, align 1
+  %tobool = trunc i8 %13 to i1
+  br i1 %tobool, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end36, %entry
   ret i64 0
@@ -1420,19 +1405,18 @@ entry:
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %mbRunning = getelementptr inbounds i8, ptr %this, i64 137
   %0 = load volatile i8, ptr %mbRunning, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end72, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end72
 
 if.then:                                          ; preds = %entry
   %mCallbackArray = getelementptr inbounds i8, ptr %this, i64 8
   %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load ptr, ptr %mpEnd.i, align 8
-  %3 = load ptr, ptr %mCallbackArray, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
+  %1 = load ptr, ptr %mpEnd.i, align 8
+  %2 = load ptr, ptr %mCallbackArray, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp37.not = icmp eq ptr %2, %3
+  %cmp37.not = icmp eq ptr %1, %2
   br i1 %cmp37.not, label %if.then14, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then
@@ -1443,17 +1427,22 @@ for.body.preheader:                               ; preds = %if.then
 for.body:                                         ; preds = %for.body.preheader, %if.else
   %found_empty.039 = phi i64 [ %spec.select, %if.else ], [ 4294967295, %for.body.preheader ]
   %i.038 = phi i64 [ %inc, %if.else ], [ 0, %for.body.preheader ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.038
-  %4 = load ptr, ptr %arrayidx.i, align 8
-  %cmp5 = icmp eq ptr %4, %pCallback
+  %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %i.038
+  %3 = load ptr, ptr %arrayidx.i, align 8
+  %cmp5 = icmp eq ptr %3, %pCallback
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %for.body
-  %5 = icmp eq i64 %i.038, 4294967295
-  br i1 %5, label %if.then12, label %if.end51
+  %4 = icmp eq i64 %i.038, 4294967295
+  br i1 %4, label %if.then12, label %if.then6.if.end51_crit_edge
+
+if.then6.if.end51_crit_edge:                      ; preds = %if.then6
+  %mbAsync52.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 138
+  %.pre = load i8, ptr %mbAsync52.phi.trans.insert, align 2
+  br label %if.end51
 
 if.else:                                          ; preds = %for.body
-  %tobool7 = icmp eq ptr %4, null
+  %tobool7 = icmp eq ptr %3, null
   %cmp8 = icmp eq i64 %found_empty.039, 4294967295
   %or.cond = select i1 %tobool7, i1 %cmp8, i1 false
   %spec.select = select i1 %or.cond, i64 %i.038, i64 %found_empty.039
@@ -1467,33 +1456,33 @@ if.then12:                                        ; preds = %if.else, %if.then6
   br i1 %cmp13, label %if.then14, label %if.else17
 
 if.then14:                                        ; preds = %if.then, %if.then12
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 8
   %mpCapacity.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load ptr, ptr %mpCapacity.i, align 8
-  %cmp.not.i = icmp ult ptr %add.ptr.i, %6
+  %5 = load ptr, ptr %mpCapacity.i, align 8
+  %cmp.not.i = icmp ult ptr %add.ptr.i, %5
   br i1 %cmp.not.i, label %_ZN2EA4StdC15CallbackManager14CallbackVector9push_backEPNS0_8CallbackE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then14
-  %sub.ptr.lhs.cast5.i = ptrtoint ptr %6 to i64
+  %sub.ptr.lhs.cast5.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub7.i = sub i64 %sub.ptr.lhs.cast5.i, %sub.ptr.rhs.cast.i
   %cmp9.i = icmp ugt i64 %sub.ptr.sub7.i, 8
   %mul.i = ashr exact i64 %sub.ptr.sub7.i, 2
   %cond.i = select i1 %cmp9.i, i64 %mul.i, i64 4
-  %7 = icmp ugt i64 %cond.i, 2305843009213693951
-  %8 = shl i64 %cond.i, 3
-  %9 = select i1 %7, i64 -1, i64 %8
-  %call.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %9, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  %6 = icmp ugt i64 %cond.i, 2305843009213693951
+  %7 = shl i64 %cond.i, 3
+  %8 = select i1 %6, i64 -1, i64 %7
+  %call.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %8, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  %9 = load ptr, ptr %mCallbackArray, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i, ptr align 8 %9, i64 %sub.ptr.sub.i, i1 false)
   %10 = load ptr, ptr %mCallbackArray, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i, ptr align 8 %10, i64 %sub.ptr.sub.i, i1 false)
-  %11 = load ptr, ptr %mCallbackArray, align 8
   %mLocalBuffer.i = getelementptr inbounds i8, ptr %this, i64 32
-  %cmp13.not.i = icmp eq ptr %11, %mLocalBuffer.i
-  %isnull.i = icmp eq ptr %11, null
+  %cmp13.not.i = icmp eq ptr %10, %mLocalBuffer.i
+  %isnull.i = icmp eq ptr %10, null
   %or.cond.i = or i1 %cmp13.not.i, %isnull.i
   br i1 %or.cond.i, label %if.end.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then.i
-  tail call void @_ZdaPv(ptr noundef nonnull %11) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %10) #19
   br label %if.end.i
 
 if.end.i:                                         ; preds = %delete.notnull.i, %if.then.i
@@ -1505,28 +1494,28 @@ if.end.i:                                         ; preds = %delete.notnull.i, %
   br label %_ZN2EA4StdC15CallbackManager14CallbackVector9push_backEPNS0_8CallbackE.exit
 
 _ZN2EA4StdC15CallbackManager14CallbackVector9push_backEPNS0_8CallbackE.exit: ; preds = %if.then14, %if.end.i
-  %12 = phi ptr [ %add.ptr17.i, %if.end.i ], [ %2, %if.then14 ]
-  store ptr %pCallback, ptr %12, align 8
-  %13 = load ptr, ptr %mpEnd.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %13, i64 8
+  %11 = phi ptr [ %add.ptr17.i, %if.end.i ], [ %1, %if.then14 ]
+  store ptr %pCallback, ptr %11, align 8
+  %12 = load ptr, ptr %mpEnd.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %incdec.ptr.i, ptr %mpEnd.i, align 8
   br label %if.end20
 
 if.else17:                                        ; preds = %if.then12
-  %arrayidx.i31 = getelementptr inbounds ptr, ptr %3, i64 %found_empty.035
+  %arrayidx.i31 = getelementptr inbounds ptr, ptr %2, i64 %found_empty.035
   store ptr %pCallback, ptr %arrayidx.i31, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else17, %_ZN2EA4StdC15CallbackManager14CallbackVector9push_backEPNS0_8CallbackE.exit
   store i64 0, ptr %nextUnits, align 8
   %mPrecision.i = getelementptr inbounds i8, ptr %pCallback, i64 16
-  %14 = load i64, ptr %mPrecision.i, align 8
-  %conv = trunc i64 %14 to i32
+  %13 = load i64, ptr %mPrecision.i, align 8
+  %conv = trunc i64 %13 to i32
   %mPeriod.i = getelementptr inbounds i8, ptr %pCallback, i64 8
-  %15 = load i64, ptr %mPeriod.i, align 8
+  %14 = load i64, ptr %mPeriod.i, align 8
   %mType.i = getelementptr inbounds i8, ptr %pCallback, i64 48
-  %16 = load i32, ptr %mType.i, align 8
-  switch i32 %16, label %sw.epilog [
+  %15 = load i32, ptr %mType.i, align 8
+  switch i32 %15, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb25
   ]
@@ -1539,16 +1528,16 @@ sw.bb:                                            ; preds = %if.end20
 
 sw.bb25:                                          ; preds = %if.end20
   %mTickCounter = getelementptr inbounds i8, ptr %this, i64 120
-  %17 = load atomic i64, ptr %mTickCounter seq_cst, align 8
+  %16 = load atomic i64, ptr %mTickCounter seq_cst, align 8
   %mNextCallbackEventTick = getelementptr inbounds i8, ptr %this, i64 176
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end20, %sw.bb25, %sw.bb
-  %units.0 = phi i64 [ 0, %if.end20 ], [ %17, %sw.bb25 ], [ %call24, %sw.bb ]
+  %units.0 = phi i64 [ 0, %if.end20 ], [ %16, %sw.bb25 ], [ %call24, %sw.bb ]
   %pNextEventUnits.0 = phi ptr [ %nextUnits, %if.end20 ], [ %mNextCallbackEventTick, %sw.bb25 ], [ %mNextCallbackEventTime, %sw.bb ]
   %mbOneShot = getelementptr inbounds i8, ptr %pCallback, i64 56
   store i8 %frombool, ptr %mbOneShot, align 8
-  %add = add nsw i64 %units.0, %15
+  %add = add nsw i64 %units.0, %14
   %mNextCallbackEvent = getelementptr inbounds i8, ptr %pCallback, i64 64
   store i64 %add, ptr %mNextCallbackEvent, align 8
   %mLastCallbackEvent = getelementptr inbounds i8, ptr %pCallback, i64 72
@@ -1567,52 +1556,48 @@ if.then31:                                        ; preds = %sw.epilog
 
 if.then39:                                        ; preds = %if.then31
   %conv35 = zext nneg i32 %add.i to i64
-  %18 = load i64, ptr %mNextCallbackEvent, align 8
-  %add36 = add nsw i64 %18, %conv35
+  %17 = load i64, ptr %mNextCallbackEvent, align 8
+  %add36 = add nsw i64 %17, %conv35
   store i64 %add36, ptr %mNextCallbackEvent, align 8
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then31, %if.then39, %sw.epilog
   %mbAsync = getelementptr inbounds i8, ptr %this, i64 138
-  %19 = load i8, ptr %mbAsync, align 2
-  %20 = and i8 %19, 1
-  %tobool43.not = icmp eq i8 %20, 0
-  br i1 %tobool43.not, label %if.end72, label %if.then44
+  %18 = load i8, ptr %mbAsync, align 2
+  %tobool43 = trunc i8 %18 to i1
+  br i1 %tobool43, label %if.then44, label %if.end51
 
 if.then44:                                        ; preds = %if.end42
-  %21 = load i64, ptr %pNextEventUnits.0, align 8
-  %22 = load i64, ptr %mNextCallbackEvent, align 8
-  %cmp46 = icmp slt i64 %21, %22
-  br i1 %cmp46, label %if.then47, label %if.then54
+  %19 = load i64, ptr %pNextEventUnits.0, align 8
+  %20 = load i64, ptr %mNextCallbackEvent, align 8
+  %cmp46 = icmp slt i64 %19, %20
+  br i1 %cmp46, label %if.then47, label %if.end51
 
 if.then47:                                        ; preds = %if.then44
-  store i64 %22, ptr %pNextEventUnits.0, align 8
-  br label %if.then54
+  store i64 %20, ptr %pNextEventUnits.0, align 8
+  br label %if.end51
 
-if.end51:                                         ; preds = %if.then6
-  %mbAsync52.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 138
-  %.pre = load i8, ptr %mbAsync52.phi.trans.insert, align 2
-  %.pre42 = and i8 %.pre, 1
-  %23 = icmp eq i8 %.pre42, 0
-  br i1 %23, label %if.end72, label %if.then54
+if.end51:                                         ; preds = %if.then6.if.end51_crit_edge, %if.end42, %if.then47, %if.then44
+  %21 = phi i8 [ %.pre, %if.then6.if.end51_crit_edge ], [ %18, %if.end42 ], [ %18, %if.then47 ], [ %18, %if.then44 ]
+  %mbAsync52 = getelementptr inbounds i8, ptr %this, i64 138
+  %tobool53 = trunc i8 %21 to i1
+  br i1 %tobool53, label %if.then54, label %if.end72
 
-if.then54:                                        ; preds = %if.then44, %if.then47, %if.end51
+if.then54:                                        ; preds = %if.end51
   %mbThreadStarted = getelementptr inbounds i8, ptr %this, i64 240
-  %24 = load atomic i32, ptr %mbThreadStarted seq_cst, align 8
-  %cmp56 = icmp eq i32 %24, 0
+  %22 = load atomic i32, ptr %mbThreadStarted seq_cst, align 8
+  %cmp56 = icmp eq i32 %22, 0
   br i1 %cmp56, label %if.then57, label %if.end60
 
 if.then57:                                        ; preds = %if.then54
-  %mbAsync5247 = getelementptr inbounds i8, ptr %this, i64 138
-  %25 = load i8, ptr %mbAsync5247, align 2
-  %26 = and i8 %25, 1
-  %tobool.not.i = icmp eq i8 %26, 0
-  br i1 %tobool.not.i, label %if.end60, label %if.then.i33
+  %23 = load i8, ptr %mbAsync52, align 2
+  %tobool.i = trunc i8 %23 to i1
+  br i1 %tobool.i, label %if.then.i33, label %if.end60
 
 if.then.i33:                                      ; preds = %if.then57
-  %27 = cmpxchg ptr %mbThreadStarted, i32 0, i32 1 seq_cst seq_cst, align 4
-  %28 = extractvalue { i32, i1 } %27, 1
-  br i1 %28, label %if.then2.i, label %if.end60
+  %24 = cmpxchg ptr %mbThreadStarted, i32 0, i32 1 seq_cst seq_cst, align 4
+  %25 = extractvalue { i32, i1 } %24, 1
+  br i1 %25, label %if.then2.i, label %if.end60
 
 if.then2.i:                                       ; preds = %if.then.i33
   %mThreadParam.i = getelementptr inbounds i8, ptr %this, i64 248
@@ -1622,24 +1607,23 @@ if.then2.i:                                       ; preds = %if.then.i33
   %call4.i = tail call noundef ptr @_ZN2EA6Thread6Thread36GetGlobalRunnableFunctionUserWrapperEv()
   %call5.i = tail call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %mThread.i, ptr noundef nonnull @_ZN2EA4StdC15CallbackManager9RunStaticEPv, ptr noundef nonnull %this, ptr noundef nonnull %mThreadParam.i, ptr noundef %call4.i)
   %cmp.i = icmp ne i64 %call5.i, 0
-  %29 = zext i1 %cmp.i to i8
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then2.i, %if.then.i33, %if.then57, %if.then54
-  %bReturnValue.0 = phi i8 [ 1, %if.then54 ], [ %29, %if.then2.i ], [ 1, %if.then.i33 ], [ 0, %if.then57 ]
+  %bReturnValue.0 = phi i1 [ true, %if.then54 ], [ %cmp.i, %if.then2.i ], [ true, %if.then.i33 ], [ false, %if.then57 ]
   %mNextCallbackEventTime61 = getelementptr inbounds i8, ptr %this, i64 168
-  %30 = load i64, ptr %mNextCallbackEventTime61, align 8
+  %26 = load i64, ptr %mNextCallbackEventTime61, align 8
   %mStopwatch62 = getelementptr inbounds i8, ptr %this, i64 96
   %call63 = tail call noundef i64 @_ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv(ptr noundef nonnull align 8 dereferenceable(24) %mStopwatch62)
-  %cmp64 = icmp slt i64 %30, %call63
+  %cmp64 = icmp slt i64 %26, %call63
   br i1 %cmp64, label %if.then69, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end60
   %mNextCallbackEventTick65 = getelementptr inbounds i8, ptr %this, i64 176
-  %31 = load i64, ptr %mNextCallbackEventTick65, align 8
+  %27 = load i64, ptr %mNextCallbackEventTick65, align 8
   %mTickCounter66 = getelementptr inbounds i8, ptr %this, i64 120
-  %32 = load atomic i64, ptr %mTickCounter66 seq_cst, align 8
-  %cmp68 = icmp slt i64 %31, %32
+  %28 = load atomic i64, ptr %mTickCounter66 seq_cst, align 8
+  %cmp68 = icmp slt i64 %27, %28
   br i1 %cmp68, label %if.then69, label %if.end72
 
 if.then69:                                        ; preds = %lor.lhs.false, %if.end60
@@ -1647,11 +1631,10 @@ if.then69:                                        ; preds = %lor.lhs.false, %if.
   tail call void @_ZN2EA6Thread6Thread4WakeEv(ptr noundef nonnull align 8 dereferenceable(8) %mThread)
   br label %if.end72
 
-if.end72:                                         ; preds = %if.end42, %if.end51, %if.then69, %lor.lhs.false, %entry
-  %bReturnValue.1 = phi i8 [ %bReturnValue.0, %if.then69 ], [ %bReturnValue.0, %lor.lhs.false ], [ 1, %if.end51 ], [ 0, %entry ], [ 1, %if.end42 ]
+if.end72:                                         ; preds = %if.end51, %if.then69, %lor.lhs.false, %entry
+  %bReturnValue.1 = phi i1 [ %bReturnValue.0, %if.then69 ], [ %bReturnValue.0, %lor.lhs.false ], [ true, %if.end51 ], [ false, %entry ]
   %call74 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mMutex)
-  %tobool75 = icmp ne i8 %bReturnValue.1, 0
-  ret i1 %tobool75
+  ret i1 %bReturnValue.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1665,21 +1648,20 @@ entry:
 if.then:                                          ; preds = %entry
   %mbRunning = getelementptr inbounds i8, ptr %this, i64 137
   %0 = load volatile i8, ptr %mbRunning, align 1
-  %1 = and i8 %0, 1
-  %tobool2.not = icmp eq i8 %1, 0
-  br i1 %tobool2.not, label %if.end12.thread, label %if.then3
+  %tobool2 = trunc i8 %0 to i1
+  br i1 %tobool2, label %if.then3, label %if.end12.thread
 
 if.then3:                                         ; preds = %if.then
   %mCallbackArray = getelementptr inbounds i8, ptr %this, i64 8
   %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load ptr, ptr %mpEnd.i, align 8
-  %3 = load ptr, ptr %mCallbackArray, align 8
-  %cmp11.not = icmp eq ptr %2, %3
+  %1 = load ptr, ptr %mpEnd.i, align 8
+  %2 = load ptr, ptr %mCallbackArray, align 8
+  %cmp11.not = icmp eq ptr %1, %2
   br i1 %cmp11.not, label %if.end12.thread, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then3
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
@@ -1687,9 +1669,9 @@ for.body.preheader:                               ; preds = %if.then3
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %i.012 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.012
-  %4 = load ptr, ptr %arrayidx.i, align 8
-  %cmp7 = icmp eq ptr %4, %pCallback
+  %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %i.012
+  %3 = load ptr, ptr %arrayidx.i, align 8
+  %cmp7 = icmp eq ptr %3, %pCallback
   br i1 %cmp7, label %if.then16, label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -1702,38 +1684,37 @@ if.end12.thread:                                  ; preds = %for.inc, %if.then3,
   br label %if.end17
 
 if.then16:                                        ; preds = %for.body
-  %arrayidx.i.le = getelementptr inbounds ptr, ptr %3, i64 %i.012
+  %arrayidx.i.le = getelementptr inbounds ptr, ptr %2, i64 %i.012
   store ptr null, ptr %arrayidx.i.le, align 8
   %call14 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mMutex)
   %mbStarted.i = getelementptr inbounds i8, ptr %pCallback, i64 52
-  %5 = load atomic i32, ptr %mbStarted.i seq_cst, align 4
-  %tobool.not.i = icmp eq i32 %5, 0
+  %4 = load atomic i32, ptr %mbStarted.i seq_cst, align 4
+  %tobool.not.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i, label %if.end17, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then16
   %mpCallbackManager.i = getelementptr inbounds i8, ptr %pCallback, i64 24
-  %6 = load ptr, ptr %mpCallbackManager.i, align 8
-  %vtable.i = load ptr, ptr %6, align 8
+  %5 = load ptr, ptr %mpCallbackManager.i, align 8
+  %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
-  %7 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %pCallback)
+  %6 = load ptr, ptr %vfn.i, align 8
+  %call2.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %pCallback)
   store atomic i32 0, ptr %mbStarted.i seq_cst, align 4
   %mbEnableRefCount.i = getelementptr inbounds i8, ptr %pCallback, i64 57
-  %8 = load i8, ptr %mbEnableRefCount.i, align 1
-  %9 = and i8 %8, 1
-  %tobool5.not.i = icmp eq i8 %9, 0
-  br i1 %tobool5.not.i, label %if.end17, label %if.then6.i
+  %7 = load i8, ptr %mbEnableRefCount.i, align 1
+  %tobool5.i = trunc i8 %7 to i1
+  br i1 %tobool5.i, label %if.then6.i, label %if.end17
 
 if.then6.i:                                       ; preds = %if.then.i
   %mpFunction.i.i.i = getelementptr inbounds i8, ptr %pCallback, i64 32
-  %10 = load ptr, ptr %mpFunction.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %10, null
+  %8 = load ptr, ptr %mpFunction.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %if.end17, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then6.i
   %mpFunctionArg.i.i.i = getelementptr inbounds i8, ptr %pCallback, i64 40
-  %11 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull %pCallback, ptr noundef %11, i64 noundef 1, i64 noundef 0)
+  %9 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
+  tail call void %8(ptr noundef nonnull %pCallback, ptr noundef %9, i64 noundef 1, i64 noundef 0)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then.i.i.i, %if.then6.i, %if.then.i, %if.then16, %if.end12.thread

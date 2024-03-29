@@ -1715,47 +1715,46 @@ _ZN5boost9iostreams6detail13double_objectINS1_12basic_bufferIcSaIcEEENS_14is_con
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alloc.i.i.i)
   %initialized_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i8, ptr %initialized_.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i, label %_ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEED2Ev.exit, label %if.then.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %_ZN5boost9iostreams6detail13double_objectINS1_12basic_bufferIcSaIcEEENS_14is_convertibleINS0_15output_seekableENS1_12two_sequenceEEEED2Ev.exit
   %pn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %4 = load ptr, ptr %pn.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %pn.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i
-  %use_count_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %5, 1
+  %use_count_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %4, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %4, align 8
+  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
-  %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %.noexc.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i.i.i
-  %weak_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
-  %7 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %7, 1
+  %weak_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
+  %6 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %6, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %4, align 8
+  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 24
-  %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #27
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #27
   unreachable
 
 _ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i
@@ -3365,47 +3364,46 @@ if.end30:                                         ; preds = %if.then23, %entry
   call void @_ZN5boost9iostreams20file_descriptor_sinkC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(16) %t)
   %initialized_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i8, ptr %initialized_.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i, label %_ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEE5resetEv.exit.i, label %if.then.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEE5resetEv.exit.i
 
 if.then.i.i:                                      ; preds = %if.end30
   %pn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %4 = load ptr, ptr %pn.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %pn.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i
-  %use_count_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %5, 1
+  %use_count_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %4, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %4, align 8
+  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
-  %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %.noexc.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i.i.i
-  %weak_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
-  %7 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %7, 1
+  %weak_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
+  %6 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %6, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %4, align 8
+  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 24
-  %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #27
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #27
   unreachable
 
 _ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i
@@ -3419,59 +3417,59 @@ _ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_20file_descriptor_
 invoke.cont:                                      ; preds = %_ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEE5resetEv.exit.i
   store i8 1, ptr %initialized_.i.i, align 8
   %pn.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
-  %11 = load ptr, ptr %pn.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %pn.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont
-  %use_count_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i = icmp eq i32 %12, 1
+  %use_count_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i = icmp eq i32 %11, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %11, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %10, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
-  %13 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  invoke void %13(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %12 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %.noexc.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 .noexc.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i.i
-  %weak_count_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 12
-  %14 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %14, 1
+  %weak_count_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 12
+  %13 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %13, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i10, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit
 
 if.then.i.i.i.i.i.i.i10:                          ; preds = %.noexc.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %11, align 8
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 24
-  %15 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  invoke void %15(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %14 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i.i10, %if.then.i.i.i.i.i.i
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #27
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #27
   unreachable
 
 _ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i.i.i.i, %.noexc.i.i.i.i.i, %if.then.i.i.i.i.i.i.i10
   %flags_ = getelementptr inbounds i8, ptr %this, i64 128
-  %18 = load i32, ptr %flags_, align 8
-  %spec.select = or i32 %18, %cond21
+  %17 = load i32, ptr %flags_, align 8
+  %spec.select = or i32 %17, %cond21
   store i32 %spec.select, ptr %flags_, align 8
   %flags_.i = getelementptr inbounds i8, ptr %this, i64 64
-  %19 = load i32, ptr %flags_.i, align 8
-  %and.i12 = and i32 %19, -8
+  %18 = load i32, ptr %flags_.i, align 8
+  %and.i12 = and i32 %18, -8
   store i32 %and.i12, ptr %flags_.i, align 8
   ret void
 
 lpad:                                             ; preds = %_ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEE5resetEv.exit.i
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp31) #25
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3559,47 +3557,46 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %initialized_.i.i = getelementptr inbounds i8, ptr %c1.coerce, i64 16
   %0 = load i8, ptr %initialized_.i.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %_ZNK5boost9iostreams6detail15reset_operationINS1_8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEEEEclEv.exit, label %if.then.i.i
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %_ZNK5boost9iostreams6detail15reset_operationINS1_8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEEEEclEv.exit
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %pn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %c1.coerce, i64 8
-  %2 = load ptr, ptr %pn.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %pn.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i
-  %use_count_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %3, 1
+  %use_count_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %2, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
+  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
-  %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %3 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %.noexc.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i.i.i
-  %weak_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
-  %5 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %5, 1
+  %weak_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %4, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
+  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 24
-  %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #27
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #27
   unreachable
 
 _ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i
@@ -3610,18 +3607,18 @@ _ZNK5boost9iostreams6detail15reset_operationINS1_8optionalINS1_15concept_adapter
   ret i32 %call
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #25
+  %9 = extractvalue { ptr, i32 } %8, 0
+  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #25
   invoke void @_ZNK5boost9iostreams6detail15reset_operationINS1_8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEEEEclEv(ptr noundef nonnull align 8 dereferenceable(8) %c1)
           to label %try.cont unwind label %lpad2
 
 lpad2:                                            ; preds = %lpad
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  %14 = call ptr @__cxa_begin_catch(ptr %13) #25
+  %12 = extractvalue { ptr, i32 } %11, 0
+  %13 = call ptr @__cxa_begin_catch(ptr %12) #25
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad6
 
@@ -3630,19 +3627,19 @@ try.cont:                                         ; preds = %lpad2, %lpad
           to label %unreachable unwind label %lpad6
 
 lpad6:                                            ; preds = %try.cont, %lpad2
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
 eh.resume:                                        ; preds = %lpad6
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %14
 
 terminate.lpad:                                   ; preds = %lpad6
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #27
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #27
   unreachable
 
 unreachable:                                      ; preds = %try.cont
@@ -3778,47 +3775,46 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %initialized_.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %initialized_.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEE5resetEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEE5resetEv.exit
 
 if.then.i:                                        ; preds = %entry
   %pn.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %pn.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %pn.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i
-  %use_count_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %4, 1
+  %use_count_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %3, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
-  %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
+  invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %.noexc.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i.i
-  %weak_count_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
-  %6 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %6, 1
+  %weak_count_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
+  %5 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %5, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %.noexc.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
+  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 24
-  %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #27
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #27
   unreachable
 
 _ZN5boost9iostreams6detail15concept_adapterINS0_20file_descriptor_sinkEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.then.i

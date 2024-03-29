@@ -4239,9 +4239,8 @@ _ZNK5QHashI7QString15QHashDummyValueE10isDetachedEv.exit: ; preds = %3
   call void @_ZN12QHashPrivate4DataINS_4NodeI7QString15QHashDummyValueEEE12findOrInsertERKS2_(ptr dead_on_unwind nonnull writable sret(%"struct.QHashPrivate::Data<QHashPrivate::Node<QString, QHashDummyValue>>::InsertionResult") align 8 %6, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(24) %1) #17
   %18 = getelementptr inbounds i8, ptr %6, i64 16
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not.i8 = icmp eq i8 %20, 0
-  br i1 %.not.i8, label %21, label %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit, label %21
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %6, align 8
@@ -4288,9 +4287,8 @@ _ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_Dp
   call void @_ZN12QHashPrivate4DataINS_4NodeI7QString15QHashDummyValueEEE12findOrInsertERKS2_(ptr dead_on_unwind nonnull writable sret(%"struct.QHashPrivate::Data<QHashPrivate::Node<QString, QHashDummyValue>>::InsertionResult") align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(24) %1) #17
   %46 = getelementptr inbounds i8, ptr %5, i64 16
   %47 = load i8, ptr %46, align 8
-  %48 = and i8 %47, 1
-  %.not.i9 = icmp eq i8 %48, 0
-  br i1 %.not.i9, label %49, label %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit15
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit13, label %49
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr %5, align 8
@@ -4323,12 +4321,12 @@ _ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_Dp
   %72 = load i64, ptr %70, align 8
   store i64 %72, ptr %69, align 8
   store i64 %71, ptr %70, align 8
-  br label %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit15
+  br label %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit13
 
-_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit15: ; preds = %45, %49
-  %.sroa.0.0.copyload.i10 = load ptr, ptr %5, align 8
-  %.sroa.2.0..sroa_idx.i11 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.2.0.copyload.i12 = load i64, ptr %.sroa.2.0..sroa_idx.i11, align 8
+_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit13: ; preds = %45, %49
+  %.sroa.0.0.copyload.i8 = load ptr, ptr %5, align 8
+  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0.copyload.i10 = load i64, ptr %.sroa.2.0..sroa_idx.i9, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %112
 
@@ -4336,22 +4334,22 @@ _ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_Dp
   store ptr %8, ptr %7, align 8
   %74 = load atomic i32, ptr %8 monotonic, align 4
   %.not.i.i = icmp eq i32 %74, -1
-  br i1 %.not.i.i, label %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread28, label %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit
+  br i1 %.not.i.i, label %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread25, label %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit
 
 _ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit: ; preds = %73
   %75 = atomicrmw add ptr %8, i32 1 seq_cst, align 4
   %.pr.pre = load ptr, ptr %0, align 8
-  %.not.i17 = icmp eq ptr %.pr.pre, null
-  br i1 %.not.i17, label %78, label %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread28
+  %.not.i15 = icmp eq ptr %.pr.pre, null
+  br i1 %.not.i15, label %78, label %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread25
 
-_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread28: ; preds = %73, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit
-  %.pr31 = phi ptr [ %.pr.pre, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit ], [ %8, %73 ]
-  %76 = load atomic i32, ptr %.pr31 monotonic, align 4
+_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread25: ; preds = %73, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit
+  %.pr28 = phi ptr [ %.pr.pre, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit ], [ %8, %73 ]
+  %76 = load atomic i32, ptr %.pr28 monotonic, align 4
   %77 = icmp ugt i32 %76, 1
   br i1 %77, label %78, label %_ZN5QHashI7QString15QHashDummyValueE6detachEv.exit
 
-78:                                               ; preds = %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread28, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit
-  %79 = phi ptr [ null, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread ], [ %.pr31, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread28 ], [ null, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit ]
+78:                                               ; preds = %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread25, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit
+  %79 = phi ptr [ null, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread ], [ %.pr28, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread25 ], [ null, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit ]
   %80 = invoke noundef ptr @_ZN12QHashPrivate4DataINS_4NodeI7QString15QHashDummyValueEEE8detachedEPS5_m(ptr noundef %79, i64 noundef 0)
           to label %.noexc unwind label %110
 
@@ -4359,15 +4357,14 @@ _ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread28: ; preds = %73, %_ZN5
   store ptr %80, ptr %0, align 8
   br label %_ZN5QHashI7QString15QHashDummyValueE6detachEv.exit
 
-_ZN5QHashI7QString15QHashDummyValueE6detachEv.exit: ; preds = %.noexc, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread28
-  %81 = phi ptr [ %80, %.noexc ], [ %.pr31, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread28 ]
+_ZN5QHashI7QString15QHashDummyValueE6detachEv.exit: ; preds = %.noexc, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread25
+  %81 = phi ptr [ %80, %.noexc ], [ %.pr28, %_ZN5QHashI7QString15QHashDummyValueEC2ERKS2_.exit.thread25 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN12QHashPrivate4DataINS_4NodeI7QString15QHashDummyValueEEE12findOrInsertERKS2_(ptr dead_on_unwind nonnull writable sret(%"struct.QHashPrivate::Data<QHashPrivate::Node<QString, QHashDummyValue>>::InsertionResult") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %81, ptr noundef nonnull align 8 dereferenceable(24) %1) #17
   %82 = getelementptr inbounds i8, ptr %4, i64 16
   %83 = load i8, ptr %82, align 8
-  %84 = and i8 %83, 1
-  %.not.i18 = icmp eq i8 %84, 0
-  br i1 %.not.i18, label %85, label %109
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %109, label %85
 
 85:                                               ; preds = %_ZN5QHashI7QString15QHashDummyValueE6detachEv.exit
   %86 = load ptr, ptr %4, align 8
@@ -4403,9 +4400,9 @@ _ZN5QHashI7QString15QHashDummyValueE6detachEv.exit: ; preds = %.noexc, %_ZN5QHas
   br label %109
 
 109:                                              ; preds = %85, %_ZN5QHashI7QString15QHashDummyValueE6detachEv.exit
-  %.sroa.0.0.copyload.i19 = load ptr, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i20 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.2.0.copyload.i21 = load i64, ptr %.sroa.2.0..sroa_idx.i20, align 8
+  %.sroa.0.0.copyload.i16 = load ptr, ptr %4, align 8
+  %.sroa.2.0..sroa_idx.i17 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0.copyload.i18 = load i64, ptr %.sroa.2.0..sroa_idx.i17, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @_ZN5QHashI7QString15QHashDummyValueED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   br label %112
@@ -4416,9 +4413,9 @@ _ZN5QHashI7QString15QHashDummyValueE6detachEv.exit: ; preds = %.noexc, %_ZN5QHas
   call void @_ZN5QHashI7QString15QHashDummyValueED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   resume { ptr, i32 } %111
 
-112:                                              ; preds = %109, %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit15, %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit
-  %.sroa.0.0.copyload.i.pn = phi ptr [ %.sroa.0.0.copyload.i, %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit ], [ %.sroa.0.0.copyload.i10, %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit15 ], [ %.sroa.0.0.copyload.i19, %109 ]
-  %.sroa.2.0.copyload.i.pn = phi i64 [ %.sroa.2.0.copyload.i, %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit ], [ %.sroa.2.0.copyload.i12, %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit15 ], [ %.sroa.2.0.copyload.i21, %109 ]
+112:                                              ; preds = %109, %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit13, %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit
+  %.sroa.0.0.copyload.i.pn = phi ptr [ %.sroa.0.0.copyload.i, %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit ], [ %.sroa.0.0.copyload.i8, %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit13 ], [ %.sroa.0.0.copyload.i16, %109 ]
+  %.sroa.2.0.copyload.i.pn = phi i64 [ %.sroa.2.0.copyload.i, %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit ], [ %.sroa.2.0.copyload.i10, %_ZN5QHashI7QString15QHashDummyValueE14emplace_helperIJS1_EEENS2_8iteratorEOS0_DpOT_.exit13 ], [ %.sroa.2.0.copyload.i18, %109 ]
   %.fca.0.insert.i.pn = insertvalue { ptr, i64 } undef, ptr %.sroa.0.0.copyload.i.pn, 0
   %.pn = insertvalue { ptr, i64 } %.fca.0.insert.i.pn, i64 %.sroa.2.0.copyload.i.pn, 1
   ret { ptr, i64 } %.pn

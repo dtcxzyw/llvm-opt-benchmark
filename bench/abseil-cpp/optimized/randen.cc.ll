@@ -43,9 +43,9 @@ _ZN4absl15random_internal12_GLOBAL__N_114GetRandenStateEv.exit: ; preds = %entry
   %retval.sroa.0.0.copyload.i = load ptr, ptr @_ZZN4absl15random_internal12_GLOBAL__N_114GetRandenStateEvE5state.0, align 8
   %retval.sroa.2.0.copyload.i = load i8, ptr @_ZZN4absl15random_internal12_GLOBAL__N_114GetRandenStateEvE5state.1, align 8
   store ptr %retval.sroa.0.0.copyload.i, ptr %this, align 8
-  %5 = and i8 %retval.sroa.2.0.copyload.i, 1
   %has_crypto_ = getelementptr inbounds i8, ptr %this, i64 8
-  store i8 %5, ptr %has_crypto_, align 8
+  %frombool = and i8 %retval.sroa.2.0.copyload.i, 1
+  store i8 %frombool, ptr %has_crypto_, align 8
   ret void
 }
 

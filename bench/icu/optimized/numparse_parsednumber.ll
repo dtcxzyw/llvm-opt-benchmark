@@ -92,14 +92,13 @@ define void @_ZN6icu_758numparse4impl12ParsedNumber11postProcessEv(ptr noundef n
 entry:
   %bogus = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %bogus, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %land.lhs.true, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %flags = getelementptr inbounds i8, ptr %this, i64 76
-  %2 = load i32, ptr %flags, align 4
-  %and = and i32 %2, 1
+  %1 = load i32, ptr %flags, align 4
+  %and = and i32 %1, 1
   %cmp.not = icmp eq i32 %and, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -132,25 +131,24 @@ define noundef zeroext i1 @_ZNK6icu_758numparse4impl12ParsedNumber10seenNumberEv
 entry:
   %bogus = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %bogus, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %lor.end, label %lor.lhs.false
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %lor.lhs.false, label %lor.end
 
 lor.lhs.false:                                    ; preds = %entry
   %flags = getelementptr inbounds i8, ptr %this, i64 76
-  %2 = load i32, ptr %flags, align 4
-  %and = and i32 %2, 64
+  %1 = load i32, ptr %flags, align 4
+  %and = and i32 %1, 64
   %cmp.not = icmp eq i32 %and, 0
   br i1 %cmp.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %lor.lhs.false
-  %and3 = and i32 %2, 128
+  %and3 = and i32 %1, 128
   %cmp4 = icmp ne i32 %and3, 0
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false, %entry
-  %3 = phi i1 [ true, %lor.lhs.false ], [ true, %entry ], [ %cmp4, %lor.rhs ]
-  ret i1 %3
+  %2 = phi i1 [ true, %lor.lhs.false ], [ true, %entry ], [ %cmp4, %lor.rhs ]
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -180,9 +178,8 @@ if.then7:                                         ; preds = %if.end
 if.end12:                                         ; preds = %if.end
   %bogus = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %bogus, align 8
-  %2 = and i8 %1, 1
-  %tobool13.not = icmp eq i8 %2, 0
-  br i1 %tobool13.not, label %if.end15, label %if.then14
+  %tobool13 = trunc i8 %1 to i1
+  br i1 %tobool13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end12
   store i32 27, ptr %status, align 4

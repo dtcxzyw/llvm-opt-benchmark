@@ -220,7 +220,7 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
   %11 = load ptr, ptr %10, align 8
   store i32 127, ptr %11, align 4
   %12 = tail call ptr @xstrdup(ptr noundef nonnull @.str.5) #11
-  br label %161
+  br label %160
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %0, i64 40
@@ -230,7 +230,7 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
   %18 = load ptr, ptr %17, align 8
   store i32 127, ptr %18, align 4
   %19 = tail call ptr @xstrdup(ptr noundef nonnull @.str.5) #11
-  br label %161
+  br label %160
 
 20:                                               ; preds = %6
   %21 = tail call i32 @access(ptr noundef nonnull %4, i32 noundef 5) #11
@@ -246,19 +246,18 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
   %29 = load ptr, ptr %28, align 8
   store i32 127, ptr %29, align 4
   %30 = tail call ptr @xstrdup(ptr noundef nonnull @.str.5) #11
-  br label %161
+  br label %160
 
 31:                                               ; preds = %20
   %32 = getelementptr inbounds i8, ptr %0, i64 72
   %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, 1
-  %.not72 = icmp eq i8 %34, 0
-  br i1 %.not72, label %35, label %42
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %42, label %35
 
 35:                                               ; preds = %31
   %36 = call i32 @pipe(ptr noundef nonnull %2) #11
-  %.not73 = icmp eq i32 %36, 0
-  br i1 %.not73, label %42, label %37
+  %.not72 = icmp eq i32 %36, 0
+  br i1 %.not72, label %42, label %37
 
 37:                                               ; preds = %35
   %38 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.run_command) #11
@@ -266,12 +265,12 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
   %40 = load ptr, ptr %39, align 8
   store i32 127, ptr %40, align 4
   %41 = call ptr @xstrdup(ptr noundef nonnull @.str.9) #11
-  br label %161
+  br label %160
 
 42:                                               ; preds = %31, %35
   %43 = call i32 @pthread_mutex_lock(ptr noundef nonnull @proc_count_mutex) #11
-  %.not74 = icmp eq i32 %43, 0
-  br i1 %.not74, label %46, label %44
+  %.not73 = icmp eq i32 %43, 0
+  br i1 %.not73, label %46, label %44
 
 44:                                               ; preds = %42
   %45 = tail call ptr @__errno_location() #13
@@ -284,8 +283,8 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr @child_proc_count, align 4
   %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @proc_count_mutex) #11
-  %.not75 = icmp eq i32 %49, 0
-  br i1 %.not75, label %52, label %50
+  %.not74 = icmp eq i32 %49, 0
+  br i1 %.not74, label %52, label %50
 
 50:                                               ; preds = %46
   %51 = tail call ptr @__errno_location() #13
@@ -300,9 +299,8 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
 
 55:                                               ; preds = %52
   %56 = load i8, ptr %32, align 8
-  %57 = and i8 %56, 1
-  %.not84 = icmp eq i8 %57, 0
-  br i1 %.not84, label %58, label %70
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %70, label %58
 
 58:                                               ; preds = %55
   %59 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.10, i32 noundef 2) #11
@@ -330,8 +328,8 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
   %72 = call i32 @getegid() #11
   %73 = call i32 @getegid() #11
   %74 = call i32 @setresgid(i32 noundef %72, i32 noundef %73, i32 noundef -1) #11
-  %.not85 = icmp eq i32 %74, 0
-  br i1 %.not85, label %77, label %75
+  %.not81 = icmp eq i32 %74, 0
+  br i1 %.not81, label %77, label %75
 
 75:                                               ; preds = %70
   %76 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.run_command) #11
@@ -342,8 +340,8 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
   %78 = call i32 @geteuid() #11
   %79 = call i32 @geteuid() #11
   %80 = call i32 @setresuid(i32 noundef %78, i32 noundef %79, i32 noundef -1) #11
-  %.not86 = icmp eq i32 %80, 0
-  br i1 %.not86, label %83, label %81
+  %.not82 = icmp eq i32 %80, 0
+  br i1 %.not82, label %83, label %81
 
 81:                                               ; preds = %77
   %82 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.run_command) #11
@@ -352,11 +350,11 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
 
 83:                                               ; preds = %77
   %84 = load ptr, ptr %0, align 8
-  %.not87 = icmp eq ptr %84, null
+  %.not83 = icmp eq ptr %84, null
   %85 = load ptr, ptr %3, align 8
   %86 = getelementptr inbounds i8, ptr %0, i64 24
   %87 = load ptr, ptr %86, align 8
-  br i1 %.not87, label %88, label %90
+  br i1 %.not83, label %88, label %90
 
 88:                                               ; preds = %83
   %89 = call i32 @execv(ptr noundef %85, ptr noundef %87) #11
@@ -375,12 +373,11 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
 95:                                               ; preds = %52
   %96 = icmp slt i32 %53, 0
   %97 = load i8, ptr %32, align 8
-  %98 = and i8 %97, 1
-  %.not81 = icmp eq i8 %98, 0
+  %98 = trunc i8 %97 to i1
   br i1 %96, label %99, label %117
 
 99:                                               ; preds = %95
-  br i1 %.not81, label %100, label %106
+  br i1 %98, label %106, label %100
 
 100:                                              ; preds = %99
   %101 = load i32, ptr %2, align 8
@@ -393,8 +390,8 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
 106:                                              ; preds = %100, %99
   %107 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.run_command) #11
   %108 = call i32 @pthread_mutex_lock(ptr noundef nonnull @proc_count_mutex) #11
-  %.not82 = icmp eq i32 %108, 0
-  br i1 %.not82, label %111, label %109
+  %.not79 = icmp eq i32 %108, 0
+  br i1 %.not79, label %111, label %109
 
 109:                                              ; preds = %106
   %110 = tail call ptr @__errno_location() #13
@@ -407,8 +404,8 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
   %113 = add nsw i32 %112, -1
   store i32 %113, ptr @child_proc_count, align 4
   %114 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @proc_count_mutex) #11
-  %.not83 = icmp eq i32 %114, 0
-  br i1 %.not83, label %161, label %115
+  %.not80 = icmp eq i32 %114, 0
+  br i1 %.not80, label %160, label %115
 
 115:                                              ; preds = %111
   %116 = tail call ptr @__errno_location() #13
@@ -417,7 +414,7 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
   unreachable
 
 117:                                              ; preds = %95
-  br i1 %.not81, label %118, label %153
+  br i1 %98, label %152, label %118
 
 118:                                              ; preds = %117
   %119 = getelementptr inbounds i8, ptr %2, i64 4
@@ -425,8 +422,8 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
   %121 = call i32 @close(i32 noundef %120) #11
   %122 = getelementptr inbounds i8, ptr %0, i64 56
   %123 = load i64, ptr %122, align 8
-  %.not77 = icmp eq i64 %123, 0
-  br i1 %.not77, label %125, label %124
+  %.not75 = icmp eq i64 %123, 0
+  br i1 %.not75, label %125, label %124
 
 124:                                              ; preds = %118
   call void @track_script_reset_cpid(i64 noundef %123, i32 noundef %53) #11
@@ -439,61 +436,60 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
   %128 = load i32, ptr %127, align 4
   %129 = getelementptr inbounds i8, ptr %0, i64 16
   %130 = load i8, ptr %129, align 8
-  %131 = and i8 %130, 1
-  %132 = icmp ne i8 %131, 0
-  %133 = load i32, ptr %2, align 8
-  %134 = load ptr, ptr %3, align 8
-  %135 = getelementptr inbounds i8, ptr %0, i64 40
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %0, i64 48
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %0, i64 64
-  %140 = load ptr, ptr %139, align 8
-  %141 = call ptr @run_command_poll_child(i32 noundef %53, i32 noundef %128, i1 noundef zeroext %132, i32 noundef %133, ptr noundef %134, ptr noundef %136, i64 noundef %126, ptr noundef %138, ptr noundef %140)
-  %142 = load i32, ptr %2, align 8
-  %143 = call i32 @close(i32 noundef %142) #11
-  %144 = call i32 @pthread_mutex_lock(ptr noundef nonnull @proc_count_mutex) #11
-  %.not78 = icmp eq i32 %144, 0
-  br i1 %.not78, label %147, label %145
+  %131 = trunc i8 %130 to i1
+  %132 = load i32, ptr %2, align 8
+  %133 = load ptr, ptr %3, align 8
+  %134 = getelementptr inbounds i8, ptr %0, i64 40
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds i8, ptr %0, i64 48
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds i8, ptr %0, i64 64
+  %139 = load ptr, ptr %138, align 8
+  %140 = call ptr @run_command_poll_child(i32 noundef %53, i32 noundef %128, i1 noundef zeroext %131, i32 noundef %132, ptr noundef %133, ptr noundef %135, i64 noundef %126, ptr noundef %137, ptr noundef %139)
+  %141 = load i32, ptr %2, align 8
+  %142 = call i32 @close(i32 noundef %141) #11
+  %143 = call i32 @pthread_mutex_lock(ptr noundef nonnull @proc_count_mutex) #11
+  %.not76 = icmp eq i32 %143, 0
+  br i1 %.not76, label %146, label %144
 
-145:                                              ; preds = %125
-  %146 = tail call ptr @__errno_location() #13
-  store i32 %144, ptr %146, align 4
+144:                                              ; preds = %125
+  %145 = tail call ptr @__errno_location() #13
+  store i32 %143, ptr %145, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 258, ptr noundef nonnull @__func__.run_command) #14
   unreachable
 
-147:                                              ; preds = %125
-  %148 = load i32, ptr @child_proc_count, align 4
-  %149 = add nsw i32 %148, -1
-  store i32 %149, ptr @child_proc_count, align 4
-  %150 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @proc_count_mutex) #11
-  %.not79 = icmp eq i32 %150, 0
-  br i1 %.not79, label %161, label %151
+146:                                              ; preds = %125
+  %147 = load i32, ptr @child_proc_count, align 4
+  %148 = add nsw i32 %147, -1
+  store i32 %148, ptr @child_proc_count, align 4
+  %149 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @proc_count_mutex) #11
+  %.not77 = icmp eq i32 %149, 0
+  br i1 %.not77, label %160, label %150
 
-151:                                              ; preds = %147
-  %152 = tail call ptr @__errno_location() #13
-  store i32 %150, ptr %152, align 4
+150:                                              ; preds = %146
+  %151 = tail call ptr @__errno_location() #13
+  store i32 %149, ptr %151, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 260, ptr noundef nonnull @__func__.run_command) #14
   unreachable
 
-153:                                              ; preds = %117
-  %154 = getelementptr inbounds i8, ptr %0, i64 56
-  %155 = load i64, ptr %154, align 8
-  %.not80 = icmp eq i64 %155, 0
-  br i1 %.not80, label %157, label %156
+152:                                              ; preds = %117
+  %153 = getelementptr inbounds i8, ptr %0, i64 56
+  %154 = load i64, ptr %153, align 8
+  %.not78 = icmp eq i64 %154, 0
+  br i1 %.not78, label %156, label %155
 
-156:                                              ; preds = %153
-  call void @track_script_reset_cpid(i64 noundef %155, i32 noundef %53) #11
-  br label %157
+155:                                              ; preds = %152
+  call void @track_script_reset_cpid(i64 noundef %154, i32 noundef %53) #11
+  br label %156
 
-157:                                              ; preds = %156, %153
-  %158 = getelementptr inbounds i8, ptr %0, i64 48
-  %159 = load ptr, ptr %158, align 8
-  %160 = call i32 @waitpid(i32 noundef %53, ptr noundef %159, i32 noundef 0) #11
-  br label %161
+156:                                              ; preds = %155, %152
+  %157 = getelementptr inbounds i8, ptr %0, i64 48
+  %158 = load ptr, ptr %157, align 8
+  %159 = call i32 @waitpid(i32 noundef %53, ptr noundef %158, i32 noundef 0) #11
+  br label %160
 
-161:                                              ; preds = %157, %147, %111, %37, %23, %13, %8
-  %.0 = phi ptr [ %12, %8 ], [ %19, %13 ], [ %30, %23 ], [ %41, %37 ], [ null, %111 ], [ null, %157 ], [ %141, %147 ]
+160:                                              ; preds = %156, %146, %111, %37, %23, %13, %8
+  %.0 = phi ptr [ %12, %8 ], [ %19, %13 ], [ %30, %23 ], [ %41, %37 ], [ null, %111 ], [ null, %156 ], [ %140, %146 ]
   ret ptr %.0
 }
 
@@ -914,24 +910,24 @@ define i32 @run_command_waitpid_timeout(ptr noundef %0, i32 noundef %1, ptr noun
   %or.cond.not = and i1 %8, %9
   %spec.select = zext i1 %or.cond.not to i32
   %10 = sub nsw i32 %3, %4
-  %.not54 = icmp eq i64 %5, 0
-  %.not55 = icmp eq ptr %0, null
-  %11 = select i1 %.not55, ptr @.str.25, ptr %0
-  %12 = select i1 %.not55, ptr @.str.25, ptr @.str.26
-  %.not56 = icmp eq ptr %6, null
+  %.not = icmp eq i64 %5, 0
+  %.not54 = icmp eq ptr %0, null
+  %11 = select i1 %.not54, ptr @.str.25, ptr %0
+  %12 = select i1 %.not54, ptr @.str.25, ptr @.str.26
+  %.not55 = icmp eq ptr %6, null
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %45, %7
   %.046.ph.ph = phi i32 [ %., %45 ], [ 10, %7 ]
   %.044.ph.ph = phi i32 [ %47, %45 ], [ %10, %7 ]
   %.143.ph.ph = phi i32 [ %.143.ph, %45 ], [ %spec.select, %7 ]
-  %.0.ph.ph = phi i8 [ %.0.ph, %45 ], [ 0, %7 ]
+  %.0.ph.ph = phi i1 [ %.0.ph, %45 ], [ false, %7 ]
   %13 = icmp slt i32 %.044.ph.ph, 1
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.outer
   %.143.ph = phi i32 [ %.143.ph.ph, %.outer.outer ], [ 0, %.outer.backedge ]
-  %.0.ph = phi i8 [ %.0.ph.ph, %.outer.outer ], [ 1, %.outer.backedge ]
+  %.0.ph = phi i1 [ %.0.ph.ph, %.outer.outer ], [ true, %.outer.backedge ]
   br label %14
 
 14:                                               ; preds = %.outer, %19
@@ -968,7 +964,7 @@ define i32 @run_command_waitpid_timeout(ptr noundef %0, i32 noundef %1, ptr noun
   br label %.outer, !llvm.loop !7
 
 31:                                               ; preds = %25
-  br i1 %.not54, label %38, label %32
+  br i1 %.not, label %38, label %32
 
 32:                                               ; preds = %31
   %33 = tail call zeroext i1 @track_script_killed(i64 noundef %5, i32 noundef 0, i1 noundef zeroext false) #11
@@ -988,7 +984,7 @@ define i32 @run_command_waitpid_timeout(ptr noundef %0, i32 noundef %1, ptr noun
   %41 = tail call i32 @killpg(i32 noundef %1, i32 noundef 15) #11
   %42 = tail call i32 @usleep(i32 noundef 10000) #11
   %43 = tail call i32 @killpg(i32 noundef %1, i32 noundef 9) #11
-  br i1 %.not56, label %.outer.backedge, label %44
+  br i1 %.not55, label %.outer.backedge, label %44
 
 44:                                               ; preds = %39
   store i8 1, ptr %6, align 1
@@ -1003,8 +999,7 @@ define i32 @run_command_waitpid_timeout(ptr noundef %0, i32 noundef %1, ptr noun
   br label %.outer.outer, !llvm.loop !7
 
 50:                                               ; preds = %14
-  %.not = icmp eq i8 %.0.ph, 0
-  br i1 %.not, label %51, label %55
+  br i1 %.0.ph, label %55, label %51
 
 51:                                               ; preds = %50
   %52 = tail call i32 @killpg(i32 noundef %1, i32 noundef 15) #11

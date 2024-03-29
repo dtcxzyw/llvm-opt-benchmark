@@ -294,17 +294,16 @@ if.then4:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.then4
   %0 = load i8, ptr %arg, align 8
-  %1 = and i8 %0, 1
-  %tobool10 = icmp ne i8 %1, 0
+  %tobool10 = trunc i8 %0 to i1
   %time = getelementptr inbounds i8, ptr %arg, i64 8
-  %2 = load i64, ptr %time, align 8
-  call void @qmp_guest_set_time(i1 noundef zeroext %tobool10, i64 noundef %2, ptr noundef nonnull %err) #4
-  %3 = load ptr, ptr %err, align 8
-  %tobool11.not = icmp eq ptr %3, null
+  %1 = load i64, ptr %time, align 8
+  call void @qmp_guest_set_time(i1 noundef zeroext %tobool10, i64 noundef %1, ptr noundef nonnull %err) #4
+  %2 = load ptr, ptr %err, align 8
+  %tobool11.not = icmp eq ptr %2, null
   br i1 %tobool11.not, label %out, label %if.then12
 
 if.then12:                                        ; preds = %if.end9
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %3) #4
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %2) #4
   br label %out
 
 out.critedge:                                     ; preds = %if.end
@@ -574,17 +573,16 @@ if.end9:                                          ; preds = %if.then4
   %0 = load i64, ptr %arg, align 8
   %has_count = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load i8, ptr %has_count, align 8
-  %2 = and i8 %1, 1
-  %tobool10 = icmp ne i8 %2, 0
+  %tobool10 = trunc i8 %1 to i1
   %count = getelementptr inbounds i8, ptr %arg, i64 16
-  %3 = load i64, ptr %count, align 8
-  %call11 = call ptr @qmp_guest_file_read(i64 noundef %0, i1 noundef zeroext %tobool10, i64 noundef %3, ptr noundef nonnull %err) #4
-  %4 = load ptr, ptr %err, align 8
-  %tobool12.not = icmp eq ptr %4, null
+  %2 = load i64, ptr %count, align 8
+  %call11 = call ptr @qmp_guest_file_read(i64 noundef %0, i1 noundef zeroext %tobool10, i64 noundef %2, ptr noundef nonnull %err) #4
+  %3 = load ptr, ptr %err, align 8
+  %tobool12.not = icmp eq ptr %3, null
   br i1 %tobool12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end9
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %4) #4
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %3) #4
   br label %out
 
 if.end14:                                         ; preds = %if.end9
@@ -651,17 +649,16 @@ if.end9:                                          ; preds = %if.then4
   %1 = load ptr, ptr %buf_b64, align 8
   %has_count = getelementptr inbounds i8, ptr %arg, i64 16
   %2 = load i8, ptr %has_count, align 8
-  %3 = and i8 %2, 1
-  %tobool10 = icmp ne i8 %3, 0
+  %tobool10 = trunc i8 %2 to i1
   %count = getelementptr inbounds i8, ptr %arg, i64 24
-  %4 = load i64, ptr %count, align 8
-  %call11 = call ptr @qmp_guest_file_write(i64 noundef %0, ptr noundef %1, i1 noundef zeroext %tobool10, i64 noundef %4, ptr noundef nonnull %err) #4
-  %5 = load ptr, ptr %err, align 8
-  %tobool12.not = icmp eq ptr %5, null
+  %3 = load i64, ptr %count, align 8
+  %call11 = call ptr @qmp_guest_file_write(i64 noundef %0, ptr noundef %1, i1 noundef zeroext %tobool10, i64 noundef %3, ptr noundef nonnull %err) #4
+  %4 = load ptr, ptr %err, align 8
+  %tobool12.not = icmp eq ptr %4, null
   br i1 %tobool12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end9
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %5) #4
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %4) #4
   br label %out
 
 if.end14:                                         ; preds = %if.end9
@@ -956,17 +953,16 @@ if.then4:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.then4
   %0 = load i8, ptr %arg, align 8
-  %1 = and i8 %0, 1
-  %tobool10 = icmp ne i8 %1, 0
+  %tobool10 = trunc i8 %0 to i1
   %mountpoints = getelementptr inbounds i8, ptr %arg, i64 8
-  %2 = load ptr, ptr %mountpoints, align 8
-  %call11 = call i64 @qmp_guest_fsfreeze_freeze_list(i1 noundef zeroext %tobool10, ptr noundef %2, ptr noundef nonnull %err) #4
-  %3 = load ptr, ptr %err, align 8
-  %tobool12.not = icmp eq ptr %3, null
+  %1 = load ptr, ptr %mountpoints, align 8
+  %call11 = call i64 @qmp_guest_fsfreeze_freeze_list(i1 noundef zeroext %tobool10, ptr noundef %1, ptr noundef nonnull %err) #4
+  %2 = load ptr, ptr %err, align 8
+  %tobool12.not = icmp eq ptr %2, null
   br i1 %tobool12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end9
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %3) #4
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %2) #4
   br label %out
 
 if.end14:                                         ; preds = %if.end9
@@ -1084,17 +1080,16 @@ if.then4:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.then4
   %0 = load i8, ptr %arg, align 8
-  %1 = and i8 %0, 1
-  %tobool10 = icmp ne i8 %1, 0
+  %tobool10 = trunc i8 %0 to i1
   %minimum = getelementptr inbounds i8, ptr %arg, i64 8
-  %2 = load i64, ptr %minimum, align 8
-  %call11 = call ptr @qmp_guest_fstrim(i1 noundef zeroext %tobool10, i64 noundef %2, ptr noundef nonnull %err) #4
-  %3 = load ptr, ptr %err, align 8
-  %tobool12.not = icmp eq ptr %3, null
+  %1 = load i64, ptr %minimum, align 8
+  %call11 = call ptr @qmp_guest_fstrim(i1 noundef zeroext %tobool10, i64 noundef %1, ptr noundef nonnull %err) #4
+  %2 = load ptr, ptr %err, align 8
+  %tobool12.not = icmp eq ptr %2, null
   br i1 %tobool12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end9
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %3) #4
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %2) #4
   br label %out
 
 if.end14:                                         ; preds = %if.end9
@@ -1554,15 +1549,14 @@ if.end9:                                          ; preds = %if.then4
   %1 = load ptr, ptr %password, align 8
   %crypted = getelementptr inbounds i8, ptr %arg, i64 16
   %2 = load i8, ptr %crypted, align 8
-  %3 = and i8 %2, 1
-  %tobool10 = icmp ne i8 %3, 0
+  %tobool10 = trunc i8 %2 to i1
   call void @qmp_guest_set_user_password(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %tobool10, ptr noundef nonnull %err) #4
-  %4 = load ptr, ptr %err, align 8
-  %tobool11.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %err, align 8
+  %tobool11.not = icmp eq ptr %3, null
   br i1 %tobool11.not, label %out, label %if.then12
 
 if.then12:                                        ; preds = %if.end9
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %4) #4
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %3) #4
   br label %out
 
 out.critedge:                                     ; preds = %if.end
@@ -1856,27 +1850,25 @@ if.end9:                                          ; preds = %if.then4
   %0 = load ptr, ptr %arg, align 8
   %has_arg = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load i8, ptr %has_arg, align 8
-  %2 = and i8 %1, 1
-  %tobool10 = icmp ne i8 %2, 0
+  %tobool10 = trunc i8 %1 to i1
   %arg11 = getelementptr inbounds i8, ptr %arg, i64 16
-  %3 = load ptr, ptr %arg11, align 8
+  %2 = load ptr, ptr %arg11, align 8
   %has_env = getelementptr inbounds i8, ptr %arg, i64 24
-  %4 = load i8, ptr %has_env, align 8
-  %5 = and i8 %4, 1
-  %tobool12 = icmp ne i8 %5, 0
+  %3 = load i8, ptr %has_env, align 8
+  %tobool12 = trunc i8 %3 to i1
   %env = getelementptr inbounds i8, ptr %arg, i64 32
-  %6 = load ptr, ptr %env, align 8
+  %4 = load ptr, ptr %env, align 8
   %input_data = getelementptr inbounds i8, ptr %arg, i64 40
-  %7 = load ptr, ptr %input_data, align 8
+  %5 = load ptr, ptr %input_data, align 8
   %capture_output = getelementptr inbounds i8, ptr %arg, i64 48
-  %8 = load ptr, ptr %capture_output, align 8
-  %call13 = call ptr @qmp_guest_exec(ptr noundef %0, i1 noundef zeroext %tobool10, ptr noundef %3, i1 noundef zeroext %tobool12, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %err) #4
-  %9 = load ptr, ptr %err, align 8
-  %tobool14.not = icmp eq ptr %9, null
+  %6 = load ptr, ptr %capture_output, align 8
+  %call13 = call ptr @qmp_guest_exec(ptr noundef %0, i1 noundef zeroext %tobool10, ptr noundef %2, i1 noundef zeroext %tobool12, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %err) #4
+  %7 = load ptr, ptr %err, align 8
+  %tobool14.not = icmp eq ptr %7, null
   br i1 %tobool14.not, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %if.end9
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %9) #4
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %7) #4
   br label %out
 
 if.end16:                                         ; preds = %if.end9
@@ -2285,17 +2277,18 @@ if.end9:                                          ; preds = %if.then4
   %keys = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load ptr, ptr %keys, align 8
   %has_reset = getelementptr inbounds i8, ptr %arg, i64 16
-  %2 = load <2 x i8>, ptr %has_reset, align 8
-  %3 = trunc <2 x i8> %2 to <2 x i1>
-  %4 = extractelement <2 x i1> %3, i64 0
-  %5 = extractelement <2 x i1> %3, i64 1
-  call void @qmp_guest_ssh_add_authorized_keys(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef nonnull %err) #4
-  %6 = load ptr, ptr %err, align 8
-  %tobool12.not = icmp eq ptr %6, null
+  %2 = load i8, ptr %has_reset, align 8
+  %tobool10 = trunc i8 %2 to i1
+  %reset = getelementptr inbounds i8, ptr %arg, i64 17
+  %3 = load i8, ptr %reset, align 1
+  %tobool11 = trunc i8 %3 to i1
+  call void @qmp_guest_ssh_add_authorized_keys(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %tobool10, i1 noundef zeroext %tobool11, ptr noundef nonnull %err) #4
+  %4 = load ptr, ptr %err, align 8
+  %tobool12.not = icmp eq ptr %4, null
   br i1 %tobool12.not, label %out, label %if.then13
 
 if.then13:                                        ; preds = %if.end9
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %6) #4
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %4) #4
   br label %out
 
 out.critedge:                                     ; preds = %if.end

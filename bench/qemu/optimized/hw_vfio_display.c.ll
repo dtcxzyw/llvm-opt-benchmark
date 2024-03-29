@@ -168,54 +168,52 @@ if.end.i:                                         ; preds = %if.then
   store ptr %call2.i, ptr %3, align 8
   %enable_ramfb.i = getelementptr inbounds i8, ptr %vdev, i64 3553
   %4 = load i8, ptr %enable_ramfb.i, align 1
-  %5 = and i8 %4, 1
-  %tobool4.not.i = icmp eq i8 %5, 0
-  br i1 %tobool4.not.i, label %if.end8.i, label %if.then5.i
+  %tobool4.i = trunc i8 %4 to i1
+  br i1 %tobool4.i, label %if.then5.i, label %if.end8.i
 
 if.then5.i:                                       ; preds = %if.end.i
   %call6.i = call ptr @ramfb_setup(ptr noundef %errp) #11
-  %6 = load ptr, ptr %dpy.i, align 16
-  %ramfb.i = getelementptr inbounds i8, ptr %6, i64 8
+  %5 = load ptr, ptr %dpy.i, align 16
+  %ramfb.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %call6.i, ptr %ramfb.i, align 8
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then5.i, %if.end.i
-  %7 = load ptr, ptr %dpy.i, align 16
+  %6 = load ptr, ptr %dpy.i, align 16
   %vbasedev.i.i = getelementptr inbounds i8, ptr %vdev, i64 2608
-  %8 = load i32, ptr %fd, align 8
-  %edid_info.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %7 = load i32, ptr %fd, align 8
+  %edid_info.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %call.i8.i = call i32 @vfio_get_dev_region_info(ptr noundef nonnull %vbasedev.i.i, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %edid_info.i.i) #11
   %tobool.not.i.i = icmp eq i32 %call.i8.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %if.end8.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i)
-  %9 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i.i = icmp ne i32 %9, 0
-  %10 = load i16, ptr @_TRACE_VFIO_DISPLAY_EDID_AVAILABLE_DSTATE, align 2
-  %tobool4.i.i.i.i = icmp ne i16 %10, 0
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i.i = icmp ne i32 %8, 0
+  %9 = load i16, ptr @_TRACE_VFIO_DISPLAY_EDID_AVAILABLE_DSTATE, align 2
+  %tobool4.i.i.i.i = icmp ne i16 %9, 0
   %or.cond.i.i.i.i = select i1 %tobool.i.i.i.i, i1 %tobool4.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %land.lhs.true5.i.i.i.i, label %trace_vfio_display_edid_available.exit.i.i
 
 land.lhs.true5.i.i.i.i:                           ; preds = %if.end.i.i
-  %11 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i.i = and i32 %11, 32768
+  %10 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i.i = and i32 %10, 32768
   %cmp.i.not.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i.i, label %trace_vfio_display_edid_available.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true5.i.i.i.i
-  %12 = load i8, ptr @message_with_timestamp, align 1
-  %13 = and i8 %12, 1
-  %tobool7.not.i.i.i.i = icmp eq i8 %13, 0
-  br i1 %tobool7.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then8.i.i.i.i
+  %11 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i.i = trunc i8 %11 to i1
+  br i1 %tobool7.i.i.i.i, label %if.then8.i.i.i.i, label %if.else.i.i.i.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #11
   %call10.i.i.i.i = call i32 @qemu_get_thread_id() #11
-  %14 = load i64, ptr %_now.i.i.i.i, align 8
+  %12 = load i64, ptr %_now.i.i.i.i, align 8
   %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
-  %15 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i.i.i, i64 noundef %14, i64 noundef %15) #11
+  %13 = load i64, ptr %tv_usec.i.i.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i.i.i, i64 noundef %12, i64 noundef %13) #11
   br label %trace_vfio_display_edid_available.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
@@ -225,137 +223,136 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
 trace_vfio_display_edid_available.exit.i.i:       ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i)
   %call4.i.i = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #12
-  %edid_regs.i.i = getelementptr inbounds i8, ptr %7, i64 24
+  %edid_regs.i.i = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %call4.i.i, ptr %edid_regs.i.i, align 8
-  %16 = load ptr, ptr %edid_info.i.i, align 8
-  %offset.i.i = getelementptr inbounds i8, ptr %16, i64 24
-  %17 = load i64, ptr %offset.i.i, align 8
-  %call7.i.i = call i64 @pread64(i32 noundef %8, ptr noundef %call4.i.i, i64 noundef 4, i64 noundef %17) #11
+  %14 = load ptr, ptr %edid_info.i.i, align 8
+  %offset.i.i = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = load i64, ptr %offset.i.i, align 8
+  %call7.i.i = call i64 @pread64(i32 noundef %7, ptr noundef %call4.i.i, i64 noundef 4, i64 noundef %15) #11
   %cmp.not.i.i = icmp eq i64 %call7.i.i, 4
   br i1 %cmp.not.i.i, label %if.end9.i.i, label %err.i.i
 
 if.end9.i.i:                                      ; preds = %trace_vfio_display_edid_available.exit.i.i
-  %18 = load ptr, ptr %edid_regs.i.i, align 8
-  %edid_max_size.i.i = getelementptr inbounds i8, ptr %18, i64 4
-  %19 = load ptr, ptr %edid_info.i.i, align 8
-  %offset12.i.i = getelementptr inbounds i8, ptr %19, i64 24
-  %20 = load i64, ptr %offset12.i.i, align 8
-  %add13.i.i = add i64 %20, 4
-  %call14.i.i = call i64 @pread64(i32 noundef %8, ptr noundef nonnull %edid_max_size.i.i, i64 noundef 4, i64 noundef %add13.i.i) #11
+  %16 = load ptr, ptr %edid_regs.i.i, align 8
+  %edid_max_size.i.i = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = load ptr, ptr %edid_info.i.i, align 8
+  %offset12.i.i = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = load i64, ptr %offset12.i.i, align 8
+  %add13.i.i = add i64 %18, 4
+  %call14.i.i = call i64 @pread64(i32 noundef %7, ptr noundef nonnull %edid_max_size.i.i, i64 noundef 4, i64 noundef %add13.i.i) #11
   %cmp15.not.i.i = icmp eq i64 %call14.i.i, 4
   br i1 %cmp15.not.i.i, label %if.end17.i.i, label %err.i.i
 
 if.end17.i.i:                                     ; preds = %if.end9.i.i
-  %21 = load ptr, ptr %edid_regs.i.i, align 8
-  %max_xres.i.i = getelementptr inbounds i8, ptr %21, i64 12
-  %22 = load ptr, ptr %edid_info.i.i, align 8
-  %offset20.i.i = getelementptr inbounds i8, ptr %22, i64 24
-  %23 = load i64, ptr %offset20.i.i, align 8
-  %add21.i.i = add i64 %23, 12
-  %call22.i.i = call i64 @pread64(i32 noundef %8, ptr noundef nonnull %max_xres.i.i, i64 noundef 4, i64 noundef %add21.i.i) #11
+  %19 = load ptr, ptr %edid_regs.i.i, align 8
+  %max_xres.i.i = getelementptr inbounds i8, ptr %19, i64 12
+  %20 = load ptr, ptr %edid_info.i.i, align 8
+  %offset20.i.i = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = load i64, ptr %offset20.i.i, align 8
+  %add21.i.i = add i64 %21, 12
+  %call22.i.i = call i64 @pread64(i32 noundef %7, ptr noundef nonnull %max_xres.i.i, i64 noundef 4, i64 noundef %add21.i.i) #11
   %cmp23.not.i.i = icmp eq i64 %call22.i.i, 4
   br i1 %cmp23.not.i.i, label %if.end25.i.i, label %err.i.i
 
 if.end25.i.i:                                     ; preds = %if.end17.i.i
-  %24 = load ptr, ptr %edid_regs.i.i, align 8
-  %max_yres.i.i = getelementptr inbounds i8, ptr %24, i64 16
-  %25 = load ptr, ptr %edid_info.i.i, align 8
-  %offset28.i.i = getelementptr inbounds i8, ptr %25, i64 24
-  %26 = load i64, ptr %offset28.i.i, align 8
-  %add29.i.i = add i64 %26, 16
-  %call30.i.i = call i64 @pread64(i32 noundef %8, ptr noundef nonnull %max_yres.i.i, i64 noundef 4, i64 noundef %add29.i.i) #11
+  %22 = load ptr, ptr %edid_regs.i.i, align 8
+  %max_yres.i.i = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = load ptr, ptr %edid_info.i.i, align 8
+  %offset28.i.i = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = load i64, ptr %offset28.i.i, align 8
+  %add29.i.i = add i64 %24, 16
+  %call30.i.i = call i64 @pread64(i32 noundef %7, ptr noundef nonnull %max_yres.i.i, i64 noundef 4, i64 noundef %add29.i.i) #11
   %cmp31.not.i.i = icmp eq i64 %call30.i.i, 4
   br i1 %cmp31.not.i.i, label %if.end33.i.i, label %err.i.i
 
 if.end33.i.i:                                     ; preds = %if.end25.i.i
-  %27 = load ptr, ptr %edid_regs.i.i, align 8
-  %edid_max_size35.i.i = getelementptr inbounds i8, ptr %27, i64 4
-  %28 = load i32, ptr %edid_max_size35.i.i, align 4
-  %conv.i.i = zext i32 %28 to i64
+  %25 = load ptr, ptr %edid_regs.i.i, align 8
+  %edid_max_size35.i.i = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = load i32, ptr %edid_max_size35.i.i, align 4
+  %conv.i.i = zext i32 %26 to i64
   %call36.i.i = call noalias ptr @g_malloc0(i64 noundef %conv.i.i) #13
-  %edid_blob.i.i = getelementptr inbounds i8, ptr %7, i64 32
+  %edid_blob.i.i = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %call36.i.i, ptr %edid_blob.i.i, align 8
   %display_xres.i.i = getelementptr inbounds i8, ptr %vdev, i64 3520
-  %29 = load i32, ptr %display_xres.i.i, align 16
-  %tobool37.not.i.i = icmp eq i32 %29, 0
+  %27 = load i32, ptr %display_xres.i.i, align 16
+  %tobool37.not.i.i = icmp eq i32 %27, 0
   br i1 %tobool37.not.i.i, label %if.then38.i.i, label %if.end42.i.i
 
 if.then38.i.i:                                    ; preds = %if.end33.i.i
-  %30 = load ptr, ptr %edid_regs.i.i, align 8
-  %max_xres40.i.i = getelementptr inbounds i8, ptr %30, i64 12
-  %31 = load i32, ptr %max_xres40.i.i, align 4
-  store i32 %31, ptr %display_xres.i.i, align 16
+  %28 = load ptr, ptr %edid_regs.i.i, align 8
+  %max_xres40.i.i = getelementptr inbounds i8, ptr %28, i64 12
+  %29 = load i32, ptr %max_xres40.i.i, align 4
+  store i32 %29, ptr %display_xres.i.i, align 16
   br label %if.end42.i.i
 
 if.end42.i.i:                                     ; preds = %if.then38.i.i, %if.end33.i.i
   %display_yres.i.i = getelementptr inbounds i8, ptr %vdev, i64 3524
-  %32 = load i32, ptr %display_yres.i.i, align 4
-  %tobool43.not.i.i = icmp eq i32 %32, 0
+  %30 = load i32, ptr %display_yres.i.i, align 4
+  %tobool43.not.i.i = icmp eq i32 %30, 0
   br i1 %tobool43.not.i.i, label %if.then44.i.i, label %if.end48.i.i
 
 if.then44.i.i:                                    ; preds = %if.end42.i.i
-  %33 = load ptr, ptr %edid_regs.i.i, align 8
-  %max_yres46.i.i = getelementptr inbounds i8, ptr %33, i64 16
-  %34 = load i32, ptr %max_yres46.i.i, align 4
-  store i32 %34, ptr %display_yres.i.i, align 4
+  %31 = load ptr, ptr %edid_regs.i.i, align 8
+  %max_yres46.i.i = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = load i32, ptr %max_yres46.i.i, align 4
+  store i32 %32, ptr %display_yres.i.i, align 4
   br label %if.end48.i.i
 
 if.end48.i.i:                                     ; preds = %if.then44.i.i, %if.end42.i.i
   %call.i.i.i.i.i = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #12
   call void @timer_init_full(ptr noundef %call.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @vfio_display_edid_link_up, ptr noundef nonnull %vdev) #11
-  %edid_link_timer.i.i = getelementptr inbounds i8, ptr %7, i64 40
+  %edid_link_timer.i.i = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %call.i.i.i.i.i, ptr %edid_link_timer.i.i, align 8
   call fastcc void @vfio_display_edid_update(ptr noundef nonnull %vdev, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0)
   br label %return
 
 err.i.i:                                          ; preds = %if.end25.i.i, %if.end17.i.i, %if.end9.i.i, %trace_vfio_display_edid_available.exit.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i28.i.i)
-  %35 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i29.i.i = icmp ne i32 %35, 0
-  %36 = load i16, ptr @_TRACE_VFIO_DISPLAY_EDID_WRITE_ERROR_DSTATE, align 2
-  %tobool4.i.i30.i.i = icmp ne i16 %36, 0
+  %33 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i29.i.i = icmp ne i32 %33, 0
+  %34 = load i16, ptr @_TRACE_VFIO_DISPLAY_EDID_WRITE_ERROR_DSTATE, align 2
+  %tobool4.i.i30.i.i = icmp ne i16 %34, 0
   %or.cond.i.i31.i.i = select i1 %tobool.i.i29.i.i, i1 %tobool4.i.i30.i.i, i1 false
   br i1 %or.cond.i.i31.i.i, label %land.lhs.true5.i.i32.i.i, label %trace_vfio_display_edid_write_error.exit.i.i
 
 land.lhs.true5.i.i32.i.i:                         ; preds = %err.i.i
-  %37 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i33.i.i = and i32 %37, 32768
+  %35 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i33.i.i = and i32 %35, 32768
   %cmp.i.not.i.i34.i.i = icmp eq i32 %and.i.i.i33.i.i, 0
   br i1 %cmp.i.not.i.i34.i.i, label %trace_vfio_display_edid_write_error.exit.i.i, label %if.then.i.i35.i.i
 
 if.then.i.i35.i.i:                                ; preds = %land.lhs.true5.i.i32.i.i
-  %38 = load i8, ptr @message_with_timestamp, align 1
-  %39 = and i8 %38, 1
-  %tobool7.not.i.i36.i.i = icmp eq i8 %39, 0
-  br i1 %tobool7.not.i.i36.i.i, label %if.else.i.i41.i.i, label %if.then8.i.i37.i.i
+  %36 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i36.i.i = trunc i8 %36 to i1
+  br i1 %tobool7.i.i36.i.i, label %if.then8.i.i38.i.i, label %if.else.i.i37.i.i
 
-if.then8.i.i37.i.i:                               ; preds = %if.then.i.i35.i.i
-  %call9.i.i38.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i28.i.i, ptr noundef null) #11
-  %call10.i.i39.i.i = call i32 @qemu_get_thread_id() #11
-  %40 = load i64, ptr %_now.i.i28.i.i, align 8
-  %tv_usec.i.i40.i.i = getelementptr inbounds i8, ptr %_now.i.i28.i.i, i64 8
-  %41 = load i64, ptr %tv_usec.i.i40.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i39.i.i, i64 noundef %40, i64 noundef %41) #11
+if.then8.i.i38.i.i:                               ; preds = %if.then.i.i35.i.i
+  %call9.i.i39.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i28.i.i, ptr noundef null) #11
+  %call10.i.i40.i.i = call i32 @qemu_get_thread_id() #11
+  %37 = load i64, ptr %_now.i.i28.i.i, align 8
+  %tv_usec.i.i41.i.i = getelementptr inbounds i8, ptr %_now.i.i28.i.i, i64 8
+  %38 = load i64, ptr %tv_usec.i.i41.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i40.i.i, i64 noundef %37, i64 noundef %38) #11
   br label %trace_vfio_display_edid_write_error.exit.i.i
 
-if.else.i.i41.i.i:                                ; preds = %if.then.i.i35.i.i
+if.else.i.i37.i.i:                                ; preds = %if.then.i.i35.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13) #11
   br label %trace_vfio_display_edid_write_error.exit.i.i
 
-trace_vfio_display_edid_write_error.exit.i.i:     ; preds = %if.else.i.i41.i.i, %if.then8.i.i37.i.i, %land.lhs.true5.i.i32.i.i, %err.i.i
+trace_vfio_display_edid_write_error.exit.i.i:     ; preds = %if.else.i.i37.i.i, %if.then8.i.i38.i.i, %land.lhs.true5.i.i32.i.i, %err.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i28.i.i)
-  %42 = load ptr, ptr %edid_regs.i.i, align 8
-  call void @g_free(ptr noundef %42) #11
+  %39 = load ptr, ptr %edid_regs.i.i, align 8
+  call void @g_free(ptr noundef %39) #11
   store ptr null, ptr %edid_regs.i.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %43 = getelementptr inbounds i8, ptr %probe, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %43, i8 0, i64 56, i1 false)
+  %40 = getelementptr inbounds i8, ptr %probe, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, i8 0, i64 56, i1 false)
   store i32 64, ptr %probe, align 8
   store i32 5, ptr %flags, align 4
-  %44 = load i32, ptr %fd, align 8
-  %call6 = call i32 (i32, i64, ...) @ioctl(i32 noundef %44, i64 noundef 15218, ptr noundef nonnull %probe) #11
+  %41 = load i32, ptr %fd, align 8
+  %call6 = call i32 (i32, i64, ...) @ioctl(i32 noundef %41, i64 noundef 15218, ptr noundef nonnull %probe) #11
   %cmp7 = icmp eq i32 %call6, 0
   br i1 %cmp7, label %if.then8, label %if.end10
 
@@ -365,25 +362,24 @@ if.then8:                                         ; preds = %if.end
   store ptr %call.i8, ptr %dpy.i9, align 16
   %call.i.i10 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #11
   %call2.i11 = call ptr @graphic_console_init(ptr noundef %call.i.i10, i32 noundef 0, ptr noundef nonnull @vfio_display_region_ops, ptr noundef nonnull %vdev) #11
-  %45 = load ptr, ptr %dpy.i9, align 16
-  store ptr %call2.i11, ptr %45, align 8
+  %42 = load ptr, ptr %dpy.i9, align 16
+  store ptr %call2.i11, ptr %42, align 8
   %enable_ramfb.i12 = getelementptr inbounds i8, ptr %vdev, i64 3553
-  %46 = load i8, ptr %enable_ramfb.i12, align 1
-  %47 = and i8 %46, 1
-  %tobool.not.i13 = icmp eq i8 %47, 0
-  br i1 %tobool.not.i13, label %return, label %if.then.i14
+  %43 = load i8, ptr %enable_ramfb.i12, align 1
+  %tobool.i = trunc i8 %43 to i1
+  br i1 %tobool.i, label %if.then.i14, label %return
 
 if.then.i14:                                      ; preds = %if.then8
   %call4.i = call ptr @ramfb_setup(ptr noundef %errp) #11
-  %48 = load ptr, ptr %dpy.i9, align 16
-  %ramfb.i15 = getelementptr inbounds i8, ptr %48, i64 8
+  %44 = load ptr, ptr %dpy.i9, align 16
+  %ramfb.i15 = getelementptr inbounds i8, ptr %44, i64 8
   store ptr %call4.i, ptr %ramfb.i15, align 8
   br label %return
 
 if.end10:                                         ; preds = %if.end
   %display = getelementptr inbounds i8, ptr %vdev, i64 3516
-  %49 = load i32, ptr %display, align 4
-  %cmp11 = icmp eq i32 %49, 0
+  %45 = load i32, ptr %display, align 4
+  %cmp11 = icmp eq i32 %45, 0
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end10
@@ -1097,17 +1093,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %17 = load i8, ptr @message_with_timestamp, align 1
-  %18 = and i8 %17, 1
-  %tobool7.not.i.i = icmp eq i8 %18, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %17 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
-  %19 = load i64, ptr %_now.i.i, align 8
+  %18 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %20 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20) #11
+  %19 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %18, i64 noundef %19) #11
   br label %trace_vfio_display_edid_link_down.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1140,128 +1135,126 @@ if.then32:                                        ; preds = %if.end25
 
 if.end35:                                         ; preds = %if.then32, %if.end25
   %edid_blob = getelementptr inbounds i8, ptr %0, i64 32
-  %21 = load ptr, ptr %edid_blob, align 8
-  %22 = load ptr, ptr %edid_regs, align 8
-  %edid_max_size = getelementptr inbounds i8, ptr %22, i64 4
-  %23 = load i32, ptr %edid_max_size, align 4
-  %conv = zext i32 %23 to i64
-  call void @qemu_edid_generate(ptr noundef %21, i64 noundef %conv, ptr noundef nonnull %edid) #11
-  %24 = load i32, ptr %prefx3, align 4
-  %25 = load i32, ptr %prefy4, align 8
+  %20 = load ptr, ptr %edid_blob, align 8
+  %21 = load ptr, ptr %edid_regs, align 8
+  %edid_max_size = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = load i32, ptr %edid_max_size, align 4
+  %conv = zext i32 %22 to i64
+  call void @qemu_edid_generate(ptr noundef %20, i64 noundef %conv, ptr noundef nonnull %edid) #11
+  %23 = load i32, ptr %prefx3, align 4
+  %24 = load i32, ptr %prefy4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i25)
-  %26 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i26 = icmp ne i32 %26, 0
-  %27 = load i16, ptr @_TRACE_VFIO_DISPLAY_EDID_UPDATE_DSTATE, align 2
-  %tobool4.i.i27 = icmp ne i16 %27, 0
+  %25 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i26 = icmp ne i32 %25, 0
+  %26 = load i16, ptr @_TRACE_VFIO_DISPLAY_EDID_UPDATE_DSTATE, align 2
+  %tobool4.i.i27 = icmp ne i16 %26, 0
   %or.cond.i.i28 = select i1 %tobool.i.i26, i1 %tobool4.i.i27, i1 false
   br i1 %or.cond.i.i28, label %land.lhs.true5.i.i29, label %trace_vfio_display_edid_update.exit
 
 land.lhs.true5.i.i29:                             ; preds = %if.end35
-  %28 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i30 = and i32 %28, 32768
+  %27 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i30 = and i32 %27, 32768
   %cmp.i.not.i.i31 = icmp eq i32 %and.i.i.i30, 0
   br i1 %cmp.i.not.i.i31, label %trace_vfio_display_edid_update.exit, label %if.then.i.i32
 
 if.then.i.i32:                                    ; preds = %land.lhs.true5.i.i29
-  %29 = load i8, ptr @message_with_timestamp, align 1
-  %30 = and i8 %29, 1
-  %tobool7.not.i.i33 = icmp eq i8 %30, 0
-  br i1 %tobool7.not.i.i33, label %if.else.i.i38, label %if.then8.i.i34
+  %28 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i33 = trunc i8 %28 to i1
+  br i1 %tobool7.i.i33, label %if.then8.i.i35, label %if.else.i.i34
 
-if.then8.i.i34:                                   ; preds = %if.then.i.i32
-  %call9.i.i35 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i25, ptr noundef null) #11
-  %call10.i.i36 = call i32 @qemu_get_thread_id() #11
-  %31 = load i64, ptr %_now.i.i25, align 8
-  %tv_usec.i.i37 = getelementptr inbounds i8, ptr %_now.i.i25, i64 8
-  %32 = load i64, ptr %tv_usec.i.i37, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i36, i64 noundef %31, i64 noundef %32, i32 noundef %24, i32 noundef %25) #11
+if.then8.i.i35:                                   ; preds = %if.then.i.i32
+  %call9.i.i36 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i25, ptr noundef null) #11
+  %call10.i.i37 = call i32 @qemu_get_thread_id() #11
+  %29 = load i64, ptr %_now.i.i25, align 8
+  %tv_usec.i.i38 = getelementptr inbounds i8, ptr %_now.i.i25, i64 8
+  %30 = load i64, ptr %tv_usec.i.i38, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i37, i64 noundef %29, i64 noundef %30, i32 noundef %23, i32 noundef %24) #11
   br label %trace_vfio_display_edid_update.exit
 
-if.else.i.i38:                                    ; preds = %if.then.i.i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %24, i32 noundef %25) #11
+if.else.i.i34:                                    ; preds = %if.then.i.i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %23, i32 noundef %24) #11
   br label %trace_vfio_display_edid_update.exit
 
-trace_vfio_display_edid_update.exit:              ; preds = %if.end35, %land.lhs.true5.i.i29, %if.then8.i.i34, %if.else.i.i38
+trace_vfio_display_edid_update.exit:              ; preds = %if.end35, %land.lhs.true5.i.i29, %if.then8.i.i35, %if.else.i.i34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i25)
-  %33 = load ptr, ptr %edid_blob, align 8
-  %call40 = call i64 @qemu_edid_size(ptr noundef %33) #11
+  %31 = load ptr, ptr %edid_blob, align 8
+  %call40 = call i64 @qemu_edid_size(ptr noundef %31) #11
   %conv41 = trunc i64 %call40 to i32
-  %34 = load ptr, ptr %edid_regs, align 8
-  %edid_size = getelementptr inbounds i8, ptr %34, i64 8
+  %32 = load ptr, ptr %edid_regs, align 8
+  %edid_size = getelementptr inbounds i8, ptr %32, i64 8
   store i32 %conv41, ptr %edid_size, align 4
-  %35 = load ptr, ptr %edid_regs, align 8
-  %edid_size44 = getelementptr inbounds i8, ptr %35, i64 8
-  %36 = load ptr, ptr %edid_info, align 8
-  %offset46 = getelementptr inbounds i8, ptr %36, i64 24
-  %37 = load i64, ptr %offset46, align 8
-  %add47 = add i64 %37, 8
+  %33 = load ptr, ptr %edid_regs, align 8
+  %edid_size44 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = load ptr, ptr %edid_info, align 8
+  %offset46 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = load i64, ptr %offset46, align 8
+  %add47 = add i64 %35, 8
   %call48 = call i64 @pwrite64(i32 noundef %1, ptr noundef nonnull %edid_size44, i64 noundef 4, i64 noundef %add47) #11
   %cmp49.not = icmp eq i64 %call48, 4
   br i1 %cmp49.not, label %if.end52, label %err
 
 if.end52:                                         ; preds = %trace_vfio_display_edid_update.exit
-  %38 = load ptr, ptr %edid_blob, align 8
-  %39 = load ptr, ptr %edid_regs, align 8
-  %edid_size55 = getelementptr inbounds i8, ptr %39, i64 8
-  %40 = load i32, ptr %edid_size55, align 4
-  %conv56 = zext i32 %40 to i64
-  %41 = load ptr, ptr %edid_info, align 8
-  %offset58 = getelementptr inbounds i8, ptr %41, i64 24
-  %42 = load i64, ptr %offset58, align 8
-  %43 = load i32, ptr %39, align 4
-  %conv60 = zext i32 %43 to i64
-  %add61 = add i64 %42, %conv60
-  %call62 = call i64 @pwrite64(i32 noundef %1, ptr noundef %38, i64 noundef %conv56, i64 noundef %add61) #11
-  %44 = load ptr, ptr %edid_regs, align 8
-  %edid_size64 = getelementptr inbounds i8, ptr %44, i64 8
-  %45 = load i32, ptr %edid_size64, align 4
-  %conv65 = zext i32 %45 to i64
+  %36 = load ptr, ptr %edid_blob, align 8
+  %37 = load ptr, ptr %edid_regs, align 8
+  %edid_size55 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = load i32, ptr %edid_size55, align 4
+  %conv56 = zext i32 %38 to i64
+  %39 = load ptr, ptr %edid_info, align 8
+  %offset58 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = load i64, ptr %offset58, align 8
+  %41 = load i32, ptr %37, align 4
+  %conv60 = zext i32 %41 to i64
+  %add61 = add i64 %40, %conv60
+  %call62 = call i64 @pwrite64(i32 noundef %1, ptr noundef %36, i64 noundef %conv56, i64 noundef %add61) #11
+  %42 = load ptr, ptr %edid_regs, align 8
+  %edid_size64 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = load i32, ptr %edid_size64, align 4
+  %conv65 = zext i32 %43 to i64
   %cmp66.not = icmp eq i64 %call62, %conv65
   br i1 %cmp66.not, label %if.end69, label %err
 
 if.end69:                                         ; preds = %if.end52
-  %46 = load ptr, ptr %edid_link_timer, align 8
+  %44 = load ptr, ptr %edid_link_timer, align 8
   %call.i = call i64 @qemu_clock_get_ns(i32 noundef 0) #11
   %div.i = sdiv i64 %call.i, 1000000
   %add72 = add nsw i64 %div.i, 100
-  call void @timer_mod(ptr noundef %46, i64 noundef %add72) #11
+  call void @timer_mod(ptr noundef %44, i64 noundef %add72) #11
   br label %return
 
 err:                                              ; preds = %if.end52, %trace_vfio_display_edid_update.exit, %cond.end8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i39)
-  %47 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i40 = icmp ne i32 %47, 0
-  %48 = load i16, ptr @_TRACE_VFIO_DISPLAY_EDID_WRITE_ERROR_DSTATE, align 2
-  %tobool4.i.i41 = icmp ne i16 %48, 0
+  %45 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i40 = icmp ne i32 %45, 0
+  %46 = load i16, ptr @_TRACE_VFIO_DISPLAY_EDID_WRITE_ERROR_DSTATE, align 2
+  %tobool4.i.i41 = icmp ne i16 %46, 0
   %or.cond.i.i42 = select i1 %tobool.i.i40, i1 %tobool4.i.i41, i1 false
   br i1 %or.cond.i.i42, label %land.lhs.true5.i.i43, label %trace_vfio_display_edid_write_error.exit
 
 land.lhs.true5.i.i43:                             ; preds = %err
-  %49 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i44 = and i32 %49, 32768
+  %47 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i44 = and i32 %47, 32768
   %cmp.i.not.i.i45 = icmp eq i32 %and.i.i.i44, 0
   br i1 %cmp.i.not.i.i45, label %trace_vfio_display_edid_write_error.exit, label %if.then.i.i46
 
 if.then.i.i46:                                    ; preds = %land.lhs.true5.i.i43
-  %50 = load i8, ptr @message_with_timestamp, align 1
-  %51 = and i8 %50, 1
-  %tobool7.not.i.i47 = icmp eq i8 %51, 0
-  br i1 %tobool7.not.i.i47, label %if.else.i.i52, label %if.then8.i.i48
+  %48 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i47 = trunc i8 %48 to i1
+  br i1 %tobool7.i.i47, label %if.then8.i.i49, label %if.else.i.i48
 
-if.then8.i.i48:                                   ; preds = %if.then.i.i46
-  %call9.i.i49 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i39, ptr noundef null) #11
-  %call10.i.i50 = call i32 @qemu_get_thread_id() #11
-  %52 = load i64, ptr %_now.i.i39, align 8
-  %tv_usec.i.i51 = getelementptr inbounds i8, ptr %_now.i.i39, i64 8
-  %53 = load i64, ptr %tv_usec.i.i51, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i50, i64 noundef %52, i64 noundef %53) #11
+if.then8.i.i49:                                   ; preds = %if.then.i.i46
+  %call9.i.i50 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i39, ptr noundef null) #11
+  %call10.i.i51 = call i32 @qemu_get_thread_id() #11
+  %49 = load i64, ptr %_now.i.i39, align 8
+  %tv_usec.i.i52 = getelementptr inbounds i8, ptr %_now.i.i39, i64 8
+  %50 = load i64, ptr %tv_usec.i.i52, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i51, i64 noundef %49, i64 noundef %50) #11
   br label %trace_vfio_display_edid_write_error.exit
 
-if.else.i.i52:                                    ; preds = %if.then.i.i46
+if.else.i.i48:                                    ; preds = %if.then.i.i46
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13) #11
   br label %trace_vfio_display_edid_write_error.exit
 
-trace_vfio_display_edid_write_error.exit:         ; preds = %err, %land.lhs.true5.i.i43, %if.then8.i.i48, %if.else.i.i52
+trace_vfio_display_edid_write_error.exit:         ; preds = %err, %land.lhs.true5.i.i43, %if.then8.i.i49, %if.else.i.i48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i39)
   br label %return
 
@@ -1336,17 +1329,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %9 = load i8, ptr @message_with_timestamp, align 1
-  %10 = and i8 %9, 1
-  %tobool7.not.i.i = icmp eq i8 %10, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %9 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
-  %11 = load i64, ptr %_now.i.i, align 8
+  %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %12 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12) #11
+  %11 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11) #11
   br label %trace_vfio_display_edid_link_up.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1359,39 +1351,38 @@ trace_vfio_display_edid_link_up.exit:             ; preds = %if.end, %land.lhs.t
 
 err:                                              ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i4)
-  %13 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i5 = icmp ne i32 %13, 0
-  %14 = load i16, ptr @_TRACE_VFIO_DISPLAY_EDID_WRITE_ERROR_DSTATE, align 2
-  %tobool4.i.i6 = icmp ne i16 %14, 0
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i5 = icmp ne i32 %12, 0
+  %13 = load i16, ptr @_TRACE_VFIO_DISPLAY_EDID_WRITE_ERROR_DSTATE, align 2
+  %tobool4.i.i6 = icmp ne i16 %13, 0
   %or.cond.i.i7 = select i1 %tobool.i.i5, i1 %tobool4.i.i6, i1 false
   br i1 %or.cond.i.i7, label %land.lhs.true5.i.i8, label %trace_vfio_display_edid_write_error.exit
 
 land.lhs.true5.i.i8:                              ; preds = %err
-  %15 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i9 = and i32 %15, 32768
+  %14 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i9 = and i32 %14, 32768
   %cmp.i.not.i.i10 = icmp eq i32 %and.i.i.i9, 0
   br i1 %cmp.i.not.i.i10, label %trace_vfio_display_edid_write_error.exit, label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %land.lhs.true5.i.i8
-  %16 = load i8, ptr @message_with_timestamp, align 1
-  %17 = and i8 %16, 1
-  %tobool7.not.i.i12 = icmp eq i8 %17, 0
-  br i1 %tobool7.not.i.i12, label %if.else.i.i17, label %if.then8.i.i13
+  %15 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i12 = trunc i8 %15 to i1
+  br i1 %tobool7.i.i12, label %if.then8.i.i14, label %if.else.i.i13
 
-if.then8.i.i13:                                   ; preds = %if.then.i.i11
-  %call9.i.i14 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i4, ptr noundef null) #11
-  %call10.i.i15 = tail call i32 @qemu_get_thread_id() #11
-  %18 = load i64, ptr %_now.i.i4, align 8
-  %tv_usec.i.i16 = getelementptr inbounds i8, ptr %_now.i.i4, i64 8
-  %19 = load i64, ptr %tv_usec.i.i16, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i15, i64 noundef %18, i64 noundef %19) #11
+if.then8.i.i14:                                   ; preds = %if.then.i.i11
+  %call9.i.i15 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i4, ptr noundef null) #11
+  %call10.i.i16 = tail call i32 @qemu_get_thread_id() #11
+  %16 = load i64, ptr %_now.i.i4, align 8
+  %tv_usec.i.i17 = getelementptr inbounds i8, ptr %_now.i.i4, i64 8
+  %17 = load i64, ptr %tv_usec.i.i17, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i16, i64 noundef %16, i64 noundef %17) #11
   br label %trace_vfio_display_edid_write_error.exit
 
-if.else.i.i17:                                    ; preds = %if.then.i.i11
+if.else.i.i13:                                    ; preds = %if.then.i.i11
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13) #11
   br label %trace_vfio_display_edid_write_error.exit
 
-trace_vfio_display_edid_write_error.exit:         ; preds = %err, %land.lhs.true5.i.i8, %if.then8.i.i13, %if.else.i.i17
+trace_vfio_display_edid_write_error.exit:         ; preds = %err, %land.lhs.true5.i.i8, %if.then8.i.i14, %if.else.i.i13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i4)
   br label %return
 

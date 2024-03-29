@@ -843,187 +843,166 @@ define dso_local noundef zeroext i1 @_ZN5cmsys17SystemInformation21DoesCPUSuppor
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK5cmsys31SystemInformationImplementation21DoesCPUSupportFeatureEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(457) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = and i64 %1, 1
-  %.not = icmp ne i64 %3, 0
+  %.not = icmp eq i64 %3, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 6
   %5 = load i8, ptr %4, align 2
-  %6 = and i8 %5, 1
-  %7 = and i64 %1, 2
-  %.not25 = icmp eq i64 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 39
-  %9 = load i8, ptr %8, align 1
-  %10 = and i8 %9, 1
-  %.not26 = icmp eq i8 %10, 0
-  %11 = select i1 %.not25, i1 true, i1 %.not26
-  %12 = and i64 %1, 4
-  %.not27 = icmp eq i64 %12, 0
-  %13 = getelementptr inbounds i8, ptr %0, i64 7
-  %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not28 = icmp eq i8 %15, 0
-  %16 = select i1 %.not27, i1 true, i1 %.not28
-  %17 = and i64 %1, 2048
-  %.not29 = icmp eq i64 %17, 0
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not30 = icmp eq i8 %20, 0
-  %21 = select i1 %.not29, i1 true, i1 %.not30
-  %22 = and i64 %1, 4096
-  %.not31 = icmp eq i64 %22, 0
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = load i8, ptr %23, align 8
-  %25 = and i8 %24, 1
-  %.not32 = icmp eq i8 %25, 0
-  %26 = select i1 %.not31, i1 true, i1 %.not32
-  %27 = and i64 %1, 8
-  %.not33 = icmp eq i64 %27, 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 9
-  %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not34 = icmp eq i8 %30, 0
-  %31 = select i1 %.not33, i1 true, i1 %.not34
-  %32 = and i64 %1, 16
-  %.not35 = icmp eq i64 %32, 0
-  %33 = getelementptr inbounds i8, ptr %0, i64 36
-  %34 = load i8, ptr %33, align 4
-  %35 = and i8 %34, 1
-  %.not36 = icmp eq i8 %35, 0
-  %36 = select i1 %.not35, i1 true, i1 %.not36
-  %37 = and i64 %1, 32
-  %.not37 = icmp eq i64 %37, 0
-  %38 = getelementptr inbounds i8, ptr %0, i64 37
-  %39 = load i8, ptr %38, align 1
-  %40 = and i8 %39, 1
-  %.not38 = icmp eq i8 %40, 0
-  %41 = select i1 %.not37, i1 true, i1 %.not38
-  %42 = and i64 %1, 64
-  %.not39 = icmp eq i64 %42, 0
-  %43 = getelementptr inbounds i8, ptr %0, i64 10
-  %44 = load i8, ptr %43, align 2
-  %45 = and i8 %44, 1
-  %.not40 = icmp eq i8 %45, 0
-  %46 = select i1 %.not39, i1 true, i1 %.not40
-  %47 = and i64 %1, 128
-  %.not41 = icmp eq i64 %47, 0
-  %48 = getelementptr inbounds i8, ptr %0, i64 38
-  %49 = load i8, ptr %48, align 2
-  %50 = and i8 %49, 1
-  %.not42 = icmp eq i8 %50, 0
-  %51 = select i1 %.not41, i1 true, i1 %.not42
-  %52 = and i64 %1, 512
-  %.not43 = icmp eq i64 %52, 0
-  %53 = getelementptr inbounds i8, ptr %0, i64 15
-  %54 = load i8, ptr %53, align 1
-  %55 = and i8 %54, 1
-  %.not44 = icmp eq i8 %55, 0
-  %56 = select i1 %.not43, i1 true, i1 %.not44
-  %57 = and i64 %1, 1024
-  %.not45 = icmp eq i64 %57, 0
-  %58 = getelementptr inbounds i8, ptr %0, i64 11
-  %59 = load i8, ptr %58, align 1
-  %60 = and i8 %59, 1
-  %.not46 = icmp eq i8 %60, 0
-  %61 = select i1 %.not45, i1 true, i1 %.not46
-  %62 = and i64 %1, 8192
-  %.not47 = icmp eq i64 %62, 0
-  %63 = getelementptr inbounds i8, ptr %0, i64 12
-  %64 = load i8, ptr %63, align 4
-  %65 = and i8 %64, 1
-  %.not48 = icmp eq i8 %65, 0
-  %66 = select i1 %.not47, i1 true, i1 %.not48
-  %67 = and i64 %1, 16384
-  %.not49 = icmp eq i64 %67, 0
-  %68 = getelementptr inbounds i8, ptr %0, i64 13
-  %69 = load i8, ptr %68, align 1
-  %70 = and i8 %69, 1
-  %.not50 = icmp eq i8 %70, 0
-  %71 = select i1 %.not49, i1 true, i1 %.not50
-  %72 = and i64 %1, 32768
-  %.not51 = icmp eq i64 %72, 0
-  %73 = getelementptr inbounds i8, ptr %0, i64 24
-  %74 = load i32, ptr %73, align 8
-  %.not52 = icmp eq i32 %74, -1
-  %or.cond = select i1 %.not51, i1 true, i1 %.not52
-  %75 = and i64 %1, 65536
-  %.not53 = icmp eq i64 %75, 0
-  %76 = getelementptr inbounds i8, ptr %0, i64 28
-  %77 = load i32, ptr %76, align 4
-  %.not54 = icmp eq i32 %77, -1
-  %or.cond84 = select i1 %.not53, i1 true, i1 %.not54
-  %78 = and i64 %1, 131072
-  %.not55 = icmp eq i64 %78, 0
-  %79 = getelementptr inbounds i8, ptr %0, i64 32
-  %80 = load i32, ptr %79, align 8
-  %.not56 = icmp eq i32 %80, -1
-  %or.cond86 = select i1 %.not55, i1 true, i1 %.not56
-  %81 = and i64 %1, 262144
-  %.not57 = icmp eq i64 %81, 0
-  %82 = getelementptr inbounds i8, ptr %0, i64 14
-  %83 = load i8, ptr %82, align 2
-  %84 = and i8 %83, 1
-  %.not58 = icmp eq i8 %84, 0
-  %85 = select i1 %.not57, i1 true, i1 %.not58
-  %86 = and i64 %1, 524288
-  %.not59 = icmp eq i64 %86, 0
-  %87 = getelementptr inbounds i8, ptr %0, i64 16
-  %88 = load i8, ptr %87, align 8
-  %89 = and i8 %88, 1
-  %.not60 = icmp eq i8 %89, 0
-  %90 = select i1 %.not59, i1 true, i1 %.not60
-  %91 = and i64 %1, 1048576
-  %.not61 = icmp eq i64 %91, 0
-  %92 = getelementptr inbounds i8, ptr %0, i64 54
-  %93 = load i8, ptr %92, align 2
-  %94 = and i8 %93, 1
-  %.not62 = icmp eq i8 %94, 0
-  %95 = select i1 %.not61, i1 true, i1 %.not62
-  %96 = and i64 %1, 2097152
-  %.not63 = icmp eq i64 %96, 0
-  %97 = getelementptr inbounds i8, ptr %0, i64 53
-  %98 = load i8, ptr %97, align 1
-  %99 = and i8 %98, 1
-  %.not64 = icmp eq i8 %99, 0
-  %100 = select i1 %.not63, i1 true, i1 %.not64
-  %101 = and i64 %1, 4194304
-  %.not65 = icmp eq i64 %101, 0
-  %102 = getelementptr inbounds i8, ptr %0, i64 52
-  %103 = load i8, ptr %102, align 4
-  %104 = and i8 %103, 1
-  %.not66 = icmp eq i8 %104, 0
-  %105 = select i1 %.not65, i1 true, i1 %.not66
-  %106 = and i64 %1, 8388608
-  %.not67 = icmp eq i64 %106, 0
-  %107 = getelementptr inbounds i8, ptr %0, i64 4
-  %108 = load i8, ptr %107, align 4
-  %109 = and i8 %108, 1
-  %.not68 = icmp eq i8 %109, 0
-  %110 = select i1 %.not67, i1 true, i1 %.not68
-  %111 = select i1 %110, i1 %105, i1 false
-  %112 = select i1 %111, i1 %100, i1 false
-  %113 = select i1 %112, i1 %95, i1 false
-  %114 = select i1 %113, i1 %90, i1 false
-  %115 = select i1 %114, i1 %85, i1 false
-  %116 = select i1 %115, i1 %or.cond86, i1 false
-  %117 = select i1 %116, i1 %or.cond84, i1 false
-  %118 = select i1 %117, i1 %or.cond, i1 false
-  %119 = select i1 %118, i1 %71, i1 false
-  %120 = select i1 %119, i1 %66, i1 false
-  %121 = select i1 %120, i1 %61, i1 false
-  %122 = select i1 %121, i1 %56, i1 false
-  %123 = select i1 %122, i1 %51, i1 false
-  %124 = select i1 %123, i1 %46, i1 false
-  %125 = select i1 %124, i1 %41, i1 false
-  %126 = select i1 %125, i1 %36, i1 false
-  %127 = select i1 %126, i1 %31, i1 false
-  %128 = select i1 %127, i1 %26, i1 false
-  %129 = select i1 %128, i1 %21, i1 false
-  %130 = select i1 %129, i1 %16, i1 false
-  %131 = select i1 %130, i1 %11, i1 false
-  %132 = icmp ne i8 %6, 0
-  %133 = select i1 %.not, i1 %132, i1 false
-  %not. = xor i1 %131, true
-  %134 = select i1 %not., i1 true, i1 %133
-  ret i1 %134
+  %.0 = select i1 %.not, i8 0, i8 %5
+  %6 = and i64 %1, 2
+  %.not24 = icmp eq i64 %6, 0
+  %7 = getelementptr inbounds i8, ptr %0, i64 39
+  %8 = load i8, ptr %7, align 1
+  %9 = trunc i8 %8 to i1
+  %spec.select49 = select i1 %9, i8 1, i8 %.0
+  %.1 = select i1 %.not24, i8 %.0, i8 %spec.select49
+  %10 = and i64 %1, 4
+  %.not25 = icmp eq i64 %10, 0
+  %11 = getelementptr inbounds i8, ptr %0, i64 7
+  %12 = load i8, ptr %11, align 1
+  %13 = trunc i8 %12 to i1
+  %spec.select50 = select i1 %13, i8 1, i8 %.1
+  %.2 = select i1 %.not25, i8 %.1, i8 %spec.select50
+  %14 = and i64 %1, 2048
+  %.not26 = icmp eq i64 %14, 0
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = load i8, ptr %15, align 8
+  %17 = trunc i8 %16 to i1
+  %spec.select51 = select i1 %17, i8 1, i8 %.2
+  %.3 = select i1 %.not26, i8 %.2, i8 %spec.select51
+  %18 = and i64 %1, 4096
+  %.not27 = icmp eq i64 %18, 0
+  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = load i8, ptr %19, align 8
+  %21 = trunc i8 %20 to i1
+  %spec.select52 = select i1 %21, i8 1, i8 %.3
+  %.4 = select i1 %.not27, i8 %.3, i8 %spec.select52
+  %22 = and i64 %1, 8
+  %.not28 = icmp eq i64 %22, 0
+  %23 = getelementptr inbounds i8, ptr %0, i64 9
+  %24 = load i8, ptr %23, align 1
+  %25 = trunc i8 %24 to i1
+  %spec.select53 = select i1 %25, i8 1, i8 %.4
+  %.5 = select i1 %.not28, i8 %.4, i8 %spec.select53
+  %26 = and i64 %1, 16
+  %.not29 = icmp eq i64 %26, 0
+  %27 = getelementptr inbounds i8, ptr %0, i64 36
+  %28 = load i8, ptr %27, align 4
+  %29 = trunc i8 %28 to i1
+  %spec.select54 = select i1 %29, i8 1, i8 %.5
+  %.6 = select i1 %.not29, i8 %.5, i8 %spec.select54
+  %30 = and i64 %1, 32
+  %.not30 = icmp eq i64 %30, 0
+  %31 = getelementptr inbounds i8, ptr %0, i64 37
+  %32 = load i8, ptr %31, align 1
+  %33 = trunc i8 %32 to i1
+  %spec.select55 = select i1 %33, i8 1, i8 %.6
+  %.7 = select i1 %.not30, i8 %.6, i8 %spec.select55
+  %34 = and i64 %1, 64
+  %.not31 = icmp eq i64 %34, 0
+  %35 = getelementptr inbounds i8, ptr %0, i64 10
+  %36 = load i8, ptr %35, align 2
+  %37 = trunc i8 %36 to i1
+  %spec.select56 = select i1 %37, i8 1, i8 %.7
+  %.8 = select i1 %.not31, i8 %.7, i8 %spec.select56
+  %38 = and i64 %1, 128
+  %.not32 = icmp eq i64 %38, 0
+  %39 = getelementptr inbounds i8, ptr %0, i64 38
+  %40 = load i8, ptr %39, align 2
+  %41 = trunc i8 %40 to i1
+  %spec.select57 = select i1 %41, i8 1, i8 %.8
+  %.9 = select i1 %.not32, i8 %.8, i8 %spec.select57
+  %42 = and i64 %1, 512
+  %.not33 = icmp eq i64 %42, 0
+  %43 = getelementptr inbounds i8, ptr %0, i64 15
+  %44 = load i8, ptr %43, align 1
+  %45 = trunc i8 %44 to i1
+  %spec.select58 = select i1 %45, i8 1, i8 %.9
+  %.10 = select i1 %.not33, i8 %.9, i8 %spec.select58
+  %46 = and i64 %1, 1024
+  %.not34 = icmp eq i64 %46, 0
+  %47 = getelementptr inbounds i8, ptr %0, i64 11
+  %48 = load i8, ptr %47, align 1
+  %49 = trunc i8 %48 to i1
+  %spec.select59 = select i1 %49, i8 1, i8 %.10
+  %.11 = select i1 %.not34, i8 %.10, i8 %spec.select59
+  %50 = and i64 %1, 8192
+  %.not35 = icmp eq i64 %50, 0
+  %51 = getelementptr inbounds i8, ptr %0, i64 12
+  %52 = load i8, ptr %51, align 4
+  %53 = trunc i8 %52 to i1
+  %spec.select60 = select i1 %53, i8 1, i8 %.11
+  %.12 = select i1 %.not35, i8 %.11, i8 %spec.select60
+  %54 = and i64 %1, 16384
+  %.not36 = icmp eq i64 %54, 0
+  %55 = getelementptr inbounds i8, ptr %0, i64 13
+  %56 = load i8, ptr %55, align 1
+  %57 = trunc i8 %56 to i1
+  %spec.select61 = select i1 %57, i8 1, i8 %.12
+  %.13 = select i1 %.not36, i8 %.12, i8 %spec.select61
+  %58 = and i64 %1, 32768
+  %.not37 = icmp eq i64 %58, 0
+  %59 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = load i32, ptr %59, align 8
+  %.not38 = icmp eq i32 %60, -1
+  %or.cond = select i1 %.not37, i1 true, i1 %.not38
+  %61 = and i64 %1, 65536
+  %.not39 = icmp eq i64 %61, 0
+  %62 = getelementptr inbounds i8, ptr %0, i64 28
+  %63 = load i32, ptr %62, align 4
+  %.not40 = icmp eq i32 %63, -1
+  %or.cond64 = select i1 %.not39, i1 true, i1 %.not40
+  %64 = and i64 %1, 131072
+  %.not41 = icmp eq i64 %64, 0
+  %65 = getelementptr inbounds i8, ptr %0, i64 32
+  %66 = load i32, ptr %65, align 8
+  %.not42 = icmp eq i32 %66, -1
+  %or.cond66 = select i1 %.not41, i1 true, i1 %.not42
+  %67 = select i1 %or.cond66, i1 %or.cond64, i1 false
+  %68 = select i1 %67, i1 %or.cond, i1 false
+  %.16 = select i1 %68, i8 %.13, i8 1
+  %69 = and i64 %1, 262144
+  %.not43 = icmp eq i64 %69, 0
+  %70 = getelementptr inbounds i8, ptr %0, i64 14
+  %71 = load i8, ptr %70, align 2
+  %72 = trunc i8 %71 to i1
+  %spec.select67 = select i1 %72, i8 1, i8 %.16
+  %.17 = select i1 %.not43, i8 %.16, i8 %spec.select67
+  %73 = and i64 %1, 524288
+  %.not44 = icmp eq i64 %73, 0
+  %74 = getelementptr inbounds i8, ptr %0, i64 16
+  %75 = load i8, ptr %74, align 8
+  %76 = trunc i8 %75 to i1
+  %spec.select68 = select i1 %76, i8 1, i8 %.17
+  %.18 = select i1 %.not44, i8 %.17, i8 %spec.select68
+  %77 = and i64 %1, 1048576
+  %.not45 = icmp eq i64 %77, 0
+  %78 = getelementptr inbounds i8, ptr %0, i64 54
+  %79 = load i8, ptr %78, align 2
+  %80 = trunc i8 %79 to i1
+  %spec.select69 = select i1 %80, i8 1, i8 %.18
+  %.19 = select i1 %.not45, i8 %.18, i8 %spec.select69
+  %81 = and i64 %1, 2097152
+  %.not46 = icmp eq i64 %81, 0
+  %82 = getelementptr inbounds i8, ptr %0, i64 53
+  %83 = load i8, ptr %82, align 1
+  %84 = trunc i8 %83 to i1
+  %spec.select70 = select i1 %84, i8 1, i8 %.19
+  %.20 = select i1 %.not46, i8 %.19, i8 %spec.select70
+  %85 = and i64 %1, 4194304
+  %.not47 = icmp eq i64 %85, 0
+  %86 = getelementptr inbounds i8, ptr %0, i64 52
+  %87 = load i8, ptr %86, align 4
+  %88 = trunc i8 %87 to i1
+  %spec.select71 = select i1 %88, i8 1, i8 %.20
+  %.21 = select i1 %.not47, i8 %.20, i8 %spec.select71
+  %89 = and i64 %1, 8388608
+  %.not48 = icmp eq i64 %89, 0
+  %90 = getelementptr inbounds i8, ptr %0, i64 4
+  %91 = load i8, ptr %90, align 4
+  %92 = trunc i8 %91 to i1
+  %spec.select72 = select i1 %92, i8 1, i8 %.21
+  %.22 = select i1 %.not48, i8 %.21, i8 %spec.select72
+  %93 = trunc i8 %.22 to i1
+  ret i1 %93
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1500,18 +1479,16 @@ define dso_local noundef zeroext i1 @_ZN5cmsys17SystemInformation8Is64BitsEv(ptr
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 456
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %6 = icmp ne i8 %5, 0
-  ret i1 %6
+  %5 = trunc i8 %4 to i1
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK5cmsys31SystemInformationImplementation8Is64BitsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(457) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 456
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -3675,11 +3652,11 @@ define dso_local noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation1
   %isdigittmp39 = add nsw i32 %30, -48
   %isdigit40 = icmp ult i32 %isdigittmp39, 10
   %31 = icmp sgt i8 %28, 53
-  %spec.select45 = select i1 %isdigit40, i1 %31, i1 false
+  %spec.select44 = select i1 %isdigit40, i1 %31, i1 false
   br label %32
 
 32:                                               ; preds = %25, %21
-  %.037 = phi i1 [ false, %21 ], [ %spec.select45, %25 ]
+  %.037 = phi i1 [ false, %21 ], [ %spec.select44, %25 ]
   %.136 = phi i32 [ 0, %21 ], [ %spec.select, %25 ]
   %33 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.141)
   %.not41 = icmp eq ptr %33, null
@@ -3693,14 +3670,14 @@ define dso_local noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation1
   %37 = icmp sgt i32 %.136, 2
   %38 = icmp eq i32 %.136, 2
   %or.cond = select i1 %38, i1 %.037, i1 false
-  %or.cond44 = or i1 %37, %or.cond
-  br i1 %or.cond44, label %39, label %78
+  %or.cond43 = or i1 %37, %or.cond
+  br i1 %or.cond43, label %39, label %78
 
 39:                                               ; preds = %36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %8, i8 0, i64 6, i1 false)
   %40 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %33)
-  %.not4251 = icmp eq ptr %40, null
-  br i1 %.not4251, label %._crit_edge.thread, label %.preheader
+  %.not4250 = icmp eq ptr %40, null
+  br i1 %.not4250, label %._crit_edge.thread, label %.preheader
 
 .loopexit:                                        ; preds = %53
   %41 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %33)
@@ -3709,12 +3686,11 @@ define dso_local noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation1
 
 .preheader:                                       ; preds = %39, %.preheader.backedge
   %indvars.iv = phi i64 [ %indvars.iv.be, %.preheader.backedge ], [ 0, %39 ]
-  %.13449 = phi i32 [ %.2, %.preheader.backedge ], [ 0, %39 ]
+  %.13448 = phi i32 [ %.2, %.preheader.backedge ], [ 0, %39 ]
   %42 = getelementptr inbounds [6 x i8], ptr %8, i64 0, i64 %indvars.iv
   %43 = load i8, ptr %42, align 1
-  %44 = and i8 %43, 1
-  %.not43 = icmp eq i8 %44, 0
-  br i1 %.not43, label %45, label %53
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %53, label %45
 
 45:                                               ; preds = %.preheader
   %46 = getelementptr inbounds [6 x ptr], ptr @__const._ZN5cmsys31SystemInformationImplementation16QueryLinuxMemoryEv.format, i64 0, i64 %indvars.iv
@@ -3726,11 +3702,11 @@ define dso_local noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation1
 
 51:                                               ; preds = %45
   store i8 1, ptr %42, align 1
-  %52 = add nsw i32 %.13449, 1
+  %52 = add nsw i32 %.13448, 1
   br label %53
 
 53:                                               ; preds = %.preheader, %45, %51
-  %.2 = phi i32 [ %.13449, %.preheader ], [ %52, %51 ], [ %.13449, %45 ]
+  %.2 = phi i32 [ %.13448, %.preheader ], [ %52, %51 ], [ %.13448, %45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %.loopexit, label %.preheader.backedge
@@ -3777,7 +3753,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation1
 78:                                               ; preds = %36
   %79 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %33)
   %80 = icmp eq ptr %79, %6
-  br i1 %80, label %81, label %.thread47
+  br i1 %80, label %81, label %.thread46
 
 81:                                               ; preds = %78
   %82 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %33, ptr noundef nonnull @.str.195, ptr noundef nonnull %3, ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11)
@@ -3792,7 +3768,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation1
 87:                                               ; preds = %84, %81
   %.1 = phi i32 [ %86, %84 ], [ %82, %81 ]
   %88 = icmp eq i32 %.1, 9
-  br i1 %88, label %89, label %.thread47
+  br i1 %88, label %89, label %.thread46
 
 89:                                               ; preds = %87
   %90 = load i64, ptr %2, align 8
@@ -3815,21 +3791,21 @@ define dso_local noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation1
   %104 = lshr i64 %103, 20
   br label %107
 
-.thread47:                                        ; preds = %78, %87
+.thread46:                                        ; preds = %78, %87
   %105 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.194)
   %106 = call i32 @fclose(ptr noundef nonnull %33)
   br label %110
 
 107:                                              ; preds = %89, %55
-  %.sink56 = phi i64 [ 280, %89 ], [ 264, %55 ]
+  %.sink55 = phi i64 [ 280, %89 ], [ 264, %55 ]
   %.sink = phi i64 [ %104, %89 ], [ %75, %55 ]
-  %108 = getelementptr inbounds i8, ptr %0, i64 %.sink56
+  %108 = getelementptr inbounds i8, ptr %0, i64 %.sink55
   store i64 %.sink, ptr %108, align 8
   %109 = call i32 @fclose(ptr noundef nonnull %33)
   br label %110
 
-110:                                              ; preds = %107, %.thread47, %._crit_edge.thread, %34, %14
-  %.031 = phi i1 [ false, %14 ], [ true, %107 ], [ false, %._crit_edge.thread ], [ false, %.thread47 ], [ false, %34 ]
+110:                                              ; preds = %107, %.thread46, %._crit_edge.thread, %34, %14
+  %.031 = phi i1 [ false, %14 ], [ true, %107 ], [ false, %._crit_edge.thread ], [ false, %.thread46 ], [ false, %34 ]
   ret i1 %.031
 }
 
@@ -4528,10 +4504,9 @@ define dso_local noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation2
 172:                                              ; preds = %151
   %173 = getelementptr inbounds i8, ptr %0, i64 38
   %174 = load i8, ptr %173, align 2
-  %175 = and i8 %174, 1
-  %.not = icmp eq i8 %175, 0
+  %175 = trunc i8 %174 to i1
   %176 = getelementptr inbounds i8, ptr %0, i64 80
-  br i1 %.not, label %179, label %177
+  br i1 %175, label %177, label %179
 
 177:                                              ; preds = %172
   %178 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %176, ptr noundef nonnull @.str.100)

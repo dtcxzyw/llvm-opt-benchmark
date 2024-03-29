@@ -714,8 +714,8 @@ define dso_local void @_ZN14cmProcessTools10LineParser6SetLogEPSoPKc(ptr nocaptu
 define dso_local noundef zeroext i1 @_ZN14cmProcessTools10LineParser12ProcessChunkEPKci(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
-  %.not22 = icmp eq i32 %2, 0
-  br i1 %.not22, label %.loopexit, label %.lr.ph
+  %.not21 = icmp eq i32 %2, 0
+  br i1 %.not21, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 56
@@ -727,8 +727,8 @@ define dso_local noundef zeroext i1 @_ZN14cmProcessTools10LineParser12ProcessChu
   br label %12
 
 12:                                               ; preds = %.lr.ph, %36
-  %.023 = phi ptr [ %1, %.lr.ph ], [ %37, %36 ]
-  %13 = load i8, ptr %.023, align 1
+  %.022 = phi ptr [ %1, %.lr.ph ], [ %37, %36 ]
+  %13 = load i8, ptr %.022, align 1
   %14 = load i8, ptr %6, align 8
   %15 = icmp eq i8 %13, %14
   %16 = icmp eq i8 %13, 0
@@ -738,13 +738,13 @@ define dso_local noundef zeroext i1 @_ZN14cmProcessTools10LineParser12ProcessChu
 17:                                               ; preds = %12
   store i8 %13, ptr %9, align 1
   %18 = load ptr, ptr %10, align 8
-  %.not18 = icmp eq ptr %18, null
-  br i1 %.not18, label %25, label %19
+  %.not17 = icmp eq ptr %18, null
+  br i1 %.not17, label %25, label %19
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %11, align 8
-  %.not19 = icmp eq ptr %20, null
-  br i1 %.not19, label %25, label %21
+  %.not18 = icmp eq ptr %20, null
+  br i1 %.not18, label %25, label %21
 
 21:                                               ; preds = %19
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %20)
@@ -766,22 +766,21 @@ define dso_local noundef zeroext i1 @_ZN14cmProcessTools10LineParser12ProcessChu
 
 31:                                               ; preds = %30
   %32 = load i8, ptr %7, align 2
-  %33 = and i8 %32, 1
-  %.not17 = icmp eq i8 %33, 0
-  br i1 %.not17, label %34, label %36
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %36, label %34
 
 34:                                               ; preds = %31, %30
   %35 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1, i8 noundef signext %13)
   br label %36
 
 36:                                               ; preds = %25, %34, %31
-  %37 = getelementptr inbounds i8, ptr %.023, i64 1
+  %37 = getelementptr inbounds i8, ptr %.022, i64 1
   %.not = icmp eq ptr %37, %5
   br i1 %.not, label %.loopexit, label %12, !llvm.loop !22
 
 .loopexit:                                        ; preds = %36, %25, %3
-  %.not21 = phi i1 [ true, %3 ], [ false, %25 ], [ true, %36 ]
-  ret i1 %.not21
+  %.not20 = phi i1 [ true, %3 ], [ false, %25 ], [ true, %36 ]
+  ret i1 %.not20
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1

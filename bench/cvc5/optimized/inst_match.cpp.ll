@@ -504,7 +504,7 @@ for.body.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %printed.011 = phi i8 [ %printed.1, %for.inc ], [ 0, %for.body.preheader ]
+  %printed.011 = phi i1 [ %printed.1, %for.inc ], [ false, %for.body.preheader ]
   %i.010 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %2 = load ptr, ptr %d_vals, align 8
   %add.ptr.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.0", ptr %2, i64 %i.010
@@ -544,9 +544,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit: ; preds = %for.body, %init
   br i1 %cmp.i, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit
-  %8 = and i8 %printed.011, 1
-  %tobool.not = icmp eq i8 %8, 0
-  br i1 %tobool.not, label %if.end, label %if.then6
+  br i1 %printed.011, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
   %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.3)
@@ -555,14 +553,14 @@ if.then6:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then6, %if.then
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %out, i64 noundef %i.010)
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call8, ptr noundef nonnull @.str.1)
-  %9 = load ptr, ptr %d_vals, align 8
-  %add.ptr.i8 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.0", ptr %9, i64 %i.010
-  %10 = load ptr, ptr %add.ptr.i8, align 8
-  tail call void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %call9)
+  %8 = load ptr, ptr %d_vals, align 8
+  %add.ptr.i8 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.0", ptr %8, i64 %i.010
+  %9 = load ptr, ptr %add.ptr.i8, align 8
+  tail call void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %call9)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit
-  %printed.1 = phi i8 [ %printed.011, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ], [ 1, %if.end ]
+  %printed.1 = phi i1 [ %printed.011, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ], [ true, %if.end ]
   %inc = add nuw i64 %i.010, 1
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11

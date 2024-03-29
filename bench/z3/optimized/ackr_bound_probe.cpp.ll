@@ -1524,50 +1524,47 @@ for.body.lr.ph:                                   ; preds = %if.then
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %first.033 = phi i8 [ 1, %for.body.lr.ph ], [ %first.1, %for.inc ]
+  %first.033 = phi i1 [ true, %for.body.lr.ph ], [ false, %for.inc ]
   %__begin2.032 = phi ptr [ %m_args.i.ptr, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %8 = and i8 %first.033, 1
-  %tobool.not = icmp eq i8 %8, 0
-  br i1 %tobool.not, label %if.else, label %for.inc
+  br i1 %first.033, label %for.inc, label %if.else
 
 if.else:                                          ; preds = %for.body
-  %9 = load ptr, ptr %__begin2.032, align 8
-  %10 = load i32, ptr %9, align 4
-  %11 = load i32, ptr %m_marks.i.i, align 8
-  %cmp.not.i.i = icmp ult i32 %10, %11
+  %8 = load ptr, ptr %__begin2.032, align 8
+  %9 = load i32, ptr %8, align 4
+  %10 = load i32, ptr %m_marks.i.i, align 8
+  %cmp.not.i.i = icmp ult i32 %9, %10
   br i1 %cmp.not.i.i, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_b.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
-  %add.i.i = add i32 %10, 1
+  %add.i.i = add i32 %9, 1
   tail call void @_ZN10bit_vector6resizeEjb(ptr noundef nonnull align 8 dereferenceable(16) %m_marks.i.i, i32 noundef %add.i.i, i1 noundef zeroext false)
   br label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_b.exit
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_b.exit: ; preds = %if.else, %if.then.i.i
-  %12 = load ptr, ptr %m_data.i.i.i.i, align 8
-  %div1.i.i.i.i = lshr i32 %10, 5
+  %11 = load ptr, ptr %m_data.i.i.i.i, align 8
+  %div1.i.i.i.i = lshr i32 %9, 5
   %idxprom.i.i.i.i = zext nneg i32 %div1.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %12, i64 %idxprom.i.i.i.i
-  %13 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %rem.i.i.i.i = and i32 %10, 31
+  %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %11, i64 %idxprom.i.i.i.i
+  %12 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %rem.i.i.i.i = and i32 %9, 31
   %shl.i.i.i.i = shl nuw i32 1, %rem.i.i.i.i
-  %xor4.i.i.i = or i32 %13, %shl.i.i.i.i
+  %xor4.i.i.i = or i32 %12, %shl.i.i.i.i
   store i32 %xor4.i.i.i, ptr %arrayidx.i.i.i.i, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_b.exit
-  %first.1 = phi i8 [ %first.033, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_b.exit ], [ 0, %for.body ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.032, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %if.end18, label %for.body
 
 if.else5:                                         ; preds = %land.rhs.i.i, %entry, %_ZNK17array_recognizers9is_selectEP4expr.exit
   %m_num_args.i13 = getelementptr inbounds i8, ptr %a, i64 24
-  %14 = load i32, ptr %m_num_args.i13, align 8
-  %idx.ext.i14 = zext i32 %14 to i64
+  %13 = load i32, ptr %m_num_args.i13, align 8
+  %idx.ext.i14 = zext i32 %13 to i64
   %add.ptr.i15.idx = shl nuw nsw i64 %idx.ext.i14, 3
-  %15 = getelementptr i8, ptr %a, i64 %add.ptr.i15.idx
-  %add.ptr.i15.ptr = getelementptr i8, ptr %15, i64 32
-  %cmp12.not34 = icmp eq i32 %14, 0
+  %14 = getelementptr i8, ptr %a, i64 %add.ptr.i15.idx
+  %add.ptr.i15.ptr = getelementptr i8, ptr %14, i64 32
+  %cmp12.not34 = icmp eq i32 %13, 0
   br i1 %cmp12.not34, label %if.end18, label %for.body13.lr.ph
 
 for.body13.lr.ph:                                 ; preds = %if.else5
@@ -1578,26 +1575,26 @@ for.body13.lr.ph:                                 ; preds = %if.else5
 
 for.body13:                                       ; preds = %for.body13.lr.ph, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_b.exit29
   %__begin27.035 = phi ptr [ %m_args.i11.ptr, %for.body13.lr.ph ], [ %incdec.ptr16, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_b.exit29 ]
-  %16 = load ptr, ptr %__begin27.035, align 8
-  %17 = load i32, ptr %16, align 4
-  %18 = load i32, ptr %m_marks.i.i16, align 8
-  %cmp.not.i.i17 = icmp ult i32 %17, %18
+  %15 = load ptr, ptr %__begin27.035, align 8
+  %16 = load i32, ptr %15, align 4
+  %17 = load i32, ptr %m_marks.i.i16, align 8
+  %cmp.not.i.i17 = icmp ult i32 %16, %17
   br i1 %cmp.not.i.i17, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_b.exit29, label %if.then.i.i18
 
 if.then.i.i18:                                    ; preds = %for.body13
-  %add.i.i19 = add i32 %17, 1
+  %add.i.i19 = add i32 %16, 1
   tail call void @_ZN10bit_vector6resizeEjb(ptr noundef nonnull align 8 dereferenceable(16) %m_marks.i.i16, i32 noundef %add.i.i19, i1 noundef zeroext false)
   br label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_b.exit29
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_b.exit29: ; preds = %for.body13, %if.then.i.i18
-  %19 = load ptr, ptr %m_data.i.i.i.i20, align 8
-  %div1.i.i.i.i21 = lshr i32 %17, 5
+  %18 = load ptr, ptr %m_data.i.i.i.i20, align 8
+  %div1.i.i.i.i21 = lshr i32 %16, 5
   %idxprom.i.i.i.i22 = zext nneg i32 %div1.i.i.i.i21 to i64
-  %arrayidx.i.i.i.i23 = getelementptr inbounds i32, ptr %19, i64 %idxprom.i.i.i.i22
-  %20 = load i32, ptr %arrayidx.i.i.i.i23, align 4
-  %rem.i.i.i.i25 = and i32 %17, 31
+  %arrayidx.i.i.i.i23 = getelementptr inbounds i32, ptr %18, i64 %idxprom.i.i.i.i22
+  %19 = load i32, ptr %arrayidx.i.i.i.i23, align 4
+  %rem.i.i.i.i25 = and i32 %16, 31
   %shl.i.i.i.i26 = shl nuw i32 1, %rem.i.i.i.i25
-  %xor4.i.i.i28 = or i32 %20, %shl.i.i.i.i26
+  %xor4.i.i.i28 = or i32 %19, %shl.i.i.i.i26
   store i32 %xor4.i.i.i28, ptr %arrayidx.i.i.i.i23, align 4
   %incdec.ptr16 = getelementptr inbounds i8, ptr %__begin27.035, i64 8
   %cmp12.not = icmp eq ptr %incdec.ptr16, %add.ptr.i15.ptr

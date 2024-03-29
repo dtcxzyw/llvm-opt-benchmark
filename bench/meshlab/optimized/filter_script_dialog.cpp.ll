@@ -3204,9 +3204,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %10, %_ZN9QtPrivate8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 32
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not.i3 = icmp eq i8 %18, 0
-  br i1 %.not.i3, label %_ZN6QDebug10maybeSpaceEv.exit, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %_ZN6QDebug10maybeSpaceEv.exit
 
 19:                                               ; preds = %_ZN7QStringD2Ev.exit
   %20 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 noundef signext 32)

@@ -155,36 +155,35 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
 
 10:                                               ; preds = %8
   %11 = load i8, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 2), align 1
-  %12 = and i8 %11, 1
-  %.not28 = icmp eq i8 %12, 0
-  br i1 %.not28, label %13, label %38
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %38, label %13
 
 13:                                               ; preds = %10
   %14 = call ptr @getenv(ptr noundef nonnull @.str.37) #12
-  %.not29 = icmp eq ptr %14, null
-  br i1 %.not29, label %38, label %15
+  %.not28 = icmp eq ptr %14, null
+  br i1 %.not28, label %38, label %15
 
 15:                                               ; preds = %13
   %16 = call ptr @getenv(ptr noundef nonnull @.str.38) #12
-  %.not30 = icmp eq ptr %16, null
-  br i1 %.not30, label %38, label %17
+  %.not29 = icmp eq ptr %16, null
+  br i1 %.not29, label %38, label %17
 
 17:                                               ; preds = %15
   %18 = call ptr @getenv(ptr noundef nonnull @.str.39) #12
-  %.not31 = icmp eq ptr %18, null
-  br i1 %.not31, label %38, label %19
+  %.not30 = icmp eq ptr %18, null
+  br i1 %.not30, label %38, label %19
 
 19:                                               ; preds = %17
   %20 = call ptr @getenv(ptr noundef nonnull @.str.40) #12
-  %.not32 = icmp eq ptr %20, null
-  br i1 %.not32, label %38, label %21
+  %.not31 = icmp eq ptr %20, null
+  br i1 %.not31, label %38, label %21
 
 21:                                               ; preds = %19
   %22 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.41, ptr noundef nonnull %14, ptr noundef nonnull %16) #12
   %23 = load ptr, ptr %3, align 8
   %24 = call fastcc i32 @ssh_launch_agent_lookup(ptr noundef nonnull @.str.42, ptr noundef %23), !range !4
-  %.not33 = icmp eq i32 %24, 0
-  br i1 %.not33, label %36, label %25
+  %.not32 = icmp eq i32 %24, 0
+  br i1 %.not32, label %36, label %25
 
 25:                                               ; preds = %21
   %26 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_plm_base_framework, i64 0, i32 11), align 4
@@ -217,19 +216,18 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
 
 38:                                               ; preds = %19, %17, %15, %13, %10
   %39 = load i8, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 5), align 4
-  %40 = and i8 %39, 1
-  %.not34 = icmp eq i8 %40, 0
-  br i1 %.not34, label %41, label %57
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %57, label %41
 
 41:                                               ; preds = %38
   %42 = call ptr @getenv(ptr noundef nonnull @.str.44) #12
-  %.not35 = icmp eq ptr %42, null
-  br i1 %.not35, label %57, label %43
+  %.not33 = icmp eq ptr %42, null
+  br i1 %.not33, label %57, label %43
 
 43:                                               ; preds = %41
   %44 = call fastcc i32 @ssh_launch_agent_lookup(ptr noundef nonnull @.str.45, ptr noundef null), !range !4
-  %.not36 = icmp eq i32 %44, 0
-  br i1 %.not36, label %55, label %45
+  %.not34 = icmp eq i32 %44, 0
+  br i1 %.not34, label %55, label %45
 
 45:                                               ; preds = %43
   %46 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_plm_base_framework, i64 0, i32 11), align 4
@@ -260,18 +258,18 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
 
 57:                                               ; preds = %38, %41, %8
   %58 = call fastcc i32 @ssh_launch_agent_lookup(ptr noundef null, ptr noundef null), !range !4
-  %.not37 = icmp eq i32 %58, 0
-  br i1 %.not37, label %98, label %59
+  %.not35 = icmp eq i32 %58, 0
+  br i1 %.not35, label %98, label %59
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 12), align 8
-  %.not38 = icmp eq ptr %60, null
-  br i1 %.not38, label %87, label %61
+  %.not36 = icmp eq ptr %60, null
+  br i1 %.not36, label %87, label %61
 
 61:                                               ; preds = %59
   %62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(10) @.str.19) #13
-  %.not39 = icmp eq i32 %62, 0
-  br i1 %.not39, label %87, label %63
+  %.not37 = icmp eq i32 %62, 0
+  br i1 %.not37, label %87, label %63
 
 63:                                               ; preds = %61
   %64 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.47, i32 noundef 1, ptr noundef nonnull %60) #12

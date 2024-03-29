@@ -1178,8 +1178,7 @@ entry:
   %0 = icmp ult i32 %switch.tableidx, 25
   %switch.cast = trunc i32 %switch.tableidx to i25
   %switch.downshift = lshr i25 -16777023, %switch.cast
-  %1 = and i25 %switch.downshift, 1
-  %switch.masked = icmp ne i25 %1, 0
+  %switch.masked = trunc i25 %switch.downshift to i1
   %retval.0 = select i1 %0, i1 %switch.masked, i1 false
   ret i1 %retval.0
 }

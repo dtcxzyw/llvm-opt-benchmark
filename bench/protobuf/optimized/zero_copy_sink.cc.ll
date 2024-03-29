@@ -23,11 +23,10 @@ entry:
   %size = alloca i32, align 4
   %failed_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %failed_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not13 = icmp eq i8 %1, 0
-  %cmp14 = icmp ne i64 %len, 0
-  %2 = and i1 %tobool.not13, %cmp14
-  br i1 %2, label %while.body.lr.ph, label %while.end
+  %tobool13 = trunc i8 %0 to i1
+  %cmp14 = icmp eq i64 %len, 0
+  %.not15 = or i1 %cmp14, %tobool13
+  br i1 %.not15, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %buffer_size_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -37,18 +36,18 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end7
-  %3 = phi i64 [ %.pre, %while.body.lr.ph ], [ %sub, %if.end7 ]
-  %bytes.addr.016 = phi ptr [ %bytes, %while.body.lr.ph ], [ %add.ptr14, %if.end7 ]
-  %len.addr.015 = phi i64 [ %len, %while.body.lr.ph ], [ %sub15, %if.end7 ]
-  %cmp2 = icmp eq i64 %3, 0
+  %1 = phi i64 [ %.pre, %while.body.lr.ph ], [ %sub, %if.end7 ]
+  %bytes.addr.017 = phi ptr [ %bytes, %while.body.lr.ph ], [ %add.ptr14, %if.end7 ]
+  %len.addr.016 = phi i64 [ %len, %while.body.lr.ph ], [ %sub15, %if.end7 ]
+  %cmp2 = icmp eq i64 %1, 0
   br i1 %cmp2, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %while.body
-  %4 = load ptr, ptr %this, align 8
-  %vtable = load ptr, ptr %4, align 8
+  %2 = load ptr, ptr %this, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %5 = load ptr, ptr %vfn, align 8
-  %call = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %buffer_, ptr noundef nonnull %size)
+  %3 = load ptr, ptr %vfn, align 8
+  %call = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %buffer_, ptr noundef nonnull %size)
   br i1 %call, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %if.then
@@ -57,33 +56,32 @@ if.then3:                                         ; preds = %if.then
   br label %while.end
 
 if.end:                                           ; preds = %if.then
-  %6 = load i32, ptr %size, align 4
-  %conv = zext i32 %6 to i64
+  %4 = load i32, ptr %size, align 4
+  %conv = zext i32 %4 to i64
   store i64 %conv, ptr %buffer_size_, align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end, %while.body
-  %7 = phi i64 [ %conv, %if.end ], [ %3, %while.body ]
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %7, i64 %len.addr.015)
-  %8 = load ptr, ptr %buffer_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %bytes.addr.016, i64 %.sroa.speculated, i1 false)
-  %9 = load ptr, ptr %buffer_, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %.sroa.speculated
+  %5 = phi i64 [ %conv, %if.end ], [ %1, %while.body ]
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %5, i64 %len.addr.016)
+  %6 = load ptr, ptr %buffer_, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 1 %bytes.addr.017, i64 %.sroa.speculated, i1 false)
+  %7 = load ptr, ptr %buffer_, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %7, i64 %.sroa.speculated
   store ptr %add.ptr, ptr %buffer_, align 8
-  %10 = load i64, ptr %buffer_size_, align 8
-  %sub = sub i64 %10, %.sroa.speculated
+  %8 = load i64, ptr %buffer_size_, align 8
+  %sub = sub i64 %8, %.sroa.speculated
   store i64 %sub, ptr %buffer_size_, align 8
-  %add.ptr14 = getelementptr inbounds i8, ptr %bytes.addr.016, i64 %.sroa.speculated
-  %sub15 = sub i64 %len.addr.015, %.sroa.speculated
-  %11 = load i64, ptr %bytes_written_, align 8
-  %add = add i64 %11, %.sroa.speculated
+  %add.ptr14 = getelementptr inbounds i8, ptr %bytes.addr.017, i64 %.sroa.speculated
+  %sub15 = sub i64 %len.addr.016, %.sroa.speculated
+  %9 = load i64, ptr %bytes_written_, align 8
+  %add = add i64 %9, %.sroa.speculated
   store i64 %add, ptr %bytes_written_, align 8
-  %12 = load i8, ptr %failed_, align 8
-  %13 = and i8 %12, 1
-  %tobool.not = icmp eq i8 %13, 0
-  %cmp = icmp ne i64 %sub15, 0
-  %14 = select i1 %tobool.not, i1 %cmp, i1 false
-  br i1 %14, label %while.body, label %while.end, !llvm.loop !4
+  %10 = load i8, ptr %failed_, align 8
+  %tobool = trunc i8 %10 to i1
+  %cmp = icmp eq i64 %sub15, 0
+  %.not = select i1 %tobool, i1 true, i1 %cmp
+  br i1 %.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %if.end7, %entry, %if.then3
   ret void

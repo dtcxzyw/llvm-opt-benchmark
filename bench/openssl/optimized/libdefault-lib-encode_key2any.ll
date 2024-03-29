@@ -12480,9 +12480,10 @@ if.else:                                          ; preds = %sw.bb2
 
 for.body:                                         ; preds = %if.end24, %if.else
   %0 = phi i64 [ 0, %if.else ], [ %2, %if.end24 ]
-  %trunc.not = phi i1 [ true, %if.else ], [ false, %if.end24 ]
+  %cmp = phi i1 [ true, %if.else ], [ false, %if.end24 ]
+  %i.015 = phi i1 [ false, %if.else ], [ true, %if.end24 ]
   %str.014 = phi ptr [ null, %if.else ], [ %str.1, %if.end24 ]
-  br i1 %trunc.not, label %sw.bb4, label %sw.bb8
+  br i1 %i.015, label %sw.bb8, label %sw.bb4
 
 sw.bb4:                                           ; preds = %for.body
   %call5 = call i32 @WPACKET_init_null_der(ptr noundef nonnull %pkt) #5
@@ -12520,8 +12521,8 @@ if.end24:                                         ; preds = %lor.lhs.false20
   call void @WPACKET_cleanup(ptr noundef nonnull %pkt) #5
   %2 = load i64, ptr %str_sz, align 8
   %cmp25 = icmp ne i64 %2, 0
-  %brmerge.not = and i1 %cmp25, %trunc.not
-  br i1 %brmerge.not, label %for.body, label %for.end
+  %or.cond = and i1 %cmp25, %cmp
+  br i1 %or.cond, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end24
   %call28 = call ptr @ASN1_STRING_new() #5
@@ -13717,3 +13718,4 @@ attributes #5 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = !{ptr @dh_check_key_type, ptr @rsa_check_key_type}
+!7 = distinct !{!7, !5}

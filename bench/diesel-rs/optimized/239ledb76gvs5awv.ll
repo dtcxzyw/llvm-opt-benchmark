@@ -78,8 +78,8 @@ define hidden void @"_ZN101_$LT$diesel..connection..statement_cache..StatementCa
   store i64 %31, ptr %5, align 8, !noalias !39
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h37327ab06c39287bE.llvm.5910539677089311526"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 8), !noalias !44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !39
-  %trunc.not.i.i.i = icmp eq i32 %30, 0
-  br i1 %trunc.not.i.i.i, label %32, label %37
+  %trunc.i.i.i = trunc i32 %30 to i1
+  br i1 %trunc.i.i.i, label %37, label %32
 
 32:                                               ; preds = %.lr.ph.i
   %33 = getelementptr inbounds i8, ptr %.sroa.0.06.i, i64 4

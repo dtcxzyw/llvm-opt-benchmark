@@ -26,30 +26,29 @@ define void @_ZN7rocksdb12AllocTrackerD2Ev(ptr nocapture noundef nonnull align 8
 entry:
   %done_allocating_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %done_allocating_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   %.pr.pre3.i = load ptr, ptr %this, align 8
-  br i1 %tobool.not.i, label %if.then.i, label %if.end.i
+  br i1 %tobool.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %cmp.not.i.i = icmp eq ptr %.pr.pre3.i, null
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %2 = load atomic i64, ptr %.pr.pre3.i monotonic, align 8
-  %cmp.i.not.i.i = icmp eq i64 %2, 0
+  %1 = load atomic i64, ptr %.pr.pre3.i monotonic, align 8
+  %cmp.i.not.i.i = icmp eq i64 %1, 0
   br i1 %cmp.i.not.i.i, label %lor.lhs.false.i.i, label %if.then5.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then.i.i
   %cache_res_mgr_.i.i.i = getelementptr inbounds i8, ptr %.pr.pre3.i, i64 32
-  %3 = load ptr, ptr %cache_res_mgr_.i.i.i, align 8
-  %cmp.i.i.i.not.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %cache_res_mgr_.i.i.i, align 8
+  %cmp.i.i.i.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i.not.i.i, label %if.end.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.then.i.i
   %bytes_allocated_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load atomic i64, ptr %bytes_allocated_.i.i monotonic, align 8
-  invoke void @_ZN7rocksdb18WriteBufferManager15ScheduleFreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %.pr.pre3.i, i64 noundef %4)
+  %3 = load atomic i64, ptr %bytes_allocated_.i.i monotonic, align 8
+  invoke void @_ZN7rocksdb18WriteBufferManager15ScheduleFreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %.pr.pre3.i, i64 noundef %3)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %if.then5.i.i
@@ -68,26 +67,25 @@ if.end.i:                                         ; preds = %if.end.i.i, %entry
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %freed_.i = getelementptr inbounds i8, ptr %this, i64 17
-  %5 = load i8, ptr %freed_.i, align 1
-  %6 = and i8 %5, 1
-  %tobool2.not.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i, label %if.then3.i, label %invoke.cont
+  %4 = load i8, ptr %freed_.i, align 1
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %invoke.cont, label %if.then3.i
 
 if.then3.i:                                       ; preds = %land.lhs.true.i
-  %7 = load atomic i64, ptr %.pr.i monotonic, align 8
-  %cmp.i.not.i = icmp eq i64 %7, 0
+  %5 = load atomic i64, ptr %.pr.i monotonic, align 8
+  %cmp.i.not.i = icmp eq i64 %5, 0
   br i1 %cmp.i.not.i, label %lor.lhs.false.i, label %if.then7.i
 
 lor.lhs.false.i:                                  ; preds = %if.then3.i
   %cache_res_mgr_.i.i = getelementptr inbounds i8, ptr %.pr.i, i64 32
-  %8 = load ptr, ptr %cache_res_mgr_.i.i, align 8
-  %cmp.i.i.i.not.i = icmp eq ptr %8, null
+  %6 = load ptr, ptr %cache_res_mgr_.i.i, align 8
+  %cmp.i.i.i.not.i = icmp eq ptr %6, null
   br i1 %cmp.i.i.i.not.i, label %if.end10.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %lor.lhs.false.i, %if.then3.i
   %bytes_allocated_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %9 = load atomic i64, ptr %bytes_allocated_.i monotonic, align 8
-  invoke void @_ZN7rocksdb18WriteBufferManager7FreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %.pr.i, i64 noundef %9)
+  %7 = load atomic i64, ptr %bytes_allocated_.i monotonic, align 8
+  invoke void @_ZN7rocksdb18WriteBufferManager7FreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %.pr.i, i64 noundef %7)
           to label %if.end10.i unwind label %terminate.lpad
 
 if.end10.i:                                       ; preds = %if.then7.i, %lor.lhs.false.i
@@ -98,10 +96,10 @@ invoke.cont:                                      ; preds = %if.end10.i, %land.l
   ret void
 
 terminate.lpad:                                   ; preds = %if.then7.i, %if.then5.i.i
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #5
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #5
   unreachable
 }
 
@@ -110,30 +108,29 @@ define void @_ZN7rocksdb12AllocTracker7FreeMemEv(ptr nocapture noundef nonnull a
 entry:
   %done_allocating_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %done_allocating_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %.pr.pre3 = load ptr, ptr %this, align 8
-  br i1 %tobool.not, label %if.then, label %if.end
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %cmp.not.i = icmp eq ptr %.pr.pre3, null
   br i1 %cmp.not.i, label %if.end12, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %2 = load atomic i64, ptr %.pr.pre3 monotonic, align 8
-  %cmp.i.not.i = icmp eq i64 %2, 0
+  %1 = load atomic i64, ptr %.pr.pre3 monotonic, align 8
+  %cmp.i.not.i = icmp eq i64 %1, 0
   br i1 %cmp.i.not.i, label %lor.lhs.false.i, label %if.then5.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
   %cache_res_mgr_.i.i = getelementptr inbounds i8, ptr %.pr.pre3, i64 32
-  %3 = load ptr, ptr %cache_res_mgr_.i.i, align 8
-  %cmp.i.i.i.not.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %cache_res_mgr_.i.i, align 8
+  %cmp.i.i.i.not.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i.not.i, label %if.end.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %lor.lhs.false.i, %if.then.i
   %bytes_allocated_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load atomic i64, ptr %bytes_allocated_.i monotonic, align 8
-  tail call void @_ZN7rocksdb18WriteBufferManager15ScheduleFreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %.pr.pre3, i64 noundef %4)
+  %3 = load atomic i64, ptr %bytes_allocated_.i monotonic, align 8
+  tail call void @_ZN7rocksdb18WriteBufferManager15ScheduleFreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %.pr.pre3, i64 noundef %3)
   %.pr.pre.pre = load ptr, ptr %this, align 8
   br label %if.end.i
 
@@ -149,26 +146,25 @@ if.end:                                           ; preds = %if.end.i, %entry
 
 land.lhs.true:                                    ; preds = %if.end
   %freed_ = getelementptr inbounds i8, ptr %this, i64 17
-  %5 = load i8, ptr %freed_, align 1
-  %6 = and i8 %5, 1
-  %tobool2.not = icmp eq i8 %6, 0
-  br i1 %tobool2.not, label %if.then3, label %if.end12
+  %4 = load i8, ptr %freed_, align 1
+  %tobool2 = trunc i8 %4 to i1
+  br i1 %tobool2, label %if.end12, label %if.then3
 
 if.then3:                                         ; preds = %land.lhs.true
-  %7 = load atomic i64, ptr %.pr monotonic, align 8
-  %cmp.i.not = icmp eq i64 %7, 0
+  %5 = load atomic i64, ptr %.pr monotonic, align 8
+  %cmp.i.not = icmp eq i64 %5, 0
   br i1 %cmp.i.not, label %lor.lhs.false, label %if.then7
 
 lor.lhs.false:                                    ; preds = %if.then3
   %cache_res_mgr_.i = getelementptr inbounds i8, ptr %.pr, i64 32
-  %8 = load ptr, ptr %cache_res_mgr_.i, align 8
-  %cmp.i.i.i.not = icmp eq ptr %8, null
+  %6 = load ptr, ptr %cache_res_mgr_.i, align 8
+  %cmp.i.i.i.not = icmp eq ptr %6, null
   br i1 %cmp.i.i.i.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %lor.lhs.false, %if.then3
   %bytes_allocated_ = getelementptr inbounds i8, ptr %this, i64 8
-  %9 = load atomic i64, ptr %bytes_allocated_ monotonic, align 8
-  tail call void @_ZN7rocksdb18WriteBufferManager7FreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %.pr, i64 noundef %9)
+  %7 = load atomic i64, ptr %bytes_allocated_ monotonic, align 8
+  tail call void @_ZN7rocksdb18WriteBufferManager7FreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %.pr, i64 noundef %7)
   br label %if.end10
 
 if.end10:                                         ; preds = %lor.lhs.false, %if.then7
@@ -228,25 +224,24 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %done_allocating_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %done_allocating_, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.then, label %if.end9
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end9, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %3 = load atomic i64, ptr %0 monotonic, align 8
-  %cmp.i.not = icmp eq i64 %3, 0
+  %2 = load atomic i64, ptr %0 monotonic, align 8
+  %cmp.i.not = icmp eq i64 %2, 0
   br i1 %cmp.i.not, label %lor.lhs.false, label %if.then5
 
 lor.lhs.false:                                    ; preds = %if.then
   %cache_res_mgr_.i = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = load ptr, ptr %cache_res_mgr_.i, align 8
-  %cmp.i.i.i.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %cache_res_mgr_.i, align 8
+  %cmp.i.i.i.not = icmp eq ptr %3, null
   br i1 %cmp.i.i.i.not, label %if.end, label %if.then5
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.then
   %bytes_allocated_ = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load atomic i64, ptr %bytes_allocated_ monotonic, align 8
-  tail call void @_ZN7rocksdb18WriteBufferManager15ScheduleFreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %5)
+  %4 = load atomic i64, ptr %bytes_allocated_ monotonic, align 8
+  tail call void @_ZN7rocksdb18WriteBufferManager15ScheduleFreeMemEm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %4)
   br label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false, %if.then5

@@ -760,36 +760,35 @@ _ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.
   store i8 0, ptr %d_consequentSet, align 8
   %d_produceProofs = getelementptr inbounds i8, ptr %this, i64 57
   %2 = load i8, ptr %d_produceProofs, align 1
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.exit
-  %4 = load ptr, ptr %this, align 8
+  %3 = load ptr, ptr %this, align 8
   %_M_finish.i.i1 = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load ptr, ptr %_M_finish.i.i1, align 8
-  %tobool.not.i.i2 = icmp eq ptr %5, %4
+  %4 = load ptr, ptr %_M_finish.i.i1, align 8
+  %tobool.not.i.i2 = icmp eq ptr %4, %3
   br i1 %tobool.not.i.i2, label %if.end, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then, %_ZSt8_DestroyIN4cvc58internal8RationalEEvPT_.exit.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN4cvc58internal8RationalEEvPT_.exit.i.i.i.i.i ], [ %4, %if.then ]
+  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN4cvc58internal8RationalEEvPT_.exit.i.i.i.i.i ], [ %3, %if.then ]
   invoke void @__gmpq_clear(ptr noundef nonnull %__first.addr.04.i.i.i.i.i)
           to label %_ZSt8_DestroyIN4cvc58internal8RationalEEvPT_.exit.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #16
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #16
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal8RationalEEvPT_.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %5
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i3, label %for.body.i.i.i.i.i, !llvm.loop !10
 
 invoke.cont.i.i3:                                 ; preds = %_ZSt8_DestroyIN4cvc58internal8RationalEEvPT_.exit.i.i.i.i.i
-  store ptr %4, ptr %_M_finish.i.i1, align 8
+  store ptr %3, ptr %_M_finish.i.i1, align 8
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont.i.i3, %if.then, %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.exit
@@ -810,8 +809,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear21Farkas
 entry:
   %d_consequentSet = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i8, ptr %d_consequentSet, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -901,50 +899,49 @@ _ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE17_M_real
 if.end:                                           ; preds = %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, %if.then.i, %if.then
   %d_produceProofs = getelementptr inbounds i8, ptr %this, i64 57
   %6 = load i8, ptr %d_produceProofs, align 1
-  %7 = and i8 %6, 1
-  %tobool.not = icmp eq i8 %7, 0
-  br i1 %tobool.not, label %if.end4, label %if.then3
+  %tobool = trunc i8 %6 to i1
+  br i1 %tobool, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
   %_M_finish.i1 = getelementptr inbounds i8, ptr %this, i64 8
-  %8 = load ptr, ptr %_M_finish.i1, align 8
+  %7 = load ptr, ptr %_M_finish.i1, align 8
   %_M_end_of_storage.i2 = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load ptr, ptr %_M_end_of_storage.i2, align 8
-  %cmp.not.i3 = icmp eq ptr %8, %9
+  %8 = load ptr, ptr %_M_end_of_storage.i2, align 8
+  %cmp.not.i3 = icmp eq ptr %7, %8
   br i1 %cmp.not.i3, label %if.else.i6, label %if.then.i4
 
 if.then.i4:                                       ; preds = %if.then3
-  tail call void @__gmpz_init_set(ptr noundef nonnull %8, ptr noundef nonnull %fc)
-  %_mp_den.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  tail call void @__gmpz_init_set(ptr noundef nonnull %7, ptr noundef nonnull %fc)
+  %_mp_den.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %_mp_den10.i.i.i.i.i = getelementptr inbounds i8, ptr %fc, i64 16
   tail call void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i.i.i.i, ptr noundef nonnull %_mp_den10.i.i.i.i.i)
-  invoke void @__gmpq_canonicalize(ptr noundef nonnull %8)
+  invoke void @__gmpq_canonicalize(ptr noundef nonnull %7)
           to label %_ZNSt16allocator_traitsISaIN4cvc58internal8RationalEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %if.then.i4
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %8)
+  invoke void @__gmpq_clear(ptr noundef nonnull %7)
           to label %_ZN10__gmp_exprIA1_12__mpq_structS1_ED2Ev.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad.i.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #16
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #16
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpq_structS1_ED2Ev.exit.i.i.i.i: ; preds = %lpad.i.i.i.i
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %9
 
 _ZNSt16allocator_traitsISaIN4cvc58internal8RationalEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i: ; preds = %if.then.i4
-  %13 = load ptr, ptr %_M_finish.i1, align 8
-  %incdec.ptr.i5 = getelementptr inbounds i8, ptr %13, i64 32
+  %12 = load ptr, ptr %_M_finish.i1, align 8
+  %incdec.ptr.i5 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %incdec.ptr.i5, ptr %_M_finish.i1, align 8
   br label %if.end4
 
 if.else.i6:                                       ; preds = %if.then3
-  tail call void @_ZNSt6vectorIN4cvc58internal8RationalESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %8, ptr noundef nonnull align 8 dereferenceable(32) %fc)
+  tail call void @_ZNSt6vectorIN4cvc58internal8RationalESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %7, ptr noundef nonnull align 8 dereferenceable(32) %fc)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.else.i6, %_ZNSt16allocator_traitsISaIN4cvc58internal8RationalEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i, %if.end
@@ -957,9 +954,8 @@ entry:
   %prod = alloca %"class.cvc5::internal::Rational", align 8
   %d_produceProofs = getelementptr inbounds i8, ptr %this, i64 57
   %0 = load i8, ptr %d_produceProofs, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %land.lhs.true
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
   %_mp_den.i = getelementptr inbounds i8, ptr %mult, i64 16
@@ -977,27 +973,27 @@ invoke.cont:                                      ; preds = %if.then
           to label %if.end unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #16
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #16
   unreachable
 
 lpad:                                             ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull %prod)
           to label %_ZN4cvc58internal8RationalD2Ev.exit5 unwind label %terminate.lpad.i.i4
 
 terminate.lpad.i.i4:                              ; preds = %lpad
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #16
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #16
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit5:             ; preds = %lpad
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %3
 
 if.else:                                          ; preds = %land.lhs.true, %entry
   tail call void @_ZN4cvc58internal6theory5arith6linear21FarkasConflictBuilder13addConstraintEPKNS3_10ConstraintERKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(58) %this, ptr noundef %c, ptr noundef nonnull align 8 dereferenceable(32) %fc)
@@ -1072,16 +1068,15 @@ if.else:                                          ; preds = %entry
   store ptr %2, ptr %d_consequent, align 8
   %d_produceProofs = getelementptr inbounds i8, ptr %this, i64 57
   %4 = load i8, ptr %d_produceProofs, align 1
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.end12, label %if.then7
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.then7, label %if.end12
 
 if.then7:                                         ; preds = %if.else
-  %6 = load ptr, ptr %this, align 8
+  %5 = load ptr, ptr %this, align 8
   %_M_finish.i.i4 = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %_M_finish.i.i4, align 8
-  %add.ptr.i.i5 = getelementptr inbounds i8, ptr %7, i64 -32
-  tail call void @_ZSt4swapIN4cvc58internal8RationalEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i5)
+  %6 = load ptr, ptr %_M_finish.i.i4, align 8
+  %add.ptr.i.i5 = getelementptr inbounds i8, ptr %6, i64 -32
+  tail call void @_ZSt4swapIN4cvc58internal8RationalEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i5)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %if.then7, %entry
@@ -1171,56 +1166,54 @@ entry:
   %1 = load ptr, ptr %d_negation.i, align 8
   %d_produceProofs = getelementptr inbounds i8, ptr %this, i64 57
   %2 = load i8, ptr %d_produceProofs, align 1
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  %cond = select i1 %tobool.not, ptr null, ptr %this
+  %tobool = trunc i8 %2 to i1
+  %cond = select i1 %tobool, ptr %this, ptr null
   %d_constraints = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN4cvc58internal6theory5arith6linear10Constraint15impliedByFarkasERKSt6vectorIPKS4_SaIS7_EEPKS5_INS0_8RationalESaISC_EEb(ptr noundef nonnull align 8 dereferenceable(145) %1, ptr noundef nonnull align 8 dereferenceable(24) %d_constraints, ptr noundef %cond, i1 noundef zeroext true)
   store ptr null, ptr %d_consequent, align 8
-  %4 = load ptr, ptr %d_constraints, align 8
+  %3 = load ptr, ptr %d_constraints, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %5 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %5, %4
+  %4 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %4, %3
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.exit.i, label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
-  store ptr %4, ptr %_M_finish.i.i.i, align 8
+  store ptr %3, ptr %_M_finish.i.i.i, align 8
   br label %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.exit.i
 
 _ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.exit.i: ; preds = %invoke.cont.i.i.i, %entry
   %d_consequentSet.i = getelementptr inbounds i8, ptr %this, i64 56
   store i8 0, ptr %d_consequentSet.i, align 8
-  %6 = load i8, ptr %d_produceProofs, align 1
-  %7 = and i8 %6, 1
-  %tobool.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i, label %_ZN4cvc58internal6theory5arith6linear21FarkasConflictBuilder5resetEv.exit, label %if.then.i
+  %5 = load i8, ptr %d_produceProofs, align 1
+  %tobool.i = trunc i8 %5 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN4cvc58internal6theory5arith6linear21FarkasConflictBuilder5resetEv.exit
 
 if.then.i:                                        ; preds = %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.exit.i
-  %8 = load ptr, ptr %this, align 8
+  %6 = load ptr, ptr %this, align 8
   %_M_finish.i.i1.i = getelementptr inbounds i8, ptr %this, i64 8
-  %9 = load ptr, ptr %_M_finish.i.i1.i, align 8
-  %tobool.not.i.i2.i = icmp eq ptr %9, %8
+  %7 = load ptr, ptr %_M_finish.i.i1.i, align 8
+  %tobool.not.i.i2.i = icmp eq ptr %7, %6
   br i1 %tobool.not.i.i2.i, label %_ZN4cvc58internal6theory5arith6linear21FarkasConflictBuilder5resetEv.exit, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %if.then.i, %_ZSt8_DestroyIN4cvc58internal8RationalEEvPT_.exit.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZSt8_DestroyIN4cvc58internal8RationalEEvPT_.exit.i.i.i.i.i.i ], [ %8, %if.then.i ]
+  %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZSt8_DestroyIN4cvc58internal8RationalEEvPT_.exit.i.i.i.i.i.i ], [ %6, %if.then.i ]
   invoke void @__gmpq_clear(ptr noundef nonnull %__first.addr.04.i.i.i.i.i.i)
           to label %_ZSt8_DestroyIN4cvc58internal8RationalEEvPT_.exit.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i.i.i.i.i
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #16
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #16
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal8RationalEEvPT_.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 32
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %9
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %7
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i3.i, label %for.body.i.i.i.i.i.i, !llvm.loop !10
 
 invoke.cont.i.i3.i:                               ; preds = %_ZSt8_DestroyIN4cvc58internal8RationalEEvPT_.exit.i.i.i.i.i.i
-  store ptr %8, ptr %_M_finish.i.i1.i, align 8
+  store ptr %6, ptr %_M_finish.i.i1.i, align 8
   br label %_ZN4cvc58internal6theory5arith6linear21FarkasConflictBuilder5resetEv.exit
 
 _ZN4cvc58internal6theory5arith6linear21FarkasConflictBuilder5resetEv.exit: ; preds = %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.exit.i, %if.then.i, %invoke.cont.i.i3.i

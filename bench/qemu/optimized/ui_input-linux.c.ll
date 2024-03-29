@@ -71,43 +71,42 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
   %initialized = getelementptr inbounds i8, ptr %call.i, i64 832
   %0 = load i8, ptr %initialized, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end18, label %do.body
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %do.body, label %if.end18
 
 do.body:                                          ; preds = %entry
   %next = getelementptr inbounds i8, ptr %call.i, i64 896
-  %2 = load ptr, ptr %next, align 8
-  %cmp.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %next, align 8
+  %cmp.not = icmp eq ptr %1, null
   %tql_prev7 = getelementptr inbounds i8, ptr %call.i, i64 904
-  %3 = load ptr, ptr %tql_prev7, align 8
+  %2 = load ptr, ptr %tql_prev7, align 8
   br i1 %cmp.not, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %do.body
-  %tql_prev5 = getelementptr inbounds i8, ptr %2, i64 904
-  store ptr %3, ptr %tql_prev5, align 8
+  %tql_prev5 = getelementptr inbounds i8, ptr %1, i64 904
+  store ptr %2, ptr %tql_prev5, align 8
   %.pre = load ptr, ptr %next, align 8
   br label %if.end
 
 if.else:                                          ; preds = %do.body
-  store ptr %3, ptr getelementptr inbounds (%union.anon.0, ptr @inputs, i64 0, i32 0, i32 1), align 8
+  store ptr %2, ptr getelementptr inbounds (%union.anon.0, ptr @inputs, i64 0, i32 0, i32 1), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then1
-  %4 = phi ptr [ null, %if.else ], [ %.pre, %if.then1 ]
-  store ptr %4, ptr %3, align 8
+  %3 = phi ptr [ null, %if.else ], [ %.pre, %if.then1 ]
+  store ptr %3, ptr %2, align 8
   %fd = getelementptr inbounds i8, ptr %call.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
+  %4 = load i32, ptr %fd, align 8
+  tail call void @qemu_set_fd_handler(i32 noundef %4, ptr noundef null, ptr noundef null, ptr noundef null) #8
   %5 = load i32, ptr %fd, align 8
-  tail call void @qemu_set_fd_handler(i32 noundef %5, ptr noundef null, ptr noundef null, ptr noundef null) #8
-  %6 = load i32, ptr %fd, align 8
-  %call17 = tail call i32 @close(i32 noundef %6) #8
+  %call17 = tail call i32 @close(i32 noundef %5) #8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end, %entry
   %evdev = getelementptr inbounds i8, ptr %call.i, i64 40
-  %7 = load ptr, ptr %evdev, align 8
-  tail call void @g_free(ptr noundef %7) #8
+  %6 = load ptr, ptr %evdev, align 8
+  tail call void @g_free(ptr noundef %6) #8
   ret void
 }
 
@@ -442,8 +441,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
   %grab_all = getelementptr inbounds i8, ptr %call.i, i64 55
   %0 = load i8, ptr %grab_all, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -463,8 +461,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
   %repeat = getelementptr inbounds i8, ptr %call.i, i64 52
   %0 = load i8, ptr %repeat, align 4
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -620,83 +617,79 @@ lor.lhs.false.i:                                  ; preds = %if.then.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %11 = load i8, ptr %repeat.i, align 4
-  %12 = and i8 %11, 1
-  %tobool.not.i = icmp eq i8 %12, 0
-  br i1 %tobool.not.i, label %if.end27, label %if.end.i
+  %tobool.i = trunc i8 %11 to i1
+  br i1 %tobool.i, label %if.end.i, label %if.end27
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %lor.lhs.false.i
-  %13 = load i16, ptr %code.i, align 2
-  %cmp9.i = icmp ugt i16 %13, 767
+  %12 = load i16, ptr %code.i, align 2
+  %cmp9.i = icmp ugt i16 %12, 767
   br i1 %cmp9.i, label %if.end27, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
-  %idxprom.i = zext nneg i16 %13 to i64
+  %idxprom.i = zext nneg i16 %12 to i64
   %arrayidx.i = getelementptr [768 x i8], ptr %keydown.i, i64 0, i64 %idxprom.i
-  %14 = load i8, ptr %arrayidx.i, align 1
-  %15 = and i8 %14, 1
-  %tobool14.not.i = icmp ne i8 %15, 0
+  %13 = load i8, ptr %arrayidx.i, align 1
+  %tobool14.i = trunc i8 %13 to i1
   %tobool17.not.i = icmp eq i32 %10, 0
-  %or.cond.i = or i1 %tobool17.not.i, %tobool14.not.i
+  %or.cond.i = or i1 %tobool17.not.i, %tobool14.i
   br i1 %or.cond.i, label %if.end23.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.end12.i
   store i8 1, ptr %arrayidx.i, align 1
-  %16 = load i32, ptr %keycount.i, align 8
-  %inc.i = add i32 %16, 1
+  %14 = load i32, ptr %keycount.i, align 8
+  %inc.i = add i32 %14, 1
   store i32 %inc.i, ptr %keycount.i, align 8
   %.pre.i = load i16, ptr %code.i, align 2
   %idxprom26.phi.trans.insert.i = zext i16 %.pre.i to i64
   %arrayidx27.phi.trans.insert.i = getelementptr [768 x i8], ptr %keydown.i, i64 0, i64 %idxprom26.phi.trans.insert.i
   %.pre29.i = load i8, ptr %arrayidx27.phi.trans.insert.i, align 1
-  %.pre31.i = and i8 %.pre29.i, 1
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then18.i, %if.end12.i
-  %.pre-phi.i = phi i8 [ %.pre31.i, %if.then18.i ], [ %15, %if.end12.i ]
   %idxprom26.pre-phi.i = phi i64 [ %idxprom26.phi.trans.insert.i, %if.then18.i ], [ %idxprom.i, %if.end12.i ]
+  %15 = phi i8 [ %.pre29.i, %if.then18.i ], [ %13, %if.end12.i ]
   %arrayidx27.i = getelementptr [768 x i8], ptr %keydown.i, i64 0, i64 %idxprom26.pre-phi.i
-  %tobool28.not.i = icmp eq i8 %.pre-phi.i, 0
-  br i1 %tobool28.not.i, label %if.end39.i, label %land.lhs.true30.i
+  %tobool28.i = trunc i8 %15 to i1
+  br i1 %tobool28.i, label %land.lhs.true30.i, label %if.end39.i
 
 land.lhs.true30.i:                                ; preds = %if.end23.i
-  %17 = load i32, ptr %value.i, align 4
-  %tobool32.not.i = icmp eq i32 %17, 0
+  %16 = load i32, ptr %value.i, align 4
+  %tobool32.not.i = icmp eq i32 %16, 0
   br i1 %tobool32.not.i, label %if.then33.i, label %if.end39.i
 
 if.then33.i:                                      ; preds = %land.lhs.true30.i
   store i8 0, ptr %arrayidx27.i, align 1
-  %18 = load i32, ptr %keycount.i, align 8
-  %dec.i = add i32 %18, -1
+  %17 = load i32, ptr %keycount.i, align 8
+  %dec.i = add i32 %17, -1
   store i32 %dec.i, ptr %keycount.i, align 8
   br label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then33.i, %land.lhs.true30.i, %if.end23.i
-  %19 = load i8, ptr %grab_active.i, align 2
-  %20 = and i8 %19, 1
-  %tobool40.not.i = icmp eq i8 %20, 0
+  %18 = load i8, ptr %grab_active.i, align 2
+  %tobool40.i = trunc i8 %18 to i1
   %.pre37 = load i32, ptr %2, align 4
-  br i1 %tobool40.not.i, label %if.end49.i, label %land.lhs.true42.i
+  br i1 %tobool40.i, label %land.lhs.true42.i, label %if.end49.i
 
 land.lhs.true42.i:                                ; preds = %if.end39.i
-  %21 = and i32 %.pre37, -2
-  %switch.i.i = icmp eq i32 %21, 4
+  %19 = and i32 %.pre37, -2
+  %switch.i.i = icmp eq i32 %19, 4
   %.pre30.i = load i16, ptr %code.i, align 2
   %cmp3.i.i = icmp eq i16 %.pre30.i, 70
-  %or.cond32.i = select i1 %switch.i.i, i1 %cmp3.i.i, i1 false
-  br i1 %or.cond32.i, label %if.end49.i, label %if.then43.i
+  %or.cond31.i = select i1 %switch.i.i, i1 %cmp3.i.i, i1 false
+  br i1 %or.cond31.i, label %if.end49.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %land.lhs.true42.i
   %conv45.i = zext i16 %.pre30.i to i32
   %call46.i = tail call i32 @qemu_input_linux_to_qcode(i32 noundef %conv45.i) #8
-  %22 = load i32, ptr %value.i, align 4
-  %tobool48.i = icmp ne i32 %22, 0
+  %20 = load i32, ptr %value.i, align 4
+  %tobool48.i = icmp ne i32 %20, 0
   tail call void @qemu_input_event_send_key_qcode(ptr noundef null, i32 noundef %call46.i, i1 noundef zeroext %tobool48.i) #8
   %.pre = load i32, ptr %2, align 4
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.then43.i, %land.lhs.true42.i, %if.end39.i
-  %23 = phi i32 [ %.pre, %if.then43.i ], [ %.pre37, %land.lhs.true42.i ], [ %.pre37, %if.end39.i ]
-  switch i32 %23, label %if.end52.i [
+  %21 = phi i32 [ %.pre, %if.then43.i ], [ %.pre37, %land.lhs.true42.i ], [ %.pre37, %if.end39.i ]
+  switch i32 %21, label %if.end52.i [
     i32 0, label %sw.bb.i.i
     i32 1, label %sw.bb4.i.i
     i32 2, label %sw.bb13.i.i
@@ -706,90 +699,77 @@ if.end49.i:                                       ; preds = %if.then43.i, %land.
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end49.i
-  %24 = load i8, ptr %arrayidx37.i.i, align 1
-  %25 = and i8 %24, 1
-  %tobool.not.i.i = icmp eq i8 %25, 0
-  br i1 %tobool.not.i.i, label %if.end52.i, label %land.rhs.i27.i
+  %22 = load i8, ptr %arrayidx37.i.i, align 1
+  %tobool.i.i = trunc i8 %22 to i1
+  br i1 %tobool.i.i, label %land.rhs.i27.i, label %if.end52.i
 
 land.rhs.i27.i:                                   ; preds = %sw.bb.i.i
-  %26 = load i8, ptr %arrayidx40.i.i, align 1
-  %27 = and i8 %26, 1
-  %tobool3.i.not.i = icmp eq i8 %27, 0
-  br i1 %tobool3.i.not.i, label %if.end52.i, label %if.then51.i
+  %23 = load i8, ptr %arrayidx40.i.i, align 1
+  %tobool3.i.i = trunc i8 %23 to i1
+  br i1 %tobool3.i.i, label %if.then51.i, label %if.end52.i
 
 sw.bb4.i.i:                                       ; preds = %if.end49.i
-  %28 = load i8, ptr %arrayidx6.i.i, align 8
-  %29 = and i8 %28, 1
-  %tobool7.not.i.i = icmp eq i8 %29, 0
-  br i1 %tobool7.not.i.i, label %if.end52.i, label %land.rhs8.i.i
+  %24 = load i8, ptr %arrayidx6.i.i, align 8
+  %tobool7.i.i = trunc i8 %24 to i1
+  br i1 %tobool7.i.i, label %land.rhs8.i.i, label %if.end52.i
 
 land.rhs8.i.i:                                    ; preds = %sw.bb4.i.i
-  %30 = load i8, ptr %arrayidx10.i.i, align 4
-  %31 = and i8 %30, 1
-  %tobool11.i.not.i = icmp eq i8 %31, 0
-  br i1 %tobool11.i.not.i, label %if.end52.i, label %if.then51.i
+  %25 = load i8, ptr %arrayidx10.i.i, align 4
+  %tobool11.i.i = trunc i8 %25 to i1
+  br i1 %tobool11.i.i, label %if.then51.i, label %if.end52.i
 
 sw.bb13.i.i:                                      ; preds = %if.end49.i
-  %32 = load i8, ptr %arrayidx15.i.i, align 2
-  %33 = and i8 %32, 1
-  %tobool16.not.i.i = icmp eq i8 %33, 0
-  br i1 %tobool16.not.i.i, label %if.end52.i, label %land.rhs17.i.i
+  %26 = load i8, ptr %arrayidx15.i.i, align 2
+  %tobool16.i.i = trunc i8 %26 to i1
+  br i1 %tobool16.i.i, label %land.rhs17.i.i, label %if.end52.i
 
 land.rhs17.i.i:                                   ; preds = %sw.bb13.i.i
-  %34 = load i8, ptr %arrayidx19.i.i, align 2
-  %35 = and i8 %34, 1
-  %tobool20.i.not.i = icmp eq i8 %35, 0
-  br i1 %tobool20.i.not.i, label %if.end52.i, label %if.then51.i
+  %27 = load i8, ptr %arrayidx19.i.i, align 2
+  %tobool20.i.i = trunc i8 %27 to i1
+  br i1 %tobool20.i.i, label %if.then51.i, label %if.end52.i
 
 sw.bb22.i.i:                                      ; preds = %if.end49.i
-  %36 = load i8, ptr %arrayidx24.i.i, align 1
-  %37 = and i8 %36, 1
-  %tobool25.not.i.i = icmp eq i8 %37, 0
-  br i1 %tobool25.not.i.i, label %if.end52.i, label %land.rhs26.i.i
+  %28 = load i8, ptr %arrayidx24.i.i, align 1
+  %tobool25.i.i = trunc i8 %28 to i1
+  br i1 %tobool25.i.i, label %land.rhs26.i.i, label %if.end52.i
 
 land.rhs26.i.i:                                   ; preds = %sw.bb22.i.i
-  %38 = load i8, ptr %arrayidx28.i.i, align 2
-  %39 = and i8 %38, 1
-  %tobool29.i.not.i = icmp eq i8 %39, 0
-  br i1 %tobool29.i.not.i, label %if.end52.i, label %if.then51.i
+  %29 = load i8, ptr %arrayidx28.i.i, align 2
+  %tobool29.i.i = trunc i8 %29 to i1
+  br i1 %tobool29.i.i, label %if.then51.i, label %if.end52.i
 
 sw.bb31.i.i:                                      ; preds = %if.end49.i
-  %40 = load i8, ptr %arrayidx44.i.i, align 2
-  %41 = and i8 %40, 1
-  %tobool34.i.not.i = icmp eq i8 %41, 0
-  br i1 %tobool34.i.not.i, label %if.end52.i, label %if.then51.i
+  %30 = load i8, ptr %arrayidx44.i.i, align 2
+  %tobool34.i.i = trunc i8 %30 to i1
+  br i1 %tobool34.i.i, label %if.then51.i, label %if.end52.i
 
 sw.bb35.i.i:                                      ; preds = %if.end49.i
-  %42 = load i8, ptr %arrayidx37.i.i, align 1
-  %43 = and i8 %42, 1
-  %tobool38.not.i.i = icmp eq i8 %43, 0
-  br i1 %tobool38.not.i.i, label %lor.lhs.false.i.i, label %input_linux_check_toggle.exit.i
+  %31 = load i8, ptr %arrayidx37.i.i, align 1
+  %tobool38.i.i = trunc i8 %31 to i1
+  br i1 %tobool38.i.i, label %input_linux_check_toggle.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %sw.bb35.i.i
-  %44 = load i8, ptr %arrayidx40.i.i, align 1
-  %45 = and i8 %44, 1
-  %tobool41.not.i.i = icmp eq i8 %45, 0
-  br i1 %tobool41.not.i.i, label %if.end52.i, label %input_linux_check_toggle.exit.i
+  %32 = load i8, ptr %arrayidx40.i.i, align 1
+  %tobool41.i.i = trunc i8 %32 to i1
+  br i1 %tobool41.i.i, label %input_linux_check_toggle.exit.i, label %if.end52.i
 
 input_linux_check_toggle.exit.i:                  ; preds = %lor.lhs.false.i.i, %sw.bb35.i.i
-  %46 = load i8, ptr %arrayidx44.i.i, align 2
-  %47 = and i8 %46, 1
-  %tobool45.i.not.i = icmp eq i8 %47, 0
-  br i1 %tobool45.i.not.i, label %if.end52.i, label %if.then51.i
+  %33 = load i8, ptr %arrayidx44.i.i, align 2
+  %tobool45.i.i = trunc i8 %33 to i1
+  br i1 %tobool45.i.i, label %if.then51.i, label %if.end52.i
 
 if.then51.i:                                      ; preds = %input_linux_check_toggle.exit.i, %sw.bb31.i.i, %land.rhs26.i.i, %land.rhs17.i.i, %land.rhs8.i.i, %land.rhs.i27.i
   store i8 1, ptr %grab_request.i, align 1
   br label %if.end52.i
 
 if.end52.i:                                       ; preds = %if.then51.i, %input_linux_check_toggle.exit.i, %lor.lhs.false.i.i, %sw.bb31.i.i, %land.rhs26.i.i, %sw.bb22.i.i, %land.rhs17.i.i, %sw.bb13.i.i, %land.rhs8.i.i, %sw.bb4.i.i, %land.rhs.i27.i, %sw.bb.i.i, %if.end49.i
-  %48 = load i8, ptr %grab_request.i, align 1
-  %49 = and i8 %48, 1
-  %tobool54.not.i = icmp eq i8 %49, 0
-  br i1 %tobool54.not.i, label %if.end27, label %land.lhs.true56.i
+  %34 = load i8, ptr %grab_request.i, align 1
+  %tobool54.i = trunc i8 %34 to i1
+  br i1 %tobool54.i, label %land.lhs.true56.i, label %if.end27
 
 land.lhs.true56.i:                                ; preds = %if.end52.i
-  %50 = load i32, ptr %keycount.i, align 8
-  %tobool58.not.i = icmp eq i32 %50, 0
+  %35 = load i32, ptr %keycount.i, align 8
+  %tobool58.not.i = icmp eq i32 %35, 0
   br i1 %tobool58.not.i, label %if.then59.i, label %if.end27
 
 if.then59.i:                                      ; preds = %land.lhs.true56.i
@@ -798,31 +778,28 @@ if.then59.i:                                      ; preds = %land.lhs.true56.i
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then59.i, %land.lhs.true56.i, %if.end52.i, %if.end.i, %land.lhs.true.i, %if.then.i, %if.then25, %if.end23
-  %51 = load i8, ptr %has_rel_x, align 1
-  %52 = and i8 %51, 1
-  %tobool28.not = icmp eq i8 %52, 0
-  br i1 %tobool28.not, label %lor.lhs.false, label %land.lhs.true32
+  %36 = load i8, ptr %has_rel_x, align 1
+  %tobool28 = trunc i8 %36 to i1
+  br i1 %tobool28, label %land.lhs.true32, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end27
-  %53 = load i8, ptr %has_abs_x, align 2
-  %54 = and i8 %53, 1
-  %tobool30.not = icmp eq i8 %54, 0
-  br i1 %tobool30.not, label %if.end36, label %land.lhs.true32
+  %37 = load i8, ptr %has_abs_x, align 2
+  %tobool30 = trunc i8 %37 to i1
+  br i1 %tobool30, label %land.lhs.true32, label %if.end36
 
 land.lhs.true32:                                  ; preds = %lor.lhs.false, %if.end27
-  %55 = load i32, ptr %num_btns, align 8
-  %tobool33.not = icmp eq i32 %55, 0
+  %38 = load i32, ptr %num_btns, align 8
+  %tobool33.not = icmp eq i32 %38, 0
   br i1 %tobool33.not, label %if.end36, label %if.then34
 
 if.then34:                                        ; preds = %land.lhs.true32
-  %56 = load i8, ptr %grab_active.i, align 2
-  %57 = and i8 %56, 1
-  %tobool.not.i21 = icmp eq i8 %57, 0
-  br i1 %tobool.not.i21, label %if.end36, label %if.end.i22
+  %39 = load i8, ptr %grab_active.i, align 2
+  %tobool.i21 = trunc i8 %39 to i1
+  br i1 %tobool.i21, label %if.end.i22, label %if.end36
 
 if.end.i22:                                       ; preds = %if.then34
-  %58 = load i16, ptr %type.i, align 8
-  switch i16 %58, label %if.end36 [
+  %40 = load i16, ptr %type.i, align 8
+  switch i16 %40, label %if.end36 [
     i16 1, label %sw.bb.i
     i16 2, label %sw.bb22.i
     i16 3, label %sw.bb32.i
@@ -830,8 +807,8 @@ if.end.i22:                                       ; preds = %if.then34
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i22
-  %59 = load i16, ptr %code.i, align 2
-  switch i16 %59, label %if.end36 [
+  %41 = load i16, ptr %code.i, align 2
+  switch i16 %41, label %if.end36 [
     i16 272, label %sw.bb2.i
     i16 273, label %sw.bb4.i
     i16 274, label %sw.bb7.i
@@ -842,99 +819,99 @@ sw.bb.i:                                          ; preds = %if.end.i22
   ]
 
 sw.bb2.i:                                         ; preds = %sw.bb.i
-  %60 = load i32, ptr %value.i, align 4
-  %tobool3.i = icmp ne i32 %60, 0
+  %42 = load i32, ptr %value.i, align 4
+  %tobool3.i = icmp ne i32 %42, 0
   tail call void @qemu_input_queue_btn(ptr noundef null, i32 noundef 0, i1 noundef zeroext %tobool3.i) #8
   br label %if.end36
 
 sw.bb4.i:                                         ; preds = %sw.bb.i
-  %61 = load i32, ptr %value.i, align 4
-  %tobool6.i = icmp ne i32 %61, 0
+  %43 = load i32, ptr %value.i, align 4
+  %tobool6.i = icmp ne i32 %43, 0
   tail call void @qemu_input_queue_btn(ptr noundef null, i32 noundef 2, i1 noundef zeroext %tobool6.i) #8
   br label %if.end36
 
 sw.bb7.i:                                         ; preds = %sw.bb.i
-  %62 = load i32, ptr %value.i, align 4
-  %tobool9.i = icmp ne i32 %62, 0
+  %44 = load i32, ptr %value.i, align 4
+  %tobool9.i = icmp ne i32 %44, 0
   tail call void @qemu_input_queue_btn(ptr noundef null, i32 noundef 1, i1 noundef zeroext %tobool9.i) #8
   br label %if.end36
 
 sw.bb10.i:                                        ; preds = %sw.bb.i
-  %63 = load i32, ptr %value.i, align 4
-  %tobool12.i = icmp ne i32 %63, 0
+  %45 = load i32, ptr %value.i, align 4
+  %tobool12.i = icmp ne i32 %45, 0
   tail call void @qemu_input_queue_btn(ptr noundef null, i32 noundef 3, i1 noundef zeroext %tobool12.i) #8
   br label %if.end36
 
 sw.bb13.i:                                        ; preds = %sw.bb.i
-  %64 = load i32, ptr %value.i, align 4
-  %tobool15.i = icmp ne i32 %64, 0
+  %46 = load i32, ptr %value.i, align 4
+  %tobool15.i = icmp ne i32 %46, 0
   tail call void @qemu_input_queue_btn(ptr noundef null, i32 noundef 4, i1 noundef zeroext %tobool15.i) #8
   br label %if.end36
 
 sw.bb16.i:                                        ; preds = %sw.bb.i
-  %65 = load i32, ptr %value.i, align 4
-  %tobool18.i = icmp ne i32 %65, 0
+  %47 = load i32, ptr %value.i, align 4
+  %tobool18.i = icmp ne i32 %47, 0
   tail call void @qemu_input_queue_btn(ptr noundef null, i32 noundef 5, i1 noundef zeroext %tobool18.i) #8
   br label %if.end36
 
 sw.bb19.i:                                        ; preds = %sw.bb.i
-  %66 = load i32, ptr %value.i, align 4
-  %tobool21.i = icmp ne i32 %66, 0
+  %48 = load i32, ptr %value.i, align 4
+  %tobool21.i = icmp ne i32 %48, 0
   tail call void @qemu_input_queue_btn(ptr noundef null, i32 noundef 6, i1 noundef zeroext %tobool21.i) #8
   br label %if.end36
 
 sw.bb22.i:                                        ; preds = %if.end.i22
-  %67 = load i16, ptr %code.i, align 2
-  switch i16 %67, label %if.end36 [
+  %49 = load i16, ptr %code.i, align 2
+  switch i16 %49, label %if.end36 [
     i16 0, label %sw.bb25.i
     i16 1, label %sw.bb27.i
     i16 8, label %sw.bb29.i
   ]
 
 sw.bb25.i:                                        ; preds = %sw.bb22.i
-  %68 = load i32, ptr %value.i, align 4
-  tail call void @qemu_input_queue_rel(ptr noundef null, i32 noundef 0, i32 noundef %68) #8
+  %50 = load i32, ptr %value.i, align 4
+  tail call void @qemu_input_queue_rel(ptr noundef null, i32 noundef 0, i32 noundef %50) #8
   br label %if.end36
 
 sw.bb27.i:                                        ; preds = %sw.bb22.i
-  %69 = load i32, ptr %value.i, align 4
-  tail call void @qemu_input_queue_rel(ptr noundef null, i32 noundef 1, i32 noundef %69) #8
+  %51 = load i32, ptr %value.i, align 4
+  tail call void @qemu_input_queue_rel(ptr noundef null, i32 noundef 1, i32 noundef %51) #8
   br label %if.end36
 
 sw.bb29.i:                                        ; preds = %sw.bb22.i
-  %70 = load i32, ptr %value.i, align 4
-  store i32 %70, ptr %wheel41.i, align 4
+  %52 = load i32, ptr %value.i, align 4
+  store i32 %52, ptr %wheel41.i, align 4
   br label %if.end36
 
 sw.bb32.i:                                        ; preds = %if.end.i22
-  %71 = load i16, ptr %code.i, align 2
-  switch i16 %71, label %if.end36 [
+  %53 = load i16, ptr %code.i, align 2
+  switch i16 %53, label %if.end36 [
     i16 0, label %sw.bb35.i
     i16 1, label %sw.bb37.i
   ]
 
 sw.bb35.i:                                        ; preds = %sw.bb32.i
-  %72 = load i32, ptr %value.i, align 4
-  %73 = load i32, ptr %abs_x_min.i, align 4
-  %74 = load i32, ptr %abs_x_max.i, align 8
-  tail call void @qemu_input_queue_abs(ptr noundef null, i32 noundef 0, i32 noundef %72, i32 noundef %73, i32 noundef %74) #8
+  %54 = load i32, ptr %value.i, align 4
+  %55 = load i32, ptr %abs_x_min.i, align 4
+  %56 = load i32, ptr %abs_x_max.i, align 8
+  tail call void @qemu_input_queue_abs(ptr noundef null, i32 noundef 0, i32 noundef %54, i32 noundef %55, i32 noundef %56) #8
   br label %if.end36
 
 sw.bb37.i:                                        ; preds = %sw.bb32.i
-  %75 = load i32, ptr %value.i, align 4
-  %76 = load i32, ptr %abs_y_min.i, align 4
-  %77 = load i32, ptr %abs_y_max.i, align 8
-  tail call void @qemu_input_queue_abs(ptr noundef null, i32 noundef 1, i32 noundef %75, i32 noundef %76, i32 noundef %77) #8
+  %57 = load i32, ptr %value.i, align 4
+  %58 = load i32, ptr %abs_y_min.i, align 4
+  %59 = load i32, ptr %abs_y_max.i, align 8
+  tail call void @qemu_input_queue_abs(ptr noundef null, i32 noundef 1, i32 noundef %57, i32 noundef %58, i32 noundef %59) #8
   br label %if.end36
 
 sw.bb40.i:                                        ; preds = %if.end.i22
   tail call void @qemu_input_event_sync() #8
-  %78 = load i32, ptr %wheel41.i, align 4
-  %cmp.not.i = icmp eq i32 %78, 0
+  %60 = load i32, ptr %wheel41.i, align 4
+  %cmp.not.i = icmp eq i32 %60, 0
   br i1 %cmp.not.i, label %if.end36, label %if.then43.i24
 
 if.then43.i24:                                    ; preds = %sw.bb40.i
-  %cmp45.i = icmp sgt i32 %78, 0
+  %cmp45.i = icmp sgt i32 %60, 0
   %cond.i = select i1 %cmp45.i, i32 3, i32 4
   tail call void @qemu_input_queue_btn(ptr noundef null, i32 noundef %cond.i, i1 noundef zeroext true) #8
   tail call void @qemu_input_event_sync() #8
@@ -944,13 +921,13 @@ if.then43.i24:                                    ; preds = %sw.bb40.i
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then43.i24, %sw.bb40.i, %sw.bb37.i, %sw.bb35.i, %sw.bb32.i, %sw.bb29.i, %sw.bb27.i, %sw.bb25.i, %sw.bb22.i, %sw.bb19.i, %sw.bb16.i, %sw.bb13.i, %sw.bb10.i, %sw.bb7.i, %sw.bb4.i, %sw.bb2.i, %sw.bb.i, %if.end.i22, %if.then34, %land.lhs.true32, %lor.lhs.false
-  %79 = load i32, ptr %read_offset, align 8
-  %conv = sext i32 %79 to i64
-  %sub = sub i32 24, %79
-  %80 = load i32, ptr %fd, align 8
+  %61 = load i32, ptr %read_offset, align 8
+  %conv = sext i32 %61 to i64
+  %sub = sub i32 24, %61
+  %62 = load i32, ptr %fd, align 8
   %arrayidx = getelementptr i8, ptr %event, i64 %conv
   %conv3 = sext i32 %sub to i64
-  %call = tail call i64 @read(i32 noundef %80, ptr noundef %arrayidx, i64 noundef %conv3) #8
+  %call = tail call i64 @read(i32 noundef %62, ptr noundef %arrayidx, i64 noundef %conv3) #8
   %conv4 = trunc i64 %call to i32
   %cmp.not = icmp eq i32 %sub, %conv4
   br i1 %cmp.not, label %if.end23, label %if.then
@@ -975,17 +952,16 @@ entry:
 
 if.end:                                           ; preds = %entry
   %4 = load i8, ptr %grab_active, align 2
-  %5 = and i8 %4, 1
-  %frombool = xor i8 %5, 1
+  %lnot4 = and i8 %4, 1
+  %frombool = xor i8 %lnot4, 1
   store i8 %frombool, ptr %grab_active, align 2
   %grab_all = getelementptr inbounds i8, ptr %il, i64 55
-  %6 = load i8, ptr %grab_all, align 1
-  %7 = and i8 %6, 1
-  %tobool7.not = icmp eq i8 %7, 0
+  %5 = load i8, ptr %grab_all, align 1
+  %tobool7 = trunc i8 %5 to i1
   %item.012 = load ptr, ptr @inputs, align 8
-  %tobool10.not13 = icmp eq ptr %item.012, null
-  %or.cond = select i1 %tobool7.not, i1 true, i1 %tobool10.not13
-  br i1 %or.cond, label %for.end, label %for.body
+  %tobool10.not13 = icmp ne ptr %item.012, null
+  %or.cond.not = select i1 %tobool7, i1 %tobool10.not13, i1 false
+  br i1 %or.cond.not, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.end, %for.inc
   %item.014 = phi ptr [ %item.0, %for.inc ], [ %item.012, %if.end ]
@@ -994,18 +970,17 @@ for.body:                                         ; preds = %if.end, %for.inc
 
 lor.lhs.false:                                    ; preds = %for.body
   %grab_all13 = getelementptr inbounds i8, ptr %item.014, i64 55
-  %8 = load i8, ptr %grab_all13, align 1
-  %9 = and i8 %8, 1
-  %tobool14.not = icmp eq i8 %9, 0
-  br i1 %tobool14.not, label %if.end17, label %for.inc
+  %6 = load i8, ptr %grab_all13, align 1
+  %tobool14 = trunc i8 %6 to i1
+  br i1 %tobool14, label %for.inc, label %if.end17
 
 if.end17:                                         ; preds = %lor.lhs.false
   %grab_active18 = getelementptr inbounds i8, ptr %item.014, i64 54
-  %10 = load i8, ptr %grab_active18, align 2
-  %11 = load i8, ptr %grab_active, align 2
-  %12 = xor i8 %11, %10
-  %13 = and i8 %12, 1
-  %cmp24.not = icmp eq i8 %13, 0
+  %7 = load i8, ptr %grab_active18, align 2
+  %8 = load i8, ptr %grab_active, align 2
+  %9 = xor i8 %8, %7
+  %10 = and i8 %9, 1
+  %cmp24.not = icmp eq i8 %10, 0
   br i1 %cmp24.not, label %for.inc, label %if.then26
 
 if.then26:                                        ; preds = %if.end17

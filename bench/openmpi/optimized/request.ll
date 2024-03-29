@@ -398,9 +398,8 @@ define internal noundef i32 @ompi_request_persistent_noop_free(ptr nocapture nou
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load i8, ptr @opal_uses_threads, align 1
-  %17 = and i8 %16, 1
-  %.not.i = icmp eq i8 %17, 0
-  br i1 %.not.i, label %21, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %21
 
 18:                                               ; preds = %11
   %19 = atomicrmw volatile add ptr %15, i32 -1 monotonic, align 4
@@ -434,15 +433,15 @@ opal_thread_add_fetch_32.exit:                    ; preds = %18, %21
   tail call void %32(ptr noundef nonnull %27) #9
   %33 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %34 = load ptr, ptr %33, align 8
-  %.not.i11 = icmp eq ptr %34, null
-  br i1 %.not.i11, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
+  %.not.i = icmp eq ptr %34, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
-  %.pre12 = load ptr, ptr %0, align 8
+  %.pre11 = load ptr, ptr %0, align 8
   br label %opal_obj_run_destructors.exit
 
 opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destructors.exit.loopexit, %26
-  %35 = phi ptr [ %.pre12, %opal_obj_run_destructors.exit.loopexit ], [ %27, %26 ]
+  %35 = phi ptr [ %.pre11, %opal_obj_run_destructors.exit.loopexit ], [ %27, %26 ]
   tail call void @free(ptr noundef %35) #9
   br label %36
 

@@ -1038,8 +1038,8 @@ define void @_ZN13dsl_auto_type9auto_type25expression_type_inference21infer_expr
   %10 = alloca { ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   %11 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, align 8, !range !235, !noalias !236, !noundef !5
-  %trunc.not.i.i.i = icmp eq i64 %11, 0
-  br i1 %trunc.not.i.i.i, label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i, label %16
+  %trunc.i.i.i = trunc i64 %11 to i1
+  br i1 %trunc.i.i.i, label %16, label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i
 
 _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; preds = %4
   %12 = tail call noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h6351797757346454E.llvm.8606994207189466011"(ptr noundef nonnull align 8 @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, ptr noalias noundef align 8 dereferenceable_or_null(24) null), !noalias !243
@@ -1056,7 +1056,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   invoke void @"_ZN4core3ptr85drop_in_place$LT$dsl_auto_type..auto_type..local_variables_map..LocalVariablesMap$GT$17hd6c4cbf9c48a8fefE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %10) #18
           to label %36 unwind label %32
 
-16:                                               ; preds = %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i, %4
+16:                                               ; preds = %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i
   %.0.i.i2.i = phi ptr [ %12, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %4 ]
   %17 = getelementptr inbounds i8, ptr %10, i64 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 40

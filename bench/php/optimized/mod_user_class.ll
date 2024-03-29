@@ -169,9 +169,8 @@ define hidden void @zim_SessionHandler_close(ptr nocapture noundef readonly %0, 
 
 19:                                               ; preds = %13
   %20 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 27), align 1
-  %21 = and i8 %20, 1
-  %.not5 = icmp eq i8 %21, 0
-  br i1 %.not5, label %22, label %24
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %24, label %22
 
 22:                                               ; preds = %19
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #5
@@ -255,9 +254,8 @@ define hidden void @zim_SessionHandler_read(ptr nocapture noundef readonly %0, p
 
 23:                                               ; preds = %17
   %24 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 27), align 1
-  %25 = and i8 %24, 1
-  %.not8 = icmp eq i8 %25, 0
-  br i1 %.not8, label %26, label %28
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %28, label %26
 
 26:                                               ; preds = %23
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #5
@@ -285,8 +283,8 @@ define hidden void @zim_SessionHandler_read(ptr nocapture noundef readonly %0, p
   %39 = getelementptr inbounds i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 64
-  %.not9 = icmp eq i32 %41, 0
-  %42 = select i1 %.not9, i32 262, i32 6
+  %.not8 = icmp eq i32 %41, 0
+  %42 = select i1 %.not8, i32 262, i32 6
   %43 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %42, ptr %43, align 8
   br label %44
@@ -337,9 +335,8 @@ define hidden void @zim_SessionHandler_write(ptr nocapture noundef readonly %0, 
 
 23:                                               ; preds = %17
   %24 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 27), align 1
-  %25 = and i8 %24, 1
-  %.not3 = icmp eq i8 %25, 0
-  br i1 %.not3, label %26, label %28
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %28, label %26
 
 26:                                               ; preds = %23
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #5
@@ -405,9 +402,8 @@ define hidden void @zim_SessionHandler_destroy(ptr nocapture noundef readonly %0
 
 22:                                               ; preds = %16
   %23 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 27), align 1
-  %24 = and i8 %23, 1
-  %.not3 = icmp eq i8 %24, 0
-  br i1 %.not3, label %25, label %27
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %27, label %25
 
 25:                                               ; preds = %22
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #5
@@ -473,9 +469,8 @@ define hidden void @zim_SessionHandler_gc(ptr nocapture noundef readonly %0, ptr
 
 23:                                               ; preds = %17
   %24 = load i8, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 27), align 1
-  %25 = and i8 %24, 1
-  %.not6 = icmp eq i8 %25, 0
-  br i1 %.not6, label %26, label %28
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %28, label %26
 
 26:                                               ; preds = %23
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #5

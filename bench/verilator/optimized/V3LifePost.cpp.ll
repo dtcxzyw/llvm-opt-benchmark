@@ -951,9 +951,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
   %26 = call i32 @llvm.umax.i32(i32 %19, i32 %24)
   %27 = load i8, ptr getelementptr inbounds (%class.V3Global, ptr @v3Global, i64 0, i32 22, i32 190), align 2
-  %28 = and i8 %27, 1
-  %.not = icmp eq i8 %28, 0
-  br i1 %.not, label %37, label %.thread
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %.thread, label %37
 
 29:                                               ; preds = %.noexc, %7
   %30 = landingpad { ptr, i32 }
@@ -1362,9 +1361,8 @@ declare noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIc
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK9V3Options9availableEv(ptr noundef nonnull align 8 dereferenceable(1560) %0) #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1558
   %3 = load i8, ptr %2, align 2
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1720,9 +1718,8 @@ _ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.thread: ; preds =
 define linkonce_odr dso_local void @_ZN18LifePostDlyVisitor5visitEP12AstAssignPre(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %7
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
   tail call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -1782,16 +1779,15 @@ declare void @_ZN14VNVisitorConst5visitEP8AstCFile(ptr noundef nonnull align 8 d
 define linkonce_odr dso_local void @_ZN18LifePostDlyVisitor5visitEP8AstCFunc(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %10
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 313
   %8 = load i32, ptr %7, align 1
   %9 = and i32 %8, 4096
-  %.not7 = icmp eq i32 %9, 0
-  br i1 %.not7, label %19, label %10
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %6, %2
   %11 = getelementptr inbounds i8, ptr %0, i64 256
@@ -2031,11 +2027,10 @@ declare void @_ZN14VNVisitorConst5visitEP15AstEventControl(ptr noundef nonnull a
 define linkonce_odr dso_local void @_ZN18LifePostDlyVisitor5visitEP12AstExecGraph(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %._crit_edge31, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %._crit_edge30
 
-._crit_edge31:                                    ; preds = %2
+._crit_edge30:                                    ; preds = %2
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 152
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %16
@@ -2043,8 +2038,8 @@ define linkonce_odr dso_local void @_ZN18LifePostDlyVisitor5visitEP12AstExecGrap
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 232
   %8 = load ptr, ptr %7, align 8
-  %.not25 = icmp eq ptr %8, null
-  br i1 %.not25, label %13, label %9
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %6
   %10 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.1, i32 noundef 325, i1 noundef zeroext true)
@@ -2059,12 +2054,12 @@ define linkonce_odr dso_local void @_ZN18LifePostDlyVisitor5visitEP12AstExecGrap
   store ptr %15, ptr %7, align 8
   br label %16
 
-16:                                               ; preds = %._crit_edge31, %13
-  %17 = phi ptr [ %.pre, %._crit_edge31 ], [ %15, %13 ]
+16:                                               ; preds = %._crit_edge30, %13
+  %17 = phi ptr [ %.pre, %._crit_edge30 ], [ %15, %13 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 8
-  %.sroa.0.028 = load ptr, ptr %18, align 8
-  %.not2629 = icmp eq ptr %.sroa.0.028, null
-  br i1 %.not2629, label %._crit_edge, label %.lr.ph
+  %.sroa.0.027 = load ptr, ptr %18, align 8
+  %.not2528 = icmp eq ptr %.sroa.0.027, null
+  br i1 %.not2528, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %19 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2072,36 +2067,36 @@ define linkonce_odr dso_local void @_ZN18LifePostDlyVisitor5visitEP12AstExecGrap
   br label %21
 
 21:                                               ; preds = %.lr.ph, %_ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit
-  %.sroa.0.030 = phi ptr [ %.sroa.0.028, %.lr.ph ], [ %.sroa.0.0, %_ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit ]
-  %22 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 8
+  %.sroa.0.029 = phi ptr [ %.sroa.0.027, %.lr.ph ], [ %.sroa.0.0, %_ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit ]
+  %22 = getelementptr inbounds i8, ptr %.sroa.0.029, i64 8
   %23 = load ptr, ptr %22, align 8
-  %.not27 = icmp eq ptr %23, null
-  %24 = select i1 %.not27, ptr %.sroa.0.030, ptr %23
+  %.not26 = icmp eq ptr %23, null
+  %24 = select i1 %.not26, ptr %.sroa.0.029, ptr %23
   tail call void @llvm.prefetch.p0(ptr nonnull %24, i32 1, i32 3, i32 1)
-  %25 = load ptr, ptr %.sroa.0.030, align 8
+  %25 = load ptr, ptr %.sroa.0.029, align 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0.030, i64 noundef ptrtoint (ptr @_ZZN9ExecMTask11rttiClassIdEvE15aStaticVariable to i64))
+  %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0.029, i64 noundef ptrtoint (ptr @_ZZN9ExecMTask11rttiClassIdEvE15aStaticVariable to i64))
   br i1 %27, label %_ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit, label %28
 
 28:                                               ; preds = %21
   %29 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.16, i32 noundef 258, i1 noundef zeroext true)
   %30 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.17)
-  tail call void @_ZNK13V3GraphVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0.030, ptr noundef nonnull align 8 dereferenceable(112) %31)
+  tail call void @_ZNK13V3GraphVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0.029, ptr noundef nonnull align 8 dereferenceable(112) %31)
   br label %_ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit
 
 _ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit:      ; preds = %21, %28
-  store ptr %.sroa.0.030, ptr %19, align 8
+  store ptr %.sroa.0.029, ptr %19, align 8
   store i32 0, ptr %20, align 4
-  %32 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 80
+  %32 = getelementptr inbounds i8, ptr %.sroa.0.029, i64 80
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 288
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(152) %33, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.sroa.0.0 = load ptr, ptr %22, align 8
-  %.not26 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not26, label %._crit_edge, label %21
+  %.not25 = icmp eq ptr %.sroa.0.0, null
+  br i1 %.not25, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %_ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit, %16
   %37 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2841,11 +2836,10 @@ define linkonce_odr dso_local void @_ZN18LifePostDlyVisitor5visitEP9AstVarRef(pt
   %5 = alloca %struct.LifeLocation, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 256
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
+  %8 = trunc i8 %7 to i1
   %9 = getelementptr inbounds i8, ptr %1, i64 160
   %10 = load ptr, ptr %9, align 8
-  br i1 %.not, label %11, label %15
+  br i1 %8, label %15, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %10, i64 104
@@ -2853,11 +2847,11 @@ define linkonce_odr dso_local void @_ZN18LifePostDlyVisitor5visitEP9AstVarRef(pt
   %13 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
   %14 = getelementptr inbounds i8, ptr %10, i64 112
   store i32 %13, ptr %14, align 8
-  br label %_ZNSt3setI12LifeLocationSt4lessIS0_ESaIS0_EE6insertERKS0_.exit30
+  br label %_ZNSt3setI12LifeLocationSt4lessIS0_ESaIS0_EE6insertERKS0_.exit29
 
 15:                                               ; preds = %2
-  %.not8 = icmp eq ptr %10, null
-  br i1 %.not8, label %16, label %20
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %16, label %20
 
 16:                                               ; preds = %15
   %17 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.1, i32 noundef 284, i1 noundef zeroext true)
@@ -3019,10 +3013,10 @@ _ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert
   br label %_ZNSt3setI12LifeLocationSt4lessIS0_ESaIS0_EE6insertERKS0_.exit
 
 _ZNSt3setI12LifeLocationSt4lessIS0_ESaIS0_EE6insertERKS0_.exit: ; preds = %_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i, %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit, %20
-  %.sroa.0.0.copyload.i9 = load i8, ptr %27, align 8
-  %96 = and i8 %.sroa.0.0.copyload.i9, -3
-  %spec.select.i10 = icmp eq i8 %96, 0
-  br i1 %spec.select.i10, label %97, label %_ZNSt3setI12LifeLocationSt4lessIS0_ESaIS0_EE6insertERKS0_.exit30
+  %.sroa.0.0.copyload.i8 = load i8, ptr %27, align 8
+  %96 = and i8 %.sroa.0.0.copyload.i8, -3
+  %spec.select.i9 = icmp eq i8 %96, 0
+  br i1 %spec.select.i9, label %97, label %_ZNSt3setI12LifeLocationSt4lessIS0_ESaIS0_EE6insertERKS0_.exit29
 
 97:                                               ; preds = %_ZNSt3setI12LifeLocationSt4lessIS0_ESaIS0_EE6insertERKS0_.exit
   %98 = getelementptr inbounds i8, ptr %0, i64 64
@@ -3034,35 +3028,35 @@ _ZNSt3setI12LifeLocationSt4lessIS0_ESaIS0_EE6insertERKS0_.exit: ; preds = %_ZNSt
   %103 = load ptr, ptr %98, align 8
   %104 = getelementptr inbounds ptr, ptr %103, i64 %102
   %105 = load ptr, ptr %104, align 8
-  %.not.i.i.i.i11 = icmp eq ptr %105, null
-  br i1 %.not.i.i.i.i11, label %.loopexit.i.i16, label %106
+  %.not.i.i.i.i10 = icmp eq ptr %105, null
+  br i1 %.not.i.i.i.i10, label %.loopexit.i.i15, label %106
 
 106:                                              ; preds = %97
   %107 = load ptr, ptr %105, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %10, %109
-  br i1 %110, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit19, label %.lr.ph.i.i.i.i12
+  br i1 %110, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit18, label %.lr.ph.i.i.i.i11
 
 111:                                              ; preds = %114
   %112 = icmp eq ptr %10, %116
-  br i1 %112, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit19, label %.lr.ph.i.i.i.i12, !llvm.loop !10
+  br i1 %112, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit18, label %.lr.ph.i.i.i.i11, !llvm.loop !10
 
-.lr.ph.i.i.i.i12:                                 ; preds = %106, %111
-  %.018.i.i.i.i13 = phi ptr [ %113, %111 ], [ %107, %106 ]
-  %113 = load ptr, ptr %.018.i.i.i.i13, align 8
-  %.not16.i.i.i.i14 = icmp eq ptr %113, null
-  br i1 %.not16.i.i.i.i14, label %.loopexit.i.i16, label %114
+.lr.ph.i.i.i.i11:                                 ; preds = %106, %111
+  %.018.i.i.i.i12 = phi ptr [ %113, %111 ], [ %107, %106 ]
+  %113 = load ptr, ptr %.018.i.i.i.i12, align 8
+  %.not16.i.i.i.i13 = icmp eq ptr %113, null
+  br i1 %.not16.i.i.i.i13, label %.loopexit.i.i15, label %114
 
-114:                                              ; preds = %.lr.ph.i.i.i.i12
+114:                                              ; preds = %.lr.ph.i.i.i.i11
   %115 = getelementptr inbounds i8, ptr %113, i64 8
   %116 = load ptr, ptr %115, align 8
   %117 = ptrtoint ptr %116 to i64
   %118 = urem i64 %117, %101
-  %.not17.i.i.i.i15 = icmp eq i64 %118, %102
-  br i1 %.not17.i.i.i.i15, label %111, label %.loopexit.i.i16, !llvm.loop !10
+  %.not17.i.i.i.i14 = icmp eq i64 %118, %102
+  br i1 %.not17.i.i.i.i14, label %111, label %.loopexit.i.i15, !llvm.loop !10
 
-.loopexit.i.i16:                                  ; preds = %114, %.lr.ph.i.i.i.i12, %97
+.loopexit.i.i15:                                  ; preds = %114, %.lr.ph.i.i.i.i11, %97
   store ptr %98, ptr %3, align 8
   %119 = getelementptr inbounds i8, ptr %3, i64 8
   %120 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #22
@@ -3080,35 +3074,35 @@ _ZNSt3setI12LifeLocationSt4lessIS0_ESaIS0_EE6insertERKS0_.exit: ; preds = %_ZNSt
   store i64 0, ptr %126, align 8
   store ptr %120, ptr %119, align 8
   %127 = invoke ptr @_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_St3setI12LifeLocationSt4lessIS6_ESaIS6_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSD_10_Hash_nodeISB_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %98, i64 noundef %102, i64 noundef %99, ptr noundef nonnull %120, i64 noundef 1)
-          to label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit19 unwind label %128
+          to label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit18 unwind label %128
 
-128:                                              ; preds = %.loopexit.i.i16
+128:                                              ; preds = %.loopexit.i.i15
   %129 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit19: ; preds = %111, %106, %.loopexit.i.i16
-  %.0.i.pn.i.i17 = phi ptr [ %107, %106 ], [ %127, %.loopexit.i.i16 ], [ %113, %111 ]
-  %.0.i.i18 = getelementptr inbounds i8, ptr %.0.i.pn.i.i17, i64 16
+_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit18: ; preds = %111, %106, %.loopexit.i.i15
+  %.0.i.pn.i.i16 = phi ptr [ %107, %106 ], [ %127, %.loopexit.i.i15 ], [ %113, %111 ]
+  %.0.i.i17 = getelementptr inbounds i8, ptr %.0.i.pn.i.i16, i64 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %130 = call { ptr, ptr } @_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE24_M_get_insert_unique_posERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i18, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %130 = call { ptr, ptr } @_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE24_M_get_insert_unique_posERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %5)
   %131 = extractvalue { ptr, ptr } %130, 1
-  %.not.i.i20 = icmp eq ptr %131, null
-  br i1 %.not.i.i20, label %_ZNSt3setI12LifeLocationSt4lessIS0_ESaIS0_EE6insertERKS0_.exit30, label %132
+  %.not.i.i19 = icmp eq ptr %131, null
+  br i1 %.not.i.i19, label %_ZNSt3setI12LifeLocationSt4lessIS0_ESaIS0_EE6insertERKS0_.exit29, label %132
 
-132:                                              ; preds = %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit19
+132:                                              ; preds = %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit18
   %133 = extractvalue { ptr, ptr } %130, 0
-  %.not.i.i.i21 = icmp ne ptr %133, null
-  %134 = getelementptr inbounds i8, ptr %.0.i.pn.i.i17, i64 24
+  %.not.i.i.i20 = icmp ne ptr %133, null
+  %134 = getelementptr inbounds i8, ptr %.0.i.pn.i.i16, i64 24
   %135 = icmp eq ptr %134, %131
-  %or.cond.i.i.i22 = select i1 %.not.i.i.i21, i1 true, i1 %135
-  br i1 %or.cond.i.i.i22, label %_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i25, label %136
+  %or.cond.i.i.i21 = select i1 %.not.i.i.i20, i1 true, i1 %135
+  br i1 %or.cond.i.i.i21, label %_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i24, label %136
 
 136:                                              ; preds = %132
   %137 = getelementptr inbounds i8, ptr %131, i64 32
   %138 = load ptr, ptr %5, align 8
-  %.not.i.i.i.i.i23 = icmp eq ptr %138, null
-  br i1 %.not.i.i.i.i.i23, label %142, label %139
+  %.not.i.i.i.i.i22 = icmp eq ptr %138, null
+  br i1 %.not.i.i.i.i.i22, label %142, label %139
 
 139:                                              ; preds = %136
   %140 = getelementptr inbounds i8, ptr %138, i64 88
@@ -3118,8 +3112,8 @@ _ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4
 142:                                              ; preds = %139, %136
   %143 = phi i32 [ %141, %139 ], [ 0, %136 ]
   %144 = load ptr, ptr %137, align 8
-  %.not12.i.i.i.i.i24 = icmp eq ptr %144, null
-  br i1 %.not12.i.i.i.i.i24, label %148, label %145
+  %.not12.i.i.i.i.i23 = icmp eq ptr %144, null
+  br i1 %.not12.i.i.i.i.i23, label %148, label %145
 
 145:                                              ; preds = %142
   %146 = getelementptr inbounds i8, ptr %144, i64 88
@@ -3129,32 +3123,32 @@ _ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4
 148:                                              ; preds = %145, %142
   %149 = phi i32 [ %147, %145 ], [ 0, %142 ]
   %150 = icmp ult i32 %143, %149
-  br i1 %150, label %_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i25, label %151
+  br i1 %150, label %_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i24, label %151
 
 151:                                              ; preds = %148
   %152 = icmp ult i32 %149, %143
-  br i1 %152, label %_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i25, label %153
+  br i1 %152, label %_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i24, label %153
 
 153:                                              ; preds = %151
   %154 = load i32, ptr %26, align 8
   %155 = getelementptr inbounds i8, ptr %131, i64 40
   %156 = load i32, ptr %155, align 8
   %157 = icmp ult i32 %154, %156
-  br label %_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i25
+  br label %_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i24
 
-_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i25: ; preds = %153, %151, %148, %132
+_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i24: ; preds = %153, %151, %148, %132
   %158 = phi i1 [ true, %132 ], [ %157, %153 ], [ true, %148 ], [ false, %151 ]
   %159 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
   %160 = getelementptr inbounds i8, ptr %159, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %158, ptr noundef nonnull %159, ptr noundef nonnull %131, ptr noundef nonnull align 8 dereferenceable(32) %134) #17
-  %161 = getelementptr inbounds i8, ptr %.0.i.pn.i.i17, i64 56
+  %161 = getelementptr inbounds i8, ptr %.0.i.pn.i.i16, i64 56
   %162 = load i64, ptr %161, align 8
   %163 = add i64 %162, 1
   store i64 %163, ptr %161, align 8
-  br label %_ZNSt3setI12LifeLocationSt4lessIS0_ESaIS0_EE6insertERKS0_.exit30
+  br label %_ZNSt3setI12LifeLocationSt4lessIS0_ESaIS0_EE6insertERKS0_.exit29
 
-_ZNSt3setI12LifeLocationSt4lessIS0_ESaIS0_EE6insertERKS0_.exit30: ; preds = %_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i25, %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit19, %_ZNSt3setI12LifeLocationSt4lessIS0_ESaIS0_EE6insertERKS0_.exit, %11
+_ZNSt3setI12LifeLocationSt4lessIS0_ESaIS0_EE6insertERKS0_.exit29: ; preds = %_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i24, %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit18, %_ZNSt3setI12LifeLocationSt4lessIS0_ESaIS0_EE6insertERKS0_.exit, %11
   ret void
 }
 
@@ -3249,9 +3243,8 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noun
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = load i8, ptr %2, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %37, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %37
 
 10:                                               ; preds = %3
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.5)
@@ -3384,9 +3377,8 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase8clearcntEiRjRKb(i32 nou
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = load i8, ptr %2, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %37
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %37, label %10
 
 10:                                               ; preds = %3
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.5)
@@ -3471,8 +3463,8 @@ _Z8cvtToStrIiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit: ; p
   %38 = load i32, ptr %1, align 4
   %39 = add i32 %38, 1
   store i32 %39, ptr %1, align 4
-  %.not8 = icmp eq i32 %39, 0
-  br i1 %.not8, label %40, label %49
+  %.not = icmp eq i32 %39, 0
+  br i1 %.not, label %40, label %49
 
 40:                                               ; preds = %37
   %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.5)
@@ -3551,9 +3543,8 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase4freeEiRjRb(i32 noundef 
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = load i8, ptr %2, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %37
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %37, label %10
 
 10:                                               ; preds = %3
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.5)
@@ -3715,9 +3706,8 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1
@@ -3962,9 +3952,9 @@ define linkonce_odr dso_local void @_ZN18LifePostDlyVisitor17squashAssignpostsEv
   %5 = alloca %"struct.std::_Hashtable<const AstVarScope *, std::pair<const AstVarScope *const, std::set<LifeLocation>>, std::allocator<std::pair<const AstVarScope *const, std::set<LifeLocation>>>, std::__detail::_Select1st, std::equal_to<const AstVarScope *>, std::hash<const AstVarScope *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 192
-  %.sroa.091.0131 = load ptr, ptr %7, align 8
-  %.not99132 = icmp eq ptr %.sroa.091.0131, null
-  br i1 %.not99132, label %._crit_edge136, label %.lr.ph135
+  %.sroa.090.0132 = load ptr, ptr %7, align 8
+  %.not101133 = icmp eq ptr %.sroa.090.0132, null
+  br i1 %.not101133, label %._crit_edge, label %.lr.ph135
 
 .lr.ph135:                                        ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 120
@@ -3979,9 +3969,9 @@ define linkonce_odr dso_local void @_ZN18LifePostDlyVisitor17squashAssignpostsEv
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   br label %18
 
-18:                                               ; preds = %.lr.ph135, %.critedge
-  %.sroa.091.0133 = phi ptr [ %.sroa.091.0131, %.lr.ph135 ], [ %.sroa.091.0, %.critedge ]
-  %19 = getelementptr inbounds i8, ptr %.sroa.091.0133, i64 8
+18:                                               ; preds = %.lr.ph135, %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95
+  %.sroa.090.0134 = phi ptr [ %.sroa.090.0132, %.lr.ph135 ], [ %.sroa.090.0, %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95 ]
+  %19 = getelementptr inbounds i8, ptr %.sroa.090.0134, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 112
   %22 = load i32, ptr %21, align 8
@@ -3990,13 +3980,13 @@ define linkonce_odr dso_local void @_ZN18LifePostDlyVisitor17squashAssignpostsEv
   %25 = getelementptr inbounds i8, ptr %20, i64 104
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, 4294967295
-  %.not100 = icmp eq i64 %27, 0
-  %.not = select i1 %24, i1 true, i1 %.not100
-  br i1 %.not, label %28, label %.critedge
+  %.not102 = icmp eq i64 %27, 0
+  %.not = select i1 %24, i1 true, i1 %.not102
+  br i1 %.not, label %28, label %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %.sroa.091.0133, i64 16
-  %30 = getelementptr inbounds i8, ptr %.sroa.091.0133, i64 32
+  %29 = getelementptr inbounds i8, ptr %.sroa.090.0134, i64 16
+  %30 = getelementptr inbounds i8, ptr %.sroa.090.0134, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 32
   %33 = load ptr, ptr %32, align 8
@@ -4026,22 +4016,22 @@ define linkonce_odr dso_local void @_ZN18LifePostDlyVisitor17squashAssignpostsEv
 _ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit: ; preds = %28, %34
   %46 = getelementptr inbounds i8, ptr %31, i64 24
   %47 = load ptr, ptr %46, align 8
-  %.not.i34 = icmp eq ptr %47, null
-  br i1 %.not.i34, label %_ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit38, label %48
+  %.not.i33 = icmp eq ptr %47, null
+  br i1 %.not.i33, label %_ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit37, label %48
 
 48:                                               ; preds = %_ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit
   %49 = getelementptr inbounds i8, ptr %47, i64 64
-  %.sroa.0.0.copyload.i.i.i35 = load i16, ptr %49, align 8
-  %.not6.i36 = icmp eq i16 %.sroa.0.0.copyload.i.i.i35, 316
-  br i1 %.not6.i36, label %_ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit38, label %50
+  %.sroa.0.0.copyload.i.i.i34 = load i16, ptr %49, align 8
+  %.not6.i35 = icmp eq i16 %.sroa.0.0.copyload.i.i.i34, 316
+  br i1 %.not6.i35, label %_ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit37, label %50
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds i8, ptr %47, i64 64
   %52 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.6, i32 noundef 2428, i1 noundef zeroext true)
   %53 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull @.str.21)
-  %.sroa.0.0.copyload.i.i5.i37 = load i16, ptr %51, align 8
-  %55 = zext i16 %.sroa.0.0.copyload.i.i5.i37 to i64
+  %.sroa.0.0.copyload.i.i5.i36 = load i16, ptr %51, align 8
+  %55 = zext i16 %.sroa.0.0.copyload.i.i5.i36 to i64
   %56 = getelementptr inbounds [422 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef %57)
@@ -4049,7 +4039,7 @@ _ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit: ; preds = %28, %34
   call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %47, ptr noundef nonnull align 8 dereferenceable(112) %59) #21
   unreachable
 
-_ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit38: ; preds = %_ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit, %48
+_ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit37: ; preds = %_ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit, %48
   %60 = getelementptr inbounds i8, ptr %47, i64 160
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %33, i64 160
@@ -4064,7 +4054,7 @@ _ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit38: ; preds = %_ZN7As
   %.not.i.i.i.i = icmp eq ptr %69, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %70
 
-70:                                               ; preds = %_ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit38
+70:                                               ; preds = %_ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit37
   %71 = load ptr, ptr %69, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
@@ -4089,7 +4079,7 @@ _ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit38: ; preds = %_ZN7As
   %.not17.i.i.i.i = icmp eq i64 %82, %66
   br i1 %.not17.i.i.i.i, label %75, label %.loopexit.i.i, !llvm.loop !10
 
-.loopexit.i.i:                                    ; preds = %78, %.lr.ph.i.i.i.i, %_ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit38
+.loopexit.i.i:                                    ; preds = %78, %.lr.ph.i.i.i.i, %_ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit37
   store ptr %8, ptr %5, align 8
   %83 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #22
   store ptr null, ptr %83, align 8
@@ -4127,35 +4117,35 @@ _ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4
   %95 = load ptr, ptr %11, align 8
   %96 = getelementptr inbounds ptr, ptr %95, i64 %94
   %97 = load ptr, ptr %96, align 8
-  %.not.i.i.i.i39 = icmp eq ptr %97, null
-  br i1 %.not.i.i.i.i39, label %.loopexit.i.i44, label %98
+  %.not.i.i.i.i38 = icmp eq ptr %97, null
+  br i1 %.not.i.i.i.i38, label %.loopexit.i.i43, label %98
 
 98:                                               ; preds = %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit
   %99 = load ptr, ptr %97, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %61, %101
-  br i1 %102, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit47, label %.lr.ph.i.i.i.i40
+  br i1 %102, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit46, label %.lr.ph.i.i.i.i39
 
 103:                                              ; preds = %106
   %104 = icmp eq ptr %61, %108
-  br i1 %104, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit47, label %.lr.ph.i.i.i.i40, !llvm.loop !10
+  br i1 %104, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit46, label %.lr.ph.i.i.i.i39, !llvm.loop !10
 
-.lr.ph.i.i.i.i40:                                 ; preds = %98, %103
-  %.018.i.i.i.i41 = phi ptr [ %105, %103 ], [ %99, %98 ]
-  %105 = load ptr, ptr %.018.i.i.i.i41, align 8
-  %.not16.i.i.i.i42 = icmp eq ptr %105, null
-  br i1 %.not16.i.i.i.i42, label %.loopexit.i.i44, label %106
+.lr.ph.i.i.i.i39:                                 ; preds = %98, %103
+  %.018.i.i.i.i40 = phi ptr [ %105, %103 ], [ %99, %98 ]
+  %105 = load ptr, ptr %.018.i.i.i.i40, align 8
+  %.not16.i.i.i.i41 = icmp eq ptr %105, null
+  br i1 %.not16.i.i.i.i41, label %.loopexit.i.i43, label %106
 
-106:                                              ; preds = %.lr.ph.i.i.i.i40
+106:                                              ; preds = %.lr.ph.i.i.i.i39
   %107 = getelementptr inbounds i8, ptr %105, i64 8
   %108 = load ptr, ptr %107, align 8
   %109 = ptrtoint ptr %108 to i64
   %110 = urem i64 %109, %93
-  %.not17.i.i.i.i43 = icmp eq i64 %110, %94
-  br i1 %.not17.i.i.i.i43, label %103, label %.loopexit.i.i44, !llvm.loop !10
+  %.not17.i.i.i.i42 = icmp eq i64 %110, %94
+  br i1 %.not17.i.i.i.i42, label %103, label %.loopexit.i.i43, !llvm.loop !10
 
-.loopexit.i.i44:                                  ; preds = %106, %.lr.ph.i.i.i.i40, %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit
+.loopexit.i.i43:                                  ; preds = %106, %.lr.ph.i.i.i.i39, %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit
   store ptr %11, ptr %4, align 8
   %111 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #22
   store ptr null, ptr %111, align 8
@@ -4172,23 +4162,23 @@ _ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4
   store i64 0, ptr %117, align 8
   store ptr %111, ptr %13, align 8
   %118 = invoke ptr @_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_St3setI12LifeLocationSt4lessIS6_ESaIS6_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSD_10_Hash_nodeISB_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %94, i64 noundef %64, ptr noundef nonnull %111, i64 noundef 1)
-          to label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit47 unwind label %119
+          to label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit46 unwind label %119
 
-119:                                              ; preds = %.loopexit.i.i44
+119:                                              ; preds = %.loopexit.i.i43
   %120 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_St3setI12LifeLocationSt4lessIS6_ESaIS6_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   br label %common.resume
 
-_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit47: ; preds = %103, %98, %.loopexit.i.i44
-  %.0.i.pn.i.i45 = phi ptr [ %99, %98 ], [ %118, %.loopexit.i.i44 ], [ %105, %103 ]
+_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit46: ; preds = %103, %98, %.loopexit.i.i43
+  %.0.i.pn.i.i44 = phi ptr [ %99, %98 ], [ %118, %.loopexit.i.i43 ], [ %105, %103 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %121 = getelementptr inbounds i8, ptr %.0.i.pn.i.i45, i64 56
+  %121 = getelementptr inbounds i8, ptr %.0.i.pn.i.i44, i64 56
   %122 = load i64, ptr %121, align 8
   %123 = icmp eq i64 %122, 0
-  br i1 %123, label %124, label %.critedge
+  br i1 %123, label %124, label %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95
 
-124:                                              ; preds = %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit47
+124:                                              ; preds = %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit46
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %125 = ptrtoint ptr %63 to i64
   %126 = load i64, ptr %12, align 8
@@ -4196,35 +4186,35 @@ _ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4
   %128 = load ptr, ptr %11, align 8
   %129 = getelementptr inbounds ptr, ptr %128, i64 %127
   %130 = load ptr, ptr %129, align 8
-  %.not.i.i.i.i48 = icmp eq ptr %130, null
-  br i1 %.not.i.i.i.i48, label %.loopexit.i.i53, label %131
+  %.not.i.i.i.i47 = icmp eq ptr %130, null
+  br i1 %.not.i.i.i.i47, label %.loopexit.i.i52, label %131
 
 131:                                              ; preds = %124
   %132 = load ptr, ptr %130, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %63, %134
-  br i1 %135, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit56, label %.lr.ph.i.i.i.i49
+  br i1 %135, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit55, label %.lr.ph.i.i.i.i48
 
 136:                                              ; preds = %139
   %137 = icmp eq ptr %63, %141
-  br i1 %137, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit56, label %.lr.ph.i.i.i.i49, !llvm.loop !10
+  br i1 %137, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit55, label %.lr.ph.i.i.i.i48, !llvm.loop !10
 
-.lr.ph.i.i.i.i49:                                 ; preds = %131, %136
-  %.018.i.i.i.i50 = phi ptr [ %138, %136 ], [ %132, %131 ]
-  %138 = load ptr, ptr %.018.i.i.i.i50, align 8
-  %.not16.i.i.i.i51 = icmp eq ptr %138, null
-  br i1 %.not16.i.i.i.i51, label %.loopexit.i.i53, label %139
+.lr.ph.i.i.i.i48:                                 ; preds = %131, %136
+  %.018.i.i.i.i49 = phi ptr [ %138, %136 ], [ %132, %131 ]
+  %138 = load ptr, ptr %.018.i.i.i.i49, align 8
+  %.not16.i.i.i.i50 = icmp eq ptr %138, null
+  br i1 %.not16.i.i.i.i50, label %.loopexit.i.i52, label %139
 
-139:                                              ; preds = %.lr.ph.i.i.i.i49
+139:                                              ; preds = %.lr.ph.i.i.i.i48
   %140 = getelementptr inbounds i8, ptr %138, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = ptrtoint ptr %141 to i64
   %143 = urem i64 %142, %126
-  %.not17.i.i.i.i52 = icmp eq i64 %143, %127
-  br i1 %.not17.i.i.i.i52, label %136, label %.loopexit.i.i53, !llvm.loop !10
+  %.not17.i.i.i.i51 = icmp eq i64 %143, %127
+  br i1 %.not17.i.i.i.i51, label %136, label %.loopexit.i.i52, !llvm.loop !10
 
-.loopexit.i.i53:                                  ; preds = %139, %.lr.ph.i.i.i.i49, %124
+.loopexit.i.i52:                                  ; preds = %139, %.lr.ph.i.i.i.i48, %124
   store ptr %11, ptr %3, align 8
   %144 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #22
   store ptr null, ptr %144, align 8
@@ -4241,41 +4231,41 @@ _ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4
   store i64 0, ptr %150, align 8
   store ptr %144, ptr %14, align 8
   %151 = invoke ptr @_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_St3setI12LifeLocationSt4lessIS6_ESaIS6_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSD_10_Hash_nodeISB_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %127, i64 noundef %125, ptr noundef nonnull %144, i64 noundef 1)
-          to label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit56 unwind label %152
+          to label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit55 unwind label %152
 
-152:                                              ; preds = %.loopexit.i.i53
+152:                                              ; preds = %.loopexit.i.i52
   %153 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_St3setI12LifeLocationSt4lessIS6_ESaIS6_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   br label %common.resume
 
-_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit56: ; preds = %136, %131, %.loopexit.i.i53
-  %.0.i.pn.i.i54 = phi ptr [ %132, %131 ], [ %151, %.loopexit.i.i53 ], [ %138, %136 ]
+_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit55: ; preds = %136, %131, %.loopexit.i.i52
+  %.0.i.pn.i.i53 = phi ptr [ %132, %131 ], [ %151, %.loopexit.i.i52 ], [ %138, %136 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %154 = getelementptr inbounds i8, ptr %.0.i.pn.i.i54, i64 40
+  %154 = getelementptr inbounds i8, ptr %.0.i.pn.i.i53, i64 40
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %.0.i.pn.i.i54, i64 24
-  %.not101123 = icmp eq ptr %155, %156
-  br i1 %.not101123, label %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95, label %.lr.ph
+  %156 = getelementptr inbounds i8, ptr %.0.i.pn.i.i53, i64 24
+  %.not103125 = icmp eq ptr %155, %156
+  br i1 %.not103125, label %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit56
-  %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.091.0133, i64 24
+.lr.ph:                                           ; preds = %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit55
+  %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.090.0134, i64 24
   %157 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 40
   %158 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   br label %159
 
-159:                                              ; preds = %.lr.ph, %.loopexit103
-  %.sroa.082.0124 = phi ptr [ %155, %.lr.ph ], [ %182, %.loopexit103 ]
-  %160 = getelementptr inbounds i8, ptr %.sroa.082.0124, i64 32
+159:                                              ; preds = %.lr.ph, %.loopexit106
+  %.sroa.081.0126 = phi ptr [ %155, %.lr.ph ], [ %182, %.loopexit106 ]
+  %160 = getelementptr inbounds i8, ptr %.sroa.081.0126, i64 32
   %.sroa.09.0.copyload = load ptr, ptr %160, align 8
-  %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.082.0124, i64 40
+  %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.081.0126, i64 40
   %.sroa.210.0.copyload = load i32, ptr %.sroa.210.0..sroa_idx, align 8
   %.sroa.06.0.copyload = load ptr, ptr %29, align 8
   %.sroa.27.0.copyload = load i32, ptr %.sroa.27.0..sroa_idx, align 8
   %161 = icmp eq ptr %.sroa.09.0.copyload, null
   %162 = icmp ne ptr %.sroa.06.0.copyload, null
   %or.cond.i = select i1 %161, i1 %162, i1 false
-  br i1 %or.cond.i, label %.loopexit103, label %163
+  br i1 %or.cond.i, label %.loopexit106, label %163
 
 163:                                              ; preds = %159
   %164 = icmp eq ptr %.sroa.06.0.copyload, %.sroa.09.0.copyload
@@ -4283,17 +4273,17 @@ _ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4
 
 165:                                              ; preds = %163
   %166 = icmp ult i32 %.sroa.27.0.copyload, %.sroa.210.0.copyload
-  br i1 %166, label %.loopexit103, label %169
+  br i1 %166, label %.loopexit106, label %169
 
 _ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i: ; preds = %163
   %167 = load ptr, ptr %15, align 8
   %168 = call noundef zeroext i1 @_ZN16GraphPathChecker14pathExistsFromEPK13V3GraphVertexS2_(ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef %.sroa.06.0.copyload, ptr noundef %.sroa.09.0.copyload)
-  br i1 %168, label %.loopexit103, label %169
+  br i1 %168, label %.loopexit106, label %169
 
 169:                                              ; preds = %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i, %165
   %170 = load ptr, ptr %157, align 8
   %.not17.i = icmp eq ptr %170, %158
-  br i1 %.not17.i, label %.loopexit103, label %.lr.ph.i
+  br i1 %.not17.i, label %.loopexit106, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %169, %180
   %.sroa.010.018.i = phi ptr [ %181, %180 ], [ %170, %169 ]
@@ -4306,59 +4296,59 @@ _ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i: ; preds = %163
   %175 = getelementptr inbounds i8, ptr %.sroa.010.018.i, i64 40
   %176 = load i32, ptr %175, align 8
   %177 = icmp ugt i32 %176, %.sroa.210.0.copyload
-  br i1 %177, label %180, label %.critedge
+  br i1 %177, label %180, label %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95
 
 _ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit9.i: ; preds = %.lr.ph.i
   %178 = load ptr, ptr %15, align 8
   %179 = call noundef zeroext i1 @_ZN16GraphPathChecker14pathExistsFromEPK13V3GraphVertexS2_(ptr noundef nonnull align 8 dereferenceable(24) %178, ptr noundef %.sroa.09.0.copyload, ptr noundef %172)
-  br i1 %179, label %180, label %.critedge
+  br i1 %179, label %180, label %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95
 
 180:                                              ; preds = %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit9.i, %174
   %181 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.018.i) #18
-  %.not.i57 = icmp eq ptr %181, %158
-  br i1 %.not.i57, label %.loopexit103, label %.lr.ph.i
+  %.not.i56 = icmp eq ptr %181, %158
+  br i1 %.not.i56, label %.loopexit106, label %.lr.ph.i
 
-.loopexit103:                                     ; preds = %180, %159, %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i, %165, %169
-  %182 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.082.0124) #18
-  %.not101 = icmp eq ptr %182, %156
-  br i1 %.not101, label %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95, label %159, !llvm.loop !22
+.loopexit106:                                     ; preds = %180, %159, %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i, %165, %169
+  %182 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.081.0126) #18
+  %.not103 = icmp eq ptr %182, %156
+  br i1 %.not103, label %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit, label %159, !llvm.loop !22
 
-_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95: ; preds = %.loopexit103, %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit56
+_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit: ; preds = %.loopexit106, %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit55
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %183 = load i64, ptr %9, align 8
   %184 = urem i64 %125, %183
   %185 = load ptr, ptr %8, align 8
   %186 = getelementptr inbounds ptr, ptr %185, i64 %184
   %187 = load ptr, ptr %186, align 8
-  %.not.i.i.i.i58 = icmp eq ptr %187, null
-  br i1 %.not.i.i.i.i58, label %.loopexit.i.i63, label %188
+  %.not.i.i.i.i57 = icmp eq ptr %187, null
+  br i1 %.not.i.i.i.i57, label %.loopexit.i.i62, label %188
 
-188:                                              ; preds = %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95
+188:                                              ; preds = %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit
   %189 = load ptr, ptr %187, align 8
   %190 = getelementptr inbounds i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8
   %192 = icmp eq ptr %63, %191
-  br i1 %192, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit66, label %.lr.ph.i.i.i.i59
+  br i1 %192, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit65, label %.lr.ph.i.i.i.i58
 
 193:                                              ; preds = %196
   %194 = icmp eq ptr %63, %198
-  br i1 %194, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit66, label %.lr.ph.i.i.i.i59, !llvm.loop !10
+  br i1 %194, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit65, label %.lr.ph.i.i.i.i58, !llvm.loop !10
 
-.lr.ph.i.i.i.i59:                                 ; preds = %188, %193
-  %.018.i.i.i.i60 = phi ptr [ %195, %193 ], [ %189, %188 ]
-  %195 = load ptr, ptr %.018.i.i.i.i60, align 8
-  %.not16.i.i.i.i61 = icmp eq ptr %195, null
-  br i1 %.not16.i.i.i.i61, label %.loopexit.i.i63, label %196
+.lr.ph.i.i.i.i58:                                 ; preds = %188, %193
+  %.018.i.i.i.i59 = phi ptr [ %195, %193 ], [ %189, %188 ]
+  %195 = load ptr, ptr %.018.i.i.i.i59, align 8
+  %.not16.i.i.i.i60 = icmp eq ptr %195, null
+  br i1 %.not16.i.i.i.i60, label %.loopexit.i.i62, label %196
 
-196:                                              ; preds = %.lr.ph.i.i.i.i59
+196:                                              ; preds = %.lr.ph.i.i.i.i58
   %197 = getelementptr inbounds i8, ptr %195, i64 8
   %198 = load ptr, ptr %197, align 8
   %199 = ptrtoint ptr %198 to i64
   %200 = urem i64 %199, %183
-  %.not17.i.i.i.i62 = icmp eq i64 %200, %184
-  br i1 %.not17.i.i.i.i62, label %193, label %.loopexit.i.i63, !llvm.loop !10
+  %.not17.i.i.i.i61 = icmp eq i64 %200, %184
+  br i1 %.not17.i.i.i.i61, label %193, label %.loopexit.i.i62, !llvm.loop !10
 
-.loopexit.i.i63:                                  ; preds = %196, %.lr.ph.i.i.i.i59, %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95
+.loopexit.i.i62:                                  ; preds = %196, %.lr.ph.i.i.i.i58, %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit
   store ptr %8, ptr %2, align 8
   %201 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #22
   store ptr null, ptr %201, align 8
@@ -4375,94 +4365,94 @@ _ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS
   store i64 0, ptr %207, align 8
   store ptr %201, ptr %16, align 8
   %208 = invoke ptr @_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_St3setI12LifeLocationSt4lessIS6_ESaIS6_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSD_10_Hash_nodeISB_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %8, i64 noundef %184, i64 noundef %125, ptr noundef nonnull %201, i64 noundef 1)
-          to label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit66 unwind label %209
+          to label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit65 unwind label %209
 
-209:                                              ; preds = %.loopexit.i.i63
+209:                                              ; preds = %.loopexit.i.i62
   %210 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_St3setI12LifeLocationSt4lessIS6_ESaIS6_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #17
   br label %common.resume
 
-_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit66: ; preds = %193, %188, %.loopexit.i.i63
-  %.0.i.pn.i.i64 = phi ptr [ %189, %188 ], [ %208, %.loopexit.i.i63 ], [ %195, %193 ]
+_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit65: ; preds = %193, %188, %.loopexit.i.i62
+  %.0.i.pn.i.i63 = phi ptr [ %189, %188 ], [ %208, %.loopexit.i.i62 ], [ %195, %193 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %211 = getelementptr inbounds i8, ptr %.0.i.pn.i.i64, i64 40
+  %211 = getelementptr inbounds i8, ptr %.0.i.pn.i.i63, i64 40
   %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %.0.i.pn.i.i64, i64 24
-  %.not102126 = icmp eq ptr %212, %213
-  br i1 %.not102126, label %._crit_edge, label %.lr.ph128
+  %213 = getelementptr inbounds i8, ptr %.0.i.pn.i.i63, i64 24
+  %.not104127 = icmp eq ptr %212, %213
+  br i1 %.not104127, label %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit74, label %.lr.ph129
 
-.lr.ph128:                                        ; preds = %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit66
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.091.0133, i64 24
+.lr.ph129:                                        ; preds = %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit65
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.090.0134, i64 24
   %214 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 40
   %215 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   br label %216
 
-216:                                              ; preds = %.lr.ph128, %.loopexit
-  %.sroa.078.0127 = phi ptr [ %212, %.lr.ph128 ], [ %239, %.loopexit ]
-  %217 = getelementptr inbounds i8, ptr %.sroa.078.0127, i64 32
+216:                                              ; preds = %.lr.ph129, %.loopexit
+  %.sroa.077.0128 = phi ptr [ %212, %.lr.ph129 ], [ %239, %.loopexit ]
+  %217 = getelementptr inbounds i8, ptr %.sroa.077.0128, i64 32
   %.sroa.01.0.copyload = load ptr, ptr %217, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.078.0127, i64 40
+  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.077.0128, i64 40
   %.sroa.22.0.copyload = load i32, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.0.0.copyload = load ptr, ptr %29, align 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %218 = icmp eq ptr %.sroa.01.0.copyload, null
   %219 = icmp ne ptr %.sroa.0.0.copyload, null
-  %or.cond.i67 = select i1 %218, i1 %219, i1 false
-  br i1 %or.cond.i67, label %.loopexit, label %220
+  %or.cond.i66 = select i1 %218, i1 %219, i1 false
+  br i1 %or.cond.i66, label %.loopexit, label %220
 
 220:                                              ; preds = %216
   %221 = icmp eq ptr %.sroa.0.0.copyload, %.sroa.01.0.copyload
-  br i1 %221, label %222, label %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i68
+  br i1 %221, label %222, label %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i67
 
 222:                                              ; preds = %220
   %223 = icmp ult i32 %.sroa.2.0.copyload, %.sroa.22.0.copyload
   br i1 %223, label %.loopexit, label %226
 
-_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i68: ; preds = %220
+_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i67: ; preds = %220
   %224 = load ptr, ptr %15, align 8
   %225 = call noundef zeroext i1 @_ZN16GraphPathChecker14pathExistsFromEPK13V3GraphVertexS2_(ptr noundef nonnull align 8 dereferenceable(24) %224, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.01.0.copyload)
   br i1 %225, label %.loopexit, label %226
 
-226:                                              ; preds = %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i68, %222
+226:                                              ; preds = %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i67, %222
   %227 = load ptr, ptr %214, align 8
-  %.not17.i69 = icmp eq ptr %227, %215
-  br i1 %.not17.i69, label %.loopexit, label %.lr.ph.i70
+  %.not17.i68 = icmp eq ptr %227, %215
+  br i1 %.not17.i68, label %.loopexit, label %.lr.ph.i69
 
-.lr.ph.i70:                                       ; preds = %226, %237
-  %.sroa.010.018.i71 = phi ptr [ %238, %237 ], [ %227, %226 ]
-  %228 = getelementptr inbounds i8, ptr %.sroa.010.018.i71, i64 32
+.lr.ph.i69:                                       ; preds = %226, %237
+  %.sroa.010.018.i70 = phi ptr [ %238, %237 ], [ %227, %226 ]
+  %228 = getelementptr inbounds i8, ptr %.sroa.010.018.i70, i64 32
   %229 = load ptr, ptr %228, align 8
   %230 = icmp eq ptr %229, %.sroa.01.0.copyload
-  br i1 %230, label %231, label %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit9.i72
+  br i1 %230, label %231, label %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit9.i71
 
-231:                                              ; preds = %.lr.ph.i70
-  %232 = getelementptr inbounds i8, ptr %.sroa.010.018.i71, i64 40
+231:                                              ; preds = %.lr.ph.i69
+  %232 = getelementptr inbounds i8, ptr %.sroa.010.018.i70, i64 40
   %233 = load i32, ptr %232, align 8
   %234 = icmp ugt i32 %233, %.sroa.22.0.copyload
-  br i1 %234, label %237, label %.critedge
+  br i1 %234, label %237, label %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95
 
-_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit9.i72: ; preds = %.lr.ph.i70
+_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit9.i71: ; preds = %.lr.ph.i69
   %235 = load ptr, ptr %15, align 8
   %236 = call noundef zeroext i1 @_ZN16GraphPathChecker14pathExistsFromEPK13V3GraphVertexS2_(ptr noundef nonnull align 8 dereferenceable(24) %235, ptr noundef %.sroa.01.0.copyload, ptr noundef %229)
-  br i1 %236, label %237, label %.critedge
+  br i1 %236, label %237, label %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95
 
-237:                                              ; preds = %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit9.i72, %231
-  %238 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.018.i71) #18
-  %.not.i74 = icmp eq ptr %238, %215
-  br i1 %.not.i74, label %.loopexit, label %.lr.ph.i70
+237:                                              ; preds = %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit9.i71, %231
+  %238 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.018.i70) #18
+  %.not.i73 = icmp eq ptr %238, %215
+  br i1 %.not.i73, label %.loopexit, label %.lr.ph.i69
 
-.loopexit:                                        ; preds = %237, %216, %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i68, %222, %226
-  %239 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.078.0127) #18
-  %.not102 = icmp eq ptr %239, %213
-  br i1 %.not102, label %._crit_edge, label %216, !llvm.loop !23
+.loopexit:                                        ; preds = %237, %216, %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i67, %222, %226
+  %239 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.077.0128) #18
+  %.not104 = icmp eq ptr %239, %213
+  br i1 %.not104, label %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit74, label %216, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %.loopexit, %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit66
+_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit74: ; preds = %.loopexit, %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit65
   %240 = call noundef i32 @_ZL5debugv()
   %241 = icmp sgt i32 %240, 3
   br i1 %241, label %242, label %259
 
-242:                                              ; preds = %._crit_edge
+242:                                              ; preds = %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit74
   %243 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str)
   call void @_ZN7V3Error7lineStrB5cxx11EPKci(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.1, i32 noundef 245)
   %244 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %243, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -4474,8 +4464,8 @@ _ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit9.i72: ; preds = %.lr.ph.
 
 247:                                              ; preds = %245
   %248 = load ptr, ptr %30, align 8
-  %.not.i76 = icmp eq ptr %248, null
-  br i1 %.not.i76, label %249, label %251
+  %.not.i75 = icmp eq ptr %248, null
+  br i1 %.not.i75, label %249, label %251
 
 249:                                              ; preds = %247
   %250 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %246, ptr noundef nonnull @.str.445)
@@ -4502,7 +4492,7 @@ _ZlsRSoPK7AstNode.exit:                           ; preds = %249, %251
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   br label %common.resume
 
-259:                                              ; preds = %._crit_edge, %256
+259:                                              ; preds = %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit74, %256
   %260 = getelementptr inbounds i8, ptr %61, i64 144
   store i64 %125, ptr %260, align 8
   %261 = load i32, ptr @_ZN12VNUser4InUse12s_userCntGblE, align 4
@@ -4515,14 +4505,14 @@ _ZlsRSoPK7AstNode.exit:                           ; preds = %249, %251
   %265 = load double, ptr %17, align 8
   %266 = fadd double %265, 1.000000e+00
   store double %266, ptr %17, align 8
-  br label %.critedge
+  br label %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95
 
-.critedge:                                        ; preds = %174, %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit9.i, %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit9.i72, %231, %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit47, %18, %259
-  %.sroa.091.0 = load ptr, ptr %.sroa.091.0133, align 8
-  %.not99 = icmp eq ptr %.sroa.091.0, null
-  br i1 %.not99, label %._crit_edge136, label %18
+_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95: ; preds = %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit9.i, %174, %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit9.i71, %231, %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit46, %18, %259
+  %.sroa.090.0 = load ptr, ptr %.sroa.090.0134, align 8
+  %.not101 = icmp eq ptr %.sroa.090.0, null
+  br i1 %.not101, label %._crit_edge, label %18
 
-._crit_edge136:                                   ; preds = %.critedge, %1
+._crit_edge:                                      ; preds = %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95, %1
   ret void
 }
 
@@ -4645,9 +4635,8 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1
@@ -4911,16 +4900,15 @@ _ZN19LifePostElimVisitorD2Ev.exit:                ; preds = %3, %5
 define linkonce_odr dso_local void @_ZN19LifePostElimVisitor5visitEP8AstCFunc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %10
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 313
   %8 = load i32, ptr %7, align 1
   %9 = and i32 %8, 4096
-  %.not3 = icmp eq i32 %9, 0
-  br i1 %.not3, label %11, label %10
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %6, %2
   store i8 0, ptr %3, align 8
@@ -5531,9 +5519,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit21: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
   %18 = call i32 @llvm.umax.i32(i32 %11, i32 %16)
   %19 = load i8, ptr getelementptr inbounds (%class.V3Global, ptr @v3Global, i64 0, i32 22, i32 190), align 2
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %30, label %29
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %29, label %30
 
 21:                                               ; preds = %.noexc, %7
   %22 = landingpad { ptr, i32 }
@@ -5635,9 +5622,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit21: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
   %18 = call i32 @llvm.umax.i32(i32 %11, i32 %16)
   %19 = load i8, ptr getelementptr inbounds (%class.V3Global, ptr @v3Global, i64 0, i32 22, i32 190), align 2
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %30, label %29
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %29, label %30
 
 21:                                               ; preds = %.noexc, %7
   %22 = landingpad { ptr, i32 }

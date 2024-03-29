@@ -153,12 +153,12 @@ _ZN3p2t5Sweep10PointEventERNS_12SweepContextERNS_5PointE.exit: ; preds = %for.bo
 
 for.body7.lr.ph:                                  ; preds = %_ZN3p2t5Sweep10PointEventERNS_12SweepContextERNS_5PointE.exit
   %triangle.i = getelementptr inbounds i8, ptr %call2.i, i64 8
-  %next7.i.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   %prev8.i.i = getelementptr inbounds i8, ptr %call2.i, i64 24
+  %next7.i.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   br label %for.body7
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit
-  %7 = phi ptr [ %6, %for.body7.lr.ph ], [ %355, %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit ]
+  %7 = phi ptr [ %6, %for.body7.lr.ph ], [ %354, %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit ]
   %conv263 = phi i64 [ 0, %for.body7.lr.ph ], [ %conv, %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit ]
   %ii.0262 = phi i32 [ 0, %for.body7.lr.ph ], [ %inc, %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit ]
   %add.ptr.i = getelementptr inbounds ptr, ptr %7, i64 %conv263
@@ -194,60 +194,59 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
 
 if.end.i:                                         ; preds = %for.body7
   %17 = load i8, ptr %right.i, align 8
-  %18 = and i8 %17, 1
-  %tobool.not.i = icmp eq i8 %18, 0
-  %19 = load ptr, ptr %8, align 8
-  %20 = load double, ptr %19, align 8
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i12
+  %tobool.i = trunc i8 %17 to i1
+  %18 = load ptr, ptr %8, align 8
+  %19 = load double, ptr %18, align 8
+  br i1 %tobool.i, label %if.then.i13, label %if.else.i
 
-if.then.i12:                                      ; preds = %if.end.i
-  %21 = load ptr, ptr %next7.i.i, align 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = load double, ptr %22, align 8
-  %cmp8.i.i = fcmp olt double %23, %20
+if.then.i13:                                      ; preds = %if.end.i
+  %20 = load ptr, ptr %next7.i.i, align 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = load double, ptr %21, align 8
+  %cmp8.i.i = fcmp olt double %22, %19
   br i1 %cmp8.i.i, label %while.body.i.i, label %_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit
 
-while.body.i.i:                                   ; preds = %if.then.i12, %if.end.i.i
-  %.pre10.i.i301 = phi double [ %.pre10.i.i302, %if.end.i.i ], [ %20, %if.then.i12 ]
-  %.pre.i.i298 = phi ptr [ %.pre.i.i294, %if.end.i.i ], [ %19, %if.then.i12 ]
-  %24 = phi double [ %181, %if.end.i.i ], [ %20, %if.then.i12 ]
-  %25 = phi ptr [ %182, %if.end.i.i ], [ %19, %if.then.i12 ]
-  %26 = phi double [ %185, %if.end.i.i ], [ %23, %if.then.i12 ]
-  %27 = phi ptr [ %184, %if.end.i.i ], [ %22, %if.then.i12 ]
-  %28 = phi ptr [ %183, %if.end.i.i ], [ %21, %if.then.i12 ]
-  %node.addr.09.i.i = phi ptr [ %node.addr.1.i.i, %if.end.i.i ], [ %call2.i, %if.then.i12 ]
-  %29 = load ptr, ptr %q.i, align 8
-  %30 = load double, ptr %29, align 8
-  %y.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
-  %31 = load double, ptr %y.i.i.i, align 8
-  %y2.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
-  %32 = load double, ptr %y2.i.i.i, align 8
-  %y4.i.i.i = getelementptr inbounds i8, ptr %29, i64 8
-  %33 = load double, ptr %y4.i.i.i, align 8
-  %34 = insertelement <2 x double> poison, double %31, i64 0
-  %35 = insertelement <2 x double> %34, double %33, i64 1
-  %36 = insertelement <2 x double> poison, double %32, i64 0
-  %37 = shufflevector <2 x double> %36, <2 x double> poison, <2 x i32> zeroinitializer
-  %38 = fsub <2 x double> %35, %37
-  %39 = insertelement <2 x double> poison, double %30, i64 0
-  %40 = insertelement <2 x double> %39, double %26, i64 1
-  %41 = insertelement <2 x double> poison, double %24, i64 0
-  %42 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> zeroinitializer
-  %43 = fsub <2 x double> %40, %42
-  %44 = fmul <2 x double> %43, %38
-  %shift = shufflevector <2 x double> %44, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %45 = fsub <2 x double> %44, %shift
-  %sub11.i.i.i = extractelement <2 x double> %45, i64 0
-  %46 = tail call double @llvm.fabs.f64(double %sub11.i.i.i)
-  %or.cond.i.i.i = fcmp uge double %46, 0x3D719799812DEA11
+while.body.i.i:                                   ; preds = %if.then.i13, %if.end.i.i
+  %.pre10.i.i314 = phi double [ %.pre10.i.i315, %if.end.i.i ], [ %19, %if.then.i13 ]
+  %.pre.i.i311 = phi ptr [ %.pre.i.i307, %if.end.i.i ], [ %18, %if.then.i13 ]
+  %23 = phi double [ %180, %if.end.i.i ], [ %19, %if.then.i13 ]
+  %24 = phi ptr [ %181, %if.end.i.i ], [ %18, %if.then.i13 ]
+  %25 = phi double [ %184, %if.end.i.i ], [ %22, %if.then.i13 ]
+  %26 = phi ptr [ %183, %if.end.i.i ], [ %21, %if.then.i13 ]
+  %27 = phi ptr [ %182, %if.end.i.i ], [ %20, %if.then.i13 ]
+  %node.addr.09.i.i = phi ptr [ %node.addr.1.i.i, %if.end.i.i ], [ %call2.i, %if.then.i13 ]
+  %28 = load ptr, ptr %q.i, align 8
+  %29 = load double, ptr %28, align 8
+  %y.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = load double, ptr %y.i.i.i, align 8
+  %y2.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
+  %31 = load double, ptr %y2.i.i.i, align 8
+  %y4.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = load double, ptr %y4.i.i.i, align 8
+  %33 = insertelement <2 x double> poison, double %30, i64 0
+  %34 = insertelement <2 x double> %33, double %32, i64 1
+  %35 = insertelement <2 x double> poison, double %31, i64 0
+  %36 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> zeroinitializer
+  %37 = fsub <2 x double> %34, %36
+  %38 = insertelement <2 x double> poison, double %29, i64 0
+  %39 = insertelement <2 x double> %38, double %25, i64 1
+  %40 = insertelement <2 x double> poison, double %23, i64 0
+  %41 = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> zeroinitializer
+  %42 = fsub <2 x double> %39, %41
+  %43 = fmul <2 x double> %42, %37
+  %shift = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %44 = fsub <2 x double> %43, %shift
+  %sub11.i.i.i = extractelement <2 x double> %44, i64 0
+  %45 = tail call double @llvm.fabs.f64(double %sub11.i.i.i)
+  %or.cond.i.i.i = fcmp uge double %45, 0x3D719799812DEA11
   %cmp13.i.i.i = fcmp ogt double %sub11.i.i.i, 0.000000e+00
   %cmp6.i.i = select i1 %or.cond.i.i.i, i1 %cmp13.i.i.i, i1 false
   br i1 %cmp6.i.i, label %if.then.i.i14, label %if.end.i.i
 
 if.then.i.i14:                                    ; preds = %while.body.i.i
-  %47 = load ptr, ptr %node.addr.09.i.i, align 8
-  %48 = load double, ptr %47, align 8
-  %cmp13.i = fcmp olt double %48, %24
+  %46 = load ptr, ptr %node.addr.09.i.i, align 8
+  %47 = load double, ptr %46, align 8
+  %cmp13.i = fcmp olt double %47, %23
   br i1 %cmp13.i, label %if.then.lr.ph.i33, label %if.end.i.i
 
 if.then.lr.ph.i33:                                ; preds = %if.then.i.i14
@@ -255,71 +254,71 @@ if.then.lr.ph.i33:                                ; preds = %if.then.i.i14
   br label %if.then.i34
 
 if.then.i34:                                      ; preds = %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit, %if.then.lr.ph.i33
-  %.pre10.i.i300 = phi double [ %.pre10.i.i301, %if.then.lr.ph.i33 ], [ %.pre10.i.i299, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %.pre.i.i297 = phi ptr [ %.pre.i.i298, %if.then.lr.ph.i33 ], [ %.pre.i.i296, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %49 = phi double [ %24, %if.then.lr.ph.i33 ], [ %177, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %50 = phi ptr [ %25, %if.then.lr.ph.i33 ], [ %178, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %51 = phi double [ %48, %if.then.lr.ph.i33 ], [ %179, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %52 = phi ptr [ %47, %if.then.lr.ph.i33 ], [ %180, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %53 = load ptr, ptr %next.i, align 8
-  %54 = load ptr, ptr %53, align 8
-  %next6.i = getelementptr inbounds i8, ptr %53, i64 16
-  %55 = load ptr, ptr %next6.i, align 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = load <2 x double>, ptr %56, align 8
-  %y4.i.i40 = getelementptr inbounds i8, ptr %52, i64 8
-  %58 = load double, ptr %y4.i.i40, align 8
-  %59 = insertelement <2 x double> poison, double %51, i64 0
-  %60 = insertelement <2 x double> %59, double %58, i64 1
-  %61 = fsub <2 x double> %60, %57
-  %62 = shufflevector <2 x double> %61, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %63 = load <2 x double>, ptr %54, align 8
-  %64 = fsub <2 x double> %63, %57
-  %65 = fmul <2 x double> %62, %64
-  %shift369 = shufflevector <2 x double> %65, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %66 = fsub <2 x double> %shift369, %65
-  %sub11.i.i44 = extractelement <2 x double> %66, i64 0
-  %67 = tail call double @llvm.fabs.f64(double %sub11.i.i44)
-  %or.cond.i.i45 = fcmp uge double %67, 0x3D719799812DEA11
+  %.pre10.i.i313 = phi double [ %.pre10.i.i314, %if.then.lr.ph.i33 ], [ %.pre10.i.i312, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %.pre.i.i310 = phi ptr [ %.pre.i.i311, %if.then.lr.ph.i33 ], [ %.pre.i.i309, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %48 = phi double [ %23, %if.then.lr.ph.i33 ], [ %176, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %49 = phi ptr [ %24, %if.then.lr.ph.i33 ], [ %177, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %50 = phi double [ %47, %if.then.lr.ph.i33 ], [ %178, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %51 = phi ptr [ %46, %if.then.lr.ph.i33 ], [ %179, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %52 = load ptr, ptr %next.i, align 8
+  %53 = load ptr, ptr %52, align 8
+  %next6.i = getelementptr inbounds i8, ptr %52, i64 16
+  %54 = load ptr, ptr %next6.i, align 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = load <2 x double>, ptr %55, align 8
+  %y4.i.i40 = getelementptr inbounds i8, ptr %51, i64 8
+  %57 = load double, ptr %y4.i.i40, align 8
+  %58 = insertelement <2 x double> poison, double %50, i64 0
+  %59 = insertelement <2 x double> %58, double %57, i64 1
+  %60 = fsub <2 x double> %59, %56
+  %61 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %62 = load <2 x double>, ptr %53, align 8
+  %63 = fsub <2 x double> %62, %56
+  %64 = fmul <2 x double> %61, %63
+  %shift369 = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %65 = fsub <2 x double> %shift369, %64
+  %sub11.i.i44 = extractelement <2 x double> %65, i64 0
+  %66 = tail call double @llvm.fabs.f64(double %sub11.i.i44)
+  %or.cond.i.i45 = fcmp uge double %66, 0x3D719799812DEA11
   %cmp13.i.i46 = fcmp ogt double %sub11.i.i44, 0.000000e+00
   %cmp8.i47 = select i1 %or.cond.i.i45, i1 %cmp13.i.i46, i1 false
   br i1 %cmp8.i47, label %tailrecurse.i.i52, label %tailrecurse.i139.preheader
 
 tailrecurse.i139.preheader:                       ; preds = %if.then.i34
-  %y2.i12.i154 = getelementptr inbounds i8, ptr %50, i64 8
-  %68 = extractelement <2 x double> %63, i64 0
-  %69 = insertelement <2 x double> poison, double %49, i64 0
+  %y2.i12.i154 = getelementptr inbounds i8, ptr %49, i64 8
+  %67 = extractelement <2 x double> %62, i64 0
+  %68 = insertelement <2 x double> poison, double %48, i64 0
   br label %tailrecurse.i139
 
 tailrecurse.i.i52:                                ; preds = %if.then.i34, %if.then7.i.i68
-  %70 = phi ptr [ %83, %if.then7.i.i68 ], [ %53, %if.then.i34 ]
+  %69 = phi ptr [ %82, %if.then7.i.i68 ], [ %52, %if.then.i34 ]
   %call.i196 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
-  %prev.i197 = getelementptr inbounds i8, ptr %70, i64 24
-  %71 = load ptr, ptr %prev.i197, align 8
-  %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %70, align 8
-  %next.i198 = getelementptr inbounds i8, ptr %70, i64 16
-  %74 = load ptr, ptr %next.i198, align 8
-  %75 = load ptr, ptr %74, align 8
-  invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i196, ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(40) %73, ptr noundef nonnull align 8 dereferenceable(40) %75)
+  %prev.i197 = getelementptr inbounds i8, ptr %69, i64 24
+  %70 = load ptr, ptr %prev.i197, align 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = load ptr, ptr %69, align 8
+  %next.i198 = getelementptr inbounds i8, ptr %69, i64 16
+  %73 = load ptr, ptr %next.i198, align 8
+  %74 = load ptr, ptr %73, align 8
+  invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i196, ptr noundef nonnull align 8 dereferenceable(40) %71, ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(40) %74)
           to label %invoke.cont.i200 unwind label %lpad.i199
 
 invoke.cont.i200:                                 ; preds = %tailrecurse.i.i52
-  %76 = load ptr, ptr %prev.i197, align 8
-  %triangle5.i201 = getelementptr inbounds i8, ptr %76, i64 8
-  %77 = load ptr, ptr %triangle5.i201, align 8
+  %75 = load ptr, ptr %prev.i197, align 8
+  %triangle5.i201 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = load ptr, ptr %triangle5.i201, align 8
+  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i196, ptr noundef nonnull align 8 dereferenceable(57) %76)
+  %triangle6.i202 = getelementptr inbounds i8, ptr %69, i64 8
+  %77 = load ptr, ptr %triangle6.i202, align 8
   tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i196, ptr noundef nonnull align 8 dereferenceable(57) %77)
-  %triangle6.i202 = getelementptr inbounds i8, ptr %70, i64 8
-  %78 = load ptr, ptr %triangle6.i202, align 8
-  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i196, ptr noundef nonnull align 8 dereferenceable(57) %78)
   tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call.i196)
-  %79 = load ptr, ptr %next.i198, align 8
+  %78 = load ptr, ptr %next.i198, align 8
+  %79 = load ptr, ptr %prev.i197, align 8
+  %next9.i203 = getelementptr inbounds i8, ptr %79, i64 16
+  store ptr %78, ptr %next9.i203, align 8
   %80 = load ptr, ptr %prev.i197, align 8
-  %next9.i203 = getelementptr inbounds i8, ptr %80, i64 16
-  store ptr %79, ptr %next9.i203, align 8
-  %81 = load ptr, ptr %prev.i197, align 8
-  %prev12.i204 = getelementptr inbounds i8, ptr %79, i64 24
-  store ptr %81, ptr %prev12.i204, align 8
+  %prev12.i204 = getelementptr inbounds i8, ptr %78, i64 24
+  store ptr %80, ptr %prev12.i204, align 8
   %call13.i205 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i196)
   br i1 %call13.i205, label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208, label %if.then.i206
 
@@ -329,125 +328,125 @@ if.then.i206:                                     ; preds = %invoke.cont.i200
 
 common.resume:                                    ; preds = %lpad.i212, %lpad.i, %lpad.i225, %lpad.i199
   %call.i209.lcssa.sink = phi ptr [ %call.i209, %lpad.i212 ], [ %call.i127, %lpad.i ], [ %call.i222, %lpad.i225 ], [ %call.i196, %lpad.i199 ]
-  %common.resume.op = phi { ptr, i32 } [ %304, %lpad.i212 ], [ %247, %lpad.i ], [ %139, %lpad.i225 ], [ %82, %lpad.i199 ]
+  %common.resume.op = phi { ptr, i32 } [ %303, %lpad.i212 ], [ %246, %lpad.i ], [ %138, %lpad.i225 ], [ %81, %lpad.i199 ]
   tail call void @_ZdlPv(ptr noundef nonnull %call.i209.lcssa.sink) #17
   resume { ptr, i32 } %common.resume.op
 
 lpad.i199:                                        ; preds = %tailrecurse.i.i52
-  %82 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208: ; preds = %invoke.cont.i200, %if.then.i206
-  %83 = load ptr, ptr %next.i, align 8
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr %8, align 8
-  %cmp.not.i.i53 = icmp eq ptr %84, %85
-  %.pre10.i.i.pre.pre = load double, ptr %85, align 8
+  %82 = load ptr, ptr %next.i, align 8
+  %83 = load ptr, ptr %82, align 8
+  %84 = load ptr, ptr %8, align 8
+  %cmp.not.i.i53 = icmp eq ptr %83, %84
+  %.pre10.i.i.pre.pre = load double, ptr %84, align 8
   br i1 %cmp.not.i.i53, label %if.end.i.i, label %if.then.i.i54
 
 if.then.i.i54:                                    ; preds = %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208
-  %86 = load ptr, ptr %q.i, align 8
-  %y2.i.i.i57 = getelementptr inbounds i8, ptr %85, i64 8
-  %87 = load double, ptr %y2.i.i.i57, align 8
-  %88 = load <2 x double>, ptr %84, align 8
-  %89 = load <2 x double>, ptr %86, align 8
-  %90 = insertelement <2 x double> poison, double %.pre10.i.i.pre.pre, i64 0
-  %91 = insertelement <2 x double> %90, double %87, i64 1
-  %92 = fsub <2 x double> %89, %91
-  %93 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %94 = fsub <2 x double> %88, %91
-  %95 = fmul <2 x double> %93, %94
-  %shift370 = shufflevector <2 x double> %95, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %96 = fsub <2 x double> %shift370, %95
-  %sub11.i.i.i64 = extractelement <2 x double> %96, i64 0
-  %97 = tail call double @llvm.fabs.f64(double %sub11.i.i.i64)
-  %or.cond.i.i.i65 = fcmp uge double %97, 0x3D719799812DEA11
+  %85 = load ptr, ptr %q.i, align 8
+  %y2.i.i.i57 = getelementptr inbounds i8, ptr %84, i64 8
+  %86 = load double, ptr %y2.i.i.i57, align 8
+  %87 = load <2 x double>, ptr %83, align 8
+  %88 = load <2 x double>, ptr %85, align 8
+  %89 = insertelement <2 x double> poison, double %.pre10.i.i.pre.pre, i64 0
+  %90 = insertelement <2 x double> %89, double %86, i64 1
+  %91 = fsub <2 x double> %88, %90
+  %92 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %93 = fsub <2 x double> %87, %90
+  %94 = fmul <2 x double> %92, %93
+  %shift370 = shufflevector <2 x double> %94, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %95 = fsub <2 x double> %shift370, %94
+  %sub11.i.i.i64 = extractelement <2 x double> %95, i64 0
+  %96 = tail call double @llvm.fabs.f64(double %sub11.i.i.i64)
+  %or.cond.i.i.i65 = fcmp uge double %96, 0x3D719799812DEA11
   %cmp13.i.i.i66 = fcmp ogt double %sub11.i.i.i64, 0.000000e+00
   %cmp6.i.i67 = select i1 %or.cond.i.i.i65, i1 %cmp13.i.i.i66, i1 false
   br i1 %cmp6.i.i67, label %if.then7.i.i68, label %if.end.i.i
 
 if.then7.i.i68:                                   ; preds = %if.then.i.i54
-  %98 = load ptr, ptr %node.addr.09.i.i, align 8
-  %next12.i.i = getelementptr inbounds i8, ptr %83, i64 16
-  %99 = load ptr, ptr %next12.i.i, align 8
-  %100 = load ptr, ptr %99, align 8
-  %101 = load <2 x double>, ptr %100, align 8
-  %102 = load <2 x double>, ptr %98, align 8
-  %103 = fsub <2 x double> %102, %101
-  %104 = fsub <2 x double> %88, %101
-  %105 = shufflevector <2 x double> %104, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %106 = fmul <2 x double> %105, %103
-  %shift371 = shufflevector <2 x double> %106, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %107 = fsub <2 x double> %106, %shift371
-  %sub11.i21.i.i77 = extractelement <2 x double> %107, i64 0
-  %108 = tail call double @llvm.fabs.f64(double %sub11.i21.i.i77)
-  %or.cond.i22.i.i78 = fcmp uge double %108, 0x3D719799812DEA11
+  %97 = load ptr, ptr %node.addr.09.i.i, align 8
+  %next12.i.i = getelementptr inbounds i8, ptr %82, i64 16
+  %98 = load ptr, ptr %next12.i.i, align 8
+  %99 = load ptr, ptr %98, align 8
+  %100 = load <2 x double>, ptr %99, align 8
+  %101 = load <2 x double>, ptr %97, align 8
+  %102 = fsub <2 x double> %101, %100
+  %103 = fsub <2 x double> %87, %100
+  %104 = shufflevector <2 x double> %103, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %105 = fmul <2 x double> %104, %102
+  %shift371 = shufflevector <2 x double> %105, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %106 = fsub <2 x double> %105, %shift371
+  %sub11.i21.i.i77 = extractelement <2 x double> %106, i64 0
+  %107 = tail call double @llvm.fabs.f64(double %sub11.i21.i.i77)
+  %or.cond.i22.i.i78 = fcmp uge double %107, 0x3D719799812DEA11
   %cmp13.i23.i.i79 = fcmp ogt double %sub11.i21.i.i77, 0.000000e+00
   %cmp15.i.i80 = select i1 %or.cond.i22.i.i78, i1 %cmp13.i23.i.i79, i1 false
   br i1 %cmp15.i.i80, label %tailrecurse.i.i52, label %if.end.i.i
 
 tailrecurse.i139:                                 ; preds = %tailrecurse.i139.preheader, %if.else.i152
-  %109 = phi double [ %176, %if.else.i152 ], [ %68, %tailrecurse.i139.preheader ]
-  %110 = phi ptr [ %116, %if.else.i152 ], [ %56, %tailrecurse.i139.preheader ]
-  %111 = phi ptr [ %115, %if.else.i152 ], [ %55, %tailrecurse.i139.preheader ]
-  %112 = phi ptr [ %110, %if.else.i152 ], [ %54, %tailrecurse.i139.preheader ]
-  %113 = phi ptr [ %111, %if.else.i152 ], [ %53, %tailrecurse.i139.preheader ]
-  %114 = phi <2 x double> [ %117, %if.else.i152 ], [ %57, %tailrecurse.i139.preheader ]
-  %next7.i = getelementptr inbounds i8, ptr %111, i64 16
-  %115 = load ptr, ptr %next7.i, align 8
-  %116 = load ptr, ptr %115, align 8
-  %117 = load <2 x double>, ptr %116, align 8
-  %y4.i.i144 = getelementptr inbounds i8, ptr %112, i64 8
-  %118 = load double, ptr %y4.i.i144, align 8
-  %119 = insertelement <2 x double> poison, double %109, i64 0
-  %120 = insertelement <2 x double> %119, double %118, i64 1
-  %121 = fsub <2 x double> %120, %117
-  %122 = shufflevector <2 x double> %121, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %123 = fsub <2 x double> %114, %117
-  %124 = fmul <2 x double> %123, %122
-  %shift372 = shufflevector <2 x double> %124, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %125 = fsub <2 x double> %shift372, %124
-  %sub11.i.i148 = extractelement <2 x double> %125, i64 0
-  %126 = tail call double @llvm.fabs.f64(double %sub11.i.i148)
-  %or.cond.i.i149 = fcmp uge double %126, 0x3D719799812DEA11
+  %108 = phi double [ %175, %if.else.i152 ], [ %67, %tailrecurse.i139.preheader ]
+  %109 = phi ptr [ %115, %if.else.i152 ], [ %55, %tailrecurse.i139.preheader ]
+  %110 = phi ptr [ %114, %if.else.i152 ], [ %54, %tailrecurse.i139.preheader ]
+  %111 = phi ptr [ %109, %if.else.i152 ], [ %53, %tailrecurse.i139.preheader ]
+  %112 = phi ptr [ %110, %if.else.i152 ], [ %52, %tailrecurse.i139.preheader ]
+  %113 = phi <2 x double> [ %116, %if.else.i152 ], [ %56, %tailrecurse.i139.preheader ]
+  %next7.i = getelementptr inbounds i8, ptr %110, i64 16
+  %114 = load ptr, ptr %next7.i, align 8
+  %115 = load ptr, ptr %114, align 8
+  %116 = load <2 x double>, ptr %115, align 8
+  %y4.i.i144 = getelementptr inbounds i8, ptr %111, i64 8
+  %117 = load double, ptr %y4.i.i144, align 8
+  %118 = insertelement <2 x double> poison, double %108, i64 0
+  %119 = insertelement <2 x double> %118, double %117, i64 1
+  %120 = fsub <2 x double> %119, %116
+  %121 = shufflevector <2 x double> %120, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %122 = fsub <2 x double> %113, %116
+  %123 = fmul <2 x double> %122, %121
+  %shift372 = shufflevector <2 x double> %123, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %124 = fsub <2 x double> %shift372, %123
+  %sub11.i.i148 = extractelement <2 x double> %124, i64 0
+  %125 = tail call double @llvm.fabs.f64(double %sub11.i.i148)
+  %or.cond.i.i149 = fcmp uge double %125, 0x3D719799812DEA11
   %cmp13.i.i150 = fcmp ogt double %sub11.i.i148, 0.000000e+00
   %cmp.i151 = select i1 %or.cond.i.i149, i1 %cmp13.i.i150, i1 false
   br i1 %cmp.i151, label %if.then.i165, label %if.else.i152
 
 if.then.i165:                                     ; preds = %tailrecurse.i139
-  %next3.le.i = getelementptr inbounds i8, ptr %113, i64 16
+  %next3.le.i = getelementptr inbounds i8, ptr %112, i64 16
   br label %tailrecurse.i.i166
 
 tailrecurse.i.i166:                               ; preds = %if.then7.i.i182, %if.then.i165
-  %127 = phi ptr [ %140, %if.then7.i.i182 ], [ %111, %if.then.i165 ]
+  %126 = phi ptr [ %139, %if.then7.i.i182 ], [ %110, %if.then.i165 ]
   %call.i222 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
-  %prev.i223 = getelementptr inbounds i8, ptr %127, i64 24
-  %128 = load ptr, ptr %prev.i223, align 8
-  %129 = load ptr, ptr %128, align 8
-  %130 = load ptr, ptr %127, align 8
-  %next.i224 = getelementptr inbounds i8, ptr %127, i64 16
-  %131 = load ptr, ptr %next.i224, align 8
-  %132 = load ptr, ptr %131, align 8
-  invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i222, ptr noundef nonnull align 8 dereferenceable(40) %129, ptr noundef nonnull align 8 dereferenceable(40) %130, ptr noundef nonnull align 8 dereferenceable(40) %132)
+  %prev.i223 = getelementptr inbounds i8, ptr %126, i64 24
+  %127 = load ptr, ptr %prev.i223, align 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = load ptr, ptr %126, align 8
+  %next.i224 = getelementptr inbounds i8, ptr %126, i64 16
+  %130 = load ptr, ptr %next.i224, align 8
+  %131 = load ptr, ptr %130, align 8
+  invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i222, ptr noundef nonnull align 8 dereferenceable(40) %128, ptr noundef nonnull align 8 dereferenceable(40) %129, ptr noundef nonnull align 8 dereferenceable(40) %131)
           to label %invoke.cont.i226 unwind label %lpad.i225
 
 invoke.cont.i226:                                 ; preds = %tailrecurse.i.i166
-  %133 = load ptr, ptr %prev.i223, align 8
-  %triangle5.i227 = getelementptr inbounds i8, ptr %133, i64 8
-  %134 = load ptr, ptr %triangle5.i227, align 8
+  %132 = load ptr, ptr %prev.i223, align 8
+  %triangle5.i227 = getelementptr inbounds i8, ptr %132, i64 8
+  %133 = load ptr, ptr %triangle5.i227, align 8
+  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i222, ptr noundef nonnull align 8 dereferenceable(57) %133)
+  %triangle6.i228 = getelementptr inbounds i8, ptr %126, i64 8
+  %134 = load ptr, ptr %triangle6.i228, align 8
   tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i222, ptr noundef nonnull align 8 dereferenceable(57) %134)
-  %triangle6.i228 = getelementptr inbounds i8, ptr %127, i64 8
-  %135 = load ptr, ptr %triangle6.i228, align 8
-  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i222, ptr noundef nonnull align 8 dereferenceable(57) %135)
   tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call.i222)
-  %136 = load ptr, ptr %next.i224, align 8
+  %135 = load ptr, ptr %next.i224, align 8
+  %136 = load ptr, ptr %prev.i223, align 8
+  %next9.i229 = getelementptr inbounds i8, ptr %136, i64 16
+  store ptr %135, ptr %next9.i229, align 8
   %137 = load ptr, ptr %prev.i223, align 8
-  %next9.i229 = getelementptr inbounds i8, ptr %137, i64 16
-  store ptr %136, ptr %next9.i229, align 8
-  %138 = load ptr, ptr %prev.i223, align 8
-  %prev12.i230 = getelementptr inbounds i8, ptr %136, i64 24
-  store ptr %138, ptr %prev12.i230, align 8
+  %prev12.i230 = getelementptr inbounds i8, ptr %135, i64 24
+  store ptr %137, ptr %prev12.i230, align 8
   %call13.i231 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i222)
   br i1 %call13.i231, label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit234, label %if.then.i232
 
@@ -456,154 +455,154 @@ if.then.i232:                                     ; preds = %invoke.cont.i226
   br label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit234
 
 lpad.i225:                                        ; preds = %tailrecurse.i.i166
-  %139 = landingpad { ptr, i32 }
+  %138 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit234: ; preds = %invoke.cont.i226, %if.then.i232
-  %140 = load ptr, ptr %next3.le.i, align 8
-  %141 = load ptr, ptr %140, align 8
-  %142 = load ptr, ptr %8, align 8
-  %cmp.not.i.i167 = icmp eq ptr %141, %142
-  %.pre293.pre = load double, ptr %142, align 8
+  %139 = load ptr, ptr %next3.le.i, align 8
+  %140 = load ptr, ptr %139, align 8
+  %141 = load ptr, ptr %8, align 8
+  %cmp.not.i.i167 = icmp eq ptr %140, %141
+  %.pre306.pre = load double, ptr %141, align 8
   br i1 %cmp.not.i.i167, label %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit, label %if.then.i.i168
 
 if.then.i.i168:                                   ; preds = %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit234
-  %143 = load ptr, ptr %q.i, align 8
-  %y2.i.i.i171 = getelementptr inbounds i8, ptr %142, i64 8
-  %144 = load double, ptr %y2.i.i.i171, align 8
-  %145 = load <2 x double>, ptr %141, align 8
-  %146 = load <2 x double>, ptr %143, align 8
-  %147 = insertelement <2 x double> poison, double %.pre293.pre, i64 0
-  %148 = insertelement <2 x double> %147, double %144, i64 1
-  %149 = fsub <2 x double> %146, %148
-  %150 = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %151 = fsub <2 x double> %145, %148
-  %152 = fmul <2 x double> %150, %151
-  %shift373 = shufflevector <2 x double> %152, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %153 = fsub <2 x double> %shift373, %152
-  %sub11.i.i.i178 = extractelement <2 x double> %153, i64 0
-  %154 = tail call double @llvm.fabs.f64(double %sub11.i.i.i178)
-  %or.cond.i.i.i179 = fcmp uge double %154, 0x3D719799812DEA11
+  %142 = load ptr, ptr %q.i, align 8
+  %y2.i.i.i171 = getelementptr inbounds i8, ptr %141, i64 8
+  %143 = load double, ptr %y2.i.i.i171, align 8
+  %144 = load <2 x double>, ptr %140, align 8
+  %145 = load <2 x double>, ptr %142, align 8
+  %146 = insertelement <2 x double> poison, double %.pre306.pre, i64 0
+  %147 = insertelement <2 x double> %146, double %143, i64 1
+  %148 = fsub <2 x double> %145, %147
+  %149 = shufflevector <2 x double> %148, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %150 = fsub <2 x double> %144, %147
+  %151 = fmul <2 x double> %149, %150
+  %shift373 = shufflevector <2 x double> %151, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %152 = fsub <2 x double> %shift373, %151
+  %sub11.i.i.i178 = extractelement <2 x double> %152, i64 0
+  %153 = tail call double @llvm.fabs.f64(double %sub11.i.i.i178)
+  %or.cond.i.i.i179 = fcmp uge double %153, 0x3D719799812DEA11
   %cmp13.i.i.i180 = fcmp ogt double %sub11.i.i.i178, 0.000000e+00
   %cmp6.i.i181 = select i1 %or.cond.i.i.i179, i1 %cmp13.i.i.i180, i1 false
   br i1 %cmp6.i.i181, label %if.then7.i.i182, label %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
 
 if.then7.i.i182:                                  ; preds = %if.then.i.i168
-  %155 = load ptr, ptr %113, align 8
-  %next12.i.i183 = getelementptr inbounds i8, ptr %140, i64 16
-  %156 = load ptr, ptr %next12.i.i183, align 8
-  %157 = load ptr, ptr %156, align 8
-  %158 = load <2 x double>, ptr %157, align 8
-  %159 = load <2 x double>, ptr %155, align 8
-  %160 = fsub <2 x double> %159, %158
-  %161 = fsub <2 x double> %145, %158
-  %162 = shufflevector <2 x double> %161, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %163 = fmul <2 x double> %162, %160
-  %shift374 = shufflevector <2 x double> %163, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %164 = fsub <2 x double> %163, %shift374
-  %sub11.i21.i.i192 = extractelement <2 x double> %164, i64 0
-  %165 = tail call double @llvm.fabs.f64(double %sub11.i21.i.i192)
-  %or.cond.i22.i.i193 = fcmp uge double %165, 0x3D719799812DEA11
+  %154 = load ptr, ptr %112, align 8
+  %next12.i.i183 = getelementptr inbounds i8, ptr %139, i64 16
+  %155 = load ptr, ptr %next12.i.i183, align 8
+  %156 = load ptr, ptr %155, align 8
+  %157 = load <2 x double>, ptr %156, align 8
+  %158 = load <2 x double>, ptr %154, align 8
+  %159 = fsub <2 x double> %158, %157
+  %160 = fsub <2 x double> %144, %157
+  %161 = shufflevector <2 x double> %160, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %162 = fmul <2 x double> %161, %159
+  %shift374 = shufflevector <2 x double> %162, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %163 = fsub <2 x double> %162, %shift374
+  %sub11.i21.i.i192 = extractelement <2 x double> %163, i64 0
+  %164 = tail call double @llvm.fabs.f64(double %sub11.i21.i.i192)
+  %or.cond.i22.i.i193 = fcmp uge double %164, 0x3D719799812DEA11
   %cmp13.i23.i.i194 = fcmp ogt double %sub11.i21.i.i192, 0.000000e+00
   %cmp15.i.i195 = select i1 %or.cond.i22.i.i193, i1 %cmp13.i23.i.i194, i1 false
   br i1 %cmp15.i.i195, label %tailrecurse.i.i166, label %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
 
 if.else.i152:                                     ; preds = %tailrecurse.i139
-  %166 = load ptr, ptr %q.i, align 8
-  %167 = load double, ptr %y2.i12.i154, align 8
-  %168 = load <2 x double>, ptr %166, align 8
-  %169 = insertelement <2 x double> %69, double %167, i64 1
-  %170 = fsub <2 x double> %168, %169
-  %171 = shufflevector <2 x double> %170, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %172 = fsub <2 x double> %114, %169
-  %173 = fmul <2 x double> %172, %171
-  %shift375 = shufflevector <2 x double> %173, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %174 = fsub <2 x double> %shift375, %173
-  %sub11.i19.i161 = extractelement <2 x double> %174, i64 0
-  %175 = tail call double @llvm.fabs.f64(double %sub11.i19.i161)
-  %or.cond.i20.i162 = fcmp uge double %175, 0x3D719799812DEA11
+  %165 = load ptr, ptr %q.i, align 8
+  %166 = load double, ptr %y2.i12.i154, align 8
+  %167 = load <2 x double>, ptr %165, align 8
+  %168 = insertelement <2 x double> %68, double %166, i64 1
+  %169 = fsub <2 x double> %167, %168
+  %170 = shufflevector <2 x double> %169, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %171 = fsub <2 x double> %113, %168
+  %172 = fmul <2 x double> %171, %170
+  %shift375 = shufflevector <2 x double> %172, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %173 = fsub <2 x double> %shift375, %172
+  %sub11.i19.i161 = extractelement <2 x double> %173, i64 0
+  %174 = tail call double @llvm.fabs.f64(double %sub11.i19.i161)
+  %or.cond.i20.i162 = fcmp uge double %174, 0x3D719799812DEA11
   %cmp13.i21.i163 = fcmp ogt double %sub11.i19.i161, 0.000000e+00
   %cmp14.i164 = select i1 %or.cond.i20.i162, i1 %cmp13.i21.i163, i1 false
-  %176 = extractelement <2 x double> %114, i64 0
+  %175 = extractelement <2 x double> %113, i64 0
   br i1 %cmp14.i164, label %tailrecurse.i139, label %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit
 
 _ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit: ; preds = %if.then7.i.i182, %if.then.i.i168, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit234
-  %.pre = load ptr, ptr %node.addr.09.i.i, align 8
-  %.pre292 = load double, ptr %.pre, align 8
+  %.pre304 = load ptr, ptr %node.addr.09.i.i, align 8
+  %.pre305 = load double, ptr %.pre304, align 8
   br label %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit
 
 _ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit: ; preds = %if.else.i152, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
-  %.pre10.i.i299 = phi double [ %.pre293.pre, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %.pre10.i.i300, %if.else.i152 ]
-  %.pre.i.i296 = phi ptr [ %142, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %.pre.i.i297, %if.else.i152 ]
-  %177 = phi double [ %.pre293.pre, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %49, %if.else.i152 ]
-  %178 = phi ptr [ %142, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %50, %if.else.i152 ]
-  %179 = phi double [ %.pre292, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %51, %if.else.i152 ]
-  %180 = phi ptr [ %.pre, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %52, %if.else.i152 ]
-  %cmp.i49 = fcmp olt double %179, %177
+  %.pre10.i.i312 = phi double [ %.pre306.pre, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %.pre10.i.i313, %if.else.i152 ]
+  %.pre.i.i309 = phi ptr [ %141, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %.pre.i.i310, %if.else.i152 ]
+  %176 = phi double [ %.pre306.pre, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %48, %if.else.i152 ]
+  %177 = phi ptr [ %141, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %49, %if.else.i152 ]
+  %178 = phi double [ %.pre305, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %50, %if.else.i152 ]
+  %179 = phi ptr [ %.pre304, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %51, %if.else.i152 ]
+  %cmp.i49 = fcmp olt double %178, %176
   br i1 %cmp.i49, label %if.then.i34, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit, %if.then7.i.i68, %if.then.i.i54, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208, %if.then.i.i14, %while.body.i.i
-  %.pre10.i.i302 = phi double [ %.pre10.i.i301, %while.body.i.i ], [ %.pre10.i.i301, %if.then.i.i14 ], [ %.pre10.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208 ], [ %.pre10.i.i.pre.pre, %if.then.i.i54 ], [ %.pre10.i.i.pre.pre, %if.then7.i.i68 ], [ %.pre10.i.i299, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %.pre.i.i294 = phi ptr [ %.pre.i.i298, %while.body.i.i ], [ %.pre.i.i298, %if.then.i.i14 ], [ %85, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208 ], [ %85, %if.then.i.i54 ], [ %85, %if.then7.i.i68 ], [ %.pre.i.i296, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %181 = phi double [ %24, %while.body.i.i ], [ %.pre10.i.i301, %if.then.i.i14 ], [ %.pre10.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208 ], [ %.pre10.i.i.pre.pre, %if.then.i.i54 ], [ %.pre10.i.i.pre.pre, %if.then7.i.i68 ], [ %.pre10.i.i299, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %182 = phi ptr [ %25, %while.body.i.i ], [ %.pre.i.i298, %if.then.i.i14 ], [ %85, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208 ], [ %85, %if.then.i.i54 ], [ %85, %if.then7.i.i68 ], [ %.pre.i.i296, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %node.addr.1.i.i = phi ptr [ %28, %while.body.i.i ], [ %node.addr.09.i.i, %if.then.i.i14 ], [ %node.addr.09.i.i, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208 ], [ %node.addr.09.i.i, %if.then.i.i54 ], [ %node.addr.09.i.i, %if.then7.i.i68 ], [ %node.addr.09.i.i, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %.pre10.i.i315 = phi double [ %.pre10.i.i314, %while.body.i.i ], [ %.pre10.i.i314, %if.then.i.i14 ], [ %.pre10.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208 ], [ %.pre10.i.i.pre.pre, %if.then.i.i54 ], [ %.pre10.i.i.pre.pre, %if.then7.i.i68 ], [ %.pre10.i.i312, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %.pre.i.i307 = phi ptr [ %.pre.i.i311, %while.body.i.i ], [ %.pre.i.i311, %if.then.i.i14 ], [ %84, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208 ], [ %84, %if.then.i.i54 ], [ %84, %if.then7.i.i68 ], [ %.pre.i.i309, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %180 = phi double [ %23, %while.body.i.i ], [ %.pre10.i.i314, %if.then.i.i14 ], [ %.pre10.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208 ], [ %.pre10.i.i.pre.pre, %if.then.i.i54 ], [ %.pre10.i.i.pre.pre, %if.then7.i.i68 ], [ %.pre10.i.i312, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %181 = phi ptr [ %24, %while.body.i.i ], [ %.pre.i.i311, %if.then.i.i14 ], [ %84, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208 ], [ %84, %if.then.i.i54 ], [ %84, %if.then7.i.i68 ], [ %.pre.i.i309, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %node.addr.1.i.i = phi ptr [ %27, %while.body.i.i ], [ %node.addr.09.i.i, %if.then.i.i14 ], [ %node.addr.09.i.i, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208 ], [ %node.addr.09.i.i, %if.then.i.i54 ], [ %node.addr.09.i.i, %if.then7.i.i68 ], [ %node.addr.09.i.i, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
   %next.i.i = getelementptr inbounds i8, ptr %node.addr.1.i.i, i64 16
-  %183 = load ptr, ptr %next.i.i, align 8
-  %184 = load ptr, ptr %183, align 8
-  %185 = load double, ptr %184, align 8
-  %cmp.i.i = fcmp olt double %185, %181
+  %182 = load ptr, ptr %next.i.i, align 8
+  %183 = load ptr, ptr %182, align 8
+  %184 = load double, ptr %183, align 8
+  %cmp.i.i = fcmp olt double %184, %180
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, !llvm.loop !6
 
 if.else.i:                                        ; preds = %if.end.i
-  %186 = load ptr, ptr %prev8.i.i, align 8
-  %187 = load ptr, ptr %186, align 8
-  %188 = load double, ptr %187, align 8
-  %cmp9.i.i = fcmp ogt double %188, %20
+  %185 = load ptr, ptr %prev8.i.i, align 8
+  %186 = load ptr, ptr %185, align 8
+  %187 = load double, ptr %186, align 8
+  %cmp9.i.i = fcmp ogt double %187, %19
   br i1 %cmp9.i.i, label %while.body.i7.i, label %_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit
 
 while.body.i7.i:                                  ; preds = %if.else.i, %if.end.i21.i
-  %.pre11.i.i314 = phi double [ %.pre11.i.i315, %if.end.i21.i ], [ %20, %if.else.i ]
-  %.pre.i25.i311 = phi ptr [ %.pre.i25.i307, %if.end.i21.i ], [ %19, %if.else.i ]
-  %189 = phi double [ %346, %if.end.i21.i ], [ %20, %if.else.i ]
-  %190 = phi ptr [ %347, %if.end.i21.i ], [ %19, %if.else.i ]
-  %191 = phi double [ %350, %if.end.i21.i ], [ %188, %if.else.i ]
-  %192 = phi ptr [ %349, %if.end.i21.i ], [ %187, %if.else.i ]
-  %193 = phi ptr [ %348, %if.end.i21.i ], [ %186, %if.else.i ]
+  %.pre11.i.i301 = phi double [ %.pre11.i.i302, %if.end.i21.i ], [ %19, %if.else.i ]
+  %.pre.i25.i298 = phi ptr [ %.pre.i25.i294, %if.end.i21.i ], [ %18, %if.else.i ]
+  %188 = phi double [ %345, %if.end.i21.i ], [ %19, %if.else.i ]
+  %189 = phi ptr [ %346, %if.end.i21.i ], [ %18, %if.else.i ]
+  %190 = phi double [ %349, %if.end.i21.i ], [ %187, %if.else.i ]
+  %191 = phi ptr [ %348, %if.end.i21.i ], [ %186, %if.else.i ]
+  %192 = phi ptr [ %347, %if.end.i21.i ], [ %185, %if.else.i ]
   %node.addr.010.i.i = phi ptr [ %node.addr.1.i22.i, %if.end.i21.i ], [ %call2.i, %if.else.i ]
-  %194 = load ptr, ptr %q.i, align 8
-  %195 = load double, ptr %194, align 8
-  %y.i.i9.i = getelementptr inbounds i8, ptr %192, i64 8
-  %196 = load double, ptr %y.i.i9.i, align 8
-  %y2.i.i10.i = getelementptr inbounds i8, ptr %190, i64 8
-  %197 = load double, ptr %y2.i.i10.i, align 8
-  %y4.i.i13.i = getelementptr inbounds i8, ptr %194, i64 8
-  %198 = load double, ptr %y4.i.i13.i, align 8
-  %199 = insertelement <2 x double> poison, double %196, i64 0
-  %200 = insertelement <2 x double> %199, double %198, i64 1
-  %201 = insertelement <2 x double> poison, double %197, i64 0
-  %202 = shufflevector <2 x double> %201, <2 x double> poison, <2 x i32> zeroinitializer
-  %203 = fsub <2 x double> %200, %202
-  %204 = insertelement <2 x double> poison, double %195, i64 0
-  %205 = insertelement <2 x double> %204, double %191, i64 1
-  %206 = insertelement <2 x double> poison, double %189, i64 0
-  %207 = shufflevector <2 x double> %206, <2 x double> poison, <2 x i32> zeroinitializer
-  %208 = fsub <2 x double> %205, %207
-  %209 = fmul <2 x double> %208, %203
-  %shift376 = shufflevector <2 x double> %209, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %210 = fsub <2 x double> %209, %shift376
-  %sub11.i.i17.i = extractelement <2 x double> %210, i64 0
-  %211 = tail call double @llvm.fabs.f64(double %sub11.i.i17.i)
-  %or.cond.i.i18.i = fcmp uge double %211, 0x3D719799812DEA11
+  %193 = load ptr, ptr %q.i, align 8
+  %194 = load double, ptr %193, align 8
+  %y.i.i9.i = getelementptr inbounds i8, ptr %191, i64 8
+  %195 = load double, ptr %y.i.i9.i, align 8
+  %y2.i.i10.i = getelementptr inbounds i8, ptr %189, i64 8
+  %196 = load double, ptr %y2.i.i10.i, align 8
+  %y4.i.i13.i = getelementptr inbounds i8, ptr %193, i64 8
+  %197 = load double, ptr %y4.i.i13.i, align 8
+  %198 = insertelement <2 x double> poison, double %195, i64 0
+  %199 = insertelement <2 x double> %198, double %197, i64 1
+  %200 = insertelement <2 x double> poison, double %196, i64 0
+  %201 = shufflevector <2 x double> %200, <2 x double> poison, <2 x i32> zeroinitializer
+  %202 = fsub <2 x double> %199, %201
+  %203 = insertelement <2 x double> poison, double %194, i64 0
+  %204 = insertelement <2 x double> %203, double %190, i64 1
+  %205 = insertelement <2 x double> poison, double %188, i64 0
+  %206 = shufflevector <2 x double> %205, <2 x double> poison, <2 x i32> zeroinitializer
+  %207 = fsub <2 x double> %204, %206
+  %208 = fmul <2 x double> %207, %202
+  %shift376 = shufflevector <2 x double> %208, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %209 = fsub <2 x double> %208, %shift376
+  %sub11.i.i17.i = extractelement <2 x double> %209, i64 0
+  %210 = tail call double @llvm.fabs.f64(double %sub11.i.i17.i)
+  %or.cond.i.i18.i = fcmp uge double %210, 0x3D719799812DEA11
   %cmp13.i.i19.i = fcmp ule double %sub11.i.i17.i, 0.000000e+00
   %cmp6.i20.i = select i1 %or.cond.i.i18.i, i1 %cmp13.i.i19.i, i1 false
   br i1 %cmp6.i20.i, label %if.then.i24.i, label %if.end.i21.i
 
 if.then.i24.i:                                    ; preds = %while.body.i7.i
-  %212 = load ptr, ptr %node.addr.010.i.i, align 8
-  %213 = load double, ptr %212, align 8
-  %cmp14.i = fcmp ogt double %213, %189
+  %211 = load ptr, ptr %node.addr.010.i.i, align 8
+  %212 = load double, ptr %211, align 8
+  %cmp14.i = fcmp ogt double %212, %188
   br i1 %cmp14.i, label %if.then.lr.ph.i, label %if.end.i21.i
 
 if.then.lr.ph.i:                                  ; preds = %if.then.i24.i
@@ -611,71 +610,71 @@ if.then.lr.ph.i:                                  ; preds = %if.then.i24.i
   br label %if.then.i15
 
 if.then.i15:                                      ; preds = %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit, %if.then.lr.ph.i
-  %.pre11.i.i313 = phi double [ %.pre11.i.i314, %if.then.lr.ph.i ], [ %.pre11.i.i312, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %.pre.i25.i310 = phi ptr [ %.pre.i25.i311, %if.then.lr.ph.i ], [ %.pre.i25.i309, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %214 = phi double [ %189, %if.then.lr.ph.i ], [ %342, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %215 = phi ptr [ %190, %if.then.lr.ph.i ], [ %343, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %216 = phi double [ %213, %if.then.lr.ph.i ], [ %344, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %217 = phi ptr [ %212, %if.then.lr.ph.i ], [ %345, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %218 = load ptr, ptr %prev.i, align 8
-  %219 = load ptr, ptr %218, align 8
-  %prev6.i = getelementptr inbounds i8, ptr %218, i64 24
-  %220 = load ptr, ptr %prev6.i, align 8
-  %221 = load ptr, ptr %220, align 8
-  %222 = load <2 x double>, ptr %221, align 8
-  %y4.i.i = getelementptr inbounds i8, ptr %217, i64 8
-  %223 = load double, ptr %y4.i.i, align 8
-  %224 = insertelement <2 x double> poison, double %216, i64 0
-  %225 = insertelement <2 x double> %224, double %223, i64 1
-  %226 = fsub <2 x double> %225, %222
-  %227 = shufflevector <2 x double> %226, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %228 = load <2 x double>, ptr %219, align 8
-  %229 = fsub <2 x double> %228, %222
-  %230 = fmul <2 x double> %227, %229
-  %shift377 = shufflevector <2 x double> %230, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %231 = fsub <2 x double> %shift377, %230
-  %sub11.i.i = extractelement <2 x double> %231, i64 0
-  %232 = tail call double @llvm.fabs.f64(double %sub11.i.i)
-  %or.cond.i.i = fcmp uge double %232, 0x3D719799812DEA11
+  %.pre11.i.i300 = phi double [ %.pre11.i.i301, %if.then.lr.ph.i ], [ %.pre11.i.i299, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %.pre.i25.i297 = phi ptr [ %.pre.i25.i298, %if.then.lr.ph.i ], [ %.pre.i25.i296, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %213 = phi double [ %188, %if.then.lr.ph.i ], [ %341, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %214 = phi ptr [ %189, %if.then.lr.ph.i ], [ %342, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %215 = phi double [ %212, %if.then.lr.ph.i ], [ %343, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %216 = phi ptr [ %211, %if.then.lr.ph.i ], [ %344, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %217 = load ptr, ptr %prev.i, align 8
+  %218 = load ptr, ptr %217, align 8
+  %prev6.i = getelementptr inbounds i8, ptr %217, i64 24
+  %219 = load ptr, ptr %prev6.i, align 8
+  %220 = load ptr, ptr %219, align 8
+  %221 = load <2 x double>, ptr %220, align 8
+  %y4.i.i = getelementptr inbounds i8, ptr %216, i64 8
+  %222 = load double, ptr %y4.i.i, align 8
+  %223 = insertelement <2 x double> poison, double %215, i64 0
+  %224 = insertelement <2 x double> %223, double %222, i64 1
+  %225 = fsub <2 x double> %224, %221
+  %226 = shufflevector <2 x double> %225, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %227 = load <2 x double>, ptr %218, align 8
+  %228 = fsub <2 x double> %227, %221
+  %229 = fmul <2 x double> %226, %228
+  %shift377 = shufflevector <2 x double> %229, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %230 = fsub <2 x double> %shift377, %229
+  %sub11.i.i = extractelement <2 x double> %230, i64 0
+  %231 = tail call double @llvm.fabs.f64(double %sub11.i.i)
+  %or.cond.i.i = fcmp uge double %231, 0x3D719799812DEA11
   %cmp13.i.i = fcmp ule double %sub11.i.i, 0.000000e+00
   %cmp8.i = select i1 %or.cond.i.i, i1 %cmp13.i.i, i1 false
   br i1 %cmp8.i, label %tailrecurse.i.i, label %tailrecurse.i.preheader
 
 tailrecurse.i.preheader:                          ; preds = %if.then.i15
-  %y2.i12.i = getelementptr inbounds i8, ptr %215, i64 8
-  %233 = extractelement <2 x double> %228, i64 0
-  %234 = insertelement <2 x double> poison, double %214, i64 0
+  %y2.i12.i = getelementptr inbounds i8, ptr %214, i64 8
+  %232 = extractelement <2 x double> %227, i64 0
+  %233 = insertelement <2 x double> poison, double %213, i64 0
   br label %tailrecurse.i
 
 tailrecurse.i.i:                                  ; preds = %if.then.i15, %if.then7.i.i
-  %235 = phi ptr [ %248, %if.then7.i.i ], [ %218, %if.then.i15 ]
+  %234 = phi ptr [ %247, %if.then7.i.i ], [ %217, %if.then.i15 ]
   %call.i127 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
-  %prev.i128 = getelementptr inbounds i8, ptr %235, i64 24
-  %236 = load ptr, ptr %prev.i128, align 8
-  %237 = load ptr, ptr %236, align 8
-  %238 = load ptr, ptr %235, align 8
-  %next.i129 = getelementptr inbounds i8, ptr %235, i64 16
-  %239 = load ptr, ptr %next.i129, align 8
-  %240 = load ptr, ptr %239, align 8
-  invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i127, ptr noundef nonnull align 8 dereferenceable(40) %237, ptr noundef nonnull align 8 dereferenceable(40) %238, ptr noundef nonnull align 8 dereferenceable(40) %240)
+  %prev.i128 = getelementptr inbounds i8, ptr %234, i64 24
+  %235 = load ptr, ptr %prev.i128, align 8
+  %236 = load ptr, ptr %235, align 8
+  %237 = load ptr, ptr %234, align 8
+  %next.i129 = getelementptr inbounds i8, ptr %234, i64 16
+  %238 = load ptr, ptr %next.i129, align 8
+  %239 = load ptr, ptr %238, align 8
+  invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i127, ptr noundef nonnull align 8 dereferenceable(40) %236, ptr noundef nonnull align 8 dereferenceable(40) %237, ptr noundef nonnull align 8 dereferenceable(40) %239)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %tailrecurse.i.i
-  %241 = load ptr, ptr %prev.i128, align 8
-  %triangle5.i = getelementptr inbounds i8, ptr %241, i64 8
-  %242 = load ptr, ptr %triangle5.i, align 8
+  %240 = load ptr, ptr %prev.i128, align 8
+  %triangle5.i = getelementptr inbounds i8, ptr %240, i64 8
+  %241 = load ptr, ptr %triangle5.i, align 8
+  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i127, ptr noundef nonnull align 8 dereferenceable(57) %241)
+  %triangle6.i = getelementptr inbounds i8, ptr %234, i64 8
+  %242 = load ptr, ptr %triangle6.i, align 8
   tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i127, ptr noundef nonnull align 8 dereferenceable(57) %242)
-  %triangle6.i = getelementptr inbounds i8, ptr %235, i64 8
-  %243 = load ptr, ptr %triangle6.i, align 8
-  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i127, ptr noundef nonnull align 8 dereferenceable(57) %243)
   tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call.i127)
-  %244 = load ptr, ptr %next.i129, align 8
+  %243 = load ptr, ptr %next.i129, align 8
+  %244 = load ptr, ptr %prev.i128, align 8
+  %next9.i = getelementptr inbounds i8, ptr %244, i64 16
+  store ptr %243, ptr %next9.i, align 8
   %245 = load ptr, ptr %prev.i128, align 8
-  %next9.i = getelementptr inbounds i8, ptr %245, i64 16
-  store ptr %244, ptr %next9.i, align 8
-  %246 = load ptr, ptr %prev.i128, align 8
-  %prev12.i = getelementptr inbounds i8, ptr %244, i64 24
-  store ptr %246, ptr %prev12.i, align 8
+  %prev12.i = getelementptr inbounds i8, ptr %243, i64 24
+  store ptr %245, ptr %prev12.i, align 8
   %call13.i = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i127)
   br i1 %call13.i, label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit, label %if.then.i130
 
@@ -684,120 +683,120 @@ if.then.i130:                                     ; preds = %invoke.cont.i
   br label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit
 
 lpad.i:                                           ; preds = %tailrecurse.i.i
-  %247 = landingpad { ptr, i32 }
+  %246 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit: ; preds = %invoke.cont.i, %if.then.i130
-  %248 = load ptr, ptr %prev.i, align 8
-  %249 = load ptr, ptr %248, align 8
-  %250 = load ptr, ptr %8, align 8
-  %cmp.not.i.i = icmp eq ptr %249, %250
-  %.pre11.i.i.pre.pre = load double, ptr %250, align 8
+  %247 = load ptr, ptr %prev.i, align 8
+  %248 = load ptr, ptr %247, align 8
+  %249 = load ptr, ptr %8, align 8
+  %cmp.not.i.i = icmp eq ptr %248, %249
+  %.pre11.i.i.pre.pre = load double, ptr %249, align 8
   br i1 %cmp.not.i.i, label %if.end.i21.i, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit
-  %251 = load ptr, ptr %q.i, align 8
-  %y2.i.i.i22 = getelementptr inbounds i8, ptr %250, i64 8
-  %252 = load double, ptr %y2.i.i.i22, align 8
-  %253 = load <2 x double>, ptr %249, align 8
-  %254 = load <2 x double>, ptr %251, align 8
-  %255 = insertelement <2 x double> poison, double %.pre11.i.i.pre.pre, i64 0
-  %256 = insertelement <2 x double> %255, double %252, i64 1
-  %257 = fsub <2 x double> %254, %256
-  %258 = shufflevector <2 x double> %257, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %259 = fsub <2 x double> %253, %256
-  %260 = fmul <2 x double> %258, %259
-  %shift378 = shufflevector <2 x double> %260, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %261 = fsub <2 x double> %shift378, %260
-  %sub11.i.i.i29 = extractelement <2 x double> %261, i64 0
-  %262 = tail call double @llvm.fabs.f64(double %sub11.i.i.i29)
-  %or.cond.i.i.i30 = fcmp uge double %262, 0x3D719799812DEA11
+  %250 = load ptr, ptr %q.i, align 8
+  %y2.i.i.i22 = getelementptr inbounds i8, ptr %249, i64 8
+  %251 = load double, ptr %y2.i.i.i22, align 8
+  %252 = load <2 x double>, ptr %248, align 8
+  %253 = load <2 x double>, ptr %250, align 8
+  %254 = insertelement <2 x double> poison, double %.pre11.i.i.pre.pre, i64 0
+  %255 = insertelement <2 x double> %254, double %251, i64 1
+  %256 = fsub <2 x double> %253, %255
+  %257 = shufflevector <2 x double> %256, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %258 = fsub <2 x double> %252, %255
+  %259 = fmul <2 x double> %257, %258
+  %shift378 = shufflevector <2 x double> %259, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %260 = fsub <2 x double> %shift378, %259
+  %sub11.i.i.i29 = extractelement <2 x double> %260, i64 0
+  %261 = tail call double @llvm.fabs.f64(double %sub11.i.i.i29)
+  %or.cond.i.i.i30 = fcmp uge double %261, 0x3D719799812DEA11
   %cmp13.i.i.i31 = fcmp ule double %sub11.i.i.i29, 0.000000e+00
   %cmp6.i.i32 = select i1 %or.cond.i.i.i30, i1 %cmp13.i.i.i31, i1 false
   br i1 %cmp6.i.i32, label %if.then7.i.i, label %if.end.i21.i
 
 if.then7.i.i:                                     ; preds = %if.then.i.i19
-  %263 = load ptr, ptr %node.addr.010.i.i, align 8
-  %prev12.i.i = getelementptr inbounds i8, ptr %248, i64 24
-  %264 = load ptr, ptr %prev12.i.i, align 8
-  %265 = load ptr, ptr %264, align 8
-  %266 = load <2 x double>, ptr %265, align 8
-  %267 = load <2 x double>, ptr %263, align 8
-  %268 = fsub <2 x double> %267, %266
-  %269 = fsub <2 x double> %253, %266
-  %270 = shufflevector <2 x double> %269, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %271 = fmul <2 x double> %270, %268
-  %shift379 = shufflevector <2 x double> %271, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %272 = fsub <2 x double> %271, %shift379
-  %sub11.i21.i.i = extractelement <2 x double> %272, i64 0
-  %273 = tail call double @llvm.fabs.f64(double %sub11.i21.i.i)
-  %or.cond.i22.i.i = fcmp uge double %273, 0x3D719799812DEA11
+  %262 = load ptr, ptr %node.addr.010.i.i, align 8
+  %prev12.i.i = getelementptr inbounds i8, ptr %247, i64 24
+  %263 = load ptr, ptr %prev12.i.i, align 8
+  %264 = load ptr, ptr %263, align 8
+  %265 = load <2 x double>, ptr %264, align 8
+  %266 = load <2 x double>, ptr %262, align 8
+  %267 = fsub <2 x double> %266, %265
+  %268 = fsub <2 x double> %252, %265
+  %269 = shufflevector <2 x double> %268, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %270 = fmul <2 x double> %269, %267
+  %shift379 = shufflevector <2 x double> %270, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %271 = fsub <2 x double> %270, %shift379
+  %sub11.i21.i.i = extractelement <2 x double> %271, i64 0
+  %272 = tail call double @llvm.fabs.f64(double %sub11.i21.i.i)
+  %or.cond.i22.i.i = fcmp uge double %272, 0x3D719799812DEA11
   %cmp13.i23.i.i = fcmp ule double %sub11.i21.i.i, 0.000000e+00
   %cmp15.i.i = select i1 %or.cond.i22.i.i, i1 %cmp13.i23.i.i, i1 false
   br i1 %cmp15.i.i, label %tailrecurse.i.i, label %if.end.i21.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i.preheader, %if.else.i94
-  %274 = phi double [ %341, %if.else.i94 ], [ %233, %tailrecurse.i.preheader ]
-  %275 = phi ptr [ %281, %if.else.i94 ], [ %221, %tailrecurse.i.preheader ]
-  %276 = phi ptr [ %280, %if.else.i94 ], [ %220, %tailrecurse.i.preheader ]
-  %277 = phi ptr [ %275, %if.else.i94 ], [ %219, %tailrecurse.i.preheader ]
-  %278 = phi ptr [ %276, %if.else.i94 ], [ %218, %tailrecurse.i.preheader ]
-  %279 = phi <2 x double> [ %282, %if.else.i94 ], [ %222, %tailrecurse.i.preheader ]
-  %prev7.i = getelementptr inbounds i8, ptr %276, i64 24
-  %280 = load ptr, ptr %prev7.i, align 8
-  %281 = load ptr, ptr %280, align 8
-  %282 = load <2 x double>, ptr %281, align 8
-  %y4.i.i86 = getelementptr inbounds i8, ptr %277, i64 8
-  %283 = load double, ptr %y4.i.i86, align 8
-  %284 = insertelement <2 x double> poison, double %274, i64 0
-  %285 = insertelement <2 x double> %284, double %283, i64 1
-  %286 = fsub <2 x double> %285, %282
-  %287 = shufflevector <2 x double> %286, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %288 = fsub <2 x double> %279, %282
-  %289 = fmul <2 x double> %288, %287
-  %shift380 = shufflevector <2 x double> %289, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %290 = fsub <2 x double> %shift380, %289
-  %sub11.i.i90 = extractelement <2 x double> %290, i64 0
-  %291 = tail call double @llvm.fabs.f64(double %sub11.i.i90)
-  %or.cond.i.i91 = fcmp uge double %291, 0x3D719799812DEA11
+  %273 = phi double [ %340, %if.else.i94 ], [ %232, %tailrecurse.i.preheader ]
+  %274 = phi ptr [ %280, %if.else.i94 ], [ %220, %tailrecurse.i.preheader ]
+  %275 = phi ptr [ %279, %if.else.i94 ], [ %219, %tailrecurse.i.preheader ]
+  %276 = phi ptr [ %274, %if.else.i94 ], [ %218, %tailrecurse.i.preheader ]
+  %277 = phi ptr [ %275, %if.else.i94 ], [ %217, %tailrecurse.i.preheader ]
+  %278 = phi <2 x double> [ %281, %if.else.i94 ], [ %221, %tailrecurse.i.preheader ]
+  %prev7.i = getelementptr inbounds i8, ptr %275, i64 24
+  %279 = load ptr, ptr %prev7.i, align 8
+  %280 = load ptr, ptr %279, align 8
+  %281 = load <2 x double>, ptr %280, align 8
+  %y4.i.i86 = getelementptr inbounds i8, ptr %276, i64 8
+  %282 = load double, ptr %y4.i.i86, align 8
+  %283 = insertelement <2 x double> poison, double %273, i64 0
+  %284 = insertelement <2 x double> %283, double %282, i64 1
+  %285 = fsub <2 x double> %284, %281
+  %286 = shufflevector <2 x double> %285, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %287 = fsub <2 x double> %278, %281
+  %288 = fmul <2 x double> %287, %286
+  %shift380 = shufflevector <2 x double> %288, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %289 = fsub <2 x double> %shift380, %288
+  %sub11.i.i90 = extractelement <2 x double> %289, i64 0
+  %290 = tail call double @llvm.fabs.f64(double %sub11.i.i90)
+  %or.cond.i.i91 = fcmp uge double %290, 0x3D719799812DEA11
   %cmp13.i.i92 = fcmp ule double %sub11.i.i90, 0.000000e+00
   %cmp.i93 = select i1 %or.cond.i.i91, i1 %cmp13.i.i92, i1 false
   br i1 %cmp.i93, label %if.then.i96, label %if.else.i94
 
 if.then.i96:                                      ; preds = %tailrecurse.i
-  %prev3.le.i = getelementptr inbounds i8, ptr %278, i64 24
+  %prev3.le.i = getelementptr inbounds i8, ptr %277, i64 24
   br label %tailrecurse.i.i97
 
 tailrecurse.i.i97:                                ; preds = %if.then7.i.i113, %if.then.i96
-  %292 = phi ptr [ %305, %if.then7.i.i113 ], [ %276, %if.then.i96 ]
+  %291 = phi ptr [ %304, %if.then7.i.i113 ], [ %275, %if.then.i96 ]
   %call.i209 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
-  %prev.i210 = getelementptr inbounds i8, ptr %292, i64 24
-  %293 = load ptr, ptr %prev.i210, align 8
-  %294 = load ptr, ptr %293, align 8
-  %295 = load ptr, ptr %292, align 8
-  %next.i211 = getelementptr inbounds i8, ptr %292, i64 16
-  %296 = load ptr, ptr %next.i211, align 8
-  %297 = load ptr, ptr %296, align 8
-  invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i209, ptr noundef nonnull align 8 dereferenceable(40) %294, ptr noundef nonnull align 8 dereferenceable(40) %295, ptr noundef nonnull align 8 dereferenceable(40) %297)
+  %prev.i210 = getelementptr inbounds i8, ptr %291, i64 24
+  %292 = load ptr, ptr %prev.i210, align 8
+  %293 = load ptr, ptr %292, align 8
+  %294 = load ptr, ptr %291, align 8
+  %next.i211 = getelementptr inbounds i8, ptr %291, i64 16
+  %295 = load ptr, ptr %next.i211, align 8
+  %296 = load ptr, ptr %295, align 8
+  invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i209, ptr noundef nonnull align 8 dereferenceable(40) %293, ptr noundef nonnull align 8 dereferenceable(40) %294, ptr noundef nonnull align 8 dereferenceable(40) %296)
           to label %invoke.cont.i213 unwind label %lpad.i212
 
 invoke.cont.i213:                                 ; preds = %tailrecurse.i.i97
-  %298 = load ptr, ptr %prev.i210, align 8
-  %triangle5.i214 = getelementptr inbounds i8, ptr %298, i64 8
-  %299 = load ptr, ptr %triangle5.i214, align 8
+  %297 = load ptr, ptr %prev.i210, align 8
+  %triangle5.i214 = getelementptr inbounds i8, ptr %297, i64 8
+  %298 = load ptr, ptr %triangle5.i214, align 8
+  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i209, ptr noundef nonnull align 8 dereferenceable(57) %298)
+  %triangle6.i215 = getelementptr inbounds i8, ptr %291, i64 8
+  %299 = load ptr, ptr %triangle6.i215, align 8
   tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i209, ptr noundef nonnull align 8 dereferenceable(57) %299)
-  %triangle6.i215 = getelementptr inbounds i8, ptr %292, i64 8
-  %300 = load ptr, ptr %triangle6.i215, align 8
-  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i209, ptr noundef nonnull align 8 dereferenceable(57) %300)
   tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call.i209)
-  %301 = load ptr, ptr %next.i211, align 8
+  %300 = load ptr, ptr %next.i211, align 8
+  %301 = load ptr, ptr %prev.i210, align 8
+  %next9.i216 = getelementptr inbounds i8, ptr %301, i64 16
+  store ptr %300, ptr %next9.i216, align 8
   %302 = load ptr, ptr %prev.i210, align 8
-  %next9.i216 = getelementptr inbounds i8, ptr %302, i64 16
-  store ptr %301, ptr %next9.i216, align 8
-  %303 = load ptr, ptr %prev.i210, align 8
-  %prev12.i217 = getelementptr inbounds i8, ptr %301, i64 24
-  store ptr %303, ptr %prev12.i217, align 8
+  %prev12.i217 = getelementptr inbounds i8, ptr %300, i64 24
+  store ptr %302, ptr %prev12.i217, align 8
   %call13.i218 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i209)
   br i1 %call13.i218, label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit221, label %if.then.i219
 
@@ -806,120 +805,120 @@ if.then.i219:                                     ; preds = %invoke.cont.i213
   br label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit221
 
 lpad.i212:                                        ; preds = %tailrecurse.i.i97
-  %304 = landingpad { ptr, i32 }
+  %303 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit221: ; preds = %invoke.cont.i213, %if.then.i219
-  %305 = load ptr, ptr %prev3.le.i, align 8
-  %306 = load ptr, ptr %305, align 8
-  %307 = load ptr, ptr %8, align 8
-  %cmp.not.i.i98 = icmp eq ptr %306, %307
-  %.pre306.pre = load double, ptr %307, align 8
+  %304 = load ptr, ptr %prev3.le.i, align 8
+  %305 = load ptr, ptr %304, align 8
+  %306 = load ptr, ptr %8, align 8
+  %cmp.not.i.i98 = icmp eq ptr %305, %306
+  %.pre293.pre = load double, ptr %306, align 8
   br i1 %cmp.not.i.i98, label %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit, label %if.then.i.i99
 
 if.then.i.i99:                                    ; preds = %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit221
-  %308 = load ptr, ptr %q.i, align 8
-  %y2.i.i.i102 = getelementptr inbounds i8, ptr %307, i64 8
-  %309 = load double, ptr %y2.i.i.i102, align 8
-  %310 = load <2 x double>, ptr %306, align 8
-  %311 = load <2 x double>, ptr %308, align 8
-  %312 = insertelement <2 x double> poison, double %.pre306.pre, i64 0
-  %313 = insertelement <2 x double> %312, double %309, i64 1
-  %314 = fsub <2 x double> %311, %313
-  %315 = shufflevector <2 x double> %314, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %316 = fsub <2 x double> %310, %313
-  %317 = fmul <2 x double> %315, %316
-  %shift381 = shufflevector <2 x double> %317, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %318 = fsub <2 x double> %shift381, %317
-  %sub11.i.i.i109 = extractelement <2 x double> %318, i64 0
-  %319 = tail call double @llvm.fabs.f64(double %sub11.i.i.i109)
-  %or.cond.i.i.i110 = fcmp uge double %319, 0x3D719799812DEA11
+  %307 = load ptr, ptr %q.i, align 8
+  %y2.i.i.i102 = getelementptr inbounds i8, ptr %306, i64 8
+  %308 = load double, ptr %y2.i.i.i102, align 8
+  %309 = load <2 x double>, ptr %305, align 8
+  %310 = load <2 x double>, ptr %307, align 8
+  %311 = insertelement <2 x double> poison, double %.pre293.pre, i64 0
+  %312 = insertelement <2 x double> %311, double %308, i64 1
+  %313 = fsub <2 x double> %310, %312
+  %314 = shufflevector <2 x double> %313, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %315 = fsub <2 x double> %309, %312
+  %316 = fmul <2 x double> %314, %315
+  %shift381 = shufflevector <2 x double> %316, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %317 = fsub <2 x double> %shift381, %316
+  %sub11.i.i.i109 = extractelement <2 x double> %317, i64 0
+  %318 = tail call double @llvm.fabs.f64(double %sub11.i.i.i109)
+  %or.cond.i.i.i110 = fcmp uge double %318, 0x3D719799812DEA11
   %cmp13.i.i.i111 = fcmp ule double %sub11.i.i.i109, 0.000000e+00
   %cmp6.i.i112 = select i1 %or.cond.i.i.i110, i1 %cmp13.i.i.i111, i1 false
   br i1 %cmp6.i.i112, label %if.then7.i.i113, label %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
 
 if.then7.i.i113:                                  ; preds = %if.then.i.i99
-  %320 = load ptr, ptr %278, align 8
-  %prev12.i.i114 = getelementptr inbounds i8, ptr %305, i64 24
-  %321 = load ptr, ptr %prev12.i.i114, align 8
-  %322 = load ptr, ptr %321, align 8
-  %323 = load <2 x double>, ptr %322, align 8
-  %324 = load <2 x double>, ptr %320, align 8
-  %325 = fsub <2 x double> %324, %323
-  %326 = fsub <2 x double> %310, %323
-  %327 = shufflevector <2 x double> %326, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %328 = fmul <2 x double> %327, %325
-  %shift382 = shufflevector <2 x double> %328, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %329 = fsub <2 x double> %328, %shift382
-  %sub11.i21.i.i123 = extractelement <2 x double> %329, i64 0
-  %330 = tail call double @llvm.fabs.f64(double %sub11.i21.i.i123)
-  %or.cond.i22.i.i124 = fcmp uge double %330, 0x3D719799812DEA11
+  %319 = load ptr, ptr %277, align 8
+  %prev12.i.i114 = getelementptr inbounds i8, ptr %304, i64 24
+  %320 = load ptr, ptr %prev12.i.i114, align 8
+  %321 = load ptr, ptr %320, align 8
+  %322 = load <2 x double>, ptr %321, align 8
+  %323 = load <2 x double>, ptr %319, align 8
+  %324 = fsub <2 x double> %323, %322
+  %325 = fsub <2 x double> %309, %322
+  %326 = shufflevector <2 x double> %325, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %327 = fmul <2 x double> %326, %324
+  %shift382 = shufflevector <2 x double> %327, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %328 = fsub <2 x double> %327, %shift382
+  %sub11.i21.i.i123 = extractelement <2 x double> %328, i64 0
+  %329 = tail call double @llvm.fabs.f64(double %sub11.i21.i.i123)
+  %or.cond.i22.i.i124 = fcmp uge double %329, 0x3D719799812DEA11
   %cmp13.i23.i.i125 = fcmp ule double %sub11.i21.i.i123, 0.000000e+00
   %cmp15.i.i126 = select i1 %or.cond.i22.i.i124, i1 %cmp13.i23.i.i125, i1 false
   br i1 %cmp15.i.i126, label %tailrecurse.i.i97, label %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
 
 if.else.i94:                                      ; preds = %tailrecurse.i
-  %331 = load ptr, ptr %q.i, align 8
-  %332 = load double, ptr %y2.i12.i, align 8
-  %333 = load <2 x double>, ptr %331, align 8
-  %334 = insertelement <2 x double> %234, double %332, i64 1
-  %335 = fsub <2 x double> %333, %334
-  %336 = shufflevector <2 x double> %335, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %337 = fsub <2 x double> %279, %334
-  %338 = fmul <2 x double> %337, %336
-  %shift383 = shufflevector <2 x double> %338, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %339 = fsub <2 x double> %shift383, %338
-  %sub11.i19.i = extractelement <2 x double> %339, i64 0
-  %340 = tail call double @llvm.fabs.f64(double %sub11.i19.i)
-  %or.cond.i20.i = fcmp uge double %340, 0x3D719799812DEA11
+  %330 = load ptr, ptr %q.i, align 8
+  %331 = load double, ptr %y2.i12.i, align 8
+  %332 = load <2 x double>, ptr %330, align 8
+  %333 = insertelement <2 x double> %233, double %331, i64 1
+  %334 = fsub <2 x double> %332, %333
+  %335 = shufflevector <2 x double> %334, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %336 = fsub <2 x double> %278, %333
+  %337 = fmul <2 x double> %336, %335
+  %shift383 = shufflevector <2 x double> %337, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %338 = fsub <2 x double> %shift383, %337
+  %sub11.i19.i = extractelement <2 x double> %338, i64 0
+  %339 = tail call double @llvm.fabs.f64(double %sub11.i19.i)
+  %or.cond.i20.i = fcmp uge double %339, 0x3D719799812DEA11
   %cmp13.i21.i = fcmp ule double %sub11.i19.i, 0.000000e+00
   %cmp14.i95 = select i1 %or.cond.i20.i, i1 %cmp13.i21.i, i1 false
-  %341 = extractelement <2 x double> %279, i64 0
+  %340 = extractelement <2 x double> %278, i64 0
   br i1 %cmp14.i95, label %tailrecurse.i, label %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit
 
 _ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit: ; preds = %if.then7.i.i113, %if.then.i.i99, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit221
-  %.pre304 = load ptr, ptr %node.addr.010.i.i, align 8
-  %.pre305 = load double, ptr %.pre304, align 8
+  %.pre = load ptr, ptr %node.addr.010.i.i, align 8
+  %.pre292 = load double, ptr %.pre, align 8
   br label %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit
 
 _ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit: ; preds = %if.else.i94, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
-  %.pre11.i.i312 = phi double [ %.pre306.pre, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %.pre11.i.i313, %if.else.i94 ]
-  %.pre.i25.i309 = phi ptr [ %307, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %.pre.i25.i310, %if.else.i94 ]
-  %342 = phi double [ %.pre306.pre, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %214, %if.else.i94 ]
-  %343 = phi ptr [ %307, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %215, %if.else.i94 ]
-  %344 = phi double [ %.pre305, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %216, %if.else.i94 ]
-  %345 = phi ptr [ %.pre304, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %217, %if.else.i94 ]
-  %cmp.i17 = fcmp ogt double %344, %342
+  %.pre11.i.i299 = phi double [ %.pre293.pre, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %.pre11.i.i300, %if.else.i94 ]
+  %.pre.i25.i296 = phi ptr [ %306, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %.pre.i25.i297, %if.else.i94 ]
+  %341 = phi double [ %.pre293.pre, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %213, %if.else.i94 ]
+  %342 = phi ptr [ %306, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %214, %if.else.i94 ]
+  %343 = phi double [ %.pre292, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %215, %if.else.i94 ]
+  %344 = phi ptr [ %.pre, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %216, %if.else.i94 ]
+  %cmp.i17 = fcmp ogt double %343, %341
   br i1 %cmp.i17, label %if.then.i15, label %if.end.i21.i
 
 if.end.i21.i:                                     ; preds = %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit, %if.then7.i.i, %if.then.i.i19, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit, %if.then.i24.i, %while.body.i7.i
-  %.pre11.i.i315 = phi double [ %.pre11.i.i314, %while.body.i7.i ], [ %.pre11.i.i314, %if.then.i24.i ], [ %.pre11.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %.pre11.i.i.pre.pre, %if.then.i.i19 ], [ %.pre11.i.i.pre.pre, %if.then7.i.i ], [ %.pre11.i.i312, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %.pre.i25.i307 = phi ptr [ %.pre.i25.i311, %while.body.i7.i ], [ %.pre.i25.i311, %if.then.i24.i ], [ %250, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %250, %if.then.i.i19 ], [ %250, %if.then7.i.i ], [ %.pre.i25.i309, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %346 = phi double [ %189, %while.body.i7.i ], [ %.pre11.i.i314, %if.then.i24.i ], [ %.pre11.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %.pre11.i.i.pre.pre, %if.then.i.i19 ], [ %.pre11.i.i.pre.pre, %if.then7.i.i ], [ %.pre11.i.i312, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %347 = phi ptr [ %190, %while.body.i7.i ], [ %.pre.i25.i311, %if.then.i24.i ], [ %250, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %250, %if.then.i.i19 ], [ %250, %if.then7.i.i ], [ %.pre.i25.i309, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %node.addr.1.i22.i = phi ptr [ %193, %while.body.i7.i ], [ %node.addr.010.i.i, %if.then.i24.i ], [ %node.addr.010.i.i, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %node.addr.010.i.i, %if.then.i.i19 ], [ %node.addr.010.i.i, %if.then7.i.i ], [ %node.addr.010.i.i, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %.pre11.i.i302 = phi double [ %.pre11.i.i301, %while.body.i7.i ], [ %.pre11.i.i301, %if.then.i24.i ], [ %.pre11.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %.pre11.i.i.pre.pre, %if.then.i.i19 ], [ %.pre11.i.i.pre.pre, %if.then7.i.i ], [ %.pre11.i.i299, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %.pre.i25.i294 = phi ptr [ %.pre.i25.i298, %while.body.i7.i ], [ %.pre.i25.i298, %if.then.i24.i ], [ %249, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %249, %if.then.i.i19 ], [ %249, %if.then7.i.i ], [ %.pre.i25.i296, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %345 = phi double [ %188, %while.body.i7.i ], [ %.pre11.i.i301, %if.then.i24.i ], [ %.pre11.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %.pre11.i.i.pre.pre, %if.then.i.i19 ], [ %.pre11.i.i.pre.pre, %if.then7.i.i ], [ %.pre11.i.i299, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %346 = phi ptr [ %189, %while.body.i7.i ], [ %.pre.i25.i298, %if.then.i24.i ], [ %249, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %249, %if.then.i.i19 ], [ %249, %if.then7.i.i ], [ %.pre.i25.i296, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %node.addr.1.i22.i = phi ptr [ %192, %while.body.i7.i ], [ %node.addr.010.i.i, %if.then.i24.i ], [ %node.addr.010.i.i, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %node.addr.010.i.i, %if.then.i.i19 ], [ %node.addr.010.i.i, %if.then7.i.i ], [ %node.addr.010.i.i, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
   %prev.i.i = getelementptr inbounds i8, ptr %node.addr.1.i22.i, i64 24
-  %348 = load ptr, ptr %prev.i.i, align 8
-  %349 = load ptr, ptr %348, align 8
-  %350 = load double, ptr %349, align 8
-  %cmp.i23.i = fcmp ogt double %350, %346
+  %347 = load ptr, ptr %prev.i.i, align 8
+  %348 = load ptr, ptr %347, align 8
+  %349 = load double, ptr %348, align 8
+  %cmp.i23.i = fcmp ogt double %349, %345
   br i1 %cmp.i23.i, label %while.body.i7.i, label %_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, !llvm.loop !7
 
-_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit: ; preds = %if.end.i.i, %if.end.i21.i, %if.then.i12, %if.else.i
-  %351 = phi ptr [ %19, %if.then.i12 ], [ %19, %if.else.i ], [ %.pre.i25.i307, %if.end.i21.i ], [ %.pre.i.i294, %if.end.i.i ]
-  %352 = load ptr, ptr %q.i, align 8
-  %353 = load ptr, ptr %triangle.i, align 8
-  tail call void @_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextERNS_5PointES4_PNS_8TriangleES4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %351, ptr noundef nonnull align 8 dereferenceable(40) %352, ptr noundef %353, ptr noundef nonnull align 8 dereferenceable(40) %352)
+_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit: ; preds = %if.end.i21.i, %if.end.i.i, %if.then.i13, %if.else.i
+  %350 = phi ptr [ %18, %if.then.i13 ], [ %18, %if.else.i ], [ %.pre.i.i307, %if.end.i.i ], [ %.pre.i25.i294, %if.end.i21.i ]
+  %351 = load ptr, ptr %q.i, align 8
+  %352 = load ptr, ptr %triangle.i, align 8
+  tail call void @_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextERNS_5PointES4_PNS_8TriangleES4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %350, ptr noundef nonnull align 8 dereferenceable(40) %351, ptr noundef %352, ptr noundef nonnull align 8 dereferenceable(40) %351)
   br label %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit
 
 _ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit: ; preds = %if.then.i.i, %if.then3.i.i, %_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit
   %inc = add i32 %ii.0262, 1
   %conv = zext i32 %inc to i64
-  %354 = load ptr, ptr %_M_finish.i, align 8
-  %355 = load ptr, ptr %edge_list, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %354 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %355 to i64
+  %353 = load ptr, ptr %_M_finish.i, align 8
+  %354 = load ptr, ptr %edge_list, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %353 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %354 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp6 = icmp ugt i64 %sub.ptr.div.i, %conv
@@ -927,10 +926,10 @@ _ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit: ; preds = 
 
 for.inc11:                                        ; preds = %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, %_ZN3p2t5Sweep10PointEventERNS_12SweepContextERNS_5PointE.exit
   %inc12 = add nuw i64 %i.0269, 1
-  %356 = load ptr, ptr %_M_finish.i.i, align 8
-  %357 = load ptr, ptr %points_.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %356 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %357 to i64
+  %355 = load ptr, ptr %_M_finish.i.i, align 8
+  %356 = load ptr, ptr %points_.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %355 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %356 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %cmp = icmp ult i64 %inc12, %sub.ptr.div.i.i
@@ -1318,18 +1317,17 @@ define hidden void @_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPN
 entry:
   %right = getelementptr inbounds i8, ptr %tcx, i64 72
   %0 = load i8, ptr %right, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %2 = load ptr, ptr %edge, align 8
-  %3 = load double, ptr %2, align 8
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  %1 = load ptr, ptr %edge, align 8
+  %2 = load double, ptr %1, align 8
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %next7.i = getelementptr inbounds i8, ptr %node, i64 16
-  %4 = load ptr, ptr %next7.i, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load double, ptr %5, align 8
-  %cmp8.i = fcmp olt double %6, %3
+  %3 = load ptr, ptr %next7.i, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = load double, ptr %4, align 8
+  %cmp8.i = fcmp olt double %5, %2
   br i1 %cmp8.i, label %while.body.lr.ph.i, label %if.end
 
 while.body.lr.ph.i:                               ; preds = %if.then
@@ -1337,36 +1335,36 @@ while.body.lr.ph.i:                               ; preds = %if.then
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
-  %7 = phi double [ %3, %while.body.lr.ph.i ], [ %30, %if.end.i ]
-  %8 = phi ptr [ %2, %while.body.lr.ph.i ], [ %31, %if.end.i ]
-  %9 = phi double [ %6, %while.body.lr.ph.i ], [ %34, %if.end.i ]
-  %10 = phi ptr [ %5, %while.body.lr.ph.i ], [ %33, %if.end.i ]
-  %11 = phi ptr [ %4, %while.body.lr.ph.i ], [ %32, %if.end.i ]
+  %6 = phi double [ %2, %while.body.lr.ph.i ], [ %29, %if.end.i ]
+  %7 = phi ptr [ %1, %while.body.lr.ph.i ], [ %30, %if.end.i ]
+  %8 = phi double [ %5, %while.body.lr.ph.i ], [ %33, %if.end.i ]
+  %9 = phi ptr [ %4, %while.body.lr.ph.i ], [ %32, %if.end.i ]
+  %10 = phi ptr [ %3, %while.body.lr.ph.i ], [ %31, %if.end.i ]
   %node.addr.09.i = phi ptr [ %node, %while.body.lr.ph.i ], [ %node.addr.1.i, %if.end.i ]
-  %12 = load ptr, ptr %q.i, align 8
-  %13 = load double, ptr %12, align 8
-  %y.i.i = getelementptr inbounds i8, ptr %10, i64 8
-  %14 = load double, ptr %y.i.i, align 8
-  %y2.i.i = getelementptr inbounds i8, ptr %8, i64 8
-  %15 = load double, ptr %y2.i.i, align 8
-  %y4.i.i = getelementptr inbounds i8, ptr %12, i64 8
-  %16 = load double, ptr %y4.i.i, align 8
-  %17 = insertelement <2 x double> poison, double %14, i64 0
-  %18 = insertelement <2 x double> %17, double %16, i64 1
-  %19 = insertelement <2 x double> poison, double %15, i64 0
-  %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> zeroinitializer
-  %21 = fsub <2 x double> %18, %20
-  %22 = insertelement <2 x double> poison, double %13, i64 0
-  %23 = insertelement <2 x double> %22, double %9, i64 1
-  %24 = insertelement <2 x double> poison, double %7, i64 0
-  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
-  %26 = fsub <2 x double> %23, %25
-  %27 = fmul <2 x double> %26, %21
-  %shift = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %28 = fsub <2 x double> %27, %shift
-  %sub11.i.i = extractelement <2 x double> %28, i64 0
-  %29 = tail call double @llvm.fabs.f64(double %sub11.i.i)
-  %or.cond.i.i = fcmp uge double %29, 0x3D719799812DEA11
+  %11 = load ptr, ptr %q.i, align 8
+  %12 = load double, ptr %11, align 8
+  %y.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = load double, ptr %y.i.i, align 8
+  %y2.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = load double, ptr %y2.i.i, align 8
+  %y4.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = load double, ptr %y4.i.i, align 8
+  %16 = insertelement <2 x double> poison, double %13, i64 0
+  %17 = insertelement <2 x double> %16, double %15, i64 1
+  %18 = insertelement <2 x double> poison, double %14, i64 0
+  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
+  %20 = fsub <2 x double> %17, %19
+  %21 = insertelement <2 x double> poison, double %12, i64 0
+  %22 = insertelement <2 x double> %21, double %8, i64 1
+  %23 = insertelement <2 x double> poison, double %6, i64 0
+  %24 = shufflevector <2 x double> %23, <2 x double> poison, <2 x i32> zeroinitializer
+  %25 = fsub <2 x double> %22, %24
+  %26 = fmul <2 x double> %25, %20
+  %shift = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %27 = fsub <2 x double> %26, %shift
+  %sub11.i.i = extractelement <2 x double> %27, i64 0
+  %28 = tail call double @llvm.fabs.f64(double %sub11.i.i)
+  %or.cond.i.i = fcmp uge double %28, 0x3D719799812DEA11
   %cmp13.i.i = fcmp ogt double %sub11.i.i, 0.000000e+00
   %cmp6.i = select i1 %or.cond.i.i, i1 %cmp13.i.i, i1 false
   br i1 %cmp6.i, label %if.then.i, label %if.end.i
@@ -1378,22 +1376,22 @@ if.then.i:                                        ; preds = %while.body.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
-  %30 = phi double [ %.pre10.i, %if.then.i ], [ %7, %while.body.i ]
-  %31 = phi ptr [ %.pre.i, %if.then.i ], [ %8, %while.body.i ]
-  %node.addr.1.i = phi ptr [ %node.addr.09.i, %if.then.i ], [ %11, %while.body.i ]
+  %29 = phi double [ %.pre10.i, %if.then.i ], [ %6, %while.body.i ]
+  %30 = phi ptr [ %.pre.i, %if.then.i ], [ %7, %while.body.i ]
+  %node.addr.1.i = phi ptr [ %node.addr.09.i, %if.then.i ], [ %10, %while.body.i ]
   %next.i = getelementptr inbounds i8, ptr %node.addr.1.i, i64 16
-  %32 = load ptr, ptr %next.i, align 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = load double, ptr %33, align 8
-  %cmp.i = fcmp olt double %34, %30
+  %31 = load ptr, ptr %next.i, align 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = load double, ptr %32, align 8
+  %cmp.i = fcmp olt double %33, %29
   br i1 %cmp.i, label %while.body.i, label %if.end, !llvm.loop !6
 
 if.else:                                          ; preds = %entry
   %prev8.i = getelementptr inbounds i8, ptr %node, i64 24
-  %35 = load ptr, ptr %prev8.i, align 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = load double, ptr %36, align 8
-  %cmp9.i = fcmp ogt double %37, %3
+  %34 = load ptr, ptr %prev8.i, align 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = load double, ptr %35, align 8
+  %cmp9.i = fcmp ogt double %36, %2
   br i1 %cmp9.i, label %while.body.lr.ph.i5, label %if.end
 
 while.body.lr.ph.i5:                              ; preds = %if.else
@@ -1401,36 +1399,36 @@ while.body.lr.ph.i5:                              ; preds = %if.else
   br label %while.body.i7
 
 while.body.i7:                                    ; preds = %if.end.i21, %while.body.lr.ph.i5
-  %38 = phi double [ %3, %while.body.lr.ph.i5 ], [ %61, %if.end.i21 ]
-  %39 = phi ptr [ %2, %while.body.lr.ph.i5 ], [ %62, %if.end.i21 ]
-  %40 = phi double [ %37, %while.body.lr.ph.i5 ], [ %65, %if.end.i21 ]
-  %41 = phi ptr [ %36, %while.body.lr.ph.i5 ], [ %64, %if.end.i21 ]
-  %42 = phi ptr [ %35, %while.body.lr.ph.i5 ], [ %63, %if.end.i21 ]
+  %37 = phi double [ %2, %while.body.lr.ph.i5 ], [ %60, %if.end.i21 ]
+  %38 = phi ptr [ %1, %while.body.lr.ph.i5 ], [ %61, %if.end.i21 ]
+  %39 = phi double [ %36, %while.body.lr.ph.i5 ], [ %64, %if.end.i21 ]
+  %40 = phi ptr [ %35, %while.body.lr.ph.i5 ], [ %63, %if.end.i21 ]
+  %41 = phi ptr [ %34, %while.body.lr.ph.i5 ], [ %62, %if.end.i21 ]
   %node.addr.010.i = phi ptr [ %node, %while.body.lr.ph.i5 ], [ %node.addr.1.i22, %if.end.i21 ]
-  %43 = load ptr, ptr %q.i6, align 8
-  %44 = load double, ptr %43, align 8
-  %y.i.i9 = getelementptr inbounds i8, ptr %41, i64 8
-  %45 = load double, ptr %y.i.i9, align 8
-  %y2.i.i10 = getelementptr inbounds i8, ptr %39, i64 8
-  %46 = load double, ptr %y2.i.i10, align 8
-  %y4.i.i13 = getelementptr inbounds i8, ptr %43, i64 8
-  %47 = load double, ptr %y4.i.i13, align 8
-  %48 = insertelement <2 x double> poison, double %45, i64 0
-  %49 = insertelement <2 x double> %48, double %47, i64 1
-  %50 = insertelement <2 x double> poison, double %46, i64 0
-  %51 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> zeroinitializer
-  %52 = fsub <2 x double> %49, %51
-  %53 = insertelement <2 x double> poison, double %44, i64 0
-  %54 = insertelement <2 x double> %53, double %40, i64 1
-  %55 = insertelement <2 x double> poison, double %38, i64 0
-  %56 = shufflevector <2 x double> %55, <2 x double> poison, <2 x i32> zeroinitializer
-  %57 = fsub <2 x double> %54, %56
-  %58 = fmul <2 x double> %57, %52
-  %shift30 = shufflevector <2 x double> %58, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %59 = fsub <2 x double> %58, %shift30
-  %sub11.i.i17 = extractelement <2 x double> %59, i64 0
-  %60 = tail call double @llvm.fabs.f64(double %sub11.i.i17)
-  %or.cond.i.i18 = fcmp uge double %60, 0x3D719799812DEA11
+  %42 = load ptr, ptr %q.i6, align 8
+  %43 = load double, ptr %42, align 8
+  %y.i.i9 = getelementptr inbounds i8, ptr %40, i64 8
+  %44 = load double, ptr %y.i.i9, align 8
+  %y2.i.i10 = getelementptr inbounds i8, ptr %38, i64 8
+  %45 = load double, ptr %y2.i.i10, align 8
+  %y4.i.i13 = getelementptr inbounds i8, ptr %42, i64 8
+  %46 = load double, ptr %y4.i.i13, align 8
+  %47 = insertelement <2 x double> poison, double %44, i64 0
+  %48 = insertelement <2 x double> %47, double %46, i64 1
+  %49 = insertelement <2 x double> poison, double %45, i64 0
+  %50 = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> zeroinitializer
+  %51 = fsub <2 x double> %48, %50
+  %52 = insertelement <2 x double> poison, double %43, i64 0
+  %53 = insertelement <2 x double> %52, double %39, i64 1
+  %54 = insertelement <2 x double> poison, double %37, i64 0
+  %55 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> zeroinitializer
+  %56 = fsub <2 x double> %53, %55
+  %57 = fmul <2 x double> %56, %51
+  %shift30 = shufflevector <2 x double> %57, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %58 = fsub <2 x double> %57, %shift30
+  %sub11.i.i17 = extractelement <2 x double> %58, i64 0
+  %59 = tail call double @llvm.fabs.f64(double %sub11.i.i17)
+  %or.cond.i.i18 = fcmp uge double %59, 0x3D719799812DEA11
   %cmp13.i.i19 = fcmp ule double %sub11.i.i17, 0.000000e+00
   %cmp6.i20 = select i1 %or.cond.i.i18, i1 %cmp13.i.i19, i1 false
   br i1 %cmp6.i20, label %if.then.i24, label %if.end.i21
@@ -1442,17 +1440,17 @@ if.then.i24:                                      ; preds = %while.body.i7
   br label %if.end.i21
 
 if.end.i21:                                       ; preds = %if.then.i24, %while.body.i7
-  %61 = phi double [ %.pre11.i, %if.then.i24 ], [ %38, %while.body.i7 ]
-  %62 = phi ptr [ %.pre.i25, %if.then.i24 ], [ %39, %while.body.i7 ]
-  %node.addr.1.i22 = phi ptr [ %node.addr.010.i, %if.then.i24 ], [ %42, %while.body.i7 ]
+  %60 = phi double [ %.pre11.i, %if.then.i24 ], [ %37, %while.body.i7 ]
+  %61 = phi ptr [ %.pre.i25, %if.then.i24 ], [ %38, %while.body.i7 ]
+  %node.addr.1.i22 = phi ptr [ %node.addr.010.i, %if.then.i24 ], [ %41, %while.body.i7 ]
   %prev.i = getelementptr inbounds i8, ptr %node.addr.1.i22, i64 24
-  %63 = load ptr, ptr %prev.i, align 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = load double, ptr %64, align 8
-  %cmp.i23 = fcmp ogt double %65, %61
+  %62 = load ptr, ptr %prev.i, align 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = load double, ptr %63, align 8
+  %cmp.i23 = fcmp ogt double %64, %60
   br i1 %cmp.i23, label %while.body.i7, label %if.end, !llvm.loop !7
 
-if.end:                                           ; preds = %if.end.i, %if.end.i21, %if.else, %if.then
+if.end:                                           ; preds = %if.end.i21, %if.end.i, %if.else, %if.then
   ret void
 }
 
@@ -1827,89 +1825,87 @@ for.body:                                         ; preds = %entry, %for.inc
   %cmp50 = phi i1 [ true, %entry ], [ %cmp, %for.inc ]
   %arrayidx = getelementptr inbounds [3 x i8], ptr %delaunay_edge, i64 0, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %for.inc
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
   %arrayidx.i = getelementptr inbounds [3 x ptr], ptr %neighbors_.i, i64 0, i64 %indvars.iv
-  %2 = load ptr, ptr %arrayidx.i, align 8
-  %tobool2.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %arrayidx.i, align 8
+  %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %arrayidx.i44 = getelementptr inbounds [3 x ptr], ptr %points_.i, i64 0, i64 %indvars.iv
-  %3 = load ptr, ptr %arrayidx.i44, align 8
-  %call5 = tail call noundef ptr @_ZN3p2t8Triangle13OppositePointERS0_RKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %2, ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %3)
-  %call6 = tail call noundef i32 @_ZN3p2t8Triangle5IndexEPKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %2, ptr noundef %call5)
+  %2 = load ptr, ptr %arrayidx.i44, align 8
+  %call5 = tail call noundef ptr @_ZN3p2t8Triangle13OppositePointERS0_RKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %1, ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %2)
+  %call6 = tail call noundef i32 @_ZN3p2t8Triangle5IndexEPKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %1, ptr noundef %call5)
   %idxprom7 = sext i32 %call6 to i64
-  %arrayidx8 = getelementptr inbounds [3 x i8], ptr %2, i64 0, i64 %idxprom7
-  %4 = load i8, ptr %arrayidx8, align 1
-  %5 = and i8 %4, 1
-  %tobool9.not = icmp eq i8 %5, 0
-  br i1 %tobool9.not, label %lor.lhs.false, label %if.then14
+  %arrayidx8 = getelementptr inbounds [3 x i8], ptr %1, i64 0, i64 %idxprom7
+  %3 = load i8, ptr %arrayidx8, align 1
+  %tobool9 = trunc i8 %3 to i1
+  br i1 %tobool9, label %if.then14, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then3
-  %delaunay_edge10 = getelementptr inbounds i8, ptr %2, i64 3
+  %delaunay_edge10 = getelementptr inbounds i8, ptr %1, i64 3
   %arrayidx12 = getelementptr inbounds [3 x i8], ptr %delaunay_edge10, i64 0, i64 %idxprom7
-  %6 = load i8, ptr %arrayidx12, align 1
-  %7 = and i8 %6, 1
-  %tobool13.not = icmp eq i8 %7, 0
-  br i1 %tobool13.not, label %if.end22, label %if.then14
+  %4 = load i8, ptr %arrayidx12, align 1
+  %tobool13 = trunc i8 %4 to i1
+  br i1 %tobool13, label %if.then14, label %if.end22
 
 if.then14:                                        ; preds = %lor.lhs.false, %if.then3
   %arrayidx21 = getelementptr inbounds [3 x i8], ptr %t, i64 0, i64 %indvars.iv
-  store i8 %5, ptr %arrayidx21, align 1
+  %frombool = and i8 %3, 1
+  store i8 %frombool, ptr %arrayidx21, align 1
   br label %for.inc
 
 if.end22:                                         ; preds = %lor.lhs.false
-  %call23 = tail call noundef ptr @_ZN3p2t8Triangle8PointCCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %3)
-  %call24 = tail call noundef ptr @_ZN3p2t8Triangle7PointCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %3)
-  %8 = load <2 x double>, ptr %call5, align 8
-  %9 = load <2 x double>, ptr %3, align 8
-  %10 = fsub <2 x double> %9, %8
-  %11 = load <2 x double>, ptr %call23, align 8
-  %12 = fsub <2 x double> %11, %8
-  %13 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %14 = fmul <2 x double> %10, %13
-  %shift = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %15 = fsub <2 x double> %14, %shift
-  %sub12.i = extractelement <2 x double> %15, i64 0
+  %call23 = tail call noundef ptr @_ZN3p2t8Triangle8PointCCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %2)
+  %call24 = tail call noundef ptr @_ZN3p2t8Triangle7PointCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %2)
+  %5 = load <2 x double>, ptr %call5, align 8
+  %6 = load <2 x double>, ptr %2, align 8
+  %7 = fsub <2 x double> %6, %5
+  %8 = load <2 x double>, ptr %call23, align 8
+  %9 = fsub <2 x double> %8, %5
+  %10 = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %11 = fmul <2 x double> %7, %10
+  %shift = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %12 = fsub <2 x double> %11, %shift
+  %sub12.i = extractelement <2 x double> %12, i64 0
   %cmp.i = fcmp ugt double %sub12.i, 0.000000e+00
   br i1 %cmp.i, label %if.end.i, label %for.inc
 
 if.end.i:                                         ; preds = %if.end22
-  %16 = load <2 x double>, ptr %call24, align 8
-  %17 = fsub <2 x double> %16, %8
-  %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %19 = fmul <2 x double> %10, %18
-  %shift60 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %20 = fsub <2 x double> %shift60, %19
-  %sub21.i = extractelement <2 x double> %20, i64 0
+  %13 = load <2 x double>, ptr %call24, align 8
+  %14 = fsub <2 x double> %13, %5
+  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %16 = fmul <2 x double> %7, %15
+  %shift60 = shufflevector <2 x double> %16, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %17 = fsub <2 x double> %shift60, %16
+  %sub21.i = extractelement <2 x double> %17, i64 0
   %cmp22.i = fcmp ugt double %sub21.i, 0.000000e+00
   br i1 %cmp22.i, label %_ZNK3p2t5Sweep8IncircleERKNS_5PointES3_S3_S3_.exit, label %for.inc
 
 _ZNK3p2t5Sweep8IncircleERKNS_5PointES3_S3_S3_.exit: ; preds = %if.end.i
-  %21 = fmul <2 x double> %12, %18
-  %22 = fmul <2 x double> %10, %10
-  %mul28.i = extractelement <2 x double> %22, i64 1
-  %23 = extractelement <2 x double> %10, i64 0
-  %24 = tail call double @llvm.fmuladd.f64(double %23, double %23, double %mul28.i)
-  %25 = fmul <2 x double> %12, %12
-  %mul30.i = extractelement <2 x double> %25, i64 1
-  %26 = extractelement <2 x double> %12, i64 0
-  %27 = tail call double @llvm.fmuladd.f64(double %26, double %26, double %mul30.i)
-  %28 = fmul <2 x double> %17, %17
-  %mul32.i = extractelement <2 x double> %28, i64 1
-  %29 = extractelement <2 x double> %17, i64 0
-  %30 = tail call double @llvm.fmuladd.f64(double %29, double %29, double %mul32.i)
-  %shift61 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %31 = fsub <2 x double> %21, %shift61
-  %sub33.i = extractelement <2 x double> %31, i64 0
-  %mul35.i = fmul double %27, %sub21.i
-  %32 = tail call double @llvm.fmuladd.f64(double %24, double %sub33.i, double %mul35.i)
-  %33 = tail call double @llvm.fmuladd.f64(double %30, double %sub12.i, double %32)
-  %cmp37.i = fcmp ogt double %33, 0.000000e+00
+  %18 = fmul <2 x double> %9, %15
+  %19 = fmul <2 x double> %7, %7
+  %mul28.i = extractelement <2 x double> %19, i64 1
+  %20 = extractelement <2 x double> %7, i64 0
+  %21 = tail call double @llvm.fmuladd.f64(double %20, double %20, double %mul28.i)
+  %22 = fmul <2 x double> %9, %9
+  %mul30.i = extractelement <2 x double> %22, i64 1
+  %23 = extractelement <2 x double> %9, i64 0
+  %24 = tail call double @llvm.fmuladd.f64(double %23, double %23, double %mul30.i)
+  %25 = fmul <2 x double> %14, %14
+  %mul32.i = extractelement <2 x double> %25, i64 1
+  %26 = extractelement <2 x double> %14, i64 0
+  %27 = tail call double @llvm.fmuladd.f64(double %26, double %26, double %mul32.i)
+  %shift61 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %28 = fsub <2 x double> %18, %shift61
+  %sub33.i = extractelement <2 x double> %28, i64 0
+  %mul35.i = fmul double %24, %sub21.i
+  %29 = tail call double @llvm.fmuladd.f64(double %21, double %sub33.i, double %mul35.i)
+  %30 = tail call double @llvm.fmuladd.f64(double %27, double %sub12.i, double %29)
+  %cmp37.i = fcmp ogt double %30, 0.000000e+00
   br i1 %cmp37.i, label %if.then28, label %for.inc
 
 if.then28:                                        ; preds = %_ZNK3p2t5Sweep8IncircleERKNS_5PointES3_S3_S3_.exit
@@ -1917,7 +1913,7 @@ if.then28:                                        ; preds = %_ZNK3p2t5Sweep8Inci
   %arrayidx12.le = getelementptr inbounds [3 x i8], ptr %delaunay_edge10, i64 0, i64 %idxprom7
   store i8 1, ptr %arrayidx.le, align 1
   store i8 1, ptr %arrayidx12.le, align 1
-  tail call void @_ZNK3p2t5Sweep18RotateTrianglePairERNS_8TriangleERNS_5PointES2_S4_(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(57) %2, ptr noundef nonnull align 8 dereferenceable(40) %call5)
+  tail call void @_ZNK3p2t5Sweep18RotateTrianglePairERNS_8TriangleERNS_5PointES2_S4_(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(57) %1, ptr noundef nonnull align 8 dereferenceable(40) %call5)
   %call35 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %t)
   br i1 %call35, label %if.end39, label %if.then38
 
@@ -1926,11 +1922,11 @@ if.then38:                                        ; preds = %if.then28
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then38, %if.then28
-  %call40 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %2)
+  %call40 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %1)
   br i1 %call40, label %if.end45, label %if.then44
 
 if.then44:                                        ; preds = %if.end39
-  tail call void @_ZN3p2t12SweepContext18MapTriangleToNodesERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %2)
+  tail call void @_ZN3p2t12SweepContext18MapTriangleToNodesERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %1)
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then44, %if.end39
@@ -2445,21 +2441,20 @@ entry:
   %left_highest.i = getelementptr inbounds i8, ptr %tcx, i64 56
   %width.i = getelementptr inbounds i8, ptr %tcx, i64 48
   %0 = load i8, ptr %left_highest.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i42 = icmp eq i8 %1, 0
-  %2 = load ptr, ptr %node, align 8
-  %y9.i43 = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load double, ptr %y9.i43, align 8
-  %..i44 = select i1 %tobool.not.i42, i64 40, i64 24
-  %right_node.i45 = getelementptr inbounds i8, ptr %tcx, i64 %..i44
-  %4 = load ptr, ptr %right_node.i45, align 8
-  %5 = load ptr, ptr %4, align 8
-  %y7.i46 = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load double, ptr %y7.i46, align 8
-  %sub10.i47 = fsub double %6, %3
-  %7 = load double, ptr %width.i, align 8
-  %cmp.i48 = fcmp ogt double %7, %sub10.i47
-  br i1 %cmp.i48, label %return, label %if.end.lr.ph
+  %tobool.i43 = trunc i8 %0 to i1
+  %1 = load ptr, ptr %node, align 8
+  %y4.i44 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = load double, ptr %y4.i44, align 8
+  %..i45 = select i1 %tobool.i43, i64 24, i64 40
+  %right_node.i46 = getelementptr inbounds i8, ptr %tcx, i64 %..i45
+  %3 = load ptr, ptr %right_node.i46, align 8
+  %4 = load ptr, ptr %3, align 8
+  %y7.i47 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load double, ptr %y7.i47, align 8
+  %sub10.i48 = fsub double %5, %2
+  %6 = load double, ptr %width.i, align 8
+  %cmp.i49 = fcmp ogt double %6, %sub10.i48
+  br i1 %cmp.i49, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
   %basin = getelementptr inbounds i8, ptr %tcx, i64 24
@@ -2467,99 +2462,98 @@ if.end.lr.ph:                                     ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end52
-  %node.tr49 = phi ptr [ %node, %if.end.lr.ph ], [ %node.addr.0, %if.end52 ]
-  tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %node.tr49)
-  %prev = getelementptr inbounds i8, ptr %node.tr49, i64 24
-  %8 = load ptr, ptr %prev, align 8
-  %9 = load ptr, ptr %basin, align 8
-  %cmp = icmp eq ptr %8, %9
-  %next = getelementptr inbounds i8, ptr %node.tr49, i64 16
-  %10 = load ptr, ptr %next, align 8
-  %11 = load ptr, ptr %right_node23, align 8
-  %cmp3 = icmp eq ptr %10, %11
+  %node.tr50 = phi ptr [ %node, %if.end.lr.ph ], [ %node.addr.0, %if.end52 ]
+  tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %node.tr50)
+  %prev = getelementptr inbounds i8, ptr %node.tr50, i64 24
+  %7 = load ptr, ptr %prev, align 8
+  %8 = load ptr, ptr %basin, align 8
+  %cmp = icmp eq ptr %7, %8
+  %next = getelementptr inbounds i8, ptr %node.tr50, i64 16
+  %9 = load ptr, ptr %next, align 8
+  %10 = load ptr, ptr %right_node23, align 8
+  %cmp3 = icmp eq ptr %9, %10
   br i1 %cmp, label %land.lhs.true, label %if.else20
 
 land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp3, label %return, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true
-  %12 = load ptr, ptr %node.tr49, align 8
-  %13 = load ptr, ptr %10, align 8
-  %next13 = getelementptr inbounds i8, ptr %10, i64 16
-  %14 = load ptr, ptr %next13, align 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = load <2 x double>, ptr %15, align 8
-  %17 = load <2 x double>, ptr %12, align 8
-  %18 = fsub <2 x double> %17, %16
-  %19 = load <2 x double>, ptr %13, align 8
-  %20 = fsub <2 x double> %19, %16
-  %21 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %22 = fmul <2 x double> %18, %21
-  %shift = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %23 = fsub <2 x double> %22, %shift
-  %sub11.i = extractelement <2 x double> %23, i64 0
-  %24 = tail call double @llvm.fabs.f64(double %sub11.i)
-  %or.cond.i = fcmp uge double %24, 0x3D719799812DEA11
+  %11 = load ptr, ptr %node.tr50, align 8
+  %12 = load ptr, ptr %9, align 8
+  %next13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = load ptr, ptr %next13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = load <2 x double>, ptr %14, align 8
+  %16 = load <2 x double>, ptr %11, align 8
+  %17 = fsub <2 x double> %16, %15
+  %18 = load <2 x double>, ptr %12, align 8
+  %19 = fsub <2 x double> %18, %15
+  %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %21 = fmul <2 x double> %17, %20
+  %shift = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %22 = fsub <2 x double> %21, %shift
+  %sub11.i = extractelement <2 x double> %22, i64 0
+  %23 = tail call double @llvm.fabs.f64(double %sub11.i)
+  %or.cond.i = fcmp uge double %23, 0x3D719799812DEA11
   %cmp13.i = fcmp ule double %sub11.i, 0.000000e+00
   %cmp16 = select i1 %or.cond.i, i1 %cmp13.i, i1 false
-  %25 = extractelement <2 x double> %19, i64 1
+  %24 = extractelement <2 x double> %18, i64 1
   br i1 %cmp16, label %return, label %if.end52
 
 if.else20:                                        ; preds = %if.end
   br i1 %cmp3, label %if.then25, label %if.else38
 
 if.then25:                                        ; preds = %if.else20
-  %26 = load ptr, ptr %node.tr49, align 8
-  %27 = load ptr, ptr %8, align 8
-  %prev31 = getelementptr inbounds i8, ptr %8, i64 24
-  %28 = load ptr, ptr %prev31, align 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = load <2 x double>, ptr %29, align 8
-  %31 = load <2 x double>, ptr %26, align 8
-  %32 = fsub <2 x double> %31, %30
-  %33 = load <2 x double>, ptr %27, align 8
-  %34 = fsub <2 x double> %33, %30
-  %35 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %36 = fmul <2 x double> %32, %35
-  %shift50 = shufflevector <2 x double> %36, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %37 = fsub <2 x double> %36, %shift50
-  %sub11.i36 = extractelement <2 x double> %37, i64 0
-  %38 = tail call double @llvm.fabs.f64(double %sub11.i36)
-  %or.cond.i37 = fcmp uge double %38, 0x3D719799812DEA11
-  %cmp13.i38 = fcmp ogt double %sub11.i36, 0.000000e+00
-  %cmp34 = select i1 %or.cond.i37, i1 %cmp13.i38, i1 false
-  %39 = extractelement <2 x double> %33, i64 1
+  %25 = load ptr, ptr %node.tr50, align 8
+  %26 = load ptr, ptr %7, align 8
+  %prev31 = getelementptr inbounds i8, ptr %7, i64 24
+  %27 = load ptr, ptr %prev31, align 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = load <2 x double>, ptr %28, align 8
+  %30 = load <2 x double>, ptr %25, align 8
+  %31 = fsub <2 x double> %30, %29
+  %32 = load <2 x double>, ptr %26, align 8
+  %33 = fsub <2 x double> %32, %29
+  %34 = shufflevector <2 x double> %33, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %35 = fmul <2 x double> %31, %34
+  %shift51 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %36 = fsub <2 x double> %35, %shift51
+  %sub11.i37 = extractelement <2 x double> %36, i64 0
+  %37 = tail call double @llvm.fabs.f64(double %sub11.i37)
+  %or.cond.i38 = fcmp uge double %37, 0x3D719799812DEA11
+  %cmp13.i39 = fcmp ogt double %sub11.i37, 0.000000e+00
+  %cmp34 = select i1 %or.cond.i38, i1 %cmp13.i39, i1 false
+  %38 = extractelement <2 x double> %32, i64 1
   br i1 %cmp34, label %return, label %if.end52
 
 if.else38:                                        ; preds = %if.else20
-  %40 = load ptr, ptr %8, align 8
-  %y = getelementptr inbounds i8, ptr %40, i64 8
-  %41 = load double, ptr %y, align 8
-  %42 = load ptr, ptr %10, align 8
-  %y43 = getelementptr inbounds i8, ptr %42, i64 8
-  %43 = load double, ptr %y43, align 8
-  %cmp44 = fcmp olt double %41, %43
-  %44 = select i1 %cmp44, ptr %40, ptr %42
-  %. = select i1 %cmp44, ptr %8, ptr %10
-  %y9.i.phi.trans.insert = getelementptr inbounds i8, ptr %44, i64 8
-  %.pre = load double, ptr %y9.i.phi.trans.insert, align 8
+  %39 = load ptr, ptr %7, align 8
+  %y = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = load double, ptr %y, align 8
+  %41 = load ptr, ptr %9, align 8
+  %y43 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = load double, ptr %y43, align 8
+  %cmp44 = fcmp olt double %40, %42
+  %43 = select i1 %cmp44, ptr %39, ptr %41
+  %. = select i1 %cmp44, ptr %7, ptr %9
+  %y4.i.phi.trans.insert = getelementptr inbounds i8, ptr %43, i64 8
+  %.pre = load double, ptr %y4.i.phi.trans.insert, align 8
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then25, %if.then9, %if.else38
-  %45 = phi double [ %.pre, %if.else38 ], [ %25, %if.then9 ], [ %39, %if.then25 ]
-  %node.addr.0 = phi ptr [ %., %if.else38 ], [ %10, %if.then9 ], [ %8, %if.then25 ]
-  %46 = load i8, ptr %left_highest.i, align 8
-  %47 = and i8 %46, 1
-  %tobool.not.i = icmp eq i8 %47, 0
-  %..i = select i1 %tobool.not.i, i64 40, i64 24
+  %44 = phi double [ %.pre, %if.else38 ], [ %24, %if.then9 ], [ %38, %if.then25 ]
+  %node.addr.0 = phi ptr [ %., %if.else38 ], [ %9, %if.then9 ], [ %7, %if.then25 ]
+  %45 = load i8, ptr %left_highest.i, align 8
+  %tobool.i = trunc i8 %45 to i1
+  %..i = select i1 %tobool.i, i64 24, i64 40
   %right_node.i = getelementptr inbounds i8, ptr %tcx, i64 %..i
-  %48 = load ptr, ptr %right_node.i, align 8
-  %49 = load ptr, ptr %48, align 8
-  %y7.i = getelementptr inbounds i8, ptr %49, i64 8
-  %50 = load double, ptr %y7.i, align 8
-  %sub10.i = fsub double %50, %45
-  %51 = load double, ptr %width.i, align 8
-  %cmp.i = fcmp ogt double %51, %sub10.i
+  %46 = load ptr, ptr %right_node.i, align 8
+  %47 = load ptr, ptr %46, align 8
+  %y7.i = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = load double, ptr %y7.i, align 8
+  %sub10.i = fsub double %48, %44
+  %49 = load double, ptr %width.i, align 8
+  %cmp.i = fcmp ogt double %49, %sub10.i
   br i1 %cmp.i, label %return, label %if.end
 
 return:                                           ; preds = %if.end52, %land.lhs.true, %if.then9, %if.then25, %entry
@@ -2571,21 +2565,20 @@ define hidden noundef zeroext i1 @_ZN3p2t5Sweep9IsShallowERNS_12SweepContextERNS
 entry:
   %left_highest = getelementptr inbounds i8, ptr %tcx, i64 56
   %0 = load i8, ptr %left_highest, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %2 = load ptr, ptr %node, align 8
-  %y9 = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load double, ptr %y9, align 8
-  %. = select i1 %tobool.not, i64 40, i64 24
+  %tobool = trunc i8 %0 to i1
+  %1 = load ptr, ptr %node, align 8
+  %y4 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = load double, ptr %y4, align 8
+  %. = select i1 %tobool, i64 24, i64 40
   %right_node = getelementptr inbounds i8, ptr %tcx, i64 %.
-  %4 = load ptr, ptr %right_node, align 8
-  %5 = load ptr, ptr %4, align 8
-  %y7 = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load double, ptr %y7, align 8
-  %sub10 = fsub double %6, %3
+  %3 = load ptr, ptr %right_node, align 8
+  %4 = load ptr, ptr %3, align 8
+  %y7 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load double, ptr %y7, align 8
+  %sub10 = fsub double %5, %2
   %width = getelementptr inbounds i8, ptr %tcx, i64 48
-  %7 = load double, ptr %width, align 8
-  %cmp = fcmp ogt double %7, %sub10
+  %6 = load double, ptr %width, align 8
+  %cmp = fcmp ogt double %6, %sub10
   ret i1 %cmp
 }
 

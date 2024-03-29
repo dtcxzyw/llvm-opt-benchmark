@@ -2216,325 +2216,324 @@ define hidden noundef i32 @dissect_mac_lte_context_fields(ptr noundef %0, ptr no
   store i32 0, ptr %16, align 4
   %switch.tableidx = add i8 %14, -1
   %17 = icmp ult i8 %switch.tableidx, 10
-  br i1 %17, label %switch.hole_check, label %21
+  br i1 %17, label %switch.hole_check, label %20
 
 switch.hole_check:                                ; preds = %5
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
   %switch.shifted = lshr i16 959, %switch.maskindex
-  %18 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %18, 0
-  br i1 %switch.lobit.not, label %21, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %20
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %19 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i16], ptr @switch.table.dissect_mac_lte_context_fields, i64 0, i64 %19
+  %18 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [10 x i16], ptr @switch.table.dissect_mac_lte_context_fields, i64 0, i64 %18
   %switch.load = load i16, ptr %switch.gep, align 2
-  %20 = getelementptr inbounds i8, ptr %0, i64 4
-  store i16 %switch.load, ptr %20, align 4
-  br label %21
+  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  store i16 %switch.load, ptr %19, align 4
+  br label %20
 
-21:                                               ; preds = %switch.hole_check, %5, %switch.lookup
-  %22 = getelementptr inbounds i8, ptr %0, i64 28
-  %23 = getelementptr inbounds i8, ptr %0, i64 88
-  %24 = getelementptr inbounds i8, ptr %0, i64 94
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
-  %26 = getelementptr inbounds i8, ptr %0, i64 136
-  %27 = getelementptr inbounds i8, ptr %0, i64 68
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
-  %29 = getelementptr inbounds i8, ptr %0, i64 60
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
-  %31 = getelementptr inbounds i8, ptr %0, i64 36
-  %32 = getelementptr inbounds i8, ptr %0, i64 73
-  %33 = getelementptr inbounds i8, ptr %0, i64 74
-  %34 = getelementptr inbounds i8, ptr %0, i64 75
-  %35 = getelementptr inbounds i8, ptr %0, i64 76
-  %36 = getelementptr inbounds i8, ptr %0, i64 77
-  %37 = getelementptr inbounds i8, ptr %0, i64 80
-  %38 = getelementptr inbounds i8, ptr %0, i64 78
-  %39 = getelementptr inbounds i8, ptr %0, i64 79
-  %40 = getelementptr inbounds i8, ptr %0, i64 84
-  %41 = getelementptr inbounds i8, ptr %0, i64 56
-  %42 = getelementptr inbounds i8, ptr %0, i64 52
-  %43 = getelementptr inbounds i8, ptr %0, i64 92
-  %44 = getelementptr inbounds i8, ptr %0, i64 93
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
-  %46 = getelementptr inbounds i8, ptr %0, i64 44
-  %47 = getelementptr inbounds i8, ptr %0, i64 48
-  %48 = getelementptr inbounds i8, ptr %0, i64 30
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 10
-  %52 = getelementptr inbounds i8, ptr %0, i64 6
-  %53 = getelementptr inbounds i8, ptr %0, i64 4
-  br label %54
+20:                                               ; preds = %switch.hole_check, %5, %switch.lookup
+  %21 = getelementptr inbounds i8, ptr %0, i64 28
+  %22 = getelementptr inbounds i8, ptr %0, i64 88
+  %23 = getelementptr inbounds i8, ptr %0, i64 94
+  %24 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds i8, ptr %0, i64 136
+  %26 = getelementptr inbounds i8, ptr %0, i64 68
+  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = getelementptr inbounds i8, ptr %0, i64 60
+  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds i8, ptr %0, i64 36
+  %31 = getelementptr inbounds i8, ptr %0, i64 73
+  %32 = getelementptr inbounds i8, ptr %0, i64 74
+  %33 = getelementptr inbounds i8, ptr %0, i64 75
+  %34 = getelementptr inbounds i8, ptr %0, i64 76
+  %35 = getelementptr inbounds i8, ptr %0, i64 77
+  %36 = getelementptr inbounds i8, ptr %0, i64 80
+  %37 = getelementptr inbounds i8, ptr %0, i64 78
+  %38 = getelementptr inbounds i8, ptr %0, i64 79
+  %39 = getelementptr inbounds i8, ptr %0, i64 84
+  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %41 = getelementptr inbounds i8, ptr %0, i64 52
+  %42 = getelementptr inbounds i8, ptr %0, i64 92
+  %43 = getelementptr inbounds i8, ptr %0, i64 93
+  %44 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds i8, ptr %0, i64 44
+  %46 = getelementptr inbounds i8, ptr %0, i64 48
+  %47 = getelementptr inbounds i8, ptr %0, i64 30
+  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 10
+  %51 = getelementptr inbounds i8, ptr %0, i64 6
+  %52 = getelementptr inbounds i8, ptr %0, i64 4
+  br label %53
 
-54:                                               ; preds = %21, %.backedge
-  %.0195205 = phi i32 [ %13, %21 ], [ %.0195.be, %.backedge ]
-  %55 = add i32 %.0195205, 1
-  %56 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0195205) #16
-  switch i8 %56, label %160 [
-    i8 2, label %57
-    i8 3, label %60
-    i8 4, label %63
-    i8 5, label %69
-    i8 6, label %73
-    i8 7, label %76
-    i8 8, label %80
-    i8 9, label %81
-    i8 10, label %86
-    i8 11, label %90
-    i8 12, label %134
-    i8 13, label %135
-    i8 14, label %136
-    i8 15, label %140
-    i8 16, label %144
-    i8 17, label %148
+53:                                               ; preds = %20, %.backedge
+  %.0195205 = phi i32 [ %13, %20 ], [ %.0195.be, %.backedge ]
+  %54 = add i32 %.0195205, 1
+  %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0195205) #16
+  switch i8 %55, label %159 [
+    i8 2, label %56
+    i8 3, label %59
+    i8 4, label %62
+    i8 5, label %68
+    i8 6, label %72
+    i8 7, label %75
+    i8 8, label %79
+    i8 9, label %80
+    i8 10, label %85
+    i8 11, label %89
+    i8 12, label %133
+    i8 13, label %134
+    i8 14, label %135
+    i8 15, label %139
+    i8 16, label %143
+    i8 17, label %147
     i8 1, label %.backedge.thread
   ]
 
-57:                                               ; preds = %54
-  %58 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %55) #16
-  store i16 %58, ptr %53, align 4
-  %59 = add i32 %.0195205, 3
+56:                                               ; preds = %53
+  %57 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %54) #16
+  store i16 %57, ptr %52, align 4
+  %58 = add i32 %.0195205, 3
   br label %.backedge
 
-60:                                               ; preds = %54
-  %61 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %55) #16
-  store i16 %61, ptr %52, align 2
-  %62 = add i32 %.0195205, 3
+59:                                               ; preds = %53
+  %60 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %54) #16
+  store i16 %60, ptr %51, align 2
+  %61 = add i32 %.0195205, 3
   br label %.backedge
 
-63:                                               ; preds = %54
+62:                                               ; preds = %53
   store i32 1, ptr %16, align 4
-  %64 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %55) #16
-  %65 = lshr i16 %64, 4
-  %66 = and i16 %65, 1023
-  store i16 %66, ptr %50, align 4
-  %67 = and i16 %64, 15
-  store i16 %67, ptr %51, align 2
-  %68 = add i32 %.0195205, 3
+  %63 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %54) #16
+  %64 = lshr i16 %63, 4
+  %65 = and i16 %64, 1023
+  store i16 %65, ptr %49, align 4
+  %66 = and i16 %63, 15
+  store i16 %66, ptr %50, align 2
+  %67 = add i32 %.0195205, 3
   br label %.backedge
 
-69:                                               ; preds = %54
-  %70 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %55) #16
-  %71 = zext i8 %70 to i32
-  store i32 %71, ptr %49, align 4
-  %72 = add i32 %.0195205, 2
+68:                                               ; preds = %53
+  %69 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %54) #16
+  %70 = zext i8 %69 to i32
+  store i32 %70, ptr %48, align 4
+  %71 = add i32 %.0195205, 2
   br label %.backedge
 
-73:                                               ; preds = %54
-  %74 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %55) #16
-  store i8 %74, ptr %48, align 2
-  %75 = add i32 %.0195205, 2
+72:                                               ; preds = %53
+  %73 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %54) #16
+  store i8 %73, ptr %47, align 2
+  %74 = add i32 %.0195205, 2
   br label %.backedge
 
-76:                                               ; preds = %54
-  store i32 1, ptr %46, align 4
-  %77 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %55) #16
-  %78 = zext i8 %77 to i32
-  store i32 %78, ptr %47, align 4
-  %79 = add i32 %.0195205, 2
-  br label %.backedge
-
-80:                                               ; preds = %54
+75:                                               ; preds = %53
   store i32 1, ptr %45, align 4
+  %76 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %54) #16
+  %77 = zext i8 %76 to i32
+  store i32 %77, ptr %46, align 4
+  %78 = add i32 %.0195205, 2
   br label %.backedge
 
-81:                                               ; preds = %54
-  store i32 0, ptr %23, align 4
-  %82 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %55) #16
-  store i8 %82, ptr %43, align 4
-  %83 = add i32 %.0195205, 2
-  %84 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %83) #16
-  store i8 %84, ptr %44, align 1
-  %85 = add i32 %.0195205, 3
+79:                                               ; preds = %53
+  store i32 1, ptr %44, align 4
   br label %.backedge
 
-86:                                               ; preds = %54
-  %87 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %55) #16
-  %88 = zext i8 %87 to i32
-  store i32 %88, ptr %42, align 4
-  %89 = add i32 %.0195205, 2
+80:                                               ; preds = %53
+  store i32 0, ptr %22, align 4
+  %81 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %54) #16
+  store i8 %81, ptr %42, align 4
+  %82 = add i32 %.0195205, 2
+  %83 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %82) #16
+  store i8 %83, ptr %43, align 1
+  %84 = add i32 %.0195205, 3
   br label %.backedge
 
-90:                                               ; preds = %54
-  %91 = add i32 %.0195205, 2
-  %92 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %55) #16
-  %93 = zext i8 %92 to i32
-  %94 = load i8, ptr %11, align 1
-  %95 = icmp eq i8 %94, 1
-  br i1 %95, label %96, label %117
+85:                                               ; preds = %53
+  %86 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %54) #16
+  %87 = zext i8 %86 to i32
+  store i32 %87, ptr %41, align 4
+  %88 = add i32 %.0195205, 2
+  br label %.backedge
 
-96:                                               ; preds = %90
-  %97 = icmp ult i8 %92, 10
-  br i1 %97, label %132, label %98
+89:                                               ; preds = %53
+  %90 = add i32 %.0195205, 2
+  %91 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %54) #16
+  %92 = zext i8 %91 to i32
+  %93 = load i8, ptr %11, align 1
+  %94 = icmp eq i8 %93, 1
+  br i1 %94, label %95, label %116
 
-98:                                               ; preds = %96
+95:                                               ; preds = %89
+  %96 = icmp ult i8 %91, 10
+  br i1 %96, label %131, label %97
+
+97:                                               ; preds = %95
   store i8 1, ptr %12, align 4
-  %99 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %91) #16
-  store i8 %99, ptr %32, align 1
-  %100 = add i32 %.0195205, 3
-  %101 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %100) #16
-  store i8 %101, ptr %33, align 2
-  %102 = add i32 %.0195205, 4
-  %103 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %102) #16
-  store i8 %103, ptr %34, align 1
-  %104 = add i32 %.0195205, 5
-  %105 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %104) #16
-  store i8 %105, ptr %35, align 4
-  %106 = add i32 %.0195205, 6
-  %107 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %106) #16
-  store i8 %107, ptr %36, align 1
-  %108 = add i32 %.0195205, 7
-  %109 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %108) #16
-  store i8 %109, ptr %38, align 2
-  %110 = add i32 %.0195205, 8
-  %111 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %110) #16
-  store i8 %111, ptr %39, align 1
-  %112 = add i32 %.0195205, 9
-  %113 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %112) #16
-  %114 = zext i8 %113 to i32
-  store i32 %114, ptr %37, align 4
-  %115 = add i32 %.0195205, 10
-  %116 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %115) #16
-  store i8 %116, ptr %40, align 4
+  %98 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %90) #16
+  store i8 %98, ptr %31, align 1
+  %99 = add i32 %.0195205, 3
+  %100 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %99) #16
+  store i8 %100, ptr %32, align 2
+  %101 = add i32 %.0195205, 4
+  %102 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %101) #16
+  store i8 %102, ptr %33, align 1
+  %103 = add i32 %.0195205, 5
+  %104 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %103) #16
+  store i8 %104, ptr %34, align 4
+  %105 = add i32 %.0195205, 6
+  %106 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %105) #16
+  store i8 %106, ptr %35, align 1
+  %107 = add i32 %.0195205, 7
+  %108 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %107) #16
+  store i8 %108, ptr %37, align 2
+  %109 = add i32 %.0195205, 8
+  %110 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %109) #16
+  store i8 %110, ptr %38, align 1
+  %111 = add i32 %.0195205, 9
+  %112 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %111) #16
+  %113 = zext i8 %112 to i32
+  store i32 %113, ptr %36, align 4
+  %114 = add i32 %.0195205, 10
+  %115 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %114) #16
+  store i8 %115, ptr %39, align 4
   br label %.sink.split224
 
-117:                                              ; preds = %90
-  %118 = icmp ult i8 %92, 6
-  br i1 %118, label %132, label %119
+116:                                              ; preds = %89
+  %117 = icmp ult i8 %91, 6
+  br i1 %117, label %131, label %118
 
-119:                                              ; preds = %117
+118:                                              ; preds = %116
   store i8 1, ptr %12, align 4
-  %120 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %91) #16
-  store i8 %120, ptr %32, align 1
-  %121 = add i32 %.0195205, 3
-  %122 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %121) #16
-  store i8 %122, ptr %33, align 2
-  %123 = add i32 %.0195205, 4
-  %124 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %123) #16
-  store i8 %124, ptr %34, align 1
-  %125 = add i32 %.0195205, 5
-  %126 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %125) #16
-  store i8 %126, ptr %35, align 4
-  %127 = add i32 %.0195205, 6
-  %128 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %127) #16
-  store i8 %128, ptr %36, align 1
+  %119 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %90) #16
+  store i8 %119, ptr %31, align 1
+  %120 = add i32 %.0195205, 3
+  %121 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %120) #16
+  store i8 %121, ptr %32, align 2
+  %122 = add i32 %.0195205, 4
+  %123 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %122) #16
+  store i8 %123, ptr %33, align 1
+  %124 = add i32 %.0195205, 5
+  %125 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %124) #16
+  store i8 %125, ptr %34, align 4
+  %126 = add i32 %.0195205, 6
+  %127 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %126) #16
+  store i8 %127, ptr %35, align 1
   br label %.sink.split224
 
-.sink.split224:                                   ; preds = %119, %98
-  %.sink229 = phi i32 [ 11, %98 ], [ 7, %119 ]
-  %.sink226 = phi ptr [ %41, %98 ], [ %37, %119 ]
-  %129 = add i32 %.0195205, %.sink229
-  %130 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %129) #16
-  %131 = zext i8 %130 to i32
-  store i32 %131, ptr %.sink226, align 4
-  br label %132
+.sink.split224:                                   ; preds = %118, %97
+  %.sink229 = phi i32 [ 11, %97 ], [ 7, %118 ]
+  %.sink226 = phi ptr [ %40, %97 ], [ %36, %118 ]
+  %128 = add i32 %.0195205, %.sink229
+  %129 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %128) #16
+  %130 = zext i8 %129 to i32
+  store i32 %130, ptr %.sink226, align 4
+  br label %131
 
-132:                                              ; preds = %.sink.split224, %117, %96
-  %133 = add i32 %91, %93
+131:                                              ; preds = %.sink.split224, %116, %95
+  %132 = add i32 %90, %92
   br label %.backedge
 
-134:                                              ; preds = %54
-  store i32 1, ptr %31, align 4
-  br label %.backedge
-
-135:                                              ; preds = %54
+133:                                              ; preds = %53
   store i32 1, ptr %30, align 4
   br label %.backedge
 
-136:                                              ; preds = %54
-  %137 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %55) #16
-  %138 = zext i8 %137 to i32
-  store i32 %138, ptr %29, align 4
-  %139 = add i32 %.0195205, 2
+134:                                              ; preds = %53
+  store i32 1, ptr %29, align 4
   br label %.backedge
 
-140:                                              ; preds = %54
-  %141 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %55) #16
-  %142 = zext i8 %141 to i32
-  store i32 %142, ptr %28, align 4
-  %143 = add i32 %.0195205, 2
+135:                                              ; preds = %53
+  %136 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %54) #16
+  %137 = zext i8 %136 to i32
+  store i32 %137, ptr %28, align 4
+  %138 = add i32 %.0195205, 2
   br label %.backedge
 
-144:                                              ; preds = %54
-  %145 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %55) #16
-  %146 = add i32 %.0195205, 2
-  switch i8 %145, label %.backedge [
-    i8 6, label %147
-    i8 15, label %147
-    i8 25, label %147
-    i8 50, label %147
-    i8 75, label %147
-    i8 100, label %147
+139:                                              ; preds = %53
+  %140 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %54) #16
+  %141 = zext i8 %140 to i32
+  store i32 %141, ptr %27, align 4
+  %142 = add i32 %.0195205, 2
+  br label %.backedge
+
+143:                                              ; preds = %53
+  %144 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %54) #16
+  %145 = add i32 %.0195205, 2
+  switch i8 %144, label %.backedge [
+    i8 6, label %146
+    i8 15, label %146
+    i8 25, label %146
+    i8 50, label %146
+    i8 75, label %146
+    i8 100, label %146
   ]
 
-147:                                              ; preds = %144, %144, %144, %144, %144, %144
-  store i8 %145, ptr %27, align 4
+146:                                              ; preds = %143, %143, %143, %143, %143, %143
+  store i8 %144, ptr %26, align 4
   br label %.backedge
 
-148:                                              ; preds = %54
-  %149 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %55) #16
-  %150 = add i16 %149, -21
-  %or.cond = icmp ult i16 %150, -20
+147:                                              ; preds = %53
+  %148 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %54) #16
+  %149 = add i16 %148, -21
+  %or.cond = icmp ult i16 %149, -20
   br i1 %or.cond, label %.loopexit199, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %148
-  %151 = add i32 %.0195205, 3
-  store i32 1, ptr %23, align 4
-  store i16 %149, ptr %24, align 2
-  %wide.trip.count = zext nneg i16 %149 to i64
+.lr.ph.preheader:                                 ; preds = %147
+  %150 = add i32 %.0195205, 3
+  store i32 1, ptr %22, align 4
+  store i16 %148, ptr %23, align 2
+  %wide.trip.count = zext nneg i16 %148 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.1204 = phi i32 [ %151, %.lr.ph.preheader ], [ %157, %.lr.ph ]
-  %152 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.1204) #16
-  %153 = getelementptr [20 x i16], ptr %25, i64 0, i64 %indvars.iv
-  store i16 %152, ptr %153, align 2
-  %154 = add i32 %.1204, 2
-  %155 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %154) #16
-  %156 = getelementptr [20 x i16], ptr %26, i64 0, i64 %indvars.iv
-  store i16 %155, ptr %156, align 2
-  %157 = add i32 %.1204, 4
+  %.1204 = phi i32 [ %150, %.lr.ph.preheader ], [ %156, %.lr.ph ]
+  %151 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.1204) #16
+  %152 = getelementptr [20 x i16], ptr %24, i64 0, i64 %indvars.iv
+  store i16 %151, ptr %152, align 2
+  %153 = add i32 %.1204, 2
+  %154 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %153) #16
+  %155 = getelementptr [20 x i16], ptr %25, i64 0, i64 %indvars.iv
+  store i16 %154, ptr %155, align 2
+  %156 = add i32 %.1204, 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.backedge, label %.lr.ph, !llvm.loop !4
 
-.backedge.thread:                                 ; preds = %54
-  %158 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %55) #16
-  %159 = trunc i32 %158 to i16
-  store i16 %159, ptr %22, align 4
+.backedge.thread:                                 ; preds = %53
+  %157 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %54) #16
+  %158 = trunc i32 %157 to i16
+  store i16 %158, ptr %21, align 4
   br label %.loopexit
 
-.backedge:                                        ; preds = %.lr.ph, %57, %60, %63, %69, %73, %76, %80, %81, %86, %132, %134, %135, %136, %140, %144, %147
-  %.0195.be = phi i32 [ %146, %147 ], [ %146, %144 ], [ %143, %140 ], [ %139, %136 ], [ %55, %135 ], [ %55, %134 ], [ %133, %132 ], [ %89, %86 ], [ %85, %81 ], [ %55, %80 ], [ %79, %76 ], [ %75, %73 ], [ %72, %69 ], [ %68, %63 ], [ %62, %60 ], [ %59, %57 ], [ %157, %.lr.ph ]
-  %.not = icmp eq i8 %56, 1
-  br i1 %.not, label %.loopexit, label %54, !llvm.loop !6
+.backedge:                                        ; preds = %.lr.ph, %56, %59, %62, %68, %72, %75, %79, %80, %85, %131, %133, %134, %135, %139, %143, %146
+  %.0195.be = phi i32 [ %145, %146 ], [ %145, %143 ], [ %142, %139 ], [ %138, %135 ], [ %54, %134 ], [ %54, %133 ], [ %132, %131 ], [ %88, %85 ], [ %84, %80 ], [ %54, %79 ], [ %78, %75 ], [ %74, %72 ], [ %71, %68 ], [ %67, %62 ], [ %61, %59 ], [ %58, %56 ], [ %156, %.lr.ph ]
+  %.not = icmp eq i8 %55, 1
+  br i1 %.not, label %.loopexit, label %53, !llvm.loop !6
 
-160:                                              ; preds = %54
-  %161 = getelementptr inbounds i8, ptr %2, i64 8
-  %162 = load ptr, ptr %161, align 8
-  tail call void @col_set_str(ptr noundef %162, i32 noundef 34, ptr noundef nonnull @.str) #16
-  %163 = load ptr, ptr %161, align 8
-  tail call void @col_clear(ptr noundef %163, i32 noundef 25) #16
-  %164 = load i32, ptr @proto_mac_lte, align 4
-  %165 = tail call i32 @tvb_reported_length(ptr noundef %1) #16
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %164, ptr noundef %1, i32 noundef %55, i32 noundef %165, i32 noundef 0) #16
-  %167 = load i32, ptr @ett_mac_lte, align 4
-  %168 = tail call ptr @proto_item_add_subtree(ptr noundef %166, i32 noundef %167) #16
-  %169 = tail call ptr @proto_tree_add_expert(ptr noundef %168, ptr noundef %2, ptr noundef nonnull @ei_mac_lte_unknown_udp_framing_tag, ptr noundef %1, i32 noundef %.0195205, i32 noundef 1) #16
-  %170 = tail call ptr @wmem_file_scope() #16
-  tail call void @wmem_free(ptr noundef %170, ptr noundef %0) #16
+159:                                              ; preds = %53
+  %160 = getelementptr inbounds i8, ptr %2, i64 8
+  %161 = load ptr, ptr %160, align 8
+  tail call void @col_set_str(ptr noundef %161, i32 noundef 34, ptr noundef nonnull @.str) #16
+  %162 = load ptr, ptr %160, align 8
+  tail call void @col_clear(ptr noundef %162, i32 noundef 25) #16
+  %163 = load i32, ptr @proto_mac_lte, align 4
+  %164 = tail call i32 @tvb_reported_length(ptr noundef %1) #16
+  %165 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %163, ptr noundef %1, i32 noundef %54, i32 noundef %164, i32 noundef 0) #16
+  %166 = load i32, ptr @ett_mac_lte, align 4
+  %167 = tail call ptr @proto_item_add_subtree(ptr noundef %165, i32 noundef %166) #16
+  %168 = tail call ptr @proto_tree_add_expert(ptr noundef %167, ptr noundef %2, ptr noundef nonnull @ei_mac_lte_unknown_udp_framing_tag, ptr noundef %1, i32 noundef %.0195205, i32 noundef 1) #16
+  %169 = tail call ptr @wmem_file_scope() #16
+  tail call void @wmem_free(ptr noundef %169, ptr noundef %0) #16
   br label %.loopexit199
 
 .loopexit:                                        ; preds = %.backedge, %.backedge.thread
-  %.0195.be215 = phi i32 [ %55, %.backedge.thread ], [ %.0195.be, %.backedge ]
+  %.0195.be215 = phi i32 [ %54, %.backedge.thread ], [ %.0195.be, %.backedge ]
   store i32 %.0195.be215, ptr %4, align 4
   br label %.loopexit199
 
-.loopexit199:                                     ; preds = %148, %.loopexit, %160
-  %.0 = phi i32 [ 0, %160 ], [ 1, %.loopexit ], [ 0, %148 ]
+.loopexit199:                                     ; preds = %147, %.loopexit, %159
+  %.0 = phi i32 [ 0, %159 ], [ 1, %.loopexit ], [ 0, %147 ]
   ret i32 %.0
 }
 
@@ -5190,9 +5189,9 @@ define internal void @write_pdu_label_and_info(ptr noundef %0, ptr noundef %1, p
   br i1 %or.cond3, label %18, label %9
 
 9:                                                ; preds = %4
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   %10 = call i32 @vsnprintf(ptr noundef nonnull @write_pdu_label_and_info.info_buffer, i64 noundef 256, ptr noundef %3, ptr noundef nonnull %5) #16
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   br i1 %8, label %14, label %11
 
 11:                                               ; preds = %9
@@ -12829,14 +12828,8 @@ proto_item_set_generated.exit237:                 ; preds = %222, %229, %232
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
 
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -12847,7 +12840,7 @@ declare void @col_set_writable(ptr noundef, i32 noundef, i32 noundef) local_unna
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -12954,12 +12947,12 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #9
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #8
 
 declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #10
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #9
 
 declare void @except_free(ptr noundef) local_unnamed_addr #1
 
@@ -13106,7 +13099,7 @@ declare i32 @g_hash_table_lookup_extended(ptr noundef, ptr noundef, ptr noundef,
 declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @set_rlc_seqnum_length_ext_li_field(i32 noundef %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #11 {
+define internal fastcc void @set_rlc_seqnum_length_ext_li_field(i32 noundef %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #10 {
   switch i32 %0, label %50 [
     i32 2, label %5
     i32 3, label %6
@@ -13282,13 +13275,13 @@ define internal fastcc void @set_rlc_seqnum_length_ext_li_field(i32 noundef %0, 
 declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @g_direct_hash(ptr noundef) #12
+declare i32 @g_direct_hash(ptr noundef) #11
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @g_direct_equal(ptr noundef, ptr noundef) #12
+declare i32 @g_direct_equal(ptr noundef, ptr noundef) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @mac_lte_framenum_instance_hash_func(ptr nocapture noundef readonly %0) #13 {
+define internal i32 @mac_lte_framenum_instance_hash_func(ptr nocapture noundef readonly %0) #12 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -13298,7 +13291,7 @@ define internal i32 @mac_lte_framenum_instance_hash_func(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @mac_lte_framenum_instance_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal i32 @mac_lte_framenum_instance_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -13322,6 +13315,12 @@ declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 
 declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #14
 
@@ -13340,14 +13339,14 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nounwind }

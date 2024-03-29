@@ -2321,9 +2321,8 @@ define linkonce_odr hidden void @_ZNK10filesystem4path3strB5cxx11ENS0_9path_type
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4)
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %37, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %37
 
 8:                                                ; preds = %3
   %9 = load i32, ptr %1, align 8
@@ -2335,20 +2334,20 @@ define linkonce_odr hidden void @_ZNK10filesystem4path3strB5cxx11ENS0_9path_type
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
-  %.not24 = icmp eq ptr %13, %14
-  br i1 %.not24, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq ptr %13, %14
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .invoke:                                          ; preds = %8, %36, %35
-  %15 = phi ptr [ %.str.19..str.24, %35 ], [ @.str.25, %36 ], [ @.str.21, %8 ]
+  %15 = phi ptr [ %.str.24..str.19, %35 ], [ @.str.25, %36 ], [ @.str.21, %8 ]
   %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %15)
           to label %37 unwind label %.loopexit.split-lp
 
-.loopexit.split:                                  ; preds = %.lr.ph22.split, %72
+.loopexit.split:                                  ; preds = %.lr.ph19.split, %72
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-.loopexit.split-lp:                               ; preds = %.invoke, %._crit_edge23
+.loopexit.split-lp:                               ; preds = %.invoke, %._crit_edge20
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -2360,13 +2359,13 @@ define linkonce_odr hidden void @_ZNK10filesystem4path3strB5cxx11ENS0_9path_type
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %17 = phi ptr [ %24, %.lr.ph ], [ %14, %.preheader ]
-  %.01319 = phi i64 [ %22, %.lr.ph ], [ 0, %.preheader ]
-  %.01418 = phi i64 [ %21, %.lr.ph ], [ 0, %.preheader ]
-  %18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %17, i64 %.01319
+  %.01316 = phi i64 [ %22, %.lr.ph ], [ 0, %.preheader ]
+  %.01415 = phi i64 [ %21, %.lr.ph ], [ 0, %.preheader ]
+  %18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %17, i64 %.01316
   %19 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #24
-  %20 = add i64 %.01418, 1
+  %20 = add i64 %.01415, 1
   %21 = add i64 %20, %19
-  %22 = add nuw i64 %.01319, 1
+  %22 = add nuw i64 %.01316, 1
   %23 = load ptr, ptr %12, align 8
   %24 = load ptr, ptr %11, align 8
   %25 = ptrtoint ptr %23 to i64
@@ -2380,41 +2379,40 @@ define linkonce_odr hidden void @_ZNK10filesystem4path3strB5cxx11ENS0_9path_type
   %.014.lcssa = phi i64 [ 0, %.preheader ], [ %21, %.lr.ph ]
   %30 = getelementptr inbounds i8, ptr %1, i64 33
   %31 = load i8, ptr %30, align 1
-  %32 = and i8 %31, 1
-  %.not15 = icmp eq i8 %32, 0
+  %32 = trunc i8 %31 to i1
   %33 = add i64 %.014.lcssa, 2
-  %spec.select = select i1 %.not15, i64 %.014.lcssa, i64 %33
+  %spec.select = select i1 %32, i64 %33, i64 %.014.lcssa
   %34 = icmp ugt i64 %spec.select, 260
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %._crit_edge
-  %.str.19..str.24 = select i1 %.not15, ptr @.str.19, ptr @.str.24
+  %.str.24..str.19 = select i1 %32, ptr @.str.24, ptr @.str.19
   br label %.invoke
 
 36:                                               ; preds = %._crit_edge
-  br i1 %.not15, label %37, label %.invoke
+  br i1 %32, label %.invoke, label %37
 
 37:                                               ; preds = %.invoke, %36, %3
   %38 = getelementptr inbounds i8, ptr %1, i64 8
   %39 = getelementptr inbounds i8, ptr %1, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %38, align 8
-  %.not25 = icmp eq ptr %40, %41
-  br i1 %.not25, label %._crit_edge23, label %.lr.ph22
+  %.not21 = icmp eq ptr %40, %41
+  br i1 %.not21, label %._crit_edge20, label %.lr.ph19
 
-.lr.ph22:                                         ; preds = %37
+.lr.ph19:                                         ; preds = %37
   %42 = icmp eq i32 %2, 1
-  br i1 %42, label %.lr.ph22.split.us, label %.lr.ph22.split
+  br i1 %42, label %.lr.ph19.split.us, label %.lr.ph19.split
 
-.lr.ph22.split.us:                                ; preds = %.lr.ph22, %57
-  %43 = phi ptr [ %58, %57 ], [ %41, %.lr.ph22 ]
-  %.020.us = phi i64 [ %47, %57 ], [ 0, %.lr.ph22 ]
-  %44 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %43, i64 %.020.us
+.lr.ph19.split.us:                                ; preds = %.lr.ph19, %57
+  %43 = phi ptr [ %58, %57 ], [ %41, %.lr.ph19 ]
+  %.017.us = phi i64 [ %47, %57 ], [ 0, %.lr.ph19 ]
+  %44 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %43, i64 %.017.us
   %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %44)
           to label %46 unwind label %.loopexit.split.us
 
-46:                                               ; preds = %.lr.ph22.split.us
-  %47 = add nuw i64 %.020.us, 1
+46:                                               ; preds = %.lr.ph19.split.us
+  %47 = add nuw i64 %.017.us, 1
   %48 = load ptr, ptr %39, align 8
   %49 = load ptr, ptr %38, align 8
   %50 = ptrtoint ptr %48 to i64
@@ -2426,37 +2424,37 @@ define linkonce_odr hidden void @_ZNK10filesystem4path3strB5cxx11ENS0_9path_type
 
 55:                                               ; preds = %46
   %56 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %4, i8 noundef signext 47)
-          to label %._crit_edge29 unwind label %.loopexit.split.us
+          to label %._crit_edge25 unwind label %.loopexit.split.us
 
-._crit_edge29:                                    ; preds = %55
-  %.pre30 = load ptr, ptr %39, align 8
-  %.pre31 = load ptr, ptr %38, align 8
-  %.pre32 = ptrtoint ptr %.pre30 to i64
-  %.pre33 = ptrtoint ptr %.pre31 to i64
-  %.pre35 = sub i64 %.pre32, %.pre33
-  %.pre37 = ashr exact i64 %.pre35, 5
+._crit_edge25:                                    ; preds = %55
+  %.pre26 = load ptr, ptr %39, align 8
+  %.pre27 = load ptr, ptr %38, align 8
+  %.pre28 = ptrtoint ptr %.pre26 to i64
+  %.pre29 = ptrtoint ptr %.pre27 to i64
+  %.pre31 = sub i64 %.pre28, %.pre29
+  %.pre33 = ashr exact i64 %.pre31, 5
   br label %57
 
-57:                                               ; preds = %._crit_edge29, %46
-  %.pre-phi38 = phi i64 [ %.pre37, %._crit_edge29 ], [ %53, %46 ]
-  %58 = phi ptr [ %.pre31, %._crit_edge29 ], [ %49, %46 ]
-  %59 = icmp ult i64 %47, %.pre-phi38
-  br i1 %59, label %.lr.ph22.split.us, label %._crit_edge23, !llvm.loop !59
+57:                                               ; preds = %._crit_edge25, %46
+  %.pre-phi34 = phi i64 [ %.pre33, %._crit_edge25 ], [ %53, %46 ]
+  %58 = phi ptr [ %.pre27, %._crit_edge25 ], [ %49, %46 ]
+  %59 = icmp ult i64 %47, %.pre-phi34
+  br i1 %59, label %.lr.ph19.split.us, label %._crit_edge20, !llvm.loop !59
 
-.loopexit.split.us:                               ; preds = %55, %.lr.ph22.split.us
+.loopexit.split.us:                               ; preds = %55, %.lr.ph19.split.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-.lr.ph22.split:                                   ; preds = %.lr.ph22, %74
-  %60 = phi ptr [ %75, %74 ], [ %41, %.lr.ph22 ]
-  %.020 = phi i64 [ %64, %74 ], [ 0, %.lr.ph22 ]
-  %61 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %60, i64 %.020
+.lr.ph19.split:                                   ; preds = %.lr.ph19, %74
+  %60 = phi ptr [ %75, %74 ], [ %41, %.lr.ph19 ]
+  %.017 = phi i64 [ %64, %74 ], [ 0, %.lr.ph19 ]
+  %61 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %60, i64 %.017
   %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %61)
           to label %63 unwind label %.loopexit.split
 
-63:                                               ; preds = %.lr.ph22.split
-  %64 = add nuw i64 %.020, 1
+63:                                               ; preds = %.lr.ph19.split
+  %64 = add nuw i64 %.017, 1
   %65 = load ptr, ptr %39, align 8
   %66 = load ptr, ptr %38, align 8
   %67 = ptrtoint ptr %65 to i64
@@ -2468,28 +2466,28 @@ define linkonce_odr hidden void @_ZNK10filesystem4path3strB5cxx11ENS0_9path_type
 
 72:                                               ; preds = %63
   %73 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %4, i8 noundef signext 92)
-          to label %._crit_edge27 unwind label %.loopexit.split
+          to label %._crit_edge23 unwind label %.loopexit.split
 
-._crit_edge27:                                    ; preds = %72
+._crit_edge23:                                    ; preds = %72
   %.pre = load ptr, ptr %39, align 8
-  %.pre28 = load ptr, ptr %38, align 8
-  %.pre39 = ptrtoint ptr %.pre to i64
-  %.pre41 = ptrtoint ptr %.pre28 to i64
-  %.pre43 = sub i64 %.pre39, %.pre41
-  %.pre45 = ashr exact i64 %.pre43, 5
+  %.pre24 = load ptr, ptr %38, align 8
+  %.pre35 = ptrtoint ptr %.pre to i64
+  %.pre37 = ptrtoint ptr %.pre24 to i64
+  %.pre39 = sub i64 %.pre35, %.pre37
+  %.pre41 = ashr exact i64 %.pre39, 5
   br label %74
 
-74:                                               ; preds = %._crit_edge27, %63
-  %.pre-phi46 = phi i64 [ %.pre45, %._crit_edge27 ], [ %70, %63 ]
-  %75 = phi ptr [ %.pre28, %._crit_edge27 ], [ %66, %63 ]
-  %76 = icmp ult i64 %64, %.pre-phi46
-  br i1 %76, label %.lr.ph22.split, label %._crit_edge23, !llvm.loop !59
+74:                                               ; preds = %._crit_edge23, %63
+  %.pre-phi42 = phi i64 [ %.pre41, %._crit_edge23 ], [ %70, %63 ]
+  %75 = phi ptr [ %.pre24, %._crit_edge23 ], [ %66, %63 ]
+  %76 = icmp ult i64 %64, %.pre-phi42
+  br i1 %76, label %.lr.ph19.split, label %._crit_edge20, !llvm.loop !59
 
-._crit_edge23:                                    ; preds = %74, %57, %37
+._crit_edge20:                                    ; preds = %74, %57, %37
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %4)
           to label %77 unwind label %.loopexit.split-lp
 
-77:                                               ; preds = %._crit_edge23
+77:                                               ; preds = %._crit_edge20
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #24
   ret void
 }
@@ -2853,9 +2851,8 @@ declare void @_ZNK4nori4Mesh8toStringB5cxx11Ev(ptr dead_on_unwind writable sret(
 define linkonce_odr hidden void @_ZNK10filesystem4pathdvERKS0_(ptr dead_on_unwind noalias writable sret(%"class.filesystem::path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(34) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 32
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %12, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
   %8 = tail call ptr @__cxa_allocate_exception(i64 16) #24
@@ -2875,8 +2872,8 @@ define linkonce_odr hidden void @_ZNK10filesystem4pathdvERKS0_(ptr dead_on_unwin
 12:                                               ; preds = %3
   %13 = load i32, ptr %1, align 8
   %14 = load i32, ptr %2, align 8
-  %.not12 = icmp eq i32 %13, %14
-  br i1 %.not12, label %20, label %15
+  %.not = icmp eq i32 %13, %14
+  br i1 %.not, label %20, label %15
 
 15:                                               ; preds = %12
   %16 = tail call ptr @__cxa_allocate_exception(i64 16) #24
@@ -2912,8 +2909,8 @@ define linkonce_odr hidden void @_ZNK10filesystem4pathdvERKS0_(ptr dead_on_unwin
   %32 = getelementptr inbounds i8, ptr %2, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %31, align 8
-  %.not16 = icmp eq ptr %33, %34
-  br i1 %.not16, label %._crit_edge, label %.lr.ph
+  %.not15 = icmp eq ptr %33, %34
+  br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
   %35 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2922,8 +2919,8 @@ define linkonce_odr hidden void @_ZNK10filesystem4pathdvERKS0_(ptr dead_on_unwin
 
 37:                                               ; preds = %.lr.ph, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
   %38 = phi ptr [ %34, %.lr.ph ], [ %48, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ]
-  %.015 = phi i64 [ 0, %.lr.ph ], [ %46, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ]
-  %39 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %38, i64 %.015
+  %.014 = phi i64 [ 0, %.lr.ph ], [ %46, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ]
+  %39 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %38, i64 %.014
   %40 = load ptr, ptr %35, align 8
   %41 = load ptr, ptr %36, align 8
   %.not.i = icmp eq ptr %40, %41
@@ -2944,7 +2941,7 @@ define linkonce_odr hidden void @_ZNK10filesystem4pathdvERKS0_(ptr dead_on_unwin
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit unwind label %54
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit: ; preds = %.noexc, %45
-  %46 = add nuw i64 %.015, 1
+  %46 = add nuw i64 %.014, 1
   %47 = load ptr, ptr %32, align 8
   %48 = load ptr, ptr %31, align 8
   %49 = ptrtoint ptr %47 to i64
@@ -4773,25 +4770,25 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail10formatImplERSoPKcPKNS0_
   %invariant.gep = getelementptr inbounds i8, ptr %8, i64 24
   store i32 0, ptr %5, align 4
   %21 = icmp sgt i32 %3, 0
-  br i1 %21, label %.preheader53, label %.preheader.preheader
+  br i1 %21, label %.preheader52, label %.preheader.preheader
 
-.preheader53:                                     ; preds = %4, %.preheader53.backedge
-  %.016.i = phi ptr [ %.016.i.be, %.preheader53.backedge ], [ %1, %4 ]
-  %.0.i = phi ptr [ %.0.i.be, %.preheader53.backedge ], [ %1, %4 ]
+.preheader52:                                     ; preds = %4, %.preheader52.backedge
+  %.016.i = phi ptr [ %.016.i.be, %.preheader52.backedge ], [ %1, %4 ]
+  %.0.i = phi ptr [ %.0.i.be, %.preheader52.backedge ], [ %1, %4 ]
   %22 = load i8, ptr %.0.i, align 1
   switch i8 %22, label %35 [
     i8 0, label %23
     i8 37, label %28
   ]
 
-23:                                               ; preds = %.preheader53
+23:                                               ; preds = %.preheader52
   %24 = ptrtoint ptr %.0.i to i64
   %25 = ptrtoint ptr %.016.i to i64
   %26 = sub i64 %24, %25
   %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.016.i, i64 noundef %26)
   br label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit
 
-28:                                               ; preds = %.preheader53
+28:                                               ; preds = %.preheader52
   %29 = ptrtoint ptr %.0.i to i64
   %30 = ptrtoint ptr %.016.i to i64
   %31 = sub i64 %29, %30
@@ -4801,16 +4798,16 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail10formatImplERSoPKcPKNS0_
   %.not.i = icmp eq i8 %34, 37
   br i1 %.not.i, label %35, label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit
 
-35:                                               ; preds = %28, %.preheader53
-  %.117.i = phi ptr [ %.016.i, %.preheader53 ], [ %33, %28 ]
-  %.1.i = phi ptr [ %.0.i, %.preheader53 ], [ %33, %28 ]
+35:                                               ; preds = %28, %.preheader52
+  %.117.i = phi ptr [ %.016.i, %.preheader52 ], [ %33, %28 ]
+  %.1.i = phi ptr [ %.0.i, %.preheader52 ], [ %33, %28 ]
   %36 = getelementptr inbounds i8, ptr %.1.i, i64 1
-  br label %.preheader53.backedge
+  br label %.preheader52.backedge
 
-.preheader53.backedge:                            ; preds = %35, %86
+.preheader52.backedge:                            ; preds = %35, %86
   %.016.i.be = phi ptr [ %.117.i, %35 ], [ %37, %86 ]
   %.0.i.be = phi ptr [ %36, %35 ], [ %37, %86 ]
-  br label %.preheader53, !llvm.loop !78
+  br label %.preheader52, !llvm.loop !78
 
 _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit: ; preds = %28, %23
   store i8 0, ptr %6, align 1
@@ -4818,15 +4815,14 @@ _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit: ; preds = %28, %23
   %37 = call noundef ptr @_ZN10tinyformat6detail21streamStateFromFormatERSoRbRiPKcPKNS0_9FormatArgES3_i(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull %.0.i, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %3)
   %38 = load i32, ptr %5, align 4
   %.not = icmp slt i32 %38, %3
-  br i1 %.not, label %39, label %.loopexit54
+  br i1 %.not, label %39, label %.loopexit53
 
 39:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit
   %40 = sext i32 %38 to i64
   %41 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %40
   %42 = load i8, ptr %6, align 1
-  %43 = and i8 %42, 1
-  %.not45 = icmp eq i8 %43, 0
-  br i1 %.not45, label %44, label %49
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %49, label %44
 
 44:                                               ; preds = %39
   %45 = load i32, ptr %7, align 4
@@ -4870,12 +4866,12 @@ _ZNK10tinyformat6detail9FormatArg6formatERSoPKcS4_i.exit: ; preds = %59
 
 69:                                               ; preds = %_ZNK10tinyformat6detail9FormatArg6formatERSoPKcS4_i.exit
   %70 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #24
-  %.not66 = icmp eq i64 %70, 0
-  br i1 %.not66, label %._crit_edge, label %.lr.ph
+  %.not65 = icmp eq i64 %70, 0
+  br i1 %.not65, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %69, %81
-  %.04064 = phi i64 [ %82, %81 ], [ 0, %69 ]
-  %71 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %.04064)
+  %.04063 = phi i64 [ %82, %81 ], [ 0, %69 ]
+  %71 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %.04063)
           to label %72 unwind label %.loopexit
 
 72:                                               ; preds = %.lr.ph
@@ -4884,7 +4880,7 @@ _ZNK10tinyformat6detail9FormatArg6formatERSoPKcS4_i.exit: ; preds = %59
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %72
-  %76 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %.04064)
+  %76 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %.04063)
           to label %77 unwind label %.loopexit
 
 77:                                               ; preds = %75
@@ -4912,7 +4908,7 @@ _ZNK10tinyformat6detail9FormatArg6formatERSoPKcS4_i.exit: ; preds = %59
   br label %85
 
 81:                                               ; preds = %72, %77
-  %82 = add nuw i64 %.04064, 1
+  %82 = add nuw i64 %.04063, 1
   %exitcond.not = icmp eq i64 %82, %70
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 
@@ -4935,45 +4931,45 @@ _ZNK10tinyformat6detail9FormatArg6formatERSoPKcS4_i.exit: ; preds = %59
   %88 = add nsw i32 %87, 1
   store i32 %88, ptr %5, align 4
   %89 = icmp slt i32 %88, %3
-  br i1 %89, label %.preheader53.backedge, label %.preheader.preheader
+  br i1 %89, label %.preheader52.backedge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %86, %4
-  %.0.i48.ph = phi ptr [ %1, %4 ], [ %37, %86 ]
+  %.0.i47.ph = phi ptr [ %1, %4 ], [ %37, %86 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %103
-  %.016.i47 = phi ptr [ %.117.i50, %103 ], [ %.0.i48.ph, %.preheader.preheader ]
-  %.0.i48 = phi ptr [ %104, %103 ], [ %.0.i48.ph, %.preheader.preheader ]
-  %90 = load i8, ptr %.0.i48, align 1
+  %.016.i46 = phi ptr [ %.117.i49, %103 ], [ %.0.i47.ph, %.preheader.preheader ]
+  %.0.i47 = phi ptr [ %104, %103 ], [ %.0.i47.ph, %.preheader.preheader ]
+  %90 = load i8, ptr %.0.i47, align 1
   switch i8 %90, label %103 [
     i8 0, label %91
     i8 37, label %96
   ]
 
 91:                                               ; preds = %.preheader
-  %92 = ptrtoint ptr %.0.i48 to i64
-  %93 = ptrtoint ptr %.016.i47 to i64
+  %92 = ptrtoint ptr %.0.i47 to i64
+  %93 = ptrtoint ptr %.016.i46 to i64
   %94 = sub i64 %92, %93
-  %95 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.016.i47, i64 noundef %94)
-  br label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit52
+  %95 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.016.i46, i64 noundef %94)
+  br label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit51
 
 96:                                               ; preds = %.preheader
-  %97 = ptrtoint ptr %.0.i48 to i64
-  %98 = ptrtoint ptr %.016.i47 to i64
+  %97 = ptrtoint ptr %.0.i47 to i64
+  %98 = ptrtoint ptr %.016.i46 to i64
   %99 = sub i64 %97, %98
-  %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.016.i47, i64 noundef %99)
-  %101 = getelementptr inbounds i8, ptr %.0.i48, i64 1
+  %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.016.i46, i64 noundef %99)
+  %101 = getelementptr inbounds i8, ptr %.0.i47, i64 1
   %102 = load i8, ptr %101, align 1
-  %.not.i49 = icmp eq i8 %102, 37
-  br i1 %.not.i49, label %103, label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit52
+  %.not.i48 = icmp eq i8 %102, 37
+  br i1 %.not.i48, label %103, label %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit51
 
 103:                                              ; preds = %96, %.preheader
-  %.117.i50 = phi ptr [ %.016.i47, %.preheader ], [ %101, %96 ]
-  %.1.i51 = phi ptr [ %.0.i48, %.preheader ], [ %101, %96 ]
-  %104 = getelementptr inbounds i8, ptr %.1.i51, i64 1
+  %.117.i49 = phi ptr [ %.016.i46, %.preheader ], [ %101, %96 ]
+  %.1.i50 = phi ptr [ %.0.i47, %.preheader ], [ %101, %96 ]
+  %104 = getelementptr inbounds i8, ptr %.1.i50, i64 1
   br label %.preheader, !llvm.loop !80
 
-_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit52: ; preds = %96, %91
+_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit51: ; preds = %96, %91
   %105 = load ptr, ptr %0, align 8
   %106 = getelementptr i8, ptr %105, i64 -24
   %107 = load i64, ptr %106, align 8
@@ -4997,9 +4993,9 @@ _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit52: ; preds = %96, %
   %122 = load i64, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %0, i64 %122
   %124 = call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %123, i8 noundef signext %20)
-  br label %.loopexit54
+  br label %.loopexit53
 
-.loopexit54:                                      ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit, %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit52
+.loopexit53:                                      ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit, %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit51
   ret void
 }
 
@@ -5848,9 +5844,8 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIN4nori12WavefrontOBJ9OBJVertex
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

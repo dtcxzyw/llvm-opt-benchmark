@@ -2157,31 +2157,29 @@ entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load i8, ptr @_ZN3fLB32FLAGS_velox_memory_use_hugepagesE, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end22, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.end22
 
 if.end:                                           ; preds = %entry
   call void @_ZNK8facebook5velox6memory20ContiguousAllocation13hugePageRangeEv(ptr nonnull sret(%"class.std::optional") align 8 %maybeRange, ptr noundef nonnull align 8 dereferenceable(32) %data)
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %maybeRange, i64 16
-  %2 = load i8, ptr %_M_engaged.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.i.i.not = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not, label %if.end22, label %_ZNRSt8optionalIN5folly5RangeIPcEEE5valueEv.exit6
+  %1 = load i8, ptr %_M_engaged.i.i, align 8
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %_ZNRSt8optionalIN5folly5RangeIPcEEE5valueEv.exit7, label %if.end22
 
-_ZNRSt8optionalIN5folly5RangeIPcEEE5valueEv.exit6: ; preds = %if.end
-  %4 = load ptr, ptr %maybeRange, align 8
+_ZNRSt8optionalIN5folly5RangeIPcEEE5valueEv.exit7: ; preds = %if.end
+  %2 = load ptr, ptr %maybeRange, align 8
   %e_.i = getelementptr inbounds i8, ptr %maybeRange, i64 8
-  %5 = load ptr, ptr %e_.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
+  %3 = load ptr, ptr %e_.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cond = select i1 %enable, i32 14, i32 15
-  %call9 = call i32 @madvise(ptr noundef %4, i64 noundef %sub.ptr.sub.i, i32 noundef %cond) #13
+  %call9 = call i32 @madvise(ptr noundef %2, i64 noundef %sub.ptr.sub.i, i32 noundef %cond) #13
   %cmp.not = icmp eq i32 %call9, 0
   br i1 %cmp.not, label %if.end22, label %if.then10
 
-if.then10:                                        ; preds = %_ZNRSt8optionalIN5folly5RangeIPcEEE5valueEv.exit6
+if.then10:                                        ; preds = %_ZNRSt8optionalIN5folly5RangeIPcEEE5valueEv.exit7
   call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.6, i32 noundef 368, i32 noundef 1)
   %call11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -2196,8 +2194,8 @@ invoke.cont12:                                    ; preds = %invoke.cont
 
 invoke.cont14:                                    ; preds = %invoke.cont12
   %call17 = tail call ptr @__errno_location() #30
-  %6 = load i32, ptr %call17, align 4
-  invoke void @_ZN5folly8errnoStrB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp16, i32 noundef %6)
+  %4 = load i32, ptr %call17, align 4
+  invoke void @_ZN5folly8errnoStrB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp16, i32 noundef %4)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont14
@@ -2210,22 +2208,22 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %if.end22
 
 lpad:                                             ; preds = %invoke.cont14, %invoke.cont12, %invoke.cont, %if.then10
-  %7 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad19:                                           ; preds = %invoke.cont18
-  %8 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #13
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad19, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad19 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %6, %lpad19 ], [ %5, %lpad ]
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #13
   resume { ptr, i32 } %.pn
 
-if.end22:                                         ; preds = %if.end, %entry, %invoke.cont20, %_ZNRSt8optionalIN5folly5RangeIPcEEE5valueEv.exit6
+if.end22:                                         ; preds = %if.end, %entry, %invoke.cont20, %_ZNRSt8optionalIN5folly5RangeIPcEEE5valueEv.exit7
   ret void
 }
 

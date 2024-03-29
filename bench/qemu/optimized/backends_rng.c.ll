@@ -219,8 +219,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 21, ptr noundef nonnull @__func__.RNG_BACKEND) #3
   %opened = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i8, ptr %opened, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

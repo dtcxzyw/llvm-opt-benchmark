@@ -1304,7 +1304,7 @@ while.body.i.us.i.i.i:                            ; preds = %land.rhs.i.us.i.i.i
   br i1 %cmp.i.us.i.i.i, label %land.rhs.i.us.i.i.i, label %_ZL17findSameDataBlockPKjiii.exit.i.i, !llvm.loop !22
 
 for.inc.loopexit.us.i.i.i:                        ; preds = %land.rhs.i.us.i.i.i
-  %indvars.iv.next.i.i.i = add nuw i64 %indvars.iv.i.i.i, 4
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 4
   %38 = trunc i64 %indvars.iv.next.i.i.i to i32
   %cmp.not.us.i.i.i = icmp slt i32 %sub.i.i.i, %38
   br i1 %cmp.not.us.i.i.i, label %land.rhs.lr.ph.i.i, label %for.body.us.i.i.i, !llvm.loop !23
@@ -1980,14 +1980,14 @@ for.body135:                                      ; preds = %for.body135.prehead
 
 if.end144:                                        ; preds = %for.body135, %for.end127, %for.end110
   %dest16.5 = phi ptr [ %incdec.ptr107, %for.end110 ], [ %dest16.3.lcssa, %for.end127 ], [ %incdec.ptr140, %for.body135 ]
-  %trunc.not = icmp eq i32 %valueBits, 0
-  %data16145 = getelementptr inbounds i8, ptr %trie, i64 8
-  %data32 = getelementptr inbounds i8, ptr %trie, i64 16
-  br i1 %trunc.not, label %sw.bb, label %sw.bb156
+  %trunc = trunc i32 %valueBits to i1
+  %data16157 = getelementptr inbounds i8, ptr %trie, i64 8
+  %data32158 = getelementptr inbounds i8, ptr %trie, i64 16
+  br i1 %trunc, label %sw.bb156, label %sw.bb
 
 sw.bb:                                            ; preds = %if.end144
-  store ptr %dest16.5, ptr %data16145, align 8
-  store ptr null, ptr %data32, align 8
+  store ptr %dest16.5, ptr %data16157, align 8
+  store ptr null, ptr %data32158, align 8
   %113 = load i32, ptr %dataLength, align 8
   %cmp148220 = icmp sgt i32 %113, 0
   br i1 %cmp148220, label %for.body149.preheader, label %sw.epilog
@@ -2011,8 +2011,8 @@ for.body149:                                      ; preds = %for.body149.prehead
   br i1 %cmp148, label %for.body149, label %sw.epilog, !llvm.loop !44
 
 sw.bb156:                                         ; preds = %if.end144
-  store ptr null, ptr %data16145, align 8
-  store ptr %dest16.5, ptr %data32, align 8
+  store ptr null, ptr %data16157, align 8
+  store ptr %dest16.5, ptr %data32158, align 8
   %data159 = getelementptr inbounds i8, ptr %2, i64 144128
   %116 = load ptr, ptr %data159, align 8
   %117 = load i32, ptr %dataLength, align 8

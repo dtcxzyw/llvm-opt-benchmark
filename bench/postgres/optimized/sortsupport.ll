@@ -64,9 +64,8 @@ define internal i32 @comparison_shim(i64 noundef %0, i64 noundef %1, ptr nocaptu
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 %11(ptr noundef nonnull %6) #5
   %13 = load i8, ptr %9, align 4
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %20, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %20
 
 15:                                               ; preds = %3
   %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6

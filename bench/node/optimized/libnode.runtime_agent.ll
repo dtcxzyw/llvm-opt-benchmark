@@ -191,18 +191,17 @@ define dso_local noundef zeroext i1 @_ZN4node9inspector8protocol12RuntimeAgent26
 entry:
   %notify_when_waiting_for_disconnect_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %notify_when_waiting_for_disconnect_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp ne i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %return
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %frontend_ = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %frontend_, align 8
-  tail call void @_ZN4node9inspector8protocol11NodeRuntime8Frontend20waitingForDisconnectEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
+  %1 = load ptr, ptr %frontend_, align 8
+  tail call void @_ZN4node9inspector8protocol11NodeRuntime8Frontend20waitingForDisconnectEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #12
   br label %return
 
 return:                                           ; preds = %entry, %if.then
-  ret i1 %tobool.not
+  ret i1 %tobool
 }
 
 declare void @_ZN4node9inspector8protocol11NodeRuntime8Frontend20waitingForDisconnectEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0

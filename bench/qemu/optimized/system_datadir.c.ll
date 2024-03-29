@@ -45,17 +45,16 @@ land.lhs.true5.i.i:                               ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %name, ptr noundef %name) #8
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %name, ptr noundef %name) #8
   br label %trace_load_file.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -82,63 +81,62 @@ sw.default:                                       ; preds = %if.end
 
 sw.epilog:                                        ; preds = %if.end, %sw.bb2
   %subdir.0 = phi ptr [ @.str.1, %sw.bb2 ], [ @.str, %if.end ]
-  %7 = load i32, ptr @data_dir_idx, align 4
-  %cmp326 = icmp sgt i32 %7, 0
+  %6 = load i32, ptr @data_dir_idx, align 4
+  %cmp326 = icmp sgt i32 %6, 0
   br i1 %cmp326, label %for.body, label %return
 
 for.body:                                         ; preds = %sw.epilog, %if.end8
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end8 ], [ 0, %sw.epilog ]
   %arrayidx = getelementptr [16 x ptr], ptr @data_dir, i64 0, i64 %indvars.iv
-  %8 = load ptr, ptr %arrayidx, align 8
-  %call4 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.2, ptr noundef %8, ptr noundef nonnull %subdir.0, ptr noundef %name) #8
+  %7 = load ptr, ptr %arrayidx, align 8
+  %call4 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.2, ptr noundef %7, ptr noundef nonnull %subdir.0, ptr noundef %name) #8
   %call5 = tail call i32 @access(ptr noundef %call4, i32 noundef 4) #8
   %cmp6 = icmp eq i32 %call5, 0
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i11)
-  %9 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i12 = icmp ne i32 %9, 0
-  %10 = load i16, ptr @_TRACE_LOAD_FILE_DSTATE, align 2
-  %tobool4.i.i13 = icmp ne i16 %10, 0
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i12 = icmp ne i32 %8, 0
+  %9 = load i16, ptr @_TRACE_LOAD_FILE_DSTATE, align 2
+  %tobool4.i.i13 = icmp ne i16 %9, 0
   %or.cond.i.i14 = select i1 %tobool.i.i12, i1 %tobool4.i.i13, i1 false
   br i1 %or.cond.i.i14, label %land.lhs.true5.i.i15, label %trace_load_file.exit25
 
 land.lhs.true5.i.i15:                             ; preds = %if.then7
-  %11 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i16 = and i32 %11, 32768
+  %10 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i16 = and i32 %10, 32768
   %cmp.i.not.i.i17 = icmp eq i32 %and.i.i.i16, 0
   br i1 %cmp.i.not.i.i17, label %trace_load_file.exit25, label %if.then.i.i18
 
 if.then.i.i18:                                    ; preds = %land.lhs.true5.i.i15
-  %12 = load i8, ptr @message_with_timestamp, align 1
-  %13 = and i8 %12, 1
-  %tobool7.not.i.i19 = icmp eq i8 %13, 0
-  br i1 %tobool7.not.i.i19, label %if.else.i.i24, label %if.then8.i.i20
+  %11 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i19 = trunc i8 %11 to i1
+  br i1 %tobool7.i.i19, label %if.then8.i.i21, label %if.else.i.i20
 
-if.then8.i.i20:                                   ; preds = %if.then.i.i18
-  %call9.i.i21 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i11, ptr noundef null) #8
-  %call10.i.i22 = tail call i32 @qemu_get_thread_id() #8
-  %14 = load i64, ptr %_now.i.i11, align 8
-  %tv_usec.i.i23 = getelementptr inbounds i8, ptr %_now.i.i11, i64 8
-  %15 = load i64, ptr %tv_usec.i.i23, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i22, i64 noundef %14, i64 noundef %15, ptr noundef %name, ptr noundef %call4) #8
+if.then8.i.i21:                                   ; preds = %if.then.i.i18
+  %call9.i.i22 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i11, ptr noundef null) #8
+  %call10.i.i23 = tail call i32 @qemu_get_thread_id() #8
+  %12 = load i64, ptr %_now.i.i11, align 8
+  %tv_usec.i.i24 = getelementptr inbounds i8, ptr %_now.i.i11, i64 8
+  %13 = load i64, ptr %tv_usec.i.i24, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i23, i64 noundef %12, i64 noundef %13, ptr noundef %name, ptr noundef %call4) #8
   br label %trace_load_file.exit25
 
-if.else.i.i24:                                    ; preds = %if.then.i.i18
+if.else.i.i20:                                    ; preds = %if.then.i.i18
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, ptr noundef %name, ptr noundef %call4) #8
   br label %trace_load_file.exit25
 
-trace_load_file.exit25:                           ; preds = %if.then7, %land.lhs.true5.i.i15, %if.then8.i.i20, %if.else.i.i24
+trace_load_file.exit25:                           ; preds = %if.then7, %land.lhs.true5.i.i15, %if.then8.i.i21, %if.else.i.i20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i11)
   br label %return
 
 if.end8:                                          ; preds = %for.body
   tail call void @g_free(ptr noundef %call4) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i32, ptr @data_dir_idx, align 4
-  %17 = sext i32 %16 to i64
-  %cmp3 = icmp slt i64 %indvars.iv.next, %17
+  %14 = load i32, ptr @data_dir_idx, align 4
+  %15 = sext i32 %14 to i64
+  %cmp3 = icmp slt i64 %indvars.iv.next, %15
   br i1 %cmp3, label %for.body, label %return, !llvm.loop !5
 
 return:                                           ; preds = %if.end8, %sw.epilog, %trace_load_file.exit25, %trace_load_file.exit

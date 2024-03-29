@@ -219,9 +219,8 @@ if.end21.i.i:                                     ; preds = %if.then11.i.i, %if.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid19.i.i, ptr noundef nonnull align 8 dereferenceable(24) %memid.i.i, i64 24, i1 false)
   %initially_zero.i.i = getelementptr inbounds i8, ptr %memid.i.i, i64 18
   %11 = load i8, ptr %initially_zero.i.i, align 2
-  %12 = and i8 %11, 1
-  %.not.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i, label %if.then24.i.i, label %if.end6.i
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %if.end6.i, label %if.then24.i.i
 
 if.then24.i.i:                                    ; preds = %if.end21.i.i, %if.end21.thread26.i.i
   %td.429.i.i = phi ptr [ %10, %if.end21.thread26.i.i ], [ %td.3.ph.i.i, %if.end21.i.i ]
@@ -644,9 +643,8 @@ declare i32 @atexit(ptr noundef) local_unnamed_addr #10
 define internal void @mi_process_done() #1 {
 entry:
   %0 = load i8, ptr @_mi_process_is_initialized, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %.b1 = load i1, ptr @mi_process_done.process_done, align 1
@@ -661,14 +659,14 @@ if.end3:                                          ; preds = %if.end
 if.then4:                                         ; preds = %if.end3
   tail call void @mi_collect(i1 noundef zeroext true) #13
   tail call void @_mi_heap_unsafe_destroy_all() #13
-  %2 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
-  %cmp.i.i = icmp eq i64 %2, 0
+  %1 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
+  %cmp.i.i = icmp eq i64 %1, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %_mi_heap_main_get.exit
 
 if.then.i.i:                                      ; preds = %if.then4
-  %3 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
-  %4 = ptrtoint ptr %3 to i64
-  store i64 %4, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
+  %2 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
+  %3 = ptrtoint ptr %2 to i64
+  store i64 %3, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
   store i64 1, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
   tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 8, i32 0, i32 0)) #13
   %call1.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
@@ -680,8 +678,8 @@ if.then.i.i:                                      ; preds = %if.then4
   br label %_mi_heap_main_get.exit
 
 _mi_heap_main_get.exit:                           ; preds = %if.then4, %if.then.i.i
-  %5 = load ptr, ptr @_mi_heap_main, align 8
-  %stats = getelementptr inbounds i8, ptr %5, i64 960
+  %4 = load ptr, ptr @_mi_heap_main, align 8
+  %stats = getelementptr inbounds i8, ptr %4, i64 960
   tail call void @_mi_arena_unsafe_destroy_all(ptr noundef nonnull %stats) #13
   br label %if.end6
 
@@ -698,8 +696,8 @@ if.then9:                                         ; preds = %lor.lhs.false, %if.
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then9, %lor.lhs.false
-  %6 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
-  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.6, i64 noundef %6) #13
+  %5 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
+  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.6, i64 noundef %5) #13
   store i1 false, ptr @os_preloading, align 1
   br label %return
 

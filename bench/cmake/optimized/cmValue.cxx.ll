@@ -272,8 +272,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %55
 switch.lookup:                                    ; preds = %3
   %switch.cast = zext nneg i8 %switch.tableidx to i63
   %switch.downshift = lshr i63 -4611686017353646079, %switch.cast
-  %59 = and i63 %switch.downshift, 1
-  %switch.masked = icmp ne i63 %59, 0
+  %switch.masked = trunc i63 %switch.downshift to i1
   br label %_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %3, %switch.lookup, %50, %32, %17, %8, %2, %47, %44, %41, %38, %36, %29, %26, %23, %21, %14, %12, %6, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %55, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i

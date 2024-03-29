@@ -4413,9 +4413,8 @@ for.end67:                                        ; preds = %for.end67.loopexit,
 switch.hole_check:                                ; preds = %for.end.i
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -81, %switch.maskindex
-  %46 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %46, 0
-  br i1 %switch.lobit.not, label %if.end29, label %return
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %return, label %if.end29
 
 return:                                           ; preds = %if.end214.i, %if.end12.i, %if.end19.i, %if.end44.i, %sw.bb49.i, %sw.bb54.i, %switch.early.test.i, %sw.bb59.i, %for.body, %for.body, %for.body, %for.body, %for.body, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit, %lor.lhs.false158.i.i, %for.body.i, %switch.early.test.i.i, %switch.early.test79.i.i, %switch.early.test81.i.i, %sw.bb130.i.i, %land.lhs.true152.i.i, %sw.bb166.i.i, %for.body59, %switch.hole_check, %if.end29.thread, %if.end35, %for.end67, %land.lhs.true
   %retval.0 = phi i32 [ 1, %land.lhs.true ], [ 0, %for.end67 ], [ 0, %if.end35 ], [ %spec.select, %if.end29.thread ], [ 1, %switch.hole_check ], [ 1, %for.body59 ], [ 1, %sw.bb166.i.i ], [ 1, %land.lhs.true152.i.i ], [ 1, %sw.bb130.i.i ], [ 1, %switch.early.test81.i.i ], [ 1, %switch.early.test79.i.i ], [ 1, %switch.early.test.i.i ], [ 1, %for.body.i ], [ 1, %lor.lhs.false158.i.i ], [ 1, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit ], [ 1, %for.body ], [ 1, %for.body ], [ 1, %for.body ], [ 1, %for.body ], [ 1, %for.body ], [ 1, %sw.bb59.i ], [ 1, %switch.early.test.i ], [ 1, %sw.bb54.i ], [ 1, %sw.bb49.i ], [ 1, %if.end44.i ], [ 1, %if.end19.i ], [ 1, %if.end12.i ], [ 1, %if.end214.i ]

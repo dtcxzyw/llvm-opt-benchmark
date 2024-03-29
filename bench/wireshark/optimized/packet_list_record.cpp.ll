@@ -225,28 +225,27 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16PacketListRecord15ensureColorizedEP13_capture_file(ptr nocapture noundef nonnull align 8 dereferenceable(37) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %16, label %3
+  br i1 %.not, label %15, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 28
   %5 = load i8, ptr %4, align 4
-  %6 = and i8 %5, 1
-  %.not6 = icmp eq i8 %6, 0
+  %6 = trunc i8 %5 to i1
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = load i32, ptr @_ZN16PacketListRecord15rows_color_ver_E, align 4
-  %10 = icmp ne i32 %8, %9
-  %11 = select i1 %.not6, i1 true, i1 %10
-  br i1 %11, label %12, label %16
+  %10 = icmp eq i32 %8, %9
+  %.not7 = select i1 %6, i1 %10, i1 false
+  br i1 %.not7, label %15, label %11
 
-12:                                               ; preds = %3
-  %13 = load i64, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 3), align 8
-  %14 = load i64, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 2), align 8
-  %15 = icmp slt i64 %13, %14
-  tail call void @_ZN16PacketListRecord7dissectEP13_capture_filebb(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull %1, i1 noundef zeroext %15, i1 noundef zeroext true)
-  br label %16
+11:                                               ; preds = %3
+  %12 = load i64, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 3), align 8
+  %13 = load i64, ptr getelementptr inbounds (%class.QCache, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 0, i32 2), align 8
+  %14 = icmp slt i64 %12, %13
+  tail call void @_ZN16PacketListRecord7dissectEP13_capture_filebb(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull %1, i1 noundef zeroext %14, i1 noundef zeroext true)
+  br label %15
 
-16:                                               ; preds = %2, %12, %3
+15:                                               ; preds = %2, %11, %3
   ret void
 }
 
@@ -265,11 +264,10 @@ define void @_ZN16PacketListRecord7dissectEP13_capture_filebb(ptr nocapture noun
   call void @ws_buffer_init(ptr noundef nonnull %7, i64 noundef 1514)
   %10 = getelementptr inbounds i8, ptr %0, i64 36
   %11 = load i8, ptr %10, align 4
-  %12 = and i8 %11, 1
-  %.not27 = icmp eq i8 %12, 0
+  %12 = trunc i8 %11 to i1
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
-  br i1 %.not27, label %17, label %15
+  br i1 %12, label %15, label %17
 
 15:                                               ; preds = %8
   %16 = call i32 @cf_read_record_no_alert(ptr noundef nonnull %1, ptr noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -313,29 +311,29 @@ define void @_ZN16PacketListRecord7dissectEP13_capture_filebb(ptr nocapture noun
 
 31:                                               ; preds = %30
   %32 = call i32 @color_filters_used()
-  %.not30 = icmp eq i32 %32, 0
-  %brmerge.not = and i1 %.not30, %2
+  %.not29 = icmp eq i32 %32, 0
+  %brmerge.not = and i1 %.not29, %2
   br i1 %brmerge.not, label %36, label %.thread
 
 .thread:                                          ; preds = %31
-  %not..not30 = xor i1 %.not30, true
-  %.mux = zext i1 %not..not30 to i32
+  %not..not29 = xor i1 %.not29, true
+  %.mux = zext i1 %not..not29 to i32
   %33 = load ptr, ptr %1, align 8
   call void @epan_dissect_init(ptr noundef nonnull %5, ptr noundef %33, i32 noundef %.mux, i32 noundef 0)
   br label %45
 
 34:                                               ; preds = %30
-  br i1 %2, label %36, label %.thread35
+  br i1 %2, label %36, label %.thread34
 
-.thread35:                                        ; preds = %34
+.thread34:                                        ; preds = %34
   %35 = load ptr, ptr %1, align 8
   call void @epan_dissect_init(ptr noundef nonnull %5, ptr noundef %35, i32 noundef 0, i32 noundef 0)
   br label %.critedge
 
 36:                                               ; preds = %31, %34
   %37 = call i32 @have_custom_cols(ptr noundef %spec.select)
-  %.not31 = icmp eq i32 %37, 0
-  br i1 %.not31, label %38, label %42
+  %.not30 = icmp eq i32 %37, 0
+  br i1 %.not30, label %38, label %42
 
 38:                                               ; preds = %36
   %39 = call i32 @have_field_extractors()
@@ -377,7 +375,7 @@ define void @_ZN16PacketListRecord7dissectEP13_capture_filebb(ptr nocapture noun
   call void @_ZN16PacketListRecord18cacheColumnStringsEP16epan_column_info(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull %9)
   br label %69
 
-.critedge:                                        ; preds = %.thread35, %51
+.critedge:                                        ; preds = %.thread34, %51
   %61 = getelementptr inbounds i8, ptr %1, i64 56
   %62 = load i16, ptr %61, align 8
   %63 = zext i16 %62 to i32
@@ -403,8 +401,8 @@ define void @_ZN16PacketListRecord7dissectEP13_capture_filebb(ptr nocapture noun
 74:                                               ; preds = %70, %69
   %75 = getelementptr inbounds i8, ptr %5, i64 24
   %76 = call ptr @find_conversation_pinfo(ptr noundef nonnull %75, i32 noundef 0)
-  %.not32 = icmp eq ptr %76, null
-  br i1 %.not32, label %80, label %77
+  %.not31 = icmp eq ptr %76, null
+  br i1 %.not31, label %80, label %77
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds i8, ptr %76, i64 24
@@ -450,30 +448,29 @@ define void @_ZN16PacketListRecord12columnStringEP13_capture_fileib(ptr dead_on_
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %1, i64 28
   %15 = load i8, ptr %14, align 4
-  %16 = and i8 %15, 1
-  %.not20 = icmp eq i8 %16, 0
-  br i1 %.not20, label %.thread23, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %.thread22
 
 17:                                               ; preds = %12, %13
   %18 = getelementptr inbounds i8, ptr %1, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = load i32, ptr @_ZN16PacketListRecord15rows_color_ver_E, align 4
-  %.not29 = icmp eq i32 %19, %20
-  br i1 %.not29, label %21, label %.thread23
+  %.not28 = icmp eq i32 %19, %20
+  br i1 %.not28, label %21, label %.thread22
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef ptr @_ZNK6QCacheIj5QListI7QStringEE6relinkERKj(ptr noundef nonnull align 8 dereferenceable(72) @_ZN16PacketListRecord15col_text_cache_E, ptr noundef nonnull align 4 dereferenceable(4) %23) #20
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.thread23, label %26
+  br i1 %25, label %.thread22, label %26
 
 26:                                               ; preds = %21
   %27 = zext nneg i32 %3 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 16
   %29 = load i64, ptr %28, align 8
-  %.not21 = icmp sgt i64 %29, %27
-  br i1 %.not21, label %30, label %.thread23
+  %.not20 = icmp sgt i64 %29, %27
+  br i1 %.not20, label %30, label %.thread22
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i8, ptr %24, i64 8
@@ -481,26 +478,26 @@ define void @_ZN16PacketListRecord12columnStringEP13_capture_fileib(ptr dead_on_
   %33 = getelementptr %class.QString, ptr %32, i64 %27, i32 0, i32 1
   %34 = load ptr, ptr %33, align 8
   %.not.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i, label %.thread23, label %.thread25
+  br i1 %.not.i.i, label %.thread22, label %.thread24
 
-.thread23:                                        ; preds = %13, %17, %21, %26, %30
+.thread22:                                        ; preds = %13, %17, %21, %26, %30
   %35 = phi i1 [ false, %30 ], [ false, %26 ], [ false, %21 ], [ true, %17 ], [ true, %13 ]
   tail call void @_ZN16PacketListRecord7dissectEP13_capture_filebb(ptr noundef nonnull align 8 dereferenceable(37) %1, ptr noundef nonnull %2, i1 noundef zeroext true, i1 noundef zeroext %35)
   %36 = getelementptr inbounds i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef ptr @_ZNK6QCacheIj5QListI7QStringEE6relinkERKj(ptr noundef nonnull align 8 dereferenceable(72) @_ZN16PacketListRecord15col_text_cache_E, ptr noundef nonnull align 4 dereferenceable(4) %37) #20
-  %.not22 = icmp eq ptr %38, null
-  br i1 %.not22, label %50, label %.thread23..thread25_crit_edge
+  %.not21 = icmp eq ptr %38, null
+  br i1 %.not21, label %50, label %.thread22..thread24_crit_edge
 
-.thread23..thread25_crit_edge:                    ; preds = %.thread23
+.thread22..thread24_crit_edge:                    ; preds = %.thread22
   %.phi.trans.insert = getelementptr inbounds i8, ptr %38, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre30 = zext nneg i32 %3 to i64
-  br label %.thread25
+  %.pre29 = zext nneg i32 %3 to i64
+  br label %.thread24
 
-.thread25:                                        ; preds = %.thread23..thread25_crit_edge, %30
-  %.pre-phi = phi i64 [ %.pre30, %.thread23..thread25_crit_edge ], [ %27, %30 ]
-  %39 = phi ptr [ %.pre, %.thread23..thread25_crit_edge ], [ %32, %30 ]
+.thread24:                                        ; preds = %.thread22..thread24_crit_edge, %30
+  %.pre-phi = phi i64 [ %.pre29, %.thread22..thread24_crit_edge ], [ %27, %30 ]
+  %39 = phi ptr [ %.pre, %.thread22..thread24_crit_edge ], [ %32, %30 ]
   %40 = getelementptr %class.QString, ptr %39, i64 %.pre-phi
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %0, align 8
@@ -515,15 +512,15 @@ define void @_ZN16PacketListRecord12columnStringEP13_capture_fileib(ptr dead_on_
   %.not.i.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i.i, label %_ZN7QStringC2ERKS_.exit, label %48
 
-48:                                               ; preds = %.thread25
+48:                                               ; preds = %.thread24
   %49 = atomicrmw add ptr %41, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit
 
-50:                                               ; preds = %.thread23
+50:                                               ; preds = %.thread22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %48, %.thread25, %50, %11
+_ZN7QStringC2ERKS_.exit:                          ; preds = %48, %.thread24, %50, %11
   ret void
 }
 
@@ -1114,9 +1111,8 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %12, %_ZN17QArrayDat
   %43 = getelementptr %"struct.QHashPrivate::Span<QCache<unsigned int, QList<QString>>::Node>::Entry", ptr %39, i64 %42
   %44 = getelementptr inbounds i8, ptr %5, i64 16
   %45 = load i8, ptr %44, align 8
-  %46 = and i8 %45, 1
-  %.not = icmp eq i8 %46, 0
-  br i1 %.not, label %70, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %70
 
 47:                                               ; preds = %27
   %48 = getelementptr inbounds i8, ptr %43, i64 32

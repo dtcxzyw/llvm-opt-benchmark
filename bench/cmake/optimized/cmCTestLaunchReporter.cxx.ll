@@ -610,9 +610,8 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 define dso_local void @_ZN21cmCTestLaunchReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(576) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 312
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %11
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %11, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 384
@@ -824,12 +823,12 @@ define dso_local void @_ZN21cmCTestLaunchReporter10LoadLabelsEv(ptr noundef nonn
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 160
   %9 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  br i1 %9, label %84, label %10
+  br i1 %9, label %83, label %10
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   %12 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
-  br i1 %12, label %84, label %13
+  br i1 %12, label %83, label %13
 
 13:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2)
@@ -886,36 +885,38 @@ define dso_local void @_ZN21cmCTestLaunchReporter10LoadLabelsEv(ptr noundef nonn
           to label %37 unwind label %42
 
 37:                                               ; preds = %31
-  br i1 %36, label %83, label %44
+  br i1 %36, label %82, label %44
 
 38:                                               ; preds = %13
   %39 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %87
 
 40:                                               ; preds = %29, %28
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %87
+  br label %86
 
 42:                                               ; preds = %31
   %43 = landingpad { ptr, i32 }
           cleanup
-  br label %86
+  br label %85
 
 44:                                               ; preds = %37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   %45 = getelementptr inbounds i8, ptr %0, i64 448
+  br label %.outer.outer.outer
+
+.outer.outer.outer:                               ; preds = %44, %_ZN21cmCTestLaunchReporter13SourceMatchesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit
+  %.011.ph.ph.ph = phi i1 [ true, %44 ], [ false, %_ZN21cmCTestLaunchReporter13SourceMatchesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit ]
+  %.09.ph.ph.ph = phi i1 [ false, %44 ], [ %81, %_ZN21cmCTestLaunchReporter13SourceMatchesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit ]
   br label %.outer.outer
 
-.outer.outer:                                     ; preds = %_ZN21cmCTestLaunchReporter13SourceMatchesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit, %44
-  %.not13 = phi i1 [ true, %_ZN21cmCTestLaunchReporter13SourceMatchesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit ], [ false, %44 ]
-  %.09.ph.ph = phi i8 [ %82, %_ZN21cmCTestLaunchReporter13SourceMatchesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit ], [ 0, %44 ]
-  %.not14 = icmp eq i8 %.09.ph.ph, 0
-  %or.cond = select i1 %.not13, i1 %.not14, i1 false
+.outer.outer:                                     ; preds = %61, %.outer.outer.outer
+  %.011.ph.ph = phi i1 [ %.011.ph.ph.ph, %.outer.outer.outer ], [ false, %61 ]
   br label %.outer
 
-.outer:                                           ; preds = %.outer.backedge, %.outer.outer
+.outer:                                           ; preds = %.outer.outer, %65
   br label %46
 
 46:                                               ; preds = %.backedge, %.outer
@@ -923,7 +924,7 @@ define dso_local void @_ZN21cmCTestLaunchReporter10LoadLabelsEv(ptr noundef nonn
           to label %48 unwind label %.loopexit
 
 48:                                               ; preds = %46
-  br i1 %47, label %49, label %.loopexit21
+  br i1 %47, label %49, label %.loopexit17
 
 49:                                               ; preds = %48
   %50 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
@@ -944,12 +945,12 @@ define dso_local void @_ZN21cmCTestLaunchReporter10LoadLabelsEv(ptr noundef nonn
 .loopexit:                                        ; preds = %46, %51
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %85
+  br label %84
 
 .loopexit.split-lp:                               ; preds = %56, %62
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %85
+  br label %84
 
 56:                                               ; preds = %53
   %57 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0)
@@ -961,10 +962,8 @@ define dso_local void @_ZN21cmCTestLaunchReporter10LoadLabelsEv(ptr noundef nonn
   br i1 %60, label %61, label %68
 
 61:                                               ; preds = %58
-  br i1 %or.cond, label %.outer.backedge, label %62
-
-.outer.backedge:                                  ; preds = %61, %65
-  br label %.outer, !llvm.loop !53
+  %brmerge = select i1 %.011.ph.ph, i1 true, i1 %.09.ph.ph.ph
+  br i1 %brmerge, label %62, label %.outer.outer
 
 62:                                               ; preds = %61
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 1, i64 noundef -1)
@@ -976,19 +975,18 @@ define dso_local void @_ZN21cmCTestLaunchReporter10LoadLabelsEv(ptr noundef nonn
 
 65:                                               ; preds = %63
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
-  br label %.outer.backedge
+  br label %.outer, !llvm.loop !53
 
 66:                                               ; preds = %63
   %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
-  br label %85
+  br label %84
 
 68:                                               ; preds = %58
   %69 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #18
-  %.not = icmp ne i8 %.09.ph.ph, 0
-  %or.cond20.not = select i1 %69, i1 true, i1 %.not
-  br i1 %or.cond20.not, label %.loopexit21, label %70
+  %brmerge23 = select i1 %69, i1 true, i1 %.09.ph.ph.ph
+  br i1 %brmerge23, label %.loopexit17, label %70
 
 70:                                               ; preds = %68
   %71 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
@@ -1010,39 +1008,38 @@ define dso_local void @_ZN21cmCTestLaunchReporter10LoadLabelsEv(ptr noundef nonn
 
 _ZN21cmCTestLaunchReporter13SourceMatchesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit: ; preds = %70, %74, %79
   %81 = phi i1 [ false, %70 ], [ %80, %79 ], [ true, %74 ]
-  %82 = zext i1 %81 to i8
-  br label %.outer.outer, !llvm.loop !53
+  br label %.outer.outer.outer, !llvm.loop !53
 
-.loopexit21:                                      ; preds = %68, %48
+.loopexit17:                                      ; preds = %68, %48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
-  br label %83
+  br label %82
 
-83:                                               ; preds = %37, %.loopexit21
+82:                                               ; preds = %37, %.loopexit17
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %5) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  br label %84
+  br label %83
 
-84:                                               ; preds = %1, %10, %83
+83:                                               ; preds = %1, %10, %82
   ret void
 
-85:                                               ; preds = %.loopexit, %.loopexit.split-lp, %66
+84:                                               ; preds = %.loopexit, %.loopexit.split-lp, %66
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
+  br label %85
+
+85:                                               ; preds = %84, %42
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %84 ], [ %43, %42 ]
+  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %5) #18
   br label %86
 
-86:                                               ; preds = %85, %42
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %85 ], [ %43, %42 ]
-  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %5) #18
+86:                                               ; preds = %85, %40
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %85 ], [ %41, %40 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   br label %87
 
-87:                                               ; preds = %86, %40
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %86 ], [ %41, %40 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  br label %88
-
-88:                                               ; preds = %87, %38
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %87 ], [ %39, %38 ]
+87:                                               ; preds = %86, %38
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %86 ], [ %39, %38 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
@@ -2078,9 +2075,8 @@ define dso_local void @_ZN21cmCTestLaunchReporter14WriteXMLResultER12cmXMLElemen
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %0, i64 324
   %23 = load i8, ptr %22, align 4
-  %24 = and i8 %23, 1
-  %.not = icmp eq i8 %24, 0
-  br i1 %.not, label %63, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %63
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %0, i64 320

@@ -28,9 +28,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Comm_get_name(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) #0 {
   %4 = load i8, ptr @ompi_mpi_param_check, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %29, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %29
 
 6:                                                ; preds = %3
   %7 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -76,9 +75,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %11, %ompi_comm_inva
 
 29:                                               ; preds = %3, %20
   %30 = load i8, ptr @opal_uses_threads, align 1
-  %31 = and i8 %30, 1
-  %.not17 = icmp eq i8 %31, 0
-  br i1 %.not17, label %35, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %35
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %0, i64 112
@@ -89,8 +87,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %11, %ompi_comm_inva
   %36 = getelementptr inbounds i8, ptr %0, i64 224
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 2
-  %.not18 = icmp eq i32 %38, 0
-  br i1 %.not18, label %45, label %39
+  %.not16 = icmp eq i32 %38, 0
+  br i1 %.not16, label %45, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %0, i64 160
@@ -109,9 +107,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %11, %ompi_comm_inva
   %storemerge = phi i32 [ 0, %45 ], [ %44, %39 ]
   store i32 %storemerge, ptr %2, align 4
   %47 = load i8, ptr @opal_uses_threads, align 1
-  %48 = and i8 %47, 1
-  %.not19 = icmp eq i8 %48, 0
-  br i1 %.not19, label %52, label %49
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %52
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %0, i64 112

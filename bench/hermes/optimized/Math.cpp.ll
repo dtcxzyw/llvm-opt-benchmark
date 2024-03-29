@@ -493,9 +493,8 @@ entry:
   %2 = load ptr, ptr %jsLibStorage_.i, align 8
   %randomEngineSeeded_ = getelementptr inbounds i8, ptr %2, i64 2504
   %3 = load i8, ptr %randomEngineSeeded_, align 8
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -522,10 +521,10 @@ if.then:                                          ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.then
-  %5 = phi i64 [ %or, %if.then ], [ %add.i, %for.body.i ]
+  %4 = phi i64 [ %or, %if.then ], [ %add.i, %for.body.i ]
   %__i.09.i = phi i64 [ 1, %if.then ], [ %inc.i, %for.body.i ]
-  %shr.i = lshr i64 %5, 62
-  %xor.i = xor i64 %shr.i, %5
+  %shr.i = lshr i64 %4, 62
+  %xor.i = xor i64 %shr.i, %4
   %mul.i = mul i64 %xor.i, 6364136223846793005
   %add.i = add i64 %mul.i, %__i.09.i
   %arrayidx7.i = getelementptr inbounds [312 x i64], ptr %2, i64 0, i64 %__i.09.i
@@ -554,10 +553,10 @@ if.end:                                           ; preds = %_ZNSt23mersenne_twi
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
   %__k.013.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %if.end ], [ %dec.i.i.i.i, %for.body.i.i.i.i ]
   %__tmp.012.i.i.i.i = phi double [ 1.000000e+00, %if.end ], [ %conv16.i.i.i.i, %for.body.i.i.i.i ]
-  %__sum.011.i.i.i.i = phi double [ 0.000000e+00, %if.end ], [ %6, %for.body.i.i.i.i ]
+  %__sum.011.i.i.i.i = phi double [ 0.000000e+00, %if.end ], [ %5, %for.body.i.i.i.i ]
   %call11.i.i.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %2)
   %conv14.i.i.i.i = uitofp i64 %call11.i.i.i.i to double
-  %6 = call double @llvm.fmuladd.f64(double %conv14.i.i.i.i, double %__tmp.012.i.i.i.i, double %__sum.011.i.i.i.i)
+  %5 = call double @llvm.fmuladd.f64(double %conv14.i.i.i.i, double %__tmp.012.i.i.i.i, double %__sum.011.i.i.i.i)
   %conv15.i.i.i.i = fpext double %__tmp.012.i.i.i.i to x86_fp80
   %mul.i.i.i.i = fmul x86_fp80 %conv15.i.i.i.i, 0xK403F8000000000000000
   %conv16.i.i.i.i = fptrunc x86_fp80 %mul.i.i.i.i to double
@@ -566,7 +565,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %cmp.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !18
 
 for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %div17.i.i.i.i = fdiv double %6, %conv16.i.i.i.i
+  %div17.i.i.i.i = fdiv double %5, %conv16.i.i.i.i
   %cmp18.i.i.i.i = fcmp ult double %div17.i.i.i.i, 1.000000e+00
   br i1 %cmp18.i.i.i.i, label %_ZNSt25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit, label %if.then.i.i.i.i
 
@@ -576,10 +575,10 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i.i.i
 
 _ZNSt25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit: ; preds = %for.end.i.i.i.i, %if.then.i.i.i.i
   %__ret.0.i.i.i.i = phi double [ %call20.i.i.i.i, %if.then.i.i.i.i ], [ %div17.i.i.i.i, %for.end.i.i.i.i ]
-  %7 = fadd double %__ret.0.i.i.i.i, 0.000000e+00
-  %8 = fcmp uno double %7, 0.000000e+00
-  %9 = bitcast double %7 to i64
-  %retval.sroa.0.0.i = select i1 %8, i64 9221120237041090560, i64 %9
+  %6 = fadd double %__ret.0.i.i.i.i, 0.000000e+00
+  %7 = fcmp uno double %6, 0.000000e+00
+  %8 = bitcast double %6 to i64
+  %retval.sroa.0.0.i = select i1 %7, i64 9221120237041090560, i64 %8
   %.fca.1.insert = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %retval.sroa.0.0.i, 1
   ret { i32, i64 } %.fca.1.insert
 }

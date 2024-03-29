@@ -76,7 +76,7 @@ if.end9:                                          ; preds = %if.end, %_ZN7loggin
   br i1 %cmp23, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.end9, %for.inc
-  %did_replacement.024 = phi i8 [ %did_replacement.11519, %for.inc ], [ 0, %if.end9 ]
+  %did_replacement.024 = phi i1 [ %did_replacement.11519, %for.inc ], [ false, %if.end9 ]
   %call12 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %str)
   %call13 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKciPiPj(ptr noundef %call12, i32 noundef %conv11, ptr noundef nonnull %i, ptr noundef nonnull %code_point)
   br i1 %call13, label %if.end15, label %if.end18.thread
@@ -141,13 +141,13 @@ if.then20:                                        ; preds = %if.end18
   br label %for.inc
 
 if.else21:                                        ; preds = %if.end18.thread, %if.end18
-  %did_replacement.115.ph22 = phi i8 [ 1, %if.end18.thread ], [ %did_replacement.024, %if.end18 ]
+  %did_replacement.115.ph22 = phi i1 [ true, %if.end18.thread ], [ %did_replacement.024, %if.end18 ]
   %0 = phi i32 [ 65533, %if.end18.thread ], [ %.pr, %if.end18 ]
   %call22 = call noundef i64 @_ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %0, ptr noundef %dest)
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN4base12_GLOBAL__N_122EscapeSpecialCodePointEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %if.then20, %if.else21
-  %did_replacement.11519 = phi i8 [ %did_replacement.024, %if.then20 ], [ %did_replacement.115.ph22, %if.else21 ], [ %did_replacement.024, %_ZN4base12_GLOBAL__N_122EscapeSpecialCodePointEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+  %did_replacement.11519 = phi i1 [ %did_replacement.024, %if.then20 ], [ %did_replacement.115.ph22, %if.else21 ], [ %did_replacement.024, %_ZN4base12_GLOBAL__N_122EscapeSpecialCodePointEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %1 = load i32, ptr %i, align 4
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %i, align 4
@@ -155,12 +155,11 @@ for.inc:                                          ; preds = %_ZN4base12_GLOBAL__
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !5
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %2 = and i8 %did_replacement.11519, 1
-  %3 = icmp eq i8 %2, 0
+  %2 = xor i1 %did_replacement.11519, true
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end9
-  %did_replacement.0.lcssa = phi i1 [ true, %if.end9 ], [ %3, %for.end.loopexit ]
+  %did_replacement.0.lcssa = phi i1 [ true, %if.end9 ], [ %2, %for.end.loopexit ]
   br i1 %put_in_quotes, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %for.end
@@ -217,7 +216,7 @@ if.end9:                                          ; preds = %if.end, %_ZN7loggin
   br i1 %cmp23, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.end9, %for.inc
-  %did_replacement.024 = phi i8 [ %did_replacement.11519, %for.inc ], [ 0, %if.end9 ]
+  %did_replacement.024 = phi i1 [ %did_replacement.11519, %for.inc ], [ false, %if.end9 ]
   %call12 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %str)
   %call13 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef %call12, i32 noundef %conv11, ptr noundef nonnull %i, ptr noundef nonnull %code_point)
   br i1 %call13, label %if.end15, label %if.end18.thread
@@ -282,13 +281,13 @@ if.then20:                                        ; preds = %if.end18
   br label %for.inc
 
 if.else21:                                        ; preds = %if.end18.thread, %if.end18
-  %did_replacement.115.ph22 = phi i8 [ 1, %if.end18.thread ], [ %did_replacement.024, %if.end18 ]
+  %did_replacement.115.ph22 = phi i1 [ true, %if.end18.thread ], [ %did_replacement.024, %if.end18 ]
   %0 = phi i32 [ 65533, %if.end18.thread ], [ %.pr, %if.end18 ]
   %call22 = call noundef i64 @_ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %0, ptr noundef %dest)
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN4base12_GLOBAL__N_122EscapeSpecialCodePointEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %if.then20, %if.else21
-  %did_replacement.11519 = phi i8 [ %did_replacement.024, %if.then20 ], [ %did_replacement.115.ph22, %if.else21 ], [ %did_replacement.024, %_ZN4base12_GLOBAL__N_122EscapeSpecialCodePointEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+  %did_replacement.11519 = phi i1 [ %did_replacement.024, %if.then20 ], [ %did_replacement.115.ph22, %if.else21 ], [ %did_replacement.024, %_ZN4base12_GLOBAL__N_122EscapeSpecialCodePointEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %1 = load i32, ptr %i, align 4
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %i, align 4
@@ -296,12 +295,11 @@ for.inc:                                          ; preds = %_ZN4base12_GLOBAL__
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !7
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %2 = and i8 %did_replacement.11519, 1
-  %3 = icmp eq i8 %2, 0
+  %2 = xor i1 %did_replacement.11519, true
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end9
-  %did_replacement.0.lcssa = phi i1 [ true, %if.end9 ], [ %3, %for.end.loopexit ]
+  %did_replacement.0.lcssa = phi i1 [ true, %if.end9 ], [ %2, %for.end.loopexit ]
   br i1 %put_in_quotes, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %for.end

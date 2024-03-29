@@ -92081,7 +92081,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %first_mask_bit.0122 = phi i8 [ 0, %for.body.lr.ph ], [ %first_mask_bit.1, %for.inc ]
+  %first_mask_bit.0122 = phi i1 [ false, %for.body.lr.ph ], [ %first_mask_bit.1, %for.inc ]
   %i.0121 = phi i32 [ %conv6, %for.body.lr.ph ], [ %inc, %for.inc ]
   br i1 %tobool.not, label %land.lhs.true, label %if.end12
 
@@ -92116,9 +92116,7 @@ vext_set_elem_mask.exit:                          ; preds = %if.then11
   br label %for.inc
 
 if.end12:                                         ; preds = %land.lhs.true, %for.body
-  %9 = and i8 %first_mask_bit.0122, 1
-  %tobool13.not = icmp eq i8 %9, 0
-  br i1 %tobool13.not, label %if.end15, label %if.then14
+  br i1 %first_mask_bit.0122, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end12
   %rem.i33 = srem i32 %i.0121, 64
@@ -92133,11 +92131,11 @@ vext_set_elem_mask.exit43:                        ; preds = %if.then14
   %div.i35 = sdiv i32 %i.0121, 64
   %idxprom.i36 = sext i32 %div.i35 to i64
   %arrayidx.i37 = getelementptr i64, ptr %vd, i64 %idxprom.i36
-  %10 = load i64, ptr %arrayidx.i37, align 8
+  %9 = load i64, ptr %arrayidx.i37, align 8
   %sh_prom5.i.i38 = zext nneg i32 %rem.i33 to i64
   %shl.i.i39 = shl nuw i64 1, %sh_prom5.i.i38
   %not.i.i40 = xor i64 %shl.i.i39, -1
-  %and.i.i41 = and i64 %10, %not.i.i40
+  %and.i.i41 = and i64 %9, %not.i.i40
   store i64 %and.i.i41, ptr %arrayidx.i37, align 8
   br label %for.inc
 
@@ -92146,11 +92144,11 @@ if.end15:                                         ; preds = %if.end12
   %rem.i45 = srem i32 %i.0121, 64
   %idxprom.i46 = sext i32 %div.i44 to i64
   %arrayidx.i47 = getelementptr i64, ptr %vs2, i64 %idxprom.i46
-  %11 = load i64, ptr %arrayidx.i47, align 8
+  %10 = load i64, ptr %arrayidx.i47, align 8
   %sh_prom.i48 = zext nneg i32 %rem.i45 to i64
-  %12 = shl nuw i64 1, %sh_prom.i48
-  %13 = and i64 %11, %12
-  %tobool17.not = icmp eq i64 %13, 0
+  %11 = shl nuw i64 1, %sh_prom.i48
+  %12 = and i64 %10, %11
+  %tobool17.not = icmp eq i64 %12, 0
   %cmp.i.i76 = icmp slt i32 %rem.i45, 0
   br i1 %tobool17.not, label %if.else23, label %if.then18
 
@@ -92166,9 +92164,9 @@ if.else.i.i60:                                    ; preds = %if.then21
 
 vext_set_elem_mask.exit61:                        ; preds = %if.then21
   %arrayidx.i55 = getelementptr i64, ptr %vd, i64 %idxprom.i46
-  %14 = load i64, ptr %arrayidx.i55, align 8
-  %not.i.i58 = xor i64 %12, -1
-  %and.i.i59 = and i64 %14, %not.i.i58
+  %13 = load i64, ptr %arrayidx.i55, align 8
+  %not.i.i58 = xor i64 %11, -1
+  %and.i.i59 = and i64 %13, %not.i.i58
   store i64 %and.i.i59, ptr %arrayidx.i55, align 8
   br label %for.inc
 
@@ -92181,8 +92179,8 @@ if.else.i.i73:                                    ; preds = %if.else
 
 vext_set_elem_mask.exit74:                        ; preds = %if.else
   %arrayidx.i66 = getelementptr i64, ptr %vd, i64 %idxprom.i46
-  %15 = load i64, ptr %arrayidx.i66, align 8
-  %or.i.i72 = or i64 %15, %12
+  %14 = load i64, ptr %arrayidx.i66, align 8
+  %or.i.i72 = or i64 %14, %11
   store i64 %or.i.i72, ptr %arrayidx.i66, align 8
   br label %for.inc
 
@@ -92198,9 +92196,9 @@ if.else.i.i84:                                    ; preds = %if.then26
 
 vext_set_elem_mask.exit85:                        ; preds = %if.then26
   %arrayidx.i79 = getelementptr i64, ptr %vd, i64 %idxprom.i46
-  %16 = load i64, ptr %arrayidx.i79, align 8
-  %not.i.i82 = xor i64 %12, -1
-  %and.i.i83 = and i64 %16, %not.i.i82
+  %15 = load i64, ptr %arrayidx.i79, align 8
+  %not.i.i82 = xor i64 %11, -1
+  %and.i.i83 = and i64 %15, %not.i.i82
   store i64 %and.i.i83, ptr %arrayidx.i79, align 8
   br label %for.inc
 
@@ -92213,13 +92211,13 @@ if.else.i.i97:                                    ; preds = %if.else27
 
 vext_set_elem_mask.exit98:                        ; preds = %if.else27
   %arrayidx.i90 = getelementptr i64, ptr %vd, i64 %idxprom.i46
-  %17 = load i64, ptr %arrayidx.i90, align 8
-  %or.i.i96 = or i64 %17, %12
+  %16 = load i64, ptr %arrayidx.i90, align 8
+  %or.i.i96 = or i64 %16, %11
   store i64 %or.i.i96, ptr %arrayidx.i90, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %vext_set_elem_mask.exit74, %vext_set_elem_mask.exit61, %vext_set_elem_mask.exit98, %vext_set_elem_mask.exit85, %if.then, %vext_set_elem_mask.exit, %vext_set_elem_mask.exit43
-  %first_mask_bit.1 = phi i8 [ %first_mask_bit.0122, %vext_set_elem_mask.exit43 ], [ 1, %vext_set_elem_mask.exit61 ], [ 1, %vext_set_elem_mask.exit74 ], [ %first_mask_bit.0122, %vext_set_elem_mask.exit85 ], [ %first_mask_bit.0122, %vext_set_elem_mask.exit98 ], [ %first_mask_bit.0122, %vext_set_elem_mask.exit ], [ %first_mask_bit.0122, %if.then ]
+  %first_mask_bit.1 = phi i1 [ true, %vext_set_elem_mask.exit43 ], [ true, %vext_set_elem_mask.exit61 ], [ true, %vext_set_elem_mask.exit74 ], [ false, %vext_set_elem_mask.exit85 ], [ false, %vext_set_elem_mask.exit98 ], [ %first_mask_bit.0122, %vext_set_elem_mask.exit ], [ %first_mask_bit.0122, %if.then ]
   %inc = add i32 %i.0121, 1
   %exitcond.not = icmp eq i32 %inc, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !573
@@ -92227,8 +92225,8 @@ for.inc:                                          ; preds = %vext_set_elem_mask.
 for.end:                                          ; preds = %for.inc, %entry
   %i.0.lcssa = phi i32 [ %conv6, %entry ], [ %conv, %for.inc ]
   store i64 0, ptr %vstart, align 8
-  %18 = and i32 %desc, 32768
-  %tobool31.not = icmp ne i32 %18, 0
+  %17 = and i32 %desc, 32768
+  %tobool31.not = icmp ne i32 %17, 0
   %cmp34123 = icmp ult i32 %i.0.lcssa, %conv3
   %or.cond = select i1 %tobool31.not, i1 %cmp34123, i1 false
   br i1 %or.cond, label %for.body36, label %if.end40
@@ -92247,10 +92245,10 @@ if.else.i.i110:                                   ; preds = %for.body36
 vext_set_elem_mask.exit111:                       ; preds = %for.body36
   %idxprom.i102 = sext i32 %div.i101 to i64
   %arrayidx.i103 = getelementptr i64, ptr %vd, i64 %idxprom.i102
-  %19 = load i64, ptr %arrayidx.i103, align 8
+  %18 = load i64, ptr %arrayidx.i103, align 8
   %sh_prom5.i.i104 = zext nneg i32 %rem.i99 to i64
   %shl.i.i105 = shl nuw i64 1, %sh_prom5.i.i104
-  %or.i.i109 = or i64 %19, %shl.i.i105
+  %or.i.i109 = or i64 %18, %shl.i.i105
   store i64 %or.i.i109, ptr %arrayidx.i103, align 8
   %inc38 = add i32 %i.1124, 1
   %exitcond125.not = icmp eq i32 %inc38, %conv3

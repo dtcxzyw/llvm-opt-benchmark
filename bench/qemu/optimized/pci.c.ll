@@ -268,8 +268,7 @@ entry:
   %0 = load ptr, ptr %dev, align 8
   %has_buggy_msi = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load i8, ptr %has_buggy_msi, align 8
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   ret i1 %tobool
 }
 
@@ -279,8 +278,7 @@ entry:
   %0 = load ptr, ptr %dev, align 8
   %has_buggy_msi.i = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load i8, ptr %has_buggy_msi.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
@@ -1050,12 +1048,234 @@ define dso_local void @qpci_msix_disable(ptr nocapture noundef %dev) local_unnam
 entry:
   %msix_enabled = getelementptr inbounds i8, ptr %dev, i64 12
   %0 = load i8, ptr %msix_enabled, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %do.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 306, ptr noundef nonnull @__func__.qpci_msix_disable, ptr noundef nonnull @.str.10) #12
+  unreachable
+
+do.end:                                           ; preds = %entry
+  %1 = load ptr, ptr %dev, align 8
+  %config_readb.i10.i = getelementptr inbounds i8, ptr %1, i64 80
+  %2 = load ptr, ptr %config_readb.i10.i, align 8
+  %devfn.i11.i = getelementptr inbounds i8, ptr %dev, i64 8
+  %3 = load i32, ptr %devfn.i11.i, align 8
+  %call.i12.i = tail call zeroext i8 %2(ptr noundef %1, i32 noundef %3, i8 noundef zeroext 52) #11
+  br label %do.body.i
+
+do.body.i:                                        ; preds = %do.cond.i, %do.end
+  %addr.1.i = phi i8 [ %call.i12.i, %do.end ], [ %call.i18.i, %do.cond.i ]
+  %4 = load ptr, ptr %dev, align 8
+  %config_readb.i13.i = getelementptr inbounds i8, ptr %4, i64 80
+  %5 = load ptr, ptr %config_readb.i13.i, align 8
+  %6 = load i32, ptr %devfn.i11.i, align 8
+  %call.i15.i = tail call zeroext i8 %5(ptr noundef %4, i32 noundef %6, i8 noundef zeroext %addr.1.i) #11
+  %cmp.not.i = icmp eq i8 %call.i15.i, 17
+  br i1 %cmp.not.i, label %qpci_find_capability.exit, label %do.cond.i
+
+do.cond.i:                                        ; preds = %do.body.i
+  %add9.i = add i8 %addr.1.i, 1
+  %7 = load ptr, ptr %dev, align 8
+  %config_readb.i16.i = getelementptr inbounds i8, ptr %7, i64 80
+  %8 = load ptr, ptr %config_readb.i16.i, align 8
+  %9 = load i32, ptr %devfn.i11.i, align 8
+  %call.i18.i = tail call zeroext i8 %8(ptr noundef %7, i32 noundef %9, i8 noundef zeroext %add9.i) #11
+  %cmp18.not.i = icmp eq i8 %call.i18.i, 0
+  br i1 %cmp18.not.i, label %if.else4, label %do.body.i, !llvm.loop !9
+
+qpci_find_capability.exit:                        ; preds = %do.body.i
+  %cmp.not = icmp eq i8 %addr.1.i, 0
+  br i1 %cmp.not, label %if.else4, label %do.end8
+
+if.else4:                                         ; preds = %do.cond.i, %qpci_find_capability.exit
+  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 308, ptr noundef nonnull @__func__.qpci_msix_disable, ptr noundef nonnull @.str.8, x86_fp80 noundef 0xK00000000000000000000, ptr noundef nonnull @.str.9, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 120) #11
+  br label %do.end8
+
+do.end8:                                          ; preds = %if.else4, %qpci_find_capability.exit
+  %addr.221.i20 = phi i8 [ 0, %if.else4 ], [ %addr.1.i, %qpci_find_capability.exit ]
+  %add = add i8 %addr.221.i20, 2
+  %10 = load ptr, ptr %dev, align 8
+  %config_readw.i = getelementptr inbounds i8, ptr %10, i64 88
+  %11 = load ptr, ptr %config_readw.i, align 8
+  %12 = load i32, ptr %devfn.i11.i, align 8
+  %call.i = tail call zeroext i16 %11(ptr noundef %10, i32 noundef %12, i8 noundef zeroext %add) #11
+  %13 = and i16 %call.i, 32767
+  %14 = load ptr, ptr %dev, align 8
+  %config_writew.i = getelementptr inbounds i8, ptr %14, i64 112
+  %15 = load ptr, ptr %config_writew.i, align 8
+  %16 = load i32, ptr %devfn.i11.i, align 8
+  tail call void %15(ptr noundef %14, i32 noundef %16, i8 noundef zeroext %add, i16 noundef zeroext %13) #11
+  store i8 0, ptr %msix_enabled, align 4
+  %msix_table_off = getelementptr inbounds i8, ptr %dev, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %msix_table_off, i8 0, i64 16, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define dso_local void @qpci_iounmap(ptr nocapture noundef readnone %dev, i64 %bar.coerce0, i8 %bar.coerce1) local_unnamed_addr #6 {
+entry:
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local zeroext i1 @qpci_msix_pending(ptr nocapture noundef readonly %dev, i16 noundef zeroext %entry1) local_unnamed_addr #0 {
+entry:
+  %value.addr.i = alloca i32, align 4
+  %val.i = alloca i32, align 4
+  %msix_enabled = getelementptr inbounds i8, ptr %dev, i64 12
+  %0 = load i8, ptr %msix_enabled, align 4
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %do.end, label %if.else
+
+if.else:                                          ; preds = %entry
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 329, ptr noundef nonnull @__func__.qpci_msix_pending, ptr noundef nonnull @.str.10) #12
+  unreachable
+
+do.end:                                           ; preds = %entry
+  %1 = lshr i16 %entry1, 3
+  %2 = and i16 %1, 8188
+  %conv5 = zext nneg i16 %2 to i64
+  %3 = and i16 %entry1, 31
+  %conv2 = zext nneg i16 %3 to i32
+  %msix_pba_bar = getelementptr inbounds i8, ptr %dev, i64 32
+  %msix_pba_off = getelementptr inbounds i8, ptr %dev, i64 56
+  %4 = load i64, ptr %msix_pba_off, align 8
+  %add = add i64 %4, %conv5
+  %5 = load i64, ptr %msix_pba_bar, align 8
+  %6 = getelementptr inbounds i8, ptr %dev, i64 40
+  %7 = load i8, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i)
+  %8 = load ptr, ptr %dev, align 8
+  %tobool.i = trunc i8 %7 to i1
+  %add.i = add i64 %add, %5
+  %conv.i = trunc i64 %add.i to i32
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
+
+if.then.i:                                        ; preds = %do.end
+  %pio_readl.i = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = load ptr, ptr %pio_readl.i, align 8
+  %call.i = tail call i32 %9(ptr noundef %8, i32 noundef %conv.i) #11
+  br label %qpci_io_readl.exit
+
+if.else.i:                                        ; preds = %do.end
+  %memread.i = getelementptr inbounds i8, ptr %8, i64 64
+  %10 = load ptr, ptr %memread.i, align 8
+  call void %10(ptr noundef %8, i32 noundef %conv.i, ptr noundef nonnull %val.i, i64 noundef 4) #11
+  %11 = load i32, ptr %val.i, align 4
+  br label %qpci_io_readl.exit
+
+qpci_io_readl.exit:                               ; preds = %if.then.i, %if.else.i
+  %retval.0.i = phi i32 [ %call.i, %if.then.i ], [ %11, %if.else.i ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i)
+  %12 = load i64, ptr %msix_pba_off, align 8
+  %add8 = add i64 %12, %conv5
+  %shl = shl nuw i32 1, %conv2
+  %not = xor i32 %shl, -1
+  %and = and i32 %retval.0.i, %not
+  %13 = load i64, ptr %msix_pba_bar, align 8
+  %14 = load i8, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
+  %15 = load ptr, ptr %dev, align 8
+  %tobool.i11 = trunc i8 %14 to i1
+  br i1 %tobool.i11, label %if.then.i13, label %if.else.i12
+
+if.then.i13:                                      ; preds = %qpci_io_readl.exit
+  %pio_writel.i = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = load ptr, ptr %pio_writel.i, align 8
+  %add.i14 = add i64 %add8, %13
+  %conv.i15 = trunc i64 %add.i14 to i32
+  call void %16(ptr noundef %15, i32 noundef %conv.i15, i32 noundef %and) #11
+  br label %qpci_io_writel.exit
+
+if.else.i12:                                      ; preds = %qpci_io_readl.exit
+  store i32 %and, ptr %value.addr.i, align 4
+  %memwrite.i = getelementptr inbounds i8, ptr %15, i64 72
+  %17 = load ptr, ptr %memwrite.i, align 8
+  %add3.i = add i64 %add8, %13
+  %conv4.i = trunc i64 %add3.i to i32
+  call void %17(ptr noundef %15, i32 noundef %conv4.i, ptr noundef nonnull %value.addr.i, i64 noundef 4) #11
+  br label %qpci_io_writel.exit
+
+qpci_io_writel.exit:                              ; preds = %if.then.i13, %if.else.i12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
+  %and12 = and i32 %retval.0.i, %shl
+  %cmp = icmp ne i32 %and12, 0
+  ret i1 %cmp
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local i32 @qpci_io_readl(ptr nocapture noundef readonly %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off) local_unnamed_addr #0 {
+entry:
+  %val = alloca i32, align 4
+  %0 = load ptr, ptr %dev, align 8
+  %tobool = trunc i8 %token.coerce1 to i1
+  %add = add i64 %off, %token.coerce0
+  %conv = trunc i64 %add to i32
+  br i1 %tobool, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %pio_readl = getelementptr inbounds i8, ptr %0, i64 16
+  %1 = load ptr, ptr %pio_readl, align 8
+  %call = tail call i32 %1(ptr noundef %0, i32 noundef %conv) #11
+  br label %return
+
+if.else:                                          ; preds = %entry
+  %memread = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = load ptr, ptr %memread, align 8
+  call void %2(ptr noundef %0, i32 noundef %conv, ptr noundef nonnull %val, i64 noundef 4) #11
+  %3 = load i32, ptr %val, align 4
+  br label %return
+
+return:                                           ; preds = %if.else, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ %3, %if.else ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @qpci_io_writel(ptr nocapture noundef readonly %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, i32 noundef %value) local_unnamed_addr #0 {
+entry:
+  %value.addr = alloca i32, align 4
+  %0 = load ptr, ptr %dev, align 8
+  %tobool = trunc i8 %token.coerce1 to i1
+  br i1 %tobool, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %pio_writel = getelementptr inbounds i8, ptr %0, i64 48
+  %1 = load ptr, ptr %pio_writel, align 8
+  %add = add i64 %off, %token.coerce0
+  %conv = trunc i64 %add to i32
+  tail call void %1(ptr noundef %0, i32 noundef %conv, i32 noundef %value) #11
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  store i32 %value, ptr %value.addr, align 4
+  %memwrite = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = load ptr, ptr %memwrite, align 8
+  %add3 = add i64 %off, %token.coerce0
+  %conv4 = trunc i64 %add3 to i32
+  call void %2(ptr noundef %0, i32 noundef %conv4, ptr noundef nonnull %value.addr, i64 noundef 4) #11
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local zeroext i1 @qpci_msix_masked(ptr nocapture noundef readonly %dev, i16 noundef zeroext %entry1) local_unnamed_addr #0 {
+entry:
+  %val.i = alloca i32, align 4
+  %msix_table_off = getelementptr inbounds i8, ptr %dev, i64 48
+  %0 = load i64, ptr %msix_table_off, align 8
+  %conv = zext i16 %entry1 to i64
+  %mul = shl nuw nsw i64 %conv, 4
+  %msix_enabled = getelementptr inbounds i8, ptr %dev, i64 12
+  %1 = load i8, ptr %msix_enabled, align 4
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %do.end, label %if.else
+
+if.else:                                          ; preds = %entry
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 342, ptr noundef nonnull @__func__.qpci_msix_masked, ptr noundef nonnull @.str.10) #12
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -1085,235 +1305,6 @@ do.cond.i:                                        ; preds = %do.body.i
   %10 = load i32, ptr %devfn.i11.i, align 8
   %call.i18.i = tail call zeroext i8 %9(ptr noundef %8, i32 noundef %10, i8 noundef zeroext %add9.i) #11
   %cmp18.not.i = icmp eq i8 %call.i18.i, 0
-  br i1 %cmp18.not.i, label %if.else4, label %do.body.i, !llvm.loop !9
-
-qpci_find_capability.exit:                        ; preds = %do.body.i
-  %cmp.not = icmp eq i8 %addr.1.i, 0
-  br i1 %cmp.not, label %if.else4, label %do.end8
-
-if.else4:                                         ; preds = %do.cond.i, %qpci_find_capability.exit
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 308, ptr noundef nonnull @__func__.qpci_msix_disable, ptr noundef nonnull @.str.8, x86_fp80 noundef 0xK00000000000000000000, ptr noundef nonnull @.str.9, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 120) #11
-  br label %do.end8
-
-do.end8:                                          ; preds = %if.else4, %qpci_find_capability.exit
-  %addr.221.i20 = phi i8 [ 0, %if.else4 ], [ %addr.1.i, %qpci_find_capability.exit ]
-  %add = add i8 %addr.221.i20, 2
-  %11 = load ptr, ptr %dev, align 8
-  %config_readw.i = getelementptr inbounds i8, ptr %11, i64 88
-  %12 = load ptr, ptr %config_readw.i, align 8
-  %13 = load i32, ptr %devfn.i11.i, align 8
-  %call.i = tail call zeroext i16 %12(ptr noundef %11, i32 noundef %13, i8 noundef zeroext %add) #11
-  %14 = and i16 %call.i, 32767
-  %15 = load ptr, ptr %dev, align 8
-  %config_writew.i = getelementptr inbounds i8, ptr %15, i64 112
-  %16 = load ptr, ptr %config_writew.i, align 8
-  %17 = load i32, ptr %devfn.i11.i, align 8
-  tail call void %16(ptr noundef %15, i32 noundef %17, i8 noundef zeroext %add, i16 noundef zeroext %14) #11
-  store i8 0, ptr %msix_enabled, align 4
-  %msix_table_off = getelementptr inbounds i8, ptr %dev, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %msix_table_off, i8 0, i64 16, i1 false)
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local void @qpci_iounmap(ptr nocapture noundef readnone %dev, i64 %bar.coerce0, i8 %bar.coerce1) local_unnamed_addr #6 {
-entry:
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qpci_msix_pending(ptr nocapture noundef readonly %dev, i16 noundef zeroext %entry1) local_unnamed_addr #0 {
-entry:
-  %value.addr.i = alloca i32, align 4
-  %val.i = alloca i32, align 4
-  %msix_enabled = getelementptr inbounds i8, ptr %dev, i64 12
-  %0 = load i8, ptr %msix_enabled, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %do.end
-
-if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 329, ptr noundef nonnull @__func__.qpci_msix_pending, ptr noundef nonnull @.str.10) #12
-  unreachable
-
-do.end:                                           ; preds = %entry
-  %2 = lshr i16 %entry1, 3
-  %3 = and i16 %2, 8188
-  %conv5 = zext nneg i16 %3 to i64
-  %4 = and i16 %entry1, 31
-  %conv2 = zext nneg i16 %4 to i32
-  %msix_pba_bar = getelementptr inbounds i8, ptr %dev, i64 32
-  %msix_pba_off = getelementptr inbounds i8, ptr %dev, i64 56
-  %5 = load i64, ptr %msix_pba_off, align 8
-  %add = add i64 %5, %conv5
-  %6 = load i64, ptr %msix_pba_bar, align 8
-  %7 = getelementptr inbounds i8, ptr %dev, i64 40
-  %8 = load i8, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i)
-  %9 = load ptr, ptr %dev, align 8
-  %10 = and i8 %8, 1
-  %tobool.not.i = icmp eq i8 %10, 0
-  %add4.i = add i64 %add, %6
-  %conv5.i = trunc i64 %add4.i to i32
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
-
-if.then.i:                                        ; preds = %do.end
-  %pio_readl.i = getelementptr inbounds i8, ptr %9, i64 16
-  %11 = load ptr, ptr %pio_readl.i, align 8
-  %call.i = tail call i32 %11(ptr noundef %9, i32 noundef %conv5.i) #11
-  br label %qpci_io_readl.exit
-
-if.else.i:                                        ; preds = %do.end
-  %memread.i = getelementptr inbounds i8, ptr %9, i64 64
-  %12 = load ptr, ptr %memread.i, align 8
-  call void %12(ptr noundef %9, i32 noundef %conv5.i, ptr noundef nonnull %val.i, i64 noundef 4) #11
-  %13 = load i32, ptr %val.i, align 4
-  br label %qpci_io_readl.exit
-
-qpci_io_readl.exit:                               ; preds = %if.then.i, %if.else.i
-  %retval.0.i = phi i32 [ %call.i, %if.then.i ], [ %13, %if.else.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i)
-  %14 = load i64, ptr %msix_pba_off, align 8
-  %add8 = add i64 %14, %conv5
-  %shl = shl nuw i32 1, %conv2
-  %not = xor i32 %shl, -1
-  %and = and i32 %retval.0.i, %not
-  %15 = load i64, ptr %msix_pba_bar, align 8
-  %16 = load i8, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
-  %17 = load ptr, ptr %dev, align 8
-  %18 = and i8 %16, 1
-  %tobool.not.i11 = icmp eq i8 %18, 0
-  br i1 %tobool.not.i11, label %if.else.i13, label %if.then.i12
-
-if.then.i12:                                      ; preds = %qpci_io_readl.exit
-  %pio_writel.i = getelementptr inbounds i8, ptr %17, i64 48
-  %19 = load ptr, ptr %pio_writel.i, align 8
-  %add.i = add i64 %add8, %15
-  %conv.i = trunc i64 %add.i to i32
-  call void %19(ptr noundef %17, i32 noundef %conv.i, i32 noundef %and) #11
-  br label %qpci_io_writel.exit
-
-if.else.i13:                                      ; preds = %qpci_io_readl.exit
-  store i32 %and, ptr %value.addr.i, align 4
-  %memwrite.i = getelementptr inbounds i8, ptr %17, i64 72
-  %20 = load ptr, ptr %memwrite.i, align 8
-  %add3.i = add i64 %add8, %15
-  %conv4.i = trunc i64 %add3.i to i32
-  call void %20(ptr noundef %17, i32 noundef %conv4.i, ptr noundef nonnull %value.addr.i, i64 noundef 4) #11
-  br label %qpci_io_writel.exit
-
-qpci_io_writel.exit:                              ; preds = %if.then.i12, %if.else.i13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
-  %and12 = and i32 %retval.0.i, %shl
-  %cmp = icmp ne i32 %and12, 0
-  ret i1 %cmp
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qpci_io_readl(ptr nocapture noundef readonly %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off) local_unnamed_addr #0 {
-entry:
-  %val = alloca i32, align 4
-  %0 = load ptr, ptr %dev, align 8
-  %1 = and i8 %token.coerce1, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %add4 = add i64 %off, %token.coerce0
-  %conv5 = trunc i64 %add4 to i32
-  br i1 %tobool.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %pio_readl = getelementptr inbounds i8, ptr %0, i64 16
-  %2 = load ptr, ptr %pio_readl, align 8
-  %call = tail call i32 %2(ptr noundef %0, i32 noundef %conv5) #11
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %memread = getelementptr inbounds i8, ptr %0, i64 64
-  %3 = load ptr, ptr %memread, align 8
-  call void %3(ptr noundef %0, i32 noundef %conv5, ptr noundef nonnull %val, i64 noundef 4) #11
-  %4 = load i32, ptr %val, align 4
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %4, %if.else ]
-  ret i32 %retval.0
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_io_writel(ptr nocapture noundef readonly %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, i32 noundef %value) local_unnamed_addr #0 {
-entry:
-  %value.addr = alloca i32, align 4
-  %0 = load ptr, ptr %dev, align 8
-  %1 = and i8 %token.coerce1, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %pio_writel = getelementptr inbounds i8, ptr %0, i64 48
-  %2 = load ptr, ptr %pio_writel, align 8
-  %add = add i64 %off, %token.coerce0
-  %conv = trunc i64 %add to i32
-  tail call void %2(ptr noundef %0, i32 noundef %conv, i32 noundef %value) #11
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  store i32 %value, ptr %value.addr, align 4
-  %memwrite = getelementptr inbounds i8, ptr %0, i64 72
-  %3 = load ptr, ptr %memwrite, align 8
-  %add3 = add i64 %off, %token.coerce0
-  %conv4 = trunc i64 %add3 to i32
-  call void %3(ptr noundef %0, i32 noundef %conv4, ptr noundef nonnull %value.addr, i64 noundef 4) #11
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qpci_msix_masked(ptr nocapture noundef readonly %dev, i16 noundef zeroext %entry1) local_unnamed_addr #0 {
-entry:
-  %val.i = alloca i32, align 4
-  %msix_table_off = getelementptr inbounds i8, ptr %dev, i64 48
-  %0 = load i64, ptr %msix_table_off, align 8
-  %conv = zext i16 %entry1 to i64
-  %mul = shl nuw nsw i64 %conv, 4
-  %msix_enabled = getelementptr inbounds i8, ptr %dev, i64 12
-  %1 = load i8, ptr %msix_enabled, align 4
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %do.end
-
-if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 342, ptr noundef nonnull @__func__.qpci_msix_masked, ptr noundef nonnull @.str.10) #12
-  unreachable
-
-do.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %dev, align 8
-  %config_readb.i10.i = getelementptr inbounds i8, ptr %3, i64 80
-  %4 = load ptr, ptr %config_readb.i10.i, align 8
-  %devfn.i11.i = getelementptr inbounds i8, ptr %dev, i64 8
-  %5 = load i32, ptr %devfn.i11.i, align 8
-  %call.i12.i = tail call zeroext i8 %4(ptr noundef %3, i32 noundef %5, i8 noundef zeroext 52) #11
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.cond.i, %do.end
-  %addr.1.i = phi i8 [ %call.i12.i, %do.end ], [ %call.i18.i, %do.cond.i ]
-  %6 = load ptr, ptr %dev, align 8
-  %config_readb.i13.i = getelementptr inbounds i8, ptr %6, i64 80
-  %7 = load ptr, ptr %config_readb.i13.i, align 8
-  %8 = load i32, ptr %devfn.i11.i, align 8
-  %call.i15.i = tail call zeroext i8 %7(ptr noundef %6, i32 noundef %8, i8 noundef zeroext %addr.1.i) #11
-  %cmp.not.i = icmp eq i8 %call.i15.i, 17
-  br i1 %cmp.not.i, label %qpci_find_capability.exit, label %do.cond.i
-
-do.cond.i:                                        ; preds = %do.body.i
-  %add9.i = add i8 %addr.1.i, 1
-  %9 = load ptr, ptr %dev, align 8
-  %config_readb.i16.i = getelementptr inbounds i8, ptr %9, i64 80
-  %10 = load ptr, ptr %config_readb.i16.i, align 8
-  %11 = load i32, ptr %devfn.i11.i, align 8
-  %call.i18.i = tail call zeroext i8 %10(ptr noundef %9, i32 noundef %11, i8 noundef zeroext %add9.i) #11
-  %cmp18.not.i = icmp eq i8 %call.i18.i, 0
   br i1 %cmp18.not.i, label %if.else7, label %do.body.i, !llvm.loop !9
 
 qpci_find_capability.exit:                        ; preds = %do.body.i
@@ -1327,45 +1318,44 @@ if.else7:                                         ; preds = %do.cond.i, %qpci_fi
 do.end11:                                         ; preds = %if.else7, %qpci_find_capability.exit
   %addr.221.i12 = phi i8 [ 0, %if.else7 ], [ %addr.1.i, %qpci_find_capability.exit ]
   %add13 = add i8 %addr.221.i12, 2
-  %12 = load ptr, ptr %dev, align 8
-  %config_readw.i = getelementptr inbounds i8, ptr %12, i64 88
-  %13 = load ptr, ptr %config_readw.i, align 8
-  %14 = load i32, ptr %devfn.i11.i, align 8
-  %call.i = tail call zeroext i16 %13(ptr noundef %12, i32 noundef %14, i8 noundef zeroext %add13) #11
-  %15 = and i16 %call.i, 16384
-  %tobool17.not = icmp eq i16 %15, 0
+  %11 = load ptr, ptr %dev, align 8
+  %config_readw.i = getelementptr inbounds i8, ptr %11, i64 88
+  %12 = load ptr, ptr %config_readw.i, align 8
+  %13 = load i32, ptr %devfn.i11.i, align 8
+  %call.i = tail call zeroext i16 %12(ptr noundef %11, i32 noundef %13, i8 noundef zeroext %add13) #11
+  %14 = and i16 %call.i, 16384
+  %tobool17.not = icmp eq i16 %14, 0
   br i1 %tobool17.not, label %if.else19, label %return
 
 if.else19:                                        ; preds = %do.end11
   %msix_table_bar = getelementptr inbounds i8, ptr %dev, i64 16
-  %16 = load i64, ptr %msix_table_bar, align 8
-  %17 = getelementptr inbounds i8, ptr %dev, i64 24
-  %18 = load i8, ptr %17, align 8
+  %15 = load i64, ptr %msix_table_bar, align 8
+  %16 = getelementptr inbounds i8, ptr %dev, i64 24
+  %17 = load i8, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i)
-  %19 = load ptr, ptr %dev, align 8
-  %20 = and i8 %18, 1
-  %tobool.not.i = icmp eq i8 %20, 0
+  %18 = load ptr, ptr %dev, align 8
+  %tobool.i = trunc i8 %17 to i1
   %add = or disjoint i64 %mul, 12
   %add20 = add i64 %add, %0
-  %add4.i = add i64 %add20, %16
-  %conv5.i = trunc i64 %add4.i to i32
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %add.i = add i64 %add20, %15
+  %conv.i = trunc i64 %add.i to i32
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else19
-  %pio_readl.i = getelementptr inbounds i8, ptr %19, i64 16
-  %21 = load ptr, ptr %pio_readl.i, align 8
-  %call.i9 = tail call i32 %21(ptr noundef %19, i32 noundef %conv5.i) #11
+  %pio_readl.i = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = load ptr, ptr %pio_readl.i, align 8
+  %call.i9 = tail call i32 %19(ptr noundef %18, i32 noundef %conv.i) #11
   br label %qpci_io_readl.exit
 
 if.else.i:                                        ; preds = %if.else19
-  %memread.i = getelementptr inbounds i8, ptr %19, i64 64
-  %22 = load ptr, ptr %memread.i, align 8
-  call void %22(ptr noundef %19, i32 noundef %conv5.i, ptr noundef nonnull %val.i, i64 noundef 4) #11
-  %23 = load i32, ptr %val.i, align 4
+  %memread.i = getelementptr inbounds i8, ptr %18, i64 64
+  %20 = load ptr, ptr %memread.i, align 8
+  call void %20(ptr noundef %18, i32 noundef %conv.i, ptr noundef nonnull %val.i, i64 noundef 4) #11
+  %21 = load i32, ptr %val.i, align 4
   br label %qpci_io_readl.exit
 
 qpci_io_readl.exit:                               ; preds = %if.then.i, %if.else.i
-  %retval.0.i = phi i32 [ %call.i9, %if.then.i ], [ %23, %if.else.i ]
+  %retval.0.i = phi i32 [ %call.i9, %if.then.i ], [ %21, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i)
   %and22 = and i32 %retval.0.i, 1
   %cmp23 = icmp ne i32 %and22, 0
@@ -1457,28 +1447,27 @@ define dso_local zeroext i8 @qpci_io_readb(ptr nocapture noundef readonly %dev, 
 entry:
   %val = alloca i8, align 1
   %0 = load ptr, ptr %dev, align 8
-  %1 = and i8 %token.coerce1, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %token.coerce1 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %0, align 8
+  %1 = load ptr, ptr %0, align 8
   %add = add i64 %off, %token.coerce0
   %conv = trunc i64 %add to i32
-  %call = tail call zeroext i8 %2(ptr noundef nonnull %0, i32 noundef %conv) #11
+  %call = tail call zeroext i8 %1(ptr noundef nonnull %0, i32 noundef %conv) #11
   br label %return
 
 if.else:                                          ; preds = %entry
   %memread = getelementptr inbounds i8, ptr %0, i64 64
-  %3 = load ptr, ptr %memread, align 8
+  %2 = load ptr, ptr %memread, align 8
   %add4 = add i64 %off, %token.coerce0
   %conv5 = trunc i64 %add4 to i32
-  call void %3(ptr noundef %0, i32 noundef %conv5, ptr noundef nonnull %val, i64 noundef 1) #11
-  %4 = load i8, ptr %val, align 1
+  call void %2(ptr noundef %0, i32 noundef %conv5, ptr noundef nonnull %val, i64 noundef 1) #11
+  %3 = load i8, ptr %val, align 1
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %retval.0 = phi i8 [ %call, %if.then ], [ %4, %if.else ]
+  %retval.0 = phi i8 [ %call, %if.then ], [ %3, %if.else ]
   ret i8 %retval.0
 }
 
@@ -1487,27 +1476,26 @@ define dso_local zeroext i16 @qpci_io_readw(ptr nocapture noundef readonly %dev,
 entry:
   %val = alloca i16, align 2
   %0 = load ptr, ptr %dev, align 8
-  %1 = and i8 %token.coerce1, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %add3 = add i64 %off, %token.coerce0
-  %conv4 = trunc i64 %add3 to i32
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %token.coerce1 to i1
+  %add = add i64 %off, %token.coerce0
+  %conv = trunc i64 %add to i32
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %pio_readw = getelementptr inbounds i8, ptr %0, i64 8
-  %2 = load ptr, ptr %pio_readw, align 8
-  %call = tail call zeroext i16 %2(ptr noundef %0, i32 noundef %conv4) #11
+  %1 = load ptr, ptr %pio_readw, align 8
+  %call = tail call zeroext i16 %1(ptr noundef %0, i32 noundef %conv) #11
   br label %return
 
 if.else:                                          ; preds = %entry
   %memread = getelementptr inbounds i8, ptr %0, i64 64
-  %3 = load ptr, ptr %memread, align 8
-  call void %3(ptr noundef %0, i32 noundef %conv4, ptr noundef nonnull %val, i64 noundef 2) #11
-  %4 = load i16, ptr %val, align 2
+  %2 = load ptr, ptr %memread, align 8
+  call void %2(ptr noundef %0, i32 noundef %conv, ptr noundef nonnull %val, i64 noundef 2) #11
+  %3 = load i16, ptr %val, align 2
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %retval.0 = phi i16 [ %call, %if.then ], [ %4, %if.else ]
+  %retval.0 = phi i16 [ %call, %if.then ], [ %3, %if.else ]
   ret i16 %retval.0
 }
 
@@ -1516,27 +1504,26 @@ define dso_local i64 @qpci_io_readq(ptr nocapture noundef readonly %dev, i64 %to
 entry:
   %val = alloca i64, align 8
   %0 = load ptr, ptr %dev, align 8
-  %1 = and i8 %token.coerce1, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %add3 = add i64 %off, %token.coerce0
-  %conv4 = trunc i64 %add3 to i32
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %token.coerce1 to i1
+  %add = add i64 %off, %token.coerce0
+  %conv = trunc i64 %add to i32
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %pio_readq = getelementptr inbounds i8, ptr %0, i64 24
-  %2 = load ptr, ptr %pio_readq, align 8
-  %call = tail call i64 %2(ptr noundef %0, i32 noundef %conv4) #11
+  %1 = load ptr, ptr %pio_readq, align 8
+  %call = tail call i64 %1(ptr noundef %0, i32 noundef %conv) #11
   br label %return
 
 if.else:                                          ; preds = %entry
   %memread = getelementptr inbounds i8, ptr %0, i64 64
-  %3 = load ptr, ptr %memread, align 8
-  call void %3(ptr noundef %0, i32 noundef %conv4, ptr noundef nonnull %val, i64 noundef 8) #11
-  %4 = load i64, ptr %val, align 8
+  %2 = load ptr, ptr %memread, align 8
+  call void %2(ptr noundef %0, i32 noundef %conv, ptr noundef nonnull %val, i64 noundef 8) #11
+  %3 = load i64, ptr %val, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %retval.0 = phi i64 [ %call, %if.then ], [ %4, %if.else ]
+  %retval.0 = phi i64 [ %call, %if.then ], [ %3, %if.else ]
   ret i64 %retval.0
 }
 
@@ -1546,22 +1533,21 @@ entry:
   %value.addr = alloca i8, align 1
   store i8 %value, ptr %value.addr, align 1
   %0 = load ptr, ptr %dev, align 8
-  %1 = and i8 %token.coerce1, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %add3 = add i64 %off, %token.coerce0
-  %conv4 = trunc i64 %add3 to i32
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %token.coerce1 to i1
+  %add = add i64 %off, %token.coerce0
+  %conv = trunc i64 %add to i32
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %pio_writeb = getelementptr inbounds i8, ptr %0, i64 32
-  %2 = load ptr, ptr %pio_writeb, align 8
-  tail call void %2(ptr noundef %0, i32 noundef %conv4, i8 noundef zeroext %value) #11
+  %1 = load ptr, ptr %pio_writeb, align 8
+  tail call void %1(ptr noundef %0, i32 noundef %conv, i8 noundef zeroext %value) #11
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %memwrite = getelementptr inbounds i8, ptr %0, i64 72
-  %3 = load ptr, ptr %memwrite, align 8
-  call void %3(ptr noundef %0, i32 noundef %conv4, ptr noundef nonnull %value.addr, i64 noundef 1) #11
+  %2 = load ptr, ptr %memwrite, align 8
+  call void %2(ptr noundef %0, i32 noundef %conv, ptr noundef nonnull %value.addr, i64 noundef 1) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1573,25 +1559,24 @@ define dso_local void @qpci_io_writew(ptr nocapture noundef readonly %dev, i64 %
 entry:
   %value.addr = alloca i16, align 2
   %0 = load ptr, ptr %dev, align 8
-  %1 = and i8 %token.coerce1, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %token.coerce1 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %pio_writew = getelementptr inbounds i8, ptr %0, i64 40
-  %2 = load ptr, ptr %pio_writew, align 8
+  %1 = load ptr, ptr %pio_writew, align 8
   %add = add i64 %off, %token.coerce0
   %conv = trunc i64 %add to i32
-  tail call void %2(ptr noundef %0, i32 noundef %conv, i16 noundef zeroext %value) #11
+  tail call void %1(ptr noundef %0, i32 noundef %conv, i16 noundef zeroext %value) #11
   br label %if.end
 
 if.else:                                          ; preds = %entry
   store i16 %value, ptr %value.addr, align 2
   %memwrite = getelementptr inbounds i8, ptr %0, i64 72
-  %3 = load ptr, ptr %memwrite, align 8
+  %2 = load ptr, ptr %memwrite, align 8
   %add3 = add i64 %off, %token.coerce0
   %conv4 = trunc i64 %add3 to i32
-  call void %3(ptr noundef %0, i32 noundef %conv4, ptr noundef nonnull %value.addr, i64 noundef 2) #11
+  call void %2(ptr noundef %0, i32 noundef %conv4, ptr noundef nonnull %value.addr, i64 noundef 2) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1603,25 +1588,24 @@ define dso_local void @qpci_io_writeq(ptr nocapture noundef readonly %dev, i64 %
 entry:
   %value.addr = alloca i64, align 8
   %0 = load ptr, ptr %dev, align 8
-  %1 = and i8 %token.coerce1, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %token.coerce1 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %pio_writeq = getelementptr inbounds i8, ptr %0, i64 56
-  %2 = load ptr, ptr %pio_writeq, align 8
+  %1 = load ptr, ptr %pio_writeq, align 8
   %add = add i64 %off, %token.coerce0
   %conv = trunc i64 %add to i32
-  tail call void %2(ptr noundef %0, i32 noundef %conv, i64 noundef %value) #11
+  tail call void %1(ptr noundef %0, i32 noundef %conv, i64 noundef %value) #11
   br label %if.end
 
 if.else:                                          ; preds = %entry
   store i64 %value, ptr %value.addr, align 8
   %memwrite = getelementptr inbounds i8, ptr %0, i64 72
-  %3 = load ptr, ptr %memwrite, align 8
+  %2 = load ptr, ptr %memwrite, align 8
   %add3 = add i64 %off, %token.coerce0
   %conv4 = trunc i64 %add3 to i32
-  call void %3(ptr noundef %0, i32 noundef %conv4, ptr noundef nonnull %value.addr, i64 noundef 8) #11
+  call void %2(ptr noundef %0, i32 noundef %conv4, ptr noundef nonnull %value.addr, i64 noundef 8) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1631,42 +1615,40 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qpci_memread(ptr nocapture noundef readonly %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %0 = and i8 %token.coerce1, 1
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %do.end, label %if.else
+  %tobool = trunc i8 %token.coerce1 to i1
+  br i1 %tobool, label %if.else, label %do.end
 
 if.else:                                          ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 509, ptr noundef nonnull @__func__.qpci_memread, ptr noundef nonnull @.str.11) #12
   unreachable
 
 do.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %dev, align 8
-  %memread = getelementptr inbounds i8, ptr %1, i64 64
-  %2 = load ptr, ptr %memread, align 8
+  %0 = load ptr, ptr %dev, align 8
+  %memread = getelementptr inbounds i8, ptr %0, i64 64
+  %1 = load ptr, ptr %memread, align 8
   %add = add i64 %off, %token.coerce0
   %conv = trunc i64 %add to i32
-  tail call void %2(ptr noundef %1, i32 noundef %conv, ptr noundef %buf, i64 noundef %len) #11
+  tail call void %1(ptr noundef %0, i32 noundef %conv, ptr noundef %buf, i64 noundef %len) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qpci_memwrite(ptr nocapture noundef readonly %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %0 = and i8 %token.coerce1, 1
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %do.end, label %if.else
+  %tobool = trunc i8 %token.coerce1 to i1
+  br i1 %tobool, label %if.else, label %do.end
 
 if.else:                                          ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 516, ptr noundef nonnull @__func__.qpci_memwrite, ptr noundef nonnull @.str.11) #12
   unreachable
 
 do.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %dev, align 8
-  %memwrite = getelementptr inbounds i8, ptr %1, i64 72
-  %2 = load ptr, ptr %memwrite, align 8
+  %0 = load ptr, ptr %dev, align 8
+  %memwrite = getelementptr inbounds i8, ptr %0, i64 72
+  %1 = load ptr, ptr %memwrite, align 8
   %add = add i64 %off, %token.coerce0
   %conv = trunc i64 %add to i32
-  tail call void %2(ptr noundef %1, i32 noundef %conv, ptr noundef %buf, i64 noundef %len) #11
+  tail call void %1(ptr noundef %0, i32 noundef %conv, ptr noundef %buf, i64 noundef %len) #11
   ret void
 }
 

@@ -29,8 +29,8 @@ define hidden { i32, i32 } @_ZN12tokio_stream10stream_map4rand8FastRand3new17h5a
 define noundef i32 @_ZN12tokio_stream10stream_map4rand12thread_rng_n17hb37b6a89ec842597E(i32 noundef %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = load i32, ptr @_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit5__KEY17hbb852b38e5a63c29E, align 4, !range !4, !noalias !5, !noundef !10
-  %trunc.not.i.i.i = icmp eq i32 %3, 0
-  br i1 %trunc.not.i.i.i, label %_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0fe71e5905152937E.exit"
+  %trunc.i.i.i = trunc i32 %3 to i1
+  br i1 %trunc.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0fe71e5905152937E.exit", label %_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i
 
 _ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i: ; preds = %1
   %4 = tail call noundef align 4 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hf879e4c8837730ceE.llvm.510346183147660621"(ptr noundef nonnull align 4 @_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit5__KEY17hbb852b38e5a63c29E, ptr noalias noundef align 4 dereferenceable_or_null(12) null)

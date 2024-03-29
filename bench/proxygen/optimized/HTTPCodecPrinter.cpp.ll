@@ -1596,68 +1596,66 @@ if.then6:                                         ; preds = %if.end
 if.end10:                                         ; preds = %if.then6, %if.end
   %kWantsCalls_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i8, ptr %kWantsCalls_, align 8
-  %3 = and i8 %2, 1
-  %tobool11.not = icmp eq i8 %3, 0
-  br i1 %tobool11.not, label %if.end26, label %land.lhs.true
+  %tobool11 = trunc i8 %2 to i1
+  br i1 %tobool11, label %land.lhs.true, label %if.end26
 
 land.lhs.true:                                    ; preds = %if.end10
   %callSource_ = getelementptr inbounds i8, ptr %this, i64 56
-  %4 = load ptr, ptr %callSource_, align 8
-  %tobool12.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %callSource_, align 8
+  %tobool12.not = icmp eq ptr %3, null
   br i1 %tobool12.not, label %if.end26, label %if.then13
 
 if.then13:                                        ; preds = %land.lhs.true
   %call_ = getelementptr inbounds i8, ptr %this, i64 24
-  %5 = load ptr, ptr %call_, align 8
-  %call_15 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %5, ptr %call_15, align 8
-  %tobool17.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %call_, align 8
+  %call_15 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %4, ptr %call_15, align 8
+  %tobool17.not = icmp eq ptr %4, null
   br i1 %tobool17.not, label %if.end26, label %dynamic_cast.notnull
 
 dynamic_cast.notnull:                             ; preds = %if.then13
-  %6 = tail call ptr @__dynamic_cast(ptr nonnull %5, ptr nonnull @_ZTIN8proxygen9HTTPCodecE, ptr nonnull @_ZTIN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 0) #17
-  %tobool20.not = icmp eq ptr %6, null
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN8proxygen9HTTPCodecE, ptr nonnull @_ZTIN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 0) #17
+  %tobool20.not = icmp eq ptr %5, null
   br i1 %tobool20.not, label %if.end26, label %if.then21
 
 if.then21:                                        ; preds = %dynamic_cast.notnull
-  %7 = load ptr, ptr %callSource_, align 8
-  %callSource_23 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr %7, ptr %callSource_23, align 8
+  %6 = load ptr, ptr %callSource_, align 8
+  %callSource_23 = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr %6, ptr %callSource_23, align 8
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then13, %if.then21, %dynamic_cast.notnull, %land.lhs.true, %if.end10
   %kWantsCallbacks_ = getelementptr inbounds i8, ptr %this, i64 17
-  %8 = load i8, ptr %kWantsCallbacks_, align 1
-  %9 = and i8 %8, 1
-  %tobool27.not = icmp eq i8 %9, 0
-  br i1 %tobool27.not, label %if.end45, label %land.lhs.true28
+  %7 = load i8, ptr %kWantsCallbacks_, align 1
+  %tobool27 = trunc i8 %7 to i1
+  br i1 %tobool27, label %land.lhs.true28, label %if.end45
 
 land.lhs.true28:                                  ; preds = %if.end26
   %callbackSource_ = getelementptr inbounds i8, ptr %this, i64 64
-  %10 = load ptr, ptr %callbackSource_, align 8
-  %tobool29.not = icmp eq ptr %10, null
+  %8 = load ptr, ptr %callbackSource_, align 8
+  %tobool29.not = icmp eq ptr %8, null
   br i1 %tobool29.not, label %if.end45, label %if.then30
 
 if.then30:                                        ; preds = %land.lhs.true28
-  %vtable = load ptr, ptr %10, align 8
-  %11 = getelementptr i8, ptr %vtable, i64 72, !nosanitize !6
-  %memptr.virtualfn = load ptr, ptr %11, align 8, !nosanitize !6
+  %vtable = load ptr, ptr %8, align 8
+  %9 = getelementptr i8, ptr %vtable, i64 72, !nosanitize !6
+  %memptr.virtualfn = load ptr, ptr %9, align 8, !nosanitize !6
   %callback_ = getelementptr inbounds i8, ptr %this, i64 32
-  %12 = load ptr, ptr %callback_, align 8
-  tail call void %memptr.virtualfn(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %12)
-  %13 = load ptr, ptr %callback_, align 8
-  %tobool33.not = icmp eq ptr %13, null
+  %10 = load ptr, ptr %callback_, align 8
+  tail call void %memptr.virtualfn(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %10)
+  %11 = load ptr, ptr %callback_, align 8
+  %tobool33.not = icmp eq ptr %11, null
   br i1 %tobool33.not, label %if.end45, label %dynamic_cast.notnull36
 
 dynamic_cast.notnull36:                           ; preds = %if.then30
-  %14 = tail call ptr @__dynamic_cast(ptr nonnull %13, ptr nonnull @_ZTIN8proxygen9HTTPCodec8CallbackE, ptr nonnull @_ZTIN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 8) #17
-  %tobool39.not = icmp eq ptr %14, null
+  %12 = tail call ptr @__dynamic_cast(ptr nonnull %11, ptr nonnull @_ZTIN8proxygen9HTTPCodec8CallbackE, ptr nonnull @_ZTIN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 8) #17
+  %tobool39.not = icmp eq ptr %12, null
   br i1 %tobool39.not, label %if.end45, label %if.then40
 
 if.then40:                                        ; preds = %dynamic_cast.notnull36
-  %15 = load ptr, ptr %callbackSource_, align 8
-  %callbackSource_42 = getelementptr inbounds i8, ptr %14, i64 64
-  store ptr %15, ptr %callbackSource_42, align 8
+  %13 = load ptr, ptr %callbackSource_, align 8
+  %callbackSource_42 = getelementptr inbounds i8, ptr %12, i64 64
+  store ptr %13, ptr %callbackSource_42, align 8
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then30, %if.then40, %dynamic_cast.notnull36, %land.lhs.true28, %if.end26
@@ -2085,7 +2083,7 @@ entry:
   unreachable
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #12
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
@@ -2486,7 +2484,7 @@ attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind memory(read) }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

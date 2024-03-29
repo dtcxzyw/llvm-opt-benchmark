@@ -229,7 +229,7 @@ define noundef ptr @CVodeCreate(i32 noundef %0, i32 noundef %1) local_unnamed_ad
 define void @cvProcessError(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ...) local_unnamed_addr #0 {
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   %7 = alloca [256 x i8], align 16
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   %8 = call i32 @vsprintf(ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull %6) #13
   %9 = icmp eq ptr %0, null
   br i1 %9, label %10, label %15
@@ -250,7 +250,7 @@ define void @cvProcessError(ptr noundef readonly %0, i32 noundef %1, ptr noundef
   br label %20
 
 20:                                               ; preds = %15, %10
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -14009,17 +14009,11 @@ define i32 @cvSensRhs1Wrapper(ptr nocapture noundef %0, double noundef %1, ptr n
 
 declare double @SUNRsqrt(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
+; Function Attrs: nofree nounwind
+declare noundef i32 @vsprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 declare void @N_VDestroy(ptr noundef) local_unnamed_addr #4
 
@@ -14039,7 +14033,7 @@ declare void @N_VAddConst(ptr noundef, double noundef, ptr noundef) local_unname
 define internal fastcc noundef i32 @cvHandleNFlag(ptr nocapture noundef %0, ptr nocapture noundef %1, double noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr %1, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %44, label %8
+  br i1 %7, label %43, label %8
 
 8:                                                ; preds = %5
   %9 = load i64, ptr %4, align 8
@@ -14047,12 +14041,12 @@ define internal fastcc noundef i32 @cvHandleNFlag(ptr nocapture noundef %0, ptr 
   store i64 %10, ptr %4, align 8
   tail call fastcc void @cvRestore(ptr noundef %0, double noundef %2)
   switch i32 %6, label %11 [
-    i32 -6, label %44
-    i32 -7, label %44
-    i32 -8, label %44
-    i32 -31, label %44
-    i32 -41, label %44
-    i32 -51, label %44
+    i32 -6, label %43
+    i32 -7, label %43
+    i32 -8, label %43
+    i32 -31, label %43
+    i32 -41, label %43
+    i32 -51, label %43
   ]
 
 11:                                               ; preds = %8
@@ -14102,22 +14096,21 @@ define internal fastcc noundef i32 @cvHandleNFlag(ptr nocapture noundef %0, ptr 
   store double %40, ptr %41, align 8
   store i32 7, ptr %1, align 4
   tail call fastcc void @cvRescale(ptr noundef nonnull %0)
-  br label %44
+  br label %43
 
 switch.hole_check:                                ; preds = %27
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 929, %switch.maskindex
-  %42 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %42, 0
-  br i1 %switch.lobit.not, label %29, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %29
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %43 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.cvHandleNFlag, i64 0, i64 %43
+  %42 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.cvHandleNFlag, i64 0, i64 %42
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %44
+  br label %43
 
-44:                                               ; preds = %switch.lookup, %8, %8, %8, %8, %8, %8, %5, %39
+43:                                               ; preds = %switch.lookup, %8, %8, %8, %8, %8, %8, %5, %39
   %.0 = phi i32 [ 3, %39 ], [ 2, %5 ], [ %6, %8 ], [ %6, %8 ], [ %6, %8 ], [ %6, %8 ], [ %6, %8 ], [ %6, %8 ], [ %switch.load, %switch.lookup ]
   ret i32 %.0
 }
@@ -15629,6 +15622,12 @@ define internal fastcc void @cvRestore(ptr nocapture noundef %0, double noundef 
 
 declare double @SUNRpowerR(double noundef, double noundef) local_unnamed_addr #4
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
@@ -15651,8 +15650,8 @@ attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vecto
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }

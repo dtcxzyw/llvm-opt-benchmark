@@ -11376,8 +11376,8 @@ define internal fastcc void @dissect_AdjustDomainBoundary_block(ptr noundef %0, 
 
 17:                                               ; preds = %8
   %18 = tail call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #11
-  %trunc.not = icmp eq i8 %7, 0
-  br i1 %trunc.not, label %19, label %28
+  %trunc = trunc i8 %7 to i1
+  br i1 %trunc, label %28, label %19
 
 19:                                               ; preds = %17
   %20 = load i32, ptr @hf_pn_io_domain_boundary, align 4
@@ -13195,8 +13195,8 @@ define internal fastcc void @dissect_PDPortStatistic_block(ptr noundef %0, i32 n
   br label %50
 
 15:                                               ; preds = %8
-  %trunc.not = icmp eq i8 %7, 0
-  br i1 %trunc.not, label %16, label %18
+  %trunc = trunc i8 %7 to i1
+  br i1 %trunc, label %18, label %16
 
 16:                                               ; preds = %15
   %17 = tail call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #11

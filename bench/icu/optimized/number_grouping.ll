@@ -47,36 +47,35 @@ define { i64, i32 } @_ZN6icu_756number4impl7Grouper13forPropertiesERKNS1_23Decim
 entry:
   %groupingUsed = getelementptr inbounds i8, ptr %properties, i64 80
   %0 = load i8, ptr %groupingUsed, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %groupingSize = getelementptr inbounds i8, ptr %properties, i64 76
-  %2 = load i32, ptr %groupingSize, align 4
-  %conv = trunc i32 %2 to i16
+  %1 = load i32, ptr %groupingSize, align 4
+  %conv = trunc i32 %1 to i16
   %secondaryGroupingSize = getelementptr inbounds i8, ptr %properties, i64 752
-  %3 = load i32, ptr %secondaryGroupingSize, align 8
-  %conv1 = trunc i32 %3 to i16
+  %2 = load i32, ptr %secondaryGroupingSize, align 8
+  %conv1 = trunc i32 %2 to i16
   %minimumGroupingDigits = getelementptr inbounds i8, ptr %properties, i64 108
-  %4 = load i32, ptr %minimumGroupingDigits, align 4
+  %3 = load i32, ptr %minimumGroupingDigits, align 4
   %cmp = icmp sgt i16 %conv, 0
   %cmp5 = icmp sgt i16 %conv1, 0
   %cond = select i1 %cmp5, i16 %conv1, i16 %conv
   %cond9 = select i1 %cmp, i16 %conv, i16 %cond
-  %5 = and i32 %4, 65535
-  %6 = zext nneg i32 %5 to i64
-  %7 = shl nuw nsw i64 %6, 32
-  %8 = zext i16 %cond to i64
-  %9 = shl nuw nsw i64 %8, 16
-  %10 = or disjoint i64 %9, %7
-  %11 = zext i16 %cond9 to i64
-  %12 = or disjoint i64 %10, %11
+  %4 = and i32 %3, 65535
+  %5 = zext nneg i32 %4 to i64
+  %6 = shl nuw nsw i64 %5, 32
+  %7 = zext i16 %cond to i64
+  %8 = shl nuw nsw i64 %7, 16
+  %9 = or disjoint i64 %8, %6
+  %10 = zext i16 %cond9 to i64
+  %11 = or disjoint i64 %9, %10
   br label %return
 
 return:                                           ; preds = %entry, %if.end
   %retval.sroa.5.sroa.2.0 = phi i32 [ 5, %if.end ], [ 0, %entry ]
-  %retval.sroa.0.0.insert.insert = phi i64 [ %12, %if.end ], [ 281470681743359, %entry ]
+  %retval.sroa.0.0.insert.insert = phi i64 [ %11, %if.end ], [ 281470681743359, %entry ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %retval.sroa.5.sroa.2.0, 1
   ret { i64, i32 } %.fca.1.insert

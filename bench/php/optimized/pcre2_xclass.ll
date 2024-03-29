@@ -503,14 +503,14 @@ define hidden i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef readonly %1, i32 
     i8 11, label %467
     i8 12, label %475
     i8 13, label %486
-    i8 14, label %506
-    i8 15, label %518
-    i8 16, label %532
-    i8 17, label %544
+    i8 14, label %505
+    i8 15, label %517
+    i8 16, label %531
+    i8 17, label %543
   ]
 
 368:                                              ; preds = %356
-  br i1 %366, label %369, label %549
+  br i1 %366, label %369, label %548
 
 369:                                              ; preds = %368
   %370 = xor i32 %6, 1
@@ -526,10 +526,10 @@ define hidden i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef readonly %1, i32 
   ]
 
 switch.edge.thr_comm:                             ; preds = %371, %371, %371
-  br i1 %366, label %374, label %549
+  br i1 %366, label %374, label %548
 
 switch.edge:                                      ; preds = %371
-  br i1 %366, label %549, label %374
+  br i1 %366, label %548, label %374
 
 374:                                              ; preds = %switch.edge.thr_comm, %switch.edge
   %375 = xor i32 %6, 1
@@ -546,7 +546,7 @@ switch.edge:                                      ; preds = %371
   %384 = load i32, ptr %383, align 4
   %385 = icmp ne i32 %384, %379
   %386 = xor i1 %366, %385
-  br i1 %386, label %387, label %549
+  br i1 %386, label %387, label %548
 
 387:                                              ; preds = %376
   %388 = xor i32 %6, 1
@@ -559,7 +559,7 @@ switch.edge:                                      ; preds = %371
   %393 = load i8, ptr %392, align 1
   %394 = icmp ne i8 %391, %393
   %395 = xor i1 %366, %394
-  br i1 %395, label %396, label %549
+  br i1 %395, label %396, label %548
 
 396:                                              ; preds = %389
   %397 = xor i32 %6, 1
@@ -571,7 +571,7 @@ switch.edge:                                      ; preds = %371
   %401 = load i8, ptr %365, align 4
   %402 = icmp ne i8 %400, %401
   %403 = xor i1 %366, %402
-  br i1 %403, label %404, label %549
+  br i1 %403, label %404, label %548
 
 404:                                              ; preds = %398
   %405 = xor i32 %6, 1
@@ -585,7 +585,7 @@ switch.edge:                                      ; preds = %371
   br i1 %410, label %._crit_edge, label %411
 
 ._crit_edge:                                      ; preds = %406
-  br i1 %366, label %427, label %549
+  br i1 %366, label %427, label %548
 
 411:                                              ; preds = %406
   %412 = zext i8 %408 to i32
@@ -603,7 +603,7 @@ switch.edge:                                      ; preds = %371
   %424 = and i32 %421, %423
   %425 = icmp ne i32 %424, 0
   %426 = xor i1 %366, %425
-  br i1 %426, label %549, label %427
+  br i1 %426, label %548, label %427
 
 427:                                              ; preds = %._crit_edge, %411
   %428 = xor i32 %6, 1
@@ -618,7 +618,7 @@ switch.edge:                                      ; preds = %371
   %435 = and i32 %434, -3
   %spec.select290 = icmp eq i32 %435, 1
   %436 = xor i1 %366, %spec.select290
-  br i1 %436, label %549, label %437
+  br i1 %436, label %548, label %437
 
 437:                                              ; preds = %429
   %438 = xor i32 %6, 1
@@ -655,7 +655,7 @@ switch.edge:                                      ; preds = %371
   ]
 
 440:                                              ; preds = %439, %439, %439, %439, %439, %439, %439, %439, %439, %439, %439, %439, %439, %439, %439, %439, %439, %439, %439, %439, %439, %439, %439, %439, %439, %439
-  br i1 %366, label %441, label %549
+  br i1 %366, label %441, label %548
 
 441:                                              ; preds = %440
   %442 = xor i32 %6, 1
@@ -669,7 +669,7 @@ switch.edge:                                      ; preds = %371
   %448 = load i32, ptr %447, align 4
   %449 = icmp ne i32 %448, 6
   %450 = xor i1 %366, %449
-  br i1 %450, label %451, label %549
+  br i1 %450, label %451, label %548
 
 451:                                              ; preds = %443
   %452 = xor i32 %6, 1
@@ -685,7 +685,7 @@ switch.edge:                                      ; preds = %371
   br i1 %459, label %._crit_edge297, label %460
 
 ._crit_edge297:                                   ; preds = %453
-  br i1 %366, label %465, label %549
+  br i1 %366, label %465, label %548
 
 460:                                              ; preds = %453
   %461 = icmp eq i32 %458, 3
@@ -694,7 +694,7 @@ switch.edge:                                      ; preds = %371
   %463 = icmp eq i8 %455, 16
   %spec.select291 = or i1 %463, %or.cond3
   %464 = xor i1 %366, %spec.select291
-  br i1 %464, label %549, label %465
+  br i1 %464, label %548, label %465
 
 465:                                              ; preds = %._crit_edge297, %460
   %466 = xor i32 %6, 1
@@ -711,10 +711,10 @@ switch.edge:                                      ; preds = %371
   ]
 
 switch.edge292.thr_comm:                          ; preds = %468, %468, %468
-  br i1 %366, label %469, label %549
+  br i1 %366, label %469, label %548
 
 switch.edge292:                                   ; preds = %468
-  br i1 %366, label %549, label %469
+  br i1 %366, label %548, label %469
 
 469:                                              ; preds = %switch.edge292.thr_comm, %switch.edge292
   %470 = xor i32 %6, 1
@@ -722,7 +722,7 @@ switch.edge292:                                   ; preds = %468
 
 471:                                              ; preds = %467
   %472 = xor i1 %57, %366
-  br i1 %472, label %473, label %549
+  br i1 %472, label %473, label %548
 
 473:                                              ; preds = %471
   %474 = xor i32 %6, 1
@@ -737,7 +737,7 @@ switch.edge292:                                   ; preds = %468
   %481 = zext i8 %480 to i16
   %482 = icmp ne i16 %478, %481
   %483 = xor i1 %366, %482
-  br i1 %483, label %484, label %549
+  br i1 %483, label %484, label %548
 
 484:                                              ; preds = %475
   %485 = xor i32 %6, 1
@@ -757,131 +757,130 @@ switch.edge292:                                   ; preds = %468
   %497 = getelementptr inbounds i32, ptr %491, i64 %496
   %498 = load i32, ptr %497, align 4
   %499 = and i32 %494, 31
-  %500 = shl nuw i32 1, %499
-  %501 = and i32 %500, %498
-  %502 = icmp eq i32 %501, 0
-  %503 = xor i1 %366, %502
-  br i1 %503, label %504, label %549
+  %500 = lshr i32 %498, %499
+  %501 = trunc i32 %500 to i1
+  %502 = xor i1 %366, %501
+  br i1 %502, label %548, label %503
 
-504:                                              ; preds = %486
-  %505 = xor i32 %6, 1
+503:                                              ; preds = %486
+  %504 = xor i32 %6, 1
   br label %.loopexit
 
-506:                                              ; preds = %356
-  %507 = getelementptr inbounds i8, ptr %365, i64 1
-  %508 = load i8, ptr %507, align 1
-  %.fr = freeze i8 %508
-  %509 = zext i8 %.fr to i64
-  %510 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %509
-  %511 = load i32, ptr %510, align 4
-  switch i32 %511, label %.fold.split [
+505:                                              ; preds = %356
+  %506 = getelementptr inbounds i8, ptr %365, i64 1
+  %507 = load i8, ptr %506, align 1
+  %.fr = freeze i8 %507
+  %508 = zext i8 %.fr to i64
+  %509 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %508
+  %510 = load i32, ptr %509, align 4
+  switch i32 %510, label %.fold.split [
     i32 6, label %.thr_comm
-    i32 0, label %512
+    i32 0, label %511
   ]
 
-512:                                              ; preds = %506
-  %513 = icmp eq i8 %.fr, 1
-  br i1 %513, label %switch.early.test, label %.thr_comm
+511:                                              ; preds = %505
+  %512 = icmp eq i8 %.fr, 1
+  br i1 %512, label %switch.early.test, label %.thr_comm
 
-switch.early.test:                                ; preds = %512
-  switch i32 %0, label %514 [
+switch.early.test:                                ; preds = %511
+  switch i32 %0, label %513 [
     i32 6158, label %.thr_comm
     i32 1564, label %.thr_comm
   ]
 
-.fold.split:                                      ; preds = %506
-  br i1 %366, label %516, label %549
+.fold.split:                                      ; preds = %505
+  br i1 %366, label %515, label %548
 
-.thr_comm:                                        ; preds = %512, %switch.early.test, %switch.early.test, %506
-  br i1 %366, label %549, label %516
+.thr_comm:                                        ; preds = %511, %switch.early.test, %switch.early.test, %505
+  br i1 %366, label %548, label %515
 
-514:                                              ; preds = %switch.early.test
-  %515 = xor i1 %54, %366
-  br i1 %515, label %549, label %516
+513:                                              ; preds = %switch.early.test
+  %514 = xor i1 %54, %366
+  br i1 %514, label %548, label %515
 
-516:                                              ; preds = %.fold.split, %.thr_comm, %514
-  %517 = xor i32 %6, 1
+515:                                              ; preds = %.fold.split, %.thr_comm, %513
+  %516 = xor i32 %6, 1
   br label %.loopexit
 
-518:                                              ; preds = %356
-  %519 = getelementptr inbounds i8, ptr %365, i64 1
-  %520 = load i8, ptr %519, align 1
-  %521 = add i8 %520, -29
-  %or.cond11 = icmp ult i8 %521, -2
-  br i1 %or.cond11, label %522, label %.thr_comm298
+517:                                              ; preds = %356
+  %518 = getelementptr inbounds i8, ptr %365, i64 1
+  %519 = load i8, ptr %518, align 1
+  %520 = add i8 %519, -29
+  %or.cond11 = icmp ult i8 %520, -2
+  br i1 %or.cond11, label %521, label %.thr_comm298
 
-522:                                              ; preds = %518
-  %523 = zext i8 %520 to i64
-  %524 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %523
-  %525 = load i32, ptr %524, align 4
-  %.not284 = icmp eq i32 %525, 0
-  br i1 %.not284, label %526, label %._crit_edge299
+521:                                              ; preds = %517
+  %522 = zext i8 %519 to i64
+  %523 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %522
+  %524 = load i32, ptr %523, align 4
+  %.not284 = icmp eq i32 %524, 0
+  br i1 %.not284, label %525, label %._crit_edge299
 
-._crit_edge299:                                   ; preds = %522
-  br i1 %366, label %530, label %549
+._crit_edge299:                                   ; preds = %521
+  br i1 %366, label %529, label %548
 
-526:                                              ; preds = %522
-  %527 = icmp eq i8 %520, 1
-  %or.cond13 = and i1 %52, %527
-  br i1 %or.cond13, label %528, label %.thr_comm298
+525:                                              ; preds = %521
+  %526 = icmp eq i8 %519, 1
+  %or.cond13 = and i1 %52, %526
+  br i1 %or.cond13, label %527, label %.thr_comm298
 
-.thr_comm298:                                     ; preds = %526, %518
-  br i1 %366, label %549, label %530
+.thr_comm298:                                     ; preds = %525, %517
+  br i1 %366, label %548, label %529
 
-528:                                              ; preds = %526
-  %529 = xor i1 %54, %366
-  br i1 %529, label %549, label %530
+527:                                              ; preds = %525
+  %528 = xor i1 %54, %366
+  br i1 %528, label %548, label %529
 
-530:                                              ; preds = %._crit_edge299, %.thr_comm298, %528
-  %531 = xor i32 %6, 1
+529:                                              ; preds = %._crit_edge299, %.thr_comm298, %527
+  %530 = xor i32 %6, 1
   br label %.loopexit
 
-532:                                              ; preds = %356
-  %533 = getelementptr inbounds i8, ptr %365, i64 1
-  %534 = load i8, ptr %533, align 1
-  %535 = zext i8 %534 to i64
-  %536 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %535
-  %537 = load i32, ptr %536, align 4
-  %538 = icmp eq i32 %537, 4
-  br i1 %538, label %._crit_edge300, label %539
+531:                                              ; preds = %356
+  %532 = getelementptr inbounds i8, ptr %365, i64 1
+  %533 = load i8, ptr %532, align 1
+  %534 = zext i8 %533 to i64
+  %535 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %534
+  %536 = load i32, ptr %535, align 4
+  %537 = icmp eq i32 %536, 4
+  br i1 %537, label %._crit_edge300, label %538
 
-._crit_edge300:                                   ; preds = %532
-  br i1 %366, label %542, label %549
+._crit_edge300:                                   ; preds = %531
+  br i1 %366, label %541, label %548
 
-539:                                              ; preds = %532
-  %540 = icmp eq i32 %537, 5
-  %spec.select293 = and i1 %51, %540
-  %541 = xor i1 %366, %spec.select293
-  br i1 %541, label %549, label %542
+538:                                              ; preds = %531
+  %539 = icmp eq i32 %536, 5
+  %spec.select293 = and i1 %51, %539
+  %540 = xor i1 %366, %spec.select293
+  br i1 %540, label %548, label %541
 
-542:                                              ; preds = %._crit_edge300, %539
-  %543 = xor i32 %6, 1
+541:                                              ; preds = %._crit_edge300, %538
+  %542 = xor i32 %6, 1
   br label %.loopexit
 
-544:                                              ; preds = %356
-  br i1 %or.cond296, label %._crit_edge301, label %545
+543:                                              ; preds = %356
+  br i1 %or.cond296, label %._crit_edge301, label %544
 
-._crit_edge301:                                   ; preds = %544
-  br i1 %366, label %547, label %549
+._crit_edge301:                                   ; preds = %543
+  br i1 %366, label %546, label %548
 
-545:                                              ; preds = %544
-  %546 = xor i1 %50, %366
-  br i1 %546, label %549, label %547
+544:                                              ; preds = %543
+  %545 = xor i1 %50, %366
+  br i1 %545, label %548, label %546
 
-547:                                              ; preds = %._crit_edge301, %545
-  %548 = xor i32 %6, 1
+546:                                              ; preds = %._crit_edge301, %544
+  %547 = xor i32 %6, 1
   br label %.loopexit
 
-549:                                              ; preds = %._crit_edge301, %._crit_edge300, %._crit_edge299, %.thr_comm298, %.fold.split, %.thr_comm, %switch.edge292.thr_comm, %._crit_edge297, %._crit_edge, %switch.edge.thr_comm, %545, %539, %528, %514, %486, %475, %switch.edge292, %471, %460, %440, %443, %429, %411, %398, %389, %376, %switch.edge, %368
-  %550 = getelementptr inbounds i8, ptr %.1, i64 3
+548:                                              ; preds = %._crit_edge301, %._crit_edge300, %._crit_edge299, %.thr_comm298, %.fold.split, %.thr_comm, %switch.edge292.thr_comm, %._crit_edge297, %._crit_edge, %switch.edge.thr_comm, %544, %538, %527, %513, %486, %475, %switch.edge292, %471, %460, %440, %443, %429, %411, %398, %389, %376, %switch.edge, %368
+  %549 = getelementptr inbounds i8, ptr %.1, i64 3
   br label %.backedge
 
-.backedge:                                        ; preds = %549, %353, %157
-  %.1.be = phi ptr [ %.2, %157 ], [ %.4, %353 ], [ %550, %549 ]
+.backedge:                                        ; preds = %548, %353, %157
+  %.1.be = phi ptr [ %.2, %157 ], [ %.4, %353 ], [ %549, %548 ]
   br label %58
 
-.loopexit:                                        ; preds = %58, %356, %13, %547, %542, %530, %516, %504, %484, %473, %469, %465, %451, %441, %437, %427, %404, %396, %387, %374, %369, %354, %159, %35, %14
-  %.0 = phi i32 [ %23, %14 ], [ %36, %35 ], [ %160, %159 ], [ %355, %354 ], [ %548, %547 ], [ %543, %542 ], [ %531, %530 ], [ %517, %516 ], [ %505, %504 ], [ %485, %484 ], [ %470, %469 ], [ %474, %473 ], [ %466, %465 ], [ %452, %451 ], [ %442, %441 ], [ %438, %437 ], [ %428, %427 ], [ %405, %404 ], [ %397, %396 ], [ %388, %387 ], [ %375, %374 ], [ %370, %369 ], [ %6, %13 ], [ %6, %58 ], [ 0, %356 ]
+.loopexit:                                        ; preds = %58, %356, %13, %546, %541, %529, %515, %503, %484, %473, %469, %465, %451, %441, %437, %427, %404, %396, %387, %374, %369, %354, %159, %35, %14
+  %.0 = phi i32 [ %23, %14 ], [ %36, %35 ], [ %160, %159 ], [ %355, %354 ], [ %547, %546 ], [ %542, %541 ], [ %530, %529 ], [ %516, %515 ], [ %504, %503 ], [ %485, %484 ], [ %470, %469 ], [ %474, %473 ], [ %466, %465 ], [ %452, %451 ], [ %442, %441 ], [ %438, %437 ], [ %428, %427 ], [ %405, %404 ], [ %397, %396 ], [ %388, %387 ], [ %375, %374 ], [ %370, %369 ], [ %6, %13 ], [ %6, %58 ], [ 0, %356 ]
   ret i32 %.0
 }
 

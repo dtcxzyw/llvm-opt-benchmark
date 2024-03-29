@@ -135,9 +135,8 @@ define void @_ZN5draco17PointCloudBuilder25SetAttributeValueForPointEiNS_9IndexT
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 100
   %12 = load i8, ptr %11, align 4
-  %13 = and i8 %12, 1
-  %.not.i = icmp eq i8 %13, 0
-  br i1 %.not.i, label %14, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, label %14
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %10, i64 72
@@ -211,10 +210,9 @@ define void @_ZN5draco17PointCloudBuilder30SetAttributeValuesForAllPointsEiPKvi(
 36:                                               ; preds = %.lr.ph, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
   %37 = load i8, ptr %24, align 4
-  %38 = and i8 %37, 1
-  %.not.i = icmp eq i8 %38, 0
+  %38 = trunc i8 %37 to i1
   %39 = trunc i64 %indvars.iv to i32
-  br i1 %.not.i, label %40, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
+  br i1 %38, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, label %40
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %25, align 8

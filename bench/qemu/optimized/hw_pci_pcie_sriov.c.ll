@@ -135,17 +135,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %5 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %7 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and3, i32 noundef %conv) #9
+  %7 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and3, i32 noundef %conv) #9
   br label %trace_sriov_unregister_vfs.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -165,36 +164,36 @@ for.body.lr.ph:                                   ; preds = %trace_sriov_unregis
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end ]
   store ptr null, ptr %err, align 8
-  %9 = load ptr, ptr %vf9, align 8
-  %arrayidx = getelementptr ptr, ptr %9, i64 %indvars.iv
-  %10 = load ptr, ptr %arrayidx, align 8
-  %call = call zeroext i1 @object_property_set_bool(ptr noundef %10, ptr noundef nonnull @.str.13, i1 noundef zeroext false, ptr noundef nonnull %err) #9
+  %8 = load ptr, ptr %vf9, align 8
+  %arrayidx = getelementptr ptr, ptr %8, i64 %indvars.iv
+  %9 = load ptr, ptr %arrayidx, align 8
+  %call = call zeroext i1 @object_property_set_bool(ptr noundef %9, ptr noundef nonnull @.str.13, i1 noundef zeroext false, ptr noundef nonnull %err) #9
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %11 = load ptr, ptr %err, align 8
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %11, ptr noundef nonnull @.str.14) #9
+  %10 = load ptr, ptr %err, align 8
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %10, ptr noundef nonnull @.str.14) #9
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  call void @object_unparent(ptr noundef %10) #9
-  call void @object_unref(ptr noundef %10) #9
+  call void @object_unparent(ptr noundef %9) #9
+  call void @object_unref(ptr noundef %9) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %if.end, %trace_sriov_unregister_vfs.exit
   %vf12 = getelementptr inbounds i8, ptr %dev, i64 2224
-  %12 = load ptr, ptr %vf12, align 8
-  call void @g_free(ptr noundef %12) #9
+  %11 = load ptr, ptr %vf12, align 8
+  call void @g_free(ptr noundef %11) #9
   store ptr null, ptr %vf12, align 8
   store i16 0, ptr %sriov_pf, align 8
   %config = getelementptr inbounds i8, ptr %dev, i64 168
-  %13 = load ptr, ptr %config, align 8
+  %12 = load ptr, ptr %config, align 8
   %sriov_cap = getelementptr inbounds i8, ptr %dev, i64 2196
-  %14 = load i16, ptr %sriov_cap, align 4
-  %idx.ext = zext i16 %14 to i64
-  %add.ptr = getelementptr i8, ptr %13, i64 %idx.ext
+  %13 = load i16, ptr %sriov_cap, align 4
+  %idx.ext = zext i16 %13 to i64
+  %add.ptr = getelementptr i8, ptr %12, i64 %idx.ext
   %add.ptr21 = getelementptr i8, ptr %add.ptr, i64 16
   store i16 0, ptr %add.ptr21, align 1
   ret void
@@ -416,17 +415,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end7
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %5 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %7 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and9, i32 noundef %sub, i32 noundef %val, i32 noundef %len) #9
+  %7 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and9, i32 noundef %sub, i32 noundef %val, i32 noundef %len) #9
   br label %trace_sriov_config_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -446,8 +444,8 @@ trace_sriov_config_write.exit:                    ; preds = %if.end7, %land.lhs.
 
 if.then13:                                        ; preds = %trace_sriov_config_write.exit
   %sriov_pf = getelementptr inbounds i8, ptr %dev, i64 2200
-  %9 = load i16, ptr %sriov_pf, align 8
-  %tobool15.not = icmp eq i16 %9, 0
+  %8 = load i16, ptr %sriov_pf, align 8
+  %tobool15.not = icmp eq i16 %8, 0
   %and21 = and i32 %val, 1
   %tobool22.not = icmp eq i32 %and21, 0
   br i1 %tobool15.not, label %if.else, label %if.then16
@@ -525,17 +523,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %7 = load i8, ptr @message_with_timestamp, align 1
-  %8 = and i8 %7, 1
-  %tobool7.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %7 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %9 = load i64, ptr %_now.i.i, align 8
+  %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and24, i32 noundef %conv25) #9
+  %9 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and24, i32 noundef %conv25) #9
   br label %trace_sriov_register_vfs.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -555,46 +552,46 @@ for.body.lr.ph:                                   ; preds = %trace_sriov_registe
 for.body:                                         ; preds = %for.body.lr.ph, %if.end42
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end42 ]
   %devfn.028 = phi i32 [ %add, %for.body.lr.ph ], [ %add44, %if.end42 ]
-  %11 = load ptr, ptr %vfname, align 8
+  %10 = load ptr, ptr %vfname, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
-  %call.i = call ptr @pci_new(i32 noundef %devfn.028, ptr noundef %11) #9
+  %call.i = call ptr @pci_new(i32 noundef %devfn.028, ptr noundef %10) #9
   %sriov_vf.i = getelementptr inbounds i8, ptr %call.i, i64 2232
   store ptr %dev, ptr %sriov_vf.i, align 8
   %vf_number.i = getelementptr inbounds i8, ptr %call.i, i64 2240
-  %12 = trunc i64 %indvars.iv to i16
-  store i16 %12, ptr %vf_number.i, align 8
+  %11 = trunc i64 %indvars.iv to i16
+  store i16 %11, ptr %vf_number.i, align 8
   %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
   %call1.i.i = call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #9
   %call.i1.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #9
   store ptr null, ptr %local_err.i, align 8
   %call5.i = call zeroext i1 @qdev_realize(ptr noundef %call.i, ptr noundef %call.i1.i.i, ptr noundef nonnull %local_err.i) #9
-  %13 = load ptr, ptr %local_err.i, align 8
-  %tobool.not.i = icmp eq ptr %13, null
+  %12 = load ptr, ptr %local_err.i, align 8
+  %tobool.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call void @error_report_err(ptr noundef nonnull %13) #9
+  call void @error_report_err(ptr noundef nonnull %12) #9
   br label %register_vf.exit
 
 if.end.i:                                         ; preds = %for.body
   %config.i = getelementptr inbounds i8, ptr %call.i, i64 168
+  %13 = load ptr, ptr %config.i, align 8
+  store i16 -1, ptr %13, align 1
   %14 = load ptr, ptr %config.i, align 8
-  store i16 -1, ptr %14, align 1
-  %15 = load ptr, ptr %config.i, align 8
-  %arrayidx.i.i = getelementptr i8, ptr %15, i64 2
+  %arrayidx.i.i = getelementptr i8, ptr %14, i64 2
   store i16 -1, ptr %arrayidx.i.i, align 1
   br label %register_vf.exit
 
 register_vf.exit:                                 ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call.i, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i)
-  %16 = load ptr, ptr %vf, align 8
-  %arrayidx = getelementptr ptr, ptr %16, i64 %indvars.iv
+  %15 = load ptr, ptr %vf, align 8
+  %arrayidx = getelementptr ptr, ptr %15, i64 %indvars.iv
   store ptr %retval.0.i, ptr %arrayidx, align 8
-  %17 = load ptr, ptr %vf, align 8
-  %arrayidx40 = getelementptr ptr, ptr %17, i64 %indvars.iv
-  %18 = load ptr, ptr %arrayidx40, align 8
-  %tobool.not = icmp eq ptr %18, null
+  %16 = load ptr, ptr %vf, align 8
+  %arrayidx40 = getelementptr ptr, ptr %16, i64 %indvars.iv
+  %17 = load ptr, ptr %arrayidx40, align 8
+  %tobool.not = icmp eq ptr %17, null
   br i1 %tobool.not, label %for.end, label %if.end42
 
 if.end42:                                         ; preds = %register_vf.exit
@@ -604,7 +601,7 @@ if.end42:                                         ; preds = %register_vf.exit
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %if.end42, %register_vf.exit, %trace_sriov_register_vfs.exit
-  %num_vfs.0 = phi i16 [ 0, %trace_sriov_register_vfs.exit ], [ %12, %register_vf.exit ], [ %add.ptr17.val, %if.end42 ]
+  %num_vfs.0 = phi i16 [ 0, %trace_sriov_register_vfs.exit ], [ %11, %register_vf.exit ], [ %add.ptr17.val, %if.end42 ]
   %sriov_pf = getelementptr inbounds i8, ptr %dev, i64 2200
   store i16 %num_vfs.0, ptr %sriov_pf, align 8
   ret void

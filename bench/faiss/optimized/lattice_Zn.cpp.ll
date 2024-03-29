@@ -651,9 +651,8 @@ _ZN5faiss16ZnSphereCodecRecD2Ev.exit:             ; preds = %_ZNSt6vectorImSaImE
 define noundef i64 @_ZNK5faiss16ZnSphereCodecAlt6encodeEPKf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %8
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef i64 @_ZNK5faiss13ZnSphereCodec17search_and_encodeEPKf(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1)
@@ -728,9 +727,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit11:                  ; preds = %26, %24
 define void @_ZNK5faiss16ZnSphereCodecAlt6decodeEmPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %48
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %48, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 32

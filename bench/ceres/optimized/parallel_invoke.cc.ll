@@ -184,7 +184,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %1
 
 .lr.ph.i:                                         ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %.noexc
   invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(9) %2)
-          to label %.noexc unwind label %16
+          to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %.lr.ph.i
   %.val.val.i = load i32, ptr %7, align 8
@@ -194,41 +194,39 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %1
 
 "_ZNSt18condition_variable4waitIZN5ceres8internal18BlockUntilFinished5BlockEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit": ; preds = %.noexc
   %.pre = load i8, ptr %3, align 8
-  %11 = and i8 %.pre, 1
-  %12 = icmp eq i8 %11, 0
-  br i1 %12, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %"_ZNSt18condition_variable4waitIZN5ceres8internal18BlockUntilFinished5BlockEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread"
+  %11 = trunc i8 %.pre to i1
+  br i1 %11, label %"_ZNSt18condition_variable4waitIZN5ceres8internal18BlockUntilFinished5BlockEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread", label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 "_ZNSt18condition_variable4waitIZN5ceres8internal18BlockUntilFinished5BlockEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread": ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %"_ZNSt18condition_variable4waitIZN5ceres8internal18BlockUntilFinished5BlockEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit"
-  %13 = load ptr, ptr %2, align 8
-  %.not1.i.i = icmp eq ptr %13, null
-  br i1 %.not1.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %14
+  %12 = load ptr, ptr %2, align 8
+  %.not.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %13
 
-14:                                               ; preds = %"_ZNSt18condition_variable4waitIZN5ceres8internal18BlockUntilFinished5BlockEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread"
-  %15 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #8
+13:                                               ; preds = %"_ZNSt18condition_variable4waitIZN5ceres8internal18BlockUntilFinished5BlockEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread"
+  %14 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #8
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %"_ZNSt18condition_variable4waitIZN5ceres8internal18BlockUntilFinished5BlockEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit", %"_ZNSt18condition_variable4waitIZN5ceres8internal18BlockUntilFinished5BlockEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread", %14
+_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %"_ZNSt18condition_variable4waitIZN5ceres8internal18BlockUntilFinished5BlockEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit", %"_ZNSt18condition_variable4waitIZN5ceres8internal18BlockUntilFinished5BlockEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread", %13
   ret void
 
-16:                                               ; preds = %.lr.ph.i
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %.lr.ph.i
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %18 = load i8, ptr %3, align 8
-  %19 = and i8 %18, 1
-  %.not.i2 = icmp eq i8 %19, 0
-  br i1 %.not.i2, label %_ZNSt11unique_lockISt5mutexED2Ev.exit4, label %20
+  %17 = load i8, ptr %3, align 8
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %_ZNSt11unique_lockISt5mutexED2Ev.exit3
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %2, align 8
-  %.not1.i.i3 = icmp eq ptr %21, null
-  br i1 %.not1.i.i3, label %_ZNSt11unique_lockISt5mutexED2Ev.exit4, label %22
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %2, align 8
+  %.not.i.i2 = icmp eq ptr %20, null
+  br i1 %.not.i.i2, label %_ZNSt11unique_lockISt5mutexED2Ev.exit3, label %21
 
-22:                                               ; preds = %20
-  %23 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #8
-  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit4
+21:                                               ; preds = %19
+  %22 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #8
+  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit3
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit4:           ; preds = %16, %20, %22
-  resume { ptr, i32 } %17
+_ZNSt11unique_lockISt5mutexED2Ev.exit3:           ; preds = %15, %19, %21
+  resume { ptr, i32 } %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -7955,9 +7955,9 @@ declare void @_ZNK6casadi16FunctionInternal7eval_mxERKSt6vectorINS_2MXESaIS2_EER
 define linkonce_odr hidden noundef zeroext i1 @_ZNK6casadi16CallbackInternal11has_eval_dmEv(ptr noundef nonnull align 8 dereferenceable(1361) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1360
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  ret i1 %.not
+  %4 = trunc i8 %3 to i1
+  %5 = xor i1 %4, true
+  ret i1 %5
 }
 
 declare void @_ZNK6casadi16FunctionInternal12call_forwardERKSt6vectorINS_2MXESaIS2_EES6_RKS1_IS4_SaIS4_EERS8_bb(ptr noundef nonnull align 8 dereferenceable(1304), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 1, ptr noundef nonnull align 1, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #0

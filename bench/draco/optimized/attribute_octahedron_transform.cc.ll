@@ -152,10 +152,10 @@ define noundef zeroext i1 @_ZNK5draco28AttributeOctahedronTransform25GeneratePor
   br label %42
 
 .preheader:                                       ; preds = %20
-  %.not42 = icmp eq i32 %3, 0
-  br i1 %.not42, label %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit, label %.lr.ph41
+  %.not41 = icmp eq i32 %3, 0
+  br i1 %.not41, label %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit, label %.lr.ph40
 
-.lr.ph41:                                         ; preds = %.preheader
+.lr.ph40:                                         ; preds = %.preheader
   %38 = getelementptr inbounds i8, ptr %1, i64 100
   %39 = getelementptr inbounds i8, ptr %1, i64 72
   %40 = getelementptr inbounds i8, ptr %1, i64 48
@@ -167,13 +167,12 @@ define noundef zeroext i1 @_ZNK5draco28AttributeOctahedronTransform25GeneratePor
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
   %43 = phi ptr [ %30, %.lr.ph ], [ %69, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
   %44 = phi i64 [ 0, %.lr.ph ], [ %67, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
-  %.02737 = phi i32 [ 0, %.lr.ph ], [ %66, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
+  %.02736 = phi i32 [ 0, %.lr.ph ], [ %66, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
   %45 = getelementptr inbounds %"class.draco::IndexType.33", ptr %43, i64 %44
   %.sroa.04.0.copyload = load i32, ptr %45, align 4
   %46 = load i8, ptr %34, align 4
-  %47 = and i8 %46, 1
-  %.not.i = icmp eq i8 %47, 0
-  br i1 %.not.i, label %48, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, label %48
 
 48:                                               ; preds = %42
   %49 = zext i32 %.sroa.04.0.copyload to i64
@@ -202,7 +201,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %65 = getelementptr inbounds i32, ptr %16, i64 %62
   store i32 %64, ptr %65, align 4
-  %66 = add i32 %.02737, 1
+  %66 = add i32 %.02736, 1
   %67 = zext i32 %66 to i64
   %68 = load ptr, ptr %31, align 8
   %69 = load ptr, ptr %2, align 8
@@ -213,26 +212,25 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %74 = icmp ugt i64 %73, %67
   br i1 %74, label %42, label %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit, !llvm.loop !4
 
-75:                                               ; preds = %.lr.ph41, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit31
-  %indvars.iv47 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next48, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit31 ]
-  %indvars.iv45 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next46, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit31 ]
+75:                                               ; preds = %.lr.ph40, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit30
+  %indvars.iv46 = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next47, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit30 ]
+  %indvars.iv44 = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next45, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit30 ]
   %76 = load i8, ptr %38, align 4
-  %77 = and i8 %76, 1
-  %.not.i29 = icmp eq i8 %77, 0
-  %78 = trunc i64 %indvars.iv47 to i32
-  br i1 %.not.i29, label %79, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit31
+  %77 = trunc i8 %76 to i1
+  %78 = trunc i64 %indvars.iv46 to i32
+  br i1 %77, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit30, label %79
 
 79:                                               ; preds = %75
   %80 = load ptr, ptr %39, align 8
-  %81 = getelementptr inbounds %"class.draco::IndexType", ptr %80, i64 %indvars.iv47
+  %81 = getelementptr inbounds %"class.draco::IndexType", ptr %80, i64 %indvars.iv46
   %82 = load i32, ptr %81, align 4
-  br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit31
+  br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit30
 
-_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit31: ; preds = %75, %79
-  %.sroa.02.0.i30 = phi i32 [ %82, %79 ], [ %78, %75 ]
+_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit30: ; preds = %75, %79
+  %.sroa.02.0.i29 = phi i32 [ %82, %79 ], [ %78, %75 ]
   %83 = load i64, ptr %40, align 8
   %84 = load i64, ptr %41, align 8
-  %85 = zext i32 %.sroa.02.0.i30 to i64
+  %85 = zext i32 %.sroa.02.0.i29 to i64
   %86 = mul nsw i64 %84, %85
   %87 = load ptr, ptr %1, align 8
   %88 = load ptr, ptr %87, align 8
@@ -241,18 +239,18 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %6, ptr align 1 %90, i64 %84, i1 false)
   call void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedOctahedralCoordsIfEEvPKT_PiS5_(ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %91 = load i32, ptr %10, align 4
-  %92 = or disjoint i64 %indvars.iv45, 1
-  %93 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv45
+  %92 = or disjoint i64 %indvars.iv44, 1
+  %93 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv44
   store i32 %91, ptr %93, align 4
   %94 = load i32, ptr %11, align 4
-  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 2
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 2
   %95 = getelementptr inbounds i32, ptr %16, i64 %92
   store i32 %94, ptr %95, align 4
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count
+  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count
   br i1 %exitcond.not, label %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit, label %75, !llvm.loop !6
 
-_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit: ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit31, %.preheader, %5
+_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit: ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit30, %.preheader, %5
   ret i1 %or.cond.i
 }
 

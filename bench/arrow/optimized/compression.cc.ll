@@ -872,8 +872,7 @@ entry:
   %0 = icmp ult i32 %codec, 9
   %switch.cast = trunc i32 %codec to i9
   %switch.downshift = lshr i9 -132, %switch.cast
-  %1 = and i9 %switch.downshift, 1
-  %switch.masked = icmp ne i9 %1, 0
+  %switch.masked = trunc i9 %switch.downshift to i1
   %retval.0 = select i1 %0, i1 %switch.masked, i1 false
   ret i1 %retval.0
 }
@@ -2039,9 +2038,10 @@ return:                                           ; preds = %_ZN5arrow6Status11D
 define noundef zeroext i1 @_ZN5arrow4util5Codec11IsAvailableENS_11Compression4typeE(i32 noundef %codec_type) local_unnamed_addr #0 align 2 {
 entry:
   %0 = icmp ult i32 %codec_type, 10
-  %1 = and i32 %codec_type, 1023
-  %switch.masked = icmp eq i32 %1, 0
-  %retval.0 = and i1 %0, %switch.masked
+  %switch.cast = trunc i32 %codec_type to i10
+  %switch.downshift = lshr i10 1, %switch.cast
+  %switch.masked = trunc i10 %switch.downshift to i1
+  %retval.0 = select i1 %0, i1 %switch.masked, i1 false
   ret i1 %retval.0
 }
 

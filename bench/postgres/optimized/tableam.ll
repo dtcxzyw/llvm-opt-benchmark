@@ -197,9 +197,8 @@ declare void @SerializeSnapshot(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local ptr @table_beginscan_parallel(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 5
   %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %12
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %12, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -256,35 +255,34 @@ table_slot_create.exit:                           ; preds = %8, %12
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0) #9
   %25 = load i32, ptr @CheckXidAlive, align 4
-  %26 = icmp ne i32 %25, 0
+  %26 = icmp eq i32 %25, 0
   %27 = load i8, ptr @bsysscan, align 1
-  %28 = and i8 %27, 1
-  %.not.i = icmp eq i8 %28, 0
-  %29 = select i1 %26, i1 %.not.i, i1 false
-  br i1 %29, label %30, label %table_index_fetch_tuple.exit
+  %28 = trunc i8 %27 to i1
+  %.not7.i = select i1 %26, i1 true, i1 %28
+  br i1 %.not7.i, label %table_index_fetch_tuple.exit, label %29
 
-30:                                               ; preds = %table_slot_create.exit
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #9
+29:                                               ; preds = %table_slot_create.exit
+  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %30)
+  %31 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #9
   tail call void @errfinish(ptr noundef nonnull @.str.10, i32 noundef 1248, ptr noundef nonnull @__func__.table_index_fetch_tuple) #9
   unreachable
 
 table_index_fetch_tuple.exit:                     ; preds = %table_slot_create.exit
-  %33 = load ptr, ptr %24, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 312
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 112
-  %37 = load ptr, ptr %36, align 8
-  %38 = call zeroext i1 %37(ptr noundef nonnull %24, ptr noundef %1, ptr noundef %2, ptr noundef %20, ptr noundef nonnull %5, ptr noundef %3) #9
-  %39 = load ptr, ptr %24, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 312
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 104
-  %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull %24) #9
+  %32 = load ptr, ptr %24, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 312
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 112
+  %36 = load ptr, ptr %35, align 8
+  %37 = call zeroext i1 %36(ptr noundef nonnull %24, ptr noundef %1, ptr noundef %2, ptr noundef %20, ptr noundef nonnull %5, ptr noundef %3) #9
+  %38 = load ptr, ptr %24, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 312
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 104
+  %42 = load ptr, ptr %41, align 8
+  call void %42(ptr noundef nonnull %24) #9
   call void @ExecDropSingleTupleTableSlot(ptr noundef %20) #9
-  ret i1 %38
+  ret i1 %37
 }
 
 declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #1
@@ -295,51 +293,50 @@ define dso_local void @table_tuple_get_latest_tid(ptr noundef %0, ptr noundef %1
   %4 = getelementptr inbounds i8, ptr %3, i64 312
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr @CheckXidAlive, align 4
-  %7 = icmp ne i32 %6, 0
+  %7 = icmp eq i32 %6, 0
   %8 = load i8, ptr @bsysscan, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = select i1 %7, i1 %.not, i1 false
-  br i1 %10, label %11, label %14
+  %9 = trunc i8 %8 to i1
+  %.not11 = select i1 %7, i1 true, i1 %9
+  br i1 %.not11, label %13, label %10
 
-11:                                               ; preds = %2
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #9
+10:                                               ; preds = %2
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %11)
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #9
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 256, ptr noundef nonnull @__func__.table_tuple_get_latest_tid) #9
   unreachable
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %5, i64 128
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call zeroext i1 %16(ptr noundef nonnull %0, ptr noundef %1) #9
-  br i1 %17, label %32, label %18
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %5, i64 128
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call zeroext i1 %15(ptr noundef nonnull %0, ptr noundef %1) #9
+  br i1 %16, label %31, label %17
 
-18:                                               ; preds = %14
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 @errcode(i32 noundef 50856066) #9
+17:                                               ; preds = %13
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %18)
+  %19 = tail call i32 @errcode(i32 noundef 50856066) #9
   %.val = load i16, ptr %1, align 2
-  %21 = getelementptr i8, ptr %1, i64 2
-  %.val11 = load i16, ptr %21, align 2
-  %22 = zext i16 %.val to i32
-  %23 = shl nuw i32 %22, 16
-  %24 = zext i16 %.val11 to i32
-  %25 = or disjoint i32 %23, %24
-  %26 = getelementptr i8, ptr %1, i64 4
-  %.val12 = load i16, ptr %26, align 2
-  %27 = zext i16 %.val12 to i32
-  %28 = getelementptr inbounds i8, ptr %3, i64 56
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
-  %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, i32 noundef %25, i32 noundef %27, ptr noundef nonnull %30) #9
+  %20 = getelementptr i8, ptr %1, i64 2
+  %.val12 = load i16, ptr %20, align 2
+  %21 = zext i16 %.val to i32
+  %22 = shl nuw i32 %21, 16
+  %23 = zext i16 %.val12 to i32
+  %24 = or disjoint i32 %22, %23
+  %25 = getelementptr i8, ptr %1, i64 4
+  %.val13 = load i16, ptr %25, align 2
+  %26 = zext i16 %.val13 to i32
+  %27 = getelementptr inbounds i8, ptr %3, i64 56
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, i32 noundef %24, i32 noundef %26, ptr noundef nonnull %29) #9
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 268, ptr noundef nonnull @__func__.table_tuple_get_latest_tid) #9
   unreachable
 
-32:                                               ; preds = %14
-  %33 = getelementptr inbounds i8, ptr %5, i64 136
-  %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull %0, ptr noundef %1) #9
+31:                                               ; preds = %13
+  %32 = getelementptr inbounds i8, ptr %5, i64 136
+  %33 = load ptr, ptr %32, align 8
+  tail call void %33(ptr noundef nonnull %0, ptr noundef %1) #9
   ret void
 }
 
@@ -478,9 +475,8 @@ define dso_local noundef i64 @table_block_parallelscan_initialize(ptr noundef %0
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   store i32 %5, ptr %6, align 8
   %7 = load i8, ptr @synchronize_seqscans, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %20, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %20
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 56
@@ -559,13 +555,12 @@ define dso_local void @table_block_parallelscan_startblock_init(ptr noundef %0, 
 
 25:                                               ; preds = %22
   %26 = load i8, ptr %17, align 4
-  %27 = and i8 %26, 1
-  %.not20 = icmp eq i8 %27, 0
-  br i1 %.not20, label %.loopexit.sink.split, label %28
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %.loopexit.sink.split
 
 28:                                               ; preds = %25
-  %.not21 = icmp eq i32 %.0, -1
-  br i1 %.not21, label %29, label %.loopexit.sink.split
+  %.not20 = icmp eq i32 %.0, -1
+  br i1 %.not20, label %29, label %.loopexit.sink.split
 
 29:                                               ; preds = %28
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
@@ -575,8 +570,8 @@ define dso_local void @table_block_parallelscan_startblock_init(ptr noundef %0, 
   br label %18
 
 .loopexit.sink.split:                             ; preds = %28, %25
-  %.0.lcssa32.sink = phi i32 [ 0, %25 ], [ %.0, %28 ]
-  store i32 %.0.lcssa32.sink, ptr %16, align 8
+  %.0.lcssa31.sink = phi i32 [ 0, %25 ], [ %.0, %28 ]
+  store i32 %.0.lcssa31.sink, ptr %16, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %.loopexit.sink.split
@@ -654,17 +649,15 @@ define dso_local i32 @table_block_parallelscan_nextpage(ptr noundef %0, ptr noca
   %38 = trunc i64 %37 to i32
   %39 = getelementptr inbounds i8, ptr %2, i64 4
   %40 = load i8, ptr %39, align 4
-  %41 = and i8 %40, 1
-  %.not31 = icmp eq i8 %41, 0
-  br i1 %.not31, label %49, label %.sink.split
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %.sink.split, label %49
 
 .thread:                                          ; preds = %28
   %42 = getelementptr inbounds i8, ptr %2, i64 4
   %43 = load i8, ptr %42, align 4
-  %44 = and i8 %43, 1
-  %.not3134 = icmp ne i8 %44, 0
+  %44 = trunc i8 %43 to i1
   %45 = icmp eq i64 %storemerge29, %31
-  %or.cond = and i1 %45, %.not3134
+  %or.cond = and i1 %45, %44
   br i1 %or.cond, label %46, label %49
 
 46:                                               ; preds = %.thread
@@ -674,13 +667,13 @@ define dso_local i32 @table_block_parallelscan_nextpage(ptr noundef %0, ptr noca
 
 .sink.split:                                      ; preds = %32, %46
   %.sink = phi i32 [ %48, %46 ], [ %38, %32 ]
-  %.02636.ph = phi i32 [ -1, %46 ], [ %38, %32 ]
+  %.02634.ph = phi i32 [ -1, %46 ], [ %38, %32 ]
   tail call void @ss_report_location(ptr noundef %0, i32 noundef %.sink) #9
   br label %49
 
 49:                                               ; preds = %.sink.split, %.thread, %32
-  %.02636 = phi i32 [ -1, %.thread ], [ %38, %32 ], [ %.02636.ph, %.sink.split ]
-  ret i32 %.02636
+  %.02634 = phi i32 [ -1, %.thread ], [ %38, %32 ], [ %.02634.ph, %.sink.split ]
+  ret i32 %.02634
 }
 
 declare void @ss_report_location(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -768,84 +761,83 @@ define dso_local void @table_block_relation_estimate_size(ptr noundef %0, ptr no
   %18 = icmp ult i32 %8, 10
   %19 = fcmp olt float %14, 0.000000e+00
   %or.cond = select i1 %18, i1 %19, i1 false
-  br i1 %or.cond, label %20, label %24
+  br i1 %or.cond, label %20, label %select.unfold
 
 20:                                               ; preds = %7
   %21 = getelementptr inbounds i8, ptr %10, i64 122
   %22 = load i8, ptr %21, align 2
-  %23 = and i8 %22, 1
-  %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %.thread, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %select.unfold, label %.thread
 
 .thread:                                          ; preds = %20
   store i32 10, ptr %2, align 4
-  br label %27
+  br label %26
 
-24:                                               ; preds = %20, %7
+select.unfold:                                    ; preds = %20, %7
   store i32 %8, ptr %2, align 4
-  %25 = icmp eq i32 %8, 0
-  br i1 %25, label %26, label %27
+  %24 = icmp eq i32 %8, 0
+  br i1 %24, label %25, label %26
 
-26:                                               ; preds = %24
+25:                                               ; preds = %select.unfold
   store double 0.000000e+00, ptr %3, align 8
-  br label %60
+  br label %59
 
-27:                                               ; preds = %.thread, %24
-  %.051 = phi i32 [ 10, %.thread ], [ %8, %24 ]
-  %28 = fcmp oge float %14, 0.000000e+00
-  %29 = icmp ne i32 %12, 0
-  %or.cond3 = select i1 %28, i1 %29, i1 false
-  br i1 %or.cond3, label %30, label %33
+26:                                               ; preds = %.thread, %select.unfold
+  %.050 = phi i32 [ 10, %.thread ], [ %8, %select.unfold ]
+  %27 = fcmp oge float %14, 0.000000e+00
+  %28 = icmp ne i32 %12, 0
+  %or.cond3 = select i1 %27, i1 %28, i1 false
+  br i1 %or.cond3, label %29, label %32
 
-30:                                               ; preds = %27
-  %31 = uitofp i32 %12 to double
-  %32 = fdiv double %15, %31
-  br label %50
+29:                                               ; preds = %26
+  %30 = uitofp i32 %12 to double
+  %31 = fdiv double %15, %30
+  br label %49
 
-33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 296
-  %35 = load ptr, ptr %34, align 8
-  %.not49 = icmp eq ptr %35, null
-  br i1 %.not49, label %40, label %36
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds i8, ptr %0, i64 296
+  %34 = load ptr, ptr %33, align 8
+  %.not = icmp eq ptr %34, null
+  br i1 %.not, label %39, label %35
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %35, i64 4
-  %38 = load i32, ptr %37, align 4
-  %39 = sext i32 %38 to i64
-  br label %40
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %34, i64 4
+  %37 = load i32, ptr %36, align 4
+  %38 = sext i32 %37 to i64
+  br label %39
 
-40:                                               ; preds = %33, %36
-  %41 = phi i64 [ %39, %36 ], [ 100, %33 ]
-  %42 = tail call i32 @get_rel_data_width(ptr noundef nonnull %0, ptr noundef %1) #9
-  %43 = trunc i64 %5 to i32
-  %44 = add i32 %42, %43
-  %45 = mul i64 %41, %6
-  %46 = udiv i64 %45, 100
-  %47 = sext i32 %44 to i64
-  %48 = udiv i64 %46, %47
-  %49 = uitofp i64 %48 to double
-  br label %50
+39:                                               ; preds = %32, %35
+  %40 = phi i64 [ %38, %35 ], [ 100, %32 ]
+  %41 = tail call i32 @get_rel_data_width(ptr noundef nonnull %0, ptr noundef %1) #9
+  %42 = trunc i64 %5 to i32
+  %43 = add i32 %41, %42
+  %44 = mul i64 %40, %6
+  %45 = udiv i64 %44, 100
+  %46 = sext i32 %43 to i64
+  %47 = udiv i64 %45, %46
+  %48 = uitofp i64 %47 to double
+  br label %49
 
-50:                                               ; preds = %40, %30
-  %.041 = phi double [ %32, %30 ], [ %49, %40 ]
-  %51 = uitofp i32 %.051 to double
-  %52 = fmul double %.041, %51
-  %53 = tail call double @llvm.rint.f64(double %52)
-  store double %53, ptr %3, align 8
-  %54 = icmp eq i32 %17, 0
-  br i1 %54, label %60, label %55
+49:                                               ; preds = %39, %29
+  %.041 = phi double [ %31, %29 ], [ %48, %39 ]
+  %50 = uitofp i32 %.050 to double
+  %51 = fmul double %.041, %50
+  %52 = tail call double @llvm.rint.f64(double %51)
+  store double %52, ptr %3, align 8
+  %53 = icmp eq i32 %17, 0
+  br i1 %53, label %59, label %54
 
-55:                                               ; preds = %50
-  %56 = uitofp i32 %17 to double
-  %57 = fcmp ult double %56, %51
-  br i1 %57, label %58, label %60
+54:                                               ; preds = %49
+  %55 = uitofp i32 %17 to double
+  %56 = fcmp ult double %55, %50
+  br i1 %56, label %57, label %59
 
-58:                                               ; preds = %55
-  %59 = fdiv double %56, %51
-  br label %60
+57:                                               ; preds = %54
+  %58 = fdiv double %55, %50
+  br label %59
 
-60:                                               ; preds = %55, %50, %58, %26
-  %.sink = phi double [ %59, %58 ], [ 0.000000e+00, %26 ], [ 0.000000e+00, %50 ], [ 1.000000e+00, %55 ]
+59:                                               ; preds = %54, %49, %57, %25
+  %.sink = phi double [ %58, %57 ], [ 0.000000e+00, %25 ], [ 0.000000e+00, %49 ], [ 1.000000e+00, %54 ]
   store double %.sink, ptr %4, align 8
   ret void
 }

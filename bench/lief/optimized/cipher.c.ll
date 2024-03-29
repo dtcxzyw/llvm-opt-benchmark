@@ -998,9 +998,8 @@ mbedtls_cipher_get_block_size.exit58:             ; preds = %74, %76
 switch.hole_check:                                ; preds = %6
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -33, %switch.maskindex
-  %80 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %80, 0
-  br i1 %switch.lobit.not, label %11, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %11
 
 switch.lookup:                                    ; preds = %switch.hole_check, %46, %11, %14, %mbedtls_cipher_get_block_size.exit54, %26, %15, %3, %mbedtls_cipher_get_block_size.exit58, %mbedtls_cipher_get_block_size.exit56
   %.0 = phi i32 [ %73, %mbedtls_cipher_get_block_size.exit56 ], [ 0, %mbedtls_cipher_get_block_size.exit58 ], [ -24832, %3 ], [ 0, %11 ], [ %., %15 ], [ %.48, %26 ], [ %61, %mbedtls_cipher_get_block_size.exit54 ], [ -24704, %14 ], [ %spec.select, %46 ], [ 0, %switch.hole_check ]

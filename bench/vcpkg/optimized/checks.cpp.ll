@@ -130,9 +130,8 @@ define dso_local void @_ZNK5vcpkg8LineInfo9to_stringB5cxx11Ev(ptr dead_on_unwind
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN5vcpkg6Checks22final_cleanup_and_exitEi(i32 noundef %0) local_unnamed_addr #1 {
   %2 = atomicrmw xchg ptr @_ZZN5vcpkg6Checks22final_cleanup_and_exitEiE12have_entered, i8 1 seq_cst, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %5, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %5
 
 4:                                                ; preds = %1
   tail call void @abort() #15
@@ -311,9 +310,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg5Debug7printlnIJNS_15LocalizedStrin
   %2 = alloca %"struct.vcpkg::StringView", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load atomic i8, ptr @_ZN5vcpkg5Debug11g_debuggingE seq_cst, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %20, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %20
 
 6:                                                ; preds = %1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
@@ -2459,9 +2457,8 @@ _ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit.loopexit.i: ; pre
 
 _ZN3fmt3v106detail4fillINS0_8appenderEcEET_S4_mRKNS1_6fill_tIT0_EE.exit: ; preds = %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit.loopexit.i, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i, %.lr.ph.i, %5
   %66 = load i8, ptr %4, align 8
-  %67 = and i8 %66, 1
-  %.not.i = icmp eq i8 %67, 0
-  br i1 %.not.i, label %71, label %68
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %71
 
 68:                                               ; preds = %_ZN3fmt3v106detail4fillINS0_8appenderEcEET_S4_mRKNS1_6fill_tIT0_EE.exit
   %69 = getelementptr inbounds i8, ptr %4, i64 8

@@ -11,25 +11,24 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Info_create(ptr noundef writeonly %0) #0 {
   %2 = load i8, ptr @ompi_mpi_param_check, align 1
-  %3 = and i8 %2, 1
-  %4 = icmp ne i8 %3, 0
-  %5 = icmp eq ptr %0, null
-  %or.cond = and i1 %5, %4
-  br i1 %or.cond, label %.sink.split, label %6
+  %3 = trunc i8 %2 to i1
+  %4 = icmp eq ptr %0, null
+  %or.cond = and i1 %4, %3
+  br i1 %or.cond, label %.sink.split, label %5
 
-6:                                                ; preds = %1
-  %7 = tail call ptr @ompi_info_allocate() #2
-  store ptr %7, ptr %0, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %.sink.split, label %10
+5:                                                ; preds = %1
+  %6 = tail call ptr @ompi_info_allocate() #2
+  store ptr %6, ptr %0, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %.sink.split, label %9
 
-.sink.split:                                      ; preds = %6, %1
-  %.sink = phi i32 [ 34, %1 ], [ 39, %6 ]
-  %9 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.sink, ptr noundef nonnull @FUNC_NAME) #2
-  br label %10
+.sink.split:                                      ; preds = %5, %1
+  %.sink = phi i32 [ 34, %1 ], [ 39, %5 ]
+  %8 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.sink, ptr noundef nonnull @FUNC_NAME) #2
+  br label %9
 
-10:                                               ; preds = %.sink.split, %6
-  %.0 = phi i32 [ 0, %6 ], [ %9, %.sink.split ]
+9:                                                ; preds = %.sink.split, %5
+  %.0 = phi i32 [ 0, %5 ], [ %8, %.sink.split ]
   ret i32 %.0
 }
 

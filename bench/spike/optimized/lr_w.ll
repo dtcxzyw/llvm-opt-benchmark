@@ -131,9 +131,8 @@ define noundef i64 @_Z15fast_rv32i_lr_wP11processor_t6insn_tm(ptr nocapture noun
 25:                                               ; preds = %15
   %26 = getelementptr inbounds i8, ptr %24, i64 3801
   %27 = load i8, ptr %26, align 1
-  %28 = and i8 %27, 1
-  %.not24.i = icmp eq i8 %28, 0
-  br i1 %.not24.i, label %_ZN5mmu_t13load_reservedIiEET_m.exit, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %_ZN5mmu_t13load_reservedIiEET_m.exit
 
 29:                                               ; preds = %25
   store i8 4, ptr %5, align 8
@@ -244,9 +243,8 @@ define noundef i64 @_Z15fast_rv64i_lr_wP11processor_t6insn_tm(ptr nocapture noun
 25:                                               ; preds = %15
   %26 = getelementptr inbounds i8, ptr %24, i64 3801
   %27 = load i8, ptr %26, align 1
-  %28 = and i8 %27, 1
-  %.not24.i = icmp eq i8 %28, 0
-  br i1 %.not24.i, label %_ZN5mmu_t13load_reservedIiEET_m.exit, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %_ZN5mmu_t13load_reservedIiEET_m.exit
 
 29:                                               ; preds = %25
   store i8 4, ptr %5, align 8
@@ -341,9 +339,8 @@ define noundef i64 @_Z17logged_rv32i_lr_wP11processor_t6insn_tm(ptr noundef %0, 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds i8, ptr %24, i64 3801
   %27 = load i8, ptr %26, align 1
-  %28 = and i8 %27, 1
-  %.not24.i = icmp eq i8 %28, 0
-  br i1 %.not24.i, label %_ZN5mmu_t13load_reservedIiEET_m.exit, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %_ZN5mmu_t13load_reservedIiEET_m.exit
 
 29:                                               ; preds = %25
   store i8 4, ptr %5, align 8
@@ -497,9 +494,8 @@ define noundef i64 @_Z17logged_rv64i_lr_wP11processor_t6insn_tm(ptr noundef %0, 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds i8, ptr %24, i64 3801
   %27 = load i8, ptr %26, align 1
-  %28 = and i8 %27, 1
-  %.not24.i = icmp eq i8 %28, 0
-  br i1 %.not24.i, label %_ZN5mmu_t13load_reservedIiEET_m.exit, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %_ZN5mmu_t13load_reservedIiEET_m.exit
 
 29:                                               ; preds = %25
   store i8 4, ptr %5, align 8
@@ -667,9 +663,8 @@ define noundef i64 @_Z15fast_rv32e_lr_wP11processor_t6insn_tm(ptr nocapture noun
 32:                                               ; preds = %24
   %33 = getelementptr inbounds i8, ptr %31, i64 3801
   %34 = load i8, ptr %33, align 1
-  %35 = and i8 %34, 1
-  %.not24.i = icmp eq i8 %35, 0
-  br i1 %.not24.i, label %_ZN5mmu_t13load_reservedIiEET_m.exit, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %_ZN5mmu_t13load_reservedIiEET_m.exit
 
 36:                                               ; preds = %32
   store i8 4, ptr %5, align 8
@@ -798,9 +793,8 @@ define noundef i64 @_Z15fast_rv64e_lr_wP11processor_t6insn_tm(ptr nocapture noun
 32:                                               ; preds = %24
   %33 = getelementptr inbounds i8, ptr %31, i64 3801
   %34 = load i8, ptr %33, align 1
-  %35 = and i8 %34, 1
-  %.not24.i = icmp eq i8 %35, 0
-  br i1 %.not24.i, label %_ZN5mmu_t13load_reservedIiEET_m.exit, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %_ZN5mmu_t13load_reservedIiEET_m.exit
 
 36:                                               ; preds = %32
   store i8 4, ptr %5, align 8
@@ -927,9 +921,8 @@ define noundef i64 @_Z17logged_rv32e_lr_wP11processor_t6insn_tm(ptr noundef %0, 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds i8, ptr %31, i64 3801
   %34 = load i8, ptr %33, align 1
-  %35 = and i8 %34, 1
-  %.not24.i = icmp eq i8 %35, 0
-  br i1 %.not24.i, label %_ZN5mmu_t13load_reservedIiEET_m.exit, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %_ZN5mmu_t13load_reservedIiEET_m.exit
 
 36:                                               ; preds = %32
   store i8 4, ptr %5, align 8
@@ -1115,9 +1108,8 @@ define noundef i64 @_Z17logged_rv64e_lr_wP11processor_t6insn_tm(ptr noundef %0, 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds i8, ptr %31, i64 3801
   %34 = load i8, ptr %33, align 1
-  %35 = and i8 %34, 1
-  %.not24.i = icmp eq i8 %35, 0
-  br i1 %.not24.i, label %_ZN5mmu_t13load_reservedIiEET_m.exit, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %_ZN5mmu_t13load_reservedIiEET_m.exit
 
 36:                                               ; preds = %32
   store i8 4, ptr %5, align 8
@@ -1245,9 +1237,8 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %84, %85
 define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1549,9 +1540,8 @@ define linkonce_odr ptr @_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

@@ -20,9 +20,8 @@ define dso_local void @pgstat_progress_start_command(i32 noundef %0, i32 noundef
 
 5:                                                ; preds = %2
   %6 = load i8, ptr @pgstat_track_activities, align 1
-  %7 = and i8 %6, 1
-  %.not24 = icmp eq i8 %7, 0
-  br i1 %.not24, label %33, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %33
 
 8:                                                ; preds = %5
   %9 = load volatile i32, ptr @CritSectionCount, align 4
@@ -87,9 +86,8 @@ define dso_local void @pgstat_progress_update_param(i32 noundef %0, i64 noundef 
 
 4:                                                ; preds = %2
   %5 = load i8, ptr @pgstat_track_activities, align 1
-  %6 = and i8 %5, 1
-  %.not5 = icmp eq i8 %6, 0
-  br i1 %.not5, label %19, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %19
 
 7:                                                ; preds = %4
   %8 = load volatile i32, ptr @CritSectionCount, align 4
@@ -124,9 +122,8 @@ define dso_local void @pgstat_progress_incr_param(i32 noundef %0, i64 noundef %1
 
 4:                                                ; preds = %2
   %5 = load i8, ptr @pgstat_track_activities, align 1
-  %6 = and i8 %5, 1
-  %.not5 = icmp eq i8 %6, 0
-  br i1 %.not5, label %21, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %21
 
 7:                                                ; preds = %4
   %8 = load volatile i32, ptr @CritSectionCount, align 4
@@ -194,9 +191,8 @@ define dso_local void @pgstat_progress_parallel_incr_param(i32 noundef %0, i64 n
 
 22:                                               ; preds = %20
   %23 = load i8, ptr @pgstat_track_activities, align 1
-  %24 = and i8 %23, 1
-  %.not5.i = icmp eq i8 %24, 0
-  br i1 %.not5.i, label %pgstat_progress_incr_param.exit, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %pgstat_progress_incr_param.exit
 
 25:                                               ; preds = %22
   %26 = load volatile i32, ptr @CritSectionCount, align 4
@@ -239,11 +235,10 @@ define dso_local void @pgstat_progress_update_multi_param(i32 noundef %0, ptr no
 
 5:                                                ; preds = %3
   %6 = load i8, ptr @pgstat_track_activities, align 1
-  %7 = and i8 %6, 1
-  %.not15 = icmp eq i8 %7, 0
-  %8 = icmp eq i32 %0, 0
-  %or.cond = or i1 %8, %.not15
-  br i1 %or.cond, label %27, label %9
+  %7 = trunc i8 %6 to i1
+  %8 = icmp ne i32 %0, 0
+  %or.cond.not = and i1 %8, %7
+  br i1 %or.cond.not, label %9, label %27
 
 9:                                                ; preds = %5
   %10 = load volatile i32, ptr @CritSectionCount, align 4
@@ -296,9 +291,8 @@ define dso_local void @pgstat_progress_end_command() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0
   %3 = load i8, ptr @pgstat_track_activities, align 1
-  %4 = and i8 %3, 1
-  %.not6 = icmp eq i8 %4, 0
-  br i1 %.not6, label %19, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %19
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 256

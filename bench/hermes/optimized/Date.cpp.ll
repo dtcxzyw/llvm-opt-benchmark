@@ -2045,9 +2045,8 @@ if.end:                                           ; preds = %cond.true.i
 if.then5:                                         ; preds = %if.end
   %throwOnError = getelementptr inbounds i8, ptr %arrayidx, i64 9
   %7 = load i8, ptr %throwOnError, align 1
-  %8 = and i8 %7, 1
-  %tobool6.not = icmp eq i8 %8, 0
-  br i1 %tobool6.not, label %if.end10, label %if.then7
+  %tobool6 = trunc i8 %7 to i1
+  br i1 %tobool6, label %if.then7, label %if.end10
 
 if.then7:                                         ; preds = %if.then5
   %rightKind_.i3.i15 = getelementptr inbounds i8, ptr %ref.tmp8, i64 24
@@ -2057,21 +2056,21 @@ if.then7:                                         ; preds = %if.then5
   %rightSize_.i5.i17 = getelementptr inbounds i8, ptr %ref.tmp8, i64 40
   store i64 0, ptr %rightSize_.i5.i17, align 8
   store ptr @.str.1, ptr %ref.tmp8, align 8
-  %9 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
-  store i32 3, ptr %9, align 8
+  %8 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
+  store i32 3, ptr %8, align 8
   %call9 = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp8) #14
   br label %return
 
 if.end10:                                         ; preds = %if.then5
   %identifierTable_.i.i = getelementptr inbounds i8, ptr %runtime, i64 9264
   %call.i.i22 = tail call noundef ptr @_ZN6hermes2vm15IdentifierTable13getStringPrimERNS0_7RuntimeENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 319) #14
-  %10 = ptrtoint ptr %call.i.i22 to i64
-  %or.i.i.i = or i64 %10, -844424930131968
+  %9 = ptrtoint ptr %call.i.i22 to i64
+  %or.i.i.i = or i64 %9, -844424930131968
   br label %return
 
 if.end16:                                         ; preds = %if.end
-  %11 = getelementptr inbounds i8, ptr %str, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 32, i1 false)
+  %10 = getelementptr inbounds i8, ptr %str, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 32, i1 false)
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %str, align 8
   %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 8
@@ -2079,31 +2078,30 @@ if.end16:                                         ; preds = %if.end
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %isUTC = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %12 = load i8, ptr %isUTC, align 8
-  %13 = and i8 %12, 1
-  %tobool17.not = icmp eq i8 %13, 0
-  br i1 %tobool17.not, label %if.then18, label %if.else
+  %11 = load i8, ptr %isUTC, align 8
+  %tobool17 = trunc i8 %11 to i1
+  br i1 %tobool17, label %if.else, label %if.then18
 
 if.then18:                                        ; preds = %if.end16
   %call19 = call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %4) #14
-  %14 = load ptr, ptr %arrayidx, align 16
+  %12 = load ptr, ptr %arrayidx, align 16
   %sub = fsub double %call19, %4
-  call void %14(double noundef %call19, double noundef %sub, ptr noundef nonnull align 8 dereferenceable(16) %str) #14
+  call void %12(double noundef %call19, double noundef %sub, ptr noundef nonnull align 8 dereferenceable(16) %str) #14
   br label %if.end21
 
 if.else:                                          ; preds = %if.end16
-  %15 = load ptr, ptr %arrayidx, align 16
-  call void %15(double noundef %4, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(16) %str) #14
+  %13 = load ptr, ptr %arrayidx, align 16
+  call void %13(double noundef %4, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(16) %str) #14
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else, %if.then18
-  %16 = load ptr, ptr %str, align 8
-  %17 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %call25 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %16, i64 %conv.i.i)
-  %18 = extractvalue { i32, i64 } %call25, 0
-  %19 = extractvalue { i32, i64 } %call25, 1
-  %cmp.i.i23 = icmp eq i32 %18, 0
+  %14 = load ptr, ptr %str, align 8
+  %15 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %conv.i.i = zext i32 %15 to i64
+  %call25 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %14, i64 %conv.i.i)
+  %16 = extractvalue { i32, i64 } %call25, 0
+  %17 = extractvalue { i32, i64 } %call25, 1
+  %cmp.i.i23 = icmp eq i32 %16, 0
   br i1 %cmp.i.i23, label %if.then.i, label %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit
 
 if.then.i:                                        ; preds = %if.end21
@@ -2111,17 +2109,17 @@ if.then.i:                                        ; preds = %if.end21
   unreachable
 
 _ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit: ; preds = %if.end21
-  %20 = load ptr, ptr %str, align 8
-  %cmp.i.i.i.i = icmp eq ptr %20, %add.ptr.i.i.i.i.i.i
+  %18 = load ptr, ptr %str, align 8
+  %cmp.i.i.i.i = icmp eq ptr %18, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit
-  call void @free(ptr noundef %20) #14
+  call void @free(ptr noundef %18) #14
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit, %if.end10, %if.then7, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call2, %if.then ], [ 1, %if.end10 ], [ %call9, %if.then7 ], [ 1, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit ], [ 1, %if.then.i.i.i ]
-  %retval.sroa.5.0 = phi i64 [ undef, %if.then ], [ %or.i.i.i, %if.end10 ], [ undef, %if.then7 ], [ %19, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit ], [ %19, %if.then.i.i.i ]
+  %retval.sroa.0.0 = phi i32 [ %call2, %if.then ], [ %call9, %if.then7 ], [ 1, %if.end10 ], [ 1, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit ], [ 1, %if.then.i.i.i ]
+  %retval.sroa.5.0 = phi i64 [ undef, %if.then ], [ undef, %if.then7 ], [ %or.i.i.i, %if.end10 ], [ %17, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit ], [ %17, %if.then.i.i.i ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -2302,9 +2300,8 @@ if.end:                                           ; preds = %cond.true.i
 if.end10:                                         ; preds = %if.end
   %isUTC = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %6 = load i8, ptr %isUTC, align 4
-  %7 = and i8 %6, 1
-  %tobool11.not = icmp eq i8 %7, 0
-  br i1 %tobool11.not, label %if.then12, label %if.end14
+  %tobool11 = trunc i8 %6 to i1
+  br i1 %tobool11, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
   %call13 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %4) #14
@@ -2312,8 +2309,8 @@ if.then12:                                        ; preds = %if.end10
 
 if.end14:                                         ; preds = %if.then12, %if.end10
   %t.0 = phi double [ %4, %if.end10 ], [ %call13, %if.then12 ]
-  %8 = load i32, ptr %arrayidx, align 8
-  switch i32 %8, label %sw.epilog [
+  %7 = load i32, ptr %arrayidx, align 8
+  switch i32 %7, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb17
     i32 2, label %sw.bb19
@@ -2372,9 +2369,9 @@ sw.bb34:                                          ; preds = %if.end14
 
 sw.epilog:                                        ; preds = %sw.bb34, %sw.bb32, %sw.bb30, %sw.bb28, %sw.bb26, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb, %if.end14
   %result.0 = phi double [ 0x7FF8000000000000, %if.end14 ], [ %div, %sw.bb34 ], [ %call33, %sw.bb32 ], [ %call31, %sw.bb30 ], [ %call29, %sw.bb28 ], [ %call27, %sw.bb26 ], [ %conv25, %sw.bb23 ], [ %call22, %sw.bb21 ], [ %conv, %sw.bb19 ], [ %sub, %sw.bb17 ], [ %call16, %sw.bb ]
-  %9 = fcmp uno double %result.0, 0.000000e+00
-  %10 = bitcast double %result.0 to i64
-  %retval.sroa.0.0.i = select i1 %9, i64 9221120237041090560, i64 %10
+  %8 = fcmp uno double %result.0, 0.000000e+00
+  %9 = bitcast double %result.0 to i64
+  %retval.sroa.0.0.i = select i1 %8, i64 9221120237041090560, i64 %9
   br label %return
 
 return:                                           ; preds = %if.end, %sw.epilog, %if.then

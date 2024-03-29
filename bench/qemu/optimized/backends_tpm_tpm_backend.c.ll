@@ -129,8 +129,7 @@ define dso_local zeroext i1 @tpm_backend_had_startup_error(ptr nocapture noundef
 entry:
   %had_startup_error = getelementptr inbounds i8, ptr %s, i64 49
   %0 = load i8, ptr %had_startup_error, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

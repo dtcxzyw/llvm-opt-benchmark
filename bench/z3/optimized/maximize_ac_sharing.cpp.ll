@@ -140,11 +140,13 @@ entry:
 _ZNK9func_decl14is_associativeEv.exit:            ; preds = %entry
   %m_left_assoc.i.i = getelementptr inbounds i8, ptr %0, i64 17
   %bf.load.i.i = load i16, ptr %m_left_assoc.i.i, align 1
-  %1 = and i16 %bf.load.i.i, 3
-  %2 = icmp ne i16 %1, 3
-  %cmp = icmp ult i32 %num_args, 3
-  %or.cond48 = or i1 %cmp, %2
-  br i1 %or.cond48, label %return, label %if.end4
+  %bf.cast.i.i = trunc i16 %bf.load.i.i to i1
+  %1 = and i16 %bf.load.i.i, 2
+  %bf.cast4.i.i = icmp ne i16 %1, 0
+  %2 = and i1 %bf.cast4.i.i, %bf.cast.i.i
+  %cmp = icmp ugt i32 %num_args, 2
+  %or.cond48.not = and i1 %cmp, %2
+  br i1 %or.cond48.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %_ZNK9func_decl14is_associativeEv.exit
   %m_kinds = getelementptr inbounds i8, ptr %this, i64 104
@@ -1454,41 +1456,40 @@ define hidden void @_ZN19maximize_ac_sharing10push_scopeEv(ptr noundef nonnull a
 entry:
   %m_init.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %m_init.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.then.i, label %_ZN19maximize_ac_sharing4initEv.exit
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %_ZN19maximize_ac_sharing4initEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %vtable.i = load ptr, ptr %this, align 8
-  %2 = load ptr, ptr %vtable.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(112) %this)
+  %1 = load ptr, ptr %vtable.i, align 8
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(112) %this)
   store i8 1, ptr %m_init.i, align 8
   br label %_ZN19maximize_ac_sharing4initEv.exit
 
 _ZN19maximize_ac_sharing4initEv.exit:             ; preds = %entry, %if.then.i
   %m_scopes = getelementptr inbounds i8, ptr %this, i64 96
   %m_entries = getelementptr inbounds i8, ptr %this, i64 88
-  %3 = load ptr, ptr %m_entries, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %m_entries, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %_ZNK6vectorIPN19maximize_ac_sharing5entryELb0EjE4sizeEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN19maximize_ac_sharing4initEv.exit
-  %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 -4
-  %4 = load i32, ptr %arrayidx.i, align 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 -4
+  %3 = load i32, ptr %arrayidx.i, align 4
   br label %_ZNK6vectorIPN19maximize_ac_sharing5entryELb0EjE4sizeEv.exit
 
 _ZNK6vectorIPN19maximize_ac_sharing5entryELb0EjE4sizeEv.exit: ; preds = %_ZN19maximize_ac_sharing4initEv.exit, %if.end.i
-  %retval.0.i = phi i32 [ %4, %if.end.i ], [ 0, %_ZN19maximize_ac_sharing4initEv.exit ]
-  %5 = load ptr, ptr %m_scopes, align 8
-  %cmp.i1 = icmp eq ptr %5, null
+  %retval.0.i = phi i32 [ %3, %if.end.i ], [ 0, %_ZN19maximize_ac_sharing4initEv.exit ]
+  %4 = load ptr, ptr %m_scopes, align 8
+  %cmp.i1 = icmp eq ptr %4, null
   br i1 %cmp.i1, label %if.then.i4, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %_ZNK6vectorIPN19maximize_ac_sharing5entryELb0EjE4sizeEv.exit
-  %arrayidx.i2 = getelementptr inbounds i8, ptr %5, i64 -4
-  %6 = load i32, ptr %arrayidx.i2, align 4
-  %arrayidx4.i = getelementptr inbounds i8, ptr %5, i64 -8
-  %7 = load i32, ptr %arrayidx4.i, align 4
-  %cmp5.i = icmp eq i32 %6, %7
+  %arrayidx.i2 = getelementptr inbounds i8, ptr %4, i64 -4
+  %5 = load i32, ptr %arrayidx.i2, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %4, i64 -8
+  %6 = load i32, ptr %arrayidx4.i, align 4
+  %cmp5.i = icmp eq i32 %5, %6
   br i1 %cmp5.i, label %if.then.i4, label %_ZN6vectorIjLb0EjE9push_backEOj.exit
 
 if.then.i4:                                       ; preds = %lor.lhs.false.i, %_ZNK6vectorIPN19maximize_ac_sharing5entryELb0EjE4sizeEv.exit
@@ -1499,15 +1500,15 @@ if.then.i4:                                       ; preds = %lor.lhs.false.i, %_
   br label %_ZN6vectorIjLb0EjE9push_backEOj.exit
 
 _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %lor.lhs.false.i, %if.then.i4
-  %8 = phi i32 [ %.pre1.i, %if.then.i4 ], [ %6, %lor.lhs.false.i ]
-  %9 = phi ptr [ %.pre.i, %if.then.i4 ], [ %5, %lor.lhs.false.i ]
-  %idx.ext.i = zext i32 %8 to i64
-  %add.ptr.i = getelementptr inbounds i32, ptr %9, i64 %idx.ext.i
+  %7 = phi i32 [ %.pre1.i, %if.then.i4 ], [ %5, %lor.lhs.false.i ]
+  %8 = phi ptr [ %.pre.i, %if.then.i4 ], [ %4, %lor.lhs.false.i ]
+  %idx.ext.i = zext i32 %7 to i64
+  %add.ptr.i = getelementptr inbounds i32, ptr %8, i64 %idx.ext.i
   store i32 %retval.0.i, ptr %add.ptr.i, align 4
-  %10 = load ptr, ptr %m_scopes, align 8
-  %arrayidx10.i = getelementptr inbounds i8, ptr %10, i64 -4
-  %11 = load i32, ptr %arrayidx10.i, align 4
-  %inc.i = add i32 %11, 1
+  %9 = load ptr, ptr %m_scopes, align 8
+  %arrayidx10.i = getelementptr inbounds i8, ptr %9, i64 -4
+  %10 = load i32, ptr %arrayidx10.i, align 4
+  %inc.i = add i32 %10, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   %m_region = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6region10push_scopeEv(ptr noundef nonnull align 8 dereferenceable(40) %m_region)

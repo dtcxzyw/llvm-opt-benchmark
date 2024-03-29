@@ -49,7 +49,7 @@ define dso_local noundef nonnull ptr @init_slurm_jc_conf() local_unnamed_addr #0
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %.b6 = load i1, ptr @slurm_jc_conf_inited, align 1
-  br i1 %.b6, label %89, label %5
+  br i1 %.b6, label %87, label %5
 
 5:                                                ; preds = %0
   store ptr null, ptr %3, align 8
@@ -195,60 +195,58 @@ _read_slurm_jc_conf.exit:                         ; preds = %11, %45, %46
   %61 = call ptr @init_buf(i32 noundef 0) #9
   store ptr %61, ptr @slurm_jc_conf_buf, align 8
   %62 = load i8, ptr @slurm_jc_conf, align 8
-  %63 = and i8 %62, 1
-  %64 = icmp ne i8 %63, 0
-  call void @packbool(i1 noundef zeroext %64, ptr noundef %61) #9
-  %65 = load ptr, ptr getelementptr inbounds (%struct.slurm_jc_conf, ptr @slurm_jc_conf, i64 0, i32 1), align 8
-  %.not9.i = icmp eq ptr %65, null
-  br i1 %.not9.i, label %70, label %66
+  %63 = trunc i8 %62 to i1
+  call void @packbool(i1 noundef zeroext %63, ptr noundef %61) #9
+  %64 = load ptr, ptr getelementptr inbounds (%struct.slurm_jc_conf, ptr @slurm_jc_conf, i64 0, i32 1), align 8
+  %.not9.i = icmp eq ptr %64, null
+  br i1 %.not9.i, label %69, label %65
 
-66:                                               ; preds = %60
-  %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #11
-  %68 = trunc i64 %67 to i32
-  %69 = add i32 %68, 1
-  br label %70
+65:                                               ; preds = %60
+  %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #11
+  %67 = trunc i64 %66 to i32
+  %68 = add i32 %67, 1
+  br label %69
 
-70:                                               ; preds = %66, %60
-  %.04.i = phi i32 [ %69, %66 ], [ 0, %60 ]
-  %71 = load ptr, ptr @slurm_jc_conf_buf, align 8
-  call void @packmem(ptr noundef %65, i32 noundef %.04.i, ptr noundef %71) #9
-  %72 = load ptr, ptr getelementptr inbounds (%struct.slurm_jc_conf, ptr @slurm_jc_conf, i64 0, i32 2), align 8
-  %.not10.i8 = icmp eq ptr %72, null
-  br i1 %.not10.i8, label %77, label %73
+69:                                               ; preds = %65, %60
+  %.04.i = phi i32 [ %68, %65 ], [ 0, %60 ]
+  %70 = load ptr, ptr @slurm_jc_conf_buf, align 8
+  call void @packmem(ptr noundef %64, i32 noundef %.04.i, ptr noundef %70) #9
+  %71 = load ptr, ptr getelementptr inbounds (%struct.slurm_jc_conf, ptr @slurm_jc_conf, i64 0, i32 2), align 8
+  %.not10.i8 = icmp eq ptr %71, null
+  br i1 %.not10.i8, label %76, label %72
 
-73:                                               ; preds = %70
-  %74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #11
-  %75 = trunc i64 %74 to i32
-  %76 = add i32 %75, 1
-  br label %77
+72:                                               ; preds = %69
+  %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #11
+  %74 = trunc i64 %73 to i32
+  %75 = add i32 %74, 1
+  br label %76
 
-77:                                               ; preds = %73, %70
-  %.03.i = phi i32 [ %76, %73 ], [ 0, %70 ]
-  %78 = load ptr, ptr @slurm_jc_conf_buf, align 8
-  call void @packmem(ptr noundef %72, i32 noundef %.03.i, ptr noundef %78) #9
-  %79 = load ptr, ptr getelementptr inbounds (%struct.slurm_jc_conf, ptr @slurm_jc_conf, i64 0, i32 3), align 8
-  %.not11.i9 = icmp eq ptr %79, null
-  br i1 %.not11.i9, label %_pack_slurm_jc_conf_buf.exit, label %80
+76:                                               ; preds = %72, %69
+  %.03.i = phi i32 [ %75, %72 ], [ 0, %69 ]
+  %77 = load ptr, ptr @slurm_jc_conf_buf, align 8
+  call void @packmem(ptr noundef %71, i32 noundef %.03.i, ptr noundef %77) #9
+  %78 = load ptr, ptr getelementptr inbounds (%struct.slurm_jc_conf, ptr @slurm_jc_conf, i64 0, i32 3), align 8
+  %.not11.i9 = icmp eq ptr %78, null
+  br i1 %.not11.i9, label %_pack_slurm_jc_conf_buf.exit, label %79
 
-80:                                               ; preds = %77
-  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %79) #11
-  %82 = trunc i64 %81 to i32
-  %83 = add i32 %82, 1
+79:                                               ; preds = %76
+  %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #11
+  %81 = trunc i64 %80 to i32
+  %82 = add i32 %81, 1
   br label %_pack_slurm_jc_conf_buf.exit
 
-_pack_slurm_jc_conf_buf.exit:                     ; preds = %77, %80
-  %.0.i10 = phi i32 [ %83, %80 ], [ 0, %77 ]
-  %84 = load ptr, ptr @slurm_jc_conf_buf, align 8
-  call void @packmem(ptr noundef %79, i32 noundef %.0.i10, ptr noundef %84) #9
-  %85 = load i8, ptr getelementptr inbounds (%struct.slurm_jc_conf, ptr @slurm_jc_conf, i64 0, i32 4), align 8
-  %86 = and i8 %85, 1
-  %87 = icmp ne i8 %86, 0
-  %88 = load ptr, ptr @slurm_jc_conf_buf, align 8
-  call void @packbool(i1 noundef zeroext %87, ptr noundef %88) #9
+_pack_slurm_jc_conf_buf.exit:                     ; preds = %76, %79
+  %.0.i10 = phi i32 [ %82, %79 ], [ 0, %76 ]
+  %83 = load ptr, ptr @slurm_jc_conf_buf, align 8
+  call void @packmem(ptr noundef %78, i32 noundef %.0.i10, ptr noundef %83) #9
+  %84 = load i8, ptr getelementptr inbounds (%struct.slurm_jc_conf, ptr @slurm_jc_conf, i64 0, i32 4), align 8
+  %85 = trunc i8 %84 to i1
+  %86 = load ptr, ptr @slurm_jc_conf_buf, align 8
+  call void @packbool(i1 noundef zeroext %85, ptr noundef %86) #9
   store i1 true, ptr @slurm_jc_conf_inited, align 1
-  br label %89
+  br label %87
 
-89:                                               ; preds = %0, %_pack_slurm_jc_conf_buf.exit
+87:                                               ; preds = %0, %_pack_slurm_jc_conf_buf.exit
   ret ptr @slurm_jc_conf
 }
 

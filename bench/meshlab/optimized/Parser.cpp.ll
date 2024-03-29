@@ -1268,9 +1268,8 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %9, %14
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %22, i64 %24
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not3 = icmp eq i8 %27, 0
-  br i1 %.not3, label %.lr.ph, label %.loopexit
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %.lr.ph
   tail call void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
@@ -1279,9 +1278,8 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %9, %14
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %22, i64 %30
   %32 = load i8, ptr %31, align 1
-  %33 = and i8 %32, 1
-  %.not = icmp eq i8 %33, 0
-  br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !7
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %8
   ret void
@@ -1296,9 +1294,8 @@ define noundef zeroext i1 @_ZN14VrmlTranslator6Parser7StartOfEi(ptr nocapture no
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %3, i64 %7
   %9 = load i8, ptr %8, align 1
-  %10 = and i8 %9, 1
-  %11 = icmp ne i8 %10, 0
-  ret i1 %11
+  %10 = trunc i8 %9 to i1
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1318,9 +1315,8 @@ define noundef zeroext i1 @_ZN14VrmlTranslator6Parser13WeakSeparatorEiii(ptr noc
   %12 = sext i32 %7 to i64
   %13 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %11, i64 %12
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %16, label %.critedge
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1349,24 +1345,21 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %16, %21
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %29, i64 %31
   %33 = load i8, ptr %32, align 1
-  %34 = and i8 %33, 1
-  %.not811 = icmp eq i8 %34, 0
-  br i1 %.not811, label %.lr.ph, label %.critedge
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %43
   %35 = phi i64 [ %46, %43 ], [ %31, %_ZN14VrmlTranslator6Parser6SynErrEi.exit ]
   %36 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %11, i64 %35
   %37 = load i8, ptr %36, align 1
-  %38 = and i8 %37, 1
-  %.not9 = icmp eq i8 %38, 0
-  br i1 %.not9, label %39, label %.critedge
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %.critedge, label %39
 
 39:                                               ; preds = %.lr.ph
   %40 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 0, i64 %35
   %41 = load i8, ptr %40, align 1
-  %42 = and i8 %41, 1
-  %.not10 = icmp eq i8 %42, 0
-  br i1 %.not10, label %43, label %.critedge
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %.critedge, label %43
 
 43:                                               ; preds = %39
   tail call void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
@@ -1375,9 +1368,8 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %16, %21
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 %29, i64 %46
   %48 = load i8, ptr %47, align 1
-  %49 = and i8 %48, 1
-  %.not8 = icmp eq i8 %49, 0
-  br i1 %.not8, label %.lr.ph, label %.critedge, !llvm.loop !8
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %.critedge, label %.lr.ph, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph, %43, %39, %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %10, %9
   %.0 = phi i1 [ true, %9 ], [ false, %10 ], [ true, %_ZN14VrmlTranslator6Parser6SynErrEi.exit ], [ false, %.lr.ph ], [ true, %43 ], [ false, %39 ]
@@ -1475,7 +1467,7 @@ _ZN7QStringD2Ev.exit11:                           ; preds = %19, %_ZN9QtPrivate8
 
 ._crit_edge:                                      ; preds = %30
   %.pre = load ptr, ptr %26, align 8
-  %.pre22 = load i32, ptr %.pre, align 8
+  %.pre21 = load i32, ptr %.pre, align 8
   br label %37
 
 31:                                               ; preds = %1
@@ -1501,12 +1493,12 @@ _ZN7QStringD2Ev.exit11:                           ; preds = %19, %_ZN9QtPrivate8
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %.lr.ph.i12
-  %lpad.loopexit17 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.lr.ph.i
-  %lpad.loopexit20 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
@@ -1516,26 +1508,26 @@ _ZN7QStringD2Ev.exit11:                           ; preds = %19, %_ZN9QtPrivate8
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit17, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit20, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit16, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   br label %65
 
 37:                                               ; preds = %._crit_edge, %25
-  %38 = phi i32 [ %.pre22, %._crit_edge ], [ %28, %25 ]
+  %38 = phi i32 [ %.pre21, %._crit_edge ], [ %28, %25 ]
   %39 = icmp eq i32 %38, 11
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %37
   invoke void @_ZN14VrmlTranslator6Parser16ProfileStatementEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
-          to label %._crit_edge23 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %._crit_edge22 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-._crit_edge23:                                    ; preds = %40
-  %.pre24 = load ptr, ptr %26, align 8
-  %.pre25 = load i32, ptr %.pre24, align 8
+._crit_edge22:                                    ; preds = %40
+  %.pre23 = load ptr, ptr %26, align 8
+  %.pre24 = load i32, ptr %.pre23, align 8
   br label %41
 
-41:                                               ; preds = %._crit_edge23, %37
-  %42 = phi i32 [ %.pre25, %._crit_edge23 ], [ %38, %37 ]
+41:                                               ; preds = %._crit_edge22, %37
+  %42 = phi i32 [ %.pre24, %._crit_edge22 ], [ %38, %37 ]
   %43 = icmp eq i32 %42, 12
   br i1 %43, label %.lr.ph.i, label %_ZN14VrmlTranslator6Parser19ComponentStatementsEv.exit
 
@@ -1569,25 +1561,23 @@ _ZN14VrmlTranslator6Parser14MetaStatementsEv.exit: ; preds = %.noexc13, %_ZN14Vr
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 1, i64 %53
   %55 = load i8, ptr %54, align 1
-  %56 = and i8 %55, 1
-  %.not2.i = icmp eq i8 %56, 0
-  br i1 %.not2.i, label %_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit, label %.lr.ph.i14
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %.lr.ph.i14, label %_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit
 
-.lr.ph.i14:                                       ; preds = %_ZN14VrmlTranslator6Parser14MetaStatementsEv.exit, %.noexc16
+.lr.ph.i14:                                       ; preds = %_ZN14VrmlTranslator6Parser14MetaStatementsEv.exit, %.noexc15
   invoke void @_ZN14VrmlTranslator6Parser9StatementER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %.noexc16 unwind label %.loopexit
+          to label %.noexc15 unwind label %.loopexit
 
-.noexc16:                                         ; preds = %.lr.ph.i14
+.noexc15:                                         ; preds = %.lr.ph.i14
   %57 = load ptr, ptr %26, align 8
   %58 = load i32, ptr %57, align 8
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 1, i64 %59
   %61 = load i8, ptr %60, align 1
-  %62 = and i8 %61, 1
-  %.not.i15 = icmp eq i8 %62, 0
-  br i1 %.not.i15, label %_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit, label %.lr.ph.i14, !llvm.loop !11
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %.lr.ph.i14, label %_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit, !llvm.loop !11
 
-_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit: ; preds = %.noexc16, %_ZN14VrmlTranslator6Parser14MetaStatementsEv.exit
+_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit: ; preds = %.noexc15, %_ZN14VrmlTranslator6Parser14MetaStatementsEv.exit
   %63 = load ptr, ptr %8, align 8
   invoke void @_ZN8QDomNode11appendChildERKS_(ptr dead_on_unwind nonnull writable sret(%class.QDomNode) align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %64 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -7513,9 +7503,8 @@ define void @_ZN14VrmlTranslator6Parser10StatementsER11QDomElement(ptr noundef n
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 1, i64 %6
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not2 = icmp eq i8 %9, 0
-  br i1 %.not2, label %._crit_edge, label %.lr.ph
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   tail call void @_ZN14VrmlTranslator6Parser9StatementER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -7524,9 +7513,8 @@ define void @_ZN14VrmlTranslator6Parser10StatementsER11QDomElement(ptr noundef n
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 1, i64 %12
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -7864,9 +7852,8 @@ define void @_ZN14VrmlTranslator6Parser9StatementER11QDomElement(ptr noundef non
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 2, i64 %8
   %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %13, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %2
   tail call void @_ZN14VrmlTranslator6Parser13NodeStatementER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -9526,12 +9513,12 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i20:  ; preds = %_ZN9QtPrivate8RefCo
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %188
-  %lpad.loopexit86 = landingpad { ptr, i32 }
+  %lpad.loopexit83 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.noexc78, %.noexc77, %231, %.noexc74, %.noexc73, %196, %.noexc70, %.noexc69, %168, %.noexc66, %.noexc65, %143, %.noexc63, %.noexc62, %115, %_ZN14VrmlTranslator6Parser6ExpectEi.exit51, %190, %162, %137, %109, %.critedge.i, %81, %_ZN7QStringD2Ev.exit25, %_ZN7QStringD2Ev.exit, %39, %_ZN14VrmlTranslator6Parser6ExpectEi.exit40, %157, %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit.thread, %29
-  %lpad.loopexit.split-lp87 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp84 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
@@ -9589,8 +9576,8 @@ _ZN7QStringD2Ev.exit25:                           ; preds = %_ZN9QtPrivate8RefCo
           to label %80 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 80:                                               ; preds = %_ZN7QStringD2Ev.exit25
-  %.not84 = icmp eq i32 %79, 0
-  br i1 %.not84, label %105, label %81
+  %.not = icmp eq i32 %79, 0
+  br i1 %.not, label %105, label %81
 
 81:                                               ; preds = %80
   %82 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.170, i32 noundef 3)
@@ -9738,9 +9725,8 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %.noexc34, %110
   %131 = sext i32 %130 to i64
   %132 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 6, i64 %131
   %133 = load i8, ptr %132, align 1
-  %134 = and i8 %133, 1
-  %.not85 = icmp eq i8 %134, 0
-  br i1 %.not85, label %_ZN14VrmlTranslator6Parser8NodeBodyER11QDomElementb.exit, label %135
+  %134 = trunc i8 %133 to i1
+  br i1 %134, label %135, label %_ZN14VrmlTranslator6Parser8NodeBodyER11QDomElementb.exit
 
 135:                                              ; preds = %.noexc35
   invoke void @_ZN14VrmlTranslator6Parser15NodeBodyElementER11QDomElementb(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %17, i1 noundef zeroext %72)
@@ -9867,9 +9853,8 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i42:     ; preds = %.noexc44, %163
   %184 = sext i32 %183 to i64
   %185 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 7, i64 %184
   %186 = load i8, ptr %185, align 1
-  %187 = and i8 %186, 1
-  %.not = icmp eq i8 %187, 0
-  br i1 %.not, label %_ZN14VrmlTranslator6Parser10ScriptBodyEv.exit, label %188
+  %187 = trunc i8 %186 to i1
+  br i1 %187, label %188, label %_ZN14VrmlTranslator6Parser10ScriptBodyEv.exit
 
 188:                                              ; preds = %.noexc46
   invoke void @_ZN14VrmlTranslator6Parser17ScriptBodyElementEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
@@ -10037,7 +10022,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit40:       ; preds = %_ZN9QtPrivate8RefCo
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %225, %103, %70, %63, %62
-  %.pn17 = phi { ptr, i32 } [ %104, %103 ], [ %64, %63 ], [ %.pn15, %62 ], [ %71, %70 ], [ %.pn, %225 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit86, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp87, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn17 = phi { ptr, i32 } [ %104, %103 ], [ %64, %63 ], [ %.pn15, %62 ], [ %71, %70 ], [ %.pn, %225 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit83, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #13
   resume { ptr, i32 } %.pn17
 }
@@ -10302,17 +10287,16 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i30:  ; preds = %_ZN9QtPrivate8RefCo
   %105 = sext i32 %104 to i64
   %106 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 3, i64 %105
   %107 = load i8, ptr %106, align 1
-  %108 = and i8 %107, 1
-  %.not = icmp eq i8 %108, 0
-  br i1 %.not, label %_ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement.exit, label %109
+  %108 = trunc i8 %107 to i1
+  br i1 %108, label %109, label %_ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement.exit
 
 109:                                              ; preds = %.noexc36
   invoke void @_ZN14VrmlTranslator6Parser20InterfaceDeclarationER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %.noexc36 unwind label %.loopexit100, !llvm.loop !17
+          to label %.noexc36 unwind label %.loopexit99, !llvm.loop !17
 
 _ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement.exit: ; preds = %.noexc36
   invoke void @_ZN8QDomNode11appendChildERKS_(ptr dead_on_unwind nonnull writable sret(%class.QDomNode) align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %110 unwind label %.loopexit.split-lp101
+          to label %110 unwind label %.loopexit.split-lp100
 
 110:                                              ; preds = %_ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement.exit
   call void @_ZN8QDomNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #13
@@ -10323,7 +10307,7 @@ _ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement.exit: ; preds =
 
 114:                                              ; preds = %110
   invoke void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
-          to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit41 unwind label %.loopexit.split-lp101
+          to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit41 unwind label %.loopexit.split-lp100
 
 115:                                              ; preds = %110
   %116 = getelementptr inbounds i8, ptr %0, i64 16
@@ -10343,7 +10327,7 @@ _ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement.exit: ; preds =
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %8)
   %127 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.219)
-          to label %.noexc76 unwind label %.loopexit.split-lp101
+          to label %.noexc76 unwind label %.loopexit.split-lp100
 
 .noexc76:                                         ; preds = %120
   store ptr %127, ptr %7, align 8
@@ -10351,12 +10335,12 @@ _ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement.exit: ; preds =
   %129 = getelementptr inbounds i8, ptr %122, i64 8
   %130 = load ptr, ptr %129, align 8
   %131 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %130, ptr noundef nonnull %8)
-          to label %.noexc77 unwind label %.loopexit.split-lp101
+          to label %.noexc77 unwind label %.loopexit.split-lp100
 
 .noexc77:                                         ; preds = %.noexc76
   store ptr %131, ptr %129, align 8
   invoke void @_Z18coco_string_deleteRPw(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %.noexc40 unwind label %.loopexit.split-lp101
+          to label %.noexc40 unwind label %.loopexit.split-lp100
 
 .noexc40:                                         ; preds = %.noexc77
   %132 = load i32, ptr %122, align 8
@@ -10378,7 +10362,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit41:       ; preds = %_ZN14VrmlTranslator
 
 137:                                              ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit41
   invoke void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
-          to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit46 unwind label %.loopexit.split-lp101
+          to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit46 unwind label %.loopexit.split-lp100
 
 138:                                              ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit41
   %139 = getelementptr inbounds i8, ptr %0, i64 16
@@ -10398,7 +10382,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit41:       ; preds = %_ZN14VrmlTranslator
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6)
   %150 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.220)
-          to label %.noexc80 unwind label %.loopexit.split-lp101
+          to label %.noexc80 unwind label %.loopexit.split-lp100
 
 .noexc80:                                         ; preds = %143
   store ptr %150, ptr %5, align 8
@@ -10406,12 +10390,12 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit41:       ; preds = %_ZN14VrmlTranslator
   %152 = getelementptr inbounds i8, ptr %145, i64 8
   %153 = load ptr, ptr %152, align 8
   %154 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %153, ptr noundef nonnull %6)
-          to label %.noexc81 unwind label %.loopexit.split-lp101
+          to label %.noexc81 unwind label %.loopexit.split-lp100
 
 .noexc81:                                         ; preds = %.noexc80
   store ptr %154, ptr %152, align 8
   invoke void @_Z18coco_string_deleteRPw(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %.noexc45 unwind label %.loopexit.split-lp101
+          to label %.noexc45 unwind label %.loopexit.split-lp100
 
 .noexc45:                                         ; preds = %.noexc81
   %155 = load i32, ptr %145, align 8
@@ -10428,7 +10412,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i43:     ; preds = %.noexc45, %138
 _ZN14VrmlTranslator6Parser6ExpectEi.exit46:       ; preds = %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i43, %137
   %157 = load ptr, ptr %51, align 8
   %158 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.174, i32 noundef 9)
-          to label %159 unwind label %.loopexit.split-lp101
+          to label %159 unwind label %.loopexit.split-lp100
 
 159:                                              ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit46
   store ptr %158, ptr %22, align 8
@@ -10489,9 +10473,8 @@ _ZN7QStringD2Ev.exit54.backedge:                  ; preds = %168, %167
   %171 = sext i32 %170 to i64
   %172 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 1, i64 %171
   %173 = load i8, ptr %172, align 1
-  %174 = and i8 %173, 1
-  %.not96 = icmp eq i8 %174, 0
-  br i1 %.not96, label %_ZN14VrmlTranslator6Parser9ProtoBodyER11QDomElement.exit, label %175
+  %174 = trunc i8 %173 to i1
+  br i1 %174, label %175, label %_ZN14VrmlTranslator6Parser9ProtoBodyER11QDomElement.exit
 
 175:                                              ; preds = %.noexc56
   invoke void @_ZN14VrmlTranslator6Parser9StatementER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %21)
@@ -10628,12 +10611,12 @@ _ZN7QStringD2Ev.exit68:                           ; preds = %200, %_ZN9QtPrivate
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #13
   br label %221
 
-.loopexit100:                                     ; preds = %109
-  %lpad.loopexit102 = landingpad { ptr, i32 }
+.loopexit99:                                      ; preds = %109
+  %lpad.loopexit101 = landingpad { ptr, i32 }
           cleanup
   br label %220
 
-.loopexit.split-lp101:                            ; preds = %_ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement.exit, %114, %137, %_ZN14VrmlTranslator6Parser6ExpectEi.exit46, %120, %.noexc76, %.noexc77, %143, %.noexc80, %.noexc81
+.loopexit.split-lp100:                            ; preds = %_ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement.exit, %114, %137, %_ZN14VrmlTranslator6Parser6ExpectEi.exit46, %120, %.noexc76, %.noexc77, %143, %.noexc80, %.noexc81
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %220
@@ -10650,22 +10633,22 @@ _ZN7QStringD2Ev.exit68:                           ; preds = %200, %_ZN9QtPrivate
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %168, %167
-  %lpad.loopexit97 = landingpad { ptr, i32 }
+  %lpad.loopexit96 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.noexc89, %.noexc88, %186, %180, %.noexc55, %_ZN14VrmlTranslator6Parser6ExpectEi.exit62, %_ZN14VrmlTranslator6Parser9ProtoBodyER11QDomElement.exit
-  %lpad.loopexit.split-lp98 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp97 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit97, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp98, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit96, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp97, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #13
   br label %220
 
-220:                                              ; preds = %.loopexit100, %.loopexit.split-lp101, %.loopexit.split-lp, %218
-  %.pn8 = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %219, %218 ], [ %lpad.loopexit102, %.loopexit100 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp101 ]
+220:                                              ; preds = %.loopexit99, %.loopexit.split-lp100, %.loopexit.split-lp, %218
+  %.pn8 = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %219, %218 ], [ %lpad.loopexit101, %.loopexit99 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp100 ]
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #13
   br label %221
 
@@ -10758,22 +10741,22 @@ _ZN7QStringD2Ev.exit:                             ; preds = %20, %_ZN9QtPrivate8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %8)
   %42 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.230)
-          to label %.noexc49 unwind label %.loopexit.split-lp
+          to label %.noexc48 unwind label %.loopexit.split-lp
 
-.noexc49:                                         ; preds = %35
+.noexc48:                                         ; preds = %35
   store ptr %42, ptr %7, align 8
   %43 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %8, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %39, i32 noundef %41, ptr noundef %42) #13
   %44 = getelementptr inbounds i8, ptr %37, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %45, ptr noundef nonnull %8)
-          to label %.noexc50 unwind label %.loopexit.split-lp
+          to label %.noexc49 unwind label %.loopexit.split-lp
 
-.noexc50:                                         ; preds = %.noexc49
+.noexc49:                                         ; preds = %.noexc48
   store ptr %46, ptr %44, align 8
   invoke void @_Z18coco_string_deleteRPw(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %.noexc7 unwind label %.loopexit.split-lp
 
-.noexc7:                                          ; preds = %.noexc50
+.noexc7:                                          ; preds = %.noexc49
   %47 = load i32, ptr %37, align 8
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %37, align 8
@@ -10817,22 +10800,22 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6)
   %66 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.218)
-          to label %.noexc52 unwind label %.loopexit.split-lp
+          to label %.noexc51 unwind label %.loopexit.split-lp
 
-.noexc52:                                         ; preds = %59
+.noexc51:                                         ; preds = %59
   store ptr %66, ptr %5, align 8
   %67 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %6, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %63, i32 noundef %65, ptr noundef %66) #13
   %68 = getelementptr inbounds i8, ptr %61, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %69, ptr noundef nonnull %6)
-          to label %.noexc53 unwind label %.loopexit.split-lp
+          to label %.noexc52 unwind label %.loopexit.split-lp
 
-.noexc53:                                         ; preds = %.noexc52
+.noexc52:                                         ; preds = %.noexc51
   store ptr %70, ptr %68, align 8
   invoke void @_Z18coco_string_deleteRPw(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %.noexc11 unwind label %.loopexit.split-lp
 
-.noexc11:                                         ; preds = %.noexc53
+.noexc11:                                         ; preds = %.noexc52
   %71 = load i32, ptr %61, align 8
   %72 = add nsw i32 %71, 1
   store i32 %72, ptr %61, align 8
@@ -10850,41 +10833,39 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit12:       ; preds = %_ZN14VrmlTranslator
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 3, i64 %75
   %77 = load i8, ptr %76, align 1
-  %78 = and i8 %77, 1
-  %.not2.i = icmp eq i8 %78, 0
-  br i1 %.not2.i, label %_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit, label %.lr.ph.i
+  %78 = trunc i8 %77 to i1
+  br i1 %78, label %.lr.ph.i, label %_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit
 
-.lr.ph.i:                                         ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit12, %.noexc14
+.lr.ph.i:                                         ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit12, %.noexc13
   invoke void @_ZN14VrmlTranslator6Parser26ExternInterfaceDeclarationER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %.noexc14 unwind label %.loopexit
+          to label %.noexc13 unwind label %.loopexit
 
-.noexc14:                                         ; preds = %.lr.ph.i
+.noexc13:                                         ; preds = %.lr.ph.i
   %79 = load ptr, ptr %25, align 8
   %80 = load i32, ptr %79, align 8
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 3, i64 %81
   %83 = load i8, ptr %82, align 1
-  %84 = and i8 %83, 1
-  %.not.i13 = icmp eq i8 %84, 0
-  br i1 %.not.i13, label %_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit, label %.lr.ph.i, !llvm.loop !19
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %.lr.ph.i, label %_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit, !llvm.loop !19
 
-_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit: ; preds = %.noexc14, %_ZN14VrmlTranslator6Parser6ExpectEi.exit12
-  %85 = phi i32 [ %74, %_ZN14VrmlTranslator6Parser6ExpectEi.exit12 ], [ %80, %.noexc14 ]
-  %86 = phi ptr [ %73, %_ZN14VrmlTranslator6Parser6ExpectEi.exit12 ], [ %79, %.noexc14 ]
+_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit: ; preds = %.noexc13, %_ZN14VrmlTranslator6Parser6ExpectEi.exit12
+  %85 = phi i32 [ %74, %_ZN14VrmlTranslator6Parser6ExpectEi.exit12 ], [ %80, %.noexc13 ]
+  %86 = phi ptr [ %73, %_ZN14VrmlTranslator6Parser6ExpectEi.exit12 ], [ %79, %.noexc13 ]
   %87 = icmp eq i32 %85, 23
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit
   invoke void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
-          to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit19 unwind label %.loopexit.split-lp
+          to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit18 unwind label %.loopexit.split-lp
 
 89:                                               ; preds = %_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit
   %90 = getelementptr inbounds i8, ptr %0, i64 16
   %91 = load i32, ptr %90, align 8
   %92 = getelementptr inbounds i8, ptr %0, i64 20
   %93 = load i32, ptr %92, align 4
-  %.not.i.i15 = icmp slt i32 %91, %93
-  br i1 %.not.i.i15, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i16, label %94
+  %.not.i.i14 = icmp slt i32 %91, %93
+  br i1 %.not.i.i14, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i15, label %94
 
 94:                                               ; preds = %89
   %95 = getelementptr inbounds i8, ptr %0, i64 32
@@ -10896,38 +10877,38 @@ _ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit: ; p
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
   %101 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.219)
-          to label %.noexc56 unwind label %.loopexit.split-lp
+          to label %.noexc55 unwind label %.loopexit.split-lp
 
-.noexc56:                                         ; preds = %94
+.noexc55:                                         ; preds = %94
   store ptr %101, ptr %3, align 8
   %102 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %98, i32 noundef %100, ptr noundef %101) #13
   %103 = getelementptr inbounds i8, ptr %96, i64 8
   %104 = load ptr, ptr %103, align 8
   %105 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %104, ptr noundef nonnull %4)
-          to label %.noexc57 unwind label %.loopexit.split-lp
+          to label %.noexc56 unwind label %.loopexit.split-lp
 
-.noexc57:                                         ; preds = %.noexc56
+.noexc56:                                         ; preds = %.noexc55
   store ptr %105, ptr %103, align 8
   invoke void @_Z18coco_string_deleteRPw(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %.noexc18 unwind label %.loopexit.split-lp
+          to label %.noexc17 unwind label %.loopexit.split-lp
 
-.noexc18:                                         ; preds = %.noexc57
+.noexc17:                                         ; preds = %.noexc56
   %106 = load i32, ptr %96, align 8
   %107 = add nsw i32 %106, 1
   store i32 %107, ptr %96, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
-  br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i16
+  br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i15
 
-_ZN14VrmlTranslator6Parser6SynErrEi.exit.i16:     ; preds = %.noexc18, %89
+_ZN14VrmlTranslator6Parser6SynErrEi.exit.i15:     ; preds = %.noexc17, %89
   store i32 0, ptr %90, align 8
-  br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit19
+  br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit18
 
-_ZN14VrmlTranslator6Parser6ExpectEi.exit19:       ; preds = %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i16, %88
+_ZN14VrmlTranslator6Parser6ExpectEi.exit18:       ; preds = %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i15, %88
   invoke void @_ZN14VrmlTranslator6Parser7URLListER7QString(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %108 unwind label %.loopexit.split-lp
 
-108:                                              ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit19
+108:                                              ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit18
   %109 = getelementptr inbounds i8, ptr %0, i64 176
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %0, i64 168
@@ -10967,30 +10948,30 @@ _ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit.thread: ; preds = %108, %
 119:                                              ; preds = %118
   %120 = load ptr, ptr %13, align 8
   %121 = load atomic i32, ptr %120 monotonic, align 4
-  switch i32 %121, label %_ZN9QtPrivate8RefCount5derefEv.exit.i23 [
-    i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i22
-    i32 -1, label %_ZN7QStringD2Ev.exit27
+  switch i32 %121, label %_ZN9QtPrivate8RefCount5derefEv.exit.i22 [
+    i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i21
+    i32 -1, label %_ZN7QStringD2Ev.exit26
   ]
 
-_ZN9QtPrivate8RefCount5derefEv.exit.i23:          ; preds = %119
+_ZN9QtPrivate8RefCount5derefEv.exit.i22:          ; preds = %119
   %122 = atomicrmw sub ptr %120, i32 1 seq_cst, align 4
-  %.not.i24 = icmp eq i32 %122, 1
-  br i1 %.not.i24, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i25, label %_ZN7QStringD2Ev.exit27
+  %.not.i23 = icmp eq i32 %122, 1
+  br i1 %.not.i23, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i24, label %_ZN7QStringD2Ev.exit26
 
-_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i25: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i23
-  %.pre.i26 = load ptr, ptr %13, align 8
-  br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i22
+_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i24: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i22
+  %.pre.i25 = load ptr, ptr %13, align 8
+  br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i21
 
-_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i22:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i25, %119
-  %123 = phi ptr [ %.pre.i26, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i25 ], [ %120, %119 ]
+_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i21:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i24, %119
+  %123 = phi ptr [ %.pre.i25, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i24 ], [ %120, %119 ]
   call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %123, i64 noundef 2, i64 noundef 8) #13
-  br label %_ZN7QStringD2Ev.exit27
+  br label %_ZN7QStringD2Ev.exit26
 
-_ZN7QStringD2Ev.exit27:                           ; preds = %119, %_ZN9QtPrivate8RefCount5derefEv.exit.i23, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i22
+_ZN7QStringD2Ev.exit26:                           ; preds = %119, %_ZN9QtPrivate8RefCount5derefEv.exit.i22, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i21
   %124 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.176, i32 noundef 3)
           to label %125 unwind label %.loopexit.split-lp
 
-125:                                              ; preds = %_ZN7QStringD2Ev.exit27
+125:                                              ; preds = %_ZN7QStringD2Ev.exit26
   store ptr %124, ptr %14, align 8
   invoke void @_ZN11QDomElement12setAttributeERK7QStringS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %126 unwind label %140
@@ -10998,30 +10979,30 @@ _ZN7QStringD2Ev.exit27:                           ; preds = %119, %_ZN9QtPrivate
 126:                                              ; preds = %125
   %127 = load ptr, ptr %14, align 8
   %128 = load atomic i32, ptr %127 monotonic, align 4
-  switch i32 %128, label %_ZN9QtPrivate8RefCount5derefEv.exit.i31 [
-    i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i30
-    i32 -1, label %_ZN7QStringD2Ev.exit35
+  switch i32 %128, label %_ZN9QtPrivate8RefCount5derefEv.exit.i30 [
+    i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i29
+    i32 -1, label %_ZN7QStringD2Ev.exit34
   ]
 
-_ZN9QtPrivate8RefCount5derefEv.exit.i31:          ; preds = %126
+_ZN9QtPrivate8RefCount5derefEv.exit.i30:          ; preds = %126
   %129 = atomicrmw sub ptr %127, i32 1 seq_cst, align 4
-  %.not.i32 = icmp eq i32 %129, 1
-  br i1 %.not.i32, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i33, label %_ZN7QStringD2Ev.exit35
+  %.not.i31 = icmp eq i32 %129, 1
+  br i1 %.not.i31, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i32, label %_ZN7QStringD2Ev.exit34
 
-_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i33: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i31
-  %.pre.i34 = load ptr, ptr %14, align 8
-  br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i30
+_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i32: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i30
+  %.pre.i33 = load ptr, ptr %14, align 8
+  br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i29
 
-_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i30:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i33, %126
-  %130 = phi ptr [ %.pre.i34, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i33 ], [ %127, %126 ]
+_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i29:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i32, %126
+  %130 = phi ptr [ %.pre.i33, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i32 ], [ %127, %126 ]
   call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %130, i64 noundef 2, i64 noundef 8) #13
-  br label %_ZN7QStringD2Ev.exit35
+  br label %_ZN7QStringD2Ev.exit34
 
-_ZN7QStringD2Ev.exit35:                           ; preds = %126, %_ZN9QtPrivate8RefCount5derefEv.exit.i31, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i30
+_ZN7QStringD2Ev.exit34:                           ; preds = %126, %_ZN9QtPrivate8RefCount5derefEv.exit.i30, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i29
   invoke void @_ZN8QDomNode11appendChildERKS_(ptr dead_on_unwind nonnull writable sret(%class.QDomNode) align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %131 unwind label %.loopexit.split-lp
 
-131:                                              ; preds = %_ZN7QStringD2Ev.exit35
+131:                                              ; preds = %_ZN7QStringD2Ev.exit34
   call void @_ZN8QDomNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #13
   %132 = getelementptr inbounds i8, ptr %0, i64 112
   %133 = invoke { ptr, i8 } @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE16_M_insert_uniqueIRKS0_EESt4pairISt17_Rb_tree_iteratorIS0_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %132, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -11043,7 +11024,7 @@ _ZN7QStringD2Ev.exit35:                           ; preds = %126, %_ZN9QtPrivate
           cleanup
   br label %150
 
-.loopexit.split-lp:                               ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit, %_ZN14VrmlTranslator6Parser6ExpectEi.exit19, %_ZN7QStringD2Ev.exit35, %29, %53, %88, %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit.thread, %_ZN7QStringD2Ev.exit27, %131, %35, %.noexc49, %.noexc50, %59, %.noexc52, %.noexc53, %94, %.noexc56, %.noexc57
+.loopexit.split-lp:                               ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit, %_ZN14VrmlTranslator6Parser6ExpectEi.exit18, %_ZN7QStringD2Ev.exit34, %29, %53, %88, %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit.thread, %_ZN7QStringD2Ev.exit26, %131, %35, %.noexc48, %.noexc49, %59, %.noexc51, %.noexc52, %94, %.noexc55, %.noexc56
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %150
@@ -11064,48 +11045,48 @@ _ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE6insertERKS0_.exit: ; preds = %131, %_ZNSt
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
   %142 = load ptr, ptr %10, align 8
   %143 = load atomic i32, ptr %142 monotonic, align 4
-  switch i32 %143, label %_ZN9QtPrivate8RefCount5derefEv.exit.i38 [
-    i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i37
-    i32 -1, label %_ZN7QStringD2Ev.exit42
+  switch i32 %143, label %_ZN9QtPrivate8RefCount5derefEv.exit.i37 [
+    i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i36
+    i32 -1, label %_ZN7QStringD2Ev.exit41
   ]
 
-_ZN9QtPrivate8RefCount5derefEv.exit.i38:          ; preds = %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE6insertERKS0_.exit
+_ZN9QtPrivate8RefCount5derefEv.exit.i37:          ; preds = %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE6insertERKS0_.exit
   %144 = atomicrmw sub ptr %142, i32 1 seq_cst, align 4
-  %.not.i39 = icmp eq i32 %144, 1
-  br i1 %.not.i39, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i40, label %_ZN7QStringD2Ev.exit42
+  %.not.i38 = icmp eq i32 %144, 1
+  br i1 %.not.i38, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i39, label %_ZN7QStringD2Ev.exit41
 
-_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i40: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i38
-  %.pre.i41 = load ptr, ptr %10, align 8
-  br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i37
+_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i39: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i37
+  %.pre.i40 = load ptr, ptr %10, align 8
+  br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i36
 
-_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i37:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i40, %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE6insertERKS0_.exit
-  %145 = phi ptr [ %.pre.i41, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i40 ], [ %142, %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE6insertERKS0_.exit ]
+_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i36:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i39, %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE6insertERKS0_.exit
+  %145 = phi ptr [ %.pre.i40, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i39 ], [ %142, %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE6insertERKS0_.exit ]
   call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %145, i64 noundef 2, i64 noundef 8) #13
-  br label %_ZN7QStringD2Ev.exit42
+  br label %_ZN7QStringD2Ev.exit41
 
-_ZN7QStringD2Ev.exit42:                           ; preds = %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE6insertERKS0_.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i38, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i37
+_ZN7QStringD2Ev.exit41:                           ; preds = %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE6insertERKS0_.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i37, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i36
   %146 = load ptr, ptr %9, align 8
   %147 = load atomic i32, ptr %146 monotonic, align 4
-  switch i32 %147, label %_ZN9QtPrivate8RefCount5derefEv.exit.i44 [
-    i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i43
-    i32 -1, label %_ZN7QStringD2Ev.exit48
+  switch i32 %147, label %_ZN9QtPrivate8RefCount5derefEv.exit.i43 [
+    i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i42
+    i32 -1, label %_ZN7QStringD2Ev.exit47
   ]
 
-_ZN9QtPrivate8RefCount5derefEv.exit.i44:          ; preds = %_ZN7QStringD2Ev.exit42
+_ZN9QtPrivate8RefCount5derefEv.exit.i43:          ; preds = %_ZN7QStringD2Ev.exit41
   %148 = atomicrmw sub ptr %146, i32 1 seq_cst, align 4
-  %.not.i45 = icmp eq i32 %148, 1
-  br i1 %.not.i45, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i46, label %_ZN7QStringD2Ev.exit48
+  %.not.i44 = icmp eq i32 %148, 1
+  br i1 %.not.i44, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i45, label %_ZN7QStringD2Ev.exit47
 
-_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i46: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i44
-  %.pre.i47 = load ptr, ptr %9, align 8
-  br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i43
+_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i45: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i43
+  %.pre.i46 = load ptr, ptr %9, align 8
+  br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i42
 
-_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i43:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i46, %_ZN7QStringD2Ev.exit42
-  %149 = phi ptr [ %.pre.i47, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i46 ], [ %146, %_ZN7QStringD2Ev.exit42 ]
+_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i42:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i45, %_ZN7QStringD2Ev.exit41
+  %149 = phi ptr [ %.pre.i46, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i45 ], [ %146, %_ZN7QStringD2Ev.exit41 ]
   call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %149, i64 noundef 2, i64 noundef 8) #13
-  br label %_ZN7QStringD2Ev.exit48
+  br label %_ZN7QStringD2Ev.exit47
 
-_ZN7QStringD2Ev.exit48:                           ; preds = %_ZN7QStringD2Ev.exit42, %_ZN9QtPrivate8RefCount5derefEv.exit.i44, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i43
+_ZN7QStringD2Ev.exit47:                           ; preds = %_ZN7QStringD2Ev.exit41, %_ZN9QtPrivate8RefCount5derefEv.exit.i43, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i42
   ret void
 
 150:                                              ; preds = %.loopexit, %.loopexit.split-lp, %140, %138
@@ -11399,9 +11380,8 @@ define void @_ZN14VrmlTranslator6Parser8NodeBodyER11QDomElementb(ptr noundef non
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 6, i64 %7
   %9 = load i8, ptr %8, align 1
-  %10 = and i8 %9, 1
-  %.not2 = icmp eq i8 %10, 0
-  br i1 %.not2, label %._crit_edge, label %.lr.ph
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   tail call void @_ZN14VrmlTranslator6Parser15NodeBodyElementER11QDomElementb(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2)
@@ -11410,9 +11390,8 @@ define void @_ZN14VrmlTranslator6Parser8NodeBodyER11QDomElementb(ptr noundef non
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 6, i64 %13
   %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %.not = icmp eq i8 %16, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -11426,9 +11405,8 @@ define void @_ZN14VrmlTranslator6Parser10ScriptBodyEv(ptr noundef nonnull align 
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 7, i64 %5
   %7 = load i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %.not1 = icmp eq i8 %8, 0
-  br i1 %.not1, label %._crit_edge, label %.lr.ph
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   tail call void @_ZN14VrmlTranslator6Parser17ScriptBodyElementEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
@@ -11437,9 +11415,8 @@ define void @_ZN14VrmlTranslator6Parser10ScriptBodyEv(ptr noundef nonnull align 
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 7, i64 %11
   %13 = load i8, ptr %12, align 1
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -12041,9 +12018,8 @@ define void @_ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement(pt
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 3, i64 %6
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not2 = icmp eq i8 %9, 0
-  br i1 %.not2, label %._crit_edge, label %.lr.ph
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   tail call void @_ZN14VrmlTranslator6Parser20InterfaceDeclarationER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -12052,9 +12028,8 @@ define void @_ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement(pt
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 3, i64 %12
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -12091,9 +12066,8 @@ _ZN14VrmlTranslator6Parser15ProtoStatementsER11QDomElement.exit: ; preds = %_ZN1
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 1, i64 %10
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not2.i = icmp eq i8 %13, 0
-  br i1 %.not2.i, label %_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit, label %.lr.ph.i
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %.lr.ph.i, label %_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit
 
 .lr.ph.i:                                         ; preds = %_ZN14VrmlTranslator6Parser15ProtoStatementsER11QDomElement.exit, %.lr.ph.i
   tail call void @_ZN14VrmlTranslator6Parser9StatementER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -12102,9 +12076,8 @@ _ZN14VrmlTranslator6Parser15ProtoStatementsER11QDomElement.exit: ; preds = %_ZN1
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 1, i64 %16
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not.i = icmp eq i8 %19, 0
-  br i1 %.not.i, label %_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit, label %.lr.ph.i, !llvm.loop !11
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %.lr.ph.i, label %_ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit, !llvm.loop !11
 
 _ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit: ; preds = %.lr.ph.i, %_ZN14VrmlTranslator6Parser15ProtoStatementsER11QDomElement.exit
   ret void
@@ -12198,9 +12171,8 @@ define void @_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElem
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 3, i64 %6
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not2 = icmp eq i8 %9, 0
-  br i1 %.not2, label %._crit_edge, label %.lr.ph
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   tail call void @_ZN14VrmlTranslator6Parser26ExternInterfaceDeclarationER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -12209,9 +12181,8 @@ define void @_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElem
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 3, i64 %12
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -12471,9 +12442,8 @@ define void @_ZN14VrmlTranslator6Parser20InterfaceDeclarationER11QDomElement(ptr
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 4, i64 %21
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %.not = icmp eq i8 %24, 0
-  br i1 %.not, label %30, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %30
 
 25:                                               ; preds = %17
   invoke void @_ZN14VrmlTranslator6Parser30RestrictedInterfaceDeclarationER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -13843,9 +13813,8 @@ define void @_ZN14VrmlTranslator6Parser10FieldValueER11QDomElement7QStringb(ptr 
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 5, i64 %12
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %29, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %29
 
 16:                                               ; preds = %4
   %17 = load ptr, ptr %2, align 8
@@ -14137,9 +14106,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %33, %_ZN9QtPrivate8
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 9, i64 %41
   %43 = load i8, ptr %42, align 1
-  %44 = and i8 %43, 1
-  %.not = icmp eq i8 %44, 0
-  br i1 %.not, label %159, label %45
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %159
 
 45:                                               ; preds = %_ZN7QStringD2Ev.exit
   switch i32 %40, label %118 [
@@ -14251,14 +14219,14 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i26:  ; preds = %_ZN9QtPrivate8RefCo
 
 ._crit_edge:                                      ; preds = %83
   %.pre = load ptr, ptr %38, align 8
-  %.pre110 = load i32, ptr %.pre, align 8
+  %.pre109 = load i32, ptr %.pre, align 8
   br label %84
 
 84:                                               ; preds = %._crit_edge, %79
-  %85 = phi i32 [ %.pre110, %._crit_edge ], [ %81, %79 ]
+  %85 = phi i32 [ %.pre109, %._crit_edge ], [ %81, %79 ]
   %86 = and i32 %85, -2
-  %switch109 = icmp eq i32 %86, 2
-  br i1 %switch109, label %.critedge, label %_ZN7QStringD2Ev.exit31
+  %switch108 = icmp eq i32 %86, 2
+  br i1 %switch108, label %.critedge, label %_ZN7QStringD2Ev.exit31
 
 .critedge:                                        ; preds = %84, %108
   invoke void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
@@ -14321,15 +14289,15 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
 
 107:                                              ; preds = %103
   invoke void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
-          to label %._crit_edge111 unwind label %.loopexit
+          to label %._crit_edge110 unwind label %.loopexit
 
-._crit_edge111:                                   ; preds = %107
-  %.pre112 = load ptr, ptr %38, align 8
-  %.pre113 = load i32, ptr %.pre112, align 8
+._crit_edge110:                                   ; preds = %107
+  %.pre111 = load ptr, ptr %38, align 8
+  %.pre112 = load i32, ptr %.pre111, align 8
   br label %108
 
-108:                                              ; preds = %._crit_edge111, %103
-  %109 = phi i32 [ %.pre113, %._crit_edge111 ], [ %105, %103 ]
+108:                                              ; preds = %._crit_edge110, %103
+  %109 = phi i32 [ %.pre112, %._crit_edge110 ], [ %105, %103 ]
   %110 = and i32 %109, -2
   %switch = icmp eq i32 %110, 2
   br i1 %switch, label %.critedge, label %_ZN7QStringD2Ev.exit31, !llvm.loop !22
@@ -14551,9 +14519,8 @@ _ZN7QStringD2Ev.exit68:                           ; preds = %143, %_ZN9QtPrivate
 159:                                              ; preds = %_ZN7QStringD2Ev.exit
   %160 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 2, i64 %41
   %161 = load i8, ptr %160, align 1
-  %162 = and i8 %161, 1
-  %.not108 = icmp eq i8 %162, 0
-  br i1 %.not108, label %212, label %163
+  %162 = trunc i8 %161 to i1
+  br i1 %162, label %163, label %212
 
 163:                                              ; preds = %159
   invoke void @_ZN14VrmlTranslator6Parser13NodeStatementER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %11)
@@ -14906,7 +14873,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %35, %_ZN9QtPrivate8
 
 44:                                               ; preds = %_ZN7QStringD2Ev.exit
   invoke void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
-          to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit unwind label %.loopexit.split-lp101
+          to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit unwind label %.loopexit.split-lp99
 
 45:                                               ; preds = %_ZN7QStringD2Ev.exit
   %46 = getelementptr inbounds i8, ptr %0, i64 16
@@ -14926,7 +14893,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %35, %_ZN9QtPrivate8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %10)
   %57 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.218)
-          to label %.noexc87 unwind label %.loopexit.split-lp101
+          to label %.noexc87 unwind label %.loopexit.split-lp99
 
 .noexc87:                                         ; preds = %50
   store ptr %57, ptr %9, align 8
@@ -14934,12 +14901,12 @@ _ZN7QStringD2Ev.exit:                             ; preds = %35, %_ZN9QtPrivate8
   %59 = getelementptr inbounds i8, ptr %52, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %60, ptr noundef nonnull %10)
-          to label %.noexc88 unwind label %.loopexit.split-lp101
+          to label %.noexc88 unwind label %.loopexit.split-lp99
 
 .noexc88:                                         ; preds = %.noexc87
   store ptr %61, ptr %59, align 8
   invoke void @_Z18coco_string_deleteRPw(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %.noexc31 unwind label %.loopexit.split-lp101
+          to label %.noexc31 unwind label %.loopexit.split-lp99
 
 .noexc31:                                         ; preds = %.noexc88
   %62 = load i32, ptr %52, align 8
@@ -14959,9 +14926,8 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 10, i64 %66
   %68 = load i8, ptr %67, align 1
-  %69 = and i8 %68, 1
-  %.not = icmp eq i8 %69, 0
-  br i1 %.not, label %113, label %70
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %113
 
 70:                                               ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit
   switch i32 %65, label %77 [
@@ -14972,7 +14938,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
 
 71:                                               ; preds = %70, %70
   invoke void @_ZN14VrmlTranslator6Parser11MultiNumberER7QString(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %78 unwind label %.loopexit.split-lp101
+          to label %78 unwind label %.loopexit.split-lp99
 
 72:                                               ; preds = %4
   %73 = landingpad { ptr, i32 }
@@ -14985,23 +14951,23 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #13
   br label %236
 
-.loopexit100:                                     ; preds = %.lr.ph, %124
-  %lpad.loopexit102 = landingpad { ptr, i32 }
+.loopexit98:                                      ; preds = %.lr.ph, %124
+  %lpad.loopexit100 = landingpad { ptr, i32 }
           cleanup
   br label %235
 
-.loopexit.split-lp101:                            ; preds = %71, %76, %77, %112, %._crit_edge, %44, %79, %211, %50, %.noexc87, %.noexc88, %193, %.noexc90, %.noexc91, %217, %.noexc94, %.noexc95
-  %lpad.loopexit.split-lp103 = landingpad { ptr, i32 }
+.loopexit.split-lp99:                             ; preds = %71, %76, %77, %112, %._crit_edge, %44, %79, %211, %50, %.noexc87, %.noexc88, %193, %.noexc90, %.noexc91, %217, %.noexc94, %.noexc95
+  %lpad.loopexit.split-lp101 = landingpad { ptr, i32 }
           cleanup
   br label %235
 
 76:                                               ; preds = %70
   invoke void @_ZN14VrmlTranslator6Parser11MultiStringER7QString(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %78 unwind label %.loopexit.split-lp101
+          to label %78 unwind label %.loopexit.split-lp99
 
 77:                                               ; preds = %70
   invoke void @_ZN14VrmlTranslator6Parser9MultiBoolER7QString(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %78 unwind label %.loopexit.split-lp101
+          to label %78 unwind label %.loopexit.split-lp99
 
 78:                                               ; preds = %76, %77, %71
   br i1 %3, label %79, label %112
@@ -15009,7 +14975,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
 79:                                               ; preds = %78
   %80 = load ptr, ptr %31, align 8
   %81 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.194, i32 noundef 10)
-          to label %82 unwind label %.loopexit.split-lp101
+          to label %82 unwind label %.loopexit.split-lp99
 
 82:                                               ; preds = %79
   store ptr %81, ptr %15, align 8
@@ -15139,25 +15105,23 @@ _ZN7QStringD2Ev.exit55:                           ; preds = %97, %_ZN9QtPrivate8
 
 112:                                              ; preds = %78
   invoke void @_ZN11QDomElement12setAttributeERK7QStringS2_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %207 unwind label %.loopexit.split-lp101
+          to label %207 unwind label %.loopexit.split-lp99
 
 113:                                              ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit
   %114 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 11, i64 %66
   %115 = load i8, ptr %114, align 1
-  %116 = and i8 %115, 1
-  %.not98 = icmp eq i8 %116, 0
-  br i1 %.not98, label %188, label %.preheader
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %.preheader, label %188
 
 .preheader:                                       ; preds = %113
   %117 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 2, i64 %66
   %118 = load i8, ptr %117, align 1
-  %119 = and i8 %118, 1
-  %.not99105 = icmp eq i8 %119, 0
-  br i1 %.not99105, label %._crit_edge, label %.lr.ph
+  %119 = trunc i8 %118 to i1
+  br i1 %119, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %125
   invoke void @_ZN14VrmlTranslator6Parser13NodeStatementER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %120 unwind label %.loopexit100
+          to label %120 unwind label %.loopexit98
 
 120:                                              ; preds = %.lr.ph
   %121 = load ptr, ptr %40, align 8
@@ -15167,25 +15131,24 @@ _ZN7QStringD2Ev.exit55:                           ; preds = %97, %_ZN9QtPrivate8
 
 124:                                              ; preds = %120
   invoke void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
-          to label %._crit_edge116 unwind label %.loopexit100
+          to label %._crit_edge113 unwind label %.loopexit98
 
-._crit_edge116:                                   ; preds = %124
+._crit_edge113:                                   ; preds = %124
   %.pre = load ptr, ptr %40, align 8
-  %.pre117 = load i32, ptr %.pre, align 8
+  %.pre114 = load i32, ptr %.pre, align 8
   br label %125
 
-125:                                              ; preds = %._crit_edge116, %120
-  %126 = phi i32 [ %.pre117, %._crit_edge116 ], [ %122, %120 ]
+125:                                              ; preds = %._crit_edge113, %120
+  %126 = phi i32 [ %.pre114, %._crit_edge113 ], [ %122, %120 ]
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 2, i64 %127
   %129 = load i8, ptr %128, align 1
-  %130 = and i8 %129, 1
-  %.not99 = icmp eq i8 %130, 0
-  br i1 %.not99, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  %130 = trunc i8 %129 to i1
+  br i1 %130, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %125, %.preheader
   invoke void @_ZN11QDomElementC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19)
-          to label %131 unwind label %.loopexit.split-lp101
+          to label %131 unwind label %.loopexit.split-lp99
 
 131:                                              ; preds = %._crit_edge
   invoke void @_ZNK8QDomNode10childNodesEv(ptr dead_on_unwind nonnull writable sret(%class.QDomNodeList) align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -15272,11 +15235,11 @@ _ZNK12QDomNodeList4sizeEv.exit.us:                ; preds = %_ZN7QStringD2Ev.exi
 
 _ZNK12QDomNodeList2atEi.exit.us:                  ; preds = %150
   invoke void @_ZNK8QDomNode9toElementEv(ptr dead_on_unwind nonnull writable sret(%class.QDomElement) align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %25)
-          to label %151 unwind label %.split107.us
+          to label %151 unwind label %.split104.us
 
 151:                                              ; preds = %_ZNK12QDomNodeList2atEi.exit.us
   %152 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN11QDomElementaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %24)
-          to label %153 unwind label %.split110.us
+          to label %153 unwind label %.split107.us
 
 153:                                              ; preds = %151
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #13
@@ -15286,7 +15249,7 @@ _ZNK12QDomNodeList2atEi.exit.us:                  ; preds = %150
 
 154:                                              ; preds = %153
   invoke void @_ZN8QDomNode11appendChildERKS_(ptr dead_on_unwind nonnull writable sret(%class.QDomNode) align 8 %26, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %27)
-          to label %155 unwind label %.split113.us
+          to label %155 unwind label %.split110.us
 
 155:                                              ; preds = %154
   call void @_ZN8QDomNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #13
@@ -15299,17 +15262,17 @@ _ZNK12QDomNodeList2atEi.exit.us:                  ; preds = %150
           cleanup
   br label %.loopexit
 
-.split107.us:                                     ; preds = %_ZNK12QDomNodeList2atEi.exit.us
+.split104.us:                                     ; preds = %_ZNK12QDomNodeList2atEi.exit.us
   %157 = landingpad { ptr, i32 }
           cleanup
   br label %177
 
-.split110.us:                                     ; preds = %151
+.split107.us:                                     ; preds = %151
   %158 = landingpad { ptr, i32 }
           cleanup
   br label %176
 
-.split113.us:                                     ; preds = %154
+.split110.us:                                     ; preds = %154
   %159 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QDomNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #13
@@ -15330,11 +15293,11 @@ _ZNK12QDomNodeList4sizeEv.exit:                   ; preds = %_ZN7QStringD2Ev.exi
 
 _ZNK12QDomNodeList2atEi.exit:                     ; preds = %162
   invoke void @_ZNK8QDomNode9toElementEv(ptr dead_on_unwind nonnull writable sret(%class.QDomElement) align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %25)
-          to label %163 unwind label %.split107
+          to label %163 unwind label %.split104
 
 163:                                              ; preds = %_ZNK12QDomNodeList2atEi.exit
   %164 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN11QDomElementaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %24)
-          to label %165 unwind label %.split110
+          to label %165 unwind label %.split107
 
 165:                                              ; preds = %163
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #13
@@ -15374,23 +15337,23 @@ _ZNK12QDomNodeList2atEi.exit:                     ; preds = %162
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #13
   br label %.loopexit
 
-.split107:                                        ; preds = %_ZNK12QDomNodeList2atEi.exit
+.split104:                                        ; preds = %_ZNK12QDomNodeList2atEi.exit
   %174 = landingpad { ptr, i32 }
           cleanup
   br label %177
 
-.split110:                                        ; preds = %163
+.split107:                                        ; preds = %163
   %175 = landingpad { ptr, i32 }
           cleanup
   br label %176
 
-176:                                              ; preds = %.split110.us, %.split110
-  %.us-phi111 = phi { ptr, i32 } [ %175, %.split110 ], [ %158, %.split110.us ]
+176:                                              ; preds = %.split107.us, %.split107
+  %.us-phi108 = phi { ptr, i32 } [ %175, %.split107 ], [ %158, %.split107.us ]
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #13
   br label %177
 
-177:                                              ; preds = %.split107, %.split107.us, %176
-  %.pn = phi { ptr, i32 } [ %.us-phi111, %176 ], [ %174, %.split107 ], [ %157, %.split107.us ]
+177:                                              ; preds = %.split104, %.split104.us, %176
+  %.pn = phi { ptr, i32 } [ %.us-phi108, %176 ], [ %174, %.split104 ], [ %157, %.split104.us ]
   call void @_ZN8QDomNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #13
   br label %.loopexit
 
@@ -15427,8 +15390,8 @@ _ZNK12QDomNodeList2atEi.exit:                     ; preds = %162
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #13
   br label %207
 
-.loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %181, %.split113.us, %177, %172
-  %.pn22 = phi { ptr, i32 } [ %159, %.split113.us ], [ %182, %181 ], [ %.pn, %177 ], [ %173, %172 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
+.loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %181, %.split110.us, %177, %172
+  %.pn22 = phi { ptr, i32 } [ %159, %.split110.us ], [ %182, %181 ], [ %.pn, %177 ], [ %173, %172 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #13
   br label %186
 
@@ -15460,7 +15423,7 @@ _ZNK12QDomNodeList2atEi.exit:                     ; preds = %162
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %8)
   %200 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.297)
-          to label %.noexc90 unwind label %.loopexit.split-lp101
+          to label %.noexc90 unwind label %.loopexit.split-lp99
 
 .noexc90:                                         ; preds = %193
   store ptr %200, ptr %7, align 8
@@ -15468,12 +15431,12 @@ _ZNK12QDomNodeList2atEi.exit:                     ; preds = %162
   %202 = getelementptr inbounds i8, ptr %195, i64 8
   %203 = load ptr, ptr %202, align 8
   %204 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %203, ptr noundef nonnull %8)
-          to label %.noexc91 unwind label %.loopexit.split-lp101
+          to label %.noexc91 unwind label %.loopexit.split-lp99
 
 .noexc91:                                         ; preds = %.noexc90
   store ptr %204, ptr %202, align 8
   invoke void @_Z18coco_string_deleteRPw(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %.noexc75 unwind label %.loopexit.split-lp101
+          to label %.noexc75 unwind label %.loopexit.split-lp99
 
 .noexc75:                                         ; preds = %.noexc91
   %205 = load i32, ptr %195, align 8
@@ -15495,7 +15458,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %188, %.noexc75
 
 211:                                              ; preds = %207
   invoke void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
-          to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit80 unwind label %.loopexit.split-lp101
+          to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit80 unwind label %.loopexit.split-lp99
 
 212:                                              ; preds = %207
   %213 = getelementptr inbounds i8, ptr %0, i64 16
@@ -15515,7 +15478,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %188, %.noexc75
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6)
   %224 = invoke noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.219)
-          to label %.noexc94 unwind label %.loopexit.split-lp101
+          to label %.noexc94 unwind label %.loopexit.split-lp99
 
 .noexc94:                                         ; preds = %217
   store ptr %224, ptr %5, align 8
@@ -15523,12 +15486,12 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %188, %.noexc75
   %226 = getelementptr inbounds i8, ptr %219, i64 8
   %227 = load ptr, ptr %226, align 8
   %228 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %227, ptr noundef nonnull %6)
-          to label %.noexc95 unwind label %.loopexit.split-lp101
+          to label %.noexc95 unwind label %.loopexit.split-lp99
 
 .noexc95:                                         ; preds = %.noexc94
   store ptr %228, ptr %226, align 8
   invoke void @_Z18coco_string_deleteRPw(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %.noexc79 unwind label %.loopexit.split-lp101
+          to label %.noexc79 unwind label %.loopexit.split-lp99
 
 .noexc79:                                         ; preds = %.noexc95
   %229 = load i32, ptr %219, align 8
@@ -15568,8 +15531,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i81:  ; preds = %_ZN9QtPrivate8RefCo
 _ZN7QStringD2Ev.exit86:                           ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit80, %_ZN9QtPrivate8RefCount5derefEv.exit.i82, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i81
   ret void
 
-235:                                              ; preds = %.loopexit100, %.loopexit.split-lp101, %187, %111, %103
-  %.pn28 = phi { ptr, i32 } [ %.pn26, %111 ], [ %104, %103 ], [ %.pn22.pn.pn, %187 ], [ %lpad.loopexit102, %.loopexit100 ], [ %lpad.loopexit.split-lp103, %.loopexit.split-lp101 ]
+235:                                              ; preds = %.loopexit98, %.loopexit.split-lp99, %187, %111, %103
+  %.pn28 = phi { ptr, i32 } [ %.pn26, %111 ], [ %104, %103 ], [ %.pn22.pn.pn, %187 ], [ %lpad.loopexit100, %.loopexit98 ], [ %lpad.loopexit.split-lp101, %.loopexit.split-lp99 ]
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #13
   br label %236
 
@@ -16328,9 +16291,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringC2EPKc.e
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 8, i64 %43
   %45 = load i8, ptr %44, align 1
-  %46 = and i8 %45, 1
-  %.not = icmp eq i8 %46, 0
-  br i1 %.not, label %64, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %64
 
 47:                                               ; preds = %_ZN7QStringD2Ev.exit
   %48 = load ptr, ptr %8, align 8
@@ -16837,9 +16799,8 @@ define void @_ZN14VrmlTranslator6Parser17ScriptBodyElementEv(ptr noundef nonnull
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 6, i64 %13
   %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %.not = icmp eq i8 %16, 0
-  br i1 %.not, label %22, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %22
 
 17:                                               ; preds = %9
   invoke void @_ZN14VrmlTranslator6Parser15NodeBodyElementER11QDomElementb(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext false)
@@ -16937,9 +16898,8 @@ define void @_ZN14VrmlTranslator6Parser17ScriptBodyElementEv(ptr noundef nonnull
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 8, i64 %47
   %49 = load i8, ptr %48, align 1
-  %50 = and i8 %49, 1
-  %.not26 = icmp eq i8 %50, 0
-  br i1 %.not26, label %60, label %51
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %60
 
 51:                                               ; preds = %44
   %52 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.166, i32 noundef 0)

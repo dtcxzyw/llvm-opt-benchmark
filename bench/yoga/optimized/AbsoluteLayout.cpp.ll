@@ -453,8 +453,8 @@ _ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit122.i: ; preds = %if.then52
   %arrayidx.i.i.i125.i = getelementptr inbounds i8, ptr %child, i64 504
   %25 = load float, ptr %arrayidx.i.i.i125.i, align 4
   %sub59.i = fsub float %24, %25
-  %trunc.not.i = icmp eq i8 %axis, 0
-  %spec.select.i = select i1 %trunc.not.i, i8 1, i8 3
+  %trunc.i = trunc i8 %axis to i1
+  %spec.select.i = select i1 %trunc.i, i8 3, i8 1
   br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit131.i
 
 _ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit131.i: ; preds = %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit122.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread195.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread.i
@@ -504,8 +504,8 @@ _ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit146.i: ; preds = %if.then65
   %arrayidx.i.i.i149.i = getelementptr inbounds i8, ptr %child, i64 504
   %31 = load float, ptr %arrayidx.i.i.i149.i, align 4
   %sub72.i = fsub float %30, %31
-  %trunc260.not.i = icmp eq i8 %axis, 0
-  %spec.select265.i = select i1 %trunc260.not.i, i8 1, i8 3
+  %trunc260.i = trunc i8 %axis to i1
+  %spec.select265.i = select i1 %trunc260.i, i8 3, i8 1
   br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit155.i
 
 _ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit155.i: ; preds = %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit146.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread230.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread.i

@@ -1262,19 +1262,18 @@ entry:
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 53, %switch.maskindex
-  %1 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %1, 0
-  br i1 %switch.lobit.not, label %return, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table.signalKeyAsReadyLogic, i64 0, i64 %2
+  %1 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table.signalKeyAsReadyLogic, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %arrayidx = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 326, i64 %switch.load
-  %3 = load i32, ptr %arrayidx, align 4
-  %tobool = icmp ne i32 %3, 0
-  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 326, i64 4), align 8
-  %tobool1 = icmp ne i32 %4, 0
+  %2 = load i32, ptr %arrayidx, align 4
+  %tobool = icmp ne i32 %2, 0
+  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 326, i64 4), align 8
+  %tobool1 = icmp ne i32 %3, 0
   %or.cond = select i1 %tobool, i1 true, i1 %tobool1
   br i1 %or.cond, label %if.end3, label %return
 
@@ -1284,22 +1283,22 @@ if.end3:                                          ; preds = %switch.lookup
 
 if.then5:                                         ; preds = %if.end3
   %blocking_keys_unblock_on_nokey = getelementptr inbounds i8, ptr %db, i64 24
-  %5 = load ptr, ptr %blocking_keys_unblock_on_nokey, align 8
-  %call6 = tail call ptr @dictFind(ptr noundef %5, ptr noundef %key) #6
+  %4 = load ptr, ptr %blocking_keys_unblock_on_nokey, align 8
+  %call6 = tail call ptr @dictFind(ptr noundef %4, ptr noundef %key) #6
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %return, label %if.end14
 
 if.else:                                          ; preds = %if.end3
   %blocking_keys = getelementptr inbounds i8, ptr %db, i64 16
-  %6 = load ptr, ptr %blocking_keys, align 8
-  %call10 = tail call ptr @dictFind(ptr noundef %6, ptr noundef %key) #6
+  %5 = load ptr, ptr %blocking_keys, align 8
+  %call10 = tail call ptr @dictFind(ptr noundef %5, ptr noundef %key) #6
   %cmp11 = icmp eq ptr %call10, null
   br i1 %cmp11, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.then5
   %ready_keys = getelementptr inbounds i8, ptr %db, i64 32
-  %7 = load ptr, ptr %ready_keys, align 8
-  %call15 = call ptr @dictAddRaw(ptr noundef %7, ptr noundef %key, ptr noundef nonnull %existing) #6
+  %6 = load ptr, ptr %ready_keys, align 8
+  %call15 = call ptr @dictAddRaw(ptr noundef %6, ptr noundef %key, ptr noundef nonnull %existing) #6
   %tobool16.not = icmp eq ptr %call15, null
   br i1 %tobool16.not, label %return, label %if.then17
 
@@ -1310,8 +1309,8 @@ if.then17:                                        ; preds = %if.end14
   store ptr %key, ptr %key21, align 8
   store ptr %db, ptr %call20, align 8
   call void @incrRefCount(ptr noundef %key) #6
-  %8 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 328), align 8
-  %call23 = call ptr @listAddNodeTail(ptr noundef %8, ptr noundef nonnull %call20) #6
+  %7 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 328), align 8
+  %call23 = call ptr @listAddNodeTail(ptr noundef %7, ptr noundef nonnull %call20) #6
   br label %return
 
 return:                                           ; preds = %switch.hole_check, %entry, %if.end14, %if.else, %if.then5, %switch.lookup, %if.then17

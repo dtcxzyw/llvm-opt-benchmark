@@ -190,17 +190,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %version_id) #6
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %version_id) #6
   br label %trace_dbus_vmstate_post_load.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -214,27 +213,27 @@ trace_dbus_vmstate_post_load.exit:                ; preds = %entry, %land.lhs.tr
   br i1 %tobool.not, label %cleanup.thread, label %if.end
 
 cleanup.thread:                                   ; preds = %trace_dbus_vmstate_post_load.exit
-  %7 = load ptr, ptr %err, align 8
-  %message = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %message, align 8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.dbus_vmstate_post_load, ptr noundef %8) #6
+  %6 = load ptr, ptr %err, align 8
+  %message = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %message, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.dbus_vmstate_post_load, ptr noundef %7) #6
   br label %glib_autoptr_cleanup_GHashTable.exit
 
 if.end:                                           ; preds = %trace_dbus_vmstate_post_load.exit
   %data = getelementptr inbounds i8, ptr %call.i, i64 72
-  %9 = load ptr, ptr %data, align 8
+  %8 = load ptr, ptr %data, align 8
   %data_size = getelementptr inbounds i8, ptr %call.i, i64 64
-  %10 = load i32, ptr %data_size, align 8
-  %conv = zext i32 %10 to i64
-  %call2 = call ptr @g_memory_input_stream_new_from_data(ptr noundef %9, i64 noundef %conv, ptr noundef null) #6
+  %9 = load i32, ptr %data_size, align 8
+  %conv = zext i32 %9 to i64
+  %call2 = call ptr @g_memory_input_stream_new_from_data(ptr noundef %8, i64 noundef %conv, ptr noundef null) #6
   %call3 = call ptr @g_data_input_stream_new(ptr noundef %call2) #6
   call void @g_data_input_stream_set_byte_order(ptr noundef %call3, i32 noundef 0) #6
   %call4 = tail call i64 @g_buffered_input_stream_get_type() #7
   %call5 = call ptr @g_type_check_instance_cast(ptr noundef %call3, i64 noundef %call4) #6
   call void @g_buffered_input_stream_set_buffer_size(ptr noundef %call5, i64 noundef 1048576) #6
   %call6 = call i32 @g_data_input_stream_read_uint32(ptr noundef %call3, ptr noundef null, ptr noundef nonnull %err) #6
-  %11 = load ptr, ptr %err, align 8
-  %tobool7.not = icmp eq ptr %11, null
+  %10 = load ptr, ptr %err, align 8
+  %tobool7.not = icmp eq ptr %10, null
   br i1 %tobool7.not, label %while.cond.preheader, label %error
 
 while.cond.preheader:                             ; preds = %if.end
@@ -242,7 +241,7 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %cmp.not62, label %if.then.i.i32, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %tv_usec.i.i29 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
+  %tv_usec.i.i30 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
   br label %while.body
 
 while.cond:                                       ; preds = %if.end69
@@ -253,8 +252,8 @@ while.cond:                                       ; preds = %if.end69
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond
   %nelem.063 = phi i32 [ %call6, %while.body.lr.ph ], [ %sub, %while.cond ]
   %call11 = call i32 @g_data_input_stream_read_uint32(ptr noundef %call3, ptr noundef null, ptr noundef nonnull %err) #6
-  %12 = load ptr, ptr %err, align 8
-  %tobool12.not = icmp eq ptr %12, null
+  %11 = load ptr, ptr %err, align 8
+  %tobool12.not = icmp eq ptr %11, null
   br i1 %tobool12.not, label %if.end14, label %error.loopexit
 
 if.end14:                                         ; preds = %while.body
@@ -274,8 +273,8 @@ if.end18:                                         ; preds = %if.end14
   br i1 %tobool23.not, label %error.loopexit, label %if.end25
 
 if.end25:                                         ; preds = %if.end18
-  %13 = load i64, ptr %bytes_read, align 8
-  %cmp27.not = icmp eq i64 %13, %conv21
+  %12 = load i64, ptr %bytes_read, align 8
+  %cmp27.not = icmp eq i64 %12, %conv21
   br i1 %cmp27.not, label %if.end30, label %if.then29
 
 if.then29:                                        ; preds = %if.end25
@@ -286,38 +285,37 @@ if.end30:                                         ; preds = %if.end25
   %arrayidx = getelementptr [256 x i8], ptr %id, i64 0, i64 %conv21
   store i8 0, ptr %arrayidx, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i17)
-  %14 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i18 = icmp ne i32 %14, 0
-  %15 = load i16, ptr @_TRACE_DBUS_VMSTATE_LOADING_DSTATE, align 2
-  %tobool4.i.i19 = icmp ne i16 %15, 0
+  %13 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i18 = icmp ne i32 %13, 0
+  %14 = load i16, ptr @_TRACE_DBUS_VMSTATE_LOADING_DSTATE, align 2
+  %tobool4.i.i19 = icmp ne i16 %14, 0
   %or.cond.i.i20 = select i1 %tobool.i.i18, i1 %tobool4.i.i19, i1 false
   br i1 %or.cond.i.i20, label %land.lhs.true5.i.i21, label %trace_dbus_vmstate_loading.exit
 
 land.lhs.true5.i.i21:                             ; preds = %if.end30
-  %16 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i22 = and i32 %16, 32768
+  %15 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i22 = and i32 %15, 32768
   %cmp.i.not.i.i23 = icmp eq i32 %and.i.i.i22, 0
   br i1 %cmp.i.not.i.i23, label %trace_dbus_vmstate_loading.exit, label %if.then.i.i24
 
 if.then.i.i24:                                    ; preds = %land.lhs.true5.i.i21
-  %17 = load i8, ptr @message_with_timestamp, align 1
-  %18 = and i8 %17, 1
-  %tobool7.not.i.i25 = icmp eq i8 %18, 0
-  br i1 %tobool7.not.i.i25, label %if.else.i.i30, label %if.then8.i.i26
+  %16 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i25 = trunc i8 %16 to i1
+  br i1 %tobool7.i.i25, label %if.then8.i.i27, label %if.else.i.i26
 
-if.then8.i.i26:                                   ; preds = %if.then.i.i24
-  %call9.i.i27 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i17, ptr noundef null) #6
-  %call10.i.i28 = call i32 @qemu_get_thread_id() #6
-  %19 = load i64, ptr %_now.i.i17, align 8
-  %20 = load i64, ptr %tv_usec.i.i29, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i28, i64 noundef %19, i64 noundef %20, ptr noundef nonnull %id) #6
+if.then8.i.i27:                                   ; preds = %if.then.i.i24
+  %call9.i.i28 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i17, ptr noundef null) #6
+  %call10.i.i29 = call i32 @qemu_get_thread_id() #6
+  %17 = load i64, ptr %_now.i.i17, align 8
+  %18 = load i64, ptr %tv_usec.i.i30, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i29, i64 noundef %17, i64 noundef %18, ptr noundef nonnull %id) #6
   br label %trace_dbus_vmstate_loading.exit
 
-if.else.i.i30:                                    ; preds = %if.then.i.i24
+if.else.i.i26:                                    ; preds = %if.then.i.i24
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, ptr noundef nonnull %id) #6
   br label %trace_dbus_vmstate_loading.exit
 
-trace_dbus_vmstate_loading.exit:                  ; preds = %if.end30, %land.lhs.true5.i.i21, %if.then8.i.i26, %if.else.i.i30
+trace_dbus_vmstate_loading.exit:                  ; preds = %if.end30, %land.lhs.true5.i.i21, %if.then8.i.i27, %if.else.i.i26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i17)
   %call33 = call ptr @g_hash_table_lookup(ptr noundef nonnull %call1, ptr noundef nonnull %id) #6
   %tobool34.not = icmp eq ptr %call33, null
@@ -340,8 +338,8 @@ if.then42:                                        ; preds = %if.end37
 if.end43:                                         ; preds = %if.end37
   %call45 = call ptr @g_type_check_instance_cast(ptr noundef %call3, i64 noundef %call4) #6
   %call47 = call i64 @g_buffered_input_stream_fill(ptr noundef %call45, i64 noundef %conv39, ptr noundef null, ptr noundef nonnull %err) #6
-  %21 = load ptr, ptr %err, align 8
-  %tobool48.not = icmp eq ptr %21, null
+  %19 = load ptr, ptr %err, align 8
+  %tobool48.not = icmp eq ptr %19, null
   br i1 %tobool48.not, label %if.end50, label %error.loopexit
 
 if.end50:                                         ; preds = %if.end43
@@ -366,10 +364,10 @@ if.end59:                                         ; preds = %if.end50
   br i1 %tobool.not.i, label %glib_autoptr_cleanup_GVariant.exit.thread.i, label %if.then.i.i2.i
 
 glib_autoptr_cleanup_GVariant.exit.thread.i:      ; preds = %if.end59
-  %22 = load ptr, ptr %err.i, align 8
-  %message.i = getelementptr inbounds i8, ptr %22, i64 8
-  %23 = load ptr, ptr %message.i, align 8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.dbus_load_state_proxy, ptr noundef %23) #6
+  %20 = load ptr, ptr %err.i, align 8
+  %message.i = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = load ptr, ptr %message.i, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.dbus_load_state_proxy, ptr noundef %21) #6
   br label %glib_autoptr_cleanup_GVariant.exit3.i
 
 if.then.i.i2.i:                                   ; preds = %if.end59
@@ -405,10 +403,10 @@ error.loopexit:                                   ; preds = %while.body, %if.end
   br label %error
 
 error:                                            ; preds = %error.loopexit, %if.end
-  %24 = phi ptr [ %.pre, %error.loopexit ], [ %11, %if.end ]
-  %message77 = getelementptr inbounds i8, ptr %24, i64 8
-  %25 = load ptr, ptr %message77, align 8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.dbus_vmstate_post_load, ptr noundef %25) #6
+  %22 = phi ptr [ %.pre, %error.loopexit ], [ %10, %if.end ]
+  %message77 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = load ptr, ptr %message77, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.dbus_vmstate_post_load, ptr noundef %23) #6
   br label %if.then.i.i32
 
 if.then.i.i32:                                    ; preds = %while.cond, %if.then17, %if.then29, %if.then35, %if.then42, %if.then57, %if.then67, %error, %while.cond.preheader
@@ -471,17 +469,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #6
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #6
   br label %trace_dbus_vmstate_pre_save.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -495,10 +492,10 @@ trace_dbus_vmstate_pre_save.exit:                 ; preds = %entry, %land.lhs.tr
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %trace_dbus_vmstate_pre_save.exit
-  %7 = load ptr, ptr %err, align 8
-  %message = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %message, align 8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.dbus_vmstate_pre_save, ptr noundef %8) #6
+  %6 = load ptr, ptr %err, align 8
+  %message = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %message, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.dbus_vmstate_pre_save, ptr noundef %7) #6
   br label %cleanup
 
 if.end:                                           ; preds = %trace_dbus_vmstate_pre_save.exit
@@ -511,10 +508,10 @@ if.end:                                           ; preds = %trace_dbus_vmstate_
   br i1 %tobool6.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end
-  %9 = load ptr, ptr %err, align 8
-  %message8 = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load ptr, ptr %message8, align 8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__.dbus_vmstate_pre_save, ptr noundef %10) #6
+  %8 = load ptr, ptr %err, align 8
+  %message8 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = load ptr, ptr %message8, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__.dbus_vmstate_pre_save, ptr noundef %9) #6
   br label %cleanup
 
 if.end9:                                          ; preds = %if.end
@@ -537,16 +534,16 @@ if.end14:                                         ; preds = %if.end9
   br i1 %tobool18.not, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %if.end14
-  %11 = load ptr, ptr %err, align 8
-  %message20 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %message20, align 8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.37, ptr noundef nonnull @__func__.dbus_vmstate_pre_save, ptr noundef %12) #6
+  %10 = load ptr, ptr %err, align 8
+  %message20 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = load ptr, ptr %message20, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.37, ptr noundef nonnull @__func__.dbus_vmstate_pre_save, ptr noundef %11) #6
   br label %cleanup
 
 if.end21:                                         ; preds = %if.end14
   %data = getelementptr inbounds i8, ptr %call.i, i64 72
-  %13 = load ptr, ptr %data, align 8
-  call void @g_free(ptr noundef %13) #6
+  %12 = load ptr, ptr %data, align 8
+  call void @g_free(ptr noundef %12) #6
   %call23 = call ptr @g_type_check_instance_cast(ptr noundef %call2, i64 noundef %call10) #6
   %call24 = call i64 @g_memory_output_stream_get_size(ptr noundef %call23) #6
   %conv = trunc i64 %call24 to i32
@@ -950,17 +947,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %key) #6
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %key) #6
   br label %trace_dbus_vmstate_saving.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -974,10 +970,10 @@ trace_dbus_vmstate_saving.exit:                   ; preds = %entry, %land.lhs.tr
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %trace_dbus_vmstate_saving.exit
-  %7 = load ptr, ptr %err, align 8
-  %message = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %message, align 8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.41, ptr noundef nonnull @__func__.dbus_save_state_proxy, ptr noundef %8) #6
+  %6 = load ptr, ptr %err, align 8
+  %message = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %message, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.41, ptr noundef nonnull @__func__.dbus_save_state_proxy, ptr noundef %7) #6
   br label %cleanup
 
 if.end:                                           ; preds = %trace_dbus_vmstate_saving.exit
@@ -991,12 +987,12 @@ if.then4:                                         ; preds = %if.end
   br label %cleanup
 
 if.end5:                                          ; preds = %if.end
-  %9 = load i64, ptr %size, align 8
-  %cmp = icmp ugt i64 %9, 1048576
+  %8 = load i64, ptr %size, align 8
+  %cmp = icmp ugt i64 %8, 1048576
   br i1 %cmp, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end5
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.43, ptr noundef nonnull @__func__.dbus_save_state_proxy, i64 noundef %9) #6
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.43, ptr noundef nonnull @__func__.dbus_save_state_proxy, i64 noundef %8) #6
   br label %cleanup
 
 if.end7:                                          ; preds = %if.end5
@@ -1012,8 +1008,8 @@ lor.lhs.false:                                    ; preds = %if.end7
   br i1 %tobool12.not, label %if.then22, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %lor.lhs.false
-  %10 = load i64, ptr %size, align 8
-  %conv14 = trunc i64 %10 to i32
+  %9 = load i64, ptr %size, align 8
+  %conv14 = trunc i64 %9 to i32
   %call15 = call i32 @g_data_output_stream_put_uint32(ptr noundef %user_data, i32 noundef %conv14, ptr noundef null, ptr noundef nonnull %err) #6
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.then22, label %lor.lhs.false17
@@ -1021,16 +1017,16 @@ lor.lhs.false13:                                  ; preds = %lor.lhs.false
 lor.lhs.false17:                                  ; preds = %lor.lhs.false13
   %call18 = tail call i64 @g_output_stream_get_type() #7
   %call19 = call ptr @g_type_check_instance_cast(ptr noundef %user_data, i64 noundef %call18) #6
-  %11 = load i64, ptr %size, align 8
-  %call20 = call i32 @g_output_stream_write_all(ptr noundef %call19, ptr noundef nonnull %call2, i64 noundef %11, ptr noundef null, ptr noundef null, ptr noundef nonnull %err) #6
+  %10 = load i64, ptr %size, align 8
+  %call20 = call i32 @g_output_stream_write_all(ptr noundef %call19, ptr noundef nonnull %call2, i64 noundef %10, ptr noundef null, ptr noundef null, ptr noundef nonnull %err) #6
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %if.then22, label %cleanup
 
 if.then22:                                        ; preds = %lor.lhs.false17, %lor.lhs.false13, %lor.lhs.false, %if.end7
-  %12 = load ptr, ptr %err, align 8
-  %message23 = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load ptr, ptr %message23, align 8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__.dbus_save_state_proxy, ptr noundef %13) #6
+  %11 = load ptr, ptr %err, align 8
+  %message23 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = load ptr, ptr %message23, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__.dbus_save_state_proxy, ptr noundef %12) #6
   br label %cleanup
 
 cleanup:                                          ; preds = %lor.lhs.false17, %if.then22, %if.then6, %if.then4, %if.then

@@ -551,9 +551,8 @@ define void @_ZN15WiresharkDialog13dialogCleanupEb(ptr noundef nonnull align 8 d
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %0, i64 132
   %14 = load i8, ptr %13, align 4
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %18, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %18
 
 16:                                               ; preds = %12
   %17 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null)
@@ -920,9 +919,8 @@ define void @_ZN15WiresharkDialog15endRetapPacketsEv(ptr noundef nonnull align 8
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 132
   %8 = load i8, ptr %7, align 4
-  %9 = and i8 %8, 1
-  %.not.i = icmp eq i8 %9, 0
-  br i1 %.not.i, label %_ZN15WiresharkDialog13dialogCleanupEb.exit, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %_ZN15WiresharkDialog13dialogCleanupEb.exit
 
 10:                                               ; preds = %6
   %11 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null)

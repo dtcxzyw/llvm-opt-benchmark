@@ -704,8 +704,7 @@ define internal i32 @tftp_doing(ptr noundef %data, ptr nocapture noundef %dophas
 entry:
   %call = tail call i32 @tftp_multi_statemach(ptr noundef %data, ptr noundef %dophase_done)
   %0 = load i8, ptr %dophase_done, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %tobool1 = icmp ne i32 %call, 0
   %or.cond = select i1 %tobool, i1 true, i1 %tobool1
   br i1 %or.cond, label %if.end10, label %if.then2
@@ -717,9 +716,9 @@ if.then2:                                         ; preds = %entry
 
 if.else6:                                         ; preds = %if.then2
   %call7 = tail call { i64, i32 } @Curl_now() #14
-  %2 = extractvalue { i64, i32 } %call7, 0
-  %3 = extractvalue { i64, i32 } %call7, 1
-  %call8 = tail call i32 @Curl_speedcheck(ptr noundef %data, i64 %2, i32 %3) #14
+  %1 = extractvalue { i64, i32 } %call7, 0
+  %2 = extractvalue { i64, i32 } %call7, 1
+  %call8 = tail call i32 @Curl_speedcheck(ptr noundef %data, i64 %1, i32 %2) #14
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then2, %if.else6, %entry

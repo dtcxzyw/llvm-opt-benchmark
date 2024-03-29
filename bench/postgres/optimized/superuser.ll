@@ -14,61 +14,58 @@ define dso_local zeroext i1 @superuser() local_unnamed_addr #0 {
   %2 = load i32, ptr @last_roleid, align 4
   %.not14.i = icmp ne i32 %2, 0
   %3 = icmp eq i32 %2, %1
-  %or.cond17.i = and i1 %.not14.i, %3
-  br i1 %or.cond17.i, label %4, label %8
+  %or.cond.i = and i1 %.not14.i, %3
+  br i1 %or.cond.i, label %4, label %7
 
 4:                                                ; preds = %0
   %5 = load i8, ptr @last_roleid_is_super, align 1
-  %6 = and i8 %5, 1
-  %7 = icmp ne i8 %6, 0
+  %6 = trunc i8 %5 to i1
   br label %superuser_arg.exit
 
-8:                                                ; preds = %0
-  %9 = load i8, ptr @IsUnderPostmaster, align 1
-  %10 = and i8 %9, 1
-  %.not15.i = icmp eq i8 %10, 0
-  %11 = icmp eq i32 %1, 10
-  %or.cond.i = and i1 %11, %.not15.i
-  br i1 %or.cond.i, label %superuser_arg.exit, label %12
+7:                                                ; preds = %0
+  %8 = load i8, ptr @IsUnderPostmaster, align 1
+  %9 = trunc i8 %8 to i1
+  %10 = icmp ne i32 %1, 10
+  %or.cond.not.i = or i1 %10, %9
+  br i1 %or.cond.not.i, label %11, label %superuser_arg.exit
 
-12:                                               ; preds = %8
-  %13 = zext i32 %1 to i64
-  %14 = tail call ptr @SearchSysCache1(i32 noundef 11, i64 noundef %13) #3
-  %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %26, label %15
+11:                                               ; preds = %7
+  %12 = zext i32 %1 to i64
+  %13 = tail call ptr @SearchSysCache1(i32 noundef 11, i64 noundef %12) #3
+  %.not.i = icmp eq ptr %13, null
+  br i1 %.not.i, label %24, label %14
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 22
-  %19 = load i8, ptr %18, align 2
-  %20 = zext i8 %19 to i64
-  %21 = getelementptr i8, ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 68
-  %23 = load i8, ptr %22, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %14) #3
-  %24 = and i8 %23, 1
-  %25 = icmp ne i8 %24, 0
-  br label %26
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 22
+  %18 = load i8, ptr %17, align 2
+  %19 = zext i8 %18 to i64
+  %20 = getelementptr i8, ptr %16, i64 %19
+  %21 = getelementptr inbounds i8, ptr %20, i64 68
+  %22 = load i8, ptr %21, align 4
+  tail call void @ReleaseSysCache(ptr noundef nonnull %13) #3
+  %23 = trunc i8 %22 to i1
+  br label %24
 
-26:                                               ; preds = %15, %12
-  %.011.i = phi i1 [ %25, %15 ], [ false, %12 ]
+24:                                               ; preds = %14, %11
+  %.011.i = phi i1 [ %23, %14 ], [ false, %11 ]
   %.b16.i = load i1, ptr @roleid_callback_registered, align 1
-  br i1 %.b16.i, label %28, label %27
+  br i1 %.b16.i, label %26, label %25
 
-27:                                               ; preds = %26
+25:                                               ; preds = %24
   tail call void @CacheRegisterSyscacheCallback(i32 noundef 11, ptr noundef nonnull @RoleidCallback, i64 noundef 0) #3
   store i1 true, ptr @roleid_callback_registered, align 1
-  br label %28
+  br label %26
 
-28:                                               ; preds = %27, %26
+26:                                               ; preds = %25, %24
   store i32 %1, ptr @last_roleid, align 4
-  %29 = zext i1 %.011.i to i8
-  store i8 %29, ptr @last_roleid_is_super, align 1
+  %27 = zext i1 %.011.i to i8
+  store i8 %27, ptr @last_roleid_is_super, align 1
   br label %superuser_arg.exit
 
-superuser_arg.exit:                               ; preds = %4, %8, %28
-  %.0.i = phi i1 [ %7, %4 ], [ %.011.i, %28 ], [ true, %8 ]
+superuser_arg.exit:                               ; preds = %4, %7, %26
+  %.0.i = phi i1 [ %6, %4 ], [ %.011.i, %26 ], [ true, %7 ]
   ret i1 %.0.i
 }
 
@@ -77,61 +74,58 @@ define dso_local zeroext i1 @superuser_arg(i32 noundef %0) local_unnamed_addr #0
   %2 = load i32, ptr @last_roleid, align 4
   %.not14 = icmp ne i32 %2, 0
   %3 = icmp eq i32 %2, %0
-  %or.cond17 = and i1 %.not14, %3
-  br i1 %or.cond17, label %4, label %8
+  %or.cond = and i1 %.not14, %3
+  br i1 %or.cond, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = load i8, ptr @last_roleid_is_super, align 1
-  %6 = and i8 %5, 1
-  %7 = icmp ne i8 %6, 0
-  br label %30
-
-8:                                                ; preds = %1
-  %9 = load i8, ptr @IsUnderPostmaster, align 1
-  %10 = and i8 %9, 1
-  %.not15 = icmp eq i8 %10, 0
-  %11 = icmp eq i32 %0, 10
-  %or.cond = and i1 %11, %.not15
-  br i1 %or.cond, label %30, label %12
-
-12:                                               ; preds = %8
-  %13 = zext i32 %0 to i64
-  %14 = tail call ptr @SearchSysCache1(i32 noundef 11, i64 noundef %13) #3
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %26, label %15
-
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 22
-  %19 = load i8, ptr %18, align 2
-  %20 = zext i8 %19 to i64
-  %21 = getelementptr i8, ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 68
-  %23 = load i8, ptr %22, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %14) #3
-  %24 = and i8 %23, 1
-  %25 = icmp ne i8 %24, 0
-  br label %26
-
-26:                                               ; preds = %12, %15
-  %.011 = phi i1 [ %25, %15 ], [ false, %12 ]
-  %.b16 = load i1, ptr @roleid_callback_registered, align 1
-  br i1 %.b16, label %28, label %27
-
-27:                                               ; preds = %26
-  tail call void @CacheRegisterSyscacheCallback(i32 noundef 11, ptr noundef nonnull @RoleidCallback, i64 noundef 0) #3
-  store i1 true, ptr @roleid_callback_registered, align 1
+  %6 = trunc i8 %5 to i1
   br label %28
 
-28:                                               ; preds = %27, %26
-  store i32 %0, ptr @last_roleid, align 4
-  %29 = zext i1 %.011 to i8
-  store i8 %29, ptr @last_roleid_is_super, align 1
-  br label %30
+7:                                                ; preds = %1
+  %8 = load i8, ptr @IsUnderPostmaster, align 1
+  %9 = trunc i8 %8 to i1
+  %10 = icmp ne i32 %0, 10
+  %or.cond.not = or i1 %10, %9
+  br i1 %or.cond.not, label %11, label %28
 
-30:                                               ; preds = %8, %28, %4
-  %.0 = phi i1 [ %7, %4 ], [ %.011, %28 ], [ true, %8 ]
+11:                                               ; preds = %7
+  %12 = zext i32 %0 to i64
+  %13 = tail call ptr @SearchSysCache1(i32 noundef 11, i64 noundef %12) #3
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %24, label %14
+
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 22
+  %18 = load i8, ptr %17, align 2
+  %19 = zext i8 %18 to i64
+  %20 = getelementptr i8, ptr %16, i64 %19
+  %21 = getelementptr inbounds i8, ptr %20, i64 68
+  %22 = load i8, ptr %21, align 4
+  tail call void @ReleaseSysCache(ptr noundef nonnull %13) #3
+  %23 = trunc i8 %22 to i1
+  br label %24
+
+24:                                               ; preds = %11, %14
+  %.011 = phi i1 [ %23, %14 ], [ false, %11 ]
+  %.b16 = load i1, ptr @roleid_callback_registered, align 1
+  br i1 %.b16, label %26, label %25
+
+25:                                               ; preds = %24
+  tail call void @CacheRegisterSyscacheCallback(i32 noundef 11, ptr noundef nonnull @RoleidCallback, i64 noundef 0) #3
+  store i1 true, ptr @roleid_callback_registered, align 1
+  br label %26
+
+26:                                               ; preds = %25, %24
+  store i32 %0, ptr @last_roleid, align 4
+  %27 = zext i1 %.011 to i8
+  store i8 %27, ptr @last_roleid_is_super, align 1
+  br label %28
+
+28:                                               ; preds = %7, %26, %4
+  %.0 = phi i1 [ %6, %4 ], [ %.011, %26 ], [ true, %7 ]
   ret i1 %.0
 }
 

@@ -65,14 +65,14 @@ define dso_local void @_ZN18AttributeGenerator6OutputERSo(ptr nocapture noundef 
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %.not1215 = icmp eq ptr %5, %7
-  br i1 %.not1215, label %._crit_edge.thread, label %.lr.ph
+  %.not13 = icmp eq ptr %5, %7
+  br i1 %.not13, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %26
-  %.017 = phi i8 [ %.1, %26 ], [ 0, %2 ]
-  %.sroa.09.016 = phi ptr [ %27, %26 ], [ %5, %2 ]
+  %.015 = phi i8 [ %.1, %26 ], [ 0, %2 ]
+  %.sroa.08.014 = phi ptr [ %27, %26 ], [ %5, %2 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
-  %8 = load ptr, ptr %.sroa.09.016, align 8
+  %8 = load ptr, ptr %.sroa.08.014, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   invoke void %10(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(44) %8)
@@ -82,13 +82,12 @@ define dso_local void @_ZN18AttributeGenerator6OutputERSo(ptr nocapture noundef 
   %12 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
   %13 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str) #8
-  %.not13 = icmp eq i32 %13, 0
-  br i1 %.not13, label %26, label %14
+  %.not11 = icmp eq i32 %13, 0
+  br i1 %.not11, label %26, label %14
 
 14:                                               ; preds = %11
-  %15 = and i8 %.017, 1
-  %.not8 = icmp eq i8 %15, 0
-  br i1 %.not8, label %16, label %22
+  %15 = trunc i8 %.015 to i1
+  br i1 %15, label %22, label %16
 
 16:                                               ; preds = %14
   %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1)
@@ -113,23 +112,22 @@ define dso_local void @_ZN18AttributeGenerator6OutputERSo(ptr nocapture noundef 
           to label %26 unwind label %20
 
 26:                                               ; preds = %18, %24, %11
-  %.1 = phi i8 [ %.017, %24 ], [ %.017, %11 ], [ 1, %18 ]
+  %.1 = phi i8 [ %.015, %24 ], [ %.015, %11 ], [ 1, %18 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
-  %27 = getelementptr inbounds i8, ptr %.sroa.09.016, i64 8
+  %27 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 8
   %28 = load ptr, ptr %6, align 8
-  %.not12 = icmp eq ptr %27, %28
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  %.not = icmp eq ptr %27, %28
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %26
-  %29 = and i8 %.1, 1
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %._crit_edge.thread, label %31
+  %29 = trunc i8 %.1 to i1
+  br i1 %29, label %30, label %._crit_edge.thread
 
-31:                                               ; preds = %._crit_edge
-  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3)
+30:                                               ; preds = %._crit_edge
+  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %2, %31, %._crit_edge
+._crit_edge.thread:                               ; preds = %2, %30, %._crit_edge
   ret void
 }
 

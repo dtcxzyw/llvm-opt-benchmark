@@ -522,45 +522,44 @@ define dso_local ptr @ExecGetResultType(ptr nocapture noundef readonly %0) local
 define dso_local ptr @ExecGetResultSlotOps(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 199
   %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %14, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %.thread
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 184
   %8 = load ptr, ptr %7, align 8
-  %.not20 = icmp eq ptr %8, null
-  %.not2126 = icmp eq ptr %1, null
-  br i1 %.not20, label %.thread, label %9
+  %.not = icmp eq ptr %8, null
+  %.not20 = icmp eq ptr %1, null
+  br i1 %.not, label %14, label %9
 
 9:                                                ; preds = %6
-  br i1 %.not2126, label %33, label %10
+  br i1 %.not20, label %33, label %10
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds i8, ptr %0, i64 195
   %12 = load i8, ptr %11, align 1
   %13 = and i8 %12, 1
   store i8 %13, ptr %1, align 1
-  br label %.sink.split28
+  br label %.sink.split26
 
-14:                                               ; preds = %2
-  %.not21 = icmp eq ptr %1, null
-  br i1 %.not21, label %28, label %19
+14:                                               ; preds = %6
+  br i1 %.not20, label %28, label %15
 
-.thread:                                          ; preds = %6
-  br i1 %.not2126, label %28, label %15
+.thread:                                          ; preds = %2
+  %.not2024 = icmp eq ptr %1, null
+  br i1 %.not2024, label %28, label %19
 
-15:                                               ; preds = %.thread
+15:                                               ; preds = %14
   %16 = getelementptr inbounds i8, ptr %0, i64 195
   %17 = load i8, ptr %16, align 1
   %18 = and i8 %17, 1
   br label %.sink.split
 
-19:                                               ; preds = %14
+19:                                               ; preds = %.thread
   %20 = getelementptr inbounds i8, ptr %0, i64 120
   %21 = load ptr, ptr %20, align 8
-  %.not23 = icmp eq ptr %21, null
-  br i1 %.not23, label %.sink.split, label %22
+  %.not21 = icmp eq ptr %21, null
+  br i1 %.not21, label %.sink.split, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %21, i64 4
@@ -578,20 +577,20 @@ define dso_local ptr @ExecGetResultSlotOps(ptr nocapture noundef readonly %0, pt
 28:                                               ; preds = %.sink.split, %.thread, %14
   %29 = getelementptr inbounds i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
-  %.not24 = icmp eq ptr %30, null
-  br i1 %.not24, label %33, label %31
+  %.not22 = icmp eq ptr %30, null
+  br i1 %.not22, label %33, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds i8, ptr %30, i64 8
-  br label %.sink.split28
+  br label %.sink.split26
 
-.sink.split28:                                    ; preds = %31, %10
-  %.sink29 = phi ptr [ %7, %10 ], [ %32, %31 ]
-  %.pre = load ptr, ptr %.sink29, align 8
+.sink.split26:                                    ; preds = %31, %10
+  %.sink27 = phi ptr [ %7, %10 ], [ %32, %31 ]
+  %.pre = load ptr, ptr %.sink27, align 8
   br label %33
 
-33:                                               ; preds = %.sink.split28, %9, %28
-  %.0 = phi ptr [ @TTSOpsVirtual, %28 ], [ %8, %9 ], [ %.pre, %.sink.split28 ]
+33:                                               ; preds = %.sink.split26, %9, %28
+  %.0 = phi ptr [ @TTSOpsVirtual, %28 ], [ %8, %9 ], [ %.pre, %.sink.split26 ]
   ret ptr %.0
 }
 
@@ -672,41 +671,39 @@ list_head.exit.i:                                 ; preds = %9, %3
 33:                                               ; preds = %28
   %34 = getelementptr inbounds i8, ptr %19, i64 95
   %35 = load i8, ptr %34, align 1
-  %36 = and i8 %35, 1
-  %.not30.i = icmp eq i8 %36, 0
-  br i1 %.not30.i, label %37, label %tlist_matches_tupdesc.exit.thread
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %tlist_matches_tupdesc.exit.thread, label %37
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %19, i64 92
   %39 = load i8, ptr %38, align 4
-  %40 = and i8 %39, 1
-  %.not31.i = icmp eq i8 %40, 0
-  br i1 %.not31.i, label %41, label %tlist_matches_tupdesc.exit.thread
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %tlist_matches_tupdesc.exit.thread, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds i8, ptr %24, i64 12
   %43 = load i32, ptr %42, align 4
   %44 = getelementptr inbounds i8, ptr %19, i64 68
   %45 = load i32, ptr %44, align 4
-  %.not32.i = icmp eq i32 %43, %45
-  br i1 %.not32.i, label %46, label %tlist_matches_tupdesc.exit.thread
+  %.not30.i = icmp eq i32 %43, %45
+  br i1 %.not30.i, label %46, label %tlist_matches_tupdesc.exit.thread
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds i8, ptr %24, i64 16
   %48 = load i32, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %19, i64 80
   %50 = load i32, ptr %49, align 4
-  %.not33.i = icmp eq i32 %48, %50
-  %.not34.i = icmp eq i32 %48, -1
-  %or.cond.i = or i1 %.not34.i, %.not33.i
+  %.not31.i = icmp eq i32 %48, %50
+  %.not32.i = icmp eq i32 %48, -1
+  %or.cond.i = or i1 %.not32.i, %.not31.i
   br i1 %or.cond.i, label %51, label %tlist_matches_tupdesc.exit.thread
 
 51:                                               ; preds = %46
   %.val.i = load i32, ptr %14, align 4
-  %.val35.i = load ptr, ptr %15, align 8
+  %.val33.i = load ptr, ptr %15, align 8
   %52 = getelementptr i8, ptr %.0243.i, i64 8
   %53 = sext i32 %.val.i to i64
-  %54 = getelementptr %union.ListCell, ptr %.val35.i, i64 %53
+  %54 = getelementptr %union.ListCell, ptr %.val33.i, i64 %53
   %55 = icmp ult ptr %52, %54
   %..i.i = select i1 %55, ptr %52, ptr null
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -723,14 +720,14 @@ tlist_matches_tupdesc.exit:                       ; preds = %51, %list_head.exit
   store ptr null, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 196
   %59 = load i8, ptr %58, align 4
-  %60 = and i8 %59, 1
-  %61 = getelementptr inbounds i8, ptr %0, i64 199
-  store i8 %60, ptr %61, align 1
+  %60 = getelementptr inbounds i8, ptr %0, i64 199
+  %61 = and i8 %59, 1
+  store i8 %61, ptr %60, align 1
   %62 = getelementptr inbounds i8, ptr %0, i64 192
   %63 = load i8, ptr %62, align 8
-  %64 = and i8 %63, 1
-  %65 = getelementptr inbounds i8, ptr %0, i64 195
-  store i8 %64, ptr %65, align 1
+  %64 = getelementptr inbounds i8, ptr %0, i64 195
+  %65 = and i8 %63, 1
+  store i8 %65, ptr %64, align 1
   %66 = getelementptr inbounds i8, ptr %0, i64 160
   %67 = load ptr, ptr %66, align 8
   br label %80
@@ -856,9 +853,8 @@ ExecGetRangeTableRelation.exit:                   ; preds = %3, %24
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 125
   %34 = load i8, ptr %33, align 1
-  %35 = and i8 %34, 1
-  %.not = icmp eq i8 %35, 0
-  br i1 %.not, label %36, label %43
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %43, label %36
 
 36:                                               ; preds = %30
   %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -1293,11 +1289,10 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %35 = getelementptr i8, ptr %33, i64 %34
   %36 = getelementptr inbounds i8, ptr %25, i64 86
   %37 = load i8, ptr %36, align 2
-  %38 = and i8 %37, 1
-  %.not20.i = icmp eq i8 %38, 0
+  %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %25, i64 72
   %40 = load i16, ptr %39, align 4
-  br i1 %.not20.i, label %57, label %41
+  br i1 %38, label %41, label %57
 
 41:                                               ; preds = %29
   switch i16 %40, label %53 [
@@ -1466,17 +1461,17 @@ define dso_local i32 @ExecCleanTargetListLength(ptr noundef readonly %0) local_u
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.lr.ph21, label %._crit_edge
+  br i1 %4, label %.lr.ph20, label %._crit_edge
 
-.lr.ph21:                                         ; preds = %.lr.ph
+.lr.ph20:                                         ; preds = %.lr.ph
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %7
 
-7:                                                ; preds = %.lr.ph21, %7
-  %indvars.iv = phi i64 [ 0, %.lr.ph21 ], [ %indvars.iv.next, %7 ]
-  %.01519 = phi i32 [ 0, %.lr.ph21 ], [ %spec.select, %7 ]
+7:                                                ; preds = %.lr.ph20, %7
+  %indvars.iv = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next, %7 ]
+  %.01418 = phi i32 [ 0, %.lr.ph20 ], [ %spec.select, %7 ]
   %8 = getelementptr %union.ListCell, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 42
@@ -1484,7 +1479,7 @@ define dso_local i32 @ExecCleanTargetListLength(ptr noundef readonly %0) local_u
   %12 = and i8 %11, 1
   %13 = xor i8 %12, 1
   %14 = zext nneg i8 %13 to i32
-  %spec.select = add i32 %.01519, %14
+  %spec.select = add i32 %.01418, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %7
@@ -1583,9 +1578,8 @@ define dso_local ptr @ExecGetReturningSlot(ptr noundef %0, ptr nocapture noundef
 define dso_local ptr @ExecGetChildToRootMap(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 304
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %._crit_edge
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 296
@@ -1595,8 +1589,8 @@ define dso_local ptr @ExecGetChildToRootMap(ptr nocapture noundef %0) local_unna
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 328
   %7 = load ptr, ptr %6, align 8
-  %.not9 = icmp eq ptr %7, null
-  br i1 %.not9, label %18, label %8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %18, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1628,9 +1622,8 @@ declare ptr @convert_tuples_by_name(ptr noundef, ptr noundef) local_unnamed_addr
 define dso_local ptr @ExecGetRootToChildMap(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 320
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %30
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %31, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 328
@@ -1651,27 +1644,27 @@ define dso_local ptr @ExecGetRootToChildMap(ptr nocapture noundef %0, ptr nocapt
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 127
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %.not17 = icmp eq i8 %24, 0
-  %25 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %12, ptr noundef %16, i1 noundef zeroext %.not17) #9
-  %.not18 = icmp eq ptr %25, null
-  br i1 %.not18, label %29, label %26
+  %24 = trunc i8 %23 to i1
+  %25 = xor i1 %24, true
+  %26 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %12, ptr noundef %16, i1 noundef zeroext %25) #9
+  %.not = icmp eq ptr %26, null
+  br i1 %.not, label %30, label %27
 
-26:                                               ; preds = %6
-  %27 = tail call ptr @convert_tuples_by_name_attrmap(ptr noundef %12, ptr noundef %16, ptr noundef nonnull %25) #9
-  %28 = getelementptr inbounds i8, ptr %0, i64 312
-  store ptr %27, ptr %28, align 8
-  br label %29
-
-29:                                               ; preds = %26, %6
-  store ptr %19, ptr @CurrentMemoryContext, align 8
-  store i8 1, ptr %3, align 8
+27:                                               ; preds = %6
+  %28 = tail call ptr @convert_tuples_by_name_attrmap(ptr noundef %12, ptr noundef %16, ptr noundef nonnull %26) #9
+  %29 = getelementptr inbounds i8, ptr %0, i64 312
+  store ptr %28, ptr %29, align 8
   br label %30
 
-30:                                               ; preds = %29, %2
-  %31 = getelementptr inbounds i8, ptr %0, i64 312
-  %32 = load ptr, ptr %31, align 8
-  ret ptr %32
+30:                                               ; preds = %27, %6
+  store ptr %19, ptr @CurrentMemoryContext, align 8
+  store i8 1, ptr %3, align 8
+  br label %31
+
+31:                                               ; preds = %30, %2
+  %32 = getelementptr inbounds i8, ptr %0, i64 312
+  %33 = load ptr, ptr %32, align 8
+  ret ptr %33
 }
 
 declare ptr @build_attrmap_by_name_if_req(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -1707,14 +1700,13 @@ GetResultRTEPermissionInfo.exit:                  ; preds = %2
 15:                                               ; preds = %GetResultRTEPermissionInfo.exit
   %16 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %51, label %17
+  br i1 %.not, label %52, label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %0, i64 320
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not.i14 = icmp eq i8 %20, 0
-  br i1 %.not.i14, label %21, label %ExecGetRootToChildMap.exit
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %ExecGetRootToChildMap.exit, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %16, i64 8
@@ -1733,44 +1725,44 @@ GetResultRTEPermissionInfo.exit:                  ; preds = %2
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 127
   %36 = load i8, ptr %35, align 1
-  %37 = and i8 %36, 1
-  %.not17.i = icmp eq i8 %37, 0
-  %38 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %25, ptr noundef %29, i1 noundef zeroext %.not17.i) #9
-  %.not18.i = icmp eq ptr %38, null
-  br i1 %.not18.i, label %42, label %39
+  %37 = trunc i8 %36 to i1
+  %38 = xor i1 %37, true
+  %39 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %25, ptr noundef %29, i1 noundef zeroext %38) #9
+  %.not.i14 = icmp eq ptr %39, null
+  br i1 %.not.i14, label %43, label %40
 
-39:                                               ; preds = %21
-  %40 = tail call ptr @convert_tuples_by_name_attrmap(ptr noundef %25, ptr noundef %29, ptr noundef nonnull %38) #9
-  %41 = getelementptr inbounds i8, ptr %0, i64 312
-  store ptr %40, ptr %41, align 8
-  br label %42
+40:                                               ; preds = %21
+  %41 = tail call ptr @convert_tuples_by_name_attrmap(ptr noundef %25, ptr noundef %29, ptr noundef nonnull %39) #9
+  %42 = getelementptr inbounds i8, ptr %0, i64 312
+  store ptr %41, ptr %42, align 8
+  br label %43
 
-42:                                               ; preds = %39, %21
+43:                                               ; preds = %40, %21
   store ptr %32, ptr @CurrentMemoryContext, align 8
   store i8 1, ptr %18, align 8
   br label %ExecGetRootToChildMap.exit
 
-ExecGetRootToChildMap.exit:                       ; preds = %17, %42
-  %43 = getelementptr inbounds i8, ptr %0, i64 312
-  %44 = load ptr, ptr %43, align 8
-  %.not13 = icmp eq ptr %44, null
-  br i1 %.not13, label %51, label %45
+ExecGetRootToChildMap.exit:                       ; preds = %17, %43
+  %44 = getelementptr inbounds i8, ptr %0, i64 312
+  %45 = load ptr, ptr %44, align 8
+  %.not13 = icmp eq ptr %45, null
+  br i1 %.not13, label %52, label %46
 
-45:                                               ; preds = %ExecGetRootToChildMap.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %13, i64 40
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call ptr @execute_attr_map_cols(ptr noundef %47, ptr noundef %49) #9
+46:                                               ; preds = %ExecGetRootToChildMap.exit
+  %47 = getelementptr inbounds i8, ptr %45, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %13, i64 40
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call ptr @execute_attr_map_cols(ptr noundef %48, ptr noundef %50) #9
   br label %GetResultRTEPermissionInfo.exit.thread
 
-51:                                               ; preds = %ExecGetRootToChildMap.exit, %15
-  %52 = getelementptr inbounds i8, ptr %13, i64 40
-  %53 = load ptr, ptr %52, align 8
+52:                                               ; preds = %ExecGetRootToChildMap.exit, %15
+  %53 = getelementptr inbounds i8, ptr %13, i64 40
+  %54 = load ptr, ptr %53, align 8
   br label %GetResultRTEPermissionInfo.exit.thread
 
-GetResultRTEPermissionInfo.exit.thread:           ; preds = %2, %GetResultRTEPermissionInfo.exit, %51, %45
-  %.0 = phi ptr [ %50, %45 ], [ %53, %51 ], [ null, %GetResultRTEPermissionInfo.exit ], [ null, %2 ]
+GetResultRTEPermissionInfo.exit.thread:           ; preds = %2, %GetResultRTEPermissionInfo.exit, %52, %46
+  %.0 = phi ptr [ %51, %46 ], [ %54, %52 ], [ null, %GetResultRTEPermissionInfo.exit ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -1805,14 +1797,13 @@ GetResultRTEPermissionInfo.exit:                  ; preds = %2
 15:                                               ; preds = %GetResultRTEPermissionInfo.exit
   %16 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %51, label %17
+  br i1 %.not, label %52, label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %0, i64 320
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not.i14 = icmp eq i8 %20, 0
-  br i1 %.not.i14, label %21, label %ExecGetRootToChildMap.exit
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %ExecGetRootToChildMap.exit, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %16, i64 8
@@ -1831,44 +1822,44 @@ GetResultRTEPermissionInfo.exit:                  ; preds = %2
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 127
   %36 = load i8, ptr %35, align 1
-  %37 = and i8 %36, 1
-  %.not17.i = icmp eq i8 %37, 0
-  %38 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %25, ptr noundef %29, i1 noundef zeroext %.not17.i) #9
-  %.not18.i = icmp eq ptr %38, null
-  br i1 %.not18.i, label %42, label %39
+  %37 = trunc i8 %36 to i1
+  %38 = xor i1 %37, true
+  %39 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %25, ptr noundef %29, i1 noundef zeroext %38) #9
+  %.not.i14 = icmp eq ptr %39, null
+  br i1 %.not.i14, label %43, label %40
 
-39:                                               ; preds = %21
-  %40 = tail call ptr @convert_tuples_by_name_attrmap(ptr noundef %25, ptr noundef %29, ptr noundef nonnull %38) #9
-  %41 = getelementptr inbounds i8, ptr %0, i64 312
-  store ptr %40, ptr %41, align 8
-  br label %42
+40:                                               ; preds = %21
+  %41 = tail call ptr @convert_tuples_by_name_attrmap(ptr noundef %25, ptr noundef %29, ptr noundef nonnull %39) #9
+  %42 = getelementptr inbounds i8, ptr %0, i64 312
+  store ptr %41, ptr %42, align 8
+  br label %43
 
-42:                                               ; preds = %39, %21
+43:                                               ; preds = %40, %21
   store ptr %32, ptr @CurrentMemoryContext, align 8
   store i8 1, ptr %18, align 8
   br label %ExecGetRootToChildMap.exit
 
-ExecGetRootToChildMap.exit:                       ; preds = %17, %42
-  %43 = getelementptr inbounds i8, ptr %0, i64 312
-  %44 = load ptr, ptr %43, align 8
-  %.not13 = icmp eq ptr %44, null
-  br i1 %.not13, label %51, label %45
+ExecGetRootToChildMap.exit:                       ; preds = %17, %43
+  %44 = getelementptr inbounds i8, ptr %0, i64 312
+  %45 = load ptr, ptr %44, align 8
+  %.not13 = icmp eq ptr %45, null
+  br i1 %.not13, label %52, label %46
 
-45:                                               ; preds = %ExecGetRootToChildMap.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %13, i64 48
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call ptr @execute_attr_map_cols(ptr noundef %47, ptr noundef %49) #9
+46:                                               ; preds = %ExecGetRootToChildMap.exit
+  %47 = getelementptr inbounds i8, ptr %45, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %13, i64 48
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call ptr @execute_attr_map_cols(ptr noundef %48, ptr noundef %50) #9
   br label %GetResultRTEPermissionInfo.exit.thread
 
-51:                                               ; preds = %ExecGetRootToChildMap.exit, %15
-  %52 = getelementptr inbounds i8, ptr %13, i64 48
-  %53 = load ptr, ptr %52, align 8
+52:                                               ; preds = %ExecGetRootToChildMap.exit, %15
+  %53 = getelementptr inbounds i8, ptr %13, i64 48
+  %54 = load ptr, ptr %53, align 8
   br label %GetResultRTEPermissionInfo.exit.thread
 
-GetResultRTEPermissionInfo.exit.thread:           ; preds = %2, %GetResultRTEPermissionInfo.exit, %51, %45
-  %.0 = phi ptr [ %50, %45 ], [ %53, %51 ], [ null, %GetResultRTEPermissionInfo.exit ], [ null, %2 ]
+GetResultRTEPermissionInfo.exit.thread:           ; preds = %2, %GetResultRTEPermissionInfo.exit, %52, %46
+  %.0 = phi ptr [ %51, %46 ], [ %54, %52 ], [ null, %GetResultRTEPermissionInfo.exit ], [ null, %2 ]
   ret ptr %.0
 }
 

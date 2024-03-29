@@ -69,17 +69,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end5
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #4
   %call10.i.i = tail call i32 @qemu_get_thread_id() #4
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #4
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #4
   br label %trace_migration_tls_incoming_handshake_start.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -168,17 +167,16 @@ land.lhs.true5.i.i:                               ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #4
   %call10.i.i = call i32 @qemu_get_thread_id() #4
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %call3) #4
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call3) #4
   br label %trace_migration_tls_incoming_handshake_error.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -187,45 +185,44 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_migration_tls_incoming_handshake_error.exit: ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %8 = load ptr, ptr %err, align 8
-  call void @error_report_err(ptr noundef %8) #4
+  %7 = load ptr, ptr %err, align 8
+  call void @error_report_err(ptr noundef %7) #4
   br label %if.end
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i3)
-  %9 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i4 = icmp ne i32 %9, 0
-  %10 = load i16, ptr @_TRACE_MIGRATION_TLS_INCOMING_HANDSHAKE_COMPLETE_DSTATE, align 2
-  %tobool4.i.i5 = icmp ne i16 %10, 0
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i4 = icmp ne i32 %8, 0
+  %9 = load i16, ptr @_TRACE_MIGRATION_TLS_INCOMING_HANDSHAKE_COMPLETE_DSTATE, align 2
+  %tobool4.i.i5 = icmp ne i16 %9, 0
   %or.cond.i.i6 = select i1 %tobool.i.i4, i1 %tobool4.i.i5, i1 false
   br i1 %or.cond.i.i6, label %land.lhs.true5.i.i7, label %trace_migration_tls_incoming_handshake_complete.exit
 
 land.lhs.true5.i.i7:                              ; preds = %if.else
-  %11 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i8 = and i32 %11, 32768
+  %10 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i8 = and i32 %10, 32768
   %cmp.i.not.i.i9 = icmp eq i32 %and.i.i.i8, 0
   br i1 %cmp.i.not.i.i9, label %trace_migration_tls_incoming_handshake_complete.exit, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %land.lhs.true5.i.i7
-  %12 = load i8, ptr @message_with_timestamp, align 1
-  %13 = and i8 %12, 1
-  %tobool7.not.i.i11 = icmp eq i8 %13, 0
-  br i1 %tobool7.not.i.i11, label %if.else.i.i16, label %if.then8.i.i12
+  %11 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i11 = trunc i8 %11 to i1
+  br i1 %tobool7.i.i11, label %if.then8.i.i13, label %if.else.i.i12
 
-if.then8.i.i12:                                   ; preds = %if.then.i.i10
-  %call9.i.i13 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i3, ptr noundef null) #4
-  %call10.i.i14 = call i32 @qemu_get_thread_id() #4
-  %14 = load i64, ptr %_now.i.i3, align 8
-  %tv_usec.i.i15 = getelementptr inbounds i8, ptr %_now.i.i3, i64 8
-  %15 = load i64, ptr %tv_usec.i.i15, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i14, i64 noundef %14, i64 noundef %15) #4
+if.then8.i.i13:                                   ; preds = %if.then.i.i10
+  %call9.i.i14 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i3, ptr noundef null) #4
+  %call10.i.i15 = call i32 @qemu_get_thread_id() #4
+  %12 = load i64, ptr %_now.i.i3, align 8
+  %tv_usec.i.i16 = getelementptr inbounds i8, ptr %_now.i.i3, i64 8
+  %13 = load i64, ptr %tv_usec.i.i16, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i15, i64 noundef %12, i64 noundef %13) #4
   br label %trace_migration_tls_incoming_handshake_complete.exit
 
-if.else.i.i16:                                    ; preds = %if.then.i.i10
+if.else.i.i12:                                    ; preds = %if.then.i.i10
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14) #4
   br label %trace_migration_tls_incoming_handshake_complete.exit
 
-trace_migration_tls_incoming_handshake_complete.exit: ; preds = %if.else, %land.lhs.true5.i.i7, %if.then8.i.i12, %if.else.i.i16
+trace_migration_tls_incoming_handshake_complete.exit: ; preds = %if.else, %land.lhs.true5.i.i7, %if.then8.i.i13, %if.else.i.i12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i3)
   call void @migration_channel_process_incoming(ptr noundef %call.i) #4
   br label %if.end
@@ -312,17 +309,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #4
   %call10.i.i = tail call i32 @qemu_get_thread_id() #4
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %hostname) #4
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %hostname) #4
   br label %trace_migration_tls_outgoing_handshake_start.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -373,17 +369,16 @@ land.lhs.true5.i.i:                               ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #4
   %call10.i.i = call i32 @qemu_get_thread_id() #4
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %call3) #4
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call3) #4
   br label %trace_migration_tls_outgoing_handshake_error.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -396,45 +391,44 @@ trace_migration_tls_outgoing_handshake_error.exit: ; preds = %if.then, %land.lhs
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i3)
-  %8 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i4 = icmp ne i32 %8, 0
-  %9 = load i16, ptr @_TRACE_MIGRATION_TLS_OUTGOING_HANDSHAKE_COMPLETE_DSTATE, align 2
-  %tobool4.i.i5 = icmp ne i16 %9, 0
+  %7 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i4 = icmp ne i32 %7, 0
+  %8 = load i16, ptr @_TRACE_MIGRATION_TLS_OUTGOING_HANDSHAKE_COMPLETE_DSTATE, align 2
+  %tobool4.i.i5 = icmp ne i16 %8, 0
   %or.cond.i.i6 = select i1 %tobool.i.i4, i1 %tobool4.i.i5, i1 false
   br i1 %or.cond.i.i6, label %land.lhs.true5.i.i7, label %trace_migration_tls_outgoing_handshake_complete.exit
 
 land.lhs.true5.i.i7:                              ; preds = %if.else
-  %10 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i8 = and i32 %10, 32768
+  %9 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i8 = and i32 %9, 32768
   %cmp.i.not.i.i9 = icmp eq i32 %and.i.i.i8, 0
   br i1 %cmp.i.not.i.i9, label %trace_migration_tls_outgoing_handshake_complete.exit, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %land.lhs.true5.i.i7
-  %11 = load i8, ptr @message_with_timestamp, align 1
-  %12 = and i8 %11, 1
-  %tobool7.not.i.i11 = icmp eq i8 %12, 0
-  br i1 %tobool7.not.i.i11, label %if.else.i.i16, label %if.then8.i.i12
+  %10 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i11 = trunc i8 %10 to i1
+  br i1 %tobool7.i.i11, label %if.then8.i.i13, label %if.else.i.i12
 
-if.then8.i.i12:                                   ; preds = %if.then.i.i10
-  %call9.i.i13 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i3, ptr noundef null) #4
-  %call10.i.i14 = call i32 @qemu_get_thread_id() #4
-  %13 = load i64, ptr %_now.i.i3, align 8
-  %tv_usec.i.i15 = getelementptr inbounds i8, ptr %_now.i.i3, i64 8
-  %14 = load i64, ptr %tv_usec.i.i15, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i14, i64 noundef %13, i64 noundef %14) #4
+if.then8.i.i13:                                   ; preds = %if.then.i.i10
+  %call9.i.i14 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i3, ptr noundef null) #4
+  %call10.i.i15 = call i32 @qemu_get_thread_id() #4
+  %11 = load i64, ptr %_now.i.i3, align 8
+  %tv_usec.i.i16 = getelementptr inbounds i8, ptr %_now.i.i3, i64 8
+  %12 = load i64, ptr %tv_usec.i.i16, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i15, i64 noundef %11, i64 noundef %12) #4
   br label %trace_migration_tls_outgoing_handshake_complete.exit
 
-if.else.i.i16:                                    ; preds = %if.then.i.i10
+if.else.i.i12:                                    ; preds = %if.then.i.i10
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20) #4
   br label %trace_migration_tls_outgoing_handshake_complete.exit
 
-trace_migration_tls_outgoing_handshake_complete.exit: ; preds = %if.else, %land.lhs.true5.i.i7, %if.then8.i.i12, %if.else.i.i16
+trace_migration_tls_outgoing_handshake_complete.exit: ; preds = %if.else, %land.lhs.true5.i.i7, %if.then8.i.i13, %if.else.i.i12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i3)
   br label %if.end
 
 if.end:                                           ; preds = %trace_migration_tls_outgoing_handshake_complete.exit, %trace_migration_tls_outgoing_handshake_error.exit
-  %15 = load ptr, ptr %err, align 8
-  call void @migration_channel_connect(ptr noundef %opaque, ptr noundef %call.i, ptr noundef null, ptr noundef %15) #4
+  %13 = load ptr, ptr %err, align 8
+  call void @migration_channel_connect(ptr noundef %opaque, ptr noundef %call.i, ptr noundef null, ptr noundef %13) #4
   call void @object_unref(ptr noundef %call.i) #4
   ret void
 }

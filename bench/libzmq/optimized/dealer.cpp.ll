@@ -186,9 +186,8 @@ if.then:                                          ; preds = %entry
 do.end:                                           ; preds = %entry, %if.then
   %_probe_router = getelementptr inbounds i8, ptr %this, i64 1928
   %2 = load i8, ptr %_probe_router, align 8
-  %3 = and i8 %2, 1
-  %tobool4.not = icmp eq i8 %3, 0
-  br i1 %tobool4.not, label %if.end30, label %if.then5
+  %tobool4 = trunc i8 %2 to i1
+  br i1 %tobool4, label %if.then5, label %if.end30
 
 if.then5:                                         ; preds = %do.end
   %call6 = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %probe_msg)
@@ -197,12 +196,12 @@ if.then5:                                         ; preds = %do.end
 
 if.then9:                                         ; preds = %if.then5
   %call10 = tail call ptr @__errno_location() #12
-  %4 = load i32, ptr %call10, align 4
-  %call11 = call ptr @strerror(i32 noundef %4) #9
+  %3 = load i32, ptr %call10, align 4
+  %call11 = call ptr @strerror(i32 noundef %3) #9
+  %4 = load ptr, ptr @stderr, align 8
+  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.3, ptr noundef %call11, ptr noundef nonnull @.str.2, i32 noundef 33) #11
   %5 = load ptr, ptr @stderr, align 8
-  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.3, ptr noundef %call11, ptr noundef nonnull @.str.2, i32 noundef 33) #11
-  %6 = load ptr, ptr @stderr, align 8
-  %call13 = call i32 @fflush(ptr noundef %6)
+  %call13 = call i32 @fflush(ptr noundef %5)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call11)
   br label %do.end15
 
@@ -215,12 +214,12 @@ do.end15:                                         ; preds = %if.then5, %if.then9
 
 if.then22:                                        ; preds = %do.end15
   %call24 = tail call ptr @__errno_location() #12
-  %7 = load i32, ptr %call24, align 4
-  %call25 = call ptr @strerror(i32 noundef %7) #9
+  %6 = load i32, ptr %call24, align 4
+  %call25 = call ptr @strerror(i32 noundef %6) #9
+  %7 = load ptr, ptr @stderr, align 8
+  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.3, ptr noundef %call25, ptr noundef nonnull @.str.2, i32 noundef 42) #11
   %8 = load ptr, ptr @stderr, align 8
-  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.3, ptr noundef %call25, ptr noundef nonnull @.str.2, i32 noundef 42) #11
-  %9 = load ptr, ptr @stderr, align 8
-  %call27 = call i32 @fflush(ptr noundef %9)
+  %call27 = call i32 @fflush(ptr noundef %8)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call25)
   br label %if.end30
 

@@ -3144,9 +3144,8 @@ for.body:                                         ; preds = %if.end, %test_binar
   call void @llvm.lifetime.start.p0(i64 66560, ptr nonnull %command.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %key.i, i8 0, i64 2048, i1 false)
   %1 = load volatile i8, ptr @hickup_thread_running, align 1
-  %2 = and i8 %1, 1
-  %tobool107.not.i = icmp eq i8 %2, 0
-  br i1 %tobool107.not.i, label %test_binary_pipeline_hickup_chunk.exit, label %while.body.i
+  %tobool107.i = trunc i8 %1 to i1
+  br i1 %tobool107.i, label %while.body.i, label %test_binary_pipeline_hickup_chunk.exit
 
 while.body.i:                                     ; preds = %for.body, %if.then.i
   %offset.0108.i = phi i64 [ %add44.i, %if.then.i ], [ 0, %for.body ]
@@ -3409,12 +3408,11 @@ sw.epilog.i:                                      ; preds = %sw.default.i, %sw.b
 if.then.i:                                        ; preds = %sw.epilog.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 %offset.0108.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 8 %command.i, i64 %len.0.i, i1 false)
-  %3 = load volatile i8, ptr @hickup_thread_running, align 1
-  %4 = and i8 %3, 1
-  %tobool.i = icmp ne i8 %4, 0
+  %2 = load volatile i8, ptr @hickup_thread_running, align 1
+  %tobool.i = trunc i8 %2 to i1
   %cmp.i = icmp ult i64 %add44.i, 66536
-  %5 = and i1 %cmp.i, %tobool.i
-  br i1 %5, label %while.body.i, label %test_binary_pipeline_hickup_chunk.exit, !llvm.loop !22
+  %3 = and i1 %cmp.i, %tobool.i
+  br i1 %3, label %while.body.i, label %test_binary_pipeline_hickup_chunk.exit, !llvm.loop !22
 
 test_binary_pipeline_hickup_chunk.exit:           ; preds = %sw.epilog.i, %if.then.i, %for.body
   %offset.0.lcssa.i = phi i64 [ 0, %for.body ], [ %add44.i, %if.then.i ], [ %offset.0108.i, %sw.epilog.i ]
@@ -3441,11 +3439,11 @@ for.end:                                          ; preds = %test_binary_pipelin
 do.body.us.i:                                     ; preds = %do.cond.us.i, %for.end
   %offset.0.us.i = phi i64 [ %offset.1.us.i, %do.cond.us.i ], [ 0, %for.end ]
   %sub.us.i = sub nuw nsw i64 24, %offset.0.us.i
-  %6 = load ptr, ptr @con, align 8
-  %write.us.i = getelementptr inbounds i8, ptr %6, i64 16
-  %7 = load ptr, ptr %write.us.i, align 8
+  %4 = load ptr, ptr @con, align 8
+  %write.us.i = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = load ptr, ptr %write.us.i, align 8
   %add.ptr.us.i = getelementptr inbounds i8, ptr %call, i64 %offset.0.us.i
-  %call3.us.i = call i64 %7(ptr noundef %6, ptr noundef nonnull %add.ptr.us.i, i64 noundef %sub.us.i) #18
+  %call3.us.i = call i64 %5(ptr noundef %4, ptr noundef nonnull %add.ptr.us.i, i64 noundef %sub.us.i) #18
   %cmp4.us.i = icmp eq i64 %call3.us.i, -1
   br i1 %cmp4.us.i, label %if.then6.us.i, label %if.else.us.i
 
@@ -3455,8 +3453,8 @@ if.else.us.i:                                     ; preds = %do.body.us.i
 
 if.then6.us.i:                                    ; preds = %do.body.us.i
   %call7.us.i = tail call ptr @__errno_location() #22
-  %8 = load i32, ptr %call7.us.i, align 4
-  %cmp8.not.us.i = icmp eq i32 %8, 4
+  %6 = load i32, ptr %call7.us.i, align 4
+  %cmp8.not.us.i = icmp eq i32 %6, 4
   br i1 %cmp8.not.us.i, label %do.cond.us.i, label %if.then10.i
 
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
@@ -3465,15 +3463,15 @@ do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.
   br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !19
 
 if.then10.i:                                      ; preds = %if.then6.us.i
-  %9 = load ptr, ptr @stderr, align 8
-  %call12.i = call ptr @strerror(i32 noundef %8) #18
-  %call13.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.238, ptr noundef %call12.i) #23
+  %7 = load ptr, ptr @stderr, align 8
+  %call12.i = call ptr @strerror(i32 noundef %6) #18
+  %call13.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.238, ptr noundef %call12.i) #23
   call void @abort() #19
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %10 = load i64, ptr %tid, align 8
-  %call10 = call i32 @pthread_join(i64 noundef %10, ptr noundef null) #18
+  %8 = load i64, ptr %tid, align 8
+  %call10 = call i32 @pthread_join(i64 noundef %8, ptr noundef null) #18
   br label %return
 
 return:                                           ; preds = %safe_send.exit, %if.then
@@ -4340,7 +4338,6 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %entry
-  %need_more.0 = phi i8 [ 1, %entry ], [ %need_more.2, %do.cond ]
   %offset.0 = phi i64 [ 0, %entry ], [ %offset.1, %do.cond ]
   %0 = load ptr, ptr @con, align 8
   %read = getelementptr inbounds i8, ptr %0, i64 8
@@ -4371,8 +4368,8 @@ if.else9:                                         ; preds = %do.body
 
 if.end10:                                         ; preds = %do.body
   %4 = load i8, ptr %add.ptr, align 1
-  %cmp11 = icmp eq i8 %4, 10
-  br i1 %cmp11, label %if.then13, label %if.end15
+  %cmp11 = icmp ne i8 %4, 10
+  br i1 %cmp11, label %if.end15, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
   %arrayidx14 = getelementptr i8, ptr %add.ptr, i64 1
@@ -4380,7 +4377,6 @@ if.then13:                                        ; preds = %if.end10
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then13, %if.end10
-  %need_more.1 = phi i8 [ 0, %if.then13 ], [ %need_more.0, %if.end10 ]
   %add16 = add nsw i64 %offset.0, 1
   %add17 = add nsw i64 %offset.0, 2
   %cmp18 = icmp ult i64 %add17, %size
@@ -4391,11 +4387,9 @@ if.else21:                                        ; preds = %if.end15
   unreachable
 
 do.cond:                                          ; preds = %if.then, %if.end15
-  %need_more.2 = phi i8 [ %need_more.0, %if.then ], [ %need_more.1, %if.end15 ]
+  %need_more.2 = phi i1 [ true, %if.then ], [ %cmp11, %if.end15 ]
   %offset.1 = phi i64 [ %offset.0, %if.then ], [ %add16, %if.end15 ]
-  %5 = and i8 %need_more.2, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !30
+  br i1 %need_more.2, label %do.body, label %do.end, !llvm.loop !30
 
 do.end:                                           ; preds = %do.cond
   ret void

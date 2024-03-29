@@ -154,9 +154,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_fsync(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @enableFsync, align 1
-  %3 = and i8 %2, 1
-  %.not.i = icmp eq i8 %3, 0
-  br i1 %.not.i, label %pg_fsync_no_writethrough.exit, label %.preheader.i
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %.preheader.i, label %pg_fsync_no_writethrough.exit
 
 .preheader.i:                                     ; preds = %1, %6
   %4 = tail call i32 @fsync(i32 noundef %0) #25
@@ -177,9 +176,8 @@ pg_fsync_no_writethrough.exit:                    ; preds = %.preheader.i, %6, %
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_fsync_no_writethrough(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @enableFsync, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %.loopexit, label %.preheader
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %1, %6
   %4 = tail call i32 @fsync(i32 noundef %0) #25
@@ -205,9 +203,8 @@ declare ptr @__errno_location() local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @pg_fsync_writethrough(i32 noundef %0) local_unnamed_addr #3 {
   %2 = load i8, ptr @enableFsync, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %6, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = tail call ptr @__errno_location() #26
@@ -222,9 +219,8 @@ define dso_local noundef i32 @pg_fsync_writethrough(i32 noundef %0) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_fdatasync(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @enableFsync, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %.loopexit, label %.preheader
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %1, %6
   %4 = tail call i32 @fdatasync(i32 noundef %0) #25
@@ -297,9 +293,8 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define dso_local void @pg_flush_data(i32 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @enableFsync, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %.loopexit, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %3
   %.b15 = load i1, ptr @pg_flush_data.not_implemented_by_kernel, align 1
@@ -324,9 +319,8 @@ define dso_local void @pg_flush_data(i32 noundef %0, i64 noundef %1, i64 noundef
 
 13:                                               ; preds = %8
   %14 = load i8, ptr @data_sync_retry, align 1
-  %15 = and i8 %14, 1
-  %.not.i = icmp eq i8 %15, 0
-  %16 = select i1 %.not.i, i32 23, i32 19
+  %15 = trunc i8 %14 to i1
+  %16 = select i1 %15, i32 19, i32 23
   br label %17
 
 17:                                               ; preds = %13, %12
@@ -349,9 +343,8 @@ declare i32 @sync_file_range(i32 noundef, i64 noundef, i64 noundef, i32 noundef)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i32 @data_sync_elevel(i32 noundef %0) local_unnamed_addr #6 {
   %2 = load i8, ptr @data_sync_retry, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  %4 = select i1 %.not, i32 23, i32 %0
+  %3 = trunc i8 %2 to i1
+  %4 = select i1 %3, i32 %0, i32 23
   ret i32 %4
 }
 
@@ -380,9 +373,8 @@ declare i32 @truncate(ptr noundef, i64 noundef) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define dso_local void @fsync_fname(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @data_sync_retry, align 1
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  %5 = select i1 %.not.i, i32 23, i32 21
+  %4 = trunc i8 %3 to i1
+  %5 = select i1 %4, i32 21, i32 23
   %6 = tail call i32 @fsync_fname_ext(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext false, i32 noundef %5), !range !5
   ret void
 }
@@ -432,9 +424,8 @@ define dso_local noundef i32 @fsync_fname_ext(ptr noundef %0, i1 noundef zeroext
 .thread87:                                        ; preds = %8, %20
   %phi.call708689 = phi i32 [ %phi.call70, %20 ], [ %9, %8 ]
   %23 = load i8, ptr @enableFsync, align 1
-  %24 = and i8 %23, 1
-  %.not.i.i = icmp eq i8 %24, 0
-  br i1 %.not.i.i, label %pg_fsync.exit.thread, label %.preheader.i.i
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %.preheader.i.i, label %pg_fsync.exit.thread
 
 .preheader.i.i:                                   ; preds = %.thread87, %26
   %25 = tail call i32 @fsync(i32 noundef %phi.call708689) #25
@@ -611,9 +602,8 @@ define dso_local noundef i32 @durable_rename(ptr noundef %0, ptr noundef %1, i32
 
 18:                                               ; preds = %6
   %19 = load i8, ptr @enableFsync, align 1
-  %20 = and i8 %19, 1
-  %.not.i.i = icmp eq i8 %20, 0
-  br i1 %.not.i.i, label %pg_fsync.exit.thread, label %.preheader.i.i
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %.preheader.i.i, label %pg_fsync.exit.thread
 
 .preheader.i.i:                                   ; preds = %18, %22
   %21 = tail call i32 @fsync(i32 noundef %8) #25
@@ -2171,10 +2161,9 @@ define dso_local void @FileClose(i32 noundef %0) local_unnamed_addr #0 {
   %13 = and i16 %12, 4
   %.not24 = icmp eq i16 %13, 0
   %14 = load i8, ptr @data_sync_retry, align 1
-  %15 = and i8 %14, 1
-  %.not.i = icmp eq i8 %15, 0
-  %16 = select i1 %.not24, i1 %.not.i, i1 false
-  %17 = select i1 %16, i32 23, i32 15
+  %15 = trunc i8 %14 to i1
+  %16 = select i1 %15, i32 15, i32 23
+  %17 = select i1 %.not24, i32 %16, i32 15
   %18 = tail call zeroext i1 @errstart(i32 noundef %17, ptr noundef null) #25
   br i1 %18, label %19, label %23
 
@@ -2270,8 +2259,8 @@ define dso_local void @FileClose(i32 noundef %0) local_unnamed_addr #0 {
   %71 = icmp slt i32 %70, 0
   %72 = sdiv i64 %69, 1024
   %73 = zext nneg i32 %70 to i64
-  %.not.i30 = icmp slt i64 %72, %73
-  %or.cond.i = select i1 %71, i1 true, i1 %.not.i30
+  %.not.i = icmp slt i64 %72, %73
+  %or.cond.i = select i1 %71, i1 true, i1 %.not.i
   br i1 %or.cond.i, label %ReportTemporaryFileUsage.exit, label %74
 
 74:                                               ; preds = %66
@@ -2311,8 +2300,8 @@ ReportTemporaryFileUsage.exit:                    ; preds = %76, %74, %66, %78, 
   %90 = getelementptr %struct.vfd, ptr %89, i64 %4
   %91 = getelementptr inbounds i8, ptr %90, i64 40
   %92 = load ptr, ptr %91, align 8
-  %.not.i31 = icmp eq ptr %92, null
-  br i1 %.not.i31, label %FreeVfd.exit, label %93
+  %.not.i30 = icmp eq ptr %92, null
+  br i1 %.not.i30, label %FreeVfd.exit, label %93
 
 93:                                               ; preds = %88
   tail call void @free(ptr noundef nonnull %92) #25
@@ -2705,9 +2694,8 @@ define dso_local i32 @FileSync(i32 noundef %0, i32 noundef %1) local_unnamed_add
   %9 = getelementptr %struct.vfd, ptr %7, i64 %8
   %10 = load i32, ptr %9, align 8
   %11 = load i8, ptr @enableFsync, align 1
-  %12 = and i8 %11, 1
-  %.not.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i, label %pg_fsync.exit, label %.preheader.i.i
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %.preheader.i.i, label %pg_fsync.exit
 
 .preheader.i.i:                                   ; preds = %5, %15
   %13 = tail call i32 @fsync(i32 noundef %10) #25
@@ -3749,10 +3737,9 @@ define internal fastcc void @LruDelete(i32 noundef %0) unnamed_addr #0 {
   %10 = and i16 %9, 4
   %.not5 = icmp eq i16 %10, 0
   %11 = load i8, ptr @data_sync_retry, align 1
-  %12 = and i8 %11, 1
-  %.not.i = icmp eq i8 %12, 0
-  %13 = select i1 %.not5, i1 %.not.i, i1 false
-  %14 = select i1 %13, i32 23, i32 15
+  %12 = trunc i8 %11 to i1
+  %13 = select i1 %12, i32 15, i32 23
+  %14 = select i1 %.not5, i32 %13, i32 15
   %15 = tail call zeroext i1 @errstart(i32 noundef %14, ptr noundef null) #25
   br i1 %15, label %16, label %20
 
@@ -4642,9 +4629,8 @@ define dso_local void @SyncDataDirectory() local_unnamed_addr #0 {
   %1 = alloca %struct.stat, align 8
   %2 = alloca [1024 x i8], align 16
   %3 = load i8, ptr @enableFsync, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %62, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %62
 
 5:                                                ; preds = %0
   %6 = call i32 @lstat(ptr noundef nonnull @.str.43, ptr noundef nonnull %1) #25
@@ -4679,8 +4665,8 @@ define dso_local void @SyncDataDirectory() local_unnamed_addr #0 {
   tail call fastcc void @do_syncfs(ptr noundef nonnull @.str.36)
   %22 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.35)
   %23 = tail call ptr @ReadDirExtended(ptr noundef %22, ptr noundef nonnull @.str.35, i32 noundef 15)
-  %.not810 = icmp eq ptr %23, null
-  br i1 %.not810, label %._crit_edge, label %.lr.ph
+  %.not9 = icmp eq ptr %23, null
+  br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21, %.backedge
   %24 = phi ptr [ %31, %.backedge ], [ %23, %21 ]
@@ -4696,8 +4682,8 @@ define dso_local void @SyncDataDirectory() local_unnamed_addr #0 {
 
 .backedge:                                        ; preds = %.lr.ph, %28, %32
   %31 = call ptr @ReadDirExtended(ptr noundef %22, ptr noundef nonnull @.str.35, i32 noundef 15)
-  %.not8 = icmp eq ptr %31, null
-  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  %.not = icmp eq ptr %31, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 32:                                               ; preds = %28
   %33 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.44, ptr noundef nonnull %25) #25

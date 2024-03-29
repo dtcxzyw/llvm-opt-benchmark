@@ -243,8 +243,7 @@ define noundef zeroext i1 @_ZNK6icu_756number4impl21ConstantAffixModifier8isStro
 entry:
   %fStrong = getelementptr inbounds i8, ptr %this, i64 145
   %0 = load i8, ptr %fStrong, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -379,7 +378,7 @@ return:                                           ; preds = %if.else.i13, %if.el
   ret i1 %retval.0
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
@@ -697,8 +696,7 @@ define noundef zeroext i1 @_ZNK6icu_756number4impl14SimpleModifier8isStrongEv(pt
 entry:
   %fStrong = getelementptr inbounds i8, ptr %this, i64 73
   %0 = load i8, ptr %fStrong, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -982,9 +980,8 @@ entry:
   %call = tail call noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %leftIndex, ptr noundef nonnull align 8 dereferenceable(136) %fPrefix, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %fOverwrite = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load i8, ptr %fOverwrite, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %add = add nsw i32 %call, %leftIndex
@@ -1001,10 +998,10 @@ invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #18
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %invoke.cont, %entry
   %length.0 = phi i32 [ %add4, %invoke.cont ], [ %call, %entry ]
@@ -1045,8 +1042,7 @@ define noundef zeroext i1 @_ZNK6icu_756number4impl26ConstantMultiFieldModifier8i
 entry:
   %fStrong = getelementptr inbounds i8, ptr %this, i64 281
   %0 = load i8, ptr %fStrong, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -1216,14 +1212,13 @@ land.rhs:                                         ; preds = %invoke.cont11
 invoke.cont14:                                    ; preds = %land.rhs
   %sub = add nsw i32 %call13, -1
   %2 = load i8, ptr %prefix, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i.i = icmp eq i8 %3, 0
+  %tobool.i.i = trunc i8 %2 to i1
   %fFields.i.i = getelementptr inbounds i8, ptr %prefix, i64 88
-  %4 = load ptr, ptr %fFields.i.i, align 8
-  %cond.i.i = select i1 %tobool.not.i.i, ptr %fFields.i.i, ptr %4
+  %3 = load ptr, ptr %fFields.i.i, align 8
+  %cond.i.i = select i1 %tobool.i.i, ptr %3, ptr %fFields.i.i
   %fZero.i = getelementptr inbounds i8, ptr %prefix, i64 128
-  %5 = load i32, ptr %fZero.i, align 8
-  %add.i = add nsw i32 %sub, %5
+  %4 = load i32, ptr %fZero.i, align 8
+  %add.i = add nsw i32 %sub, %4
   %idxprom.i = sext i32 %add.i to i64
   %arrayidx.i = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i.i, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i = load i8, ptr %arrayidx.i, align 1
@@ -1273,27 +1268,27 @@ invoke.cont38:                                    ; preds = %call.i.noexc
   br label %if.end
 
 lpad:                                             ; preds = %_ZN6icu_756number4impl26ConstantMultiFieldModifierC2ERKNS_22FormattedStringBuilderES5_bb.exit
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup104
 
 lpad6:                                            ; preds = %invoke.cont5
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup102
 
 lpad10:                                           ; preds = %invoke.cont96, %if.else94, %invoke.cont65, %if.then64, %if.end50, %invoke.cont47, %if.else45, %invoke.cont20, %if.then, %land.rhs, %invoke.cont9
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup100
 
 lpad23:                                           ; preds = %call.i.noexc, %invoke.cont35, %invoke.cont42, %if.else, %invoke.cont32, %if.then27, %invoke.cont22
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad31:                                           ; preds = %invoke.cont29
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp28) #18
   br label %ehcleanup
@@ -1311,7 +1306,7 @@ if.end:                                           ; preds = %invoke.cont42, %inv
   br label %if.end50
 
 ehcleanup:                                        ; preds = %lpad31, %lpad23
-  %.pn = phi { ptr, i32 } [ %9, %lpad23 ], [ %10, %lpad31 ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad23 ], [ %9, %lpad31 ]
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %prefixUnicodeSet) #18
   br label %ehcleanup100
 
@@ -1332,15 +1327,14 @@ invoke.cont51:                                    ; preds = %if.end50
   br i1 %cmp53, label %invoke.cont56, label %if.else94
 
 invoke.cont56:                                    ; preds = %invoke.cont51
-  %11 = load i8, ptr %suffix, align 8
-  %12 = and i8 %11, 1
-  %tobool.not.i.i28 = icmp eq i8 %12, 0
+  %10 = load i8, ptr %suffix, align 8
+  %tobool.i.i28 = trunc i8 %10 to i1
   %fFields.i.i29 = getelementptr inbounds i8, ptr %suffix, i64 88
-  %13 = load ptr, ptr %fFields.i.i29, align 8
-  %cond.i.i30 = select i1 %tobool.not.i.i28, ptr %fFields.i.i29, ptr %13
+  %11 = load ptr, ptr %fFields.i.i29, align 8
+  %cond.i.i30 = select i1 %tobool.i.i28, ptr %11, ptr %fFields.i.i29
   %fZero.i31 = getelementptr inbounds i8, ptr %suffix, i64 128
-  %14 = load i32, ptr %fZero.i31, align 8
-  %idxprom.i32 = sext i32 %14 to i64
+  %12 = load i32, ptr %fZero.i31, align 8
+  %idxprom.i32 = sext i32 %12 to i64
   %arrayidx.i33 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i.i30, i64 %idxprom.i32
   %retval.sroa.0.0.copyload.i34 = load i8, ptr %arrayidx.i33, align 1
   %cmp.i35 = icmp eq i8 %retval.sroa.0.0.copyload.i34, 39
@@ -1389,12 +1383,12 @@ invoke.cont84:                                    ; preds = %call.i.noexc36
   br label %if.end92
 
 lpad68:                                           ; preds = %call.i.noexc36, %invoke.cont81, %invoke.cont89, %if.else87, %invoke.cont77, %if.then72, %invoke.cont67
-  %15 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup93
 
 lpad76:                                           ; preds = %invoke.cont74
-  %16 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp73) #18
   br label %ehcleanup93
@@ -1412,7 +1406,7 @@ if.end92:                                         ; preds = %invoke.cont89, %inv
   br label %if.end99
 
 ehcleanup93:                                      ; preds = %lpad76, %lpad68
-  %.pn19 = phi { ptr, i32 } [ %15, %lpad68 ], [ %16, %lpad76 ]
+  %.pn19 = phi { ptr, i32 } [ %13, %lpad68 ], [ %14, %lpad76 ]
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %suffixUnicodeSet) #18
   br label %ehcleanup100
 
@@ -1428,19 +1422,19 @@ if.end99:                                         ; preds = %invoke.cont96, %if.
   ret void
 
 ehcleanup100:                                     ; preds = %ehcleanup93, %ehcleanup, %lpad10
-  %.pn19.pn = phi { ptr, i32 } [ %.pn19, %ehcleanup93 ], [ %8, %lpad10 ], [ %.pn, %ehcleanup ]
+  %.pn19.pn = phi { ptr, i32 } [ %.pn19, %ehcleanup93 ], [ %7, %lpad10 ], [ %.pn, %ehcleanup ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBeforeSuffixInsert) #18
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fBeforeSuffixUnicodeSet) #18
   br label %ehcleanup102
 
 ehcleanup102:                                     ; preds = %ehcleanup100, %lpad6
-  %.pn19.pn.pn.pn = phi { ptr, i32 } [ %.pn19.pn, %ehcleanup100 ], [ %7, %lpad6 ]
+  %.pn19.pn.pn.pn = phi { ptr, i32 } [ %.pn19.pn, %ehcleanup100 ], [ %6, %lpad6 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fAfterPrefixInsert) #18
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fAfterPrefixUnicodeSet) #18
   br label %ehcleanup104
 
 ehcleanup104:                                     ; preds = %ehcleanup102, %lpad
-  %.pn19.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn19.pn.pn.pn, %ehcleanup102 ], [ %6, %lpad ]
+  %.pn19.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn19.pn.pn.pn, %ehcleanup102 ], [ %5, %lpad ]
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 0, i32 0, i64 2), ptr %this, align 8
   call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix.i) #18
   call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fPrefix.i) #18
@@ -1687,8 +1681,9 @@ declare void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 
 declare noundef i32 @_ZNK6icu_7522FormattedStringBuilder17getFirstCodePointEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_756number4impl30CurrencySpacingEnabledModifier5applyERNS_22FormattedStringBuilderEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %leftIndex, i32 noundef %rightIndex, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK6icu_756number4impl30CurrencySpacingEnabledModifier5applyERNS_22FormattedStringBuilderEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %leftIndex, i32 noundef %rightIndex, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
+  %ref.tmp.i = alloca %"class.icu_75::UnicodeString", align 8
   %cmp = icmp sgt i32 %rightIndex, %leftIndex
   br i1 %cmp, label %land.lhs.true, label %if.end24
 
@@ -1736,8 +1731,42 @@ if.then18:                                        ; preds = %land.lhs.true13
 if.end24:                                         ; preds = %entry, %if.then18, %land.lhs.true13, %land.lhs.true10
   %length.1 = phi i32 [ %length.0.ph, %land.lhs.true10 ], [ %add23, %if.then18 ], [ %length.0.ph, %land.lhs.true13 ], [ 0, %entry ]
   %add25 = add nsw i32 %length.1, %rightIndex
-  %call26 = tail call noundef i32 @_ZNK6icu_756number4impl26ConstantMultiFieldModifier5applyERNS_22FormattedStringBuilderEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %leftIndex, i32 noundef %add25, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %add27 = add nsw i32 %call26, %length.1
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i)
+  %fPrefix.i = getelementptr inbounds i8, ptr %this, i64 8
+  %call.i = tail call noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %leftIndex, ptr noundef nonnull align 8 dereferenceable(136) %fPrefix.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %fOverwrite.i = getelementptr inbounds i8, ptr %this, i64 280
+  %4 = load i8, ptr %fOverwrite.i, align 8
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZNK6icu_756number4impl26ConstantMultiFieldModifier5applyERNS_22FormattedStringBuilderEiiR10UErrorCode.exit
+
+if.then.i:                                        ; preds = %if.end24
+  %add.i = add nsw i32 %call.i, %leftIndex
+  %add2.i = add nsw i32 %call.i, %add25
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %ref.tmp.i, align 8
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store i16 2, ptr %fUnion2.i.i, align 8
+  %call3.i = invoke noundef i32 @_ZN6icu_7522FormattedStringBuilder6spliceEiiRKNS_13UnicodeStringEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %add.i, i32 noundef %add2.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i, i32 noundef 0, i32 noundef 0, i8 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
+          to label %invoke.cont.i unwind label %lpad.i
+
+invoke.cont.i:                                    ; preds = %if.then.i
+  %add4.i = add nsw i32 %call3.i, %call.i
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i) #18
+  br label %_ZNK6icu_756number4impl26ConstantMultiFieldModifier5applyERNS_22FormattedStringBuilderEiiR10UErrorCode.exit
+
+lpad.i:                                           ; preds = %if.then.i
+  %5 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i) #18
+  resume { ptr, i32 } %5
+
+_ZNK6icu_756number4impl26ConstantMultiFieldModifier5applyERNS_22FormattedStringBuilderEiiR10UErrorCode.exit: ; preds = %if.end24, %invoke.cont.i
+  %length.0.i = phi i32 [ %add4.i, %invoke.cont.i ], [ %call.i, %if.end24 ]
+  %add5.i = add nsw i32 %length.0.i, %add25
+  %fSuffix.i = getelementptr inbounds i8, ptr %this, i64 144
+  %call6.i = call noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %add5.i, ptr noundef nonnull align 8 dereferenceable(136) %fSuffix.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
+  %add7.i = add i32 %length.0.i, %length.1
+  %add27 = add i32 %add7.i, %call6.i
   ret i32 %add27
 }
 
@@ -1788,14 +1817,13 @@ entry:
 cond.end:                                         ; preds = %entry
   %sub = add nsw i32 %index, -1
   %0 = load i8, ptr %output, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i.i = icmp eq i8 %1, 0
+  %tobool.i.i = trunc i8 %0 to i1
   %fFields.i.i = getelementptr inbounds i8, ptr %output, i64 88
-  %2 = load ptr, ptr %fFields.i.i, align 8
-  %cond.i.i = select i1 %tobool.not.i.i, ptr %fFields.i.i, ptr %2
+  %1 = load ptr, ptr %fFields.i.i, align 8
+  %cond.i.i = select i1 %tobool.i.i, ptr %1, ptr %fFields.i.i
   %fZero.i = getelementptr inbounds i8, ptr %output, i64 128
-  %3 = load i32, ptr %fZero.i, align 8
-  %add.i = add nsw i32 %sub, %3
+  %2 = load i32, ptr %fZero.i, align 8
+  %add.i = add nsw i32 %sub, %2
   %idxprom.i = sext i32 %add.i to i64
   %arrayidx.i = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i.i, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i = load i8, ptr %arrayidx.i, align 1
@@ -1803,15 +1831,14 @@ cond.end:                                         ; preds = %entry
   br i1 %cmp.i.not, label %cond.true5, label %return
 
 cond.end.thread:                                  ; preds = %entry
-  %4 = load i8, ptr %output, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i.i25 = icmp eq i8 %5, 0
+  %3 = load i8, ptr %output, align 8
+  %tobool.i.i25 = trunc i8 %3 to i1
   %fFields.i.i26 = getelementptr inbounds i8, ptr %output, i64 88
-  %6 = load ptr, ptr %fFields.i.i26, align 8
-  %cond.i.i27 = select i1 %tobool.not.i.i25, ptr %fFields.i.i26, ptr %6
+  %4 = load ptr, ptr %fFields.i.i26, align 8
+  %cond.i.i27 = select i1 %tobool.i.i25, ptr %4, ptr %fFields.i.i26
   %fZero.i28 = getelementptr inbounds i8, ptr %output, i64 128
-  %7 = load i32, ptr %fZero.i28, align 8
-  %add.i29 = add nsw i32 %7, %index
+  %5 = load i32, ptr %fZero.i28, align 8
+  %add.i29 = add nsw i32 %5, %index
   %idxprom.i30 = sext i32 %add.i29 to i64
   %arrayidx.i31 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i.i27, i64 %idxprom.i30
   %retval.sroa.0.0.copyload.i32 = load i8, ptr %arrayidx.i31, align 1
@@ -1838,7 +1865,7 @@ invoke.cont:                                      ; preds = %cond.end9
   br i1 %tobool.not, label %cleanup34, label %if.end12
 
 lpad:                                             ; preds = %cond.end20, %cond.false17, %cond.true14, %cond.end9
-  %8 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup35
 
@@ -1867,7 +1894,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
   br i1 %tobool26.not, label %cleanup, label %if.end28
 
 lpad23:                                           ; preds = %call.i.noexc, %if.end28, %invoke.cont22
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -1890,7 +1917,7 @@ invoke.cont32:                                    ; preds = %invoke.cont29
   br label %cleanup
 
 lpad31:                                           ; preds = %invoke.cont29
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %spacingString) #18
   br label %ehcleanup
@@ -1901,7 +1928,7 @@ cleanup:                                          ; preds = %invoke.cont24, %inv
   br label %cleanup34
 
 ehcleanup:                                        ; preds = %lpad31, %lpad23
-  %.pn = phi { ptr, i32 } [ %10, %lpad31 ], [ %9, %lpad23 ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad31 ], [ %7, %lpad23 ]
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %numberUniset) #18
   br label %ehcleanup35
 
@@ -1911,7 +1938,7 @@ cleanup34:                                        ; preds = %invoke.cont, %clean
   br label %return
 
 ehcleanup35:                                      ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %8, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %6, %lpad ]
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %affixUniset) #18
   resume { ptr, i32 } %.pn.pn
 
@@ -2142,7 +2169,7 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind memory(read) }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

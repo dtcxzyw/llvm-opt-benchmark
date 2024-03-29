@@ -6965,9 +6965,8 @@ define internal i32 @dissect_p1_ExtensionValue(i1 zeroext %0, ptr noundef %1, i3
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 62
   %9 = load i8, ptr %8, align 2
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %31, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %31
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %3, i64 80
@@ -6979,8 +6978,8 @@ define internal i32 @dissect_p1_ExtensionValue(i1 zeroext %0, ptr noundef %1, i3
   %17 = getelementptr inbounds i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @dissector_try_uint(ptr noundef %15, i32 noundef %16, ptr noundef %1, ptr noundef %18, ptr noundef %4) #4
-  %.not32 = icmp eq i32 %19, 0
-  br i1 %.not32, label %22, label %20
+  %.not30 = icmp eq i32 %19, 0
+  br i1 %.not30, label %22, label %20
 
 20:                                               ; preds = %11
   %21 = tail call i32 @tvb_reported_length(ptr noundef %1) #4
@@ -7000,9 +6999,8 @@ define internal i32 @dissect_p1_ExtensionValue(i1 zeroext %0, ptr noundef %1, i3
 31:                                               ; preds = %6
   %32 = getelementptr inbounds i8, ptr %3, i64 61
   %33 = load i8, ptr %32, align 1
-  %34 = and i8 %33, 1
-  %.not30 = icmp eq i8 %34, 0
-  br i1 %.not30, label %52, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %52
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %3, i64 72
@@ -7017,8 +7015,8 @@ define internal i32 @dissect_p1_ExtensionValue(i1 zeroext %0, ptr noundef %1, i3
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %36, align 8
   %47 = tail call ptr @oid_resolved_from_string(ptr noundef %45, ptr noundef %46) #4
-  %.not31 = icmp eq ptr %47, null
-  br i1 %.not31, label %48, label %50
+  %.not = icmp eq ptr %47, null
+  br i1 %.not, label %48, label %50
 
 48:                                               ; preds = %35
   %49 = load ptr, ptr %36, align 8

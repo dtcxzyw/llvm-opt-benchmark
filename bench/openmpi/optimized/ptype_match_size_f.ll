@@ -31,9 +31,8 @@ target triple = "x86_64-pc-linux-gnu"
 define void @ompi_type_match_size_f(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3) #0 {
   %5 = load i32, ptr %1, align 4
   %6 = load i8, ptr @ompi_mpi_param_check, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %13, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %13
 
 8:                                                ; preds = %4
   %9 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -62,8 +61,8 @@ switch.lookup:                                    ; preds = %13
   %17 = tail call ptr @ompi_datatype_match_size(i32 noundef %5, i16 noundef zeroext %switch.offset, i16 noundef zeroext -16384) #2
   %18 = tail call i32 @PMPI_Type_c2f(ptr noundef %17) #2
   store i32 %18, ptr %2, align 4
-  %.not12 = icmp eq ptr %17, @ompi_mpi_datatype_null
-  br i1 %.not12, label %19, label %21
+  %.not = icmp eq ptr %17, @ompi_mpi_datatype_null
+  br i1 %.not, label %19, label %21
 
 19:                                               ; preds = %.thread, %switch.lookup
   %20 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 13, ptr noundef nonnull @FUNC_NAME) #2
@@ -71,8 +70,8 @@ switch.lookup:                                    ; preds = %13
 
 21:                                               ; preds = %switch.lookup, %19
   %.0 = phi i32 [ 13, %19 ], [ 0, %switch.lookup ]
-  %.not13 = icmp eq ptr %3, null
-  br i1 %.not13, label %23, label %22
+  %.not12 = icmp eq ptr %3, null
+  br i1 %.not12, label %23, label %22
 
 22:                                               ; preds = %21
   store i32 %.0, ptr %3, align 4

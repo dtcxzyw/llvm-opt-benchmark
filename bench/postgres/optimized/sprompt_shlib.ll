@@ -100,19 +100,18 @@ define noundef ptr @simple_prompt_extended(ptr noundef readonly %0, i1 noundef z
 43:                                               ; preds = %42
   %44 = getelementptr inbounds i8, ptr %2, i64 16
   %45 = load i8, ptr %44, align 8
-  %46 = and i8 %45, 1
-  %.not38 = icmp eq i8 %46, 0
-  br i1 %.not38, label %48, label %.sink.split
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %.sink.split, label %48
 
 .sink.split:                                      ; preds = %43, %39
-  %fputc39 = call i32 @fputc(i32 10, ptr %.0)
+  %fputc38 = call i32 @fputc(i32 10, ptr %.0)
   %47 = call i32 @fflush(ptr noundef %.0)
   br label %48
 
 48:                                               ; preds = %.sink.split, %42, %43
   %49 = load ptr, ptr @stdin, align 8
-  %.not40 = icmp eq ptr %.029, %49
-  br i1 %.not40, label %53, label %50
+  %.not39 = icmp eq ptr %.029, %49
+  br i1 %.not39, label %53, label %50
 
 50:                                               ; preds = %48
   %51 = call i32 @fclose(ptr noundef %.029)

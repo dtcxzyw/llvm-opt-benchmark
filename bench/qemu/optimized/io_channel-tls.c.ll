@@ -93,17 +93,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end9
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %call.i, ptr noundef %master, ptr noundef %creds, ptr noundef %aclname) #8
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %call.i, ptr noundef %master, ptr noundef %creds, ptr noundef %aclname) #8
   br label %trace_qio_channel_tls_new_server.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -229,17 +228,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end9
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %call.i, ptr noundef %master, ptr noundef %creds, ptr noundef %hostname) #8
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %call.i, ptr noundef %master, ptr noundef %creds, ptr noundef %hostname) #8
   br label %trace_qio_channel_tls_new_client.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -280,17 +278,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %ioc) #8
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %ioc) #8
   br label %trace_qio_channel_tls_handshake_start.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -339,17 +336,16 @@ land.lhs.true5.i.i:                               ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = call i32 @qemu_get_thread_id() #8
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %ioc) #8
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %ioc) #8
   br label %trace_qio_channel_tls_handshake_fail.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -358,133 +354,130 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_qio_channel_tls_handshake_fail.exit:        ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %8 = load ptr, ptr %err, align 8
-  call void @qio_task_set_error(ptr noundef %task, ptr noundef %8) #8
+  %7 = load ptr, ptr %err, align 8
+  call void @qio_task_set_error(ptr noundef %task, ptr noundef %7) #8
   call void @qio_task_complete(ptr noundef %task) #8
   br label %if.end22
 
 if.end:                                           ; preds = %entry
-  %9 = load ptr, ptr %session, align 8
-  %call2 = call i32 @qcrypto_tls_session_get_handshake_status(ptr noundef %9) #8
+  %8 = load ptr, ptr %session, align 8
+  %call2 = call i32 @qcrypto_tls_session_get_handshake_status(ptr noundef %8) #8
   %cmp3 = icmp eq i32 %call2, 0
   br i1 %cmp3, label %if.then4, label %if.else10
 
 if.then4:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i21)
-  %10 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i22 = icmp ne i32 %10, 0
-  %11 = load i16, ptr @_TRACE_QIO_CHANNEL_TLS_HANDSHAKE_COMPLETE_DSTATE, align 2
-  %tobool4.i.i23 = icmp ne i16 %11, 0
+  %9 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i22 = icmp ne i32 %9, 0
+  %10 = load i16, ptr @_TRACE_QIO_CHANNEL_TLS_HANDSHAKE_COMPLETE_DSTATE, align 2
+  %tobool4.i.i23 = icmp ne i16 %10, 0
   %or.cond.i.i24 = select i1 %tobool.i.i22, i1 %tobool4.i.i23, i1 false
   br i1 %or.cond.i.i24, label %land.lhs.true5.i.i25, label %trace_qio_channel_tls_handshake_complete.exit
 
 land.lhs.true5.i.i25:                             ; preds = %if.then4
-  %12 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i26 = and i32 %12, 32768
+  %11 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i26 = and i32 %11, 32768
   %cmp.i.not.i.i27 = icmp eq i32 %and.i.i.i26, 0
   br i1 %cmp.i.not.i.i27, label %trace_qio_channel_tls_handshake_complete.exit, label %if.then.i.i28
 
 if.then.i.i28:                                    ; preds = %land.lhs.true5.i.i25
-  %13 = load i8, ptr @message_with_timestamp, align 1
-  %14 = and i8 %13, 1
-  %tobool7.not.i.i29 = icmp eq i8 %14, 0
-  br i1 %tobool7.not.i.i29, label %if.else.i.i34, label %if.then8.i.i30
+  %12 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i29 = trunc i8 %12 to i1
+  br i1 %tobool7.i.i29, label %if.then8.i.i31, label %if.else.i.i30
 
-if.then8.i.i30:                                   ; preds = %if.then.i.i28
-  %call9.i.i31 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i21, ptr noundef null) #8
-  %call10.i.i32 = call i32 @qemu_get_thread_id() #8
-  %15 = load i64, ptr %_now.i.i21, align 8
-  %tv_usec.i.i33 = getelementptr inbounds i8, ptr %_now.i.i21, i64 8
-  %16 = load i64, ptr %tv_usec.i.i33, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i32, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %ioc) #8
+if.then8.i.i31:                                   ; preds = %if.then.i.i28
+  %call9.i.i32 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i21, ptr noundef null) #8
+  %call10.i.i33 = call i32 @qemu_get_thread_id() #8
+  %13 = load i64, ptr %_now.i.i21, align 8
+  %tv_usec.i.i34 = getelementptr inbounds i8, ptr %_now.i.i21, i64 8
+  %14 = load i64, ptr %tv_usec.i.i34, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i33, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %ioc) #8
   br label %trace_qio_channel_tls_handshake_complete.exit
 
-if.else.i.i34:                                    ; preds = %if.then.i.i28
+if.else.i.i30:                                    ; preds = %if.then.i.i28
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, ptr noundef nonnull %ioc) #8
   br label %trace_qio_channel_tls_handshake_complete.exit
 
-trace_qio_channel_tls_handshake_complete.exit:    ; preds = %if.then4, %land.lhs.true5.i.i25, %if.then8.i.i30, %if.else.i.i34
+trace_qio_channel_tls_handshake_complete.exit:    ; preds = %if.then4, %land.lhs.true5.i.i25, %if.then8.i.i31, %if.else.i.i30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i21)
-  %17 = load ptr, ptr %session, align 8
-  %call6 = call i32 @qcrypto_tls_session_check_credentials(ptr noundef %17, ptr noundef nonnull %err) #8
+  %15 = load ptr, ptr %session, align 8
+  %call6 = call i32 @qcrypto_tls_session_check_credentials(ptr noundef %15, ptr noundef nonnull %err) #8
   %cmp7 = icmp slt i32 %call6, 0
   br i1 %cmp7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %trace_qio_channel_tls_handshake_complete.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i35)
-  %18 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i36 = icmp ne i32 %18, 0
-  %19 = load i16, ptr @_TRACE_QIO_CHANNEL_TLS_CREDENTIALS_DENY_DSTATE, align 2
-  %tobool4.i.i37 = icmp ne i16 %19, 0
+  %16 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i36 = icmp ne i32 %16, 0
+  %17 = load i16, ptr @_TRACE_QIO_CHANNEL_TLS_CREDENTIALS_DENY_DSTATE, align 2
+  %tobool4.i.i37 = icmp ne i16 %17, 0
   %or.cond.i.i38 = select i1 %tobool.i.i36, i1 %tobool4.i.i37, i1 false
   br i1 %or.cond.i.i38, label %land.lhs.true5.i.i39, label %trace_qio_channel_tls_credentials_deny.exit
 
 land.lhs.true5.i.i39:                             ; preds = %if.then8
-  %20 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i40 = and i32 %20, 32768
+  %18 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i40 = and i32 %18, 32768
   %cmp.i.not.i.i41 = icmp eq i32 %and.i.i.i40, 0
   br i1 %cmp.i.not.i.i41, label %trace_qio_channel_tls_credentials_deny.exit, label %if.then.i.i42
 
 if.then.i.i42:                                    ; preds = %land.lhs.true5.i.i39
-  %21 = load i8, ptr @message_with_timestamp, align 1
-  %22 = and i8 %21, 1
-  %tobool7.not.i.i43 = icmp eq i8 %22, 0
-  br i1 %tobool7.not.i.i43, label %if.else.i.i48, label %if.then8.i.i44
+  %19 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i43 = trunc i8 %19 to i1
+  br i1 %tobool7.i.i43, label %if.then8.i.i45, label %if.else.i.i44
 
-if.then8.i.i44:                                   ; preds = %if.then.i.i42
-  %call9.i.i45 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i35, ptr noundef null) #8
-  %call10.i.i46 = call i32 @qemu_get_thread_id() #8
-  %23 = load i64, ptr %_now.i.i35, align 8
-  %tv_usec.i.i47 = getelementptr inbounds i8, ptr %_now.i.i35, i64 8
-  %24 = load i64, ptr %tv_usec.i.i47, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i46, i64 noundef %23, i64 noundef %24, ptr noundef nonnull %ioc) #8
+if.then8.i.i45:                                   ; preds = %if.then.i.i42
+  %call9.i.i46 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i35, ptr noundef null) #8
+  %call10.i.i47 = call i32 @qemu_get_thread_id() #8
+  %20 = load i64, ptr %_now.i.i35, align 8
+  %tv_usec.i.i48 = getelementptr inbounds i8, ptr %_now.i.i35, i64 8
+  %21 = load i64, ptr %tv_usec.i.i48, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i47, i64 noundef %20, i64 noundef %21, ptr noundef nonnull %ioc) #8
   br label %trace_qio_channel_tls_credentials_deny.exit
 
-if.else.i.i48:                                    ; preds = %if.then.i.i42
+if.else.i.i44:                                    ; preds = %if.then.i.i42
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, ptr noundef nonnull %ioc) #8
   br label %trace_qio_channel_tls_credentials_deny.exit
 
-trace_qio_channel_tls_credentials_deny.exit:      ; preds = %if.then8, %land.lhs.true5.i.i39, %if.then8.i.i44, %if.else.i.i48
+trace_qio_channel_tls_credentials_deny.exit:      ; preds = %if.then8, %land.lhs.true5.i.i39, %if.then8.i.i45, %if.else.i.i44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i35)
-  %25 = load ptr, ptr %err, align 8
-  call void @qio_task_set_error(ptr noundef %task, ptr noundef %25) #8
+  %22 = load ptr, ptr %err, align 8
+  call void @qio_task_set_error(ptr noundef %task, ptr noundef %22) #8
   br label %if.end9
 
 if.else:                                          ; preds = %trace_qio_channel_tls_handshake_complete.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i49)
-  %26 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i50 = icmp ne i32 %26, 0
-  %27 = load i16, ptr @_TRACE_QIO_CHANNEL_TLS_CREDENTIALS_ALLOW_DSTATE, align 2
-  %tobool4.i.i51 = icmp ne i16 %27, 0
+  %23 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i50 = icmp ne i32 %23, 0
+  %24 = load i16, ptr @_TRACE_QIO_CHANNEL_TLS_CREDENTIALS_ALLOW_DSTATE, align 2
+  %tobool4.i.i51 = icmp ne i16 %24, 0
   %or.cond.i.i52 = select i1 %tobool.i.i50, i1 %tobool4.i.i51, i1 false
   br i1 %or.cond.i.i52, label %land.lhs.true5.i.i53, label %trace_qio_channel_tls_credentials_allow.exit
 
 land.lhs.true5.i.i53:                             ; preds = %if.else
-  %28 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i54 = and i32 %28, 32768
+  %25 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i54 = and i32 %25, 32768
   %cmp.i.not.i.i55 = icmp eq i32 %and.i.i.i54, 0
   br i1 %cmp.i.not.i.i55, label %trace_qio_channel_tls_credentials_allow.exit, label %if.then.i.i56
 
 if.then.i.i56:                                    ; preds = %land.lhs.true5.i.i53
-  %29 = load i8, ptr @message_with_timestamp, align 1
-  %30 = and i8 %29, 1
-  %tobool7.not.i.i57 = icmp eq i8 %30, 0
-  br i1 %tobool7.not.i.i57, label %if.else.i.i62, label %if.then8.i.i58
+  %26 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i57 = trunc i8 %26 to i1
+  br i1 %tobool7.i.i57, label %if.then8.i.i59, label %if.else.i.i58
 
-if.then8.i.i58:                                   ; preds = %if.then.i.i56
-  %call9.i.i59 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i49, ptr noundef null) #8
-  %call10.i.i60 = call i32 @qemu_get_thread_id() #8
-  %31 = load i64, ptr %_now.i.i49, align 8
-  %tv_usec.i.i61 = getelementptr inbounds i8, ptr %_now.i.i49, i64 8
-  %32 = load i64, ptr %tv_usec.i.i61, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i60, i64 noundef %31, i64 noundef %32, ptr noundef nonnull %ioc) #8
+if.then8.i.i59:                                   ; preds = %if.then.i.i56
+  %call9.i.i60 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i49, ptr noundef null) #8
+  %call10.i.i61 = call i32 @qemu_get_thread_id() #8
+  %27 = load i64, ptr %_now.i.i49, align 8
+  %tv_usec.i.i62 = getelementptr inbounds i8, ptr %_now.i.i49, i64 8
+  %28 = load i64, ptr %tv_usec.i.i62, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i61, i64 noundef %27, i64 noundef %28, ptr noundef nonnull %ioc) #8
   br label %trace_qio_channel_tls_credentials_allow.exit
 
-if.else.i.i62:                                    ; preds = %if.then.i.i56
+if.else.i.i58:                                    ; preds = %if.then.i.i56
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, ptr noundef nonnull %ioc) #8
   br label %trace_qio_channel_tls_credentials_allow.exit
 
-trace_qio_channel_tls_credentials_allow.exit:     ; preds = %if.else, %land.lhs.true5.i.i53, %if.then8.i.i58, %if.else.i.i62
+trace_qio_channel_tls_credentials_allow.exit:     ; preds = %if.else, %land.lhs.true5.i.i53, %if.then8.i.i59, %if.else.i.i58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i49)
   br label %if.end9
 
@@ -510,85 +503,83 @@ if.end16:                                         ; preds = %if.then14, %if.else
 
 if.then18.split:                                  ; preds = %if.end16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i63)
-  %33 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i64 = icmp ne i32 %33, 0
-  %34 = load i16, ptr @_TRACE_QIO_CHANNEL_TLS_HANDSHAKE_PENDING_DSTATE, align 2
-  %tobool4.i.i65 = icmp ne i16 %34, 0
+  %29 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i64 = icmp ne i32 %29, 0
+  %30 = load i16, ptr @_TRACE_QIO_CHANNEL_TLS_HANDSHAKE_PENDING_DSTATE, align 2
+  %tobool4.i.i65 = icmp ne i16 %30, 0
   %or.cond.i.i66 = select i1 %tobool.i.i64, i1 %tobool4.i.i65, i1 false
   br i1 %or.cond.i.i66, label %land.lhs.true5.i.i67, label %trace_qio_channel_tls_handshake_pending.exit
 
 land.lhs.true5.i.i67:                             ; preds = %if.then18.split
-  %35 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i68 = and i32 %35, 32768
+  %31 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i68 = and i32 %31, 32768
   %cmp.i.not.i.i69 = icmp eq i32 %and.i.i.i68, 0
   br i1 %cmp.i.not.i.i69, label %trace_qio_channel_tls_handshake_pending.exit, label %if.then.i.i70
 
 if.then.i.i70:                                    ; preds = %land.lhs.true5.i.i67
-  %36 = load i8, ptr @message_with_timestamp, align 1
-  %37 = and i8 %36, 1
-  %tobool7.not.i.i71 = icmp eq i8 %37, 0
-  br i1 %tobool7.not.i.i71, label %if.else.i.i76, label %if.then8.i.i72
+  %32 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i71 = trunc i8 %32 to i1
+  br i1 %tobool7.i.i71, label %if.then8.i.i73, label %if.else.i.i72
 
-if.then8.i.i72:                                   ; preds = %if.then.i.i70
-  %call9.i.i73 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i63, ptr noundef null) #8
-  %call10.i.i74 = call i32 @qemu_get_thread_id() #8
-  %38 = load i64, ptr %_now.i.i63, align 8
-  %tv_usec.i.i75 = getelementptr inbounds i8, ptr %_now.i.i63, i64 8
-  %39 = load i64, ptr %tv_usec.i.i75, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i74, i64 noundef %38, i64 noundef %39, ptr noundef nonnull %ioc, i32 noundef 1) #8
+if.then8.i.i73:                                   ; preds = %if.then.i.i70
+  %call9.i.i74 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i63, ptr noundef null) #8
+  %call10.i.i75 = call i32 @qemu_get_thread_id() #8
+  %33 = load i64, ptr %_now.i.i63, align 8
+  %tv_usec.i.i76 = getelementptr inbounds i8, ptr %_now.i.i63, i64 8
+  %34 = load i64, ptr %tv_usec.i.i76, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i75, i64 noundef %33, i64 noundef %34, ptr noundef nonnull %ioc, i32 noundef 1) #8
   br label %trace_qio_channel_tls_handshake_pending.exit
 
-if.else.i.i76:                                    ; preds = %if.then.i.i70
+if.else.i.i72:                                    ; preds = %if.then.i.i70
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef nonnull %ioc, i32 noundef 1) #8
   br label %trace_qio_channel_tls_handshake_pending.exit
 
-trace_qio_channel_tls_handshake_pending.exit:     ; preds = %if.then18.split, %land.lhs.true5.i.i67, %if.then8.i.i72, %if.else.i.i76
+trace_qio_channel_tls_handshake_pending.exit:     ; preds = %if.then18.split, %land.lhs.true5.i.i67, %if.then8.i.i73, %if.else.i.i72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i63)
   br label %if.end20
 
 if.else19.split:                                  ; preds = %if.end16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i77)
-  %40 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i78 = icmp ne i32 %40, 0
-  %41 = load i16, ptr @_TRACE_QIO_CHANNEL_TLS_HANDSHAKE_PENDING_DSTATE, align 2
-  %tobool4.i.i79 = icmp ne i16 %41, 0
+  %35 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i78 = icmp ne i32 %35, 0
+  %36 = load i16, ptr @_TRACE_QIO_CHANNEL_TLS_HANDSHAKE_PENDING_DSTATE, align 2
+  %tobool4.i.i79 = icmp ne i16 %36, 0
   %or.cond.i.i80 = select i1 %tobool.i.i78, i1 %tobool4.i.i79, i1 false
   br i1 %or.cond.i.i80, label %land.lhs.true5.i.i81, label %trace_qio_channel_tls_handshake_pending.exit91
 
 land.lhs.true5.i.i81:                             ; preds = %if.else19.split
-  %42 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i82 = and i32 %42, 32768
+  %37 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i82 = and i32 %37, 32768
   %cmp.i.not.i.i83 = icmp eq i32 %and.i.i.i82, 0
   br i1 %cmp.i.not.i.i83, label %trace_qio_channel_tls_handshake_pending.exit91, label %if.then.i.i84
 
 if.then.i.i84:                                    ; preds = %land.lhs.true5.i.i81
-  %43 = load i8, ptr @message_with_timestamp, align 1
-  %44 = and i8 %43, 1
-  %tobool7.not.i.i85 = icmp eq i8 %44, 0
-  br i1 %tobool7.not.i.i85, label %if.else.i.i90, label %if.then8.i.i86
+  %38 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i85 = trunc i8 %38 to i1
+  br i1 %tobool7.i.i85, label %if.then8.i.i87, label %if.else.i.i86
 
-if.then8.i.i86:                                   ; preds = %if.then.i.i84
-  %call9.i.i87 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i77, ptr noundef null) #8
-  %call10.i.i88 = call i32 @qemu_get_thread_id() #8
-  %45 = load i64, ptr %_now.i.i77, align 8
-  %tv_usec.i.i89 = getelementptr inbounds i8, ptr %_now.i.i77, i64 8
-  %46 = load i64, ptr %tv_usec.i.i89, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i88, i64 noundef %45, i64 noundef %46, ptr noundef nonnull %ioc, i32 noundef %call2) #8
+if.then8.i.i87:                                   ; preds = %if.then.i.i84
+  %call9.i.i88 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i77, ptr noundef null) #8
+  %call10.i.i89 = call i32 @qemu_get_thread_id() #8
+  %39 = load i64, ptr %_now.i.i77, align 8
+  %tv_usec.i.i90 = getelementptr inbounds i8, ptr %_now.i.i77, i64 8
+  %40 = load i64, ptr %tv_usec.i.i90, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i89, i64 noundef %39, i64 noundef %40, ptr noundef nonnull %ioc, i32 noundef %call2) #8
   br label %trace_qio_channel_tls_handshake_pending.exit91
 
-if.else.i.i90:                                    ; preds = %if.then.i.i84
+if.else.i.i86:                                    ; preds = %if.then.i.i84
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef nonnull %ioc, i32 noundef %call2) #8
   br label %trace_qio_channel_tls_handshake_pending.exit91
 
-trace_qio_channel_tls_handshake_pending.exit91:   ; preds = %if.else19.split, %land.lhs.true5.i.i81, %if.then8.i.i86, %if.else.i.i90
+trace_qio_channel_tls_handshake_pending.exit91:   ; preds = %if.else19.split, %land.lhs.true5.i.i81, %if.then8.i.i87, %if.else.i.i86
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i77)
   br label %if.end20
 
 if.end20:                                         ; preds = %trace_qio_channel_tls_handshake_pending.exit91, %trace_qio_channel_tls_handshake_pending.exit
   %condition.0 = phi i32 [ 4, %trace_qio_channel_tls_handshake_pending.exit ], [ 1, %trace_qio_channel_tls_handshake_pending.exit91 ]
   %master = getelementptr inbounds i8, ptr %ioc, i64 96
-  %47 = load ptr, ptr %master, align 8
-  %call21 = call i32 @qio_channel_add_watch_full(ptr noundef %47, i32 noundef %condition.0, ptr noundef nonnull @qio_channel_tls_handshake_io, ptr noundef nonnull %call11, ptr noundef null, ptr noundef %context) #8
+  %41 = load ptr, ptr %master, align 8
+  %call21 = call i32 @qio_channel_add_watch_full(ptr noundef %41, i32 noundef %condition.0, ptr noundef nonnull @qio_channel_tls_handshake_io, ptr noundef nonnull %call11, ptr noundef null, ptr noundef %context) #8
   %hs_ioc_tag = getelementptr inbounds i8, ptr %ioc, i64 116
   store i32 %call21, ptr %hs_ioc_tag, align 4
   br label %if.end22

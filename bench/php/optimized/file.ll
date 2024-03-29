@@ -521,35 +521,35 @@ define hidden void @zif_get_meta_tags(ptr noundef %0, ptr noundef %1) local_unna
   %6 = getelementptr inbounds i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, -3
-  %or.cond265 = icmp ult i32 %8, -2
-  br i1 %or.cond265, label %9, label %10
+  %or.cond264 = icmp ult i32 %8, -2
+  br i1 %or.cond264, label %9, label %10
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 2) #17
-  br label %.thread287
+  br label %.thread286
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 80
   %12 = getelementptr inbounds i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8
   %14 = icmp eq i8 %13, 6
-  br i1 %14, label %.critedge267, label %16
+  br i1 %14, label %.critedge266, label %16
 
-.critedge267:                                     ; preds = %10
+.critedge266:                                     ; preds = %10
   %15 = load ptr, ptr %11, align 8
   store ptr %15, ptr %3, align 8
   br label %18
 
 16:                                               ; preds = %10
   %17 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %11, ptr noundef nonnull %3, i32 noundef 1) #17
-  br i1 %17, label %thread-pre-split, label %.thread287
+  br i1 %17, label %thread-pre-split, label %.thread286
 
 thread-pre-split:                                 ; preds = %16
   %.pr = load ptr, ptr %3, align 8
   br label %18
 
-18:                                               ; preds = %thread-pre-split, %.critedge267
-  %19 = phi ptr [ %.pr, %thread-pre-split ], [ %15, %.critedge267 ]
+18:                                               ; preds = %thread-pre-split, %.critedge266
+  %19 = phi ptr [ %.pr, %thread-pre-split ], [ %15, %.critedge266 ]
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %25, label %20
 
@@ -559,59 +559,59 @@ thread-pre-split:                                 ; preds = %16
   %23 = load i64, ptr %22, align 8
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #19
   %.not235 = icmp eq i64 %23, %24
-  br i1 %.not235, label %25, label %.thread287
+  br i1 %.not235, label %25, label %.thread286
 
 25:                                               ; preds = %18, %20
   %26 = getelementptr inbounds i8, ptr %19, i64 24
   %27 = icmp eq i32 %7, 1
-  br i1 %27, label %.thread298, label %28
+  br i1 %27, label %.thread297, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %0, i64 104
   %30 = load i8, ptr %29, align 8
   switch i8 %30, label %32 [
-    i8 3, label %.thread306
+    i8 3, label %.thread305
     i8 2, label %31
   ]
 
 31:                                               ; preds = %28
-  br label %.thread306
+  br label %.thread305
 
-.thread306:                                       ; preds = %31, %28
+.thread305:                                       ; preds = %31, %28
   %storemerge = phi i8 [ 0, %31 ], [ 1, %28 ]
   store i8 %storemerge, ptr %4, align 1
-  br label %.thread298
+  br label %.thread297
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %0, i64 96
   %34 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %33, ptr noundef nonnull %4, i32 noundef 2) #17
-  %cond.fr274 = freeze i1 %34
-  br i1 %cond.fr274, label %.thread298, label %.thread287
+  %cond.fr273 = freeze i1 %34
+  br i1 %cond.fr273, label %.thread297, label %.thread286
 
-.thread287:                                       ; preds = %32, %16, %20, %9
-  %.0188297 = phi i32 [ 9, %16 ], [ 9, %20 ], [ 1, %9 ], [ 9, %32 ]
-  %.0190296 = phi i32 [ 16, %16 ], [ 16, %20 ], [ 0, %9 ], [ 2, %32 ]
-  %.0191295 = phi ptr [ %11, %16 ], [ %11, %20 ], [ null, %9 ], [ %33, %32 ]
-  %.0192294 = phi i32 [ 1, %16 ], [ 1, %20 ], [ 0, %9 ], [ 2, %32 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0188297, i32 noundef %.0192294, ptr noundef null, i32 noundef %.0190296, ptr noundef %.0191295) #17
+.thread286:                                       ; preds = %32, %16, %20, %9
+  %.0188296 = phi i32 [ 9, %16 ], [ 9, %20 ], [ 1, %9 ], [ 9, %32 ]
+  %.0190295 = phi i32 [ 16, %16 ], [ 16, %20 ], [ 0, %9 ], [ 2, %32 ]
+  %.0191294 = phi ptr [ %11, %16 ], [ %11, %20 ], [ null, %9 ], [ %33, %32 ]
+  %.0192293 = phi i32 [ 1, %16 ], [ 1, %20 ], [ 0, %9 ], [ 2, %32 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0188296, i32 noundef %.0192293, ptr noundef null, i32 noundef %.0190295, ptr noundef %.0191294) #17
   br label %147
 
-.thread298:                                       ; preds = %32, %.thread306, %25
+.thread297:                                       ; preds = %32, %.thread305, %25
   %35 = load i8, ptr %4, align 1
   %36 = and i8 %35, 1
   %37 = or disjoint i8 %36, 8
   %38 = zext nneg i8 %37 to i32
   %39 = call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %26, ptr noundef nonnull @.str.3, i32 noundef %38, ptr noundef null, ptr noundef null) #17
   store ptr %39, ptr %5, align 8
-  %.not238 = icmp eq ptr %39, null
-  br i1 %.not238, label %40, label %42
+  %.not237 = icmp eq ptr %39, null
+  br i1 %.not237, label %40, label %42
 
-40:                                               ; preds = %.thread298
+40:                                               ; preds = %.thread297
   %41 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %41, align 8
   br label %147
 
-42:                                               ; preds = %.thread298
+42:                                               ; preds = %.thread297
   %43 = call ptr @_zend_new_array_0() #17
   store ptr %43, ptr %1, align 8
   %44 = getelementptr inbounds i8, ptr %1, i64 8
@@ -622,15 +622,15 @@ thread-pre-split:                                 ; preds = %16
   br label %48
 
 48:                                               ; preds = %42, %140
-  %.0194324 = phi i32 [ 0, %42 ], [ %.1, %140 ]
-  %.0197323 = phi i32 [ 0, %42 ], [ %.2, %140 ]
-  %.0199322 = phi i32 [ 0, %42 ], [ %49, %140 ]
-  %.0200321 = phi i32 [ 0, %42 ], [ %.4, %140 ]
-  %.0205320 = phi ptr [ null, %42 ], [ %.3208, %140 ]
-  %.0209319 = phi ptr [ null, %42 ], [ %.3212, %140 ]
-  %.0213318 = phi i32 [ 0, %42 ], [ %.2215, %140 ]
-  %.0216317 = phi i32 [ 0, %42 ], [ %.2218, %140 ]
-  %.0219316 = phi i32 [ 0, %42 ], [ %.4223, %140 ]
+  %.0194323 = phi i32 [ 0, %42 ], [ %.1, %140 ]
+  %.0197322 = phi i32 [ 0, %42 ], [ %.2, %140 ]
+  %.0199321 = phi i32 [ 0, %42 ], [ %49, %140 ]
+  %.0200320 = phi i32 [ 0, %42 ], [ %.4, %140 ]
+  %.0205319 = phi ptr [ null, %42 ], [ %.3208, %140 ]
+  %.0209318 = phi ptr [ null, %42 ], [ %.3212, %140 ]
+  %.0213317 = phi i32 [ 0, %42 ], [ %.2215, %140 ]
+  %.0216316 = phi i32 [ 0, %42 ], [ %.2218, %140 ]
+  %.0219315 = phi i32 [ 0, %42 ], [ %.4223, %140 ]
   %49 = call i32 @php_next_meta_token(ptr noundef nonnull %5), !range !4
   switch i32 %49, label %98 [
     i32 0, label %.critedge
@@ -638,20 +638,20 @@ thread-pre-split:                                 ; preds = %16
   ]
 
 50:                                               ; preds = %48
-  %51 = icmp eq i32 %.0199322, 1
+  %51 = icmp eq i32 %.0199321, 1
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr %46, align 8
   %54 = call i32 @strcasecmp(ptr noundef nonnull @.str.4, ptr noundef %53) #19
-  %.not261 = icmp eq i32 %54, 0
-  %55 = zext i1 %.not261 to i32
+  %.not260 = icmp eq i32 %54, 0
+  %55 = zext i1 %.not260 to i32
   store i32 %55, ptr %45, align 4
   br label %.critedge5
 
 56:                                               ; preds = %50
-  %57 = icmp eq i32 %.0199322, 3
-  %58 = icmp ne i32 %.0194324, 0
+  %57 = icmp eq i32 %.0199321, 3
+  %58 = icmp ne i32 %.0194323, 0
   %or.cond = select i1 %57, i1 %58, i1 false
   br i1 %or.cond, label %59, label %63
 
@@ -663,21 +663,21 @@ thread-pre-split:                                 ; preds = %16
   br label %.critedge5
 
 63:                                               ; preds = %56
-  %64 = icmp eq i32 %.0199322, 4
-  %65 = icmp ne i32 %.0197323, 0
+  %64 = icmp eq i32 %.0199321, 4
+  %65 = icmp ne i32 %.0197322, 0
   %or.cond3 = select i1 %64, i1 %65, i1 false
   br i1 %or.cond3, label %66, label %88
 
 66:                                               ; preds = %63
-  %.not253 = icmp eq i32 %.0216317, 0
-  br i1 %.not253, label %80, label %67
+  %.not252 = icmp eq i32 %.0216316, 0
+  br i1 %.not252, label %80, label %67
 
 67:                                               ; preds = %66
-  %.not256 = icmp eq ptr %.0209319, null
-  br i1 %.not256, label %69, label %68
+  %.not255 = icmp eq ptr %.0209318, null
+  br i1 %.not255, label %69, label %68
 
 68:                                               ; preds = %67
-  call void @_efree(ptr noundef nonnull %.0209319) #17
+  call void @_efree(ptr noundef nonnull %.0209318) #17
   br label %69
 
 69:                                               ; preds = %68, %67
@@ -685,42 +685,42 @@ thread-pre-split:                                 ; preds = %16
   %71 = load i32, ptr %47, align 8
   %72 = sext i32 %71 to i64
   %73 = call noalias ptr @_estrndup(ptr noundef %70, i64 noundef %72) #17
-  %.not257309 = icmp eq ptr %73, null
-  br i1 %.not257309, label %.critedge5, label %.lr.ph.preheader
+  %.not256308 = icmp eq ptr %73, null
+  br i1 %.not256308, label %.critedge5, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %69
   %74 = load i8, ptr %73, align 1
-  %.not258328 = icmp eq i8 %74, 0
-  br i1 %.not258328, label %.critedge5, label %.lr.ph330
+  %.not257327 = icmp eq i8 %74, 0
+  br i1 %.not257327, label %.critedge5, label %.lr.ph329
 
-.lr.ph330:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph329:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %75 = phi i8 [ %79, %.lr.ph ], [ %74, %.lr.ph.preheader ]
-  %.0203310329 = phi ptr [ %78, %.lr.ph ], [ %73, %.lr.ph.preheader ]
+  %.0203309328 = phi ptr [ %78, %.lr.ph ], [ %73, %.lr.ph.preheader ]
   %76 = sext i8 %75 to i32
-  %memchr259 = call ptr @memchr(ptr nonnull dereferenceable(1) @.str.6, i32 %76, i64 13)
-  %.not260 = icmp eq ptr %memchr259, null
-  br i1 %.not260, label %.lr.ph, label %77
+  %memchr258 = call ptr @memchr(ptr nonnull dereferenceable(1) @.str.6, i32 %76, i64 13)
+  %.not259 = icmp eq ptr %memchr258, null
+  br i1 %.not259, label %.lr.ph, label %77
 
-77:                                               ; preds = %.lr.ph330
-  store i8 95, ptr %.0203310329, align 1
+77:                                               ; preds = %.lr.ph329
+  store i8 95, ptr %.0203309328, align 1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %77, %.lr.ph330
-  %78 = getelementptr inbounds i8, ptr %.0203310329, i64 1
+.lr.ph:                                           ; preds = %77, %.lr.ph329
+  %78 = getelementptr inbounds i8, ptr %.0203309328, i64 1
   %79 = load i8, ptr %78, align 1
-  %.not258 = icmp eq i8 %79, 0
-  br i1 %.not258, label %.critedge5, label %.lr.ph330
+  %.not257 = icmp eq i8 %79, 0
+  br i1 %.not257, label %.critedge5, label %.lr.ph329
 
 80:                                               ; preds = %66
-  %.not254 = icmp eq i32 %.0213318, 0
-  br i1 %.not254, label %.critedge5, label %81
+  %.not253 = icmp eq i32 %.0213317, 0
+  br i1 %.not253, label %.critedge5, label %81
 
 81:                                               ; preds = %80
-  %.not255 = icmp eq ptr %.0205320, null
-  br i1 %.not255, label %83, label %82
+  %.not254 = icmp eq ptr %.0205319, null
+  br i1 %.not254, label %83, label %82
 
 82:                                               ; preds = %81
-  call void @_efree(ptr noundef nonnull %.0205320) #17
+  call void @_efree(ptr noundef nonnull %.0205319) #17
   br label %83
 
 83:                                               ; preds = %82, %81
@@ -732,8 +732,8 @@ thread-pre-split:                                 ; preds = %16
 
 88:                                               ; preds = %63
   %89 = load i32, ptr %45, align 4
-  %.not252 = icmp eq i32 %89, 0
-  br i1 %.not252, label %.critedge5, label %90
+  %.not251 = icmp eq i32 %89, 0
+  br i1 %.not251, label %.critedge5, label %90
 
 90:                                               ; preds = %88
   %91 = load ptr, ptr %46, align 8
@@ -751,22 +751,22 @@ thread-pre-split:                                 ; preds = %16
 
 98:                                               ; preds = %48
   %99 = icmp eq i32 %49, 7
-  %100 = icmp eq i32 %.0199322, 4
+  %100 = icmp eq i32 %.0199321, 4
   %or.cond7 = and i1 %100, %99
-  %101 = icmp ne i32 %.0197323, 0
+  %101 = icmp ne i32 %.0197322, 0
   %or.cond9 = select i1 %or.cond7, i1 %101, i1 false
   br i1 %or.cond9, label %102, label %124
 
 102:                                              ; preds = %98
-  %.not245 = icmp eq i32 %.0216317, 0
-  br i1 %.not245, label %116, label %103
+  %.not244 = icmp eq i32 %.0216316, 0
+  br i1 %.not244, label %116, label %103
 
 103:                                              ; preds = %102
-  %.not248 = icmp eq ptr %.0209319, null
-  br i1 %.not248, label %105, label %104
+  %.not247 = icmp eq ptr %.0209318, null
+  br i1 %.not247, label %105, label %104
 
 104:                                              ; preds = %103
-  call void @_efree(ptr noundef nonnull %.0209319) #17
+  call void @_efree(ptr noundef nonnull %.0209318) #17
   br label %105
 
 105:                                              ; preds = %104, %103
@@ -774,42 +774,42 @@ thread-pre-split:                                 ; preds = %16
   %107 = load i32, ptr %47, align 8
   %108 = sext i32 %107 to i64
   %109 = call noalias ptr @_estrndup(ptr noundef %106, i64 noundef %108) #17
-  %.not249312 = icmp eq ptr %109, null
-  br i1 %.not249312, label %.critedge5, label %.lr.ph314.preheader
+  %.not248311 = icmp eq ptr %109, null
+  br i1 %.not248311, label %.critedge5, label %.lr.ph313.preheader
 
-.lr.ph314.preheader:                              ; preds = %105
+.lr.ph313.preheader:                              ; preds = %105
   %110 = load i8, ptr %109, align 1
-  %.not250331 = icmp eq i8 %110, 0
-  br i1 %.not250331, label %.critedge5, label %.lr.ph333
+  %.not249330 = icmp eq i8 %110, 0
+  br i1 %.not249330, label %.critedge5, label %.lr.ph332
 
-.lr.ph333:                                        ; preds = %.lr.ph314.preheader, %.lr.ph314
-  %111 = phi i8 [ %115, %.lr.ph314 ], [ %110, %.lr.ph314.preheader ]
-  %.1204313332 = phi ptr [ %114, %.lr.ph314 ], [ %109, %.lr.ph314.preheader ]
+.lr.ph332:                                        ; preds = %.lr.ph313.preheader, %.lr.ph313
+  %111 = phi i8 [ %115, %.lr.ph313 ], [ %110, %.lr.ph313.preheader ]
+  %.1204312331 = phi ptr [ %114, %.lr.ph313 ], [ %109, %.lr.ph313.preheader ]
   %112 = sext i8 %111 to i32
   %memchr = call ptr @memchr(ptr nonnull dereferenceable(1) @.str.6, i32 %112, i64 13)
-  %.not251 = icmp eq ptr %memchr, null
-  br i1 %.not251, label %.lr.ph314, label %113
+  %.not250 = icmp eq ptr %memchr, null
+  br i1 %.not250, label %.lr.ph313, label %113
 
-113:                                              ; preds = %.lr.ph333
-  store i8 95, ptr %.1204313332, align 1
-  br label %.lr.ph314
+113:                                              ; preds = %.lr.ph332
+  store i8 95, ptr %.1204312331, align 1
+  br label %.lr.ph313
 
-.lr.ph314:                                        ; preds = %113, %.lr.ph333
-  %114 = getelementptr inbounds i8, ptr %.1204313332, i64 1
+.lr.ph313:                                        ; preds = %113, %.lr.ph332
+  %114 = getelementptr inbounds i8, ptr %.1204312331, i64 1
   %115 = load i8, ptr %114, align 1
-  %.not250 = icmp eq i8 %115, 0
-  br i1 %.not250, label %.critedge5, label %.lr.ph333
+  %.not249 = icmp eq i8 %115, 0
+  br i1 %.not249, label %.critedge5, label %.lr.ph332
 
 116:                                              ; preds = %102
-  %.not246 = icmp eq i32 %.0213318, 0
-  br i1 %.not246, label %.critedge5, label %117
+  %.not245 = icmp eq i32 %.0213317, 0
+  br i1 %.not245, label %.critedge5, label %117
 
 117:                                              ; preds = %116
-  %.not247 = icmp eq ptr %.0205320, null
-  br i1 %.not247, label %119, label %118
+  %.not246 = icmp eq ptr %.0205319, null
+  br i1 %.not246, label %119, label %118
 
 118:                                              ; preds = %117
-  call void @_efree(ptr noundef nonnull %.0205320) #17
+  call void @_efree(ptr noundef nonnull %.0205319) #17
   br label %119
 
 119:                                              ; preds = %118, %117
@@ -832,58 +832,58 @@ thread-pre-split:                                 ; preds = %16
   br label %.critedge5
 
 127:                                              ; preds = %124
-  %.not241 = icmp eq i32 %.0200321, 0
-  br i1 %.not241, label %135, label %128
+  %.not240 = icmp eq i32 %.0200320, 0
+  br i1 %.not240, label %135, label %128
 
 128:                                              ; preds = %127
-  %129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0209319) #19
-  call void @zend_str_tolower(ptr noundef %.0209319, i64 noundef %129) #17
-  %.not243 = icmp eq i32 %.0219316, 0
-  %130 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0209319) #19
-  br i1 %.not243, label %132, label %131
+  %129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0209318) #19
+  call void @zend_str_tolower(ptr noundef %.0209318, i64 noundef %129) #17
+  %.not242 = icmp eq i32 %.0219315, 0
+  %130 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0209318) #19
+  br i1 %.not242, label %132, label %131
 
 131:                                              ; preds = %128
-  call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef %.0209319, i64 noundef %130, ptr noundef %.0205320) #17
+  call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef %.0209318, i64 noundef %130, ptr noundef %.0205319) #17
   br label %133
 
 132:                                              ; preds = %128
-  call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef %.0209319, i64 noundef %130, ptr noundef nonnull @.str.9) #17
+  call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef %.0209318, i64 noundef %130, ptr noundef nonnull @.str.9) #17
   br label %133
 
 133:                                              ; preds = %132, %131
-  call void @_efree(ptr noundef %.0209319) #17
-  %.not244 = icmp eq ptr %.0205320, null
-  br i1 %.not244, label %137, label %134
+  call void @_efree(ptr noundef %.0209318) #17
+  %.not243 = icmp eq ptr %.0205319, null
+  br i1 %.not243, label %137, label %134
 
 134:                                              ; preds = %133
-  call void @_efree(ptr noundef nonnull %.0205320) #17
+  call void @_efree(ptr noundef nonnull %.0205319) #17
   br label %137
 
 135:                                              ; preds = %127
-  %.not242 = icmp eq i32 %.0219316, 0
-  br i1 %.not242, label %137, label %136
+  %.not241 = icmp eq i32 %.0219315, 0
+  br i1 %.not241, label %137, label %136
 
 136:                                              ; preds = %135
-  call void @_efree(ptr noundef %.0205320) #17
+  call void @_efree(ptr noundef %.0205319) #17
   br label %137
 
 137:                                              ; preds = %135, %136, %133, %134
   store i32 0, ptr %45, align 4
   br label %.critedge5
 
-.critedge5:                                       ; preds = %.lr.ph, %.lr.ph314, %.lr.ph.preheader, %.lr.ph314.preheader, %69, %105, %59, %124, %125, %126, %119, %116, %90, %83, %80, %137, %52, %97, %94, %88
-  %.4223 = phi i32 [ %.0219316, %52 ], [ %.0219316, %97 ], [ %.0219316, %94 ], [ %.0219316, %88 ], [ 0, %137 ], [ %.0219316, %59 ], [ 1, %83 ], [ %.0219316, %80 ], [ %.0219316, %90 ], [ 1, %119 ], [ %.0219316, %116 ], [ 0, %126 ], [ %.0219316, %125 ], [ %.0219316, %124 ], [ %.0219316, %105 ], [ %.0219316, %69 ], [ %.0219316, %.lr.ph314.preheader ], [ %.0219316, %.lr.ph.preheader ], [ %.0219316, %.lr.ph314 ], [ %.0219316, %.lr.ph ]
-  %.2218 = phi i32 [ %.0216317, %52 ], [ 0, %97 ], [ %.0216317, %94 ], [ %.0216317, %88 ], [ 0, %137 ], [ %.0216317, %59 ], [ 0, %83 ], [ 0, %80 ], [ 1, %90 ], [ 0, %119 ], [ 0, %116 ], [ 0, %126 ], [ %.0216317, %125 ], [ %.0216317, %124 ], [ %.0216317, %105 ], [ %.0216317, %69 ], [ %.0216317, %.lr.ph314.preheader ], [ %.0216317, %.lr.ph.preheader ], [ %.0216317, %.lr.ph314 ], [ %.0216317, %.lr.ph ]
-  %.2215 = phi i32 [ %.0213318, %52 ], [ 1, %97 ], [ %.0213318, %94 ], [ %.0213318, %88 ], [ 0, %137 ], [ %.0213318, %59 ], [ %.0213318, %83 ], [ 0, %80 ], [ 0, %90 ], [ %.0213318, %119 ], [ 0, %116 ], [ 0, %126 ], [ %.0213318, %125 ], [ %.0213318, %124 ], [ %.0213318, %105 ], [ %.0213318, %69 ], [ %.0213318, %.lr.ph314.preheader ], [ %.0213318, %.lr.ph.preheader ], [ %.0213318, %.lr.ph314 ], [ %.0213318, %.lr.ph ]
-  %.3212 = phi ptr [ %.0209319, %52 ], [ %.0209319, %97 ], [ %.0209319, %94 ], [ %.0209319, %88 ], [ null, %137 ], [ %.0209319, %59 ], [ %.0209319, %83 ], [ %.0209319, %80 ], [ %.0209319, %90 ], [ %.0209319, %119 ], [ %.0209319, %116 ], [ %.0209319, %126 ], [ %.0209319, %125 ], [ %.0209319, %124 ], [ null, %105 ], [ null, %69 ], [ %109, %.lr.ph314.preheader ], [ %73, %.lr.ph.preheader ], [ %109, %.lr.ph314 ], [ %73, %.lr.ph ]
-  %.3208 = phi ptr [ %.0205320, %52 ], [ %.0205320, %97 ], [ %.0205320, %94 ], [ %.0205320, %88 ], [ null, %137 ], [ %.0205320, %59 ], [ %87, %83 ], [ %.0205320, %80 ], [ %.0205320, %90 ], [ %123, %119 ], [ %.0205320, %116 ], [ %.0205320, %126 ], [ %.0205320, %125 ], [ %.0205320, %124 ], [ %.0205320, %105 ], [ %.0205320, %69 ], [ %.0205320, %.lr.ph314.preheader ], [ %.0205320, %.lr.ph.preheader ], [ %.0205320, %.lr.ph314 ], [ %.0205320, %.lr.ph ]
-  %.4 = phi i32 [ %.0200321, %52 ], [ %.0200321, %97 ], [ %.0200321, %94 ], [ %.0200321, %88 ], [ 0, %137 ], [ %.0200321, %59 ], [ %.0200321, %83 ], [ %.0200321, %80 ], [ %.0200321, %90 ], [ %.0200321, %119 ], [ %.0200321, %116 ], [ 0, %126 ], [ %.0200321, %125 ], [ %.0200321, %124 ], [ 1, %105 ], [ 1, %69 ], [ 1, %.lr.ph314.preheader ], [ 1, %.lr.ph.preheader ], [ 1, %.lr.ph314 ], [ 1, %.lr.ph ]
-  %.2 = phi i32 [ %.0197323, %52 ], [ 1, %97 ], [ %.0197323, %94 ], [ %.0197323, %88 ], [ 0, %137 ], [ %.0197323, %59 ], [ 0, %83 ], [ 0, %80 ], [ 1, %90 ], [ 0, %119 ], [ 0, %116 ], [ 0, %126 ], [ 0, %125 ], [ %.0197323, %124 ], [ 0, %105 ], [ 0, %69 ], [ 0, %.lr.ph314.preheader ], [ 0, %.lr.ph.preheader ], [ 0, %.lr.ph314 ], [ 0, %.lr.ph ]
-  %.1196 = phi i32 [ 0, %52 ], [ 0, %97 ], [ 0, %94 ], [ 0, %88 ], [ 0, %137 ], [ %spec.select, %59 ], [ 0, %83 ], [ 0, %80 ], [ 0, %90 ], [ 0, %119 ], [ 0, %116 ], [ 0, %126 ], [ 0, %125 ], [ 0, %124 ], [ 0, %105 ], [ 0, %69 ], [ 0, %.lr.ph314.preheader ], [ 0, %.lr.ph.preheader ], [ 0, %.lr.ph314 ], [ 0, %.lr.ph ]
-  %.1 = phi i32 [ %.0194324, %52 ], [ %.0194324, %97 ], [ %.0194324, %94 ], [ %.0194324, %88 ], [ 0, %137 ], [ 1, %59 ], [ %.0194324, %83 ], [ %.0194324, %80 ], [ %.0194324, %90 ], [ %.0194324, %119 ], [ %.0194324, %116 ], [ 1, %126 ], [ 1, %125 ], [ %.0194324, %124 ], [ %.0194324, %105 ], [ %.0194324, %69 ], [ %.0194324, %.lr.ph314.preheader ], [ %.0194324, %.lr.ph.preheader ], [ %.0194324, %.lr.ph314 ], [ %.0194324, %.lr.ph ]
+.critedge5:                                       ; preds = %.lr.ph, %.lr.ph313, %.lr.ph.preheader, %.lr.ph313.preheader, %69, %105, %59, %124, %125, %126, %119, %116, %90, %83, %80, %137, %52, %97, %94, %88
+  %.4223 = phi i32 [ %.0219315, %52 ], [ %.0219315, %97 ], [ %.0219315, %94 ], [ %.0219315, %88 ], [ 0, %137 ], [ %.0219315, %59 ], [ 1, %83 ], [ %.0219315, %80 ], [ %.0219315, %90 ], [ 1, %119 ], [ %.0219315, %116 ], [ 0, %126 ], [ %.0219315, %125 ], [ %.0219315, %124 ], [ %.0219315, %105 ], [ %.0219315, %69 ], [ %.0219315, %.lr.ph313.preheader ], [ %.0219315, %.lr.ph.preheader ], [ %.0219315, %.lr.ph313 ], [ %.0219315, %.lr.ph ]
+  %.2218 = phi i32 [ %.0216316, %52 ], [ 0, %97 ], [ %.0216316, %94 ], [ %.0216316, %88 ], [ 0, %137 ], [ %.0216316, %59 ], [ 0, %83 ], [ 0, %80 ], [ 1, %90 ], [ 0, %119 ], [ 0, %116 ], [ 0, %126 ], [ %.0216316, %125 ], [ %.0216316, %124 ], [ %.0216316, %105 ], [ %.0216316, %69 ], [ %.0216316, %.lr.ph313.preheader ], [ %.0216316, %.lr.ph.preheader ], [ %.0216316, %.lr.ph313 ], [ %.0216316, %.lr.ph ]
+  %.2215 = phi i32 [ %.0213317, %52 ], [ 1, %97 ], [ %.0213317, %94 ], [ %.0213317, %88 ], [ 0, %137 ], [ %.0213317, %59 ], [ %.0213317, %83 ], [ 0, %80 ], [ 0, %90 ], [ %.0213317, %119 ], [ 0, %116 ], [ 0, %126 ], [ %.0213317, %125 ], [ %.0213317, %124 ], [ %.0213317, %105 ], [ %.0213317, %69 ], [ %.0213317, %.lr.ph313.preheader ], [ %.0213317, %.lr.ph.preheader ], [ %.0213317, %.lr.ph313 ], [ %.0213317, %.lr.ph ]
+  %.3212 = phi ptr [ %.0209318, %52 ], [ %.0209318, %97 ], [ %.0209318, %94 ], [ %.0209318, %88 ], [ null, %137 ], [ %.0209318, %59 ], [ %.0209318, %83 ], [ %.0209318, %80 ], [ %.0209318, %90 ], [ %.0209318, %119 ], [ %.0209318, %116 ], [ %.0209318, %126 ], [ %.0209318, %125 ], [ %.0209318, %124 ], [ null, %105 ], [ null, %69 ], [ %109, %.lr.ph313.preheader ], [ %73, %.lr.ph.preheader ], [ %109, %.lr.ph313 ], [ %73, %.lr.ph ]
+  %.3208 = phi ptr [ %.0205319, %52 ], [ %.0205319, %97 ], [ %.0205319, %94 ], [ %.0205319, %88 ], [ null, %137 ], [ %.0205319, %59 ], [ %87, %83 ], [ %.0205319, %80 ], [ %.0205319, %90 ], [ %123, %119 ], [ %.0205319, %116 ], [ %.0205319, %126 ], [ %.0205319, %125 ], [ %.0205319, %124 ], [ %.0205319, %105 ], [ %.0205319, %69 ], [ %.0205319, %.lr.ph313.preheader ], [ %.0205319, %.lr.ph.preheader ], [ %.0205319, %.lr.ph313 ], [ %.0205319, %.lr.ph ]
+  %.4 = phi i32 [ %.0200320, %52 ], [ %.0200320, %97 ], [ %.0200320, %94 ], [ %.0200320, %88 ], [ 0, %137 ], [ %.0200320, %59 ], [ %.0200320, %83 ], [ %.0200320, %80 ], [ %.0200320, %90 ], [ %.0200320, %119 ], [ %.0200320, %116 ], [ 0, %126 ], [ %.0200320, %125 ], [ %.0200320, %124 ], [ 1, %105 ], [ 1, %69 ], [ 1, %.lr.ph313.preheader ], [ 1, %.lr.ph.preheader ], [ 1, %.lr.ph313 ], [ 1, %.lr.ph ]
+  %.2 = phi i32 [ %.0197322, %52 ], [ 1, %97 ], [ %.0197322, %94 ], [ %.0197322, %88 ], [ 0, %137 ], [ %.0197322, %59 ], [ 0, %83 ], [ 0, %80 ], [ 1, %90 ], [ 0, %119 ], [ 0, %116 ], [ 0, %126 ], [ 0, %125 ], [ %.0197322, %124 ], [ 0, %105 ], [ 0, %69 ], [ 0, %.lr.ph313.preheader ], [ 0, %.lr.ph.preheader ], [ 0, %.lr.ph313 ], [ 0, %.lr.ph ]
+  %.1196 = phi i32 [ 0, %52 ], [ 0, %97 ], [ 0, %94 ], [ 0, %88 ], [ 0, %137 ], [ %spec.select, %59 ], [ 0, %83 ], [ 0, %80 ], [ 0, %90 ], [ 0, %119 ], [ 0, %116 ], [ 0, %126 ], [ 0, %125 ], [ 0, %124 ], [ 0, %105 ], [ 0, %69 ], [ 0, %.lr.ph313.preheader ], [ 0, %.lr.ph.preheader ], [ 0, %.lr.ph313 ], [ 0, %.lr.ph ]
+  %.1 = phi i32 [ %.0194323, %52 ], [ %.0194323, %97 ], [ %.0194323, %94 ], [ %.0194323, %88 ], [ 0, %137 ], [ 1, %59 ], [ %.0194323, %83 ], [ %.0194323, %80 ], [ %.0194323, %90 ], [ %.0194323, %119 ], [ %.0194323, %116 ], [ 1, %126 ], [ 1, %125 ], [ %.0194323, %124 ], [ %.0194323, %105 ], [ %.0194323, %69 ], [ %.0194323, %.lr.ph313.preheader ], [ %.0194323, %.lr.ph.preheader ], [ %.0194323, %.lr.ph313 ], [ %.0194323, %.lr.ph ]
   %138 = load ptr, ptr %46, align 8
-  %.not262 = icmp eq ptr %138, null
-  br i1 %.not262, label %140, label %139
+  %.not261 = icmp eq ptr %138, null
+  br i1 %.not261, label %140, label %139
 
 139:                                              ; preds = %.critedge5
   call void @_efree(ptr noundef nonnull %138) #17
@@ -891,22 +891,22 @@ thread-pre-split:                                 ; preds = %16
 
 140:                                              ; preds = %139, %.critedge5
   store ptr null, ptr %46, align 8
-  %.not239 = icmp eq i32 %.1196, 0
-  br i1 %.not239, label %48, label %.critedge
+  %.not238 = icmp eq i32 %.1196, 0
+  br i1 %.not238, label %48, label %.critedge
 
 .critedge:                                        ; preds = %48, %140
-  %.0209.lcssa = phi ptr [ %.0209319, %48 ], [ %.3212, %140 ]
-  %.0205.lcssa = phi ptr [ %.0205320, %48 ], [ %.3208, %140 ]
-  %.not263 = icmp eq ptr %.0205.lcssa, null
-  br i1 %.not263, label %142, label %141
+  %.0209.lcssa = phi ptr [ %.0209318, %48 ], [ %.3212, %140 ]
+  %.0205.lcssa = phi ptr [ %.0205319, %48 ], [ %.3208, %140 ]
+  %.not262 = icmp eq ptr %.0205.lcssa, null
+  br i1 %.not262, label %142, label %141
 
 141:                                              ; preds = %.critedge
   call void @_efree(ptr noundef nonnull %.0205.lcssa) #17
   br label %142
 
 142:                                              ; preds = %141, %.critedge
-  %.not264 = icmp eq ptr %.0209.lcssa, null
-  br i1 %.not264, label %144, label %143
+  %.not263 = icmp eq ptr %.0209.lcssa, null
+  br i1 %.not263, label %144, label %143
 
 143:                                              ; preds = %142
   call void @_efree(ptr noundef nonnull %.0209.lcssa) #17
@@ -917,7 +917,7 @@ thread-pre-split:                                 ; preds = %16
   %146 = call i32 @_php_stream_free(ptr noundef %145, i32 noundef 3) #17
   br label %147
 
-147:                                              ; preds = %144, %40, %.thread287
+147:                                              ; preds = %144, %40, %.thread286
   ret void
 }
 
@@ -1190,7 +1190,7 @@ define hidden void @zif_file_get_contents(ptr noundef %0, ptr nocapture noundef 
 
 10:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 5) #17
-  br label %.thread309
+  br label %.thread307
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1206,7 +1206,7 @@ define hidden void @zif_file_get_contents(ptr noundef %0, ptr nocapture noundef 
 
 17:                                               ; preds = %11
   %18 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %12, ptr noundef nonnull %3, i32 noundef 1) #17
-  br i1 %18, label %thread-pre-split, label %.thread309
+  br i1 %18, label %thread-pre-split, label %.thread307
 
 thread-pre-split:                                 ; preds = %17
   %.pr = load ptr, ptr %3, align 8
@@ -1223,43 +1223,43 @@ thread-pre-split:                                 ; preds = %17
   %24 = load i64, ptr %23, align 8
   %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #19
   %.not258 = icmp eq i64 %24, %25
-  br i1 %.not258, label %26, label %.thread309
+  br i1 %.not258, label %26, label %.thread307
 
 26:                                               ; preds = %19, %21
   %27 = getelementptr inbounds i8, ptr %20, i64 24
   %28 = icmp eq i32 %8, 1
-  br i1 %28, label %.thread347, label %29
+  br i1 %28, label %.thread344, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %0, i64 104
   %31 = load i8, ptr %30, align 8
   switch i8 %31, label %33 [
-    i8 3, label %.critedge271
+    i8 3, label %.critedge269
     i8 2, label %32
   ]
 
 32:                                               ; preds = %29
-  br label %.critedge271
+  br label %.critedge269
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds i8, ptr %0, i64 96
   %35 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %34, ptr noundef nonnull %4, i32 noundef 2) #17
-  br i1 %35, label %36, label %.thread309
+  br i1 %35, label %36, label %.thread307
 
-.critedge271:                                     ; preds = %29, %32
+.critedge269:                                     ; preds = %29, %32
   %storemerge = phi i8 [ 0, %32 ], [ 1, %29 ]
   store i8 %storemerge, ptr %4, align 1
   br label %36
 
-36:                                               ; preds = %33, %.critedge271
+36:                                               ; preds = %33, %.critedge269
   %37 = icmp ult i32 %8, 3
-  br i1 %37, label %.thread347, label %38
+  br i1 %37, label %.thread344, label %38
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds i8, ptr %0, i64 112
   %40 = getelementptr inbounds i8, ptr %0, i64 120
   %41 = load i8, ptr %40, align 8
-  switch i8 %41, label %.thread309 [
+  switch i8 %41, label %.thread307 [
     i8 9, label %42
     i8 1, label %43
   ]
@@ -1270,168 +1270,168 @@ thread-pre-split:                                 ; preds = %17
 43:                                               ; preds = %38, %42
   %.1245.ph = phi ptr [ %39, %42 ], [ null, %38 ]
   %44 = icmp eq i32 %8, 3
-  br i1 %44, label %.thread347, label %45
+  br i1 %44, label %.thread344, label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds i8, ptr %0, i64 128
   %47 = getelementptr inbounds i8, ptr %0, i64 136
   %48 = load i8, ptr %47, align 8
   %49 = icmp eq i8 %48, 4
-  br i1 %49, label %.critedge273, label %51
+  br i1 %49, label %.critedge271, label %51
 
-.critedge273:                                     ; preds = %45
+.critedge271:                                     ; preds = %45
   %50 = load i64, ptr %46, align 8
   store i64 %50, ptr %5, align 8
   br label %53
 
 51:                                               ; preds = %45
   %52 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %46, ptr noundef nonnull %5, i32 noundef 4) #17
-  br i1 %52, label %53, label %.thread309
+  br i1 %52, label %53, label %.thread307
 
-53:                                               ; preds = %51, %.critedge273
+53:                                               ; preds = %51, %.critedge271
   %.not259 = icmp eq i32 %8, 5
-  br i1 %.not259, label %54, label %.thread347
+  br i1 %.not259, label %54, label %.thread344
 
 54:                                               ; preds = %53
   %55 = getelementptr inbounds i8, ptr %0, i64 144
   %56 = getelementptr inbounds i8, ptr %0, i64 152
   %57 = load i8, ptr %56, align 8
-  switch i8 %57, label %59 [
-    i8 4, label %.thread356
-    i8 1, label %.thread347
+  switch i8 %57, label %58 [
+    i8 4, label %60
+    i8 1, label %.thread344
   ]
 
-.thread356:                                       ; preds = %54
-  %58 = load i64, ptr %55, align 8
-  store i64 %58, ptr %6, align 8
-  br label %61
+58:                                               ; preds = %54
+  %59 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %55, ptr noundef nonnull %6, i32 noundef 5) #17
+  %.fr = freeze i1 %59
+  br i1 %.fr, label %thread-pre-split354, label %.thread307
 
-59:                                               ; preds = %54
-  %60 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %55, ptr noundef nonnull %6, i32 noundef 5) #17
-  %.fr = freeze i1 %60
-  br i1 %.fr, label %thread-pre-split360, label %.thread309
+.thread307:                                       ; preds = %58, %38, %17, %21, %51, %33, %10
+  %.0231319 = phi i32 [ 9, %38 ], [ 9, %17 ], [ 9, %21 ], [ 9, %51 ], [ 9, %33 ], [ 1, %10 ], [ 9, %58 ]
+  %.0233318 = phi i32 [ 15, %38 ], [ 16, %17 ], [ 16, %21 ], [ 0, %51 ], [ 2, %33 ], [ 0, %10 ], [ 1, %58 ]
+  %.0234317 = phi ptr [ %39, %38 ], [ %12, %17 ], [ %12, %21 ], [ %46, %51 ], [ %34, %33 ], [ null, %10 ], [ %55, %58 ]
+  %.0235316 = phi i32 [ 3, %38 ], [ 1, %17 ], [ 1, %21 ], [ 4, %51 ], [ 2, %33 ], [ 0, %10 ], [ 5, %58 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0231319, i32 noundef %.0235316, ptr noundef null, i32 noundef %.0233318, ptr noundef %.0234317) #17
+  br label %114
 
-.thread309:                                       ; preds = %59, %38, %17, %21, %51, %33, %10
-  %.0231321 = phi i32 [ 9, %38 ], [ 9, %17 ], [ 9, %21 ], [ 9, %51 ], [ 9, %33 ], [ 1, %10 ], [ 9, %59 ]
-  %.0233320 = phi i32 [ 15, %38 ], [ 16, %17 ], [ 16, %21 ], [ 0, %51 ], [ 2, %33 ], [ 0, %10 ], [ 1, %59 ]
-  %.0234319 = phi ptr [ %39, %38 ], [ %12, %17 ], [ %12, %21 ], [ %46, %51 ], [ %34, %33 ], [ null, %10 ], [ %55, %59 ]
-  %.0235318 = phi i32 [ 3, %38 ], [ 1, %17 ], [ 1, %21 ], [ 4, %51 ], [ 2, %33 ], [ 0, %10 ], [ 5, %59 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0231321, i32 noundef %.0235318, ptr noundef null, i32 noundef %.0233320, ptr noundef %.0234319) #17
-  br label %113
+60:                                               ; preds = %54
+  %61 = load i64, ptr %55, align 8
+  store i64 %61, ptr %6, align 8
+  br label %62
 
-.thread347:                                       ; preds = %54, %26, %36, %43, %53
-  %.2246.ph351 = phi ptr [ null, %26 ], [ null, %36 ], [ %.1245.ph, %43 ], [ %.1245.ph, %53 ], [ %.1245.ph, %54 ]
+.thread344:                                       ; preds = %54, %26, %36, %43, %53
+  %.2246.ph347 = phi ptr [ null, %26 ], [ null, %36 ], [ %.1245.ph, %43 ], [ %.1245.ph, %53 ], [ %.1245.ph, %54 ]
   store i64 -1, ptr %6, align 8
-  br label %67
+  br label %68
 
-thread-pre-split360:                              ; preds = %59
-  %.pr361 = load i64, ptr %6, align 8
-  br label %61
+thread-pre-split354:                              ; preds = %58
+  %.pr355 = load i64, ptr %6, align 8
+  br label %62
 
-61:                                               ; preds = %thread-pre-split360, %.thread356
-  %62 = phi i64 [ %.pr361, %thread-pre-split360 ], [ %58, %.thread356 ]
-  %63 = icmp slt i64 %62, 0
-  br i1 %63, label %64, label %67
+62:                                               ; preds = %thread-pre-split354, %60
+  %63 = phi i64 [ %.pr355, %thread-pre-split354 ], [ %61, %60 ]
+  %64 = icmp slt i64 %63, 0
+  br i1 %64, label %65, label %68
 
-64:                                               ; preds = %61
+65:                                               ; preds = %62
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 5, ptr noundef nonnull @.str.10) #17
-  %65 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %66 = icmp ne ptr %65, null
-  call void @llvm.assume(i1 %66)
-  br label %113
+  %66 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %67 = icmp ne ptr %66, null
+  call void @llvm.assume(i1 %67)
+  br label %114
 
-67:                                               ; preds = %61, %.thread347
-  %.2246335344 = phi ptr [ %.1245.ph, %61 ], [ %.2246.ph351, %.thread347 ]
-  %.not263 = icmp eq ptr %.2246335344, null
-  br i1 %.not263, label %71, label %68
+68:                                               ; preds = %62, %.thread344
+  %.2246333341 = phi ptr [ %.1245.ph, %62 ], [ %.2246.ph347, %.thread344 ]
+  %.not262 = icmp eq ptr %.2246333341, null
+  br i1 %.not262, label %72, label %69
 
-68:                                               ; preds = %67
-  %69 = load i32, ptr @le_stream_context, align 4
-  %70 = call ptr @zend_fetch_resource_ex(ptr noundef nonnull %.2246335344, ptr noundef nonnull @.str.11, i32 noundef %69) #17
-  br label %75
+69:                                               ; preds = %68
+  %70 = load i32, ptr @le_stream_context, align 4
+  %71 = call ptr @zend_fetch_resource_ex(ptr noundef nonnull %.2246333341, ptr noundef nonnull @.str.11, i32 noundef %70) #17
+  br label %76
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
-  %.not264 = icmp eq ptr %72, null
-  br i1 %.not264, label %73, label %75
+72:                                               ; preds = %68
+  %73 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  %.not263 = icmp eq ptr %73, null
+  br i1 %.not263, label %74, label %76
 
-73:                                               ; preds = %71
-  %74 = call ptr @php_stream_context_alloc() #17
-  store ptr %74, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
-  br label %75
+74:                                               ; preds = %72
+  %75 = call ptr @php_stream_context_alloc() #17
+  store ptr %75, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
+  br label %76
 
-75:                                               ; preds = %71, %73, %68
-  %76 = phi ptr [ %70, %68 ], [ %74, %73 ], [ %72, %71 ]
-  %77 = load i8, ptr %4, align 1
-  %78 = and i8 %77, 1
-  %79 = or disjoint i8 %78, 8
-  %80 = zext nneg i8 %79 to i32
-  %81 = call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %27, ptr noundef nonnull @.str.3, i32 noundef %80, ptr noundef null, ptr noundef %76) #17
-  %.not266 = icmp eq ptr %81, null
-  br i1 %.not266, label %82, label %84
+76:                                               ; preds = %72, %74, %69
+  %77 = phi ptr [ %71, %69 ], [ %75, %74 ], [ %73, %72 ]
+  %78 = load i8, ptr %4, align 1
+  %79 = and i8 %78, 1
+  %80 = or disjoint i8 %79, 8
+  %81 = zext nneg i8 %80 to i32
+  %82 = call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %27, ptr noundef nonnull @.str.3, i32 noundef %81, ptr noundef null, ptr noundef %77) #17
+  %.not264 = icmp eq ptr %82, null
+  br i1 %.not264, label %83, label %85
 
-82:                                               ; preds = %75
-  %83 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %83, align 8
-  br label %113
+83:                                               ; preds = %76
+  %84 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %84, align 8
+  br label %114
 
-84:                                               ; preds = %75
-  %85 = load ptr, ptr %81, align 8
-  %86 = icmp eq ptr %85, @php_stream_stdio_ops
-  br i1 %86, label %87, label %89
+85:                                               ; preds = %76
+  %86 = load ptr, ptr %82, align 8
+  %87 = icmp eq ptr %86, @php_stream_stdio_ops
+  br i1 %87, label %88, label %90
 
-87:                                               ; preds = %84
-  %88 = call i32 @_php_stream_set_option(ptr noundef nonnull %81, i32 noundef 2, i32 noundef 0, ptr noundef null) #17
-  br label %89
+88:                                               ; preds = %85
+  %89 = call i32 @_php_stream_set_option(ptr noundef nonnull %82, i32 noundef 2, i32 noundef 0, ptr noundef null) #17
+  br label %90
 
-89:                                               ; preds = %87, %84
-  %90 = load i64, ptr %5, align 8
-  %.not267 = icmp eq i64 %90, 0
-  br i1 %.not267, label %100, label %91
+90:                                               ; preds = %88, %85
+  %91 = load i64, ptr %5, align 8
+  %.not265 = icmp eq i64 %91, 0
+  br i1 %.not265, label %101, label %92
 
-91:                                               ; preds = %89
-  %92 = icmp sgt i64 %90, 0
-  %93 = select i1 %92, i32 0, i32 2
-  %94 = call i32 @_php_stream_seek(ptr noundef nonnull %81, i64 noundef %90, i32 noundef %93) #17
-  %95 = icmp slt i32 %94, 0
-  br i1 %95, label %96, label %100
+92:                                               ; preds = %90
+  %93 = icmp sgt i64 %91, 0
+  %94 = select i1 %93, i32 0, i32 2
+  %95 = call i32 @_php_stream_seek(ptr noundef nonnull %82, i64 noundef %91, i32 noundef %94) #17
+  %96 = icmp slt i32 %95, 0
+  br i1 %96, label %97, label %101
 
-96:                                               ; preds = %91
-  %97 = load i64, ptr %5, align 8
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.12, i64 noundef %97) #17
-  %98 = call i32 @_php_stream_free(ptr noundef nonnull %81, i32 noundef 3) #17
-  %99 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %99, align 8
-  br label %113
+97:                                               ; preds = %92
+  %98 = load i64, ptr %5, align 8
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.12, i64 noundef %98) #17
+  %99 = call i32 @_php_stream_free(ptr noundef nonnull %82, i32 noundef 3) #17
+  %100 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %100, align 8
+  br label %114
 
-100:                                              ; preds = %91, %89
-  %101 = load i64, ptr %6, align 8
-  %102 = call ptr @_php_stream_copy_to_mem(ptr noundef nonnull %81, i64 noundef %101, i32 noundef 0) #17
-  %.not268 = icmp eq ptr %102, null
-  br i1 %.not268, label %108, label %103
+101:                                              ; preds = %92, %90
+  %102 = load i64, ptr %6, align 8
+  %103 = call ptr @_php_stream_copy_to_mem(ptr noundef nonnull %82, i64 noundef %102, i32 noundef 0) #17
+  %.not266 = icmp eq ptr %103, null
+  br i1 %.not266, label %109, label %104
 
-103:                                              ; preds = %100
-  store ptr %102, ptr %1, align 8
-  %104 = getelementptr inbounds i8, ptr %102, i64 4
-  %105 = load i32, ptr %104, align 4
-  %106 = and i32 %105, 64
-  %.not269 = icmp eq i32 %106, 0
-  %107 = select i1 %.not269, i32 262, i32 6
-  br label %110
+104:                                              ; preds = %101
+  store ptr %103, ptr %1, align 8
+  %105 = getelementptr inbounds i8, ptr %103, i64 4
+  %106 = load i32, ptr %105, align 4
+  %107 = and i32 %106, 64
+  %.not267 = icmp eq i32 %107, 0
+  %108 = select i1 %.not267, i32 262, i32 6
+  br label %111
 
-108:                                              ; preds = %100
-  %109 = load ptr, ptr @zend_empty_string, align 8
-  store ptr %109, ptr %1, align 8
-  br label %110
+109:                                              ; preds = %101
+  %110 = load ptr, ptr @zend_empty_string, align 8
+  store ptr %110, ptr %1, align 8
+  br label %111
 
-110:                                              ; preds = %108, %103
-  %.sink = phi i32 [ 6, %108 ], [ %107, %103 ]
-  %111 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %.sink, ptr %111, align 8
-  %112 = call i32 @_php_stream_free(ptr noundef nonnull %81, i32 noundef 3) #17
-  br label %113
+111:                                              ; preds = %109, %104
+  %.sink = phi i32 [ 6, %109 ], [ %108, %104 ]
+  %112 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %.sink, ptr %112, align 8
+  %113 = call i32 @_php_stream_free(ptr noundef nonnull %82, i32 noundef 3) #17
+  br label %114
 
-113:                                              ; preds = %110, %96, %82, %64, %.thread309
+114:                                              ; preds = %111, %97, %83, %65, %.thread307
   ret void
 }
 
@@ -2602,9 +2602,9 @@ thread-pre-split:                                 ; preds = %16
   %28 = getelementptr inbounds i8, ptr %0, i64 104
   %29 = load i8, ptr %28, align 8
   %30 = icmp eq i8 %29, 6
-  br i1 %30, label %.thread228, label %32
+  br i1 %30, label %.thread227, label %32
 
-.thread228:                                       ; preds = %25
+.thread227:                                       ; preds = %25
   %31 = load ptr, ptr %27, align 8
   store ptr %31, ptr %3, align 8
   br label %35
@@ -2614,36 +2614,36 @@ thread-pre-split:                                 ; preds = %16
   %34 = load ptr, ptr %3, align 8
   br i1 %33, label %35, label %50
 
-35:                                               ; preds = %.thread228, %32
-  %.pn = phi ptr [ %31, %.thread228 ], [ %34, %32 ]
+35:                                               ; preds = %.thread227, %32
+  %.pn = phi ptr [ %31, %.thread227 ], [ %34, %32 ]
   %36 = getelementptr inbounds i8, ptr %.pn, i64 24
   %37 = icmp eq i32 %7, 2
-  br i1 %37, label %.thread272, label %38
+  br i1 %37, label %.thread271, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %0, i64 120
   %40 = load i8, ptr %39, align 8
   switch i8 %40, label %42 [
-    i8 3, label %.critedge217
+    i8 3, label %.critedge216
     i8 2, label %41
   ]
 
 41:                                               ; preds = %38
-  br label %.critedge217
+  br label %.critedge216
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %0, i64 112
   %44 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %43, ptr noundef nonnull %5, i32 noundef 3) #17
   br i1 %44, label %45, label %50
 
-.critedge217:                                     ; preds = %38, %41
+.critedge216:                                     ; preds = %38, %41
   %storemerge = phi i8 [ 0, %41 ], [ 1, %38 ]
   store i8 %storemerge, ptr %5, align 1
   br label %45
 
-45:                                               ; preds = %42, %.critedge217
+45:                                               ; preds = %42, %.critedge216
   %.not211 = icmp eq i32 %7, 4
-  br i1 %.not211, label %46, label %.thread272
+  br i1 %.not211, label %46, label %.thread271
 
 46:                                               ; preds = %45
   %47 = getelementptr inbounds i8, ptr %0, i64 128
@@ -2651,7 +2651,7 @@ thread-pre-split:                                 ; preds = %16
   %49 = load i8, ptr %48, align 8
   switch i8 %49, label %50 [
     i8 9, label %51
-    i8 1, label %.thread272
+    i8 1, label %.thread271
   ]
 
 50:                                               ; preds = %9, %32, %42, %20, %16, %46
@@ -2667,18 +2667,18 @@ thread-pre-split:                                 ; preds = %16
   %53 = call ptr @zend_fetch_resource_ex(ptr noundef nonnull %47, ptr noundef nonnull @.str.11, i32 noundef %52) #17
   br label %57
 
-.thread272:                                       ; preds = %45, %35, %46
+.thread271:                                       ; preds = %45, %35, %46
   %54 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
   %.not214 = icmp eq ptr %54, null
   br i1 %.not214, label %55, label %57
 
-55:                                               ; preds = %.thread272
+55:                                               ; preds = %.thread271
   %56 = call ptr @php_stream_context_alloc() #17
   store ptr %56, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
   br label %57
 
-57:                                               ; preds = %.thread272, %55, %51
-  %58 = phi ptr [ %53, %51 ], [ %56, %55 ], [ %54, %.thread272 ]
+57:                                               ; preds = %.thread271, %55, %51
+  %58 = phi ptr [ %53, %51 ], [ %56, %55 ], [ %54, %.thread271 ]
   %59 = load i8, ptr %5, align 1
   %60 = and i8 %59, 1
   %61 = or disjoint i8 %60, 8
@@ -3087,204 +3087,204 @@ define void @zif_fgets(ptr noundef %0, ptr nocapture noundef writeonly %1) local
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 2) #17
-  br label %.thread317
+  br label %.thread316
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 80
   %11 = getelementptr inbounds i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8
   %.not = icmp eq i8 %12, 9
-  br i1 %.not, label %13, label %.thread317
+  br i1 %.not, label %13, label %.thread316
 
 13:                                               ; preds = %9
   %14 = icmp eq i32 %6, 1
-  br i1 %14, label %.thread329, label %15
+  br i1 %14, label %.thread328, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %0, i64 96
   %17 = getelementptr inbounds i8, ptr %0, i64 104
   %18 = load i8, ptr %17, align 8
-  switch i8 %18, label %22 [
+  switch i8 %18, label %21 [
     i8 4, label %19
-    i8 1, label %.thread339
+    i8 1, label %.thread338
   ]
 
 19:                                               ; preds = %15
   %20 = load i64, ptr %16, align 8
-  br label %.thread339
+  br label %.thread338
 
-.thread339:                                       ; preds = %19, %15
+.thread338:                                       ; preds = %19, %15
   %storemerge = phi i64 [ %20, %19 ], [ 0, %15 ]
-  %21 = phi i1 [ true, %19 ], [ false, %15 ]
+  %.1 = phi i1 [ false, %19 ], [ true, %15 ]
   store i64 %storemerge, ptr %3, align 8
-  br label %.thread329
+  br label %.thread328
 
-22:                                               ; preds = %15
-  %23 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 2) #17
-  %cond.fr300 = freeze i1 %23
-  br i1 %cond.fr300, label %.thread329, label %.thread317
+21:                                               ; preds = %15
+  %22 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 2) #17
+  %cond.fr299 = freeze i1 %22
+  br i1 %cond.fr299, label %.thread328, label %.thread316
 
-.thread317:                                       ; preds = %22, %9, %8
-  %.0274328 = phi i32 [ 9, %9 ], [ 1, %8 ], [ 9, %22 ]
-  %.0276327 = phi i32 [ 14, %9 ], [ 0, %8 ], [ 1, %22 ]
-  %.0277326 = phi ptr [ %10, %9 ], [ null, %8 ], [ %16, %22 ]
-  %.0278325 = phi i32 [ 1, %9 ], [ 0, %8 ], [ 2, %22 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0274328, i32 noundef %.0278325, ptr noundef null, i32 noundef %.0276327, ptr noundef %.0277326) #17
-  br label %105
+.thread316:                                       ; preds = %21, %9, %8
+  %.0274327 = phi i32 [ 9, %9 ], [ 1, %8 ], [ 9, %21 ]
+  %.0276326 = phi i32 [ 14, %9 ], [ 0, %8 ], [ 1, %21 ]
+  %.0277325 = phi ptr [ %10, %9 ], [ null, %8 ], [ %16, %21 ]
+  %.0278324 = phi i32 [ 1, %9 ], [ 0, %8 ], [ 2, %21 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0274327, i32 noundef %.0278324, ptr noundef null, i32 noundef %.0276326, ptr noundef %.0277325) #17
+  br label %104
 
-.thread329:                                       ; preds = %22, %.thread339, %13
-  %.3338 = phi i1 [ false, %13 ], [ %21, %.thread339 ], [ true, %22 ]
-  %24 = load ptr, ptr %10, align 8
-  %25 = call i32 @php_file_le_stream() #17
-  %26 = call i32 @php_file_le_pstream() #17
-  %27 = call ptr @zend_fetch_resource2(ptr noundef %24, ptr noundef nonnull @.str.2, i32 noundef %25, i32 noundef %26) #17
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %105, label %29
+.thread328:                                       ; preds = %21, %.thread338, %13
+  %.3337 = phi i1 [ true, %13 ], [ %.1, %.thread338 ], [ false, %21 ]
+  %23 = load ptr, ptr %10, align 8
+  %24 = call i32 @php_file_le_stream() #17
+  %25 = call i32 @php_file_le_pstream() #17
+  %26 = call ptr @zend_fetch_resource2(ptr noundef %23, ptr noundef nonnull @.str.2, i32 noundef %24, i32 noundef %25) #17
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %104, label %28
 
-29:                                               ; preds = %.thread329
-  br i1 %.3338, label %46, label %30
+28:                                               ; preds = %.thread328
+  br i1 %.3337, label %29, label %45
 
-30:                                               ; preds = %29
-  %31 = call ptr @_php_stream_get_line(ptr noundef nonnull %27, ptr noundef null, i64 noundef 0, ptr noundef nonnull %4) #17
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %35
+29:                                               ; preds = %28
+  %30 = call ptr @_php_stream_get_line(ptr noundef nonnull %26, ptr noundef null, i64 noundef 0, ptr noundef nonnull %4) #17
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %34
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %34, align 8
-  br label %105
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %33, align 8
+  br label %104
 
-35:                                               ; preds = %30
-  %36 = load i64, ptr %4, align 8
-  %37 = and i64 %36, -8
-  %38 = add i64 %37, 32
-  %39 = call noalias ptr @_emalloc(i64 noundef %38) #20
-  store i32 1, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
-  store i32 22, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
-  store i64 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 16
-  store i64 %36, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %39, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull align 1 %31, i64 %36, i1 false)
-  %44 = getelementptr inbounds [1 x i8], ptr %43, i64 0, i64 %36
-  store i8 0, ptr %44, align 1
-  store ptr %39, ptr %1, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %45, align 8
-  call void @_efree(ptr noundef nonnull %31) #17
-  br label %105
+34:                                               ; preds = %29
+  %35 = load i64, ptr %4, align 8
+  %36 = and i64 %35, -8
+  %37 = add i64 %36, 32
+  %38 = call noalias ptr @_emalloc(i64 noundef %37) #20
+  store i32 1, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  store i32 22, ptr %39, align 4
+  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  store i64 0, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %38, i64 16
+  store i64 %35, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %38, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull align 1 %30, i64 %35, i1 false)
+  %43 = getelementptr inbounds [1 x i8], ptr %42, i64 0, i64 %35
+  store i8 0, ptr %43, align 1
+  store ptr %38, ptr %1, align 8
+  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %44, align 8
+  call void @_efree(ptr noundef nonnull %30) #17
+  br label %104
 
-46:                                               ; preds = %29
-  %47 = load i64, ptr %3, align 8
-  %48 = icmp slt i64 %47, 1
-  br i1 %48, label %49, label %52
+45:                                               ; preds = %28
+  %46 = load i64, ptr %3, align 8
+  %47 = icmp slt i64 %46, 1
+  br i1 %47, label %48, label %51
 
-49:                                               ; preds = %46
+48:                                               ; preds = %45
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.25) #17
-  %50 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %51 = icmp ne ptr %50, null
-  call void @llvm.assume(i1 %51)
-  br label %105
+  %49 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %50 = icmp ne ptr %49, null
+  call void @llvm.assume(i1 %50)
+  br label %104
 
-52:                                               ; preds = %46
-  %53 = and i64 %47, 9223372036854775800
-  %54 = add nuw i64 %53, 32
-  %55 = call noalias ptr @_emalloc(i64 noundef %54) #20
-  store i32 1, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %55, i64 4
-  store i32 22, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
-  store i64 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 16
-  store i64 %47, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %55, i64 24
-  %60 = load i64, ptr %3, align 8
-  %61 = call ptr @_php_stream_get_line(ptr noundef nonnull %27, ptr noundef nonnull %59, i64 noundef %60, ptr noundef nonnull %4) #17
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %65
+51:                                               ; preds = %45
+  %52 = and i64 %46, 9223372036854775800
+  %53 = add nuw i64 %52, 32
+  %54 = call noalias ptr @_emalloc(i64 noundef %53) #20
+  store i32 1, ptr %54, align 4
+  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  store i32 22, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %54, i64 8
+  store i64 0, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %54, i64 16
+  store i64 %46, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %54, i64 24
+  %59 = load i64, ptr %3, align 8
+  %60 = call ptr @_php_stream_get_line(ptr noundef nonnull %26, ptr noundef nonnull %58, i64 noundef %59, ptr noundef nonnull %4) #17
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %62, label %64
 
-63:                                               ; preds = %52
-  call void @_efree(ptr noundef nonnull %55) #17
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %64, align 8
-  br label %105
+62:                                               ; preds = %51
+  call void @_efree(ptr noundef nonnull %54) #17
+  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %63, align 8
+  br label %104
 
-65:                                               ; preds = %52
-  %66 = load i64, ptr %4, align 8
-  %67 = load i64, ptr %3, align 8
-  %68 = lshr i64 %67, 1
-  %69 = icmp ult i64 %66, %68
-  br i1 %69, label %70, label %102
+64:                                               ; preds = %51
+  %65 = load i64, ptr %4, align 8
+  %66 = load i64, ptr %3, align 8
+  %67 = lshr i64 %66, 1
+  %68 = icmp ult i64 %65, %67
+  br i1 %68, label %69, label %101
 
-70:                                               ; preds = %65
-  %71 = load i64, ptr %58, align 8
-  %72 = icmp ule i64 %66, %71
-  call void @llvm.assume(i1 %72)
-  %73 = load i32, ptr %56, align 4
-  %74 = and i32 %73, 64
-  %.not296 = icmp eq i32 %74, 0
-  br i1 %.not296, label %75, label %87
+69:                                               ; preds = %64
+  %70 = load i64, ptr %57, align 8
+  %71 = icmp ule i64 %65, %70
+  call void @llvm.assume(i1 %71)
+  %72 = load i32, ptr %55, align 4
+  %73 = and i32 %72, 64
+  %.not295 = icmp eq i32 %73, 0
+  br i1 %.not295, label %74, label %86
 
-75:                                               ; preds = %70
-  %76 = load i32, ptr %55, align 4
-  %77 = icmp eq i32 %76, 1
-  br i1 %77, label %78, label %87
+74:                                               ; preds = %69
+  %75 = load i32, ptr %54, align 4
+  %76 = icmp eq i32 %75, 1
+  br i1 %76, label %77, label %86
 
-78:                                               ; preds = %75
-  %79 = and i64 %66, -8
-  %80 = add nuw i64 %79, 32
-  %81 = call ptr @_erealloc(ptr noundef nonnull %55, i64 noundef %80) #21
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
-  store i64 %66, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %81, i64 8
-  store i64 0, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %81, i64 4
-  %85 = load i32, ptr %84, align 4
-  %86 = and i32 %85, -513
-  store i32 %86, ptr %84, align 4
-  br label %103
+77:                                               ; preds = %74
+  %78 = and i64 %65, -8
+  %79 = add nuw i64 %78, 32
+  %80 = call ptr @_erealloc(ptr noundef nonnull %54, i64 noundef %79) #21
+  %81 = getelementptr inbounds i8, ptr %80, i64 16
+  store i64 %65, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %80, i64 8
+  store i64 0, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %80, i64 4
+  %84 = load i32, ptr %83, align 4
+  %85 = and i32 %84, -513
+  store i32 %85, ptr %83, align 4
+  br label %102
 
-87:                                               ; preds = %75, %70
-  %88 = and i64 %66, -8
-  %89 = add nuw i64 %88, 32
-  %90 = call noalias ptr @_emalloc(i64 noundef %89) #20
-  store i32 1, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %90, i64 4
-  store i32 22, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %90, i64 8
-  store i64 0, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %90, i64 16
-  store i64 %66, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %90, i64 24
-  %95 = add nuw nsw i64 %66, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %94, ptr noundef nonnull align 8 dereferenceable(1) %59, i64 %95, i1 false)
-  %96 = load i32, ptr %56, align 4
-  %97 = and i32 %96, 64
-  %.not297 = icmp eq i32 %97, 0
-  br i1 %.not297, label %98, label %103
+86:                                               ; preds = %74, %69
+  %87 = and i64 %65, -8
+  %88 = add nuw i64 %87, 32
+  %89 = call noalias ptr @_emalloc(i64 noundef %88) #20
+  store i32 1, ptr %89, align 4
+  %90 = getelementptr inbounds i8, ptr %89, i64 4
+  store i32 22, ptr %90, align 4
+  %91 = getelementptr inbounds i8, ptr %89, i64 8
+  store i64 0, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %89, i64 16
+  store i64 %65, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %89, i64 24
+  %94 = add nuw nsw i64 %65, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %93, ptr noundef nonnull align 8 dereferenceable(1) %58, i64 %94, i1 false)
+  %95 = load i32, ptr %55, align 4
+  %96 = and i32 %95, 64
+  %.not296 = icmp eq i32 %96, 0
+  br i1 %.not296, label %97, label %102
 
-98:                                               ; preds = %87
-  %99 = load i32, ptr %55, align 4
-  %100 = icmp ne i32 %99, 0
-  call void @llvm.assume(i1 %100)
-  %101 = add i32 %99, -1
-  store i32 %101, ptr %55, align 4
-  br label %103
+97:                                               ; preds = %86
+  %98 = load i32, ptr %54, align 4
+  %99 = icmp ne i32 %98, 0
+  call void @llvm.assume(i1 %99)
+  %100 = add i32 %98, -1
+  store i32 %100, ptr %54, align 4
+  br label %102
 
-102:                                              ; preds = %65
-  store i64 %66, ptr %58, align 8
-  br label %103
+101:                                              ; preds = %64
+  store i64 %65, ptr %57, align 8
+  br label %102
 
-103:                                              ; preds = %78, %98, %87, %102
-  %.0275 = phi ptr [ %55, %102 ], [ %81, %78 ], [ %90, %98 ], [ %90, %87 ]
+102:                                              ; preds = %77, %97, %86, %101
+  %.0275 = phi ptr [ %54, %101 ], [ %80, %77 ], [ %89, %97 ], [ %89, %86 ]
   store ptr %.0275, ptr %1, align 8
-  %104 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %104, align 8
-  br label %105
+  %103 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %103, align 8
+  br label %104
 
-105:                                              ; preds = %.thread329, %103, %63, %49, %35, %33, %.thread317
+104:                                              ; preds = %.thread328, %102, %62, %48, %34, %32, %.thread316
   ret void
 }
 
@@ -3464,14 +3464,14 @@ define void @zif_fwrite(ptr noundef %0, ptr nocapture noundef writeonly %1) loca
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 3) #17
-  br label %.thread198
+  br label %.thread197
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 80
   %11 = getelementptr inbounds i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8
   %.not = icmp eq i8 %12, 9
-  br i1 %.not, label %13, label %.thread198
+  br i1 %.not, label %13, label %.thread197
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 96
@@ -3487,7 +3487,7 @@ define void @zif_fwrite(ptr noundef %0, ptr nocapture noundef writeonly %1) loca
 
 19:                                               ; preds = %13
   %20 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %14, ptr noundef nonnull %3, i32 noundef 2) #17
-  br i1 %20, label %._crit_edge, label %.thread198
+  br i1 %20, label %._crit_edge, label %.thread197
 
 ._crit_edge:                                      ; preds = %19
   %.pre = load ptr, ptr %3, align 8
@@ -3499,64 +3499,64 @@ define void @zif_fwrite(ptr noundef %0, ptr nocapture noundef writeonly %1) loca
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %22, i64 24
   %26 = icmp eq i32 %6, 2
-  br i1 %26, label %.thread237, label %27
+  br i1 %26, label %.thread232, label %27
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds i8, ptr %0, i64 112
   %29 = getelementptr inbounds i8, ptr %0, i64 120
   %30 = load i8, ptr %29, align 8
-  switch i8 %30, label %32 [
-    i8 4, label %.thread240
-    i8 1, label %34
+  switch i8 %30, label %31 [
+    i8 4, label %33
+    i8 1, label %.thread236
   ]
 
-.thread240:                                       ; preds = %27
-  %31 = load i64, ptr %28, align 8
-  store i64 %31, ptr %4, align 8
-  br label %35
+.thread236:                                       ; preds = %27
+  store i64 0, ptr %4, align 8
+  br label %.thread232
 
-32:                                               ; preds = %27
-  %33 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %28, ptr noundef nonnull %4, i32 noundef 3) #17
-  %.fr = freeze i1 %33
-  br i1 %.fr, label %thread-pre-split, label %.thread198
+31:                                               ; preds = %27
+  %32 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %28, ptr noundef nonnull %4, i32 noundef 3) #17
+  %.fr = freeze i1 %32
+  br i1 %.fr, label %thread-pre-split, label %.thread197
 
-.thread198:                                       ; preds = %32, %19, %9, %8
-  %.0132211 = phi i32 [ 9, %19 ], [ 9, %9 ], [ 1, %8 ], [ 9, %32 ]
-  %.0135210 = phi i32 [ 4, %19 ], [ 14, %9 ], [ 0, %8 ], [ 1, %32 ]
-  %.0136209 = phi ptr [ %14, %19 ], [ %10, %9 ], [ null, %8 ], [ %28, %32 ]
-  %.0137208 = phi i32 [ 2, %19 ], [ 1, %9 ], [ 0, %8 ], [ 3, %32 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0132211, i32 noundef %.0137208, ptr noundef null, i32 noundef %.0135210, ptr noundef %.0136209) #17
+.thread197:                                       ; preds = %31, %19, %9, %8
+  %.0132210 = phi i32 [ 9, %19 ], [ 9, %9 ], [ 1, %8 ], [ 9, %31 ]
+  %.0135209 = phi i32 [ 4, %19 ], [ 14, %9 ], [ 0, %8 ], [ 1, %31 ]
+  %.0136208 = phi ptr [ %14, %19 ], [ %10, %9 ], [ null, %8 ], [ %28, %31 ]
+  %.0137207 = phi i32 [ 2, %19 ], [ 1, %9 ], [ 0, %8 ], [ 3, %31 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0132210, i32 noundef %.0137207, ptr noundef null, i32 noundef %.0135209, ptr noundef %.0136208) #17
   br label %54
 
-34:                                               ; preds = %27
-  store i64 0, ptr %4, align 8
-  br label %.thread237
+33:                                               ; preds = %27
+  %34 = load i64, ptr %28, align 8
+  store i64 %34, ptr %4, align 8
+  br label %35
 
-thread-pre-split:                                 ; preds = %32
+thread-pre-split:                                 ; preds = %31
   %.pr = load i64, ptr %4, align 8
   br label %35
 
-35:                                               ; preds = %thread-pre-split, %.thread240
-  %36 = phi i64 [ %.pr, %thread-pre-split ], [ %31, %.thread240 ]
+35:                                               ; preds = %thread-pre-split, %33
+  %36 = phi i64 [ %.pr, %thread-pre-split ], [ %34, %33 ]
   %37 = icmp slt i64 %36, 1
-  br i1 %37, label %.thread244, label %38
+  br i1 %37, label %.thread239, label %38
 
 38:                                               ; preds = %35
   %39 = call i64 @llvm.umin.i64(i64 %36, i64 %24)
-  br label %.thread237
+  br label %.thread232
 
-.thread237:                                       ; preds = %21, %34, %38
-  %.0138 = phi i64 [ %39, %38 ], [ %24, %34 ], [ %24, %21 ]
-  %.not162 = icmp eq i64 %.0138, 0
-  br i1 %.not162, label %.thread244, label %41
+.thread232:                                       ; preds = %21, %.thread236, %38
+  %.0138 = phi i64 [ %39, %38 ], [ %24, %.thread236 ], [ %24, %21 ]
+  %.not161 = icmp eq i64 %.0138, 0
+  br i1 %.not161, label %.thread239, label %41
 
-.thread244:                                       ; preds = %35, %.thread237
+.thread239:                                       ; preds = %35, %.thread232
   store i64 0, ptr %1, align 8
   %40 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %40, align 8
   br label %54
 
-41:                                               ; preds = %.thread237
+41:                                               ; preds = %.thread232
   %42 = load ptr, ptr %10, align 8
   %43 = call i32 @php_file_le_stream() #17
   %44 = call i32 @php_file_le_pstream() #17
@@ -3580,7 +3580,7 @@ thread-pre-split:                                 ; preds = %32
   store i32 4, ptr %53, align 8
   br label %54
 
-54:                                               ; preds = %41, %52, %50, %.thread244, %.thread198
+54:                                               ; preds = %41, %52, %50, %.thread239, %.thread197
   ret void
 }
 
@@ -3945,16 +3945,16 @@ thread-pre-split:                                 ; preds = %16
 25:                                               ; preds = %18, %20
   %26 = getelementptr inbounds i8, ptr %19, i64 24
   %27 = icmp eq i32 %7, 1
-  br i1 %27, label %.thread248, label %28
+  br i1 %27, label %.thread247, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %0, i64 96
   %30 = getelementptr inbounds i8, ptr %0, i64 104
   %31 = load i8, ptr %30, align 8
   %32 = icmp eq i8 %31, 4
-  br i1 %32, label %.critedge201, label %34
+  br i1 %32, label %.critedge200, label %34
 
-.critedge201:                                     ; preds = %28
+.critedge200:                                     ; preds = %28
   %33 = load i64, ptr %29, align 8
   store i64 %33, ptr %4, align 8
   br label %36
@@ -3963,34 +3963,34 @@ thread-pre-split:                                 ; preds = %16
   %35 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %29, ptr noundef nonnull %4, i32 noundef 2) #17
   br i1 %35, label %36, label %50
 
-36:                                               ; preds = %34, %.critedge201
+36:                                               ; preds = %34, %.critedge200
   %37 = icmp ult i32 %7, 3
-  br i1 %37, label %.thread248, label %38
+  br i1 %37, label %.thread247, label %38
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds i8, ptr %0, i64 120
   %40 = load i8, ptr %39, align 8
   switch i8 %40, label %42 [
-    i8 3, label %.critedge203
+    i8 3, label %.critedge202
     i8 2, label %41
   ]
 
 41:                                               ; preds = %38
-  br label %.critedge203
+  br label %.critedge202
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %0, i64 112
   %44 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %43, ptr noundef nonnull %5, i32 noundef 3) #17
   br i1 %44, label %45, label %50
 
-.critedge203:                                     ; preds = %38, %41
+.critedge202:                                     ; preds = %38, %41
   %storemerge = phi i8 [ 0, %41 ], [ 1, %38 ]
   store i8 %storemerge, ptr %5, align 1
   br label %45
 
-45:                                               ; preds = %42, %.critedge203
+45:                                               ; preds = %42, %.critedge202
   %.not194 = icmp eq i32 %7, 4
-  br i1 %.not194, label %46, label %.thread248
+  br i1 %.not194, label %46, label %.thread247
 
 46:                                               ; preds = %45
   %47 = getelementptr inbounds i8, ptr %0, i64 128
@@ -3998,7 +3998,7 @@ thread-pre-split:                                 ; preds = %16
   %49 = load i8, ptr %48, align 8
   switch i8 %49, label %50 [
     i8 9, label %51
-    i8 1, label %.thread248
+    i8 1, label %.thread247
   ]
 
 50:                                               ; preds = %9, %34, %42, %20, %16, %46
@@ -4014,18 +4014,18 @@ thread-pre-split:                                 ; preds = %16
   %53 = call ptr @zend_fetch_resource_ex(ptr noundef nonnull %47, ptr noundef nonnull @.str.11, i32 noundef %52) #17
   br label %57
 
-.thread248:                                       ; preds = %45, %36, %25, %46
+.thread247:                                       ; preds = %45, %36, %25, %46
   %54 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
   %.not197 = icmp eq ptr %54, null
   br i1 %.not197, label %55, label %57
 
-55:                                               ; preds = %.thread248
+55:                                               ; preds = %.thread247
   %56 = call ptr @php_stream_context_alloc() #17
   store ptr %56, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
   br label %57
 
-57:                                               ; preds = %.thread248, %55, %51
-  %58 = phi ptr [ %53, %51 ], [ %56, %55 ], [ %54, %.thread248 ]
+57:                                               ; preds = %.thread247, %55, %51
+  %58 = phi ptr [ %53, %51 ], [ %56, %55 ], [ %54, %.thread247 ]
   %59 = load i64, ptr %4, align 8
   %60 = trunc i64 %59 to i32
   %61 = load i8, ptr %5, align 1
@@ -4033,8 +4033,8 @@ thread-pre-split:                                 ; preds = %16
   %63 = or disjoint i8 %62, 8
   %64 = zext nneg i8 %63 to i32
   %65 = call i32 @_php_stream_mkdir(ptr noundef nonnull %26, i32 noundef %60, i32 noundef %64, ptr noundef %58) #17
-  %.not199 = icmp eq i32 %65, 0
-  %66 = select i1 %.not199, i32 2, i32 3
+  %.not198 = icmp eq i32 %65, 0
+  %66 = select i1 %.not198, i32 2, i32 3
   %67 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %66, ptr %67, align 8
   br label %68
@@ -4194,32 +4194,32 @@ thread-pre-split:                                 ; preds = %15
 24:                                               ; preds = %17, %19
   %25 = getelementptr inbounds i8, ptr %18, i64 24
   %26 = icmp eq i32 %6, 1
-  br i1 %26, label %.thread214, label %27
+  br i1 %26, label %.thread213, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %0, i64 104
   %29 = load i8, ptr %28, align 8
   switch i8 %29, label %31 [
-    i8 3, label %.critedge169
+    i8 3, label %.critedge168
     i8 2, label %30
   ]
 
 30:                                               ; preds = %27
-  br label %.critedge169
+  br label %.critedge168
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %0, i64 96
   %33 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %32, ptr noundef nonnull %4, i32 noundef 2) #17
   br i1 %33, label %34, label %39
 
-.critedge169:                                     ; preds = %27, %30
+.critedge168:                                     ; preds = %27, %30
   %storemerge = phi i8 [ 0, %30 ], [ 1, %27 ]
   store i8 %storemerge, ptr %4, align 1
   br label %34
 
-34:                                               ; preds = %31, %.critedge169
+34:                                               ; preds = %31, %.critedge168
   %.not162 = icmp eq i32 %6, 3
-  br i1 %.not162, label %35, label %.thread214
+  br i1 %.not162, label %35, label %.thread213
 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds i8, ptr %0, i64 112
@@ -4227,7 +4227,7 @@ thread-pre-split:                                 ; preds = %15
   %38 = load i8, ptr %37, align 8
   switch i8 %38, label %39 [
     i8 9, label %40
-    i8 1, label %.thread214
+    i8 1, label %.thread213
   ]
 
 39:                                               ; preds = %8, %31, %19, %15, %35
@@ -4243,25 +4243,25 @@ thread-pre-split:                                 ; preds = %15
   %42 = call ptr @zend_fetch_resource_ex(ptr noundef nonnull %36, ptr noundef nonnull @.str.11, i32 noundef %41) #17
   br label %46
 
-.thread214:                                       ; preds = %34, %24, %35
+.thread213:                                       ; preds = %34, %24, %35
   %43 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
   %.not165 = icmp eq ptr %43, null
   br i1 %.not165, label %44, label %46
 
-44:                                               ; preds = %.thread214
+44:                                               ; preds = %.thread213
   %45 = call ptr @php_stream_context_alloc() #17
   store ptr %45, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 7), align 8
   br label %46
 
-46:                                               ; preds = %.thread214, %44, %40
-  %47 = phi ptr [ %42, %40 ], [ %45, %44 ], [ %43, %.thread214 ]
+46:                                               ; preds = %.thread213, %44, %40
+  %47 = phi ptr [ %42, %40 ], [ %45, %44 ], [ %43, %.thread213 ]
   %48 = load i8, ptr %4, align 1
   %49 = and i8 %48, 1
   %50 = or disjoint i8 %49, 8
   %51 = zext nneg i8 %50 to i32
   %52 = call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %25, ptr noundef nonnull @.str.3, i32 noundef %51, ptr noundef null, ptr noundef %47) #17
-  %.not167 = icmp eq ptr %52, null
-  br i1 %.not167, label %57, label %53
+  %.not166 = icmp eq ptr %52, null
+  br i1 %.not166, label %57, label %53
 
 53:                                               ; preds = %46
   %54 = call i64 @_php_stream_passthru(ptr noundef nonnull %52) #17
@@ -4293,66 +4293,66 @@ define hidden void @zif_umask(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #17
-  br label %.thread103
+  br label %.thread102
 
 8:                                                ; preds = %2
   %9 = icmp eq i32 %5, 0
-  br i1 %9, label %.thread93, label %10
+  br i1 %9, label %.thread92, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %0, i64 80
   %12 = getelementptr inbounds i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8
-  switch i8 %13, label %17 [
+  switch i8 %13, label %16 [
     i8 4, label %14
-    i8 1, label %.thread86
+    i8 1, label %.thread85
   ]
 
 14:                                               ; preds = %10
   %15 = load i64, ptr %11, align 8
-  br label %.thread86
+  br label %.thread85
 
-.thread86:                                        ; preds = %14, %10
+.thread85:                                        ; preds = %14, %10
   %storemerge = phi i64 [ %15, %14 ], [ 0, %10 ]
-  %16 = phi i1 [ true, %14 ], [ false, %10 ]
+  %.1 = phi i1 [ false, %14 ], [ true, %10 ]
   store i64 %storemerge, ptr %3, align 8
-  br label %.thread93
+  br label %.thread92
 
-17:                                               ; preds = %10
-  %18 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %11, ptr noundef nonnull %3, i32 noundef 1) #17
-  %.fr = freeze i1 %18
-  br i1 %.fr, label %.thread93, label %.thread103
+16:                                               ; preds = %10
+  %17 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %11, ptr noundef nonnull %3, i32 noundef 1) #17
+  %.fr = freeze i1 %17
+  br i1 %.fr, label %.thread92, label %.thread102
 
-.thread103:                                       ; preds = %17, %7
-  %.060113 = phi i32 [ 1, %7 ], [ 9, %17 ]
-  %.061112 = phi i32 [ 0, %7 ], [ 1, %17 ]
-  %.063110 = phi ptr [ null, %7 ], [ %11, %17 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.060113, i32 noundef %.061112, ptr noundef null, i32 noundef %.061112, ptr noundef %.063110) #17
-  br label %29
+.thread102:                                       ; preds = %16, %7
+  %.060112 = phi i32 [ 1, %7 ], [ 9, %16 ]
+  %.061111 = phi i32 [ 0, %7 ], [ 1, %16 ]
+  %.063109 = phi ptr [ null, %7 ], [ %11, %16 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.060112, i32 noundef %.061111, ptr noundef null, i32 noundef %.061111, ptr noundef %.063109) #17
+  br label %28
 
-.thread93:                                        ; preds = %17, %.thread86, %8
-  %.3.ph = phi i1 [ %16, %.thread86 ], [ false, %8 ], [ true, %17 ]
-  %19 = call i32 @umask(i32 noundef 63) #17
-  %20 = load i32, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 30), align 8
-  %21 = icmp eq i32 %20, -1
-  br i1 %21, label %22, label %23
+.thread92:                                        ; preds = %16, %.thread85, %8
+  %.3.ph = phi i1 [ %.1, %.thread85 ], [ true, %8 ], [ false, %16 ]
+  %18 = call i32 @umask(i32 noundef 63) #17
+  %19 = load i32, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 30), align 8
+  %20 = icmp eq i32 %19, -1
+  br i1 %20, label %21, label %22
 
-22:                                               ; preds = %.thread93
-  store i32 %19, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 30), align 8
-  br label %23
+21:                                               ; preds = %.thread92
+  store i32 %18, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 30), align 8
+  br label %22
 
-23:                                               ; preds = %22, %.thread93
-  %24 = load i64, ptr %3, align 8
-  %25 = trunc i64 %24 to i32
-  %.sink = select i1 %.3.ph, i32 %25, i32 %19
-  %26 = call i32 @umask(i32 noundef %.sink) #17
-  %27 = sext i32 %19 to i64
-  store i64 %27, ptr %1, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 4, ptr %28, align 8
-  br label %29
+22:                                               ; preds = %21, %.thread92
+  %23 = load i64, ptr %3, align 8
+  %24 = trunc i64 %23 to i32
+  %.sink = select i1 %.3.ph, i32 %18, i32 %24
+  %25 = call i32 @umask(i32 noundef %.sink) #17
+  %26 = sext i32 %18 to i64
+  store i64 %26, ptr %1, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 4, ptr %27, align 8
+  br label %28
 
-29:                                               ; preds = %23, %.thread103
+28:                                               ; preds = %22, %.thread102
   ret void
 }
 
@@ -6285,7 +6285,7 @@ define hidden void @zif_fgetcsv(ptr noundef %0, ptr nocapture noundef writeonly 
 
 .thread:                                          ; preds = %22, %18
   %storemerge = phi i64 [ %23, %22 ], [ 0, %18 ]
-  %.1266 = phi i8 [ 0, %22 ], [ %21, %18 ]
+  %.1266 = phi i1 [ false, %22 ], [ true, %18 ]
   store i64 %storemerge, ptr %6, align 8
   br label %26
 
@@ -6294,7 +6294,7 @@ define hidden void @zif_fgetcsv(ptr noundef %0, ptr nocapture noundef writeonly 
   br i1 %25, label %26, label %.thread320
 
 26:                                               ; preds = %.thread, %24
-  %.2267295 = phi i8 [ %.1266, %.thread ], [ 0, %24 ]
+  %.2267295 = phi i1 [ %.1266, %.thread ], [ false, %24 ]
   %27 = icmp ult i32 %9, 3
   br i1 %27, label %.thread439, label %28
 
@@ -6387,7 +6387,7 @@ define hidden void @zif_fgetcsv(ptr noundef %0, ptr nocapture noundef writeonly 
   %.0229335 = phi ptr [ %43, %48 ], [ %29, %34 ], [ %19, %24 ], [ %13, %12 ], [ null, %11 ], [ %56, %61 ]
   %.0230334 = phi i32 [ 4, %48 ], [ 3, %34 ], [ 2, %24 ], [ 1, %12 ], [ 0, %11 ], [ 5, %61 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0225337, i32 noundef %.0230334, ptr noundef null, i32 noundef %.0228336, ptr noundef %.0229335) #17
-  br label %128
+  br label %127
 
 67:                                               ; preds = %50, %.thread369
   %.2264357387 = phi i64 [ %65, %.thread369 ], [ 0, %50 ]
@@ -6408,7 +6408,7 @@ define hidden void @zif_fgetcsv(ptr noundef %0, ptr nocapture noundef writeonly 
   %70 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %71 = icmp ne ptr %70, null
   call void @llvm.assume(i1 %71)
-  br label %128
+  br label %127
 
 72:                                               ; preds = %67
   %73 = load i8, ptr %40, align 1
@@ -6420,7 +6420,7 @@ define hidden void @zif_fgetcsv(ptr noundef %0, ptr nocapture noundef writeonly 
   %75 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %76 = icmp ne ptr %75, null
   call void @llvm.assume(i1 %76)
-  br label %128
+  br label %127
 
 77:                                               ; preds = %72
   %78 = load i8, ptr %54, align 1
@@ -6436,7 +6436,7 @@ define hidden void @zif_fgetcsv(ptr noundef %0, ptr nocapture noundef writeonly 
   %82 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %83 = icmp ne ptr %82, null
   call void @llvm.assume(i1 %83)
-  br label %128
+  br label %127
 
 84:                                               ; preds = %79
   %85 = icmp eq i64 %.2264357387, 0
@@ -6451,90 +6451,89 @@ define hidden void @zif_fgetcsv(ptr noundef %0, ptr nocapture noundef writeonly 
   %.0238448 = phi i8 [ %78, %86 ], [ %78, %77 ], [ %78, %84 ], [ 34, %.thread432 ], [ 34, %26 ]
   %.0235414446 = phi i8 [ %73, %86 ], [ %73, %77 ], [ %73, %84 ], [ %68, %.thread432 ], [ 44, %26 ]
   %.0237 = phi i32 [ %88, %86 ], [ 92, %77 ], [ -1, %84 ], [ 92, %.thread432 ], [ 92, %26 ]
-  %89 = icmp ne i8 %.2267295, 0
-  %90 = load i64, ptr %6, align 8
-  %91 = icmp eq i64 %90, 0
-  %or.cond = select i1 %89, i1 true, i1 %91
-  br i1 %or.cond, label %.thread439.thread, label %92
+  %89 = load i64, ptr %6, align 8
+  %90 = icmp eq i64 %89, 0
+  %or.cond = select i1 %.2267295, i1 true, i1 %90
+  br i1 %or.cond, label %.thread439.thread, label %91
 
 .thread439.thread:                                ; preds = %16, %.thread439
   %.0237459 = phi i32 [ %.0237, %.thread439 ], [ 92, %16 ]
   %.0235414446457 = phi i8 [ %.0235414446, %.thread439 ], [ 44, %16 ]
   %.0238448455 = phi i8 [ %.0238448, %.thread439 ], [ 34, %16 ]
   store i64 -1, ptr %6, align 8
-  br label %97
+  br label %96
 
-92:                                               ; preds = %.thread439
-  %93 = icmp slt i64 %90, 0
-  br i1 %93, label %94, label %97
+91:                                               ; preds = %.thread439
+  %92 = icmp slt i64 %89, 0
+  br i1 %92, label %93, label %96
 
-94:                                               ; preds = %92
+93:                                               ; preds = %91
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.52) #17
-  %95 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %96 = icmp ne ptr %95, null
-  call void @llvm.assume(i1 %96)
-  br label %128
+  %94 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %95 = icmp ne ptr %94, null
+  call void @llvm.assume(i1 %95)
+  br label %127
 
-97:                                               ; preds = %.thread439.thread, %92
-  %.0237458 = phi i32 [ %.0237459, %.thread439.thread ], [ %.0237, %92 ]
-  %.0235414446456 = phi i8 [ %.0235414446457, %.thread439.thread ], [ %.0235414446, %92 ]
-  %.0238448454 = phi i8 [ %.0238448455, %.thread439.thread ], [ %.0238448, %92 ]
-  %98 = load ptr, ptr %13, align 8
-  %99 = call i32 @php_file_le_stream() #17
-  %100 = call i32 @php_file_le_pstream() #17
-  %101 = call ptr @zend_fetch_resource2(ptr noundef %98, ptr noundef nonnull @.str.2, i32 noundef %99, i32 noundef %100) #17
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %128, label %103
+96:                                               ; preds = %.thread439.thread, %91
+  %.0237458 = phi i32 [ %.0237459, %.thread439.thread ], [ %.0237, %91 ]
+  %.0235414446456 = phi i8 [ %.0235414446457, %.thread439.thread ], [ %.0235414446, %91 ]
+  %.0238448454 = phi i8 [ %.0238448455, %.thread439.thread ], [ %.0238448, %91 ]
+  %97 = load ptr, ptr %13, align 8
+  %98 = call i32 @php_file_le_stream() #17
+  %99 = call i32 @php_file_le_pstream() #17
+  %100 = call ptr @zend_fetch_resource2(ptr noundef %97, ptr noundef nonnull @.str.2, i32 noundef %98, i32 noundef %99) #17
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %127, label %102
 
-103:                                              ; preds = %97
-  %104 = load i64, ptr %6, align 8
-  %105 = icmp slt i64 %104, 0
-  br i1 %105, label %106, label %111
+102:                                              ; preds = %96
+  %103 = load i64, ptr %6, align 8
+  %104 = icmp slt i64 %103, 0
+  br i1 %104, label %105, label %110
 
-106:                                              ; preds = %103
-  %107 = call ptr @_php_stream_get_line(ptr noundef nonnull %101, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7) #17
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %109, label %120
+105:                                              ; preds = %102
+  %106 = call ptr @_php_stream_get_line(ptr noundef nonnull %100, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7) #17
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %108, label %119
 
-109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %110, align 8
-  br label %128
+108:                                              ; preds = %105
+  %109 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %109, align 8
+  br label %127
 
-111:                                              ; preds = %103
-  %112 = add nuw nsw i64 %104, 1
-  %113 = call noalias ptr @_emalloc(i64 noundef %112) #20
-  %114 = load i64, ptr %6, align 8
-  %115 = add nsw i64 %114, 1
-  %116 = call ptr @_php_stream_get_line(ptr noundef nonnull %101, ptr noundef %113, i64 noundef %115, ptr noundef nonnull %7) #17
-  %117 = icmp eq ptr %116, null
-  br i1 %117, label %118, label %120
+110:                                              ; preds = %102
+  %111 = add nuw nsw i64 %103, 1
+  %112 = call noalias ptr @_emalloc(i64 noundef %111) #20
+  %113 = load i64, ptr %6, align 8
+  %114 = add nsw i64 %113, 1
+  %115 = call ptr @_php_stream_get_line(ptr noundef nonnull %100, ptr noundef %112, i64 noundef %114, ptr noundef nonnull %7) #17
+  %116 = icmp eq ptr %115, null
+  br i1 %116, label %117, label %119
 
-118:                                              ; preds = %111
-  call void @_efree(ptr noundef %113) #17
-  %119 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %119, align 8
-  br label %128
+117:                                              ; preds = %110
+  call void @_efree(ptr noundef %112) #17
+  %118 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %118, align 8
+  br label %127
 
-120:                                              ; preds = %111, %106
-  %.0236 = phi ptr [ %107, %106 ], [ %113, %111 ]
-  %121 = load i64, ptr %7, align 8
-  %122 = call ptr @php_fgetcsv(ptr noundef nonnull %101, i8 noundef signext %.0235414446456, i8 noundef signext %.0238448454, i32 noundef %.0237458, i64 noundef %121, ptr noundef %.0236)
-  %123 = icmp eq ptr %122, null
-  br i1 %123, label %124, label %126
+119:                                              ; preds = %110, %105
+  %.0236 = phi ptr [ %106, %105 ], [ %112, %110 ]
+  %120 = load i64, ptr %7, align 8
+  %121 = call ptr @php_fgetcsv(ptr noundef nonnull %100, i8 noundef signext %.0235414446456, i8 noundef signext %.0238448454, i32 noundef %.0237458, i64 noundef %120, ptr noundef %.0236)
+  %122 = icmp eq ptr %121, null
+  br i1 %122, label %123, label %125
 
-124:                                              ; preds = %120
-  %125 = call ptr @php_bc_fgetcsv_empty_line()
-  br label %126
+123:                                              ; preds = %119
+  %124 = call ptr @php_bc_fgetcsv_empty_line()
+  br label %125
 
-126:                                              ; preds = %124, %120
-  %.0224 = phi ptr [ %125, %124 ], [ %122, %120 ]
+125:                                              ; preds = %123, %119
+  %.0224 = phi ptr [ %124, %123 ], [ %121, %119 ]
   store ptr %.0224, ptr %1, align 8
-  %127 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 775, ptr %127, align 8
-  br label %128
+  %126 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 775, ptr %126, align 8
+  br label %127
 
-128:                                              ; preds = %97, %126, %118, %109, %94, %81, %74, %69, %.thread320
+127:                                              ; preds = %96, %125, %117, %108, %93, %81, %74, %69, %.thread320
   ret void
 }
 

@@ -2266,24 +2266,23 @@ dissect_signaling_packet.exit:                    ; preds = %32, %34
   %40 = load i8, ptr %10, align 2
   %switch.tableidx = add i8 %40, -25
   %41 = icmp ult i8 %switch.tableidx, 10
-  br i1 %41, label %switch.hole_check, label %45
+  br i1 %41, label %switch.hole_check, label %44
 
 switch.hole_check:                                ; preds = %dissect_signaling_packet.exit
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
   %switch.shifted = lshr i16 771, %switch.maskindex
-  %42 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %42, 0
-  br i1 %switch.lobit.not, label %45, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %44
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %43 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.dissect_acdr_signaling, i64 0, i64 %43
+  %42 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.dissect_acdr_signaling, i64 0, i64 %42
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %44 = load ptr, ptr %37, align 8
-  call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %44, i32 noundef 25, ptr noundef nonnull %switch.load) #4
-  br label %45
+  %43 = load ptr, ptr %37, align 8
+  call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %43, i32 noundef 25, ptr noundef nonnull %switch.load) #4
+  br label %44
 
-45:                                               ; preds = %switch.hole_check, %dissect_signaling_packet.exit, %switch.lookup
+44:                                               ; preds = %switch.hole_check, %dissect_signaling_packet.exit, %switch.lookup
   ret i32 %.0.i
 }
 

@@ -117,9 +117,8 @@ define dso_local void @AsyncShmemInit() local_unnamed_addr #0 {
   %6 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef %5, ptr noundef nonnull %1) #16
   store ptr %6, ptr @asyncQueueControl, align 8
   %7 = load i8, ptr %1, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %.loopexit
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %0
   store i64 0, ptr %6, align 8
@@ -166,9 +165,8 @@ define dso_local void @AsyncShmemInit() local_unnamed_addr #0 {
   %28 = load i32, ptr @notify_buffers, align 4
   call void @SimpleLruInit(ptr noundef nonnull @NotifyCtlData, ptr noundef nonnull @.str.1, i32 noundef %28, i32 noundef 0, ptr noundef nonnull @.str.2, i32 noundef 58, i32 noundef 87, i32 noundef 5, i1 noundef zeroext true) #16
   %29 = load i8, ptr %1, align 1
-  %30 = and i8 %29, 1
-  %.not9 = icmp eq i8 %30, 0
-  br i1 %.not9, label %31, label %33
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %33, label %31
 
 31:                                               ; preds = %.loopexit
   %32 = call zeroext i1 @SlruScanDirectory(ptr noundef nonnull @NotifyCtlData, ptr noundef nonnull @SlruScanDirCbDeleteAll, ptr noundef null) #16
@@ -196,9 +194,8 @@ declare zeroext i1 @SlruScanDirCbDeleteAll(ptr noundef, ptr noundef, i64 noundef
 define dso_local noundef i64 @pg_notify(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %11
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %11, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -212,9 +209,8 @@ define dso_local noundef i64 @pg_notify(ptr nocapture noundef readonly %0) local
   %.06 = phi ptr [ %10, %5 ], [ @.str.3, %1 ]
   %12 = getelementptr i8, ptr %0, i64 56
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not7 = icmp eq i8 %14, 0
-  br i1 %.not7, label %15, label %21
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %21, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr i8, ptr %0, i64 48
@@ -254,9 +250,8 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly %1) loc
 
 10:                                               ; preds = %2
   %11 = load i8, ptr @Trace_notify, align 1
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %17, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %17
 
 13:                                               ; preds = %10
   %14 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
@@ -268,8 +263,8 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly %1) loc
   br label %17
 
 17:                                               ; preds = %15, %13, %10
-  %.not38 = icmp eq ptr %0, null
-  br i1 %.not38, label %20, label %18
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %20, label %18
 
 18:                                               ; preds = %17
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
@@ -277,8 +272,8 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly %1) loc
 
 20:                                               ; preds = %17, %18
   %21 = phi i64 [ %19, %18 ], [ 0, %17 ]
-  %.not39 = icmp eq ptr %1, null
-  br i1 %.not39, label %24, label %22
+  %.not38 = icmp eq ptr %1, null
+  br i1 %.not38, label %24, label %22
 
 22:                                               ; preds = %20
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
@@ -335,7 +330,7 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly %1) loc
   store i16 %50, ptr %51, align 2
   %52 = getelementptr inbounds i8, ptr %48, i64 4
   %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %0) #16
-  br i1 %.not39, label %58, label %54
+  br i1 %.not38, label %58, label %54
 
 54:                                               ; preds = %43
   %55 = getelementptr i8, ptr %52, i64 %21
@@ -385,19 +380,19 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly %1) loc
 78:                                               ; preds = %75
   %79 = call ptr @hash_search(ptr noundef nonnull %77, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #16
   %.not17.i = icmp eq ptr %79, null
-  br i1 %.not17.i, label %.loopexit41, label %.loopexit
+  br i1 %.not17.i, label %.loopexit40, label %.loopexit
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds i8, ptr %62, i64 8
   %82 = load ptr, ptr %81, align 8
   %.not15.i = icmp eq ptr %82, null
-  br i1 %.not15.i, label %.loopexit41, label %.lr.ph.i
+  br i1 %.not15.i, label %.loopexit40, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %80
   %83 = getelementptr inbounds i8, ptr %82, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %.lr.ph23.i, label %.loopexit41
+  br i1 %85, label %.lr.ph23.i, label %.loopexit40
 
 .lr.ph23.i:                                       ; preds = %.lr.ph.i
   %86 = getelementptr inbounds i8, ptr %82, i64 16
@@ -434,19 +429,19 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly %1) loc
 106:                                              ; preds = %101, %96, %91
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit41, label %91
+  br i1 %exitcond.not.i, label %.loopexit40, label %91
 
 .loopexit:                                        ; preds = %101, %78
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @pfree(ptr noundef nonnull %48) #16
   br label %107
 
-.loopexit41:                                      ; preds = %106, %.lr.ph.i, %80, %78
+.loopexit40:                                      ; preds = %106, %.lr.ph.i, %80, %78
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call fastcc void @AddEventToPendingNotifies(ptr noundef nonnull %48)
   br label %107
 
-107:                                              ; preds = %67, %.loopexit41, %.loopexit
+107:                                              ; preds = %67, %.loopexit40, %.loopexit
   store ptr %45, ptr @CurrentMemoryContext, align 8
   ret void
 }
@@ -578,9 +573,8 @@ list_length.exit.thread:                          ; preds = %list_length.exit.th
 ; Function Attrs: nounwind uwtable
 define dso_local void @Async_Listen(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @Trace_notify, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %9, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
@@ -648,9 +642,8 @@ define internal fastcc void @queue_listen(i32 noundef %0, ptr nocapture noundef 
 ; Function Attrs: nounwind uwtable
 define dso_local void @Async_Unlisten(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @Trace_notify, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %9, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
@@ -682,9 +675,8 @@ define dso_local void @Async_Unlisten(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @Async_UnlistenAll() local_unnamed_addr #0 {
   %1 = load i8, ptr @Trace_notify, align 1
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %8, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %8
 
 3:                                                ; preds = %0
   %4 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
@@ -814,9 +806,8 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
 
 6:                                                ; preds = %0
   %7 = load i8, ptr @Trace_notify, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %13, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %13
 
 9:                                                ; preds = %6
   %10 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
@@ -829,40 +820,39 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
 
 13:                                               ; preds = %11, %9, %6
   %14 = load ptr, ptr @pendingActions, align 8
-  %.not12 = icmp eq ptr %14, null
-  br i1 %.not12, label %.thread, label %15
+  %.not = icmp eq ptr %14, null
+  br i1 %.not, label %.thread, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 4
-  %.not13 = icmp eq ptr %17, null
-  br i1 %.not13, label %.thread, label %.lr.ph
+  %.not12 = icmp eq ptr %17, null
+  br i1 %.not12, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   %19 = getelementptr inbounds i8, ptr %17, i64 16
   %20 = load i32, ptr %18, align 4
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.lr.ph63, label %.thread
+  br i1 %21, label %.lr.ph62, label %.thread
 
-.lr.ph63:                                         ; preds = %.lr.ph, %Exec_ListenPreCommit.exit
-  %indvars.iv62 = phi i64 [ %indvars.iv.next, %Exec_ListenPreCommit.exit ], [ 0, %.lr.ph ]
+.lr.ph62:                                         ; preds = %.lr.ph, %Exec_ListenPreCommit.exit
+  %indvars.iv61 = phi i64 [ %indvars.iv.next, %Exec_ListenPreCommit.exit ], [ 0, %.lr.ph ]
   %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr %union.ListCell, ptr %22, i64 %indvars.iv62
+  %23 = getelementptr %union.ListCell, ptr %22, i64 %indvars.iv61
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %24, align 4
   %cond = icmp eq i32 %25, 0
   br i1 %cond, label %26, label %Exec_ListenPreCommit.exit
 
-26:                                               ; preds = %.lr.ph63
+26:                                               ; preds = %.lr.ph62
   %.b3536.i = load i1, ptr @amRegisteredListener, align 1
   br i1 %.b3536.i, label %Exec_ListenPreCommit.exit, label %27
 
 27:                                               ; preds = %26
   %28 = load i8, ptr @Trace_notify, align 1
-  %29 = and i8 %28, 1
-  %.not.i = icmp eq i8 %29, 0
-  br i1 %.not.i, label %35, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %35
 
 30:                                               ; preds = %27
   %31 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
@@ -898,10 +888,10 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %41, i64 28
   %.sroa.9.0.copyload.i = load i32, ptr %.sroa.9.0..sroa_idx.i, align 4
   %43 = getelementptr inbounds i8, ptr %41, i64 36
-  %.041.i = load i32, ptr %43, align 4
-  %.not3842.i = icmp eq i32 %.041.i, -1
+  %.040.i = load i32, ptr %43, align 4
+  %.not41.i = icmp eq i32 %.040.i, -1
   %.pre.i = load i32, ptr @MyProcNumber, align 4
-  br i1 %.not3842.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %37
   %44 = getelementptr inbounds i8, ptr %41, i64 48
@@ -909,12 +899,12 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   br label %46
 
 46:                                               ; preds = %63, %.lr.ph.i
-  %.047.i = phi i32 [ %.041.i, %.lr.ph.i ], [ %.0.i, %63 ]
-  %.03246.i = phi i32 [ -1, %.lr.ph.i ], [ %spec.select.i, %63 ]
-  %.sroa.0.045.i = phi i64 [ %.sroa.0.0.copyload.i, %.lr.ph.i ], [ %.sroa.0.1.i, %63 ]
-  %.sroa.7.044.i = phi i32 [ %.sroa.7.0.copyload.i, %.lr.ph.i ], [ %.sroa.7.1.i, %63 ]
-  %.sroa.9.043.i = phi i32 [ %.sroa.9.0.copyload.i, %.lr.ph.i ], [ %.sroa.9.1.i, %63 ]
-  %47 = sext i32 %.047.i to i64
+  %.046.i = phi i32 [ %.040.i, %.lr.ph.i ], [ %.0.i, %63 ]
+  %.03245.i = phi i32 [ -1, %.lr.ph.i ], [ %spec.select.i, %63 ]
+  %.sroa.0.044.i = phi i64 [ %.sroa.0.0.copyload.i, %.lr.ph.i ], [ %.sroa.0.1.i, %63 ]
+  %.sroa.7.043.i = phi i32 [ %.sroa.7.0.copyload.i, %.lr.ph.i ], [ %.sroa.7.1.i, %63 ]
+  %.sroa.9.042.i = phi i32 [ %.sroa.9.0.copyload.i, %.lr.ph.i ], [ %.sroa.9.1.i, %63 ]
+  %47 = sext i32 %.046.i to i64
   %48 = getelementptr [0 x %struct.QueueBackendStatus], ptr %44, i64 0, i64 %47
   %49 = getelementptr inbounds i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
@@ -924,7 +914,7 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
 52:                                               ; preds = %46
   %53 = getelementptr inbounds i8, ptr %48, i64 16
   %54 = load i64, ptr %53, align 8
-  %55 = icmp slt i64 %.sroa.0.045.i, %54
+  %55 = icmp slt i64 %.sroa.0.044.i, %54
   %56 = getelementptr [0 x %struct.QueueBackendStatus], ptr %44, i64 0, i64 %47, i32 3
   br i1 %55, label %57, label %58
 
@@ -934,32 +924,32 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   br label %.sink.split.i
 
 58:                                               ; preds = %52
-  %.not40.i = icmp eq i64 %.sroa.0.045.i, %54
-  br i1 %.not40.i, label %59, label %63
+  %.not39.i = icmp eq i64 %.sroa.0.044.i, %54
+  br i1 %.not39.i, label %59, label %63
 
 59:                                               ; preds = %58
   %60 = getelementptr inbounds i8, ptr %56, i64 8
   %61 = load i32, ptr %60, align 8
-  %62 = icmp sgt i32 %.sroa.7.044.i, %61
+  %62 = icmp sgt i32 %.sroa.7.043.i, %61
   br i1 %62, label %63, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %59, %57
   %.sroa.7.1.ph.i = phi i32 [ %.sroa.7.0.copyload19.i, %57 ], [ %61, %59 ]
-  %.sroa.0.1.ph.i = phi i64 [ %54, %57 ], [ %.sroa.0.045.i, %59 ]
+  %.sroa.0.1.ph.i = phi i64 [ %54, %57 ], [ %.sroa.0.044.i, %59 ]
   %.sroa.9.0..sroa_idx25.i = getelementptr inbounds i8, ptr %56, i64 12
   %.sroa.9.0.copyload26.i = load i32, ptr %.sroa.9.0..sroa_idx25.i, align 4
   br label %63
 
 63:                                               ; preds = %.sink.split.i, %59, %58, %46
-  %.sroa.9.1.i = phi i32 [ %.sroa.9.043.i, %46 ], [ %.sroa.9.043.i, %58 ], [ %.sroa.9.043.i, %59 ], [ %.sroa.9.0.copyload26.i, %.sink.split.i ]
-  %.sroa.7.1.i = phi i32 [ %.sroa.7.044.i, %46 ], [ %.sroa.7.044.i, %58 ], [ %.sroa.7.044.i, %59 ], [ %.sroa.7.1.ph.i, %.sink.split.i ]
-  %.sroa.0.1.i = phi i64 [ %.sroa.0.045.i, %46 ], [ %.sroa.0.045.i, %58 ], [ %.sroa.0.045.i, %59 ], [ %.sroa.0.1.ph.i, %.sink.split.i ]
-  %64 = icmp slt i32 %.047.i, %.pre.i
-  %spec.select.i = select i1 %64, i32 %.047.i, i32 %.03246.i
+  %.sroa.9.1.i = phi i32 [ %.sroa.9.042.i, %46 ], [ %.sroa.9.042.i, %58 ], [ %.sroa.9.042.i, %59 ], [ %.sroa.9.0.copyload26.i, %.sink.split.i ]
+  %.sroa.7.1.i = phi i32 [ %.sroa.7.043.i, %46 ], [ %.sroa.7.043.i, %58 ], [ %.sroa.7.043.i, %59 ], [ %.sroa.7.1.ph.i, %.sink.split.i ]
+  %.sroa.0.1.i = phi i64 [ %.sroa.0.044.i, %46 ], [ %.sroa.0.044.i, %58 ], [ %.sroa.0.044.i, %59 ], [ %.sroa.0.1.ph.i, %.sink.split.i ]
+  %64 = icmp slt i32 %.046.i, %.pre.i
+  %spec.select.i = select i1 %64, i32 %.046.i, i32 %.03245.i
   %65 = getelementptr [0 x %struct.QueueBackendStatus], ptr %44, i64 0, i64 %47, i32 2
   %.0.i = load i32, ptr %65, align 4
-  %.not38.i = icmp eq i32 %.0.i, -1
-  br i1 %.not38.i, label %._crit_edge.i, label %46, !llvm.loop !7
+  %.not.i = icmp eq i32 %.0.i, -1
+  br i1 %.not.i, label %._crit_edge.i, label %46, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %63, %37
   %.sroa.9.0.lcssa.i = phi i32 [ %.sroa.9.0.copyload.i, %37 ], [ %.sroa.9.1.i, %63 ]
@@ -984,8 +974,8 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   %75 = sext i32 %74 to i64
   %76 = getelementptr [0 x %struct.QueueBackendStatus], ptr %66, i64 0, i64 %75, i32 1
   store i32 %73, ptr %76, align 4
-  %.not39.i = icmp eq i32 %.032.lcssa.i, -1
-  br i1 %.not39.i, label %85, label %77
+  %.not38.i = icmp eq i32 %.032.lcssa.i, -1
+  br i1 %.not38.i, label %85, label %77
 
 77:                                               ; preds = %._crit_edge.i
   %78 = sext i32 %.032.lcssa.i to i64
@@ -1023,17 +1013,17 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   tail call fastcc void @asyncQueueReadAllNotifications()
   br label %Exec_ListenPreCommit.exit
 
-Exec_ListenPreCommit.exit:                        ; preds = %96, %91, %26, %.lr.ph63
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv62, 1
+Exec_ListenPreCommit.exit:                        ; preds = %96, %91, %26, %.lr.ph62
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv61, 1
   %97 = load i32, ptr %18, align 4
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %.lr.ph63, label %.thread
+  br i1 %99, label %.lr.ph62, label %.thread
 
 .thread:                                          ; preds = %Exec_ListenPreCommit.exit, %.lr.ph, %15, %13
   %100 = load ptr, ptr @pendingNotifies, align 8
-  %.not15 = icmp eq ptr %100, null
-  br i1 %.not15, label %.loopexit, label %101
+  %.not14 = icmp eq ptr %100, null
+  br i1 %.not14, label %.loopexit, label %101
 
 101:                                              ; preds = %.thread
   %102 = tail call i32 @GetCurrentTransactionId() #16
@@ -1041,27 +1031,27 @@ Exec_ListenPreCommit.exit:                        ; preds = %96, %91, %26, %.lr.
   %103 = load ptr, ptr @pendingNotifies, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 8
   %105 = load ptr, ptr %104, align 8
-  %.not.i17 = icmp eq ptr %105, null
-  br i1 %.not.i17, label %.loopexit, label %list_head.exit
+  %.not.i16 = icmp eq ptr %105, null
+  br i1 %.not.i16, label %.loopexit, label %list_head.exit
 
 list_head.exit:                                   ; preds = %101
   %106 = getelementptr inbounds i8, ptr %105, i64 16
   %107 = load ptr, ptr %106, align 8
-  %.not1641 = icmp eq ptr %107, null
-  br i1 %.not1641, label %.loopexit, label %.lr.ph43
+  %.not1540 = icmp eq ptr %107, null
+  br i1 %.not1540, label %.loopexit, label %.lr.ph42
 
-.lr.ph43:                                         ; preds = %list_head.exit
+.lr.ph42:                                         ; preds = %list_head.exit
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
   %.8..8..8..8..8..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.12..12..12..12..12..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
   %.16..16..16..16..16..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
-  %.4..4..4..4..4..sroa_idx67 = getelementptr inbounds i8, ptr %1, i64 4
-  %.16..16..16..16..16..sroa_idx68 = getelementptr inbounds i8, ptr %1, i64 16
+  %.4..4..4..4..4..sroa_idx66 = getelementptr inbounds i8, ptr %1, i64 4
+  %.16..16..16..16..16..sroa_idx67 = getelementptr inbounds i8, ptr %1, i64 16
   %.17..17..17..17..17..sroa_idx = getelementptr inbounds i8, ptr %1, i64 17
   br label %108
 
-108:                                              ; preds = %.lr.ph43, %asyncQueueAddEntries.exit
-  %.042 = phi ptr [ %107, %.lr.ph43 ], [ %.2.i, %asyncQueueAddEntries.exit ]
+108:                                              ; preds = %.lr.ph42, %asyncQueueAddEntries.exit
+  %.041 = phi ptr [ %107, %.lr.ph42 ], [ %.2.i, %asyncQueueAddEntries.exit ]
   %109 = load ptr, ptr @MainLWLockArray, align 8
   %110 = getelementptr i8, ptr %109, i64 3456
   %111 = tail call zeroext i1 @LWLockAcquire(ptr noundef %110, i32 noundef 0) #16
@@ -1089,27 +1079,27 @@ asyncQueueUsage.exit.i:                           ; preds = %108
   %128 = getelementptr inbounds i8, ptr %127, i64 40
   %129 = load i64, ptr %128, align 8
   %130 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %129, i64 noundef %126, i32 noundef 5000) #16
-  %.pre51 = load ptr, ptr @asyncQueueControl, align 8
+  %.pre50 = load ptr, ptr @asyncQueueControl, align 8
   br i1 %130, label %131, label %asyncQueueFillWarning.exit
 
 131:                                              ; preds = %125
-  %132 = getelementptr inbounds i8, ptr %.pre51, i64 36
+  %132 = getelementptr inbounds i8, ptr %.pre50, i64 36
   %.037.i = load i32, ptr %132, align 4
-  %.not38.i18 = icmp eq i32 %.037.i, -1
-  br i1 %.not38.i18, label %._crit_edge.i23, label %.lr.ph.i19
+  %.not38.i17 = icmp eq i32 %.037.i, -1
+  br i1 %.not38.i17, label %._crit_edge.i22, label %.lr.ph.i18
 
-.lr.ph.i19:                                       ; preds = %131
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %.pre51, i64 8
+.lr.ph.i18:                                       ; preds = %131
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %.pre50, i64 8
   %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..sroa_idx.i, align 8
-  %.sroa.0.0.copyload.i20 = load i64, ptr %.pre51, align 8
-  %133 = getelementptr inbounds i8, ptr %.pre51, i64 48
+  %.sroa.0.0.copyload.i19 = load i64, ptr %.pre50, align 8
+  %133 = getelementptr inbounds i8, ptr %.pre50, i64 48
   br label %134
 
-134:                                              ; preds = %149, %.lr.ph.i19
-  %.042.i = phi i32 [ %.037.i, %.lr.ph.i19 ], [ %.0.i21, %149 ]
-  %.02941.i = phi i32 [ -1, %.lr.ph.i19 ], [ %.1.i, %149 ]
-  %.sroa.0.040.i = phi i64 [ %.sroa.0.0.copyload.i20, %.lr.ph.i19 ], [ %.sroa.0.147.i, %149 ]
-  %.sroa.6.039.i = phi i32 [ %.sroa.6.0.copyload.i, %.lr.ph.i19 ], [ %.sroa.6.146.i, %149 ]
+134:                                              ; preds = %149, %.lr.ph.i18
+  %.042.i = phi i32 [ %.037.i, %.lr.ph.i18 ], [ %.0.i20, %149 ]
+  %.02941.i = phi i32 [ -1, %.lr.ph.i18 ], [ %.1.i, %149 ]
+  %.sroa.0.040.i = phi i64 [ %.sroa.0.0.copyload.i19, %.lr.ph.i18 ], [ %.sroa.0.147.i, %149 ]
+  %.sroa.6.039.i = phi i32 [ %.sroa.6.0.copyload.i, %.lr.ph.i18 ], [ %.sroa.6.146.i, %149 ]
   %135 = sext i32 %.042.i to i64
   %136 = getelementptr [0 x %struct.QueueBackendStatus], ptr %133, i64 0, i64 %135, i32 3
   %137 = load i64, ptr %136, align 8
@@ -1132,33 +1122,33 @@ asyncQueueUsage.exit.i:                           ; preds = %108
   br i1 %144, label %.thread.i, label %149
 
 .thread.i:                                        ; preds = %143
-  %.phi.trans.insert50 = getelementptr [0 x %struct.QueueBackendStatus], ptr %133, i64 0, i64 %135, i32 3, i32 1
-  %.pre = load i32, ptr %.phi.trans.insert50, align 8
+  %.phi.trans.insert49 = getelementptr [0 x %struct.QueueBackendStatus], ptr %133, i64 0, i64 %135, i32 3, i32 1
+  %.pre = load i32, ptr %.phi.trans.insert49, align 8
   %145 = icmp eq i32 %.sroa.6.1.i, %.pre
   br i1 %145, label %.thread.i.thread, label %149
 
 .thread.i.thread:                                 ; preds = %139, %.thread.i
-  %.sroa.0.148.i55 = phi i64 [ %.sroa.0.040.i, %.thread.i ], [ %137, %139 ]
+  %.sroa.0.148.i54 = phi i64 [ %.sroa.0.040.i, %.thread.i ], [ %137, %139 ]
   %146 = phi i32 [ %.pre, %.thread.i ], [ %141, %139 ]
   %147 = getelementptr [0 x %struct.QueueBackendStatus], ptr %133, i64 0, i64 %135
   %148 = load i32, ptr %147, align 8
   br label %149
 
 149:                                              ; preds = %.thread.i.thread, %.thread.i, %143
-  %.sroa.0.147.i = phi i64 [ %.sroa.0.148.i55, %.thread.i.thread ], [ %.sroa.0.040.i, %.thread.i ], [ %.sroa.0.040.i, %143 ]
+  %.sroa.0.147.i = phi i64 [ %.sroa.0.148.i54, %.thread.i.thread ], [ %.sroa.0.040.i, %.thread.i ], [ %.sroa.0.040.i, %143 ]
   %.sroa.6.146.i = phi i32 [ %146, %.thread.i.thread ], [ %.sroa.6.1.i, %.thread.i ], [ %.sroa.6.1.i, %143 ]
   %.1.i = phi i32 [ %148, %.thread.i.thread ], [ %.02941.i, %.thread.i ], [ %.02941.i, %143 ]
   %150 = getelementptr [0 x %struct.QueueBackendStatus], ptr %133, i64 0, i64 %135, i32 2
-  %.0.i21 = load i32, ptr %150, align 4
-  %.not.i22 = icmp eq i32 %.0.i21, -1
-  br i1 %.not.i22, label %._crit_edge.i23, label %134, !llvm.loop !8
+  %.0.i20 = load i32, ptr %150, align 4
+  %.not.i21 = icmp eq i32 %.0.i20, -1
+  br i1 %.not.i21, label %._crit_edge.i22, label %134, !llvm.loop !8
 
-._crit_edge.i23:                                  ; preds = %149, %131
+._crit_edge.i22:                                  ; preds = %149, %131
   %.029.lcssa.i = phi i32 [ -1, %131 ], [ %.1.i, %149 ]
   %151 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %151, label %152, label %158
 
-152:                                              ; preds = %._crit_edge.i23
+152:                                              ; preds = %._crit_edge.i22
   %153 = fmul double %123, 1.000000e+02
   %154 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, double noundef %153) #16
   %.not34.i = icmp eq i32 %.029.lcssa.i, -1
@@ -1173,14 +1163,14 @@ asyncQueueUsage.exit.i:                           ; preds = %108
   tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1562, ptr noundef nonnull @__func__.asyncQueueFillWarning) #16
   br label %158
 
-158:                                              ; preds = %.critedge.i, %._crit_edge.i23
+158:                                              ; preds = %.critedge.i, %._crit_edge.i22
   %159 = load ptr, ptr @asyncQueueControl, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 40
   store i64 %126, ptr %160, align 8
   br label %asyncQueueFillWarning.exit
 
 asyncQueueFillWarning.exit:                       ; preds = %108, %asyncQueueUsage.exit.i, %125, %158
-  %161 = phi ptr [ %112, %108 ], [ %112, %asyncQueueUsage.exit.i ], [ %.pre51, %125 ], [ %159, %158 ]
+  %161 = phi ptr [ %112, %108 ], [ %112, %asyncQueueUsage.exit.i ], [ %.pre50, %125 ], [ %159, %158 ]
   %162 = load i64, ptr %161, align 8
   %163 = trunc i64 %162 to i32
   %164 = getelementptr inbounds i8, ptr %161, i64 16
@@ -1188,8 +1178,8 @@ asyncQueueFillWarning.exit:                       ; preds = %108, %asyncQueueUsa
   %166 = trunc i64 %165 to i32
   %167 = sub i32 %163, %166
   %168 = load i32, ptr @max_notify_queue_pages, align 4
-  %.not35 = icmp slt i32 %167, %168
-  br i1 %.not35, label %173, label %169
+  %.not34 = icmp slt i32 %167, %168
+  br i1 %.not34, label %173, label %169
 
 169:                                              ; preds = %asyncQueueFillWarning.exit
   %170 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
@@ -1204,9 +1194,9 @@ asyncQueueFillWarning.exit:                       ; preds = %108, %asyncQueueUsa
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.9.i)
   store i64 %162, ptr %.sroa.0.i, align 8
-  %.sroa.9.0..sroa_idx.i25 = getelementptr inbounds i8, ptr %161, i64 8
-  %.sroa.9.0.copyload.i26 = load i32, ptr %.sroa.9.0..sroa_idx.i25, align 8
-  store i32 %.sroa.9.0.copyload.i26, ptr %.sroa.9.i, align 8
+  %.sroa.9.0..sroa_idx.i24 = getelementptr inbounds i8, ptr %161, i64 8
+  %.sroa.9.0.copyload.i25 = load i32, ptr %.sroa.9.0..sroa_idx.i24, align 8
+  store i32 %.sroa.9.0.copyload.i25, ptr %.sroa.9.i, align 8
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds i8, ptr %161, i64 12
   %.sroa.13.0.copyload.i = load i32, ptr %.sroa.13.0..sroa_idx.i, align 4
   %174 = load i16, ptr getelementptr inbounds (%struct.SlruCtlData, ptr @NotifyCtlData, i64 0, i32 1), align 8
@@ -1218,9 +1208,9 @@ asyncQueueFillWarning.exit:                       ; preds = %108, %asyncQueueUsa
   %180 = getelementptr %union.LWLockPadded, ptr %179, i64 %176
   %181 = tail call zeroext i1 @LWLockAcquire(ptr noundef %180, i32 noundef 0) #16
   %182 = icmp eq i64 %162, 0
-  %183 = icmp eq i32 %.sroa.9.0.copyload.i26, 0
-  %or.cond.i27 = select i1 %182, i1 %183, i1 false
-  br i1 %or.cond.i27, label %184, label %186
+  %183 = icmp eq i32 %.sroa.9.0.copyload.i25, 0
+  %or.cond.i26 = select i1 %182, i1 %183, i1 false
+  br i1 %or.cond.i26, label %184, label %186
 
 184:                                              ; preds = %173
   %185 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @NotifyCtlData, i64 noundef 0) #16
@@ -1241,13 +1231,13 @@ asyncQueueFillWarning.exit:                       ; preds = %108, %asyncQueueUsa
   br label %195
 
 194:                                              ; preds = %225
-  %.not.i29 = icmp eq ptr %.1.i30, null
-  br i1 %.not.i29, label %asyncQueueAddEntries.exit, label %195, !llvm.loop !9
+  %.not.i28 = icmp eq ptr %.1.i29, null
+  br i1 %.not.i28, label %asyncQueueAddEntries.exit, label %195, !llvm.loop !9
 
 195:                                              ; preds = %188, %194
-  %.0.i2840 = phi ptr [ %.042, %188 ], [ %.1.i30, %194 ]
-  %.sroa.9.0..sroa.9.0..sroa.9.8.38.i39 = phi i32 [ %.sroa.9.0.copyload.i26, %188 ], [ %235, %194 ]
-  %196 = load ptr, ptr %.0.i2840, align 8
+  %.0.i2739 = phi ptr [ %.041, %188 ], [ %.1.i29, %194 ]
+  %.sroa.9.0..sroa.9.0..sroa.9.8.38.i38 = phi i32 [ %.sroa.9.0.copyload.i25, %188 ], [ %235, %194 ]
+  %196 = load ptr, ptr %.0.i2739, align 8
   %197 = load i16, ptr %196, align 2
   %198 = zext i16 %197 to i64
   %199 = getelementptr inbounds i8, ptr %196, i64 2
@@ -1267,7 +1257,7 @@ asyncQueueFillWarning.exit:                       ; preds = %108, %asyncQueueUsa
   %209 = getelementptr inbounds i8, ptr %196, i64 4
   %210 = add nuw nsw i64 %202, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.16..16..16..16..16..sroa_idx, ptr noundef nonnull align 2 dereferenceable(1) %209, i64 %210, i1 false)
-  %211 = add i32 %205, %.sroa.9.0..sroa.9.0..sroa.9.8.38.i39
+  %211 = add i32 %205, %.sroa.9.0..sroa.9.0..sroa.9.8.38.i38
   %212 = icmp slt i32 %211, 8193
   br i1 %212, label %213, label %223
 
@@ -1279,7 +1269,7 @@ asyncQueueFillWarning.exit:                       ; preds = %108, %asyncQueueUsa
   %.val.i = load i32, ptr %217, align 4
   %218 = getelementptr i8, ptr %216, i64 16
   %.val29.i = load ptr, ptr %218, align 8
-  %219 = getelementptr i8, ptr %.0.i2840, i64 8
+  %219 = getelementptr i8, ptr %.0.i2739, i64 8
   %220 = sext i32 %.val.i to i64
   %221 = getelementptr %union.ListCell, ptr %.val29.i, i64 %220
   %222 = icmp ult ptr %219, %221
@@ -1287,22 +1277,22 @@ asyncQueueFillWarning.exit:                       ; preds = %108, %asyncQueueUsa
   br label %225
 
 223:                                              ; preds = %195
-  %224 = sub i32 8192, %.sroa.9.0..sroa.9.0..sroa.9.8.38.i39
+  %224 = sub i32 8192, %.sroa.9.0..sroa.9.0..sroa.9.8.38.i38
   store i32 %224, ptr %1, align 4
-  store i32 0, ptr %.4..4..4..4..4..sroa_idx67, align 4
-  store i8 0, ptr %.16..16..16..16..16..sroa_idx68, align 4
+  store i32 0, ptr %.4..4..4..4..4..sroa_idx66, align 4
+  store i8 0, ptr %.16..16..16..16..16..sroa_idx67, align 4
   store i8 0, ptr %.17..17..17..17..17..sroa_idx, align 1
   br label %225
 
 225:                                              ; preds = %223, %213
   %226 = phi i32 [ %205, %213 ], [ %224, %223 ]
-  %.1.i30 = phi ptr [ %..i.i, %213 ], [ %.0.i2840, %223 ]
+  %.1.i29 = phi ptr [ %..i.i, %213 ], [ %.0.i2739, %223 ]
   %227 = load ptr, ptr @NotifyCtlData, align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 8
   %229 = load ptr, ptr %228, align 8
   %230 = getelementptr ptr, ptr %229, i64 %192
   %231 = load ptr, ptr %230, align 8
-  %232 = sext i32 %.sroa.9.0..sroa.9.0..sroa.9.8.38.i39 to i64
+  %232 = sext i32 %.sroa.9.0..sroa.9.0..sroa.9.8.38.i38 to i64
   %233 = getelementptr i8, ptr %231, i64 %232
   %234 = sext i32 %226 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %233, ptr nonnull align 4 %1, i64 %234, i1 false)
@@ -1348,7 +1338,7 @@ asyncQueueFillWarning.exit:                       ; preds = %108, %asyncQueueUsa
 
 asyncQueueAddEntries.exit:                        ; preds = %194, %250, %254
   %.123.i = phi ptr [ %.022.i, %254 ], [ %.022.i, %250 ], [ %180, %194 ]
-  %.2.i = phi ptr [ %.1.i30, %254 ], [ %.1.i30, %250 ], [ null, %194 ]
+  %.2.i = phi ptr [ %.1.i29, %254 ], [ %.1.i29, %250 ], [ null, %194 ]
   %255 = load ptr, ptr @asyncQueueControl, align 8
   store i64 %spec.select.i.i, ptr %255, align 8
   %.sroa.9.0..sroa_idx36.i = getelementptr inbounds i8, ptr %255, i64 8
@@ -1363,8 +1353,8 @@ asyncQueueAddEntries.exit:                        ; preds = %194, %250, %254
   %256 = load ptr, ptr @MainLWLockArray, align 8
   %257 = getelementptr i8, ptr %256, i64 3456
   tail call void @LWLockRelease(ptr noundef %257) #16
-  %.not16 = icmp eq ptr %.2.i, null
-  br i1 %.not16, label %.loopexit, label %108, !llvm.loop !10
+  %.not15 = icmp eq ptr %.2.i, null
+  br i1 %.not15, label %.loopexit, label %108, !llvm.loop !10
 
 .loopexit:                                        ; preds = %asyncQueueAddEntries.exit, %101, %list_head.exit, %0, %.thread
   ret void
@@ -1389,9 +1379,8 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
 
 5:                                                ; preds = %0
   %6 = load i8, ptr @Trace_notify, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %12, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
   %9 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
@@ -1404,26 +1393,26 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
 
 12:                                               ; preds = %10, %8, %5
   %13 = load ptr, ptr @pendingActions, align 8
-  %.not14 = icmp eq ptr %13, null
-  br i1 %.not14, label %.thread, label %14
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %.thread, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 4
-  %.not15 = icmp eq ptr %16, null
-  br i1 %.not15, label %.thread, label %.lr.ph
+  %.not14 = icmp eq ptr %16, null
+  br i1 %.not14, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %18 = getelementptr inbounds i8, ptr %16, i64 16
   %19 = load i32, ptr %17, align 4
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph53, label %.thread
+  br i1 %20, label %.lr.ph51, label %.thread
 
-.lr.ph53:                                         ; preds = %.lr.ph, %Exec_ListenCommit.exit
-  %indvars.iv52 = phi i64 [ %indvars.iv.next, %Exec_ListenCommit.exit ], [ 0, %.lr.ph ]
+.lr.ph51:                                         ; preds = %.lr.ph, %Exec_ListenCommit.exit
+  %indvars.iv50 = phi i64 [ %indvars.iv.next, %Exec_ListenCommit.exit ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr %union.ListCell, ptr %21, i64 %indvars.iv52
+  %22 = getelementptr %union.ListCell, ptr %21, i64 %indvars.iv50
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %23, align 4
   switch i32 %24, label %Exec_ListenCommit.exit [
@@ -1432,7 +1421,7 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
     i32 2, label %67
   ]
 
-25:                                               ; preds = %.lr.ph53
+25:                                               ; preds = %.lr.ph51
   %26 = getelementptr inbounds i8, ptr %23, i64 4
   %27 = load ptr, ptr @listenChannels, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 16
@@ -1473,12 +1462,11 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
   store ptr %40, ptr @CurrentMemoryContext, align 8
   br label %Exec_ListenCommit.exit
 
-43:                                               ; preds = %.lr.ph53
+43:                                               ; preds = %.lr.ph51
   %44 = getelementptr inbounds i8, ptr %23, i64 4
   %45 = load i8, ptr @Trace_notify, align 1
-  %46 = and i8 %45, 1
-  %.not.i = icmp eq i8 %46, 0
-  br i1 %.not.i, label %52, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %52
 
 47:                                               ; preds = %43
   %48 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
@@ -1492,23 +1480,23 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
 
 52:                                               ; preds = %49, %47, %43
   %53 = load ptr, ptr @listenChannels, align 8
-  %.not11.i = icmp eq ptr %53, null
-  br i1 %.not11.i, label %Exec_ListenCommit.exit, label %.lr.ph.i
+  %.not.i = icmp eq ptr %53, null
+  br i1 %.not.i, label %Exec_ListenCommit.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %52
   %54 = getelementptr inbounds i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %.lr.ph20.i, label %Exec_ListenCommit.exit
+  br i1 %56, label %.lr.ph19.i, label %Exec_ListenCommit.exit
 
-.lr.ph20.i:                                       ; preds = %.lr.ph.i
+.lr.ph19.i:                                       ; preds = %.lr.ph.i
   %57 = getelementptr inbounds i8, ptr %53, i64 16
   %58 = load ptr, ptr %57, align 8
   %wide.trip.count.i = zext nneg i32 %55 to i64
   br label %59
 
-59:                                               ; preds = %66, %.lr.ph20.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next.i, %66 ]
+59:                                               ; preds = %66, %.lr.ph19.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph19.i ], [ %indvars.iv.next.i, %66 ]
   %60 = getelementptr %union.ListCell, ptr %58, i64 %indvars.iv.i
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %44) #18
@@ -1527,11 +1515,10 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Exec_ListenCommit.exit, label %59
 
-67:                                               ; preds = %.lr.ph53
+67:                                               ; preds = %.lr.ph51
   %68 = load i8, ptr @Trace_notify, align 1
-  %69 = and i8 %68, 1
-  %.not.i20 = icmp eq i8 %69, 0
-  br i1 %.not.i20, label %Exec_UnlistenAllCommit.exit, label %70
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %Exec_UnlistenAllCommit.exit
 
 70:                                               ; preds = %67
   %71 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
@@ -1549,18 +1536,18 @@ Exec_UnlistenAllCommit.exit:                      ; preds = %67, %70, %72
   store ptr null, ptr @listenChannels, align 8
   br label %Exec_ListenCommit.exit
 
-Exec_ListenCommit.exit:                           ; preds = %66, %34, %.split.i, %.lr.ph.i, %52, %.loopexit.i, %.lr.ph53, %Exec_UnlistenAllCommit.exit
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv52, 1
+Exec_ListenCommit.exit:                           ; preds = %66, %34, %.split.i, %.lr.ph.i, %52, %.loopexit.i, %.lr.ph51, %Exec_UnlistenAllCommit.exit
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv50, 1
   %76 = load i32, ptr %17, align 4
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph53, label %.thread
+  br i1 %78, label %.lr.ph51, label %.thread
 
 .thread:                                          ; preds = %Exec_ListenCommit.exit, %.lr.ph, %14, %12
-  %.b17 = load i1, ptr @amRegisteredListener, align 1
+  %.b16 = load i1, ptr @amRegisteredListener, align 1
   %79 = load ptr, ptr @listenChannels, align 8
   %80 = icmp eq ptr %79, null
-  %or.cond3.not = select i1 %.b17, i1 %80, i1 false
+  %or.cond3.not = select i1 %.b16, i1 %80, i1 false
   br i1 %or.cond3.not, label %81, label %asyncQueueUnregister.exit
 
 81:                                               ; preds = %.thread
@@ -1588,12 +1575,12 @@ Exec_ListenCommit.exit:                           ; preds = %66, %34, %.split.i,
   %99 = getelementptr [0 x %struct.QueueBackendStatus], ptr %86, i64 0, i64 %98, i32 2
   %100 = load i32, ptr %99, align 8
   store i32 %100, ptr %93, align 4
-  br label %.loopexit.i22
+  br label %.loopexit.i20
 
 .preheader.i:                                     ; preds = %81, %101
   %.0.i = phi i32 [ %104, %101 ], [ %94, %81 ]
-  %.not.i21 = icmp eq i32 %.0.i, -1
-  br i1 %.not.i21, label %.loopexit.i22, label %101
+  %.not.i19 = icmp eq i32 %.0.i, -1
+  br i1 %.not.i19, label %.loopexit.i20, label %101
 
 101:                                              ; preds = %.preheader.i
   %102 = sext i32 %.0.i to i64
@@ -1608,9 +1595,9 @@ Exec_ListenCommit.exit:                           ; preds = %66, %34, %.split.i,
   %109 = load i32, ptr %108, align 8
   store i32 %109, ptr %103, align 8
   %.pre.i = load i32, ptr @MyProcNumber, align 4
-  br label %.loopexit.i22
+  br label %.loopexit.i20
 
-.loopexit.i22:                                    ; preds = %.preheader.i, %106, %97
+.loopexit.i20:                                    ; preds = %.preheader.i, %106, %97
   %110 = phi i32 [ %.pre.i, %106 ], [ %94, %97 ], [ %95, %.preheader.i ]
   %111 = sext i32 %110 to i64
   %112 = getelementptr [0 x %struct.QueueBackendStatus], ptr %86, i64 0, i64 %111, i32 2
@@ -1621,10 +1608,10 @@ Exec_ListenCommit.exit:                           ; preds = %66, %34, %.split.i,
   store i1 false, ptr @amRegisteredListener, align 1
   br label %asyncQueueUnregister.exit
 
-asyncQueueUnregister.exit:                        ; preds = %.thread, %.loopexit.i22
+asyncQueueUnregister.exit:                        ; preds = %.thread, %.loopexit.i20
   %115 = load ptr, ptr @pendingNotifies, align 8
-  %.not18 = icmp eq ptr %115, null
-  br i1 %.not18, label %178, label %116
+  %.not17 = icmp eq ptr %115, null
+  br i1 %.not17, label %178, label %116
 
 116:                                              ; preds = %asyncQueueUnregister.exit
   %117 = load i32, ptr @MaxBackends, align 4
@@ -1642,7 +1629,7 @@ asyncQueueUnregister.exit:                        ; preds = %.thread, %.loopexit
   %129 = getelementptr inbounds i8, ptr %128, i64 36
   %.02527.i = load i32, ptr %129, align 4
   %.not28.i = icmp eq i32 %.02527.i, -1
-  br i1 %.not28.i, label %._crit_edge.thread.i, label %.lr.ph.i23
+  br i1 %.not28.i, label %._crit_edge.thread.i, label %.lr.ph.i21
 
 ._crit_edge.thread.i:                             ; preds = %116
   %130 = load ptr, ptr @MainLWLockArray, align 8
@@ -1650,16 +1637,16 @@ asyncQueueUnregister.exit:                        ; preds = %.thread, %.loopexit
   tail call void @LWLockRelease(ptr noundef %131) #16
   br label %SignalBackends.exit
 
-.lr.ph.i23:                                       ; preds = %116
+.lr.ph.i21:                                       ; preds = %116
   %132 = getelementptr inbounds i8, ptr %128, i64 48
   %133 = getelementptr inbounds i8, ptr %128, i64 8
   %.pre36.i = load i32, ptr @MyDatabaseId, align 4
   br label %134
 
-134:                                              ; preds = %157, %.lr.ph.i23
-  %135 = phi i32 [ %.pre36.i, %.lr.ph.i23 ], [ %158, %157 ]
-  %.02530.i = phi i32 [ %.02527.i, %.lr.ph.i23 ], [ %.025.i, %157 ]
-  %.029.i = phi i32 [ 0, %.lr.ph.i23 ], [ %.1.i, %157 ]
+134:                                              ; preds = %157, %.lr.ph.i21
+  %135 = phi i32 [ %.pre36.i, %.lr.ph.i21 ], [ %158, %157 ]
+  %.02530.i = phi i32 [ %.02527.i, %.lr.ph.i21 ], [ %.025.i, %157 ]
+  %.029.i = phi i32 [ 0, %.lr.ph.i21 ], [ %.1.i, %157 ]
   %136 = sext i32 %.02530.i to i64
   %137 = getelementptr [0 x %struct.QueueBackendStatus], ptr %132, i64 0, i64 %136
   %138 = load i32, ptr %137, align 8
@@ -1694,16 +1681,16 @@ asyncQueueUnregister.exit:                        ; preds = %.thread, %.loopexit
   %155 = getelementptr i32, ptr %124, i64 %153
   store i32 %.02530.i, ptr %155, align 4
   %156 = add i32 %.029.i, 1
-  %.pre.i24 = load i32, ptr @MyDatabaseId, align 4
+  %.pre.i22 = load i32, ptr @MyDatabaseId, align 4
   br label %157
 
 157:                                              ; preds = %152, %149, %146
-  %158 = phi i32 [ %135, %146 ], [ %.pre.i24, %152 ], [ %135, %149 ]
+  %158 = phi i32 [ %135, %146 ], [ %.pre.i22, %152 ], [ %135, %149 ]
   %.1.i = phi i32 [ %.029.i, %146 ], [ %156, %152 ], [ %.029.i, %149 ]
   %159 = getelementptr [0 x %struct.QueueBackendStatus], ptr %132, i64 0, i64 %136, i32 2
   %.025.i = load i32, ptr %159, align 4
-  %.not.i25 = icmp eq i32 %.025.i, -1
-  br i1 %.not.i25, label %._crit_edge.i, label %134, !llvm.loop !12
+  %.not.i23 = icmp eq i32 %.025.i, -1
+  br i1 %.not.i23, label %._crit_edge.i, label %134, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %157
   %160 = load ptr, ptr @MainLWLockArray, align 8
@@ -1713,12 +1700,12 @@ asyncQueueUnregister.exit:                        ; preds = %.thread, %.loopexit
   br i1 %162, label %.lr.ph33.preheader.i, label %SignalBackends.exit
 
 .lr.ph33.preheader.i:                             ; preds = %._crit_edge.i
-  %wide.trip.count.i26 = zext nneg i32 %.1.i to i64
+  %wide.trip.count.i24 = zext nneg i32 %.1.i to i64
   br label %.lr.ph33.i
 
 .lr.ph33.i:                                       ; preds = %177, %.lr.ph33.preheader.i
-  %indvars.iv.i27 = phi i64 [ 0, %.lr.ph33.preheader.i ], [ %indvars.iv.next.i28, %177 ]
-  %163 = getelementptr i32, ptr %120, i64 %indvars.iv.i27
+  %indvars.iv.i25 = phi i64 [ 0, %.lr.ph33.preheader.i ], [ %indvars.iv.next.i26, %177 ]
+  %163 = getelementptr i32, ptr %120, i64 %indvars.iv.i25
   %164 = load i32, ptr %163, align 4
   %165 = load i32, ptr @MyProcPid, align 4
   %166 = icmp eq i32 %164, %165
@@ -1729,7 +1716,7 @@ asyncQueueUnregister.exit:                        ; preds = %.thread, %.loopexit
   br label %177
 
 168:                                              ; preds = %.lr.ph33.i
-  %169 = getelementptr i32, ptr %124, i64 %indvars.iv.i27
+  %169 = getelementptr i32, ptr %124, i64 %indvars.iv.i25
   %170 = load i32, ptr %169, align 4
   %171 = tail call i32 @SendProcSignal(i32 noundef %164, i32 noundef 1, i32 noundef %170) #16
   %172 = icmp slt i32 %171, 0
@@ -1745,9 +1732,9 @@ asyncQueueUnregister.exit:                        ; preds = %.thread, %.loopexit
   br label %177
 
 177:                                              ; preds = %175, %173, %168, %167
-  %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i27, 1
-  %exitcond.not.i29 = icmp eq i64 %indvars.iv.next.i28, %wide.trip.count.i26
-  br i1 %exitcond.not.i29, label %SignalBackends.exit, label %.lr.ph33.i, !llvm.loop !13
+  %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
+  %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, %wide.trip.count.i24
+  br i1 %exitcond.not.i27, label %SignalBackends.exit, label %.lr.ph33.i, !llvm.loop !13
 
 SignalBackends.exit:                              ; preds = %177, %._crit_edge.thread.i, %._crit_edge.i
   tail call void @pfree(ptr noundef %120) #16
@@ -1755,8 +1742,8 @@ SignalBackends.exit:                              ; preds = %177, %._crit_edge.t
   br label %178
 
 178:                                              ; preds = %SignalBackends.exit, %asyncQueueUnregister.exit
-  %.b1319 = load i1, ptr @tryAdvanceTail, align 1
-  br i1 %.b1319, label %179, label %180
+  %.b1318 = load i1, ptr @tryAdvanceTail, align 1
+  br i1 %.b1318, label %179, label %180
 
 179:                                              ; preds = %178
   store i1 false, ptr @tryAdvanceTail, align 1
@@ -2250,9 +2237,8 @@ ProcessIncomingNotify.exit.us:                    ; preds = %.lr.ph, %ProcessInc
 
 9:                                                ; preds = %.lr.ph.split
   %10 = load i8, ptr @Trace_notify, align 1
-  %11 = and i8 %10, 1
-  %.not.i = icmp eq i8 %11, 0
-  br i1 %.not.i, label %16, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
@@ -2280,9 +2266,8 @@ ProcessIncomingNotify.exit.us:                    ; preds = %.lr.ph, %ProcessInc
 22:                                               ; preds = %17, %16
   tail call void @set_ps_display_with_len(ptr noundef nonnull @.str.29, i64 noundef 4) #16
   %23 = load i8, ptr @Trace_notify, align 1
-  %24 = and i8 %23, 1
-  %.not1.i = icmp eq i8 %24, 0
-  br i1 %.not1.i, label %ProcessIncomingNotify.exit, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %ProcessIncomingNotify.exit
 
 25:                                               ; preds = %22
   %26 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
@@ -2363,9 +2348,8 @@ declare void @before_shmem_exit(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @Async_UnlistenOnExit(i32 %0, i64 %1) #0 {
   %3 = load i8, ptr @Trace_notify, align 1
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %Exec_UnlistenAllCommit.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %Exec_UnlistenAllCommit.exit
 
 5:                                                ; preds = %2
   %6 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
@@ -2413,8 +2397,8 @@ Exec_UnlistenAllCommit.exit:                      ; preds = %2, %5, %7
 
 .preheader.i:                                     ; preds = %11, %31
   %.0.i = phi i32 [ %34, %31 ], [ %24, %11 ]
-  %.not.i1 = icmp eq i32 %.0.i, -1
-  br i1 %.not.i1, label %.loopexit.i, label %31
+  %.not.i = icmp eq i32 %.0.i, -1
+  br i1 %.not.i, label %.loopexit.i, label %31
 
 31:                                               ; preds = %.preheader.i
   %32 = sext i32 %.0.i to i64
@@ -2488,7 +2472,7 @@ define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
 14:                                               ; preds = %0
   %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8. = load volatile i32, ptr %.sroa.9, align 8
   %15 = icmp eq i32 %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8., %.sroa.4.0.copyload
-  br i1 %15, label %106, label %16
+  br i1 %15, label %105, label %16
 
 16:                                               ; preds = %14, %0
   %17 = call ptr @GetLatestSnapshot() #16
@@ -2501,205 +2485,219 @@ define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
 
 22:                                               ; preds = %16
   store ptr %2, ptr @PG_exception_stack, align 8
-  br label %23
+  br label %.backedge
 
-23:                                               ; preds = %asyncQueueProcessPageEntries.exit, %22
+.backedge:                                        ; preds = %.backedge.backedge, %22
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.22 = load volatile i64, ptr %.sroa.0, align 8
   %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.29 = load volatile i32, ptr %.sroa.9, align 8
   %sext = shl i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.22, 32
-  %24 = ashr exact i64 %sext, 32
-  %25 = call i32 @SimpleLruReadPage_ReadOnly(ptr noundef nonnull @NotifyCtlData, i64 noundef %24, i32 noundef 0) #16
-  %26 = icmp eq i64 %24, %.sroa.0.0.copyload
-  br i1 %26, label %27, label %29
+  %23 = ashr exact i64 %sext, 32
+  %24 = call i32 @SimpleLruReadPage_ReadOnly(ptr noundef nonnull @NotifyCtlData, i64 noundef %23, i32 noundef 0) #16
+  %25 = icmp eq i64 %23, %.sroa.0.0.copyload
+  br i1 %25, label %26, label %28
 
-27:                                               ; preds = %23
-  %28 = sub i32 %.sroa.4.0.copyload, %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.29
-  %spec.store.select = call i32 @llvm.smax.i32(i32 %28, i32 0)
-  br label %31
+26:                                               ; preds = %.backedge
+  %27 = sub i32 %.sroa.4.0.copyload, %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.29
+  %spec.store.select = call i32 @llvm.smax.i32(i32 %27, i32 0)
+  br label %30
 
-29:                                               ; preds = %23
-  %30 = sub i32 8192, %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.29
-  br label %31
+28:                                               ; preds = %.backedge
+  %29 = sub i32 8192, %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.29
+  br label %30
 
-31:                                               ; preds = %29, %27
-  %.0 = phi i32 [ %spec.store.select, %27 ], [ %30, %29 ]
-  %32 = sext i32 %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.29 to i64
-  %33 = getelementptr i8, ptr %1, i64 %32
-  %34 = load ptr, ptr @NotifyCtlData, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = sext i32 %25 to i64
-  %38 = getelementptr ptr, ptr %36, i64 %37
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr i8, ptr %39, i64 %32
-  %41 = sext i32 %.0 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %40, i64 %41, i1 false)
-  %42 = load i16, ptr getelementptr inbounds (%struct.SlruCtlData, ptr @NotifyCtlData, i64 0, i32 1), align 8
-  %43 = zext i16 %42 to i64
-  %44 = and i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.22, %43
-  %45 = getelementptr inbounds i8, ptr %34, i64 56
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr %union.LWLockPadded, ptr %46, i64 %44
-  call void @LWLockRelease(ptr noundef %47) #16
+30:                                               ; preds = %28, %26
+  %.0 = phi i32 [ %spec.store.select, %26 ], [ %29, %28 ]
+  %31 = sext i32 %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.29 to i64
+  %32 = getelementptr i8, ptr %1, i64 %31
+  %33 = load ptr, ptr @NotifyCtlData, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = sext i32 %24 to i64
+  %37 = getelementptr ptr, ptr %35, i64 %36
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr i8, ptr %38, i64 %31
+  %40 = sext i32 %.0 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 1 %39, i64 %40, i1 false)
+  %41 = load i16, ptr getelementptr inbounds (%struct.SlruCtlData, ptr @NotifyCtlData, i64 0, i32 1), align 8
+  %42 = zext i16 %41 to i64
+  %43 = and i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.22, %42
+  %44 = getelementptr inbounds i8, ptr %33, i64 56
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr %union.LWLockPadded, ptr %45, i64 %43
+  call void @LWLockRelease(ptr noundef %46) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.5.i)
-  br label %48
+  br label %47
 
-48:                                               ; preds = %IsListeningOn.exit.thread.i, %31
+47:                                               ; preds = %IsListeningOn.exit.thread.i, %30
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i = load volatile i64, ptr %.sroa.0, align 8
   store volatile i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i, ptr %.sroa.0.i, align 8
   %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8..sroa.3.0.copyload.i = load volatile i32, ptr %.sroa.9, align 8
   store volatile i32 %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8..sroa.3.0.copyload.i, ptr %.sroa.3.i, align 8
   %.sroa.16.0..sroa.16.0..sroa.16.0..sroa.16.12..sroa.5.0.copyload.i = load volatile i32, ptr %.sroa.16, align 4
   store volatile i32 %.sroa.16.0..sroa.16.0..sroa.16.0..sroa.16.12..sroa.5.0.copyload.i, ptr %.sroa.5.i, align 4
-  %49 = icmp eq i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i, %.sroa.0.0.copyload
-  %50 = icmp eq i32 %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8..sroa.3.0.copyload.i, %.sroa.4.0.copyload
-  %or.cond.i = select i1 %49, i1 %50, i1 false
-  br i1 %or.cond.i, label %.loopexit.i, label %51
+  %48 = icmp eq i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i, %.sroa.0.0.copyload
+  %49 = icmp eq i32 %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8..sroa.3.0.copyload.i, %.sroa.4.0.copyload
+  %or.cond.i = select i1 %48, i1 %49, i1 false
+  br i1 %or.cond.i, label %.loopexit.i, label %50
 
-51:                                               ; preds = %48
-  %52 = sext i32 %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8..sroa.3.0.copyload.i to i64
-  %53 = getelementptr i8, ptr %1, i64 %52
-  %54 = load i32, ptr %53, align 4
+50:                                               ; preds = %47
+  %51 = sext i32 %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8..sroa.3.0.copyload.i to i64
+  %52 = getelementptr i8, ptr %1, i64 %51
+  %53 = load i32, ptr %52, align 4
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.23 = load volatile i64, ptr %.sroa.0, align 8
   %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.30 = load volatile i32, ptr %.sroa.9, align 8
-  %55 = add i32 %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.30, %54
-  %56 = sext i32 %55 to i64
-  %57 = add nsw i64 %56, -8173
-  %58 = icmp ult i64 %57, -8193
-  %59 = zext i1 %58 to i64
-  %spec.select.i.i = add i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.23, %59
-  %spec.select12.i.i = select i1 %58, i32 0, i32 %55
+  %54 = add i32 %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.30, %53
+  %55 = sext i32 %54 to i64
+  %56 = add nsw i64 %55, -8173
+  %57 = icmp ult i64 %56, -8193
+  %58 = zext i1 %57 to i64
+  %spec.select.i.i = add i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.23, %58
+  %spec.select12.i.i = select i1 %57, i32 0, i32 %54
   store volatile i64 %spec.select.i.i, ptr %.sroa.0, align 8
   store volatile i32 %spec.select12.i.i, ptr %.sroa.9, align 8
-  %60 = getelementptr inbounds i8, ptr %53, i64 4
-  %61 = load i32, ptr %60, align 4
-  %62 = load i32, ptr @MyDatabaseId, align 4
-  %63 = icmp eq i32 %61, %62
-  br i1 %63, label %64, label %IsListeningOn.exit.thread.i
+  %59 = getelementptr inbounds i8, ptr %52, i64 4
+  %60 = load i32, ptr %59, align 4
+  %61 = load i32, ptr @MyDatabaseId, align 4
+  %62 = icmp eq i32 %60, %61
+  br i1 %62, label %63, label %IsListeningOn.exit.thread.i
 
-64:                                               ; preds = %51
-  %65 = getelementptr inbounds i8, ptr %53, i64 8
-  %66 = load i32, ptr %65, align 4
-  %67 = call zeroext i1 @XidInMVCCSnapshot(i32 noundef %66, ptr noundef %18) #16
-  br i1 %67, label %68, label %69
+63:                                               ; preds = %50
+  %64 = getelementptr inbounds i8, ptr %52, i64 8
+  %65 = load i32, ptr %64, align 4
+  %66 = call zeroext i1 @XidInMVCCSnapshot(i32 noundef %65, ptr noundef %18) #16
+  br i1 %66, label %.loopexit.i.thread, label %67
 
-68:                                               ; preds = %64
+67:                                               ; preds = %63
+  %68 = load i32, ptr %64, align 4
+  %69 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %68) #16
+  br i1 %69, label %70, label %IsListeningOn.exit.thread.i
+
+70:                                               ; preds = %67
+  %71 = getelementptr inbounds i8, ptr %52, i64 16
+  %72 = load ptr, ptr @listenChannels, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %.not.i.i = icmp eq ptr %72, null
+  br i1 %.not.i.i, label %IsListeningOn.exit.thread.i, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %70
+  %74 = getelementptr inbounds i8, ptr %72, i64 4
+  %75 = load i32, ptr %74, align 4
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph22.i.i, label %IsListeningOn.exit.thread.i
+
+.lr.ph22.i.i:                                     ; preds = %.lr.ph.i.i
+  %77 = load ptr, ptr %73, align 8
+  %wide.trip.count.i.i = zext nneg i32 %75 to i64
+  br label %79
+
+78:                                               ; preds = %79
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %IsListeningOn.exit.thread.i, label %79
+
+79:                                               ; preds = %78, %.lr.ph22.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph22.i.i ], [ %indvars.iv.next.i.i, %78 ]
+  %80 = getelementptr %union.ListCell, ptr %77, i64 %indvars.iv.i.i
+  %81 = load ptr, ptr %80, align 8
+  %82 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(1) %71) #18
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %IsListeningOn.exit.i, label %78
+
+IsListeningOn.exit.i:                             ; preds = %79
+  %84 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #18
+  %85 = getelementptr i8, ptr %71, i64 %84
+  %86 = getelementptr i8, ptr %85, i64 1
+  %87 = getelementptr inbounds i8, ptr %52, i64 12
+  %88 = load i32, ptr %87, align 4
+  call void @NotifyMyFrontEnd(ptr noundef nonnull %71, ptr noundef %86, i32 noundef %88)
+  br label %IsListeningOn.exit.thread.i
+
+IsListeningOn.exit.thread.i:                      ; preds = %78, %IsListeningOn.exit.i, %.lr.ph.i.i, %70, %67, %50
+  br i1 %57, label %.loopexit.i, label %47, !llvm.loop !23
+
+.loopexit.i:                                      ; preds = %IsListeningOn.exit.thread.i, %47
+  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.24 = load volatile i64, ptr %.sroa.0, align 8
+  %89 = icmp eq i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.24, %.sroa.0.0.copyload
+  br i1 %89, label %91, label %asyncQueueProcessPageEntries.exit
+
+.loopexit.i.thread:                               ; preds = %63
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload4.i = load volatile i64, ptr %.sroa.0.i, align 8
   store volatile i64 %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload4.i, ptr %.sroa.0, align 8
   %.sroa.3.i.0..sroa.3.i.0..sroa.3.i.0..sroa.3.0..sroa.3.0..sroa.3.0..sroa.3.0.copyload6.i = load volatile i32, ptr %.sroa.3.i, align 8
   store volatile i32 %.sroa.3.i.0..sroa.3.i.0..sroa.3.i.0..sroa.3.0..sroa.3.0..sroa.3.0..sroa.3.0.copyload6.i, ptr %.sroa.9, align 8
   %.sroa.5.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.0.copyload9.i = load volatile i32, ptr %.sroa.5.i, align 4
   store volatile i32 %.sroa.5.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.0.copyload9.i, ptr %.sroa.16, align 4
-  br label %.loopexit.i
+  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.2435 = load volatile i64, ptr %.sroa.0, align 8
+  %90 = icmp eq i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.2435, %.sroa.0.0.copyload
+  br i1 %90, label %.thread, label %asyncQueueProcessPageEntries.exit.thread
 
-69:                                               ; preds = %64
-  %70 = load i32, ptr %65, align 4
-  %71 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %70) #16
-  br i1 %71, label %72, label %IsListeningOn.exit.thread.i
-
-72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %53, i64 16
-  %74 = load ptr, ptr @listenChannels, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
-  %.not.i.i = icmp eq ptr %74, null
-  br i1 %.not.i.i, label %IsListeningOn.exit.thread.i, label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %74, i64 4
-  %77 = load i32, ptr %76, align 4
-  %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %.lr.ph22.i.i, label %IsListeningOn.exit.thread.i
-
-.lr.ph22.i.i:                                     ; preds = %.lr.ph.i.i
-  %79 = load ptr, ptr %75, align 8
-  %wide.trip.count.i.i = zext nneg i32 %77 to i64
-  br label %81
-
-80:                                               ; preds = %81
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %IsListeningOn.exit.thread.i, label %81
-
-81:                                               ; preds = %80, %.lr.ph22.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph22.i.i ], [ %indvars.iv.next.i.i, %80 ]
-  %82 = getelementptr %union.ListCell, ptr %79, i64 %indvars.iv.i.i
-  %83 = load ptr, ptr %82, align 8
-  %84 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull dereferenceable(1) %73) #18
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %IsListeningOn.exit.i, label %80
-
-IsListeningOn.exit.i:                             ; preds = %81
-  %86 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #18
-  %87 = getelementptr i8, ptr %73, i64 %86
-  %88 = getelementptr i8, ptr %87, i64 1
-  %89 = getelementptr inbounds i8, ptr %53, i64 12
-  %90 = load i32, ptr %89, align 4
-  call void @NotifyMyFrontEnd(ptr noundef nonnull %73, ptr noundef %88, i32 noundef %90)
-  br label %IsListeningOn.exit.thread.i
-
-IsListeningOn.exit.thread.i:                      ; preds = %80, %IsListeningOn.exit.i, %.lr.ph.i.i, %72, %69, %51
-  br i1 %58, label %.loopexit.i, label %48, !llvm.loop !23
-
-.loopexit.i:                                      ; preds = %IsListeningOn.exit.thread.i, %48, %68
-  %.not35 = phi i1 [ false, %68 ], [ true, %48 ], [ true, %IsListeningOn.exit.thread.i ]
-  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.24 = load volatile i64, ptr %.sroa.0, align 8
-  %91 = icmp eq i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.24, %.sroa.0.0.copyload
-  br i1 %91, label %92, label %asyncQueueProcessPageEntries.exit
-
-92:                                               ; preds = %.loopexit.i
-  %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.31 = load volatile i32, ptr %.sroa.9, align 8
-  %93 = icmp eq i32 %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.31, %.sroa.4.0.copyload
-  br i1 %93, label %asyncQueueProcessPageEntries.exit.thread, label %asyncQueueProcessPageEntries.exit
-
-asyncQueueProcessPageEntries.exit.thread:         ; preds = %92
+.thread:                                          ; preds = %.loopexit.i.thread
+  %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.3140 = load volatile i32, ptr %.sroa.9, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5.i)
   br label %.loopexit
 
-asyncQueueProcessPageEntries.exit:                ; preds = %92, %.loopexit.i
+asyncQueueProcessPageEntries.exit.thread:         ; preds = %.loopexit.i.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5.i)
-  br i1 %.not35, label %23, label %.loopexit, !llvm.loop !24
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %asyncQueueProcessPageEntries.exit, %asyncQueueProcessPageEntries.exit.thread, %16
+91:                                               ; preds = %.loopexit.i
+  %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.31 = load volatile i32, ptr %.sroa.9, align 8
+  %92 = icmp eq i32 %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.31, %.sroa.4.0.copyload
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.3.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5.i)
+  br i1 %92, label %.loopexit, label %.backedge.backedge
+
+asyncQueueProcessPageEntries.exit:                ; preds = %.loopexit.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.3.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5.i)
+  br label %.backedge.backedge
+
+.backedge.backedge:                               ; preds = %asyncQueueProcessPageEntries.exit, %91
+  br label %.backedge, !llvm.loop !24
+
+.loopexit:                                        ; preds = %91, %.thread, %asyncQueueProcessPageEntries.exit.thread, %16
   store ptr %19, ptr @PG_exception_stack, align 8
   store ptr %20, ptr @error_context_stack, align 8
-  %94 = load ptr, ptr @MainLWLockArray, align 8
-  %95 = getelementptr i8, ptr %94, i64 3456
-  %96 = call zeroext i1 @LWLockAcquire(ptr noundef %95, i32 noundef 1) #16
-  %97 = load ptr, ptr @asyncQueueControl, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 48
-  %99 = load i32, ptr @MyProcNumber, align 4
-  %100 = sext i32 %99 to i64
-  %101 = getelementptr [0 x %struct.QueueBackendStatus], ptr %98, i64 0, i64 %100, i32 3
+  %93 = load ptr, ptr @MainLWLockArray, align 8
+  %94 = getelementptr i8, ptr %93, i64 3456
+  %95 = call zeroext i1 @LWLockAcquire(ptr noundef %94, i32 noundef 1) #16
+  %96 = load ptr, ptr @asyncQueueControl, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 48
+  %98 = load i32, ptr @MyProcNumber, align 4
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr [0 x %struct.QueueBackendStatus], ptr %97, i64 0, i64 %99, i32 3
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload26 = load volatile i64, ptr %.sroa.0, align 8
-  store volatile i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload26, ptr %101, align 8
-  %.sroa.9.0..sroa_idx27 = getelementptr inbounds i8, ptr %101, i64 8
+  store volatile i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload26, ptr %100, align 8
+  %.sroa.9.0..sroa_idx27 = getelementptr inbounds i8, ptr %100, i64 8
   %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.0.copyload28 = load volatile i32, ptr %.sroa.9, align 8
   store volatile i32 %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.0.copyload28, ptr %.sroa.9.0..sroa_idx27, align 8
-  %.sroa.16.0..sroa_idx32 = getelementptr inbounds i8, ptr %101, i64 12
+  %.sroa.16.0..sroa_idx32 = getelementptr inbounds i8, ptr %100, i64 12
   %.sroa.16.0..sroa.16.0..sroa.16.0..sroa.16.0.copyload33 = load volatile i32, ptr %.sroa.16, align 4
   store volatile i32 %.sroa.16.0..sroa.16.0..sroa.16.0..sroa.16.0.copyload33, ptr %.sroa.16.0..sroa_idx32, align 4
-  %102 = load ptr, ptr @MainLWLockArray, align 8
-  %103 = getelementptr i8, ptr %102, i64 3456
-  call void @LWLockRelease(ptr noundef %103) #16
-  br i1 %.not, label %105, label %104
+  %101 = load ptr, ptr @MainLWLockArray, align 8
+  %102 = getelementptr i8, ptr %101, i64 3456
+  call void @LWLockRelease(ptr noundef %102) #16
+  br i1 %.not, label %104, label %103
 
-104:                                              ; preds = %.loopexit
+103:                                              ; preds = %.loopexit
   call void @pg_re_throw() #20
   unreachable
 
-105:                                              ; preds = %.loopexit
+104:                                              ; preds = %.loopexit
   store ptr %19, ptr @PG_exception_stack, align 8
   store ptr %20, ptr @error_context_stack, align 8
   call void @UnregisterSnapshot(ptr noundef %18) #16
-  br label %106
+  br label %105
 
-106:                                              ; preds = %14, %105
+105:                                              ; preds = %14, %104
   ret void
 }
 

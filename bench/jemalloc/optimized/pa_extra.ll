@@ -22,9 +22,8 @@ define hidden void @pa_shard_prefork2(ptr noundef %tsdn, ptr noundef %shard) loc
 entry:
   %ever_used_hpa = getelementptr inbounds i8, ptr %shard, i64 17
   %0 = load i8, ptr %ever_used_hpa, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %hpa_sec = getelementptr inbounds i8, ptr %shard, i64 62264
@@ -44,9 +43,8 @@ entry:
   tail call void @malloc_mutex_prefork(ptr noundef %tsdn, ptr noundef nonnull %grow_mtx) #4
   %ever_used_hpa = getelementptr inbounds i8, ptr %shard, i64 17
   %0 = load i8, ptr %ever_used_hpa, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %hpa_shard = getelementptr inbounds i8, ptr %shard, i64 62384
@@ -70,9 +68,8 @@ entry:
   tail call void @ecache_prefork(ptr noundef %tsdn, ptr noundef nonnull %ecache_retained) #4
   %ever_used_hpa = getelementptr inbounds i8, ptr %shard, i64 17
   %0 = load i8, ptr %ever_used_hpa, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %hpa_shard = getelementptr inbounds i8, ptr %shard, i64 62384
@@ -116,9 +113,8 @@ entry:
   tail call void @malloc_mutex_postfork_parent(ptr noundef %tsdn, ptr noundef nonnull %decay_muzzy) #4
   %ever_used_hpa = getelementptr inbounds i8, ptr %shard, i64 17
   %0 = load i8, ptr %ever_used_hpa, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %hpa_sec = getelementptr inbounds i8, ptr %shard, i64 62264
@@ -160,9 +156,8 @@ entry:
   tail call void @malloc_mutex_postfork_child(ptr noundef %tsdn, ptr noundef nonnull %decay_muzzy) #4
   %ever_used_hpa = getelementptr inbounds i8, ptr %shard, i64 17
   %0 = load i8, ptr %ever_used_hpa, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %hpa_sec = getelementptr inbounds i8, ptr %shard, i64 62264
@@ -335,9 +330,8 @@ for.body:                                         ; preds = %entry, %for.body
 for.end:                                          ; preds = %for.body
   %ever_used_hpa = getelementptr inbounds i8, ptr %shard, i64 17
   %27 = load i8, ptr %ever_used_hpa, align 1
-  %28 = and i8 %27, 1
-  %tobool.not = icmp eq i8 %28, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %27 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end
   %hpa_shard = getelementptr inbounds i8, ptr %shard, i64 62384
@@ -587,9 +581,8 @@ pa_shard_mtx_stats_read_single.exit115:           ; preds = %if.end.i.i103, %if.
   %call1.i.i114 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i.i98) #4
   %ever_used_hpa = getelementptr inbounds i8, ptr %shard, i64 17
   %18 = load i8, ptr %ever_used_hpa, align 1
-  %19 = and i8 %18, 1
-  %tobool.not = icmp eq i8 %19, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %18 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %pa_shard_mtx_stats_read_single.exit115
   %mtx10 = getelementptr inbounds i8, ptr %shard, i64 62448
@@ -606,19 +599,19 @@ if.then.i.i119:                                   ; preds = %if.then
 
 if.end.i.i121:                                    ; preds = %if.then.i.i119, %if.then
   %n_lock_ops.i.i.i122 = getelementptr inbounds i8, ptr %shard, i64 62504
-  %20 = load i64, ptr %n_lock_ops.i.i.i122, align 8
-  %inc.i.i.i123 = add i64 %20, 1
+  %19 = load i64, ptr %n_lock_ops.i.i.i122, align 8
+  %inc.i.i.i123 = add i64 %19, 1
   store i64 %inc.i.i.i123, ptr %n_lock_ops.i.i.i122, align 8
   %prev_owner.i.i.i124 = getelementptr inbounds i8, ptr %shard, i64 62496
-  %21 = load ptr, ptr %prev_owner.i.i.i124, align 8
-  %cmp.not.i.i.i125 = icmp eq ptr %21, %tsdn
+  %20 = load ptr, ptr %prev_owner.i.i.i124, align 8
+  %cmp.not.i.i.i125 = icmp eq ptr %20, %tsdn
   br i1 %cmp.not.i.i.i125, label %pa_shard_mtx_stats_read_single.exit133, label %if.then.i.i.i126
 
 if.then.i.i.i126:                                 ; preds = %if.end.i.i121
   store ptr %tsdn, ptr %prev_owner.i.i.i124, align 8
   %n_owner_switches.i.i.i127 = getelementptr inbounds i8, ptr %shard, i64 62488
-  %22 = load i64, ptr %n_owner_switches.i.i.i127, align 8
-  %inc2.i.i.i128 = add i64 %22, 1
+  %21 = load i64, ptr %n_owner_switches.i.i.i127, align 8
+  %inc2.i.i.i128 = add i64 %21, 1
   store i64 %inc2.i.i.i128, ptr %n_owner_switches.i.i.i127, align 8
   br label %pa_shard_mtx_stats_read_single.exit133
 
@@ -644,19 +637,19 @@ if.then.i.i137:                                   ; preds = %pa_shard_mtx_stats_
 
 if.end.i.i139:                                    ; preds = %if.then.i.i137, %pa_shard_mtx_stats_read_single.exit133
   %n_lock_ops.i.i.i140 = getelementptr inbounds i8, ptr %shard, i64 62616
-  %23 = load i64, ptr %n_lock_ops.i.i.i140, align 8
-  %inc.i.i.i141 = add i64 %23, 1
+  %22 = load i64, ptr %n_lock_ops.i.i.i140, align 8
+  %inc.i.i.i141 = add i64 %22, 1
   store i64 %inc.i.i.i141, ptr %n_lock_ops.i.i.i140, align 8
   %prev_owner.i.i.i142 = getelementptr inbounds i8, ptr %shard, i64 62608
-  %24 = load ptr, ptr %prev_owner.i.i.i142, align 8
-  %cmp.not.i.i.i143 = icmp eq ptr %24, %tsdn
+  %23 = load ptr, ptr %prev_owner.i.i.i142, align 8
+  %cmp.not.i.i.i143 = icmp eq ptr %23, %tsdn
   br i1 %cmp.not.i.i.i143, label %pa_shard_mtx_stats_read_single.exit151, label %if.then.i.i.i144
 
 if.then.i.i.i144:                                 ; preds = %if.end.i.i139
   store ptr %tsdn, ptr %prev_owner.i.i.i142, align 8
   %n_owner_switches.i.i.i145 = getelementptr inbounds i8, ptr %shard, i64 62600
-  %25 = load i64, ptr %n_owner_switches.i.i.i145, align 8
-  %inc2.i.i.i146 = add i64 %25, 1
+  %24 = load i64, ptr %n_owner_switches.i.i.i145, align 8
+  %inc2.i.i.i146 = add i64 %24, 1
   store i64 %inc2.i.i.i146, ptr %n_owner_switches.i.i.i145, align 8
   br label %pa_shard_mtx_stats_read_single.exit151
 

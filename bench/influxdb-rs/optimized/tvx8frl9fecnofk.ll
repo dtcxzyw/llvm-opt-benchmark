@@ -354,8 +354,8 @@ define hidden noundef align 8 ptr @"_ZN15influxdb3_write1_83_$LT$impl$u20$serde.
 
 17:                                               ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h5fac945f0e78a1ddE.exit"
   %18 = load i8, ptr %3, align 8, !range !31, !alias.scope !32, !noalias !35, !noundef !15
-  %trunc.not.i36 = icmp eq i8 %18, 0
-  br i1 %trunc.not.i36, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0a4f3f3aa8628b3cE.exit", label %.sink.split
+  %trunc.i36 = trunc i8 %18 to i1
+  br i1 %trunc.i36, label %.sink.split, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0a4f3f3aa8628b3cE.exit"
 
 "_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0a4f3f3aa8628b3cE.exit": ; preds = %17
   %19 = getelementptr inbounds i8, ptr %0, i64 48
@@ -365,8 +365,8 @@ define hidden noundef align 8 ptr @"_ZN15influxdb3_write1_83_$LT$impl$u20$serde.
 
 22:                                               ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0a4f3f3aa8628b3cE.exit"
   %23 = load i8, ptr %3, align 8, !range !31, !alias.scope !37, !noalias !40, !noundef !15
-  %trunc.not.i38 = icmp eq i8 %23, 0
-  br i1 %trunc.not.i38, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h5fac945f0e78a1ddE.exit40", label %.sink.split
+  %trunc.i38 = trunc i8 %23 to i1
+  br i1 %trunc.i38, label %.sink.split, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h5fac945f0e78a1ddE.exit40"
 
 "_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h5fac945f0e78a1ddE.exit40": ; preds = %22
   %24 = getelementptr inbounds i8, ptr %0, i64 24
@@ -376,10 +376,10 @@ define hidden noundef align 8 ptr @"_ZN15influxdb3_write1_83_$LT$impl$u20$serde.
 
 27:                                               ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h5fac945f0e78a1ddE.exit40"
   %.sroa.046.0.copyload = load i8, ptr %3, align 8
-  %trunc.not.i41 = icmp ne i8 %.sroa.046.0.copyload, 0
+  %trunc.i41 = trunc i8 %.sroa.046.0.copyload to i1
   %.sroa.447.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
   %28 = icmp eq i8 %.sroa.447.0.copyload, 0
-  %or.cond = select i1 %trunc.not.i41, i1 true, i1 %28
+  %or.cond = select i1 %trunc.i41, i1 true, i1 %28
   br i1 %or.cond, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h864fd3bb27babdc4E.exit", label %29
 
 29:                                               ; preds = %27
@@ -5606,8 +5606,8 @@ define hidden noundef align 8 ptr @"_ZN16influxdb3_server4http5Error8response1_1
 17:                                               ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h5fac945f0e78a1ddE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !872)
   %18 = load i8, ptr %3, align 8, !range !31, !alias.scope !872, !noalias !875, !noundef !15
-  %trunc.not.i29 = icmp eq i8 %18, 0
-  br i1 %trunc.not.i29, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h6a087951415b186aE.exit", label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h6a087951415b186aE.exit.thread"
+  %trunc.i29 = trunc i8 %18 to i1
+  br i1 %trunc.i29, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h6a087951415b186aE.exit.thread", label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h6a087951415b186aE.exit"
 
 "_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h6a087951415b186aE.exit.thread": ; preds = %17
   %19 = call noundef nonnull align 8 ptr @_ZN10serde_json3ser17invalid_raw_value17hb6eca97c129d7cefE(), !noalias !877
@@ -5621,10 +5621,10 @@ define hidden noundef align 8 ptr @"_ZN16influxdb3_server4http5Error8response1_1
 
 23:                                               ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h6a087951415b186aE.exit"
   %.sroa.036.0.copyload = load i8, ptr %3, align 8
-  %trunc.not.i31 = icmp ne i8 %.sroa.036.0.copyload, 0
+  %trunc.i31 = trunc i8 %.sroa.036.0.copyload to i1
   %.sroa.437.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
   %24 = icmp eq i8 %.sroa.437.0.copyload, 0
-  %or.cond = select i1 %trunc.not.i31, i1 true, i1 %24
+  %or.cond = select i1 %trunc.i31, i1 true, i1 %24
   br i1 %or.cond, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h864fd3bb27babdc4E.exit", label %25
 
 25:                                               ; preds = %23
@@ -5705,8 +5705,8 @@ define hidden noundef align 8 ptr @"_ZN16influxdb3_server4http5Error8response1_1
 17:                                               ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h5fac945f0e78a1ddE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !922)
   %18 = load i8, ptr %3, align 8, !range !31, !alias.scope !922, !noalias !925, !noundef !15
-  %trunc.not.i29 = icmp eq i8 %18, 0
-  br i1 %trunc.not.i29, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h636bb9b8673aa1fdE.exit", label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h636bb9b8673aa1fdE.exit.thread"
+  %trunc.i29 = trunc i8 %18 to i1
+  br i1 %trunc.i29, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h636bb9b8673aa1fdE.exit.thread", label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h636bb9b8673aa1fdE.exit"
 
 "_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h636bb9b8673aa1fdE.exit.thread": ; preds = %17
   %19 = call noundef nonnull align 8 ptr @_ZN10serde_json3ser17invalid_raw_value17hb6eca97c129d7cefE(), !noalias !927
@@ -5720,10 +5720,10 @@ define hidden noundef align 8 ptr @"_ZN16influxdb3_server4http5Error8response1_1
 
 23:                                               ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h636bb9b8673aa1fdE.exit"
   %.sroa.036.0.copyload = load i8, ptr %3, align 8
-  %trunc.not.i31 = icmp ne i8 %.sroa.036.0.copyload, 0
+  %trunc.i31 = trunc i8 %.sroa.036.0.copyload to i1
   %.sroa.437.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
   %24 = icmp eq i8 %.sroa.437.0.copyload, 0
-  %or.cond = select i1 %trunc.not.i31, i1 true, i1 %24
+  %or.cond = select i1 %trunc.i31, i1 true, i1 %24
   br i1 %or.cond, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h864fd3bb27babdc4E.exit", label %25
 
 25:                                               ; preds = %23
@@ -5804,8 +5804,8 @@ define hidden noundef align 8 ptr @"_ZN16influxdb3_server4http5Error8response1_1
 17:                                               ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h5fac945f0e78a1ddE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !972)
   %18 = load i8, ptr %3, align 8, !range !31, !alias.scope !972, !noalias !975, !noundef !15
-  %trunc.not.i29 = icmp eq i8 %18, 0
-  br i1 %trunc.not.i29, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0dfa1bb19bbc258bE.exit", label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0dfa1bb19bbc258bE.exit.thread"
+  %trunc.i29 = trunc i8 %18 to i1
+  br i1 %trunc.i29, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0dfa1bb19bbc258bE.exit.thread", label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0dfa1bb19bbc258bE.exit"
 
 "_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0dfa1bb19bbc258bE.exit.thread": ; preds = %17
   %19 = call noundef nonnull align 8 ptr @_ZN10serde_json3ser17invalid_raw_value17hb6eca97c129d7cefE(), !noalias !977
@@ -5819,10 +5819,10 @@ define hidden noundef align 8 ptr @"_ZN16influxdb3_server4http5Error8response1_1
 
 23:                                               ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0dfa1bb19bbc258bE.exit"
   %.sroa.036.0.copyload = load i8, ptr %3, align 8
-  %trunc.not.i31 = icmp ne i8 %.sroa.036.0.copyload, 0
+  %trunc.i31 = trunc i8 %.sroa.036.0.copyload to i1
   %.sroa.437.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
   %24 = icmp eq i8 %.sroa.437.0.copyload, 0
-  %or.cond = select i1 %trunc.not.i31, i1 true, i1 %24
+  %or.cond = select i1 %trunc.i31, i1 true, i1 %24
   br i1 %or.cond, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h864fd3bb27babdc4E.exit", label %25
 
 25:                                               ; preds = %23

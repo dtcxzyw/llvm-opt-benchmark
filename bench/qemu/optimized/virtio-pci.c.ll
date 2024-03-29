@@ -179,9 +179,8 @@ entry:
   %0 = load ptr, ptr %pdev, align 8
   %msix_enabled = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %msix_enabled, align 4
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %do.end
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 320, ptr noundef nonnull @__func__.qvirtqueue_pci_msix_setup, ptr noundef nonnull @.str.5) #8
@@ -189,7 +188,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %msix_table_off = getelementptr inbounds i8, ptr %0, i64 48
-  %3 = load i64, ptr %msix_table_off, align 8
+  %2 = load i64, ptr %msix_table_off, align 8
   %call = tail call zeroext i16 @qpci_msix_table_size(ptr noundef nonnull %0) #7
   %cmp19 = icmp ugt i16 %call, %entry1
   br i1 %cmp19, label %do.end26, label %if.else22
@@ -203,59 +202,59 @@ if.else22:                                        ; preds = %do.end
 do.end26:                                         ; preds = %if.else22, %do.end
   %conv = zext i16 %entry1 to i64
   %mul = shl nuw nsw i64 %conv, 4
-  %add = add i64 %3, %mul
+  %add = add i64 %2, %mul
   %msix_entry = getelementptr inbounds i8, ptr %vqpci, i64 56
   store i16 %entry1, ptr %msix_entry, align 8
   %call27 = tail call i64 @guest_alloc(ptr noundef %alloc, i64 noundef 4) #7
   %msix_addr = getelementptr inbounds i8, ptr %vqpci, i64 64
   store i64 %call27, ptr %msix_addr, align 8
-  %4 = load ptr, ptr %pdev, align 8
-  %msix_table_bar = getelementptr inbounds i8, ptr %4, i64 16
+  %3 = load ptr, ptr %pdev, align 8
+  %msix_table_bar = getelementptr inbounds i8, ptr %3, i64 16
   %conv32 = trunc i64 %call27 to i32
-  %5 = load i64, ptr %msix_table_bar, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
-  %7 = load i8, ptr %6, align 8
-  tail call void @qpci_io_writel(ptr noundef %4, i64 %5, i8 %7, i64 noundef %add, i32 noundef %conv32) #7
-  %8 = load ptr, ptr %pdev, align 8
-  %msix_table_bar35 = getelementptr inbounds i8, ptr %8, i64 16
+  %4 = load i64, ptr %msix_table_bar, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = load i8, ptr %5, align 8
+  tail call void @qpci_io_writel(ptr noundef %3, i64 %4, i8 %6, i64 noundef %add, i32 noundef %conv32) #7
+  %7 = load ptr, ptr %pdev, align 8
+  %msix_table_bar35 = getelementptr inbounds i8, ptr %7, i64 16
   %add36 = add i64 %add, 4
-  %9 = load i64, ptr %msix_addr, align 8
-  %shr = lshr i64 %9, 32
+  %8 = load i64, ptr %msix_addr, align 8
+  %shr = lshr i64 %8, 32
   %conv39 = trunc i64 %shr to i32
-  %10 = load i64, ptr %msix_table_bar35, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
-  %12 = load i8, ptr %11, align 8
-  tail call void @qpci_io_writel(ptr noundef %8, i64 %10, i8 %12, i64 noundef %add36, i32 noundef %conv39) #7
-  %13 = load ptr, ptr %pdev, align 8
-  %msix_table_bar42 = getelementptr inbounds i8, ptr %13, i64 16
+  %9 = load i64, ptr %msix_table_bar35, align 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load i8, ptr %10, align 8
+  tail call void @qpci_io_writel(ptr noundef %7, i64 %9, i8 %11, i64 noundef %add36, i32 noundef %conv39) #7
+  %12 = load ptr, ptr %pdev, align 8
+  %msix_table_bar42 = getelementptr inbounds i8, ptr %12, i64 16
   %add43 = add i64 %add, 8
   %msix_data = getelementptr inbounds i8, ptr %vqpci, i64 72
-  %14 = load i32, ptr %msix_data, align 8
-  %15 = load i64, ptr %msix_table_bar42, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 24
-  %17 = load i8, ptr %16, align 8
-  tail call void @qpci_io_writel(ptr noundef %13, i64 %15, i8 %17, i64 noundef %add43, i32 noundef %14) #7
-  %18 = load ptr, ptr %pdev, align 8
-  %msix_table_bar46 = getelementptr inbounds i8, ptr %18, i64 16
+  %13 = load i32, ptr %msix_data, align 8
+  %14 = load i64, ptr %msix_table_bar42, align 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %16 = load i8, ptr %15, align 8
+  tail call void @qpci_io_writel(ptr noundef %12, i64 %14, i8 %16, i64 noundef %add43, i32 noundef %13) #7
+  %17 = load ptr, ptr %pdev, align 8
+  %msix_table_bar46 = getelementptr inbounds i8, ptr %17, i64 16
   %add47 = add i64 %add, 12
-  %19 = load i64, ptr %msix_table_bar46, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 24
-  %21 = load i8, ptr %20, align 8
-  %call48 = tail call i32 @qpci_io_readl(ptr noundef %18, i64 %19, i8 %21, i64 noundef %add47) #7
-  %22 = load ptr, ptr %pdev, align 8
-  %msix_table_bar51 = getelementptr inbounds i8, ptr %22, i64 16
+  %18 = load i64, ptr %msix_table_bar46, align 8
+  %19 = getelementptr inbounds i8, ptr %17, i64 24
+  %20 = load i8, ptr %19, align 8
+  %call48 = tail call i32 @qpci_io_readl(ptr noundef %17, i64 %18, i8 %20, i64 noundef %add47) #7
+  %21 = load ptr, ptr %pdev, align 8
+  %msix_table_bar51 = getelementptr inbounds i8, ptr %21, i64 16
   %and53 = and i32 %call48, -2
-  %23 = load i64, ptr %msix_table_bar51, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 24
-  %25 = load i8, ptr %24, align 8
-  tail call void @qpci_io_writel(ptr noundef %22, i64 %23, i8 %25, i64 noundef %add47, i32 noundef %and53) #7
+  %22 = load i64, ptr %msix_table_bar51, align 8
+  %23 = getelementptr inbounds i8, ptr %21, i64 24
+  %24 = load i8, ptr %23, align 8
+  tail call void @qpci_io_writel(ptr noundef %21, i64 %22, i8 %24, i64 noundef %add47, i32 noundef %and53) #7
   %msix_ops = getelementptr inbounds i8, ptr %d, i64 96
-  %26 = load ptr, ptr %msix_ops, align 8
-  %set_queue_vector = getelementptr inbounds i8, ptr %26, i64 8
-  %27 = load ptr, ptr %set_queue_vector, align 8
+  %25 = load ptr, ptr %msix_ops, align 8
+  %set_queue_vector = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = load ptr, ptr %set_queue_vector, align 8
   %index = getelementptr inbounds i8, ptr %vqpci, i64 32
-  %28 = load i16, ptr %index, align 8
-  tail call void %27(ptr noundef nonnull %d, i16 noundef zeroext %28, i16 noundef zeroext %entry1) #7
+  %27 = load i16, ptr %index, align 8
+  tail call void %26(ptr noundef nonnull %d, i16 noundef zeroext %27, i16 noundef zeroext %entry1) #7
   ret void
 }
 
@@ -275,9 +274,8 @@ entry:
   %0 = load ptr, ptr %pdev, align 8
   %msix_enabled = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %msix_enabled, align 4
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %do.end
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 351, ptr noundef nonnull @__func__.qvirtio_pci_set_msix_configuration_vector, ptr noundef nonnull @.str.5) #8
@@ -285,7 +283,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %msix_table_off = getelementptr inbounds i8, ptr %0, i64 48
-  %3 = load i64, ptr %msix_table_off, align 8
+  %2 = load i64, ptr %msix_table_off, align 8
   %call = tail call zeroext i16 @qpci_msix_table_size(ptr noundef nonnull %0) #7
   %cmp19 = icmp ugt i16 %call, %entry1
   br i1 %cmp19, label %do.end26, label %if.else22
@@ -299,7 +297,7 @@ if.else22:                                        ; preds = %do.end
 do.end26:                                         ; preds = %if.else22, %do.end
   %conv = zext i16 %entry1 to i64
   %mul = shl nuw nsw i64 %conv, 4
-  %add = add i64 %3, %mul
+  %add = add i64 %2, %mul
   %config_msix_entry = getelementptr inbounds i8, ptr %d, i64 104
   store i16 %entry1, ptr %config_msix_entry, align 8
   %config_msix_data = getelementptr inbounds i8, ptr %d, i64 120
@@ -307,49 +305,49 @@ do.end26:                                         ; preds = %if.else22, %do.end
   %call27 = tail call i64 @guest_alloc(ptr noundef %alloc, i64 noundef 4) #7
   %config_msix_addr = getelementptr inbounds i8, ptr %d, i64 112
   store i64 %call27, ptr %config_msix_addr, align 8
-  %4 = load ptr, ptr %pdev, align 8
-  %msix_table_bar = getelementptr inbounds i8, ptr %4, i64 16
+  %3 = load ptr, ptr %pdev, align 8
+  %msix_table_bar = getelementptr inbounds i8, ptr %3, i64 16
   %conv32 = trunc i64 %call27 to i32
-  %5 = load i64, ptr %msix_table_bar, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
-  %7 = load i8, ptr %6, align 8
-  tail call void @qpci_io_writel(ptr noundef %4, i64 %5, i8 %7, i64 noundef %add, i32 noundef %conv32) #7
-  %8 = load ptr, ptr %pdev, align 8
-  %msix_table_bar35 = getelementptr inbounds i8, ptr %8, i64 16
+  %4 = load i64, ptr %msix_table_bar, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = load i8, ptr %5, align 8
+  tail call void @qpci_io_writel(ptr noundef %3, i64 %4, i8 %6, i64 noundef %add, i32 noundef %conv32) #7
+  %7 = load ptr, ptr %pdev, align 8
+  %msix_table_bar35 = getelementptr inbounds i8, ptr %7, i64 16
   %add36 = add i64 %add, 4
-  %9 = load i64, ptr %config_msix_addr, align 8
-  %shr = lshr i64 %9, 32
+  %8 = load i64, ptr %config_msix_addr, align 8
+  %shr = lshr i64 %8, 32
   %conv39 = trunc i64 %shr to i32
-  %10 = load i64, ptr %msix_table_bar35, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
-  %12 = load i8, ptr %11, align 8
-  tail call void @qpci_io_writel(ptr noundef %8, i64 %10, i8 %12, i64 noundef %add36, i32 noundef %conv39) #7
-  %13 = load ptr, ptr %pdev, align 8
-  %msix_table_bar42 = getelementptr inbounds i8, ptr %13, i64 16
+  %9 = load i64, ptr %msix_table_bar35, align 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = load i8, ptr %10, align 8
+  tail call void @qpci_io_writel(ptr noundef %7, i64 %9, i8 %11, i64 noundef %add36, i32 noundef %conv39) #7
+  %12 = load ptr, ptr %pdev, align 8
+  %msix_table_bar42 = getelementptr inbounds i8, ptr %12, i64 16
   %add43 = add i64 %add, 8
-  %14 = load i32, ptr %config_msix_data, align 8
-  %15 = load i64, ptr %msix_table_bar42, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 24
-  %17 = load i8, ptr %16, align 8
-  tail call void @qpci_io_writel(ptr noundef %13, i64 %15, i8 %17, i64 noundef %add43, i32 noundef %14) #7
-  %18 = load ptr, ptr %pdev, align 8
-  %msix_table_bar47 = getelementptr inbounds i8, ptr %18, i64 16
+  %13 = load i32, ptr %config_msix_data, align 8
+  %14 = load i64, ptr %msix_table_bar42, align 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %16 = load i8, ptr %15, align 8
+  tail call void @qpci_io_writel(ptr noundef %12, i64 %14, i8 %16, i64 noundef %add43, i32 noundef %13) #7
+  %17 = load ptr, ptr %pdev, align 8
+  %msix_table_bar47 = getelementptr inbounds i8, ptr %17, i64 16
   %add48 = add i64 %add, 12
-  %19 = load i64, ptr %msix_table_bar47, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 24
-  %21 = load i8, ptr %20, align 8
-  %call49 = tail call i32 @qpci_io_readl(ptr noundef %18, i64 %19, i8 %21, i64 noundef %add48) #7
-  %22 = load ptr, ptr %pdev, align 8
-  %msix_table_bar52 = getelementptr inbounds i8, ptr %22, i64 16
+  %18 = load i64, ptr %msix_table_bar47, align 8
+  %19 = getelementptr inbounds i8, ptr %17, i64 24
+  %20 = load i8, ptr %19, align 8
+  %call49 = tail call i32 @qpci_io_readl(ptr noundef %17, i64 %18, i8 %20, i64 noundef %add48) #7
+  %21 = load ptr, ptr %pdev, align 8
+  %msix_table_bar52 = getelementptr inbounds i8, ptr %21, i64 16
   %and54 = and i32 %call49, -2
-  %23 = load i64, ptr %msix_table_bar52, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 24
-  %25 = load i8, ptr %24, align 8
-  tail call void @qpci_io_writel(ptr noundef %22, i64 %23, i8 %25, i64 noundef %add48, i32 noundef %and54) #7
+  %22 = load i64, ptr %msix_table_bar52, align 8
+  %23 = getelementptr inbounds i8, ptr %21, i64 24
+  %24 = load i8, ptr %23, align 8
+  tail call void @qpci_io_writel(ptr noundef %21, i64 %22, i8 %24, i64 noundef %add48, i32 noundef %and54) #7
   %msix_ops = getelementptr inbounds i8, ptr %d, i64 96
-  %26 = load ptr, ptr %msix_ops, align 8
-  %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull %d, i16 noundef zeroext %entry1) #7
+  %25 = load ptr, ptr %msix_ops, align 8
+  %26 = load ptr, ptr %25, align 8
+  tail call void %26(ptr noundef nonnull %d, i16 noundef zeroext %entry1) #7
   ret void
 }
 
@@ -521,14 +519,13 @@ entry:
   %bar = getelementptr i8, ptr %d, i64 40
   %msix_enabled = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %msix_enabled, align 4
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  %conv = select i1 %tobool.not, i64 20, i64 24
+  %tobool = trunc i8 %1 to i1
+  %conv = select i1 %tobool, i64 24, i64 20
   %add = add i64 %conv, %off
-  %3 = load i64, ptr %bar, align 8
-  %4 = getelementptr i8, ptr %d, i64 48
-  %5 = load i8, ptr %4, align 8
-  %call = tail call zeroext i8 @qpci_io_readb(ptr noundef %0, i64 %3, i8 %5, i64 noundef %add) #7
+  %2 = load i64, ptr %bar, align 8
+  %3 = getelementptr i8, ptr %d, i64 48
+  %4 = load i8, ptr %3, align 8
+  %call = tail call zeroext i8 @qpci_io_readb(ptr noundef %0, i64 %2, i8 %4, i64 noundef %add) #7
   ret i8 %call
 }
 
@@ -540,17 +537,16 @@ entry:
   %bar = getelementptr i8, ptr %d, i64 40
   %msix_enabled = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %msix_enabled, align 4
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  %conv = select i1 %tobool.not, i64 20, i64 24
+  %tobool = trunc i8 %1 to i1
+  %conv = select i1 %tobool, i64 24, i64 20
   %add = add i64 %conv, %off
-  %3 = load i64, ptr %bar, align 8
-  %4 = getelementptr i8, ptr %d, i64 48
-  %5 = load i8, ptr %4, align 8
-  %call = tail call zeroext i16 @qpci_io_readw(ptr noundef %0, i64 %3, i8 %5, i64 noundef %add) #7
+  %2 = load i64, ptr %bar, align 8
+  %3 = getelementptr i8, ptr %d, i64 48
+  %4 = load i8, ptr %3, align 8
+  %call = tail call zeroext i16 @qpci_io_readw(ptr noundef %0, i64 %2, i8 %4, i64 noundef %add) #7
   %call2 = tail call zeroext i1 @qvirtio_is_big_endian(ptr noundef %d) #7
-  %6 = tail call i16 @llvm.bswap.i16(i16 %call)
-  %spec.select = select i1 %call2, i16 %6, i16 %call
+  %5 = tail call i16 @llvm.bswap.i16(i16 %call)
+  %spec.select = select i1 %call2, i16 %5, i16 %call
   ret i16 %spec.select
 }
 
@@ -562,17 +558,16 @@ entry:
   %bar = getelementptr i8, ptr %d, i64 40
   %msix_enabled = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %msix_enabled, align 4
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  %conv = select i1 %tobool.not, i64 20, i64 24
+  %tobool = trunc i8 %1 to i1
+  %conv = select i1 %tobool, i64 24, i64 20
   %add = add i64 %conv, %off
-  %3 = load i64, ptr %bar, align 8
-  %4 = getelementptr i8, ptr %d, i64 48
-  %5 = load i8, ptr %4, align 8
-  %call = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %3, i8 %5, i64 noundef %add) #7
+  %2 = load i64, ptr %bar, align 8
+  %3 = getelementptr i8, ptr %d, i64 48
+  %4 = load i8, ptr %3, align 8
+  %call = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %2, i8 %4, i64 noundef %add) #7
   %call2 = tail call zeroext i1 @qvirtio_is_big_endian(ptr noundef %d) #7
-  %6 = tail call i32 @llvm.bswap.i32(i32 %call)
-  %spec.select = select i1 %call2, i32 %6, i32 %call
+  %5 = tail call i32 @llvm.bswap.i32(i32 %call)
+  %spec.select = select i1 %call2, i32 %5, i32 %call
   ret i32 %spec.select
 }
 
@@ -584,17 +579,16 @@ entry:
   %bar = getelementptr i8, ptr %d, i64 40
   %msix_enabled = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %msix_enabled, align 4
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  %conv = select i1 %tobool.not, i64 20, i64 24
+  %tobool = trunc i8 %1 to i1
+  %conv = select i1 %tobool, i64 24, i64 20
   %add = add i64 %conv, %off
-  %3 = load i64, ptr %bar, align 8
-  %4 = getelementptr i8, ptr %d, i64 48
-  %5 = load i8, ptr %4, align 8
-  %call = tail call i64 @qpci_io_readq(ptr noundef %0, i64 %3, i8 %5, i64 noundef %add) #7
+  %2 = load i64, ptr %bar, align 8
+  %3 = getelementptr i8, ptr %d, i64 48
+  %4 = load i8, ptr %3, align 8
+  %call = tail call i64 @qpci_io_readq(ptr noundef %0, i64 %2, i8 %4, i64 noundef %add) #7
   %call2 = tail call zeroext i1 @qvirtio_is_big_endian(ptr noundef %d) #7
-  %6 = tail call i64 @llvm.bswap.i64(i64 %call)
-  %spec.select = select i1 %call2, i64 %6, i64 %call
+  %5 = tail call i64 @llvm.bswap.i64(i64 %call)
+  %spec.select = select i1 %call2, i64 %5, i64 %call
   ret i64 %spec.select
 }
 
@@ -673,51 +667,50 @@ entry:
   %0 = load ptr, ptr %pdev, align 8
   %msix_enabled = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %msix_enabled, align 4
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else22, label %do.body
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %do.body, label %if.else22
 
 do.body:                                          ; preds = %entry
   %msix_entry = getelementptr inbounds i8, ptr %vq, i64 56
-  %3 = load i16, ptr %msix_entry, align 8
-  %call = tail call zeroext i1 @qpci_msix_masked(ptr noundef nonnull %0, i16 noundef zeroext %3) #7
-  %4 = load ptr, ptr %pdev, align 8
+  %2 = load i16, ptr %msix_entry, align 8
+  %call = tail call zeroext i1 @qpci_msix_masked(ptr noundef nonnull %0, i16 noundef zeroext %2) #7
+  %3 = load ptr, ptr %pdev, align 8
   br i1 %call, label %if.then7, label %if.else11
 
 if.then7:                                         ; preds = %do.body
-  %5 = load i16, ptr %msix_entry, align 8
-  %call10 = tail call zeroext i1 @qpci_msix_pending(ptr noundef %4, i16 noundef zeroext %5) #7
+  %4 = load i16, ptr %msix_entry, align 8
+  %call10 = tail call zeroext i1 @qpci_msix_pending(ptr noundef %3, i16 noundef zeroext %4) #7
   br label %return
 
 if.else11:                                        ; preds = %do.body
-  %6 = load ptr, ptr %4, align 8
-  %qts = getelementptr inbounds i8, ptr %6, i64 128
-  %7 = load ptr, ptr %qts, align 8
+  %5 = load ptr, ptr %3, align 8
+  %qts = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = load ptr, ptr %qts, align 8
   %msix_addr = getelementptr inbounds i8, ptr %vq, i64 64
-  %8 = load i64, ptr %msix_addr, align 8
-  %call13 = tail call i32 @qtest_readl(ptr noundef %7, i64 noundef %8) #7
+  %7 = load i64, ptr %msix_addr, align 8
+  %call13 = tail call i32 @qtest_readl(ptr noundef %6, i64 noundef %7) #7
   %msix_data = getelementptr inbounds i8, ptr %vq, i64 72
-  %9 = load i32, ptr %msix_data, align 8
-  %cmp14 = icmp eq i32 %call13, %9
+  %8 = load i32, ptr %msix_data, align 8
+  %cmp14 = icmp eq i32 %call13, %8
   br i1 %cmp14, label %if.then16, label %return
 
 if.then16:                                        ; preds = %if.else11
-  %10 = load ptr, ptr %pdev, align 8
-  %11 = load ptr, ptr %10, align 8
-  %qts19 = getelementptr inbounds i8, ptr %11, i64 128
-  %12 = load ptr, ptr %qts19, align 8
-  %13 = load i64, ptr %msix_addr, align 8
-  tail call void @qtest_writel(ptr noundef %12, i64 noundef %13, i32 noundef 0) #7
+  %9 = load ptr, ptr %pdev, align 8
+  %10 = load ptr, ptr %9, align 8
+  %qts19 = getelementptr inbounds i8, ptr %10, i64 128
+  %11 = load ptr, ptr %qts19, align 8
+  %12 = load i64, ptr %msix_addr, align 8
+  tail call void @qtest_writel(ptr noundef %11, i64 noundef %12, i32 noundef 0) #7
   br label %return
 
 if.else22:                                        ; preds = %entry
   %bar = getelementptr i8, ptr %d, i64 40
-  %14 = load i64, ptr %bar, align 8
-  %15 = getelementptr i8, ptr %d, i64 48
-  %16 = load i8, ptr %15, align 8
-  %call24 = tail call zeroext i8 @qpci_io_readb(ptr noundef nonnull %0, i64 %14, i8 %16, i64 noundef 19) #7
-  %17 = and i8 %call24, 1
-  %tobool26 = icmp ne i8 %17, 0
+  %13 = load i64, ptr %bar, align 8
+  %14 = getelementptr i8, ptr %d, i64 48
+  %15 = load i8, ptr %14, align 8
+  %call24 = tail call zeroext i8 @qpci_io_readb(ptr noundef nonnull %0, i64 %13, i8 %15, i64 noundef 19) #7
+  %16 = and i8 %call24, 1
+  %tobool26 = icmp ne i8 %16, 0
   br label %return
 
 return:                                           ; preds = %if.else11, %if.else22, %if.then16, %if.then7
@@ -736,11 +729,11 @@ entry:
 
 do.end.lr.ph:                                     ; preds = %entry
   %pdev = getelementptr i8, ptr %d, i64 32
+  %bar.i = getelementptr i8, ptr %d, i64 40
+  %0 = getelementptr i8, ptr %d, i64 48
   %config_msix_entry.i = getelementptr i8, ptr %d, i64 64
   %config_msix_addr.i = getelementptr i8, ptr %d, i64 72
   %config_msix_data.i = getelementptr i8, ptr %d, i64 80
-  %bar.i = getelementptr i8, ptr %d, i64 40
-  %0 = getelementptr i8, ptr %d, i64 48
   br label %do.end
 
 if.else:                                          ; preds = %do.body.backedge, %entry
@@ -756,19 +749,18 @@ do.end:                                           ; preds = %do.end.lr.ph, %do.b
   %4 = load ptr, ptr %pdev, align 8
   %msix_enabled.i = getelementptr inbounds i8, ptr %4, i64 12
   %5 = load i8, ptr %msix_enabled.i, align 4
-  %6 = and i8 %5, 1
-  %tobool.not.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i, label %if.else22.i, label %do.body.i
+  %tobool.i = trunc i8 %5 to i1
+  br i1 %tobool.i, label %do.body.i, label %if.else22.i
 
 do.body.i:                                        ; preds = %do.end
-  %7 = load i16, ptr %config_msix_entry.i, align 8
-  %call.i = tail call zeroext i1 @qpci_msix_masked(ptr noundef nonnull %4, i16 noundef zeroext %7) #7
-  %8 = load ptr, ptr %pdev, align 8
+  %6 = load i16, ptr %config_msix_entry.i, align 8
+  %call.i = tail call zeroext i1 @qpci_msix_masked(ptr noundef nonnull %4, i16 noundef zeroext %6) #7
+  %7 = load ptr, ptr %pdev, align 8
   br i1 %call.i, label %if.then7.i, label %if.else11.i
 
 if.then7.i:                                       ; preds = %do.body.i
-  %9 = load i16, ptr %config_msix_entry.i, align 8
-  %call10.i = tail call zeroext i1 @qpci_msix_pending(ptr noundef %8, i16 noundef zeroext %9) #7
+  %8 = load i16, ptr %config_msix_entry.i, align 8
+  %call10.i = tail call zeroext i1 @qpci_msix_pending(ptr noundef %7, i16 noundef zeroext %8) #7
   br i1 %call10.i, label %do.end5, label %do.body.backedge
 
 do.body.backedge:                                 ; preds = %if.then7.i, %if.else22.i, %if.else11.i
@@ -778,30 +770,30 @@ do.body.backedge:                                 ; preds = %if.then7.i, %if.els
   br i1 %cmp.not, label %if.else, label %do.end, !llvm.loop !5
 
 if.else11.i:                                      ; preds = %do.body.i
-  %10 = load ptr, ptr %8, align 8
-  %qts.i = getelementptr inbounds i8, ptr %10, i64 128
-  %11 = load ptr, ptr %qts.i, align 8
-  %12 = load i64, ptr %config_msix_addr.i, align 8
-  %call13.i = tail call i32 @qtest_readl(ptr noundef %11, i64 noundef %12) #7
-  %13 = load i32, ptr %config_msix_data.i, align 8
-  %cmp14.i = icmp eq i32 %call13.i, %13
+  %9 = load ptr, ptr %7, align 8
+  %qts.i = getelementptr inbounds i8, ptr %9, i64 128
+  %10 = load ptr, ptr %qts.i, align 8
+  %11 = load i64, ptr %config_msix_addr.i, align 8
+  %call13.i = tail call i32 @qtest_readl(ptr noundef %10, i64 noundef %11) #7
+  %12 = load i32, ptr %config_msix_data.i, align 8
+  %cmp14.i = icmp eq i32 %call13.i, %12
   br i1 %cmp14.i, label %qvirtio_pci_get_config_isr_status.exit.thread, label %do.body.backedge
 
 qvirtio_pci_get_config_isr_status.exit.thread:    ; preds = %if.else11.i
-  %14 = load ptr, ptr %pdev, align 8
-  %15 = load ptr, ptr %14, align 8
-  %qts19.i = getelementptr inbounds i8, ptr %15, i64 128
-  %16 = load ptr, ptr %qts19.i, align 8
-  %17 = load i64, ptr %config_msix_addr.i, align 8
-  tail call void @qtest_writel(ptr noundef %16, i64 noundef %17, i32 noundef 0) #7
+  %13 = load ptr, ptr %pdev, align 8
+  %14 = load ptr, ptr %13, align 8
+  %qts19.i = getelementptr inbounds i8, ptr %14, i64 128
+  %15 = load ptr, ptr %qts19.i, align 8
+  %16 = load i64, ptr %config_msix_addr.i, align 8
+  tail call void @qtest_writel(ptr noundef %15, i64 noundef %16, i32 noundef 0) #7
   br label %do.end5
 
 if.else22.i:                                      ; preds = %do.end
-  %18 = load i64, ptr %bar.i, align 8
-  %19 = load i8, ptr %0, align 8
-  %call24.i = tail call zeroext i8 @qpci_io_readb(ptr noundef nonnull %4, i64 %18, i8 %19, i64 noundef 19) #7
-  %20 = and i8 %call24.i, 2
-  %tobool26.i.not = icmp eq i8 %20, 0
+  %17 = load i64, ptr %bar.i, align 8
+  %18 = load i8, ptr %0, align 8
+  %call24.i = tail call zeroext i8 @qpci_io_readb(ptr noundef nonnull %4, i64 %17, i8 %18, i64 noundef 19) #7
+  %19 = and i8 %call24.i, 2
+  %tobool26.i.not = icmp eq i8 %19, 0
   br i1 %tobool26.i.not, label %do.body.backedge, label %do.end5
 
 do.end5:                                          ; preds = %if.else22.i, %if.then7.i, %qvirtio_pci_get_config_isr_status.exit.thread

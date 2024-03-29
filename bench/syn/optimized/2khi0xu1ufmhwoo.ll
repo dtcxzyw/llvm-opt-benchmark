@@ -1583,8 +1583,8 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %24 = getelementptr inbounds i8, ptr %.sroa.016.056, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   %25 = load i32, ptr %24, align 8, !range !38, !alias.scope !255, !noalias !256, !noundef !4
-  %trunc.not.i.i = icmp eq i32 %25, 0
-  br i1 %trunc.not.i.i, label %26, label %37
+  %trunc.i.i = trunc i32 %25 to i1
+  br i1 %trunc.i.i, label %37, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %.sroa.016.056, i64 12

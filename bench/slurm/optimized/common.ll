@@ -4467,17 +4467,16 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
   %23 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %22, ptr %23, align 8
   %24 = load i8, ptr @tree_display, align 1
-  %25 = and i8 %24, 1
-  %.not907.i = icmp eq i8 %25, 0
-  %..i = select i1 %.not907.i, i32 10, i32 -20
+  %25 = trunc i8 %24 to i1
+  %..i = select i1 %25, i32 -20, i32 10
   br label %799
 
 26:                                               ; preds = %16
   %27 = tail call i32 @llvm.smax.i32(i32 %12, i32 7)
   %28 = zext nneg i32 %27 to i64
   %29 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.140, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not908.i = icmp eq i32 %29, 0
-  br i1 %.not908.i, label %30, label %34
+  %.not907.i = icmp eq i32 %29, 0
+  br i1 %.not907.i, label %30, label %34
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4489,8 +4488,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 34:                                               ; preds = %26
   %35 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.141, ptr noundef nonnull %5, i64 noundef %18) #20
-  %.not909.i = icmp eq i32 %35, 0
-  br i1 %.not909.i, label %36, label %40
+  %.not908.i = icmp eq i32 %35, 0
+  br i1 %.not908.i, label %36, label %40
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4502,8 +4501,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 40:                                               ; preds = %34
   %41 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.142, ptr noundef nonnull %5, i64 noundef %18) #20
-  %.not910.i = icmp eq i32 %41, 0
-  br i1 %.not910.i, label %42, label %46
+  %.not909.i = icmp eq i32 %41, 0
+  br i1 %.not909.i, label %42, label %46
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4517,8 +4516,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
   %47 = tail call i32 @llvm.smax.i32(i32 %12, i32 2)
   %48 = zext nneg i32 %47 to i64
   %49 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.143, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not911.i = icmp eq i32 %49, 0
-  br i1 %.not911.i, label %50, label %54
+  %.not910.i = icmp eq i32 %49, 0
+  br i1 %.not910.i, label %50, label %54
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4530,8 +4529,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 54:                                               ; preds = %46
   %55 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.145, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not912.i = icmp eq i32 %55, 0
-  br i1 %.not912.i, label %56, label %60
+  %.not911.i = icmp eq i32 %55, 0
+  br i1 %.not911.i, label %56, label %60
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4543,8 +4542,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 60:                                               ; preds = %54
   %61 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.146, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not913.i = icmp eq i32 %61, 0
-  br i1 %.not913.i, label %62, label %66
+  %.not912.i = icmp eq i32 %61, 0
+  br i1 %.not912.i, label %62, label %66
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4556,8 +4555,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 66:                                               ; preds = %60
   %67 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.148, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not914.i = icmp eq i32 %67, 0
-  br i1 %.not914.i, label %68, label %72
+  %.not913.i = icmp eq i32 %67, 0
+  br i1 %.not913.i, label %68, label %72
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4569,8 +4568,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 72:                                               ; preds = %66
   %73 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.149, ptr noundef nonnull %5, i64 noundef %14) #20
-  %.not915.i = icmp eq i32 %73, 0
-  br i1 %.not915.i, label %74, label %78
+  %.not914.i = icmp eq i32 %73, 0
+  br i1 %.not914.i, label %74, label %78
 
 74:                                               ; preds = %72
   %75 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4584,8 +4583,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
   %79 = tail call i32 @llvm.smax.i32(i32 %12, i32 8)
   %80 = zext nneg i32 %79 to i64
   %81 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.151, ptr noundef nonnull %5, i64 noundef %80) #20
-  %.not916.i = icmp eq i32 %81, 0
-  br i1 %.not916.i, label %82, label %86
+  %.not915.i = icmp eq i32 %81, 0
+  br i1 %.not915.i, label %82, label %86
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4597,8 +4596,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 86:                                               ; preds = %78
   %87 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.153, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not917.i = icmp eq i32 %87, 0
-  br i1 %.not917.i, label %88, label %92
+  %.not916.i = icmp eq i32 %87, 0
+  br i1 %.not916.i, label %88, label %92
 
 88:                                               ; preds = %86
   %89 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4610,8 +4609,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 92:                                               ; preds = %86
   %93 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.155, ptr noundef nonnull %5, i64 noundef %14) #20
-  %.not918.i = icmp eq i32 %93, 0
-  br i1 %.not918.i, label %94, label %98
+  %.not917.i = icmp eq i32 %93, 0
+  br i1 %.not917.i, label %94, label %98
 
 94:                                               ; preds = %92
   %95 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4623,8 +4622,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 98:                                               ; preds = %92
   %99 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.157, ptr noundef nonnull %5, i64 noundef %14) #20
-  %.not919.i = icmp eq i32 %99, 0
-  br i1 %.not919.i, label %100, label %104
+  %.not918.i = icmp eq i32 %99, 0
+  br i1 %.not918.i, label %100, label %104
 
 100:                                              ; preds = %98
   %101 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4636,8 +4635,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 104:                                              ; preds = %98
   %105 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.158, ptr noundef nonnull %5, i64 noundef %80) #20
-  %.not920.i = icmp eq i32 %105, 0
-  br i1 %.not920.i, label %106, label %110
+  %.not919.i = icmp eq i32 %105, 0
+  br i1 %.not919.i, label %106, label %110
 
 106:                                              ; preds = %104
   %107 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4649,8 +4648,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 110:                                              ; preds = %104
   %111 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.159, ptr noundef nonnull %5, i64 noundef %80) #20
-  %.not921.i = icmp eq i32 %111, 0
-  br i1 %.not921.i, label %112, label %116
+  %.not920.i = icmp eq i32 %111, 0
+  br i1 %.not920.i, label %112, label %116
 
 112:                                              ; preds = %110
   %113 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4662,8 +4661,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 116:                                              ; preds = %110
   %117 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.160, ptr noundef nonnull %5, i64 noundef %14) #20
-  %.not922.i = icmp eq i32 %117, 0
-  br i1 %.not922.i, label %118, label %122
+  %.not921.i = icmp eq i32 %117, 0
+  br i1 %.not921.i, label %118, label %122
 
 118:                                              ; preds = %116
   %119 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4677,8 +4676,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
   %123 = tail call i32 @llvm.smax.i32(i32 %12, i32 6)
   %124 = zext nneg i32 %123 to i64
   %125 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.161, ptr noundef nonnull %5, i64 noundef %124) #20
-  %.not923.i = icmp eq i32 %125, 0
-  br i1 %.not923.i, label %126, label %130
+  %.not922.i = icmp eq i32 %125, 0
+  br i1 %.not922.i, label %126, label %130
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4690,8 +4689,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 130:                                              ; preds = %122
   %131 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.163, ptr noundef nonnull %5, i64 noundef %124) #20
-  %.not924.i = icmp eq i32 %131, 0
-  br i1 %.not924.i, label %132, label %136
+  %.not923.i = icmp eq i32 %131, 0
+  br i1 %.not923.i, label %132, label %136
 
 132:                                              ; preds = %130
   %133 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4703,8 +4702,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 136:                                              ; preds = %130
   %137 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.165, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not925.i = icmp eq i32 %137, 0
-  br i1 %.not925.i, label %138, label %142
+  %.not924.i = icmp eq i32 %137, 0
+  br i1 %.not924.i, label %138, label %142
 
 138:                                              ; preds = %136
   %139 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4716,8 +4715,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 142:                                              ; preds = %136
   %143 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.167, ptr noundef nonnull %5, i64 noundef %80) #20
-  %.not926.i = icmp eq i32 %143, 0
-  br i1 %.not926.i, label %144, label %148
+  %.not925.i = icmp eq i32 %143, 0
+  br i1 %.not925.i, label %144, label %148
 
 144:                                              ; preds = %142
   %145 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4729,8 +4728,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 148:                                              ; preds = %142
   %149 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.169, ptr noundef nonnull %5, i64 noundef %80) #20
-  %.not927.i = icmp eq i32 %149, 0
-  br i1 %.not927.i, label %150, label %154
+  %.not926.i = icmp eq i32 %149, 0
+  br i1 %.not926.i, label %150, label %154
 
 150:                                              ; preds = %148
   %151 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4742,8 +4741,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 154:                                              ; preds = %148
   %155 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.171, ptr noundef nonnull %5, i64 noundef %80) #20
-  %.not928.i = icmp eq i32 %155, 0
-  br i1 %.not928.i, label %156, label %160
+  %.not927.i = icmp eq i32 %155, 0
+  br i1 %.not927.i, label %156, label %160
 
 156:                                              ; preds = %154
   %157 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4755,8 +4754,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 160:                                              ; preds = %154
   %161 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.173, ptr noundef nonnull %5, i64 noundef %14) #20
-  %.not929.i = icmp eq i32 %161, 0
-  br i1 %.not929.i, label %162, label %166
+  %.not928.i = icmp eq i32 %161, 0
+  br i1 %.not928.i, label %162, label %166
 
 162:                                              ; preds = %160
   %163 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4768,8 +4767,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 166:                                              ; preds = %160
   %167 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.175, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not930.i = icmp eq i32 %167, 0
-  br i1 %.not930.i, label %168, label %172
+  %.not929.i = icmp eq i32 %167, 0
+  br i1 %.not929.i, label %168, label %172
 
 168:                                              ; preds = %166
   %169 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4781,8 +4780,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 172:                                              ; preds = %166
   %173 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.176, ptr noundef nonnull %5, i64 noundef %124) #20
-  %.not931.i = icmp eq i32 %173, 0
-  br i1 %.not931.i, label %174, label %178
+  %.not930.i = icmp eq i32 %173, 0
+  br i1 %.not930.i, label %174, label %178
 
 174:                                              ; preds = %172
   %175 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4794,8 +4793,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 178:                                              ; preds = %172
   %179 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.177, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not932.i = icmp eq i32 %179, 0
-  br i1 %.not932.i, label %180, label %184
+  %.not931.i = icmp eq i32 %179, 0
+  br i1 %.not931.i, label %180, label %184
 
 180:                                              ; preds = %178
   %181 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4807,8 +4806,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 184:                                              ; preds = %178
   %185 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.178, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not933.i = icmp eq i32 %185, 0
-  br i1 %.not933.i, label %186, label %190
+  %.not932.i = icmp eq i32 %185, 0
+  br i1 %.not932.i, label %186, label %190
 
 186:                                              ; preds = %184
   %187 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4820,8 +4819,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 190:                                              ; preds = %184
   %191 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.179, ptr noundef nonnull %5, i64 noundef %14) #20
-  %.not934.i = icmp eq i32 %191, 0
-  br i1 %.not934.i, label %192, label %196
+  %.not933.i = icmp eq i32 %191, 0
+  br i1 %.not933.i, label %192, label %196
 
 192:                                              ; preds = %190
   %193 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4833,8 +4832,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 196:                                              ; preds = %190
   %197 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.180, ptr noundef nonnull %5, i64 noundef %14) #20
-  %.not935.i = icmp eq i32 %197, 0
-  br i1 %.not935.i, label %198, label %202
+  %.not934.i = icmp eq i32 %197, 0
+  br i1 %.not934.i, label %198, label %202
 
 198:                                              ; preds = %196
   %199 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4846,8 +4845,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 202:                                              ; preds = %196
   %203 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.181, ptr noundef nonnull %5, i64 noundef %18) #20
-  %.not936.i = icmp eq i32 %203, 0
-  br i1 %.not936.i, label %204, label %208
+  %.not935.i = icmp eq i32 %203, 0
+  br i1 %.not935.i, label %204, label %208
 
 204:                                              ; preds = %202
   %205 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4861,8 +4860,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
   %209 = tail call i32 @llvm.smax.i32(i32 %12, i32 9)
   %210 = zext nneg i32 %209 to i64
   %211 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.182, ptr noundef nonnull %5, i64 noundef %210) #20
-  %.not937.i = icmp eq i32 %211, 0
-  br i1 %.not937.i, label %212, label %216
+  %.not936.i = icmp eq i32 %211, 0
+  br i1 %.not936.i, label %212, label %216
 
 212:                                              ; preds = %208
   %213 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4874,8 +4873,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 216:                                              ; preds = %208
   %217 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.183, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not938.i = icmp eq i32 %217, 0
-  br i1 %.not938.i, label %218, label %222
+  %.not937.i = icmp eq i32 %217, 0
+  br i1 %.not937.i, label %218, label %222
 
 218:                                              ; preds = %216
   %219 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4887,8 +4886,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 222:                                              ; preds = %216
   %223 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.184, ptr noundef nonnull %5, i64 noundef %14) #20
-  %.not939.i = icmp eq i32 %223, 0
-  br i1 %.not939.i, label %224, label %228
+  %.not938.i = icmp eq i32 %223, 0
+  br i1 %.not938.i, label %224, label %228
 
 224:                                              ; preds = %222
   %225 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4900,8 +4899,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 228:                                              ; preds = %222
   %229 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.185, ptr noundef nonnull %5, i64 noundef %124) #20
-  %.not940.i = icmp eq i32 %229, 0
-  br i1 %.not940.i, label %230, label %234
+  %.not939.i = icmp eq i32 %229, 0
+  br i1 %.not939.i, label %230, label %234
 
 230:                                              ; preds = %228
   %231 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4913,8 +4912,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 234:                                              ; preds = %228
   %235 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.186, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not941.i = icmp eq i32 %235, 0
-  br i1 %.not941.i, label %236, label %240
+  %.not940.i = icmp eq i32 %235, 0
+  br i1 %.not940.i, label %236, label %240
 
 236:                                              ; preds = %234
   %237 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4926,8 +4925,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 240:                                              ; preds = %234
   %241 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.187, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not942.i = icmp eq i32 %241, 0
-  br i1 %.not942.i, label %242, label %246
+  %.not941.i = icmp eq i32 %241, 0
+  br i1 %.not941.i, label %242, label %246
 
 242:                                              ; preds = %240
   %243 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4939,8 +4938,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 246:                                              ; preds = %240
   %247 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.188, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not943.i = icmp eq i32 %247, 0
-  br i1 %.not943.i, label %248, label %252
+  %.not942.i = icmp eq i32 %247, 0
+  br i1 %.not942.i, label %248, label %252
 
 248:                                              ; preds = %246
   %249 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4952,8 +4951,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 252:                                              ; preds = %246
   %253 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.189, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not944.i = icmp eq i32 %253, 0
-  br i1 %.not944.i, label %254, label %258
+  %.not943.i = icmp eq i32 %253, 0
+  br i1 %.not943.i, label %254, label %258
 
 254:                                              ; preds = %252
   %255 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4965,8 +4964,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 258:                                              ; preds = %252
   %259 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.190, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not945.i = icmp eq i32 %259, 0
-  br i1 %.not945.i, label %260, label %264
+  %.not944.i = icmp eq i32 %259, 0
+  br i1 %.not944.i, label %260, label %264
 
 260:                                              ; preds = %258
   %261 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4978,8 +4977,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 264:                                              ; preds = %258
   %265 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.191, ptr noundef nonnull %5, i64 noundef %18) #20
-  %.not946.i = icmp eq i32 %265, 0
-  br i1 %.not946.i, label %266, label %270
+  %.not945.i = icmp eq i32 %265, 0
+  br i1 %.not945.i, label %266, label %270
 
 266:                                              ; preds = %264
   %267 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4991,8 +4990,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 270:                                              ; preds = %264
   %271 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.192, ptr noundef nonnull %5, i64 noundef %80) #20
-  %.not947.i = icmp eq i32 %271, 0
-  br i1 %.not947.i, label %272, label %276
+  %.not946.i = icmp eq i32 %271, 0
+  br i1 %.not946.i, label %272, label %276
 
 272:                                              ; preds = %270
   %273 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5004,8 +5003,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 276:                                              ; preds = %270
   %277 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.193, ptr noundef nonnull %5, i64 noundef %18) #20
-  %.not948.i = icmp eq i32 %277, 0
-  br i1 %.not948.i, label %278, label %282
+  %.not947.i = icmp eq i32 %277, 0
+  br i1 %.not947.i, label %278, label %282
 
 278:                                              ; preds = %276
   %279 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5017,8 +5016,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 282:                                              ; preds = %276
   %283 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.195, ptr noundef nonnull %5, i64 noundef %18) #20
-  %.not949.i = icmp eq i32 %283, 0
-  br i1 %.not949.i, label %284, label %288
+  %.not948.i = icmp eq i32 %283, 0
+  br i1 %.not948.i, label %284, label %288
 
 284:                                              ; preds = %282
   %285 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5030,8 +5029,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 288:                                              ; preds = %282
   %289 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.196, ptr noundef nonnull %5, i64 noundef %18) #20
-  %.not950.i = icmp eq i32 %289, 0
-  br i1 %.not950.i, label %290, label %294
+  %.not949.i = icmp eq i32 %289, 0
+  br i1 %.not949.i, label %290, label %294
 
 290:                                              ; preds = %288
   %291 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5043,8 +5042,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 294:                                              ; preds = %288
   %295 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.198, ptr noundef nonnull %5, i64 noundef %18) #20
-  %.not951.i = icmp eq i32 %295, 0
-  br i1 %.not951.i, label %296, label %300
+  %.not950.i = icmp eq i32 %295, 0
+  br i1 %.not950.i, label %296, label %300
 
 296:                                              ; preds = %294
   %297 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5056,8 +5055,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 300:                                              ; preds = %294
   %301 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.199, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not952.i = icmp eq i32 %301, 0
-  br i1 %.not952.i, label %302, label %306
+  %.not951.i = icmp eq i32 %301, 0
+  br i1 %.not951.i, label %302, label %306
 
 302:                                              ; preds = %300
   %303 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5069,8 +5068,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 306:                                              ; preds = %300
   %307 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.200, ptr noundef nonnull %5, i64 noundef %14) #20
-  %.not953.i = icmp eq i32 %307, 0
-  br i1 %.not953.i, label %308, label %312
+  %.not952.i = icmp eq i32 %307, 0
+  br i1 %.not952.i, label %308, label %312
 
 308:                                              ; preds = %306
   %309 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5082,8 +5081,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 312:                                              ; preds = %306
   %313 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.201, ptr noundef nonnull %5, i64 noundef %210) #20
-  %.not954.i = icmp eq i32 %313, 0
-  br i1 %.not954.i, label %314, label %318
+  %.not953.i = icmp eq i32 %313, 0
+  br i1 %.not953.i, label %314, label %318
 
 314:                                              ; preds = %312
   %315 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5095,8 +5094,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 318:                                              ; preds = %312
   %319 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.202, ptr noundef nonnull %5, i64 noundef %210) #20
-  %.not955.i = icmp eq i32 %319, 0
-  br i1 %.not955.i, label %320, label %324
+  %.not954.i = icmp eq i32 %319, 0
+  br i1 %.not954.i, label %320, label %324
 
 320:                                              ; preds = %318
   %321 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5110,8 +5109,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
   %325 = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
   %326 = zext nneg i32 %325 to i64
   %327 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.203, ptr noundef nonnull %5, i64 noundef %326) #20
-  %.not956.i = icmp eq i32 %327, 0
-  br i1 %.not956.i, label %328, label %332
+  %.not955.i = icmp eq i32 %327, 0
+  br i1 %.not955.i, label %328, label %332
 
 328:                                              ; preds = %324
   %329 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5125,8 +5124,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
   %333 = tail call i32 @llvm.smax.i32(i32 %12, i32 10)
   %334 = zext nneg i32 %333 to i64
   %335 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.204, ptr noundef nonnull %5, i64 noundef %334) #20
-  %.not957.i = icmp eq i32 %335, 0
-  br i1 %.not957.i, label %336, label %340
+  %.not956.i = icmp eq i32 %335, 0
+  br i1 %.not956.i, label %336, label %340
 
 336:                                              ; preds = %332
   %337 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5138,8 +5137,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 340:                                              ; preds = %332
   %341 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.206, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not958.i = icmp eq i32 %341, 0
-  br i1 %.not958.i, label %342, label %346
+  %.not957.i = icmp eq i32 %341, 0
+  br i1 %.not957.i, label %342, label %346
 
 342:                                              ; preds = %340
   %343 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5151,13 +5150,13 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 346:                                              ; preds = %340
   %347 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.208, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not959.i = icmp eq i32 %347, 0
-  br i1 %.not959.i, label %350, label %348
+  %.not958.i = icmp eq i32 %347, 0
+  br i1 %.not958.i, label %350, label %348
 
 348:                                              ; preds = %346
   %349 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.209, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not960.i = icmp eq i32 %349, 0
-  br i1 %.not960.i, label %350, label %354
+  %.not959.i = icmp eq i32 %349, 0
+  br i1 %.not959.i, label %350, label %354
 
 350:                                              ; preds = %348, %346
   %351 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5169,8 +5168,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 354:                                              ; preds = %348
   %355 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.210, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not961.i = icmp eq i32 %355, 0
-  br i1 %.not961.i, label %356, label %360
+  %.not960.i = icmp eq i32 %355, 0
+  br i1 %.not960.i, label %356, label %360
 
 356:                                              ; preds = %354
   %357 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5184,13 +5183,13 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
   %361 = tail call i32 @llvm.smax.i32(i32 %12, i32 11)
   %362 = zext nneg i32 %361 to i64
   %363 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.212, ptr noundef nonnull %5, i64 noundef %362) #20
-  %.not962.i = icmp eq i32 %363, 0
-  br i1 %.not962.i, label %366, label %364
+  %.not961.i = icmp eq i32 %363, 0
+  br i1 %.not961.i, label %366, label %364
 
 364:                                              ; preds = %360
   %365 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.213, ptr noundef nonnull %5, i64 noundef %210) #20
-  %.not963.i = icmp eq i32 %365, 0
-  br i1 %.not963.i, label %366, label %370
+  %.not962.i = icmp eq i32 %365, 0
+  br i1 %.not962.i, label %366, label %370
 
 366:                                              ; preds = %364, %360
   %367 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5202,18 +5201,18 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 370:                                              ; preds = %364
   %371 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.214, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not964.i = icmp eq i32 %371, 0
-  br i1 %.not964.i, label %376, label %372
+  %.not963.i = icmp eq i32 %371, 0
+  br i1 %.not963.i, label %376, label %372
 
 372:                                              ; preds = %370
   %373 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.215, ptr noundef nonnull %5, i64 noundef %210) #20
-  %.not965.i = icmp eq i32 %373, 0
-  br i1 %.not965.i, label %376, label %374
+  %.not964.i = icmp eq i32 %373, 0
+  br i1 %.not964.i, label %376, label %374
 
 374:                                              ; preds = %372
   %375 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.216, ptr noundef nonnull %5, i64 noundef %362) #20
-  %.not966.i = icmp eq i32 %375, 0
-  br i1 %.not966.i, label %376, label %380
+  %.not965.i = icmp eq i32 %375, 0
+  br i1 %.not965.i, label %376, label %380
 
 376:                                              ; preds = %374, %372, %370
   %377 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5225,13 +5224,13 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 380:                                              ; preds = %374
   %381 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.217, ptr noundef nonnull %5, i64 noundef %362) #20
-  %.not967.i = icmp eq i32 %381, 0
-  br i1 %.not967.i, label %384, label %382
+  %.not966.i = icmp eq i32 %381, 0
+  br i1 %.not966.i, label %384, label %382
 
 382:                                              ; preds = %380
   %383 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.218, ptr noundef nonnull %5, i64 noundef %210) #20
-  %.not968.i = icmp eq i32 %383, 0
-  br i1 %.not968.i, label %384, label %388
+  %.not967.i = icmp eq i32 %383, 0
+  br i1 %.not967.i, label %384, label %388
 
 384:                                              ; preds = %382, %380
   %385 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5243,15 +5242,15 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 388:                                              ; preds = %382
   %389 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.219, ptr noundef nonnull %5, i64 noundef %80) #20
-  %.not969.i = icmp eq i32 %389, 0
-  br i1 %.not969.i, label %394, label %390
+  %.not968.i = icmp eq i32 %389, 0
+  br i1 %.not968.i, label %394, label %390
 
 390:                                              ; preds = %388
   %391 = tail call i32 @llvm.smax.i32(i32 %12, i32 13)
   %392 = zext nneg i32 %391 to i64
   %393 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.220, ptr noundef nonnull %5, i64 noundef %392) #20
-  %.not970.i = icmp eq i32 %393, 0
-  br i1 %.not970.i, label %394, label %398
+  %.not969.i = icmp eq i32 %393, 0
+  br i1 %.not969.i, label %394, label %398
 
 394:                                              ; preds = %390, %388
   %395 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5265,20 +5264,20 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
   %399 = tail call i32 @llvm.smax.i32(i32 %12, i32 18)
   %400 = zext nneg i32 %399 to i64
   %401 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.222, ptr noundef nonnull %5, i64 noundef %400) #20
-  %.not971.i = icmp eq i32 %401, 0
-  br i1 %.not971.i, label %408, label %402
+  %.not970.i = icmp eq i32 %401, 0
+  br i1 %.not970.i, label %408, label %402
 
 402:                                              ; preds = %398
   %403 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.223, ptr noundef nonnull %5, i64 noundef %400) #20
-  %.not972.i = icmp eq i32 %403, 0
-  br i1 %.not972.i, label %408, label %404
+  %.not971.i = icmp eq i32 %403, 0
+  br i1 %.not971.i, label %408, label %404
 
 404:                                              ; preds = %402
   %405 = tail call i32 @llvm.smax.i32(i32 %12, i32 15)
   %406 = zext nneg i32 %405 to i64
   %407 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.224, ptr noundef nonnull %5, i64 noundef %406) #20
-  %.not973.i = icmp eq i32 %407, 0
-  br i1 %.not973.i, label %408, label %412
+  %.not972.i = icmp eq i32 %407, 0
+  br i1 %.not972.i, label %408, label %412
 
 408:                                              ; preds = %404, %402, %398
   %409 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5290,13 +5289,13 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 412:                                              ; preds = %404
   %413 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.225, ptr noundef nonnull %5, i64 noundef %80) #20
-  %.not974.i = icmp eq i32 %413, 0
-  br i1 %.not974.i, label %416, label %414
+  %.not973.i = icmp eq i32 %413, 0
+  br i1 %.not973.i, label %416, label %414
 
 414:                                              ; preds = %412
   %415 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.226, ptr noundef nonnull %5, i64 noundef %80) #20
-  %.not975.i = icmp eq i32 %415, 0
-  br i1 %.not975.i, label %416, label %420
+  %.not974.i = icmp eq i32 %415, 0
+  br i1 %.not974.i, label %416, label %420
 
 416:                                              ; preds = %414, %412
   %417 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5308,18 +5307,18 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 420:                                              ; preds = %414
   %421 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.227, ptr noundef nonnull %5, i64 noundef %362) #20
-  %.not976.i = icmp eq i32 %421, 0
-  br i1 %.not976.i, label %426, label %422
+  %.not975.i = icmp eq i32 %421, 0
+  br i1 %.not975.i, label %426, label %422
 
 422:                                              ; preds = %420
   %423 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.228, ptr noundef nonnull %5, i64 noundef %362) #20
-  %.not977.i = icmp eq i32 %423, 0
-  br i1 %.not977.i, label %426, label %424
+  %.not976.i = icmp eq i32 %423, 0
+  br i1 %.not976.i, label %426, label %424
 
 424:                                              ; preds = %422
   %425 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.229, ptr noundef nonnull %5, i64 noundef %210) #20
-  %.not978.i = icmp eq i32 %425, 0
-  br i1 %.not978.i, label %426, label %430
+  %.not977.i = icmp eq i32 %425, 0
+  br i1 %.not977.i, label %426, label %430
 
 426:                                              ; preds = %424, %422, %420
   %427 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5331,13 +5330,13 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 430:                                              ; preds = %424
   %431 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.230, ptr noundef nonnull %5, i64 noundef %362) #20
-  %.not979.i = icmp eq i32 %431, 0
-  br i1 %.not979.i, label %434, label %432
+  %.not978.i = icmp eq i32 %431, 0
+  br i1 %.not978.i, label %434, label %432
 
 432:                                              ; preds = %430
   %433 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.231, ptr noundef nonnull %5, i64 noundef %210) #20
-  %.not980.i = icmp eq i32 %433, 0
-  br i1 %.not980.i, label %434, label %438
+  %.not979.i = icmp eq i32 %433, 0
+  br i1 %.not979.i, label %434, label %438
 
 434:                                              ; preds = %432, %430
   %435 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5349,8 +5348,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 438:                                              ; preds = %432
   %439 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.232, ptr noundef nonnull %5, i64 noundef %18) #20
-  %.not981.i = icmp eq i32 %439, 0
-  br i1 %.not981.i, label %440, label %444
+  %.not980.i = icmp eq i32 %439, 0
+  br i1 %.not980.i, label %440, label %444
 
 440:                                              ; preds = %438
   %441 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5362,8 +5361,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 444:                                              ; preds = %438
   %445 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.233, ptr noundef nonnull %5, i64 noundef %18) #20
-  %.not982.i = icmp eq i32 %445, 0
-  br i1 %.not982.i, label %446, label %450
+  %.not981.i = icmp eq i32 %445, 0
+  br i1 %.not981.i, label %446, label %450
 
 446:                                              ; preds = %444
   %447 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5377,18 +5376,18 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
   %451 = tail call i32 @llvm.smax.i32(i32 %12, i32 17)
   %452 = zext nneg i32 %451 to i64
   %453 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.234, ptr noundef nonnull %5, i64 noundef %452) #20
-  %.not983.i = icmp eq i32 %453, 0
-  br i1 %.not983.i, label %458, label %454
+  %.not982.i = icmp eq i32 %453, 0
+  br i1 %.not982.i, label %458, label %454
 
 454:                                              ; preds = %450
   %455 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.235, ptr noundef nonnull %5, i64 noundef %452) #20
-  %.not984.i = icmp eq i32 %455, 0
-  br i1 %.not984.i, label %458, label %456
+  %.not983.i = icmp eq i32 %455, 0
+  br i1 %.not983.i, label %458, label %456
 
 456:                                              ; preds = %454
   %457 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.236, ptr noundef nonnull %5, i64 noundef %406) #20
-  %.not985.i = icmp eq i32 %457, 0
-  br i1 %.not985.i, label %458, label %462
+  %.not984.i = icmp eq i32 %457, 0
+  br i1 %.not984.i, label %458, label %462
 
 458:                                              ; preds = %456, %454, %450
   %459 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5400,13 +5399,13 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 462:                                              ; preds = %456
   %463 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.237, ptr noundef nonnull %5, i64 noundef %452) #20
-  %.not986.i = icmp eq i32 %463, 0
-  br i1 %.not986.i, label %466, label %464
+  %.not985.i = icmp eq i32 %463, 0
+  br i1 %.not985.i, label %466, label %464
 
 464:                                              ; preds = %462
   %465 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.238, ptr noundef nonnull %5, i64 noundef %406) #20
-  %.not987.i = icmp eq i32 %465, 0
-  br i1 %.not987.i, label %466, label %470
+  %.not986.i = icmp eq i32 %465, 0
+  br i1 %.not986.i, label %466, label %470
 
 466:                                              ; preds = %464, %462
   %467 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5418,18 +5417,18 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 470:                                              ; preds = %464
   %471 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.239, ptr noundef nonnull %5, i64 noundef %362) #20
-  %.not988.i = icmp eq i32 %471, 0
-  br i1 %.not988.i, label %476, label %472
+  %.not987.i = icmp eq i32 %471, 0
+  br i1 %.not987.i, label %476, label %472
 
 472:                                              ; preds = %470
   %473 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.240, ptr noundef nonnull %5, i64 noundef %362) #20
-  %.not989.i = icmp eq i32 %473, 0
-  br i1 %.not989.i, label %476, label %474
+  %.not988.i = icmp eq i32 %473, 0
+  br i1 %.not988.i, label %476, label %474
 
 474:                                              ; preds = %472
   %475 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.241, ptr noundef nonnull %5, i64 noundef %210) #20
-  %.not990.i = icmp eq i32 %475, 0
-  br i1 %.not990.i, label %476, label %480
+  %.not989.i = icmp eq i32 %475, 0
+  br i1 %.not989.i, label %476, label %480
 
 476:                                              ; preds = %474, %472, %470
   %477 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5441,13 +5440,13 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 480:                                              ; preds = %474
   %481 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.242, ptr noundef nonnull %5, i64 noundef %362) #20
-  %.not991.i = icmp eq i32 %481, 0
-  br i1 %.not991.i, label %484, label %482
+  %.not990.i = icmp eq i32 %481, 0
+  br i1 %.not990.i, label %484, label %482
 
 482:                                              ; preds = %480
   %483 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.243, ptr noundef nonnull %5, i64 noundef %210) #20
-  %.not992.i = icmp eq i32 %483, 0
-  br i1 %.not992.i, label %484, label %488
+  %.not991.i = icmp eq i32 %483, 0
+  br i1 %.not991.i, label %484, label %488
 
 484:                                              ; preds = %482, %480
   %485 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5459,8 +5458,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 488:                                              ; preds = %482
   %489 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.244, ptr noundef nonnull %5, i64 noundef %18) #20
-  %.not993.i = icmp eq i32 %489, 0
-  br i1 %.not993.i, label %490, label %494
+  %.not992.i = icmp eq i32 %489, 0
+  br i1 %.not992.i, label %490, label %494
 
 490:                                              ; preds = %488
   %491 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5474,13 +5473,13 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
   %495 = tail call i32 @llvm.smax.i32(i32 %12, i32 12)
   %496 = zext nneg i32 %495 to i64
   %497 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.246, ptr noundef nonnull %5, i64 noundef %496) #20
-  %.not994.i = icmp eq i32 %497, 0
-  br i1 %.not994.i, label %500, label %498
+  %.not993.i = icmp eq i32 %497, 0
+  br i1 %.not993.i, label %500, label %498
 
 498:                                              ; preds = %494
   %499 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.247, ptr noundef nonnull %5, i64 noundef %334) #20
-  %.not995.i = icmp eq i32 %499, 0
-  br i1 %.not995.i, label %500, label %504
+  %.not994.i = icmp eq i32 %499, 0
+  br i1 %.not994.i, label %500, label %504
 
 500:                                              ; preds = %498, %494
   %501 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5492,8 +5491,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 504:                                              ; preds = %498
   %505 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.248, ptr noundef nonnull %5, i64 noundef %18) #20
-  %.not996.i = icmp eq i32 %505, 0
-  br i1 %.not996.i, label %506, label %510
+  %.not995.i = icmp eq i32 %505, 0
+  br i1 %.not995.i, label %506, label %510
 
 506:                                              ; preds = %504
   %507 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5505,8 +5504,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 510:                                              ; preds = %504
   %511 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.250, ptr noundef nonnull %5, i64 noundef %18) #20
-  %.not997.i = icmp eq i32 %511, 0
-  br i1 %.not997.i, label %512, label %516
+  %.not996.i = icmp eq i32 %511, 0
+  br i1 %.not996.i, label %512, label %516
 
 512:                                              ; preds = %510
   %513 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5518,23 +5517,23 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 516:                                              ; preds = %510
   %517 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.252, ptr noundef nonnull %5, i64 noundef %452) #20
-  %.not998.i = icmp eq i32 %517, 0
-  br i1 %.not998.i, label %524, label %518
+  %.not997.i = icmp eq i32 %517, 0
+  br i1 %.not997.i, label %524, label %518
 
 518:                                              ; preds = %516
   %519 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.253, ptr noundef nonnull %5, i64 noundef %452) #20
-  %.not999.i = icmp eq i32 %519, 0
-  br i1 %.not999.i, label %524, label %520
+  %.not998.i = icmp eq i32 %519, 0
+  br i1 %.not998.i, label %524, label %520
 
 520:                                              ; preds = %518
   %521 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.254, ptr noundef nonnull %5, i64 noundef %406) #20
-  %.not1000.i = icmp eq i32 %521, 0
-  br i1 %.not1000.i, label %524, label %522
+  %.not999.i = icmp eq i32 %521, 0
+  br i1 %.not999.i, label %524, label %522
 
 522:                                              ; preds = %520
   %523 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.255, ptr noundef nonnull %5, i64 noundef %362) #20
-  %.not1001.i = icmp eq i32 %523, 0
-  br i1 %.not1001.i, label %524, label %528
+  %.not1000.i = icmp eq i32 %523, 0
+  br i1 %.not1000.i, label %524, label %528
 
 524:                                              ; preds = %522, %520, %518, %516
   %525 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5546,18 +5545,18 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 528:                                              ; preds = %522
   %529 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.256, ptr noundef nonnull %5, i64 noundef %334) #20
-  %.not1002.i = icmp eq i32 %529, 0
-  br i1 %.not1002.i, label %534, label %530
+  %.not1001.i = icmp eq i32 %529, 0
+  br i1 %.not1001.i, label %534, label %530
 
 530:                                              ; preds = %528
   %531 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.257, ptr noundef nonnull %5, i64 noundef %334) #20
-  %.not1003.i = icmp eq i32 %531, 0
-  br i1 %.not1003.i, label %534, label %532
+  %.not1002.i = icmp eq i32 %531, 0
+  br i1 %.not1002.i, label %534, label %532
 
 532:                                              ; preds = %530
   %533 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.258, ptr noundef nonnull %5, i64 noundef %124) #20
-  %.not1004.i = icmp eq i32 %533, 0
-  br i1 %.not1004.i, label %534, label %538
+  %.not1003.i = icmp eq i32 %533, 0
+  br i1 %.not1003.i, label %534, label %538
 
 534:                                              ; preds = %532, %530, %528
   %535 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5569,8 +5568,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 538:                                              ; preds = %532
   %539 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.259, ptr noundef nonnull %5, i64 noundef %18) #20
-  %.not1005.i = icmp eq i32 %539, 0
-  br i1 %.not1005.i, label %540, label %544
+  %.not1004.i = icmp eq i32 %539, 0
+  br i1 %.not1004.i, label %540, label %544
 
 540:                                              ; preds = %538
   %541 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5582,8 +5581,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 544:                                              ; preds = %538
   %545 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.261, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not1006.i = icmp eq i32 %545, 0
-  br i1 %.not1006.i, label %546, label %550
+  %.not1005.i = icmp eq i32 %545, 0
+  br i1 %.not1005.i, label %546, label %550
 
 546:                                              ; preds = %544
   %547 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5595,8 +5594,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 550:                                              ; preds = %544
   %551 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.263, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not1007.i = icmp eq i32 %551, 0
-  br i1 %.not1007.i, label %552, label %556
+  %.not1006.i = icmp eq i32 %551, 0
+  br i1 %.not1006.i, label %552, label %556
 
 552:                                              ; preds = %550
   %553 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5608,8 +5607,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 556:                                              ; preds = %550
   %557 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.265, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not1008.i = icmp eq i32 %557, 0
-  br i1 %.not1008.i, label %558, label %562
+  %.not1007.i = icmp eq i32 %557, 0
+  br i1 %.not1007.i, label %558, label %562
 
 558:                                              ; preds = %556
   %559 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5623,8 +5622,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
   %563 = tail call i32 @llvm.smax.i32(i32 %12, i32 5)
   %564 = zext nneg i32 %563 to i64
   %565 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.266, ptr noundef nonnull %5, i64 noundef %564) #20
-  %.not1009.i = icmp eq i32 %565, 0
-  br i1 %.not1009.i, label %566, label %570
+  %.not1008.i = icmp eq i32 %565, 0
+  br i1 %.not1008.i, label %566, label %570
 
 566:                                              ; preds = %562
   %567 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5636,8 +5635,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 570:                                              ; preds = %562
   %571 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.267, ptr noundef nonnull %5, i64 noundef %564) #20
-  %.not1010.i = icmp eq i32 %571, 0
-  br i1 %.not1010.i, label %572, label %576
+  %.not1009.i = icmp eq i32 %571, 0
+  br i1 %.not1009.i, label %572, label %576
 
 572:                                              ; preds = %570
   %573 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5649,8 +5648,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 576:                                              ; preds = %570
   %577 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.268, ptr noundef nonnull %5, i64 noundef %564) #20
-  %.not1011.i = icmp eq i32 %577, 0
-  br i1 %.not1011.i, label %578, label %582
+  %.not1010.i = icmp eq i32 %577, 0
+  br i1 %.not1010.i, label %578, label %582
 
 578:                                              ; preds = %576
   %579 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5662,8 +5661,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 582:                                              ; preds = %576
   %583 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.270, ptr noundef nonnull %5, i64 noundef %326) #20
-  %.not1012.i = icmp eq i32 %583, 0
-  br i1 %.not1012.i, label %584, label %588
+  %.not1011.i = icmp eq i32 %583, 0
+  br i1 %.not1011.i, label %584, label %588
 
 584:                                              ; preds = %582
   %585 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5675,8 +5674,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 588:                                              ; preds = %582
   %589 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.272, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not1013.i = icmp eq i32 %589, 0
-  br i1 %.not1013.i, label %590, label %594
+  %.not1012.i = icmp eq i32 %589, 0
+  br i1 %.not1012.i, label %590, label %594
 
 590:                                              ; preds = %588
   %591 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5688,8 +5687,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 594:                                              ; preds = %588
   %595 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.273, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not1014.i = icmp eq i32 %595, 0
-  br i1 %.not1014.i, label %596, label %600
+  %.not1013.i = icmp eq i32 %595, 0
+  br i1 %.not1013.i, label %596, label %600
 
 596:                                              ; preds = %594
   %597 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5701,8 +5700,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 600:                                              ; preds = %594
   %601 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.274, ptr noundef nonnull %5, i64 noundef %18) #20
-  %.not1015.i = icmp eq i32 %601, 0
-  br i1 %.not1015.i, label %602, label %606
+  %.not1014.i = icmp eq i32 %601, 0
+  br i1 %.not1014.i, label %602, label %606
 
 602:                                              ; preds = %600
   %603 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5714,8 +5713,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 606:                                              ; preds = %600
   %607 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.275, ptr noundef nonnull %5, i64 noundef %80) #20
-  %.not1016.i = icmp eq i32 %607, 0
-  br i1 %.not1016.i, label %608, label %612
+  %.not1015.i = icmp eq i32 %607, 0
+  br i1 %.not1015.i, label %608, label %612
 
 608:                                              ; preds = %606
   %609 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5727,8 +5726,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 612:                                              ; preds = %606
   %613 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.276, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not1017.i = icmp eq i32 %613, 0
-  br i1 %.not1017.i, label %614, label %618
+  %.not1016.i = icmp eq i32 %613, 0
+  br i1 %.not1016.i, label %614, label %618
 
 614:                                              ; preds = %612
   %615 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5740,8 +5739,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 618:                                              ; preds = %612
   %619 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.277, ptr noundef nonnull %5, i64 noundef %80) #20
-  %.not1018.i = icmp eq i32 %619, 0
-  br i1 %.not1018.i, label %620, label %624
+  %.not1017.i = icmp eq i32 %619, 0
+  br i1 %.not1017.i, label %620, label %624
 
 620:                                              ; preds = %618
   %621 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5753,8 +5752,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 624:                                              ; preds = %618
   %625 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.278, ptr noundef nonnull %5, i64 noundef %14) #20
-  %.not1019.i = icmp eq i32 %625, 0
-  br i1 %.not1019.i, label %626, label %630
+  %.not1018.i = icmp eq i32 %625, 0
+  br i1 %.not1018.i, label %626, label %630
 
 626:                                              ; preds = %624
   %627 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5766,8 +5765,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 630:                                              ; preds = %624
   %631 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.279, ptr noundef nonnull %5, i64 noundef %326) #20
-  %.not1020.i = icmp eq i32 %631, 0
-  br i1 %.not1020.i, label %632, label %636
+  %.not1019.i = icmp eq i32 %631, 0
+  br i1 %.not1019.i, label %632, label %636
 
 632:                                              ; preds = %630
   %633 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5779,8 +5778,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 636:                                              ; preds = %630
   %637 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.280, ptr noundef nonnull %5, i64 noundef %14) #20
-  %.not1021.i = icmp eq i32 %637, 0
-  br i1 %.not1021.i, label %638, label %642
+  %.not1020.i = icmp eq i32 %637, 0
+  br i1 %.not1020.i, label %638, label %642
 
 638:                                              ; preds = %636
   %639 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5792,8 +5791,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 642:                                              ; preds = %636
   %643 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.282, ptr noundef nonnull %5, i64 noundef %18) #20
-  %.not1022.i = icmp eq i32 %643, 0
-  br i1 %.not1022.i, label %644, label %648
+  %.not1021.i = icmp eq i32 %643, 0
+  br i1 %.not1021.i, label %644, label %648
 
 644:                                              ; preds = %642
   %645 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5805,8 +5804,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 648:                                              ; preds = %642
   %649 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.284, ptr noundef nonnull %5, i64 noundef %326) #20
-  %.not1023.i = icmp eq i32 %649, 0
-  br i1 %.not1023.i, label %650, label %654
+  %.not1022.i = icmp eq i32 %649, 0
+  br i1 %.not1022.i, label %650, label %654
 
 650:                                              ; preds = %648
   %651 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5818,8 +5817,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 654:                                              ; preds = %648
   %655 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.285, ptr noundef nonnull %5, i64 noundef %326) #20
-  %.not1024.i = icmp eq i32 %655, 0
-  br i1 %.not1024.i, label %656, label %660
+  %.not1023.i = icmp eq i32 %655, 0
+  br i1 %.not1023.i, label %656, label %660
 
 656:                                              ; preds = %654
   %657 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5831,8 +5830,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 660:                                              ; preds = %654
   %661 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.286, ptr noundef nonnull %5, i64 noundef %326) #20
-  %.not1025.i = icmp eq i32 %661, 0
-  br i1 %.not1025.i, label %662, label %666
+  %.not1024.i = icmp eq i32 %661, 0
+  br i1 %.not1024.i, label %662, label %666
 
 662:                                              ; preds = %660
   %663 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5844,8 +5843,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 666:                                              ; preds = %660
   %667 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.287, ptr noundef nonnull %5, i64 noundef %14) #20
-  %.not1026.i = icmp eq i32 %667, 0
-  br i1 %.not1026.i, label %668, label %672
+  %.not1025.i = icmp eq i32 %667, 0
+  br i1 %.not1025.i, label %668, label %672
 
 668:                                              ; preds = %666
   %669 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5857,13 +5856,13 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 672:                                              ; preds = %666
   %673 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.288, ptr noundef nonnull %5, i64 noundef %326) #20
-  %.not1027.i = icmp eq i32 %673, 0
-  br i1 %.not1027.i, label %676, label %674
+  %.not1026.i = icmp eq i32 %673, 0
+  br i1 %.not1026.i, label %676, label %674
 
 674:                                              ; preds = %672
   %675 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.289, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not1028.i = icmp eq i32 %675, 0
-  br i1 %.not1028.i, label %676, label %680
+  %.not1027.i = icmp eq i32 %675, 0
+  br i1 %.not1027.i, label %676, label %680
 
 676:                                              ; preds = %674, %672
   %677 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5875,8 +5874,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 680:                                              ; preds = %674
   %681 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.290, ptr noundef nonnull %5, i64 noundef %124) #20
-  %.not1029.i = icmp eq i32 %681, 0
-  br i1 %.not1029.i, label %682, label %686
+  %.not1028.i = icmp eq i32 %681, 0
+  br i1 %.not1028.i, label %682, label %686
 
 682:                                              ; preds = %680
   %683 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5888,8 +5887,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 686:                                              ; preds = %680
   %687 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.291, ptr noundef nonnull %5, i64 noundef %326) #20
-  %.not1030.i = icmp eq i32 %687, 0
-  br i1 %.not1030.i, label %688, label %692
+  %.not1029.i = icmp eq i32 %687, 0
+  br i1 %.not1029.i, label %688, label %692
 
 688:                                              ; preds = %686
   %689 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5901,8 +5900,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 692:                                              ; preds = %686
   %693 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.292, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not1031.i = icmp eq i32 %693, 0
-  br i1 %.not1031.i, label %694, label %698
+  %.not1030.i = icmp eq i32 %693, 0
+  br i1 %.not1030.i, label %694, label %698
 
 694:                                              ; preds = %692
   %695 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5914,13 +5913,13 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 698:                                              ; preds = %692
   %699 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.294, ptr noundef nonnull %5, i64 noundef %124) #20
-  %.not1032.i = icmp eq i32 %699, 0
-  br i1 %.not1032.i, label %702, label %700
+  %.not1031.i = icmp eq i32 %699, 0
+  br i1 %.not1031.i, label %702, label %700
 
 700:                                              ; preds = %698
   %701 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.295, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not1033.i = icmp eq i32 %701, 0
-  br i1 %.not1033.i, label %702, label %706
+  %.not1032.i = icmp eq i32 %701, 0
+  br i1 %.not1032.i, label %702, label %706
 
 702:                                              ; preds = %700, %698
   %703 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5932,13 +5931,13 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 706:                                              ; preds = %700
   %707 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.296, ptr noundef nonnull %5, i64 noundef %124) #20
-  %.not1034.i = icmp eq i32 %707, 0
-  br i1 %.not1034.i, label %710, label %708
+  %.not1033.i = icmp eq i32 %707, 0
+  br i1 %.not1033.i, label %710, label %708
 
 708:                                              ; preds = %706
   %709 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.297, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not1035.i = icmp eq i32 %709, 0
-  br i1 %.not1035.i, label %710, label %714
+  %.not1034.i = icmp eq i32 %709, 0
+  br i1 %.not1034.i, label %710, label %714
 
 710:                                              ; preds = %708, %706
   %711 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5950,13 +5949,13 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 714:                                              ; preds = %708
   %715 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.298, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not1036.i = icmp eq i32 %715, 0
-  br i1 %.not1036.i, label %718, label %716
+  %.not1035.i = icmp eq i32 %715, 0
+  br i1 %.not1035.i, label %718, label %716
 
 716:                                              ; preds = %714
   %717 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.299, ptr noundef nonnull %5, i64 noundef %14) #20
-  %.not1037.i = icmp eq i32 %717, 0
-  br i1 %.not1037.i, label %718, label %722
+  %.not1036.i = icmp eq i32 %717, 0
+  br i1 %.not1036.i, label %718, label %722
 
 718:                                              ; preds = %716, %714
   %719 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5968,13 +5967,13 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 722:                                              ; preds = %716
   %723 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.300, ptr noundef nonnull %5, i64 noundef %124) #20
-  %.not1038.i = icmp eq i32 %723, 0
-  br i1 %.not1038.i, label %726, label %724
+  %.not1037.i = icmp eq i32 %723, 0
+  br i1 %.not1037.i, label %726, label %724
 
 724:                                              ; preds = %722
   %725 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.301, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not1039.i = icmp eq i32 %725, 0
-  br i1 %.not1039.i, label %726, label %730
+  %.not1038.i = icmp eq i32 %725, 0
+  br i1 %.not1038.i, label %726, label %730
 
 726:                                              ; preds = %724, %722
   %727 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5986,8 +5985,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 730:                                              ; preds = %724
   %731 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.148, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not1040.i = icmp eq i32 %731, 0
-  br i1 %.not1040.i, label %732, label %736
+  %.not1039.i = icmp eq i32 %731, 0
+  br i1 %.not1039.i, label %732, label %736
 
 732:                                              ; preds = %730
   %733 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5999,8 +5998,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 736:                                              ; preds = %730
   %737 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.302, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not1041.i = icmp eq i32 %737, 0
-  br i1 %.not1041.i, label %738, label %742
+  %.not1040.i = icmp eq i32 %737, 0
+  br i1 %.not1040.i, label %738, label %742
 
 738:                                              ; preds = %736
   %739 = getelementptr inbounds i8, ptr %6, i64 24
@@ -6012,8 +6011,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 742:                                              ; preds = %736
   %743 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.303, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not1042.i = icmp eq i32 %743, 0
-  br i1 %.not1042.i, label %744, label %748
+  %.not1041.i = icmp eq i32 %743, 0
+  br i1 %.not1041.i, label %744, label %748
 
 744:                                              ; preds = %742
   %745 = getelementptr inbounds i8, ptr %6, i64 24
@@ -6025,8 +6024,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 748:                                              ; preds = %742
   %749 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.304, ptr noundef nonnull %5, i64 noundef %124) #20
-  %.not1043.i = icmp eq i32 %749, 0
-  br i1 %.not1043.i, label %750, label %754
+  %.not1042.i = icmp eq i32 %749, 0
+  br i1 %.not1042.i, label %750, label %754
 
 750:                                              ; preds = %748
   %751 = getelementptr inbounds i8, ptr %6, i64 24
@@ -6038,8 +6037,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 754:                                              ; preds = %748
   %755 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.305, ptr noundef nonnull %5, i64 noundef %124) #20
-  %.not1044.i = icmp eq i32 %755, 0
-  br i1 %.not1044.i, label %756, label %760
+  %.not1043.i = icmp eq i32 %755, 0
+  br i1 %.not1043.i, label %756, label %760
 
 756:                                              ; preds = %754
   %757 = getelementptr inbounds i8, ptr %6, i64 24
@@ -6051,8 +6050,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 760:                                              ; preds = %754
   %761 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.307, ptr noundef nonnull %5, i64 noundef %124) #20
-  %.not1045.i = icmp eq i32 %761, 0
-  br i1 %.not1045.i, label %762, label %766
+  %.not1044.i = icmp eq i32 %761, 0
+  br i1 %.not1044.i, label %762, label %766
 
 762:                                              ; preds = %760
   %763 = getelementptr inbounds i8, ptr %6, i64 24
@@ -6064,8 +6063,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 766:                                              ; preds = %760
   %767 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.308, ptr noundef nonnull %5, i64 noundef %28) #20
-  %.not1046.i = icmp eq i32 %767, 0
-  br i1 %.not1046.i, label %768, label %772
+  %.not1045.i = icmp eq i32 %767, 0
+  br i1 %.not1045.i, label %768, label %772
 
 768:                                              ; preds = %766
   %769 = getelementptr inbounds i8, ptr %6, i64 24
@@ -6077,8 +6076,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 772:                                              ; preds = %766
   %773 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.309, ptr noundef nonnull %5, i64 noundef %80) #20
-  %.not1047.i = icmp eq i32 %773, 0
-  br i1 %.not1047.i, label %774, label %778
+  %.not1046.i = icmp eq i32 %773, 0
+  br i1 %.not1046.i, label %774, label %778
 
 774:                                              ; preds = %772
   %775 = getelementptr inbounds i8, ptr %6, i64 24
@@ -6090,8 +6089,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 778:                                              ; preds = %772
   %779 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.310, ptr noundef nonnull %5, i64 noundef %326) #20
-  %.not1048.i = icmp eq i32 %779, 0
-  br i1 %.not1048.i, label %780, label %784
+  %.not1047.i = icmp eq i32 %779, 0
+  br i1 %.not1047.i, label %780, label %784
 
 780:                                              ; preds = %778
   %781 = getelementptr inbounds i8, ptr %6, i64 24
@@ -6103,8 +6102,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 784:                                              ; preds = %778
   %785 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.311, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not1049.i = icmp eq i32 %785, 0
-  br i1 %.not1049.i, label %786, label %790
+  %.not1048.i = icmp eq i32 %785, 0
+  br i1 %.not1048.i, label %786, label %790
 
 786:                                              ; preds = %784
   %787 = getelementptr inbounds i8, ptr %6, i64 24
@@ -6116,8 +6115,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
 
 790:                                              ; preds = %784
   %791 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.312, ptr noundef nonnull %5, i64 noundef %48) #20
-  %.not1050.i = icmp eq i32 %791, 0
-  br i1 %.not1050.i, label %792, label %796
+  %.not1049.i = icmp eq i32 %791, 0
+  br i1 %.not1049.i, label %792, label %796
 
 792:                                              ; preds = %790
   %793 = getelementptr inbounds i8, ptr %6, i64 24
@@ -6140,8 +6139,8 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
   store i32 %.sink.i, ptr %6, align 8
   %800 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %print_fields_uint32.sink.i, ptr %800, align 8
-  %.not1051.i = icmp eq i32 %.0.i, 0
-  br i1 %.not1051.i, label %_get_print_field.exit, label %801
+  %.not1050.i = icmp eq i32 %.0.i, 0
+  br i1 %.not1050.i, label %_get_print_field.exit, label %801
 
 801:                                              ; preds = %799
   store i32 %.0.i, ptr %6, align 8

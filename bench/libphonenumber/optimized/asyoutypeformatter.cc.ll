@@ -629,9 +629,8 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter36SetShouldAddS
 define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableFormatsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 250
   %4 = load i8, ptr %3, align 2
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %.critedge, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %.critedge
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 648
@@ -658,8 +657,8 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = getelementptr inbounds i8, ptr %20, i64 8
   %23 = load i32, ptr %22, align 8
-  %.not1622 = icmp eq i32 %23, 0
-  br i1 %.not1622, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq i32 %23, 0
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
   %24 = load ptr, ptr %21, align 8
@@ -673,65 +672,62 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   br label %30
 
 30:                                               ; preds = %.lr.ph, %73
-  %.sroa.07.023 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %74, %73 ]
+  %.sroa.06.019 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %74, %73 ]
   %31 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #15
   br i1 %31, label %47, label %32
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr %27, align 8
-  %34 = load ptr, ptr %.sroa.07.023, align 8
+  %34 = load ptr, ptr %.sroa.06.019, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 64
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil31FormattingRuleHasFirstGroupOnlyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %33, ptr noundef nonnull align 8 dereferenceable(32) %36)
   br i1 %37, label %38, label %47
 
 38:                                               ; preds = %32
-  %39 = load ptr, ptr %.sroa.07.023, align 8
+  %39 = load ptr, ptr %.sroa.06.019, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 80
   %41 = load i8, ptr %40, align 8
-  %42 = and i8 %41, 1
-  %.not17 = icmp eq i8 %42, 0
-  br i1 %.not17, label %43, label %47
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %47, label %43
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i8, ptr %39, i64 16
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 8
-  %.not18 = icmp eq i32 %46, 0
-  br i1 %.not18, label %73, label %47
+  %.not15 = icmp eq i32 %46, 0
+  br i1 %.not15, label %73, label %47
 
 47:                                               ; preds = %43, %38, %32, %30
   %48 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #15
-  br i1 %48, label %49, label %._crit_edge24
+  br i1 %48, label %49, label %._crit_edge21
 
-._crit_edge24:                                    ; preds = %47
-  %.pre = load ptr, ptr %.sroa.07.023, align 8
+._crit_edge21:                                    ; preds = %47
+  %.pre = load ptr, ptr %.sroa.06.019, align 8
   br label %61
 
 49:                                               ; preds = %47
   %50 = load i8, ptr %3, align 2
-  %51 = and i8 %50, 1
-  %.not4 = icmp eq i8 %51, 0
-  %.pre25 = load ptr, ptr %.sroa.07.023, align 8
-  br i1 %.not4, label %52, label %61
+  %51 = trunc i8 %50 to i1
+  %.pre22 = load ptr, ptr %.sroa.06.019, align 8
+  br i1 %51, label %61, label %52
 
 52:                                               ; preds = %49
   %53 = load ptr, ptr %27, align 8
-  %54 = getelementptr inbounds i8, ptr %.pre25, i64 64
+  %54 = getelementptr inbounds i8, ptr %.pre22, i64 64
   %55 = load ptr, ptr %54, align 8
   %56 = tail call noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil31FormattingRuleHasFirstGroupOnlyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %53, ptr noundef nonnull align 8 dereferenceable(32) %55)
-  %.pre26 = load ptr, ptr %.sroa.07.023, align 8
+  %.pre23 = load ptr, ptr %.sroa.06.019, align 8
   br i1 %56, label %61, label %57
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %.pre26, i64 80
+  %58 = getelementptr inbounds i8, ptr %.pre23, i64 80
   %59 = load i8, ptr %58, align 8
-  %60 = and i8 %59, 1
-  %.not19 = icmp eq i8 %60, 0
-  br i1 %.not19, label %73, label %61
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %73
 
-61:                                               ; preds = %._crit_edge24, %49, %52, %57
-  %62 = phi ptr [ %.pre, %._crit_edge24 ], [ %.pre25, %49 ], [ %.pre26, %52 ], [ %.pre26, %57 ]
+61:                                               ; preds = %._crit_edge21, %49, %52, %57
+  %62 = phi ptr [ %.pre, %._crit_edge21 ], [ %.pre22, %49 ], [ %.pre23, %52 ], [ %.pre23, %57 ]
   %63 = load ptr, ptr %27, align 8
   %64 = getelementptr inbounds i8, ptr %62, i64 56
   %65 = load ptr, ptr %64, align 8
@@ -739,7 +735,7 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   br i1 %66, label %67, label %73
 
 67:                                               ; preds = %61
-  %68 = load ptr, ptr %.sroa.07.023, align 8
+  %68 = load ptr, ptr %.sroa.06.019, align 8
   %69 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   %70 = getelementptr inbounds i8, ptr %69, i64 16
   store ptr %68, ptr %70, align 8
@@ -750,16 +746,16 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   br label %73
 
 73:                                               ; preds = %61, %67, %57, %43
-  %74 = getelementptr inbounds i8, ptr %.sroa.07.023, i64 8
+  %74 = getelementptr inbounds i8, ptr %.sroa.06.019, i64 8
   %75 = load ptr, ptr %21, align 8
-  %.not.i.i5 = icmp eq ptr %75, null
+  %.not.i.i4 = icmp eq ptr %75, null
   %76 = getelementptr inbounds i8, ptr %75, i64 8
-  %spec.select.i.i6 = select i1 %.not.i.i5, ptr null, ptr %76
+  %spec.select.i.i5 = select i1 %.not.i.i4, ptr null, ptr %76
   %77 = load i32, ptr %22, align 8
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds ptr, ptr %spec.select.i.i6, i64 %78
-  %.not16 = icmp eq ptr %74, %79
-  br i1 %.not16, label %._crit_edge, label %30, !llvm.loop !8
+  %79 = getelementptr inbounds ptr, ptr %spec.select.i.i5, i64 %78
+  %.not = icmp eq ptr %74, %79
+  br i1 %.not, label %._crit_edge, label %30, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %73, %19
   tail call void @_ZN4i18n12phonenumbers18AsYouTypeFormatter25NarrowDownPossibleFormatsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -1445,9 +1441,9 @@ _ZN4i18n12phonenumbers13UnicodeStringC2Ei.exit:   ; preds = %24
   %31 = sext i32 %30 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #15, !noalias !11
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %28, i64 noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %33 unwind label %.body38
+          to label %33 unwind label %.body34
 
-.body38:                                          ; preds = %_ZN4i18n12phonenumbers13UnicodeStringC2Ei.exit
+.body34:                                          ; preds = %_ZN4i18n12phonenumbers13UnicodeStringC2Ei.exit
   %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #15
@@ -1487,7 +1483,7 @@ _ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit: ; preds = %39
   %45 = getelementptr inbounds i8, ptr %0, i64 248
   br label %53
 
-46:                                               ; preds = %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i50.invoke, %.noexc51.invoke, %102, %39, %22, %130, %127, %122, %117, %113, %81, %78, %69, %66, %48, %33
+46:                                               ; preds = %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i46.invoke, %.noexc47.invoke, %102, %39, %22, %129, %126, %121, %117, %113, %81, %78, %69, %66, %48, %33
   %47 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1500,17 +1496,15 @@ _ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit: ; preds = %39
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 248
   %.pre = load i8, ptr %.phi.trans.insert, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 248
-  %52 = and i8 %.pre, 1
-  %.not = icmp eq i8 %52, 0
-  br i1 %.not, label %53, label %102
+  %52 = trunc i8 %.pre to i1
+  br i1 %52, label %102, label %53
 
 53:                                               ; preds = %.thread, %50
   %54 = phi ptr [ %45, %.thread ], [ %51, %50 ]
   %55 = getelementptr inbounds i8, ptr %0, i64 249
   %56 = load i8, ptr %55, align 1
-  %57 = and i8 %56, 1
-  %.not30 = icmp eq i8 %57, 0
-  br i1 %.not30, label %66, label %58
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %66
 
 58:                                               ; preds = %53
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
@@ -1522,7 +1516,7 @@ _ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit: ; preds = %39
   %62 = sext i32 %61 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #15, !noalias !14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %59, i64 noundef %62, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43 unwind label %63
+          to label %_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit39 unwind label %63
 
 63:                                               ; preds = %58
   %64 = landingpad { ptr, i32 }
@@ -1530,7 +1524,7 @@ _ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit: ; preds = %39
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #15
   br label %.body
 
-_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43: ; preds = %58
+_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit39: ; preds = %58
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %65 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %10) #15
@@ -1572,7 +1566,7 @@ _ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i:
   %77 = getelementptr inbounds i8, ptr %0, i64 720
   store ptr %74, ptr %77, align 8
   store ptr %74, ptr %74, align 8
-  br label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i50.invoke
+  br label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i46.invoke
 
 78:                                               ; preds = %68
   %79 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18AsYouTypeFormatter22AbleToExtractLongerNddEv(ptr noundef nonnull align 8 dereferenceable(736) %0)
@@ -1592,23 +1586,23 @@ _ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i:
   store i8 0, ptr %84, align 1
   %85 = getelementptr inbounds i8, ptr %0, i64 712
   %86 = load ptr, ptr %85, align 8
-  %.not8.i.i.i46 = icmp eq ptr %86, %85
-  br i1 %.not8.i.i.i46, label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i50, label %.lr.ph.i.i.i47
+  %.not8.i.i.i42 = icmp eq ptr %86, %85
+  br i1 %.not8.i.i.i42, label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i46, label %.lr.ph.i.i.i43
 
-.lr.ph.i.i.i47:                                   ; preds = %83, %.lr.ph.i.i.i47
-  %.09.i.i.i48 = phi ptr [ %87, %.lr.ph.i.i.i47 ], [ %86, %83 ]
-  %87 = load ptr, ptr %.09.i.i.i48, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i48) #19
-  %.not.i.i.i49 = icmp eq ptr %87, %85
-  br i1 %.not.i.i.i49, label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i50, label %.lr.ph.i.i.i47, !llvm.loop !10
+.lr.ph.i.i.i43:                                   ; preds = %83, %.lr.ph.i.i.i43
+  %.09.i.i.i44 = phi ptr [ %87, %.lr.ph.i.i.i43 ], [ %86, %83 ]
+  %87 = load ptr, ptr %.09.i.i.i44, align 8
+  call void @_ZdlPv(ptr noundef %.09.i.i.i44) #19
+  %.not.i.i.i45 = icmp eq ptr %87, %85
+  br i1 %.not.i.i.i45, label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i46, label %.lr.ph.i.i.i43, !llvm.loop !10
 
-_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i50: ; preds = %.lr.ph.i.i.i47, %83
+_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i46: ; preds = %.lr.ph.i.i.i43, %83
   %88 = getelementptr inbounds i8, ptr %0, i64 720
   store ptr %85, ptr %88, align 8
   store ptr %85, ptr %85, align 8
-  br label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i50.invoke
+  br label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i46.invoke
 
-_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i50.invoke: ; preds = %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i, %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i50
+_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i46.invoke: ; preds = %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i, %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i46
   %89 = getelementptr inbounds i8, ptr %0, i64 728
   store i64 0, ptr %89, align 8
   %90 = getelementptr inbounds i8, ptr %0, i64 592
@@ -1617,18 +1611,18 @@ _ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i5
   %92 = getelementptr inbounds i8, ptr %0, i64 128
   store i32 -1, ptr %92, align 8
   invoke void @_ZN4i18n12phonenumbers11UnicodeText5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %91)
-          to label %.noexc51.invoke.sink.split unwind label %46
+          to label %.noexc47.invoke.sink.split unwind label %46
 
-.noexc51.invoke.sink.split:                       ; preds = %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i50.invoke
+.noexc47.invoke.sink.split:                       ; preds = %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i46.invoke
   %93 = getelementptr inbounds i8, ptr %0, i64 136
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %93) #15
-  br label %.noexc51.invoke
+  br label %.noexc47.invoke
 
-.noexc51.invoke:                                  ; preds = %.noexc51.invoke.sink.split, %133, %117
+.noexc47.invoke:                                  ; preds = %.noexc47.invoke.sink.split, %132, %117
   invoke void @_ZN4i18n12phonenumbers18AsYouTypeFormatter32AttemptToChooseFormattingPatternEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef %3)
           to label %_ZN4i18n12phonenumbers18AsYouTypeFormatter41AttemptToChoosePatternWithPrefixExtractedEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %46
 
-94:                                               ; preds = %_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43, %71, %80
+94:                                               ; preds = %_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit39, %71, %80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
@@ -1638,7 +1632,7 @@ _ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i5
   %98 = sext i32 %97 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15, !noalias !17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %95, i64 noundef %98, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit56 unwind label %99
+          to label %_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit52 unwind label %99
 
 99:                                               ; preds = %94
   %100 = landingpad { ptr, i32 }
@@ -1646,7 +1640,7 @@ _ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   br label %.body
 
-_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit56: ; preds = %94
+_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit52: ; preds = %94
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   %101 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %8) #15
@@ -1657,9 +1651,9 @@ _ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringI
 102:                                              ; preds = %50
   %103 = getelementptr inbounds i8, ptr %0, i64 208
   %104 = invoke noundef i32 @_ZNK4i18n12phonenumbers11UnicodeText4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %103)
-          to label %_ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit58 unwind label %46
+          to label %_ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit54 unwind label %46
 
-_ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit58: ; preds = %102
+_ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit54: ; preds = %102
   switch i32 %104, label %119 [
     i32 0, label %105
     i32 1, label %105
@@ -1667,7 +1661,7 @@ _ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit58: ; preds = %102
     i32 3, label %113
   ]
 
-105:                                              ; preds = %_ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit58, %_ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit58, %_ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit58
+105:                                              ; preds = %_ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit54, %_ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit54, %_ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
@@ -1677,7 +1671,7 @@ _ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit58: ; preds = %102
   %109 = sext i32 %108 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #15, !noalias !20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %106, i64 noundef %109, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit61 unwind label %110
+          to label %_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit57 unwind label %110
 
 110:                                              ; preds = %105
   %111 = landingpad { ptr, i32 }
@@ -1685,7 +1679,7 @@ _ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit58: ; preds = %102
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
   br label %.body
 
-_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit61: ; preds = %105
+_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit57: ; preds = %105
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %112 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %6) #15
@@ -1693,137 +1687,135 @@ _ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringI
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %_ZN4i18n12phonenumbers18AsYouTypeFormatter41AttemptToChoosePatternWithPrefixExtractedEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-113:                                              ; preds = %_ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit58
+113:                                              ; preds = %_ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit54
   %114 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18AsYouTypeFormatter19AttemptToExtractIddEv(ptr noundef nonnull align 8 dereferenceable(736) %0)
           to label %115 unwind label %46
 
 115:                                              ; preds = %113
-  br i1 %114, label %.thread66, label %117
+  br i1 %114, label %.thread61, label %117
 
-.thread66:                                        ; preds = %115
+.thread61:                                        ; preds = %115
   %116 = getelementptr inbounds i8, ptr %0, i64 251
   store i8 1, ptr %116, align 1
-  br label %122
+  br label %121
 
 117:                                              ; preds = %115
   %118 = getelementptr inbounds i8, ptr %0, i64 648
   invoke void @_ZN4i18n12phonenumbers18AsYouTypeFormatter38RemoveNationalPrefixFromNationalNumberEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef nonnull %118)
-          to label %.noexc51.invoke unwind label %46
+          to label %.noexc47.invoke unwind label %46
 
-119:                                              ; preds = %_ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit58
-  %.phi.trans.insert62 = getelementptr inbounds i8, ptr %0, i64 251
-  %.pre63 = load i8, ptr %.phi.trans.insert62, align 1
-  %120 = and i8 %.pre63, 1
-  %121 = icmp eq i8 %120, 0
-  br i1 %121, label %133, label %122
+119:                                              ; preds = %_ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit54
+  %.phi.trans.insert58 = getelementptr inbounds i8, ptr %0, i64 251
+  %.pre59 = load i8, ptr %.phi.trans.insert58, align 1
+  %120 = trunc i8 %.pre59 to i1
+  br i1 %120, label %121, label %132
 
-122:                                              ; preds = %.thread66, %119
-  %123 = getelementptr inbounds i8, ptr %0, i64 251
-  %124 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18AsYouTypeFormatter27AttemptToExtractCountryCodeEv(ptr noundef nonnull align 8 dereferenceable(736) %0)
-          to label %125 unwind label %46
+121:                                              ; preds = %.thread61, %119
+  %122 = getelementptr inbounds i8, ptr %0, i64 251
+  %123 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18AsYouTypeFormatter27AttemptToExtractCountryCodeEv(ptr noundef nonnull align 8 dereferenceable(736) %0)
+          to label %124 unwind label %46
 
-125:                                              ; preds = %122
-  br i1 %124, label %126, label %127
+124:                                              ; preds = %121
+  br i1 %123, label %125, label %126
 
-126:                                              ; preds = %125
-  store i8 0, ptr %123, align 1
-  br label %127
+125:                                              ; preds = %124
+  store i8 0, ptr %122, align 1
+  br label %126
 
-127:                                              ; preds = %126, %125
-  %128 = getelementptr inbounds i8, ptr %0, i64 608
-  %129 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %128)
-          to label %130 unwind label %46
+126:                                              ; preds = %125, %124
+  %127 = getelementptr inbounds i8, ptr %0, i64 608
+  %128 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %127)
+          to label %129 unwind label %46
 
-130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %0, i64 680
-  %132 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %131)
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds i8, ptr %0, i64 680
+  %131 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %130)
           to label %_ZN4i18n12phonenumbers18AsYouTypeFormatter41AttemptToChoosePatternWithPrefixExtractedEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %46
 
-133:                                              ; preds = %119
-  %134 = getelementptr inbounds i8, ptr %0, i64 728
-  %135 = load i64, ptr %134, align 8
-  %.not32 = icmp eq i64 %135, 0
-  br i1 %.not32, label %.noexc51.invoke, label %136
+132:                                              ; preds = %119
+  %133 = getelementptr inbounds i8, ptr %0, i64 728
+  %134 = load i64, ptr %133, align 8
+  %.not = icmp eq i64 %134, 0
+  br i1 %.not, label %.noexc47.invoke, label %135
 
-136:                                              ; preds = %133
+135:                                              ; preds = %132
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #15
   invoke void @_ZN4i18n12phonenumbers18AsYouTypeFormatter16InputDigitHelperEcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, i8 noundef signext %49, ptr noundef nonnull %15)
-          to label %137 unwind label %142
+          to label %136 unwind label %141
 
-137:                                              ; preds = %136
+136:                                              ; preds = %135
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #15
   invoke void @_ZN4i18n12phonenumbers18AsYouTypeFormatter28AttemptToFormatAccruedDigitsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef nonnull %16)
-          to label %138 unwind label %144
+          to label %137 unwind label %143
 
-138:                                              ; preds = %137
-  %139 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #15
-  %.not33 = icmp eq i64 %139, 0
-  br i1 %.not33, label %146, label %140
+137:                                              ; preds = %136
+  %138 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #15
+  %.not30 = icmp eq i64 %138, 0
+  br i1 %.not30, label %145, label %139
 
-140:                                              ; preds = %138
-  %141 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %157 unwind label %144
+139:                                              ; preds = %137
+  %140 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %156 unwind label %143
 
-142:                                              ; preds = %136
-  %143 = landingpad { ptr, i32 }
+141:                                              ; preds = %135
+  %142 = landingpad { ptr, i32 }
           cleanup
-  br label %158
+  br label %157
 
-144:                                              ; preds = %156, %155, %151, %148, %146, %140, %137
-  %145 = landingpad { ptr, i32 }
+143:                                              ; preds = %155, %154, %150, %147, %145, %139, %136
+  %144 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #15
-  br label %158
+  br label %157
 
-146:                                              ; preds = %138
-  %147 = getelementptr inbounds i8, ptr %0, i64 680
-  invoke void @_ZN4i18n12phonenumbers18AsYouTypeFormatter25NarrowDownPossibleFormatsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef nonnull align 8 dereferenceable(32) %147)
-          to label %148 unwind label %144
+145:                                              ; preds = %137
+  %146 = getelementptr inbounds i8, ptr %0, i64 680
+  invoke void @_ZN4i18n12phonenumbers18AsYouTypeFormatter25NarrowDownPossibleFormatsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef nonnull align 8 dereferenceable(32) %146)
+          to label %147 unwind label %143
 
-148:                                              ; preds = %146
-  %149 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18AsYouTypeFormatter22MaybeCreateNewTemplateEv(ptr noundef nonnull align 8 dereferenceable(736) %0)
-          to label %150 unwind label %144
+147:                                              ; preds = %145
+  %148 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18AsYouTypeFormatter22MaybeCreateNewTemplateEv(ptr noundef nonnull align 8 dereferenceable(736) %0)
+          to label %149 unwind label %143
 
-150:                                              ; preds = %148
-  br i1 %149, label %151, label %152
+149:                                              ; preds = %147
+  br i1 %148, label %150, label %151
 
-151:                                              ; preds = %150
+150:                                              ; preds = %149
   invoke void @_ZN4i18n12phonenumbers18AsYouTypeFormatter26InputAccruedNationalNumberEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef %3)
-          to label %157 unwind label %144
+          to label %156 unwind label %143
 
-152:                                              ; preds = %150
-  %153 = load i8, ptr %51, align 8
-  %154 = and i8 %153, 1
-  %.not34 = icmp eq i8 %154, 0
-  br i1 %.not34, label %156, label %155
+151:                                              ; preds = %149
+  %152 = load i8, ptr %51, align 8
+  %153 = trunc i8 %152 to i1
+  br i1 %153, label %154, label %155
 
-155:                                              ; preds = %152
+154:                                              ; preds = %151
   invoke void @_ZNK4i18n12phonenumbers18AsYouTypeFormatter20AppendNationalNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %3)
-          to label %157 unwind label %144
+          to label %156 unwind label %143
 
-156:                                              ; preds = %152
+155:                                              ; preds = %151
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   invoke void @_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %157 unwind label %144
+          to label %156 unwind label %143
 
-157:                                              ; preds = %155, %156, %151, %140
+156:                                              ; preds = %154, %155, %150, %139
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #15
   br label %_ZN4i18n12phonenumbers18AsYouTypeFormatter41AttemptToChoosePatternWithPrefixExtractedEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-158:                                              ; preds = %144, %142
-  %.pn = phi { ptr, i32 } [ %145, %144 ], [ %143, %142 ]
+157:                                              ; preds = %143, %141
+  %.pn = phi { ptr, i32 } [ %144, %143 ], [ %142, %141 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #15
   br label %.body
 
-_ZN4i18n12phonenumbers18AsYouTypeFormatter41AttemptToChoosePatternWithPrefixExtractedEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.noexc51.invoke, %_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit61, %_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit56, %130, %157
+_ZN4i18n12phonenumbers18AsYouTypeFormatter41AttemptToChoosePatternWithPrefixExtractedEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.noexc47.invoke, %_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit57, %_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit52, %129, %156
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #15
   ret void
 
-.body:                                            ; preds = %26, %99, %110, %46, %63, %158, %.body38
-  %.pn36 = phi { ptr, i32 } [ %.pn, %158 ], [ %32, %.body38 ], [ %27, %26 ], [ %64, %63 ], [ %100, %99 ], [ %47, %46 ], [ %111, %110 ]
+.body:                                            ; preds = %26, %99, %110, %46, %63, %157, %.body34
+  %.pn32 = phi { ptr, i32 } [ %.pn, %157 ], [ %32, %.body34 ], [ %27, %26 ], [ %64, %63 ], [ %100, %99 ], [ %47, %46 ], [ %111, %110 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #15
-  resume { ptr, i32 } %.pn36
+  resume { ptr, i32 } %.pn32
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
@@ -3179,9 +3171,8 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter26InputAccruedN
 16:                                               ; preds = %15
   %17 = getelementptr inbounds i8, ptr %0, i64 248
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %21, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
   invoke void @_ZNK4i18n12phonenumbers18AsYouTypeFormatter20AppendNationalNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1)
@@ -3238,66 +3229,65 @@ define dso_local void @_ZNK4i18n12phonenumbers18AsYouTypeFormatter20AppendNation
   %10 = trunc i64 %9 to i32
   %11 = getelementptr inbounds i8, ptr %0, i64 640
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %14 = icmp ne i8 %13, 0
-  %15 = icmp sgt i32 %10, 0
-  %or.cond = and i1 %15, %14
-  br i1 %or.cond, label %16, label %25
+  %13 = trunc i8 %12 to i1
+  %14 = icmp sgt i32 %10, 0
+  %or.cond = and i1 %14, %13
+  br i1 %or.cond, label %15, label %24
 
-16:                                               ; preds = %3
-  %17 = add i64 %9, 4294967295
-  %18 = and i64 %17, 4294967295
-  %19 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %18)
-  %20 = load i8, ptr %19, align 1
-  %.not = icmp eq i8 %20, 32
-  br i1 %.not, label %25, label %21
+15:                                               ; preds = %3
+  %16 = add i64 %9, 4294967295
+  %17 = and i64 %16, 4294967295
+  %18 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %17)
+  %19 = load i8, ptr %18, align 1
+  %.not = icmp eq i8 %19, 32
+  br i1 %.not, label %24, label %20
 
-21:                                               ; preds = %16
-  %22 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8)
+20:                                               ; preds = %15
+  %21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext 32)
   call void @_ZN4i18n12phonenumbers12StringHolderC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
   invoke void @_ZN4i18n12phonenumbers9StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_12StringHolderE(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(48) %4)
-          to label %33 unwind label %23
+          to label %32 unwind label %22
 
-23:                                               ; preds = %21
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %20
+  %23 = landingpad { ptr, i32 }
           cleanup
-  br label %34
+  br label %33
 
-25:                                               ; preds = %16, %3
+24:                                               ; preds = %15, %3
   call void @_ZN4i18n12phonenumbers12StringHolderC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
   invoke void @_ZN4i18n12phonenumbers12StringHolderC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %26 unwind label %29
+          to label %25 unwind label %28
+
+25:                                               ; preds = %24
+  invoke void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7)
+          to label %26 unwind label %30
 
 26:                                               ; preds = %25
-  invoke void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7)
-          to label %27 unwind label %31
-
-27:                                               ; preds = %26
-  %28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %5) #15
+  %27 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
+  call void @_ZN4i18n12phonenumbers12StringHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #15
+  br label %32
+
+28:                                               ; preds = %24
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  br label %33
+
+30:                                               ; preds = %25
+  %31 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZN4i18n12phonenumbers12StringHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #15
   br label %33
 
-29:                                               ; preds = %25
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  br label %34
-
-31:                                               ; preds = %26
-  %32 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN4i18n12phonenumbers12StringHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #15
-  br label %34
-
-33:                                               ; preds = %21, %27
-  %.sink = phi ptr [ %6, %27 ], [ %4, %21 ]
+32:                                               ; preds = %20, %26
+  %.sink = phi ptr [ %6, %26 ], [ %4, %20 ]
   call void @_ZN4i18n12phonenumbers12StringHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %.sink) #15
   ret void
 
-34:                                               ; preds = %29, %31, %23
-  %.sink17 = phi ptr [ %4, %23 ], [ %6, %31 ], [ %6, %29 ]
-  %.pn15 = phi { ptr, i32 } [ %24, %23 ], [ %32, %31 ], [ %30, %29 ]
+33:                                               ; preds = %28, %30, %22
+  %.sink17 = phi ptr [ %4, %22 ], [ %6, %30 ], [ %6, %28 ]
+  %.pn15 = phi { ptr, i32 } [ %23, %22 ], [ %31, %30 ], [ %29, %28 ]
   call void @_ZN4i18n12phonenumbers12StringHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %.sink17) #15
   resume { ptr, i32 } %.pn15
 }
@@ -3353,9 +3343,8 @@ _ZN4i18n12phonenumbers13UnicodeStringC2EPKc.exit: ; preds = %_ZN4i18n12phonenumb
   store i32 -1, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 248
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not = icmp eq i8 %16, 0
-  br i1 %.not, label %21, label %.preheader
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %.preheader, label %21
 
 .preheader:                                       ; preds = %_ZN4i18n12phonenumbers13UnicodeStringC2EPKc.exit
   %17 = getelementptr inbounds i8, ptr %0, i64 600

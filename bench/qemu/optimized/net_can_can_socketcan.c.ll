@@ -346,9 +346,8 @@ if.end:                                           ; preds = %entry
   %bus_client = getelementptr inbounds i8, ptr %call.i, i64 48
   %fd_mode = getelementptr inbounds i8, ptr %call.i, i64 120
   %2 = load i8, ptr %fd_mode, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.then6, label %if.else
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.end
   %flags = getelementptr inbounds i8, ptr %opaque, i64 157
@@ -362,9 +361,9 @@ if.else:                                          ; preds = %if.end
 
 if.then12:                                        ; preds = %if.else
   %flags15 = getelementptr inbounds i8, ptr %opaque, i64 157
-  %4 = load i8, ptr %flags15, align 1
-  %5 = or i8 %4, 16
-  store i8 %5, ptr %flags15, align 1
+  %3 = load i8, ptr %flags15, align 1
+  %4 = or i8 %3, 16
+  store i8 %4, ptr %flags15, align 1
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.then12, %if.then6
@@ -403,9 +402,8 @@ if.end:                                           ; preds = %entry
 if.then1:                                         ; preds = %if.end
   %fd_mode = getelementptr inbounds i8, ptr %client, i64 72
   %3 = load i8, ptr %fd_mode, align 8
-  %4 = and i8 %3, 1
-  %tobool2.not = icmp eq i8 %4, 0
-  br i1 %tobool2.not, label %return, label %if.end5
+  %tobool2 = trunc i8 %3 to i1
+  br i1 %tobool2, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.end, %if.then1
   %len.0 = phi i64 [ 72, %if.then1 ], [ 16, %if.end ]
@@ -430,8 +428,8 @@ if.then15:                                        ; preds = %if.end11
 
 if.then18:                                        ; preds = %if.then15
   %call19 = tail call ptr @__errno_location() #12
-  %5 = load i32, ptr %call19, align 4
-  %call20 = tail call ptr @strerror(i32 noundef %5) #10
+  %4 = load i32, ptr %call19, align 4
+  %call20 = tail call ptr @strerror(i32 noundef %4) #10
   tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.14, ptr noundef %call20) #10
   br label %return
 

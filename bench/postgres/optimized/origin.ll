@@ -449,9 +449,8 @@ ReplicationOriginShmemSize.exit:                  ; preds = %0
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %10, ptr @replication_states, align 8
   %11 = load i8, ptr %1, align 1
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %13, label %.loopexit
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %ReplicationOriginShmemSize.exit
   %14 = load i32, ptr @max_replication_slots, align 4
@@ -952,9 +951,9 @@ define dso_local void @replorigin_redo(ptr nocapture noundef readonly %0) local_
   %4 = getelementptr inbounds i8, ptr %3, i64 56
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, -16
-  switch i8 %6, label %33 [
+  switch i8 %6, label %32 [
     i8 0, label %7
-    i8 16, label %19
+    i8 16, label %18
   ]
 
 7:                                                ; preds = %1
@@ -967,51 +966,50 @@ define dso_local void @replorigin_redo(ptr nocapture noundef readonly %0) local_
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %9, i64 10
   %16 = load i8, ptr %15, align 2
-  %17 = and i8 %16, 1
-  %18 = icmp ne i8 %17, 0
-  tail call void @replorigin_advance(i16 noundef zeroext %11, i64 noundef %12, i64 noundef %14, i1 noundef zeroext %18, i1 noundef zeroext false)
+  %17 = trunc i8 %16 to i1
+  tail call void @replorigin_advance(i16 noundef zeroext %11, i64 noundef %12, i64 noundef %14, i1 noundef zeroext %17, i1 noundef zeroext false)
   br label %.loopexit
 
-19:                                               ; preds = %1
-  %20 = load i32, ptr @max_replication_slots, align 4
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.lr.ph, label %.loopexit
+18:                                               ; preds = %1
+  %19 = load i32, ptr @max_replication_slots, align 4
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %3, i64 72
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr @replication_states, align 8
-  %25 = load i16, ptr %23, align 2
-  %wide.trip.count = zext nneg i32 %20 to i64
-  br label %27
+.lr.ph:                                           ; preds = %18
+  %21 = getelementptr inbounds i8, ptr %3, i64 72
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr @replication_states, align 8
+  %24 = load i16, ptr %22, align 2
+  %wide.trip.count = zext nneg i32 %19 to i64
+  br label %26
 
-26:                                               ; preds = %27
+25:                                               ; preds = %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !10
 
-27:                                               ; preds = %.lr.ph, %26
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %28 = getelementptr %struct.ReplicationState, ptr %24, i64 %indvars.iv
-  %29 = load i16, ptr %28, align 8
-  %30 = icmp eq i16 %29, %25
-  br i1 %30, label %31, label %26
+26:                                               ; preds = %.lr.ph, %25
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
+  %27 = getelementptr %struct.ReplicationState, ptr %23, i64 %indvars.iv
+  %28 = load i16, ptr %27, align 8
+  %29 = icmp eq i16 %28, %24
+  br i1 %29, label %30, label %25
 
-31:                                               ; preds = %27
-  store i16 0, ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
+30:                                               ; preds = %26
+  store i16 0, ptr %27, align 8
+  %31 = getelementptr inbounds i8, ptr %27, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   br label %.loopexit
 
-33:                                               ; preds = %1
-  %34 = zext i8 %6 to i32
-  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %35)
-  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20, i32 noundef %34) #10
+32:                                               ; preds = %1
+  %33 = zext i8 %6 to i32
+  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %34)
+  %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20, i32 noundef %33) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 869, ptr noundef nonnull @__func__.replorigin_redo) #10
   unreachable
 
-.loopexit:                                        ; preds = %26, %19, %31, %7
+.loopexit:                                        ; preds = %25, %18, %30, %7
   ret void
 }
 

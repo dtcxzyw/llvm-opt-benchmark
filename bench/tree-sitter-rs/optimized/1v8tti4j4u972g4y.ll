@@ -463,8 +463,8 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i.i.i: ; preds = %37
   store ptr %146, ptr %149, align 8, !alias.scope !20, !noalias !23
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !25
   %150 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, align 8, !range !4, !noalias !29, !noundef !5
-  %trunc.not.i.i.i.i.i.i.i.i = icmp eq i64 %150, 0
-  br i1 %trunc.not.i.i.i.i.i.i.i.i, label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i.i.i.i, label %154
+  %trunc.i.i.i.i.i.i.i.i = trunc i64 %150 to i1
+  br i1 %trunc.i.i.i.i.i.i.i.i, label %154, label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i.i.i.i
 
 _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i.i.i.i: ; preds = %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i.i.i
   %151 = invoke noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h6166eb20d5baa319E.llvm.15088426264822442397"(ptr noundef nonnull align 8 @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, ptr noalias noundef align 8 dereferenceable_or_null(24) null)
@@ -692,8 +692,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !align !11, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %5 = load i64, ptr %4, align 8, !range !4, !alias.scope !51, !noalias !54, !noundef !5
-  %trunc.not.i = icmp eq i64 %5, 0
-  br i1 %trunc.not.i, label %6, label %8
+  %trunc.i = trunc i64 %5 to i1
+  br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.2af8d14b581023a98652fefa142da3f0.33, i64 noundef 4), !noalias !51

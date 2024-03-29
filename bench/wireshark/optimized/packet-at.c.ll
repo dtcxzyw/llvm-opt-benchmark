@@ -2072,7 +2072,7 @@ check_cfun.exit:                                  ; preds = %13, %13, %13, %14
   ]
 
 19:                                               ; preds = %18
-  %trunc.not = icmp eq i32 %7, 0
+  %trunc = trunc i32 %7 to i1
   %20 = getelementptr inbounds i8, ptr %1, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = add i32 %8, 1
@@ -2084,7 +2084,7 @@ check_cfun.exit:                                  ; preds = %13, %13, %13, %14
   store i8 0, ptr %26, align 1
   %27 = tail call i64 @g_ascii_strtoull(ptr noundef %24, ptr noundef null, i32 noundef 10) #9
   %28 = trunc i64 %27 to i32
-  br i1 %trunc.not, label %29, label %39
+  br i1 %trunc, label %39, label %29
 
 29:                                               ; preds = %19
   %30 = load i32, ptr @hf_cfun_fun, align 4
@@ -2116,7 +2116,7 @@ check_cfun.exit:                                  ; preds = %13, %13, %13, %14
   br label %71
 
 45:                                               ; preds = %18
-  %trunc63.not = icmp eq i32 %7, 0
+  %trunc63 = trunc i32 %7 to i1
   %46 = getelementptr inbounds i8, ptr %1, i64 408
   %47 = load ptr, ptr %46, align 8
   %48 = add i32 %8, 1
@@ -2128,7 +2128,7 @@ check_cfun.exit:                                  ; preds = %13, %13, %13, %14
   store i8 0, ptr %52, align 1
   %53 = tail call i64 @g_ascii_strtoull(ptr noundef %50, ptr noundef null, i32 noundef 10) #9
   %54 = trunc i64 %53 to i32
-  br i1 %trunc63.not, label %55, label %65
+  br i1 %trunc63, label %65, label %55
 
 55:                                               ; preds = %45
   %56 = load i32, ptr @hf_cfun_fun, align 4
@@ -2571,8 +2571,8 @@ define internal noundef i32 @dissect_ciev_parameter(ptr noundef %0, ptr noundef 
   br i1 %15, label %43, label %16
 
 16:                                               ; preds = %14
-  %trunc.not = icmp eq i32 %7, 0
-  br i1 %trunc.not, label %17, label %31
+  %trunc = trunc i32 %7 to i1
+  br i1 %trunc, label %31, label %17
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds i8, ptr %1, i64 408
@@ -3497,7 +3497,7 @@ define internal noundef i32 @dissect_cmgr_parameter(ptr noundef %0, ptr nocaptur
   br i1 %.old, label %68, label %19
 
 19:                                               ; preds = %18
-  %trunc.not = icmp eq i32 %7, 0
+  %trunc = trunc i32 %7 to i1
   %20 = getelementptr inbounds i8, ptr %1, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = add i32 %8, 1
@@ -3509,7 +3509,7 @@ define internal noundef i32 @dissect_cmgr_parameter(ptr noundef %0, ptr nocaptur
   store i8 0, ptr %26, align 1
   %27 = tail call i64 @g_ascii_strtoull(ptr noundef %24, ptr noundef null, i32 noundef 10) #9
   %28 = trunc i64 %27 to i32
-  br i1 %trunc.not, label %29, label %32
+  br i1 %trunc, label %32, label %29
 
 29:                                               ; preds = %19
   %30 = load i32, ptr @hf_cmgr_msg_index, align 4
@@ -4235,8 +4235,8 @@ define internal noundef i32 @dissect_csim_parameter(ptr noundef %0, ptr noundef 
   br i1 %18, label %74, label %19
 
 19:                                               ; preds = %17
-  %trunc.not = icmp eq i32 %7, 0
-  br i1 %trunc.not, label %20, label %32
+  %trunc = trunc i32 %7 to i1
+  br i1 %trunc, label %32, label %20
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds i8, ptr %1, i64 408
@@ -4370,7 +4370,7 @@ define internal noundef i32 @dissect_csq_parameter(ptr noundef %0, ptr noundef %
   br i1 %or.cond35, label %37, label %15
 
 15:                                               ; preds = %11
-  %trunc.not = icmp eq i32 %7, 0
+  %trunc = trunc i32 %7 to i1
   %16 = getelementptr inbounds i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = add i32 %8, 1
@@ -4382,7 +4382,7 @@ define internal noundef i32 @dissect_csq_parameter(ptr noundef %0, ptr noundef %
   store i8 0, ptr %22, align 1
   %23 = tail call i64 @g_ascii_strtoull(ptr noundef %20, ptr noundef null, i32 noundef 10) #9
   %24 = trunc i64 %23 to i32
-  br i1 %trunc.not, label %25, label %32
+  br i1 %trunc, label %32, label %25
 
 25:                                               ; preds = %15
   %26 = load i32, ptr @hf_csq_rssi, align 4
@@ -4601,8 +4601,8 @@ define internal noundef i32 @dissect_vts_parameter(ptr noundef %0, ptr noundef %
   br i1 %or.cond22, label %33, label %15
 
 15:                                               ; preds = %11
-  %trunc.not = icmp eq i32 %7, 0
-  br i1 %trunc.not, label %16, label %21
+  %trunc = trunc i32 %7 to i1
+  br i1 %trunc, label %21, label %16
 
 16:                                               ; preds = %15
   %17 = load i32, ptr @hf_vts_dtmf, align 4
@@ -4658,10 +4658,10 @@ define internal noundef i32 @dissect_zpas_parameter(ptr noundef %0, ptr nocaptur
   br i1 %or.cond15, label %17, label %.sink.split
 
 .sink.split:                                      ; preds = %11
-  %trunc.not = icmp eq i32 %7, 0
-  %hf_zpas_network.val = load i32, ptr @hf_zpas_network, align 4
+  %trunc = trunc i32 %7 to i1
   %hf_zpas_srv_domain.val = load i32, ptr @hf_zpas_srv_domain, align 4
-  %15 = select i1 %trunc.not, i32 %hf_zpas_network.val, i32 %hf_zpas_srv_domain.val
+  %hf_zpas_network.val = load i32, ptr @hf_zpas_network, align 4
+  %15 = select i1 %trunc, i32 %hf_zpas_srv_domain.val, i32 %hf_zpas_network.val
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0) #9
   br label %17
 

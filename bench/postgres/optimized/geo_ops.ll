@@ -137,7 +137,7 @@ define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 nounde
   br i1 %20, label %22, label %24
 
 22:                                               ; preds = %19
-  br i1 %1, label %23, label %.loopexit44
+  br i1 %1, label %23, label %.loopexit43
 
 23:                                               ; preds = %22
   store ptr %18, ptr %10, align 8
@@ -146,14 +146,14 @@ define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 nounde
 24:                                               ; preds = %19
   %25 = load i8, ptr %storemerge, align 1
   %26 = icmp eq i8 %25, 40
-  br i1 %26, label %.preheader46, label %41
+  br i1 %26, label %.preheader45, label %41
 
-.preheader46:                                     ; preds = %24
+.preheader45:                                     ; preds = %24
   %27 = load ptr, ptr %11, align 8
   br label %28
 
-28:                                               ; preds = %.preheader46, %28
-  %.pn = phi ptr [ %.032, %28 ], [ %storemerge, %.preheader46 ]
+28:                                               ; preds = %.preheader45, %28
+  %.pn = phi ptr [ %.032, %28 ], [ %storemerge, %.preheader45 ]
   %.032 = getelementptr i8, ptr %.pn, i64 1
   %29 = load i8, ptr %.032, align 1
   %30 = zext i8 %29 to i64
@@ -188,15 +188,15 @@ define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 nounde
 
 .preheader:                                       ; preds = %55, %41
   %45 = phi ptr [ %42, %41 ], [ %56, %55 ]
-  br i1 %43, label %.lr.ph51.split, label %._crit_edge
+  br i1 %43, label %.lr.ph50.split, label %._crit_edge
 
 .lr.ph:                                           ; preds = %41, %55
   %46 = phi ptr [ %56, %55 ], [ %42, %41 ]
-  %.03150 = phi i32 [ %58, %55 ], [ 0, %41 ]
-  %.03449 = phi ptr [ %57, %55 ], [ %3, %41 ]
-  %47 = getelementptr inbounds i8, ptr %.03449, i64 8
-  %48 = call fastcc zeroext i1 @pair_decode(ptr noundef %46, ptr noundef %.03449, ptr noundef nonnull %47, ptr noundef nonnull %10, ptr noundef %6, ptr noundef %7, ptr noundef %8)
-  br i1 %48, label %49, label %.loopexit45
+  %.03149 = phi i32 [ %58, %55 ], [ 0, %41 ]
+  %.03448 = phi ptr [ %57, %55 ], [ %3, %41 ]
+  %47 = getelementptr inbounds i8, ptr %.03448, i64 8
+  %48 = call fastcc zeroext i1 @pair_decode(ptr noundef %46, ptr noundef %.03448, ptr noundef nonnull %47, ptr noundef nonnull %10, ptr noundef %6, ptr noundef %7, ptr noundef %8)
+  br i1 %48, label %49, label %.loopexit44
 
 49:                                               ; preds = %.lr.ph
   %50 = load ptr, ptr %10, align 8
@@ -211,66 +211,65 @@ define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 nounde
 
 55:                                               ; preds = %53, %49
   %56 = phi ptr [ %54, %53 ], [ %50, %49 ]
-  %57 = getelementptr i8, ptr %.03449, i64 16
-  %58 = add nuw nsw i32 %.03150, 1
+  %57 = getelementptr i8, ptr %.03448, i64 16
+  %58 = add nuw nsw i32 %.03149, 1
   %exitcond.not = icmp eq i32 %58, %2
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !8
 
-.lr.ph51.split:                                   ; preds = %.preheader
+.lr.ph50.split:                                   ; preds = %.preheader
   %59 = load i8, ptr %45, align 1
-  switch i8 %59, label %.loopexit44 [
+  switch i8 %59, label %.loopexit43 [
     i8 41, label %63
     i8 93, label %60
   ]
 
-60:                                               ; preds = %.lr.ph51.split
+60:                                               ; preds = %.lr.ph50.split
   %61 = load i8, ptr %4, align 1
-  %62 = and i8 %61, 1
-  %.not40 = icmp eq i8 %62, 0
-  br i1 %.not40, label %.loopexit44, label %63
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %63, label %.loopexit43
 
-63:                                               ; preds = %.lr.ph51.split, %60
-  %.pre53 = load ptr, ptr %11, align 8
+63:                                               ; preds = %.lr.ph50.split, %60
+  %.pre52 = load ptr, ptr %11, align 8
   br label %64
 
 64:                                               ; preds = %64, %63
-  %.pn43 = phi ptr [ %45, %63 ], [ %storemerge41, %64 ]
-  %storemerge41 = getelementptr i8, ptr %.pn43, i64 1
-  store ptr %storemerge41, ptr %10, align 8
-  %65 = load i8, ptr %storemerge41, align 1
+  %.pn42 = phi ptr [ %45, %63 ], [ %storemerge40, %64 ]
+  %storemerge40 = getelementptr i8, ptr %.pn42, i64 1
+  store ptr %storemerge40, ptr %10, align 8
+  %65 = load i8, ptr %storemerge40, align 1
   %66 = zext i8 %65 to i64
-  %67 = getelementptr i16, ptr %.pre53, i64 %66
+  %67 = getelementptr i16, ptr %.pre52, i64 %66
   %68 = load i16, ptr %67, align 2
   %69 = and i16 %68, 8192
-  %.not42 = icmp eq i16 %69, 0
-  br i1 %.not42, label %._crit_edge, label %64, !llvm.loop !9
+  %.not41 = icmp eq i16 %69, 0
+  br i1 %.not41, label %._crit_edge, label %64, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %64, %.preheader
-  %70 = phi ptr [ %45, %.preheader ], [ %storemerge41, %64 ]
+  %70 = phi ptr [ %45, %.preheader ], [ %storemerge40, %64 ]
   %.not38 = icmp eq ptr %5, null
   br i1 %.not38, label %72, label %71
 
 71:                                               ; preds = %._crit_edge
   store ptr %70, ptr %5, align 8
-  br label %.loopexit45
+  br label %.loopexit44
 
 72:                                               ; preds = %._crit_edge
   %73 = load i8, ptr %70, align 1
   %.not39 = icmp eq i8 %73, 0
-  br i1 %.not39, label %.loopexit45, label %.loopexit44
+  br i1 %.not39, label %.loopexit44, label %.loopexit43
 
-.loopexit44:                                      ; preds = %60, %.lr.ph51.split, %72, %22
+.loopexit43:                                      ; preds = %60, %.lr.ph50.split, %72, %22
   %74 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #15
-  br i1 %74, label %75, label %.loopexit45
+  br i1 %74, label %75, label %.loopexit44
 
-75:                                               ; preds = %.loopexit44
+75:                                               ; preds = %.loopexit43
   %76 = call i32 @errcode(i32 noundef 33685634) #15
   %77 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %6, ptr noundef %7) #15
   call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.2, i32 noundef 336, ptr noundef nonnull @__func__.path_decode) #15
-  br label %.loopexit45
+  br label %.loopexit44
 
-.loopexit45:                                      ; preds = %.lr.ph, %75, %.loopexit44, %71, %72
-  %.0 = phi i1 [ true, %72 ], [ true, %71 ], [ false, %.loopexit44 ], [ false, %75 ], [ false, %.lr.ph ]
+.loopexit44:                                      ; preds = %.lr.ph, %75, %.loopexit43, %71, %72
+  %.0 = phi i1 [ true, %72 ], [ true, %71 ], [ false, %.loopexit43 ], [ false, %75 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -1483,7 +1482,7 @@ define dso_local i64 @line_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %13
   %21 = icmp eq i8 %14, 123
-  br i1 %21, label %22, label %93
+  br i1 %21, label %22, label %90
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -1501,296 +1500,293 @@ define dso_local i64 @line_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
 single_decode.exit.i:                             ; preds = %24
   %27 = getelementptr inbounds i8, ptr %9, i64 4
   %28 = load i8, ptr %27, align 4
-  %29 = and i8 %28, 1
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %single_decode.exit.thread.i, label %78
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %75, label %single_decode.exit.thread.i
 
 single_decode.exit.thread.i:                      ; preds = %single_decode.exit.i, %24, %22
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr i8, ptr %31, i64 1
-  store ptr %32, ptr %2, align 8
-  %33 = load i8, ptr %31, align 1
-  %.not.i = icmp eq i8 %33, 44
-  br i1 %.not.i, label %34, label %73
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr i8, ptr %30, i64 1
+  store ptr %31, ptr %2, align 8
+  %32 = load i8, ptr %30, align 1
+  %.not.i = icmp eq i8 %32, 44
+  br i1 %.not.i, label %33, label %70
 
-34:                                               ; preds = %single_decode.exit.thread.i
-  %35 = getelementptr inbounds i8, ptr %10, i64 8
-  %36 = call double @float8in_internal(ptr noundef %32, ptr noundef nonnull %2, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef %9) #15
-  store double %36, ptr %35, align 8
-  br i1 %.not.i.i, label %single_decode.exit19.thread.i, label %37
+33:                                               ; preds = %single_decode.exit.thread.i
+  %34 = getelementptr inbounds i8, ptr %10, i64 8
+  %35 = call double @float8in_internal(ptr noundef %31, ptr noundef nonnull %2, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef %9) #15
+  store double %35, ptr %34, align 8
+  br i1 %.not.i.i, label %single_decode.exit19.thread.i, label %36
 
-37:                                               ; preds = %34
-  %38 = load i32, ptr %9, align 4
-  %39 = icmp eq i32 %38, 431
-  br i1 %39, label %single_decode.exit19.i, label %single_decode.exit19.thread.i
+36:                                               ; preds = %33
+  %37 = load i32, ptr %9, align 4
+  %38 = icmp eq i32 %37, 431
+  br i1 %38, label %single_decode.exit19.i, label %single_decode.exit19.thread.i
 
-single_decode.exit19.i:                           ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %9, i64 4
-  %41 = load i8, ptr %40, align 4
-  %42 = and i8 %41, 1
-  %43 = icmp eq i8 %42, 0
-  br i1 %43, label %single_decode.exit19.thread.i, label %78
+single_decode.exit19.i:                           ; preds = %36
+  %39 = getelementptr inbounds i8, ptr %9, i64 4
+  %40 = load i8, ptr %39, align 4
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %75, label %single_decode.exit19.thread.i
 
-single_decode.exit19.thread.i:                    ; preds = %single_decode.exit19.i, %37, %34
-  %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr i8, ptr %44, i64 1
-  store ptr %45, ptr %2, align 8
-  %46 = load i8, ptr %44, align 1
-  %.not14.i = icmp eq i8 %46, 44
-  br i1 %.not14.i, label %47, label %73
+single_decode.exit19.thread.i:                    ; preds = %single_decode.exit19.i, %36, %33
+  %42 = load ptr, ptr %2, align 8
+  %43 = getelementptr i8, ptr %42, i64 1
+  store ptr %43, ptr %2, align 8
+  %44 = load i8, ptr %42, align 1
+  %.not14.i = icmp eq i8 %44, 44
+  br i1 %.not14.i, label %45, label %70
 
-47:                                               ; preds = %single_decode.exit19.thread.i
-  %48 = getelementptr inbounds i8, ptr %10, i64 16
-  %49 = call double @float8in_internal(ptr noundef %45, ptr noundef nonnull %2, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef %9) #15
-  store double %49, ptr %48, align 8
-  br i1 %.not.i.i, label %single_decode.exit21.thread.i, label %50
+45:                                               ; preds = %single_decode.exit19.thread.i
+  %46 = getelementptr inbounds i8, ptr %10, i64 16
+  %47 = call double @float8in_internal(ptr noundef %43, ptr noundef nonnull %2, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef %9) #15
+  store double %47, ptr %46, align 8
+  br i1 %.not.i.i, label %single_decode.exit21.thread.i, label %48
 
-50:                                               ; preds = %47
-  %51 = load i32, ptr %9, align 4
-  %52 = icmp eq i32 %51, 431
-  br i1 %52, label %single_decode.exit21.i, label %single_decode.exit21.thread.i
+48:                                               ; preds = %45
+  %49 = load i32, ptr %9, align 4
+  %50 = icmp eq i32 %49, 431
+  br i1 %50, label %single_decode.exit21.i, label %single_decode.exit21.thread.i
 
-single_decode.exit21.i:                           ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %9, i64 4
-  %54 = load i8, ptr %53, align 4
-  %55 = and i8 %54, 1
-  %56 = icmp eq i8 %55, 0
-  br i1 %56, label %single_decode.exit21.thread.i, label %78
+single_decode.exit21.i:                           ; preds = %48
+  %51 = getelementptr inbounds i8, ptr %9, i64 4
+  %52 = load i8, ptr %51, align 4
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %75, label %single_decode.exit21.thread.i
 
-single_decode.exit21.thread.i:                    ; preds = %single_decode.exit21.i, %50, %47
-  %57 = load ptr, ptr %2, align 8
-  %58 = getelementptr i8, ptr %57, i64 1
-  store ptr %58, ptr %2, align 8
-  %59 = load i8, ptr %57, align 1
-  %.not15.i = icmp eq i8 %59, 125
-  br i1 %.not15.i, label %.preheader.i, label %73
+single_decode.exit21.thread.i:                    ; preds = %single_decode.exit21.i, %48, %45
+  %54 = load ptr, ptr %2, align 8
+  %55 = getelementptr i8, ptr %54, i64 1
+  store ptr %55, ptr %2, align 8
+  %56 = load i8, ptr %54, align 1
+  %.not15.i = icmp eq i8 %56, 125
+  br i1 %.not15.i, label %.preheader.i, label %70
 
 .preheader.i:                                     ; preds = %single_decode.exit21.thread.i
-  %60 = load ptr, ptr %11, align 8
-  %61 = load i8, ptr %58, align 1
-  %62 = zext i8 %61 to i64
-  %63 = getelementptr i16, ptr %60, i64 %62
-  %64 = load i16, ptr %63, align 2
-  %65 = and i16 %64, 8192
-  %.not1622.i = icmp eq i16 %65, 0
+  %57 = load ptr, ptr %11, align 8
+  %58 = load i8, ptr %55, align 1
+  %59 = zext i8 %58 to i64
+  %60 = getelementptr i16, ptr %57, i64 %59
+  %61 = load i16, ptr %60, align 2
+  %62 = and i16 %61, 8192
+  %.not1622.i = icmp eq i16 %62, 0
   br i1 %.not1622.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %66 = phi ptr [ %67, %.lr.ph.i ], [ %58, %.preheader.i ]
-  %67 = getelementptr i8, ptr %66, i64 1
-  store ptr %67, ptr %2, align 8
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i64
-  %70 = getelementptr i16, ptr %60, i64 %69
-  %71 = load i16, ptr %70, align 2
-  %72 = and i16 %71, 8192
-  %.not16.i = icmp eq i16 %72, 0
+  %63 = phi ptr [ %64, %.lr.ph.i ], [ %55, %.preheader.i ]
+  %64 = getelementptr i8, ptr %63, i64 1
+  store ptr %64, ptr %2, align 8
+  %65 = load i8, ptr %64, align 1
+  %66 = zext i8 %65 to i64
+  %67 = getelementptr i16, ptr %57, i64 %66
+  %68 = load i16, ptr %67, align 2
+  %69 = and i16 %68, 8192
+  %.not16.i = icmp eq i16 %69, 0
   br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %.lcssa.i = phi i8 [ %61, %.preheader.i ], [ %68, %.lr.ph.i ]
+  %.lcssa.i = phi i8 [ %58, %.preheader.i ], [ %65, %.lr.ph.i ]
   %.not17.i = icmp eq i8 %.lcssa.i, 0
-  br i1 %.not17.i, label %80, label %73
+  br i1 %.not17.i, label %77, label %70
 
-73:                                               ; preds = %._crit_edge.i, %single_decode.exit21.thread.i, %single_decode.exit19.thread.i, %single_decode.exit.thread.i
-  %74 = call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #15
-  br i1 %74, label %75, label %78
+70:                                               ; preds = %._crit_edge.i, %single_decode.exit21.thread.i, %single_decode.exit19.thread.i, %single_decode.exit.thread.i
+  %71 = call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #15
+  br i1 %71, label %72, label %75
 
-75:                                               ; preds = %73
-  %76 = call i32 @errcode(i32 noundef 33685634) #15
-  %77 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.3, ptr noundef %7) #15
+72:                                               ; preds = %70
+  %73 = call i32 @errcode(i32 noundef 33685634) #15
+  %74 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.3, ptr noundef %7) #15
   call void @errsave_finish(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef 975, ptr noundef nonnull @__func__.line_decode) #15
-  br label %78
+  br label %75
 
-78:                                               ; preds = %single_decode.exit.i, %single_decode.exit19.i, %single_decode.exit21.i, %73, %75
+75:                                               ; preds = %single_decode.exit.i, %single_decode.exit19.i, %single_decode.exit21.i, %70, %72
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %79 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %79, align 4
-  br label %172
+  %76 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %76, align 4
+  br label %169
 
-80:                                               ; preds = %._crit_edge.i
+77:                                               ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %81 = load double, ptr %10, align 8
-  %82 = call double @llvm.fabs.f64(double %81)
-  %83 = fcmp ugt double %82, 0x3EB0C6F7A0B5ED8D
-  br i1 %83, label %line_construct.exit, label %84
+  %78 = load double, ptr %10, align 8
+  %79 = call double @llvm.fabs.f64(double %78)
+  %80 = fcmp ugt double %79, 0x3EB0C6F7A0B5ED8D
+  br i1 %80, label %line_construct.exit, label %81
 
-84:                                               ; preds = %80
-  %85 = load double, ptr %35, align 8
-  %86 = call double @llvm.fabs.f64(double %85)
-  %87 = fcmp ugt double %86, 0x3EB0C6F7A0B5ED8D
-  br i1 %87, label %line_construct.exit, label %88
+81:                                               ; preds = %77
+  %82 = load double, ptr %34, align 8
+  %83 = call double @llvm.fabs.f64(double %82)
+  %84 = fcmp ugt double %83, 0x3EB0C6F7A0B5ED8D
+  br i1 %84, label %line_construct.exit, label %85
 
-88:                                               ; preds = %84
-  %89 = call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #15
-  br i1 %89, label %90, label %172
+85:                                               ; preds = %81
+  %86 = call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #15
+  br i1 %86, label %87, label %169
 
-90:                                               ; preds = %88
-  %91 = call i32 @errcode(i32 noundef 33685634) #15
-  %92 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #15
+87:                                               ; preds = %85
+  %88 = call i32 @errcode(i32 noundef 33685634) #15
+  %89 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #15
   call void @errsave_finish(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef 998, ptr noundef nonnull @__func__.line_in) #15
-  br label %172
+  br label %169
 
-93:                                               ; preds = %20
-  %94 = call fastcc zeroext i1 @path_decode(ptr noundef nonnull %.025, i1 noundef zeroext true, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef %9)
-  br i1 %94, label %97, label %95
+90:                                               ; preds = %20
+  %91 = call fastcc zeroext i1 @path_decode(ptr noundef nonnull %.025, i1 noundef zeroext true, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef %9)
+  br i1 %91, label %94, label %92
 
-95:                                               ; preds = %93
-  %96 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %96, align 4
-  br label %172
+92:                                               ; preds = %90
+  %93 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %93, align 4
+  br label %169
 
-97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %3, i64 16
-  %99 = load double, ptr %3, align 8
-  %100 = fcmp uno double %99, 0.000000e+00
-  br i1 %100, label %..critedge_crit_edge.i, label %101
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds i8, ptr %3, i64 16
+  %96 = load double, ptr %3, align 8
+  %97 = fcmp uno double %96, 0.000000e+00
+  br i1 %97, label %..critedge_crit_edge.i, label %98
 
-..critedge_crit_edge.i:                           ; preds = %97
-  %.pre.i = load double, ptr %98, align 8
+..critedge_crit_edge.i:                           ; preds = %94
+  %.pre.i = load double, ptr %95, align 8
   br label %.critedge.i
 
-101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %3, i64 8
-  %103 = load double, ptr %102, align 8
-  %104 = fcmp uno double %103, 0.000000e+00
-  %.pre14.i = load double, ptr %98, align 8
-  %105 = fcmp uno double %.pre14.i, 0.000000e+00
-  %or.cond.i = select i1 %104, i1 true, i1 %105
-  br i1 %or.cond.i, label %.critedge.i, label %106
+98:                                               ; preds = %94
+  %99 = getelementptr inbounds i8, ptr %3, i64 8
+  %100 = load double, ptr %99, align 8
+  %101 = fcmp uno double %100, 0.000000e+00
+  %.pre14.i = load double, ptr %95, align 8
+  %102 = fcmp uno double %.pre14.i, 0.000000e+00
+  %or.cond.i = select i1 %101, i1 true, i1 %102
+  br i1 %or.cond.i, label %.critedge.i, label %103
 
-106:                                              ; preds = %101
-  %107 = getelementptr inbounds i8, ptr %3, i64 24
-  %108 = load double, ptr %107, align 8
-  %109 = fcmp uno double %108, 0.000000e+00
-  br i1 %109, label %.critedge.i, label %121
+103:                                              ; preds = %98
+  %104 = getelementptr inbounds i8, ptr %3, i64 24
+  %105 = load double, ptr %104, align 8
+  %106 = fcmp uno double %105, 0.000000e+00
+  br i1 %106, label %.critedge.i, label %118
 
-.critedge.i:                                      ; preds = %106, %101, %..critedge_crit_edge.i
-  %110 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %101 ], [ %.pre14.i, %106 ]
-  %111 = fcmp uno double %110, 0.000000e+00
-  %112 = fcmp oeq double %99, %110
-  %.in.i.i = select i1 %100, i1 %111, i1 %112
-  br i1 %.in.i.i, label %113, label %point_eq_point.exit.thread
+.critedge.i:                                      ; preds = %103, %98, %..critedge_crit_edge.i
+  %107 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %98 ], [ %.pre14.i, %103 ]
+  %108 = fcmp uno double %107, 0.000000e+00
+  %109 = fcmp oeq double %96, %107
+  %.in.i.i = select i1 %97, i1 %108, i1 %109
+  br i1 %.in.i.i, label %110, label %point_eq_point.exit.thread
 
-113:                                              ; preds = %.critedge.i
-  %114 = getelementptr inbounds i8, ptr %3, i64 8
-  %115 = load double, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %3, i64 24
-  %117 = load double, ptr %116, align 8
-  %118 = fcmp uno double %115, 0.000000e+00
-  %119 = fcmp uno double %117, 0.000000e+00
-  %120 = fcmp oeq double %115, %117
-  %.in.i13.i = select i1 %118, i1 %119, i1 %120
-  br i1 %.in.i13.i, label %132, label %point_eq_point.exit.thread
+110:                                              ; preds = %.critedge.i
+  %111 = getelementptr inbounds i8, ptr %3, i64 8
+  %112 = load double, ptr %111, align 8
+  %113 = getelementptr inbounds i8, ptr %3, i64 24
+  %114 = load double, ptr %113, align 8
+  %115 = fcmp uno double %112, 0.000000e+00
+  %116 = fcmp uno double %114, 0.000000e+00
+  %117 = fcmp oeq double %112, %114
+  %.in.i13.i = select i1 %115, i1 %116, i1 %117
+  br i1 %.in.i13.i, label %129, label %point_eq_point.exit.thread
 
-121:                                              ; preds = %106
-  %122 = fcmp oeq double %99, %.pre14.i
-  %123 = fsub double %99, %.pre14.i
-  %124 = tail call double @llvm.fabs.f64(double %123)
-  %125 = fcmp ole double %124, 0x3EB0C6F7A0B5ED8D
-  %126 = or i1 %122, %125
-  br i1 %126, label %point_eq_point.exit, label %point_eq_point.exit.thread
+118:                                              ; preds = %103
+  %119 = fcmp oeq double %96, %.pre14.i
+  %120 = fsub double %96, %.pre14.i
+  %121 = tail call double @llvm.fabs.f64(double %120)
+  %122 = fcmp ole double %121, 0x3EB0C6F7A0B5ED8D
+  %123 = or i1 %119, %122
+  br i1 %123, label %point_eq_point.exit, label %point_eq_point.exit.thread
 
-point_eq_point.exit:                              ; preds = %121
-  %127 = fcmp oeq double %103, %108
-  %128 = fsub double %103, %108
-  %129 = tail call double @llvm.fabs.f64(double %128)
-  %130 = fcmp ole double %129, 0x3EB0C6F7A0B5ED8D
-  %131 = or i1 %127, %130
-  br i1 %131, label %132, label %point_eq_point.exit.thread
+point_eq_point.exit:                              ; preds = %118
+  %124 = fcmp oeq double %100, %105
+  %125 = fsub double %100, %105
+  %126 = tail call double @llvm.fabs.f64(double %125)
+  %127 = fcmp ole double %126, 0x3EB0C6F7A0B5ED8D
+  %128 = or i1 %124, %127
+  br i1 %128, label %129, label %point_eq_point.exit.thread
 
-132:                                              ; preds = %113, %point_eq_point.exit
-  %133 = tail call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #15
-  br i1 %133, label %134, label %172
+129:                                              ; preds = %110, %point_eq_point.exit
+  %130 = tail call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #15
+  br i1 %130, label %131, label %169
 
-134:                                              ; preds = %132
-  %135 = tail call i32 @errcode(i32 noundef 33685634) #15
-  %136 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #15
+131:                                              ; preds = %129
+  %132 = tail call i32 @errcode(i32 noundef 33685634) #15
+  %133 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #15
   tail call void @errsave_finish(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef 1008, ptr noundef nonnull @__func__.line_in) #15
-  br label %172
+  br label %169
 
-point_eq_point.exit.thread:                       ; preds = %121, %.critedge.i, %113, %point_eq_point.exit
-  %137 = call fastcc double @point_sl(ptr noundef nonnull %3, ptr noundef nonnull %98)
-  %138 = tail call double @llvm.fabs.f64(double %137)
-  %139 = fcmp oeq double %138, 0x7FF0000000000000
-  %140 = getelementptr inbounds i8, ptr %10, i64 8
-  br i1 %139, label %141, label %143
+point_eq_point.exit.thread:                       ; preds = %118, %.critedge.i, %110, %point_eq_point.exit
+  %134 = call fastcc double @point_sl(ptr noundef nonnull %3, ptr noundef nonnull %95)
+  %135 = tail call double @llvm.fabs.f64(double %134)
+  %136 = fcmp oeq double %135, 0x7FF0000000000000
+  %137 = getelementptr inbounds i8, ptr %10, i64 8
+  br i1 %136, label %138, label %140
 
-141:                                              ; preds = %point_eq_point.exit.thread
+138:                                              ; preds = %point_eq_point.exit.thread
   store <2 x double> <double -1.000000e+00, double 0.000000e+00>, ptr %10, align 8
-  %142 = getelementptr inbounds i8, ptr %10, i64 16
-  store double %99, ptr %142, align 8
+  %139 = getelementptr inbounds i8, ptr %10, i64 16
+  store double %96, ptr %139, align 8
   br label %line_construct.exit
 
-143:                                              ; preds = %point_eq_point.exit.thread
-  %144 = fcmp oeq double %137, 0.000000e+00
-  %145 = getelementptr inbounds i8, ptr %3, i64 8
-  br i1 %144, label %146, label %149
+140:                                              ; preds = %point_eq_point.exit.thread
+  %141 = fcmp oeq double %134, 0.000000e+00
+  %142 = getelementptr inbounds i8, ptr %3, i64 8
+  br i1 %141, label %143, label %146
 
-146:                                              ; preds = %143
+143:                                              ; preds = %140
   store <2 x double> <double 0.000000e+00, double -1.000000e+00>, ptr %10, align 8
-  %147 = load double, ptr %145, align 8
-  %148 = getelementptr inbounds i8, ptr %10, i64 16
-  store double %147, ptr %148, align 8
+  %144 = load double, ptr %142, align 8
+  %145 = getelementptr inbounds i8, ptr %10, i64 16
+  store double %144, ptr %145, align 8
   br label %line_construct.exit
 
-149:                                              ; preds = %143
-  store double %137, ptr %10, align 8
-  store double -1.000000e+00, ptr %140, align 8
-  %150 = load double, ptr %145, align 8
-  %151 = fmul double %99, %137
-  %152 = tail call double @llvm.fabs.f64(double %151)
-  %153 = fcmp une double %152, 0x7FF0000000000000
-  %154 = tail call double @llvm.fabs.f64(double %99)
-  %155 = fcmp oeq double %154, 0x7FF0000000000000
-  %or.cond15.i.i = or i1 %155, %153
-  br i1 %or.cond15.i.i, label %157, label %156
+146:                                              ; preds = %140
+  store double %134, ptr %10, align 8
+  store double -1.000000e+00, ptr %137, align 8
+  %147 = load double, ptr %142, align 8
+  %148 = fmul double %96, %134
+  %149 = tail call double @llvm.fabs.f64(double %148)
+  %150 = fcmp une double %149, 0x7FF0000000000000
+  %151 = tail call double @llvm.fabs.f64(double %96)
+  %152 = fcmp oeq double %151, 0x7FF0000000000000
+  %or.cond15.i.i = or i1 %152, %150
+  br i1 %or.cond15.i.i, label %154, label %153
 
-156:                                              ; preds = %149
+153:                                              ; preds = %146
   tail call void @float_overflow_error() #18
   unreachable
 
-157:                                              ; preds = %149
-  %158 = fcmp oeq double %151, 0.000000e+00
-  %159 = fcmp une double %99, 0.000000e+00
-  %or.cond3.i.i = and i1 %159, %158
-  br i1 %or.cond3.i.i, label %160, label %float8_mul.exit.i
+154:                                              ; preds = %146
+  %155 = fcmp oeq double %148, 0.000000e+00
+  %156 = fcmp une double %96, 0.000000e+00
+  %or.cond3.i.i = and i1 %156, %155
+  br i1 %or.cond3.i.i, label %157, label %float8_mul.exit.i
 
-160:                                              ; preds = %157
+157:                                              ; preds = %154
   tail call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i:                                ; preds = %157
-  %161 = fsub double %150, %151
-  %162 = tail call double @llvm.fabs.f64(double %161)
-  %163 = fcmp une double %162, 0x7FF0000000000000
-  %164 = tail call double @llvm.fabs.f64(double %150)
-  %165 = fcmp oeq double %164, 0x7FF0000000000000
-  %or.cond.i19.i = or i1 %165, %163
-  %166 = fcmp oeq double %152, 0x7FF0000000000000
-  %or.cond8.i.i = or i1 %166, %or.cond.i19.i
-  br i1 %or.cond8.i.i, label %float8_mi.exit.i, label %167
+float8_mul.exit.i:                                ; preds = %154
+  %158 = fsub double %147, %148
+  %159 = tail call double @llvm.fabs.f64(double %158)
+  %160 = fcmp une double %159, 0x7FF0000000000000
+  %161 = tail call double @llvm.fabs.f64(double %147)
+  %162 = fcmp oeq double %161, 0x7FF0000000000000
+  %or.cond.i19.i = or i1 %162, %160
+  %163 = fcmp oeq double %149, 0x7FF0000000000000
+  %or.cond8.i.i = or i1 %163, %or.cond.i19.i
+  br i1 %or.cond8.i.i, label %float8_mi.exit.i, label %164
 
-167:                                              ; preds = %float8_mul.exit.i
+164:                                              ; preds = %float8_mul.exit.i
   tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %float8_mul.exit.i
-  %168 = getelementptr inbounds i8, ptr %10, i64 16
-  store double %161, ptr %168, align 8
-  %169 = fcmp oeq double %161, 0.000000e+00
-  br i1 %169, label %170, label %line_construct.exit
+  %165 = getelementptr inbounds i8, ptr %10, i64 16
+  store double %158, ptr %165, align 8
+  %166 = fcmp oeq double %158, 0.000000e+00
+  br i1 %166, label %167, label %line_construct.exit
 
-170:                                              ; preds = %float8_mi.exit.i
-  store double 0.000000e+00, ptr %168, align 8
+167:                                              ; preds = %float8_mi.exit.i
+  store double 0.000000e+00, ptr %165, align 8
   br label %line_construct.exit
 
-line_construct.exit:                              ; preds = %170, %float8_mi.exit.i, %146, %141, %80, %84
-  %171 = ptrtoint ptr %10 to i64
-  br label %172
+line_construct.exit:                              ; preds = %167, %float8_mi.exit.i, %143, %138, %77, %81
+  %168 = ptrtoint ptr %10 to i64
+  br label %169
 
-172:                                              ; preds = %134, %132, %90, %88, %line_construct.exit, %95, %78
-  %.0 = phi i64 [ %171, %line_construct.exit ], [ 0, %78 ], [ 0, %95 ], [ 0, %88 ], [ 0, %90 ], [ 0, %132 ], [ 0, %134 ]
+169:                                              ; preds = %131, %129, %87, %85, %line_construct.exit, %92, %75
+  %.0 = phi i64 [ %168, %line_construct.exit ], [ 0, %75 ], [ 0, %92 ], [ 0, %85 ], [ 0, %87 ], [ 0, %129 ], [ 0, %131 ]
   ret i64 %.0
 }
 
@@ -3692,9 +3688,9 @@ pair_count.exit:                                  ; preds = %.lr.ph.i
   %16 = ashr exact i32 %15, 1
   %17 = select i1 %.not7.i.not, i32 %16, i32 -1
   %18 = icmp slt i32 %17, 1
-  br i1 %18, label %pair_count.exit.thread, label %.preheader52
+  br i1 %18, label %pair_count.exit.thread, label %.preheader51
 
-.preheader52:                                     ; preds = %pair_count.exit
+.preheader51:                                     ; preds = %pair_count.exit
   %19 = tail call ptr @__ctype_b_loc() #16
   %.pre = load ptr, ptr %19, align 8
   br label %24
@@ -3709,8 +3705,8 @@ pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
   tail call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.2, i32 noundef 1418, ptr noundef nonnull @__func__.path_in) #15
   br label %93
 
-24:                                               ; preds = %24, %.preheader52
-  %storemerge = phi ptr [ %30, %24 ], [ %6, %.preheader52 ]
+24:                                               ; preds = %24, %.preheader51
+  %storemerge = phi ptr [ %30, %24 ], [ %6, %.preheader51 ]
   store ptr %storemerge, ptr %3, align 8
   %25 = load i8, ptr %storemerge, align 1
   %26 = zext i8 %25 to i64
@@ -3772,17 +3768,17 @@ pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
   br label %93
 
 57:                                               ; preds = %47
-  %.pre55 = load ptr, ptr %3, align 8
+  %.pre54 = load ptr, ptr %3, align 8
   br i1 %39, label %58, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %57
-  %.pre56 = load i8, ptr %.pre55, align 1
+  %.pre55 = load i8, ptr %.pre54, align 1
   br label %.loopexit
 
 58:                                               ; preds = %57
-  %59 = getelementptr i8, ptr %.pre55, i64 1
+  %59 = getelementptr i8, ptr %.pre54, i64 1
   store ptr %59, ptr %3, align 8
-  %60 = load i8, ptr %.pre55, align 1
+  %60 = load i8, ptr %.pre54, align 1
   %.not46 = icmp eq i8 %60, 41
   br i1 %.not46, label %.preheader, label %67
 
@@ -3793,8 +3789,8 @@ pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
   %64 = getelementptr i16, ptr %61, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = and i16 %65, 8192
-  %.not4754 = icmp eq i16 %66, 0
-  br i1 %.not4754, label %.loopexit, label %.lr.ph
+  %.not4753 = icmp eq i16 %66, 0
+  br i1 %.not4753, label %.loopexit, label %.lr.ph
 
 67:                                               ; preds = %58
   %68 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #15
@@ -3819,7 +3815,7 @@ pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
   br i1 %.not47, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %..loopexit_crit_edge, %.preheader
-  %79 = phi i8 [ %62, %.preheader ], [ %.pre56, %..loopexit_crit_edge ], [ %74, %.lr.ph ]
+  %79 = phi i8 [ %62, %.preheader ], [ %.pre55, %..loopexit_crit_edge ], [ %74, %.lr.ph ]
   %.not48 = icmp eq i8 %79, 0
   br i1 %.not48, label %85, label %80
 
@@ -4601,9 +4597,9 @@ define dso_local i64 @path_distance(ptr nocapture noundef %0) local_unnamed_addr
   %38 = getelementptr inbounds i8, ptr %33, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph1034, label %._crit_edge.thread
+  br i1 %40, label %.lr.ph1031, label %._crit_edge.thread
 
-.lr.ph1034:                                       ; preds = %1
+.lr.ph1031:                                       ; preds = %1
   %41 = getelementptr inbounds i8, ptr %33, i64 8
   %42 = getelementptr inbounds i8, ptr %37, i64 4
   %43 = getelementptr inbounds i8, ptr %37, i64 8
@@ -4656,19 +4652,19 @@ define dso_local i64 @path_distance(ptr nocapture noundef %0) local_unnamed_addr
   %90 = getelementptr inbounds i8, ptr %26, i64 8
   br label %91
 
-91:                                               ; preds = %.lr.ph1034, %.loopexit
-  %92 = phi i32 [ %39, %.lr.ph1034 ], [ %1256, %.loopexit ]
-  %indvars.iv1037 = phi i64 [ 0, %.lr.ph1034 ], [ %indvars.iv.next1038, %.loopexit ]
-  %.0351031 = phi i8 [ 0, %.lr.ph1034 ], [ %.3, %.loopexit ]
-  %.0361030 = phi double [ 0.000000e+00, %.lr.ph1034 ], [ %.339, %.loopexit ]
-  %.not1045 = icmp eq i64 %indvars.iv1037, 0
-  %93 = trunc i64 %indvars.iv1037 to i32
-  br i1 %.not1045, label %94, label %96
+91:                                               ; preds = %.lr.ph1031, %.loopexit
+  %92 = phi i32 [ %39, %.lr.ph1031 ], [ %1256, %.loopexit ]
+  %indvars.iv1034 = phi i64 [ 0, %.lr.ph1031 ], [ %indvars.iv.next1035, %.loopexit ]
+  %.0351028 = phi i8 [ 0, %.lr.ph1031 ], [ %.3, %.loopexit ]
+  %.0361027 = phi double [ 0.000000e+00, %.lr.ph1031 ], [ %.339, %.loopexit ]
+  %.not1042 = icmp eq i64 %indvars.iv1034, 0
+  %93 = trunc i64 %indvars.iv1034 to i32
+  br i1 %.not1042, label %94, label %96
 
 94:                                               ; preds = %91
   %95 = load i32, ptr %41, align 8
-  %.not42 = icmp eq i32 %95, 0
-  br i1 %.not42, label %.loopexit, label %96
+  %.not = icmp eq i32 %95, 0
+  br i1 %.not, label %.loopexit, label %96
 
 96:                                               ; preds = %94, %91
   %.031.in = phi i32 [ %93, %91 ], [ %92, %94 ]
@@ -4680,22 +4676,22 @@ define dso_local i64 @path_distance(ptr nocapture noundef %0) local_unnamed_addr
   %.031 = add nsw i32 %.031.in, -1
   %99 = sext i32 %.031 to i64
   %100 = getelementptr [0 x %struct.Point], ptr %44, i64 0, i64 %99
-  %101 = getelementptr [0 x %struct.Point], ptr %44, i64 0, i64 %indvars.iv1037
+  %101 = getelementptr [0 x %struct.Point], ptr %44, i64 0, i64 %indvars.iv1034
   br label %102
 
 102:                                              ; preds = %.lr.ph, %float8_lt.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %float8_lt.exit.thread ]
   %103 = phi i32 [ %97, %.lr.ph ], [ %1253, %float8_lt.exit.thread ]
-  %.11027 = phi i8 [ %.0351031, %.lr.ph ], [ %.2, %float8_lt.exit.thread ]
-  %.1371026 = phi double [ %.0361030, %.lr.ph ], [ %.238, %float8_lt.exit.thread ]
-  %.not465 = icmp eq i64 %indvars.iv, 0
+  %.11024 = phi i8 [ %.0351028, %.lr.ph ], [ %.2, %float8_lt.exit.thread ]
+  %.1371023 = phi double [ %.0361027, %.lr.ph ], [ %.238, %float8_lt.exit.thread ]
+  %.not462 = icmp eq i64 %indvars.iv, 0
   %104 = trunc i64 %indvars.iv to i32
-  br i1 %.not465, label %105, label %107
+  br i1 %.not462, label %105, label %107
 
 105:                                              ; preds = %102
   %106 = load i32, ptr %43, align 8
-  %.not43 = icmp eq i32 %106, 0
-  br i1 %.not43, label %float8_lt.exit.thread, label %107
+  %.not42 = icmp eq i32 %106, 0
+  br i1 %.not42, label %float8_lt.exit.thread, label %107
 
 107:                                              ; preds = %105, %102
   %.0.in = phi i32 [ %104, %102 ], [ %103, %105 ]
@@ -4721,7 +4717,7 @@ define dso_local i64 @path_distance(ptr nocapture noundef %0) local_unnamed_addr
   %120 = call double @llvm.fabs.f64(double %119)
   %121 = fcmp ole double %120, 0x3EB0C6F7A0B5ED8D
   %122 = or i1 %117, %121
-  br i1 %122, label %line_construct.exit.i78.sink.split.sink.split, label %123
+  br i1 %122, label %line_construct.exit.i76.sink.split.sink.split, label %123
 
 123:                                              ; preds = %107
   %124 = extractelement <2 x double> %113, i64 1
@@ -4731,53 +4727,53 @@ define dso_local i64 @path_distance(ptr nocapture noundef %0) local_unnamed_addr
   %128 = call double @llvm.fabs.f64(double %127)
   %129 = fcmp ole double %128, 0x3EB0C6F7A0B5ED8D
   %130 = or i1 %126, %129
-  br i1 %130, label %line_construct.exit.i78.sink.split.sink.split, label %131
+  br i1 %130, label %line_construct.exit.i76.sink.split.sink.split, label %131
 
 131:                                              ; preds = %123
   %132 = fcmp une double %128, 0x7FF0000000000000
   %133 = call double @llvm.fabs.f64(double %124)
   %134 = fcmp oeq double %133, 0x7FF0000000000000
-  %or.cond.i.i304 = or i1 %134, %132
+  %or.cond.i.i302 = or i1 %134, %132
   %135 = call double @llvm.fabs.f64(double %125)
   %136 = fcmp oeq double %135, 0x7FF0000000000000
-  %or.cond8.i.i305 = or i1 %136, %or.cond.i.i304
-  br i1 %or.cond8.i.i305, label %float8_mi.exit.i306, label %137
+  %or.cond8.i.i303 = or i1 %136, %or.cond.i.i302
+  br i1 %or.cond8.i.i303, label %float8_mi.exit.i304, label %137
 
 137:                                              ; preds = %131
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i306:                              ; preds = %131
+float8_mi.exit.i304:                              ; preds = %131
   %138 = fcmp une double %120, 0x7FF0000000000000
   %139 = call double @llvm.fabs.f64(double %115)
   %140 = fcmp oeq double %139, 0x7FF0000000000000
-  %or.cond.i9.i307 = or i1 %140, %138
+  %or.cond.i9.i305 = or i1 %140, %138
   %141 = call double @llvm.fabs.f64(double %116)
   %142 = fcmp oeq double %141, 0x7FF0000000000000
-  %or.cond8.i10.i308 = or i1 %142, %or.cond.i9.i307
-  br i1 %or.cond8.i10.i308, label %float8_mi.exit11.i309, label %143
+  %or.cond8.i10.i306 = or i1 %142, %or.cond.i9.i305
+  br i1 %or.cond8.i10.i306, label %float8_mi.exit11.i307, label %143
 
-143:                                              ; preds = %float8_mi.exit.i306
+143:                                              ; preds = %float8_mi.exit.i304
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit11.i309:                            ; preds = %float8_mi.exit.i306
+float8_mi.exit11.i307:                            ; preds = %float8_mi.exit.i304
   %144 = fcmp une double %119, 0.000000e+00
   %145 = fcmp uno double %127, 0.000000e+00
-  %or.cond11.i.i310 = or i1 %144, %145
-  br i1 %or.cond11.i.i310, label %147, label %146
+  %or.cond11.i.i308 = or i1 %144, %145
+  br i1 %or.cond11.i.i308, label %147, label %146
 
-146:                                              ; preds = %float8_mi.exit11.i309
+146:                                              ; preds = %float8_mi.exit11.i307
   call void @float_zero_divide_error() #18
   unreachable
 
-147:                                              ; preds = %float8_mi.exit11.i309
+147:                                              ; preds = %float8_mi.exit11.i307
   %148 = fdiv double %127, %119
   %149 = call double @llvm.fabs.f64(double %148)
   %150 = fcmp une double %149, 0x7FF0000000000000
   %151 = fcmp oeq double %128, 0x7FF0000000000000
-  %or.cond13.i.i311 = or i1 %151, %150
-  br i1 %or.cond13.i.i311, label %153, label %152
+  %or.cond13.i.i309 = or i1 %151, %150
+  br i1 %or.cond13.i.i309, label %153, label %152
 
 152:                                              ; preds = %147
   call void @float_overflow_error() #18
@@ -4786,10 +4782,10 @@ float8_mi.exit11.i309:                            ; preds = %float8_mi.exit.i306
 153:                                              ; preds = %147
   %154 = fcmp une double %148, 0.000000e+00
   %155 = fcmp oeq double %127, 0.000000e+00
-  %or.cond.not17.i.i312 = or i1 %155, %154
+  %or.cond.not17.i.i310 = or i1 %155, %154
   %156 = fcmp oeq double %120, 0x7FF0000000000000
-  %or.cond15.i.i313 = or i1 %156, %or.cond.not17.i.i312
-  br i1 %or.cond15.i.i313, label %point_sl.exit, label %157
+  %or.cond15.i.i311 = or i1 %156, %or.cond.not17.i.i310
+  br i1 %or.cond15.i.i311, label %point_sl.exit, label %157
 
 157:                                              ; preds = %153
   call void @float_underflow_error() #18
@@ -4798,11 +4794,11 @@ float8_mi.exit11.i309:                            ; preds = %float8_mi.exit.i306
 point_sl.exit:                                    ; preds = %153
   %158 = call double @llvm.fabs.f64(double %148)
   %159 = fcmp oeq double %158, 0x7FF0000000000000
-  br i1 %159, label %line_construct.exit.i78.sink.split.sink.split, label %160
+  br i1 %159, label %line_construct.exit.i76.sink.split.sink.split, label %160
 
 160:                                              ; preds = %point_sl.exit
   %161 = fcmp oeq double %148, 0.000000e+00
-  br i1 %161, label %line_construct.exit.i78.sink.split.sink.split, label %162
+  br i1 %161, label %line_construct.exit.i76.sink.split.sink.split, label %162
 
 162:                                              ; preds = %160
   store double %148, ptr %19, align 16
@@ -4812,8 +4808,8 @@ point_sl.exit:                                    ; preds = %153
   %165 = fcmp une double %164, 0x7FF0000000000000
   %166 = call double @llvm.fabs.f64(double %115)
   %167 = fcmp oeq double %166, 0x7FF0000000000000
-  %or.cond15.i.i.i72 = or i1 %167, %165
-  br i1 %or.cond15.i.i.i72, label %169, label %168
+  %or.cond15.i.i.i70 = or i1 %167, %165
+  br i1 %or.cond15.i.i.i70, label %169, label %168
 
 168:                                              ; preds = %162
   call void @float_overflow_error() #18
@@ -4822,65 +4818,65 @@ point_sl.exit:                                    ; preds = %153
 169:                                              ; preds = %162
   %170 = fcmp oeq double %163, 0.000000e+00
   %171 = fcmp une double %115, 0.000000e+00
-  %or.cond3.i.i.i73 = and i1 %171, %170
-  br i1 %or.cond3.i.i.i73, label %172, label %float8_mul.exit.i.i74
+  %or.cond3.i.i.i71 = and i1 %171, %170
+  br i1 %or.cond3.i.i.i71, label %172, label %float8_mul.exit.i.i72
 
 172:                                              ; preds = %169
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i74:                            ; preds = %169
+float8_mul.exit.i.i72:                            ; preds = %169
   %173 = fsub double %124, %163
   %174 = call double @llvm.fabs.f64(double %173)
   %175 = fcmp une double %174, 0x7FF0000000000000
   %176 = call double @llvm.fabs.f64(double %124)
   %177 = fcmp oeq double %176, 0x7FF0000000000000
-  %or.cond.i19.i.i75 = or i1 %177, %175
+  %or.cond.i19.i.i73 = or i1 %177, %175
   %178 = fcmp oeq double %164, 0x7FF0000000000000
-  %or.cond8.i.i.i76 = or i1 %178, %or.cond.i19.i.i75
-  br i1 %or.cond8.i.i.i76, label %float8_mi.exit.i.i77, label %179
+  %or.cond8.i.i.i74 = or i1 %178, %or.cond.i19.i.i73
+  br i1 %or.cond8.i.i.i74, label %float8_mi.exit.i.i75, label %179
 
-179:                                              ; preds = %float8_mul.exit.i.i74
+179:                                              ; preds = %float8_mul.exit.i.i72
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i77:                             ; preds = %float8_mul.exit.i.i74
+float8_mi.exit.i.i75:                             ; preds = %float8_mul.exit.i.i72
   %180 = fcmp oeq double %173, 0.000000e+00
-  br i1 %180, label %line_construct.exit.i78.sink.split, label %line_construct.exit.i78
+  br i1 %180, label %line_construct.exit.i76.sink.split, label %line_construct.exit.i76
 
-line_construct.exit.i78.sink.split.sink.split:    ; preds = %160, %123, %point_sl.exit, %107
+line_construct.exit.i76.sink.split.sink.split:    ; preds = %160, %123, %point_sl.exit, %107
   %.sink.ph = phi double [ %115, %107 ], [ %115, %point_sl.exit ], [ %124, %123 ], [ %124, %160 ]
   %181 = phi <2 x double> [ <double -1.000000e+00, double 0.000000e+00>, %107 ], [ <double -1.000000e+00, double 0.000000e+00>, %point_sl.exit ], [ <double 0.000000e+00, double -1.000000e+00>, %123 ], [ <double 0.000000e+00, double -1.000000e+00>, %160 ]
   store <2 x double> %181, ptr %19, align 16
-  br label %line_construct.exit.i78
+  br label %line_construct.exit.i76
 
-line_construct.exit.i78.sink.split:               ; preds = %float8_mi.exit.i.i77
-  br label %line_construct.exit.i78
+line_construct.exit.i76.sink.split:               ; preds = %float8_mi.exit.i.i75
+  br label %line_construct.exit.i76
 
-line_construct.exit.i78:                          ; preds = %line_construct.exit.i78.sink.split.sink.split, %line_construct.exit.i78.sink.split, %float8_mi.exit.i.i77
-  %storemerge1102 = phi double [ %173, %float8_mi.exit.i.i77 ], [ %.sink.ph, %line_construct.exit.i78.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i78.sink.split ]
-  store double %storemerge1102, ptr %53, align 16
+line_construct.exit.i76:                          ; preds = %line_construct.exit.i76.sink.split.sink.split, %line_construct.exit.i76.sink.split, %float8_mi.exit.i.i75
+  %storemerge1099 = phi double [ %173, %float8_mi.exit.i.i75 ], [ %.sink.ph, %line_construct.exit.i76.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i76.sink.split ]
+  store double %storemerge1099, ptr %53, align 16
   %182 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %18, ptr noundef nonnull %28, ptr noundef nonnull %19)
   br i1 %182, label %183, label %276
 
-183:                                              ; preds = %line_construct.exit.i78
+183:                                              ; preds = %line_construct.exit.i76
   %184 = load double, ptr %18, align 8
   %185 = fsub double %184, %115
   %186 = call double @llvm.fabs.f64(double %185)
   %187 = fcmp une double %186, 0x7FF0000000000000
   %188 = call double @llvm.fabs.f64(double %184)
   %189 = fcmp oeq double %188, 0x7FF0000000000000
-  %or.cond.i.i291 = or i1 %189, %187
+  %or.cond.i.i289 = or i1 %189, %187
   %190 = call double @llvm.fabs.f64(double %115)
   %191 = fcmp oeq double %190, 0x7FF0000000000000
-  %or.cond8.i.i292 = or i1 %191, %or.cond.i.i291
-  br i1 %or.cond8.i.i292, label %float8_mi.exit.i293, label %192
+  %or.cond8.i.i290 = or i1 %191, %or.cond.i.i289
+  br i1 %or.cond8.i.i290, label %float8_mi.exit.i291, label %192
 
 192:                                              ; preds = %183
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i293:                              ; preds = %183
+float8_mi.exit.i291:                              ; preds = %183
   %193 = load double, ptr %54, align 8
   %194 = extractelement <2 x double> %113, i64 1
   %195 = fsub double %193, %194
@@ -4888,38 +4884,38 @@ float8_mi.exit.i293:                              ; preds = %183
   %197 = fcmp une double %196, 0x7FF0000000000000
   %198 = call double @llvm.fabs.f64(double %193)
   %199 = fcmp oeq double %198, 0x7FF0000000000000
-  %or.cond.i4.i294 = or i1 %199, %197
+  %or.cond.i4.i292 = or i1 %199, %197
   %200 = call double @llvm.fabs.f64(double %194)
   %201 = fcmp oeq double %200, 0x7FF0000000000000
-  %or.cond8.i5.i295 = or i1 %201, %or.cond.i4.i294
-  br i1 %or.cond8.i5.i295, label %float8_mi.exit6.i296, label %202
+  %or.cond8.i5.i293 = or i1 %201, %or.cond.i4.i292
+  br i1 %or.cond8.i5.i293, label %float8_mi.exit6.i294, label %202
 
-202:                                              ; preds = %float8_mi.exit.i293
+202:                                              ; preds = %float8_mi.exit.i291
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i296:                             ; preds = %float8_mi.exit.i293
+float8_mi.exit6.i294:                             ; preds = %float8_mi.exit.i291
   %203 = fcmp oeq double %186, 0x7FF0000000000000
   %204 = fcmp oeq double %196, 0x7FF0000000000000
-  %or.cond.i7.i297 = or i1 %203, %204
-  br i1 %or.cond.i7.i297, label %point_dt.exit303, label %205
+  %or.cond.i7.i295 = or i1 %203, %204
+  br i1 %or.cond.i7.i295, label %point_dt.exit301, label %205
 
-205:                                              ; preds = %float8_mi.exit6.i296
-  %or.cond29.i.i298 = fcmp uno double %185, %195
-  br i1 %or.cond29.i.i298, label %point_dt.exit303, label %206
+205:                                              ; preds = %float8_mi.exit6.i294
+  %or.cond29.i.i296 = fcmp uno double %185, %195
+  br i1 %or.cond29.i.i296, label %point_dt.exit301, label %206
 
 206:                                              ; preds = %205
   %207 = fcmp olt double %186, %196
-  %.023.i.i299 = select i1 %207, double %186, double %196
-  %.022.i.i300 = select i1 %207, double %196, double %186
-  %208 = fcmp oeq double %.023.i.i299, 0.000000e+00
-  br i1 %208, label %point_dt.exit303, label %209
+  %.023.i.i297 = select i1 %207, double %186, double %196
+  %.022.i.i298 = select i1 %207, double %196, double %186
+  %208 = fcmp oeq double %.023.i.i297, 0.000000e+00
+  br i1 %208, label %point_dt.exit301, label %209
 
 209:                                              ; preds = %206
-  %210 = fdiv double %.023.i.i299, %.022.i.i300
+  %210 = fdiv double %.023.i.i297, %.022.i.i298
   %211 = call double @llvm.fmuladd.f64(double %210, double %210, double 1.000000e+00)
-  %sqrt.i.i301 = call double @llvm.sqrt.f64(double %211)
-  %212 = fmul double %.022.i.i300, %sqrt.i.i301
+  %sqrt.i.i299 = call double @llvm.sqrt.f64(double %211)
+  %212 = fmul double %.022.i.i298, %sqrt.i.i299
   %213 = call double @llvm.fabs.f64(double %212)
   %214 = fcmp oeq double %213, 0x7FF0000000000000
   br i1 %214, label %215, label %216
@@ -4930,64 +4926,64 @@ float8_mi.exit6.i296:                             ; preds = %float8_mi.exit.i293
 
 216:                                              ; preds = %209
   %217 = fcmp oeq double %212, 0.000000e+00
-  br i1 %217, label %218, label %point_dt.exit303
+  br i1 %217, label %218, label %point_dt.exit301
 
 218:                                              ; preds = %216
   call void @float_underflow_error() #18
   unreachable
 
-point_dt.exit303:                                 ; preds = %float8_mi.exit6.i296, %205, %206, %216
-  %.0.i.i302 = phi double [ %.022.i.i300, %206 ], [ %212, %216 ], [ 0x7FF0000000000000, %float8_mi.exit6.i296 ], [ 0x7FF8000000000000, %205 ]
+point_dt.exit301:                                 ; preds = %float8_mi.exit6.i294, %205, %206, %216
+  %.0.i.i300 = phi double [ %.022.i.i298, %206 ], [ %212, %216 ], [ 0x7FF0000000000000, %float8_mi.exit6.i294 ], [ 0x7FF8000000000000, %205 ]
   %219 = fsub double %184, %116
   %220 = call double @llvm.fabs.f64(double %219)
   %221 = fcmp une double %220, 0x7FF0000000000000
-  %or.cond.i.i278 = or i1 %189, %221
+  %or.cond.i.i276 = or i1 %189, %221
   %222 = call double @llvm.fabs.f64(double %116)
   %223 = fcmp oeq double %222, 0x7FF0000000000000
-  %or.cond8.i.i279 = or i1 %223, %or.cond.i.i278
-  br i1 %or.cond8.i.i279, label %float8_mi.exit.i280, label %224
+  %or.cond8.i.i277 = or i1 %223, %or.cond.i.i276
+  br i1 %or.cond8.i.i277, label %float8_mi.exit.i278, label %224
 
-224:                                              ; preds = %point_dt.exit303
+224:                                              ; preds = %point_dt.exit301
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i280:                              ; preds = %point_dt.exit303
+float8_mi.exit.i278:                              ; preds = %point_dt.exit301
   %225 = extractelement <2 x double> %114, i64 1
   %226 = fsub double %193, %225
   %227 = call double @llvm.fabs.f64(double %226)
   %228 = fcmp une double %227, 0x7FF0000000000000
-  %or.cond.i4.i281 = or i1 %199, %228
+  %or.cond.i4.i279 = or i1 %199, %228
   %229 = call double @llvm.fabs.f64(double %225)
   %230 = fcmp oeq double %229, 0x7FF0000000000000
-  %or.cond8.i5.i282 = or i1 %230, %or.cond.i4.i281
-  br i1 %or.cond8.i5.i282, label %float8_mi.exit6.i283, label %231
+  %or.cond8.i5.i280 = or i1 %230, %or.cond.i4.i279
+  br i1 %or.cond8.i5.i280, label %float8_mi.exit6.i281, label %231
 
-231:                                              ; preds = %float8_mi.exit.i280
+231:                                              ; preds = %float8_mi.exit.i278
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i283:                             ; preds = %float8_mi.exit.i280
+float8_mi.exit6.i281:                             ; preds = %float8_mi.exit.i278
   %232 = fcmp oeq double %220, 0x7FF0000000000000
   %233 = fcmp oeq double %227, 0x7FF0000000000000
-  %or.cond.i7.i284 = or i1 %232, %233
-  br i1 %or.cond.i7.i284, label %point_dt.exit290, label %234
+  %or.cond.i7.i282 = or i1 %232, %233
+  br i1 %or.cond.i7.i282, label %point_dt.exit288, label %234
 
-234:                                              ; preds = %float8_mi.exit6.i283
-  %or.cond29.i.i285 = fcmp uno double %219, %226
-  br i1 %or.cond29.i.i285, label %point_dt.exit290, label %235
+234:                                              ; preds = %float8_mi.exit6.i281
+  %or.cond29.i.i283 = fcmp uno double %219, %226
+  br i1 %or.cond29.i.i283, label %point_dt.exit288, label %235
 
 235:                                              ; preds = %234
   %236 = fcmp olt double %220, %227
-  %.023.i.i286 = select i1 %236, double %220, double %227
-  %.022.i.i287 = select i1 %236, double %227, double %220
-  %237 = fcmp oeq double %.023.i.i286, 0.000000e+00
-  br i1 %237, label %point_dt.exit290, label %238
+  %.023.i.i284 = select i1 %236, double %220, double %227
+  %.022.i.i285 = select i1 %236, double %227, double %220
+  %237 = fcmp oeq double %.023.i.i284, 0.000000e+00
+  br i1 %237, label %point_dt.exit288, label %238
 
 238:                                              ; preds = %235
-  %239 = fdiv double %.023.i.i286, %.022.i.i287
+  %239 = fdiv double %.023.i.i284, %.022.i.i285
   %240 = call double @llvm.fmuladd.f64(double %239, double %239, double 1.000000e+00)
-  %sqrt.i.i288 = call double @llvm.sqrt.f64(double %240)
-  %241 = fmul double %.022.i.i287, %sqrt.i.i288
+  %sqrt.i.i286 = call double @llvm.sqrt.f64(double %240)
+  %241 = fmul double %.022.i.i285, %sqrt.i.i286
   %242 = call double @llvm.fabs.f64(double %241)
   %243 = fcmp oeq double %242, 0x7FF0000000000000
   br i1 %243, label %244, label %245
@@ -4998,58 +4994,58 @@ float8_mi.exit6.i283:                             ; preds = %float8_mi.exit.i280
 
 245:                                              ; preds = %238
   %246 = fcmp oeq double %241, 0.000000e+00
-  br i1 %246, label %247, label %point_dt.exit290
+  br i1 %246, label %247, label %point_dt.exit288
 
 247:                                              ; preds = %245
   call void @float_underflow_error() #18
   unreachable
 
-point_dt.exit290:                                 ; preds = %float8_mi.exit6.i283, %234, %235, %245
-  %.0.i.i289 = phi double [ %.022.i.i287, %235 ], [ %241, %245 ], [ 0x7FF0000000000000, %float8_mi.exit6.i283 ], [ 0x7FF8000000000000, %234 ]
-  %248 = fadd double %.0.i.i302, %.0.i.i289
+point_dt.exit288:                                 ; preds = %float8_mi.exit6.i281, %234, %235, %245
+  %.0.i.i287 = phi double [ %.022.i.i285, %235 ], [ %241, %245 ], [ 0x7FF0000000000000, %float8_mi.exit6.i281 ], [ 0x7FF8000000000000, %234 ]
+  %248 = fadd double %.0.i.i300, %.0.i.i287
   %249 = fcmp une double %120, 0x7FF0000000000000
-  %or.cond.i.i265 = or i1 %191, %249
-  %or.cond8.i.i266 = or i1 %223, %or.cond.i.i265
-  br i1 %or.cond8.i.i266, label %float8_mi.exit.i267, label %250
+  %or.cond.i.i263 = or i1 %191, %249
+  %or.cond8.i.i264 = or i1 %223, %or.cond.i.i263
+  br i1 %or.cond8.i.i264, label %float8_mi.exit.i265, label %250
 
-250:                                              ; preds = %point_dt.exit290
+250:                                              ; preds = %point_dt.exit288
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i267:                              ; preds = %point_dt.exit290
+float8_mi.exit.i265:                              ; preds = %point_dt.exit288
   %251 = fsub double %194, %225
   %252 = call double @llvm.fabs.f64(double %251)
   %253 = fcmp une double %252, 0x7FF0000000000000
-  %or.cond.i4.i268 = or i1 %201, %253
-  %or.cond8.i5.i269 = or i1 %230, %or.cond.i4.i268
-  br i1 %or.cond8.i5.i269, label %float8_mi.exit6.i270, label %254
+  %or.cond.i4.i266 = or i1 %201, %253
+  %or.cond8.i5.i267 = or i1 %230, %or.cond.i4.i266
+  br i1 %or.cond8.i5.i267, label %float8_mi.exit6.i268, label %254
 
-254:                                              ; preds = %float8_mi.exit.i267
+254:                                              ; preds = %float8_mi.exit.i265
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i270:                             ; preds = %float8_mi.exit.i267
+float8_mi.exit6.i268:                             ; preds = %float8_mi.exit.i265
   %255 = fcmp oeq double %120, 0x7FF0000000000000
   %256 = fcmp oeq double %252, 0x7FF0000000000000
-  %or.cond.i7.i271 = or i1 %255, %256
-  br i1 %or.cond.i7.i271, label %point_dt.exit277, label %257
+  %or.cond.i7.i269 = or i1 %255, %256
+  br i1 %or.cond.i7.i269, label %point_dt.exit275, label %257
 
-257:                                              ; preds = %float8_mi.exit6.i270
-  %or.cond29.i.i272 = fcmp uno double %119, %251
-  br i1 %or.cond29.i.i272, label %point_dt.exit277, label %258
+257:                                              ; preds = %float8_mi.exit6.i268
+  %or.cond29.i.i270 = fcmp uno double %119, %251
+  br i1 %or.cond29.i.i270, label %point_dt.exit275, label %258
 
 258:                                              ; preds = %257
   %259 = fcmp olt double %120, %252
-  %.023.i.i273 = select i1 %259, double %120, double %252
-  %.022.i.i274 = select i1 %259, double %252, double %120
-  %260 = fcmp oeq double %.023.i.i273, 0.000000e+00
-  br i1 %260, label %point_dt.exit277, label %261
+  %.023.i.i271 = select i1 %259, double %120, double %252
+  %.022.i.i272 = select i1 %259, double %252, double %120
+  %260 = fcmp oeq double %.023.i.i271, 0.000000e+00
+  br i1 %260, label %point_dt.exit275, label %261
 
 261:                                              ; preds = %258
-  %262 = fdiv double %.023.i.i273, %.022.i.i274
+  %262 = fdiv double %.023.i.i271, %.022.i.i272
   %263 = call double @llvm.fmuladd.f64(double %262, double %262, double 1.000000e+00)
-  %sqrt.i.i275 = call double @llvm.sqrt.f64(double %263)
-  %264 = fmul double %.022.i.i274, %sqrt.i.i275
+  %sqrt.i.i273 = call double @llvm.sqrt.f64(double %263)
+  %264 = fmul double %.022.i.i272, %sqrt.i.i273
   %265 = call double @llvm.fabs.f64(double %264)
   %266 = fcmp oeq double %265, 0x7FF0000000000000
   br i1 %266, label %267, label %268
@@ -5060,22 +5056,22 @@ float8_mi.exit6.i270:                             ; preds = %float8_mi.exit.i267
 
 268:                                              ; preds = %261
   %269 = fcmp oeq double %264, 0.000000e+00
-  br i1 %269, label %270, label %point_dt.exit277
+  br i1 %269, label %270, label %point_dt.exit275
 
 270:                                              ; preds = %268
   call void @float_underflow_error() #18
   unreachable
 
-point_dt.exit277:                                 ; preds = %float8_mi.exit6.i270, %257, %258, %268
-  %.0.i.i276 = phi double [ %.022.i.i274, %258 ], [ %264, %268 ], [ 0x7FF0000000000000, %float8_mi.exit6.i270 ], [ 0x7FF8000000000000, %257 ]
-  %271 = fcmp oeq double %248, %.0.i.i276
-  %272 = fsub double %248, %.0.i.i276
+point_dt.exit275:                                 ; preds = %float8_mi.exit6.i268, %257, %258, %268
+  %.0.i.i274 = phi double [ %.022.i.i272, %258 ], [ %264, %268 ], [ 0x7FF0000000000000, %float8_mi.exit6.i268 ], [ 0x7FF8000000000000, %257 ]
+  %271 = fcmp oeq double %248, %.0.i.i274
+  %272 = fsub double %248, %.0.i.i274
   %273 = call double @llvm.fabs.f64(double %272)
   %274 = fcmp ole double %273, 0x3EB0C6F7A0B5ED8D
   %275 = or i1 %271, %274
   br i1 %275, label %lseg_closept_lseg.exit.thread, label %276
 
-276:                                              ; preds = %line_construct.exit.i78, %point_dt.exit277
+276:                                              ; preds = %line_construct.exit.i76, %point_dt.exit275
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
@@ -5089,7 +5085,7 @@ point_dt.exit277:                                 ; preds = %float8_mi.exit6.i27
   %283 = fcmp ole double %282, 0x3EB0C6F7A0B5ED8D
   %284 = or i1 %279, %283
   %285 = extractelement <2 x double> %113, i64 1
-  br i1 %284, label %line_construct.exit.i69.sink.split.sink.split, label %286
+  br i1 %284, label %line_construct.exit.i67.sink.split.sink.split, label %286
 
 286:                                              ; preds = %276
   %287 = extractelement <2 x double> %108, i64 1
@@ -5099,55 +5095,55 @@ point_dt.exit277:                                 ; preds = %float8_mi.exit6.i27
   %291 = call double @llvm.fabs.f64(double %290)
   %292 = fcmp ole double %291, 0x3EB0C6F7A0B5ED8D
   %293 = or i1 %289, %292
-  br i1 %293, label %line_construct.exit.i69.sink.split.sink.split, label %294
+  br i1 %293, label %line_construct.exit.i67.sink.split.sink.split, label %294
 
 294:                                              ; preds = %286
   %295 = fcmp une double %282, 0x7FF0000000000000
   %296 = call double @llvm.fabs.f64(double %277)
   %297 = fcmp oeq double %296, 0x7FF0000000000000
-  %or.cond.i.i253 = or i1 %297, %295
+  %or.cond.i.i251 = or i1 %297, %295
   %298 = call double @llvm.fabs.f64(double %278)
   %299 = fcmp oeq double %298, 0x7FF0000000000000
-  %or.cond8.i.i254 = or i1 %299, %or.cond.i.i253
-  br i1 %or.cond8.i.i254, label %float8_mi.exit.i255, label %300
+  %or.cond8.i.i252 = or i1 %299, %or.cond.i.i251
+  br i1 %or.cond8.i.i252, label %float8_mi.exit.i253, label %300
 
 300:                                              ; preds = %294
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i255:                              ; preds = %294
+float8_mi.exit.i253:                              ; preds = %294
   %301 = fsub double %288, %287
   %302 = call double @llvm.fabs.f64(double %301)
   %303 = fcmp une double %302, 0x7FF0000000000000
   %304 = call double @llvm.fabs.f64(double %288)
   %305 = fcmp oeq double %304, 0x7FF0000000000000
-  %or.cond.i9.i256 = or i1 %305, %303
+  %or.cond.i9.i254 = or i1 %305, %303
   %306 = call double @llvm.fabs.f64(double %287)
   %307 = fcmp oeq double %306, 0x7FF0000000000000
-  %or.cond8.i10.i257 = or i1 %307, %or.cond.i9.i256
-  br i1 %or.cond8.i10.i257, label %float8_mi.exit11.i258, label %308
+  %or.cond8.i10.i255 = or i1 %307, %or.cond.i9.i254
+  br i1 %or.cond8.i10.i255, label %float8_mi.exit11.i256, label %308
 
-308:                                              ; preds = %float8_mi.exit.i255
+308:                                              ; preds = %float8_mi.exit.i253
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit11.i258:                            ; preds = %float8_mi.exit.i255
+float8_mi.exit11.i256:                            ; preds = %float8_mi.exit.i253
   %309 = fcmp une double %301, 0.000000e+00
   %310 = fcmp uno double %281, 0.000000e+00
-  %or.cond11.i.i259 = or i1 %310, %309
-  br i1 %or.cond11.i.i259, label %312, label %311
+  %or.cond11.i.i257 = or i1 %310, %309
+  br i1 %or.cond11.i.i257, label %312, label %311
 
-311:                                              ; preds = %float8_mi.exit11.i258
+311:                                              ; preds = %float8_mi.exit11.i256
   call void @float_zero_divide_error() #18
   unreachable
 
-312:                                              ; preds = %float8_mi.exit11.i258
+312:                                              ; preds = %float8_mi.exit11.i256
   %313 = fdiv double %281, %301
   %314 = call double @llvm.fabs.f64(double %313)
   %315 = fcmp une double %314, 0x7FF0000000000000
   %316 = fcmp oeq double %282, 0x7FF0000000000000
-  %or.cond13.i.i260 = or i1 %316, %315
-  br i1 %or.cond13.i.i260, label %318, label %317
+  %or.cond13.i.i258 = or i1 %316, %315
+  br i1 %or.cond13.i.i258, label %318, label %317
 
 317:                                              ; preds = %312
   call void @float_overflow_error() #18
@@ -5156,23 +5152,23 @@ float8_mi.exit11.i258:                            ; preds = %float8_mi.exit.i255
 318:                                              ; preds = %312
   %319 = fcmp une double %313, 0.000000e+00
   %320 = fcmp oeq double %281, 0.000000e+00
-  %or.cond.not17.i.i261 = or i1 %320, %319
+  %or.cond.not17.i.i259 = or i1 %320, %319
   %321 = fcmp oeq double %302, 0x7FF0000000000000
-  %or.cond15.i.i262 = or i1 %321, %or.cond.not17.i.i261
-  br i1 %or.cond15.i.i262, label %point_invsl.exit264, label %322
+  %or.cond15.i.i260 = or i1 %321, %or.cond.not17.i.i259
+  br i1 %or.cond15.i.i260, label %point_invsl.exit262, label %322
 
 322:                                              ; preds = %318
   call void @float_underflow_error() #18
   unreachable
 
-point_invsl.exit264:                              ; preds = %318
+point_invsl.exit262:                              ; preds = %318
   %323 = call double @llvm.fabs.f64(double %313)
   %324 = fcmp oeq double %323, 0x7FF0000000000000
-  br i1 %324, label %line_construct.exit.i69.sink.split.sink.split, label %325
+  br i1 %324, label %line_construct.exit.i67.sink.split.sink.split, label %325
 
-325:                                              ; preds = %point_invsl.exit264
+325:                                              ; preds = %point_invsl.exit262
   %326 = fcmp oeq double %313, 0.000000e+00
-  br i1 %326, label %line_construct.exit.i69.sink.split.sink.split, label %327
+  br i1 %326, label %line_construct.exit.i67.sink.split.sink.split, label %327
 
 327:                                              ; preds = %325
   store double %313, ptr %21, align 8
@@ -5182,8 +5178,8 @@ point_invsl.exit264:                              ; preds = %318
   %330 = fcmp une double %329, 0x7FF0000000000000
   %331 = call double @llvm.fabs.f64(double %115)
   %332 = fcmp oeq double %331, 0x7FF0000000000000
-  %or.cond15.i.i.i63 = or i1 %332, %330
-  br i1 %or.cond15.i.i.i63, label %334, label %333
+  %or.cond15.i.i.i61 = or i1 %332, %330
+  br i1 %or.cond15.i.i.i61, label %334, label %333
 
 333:                                              ; preds = %327
   call void @float_overflow_error() #18
@@ -5192,63 +5188,63 @@ point_invsl.exit264:                              ; preds = %318
 334:                                              ; preds = %327
   %335 = fcmp oeq double %328, 0.000000e+00
   %336 = fcmp une double %115, 0.000000e+00
-  %or.cond3.i.i.i64 = and i1 %336, %335
-  br i1 %or.cond3.i.i.i64, label %337, label %float8_mul.exit.i.i65
+  %or.cond3.i.i.i62 = and i1 %336, %335
+  br i1 %or.cond3.i.i.i62, label %337, label %float8_mul.exit.i.i63
 
 337:                                              ; preds = %334
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i65:                            ; preds = %334
+float8_mul.exit.i.i63:                            ; preds = %334
   %338 = fsub double %285, %328
   %339 = call double @llvm.fabs.f64(double %338)
   %340 = fcmp une double %339, 0x7FF0000000000000
   %341 = call double @llvm.fabs.f64(double %285)
   %342 = fcmp oeq double %341, 0x7FF0000000000000
-  %or.cond.i19.i.i66 = or i1 %342, %340
+  %or.cond.i19.i.i64 = or i1 %342, %340
   %343 = fcmp oeq double %329, 0x7FF0000000000000
-  %or.cond8.i.i.i67 = or i1 %343, %or.cond.i19.i.i66
-  br i1 %or.cond8.i.i.i67, label %float8_mi.exit.i.i68, label %344
+  %or.cond8.i.i.i65 = or i1 %343, %or.cond.i19.i.i64
+  br i1 %or.cond8.i.i.i65, label %float8_mi.exit.i.i66, label %344
 
-344:                                              ; preds = %float8_mul.exit.i.i65
+344:                                              ; preds = %float8_mul.exit.i.i63
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i68:                             ; preds = %float8_mul.exit.i.i65
+float8_mi.exit.i.i66:                             ; preds = %float8_mul.exit.i.i63
   %345 = fcmp oeq double %338, 0.000000e+00
-  br i1 %345, label %line_construct.exit.i69.sink.split, label %line_construct.exit.i69
+  br i1 %345, label %line_construct.exit.i67.sink.split, label %line_construct.exit.i67
 
-line_construct.exit.i69.sink.split.sink.split:    ; preds = %325, %276, %point_invsl.exit264, %286
-  %storemerge1103 = phi double [ -1.000000e+00, %286 ], [ -1.000000e+00, %point_invsl.exit264 ], [ 0.000000e+00, %276 ], [ 0.000000e+00, %325 ]
-  %.sink1092 = phi double [ 0.000000e+00, %286 ], [ 0.000000e+00, %point_invsl.exit264 ], [ -1.000000e+00, %276 ], [ -1.000000e+00, %325 ]
-  %.sink1073.ph = phi double [ %115, %286 ], [ %115, %point_invsl.exit264 ], [ %285, %276 ], [ %285, %325 ]
-  store double %storemerge1103, ptr %21, align 8
-  store double %.sink1092, ptr %55, align 8
-  br label %line_construct.exit.i69
+line_construct.exit.i67.sink.split.sink.split:    ; preds = %325, %276, %point_invsl.exit262, %286
+  %storemerge1100 = phi double [ -1.000000e+00, %286 ], [ -1.000000e+00, %point_invsl.exit262 ], [ 0.000000e+00, %276 ], [ 0.000000e+00, %325 ]
+  %.sink1089 = phi double [ 0.000000e+00, %286 ], [ 0.000000e+00, %point_invsl.exit262 ], [ -1.000000e+00, %276 ], [ -1.000000e+00, %325 ]
+  %.sink1070.ph = phi double [ %115, %286 ], [ %115, %point_invsl.exit262 ], [ %285, %276 ], [ %285, %325 ]
+  store double %storemerge1100, ptr %21, align 8
+  store double %.sink1089, ptr %55, align 8
+  br label %line_construct.exit.i67
 
-line_construct.exit.i69.sink.split:               ; preds = %float8_mi.exit.i.i68
-  br label %line_construct.exit.i69
+line_construct.exit.i67.sink.split:               ; preds = %float8_mi.exit.i.i66
+  br label %line_construct.exit.i67
 
-line_construct.exit.i69:                          ; preds = %line_construct.exit.i69.sink.split.sink.split, %line_construct.exit.i69.sink.split, %float8_mi.exit.i.i68
-  %storemerge1104 = phi double [ %338, %float8_mi.exit.i.i68 ], [ %.sink1073.ph, %line_construct.exit.i69.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i69.sink.split ]
-  %346 = phi double [ -1.000000e+00, %float8_mi.exit.i.i68 ], [ %.sink1092, %line_construct.exit.i69.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i69.sink.split ]
-  %347 = phi double [ %313, %float8_mi.exit.i.i68 ], [ %storemerge1103, %line_construct.exit.i69.sink.split.sink.split ], [ %313, %line_construct.exit.i69.sink.split ]
-  store double %storemerge1104, ptr %56, align 8
+line_construct.exit.i67:                          ; preds = %line_construct.exit.i67.sink.split.sink.split, %line_construct.exit.i67.sink.split, %float8_mi.exit.i.i66
+  %storemerge1101 = phi double [ %338, %float8_mi.exit.i.i66 ], [ %.sink1070.ph, %line_construct.exit.i67.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i67.sink.split ]
+  %346 = phi double [ -1.000000e+00, %float8_mi.exit.i.i66 ], [ %.sink1089, %line_construct.exit.i67.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i67.sink.split ]
+  %347 = phi double [ %313, %float8_mi.exit.i.i66 ], [ %storemerge1100, %line_construct.exit.i67.sink.split.sink.split ], [ %313, %line_construct.exit.i67.sink.split ]
+  store double %storemerge1101, ptr %56, align 8
   %348 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %20, ptr noundef nonnull %28, ptr noundef nonnull %21)
-  br i1 %348, label %lseg_closept_point.exit71, label %349
+  br i1 %348, label %lseg_closept_point.exit69, label %349
 
-349:                                              ; preds = %line_construct.exit.i69
+349:                                              ; preds = %line_construct.exit.i67
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %350 = call double @llvm.fabs.f64(double %347)
   %351 = fcmp ugt double %350, 0x3EB0C6F7A0B5ED8D
-  br i1 %351, label %352, label %line_construct.exit.i240.sink.split.sink.split
+  br i1 %351, label %352, label %line_construct.exit.i238.sink.split.sink.split
 
 352:                                              ; preds = %349
   %353 = call double @llvm.fabs.f64(double %346)
   %354 = fcmp ugt double %353, 0x3EB0C6F7A0B5ED8D
   %355 = extractelement <2 x double> %108, i64 1
-  br i1 %354, label %356, label %line_construct.exit.i240.sink.split.sink.split
+  br i1 %354, label %356, label %line_construct.exit.i238.sink.split.sink.split
 
 356:                                              ; preds = %352
   %357 = fdiv double %346, %347
@@ -5262,13 +5258,13 @@ line_construct.exit.i69:                          ; preds = %line_construct.exit
 
 361:                                              ; preds = %356
   %362 = fcmp une double %357, 0.000000e+00
-  br i1 %362, label %line_invsl.exit.i245, label %363
+  br i1 %362, label %line_invsl.exit.i243, label %363
 
 363:                                              ; preds = %361
   call void @float_underflow_error() #18
   unreachable
 
-line_invsl.exit.i245:                             ; preds = %361
+line_invsl.exit.i243:                             ; preds = %361
   store double %357, ptr %3, align 16
   store double -1.000000e+00, ptr %57, align 8
   %364 = fmul double %277, %357
@@ -5276,75 +5272,75 @@ line_invsl.exit.i245:                             ; preds = %361
   %366 = fcmp une double %365, 0x7FF0000000000000
   %367 = call double @llvm.fabs.f64(double %277)
   %368 = fcmp oeq double %367, 0x7FF0000000000000
-  %or.cond15.i.i12.i246 = or i1 %368, %366
-  br i1 %or.cond15.i.i12.i246, label %370, label %369
+  %or.cond15.i.i12.i244 = or i1 %368, %366
+  br i1 %or.cond15.i.i12.i244, label %370, label %369
 
-369:                                              ; preds = %line_invsl.exit.i245
+369:                                              ; preds = %line_invsl.exit.i243
   call void @float_overflow_error() #18
   unreachable
 
-370:                                              ; preds = %line_invsl.exit.i245
+370:                                              ; preds = %line_invsl.exit.i243
   %371 = fcmp oeq double %364, 0.000000e+00
   %372 = fcmp une double %277, 0.000000e+00
-  %or.cond3.i.i.i247 = and i1 %372, %371
-  br i1 %or.cond3.i.i.i247, label %373, label %float8_mul.exit.i.i248
+  %or.cond3.i.i.i245 = and i1 %372, %371
+  br i1 %or.cond3.i.i.i245, label %373, label %float8_mul.exit.i.i246
 
 373:                                              ; preds = %370
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i248:                           ; preds = %370
+float8_mul.exit.i.i246:                           ; preds = %370
   %374 = fsub double %355, %364
   %375 = call double @llvm.fabs.f64(double %374)
   %376 = fcmp une double %375, 0x7FF0000000000000
   %377 = call double @llvm.fabs.f64(double %355)
   %378 = fcmp oeq double %377, 0x7FF0000000000000
-  %or.cond.i19.i.i249 = or i1 %378, %376
+  %or.cond.i19.i.i247 = or i1 %378, %376
   %379 = fcmp oeq double %365, 0x7FF0000000000000
-  %or.cond8.i.i.i250 = or i1 %379, %or.cond.i19.i.i249
-  br i1 %or.cond8.i.i.i250, label %float8_mi.exit.i.i251, label %380
+  %or.cond8.i.i.i248 = or i1 %379, %or.cond.i19.i.i247
+  br i1 %or.cond8.i.i.i248, label %float8_mi.exit.i.i249, label %380
 
-380:                                              ; preds = %float8_mul.exit.i.i248
+380:                                              ; preds = %float8_mul.exit.i.i246
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i251:                            ; preds = %float8_mul.exit.i.i248
+float8_mi.exit.i.i249:                            ; preds = %float8_mul.exit.i.i246
   %381 = fcmp oeq double %374, 0.000000e+00
-  br i1 %381, label %line_construct.exit.i240.sink.split, label %line_construct.exit.i240
+  br i1 %381, label %line_construct.exit.i238.sink.split, label %line_construct.exit.i238
 
-line_construct.exit.i240.sink.split.sink.split:   ; preds = %352, %349
-  %.sink1074.ph = phi double [ %277, %349 ], [ %355, %352 ]
+line_construct.exit.i238.sink.split.sink.split:   ; preds = %352, %349
+  %.sink1071.ph = phi double [ %277, %349 ], [ %355, %352 ]
   %382 = phi <2 x double> [ <double -1.000000e+00, double 0.000000e+00>, %349 ], [ <double 0.000000e+00, double -1.000000e+00>, %352 ]
   store <2 x double> %382, ptr %3, align 16
-  br label %line_construct.exit.i240
+  br label %line_construct.exit.i238
 
-line_construct.exit.i240.sink.split:              ; preds = %float8_mi.exit.i.i251
-  br label %line_construct.exit.i240
+line_construct.exit.i238.sink.split:              ; preds = %float8_mi.exit.i.i249
+  br label %line_construct.exit.i238
 
-line_construct.exit.i240:                         ; preds = %line_construct.exit.i240.sink.split.sink.split, %line_construct.exit.i240.sink.split, %float8_mi.exit.i.i251
-  %storemerge1106 = phi double [ %374, %float8_mi.exit.i.i251 ], [ %.sink1074.ph, %line_construct.exit.i240.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i240.sink.split ]
-  store double %storemerge1106, ptr %58, align 16
+line_construct.exit.i238:                         ; preds = %line_construct.exit.i238.sink.split.sink.split, %line_construct.exit.i238.sink.split, %float8_mi.exit.i.i249
+  %storemerge1103 = phi double [ %374, %float8_mi.exit.i.i249 ], [ %.sink1071.ph, %line_construct.exit.i238.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i238.sink.split ]
+  store double %storemerge1103, ptr %58, align 16
   %383 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %21)
-  br i1 %383, label %384, label %line_closept_point.exit252
+  br i1 %383, label %384, label %line_closept_point.exit250
 
-384:                                              ; preds = %line_construct.exit.i240
+384:                                              ; preds = %line_construct.exit.i238
   %385 = load double, ptr %2, align 8
   %386 = fsub double %385, %277
   %387 = call double @llvm.fabs.f64(double %386)
   %388 = fcmp une double %387, 0x7FF0000000000000
   %389 = call double @llvm.fabs.f64(double %385)
   %390 = fcmp oeq double %389, 0x7FF0000000000000
-  %or.cond.i.i406 = or i1 %390, %388
+  %or.cond.i.i404 = or i1 %390, %388
   %391 = call double @llvm.fabs.f64(double %277)
   %392 = fcmp oeq double %391, 0x7FF0000000000000
-  %or.cond8.i.i407 = or i1 %392, %or.cond.i.i406
-  br i1 %or.cond8.i.i407, label %float8_mi.exit.i408, label %393
+  %or.cond8.i.i405 = or i1 %392, %or.cond.i.i404
+  br i1 %or.cond8.i.i405, label %float8_mi.exit.i406, label %393
 
 393:                                              ; preds = %384
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i408:                              ; preds = %384
+float8_mi.exit.i406:                              ; preds = %384
   %394 = load double, ptr %59, align 8
   %395 = extractelement <2 x double> %108, i64 1
   %396 = fsub double %394, %395
@@ -5352,38 +5348,38 @@ float8_mi.exit.i408:                              ; preds = %384
   %398 = fcmp une double %397, 0x7FF0000000000000
   %399 = call double @llvm.fabs.f64(double %394)
   %400 = fcmp oeq double %399, 0x7FF0000000000000
-  %or.cond.i4.i409 = or i1 %400, %398
+  %or.cond.i4.i407 = or i1 %400, %398
   %401 = call double @llvm.fabs.f64(double %395)
   %402 = fcmp oeq double %401, 0x7FF0000000000000
-  %or.cond8.i5.i410 = or i1 %402, %or.cond.i4.i409
-  br i1 %or.cond8.i5.i410, label %float8_mi.exit6.i411, label %403
+  %or.cond8.i5.i408 = or i1 %402, %or.cond.i4.i407
+  br i1 %or.cond8.i5.i408, label %float8_mi.exit6.i409, label %403
 
-403:                                              ; preds = %float8_mi.exit.i408
+403:                                              ; preds = %float8_mi.exit.i406
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i411:                             ; preds = %float8_mi.exit.i408
+float8_mi.exit6.i409:                             ; preds = %float8_mi.exit.i406
   %404 = fcmp oeq double %387, 0x7FF0000000000000
   %405 = fcmp oeq double %397, 0x7FF0000000000000
-  %or.cond.i7.i412 = or i1 %404, %405
-  br i1 %or.cond.i7.i412, label %line_closept_point.exit252, label %406
+  %or.cond.i7.i410 = or i1 %404, %405
+  br i1 %or.cond.i7.i410, label %line_closept_point.exit250, label %406
 
-406:                                              ; preds = %float8_mi.exit6.i411
-  %or.cond29.i.i413 = fcmp uno double %386, %396
-  br i1 %or.cond29.i.i413, label %line_closept_point.exit252, label %407
+406:                                              ; preds = %float8_mi.exit6.i409
+  %or.cond29.i.i411 = fcmp uno double %386, %396
+  br i1 %or.cond29.i.i411, label %line_closept_point.exit250, label %407
 
 407:                                              ; preds = %406
   %408 = fcmp olt double %387, %397
-  %.023.i.i414 = select i1 %408, double %387, double %397
-  %.022.i.i415 = select i1 %408, double %397, double %387
-  %409 = fcmp oeq double %.023.i.i414, 0.000000e+00
-  br i1 %409, label %line_closept_point.exit252, label %410
+  %.023.i.i412 = select i1 %408, double %387, double %397
+  %.022.i.i413 = select i1 %408, double %397, double %387
+  %409 = fcmp oeq double %.023.i.i412, 0.000000e+00
+  br i1 %409, label %line_closept_point.exit250, label %410
 
 410:                                              ; preds = %407
-  %411 = fdiv double %.023.i.i414, %.022.i.i415
+  %411 = fdiv double %.023.i.i412, %.022.i.i413
   %412 = call double @llvm.fmuladd.f64(double %411, double %411, double 1.000000e+00)
-  %sqrt.i.i416 = call double @llvm.sqrt.f64(double %412)
-  %413 = fmul double %.022.i.i415, %sqrt.i.i416
+  %sqrt.i.i414 = call double @llvm.sqrt.f64(double %412)
+  %413 = fmul double %.022.i.i413, %sqrt.i.i414
   %414 = call double @llvm.fabs.f64(double %413)
   %415 = fcmp oeq double %414, 0x7FF0000000000000
   br i1 %415, label %416, label %417
@@ -5394,25 +5390,25 @@ float8_mi.exit6.i411:                             ; preds = %float8_mi.exit.i408
 
 417:                                              ; preds = %410
   %418 = fcmp oeq double %413, 0.000000e+00
-  br i1 %418, label %419, label %line_closept_point.exit252
+  br i1 %418, label %419, label %line_closept_point.exit250
 
 419:                                              ; preds = %417
   call void @float_underflow_error() #18
   unreachable
 
-line_closept_point.exit252:                       ; preds = %417, %407, %406, %float8_mi.exit6.i411, %line_construct.exit.i240
-  %.0.i241 = phi double [ 0x7FF8000000000000, %line_construct.exit.i240 ], [ %.022.i.i415, %407 ], [ %413, %417 ], [ 0x7FF0000000000000, %float8_mi.exit6.i411 ], [ 0x7FF8000000000000, %406 ]
+line_closept_point.exit250:                       ; preds = %417, %407, %406, %float8_mi.exit6.i409, %line_construct.exit.i238
+  %.0.i239 = phi double [ 0x7FF8000000000000, %line_construct.exit.i238 ], [ %.022.i.i413, %407 ], [ %413, %417 ], [ 0x7FF0000000000000, %float8_mi.exit6.i409 ], [ 0x7FF8000000000000, %406 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  br i1 %351, label %420, label %line_construct.exit.i226.sink.split.sink.split
+  br i1 %351, label %420, label %line_construct.exit.i224.sink.split.sink.split
 
-420:                                              ; preds = %line_closept_point.exit252
+420:                                              ; preds = %line_closept_point.exit250
   %421 = call double @llvm.fabs.f64(double %346)
   %422 = fcmp ugt double %421, 0x3EB0C6F7A0B5ED8D
   %423 = extractelement <2 x double> %109, i64 1
-  br i1 %422, label %424, label %line_construct.exit.i226.sink.split.sink.split
+  br i1 %422, label %424, label %line_construct.exit.i224.sink.split.sink.split
 
 424:                                              ; preds = %420
   %425 = fdiv double %346, %347
@@ -5426,13 +5422,13 @@ line_closept_point.exit252:                       ; preds = %417, %407, %406, %f
 
 429:                                              ; preds = %424
   %430 = fcmp une double %425, 0.000000e+00
-  br i1 %430, label %line_invsl.exit.i231, label %431
+  br i1 %430, label %line_invsl.exit.i229, label %431
 
 431:                                              ; preds = %429
   call void @float_underflow_error() #18
   unreachable
 
-line_invsl.exit.i231:                             ; preds = %429
+line_invsl.exit.i229:                             ; preds = %429
   store double %425, ptr %5, align 16
   store double -1.000000e+00, ptr %60, align 8
   %432 = fmul double %425, %278
@@ -5440,75 +5436,75 @@ line_invsl.exit.i231:                             ; preds = %429
   %434 = fcmp une double %433, 0x7FF0000000000000
   %435 = call double @llvm.fabs.f64(double %278)
   %436 = fcmp oeq double %435, 0x7FF0000000000000
-  %or.cond15.i.i12.i232 = or i1 %436, %434
-  br i1 %or.cond15.i.i12.i232, label %438, label %437
+  %or.cond15.i.i12.i230 = or i1 %436, %434
+  br i1 %or.cond15.i.i12.i230, label %438, label %437
 
-437:                                              ; preds = %line_invsl.exit.i231
+437:                                              ; preds = %line_invsl.exit.i229
   call void @float_overflow_error() #18
   unreachable
 
-438:                                              ; preds = %line_invsl.exit.i231
+438:                                              ; preds = %line_invsl.exit.i229
   %439 = fcmp oeq double %432, 0.000000e+00
   %440 = fcmp une double %278, 0.000000e+00
-  %or.cond3.i.i.i233 = and i1 %440, %439
-  br i1 %or.cond3.i.i.i233, label %441, label %float8_mul.exit.i.i234
+  %or.cond3.i.i.i231 = and i1 %440, %439
+  br i1 %or.cond3.i.i.i231, label %441, label %float8_mul.exit.i.i232
 
 441:                                              ; preds = %438
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i234:                           ; preds = %438
+float8_mul.exit.i.i232:                           ; preds = %438
   %442 = fsub double %423, %432
   %443 = call double @llvm.fabs.f64(double %442)
   %444 = fcmp une double %443, 0x7FF0000000000000
   %445 = call double @llvm.fabs.f64(double %423)
   %446 = fcmp oeq double %445, 0x7FF0000000000000
-  %or.cond.i19.i.i235 = or i1 %446, %444
+  %or.cond.i19.i.i233 = or i1 %446, %444
   %447 = fcmp oeq double %433, 0x7FF0000000000000
-  %or.cond8.i.i.i236 = or i1 %447, %or.cond.i19.i.i235
-  br i1 %or.cond8.i.i.i236, label %float8_mi.exit.i.i237, label %448
+  %or.cond8.i.i.i234 = or i1 %447, %or.cond.i19.i.i233
+  br i1 %or.cond8.i.i.i234, label %float8_mi.exit.i.i235, label %448
 
-448:                                              ; preds = %float8_mul.exit.i.i234
+448:                                              ; preds = %float8_mul.exit.i.i232
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i237:                            ; preds = %float8_mul.exit.i.i234
+float8_mi.exit.i.i235:                            ; preds = %float8_mul.exit.i.i232
   %449 = fcmp oeq double %442, 0.000000e+00
-  br i1 %449, label %line_construct.exit.i226.sink.split, label %line_construct.exit.i226
+  br i1 %449, label %line_construct.exit.i224.sink.split, label %line_construct.exit.i224
 
-line_construct.exit.i226.sink.split.sink.split:   ; preds = %420, %line_closept_point.exit252
-  %.sink1075.ph = phi double [ %278, %line_closept_point.exit252 ], [ %423, %420 ]
-  %450 = phi <2 x double> [ <double -1.000000e+00, double 0.000000e+00>, %line_closept_point.exit252 ], [ <double 0.000000e+00, double -1.000000e+00>, %420 ]
+line_construct.exit.i224.sink.split.sink.split:   ; preds = %420, %line_closept_point.exit250
+  %.sink1072.ph = phi double [ %278, %line_closept_point.exit250 ], [ %423, %420 ]
+  %450 = phi <2 x double> [ <double -1.000000e+00, double 0.000000e+00>, %line_closept_point.exit250 ], [ <double 0.000000e+00, double -1.000000e+00>, %420 ]
   store <2 x double> %450, ptr %5, align 16
-  br label %line_construct.exit.i226
+  br label %line_construct.exit.i224
 
-line_construct.exit.i226.sink.split:              ; preds = %float8_mi.exit.i.i237
-  br label %line_construct.exit.i226
+line_construct.exit.i224.sink.split:              ; preds = %float8_mi.exit.i.i235
+  br label %line_construct.exit.i224
 
-line_construct.exit.i226:                         ; preds = %line_construct.exit.i226.sink.split.sink.split, %line_construct.exit.i226.sink.split, %float8_mi.exit.i.i237
-  %storemerge1108 = phi double [ %442, %float8_mi.exit.i.i237 ], [ %.sink1075.ph, %line_construct.exit.i226.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i226.sink.split ]
-  store double %storemerge1108, ptr %61, align 16
+line_construct.exit.i224:                         ; preds = %line_construct.exit.i224.sink.split.sink.split, %line_construct.exit.i224.sink.split, %float8_mi.exit.i.i235
+  %storemerge1105 = phi double [ %442, %float8_mi.exit.i.i235 ], [ %.sink1072.ph, %line_construct.exit.i224.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i224.sink.split ]
+  store double %storemerge1105, ptr %61, align 16
   %451 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %21)
-  br i1 %451, label %452, label %line_closept_point.exit238
+  br i1 %451, label %452, label %line_closept_point.exit236
 
-452:                                              ; preds = %line_construct.exit.i226
+452:                                              ; preds = %line_construct.exit.i224
   %453 = load double, ptr %4, align 8
   %454 = fsub double %453, %278
   %455 = call double @llvm.fabs.f64(double %454)
   %456 = fcmp une double %455, 0x7FF0000000000000
   %457 = call double @llvm.fabs.f64(double %453)
   %458 = fcmp oeq double %457, 0x7FF0000000000000
-  %or.cond.i.i393 = or i1 %458, %456
+  %or.cond.i.i391 = or i1 %458, %456
   %459 = call double @llvm.fabs.f64(double %278)
   %460 = fcmp oeq double %459, 0x7FF0000000000000
-  %or.cond8.i.i394 = or i1 %460, %or.cond.i.i393
-  br i1 %or.cond8.i.i394, label %float8_mi.exit.i395, label %461
+  %or.cond8.i.i392 = or i1 %460, %or.cond.i.i391
+  br i1 %or.cond8.i.i392, label %float8_mi.exit.i393, label %461
 
 461:                                              ; preds = %452
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i395:                              ; preds = %452
+float8_mi.exit.i393:                              ; preds = %452
   %462 = load double, ptr %62, align 8
   %463 = extractelement <2 x double> %109, i64 1
   %464 = fsub double %462, %463
@@ -5516,38 +5512,38 @@ float8_mi.exit.i395:                              ; preds = %452
   %466 = fcmp une double %465, 0x7FF0000000000000
   %467 = call double @llvm.fabs.f64(double %462)
   %468 = fcmp oeq double %467, 0x7FF0000000000000
-  %or.cond.i4.i396 = or i1 %468, %466
+  %or.cond.i4.i394 = or i1 %468, %466
   %469 = call double @llvm.fabs.f64(double %463)
   %470 = fcmp oeq double %469, 0x7FF0000000000000
-  %or.cond8.i5.i397 = or i1 %470, %or.cond.i4.i396
-  br i1 %or.cond8.i5.i397, label %float8_mi.exit6.i398, label %471
+  %or.cond8.i5.i395 = or i1 %470, %or.cond.i4.i394
+  br i1 %or.cond8.i5.i395, label %float8_mi.exit6.i396, label %471
 
-471:                                              ; preds = %float8_mi.exit.i395
+471:                                              ; preds = %float8_mi.exit.i393
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i398:                             ; preds = %float8_mi.exit.i395
+float8_mi.exit6.i396:                             ; preds = %float8_mi.exit.i393
   %472 = fcmp oeq double %455, 0x7FF0000000000000
   %473 = fcmp oeq double %465, 0x7FF0000000000000
-  %or.cond.i7.i399 = or i1 %472, %473
-  br i1 %or.cond.i7.i399, label %line_closept_point.exit238, label %474
+  %or.cond.i7.i397 = or i1 %472, %473
+  br i1 %or.cond.i7.i397, label %line_closept_point.exit236, label %474
 
-474:                                              ; preds = %float8_mi.exit6.i398
-  %or.cond29.i.i400 = fcmp uno double %454, %464
-  br i1 %or.cond29.i.i400, label %line_closept_point.exit238, label %475
+474:                                              ; preds = %float8_mi.exit6.i396
+  %or.cond29.i.i398 = fcmp uno double %454, %464
+  br i1 %or.cond29.i.i398, label %line_closept_point.exit236, label %475
 
 475:                                              ; preds = %474
   %476 = fcmp olt double %455, %465
-  %.023.i.i401 = select i1 %476, double %455, double %465
-  %.022.i.i402 = select i1 %476, double %465, double %455
-  %477 = fcmp oeq double %.023.i.i401, 0.000000e+00
-  br i1 %477, label %line_closept_point.exit238, label %478
+  %.023.i.i399 = select i1 %476, double %455, double %465
+  %.022.i.i400 = select i1 %476, double %465, double %455
+  %477 = fcmp oeq double %.023.i.i399, 0.000000e+00
+  br i1 %477, label %line_closept_point.exit236, label %478
 
 478:                                              ; preds = %475
-  %479 = fdiv double %.023.i.i401, %.022.i.i402
+  %479 = fdiv double %.023.i.i399, %.022.i.i400
   %480 = call double @llvm.fmuladd.f64(double %479, double %479, double 1.000000e+00)
-  %sqrt.i.i403 = call double @llvm.sqrt.f64(double %480)
-  %481 = fmul double %.022.i.i402, %sqrt.i.i403
+  %sqrt.i.i401 = call double @llvm.sqrt.f64(double %480)
+  %481 = fmul double %.022.i.i400, %sqrt.i.i401
   %482 = call double @llvm.fabs.f64(double %481)
   %483 = fcmp oeq double %482, 0x7FF0000000000000
   br i1 %483, label %484, label %485
@@ -5558,77 +5554,77 @@ float8_mi.exit6.i398:                             ; preds = %float8_mi.exit.i395
 
 485:                                              ; preds = %478
   %486 = fcmp oeq double %481, 0.000000e+00
-  br i1 %486, label %487, label %line_closept_point.exit238
+  br i1 %486, label %487, label %line_closept_point.exit236
 
 487:                                              ; preds = %485
   call void @float_underflow_error() #18
   unreachable
 
-line_closept_point.exit238:                       ; preds = %485, %475, %474, %float8_mi.exit6.i398, %line_construct.exit.i226
-  %.0.i227 = phi double [ 0x7FF8000000000000, %line_construct.exit.i226 ], [ %.022.i.i402, %475 ], [ %481, %485 ], [ 0x7FF0000000000000, %float8_mi.exit6.i398 ], [ 0x7FF8000000000000, %474 ]
+line_closept_point.exit236:                       ; preds = %485, %475, %474, %float8_mi.exit6.i396, %line_construct.exit.i224
+  %.0.i225 = phi double [ 0x7FF8000000000000, %line_construct.exit.i224 ], [ %.022.i.i400, %475 ], [ %481, %485 ], [ 0x7FF0000000000000, %float8_mi.exit6.i396 ], [ 0x7FF8000000000000, %474 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %488 = fcmp olt double %.0.i241, %.0.i227
-  %.22.i.i70 = select i1 %488, ptr %28, ptr %46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 16 dereferenceable(16) %.22.i.i70, i64 16, i1 false)
-  br label %lseg_closept_point.exit71
+  %488 = fcmp olt double %.0.i239, %.0.i225
+  %.22.i.i68 = select i1 %488, ptr %28, ptr %46
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 16 dereferenceable(16) %.22.i.i68, i64 16, i1 false)
+  br label %lseg_closept_point.exit69
 
-lseg_closept_point.exit71:                        ; preds = %line_construct.exit.i69, %line_closept_point.exit238
+lseg_closept_point.exit69:                        ; preds = %line_construct.exit.i67, %line_closept_point.exit236
   %489 = load double, ptr %20, align 8
   %490 = fsub double %489, %115
   %491 = call double @llvm.fabs.f64(double %490)
   %492 = fcmp une double %491, 0x7FF0000000000000
   %493 = call double @llvm.fabs.f64(double %489)
   %494 = fcmp oeq double %493, 0x7FF0000000000000
-  %or.cond.i.i212 = or i1 %494, %492
+  %or.cond.i.i210 = or i1 %494, %492
   %495 = call double @llvm.fabs.f64(double %115)
   %496 = fcmp oeq double %495, 0x7FF0000000000000
-  %or.cond8.i.i213 = or i1 %496, %or.cond.i.i212
-  br i1 %or.cond8.i.i213, label %float8_mi.exit.i214, label %497
+  %or.cond8.i.i211 = or i1 %496, %or.cond.i.i210
+  br i1 %or.cond8.i.i211, label %float8_mi.exit.i212, label %497
 
-497:                                              ; preds = %lseg_closept_point.exit71
+497:                                              ; preds = %lseg_closept_point.exit69
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i214:                              ; preds = %lseg_closept_point.exit71
+float8_mi.exit.i212:                              ; preds = %lseg_closept_point.exit69
   %498 = load double, ptr %63, align 8
   %499 = fsub double %498, %285
   %500 = call double @llvm.fabs.f64(double %499)
   %501 = fcmp une double %500, 0x7FF0000000000000
   %502 = call double @llvm.fabs.f64(double %498)
   %503 = fcmp oeq double %502, 0x7FF0000000000000
-  %or.cond.i4.i215 = or i1 %503, %501
+  %or.cond.i4.i213 = or i1 %503, %501
   %504 = call double @llvm.fabs.f64(double %285)
   %505 = fcmp oeq double %504, 0x7FF0000000000000
-  %or.cond8.i5.i216 = or i1 %505, %or.cond.i4.i215
-  br i1 %or.cond8.i5.i216, label %float8_mi.exit6.i217, label %506
+  %or.cond8.i5.i214 = or i1 %505, %or.cond.i4.i213
+  br i1 %or.cond8.i5.i214, label %float8_mi.exit6.i215, label %506
 
-506:                                              ; preds = %float8_mi.exit.i214
+506:                                              ; preds = %float8_mi.exit.i212
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i217:                             ; preds = %float8_mi.exit.i214
+float8_mi.exit6.i215:                             ; preds = %float8_mi.exit.i212
   %507 = fcmp oeq double %491, 0x7FF0000000000000
   %508 = fcmp oeq double %500, 0x7FF0000000000000
-  %or.cond.i7.i218 = or i1 %507, %508
-  br i1 %or.cond.i7.i218, label %point_dt.exit224, label %509
+  %or.cond.i7.i216 = or i1 %507, %508
+  br i1 %or.cond.i7.i216, label %point_dt.exit222, label %509
 
-509:                                              ; preds = %float8_mi.exit6.i217
-  %or.cond29.i.i219 = fcmp uno double %490, %499
-  br i1 %or.cond29.i.i219, label %point_dt.exit224, label %510
+509:                                              ; preds = %float8_mi.exit6.i215
+  %or.cond29.i.i217 = fcmp uno double %490, %499
+  br i1 %or.cond29.i.i217, label %point_dt.exit222, label %510
 
 510:                                              ; preds = %509
   %511 = fcmp olt double %491, %500
-  %.023.i.i220 = select i1 %511, double %491, double %500
-  %.022.i.i221 = select i1 %511, double %500, double %491
-  %512 = fcmp oeq double %.023.i.i220, 0.000000e+00
-  br i1 %512, label %point_dt.exit224, label %513
+  %.023.i.i218 = select i1 %511, double %491, double %500
+  %.022.i.i219 = select i1 %511, double %500, double %491
+  %512 = fcmp oeq double %.023.i.i218, 0.000000e+00
+  br i1 %512, label %point_dt.exit222, label %513
 
 513:                                              ; preds = %510
-  %514 = fdiv double %.023.i.i220, %.022.i.i221
+  %514 = fdiv double %.023.i.i218, %.022.i.i219
   %515 = call double @llvm.fmuladd.f64(double %514, double %514, double 1.000000e+00)
-  %sqrt.i.i222 = call double @llvm.sqrt.f64(double %515)
-  %516 = fmul double %.022.i.i221, %sqrt.i.i222
+  %sqrt.i.i220 = call double @llvm.sqrt.f64(double %515)
+  %516 = fmul double %.022.i.i219, %sqrt.i.i220
   %517 = call double @llvm.fabs.f64(double %516)
   %518 = fcmp oeq double %517, 0x7FF0000000000000
   br i1 %518, label %519, label %520
@@ -5639,22 +5635,22 @@ float8_mi.exit6.i217:                             ; preds = %float8_mi.exit.i214
 
 520:                                              ; preds = %513
   %521 = fcmp oeq double %516, 0.000000e+00
-  br i1 %521, label %522, label %point_dt.exit224
+  br i1 %521, label %522, label %point_dt.exit222
 
 522:                                              ; preds = %520
   call void @float_underflow_error() #18
   unreachable
 
-point_dt.exit224:                                 ; preds = %float8_mi.exit6.i217, %509, %510, %520
-  %.0.i.i223 = phi double [ %.022.i.i221, %510 ], [ %516, %520 ], [ 0x7FF0000000000000, %float8_mi.exit6.i217 ], [ 0x7FF8000000000000, %509 ]
+point_dt.exit222:                                 ; preds = %float8_mi.exit6.i215, %509, %510, %520
+  %.0.i.i221 = phi double [ %.022.i.i219, %510 ], [ %516, %520 ], [ 0x7FF0000000000000, %float8_mi.exit6.i215 ], [ 0x7FF8000000000000, %509 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
   %523 = extractelement <2 x double> %114, i64 1
-  br i1 %284, label %line_construct.exit.i60.sink.split.sink.split, label %524
+  br i1 %284, label %line_construct.exit.i58.sink.split.sink.split, label %524
 
-524:                                              ; preds = %point_dt.exit224
+524:                                              ; preds = %point_dt.exit222
   %525 = extractelement <2 x double> %108, i64 1
   %526 = extractelement <2 x double> %109, i64 1
   %527 = fcmp oeq double %525, %526
@@ -5662,55 +5658,55 @@ point_dt.exit224:                                 ; preds = %float8_mi.exit6.i21
   %529 = call double @llvm.fabs.f64(double %528)
   %530 = fcmp ole double %529, 0x3EB0C6F7A0B5ED8D
   %531 = or i1 %527, %530
-  br i1 %531, label %line_construct.exit.i60.sink.split.sink.split, label %532
+  br i1 %531, label %line_construct.exit.i58.sink.split.sink.split, label %532
 
 532:                                              ; preds = %524
   %533 = fcmp une double %282, 0x7FF0000000000000
   %534 = call double @llvm.fabs.f64(double %277)
   %535 = fcmp oeq double %534, 0x7FF0000000000000
-  %or.cond.i.i200 = or i1 %535, %533
+  %or.cond.i.i198 = or i1 %535, %533
   %536 = call double @llvm.fabs.f64(double %278)
   %537 = fcmp oeq double %536, 0x7FF0000000000000
-  %or.cond8.i.i201 = or i1 %537, %or.cond.i.i200
-  br i1 %or.cond8.i.i201, label %float8_mi.exit.i202, label %538
+  %or.cond8.i.i199 = or i1 %537, %or.cond.i.i198
+  br i1 %or.cond8.i.i199, label %float8_mi.exit.i200, label %538
 
 538:                                              ; preds = %532
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i202:                              ; preds = %532
+float8_mi.exit.i200:                              ; preds = %532
   %539 = fsub double %526, %525
   %540 = call double @llvm.fabs.f64(double %539)
   %541 = fcmp une double %540, 0x7FF0000000000000
   %542 = call double @llvm.fabs.f64(double %526)
   %543 = fcmp oeq double %542, 0x7FF0000000000000
-  %or.cond.i9.i203 = or i1 %543, %541
+  %or.cond.i9.i201 = or i1 %543, %541
   %544 = call double @llvm.fabs.f64(double %525)
   %545 = fcmp oeq double %544, 0x7FF0000000000000
-  %or.cond8.i10.i204 = or i1 %545, %or.cond.i9.i203
-  br i1 %or.cond8.i10.i204, label %float8_mi.exit11.i205, label %546
+  %or.cond8.i10.i202 = or i1 %545, %or.cond.i9.i201
+  br i1 %or.cond8.i10.i202, label %float8_mi.exit11.i203, label %546
 
-546:                                              ; preds = %float8_mi.exit.i202
+546:                                              ; preds = %float8_mi.exit.i200
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit11.i205:                            ; preds = %float8_mi.exit.i202
+float8_mi.exit11.i203:                            ; preds = %float8_mi.exit.i200
   %547 = fcmp une double %539, 0.000000e+00
   %548 = fcmp uno double %281, 0.000000e+00
-  %or.cond11.i.i206 = or i1 %548, %547
-  br i1 %or.cond11.i.i206, label %550, label %549
+  %or.cond11.i.i204 = or i1 %548, %547
+  br i1 %or.cond11.i.i204, label %550, label %549
 
-549:                                              ; preds = %float8_mi.exit11.i205
+549:                                              ; preds = %float8_mi.exit11.i203
   call void @float_zero_divide_error() #18
   unreachable
 
-550:                                              ; preds = %float8_mi.exit11.i205
+550:                                              ; preds = %float8_mi.exit11.i203
   %551 = fdiv double %281, %539
   %552 = call double @llvm.fabs.f64(double %551)
   %553 = fcmp une double %552, 0x7FF0000000000000
   %554 = fcmp oeq double %282, 0x7FF0000000000000
-  %or.cond13.i.i207 = or i1 %554, %553
-  br i1 %or.cond13.i.i207, label %556, label %555
+  %or.cond13.i.i205 = or i1 %554, %553
+  br i1 %or.cond13.i.i205, label %556, label %555
 
 555:                                              ; preds = %550
   call void @float_overflow_error() #18
@@ -5719,23 +5715,23 @@ float8_mi.exit11.i205:                            ; preds = %float8_mi.exit.i202
 556:                                              ; preds = %550
   %557 = fcmp une double %551, 0.000000e+00
   %558 = fcmp oeq double %281, 0.000000e+00
-  %or.cond.not17.i.i208 = or i1 %558, %557
+  %or.cond.not17.i.i206 = or i1 %558, %557
   %559 = fcmp oeq double %540, 0x7FF0000000000000
-  %or.cond15.i.i209 = or i1 %559, %or.cond.not17.i.i208
-  br i1 %or.cond15.i.i209, label %point_invsl.exit211, label %560
+  %or.cond15.i.i207 = or i1 %559, %or.cond.not17.i.i206
+  br i1 %or.cond15.i.i207, label %point_invsl.exit209, label %560
 
 560:                                              ; preds = %556
   call void @float_underflow_error() #18
   unreachable
 
-point_invsl.exit211:                              ; preds = %556
+point_invsl.exit209:                              ; preds = %556
   %561 = call double @llvm.fabs.f64(double %551)
   %562 = fcmp oeq double %561, 0x7FF0000000000000
-  br i1 %562, label %line_construct.exit.i60.sink.split.sink.split, label %563
+  br i1 %562, label %line_construct.exit.i58.sink.split.sink.split, label %563
 
-563:                                              ; preds = %point_invsl.exit211
+563:                                              ; preds = %point_invsl.exit209
   %564 = fcmp oeq double %551, 0.000000e+00
-  br i1 %564, label %line_construct.exit.i60.sink.split.sink.split, label %565
+  br i1 %564, label %line_construct.exit.i58.sink.split.sink.split, label %565
 
 565:                                              ; preds = %563
   store double %551, ptr %23, align 8
@@ -5745,8 +5741,8 @@ point_invsl.exit211:                              ; preds = %556
   %568 = fcmp une double %567, 0x7FF0000000000000
   %569 = call double @llvm.fabs.f64(double %116)
   %570 = fcmp oeq double %569, 0x7FF0000000000000
-  %or.cond15.i.i.i54 = or i1 %570, %568
-  br i1 %or.cond15.i.i.i54, label %572, label %571
+  %or.cond15.i.i.i52 = or i1 %570, %568
+  br i1 %or.cond15.i.i.i52, label %572, label %571
 
 571:                                              ; preds = %565
   call void @float_overflow_error() #18
@@ -5755,63 +5751,63 @@ point_invsl.exit211:                              ; preds = %556
 572:                                              ; preds = %565
   %573 = fcmp oeq double %566, 0.000000e+00
   %574 = fcmp une double %116, 0.000000e+00
-  %or.cond3.i.i.i55 = and i1 %574, %573
-  br i1 %or.cond3.i.i.i55, label %575, label %float8_mul.exit.i.i56
+  %or.cond3.i.i.i53 = and i1 %574, %573
+  br i1 %or.cond3.i.i.i53, label %575, label %float8_mul.exit.i.i54
 
 575:                                              ; preds = %572
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i56:                            ; preds = %572
+float8_mul.exit.i.i54:                            ; preds = %572
   %576 = fsub double %523, %566
   %577 = call double @llvm.fabs.f64(double %576)
   %578 = fcmp une double %577, 0x7FF0000000000000
   %579 = call double @llvm.fabs.f64(double %523)
   %580 = fcmp oeq double %579, 0x7FF0000000000000
-  %or.cond.i19.i.i57 = or i1 %580, %578
+  %or.cond.i19.i.i55 = or i1 %580, %578
   %581 = fcmp oeq double %567, 0x7FF0000000000000
-  %or.cond8.i.i.i58 = or i1 %581, %or.cond.i19.i.i57
-  br i1 %or.cond8.i.i.i58, label %float8_mi.exit.i.i59, label %582
+  %or.cond8.i.i.i56 = or i1 %581, %or.cond.i19.i.i55
+  br i1 %or.cond8.i.i.i56, label %float8_mi.exit.i.i57, label %582
 
-582:                                              ; preds = %float8_mul.exit.i.i56
+582:                                              ; preds = %float8_mul.exit.i.i54
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i59:                             ; preds = %float8_mul.exit.i.i56
+float8_mi.exit.i.i57:                             ; preds = %float8_mul.exit.i.i54
   %583 = fcmp oeq double %576, 0.000000e+00
-  br i1 %583, label %line_construct.exit.i60.sink.split, label %line_construct.exit.i60
+  br i1 %583, label %line_construct.exit.i58.sink.split, label %line_construct.exit.i58
 
-line_construct.exit.i60.sink.split.sink.split:    ; preds = %563, %point_dt.exit224, %point_invsl.exit211, %524
-  %storemerge1109 = phi double [ -1.000000e+00, %524 ], [ -1.000000e+00, %point_invsl.exit211 ], [ 0.000000e+00, %point_dt.exit224 ], [ 0.000000e+00, %563 ]
-  %.sink1095 = phi double [ 0.000000e+00, %524 ], [ 0.000000e+00, %point_invsl.exit211 ], [ -1.000000e+00, %point_dt.exit224 ], [ -1.000000e+00, %563 ]
-  %.sink1078.ph = phi double [ %116, %524 ], [ %116, %point_invsl.exit211 ], [ %523, %point_dt.exit224 ], [ %523, %563 ]
-  store double %storemerge1109, ptr %23, align 8
-  store double %.sink1095, ptr %64, align 8
-  br label %line_construct.exit.i60
+line_construct.exit.i58.sink.split.sink.split:    ; preds = %563, %point_dt.exit222, %point_invsl.exit209, %524
+  %storemerge1106 = phi double [ -1.000000e+00, %524 ], [ -1.000000e+00, %point_invsl.exit209 ], [ 0.000000e+00, %point_dt.exit222 ], [ 0.000000e+00, %563 ]
+  %.sink1092 = phi double [ 0.000000e+00, %524 ], [ 0.000000e+00, %point_invsl.exit209 ], [ -1.000000e+00, %point_dt.exit222 ], [ -1.000000e+00, %563 ]
+  %.sink1075.ph = phi double [ %116, %524 ], [ %116, %point_invsl.exit209 ], [ %523, %point_dt.exit222 ], [ %523, %563 ]
+  store double %storemerge1106, ptr %23, align 8
+  store double %.sink1092, ptr %64, align 8
+  br label %line_construct.exit.i58
 
-line_construct.exit.i60.sink.split:               ; preds = %float8_mi.exit.i.i59
-  br label %line_construct.exit.i60
+line_construct.exit.i58.sink.split:               ; preds = %float8_mi.exit.i.i57
+  br label %line_construct.exit.i58
 
-line_construct.exit.i60:                          ; preds = %line_construct.exit.i60.sink.split.sink.split, %line_construct.exit.i60.sink.split, %float8_mi.exit.i.i59
-  %storemerge1110 = phi double [ %576, %float8_mi.exit.i.i59 ], [ %.sink1078.ph, %line_construct.exit.i60.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i60.sink.split ]
-  %584 = phi double [ -1.000000e+00, %float8_mi.exit.i.i59 ], [ %.sink1095, %line_construct.exit.i60.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i60.sink.split ]
-  %585 = phi double [ %551, %float8_mi.exit.i.i59 ], [ %storemerge1109, %line_construct.exit.i60.sink.split.sink.split ], [ %551, %line_construct.exit.i60.sink.split ]
-  store double %storemerge1110, ptr %65, align 8
+line_construct.exit.i58:                          ; preds = %line_construct.exit.i58.sink.split.sink.split, %line_construct.exit.i58.sink.split, %float8_mi.exit.i.i57
+  %storemerge1107 = phi double [ %576, %float8_mi.exit.i.i57 ], [ %.sink1075.ph, %line_construct.exit.i58.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i58.sink.split ]
+  %584 = phi double [ -1.000000e+00, %float8_mi.exit.i.i57 ], [ %.sink1092, %line_construct.exit.i58.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i58.sink.split ]
+  %585 = phi double [ %551, %float8_mi.exit.i.i57 ], [ %storemerge1106, %line_construct.exit.i58.sink.split.sink.split ], [ %551, %line_construct.exit.i58.sink.split ]
+  store double %storemerge1107, ptr %65, align 8
   %586 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %22, ptr noundef nonnull %28, ptr noundef nonnull %23)
-  br i1 %586, label %lseg_closept_point.exit62, label %587
+  br i1 %586, label %lseg_closept_point.exit60, label %587
 
-587:                                              ; preds = %line_construct.exit.i60
+587:                                              ; preds = %line_construct.exit.i58
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   %588 = call double @llvm.fabs.f64(double %585)
   %589 = fcmp ugt double %588, 0x3EB0C6F7A0B5ED8D
-  br i1 %589, label %590, label %line_construct.exit.i187.sink.split.sink.split
+  br i1 %589, label %590, label %line_construct.exit.i185.sink.split.sink.split
 
 590:                                              ; preds = %587
   %591 = call double @llvm.fabs.f64(double %584)
   %592 = fcmp ugt double %591, 0x3EB0C6F7A0B5ED8D
   %593 = extractelement <2 x double> %108, i64 1
-  br i1 %592, label %594, label %line_construct.exit.i187.sink.split.sink.split
+  br i1 %592, label %594, label %line_construct.exit.i185.sink.split.sink.split
 
 594:                                              ; preds = %590
   %595 = fdiv double %584, %585
@@ -5825,13 +5821,13 @@ line_construct.exit.i60:                          ; preds = %line_construct.exit
 
 599:                                              ; preds = %594
   %600 = fcmp une double %595, 0.000000e+00
-  br i1 %600, label %line_invsl.exit.i192, label %601
+  br i1 %600, label %line_invsl.exit.i190, label %601
 
 601:                                              ; preds = %599
   call void @float_underflow_error() #18
   unreachable
 
-line_invsl.exit.i192:                             ; preds = %599
+line_invsl.exit.i190:                             ; preds = %599
   store double %595, ptr %7, align 16
   store double -1.000000e+00, ptr %66, align 8
   %602 = fmul double %277, %595
@@ -5839,75 +5835,75 @@ line_invsl.exit.i192:                             ; preds = %599
   %604 = fcmp une double %603, 0x7FF0000000000000
   %605 = call double @llvm.fabs.f64(double %277)
   %606 = fcmp oeq double %605, 0x7FF0000000000000
-  %or.cond15.i.i12.i193 = or i1 %606, %604
-  br i1 %or.cond15.i.i12.i193, label %608, label %607
+  %or.cond15.i.i12.i191 = or i1 %606, %604
+  br i1 %or.cond15.i.i12.i191, label %608, label %607
 
-607:                                              ; preds = %line_invsl.exit.i192
+607:                                              ; preds = %line_invsl.exit.i190
   call void @float_overflow_error() #18
   unreachable
 
-608:                                              ; preds = %line_invsl.exit.i192
+608:                                              ; preds = %line_invsl.exit.i190
   %609 = fcmp oeq double %602, 0.000000e+00
   %610 = fcmp une double %277, 0.000000e+00
-  %or.cond3.i.i.i194 = and i1 %610, %609
-  br i1 %or.cond3.i.i.i194, label %611, label %float8_mul.exit.i.i195
+  %or.cond3.i.i.i192 = and i1 %610, %609
+  br i1 %or.cond3.i.i.i192, label %611, label %float8_mul.exit.i.i193
 
 611:                                              ; preds = %608
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i195:                           ; preds = %608
+float8_mul.exit.i.i193:                           ; preds = %608
   %612 = fsub double %593, %602
   %613 = call double @llvm.fabs.f64(double %612)
   %614 = fcmp une double %613, 0x7FF0000000000000
   %615 = call double @llvm.fabs.f64(double %593)
   %616 = fcmp oeq double %615, 0x7FF0000000000000
-  %or.cond.i19.i.i196 = or i1 %616, %614
+  %or.cond.i19.i.i194 = or i1 %616, %614
   %617 = fcmp oeq double %603, 0x7FF0000000000000
-  %or.cond8.i.i.i197 = or i1 %617, %or.cond.i19.i.i196
-  br i1 %or.cond8.i.i.i197, label %float8_mi.exit.i.i198, label %618
+  %or.cond8.i.i.i195 = or i1 %617, %or.cond.i19.i.i194
+  br i1 %or.cond8.i.i.i195, label %float8_mi.exit.i.i196, label %618
 
-618:                                              ; preds = %float8_mul.exit.i.i195
+618:                                              ; preds = %float8_mul.exit.i.i193
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i198:                            ; preds = %float8_mul.exit.i.i195
+float8_mi.exit.i.i196:                            ; preds = %float8_mul.exit.i.i193
   %619 = fcmp oeq double %612, 0.000000e+00
-  br i1 %619, label %line_construct.exit.i187.sink.split, label %line_construct.exit.i187
+  br i1 %619, label %line_construct.exit.i185.sink.split, label %line_construct.exit.i185
 
-line_construct.exit.i187.sink.split.sink.split:   ; preds = %590, %587
-  %.sink1079.ph = phi double [ %277, %587 ], [ %593, %590 ]
+line_construct.exit.i185.sink.split.sink.split:   ; preds = %590, %587
+  %.sink1076.ph = phi double [ %277, %587 ], [ %593, %590 ]
   %620 = phi <2 x double> [ <double -1.000000e+00, double 0.000000e+00>, %587 ], [ <double 0.000000e+00, double -1.000000e+00>, %590 ]
   store <2 x double> %620, ptr %7, align 16
-  br label %line_construct.exit.i187
+  br label %line_construct.exit.i185
 
-line_construct.exit.i187.sink.split:              ; preds = %float8_mi.exit.i.i198
-  br label %line_construct.exit.i187
+line_construct.exit.i185.sink.split:              ; preds = %float8_mi.exit.i.i196
+  br label %line_construct.exit.i185
 
-line_construct.exit.i187:                         ; preds = %line_construct.exit.i187.sink.split.sink.split, %line_construct.exit.i187.sink.split, %float8_mi.exit.i.i198
-  %storemerge1112 = phi double [ %612, %float8_mi.exit.i.i198 ], [ %.sink1079.ph, %line_construct.exit.i187.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i187.sink.split ]
-  store double %storemerge1112, ptr %67, align 16
+line_construct.exit.i185:                         ; preds = %line_construct.exit.i185.sink.split.sink.split, %line_construct.exit.i185.sink.split, %float8_mi.exit.i.i196
+  %storemerge1109 = phi double [ %612, %float8_mi.exit.i.i196 ], [ %.sink1076.ph, %line_construct.exit.i185.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i185.sink.split ]
+  store double %storemerge1109, ptr %67, align 16
   %621 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %23)
-  br i1 %621, label %622, label %line_closept_point.exit199
+  br i1 %621, label %622, label %line_closept_point.exit197
 
-622:                                              ; preds = %line_construct.exit.i187
+622:                                              ; preds = %line_construct.exit.i185
   %623 = load double, ptr %6, align 8
   %624 = fsub double %623, %277
   %625 = call double @llvm.fabs.f64(double %624)
   %626 = fcmp une double %625, 0x7FF0000000000000
   %627 = call double @llvm.fabs.f64(double %623)
   %628 = fcmp oeq double %627, 0x7FF0000000000000
-  %or.cond.i.i380 = or i1 %628, %626
+  %or.cond.i.i378 = or i1 %628, %626
   %629 = call double @llvm.fabs.f64(double %277)
   %630 = fcmp oeq double %629, 0x7FF0000000000000
-  %or.cond8.i.i381 = or i1 %630, %or.cond.i.i380
-  br i1 %or.cond8.i.i381, label %float8_mi.exit.i382, label %631
+  %or.cond8.i.i379 = or i1 %630, %or.cond.i.i378
+  br i1 %or.cond8.i.i379, label %float8_mi.exit.i380, label %631
 
 631:                                              ; preds = %622
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i382:                              ; preds = %622
+float8_mi.exit.i380:                              ; preds = %622
   %632 = load double, ptr %68, align 8
   %633 = extractelement <2 x double> %108, i64 1
   %634 = fsub double %632, %633
@@ -5915,38 +5911,38 @@ float8_mi.exit.i382:                              ; preds = %622
   %636 = fcmp une double %635, 0x7FF0000000000000
   %637 = call double @llvm.fabs.f64(double %632)
   %638 = fcmp oeq double %637, 0x7FF0000000000000
-  %or.cond.i4.i383 = or i1 %638, %636
+  %or.cond.i4.i381 = or i1 %638, %636
   %639 = call double @llvm.fabs.f64(double %633)
   %640 = fcmp oeq double %639, 0x7FF0000000000000
-  %or.cond8.i5.i384 = or i1 %640, %or.cond.i4.i383
-  br i1 %or.cond8.i5.i384, label %float8_mi.exit6.i385, label %641
+  %or.cond8.i5.i382 = or i1 %640, %or.cond.i4.i381
+  br i1 %or.cond8.i5.i382, label %float8_mi.exit6.i383, label %641
 
-641:                                              ; preds = %float8_mi.exit.i382
+641:                                              ; preds = %float8_mi.exit.i380
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i385:                             ; preds = %float8_mi.exit.i382
+float8_mi.exit6.i383:                             ; preds = %float8_mi.exit.i380
   %642 = fcmp oeq double %625, 0x7FF0000000000000
   %643 = fcmp oeq double %635, 0x7FF0000000000000
-  %or.cond.i7.i386 = or i1 %642, %643
-  br i1 %or.cond.i7.i386, label %line_closept_point.exit199, label %644
+  %or.cond.i7.i384 = or i1 %642, %643
+  br i1 %or.cond.i7.i384, label %line_closept_point.exit197, label %644
 
-644:                                              ; preds = %float8_mi.exit6.i385
-  %or.cond29.i.i387 = fcmp uno double %624, %634
-  br i1 %or.cond29.i.i387, label %line_closept_point.exit199, label %645
+644:                                              ; preds = %float8_mi.exit6.i383
+  %or.cond29.i.i385 = fcmp uno double %624, %634
+  br i1 %or.cond29.i.i385, label %line_closept_point.exit197, label %645
 
 645:                                              ; preds = %644
   %646 = fcmp olt double %625, %635
-  %.023.i.i388 = select i1 %646, double %625, double %635
-  %.022.i.i389 = select i1 %646, double %635, double %625
-  %647 = fcmp oeq double %.023.i.i388, 0.000000e+00
-  br i1 %647, label %line_closept_point.exit199, label %648
+  %.023.i.i386 = select i1 %646, double %625, double %635
+  %.022.i.i387 = select i1 %646, double %635, double %625
+  %647 = fcmp oeq double %.023.i.i386, 0.000000e+00
+  br i1 %647, label %line_closept_point.exit197, label %648
 
 648:                                              ; preds = %645
-  %649 = fdiv double %.023.i.i388, %.022.i.i389
+  %649 = fdiv double %.023.i.i386, %.022.i.i387
   %650 = call double @llvm.fmuladd.f64(double %649, double %649, double 1.000000e+00)
-  %sqrt.i.i390 = call double @llvm.sqrt.f64(double %650)
-  %651 = fmul double %.022.i.i389, %sqrt.i.i390
+  %sqrt.i.i388 = call double @llvm.sqrt.f64(double %650)
+  %651 = fmul double %.022.i.i387, %sqrt.i.i388
   %652 = call double @llvm.fabs.f64(double %651)
   %653 = fcmp oeq double %652, 0x7FF0000000000000
   br i1 %653, label %654, label %655
@@ -5957,25 +5953,25 @@ float8_mi.exit6.i385:                             ; preds = %float8_mi.exit.i382
 
 655:                                              ; preds = %648
   %656 = fcmp oeq double %651, 0.000000e+00
-  br i1 %656, label %657, label %line_closept_point.exit199
+  br i1 %656, label %657, label %line_closept_point.exit197
 
 657:                                              ; preds = %655
   call void @float_underflow_error() #18
   unreachable
 
-line_closept_point.exit199:                       ; preds = %655, %645, %644, %float8_mi.exit6.i385, %line_construct.exit.i187
-  %.0.i188 = phi double [ 0x7FF8000000000000, %line_construct.exit.i187 ], [ %.022.i.i389, %645 ], [ %651, %655 ], [ 0x7FF0000000000000, %float8_mi.exit6.i385 ], [ 0x7FF8000000000000, %644 ]
+line_closept_point.exit197:                       ; preds = %655, %645, %644, %float8_mi.exit6.i383, %line_construct.exit.i185
+  %.0.i186 = phi double [ 0x7FF8000000000000, %line_construct.exit.i185 ], [ %.022.i.i387, %645 ], [ %651, %655 ], [ 0x7FF0000000000000, %float8_mi.exit6.i383 ], [ 0x7FF8000000000000, %644 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  br i1 %589, label %658, label %line_construct.exit.i173.sink.split.sink.split
+  br i1 %589, label %658, label %line_construct.exit.i171.sink.split.sink.split
 
-658:                                              ; preds = %line_closept_point.exit199
+658:                                              ; preds = %line_closept_point.exit197
   %659 = call double @llvm.fabs.f64(double %584)
   %660 = fcmp ugt double %659, 0x3EB0C6F7A0B5ED8D
   %661 = extractelement <2 x double> %109, i64 1
-  br i1 %660, label %662, label %line_construct.exit.i173.sink.split.sink.split
+  br i1 %660, label %662, label %line_construct.exit.i171.sink.split.sink.split
 
 662:                                              ; preds = %658
   %663 = fdiv double %584, %585
@@ -5989,13 +5985,13 @@ line_closept_point.exit199:                       ; preds = %655, %645, %644, %f
 
 667:                                              ; preds = %662
   %668 = fcmp une double %663, 0.000000e+00
-  br i1 %668, label %line_invsl.exit.i178, label %669
+  br i1 %668, label %line_invsl.exit.i176, label %669
 
 669:                                              ; preds = %667
   call void @float_underflow_error() #18
   unreachable
 
-line_invsl.exit.i178:                             ; preds = %667
+line_invsl.exit.i176:                             ; preds = %667
   store double %663, ptr %9, align 16
   store double -1.000000e+00, ptr %69, align 8
   %670 = fmul double %278, %663
@@ -6003,75 +5999,75 @@ line_invsl.exit.i178:                             ; preds = %667
   %672 = fcmp une double %671, 0x7FF0000000000000
   %673 = call double @llvm.fabs.f64(double %278)
   %674 = fcmp oeq double %673, 0x7FF0000000000000
-  %or.cond15.i.i12.i179 = or i1 %674, %672
-  br i1 %or.cond15.i.i12.i179, label %676, label %675
+  %or.cond15.i.i12.i177 = or i1 %674, %672
+  br i1 %or.cond15.i.i12.i177, label %676, label %675
 
-675:                                              ; preds = %line_invsl.exit.i178
+675:                                              ; preds = %line_invsl.exit.i176
   call void @float_overflow_error() #18
   unreachable
 
-676:                                              ; preds = %line_invsl.exit.i178
+676:                                              ; preds = %line_invsl.exit.i176
   %677 = fcmp oeq double %670, 0.000000e+00
   %678 = fcmp une double %278, 0.000000e+00
-  %or.cond3.i.i.i180 = and i1 %678, %677
-  br i1 %or.cond3.i.i.i180, label %679, label %float8_mul.exit.i.i181
+  %or.cond3.i.i.i178 = and i1 %678, %677
+  br i1 %or.cond3.i.i.i178, label %679, label %float8_mul.exit.i.i179
 
 679:                                              ; preds = %676
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i181:                           ; preds = %676
+float8_mul.exit.i.i179:                           ; preds = %676
   %680 = fsub double %661, %670
   %681 = call double @llvm.fabs.f64(double %680)
   %682 = fcmp une double %681, 0x7FF0000000000000
   %683 = call double @llvm.fabs.f64(double %661)
   %684 = fcmp oeq double %683, 0x7FF0000000000000
-  %or.cond.i19.i.i182 = or i1 %684, %682
+  %or.cond.i19.i.i180 = or i1 %684, %682
   %685 = fcmp oeq double %671, 0x7FF0000000000000
-  %or.cond8.i.i.i183 = or i1 %685, %or.cond.i19.i.i182
-  br i1 %or.cond8.i.i.i183, label %float8_mi.exit.i.i184, label %686
+  %or.cond8.i.i.i181 = or i1 %685, %or.cond.i19.i.i180
+  br i1 %or.cond8.i.i.i181, label %float8_mi.exit.i.i182, label %686
 
-686:                                              ; preds = %float8_mul.exit.i.i181
+686:                                              ; preds = %float8_mul.exit.i.i179
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i184:                            ; preds = %float8_mul.exit.i.i181
+float8_mi.exit.i.i182:                            ; preds = %float8_mul.exit.i.i179
   %687 = fcmp oeq double %680, 0.000000e+00
-  br i1 %687, label %line_construct.exit.i173.sink.split, label %line_construct.exit.i173
+  br i1 %687, label %line_construct.exit.i171.sink.split, label %line_construct.exit.i171
 
-line_construct.exit.i173.sink.split.sink.split:   ; preds = %658, %line_closept_point.exit199
-  %.sink1080.ph = phi double [ %278, %line_closept_point.exit199 ], [ %661, %658 ]
-  %688 = phi <2 x double> [ <double -1.000000e+00, double 0.000000e+00>, %line_closept_point.exit199 ], [ <double 0.000000e+00, double -1.000000e+00>, %658 ]
+line_construct.exit.i171.sink.split.sink.split:   ; preds = %658, %line_closept_point.exit197
+  %.sink1077.ph = phi double [ %278, %line_closept_point.exit197 ], [ %661, %658 ]
+  %688 = phi <2 x double> [ <double -1.000000e+00, double 0.000000e+00>, %line_closept_point.exit197 ], [ <double 0.000000e+00, double -1.000000e+00>, %658 ]
   store <2 x double> %688, ptr %9, align 16
-  br label %line_construct.exit.i173
+  br label %line_construct.exit.i171
 
-line_construct.exit.i173.sink.split:              ; preds = %float8_mi.exit.i.i184
-  br label %line_construct.exit.i173
+line_construct.exit.i171.sink.split:              ; preds = %float8_mi.exit.i.i182
+  br label %line_construct.exit.i171
 
-line_construct.exit.i173:                         ; preds = %line_construct.exit.i173.sink.split.sink.split, %line_construct.exit.i173.sink.split, %float8_mi.exit.i.i184
-  %storemerge1114 = phi double [ %680, %float8_mi.exit.i.i184 ], [ %.sink1080.ph, %line_construct.exit.i173.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i173.sink.split ]
-  store double %storemerge1114, ptr %70, align 16
+line_construct.exit.i171:                         ; preds = %line_construct.exit.i171.sink.split.sink.split, %line_construct.exit.i171.sink.split, %float8_mi.exit.i.i182
+  %storemerge1111 = phi double [ %680, %float8_mi.exit.i.i182 ], [ %.sink1077.ph, %line_construct.exit.i171.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i171.sink.split ]
+  store double %storemerge1111, ptr %70, align 16
   %689 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %23)
-  br i1 %689, label %690, label %line_closept_point.exit185
+  br i1 %689, label %690, label %line_closept_point.exit183
 
-690:                                              ; preds = %line_construct.exit.i173
+690:                                              ; preds = %line_construct.exit.i171
   %691 = load double, ptr %8, align 8
   %692 = fsub double %691, %278
   %693 = call double @llvm.fabs.f64(double %692)
   %694 = fcmp une double %693, 0x7FF0000000000000
   %695 = call double @llvm.fabs.f64(double %691)
   %696 = fcmp oeq double %695, 0x7FF0000000000000
-  %or.cond.i.i367 = or i1 %696, %694
+  %or.cond.i.i365 = or i1 %696, %694
   %697 = call double @llvm.fabs.f64(double %278)
   %698 = fcmp oeq double %697, 0x7FF0000000000000
-  %or.cond8.i.i368 = or i1 %698, %or.cond.i.i367
-  br i1 %or.cond8.i.i368, label %float8_mi.exit.i369, label %699
+  %or.cond8.i.i366 = or i1 %698, %or.cond.i.i365
+  br i1 %or.cond8.i.i366, label %float8_mi.exit.i367, label %699
 
 699:                                              ; preds = %690
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i369:                              ; preds = %690
+float8_mi.exit.i367:                              ; preds = %690
   %700 = load double, ptr %71, align 8
   %701 = extractelement <2 x double> %109, i64 1
   %702 = fsub double %700, %701
@@ -6079,38 +6075,38 @@ float8_mi.exit.i369:                              ; preds = %690
   %704 = fcmp une double %703, 0x7FF0000000000000
   %705 = call double @llvm.fabs.f64(double %700)
   %706 = fcmp oeq double %705, 0x7FF0000000000000
-  %or.cond.i4.i370 = or i1 %706, %704
+  %or.cond.i4.i368 = or i1 %706, %704
   %707 = call double @llvm.fabs.f64(double %701)
   %708 = fcmp oeq double %707, 0x7FF0000000000000
-  %or.cond8.i5.i371 = or i1 %708, %or.cond.i4.i370
-  br i1 %or.cond8.i5.i371, label %float8_mi.exit6.i372, label %709
+  %or.cond8.i5.i369 = or i1 %708, %or.cond.i4.i368
+  br i1 %or.cond8.i5.i369, label %float8_mi.exit6.i370, label %709
 
-709:                                              ; preds = %float8_mi.exit.i369
+709:                                              ; preds = %float8_mi.exit.i367
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i372:                             ; preds = %float8_mi.exit.i369
+float8_mi.exit6.i370:                             ; preds = %float8_mi.exit.i367
   %710 = fcmp oeq double %693, 0x7FF0000000000000
   %711 = fcmp oeq double %703, 0x7FF0000000000000
-  %or.cond.i7.i373 = or i1 %710, %711
-  br i1 %or.cond.i7.i373, label %line_closept_point.exit185, label %712
+  %or.cond.i7.i371 = or i1 %710, %711
+  br i1 %or.cond.i7.i371, label %line_closept_point.exit183, label %712
 
-712:                                              ; preds = %float8_mi.exit6.i372
-  %or.cond29.i.i374 = fcmp uno double %692, %702
-  br i1 %or.cond29.i.i374, label %line_closept_point.exit185, label %713
+712:                                              ; preds = %float8_mi.exit6.i370
+  %or.cond29.i.i372 = fcmp uno double %692, %702
+  br i1 %or.cond29.i.i372, label %line_closept_point.exit183, label %713
 
 713:                                              ; preds = %712
   %714 = fcmp olt double %693, %703
-  %.023.i.i375 = select i1 %714, double %693, double %703
-  %.022.i.i376 = select i1 %714, double %703, double %693
-  %715 = fcmp oeq double %.023.i.i375, 0.000000e+00
-  br i1 %715, label %line_closept_point.exit185, label %716
+  %.023.i.i373 = select i1 %714, double %693, double %703
+  %.022.i.i374 = select i1 %714, double %703, double %693
+  %715 = fcmp oeq double %.023.i.i373, 0.000000e+00
+  br i1 %715, label %line_closept_point.exit183, label %716
 
 716:                                              ; preds = %713
-  %717 = fdiv double %.023.i.i375, %.022.i.i376
+  %717 = fdiv double %.023.i.i373, %.022.i.i374
   %718 = call double @llvm.fmuladd.f64(double %717, double %717, double 1.000000e+00)
-  %sqrt.i.i377 = call double @llvm.sqrt.f64(double %718)
-  %719 = fmul double %.022.i.i376, %sqrt.i.i377
+  %sqrt.i.i375 = call double @llvm.sqrt.f64(double %718)
+  %719 = fmul double %.022.i.i374, %sqrt.i.i375
   %720 = call double @llvm.fabs.f64(double %719)
   %721 = fcmp oeq double %720, 0x7FF0000000000000
   br i1 %721, label %722, label %723
@@ -6121,87 +6117,87 @@ float8_mi.exit6.i372:                             ; preds = %float8_mi.exit.i369
 
 723:                                              ; preds = %716
   %724 = fcmp oeq double %719, 0.000000e+00
-  br i1 %724, label %725, label %line_closept_point.exit185
+  br i1 %724, label %725, label %line_closept_point.exit183
 
 725:                                              ; preds = %723
   call void @float_underflow_error() #18
   unreachable
 
-line_closept_point.exit185:                       ; preds = %723, %713, %712, %float8_mi.exit6.i372, %line_construct.exit.i173
-  %.0.i174 = phi double [ 0x7FF8000000000000, %line_construct.exit.i173 ], [ %.022.i.i376, %713 ], [ %719, %723 ], [ 0x7FF0000000000000, %float8_mi.exit6.i372 ], [ 0x7FF8000000000000, %712 ]
+line_closept_point.exit183:                       ; preds = %723, %713, %712, %float8_mi.exit6.i370, %line_construct.exit.i171
+  %.0.i172 = phi double [ 0x7FF8000000000000, %line_construct.exit.i171 ], [ %.022.i.i374, %713 ], [ %719, %723 ], [ 0x7FF0000000000000, %float8_mi.exit6.i370 ], [ 0x7FF8000000000000, %712 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %726 = fcmp olt double %.0.i188, %.0.i174
-  %.22.i.i61 = select i1 %726, ptr %28, ptr %46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 16 dereferenceable(16) %.22.i.i61, i64 16, i1 false)
-  br label %lseg_closept_point.exit62
+  %726 = fcmp olt double %.0.i186, %.0.i172
+  %.22.i.i59 = select i1 %726, ptr %28, ptr %46
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 16 dereferenceable(16) %.22.i.i59, i64 16, i1 false)
+  br label %lseg_closept_point.exit60
 
-lseg_closept_point.exit62:                        ; preds = %line_construct.exit.i60, %line_closept_point.exit185
+lseg_closept_point.exit60:                        ; preds = %line_construct.exit.i58, %line_closept_point.exit183
   %727 = load double, ptr %22, align 8
   %728 = fsub double %727, %116
   %729 = call double @llvm.fabs.f64(double %728)
   %730 = fcmp une double %729, 0x7FF0000000000000
   %731 = call double @llvm.fabs.f64(double %727)
   %732 = fcmp oeq double %731, 0x7FF0000000000000
-  %or.cond.i.i159 = or i1 %732, %730
+  %or.cond.i.i157 = or i1 %732, %730
   %733 = call double @llvm.fabs.f64(double %116)
   %734 = fcmp oeq double %733, 0x7FF0000000000000
-  %or.cond8.i.i160 = or i1 %734, %or.cond.i.i159
-  br i1 %or.cond8.i.i160, label %float8_mi.exit.i161, label %735
+  %or.cond8.i.i158 = or i1 %734, %or.cond.i.i157
+  br i1 %or.cond8.i.i158, label %float8_mi.exit.i159, label %735
 
-735:                                              ; preds = %lseg_closept_point.exit62
+735:                                              ; preds = %lseg_closept_point.exit60
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i161:                              ; preds = %lseg_closept_point.exit62
+float8_mi.exit.i159:                              ; preds = %lseg_closept_point.exit60
   %736 = load double, ptr %72, align 8
   %737 = fsub double %736, %523
   %738 = call double @llvm.fabs.f64(double %737)
   %739 = fcmp une double %738, 0x7FF0000000000000
   %740 = call double @llvm.fabs.f64(double %736)
   %741 = fcmp oeq double %740, 0x7FF0000000000000
-  %or.cond.i4.i162 = or i1 %741, %739
+  %or.cond.i4.i160 = or i1 %741, %739
   %742 = call double @llvm.fabs.f64(double %523)
   %743 = fcmp oeq double %742, 0x7FF0000000000000
-  %or.cond8.i5.i163 = or i1 %743, %or.cond.i4.i162
-  br i1 %or.cond8.i5.i163, label %float8_mi.exit6.i164, label %744
+  %or.cond8.i5.i161 = or i1 %743, %or.cond.i4.i160
+  br i1 %or.cond8.i5.i161, label %float8_mi.exit6.i162, label %744
 
-744:                                              ; preds = %float8_mi.exit.i161
+744:                                              ; preds = %float8_mi.exit.i159
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i164:                             ; preds = %float8_mi.exit.i161
+float8_mi.exit6.i162:                             ; preds = %float8_mi.exit.i159
   %745 = fcmp oeq double %729, 0x7FF0000000000000
   %746 = fcmp oeq double %738, 0x7FF0000000000000
-  %or.cond.i7.i165 = or i1 %745, %746
-  br i1 %or.cond.i7.i165, label %point_dt.exit171.thread435, label %747
+  %or.cond.i7.i163 = or i1 %745, %746
+  br i1 %or.cond.i7.i163, label %point_dt.exit169.thread433, label %747
 
-point_dt.exit171.thread435:                       ; preds = %float8_mi.exit6.i164
+point_dt.exit169.thread433:                       ; preds = %float8_mi.exit6.i162
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   br label %float8_lt.exit.i
 
-747:                                              ; preds = %float8_mi.exit6.i164
-  %or.cond29.i.i166 = fcmp uno double %728, %737
-  br i1 %or.cond29.i.i166, label %point_dt.exit171.thread, label %748
+747:                                              ; preds = %float8_mi.exit6.i162
+  %or.cond29.i.i164 = fcmp uno double %728, %737
+  br i1 %or.cond29.i.i164, label %point_dt.exit169.thread, label %748
 
-point_dt.exit171.thread:                          ; preds = %747
+point_dt.exit169.thread:                          ; preds = %747
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   br label %float8_lt.exit.thread.i
 
 748:                                              ; preds = %747
   %749 = fcmp olt double %729, %738
-  %.023.i.i167 = select i1 %749, double %729, double %738
-  %.022.i.i168 = select i1 %749, double %738, double %729
-  %750 = fcmp oeq double %.023.i.i167, 0.000000e+00
-  br i1 %750, label %point_dt.exit171, label %751
+  %.023.i.i165 = select i1 %749, double %729, double %738
+  %.022.i.i166 = select i1 %749, double %738, double %729
+  %750 = fcmp oeq double %.023.i.i165, 0.000000e+00
+  br i1 %750, label %point_dt.exit169, label %751
 
 751:                                              ; preds = %748
-  %752 = fdiv double %.023.i.i167, %.022.i.i168
+  %752 = fdiv double %.023.i.i165, %.022.i.i166
   %753 = call double @llvm.fmuladd.f64(double %752, double %752, double 1.000000e+00)
-  %sqrt.i.i169 = call double @llvm.sqrt.f64(double %753)
-  %754 = fmul double %.022.i.i168, %sqrt.i.i169
+  %sqrt.i.i167 = call double @llvm.sqrt.f64(double %753)
+  %754 = fmul double %.022.i.i166, %sqrt.i.i167
   %755 = call double @llvm.fabs.f64(double %754)
   %756 = fcmp oeq double %755, 0x7FF0000000000000
   br i1 %756, label %757, label %758
@@ -6212,35 +6208,35 @@ point_dt.exit171.thread:                          ; preds = %747
 
 758:                                              ; preds = %751
   %759 = fcmp oeq double %754, 0.000000e+00
-  br i1 %759, label %760, label %point_dt.exit171
+  br i1 %759, label %760, label %point_dt.exit169
 
 760:                                              ; preds = %758
   call void @float_underflow_error() #18
   unreachable
 
-point_dt.exit171:                                 ; preds = %748, %758
-  %.0.i.i170 = phi double [ %.022.i.i168, %748 ], [ %754, %758 ]
+point_dt.exit169:                                 ; preds = %748, %758
+  %.0.i.i168 = phi double [ %.022.i.i166, %748 ], [ %754, %758 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
-  %761 = fcmp uno double %.0.i.i170, 0.000000e+00
+  %761 = fcmp uno double %.0.i.i168, 0.000000e+00
   br i1 %761, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
 
-float8_lt.exit.i:                                 ; preds = %point_dt.exit171.thread435, %point_dt.exit171
-  %.0.i.i170437 = phi double [ 0x7FF0000000000000, %point_dt.exit171.thread435 ], [ %.0.i.i170, %point_dt.exit171 ]
-  %762 = fcmp uno double %.0.i.i223, 0.000000e+00
-  %763 = fcmp olt double %.0.i.i170437, %.0.i.i223
+float8_lt.exit.i:                                 ; preds = %point_dt.exit169.thread433, %point_dt.exit169
+  %.0.i.i168435 = phi double [ 0x7FF0000000000000, %point_dt.exit169.thread433 ], [ %.0.i.i168, %point_dt.exit169 ]
+  %762 = fcmp uno double %.0.i.i221, 0.000000e+00
+  %763 = fcmp olt double %.0.i.i168435, %.0.i.i221
   %764 = or i1 %762, %763
   br i1 %764, label %765, label %float8_lt.exit.thread.i
 
 765:                                              ; preds = %float8_lt.exit.i
   br label %float8_lt.exit.thread.i
 
-float8_lt.exit.thread.i:                          ; preds = %point_dt.exit171.thread, %765, %float8_lt.exit.i, %point_dt.exit171
-  %.0.i = phi double [ %.0.i.i170437, %765 ], [ %.0.i.i223, %float8_lt.exit.i ], [ %.0.i.i223, %point_dt.exit171 ], [ %.0.i.i223, %point_dt.exit171.thread ]
+float8_lt.exit.thread.i:                          ; preds = %point_dt.exit169.thread, %765, %float8_lt.exit.i, %point_dt.exit169
+  %.0.i = phi double [ %.0.i.i168435, %765 ], [ %.0.i.i221, %float8_lt.exit.i ], [ %.0.i.i221, %point_dt.exit169 ], [ %.0.i.i221, %point_dt.exit169.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
   %766 = extractelement <2 x double> %108, i64 1
-  br i1 %122, label %line_construct.exit.i51.sink.split.sink.split, label %767
+  br i1 %122, label %line_construct.exit.i49.sink.split.sink.split, label %767
 
 767:                                              ; preds = %float8_lt.exit.thread.i
   %768 = fcmp oeq double %285, %523
@@ -6248,47 +6244,47 @@ float8_lt.exit.thread.i:                          ; preds = %point_dt.exit171.th
   %770 = call double @llvm.fabs.f64(double %769)
   %771 = fcmp ole double %770, 0x3EB0C6F7A0B5ED8D
   %772 = or i1 %768, %771
-  br i1 %772, label %line_construct.exit.i51.sink.split.sink.split, label %773
+  br i1 %772, label %line_construct.exit.i49.sink.split.sink.split, label %773
 
 773:                                              ; preds = %767
   %774 = fcmp une double %120, 0x7FF0000000000000
-  %or.cond.i.i147 = or i1 %496, %774
-  %or.cond8.i.i148 = or i1 %734, %or.cond.i.i147
-  br i1 %or.cond8.i.i148, label %float8_mi.exit.i149, label %775
+  %or.cond.i.i145 = or i1 %496, %774
+  %or.cond8.i.i146 = or i1 %734, %or.cond.i.i145
+  br i1 %or.cond8.i.i146, label %float8_mi.exit.i147, label %775
 
 775:                                              ; preds = %773
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i149:                              ; preds = %773
+float8_mi.exit.i147:                              ; preds = %773
   %776 = fsub double %523, %285
   %777 = call double @llvm.fabs.f64(double %776)
   %778 = fcmp une double %777, 0x7FF0000000000000
-  %or.cond.i9.i150 = or i1 %743, %778
-  %or.cond8.i10.i151 = or i1 %505, %or.cond.i9.i150
-  br i1 %or.cond8.i10.i151, label %float8_mi.exit11.i152, label %779
+  %or.cond.i9.i148 = or i1 %743, %778
+  %or.cond8.i10.i149 = or i1 %505, %or.cond.i9.i148
+  br i1 %or.cond8.i10.i149, label %float8_mi.exit11.i150, label %779
 
-779:                                              ; preds = %float8_mi.exit.i149
+779:                                              ; preds = %float8_mi.exit.i147
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit11.i152:                            ; preds = %float8_mi.exit.i149
+float8_mi.exit11.i150:                            ; preds = %float8_mi.exit.i147
   %780 = fcmp une double %776, 0.000000e+00
   %781 = fcmp uno double %119, 0.000000e+00
-  %or.cond11.i.i153 = or i1 %781, %780
-  br i1 %or.cond11.i.i153, label %783, label %782
+  %or.cond11.i.i151 = or i1 %781, %780
+  br i1 %or.cond11.i.i151, label %783, label %782
 
-782:                                              ; preds = %float8_mi.exit11.i152
+782:                                              ; preds = %float8_mi.exit11.i150
   call void @float_zero_divide_error() #18
   unreachable
 
-783:                                              ; preds = %float8_mi.exit11.i152
+783:                                              ; preds = %float8_mi.exit11.i150
   %784 = fdiv double %119, %776
   %785 = call double @llvm.fabs.f64(double %784)
   %786 = fcmp une double %785, 0x7FF0000000000000
   %787 = fcmp oeq double %120, 0x7FF0000000000000
-  %or.cond13.i.i154 = or i1 %787, %786
-  br i1 %or.cond13.i.i154, label %789, label %788
+  %or.cond13.i.i152 = or i1 %787, %786
+  br i1 %or.cond13.i.i152, label %789, label %788
 
 788:                                              ; preds = %783
   call void @float_overflow_error() #18
@@ -6297,23 +6293,23 @@ float8_mi.exit11.i152:                            ; preds = %float8_mi.exit.i149
 789:                                              ; preds = %783
   %790 = fcmp une double %784, 0.000000e+00
   %791 = fcmp oeq double %119, 0.000000e+00
-  %or.cond.not17.i.i155 = or i1 %791, %790
+  %or.cond.not17.i.i153 = or i1 %791, %790
   %792 = fcmp oeq double %777, 0x7FF0000000000000
-  %or.cond15.i.i156 = or i1 %792, %or.cond.not17.i.i155
-  br i1 %or.cond15.i.i156, label %point_invsl.exit158, label %793
+  %or.cond15.i.i154 = or i1 %792, %or.cond.not17.i.i153
+  br i1 %or.cond15.i.i154, label %point_invsl.exit156, label %793
 
 793:                                              ; preds = %789
   call void @float_underflow_error() #18
   unreachable
 
-point_invsl.exit158:                              ; preds = %789
+point_invsl.exit156:                              ; preds = %789
   %794 = call double @llvm.fabs.f64(double %784)
   %795 = fcmp oeq double %794, 0x7FF0000000000000
-  br i1 %795, label %line_construct.exit.i51.sink.split.sink.split, label %796
+  br i1 %795, label %line_construct.exit.i49.sink.split.sink.split, label %796
 
-796:                                              ; preds = %point_invsl.exit158
+796:                                              ; preds = %point_invsl.exit156
   %797 = fcmp oeq double %784, 0.000000e+00
-  br i1 %797, label %line_construct.exit.i51.sink.split.sink.split, label %798
+  br i1 %797, label %line_construct.exit.i49.sink.split.sink.split, label %798
 
 798:                                              ; preds = %796
   store double %784, ptr %25, align 8
@@ -6323,8 +6319,8 @@ point_invsl.exit158:                              ; preds = %789
   %801 = fcmp une double %800, 0x7FF0000000000000
   %802 = call double @llvm.fabs.f64(double %277)
   %803 = fcmp oeq double %802, 0x7FF0000000000000
-  %or.cond15.i.i.i45 = or i1 %803, %801
-  br i1 %or.cond15.i.i.i45, label %805, label %804
+  %or.cond15.i.i.i43 = or i1 %803, %801
+  br i1 %or.cond15.i.i.i43, label %805, label %804
 
 804:                                              ; preds = %798
   call void @float_overflow_error() #18
@@ -6333,62 +6329,62 @@ point_invsl.exit158:                              ; preds = %789
 805:                                              ; preds = %798
   %806 = fcmp oeq double %799, 0.000000e+00
   %807 = fcmp une double %277, 0.000000e+00
-  %or.cond3.i.i.i46 = and i1 %807, %806
-  br i1 %or.cond3.i.i.i46, label %808, label %float8_mul.exit.i.i47
+  %or.cond3.i.i.i44 = and i1 %807, %806
+  br i1 %or.cond3.i.i.i44, label %808, label %float8_mul.exit.i.i45
 
 808:                                              ; preds = %805
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i47:                            ; preds = %805
+float8_mul.exit.i.i45:                            ; preds = %805
   %809 = fsub double %766, %799
   %810 = call double @llvm.fabs.f64(double %809)
   %811 = fcmp une double %810, 0x7FF0000000000000
   %812 = call double @llvm.fabs.f64(double %766)
   %813 = fcmp oeq double %812, 0x7FF0000000000000
-  %or.cond.i19.i.i48 = or i1 %813, %811
+  %or.cond.i19.i.i46 = or i1 %813, %811
   %814 = fcmp oeq double %800, 0x7FF0000000000000
-  %or.cond8.i.i.i49 = or i1 %814, %or.cond.i19.i.i48
-  br i1 %or.cond8.i.i.i49, label %float8_mi.exit.i.i50, label %815
+  %or.cond8.i.i.i47 = or i1 %814, %or.cond.i19.i.i46
+  br i1 %or.cond8.i.i.i47, label %float8_mi.exit.i.i48, label %815
 
-815:                                              ; preds = %float8_mul.exit.i.i47
+815:                                              ; preds = %float8_mul.exit.i.i45
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i50:                             ; preds = %float8_mul.exit.i.i47
+float8_mi.exit.i.i48:                             ; preds = %float8_mul.exit.i.i45
   %816 = fcmp oeq double %809, 0.000000e+00
-  br i1 %816, label %line_construct.exit.i51.sink.split, label %line_construct.exit.i51
+  br i1 %816, label %line_construct.exit.i49.sink.split, label %line_construct.exit.i49
 
-line_construct.exit.i51.sink.split.sink.split:    ; preds = %796, %float8_lt.exit.thread.i, %point_invsl.exit158, %767
-  %storemerge1115 = phi double [ -1.000000e+00, %767 ], [ -1.000000e+00, %point_invsl.exit158 ], [ 0.000000e+00, %float8_lt.exit.thread.i ], [ 0.000000e+00, %796 ]
-  %.sink1098 = phi double [ 0.000000e+00, %767 ], [ 0.000000e+00, %point_invsl.exit158 ], [ -1.000000e+00, %float8_lt.exit.thread.i ], [ -1.000000e+00, %796 ]
-  %.sink1083.ph = phi double [ %277, %767 ], [ %277, %point_invsl.exit158 ], [ %766, %float8_lt.exit.thread.i ], [ %766, %796 ]
-  store double %storemerge1115, ptr %25, align 8
-  store double %.sink1098, ptr %73, align 8
-  br label %line_construct.exit.i51
+line_construct.exit.i49.sink.split.sink.split:    ; preds = %796, %float8_lt.exit.thread.i, %point_invsl.exit156, %767
+  %storemerge1112 = phi double [ -1.000000e+00, %767 ], [ -1.000000e+00, %point_invsl.exit156 ], [ 0.000000e+00, %float8_lt.exit.thread.i ], [ 0.000000e+00, %796 ]
+  %.sink1095 = phi double [ 0.000000e+00, %767 ], [ 0.000000e+00, %point_invsl.exit156 ], [ -1.000000e+00, %float8_lt.exit.thread.i ], [ -1.000000e+00, %796 ]
+  %.sink1080.ph = phi double [ %277, %767 ], [ %277, %point_invsl.exit156 ], [ %766, %float8_lt.exit.thread.i ], [ %766, %796 ]
+  store double %storemerge1112, ptr %25, align 8
+  store double %.sink1095, ptr %73, align 8
+  br label %line_construct.exit.i49
 
-line_construct.exit.i51.sink.split:               ; preds = %float8_mi.exit.i.i50
-  br label %line_construct.exit.i51
+line_construct.exit.i49.sink.split:               ; preds = %float8_mi.exit.i.i48
+  br label %line_construct.exit.i49
 
-line_construct.exit.i51:                          ; preds = %line_construct.exit.i51.sink.split.sink.split, %line_construct.exit.i51.sink.split, %float8_mi.exit.i.i50
-  %storemerge1116 = phi double [ %809, %float8_mi.exit.i.i50 ], [ %.sink1083.ph, %line_construct.exit.i51.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i51.sink.split ]
-  %817 = phi double [ -1.000000e+00, %float8_mi.exit.i.i50 ], [ %.sink1098, %line_construct.exit.i51.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i51.sink.split ]
-  %818 = phi double [ %784, %float8_mi.exit.i.i50 ], [ %storemerge1115, %line_construct.exit.i51.sink.split.sink.split ], [ %784, %line_construct.exit.i51.sink.split ]
-  store double %storemerge1116, ptr %74, align 8
+line_construct.exit.i49:                          ; preds = %line_construct.exit.i49.sink.split.sink.split, %line_construct.exit.i49.sink.split, %float8_mi.exit.i.i48
+  %storemerge1113 = phi double [ %809, %float8_mi.exit.i.i48 ], [ %.sink1080.ph, %line_construct.exit.i49.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i49.sink.split ]
+  %817 = phi double [ -1.000000e+00, %float8_mi.exit.i.i48 ], [ %.sink1095, %line_construct.exit.i49.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i49.sink.split ]
+  %818 = phi double [ %784, %float8_mi.exit.i.i48 ], [ %storemerge1112, %line_construct.exit.i49.sink.split.sink.split ], [ %784, %line_construct.exit.i49.sink.split ]
+  store double %storemerge1113, ptr %74, align 8
   %819 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %24, ptr noundef nonnull %29, ptr noundef nonnull %25)
-  br i1 %819, label %lseg_closept_point.exit53, label %820
+  br i1 %819, label %lseg_closept_point.exit51, label %820
 
-820:                                              ; preds = %line_construct.exit.i51
+820:                                              ; preds = %line_construct.exit.i49
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   %821 = call double @llvm.fabs.f64(double %818)
   %822 = fcmp ugt double %821, 0x3EB0C6F7A0B5ED8D
-  br i1 %822, label %823, label %line_invsl.exit.thread.i133
+  br i1 %822, label %823, label %line_invsl.exit.thread.i131
 
 823:                                              ; preds = %820
   %824 = call double @llvm.fabs.f64(double %817)
   %825 = fcmp ugt double %824, 0x3EB0C6F7A0B5ED8D
-  br i1 %825, label %826, label %.thread.i136
+  br i1 %825, label %826, label %.thread.i134
 
 826:                                              ; preds = %823
   %827 = fdiv double %817, %818
@@ -6408,18 +6404,18 @@ line_construct.exit.i51:                          ; preds = %line_construct.exit
   call void @float_underflow_error() #18
   unreachable
 
-line_invsl.exit.thread.i133:                      ; preds = %820
+line_invsl.exit.thread.i131:                      ; preds = %820
   store <2 x double> <double -1.000000e+00, double 0.000000e+00>, ptr %11, align 16
   %834 = load double, ptr %29, align 16
-  br label %line_construct.exit.i134
+  br label %line_construct.exit.i132
 
-.thread.i136:                                     ; preds = %823
+.thread.i134:                                     ; preds = %823
   %.pre = load double, ptr %49, align 8
   store <2 x double> <double 0.000000e+00, double -1.000000e+00>, ptr %11, align 16
-  br label %line_construct.exit.i134
+  br label %line_construct.exit.i132
 
 835:                                              ; preds = %831
-  %.pre1039 = load double, ptr %49, align 8
+  %.pre1036 = load double, ptr %49, align 8
   store double %827, ptr %11, align 16
   store double -1.000000e+00, ptr %75, align 8
   %836 = load double, ptr %29, align 16
@@ -6428,8 +6424,8 @@ line_invsl.exit.thread.i133:                      ; preds = %820
   %839 = fcmp une double %838, 0x7FF0000000000000
   %840 = call double @llvm.fabs.f64(double %836)
   %841 = fcmp oeq double %840, 0x7FF0000000000000
-  %or.cond15.i.i12.i140 = or i1 %841, %839
-  br i1 %or.cond15.i.i12.i140, label %843, label %842
+  %or.cond15.i.i12.i138 = or i1 %841, %839
+  br i1 %or.cond15.i.i12.i138, label %843, label %842
 
 842:                                              ; preds = %835
   call void @float_overflow_error() #18
@@ -6438,42 +6434,42 @@ line_invsl.exit.thread.i133:                      ; preds = %820
 843:                                              ; preds = %835
   %844 = fcmp oeq double %837, 0.000000e+00
   %845 = fcmp une double %836, 0.000000e+00
-  %or.cond3.i.i.i141 = and i1 %845, %844
-  br i1 %or.cond3.i.i.i141, label %846, label %float8_mul.exit.i.i142
+  %or.cond3.i.i.i139 = and i1 %845, %844
+  br i1 %or.cond3.i.i.i139, label %846, label %float8_mul.exit.i.i140
 
 846:                                              ; preds = %843
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i142:                           ; preds = %843
-  %847 = fsub double %.pre1039, %837
+float8_mul.exit.i.i140:                           ; preds = %843
+  %847 = fsub double %.pre1036, %837
   %848 = call double @llvm.fabs.f64(double %847)
   %849 = fcmp une double %848, 0x7FF0000000000000
-  %850 = call double @llvm.fabs.f64(double %.pre1039)
+  %850 = call double @llvm.fabs.f64(double %.pre1036)
   %851 = fcmp oeq double %850, 0x7FF0000000000000
-  %or.cond.i19.i.i143 = or i1 %851, %849
+  %or.cond.i19.i.i141 = or i1 %851, %849
   %852 = fcmp oeq double %838, 0x7FF0000000000000
-  %or.cond8.i.i.i144 = or i1 %852, %or.cond.i19.i.i143
-  br i1 %or.cond8.i.i.i144, label %float8_mi.exit.i.i145, label %853
+  %or.cond8.i.i.i142 = or i1 %852, %or.cond.i19.i.i141
+  br i1 %or.cond8.i.i.i142, label %float8_mi.exit.i.i143, label %853
 
-853:                                              ; preds = %float8_mul.exit.i.i142
+853:                                              ; preds = %float8_mul.exit.i.i140
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i145:                            ; preds = %float8_mul.exit.i.i142
+float8_mi.exit.i.i143:                            ; preds = %float8_mul.exit.i.i140
   %854 = fcmp oeq double %847, 0.000000e+00
-  br i1 %854, label %line_construct.exit.i134.sink.split, label %line_construct.exit.i134
+  br i1 %854, label %line_construct.exit.i132.sink.split, label %line_construct.exit.i132
 
-line_construct.exit.i134.sink.split:              ; preds = %float8_mi.exit.i.i145
-  br label %line_construct.exit.i134
+line_construct.exit.i132.sink.split:              ; preds = %float8_mi.exit.i.i143
+  br label %line_construct.exit.i132
 
-line_construct.exit.i134:                         ; preds = %.thread.i136, %line_invsl.exit.thread.i133, %line_construct.exit.i134.sink.split, %float8_mi.exit.i.i145
-  %storemerge1117 = phi double [ %847, %float8_mi.exit.i.i145 ], [ %.pre, %.thread.i136 ], [ %834, %line_invsl.exit.thread.i133 ], [ 0.000000e+00, %line_construct.exit.i134.sink.split ]
-  store double %storemerge1117, ptr %76, align 16
+line_construct.exit.i132:                         ; preds = %.thread.i134, %line_invsl.exit.thread.i131, %line_construct.exit.i132.sink.split, %float8_mi.exit.i.i143
+  %storemerge1114 = phi double [ %847, %float8_mi.exit.i.i143 ], [ %.pre, %.thread.i134 ], [ %834, %line_invsl.exit.thread.i131 ], [ 0.000000e+00, %line_construct.exit.i132.sink.split ]
+  store double %storemerge1114, ptr %76, align 16
   %855 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %25)
-  br i1 %855, label %856, label %line_closept_point.exit146
+  br i1 %855, label %856, label %line_closept_point.exit144
 
-856:                                              ; preds = %line_construct.exit.i134
+856:                                              ; preds = %line_construct.exit.i132
   %857 = load double, ptr %10, align 8
   %858 = load double, ptr %29, align 16
   %859 = fsub double %857, %858
@@ -6481,17 +6477,17 @@ line_construct.exit.i134:                         ; preds = %.thread.i136, %line
   %861 = fcmp une double %860, 0x7FF0000000000000
   %862 = call double @llvm.fabs.f64(double %857)
   %863 = fcmp oeq double %862, 0x7FF0000000000000
-  %or.cond.i.i354 = or i1 %863, %861
+  %or.cond.i.i352 = or i1 %863, %861
   %864 = call double @llvm.fabs.f64(double %858)
   %865 = fcmp oeq double %864, 0x7FF0000000000000
-  %or.cond8.i.i355 = or i1 %865, %or.cond.i.i354
-  br i1 %or.cond8.i.i355, label %float8_mi.exit.i356, label %866
+  %or.cond8.i.i353 = or i1 %865, %or.cond.i.i352
+  br i1 %or.cond8.i.i353, label %float8_mi.exit.i354, label %866
 
 866:                                              ; preds = %856
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i356:                              ; preds = %856
+float8_mi.exit.i354:                              ; preds = %856
   %867 = load double, ptr %77, align 8
   %868 = load double, ptr %49, align 8
   %869 = fsub double %867, %868
@@ -6499,38 +6495,38 @@ float8_mi.exit.i356:                              ; preds = %856
   %871 = fcmp une double %870, 0x7FF0000000000000
   %872 = call double @llvm.fabs.f64(double %867)
   %873 = fcmp oeq double %872, 0x7FF0000000000000
-  %or.cond.i4.i357 = or i1 %873, %871
+  %or.cond.i4.i355 = or i1 %873, %871
   %874 = call double @llvm.fabs.f64(double %868)
   %875 = fcmp oeq double %874, 0x7FF0000000000000
-  %or.cond8.i5.i358 = or i1 %875, %or.cond.i4.i357
-  br i1 %or.cond8.i5.i358, label %float8_mi.exit6.i359, label %876
+  %or.cond8.i5.i356 = or i1 %875, %or.cond.i4.i355
+  br i1 %or.cond8.i5.i356, label %float8_mi.exit6.i357, label %876
 
-876:                                              ; preds = %float8_mi.exit.i356
+876:                                              ; preds = %float8_mi.exit.i354
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i359:                             ; preds = %float8_mi.exit.i356
+float8_mi.exit6.i357:                             ; preds = %float8_mi.exit.i354
   %877 = fcmp oeq double %860, 0x7FF0000000000000
   %878 = fcmp oeq double %870, 0x7FF0000000000000
-  %or.cond.i7.i360 = or i1 %877, %878
-  br i1 %or.cond.i7.i360, label %line_closept_point.exit146, label %879
+  %or.cond.i7.i358 = or i1 %877, %878
+  br i1 %or.cond.i7.i358, label %line_closept_point.exit144, label %879
 
-879:                                              ; preds = %float8_mi.exit6.i359
-  %or.cond29.i.i361 = fcmp uno double %859, %869
-  br i1 %or.cond29.i.i361, label %line_closept_point.exit146, label %880
+879:                                              ; preds = %float8_mi.exit6.i357
+  %or.cond29.i.i359 = fcmp uno double %859, %869
+  br i1 %or.cond29.i.i359, label %line_closept_point.exit144, label %880
 
 880:                                              ; preds = %879
   %881 = fcmp olt double %860, %870
-  %.023.i.i362 = select i1 %881, double %860, double %870
-  %.022.i.i363 = select i1 %881, double %870, double %860
-  %882 = fcmp oeq double %.023.i.i362, 0.000000e+00
-  br i1 %882, label %line_closept_point.exit146, label %883
+  %.023.i.i360 = select i1 %881, double %860, double %870
+  %.022.i.i361 = select i1 %881, double %870, double %860
+  %882 = fcmp oeq double %.023.i.i360, 0.000000e+00
+  br i1 %882, label %line_closept_point.exit144, label %883
 
 883:                                              ; preds = %880
-  %884 = fdiv double %.023.i.i362, %.022.i.i363
+  %884 = fdiv double %.023.i.i360, %.022.i.i361
   %885 = call double @llvm.fmuladd.f64(double %884, double %884, double 1.000000e+00)
-  %sqrt.i.i364 = call double @llvm.sqrt.f64(double %885)
-  %886 = fmul double %.022.i.i363, %sqrt.i.i364
+  %sqrt.i.i362 = call double @llvm.sqrt.f64(double %885)
+  %886 = fmul double %.022.i.i361, %sqrt.i.i362
   %887 = call double @llvm.fabs.f64(double %886)
   %888 = fcmp oeq double %887, 0x7FF0000000000000
   br i1 %888, label %889, label %890
@@ -6541,24 +6537,24 @@ float8_mi.exit6.i359:                             ; preds = %float8_mi.exit.i356
 
 890:                                              ; preds = %883
   %891 = fcmp oeq double %886, 0.000000e+00
-  br i1 %891, label %892, label %line_closept_point.exit146
+  br i1 %891, label %892, label %line_closept_point.exit144
 
 892:                                              ; preds = %890
   call void @float_underflow_error() #18
   unreachable
 
-line_closept_point.exit146:                       ; preds = %890, %880, %879, %float8_mi.exit6.i359, %line_construct.exit.i134
-  %.0.i135 = phi double [ 0x7FF8000000000000, %line_construct.exit.i134 ], [ %.022.i.i363, %880 ], [ %886, %890 ], [ 0x7FF0000000000000, %float8_mi.exit6.i359 ], [ 0x7FF8000000000000, %879 ]
+line_closept_point.exit144:                       ; preds = %890, %880, %879, %float8_mi.exit6.i357, %line_construct.exit.i132
+  %.0.i133 = phi double [ 0x7FF8000000000000, %line_construct.exit.i132 ], [ %.022.i.i361, %880 ], [ %886, %890 ], [ 0x7FF0000000000000, %float8_mi.exit6.i357 ], [ 0x7FF8000000000000, %879 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  br i1 %822, label %893, label %line_invsl.exit.thread.i119
+  br i1 %822, label %893, label %line_invsl.exit.thread.i117
 
-893:                                              ; preds = %line_closept_point.exit146
+893:                                              ; preds = %line_closept_point.exit144
   %894 = call double @llvm.fabs.f64(double %817)
   %895 = fcmp ugt double %894, 0x3EB0C6F7A0B5ED8D
-  br i1 %895, label %896, label %.thread.i122
+  br i1 %895, label %896, label %.thread.i120
 
 896:                                              ; preds = %893
   %897 = fdiv double %817, %818
@@ -6572,122 +6568,122 @@ line_closept_point.exit146:                       ; preds = %890, %880, %879, %f
 
 901:                                              ; preds = %896
   %902 = fcmp une double %897, 0.000000e+00
-  br i1 %902, label %line_invsl.exit.i125, label %903
+  br i1 %902, label %line_invsl.exit.i123, label %903
 
 903:                                              ; preds = %901
   call void @float_underflow_error() #18
   unreachable
 
-line_invsl.exit.thread.i119:                      ; preds = %line_closept_point.exit146
+line_invsl.exit.thread.i117:                      ; preds = %line_closept_point.exit144
   store <2 x double> <double -1.000000e+00, double 0.000000e+00>, ptr %13, align 16
-  br label %line_construct.exit.i120
+  br label %line_construct.exit.i118
 
-.thread.i122:                                     ; preds = %893
+.thread.i120:                                     ; preds = %893
   store <2 x double> <double 0.000000e+00, double -1.000000e+00>, ptr %13, align 16
   %904 = load double, ptr %51, align 8
-  br label %line_construct.exit.i120
+  br label %line_construct.exit.i118
 
-line_invsl.exit.i125:                             ; preds = %901
+line_invsl.exit.i123:                             ; preds = %901
   store double %897, ptr %13, align 16
   store double -1.000000e+00, ptr %78, align 8
   %905 = fmul double %116, %897
   %906 = call double @llvm.fabs.f64(double %905)
   %907 = fcmp une double %906, 0x7FF0000000000000
-  %or.cond15.i.i12.i126 = or i1 %734, %907
-  br i1 %or.cond15.i.i12.i126, label %909, label %908
+  %or.cond15.i.i12.i124 = or i1 %734, %907
+  br i1 %or.cond15.i.i12.i124, label %909, label %908
 
-908:                                              ; preds = %line_invsl.exit.i125
+908:                                              ; preds = %line_invsl.exit.i123
   call void @float_overflow_error() #18
   unreachable
 
-909:                                              ; preds = %line_invsl.exit.i125
+909:                                              ; preds = %line_invsl.exit.i123
   %910 = fcmp oeq double %905, 0.000000e+00
   %911 = fcmp une double %116, 0.000000e+00
-  %or.cond3.i.i.i127 = and i1 %911, %910
-  br i1 %or.cond3.i.i.i127, label %912, label %float8_mul.exit.i.i128
+  %or.cond3.i.i.i125 = and i1 %911, %910
+  br i1 %or.cond3.i.i.i125, label %912, label %float8_mul.exit.i.i126
 
 912:                                              ; preds = %909
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i128:                           ; preds = %909
+float8_mul.exit.i.i126:                           ; preds = %909
   %913 = fsub double %523, %905
   %914 = call double @llvm.fabs.f64(double %913)
   %915 = fcmp une double %914, 0x7FF0000000000000
   %916 = fcmp oeq double %906, 0x7FF0000000000000
   %917 = or i1 %916, %915
-  %or.cond8.i.i.i130 = or i1 %743, %917
-  br i1 %or.cond8.i.i.i130, label %float8_mi.exit.i.i131, label %918
+  %or.cond8.i.i.i128 = or i1 %743, %917
+  br i1 %or.cond8.i.i.i128, label %float8_mi.exit.i.i129, label %918
 
-918:                                              ; preds = %float8_mul.exit.i.i128
+918:                                              ; preds = %float8_mul.exit.i.i126
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i131:                            ; preds = %float8_mul.exit.i.i128
+float8_mi.exit.i.i129:                            ; preds = %float8_mul.exit.i.i126
   %919 = fcmp oeq double %913, 0.000000e+00
-  br i1 %919, label %line_construct.exit.i120.sink.split, label %line_construct.exit.i120
+  br i1 %919, label %line_construct.exit.i118.sink.split, label %line_construct.exit.i118
 
-line_construct.exit.i120.sink.split:              ; preds = %float8_mi.exit.i.i131
-  br label %line_construct.exit.i120
+line_construct.exit.i118.sink.split:              ; preds = %float8_mi.exit.i.i129
+  br label %line_construct.exit.i118
 
-line_construct.exit.i120:                         ; preds = %.thread.i122, %line_invsl.exit.thread.i119, %line_construct.exit.i120.sink.split, %float8_mi.exit.i.i131
-  %storemerge1118 = phi double [ %913, %float8_mi.exit.i.i131 ], [ %904, %.thread.i122 ], [ %116, %line_invsl.exit.thread.i119 ], [ 0.000000e+00, %line_construct.exit.i120.sink.split ]
-  store double %storemerge1118, ptr %79, align 16
+line_construct.exit.i118:                         ; preds = %.thread.i120, %line_invsl.exit.thread.i117, %line_construct.exit.i118.sink.split, %float8_mi.exit.i.i129
+  %storemerge1115 = phi double [ %913, %float8_mi.exit.i.i129 ], [ %904, %.thread.i120 ], [ %116, %line_invsl.exit.thread.i117 ], [ 0.000000e+00, %line_construct.exit.i118.sink.split ]
+  store double %storemerge1115, ptr %79, align 16
   %920 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %25)
-  br i1 %920, label %921, label %line_closept_point.exit132
+  br i1 %920, label %921, label %line_closept_point.exit130
 
-921:                                              ; preds = %line_construct.exit.i120
+921:                                              ; preds = %line_construct.exit.i118
   %922 = load double, ptr %12, align 8
   %923 = fsub double %922, %116
   %924 = call double @llvm.fabs.f64(double %923)
   %925 = fcmp une double %924, 0x7FF0000000000000
   %926 = call double @llvm.fabs.f64(double %922)
   %927 = fcmp oeq double %926, 0x7FF0000000000000
-  %or.cond.i.i341 = or i1 %927, %925
-  %or.cond8.i.i342 = or i1 %734, %or.cond.i.i341
-  br i1 %or.cond8.i.i342, label %float8_mi.exit.i343, label %928
+  %or.cond.i.i339 = or i1 %927, %925
+  %or.cond8.i.i340 = or i1 %734, %or.cond.i.i339
+  br i1 %or.cond8.i.i340, label %float8_mi.exit.i341, label %928
 
 928:                                              ; preds = %921
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i343:                              ; preds = %921
+float8_mi.exit.i341:                              ; preds = %921
   %929 = load double, ptr %80, align 8
   %930 = fsub double %929, %523
   %931 = call double @llvm.fabs.f64(double %930)
   %932 = fcmp une double %931, 0x7FF0000000000000
   %933 = call double @llvm.fabs.f64(double %929)
   %934 = fcmp oeq double %933, 0x7FF0000000000000
-  %or.cond.i4.i344 = or i1 %934, %932
-  %or.cond8.i5.i345 = or i1 %743, %or.cond.i4.i344
-  br i1 %or.cond8.i5.i345, label %float8_mi.exit6.i346, label %935
+  %or.cond.i4.i342 = or i1 %934, %932
+  %or.cond8.i5.i343 = or i1 %743, %or.cond.i4.i342
+  br i1 %or.cond8.i5.i343, label %float8_mi.exit6.i344, label %935
 
-935:                                              ; preds = %float8_mi.exit.i343
+935:                                              ; preds = %float8_mi.exit.i341
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i346:                             ; preds = %float8_mi.exit.i343
+float8_mi.exit6.i344:                             ; preds = %float8_mi.exit.i341
   %936 = fcmp oeq double %924, 0x7FF0000000000000
   %937 = fcmp oeq double %931, 0x7FF0000000000000
-  %or.cond.i7.i347 = or i1 %936, %937
-  br i1 %or.cond.i7.i347, label %line_closept_point.exit132, label %938
+  %or.cond.i7.i345 = or i1 %936, %937
+  br i1 %or.cond.i7.i345, label %line_closept_point.exit130, label %938
 
-938:                                              ; preds = %float8_mi.exit6.i346
-  %or.cond29.i.i348 = fcmp uno double %923, %930
-  br i1 %or.cond29.i.i348, label %line_closept_point.exit132, label %939
+938:                                              ; preds = %float8_mi.exit6.i344
+  %or.cond29.i.i346 = fcmp uno double %923, %930
+  br i1 %or.cond29.i.i346, label %line_closept_point.exit130, label %939
 
 939:                                              ; preds = %938
   %940 = fcmp olt double %924, %931
-  %.023.i.i349 = select i1 %940, double %924, double %931
-  %.022.i.i350 = select i1 %940, double %931, double %924
-  %941 = fcmp oeq double %.023.i.i349, 0.000000e+00
-  br i1 %941, label %line_closept_point.exit132, label %942
+  %.023.i.i347 = select i1 %940, double %924, double %931
+  %.022.i.i348 = select i1 %940, double %931, double %924
+  %941 = fcmp oeq double %.023.i.i347, 0.000000e+00
+  br i1 %941, label %line_closept_point.exit130, label %942
 
 942:                                              ; preds = %939
-  %943 = fdiv double %.023.i.i349, %.022.i.i350
+  %943 = fdiv double %.023.i.i347, %.022.i.i348
   %944 = call double @llvm.fmuladd.f64(double %943, double %943, double 1.000000e+00)
-  %sqrt.i.i351 = call double @llvm.sqrt.f64(double %944)
-  %945 = fmul double %.022.i.i350, %sqrt.i.i351
+  %sqrt.i.i349 = call double @llvm.sqrt.f64(double %944)
+  %945 = fmul double %.022.i.i348, %sqrt.i.i349
   %946 = call double @llvm.fabs.f64(double %945)
   %947 = fcmp oeq double %946, 0x7FF0000000000000
   br i1 %947, label %948, label %949
@@ -6698,22 +6694,22 @@ float8_mi.exit6.i346:                             ; preds = %float8_mi.exit.i343
 
 949:                                              ; preds = %942
   %950 = fcmp oeq double %945, 0.000000e+00
-  br i1 %950, label %951, label %line_closept_point.exit132
+  br i1 %950, label %951, label %line_closept_point.exit130
 
 951:                                              ; preds = %949
   call void @float_underflow_error() #18
   unreachable
 
-line_closept_point.exit132:                       ; preds = %949, %939, %938, %float8_mi.exit6.i346, %line_construct.exit.i120
-  %.0.i121 = phi double [ 0x7FF8000000000000, %line_construct.exit.i120 ], [ %.022.i.i350, %939 ], [ %945, %949 ], [ 0x7FF0000000000000, %float8_mi.exit6.i346 ], [ 0x7FF8000000000000, %938 ]
+line_closept_point.exit130:                       ; preds = %949, %939, %938, %float8_mi.exit6.i344, %line_construct.exit.i118
+  %.0.i119 = phi double [ 0x7FF8000000000000, %line_construct.exit.i118 ], [ %.022.i.i348, %939 ], [ %945, %949 ], [ 0x7FF0000000000000, %float8_mi.exit6.i344 ], [ 0x7FF8000000000000, %938 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  %952 = fcmp olt double %.0.i135, %.0.i121
-  %.22.i.i52 = select i1 %952, ptr %29, ptr %50
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 16 dereferenceable(16) %.22.i.i52, i64 16, i1 false)
-  br label %lseg_closept_point.exit53
+  %952 = fcmp olt double %.0.i133, %.0.i119
+  %.22.i.i50 = select i1 %952, ptr %29, ptr %50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 16 dereferenceable(16) %.22.i.i50, i64 16, i1 false)
+  br label %lseg_closept_point.exit51
 
-lseg_closept_point.exit53:                        ; preds = %line_construct.exit.i51, %line_closept_point.exit132
+lseg_closept_point.exit51:                        ; preds = %line_construct.exit.i49, %line_closept_point.exit130
   %953 = load double, ptr %24, align 8
   %954 = load double, ptr %28, align 16
   %955 = fsub double %953, %954
@@ -6721,17 +6717,17 @@ lseg_closept_point.exit53:                        ; preds = %line_construct.exit
   %957 = fcmp une double %956, 0x7FF0000000000000
   %958 = call double @llvm.fabs.f64(double %953)
   %959 = fcmp oeq double %958, 0x7FF0000000000000
-  %or.cond.i.i106 = or i1 %959, %957
+  %or.cond.i.i104 = or i1 %959, %957
   %960 = call double @llvm.fabs.f64(double %954)
   %961 = fcmp oeq double %960, 0x7FF0000000000000
-  %or.cond8.i.i107 = or i1 %961, %or.cond.i.i106
-  br i1 %or.cond8.i.i107, label %float8_mi.exit.i108, label %962
+  %or.cond8.i.i105 = or i1 %961, %or.cond.i.i104
+  br i1 %or.cond8.i.i105, label %float8_mi.exit.i106, label %962
 
-962:                                              ; preds = %lseg_closept_point.exit53
+962:                                              ; preds = %lseg_closept_point.exit51
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i108:                              ; preds = %lseg_closept_point.exit53
+float8_mi.exit.i106:                              ; preds = %lseg_closept_point.exit51
   %963 = load double, ptr %81, align 8
   %964 = load double, ptr %45, align 8
   %965 = fsub double %963, %964
@@ -6739,48 +6735,48 @@ float8_mi.exit.i108:                              ; preds = %lseg_closept_point.
   %967 = fcmp une double %966, 0x7FF0000000000000
   %968 = call double @llvm.fabs.f64(double %963)
   %969 = fcmp oeq double %968, 0x7FF0000000000000
-  %or.cond.i4.i109 = or i1 %969, %967
+  %or.cond.i4.i107 = or i1 %969, %967
   %970 = call double @llvm.fabs.f64(double %964)
   %971 = fcmp oeq double %970, 0x7FF0000000000000
-  %or.cond8.i5.i110 = or i1 %971, %or.cond.i4.i109
-  br i1 %or.cond8.i5.i110, label %float8_mi.exit6.i111, label %972
+  %or.cond8.i5.i108 = or i1 %971, %or.cond.i4.i107
+  br i1 %or.cond8.i5.i108, label %float8_mi.exit6.i109, label %972
 
-972:                                              ; preds = %float8_mi.exit.i108
+972:                                              ; preds = %float8_mi.exit.i106
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i111:                             ; preds = %float8_mi.exit.i108
+float8_mi.exit6.i109:                             ; preds = %float8_mi.exit.i106
   %973 = fcmp oeq double %956, 0x7FF0000000000000
   %974 = fcmp oeq double %966, 0x7FF0000000000000
-  %or.cond.i7.i112 = or i1 %973, %974
-  br i1 %or.cond.i7.i112, label %point_dt.exit118.thread444, label %975
+  %or.cond.i7.i110 = or i1 %973, %974
+  br i1 %or.cond.i7.i110, label %point_dt.exit116.thread442, label %975
 
-point_dt.exit118.thread444:                       ; preds = %float8_mi.exit6.i111
+point_dt.exit116.thread442:                       ; preds = %float8_mi.exit6.i109
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   br label %float8_lt.exit37.i
 
-975:                                              ; preds = %float8_mi.exit6.i111
-  %or.cond29.i.i113 = fcmp uno double %955, %965
-  br i1 %or.cond29.i.i113, label %point_dt.exit118.thread, label %976
+975:                                              ; preds = %float8_mi.exit6.i109
+  %or.cond29.i.i111 = fcmp uno double %955, %965
+  br i1 %or.cond29.i.i111, label %point_dt.exit116.thread, label %976
 
-point_dt.exit118.thread:                          ; preds = %975
+point_dt.exit116.thread:                          ; preds = %975
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   br label %float8_lt.exit37.thread.i
 
 976:                                              ; preds = %975
   %977 = fcmp olt double %956, %966
-  %.023.i.i114 = select i1 %977, double %956, double %966
-  %.022.i.i115 = select i1 %977, double %966, double %956
-  %978 = fcmp oeq double %.023.i.i114, 0.000000e+00
-  br i1 %978, label %point_dt.exit118, label %979
+  %.023.i.i112 = select i1 %977, double %956, double %966
+  %.022.i.i113 = select i1 %977, double %966, double %956
+  %978 = fcmp oeq double %.023.i.i112, 0.000000e+00
+  br i1 %978, label %point_dt.exit116, label %979
 
 979:                                              ; preds = %976
-  %980 = fdiv double %.023.i.i114, %.022.i.i115
+  %980 = fdiv double %.023.i.i112, %.022.i.i113
   %981 = call double @llvm.fmuladd.f64(double %980, double %980, double 1.000000e+00)
-  %sqrt.i.i116 = call double @llvm.sqrt.f64(double %981)
-  %982 = fmul double %.022.i.i115, %sqrt.i.i116
+  %sqrt.i.i114 = call double @llvm.sqrt.f64(double %981)
+  %982 = fmul double %.022.i.i113, %sqrt.i.i114
   %983 = call double @llvm.fabs.f64(double %982)
   %984 = fcmp oeq double %983, 0x7FF0000000000000
   br i1 %984, label %985, label %986
@@ -6791,31 +6787,31 @@ point_dt.exit118.thread:                          ; preds = %975
 
 986:                                              ; preds = %979
   %987 = fcmp oeq double %982, 0.000000e+00
-  br i1 %987, label %988, label %point_dt.exit118
+  br i1 %987, label %988, label %point_dt.exit116
 
 988:                                              ; preds = %986
   call void @float_underflow_error() #18
   unreachable
 
-point_dt.exit118:                                 ; preds = %976, %986
-  %.0.i.i117 = phi double [ %.022.i.i115, %976 ], [ %982, %986 ]
+point_dt.exit116:                                 ; preds = %976, %986
+  %.0.i.i115 = phi double [ %.022.i.i113, %976 ], [ %982, %986 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
-  %989 = fcmp uno double %.0.i.i117, 0.000000e+00
+  %989 = fcmp uno double %.0.i.i115, 0.000000e+00
   br i1 %989, label %float8_lt.exit37.thread.i, label %float8_lt.exit37.i
 
-float8_lt.exit37.i:                               ; preds = %point_dt.exit118.thread444, %point_dt.exit118
-  %.0.i.i117446 = phi double [ 0x7FF0000000000000, %point_dt.exit118.thread444 ], [ %.0.i.i117, %point_dt.exit118 ]
+float8_lt.exit37.i:                               ; preds = %point_dt.exit116.thread442, %point_dt.exit116
+  %.0.i.i115444 = phi double [ 0x7FF0000000000000, %point_dt.exit116.thread442 ], [ %.0.i.i115, %point_dt.exit116 ]
   %990 = fcmp uno double %.0.i, 0.000000e+00
-  %991 = fcmp olt double %.0.i.i117446, %.0.i
+  %991 = fcmp olt double %.0.i.i115444, %.0.i
   %992 = or i1 %990, %991
   br i1 %992, label %993, label %float8_lt.exit37.thread.i
 
 993:                                              ; preds = %float8_lt.exit37.i
   br label %float8_lt.exit37.thread.i
 
-float8_lt.exit37.thread.i:                        ; preds = %point_dt.exit118.thread, %993, %float8_lt.exit37.i, %point_dt.exit118
-  %.1.i = phi double [ %.0.i.i117446, %993 ], [ %.0.i, %float8_lt.exit37.i ], [ %.0.i, %point_dt.exit118 ], [ %.0.i, %point_dt.exit118.thread ]
+float8_lt.exit37.thread.i:                        ; preds = %point_dt.exit116.thread, %993, %float8_lt.exit37.i, %point_dt.exit116
+  %.1.i = phi double [ %.0.i.i115444, %993 ], [ %.0.i, %float8_lt.exit37.i ], [ %.0.i, %point_dt.exit116 ], [ %.0.i, %point_dt.exit116.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27)
   %994 = load double, ptr %29, align 16
@@ -6839,15 +6835,15 @@ float8_lt.exit37.thread.i:                        ; preds = %point_dt.exit118.th
   %1008 = fcmp une double %997, 0x7FF0000000000000
   %1009 = call double @llvm.fabs.f64(double %994)
   %1010 = fcmp oeq double %1009, 0x7FF0000000000000
-  %or.cond.i.i102 = or i1 %1010, %1008
-  %or.cond8.i.i103 = or i1 %734, %or.cond.i.i102
-  br i1 %or.cond8.i.i103, label %float8_mi.exit.i104, label %1011
+  %or.cond.i.i100 = or i1 %1010, %1008
+  %or.cond8.i.i101 = or i1 %734, %or.cond.i.i100
+  br i1 %or.cond8.i.i101, label %float8_mi.exit.i102, label %1011
 
 1011:                                             ; preds = %1007
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i104:                              ; preds = %1007
+float8_mi.exit.i102:                              ; preds = %1007
   %1012 = fsub double %523, %1001
   %1013 = call double @llvm.fabs.f64(double %1012)
   %1014 = fcmp une double %1013, 0x7FF0000000000000
@@ -6857,11 +6853,11 @@ float8_mi.exit.i104:                              ; preds = %1007
   %or.cond8.i10.i = or i1 %743, %1017
   br i1 %or.cond8.i10.i, label %float8_mi.exit11.i, label %1018
 
-1018:                                             ; preds = %float8_mi.exit.i104
+1018:                                             ; preds = %float8_mi.exit.i102
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit11.i:                               ; preds = %float8_mi.exit.i104
+float8_mi.exit11.i:                               ; preds = %float8_mi.exit.i102
   %1019 = fcmp une double %1012, 0.000000e+00
   %1020 = fcmp uno double %996, 0.000000e+00
   %or.cond11.i.i = or i1 %1020, %1019
@@ -6951,22 +6947,22 @@ float8_mi.exit.i.i:                               ; preds = %float8_mul.exit.i.i
   br i1 %1057, label %line_construct.exit.i.sink.split, label %line_construct.exit.i
 
 line_construct.exit.i.sink.split.sink.split:      ; preds = %1035, %float8_lt.exit37.thread.i, %point_invsl.exit, %1000
-  %storemerge1119 = phi double [ -1.000000e+00, %1000 ], [ -1.000000e+00, %point_invsl.exit ], [ 0.000000e+00, %float8_lt.exit37.thread.i ], [ 0.000000e+00, %1035 ]
-  %.sink1100 = phi double [ 0.000000e+00, %1000 ], [ 0.000000e+00, %point_invsl.exit ], [ -1.000000e+00, %float8_lt.exit37.thread.i ], [ -1.000000e+00, %1035 ]
-  %.sink1099 = phi ptr [ %46, %1000 ], [ %46, %point_invsl.exit ], [ %47, %float8_lt.exit37.thread.i ], [ %47, %1035 ]
-  store double %storemerge1119, ptr %27, align 8
-  store double %.sink1100, ptr %82, align 8
-  %1058 = load double, ptr %.sink1099, align 8
+  %storemerge1116 = phi double [ -1.000000e+00, %1000 ], [ -1.000000e+00, %point_invsl.exit ], [ 0.000000e+00, %float8_lt.exit37.thread.i ], [ 0.000000e+00, %1035 ]
+  %.sink1097 = phi double [ 0.000000e+00, %1000 ], [ 0.000000e+00, %point_invsl.exit ], [ -1.000000e+00, %float8_lt.exit37.thread.i ], [ -1.000000e+00, %1035 ]
+  %.sink1096 = phi ptr [ %46, %1000 ], [ %46, %point_invsl.exit ], [ %47, %float8_lt.exit37.thread.i ], [ %47, %1035 ]
+  store double %storemerge1116, ptr %27, align 8
+  store double %.sink1097, ptr %82, align 8
+  %1058 = load double, ptr %.sink1096, align 8
   br label %line_construct.exit.i
 
 line_construct.exit.i.sink.split:                 ; preds = %float8_mi.exit.i.i
   br label %line_construct.exit.i
 
 line_construct.exit.i:                            ; preds = %line_construct.exit.i.sink.split.sink.split, %line_construct.exit.i.sink.split, %float8_mi.exit.i.i
-  %storemerge1120 = phi double [ %1050, %float8_mi.exit.i.i ], [ %1058, %line_construct.exit.i.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i.sink.split ]
-  %1059 = phi double [ -1.000000e+00, %float8_mi.exit.i.i ], [ %.sink1100, %line_construct.exit.i.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i.sink.split ]
-  %1060 = phi double [ %1023, %float8_mi.exit.i.i ], [ %storemerge1119, %line_construct.exit.i.sink.split.sink.split ], [ %1023, %line_construct.exit.i.sink.split ]
-  store double %storemerge1120, ptr %83, align 8
+  %storemerge1117 = phi double [ %1050, %float8_mi.exit.i.i ], [ %1058, %line_construct.exit.i.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i.sink.split ]
+  %1059 = phi double [ -1.000000e+00, %float8_mi.exit.i.i ], [ %.sink1097, %line_construct.exit.i.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i.sink.split ]
+  %1060 = phi double [ %1023, %float8_mi.exit.i.i ], [ %storemerge1116, %line_construct.exit.i.sink.split.sink.split ], [ %1023, %line_construct.exit.i.sink.split ]
+  store double %storemerge1117, ptr %83, align 8
   %1061 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %26, ptr noundef nonnull %29, ptr noundef nonnull %27)
   br i1 %1061, label %lseg_closept_point.exit, label %1062
 
@@ -6975,12 +6971,12 @@ line_construct.exit.i:                            ; preds = %line_construct.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   %1063 = call double @llvm.fabs.f64(double %1060)
   %1064 = fcmp ugt double %1063, 0x3EB0C6F7A0B5ED8D
-  br i1 %1064, label %1065, label %line_construct.exit.i89.sink.split.sink.split
+  br i1 %1064, label %1065, label %line_construct.exit.i87.sink.split.sink.split
 
 1065:                                             ; preds = %1062
   %1066 = call double @llvm.fabs.f64(double %1059)
   %1067 = fcmp ugt double %1066, 0x3EB0C6F7A0B5ED8D
-  br i1 %1067, label %1068, label %.thread.i91
+  br i1 %1067, label %1068, label %.thread.i89
 
 1068:                                             ; preds = %1065
   %1069 = fdiv double %1059, %1060
@@ -7000,12 +6996,12 @@ line_construct.exit.i:                            ; preds = %line_construct.exit
   call void @float_underflow_error() #18
   unreachable
 
-.thread.i91:                                      ; preds = %1065
-  %.pre1040 = load double, ptr %49, align 8
-  br label %line_construct.exit.i89.sink.split.sink.split
+.thread.i89:                                      ; preds = %1065
+  %.pre1037 = load double, ptr %49, align 8
+  br label %line_construct.exit.i87.sink.split.sink.split
 
 1076:                                             ; preds = %1073
-  %.pre1041 = load double, ptr %49, align 8
+  %.pre1038 = load double, ptr %49, align 8
   store double %1069, ptr %15, align 16
   store double -1.000000e+00, ptr %84, align 8
   %1077 = fmul double %994, %1069
@@ -7013,8 +7009,8 @@ line_construct.exit.i:                            ; preds = %line_construct.exit
   %1079 = fcmp une double %1078, 0x7FF0000000000000
   %1080 = call double @llvm.fabs.f64(double %994)
   %1081 = fcmp oeq double %1080, 0x7FF0000000000000
-  %or.cond15.i.i12.i95 = or i1 %1081, %1079
-  br i1 %or.cond15.i.i12.i95, label %1083, label %1082
+  %or.cond15.i.i12.i93 = or i1 %1081, %1079
+  br i1 %or.cond15.i.i12.i93, label %1083, label %1082
 
 1082:                                             ; preds = %1076
   call void @float_overflow_error() #18
@@ -7023,65 +7019,65 @@ line_construct.exit.i:                            ; preds = %line_construct.exit
 1083:                                             ; preds = %1076
   %1084 = fcmp oeq double %1077, 0.000000e+00
   %1085 = fcmp une double %994, 0.000000e+00
-  %or.cond3.i.i.i96 = and i1 %1085, %1084
-  br i1 %or.cond3.i.i.i96, label %1086, label %float8_mul.exit.i.i97
+  %or.cond3.i.i.i94 = and i1 %1085, %1084
+  br i1 %or.cond3.i.i.i94, label %1086, label %float8_mul.exit.i.i95
 
 1086:                                             ; preds = %1083
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i97:                            ; preds = %1083
-  %1087 = fsub double %.pre1041, %1077
+float8_mul.exit.i.i95:                            ; preds = %1083
+  %1087 = fsub double %.pre1038, %1077
   %1088 = call double @llvm.fabs.f64(double %1087)
   %1089 = fcmp une double %1088, 0x7FF0000000000000
-  %1090 = call double @llvm.fabs.f64(double %.pre1041)
+  %1090 = call double @llvm.fabs.f64(double %.pre1038)
   %1091 = fcmp oeq double %1090, 0x7FF0000000000000
-  %or.cond.i19.i.i98 = or i1 %1091, %1089
+  %or.cond.i19.i.i96 = or i1 %1091, %1089
   %1092 = fcmp oeq double %1078, 0x7FF0000000000000
-  %or.cond8.i.i.i99 = or i1 %1092, %or.cond.i19.i.i98
-  br i1 %or.cond8.i.i.i99, label %float8_mi.exit.i.i100, label %1093
+  %or.cond8.i.i.i97 = or i1 %1092, %or.cond.i19.i.i96
+  br i1 %or.cond8.i.i.i97, label %float8_mi.exit.i.i98, label %1093
 
-1093:                                             ; preds = %float8_mul.exit.i.i97
+1093:                                             ; preds = %float8_mul.exit.i.i95
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i100:                            ; preds = %float8_mul.exit.i.i97
+float8_mi.exit.i.i98:                             ; preds = %float8_mul.exit.i.i95
   %1094 = fcmp oeq double %1087, 0.000000e+00
-  br i1 %1094, label %line_construct.exit.i89.sink.split, label %line_construct.exit.i89
+  br i1 %1094, label %line_construct.exit.i87.sink.split, label %line_construct.exit.i87
 
-line_construct.exit.i89.sink.split.sink.split:    ; preds = %1062, %.thread.i91
-  %.sink1089.ph = phi double [ %.pre1040, %.thread.i91 ], [ %994, %1062 ]
-  %1095 = phi <2 x double> [ <double 0.000000e+00, double -1.000000e+00>, %.thread.i91 ], [ <double -1.000000e+00, double 0.000000e+00>, %1062 ]
+line_construct.exit.i87.sink.split.sink.split:    ; preds = %1062, %.thread.i89
+  %.sink1086.ph = phi double [ %.pre1037, %.thread.i89 ], [ %994, %1062 ]
+  %1095 = phi <2 x double> [ <double 0.000000e+00, double -1.000000e+00>, %.thread.i89 ], [ <double -1.000000e+00, double 0.000000e+00>, %1062 ]
   store <2 x double> %1095, ptr %15, align 16
-  br label %line_construct.exit.i89
+  br label %line_construct.exit.i87
 
-line_construct.exit.i89.sink.split:               ; preds = %float8_mi.exit.i.i100
-  br label %line_construct.exit.i89
+line_construct.exit.i87.sink.split:               ; preds = %float8_mi.exit.i.i98
+  br label %line_construct.exit.i87
 
-line_construct.exit.i89:                          ; preds = %line_construct.exit.i89.sink.split.sink.split, %line_construct.exit.i89.sink.split, %float8_mi.exit.i.i100
-  %storemerge1122 = phi double [ %1087, %float8_mi.exit.i.i100 ], [ %.sink1089.ph, %line_construct.exit.i89.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i89.sink.split ]
-  store double %storemerge1122, ptr %85, align 16
+line_construct.exit.i87:                          ; preds = %line_construct.exit.i87.sink.split.sink.split, %line_construct.exit.i87.sink.split, %float8_mi.exit.i.i98
+  %storemerge1119 = phi double [ %1087, %float8_mi.exit.i.i98 ], [ %.sink1086.ph, %line_construct.exit.i87.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i87.sink.split ]
+  store double %storemerge1119, ptr %85, align 16
   %1096 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %27)
-  br i1 %1096, label %1097, label %line_closept_point.exit101
+  br i1 %1096, label %1097, label %line_closept_point.exit99
 
-1097:                                             ; preds = %line_construct.exit.i89
+1097:                                             ; preds = %line_construct.exit.i87
   %1098 = load double, ptr %14, align 8
   %1099 = fsub double %1098, %994
   %1100 = call double @llvm.fabs.f64(double %1099)
   %1101 = fcmp une double %1100, 0x7FF0000000000000
   %1102 = call double @llvm.fabs.f64(double %1098)
   %1103 = fcmp oeq double %1102, 0x7FF0000000000000
-  %or.cond.i.i328 = or i1 %1103, %1101
+  %or.cond.i.i326 = or i1 %1103, %1101
   %1104 = call double @llvm.fabs.f64(double %994)
   %1105 = fcmp oeq double %1104, 0x7FF0000000000000
-  %or.cond8.i.i329 = or i1 %1105, %or.cond.i.i328
-  br i1 %or.cond8.i.i329, label %float8_mi.exit.i330, label %1106
+  %or.cond8.i.i327 = or i1 %1105, %or.cond.i.i326
+  br i1 %or.cond8.i.i327, label %float8_mi.exit.i328, label %1106
 
 1106:                                             ; preds = %1097
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i330:                              ; preds = %1097
+float8_mi.exit.i328:                              ; preds = %1097
   %1107 = load double, ptr %86, align 8
   %1108 = load double, ptr %49, align 8
   %1109 = fsub double %1107, %1108
@@ -7089,38 +7085,38 @@ float8_mi.exit.i330:                              ; preds = %1097
   %1111 = fcmp une double %1110, 0x7FF0000000000000
   %1112 = call double @llvm.fabs.f64(double %1107)
   %1113 = fcmp oeq double %1112, 0x7FF0000000000000
-  %or.cond.i4.i331 = or i1 %1113, %1111
+  %or.cond.i4.i329 = or i1 %1113, %1111
   %1114 = call double @llvm.fabs.f64(double %1108)
   %1115 = fcmp oeq double %1114, 0x7FF0000000000000
-  %or.cond8.i5.i332 = or i1 %1115, %or.cond.i4.i331
-  br i1 %or.cond8.i5.i332, label %float8_mi.exit6.i333, label %1116
+  %or.cond8.i5.i330 = or i1 %1115, %or.cond.i4.i329
+  br i1 %or.cond8.i5.i330, label %float8_mi.exit6.i331, label %1116
 
-1116:                                             ; preds = %float8_mi.exit.i330
+1116:                                             ; preds = %float8_mi.exit.i328
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i333:                             ; preds = %float8_mi.exit.i330
+float8_mi.exit6.i331:                             ; preds = %float8_mi.exit.i328
   %1117 = fcmp oeq double %1100, 0x7FF0000000000000
   %1118 = fcmp oeq double %1110, 0x7FF0000000000000
-  %or.cond.i7.i334 = or i1 %1117, %1118
-  br i1 %or.cond.i7.i334, label %line_closept_point.exit101, label %1119
+  %or.cond.i7.i332 = or i1 %1117, %1118
+  br i1 %or.cond.i7.i332, label %line_closept_point.exit99, label %1119
 
-1119:                                             ; preds = %float8_mi.exit6.i333
-  %or.cond29.i.i335 = fcmp uno double %1099, %1109
-  br i1 %or.cond29.i.i335, label %line_closept_point.exit101, label %1120
+1119:                                             ; preds = %float8_mi.exit6.i331
+  %or.cond29.i.i333 = fcmp uno double %1099, %1109
+  br i1 %or.cond29.i.i333, label %line_closept_point.exit99, label %1120
 
 1120:                                             ; preds = %1119
   %1121 = fcmp olt double %1100, %1110
-  %.023.i.i336 = select i1 %1121, double %1100, double %1110
-  %.022.i.i337 = select i1 %1121, double %1110, double %1100
-  %1122 = fcmp oeq double %.023.i.i336, 0.000000e+00
-  br i1 %1122, label %line_closept_point.exit101, label %1123
+  %.023.i.i334 = select i1 %1121, double %1100, double %1110
+  %.022.i.i335 = select i1 %1121, double %1110, double %1100
+  %1122 = fcmp oeq double %.023.i.i334, 0.000000e+00
+  br i1 %1122, label %line_closept_point.exit99, label %1123
 
 1123:                                             ; preds = %1120
-  %1124 = fdiv double %.023.i.i336, %.022.i.i337
+  %1124 = fdiv double %.023.i.i334, %.022.i.i335
   %1125 = call double @llvm.fmuladd.f64(double %1124, double %1124, double 1.000000e+00)
-  %sqrt.i.i338 = call double @llvm.sqrt.f64(double %1125)
-  %1126 = fmul double %.022.i.i337, %sqrt.i.i338
+  %sqrt.i.i336 = call double @llvm.sqrt.f64(double %1125)
+  %1126 = fmul double %.022.i.i335, %sqrt.i.i336
   %1127 = call double @llvm.fabs.f64(double %1126)
   %1128 = fcmp oeq double %1127, 0x7FF0000000000000
   br i1 %1128, label %1129, label %1130
@@ -7131,21 +7127,21 @@ float8_mi.exit6.i333:                             ; preds = %float8_mi.exit.i330
 
 1130:                                             ; preds = %1123
   %1131 = fcmp oeq double %1126, 0.000000e+00
-  br i1 %1131, label %1132, label %line_closept_point.exit101
+  br i1 %1131, label %1132, label %line_closept_point.exit99
 
 1132:                                             ; preds = %1130
   call void @float_underflow_error() #18
   unreachable
 
-line_closept_point.exit101:                       ; preds = %1130, %1120, %1119, %float8_mi.exit6.i333, %line_construct.exit.i89
-  %.0.i90 = phi double [ 0x7FF8000000000000, %line_construct.exit.i89 ], [ %.022.i.i337, %1120 ], [ %1126, %1130 ], [ 0x7FF0000000000000, %float8_mi.exit6.i333 ], [ 0x7FF8000000000000, %1119 ]
+line_closept_point.exit99:                        ; preds = %1130, %1120, %1119, %float8_mi.exit6.i331, %line_construct.exit.i87
+  %.0.i88 = phi double [ 0x7FF8000000000000, %line_construct.exit.i87 ], [ %.022.i.i335, %1120 ], [ %1126, %1130 ], [ 0x7FF0000000000000, %float8_mi.exit6.i331 ], [ 0x7FF8000000000000, %1119 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   br i1 %1064, label %1133, label %line_invsl.exit.thread.i
 
-1133:                                             ; preds = %line_closept_point.exit101
+1133:                                             ; preds = %line_closept_point.exit99
   %1134 = call double @llvm.fabs.f64(double %1059)
   %1135 = fcmp ugt double %1134, 0x3EB0C6F7A0B5ED8D
   br i1 %1135, label %1136, label %.thread.i
@@ -7168,18 +7164,18 @@ line_closept_point.exit101:                       ; preds = %1130, %1120, %1119,
   call void @float_underflow_error() #18
   unreachable
 
-line_invsl.exit.thread.i:                         ; preds = %line_closept_point.exit101
+line_invsl.exit.thread.i:                         ; preds = %line_closept_point.exit99
   store <2 x double> <double -1.000000e+00, double 0.000000e+00>, ptr %17, align 16
   %1144 = load double, ptr %50, align 16
-  br label %line_construct.exit.i80
+  br label %line_construct.exit.i78
 
 .thread.i:                                        ; preds = %1133
-  %.pre1042 = load double, ptr %51, align 8
+  %.pre1039 = load double, ptr %51, align 8
   store <2 x double> <double 0.000000e+00, double -1.000000e+00>, ptr %17, align 16
-  br label %line_construct.exit.i80
+  br label %line_construct.exit.i78
 
 1145:                                             ; preds = %1141
-  %.pre1043 = load double, ptr %51, align 8
+  %.pre1040 = load double, ptr %51, align 8
   store double %1137, ptr %17, align 16
   store double -1.000000e+00, ptr %87, align 8
   %1146 = load double, ptr %50, align 16
@@ -7198,42 +7194,42 @@ line_invsl.exit.thread.i:                         ; preds = %line_closept_point.
 1153:                                             ; preds = %1145
   %1154 = fcmp oeq double %1147, 0.000000e+00
   %1155 = fcmp une double %1146, 0.000000e+00
-  %or.cond3.i.i.i83 = and i1 %1155, %1154
-  br i1 %or.cond3.i.i.i83, label %1156, label %float8_mul.exit.i.i84
+  %or.cond3.i.i.i81 = and i1 %1155, %1154
+  br i1 %or.cond3.i.i.i81, label %1156, label %float8_mul.exit.i.i82
 
 1156:                                             ; preds = %1153
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i84:                            ; preds = %1153
-  %1157 = fsub double %.pre1043, %1147
+float8_mul.exit.i.i82:                            ; preds = %1153
+  %1157 = fsub double %.pre1040, %1147
   %1158 = call double @llvm.fabs.f64(double %1157)
   %1159 = fcmp une double %1158, 0x7FF0000000000000
-  %1160 = call double @llvm.fabs.f64(double %.pre1043)
+  %1160 = call double @llvm.fabs.f64(double %.pre1040)
   %1161 = fcmp oeq double %1160, 0x7FF0000000000000
-  %or.cond.i19.i.i85 = or i1 %1161, %1159
+  %or.cond.i19.i.i83 = or i1 %1161, %1159
   %1162 = fcmp oeq double %1148, 0x7FF0000000000000
-  %or.cond8.i.i.i86 = or i1 %1162, %or.cond.i19.i.i85
-  br i1 %or.cond8.i.i.i86, label %float8_mi.exit.i.i87, label %1163
+  %or.cond8.i.i.i84 = or i1 %1162, %or.cond.i19.i.i83
+  br i1 %or.cond8.i.i.i84, label %float8_mi.exit.i.i85, label %1163
 
-1163:                                             ; preds = %float8_mul.exit.i.i84
+1163:                                             ; preds = %float8_mul.exit.i.i82
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i87:                             ; preds = %float8_mul.exit.i.i84
+float8_mi.exit.i.i85:                             ; preds = %float8_mul.exit.i.i82
   %1164 = fcmp oeq double %1157, 0.000000e+00
-  br i1 %1164, label %line_construct.exit.i80.sink.split, label %line_construct.exit.i80
+  br i1 %1164, label %line_construct.exit.i78.sink.split, label %line_construct.exit.i78
 
-line_construct.exit.i80.sink.split:               ; preds = %float8_mi.exit.i.i87
-  br label %line_construct.exit.i80
+line_construct.exit.i78.sink.split:               ; preds = %float8_mi.exit.i.i85
+  br label %line_construct.exit.i78
 
-line_construct.exit.i80:                          ; preds = %.thread.i, %line_invsl.exit.thread.i, %line_construct.exit.i80.sink.split, %float8_mi.exit.i.i87
-  %storemerge1123 = phi double [ %1157, %float8_mi.exit.i.i87 ], [ %.pre1042, %.thread.i ], [ %1144, %line_invsl.exit.thread.i ], [ 0.000000e+00, %line_construct.exit.i80.sink.split ]
-  store double %storemerge1123, ptr %88, align 16
+line_construct.exit.i78:                          ; preds = %.thread.i, %line_invsl.exit.thread.i, %line_construct.exit.i78.sink.split, %float8_mi.exit.i.i85
+  %storemerge1120 = phi double [ %1157, %float8_mi.exit.i.i85 ], [ %.pre1039, %.thread.i ], [ %1144, %line_invsl.exit.thread.i ], [ 0.000000e+00, %line_construct.exit.i78.sink.split ]
+  store double %storemerge1120, ptr %88, align 16
   %1165 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %27)
   br i1 %1165, label %1166, label %line_closept_point.exit
 
-1166:                                             ; preds = %line_construct.exit.i80
+1166:                                             ; preds = %line_construct.exit.i78
   %1167 = load double, ptr %16, align 8
   %1168 = load double, ptr %50, align 16
   %1169 = fsub double %1167, %1168
@@ -7241,17 +7237,17 @@ line_construct.exit.i80:                          ; preds = %.thread.i, %line_in
   %1171 = fcmp une double %1170, 0x7FF0000000000000
   %1172 = call double @llvm.fabs.f64(double %1167)
   %1173 = fcmp oeq double %1172, 0x7FF0000000000000
-  %or.cond.i.i315 = or i1 %1173, %1171
+  %or.cond.i.i313 = or i1 %1173, %1171
   %1174 = call double @llvm.fabs.f64(double %1168)
   %1175 = fcmp oeq double %1174, 0x7FF0000000000000
-  %or.cond8.i.i316 = or i1 %1175, %or.cond.i.i315
-  br i1 %or.cond8.i.i316, label %float8_mi.exit.i317, label %1176
+  %or.cond8.i.i314 = or i1 %1175, %or.cond.i.i313
+  br i1 %or.cond8.i.i314, label %float8_mi.exit.i315, label %1176
 
 1176:                                             ; preds = %1166
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i317:                              ; preds = %1166
+float8_mi.exit.i315:                              ; preds = %1166
   %1177 = load double, ptr %89, align 8
   %1178 = load double, ptr %51, align 8
   %1179 = fsub double %1177, %1178
@@ -7259,38 +7255,38 @@ float8_mi.exit.i317:                              ; preds = %1166
   %1181 = fcmp une double %1180, 0x7FF0000000000000
   %1182 = call double @llvm.fabs.f64(double %1177)
   %1183 = fcmp oeq double %1182, 0x7FF0000000000000
-  %or.cond.i4.i318 = or i1 %1183, %1181
+  %or.cond.i4.i316 = or i1 %1183, %1181
   %1184 = call double @llvm.fabs.f64(double %1178)
   %1185 = fcmp oeq double %1184, 0x7FF0000000000000
-  %or.cond8.i5.i319 = or i1 %1185, %or.cond.i4.i318
-  br i1 %or.cond8.i5.i319, label %float8_mi.exit6.i320, label %1186
+  %or.cond8.i5.i317 = or i1 %1185, %or.cond.i4.i316
+  br i1 %or.cond8.i5.i317, label %float8_mi.exit6.i318, label %1186
 
-1186:                                             ; preds = %float8_mi.exit.i317
+1186:                                             ; preds = %float8_mi.exit.i315
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i320:                             ; preds = %float8_mi.exit.i317
+float8_mi.exit6.i318:                             ; preds = %float8_mi.exit.i315
   %1187 = fcmp oeq double %1170, 0x7FF0000000000000
   %1188 = fcmp oeq double %1180, 0x7FF0000000000000
-  %or.cond.i7.i321 = or i1 %1187, %1188
-  br i1 %or.cond.i7.i321, label %line_closept_point.exit, label %1189
+  %or.cond.i7.i319 = or i1 %1187, %1188
+  br i1 %or.cond.i7.i319, label %line_closept_point.exit, label %1189
 
-1189:                                             ; preds = %float8_mi.exit6.i320
-  %or.cond29.i.i322 = fcmp uno double %1169, %1179
-  br i1 %or.cond29.i.i322, label %line_closept_point.exit, label %1190
+1189:                                             ; preds = %float8_mi.exit6.i318
+  %or.cond29.i.i320 = fcmp uno double %1169, %1179
+  br i1 %or.cond29.i.i320, label %line_closept_point.exit, label %1190
 
 1190:                                             ; preds = %1189
   %1191 = fcmp olt double %1170, %1180
-  %.023.i.i323 = select i1 %1191, double %1170, double %1180
-  %.022.i.i324 = select i1 %1191, double %1180, double %1170
-  %1192 = fcmp oeq double %.023.i.i323, 0.000000e+00
+  %.023.i.i321 = select i1 %1191, double %1170, double %1180
+  %.022.i.i322 = select i1 %1191, double %1180, double %1170
+  %1192 = fcmp oeq double %.023.i.i321, 0.000000e+00
   br i1 %1192, label %line_closept_point.exit, label %1193
 
 1193:                                             ; preds = %1190
-  %1194 = fdiv double %.023.i.i323, %.022.i.i324
+  %1194 = fdiv double %.023.i.i321, %.022.i.i322
   %1195 = call double @llvm.fmuladd.f64(double %1194, double %1194, double 1.000000e+00)
-  %sqrt.i.i325 = call double @llvm.sqrt.f64(double %1195)
-  %1196 = fmul double %.022.i.i324, %sqrt.i.i325
+  %sqrt.i.i323 = call double @llvm.sqrt.f64(double %1195)
+  %1196 = fmul double %.022.i.i322, %sqrt.i.i323
   %1197 = call double @llvm.fabs.f64(double %1196)
   %1198 = fcmp oeq double %1197, 0x7FF0000000000000
   br i1 %1198, label %1199, label %1200
@@ -7307,11 +7303,11 @@ float8_mi.exit6.i320:                             ; preds = %float8_mi.exit.i317
   call void @float_underflow_error() #18
   unreachable
 
-line_closept_point.exit:                          ; preds = %1200, %1190, %1189, %float8_mi.exit6.i320, %line_construct.exit.i80
-  %.0.i81 = phi double [ 0x7FF8000000000000, %line_construct.exit.i80 ], [ %.022.i.i324, %1190 ], [ %1196, %1200 ], [ 0x7FF0000000000000, %float8_mi.exit6.i320 ], [ 0x7FF8000000000000, %1189 ]
+line_closept_point.exit:                          ; preds = %1200, %1190, %1189, %float8_mi.exit6.i318, %line_construct.exit.i78
+  %.0.i79 = phi double [ 0x7FF8000000000000, %line_construct.exit.i78 ], [ %.022.i.i322, %1190 ], [ %1196, %1200 ], [ 0x7FF0000000000000, %float8_mi.exit6.i318 ], [ 0x7FF8000000000000, %1189 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  %1203 = fcmp olt double %.0.i90, %.0.i81
+  %1203 = fcmp olt double %.0.i88, %.0.i79
   %.22.i.i = select i1 %1203, ptr %29, ptr %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 16 dereferenceable(16) %.22.i.i, i64 16, i1 false)
   br label %lseg_closept_point.exit
@@ -7356,9 +7352,9 @@ float8_mi.exit6.i:                                ; preds = %float8_mi.exit.i
   %1224 = fcmp oeq double %1207, 0x7FF0000000000000
   %1225 = fcmp oeq double %1217, 0x7FF0000000000000
   %or.cond.i7.i = or i1 %1224, %1225
-  br i1 %or.cond.i7.i, label %point_dt.exit.thread453, label %1226
+  br i1 %or.cond.i7.i, label %point_dt.exit.thread451, label %1226
 
-point_dt.exit.thread453:                          ; preds = %float8_mi.exit6.i
+point_dt.exit.thread451:                          ; preds = %float8_mi.exit6.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   br label %float8_lt.exit38.i
@@ -7407,10 +7403,10 @@ point_dt.exit:                                    ; preds = %1227, %1237
   %1240 = fcmp uno double %.0.i.i, 0.000000e+00
   br i1 %1240, label %lseg_closept_lseg.exit, label %float8_lt.exit38.i
 
-float8_lt.exit38.i:                               ; preds = %point_dt.exit.thread453, %point_dt.exit
-  %.0.i.i455 = phi double [ 0x7FF0000000000000, %point_dt.exit.thread453 ], [ %.0.i.i, %point_dt.exit ]
+float8_lt.exit38.i:                               ; preds = %point_dt.exit.thread451, %point_dt.exit
+  %.0.i.i453 = phi double [ 0x7FF0000000000000, %point_dt.exit.thread451 ], [ %.0.i.i, %point_dt.exit ]
   %1241 = fcmp uno double %.1.i, 0.000000e+00
-  %1242 = fcmp olt double %.0.i.i455, %.1.i
+  %1242 = fcmp olt double %.0.i.i453, %.1.i
   %1243 = or i1 %1241, %1242
   br i1 %1243, label %1244, label %lseg_closept_lseg.exit
 
@@ -7418,26 +7414,24 @@ float8_lt.exit38.i:                               ; preds = %point_dt.exit.threa
   br label %lseg_closept_lseg.exit
 
 lseg_closept_lseg.exit:                           ; preds = %point_dt.exit.thread, %point_dt.exit, %float8_lt.exit38.i, %1244
-  %.031.i = phi double [ %.0.i.i455, %1244 ], [ %.1.i, %float8_lt.exit38.i ], [ %.1.i, %point_dt.exit ], [ %.1.i, %point_dt.exit.thread ]
-  %1245 = and i8 %.11027, 1
-  %.not44 = icmp eq i8 %1245, 0
-  br i1 %.not44, label %float8_lt.exit.thread, label %1247
+  %.031.i = phi double [ %.0.i.i453, %1244 ], [ %.1.i, %float8_lt.exit38.i ], [ %.1.i, %point_dt.exit ], [ %.1.i, %point_dt.exit.thread ]
+  %1245 = trunc i8 %.11024 to i1
+  br i1 %1245, label %1247, label %float8_lt.exit.thread
 
-lseg_closept_lseg.exit.thread:                    ; preds = %point_dt.exit277
+lseg_closept_lseg.exit.thread:                    ; preds = %point_dt.exit275
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
-  %1246 = and i8 %.11027, 1
-  %.not44457 = icmp eq i8 %1246, 0
-  br i1 %.not44457, label %float8_lt.exit.thread, label %float8_lt.exit
+  %1246 = trunc i8 %.11024 to i1
+  br i1 %1246, label %float8_lt.exit, label %float8_lt.exit.thread
 
 1247:                                             ; preds = %lseg_closept_lseg.exit
   %1248 = fcmp uno double %.031.i, 0.000000e+00
   br i1 %1248, label %float8_lt.exit.thread, label %float8_lt.exit
 
 float8_lt.exit:                                   ; preds = %lseg_closept_lseg.exit.thread, %1247
-  %.031.i458462 = phi double [ %.031.i, %1247 ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ]
-  %1249 = fcmp uno double %.1371026, 0.000000e+00
-  %1250 = fcmp olt double %.031.i458462, %.1371026
+  %.031.i456459 = phi double [ %.031.i, %1247 ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ]
+  %1249 = fcmp uno double %.1371023, 0.000000e+00
+  %1250 = fcmp olt double %.031.i456459, %.1371023
   %1251 = or i1 %1249, %1250
   br i1 %1251, label %1252, label %float8_lt.exit.thread
 
@@ -7445,8 +7439,8 @@ float8_lt.exit:                                   ; preds = %lseg_closept_lseg.e
   br label %float8_lt.exit.thread
 
 float8_lt.exit.thread:                            ; preds = %1247, %lseg_closept_lseg.exit, %lseg_closept_lseg.exit.thread, %float8_lt.exit, %1252, %105
-  %.238 = phi double [ %.1371026, %float8_lt.exit ], [ %.1371026, %105 ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ], [ %.031.i, %lseg_closept_lseg.exit ], [ %.031.i458462, %1252 ], [ %.1371026, %1247 ]
-  %.2 = phi i8 [ %.11027, %float8_lt.exit ], [ %.11027, %105 ], [ 1, %lseg_closept_lseg.exit.thread ], [ 1, %lseg_closept_lseg.exit ], [ 1, %1252 ], [ %.11027, %1247 ]
+  %.238 = phi double [ %.1371023, %float8_lt.exit ], [ %.1371023, %105 ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ], [ %.031.i, %lseg_closept_lseg.exit ], [ %.031.i456459, %1252 ], [ %.1371023, %1247 ]
+  %.2 = phi i8 [ %.11024, %float8_lt.exit ], [ %.11024, %105 ], [ 1, %lseg_closept_lseg.exit.thread ], [ 1, %lseg_closept_lseg.exit ], [ 1, %1252 ], [ %.11024, %1247 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1253 = load i32, ptr %42, align 4
   %1254 = sext i32 %1253 to i64
@@ -7454,31 +7448,30 @@ float8_lt.exit.thread:                            ; preds = %1247, %lseg_closept
   br i1 %1255, label %102, label %.loopexit.loopexit, !llvm.loop !29
 
 .loopexit.loopexit:                               ; preds = %float8_lt.exit.thread
-  %.pre1044 = load i32, ptr %38, align 4
+  %.pre1041 = load i32, ptr %38, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %96, %94
-  %1256 = phi i32 [ %92, %94 ], [ %92, %96 ], [ %.pre1044, %.loopexit.loopexit ]
-  %.339 = phi double [ %.0361030, %94 ], [ %.0361030, %96 ], [ %.238, %.loopexit.loopexit ]
-  %.3 = phi i8 [ %.0351031, %94 ], [ %.0351031, %96 ], [ %.2, %.loopexit.loopexit ]
-  %indvars.iv.next1038 = add nuw nsw i64 %indvars.iv1037, 1
+  %1256 = phi i32 [ %92, %94 ], [ %92, %96 ], [ %.pre1041, %.loopexit.loopexit ]
+  %.339 = phi double [ %.0361027, %94 ], [ %.0361027, %96 ], [ %.238, %.loopexit.loopexit ]
+  %.3 = phi i8 [ %.0351028, %94 ], [ %.0351028, %96 ], [ %.2, %.loopexit.loopexit ]
+  %indvars.iv.next1035 = add nuw nsw i64 %indvars.iv1034, 1
   %1257 = sext i32 %1256 to i64
-  %1258 = icmp slt i64 %indvars.iv.next1038, %1257
+  %1258 = icmp slt i64 %indvars.iv.next1035, %1257
   br i1 %1258, label %91, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %1259 = and i8 %.3, 1
-  %1260 = icmp eq i8 %1259, 0
-  %1261 = bitcast double %.339 to i64
-  br i1 %1260, label %._crit_edge.thread, label %1263
+  %1259 = trunc i8 %.3 to i1
+  %1260 = bitcast double %.339 to i64
+  br i1 %1259, label %1262, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
-  %1262 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %1262, align 4
-  br label %1263
+  %1261 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %1261, align 4
+  br label %1262
 
-1263:                                             ; preds = %._crit_edge, %._crit_edge.thread
-  %.034 = phi i64 [ 0, %._crit_edge.thread ], [ %1261, %._crit_edge ]
+1262:                                             ; preds = %._crit_edge, %._crit_edge.thread
+  %.034 = phi i64 [ 0, %._crit_edge.thread ], [ %1260, %._crit_edge ]
   ret i64 %.034
 }
 
@@ -7683,94 +7676,92 @@ define internal fastcc noundef zeroext i1 @pair_decode(ptr noundef %0, ptr nocap
 single_decode.exit:                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %6, i64 4
   %27 = load i8, ptr %26, align 4
-  %28 = and i8 %27, 1
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %single_decode.exit.thread, label %68
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %66, label %single_decode.exit.thread
 
 single_decode.exit.thread:                        ; preds = %20, %23, %single_decode.exit
-  %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr i8, ptr %30, i64 1
-  store ptr %31, ptr %8, align 8
-  %32 = load i8, ptr %30, align 1
-  %.not17 = icmp eq i8 %32, 44
-  br i1 %.not17, label %33, label %63
+  %29 = load ptr, ptr %8, align 8
+  %30 = getelementptr i8, ptr %29, i64 1
+  store ptr %30, ptr %8, align 8
+  %31 = load i8, ptr %29, align 1
+  %.not17 = icmp eq i8 %31, 44
+  br i1 %.not17, label %32, label %61
 
-33:                                               ; preds = %single_decode.exit.thread
-  %34 = call double @float8in_internal(ptr noundef %31, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5, ptr noundef %6) #15
-  store double %34, ptr %2, align 8
-  br i1 %.not.i, label %single_decode.exit23.thread, label %35
+32:                                               ; preds = %single_decode.exit.thread
+  %33 = call double @float8in_internal(ptr noundef %30, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5, ptr noundef %6) #15
+  store double %33, ptr %2, align 8
+  br i1 %.not.i, label %single_decode.exit23.thread, label %34
 
-35:                                               ; preds = %33
-  %36 = load i32, ptr %6, align 4
-  %37 = icmp eq i32 %36, 431
-  br i1 %37, label %single_decode.exit23, label %single_decode.exit23.thread
+34:                                               ; preds = %32
+  %35 = load i32, ptr %6, align 4
+  %36 = icmp eq i32 %35, 431
+  br i1 %36, label %single_decode.exit23, label %single_decode.exit23.thread
 
-single_decode.exit23:                             ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %6, i64 4
-  %39 = load i8, ptr %38, align 4
-  %40 = and i8 %39, 1
-  %41 = icmp eq i8 %40, 0
-  br i1 %41, label %single_decode.exit23.thread, label %68
+single_decode.exit23:                             ; preds = %34
+  %37 = getelementptr inbounds i8, ptr %6, i64 4
+  %38 = load i8, ptr %37, align 4
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %66, label %single_decode.exit23.thread
 
-single_decode.exit23.thread:                      ; preds = %33, %35, %single_decode.exit23
-  br i1 %18, label %42, label %.loopexit
+single_decode.exit23.thread:                      ; preds = %32, %34, %single_decode.exit23
+  br i1 %18, label %40, label %.loopexit
 
-42:                                               ; preds = %single_decode.exit23.thread
-  %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr i8, ptr %43, i64 1
-  store ptr %44, ptr %8, align 8
-  %45 = load i8, ptr %43, align 1
-  %.not18 = icmp eq i8 %45, 41
-  br i1 %.not18, label %.preheader, label %63
+40:                                               ; preds = %single_decode.exit23.thread
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr i8, ptr %41, i64 1
+  store ptr %42, ptr %8, align 8
+  %43 = load i8, ptr %41, align 1
+  %.not18 = icmp eq i8 %43, 41
+  br i1 %.not18, label %.preheader, label %61
 
-.preheader:                                       ; preds = %42
-  %46 = load ptr, ptr %9, align 8
-  %47 = load i8, ptr %44, align 1
-  %48 = zext i8 %47 to i64
-  %49 = getelementptr i16, ptr %46, i64 %48
-  %50 = load i16, ptr %49, align 2
-  %51 = and i16 %50, 8192
-  %.not1925 = icmp eq i16 %51, 0
+.preheader:                                       ; preds = %40
+  %44 = load ptr, ptr %9, align 8
+  %45 = load i8, ptr %42, align 1
+  %46 = zext i8 %45 to i64
+  %47 = getelementptr i16, ptr %44, i64 %46
+  %48 = load i16, ptr %47, align 2
+  %49 = and i16 %48, 8192
+  %.not1925 = icmp eq i16 %49, 0
   br i1 %.not1925, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %52 = phi ptr [ %53, %.lr.ph ], [ %44, %.preheader ]
-  %53 = getelementptr i8, ptr %52, i64 1
-  store ptr %53, ptr %8, align 8
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i64
-  %56 = getelementptr i16, ptr %46, i64 %55
-  %57 = load i16, ptr %56, align 2
-  %58 = and i16 %57, 8192
-  %.not19 = icmp eq i16 %58, 0
+  %50 = phi ptr [ %51, %.lr.ph ], [ %42, %.preheader ]
+  %51 = getelementptr i8, ptr %50, i64 1
+  store ptr %51, ptr %8, align 8
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i64
+  %54 = getelementptr i16, ptr %44, i64 %53
+  %55 = load i16, ptr %54, align 2
+  %56 = and i16 %55, 8192
+  %.not19 = icmp eq i16 %56, 0
   br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %single_decode.exit23.thread
   %.not20 = icmp eq ptr %3, null
-  %59 = load ptr, ptr %8, align 8
-  br i1 %.not20, label %61, label %60
+  %57 = load ptr, ptr %8, align 8
+  br i1 %.not20, label %59, label %58
 
-60:                                               ; preds = %.loopexit
-  store ptr %59, ptr %3, align 8
-  br label %68
+58:                                               ; preds = %.loopexit
+  store ptr %57, ptr %3, align 8
+  br label %66
 
-61:                                               ; preds = %.loopexit
-  %62 = load i8, ptr %59, align 1
-  %.not21 = icmp eq i8 %62, 0
-  br i1 %.not21, label %68, label %63
+59:                                               ; preds = %.loopexit
+  %60 = load i8, ptr %57, align 1
+  %.not21 = icmp eq i8 %60, 0
+  br i1 %.not21, label %66, label %61
 
-63:                                               ; preds = %61, %42, %single_decode.exit.thread
-  %64 = call zeroext i1 @errsave_start(ptr noundef %6, ptr noundef null) #15
-  br i1 %64, label %65, label %68
+61:                                               ; preds = %59, %40, %single_decode.exit.thread
+  %62 = call zeroext i1 @errsave_start(ptr noundef %6, ptr noundef null) #15
+  br i1 %62, label %63, label %66
 
-65:                                               ; preds = %63
-  %66 = call i32 @errcode(i32 noundef 33685634) #15
-  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %4, ptr noundef %5) #15
+63:                                               ; preds = %61
+  %64 = call i32 @errcode(i32 noundef 33685634) #15
+  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %4, ptr noundef %5) #15
   call void @errsave_finish(ptr noundef %6, ptr noundef nonnull @.str.2, i32 noundef 251, ptr noundef nonnull @__func__.pair_decode) #15
-  br label %68
+  br label %66
 
-68:                                               ; preds = %65, %63, %60, %61, %single_decode.exit23, %single_decode.exit
-  %.0 = phi i1 [ false, %single_decode.exit ], [ false, %single_decode.exit23 ], [ true, %61 ], [ true, %60 ], [ false, %63 ], [ false, %65 ]
+66:                                               ; preds = %63, %61, %58, %59, %single_decode.exit23, %single_decode.exit
+  %.0 = phi i1 [ false, %single_decode.exit ], [ false, %single_decode.exit23 ], [ true, %59 ], [ true, %58 ], [ false, %61 ], [ false, %63 ]
   ret i1 %.0
 }
 
@@ -9114,12 +9105,12 @@ define dso_local i64 @dist_ppath(ptr nocapture noundef readonly %0) local_unname
 
 16:                                               ; preds = %float8_lt.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %float8_lt.exit.thread.i ]
-  %17 = phi i32 [ %11, %.lr.ph.i ], [ %35, %float8_lt.exit.thread.i ]
-  %.01724.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1.i, %float8_lt.exit.thread.i ]
-  %.01823.i = phi i8 [ 0, %.lr.ph.i ], [ %.119.i, %float8_lt.exit.thread.i ]
-  %.not22.i = icmp eq i64 %indvars.iv.i, 0
+  %17 = phi i32 [ %11, %.lr.ph.i ], [ %34, %float8_lt.exit.thread.i ]
+  %.01723.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1.i, %float8_lt.exit.thread.i ]
+  %.01822.i = phi i1 [ false, %.lr.ph.i ], [ %.119.i, %float8_lt.exit.thread.i ]
+  %.not21.i = icmp eq i64 %indvars.iv.i, 0
   %18 = trunc i64 %indvars.iv.i to i32
-  br i1 %.not22.i, label %19, label %21
+  br i1 %.not21.i, label %19, label %21
 
 19:                                               ; preds = %16
   %20 = load i32, ptr %13, align 8
@@ -9137,38 +9128,36 @@ define dso_local i64 @dist_ppath(ptr nocapture noundef readonly %0) local_unname
   %26 = load <2 x double>, ptr %24, align 8
   store <2 x double> %26, ptr %15, align 16
   %27 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull %2, ptr noundef %5)
-  %28 = and i8 %.01823.i, 1
-  %.not21.i = icmp eq i8 %28, 0
-  br i1 %.not21.i, label %34, label %29
+  br i1 %.01822.i, label %28, label %33
 
-29:                                               ; preds = %21
-  %30 = fcmp uno double %27, 0.000000e+00
-  br i1 %30, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
+28:                                               ; preds = %21
+  %29 = fcmp uno double %27, 0.000000e+00
+  br i1 %29, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
 
-float8_lt.exit.i:                                 ; preds = %29
-  %31 = fcmp uno double %.01724.i, 0.000000e+00
-  %32 = fcmp olt double %27, %.01724.i
-  %33 = or i1 %31, %32
-  br i1 %33, label %34, label %float8_lt.exit.thread.i
+float8_lt.exit.i:                                 ; preds = %28
+  %30 = fcmp uno double %.01723.i, 0.000000e+00
+  %31 = fcmp olt double %27, %.01723.i
+  %32 = or i1 %30, %31
+  br i1 %32, label %33, label %float8_lt.exit.thread.i
 
-34:                                               ; preds = %float8_lt.exit.i, %21
+33:                                               ; preds = %float8_lt.exit.i, %21
   br label %float8_lt.exit.thread.i
 
-float8_lt.exit.thread.i:                          ; preds = %34, %float8_lt.exit.i, %29, %19
-  %.119.i = phi i8 [ 1, %34 ], [ %.01823.i, %float8_lt.exit.i ], [ %.01823.i, %19 ], [ %.01823.i, %29 ]
-  %.1.i = phi double [ %27, %34 ], [ %.01724.i, %float8_lt.exit.i ], [ %.01724.i, %19 ], [ %.01724.i, %29 ]
+float8_lt.exit.thread.i:                          ; preds = %33, %float8_lt.exit.i, %28, %19
+  %.119.i = phi i1 [ true, %33 ], [ true, %float8_lt.exit.i ], [ %.01822.i, %19 ], [ true, %28 ]
+  %.1.i = phi double [ %27, %33 ], [ %.01723.i, %float8_lt.exit.i ], [ %.01723.i, %19 ], [ %.01723.i, %28 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %35 = load i32, ptr %10, align 4
-  %36 = sext i32 %35 to i64
-  %37 = icmp slt i64 %indvars.iv.next.i, %36
-  br i1 %37, label %16, label %dist_ppath_internal.exit.loopexit, !llvm.loop !34
+  %34 = load i32, ptr %10, align 4
+  %35 = sext i32 %34 to i64
+  %36 = icmp slt i64 %indvars.iv.next.i, %35
+  br i1 %36, label %16, label %dist_ppath_internal.exit.loopexit, !llvm.loop !34
 
 dist_ppath_internal.exit.loopexit:                ; preds = %float8_lt.exit.thread.i
-  %38 = bitcast double %.1.i to i64
+  %37 = bitcast double %.1.i to i64
   br label %dist_ppath_internal.exit
 
 dist_ppath_internal.exit:                         ; preds = %dist_ppath_internal.exit.loopexit, %1
-  %.017.lcssa.i = phi i64 [ 0, %1 ], [ %38, %dist_ppath_internal.exit.loopexit ]
+  %.017.lcssa.i = phi i64 [ 0, %1 ], [ %37, %dist_ppath_internal.exit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   ret i64 %.017.lcssa.i
 }
@@ -9197,12 +9186,12 @@ define dso_local i64 @dist_pathp(ptr nocapture noundef readonly %0) local_unname
 
 16:                                               ; preds = %float8_lt.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %float8_lt.exit.thread.i ]
-  %17 = phi i32 [ %11, %.lr.ph.i ], [ %35, %float8_lt.exit.thread.i ]
-  %.01724.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1.i, %float8_lt.exit.thread.i ]
-  %.01823.i = phi i8 [ 0, %.lr.ph.i ], [ %.119.i, %float8_lt.exit.thread.i ]
-  %.not22.i = icmp eq i64 %indvars.iv.i, 0
+  %17 = phi i32 [ %11, %.lr.ph.i ], [ %34, %float8_lt.exit.thread.i ]
+  %.01723.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1.i, %float8_lt.exit.thread.i ]
+  %.01822.i = phi i1 [ false, %.lr.ph.i ], [ %.119.i, %float8_lt.exit.thread.i ]
+  %.not21.i = icmp eq i64 %indvars.iv.i, 0
   %18 = trunc i64 %indvars.iv.i to i32
-  br i1 %.not22.i, label %19, label %21
+  br i1 %.not21.i, label %19, label %21
 
 19:                                               ; preds = %16
   %20 = load i32, ptr %13, align 8
@@ -9220,38 +9209,36 @@ define dso_local i64 @dist_pathp(ptr nocapture noundef readonly %0) local_unname
   %26 = load <2 x double>, ptr %24, align 8
   store <2 x double> %26, ptr %15, align 16
   %27 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull %2, ptr noundef %9)
-  %28 = and i8 %.01823.i, 1
-  %.not21.i = icmp eq i8 %28, 0
-  br i1 %.not21.i, label %34, label %29
+  br i1 %.01822.i, label %28, label %33
 
-29:                                               ; preds = %21
-  %30 = fcmp uno double %27, 0.000000e+00
-  br i1 %30, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
+28:                                               ; preds = %21
+  %29 = fcmp uno double %27, 0.000000e+00
+  br i1 %29, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
 
-float8_lt.exit.i:                                 ; preds = %29
-  %31 = fcmp uno double %.01724.i, 0.000000e+00
-  %32 = fcmp olt double %27, %.01724.i
-  %33 = or i1 %31, %32
-  br i1 %33, label %34, label %float8_lt.exit.thread.i
+float8_lt.exit.i:                                 ; preds = %28
+  %30 = fcmp uno double %.01723.i, 0.000000e+00
+  %31 = fcmp olt double %27, %.01723.i
+  %32 = or i1 %30, %31
+  br i1 %32, label %33, label %float8_lt.exit.thread.i
 
-34:                                               ; preds = %float8_lt.exit.i, %21
+33:                                               ; preds = %float8_lt.exit.i, %21
   br label %float8_lt.exit.thread.i
 
-float8_lt.exit.thread.i:                          ; preds = %34, %float8_lt.exit.i, %29, %19
-  %.119.i = phi i8 [ 1, %34 ], [ %.01823.i, %float8_lt.exit.i ], [ %.01823.i, %19 ], [ %.01823.i, %29 ]
-  %.1.i = phi double [ %27, %34 ], [ %.01724.i, %float8_lt.exit.i ], [ %.01724.i, %19 ], [ %.01724.i, %29 ]
+float8_lt.exit.thread.i:                          ; preds = %33, %float8_lt.exit.i, %28, %19
+  %.119.i = phi i1 [ true, %33 ], [ true, %float8_lt.exit.i ], [ %.01822.i, %19 ], [ true, %28 ]
+  %.1.i = phi double [ %27, %33 ], [ %.01723.i, %float8_lt.exit.i ], [ %.01723.i, %19 ], [ %.01723.i, %28 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %35 = load i32, ptr %10, align 4
-  %36 = sext i32 %35 to i64
-  %37 = icmp slt i64 %indvars.iv.next.i, %36
-  br i1 %37, label %16, label %dist_ppath_internal.exit.loopexit, !llvm.loop !34
+  %34 = load i32, ptr %10, align 4
+  %35 = sext i32 %34 to i64
+  %36 = icmp slt i64 %indvars.iv.next.i, %35
+  br i1 %36, label %16, label %dist_ppath_internal.exit.loopexit, !llvm.loop !34
 
 dist_ppath_internal.exit.loopexit:                ; preds = %float8_lt.exit.thread.i
-  %38 = bitcast double %.1.i to i64
+  %37 = bitcast double %.1.i to i64
   br label %dist_ppath_internal.exit
 
 dist_ppath_internal.exit:                         ; preds = %dist_ppath_internal.exit.loopexit, %1
-  %.017.lcssa.i = phi i64 [ 0, %1 ], [ %38, %dist_ppath_internal.exit.loopexit ]
+  %.017.lcssa.i = phi i64 [ 0, %1 ], [ %37, %dist_ppath_internal.exit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   ret i64 %.017.lcssa.i
 }
@@ -12025,10 +12012,10 @@ box_ov.exit:                                      ; preds = %19
   %37 = sext i32 %36 to i64
   %38 = getelementptr [0 x %struct.Point], ptr %33, i64 0, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  %39 = icmp sgt i32 %35, 0
-  br i1 %39, label %.lr.ph153, label %._crit_edge154.thread
+  %39 = icmp slt i32 %35, 1
+  br i1 %39, label %._crit_edge155.thread, label %.lr.ph154
 
-.lr.ph153:                                        ; preds = %32
+.lr.ph154:                                        ; preds = %32
   %40 = getelementptr inbounds i8, ptr %5, i64 16
   %41 = getelementptr inbounds i8, ptr %1, i64 40
   %42 = getelementptr inbounds i8, ptr %1, i64 4
@@ -12038,445 +12025,442 @@ box_ov.exit:                                      ; preds = %19
   %.pre = load i32, ptr %42, align 4
   br label %46
 
-46:                                               ; preds = %.lr.ph153, %._crit_edge
-  %47 = phi i32 [ %35, %.lr.ph153 ], [ %215, %._crit_edge ]
-  %48 = phi i32 [ %.pre, %.lr.ph153 ], [ %216, %._crit_edge ]
-  %indvars.iv161 = phi i64 [ 0, %.lr.ph153 ], [ %indvars.iv.next162, %._crit_edge ]
-  %.027150 = phi i8 [ 0, %.lr.ph153 ], [ %.1.lcssa, %._crit_edge ]
+46:                                               ; preds = %.lr.ph154, %._crit_edge
+  %47 = phi i32 [ %35, %.lr.ph154 ], [ %214, %._crit_edge ]
+  %48 = phi i32 [ %.pre, %.lr.ph154 ], [ %215, %._crit_edge ]
+  %indvars.iv161 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next162, %._crit_edge ]
+  %.027151 = phi i8 [ 0, %.lr.ph154 ], [ %.1.lcssa, %._crit_edge ]
   %49 = getelementptr [0 x %struct.Point], ptr %33, i64 0, i64 %indvars.iv161
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false)
-  %50 = icmp sgt i32 %48, 0
-  %51 = and i8 %.027150, 1
-  %.not29144 = icmp eq i8 %51, 0
-  %52 = select i1 %50, i1 %.not29144, i1 false
-  br i1 %52, label %.lr.ph.preheader, label %._crit_edge
+  %50 = icmp slt i32 %48, 1
+  %51 = trunc i8 %.027151 to i1
+  %.not30145 = select i1 %50, i1 true, i1 %51
+  br i1 %.not30145, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %46
-  %53 = add nsw i32 %48, -1
-  %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr [0 x %struct.Point], ptr %41, i64 0, i64 %54
-  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %55, i64 8
+  %52 = add nsw i32 %48, -1
+  %53 = zext nneg i32 %52 to i64
+  %54 = getelementptr [0 x %struct.Point], ptr %41, i64 0, i64 %53
+  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 8
   %.sroa.0.sroa.7.0.copyload = load double, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
-  %.sroa.0.sroa.0.0.copyload = load double, ptr %55, align 8
+  %.sroa.0.sroa.0.0.copyload = load double, ptr %54, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %lseg_interpt_lseg.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %lseg_interpt_lseg.exit ]
-  %.sroa.0.sroa.7.0147 = phi double [ %.sroa.0.sroa.7.0.copyload, %.lr.ph.preheader ], [ %.sroa.12.sroa.5.0.copyload79, %lseg_interpt_lseg.exit ]
-  %.sroa.0.sroa.0.0145 = phi double [ %.sroa.0.sroa.0.0.copyload, %.lr.ph.preheader ], [ %.sroa.12.sroa.0.0.copyload78, %lseg_interpt_lseg.exit ]
-  %56 = getelementptr [0 x %struct.Point], ptr %41, i64 0, i64 %indvars.iv
-  %.sroa.12.sroa.0.0.copyload78 = load double, ptr %56, align 8
-  %.sroa.12.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 8
-  %.sroa.12.sroa.5.0.copyload79 = load double, ptr %.sroa.12.sroa.5.0..sroa_idx, align 8
+  %.sroa.0.sroa.7.0148 = phi double [ %.sroa.0.sroa.7.0.copyload, %.lr.ph.preheader ], [ %.sroa.12.sroa.5.0.copyload80, %lseg_interpt_lseg.exit ]
+  %.sroa.0.sroa.0.0146 = phi double [ %.sroa.0.sroa.0.0.copyload, %.lr.ph.preheader ], [ %.sroa.12.sroa.0.0.copyload79, %lseg_interpt_lseg.exit ]
+  %55 = getelementptr [0 x %struct.Point], ptr %41, i64 0, i64 %indvars.iv
+  %.sroa.12.sroa.0.0.copyload79 = load double, ptr %55, align 8
+  %.sroa.12.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %55, i64 8
+  %.sroa.12.sroa.5.0.copyload80 = load double, ptr %.sroa.12.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %57 = fcmp oeq double %.sroa.0.sroa.0.0145, %.sroa.12.sroa.0.0.copyload78
-  %58 = fsub double %.sroa.0.sroa.0.0145, %.sroa.12.sroa.0.0.copyload78
-  %59 = call double @llvm.fabs.f64(double %58)
-  %60 = fcmp ole double %59, 0x3EB0C6F7A0B5ED8D
-  %61 = or i1 %57, %60
-  br i1 %61, label %line_construct.exit.i.sink.split.sink.split, label %62
+  %56 = fcmp oeq double %.sroa.0.sroa.0.0146, %.sroa.12.sroa.0.0.copyload79
+  %57 = fsub double %.sroa.0.sroa.0.0146, %.sroa.12.sroa.0.0.copyload79
+  %58 = call double @llvm.fabs.f64(double %57)
+  %59 = fcmp ole double %58, 0x3EB0C6F7A0B5ED8D
+  %60 = or i1 %56, %59
+  br i1 %60, label %line_construct.exit.i.sink.split.sink.split, label %61
 
-62:                                               ; preds = %.lr.ph
-  %63 = fcmp oeq double %.sroa.0.sroa.7.0147, %.sroa.12.sroa.5.0.copyload79
-  %64 = fsub double %.sroa.0.sroa.7.0147, %.sroa.12.sroa.5.0.copyload79
-  %65 = call double @llvm.fabs.f64(double %64)
-  %66 = fcmp ole double %65, 0x3EB0C6F7A0B5ED8D
-  %67 = or i1 %63, %66
-  br i1 %67, label %line_construct.exit.i.sink.split.sink.split, label %68
+61:                                               ; preds = %.lr.ph
+  %62 = fcmp oeq double %.sroa.0.sroa.7.0148, %.sroa.12.sroa.5.0.copyload80
+  %63 = fsub double %.sroa.0.sroa.7.0148, %.sroa.12.sroa.5.0.copyload80
+  %64 = call double @llvm.fabs.f64(double %63)
+  %65 = fcmp ole double %64, 0x3EB0C6F7A0B5ED8D
+  %66 = or i1 %62, %65
+  br i1 %66, label %line_construct.exit.i.sink.split.sink.split, label %67
 
-68:                                               ; preds = %62
-  %69 = fcmp une double %65, 0x7FF0000000000000
-  %70 = call double @llvm.fabs.f64(double %.sroa.0.sroa.7.0147)
-  %71 = fcmp oeq double %70, 0x7FF0000000000000
-  %or.cond.i.i56 = or i1 %71, %69
-  %72 = call double @llvm.fabs.f64(double %.sroa.12.sroa.5.0.copyload79)
-  %73 = fcmp oeq double %72, 0x7FF0000000000000
-  %or.cond8.i.i57 = or i1 %73, %or.cond.i.i56
-  br i1 %or.cond8.i.i57, label %float8_mi.exit.i58, label %74
+67:                                               ; preds = %61
+  %68 = fcmp une double %64, 0x7FF0000000000000
+  %69 = call double @llvm.fabs.f64(double %.sroa.0.sroa.7.0148)
+  %70 = fcmp oeq double %69, 0x7FF0000000000000
+  %or.cond.i.i57 = or i1 %70, %68
+  %71 = call double @llvm.fabs.f64(double %.sroa.12.sroa.5.0.copyload80)
+  %72 = fcmp oeq double %71, 0x7FF0000000000000
+  %or.cond8.i.i58 = or i1 %72, %or.cond.i.i57
+  br i1 %or.cond8.i.i58, label %float8_mi.exit.i59, label %73
 
-74:                                               ; preds = %68
+73:                                               ; preds = %67
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i58:                               ; preds = %68
-  %75 = fcmp une double %59, 0x7FF0000000000000
-  %76 = call double @llvm.fabs.f64(double %.sroa.0.sroa.0.0145)
-  %77 = fcmp oeq double %76, 0x7FF0000000000000
-  %or.cond.i9.i = or i1 %77, %75
-  %78 = call double @llvm.fabs.f64(double %.sroa.12.sroa.0.0.copyload78)
-  %79 = fcmp oeq double %78, 0x7FF0000000000000
-  %or.cond8.i10.i = or i1 %79, %or.cond.i9.i
-  br i1 %or.cond8.i10.i, label %float8_mi.exit11.i, label %80
+float8_mi.exit.i59:                               ; preds = %67
+  %74 = fcmp une double %58, 0x7FF0000000000000
+  %75 = call double @llvm.fabs.f64(double %.sroa.0.sroa.0.0146)
+  %76 = fcmp oeq double %75, 0x7FF0000000000000
+  %or.cond.i9.i = or i1 %76, %74
+  %77 = call double @llvm.fabs.f64(double %.sroa.12.sroa.0.0.copyload79)
+  %78 = fcmp oeq double %77, 0x7FF0000000000000
+  %or.cond8.i10.i = or i1 %78, %or.cond.i9.i
+  br i1 %or.cond8.i10.i, label %float8_mi.exit11.i, label %79
 
-80:                                               ; preds = %float8_mi.exit.i58
+79:                                               ; preds = %float8_mi.exit.i59
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit11.i:                               ; preds = %float8_mi.exit.i58
-  %81 = fcmp une double %58, 0.000000e+00
-  %82 = fcmp uno double %64, 0.000000e+00
-  %or.cond11.i.i = or i1 %81, %82
-  br i1 %or.cond11.i.i, label %84, label %83
+float8_mi.exit11.i:                               ; preds = %float8_mi.exit.i59
+  %80 = fcmp une double %57, 0.000000e+00
+  %81 = fcmp uno double %63, 0.000000e+00
+  %or.cond11.i.i = or i1 %80, %81
+  br i1 %or.cond11.i.i, label %83, label %82
 
-83:                                               ; preds = %float8_mi.exit11.i
+82:                                               ; preds = %float8_mi.exit11.i
   call void @float_zero_divide_error() #18
   unreachable
 
-84:                                               ; preds = %float8_mi.exit11.i
-  %85 = fdiv double %64, %58
-  %86 = call double @llvm.fabs.f64(double %85)
-  %87 = fcmp une double %86, 0x7FF0000000000000
-  %88 = fcmp oeq double %65, 0x7FF0000000000000
-  %or.cond13.i.i = or i1 %88, %87
-  br i1 %or.cond13.i.i, label %90, label %89
+83:                                               ; preds = %float8_mi.exit11.i
+  %84 = fdiv double %63, %57
+  %85 = call double @llvm.fabs.f64(double %84)
+  %86 = fcmp une double %85, 0x7FF0000000000000
+  %87 = fcmp oeq double %64, 0x7FF0000000000000
+  %or.cond13.i.i = or i1 %87, %86
+  br i1 %or.cond13.i.i, label %89, label %88
 
-89:                                               ; preds = %84
+88:                                               ; preds = %83
   call void @float_overflow_error() #18
   unreachable
 
-90:                                               ; preds = %84
-  %91 = fcmp une double %85, 0.000000e+00
-  %92 = fcmp oeq double %64, 0.000000e+00
-  %or.cond.not17.i.i = or i1 %92, %91
-  %93 = fcmp oeq double %59, 0x7FF0000000000000
-  %or.cond15.i.i = or i1 %93, %or.cond.not17.i.i
-  br i1 %or.cond15.i.i, label %point_sl.exit, label %94
+89:                                               ; preds = %83
+  %90 = fcmp une double %84, 0.000000e+00
+  %91 = fcmp oeq double %63, 0.000000e+00
+  %or.cond.not17.i.i = or i1 %91, %90
+  %92 = fcmp oeq double %58, 0x7FF0000000000000
+  %or.cond15.i.i = or i1 %92, %or.cond.not17.i.i
+  br i1 %or.cond15.i.i, label %point_sl.exit, label %93
 
-94:                                               ; preds = %90
+93:                                               ; preds = %89
   call void @float_underflow_error() #18
   unreachable
 
-point_sl.exit:                                    ; preds = %90
-  %95 = call double @llvm.fabs.f64(double %85)
-  %96 = fcmp oeq double %95, 0x7FF0000000000000
-  br i1 %96, label %line_construct.exit.i.sink.split.sink.split, label %97
+point_sl.exit:                                    ; preds = %89
+  %94 = call double @llvm.fabs.f64(double %84)
+  %95 = fcmp oeq double %94, 0x7FF0000000000000
+  br i1 %95, label %line_construct.exit.i.sink.split.sink.split, label %96
 
-97:                                               ; preds = %point_sl.exit
-  %98 = fcmp oeq double %85, 0.000000e+00
-  br i1 %98, label %line_construct.exit.i.sink.split.sink.split, label %99
+96:                                               ; preds = %point_sl.exit
+  %97 = fcmp oeq double %84, 0.000000e+00
+  br i1 %97, label %line_construct.exit.i.sink.split.sink.split, label %98
 
-99:                                               ; preds = %97
-  store double %85, ptr %4, align 16
+98:                                               ; preds = %96
+  store double %84, ptr %4, align 16
   store double -1.000000e+00, ptr %43, align 8
-  %100 = fmul double %.sroa.0.sroa.0.0145, %85
-  %101 = call double @llvm.fabs.f64(double %100)
-  %102 = fcmp une double %101, 0x7FF0000000000000
-  %103 = call double @llvm.fabs.f64(double %.sroa.0.sroa.0.0145)
-  %104 = fcmp oeq double %103, 0x7FF0000000000000
-  %or.cond15.i.i.i = or i1 %104, %102
-  br i1 %or.cond15.i.i.i, label %106, label %105
+  %99 = fmul double %.sroa.0.sroa.0.0146, %84
+  %100 = call double @llvm.fabs.f64(double %99)
+  %101 = fcmp une double %100, 0x7FF0000000000000
+  %102 = call double @llvm.fabs.f64(double %.sroa.0.sroa.0.0146)
+  %103 = fcmp oeq double %102, 0x7FF0000000000000
+  %or.cond15.i.i.i = or i1 %103, %101
+  br i1 %or.cond15.i.i.i, label %105, label %104
 
-105:                                              ; preds = %99
+104:                                              ; preds = %98
   call void @float_overflow_error() #18
   unreachable
 
-106:                                              ; preds = %99
-  %107 = fcmp oeq double %100, 0.000000e+00
-  %108 = fcmp une double %.sroa.0.sroa.0.0145, 0.000000e+00
-  %or.cond3.i.i.i = and i1 %108, %107
-  br i1 %or.cond3.i.i.i, label %109, label %float8_mul.exit.i.i
+105:                                              ; preds = %98
+  %106 = fcmp oeq double %99, 0.000000e+00
+  %107 = fcmp une double %.sroa.0.sroa.0.0146, 0.000000e+00
+  %or.cond3.i.i.i = and i1 %107, %106
+  br i1 %or.cond3.i.i.i, label %108, label %float8_mul.exit.i.i
 
-109:                                              ; preds = %106
+108:                                              ; preds = %105
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i:                              ; preds = %106
-  %110 = fsub double %.sroa.0.sroa.7.0147, %100
-  %111 = call double @llvm.fabs.f64(double %110)
-  %112 = fcmp une double %111, 0x7FF0000000000000
-  %113 = call double @llvm.fabs.f64(double %.sroa.0.sroa.7.0147)
-  %114 = fcmp oeq double %113, 0x7FF0000000000000
-  %or.cond.i19.i.i = or i1 %114, %112
-  %115 = fcmp oeq double %101, 0x7FF0000000000000
-  %or.cond8.i.i.i = or i1 %115, %or.cond.i19.i.i
-  br i1 %or.cond8.i.i.i, label %float8_mi.exit.i.i, label %116
+float8_mul.exit.i.i:                              ; preds = %105
+  %109 = fsub double %.sroa.0.sroa.7.0148, %99
+  %110 = call double @llvm.fabs.f64(double %109)
+  %111 = fcmp une double %110, 0x7FF0000000000000
+  %112 = call double @llvm.fabs.f64(double %.sroa.0.sroa.7.0148)
+  %113 = fcmp oeq double %112, 0x7FF0000000000000
+  %or.cond.i19.i.i = or i1 %113, %111
+  %114 = fcmp oeq double %100, 0x7FF0000000000000
+  %or.cond8.i.i.i = or i1 %114, %or.cond.i19.i.i
+  br i1 %or.cond8.i.i.i, label %float8_mi.exit.i.i, label %115
 
-116:                                              ; preds = %float8_mul.exit.i.i
+115:                                              ; preds = %float8_mul.exit.i.i
   call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i.i:                               ; preds = %float8_mul.exit.i.i
-  %117 = fcmp oeq double %110, 0.000000e+00
-  br i1 %117, label %line_construct.exit.i.sink.split, label %line_construct.exit.i
+  %116 = fcmp oeq double %109, 0.000000e+00
+  br i1 %116, label %line_construct.exit.i.sink.split, label %line_construct.exit.i
 
-line_construct.exit.i.sink.split.sink.split:      ; preds = %97, %62, %point_sl.exit, %.lr.ph
-  %.sink.ph = phi double [ %.sroa.0.sroa.0.0145, %.lr.ph ], [ %.sroa.0.sroa.0.0145, %point_sl.exit ], [ %.sroa.0.sroa.7.0147, %62 ], [ %.sroa.0.sroa.7.0147, %97 ]
-  %118 = phi <2 x double> [ <double -1.000000e+00, double 0.000000e+00>, %.lr.ph ], [ <double -1.000000e+00, double 0.000000e+00>, %point_sl.exit ], [ <double 0.000000e+00, double -1.000000e+00>, %62 ], [ <double 0.000000e+00, double -1.000000e+00>, %97 ]
-  store <2 x double> %118, ptr %4, align 16
+line_construct.exit.i.sink.split.sink.split:      ; preds = %96, %61, %point_sl.exit, %.lr.ph
+  %.sink.ph = phi double [ %.sroa.0.sroa.0.0146, %.lr.ph ], [ %.sroa.0.sroa.0.0146, %point_sl.exit ], [ %.sroa.0.sroa.7.0148, %61 ], [ %.sroa.0.sroa.7.0148, %96 ]
+  %117 = phi <2 x double> [ <double -1.000000e+00, double 0.000000e+00>, %.lr.ph ], [ <double -1.000000e+00, double 0.000000e+00>, %point_sl.exit ], [ <double 0.000000e+00, double -1.000000e+00>, %61 ], [ <double 0.000000e+00, double -1.000000e+00>, %96 ]
+  store <2 x double> %117, ptr %4, align 16
   br label %line_construct.exit.i
 
 line_construct.exit.i.sink.split:                 ; preds = %float8_mi.exit.i.i
   br label %line_construct.exit.i
 
 line_construct.exit.i:                            ; preds = %line_construct.exit.i.sink.split.sink.split, %line_construct.exit.i.sink.split, %float8_mi.exit.i.i
-  %storemerge172 = phi double [ %110, %float8_mi.exit.i.i ], [ %.sink.ph, %line_construct.exit.i.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i.sink.split ]
+  %storemerge172 = phi double [ %109, %float8_mi.exit.i.i ], [ %.sink.ph, %line_construct.exit.i.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i.sink.split ]
   store double %storemerge172, ptr %44, align 16
-  %119 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4)
-  br i1 %119, label %120, label %lseg_interpt_lseg.exit
+  %118 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  br i1 %118, label %119, label %lseg_interpt_lseg.exit
 
-120:                                              ; preds = %line_construct.exit.i
-  %121 = load double, ptr %3, align 8
-  %122 = fsub double %121, %.sroa.0.sroa.0.0145
-  %123 = call double @llvm.fabs.f64(double %122)
-  %124 = fcmp une double %123, 0x7FF0000000000000
-  %125 = call double @llvm.fabs.f64(double %121)
-  %126 = fcmp oeq double %125, 0x7FF0000000000000
-  %or.cond.i.i43 = or i1 %126, %124
-  %127 = call double @llvm.fabs.f64(double %.sroa.0.sroa.0.0145)
-  %128 = fcmp oeq double %127, 0x7FF0000000000000
-  %or.cond8.i.i44 = or i1 %128, %or.cond.i.i43
-  br i1 %or.cond8.i.i44, label %float8_mi.exit.i45, label %129
+119:                                              ; preds = %line_construct.exit.i
+  %120 = load double, ptr %3, align 8
+  %121 = fsub double %120, %.sroa.0.sroa.0.0146
+  %122 = call double @llvm.fabs.f64(double %121)
+  %123 = fcmp une double %122, 0x7FF0000000000000
+  %124 = call double @llvm.fabs.f64(double %120)
+  %125 = fcmp oeq double %124, 0x7FF0000000000000
+  %or.cond.i.i44 = or i1 %125, %123
+  %126 = call double @llvm.fabs.f64(double %.sroa.0.sroa.0.0146)
+  %127 = fcmp oeq double %126, 0x7FF0000000000000
+  %or.cond8.i.i45 = or i1 %127, %or.cond.i.i44
+  br i1 %or.cond8.i.i45, label %float8_mi.exit.i46, label %128
 
-129:                                              ; preds = %120
+128:                                              ; preds = %119
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i45:                               ; preds = %120
-  %130 = load double, ptr %45, align 8
-  %131 = fsub double %130, %.sroa.0.sroa.7.0147
-  %132 = call double @llvm.fabs.f64(double %131)
-  %133 = fcmp une double %132, 0x7FF0000000000000
-  %134 = call double @llvm.fabs.f64(double %130)
-  %135 = fcmp oeq double %134, 0x7FF0000000000000
-  %or.cond.i4.i46 = or i1 %135, %133
-  %136 = call double @llvm.fabs.f64(double %.sroa.0.sroa.7.0147)
-  %137 = fcmp oeq double %136, 0x7FF0000000000000
-  %or.cond8.i5.i47 = or i1 %137, %or.cond.i4.i46
-  br i1 %or.cond8.i5.i47, label %float8_mi.exit6.i48, label %138
+float8_mi.exit.i46:                               ; preds = %119
+  %129 = load double, ptr %45, align 8
+  %130 = fsub double %129, %.sroa.0.sroa.7.0148
+  %131 = call double @llvm.fabs.f64(double %130)
+  %132 = fcmp une double %131, 0x7FF0000000000000
+  %133 = call double @llvm.fabs.f64(double %129)
+  %134 = fcmp oeq double %133, 0x7FF0000000000000
+  %or.cond.i4.i47 = or i1 %134, %132
+  %135 = call double @llvm.fabs.f64(double %.sroa.0.sroa.7.0148)
+  %136 = fcmp oeq double %135, 0x7FF0000000000000
+  %or.cond8.i5.i48 = or i1 %136, %or.cond.i4.i47
+  br i1 %or.cond8.i5.i48, label %float8_mi.exit6.i49, label %137
 
-138:                                              ; preds = %float8_mi.exit.i45
+137:                                              ; preds = %float8_mi.exit.i46
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i48:                              ; preds = %float8_mi.exit.i45
-  %139 = fcmp oeq double %123, 0x7FF0000000000000
-  %140 = fcmp oeq double %132, 0x7FF0000000000000
-  %or.cond.i7.i49 = or i1 %139, %140
-  br i1 %or.cond.i7.i49, label %point_dt.exit55, label %141
+float8_mi.exit6.i49:                              ; preds = %float8_mi.exit.i46
+  %138 = fcmp oeq double %122, 0x7FF0000000000000
+  %139 = fcmp oeq double %131, 0x7FF0000000000000
+  %or.cond.i7.i50 = or i1 %138, %139
+  br i1 %or.cond.i7.i50, label %point_dt.exit56, label %140
 
-141:                                              ; preds = %float8_mi.exit6.i48
-  %or.cond29.i.i50 = fcmp uno double %122, %131
-  br i1 %or.cond29.i.i50, label %point_dt.exit55, label %142
+140:                                              ; preds = %float8_mi.exit6.i49
+  %or.cond29.i.i51 = fcmp uno double %121, %130
+  br i1 %or.cond29.i.i51, label %point_dt.exit56, label %141
 
-142:                                              ; preds = %141
-  %143 = fcmp olt double %123, %132
-  %.023.i.i51 = select i1 %143, double %123, double %132
-  %.022.i.i52 = select i1 %143, double %132, double %123
-  %144 = fcmp oeq double %.023.i.i51, 0.000000e+00
-  br i1 %144, label %point_dt.exit55, label %145
+141:                                              ; preds = %140
+  %142 = fcmp olt double %122, %131
+  %.023.i.i52 = select i1 %142, double %122, double %131
+  %.022.i.i53 = select i1 %142, double %131, double %122
+  %143 = fcmp oeq double %.023.i.i52, 0.000000e+00
+  br i1 %143, label %point_dt.exit56, label %144
 
-145:                                              ; preds = %142
-  %146 = fdiv double %.023.i.i51, %.022.i.i52
-  %147 = call double @llvm.fmuladd.f64(double %146, double %146, double 1.000000e+00)
-  %sqrt.i.i53 = call double @llvm.sqrt.f64(double %147)
-  %148 = fmul double %.022.i.i52, %sqrt.i.i53
-  %149 = call double @llvm.fabs.f64(double %148)
-  %150 = fcmp oeq double %149, 0x7FF0000000000000
-  br i1 %150, label %151, label %152
+144:                                              ; preds = %141
+  %145 = fdiv double %.023.i.i52, %.022.i.i53
+  %146 = call double @llvm.fmuladd.f64(double %145, double %145, double 1.000000e+00)
+  %sqrt.i.i54 = call double @llvm.sqrt.f64(double %146)
+  %147 = fmul double %.022.i.i53, %sqrt.i.i54
+  %148 = call double @llvm.fabs.f64(double %147)
+  %149 = fcmp oeq double %148, 0x7FF0000000000000
+  br i1 %149, label %150, label %151
 
-151:                                              ; preds = %145
+150:                                              ; preds = %144
   call void @float_overflow_error() #18
   unreachable
 
-152:                                              ; preds = %145
-  %153 = fcmp oeq double %148, 0.000000e+00
-  br i1 %153, label %154, label %point_dt.exit55
+151:                                              ; preds = %144
+  %152 = fcmp oeq double %147, 0.000000e+00
+  br i1 %152, label %153, label %point_dt.exit56
 
-154:                                              ; preds = %152
+153:                                              ; preds = %151
   call void @float_underflow_error() #18
   unreachable
 
-point_dt.exit55:                                  ; preds = %float8_mi.exit6.i48, %141, %142, %152
-  %.0.i.i54 = phi double [ %.022.i.i52, %142 ], [ %148, %152 ], [ 0x7FF0000000000000, %float8_mi.exit6.i48 ], [ 0x7FF8000000000000, %141 ]
-  %155 = fsub double %121, %.sroa.12.sroa.0.0.copyload78
-  %156 = call double @llvm.fabs.f64(double %155)
-  %157 = fcmp une double %156, 0x7FF0000000000000
-  %or.cond.i.i30 = or i1 %126, %157
-  %158 = call double @llvm.fabs.f64(double %.sroa.12.sroa.0.0.copyload78)
-  %159 = fcmp oeq double %158, 0x7FF0000000000000
-  %or.cond8.i.i31 = or i1 %159, %or.cond.i.i30
-  br i1 %or.cond8.i.i31, label %float8_mi.exit.i32, label %160
+point_dt.exit56:                                  ; preds = %float8_mi.exit6.i49, %140, %141, %151
+  %.0.i.i55 = phi double [ %.022.i.i53, %141 ], [ %147, %151 ], [ 0x7FF0000000000000, %float8_mi.exit6.i49 ], [ 0x7FF8000000000000, %140 ]
+  %154 = fsub double %120, %.sroa.12.sroa.0.0.copyload79
+  %155 = call double @llvm.fabs.f64(double %154)
+  %156 = fcmp une double %155, 0x7FF0000000000000
+  %or.cond.i.i31 = or i1 %125, %156
+  %157 = call double @llvm.fabs.f64(double %.sroa.12.sroa.0.0.copyload79)
+  %158 = fcmp oeq double %157, 0x7FF0000000000000
+  %or.cond8.i.i32 = or i1 %158, %or.cond.i.i31
+  br i1 %or.cond8.i.i32, label %float8_mi.exit.i33, label %159
 
-160:                                              ; preds = %point_dt.exit55
+159:                                              ; preds = %point_dt.exit56
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i32:                               ; preds = %point_dt.exit55
-  %161 = fsub double %130, %.sroa.12.sroa.5.0.copyload79
-  %162 = call double @llvm.fabs.f64(double %161)
-  %163 = fcmp une double %162, 0x7FF0000000000000
-  %or.cond.i4.i33 = or i1 %135, %163
-  %164 = call double @llvm.fabs.f64(double %.sroa.12.sroa.5.0.copyload79)
-  %165 = fcmp oeq double %164, 0x7FF0000000000000
-  %or.cond8.i5.i34 = or i1 %165, %or.cond.i4.i33
-  br i1 %or.cond8.i5.i34, label %float8_mi.exit6.i35, label %166
+float8_mi.exit.i33:                               ; preds = %point_dt.exit56
+  %160 = fsub double %129, %.sroa.12.sroa.5.0.copyload80
+  %161 = call double @llvm.fabs.f64(double %160)
+  %162 = fcmp une double %161, 0x7FF0000000000000
+  %or.cond.i4.i34 = or i1 %134, %162
+  %163 = call double @llvm.fabs.f64(double %.sroa.12.sroa.5.0.copyload80)
+  %164 = fcmp oeq double %163, 0x7FF0000000000000
+  %or.cond8.i5.i35 = or i1 %164, %or.cond.i4.i34
+  br i1 %or.cond8.i5.i35, label %float8_mi.exit6.i36, label %165
 
-166:                                              ; preds = %float8_mi.exit.i32
+165:                                              ; preds = %float8_mi.exit.i33
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i35:                              ; preds = %float8_mi.exit.i32
-  %167 = fcmp oeq double %156, 0x7FF0000000000000
-  %168 = fcmp oeq double %162, 0x7FF0000000000000
-  %or.cond.i7.i36 = or i1 %167, %168
-  br i1 %or.cond.i7.i36, label %point_dt.exit42, label %169
+float8_mi.exit6.i36:                              ; preds = %float8_mi.exit.i33
+  %166 = fcmp oeq double %155, 0x7FF0000000000000
+  %167 = fcmp oeq double %161, 0x7FF0000000000000
+  %or.cond.i7.i37 = or i1 %166, %167
+  br i1 %or.cond.i7.i37, label %point_dt.exit43, label %168
 
-169:                                              ; preds = %float8_mi.exit6.i35
-  %or.cond29.i.i37 = fcmp uno double %155, %161
-  br i1 %or.cond29.i.i37, label %point_dt.exit42, label %170
+168:                                              ; preds = %float8_mi.exit6.i36
+  %or.cond29.i.i38 = fcmp uno double %154, %160
+  br i1 %or.cond29.i.i38, label %point_dt.exit43, label %169
 
-170:                                              ; preds = %169
-  %171 = fcmp olt double %156, %162
-  %.023.i.i38 = select i1 %171, double %156, double %162
-  %.022.i.i39 = select i1 %171, double %162, double %156
-  %172 = fcmp oeq double %.023.i.i38, 0.000000e+00
-  br i1 %172, label %point_dt.exit42, label %173
+169:                                              ; preds = %168
+  %170 = fcmp olt double %155, %161
+  %.023.i.i39 = select i1 %170, double %155, double %161
+  %.022.i.i40 = select i1 %170, double %161, double %155
+  %171 = fcmp oeq double %.023.i.i39, 0.000000e+00
+  br i1 %171, label %point_dt.exit43, label %172
 
-173:                                              ; preds = %170
-  %174 = fdiv double %.023.i.i38, %.022.i.i39
-  %175 = call double @llvm.fmuladd.f64(double %174, double %174, double 1.000000e+00)
-  %sqrt.i.i40 = call double @llvm.sqrt.f64(double %175)
-  %176 = fmul double %.022.i.i39, %sqrt.i.i40
-  %177 = call double @llvm.fabs.f64(double %176)
-  %178 = fcmp oeq double %177, 0x7FF0000000000000
-  br i1 %178, label %179, label %180
+172:                                              ; preds = %169
+  %173 = fdiv double %.023.i.i39, %.022.i.i40
+  %174 = call double @llvm.fmuladd.f64(double %173, double %173, double 1.000000e+00)
+  %sqrt.i.i41 = call double @llvm.sqrt.f64(double %174)
+  %175 = fmul double %.022.i.i40, %sqrt.i.i41
+  %176 = call double @llvm.fabs.f64(double %175)
+  %177 = fcmp oeq double %176, 0x7FF0000000000000
+  br i1 %177, label %178, label %179
 
-179:                                              ; preds = %173
+178:                                              ; preds = %172
   call void @float_overflow_error() #18
   unreachable
 
-180:                                              ; preds = %173
-  %181 = fcmp oeq double %176, 0.000000e+00
-  br i1 %181, label %182, label %point_dt.exit42
+179:                                              ; preds = %172
+  %180 = fcmp oeq double %175, 0.000000e+00
+  br i1 %180, label %181, label %point_dt.exit43
 
-182:                                              ; preds = %180
+181:                                              ; preds = %179
   call void @float_underflow_error() #18
   unreachable
 
-point_dt.exit42:                                  ; preds = %float8_mi.exit6.i35, %169, %170, %180
-  %.0.i.i41 = phi double [ %.022.i.i39, %170 ], [ %176, %180 ], [ 0x7FF0000000000000, %float8_mi.exit6.i35 ], [ 0x7FF8000000000000, %169 ]
-  %183 = fadd double %.0.i.i54, %.0.i.i41
-  %184 = fcmp une double %59, 0x7FF0000000000000
-  %or.cond.i.i = or i1 %128, %184
-  %or.cond8.i.i = or i1 %159, %or.cond.i.i
-  br i1 %or.cond8.i.i, label %float8_mi.exit.i, label %185
+point_dt.exit43:                                  ; preds = %float8_mi.exit6.i36, %168, %169, %179
+  %.0.i.i42 = phi double [ %.022.i.i40, %169 ], [ %175, %179 ], [ 0x7FF0000000000000, %float8_mi.exit6.i36 ], [ 0x7FF8000000000000, %168 ]
+  %182 = fadd double %.0.i.i55, %.0.i.i42
+  %183 = fcmp une double %58, 0x7FF0000000000000
+  %or.cond.i.i = or i1 %127, %183
+  %or.cond8.i.i = or i1 %158, %or.cond.i.i
+  br i1 %or.cond8.i.i, label %float8_mi.exit.i, label %184
 
-185:                                              ; preds = %point_dt.exit42
+184:                                              ; preds = %point_dt.exit43
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i:                                 ; preds = %point_dt.exit42
-  %186 = fsub double %.sroa.0.sroa.7.0147, %.sroa.12.sroa.5.0.copyload79
-  %187 = call double @llvm.fabs.f64(double %186)
-  %188 = fcmp une double %187, 0x7FF0000000000000
-  %or.cond.i4.i = or i1 %137, %188
-  %or.cond8.i5.i = or i1 %165, %or.cond.i4.i
-  br i1 %or.cond8.i5.i, label %float8_mi.exit6.i, label %189
+float8_mi.exit.i:                                 ; preds = %point_dt.exit43
+  %185 = fsub double %.sroa.0.sroa.7.0148, %.sroa.12.sroa.5.0.copyload80
+  %186 = call double @llvm.fabs.f64(double %185)
+  %187 = fcmp une double %186, 0x7FF0000000000000
+  %or.cond.i4.i = or i1 %136, %187
+  %or.cond8.i5.i = or i1 %164, %or.cond.i4.i
+  br i1 %or.cond8.i5.i, label %float8_mi.exit6.i, label %188
 
-189:                                              ; preds = %float8_mi.exit.i
+188:                                              ; preds = %float8_mi.exit.i
   call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit6.i:                                ; preds = %float8_mi.exit.i
-  %190 = fcmp oeq double %59, 0x7FF0000000000000
-  %191 = fcmp oeq double %187, 0x7FF0000000000000
-  %or.cond.i7.i = or i1 %190, %191
-  br i1 %or.cond.i7.i, label %point_dt.exit, label %192
+  %189 = fcmp oeq double %58, 0x7FF0000000000000
+  %190 = fcmp oeq double %186, 0x7FF0000000000000
+  %or.cond.i7.i = or i1 %189, %190
+  br i1 %or.cond.i7.i, label %point_dt.exit, label %191
 
-192:                                              ; preds = %float8_mi.exit6.i
-  %or.cond29.i.i = fcmp uno double %58, %186
-  br i1 %or.cond29.i.i, label %point_dt.exit, label %193
+191:                                              ; preds = %float8_mi.exit6.i
+  %or.cond29.i.i = fcmp uno double %57, %185
+  br i1 %or.cond29.i.i, label %point_dt.exit, label %192
 
-193:                                              ; preds = %192
-  %194 = fcmp olt double %59, %187
-  %.023.i.i = select i1 %194, double %59, double %187
-  %.022.i.i = select i1 %194, double %187, double %59
-  %195 = fcmp oeq double %.023.i.i, 0.000000e+00
-  br i1 %195, label %point_dt.exit, label %196
+192:                                              ; preds = %191
+  %193 = fcmp olt double %58, %186
+  %.023.i.i = select i1 %193, double %58, double %186
+  %.022.i.i = select i1 %193, double %186, double %58
+  %194 = fcmp oeq double %.023.i.i, 0.000000e+00
+  br i1 %194, label %point_dt.exit, label %195
 
-196:                                              ; preds = %193
-  %197 = fdiv double %.023.i.i, %.022.i.i
-  %198 = call double @llvm.fmuladd.f64(double %197, double %197, double 1.000000e+00)
-  %sqrt.i.i = call double @llvm.sqrt.f64(double %198)
-  %199 = fmul double %.022.i.i, %sqrt.i.i
-  %200 = call double @llvm.fabs.f64(double %199)
-  %201 = fcmp oeq double %200, 0x7FF0000000000000
-  br i1 %201, label %202, label %203
+195:                                              ; preds = %192
+  %196 = fdiv double %.023.i.i, %.022.i.i
+  %197 = call double @llvm.fmuladd.f64(double %196, double %196, double 1.000000e+00)
+  %sqrt.i.i = call double @llvm.sqrt.f64(double %197)
+  %198 = fmul double %.022.i.i, %sqrt.i.i
+  %199 = call double @llvm.fabs.f64(double %198)
+  %200 = fcmp oeq double %199, 0x7FF0000000000000
+  br i1 %200, label %201, label %202
 
-202:                                              ; preds = %196
+201:                                              ; preds = %195
   call void @float_overflow_error() #18
   unreachable
 
-203:                                              ; preds = %196
-  %204 = fcmp oeq double %199, 0.000000e+00
-  br i1 %204, label %205, label %point_dt.exit
+202:                                              ; preds = %195
+  %203 = fcmp oeq double %198, 0.000000e+00
+  br i1 %203, label %204, label %point_dt.exit
 
-205:                                              ; preds = %203
+204:                                              ; preds = %202
   call void @float_underflow_error() #18
   unreachable
 
-point_dt.exit:                                    ; preds = %float8_mi.exit6.i, %192, %193, %203
-  %.0.i.i = phi double [ %.022.i.i, %193 ], [ %199, %203 ], [ 0x7FF0000000000000, %float8_mi.exit6.i ], [ 0x7FF8000000000000, %192 ]
-  %206 = fcmp oeq double %183, %.0.i.i
-  %207 = fsub double %183, %.0.i.i
-  %208 = call double @llvm.fabs.f64(double %207)
-  %209 = fcmp ole double %208, 0x3EB0C6F7A0B5ED8D
-  %210 = or i1 %206, %209
+point_dt.exit:                                    ; preds = %float8_mi.exit6.i, %191, %192, %202
+  %.0.i.i = phi double [ %.022.i.i, %192 ], [ %198, %202 ], [ 0x7FF0000000000000, %float8_mi.exit6.i ], [ 0x7FF8000000000000, %191 ]
+  %205 = fcmp oeq double %182, %.0.i.i
+  %206 = fsub double %182, %.0.i.i
+  %207 = call double @llvm.fabs.f64(double %206)
+  %208 = fcmp ole double %207, 0x3EB0C6F7A0B5ED8D
+  %209 = or i1 %205, %208
   br label %lseg_interpt_lseg.exit
 
 lseg_interpt_lseg.exit:                           ; preds = %point_dt.exit, %line_construct.exit.i
-  %.0.i = phi i1 [ false, %line_construct.exit.i ], [ %210, %point_dt.exit ]
+  %.0.i = phi i1 [ false, %line_construct.exit.i ], [ %209, %point_dt.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %211 = load i32, ptr %42, align 4
-  %212 = sext i32 %211 to i64
-  %213 = icmp sge i64 %indvars.iv.next, %212
-  %.not158 = select i1 %213, i1 true, i1 %.0.i
-  br i1 %.not158, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !49
+  %210 = load i32, ptr %42, align 4
+  %211 = sext i32 %210 to i64
+  %212 = icmp sge i64 %indvars.iv.next, %211
+  %.not30 = select i1 %212, i1 true, i1 %.0.i
+  br i1 %.not30, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge.loopexit:                             ; preds = %lseg_interpt_lseg.exit
-  %214 = zext i1 %.0.i to i8
+  %213 = zext i1 %.0.i to i8
   %.pre163 = load i32, ptr %34, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %46
-  %.pre-phi = phi i8 [ %214, %._crit_edge.loopexit ], [ %51, %46 ]
-  %215 = phi i32 [ %.pre163, %._crit_edge.loopexit ], [ %47, %46 ]
-  %216 = phi i32 [ %211, %._crit_edge.loopexit ], [ %48, %46 ]
-  %.1.lcssa = phi i8 [ %214, %._crit_edge.loopexit ], [ %.027150, %46 ]
+  %.pre-phi = phi i1 [ %.0.i, %._crit_edge.loopexit ], [ %51, %46 ]
+  %214 = phi i32 [ %.pre163, %._crit_edge.loopexit ], [ %47, %46 ]
+  %215 = phi i32 [ %210, %._crit_edge.loopexit ], [ %48, %46 ]
+  %.1.lcssa = phi i8 [ %213, %._crit_edge.loopexit ], [ %.027151, %46 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
-  %217 = sext i32 %215 to i64
-  %218 = icmp slt i64 %indvars.iv.next162, %217
-  %.not = icmp eq i8 %.pre-phi, 0
-  %219 = select i1 %218, i1 %.not, i1 false
-  br i1 %219, label %46, label %._crit_edge154, !llvm.loop !50
+  %216 = sext i32 %214 to i64
+  %217 = icmp sge i64 %indvars.iv.next162, %216
+  %.not28 = select i1 %217, i1 true, i1 %.pre-phi
+  br i1 %.not28, label %._crit_edge155, label %46, !llvm.loop !50
 
-._crit_edge154:                                   ; preds = %._crit_edge
-  br i1 %.not, label %._crit_edge154.thread, label %box_ov.exit.thread
+._crit_edge155:                                   ; preds = %._crit_edge
+  br i1 %.pre-phi, label %box_ov.exit.thread, label %._crit_edge155.thread
 
-._crit_edge154.thread:                            ; preds = %32, %._crit_edge154
-  %220 = getelementptr inbounds i8, ptr %1, i64 4
-  %221 = load i32, ptr %220, align 4
-  %222 = getelementptr inbounds i8, ptr %1, i64 40
-  %223 = call fastcc i32 @point_inside(ptr noundef nonnull %33, i32 noundef %221, ptr noundef nonnull %222), !range !35
-  %.not28 = icmp eq i32 %223, 0
-  br i1 %.not28, label %224, label %box_ov.exit.thread
+._crit_edge155.thread:                            ; preds = %32, %._crit_edge155
+  %218 = getelementptr inbounds i8, ptr %1, i64 4
+  %219 = load i32, ptr %218, align 4
+  %220 = getelementptr inbounds i8, ptr %1, i64 40
+  %221 = call fastcc i32 @point_inside(ptr noundef nonnull %33, i32 noundef %219, ptr noundef nonnull %220), !range !35
+  %.not = icmp eq i32 %221, 0
+  br i1 %.not, label %222, label %box_ov.exit.thread
 
-224:                                              ; preds = %._crit_edge154.thread
-  %225 = load i32, ptr %34, align 4
-  %226 = call fastcc i32 @point_inside(ptr noundef nonnull %222, i32 noundef %225, ptr noundef nonnull %33), !range !35
-  %227 = icmp ne i32 %226, 0
-  %228 = zext i1 %227 to i8
+222:                                              ; preds = %._crit_edge155.thread
+  %223 = load i32, ptr %34, align 4
+  %224 = call fastcc i32 @point_inside(ptr noundef nonnull %220, i32 noundef %223, ptr noundef nonnull %33), !range !35
+  %225 = icmp ne i32 %224, 0
+  %226 = zext i1 %225 to i8
   br label %box_ov.exit.thread
 
-box_ov.exit.thread:                               ; preds = %2, %12, %19, %._crit_edge154.thread, %224, %._crit_edge154, %box_ov.exit
-  %.2 = phi i8 [ %.1.lcssa, %._crit_edge154 ], [ 0, %box_ov.exit ], [ 1, %._crit_edge154.thread ], [ %228, %224 ], [ 0, %19 ], [ 0, %12 ], [ 0, %2 ]
-  %229 = and i8 %.2, 1
-  %230 = icmp ne i8 %229, 0
-  ret i1 %230
+box_ov.exit.thread:                               ; preds = %2, %12, %19, %._crit_edge155.thread, %222, %._crit_edge155, %box_ov.exit
+  %.2 = phi i8 [ %.1.lcssa, %._crit_edge155 ], [ 0, %box_ov.exit ], [ 1, %._crit_edge155.thread ], [ %226, %222 ], [ 0, %19 ], [ 0, %12 ], [ 0, %2 ]
+  %227 = trunc i8 %.2 to i1
+  ret i1 %227
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12760,15 +12744,15 @@ define dso_local i64 @poly_distance(ptr nocapture noundef %0) local_unnamed_addr
   %36 = inttoptr i64 %35 to ptr
   %37 = tail call ptr @pg_detoast_datum(ptr noundef %36) #15
   %38 = tail call fastcc zeroext i1 @poly_overlap_internal(ptr noundef %33, ptr noundef %37)
-  br i1 %38, label %1258, label %.preheader
+  br i1 %38, label %1257, label %.preheader
 
 .preheader:                                       ; preds = %1
   %39 = getelementptr inbounds i8, ptr %33, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %.lr.ph1030, label %._crit_edge1031.thread
+  br i1 %41, label %.lr.ph1027, label %._crit_edge1028.thread
 
-.lr.ph1030:                                       ; preds = %.preheader
+.lr.ph1027:                                       ; preds = %.preheader
   %42 = getelementptr inbounds i8, ptr %37, i64 4
   %43 = getelementptr inbounds i8, ptr %33, i64 40
   %44 = getelementptr inbounds i8, ptr %28, i64 8
@@ -12819,35 +12803,35 @@ define dso_local i64 @poly_distance(ptr nocapture noundef %0) local_unnamed_addr
   %89 = getelementptr inbounds i8, ptr %26, i64 8
   %90 = load i32, ptr %42, align 4
   %91 = icmp sgt i32 %90, 0
-  br i1 %91, label %.lr.ph1030.split, label %._crit_edge1031.thread
+  br i1 %91, label %.lr.ph1027.split, label %._crit_edge1028.thread
 
-.lr.ph1030.split:                                 ; preds = %.lr.ph1030, %._crit_edge
-  %92 = phi i32 [ %1250, %._crit_edge ], [ %40, %.lr.ph1030 ]
-  %93 = phi i32 [ %1251, %._crit_edge ], [ %90, %.lr.ph1030 ]
-  %indvars.iv1036 = phi i64 [ %indvars.iv.next1037, %._crit_edge ], [ 0, %.lr.ph1030 ]
-  %.0351028 = phi i8 [ %.1.lcssa, %._crit_edge ], [ 0, %.lr.ph1030 ]
-  %.0361027 = phi double [ %.137.lcssa, %._crit_edge ], [ 0.000000e+00, %.lr.ph1030 ]
+.lr.ph1027.split:                                 ; preds = %.lr.ph1027, %._crit_edge
+  %92 = phi i32 [ %1250, %._crit_edge ], [ %40, %.lr.ph1027 ]
+  %93 = phi i32 [ %1251, %._crit_edge ], [ %90, %.lr.ph1027 ]
+  %indvars.iv1033 = phi i64 [ %indvars.iv.next1034, %._crit_edge ], [ 0, %.lr.ph1027 ]
+  %.0351025 = phi i8 [ %.1.lcssa, %._crit_edge ], [ 0, %.lr.ph1027 ]
+  %.0361024 = phi double [ %.137.lcssa, %._crit_edge ], [ 0.000000e+00, %.lr.ph1027 ]
   %94 = icmp sgt i32 %93, 0
   br i1 %94, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph1030.split
-  %.not1044 = icmp eq i64 %indvars.iv1036, 0
-  %95 = trunc i64 %indvars.iv1036 to i32
-  %.033. = select i1 %.not1044, i32 %92, i32 %95
+.lr.ph:                                           ; preds = %.lr.ph1027.split
+  %.not1041 = icmp eq i64 %indvars.iv1033, 0
+  %95 = trunc i64 %indvars.iv1033 to i32
+  %.033. = select i1 %.not1041, i32 %92, i32 %95
   %.031 = add i32 %.033., -1
   %96 = sext i32 %.031 to i64
   %97 = getelementptr [0 x %struct.Point], ptr %43, i64 0, i64 %96
-  %98 = getelementptr [0 x %struct.Point], ptr %43, i64 0, i64 %indvars.iv1036
+  %98 = getelementptr [0 x %struct.Point], ptr %43, i64 0, i64 %indvars.iv1033
   br label %99
 
 99:                                               ; preds = %.lr.ph, %float8_lt.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %float8_lt.exit.thread ]
   %100 = phi i32 [ %93, %.lr.ph ], [ %1247, %float8_lt.exit.thread ]
-  %.11024 = phi i8 [ %.0351028, %.lr.ph ], [ %.2, %float8_lt.exit.thread ]
-  %.1371023 = phi double [ %.0361027, %.lr.ph ], [ %.238, %float8_lt.exit.thread ]
-  %.not462 = icmp eq i64 %indvars.iv, 0
+  %.11021 = phi i8 [ %.0351025, %.lr.ph ], [ %.2, %float8_lt.exit.thread ]
+  %.1371020 = phi double [ %.0361024, %.lr.ph ], [ %.238, %float8_lt.exit.thread ]
+  %.not = icmp eq i64 %indvars.iv, 0
   %101 = trunc i64 %indvars.iv to i32
-  %.032. = select i1 %.not462, i32 %100, i32 %101
+  %.032. = select i1 %.not, i32 %100, i32 %101
   %.0 = add i32 %.032., -1
   %102 = load <2 x double>, ptr %97, align 8
   store <2 x double> %102, ptr %28, align 16
@@ -12870,7 +12854,7 @@ define dso_local i64 @poly_distance(ptr nocapture noundef %0) local_unnamed_addr
   %114 = call double @llvm.fabs.f64(double %113)
   %115 = fcmp ole double %114, 0x3EB0C6F7A0B5ED8D
   %116 = or i1 %111, %115
-  br i1 %116, label %line_construct.exit.i75.sink.split.sink.split, label %117
+  br i1 %116, label %line_construct.exit.i74.sink.split.sink.split, label %117
 
 117:                                              ; preds = %99
   %118 = extractelement <2 x double> %107, i64 1
@@ -12880,53 +12864,53 @@ define dso_local i64 @poly_distance(ptr nocapture noundef %0) local_unnamed_addr
   %122 = call double @llvm.fabs.f64(double %121)
   %123 = fcmp ole double %122, 0x3EB0C6F7A0B5ED8D
   %124 = or i1 %120, %123
-  br i1 %124, label %line_construct.exit.i75.sink.split.sink.split, label %125
+  br i1 %124, label %line_construct.exit.i74.sink.split.sink.split, label %125
 
 125:                                              ; preds = %117
   %126 = fcmp une double %122, 0x7FF0000000000000
   %127 = call double @llvm.fabs.f64(double %118)
   %128 = fcmp oeq double %127, 0x7FF0000000000000
-  %or.cond.i.i301 = or i1 %128, %126
+  %or.cond.i.i300 = or i1 %128, %126
   %129 = call double @llvm.fabs.f64(double %119)
   %130 = fcmp oeq double %129, 0x7FF0000000000000
-  %or.cond8.i.i302 = or i1 %130, %or.cond.i.i301
-  br i1 %or.cond8.i.i302, label %float8_mi.exit.i303, label %131
+  %or.cond8.i.i301 = or i1 %130, %or.cond.i.i300
+  br i1 %or.cond8.i.i301, label %float8_mi.exit.i302, label %131
 
 131:                                              ; preds = %125
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i303:                              ; preds = %125
+float8_mi.exit.i302:                              ; preds = %125
   %132 = fcmp une double %114, 0x7FF0000000000000
   %133 = call double @llvm.fabs.f64(double %109)
   %134 = fcmp oeq double %133, 0x7FF0000000000000
-  %or.cond.i9.i304 = or i1 %134, %132
+  %or.cond.i9.i303 = or i1 %134, %132
   %135 = call double @llvm.fabs.f64(double %110)
   %136 = fcmp oeq double %135, 0x7FF0000000000000
-  %or.cond8.i10.i305 = or i1 %136, %or.cond.i9.i304
-  br i1 %or.cond8.i10.i305, label %float8_mi.exit11.i306, label %137
+  %or.cond8.i10.i304 = or i1 %136, %or.cond.i9.i303
+  br i1 %or.cond8.i10.i304, label %float8_mi.exit11.i305, label %137
 
-137:                                              ; preds = %float8_mi.exit.i303
+137:                                              ; preds = %float8_mi.exit.i302
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit11.i306:                            ; preds = %float8_mi.exit.i303
+float8_mi.exit11.i305:                            ; preds = %float8_mi.exit.i302
   %138 = fcmp une double %113, 0.000000e+00
   %139 = fcmp uno double %121, 0.000000e+00
-  %or.cond11.i.i307 = or i1 %138, %139
-  br i1 %or.cond11.i.i307, label %141, label %140
+  %or.cond11.i.i306 = or i1 %138, %139
+  br i1 %or.cond11.i.i306, label %141, label %140
 
-140:                                              ; preds = %float8_mi.exit11.i306
+140:                                              ; preds = %float8_mi.exit11.i305
   call void @float_zero_divide_error() #18
   unreachable
 
-141:                                              ; preds = %float8_mi.exit11.i306
+141:                                              ; preds = %float8_mi.exit11.i305
   %142 = fdiv double %121, %113
   %143 = call double @llvm.fabs.f64(double %142)
   %144 = fcmp une double %143, 0x7FF0000000000000
   %145 = fcmp oeq double %122, 0x7FF0000000000000
-  %or.cond13.i.i308 = or i1 %145, %144
-  br i1 %or.cond13.i.i308, label %147, label %146
+  %or.cond13.i.i307 = or i1 %145, %144
+  br i1 %or.cond13.i.i307, label %147, label %146
 
 146:                                              ; preds = %141
   call void @float_overflow_error() #18
@@ -12935,10 +12919,10 @@ float8_mi.exit11.i306:                            ; preds = %float8_mi.exit.i303
 147:                                              ; preds = %141
   %148 = fcmp une double %142, 0.000000e+00
   %149 = fcmp oeq double %121, 0.000000e+00
-  %or.cond.not17.i.i309 = or i1 %149, %148
+  %or.cond.not17.i.i308 = or i1 %149, %148
   %150 = fcmp oeq double %114, 0x7FF0000000000000
-  %or.cond15.i.i310 = or i1 %150, %or.cond.not17.i.i309
-  br i1 %or.cond15.i.i310, label %point_sl.exit, label %151
+  %or.cond15.i.i309 = or i1 %150, %or.cond.not17.i.i308
+  br i1 %or.cond15.i.i309, label %point_sl.exit, label %151
 
 151:                                              ; preds = %147
   call void @float_underflow_error() #18
@@ -12947,11 +12931,11 @@ float8_mi.exit11.i306:                            ; preds = %float8_mi.exit.i303
 point_sl.exit:                                    ; preds = %147
   %152 = call double @llvm.fabs.f64(double %142)
   %153 = fcmp oeq double %152, 0x7FF0000000000000
-  br i1 %153, label %line_construct.exit.i75.sink.split.sink.split, label %154
+  br i1 %153, label %line_construct.exit.i74.sink.split.sink.split, label %154
 
 154:                                              ; preds = %point_sl.exit
   %155 = fcmp oeq double %142, 0.000000e+00
-  br i1 %155, label %line_construct.exit.i75.sink.split.sink.split, label %156
+  br i1 %155, label %line_construct.exit.i74.sink.split.sink.split, label %156
 
 156:                                              ; preds = %154
   store double %142, ptr %19, align 16
@@ -12961,8 +12945,8 @@ point_sl.exit:                                    ; preds = %147
   %159 = fcmp une double %158, 0x7FF0000000000000
   %160 = call double @llvm.fabs.f64(double %109)
   %161 = fcmp oeq double %160, 0x7FF0000000000000
-  %or.cond15.i.i.i69 = or i1 %161, %159
-  br i1 %or.cond15.i.i.i69, label %163, label %162
+  %or.cond15.i.i.i68 = or i1 %161, %159
+  br i1 %or.cond15.i.i.i68, label %163, label %162
 
 162:                                              ; preds = %156
   call void @float_overflow_error() #18
@@ -12971,65 +12955,65 @@ point_sl.exit:                                    ; preds = %147
 163:                                              ; preds = %156
   %164 = fcmp oeq double %157, 0.000000e+00
   %165 = fcmp une double %109, 0.000000e+00
-  %or.cond3.i.i.i70 = and i1 %165, %164
-  br i1 %or.cond3.i.i.i70, label %166, label %float8_mul.exit.i.i71
+  %or.cond3.i.i.i69 = and i1 %165, %164
+  br i1 %or.cond3.i.i.i69, label %166, label %float8_mul.exit.i.i70
 
 166:                                              ; preds = %163
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i71:                            ; preds = %163
+float8_mul.exit.i.i70:                            ; preds = %163
   %167 = fsub double %118, %157
   %168 = call double @llvm.fabs.f64(double %167)
   %169 = fcmp une double %168, 0x7FF0000000000000
   %170 = call double @llvm.fabs.f64(double %118)
   %171 = fcmp oeq double %170, 0x7FF0000000000000
-  %or.cond.i19.i.i72 = or i1 %171, %169
+  %or.cond.i19.i.i71 = or i1 %171, %169
   %172 = fcmp oeq double %158, 0x7FF0000000000000
-  %or.cond8.i.i.i73 = or i1 %172, %or.cond.i19.i.i72
-  br i1 %or.cond8.i.i.i73, label %float8_mi.exit.i.i74, label %173
+  %or.cond8.i.i.i72 = or i1 %172, %or.cond.i19.i.i71
+  br i1 %or.cond8.i.i.i72, label %float8_mi.exit.i.i73, label %173
 
-173:                                              ; preds = %float8_mul.exit.i.i71
+173:                                              ; preds = %float8_mul.exit.i.i70
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i74:                             ; preds = %float8_mul.exit.i.i71
+float8_mi.exit.i.i73:                             ; preds = %float8_mul.exit.i.i70
   %174 = fcmp oeq double %167, 0.000000e+00
-  br i1 %174, label %line_construct.exit.i75.sink.split, label %line_construct.exit.i75
+  br i1 %174, label %line_construct.exit.i74.sink.split, label %line_construct.exit.i74
 
-line_construct.exit.i75.sink.split.sink.split:    ; preds = %154, %117, %point_sl.exit, %99
+line_construct.exit.i74.sink.split.sink.split:    ; preds = %154, %117, %point_sl.exit, %99
   %.sink.ph = phi double [ %109, %99 ], [ %109, %point_sl.exit ], [ %118, %117 ], [ %118, %154 ]
   %175 = phi <2 x double> [ <double -1.000000e+00, double 0.000000e+00>, %99 ], [ <double -1.000000e+00, double 0.000000e+00>, %point_sl.exit ], [ <double 0.000000e+00, double -1.000000e+00>, %117 ], [ <double 0.000000e+00, double -1.000000e+00>, %154 ]
   store <2 x double> %175, ptr %19, align 16
-  br label %line_construct.exit.i75
+  br label %line_construct.exit.i74
 
-line_construct.exit.i75.sink.split:               ; preds = %float8_mi.exit.i.i74
-  br label %line_construct.exit.i75
+line_construct.exit.i74.sink.split:               ; preds = %float8_mi.exit.i.i73
+  br label %line_construct.exit.i74
 
-line_construct.exit.i75:                          ; preds = %line_construct.exit.i75.sink.split.sink.split, %line_construct.exit.i75.sink.split, %float8_mi.exit.i.i74
-  %storemerge1101 = phi double [ %167, %float8_mi.exit.i.i74 ], [ %.sink.ph, %line_construct.exit.i75.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i75.sink.split ]
-  store double %storemerge1101, ptr %52, align 16
+line_construct.exit.i74:                          ; preds = %line_construct.exit.i74.sink.split.sink.split, %line_construct.exit.i74.sink.split, %float8_mi.exit.i.i73
+  %storemerge1098 = phi double [ %167, %float8_mi.exit.i.i73 ], [ %.sink.ph, %line_construct.exit.i74.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i74.sink.split ]
+  store double %storemerge1098, ptr %52, align 16
   %176 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %18, ptr noundef nonnull %28, ptr noundef nonnull %19)
   br i1 %176, label %177, label %270
 
-177:                                              ; preds = %line_construct.exit.i75
+177:                                              ; preds = %line_construct.exit.i74
   %178 = load double, ptr %18, align 8
   %179 = fsub double %178, %109
   %180 = call double @llvm.fabs.f64(double %179)
   %181 = fcmp une double %180, 0x7FF0000000000000
   %182 = call double @llvm.fabs.f64(double %178)
   %183 = fcmp oeq double %182, 0x7FF0000000000000
-  %or.cond.i.i288 = or i1 %183, %181
+  %or.cond.i.i287 = or i1 %183, %181
   %184 = call double @llvm.fabs.f64(double %109)
   %185 = fcmp oeq double %184, 0x7FF0000000000000
-  %or.cond8.i.i289 = or i1 %185, %or.cond.i.i288
-  br i1 %or.cond8.i.i289, label %float8_mi.exit.i290, label %186
+  %or.cond8.i.i288 = or i1 %185, %or.cond.i.i287
+  br i1 %or.cond8.i.i288, label %float8_mi.exit.i289, label %186
 
 186:                                              ; preds = %177
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i290:                              ; preds = %177
+float8_mi.exit.i289:                              ; preds = %177
   %187 = load double, ptr %53, align 8
   %188 = extractelement <2 x double> %107, i64 1
   %189 = fsub double %187, %188
@@ -13037,38 +13021,38 @@ float8_mi.exit.i290:                              ; preds = %177
   %191 = fcmp une double %190, 0x7FF0000000000000
   %192 = call double @llvm.fabs.f64(double %187)
   %193 = fcmp oeq double %192, 0x7FF0000000000000
-  %or.cond.i4.i291 = or i1 %193, %191
+  %or.cond.i4.i290 = or i1 %193, %191
   %194 = call double @llvm.fabs.f64(double %188)
   %195 = fcmp oeq double %194, 0x7FF0000000000000
-  %or.cond8.i5.i292 = or i1 %195, %or.cond.i4.i291
-  br i1 %or.cond8.i5.i292, label %float8_mi.exit6.i293, label %196
+  %or.cond8.i5.i291 = or i1 %195, %or.cond.i4.i290
+  br i1 %or.cond8.i5.i291, label %float8_mi.exit6.i292, label %196
 
-196:                                              ; preds = %float8_mi.exit.i290
+196:                                              ; preds = %float8_mi.exit.i289
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i293:                             ; preds = %float8_mi.exit.i290
+float8_mi.exit6.i292:                             ; preds = %float8_mi.exit.i289
   %197 = fcmp oeq double %180, 0x7FF0000000000000
   %198 = fcmp oeq double %190, 0x7FF0000000000000
-  %or.cond.i7.i294 = or i1 %197, %198
-  br i1 %or.cond.i7.i294, label %point_dt.exit300, label %199
+  %or.cond.i7.i293 = or i1 %197, %198
+  br i1 %or.cond.i7.i293, label %point_dt.exit299, label %199
 
-199:                                              ; preds = %float8_mi.exit6.i293
-  %or.cond29.i.i295 = fcmp uno double %179, %189
-  br i1 %or.cond29.i.i295, label %point_dt.exit300, label %200
+199:                                              ; preds = %float8_mi.exit6.i292
+  %or.cond29.i.i294 = fcmp uno double %179, %189
+  br i1 %or.cond29.i.i294, label %point_dt.exit299, label %200
 
 200:                                              ; preds = %199
   %201 = fcmp olt double %180, %190
-  %.023.i.i296 = select i1 %201, double %180, double %190
-  %.022.i.i297 = select i1 %201, double %190, double %180
-  %202 = fcmp oeq double %.023.i.i296, 0.000000e+00
-  br i1 %202, label %point_dt.exit300, label %203
+  %.023.i.i295 = select i1 %201, double %180, double %190
+  %.022.i.i296 = select i1 %201, double %190, double %180
+  %202 = fcmp oeq double %.023.i.i295, 0.000000e+00
+  br i1 %202, label %point_dt.exit299, label %203
 
 203:                                              ; preds = %200
-  %204 = fdiv double %.023.i.i296, %.022.i.i297
+  %204 = fdiv double %.023.i.i295, %.022.i.i296
   %205 = call double @llvm.fmuladd.f64(double %204, double %204, double 1.000000e+00)
-  %sqrt.i.i298 = call double @llvm.sqrt.f64(double %205)
-  %206 = fmul double %.022.i.i297, %sqrt.i.i298
+  %sqrt.i.i297 = call double @llvm.sqrt.f64(double %205)
+  %206 = fmul double %.022.i.i296, %sqrt.i.i297
   %207 = call double @llvm.fabs.f64(double %206)
   %208 = fcmp oeq double %207, 0x7FF0000000000000
   br i1 %208, label %209, label %210
@@ -13079,64 +13063,64 @@ float8_mi.exit6.i293:                             ; preds = %float8_mi.exit.i290
 
 210:                                              ; preds = %203
   %211 = fcmp oeq double %206, 0.000000e+00
-  br i1 %211, label %212, label %point_dt.exit300
+  br i1 %211, label %212, label %point_dt.exit299
 
 212:                                              ; preds = %210
   call void @float_underflow_error() #18
   unreachable
 
-point_dt.exit300:                                 ; preds = %float8_mi.exit6.i293, %199, %200, %210
-  %.0.i.i299 = phi double [ %.022.i.i297, %200 ], [ %206, %210 ], [ 0x7FF0000000000000, %float8_mi.exit6.i293 ], [ 0x7FF8000000000000, %199 ]
+point_dt.exit299:                                 ; preds = %float8_mi.exit6.i292, %199, %200, %210
+  %.0.i.i298 = phi double [ %.022.i.i296, %200 ], [ %206, %210 ], [ 0x7FF0000000000000, %float8_mi.exit6.i292 ], [ 0x7FF8000000000000, %199 ]
   %213 = fsub double %178, %110
   %214 = call double @llvm.fabs.f64(double %213)
   %215 = fcmp une double %214, 0x7FF0000000000000
-  %or.cond.i.i275 = or i1 %183, %215
+  %or.cond.i.i274 = or i1 %183, %215
   %216 = call double @llvm.fabs.f64(double %110)
   %217 = fcmp oeq double %216, 0x7FF0000000000000
-  %or.cond8.i.i276 = or i1 %217, %or.cond.i.i275
-  br i1 %or.cond8.i.i276, label %float8_mi.exit.i277, label %218
+  %or.cond8.i.i275 = or i1 %217, %or.cond.i.i274
+  br i1 %or.cond8.i.i275, label %float8_mi.exit.i276, label %218
 
-218:                                              ; preds = %point_dt.exit300
+218:                                              ; preds = %point_dt.exit299
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i277:                              ; preds = %point_dt.exit300
+float8_mi.exit.i276:                              ; preds = %point_dt.exit299
   %219 = extractelement <2 x double> %108, i64 1
   %220 = fsub double %187, %219
   %221 = call double @llvm.fabs.f64(double %220)
   %222 = fcmp une double %221, 0x7FF0000000000000
-  %or.cond.i4.i278 = or i1 %193, %222
+  %or.cond.i4.i277 = or i1 %193, %222
   %223 = call double @llvm.fabs.f64(double %219)
   %224 = fcmp oeq double %223, 0x7FF0000000000000
-  %or.cond8.i5.i279 = or i1 %224, %or.cond.i4.i278
-  br i1 %or.cond8.i5.i279, label %float8_mi.exit6.i280, label %225
+  %or.cond8.i5.i278 = or i1 %224, %or.cond.i4.i277
+  br i1 %or.cond8.i5.i278, label %float8_mi.exit6.i279, label %225
 
-225:                                              ; preds = %float8_mi.exit.i277
+225:                                              ; preds = %float8_mi.exit.i276
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i280:                             ; preds = %float8_mi.exit.i277
+float8_mi.exit6.i279:                             ; preds = %float8_mi.exit.i276
   %226 = fcmp oeq double %214, 0x7FF0000000000000
   %227 = fcmp oeq double %221, 0x7FF0000000000000
-  %or.cond.i7.i281 = or i1 %226, %227
-  br i1 %or.cond.i7.i281, label %point_dt.exit287, label %228
+  %or.cond.i7.i280 = or i1 %226, %227
+  br i1 %or.cond.i7.i280, label %point_dt.exit286, label %228
 
-228:                                              ; preds = %float8_mi.exit6.i280
-  %or.cond29.i.i282 = fcmp uno double %213, %220
-  br i1 %or.cond29.i.i282, label %point_dt.exit287, label %229
+228:                                              ; preds = %float8_mi.exit6.i279
+  %or.cond29.i.i281 = fcmp uno double %213, %220
+  br i1 %or.cond29.i.i281, label %point_dt.exit286, label %229
 
 229:                                              ; preds = %228
   %230 = fcmp olt double %214, %221
-  %.023.i.i283 = select i1 %230, double %214, double %221
-  %.022.i.i284 = select i1 %230, double %221, double %214
-  %231 = fcmp oeq double %.023.i.i283, 0.000000e+00
-  br i1 %231, label %point_dt.exit287, label %232
+  %.023.i.i282 = select i1 %230, double %214, double %221
+  %.022.i.i283 = select i1 %230, double %221, double %214
+  %231 = fcmp oeq double %.023.i.i282, 0.000000e+00
+  br i1 %231, label %point_dt.exit286, label %232
 
 232:                                              ; preds = %229
-  %233 = fdiv double %.023.i.i283, %.022.i.i284
+  %233 = fdiv double %.023.i.i282, %.022.i.i283
   %234 = call double @llvm.fmuladd.f64(double %233, double %233, double 1.000000e+00)
-  %sqrt.i.i285 = call double @llvm.sqrt.f64(double %234)
-  %235 = fmul double %.022.i.i284, %sqrt.i.i285
+  %sqrt.i.i284 = call double @llvm.sqrt.f64(double %234)
+  %235 = fmul double %.022.i.i283, %sqrt.i.i284
   %236 = call double @llvm.fabs.f64(double %235)
   %237 = fcmp oeq double %236, 0x7FF0000000000000
   br i1 %237, label %238, label %239
@@ -13147,58 +13131,58 @@ float8_mi.exit6.i280:                             ; preds = %float8_mi.exit.i277
 
 239:                                              ; preds = %232
   %240 = fcmp oeq double %235, 0.000000e+00
-  br i1 %240, label %241, label %point_dt.exit287
+  br i1 %240, label %241, label %point_dt.exit286
 
 241:                                              ; preds = %239
   call void @float_underflow_error() #18
   unreachable
 
-point_dt.exit287:                                 ; preds = %float8_mi.exit6.i280, %228, %229, %239
-  %.0.i.i286 = phi double [ %.022.i.i284, %229 ], [ %235, %239 ], [ 0x7FF0000000000000, %float8_mi.exit6.i280 ], [ 0x7FF8000000000000, %228 ]
-  %242 = fadd double %.0.i.i299, %.0.i.i286
+point_dt.exit286:                                 ; preds = %float8_mi.exit6.i279, %228, %229, %239
+  %.0.i.i285 = phi double [ %.022.i.i283, %229 ], [ %235, %239 ], [ 0x7FF0000000000000, %float8_mi.exit6.i279 ], [ 0x7FF8000000000000, %228 ]
+  %242 = fadd double %.0.i.i298, %.0.i.i285
   %243 = fcmp une double %114, 0x7FF0000000000000
-  %or.cond.i.i262 = or i1 %185, %243
-  %or.cond8.i.i263 = or i1 %217, %or.cond.i.i262
-  br i1 %or.cond8.i.i263, label %float8_mi.exit.i264, label %244
+  %or.cond.i.i261 = or i1 %185, %243
+  %or.cond8.i.i262 = or i1 %217, %or.cond.i.i261
+  br i1 %or.cond8.i.i262, label %float8_mi.exit.i263, label %244
 
-244:                                              ; preds = %point_dt.exit287
+244:                                              ; preds = %point_dt.exit286
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i264:                              ; preds = %point_dt.exit287
+float8_mi.exit.i263:                              ; preds = %point_dt.exit286
   %245 = fsub double %188, %219
   %246 = call double @llvm.fabs.f64(double %245)
   %247 = fcmp une double %246, 0x7FF0000000000000
-  %or.cond.i4.i265 = or i1 %195, %247
-  %or.cond8.i5.i266 = or i1 %224, %or.cond.i4.i265
-  br i1 %or.cond8.i5.i266, label %float8_mi.exit6.i267, label %248
+  %or.cond.i4.i264 = or i1 %195, %247
+  %or.cond8.i5.i265 = or i1 %224, %or.cond.i4.i264
+  br i1 %or.cond8.i5.i265, label %float8_mi.exit6.i266, label %248
 
-248:                                              ; preds = %float8_mi.exit.i264
+248:                                              ; preds = %float8_mi.exit.i263
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i267:                             ; preds = %float8_mi.exit.i264
+float8_mi.exit6.i266:                             ; preds = %float8_mi.exit.i263
   %249 = fcmp oeq double %114, 0x7FF0000000000000
   %250 = fcmp oeq double %246, 0x7FF0000000000000
-  %or.cond.i7.i268 = or i1 %249, %250
-  br i1 %or.cond.i7.i268, label %point_dt.exit274, label %251
+  %or.cond.i7.i267 = or i1 %249, %250
+  br i1 %or.cond.i7.i267, label %point_dt.exit273, label %251
 
-251:                                              ; preds = %float8_mi.exit6.i267
-  %or.cond29.i.i269 = fcmp uno double %113, %245
-  br i1 %or.cond29.i.i269, label %point_dt.exit274, label %252
+251:                                              ; preds = %float8_mi.exit6.i266
+  %or.cond29.i.i268 = fcmp uno double %113, %245
+  br i1 %or.cond29.i.i268, label %point_dt.exit273, label %252
 
 252:                                              ; preds = %251
   %253 = fcmp olt double %114, %246
-  %.023.i.i270 = select i1 %253, double %114, double %246
-  %.022.i.i271 = select i1 %253, double %246, double %114
-  %254 = fcmp oeq double %.023.i.i270, 0.000000e+00
-  br i1 %254, label %point_dt.exit274, label %255
+  %.023.i.i269 = select i1 %253, double %114, double %246
+  %.022.i.i270 = select i1 %253, double %246, double %114
+  %254 = fcmp oeq double %.023.i.i269, 0.000000e+00
+  br i1 %254, label %point_dt.exit273, label %255
 
 255:                                              ; preds = %252
-  %256 = fdiv double %.023.i.i270, %.022.i.i271
+  %256 = fdiv double %.023.i.i269, %.022.i.i270
   %257 = call double @llvm.fmuladd.f64(double %256, double %256, double 1.000000e+00)
-  %sqrt.i.i272 = call double @llvm.sqrt.f64(double %257)
-  %258 = fmul double %.022.i.i271, %sqrt.i.i272
+  %sqrt.i.i271 = call double @llvm.sqrt.f64(double %257)
+  %258 = fmul double %.022.i.i270, %sqrt.i.i271
   %259 = call double @llvm.fabs.f64(double %258)
   %260 = fcmp oeq double %259, 0x7FF0000000000000
   br i1 %260, label %261, label %262
@@ -13209,22 +13193,22 @@ float8_mi.exit6.i267:                             ; preds = %float8_mi.exit.i264
 
 262:                                              ; preds = %255
   %263 = fcmp oeq double %258, 0.000000e+00
-  br i1 %263, label %264, label %point_dt.exit274
+  br i1 %263, label %264, label %point_dt.exit273
 
 264:                                              ; preds = %262
   call void @float_underflow_error() #18
   unreachable
 
-point_dt.exit274:                                 ; preds = %float8_mi.exit6.i267, %251, %252, %262
-  %.0.i.i273 = phi double [ %.022.i.i271, %252 ], [ %258, %262 ], [ 0x7FF0000000000000, %float8_mi.exit6.i267 ], [ 0x7FF8000000000000, %251 ]
-  %265 = fcmp oeq double %242, %.0.i.i273
-  %266 = fsub double %242, %.0.i.i273
+point_dt.exit273:                                 ; preds = %float8_mi.exit6.i266, %251, %252, %262
+  %.0.i.i272 = phi double [ %.022.i.i270, %252 ], [ %258, %262 ], [ 0x7FF0000000000000, %float8_mi.exit6.i266 ], [ 0x7FF8000000000000, %251 ]
+  %265 = fcmp oeq double %242, %.0.i.i272
+  %266 = fsub double %242, %.0.i.i272
   %267 = call double @llvm.fabs.f64(double %266)
   %268 = fcmp ole double %267, 0x3EB0C6F7A0B5ED8D
   %269 = or i1 %265, %268
   br i1 %269, label %lseg_closept_lseg.exit.thread, label %270
 
-270:                                              ; preds = %line_construct.exit.i75, %point_dt.exit274
+270:                                              ; preds = %line_construct.exit.i74, %point_dt.exit273
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
@@ -13238,7 +13222,7 @@ point_dt.exit274:                                 ; preds = %float8_mi.exit6.i26
   %277 = fcmp ole double %276, 0x3EB0C6F7A0B5ED8D
   %278 = or i1 %273, %277
   %279 = extractelement <2 x double> %107, i64 1
-  br i1 %278, label %line_construct.exit.i66.sink.split.sink.split, label %280
+  br i1 %278, label %line_construct.exit.i65.sink.split.sink.split, label %280
 
 280:                                              ; preds = %270
   %281 = extractelement <2 x double> %102, i64 1
@@ -13248,55 +13232,55 @@ point_dt.exit274:                                 ; preds = %float8_mi.exit6.i26
   %285 = call double @llvm.fabs.f64(double %284)
   %286 = fcmp ole double %285, 0x3EB0C6F7A0B5ED8D
   %287 = or i1 %283, %286
-  br i1 %287, label %line_construct.exit.i66.sink.split.sink.split, label %288
+  br i1 %287, label %line_construct.exit.i65.sink.split.sink.split, label %288
 
 288:                                              ; preds = %280
   %289 = fcmp une double %276, 0x7FF0000000000000
   %290 = call double @llvm.fabs.f64(double %271)
   %291 = fcmp oeq double %290, 0x7FF0000000000000
-  %or.cond.i.i250 = or i1 %291, %289
+  %or.cond.i.i249 = or i1 %291, %289
   %292 = call double @llvm.fabs.f64(double %272)
   %293 = fcmp oeq double %292, 0x7FF0000000000000
-  %or.cond8.i.i251 = or i1 %293, %or.cond.i.i250
-  br i1 %or.cond8.i.i251, label %float8_mi.exit.i252, label %294
+  %or.cond8.i.i250 = or i1 %293, %or.cond.i.i249
+  br i1 %or.cond8.i.i250, label %float8_mi.exit.i251, label %294
 
 294:                                              ; preds = %288
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i252:                              ; preds = %288
+float8_mi.exit.i251:                              ; preds = %288
   %295 = fsub double %282, %281
   %296 = call double @llvm.fabs.f64(double %295)
   %297 = fcmp une double %296, 0x7FF0000000000000
   %298 = call double @llvm.fabs.f64(double %282)
   %299 = fcmp oeq double %298, 0x7FF0000000000000
-  %or.cond.i9.i253 = or i1 %299, %297
+  %or.cond.i9.i252 = or i1 %299, %297
   %300 = call double @llvm.fabs.f64(double %281)
   %301 = fcmp oeq double %300, 0x7FF0000000000000
-  %or.cond8.i10.i254 = or i1 %301, %or.cond.i9.i253
-  br i1 %or.cond8.i10.i254, label %float8_mi.exit11.i255, label %302
+  %or.cond8.i10.i253 = or i1 %301, %or.cond.i9.i252
+  br i1 %or.cond8.i10.i253, label %float8_mi.exit11.i254, label %302
 
-302:                                              ; preds = %float8_mi.exit.i252
+302:                                              ; preds = %float8_mi.exit.i251
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit11.i255:                            ; preds = %float8_mi.exit.i252
+float8_mi.exit11.i254:                            ; preds = %float8_mi.exit.i251
   %303 = fcmp une double %295, 0.000000e+00
   %304 = fcmp uno double %275, 0.000000e+00
-  %or.cond11.i.i256 = or i1 %304, %303
-  br i1 %or.cond11.i.i256, label %306, label %305
+  %or.cond11.i.i255 = or i1 %304, %303
+  br i1 %or.cond11.i.i255, label %306, label %305
 
-305:                                              ; preds = %float8_mi.exit11.i255
+305:                                              ; preds = %float8_mi.exit11.i254
   call void @float_zero_divide_error() #18
   unreachable
 
-306:                                              ; preds = %float8_mi.exit11.i255
+306:                                              ; preds = %float8_mi.exit11.i254
   %307 = fdiv double %275, %295
   %308 = call double @llvm.fabs.f64(double %307)
   %309 = fcmp une double %308, 0x7FF0000000000000
   %310 = fcmp oeq double %276, 0x7FF0000000000000
-  %or.cond13.i.i257 = or i1 %310, %309
-  br i1 %or.cond13.i.i257, label %312, label %311
+  %or.cond13.i.i256 = or i1 %310, %309
+  br i1 %or.cond13.i.i256, label %312, label %311
 
 311:                                              ; preds = %306
   call void @float_overflow_error() #18
@@ -13305,23 +13289,23 @@ float8_mi.exit11.i255:                            ; preds = %float8_mi.exit.i252
 312:                                              ; preds = %306
   %313 = fcmp une double %307, 0.000000e+00
   %314 = fcmp oeq double %275, 0.000000e+00
-  %or.cond.not17.i.i258 = or i1 %314, %313
+  %or.cond.not17.i.i257 = or i1 %314, %313
   %315 = fcmp oeq double %296, 0x7FF0000000000000
-  %or.cond15.i.i259 = or i1 %315, %or.cond.not17.i.i258
-  br i1 %or.cond15.i.i259, label %point_invsl.exit261, label %316
+  %or.cond15.i.i258 = or i1 %315, %or.cond.not17.i.i257
+  br i1 %or.cond15.i.i258, label %point_invsl.exit260, label %316
 
 316:                                              ; preds = %312
   call void @float_underflow_error() #18
   unreachable
 
-point_invsl.exit261:                              ; preds = %312
+point_invsl.exit260:                              ; preds = %312
   %317 = call double @llvm.fabs.f64(double %307)
   %318 = fcmp oeq double %317, 0x7FF0000000000000
-  br i1 %318, label %line_construct.exit.i66.sink.split.sink.split, label %319
+  br i1 %318, label %line_construct.exit.i65.sink.split.sink.split, label %319
 
-319:                                              ; preds = %point_invsl.exit261
+319:                                              ; preds = %point_invsl.exit260
   %320 = fcmp oeq double %307, 0.000000e+00
-  br i1 %320, label %line_construct.exit.i66.sink.split.sink.split, label %321
+  br i1 %320, label %line_construct.exit.i65.sink.split.sink.split, label %321
 
 321:                                              ; preds = %319
   store double %307, ptr %21, align 8
@@ -13331,8 +13315,8 @@ point_invsl.exit261:                              ; preds = %312
   %324 = fcmp une double %323, 0x7FF0000000000000
   %325 = call double @llvm.fabs.f64(double %109)
   %326 = fcmp oeq double %325, 0x7FF0000000000000
-  %or.cond15.i.i.i60 = or i1 %326, %324
-  br i1 %or.cond15.i.i.i60, label %328, label %327
+  %or.cond15.i.i.i59 = or i1 %326, %324
+  br i1 %or.cond15.i.i.i59, label %328, label %327
 
 327:                                              ; preds = %321
   call void @float_overflow_error() #18
@@ -13341,63 +13325,63 @@ point_invsl.exit261:                              ; preds = %312
 328:                                              ; preds = %321
   %329 = fcmp oeq double %322, 0.000000e+00
   %330 = fcmp une double %109, 0.000000e+00
-  %or.cond3.i.i.i61 = and i1 %330, %329
-  br i1 %or.cond3.i.i.i61, label %331, label %float8_mul.exit.i.i62
+  %or.cond3.i.i.i60 = and i1 %330, %329
+  br i1 %or.cond3.i.i.i60, label %331, label %float8_mul.exit.i.i61
 
 331:                                              ; preds = %328
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i62:                            ; preds = %328
+float8_mul.exit.i.i61:                            ; preds = %328
   %332 = fsub double %279, %322
   %333 = call double @llvm.fabs.f64(double %332)
   %334 = fcmp une double %333, 0x7FF0000000000000
   %335 = call double @llvm.fabs.f64(double %279)
   %336 = fcmp oeq double %335, 0x7FF0000000000000
-  %or.cond.i19.i.i63 = or i1 %336, %334
+  %or.cond.i19.i.i62 = or i1 %336, %334
   %337 = fcmp oeq double %323, 0x7FF0000000000000
-  %or.cond8.i.i.i64 = or i1 %337, %or.cond.i19.i.i63
-  br i1 %or.cond8.i.i.i64, label %float8_mi.exit.i.i65, label %338
+  %or.cond8.i.i.i63 = or i1 %337, %or.cond.i19.i.i62
+  br i1 %or.cond8.i.i.i63, label %float8_mi.exit.i.i64, label %338
 
-338:                                              ; preds = %float8_mul.exit.i.i62
+338:                                              ; preds = %float8_mul.exit.i.i61
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i65:                             ; preds = %float8_mul.exit.i.i62
+float8_mi.exit.i.i64:                             ; preds = %float8_mul.exit.i.i61
   %339 = fcmp oeq double %332, 0.000000e+00
-  br i1 %339, label %line_construct.exit.i66.sink.split, label %line_construct.exit.i66
+  br i1 %339, label %line_construct.exit.i65.sink.split, label %line_construct.exit.i65
 
-line_construct.exit.i66.sink.split.sink.split:    ; preds = %319, %270, %point_invsl.exit261, %280
-  %storemerge1102 = phi double [ -1.000000e+00, %280 ], [ -1.000000e+00, %point_invsl.exit261 ], [ 0.000000e+00, %270 ], [ 0.000000e+00, %319 ]
-  %.sink1091 = phi double [ 0.000000e+00, %280 ], [ 0.000000e+00, %point_invsl.exit261 ], [ -1.000000e+00, %270 ], [ -1.000000e+00, %319 ]
-  %.sink1072.ph = phi double [ %109, %280 ], [ %109, %point_invsl.exit261 ], [ %279, %270 ], [ %279, %319 ]
-  store double %storemerge1102, ptr %21, align 8
-  store double %.sink1091, ptr %54, align 8
-  br label %line_construct.exit.i66
+line_construct.exit.i65.sink.split.sink.split:    ; preds = %319, %270, %point_invsl.exit260, %280
+  %storemerge1099 = phi double [ -1.000000e+00, %280 ], [ -1.000000e+00, %point_invsl.exit260 ], [ 0.000000e+00, %270 ], [ 0.000000e+00, %319 ]
+  %.sink1088 = phi double [ 0.000000e+00, %280 ], [ 0.000000e+00, %point_invsl.exit260 ], [ -1.000000e+00, %270 ], [ -1.000000e+00, %319 ]
+  %.sink1069.ph = phi double [ %109, %280 ], [ %109, %point_invsl.exit260 ], [ %279, %270 ], [ %279, %319 ]
+  store double %storemerge1099, ptr %21, align 8
+  store double %.sink1088, ptr %54, align 8
+  br label %line_construct.exit.i65
 
-line_construct.exit.i66.sink.split:               ; preds = %float8_mi.exit.i.i65
-  br label %line_construct.exit.i66
+line_construct.exit.i65.sink.split:               ; preds = %float8_mi.exit.i.i64
+  br label %line_construct.exit.i65
 
-line_construct.exit.i66:                          ; preds = %line_construct.exit.i66.sink.split.sink.split, %line_construct.exit.i66.sink.split, %float8_mi.exit.i.i65
-  %storemerge1103 = phi double [ %332, %float8_mi.exit.i.i65 ], [ %.sink1072.ph, %line_construct.exit.i66.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i66.sink.split ]
-  %340 = phi double [ -1.000000e+00, %float8_mi.exit.i.i65 ], [ %.sink1091, %line_construct.exit.i66.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i66.sink.split ]
-  %341 = phi double [ %307, %float8_mi.exit.i.i65 ], [ %storemerge1102, %line_construct.exit.i66.sink.split.sink.split ], [ %307, %line_construct.exit.i66.sink.split ]
-  store double %storemerge1103, ptr %55, align 8
+line_construct.exit.i65:                          ; preds = %line_construct.exit.i65.sink.split.sink.split, %line_construct.exit.i65.sink.split, %float8_mi.exit.i.i64
+  %storemerge1100 = phi double [ %332, %float8_mi.exit.i.i64 ], [ %.sink1069.ph, %line_construct.exit.i65.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i65.sink.split ]
+  %340 = phi double [ -1.000000e+00, %float8_mi.exit.i.i64 ], [ %.sink1088, %line_construct.exit.i65.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i65.sink.split ]
+  %341 = phi double [ %307, %float8_mi.exit.i.i64 ], [ %storemerge1099, %line_construct.exit.i65.sink.split.sink.split ], [ %307, %line_construct.exit.i65.sink.split ]
+  store double %storemerge1100, ptr %55, align 8
   %342 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %20, ptr noundef nonnull %28, ptr noundef nonnull %21)
-  br i1 %342, label %lseg_closept_point.exit68, label %343
+  br i1 %342, label %lseg_closept_point.exit67, label %343
 
-343:                                              ; preds = %line_construct.exit.i66
+343:                                              ; preds = %line_construct.exit.i65
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %344 = call double @llvm.fabs.f64(double %341)
   %345 = fcmp ugt double %344, 0x3EB0C6F7A0B5ED8D
-  br i1 %345, label %346, label %line_construct.exit.i237.sink.split.sink.split
+  br i1 %345, label %346, label %line_construct.exit.i236.sink.split.sink.split
 
 346:                                              ; preds = %343
   %347 = call double @llvm.fabs.f64(double %340)
   %348 = fcmp ugt double %347, 0x3EB0C6F7A0B5ED8D
   %349 = extractelement <2 x double> %102, i64 1
-  br i1 %348, label %350, label %line_construct.exit.i237.sink.split.sink.split
+  br i1 %348, label %350, label %line_construct.exit.i236.sink.split.sink.split
 
 350:                                              ; preds = %346
   %351 = fdiv double %340, %341
@@ -13411,13 +13395,13 @@ line_construct.exit.i66:                          ; preds = %line_construct.exit
 
 355:                                              ; preds = %350
   %356 = fcmp une double %351, 0.000000e+00
-  br i1 %356, label %line_invsl.exit.i242, label %357
+  br i1 %356, label %line_invsl.exit.i241, label %357
 
 357:                                              ; preds = %355
   call void @float_underflow_error() #18
   unreachable
 
-line_invsl.exit.i242:                             ; preds = %355
+line_invsl.exit.i241:                             ; preds = %355
   store double %351, ptr %3, align 16
   store double -1.000000e+00, ptr %56, align 8
   %358 = fmul double %271, %351
@@ -13425,75 +13409,75 @@ line_invsl.exit.i242:                             ; preds = %355
   %360 = fcmp une double %359, 0x7FF0000000000000
   %361 = call double @llvm.fabs.f64(double %271)
   %362 = fcmp oeq double %361, 0x7FF0000000000000
-  %or.cond15.i.i12.i243 = or i1 %362, %360
-  br i1 %or.cond15.i.i12.i243, label %364, label %363
+  %or.cond15.i.i12.i242 = or i1 %362, %360
+  br i1 %or.cond15.i.i12.i242, label %364, label %363
 
-363:                                              ; preds = %line_invsl.exit.i242
+363:                                              ; preds = %line_invsl.exit.i241
   call void @float_overflow_error() #18
   unreachable
 
-364:                                              ; preds = %line_invsl.exit.i242
+364:                                              ; preds = %line_invsl.exit.i241
   %365 = fcmp oeq double %358, 0.000000e+00
   %366 = fcmp une double %271, 0.000000e+00
-  %or.cond3.i.i.i244 = and i1 %366, %365
-  br i1 %or.cond3.i.i.i244, label %367, label %float8_mul.exit.i.i245
+  %or.cond3.i.i.i243 = and i1 %366, %365
+  br i1 %or.cond3.i.i.i243, label %367, label %float8_mul.exit.i.i244
 
 367:                                              ; preds = %364
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i245:                           ; preds = %364
+float8_mul.exit.i.i244:                           ; preds = %364
   %368 = fsub double %349, %358
   %369 = call double @llvm.fabs.f64(double %368)
   %370 = fcmp une double %369, 0x7FF0000000000000
   %371 = call double @llvm.fabs.f64(double %349)
   %372 = fcmp oeq double %371, 0x7FF0000000000000
-  %or.cond.i19.i.i246 = or i1 %372, %370
+  %or.cond.i19.i.i245 = or i1 %372, %370
   %373 = fcmp oeq double %359, 0x7FF0000000000000
-  %or.cond8.i.i.i247 = or i1 %373, %or.cond.i19.i.i246
-  br i1 %or.cond8.i.i.i247, label %float8_mi.exit.i.i248, label %374
+  %or.cond8.i.i.i246 = or i1 %373, %or.cond.i19.i.i245
+  br i1 %or.cond8.i.i.i246, label %float8_mi.exit.i.i247, label %374
 
-374:                                              ; preds = %float8_mul.exit.i.i245
+374:                                              ; preds = %float8_mul.exit.i.i244
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i248:                            ; preds = %float8_mul.exit.i.i245
+float8_mi.exit.i.i247:                            ; preds = %float8_mul.exit.i.i244
   %375 = fcmp oeq double %368, 0.000000e+00
-  br i1 %375, label %line_construct.exit.i237.sink.split, label %line_construct.exit.i237
+  br i1 %375, label %line_construct.exit.i236.sink.split, label %line_construct.exit.i236
 
-line_construct.exit.i237.sink.split.sink.split:   ; preds = %346, %343
-  %.sink1073.ph = phi double [ %271, %343 ], [ %349, %346 ]
+line_construct.exit.i236.sink.split.sink.split:   ; preds = %346, %343
+  %.sink1070.ph = phi double [ %271, %343 ], [ %349, %346 ]
   %376 = phi <2 x double> [ <double -1.000000e+00, double 0.000000e+00>, %343 ], [ <double 0.000000e+00, double -1.000000e+00>, %346 ]
   store <2 x double> %376, ptr %3, align 16
-  br label %line_construct.exit.i237
+  br label %line_construct.exit.i236
 
-line_construct.exit.i237.sink.split:              ; preds = %float8_mi.exit.i.i248
-  br label %line_construct.exit.i237
+line_construct.exit.i236.sink.split:              ; preds = %float8_mi.exit.i.i247
+  br label %line_construct.exit.i236
 
-line_construct.exit.i237:                         ; preds = %line_construct.exit.i237.sink.split.sink.split, %line_construct.exit.i237.sink.split, %float8_mi.exit.i.i248
-  %storemerge1105 = phi double [ %368, %float8_mi.exit.i.i248 ], [ %.sink1073.ph, %line_construct.exit.i237.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i237.sink.split ]
-  store double %storemerge1105, ptr %57, align 16
+line_construct.exit.i236:                         ; preds = %line_construct.exit.i236.sink.split.sink.split, %line_construct.exit.i236.sink.split, %float8_mi.exit.i.i247
+  %storemerge1102 = phi double [ %368, %float8_mi.exit.i.i247 ], [ %.sink1070.ph, %line_construct.exit.i236.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i236.sink.split ]
+  store double %storemerge1102, ptr %57, align 16
   %377 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %21)
-  br i1 %377, label %378, label %line_closept_point.exit249
+  br i1 %377, label %378, label %line_closept_point.exit248
 
-378:                                              ; preds = %line_construct.exit.i237
+378:                                              ; preds = %line_construct.exit.i236
   %379 = load double, ptr %2, align 8
   %380 = fsub double %379, %271
   %381 = call double @llvm.fabs.f64(double %380)
   %382 = fcmp une double %381, 0x7FF0000000000000
   %383 = call double @llvm.fabs.f64(double %379)
   %384 = fcmp oeq double %383, 0x7FF0000000000000
-  %or.cond.i.i403 = or i1 %384, %382
+  %or.cond.i.i402 = or i1 %384, %382
   %385 = call double @llvm.fabs.f64(double %271)
   %386 = fcmp oeq double %385, 0x7FF0000000000000
-  %or.cond8.i.i404 = or i1 %386, %or.cond.i.i403
-  br i1 %or.cond8.i.i404, label %float8_mi.exit.i405, label %387
+  %or.cond8.i.i403 = or i1 %386, %or.cond.i.i402
+  br i1 %or.cond8.i.i403, label %float8_mi.exit.i404, label %387
 
 387:                                              ; preds = %378
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i405:                              ; preds = %378
+float8_mi.exit.i404:                              ; preds = %378
   %388 = load double, ptr %58, align 8
   %389 = extractelement <2 x double> %102, i64 1
   %390 = fsub double %388, %389
@@ -13501,38 +13485,38 @@ float8_mi.exit.i405:                              ; preds = %378
   %392 = fcmp une double %391, 0x7FF0000000000000
   %393 = call double @llvm.fabs.f64(double %388)
   %394 = fcmp oeq double %393, 0x7FF0000000000000
-  %or.cond.i4.i406 = or i1 %394, %392
+  %or.cond.i4.i405 = or i1 %394, %392
   %395 = call double @llvm.fabs.f64(double %389)
   %396 = fcmp oeq double %395, 0x7FF0000000000000
-  %or.cond8.i5.i407 = or i1 %396, %or.cond.i4.i406
-  br i1 %or.cond8.i5.i407, label %float8_mi.exit6.i408, label %397
+  %or.cond8.i5.i406 = or i1 %396, %or.cond.i4.i405
+  br i1 %or.cond8.i5.i406, label %float8_mi.exit6.i407, label %397
 
-397:                                              ; preds = %float8_mi.exit.i405
+397:                                              ; preds = %float8_mi.exit.i404
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i408:                             ; preds = %float8_mi.exit.i405
+float8_mi.exit6.i407:                             ; preds = %float8_mi.exit.i404
   %398 = fcmp oeq double %381, 0x7FF0000000000000
   %399 = fcmp oeq double %391, 0x7FF0000000000000
-  %or.cond.i7.i409 = or i1 %398, %399
-  br i1 %or.cond.i7.i409, label %line_closept_point.exit249, label %400
+  %or.cond.i7.i408 = or i1 %398, %399
+  br i1 %or.cond.i7.i408, label %line_closept_point.exit248, label %400
 
-400:                                              ; preds = %float8_mi.exit6.i408
-  %or.cond29.i.i410 = fcmp uno double %380, %390
-  br i1 %or.cond29.i.i410, label %line_closept_point.exit249, label %401
+400:                                              ; preds = %float8_mi.exit6.i407
+  %or.cond29.i.i409 = fcmp uno double %380, %390
+  br i1 %or.cond29.i.i409, label %line_closept_point.exit248, label %401
 
 401:                                              ; preds = %400
   %402 = fcmp olt double %381, %391
-  %.023.i.i411 = select i1 %402, double %381, double %391
-  %.022.i.i412 = select i1 %402, double %391, double %381
-  %403 = fcmp oeq double %.023.i.i411, 0.000000e+00
-  br i1 %403, label %line_closept_point.exit249, label %404
+  %.023.i.i410 = select i1 %402, double %381, double %391
+  %.022.i.i411 = select i1 %402, double %391, double %381
+  %403 = fcmp oeq double %.023.i.i410, 0.000000e+00
+  br i1 %403, label %line_closept_point.exit248, label %404
 
 404:                                              ; preds = %401
-  %405 = fdiv double %.023.i.i411, %.022.i.i412
+  %405 = fdiv double %.023.i.i410, %.022.i.i411
   %406 = call double @llvm.fmuladd.f64(double %405, double %405, double 1.000000e+00)
-  %sqrt.i.i413 = call double @llvm.sqrt.f64(double %406)
-  %407 = fmul double %.022.i.i412, %sqrt.i.i413
+  %sqrt.i.i412 = call double @llvm.sqrt.f64(double %406)
+  %407 = fmul double %.022.i.i411, %sqrt.i.i412
   %408 = call double @llvm.fabs.f64(double %407)
   %409 = fcmp oeq double %408, 0x7FF0000000000000
   br i1 %409, label %410, label %411
@@ -13543,25 +13527,25 @@ float8_mi.exit6.i408:                             ; preds = %float8_mi.exit.i405
 
 411:                                              ; preds = %404
   %412 = fcmp oeq double %407, 0.000000e+00
-  br i1 %412, label %413, label %line_closept_point.exit249
+  br i1 %412, label %413, label %line_closept_point.exit248
 
 413:                                              ; preds = %411
   call void @float_underflow_error() #18
   unreachable
 
-line_closept_point.exit249:                       ; preds = %411, %401, %400, %float8_mi.exit6.i408, %line_construct.exit.i237
-  %.0.i238 = phi double [ 0x7FF8000000000000, %line_construct.exit.i237 ], [ %.022.i.i412, %401 ], [ %407, %411 ], [ 0x7FF0000000000000, %float8_mi.exit6.i408 ], [ 0x7FF8000000000000, %400 ]
+line_closept_point.exit248:                       ; preds = %411, %401, %400, %float8_mi.exit6.i407, %line_construct.exit.i236
+  %.0.i237 = phi double [ 0x7FF8000000000000, %line_construct.exit.i236 ], [ %.022.i.i411, %401 ], [ %407, %411 ], [ 0x7FF0000000000000, %float8_mi.exit6.i407 ], [ 0x7FF8000000000000, %400 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  br i1 %345, label %414, label %line_construct.exit.i223.sink.split.sink.split
+  br i1 %345, label %414, label %line_construct.exit.i222.sink.split.sink.split
 
-414:                                              ; preds = %line_closept_point.exit249
+414:                                              ; preds = %line_closept_point.exit248
   %415 = call double @llvm.fabs.f64(double %340)
   %416 = fcmp ugt double %415, 0x3EB0C6F7A0B5ED8D
   %417 = extractelement <2 x double> %103, i64 1
-  br i1 %416, label %418, label %line_construct.exit.i223.sink.split.sink.split
+  br i1 %416, label %418, label %line_construct.exit.i222.sink.split.sink.split
 
 418:                                              ; preds = %414
   %419 = fdiv double %340, %341
@@ -13575,13 +13559,13 @@ line_closept_point.exit249:                       ; preds = %411, %401, %400, %f
 
 423:                                              ; preds = %418
   %424 = fcmp une double %419, 0.000000e+00
-  br i1 %424, label %line_invsl.exit.i228, label %425
+  br i1 %424, label %line_invsl.exit.i227, label %425
 
 425:                                              ; preds = %423
   call void @float_underflow_error() #18
   unreachable
 
-line_invsl.exit.i228:                             ; preds = %423
+line_invsl.exit.i227:                             ; preds = %423
   store double %419, ptr %5, align 16
   store double -1.000000e+00, ptr %59, align 8
   %426 = fmul double %419, %272
@@ -13589,75 +13573,75 @@ line_invsl.exit.i228:                             ; preds = %423
   %428 = fcmp une double %427, 0x7FF0000000000000
   %429 = call double @llvm.fabs.f64(double %272)
   %430 = fcmp oeq double %429, 0x7FF0000000000000
-  %or.cond15.i.i12.i229 = or i1 %430, %428
-  br i1 %or.cond15.i.i12.i229, label %432, label %431
+  %or.cond15.i.i12.i228 = or i1 %430, %428
+  br i1 %or.cond15.i.i12.i228, label %432, label %431
 
-431:                                              ; preds = %line_invsl.exit.i228
+431:                                              ; preds = %line_invsl.exit.i227
   call void @float_overflow_error() #18
   unreachable
 
-432:                                              ; preds = %line_invsl.exit.i228
+432:                                              ; preds = %line_invsl.exit.i227
   %433 = fcmp oeq double %426, 0.000000e+00
   %434 = fcmp une double %272, 0.000000e+00
-  %or.cond3.i.i.i230 = and i1 %434, %433
-  br i1 %or.cond3.i.i.i230, label %435, label %float8_mul.exit.i.i231
+  %or.cond3.i.i.i229 = and i1 %434, %433
+  br i1 %or.cond3.i.i.i229, label %435, label %float8_mul.exit.i.i230
 
 435:                                              ; preds = %432
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i231:                           ; preds = %432
+float8_mul.exit.i.i230:                           ; preds = %432
   %436 = fsub double %417, %426
   %437 = call double @llvm.fabs.f64(double %436)
   %438 = fcmp une double %437, 0x7FF0000000000000
   %439 = call double @llvm.fabs.f64(double %417)
   %440 = fcmp oeq double %439, 0x7FF0000000000000
-  %or.cond.i19.i.i232 = or i1 %440, %438
+  %or.cond.i19.i.i231 = or i1 %440, %438
   %441 = fcmp oeq double %427, 0x7FF0000000000000
-  %or.cond8.i.i.i233 = or i1 %441, %or.cond.i19.i.i232
-  br i1 %or.cond8.i.i.i233, label %float8_mi.exit.i.i234, label %442
+  %or.cond8.i.i.i232 = or i1 %441, %or.cond.i19.i.i231
+  br i1 %or.cond8.i.i.i232, label %float8_mi.exit.i.i233, label %442
 
-442:                                              ; preds = %float8_mul.exit.i.i231
+442:                                              ; preds = %float8_mul.exit.i.i230
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i234:                            ; preds = %float8_mul.exit.i.i231
+float8_mi.exit.i.i233:                            ; preds = %float8_mul.exit.i.i230
   %443 = fcmp oeq double %436, 0.000000e+00
-  br i1 %443, label %line_construct.exit.i223.sink.split, label %line_construct.exit.i223
+  br i1 %443, label %line_construct.exit.i222.sink.split, label %line_construct.exit.i222
 
-line_construct.exit.i223.sink.split.sink.split:   ; preds = %414, %line_closept_point.exit249
-  %.sink1074.ph = phi double [ %272, %line_closept_point.exit249 ], [ %417, %414 ]
-  %444 = phi <2 x double> [ <double -1.000000e+00, double 0.000000e+00>, %line_closept_point.exit249 ], [ <double 0.000000e+00, double -1.000000e+00>, %414 ]
+line_construct.exit.i222.sink.split.sink.split:   ; preds = %414, %line_closept_point.exit248
+  %.sink1071.ph = phi double [ %272, %line_closept_point.exit248 ], [ %417, %414 ]
+  %444 = phi <2 x double> [ <double -1.000000e+00, double 0.000000e+00>, %line_closept_point.exit248 ], [ <double 0.000000e+00, double -1.000000e+00>, %414 ]
   store <2 x double> %444, ptr %5, align 16
-  br label %line_construct.exit.i223
+  br label %line_construct.exit.i222
 
-line_construct.exit.i223.sink.split:              ; preds = %float8_mi.exit.i.i234
-  br label %line_construct.exit.i223
+line_construct.exit.i222.sink.split:              ; preds = %float8_mi.exit.i.i233
+  br label %line_construct.exit.i222
 
-line_construct.exit.i223:                         ; preds = %line_construct.exit.i223.sink.split.sink.split, %line_construct.exit.i223.sink.split, %float8_mi.exit.i.i234
-  %storemerge1107 = phi double [ %436, %float8_mi.exit.i.i234 ], [ %.sink1074.ph, %line_construct.exit.i223.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i223.sink.split ]
-  store double %storemerge1107, ptr %60, align 16
+line_construct.exit.i222:                         ; preds = %line_construct.exit.i222.sink.split.sink.split, %line_construct.exit.i222.sink.split, %float8_mi.exit.i.i233
+  %storemerge1104 = phi double [ %436, %float8_mi.exit.i.i233 ], [ %.sink1071.ph, %line_construct.exit.i222.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i222.sink.split ]
+  store double %storemerge1104, ptr %60, align 16
   %445 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %21)
-  br i1 %445, label %446, label %line_closept_point.exit235
+  br i1 %445, label %446, label %line_closept_point.exit234
 
-446:                                              ; preds = %line_construct.exit.i223
+446:                                              ; preds = %line_construct.exit.i222
   %447 = load double, ptr %4, align 8
   %448 = fsub double %447, %272
   %449 = call double @llvm.fabs.f64(double %448)
   %450 = fcmp une double %449, 0x7FF0000000000000
   %451 = call double @llvm.fabs.f64(double %447)
   %452 = fcmp oeq double %451, 0x7FF0000000000000
-  %or.cond.i.i390 = or i1 %452, %450
+  %or.cond.i.i389 = or i1 %452, %450
   %453 = call double @llvm.fabs.f64(double %272)
   %454 = fcmp oeq double %453, 0x7FF0000000000000
-  %or.cond8.i.i391 = or i1 %454, %or.cond.i.i390
-  br i1 %or.cond8.i.i391, label %float8_mi.exit.i392, label %455
+  %or.cond8.i.i390 = or i1 %454, %or.cond.i.i389
+  br i1 %or.cond8.i.i390, label %float8_mi.exit.i391, label %455
 
 455:                                              ; preds = %446
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i392:                              ; preds = %446
+float8_mi.exit.i391:                              ; preds = %446
   %456 = load double, ptr %61, align 8
   %457 = extractelement <2 x double> %103, i64 1
   %458 = fsub double %456, %457
@@ -13665,38 +13649,38 @@ float8_mi.exit.i392:                              ; preds = %446
   %460 = fcmp une double %459, 0x7FF0000000000000
   %461 = call double @llvm.fabs.f64(double %456)
   %462 = fcmp oeq double %461, 0x7FF0000000000000
-  %or.cond.i4.i393 = or i1 %462, %460
+  %or.cond.i4.i392 = or i1 %462, %460
   %463 = call double @llvm.fabs.f64(double %457)
   %464 = fcmp oeq double %463, 0x7FF0000000000000
-  %or.cond8.i5.i394 = or i1 %464, %or.cond.i4.i393
-  br i1 %or.cond8.i5.i394, label %float8_mi.exit6.i395, label %465
+  %or.cond8.i5.i393 = or i1 %464, %or.cond.i4.i392
+  br i1 %or.cond8.i5.i393, label %float8_mi.exit6.i394, label %465
 
-465:                                              ; preds = %float8_mi.exit.i392
+465:                                              ; preds = %float8_mi.exit.i391
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i395:                             ; preds = %float8_mi.exit.i392
+float8_mi.exit6.i394:                             ; preds = %float8_mi.exit.i391
   %466 = fcmp oeq double %449, 0x7FF0000000000000
   %467 = fcmp oeq double %459, 0x7FF0000000000000
-  %or.cond.i7.i396 = or i1 %466, %467
-  br i1 %or.cond.i7.i396, label %line_closept_point.exit235, label %468
+  %or.cond.i7.i395 = or i1 %466, %467
+  br i1 %or.cond.i7.i395, label %line_closept_point.exit234, label %468
 
-468:                                              ; preds = %float8_mi.exit6.i395
-  %or.cond29.i.i397 = fcmp uno double %448, %458
-  br i1 %or.cond29.i.i397, label %line_closept_point.exit235, label %469
+468:                                              ; preds = %float8_mi.exit6.i394
+  %or.cond29.i.i396 = fcmp uno double %448, %458
+  br i1 %or.cond29.i.i396, label %line_closept_point.exit234, label %469
 
 469:                                              ; preds = %468
   %470 = fcmp olt double %449, %459
-  %.023.i.i398 = select i1 %470, double %449, double %459
-  %.022.i.i399 = select i1 %470, double %459, double %449
-  %471 = fcmp oeq double %.023.i.i398, 0.000000e+00
-  br i1 %471, label %line_closept_point.exit235, label %472
+  %.023.i.i397 = select i1 %470, double %449, double %459
+  %.022.i.i398 = select i1 %470, double %459, double %449
+  %471 = fcmp oeq double %.023.i.i397, 0.000000e+00
+  br i1 %471, label %line_closept_point.exit234, label %472
 
 472:                                              ; preds = %469
-  %473 = fdiv double %.023.i.i398, %.022.i.i399
+  %473 = fdiv double %.023.i.i397, %.022.i.i398
   %474 = call double @llvm.fmuladd.f64(double %473, double %473, double 1.000000e+00)
-  %sqrt.i.i400 = call double @llvm.sqrt.f64(double %474)
-  %475 = fmul double %.022.i.i399, %sqrt.i.i400
+  %sqrt.i.i399 = call double @llvm.sqrt.f64(double %474)
+  %475 = fmul double %.022.i.i398, %sqrt.i.i399
   %476 = call double @llvm.fabs.f64(double %475)
   %477 = fcmp oeq double %476, 0x7FF0000000000000
   br i1 %477, label %478, label %479
@@ -13707,77 +13691,77 @@ float8_mi.exit6.i395:                             ; preds = %float8_mi.exit.i392
 
 479:                                              ; preds = %472
   %480 = fcmp oeq double %475, 0.000000e+00
-  br i1 %480, label %481, label %line_closept_point.exit235
+  br i1 %480, label %481, label %line_closept_point.exit234
 
 481:                                              ; preds = %479
   call void @float_underflow_error() #18
   unreachable
 
-line_closept_point.exit235:                       ; preds = %479, %469, %468, %float8_mi.exit6.i395, %line_construct.exit.i223
-  %.0.i224 = phi double [ 0x7FF8000000000000, %line_construct.exit.i223 ], [ %.022.i.i399, %469 ], [ %475, %479 ], [ 0x7FF0000000000000, %float8_mi.exit6.i395 ], [ 0x7FF8000000000000, %468 ]
+line_closept_point.exit234:                       ; preds = %479, %469, %468, %float8_mi.exit6.i394, %line_construct.exit.i222
+  %.0.i223 = phi double [ 0x7FF8000000000000, %line_construct.exit.i222 ], [ %.022.i.i398, %469 ], [ %475, %479 ], [ 0x7FF0000000000000, %float8_mi.exit6.i394 ], [ 0x7FF8000000000000, %468 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %482 = fcmp olt double %.0.i238, %.0.i224
-  %.22.i.i67 = select i1 %482, ptr %28, ptr %45
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 16 dereferenceable(16) %.22.i.i67, i64 16, i1 false)
-  br label %lseg_closept_point.exit68
+  %482 = fcmp olt double %.0.i237, %.0.i223
+  %.22.i.i66 = select i1 %482, ptr %28, ptr %45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 16 dereferenceable(16) %.22.i.i66, i64 16, i1 false)
+  br label %lseg_closept_point.exit67
 
-lseg_closept_point.exit68:                        ; preds = %line_construct.exit.i66, %line_closept_point.exit235
+lseg_closept_point.exit67:                        ; preds = %line_construct.exit.i65, %line_closept_point.exit234
   %483 = load double, ptr %20, align 8
   %484 = fsub double %483, %109
   %485 = call double @llvm.fabs.f64(double %484)
   %486 = fcmp une double %485, 0x7FF0000000000000
   %487 = call double @llvm.fabs.f64(double %483)
   %488 = fcmp oeq double %487, 0x7FF0000000000000
-  %or.cond.i.i209 = or i1 %488, %486
+  %or.cond.i.i208 = or i1 %488, %486
   %489 = call double @llvm.fabs.f64(double %109)
   %490 = fcmp oeq double %489, 0x7FF0000000000000
-  %or.cond8.i.i210 = or i1 %490, %or.cond.i.i209
-  br i1 %or.cond8.i.i210, label %float8_mi.exit.i211, label %491
+  %or.cond8.i.i209 = or i1 %490, %or.cond.i.i208
+  br i1 %or.cond8.i.i209, label %float8_mi.exit.i210, label %491
 
-491:                                              ; preds = %lseg_closept_point.exit68
+491:                                              ; preds = %lseg_closept_point.exit67
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i211:                              ; preds = %lseg_closept_point.exit68
+float8_mi.exit.i210:                              ; preds = %lseg_closept_point.exit67
   %492 = load double, ptr %62, align 8
   %493 = fsub double %492, %279
   %494 = call double @llvm.fabs.f64(double %493)
   %495 = fcmp une double %494, 0x7FF0000000000000
   %496 = call double @llvm.fabs.f64(double %492)
   %497 = fcmp oeq double %496, 0x7FF0000000000000
-  %or.cond.i4.i212 = or i1 %497, %495
+  %or.cond.i4.i211 = or i1 %497, %495
   %498 = call double @llvm.fabs.f64(double %279)
   %499 = fcmp oeq double %498, 0x7FF0000000000000
-  %or.cond8.i5.i213 = or i1 %499, %or.cond.i4.i212
-  br i1 %or.cond8.i5.i213, label %float8_mi.exit6.i214, label %500
+  %or.cond8.i5.i212 = or i1 %499, %or.cond.i4.i211
+  br i1 %or.cond8.i5.i212, label %float8_mi.exit6.i213, label %500
 
-500:                                              ; preds = %float8_mi.exit.i211
+500:                                              ; preds = %float8_mi.exit.i210
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i214:                             ; preds = %float8_mi.exit.i211
+float8_mi.exit6.i213:                             ; preds = %float8_mi.exit.i210
   %501 = fcmp oeq double %485, 0x7FF0000000000000
   %502 = fcmp oeq double %494, 0x7FF0000000000000
-  %or.cond.i7.i215 = or i1 %501, %502
-  br i1 %or.cond.i7.i215, label %point_dt.exit221, label %503
+  %or.cond.i7.i214 = or i1 %501, %502
+  br i1 %or.cond.i7.i214, label %point_dt.exit220, label %503
 
-503:                                              ; preds = %float8_mi.exit6.i214
-  %or.cond29.i.i216 = fcmp uno double %484, %493
-  br i1 %or.cond29.i.i216, label %point_dt.exit221, label %504
+503:                                              ; preds = %float8_mi.exit6.i213
+  %or.cond29.i.i215 = fcmp uno double %484, %493
+  br i1 %or.cond29.i.i215, label %point_dt.exit220, label %504
 
 504:                                              ; preds = %503
   %505 = fcmp olt double %485, %494
-  %.023.i.i217 = select i1 %505, double %485, double %494
-  %.022.i.i218 = select i1 %505, double %494, double %485
-  %506 = fcmp oeq double %.023.i.i217, 0.000000e+00
-  br i1 %506, label %point_dt.exit221, label %507
+  %.023.i.i216 = select i1 %505, double %485, double %494
+  %.022.i.i217 = select i1 %505, double %494, double %485
+  %506 = fcmp oeq double %.023.i.i216, 0.000000e+00
+  br i1 %506, label %point_dt.exit220, label %507
 
 507:                                              ; preds = %504
-  %508 = fdiv double %.023.i.i217, %.022.i.i218
+  %508 = fdiv double %.023.i.i216, %.022.i.i217
   %509 = call double @llvm.fmuladd.f64(double %508, double %508, double 1.000000e+00)
-  %sqrt.i.i219 = call double @llvm.sqrt.f64(double %509)
-  %510 = fmul double %.022.i.i218, %sqrt.i.i219
+  %sqrt.i.i218 = call double @llvm.sqrt.f64(double %509)
+  %510 = fmul double %.022.i.i217, %sqrt.i.i218
   %511 = call double @llvm.fabs.f64(double %510)
   %512 = fcmp oeq double %511, 0x7FF0000000000000
   br i1 %512, label %513, label %514
@@ -13788,22 +13772,22 @@ float8_mi.exit6.i214:                             ; preds = %float8_mi.exit.i211
 
 514:                                              ; preds = %507
   %515 = fcmp oeq double %510, 0.000000e+00
-  br i1 %515, label %516, label %point_dt.exit221
+  br i1 %515, label %516, label %point_dt.exit220
 
 516:                                              ; preds = %514
   call void @float_underflow_error() #18
   unreachable
 
-point_dt.exit221:                                 ; preds = %float8_mi.exit6.i214, %503, %504, %514
-  %.0.i.i220 = phi double [ %.022.i.i218, %504 ], [ %510, %514 ], [ 0x7FF0000000000000, %float8_mi.exit6.i214 ], [ 0x7FF8000000000000, %503 ]
+point_dt.exit220:                                 ; preds = %float8_mi.exit6.i213, %503, %504, %514
+  %.0.i.i219 = phi double [ %.022.i.i217, %504 ], [ %510, %514 ], [ 0x7FF0000000000000, %float8_mi.exit6.i213 ], [ 0x7FF8000000000000, %503 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
   %517 = extractelement <2 x double> %108, i64 1
-  br i1 %278, label %line_construct.exit.i57.sink.split.sink.split, label %518
+  br i1 %278, label %line_construct.exit.i56.sink.split.sink.split, label %518
 
-518:                                              ; preds = %point_dt.exit221
+518:                                              ; preds = %point_dt.exit220
   %519 = extractelement <2 x double> %102, i64 1
   %520 = extractelement <2 x double> %103, i64 1
   %521 = fcmp oeq double %519, %520
@@ -13811,55 +13795,55 @@ point_dt.exit221:                                 ; preds = %float8_mi.exit6.i21
   %523 = call double @llvm.fabs.f64(double %522)
   %524 = fcmp ole double %523, 0x3EB0C6F7A0B5ED8D
   %525 = or i1 %521, %524
-  br i1 %525, label %line_construct.exit.i57.sink.split.sink.split, label %526
+  br i1 %525, label %line_construct.exit.i56.sink.split.sink.split, label %526
 
 526:                                              ; preds = %518
   %527 = fcmp une double %276, 0x7FF0000000000000
   %528 = call double @llvm.fabs.f64(double %271)
   %529 = fcmp oeq double %528, 0x7FF0000000000000
-  %or.cond.i.i197 = or i1 %529, %527
+  %or.cond.i.i196 = or i1 %529, %527
   %530 = call double @llvm.fabs.f64(double %272)
   %531 = fcmp oeq double %530, 0x7FF0000000000000
-  %or.cond8.i.i198 = or i1 %531, %or.cond.i.i197
-  br i1 %or.cond8.i.i198, label %float8_mi.exit.i199, label %532
+  %or.cond8.i.i197 = or i1 %531, %or.cond.i.i196
+  br i1 %or.cond8.i.i197, label %float8_mi.exit.i198, label %532
 
 532:                                              ; preds = %526
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i199:                              ; preds = %526
+float8_mi.exit.i198:                              ; preds = %526
   %533 = fsub double %520, %519
   %534 = call double @llvm.fabs.f64(double %533)
   %535 = fcmp une double %534, 0x7FF0000000000000
   %536 = call double @llvm.fabs.f64(double %520)
   %537 = fcmp oeq double %536, 0x7FF0000000000000
-  %or.cond.i9.i200 = or i1 %537, %535
+  %or.cond.i9.i199 = or i1 %537, %535
   %538 = call double @llvm.fabs.f64(double %519)
   %539 = fcmp oeq double %538, 0x7FF0000000000000
-  %or.cond8.i10.i201 = or i1 %539, %or.cond.i9.i200
-  br i1 %or.cond8.i10.i201, label %float8_mi.exit11.i202, label %540
+  %or.cond8.i10.i200 = or i1 %539, %or.cond.i9.i199
+  br i1 %or.cond8.i10.i200, label %float8_mi.exit11.i201, label %540
 
-540:                                              ; preds = %float8_mi.exit.i199
+540:                                              ; preds = %float8_mi.exit.i198
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit11.i202:                            ; preds = %float8_mi.exit.i199
+float8_mi.exit11.i201:                            ; preds = %float8_mi.exit.i198
   %541 = fcmp une double %533, 0.000000e+00
   %542 = fcmp uno double %275, 0.000000e+00
-  %or.cond11.i.i203 = or i1 %542, %541
-  br i1 %or.cond11.i.i203, label %544, label %543
+  %or.cond11.i.i202 = or i1 %542, %541
+  br i1 %or.cond11.i.i202, label %544, label %543
 
-543:                                              ; preds = %float8_mi.exit11.i202
+543:                                              ; preds = %float8_mi.exit11.i201
   call void @float_zero_divide_error() #18
   unreachable
 
-544:                                              ; preds = %float8_mi.exit11.i202
+544:                                              ; preds = %float8_mi.exit11.i201
   %545 = fdiv double %275, %533
   %546 = call double @llvm.fabs.f64(double %545)
   %547 = fcmp une double %546, 0x7FF0000000000000
   %548 = fcmp oeq double %276, 0x7FF0000000000000
-  %or.cond13.i.i204 = or i1 %548, %547
-  br i1 %or.cond13.i.i204, label %550, label %549
+  %or.cond13.i.i203 = or i1 %548, %547
+  br i1 %or.cond13.i.i203, label %550, label %549
 
 549:                                              ; preds = %544
   call void @float_overflow_error() #18
@@ -13868,23 +13852,23 @@ float8_mi.exit11.i202:                            ; preds = %float8_mi.exit.i199
 550:                                              ; preds = %544
   %551 = fcmp une double %545, 0.000000e+00
   %552 = fcmp oeq double %275, 0.000000e+00
-  %or.cond.not17.i.i205 = or i1 %552, %551
+  %or.cond.not17.i.i204 = or i1 %552, %551
   %553 = fcmp oeq double %534, 0x7FF0000000000000
-  %or.cond15.i.i206 = or i1 %553, %or.cond.not17.i.i205
-  br i1 %or.cond15.i.i206, label %point_invsl.exit208, label %554
+  %or.cond15.i.i205 = or i1 %553, %or.cond.not17.i.i204
+  br i1 %or.cond15.i.i205, label %point_invsl.exit207, label %554
 
 554:                                              ; preds = %550
   call void @float_underflow_error() #18
   unreachable
 
-point_invsl.exit208:                              ; preds = %550
+point_invsl.exit207:                              ; preds = %550
   %555 = call double @llvm.fabs.f64(double %545)
   %556 = fcmp oeq double %555, 0x7FF0000000000000
-  br i1 %556, label %line_construct.exit.i57.sink.split.sink.split, label %557
+  br i1 %556, label %line_construct.exit.i56.sink.split.sink.split, label %557
 
-557:                                              ; preds = %point_invsl.exit208
+557:                                              ; preds = %point_invsl.exit207
   %558 = fcmp oeq double %545, 0.000000e+00
-  br i1 %558, label %line_construct.exit.i57.sink.split.sink.split, label %559
+  br i1 %558, label %line_construct.exit.i56.sink.split.sink.split, label %559
 
 559:                                              ; preds = %557
   store double %545, ptr %23, align 8
@@ -13894,8 +13878,8 @@ point_invsl.exit208:                              ; preds = %550
   %562 = fcmp une double %561, 0x7FF0000000000000
   %563 = call double @llvm.fabs.f64(double %110)
   %564 = fcmp oeq double %563, 0x7FF0000000000000
-  %or.cond15.i.i.i51 = or i1 %564, %562
-  br i1 %or.cond15.i.i.i51, label %566, label %565
+  %or.cond15.i.i.i50 = or i1 %564, %562
+  br i1 %or.cond15.i.i.i50, label %566, label %565
 
 565:                                              ; preds = %559
   call void @float_overflow_error() #18
@@ -13904,63 +13888,63 @@ point_invsl.exit208:                              ; preds = %550
 566:                                              ; preds = %559
   %567 = fcmp oeq double %560, 0.000000e+00
   %568 = fcmp une double %110, 0.000000e+00
-  %or.cond3.i.i.i52 = and i1 %568, %567
-  br i1 %or.cond3.i.i.i52, label %569, label %float8_mul.exit.i.i53
+  %or.cond3.i.i.i51 = and i1 %568, %567
+  br i1 %or.cond3.i.i.i51, label %569, label %float8_mul.exit.i.i52
 
 569:                                              ; preds = %566
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i53:                            ; preds = %566
+float8_mul.exit.i.i52:                            ; preds = %566
   %570 = fsub double %517, %560
   %571 = call double @llvm.fabs.f64(double %570)
   %572 = fcmp une double %571, 0x7FF0000000000000
   %573 = call double @llvm.fabs.f64(double %517)
   %574 = fcmp oeq double %573, 0x7FF0000000000000
-  %or.cond.i19.i.i54 = or i1 %574, %572
+  %or.cond.i19.i.i53 = or i1 %574, %572
   %575 = fcmp oeq double %561, 0x7FF0000000000000
-  %or.cond8.i.i.i55 = or i1 %575, %or.cond.i19.i.i54
-  br i1 %or.cond8.i.i.i55, label %float8_mi.exit.i.i56, label %576
+  %or.cond8.i.i.i54 = or i1 %575, %or.cond.i19.i.i53
+  br i1 %or.cond8.i.i.i54, label %float8_mi.exit.i.i55, label %576
 
-576:                                              ; preds = %float8_mul.exit.i.i53
+576:                                              ; preds = %float8_mul.exit.i.i52
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i56:                             ; preds = %float8_mul.exit.i.i53
+float8_mi.exit.i.i55:                             ; preds = %float8_mul.exit.i.i52
   %577 = fcmp oeq double %570, 0.000000e+00
-  br i1 %577, label %line_construct.exit.i57.sink.split, label %line_construct.exit.i57
+  br i1 %577, label %line_construct.exit.i56.sink.split, label %line_construct.exit.i56
 
-line_construct.exit.i57.sink.split.sink.split:    ; preds = %557, %point_dt.exit221, %point_invsl.exit208, %518
-  %storemerge1108 = phi double [ -1.000000e+00, %518 ], [ -1.000000e+00, %point_invsl.exit208 ], [ 0.000000e+00, %point_dt.exit221 ], [ 0.000000e+00, %557 ]
-  %.sink1094 = phi double [ 0.000000e+00, %518 ], [ 0.000000e+00, %point_invsl.exit208 ], [ -1.000000e+00, %point_dt.exit221 ], [ -1.000000e+00, %557 ]
-  %.sink1077.ph = phi double [ %110, %518 ], [ %110, %point_invsl.exit208 ], [ %517, %point_dt.exit221 ], [ %517, %557 ]
-  store double %storemerge1108, ptr %23, align 8
-  store double %.sink1094, ptr %63, align 8
-  br label %line_construct.exit.i57
+line_construct.exit.i56.sink.split.sink.split:    ; preds = %557, %point_dt.exit220, %point_invsl.exit207, %518
+  %storemerge1105 = phi double [ -1.000000e+00, %518 ], [ -1.000000e+00, %point_invsl.exit207 ], [ 0.000000e+00, %point_dt.exit220 ], [ 0.000000e+00, %557 ]
+  %.sink1091 = phi double [ 0.000000e+00, %518 ], [ 0.000000e+00, %point_invsl.exit207 ], [ -1.000000e+00, %point_dt.exit220 ], [ -1.000000e+00, %557 ]
+  %.sink1074.ph = phi double [ %110, %518 ], [ %110, %point_invsl.exit207 ], [ %517, %point_dt.exit220 ], [ %517, %557 ]
+  store double %storemerge1105, ptr %23, align 8
+  store double %.sink1091, ptr %63, align 8
+  br label %line_construct.exit.i56
 
-line_construct.exit.i57.sink.split:               ; preds = %float8_mi.exit.i.i56
-  br label %line_construct.exit.i57
+line_construct.exit.i56.sink.split:               ; preds = %float8_mi.exit.i.i55
+  br label %line_construct.exit.i56
 
-line_construct.exit.i57:                          ; preds = %line_construct.exit.i57.sink.split.sink.split, %line_construct.exit.i57.sink.split, %float8_mi.exit.i.i56
-  %storemerge1109 = phi double [ %570, %float8_mi.exit.i.i56 ], [ %.sink1077.ph, %line_construct.exit.i57.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i57.sink.split ]
-  %578 = phi double [ -1.000000e+00, %float8_mi.exit.i.i56 ], [ %.sink1094, %line_construct.exit.i57.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i57.sink.split ]
-  %579 = phi double [ %545, %float8_mi.exit.i.i56 ], [ %storemerge1108, %line_construct.exit.i57.sink.split.sink.split ], [ %545, %line_construct.exit.i57.sink.split ]
-  store double %storemerge1109, ptr %64, align 8
+line_construct.exit.i56:                          ; preds = %line_construct.exit.i56.sink.split.sink.split, %line_construct.exit.i56.sink.split, %float8_mi.exit.i.i55
+  %storemerge1106 = phi double [ %570, %float8_mi.exit.i.i55 ], [ %.sink1074.ph, %line_construct.exit.i56.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i56.sink.split ]
+  %578 = phi double [ -1.000000e+00, %float8_mi.exit.i.i55 ], [ %.sink1091, %line_construct.exit.i56.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i56.sink.split ]
+  %579 = phi double [ %545, %float8_mi.exit.i.i55 ], [ %storemerge1105, %line_construct.exit.i56.sink.split.sink.split ], [ %545, %line_construct.exit.i56.sink.split ]
+  store double %storemerge1106, ptr %64, align 8
   %580 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %22, ptr noundef nonnull %28, ptr noundef nonnull %23)
-  br i1 %580, label %lseg_closept_point.exit59, label %581
+  br i1 %580, label %lseg_closept_point.exit58, label %581
 
-581:                                              ; preds = %line_construct.exit.i57
+581:                                              ; preds = %line_construct.exit.i56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   %582 = call double @llvm.fabs.f64(double %579)
   %583 = fcmp ugt double %582, 0x3EB0C6F7A0B5ED8D
-  br i1 %583, label %584, label %line_construct.exit.i184.sink.split.sink.split
+  br i1 %583, label %584, label %line_construct.exit.i183.sink.split.sink.split
 
 584:                                              ; preds = %581
   %585 = call double @llvm.fabs.f64(double %578)
   %586 = fcmp ugt double %585, 0x3EB0C6F7A0B5ED8D
   %587 = extractelement <2 x double> %102, i64 1
-  br i1 %586, label %588, label %line_construct.exit.i184.sink.split.sink.split
+  br i1 %586, label %588, label %line_construct.exit.i183.sink.split.sink.split
 
 588:                                              ; preds = %584
   %589 = fdiv double %578, %579
@@ -13974,13 +13958,13 @@ line_construct.exit.i57:                          ; preds = %line_construct.exit
 
 593:                                              ; preds = %588
   %594 = fcmp une double %589, 0.000000e+00
-  br i1 %594, label %line_invsl.exit.i189, label %595
+  br i1 %594, label %line_invsl.exit.i188, label %595
 
 595:                                              ; preds = %593
   call void @float_underflow_error() #18
   unreachable
 
-line_invsl.exit.i189:                             ; preds = %593
+line_invsl.exit.i188:                             ; preds = %593
   store double %589, ptr %7, align 16
   store double -1.000000e+00, ptr %65, align 8
   %596 = fmul double %271, %589
@@ -13988,75 +13972,75 @@ line_invsl.exit.i189:                             ; preds = %593
   %598 = fcmp une double %597, 0x7FF0000000000000
   %599 = call double @llvm.fabs.f64(double %271)
   %600 = fcmp oeq double %599, 0x7FF0000000000000
-  %or.cond15.i.i12.i190 = or i1 %600, %598
-  br i1 %or.cond15.i.i12.i190, label %602, label %601
+  %or.cond15.i.i12.i189 = or i1 %600, %598
+  br i1 %or.cond15.i.i12.i189, label %602, label %601
 
-601:                                              ; preds = %line_invsl.exit.i189
+601:                                              ; preds = %line_invsl.exit.i188
   call void @float_overflow_error() #18
   unreachable
 
-602:                                              ; preds = %line_invsl.exit.i189
+602:                                              ; preds = %line_invsl.exit.i188
   %603 = fcmp oeq double %596, 0.000000e+00
   %604 = fcmp une double %271, 0.000000e+00
-  %or.cond3.i.i.i191 = and i1 %604, %603
-  br i1 %or.cond3.i.i.i191, label %605, label %float8_mul.exit.i.i192
+  %or.cond3.i.i.i190 = and i1 %604, %603
+  br i1 %or.cond3.i.i.i190, label %605, label %float8_mul.exit.i.i191
 
 605:                                              ; preds = %602
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i192:                           ; preds = %602
+float8_mul.exit.i.i191:                           ; preds = %602
   %606 = fsub double %587, %596
   %607 = call double @llvm.fabs.f64(double %606)
   %608 = fcmp une double %607, 0x7FF0000000000000
   %609 = call double @llvm.fabs.f64(double %587)
   %610 = fcmp oeq double %609, 0x7FF0000000000000
-  %or.cond.i19.i.i193 = or i1 %610, %608
+  %or.cond.i19.i.i192 = or i1 %610, %608
   %611 = fcmp oeq double %597, 0x7FF0000000000000
-  %or.cond8.i.i.i194 = or i1 %611, %or.cond.i19.i.i193
-  br i1 %or.cond8.i.i.i194, label %float8_mi.exit.i.i195, label %612
+  %or.cond8.i.i.i193 = or i1 %611, %or.cond.i19.i.i192
+  br i1 %or.cond8.i.i.i193, label %float8_mi.exit.i.i194, label %612
 
-612:                                              ; preds = %float8_mul.exit.i.i192
+612:                                              ; preds = %float8_mul.exit.i.i191
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i195:                            ; preds = %float8_mul.exit.i.i192
+float8_mi.exit.i.i194:                            ; preds = %float8_mul.exit.i.i191
   %613 = fcmp oeq double %606, 0.000000e+00
-  br i1 %613, label %line_construct.exit.i184.sink.split, label %line_construct.exit.i184
+  br i1 %613, label %line_construct.exit.i183.sink.split, label %line_construct.exit.i183
 
-line_construct.exit.i184.sink.split.sink.split:   ; preds = %584, %581
-  %.sink1078.ph = phi double [ %271, %581 ], [ %587, %584 ]
+line_construct.exit.i183.sink.split.sink.split:   ; preds = %584, %581
+  %.sink1075.ph = phi double [ %271, %581 ], [ %587, %584 ]
   %614 = phi <2 x double> [ <double -1.000000e+00, double 0.000000e+00>, %581 ], [ <double 0.000000e+00, double -1.000000e+00>, %584 ]
   store <2 x double> %614, ptr %7, align 16
-  br label %line_construct.exit.i184
+  br label %line_construct.exit.i183
 
-line_construct.exit.i184.sink.split:              ; preds = %float8_mi.exit.i.i195
-  br label %line_construct.exit.i184
+line_construct.exit.i183.sink.split:              ; preds = %float8_mi.exit.i.i194
+  br label %line_construct.exit.i183
 
-line_construct.exit.i184:                         ; preds = %line_construct.exit.i184.sink.split.sink.split, %line_construct.exit.i184.sink.split, %float8_mi.exit.i.i195
-  %storemerge1111 = phi double [ %606, %float8_mi.exit.i.i195 ], [ %.sink1078.ph, %line_construct.exit.i184.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i184.sink.split ]
-  store double %storemerge1111, ptr %66, align 16
+line_construct.exit.i183:                         ; preds = %line_construct.exit.i183.sink.split.sink.split, %line_construct.exit.i183.sink.split, %float8_mi.exit.i.i194
+  %storemerge1108 = phi double [ %606, %float8_mi.exit.i.i194 ], [ %.sink1075.ph, %line_construct.exit.i183.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i183.sink.split ]
+  store double %storemerge1108, ptr %66, align 16
   %615 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %23)
-  br i1 %615, label %616, label %line_closept_point.exit196
+  br i1 %615, label %616, label %line_closept_point.exit195
 
-616:                                              ; preds = %line_construct.exit.i184
+616:                                              ; preds = %line_construct.exit.i183
   %617 = load double, ptr %6, align 8
   %618 = fsub double %617, %271
   %619 = call double @llvm.fabs.f64(double %618)
   %620 = fcmp une double %619, 0x7FF0000000000000
   %621 = call double @llvm.fabs.f64(double %617)
   %622 = fcmp oeq double %621, 0x7FF0000000000000
-  %or.cond.i.i377 = or i1 %622, %620
+  %or.cond.i.i376 = or i1 %622, %620
   %623 = call double @llvm.fabs.f64(double %271)
   %624 = fcmp oeq double %623, 0x7FF0000000000000
-  %or.cond8.i.i378 = or i1 %624, %or.cond.i.i377
-  br i1 %or.cond8.i.i378, label %float8_mi.exit.i379, label %625
+  %or.cond8.i.i377 = or i1 %624, %or.cond.i.i376
+  br i1 %or.cond8.i.i377, label %float8_mi.exit.i378, label %625
 
 625:                                              ; preds = %616
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i379:                              ; preds = %616
+float8_mi.exit.i378:                              ; preds = %616
   %626 = load double, ptr %67, align 8
   %627 = extractelement <2 x double> %102, i64 1
   %628 = fsub double %626, %627
@@ -14064,38 +14048,38 @@ float8_mi.exit.i379:                              ; preds = %616
   %630 = fcmp une double %629, 0x7FF0000000000000
   %631 = call double @llvm.fabs.f64(double %626)
   %632 = fcmp oeq double %631, 0x7FF0000000000000
-  %or.cond.i4.i380 = or i1 %632, %630
+  %or.cond.i4.i379 = or i1 %632, %630
   %633 = call double @llvm.fabs.f64(double %627)
   %634 = fcmp oeq double %633, 0x7FF0000000000000
-  %or.cond8.i5.i381 = or i1 %634, %or.cond.i4.i380
-  br i1 %or.cond8.i5.i381, label %float8_mi.exit6.i382, label %635
+  %or.cond8.i5.i380 = or i1 %634, %or.cond.i4.i379
+  br i1 %or.cond8.i5.i380, label %float8_mi.exit6.i381, label %635
 
-635:                                              ; preds = %float8_mi.exit.i379
+635:                                              ; preds = %float8_mi.exit.i378
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i382:                             ; preds = %float8_mi.exit.i379
+float8_mi.exit6.i381:                             ; preds = %float8_mi.exit.i378
   %636 = fcmp oeq double %619, 0x7FF0000000000000
   %637 = fcmp oeq double %629, 0x7FF0000000000000
-  %or.cond.i7.i383 = or i1 %636, %637
-  br i1 %or.cond.i7.i383, label %line_closept_point.exit196, label %638
+  %or.cond.i7.i382 = or i1 %636, %637
+  br i1 %or.cond.i7.i382, label %line_closept_point.exit195, label %638
 
-638:                                              ; preds = %float8_mi.exit6.i382
-  %or.cond29.i.i384 = fcmp uno double %618, %628
-  br i1 %or.cond29.i.i384, label %line_closept_point.exit196, label %639
+638:                                              ; preds = %float8_mi.exit6.i381
+  %or.cond29.i.i383 = fcmp uno double %618, %628
+  br i1 %or.cond29.i.i383, label %line_closept_point.exit195, label %639
 
 639:                                              ; preds = %638
   %640 = fcmp olt double %619, %629
-  %.023.i.i385 = select i1 %640, double %619, double %629
-  %.022.i.i386 = select i1 %640, double %629, double %619
-  %641 = fcmp oeq double %.023.i.i385, 0.000000e+00
-  br i1 %641, label %line_closept_point.exit196, label %642
+  %.023.i.i384 = select i1 %640, double %619, double %629
+  %.022.i.i385 = select i1 %640, double %629, double %619
+  %641 = fcmp oeq double %.023.i.i384, 0.000000e+00
+  br i1 %641, label %line_closept_point.exit195, label %642
 
 642:                                              ; preds = %639
-  %643 = fdiv double %.023.i.i385, %.022.i.i386
+  %643 = fdiv double %.023.i.i384, %.022.i.i385
   %644 = call double @llvm.fmuladd.f64(double %643, double %643, double 1.000000e+00)
-  %sqrt.i.i387 = call double @llvm.sqrt.f64(double %644)
-  %645 = fmul double %.022.i.i386, %sqrt.i.i387
+  %sqrt.i.i386 = call double @llvm.sqrt.f64(double %644)
+  %645 = fmul double %.022.i.i385, %sqrt.i.i386
   %646 = call double @llvm.fabs.f64(double %645)
   %647 = fcmp oeq double %646, 0x7FF0000000000000
   br i1 %647, label %648, label %649
@@ -14106,25 +14090,25 @@ float8_mi.exit6.i382:                             ; preds = %float8_mi.exit.i379
 
 649:                                              ; preds = %642
   %650 = fcmp oeq double %645, 0.000000e+00
-  br i1 %650, label %651, label %line_closept_point.exit196
+  br i1 %650, label %651, label %line_closept_point.exit195
 
 651:                                              ; preds = %649
   call void @float_underflow_error() #18
   unreachable
 
-line_closept_point.exit196:                       ; preds = %649, %639, %638, %float8_mi.exit6.i382, %line_construct.exit.i184
-  %.0.i185 = phi double [ 0x7FF8000000000000, %line_construct.exit.i184 ], [ %.022.i.i386, %639 ], [ %645, %649 ], [ 0x7FF0000000000000, %float8_mi.exit6.i382 ], [ 0x7FF8000000000000, %638 ]
+line_closept_point.exit195:                       ; preds = %649, %639, %638, %float8_mi.exit6.i381, %line_construct.exit.i183
+  %.0.i184 = phi double [ 0x7FF8000000000000, %line_construct.exit.i183 ], [ %.022.i.i385, %639 ], [ %645, %649 ], [ 0x7FF0000000000000, %float8_mi.exit6.i381 ], [ 0x7FF8000000000000, %638 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  br i1 %583, label %652, label %line_construct.exit.i170.sink.split.sink.split
+  br i1 %583, label %652, label %line_construct.exit.i169.sink.split.sink.split
 
-652:                                              ; preds = %line_closept_point.exit196
+652:                                              ; preds = %line_closept_point.exit195
   %653 = call double @llvm.fabs.f64(double %578)
   %654 = fcmp ugt double %653, 0x3EB0C6F7A0B5ED8D
   %655 = extractelement <2 x double> %103, i64 1
-  br i1 %654, label %656, label %line_construct.exit.i170.sink.split.sink.split
+  br i1 %654, label %656, label %line_construct.exit.i169.sink.split.sink.split
 
 656:                                              ; preds = %652
   %657 = fdiv double %578, %579
@@ -14138,13 +14122,13 @@ line_closept_point.exit196:                       ; preds = %649, %639, %638, %f
 
 661:                                              ; preds = %656
   %662 = fcmp une double %657, 0.000000e+00
-  br i1 %662, label %line_invsl.exit.i175, label %663
+  br i1 %662, label %line_invsl.exit.i174, label %663
 
 663:                                              ; preds = %661
   call void @float_underflow_error() #18
   unreachable
 
-line_invsl.exit.i175:                             ; preds = %661
+line_invsl.exit.i174:                             ; preds = %661
   store double %657, ptr %9, align 16
   store double -1.000000e+00, ptr %68, align 8
   %664 = fmul double %272, %657
@@ -14152,75 +14136,75 @@ line_invsl.exit.i175:                             ; preds = %661
   %666 = fcmp une double %665, 0x7FF0000000000000
   %667 = call double @llvm.fabs.f64(double %272)
   %668 = fcmp oeq double %667, 0x7FF0000000000000
-  %or.cond15.i.i12.i176 = or i1 %668, %666
-  br i1 %or.cond15.i.i12.i176, label %670, label %669
+  %or.cond15.i.i12.i175 = or i1 %668, %666
+  br i1 %or.cond15.i.i12.i175, label %670, label %669
 
-669:                                              ; preds = %line_invsl.exit.i175
+669:                                              ; preds = %line_invsl.exit.i174
   call void @float_overflow_error() #18
   unreachable
 
-670:                                              ; preds = %line_invsl.exit.i175
+670:                                              ; preds = %line_invsl.exit.i174
   %671 = fcmp oeq double %664, 0.000000e+00
   %672 = fcmp une double %272, 0.000000e+00
-  %or.cond3.i.i.i177 = and i1 %672, %671
-  br i1 %or.cond3.i.i.i177, label %673, label %float8_mul.exit.i.i178
+  %or.cond3.i.i.i176 = and i1 %672, %671
+  br i1 %or.cond3.i.i.i176, label %673, label %float8_mul.exit.i.i177
 
 673:                                              ; preds = %670
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i178:                           ; preds = %670
+float8_mul.exit.i.i177:                           ; preds = %670
   %674 = fsub double %655, %664
   %675 = call double @llvm.fabs.f64(double %674)
   %676 = fcmp une double %675, 0x7FF0000000000000
   %677 = call double @llvm.fabs.f64(double %655)
   %678 = fcmp oeq double %677, 0x7FF0000000000000
-  %or.cond.i19.i.i179 = or i1 %678, %676
+  %or.cond.i19.i.i178 = or i1 %678, %676
   %679 = fcmp oeq double %665, 0x7FF0000000000000
-  %or.cond8.i.i.i180 = or i1 %679, %or.cond.i19.i.i179
-  br i1 %or.cond8.i.i.i180, label %float8_mi.exit.i.i181, label %680
+  %or.cond8.i.i.i179 = or i1 %679, %or.cond.i19.i.i178
+  br i1 %or.cond8.i.i.i179, label %float8_mi.exit.i.i180, label %680
 
-680:                                              ; preds = %float8_mul.exit.i.i178
+680:                                              ; preds = %float8_mul.exit.i.i177
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i181:                            ; preds = %float8_mul.exit.i.i178
+float8_mi.exit.i.i180:                            ; preds = %float8_mul.exit.i.i177
   %681 = fcmp oeq double %674, 0.000000e+00
-  br i1 %681, label %line_construct.exit.i170.sink.split, label %line_construct.exit.i170
+  br i1 %681, label %line_construct.exit.i169.sink.split, label %line_construct.exit.i169
 
-line_construct.exit.i170.sink.split.sink.split:   ; preds = %652, %line_closept_point.exit196
-  %.sink1079.ph = phi double [ %272, %line_closept_point.exit196 ], [ %655, %652 ]
-  %682 = phi <2 x double> [ <double -1.000000e+00, double 0.000000e+00>, %line_closept_point.exit196 ], [ <double 0.000000e+00, double -1.000000e+00>, %652 ]
+line_construct.exit.i169.sink.split.sink.split:   ; preds = %652, %line_closept_point.exit195
+  %.sink1076.ph = phi double [ %272, %line_closept_point.exit195 ], [ %655, %652 ]
+  %682 = phi <2 x double> [ <double -1.000000e+00, double 0.000000e+00>, %line_closept_point.exit195 ], [ <double 0.000000e+00, double -1.000000e+00>, %652 ]
   store <2 x double> %682, ptr %9, align 16
-  br label %line_construct.exit.i170
+  br label %line_construct.exit.i169
 
-line_construct.exit.i170.sink.split:              ; preds = %float8_mi.exit.i.i181
-  br label %line_construct.exit.i170
+line_construct.exit.i169.sink.split:              ; preds = %float8_mi.exit.i.i180
+  br label %line_construct.exit.i169
 
-line_construct.exit.i170:                         ; preds = %line_construct.exit.i170.sink.split.sink.split, %line_construct.exit.i170.sink.split, %float8_mi.exit.i.i181
-  %storemerge1113 = phi double [ %674, %float8_mi.exit.i.i181 ], [ %.sink1079.ph, %line_construct.exit.i170.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i170.sink.split ]
-  store double %storemerge1113, ptr %69, align 16
+line_construct.exit.i169:                         ; preds = %line_construct.exit.i169.sink.split.sink.split, %line_construct.exit.i169.sink.split, %float8_mi.exit.i.i180
+  %storemerge1110 = phi double [ %674, %float8_mi.exit.i.i180 ], [ %.sink1076.ph, %line_construct.exit.i169.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i169.sink.split ]
+  store double %storemerge1110, ptr %69, align 16
   %683 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %23)
-  br i1 %683, label %684, label %line_closept_point.exit182
+  br i1 %683, label %684, label %line_closept_point.exit181
 
-684:                                              ; preds = %line_construct.exit.i170
+684:                                              ; preds = %line_construct.exit.i169
   %685 = load double, ptr %8, align 8
   %686 = fsub double %685, %272
   %687 = call double @llvm.fabs.f64(double %686)
   %688 = fcmp une double %687, 0x7FF0000000000000
   %689 = call double @llvm.fabs.f64(double %685)
   %690 = fcmp oeq double %689, 0x7FF0000000000000
-  %or.cond.i.i364 = or i1 %690, %688
+  %or.cond.i.i363 = or i1 %690, %688
   %691 = call double @llvm.fabs.f64(double %272)
   %692 = fcmp oeq double %691, 0x7FF0000000000000
-  %or.cond8.i.i365 = or i1 %692, %or.cond.i.i364
-  br i1 %or.cond8.i.i365, label %float8_mi.exit.i366, label %693
+  %or.cond8.i.i364 = or i1 %692, %or.cond.i.i363
+  br i1 %or.cond8.i.i364, label %float8_mi.exit.i365, label %693
 
 693:                                              ; preds = %684
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i366:                              ; preds = %684
+float8_mi.exit.i365:                              ; preds = %684
   %694 = load double, ptr %70, align 8
   %695 = extractelement <2 x double> %103, i64 1
   %696 = fsub double %694, %695
@@ -14228,38 +14212,38 @@ float8_mi.exit.i366:                              ; preds = %684
   %698 = fcmp une double %697, 0x7FF0000000000000
   %699 = call double @llvm.fabs.f64(double %694)
   %700 = fcmp oeq double %699, 0x7FF0000000000000
-  %or.cond.i4.i367 = or i1 %700, %698
+  %or.cond.i4.i366 = or i1 %700, %698
   %701 = call double @llvm.fabs.f64(double %695)
   %702 = fcmp oeq double %701, 0x7FF0000000000000
-  %or.cond8.i5.i368 = or i1 %702, %or.cond.i4.i367
-  br i1 %or.cond8.i5.i368, label %float8_mi.exit6.i369, label %703
+  %or.cond8.i5.i367 = or i1 %702, %or.cond.i4.i366
+  br i1 %or.cond8.i5.i367, label %float8_mi.exit6.i368, label %703
 
-703:                                              ; preds = %float8_mi.exit.i366
+703:                                              ; preds = %float8_mi.exit.i365
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i369:                             ; preds = %float8_mi.exit.i366
+float8_mi.exit6.i368:                             ; preds = %float8_mi.exit.i365
   %704 = fcmp oeq double %687, 0x7FF0000000000000
   %705 = fcmp oeq double %697, 0x7FF0000000000000
-  %or.cond.i7.i370 = or i1 %704, %705
-  br i1 %or.cond.i7.i370, label %line_closept_point.exit182, label %706
+  %or.cond.i7.i369 = or i1 %704, %705
+  br i1 %or.cond.i7.i369, label %line_closept_point.exit181, label %706
 
-706:                                              ; preds = %float8_mi.exit6.i369
-  %or.cond29.i.i371 = fcmp uno double %686, %696
-  br i1 %or.cond29.i.i371, label %line_closept_point.exit182, label %707
+706:                                              ; preds = %float8_mi.exit6.i368
+  %or.cond29.i.i370 = fcmp uno double %686, %696
+  br i1 %or.cond29.i.i370, label %line_closept_point.exit181, label %707
 
 707:                                              ; preds = %706
   %708 = fcmp olt double %687, %697
-  %.023.i.i372 = select i1 %708, double %687, double %697
-  %.022.i.i373 = select i1 %708, double %697, double %687
-  %709 = fcmp oeq double %.023.i.i372, 0.000000e+00
-  br i1 %709, label %line_closept_point.exit182, label %710
+  %.023.i.i371 = select i1 %708, double %687, double %697
+  %.022.i.i372 = select i1 %708, double %697, double %687
+  %709 = fcmp oeq double %.023.i.i371, 0.000000e+00
+  br i1 %709, label %line_closept_point.exit181, label %710
 
 710:                                              ; preds = %707
-  %711 = fdiv double %.023.i.i372, %.022.i.i373
+  %711 = fdiv double %.023.i.i371, %.022.i.i372
   %712 = call double @llvm.fmuladd.f64(double %711, double %711, double 1.000000e+00)
-  %sqrt.i.i374 = call double @llvm.sqrt.f64(double %712)
-  %713 = fmul double %.022.i.i373, %sqrt.i.i374
+  %sqrt.i.i373 = call double @llvm.sqrt.f64(double %712)
+  %713 = fmul double %.022.i.i372, %sqrt.i.i373
   %714 = call double @llvm.fabs.f64(double %713)
   %715 = fcmp oeq double %714, 0x7FF0000000000000
   br i1 %715, label %716, label %717
@@ -14270,87 +14254,87 @@ float8_mi.exit6.i369:                             ; preds = %float8_mi.exit.i366
 
 717:                                              ; preds = %710
   %718 = fcmp oeq double %713, 0.000000e+00
-  br i1 %718, label %719, label %line_closept_point.exit182
+  br i1 %718, label %719, label %line_closept_point.exit181
 
 719:                                              ; preds = %717
   call void @float_underflow_error() #18
   unreachable
 
-line_closept_point.exit182:                       ; preds = %717, %707, %706, %float8_mi.exit6.i369, %line_construct.exit.i170
-  %.0.i171 = phi double [ 0x7FF8000000000000, %line_construct.exit.i170 ], [ %.022.i.i373, %707 ], [ %713, %717 ], [ 0x7FF0000000000000, %float8_mi.exit6.i369 ], [ 0x7FF8000000000000, %706 ]
+line_closept_point.exit181:                       ; preds = %717, %707, %706, %float8_mi.exit6.i368, %line_construct.exit.i169
+  %.0.i170 = phi double [ 0x7FF8000000000000, %line_construct.exit.i169 ], [ %.022.i.i372, %707 ], [ %713, %717 ], [ 0x7FF0000000000000, %float8_mi.exit6.i368 ], [ 0x7FF8000000000000, %706 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %720 = fcmp olt double %.0.i185, %.0.i171
-  %.22.i.i58 = select i1 %720, ptr %28, ptr %45
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 16 dereferenceable(16) %.22.i.i58, i64 16, i1 false)
-  br label %lseg_closept_point.exit59
+  %720 = fcmp olt double %.0.i184, %.0.i170
+  %.22.i.i57 = select i1 %720, ptr %28, ptr %45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 16 dereferenceable(16) %.22.i.i57, i64 16, i1 false)
+  br label %lseg_closept_point.exit58
 
-lseg_closept_point.exit59:                        ; preds = %line_construct.exit.i57, %line_closept_point.exit182
+lseg_closept_point.exit58:                        ; preds = %line_construct.exit.i56, %line_closept_point.exit181
   %721 = load double, ptr %22, align 8
   %722 = fsub double %721, %110
   %723 = call double @llvm.fabs.f64(double %722)
   %724 = fcmp une double %723, 0x7FF0000000000000
   %725 = call double @llvm.fabs.f64(double %721)
   %726 = fcmp oeq double %725, 0x7FF0000000000000
-  %or.cond.i.i156 = or i1 %726, %724
+  %or.cond.i.i155 = or i1 %726, %724
   %727 = call double @llvm.fabs.f64(double %110)
   %728 = fcmp oeq double %727, 0x7FF0000000000000
-  %or.cond8.i.i157 = or i1 %728, %or.cond.i.i156
-  br i1 %or.cond8.i.i157, label %float8_mi.exit.i158, label %729
+  %or.cond8.i.i156 = or i1 %728, %or.cond.i.i155
+  br i1 %or.cond8.i.i156, label %float8_mi.exit.i157, label %729
 
-729:                                              ; preds = %lseg_closept_point.exit59
+729:                                              ; preds = %lseg_closept_point.exit58
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i158:                              ; preds = %lseg_closept_point.exit59
+float8_mi.exit.i157:                              ; preds = %lseg_closept_point.exit58
   %730 = load double, ptr %71, align 8
   %731 = fsub double %730, %517
   %732 = call double @llvm.fabs.f64(double %731)
   %733 = fcmp une double %732, 0x7FF0000000000000
   %734 = call double @llvm.fabs.f64(double %730)
   %735 = fcmp oeq double %734, 0x7FF0000000000000
-  %or.cond.i4.i159 = or i1 %735, %733
+  %or.cond.i4.i158 = or i1 %735, %733
   %736 = call double @llvm.fabs.f64(double %517)
   %737 = fcmp oeq double %736, 0x7FF0000000000000
-  %or.cond8.i5.i160 = or i1 %737, %or.cond.i4.i159
-  br i1 %or.cond8.i5.i160, label %float8_mi.exit6.i161, label %738
+  %or.cond8.i5.i159 = or i1 %737, %or.cond.i4.i158
+  br i1 %or.cond8.i5.i159, label %float8_mi.exit6.i160, label %738
 
-738:                                              ; preds = %float8_mi.exit.i158
+738:                                              ; preds = %float8_mi.exit.i157
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i161:                             ; preds = %float8_mi.exit.i158
+float8_mi.exit6.i160:                             ; preds = %float8_mi.exit.i157
   %739 = fcmp oeq double %723, 0x7FF0000000000000
   %740 = fcmp oeq double %732, 0x7FF0000000000000
-  %or.cond.i7.i162 = or i1 %739, %740
-  br i1 %or.cond.i7.i162, label %point_dt.exit168.thread432, label %741
+  %or.cond.i7.i161 = or i1 %739, %740
+  br i1 %or.cond.i7.i161, label %point_dt.exit167.thread431, label %741
 
-point_dt.exit168.thread432:                       ; preds = %float8_mi.exit6.i161
+point_dt.exit167.thread431:                       ; preds = %float8_mi.exit6.i160
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   br label %float8_lt.exit.i
 
-741:                                              ; preds = %float8_mi.exit6.i161
-  %or.cond29.i.i163 = fcmp uno double %722, %731
-  br i1 %or.cond29.i.i163, label %point_dt.exit168.thread, label %742
+741:                                              ; preds = %float8_mi.exit6.i160
+  %or.cond29.i.i162 = fcmp uno double %722, %731
+  br i1 %or.cond29.i.i162, label %point_dt.exit167.thread, label %742
 
-point_dt.exit168.thread:                          ; preds = %741
+point_dt.exit167.thread:                          ; preds = %741
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   br label %float8_lt.exit.thread.i
 
 742:                                              ; preds = %741
   %743 = fcmp olt double %723, %732
-  %.023.i.i164 = select i1 %743, double %723, double %732
-  %.022.i.i165 = select i1 %743, double %732, double %723
-  %744 = fcmp oeq double %.023.i.i164, 0.000000e+00
-  br i1 %744, label %point_dt.exit168, label %745
+  %.023.i.i163 = select i1 %743, double %723, double %732
+  %.022.i.i164 = select i1 %743, double %732, double %723
+  %744 = fcmp oeq double %.023.i.i163, 0.000000e+00
+  br i1 %744, label %point_dt.exit167, label %745
 
 745:                                              ; preds = %742
-  %746 = fdiv double %.023.i.i164, %.022.i.i165
+  %746 = fdiv double %.023.i.i163, %.022.i.i164
   %747 = call double @llvm.fmuladd.f64(double %746, double %746, double 1.000000e+00)
-  %sqrt.i.i166 = call double @llvm.sqrt.f64(double %747)
-  %748 = fmul double %.022.i.i165, %sqrt.i.i166
+  %sqrt.i.i165 = call double @llvm.sqrt.f64(double %747)
+  %748 = fmul double %.022.i.i164, %sqrt.i.i165
   %749 = call double @llvm.fabs.f64(double %748)
   %750 = fcmp oeq double %749, 0x7FF0000000000000
   br i1 %750, label %751, label %752
@@ -14361,35 +14345,35 @@ point_dt.exit168.thread:                          ; preds = %741
 
 752:                                              ; preds = %745
   %753 = fcmp oeq double %748, 0.000000e+00
-  br i1 %753, label %754, label %point_dt.exit168
+  br i1 %753, label %754, label %point_dt.exit167
 
 754:                                              ; preds = %752
   call void @float_underflow_error() #18
   unreachable
 
-point_dt.exit168:                                 ; preds = %742, %752
-  %.0.i.i167 = phi double [ %.022.i.i165, %742 ], [ %748, %752 ]
+point_dt.exit167:                                 ; preds = %742, %752
+  %.0.i.i166 = phi double [ %.022.i.i164, %742 ], [ %748, %752 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
-  %755 = fcmp uno double %.0.i.i167, 0.000000e+00
+  %755 = fcmp uno double %.0.i.i166, 0.000000e+00
   br i1 %755, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
 
-float8_lt.exit.i:                                 ; preds = %point_dt.exit168.thread432, %point_dt.exit168
-  %.0.i.i167434 = phi double [ 0x7FF0000000000000, %point_dt.exit168.thread432 ], [ %.0.i.i167, %point_dt.exit168 ]
-  %756 = fcmp uno double %.0.i.i220, 0.000000e+00
-  %757 = fcmp olt double %.0.i.i167434, %.0.i.i220
+float8_lt.exit.i:                                 ; preds = %point_dt.exit167.thread431, %point_dt.exit167
+  %.0.i.i166433 = phi double [ 0x7FF0000000000000, %point_dt.exit167.thread431 ], [ %.0.i.i166, %point_dt.exit167 ]
+  %756 = fcmp uno double %.0.i.i219, 0.000000e+00
+  %757 = fcmp olt double %.0.i.i166433, %.0.i.i219
   %758 = or i1 %756, %757
   br i1 %758, label %759, label %float8_lt.exit.thread.i
 
 759:                                              ; preds = %float8_lt.exit.i
   br label %float8_lt.exit.thread.i
 
-float8_lt.exit.thread.i:                          ; preds = %point_dt.exit168.thread, %759, %float8_lt.exit.i, %point_dt.exit168
-  %.0.i = phi double [ %.0.i.i167434, %759 ], [ %.0.i.i220, %float8_lt.exit.i ], [ %.0.i.i220, %point_dt.exit168 ], [ %.0.i.i220, %point_dt.exit168.thread ]
+float8_lt.exit.thread.i:                          ; preds = %point_dt.exit167.thread, %759, %float8_lt.exit.i, %point_dt.exit167
+  %.0.i = phi double [ %.0.i.i166433, %759 ], [ %.0.i.i219, %float8_lt.exit.i ], [ %.0.i.i219, %point_dt.exit167 ], [ %.0.i.i219, %point_dt.exit167.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
   %760 = extractelement <2 x double> %102, i64 1
-  br i1 %116, label %line_construct.exit.i48.sink.split.sink.split, label %761
+  br i1 %116, label %line_construct.exit.i47.sink.split.sink.split, label %761
 
 761:                                              ; preds = %float8_lt.exit.thread.i
   %762 = fcmp oeq double %279, %517
@@ -14397,47 +14381,47 @@ float8_lt.exit.thread.i:                          ; preds = %point_dt.exit168.th
   %764 = call double @llvm.fabs.f64(double %763)
   %765 = fcmp ole double %764, 0x3EB0C6F7A0B5ED8D
   %766 = or i1 %762, %765
-  br i1 %766, label %line_construct.exit.i48.sink.split.sink.split, label %767
+  br i1 %766, label %line_construct.exit.i47.sink.split.sink.split, label %767
 
 767:                                              ; preds = %761
   %768 = fcmp une double %114, 0x7FF0000000000000
-  %or.cond.i.i144 = or i1 %490, %768
-  %or.cond8.i.i145 = or i1 %728, %or.cond.i.i144
-  br i1 %or.cond8.i.i145, label %float8_mi.exit.i146, label %769
+  %or.cond.i.i143 = or i1 %490, %768
+  %or.cond8.i.i144 = or i1 %728, %or.cond.i.i143
+  br i1 %or.cond8.i.i144, label %float8_mi.exit.i145, label %769
 
 769:                                              ; preds = %767
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i146:                              ; preds = %767
+float8_mi.exit.i145:                              ; preds = %767
   %770 = fsub double %517, %279
   %771 = call double @llvm.fabs.f64(double %770)
   %772 = fcmp une double %771, 0x7FF0000000000000
-  %or.cond.i9.i147 = or i1 %737, %772
-  %or.cond8.i10.i148 = or i1 %499, %or.cond.i9.i147
-  br i1 %or.cond8.i10.i148, label %float8_mi.exit11.i149, label %773
+  %or.cond.i9.i146 = or i1 %737, %772
+  %or.cond8.i10.i147 = or i1 %499, %or.cond.i9.i146
+  br i1 %or.cond8.i10.i147, label %float8_mi.exit11.i148, label %773
 
-773:                                              ; preds = %float8_mi.exit.i146
+773:                                              ; preds = %float8_mi.exit.i145
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit11.i149:                            ; preds = %float8_mi.exit.i146
+float8_mi.exit11.i148:                            ; preds = %float8_mi.exit.i145
   %774 = fcmp une double %770, 0.000000e+00
   %775 = fcmp uno double %113, 0.000000e+00
-  %or.cond11.i.i150 = or i1 %775, %774
-  br i1 %or.cond11.i.i150, label %777, label %776
+  %or.cond11.i.i149 = or i1 %775, %774
+  br i1 %or.cond11.i.i149, label %777, label %776
 
-776:                                              ; preds = %float8_mi.exit11.i149
+776:                                              ; preds = %float8_mi.exit11.i148
   call void @float_zero_divide_error() #18
   unreachable
 
-777:                                              ; preds = %float8_mi.exit11.i149
+777:                                              ; preds = %float8_mi.exit11.i148
   %778 = fdiv double %113, %770
   %779 = call double @llvm.fabs.f64(double %778)
   %780 = fcmp une double %779, 0x7FF0000000000000
   %781 = fcmp oeq double %114, 0x7FF0000000000000
-  %or.cond13.i.i151 = or i1 %781, %780
-  br i1 %or.cond13.i.i151, label %783, label %782
+  %or.cond13.i.i150 = or i1 %781, %780
+  br i1 %or.cond13.i.i150, label %783, label %782
 
 782:                                              ; preds = %777
   call void @float_overflow_error() #18
@@ -14446,23 +14430,23 @@ float8_mi.exit11.i149:                            ; preds = %float8_mi.exit.i146
 783:                                              ; preds = %777
   %784 = fcmp une double %778, 0.000000e+00
   %785 = fcmp oeq double %113, 0.000000e+00
-  %or.cond.not17.i.i152 = or i1 %785, %784
+  %or.cond.not17.i.i151 = or i1 %785, %784
   %786 = fcmp oeq double %771, 0x7FF0000000000000
-  %or.cond15.i.i153 = or i1 %786, %or.cond.not17.i.i152
-  br i1 %or.cond15.i.i153, label %point_invsl.exit155, label %787
+  %or.cond15.i.i152 = or i1 %786, %or.cond.not17.i.i151
+  br i1 %or.cond15.i.i152, label %point_invsl.exit154, label %787
 
 787:                                              ; preds = %783
   call void @float_underflow_error() #18
   unreachable
 
-point_invsl.exit155:                              ; preds = %783
+point_invsl.exit154:                              ; preds = %783
   %788 = call double @llvm.fabs.f64(double %778)
   %789 = fcmp oeq double %788, 0x7FF0000000000000
-  br i1 %789, label %line_construct.exit.i48.sink.split.sink.split, label %790
+  br i1 %789, label %line_construct.exit.i47.sink.split.sink.split, label %790
 
-790:                                              ; preds = %point_invsl.exit155
+790:                                              ; preds = %point_invsl.exit154
   %791 = fcmp oeq double %778, 0.000000e+00
-  br i1 %791, label %line_construct.exit.i48.sink.split.sink.split, label %792
+  br i1 %791, label %line_construct.exit.i47.sink.split.sink.split, label %792
 
 792:                                              ; preds = %790
   store double %778, ptr %25, align 8
@@ -14472,8 +14456,8 @@ point_invsl.exit155:                              ; preds = %783
   %795 = fcmp une double %794, 0x7FF0000000000000
   %796 = call double @llvm.fabs.f64(double %271)
   %797 = fcmp oeq double %796, 0x7FF0000000000000
-  %or.cond15.i.i.i42 = or i1 %797, %795
-  br i1 %or.cond15.i.i.i42, label %799, label %798
+  %or.cond15.i.i.i41 = or i1 %797, %795
+  br i1 %or.cond15.i.i.i41, label %799, label %798
 
 798:                                              ; preds = %792
   call void @float_overflow_error() #18
@@ -14482,62 +14466,62 @@ point_invsl.exit155:                              ; preds = %783
 799:                                              ; preds = %792
   %800 = fcmp oeq double %793, 0.000000e+00
   %801 = fcmp une double %271, 0.000000e+00
-  %or.cond3.i.i.i43 = and i1 %801, %800
-  br i1 %or.cond3.i.i.i43, label %802, label %float8_mul.exit.i.i44
+  %or.cond3.i.i.i42 = and i1 %801, %800
+  br i1 %or.cond3.i.i.i42, label %802, label %float8_mul.exit.i.i43
 
 802:                                              ; preds = %799
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i44:                            ; preds = %799
+float8_mul.exit.i.i43:                            ; preds = %799
   %803 = fsub double %760, %793
   %804 = call double @llvm.fabs.f64(double %803)
   %805 = fcmp une double %804, 0x7FF0000000000000
   %806 = call double @llvm.fabs.f64(double %760)
   %807 = fcmp oeq double %806, 0x7FF0000000000000
-  %or.cond.i19.i.i45 = or i1 %807, %805
+  %or.cond.i19.i.i44 = or i1 %807, %805
   %808 = fcmp oeq double %794, 0x7FF0000000000000
-  %or.cond8.i.i.i46 = or i1 %808, %or.cond.i19.i.i45
-  br i1 %or.cond8.i.i.i46, label %float8_mi.exit.i.i47, label %809
+  %or.cond8.i.i.i45 = or i1 %808, %or.cond.i19.i.i44
+  br i1 %or.cond8.i.i.i45, label %float8_mi.exit.i.i46, label %809
 
-809:                                              ; preds = %float8_mul.exit.i.i44
+809:                                              ; preds = %float8_mul.exit.i.i43
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i47:                             ; preds = %float8_mul.exit.i.i44
+float8_mi.exit.i.i46:                             ; preds = %float8_mul.exit.i.i43
   %810 = fcmp oeq double %803, 0.000000e+00
-  br i1 %810, label %line_construct.exit.i48.sink.split, label %line_construct.exit.i48
+  br i1 %810, label %line_construct.exit.i47.sink.split, label %line_construct.exit.i47
 
-line_construct.exit.i48.sink.split.sink.split:    ; preds = %790, %float8_lt.exit.thread.i, %point_invsl.exit155, %761
-  %storemerge1114 = phi double [ -1.000000e+00, %761 ], [ -1.000000e+00, %point_invsl.exit155 ], [ 0.000000e+00, %float8_lt.exit.thread.i ], [ 0.000000e+00, %790 ]
-  %.sink1097 = phi double [ 0.000000e+00, %761 ], [ 0.000000e+00, %point_invsl.exit155 ], [ -1.000000e+00, %float8_lt.exit.thread.i ], [ -1.000000e+00, %790 ]
-  %.sink1082.ph = phi double [ %271, %761 ], [ %271, %point_invsl.exit155 ], [ %760, %float8_lt.exit.thread.i ], [ %760, %790 ]
-  store double %storemerge1114, ptr %25, align 8
-  store double %.sink1097, ptr %72, align 8
-  br label %line_construct.exit.i48
+line_construct.exit.i47.sink.split.sink.split:    ; preds = %790, %float8_lt.exit.thread.i, %point_invsl.exit154, %761
+  %storemerge1111 = phi double [ -1.000000e+00, %761 ], [ -1.000000e+00, %point_invsl.exit154 ], [ 0.000000e+00, %float8_lt.exit.thread.i ], [ 0.000000e+00, %790 ]
+  %.sink1094 = phi double [ 0.000000e+00, %761 ], [ 0.000000e+00, %point_invsl.exit154 ], [ -1.000000e+00, %float8_lt.exit.thread.i ], [ -1.000000e+00, %790 ]
+  %.sink1079.ph = phi double [ %271, %761 ], [ %271, %point_invsl.exit154 ], [ %760, %float8_lt.exit.thread.i ], [ %760, %790 ]
+  store double %storemerge1111, ptr %25, align 8
+  store double %.sink1094, ptr %72, align 8
+  br label %line_construct.exit.i47
 
-line_construct.exit.i48.sink.split:               ; preds = %float8_mi.exit.i.i47
-  br label %line_construct.exit.i48
+line_construct.exit.i47.sink.split:               ; preds = %float8_mi.exit.i.i46
+  br label %line_construct.exit.i47
 
-line_construct.exit.i48:                          ; preds = %line_construct.exit.i48.sink.split.sink.split, %line_construct.exit.i48.sink.split, %float8_mi.exit.i.i47
-  %storemerge1115 = phi double [ %803, %float8_mi.exit.i.i47 ], [ %.sink1082.ph, %line_construct.exit.i48.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i48.sink.split ]
-  %811 = phi double [ -1.000000e+00, %float8_mi.exit.i.i47 ], [ %.sink1097, %line_construct.exit.i48.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i48.sink.split ]
-  %812 = phi double [ %778, %float8_mi.exit.i.i47 ], [ %storemerge1114, %line_construct.exit.i48.sink.split.sink.split ], [ %778, %line_construct.exit.i48.sink.split ]
-  store double %storemerge1115, ptr %73, align 8
+line_construct.exit.i47:                          ; preds = %line_construct.exit.i47.sink.split.sink.split, %line_construct.exit.i47.sink.split, %float8_mi.exit.i.i46
+  %storemerge1112 = phi double [ %803, %float8_mi.exit.i.i46 ], [ %.sink1079.ph, %line_construct.exit.i47.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i47.sink.split ]
+  %811 = phi double [ -1.000000e+00, %float8_mi.exit.i.i46 ], [ %.sink1094, %line_construct.exit.i47.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i47.sink.split ]
+  %812 = phi double [ %778, %float8_mi.exit.i.i46 ], [ %storemerge1111, %line_construct.exit.i47.sink.split.sink.split ], [ %778, %line_construct.exit.i47.sink.split ]
+  store double %storemerge1112, ptr %73, align 8
   %813 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %24, ptr noundef nonnull %29, ptr noundef nonnull %25)
-  br i1 %813, label %lseg_closept_point.exit50, label %814
+  br i1 %813, label %lseg_closept_point.exit49, label %814
 
-814:                                              ; preds = %line_construct.exit.i48
+814:                                              ; preds = %line_construct.exit.i47
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   %815 = call double @llvm.fabs.f64(double %812)
   %816 = fcmp ugt double %815, 0x3EB0C6F7A0B5ED8D
-  br i1 %816, label %817, label %line_invsl.exit.thread.i130
+  br i1 %816, label %817, label %line_invsl.exit.thread.i129
 
 817:                                              ; preds = %814
   %818 = call double @llvm.fabs.f64(double %811)
   %819 = fcmp ugt double %818, 0x3EB0C6F7A0B5ED8D
-  br i1 %819, label %820, label %.thread.i133
+  br i1 %819, label %820, label %.thread.i132
 
 820:                                              ; preds = %817
   %821 = fdiv double %811, %812
@@ -14557,18 +14541,18 @@ line_construct.exit.i48:                          ; preds = %line_construct.exit
   call void @float_underflow_error() #18
   unreachable
 
-line_invsl.exit.thread.i130:                      ; preds = %814
+line_invsl.exit.thread.i129:                      ; preds = %814
   store <2 x double> <double -1.000000e+00, double 0.000000e+00>, ptr %11, align 16
   %828 = load double, ptr %29, align 16
-  br label %line_construct.exit.i131
+  br label %line_construct.exit.i130
 
-.thread.i133:                                     ; preds = %817
+.thread.i132:                                     ; preds = %817
   %.pre = load double, ptr %48, align 8
   store <2 x double> <double 0.000000e+00, double -1.000000e+00>, ptr %11, align 16
-  br label %line_construct.exit.i131
+  br label %line_construct.exit.i130
 
 829:                                              ; preds = %825
-  %.pre1038 = load double, ptr %48, align 8
+  %.pre1035 = load double, ptr %48, align 8
   store double %821, ptr %11, align 16
   store double -1.000000e+00, ptr %74, align 8
   %830 = load double, ptr %29, align 16
@@ -14577,8 +14561,8 @@ line_invsl.exit.thread.i130:                      ; preds = %814
   %833 = fcmp une double %832, 0x7FF0000000000000
   %834 = call double @llvm.fabs.f64(double %830)
   %835 = fcmp oeq double %834, 0x7FF0000000000000
-  %or.cond15.i.i12.i137 = or i1 %835, %833
-  br i1 %or.cond15.i.i12.i137, label %837, label %836
+  %or.cond15.i.i12.i136 = or i1 %835, %833
+  br i1 %or.cond15.i.i12.i136, label %837, label %836
 
 836:                                              ; preds = %829
   call void @float_overflow_error() #18
@@ -14587,42 +14571,42 @@ line_invsl.exit.thread.i130:                      ; preds = %814
 837:                                              ; preds = %829
   %838 = fcmp oeq double %831, 0.000000e+00
   %839 = fcmp une double %830, 0.000000e+00
-  %or.cond3.i.i.i138 = and i1 %839, %838
-  br i1 %or.cond3.i.i.i138, label %840, label %float8_mul.exit.i.i139
+  %or.cond3.i.i.i137 = and i1 %839, %838
+  br i1 %or.cond3.i.i.i137, label %840, label %float8_mul.exit.i.i138
 
 840:                                              ; preds = %837
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i139:                           ; preds = %837
-  %841 = fsub double %.pre1038, %831
+float8_mul.exit.i.i138:                           ; preds = %837
+  %841 = fsub double %.pre1035, %831
   %842 = call double @llvm.fabs.f64(double %841)
   %843 = fcmp une double %842, 0x7FF0000000000000
-  %844 = call double @llvm.fabs.f64(double %.pre1038)
+  %844 = call double @llvm.fabs.f64(double %.pre1035)
   %845 = fcmp oeq double %844, 0x7FF0000000000000
-  %or.cond.i19.i.i140 = or i1 %845, %843
+  %or.cond.i19.i.i139 = or i1 %845, %843
   %846 = fcmp oeq double %832, 0x7FF0000000000000
-  %or.cond8.i.i.i141 = or i1 %846, %or.cond.i19.i.i140
-  br i1 %or.cond8.i.i.i141, label %float8_mi.exit.i.i142, label %847
+  %or.cond8.i.i.i140 = or i1 %846, %or.cond.i19.i.i139
+  br i1 %or.cond8.i.i.i140, label %float8_mi.exit.i.i141, label %847
 
-847:                                              ; preds = %float8_mul.exit.i.i139
+847:                                              ; preds = %float8_mul.exit.i.i138
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i142:                            ; preds = %float8_mul.exit.i.i139
+float8_mi.exit.i.i141:                            ; preds = %float8_mul.exit.i.i138
   %848 = fcmp oeq double %841, 0.000000e+00
-  br i1 %848, label %line_construct.exit.i131.sink.split, label %line_construct.exit.i131
+  br i1 %848, label %line_construct.exit.i130.sink.split, label %line_construct.exit.i130
 
-line_construct.exit.i131.sink.split:              ; preds = %float8_mi.exit.i.i142
-  br label %line_construct.exit.i131
+line_construct.exit.i130.sink.split:              ; preds = %float8_mi.exit.i.i141
+  br label %line_construct.exit.i130
 
-line_construct.exit.i131:                         ; preds = %.thread.i133, %line_invsl.exit.thread.i130, %line_construct.exit.i131.sink.split, %float8_mi.exit.i.i142
-  %storemerge1116 = phi double [ %841, %float8_mi.exit.i.i142 ], [ %.pre, %.thread.i133 ], [ %828, %line_invsl.exit.thread.i130 ], [ 0.000000e+00, %line_construct.exit.i131.sink.split ]
-  store double %storemerge1116, ptr %75, align 16
+line_construct.exit.i130:                         ; preds = %.thread.i132, %line_invsl.exit.thread.i129, %line_construct.exit.i130.sink.split, %float8_mi.exit.i.i141
+  %storemerge1113 = phi double [ %841, %float8_mi.exit.i.i141 ], [ %.pre, %.thread.i132 ], [ %828, %line_invsl.exit.thread.i129 ], [ 0.000000e+00, %line_construct.exit.i130.sink.split ]
+  store double %storemerge1113, ptr %75, align 16
   %849 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %25)
-  br i1 %849, label %850, label %line_closept_point.exit143
+  br i1 %849, label %850, label %line_closept_point.exit142
 
-850:                                              ; preds = %line_construct.exit.i131
+850:                                              ; preds = %line_construct.exit.i130
   %851 = load double, ptr %10, align 8
   %852 = load double, ptr %29, align 16
   %853 = fsub double %851, %852
@@ -14630,17 +14614,17 @@ line_construct.exit.i131:                         ; preds = %.thread.i133, %line
   %855 = fcmp une double %854, 0x7FF0000000000000
   %856 = call double @llvm.fabs.f64(double %851)
   %857 = fcmp oeq double %856, 0x7FF0000000000000
-  %or.cond.i.i351 = or i1 %857, %855
+  %or.cond.i.i350 = or i1 %857, %855
   %858 = call double @llvm.fabs.f64(double %852)
   %859 = fcmp oeq double %858, 0x7FF0000000000000
-  %or.cond8.i.i352 = or i1 %859, %or.cond.i.i351
-  br i1 %or.cond8.i.i352, label %float8_mi.exit.i353, label %860
+  %or.cond8.i.i351 = or i1 %859, %or.cond.i.i350
+  br i1 %or.cond8.i.i351, label %float8_mi.exit.i352, label %860
 
 860:                                              ; preds = %850
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i353:                              ; preds = %850
+float8_mi.exit.i352:                              ; preds = %850
   %861 = load double, ptr %76, align 8
   %862 = load double, ptr %48, align 8
   %863 = fsub double %861, %862
@@ -14648,38 +14632,38 @@ float8_mi.exit.i353:                              ; preds = %850
   %865 = fcmp une double %864, 0x7FF0000000000000
   %866 = call double @llvm.fabs.f64(double %861)
   %867 = fcmp oeq double %866, 0x7FF0000000000000
-  %or.cond.i4.i354 = or i1 %867, %865
+  %or.cond.i4.i353 = or i1 %867, %865
   %868 = call double @llvm.fabs.f64(double %862)
   %869 = fcmp oeq double %868, 0x7FF0000000000000
-  %or.cond8.i5.i355 = or i1 %869, %or.cond.i4.i354
-  br i1 %or.cond8.i5.i355, label %float8_mi.exit6.i356, label %870
+  %or.cond8.i5.i354 = or i1 %869, %or.cond.i4.i353
+  br i1 %or.cond8.i5.i354, label %float8_mi.exit6.i355, label %870
 
-870:                                              ; preds = %float8_mi.exit.i353
+870:                                              ; preds = %float8_mi.exit.i352
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i356:                             ; preds = %float8_mi.exit.i353
+float8_mi.exit6.i355:                             ; preds = %float8_mi.exit.i352
   %871 = fcmp oeq double %854, 0x7FF0000000000000
   %872 = fcmp oeq double %864, 0x7FF0000000000000
-  %or.cond.i7.i357 = or i1 %871, %872
-  br i1 %or.cond.i7.i357, label %line_closept_point.exit143, label %873
+  %or.cond.i7.i356 = or i1 %871, %872
+  br i1 %or.cond.i7.i356, label %line_closept_point.exit142, label %873
 
-873:                                              ; preds = %float8_mi.exit6.i356
-  %or.cond29.i.i358 = fcmp uno double %853, %863
-  br i1 %or.cond29.i.i358, label %line_closept_point.exit143, label %874
+873:                                              ; preds = %float8_mi.exit6.i355
+  %or.cond29.i.i357 = fcmp uno double %853, %863
+  br i1 %or.cond29.i.i357, label %line_closept_point.exit142, label %874
 
 874:                                              ; preds = %873
   %875 = fcmp olt double %854, %864
-  %.023.i.i359 = select i1 %875, double %854, double %864
-  %.022.i.i360 = select i1 %875, double %864, double %854
-  %876 = fcmp oeq double %.023.i.i359, 0.000000e+00
-  br i1 %876, label %line_closept_point.exit143, label %877
+  %.023.i.i358 = select i1 %875, double %854, double %864
+  %.022.i.i359 = select i1 %875, double %864, double %854
+  %876 = fcmp oeq double %.023.i.i358, 0.000000e+00
+  br i1 %876, label %line_closept_point.exit142, label %877
 
 877:                                              ; preds = %874
-  %878 = fdiv double %.023.i.i359, %.022.i.i360
+  %878 = fdiv double %.023.i.i358, %.022.i.i359
   %879 = call double @llvm.fmuladd.f64(double %878, double %878, double 1.000000e+00)
-  %sqrt.i.i361 = call double @llvm.sqrt.f64(double %879)
-  %880 = fmul double %.022.i.i360, %sqrt.i.i361
+  %sqrt.i.i360 = call double @llvm.sqrt.f64(double %879)
+  %880 = fmul double %.022.i.i359, %sqrt.i.i360
   %881 = call double @llvm.fabs.f64(double %880)
   %882 = fcmp oeq double %881, 0x7FF0000000000000
   br i1 %882, label %883, label %884
@@ -14690,24 +14674,24 @@ float8_mi.exit6.i356:                             ; preds = %float8_mi.exit.i353
 
 884:                                              ; preds = %877
   %885 = fcmp oeq double %880, 0.000000e+00
-  br i1 %885, label %886, label %line_closept_point.exit143
+  br i1 %885, label %886, label %line_closept_point.exit142
 
 886:                                              ; preds = %884
   call void @float_underflow_error() #18
   unreachable
 
-line_closept_point.exit143:                       ; preds = %884, %874, %873, %float8_mi.exit6.i356, %line_construct.exit.i131
-  %.0.i132 = phi double [ 0x7FF8000000000000, %line_construct.exit.i131 ], [ %.022.i.i360, %874 ], [ %880, %884 ], [ 0x7FF0000000000000, %float8_mi.exit6.i356 ], [ 0x7FF8000000000000, %873 ]
+line_closept_point.exit142:                       ; preds = %884, %874, %873, %float8_mi.exit6.i355, %line_construct.exit.i130
+  %.0.i131 = phi double [ 0x7FF8000000000000, %line_construct.exit.i130 ], [ %.022.i.i359, %874 ], [ %880, %884 ], [ 0x7FF0000000000000, %float8_mi.exit6.i355 ], [ 0x7FF8000000000000, %873 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  br i1 %816, label %887, label %line_invsl.exit.thread.i116
+  br i1 %816, label %887, label %line_invsl.exit.thread.i115
 
-887:                                              ; preds = %line_closept_point.exit143
+887:                                              ; preds = %line_closept_point.exit142
   %888 = call double @llvm.fabs.f64(double %811)
   %889 = fcmp ugt double %888, 0x3EB0C6F7A0B5ED8D
-  br i1 %889, label %890, label %.thread.i119
+  br i1 %889, label %890, label %.thread.i118
 
 890:                                              ; preds = %887
   %891 = fdiv double %811, %812
@@ -14721,122 +14705,122 @@ line_closept_point.exit143:                       ; preds = %884, %874, %873, %f
 
 895:                                              ; preds = %890
   %896 = fcmp une double %891, 0.000000e+00
-  br i1 %896, label %line_invsl.exit.i122, label %897
+  br i1 %896, label %line_invsl.exit.i121, label %897
 
 897:                                              ; preds = %895
   call void @float_underflow_error() #18
   unreachable
 
-line_invsl.exit.thread.i116:                      ; preds = %line_closept_point.exit143
+line_invsl.exit.thread.i115:                      ; preds = %line_closept_point.exit142
   store <2 x double> <double -1.000000e+00, double 0.000000e+00>, ptr %13, align 16
-  br label %line_construct.exit.i117
+  br label %line_construct.exit.i116
 
-.thread.i119:                                     ; preds = %887
+.thread.i118:                                     ; preds = %887
   store <2 x double> <double 0.000000e+00, double -1.000000e+00>, ptr %13, align 16
   %898 = load double, ptr %50, align 8
-  br label %line_construct.exit.i117
+  br label %line_construct.exit.i116
 
-line_invsl.exit.i122:                             ; preds = %895
+line_invsl.exit.i121:                             ; preds = %895
   store double %891, ptr %13, align 16
   store double -1.000000e+00, ptr %77, align 8
   %899 = fmul double %110, %891
   %900 = call double @llvm.fabs.f64(double %899)
   %901 = fcmp une double %900, 0x7FF0000000000000
-  %or.cond15.i.i12.i123 = or i1 %728, %901
-  br i1 %or.cond15.i.i12.i123, label %903, label %902
+  %or.cond15.i.i12.i122 = or i1 %728, %901
+  br i1 %or.cond15.i.i12.i122, label %903, label %902
 
-902:                                              ; preds = %line_invsl.exit.i122
+902:                                              ; preds = %line_invsl.exit.i121
   call void @float_overflow_error() #18
   unreachable
 
-903:                                              ; preds = %line_invsl.exit.i122
+903:                                              ; preds = %line_invsl.exit.i121
   %904 = fcmp oeq double %899, 0.000000e+00
   %905 = fcmp une double %110, 0.000000e+00
-  %or.cond3.i.i.i124 = and i1 %905, %904
-  br i1 %or.cond3.i.i.i124, label %906, label %float8_mul.exit.i.i125
+  %or.cond3.i.i.i123 = and i1 %905, %904
+  br i1 %or.cond3.i.i.i123, label %906, label %float8_mul.exit.i.i124
 
 906:                                              ; preds = %903
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i125:                           ; preds = %903
+float8_mul.exit.i.i124:                           ; preds = %903
   %907 = fsub double %517, %899
   %908 = call double @llvm.fabs.f64(double %907)
   %909 = fcmp une double %908, 0x7FF0000000000000
   %910 = fcmp oeq double %900, 0x7FF0000000000000
   %911 = or i1 %910, %909
-  %or.cond8.i.i.i127 = or i1 %737, %911
-  br i1 %or.cond8.i.i.i127, label %float8_mi.exit.i.i128, label %912
+  %or.cond8.i.i.i126 = or i1 %737, %911
+  br i1 %or.cond8.i.i.i126, label %float8_mi.exit.i.i127, label %912
 
-912:                                              ; preds = %float8_mul.exit.i.i125
+912:                                              ; preds = %float8_mul.exit.i.i124
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i128:                            ; preds = %float8_mul.exit.i.i125
+float8_mi.exit.i.i127:                            ; preds = %float8_mul.exit.i.i124
   %913 = fcmp oeq double %907, 0.000000e+00
-  br i1 %913, label %line_construct.exit.i117.sink.split, label %line_construct.exit.i117
+  br i1 %913, label %line_construct.exit.i116.sink.split, label %line_construct.exit.i116
 
-line_construct.exit.i117.sink.split:              ; preds = %float8_mi.exit.i.i128
-  br label %line_construct.exit.i117
+line_construct.exit.i116.sink.split:              ; preds = %float8_mi.exit.i.i127
+  br label %line_construct.exit.i116
 
-line_construct.exit.i117:                         ; preds = %.thread.i119, %line_invsl.exit.thread.i116, %line_construct.exit.i117.sink.split, %float8_mi.exit.i.i128
-  %storemerge1117 = phi double [ %907, %float8_mi.exit.i.i128 ], [ %898, %.thread.i119 ], [ %110, %line_invsl.exit.thread.i116 ], [ 0.000000e+00, %line_construct.exit.i117.sink.split ]
-  store double %storemerge1117, ptr %78, align 16
+line_construct.exit.i116:                         ; preds = %.thread.i118, %line_invsl.exit.thread.i115, %line_construct.exit.i116.sink.split, %float8_mi.exit.i.i127
+  %storemerge1114 = phi double [ %907, %float8_mi.exit.i.i127 ], [ %898, %.thread.i118 ], [ %110, %line_invsl.exit.thread.i115 ], [ 0.000000e+00, %line_construct.exit.i116.sink.split ]
+  store double %storemerge1114, ptr %78, align 16
   %914 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %25)
-  br i1 %914, label %915, label %line_closept_point.exit129
+  br i1 %914, label %915, label %line_closept_point.exit128
 
-915:                                              ; preds = %line_construct.exit.i117
+915:                                              ; preds = %line_construct.exit.i116
   %916 = load double, ptr %12, align 8
   %917 = fsub double %916, %110
   %918 = call double @llvm.fabs.f64(double %917)
   %919 = fcmp une double %918, 0x7FF0000000000000
   %920 = call double @llvm.fabs.f64(double %916)
   %921 = fcmp oeq double %920, 0x7FF0000000000000
-  %or.cond.i.i338 = or i1 %921, %919
-  %or.cond8.i.i339 = or i1 %728, %or.cond.i.i338
-  br i1 %or.cond8.i.i339, label %float8_mi.exit.i340, label %922
+  %or.cond.i.i337 = or i1 %921, %919
+  %or.cond8.i.i338 = or i1 %728, %or.cond.i.i337
+  br i1 %or.cond8.i.i338, label %float8_mi.exit.i339, label %922
 
 922:                                              ; preds = %915
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i340:                              ; preds = %915
+float8_mi.exit.i339:                              ; preds = %915
   %923 = load double, ptr %79, align 8
   %924 = fsub double %923, %517
   %925 = call double @llvm.fabs.f64(double %924)
   %926 = fcmp une double %925, 0x7FF0000000000000
   %927 = call double @llvm.fabs.f64(double %923)
   %928 = fcmp oeq double %927, 0x7FF0000000000000
-  %or.cond.i4.i341 = or i1 %928, %926
-  %or.cond8.i5.i342 = or i1 %737, %or.cond.i4.i341
-  br i1 %or.cond8.i5.i342, label %float8_mi.exit6.i343, label %929
+  %or.cond.i4.i340 = or i1 %928, %926
+  %or.cond8.i5.i341 = or i1 %737, %or.cond.i4.i340
+  br i1 %or.cond8.i5.i341, label %float8_mi.exit6.i342, label %929
 
-929:                                              ; preds = %float8_mi.exit.i340
+929:                                              ; preds = %float8_mi.exit.i339
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i343:                             ; preds = %float8_mi.exit.i340
+float8_mi.exit6.i342:                             ; preds = %float8_mi.exit.i339
   %930 = fcmp oeq double %918, 0x7FF0000000000000
   %931 = fcmp oeq double %925, 0x7FF0000000000000
-  %or.cond.i7.i344 = or i1 %930, %931
-  br i1 %or.cond.i7.i344, label %line_closept_point.exit129, label %932
+  %or.cond.i7.i343 = or i1 %930, %931
+  br i1 %or.cond.i7.i343, label %line_closept_point.exit128, label %932
 
-932:                                              ; preds = %float8_mi.exit6.i343
-  %or.cond29.i.i345 = fcmp uno double %917, %924
-  br i1 %or.cond29.i.i345, label %line_closept_point.exit129, label %933
+932:                                              ; preds = %float8_mi.exit6.i342
+  %or.cond29.i.i344 = fcmp uno double %917, %924
+  br i1 %or.cond29.i.i344, label %line_closept_point.exit128, label %933
 
 933:                                              ; preds = %932
   %934 = fcmp olt double %918, %925
-  %.023.i.i346 = select i1 %934, double %918, double %925
-  %.022.i.i347 = select i1 %934, double %925, double %918
-  %935 = fcmp oeq double %.023.i.i346, 0.000000e+00
-  br i1 %935, label %line_closept_point.exit129, label %936
+  %.023.i.i345 = select i1 %934, double %918, double %925
+  %.022.i.i346 = select i1 %934, double %925, double %918
+  %935 = fcmp oeq double %.023.i.i345, 0.000000e+00
+  br i1 %935, label %line_closept_point.exit128, label %936
 
 936:                                              ; preds = %933
-  %937 = fdiv double %.023.i.i346, %.022.i.i347
+  %937 = fdiv double %.023.i.i345, %.022.i.i346
   %938 = call double @llvm.fmuladd.f64(double %937, double %937, double 1.000000e+00)
-  %sqrt.i.i348 = call double @llvm.sqrt.f64(double %938)
-  %939 = fmul double %.022.i.i347, %sqrt.i.i348
+  %sqrt.i.i347 = call double @llvm.sqrt.f64(double %938)
+  %939 = fmul double %.022.i.i346, %sqrt.i.i347
   %940 = call double @llvm.fabs.f64(double %939)
   %941 = fcmp oeq double %940, 0x7FF0000000000000
   br i1 %941, label %942, label %943
@@ -14847,22 +14831,22 @@ float8_mi.exit6.i343:                             ; preds = %float8_mi.exit.i340
 
 943:                                              ; preds = %936
   %944 = fcmp oeq double %939, 0.000000e+00
-  br i1 %944, label %945, label %line_closept_point.exit129
+  br i1 %944, label %945, label %line_closept_point.exit128
 
 945:                                              ; preds = %943
   call void @float_underflow_error() #18
   unreachable
 
-line_closept_point.exit129:                       ; preds = %943, %933, %932, %float8_mi.exit6.i343, %line_construct.exit.i117
-  %.0.i118 = phi double [ 0x7FF8000000000000, %line_construct.exit.i117 ], [ %.022.i.i347, %933 ], [ %939, %943 ], [ 0x7FF0000000000000, %float8_mi.exit6.i343 ], [ 0x7FF8000000000000, %932 ]
+line_closept_point.exit128:                       ; preds = %943, %933, %932, %float8_mi.exit6.i342, %line_construct.exit.i116
+  %.0.i117 = phi double [ 0x7FF8000000000000, %line_construct.exit.i116 ], [ %.022.i.i346, %933 ], [ %939, %943 ], [ 0x7FF0000000000000, %float8_mi.exit6.i342 ], [ 0x7FF8000000000000, %932 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  %946 = fcmp olt double %.0.i132, %.0.i118
-  %.22.i.i49 = select i1 %946, ptr %29, ptr %49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 16 dereferenceable(16) %.22.i.i49, i64 16, i1 false)
-  br label %lseg_closept_point.exit50
+  %946 = fcmp olt double %.0.i131, %.0.i117
+  %.22.i.i48 = select i1 %946, ptr %29, ptr %49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 16 dereferenceable(16) %.22.i.i48, i64 16, i1 false)
+  br label %lseg_closept_point.exit49
 
-lseg_closept_point.exit50:                        ; preds = %line_construct.exit.i48, %line_closept_point.exit129
+lseg_closept_point.exit49:                        ; preds = %line_construct.exit.i47, %line_closept_point.exit128
   %947 = load double, ptr %24, align 8
   %948 = load double, ptr %28, align 16
   %949 = fsub double %947, %948
@@ -14870,17 +14854,17 @@ lseg_closept_point.exit50:                        ; preds = %line_construct.exit
   %951 = fcmp une double %950, 0x7FF0000000000000
   %952 = call double @llvm.fabs.f64(double %947)
   %953 = fcmp oeq double %952, 0x7FF0000000000000
-  %or.cond.i.i103 = or i1 %953, %951
+  %or.cond.i.i102 = or i1 %953, %951
   %954 = call double @llvm.fabs.f64(double %948)
   %955 = fcmp oeq double %954, 0x7FF0000000000000
-  %or.cond8.i.i104 = or i1 %955, %or.cond.i.i103
-  br i1 %or.cond8.i.i104, label %float8_mi.exit.i105, label %956
+  %or.cond8.i.i103 = or i1 %955, %or.cond.i.i102
+  br i1 %or.cond8.i.i103, label %float8_mi.exit.i104, label %956
 
-956:                                              ; preds = %lseg_closept_point.exit50
+956:                                              ; preds = %lseg_closept_point.exit49
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i105:                              ; preds = %lseg_closept_point.exit50
+float8_mi.exit.i104:                              ; preds = %lseg_closept_point.exit49
   %957 = load double, ptr %80, align 8
   %958 = load double, ptr %44, align 8
   %959 = fsub double %957, %958
@@ -14888,48 +14872,48 @@ float8_mi.exit.i105:                              ; preds = %lseg_closept_point.
   %961 = fcmp une double %960, 0x7FF0000000000000
   %962 = call double @llvm.fabs.f64(double %957)
   %963 = fcmp oeq double %962, 0x7FF0000000000000
-  %or.cond.i4.i106 = or i1 %963, %961
+  %or.cond.i4.i105 = or i1 %963, %961
   %964 = call double @llvm.fabs.f64(double %958)
   %965 = fcmp oeq double %964, 0x7FF0000000000000
-  %or.cond8.i5.i107 = or i1 %965, %or.cond.i4.i106
-  br i1 %or.cond8.i5.i107, label %float8_mi.exit6.i108, label %966
+  %or.cond8.i5.i106 = or i1 %965, %or.cond.i4.i105
+  br i1 %or.cond8.i5.i106, label %float8_mi.exit6.i107, label %966
 
-966:                                              ; preds = %float8_mi.exit.i105
+966:                                              ; preds = %float8_mi.exit.i104
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i108:                             ; preds = %float8_mi.exit.i105
+float8_mi.exit6.i107:                             ; preds = %float8_mi.exit.i104
   %967 = fcmp oeq double %950, 0x7FF0000000000000
   %968 = fcmp oeq double %960, 0x7FF0000000000000
-  %or.cond.i7.i109 = or i1 %967, %968
-  br i1 %or.cond.i7.i109, label %point_dt.exit115.thread441, label %969
+  %or.cond.i7.i108 = or i1 %967, %968
+  br i1 %or.cond.i7.i108, label %point_dt.exit114.thread440, label %969
 
-point_dt.exit115.thread441:                       ; preds = %float8_mi.exit6.i108
+point_dt.exit114.thread440:                       ; preds = %float8_mi.exit6.i107
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   br label %float8_lt.exit37.i
 
-969:                                              ; preds = %float8_mi.exit6.i108
-  %or.cond29.i.i110 = fcmp uno double %949, %959
-  br i1 %or.cond29.i.i110, label %point_dt.exit115.thread, label %970
+969:                                              ; preds = %float8_mi.exit6.i107
+  %or.cond29.i.i109 = fcmp uno double %949, %959
+  br i1 %or.cond29.i.i109, label %point_dt.exit114.thread, label %970
 
-point_dt.exit115.thread:                          ; preds = %969
+point_dt.exit114.thread:                          ; preds = %969
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   br label %float8_lt.exit37.thread.i
 
 970:                                              ; preds = %969
   %971 = fcmp olt double %950, %960
-  %.023.i.i111 = select i1 %971, double %950, double %960
-  %.022.i.i112 = select i1 %971, double %960, double %950
-  %972 = fcmp oeq double %.023.i.i111, 0.000000e+00
-  br i1 %972, label %point_dt.exit115, label %973
+  %.023.i.i110 = select i1 %971, double %950, double %960
+  %.022.i.i111 = select i1 %971, double %960, double %950
+  %972 = fcmp oeq double %.023.i.i110, 0.000000e+00
+  br i1 %972, label %point_dt.exit114, label %973
 
 973:                                              ; preds = %970
-  %974 = fdiv double %.023.i.i111, %.022.i.i112
+  %974 = fdiv double %.023.i.i110, %.022.i.i111
   %975 = call double @llvm.fmuladd.f64(double %974, double %974, double 1.000000e+00)
-  %sqrt.i.i113 = call double @llvm.sqrt.f64(double %975)
-  %976 = fmul double %.022.i.i112, %sqrt.i.i113
+  %sqrt.i.i112 = call double @llvm.sqrt.f64(double %975)
+  %976 = fmul double %.022.i.i111, %sqrt.i.i112
   %977 = call double @llvm.fabs.f64(double %976)
   %978 = fcmp oeq double %977, 0x7FF0000000000000
   br i1 %978, label %979, label %980
@@ -14940,31 +14924,31 @@ point_dt.exit115.thread:                          ; preds = %969
 
 980:                                              ; preds = %973
   %981 = fcmp oeq double %976, 0.000000e+00
-  br i1 %981, label %982, label %point_dt.exit115
+  br i1 %981, label %982, label %point_dt.exit114
 
 982:                                              ; preds = %980
   call void @float_underflow_error() #18
   unreachable
 
-point_dt.exit115:                                 ; preds = %970, %980
-  %.0.i.i114 = phi double [ %.022.i.i112, %970 ], [ %976, %980 ]
+point_dt.exit114:                                 ; preds = %970, %980
+  %.0.i.i113 = phi double [ %.022.i.i111, %970 ], [ %976, %980 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
-  %983 = fcmp uno double %.0.i.i114, 0.000000e+00
+  %983 = fcmp uno double %.0.i.i113, 0.000000e+00
   br i1 %983, label %float8_lt.exit37.thread.i, label %float8_lt.exit37.i
 
-float8_lt.exit37.i:                               ; preds = %point_dt.exit115.thread441, %point_dt.exit115
-  %.0.i.i114443 = phi double [ 0x7FF0000000000000, %point_dt.exit115.thread441 ], [ %.0.i.i114, %point_dt.exit115 ]
+float8_lt.exit37.i:                               ; preds = %point_dt.exit114.thread440, %point_dt.exit114
+  %.0.i.i113442 = phi double [ 0x7FF0000000000000, %point_dt.exit114.thread440 ], [ %.0.i.i113, %point_dt.exit114 ]
   %984 = fcmp uno double %.0.i, 0.000000e+00
-  %985 = fcmp olt double %.0.i.i114443, %.0.i
+  %985 = fcmp olt double %.0.i.i113442, %.0.i
   %986 = or i1 %984, %985
   br i1 %986, label %987, label %float8_lt.exit37.thread.i
 
 987:                                              ; preds = %float8_lt.exit37.i
   br label %float8_lt.exit37.thread.i
 
-float8_lt.exit37.thread.i:                        ; preds = %point_dt.exit115.thread, %987, %float8_lt.exit37.i, %point_dt.exit115
-  %.1.i = phi double [ %.0.i.i114443, %987 ], [ %.0.i, %float8_lt.exit37.i ], [ %.0.i, %point_dt.exit115 ], [ %.0.i, %point_dt.exit115.thread ]
+float8_lt.exit37.thread.i:                        ; preds = %point_dt.exit114.thread, %987, %float8_lt.exit37.i, %point_dt.exit114
+  %.1.i = phi double [ %.0.i.i113442, %987 ], [ %.0.i, %float8_lt.exit37.i ], [ %.0.i, %point_dt.exit114 ], [ %.0.i, %point_dt.exit114.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27)
   %988 = load double, ptr %29, align 16
@@ -14988,15 +14972,15 @@ float8_lt.exit37.thread.i:                        ; preds = %point_dt.exit115.th
   %1002 = fcmp une double %991, 0x7FF0000000000000
   %1003 = call double @llvm.fabs.f64(double %988)
   %1004 = fcmp oeq double %1003, 0x7FF0000000000000
-  %or.cond.i.i99 = or i1 %1004, %1002
-  %or.cond8.i.i100 = or i1 %728, %or.cond.i.i99
-  br i1 %or.cond8.i.i100, label %float8_mi.exit.i101, label %1005
+  %or.cond.i.i98 = or i1 %1004, %1002
+  %or.cond8.i.i99 = or i1 %728, %or.cond.i.i98
+  br i1 %or.cond8.i.i99, label %float8_mi.exit.i100, label %1005
 
 1005:                                             ; preds = %1001
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i101:                              ; preds = %1001
+float8_mi.exit.i100:                              ; preds = %1001
   %1006 = fsub double %517, %995
   %1007 = call double @llvm.fabs.f64(double %1006)
   %1008 = fcmp une double %1007, 0x7FF0000000000000
@@ -15006,11 +14990,11 @@ float8_mi.exit.i101:                              ; preds = %1001
   %or.cond8.i10.i = or i1 %737, %1011
   br i1 %or.cond8.i10.i, label %float8_mi.exit11.i, label %1012
 
-1012:                                             ; preds = %float8_mi.exit.i101
+1012:                                             ; preds = %float8_mi.exit.i100
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit11.i:                               ; preds = %float8_mi.exit.i101
+float8_mi.exit11.i:                               ; preds = %float8_mi.exit.i100
   %1013 = fcmp une double %1006, 0.000000e+00
   %1014 = fcmp uno double %990, 0.000000e+00
   %or.cond11.i.i = or i1 %1014, %1013
@@ -15100,22 +15084,22 @@ float8_mi.exit.i.i:                               ; preds = %float8_mul.exit.i.i
   br i1 %1051, label %line_construct.exit.i.sink.split, label %line_construct.exit.i
 
 line_construct.exit.i.sink.split.sink.split:      ; preds = %1029, %float8_lt.exit37.thread.i, %point_invsl.exit, %994
-  %storemerge1118 = phi double [ -1.000000e+00, %994 ], [ -1.000000e+00, %point_invsl.exit ], [ 0.000000e+00, %float8_lt.exit37.thread.i ], [ 0.000000e+00, %1029 ]
-  %.sink1099 = phi double [ 0.000000e+00, %994 ], [ 0.000000e+00, %point_invsl.exit ], [ -1.000000e+00, %float8_lt.exit37.thread.i ], [ -1.000000e+00, %1029 ]
-  %.sink1098 = phi ptr [ %45, %994 ], [ %45, %point_invsl.exit ], [ %46, %float8_lt.exit37.thread.i ], [ %46, %1029 ]
-  store double %storemerge1118, ptr %27, align 8
-  store double %.sink1099, ptr %81, align 8
-  %1052 = load double, ptr %.sink1098, align 8
+  %storemerge1115 = phi double [ -1.000000e+00, %994 ], [ -1.000000e+00, %point_invsl.exit ], [ 0.000000e+00, %float8_lt.exit37.thread.i ], [ 0.000000e+00, %1029 ]
+  %.sink1096 = phi double [ 0.000000e+00, %994 ], [ 0.000000e+00, %point_invsl.exit ], [ -1.000000e+00, %float8_lt.exit37.thread.i ], [ -1.000000e+00, %1029 ]
+  %.sink1095 = phi ptr [ %45, %994 ], [ %45, %point_invsl.exit ], [ %46, %float8_lt.exit37.thread.i ], [ %46, %1029 ]
+  store double %storemerge1115, ptr %27, align 8
+  store double %.sink1096, ptr %81, align 8
+  %1052 = load double, ptr %.sink1095, align 8
   br label %line_construct.exit.i
 
 line_construct.exit.i.sink.split:                 ; preds = %float8_mi.exit.i.i
   br label %line_construct.exit.i
 
 line_construct.exit.i:                            ; preds = %line_construct.exit.i.sink.split.sink.split, %line_construct.exit.i.sink.split, %float8_mi.exit.i.i
-  %storemerge1119 = phi double [ %1044, %float8_mi.exit.i.i ], [ %1052, %line_construct.exit.i.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i.sink.split ]
-  %1053 = phi double [ -1.000000e+00, %float8_mi.exit.i.i ], [ %.sink1099, %line_construct.exit.i.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i.sink.split ]
-  %1054 = phi double [ %1017, %float8_mi.exit.i.i ], [ %storemerge1118, %line_construct.exit.i.sink.split.sink.split ], [ %1017, %line_construct.exit.i.sink.split ]
-  store double %storemerge1119, ptr %82, align 8
+  %storemerge1116 = phi double [ %1044, %float8_mi.exit.i.i ], [ %1052, %line_construct.exit.i.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i.sink.split ]
+  %1053 = phi double [ -1.000000e+00, %float8_mi.exit.i.i ], [ %.sink1096, %line_construct.exit.i.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i.sink.split ]
+  %1054 = phi double [ %1017, %float8_mi.exit.i.i ], [ %storemerge1115, %line_construct.exit.i.sink.split.sink.split ], [ %1017, %line_construct.exit.i.sink.split ]
+  store double %storemerge1116, ptr %82, align 8
   %1055 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %26, ptr noundef nonnull %29, ptr noundef nonnull %27)
   br i1 %1055, label %lseg_closept_point.exit, label %1056
 
@@ -15124,12 +15108,12 @@ line_construct.exit.i:                            ; preds = %line_construct.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   %1057 = call double @llvm.fabs.f64(double %1054)
   %1058 = fcmp ugt double %1057, 0x3EB0C6F7A0B5ED8D
-  br i1 %1058, label %1059, label %line_construct.exit.i86.sink.split.sink.split
+  br i1 %1058, label %1059, label %line_construct.exit.i85.sink.split.sink.split
 
 1059:                                             ; preds = %1056
   %1060 = call double @llvm.fabs.f64(double %1053)
   %1061 = fcmp ugt double %1060, 0x3EB0C6F7A0B5ED8D
-  br i1 %1061, label %1062, label %.thread.i88
+  br i1 %1061, label %1062, label %.thread.i87
 
 1062:                                             ; preds = %1059
   %1063 = fdiv double %1053, %1054
@@ -15149,12 +15133,12 @@ line_construct.exit.i:                            ; preds = %line_construct.exit
   call void @float_underflow_error() #18
   unreachable
 
-.thread.i88:                                      ; preds = %1059
-  %.pre1039 = load double, ptr %48, align 8
-  br label %line_construct.exit.i86.sink.split.sink.split
+.thread.i87:                                      ; preds = %1059
+  %.pre1036 = load double, ptr %48, align 8
+  br label %line_construct.exit.i85.sink.split.sink.split
 
 1070:                                             ; preds = %1067
-  %.pre1040 = load double, ptr %48, align 8
+  %.pre1037 = load double, ptr %48, align 8
   store double %1063, ptr %15, align 16
   store double -1.000000e+00, ptr %83, align 8
   %1071 = fmul double %988, %1063
@@ -15162,8 +15146,8 @@ line_construct.exit.i:                            ; preds = %line_construct.exit
   %1073 = fcmp une double %1072, 0x7FF0000000000000
   %1074 = call double @llvm.fabs.f64(double %988)
   %1075 = fcmp oeq double %1074, 0x7FF0000000000000
-  %or.cond15.i.i12.i92 = or i1 %1075, %1073
-  br i1 %or.cond15.i.i12.i92, label %1077, label %1076
+  %or.cond15.i.i12.i91 = or i1 %1075, %1073
+  br i1 %or.cond15.i.i12.i91, label %1077, label %1076
 
 1076:                                             ; preds = %1070
   call void @float_overflow_error() #18
@@ -15172,65 +15156,65 @@ line_construct.exit.i:                            ; preds = %line_construct.exit
 1077:                                             ; preds = %1070
   %1078 = fcmp oeq double %1071, 0.000000e+00
   %1079 = fcmp une double %988, 0.000000e+00
-  %or.cond3.i.i.i93 = and i1 %1079, %1078
-  br i1 %or.cond3.i.i.i93, label %1080, label %float8_mul.exit.i.i94
+  %or.cond3.i.i.i92 = and i1 %1079, %1078
+  br i1 %or.cond3.i.i.i92, label %1080, label %float8_mul.exit.i.i93
 
 1080:                                             ; preds = %1077
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i94:                            ; preds = %1077
-  %1081 = fsub double %.pre1040, %1071
+float8_mul.exit.i.i93:                            ; preds = %1077
+  %1081 = fsub double %.pre1037, %1071
   %1082 = call double @llvm.fabs.f64(double %1081)
   %1083 = fcmp une double %1082, 0x7FF0000000000000
-  %1084 = call double @llvm.fabs.f64(double %.pre1040)
+  %1084 = call double @llvm.fabs.f64(double %.pre1037)
   %1085 = fcmp oeq double %1084, 0x7FF0000000000000
-  %or.cond.i19.i.i95 = or i1 %1085, %1083
+  %or.cond.i19.i.i94 = or i1 %1085, %1083
   %1086 = fcmp oeq double %1072, 0x7FF0000000000000
-  %or.cond8.i.i.i96 = or i1 %1086, %or.cond.i19.i.i95
-  br i1 %or.cond8.i.i.i96, label %float8_mi.exit.i.i97, label %1087
+  %or.cond8.i.i.i95 = or i1 %1086, %or.cond.i19.i.i94
+  br i1 %or.cond8.i.i.i95, label %float8_mi.exit.i.i96, label %1087
 
-1087:                                             ; preds = %float8_mul.exit.i.i94
+1087:                                             ; preds = %float8_mul.exit.i.i93
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i97:                             ; preds = %float8_mul.exit.i.i94
+float8_mi.exit.i.i96:                             ; preds = %float8_mul.exit.i.i93
   %1088 = fcmp oeq double %1081, 0.000000e+00
-  br i1 %1088, label %line_construct.exit.i86.sink.split, label %line_construct.exit.i86
+  br i1 %1088, label %line_construct.exit.i85.sink.split, label %line_construct.exit.i85
 
-line_construct.exit.i86.sink.split.sink.split:    ; preds = %1056, %.thread.i88
-  %.sink1088.ph = phi double [ %.pre1039, %.thread.i88 ], [ %988, %1056 ]
-  %1089 = phi <2 x double> [ <double 0.000000e+00, double -1.000000e+00>, %.thread.i88 ], [ <double -1.000000e+00, double 0.000000e+00>, %1056 ]
+line_construct.exit.i85.sink.split.sink.split:    ; preds = %1056, %.thread.i87
+  %.sink1085.ph = phi double [ %.pre1036, %.thread.i87 ], [ %988, %1056 ]
+  %1089 = phi <2 x double> [ <double 0.000000e+00, double -1.000000e+00>, %.thread.i87 ], [ <double -1.000000e+00, double 0.000000e+00>, %1056 ]
   store <2 x double> %1089, ptr %15, align 16
-  br label %line_construct.exit.i86
+  br label %line_construct.exit.i85
 
-line_construct.exit.i86.sink.split:               ; preds = %float8_mi.exit.i.i97
-  br label %line_construct.exit.i86
+line_construct.exit.i85.sink.split:               ; preds = %float8_mi.exit.i.i96
+  br label %line_construct.exit.i85
 
-line_construct.exit.i86:                          ; preds = %line_construct.exit.i86.sink.split.sink.split, %line_construct.exit.i86.sink.split, %float8_mi.exit.i.i97
-  %storemerge1121 = phi double [ %1081, %float8_mi.exit.i.i97 ], [ %.sink1088.ph, %line_construct.exit.i86.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i86.sink.split ]
-  store double %storemerge1121, ptr %84, align 16
+line_construct.exit.i85:                          ; preds = %line_construct.exit.i85.sink.split.sink.split, %line_construct.exit.i85.sink.split, %float8_mi.exit.i.i96
+  %storemerge1118 = phi double [ %1081, %float8_mi.exit.i.i96 ], [ %.sink1085.ph, %line_construct.exit.i85.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i85.sink.split ]
+  store double %storemerge1118, ptr %84, align 16
   %1090 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %27)
-  br i1 %1090, label %1091, label %line_closept_point.exit98
+  br i1 %1090, label %1091, label %line_closept_point.exit97
 
-1091:                                             ; preds = %line_construct.exit.i86
+1091:                                             ; preds = %line_construct.exit.i85
   %1092 = load double, ptr %14, align 8
   %1093 = fsub double %1092, %988
   %1094 = call double @llvm.fabs.f64(double %1093)
   %1095 = fcmp une double %1094, 0x7FF0000000000000
   %1096 = call double @llvm.fabs.f64(double %1092)
   %1097 = fcmp oeq double %1096, 0x7FF0000000000000
-  %or.cond.i.i325 = or i1 %1097, %1095
+  %or.cond.i.i324 = or i1 %1097, %1095
   %1098 = call double @llvm.fabs.f64(double %988)
   %1099 = fcmp oeq double %1098, 0x7FF0000000000000
-  %or.cond8.i.i326 = or i1 %1099, %or.cond.i.i325
-  br i1 %or.cond8.i.i326, label %float8_mi.exit.i327, label %1100
+  %or.cond8.i.i325 = or i1 %1099, %or.cond.i.i324
+  br i1 %or.cond8.i.i325, label %float8_mi.exit.i326, label %1100
 
 1100:                                             ; preds = %1091
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i327:                              ; preds = %1091
+float8_mi.exit.i326:                              ; preds = %1091
   %1101 = load double, ptr %85, align 8
   %1102 = load double, ptr %48, align 8
   %1103 = fsub double %1101, %1102
@@ -15238,38 +15222,38 @@ float8_mi.exit.i327:                              ; preds = %1091
   %1105 = fcmp une double %1104, 0x7FF0000000000000
   %1106 = call double @llvm.fabs.f64(double %1101)
   %1107 = fcmp oeq double %1106, 0x7FF0000000000000
-  %or.cond.i4.i328 = or i1 %1107, %1105
+  %or.cond.i4.i327 = or i1 %1107, %1105
   %1108 = call double @llvm.fabs.f64(double %1102)
   %1109 = fcmp oeq double %1108, 0x7FF0000000000000
-  %or.cond8.i5.i329 = or i1 %1109, %or.cond.i4.i328
-  br i1 %or.cond8.i5.i329, label %float8_mi.exit6.i330, label %1110
+  %or.cond8.i5.i328 = or i1 %1109, %or.cond.i4.i327
+  br i1 %or.cond8.i5.i328, label %float8_mi.exit6.i329, label %1110
 
-1110:                                             ; preds = %float8_mi.exit.i327
+1110:                                             ; preds = %float8_mi.exit.i326
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i330:                             ; preds = %float8_mi.exit.i327
+float8_mi.exit6.i329:                             ; preds = %float8_mi.exit.i326
   %1111 = fcmp oeq double %1094, 0x7FF0000000000000
   %1112 = fcmp oeq double %1104, 0x7FF0000000000000
-  %or.cond.i7.i331 = or i1 %1111, %1112
-  br i1 %or.cond.i7.i331, label %line_closept_point.exit98, label %1113
+  %or.cond.i7.i330 = or i1 %1111, %1112
+  br i1 %or.cond.i7.i330, label %line_closept_point.exit97, label %1113
 
-1113:                                             ; preds = %float8_mi.exit6.i330
-  %or.cond29.i.i332 = fcmp uno double %1093, %1103
-  br i1 %or.cond29.i.i332, label %line_closept_point.exit98, label %1114
+1113:                                             ; preds = %float8_mi.exit6.i329
+  %or.cond29.i.i331 = fcmp uno double %1093, %1103
+  br i1 %or.cond29.i.i331, label %line_closept_point.exit97, label %1114
 
 1114:                                             ; preds = %1113
   %1115 = fcmp olt double %1094, %1104
-  %.023.i.i333 = select i1 %1115, double %1094, double %1104
-  %.022.i.i334 = select i1 %1115, double %1104, double %1094
-  %1116 = fcmp oeq double %.023.i.i333, 0.000000e+00
-  br i1 %1116, label %line_closept_point.exit98, label %1117
+  %.023.i.i332 = select i1 %1115, double %1094, double %1104
+  %.022.i.i333 = select i1 %1115, double %1104, double %1094
+  %1116 = fcmp oeq double %.023.i.i332, 0.000000e+00
+  br i1 %1116, label %line_closept_point.exit97, label %1117
 
 1117:                                             ; preds = %1114
-  %1118 = fdiv double %.023.i.i333, %.022.i.i334
+  %1118 = fdiv double %.023.i.i332, %.022.i.i333
   %1119 = call double @llvm.fmuladd.f64(double %1118, double %1118, double 1.000000e+00)
-  %sqrt.i.i335 = call double @llvm.sqrt.f64(double %1119)
-  %1120 = fmul double %.022.i.i334, %sqrt.i.i335
+  %sqrt.i.i334 = call double @llvm.sqrt.f64(double %1119)
+  %1120 = fmul double %.022.i.i333, %sqrt.i.i334
   %1121 = call double @llvm.fabs.f64(double %1120)
   %1122 = fcmp oeq double %1121, 0x7FF0000000000000
   br i1 %1122, label %1123, label %1124
@@ -15280,21 +15264,21 @@ float8_mi.exit6.i330:                             ; preds = %float8_mi.exit.i327
 
 1124:                                             ; preds = %1117
   %1125 = fcmp oeq double %1120, 0.000000e+00
-  br i1 %1125, label %1126, label %line_closept_point.exit98
+  br i1 %1125, label %1126, label %line_closept_point.exit97
 
 1126:                                             ; preds = %1124
   call void @float_underflow_error() #18
   unreachable
 
-line_closept_point.exit98:                        ; preds = %1124, %1114, %1113, %float8_mi.exit6.i330, %line_construct.exit.i86
-  %.0.i87 = phi double [ 0x7FF8000000000000, %line_construct.exit.i86 ], [ %.022.i.i334, %1114 ], [ %1120, %1124 ], [ 0x7FF0000000000000, %float8_mi.exit6.i330 ], [ 0x7FF8000000000000, %1113 ]
+line_closept_point.exit97:                        ; preds = %1124, %1114, %1113, %float8_mi.exit6.i329, %line_construct.exit.i85
+  %.0.i86 = phi double [ 0x7FF8000000000000, %line_construct.exit.i85 ], [ %.022.i.i333, %1114 ], [ %1120, %1124 ], [ 0x7FF0000000000000, %float8_mi.exit6.i329 ], [ 0x7FF8000000000000, %1113 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   br i1 %1058, label %1127, label %line_invsl.exit.thread.i
 
-1127:                                             ; preds = %line_closept_point.exit98
+1127:                                             ; preds = %line_closept_point.exit97
   %1128 = call double @llvm.fabs.f64(double %1053)
   %1129 = fcmp ugt double %1128, 0x3EB0C6F7A0B5ED8D
   br i1 %1129, label %1130, label %.thread.i
@@ -15317,18 +15301,18 @@ line_closept_point.exit98:                        ; preds = %1124, %1114, %1113,
   call void @float_underflow_error() #18
   unreachable
 
-line_invsl.exit.thread.i:                         ; preds = %line_closept_point.exit98
+line_invsl.exit.thread.i:                         ; preds = %line_closept_point.exit97
   store <2 x double> <double -1.000000e+00, double 0.000000e+00>, ptr %17, align 16
   %1138 = load double, ptr %49, align 16
-  br label %line_construct.exit.i77
+  br label %line_construct.exit.i76
 
 .thread.i:                                        ; preds = %1127
-  %.pre1041 = load double, ptr %50, align 8
+  %.pre1038 = load double, ptr %50, align 8
   store <2 x double> <double 0.000000e+00, double -1.000000e+00>, ptr %17, align 16
-  br label %line_construct.exit.i77
+  br label %line_construct.exit.i76
 
 1139:                                             ; preds = %1135
-  %.pre1042 = load double, ptr %50, align 8
+  %.pre1039 = load double, ptr %50, align 8
   store double %1131, ptr %17, align 16
   store double -1.000000e+00, ptr %86, align 8
   %1140 = load double, ptr %49, align 16
@@ -15347,42 +15331,42 @@ line_invsl.exit.thread.i:                         ; preds = %line_closept_point.
 1147:                                             ; preds = %1139
   %1148 = fcmp oeq double %1141, 0.000000e+00
   %1149 = fcmp une double %1140, 0.000000e+00
-  %or.cond3.i.i.i80 = and i1 %1149, %1148
-  br i1 %or.cond3.i.i.i80, label %1150, label %float8_mul.exit.i.i81
+  %or.cond3.i.i.i79 = and i1 %1149, %1148
+  br i1 %or.cond3.i.i.i79, label %1150, label %float8_mul.exit.i.i80
 
 1150:                                             ; preds = %1147
   call void @float_underflow_error() #18
   unreachable
 
-float8_mul.exit.i.i81:                            ; preds = %1147
-  %1151 = fsub double %.pre1042, %1141
+float8_mul.exit.i.i80:                            ; preds = %1147
+  %1151 = fsub double %.pre1039, %1141
   %1152 = call double @llvm.fabs.f64(double %1151)
   %1153 = fcmp une double %1152, 0x7FF0000000000000
-  %1154 = call double @llvm.fabs.f64(double %.pre1042)
+  %1154 = call double @llvm.fabs.f64(double %.pre1039)
   %1155 = fcmp oeq double %1154, 0x7FF0000000000000
-  %or.cond.i19.i.i82 = or i1 %1155, %1153
+  %or.cond.i19.i.i81 = or i1 %1155, %1153
   %1156 = fcmp oeq double %1142, 0x7FF0000000000000
-  %or.cond8.i.i.i83 = or i1 %1156, %or.cond.i19.i.i82
-  br i1 %or.cond8.i.i.i83, label %float8_mi.exit.i.i84, label %1157
+  %or.cond8.i.i.i82 = or i1 %1156, %or.cond.i19.i.i81
+  br i1 %or.cond8.i.i.i82, label %float8_mi.exit.i.i83, label %1157
 
-1157:                                             ; preds = %float8_mul.exit.i.i81
+1157:                                             ; preds = %float8_mul.exit.i.i80
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i.i84:                             ; preds = %float8_mul.exit.i.i81
+float8_mi.exit.i.i83:                             ; preds = %float8_mul.exit.i.i80
   %1158 = fcmp oeq double %1151, 0.000000e+00
-  br i1 %1158, label %line_construct.exit.i77.sink.split, label %line_construct.exit.i77
+  br i1 %1158, label %line_construct.exit.i76.sink.split, label %line_construct.exit.i76
 
-line_construct.exit.i77.sink.split:               ; preds = %float8_mi.exit.i.i84
-  br label %line_construct.exit.i77
+line_construct.exit.i76.sink.split:               ; preds = %float8_mi.exit.i.i83
+  br label %line_construct.exit.i76
 
-line_construct.exit.i77:                          ; preds = %.thread.i, %line_invsl.exit.thread.i, %line_construct.exit.i77.sink.split, %float8_mi.exit.i.i84
-  %storemerge1122 = phi double [ %1151, %float8_mi.exit.i.i84 ], [ %.pre1041, %.thread.i ], [ %1138, %line_invsl.exit.thread.i ], [ 0.000000e+00, %line_construct.exit.i77.sink.split ]
-  store double %storemerge1122, ptr %87, align 16
+line_construct.exit.i76:                          ; preds = %.thread.i, %line_invsl.exit.thread.i, %line_construct.exit.i76.sink.split, %float8_mi.exit.i.i83
+  %storemerge1119 = phi double [ %1151, %float8_mi.exit.i.i83 ], [ %.pre1038, %.thread.i ], [ %1138, %line_invsl.exit.thread.i ], [ 0.000000e+00, %line_construct.exit.i76.sink.split ]
+  store double %storemerge1119, ptr %87, align 16
   %1159 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %27)
   br i1 %1159, label %1160, label %line_closept_point.exit
 
-1160:                                             ; preds = %line_construct.exit.i77
+1160:                                             ; preds = %line_construct.exit.i76
   %1161 = load double, ptr %16, align 8
   %1162 = load double, ptr %49, align 16
   %1163 = fsub double %1161, %1162
@@ -15390,17 +15374,17 @@ line_construct.exit.i77:                          ; preds = %.thread.i, %line_in
   %1165 = fcmp une double %1164, 0x7FF0000000000000
   %1166 = call double @llvm.fabs.f64(double %1161)
   %1167 = fcmp oeq double %1166, 0x7FF0000000000000
-  %or.cond.i.i312 = or i1 %1167, %1165
+  %or.cond.i.i311 = or i1 %1167, %1165
   %1168 = call double @llvm.fabs.f64(double %1162)
   %1169 = fcmp oeq double %1168, 0x7FF0000000000000
-  %or.cond8.i.i313 = or i1 %1169, %or.cond.i.i312
-  br i1 %or.cond8.i.i313, label %float8_mi.exit.i314, label %1170
+  %or.cond8.i.i312 = or i1 %1169, %or.cond.i.i311
+  br i1 %or.cond8.i.i312, label %float8_mi.exit.i313, label %1170
 
 1170:                                             ; preds = %1160
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit.i314:                              ; preds = %1160
+float8_mi.exit.i313:                              ; preds = %1160
   %1171 = load double, ptr %88, align 8
   %1172 = load double, ptr %50, align 8
   %1173 = fsub double %1171, %1172
@@ -15408,38 +15392,38 @@ float8_mi.exit.i314:                              ; preds = %1160
   %1175 = fcmp une double %1174, 0x7FF0000000000000
   %1176 = call double @llvm.fabs.f64(double %1171)
   %1177 = fcmp oeq double %1176, 0x7FF0000000000000
-  %or.cond.i4.i315 = or i1 %1177, %1175
+  %or.cond.i4.i314 = or i1 %1177, %1175
   %1178 = call double @llvm.fabs.f64(double %1172)
   %1179 = fcmp oeq double %1178, 0x7FF0000000000000
-  %or.cond8.i5.i316 = or i1 %1179, %or.cond.i4.i315
-  br i1 %or.cond8.i5.i316, label %float8_mi.exit6.i317, label %1180
+  %or.cond8.i5.i315 = or i1 %1179, %or.cond.i4.i314
+  br i1 %or.cond8.i5.i315, label %float8_mi.exit6.i316, label %1180
 
-1180:                                             ; preds = %float8_mi.exit.i314
+1180:                                             ; preds = %float8_mi.exit.i313
   call void @float_overflow_error() #18
   unreachable
 
-float8_mi.exit6.i317:                             ; preds = %float8_mi.exit.i314
+float8_mi.exit6.i316:                             ; preds = %float8_mi.exit.i313
   %1181 = fcmp oeq double %1164, 0x7FF0000000000000
   %1182 = fcmp oeq double %1174, 0x7FF0000000000000
-  %or.cond.i7.i318 = or i1 %1181, %1182
-  br i1 %or.cond.i7.i318, label %line_closept_point.exit, label %1183
+  %or.cond.i7.i317 = or i1 %1181, %1182
+  br i1 %or.cond.i7.i317, label %line_closept_point.exit, label %1183
 
-1183:                                             ; preds = %float8_mi.exit6.i317
-  %or.cond29.i.i319 = fcmp uno double %1163, %1173
-  br i1 %or.cond29.i.i319, label %line_closept_point.exit, label %1184
+1183:                                             ; preds = %float8_mi.exit6.i316
+  %or.cond29.i.i318 = fcmp uno double %1163, %1173
+  br i1 %or.cond29.i.i318, label %line_closept_point.exit, label %1184
 
 1184:                                             ; preds = %1183
   %1185 = fcmp olt double %1164, %1174
-  %.023.i.i320 = select i1 %1185, double %1164, double %1174
-  %.022.i.i321 = select i1 %1185, double %1174, double %1164
-  %1186 = fcmp oeq double %.023.i.i320, 0.000000e+00
+  %.023.i.i319 = select i1 %1185, double %1164, double %1174
+  %.022.i.i320 = select i1 %1185, double %1174, double %1164
+  %1186 = fcmp oeq double %.023.i.i319, 0.000000e+00
   br i1 %1186, label %line_closept_point.exit, label %1187
 
 1187:                                             ; preds = %1184
-  %1188 = fdiv double %.023.i.i320, %.022.i.i321
+  %1188 = fdiv double %.023.i.i319, %.022.i.i320
   %1189 = call double @llvm.fmuladd.f64(double %1188, double %1188, double 1.000000e+00)
-  %sqrt.i.i322 = call double @llvm.sqrt.f64(double %1189)
-  %1190 = fmul double %.022.i.i321, %sqrt.i.i322
+  %sqrt.i.i321 = call double @llvm.sqrt.f64(double %1189)
+  %1190 = fmul double %.022.i.i320, %sqrt.i.i321
   %1191 = call double @llvm.fabs.f64(double %1190)
   %1192 = fcmp oeq double %1191, 0x7FF0000000000000
   br i1 %1192, label %1193, label %1194
@@ -15456,11 +15440,11 @@ float8_mi.exit6.i317:                             ; preds = %float8_mi.exit.i314
   call void @float_underflow_error() #18
   unreachable
 
-line_closept_point.exit:                          ; preds = %1194, %1184, %1183, %float8_mi.exit6.i317, %line_construct.exit.i77
-  %.0.i78 = phi double [ 0x7FF8000000000000, %line_construct.exit.i77 ], [ %.022.i.i321, %1184 ], [ %1190, %1194 ], [ 0x7FF0000000000000, %float8_mi.exit6.i317 ], [ 0x7FF8000000000000, %1183 ]
+line_closept_point.exit:                          ; preds = %1194, %1184, %1183, %float8_mi.exit6.i316, %line_construct.exit.i76
+  %.0.i77 = phi double [ 0x7FF8000000000000, %line_construct.exit.i76 ], [ %.022.i.i320, %1184 ], [ %1190, %1194 ], [ 0x7FF0000000000000, %float8_mi.exit6.i316 ], [ 0x7FF8000000000000, %1183 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  %1197 = fcmp olt double %.0.i87, %.0.i78
+  %1197 = fcmp olt double %.0.i86, %.0.i77
   %.22.i.i = select i1 %1197, ptr %29, ptr %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 16 dereferenceable(16) %.22.i.i, i64 16, i1 false)
   br label %lseg_closept_point.exit
@@ -15505,9 +15489,9 @@ float8_mi.exit6.i:                                ; preds = %float8_mi.exit.i
   %1218 = fcmp oeq double %1201, 0x7FF0000000000000
   %1219 = fcmp oeq double %1211, 0x7FF0000000000000
   %or.cond.i7.i = or i1 %1218, %1219
-  br i1 %or.cond.i7.i, label %point_dt.exit.thread450, label %1220
+  br i1 %or.cond.i7.i, label %point_dt.exit.thread449, label %1220
 
-point_dt.exit.thread450:                          ; preds = %float8_mi.exit6.i
+point_dt.exit.thread449:                          ; preds = %float8_mi.exit6.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   br label %float8_lt.exit38.i
@@ -15556,10 +15540,10 @@ point_dt.exit:                                    ; preds = %1221, %1231
   %1234 = fcmp uno double %.0.i.i, 0.000000e+00
   br i1 %1234, label %lseg_closept_lseg.exit, label %float8_lt.exit38.i
 
-float8_lt.exit38.i:                               ; preds = %point_dt.exit.thread450, %point_dt.exit
-  %.0.i.i452 = phi double [ 0x7FF0000000000000, %point_dt.exit.thread450 ], [ %.0.i.i, %point_dt.exit ]
+float8_lt.exit38.i:                               ; preds = %point_dt.exit.thread449, %point_dt.exit
+  %.0.i.i451 = phi double [ 0x7FF0000000000000, %point_dt.exit.thread449 ], [ %.0.i.i, %point_dt.exit ]
   %1235 = fcmp uno double %.1.i, 0.000000e+00
-  %1236 = fcmp olt double %.0.i.i452, %.1.i
+  %1236 = fcmp olt double %.0.i.i451, %.1.i
   %1237 = or i1 %1235, %1236
   br i1 %1237, label %1238, label %lseg_closept_lseg.exit
 
@@ -15567,26 +15551,24 @@ float8_lt.exit38.i:                               ; preds = %point_dt.exit.threa
   br label %lseg_closept_lseg.exit
 
 lseg_closept_lseg.exit:                           ; preds = %point_dt.exit.thread, %point_dt.exit, %float8_lt.exit38.i, %1238
-  %.031.i = phi double [ %.0.i.i452, %1238 ], [ %.1.i, %float8_lt.exit38.i ], [ %.1.i, %point_dt.exit ], [ %.1.i, %point_dt.exit.thread ]
-  %1239 = and i8 %.11024, 1
-  %.not41 = icmp eq i8 %1239, 0
-  br i1 %.not41, label %float8_lt.exit.thread, label %1241
+  %.031.i = phi double [ %.0.i.i451, %1238 ], [ %.1.i, %float8_lt.exit38.i ], [ %.1.i, %point_dt.exit ], [ %.1.i, %point_dt.exit.thread ]
+  %1239 = trunc i8 %.11021 to i1
+  br i1 %1239, label %1241, label %float8_lt.exit.thread
 
-lseg_closept_lseg.exit.thread:                    ; preds = %point_dt.exit274
+lseg_closept_lseg.exit.thread:                    ; preds = %point_dt.exit273
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
-  %1240 = and i8 %.11024, 1
-  %.not41454 = icmp eq i8 %1240, 0
-  br i1 %.not41454, label %float8_lt.exit.thread, label %float8_lt.exit
+  %1240 = trunc i8 %.11021 to i1
+  br i1 %1240, label %float8_lt.exit, label %float8_lt.exit.thread
 
 1241:                                             ; preds = %lseg_closept_lseg.exit
   %1242 = fcmp uno double %.031.i, 0.000000e+00
   br i1 %1242, label %float8_lt.exit.thread, label %float8_lt.exit
 
 float8_lt.exit:                                   ; preds = %lseg_closept_lseg.exit.thread, %1241
-  %.031.i455459 = phi double [ %.031.i, %1241 ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ]
-  %1243 = fcmp uno double %.1371023, 0.000000e+00
-  %1244 = fcmp olt double %.031.i455459, %.1371023
+  %.031.i454457 = phi double [ %.031.i, %1241 ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ]
+  %1243 = fcmp uno double %.1371020, 0.000000e+00
+  %1244 = fcmp olt double %.031.i454457, %.1371020
   %1245 = or i1 %1243, %1244
   br i1 %1245, label %1246, label %float8_lt.exit.thread
 
@@ -15594,8 +15576,8 @@ float8_lt.exit:                                   ; preds = %lseg_closept_lseg.e
   br label %float8_lt.exit.thread
 
 float8_lt.exit.thread:                            ; preds = %1241, %lseg_closept_lseg.exit, %lseg_closept_lseg.exit.thread, %float8_lt.exit, %1246
-  %.238 = phi double [ %.1371023, %float8_lt.exit ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ], [ %.031.i, %lseg_closept_lseg.exit ], [ %.031.i455459, %1246 ], [ %.1371023, %1241 ]
-  %.2 = phi i8 [ %.11024, %float8_lt.exit ], [ 1, %lseg_closept_lseg.exit.thread ], [ 1, %lseg_closept_lseg.exit ], [ 1, %1246 ], [ %.11024, %1241 ]
+  %.238 = phi double [ %.1371020, %float8_lt.exit ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ], [ %.031.i, %lseg_closept_lseg.exit ], [ %.031.i454457, %1246 ], [ %.1371020, %1241 ]
+  %.2 = phi i8 [ %.11021, %float8_lt.exit ], [ 1, %lseg_closept_lseg.exit.thread ], [ 1, %lseg_closept_lseg.exit ], [ 1, %1246 ], [ %.11021, %1241 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1247 = load i32, ptr %42, align 4
   %1248 = sext i32 %1247 to i64
@@ -15603,32 +15585,31 @@ float8_lt.exit.thread:                            ; preds = %1241, %lseg_closept
   br i1 %1249, label %99, label %._crit_edge.loopexit, !llvm.loop !52
 
 ._crit_edge.loopexit:                             ; preds = %float8_lt.exit.thread
-  %.pre1043 = load i32, ptr %39, align 4
+  %.pre1040 = load i32, ptr %39, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph1030.split
-  %1250 = phi i32 [ %92, %.lr.ph1030.split ], [ %.pre1043, %._crit_edge.loopexit ]
-  %1251 = phi i32 [ %93, %.lr.ph1030.split ], [ %1247, %._crit_edge.loopexit ]
-  %.137.lcssa = phi double [ %.0361027, %.lr.ph1030.split ], [ %.238, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i8 [ %.0351028, %.lr.ph1030.split ], [ %.2, %._crit_edge.loopexit ]
-  %indvars.iv.next1037 = add nuw nsw i64 %indvars.iv1036, 1
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph1027.split
+  %1250 = phi i32 [ %92, %.lr.ph1027.split ], [ %.pre1040, %._crit_edge.loopexit ]
+  %1251 = phi i32 [ %93, %.lr.ph1027.split ], [ %1247, %._crit_edge.loopexit ]
+  %.137.lcssa = phi double [ %.0361024, %.lr.ph1027.split ], [ %.238, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i8 [ %.0351025, %.lr.ph1027.split ], [ %.2, %._crit_edge.loopexit ]
+  %indvars.iv.next1034 = add nuw nsw i64 %indvars.iv1033, 1
   %1252 = sext i32 %1250 to i64
-  %1253 = icmp slt i64 %indvars.iv.next1037, %1252
-  br i1 %1253, label %.lr.ph1030.split, label %._crit_edge1031, !llvm.loop !53
+  %1253 = icmp slt i64 %indvars.iv.next1034, %1252
+  br i1 %1253, label %.lr.ph1027.split, label %._crit_edge1028, !llvm.loop !53
 
-._crit_edge1031:                                  ; preds = %._crit_edge
-  %1254 = and i8 %.1.lcssa, 1
-  %1255 = icmp eq i8 %1254, 0
-  %1256 = bitcast double %.137.lcssa to i64
-  br i1 %1255, label %._crit_edge1031.thread, label %1258
+._crit_edge1028:                                  ; preds = %._crit_edge
+  %1254 = trunc i8 %.1.lcssa to i1
+  %1255 = bitcast double %.137.lcssa to i64
+  br i1 %1254, label %1257, label %._crit_edge1028.thread
 
-._crit_edge1031.thread:                           ; preds = %.lr.ph1030, %.preheader, %._crit_edge1031
-  %1257 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %1257, align 4
-  br label %1258
+._crit_edge1028.thread:                           ; preds = %.lr.ph1027, %.preheader, %._crit_edge1028
+  %1256 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %1256, align 4
+  br label %1257
 
-1258:                                             ; preds = %._crit_edge1031, %1, %._crit_edge1031.thread
-  %.034 = phi i64 [ 0, %._crit_edge1031.thread ], [ 0, %1 ], [ %1256, %._crit_edge1031 ]
+1257:                                             ; preds = %._crit_edge1028, %1, %._crit_edge1028.thread
+  %.034 = phi i64 [ 0, %._crit_edge1028.thread ], [ 0, %1 ], [ %1255, %._crit_edge1028 ]
   ret i64 %.034
 }
 
@@ -17607,7 +17588,7 @@ define dso_local i64 @circle_in(ptr nocapture noundef %0) local_unnamed_addr #0 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %32, align 4
-  br label %77
+  br label %76
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %2, align 8
@@ -17636,18 +17617,17 @@ define dso_local i64 @circle_in(ptr nocapture noundef %0) local_unnamed_addr #0 
 single_decode.exit:                               ; preds = %43
   %46 = getelementptr inbounds i8, ptr %7, i64 4
   %47 = load i8, ptr %46, align 4
-  %48 = and i8 %47, 1
-  %49 = icmp eq i8 %48, 0
-  br i1 %49, label %single_decode.exit.thread, label %50
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %single_decode.exit.thread
 
-50:                                               ; preds = %single_decode.exit
-  %51 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %51, align 4
-  br label %77
+49:                                               ; preds = %single_decode.exit
+  %50 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %50, align 4
+  br label %76
 
 single_decode.exit.thread:                        ; preds = %39, %43, %single_decode.exit
-  %52 = fcmp olt double %42, 0.000000e+00
-  br i1 %52, label %60, label %.preheader
+  %51 = fcmp olt double %42, 0.000000e+00
+  br i1 %51, label %59, label %.preheader
 
 .preheader:                                       ; preds = %single_decode.exit.thread
   %.pre53 = load ptr, ptr %2, align 8
@@ -17656,67 +17636,67 @@ single_decode.exit.thread:                        ; preds = %39, %43, %single_de
 
 .lr.ph.split.us:                                  ; preds = %.preheader
   switch i8 %.pre54, label %.split.us [
-    i8 41, label %53
-    i8 62, label %53
+    i8 41, label %52
+    i8 62, label %52
   ]
 
-53:                                               ; preds = %.lr.ph.split.us, %.lr.ph.split.us
+52:                                               ; preds = %.lr.ph.split.us, %.lr.ph.split.us
   %.pre52 = load ptr, ptr %9, align 8
-  br label %54
+  br label %53
 
-54:                                               ; preds = %54, %53
-  %.pn.us = phi ptr [ %.pre53, %53 ], [ %storemerge42.us, %54 ]
+53:                                               ; preds = %53, %52
+  %.pn.us = phi ptr [ %.pre53, %52 ], [ %storemerge42.us, %53 ]
   %storemerge42.us = getelementptr i8, ptr %.pn.us, i64 1
   store ptr %storemerge42.us, ptr %2, align 8
-  %55 = load i8, ptr %storemerge42.us, align 1
-  %56 = zext i8 %55 to i64
-  %57 = getelementptr i16, ptr %.pre52, i64 %56
-  %58 = load i16, ptr %57, align 2
-  %59 = and i16 %58, 8192
-  %.not43.us = icmp eq i16 %59, 0
-  br i1 %.not43.us, label %._crit_edge, label %54, !llvm.loop !67
+  %54 = load i8, ptr %storemerge42.us, align 1
+  %55 = zext i8 %54 to i64
+  %56 = getelementptr i16, ptr %.pre52, i64 %55
+  %57 = load i16, ptr %56, align 2
+  %58 = and i16 %57, 8192
+  %.not43.us = icmp eq i16 %58, 0
+  br i1 %.not43.us, label %._crit_edge, label %53, !llvm.loop !67
 
-60:                                               ; preds = %single_decode.exit.thread
-  %61 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #15
-  br i1 %61, label %62, label %77
+59:                                               ; preds = %single_decode.exit.thread
+  %60 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #15
+  br i1 %60, label %61, label %76
 
-62:                                               ; preds = %60
-  %63 = call i32 @errcode(i32 noundef 33685634) #15
-  %64 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #15
+61:                                               ; preds = %59
+  %62 = call i32 @errcode(i32 noundef 33685634) #15
+  %63 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #15
   call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 4651, ptr noundef nonnull @__func__.circle_in) #15
-  br label %77
+  br label %76
 
 .split.us:                                        ; preds = %.lr.ph.split.us
-  %65 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #15
-  br i1 %65, label %66, label %77
+  %64 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #15
+  br i1 %64, label %65, label %76
 
-66:                                               ; preds = %.split.us
-  %67 = call i32 @errcode(i32 noundef 33685634) #15
-  %68 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #15
+65:                                               ; preds = %.split.us
+  %66 = call i32 @errcode(i32 noundef 33685634) #15
+  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #15
   call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 4666, ptr noundef nonnull @__func__.circle_in) #15
-  br label %77
+  br label %76
 
-._crit_edge:                                      ; preds = %54, %.preheader
-  %69 = phi i8 [ %.pre54, %.preheader ], [ %55, %54 ]
-  %.not41 = icmp eq i8 %69, 0
-  br i1 %.not41, label %75, label %70
+._crit_edge:                                      ; preds = %53, %.preheader
+  %68 = phi i8 [ %.pre54, %.preheader ], [ %54, %53 ]
+  %.not41 = icmp eq i8 %68, 0
+  br i1 %.not41, label %74, label %69
 
-70:                                               ; preds = %._crit_edge
-  %71 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #15
-  br i1 %71, label %72, label %77
+69:                                               ; preds = %._crit_edge
+  %70 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #15
+  br i1 %70, label %71, label %76
 
-72:                                               ; preds = %70
-  %73 = call i32 @errcode(i32 noundef 33685634) #15
-  %74 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #15
+71:                                               ; preds = %69
+  %72 = call i32 @errcode(i32 noundef 33685634) #15
+  %73 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #15
   call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 4673, ptr noundef nonnull @__func__.circle_in) #15
-  br label %77
+  br label %76
 
-75:                                               ; preds = %._crit_edge
-  %76 = ptrtoint ptr %8 to i64
-  br label %77
+74:                                               ; preds = %._crit_edge
+  %75 = ptrtoint ptr %8 to i64
+  br label %76
 
-77:                                               ; preds = %72, %70, %66, %.split.us, %62, %60, %75, %50, %31
-  %.0 = phi i64 [ %76, %75 ], [ 0, %50 ], [ 0, %31 ], [ 0, %60 ], [ 0, %62 ], [ 0, %.split.us ], [ 0, %66 ], [ 0, %70 ], [ 0, %72 ]
+76:                                               ; preds = %71, %69, %65, %.split.us, %61, %59, %74, %49, %31
+  %.0 = phi i64 [ %75, %74 ], [ 0, %49 ], [ 0, %31 ], [ 0, %59 ], [ 0, %61 ], [ 0, %.split.us ], [ 0, %65 ], [ 0, %69 ], [ 0, %71 ]
   ret i64 %.0
 }
 
@@ -20320,11 +20300,11 @@ define internal fastcc zeroext i1 @lseg_inside_poly(ptr nocapture noundef readon
 
 21:                                               ; preds = %.lr.ph, %._crit_edge53
   %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next.pre-phi, %._crit_edge53 ]
-  %.046 = phi i8 [ 0, %.lr.ph ], [ %.1, %._crit_edge53 ]
+  %.046 = phi i1 [ false, %.lr.ph ], [ %.1, %._crit_edge53 ]
   %.02745 = phi i8 [ 1, %.lr.ph ], [ %.128, %._crit_edge53 ]
   %22 = load volatile i32, ptr @InterruptPending, align 4
-  %.not32 = icmp eq i32 %22, 0
-  br i1 %.not32, label %24, label %23
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %24, label %23
 
 23:                                               ; preds = %21
   call void @ProcessInterrupts() #15
@@ -20381,132 +20361,129 @@ define internal fastcc zeroext i1 @lseg_inside_poly(ptr nocapture noundef readon
 59:                                               ; preds = %56
   %60 = trunc i64 %58 to i32
   %61 = call fastcc zeroext i1 @lseg_inside_poly(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %60)
-  br i1 %61, label %62, label %._crit_edge53
+  br i1 %61, label %62, label %._crit_edge.thread64
 
 62:                                               ; preds = %59
   %63 = call fastcc zeroext i1 @lseg_inside_poly(ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %60)
   %64 = zext i1 %63 to i8
   br label %._crit_edge53
 
-._crit_edge53:                                    ; preds = %56, %51, %59, %62, %45
-  %indvars.iv.next.pre-phi = phi i64 [ %52, %51 ], [ %58, %59 ], [ %58, %62 ], [ %46, %45 ], [ %58, %56 ]
-  %.128 = phi i8 [ %55, %51 ], [ 0, %59 ], [ %64, %62 ], [ %49, %45 ], [ %.02745, %56 ]
-  %.1 = phi i8 [ %.046, %51 ], [ 1, %59 ], [ 1, %62 ], [ %.046, %45 ], [ %.046, %56 ]
+._crit_edge53:                                    ; preds = %56, %51, %62, %45
+  %indvars.iv.next.pre-phi = phi i64 [ %52, %51 ], [ %58, %62 ], [ %46, %45 ], [ %58, %56 ]
+  %.128 = phi i8 [ %55, %51 ], [ %64, %62 ], [ %49, %45 ], [ %.02745, %56 ]
+  %.1 = phi i1 [ %.046, %51 ], [ true, %62 ], [ %.046, %45 ], [ %.046, %56 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
   %65 = load i32, ptr %17, align 4
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next.pre-phi, %66
-  %68 = and i8 %.128, 1
-  %69 = icmp ne i8 %68, 0
-  %70 = select i1 %67, i1 %69, i1 false
-  br i1 %70, label %21, label %._crit_edge, !llvm.loop !69
+  %68 = trunc i8 %.128 to i1
+  %69 = select i1 %67, i1 %68, i1 false
+  br i1 %69, label %21, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %._crit_edge53
-  %71 = and i8 %.1, 1
-  %72 = icmp eq i8 %71, 0
-  %73 = select i1 %69, i1 %72, i1 false
-  br i1 %73, label %._crit_edge.thread, label %118
+  %70 = xor i1 %68, true
+  %71 = select i1 %70, i1 true, i1 %.1
+  br i1 %71, label %._crit_edge.thread64, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge
-  %.lcssa4058 = phi i32 [ %65, %._crit_edge ], [ %13, %4 ]
-  %74 = load double, ptr %6, align 8
-  %75 = load double, ptr %9, align 8
-  %76 = fadd double %74, %75
-  %77 = call double @llvm.fabs.f64(double %76)
-  %78 = fcmp une double %77, 0x7FF0000000000000
-  %79 = call double @llvm.fabs.f64(double %74)
+  %.lcssa4063 = phi i32 [ %65, %._crit_edge ], [ %13, %4 ]
+  %72 = load double, ptr %6, align 8
+  %73 = load double, ptr %9, align 8
+  %74 = fadd double %72, %73
+  %75 = call double @llvm.fabs.f64(double %74)
+  %76 = fcmp une double %75, 0x7FF0000000000000
+  %77 = call double @llvm.fabs.f64(double %72)
+  %78 = fcmp oeq double %77, 0x7FF0000000000000
+  %or.cond.i = or i1 %78, %76
+  %79 = call double @llvm.fabs.f64(double %73)
   %80 = fcmp oeq double %79, 0x7FF0000000000000
-  %or.cond.i = or i1 %80, %78
-  %81 = call double @llvm.fabs.f64(double %75)
-  %82 = fcmp oeq double %81, 0x7FF0000000000000
-  %or.cond8.i = or i1 %82, %or.cond.i
-  br i1 %or.cond8.i, label %float8_pl.exit, label %83
+  %or.cond8.i = or i1 %80, %or.cond.i
+  br i1 %or.cond8.i, label %float8_pl.exit, label %81
 
-83:                                               ; preds = %._crit_edge.thread
+81:                                               ; preds = %._crit_edge.thread
   call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %._crit_edge.thread
-  %84 = fmul double %76, 5.000000e-01
-  %85 = call double @llvm.fabs.f64(double %84)
-  %86 = fcmp une double %85, 0x7FF0000000000000
-  %87 = fcmp oeq double %77, 0x7FF0000000000000
-  %or.cond13.i = or i1 %87, %86
-  br i1 %or.cond13.i, label %89, label %88
+  %82 = fmul double %74, 5.000000e-01
+  %83 = call double @llvm.fabs.f64(double %82)
+  %84 = fcmp une double %83, 0x7FF0000000000000
+  %85 = fcmp oeq double %75, 0x7FF0000000000000
+  %or.cond13.i = or i1 %85, %84
+  br i1 %or.cond13.i, label %87, label %86
 
-88:                                               ; preds = %float8_pl.exit
+86:                                               ; preds = %float8_pl.exit
   call void @float_overflow_error() #18
   unreachable
 
-89:                                               ; preds = %float8_pl.exit
-  %90 = fcmp une double %84, 0.000000e+00
-  %91 = fcmp oeq double %76, 0.000000e+00
-  %or.cond.not17.i = or i1 %91, %90
-  br i1 %or.cond.not17.i, label %float8_div.exit, label %92
+87:                                               ; preds = %float8_pl.exit
+  %88 = fcmp une double %82, 0.000000e+00
+  %89 = fcmp oeq double %74, 0.000000e+00
+  %or.cond.not17.i = or i1 %89, %88
+  br i1 %or.cond.not17.i, label %float8_div.exit, label %90
 
-92:                                               ; preds = %89
+90:                                               ; preds = %87
   call void @float_underflow_error() #18
   unreachable
 
-float8_div.exit:                                  ; preds = %89
-  store double %84, ptr %8, align 8
-  %93 = getelementptr inbounds i8, ptr %6, i64 8
+float8_div.exit:                                  ; preds = %87
+  store double %82, ptr %8, align 8
+  %91 = getelementptr inbounds i8, ptr %6, i64 8
+  %92 = load double, ptr %91, align 8
+  %93 = getelementptr inbounds i8, ptr %6, i64 24
   %94 = load double, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %6, i64 24
-  %96 = load double, ptr %95, align 8
-  %97 = fadd double %94, %96
-  %98 = call double @llvm.fabs.f64(double %97)
-  %99 = fcmp une double %98, 0x7FF0000000000000
+  %95 = fadd double %92, %94
+  %96 = call double @llvm.fabs.f64(double %95)
+  %97 = fcmp une double %96, 0x7FF0000000000000
+  %98 = call double @llvm.fabs.f64(double %92)
+  %99 = fcmp oeq double %98, 0x7FF0000000000000
+  %or.cond.i32 = or i1 %99, %97
   %100 = call double @llvm.fabs.f64(double %94)
   %101 = fcmp oeq double %100, 0x7FF0000000000000
-  %or.cond.i33 = or i1 %101, %99
-  %102 = call double @llvm.fabs.f64(double %96)
-  %103 = fcmp oeq double %102, 0x7FF0000000000000
-  %or.cond8.i34 = or i1 %103, %or.cond.i33
-  br i1 %or.cond8.i34, label %float8_pl.exit35, label %104
+  %or.cond8.i33 = or i1 %101, %or.cond.i32
+  br i1 %or.cond8.i33, label %float8_pl.exit34, label %102
 
-104:                                              ; preds = %float8_div.exit
+102:                                              ; preds = %float8_div.exit
   call void @float_overflow_error() #18
   unreachable
 
-float8_pl.exit35:                                 ; preds = %float8_div.exit
-  %105 = fmul double %97, 5.000000e-01
-  %106 = call double @llvm.fabs.f64(double %105)
-  %107 = fcmp une double %106, 0x7FF0000000000000
-  %108 = fcmp oeq double %98, 0x7FF0000000000000
-  %or.cond13.i36 = or i1 %108, %107
-  br i1 %or.cond13.i36, label %110, label %109
+float8_pl.exit34:                                 ; preds = %float8_div.exit
+  %103 = fmul double %95, 5.000000e-01
+  %104 = call double @llvm.fabs.f64(double %103)
+  %105 = fcmp une double %104, 0x7FF0000000000000
+  %106 = fcmp oeq double %96, 0x7FF0000000000000
+  %or.cond13.i35 = or i1 %106, %105
+  br i1 %or.cond13.i35, label %108, label %107
 
-109:                                              ; preds = %float8_pl.exit35
+107:                                              ; preds = %float8_pl.exit34
   call void @float_overflow_error() #18
   unreachable
 
-110:                                              ; preds = %float8_pl.exit35
-  %111 = fcmp une double %105, 0.000000e+00
-  %112 = fcmp oeq double %97, 0.000000e+00
-  %or.cond.not17.i37 = or i1 %112, %111
-  br i1 %or.cond.not17.i37, label %float8_div.exit38, label %113
+108:                                              ; preds = %float8_pl.exit34
+  %109 = fcmp une double %103, 0.000000e+00
+  %110 = fcmp oeq double %95, 0.000000e+00
+  %or.cond.not17.i36 = or i1 %110, %109
+  br i1 %or.cond.not17.i36, label %float8_div.exit37, label %111
 
-113:                                              ; preds = %110
+111:                                              ; preds = %108
   call void @float_underflow_error() #18
   unreachable
 
-float8_div.exit38:                                ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %8, i64 8
-  store double %105, ptr %114, align 8
-  %115 = call fastcc i32 @point_inside(ptr noundef nonnull %8, i32 noundef %.lcssa4058, ptr noundef nonnull %10), !range !35
-  %116 = icmp ne i32 %115, 0
-  %117 = zext i1 %116 to i8
-  br label %118
+float8_div.exit37:                                ; preds = %108
+  %112 = getelementptr inbounds i8, ptr %8, i64 8
+  store double %103, ptr %112, align 8
+  %113 = call fastcc i32 @point_inside(ptr noundef nonnull %8, i32 noundef %.lcssa4063, ptr noundef nonnull %10), !range !35
+  %114 = icmp ne i32 %113, 0
+  %115 = zext i1 %114 to i8
+  br label %._crit_edge.thread64
 
-118:                                              ; preds = %float8_div.exit38, %._crit_edge
-  %.2 = phi i8 [ %117, %float8_div.exit38 ], [ %.128, %._crit_edge ]
-  %119 = and i8 %.2, 1
-  %120 = icmp ne i8 %119, 0
+._crit_edge.thread64:                             ; preds = %59, %._crit_edge, %float8_div.exit37
+  %.2 = phi i8 [ %115, %float8_div.exit37 ], [ %.128, %._crit_edge ], [ 0, %59 ]
+  %116 = trunc i8 %.2 to i1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %44, %118
-  %.030 = phi i1 [ %120, %118 ], [ true, %44 ]
+.loopexit:                                        ; preds = %44, %._crit_edge.thread64
+  %.030 = phi i1 [ %116, %._crit_edge.thread64 ], [ true, %44 ]
   ret i1 %.030
 }
 

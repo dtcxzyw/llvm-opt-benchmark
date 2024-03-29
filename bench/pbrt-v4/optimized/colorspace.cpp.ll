@@ -270,9 +270,8 @@ invoke.cont40:                                    ; preds = %invoke.cont26, %if.
 .noexc:                                           ; preds = %invoke.cont40
   %set.i.i = getelementptr inbounds i8, ptr %inv.i, i64 36
   %10 = load i8, ptr %set.i.i, align 4, !noalias !5
-  %11 = and i8 %10, 1
-  %tobool.i.not.i = icmp eq i8 %11, 0
-  br i1 %tobool.i.not.i, label %land.rhs.i, label %invoke.cont42
+  %tobool.i.i = trunc i8 %10 to i1
+  br i1 %tobool.i.i, label %invoke.cont42, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %.noexc
   invoke void @_ZN4pbrt8LogFatalIJRA16_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.21, i32 noundef 1436, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(16) @.str.22) #16
@@ -282,7 +281,7 @@ invoke.cont1.i:                                   ; preds = %land.rhs.i
   unreachable
 
 lpad.i:                                           ; preds = %land.rhs.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
@@ -317,10 +316,9 @@ invoke.cont55:                                    ; preds = %invoke.cont54
 
 .noexc42:                                         ; preds = %invoke.cont55
   %set.i.i37 = getelementptr inbounds i8, ptr %inv.i36, i64 36
-  %13 = load i8, ptr %set.i.i37, align 4, !noalias !11
-  %14 = and i8 %13, 1
-  %tobool.i.not.i38 = icmp eq i8 %14, 0
-  br i1 %tobool.i.not.i38, label %land.rhs.i39, label %invoke.cont59
+  %12 = load i8, ptr %set.i.i37, align 4, !noalias !11
+  %tobool.i.i38 = trunc i8 %12 to i1
+  br i1 %tobool.i.i38, label %invoke.cont59, label %land.rhs.i39
 
 land.rhs.i39:                                     ; preds = %.noexc42
   invoke void @_ZN4pbrt8LogFatalIJRA16_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.21, i32 noundef 1436, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(16) @.str.22) #16
@@ -330,7 +328,7 @@ invoke.cont1.i41:                                 ; preds = %land.rhs.i39
   unreachable
 
 lpad.i40:                                         ; preds = %land.rhs.i39
-  %15 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
@@ -341,12 +339,12 @@ invoke.cont59:                                    ; preds = %.noexc42
   ret void
 
 lpad:                                             ; preds = %invoke.cont55, %invoke.cont43, %invoke.cont42, %invoke.cont40, %invoke.cont54, %invoke.cont13, %invoke.cont, %entry
-  %16 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad, %lpad.i40, %lpad.i
-  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i ], [ %16, %lpad ], [ %15, %lpad.i40 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %11, %lpad.i ], [ %14, %lpad ], [ %13, %lpad.i40 ]
   call void @_ZN4pbrt22DenselySampledSpectrumD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %illuminant8) #17
   resume { ptr, i32 } %eh.lpad-body
 }

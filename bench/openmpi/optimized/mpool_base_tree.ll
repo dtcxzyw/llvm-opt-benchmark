@@ -228,9 +228,8 @@ opal_obj_run_destructors.exit10:                  ; preds = %.lr.ph.i7, %opal_ob
 ; Function Attrs: nounwind uwtable
 define i32 @mca_mpool_base_tree_insert(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load i8, ptr @opal_uses_threads, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %6, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @tree_lock, i64 0, i32 1, i32 0, i32 0)) #8
@@ -241,9 +240,8 @@ define i32 @mca_mpool_base_tree_insert(ptr noundef %0) local_unnamed_addr #2 {
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @opal_rb_tree_insert(ptr noundef nonnull @mca_mpool_base_tree, ptr noundef %8, ptr noundef %0) #8
   %10 = load i8, ptr @opal_uses_threads, align 1
-  %11 = and i8 %10, 1
-  %.not2 = icmp eq i8 %11, 0
-  br i1 %.not2, label %14, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %14
 
 12:                                               ; preds = %6
   %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @tree_lock, i64 0, i32 1, i32 0, i32 0)) #8
@@ -258,9 +256,8 @@ declare i32 @opal_rb_tree_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 ; Function Attrs: nounwind uwtable
 define i32 @mca_mpool_base_tree_delete(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = load i8, ptr @opal_uses_threads, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %6, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @tree_lock, i64 0, i32 1, i32 0, i32 0)) #8
@@ -271,9 +268,8 @@ define i32 @mca_mpool_base_tree_delete(ptr nocapture noundef readonly %0) local_
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @opal_rb_tree_delete(ptr noundef nonnull @mca_mpool_base_tree, ptr noundef %8) #8
   %10 = load i8, ptr @opal_uses_threads, align 1
-  %11 = and i8 %10, 1
-  %.not1 = icmp eq i8 %11, 0
-  br i1 %.not1, label %14, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %14
 
 12:                                               ; preds = %6
   %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @tree_lock, i64 0, i32 1, i32 0, i32 0)) #8
@@ -288,9 +284,8 @@ declare i32 @opal_rb_tree_delete(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define ptr @mca_mpool_base_tree_find(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load i8, ptr @opal_uses_threads, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %6, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @tree_lock, i64 0, i32 1, i32 0, i32 0)) #8
@@ -300,9 +295,8 @@ define ptr @mca_mpool_base_tree_find(ptr noundef %0) local_unnamed_addr #2 {
   %7 = load ptr, ptr getelementptr inbounds (%struct.opal_rb_tree_t, ptr @mca_mpool_base_tree, i64 0, i32 3), align 16
   %8 = tail call ptr @opal_rb_tree_find_with(ptr noundef nonnull @mca_mpool_base_tree, ptr noundef %0, ptr noundef %7) #8
   %9 = load i8, ptr @opal_uses_threads, align 1
-  %10 = and i8 %9, 1
-  %.not2 = icmp eq i8 %10, 0
-  br i1 %.not2, label %13, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %13
 
 11:                                               ; preds = %6
   %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @tree_lock, i64 0, i32 1, i32 0, i32 0)) #8
@@ -321,9 +315,8 @@ define ptr @mca_mpool_base_tree_item_get() local_unnamed_addr #2 {
   %.sroa.4.i.i.i = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = load i8, ptr @opal_uses_threads, align 1
-  %6 = and i8 %5, 1
-  %.not.i = icmp eq i8 %6, 0
-  br i1 %.not.i, label %29, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %29
 
 7:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -443,10 +436,9 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
 ; Function Attrs: nofree norecurse nounwind uwtable
 define void @mca_mpool_base_tree_item_put(ptr noundef %0) local_unnamed_addr #4 {
   %2 = load i8, ptr @opal_uses_threads, align 1
-  %3 = and i8 %2, 1
-  %.not.i = icmp eq i8 %3, 0
+  %3 = trunc i8 %2 to i1
   %4 = load volatile i64, ptr getelementptr inbounds (%struct.anon, ptr getelementptr inbounds (%struct.opal_free_list_t, ptr @mca_mpool_base_tree_item_free_list, i64 0, i32 0, i32 1), i64 0, i32 1), align 8
-  br i1 %.not.i, label %18, label %5
+  br i1 %3, label %5, label %18
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 16

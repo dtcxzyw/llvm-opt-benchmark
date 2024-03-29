@@ -96,9 +96,8 @@ if.end:                                           ; preds = %do.body3.backedge, 
   call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str.1, i32 noundef 59) #9
   call void @qemu_wait_io_event(ptr noundef %arg) #9
   %4 = load i8, ptr %unplug, align 1
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %do.body, label %do.end11, !llvm.loop !5
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %do.end11, label %do.body, !llvm.loop !5
 
 do.end11:                                         ; preds = %if.end
   call void @qemu_mutex_unlock_iothread() #9

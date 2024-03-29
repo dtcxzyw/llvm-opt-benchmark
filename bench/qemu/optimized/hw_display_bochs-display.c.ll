@@ -137,8 +137,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 60, ptr noundef nonnull @__func__.BOCHS_DISPLAY) #9
   %big_endian_fb = getelementptr inbounds i8, ptr %call.i, i64 4324
   %0 = load i8, ptr %big_endian_fb, align 4
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -205,9 +204,8 @@ if.end4:                                          ; preds = %if.end
   tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 2, i8 noundef zeroext 0, ptr noundef nonnull %mmio) #9
   %enable_edid = getelementptr inbounds i8, ptr %call.i, i64 3992
   %4 = load i8, ptr %enable_edid, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.end24, label %if.then19
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.then19, label %if.end24
 
 if.then19:                                        ; preds = %if.end4
   %edid_blob = getelementptr inbounds i8, ptr %call.i, i64 4048
@@ -236,8 +234,8 @@ if.else:                                          ; preds = %if.then27
 
 if.else32:                                        ; preds = %if.end24
   %cap_present = getelementptr inbounds i8, ptr %dev, i64 1260
-  %6 = load i32, ptr %cap_present, align 4
-  %and = and i32 %6, -5
+  %5 = load i32, ptr %cap_present, align 4
+  %and = and i32 %5, -5
   store i32 %and, ptr %cap_present, align 4
   br label %if.end33
 
@@ -314,61 +312,60 @@ if.end.i:                                         ; preds = %entry
 sw.bb3.i:                                         ; preds = %if.end.i
   %big_endian_fb.i = getelementptr inbounds i8, ptr %opaque, i64 4324
   %4 = load i8, ptr %big_endian_fb.i, align 4
-  %5 = and i8 %4, 1
-  %tobool4.not.i = icmp eq i8 %5, 0
-  %cond.i = select i1 %tobool4.not.i, i32 537004168, i32 537397384
+  %tobool4.i = trunc i8 %4 to i1
+  %cond.i = select i1 %tobool4.i, i32 537397384, i32 537004168
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb3.i, %if.end.i
-  %6 = phi i32 [ %cond.i, %sw.bb3.i ], [ 268567909, %if.end.i ]
+  %5 = phi i32 [ %cond.i, %sw.bb3.i ], [ 268567909, %if.end.i ]
   %.sink.i = phi i32 [ 4, %sw.bb3.i ], [ 2, %if.end.i ]
-  store i32 %6, ptr %mode, align 8
+  store i32 %5, ptr %mode, align 8
   %bytepp7.i = getelementptr inbounds i8, ptr %mode, i64 4
   store i32 %.sink.i, ptr %bytepp7.i, align 4
   %arrayidx8.i = getelementptr i8, ptr %opaque, i64 4306
-  %7 = load i16, ptr %arrayidx8.i, align 2
-  %conv9.i = zext i16 %7 to i32
+  %6 = load i16, ptr %arrayidx8.i, align 2
+  %conv9.i = zext i16 %6 to i32
   %width.i = getelementptr inbounds i8, ptr %mode, i64 8
   store i32 %conv9.i, ptr %width.i, align 8
   %arrayidx10.i = getelementptr i8, ptr %opaque, i64 4308
-  %8 = load i16, ptr %arrayidx10.i, align 2
-  %conv11.i = zext i16 %8 to i32
+  %7 = load i16, ptr %arrayidx10.i, align 2
+  %conv11.i = zext i16 %7 to i32
   %height.i = getelementptr inbounds i8, ptr %mode, i64 12
   store i32 %conv11.i, ptr %height.i, align 4
   %arrayidx12.i = getelementptr i8, ptr %opaque, i64 4316
-  %9 = load i16, ptr %arrayidx12.i, align 2
-  %10 = tail call i16 @llvm.umax.i16(i16 %7, i16 %9)
-  %spec.select.i = zext i16 %10 to i32
+  %8 = load i16, ptr %arrayidx12.i, align 2
+  %9 = tail call i16 @llvm.umax.i16(i16 %6, i16 %8)
+  %spec.select.i = zext i16 %9 to i32
   %mul.i = mul nuw nsw i32 %.sink.i, %spec.select.i
   %stride.i = getelementptr inbounds i8, ptr %mode, i64 16
   store i32 %mul.i, ptr %stride.i, align 8
   %conv21.i = zext nneg i32 %mul.i to i64
-  %conv23.i = zext i16 %8 to i64
+  %conv23.i = zext i16 %7 to i64
   %mul24.i = mul nuw nsw i64 %conv21.i, %conv23.i
   %size.i = getelementptr inbounds i8, ptr %mode, i64 32
   store i64 %mul24.i, ptr %size.i, align 8
   %arrayidx25.i = getelementptr i8, ptr %opaque, i64 4320
-  %11 = load i16, ptr %arrayidx25.i, align 2
-  %conv26.i = zext i16 %11 to i64
+  %10 = load i16, ptr %arrayidx25.i, align 2
+  %conv26.i = zext i16 %10 to i64
   %conv28.i = zext nneg i32 %.sink.i to i64
   %mul29.i = mul nuw nsw i64 %conv26.i, %conv28.i
   %arrayidx30.i = getelementptr i8, ptr %opaque, i64 4322
-  %12 = load i16, ptr %arrayidx30.i, align 2
-  %conv31.i = zext i16 %12 to i64
+  %11 = load i16, ptr %arrayidx30.i, align 2
+  %conv31.i = zext i16 %11 to i64
   %mul34.i = mul nuw nsw i64 %conv31.i, %conv21.i
   %add.i = add nuw nsw i64 %mul34.i, %mul29.i
   %offset.i = getelementptr inbounds i8, ptr %mode, i64 24
   store i64 %add.i, ptr %offset.i, align 8
-  %cmp36.i = icmp ult i16 %7, 64
-  %cmp39.i = icmp ult i16 %8, 64
+  %cmp36.i = icmp ult i16 %6, 64
+  %cmp39.i = icmp ult i16 %7, 64
   %or.cond.i = select i1 %cmp36.i, i1 true, i1 %cmp39.i
   br i1 %or.cond.i, label %if.end43, label %bochs_display_get_mode.exit
 
 bochs_display_get_mode.exit:                      ; preds = %sw.epilog.i
   %add45.i = add nuw nsw i64 %add.i, %mul24.i
   %vgamem.i = getelementptr inbounds i8, ptr %opaque, i64 3984
-  %13 = load i64, ptr %vgamem.i, align 16
-  %cmp46.i = icmp ugt i64 %add45.i, %13
+  %12 = load i64, ptr %vgamem.i, align 16
+  %cmp46.i = icmp ugt i64 %add45.i, %12
   br i1 %cmp46.i, label %if.end43, label %if.end
 
 if.end:                                           ; preds = %bochs_display_get_mode.exit
@@ -382,32 +379,32 @@ if.then4:                                         ; preds = %if.end
   %vram = getelementptr inbounds i8, ptr %opaque, i64 2624
   %call6 = tail call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %vram) #9
   %add.ptr = getelementptr i8, ptr %call6, i64 %add.i
-  %call7 = tail call ptr @qemu_create_displaysurface_from(i32 noundef %conv9.i, i32 noundef %conv11.i, i32 noundef %6, i32 noundef %mul.i, ptr noundef %add.ptr) #9
+  %call7 = tail call ptr @qemu_create_displaysurface_from(i32 noundef %conv9.i, i32 noundef %conv11.i, i32 noundef %5, i32 noundef %mul.i, ptr noundef %add.ptr) #9
   %con = getelementptr inbounds i8, ptr %opaque, i64 2608
+  %13 = load ptr, ptr %con, align 16
+  tail call void @dpy_gfx_replace_surface(ptr noundef %13, ptr noundef %call7) #9
   %14 = load ptr, ptr %con, align 16
-  tail call void @dpy_gfx_replace_surface(ptr noundef %14, ptr noundef %call7) #9
-  %15 = load ptr, ptr %con, align 16
-  tail call void @dpy_gfx_update_full(ptr noundef %15) #9
+  tail call void @dpy_gfx_update_full(ptr noundef %14) #9
   br label %if.end43
 
 for.body.lr.ph:                                   ; preds = %if.end
   %vram11 = getelementptr inbounds i8, ptr %opaque, i64 2624
   %call13 = tail call ptr @memory_region_snapshot_and_clear_dirty(ptr noundef nonnull %vram11, i64 noundef %add.i, i64 noundef %mul24.i, i32 noundef 0) #9
   %con33 = getelementptr inbounds i8, ptr %opaque, i64 2608
-  %wide.trip.count = zext i16 %8 to i64
+  %wide.trip.count = zext i16 %7 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.backedge, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.be, %for.body.backedge ]
   %ys.028 = phi i32 [ -1, %for.body.lr.ph ], [ %ys.028.be, %for.body.backedge ]
-  %16 = trunc i64 %indvars.iv to i32
-  %mul = mul i32 %mul.i, %16
+  %15 = trunc i64 %indvars.iv to i32
+  %mul = mul i32 %mul.i, %15
   %conv = zext i32 %mul to i64
   %add = add nuw nsw i64 %add.i, %conv
   %call21 = tail call zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef nonnull %vram11, ptr noundef %call13, i64 noundef %add, i64 noundef %conv21.i) #9
   %cmp24 = icmp slt i32 %ys.028, 0
   %or.cond = select i1 %call21, i1 %cmp24, i1 false
-  %spec.select = select i1 %or.cond, i32 %16, i32 %ys.028
+  %spec.select = select i1 %or.cond, i32 %15, i32 %ys.028
   %cmp30 = icmp slt i32 %spec.select, 0
   %or.cond1.not = select i1 %call21, i1 true, i1 %cmp30
   br i1 %or.cond1.not, label %for.inc, label %for.inc.thread
@@ -423,9 +420,9 @@ for.body.backedge:                                ; preds = %for.inc, %for.inc.t
   br label %for.body, !llvm.loop !6
 
 for.inc.thread:                                   ; preds = %for.body
-  %17 = load ptr, ptr %con33, align 16
-  %sub = sub i32 %16, %spec.select
-  tail call void @dpy_gfx_update(ptr noundef %17, i32 noundef 0, i32 noundef %spec.select, i32 noundef %conv9.i, i32 noundef %sub) #9
+  %16 = load ptr, ptr %con33, align 16
+  %sub = sub i32 %15, %spec.select
+  tail call void @dpy_gfx_update(ptr noundef %16, i32 noundef 0, i32 noundef %spec.select, i32 noundef %conv9.i, i32 noundef %sub) #9
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not33 = icmp eq i64 %indvars.iv.next32, %wide.trip.count
   br i1 %exitcond.not33, label %if.end42, label %for.body.backedge
@@ -436,9 +433,9 @@ for.end:                                          ; preds = %for.inc
 
 if.then38:                                        ; preds = %for.end
   %con39 = getelementptr inbounds i8, ptr %opaque, i64 2608
-  %18 = load ptr, ptr %con39, align 16
+  %17 = load ptr, ptr %con39, align 16
   %sub41 = sub nsw i32 %conv11.i, %spec.select
-  tail call void @dpy_gfx_update(ptr noundef %18, i32 noundef 0, i32 noundef %spec.select, i32 noundef %conv9.i, i32 noundef %sub41) #9
+  tail call void @dpy_gfx_update(ptr noundef %17, i32 noundef 0, i32 noundef %spec.select, i32 noundef %conv9.i, i32 noundef %sub41) #9
   br label %if.end42
 
 if.end42:                                         ; preds = %for.inc.thread, %if.then38, %for.end
@@ -531,9 +528,8 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %big_endian_fb = getelementptr inbounds i8, ptr %ptr, i64 4324
   %0 = load i8, ptr %big_endian_fb, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %conv = select i1 %tobool.not, i64 505290270, i64 3200171710
+  %tobool = trunc i8 %0 to i1
+  %conv = select i1 %tobool, i64 3200171710, i64 505290270
   br label %return
 
 sw.default:                                       ; preds = %entry

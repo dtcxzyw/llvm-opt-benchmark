@@ -120,7 +120,7 @@ define dso_local i32 @sacctmgr_set_assoc_cond(ptr nocapture noundef %0, ptr noun
   %21 = load ptr, ptr %0, align 8
   %22 = tail call i32 @list_count(ptr noundef %21) #9
   %.not72 = icmp ne i32 %22, 0
-  br label %130
+  br label %129
 
 23:                                               ; preds = %10
   %24 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
@@ -173,7 +173,7 @@ define dso_local i32 @sacctmgr_set_assoc_cond(ptr nocapture noundef %0, ptr noun
 
 ._crit_edge:                                      ; preds = %44, %34
   call void @list_iterator_destroy(ptr noundef %38) #9
-  br label %130
+  br label %129
 
 46:                                               ; preds = %27
   %47 = tail call i32 @xstrncasecmp(ptr noundef %1, ptr noundef nonnull @.str.5, i64 noundef %25) #9
@@ -195,7 +195,7 @@ define dso_local i32 @sacctmgr_set_assoc_cond(ptr nocapture noundef %0, ptr noun
   %54 = phi ptr [ %52, %51 ], [ %50, %48 ]
   %55 = tail call i32 @slurm_addto_char_list(ptr noundef %54, ptr noundef %2) #9
   %.not80 = icmp ne i32 %55, 0
-  br label %130
+  br label %129
 
 56:                                               ; preds = %46
   %57 = tail call i32 @llvm.smax.i32(i32 %3, i32 8)
@@ -233,11 +233,11 @@ define dso_local i32 @sacctmgr_set_assoc_cond(ptr nocapture noundef %0, ptr noun
   %73 = phi ptr [ %.pre102, %68 ], [ %66, %65 ]
   %74 = tail call i32 @slurmdb_addto_qos_char_list(ptr noundef %73, ptr noundef %72, ptr noundef %2, i32 noundef 0) #9
   %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %130, label %76
+  br i1 %75, label %129, label %76
 
 76:                                               ; preds = %71
   store i32 1, ptr @exit_code, align 4
-  br label %130
+  br label %129
 
 77:                                               ; preds = %56
   %78 = tail call i32 @llvm.smax.i32(i32 %3, i32 3)
@@ -261,7 +261,7 @@ define dso_local i32 @sacctmgr_set_assoc_cond(ptr nocapture noundef %0, ptr noun
   %87 = phi ptr [ %85, %84 ], [ %83, %81 ]
   %88 = tail call i32 @slurm_addto_char_list(ptr noundef %87, ptr noundef %2) #9
   %.not86 = icmp ne i32 %88, 0
-  br label %130
+  br label %129
 
 89:                                               ; preds = %77
   %90 = tail call i32 @xstrncasecmp(ptr noundef %1, ptr noundef nonnull @.str.8, i64 noundef %12) #9
@@ -283,7 +283,7 @@ define dso_local i32 @sacctmgr_set_assoc_cond(ptr nocapture noundef %0, ptr noun
   %97 = phi ptr [ %95, %94 ], [ %93, %91 ]
   %98 = tail call i32 @slurm_addto_char_list(ptr noundef %97, ptr noundef %2) #9
   %.not89 = icmp ne i32 %98, 0
-  br label %130
+  br label %129
 
 99:                                               ; preds = %89
   %100 = tail call i32 @xstrncasecmp(ptr noundef %1, ptr noundef nonnull @.str.9, i64 noundef %25) #9
@@ -319,12 +319,12 @@ define dso_local i32 @sacctmgr_set_assoc_cond(ptr nocapture noundef %0, ptr noun
   %114 = phi ptr [ %.pre, %109 ], [ %107, %106 ]
   %115 = tail call i32 @slurmdb_addto_qos_char_list(ptr noundef %114, ptr noundef %113, ptr noundef %2, i32 noundef %4) #9
   %116 = icmp sgt i32 %115, 0
-  br label %130
+  br label %129
 
 117:                                              ; preds = %99
   %118 = tail call i32 @xstrncasecmp(ptr noundef %1, ptr noundef nonnull @.str.10, i64 noundef %25) #9
   %.not93 = icmp eq i32 %118, 0
-  br i1 %.not93, label %119, label %130
+  br i1 %.not93, label %119, label %129
 
 119:                                              ; preds = %117
   %120 = getelementptr inbounds i8, ptr %0, i64 88
@@ -340,13 +340,12 @@ define dso_local i32 @sacctmgr_set_assoc_cond(ptr nocapture noundef %0, ptr noun
 124:                                              ; preds = %122, %119
   %125 = phi ptr [ %123, %122 ], [ %121, %119 ]
   %126 = load i8, ptr @user_case_norm, align 1
-  %127 = and i8 %126, 1
-  %128 = icmp ne i8 %127, 0
-  %129 = tail call i32 @slurm_addto_char_list_with_case(ptr noundef %125, ptr noundef %2, i1 noundef zeroext %128) #9
-  %.not95 = icmp ne i32 %129, 0
-  br label %130
+  %127 = trunc i8 %126 to i1
+  %128 = tail call i32 @slurm_addto_char_list_with_case(ptr noundef %125, ptr noundef %2, i1 noundef zeroext %127) #9
+  %.not95 = icmp ne i32 %128, 0
+  br label %129
 
-130:                                              ; preds = %124, %112, %96, %86, %53, %18, %71, %._crit_edge, %76, %117
+129:                                              ; preds = %124, %112, %96, %86, %53, %18, %71, %._crit_edge, %76, %117
   %.0.shrunk = phi i1 [ false, %117 ], [ false, %76 ], [ true, %._crit_edge ], [ %.not72, %18 ], [ %.not80, %53 ], [ true, %71 ], [ %.not86, %86 ], [ %.not89, %96 ], [ %116, %112 ], [ %.not95, %124 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
@@ -1104,17 +1103,16 @@ define dso_local void @sacctmgr_print_assoc_rec(ptr noundef %0, ptr noundef %1, 
 
 16:                                               ; preds = %13
   %17 = load i8, ptr @tree_display, align 1
-  %18 = and i8 %17, 1
-  %.not185 = icmp eq i8 %18, 0
-  br i1 %.not185, label %31, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %31
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %0, i64 320
   %21 = load ptr, ptr %20, align 8
-  %.not186 = icmp eq ptr %21, null
+  %.not185 = icmp eq ptr %21, null
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
-  br i1 %.not186, label %26, label %24
+  br i1 %.not185, label %26, label %24
 
 24:                                               ; preds = %19
   %25 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.51, ptr noundef %23) #9

@@ -506,13 +506,13 @@ _ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit:   ; preds = %1
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds ptr, ptr %8, i64 %12
   %14 = load ptr, ptr %13, align 8
-  %.not11 = icmp eq ptr %.sroa.0.0.i, %14
-  br i1 %.not11, label %._crit_edge, label %.lr.ph
+  %.not10 = icmp eq ptr %.sroa.0.0.i, %14
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit, %_ZNSt3tr18__detail25_Hashtable_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEELb0ELb0EEppEv.exit
-  %.sroa.6.013 = phi ptr [ %.sroa.6.1, %_ZNSt3tr18__detail25_Hashtable_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEELb0ELb0EEppEv.exit ], [ %.sroa.4.0.i, %.loopexit ]
-  %.sroa.07.012 = phi ptr [ %.sroa.07.1, %_ZNSt3tr18__detail25_Hashtable_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEELb0ELb0EEppEv.exit ], [ %.sroa.0.0.i, %.loopexit ]
-  %15 = getelementptr inbounds i8, ptr %.sroa.07.012, i64 32
+  %.sroa.6.012 = phi ptr [ %.sroa.6.1, %_ZNSt3tr18__detail25_Hashtable_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEELb0ELb0EEppEv.exit ], [ %.sroa.4.0.i, %.loopexit ]
+  %.sroa.06.011 = phi ptr [ %.sroa.06.1, %_ZNSt3tr18__detail25_Hashtable_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEELb0ELb0EEppEv.exit ], [ %.sroa.0.0.i, %.loopexit ]
+  %15 = getelementptr inbounds i8, ptr %.sroa.06.011, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %22, label %18
@@ -525,21 +525,21 @@ _ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit:   ; preds = %1
   br label %22
 
 22:                                               ; preds = %.lr.ph, %18
-  %23 = getelementptr inbounds i8, ptr %.sroa.07.012, i64 40
+  %23 = getelementptr inbounds i8, ptr %.sroa.06.011, i64 40
   %24 = load ptr, ptr %23, align 8
   %.not.i.i3 = icmp eq ptr %24, null
   br i1 %.not.i.i3, label %.preheader, label %_ZNSt3tr18__detail25_Hashtable_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEELb0ELb0EEppEv.exit
 
 .preheader:                                       ; preds = %22, %.preheader
-  %.pn.i.i.i = phi ptr [ %storemerge.i.i.i, %.preheader ], [ %.sroa.6.013, %22 ]
+  %.pn.i.i.i = phi ptr [ %storemerge.i.i.i, %.preheader ], [ %.sroa.6.012, %22 ]
   %storemerge.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 8
   %25 = load ptr, ptr %storemerge.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i, label %.preheader, label %_ZNSt3tr18__detail25_Hashtable_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEELb0ELb0EEppEv.exit, !llvm.loop !8
 
 _ZNSt3tr18__detail25_Hashtable_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEELb0ELb0EEppEv.exit: ; preds = %.preheader, %22
-  %.sroa.07.1 = phi ptr [ %24, %22 ], [ %25, %.preheader ]
-  %.sroa.6.1 = phi ptr [ %.sroa.6.013, %22 ], [ %storemerge.i.i.i, %.preheader ]
+  %.sroa.06.1 = phi ptr [ %24, %22 ], [ %25, %.preheader ]
+  %.sroa.6.1 = phi ptr [ %.sroa.6.012, %22 ], [ %storemerge.i.i.i, %.preheader ]
   %26 = load ptr, ptr %5, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
@@ -547,15 +547,14 @@ _ZNSt3tr18__detail25_Hashtable_const_iteratorISt4pairIKNSt7__cxx1112basic_string
   %30 = load i64, ptr %29, align 8
   %31 = getelementptr inbounds ptr, ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8
-  %.not = icmp eq ptr %.sroa.07.1, %32
+  %.not = icmp eq ptr %.sroa.06.1, %32
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt3tr18__detail25_Hashtable_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEELb0ELb0EEppEv.exit, %.loopexit
   %33 = phi ptr [ %6, %.loopexit ], [ %26, %_ZNSt3tr18__detail25_Hashtable_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEELb0ELb0EEppEv.exit ]
   %34 = load i8, ptr %4, align 8
-  %35 = and i8 %34, 1
-  %.not.i4 = icmp eq i8 %35, 0
-  br i1 %.not.i4, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit.thread, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit.thread
 
 36:                                               ; preds = %._crit_edge
   %37 = load ptr, ptr %2, align 8
@@ -709,9 +708,8 @@ _ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pai
 39:                                               ; preds = %_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE6insertERKSE_.exit, %21
   %.07.in.sroa.speculated = phi ptr [ %.07.in.sroa.speculate.load., %21 ], [ %30, %_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE6insertERKSE_.exit ]
   %40 = load i8, ptr %8, align 8
-  %41 = and i8 %40, 1
-  %.not.i = icmp eq i8 %41, 0
-  br i1 %.not.i, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit, label %42
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %42, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr %3, align 8
@@ -728,9 +726,8 @@ _ZN5boost11unique_lockINS_5mutexEED2Ev.exit:      ; preds = %44, %39
 47:                                               ; preds = %37, %23
   %.pn = phi { ptr, i32 } [ %38, %37 ], [ %24, %23 ]
   %48 = load i8, ptr %8, align 8
-  %49 = and i8 %48, 1
-  %.not.i9 = icmp eq i8 %49, 0
-  br i1 %.not.i9, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit10, label %50
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit9
 
 50:                                               ; preds = %47
   %51 = load ptr, ptr %3, align 8
@@ -739,9 +736,9 @@ _ZN5boost11unique_lockINS_5mutexEED2Ev.exit:      ; preds = %44, %39
 52:                                               ; preds = %52, %50
   %53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %51) #20
   %54 = icmp eq i32 %53, 4
-  br i1 %54, label %52, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit10, !llvm.loop !9
+  br i1 %54, label %52, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit9, !llvm.loop !9
 
-_ZN5boost11unique_lockINS_5mutexEED2Ev.exit10:    ; preds = %52, %47
+_ZN5boost11unique_lockINS_5mutexEED2Ev.exit9:     ; preds = %52, %47
   resume { ptr, i32 } %.pn
 }
 
@@ -2158,23 +2155,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit19: ; 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5boost6system6detail8snprintfEPcmPKcz(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...) local_unnamed_addr #3 comdat {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %4) #20
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
+; Function Attrs: nofree nounwind
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #13
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #11
 
@@ -2190,7 +2181,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #11
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2244,7 +2235,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #11
 
@@ -2286,10 +2277,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #14
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #13
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #14
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE19_M_deallocate_nodesEPPNSM_10_Hash_nodeISE_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2347,9 +2338,8 @@ define linkonce_odr dso_local void @_ZN5boost11unique_lockINS_5mutexEE4lockEv(pt
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %19, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %19
 
 15:                                               ; preds = %11
   call void @_ZN5boost10lock_errorC2EiPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 35, ptr noundef nonnull @.str.21)
@@ -2833,7 +2823,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read, argmem: readwrite)
-declare noundef i64 @_ZNKSt3tr14hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclES6_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #16
+declare noundef i64 @_ZNKSt3tr14hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclES6_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
@@ -2924,8 +2914,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt3tr110_HashtableINSt7__cxx1112b
   %17 = load float, ptr %12, align 8
   %18 = fdiv float %16, %17
   %19 = uitofp i64 %14 to float
-  %20 = fcmp ule float %18, %19
-  br i1 %20, label %.sink.split.i, label %21
+  %20 = fcmp ogt float %18, %19
+  br i1 %20, label %21, label %.sink.split.i
 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds i8, ptr %0, i64 36
@@ -2967,7 +2957,7 @@ _ZNKSt3tr18__detail20_Prime_rehash_policy11_M_next_bktEm.exit.i: ; preds = %_ZSt
   br label %_ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit
 
 _ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit: ; preds = %4, %.sink.split.i
-  %.sroa.022.0.i = phi i1 [ true, %4 ], [ %20, %.sink.split.i ]
+  %.sroa.022.0.i = phi i1 [ false, %4 ], [ %20, %.sink.split.i ]
   %.sroa.4.0.i = phi i64 [ 0, %4 ], [ %.sroa.4.0.ph.i, %.sink.split.i ]
   %41 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -3009,7 +2999,7 @@ _ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pai
   store ptr %54, ptr %52, align 8
   %55 = getelementptr inbounds i8, ptr %41, i64 40
   store ptr null, ptr %55, align 8
-  br i1 %.sroa.022.0.i, label %62, label %56
+  br i1 %.sroa.022.0.i, label %56, label %62
 
 56:                                               ; preds = %_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE16_M_allocate_nodeERKSE_.exit
   %57 = urem i64 %3, %.sroa.4.0.i
@@ -3205,6 +3195,12 @@ _ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pai
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ceil.f32(float) #17
 
@@ -3229,11 +3225,11 @@ attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nounwind willreturn memory(read, argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nounwind willreturn memory(read, argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nofree nounwind willreturn memory(argmem: read) }

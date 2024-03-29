@@ -476,13 +476,13 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc14
   %__begin1.sroa.0.018 = phi ptr [ %__begin1.sroa.0.0, %for.inc14 ], [ %__begin1.sroa.0.015, %entry ]
-  %changed.017 = phi i8 [ %changed.1.lcssa, %for.inc14 ], [ 0, %entry ]
+  %changed.017 = phi i1 [ %changed.1.lcssa, %for.inc14 ], [ false, %entry ]
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.018, i64 16
   %0 = load i8, ptr %add.ptr.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ne i8 %0, 33
   %tobool.not10 = icmp eq ptr %__begin1.sroa.0.018, null
   %tobool.not = or i1 %tobool.not10, %cmp.i.i.i.i.i.i.i.i
-  br i1 %tobool.not, label %for.end16.loopexit, label %if.end
+  br i1 %tobool.not, label %for.end16, label %if.end
 
 if.end:                                           ; preds = %for.body
   %call6 = tail call noundef i32 @_ZNK6hermes7PhiInst13getNumEntriesEv(ptr noundef nonnull align 8 dereferenceable(132) %__begin1.sroa.0.018) #3
@@ -491,7 +491,7 @@ if.end:                                           ; preds = %for.body
 
 for.body8:                                        ; preds = %if.end, %for.inc
   %i.014.in = phi i32 [ %i.014, %for.inc ], [ %call6, %if.end ]
-  %changed.113 = phi i8 [ %changed.2, %for.inc ], [ %changed.017, %if.end ]
+  %changed.113 = phi i1 [ %changed.2, %for.inc ], [ %changed.017, %if.end ]
   %i.014 = add nsw i32 %i.014.in, -1
   %call10 = tail call { ptr, ptr } @_ZNK6hermes7PhiInst8getEntryEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin1.sroa.0.018, i32 noundef %i.014) #3
   %1 = extractvalue { ptr, ptr } %call10, 1
@@ -503,25 +503,19 @@ if.end13:                                         ; preds = %for.body8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body8, %if.end13
-  %changed.2 = phi i8 [ %changed.113, %for.body8 ], [ 1, %if.end13 ]
+  %changed.2 = phi i1 [ %changed.113, %for.body8 ], [ true, %if.end13 ]
   %cmp = icmp ugt i32 %i.014.in, 1
   br i1 %cmp, label %for.body8, label %for.inc14, !llvm.loop !6
 
 for.inc14:                                        ; preds = %for.inc, %if.end
-  %changed.1.lcssa = phi i8 [ %changed.017, %if.end ], [ %changed.2, %for.inc ]
+  %changed.1.lcssa = phi i1 [ %changed.017, %if.end ], [ %changed.2, %for.inc ]
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.018, i64 8
   %__begin1.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %InstList.i
-  br i1 %cmp.i.not, label %for.end16.loopexit, label %for.body
+  br i1 %cmp.i.not, label %for.end16, label %for.body
 
-for.end16.loopexit:                               ; preds = %for.body, %for.inc14
-  %changed.0.lcssa.ph = phi i8 [ %changed.1.lcssa, %for.inc14 ], [ %changed.017, %for.body ]
-  %2 = and i8 %changed.0.lcssa.ph, 1
-  %3 = icmp ne i8 %2, 0
-  br label %for.end16
-
-for.end16:                                        ; preds = %for.end16.loopexit, %entry
-  %changed.0.lcssa = phi i1 [ false, %entry ], [ %3, %for.end16.loopexit ]
+for.end16:                                        ; preds = %for.inc14, %for.body, %entry
+  %changed.0.lcssa = phi i1 [ false, %entry ], [ %changed.017, %for.body ], [ %changed.1.lcssa, %for.inc14 ]
   ret i1 %changed.0.lcssa
 }
 

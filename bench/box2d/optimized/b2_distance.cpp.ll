@@ -914,74 +914,73 @@ _ZNK9b2Simplex10WriteCacheEP14b2SimplexCache.exit: ; preds = %for.body.i136, %_Z
   %pointB246258 = phi ptr [ %pointB, %_ZNK9b2Simplex16GetWitnessPointsEP6b2Vec2S1_.exit ], [ %pointB246259, %for.body.i136 ]
   %useRadii = getelementptr inbounds i8, ptr %input, i64 96
   %172 = load i8, ptr %useRadii, align 8
-  %173 = and i8 %172, 1
-  %tobool72.not = icmp eq i8 %173, 0
-  br i1 %tobool72.not, label %if.end101, label %if.then73
+  %tobool72 = trunc i8 %172 to i1
+  br i1 %tobool72, label %if.then73, label %if.end101
 
 if.then73:                                        ; preds = %_ZNK9b2Simplex10WriteCacheEP14b2SimplexCache.exit
-  %174 = load float, ptr %distance267, align 4
-  %cmp75 = fcmp olt float %174, 0x3E80000000000000
+  %173 = load float, ptr %distance267, align 4
+  %cmp75 = fcmp olt float %173, 0x3E80000000000000
   br i1 %cmp75, label %if.then76, label %if.else
 
 if.then76:                                        ; preds = %if.then73
-  %175 = load float, ptr %output, align 4
-  %176 = load float, ptr %pointB246258, align 4
-  %177 = load float, ptr %y.i.i133261, align 4
-  %178 = load float, ptr %y2.i.i134264, align 4
-  %179 = insertelement <2 x float> poison, float %175, i64 0
-  %180 = insertelement <2 x float> %179, float %177, i64 1
-  %181 = insertelement <2 x float> poison, float %176, i64 0
-  %182 = insertelement <2 x float> %181, float %178, i64 1
-  %183 = fadd <2 x float> %180, %182
-  %184 = fmul <2 x float> %183, <float 5.000000e-01, float 5.000000e-01>
-  store <2 x float> %184, ptr %output, align 4
-  store <2 x float> %184, ptr %pointB246258, align 4
+  %174 = load float, ptr %output, align 4
+  %175 = load float, ptr %pointB246258, align 4
+  %176 = load float, ptr %y.i.i133261, align 4
+  %177 = load float, ptr %y2.i.i134264, align 4
+  %178 = insertelement <2 x float> poison, float %174, i64 0
+  %179 = insertelement <2 x float> %178, float %176, i64 1
+  %180 = insertelement <2 x float> poison, float %175, i64 0
+  %181 = insertelement <2 x float> %180, float %177, i64 1
+  %182 = fadd <2 x float> %179, %181
+  %183 = fmul <2 x float> %182, <float 5.000000e-01, float 5.000000e-01>
+  store <2 x float> %183, ptr %output, align 4
+  store <2 x float> %183, ptr %pointB246258, align 4
   store float 0.000000e+00, ptr %distance267, align 4
   br label %if.end101
 
 if.else:                                          ; preds = %if.then73
   %m_radius = getelementptr inbounds i8, ptr %input, i64 28
-  %185 = load float, ptr %m_radius, align 4
+  %184 = load float, ptr %m_radius, align 4
   %m_radius85 = getelementptr inbounds i8, ptr %input, i64 60
-  %186 = load float, ptr %m_radius85, align 4
-  %187 = load float, ptr %pointB246258, align 4
-  %188 = load float, ptr %output, align 4
-  %189 = load float, ptr %y2.i.i134264, align 4
-  %190 = load float, ptr %y.i.i133261, align 4
-  %191 = insertelement <2 x float> poison, float %187, i64 0
-  %192 = insertelement <2 x float> %191, float %189, i64 1
-  %193 = insertelement <2 x float> poison, float %188, i64 0
-  %194 = insertelement <2 x float> %193, float %190, i64 1
-  %195 = fsub <2 x float> %192, %194
-  %196 = fmul <2 x float> %195, %195
-  %mul4.i.i158 = extractelement <2 x float> %196, i64 1
-  %197 = extractelement <2 x float> %195, i64 0
-  %198 = call float @llvm.fmuladd.f32(float %197, float %197, float %mul4.i.i158)
-  %sqrt.i.i159 = call noundef float @llvm.sqrt.f32(float %198)
+  %185 = load float, ptr %m_radius85, align 4
+  %186 = load float, ptr %pointB246258, align 4
+  %187 = load float, ptr %output, align 4
+  %188 = load float, ptr %y2.i.i134264, align 4
+  %189 = load float, ptr %y.i.i133261, align 4
+  %190 = insertelement <2 x float> poison, float %186, i64 0
+  %191 = insertelement <2 x float> %190, float %188, i64 1
+  %192 = insertelement <2 x float> poison, float %187, i64 0
+  %193 = insertelement <2 x float> %192, float %189, i64 1
+  %194 = fsub <2 x float> %191, %193
+  %195 = fmul <2 x float> %194, %194
+  %mul4.i.i158 = extractelement <2 x float> %195, i64 1
+  %196 = extractelement <2 x float> %194, i64 0
+  %197 = call float @llvm.fmuladd.f32(float %196, float %196, float %mul4.i.i158)
+  %sqrt.i.i159 = call noundef float @llvm.sqrt.f32(float %197)
   %cmp.i160 = fcmp olt float %sqrt.i.i159, 0x3E80000000000000
   %div.i162 = fdiv float 1.000000e+00, %sqrt.i.i159
-  %199 = insertelement <2 x float> poison, float %div.i162, i64 0
-  %200 = shufflevector <2 x float> %199, <2 x float> poison, <2 x i32> zeroinitializer
-  %201 = fmul <2 x float> %195, %200
-  %normal.sroa.0.0 = select i1 %cmp.i160, <2 x float> %195, <2 x float> %201
-  %sub = fsub float %174, %185
-  %sub91 = fsub float %sub, %186
+  %198 = insertelement <2 x float> poison, float %div.i162, i64 0
+  %199 = shufflevector <2 x float> %198, <2 x float> poison, <2 x i32> zeroinitializer
+  %200 = fmul <2 x float> %194, %199
+  %normal.sroa.0.0 = select i1 %cmp.i160, <2 x float> %194, <2 x float> %200
+  %sub = fsub float %173, %184
+  %sub91 = fsub float %sub, %185
   %cmp.i164 = fcmp olt float %sub91, 0.000000e+00
   %cond.i165 = select i1 %cmp.i164, float 0.000000e+00, float %sub91
   store float %cond.i165, ptr %distance267, align 4
   %normal.sroa.0.0.vec.extract183 = extractelement <2 x float> %normal.sroa.0.0, i64 0
-  %mul.i166 = fmul float %185, %normal.sroa.0.0.vec.extract183
+  %mul.i166 = fmul float %184, %normal.sroa.0.0.vec.extract183
   %normal.sroa.0.4.vec.extract188 = extractelement <2 x float> %normal.sroa.0.0, i64 1
-  %mul1.i168 = fmul float %185, %normal.sroa.0.4.vec.extract188
-  %add.i171 = fadd float %188, %mul.i166
+  %mul1.i168 = fmul float %184, %normal.sroa.0.4.vec.extract188
+  %add.i171 = fadd float %187, %mul.i166
   store float %add.i171, ptr %output, align 4
-  %add4.i = fadd float %190, %mul1.i168
+  %add4.i = fadd float %189, %mul1.i168
   store float %add4.i, ptr %y.i.i133261, align 4
-  %mul.i173 = fmul float %186, %normal.sroa.0.0.vec.extract183
-  %mul1.i175 = fmul float %186, %normal.sroa.0.4.vec.extract188
-  %sub.i178 = fsub float %187, %mul.i173
+  %mul.i173 = fmul float %185, %normal.sroa.0.0.vec.extract183
+  %mul1.i175 = fmul float %185, %normal.sroa.0.4.vec.extract188
+  %sub.i178 = fsub float %186, %mul.i173
   store float %sub.i178, ptr %pointB246258, align 4
-  %sub4.i = fsub float %189, %mul1.i175
+  %sub4.i = fsub float %188, %mul1.i175
   store float %sub4.i, ptr %y2.i.i134264, align 4
   br label %if.end101
 

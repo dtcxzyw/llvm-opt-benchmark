@@ -191,9 +191,8 @@ entry:
   tail call void @memory_region_init(ptr noundef nonnull %io_ioport, ptr noundef %call.i40, ptr noundef nonnull @.str.20, i64 noundef 65536) #5
   %allow_unmapped_accesses = getelementptr inbounds i8, ptr %call.i40, i64 5712
   %0 = load i8, ptr %allow_unmapped_accesses, align 16
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %io_mmio_window = getelementptr inbounds i8, ptr %call.i40, i64 5392
@@ -230,8 +229,8 @@ for.end:                                          ; preds = %for.body
   tail call void @pci_bus_set_route_irq_fn(ptr noundef %call16, ptr noundef nonnull @gpex_route_intx_pin_to_irq) #5
   %gpex_root = getelementptr inbounds i8, ptr %call.i40, i64 1968
   %call.i43 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %gpex_root, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #5
-  %2 = load ptr, ptr %bus, align 8
-  %call.i44 = tail call ptr @object_dynamic_cast_assert(ptr noundef %2, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.6, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
+  %1 = load ptr, ptr %bus, align 8
+  %call.i44 = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.6, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
   %call21 = tail call zeroext i1 @qdev_realize(ptr noundef %call.i43, ptr noundef %call.i44, ptr noundef nonnull @error_fatal) #5
   ret void
 }

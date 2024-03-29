@@ -633,10 +633,9 @@ entry:
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %isolate) #9
   %call = call { i8, i64 } @_ZN4node11StringBytes4SizeEPN2v87IsolateENS1_5LocalINS1_5ValueEEENS_8encodingE(ptr noundef %isolate, ptr %val.coerce, i32 noundef %encoding) #9
   %0 = extractvalue { i8, i64 } %call, 0
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  %2 = extractvalue { i8, i64 } %call, 1
-  %cond.i = select i1 %tobool.i.not, i64 -1, i64 %2
+  %tobool.i = trunc i8 %0 to i1
+  %1 = extractvalue { i8, i64 } %call, 1
+  %cond.i = select i1 %tobool.i, i64 %1, i64 -1
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #9
   ret i64 %cond.i
 }

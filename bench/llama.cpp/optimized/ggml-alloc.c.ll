@@ -161,9 +161,8 @@ if.end75:                                         ; preds = %for.body65, %if.the
   store ptr %20, ptr %buffer78, align 8
   %measure = getelementptr inbounds i8, ptr %alloc, i64 4144
   %21 = load i8, ptr %measure, align 8
-  %22 = and i8 %21, 1
-  %tobool.not = icmp eq i8 %22, 0
-  br i1 %tobool.not, label %if.then79, label %if.end81
+  %tobool = trunc i8 %21 to i1
+  br i1 %tobool, label %if.end81, label %if.then79
 
 if.then79:                                        ; preds = %if.end75
   tail call void @ggml_backend_buffer_init_tensor(ptr noundef %20, ptr noundef nonnull %tensor) #15
@@ -171,14 +170,14 @@ if.then79:                                        ; preds = %if.end75
 
 if.end81:                                         ; preds = %if.then79, %if.end75
   %max_size = getelementptr inbounds i8, ptr %alloc, i64 4136
-  %23 = load i64, ptr %max_size, align 8
+  %22 = load i64, ptr %max_size, align 8
   %base = getelementptr inbounds i8, ptr %alloc, i64 16
-  %24 = load ptr, ptr %base, align 8
+  %23 = load ptr, ptr %base, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %24 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %23 to i64
   %sub.ptr.sub = add i64 %add2.i, %sub.ptr.lhs.cast
   %add82 = sub i64 %sub.ptr.sub, %sub.ptr.rhs.cast
-  %.add82 = tail call i64 @llvm.umax.i64(i64 %23, i64 %add82)
+  %.add82 = tail call i64 @llvm.umax.i64(i64 %22, i64 %add82)
   store i64 %.add82, ptr %max_size, align 8
   ret void
 }
@@ -219,20 +218,19 @@ entry:
   store ptr %add.ptr, ptr %free_blocks, align 8
   %measure = getelementptr inbounds i8, ptr %alloc, i64 4144
   %3 = load i8, ptr %measure, align 8
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %alloc, align 8
-  %call4 = tail call i64 @ggml_backend_buffer_get_size(ptr noundef %5) #15
+  %4 = load ptr, ptr %alloc, align 8
+  %call4 = tail call i64 @ggml_backend_buffer_get_size(ptr noundef %4) #15
   %sub = sub i64 %call4, %rem1.i
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.else
-  %.sink = phi i64 [ %sub, %if.else ], [ 9223372036854775807, %entry ]
-  %6 = getelementptr inbounds i8, ptr %alloc, i64 48
-  store i64 %.sink, ptr %6, align 8
+  %sub.sink = phi i64 [ %sub, %if.else ], [ 9223372036854775807, %entry ]
+  %5 = getelementptr inbounds i8, ptr %alloc, i64 48
+  store i64 %sub.sink, ptr %5, align 8
   ret void
 }
 
@@ -265,9 +263,8 @@ entry:
   store ptr %add.ptr.i, ptr %free_blocks.i, align 8
   %measure.i = getelementptr inbounds i8, ptr %call1, i64 4144
   %1 = load i8, ptr %measure.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %if.else.i, label %ggml_tallocr_reset.exit
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %ggml_tallocr_reset.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   %call4.i = tail call i64 @ggml_backend_buffer_get_size(ptr noundef %call) #15
@@ -275,9 +272,9 @@ if.else.i:                                        ; preds = %entry
   br label %ggml_tallocr_reset.exit
 
 ggml_tallocr_reset.exit:                          ; preds = %entry, %if.else.i
-  %.sink.i = phi i64 [ %sub.i, %if.else.i ], [ 9223372036854775807, %entry ]
-  %3 = getelementptr inbounds i8, ptr %call1, i64 48
-  store i64 %.sink.i, ptr %3, align 8
+  %sub.sink.i = phi i64 [ %sub.i, %if.else.i ], [ 9223372036854775807, %entry ]
+  %2 = getelementptr inbounds i8, ptr %call1, i64 48
+  store i64 %sub.sink.i, ptr %2, align 8
   ret ptr %call1
 }
 
@@ -384,9 +381,8 @@ entry:
   store ptr %add.ptr.i, ptr %free_blocks.i, align 8
   %measure.i = getelementptr inbounds i8, ptr %call, i64 4144
   %1 = load i8, ptr %measure.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %if.else.i, label %ggml_tallocr_reset.exit
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %ggml_tallocr_reset.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   %call4.i = tail call i64 @ggml_backend_buffer_get_size(ptr noundef %buffer) #15
@@ -394,9 +390,9 @@ if.else.i:                                        ; preds = %entry
   br label %ggml_tallocr_reset.exit
 
 ggml_tallocr_reset.exit:                          ; preds = %entry, %if.else.i
-  %.sink.i = phi i64 [ %sub.i, %if.else.i ], [ 9223372036854775807, %entry ]
-  %3 = getelementptr inbounds i8, ptr %call, i64 48
-  store i64 %.sink.i, ptr %3, align 8
+  %sub.sink.i = phi i64 [ %sub.i, %if.else.i ], [ 9223372036854775807, %entry ]
+  %2 = getelementptr inbounds i8, ptr %call, i64 48
+  store i64 %sub.sink.i, ptr %2, align 8
   ret ptr %call
 }
 
@@ -449,13 +445,12 @@ entry:
 if.end:                                           ; preds = %entry
   %buffer_owned = getelementptr inbounds i8, ptr %alloc, i64 8
   %0 = load i8, ptr %buffer_owned, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end2, label %if.then1
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
-  %2 = load ptr, ptr %alloc, align 8
-  tail call void @ggml_backend_buffer_free(ptr noundef %2) #15
+  %1 = load ptr, ptr %alloc, align 8
+  tail call void @ggml_backend_buffer_free(ptr noundef %1) #15
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then1, %if.end
@@ -476,8 +471,7 @@ define zeroext i1 @ggml_tallocr_is_measure(ptr nocapture noundef readonly %alloc
 entry:
   %measure = getelementptr inbounds i8, ptr %alloc, i64 4144
   %0 = load i8, ptr %measure, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -1280,13 +1274,12 @@ ggml_gallocr_free.exit:                           ; preds = %entry, %if.end17.i
 if.end.i4:                                        ; preds = %ggml_gallocr_free.exit
   %buffer_owned.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i8, ptr %buffer_owned.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i, label %if.end2.i, label %if.then1.i
+  %tobool.i = trunc i8 %6 to i1
+  br i1 %tobool.i, label %if.then1.i, label %if.end2.i
 
 if.then1.i:                                       ; preds = %if.end.i4
-  %8 = load ptr, ptr %5, align 8
-  tail call void @ggml_backend_buffer_free(ptr noundef %8) #15
+  %7 = load ptr, ptr %5, align 8
+  tail call void @ggml_backend_buffer_free(ptr noundef %7) #15
   br label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.then1.i, %if.end.i4
@@ -1304,8 +1297,7 @@ entry:
   %0 = load ptr, ptr %alloc, align 8
   %measure.i = getelementptr inbounds i8, ptr %0, i64 4144
   %1 = load i8, ptr %measure.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   ret i1 %tobool.i
 }
 
@@ -1328,20 +1320,19 @@ entry:
   store ptr %add.ptr.i, ptr %free_blocks.i, align 8
   %measure.i = getelementptr inbounds i8, ptr %0, i64 4144
   %4 = load i8, ptr %measure.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %if.else.i, label %ggml_tallocr_reset.exit
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %ggml_tallocr_reset.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  %6 = load ptr, ptr %0, align 8
-  %call4.i = tail call i64 @ggml_backend_buffer_get_size(ptr noundef %6) #15
+  %5 = load ptr, ptr %0, align 8
+  %call4.i = tail call i64 @ggml_backend_buffer_get_size(ptr noundef %5) #15
   %sub.i = sub i64 %call4.i, %rem1.i.i
   br label %ggml_tallocr_reset.exit
 
 ggml_tallocr_reset.exit:                          ; preds = %entry, %if.else.i
-  %.sink.i = phi i64 [ %sub.i, %if.else.i ], [ 9223372036854775807, %entry ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %.sink.i, ptr %7, align 8
+  %sub.sink.i = phi i64 [ %sub.i, %if.else.i ], [ 9223372036854775807, %entry ]
+  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %sub.sink.i, ptr %6, align 8
   ret void
 }
 
@@ -1543,13 +1534,12 @@ for.inc41:                                        ; preds = %for.body30, %if.els
 
 if.end.i:                                         ; preds = %for.inc41
   %.pre = load i8, ptr %.compoundliteral.sroa.3.0..sroa_idx.i, align 8
-  %9 = and i8 %.pre, 1
-  %10 = icmp eq i8 %9, 0
-  br i1 %10, label %ggml_tallocr_free.exit, label %if.then1.i
+  %9 = trunc i8 %.pre to i1
+  br i1 %9, label %if.then1.i, label %ggml_tallocr_free.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  %11 = load ptr, ptr %call.i, align 8
-  tail call void @ggml_backend_buffer_free(ptr noundef %11) #15
+  %10 = load ptr, ptr %call.i, align 8
+  tail call void @ggml_backend_buffer_free(ptr noundef %10) #15
   br label %ggml_tallocr_free.exit
 
 ggml_tallocr_free.exit:                           ; preds = %ggml_tallocr_new_from_buffer.exit, %if.end.i, %if.then1.i
@@ -1649,13 +1639,12 @@ if.end8:                                          ; preds = %if.then5, %do.end
   store ptr %add.ptr, ptr %data13, align 8
   %measure = getelementptr inbounds i8, ptr %retval.0.i, i64 4144
   %14 = load i8, ptr %measure, align 8
-  %15 = and i8 %14, 1
-  %tobool14.not = icmp eq i8 %15, 0
-  br i1 %tobool14.not, label %if.then15, label %if.end17
+  %tobool14 = trunc i8 %14 to i1
+  br i1 %tobool14, label %if.end17, label %if.then15
 
 if.then15:                                        ; preds = %if.end8
-  %16 = load ptr, ptr %retval.0.i, align 8
-  tail call void @ggml_backend_buffer_init_tensor(ptr noundef %16, ptr noundef nonnull %view) #15
+  %15 = load ptr, ptr %retval.0.i, align 8
+  tail call void @ggml_backend_buffer_init_tensor(ptr noundef %15, ptr noundef nonnull %view) #15
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then15, %if.end8

@@ -665,9 +665,8 @@ entry:
   %sub = sub nsw i32 3, %conv
   %rx_enabled = getelementptr inbounds i8, ptr %opaque, i64 64
   %1 = load i8, ptr %rx_enabled, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  %cond = select i1 %tobool.not, i32 0, i32 %sub
+  %tobool = trunc i8 %1 to i1
+  %cond = select i1 %tobool, i32 %sub, i32 0
   ret i32 %cond
 }
 

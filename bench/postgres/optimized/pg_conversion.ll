@@ -78,9 +78,8 @@ define dso_local { i64, i32 } @ConversionCreate(ptr noundef %0, i32 noundef %1, 
   %42 = getelementptr i8, ptr %38, i64 %41
   %43 = getelementptr inbounds i8, ptr %42, i64 88
   %44 = load i8, ptr %43, align 4
-  %45 = and i8 %44, 1
-  %.not.i = icmp eq i8 %45, 0
-  br i1 %.not.i, label %33, label %FindDefaultConversion.exit
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %FindDefaultConversion.exit, label %33
 
 FindDefaultConversion.exit.thread:                ; preds = %33, %27
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %28) #5
@@ -213,9 +212,8 @@ define dso_local i32 @FindDefaultConversion(i32 noundef %0, i32 noundef %1, i32 
   %21 = getelementptr i8, ptr %17, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 88
   %23 = load i8, ptr %22, align 4
-  %24 = and i8 %23, 1
-  %.not = icmp eq i8 %24, 0
-  br i1 %.not, label %12, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %12
 
 25:                                               ; preds = %13
   %26 = getelementptr inbounds i8, ptr %21, i64 84

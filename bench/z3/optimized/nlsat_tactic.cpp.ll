@@ -2576,7 +2576,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
   %3 = phi ptr [ %call, %for.cond.preheader ], [ %35, %for.inc ]
   %4 = phi ptr [ %call, %for.cond.preheader ], [ %36, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %ok.0 = phi i8 [ 1, %for.cond.preheader ], [ %ok.2, %for.inc ]
+  %ok.0 = phi i1 [ true, %for.cond.preheader ], [ %ok.2, %for.inc ]
   %5 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i, label %invoke.cont3, label %if.end.i.i
@@ -2757,7 +2757,7 @@ lpad35:                                           ; preds = %catch33
 try.cont:                                         ; preds = %invoke.cont29.try.cont_crit_edge, %_ZNK10arith_util6pluginEv.exit.i
   %33 = phi ptr [ %.pre, %invoke.cont29.try.cont_crit_edge ], [ %3, %_ZNK10arith_util6pluginEv.exit.i ]
   %v.0 = phi ptr [ %call.i23, %invoke.cont29.try.cont_crit_edge ], [ %call2.i21, %_ZNK10arith_util6pluginEv.exit.i ]
-  %ok.1 = phi i8 [ 0, %invoke.cont29.try.cont_crit_edge ], [ %ok.0, %_ZNK10arith_util6pluginEv.exit.i ]
+  %ok.1 = phi i1 [ false, %invoke.cont29.try.cont_crit_edge ], [ %ok.0, %_ZNK10arith_util6pluginEv.exit.i ]
   %34 = load ptr, ptr %m_decl.i.i.i, align 8
   invoke void @_ZN10model_core13register_declEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(96) %33, ptr noundef %34, ptr noundef %v.0)
           to label %for.inc unwind label %lpad.loopexit.split-lp.loopexit
@@ -2765,7 +2765,7 @@ try.cont:                                         ; preds = %invoke.cont29.try.c
 for.inc:                                          ; preds = %invoke.cont5, %land.lhs.true.i, %try.cont, %invoke.cont7
   %35 = phi ptr [ %33, %try.cont ], [ %3, %invoke.cont7 ], [ %3, %land.lhs.true.i ], [ %3, %invoke.cont5 ]
   %36 = phi ptr [ %33, %try.cont ], [ %4, %invoke.cont7 ], [ %4, %land.lhs.true.i ], [ %4, %invoke.cont5 ]
-  %ok.2 = phi i8 [ %ok.1, %try.cont ], [ %ok.0, %invoke.cont7 ], [ %ok.0, %land.lhs.true.i ], [ %ok.0, %invoke.cont5 ]
+  %ok.2 = phi i1 [ %ok.1, %try.cont ], [ %ok.0, %invoke.cont7 ], [ %ok.0, %land.lhs.true.i ], [ %ok.0, %invoke.cont5 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond, !llvm.loop !9
 
@@ -2905,9 +2905,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i57
   unreachable
 
 _ZN3refI5modelED2Ev.exit:                         ; preds = %invoke.cont81, %if.then.i.i53, %if.then.i.i.i57
-  %58 = and i8 %ok.0, 1
-  %tobool = icmp ne i8 %58, 0
-  ret i1 %tobool
+  ret i1 %ok.0
 
 ehcleanup:                                        ; preds = %catch.fallthrough, %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad35, %lpad21
   %lpad.val85.merged = phi { ptr, i32 } [ %32, %lpad35 ], [ %31, %lpad21 ], [ %lpad.loopexit61, %lpad.loopexit ], [ %lpad.loopexit63, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp64, %lpad.loopexit.split-lp.loopexit.split-lp ], [ %21, %catch.fallthrough ]
@@ -2915,10 +2913,10 @@ ehcleanup:                                        ; preds = %catch.fallthrough, 
   resume { ptr, i32 } %lpad.val85.merged
 
 terminate.lpad:                                   ; preds = %lpad35, %lpad21
-  %59 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #12
+  %59 = extractvalue { ptr, i32 } %58, 0
+  call void @__clang_call_terminate(ptr %59) #12
   unreachable
 
 unreachable:                                      ; preds = %catch33

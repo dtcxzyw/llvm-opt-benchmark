@@ -687,64 +687,64 @@ if.end4:                                          ; preds = %do.end
   store ptr %call10, ptr %device, align 8
   %busy = getelementptr inbounds i8, ptr %job, i64 180
   %3 = load i8, ptr %busy, align 4
-  %4 = and i8 %3, 1
   %busy12 = getelementptr inbounds i8, ptr %call6, i64 32
-  store i8 %4, ptr %busy12, align 8
+  %frombool = and i8 %3, 1
+  store i8 %frombool, ptr %busy12, align 8
   %pause_count = getelementptr inbounds i8, ptr %job, i64 176
-  %5 = load i32, ptr %pause_count, align 8
-  %cmp = icmp sgt i32 %5, 0
+  %4 = load i32, ptr %pause_count, align 8
+  %cmp = icmp sgt i32 %4, 0
   %paused = getelementptr inbounds i8, ptr %call6, i64 33
   %frombool14 = zext i1 %cmp to i8
   store i8 %frombool14, ptr %paused, align 1
-  %6 = load i64, ptr %progress_current, align 8
+  %5 = load i64, ptr %progress_current, align 8
   %offset = getelementptr inbounds i8, ptr %call6, i64 24
-  store i64 %6, ptr %offset, align 8
-  %7 = load i64, ptr %progress_total, align 8
+  store i64 %5, ptr %offset, align 8
+  %6 = load i64, ptr %progress_total, align 8
   %len = getelementptr inbounds i8, ptr %call6, i64 16
-  store i64 %7, ptr %len, align 8
+  store i64 %6, ptr %len, align 8
   %speed = getelementptr inbounds i8, ptr %job, i64 288
-  %8 = load i64, ptr %speed, align 8
+  %7 = load i64, ptr %speed, align 8
   %speed15 = getelementptr inbounds i8, ptr %call6, i64 40
-  store i64 %8, ptr %speed15, align 8
+  store i64 %7, ptr %speed15, align 8
   %iostatus = getelementptr inbounds i8, ptr %job, i64 280
-  %9 = load i32, ptr %iostatus, align 8
+  %8 = load i32, ptr %iostatus, align 8
   %io_status = getelementptr inbounds i8, ptr %call6, i64 48
-  store i32 %9, ptr %io_status, align 8
+  store i32 %8, ptr %io_status, align 8
   %call17 = call zeroext i1 @job_is_ready_locked(ptr noundef nonnull %job) #6
   %ready = getelementptr inbounds i8, ptr %call6, i64 52
   %frombool18 = zext i1 %call17 to i8
   store i8 %frombool18, ptr %ready, align 4
   %status = getelementptr inbounds i8, ptr %job, i64 124
-  %10 = load i32, ptr %status, align 4
+  %9 = load i32, ptr %status, align 4
   %status20 = getelementptr inbounds i8, ptr %call6, i64 56
-  store i32 %10, ptr %status20, align 8
+  store i32 %9, ptr %status20, align 8
   %auto_finalize = getelementptr inbounds i8, ptr %job, i64 24
-  %11 = load i8, ptr %auto_finalize, align 8
-  %12 = and i8 %11, 1
+  %10 = load i8, ptr %auto_finalize, align 8
   %auto_finalize23 = getelementptr inbounds i8, ptr %call6, i64 60
-  store i8 %12, ptr %auto_finalize23, align 4
+  %frombool24 = and i8 %10, 1
+  store i8 %frombool24, ptr %auto_finalize23, align 4
   %auto_dismiss = getelementptr inbounds i8, ptr %job, i64 25
-  %13 = load i8, ptr %auto_dismiss, align 1
-  %14 = and i8 %13, 1
+  %11 = load i8, ptr %auto_dismiss, align 1
   %auto_dismiss27 = getelementptr inbounds i8, ptr %call6, i64 61
-  store i8 %14, ptr %auto_dismiss27, align 1
+  %frombool28 = and i8 %11, 1
+  store i8 %frombool28, ptr %auto_dismiss27, align 1
   %ret = getelementptr inbounds i8, ptr %job, i64 188
-  %15 = load i32, ptr %ret, align 4
-  %tobool30.not = icmp eq i32 %15, 0
+  %12 = load i32, ptr %ret, align 4
+  %tobool30.not = icmp eq i32 %12, 0
   br i1 %tobool30.not, label %if.end42, label %if.then31
 
 if.then31:                                        ; preds = %if.end4
   %err = getelementptr inbounds i8, ptr %job, i64 192
-  %16 = load ptr, ptr %err, align 8
-  %tobool33.not = icmp eq ptr %16, null
+  %13 = load ptr, ptr %err, align 8
+  %tobool33.not = icmp eq ptr %13, null
   br i1 %tobool33.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.then31
-  %call36 = call ptr @error_get_pretty(ptr noundef nonnull %16) #6
+  %call36 = call ptr @error_get_pretty(ptr noundef nonnull %13) #6
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then31
-  %sub = sub i32 0, %15
+  %sub = sub i32 0, %12
   %call40 = call ptr @strerror(i32 noundef %sub) #6
   br label %cond.end
 
@@ -757,14 +757,14 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 
 if.end42:                                         ; preds = %cond.end, %if.end4
   %query = getelementptr inbounds i8, ptr %0, i64 136
-  %17 = load ptr, ptr %query, align 8
-  %tobool43.not = icmp eq ptr %17, null
+  %14 = load ptr, ptr %query, align 8
+  %tobool43.not = icmp eq ptr %14, null
   br i1 %tobool43.not, label %return, label %if.then44
 
 if.then44:                                        ; preds = %if.end42
   call void @job_unlock() #6
-  %18 = load ptr, ptr %query, align 8
-  call void %18(ptr noundef nonnull %job, ptr noundef nonnull %call6) #6
+  %15 = load ptr, ptr %query, align 8
+  call void %15(ptr noundef nonnull %job, ptr noundef nonnull %call6) #6
   call void @job_lock() #6
   br label %return
 
@@ -964,14 +964,13 @@ do.end.i.i:                                       ; preds = %do.end
 if.end2.i.i:                                      ; preds = %do.end.i.i
   %user_paused.i.i = getelementptr inbounds i8, ptr %job, i64 182
   %3 = load i8, ptr %user_paused.i.i, align 2
-  %4 = and i8 %3, 1
-  %tobool.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i.i, label %if.else7.i.i, label %land.lhs.true.i.i
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %land.lhs.true.i.i, label %if.else7.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end2.i.i
   %pause_count.i.i = getelementptr inbounds i8, ptr %job, i64 176
-  %5 = load i32, ptr %pause_count.i.i, align 8
-  %cmp5.i.i = icmp sgt i32 %5, 0
+  %4 = load i32, ptr %pause_count.i.i, align 8
+  %cmp5.i.i = icmp sgt i32 %4, 0
   br i1 %cmp5.i.i, label %if.end8.i.i, label %if.else7.i.i
 
 if.else7.i.i:                                     ; preds = %land.lhs.true.i.i, %if.end2.i.i
@@ -1126,14 +1125,13 @@ do.end:                                           ; preds = %entry
 if.end2:                                          ; preds = %do.end
   %user_paused = getelementptr inbounds i8, ptr %job, i64 182
   %1 = load i8, ptr %user_paused, align 2
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else7, label %land.lhs.true
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.else7
 
 land.lhs.true:                                    ; preds = %if.end2
   %pause_count = getelementptr inbounds i8, ptr %job, i64 176
-  %3 = load i32, ptr %pause_count, align 8
-  %cmp5 = icmp sgt i32 %3, 0
+  %2 = load i32, ptr %pause_count, align 8
+  %cmp5 = icmp sgt i32 %2, 0
   br i1 %cmp5, label %if.end8, label %if.else7
 
 if.else7:                                         ; preds = %land.lhs.true, %if.end2
@@ -1199,9 +1197,8 @@ for.body.us:                                      ; preds = %if.end
   %cmp1.i = icmp eq i32 %error, 28
   %cond.i = select i1 %cmp1.i, i32 2, i32 1
   %3 = load i8, ptr %user_paused, align 2
-  %4 = and i8 %3, 1
-  %tobool11.not.us = icmp eq i8 %4, 0
-  br i1 %tobool11.not.us, label %if.then12.us, label %if.end16.us
+  %tobool11.us = trunc i8 %3 to i1
+  br i1 %tobool11.us, label %if.end16.us, label %if.then12.us
 
 if.then12.us:                                     ; preds = %for.body.us
   tail call void @job_pause_locked(ptr noundef nonnull %job) #6
@@ -1209,8 +1206,8 @@ if.then12.us:                                     ; preds = %for.body.us
   br label %if.end16.us
 
 if.end16.us:                                      ; preds = %if.then12.us, %for.body.us
-  %5 = load i32, ptr %iostatus.i, align 8
-  %cmp.i9.us = icmp eq i32 %5, 0
+  %4 = load i32, ptr %iostatus.i, align 8
+  %cmp.i9.us = icmp eq i32 %4, 0
   br i1 %cmp.i9.us, label %if.then.i.us, label %qemu_lockable_auto_unlock.exit.us
 
 if.then.i.us:                                     ; preds = %if.end16.us
@@ -1293,9 +1290,8 @@ for.body.us:
   tail call void %3(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #6
   %busy = getelementptr inbounds i8, ptr %0, i64 180
   %4 = load i8, ptr %busy, align 4
-  %5 = and i8 %4, 1
-  %tobool3.not.us = icmp eq i8 %5, 0
-  br i1 %tobool3.not.us, label %glib_autoptr_cleanup_QemuLockable.exit, label %lor.lhs.false.us
+  %tobool3.us = trunc i8 %4 to i1
+  br i1 %tobool3.us, label %lor.lhs.false.us, label %glib_autoptr_cleanup_QemuLockable.exit
 
 lor.lhs.false.us:                                 ; preds = %for.body.us
   %call4.us = tail call zeroext i1 @job_is_completed_locked(ptr noundef nonnull %0) #6
@@ -1304,8 +1300,8 @@ lor.lhs.false.us:                                 ; preds = %for.body.us
 qemu_lockable_auto_unlock.exit.us:                ; preds = %lor.lhs.false.us
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #6
   %drained_poll = getelementptr inbounds i8, ptr %1, i64 104
-  %6 = load ptr, ptr %drained_poll, align 8
-  %tobool5.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr %drained_poll, align 8
+  %tobool5.not = icmp eq ptr %5, null
   br i1 %tobool5.not, label %return, label %if.then6
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body.us, %lor.lhs.false.us
@@ -1313,7 +1309,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body.us, %lor.l
   br label %return
 
 if.then6:                                         ; preds = %qemu_lockable_auto_unlock.exit.us
-  %call8 = tail call zeroext i1 %6(ptr noundef nonnull %0) #6
+  %call8 = tail call zeroext i1 %5(ptr noundef nonnull %0) #6
   br label %return
 
 return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.exit, %qemu_lockable_auto_unlock.exit.us, %if.then6

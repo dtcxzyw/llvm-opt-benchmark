@@ -499,9 +499,8 @@ define internal i32 @dissect_ocsp_T_response(i1 zeroext %0, ptr noundef %1, i32 
   %16 = call i32 @dissect_ber_length(ptr noundef %15, ptr noundef %4, ptr noundef %1, i32 noundef %14, ptr noundef nonnull %11, ptr noundef nonnull %9) #2
   %17 = getelementptr inbounds i8, ptr %3, i64 61
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %25, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %25
 
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %3, i64 72

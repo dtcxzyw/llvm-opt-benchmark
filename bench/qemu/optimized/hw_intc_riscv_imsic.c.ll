@@ -250,44 +250,41 @@ entry:
   tail call void @sysbus_init_mmio(ptr noundef %call.i34, ptr noundef nonnull %mmio) #6
   %mmode = getelementptr inbounds i8, ptr %call.i, i64 1136
   %7 = load i8, ptr %mmode, align 16
-  %8 = and i8 %7, 1
-  %tobool21.not = icmp eq i8 %8, 0
-  %conv24 = select i1 %tobool21.not, i64 512, i64 2048
+  %tobool21 = trunc i8 %7 to i1
+  %conv24 = select i1 %tobool21, i64 2048, i64 512
   %call25 = tail call i32 @riscv_cpu_claim_interrupts(ptr noundef %call.i33, i64 noundef %conv24) #6
   %cmp = icmp slt i32 %call25, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %9 = load i8, ptr %mmode, align 16
-  %10 = and i8 %9, 1
-  %tobool28.not = icmp eq i8 %10, 0
-  %cond30 = select i1 %tobool28.not, ptr @.str.17, ptr @.str.16
+  %8 = load i8, ptr %mmode, align 16
+  %tobool28 = trunc i8 %8 to i1
+  %cond30 = select i1 %tobool28, ptr @.str.16, ptr @.str.17
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 354, ptr noundef nonnull @__func__.riscv_imsic_realize, ptr noundef nonnull @.str.15, ptr noundef nonnull %cond30) #6
   br label %return
 
 if.end:                                           ; preds = %entry
-  %11 = load i32, ptr %num_pages, align 8
-  %conv32 = zext i32 %11 to i64
+  %9 = load i32, ptr %num_pages, align 8
+  %conv32 = zext i32 %9 to i64
   %mul33 = shl nuw nsw i64 %conv32, 3
   %call34 = tail call noalias ptr @g_malloc(i64 noundef %mul33) #9
   %external_irqs = getelementptr inbounds i8, ptr %call.i, i64 816
   store ptr %call34, ptr %external_irqs, align 16
-  %12 = load i32, ptr %num_pages, align 8
-  tail call void @qdev_init_gpio_out(ptr noundef %dev, ptr noundef %call34, i32 noundef %12) #6
+  %10 = load i32, ptr %num_pages, align 8
+  tail call void @qdev_init_gpio_out(ptr noundef %dev, ptr noundef %call34, i32 noundef %10) #6
   %tobool37.not = icmp eq ptr %spec.select, null
   br i1 %tobool37.not, label %if.end50, label %if.then38
 
 if.then38:                                        ; preds = %if.end
-  %13 = load i8, ptr %mmode, align 16
-  %14 = and i8 %13, 1
-  %tobool40.not = icmp eq i8 %14, 0
-  br i1 %tobool40.not, label %if.then41, label %if.else
+  %11 = load i8, ptr %mmode, align 16
+  %tobool40 = trunc i8 %11 to i1
+  br i1 %tobool40, label %if.else, label %if.then41
 
 if.then41:                                        ; preds = %if.then38
   %ext_ssaia = getelementptr inbounds i8, ptr %call.i33, i64 19065
   store i8 1, ptr %ext_ssaia, align 1
-  %15 = load i32, ptr %num_pages, align 8
-  %sub = add i32 %15, -1
+  %12 = load i32, ptr %num_pages, align 8
+  %sub = add i32 %12, -1
   %conv43 = zext i32 %sub to i64
   tail call void @riscv_cpu_set_geilen(ptr noundef nonnull %spec.select, i64 noundef %conv43) #6
   br label %if.end45
@@ -298,10 +295,9 @@ if.else:                                          ; preds = %if.then38
   br label %if.end45
 
 if.end45:                                         ; preds = %if.else, %if.then41
-  %16 = load i8, ptr %mmode, align 16
-  %17 = and i8 %16, 1
-  %tobool47.not = icmp eq i8 %17, 0
-  %cond49 = select i1 %tobool47.not, i32 1, i32 3
+  %13 = load i8, ptr %mmode, align 16
+  %tobool47 = trunc i8 %13 to i1
+  %cond49 = select i1 %tobool47, i32 3, i32 1
   tail call void @riscv_cpu_set_aia_ireg_rmw_fn(ptr noundef nonnull %spec.select, i32 noundef %cond49, ptr noundef nonnull @riscv_imsic_rmw, ptr noundef nonnull %call.i) #6
   br label %if.end50
 
@@ -349,9 +345,8 @@ entry:
   %4 = lshr i32 %0, 24
   %mmode = getelementptr inbounds i8, ptr %arg, i64 1136
   %5 = load i8, ptr %mmode, align 16
-  %6 = and i8 %5, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %if.else15, label %if.then
+  %tobool = trunc i8 %5 to i1
+  br i1 %tobool, label %if.then, label %if.else15
 
 if.then:                                          ; preds = %entry
   %cmp = icmp ne i32 %conv, 3
@@ -373,8 +368,8 @@ if.then20:                                        ; preds = %if.then18
 
 land.lhs.true22:                                  ; preds = %if.then20
   %num_pages = getelementptr inbounds i8, ptr %arg, i64 1144
-  %7 = load i32, ptr %num_pages, align 8
-  %cmp23 = icmp ult i32 %conv8, %7
+  %6 = load i32, ptr %num_pages, align 8
+  %cmp23 = icmp ult i32 %conv8, %6
   br i1 %cmp23, label %if.end32, label %do.body
 
 if.end32:                                         ; preds = %if.then18, %land.lhs.true22, %if.then
@@ -537,8 +532,8 @@ sw.bb39:                                          ; preds = %if.end32, %if.end32
   br label %return
 
 do.body:                                          ; preds = %if.then, %land.lhs.true22, %if.then20, %if.else15, %if.end32
-  %8 = load i32, ptr @qemu_loglevel, align 4
-  %and.i = and i32 %8, 2048
+  %7 = load i32, ptr @qemu_loglevel, align 4
+  %and.i = and i32 %7, 2048
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.then46
 

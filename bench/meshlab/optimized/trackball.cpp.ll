@@ -2445,9 +2445,8 @@ define noundef zeroext i1 @_ZN3vcg9Trackball11IsAnimatingEj(ptr noundef nonnull 
   %.0 = phi i1 [ %10, %6 ], [ false, %2 ]
   %12 = getelementptr inbounds i8, ptr %0, i64 596
   %13 = load i8, ptr %12, align 4
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %24
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %24, label %15
 
 15:                                               ; preds = %11
   %16 = icmp eq i32 %1, 0
@@ -2479,9 +2478,8 @@ declare i64 @clock() local_unnamed_addr #1
 define void @_ZN3vcg9Trackball4SyncEj(ptr noundef nonnull align 8 dereferenceable(597) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 596
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %_ZN3vcg9Trackball7AnimateEj.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %_ZN3vcg9Trackball7AnimateEj.exit, label %6
 
 6:                                                ; preds = %2
   %7 = icmp eq i32 %1, 0
@@ -2519,9 +2517,8 @@ _ZN3vcg9Trackball7AnimateEj.exit:                 ; preds = %18, %12, %2
 define void @_ZN3vcg9Trackball7AnimateEj(ptr noundef nonnull align 8 dereferenceable(597) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 596
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %16
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %16, label %6
 
 6:                                                ; preds = %2
   %7 = icmp eq i32 %1, 0
@@ -3088,9 +3085,8 @@ define void @_ZN3vcg9Trackball10ButtonDownENS0_6ButtonEj(ptr noundef nonnull ali
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 596
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %.not.i = icmp eq i8 %11, 0
-  br i1 %.not.i, label %12, label %_ZN3vcg9Trackball4SyncEj.exit
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %_ZN3vcg9Trackball4SyncEj.exit, label %12
 
 12:                                               ; preds = %3
   %13 = icmp eq i32 %2, 0
@@ -3327,9 +3323,8 @@ define void @_ZN3vcg9Trackball12SetSpinnableEb(ptr nocapture noundef nonnull rea
 define noundef zeroext i1 @_ZN3vcg9Trackball11IsSpinnableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(597) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 564
   %3 = load i8, ptr %2, align 4
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -3346,9 +3341,8 @@ define void @_ZN3vcg9Trackball12StopSpinningEv(ptr nocapture noundef nonnull rea
 define noundef zeroext i1 @_ZN3vcg9Trackball10IsSpinningEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(597) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 565
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

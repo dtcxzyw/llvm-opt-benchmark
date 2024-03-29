@@ -106,15 +106,14 @@ define noundef i32 @xcpuinfo_hwloc_topo_load(ptr noundef %0, ptr noundef %1, i1 
 
 10:                                               ; preds = %9
   %11 = load i8, ptr @refresh_hwloc, align 1
-  %12 = and i8 %11, 1
-  %.not31 = icmp eq i8 %12, 0
+  %12 = trunc i8 %11 to i1
   store i1 true, ptr @xcpuinfo_hwloc_topo_load.first_full, align 1
-  br i1 %.not31, label %.critedge, label %25
+  br i1 %12, label %25, label %.critedge
 
 .critedge:                                        ; preds = %9, %8, %10
   %13 = call i32 @stat(ptr noundef %1, ptr noundef nonnull %6) #11
-  %.not32 = icmp eq i32 %13, 0
-  br i1 %.not32, label %14, label %25
+  %.not31 = icmp eq i32 %13, 0
+  br i1 %.not31, label %14, label %25
 
 14:                                               ; preds = %.critedge
   %15 = tail call i32 @get_log_level() #11
@@ -128,14 +127,14 @@ define noundef i32 @xcpuinfo_hwloc_topo_load(ptr noundef %0, ptr noundef %1, i1 
 18:                                               ; preds = %17, %14
   %19 = load ptr, ptr %0, align 8
   %20 = tail call i32 @hwloc_topology_set_xml(ptr noundef %19, ptr noundef %1) #11
-  %.not33 = icmp eq i32 %20, 0
-  br i1 %.not33, label %21, label %.sink.split
+  %.not32 = icmp eq i32 %20, 0
+  br i1 %.not32, label %21, label %.sink.split
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %0, align 8
   %23 = tail call i32 @hwloc_topology_load(ptr noundef %22) #11
-  %.not34 = icmp eq i32 %23, 0
-  br i1 %.not34, label %104, label %.sink.split
+  %.not33 = icmp eq i32 %23, 0
+  br i1 %.not33, label %104, label %.sink.split
 
 .sink.split:                                      ; preds = %21, %18
   %.str.2.sink = phi ptr [ @.str.2, %18 ], [ @.str.3, %21 ]
@@ -179,8 +178,8 @@ define noundef i32 @xcpuinfo_hwloc_topo_load(ptr noundef %0, ptr noundef %1, i1 
 46:                                               ; preds = %45, %42
   %47 = load ptr, ptr %.027, align 8
   %48 = call i32 @hwloc_topology_load(ptr noundef %47) #11
-  %.not35 = icmp eq i32 %48, 0
-  br i1 %.not35, label %53, label %49
+  %.not34 = icmp eq i32 %48, 0
+  br i1 %.not34, label %53, label %49
 
 49:                                               ; preds = %46
   %50 = call i32 @get_log_level() #11
@@ -291,9 +290,8 @@ _remove_ecores.exit:                              ; preds = %53, %56, %.loopexit
   %88 = load ptr, ptr @conf, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 4426
   %90 = load i8, ptr %89, align 2
-  %91 = and i8 %90, 1
-  %.not36 = icmp eq i8 %91, 0
-  br i1 %.not36, label %92, label %101
+  %91 = trunc i8 %90 to i1
+  br i1 %91, label %101, label %92
 
 92:                                               ; preds = %_remove_ecores.exit
   %93 = call i32 @get_log_level() #11
@@ -307,8 +305,8 @@ _remove_ecores.exit:                              ; preds = %53, %56, %.loopexit
 96:                                               ; preds = %95, %92
   %97 = load ptr, ptr %.027, align 8
   %98 = call i32 @hwloc_topology_export_xml(ptr noundef %97, ptr noundef %1, i64 noundef 0) #11
-  %.not37 = icmp eq i32 %98, 0
-  br i1 %.not37, label %101, label %99
+  %.not35 = icmp eq i32 %98, 0
+  br i1 %.not35, label %101, label %99
 
 99:                                               ; preds = %96
   %100 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.xcpuinfo_hwloc_topo_load) #11
@@ -1055,14 +1053,13 @@ declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define noundef i32 @xcpuinfo_init() local_unnamed_addr #0 {
   %1 = load i8, ptr @initialized, align 1
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %3, label %6
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %6, label %3
 
 3:                                                ; preds = %0
   %4 = tail call i32 @xcpuinfo_hwloc_topo_get(ptr noundef nonnull @procs, ptr noundef nonnull @boards, ptr noundef nonnull @sockets, ptr noundef nonnull @cores, ptr noundef nonnull @threads, ptr noundef nonnull @block_map_size, ptr noundef nonnull @block_map, ptr noundef nonnull @block_map_inv), !range !18
-  %.not1 = icmp eq i32 %4, 0
-  br i1 %.not1, label %5, label %6
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
   store i8 1, ptr @initialized, align 1
@@ -1083,9 +1080,8 @@ define void @xcpuinfo_refresh_hwloc(i1 noundef zeroext %0) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define noundef i32 @xcpuinfo_fini() local_unnamed_addr #0 {
   %1 = load i8, ptr @initialized, align 1
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %6, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %6
 
 3:                                                ; preds = %0
   store i8 0, ptr @initialized, align 1
@@ -1097,8 +1093,8 @@ define noundef i32 @xcpuinfo_fini() local_unnamed_addr #0 {
   tail call void @slurm_xfree(ptr noundef nonnull @block_map) #11
   tail call void @slurm_xfree(ptr noundef nonnull @block_map_inv) #11
   %4 = load ptr, ptr @hwloc_xml_whole, align 8
-  %.not1 = icmp eq ptr %4, null
-  br i1 %.not1, label %6, label %5
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %3
   tail call void @slurm_xfree(ptr noundef nonnull @hwloc_xml_whole) #11

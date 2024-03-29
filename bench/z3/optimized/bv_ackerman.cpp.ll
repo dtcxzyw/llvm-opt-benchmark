@@ -793,9 +793,8 @@ if.end:                                           ; preds = %for.body
   %idxprom.i41 = zext i32 %26 to i64
   %arrayidx.i42 = getelementptr inbounds i8, ptr %28, i64 %idxprom.i41
   %29 = load i8, ptr %arrayidx.i42, align 1
-  %30 = and i8 %29, 1
-  %tobool.not = icmp eq i8 %30, 0
-  br i1 %tobool.not, label %if.then27, label %if.end30
+  %tobool = trunc i8 %29 to i1
+  br i1 %tobool, label %if.end30, label %if.then27
 
 if.then27:                                        ; preds = %if.end
   store i8 1, ptr %arrayidx.i42, align 1
@@ -804,14 +803,13 @@ if.then27:                                        ; preds = %if.end
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then27, %if.end
-  %31 = phi ptr [ %28, %if.end ], [ %.pre, %if.then27 ]
+  %30 = phi ptr [ %28, %if.end ], [ %.pre, %if.then27 ]
   %glue.1 = phi i32 [ %glue.074, %if.end ], [ %inc, %if.then27 ]
   %idxprom.i45 = zext i32 %27 to i64
-  %arrayidx.i46 = getelementptr inbounds i8, ptr %31, i64 %idxprom.i45
-  %32 = load i8, ptr %arrayidx.i46, align 1
-  %33 = and i8 %32, 1
-  %tobool33.not = icmp eq i8 %33, 0
-  br i1 %tobool33.not, label %if.then34, label %for.inc
+  %arrayidx.i46 = getelementptr inbounds i8, ptr %30, i64 %idxprom.i45
+  %31 = load i8, ptr %arrayidx.i46, align 1
+  %tobool33 = trunc i8 %31 to i1
+  br i1 %tobool33, label %for.inc, label %if.then34
 
 if.then34:                                        ; preds = %if.end30
   store i8 1, ptr %arrayidx.i46, align 1
@@ -825,48 +823,48 @@ for.inc:                                          ; preds = %if.end30, %if.then3
   br i1 %exitcond.not, label %for.body42.preheader, label %for.body, !llvm.loop !8
 
 for.body42:                                       ; preds = %for.body42.preheader, %if.end63
-  %indvars.iv80 = phi i64 [ %18, %for.body42.preheader ], [ %34, %if.end63 ]
-  %34 = add nsw i64 %indvars.iv80, -1
-  %35 = load ptr, ptr %arrayidx.i26, align 8
-  %arrayidx.i50 = getelementptr inbounds %"class.sat::literal", ptr %35, i64 %34
-  %36 = load i32, ptr %arrayidx.i50, align 4
-  %37 = load ptr, ptr %arrayidx.i28, align 8
-  %arrayidx.i52 = getelementptr inbounds %"class.sat::literal", ptr %37, i64 %34
-  %38 = load i32, ptr %arrayidx.i52, align 4
-  %cmp.i53.not = icmp eq i32 %36, %38
+  %indvars.iv80 = phi i64 [ %18, %for.body42.preheader ], [ %32, %if.end63 ]
+  %32 = add nsw i64 %indvars.iv80, -1
+  %33 = load ptr, ptr %arrayidx.i26, align 8
+  %arrayidx.i50 = getelementptr inbounds %"class.sat::literal", ptr %33, i64 %32
+  %34 = load i32, ptr %arrayidx.i50, align 4
+  %35 = load ptr, ptr %arrayidx.i28, align 8
+  %arrayidx.i52 = getelementptr inbounds %"class.sat::literal", ptr %35, i64 %32
+  %36 = load i32, ptr %arrayidx.i52, align 4
+  %cmp.i53.not = icmp eq i32 %34, %36
   br i1 %cmp.i53.not, label %if.end63, label %if.then48
 
 if.then48:                                        ; preds = %for.body42
-  %39 = load ptr, ptr %this, align 8
-  %m_solver.i54 = getelementptr inbounds i8, ptr %39, i64 24
-  %40 = load ptr, ptr %m_solver.i54, align 8
-  %m_justification.i55 = getelementptr inbounds i8, ptr %40, i64 3448
-  %shr.i.i56 = lshr i32 %36, 1
-  %41 = load ptr, ptr %m_justification.i55, align 8
+  %37 = load ptr, ptr %this, align 8
+  %m_solver.i54 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = load ptr, ptr %m_solver.i54, align 8
+  %m_justification.i55 = getelementptr inbounds i8, ptr %38, i64 3448
+  %shr.i.i56 = lshr i32 %34, 1
+  %39 = load ptr, ptr %m_justification.i55, align 8
   %idxprom.i.i57 = zext nneg i32 %shr.i.i56 to i64
-  %arrayidx.i.i58 = getelementptr inbounds %"class.sat::justification", ptr %41, i64 %idxprom.i.i57
-  %42 = load i32, ptr %arrayidx.i.i58, align 8
-  %43 = load ptr, ptr %m_diff_levels, align 8
-  %idxprom.i59 = zext i32 %42 to i64
-  %arrayidx.i60 = getelementptr inbounds i8, ptr %43, i64 %idxprom.i59
+  %arrayidx.i.i58 = getelementptr inbounds %"class.sat::justification", ptr %39, i64 %idxprom.i.i57
+  %40 = load i32, ptr %arrayidx.i.i58, align 8
+  %41 = load ptr, ptr %m_diff_levels, align 8
+  %idxprom.i59 = zext i32 %40 to i64
+  %arrayidx.i60 = getelementptr inbounds i8, ptr %41, i64 %idxprom.i59
   store i8 0, ptr %arrayidx.i60, align 1
-  %44 = load ptr, ptr %this, align 8
-  %m_solver.i61 = getelementptr inbounds i8, ptr %44, i64 24
-  %45 = load ptr, ptr %m_solver.i61, align 8
-  %m_justification.i62 = getelementptr inbounds i8, ptr %45, i64 3448
-  %shr.i.i63 = lshr i32 %38, 1
-  %46 = load ptr, ptr %m_justification.i62, align 8
+  %42 = load ptr, ptr %this, align 8
+  %m_solver.i61 = getelementptr inbounds i8, ptr %42, i64 24
+  %43 = load ptr, ptr %m_solver.i61, align 8
+  %m_justification.i62 = getelementptr inbounds i8, ptr %43, i64 3448
+  %shr.i.i63 = lshr i32 %36, 1
+  %44 = load ptr, ptr %m_justification.i62, align 8
   %idxprom.i.i64 = zext nneg i32 %shr.i.i63 to i64
-  %arrayidx.i.i65 = getelementptr inbounds %"class.sat::justification", ptr %46, i64 %idxprom.i.i64
-  %47 = load i32, ptr %arrayidx.i.i65, align 8
-  %48 = load ptr, ptr %m_diff_levels, align 8
-  %idxprom.i66 = zext i32 %47 to i64
-  %arrayidx.i67 = getelementptr inbounds i8, ptr %48, i64 %idxprom.i66
+  %arrayidx.i.i65 = getelementptr inbounds %"class.sat::justification", ptr %44, i64 %idxprom.i.i64
+  %45 = load i32, ptr %arrayidx.i.i65, align 8
+  %46 = load ptr, ptr %m_diff_levels, align 8
+  %idxprom.i66 = zext i32 %45 to i64
+  %arrayidx.i67 = getelementptr inbounds i8, ptr %46, i64 %idxprom.i66
   store i8 0, ptr %arrayidx.i67, align 1
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then48, %for.body42
-  %cmp41.not.wide = icmp eq i64 %34, 0
+  %cmp41.not.wide = icmp eq i64 %32, 0
   br i1 %cmp41.not.wide, label %for.end64, label %for.body42, !llvm.loop !9
 
 for.end64:                                        ; preds = %if.end63, %_ZN6vectorIbLb0EjE7reserveEjRKb.exit

@@ -22,9 +22,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Request_get_status(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) #0 {
   %4 = load i8, ptr @ompi_mpi_param_check, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %19, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %19
 
 6:                                                ; preds = %3
   %7 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -61,12 +60,12 @@ define i32 @PMPI_Request_get_status(ptr noundef %0, ptr noundef writeonly %1, pt
   %22 = getelementptr inbounds i8, ptr %0, i64 88
   %23 = load volatile i32, ptr %21, align 8
   %24 = icmp eq i32 %23, 1
-  br i1 %24, label %._crit_edge, label %.lr.ph36
+  br i1 %24, label %._crit_edge, label %.lr.ph35
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph, %19
   store i32 1, ptr %1, align 4
-  %.not32 = icmp eq ptr %2, null
-  br i1 %.not32, label %57, label %25
+  %.not31 = icmp eq ptr %2, null
+  br i1 %.not31, label %57, label %25
 
 25:                                               ; preds = %._crit_edge
   %26 = load <2 x i32>, ptr @ompi_status_empty, align 8
@@ -79,13 +78,13 @@ define i32 @PMPI_Request_get_status(ptr noundef %0, ptr noundef writeonly %1, pt
   store i32 %29, ptr %30, align 4
   br label %57
 
-.lr.ph36:                                         ; preds = %.lr.ph, %53
+.lr.ph35:                                         ; preds = %.lr.ph, %53
   %31 = phi i1 [ false, %53 ], [ true, %.lr.ph ]
   %32 = load ptr, ptr %22, align 8
-  %.not30 = icmp eq ptr %32, null
-  br i1 %.not30, label %52, label %.split
+  %.not = icmp eq ptr %32, null
+  br i1 %.not, label %52, label %.split
 
-.split:                                           ; preds = %.lr.ph36
+.split:                                           ; preds = %.lr.ph35
   store i32 1, ptr %1, align 4
   %33 = getelementptr inbounds i8, ptr %0, i64 56
   %34 = load i32, ptr %33, align 8
@@ -98,8 +97,8 @@ define i32 @PMPI_Request_get_status(ptr noundef %0, ptr noundef writeonly %1, pt
   br label %39
 
 39:                                               ; preds = %36, %.split
-  %.not31 = icmp eq ptr %2, null
-  br i1 %.not31, label %57, label %40
+  %.not30 = icmp eq ptr %2, null
+  br i1 %.not30, label %57, label %40
 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds i8, ptr %0, i64 64
@@ -119,22 +118,22 @@ define i32 @PMPI_Request_get_status(ptr noundef %0, ptr noundef writeonly %1, pt
   store i32 %50, ptr %51, align 4
   br label %57
 
-52:                                               ; preds = %.lr.ph36
-  br i1 %31, label %53, label %.split35
+52:                                               ; preds = %.lr.ph35
+  br i1 %31, label %53, label %.split34
 
 53:                                               ; preds = %52
   %54 = tail call i32 @opal_progress() #2
   fence seq_cst
   %55 = load volatile i32, ptr %21, align 8
   %56 = icmp eq i32 %55, 1
-  br i1 %56, label %._crit_edge, label %.lr.ph36
+  br i1 %56, label %._crit_edge, label %.lr.ph35
 
-.split35:                                         ; preds = %52
+.split34:                                         ; preds = %52
   store i32 0, ptr %1, align 4
   br label %57
 
-57:                                               ; preds = %39, %40, %._crit_edge, %25, %.split35, %17, %13
-  %.027 = phi i32 [ %14, %13 ], [ %18, %17 ], [ 0, %.split35 ], [ 0, %25 ], [ 0, %._crit_edge ], [ 0, %40 ], [ 0, %39 ]
+57:                                               ; preds = %39, %40, %._crit_edge, %25, %.split34, %17, %13
+  %.027 = phi i32 [ %14, %13 ], [ %18, %17 ], [ 0, %.split34 ], [ 0, %25 ], [ 0, %._crit_edge ], [ 0, %40 ], [ 0, %39 ]
   ret i32 %.027
 }
 

@@ -45,9 +45,8 @@ define internal fastcc ptr @like_regex_support(ptr noundef %0, i32 noundef %1) u
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 36
   %6 = load i8, ptr %5, align 4
-  %7 = and i8 %6, 1
-  %.not35 = icmp eq i8 %7, 0
-  br i1 %.not35, label %8, label %20
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %20, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -109,9 +108,9 @@ is_opclause.exit:                                 ; preds = %25
   %44 = getelementptr inbounds i8, ptr %27, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr i8, ptr %45, i64 16
-  %.val37 = load ptr, ptr %46, align 8
-  %47 = load ptr, ptr %.val37, align 8
-  %48 = getelementptr i8, ptr %.val37, i64 8
+  %.val36 = load ptr, ptr %46, align 8
+  %47 = load ptr, ptr %.val36, align 8
+  %48 = getelementptr i8, ptr %.val36, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %27, i64 24
   %51 = load i32, ptr %50, align 8
@@ -467,9 +466,8 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
 
 18:                                               ; preds = %8
   %19 = load i8, ptr %11, align 1
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %25, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %25
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %10, align 8
@@ -480,21 +478,20 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
 25:                                               ; preds = %18, %21
   %26 = getelementptr inbounds i8, ptr %9, i64 16
   %27 = load ptr, ptr %26, align 8
-  %.not75 = icmp eq ptr %27, null
-  br i1 %.not75, label %129, label %.sink.split
+  %.not = icmp eq ptr %27, null
+  br i1 %.not, label %129, label %.sink.split
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %22, i64 32
   %30 = load i8, ptr %29, align 8
-  %31 = and i8 %30, 1
-  %.not76 = icmp eq i8 %31, 0
-  br i1 %.not76, label %35, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %9, i64 16
   %34 = load ptr, ptr %33, align 8
-  %.not85 = icmp eq ptr %34, null
-  br i1 %.not85, label %129, label %.sink.split
+  %.not83 = icmp eq ptr %34, null
+  br i1 %.not83, label %129, label %.sink.split
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds i8, ptr %22, i64 24
@@ -508,8 +505,8 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
 41:                                               ; preds = %35
   %42 = getelementptr inbounds i8, ptr %9, i64 16
   %43 = load ptr, ptr %42, align 8
-  %.not84 = icmp eq ptr %43, null
-  br i1 %.not84, label %129, label %.sink.split
+  %.not82 = icmp eq ptr %43, null
+  br i1 %.not82, label %129, label %.sink.split
 
 44:                                               ; preds = %35
   %45 = getelementptr inbounds i8, ptr %9, i64 32
@@ -533,8 +530,8 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
 50:                                               ; preds = %44
   %51 = getelementptr inbounds i8, ptr %9, i64 16
   %52 = load ptr, ptr %51, align 8
-  %.not83 = icmp eq ptr %52, null
-  br i1 %.not83, label %129, label %.sink.split
+  %.not81 = icmp eq ptr %52, null
+  br i1 %.not81, label %129, label %.sink.split
 
 53:                                               ; preds = %44, %49, %48, %47
   %.063 = phi i32 [ 1960, %49 ], [ 1061, %48 ], [ 257, %47 ], [ 667, %44 ]
@@ -543,8 +540,8 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
   %.056 = phi i32 [ %46, %49 ], [ %46, %48 ], [ 25, %47 ], [ %46, %44 ]
   %54 = getelementptr inbounds i8, ptr %9, i64 16
   %55 = load ptr, ptr %54, align 8
-  %.not77 = icmp eq ptr %55, null
-  br i1 %.not77, label %66, label %56
+  %.not75 = icmp eq ptr %55, null
+  br i1 %.not75, label %66, label %56
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i8, ptr %55, i64 16
@@ -562,14 +559,14 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
   %.061 = phi double [ %65, %56 ], [ 0.000000e+00, %53 ]
   %67 = call fastcc i32 @pattern_fixed_prefix(ptr noundef nonnull %22, i32 noundef %6, i32 noundef %5, ptr noundef nonnull %12, ptr noundef nonnull %13), !range !5
   %68 = load ptr, ptr %12, align 8
-  %.not78 = icmp eq ptr %68, null
-  br i1 %.not78, label %73, label %69
+  %.not76 = icmp eq ptr %68, null
+  br i1 %.not76, label %73, label %69
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds i8, ptr %68, i64 4
   %71 = load i32, ptr %70, align 4
-  %.not79 = icmp eq i32 %71, %.056
-  br i1 %.not79, label %73, label %72
+  %.not77 = icmp eq i32 %71, %.056
+  br i1 %.not77, label %73, label %72
 
 72:                                               ; preds = %69
   store i32 %.056, ptr %70, align 4
@@ -586,8 +583,8 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
   br label %113
 
 79:                                               ; preds = %73
-  %.not80 = icmp eq i32 %2, 0
-  br i1 %.not80, label %80, label %82
+  %.not78 = icmp eq i32 %2, 0
+  br i1 %.not78, label %80, label %82
 
 80:                                               ; preds = %79
   %81 = call i32 @get_opcode(i32 noundef %1) #11
@@ -664,7 +661,7 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
 
 120:                                              ; preds = %113, %119, %117
   %.3 = phi double [ 1.000000e+00, %119 ], [ %.2, %117 ], [ 0.000000e+00, %113 ]
-  br i1 %.not78, label %125, label %121
+  br i1 %.not76, label %125, label %121
 
 121:                                              ; preds = %120
   %122 = getelementptr inbounds i8, ptr %68, i64 24
@@ -676,8 +673,8 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
 
 125:                                              ; preds = %120, %121
   %126 = load ptr, ptr %54, align 8
-  %.not82 = icmp eq ptr %126, null
-  br i1 %.not82, label %129, label %.sink.split
+  %.not80 = icmp eq ptr %126, null
+  br i1 %.not80, label %129, label %.sink.split
 
 .sink.split:                                      ; preds = %125, %50, %41, %32, %25
   %.sink = phi ptr [ %27, %25 ], [ %34, %32 ], [ %43, %41 ], [ %52, %50 ], [ %126, %125 ]
@@ -703,13 +700,12 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture n
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %1, i64 32
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %61
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %61, label %15
 
 15:                                               ; preds = %11
-  %.not73 = icmp eq i32 %3, 0
-  br i1 %.not73, label %.split, label %16
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %.split, label %16
 
 16:                                               ; preds = %15
   %17 = tail call zeroext i1 @get_collation_isdeterministic(i32 noundef %3) #11
@@ -745,7 +741,7 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture n
 25:                                               ; preds = %20
   %26 = icmp ne i32 %4, 2097
   %. = select i1 %26, i32 1058, i32 2326
-  %.77 = select i1 %26, i32 1061, i32 2329
+  %.76 = select i1 %26, i32 1061, i32 2329
   br label %28
 
 27:                                               ; preds = %20
@@ -753,8 +749,8 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture n
 
 28:                                               ; preds = %20, %24, %23, %22, %27, %25
   %.268 = phi i32 [ 1957, %27 ], [ %., %25 ], [ 2314, %23 ], [ 664, %24 ], [ 2314, %22 ], [ 255, %20 ]
-  %.265 = phi i32 [ 1960, %27 ], [ %.77, %25 ], [ 2317, %23 ], [ 667, %24 ], [ 2317, %22 ], [ 257, %20 ]
-  %.not75 = phi i1 [ true, %27 ], [ true, %25 ], [ false, %23 ], [ true, %24 ], [ true, %22 ], [ true, %20 ]
+  %.265 = phi i32 [ 1960, %27 ], [ %.76, %25 ], [ 2317, %23 ], [ 667, %24 ], [ 2317, %22 ], [ 257, %20 ]
+  %.not74 = phi i1 [ true, %27 ], [ true, %25 ], [ false, %23 ], [ true, %24 ], [ true, %22 ], [ true, %20 ]
   %.162 = phi i32 [ 0, %27 ], [ 0, %25 ], [ 3877, %23 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ]
   %.260 = phi i1 [ false, %27 ], [ %26, %25 ], [ false, %23 ], [ true, %24 ], [ false, %22 ], [ true, %20 ]
   %.2 = phi i32 [ 1955, %27 ], [ 1054, %25 ], [ 98, %23 ], [ 98, %24 ], [ 98, %22 ], [ 254, %20 ]
@@ -762,8 +758,8 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture n
   %29 = load ptr, ptr %7, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
-  %.not74 = icmp eq i32 %31, %.056
-  br i1 %.not74, label %33, label %32
+  %.not73 = icmp eq i32 %31, %.056
+  br i1 %.not73, label %33, label %32
 
 32:                                               ; preds = %28
   store i32 %.056, ptr %30, align 4
@@ -783,7 +779,7 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture n
   br label %61
 
 40:                                               ; preds = %33
-  br i1 %.not75, label %46, label %41
+  br i1 %.not74, label %46, label %41
 
 41:                                               ; preds = %40
   %42 = tail call zeroext i1 @op_in_opfamily(i32 noundef %.162, i32 noundef %4) #11
@@ -815,8 +811,8 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture n
   %56 = tail call i32 @get_opcode(i32 noundef %.268) #11
   call void @fmgr_info(i32 noundef %56, ptr noundef nonnull %8) #11
   %57 = call fastcc ptr @make_greater_string(ptr noundef nonnull %29, ptr noundef nonnull %8, i32 noundef %5)
-  %.not76 = icmp eq ptr %57, null
-  br i1 %.not76, label %61, label %58
+  %.not75 = icmp eq ptr %57, null
+  br i1 %.not75, label %61, label %58
 
 58:                                               ; preds = %55
   %59 = call ptr @make_opclause(i32 noundef %.268, i32 noundef 16, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %57, i32 noundef 0, i32 noundef %5) #11
@@ -842,19 +838,19 @@ define internal fastcc i32 @pattern_fixed_prefix(ptr nocapture noundef readonly 
 
 6:                                                ; preds = %5
   %7 = tail call fastcc i32 @like_fixed_prefix(ptr noundef %0, i1 noundef zeroext false, i32 noundef %2, ptr noundef %3, ptr noundef %4), !range !5
-  br label %39
+  br label %36
 
 8:                                                ; preds = %5
   %9 = tail call fastcc i32 @like_fixed_prefix(ptr noundef %0, i1 noundef zeroext true, i32 noundef %2, ptr noundef %3, ptr noundef %4), !range !5
-  br label %39
+  br label %36
 
 10:                                               ; preds = %5
   %11 = tail call fastcc i32 @regex_fixed_prefix(ptr noundef %0, i1 noundef zeroext false, i32 noundef %2, ptr noundef %3, ptr noundef %4), !range !5
-  br label %39
+  br label %36
 
 12:                                               ; preds = %5
   %13 = tail call fastcc i32 @regex_fixed_prefix(ptr noundef %0, i1 noundef zeroext true, i32 noundef %2, ptr noundef %3, ptr noundef %4), !range !5
-  br label %39
+  br label %36
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i8, ptr %0, i64 4
@@ -869,30 +865,27 @@ define internal fastcc i32 @pattern_fixed_prefix(ptr nocapture noundef readonly 
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 33
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %28 = icmp ne i8 %27, 0
-  %29 = tail call i64 @datumCopy(i64 noundef %24, i1 noundef zeroext %28, i32 noundef %22) #11
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
-  %31 = load i8, ptr %30, align 8
-  %32 = and i8 %31, 1
-  %33 = icmp ne i8 %32, 0
-  %34 = load i8, ptr %25, align 1
-  %35 = and i8 %34, 1
-  %36 = icmp ne i8 %35, 0
-  %37 = tail call ptr @makeConst(i32 noundef %16, i32 noundef %18, i32 noundef %20, i32 noundef %22, i64 noundef %29, i1 noundef zeroext %33, i1 noundef zeroext %36) #11
-  store ptr %37, ptr %3, align 8
+  %27 = trunc i8 %26 to i1
+  %28 = tail call i64 @datumCopy(i64 noundef %24, i1 noundef zeroext %27, i32 noundef %22) #11
+  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = load i8, ptr %29, align 8
+  %31 = trunc i8 %30 to i1
+  %32 = load i8, ptr %25, align 1
+  %33 = trunc i8 %32 to i1
+  %34 = tail call ptr @makeConst(i32 noundef %16, i32 noundef %18, i32 noundef %20, i32 noundef %22, i64 noundef %28, i1 noundef zeroext %31, i1 noundef zeroext %33) #11
+  store ptr %34, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %39, label %38
+  br i1 %.not, label %36, label %35
 
-38:                                               ; preds = %14
+35:                                               ; preds = %14
   store double 1.000000e+00, ptr %4, align 8
-  br label %39
+  br label %36
 
 default.unreachable:                              ; preds = %5
   unreachable
 
-39:                                               ; preds = %14, %38, %12, %10, %8, %6
-  %.0 = phi i32 [ 1, %38 ], [ 1, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+36:                                               ; preds = %14, %35, %12, %10, %8, %6
+  %.0 = phi i32 [ 1, %35 ], [ 1, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
   ret i32 %.0
 }
 
@@ -1458,8 +1451,8 @@ define internal fastcc i32 @regex_fixed_prefix(ptr nocapture noundef readonly %0
 
 21:                                               ; preds = %14
   store ptr null, ptr %3, align 8
-  %.not32 = icmp eq ptr %4, null
-  br i1 %.not32, label %101, label %22
+  %.not30 = icmp eq ptr %4, null
+  br i1 %.not30, label %101, label %22
 
 22:                                               ; preds = %21
   %23 = load i64, ptr %15, align 8
@@ -1525,9 +1518,8 @@ regex_selectivity.exit:                           ; preds = %47, %49, %51
 
 54:                                               ; preds = %52
   %55 = load i8, ptr %6, align 1
-  %56 = and i8 %55, 1
-  %.not30 = icmp eq i8 %56, 0
-  br i1 %.not30, label %58, label %57
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %58
 
 57:                                               ; preds = %54
   store double 1.000000e+00, ptr %4, align 8
@@ -1561,8 +1553,8 @@ regex_selectivity.exit:                           ; preds = %47, %49, %51
   %77 = getelementptr i8, ptr %61, i64 %76
   %78 = getelementptr i8, ptr %77, i64 -2
   %79 = load i8, ptr %78, align 1
-  %.not.i35 = icmp eq i8 %79, 92
-  br i1 %.not.i35, label %82, label %80
+  %.not.i33 = icmp eq i8 %79, 92
+  br i1 %.not.i33, label %82, label %80
 
 80:                                               ; preds = %75, %73
   %81 = call fastcc double @regex_selectivity_sub(ptr noundef nonnull %61, i32 noundef %68)
@@ -1574,7 +1566,7 @@ regex_selectivity.exit:                           ; preds = %47, %49, %51
   br label %85
 
 85:                                               ; preds = %82, %80
-  %.0.i33 = phi double [ %81, %80 ], [ %84, %82 ]
+  %.0.i31 = phi double [ %81, %80 ], [ %84, %82 ]
   %86 = icmp sgt i32 %65, 0
   br i1 %86, label %87, label %93
 
@@ -1585,33 +1577,32 @@ regex_selectivity.exit:                           ; preds = %47, %49, %51
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %87
-  %92 = fdiv double %.0.i33, %89
+  %92 = fdiv double %.0.i31, %89
   br label %93
 
 93:                                               ; preds = %91, %87, %85
-  %.1.i = phi double [ %92, %91 ], [ %.0.i33, %87 ], [ %.0.i33, %85 ]
+  %.1.i = phi double [ %92, %91 ], [ %.0.i31, %87 ], [ %.0.i31, %85 ]
   %94 = fcmp olt double %.1.i, 0.000000e+00
-  br i1 %94, label %regex_selectivity.exit36, label %95
+  br i1 %94, label %regex_selectivity.exit34, label %95
 
 95:                                               ; preds = %93
   %96 = fcmp ogt double %.1.i, 1.000000e+00
-  br i1 %96, label %97, label %regex_selectivity.exit36
+  br i1 %96, label %97, label %regex_selectivity.exit34
 
 97:                                               ; preds = %95
-  br label %regex_selectivity.exit36
+  br label %regex_selectivity.exit34
 
-regex_selectivity.exit36:                         ; preds = %93, %95, %97
-  %.2.i34 = phi double [ 1.000000e+00, %97 ], [ %.1.i, %95 ], [ 0.000000e+00, %93 ]
-  store double %.2.i34, ptr %4, align 8
+regex_selectivity.exit34:                         ; preds = %93, %95, %97
+  %.2.i32 = phi double [ 1.000000e+00, %97 ], [ %.1.i, %95 ], [ 0.000000e+00, %93 ]
+  store double %.2.i32, ptr %4, align 8
   call void @pfree(ptr noundef %61) #11
   br label %98
 
-98:                                               ; preds = %57, %regex_selectivity.exit36, %52
+98:                                               ; preds = %57, %regex_selectivity.exit34, %52
   call void @pfree(ptr noundef nonnull %19) #11
   %99 = load i8, ptr %6, align 1
-  %100 = and i8 %99, 1
-  %.not31 = icmp eq i8 %100, 0
-  %. = select i1 %.not31, i32 1, i32 2
+  %100 = trunc i8 %99 to i1
+  %. = select i1 %100, i32 2, i32 1
   br label %101
 
 101:                                              ; preds = %98, %21, %regex_selectivity.exit

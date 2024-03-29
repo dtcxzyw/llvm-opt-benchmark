@@ -287,10 +287,10 @@ define hidden noundef i32 @phpdbg_do_set_break(ptr nocapture noundef readonly %0
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8
-  %.not13 = icmp eq i64 %8, 0
+  %.not12 = icmp eq i64 %8, 0
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
-  br i1 %.not13, label %12, label %11
+  br i1 %.not12, label %12, label %11
 
 11:                                               ; preds = %6
   tail call void @phpdbg_enable_breakpoint(i64 noundef %10) #4
@@ -312,9 +312,8 @@ define hidden noundef i32 @phpdbg_do_set_break(ptr nocapture noundef readonly %0
 19:                                               ; preds = %13
   %20 = getelementptr inbounds i8, ptr %16, i64 16
   %21 = load i8, ptr %20, align 8
-  %22 = and i8 %21, 1
-  %.not12 = icmp eq i8 %22, 0
-  %23 = select i1 %.not12, ptr @.str.27, ptr @.str.28
+  %22 = trunc i8 %21 to i1
+  %23 = select i1 %22, ptr @.str.28, ptr @.str.27
   %24 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 3, i32 noundef %17, ptr noundef nonnull @.str.32, i64 noundef %18, ptr noundef nonnull %23) #4
   br label %30
 

@@ -1899,13 +1899,13 @@ sat_solver_random_polarity.exit:                  ; preds = %.critedge.i, %.lr.p
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i64, ptr %73, i64 %67
   %75 = load i64, ptr %74, align 8
+  %76 = lshr i64 %75, %69
   %.val31 = load ptr, ptr %13, align 8
-  %76 = getelementptr inbounds i32, ptr %.val31, i64 %indvars.iv
-  %77 = load i32, ptr %76, align 4
-  %78 = icmp eq i32 %77, 1
-  %79 = and i64 %75, %70
-  %80 = icmp eq i64 %79, 0
-  %.not29 = xor i1 %80, %78
+  %77 = getelementptr inbounds i32, ptr %.val31, i64 %indvars.iv
+  %78 = load i32, ptr %77, align 4
+  %79 = trunc i64 %76 to i1
+  %80 = icmp ne i32 %78, 1
+  %.not29 = xor i1 %80, %79
   br i1 %.not29, label %83, label %81
 
 81:                                               ; preds = %71

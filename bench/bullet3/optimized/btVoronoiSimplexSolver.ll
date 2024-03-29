@@ -212,13 +212,13 @@ entry:
   %p190 = alloca %class.btVector3, align 4
   %m_needsUpdate = getelementptr inbounds i8, ptr %this, i64 356
   %0 = load i8, ptr %m_needsUpdate, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %entry.if.end320_crit_edge, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %entry.if.end320_crit_edge
 
 entry.if.end320_crit_edge:                        ; preds = %entry
   %m_cachedValidClosest321.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 312
   %.pre = load i8, ptr %m_cachedValidClosest321.phi.trans.insert, align 4
+  %1 = trunc i8 %.pre to i1
   br label %if.end320
 
 if.then:                                          ; preds = %entry
@@ -392,8 +392,8 @@ if.then29.i:                                      ; preds = %land.lhs.true24.i
 _ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit: ; preds = %land.lhs.true24.i, %if.then29.i
   %cmp.i166 = fcmp oge float %sub, 0.000000e+00
   %cmp4.i168 = fcmp oge float %19, 0.000000e+00
-  %or.cond.i169.not = and i1 %cmp.i166, %cmp4.i168
-  %frombool102 = zext i1 %or.cond.i169.not to i8
+  %or.cond.i169.not684 = and i1 %cmp.i166, %cmp4.i168
+  %frombool102 = zext i1 %or.cond.i169.not684 to i8
   %m_cachedValidClosest101 = getelementptr inbounds i8, ptr %this, i64 312
   store i8 %frombool102, ptr %m_cachedValidClosest101, align 4
   br label %if.end320
@@ -612,8 +612,8 @@ _ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit363: ; preds
   %102 = insertelement <4 x float> %101, float %98, i64 0
   %103 = insertelement <4 x float> %102, float %99, i64 1
   %104 = insertelement <4 x float> %103, float %100, i64 3
-  %.fr696 = freeze <4 x float> %104
-  %105 = fcmp ult <4 x float> %.fr696, zeroinitializer
+  %.fr699 = freeze <4 x float> %104
+  %105 = fcmp ult <4 x float> %.fr699, zeroinitializer
   %106 = bitcast <4 x i1> %105 to i4
   %107 = icmp eq i4 %106, 0
   %frombool188 = zext i1 %107 to i8
@@ -756,11 +756,11 @@ if.then209:                                       ; preds = %sw.bb189
   %196 = fsub <2 x float> %170, %194
   %shift = shufflevector <2 x float> %184, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %197 = fsub <2 x float> %shift, %184
-  %retval.sroa.3.12.vec.insert.i540695 = insertelement <2 x float> %197, float 0.000000e+00, i64 1
+  %retval.sroa.3.12.vec.insert.i540698 = insertelement <2 x float> %197, float 0.000000e+00, i64 1
   %m_cachedV299 = getelementptr inbounds i8, ptr %this, i64 276
   store <2 x float> %196, ptr %m_cachedV299, align 4
   %ref.tmp294.sroa.2.0.m_cachedV299.sroa_idx = getelementptr inbounds i8, ptr %this, i64 284
-  store <2 x float> %retval.sroa.3.12.vec.insert.i540695, ptr %ref.tmp294.sroa.2.0.m_cachedV299.sroa_idx, align 4
+  store <2 x float> %retval.sroa.3.12.vec.insert.i540698, ptr %ref.tmp294.sroa.2.0.m_cachedV299.sroa_idx, align 4
   %198 = load i32, ptr %this, align 4
   %cmp.i543 = icmp sgt i32 %198, 3
   br i1 %cmp.i543, label %land.lhs.true.i593, label %if.end.i544
@@ -878,17 +878,16 @@ _ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit608: ; preds
 if.else302:                                       ; preds = %sw.bb189
   %m_degenerate = getelementptr inbounds i8, ptr %this, i64 352
   %209 = load i8, ptr %m_degenerate, align 4
-  %210 = and i8 %209, 1
-  %tobool304.not = icmp eq i8 %210, 0
-  %m_cachedValidClosest308 = getelementptr inbounds i8, ptr %this, i64 312
-  br i1 %tobool304.not, label %if.else307, label %if.then305
+  %tobool304 = trunc i8 %209 to i1
+  %m_cachedValidClosest306 = getelementptr inbounds i8, ptr %this, i64 312
+  br i1 %tobool304, label %if.then305, label %if.else307
 
 if.then305:                                       ; preds = %if.else302
-  store i8 0, ptr %m_cachedValidClosest308, align 4
+  store i8 0, ptr %m_cachedValidClosest306, align 4
   br label %if.end320
 
 if.else307:                                       ; preds = %if.else302
-  store i8 1, ptr %m_cachedValidClosest308, align 4
+  store i8 1, ptr %m_cachedValidClosest306, align 4
   %m_cachedV309 = getelementptr inbounds i8, ptr %this, i64 276
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_cachedV309, i8 0, i64 16, i1 false)
   br label %if.end320
@@ -899,9 +898,7 @@ sw.default:                                       ; preds = %if.then
   br label %if.end320
 
 if.end320:                                        ; preds = %entry.if.end320_crit_edge, %sw.bb, %_ZN25btSubSimplexClosestResult7isValidEv.exit, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit363, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit608, %sw.default, %if.else307, %if.then305
-  %211 = phi i8 [ %.pre, %entry.if.end320_crit_edge ], [ 0, %sw.bb ], [ 1, %_ZN25btSubSimplexClosestResult7isValidEv.exit ], [ %frombool102, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit ], [ %frombool188, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit363 ], [ %frombool318, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit608 ], [ 0, %sw.default ], [ 1, %if.else307 ], [ 0, %if.then305 ]
-  %212 = and i8 %211, 1
-  %tobool322 = icmp ne i8 %212, 0
+  %tobool322 = phi i1 [ %1, %entry.if.end320_crit_edge ], [ false, %sw.bb ], [ true, %_ZN25btSubSimplexClosestResult7isValidEv.exit ], [ %or.cond.i169.not684, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit ], [ %107, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit363 ], [ %208, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit608 ], [ false, %sw.default ], [ true, %if.else307 ], [ false, %if.then305 ]
   ret i1 %tobool322
 }
 

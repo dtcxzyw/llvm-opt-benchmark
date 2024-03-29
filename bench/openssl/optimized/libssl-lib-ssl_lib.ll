@@ -2313,8 +2313,8 @@ if.then58.i:                                      ; preds = %if.end52.i
   store ptr %data, ptr %p.i, align 8
   store ptr null, ptr %cert.i, align 8
   store ptr null, ptr %pkey.i, align 8
-  %trunc.not.i = icmp eq i8 %selector, 0
-  br i1 %trunc.not.i, label %sw.bb.i, label %sw.bb96.i
+  %trunc.i = trunc i8 %selector to i1
+  br i1 %trunc.i, label %sw.bb96.i, label %sw.bb.i
 
 sw.bb.i:                                          ; preds = %if.then58.i
   %call61.i = call ptr @d2i_X509(ptr noundef nonnull %cert.i, ptr noundef nonnull %p.i, i64 noundef %conv4.i) #24

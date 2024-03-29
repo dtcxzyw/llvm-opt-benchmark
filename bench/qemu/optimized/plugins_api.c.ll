@@ -45,9 +45,8 @@ define dso_local void @qemu_plugin_register_vcpu_tb_exec_cb(ptr noundef %tb, ptr
 entry:
   %mem_only = getelementptr inbounds i8, ptr %tb, i64 48
   %0 = load i8, ptr %mem_only, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %cbs = getelementptr inbounds i8, ptr %tb, i64 56
@@ -65,9 +64,8 @@ define dso_local void @qemu_plugin_register_vcpu_tb_exec_inline(ptr noundef %tb,
 entry:
   %mem_only = getelementptr inbounds i8, ptr %tb, i64 48
   %0 = load i8, ptr %mem_only, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %arrayidx = getelementptr i8, ptr %tb, i64 64
@@ -85,9 +83,8 @@ define dso_local void @qemu_plugin_register_vcpu_insn_exec_cb(ptr noundef %insn,
 entry:
   %mem_only = getelementptr inbounds i8, ptr %insn, i64 58
   %0 = load i8, ptr %mem_only, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %cbs = getelementptr inbounds i8, ptr %insn, i64 24
@@ -103,9 +100,8 @@ define dso_local void @qemu_plugin_register_vcpu_insn_exec_inline(ptr noundef %i
 entry:
   %mem_only = getelementptr inbounds i8, ptr %insn, i64 58
   %0 = load i8, ptr %mem_only, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %arrayidx1 = getelementptr i8, ptr %insn, i64 32
@@ -186,9 +182,9 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %arrayidx, align 8
   %mem_only = getelementptr inbounds i8, ptr %tb, i64 48
   %4 = load i8, ptr %mem_only, align 8
-  %5 = and i8 %4, 1
   %mem_only3 = getelementptr inbounds i8, ptr %3, i64 58
-  store i8 %5, ptr %mem_only3, align 2
+  %frombool = and i8 %4, 1
+  store i8 %frombool, ptr %mem_only3, align 2
   br label %return
 
 return:                                           ; preds = %entry, %if.end

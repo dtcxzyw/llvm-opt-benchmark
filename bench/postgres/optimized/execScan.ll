@@ -200,9 +200,8 @@ define internal fastcc ptr @ExecScanFetch(ptr noundef %0, ptr nocapture noundef 
   %30 = zext i32 %29 to i64
   %31 = getelementptr i8, ptr %28, i64 %30
   %32 = load i8, ptr %31, align 1
-  %33 = and i8 %32, 1
-  %.not50 = icmp eq i8 %33, 0
-  br i1 %.not50, label %41, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %41
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds i8, ptr %0, i64 216
@@ -219,16 +218,16 @@ define internal fastcc ptr @ExecScanFetch(ptr noundef %0, ptr nocapture noundef 
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr ptr, ptr %43, i64 %30
   %45 = load ptr, ptr %44, align 8
-  %.not51 = icmp eq ptr %45, null
-  br i1 %.not51, label %57, label %46
+  %.not50 = icmp eq ptr %45, null
+  br i1 %.not50, label %57, label %46
 
 46:                                               ; preds = %41
   store i8 1, ptr %31, align 1
   %47 = getelementptr inbounds i8, ptr %45, i64 4
   %48 = load i16, ptr %47, align 4
   %49 = and i16 %48, 2
-  %.not54 = icmp eq i16 %49, 0
-  br i1 %.not54, label %50, label %80
+  %.not53 = icmp eq i16 %49, 0
+  br i1 %.not53, label %50, label %80
 
 50:                                               ; preds = %46
   %51 = tail call zeroext i1 %2(ptr noundef nonnull %0, ptr noundef nonnull %45) #5
@@ -247,8 +246,8 @@ define internal fastcc ptr @ExecScanFetch(ptr noundef %0, ptr nocapture noundef 
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr ptr, ptr %59, i64 %30
   %61 = load ptr, ptr %60, align 8
-  %.not52 = icmp eq ptr %61, null
-  br i1 %.not52, label %78, label %62
+  %.not51 = icmp eq ptr %61, null
+  br i1 %.not51, label %78, label %62
 
 62:                                               ; preds = %57
   %63 = getelementptr inbounds i8, ptr %0, i64 216
@@ -263,8 +262,8 @@ define internal fastcc ptr @ExecScanFetch(ptr noundef %0, ptr nocapture noundef 
   %68 = getelementptr inbounds i8, ptr %64, i64 4
   %69 = load i16, ptr %68, align 4
   %70 = and i16 %69, 2
-  %.not53 = icmp eq i16 %70, 0
-  br i1 %.not53, label %71, label %80
+  %.not52 = icmp eq i16 %70, 0
+  br i1 %.not52, label %71, label %80
 
 71:                                               ; preds = %67
   %72 = tail call zeroext i1 %2(ptr noundef nonnull %0, ptr noundef nonnull %64) #5
@@ -344,11 +343,11 @@ define dso_local void @ExecScanReScan(ptr nocapture noundef readonly %0) local_u
   %21 = zext i32 %20 to i64
   %22 = getelementptr i8, ptr %19, i64 %21
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %25 = getelementptr inbounds i8, ptr %11, i64 80
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr i8, ptr %26, i64 %21
-  store i8 %24, ptr %27, align 1
+  %24 = getelementptr inbounds i8, ptr %11, i64 80
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr i8, ptr %25, i64 %21
+  %27 = and i8 %23, 1
+  store i8 %27, ptr %26, align 1
   br label %.loopexit
 
 28:                                               ; preds = %12
@@ -390,10 +389,10 @@ define dso_local void @ExecScanReScan(ptr nocapture noundef readonly %0) local_u
   %46 = sext i32 %45 to i64
   %47 = getelementptr i8, ptr %44, i64 %46
   %48 = load i8, ptr %47, align 1
-  %49 = and i8 %48, 1
-  %50 = load ptr, ptr %41, align 8
-  %51 = getelementptr i8, ptr %50, i64 %46
-  store i8 %49, ptr %51, align 1
+  %49 = load ptr, ptr %41, align 8
+  %50 = getelementptr i8, ptr %49, i64 %46
+  %51 = and i8 %48, 1
+  store i8 %51, ptr %50, align 1
   %52 = tail call i32 @bms_next_member(ptr noundef %.020, i32 noundef %43) #5
   %53 = icmp sgt i32 %52, -1
   br i1 %53, label %42, label %.loopexit, !llvm.loop !5

@@ -105,9 +105,8 @@ define dso_local void @qemu_mutex_destroy(ptr noundef %mutex) local_unnamed_addr
 entry:
   %initialized = getelementptr inbounds i8, ptr %mutex, i64 40
   %0 = load i8, ptr %initialized, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_destroy) #21
@@ -120,9 +119,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %2 = load ptr, ptr @stderr, align 8
+  %1 = load ptr, ptr @stderr, align 8
   %call.i = tail call ptr @strerror(i32 noundef %call) #19
-  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_destroy, ptr noundef %call.i) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_destroy, ptr noundef %call.i) #20
   tail call void @abort() #21
   unreachable
 
@@ -143,9 +142,8 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %initialized = getelementptr inbounds i8, ptr %mutex, i64 40
   %0 = load i8, ptr %initialized, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 92, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_lock_impl) #21
@@ -153,32 +151,31 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %2 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i = icmp ne i32 %2, 0
-  %3 = load i16, ptr @_TRACE_QEMU_MUTEX_LOCK_DSTATE, align 2
-  %tobool4.i.i.i = icmp ne i16 %3, 0
+  %1 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %1, 0
+  %2 = load i16, ptr @_TRACE_QEMU_MUTEX_LOCK_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %2, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %qemu_mutex_pre_lock.exit
 
 land.lhs.true5.i.i.i:                             ; preds = %if.end
-  %4 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i = and i32 %4, 32768
+  %3 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %3, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %qemu_mutex_pre_lock.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
-  %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
+  %4 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #19
-  %7 = load i64, ptr %_now.i.i.i, align 8
+  %5 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #19
+  %6 = load i64, ptr %tv_usec.i.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #19
   br label %qemu_mutex_pre_lock.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -192,47 +189,46 @@ qemu_mutex_pre_lock.exit:                         ; preds = %if.end, %land.lhs.t
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %qemu_mutex_pre_lock.exit
-  %9 = load ptr, ptr @stderr, align 8
+  %7 = load ptr, ptr @stderr, align 8
   %call.i = tail call ptr @strerror(i32 noundef %call) #19
-  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_lock_impl, ptr noundef %call.i) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_lock_impl, ptr noundef %call.i) #20
   tail call void @abort() #21
   unreachable
 
 if.end3:                                          ; preds = %qemu_mutex_pre_lock.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i7)
-  %10 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i8 = icmp ne i32 %10, 0
-  %11 = load i16, ptr @_TRACE_QEMU_MUTEX_LOCKED_DSTATE, align 2
-  %tobool4.i.i.i9 = icmp ne i16 %11, 0
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i8 = icmp ne i32 %8, 0
+  %9 = load i16, ptr @_TRACE_QEMU_MUTEX_LOCKED_DSTATE, align 2
+  %tobool4.i.i.i9 = icmp ne i16 %9, 0
   %or.cond.i.i.i10 = select i1 %tobool.i.i.i8, i1 %tobool4.i.i.i9, i1 false
   br i1 %or.cond.i.i.i10, label %land.lhs.true5.i.i.i11, label %qemu_mutex_post_lock.exit
 
 land.lhs.true5.i.i.i11:                           ; preds = %if.end3
-  %12 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i12 = and i32 %12, 32768
+  %10 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i12 = and i32 %10, 32768
   %cmp.i.not.i.i.i13 = icmp eq i32 %and.i.i.i.i12, 0
   br i1 %cmp.i.not.i.i.i13, label %qemu_mutex_post_lock.exit, label %if.then.i.i.i14
 
 if.then.i.i.i14:                                  ; preds = %land.lhs.true5.i.i.i11
-  %13 = load i8, ptr @message_with_timestamp, align 1
-  %14 = and i8 %13, 1
-  %tobool7.not.i.i.i15 = icmp eq i8 %14, 0
-  br i1 %tobool7.not.i.i.i15, label %if.else.i.i.i20, label %if.then8.i.i.i16
+  %11 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i15 = trunc i8 %11 to i1
+  br i1 %tobool7.i.i.i15, label %if.then8.i.i.i17, label %if.else.i.i.i16
 
-if.then8.i.i.i16:                                 ; preds = %if.then.i.i.i14
-  %call9.i.i.i17 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i7, ptr noundef null) #19
-  %call10.i.i.i18 = tail call i32 @qemu_get_thread_id() #19
-  %15 = load i64, ptr %_now.i.i.i7, align 8
-  %tv_usec.i.i.i19 = getelementptr inbounds i8, ptr %_now.i.i.i7, i64 8
-  %16 = load i64, ptr %tv_usec.i.i.i19, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i.i18, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #19
+if.then8.i.i.i17:                                 ; preds = %if.then.i.i.i14
+  %call9.i.i.i18 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i7, ptr noundef null) #19
+  %call10.i.i.i19 = tail call i32 @qemu_get_thread_id() #19
+  %12 = load i64, ptr %_now.i.i.i7, align 8
+  %tv_usec.i.i.i20 = getelementptr inbounds i8, ptr %_now.i.i.i7, i64 8
+  %13 = load i64, ptr %tv_usec.i.i.i20, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i.i19, i64 noundef %12, i64 noundef %13, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #19
   br label %qemu_mutex_post_lock.exit
 
-if.else.i.i.i20:                                  ; preds = %if.then.i.i.i14
+if.else.i.i.i16:                                  ; preds = %if.then.i.i.i14
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #19
   br label %qemu_mutex_post_lock.exit
 
-qemu_mutex_post_lock.exit:                        ; preds = %if.end3, %land.lhs.true5.i.i.i11, %if.then8.i.i.i16, %if.else.i.i.i20
+qemu_mutex_post_lock.exit:                        ; preds = %if.end3, %land.lhs.true5.i.i.i11, %if.then8.i.i.i17, %if.else.i.i.i16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i7)
   ret void
 }
@@ -246,9 +242,8 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %initialized = getelementptr inbounds i8, ptr %mutex, i64 40
   %0 = load i8, ptr %initialized, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 104, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_trylock_impl) #21
@@ -263,32 +258,31 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %2 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i = icmp ne i32 %2, 0
-  %3 = load i16, ptr @_TRACE_QEMU_MUTEX_LOCKED_DSTATE, align 2
-  %tobool4.i.i.i = icmp ne i16 %3, 0
+  %1 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %1, 0
+  %2 = load i16, ptr @_TRACE_QEMU_MUTEX_LOCKED_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %2, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %qemu_mutex_post_lock.exit
 
 land.lhs.true5.i.i.i:                             ; preds = %if.then1
-  %4 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i = and i32 %4, 32768
+  %3 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %3, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %qemu_mutex_post_lock.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
-  %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
+  %4 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #19
-  %7 = load i64, ptr %_now.i.i.i, align 8
+  %5 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #19
+  %6 = load i64, ptr %tv_usec.i.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #19
   br label %qemu_mutex_post_lock.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -300,9 +294,9 @@ qemu_mutex_post_lock.exit:                        ; preds = %if.then1, %land.lhs
   br label %return
 
 if.then4:                                         ; preds = %if.end
-  %9 = load ptr, ptr @stderr, align 8
+  %7 = load ptr, ptr @stderr, align 8
   %call.i = tail call ptr @strerror(i32 noundef %call) #19
-  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_trylock_impl, ptr noundef %call.i) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_trylock_impl, ptr noundef %call.i) #20
   tail call void @abort() #21
   unreachable
 
@@ -320,9 +314,8 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %initialized = getelementptr inbounds i8, ptr %mutex, i64 40
   %0 = load i8, ptr %initialized, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 120, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_unlock_impl) #21
@@ -330,32 +323,31 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %2 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i = icmp ne i32 %2, 0
-  %3 = load i16, ptr @_TRACE_QEMU_MUTEX_UNLOCK_DSTATE, align 2
-  %tobool4.i.i.i = icmp ne i16 %3, 0
+  %1 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %1, 0
+  %2 = load i16, ptr @_TRACE_QEMU_MUTEX_UNLOCK_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %2, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %qemu_mutex_pre_unlock.exit
 
 land.lhs.true5.i.i.i:                             ; preds = %if.end
-  %4 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i = and i32 %4, 32768
+  %3 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %3, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %qemu_mutex_pre_unlock.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
-  %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
+  %4 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #19
-  %7 = load i64, ptr %_now.i.i.i, align 8
+  %5 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #19
+  %6 = load i64, ptr %tv_usec.i.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #19
   br label %qemu_mutex_pre_unlock.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -369,9 +361,9 @@ qemu_mutex_pre_unlock.exit:                       ; preds = %if.end, %land.lhs.t
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %qemu_mutex_pre_unlock.exit
-  %9 = load ptr, ptr @stderr, align 8
+  %7 = load ptr, ptr @stderr, align 8
   %call.i = tail call ptr @strerror(i32 noundef %call) #19
-  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_unlock_impl, ptr noundef %call.i) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_unlock_impl, ptr noundef %call.i) #20
   tail call void @abort() #21
   unreachable
 
@@ -420,9 +412,8 @@ define dso_local void @qemu_rec_mutex_destroy(ptr noundef %mutex) local_unnamed_
 entry:
   %initialized.i = getelementptr inbounds i8, ptr %mutex, i64 40
   %0 = load i8, ptr %initialized.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.end.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_destroy) #21
@@ -435,9 +426,9 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool2.not.i, label %qemu_mutex_destroy.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %2 = load ptr, ptr @stderr, align 8
+  %1 = load ptr, ptr @stderr, align 8
   %call.i.i = tail call ptr @strerror(i32 noundef %call.i) #19
-  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_destroy, ptr noundef %call.i.i) #20
+  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_destroy, ptr noundef %call.i.i) #20
   tail call void @abort() #21
   unreachable
 
@@ -525,9 +516,8 @@ define dso_local void @qemu_cond_destroy(ptr noundef %cond) local_unnamed_addr #
 entry:
   %initialized = getelementptr inbounds i8, ptr %cond, i64 48
   %0 = load i8, ptr %initialized, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 192, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_destroy) #21
@@ -540,9 +530,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %2 = load ptr, ptr @stderr, align 8
+  %1 = load ptr, ptr @stderr, align 8
   %call.i = tail call ptr @strerror(i32 noundef %call) #19
-  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_destroy, ptr noundef %call.i) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_destroy, ptr noundef %call.i) #20
   tail call void @abort() #21
   unreachable
 
@@ -558,9 +548,8 @@ define dso_local void @qemu_cond_signal(ptr noundef %cond) local_unnamed_addr #1
 entry:
   %initialized = getelementptr inbounds i8, ptr %cond, i64 48
   %0 = load i8, ptr %initialized, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 203, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_signal) #21
@@ -572,9 +561,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %2 = load ptr, ptr @stderr, align 8
+  %1 = load ptr, ptr @stderr, align 8
   %call.i = tail call ptr @strerror(i32 noundef %call) #19
-  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_signal, ptr noundef %call.i) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_signal, ptr noundef %call.i) #20
   tail call void @abort() #21
   unreachable
 
@@ -590,9 +579,8 @@ define dso_local void @qemu_cond_broadcast(ptr noundef %cond) local_unnamed_addr
 entry:
   %initialized = getelementptr inbounds i8, ptr %cond, i64 48
   %0 = load i8, ptr %initialized, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 213, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_broadcast) #21
@@ -604,9 +592,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %2 = load ptr, ptr @stderr, align 8
+  %1 = load ptr, ptr @stderr, align 8
   %call.i = tail call ptr @strerror(i32 noundef %call) #19
-  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_broadcast, ptr noundef %call.i) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_broadcast, ptr noundef %call.i) #20
   tail call void @abort() #21
   unreachable
 
@@ -624,9 +612,8 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %initialized = getelementptr inbounds i8, ptr %cond, i64 48
   %0 = load i8, ptr %initialized, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 223, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_wait_impl) #21
@@ -634,32 +621,31 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %2 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i = icmp ne i32 %2, 0
-  %3 = load i16, ptr @_TRACE_QEMU_MUTEX_UNLOCK_DSTATE, align 2
-  %tobool4.i.i.i = icmp ne i16 %3, 0
+  %1 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %1, 0
+  %2 = load i16, ptr @_TRACE_QEMU_MUTEX_UNLOCK_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %2, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %qemu_mutex_pre_unlock.exit
 
 land.lhs.true5.i.i.i:                             ; preds = %if.end
-  %4 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i = and i32 %4, 32768
+  %3 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %3, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %qemu_mutex_pre_unlock.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
-  %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
+  %4 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #19
-  %7 = load i64, ptr %_now.i.i.i, align 8
+  %5 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #19
+  %6 = load i64, ptr %tv_usec.i.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #19
   br label %qemu_mutex_pre_unlock.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -670,47 +656,46 @@ qemu_mutex_pre_unlock.exit:                       ; preds = %if.end, %land.lhs.t
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %call = tail call i32 @pthread_cond_wait(ptr noundef nonnull %cond, ptr noundef %mutex) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i7)
-  %9 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i8 = icmp ne i32 %9, 0
-  %10 = load i16, ptr @_TRACE_QEMU_MUTEX_LOCKED_DSTATE, align 2
-  %tobool4.i.i.i9 = icmp ne i16 %10, 0
+  %7 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i8 = icmp ne i32 %7, 0
+  %8 = load i16, ptr @_TRACE_QEMU_MUTEX_LOCKED_DSTATE, align 2
+  %tobool4.i.i.i9 = icmp ne i16 %8, 0
   %or.cond.i.i.i10 = select i1 %tobool.i.i.i8, i1 %tobool4.i.i.i9, i1 false
   br i1 %or.cond.i.i.i10, label %land.lhs.true5.i.i.i11, label %qemu_mutex_post_lock.exit
 
 land.lhs.true5.i.i.i11:                           ; preds = %qemu_mutex_pre_unlock.exit
-  %11 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i12 = and i32 %11, 32768
+  %9 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i12 = and i32 %9, 32768
   %cmp.i.not.i.i.i13 = icmp eq i32 %and.i.i.i.i12, 0
   br i1 %cmp.i.not.i.i.i13, label %qemu_mutex_post_lock.exit, label %if.then.i.i.i14
 
 if.then.i.i.i14:                                  ; preds = %land.lhs.true5.i.i.i11
-  %12 = load i8, ptr @message_with_timestamp, align 1
-  %13 = and i8 %12, 1
-  %tobool7.not.i.i.i15 = icmp eq i8 %13, 0
-  br i1 %tobool7.not.i.i.i15, label %if.else.i.i.i20, label %if.then8.i.i.i16
+  %10 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i15 = trunc i8 %10 to i1
+  br i1 %tobool7.i.i.i15, label %if.then8.i.i.i17, label %if.else.i.i.i16
 
-if.then8.i.i.i16:                                 ; preds = %if.then.i.i.i14
-  %call9.i.i.i17 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i7, ptr noundef null) #19
-  %call10.i.i.i18 = tail call i32 @qemu_get_thread_id() #19
-  %14 = load i64, ptr %_now.i.i.i7, align 8
-  %tv_usec.i.i.i19 = getelementptr inbounds i8, ptr %_now.i.i.i7, i64 8
-  %15 = load i64, ptr %tv_usec.i.i.i19, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i.i18, i64 noundef %14, i64 noundef %15, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #19
+if.then8.i.i.i17:                                 ; preds = %if.then.i.i.i14
+  %call9.i.i.i18 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i7, ptr noundef null) #19
+  %call10.i.i.i19 = tail call i32 @qemu_get_thread_id() #19
+  %11 = load i64, ptr %_now.i.i.i7, align 8
+  %tv_usec.i.i.i20 = getelementptr inbounds i8, ptr %_now.i.i.i7, i64 8
+  %12 = load i64, ptr %tv_usec.i.i.i20, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i.i19, i64 noundef %11, i64 noundef %12, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #19
   br label %qemu_mutex_post_lock.exit
 
-if.else.i.i.i20:                                  ; preds = %if.then.i.i.i14
+if.else.i.i.i16:                                  ; preds = %if.then.i.i.i14
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #19
   br label %qemu_mutex_post_lock.exit
 
-qemu_mutex_post_lock.exit:                        ; preds = %qemu_mutex_pre_unlock.exit, %land.lhs.true5.i.i.i11, %if.then8.i.i.i16, %if.else.i.i.i20
+qemu_mutex_post_lock.exit:                        ; preds = %qemu_mutex_pre_unlock.exit, %land.lhs.true5.i.i.i11, %if.then8.i.i.i17, %if.else.i.i.i16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i7)
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %qemu_mutex_post_lock.exit
-  %16 = load ptr, ptr @stderr, align 8
+  %13 = load ptr, ptr @stderr, align 8
   %call.i = tail call ptr @strerror(i32 noundef %call) #19
-  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_wait_impl, ptr noundef %call.i) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_wait_impl, ptr noundef %call.i) #20
   tail call void @abort() #21
   unreachable
 
@@ -759,9 +744,8 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %initialized = getelementptr inbounds i8, ptr %cond, i64 48
   %0 = load i8, ptr %initialized, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 237, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_timedwait_ts) #21
@@ -769,32 +753,31 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %2 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %2, 0
-  %3 = load i16, ptr @_TRACE_QEMU_MUTEX_UNLOCK_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %3, 0
+  %1 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %1, 0
+  %2 = load i16, ptr @_TRACE_QEMU_MUTEX_UNLOCK_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %2, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_qemu_mutex_unlock.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.end
-  %4 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %4, 32768
+  %3 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %3, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_qemu_mutex_unlock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %4 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = tail call i32 @qemu_get_thread_id() #19
-  %7 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #19
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #19
   br label %trace_qemu_mutex_unlock.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -805,39 +788,38 @@ trace_qemu_mutex_unlock.exit:                     ; preds = %if.end, %land.lhs.t
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %call = tail call i32 @pthread_cond_timedwait(ptr noundef nonnull %cond, ptr noundef %mutex, ptr noundef %ts) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i9)
-  %9 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i10 = icmp ne i32 %9, 0
-  %10 = load i16, ptr @_TRACE_QEMU_MUTEX_LOCKED_DSTATE, align 2
-  %tobool4.i.i11 = icmp ne i16 %10, 0
+  %7 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i10 = icmp ne i32 %7, 0
+  %8 = load i16, ptr @_TRACE_QEMU_MUTEX_LOCKED_DSTATE, align 2
+  %tobool4.i.i11 = icmp ne i16 %8, 0
   %or.cond.i.i12 = select i1 %tobool.i.i10, i1 %tobool4.i.i11, i1 false
   br i1 %or.cond.i.i12, label %land.lhs.true5.i.i13, label %trace_qemu_mutex_locked.exit
 
 land.lhs.true5.i.i13:                             ; preds = %trace_qemu_mutex_unlock.exit
-  %11 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i14 = and i32 %11, 32768
+  %9 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i14 = and i32 %9, 32768
   %cmp.i.not.i.i15 = icmp eq i32 %and.i.i.i14, 0
   br i1 %cmp.i.not.i.i15, label %trace_qemu_mutex_locked.exit, label %if.then.i.i16
 
 if.then.i.i16:                                    ; preds = %land.lhs.true5.i.i13
-  %12 = load i8, ptr @message_with_timestamp, align 1
-  %13 = and i8 %12, 1
-  %tobool7.not.i.i17 = icmp eq i8 %13, 0
-  br i1 %tobool7.not.i.i17, label %if.else.i.i22, label %if.then8.i.i18
+  %10 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i17 = trunc i8 %10 to i1
+  br i1 %tobool7.i.i17, label %if.then8.i.i19, label %if.else.i.i18
 
-if.then8.i.i18:                                   ; preds = %if.then.i.i16
-  %call9.i.i19 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i9, ptr noundef null) #19
-  %call10.i.i20 = tail call i32 @qemu_get_thread_id() #19
-  %14 = load i64, ptr %_now.i.i9, align 8
-  %tv_usec.i.i21 = getelementptr inbounds i8, ptr %_now.i.i9, i64 8
-  %15 = load i64, ptr %tv_usec.i.i21, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i20, i64 noundef %14, i64 noundef %15, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #19
+if.then8.i.i19:                                   ; preds = %if.then.i.i16
+  %call9.i.i20 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i9, ptr noundef null) #19
+  %call10.i.i21 = tail call i32 @qemu_get_thread_id() #19
+  %11 = load i64, ptr %_now.i.i9, align 8
+  %tv_usec.i.i22 = getelementptr inbounds i8, ptr %_now.i.i9, i64 8
+  %12 = load i64, ptr %tv_usec.i.i22, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i21, i64 noundef %11, i64 noundef %12, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #19
   br label %trace_qemu_mutex_locked.exit
 
-if.else.i.i22:                                    ; preds = %if.then.i.i16
+if.else.i.i18:                                    ; preds = %if.then.i.i16
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #19
   br label %trace_qemu_mutex_locked.exit
 
-trace_qemu_mutex_locked.exit:                     ; preds = %trace_qemu_mutex_unlock.exit, %land.lhs.true5.i.i13, %if.then8.i.i18, %if.else.i.i22
+trace_qemu_mutex_locked.exit:                     ; preds = %trace_qemu_mutex_unlock.exit, %land.lhs.true5.i.i13, %if.then8.i.i19, %if.else.i.i18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i9)
   switch i32 %call, label %if.then3 [
     i32 110, label %if.end4
@@ -845,9 +827,9 @@ trace_qemu_mutex_locked.exit:                     ; preds = %trace_qemu_mutex_un
   ]
 
 if.then3:                                         ; preds = %trace_qemu_mutex_locked.exit
-  %16 = load ptr, ptr @stderr, align 8
+  %13 = load ptr, ptr @stderr, align 8
   %call.i = tail call ptr @strerror(i32 noundef %call) #19
-  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_timedwait_ts, ptr noundef %call.i) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_timedwait_ts, ptr noundef %call.i) #20
   tail call void @abort() #21
   unreachable
 
@@ -896,9 +878,8 @@ define dso_local void @qemu_sem_destroy(ptr noundef %sem) local_unnamed_addr #1 
 entry:
   %initialized.i = getelementptr inbounds i8, ptr %sem, i64 96
   %0 = load i8, ptr %initialized.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.end.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 192, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_destroy) #21
@@ -912,37 +893,36 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool3.not.i, label %qemu_cond_destroy.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %2 = load ptr, ptr @stderr, align 8
+  %1 = load ptr, ptr @stderr, align 8
   %call.i.i = tail call ptr @strerror(i32 noundef %call.i) #19
-  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_destroy, ptr noundef %call.i.i) #20
+  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_destroy, ptr noundef %call.i.i) #20
   tail call void @abort() #21
   unreachable
 
 qemu_cond_destroy.exit:                           ; preds = %if.end.i
   %initialized.i2 = getelementptr inbounds i8, ptr %sem, i64 40
-  %3 = load i8, ptr %initialized.i2, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.i3 = icmp eq i8 %4, 0
-  br i1 %tobool.not.i3, label %if.else.i8, label %if.end.i4
+  %2 = load i8, ptr %initialized.i2, align 8
+  %tobool.i3 = trunc i8 %2 to i1
+  br i1 %tobool.i3, label %if.end.i5, label %if.else.i4
 
-if.else.i8:                                       ; preds = %qemu_cond_destroy.exit
+if.else.i4:                                       ; preds = %qemu_cond_destroy.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_destroy) #21
   unreachable
 
-if.end.i4:                                        ; preds = %qemu_cond_destroy.exit
+if.end.i5:                                        ; preds = %qemu_cond_destroy.exit
   store i8 0, ptr %initialized.i2, align 8
-  %call.i5 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %sem) #19
-  %tobool2.not.i = icmp eq i32 %call.i5, 0
+  %call.i6 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %sem) #19
+  %tobool2.not.i = icmp eq i32 %call.i6, 0
   br i1 %tobool2.not.i, label %qemu_mutex_destroy.exit, label %if.then3.i
 
-if.then3.i:                                       ; preds = %if.end.i4
-  %5 = load ptr, ptr @stderr, align 8
-  %call.i.i6 = tail call ptr @strerror(i32 noundef %call.i5) #19
-  %call1.i.i7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_destroy, ptr noundef %call.i.i6) #20
+if.then3.i:                                       ; preds = %if.end.i5
+  %3 = load ptr, ptr @stderr, align 8
+  %call.i.i7 = tail call ptr @strerror(i32 noundef %call.i6) #19
+  %call1.i.i8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_destroy, ptr noundef %call.i.i7) #20
   tail call void @abort() #21
   unreachable
 
-qemu_mutex_destroy.exit:                          ; preds = %if.end.i4
+qemu_mutex_destroy.exit:                          ; preds = %if.end.i5
   ret void
 }
 
@@ -969,9 +949,8 @@ if.else:                                          ; preds = %entry
   store i32 %inc, ptr %count, align 8
   %initialized.i = getelementptr inbounds i8, ptr %sem, i64 96
   %4 = load i8, ptr %initialized.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.end.i
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.else
   tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 203, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_signal) #21
@@ -984,9 +963,9 @@ if.end.i:                                         ; preds = %if.else
   br i1 %tobool2.not.i, label %if.end, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %6 = load ptr, ptr @stderr, align 8
+  %5 = load ptr, ptr @stderr, align 8
   %call.i.i = tail call ptr @strerror(i32 noundef %call.i5) #19
-  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_signal, ptr noundef %call.i.i) #20
+  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_signal, ptr noundef %call.i.i) #20
   tail call void @abort() #21
   unreachable
 
@@ -1030,34 +1009,34 @@ compute_abs_deadline.exit:                        ; preds = %entry, %if.then.i
   %3 = inttoptr i64 %2 to ptr
   call void %3(ptr noundef %sem, ptr noundef nonnull @.str.1, i32 noundef 291) #19
   %count = getelementptr inbounds i8, ptr %sem, i64 104
+  %4 = load i32, ptr %count, align 8
+  %cmp15 = icmp eq i32 %4, 0
+  br i1 %cmp15, label %while.body2.lr.ph, label %if.then9
+
+while.body2.lr.ph:                                ; preds = %compute_abs_deadline.exit
   %cmp3 = icmp eq i32 %ms, 0
   %cond = getelementptr inbounds i8, ptr %sem, i64 48
-  br i1 %cmp3, label %while.cond1.us, label %while.cond1
+  br i1 %cmp3, label %if.end11, label %while.body2
 
-while.cond1.us:                                   ; preds = %compute_abs_deadline.exit
-  %4 = load i32, ptr %count, align 8
-  %cmp.us = icmp eq i32 %4, 0
-  br i1 %cmp.us, label %if.end11, label %if.then9
-
-while.cond1:                                      ; preds = %compute_abs_deadline.exit, %while.body2
+while.cond1:                                      ; preds = %while.body2
   %5 = load i32, ptr %count, align 8
   %cmp = icmp eq i32 %5, 0
-  br i1 %cmp, label %while.body2, label %if.then9
+  br i1 %cmp, label %while.body2, label %if.then9, !llvm.loop !6
 
-while.body2:                                      ; preds = %while.cond1
+while.body2:                                      ; preds = %while.body2.lr.ph, %while.cond1
   %call = call fastcc zeroext i1 @qemu_cond_timedwait_ts(ptr noundef nonnull %cond, ptr noundef nonnull %sem, ptr noundef nonnull %ts, ptr noundef nonnull @.str.1, i32 noundef 297)
   br i1 %call, label %while.cond1, label %if.end11, !llvm.loop !6
 
-if.then9:                                         ; preds = %while.cond1, %while.cond1.us
-  %6 = phi i32 [ %4, %while.cond1.us ], [ %5, %while.cond1 ]
+if.then9:                                         ; preds = %while.cond1, %compute_abs_deadline.exit
+  %6 = load i32, ptr %count, align 8
   %dec = add i32 %6, -1
   store i32 %dec, ptr %count, align 8
   br label %if.end11
 
-if.end11:                                         ; preds = %while.body2, %while.cond1.us, %if.then9
-  %cmp15 = phi i32 [ 0, %if.then9 ], [ -1, %while.cond1.us ], [ -1, %while.body2 ]
+if.end11:                                         ; preds = %while.body2, %while.body2.lr.ph, %if.then9
+  %not.tobool8 = phi i32 [ 0, %if.then9 ], [ -1, %while.body2.lr.ph ], [ -1, %while.body2 ]
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %sem, ptr noundef nonnull @.str.1, i32 noundef 306)
-  ret i32 %cmp15
+  ret i32 %not.tobool8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1107,9 +1086,8 @@ define dso_local void @qemu_event_destroy(ptr nocapture noundef %ev) local_unnam
 entry:
   %initialized = getelementptr inbounds i8, ptr %ev, i64 4
   %0 = load i8, ptr %initialized, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 377, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_event_destroy) #21
@@ -1125,9 +1103,8 @@ define dso_local void @qemu_event_set(ptr noundef %ev) local_unnamed_addr #1 {
 entry:
   %initialized = getelementptr inbounds i8, ptr %ev, i64 4
   %0 = load i8, ptr %initialized, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 387, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_event_set) #21
@@ -1136,14 +1113,14 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   fence seq_cst
-  %2 = load atomic i32, ptr %ev monotonic, align 4
-  %cmp.not = icmp eq i32 %2, 0
+  %1 = load atomic i32, ptr %ev monotonic, align 4
+  %cmp.not = icmp eq i32 %1, 0
   br i1 %cmp.not, label %if.end14, label %while.end6
 
 while.end6:                                       ; preds = %if.end
-  %3 = atomicrmw xchg ptr %ev, i32 0 seq_cst, align 4
+  %2 = atomicrmw xchg ptr %ev, i32 0 seq_cst, align 4
   fence syncscope("singlethread") seq_cst
-  %cmp11 = icmp eq i32 %3, -1
+  %cmp11 = icmp eq i32 %2, -1
   br i1 %cmp11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %while.end6
@@ -1159,16 +1136,15 @@ define dso_local void @qemu_event_reset(ptr nocapture noundef %ev) local_unnamed
 entry:
   %initialized = getelementptr inbounds i8, ptr %ev, i64 4
   %0 = load i8, ptr %initialized, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 410, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_event_reset) #21
   unreachable
 
 if.end:                                           ; preds = %entry
-  %2 = atomicrmw or ptr %ev, i32 1 seq_cst, align 4
+  %1 = atomicrmw or ptr %ev, i32 1 seq_cst, align 4
   fence syncscope("singlethread") seq_cst
   ret void
 }
@@ -1178,27 +1154,26 @@ define dso_local void @qemu_event_wait(ptr noundef %ev) local_unnamed_addr #1 {
 entry:
   %initialized = getelementptr inbounds i8, ptr %ev, i64 4
   %0 = load i8, ptr %initialized, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %while.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %while.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 429, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_event_wait) #21
   unreachable
 
 while.end:                                        ; preds = %entry
-  %2 = load atomic i32, ptr %ev acquire, align 4
-  switch i32 %2, label %while.cond.i.preheader [
+  %1 = load atomic i32, ptr %ev acquire, align 4
+  switch i32 %1, label %while.cond.i.preheader [
     i32 0, label %if.end18
     i32 1, label %while.end9
   ]
 
 while.end9:                                       ; preds = %while.end
-  %3 = cmpxchg ptr %ev, i32 1, i32 -1 seq_cst seq_cst, align 4
-  %4 = extractvalue { i32, i1 } %3, 1
-  %5 = extractvalue { i32, i1 } %3, 0
-  %6 = icmp ne i32 %5, 0
-  %_old.0.not = select i1 %4, i1 true, i1 %6
+  %2 = cmpxchg ptr %ev, i32 1, i32 -1 seq_cst seq_cst, align 4
+  %3 = extractvalue { i32, i1 } %2, 1
+  %4 = extractvalue { i32, i1 } %2, 0
+  %5 = icmp ne i32 %4, 0
+  %_old.0.not = select i1 %3, i1 true, i1 %5
   br i1 %_old.0.not, label %while.cond.i.preheader, label %if.end18
 
 while.cond.i.preheader:                           ; preds = %while.end, %while.end9
@@ -1211,8 +1186,8 @@ while.cond.i:                                     ; preds = %while.cond.i.prehea
 
 while.body.i:                                     ; preds = %while.cond.i
   %call1.i = tail call ptr @__errno_location() #22
-  %7 = load i32, ptr %call1.i, align 4
-  switch i32 %7, label %sw.default.i [
+  %6 = load i32, ptr %call1.i, align 4
+  switch i32 %6, label %sw.default.i [
     i32 11, label %if.end18
     i32 4, label %while.cond.i
   ], !llvm.loop !10
@@ -1333,25 +1308,24 @@ entry:
   %arg2 = getelementptr inbounds i8, ptr %args, i64 8
   %1 = load ptr, ptr %arg2, align 8
   %2 = load i8, ptr @name_threads, align 1
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %name = getelementptr inbounds i8, ptr %args, i64 16
-  %4 = load ptr, ptr %name, align 8
-  %tobool3.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %name, align 8
+  %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %call = call i64 @pthread_self() #22
-  %call5 = call i32 @pthread_setname_np(i64 noundef %call, ptr noundef nonnull %4) #19
+  %call5 = call i32 @pthread_setname_np(i64 noundef %call, ptr noundef nonnull %3) #19
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %name6 = getelementptr inbounds i8, ptr %args, i64 16
-  %5 = load ptr, ptr %name6, align 8
-  call void @g_free(ptr noundef %5) #19
+  %4 = load ptr, ptr %name6, align 8
+  call void @g_free(ptr noundef %4) #19
   call void @g_free(ptr noundef nonnull %args) #19
   %call7 = call i32 @__sigsetjmp(ptr noundef nonnull %__cancel_buf, i32 noundef 0) #24
   %tobool8.not = icmp eq i32 %call7, 0
@@ -1366,8 +1340,8 @@ if.end10:                                         ; preds = %if.end
   call void @__pthread_register_cancel(ptr noundef nonnull %__cancel_buf) #19
   %call12 = call ptr %0(ptr noundef %1) #19
   call void @__pthread_unregister_cancel(ptr noundef nonnull %__cancel_buf) #19
-  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_exit)
-  call void @notifier_list_notify(ptr noundef nonnull %6, ptr noundef null) #19
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_exit)
+  call void @notifier_list_notify(ptr noundef nonnull %5, ptr noundef null) #19
   ret ptr %call12
 }
 

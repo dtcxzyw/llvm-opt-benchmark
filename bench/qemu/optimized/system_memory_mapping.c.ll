@@ -367,30 +367,28 @@ entry:
   %0 = load ptr, ptr %mr, align 16
   %1 = getelementptr i8, ptr %0, i64 41
   %.val = load i8, ptr %1, align 1
-  %2 = and i8 %.val, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %return, label %lor.lhs.false
+  %tobool.i = trunc i8 %.val to i1
+  br i1 %tobool.i, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
   %call2 = tail call zeroext i1 @memory_region_is_ram_device(ptr noundef nonnull %0) #9
   br i1 %call2, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %3 = load ptr, ptr %mr, align 16
-  %4 = getelementptr i8, ptr %3, i64 44
-  %.val8 = load i8, ptr %4, align 4
-  %5 = and i8 %.val8, 1
-  %tobool.i9.not = icmp eq i8 %5, 0
-  br i1 %tobool.i9.not, label %if.end, label %return
+  %2 = load ptr, ptr %mr, align 16
+  %3 = getelementptr i8, ptr %2, i64 44
+  %.val8 = load i8, ptr %3, align 4
+  %tobool.i9 = trunc i8 %.val8 to i1
+  br i1 %tobool.i9, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false3
-  %call.i = tail call ptr @memory_region_get_ram_discard_manager(ptr noundef nonnull %3) #9
+  %call.i = tail call ptr @memory_region_get_ram_discard_manager(ptr noundef nonnull %2) #9
   %tobool.i10.not = icmp eq ptr %call.i, null
   br i1 %tobool.i10.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %6 = load ptr, ptr %mr, align 16
-  %call10 = tail call ptr @memory_region_get_ram_discard_manager(ptr noundef %6) #9
+  %4 = load ptr, ptr %mr, align 16
+  %call10 = tail call ptr @memory_region_get_ram_discard_manager(ptr noundef %4) #9
   %call11 = tail call i32 @ram_discard_manager_replay_populated(ptr noundef %call10, ptr noundef nonnull %section, ptr noundef nonnull @guest_phys_ram_populate_cb, ptr noundef %add.ptr) #9
   br label %return
 

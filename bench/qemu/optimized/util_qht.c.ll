@@ -662,7 +662,7 @@ do.end.i:                                         ; preds = %for.end.i
   %6 = load atomic i64, ptr %n_added_buckets.i monotonic, align 8
   %n_added_buckets_threshold.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load i64, ptr %n_added_buckets_threshold.i.i, align 8
-  %cmp.i.i = icmp ule i64 %6, %7
+  %cmp.i.i = icmp ugt i64 %6, %7
   %8 = icmp eq ptr %call16.i, null
   br label %found.i
 
@@ -671,7 +671,7 @@ found.loopexit.i:                                 ; preds = %for.body.i
   br label %found.i
 
 found.i:                                          ; preds = %do.end.i, %found.loopexit.i
-  %needs_resize.0 = phi i1 [ true, %found.loopexit.i ], [ %cmp.i.i, %do.end.i ]
+  %needs_resize.0 = phi i1 [ false, %found.loopexit.i ], [ %cmp.i.i, %do.end.i ]
   %i.1.i = phi i64 [ %9, %found.loopexit.i ], [ 0, %do.end.i ]
   %new.0.i = phi i1 [ true, %found.loopexit.i ], [ %8, %do.end.i ]
   %prev.1.i = phi ptr [ %prev.0.i, %found.loopexit.i ], [ %b.0.i, %do.end.i ]
@@ -704,7 +704,7 @@ qht_insert__locked.exit:                          ; preds = %found.i, %while.end
   %add.i26.i = add i32 %13, 1
   store atomic i32 %add.i26.i, ptr %sequence.i monotonic, align 4
   store atomic i32 0, ptr %call release, align 4
-  br i1 %needs_resize.0, label %return, label %land.lhs.true
+  br i1 %needs_resize.0, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %qht_insert__locked.exit
   %mode = getelementptr inbounds i8, ptr %ht, i64 64

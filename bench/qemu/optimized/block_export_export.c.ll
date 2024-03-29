@@ -82,19 +82,17 @@ define dso_local ptr @blk_exp_add(ptr noundef %export, ptr noundef %errp) local_
 entry:
   %has_fixed_iothread = getelementptr inbounds i8, ptr %export, i64 16
   %0 = load i8, ptr %has_fixed_iothread, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %land.end, label %land.rhs
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
   %fixed_iothread1 = getelementptr inbounds i8, ptr %export, i64 17
-  %2 = load i8, ptr %fixed_iothread1, align 1
-  %3 = and i8 %2, 1
-  %tobool2 = icmp ne i8 %3, 0
+  %1 = load i8, ptr %fixed_iothread1, align 1
+  %tobool2 = trunc i8 %1 to i1
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %4 = phi i1 [ false, %entry ], [ %tobool2, %land.rhs ]
+  %2 = phi i1 [ false, %entry ], [ %tobool2, %land.rhs ]
   %call = tail call zeroext i1 @qemu_in_main_thread() #9
   br i1 %call, label %do.end, label %if.else
 
@@ -104,8 +102,8 @@ if.else:                                          ; preds = %land.end
 
 do.end:                                           ; preds = %land.end
   %id = getelementptr inbounds i8, ptr %export, i64 8
-  %5 = load ptr, ptr %id, align 8
-  %call3 = tail call zeroext i1 @id_wellformed(ptr noundef %5) #9
+  %3 = load ptr, ptr %id, align 8
+  %call3 = tail call zeroext i1 @id_wellformed(ptr noundef %3) #9
   br i1 %call3, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %do.end
@@ -113,7 +111,7 @@ if.then4:                                         ; preds = %do.end
   br label %return
 
 if.end5:                                          ; preds = %do.end
-  %6 = load ptr, ptr %id, align 8
+  %4 = load ptr, ptr %id, align 8
   %exp.04.i = load ptr, ptr @block_exports, align 8
   %tobool.not5.i = icmp eq ptr %exp.04.i, null
   br i1 %tobool.not5.i, label %if.end11, label %for.body.i
@@ -121,8 +119,8 @@ if.end5:                                          ; preds = %do.end
 for.body.i:                                       ; preds = %if.end5, %for.inc.i
   %exp.06.i = phi ptr [ %exp.0.i, %for.inc.i ], [ %exp.04.i, %if.end5 ]
   %id1.i = getelementptr inbounds i8, ptr %exp.06.i, i64 8
-  %7 = load ptr, ptr %id1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %7) #8
+  %5 = load ptr, ptr %id1.i, align 8
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %5) #8
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then9, label %for.inc.i
 
@@ -133,11 +131,11 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %tobool.not.i, label %if.end11, label %for.body.i, !llvm.loop !5
 
 if.then9:                                         ; preds = %for.body.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 93, ptr noundef nonnull @__func__.blk_exp_add, ptr noundef nonnull @.str.3, ptr noundef %6) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 93, ptr noundef nonnull @__func__.blk_exp_add, ptr noundef nonnull @.str.3, ptr noundef %4) #9
   br label %return
 
 if.end11:                                         ; preds = %for.inc.i, %if.end5
-  %8 = load i32, ptr %export, align 8
+  %6 = load i32, ptr %export, align 8
   br label %for.body.i67
 
 for.cond.i:                                       ; preds = %for.body.i67
@@ -148,9 +146,9 @@ for.cond.i:                                       ; preds = %for.body.i67
 for.body.i67:                                     ; preds = %for.cond.i, %if.end11
   %indvars.iv.i = phi i64 [ 0, %if.end11 ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i = getelementptr [3 x ptr], ptr @blk_exp_drivers, i64 0, i64 %indvars.iv.i
-  %9 = load ptr, ptr %arrayidx.i, align 8
-  %10 = load i32, ptr %9, align 8
-  %cmp3.i = icmp eq i32 %10, %8
+  %7 = load ptr, ptr %arrayidx.i, align 8
+  %8 = load i32, ptr %7, align 8
+  %cmp3.i = icmp eq i32 %8, %6
   br i1 %cmp3.i, label %if.end15, label %for.cond.i
 
 if.then14:                                        ; preds = %for.cond.i
@@ -159,17 +157,16 @@ if.then14:                                        ; preds = %for.cond.i
 
 if.end15:                                         ; preds = %for.body.i67
   %node_name = getelementptr inbounds i8, ptr %export, i64 32
-  %11 = load ptr, ptr %node_name, align 8
-  %call16 = tail call ptr @bdrv_lookup_bs(ptr noundef null, ptr noundef %11, ptr noundef %errp) #9
+  %9 = load ptr, ptr %node_name, align 8
+  %call16 = tail call ptr @bdrv_lookup_bs(ptr noundef null, ptr noundef %9, ptr noundef %errp) #9
   %tobool17.not = icmp eq ptr %call16, null
   br i1 %tobool17.not, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.end15
   %has_writable = getelementptr inbounds i8, ptr %export, i64 40
-  %12 = load i8, ptr %has_writable, align 8
-  %13 = and i8 %12, 1
-  %tobool20.not = icmp eq i8 %13, 0
-  br i1 %tobool20.not, label %if.then21, label %if.end22
+  %10 = load i8, ptr %has_writable, align 8
+  %tobool20 = trunc i8 %10 to i1
+  br i1 %tobool20, label %if.end22, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
   %writable = getelementptr inbounds i8, ptr %export, i64 41
@@ -182,10 +179,9 @@ if.end22:                                         ; preds = %if.then21, %if.end1
 
 land.lhs.true:                                    ; preds = %if.end22
   %writable24 = getelementptr inbounds i8, ptr %export, i64 41
-  %14 = load i8, ptr %writable24, align 1
-  %15 = and i8 %14, 1
-  %tobool25.not = icmp eq i8 %15, 0
-  br i1 %tobool25.not, label %if.end27, label %if.then26
+  %11 = load i8, ptr %writable24, align 1
+  %tobool25 = trunc i8 %11 to i1
+  br i1 %tobool25, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %land.lhs.true
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 112, ptr noundef nonnull @__func__.blk_exp_add, ptr noundef nonnull @.str.5) #9
@@ -195,23 +191,23 @@ if.end27:                                         ; preds = %land.lhs.true, %if.
   %call28 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %call16) #9
   tail call void @aio_context_acquire(ptr noundef %call28) #9
   %iothread = getelementptr inbounds i8, ptr %export, i64 24
-  %16 = load ptr, ptr %iothread, align 8
-  %tobool29.not = icmp eq ptr %16, null
+  %12 = load ptr, ptr %iothread, align 8
+  %tobool29.not = icmp eq ptr %12, null
   br i1 %tobool29.not, label %if.end47, label %if.then30
 
 if.then30:                                        ; preds = %if.end27
-  %call33 = tail call ptr @iothread_by_id(ptr noundef nonnull %16) #9
+  %call33 = tail call ptr @iothread_by_id(ptr noundef nonnull %12) #9
   %tobool34.not = icmp eq ptr %call33, null
   br i1 %tobool34.not, label %if.then35, label %if.end37
 
 if.then35:                                        ; preds = %if.then30
-  %17 = load ptr, ptr %iothread, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 126, ptr noundef nonnull @__func__.blk_exp_add, ptr noundef nonnull @.str.6, ptr noundef %17) #9
+  %13 = load ptr, ptr %iothread, align 8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 126, ptr noundef nonnull @__func__.blk_exp_add, ptr noundef nonnull @.str.6, ptr noundef %13) #9
   br label %if.end100.thread
 
 if.end37:                                         ; preds = %if.then30
   %call38 = tail call ptr @iothread_get_aio_context(ptr noundef nonnull %call33) #9
-  %cond = select i1 %4, ptr %errp, ptr null
+  %cond = select i1 %2, ptr %errp, ptr null
   %call40 = tail call i32 @bdrv_try_change_aio_context(ptr noundef nonnull %call16, ptr noundef %call38, ptr noundef null, ptr noundef %cond) #9
   %cmp = icmp eq i32 %call40, 0
   br i1 %cmp, label %if.then41, label %if.else42
@@ -222,7 +218,7 @@ if.then41:                                        ; preds = %if.end37
   br label %if.end47
 
 if.else42:                                        ; preds = %if.end37
-  br i1 %4, label %if.end100.thread, label %if.end47
+  br i1 %2, label %if.end100.thread, label %if.end47
 
 if.end47:                                         ; preds = %if.then41, %if.else42, %if.end27
   %ctx.0 = phi ptr [ %call38, %if.then41 ], [ %call28, %if.else42 ], [ %call28, %if.end27 ]
@@ -230,12 +226,11 @@ if.end47:                                         ; preds = %if.then41, %if.else
   %call48 = tail call i32 @bdrv_activate(ptr noundef nonnull %call16, ptr noundef null) #9
   tail call void @bdrv_graph_rdunlock_main_loop() #9
   %writable49 = getelementptr inbounds i8, ptr %export, i64 41
-  %18 = load i8, ptr %writable49, align 1
-  %19 = and i8 %18, 1
-  %tobool50.not = icmp eq i8 %19, 0
-  %spec.select = select i1 %tobool50.not, i64 1, i64 3
+  %14 = load i8, ptr %writable49, align 1
+  %tobool50 = trunc i8 %14 to i1
+  %spec.select = select i1 %tobool50, i64 3, i64 1
   %call53 = tail call ptr @blk_new(ptr noundef %ctx.0, i64 noundef %spec.select, i64 noundef 15) #9
-  br i1 %4, label %if.end56, label %if.then55
+  br i1 %2, label %if.end56, label %if.then55
 
 if.then55:                                        ; preds = %if.end47
   tail call void @blk_set_allow_aio_context_change(ptr noundef %call53, i1 noundef zeroext true) #9
@@ -248,28 +243,27 @@ if.end56:                                         ; preds = %if.then55, %if.end4
 
 if.end60:                                         ; preds = %if.end56
   %has_writethrough = getelementptr inbounds i8, ptr %export, i64 42
-  %20 = load i8, ptr %has_writethrough, align 2
-  %21 = and i8 %20, 1
-  %tobool61.not = icmp eq i8 %21, 0
-  %writethrough = getelementptr inbounds i8, ptr %export, i64 43
-  br i1 %tobool61.not, label %if.then62, label %if.end60.if.end63_crit_edge
+  %15 = load i8, ptr %has_writethrough, align 2
+  %tobool61 = trunc i8 %15 to i1
+  %writethrough64.phi.trans.insert = getelementptr inbounds i8, ptr %export, i64 43
+  br i1 %tobool61, label %if.end60.if.end63_crit_edge, label %if.then62
 
 if.end60.if.end63_crit_edge:                      ; preds = %if.end60
-  %.pre = load i8, ptr %writethrough, align 1
-  %22 = and i8 %.pre, 1
-  %23 = icmp eq i8 %22, 0
+  %.pre = load i8, ptr %writethrough64.phi.trans.insert, align 1
+  %16 = trunc i8 %.pre to i1
+  %17 = xor i1 %16, true
   br label %if.end63
 
 if.then62:                                        ; preds = %if.end60
-  store i8 0, ptr %writethrough, align 1
+  store i8 0, ptr %writethrough64.phi.trans.insert, align 1
   br label %if.end63
 
 if.end63:                                         ; preds = %if.end60.if.end63_crit_edge, %if.then62
-  %tobool65.not = phi i1 [ %23, %if.end60.if.end63_crit_edge ], [ true, %if.then62 ]
-  tail call void @blk_set_enable_write_cache(ptr noundef %call53, i1 noundef zeroext %tobool65.not) #9
-  %instance_size = getelementptr inbounds i8, ptr %9, i64 8
-  %24 = load i64, ptr %instance_size, align 8
-  %cmp66 = icmp ugt i64 %24, 55
+  %tobool65 = phi i1 [ %17, %if.end60.if.end63_crit_edge ], [ true, %if.then62 ]
+  tail call void @blk_set_enable_write_cache(ptr noundef %call53, i1 noundef zeroext %tobool65) #9
+  %instance_size = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = load i64, ptr %instance_size, align 8
+  %cmp66 = icmp ugt i64 %18, 55
   br i1 %cmp66, label %if.end69, label %if.else68
 
 if.else68:                                        ; preds = %if.end63
@@ -277,10 +271,10 @@ if.else68:                                        ; preds = %if.end63
   unreachable
 
 if.end69:                                         ; preds = %if.end63
-  %call71 = tail call noalias ptr @g_malloc0(i64 noundef %24) #11
-  %25 = load ptr, ptr %id, align 8
-  %call75 = tail call noalias ptr @g_strdup(ptr noundef %25) #9
-  store ptr %9, ptr %call71, align 8
+  %call71 = tail call noalias ptr @g_malloc0(i64 noundef %18) #11
+  %19 = load ptr, ptr %id, align 8
+  %call75 = tail call noalias ptr @g_strdup(ptr noundef %19) #9
+  store ptr %7, ptr %call71, align 8
   %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call71, i64 8
   store ptr %call75, ptr %.compoundliteral.sroa.2.0..sroa_idx, align 8
   %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call71, i64 16
@@ -293,15 +287,15 @@ if.end69:                                         ; preds = %if.end63
   store ptr %call53, ptr %.compoundliteral.sroa.6.0..sroa_idx, align 8
   %.compoundliteral.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %call71, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.compoundliteral.sroa.7.0..sroa_idx, i8 0, i64 16, i1 false)
-  %create = getelementptr inbounds i8, ptr %9, i64 16
-  %26 = load ptr, ptr %create, align 8
-  %call78 = tail call i32 %26(ptr noundef nonnull %call71, ptr noundef nonnull %export, ptr noundef %errp) #9
+  %create = getelementptr inbounds i8, ptr %7, i64 16
+  %20 = load ptr, ptr %create, align 8
+  %call78 = tail call i32 %20(ptr noundef nonnull %call71, ptr noundef nonnull %export, ptr noundef %errp) #9
   %cmp79 = icmp slt i32 %call78, 0
   br i1 %cmp79, label %fail, label %if.end81
 
 if.end81:                                         ; preds = %if.end69
-  %27 = load ptr, ptr %.compoundliteral.sroa.6.0..sroa_idx, align 8
-  %cmp83.not = icmp eq ptr %27, null
+  %21 = load ptr, ptr %.compoundliteral.sroa.6.0..sroa_idx, align 8
+  %cmp83.not = icmp eq ptr %21, null
   br i1 %cmp83.not, label %if.else85, label %do.body87
 
 if.else85:                                        ; preds = %if.end81
@@ -309,13 +303,13 @@ if.else85:                                        ; preds = %if.end81
   unreachable
 
 do.body87:                                        ; preds = %if.end81
-  %28 = load ptr, ptr @block_exports, align 8
-  store ptr %28, ptr %.compoundliteral.sroa.7.0..sroa_idx, align 8
-  %cmp89.not = icmp eq ptr %28, null
+  %22 = load ptr, ptr @block_exports, align 8
+  store ptr %22, ptr %.compoundliteral.sroa.7.0..sroa_idx, align 8
+  %cmp89.not = icmp eq ptr %22, null
   br i1 %cmp89.not, label %if.end94, label %if.then90
 
 if.then90:                                        ; preds = %do.body87
-  %le_prev = getelementptr inbounds i8, ptr %28, i64 48
+  %le_prev = getelementptr inbounds i8, ptr %22, i64 48
   store ptr %.compoundliteral.sroa.7.0..sroa_idx, ptr %le_prev, align 8
   br label %if.end94
 
@@ -347,8 +341,8 @@ if.end100:                                        ; preds = %if.then99, %fail
 
 if.then102:                                       ; preds = %if.end100
   %id103 = getelementptr inbounds i8, ptr %exp.0, i64 8
-  %29 = load ptr, ptr %id103, align 8
-  tail call void @g_free(ptr noundef %29) #9
+  %23 = load ptr, ptr %id103, align 8
+  tail call void @g_free(ptr noundef %23) #9
   tail call void @g_free(ptr noundef nonnull %exp.0) #9
   br label %return
 
@@ -517,19 +511,17 @@ entry:
   tail call void @aio_context_acquire(ptr noundef %0) #9
   %user_owned = getelementptr inbounds i8, ptr %exp, i64 20
   %1 = load i8, ptr %user_owned, align 4
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %out, label %if.end
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end, label %out
 
 if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %exp, align 8
-  %request_shutdown = getelementptr inbounds i8, ptr %3, i64 32
-  %4 = load ptr, ptr %request_shutdown, align 8
-  tail call void %4(ptr noundef nonnull %exp) #9
-  %5 = load i8, ptr %user_owned, align 4
-  %6 = and i8 %5, 1
-  %tobool2.not = icmp eq i8 %6, 0
-  br i1 %tobool2.not, label %if.else, label %if.end4
+  %2 = load ptr, ptr %exp, align 8
+  %request_shutdown = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = load ptr, ptr %request_shutdown, align 8
+  tail call void %3(ptr noundef nonnull %exp) #9
+  %4 = load i8, ptr %user_owned, align 4
+  %tobool2 = trunc i8 %4 to i1
+  br i1 %tobool2, label %if.end4, label %if.else
 
 if.else:                                          ; preds = %if.end
   tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 272, ptr noundef nonnull @__PRETTY_FUNCTION__.blk_exp_request_shutdown) #10
@@ -538,8 +530,8 @@ if.else:                                          ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   store i8 0, ptr %user_owned, align 4
   %refcount.i = getelementptr inbounds i8, ptr %exp, i64 16
-  %7 = load atomic i32, ptr %refcount.i monotonic, align 8
-  %cmp.i = icmp sgt i32 %7, 0
+  %5 = load atomic i32, ptr %refcount.i monotonic, align 8
+  %cmp.i = icmp sgt i32 %5, 0
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end4
@@ -547,8 +539,8 @@ if.else.i:                                        ; preds = %if.end4
   unreachable
 
 if.end.i:                                         ; preds = %if.end4
-  %8 = atomicrmw sub ptr %refcount.i, i32 1 seq_cst, align 8
-  %cmp3.i = icmp eq i32 %8, 1
+  %6 = atomicrmw sub ptr %refcount.i, i32 1 seq_cst, align 8
+  %cmp3.i = icmp eq i32 %6, 1
   br i1 %cmp3.i, label %if.then4.i, label %out
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -730,9 +722,8 @@ if.then4:                                         ; preds = %for.inc.i, %entry
 if.end5:                                          ; preds = %for.body.i
   %user_owned = getelementptr inbounds i8, ptr %exp.06.i, i64 20
   %1 = load i8, ptr %user_owned, align 4
-  %2 = and i8 %1, 1
-  %tobool6.not = icmp eq i8 %2, 0
-  br i1 %tobool6.not, label %if.then7, label %if.end8
+  %tobool6 = trunc i8 %1 to i1
+  br i1 %tobool6, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 341, ptr noundef nonnull @__func__.qmp_block_export_del, ptr noundef nonnull @.str.15, ptr noundef %id) #9
@@ -745,8 +736,8 @@ if.end8:                                          ; preds = %if.end5
 
 while.end:                                        ; preds = %if.end8
   %refcount = getelementptr inbounds i8, ptr %exp.06.i, i64 16
-  %3 = load atomic i32, ptr %refcount monotonic, align 8
-  %cmp16 = icmp sgt i32 %3, 1
+  %2 = load atomic i32, ptr %refcount monotonic, align 8
+  %cmp16 = icmp sgt i32 %2, 1
   br i1 %cmp16, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %while.end
@@ -778,7 +769,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %exp.013 = phi ptr [ %exp.0, %for.body ], [ %exp.010, %entry ]
-  %tail.012 = phi ptr [ %6, %for.body ], [ %head, %entry ]
+  %tail.012 = phi ptr [ %5, %for.body ], [ %head, %entry ]
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #12
   %id1 = getelementptr inbounds i8, ptr %exp.013, i64 8
   %0 = load ptr, ptr %id1, align 8
@@ -792,8 +783,8 @@ for.body:                                         ; preds = %entry, %for.body
   %call6 = tail call noalias ptr @g_strdup(ptr noundef %call5) #9
   %user_owned = getelementptr inbounds i8, ptr %exp.013, i64 20
   %4 = load i8, ptr %user_owned, align 4
-  %5 = and i8 %4, 1
-  %frombool = xor i8 %5, 1
+  %lnot = and i8 %4, 1
+  %frombool = xor i8 %lnot, 1
   store ptr %call2, ptr %call, align 8
   %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %2, ptr %.compoundliteral.sroa.2.0..sroa_idx, align 8
@@ -805,7 +796,7 @@ for.body:                                         ; preds = %entry, %for.body
   store ptr %call8, ptr %tail.012, align 8
   %value = getelementptr inbounds i8, ptr %call8, i64 8
   store ptr %call, ptr %value, align 8
-  %6 = load ptr, ptr %tail.012, align 8
+  %5 = load ptr, ptr %tail.012, align 8
   %next9 = getelementptr inbounds i8, ptr %exp.013, i64 40
   %exp.0 = load ptr, ptr %next9, align 8
   %tobool.not = icmp eq ptr %exp.0, null

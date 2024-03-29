@@ -37,17 +37,16 @@ define dso_local i64 @ginarrayextract(ptr nocapture noundef readonly %0) local_u
   %21 = load i16, ptr %2, align 2
   %22 = sext i16 %21 to i32
   %23 = load i8, ptr %3, align 1
-  %24 = and i8 %23, 1
-  %25 = icmp ne i8 %24, 0
-  %26 = load i8, ptr %4, align 1
-  call void @deconstruct_array(ptr noundef %11, i32 noundef %20, i32 noundef %22, i1 noundef zeroext %25, i8 noundef signext %26, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
-  %27 = load i32, ptr %7, align 4
-  store i32 %27, ptr %14, align 4
-  %28 = load ptr, ptr %6, align 8
-  store ptr %28, ptr %17, align 8
-  %29 = load ptr, ptr %5, align 8
-  %30 = ptrtoint ptr %29 to i64
-  ret i64 %30
+  %24 = trunc i8 %23 to i1
+  %25 = load i8, ptr %4, align 1
+  call void @deconstruct_array(ptr noundef %11, i32 noundef %20, i32 noundef %22, i1 noundef zeroext %24, i8 noundef signext %25, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
+  %26 = load i32, ptr %7, align 4
+  store i32 %26, ptr %14, align 4
+  %27 = load ptr, ptr %6, align 8
+  store ptr %27, ptr %17, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = ptrtoint ptr %28 to i64
+  ret i64 %29
 }
 
 declare ptr @pg_detoast_datum_copy(ptr noundef) local_unnamed_addr #1
@@ -100,23 +99,22 @@ define dso_local i64 @ginarrayextract_2args(ptr nocapture noundef readonly %0) l
   %28 = load i16, ptr %2, align 2
   %29 = sext i16 %28 to i32
   %30 = load i8, ptr %3, align 1
-  %31 = and i8 %30, 1
-  %32 = icmp ne i8 %31, 0
-  %33 = load i8, ptr %4, align 1
-  call void @deconstruct_array(ptr noundef %18, i32 noundef %27, i32 noundef %29, i1 noundef zeroext %32, i8 noundef signext %33, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
-  %34 = load i32, ptr %7, align 4
-  store i32 %34, ptr %21, align 4
-  %35 = load ptr, ptr %6, align 8
-  store ptr %35, ptr %24, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = ptrtoint ptr %36 to i64
+  %31 = trunc i8 %30 to i1
+  %32 = load i8, ptr %4, align 1
+  call void @deconstruct_array(ptr noundef %18, i32 noundef %27, i32 noundef %29, i1 noundef zeroext %31, i8 noundef signext %32, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
+  %33 = load i32, ptr %7, align 4
+  store i32 %33, ptr %21, align 4
+  %34 = load ptr, ptr %6, align 8
+  store ptr %34, ptr %24, align 8
+  %35 = load ptr, ptr %5, align 8
+  %36 = ptrtoint ptr %35 to i64
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  ret i64 %37
+  ret i64 %36
 }
 
 ; Function Attrs: cold
@@ -156,50 +154,49 @@ define dso_local i64 @ginqueryarrayextract(ptr nocapture noundef readonly %0) lo
   %26 = load i16, ptr %2, align 2
   %27 = sext i16 %26 to i32
   %28 = load i8, ptr %3, align 1
-  %29 = and i8 %28, 1
-  %30 = icmp ne i8 %29, 0
-  %31 = load i8, ptr %4, align 1
-  call void @deconstruct_array(ptr noundef %11, i32 noundef %25, i32 noundef %27, i1 noundef zeroext %30, i8 noundef signext %31, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
-  %32 = load i32, ptr %7, align 4
-  store i32 %32, ptr %14, align 4
-  %33 = load ptr, ptr %6, align 8
-  store ptr %33, ptr %20, align 8
-  switch i16 %17, label %39 [
-    i16 1, label %44
-    i16 2, label %34
-    i16 3, label %36
-    i16 4, label %37
+  %29 = trunc i8 %28 to i1
+  %30 = load i8, ptr %4, align 1
+  call void @deconstruct_array(ptr noundef %11, i32 noundef %25, i32 noundef %27, i1 noundef zeroext %29, i8 noundef signext %30, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
+  %31 = load i32, ptr %7, align 4
+  store i32 %31, ptr %14, align 4
+  %32 = load ptr, ptr %6, align 8
+  store ptr %32, ptr %20, align 8
+  switch i16 %17, label %38 [
+    i16 1, label %43
+    i16 2, label %33
+    i16 3, label %35
+    i16 4, label %36
   ]
 
-34:                                               ; preds = %1
-  %35 = icmp sgt i32 %32, 0
-  %. = select i1 %35, i32 0, i32 2
-  br label %44
+33:                                               ; preds = %1
+  %34 = icmp sgt i32 %31, 0
+  %. = select i1 %34, i32 0, i32 2
+  br label %43
+
+35:                                               ; preds = %1
+  br label %43
 
 36:                                               ; preds = %1
-  br label %44
+  %37 = icmp slt i32 %31, 1
+  %.17 = zext i1 %37 to i32
+  br label %43
 
-37:                                               ; preds = %1
-  %38 = icmp slt i32 %32, 1
-  %.17 = zext i1 %38 to i32
-  br label %44
-
-39:                                               ; preds = %1
-  %40 = trunc i64 %16 to i32
-  %41 = and i32 %40, 65535
-  %42 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %42)
-  %43 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %41) #5
+38:                                               ; preds = %1
+  %39 = trunc i64 %16 to i32
+  %40 = and i32 %39, 65535
+  %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  call void @llvm.assume(i1 %41)
+  %42 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %40) #5
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @__func__.ginqueryarrayextract) #5
   unreachable
 
-44:                                               ; preds = %37, %34, %1, %36
-  %.sink = phi i32 [ 1, %36 ], [ 0, %1 ], [ %., %34 ], [ %.17, %37 ]
-  %45 = inttoptr i64 %22 to ptr
-  store i32 %.sink, ptr %45, align 4
-  %46 = load ptr, ptr %5, align 8
-  %47 = ptrtoint ptr %46 to i64
-  ret i64 %47
+43:                                               ; preds = %36, %33, %1, %35
+  %.sink = phi i32 [ 1, %35 ], [ 0, %1 ], [ %., %33 ], [ %.17, %36 ]
+  %44 = inttoptr i64 %22 to ptr
+  store i32 %.sink, ptr %44, align 4
+  %45 = load ptr, ptr %5, align 8
+  %46 = ptrtoint ptr %45 to i64
+  ret i64 %46
 }
 
 ; Function Attrs: nounwind uwtable
@@ -229,60 +226,56 @@ define dso_local noundef i64 @ginarrayconsistent(ptr nocapture noundef readonly 
 17:                                               ; preds = %1
   store i8 0, ptr %13, align 1
   %18 = icmp sgt i32 %10, 0
-  br i1 %18, label %.lr.ph50.preheader, label %.loopexit
+  br i1 %18, label %.lr.ph46.preheader, label %.loopexit
 
-.lr.ph50.preheader:                               ; preds = %17
-  %wide.trip.count67 = and i64 %9, 2147483647
-  br label %.lr.ph50
+.lr.ph46.preheader:                               ; preds = %17
+  %wide.trip.count63 = and i64 %9, 2147483647
+  br label %.lr.ph46
 
-.lr.ph50:                                         ; preds = %.lr.ph50.preheader, %26
-  %indvars.iv64 = phi i64 [ 0, %.lr.ph50.preheader ], [ %indvars.iv.next65, %26 ]
-  %19 = getelementptr i8, ptr %4, i64 %indvars.iv64
+.lr.ph46:                                         ; preds = %.lr.ph46.preheader, %26
+  %indvars.iv60 = phi i64 [ 0, %.lr.ph46.preheader ], [ %indvars.iv.next61, %26 ]
+  %19 = getelementptr i8, ptr %4, i64 %indvars.iv60
   %20 = load i8, ptr %19, align 1
-  %21 = and i8 %20, 1
-  %.not33 = icmp eq i8 %21, 0
-  br i1 %.not33, label %26, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %26
 
-22:                                               ; preds = %.lr.ph50
-  %23 = getelementptr i8, ptr %16, i64 %indvars.iv64
+22:                                               ; preds = %.lr.ph46
+  %23 = getelementptr i8, ptr %16, i64 %indvars.iv60
   %24 = load i8, ptr %23, align 1
-  %25 = and i8 %24, 1
-  %.not34 = icmp eq i8 %25, 0
-  br i1 %.not34, label %.loopexit, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %.loopexit
 
-26:                                               ; preds = %.lr.ph50, %22
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %.loopexit, label %.lr.ph50, !llvm.loop !5
+26:                                               ; preds = %.lr.ph46, %22
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
+  br i1 %exitcond64.not, label %.loopexit, label %.lr.ph46, !llvm.loop !5
 
 27:                                               ; preds = %1
   store i8 0, ptr %13, align 1
   %28 = icmp sgt i32 %10, 0
-  br i1 %28, label %.lr.ph43.preheader, label %.loopexit
+  br i1 %28, label %.lr.ph39.preheader, label %.loopexit
 
-.lr.ph43.preheader:                               ; preds = %27
-  %wide.trip.count62 = and i64 %9, 2147483647
-  br label %.lr.ph43
+.lr.ph39.preheader:                               ; preds = %27
+  %wide.trip.count58 = and i64 %9, 2147483647
+  br label %.lr.ph39
 
 29:                                               ; preds = %33
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %.loopexit, label %.lr.ph43, !llvm.loop !7
+  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
+  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
+  br i1 %exitcond59.not, label %.loopexit, label %.lr.ph39, !llvm.loop !7
 
-.lr.ph43:                                         ; preds = %.lr.ph43.preheader, %29
-  %indvars.iv59 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next60, %29 ]
-  %30 = getelementptr i8, ptr %4, i64 %indvars.iv59
+.lr.ph39:                                         ; preds = %.lr.ph39.preheader, %29
+  %indvars.iv55 = phi i64 [ 0, %.lr.ph39.preheader ], [ %indvars.iv.next56, %29 ]
+  %30 = getelementptr i8, ptr %4, i64 %indvars.iv55
   %31 = load i8, ptr %30, align 1
-  %32 = and i8 %31, 1
-  %.not31 = icmp eq i8 %32, 0
-  br i1 %.not31, label %.loopexit, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %.loopexit
 
-33:                                               ; preds = %.lr.ph43
-  %34 = getelementptr i8, ptr %16, i64 %indvars.iv59
+33:                                               ; preds = %.lr.ph39
+  %34 = getelementptr i8, ptr %16, i64 %indvars.iv55
   %35 = load i8, ptr %34, align 1
-  %36 = and i8 %35, 1
-  %.not32 = icmp eq i8 %36, 0
-  br i1 %.not32, label %29, label %.loopexit
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %.loopexit, label %29
 
 37:                                               ; preds = %1
   store i8 1, ptr %13, align 1
@@ -306,9 +299,8 @@ define dso_local noundef i64 @ginarrayconsistent(ptr nocapture noundef readonly 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %40 ]
   %41 = getelementptr i8, ptr %4, i64 %indvars.iv
   %42 = load i8, ptr %41, align 1
-  %43 = and i8 %42, 1
-  %.not = icmp eq i8 %43, 0
-  br i1 %.not, label %.loopexit, label %40
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %40, label %.loopexit
 
 44:                                               ; preds = %1
   %45 = trunc i64 %6 to i32
@@ -319,8 +311,8 @@ define dso_local noundef i64 @ginarrayconsistent(ptr nocapture noundef readonly 
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 215, ptr noundef nonnull @__func__.ginarrayconsistent) #5
   unreachable
 
-.loopexit:                                        ; preds = %40, %.lr.ph, %29, %33, %.lr.ph43, %26, %22, %38, %27, %17, %37
-  %.030 = phi i64 [ 1, %37 ], [ 0, %17 ], [ 1, %27 ], [ 1, %38 ], [ 0, %26 ], [ 1, %22 ], [ 1, %29 ], [ 0, %33 ], [ 0, %.lr.ph43 ], [ 1, %40 ], [ 0, %.lr.ph ]
+.loopexit:                                        ; preds = %40, %.lr.ph, %29, %33, %.lr.ph39, %26, %22, %38, %27, %17, %37
+  %.030 = phi i64 [ 1, %37 ], [ 0, %17 ], [ 1, %27 ], [ 1, %38 ], [ 0, %26 ], [ 1, %22 ], [ 1, %29 ], [ 0, %33 ], [ 0, %.lr.ph39 ], [ 1, %40 ], [ 0, %.lr.ph ]
   ret i64 %.030
 }
 
@@ -340,84 +332,82 @@ define dso_local i64 @ginarraytriconsistent(ptr nocapture noundef readonly %0) l
   %13 = inttoptr i64 %12 to ptr
   switch i16 %7, label %41 [
     i16 1, label %.preheader
-    i16 2, label %.preheader38
+    i16 2, label %.preheader37
     i16 3, label %.loopexit
-    i16 4, label %.preheader41
+    i16 4, label %.preheader40
   ]
 
-.preheader41:                                     ; preds = %1
+.preheader40:                                     ; preds = %1
   %14 = icmp sgt i32 %10, 0
   br i1 %14, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %.preheader41
+.lr.ph.preheader:                                 ; preds = %.preheader40
   %wide.trip.count = and i64 %9, 2147483647
   br label %.lr.ph
 
-.preheader38:                                     ; preds = %1
+.preheader37:                                     ; preds = %1
   %15 = icmp sgt i32 %10, 0
-  br i1 %15, label %.lr.ph49.preheader, label %.loopexit
+  br i1 %15, label %.lr.ph48.preheader, label %.loopexit
 
-.lr.ph49.preheader:                               ; preds = %.preheader38
-  %wide.trip.count68 = and i64 %9, 2147483647
-  br label %.lr.ph49
+.lr.ph48.preheader:                               ; preds = %.preheader37
+  %wide.trip.count67 = and i64 %9, 2147483647
+  br label %.lr.ph48
 
 .preheader:                                       ; preds = %1
   %16 = icmp sgt i32 %10, 0
-  br i1 %16, label %.lr.ph57.preheader, label %.loopexit
+  br i1 %16, label %.lr.ph56.preheader, label %.loopexit
 
-.lr.ph57.preheader:                               ; preds = %.preheader
-  %wide.trip.count72 = and i64 %9, 2147483647
-  br label %.lr.ph57
+.lr.ph56.preheader:                               ; preds = %.preheader
+  %wide.trip.count71 = and i64 %9, 2147483647
+  br label %.lr.ph56
 
-.lr.ph57:                                         ; preds = %.lr.ph57.preheader, %27
-  %indvars.iv70 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next71, %27 ]
-  %.03255 = phi i8 [ 0, %.lr.ph57.preheader ], [ %.133, %27 ]
-  %17 = getelementptr i8, ptr %13, i64 %indvars.iv70
+.lr.ph56:                                         ; preds = %.lr.ph56.preheader, %27
+  %indvars.iv69 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next70, %27 ]
+  %.03254 = phi i8 [ 0, %.lr.ph56.preheader ], [ %.133, %27 ]
+  %17 = getelementptr i8, ptr %13, i64 %indvars.iv69
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not37 = icmp eq i8 %19, 0
-  br i1 %.not37, label %20, label %27
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %27, label %20
 
-20:                                               ; preds = %.lr.ph57
-  %21 = getelementptr i8, ptr %4, i64 %indvars.iv70
+20:                                               ; preds = %.lr.ph56
+  %21 = getelementptr i8, ptr %4, i64 %indvars.iv69
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 1
   br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %20
   %25 = icmp eq i8 %22, 2
-  %26 = icmp eq i8 %.03255, 0
+  %26 = icmp eq i8 %.03254, 0
   %or.cond = select i1 %25, i1 %26, i1 false
-  %spec.store.select = select i1 %or.cond, i8 2, i8 %.03255
+  %spec.store.select = select i1 %or.cond, i8 2, i8 %.03254
   br label %27
 
-27:                                               ; preds = %24, %.lr.ph57
-  %.133 = phi i8 [ %.03255, %.lr.ph57 ], [ %spec.store.select, %24 ]
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %exitcond73.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count72
-  br i1 %exitcond73.not, label %.loopexit, label %.lr.ph57, !llvm.loop !9
+27:                                               ; preds = %24, %.lr.ph56
+  %.133 = phi i8 [ %.03254, %.lr.ph56 ], [ %spec.store.select, %24 ]
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
+  %exitcond72.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count71
+  br i1 %exitcond72.not, label %.loopexit, label %.lr.ph56, !llvm.loop !9
 
-.lr.ph49:                                         ; preds = %.lr.ph49.preheader, %35
-  %indvars.iv66 = phi i64 [ 0, %.lr.ph49.preheader ], [ %indvars.iv.next67, %35 ]
-  %.23447 = phi i8 [ 1, %.lr.ph49.preheader ], [ %spec.select, %35 ]
-  %28 = getelementptr i8, ptr %4, i64 %indvars.iv66
+.lr.ph48:                                         ; preds = %.lr.ph48.preheader, %35
+  %indvars.iv65 = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next66, %35 ]
+  %.23446 = phi i8 [ 1, %.lr.ph48.preheader ], [ %spec.select, %35 ]
+  %28 = getelementptr i8, ptr %4, i64 %indvars.iv65
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %.loopexit, label %31
 
-31:                                               ; preds = %.lr.ph49
-  %32 = getelementptr i8, ptr %13, i64 %indvars.iv66
+31:                                               ; preds = %.lr.ph48
+  %32 = getelementptr i8, ptr %13, i64 %indvars.iv65
   %33 = load i8, ptr %32, align 1
-  %34 = and i8 %33, 1
-  %.not = icmp eq i8 %34, 0
-  br i1 %.not, label %35, label %.loopexit
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %.loopexit, label %35
 
 35:                                               ; preds = %31
   %36 = icmp eq i8 %29, 2
-  %spec.select = select i1 %36, i8 2, i8 %.23447
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count68
-  br i1 %exitcond69.not, label %.loopexit, label %.lr.ph49, !llvm.loop !10
+  %spec.select = select i1 %36, i8 2, i8 %.23446
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %exitcond68.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count67
+  br i1 %exitcond68.not, label %.loopexit, label %.lr.ph48, !llvm.loop !10
 
 37:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -440,8 +430,8 @@ define dso_local i64 @ginarraytriconsistent(ptr nocapture noundef readonly %0) l
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 300, ptr noundef nonnull @__func__.ginarraytriconsistent) #5
   unreachable
 
-.loopexit:                                        ; preds = %37, %.lr.ph, %35, %31, %.lr.ph49, %27, %20, %.preheader41, %.preheader38, %.preheader, %1
-  %.4 = phi i8 [ 2, %1 ], [ 0, %.preheader ], [ 1, %.preheader38 ], [ 2, %.preheader41 ], [ %.133, %27 ], [ 1, %20 ], [ %spec.select, %35 ], [ 0, %31 ], [ 0, %.lr.ph49 ], [ 2, %37 ], [ 0, %.lr.ph ]
+.loopexit:                                        ; preds = %37, %.lr.ph, %35, %31, %.lr.ph48, %27, %20, %.preheader40, %.preheader37, %.preheader, %1
+  %.4 = phi i8 [ 2, %1 ], [ 0, %.preheader ], [ 1, %.preheader37 ], [ 2, %.preheader40 ], [ %.133, %27 ], [ 1, %20 ], [ %spec.select, %35 ], [ 0, %31 ], [ 0, %.lr.ph48 ], [ 2, %37 ], [ 0, %.lr.ph ]
   %46 = zext nneg i8 %.4 to i64
   ret i64 %46
 }

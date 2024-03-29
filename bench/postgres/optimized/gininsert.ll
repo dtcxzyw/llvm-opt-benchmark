@@ -438,81 +438,80 @@ define internal void @ginBuildCallback(ptr nocapture readnone %0, ptr noundef %1
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr i8, ptr %3, i64 %indvars.iv
   %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  %30 = icmp ne i8 %29, 0
+  %29 = trunc i8 %28 to i1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %31 = load ptr, ptr %20, align 8
-  %32 = load ptr, ptr @CurrentMemoryContext, align 8
+  %30 = load ptr, ptr %20, align 8
+  %31 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %30, ptr @CurrentMemoryContext, align 8
+  %32 = load ptr, ptr %21, align 8
+  %33 = call ptr @ginExtractEntries(ptr noundef %32, i16 noundef zeroext %24, i64 noundef %26, i1 noundef zeroext %29, ptr noundef nonnull %8, ptr noundef nonnull %7) #6
   store ptr %31, ptr @CurrentMemoryContext, align 8
-  %33 = load ptr, ptr %21, align 8
-  %34 = call ptr @ginExtractEntries(ptr noundef %33, i16 noundef zeroext %24, i64 noundef %26, i1 noundef zeroext %30, ptr noundef nonnull %8, ptr noundef nonnull %7) #6
-  store ptr %32, ptr @CurrentMemoryContext, align 8
-  %35 = load ptr, ptr %7, align 8
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %8, align 4
+  call void @ginInsertBAEntries(ptr noundef nonnull %21, ptr noundef %1, i16 noundef zeroext %24, ptr noundef %33, ptr noundef %34, i32 noundef %35) #6
   %36 = load i32, ptr %8, align 4
-  call void @ginInsertBAEntries(ptr noundef nonnull %21, ptr noundef %1, i16 noundef zeroext %24, ptr noundef %34, ptr noundef %35, i32 noundef %36) #6
-  %37 = load i32, ptr %8, align 4
-  %38 = sitofp i32 %37 to double
-  %39 = load double, ptr %22, align 8
-  %40 = fadd double %39, %38
-  store double %40, ptr %22, align 8
-  %41 = load ptr, ptr %20, align 8
-  call void @MemoryContextReset(ptr noundef %41) #6
+  %37 = sitofp i32 %36 to double
+  %38 = load double, ptr %22, align 8
+  %39 = fadd double %38, %37
+  store double %39, ptr %22, align 8
+  %40 = load ptr, ptr %20, align 8
+  call void @MemoryContextReset(ptr noundef %40) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %42 = load ptr, ptr %16, align 8
-  %43 = load i32, ptr %42, align 8
-  %44 = sext i32 %43 to i64
-  %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %23, label %._crit_edge, !llvm.loop !7
+  %41 = load ptr, ptr %16, align 8
+  %42 = load i32, ptr %41, align 8
+  %43 = sext i32 %42 to i64
+  %44 = icmp slt i64 %indvars.iv.next, %43
+  br i1 %44, label %23, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %23, %6
-  %46 = getelementptr inbounds i8, ptr %5, i64 9712
-  %47 = getelementptr inbounds i8, ptr %5, i64 9720
-  %48 = load i64, ptr %47, align 8
-  %49 = load i32, ptr @maintenance_work_mem, align 4
-  %50 = sext i32 %49 to i64
-  %51 = shl nsw i64 %50, 10
-  %.not = icmp ult i64 %48, %51
-  br i1 %.not, label %66, label %52
+  %45 = getelementptr inbounds i8, ptr %5, i64 9712
+  %46 = getelementptr inbounds i8, ptr %5, i64 9720
+  %47 = load i64, ptr %46, align 8
+  %48 = load i32, ptr @maintenance_work_mem, align 4
+  %49 = sext i32 %48 to i64
+  %50 = shl nsw i64 %49, 10
+  %.not = icmp ult i64 %47, %50
+  br i1 %.not, label %65, label %51
 
-52:                                               ; preds = %._crit_edge
-  call void @ginBeginBAScan(ptr noundef nonnull %46) #6
-  %53 = call ptr @ginGetBAEntry(ptr noundef nonnull %46, ptr noundef nonnull %12, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #6
-  %.not2124 = icmp eq ptr %53, null
+51:                                               ; preds = %._crit_edge
+  call void @ginBeginBAScan(ptr noundef nonnull %45) #6
+  %52 = call ptr @ginGetBAEntry(ptr noundef nonnull %45, ptr noundef nonnull %12, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #6
+  %.not2124 = icmp eq ptr %52, null
   br i1 %.not2124, label %._crit_edge27, label %.lr.ph26
 
-.lr.ph26:                                         ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %5, i64 9664
-  br label %55
+.lr.ph26:                                         ; preds = %51
+  %53 = getelementptr inbounds i8, ptr %5, i64 9664
+  br label %54
 
-55:                                               ; preds = %.lr.ph26, %59
-  %56 = phi ptr [ %53, %.lr.ph26 ], [ %64, %59 ]
-  %57 = load volatile i32, ptr @InterruptPending, align 4
-  %.not22 = icmp eq i32 %57, 0
-  br i1 %.not22, label %59, label %58
+54:                                               ; preds = %.lr.ph26, %58
+  %55 = phi ptr [ %52, %.lr.ph26 ], [ %63, %58 ]
+  %56 = load volatile i32, ptr @InterruptPending, align 4
+  %.not22 = icmp eq i32 %56, 0
+  br i1 %.not22, label %58, label %57
 
-58:                                               ; preds = %55
+57:                                               ; preds = %54
   call void @ProcessInterrupts() #6
-  br label %59
+  br label %58
 
-59:                                               ; preds = %55, %58
-  %60 = load i16, ptr %12, align 2
-  %61 = load i64, ptr %9, align 8
-  %62 = load i8, ptr %10, align 1
-  %63 = load i32, ptr %11, align 4
-  call void @ginEntryInsert(ptr noundef %5, i16 noundef zeroext %60, i64 noundef %61, i8 noundef signext %62, ptr noundef nonnull %56, i32 noundef %63, ptr noundef nonnull %54)
-  %64 = call ptr @ginGetBAEntry(ptr noundef nonnull %46, ptr noundef nonnull %12, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #6
-  %.not21 = icmp eq ptr %64, null
-  br i1 %.not21, label %._crit_edge27, label %55, !llvm.loop !8
+58:                                               ; preds = %54, %57
+  %59 = load i16, ptr %12, align 2
+  %60 = load i64, ptr %9, align 8
+  %61 = load i8, ptr %10, align 1
+  %62 = load i32, ptr %11, align 4
+  call void @ginEntryInsert(ptr noundef %5, i16 noundef zeroext %59, i64 noundef %60, i8 noundef signext %61, ptr noundef nonnull %55, i32 noundef %62, ptr noundef nonnull %53)
+  %63 = call ptr @ginGetBAEntry(ptr noundef nonnull %45, ptr noundef nonnull %12, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #6
+  %.not21 = icmp eq ptr %63, null
+  br i1 %.not21, label %._crit_edge27, label %54, !llvm.loop !8
 
-._crit_edge27:                                    ; preds = %59, %52
-  %65 = load ptr, ptr %13, align 8
-  call void @MemoryContextReset(ptr noundef %65) #6
-  call void @ginInitBA(ptr noundef nonnull %46) #6
-  br label %66
+._crit_edge27:                                    ; preds = %58, %51
+  %64 = load ptr, ptr %13, align 8
+  call void @MemoryContextReset(ptr noundef %64) #6
+  call void @ginInitBA(ptr noundef nonnull %45) #6
+  br label %65
 
-66:                                               ; preds = %._crit_edge27, %._crit_edge
+65:                                               ; preds = %._crit_edge27, %._crit_edge
   store ptr %15, ptr @CurrentMemoryContext, align 8
   ret void
 }
@@ -629,14 +628,13 @@ define dso_local noundef zeroext i1 @gininsert(ptr noundef %0, ptr nocapture nou
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr i8, ptr %2, i64 %indvars.iv41
   %41 = load i8, ptr %40, align 1
-  %42 = and i8 %41, 1
-  %43 = icmp ne i8 %42, 0
-  call void @ginHeapTupleFastCollect(ptr noundef nonnull %.0, ptr noundef nonnull %11, i16 noundef zeroext %37, i64 noundef %39, i1 noundef zeroext %43, ptr noundef %3) #6
-  %44 = load ptr, ptr %33, align 8
-  %45 = load i32, ptr %44, align 8
-  %46 = sext i32 %45 to i64
-  %47 = icmp slt i64 %indvars.iv.next42, %46
-  br i1 %47, label %.lr.ph39, label %._crit_edge, !llvm.loop !9
+  %42 = trunc i8 %41 to i1
+  call void @ginHeapTupleFastCollect(ptr noundef nonnull %.0, ptr noundef nonnull %11, i16 noundef zeroext %37, i64 noundef %39, i1 noundef zeroext %42, ptr noundef %3) #6
+  %43 = load ptr, ptr %33, align 8
+  %44 = load i32, ptr %43, align 8
+  %45 = sext i32 %44 to i64
+  %46 = icmp slt i64 %indvars.iv.next42, %45
+  br i1 %46, label %.lr.ph39, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph39, %.critedge
   call void @ginHeapTupleFastInsert(ptr noundef nonnull %.0, ptr noundef nonnull %11) #6
@@ -645,42 +643,41 @@ define dso_local noundef zeroext i1 @gininsert(ptr noundef %0, ptr nocapture nou
 .lr.ph:                                           ; preds = %.preheader, %ginHeapTupleInsert.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %ginHeapTupleInsert.exit ], [ 0, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = trunc i64 %indvars.iv.next to i16
-  %49 = getelementptr i64, ptr %1, i64 %indvars.iv
-  %50 = load i64, ptr %49, align 8
-  %51 = getelementptr i8, ptr %2, i64 %indvars.iv
-  %52 = load i8, ptr %51, align 1
-  %53 = and i8 %52, 1
-  %54 = icmp ne i8 %53, 0
+  %47 = trunc i64 %indvars.iv.next to i16
+  %48 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %49 = load i64, ptr %48, align 8
+  %50 = getelementptr i8, ptr %2, i64 %indvars.iv
+  %51 = load i8, ptr %50, align 1
+  %52 = trunc i8 %51 to i1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %55 = call ptr @ginExtractEntries(ptr noundef nonnull %.0, i16 noundef zeroext %48, i64 noundef %50, i1 noundef zeroext %54, ptr noundef nonnull %10, ptr noundef nonnull %9) #6
-  %56 = load i32, ptr %10, align 4
-  %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.lr.ph.i, label %ginHeapTupleInsert.exit
+  %53 = call ptr @ginExtractEntries(ptr noundef nonnull %.0, i16 noundef zeroext %47, i64 noundef %49, i1 noundef zeroext %52, ptr noundef nonnull %10, ptr noundef nonnull %9) #6
+  %54 = load i32, ptr %10, align 4
+  %55 = icmp sgt i32 %54, 0
+  br i1 %55, label %.lr.ph.i, label %ginHeapTupleInsert.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph ]
-  %58 = getelementptr i64, ptr %55, i64 %indvars.iv.i
-  %59 = load i64, ptr %58, align 8
-  %60 = load ptr, ptr %9, align 8
-  %61 = getelementptr i8, ptr %60, i64 %indvars.iv.i
-  %62 = load i8, ptr %61, align 1
-  call void @ginEntryInsert(ptr noundef %.0, i16 noundef zeroext %48, i64 noundef %59, i8 noundef signext %62, ptr noundef %3, i32 noundef 1, ptr noundef null)
+  %56 = getelementptr i64, ptr %53, i64 %indvars.iv.i
+  %57 = load i64, ptr %56, align 8
+  %58 = load ptr, ptr %9, align 8
+  %59 = getelementptr i8, ptr %58, i64 %indvars.iv.i
+  %60 = load i8, ptr %59, align 1
+  call void @ginEntryInsert(ptr noundef %.0, i16 noundef zeroext %47, i64 noundef %57, i8 noundef signext %60, ptr noundef %3, i32 noundef 1, ptr noundef null)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %63 = load i32, ptr %10, align 4
-  %64 = sext i32 %63 to i64
-  %65 = icmp slt i64 %indvars.iv.next.i, %64
-  br i1 %65, label %.lr.ph.i, label %ginHeapTupleInsert.exit, !llvm.loop !10
+  %61 = load i32, ptr %10, align 4
+  %62 = sext i32 %61 to i64
+  %63 = icmp slt i64 %indvars.iv.next.i, %62
+  br i1 %63, label %.lr.ph.i, label %ginHeapTupleInsert.exit, !llvm.loop !10
 
 ginHeapTupleInsert.exit:                          ; preds = %.lr.ph.i, %.lr.ph
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %66 = load ptr, ptr %29, align 8
-  %67 = load i32, ptr %66, align 8
-  %68 = sext i32 %67 to i64
-  %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  %64 = load ptr, ptr %29, align 8
+  %65 = load i32, ptr %64, align 8
+  %66 = sext i32 %65 to i64
+  %67 = icmp slt i64 %indvars.iv.next, %66
+  br i1 %67, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %ginHeapTupleInsert.exit, %.preheader, %._crit_edge
   store ptr %21, ptr @CurrentMemoryContext, align 8

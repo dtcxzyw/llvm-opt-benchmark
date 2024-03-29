@@ -105,9 +105,8 @@ define dso_local void @ExecSetVariableStmt(ptr nocapture noundef readonly %0, i1
 
 15:                                               ; preds = %12, %12
   %16 = load i8, ptr %3, align 8
-  %17 = and i8 %16, 1
-  %.not69 = icmp eq i8 %17, 0
-  br i1 %.not69, label %19, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %15
   tail call void @WarnNoTransactionBlock(i1 noundef zeroext %1, ptr noundef nonnull @.str.2) #7
@@ -151,20 +150,20 @@ ExtractSetVariableArgs.exit:                      ; preds = %19, %23, %27
   tail call void @WarnNoTransactionBlock(i1 noundef zeroext %1, ptr noundef nonnull @.str.4) #7
   %38 = getelementptr inbounds i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
-  %.not67 = icmp eq ptr %39, null
-  br i1 %.not67, label %.thread, label %.lr.ph84
+  %.not65 = icmp eq ptr %39, null
+  br i1 %.not65, label %.thread, label %.lr.ph81
 
-.lr.ph84:                                         ; preds = %37
+.lr.ph81:                                         ; preds = %37
   %40 = getelementptr inbounds i8, ptr %39, i64 4
   %41 = getelementptr inbounds i8, ptr %39, i64 16
   %42 = load i32, ptr %40, align 4
   %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.lr.ph115, label %.thread
+  br i1 %43, label %.lr.ph114, label %.thread
 
-.lr.ph115:                                        ; preds = %.lr.ph84, %62
-  %indvars.iv89114 = phi i64 [ %indvars.iv.next90, %62 ], [ 0, %.lr.ph84 ]
+.lr.ph114:                                        ; preds = %.lr.ph81, %62
+  %indvars.iv86113 = phi i64 [ %indvars.iv.next87, %62 ], [ 0, %.lr.ph81 ]
   %44 = load ptr, ptr %41, align 8
-  %45 = getelementptr %union.ListCell, ptr %44, i64 %indvars.iv89114
+  %45 = getelementptr %union.ListCell, ptr %44, i64 %indvars.iv86113
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
@@ -172,7 +171,7 @@ ExtractSetVariableArgs.exit:                      ; preds = %19, %23, %27
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %62, label %51
 
-51:                                               ; preds = %.lr.ph115
+51:                                               ; preds = %.lr.ph114
   %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(22) @.str.6) #9
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %62, label %54
@@ -191,23 +190,23 @@ ExtractSetVariableArgs.exit:                      ; preds = %19, %23, %27
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 98, ptr noundef nonnull @__func__.ExecSetVariableStmt) #7
   unreachable
 
-62:                                               ; preds = %54, %51, %.lr.ph115
-  %.str.5.sink100 = phi ptr [ @.str.5, %.lr.ph115 ], [ @.str.6, %51 ], [ @.str.7, %54 ]
+62:                                               ; preds = %54, %51, %.lr.ph114
+  %.str.5.sink98 = phi ptr [ @.str.5, %.lr.ph114 ], [ @.str.6, %51 ], [ @.str.7, %54 ]
   %63 = getelementptr inbounds i8, ptr %46, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %64) #7
   %66 = load i8, ptr %3, align 8
-  %67 = and i8 %66, 1
-  %68 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef nonnull %.str.5.sink100, ptr noundef %65)
-  %69 = tail call zeroext i1 @superuser() #7
-  %70 = select i1 %69, i32 5, i32 6
-  %71 = zext nneg i8 %67 to i32
-  %72 = tail call i32 @set_config_option(ptr noundef nonnull %.str.5.sink100, ptr noundef %68, i32 noundef %70, i32 noundef 13, i32 noundef %71, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #7
-  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89114, 1
+  %67 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef nonnull %.str.5.sink98, ptr noundef %65)
+  %68 = tail call zeroext i1 @superuser() #7
+  %69 = select i1 %68, i32 5, i32 6
+  %70 = and i8 %66, 1
+  %71 = zext nneg i8 %70 to i32
+  %72 = tail call i32 @set_config_option(ptr noundef nonnull %.str.5.sink98, ptr noundef %67, i32 noundef %69, i32 noundef 13, i32 noundef %71, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #7
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86113, 1
   %73 = load i32, ptr %40, align 4
   %74 = sext i32 %73 to i64
-  %75 = icmp slt i64 %indvars.iv.next90, %74
-  br i1 %75, label %.lr.ph115, label %.thread
+  %75 = icmp slt i64 %indvars.iv.next87, %74
+  br i1 %75, label %.lr.ph114, label %.thread
 
 76:                                               ; preds = %32
   %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(24) @.str.9) #9
@@ -217,20 +216,20 @@ ExtractSetVariableArgs.exit:                      ; preds = %19, %23, %27
 79:                                               ; preds = %76
   %80 = getelementptr inbounds i8, ptr %0, i64 16
   %81 = load ptr, ptr %80, align 8
-  %.not65 = icmp eq ptr %81, null
-  br i1 %.not65, label %.thread, label %.lr.ph
+  %.not = icmp eq ptr %81, null
+  br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %79
   %82 = getelementptr inbounds i8, ptr %81, i64 4
   %83 = getelementptr inbounds i8, ptr %81, i64 16
   %84 = load i32, ptr %82, align 4
   %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %.lr.ph113, label %.thread
+  br i1 %85, label %.lr.ph112, label %.thread
 
-.lr.ph113:                                        ; preds = %.lr.ph, %104
-  %indvars.iv112 = phi i64 [ %indvars.iv.next, %104 ], [ 0, %.lr.ph ]
+.lr.ph112:                                        ; preds = %.lr.ph, %104
+  %indvars.iv111 = phi i64 [ %indvars.iv.next, %104 ], [ 0, %.lr.ph ]
   %86 = load ptr, ptr %83, align 8
-  %87 = getelementptr %union.ListCell, ptr %86, i64 %indvars.iv112
+  %87 = getelementptr %union.ListCell, ptr %86, i64 %indvars.iv111
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
@@ -238,7 +237,7 @@ ExtractSetVariableArgs.exit:                      ; preds = %19, %23, %27
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %104, label %93
 
-93:                                               ; preds = %.lr.ph113
+93:                                               ; preds = %.lr.ph112
   %94 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(22) @.str.6) #9
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %104, label %96
@@ -257,23 +256,23 @@ ExtractSetVariableArgs.exit:                      ; preds = %19, %23, %27
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 120, ptr noundef nonnull @__func__.ExecSetVariableStmt) #7
   unreachable
 
-104:                                              ; preds = %96, %93, %.lr.ph113
-  %.str.10.sink107 = phi ptr [ @.str.10, %.lr.ph113 ], [ @.str.11, %93 ], [ @.str.12, %96 ]
+104:                                              ; preds = %96, %93, %.lr.ph112
+  %.str.10.sink106 = phi ptr [ @.str.10, %.lr.ph112 ], [ @.str.11, %93 ], [ @.str.12, %96 ]
   %105 = getelementptr inbounds i8, ptr %88, i64 24
   %106 = load ptr, ptr %105, align 8
   %107 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %106) #7
   %108 = load i8, ptr %3, align 8
-  %109 = and i8 %108, 1
-  %110 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef nonnull %.str.10.sink107, ptr noundef %107)
-  %111 = tail call zeroext i1 @superuser() #7
-  %112 = select i1 %111, i32 5, i32 6
-  %113 = zext nneg i8 %109 to i32
-  %114 = tail call i32 @set_config_option(ptr noundef nonnull %.str.10.sink107, ptr noundef %110, i32 noundef %112, i32 noundef 13, i32 noundef %113, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #7
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv112, 1
+  %109 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef nonnull %.str.10.sink106, ptr noundef %107)
+  %110 = tail call zeroext i1 @superuser() #7
+  %111 = select i1 %110, i32 5, i32 6
+  %112 = and i8 %108, 1
+  %113 = zext nneg i8 %112 to i32
+  %114 = tail call i32 @set_config_option(ptr noundef nonnull %.str.10.sink106, ptr noundef %109, i32 noundef %111, i32 noundef 13, i32 noundef %113, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #7
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv111, 1
   %115 = load i32, ptr %82, align 4
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next, %116
-  br i1 %117, label %.lr.ph113, label %.thread
+  br i1 %117, label %.lr.ph112, label %.thread
 
 118:                                              ; preds = %76
   %119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(21) @.str.14) #9
@@ -282,9 +281,8 @@ ExtractSetVariableArgs.exit:                      ; preds = %19, %23, %27
 
 121:                                              ; preds = %118
   %122 = load i8, ptr %3, align 8
-  %123 = and i8 %122, 1
-  %.not64 = icmp eq i8 %123, 0
-  br i1 %.not64, label %128, label %124
+  %123 = trunc i8 %122 to i1
+  br i1 %123, label %124, label %128
 
 124:                                              ; preds = %121
   %125 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -316,9 +314,8 @@ ExtractSetVariableArgs.exit:                      ; preds = %19, %23, %27
 
 139:                                              ; preds = %12
   %140 = load i8, ptr %3, align 8
-  %141 = and i8 %140, 1
-  %.not = icmp eq i8 %141, 0
-  br i1 %.not, label %143, label %142
+  %141 = trunc i8 %140 to i1
+  br i1 %141, label %142, label %143
 
 142:                                              ; preds = %139
   tail call void @WarnNoTransactionBlock(i1 noundef zeroext %1, ptr noundef nonnull @.str.2) #7
@@ -336,10 +333,10 @@ ExtractSetVariableArgs.exit:                      ; preds = %19, %23, %27
   tail call void @ResetAllOptions() #7
   br label %.thread
 
-.thread:                                          ; preds = %104, %62, %.lr.ph, %.lr.ph84, %79, %37, %12, %ExtractSetVariableArgs.exit, %143, %149, %128
+.thread:                                          ; preds = %104, %62, %.lr.ph, %.lr.ph81, %79, %37, %12, %ExtractSetVariableArgs.exit, %143, %149, %128
   %150 = load ptr, ptr @object_access_hook_str, align 8
-  %.not70 = icmp eq ptr %150, null
-  br i1 %.not70, label %155, label %151
+  %.not67 = icmp eq ptr %150, null
+  br i1 %.not67, label %155, label %151
 
 151:                                              ; preds = %.thread
   %152 = getelementptr inbounds i8, ptr %0, i64 8
@@ -590,9 +587,8 @@ declare ptr @GetConfigOptionByName(ptr noundef, ptr noundef, i1 noundef zeroext)
 define dso_local i64 @set_config_by_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %9, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -609,9 +605,8 @@ define dso_local i64 @set_config_by_name(ptr nocapture noundef readonly %0) loca
   %13 = tail call ptr @text_to_cstring(ptr noundef %12) #7
   %14 = getelementptr i8, ptr %0, i64 56
   %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %.not11 = icmp eq i8 %16, 0
-  br i1 %.not11, label %17, label %22
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %22, label %17
 
 17:                                               ; preds = %9
   %18 = getelementptr i8, ptr %0, i64 48
@@ -624,9 +619,8 @@ define dso_local i64 @set_config_by_name(ptr nocapture noundef readonly %0) loca
   %.010 = phi ptr [ %21, %17 ], [ null, %9 ]
   %23 = getelementptr i8, ptr %0, i64 72
   %24 = load i8, ptr %23, align 8
-  %25 = and i8 %24, 1
-  %.not12 = icmp eq i8 %25, 0
-  br i1 %.not12, label %26, label %31
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %31, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr i8, ptr %0, i64 64
@@ -1186,17 +1180,15 @@ ConfigOptionIsVisible.exit:                       ; preds = %.ConfigOptionIsVisi
   %87 = getelementptr inbounds i8, ptr %35, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, i8 0, i64 24, i1 false)
   %88 = load i8, ptr %87, align 8
-  %89 = and i8 %88, 1
-  %.not90.i = icmp eq i8 %89, 0
-  %90 = select i1 %.not90.i, ptr @.str.49, ptr @.str.48
+  %89 = trunc i8 %88 to i1
+  %90 = select i1 %89, ptr @.str.48, ptr @.str.49
   %91 = call ptr @pstrdup(ptr noundef nonnull %90) #7
   %92 = getelementptr inbounds i8, ptr %4, i64 96
   store ptr %91, ptr %92, align 16
   %93 = getelementptr inbounds i8, ptr %35, i64 184
   %94 = load i8, ptr %93, align 8
-  %95 = and i8 %94, 1
-  %.not91.i = icmp eq i8 %95, 0
-  %96 = select i1 %.not91.i, ptr @.str.49, ptr @.str.48
+  %95 = trunc i8 %94 to i1
+  %96 = select i1 %95, ptr @.str.48, ptr @.str.49
   %97 = call ptr @pstrdup(ptr noundef nonnull %96) #7
   %98 = getelementptr inbounds i8, ptr %4, i64 104
   store ptr %97, ptr %98, align 8
@@ -1349,8 +1341,8 @@ GetConfigOptionValues.exit:                       ; preds = %182, %191
   %193 = getelementptr inbounds i8, ptr %35, i64 40
   %194 = load i32, ptr %193, align 8
   %195 = and i32 %194, 2
-  %.not92.i = icmp eq i32 %195, 0
-  %196 = select i1 %.not92.i, ptr @.str.55, ptr @.str.54
+  %.not90.i = icmp eq i32 %195, 0
+  %196 = select i1 %.not90.i, ptr @.str.55, ptr @.str.54
   %197 = getelementptr inbounds i8, ptr %4, i64 128
   store ptr %196, ptr %197, align 16
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2)

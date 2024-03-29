@@ -88,8 +88,7 @@ entry:
 define hidden noundef zeroext i1 @_Z18assertions_enabledv() local_unnamed_addr #3 {
 entry:
   %0 = load atomic i8, ptr @_ZL19g_enable_assertions.0 seq_cst, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.i = icmp ne i8 %1, 0
+  %tobool.i.i = trunc i8 %0 to i1
   ret i1 %tobool.i.i
 }
 

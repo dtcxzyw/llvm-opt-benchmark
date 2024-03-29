@@ -28,16 +28,14 @@ define hidden i32 @sttype_field_ftenum(ptr nocapture noundef readonly %0) local_
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %16
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %16, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %3, i64 25
   %9 = load i8, ptr %8, align 1
-  %10 = and i8 %9, 1
-  %.not4 = icmp eq i8 %10, 0
-  br i1 %.not4, label %11, label %16
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %16, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %3, i64 8
@@ -66,9 +64,8 @@ define hidden zeroext i1 @sttype_field_raw(ptr nocapture noundef readonly %0) lo
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %7 = icmp ne i8 %6, 0
-  ret i1 %7
+  %6 = trunc i8 %5 to i1
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -77,9 +74,8 @@ define hidden zeroext i1 @sttype_field_value_string(ptr nocapture noundef readon
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 25
   %5 = load i8, ptr %4, align 1
-  %6 = and i8 %5, 1
-  %7 = icmp ne i8 %6, 0
-  ret i1 %7
+  %6 = trunc i8 %5 to i1
+  ret i1 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -232,9 +228,8 @@ define internal ptr @field_tostr(ptr nocapture noundef readonly %0, i1 zeroext %
   %3 = tail call noalias ptr @wmem_strbuf_new(ptr noundef null, ptr noundef null) #4
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %8, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
   tail call void @wmem_strbuf_append_c(ptr noundef %3, i8 noundef signext 64) #4
@@ -248,9 +243,8 @@ define internal ptr @field_tostr(ptr nocapture noundef readonly %0, i1 zeroext %
   tail call void @wmem_strbuf_append(ptr noundef %3, ptr noundef %12) #4
   %13 = getelementptr inbounds i8, ptr %0, i64 25
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not19 = icmp eq i8 %15, 0
-  br i1 %.not19, label %17, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %8
   tail call void @wmem_strbuf_append(ptr noundef %3, ptr noundef nonnull @.str) #4
@@ -259,8 +253,8 @@ define internal ptr @field_tostr(ptr nocapture noundef readonly %0, i1 zeroext %
 17:                                               ; preds = %16, %8
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
-  %.not20 = icmp eq ptr %19, null
-  br i1 %.not20, label %22, label %20
+  %.not = icmp eq ptr %19, null
+  br i1 %.not, label %22, label %20
 
 20:                                               ; preds = %17
   %21 = tail call ptr @drange_tostr(ptr noundef nonnull %19) #4
@@ -270,9 +264,8 @@ define internal ptr @field_tostr(ptr nocapture noundef readonly %0, i1 zeroext %
 
 22:                                               ; preds = %20, %17
   %23 = load i8, ptr %4, align 8
-  %24 = and i8 %23, 1
-  %.not21 = icmp eq i8 %24, 0
-  br i1 %.not21, label %26, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %26
 
 25:                                               ; preds = %22
   tail call void @wmem_strbuf_append(ptr noundef %3, ptr noundef nonnull @.str.2) #4
@@ -280,9 +273,8 @@ define internal ptr @field_tostr(ptr nocapture noundef readonly %0, i1 zeroext %
 
 26:                                               ; preds = %22
   %27 = load i8, ptr %13, align 1
-  %28 = and i8 %27, 1
-  %.not22 = icmp eq i8 %28, 0
-  br i1 %.not22, label %30, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %30
 
 29:                                               ; preds = %26
   tail call void @wmem_strbuf_append(ptr noundef %3, ptr noundef nonnull @.str.3) #4

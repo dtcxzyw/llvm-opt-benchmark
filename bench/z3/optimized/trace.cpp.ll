@@ -49,9 +49,8 @@ entry:
 define hidden noundef zeroext i1 @_Z11is_threadedv() local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr @_ZL13g_is_threaded, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call.i = tail call i64 @pthread_self() #11

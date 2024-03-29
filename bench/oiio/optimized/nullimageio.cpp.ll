@@ -2171,9 +2171,8 @@ if.end6:                                          ; preds = %if.end
 land.lhs.true8:                                   ; preds = %if.end6
   %m_mip = getelementptr inbounds i8, ptr %this, i64 224
   %2 = load i8, ptr %m_mip, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %return, label %if.end10
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.end10, label %return
 
 if.end10:                                         ; preds = %land.lhs.true8, %if.end6
   %m_topspec = getelementptr inbounds i8, ptr %this, i64 256
@@ -2200,34 +2199,34 @@ for.body.lr.ph:                                   ; preds = %if.end10
   %full_width = getelementptr inbounds i8, ptr %this, i64 44
   %full_height = getelementptr inbounds i8, ptr %this, i64 48
   %full_depth = getelementptr inbounds i8, ptr %this, i64 52
-  %4 = load <2 x i32>, ptr %width, align 4
+  %3 = load <2 x i32>, ptr %width, align 4
   %depth.promoted = load i32, ptr %depth, align 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end23
   %.sroa.speculated26 = phi i32 [ %depth.promoted, %for.body.lr.ph ], [ %.sroa.speculated, %if.end23 ]
   %storemerge20 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end23 ]
-  %5 = phi <2 x i32> [ %4, %for.body.lr.ph ], [ %10, %if.end23 ]
-  %6 = icmp ne <2 x i32> %5, <i32 1, i32 1>
-  %7 = extractelement <2 x i1> %6, i64 0
-  %8 = extractelement <2 x i1> %6, i64 1
-  %or.cond.not27 = select i1 %7, i1 true, i1 %8
+  %4 = phi <2 x i32> [ %3, %for.body.lr.ph ], [ %9, %if.end23 ]
+  %5 = icmp ne <2 x i32> %4, <i32 1, i32 1>
+  %6 = extractelement <2 x i1> %5, i64 0
+  %7 = extractelement <2 x i1> %5, i64 1
+  %or.cond.not27 = select i1 %6, i1 true, i1 %7
   %cmp21 = icmp ne i32 %.sroa.speculated26, 1
   %or.cond5.not = select i1 %or.cond.not27, i1 true, i1 %cmp21
   br i1 %or.cond5.not, label %if.end23, label %return.loopexit
 
 if.end23:                                         ; preds = %for.body
-  %9 = sdiv <2 x i32> %5, <i32 2, i32 2>
-  %10 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %9, <2 x i32> <i32 1, i32 1>)
-  %11 = extractelement <2 x i32> %10, i64 0
-  store i32 %11, ptr %width, align 4
-  %12 = extractelement <2 x i32> %10, i64 1
-  store i32 %12, ptr %height, align 8
+  %8 = sdiv <2 x i32> %4, <i32 2, i32 2>
+  %9 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %8, <2 x i32> <i32 1, i32 1>)
+  %10 = extractelement <2 x i32> %9, i64 0
+  store i32 %10, ptr %width, align 4
+  %11 = extractelement <2 x i32> %9, i64 1
+  store i32 %11, ptr %height, align 8
   %div42 = sdiv i32 %.sroa.speculated26, 2
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %div42, i32 1)
   store i32 %.sroa.speculated, ptr %depth, align 4
-  store i32 %11, ptr %full_width, align 4
-  store i32 %12, ptr %full_height, align 8
+  store i32 %10, ptr %full_width, align 4
+  store i32 %11, ptr %full_height, align 8
   store i32 %.sroa.speculated, ptr %full_depth, align 4
   %inc = add nuw nsw i32 %storemerge20, 1
   %exitcond.not = icmp eq i32 %inc, %miplevel
@@ -3355,11 +3354,10 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %conv.i.i.i.i.i.i.i = zext i8 %18 to i32
   %m_nonlocal.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 38
   %19 = load i8, ptr %m_nonlocal.i.i.i.i.i.i.i, align 2
-  %20 = and i8 %19, 1
-  %tobool.not.i.i.i.i.i.i.i = icmp eq i8 %20, 0
+  %tobool.i.i.i.i.i.i.i = trunc i8 %19 to i1
   %m_data.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 16
-  %21 = load ptr, ptr %m_data.i.i.i.i.i.i.i, align 8
-  %cond.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i, ptr %m_data.i.i.i.i.i.i.i, ptr %21
+  %20 = load ptr, ptr %m_data.i.i.i.i.i.i.i, align 8
+  %cond.i.i.i.i.i.i.i = select i1 %tobool.i.i.i.i.i.i.i, ptr %20, ptr %m_data.i.i.i.i.i.i.i
   call void @_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE(ptr noundef nonnull align 8 dereferenceable(39) %__cur.07.i.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i.i.i.i, i32 noundef %17, i32 noundef %conv.i.i.i.i.i.i.i, ptr noundef %cond.i.i.i.i.i.i.i, i8 1, i8 1) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i.i.i.i.i.i)
@@ -3369,8 +3367,8 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %cmp.not.i.i.i.i, label %if.end69, label %for.body.i.i.i.i, !llvm.loop !30
 
 if.end69:                                         ; preds = %for.body.i.i.i26, %for.body.i.i.i.i, %_ZSt4copyIPN18OpenImageIO_v2_6_010ParamValueES2_ET0_T_S4_S3_.exit, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_010ParamValueESaIS1_EE13_M_deallocateEPS1_m.exit
-  %22 = load ptr, ptr %this, align 8
-  %add.ptr72 = getelementptr inbounds i8, ptr %22, i64 %sub.ptr.sub.i
+  %21 = load ptr, ptr %this, align 8
+  %add.ptr72 = getelementptr inbounds i8, ptr %21, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
@@ -3455,11 +3453,10 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %conv.i.i.i.i.i.i.i = zext i8 %6 to i32
   %m_nonlocal.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 38
   %7 = load i8, ptr %m_nonlocal.i.i.i.i.i.i.i, align 2
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i.i.i.i.i = icmp eq i8 %8, 0
+  %tobool.i.i.i.i.i.i.i = trunc i8 %7 to i1
   %m_data.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 16
-  %9 = load ptr, ptr %m_data.i.i.i.i.i.i.i, align 8
-  %cond.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i, ptr %m_data.i.i.i.i.i.i.i, ptr %9
+  %8 = load ptr, ptr %m_data.i.i.i.i.i.i.i, align 8
+  %cond.i.i.i.i.i.i.i = select i1 %tobool.i.i.i.i.i.i.i, ptr %8, ptr %m_data.i.i.i.i.i.i.i
   call void @_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE(ptr noundef nonnull align 8 dereferenceable(39) %__cur.07.i.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i.i.i.i, i32 noundef %5, i32 noundef %conv.i.i.i.i.i.i.i, ptr noundef %cond.i.i.i.i.i.i.i, i8 1, i8 1) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i.i.i.i.i.i)

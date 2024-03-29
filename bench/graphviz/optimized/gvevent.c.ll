@@ -143,31 +143,31 @@ define internal noundef i32 @zoom_out_cb(ptr nocapture noundef %0) #1 {
 define internal noundef i32 @toggle_fit_cb(ptr nocapture noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 656
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  %5 = xor i8 %4, 1
-  store i8 %5, ptr %2, align 8
-  br i1 %.not, label %6, label %18
+  %4 = trunc i8 %3 to i1
+  %5 = and i8 %3, 1
+  %6 = xor i8 %5, 1
+  store i8 %6, ptr %2, align 8
+  br i1 %4, label %19, label %7
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 568
-  %8 = load <2 x i32>, ptr %7, align 8
-  %9 = uitofp <2 x i32> %8 to <2 x double>
-  %10 = sitofp <2 x i32> %8 to <2 x double>
-  %11 = fdiv <2 x double> %9, %10
-  %12 = extractelement <2 x double> %11, i64 0
-  %13 = extractelement <2 x double> %11, i64 1
-  %14 = fcmp olt double %12, %13
-  %. = select i1 %14, double %12, double %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 472
-  store double %., ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 456
-  %17 = getelementptr inbounds i8, ptr %0, i64 657
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  store i8 1, ptr %17, align 1
-  br label %18
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds i8, ptr %0, i64 568
+  %9 = load <2 x i32>, ptr %8, align 8
+  %10 = uitofp <2 x i32> %9 to <2 x double>
+  %11 = sitofp <2 x i32> %9 to <2 x double>
+  %12 = fdiv <2 x double> %10, %11
+  %13 = extractelement <2 x double> %12, i64 0
+  %14 = extractelement <2 x double> %12, i64 1
+  %15 = fcmp olt double %13, %14
+  %. = select i1 %15, double %13, double %14
+  %16 = getelementptr inbounds i8, ptr %0, i64 472
+  store double %., ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 456
+  %18 = getelementptr inbounds i8, ptr %0, i64 657
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  store i8 1, ptr %18, align 1
+  br label %19
 
-18:                                               ; preds = %6, %1
+19:                                               ; preds = %7, %1
   ret i32 0
 }
 

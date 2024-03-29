@@ -450,12 +450,11 @@ invoke.cont13:                                    ; preds = %invoke.cont.i
   store i16 %7, ptr %port_.i, align 8
   %external_.i.i = getelementptr inbounds i8, ptr %localAddr, i64 26
   %8 = load i8, ptr %external_.i.i, align 2
-  %9 = and i8 %8, 1
-  %tobool.not.i.i = icmp ne i8 %9, 0
+  %tobool.i.i = trunc i8 %8 to i1
   %family_.i.i.i = getelementptr inbounds i8, ptr %localAddr, i64 20
-  %10 = load i16, ptr %family_.i.i.i, align 4
-  %cmp5.i = icmp eq i16 %10, 1
-  %cmp.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp5.i
+  %9 = load i16, ptr %family_.i.i.i, align 4
+  %cmp5.i = icmp eq i16 %9, 1
+  %cmp.i = select i1 %tobool.i.i, i1 true, i1 %cmp5.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %.noexc
@@ -465,12 +464,12 @@ if.then.i:                                        ; preds = %.noexc
 call.i.i.noexc:                                   ; preds = %if.then.i
   store ptr %call.i.i8, ptr %localAddr_, align 8
   %len.i.i = getelementptr inbounds i8, ptr %localAddr, i64 8
-  %11 = load i32, ptr %len.i.i, align 8
+  %10 = load i32, ptr %len.i.i, align 8
   %len2.i.i = getelementptr inbounds i8, ptr %this, i64 1368
-  store i32 %11, ptr %len2.i.i, align 8
-  %12 = load ptr, ptr %localAddr, align 8
-  %conv.i.i = zext i32 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i.i8, ptr align 2 %12, i64 %conv.i.i, i1 false)
+  store i32 %10, ptr %len2.i.i, align 8
+  %11 = load ptr, ptr %localAddr, align 8
+  %conv.i.i = zext i32 %10 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i.i8, ptr align 2 %11, i64 %conv.i.i, i1 false)
   br label %invoke.cont15
 
 if.else.i:                                        ; preds = %.noexc
@@ -478,54 +477,53 @@ if.else.i:                                        ; preds = %.noexc
   br label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %if.else.i, %call.i.i.noexc
-  %13 = load i8, ptr %external_.i.i, align 2
-  %14 = and i8 %13, 1
-  store i8 %14, ptr %external_.i, align 2
+  %12 = load i8, ptr %external_.i.i, align 2
+  %frombool.i = and i8 %12, 1
+  store i8 %frombool.i, ptr %external_.i, align 2
   %peerAddr_ = getelementptr inbounds i8, ptr %this, i64 1392
   invoke void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %peerAddr_)
-          to label %.noexc22 unwind label %lpad16
+          to label %.noexc23 unwind label %lpad16
 
-.noexc22:                                         ; preds = %invoke.cont15
+.noexc23:                                         ; preds = %invoke.cont15
   %port_.i9 = getelementptr inbounds i8, ptr %this, i64 1416
   store i16 0, ptr %port_.i9, align 8
   %external_.i10 = getelementptr inbounds i8, ptr %this, i64 1418
   store i8 0, ptr %external_.i10, align 2
   %port_2.i11 = getelementptr inbounds i8, ptr %peerAddr, i64 24
-  %15 = load i16, ptr %port_2.i11, align 8
-  store i16 %15, ptr %port_.i9, align 8
+  %13 = load i16, ptr %port_2.i11, align 8
+  store i16 %13, ptr %port_.i9, align 8
   %external_.i.i12 = getelementptr inbounds i8, ptr %peerAddr, i64 26
-  %16 = load i8, ptr %external_.i.i12, align 2
-  %17 = and i8 %16, 1
-  %tobool.not.i.i13 = icmp ne i8 %17, 0
+  %14 = load i8, ptr %external_.i.i12, align 2
+  %tobool.i.i13 = trunc i8 %14 to i1
   %family_.i.i.i14 = getelementptr inbounds i8, ptr %peerAddr, i64 20
-  %18 = load i16, ptr %family_.i.i.i14, align 4
-  %cmp5.i15 = icmp eq i16 %18, 1
-  %cmp.i16 = select i1 %tobool.not.i.i13, i1 true, i1 %cmp5.i15
-  br i1 %cmp.i16, label %if.then.i18, label %if.else.i17
+  %15 = load i16, ptr %family_.i.i.i14, align 4
+  %cmp5.i15 = icmp eq i16 %15, 1
+  %cmp.i16 = select i1 %tobool.i.i13, i1 true, i1 %cmp5.i15
+  br i1 %cmp.i16, label %if.then.i19, label %if.else.i17
 
-if.then.i18:                                      ; preds = %.noexc22
-  %call.i.i24 = invoke noalias noundef nonnull dereferenceable(110) ptr @_Znwm(i64 noundef 110) #22
-          to label %call.i.i.noexc23 unwind label %lpad16
+if.then.i19:                                      ; preds = %.noexc23
+  %call.i.i25 = invoke noalias noundef nonnull dereferenceable(110) ptr @_Znwm(i64 noundef 110) #22
+          to label %call.i.i.noexc24 unwind label %lpad16
 
-call.i.i.noexc23:                                 ; preds = %if.then.i18
-  store ptr %call.i.i24, ptr %peerAddr_, align 8
-  %len.i.i19 = getelementptr inbounds i8, ptr %peerAddr, i64 8
-  %19 = load i32, ptr %len.i.i19, align 8
-  %len2.i.i20 = getelementptr inbounds i8, ptr %this, i64 1400
-  store i32 %19, ptr %len2.i.i20, align 8
-  %20 = load ptr, ptr %peerAddr, align 8
-  %conv.i.i21 = zext i32 %19 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i.i24, ptr align 2 %20, i64 %conv.i.i21, i1 false)
+call.i.i.noexc24:                                 ; preds = %if.then.i19
+  store ptr %call.i.i25, ptr %peerAddr_, align 8
+  %len.i.i20 = getelementptr inbounds i8, ptr %peerAddr, i64 8
+  %16 = load i32, ptr %len.i.i20, align 8
+  %len2.i.i21 = getelementptr inbounds i8, ptr %this, i64 1400
+  store i32 %16, ptr %len2.i.i21, align 8
+  %17 = load ptr, ptr %peerAddr, align 8
+  %conv.i.i22 = zext i32 %16 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i.i25, ptr align 2 %17, i64 %conv.i.i22, i1 false)
   br label %invoke.cont17
 
-if.else.i17:                                      ; preds = %.noexc22
+if.else.i17:                                      ; preds = %.noexc23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %peerAddr_, ptr noundef nonnull align 8 dereferenceable(24) %peerAddr, i64 24, i1 false)
   br label %invoke.cont17
 
-invoke.cont17:                                    ; preds = %if.else.i17, %call.i.i.noexc23
-  %21 = load i8, ptr %external_.i.i12, align 2
-  %22 = and i8 %21, 1
-  store i8 %22, ptr %external_.i10, align 2
+invoke.cont17:                                    ; preds = %if.else.i17, %call.i.i.noexc24
+  %18 = load i8, ptr %external_.i.i12, align 2
+  %frombool.i18 = and i8 %18, 1
+  store i8 %frombool.i18, ptr %external_.i10, align 2
   %connectionToken_ = getelementptr inbounds i8, ptr %this, i64 1424
   %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 1456
   store i8 0, ptr %hasValue.i.i, align 8
@@ -544,11 +542,11 @@ invoke.cont17:                                    ; preds = %if.else.i17, %call.
   %maxConcurrentOutgoingStreamsConfig_ = getelementptr inbounds i8, ptr %this, i64 1548
   store i32 100, ptr %maxConcurrentOutgoingStreamsConfig_, align 4
   %readBufLimit_ = getelementptr inbounds i8, ptr %this, i64 1552
-  %23 = load atomic i32, ptr @_ZN8proxygen15HTTPSessionBase20kDefaultReadBufLimitE seq_cst, align 4
-  store i32 %23, ptr %readBufLimit_, align 8
+  %19 = load atomic i32, ptr @_ZN8proxygen15HTTPSessionBase20kDefaultReadBufLimitE seq_cst, align 4
+  store i32 %19, ptr %readBufLimit_, align 8
   %writeBufLimit_ = getelementptr inbounds i8, ptr %this, i64 1556
-  %24 = load i32, ptr @_ZN8proxygen15HTTPSessionBase21kDefaultWriteBufLimitE, align 4
-  store i32 %24, ptr %writeBufLimit_, align 4
+  %20 = load i32, ptr @_ZN8proxygen15HTTPSessionBase21kDefaultWriteBufLimitE, align 4
+  store i32 %20, ptr %writeBufLimit_, align 4
   %pendingWriteSize_ = getelementptr inbounds i8, ptr %this, i64 1560
   %h2PrioritiesEnabled_ = getelementptr inbounds i8, ptr %this, i64 1580
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %pendingWriteSize_, i8 0, i64 20, i1 false)
@@ -569,45 +567,44 @@ invoke.cont28:                                    ; preds = %invoke.cont25
   ret void
 
 lpad:                                             ; preds = %entry
-  %25 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup33
 
 lpad5:                                            ; preds = %cond.false, %cond.true, %invoke.cont7, %invoke.cont6
-  %26 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup31
 
 lpad14:                                           ; preds = %if.then.i, %invoke.cont13
-  %27 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup30
 
-lpad16:                                           ; preds = %if.then.i18, %invoke.cont15
-  %28 = landingpad { ptr, i32 }
+lpad16:                                           ; preds = %if.then.i19, %invoke.cont15
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad18:                                           ; preds = %invoke.cont25, %invoke.cont17
-  %29 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %30 = load ptr, ptr %httpSessionActivityTracker_, align 8
-  %cmp.not.i31 = icmp eq ptr %30, null
-  br i1 %cmp.not.i31, label %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen26HTTPSessionActivityTrackerEEclEPS1_.exit.i
+  %26 = load ptr, ptr %httpSessionActivityTracker_, align 8
+  %cmp.not.i32 = icmp eq ptr %26, null
+  br i1 %cmp.not.i32, label %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen26HTTPSessionActivityTrackerEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN8proxygen26HTTPSessionActivityTrackerEEclEPS1_.exit.i: ; preds = %lpad18
-  %vtable.i.i32 = load ptr, ptr %30, align 8
-  %vfn.i.i33 = getelementptr inbounds i8, ptr %vtable.i.i32, i64 16
-  %31 = load ptr, ptr %vfn.i.i33, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(48) %30) #21
+  %vtable.i.i33 = load ptr, ptr %26, align 8
+  %vfn.i.i34 = getelementptr inbounds i8, ptr %vtable.i.i33, i64 16
+  %27 = load ptr, ptr %vfn.i.i34, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(48) %26) #21
   br label %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit: ; preds = %lpad18, %_ZNKSt14default_deleteIN8proxygen26HTTPSessionActivityTrackerEEclEPS1_.exit.i
   store ptr null, ptr %httpSessionActivityTracker_, align 8
-  %32 = load i8, ptr %hasValue.i.i, align 8
-  %33 = and i8 %32, 1
-  %tobool.not.i.i.i = icmp eq i8 %33, 0
-  br i1 %tobool.not.i.i.i, label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i.i
+  %28 = load i8, ptr %hasValue.i.i, align 8
+  %tobool.i.i.i = trunc i8 %28 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit
   store i8 0, ptr %hasValue.i.i, align 8
@@ -615,43 +612,41 @@ if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIN
   br label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit, %if.then.i.i.i
-  %34 = load i8, ptr %external_.i10, align 2
-  %35 = and i8 %34, 1
-  %tobool.not.i = icmp eq i8 %35, 0
-  br i1 %tobool.not.i, label %ehcleanup, label %if.then.i36
+  %29 = load i8, ptr %external_.i10, align 2
+  %tobool.i = trunc i8 %29 to i1
+  br i1 %tobool.i, label %if.then.i37, label %ehcleanup
 
-if.then.i36:                                      ; preds = %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
-  %36 = load ptr, ptr %peerAddr_, align 8
-  %isnull.i.i = icmp eq ptr %36, null
+if.then.i37:                                      ; preds = %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
+  %30 = load ptr, ptr %peerAddr_, align 8
+  %isnull.i.i = icmp eq ptr %30, null
   br i1 %isnull.i.i, label %ehcleanup, label %delete.notnull.i.i
 
-delete.notnull.i.i:                               ; preds = %if.then.i36
-  call void @_ZdlPv(ptr noundef nonnull %36) #23
+delete.notnull.i.i:                               ; preds = %if.then.i37
+  call void @_ZdlPv(ptr noundef nonnull %30) #23
   br label %ehcleanup
 
-ehcleanup:                                        ; preds = %delete.notnull.i.i, %if.then.i36, %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %lpad16
-  %.pn = phi { ptr, i32 } [ %28, %lpad16 ], [ %29, %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %29, %if.then.i36 ], [ %29, %delete.notnull.i.i ]
-  %37 = load i8, ptr %external_.i, align 2
-  %38 = and i8 %37, 1
-  %tobool.not.i38 = icmp eq i8 %38, 0
-  br i1 %tobool.not.i38, label %ehcleanup30, label %if.then.i39
+ehcleanup:                                        ; preds = %delete.notnull.i.i, %if.then.i37, %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %lpad16
+  %.pn = phi { ptr, i32 } [ %24, %lpad16 ], [ %25, %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %25, %if.then.i37 ], [ %25, %delete.notnull.i.i ]
+  %31 = load i8, ptr %external_.i, align 2
+  %tobool.i39 = trunc i8 %31 to i1
+  br i1 %tobool.i39, label %if.then.i40, label %ehcleanup30
 
-if.then.i39:                                      ; preds = %ehcleanup
-  %39 = load ptr, ptr %localAddr_, align 8
-  %isnull.i.i40 = icmp eq ptr %39, null
-  br i1 %isnull.i.i40, label %ehcleanup30, label %delete.notnull.i.i41
+if.then.i40:                                      ; preds = %ehcleanup
+  %32 = load ptr, ptr %localAddr_, align 8
+  %isnull.i.i41 = icmp eq ptr %32, null
+  br i1 %isnull.i.i41, label %ehcleanup30, label %delete.notnull.i.i42
 
-delete.notnull.i.i41:                             ; preds = %if.then.i39
-  call void @_ZdlPv(ptr noundef nonnull %39) #23
+delete.notnull.i.i42:                             ; preds = %if.then.i40
+  call void @_ZdlPv(ptr noundef nonnull %32) #23
   br label %ehcleanup30
 
-ehcleanup30:                                      ; preds = %delete.notnull.i.i41, %if.then.i39, %ehcleanup, %lpad14
-  %.pn.pn = phi { ptr, i32 } [ %27, %lpad14 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i39 ], [ %.pn, %delete.notnull.i.i41 ]
+ehcleanup30:                                      ; preds = %delete.notnull.i.i42, %if.then.i40, %ehcleanup, %lpad14
+  %.pn.pn = phi { ptr, i32 } [ %23, %lpad14 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i40 ], [ %.pn, %delete.notnull.i.i42 ]
   call void @_ZN8proxygen18HTTP2PriorityQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %txnEgressQueue_) #21
   br label %ehcleanup31
 
 ehcleanup31:                                      ; preds = %lpad5, %ehcleanup.i, %ehcleanup30
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup30 ], [ %26, %lpad5 ], [ %.pn.i, %ehcleanup.i ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup30 ], [ %22, %lpad5 ], [ %.pn.i, %ehcleanup.i ]
   call void @_ZN8proxygen11FilterChainINS_9HTTPCodecENS1_8CallbackENS_26PassThroughHTTPCodecFilterEXadL_ZNS1_11setCallbackEPS2_EELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %codec_) #21
   br label %ehcleanup32
 
@@ -661,7 +656,7 @@ ehcleanup32:                                      ; preds = %lpad.i, %ehcleanup3
   br label %ehcleanup33
 
 ehcleanup33:                                      ; preds = %ehcleanup32, %lpad
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup32 ], [ %25, %lpad ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup32 ], [ %21, %lpad ]
   call void @_ZN6wangle17ManagedConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #21
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
@@ -1266,22 +1261,21 @@ _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.
   %tfoSucceded = getelementptr inbounds i8, ptr %this, i64 704
   %tfoSucceded33 = getelementptr inbounds i8, ptr %0, i64 704
   %102 = load i8, ptr %tfoSucceded33, align 8
-  %103 = and i8 %102, 1
-  store i8 %103, ptr %tfoSucceded, align 8
+  %frombool = and i8 %102, 1
+  store i8 %frombool, ptr %tfoSucceded, align 8
   %negotiatedTokenBindingKeyParameters = getelementptr inbounds i8, ptr %this, i64 705
   store i8 0, ptr %negotiatedTokenBindingKeyParameters, align 1
   %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 706
   store i8 0, ptr %hasValue.i.i, align 2
   %hasValue.i.i.i = getelementptr inbounds i8, ptr %0, i64 706
-  %104 = load i8, ptr %hasValue.i.i.i, align 2
-  %105 = and i8 %104, 1
-  %tobool.i.i.not.i = icmp eq i8 %105, 0
-  br i1 %tobool.i.i.not.i, label %_ZN5folly8OptionalIhEC2ERKS1_.exit, label %invoke.cont2.i
+  %103 = load i8, ptr %hasValue.i.i.i, align 2
+  %tobool.i.i.i = trunc i8 %103 to i1
+  br i1 %tobool.i.i.i, label %invoke.cont2.i, label %_ZN5folly8OptionalIhEC2ERKS1_.exit
 
 invoke.cont2.i:                                   ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit220
   %negotiatedTokenBindingKeyParameters34 = getelementptr inbounds i8, ptr %0, i64 705
-  %106 = load i8, ptr %negotiatedTokenBindingKeyParameters34, align 1
-  store i8 %106, ptr %negotiatedTokenBindingKeyParameters, align 1
+  %104 = load i8, ptr %negotiatedTokenBindingKeyParameters34, align 1
+  store i8 %104, ptr %negotiatedTokenBindingKeyParameters, align 1
   store i8 1, ptr %hasValue.i.i, align 2
   br label %_ZN5folly8OptionalIhEC2ERKS1_.exit
 
@@ -1295,17 +1289,17 @@ invoke.cont37:                                    ; preds = %_ZN5folly8OptionalI
   ret void
 
 lpad:                                             ; preds = %_ZNSt10shared_ptrIN5folly13SocketAddressEEC2ERKS2_.exit181
-  %107 = landingpad { ptr, i32 }
+  %105 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup39
 
 lpad28:                                           ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit191
-  %108 = landingpad { ptr, i32 }
+  %106 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad36:                                           ; preds = %_ZN5folly8OptionalIhEC2ERKS1_.exit
-  %109 = landingpad { ptr, i32 }
+  %107 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %tcpFingerprint) #21
   tail call void @_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %tcpSignature) #21
@@ -1314,13 +1308,13 @@ lpad36:                                           ; preds = %_ZN5folly8OptionalI
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad36, %lpad28
-  %.pn = phi { ptr, i32 } [ %109, %lpad36 ], [ %108, %lpad28 ]
+  %.pn = phi { ptr, i32 } [ %107, %lpad36 ], [ %106, %lpad28 ]
   tail call void @_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %sslCertSigAlgName) #21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sslError) #21
   br label %ehcleanup39
 
 ehcleanup39:                                      ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %107, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %105, %lpad ]
   tail call void @_ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %clientAddrOriginal) #21
   tail call void @_ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %localAddr) #21
   tail call void @_ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %remoteAddr) #21
@@ -2969,9 +2963,8 @@ _ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_E
   store ptr null, ptr %httpSessionActivityTracker_, align 8
   %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 1456
   %8 = load i8, ptr %hasValue.i.i.i, align 8
-  %9 = and i8 %8, 1
-  %tobool.not.i.i.i = icmp eq i8 %9, 0
-  br i1 %tobool.not.i.i.i, label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i.i
+  %tobool.i.i.i = trunc i8 %8 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit
   %connectionToken_ = getelementptr inbounds i8, ptr %this, i64 1424
@@ -2981,36 +2974,34 @@ if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIN
 
 _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit, %if.then.i.i.i
   %external_.i = getelementptr inbounds i8, ptr %this, i64 1418
-  %10 = load i8, ptr %external_.i, align 2
-  %11 = and i8 %10, 1
-  %tobool.not.i = icmp eq i8 %11, 0
-  br i1 %tobool.not.i, label %_ZN5folly13SocketAddressD2Ev.exit, label %if.then.i
+  %9 = load i8, ptr %external_.i, align 2
+  %tobool.i = trunc i8 %9 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN5folly13SocketAddressD2Ev.exit
 
 if.then.i:                                        ; preds = %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   %peerAddr_ = getelementptr inbounds i8, ptr %this, i64 1392
-  %12 = load ptr, ptr %peerAddr_, align 8
-  %isnull.i.i = icmp eq ptr %12, null
+  %10 = load ptr, ptr %peerAddr_, align 8
+  %isnull.i.i = icmp eq ptr %10, null
   br i1 %isnull.i.i, label %_ZN5folly13SocketAddressD2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %if.then.i
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #23
   br label %_ZN5folly13SocketAddressD2Ev.exit
 
 _ZN5folly13SocketAddressD2Ev.exit:                ; preds = %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %if.then.i, %delete.notnull.i.i
   %external_.i1 = getelementptr inbounds i8, ptr %this, i64 1386
-  %13 = load i8, ptr %external_.i1, align 2
-  %14 = and i8 %13, 1
-  %tobool.not.i2 = icmp eq i8 %14, 0
-  br i1 %tobool.not.i2, label %_ZN5folly13SocketAddressD2Ev.exit6, label %if.then.i3
+  %11 = load i8, ptr %external_.i1, align 2
+  %tobool.i2 = trunc i8 %11 to i1
+  br i1 %tobool.i2, label %if.then.i3, label %_ZN5folly13SocketAddressD2Ev.exit6
 
 if.then.i3:                                       ; preds = %_ZN5folly13SocketAddressD2Ev.exit
   %localAddr_ = getelementptr inbounds i8, ptr %this, i64 1360
-  %15 = load ptr, ptr %localAddr_, align 8
-  %isnull.i.i4 = icmp eq ptr %15, null
+  %12 = load ptr, ptr %localAddr_, align 8
+  %isnull.i.i4 = icmp eq ptr %12, null
   br i1 %isnull.i.i4, label %_ZN5folly13SocketAddressD2Ev.exit6, label %delete.notnull.i.i5
 
 delete.notnull.i.i5:                              ; preds = %if.then.i3
-  tail call void @_ZdlPv(ptr noundef nonnull %15) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #23
   br label %_ZN5folly13SocketAddressD2Ev.exit6
 
 _ZN5folly13SocketAddressD2Ev.exit6:               ; preds = %_ZN5folly13SocketAddressD2Ev.exit, %if.then.i3, %delete.notnull.i.i5
@@ -3019,14 +3010,14 @@ _ZN5folly13SocketAddressD2Ev.exit6:               ; preds = %_ZN5folly13SocketAd
   %root_.i = getelementptr inbounds i8, ptr %this, i64 1088
   tail call void @_ZN8proxygen18HTTP2PriorityQueue4NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %root_.i) #21
   %nodes_.i = getelementptr inbounds i8, ptr %this, i64 1064
-  %16 = load ptr, ptr %nodes_.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %16, @_ZN5folly3f146detail15kEmptyTagVectorE
+  %13 = load ptr, ptr %nodes_.i, align 8
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %13, @_ZN5folly3f146detail15kEmptyTagVectorE
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN8proxygen18HTTP2PriorityQueueD2Ev.exit, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN5folly13SocketAddressD2Ev.exit6
   %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1072
-  %17 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp ult i64 %17, 256
+  %14 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp ult i64 %14, 256
   br i1 %cmp.i.i.i.i.i.i.i.i, label %invoke.cont45.i.i.i.i.i.i.i, label %if.end23.i.i.i.i.i.i.i
 
 if.end23.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i
@@ -3037,7 +3028,7 @@ if.end23.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
 invoke.cont45.i.i.i.i.i.i.i:                      ; preds = %if.end23.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %nodes_.i, align 8
   store i64 0, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %16) #23
+  tail call void @_ZdlPv(ptr noundef %13) #23
   br label %_ZN8proxygen18HTTP2PriorityQueueD2Ev.exit
 
 _ZN8proxygen18HTTP2PriorityQueueD2Ev.exit:        ; preds = %_ZN5folly13SocketAddressD2Ev.exit6, %invoke.cont45.i.i.i.i.i.i.i
@@ -3048,11 +3039,11 @@ _ZN8proxygen18HTTP2PriorityQueueD2Ev.exit:        ; preds = %_ZN5folly13SocketAd
   %callbackSource_.i.i.i = getelementptr inbounds i8, ptr %this, i64 1032
   store ptr null, ptr %callbackSource_.i.i.i, align 8
   %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 1008
-  %18 = load ptr, ptr %next_.i.i.i, align 8
-  %tobool.not.i.i.i7 = icmp eq ptr %18, null
+  %15 = load ptr, ptr %next_.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %15, null
   %call_.i.i.i = getelementptr inbounds i8, ptr %this, i64 992
-  %19 = load ptr, ptr %call_.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i7, ptr %19, ptr %18
+  %16 = load ptr, ptr %call_.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %16, ptr %15
   invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %codec_)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
@@ -3063,15 +3054,15 @@ invoke.cont.i.i.i:                                ; preds = %_ZN8proxygen18HTTP2
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i: ; preds = %invoke.cont.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %cond.i.i.i, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %20 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %cond.i.i.i) #21
+  %17 = load ptr, ptr %vfn.i.i.i.i, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %cond.i.i.i) #21
   br label %_ZN8proxygen11FilterChainINS_9HTTPCodecENS1_8CallbackENS_26PassThroughHTTPCodecFilterEXadL_ZNS1_11setCallbackEPS2_EELb1EED2Ev.exit
 
 terminate.lpad.i.i.i:                             ; preds = %_ZN8proxygen18HTTP2PriorityQueueD2Ev.exit
-  %21 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #24
+  %19 = extractvalue { ptr, i32 } %18, 0
+  tail call void @__clang_call_terminate(ptr %19) #24
   unreachable
 
 _ZN8proxygen11FilterChainINS_9HTTPCodecENS1_8CallbackENS_26PassThroughHTTPCodecFilterEXadL_ZNS1_11setCallbackEPS2_EELb1EED2Ev.exit: ; preds = %invoke.cont.i.i.i, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i
@@ -4430,8 +4421,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK8proxygen15HTTPSessionBase25getHTTP2
 entry:
   %h2PrioritiesEnabled_ = getelementptr inbounds i8, ptr %this, i64 1580
   %bf.load = load i8, ptr %h2PrioritiesEnabled_, align 4
-  %0 = and i8 %bf.load, 1
-  %bf.cast = icmp ne i8 %0, 0
+  %bf.cast = trunc i8 %bf.load to i1
   ret i1 %bf.cast
 }
 
@@ -4462,17 +4452,16 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %destroyPending_ = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %destroyPending_, align 4
-  %1 = and i8 %0, 1
-  %tobool2.not = icmp eq i8 %1, 0
-  br i1 %tobool2.not, label %delete.end, label %if.end
+  %tobool2 = trunc i8 %0 to i1
+  br i1 %tobool2, label %if.end, label %delete.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %destroyPending_3 = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %destroyPending_3, align 4
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(13) %this) #21
+  %1 = load ptr, ptr %vfn, align 8
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this) #21
   br label %delete.end
 
 delete.end:                                       ; preds = %land.lhs.true, %if.end
@@ -4975,68 +4964,66 @@ if.then6:                                         ; preds = %if.end
 if.end10:                                         ; preds = %if.then6, %if.end
   %kWantsCalls_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i8, ptr %kWantsCalls_, align 8
-  %3 = and i8 %2, 1
-  %tobool11.not = icmp eq i8 %3, 0
-  br i1 %tobool11.not, label %if.end26, label %land.lhs.true
+  %tobool11 = trunc i8 %2 to i1
+  br i1 %tobool11, label %land.lhs.true, label %if.end26
 
 land.lhs.true:                                    ; preds = %if.end10
   %callSource_ = getelementptr inbounds i8, ptr %this, i64 56
-  %4 = load ptr, ptr %callSource_, align 8
-  %tobool12.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %callSource_, align 8
+  %tobool12.not = icmp eq ptr %3, null
   br i1 %tobool12.not, label %if.end26, label %if.then13
 
 if.then13:                                        ; preds = %land.lhs.true
   %call_ = getelementptr inbounds i8, ptr %this, i64 24
-  %5 = load ptr, ptr %call_, align 8
-  %call_15 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %5, ptr %call_15, align 8
-  %tobool17.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %call_, align 8
+  %call_15 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %4, ptr %call_15, align 8
+  %tobool17.not = icmp eq ptr %4, null
   br i1 %tobool17.not, label %if.end26, label %dynamic_cast.notnull
 
 dynamic_cast.notnull:                             ; preds = %if.then13
-  %6 = tail call ptr @__dynamic_cast(ptr nonnull %5, ptr nonnull @_ZTIN8proxygen9HTTPCodecE, ptr nonnull @_ZTIN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 0) #21
-  %tobool20.not = icmp eq ptr %6, null
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN8proxygen9HTTPCodecE, ptr nonnull @_ZTIN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 0) #21
+  %tobool20.not = icmp eq ptr %5, null
   br i1 %tobool20.not, label %if.end26, label %if.then21
 
 if.then21:                                        ; preds = %dynamic_cast.notnull
-  %7 = load ptr, ptr %callSource_, align 8
-  %callSource_23 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr %7, ptr %callSource_23, align 8
+  %6 = load ptr, ptr %callSource_, align 8
+  %callSource_23 = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr %6, ptr %callSource_23, align 8
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then13, %if.then21, %dynamic_cast.notnull, %land.lhs.true, %if.end10
   %kWantsCallbacks_ = getelementptr inbounds i8, ptr %this, i64 17
-  %8 = load i8, ptr %kWantsCallbacks_, align 1
-  %9 = and i8 %8, 1
-  %tobool27.not = icmp eq i8 %9, 0
-  br i1 %tobool27.not, label %if.end45, label %land.lhs.true28
+  %7 = load i8, ptr %kWantsCallbacks_, align 1
+  %tobool27 = trunc i8 %7 to i1
+  br i1 %tobool27, label %land.lhs.true28, label %if.end45
 
 land.lhs.true28:                                  ; preds = %if.end26
   %callbackSource_ = getelementptr inbounds i8, ptr %this, i64 64
-  %10 = load ptr, ptr %callbackSource_, align 8
-  %tobool29.not = icmp eq ptr %10, null
+  %8 = load ptr, ptr %callbackSource_, align 8
+  %tobool29.not = icmp eq ptr %8, null
   br i1 %tobool29.not, label %if.end45, label %if.then30
 
 if.then30:                                        ; preds = %land.lhs.true28
-  %vtable = load ptr, ptr %10, align 8
-  %11 = getelementptr i8, ptr %vtable, i64 72, !nosanitize !4
-  %memptr.virtualfn = load ptr, ptr %11, align 8, !nosanitize !4
+  %vtable = load ptr, ptr %8, align 8
+  %9 = getelementptr i8, ptr %vtable, i64 72, !nosanitize !4
+  %memptr.virtualfn = load ptr, ptr %9, align 8, !nosanitize !4
   %callback_ = getelementptr inbounds i8, ptr %this, i64 32
-  %12 = load ptr, ptr %callback_, align 8
-  tail call void %memptr.virtualfn(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %12)
-  %13 = load ptr, ptr %callback_, align 8
-  %tobool33.not = icmp eq ptr %13, null
+  %10 = load ptr, ptr %callback_, align 8
+  tail call void %memptr.virtualfn(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %10)
+  %11 = load ptr, ptr %callback_, align 8
+  %tobool33.not = icmp eq ptr %11, null
   br i1 %tobool33.not, label %if.end45, label %dynamic_cast.notnull36
 
 dynamic_cast.notnull36:                           ; preds = %if.then30
-  %14 = tail call ptr @__dynamic_cast(ptr nonnull %13, ptr nonnull @_ZTIN8proxygen9HTTPCodec8CallbackE, ptr nonnull @_ZTIN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 8) #21
-  %tobool39.not = icmp eq ptr %14, null
+  %12 = tail call ptr @__dynamic_cast(ptr nonnull %11, ptr nonnull @_ZTIN8proxygen9HTTPCodec8CallbackE, ptr nonnull @_ZTIN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 8) #21
+  %tobool39.not = icmp eq ptr %12, null
   br i1 %tobool39.not, label %if.end45, label %if.then40
 
 if.then40:                                        ; preds = %dynamic_cast.notnull36
-  %15 = load ptr, ptr %callbackSource_, align 8
-  %callbackSource_42 = getelementptr inbounds i8, ptr %14, i64 64
-  store ptr %15, ptr %callbackSource_42, align 8
+  %13 = load ptr, ptr %callbackSource_, align 8
+  %callbackSource_42 = getelementptr inbounds i8, ptr %12, i64 64
+  store ptr %13, ptr %callbackSource_42, align 8
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then30, %if.then40, %dynamic_cast.notnull36, %land.lhs.true28, %if.end26
@@ -5511,7 +5498,7 @@ entry:
   unreachable
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
@@ -6072,7 +6059,7 @@ attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind memory(read) }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

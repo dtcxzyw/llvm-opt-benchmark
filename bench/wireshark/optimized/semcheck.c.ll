@@ -189,15 +189,13 @@ define hidden zeroext i1 @compatible_ftypes(i32 noundef %0, i32 noundef %1) loca
 switch.lookup:                                    ; preds = %7
   %switch.cast = zext nneg i32 %1 to i45
   %switch.downshift = lshr i45 -9135932309504, %switch.cast
-  %22 = and i45 %switch.downshift, 1
-  %switch.masked = icmp ne i45 %22, 0
+  %switch.masked = trunc i45 %switch.downshift to i1
   br label %switch.edge
 
 switch.lookup35:                                  ; preds = %17
   %switch.cast36 = zext nneg i32 %1 to i46
   %switch.downshift38 = lshr i46 -26387809304576, %switch.cast36
-  %23 = and i46 %switch.downshift38, 1
-  %switch.masked39 = icmp ne i46 %23, 0
+  %switch.masked39 = trunc i46 %switch.downshift38 to i1
   br label %switch.edge
 
 switch.edge:                                      ; preds = %17, %switch.lookup35, %7, %switch.lookup, %5, %15, %13, %11, %9, %3
@@ -1717,9 +1715,8 @@ define hidden zeroext i1 @dfw_semcheck(ptr noundef %0) local_unnamed_addr #0 {
   call void @except_free(ptr noundef %39) #6
   %40 = call ptr @except_pop() #6
   %.0..0..0..0.12 = load volatile i8, ptr %2, align 1
-  %41 = and i8 %.0..0..0..0.12, 1
-  %42 = icmp ne i8 %41, 0
-  ret i1 %42
+  %41 = trunc i8 %.0..0..0..0.12 to i1
+  ret i1 %41
 }
 
 declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

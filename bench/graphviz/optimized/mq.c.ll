@@ -245,7 +245,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Multilevel_MQ_Clustering_delete(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %common.ret16, label %2
+  br i1 %.not, label %common.ret15, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -261,11 +261,10 @@ define internal fastcc void @Multilevel_MQ_Clustering_delete(ptr noundef %0) unn
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not15 = icmp eq i8 %11, 0
-  br i1 %.not15, label %12, label %.sink.split
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %.sink.split, label %12
 
-common.ret16:                                     ; preds = %1, %12
+common.ret15:                                     ; preds = %1, %12
   ret void
 
 .sink.split:                                      ; preds = %5, %8
@@ -292,7 +291,7 @@ common.ret16:                                     ; preds = %1, %12
   %24 = load ptr, ptr %23, align 8
   tail call fastcc void @Multilevel_MQ_Clustering_delete(ptr noundef %24)
   tail call void @free(ptr noundef nonnull %0) #12
-  br label %common.ret16
+  br label %common.ret15
 }
 
 declare zeroext i1 @SparseMatrix_is_symmetric(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1

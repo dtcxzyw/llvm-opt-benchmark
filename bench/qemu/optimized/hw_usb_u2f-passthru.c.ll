@@ -412,16 +412,15 @@ if.end:                                           ; preds = %entry
 if.then6:                                         ; preds = %if.end
   %attached = getelementptr inbounds i8, ptr %opaque, i64 264
   %2 = load i8, ptr %attached, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %return, label %if.then7
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.then6
   %call9 = tail call i32 @usb_device_detach(ptr noundef nonnull %opaque) #8
   %timer.i = getelementptr inbounds i8, ptr %opaque, i64 8016
   tail call void @timer_del(ptr noundef nonnull %timer.i) #8
-  %4 = load i32, ptr %hidraw_fd, align 8
-  tail call void @qemu_set_fd_handler(i32 noundef %4, ptr noundef null, ptr noundef null, ptr noundef nonnull %opaque) #8
+  %3 = load i32, ptr %hidraw_fd, align 8
+  tail call void @qemu_set_fd_handler(i32 noundef %3, ptr noundef null, ptr noundef null, ptr noundef nonnull %opaque) #8
   %last_transaction_time.i = getelementptr inbounds i8, ptr %opaque, i64 8008
   store i64 0, ptr %last_transaction_time.i, align 8
   %current_transactions_start.i = getelementptr inbounds i8, ptr %opaque, i64 8004
@@ -442,8 +441,8 @@ if.end15:                                         ; preds = %if.end11
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end15
-  %5 = getelementptr inbounds i8, ptr %packet, i64 4
-  %packet.val19.i = load i8, ptr %5, align 4
+  %4 = getelementptr inbounds i8, ptr %packet, i64 4
+  %packet.val19.i = load i8, ptr %4, align 4
   %tobool.i.i = icmp slt i8 %packet.val19.i, 0
   br i1 %tobool.i.i, label %if.end.i, label %return
 
@@ -451,15 +450,15 @@ if.end.i:                                         ; preds = %if.then.i
   %data.i = getelementptr inbounds i8, ptr %packet, i64 7
   %current_transactions.i.i = getelementptr inbounds i8, ptr %opaque, i64 7940
   %current_transactions_num.i.i = getelementptr inbounds i8, ptr %opaque, i64 8006
-  %6 = load i8, ptr %current_transactions_num.i.i, align 2
-  %conv.i.i = zext i8 %6 to i32
-  %cmp10.not.i.i = icmp eq i8 %6, 0
+  %5 = load i8, ptr %current_transactions_num.i.i, align 2
+  %conv.i.i = zext i8 %5 to i32
+  %cmp10.not.i.i = icmp eq i8 %5, 0
   br i1 %cmp10.not.i.i, label %return, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end.i
   %current_transactions_start.i.i = getelementptr inbounds i8, ptr %opaque, i64 8004
-  %7 = load i8, ptr %current_transactions_start.i.i, align 4
-  %conv2.i.i = zext i8 %7 to i32
+  %6 = load i8, ptr %current_transactions_start.i.i, align 4
+  %conv2.i.i = zext i8 %6 to i32
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
@@ -468,8 +467,8 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %rem.i.i = and i32 %add.i.i, 3
   %idxprom.i.i = zext nneg i32 %rem.i.i to i64
   %arrayidx.i.i = getelementptr [4 x %struct.transaction], ptr %current_transactions.i.i, i64 0, i64 %idxprom.i.i
-  %8 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp3.i.i = icmp eq i32 %8, -1
+  %7 = load i32, ptr %arrayidx.i.i, align 4
+  %cmp3.i.i = icmp eq i32 %7, -1
   br i1 %cmp3.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
@@ -485,15 +484,15 @@ for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, 
 
 if.else.i:                                        ; preds = %if.end15
   %current_transactions_num.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 8006
-  %9 = load i8, ptr %current_transactions_num.i.i.i, align 2
-  %conv.i.i.i = zext i8 %9 to i32
-  %cmp6.not.i.i.i = icmp eq i8 %9, 0
+  %8 = load i8, ptr %current_transactions_num.i.i.i, align 2
+  %conv.i.i.i = zext i8 %8 to i32
+  %cmp6.not.i.i.i = icmp eq i8 %8, 0
   br i1 %cmp6.not.i.i.i, label %return, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.else.i
   %current_transactions_start.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 8004
-  %10 = load i8, ptr %current_transactions_start.i.i.i, align 4
-  %conv2.i.i.i = zext i8 %10 to i32
+  %9 = load i8, ptr %current_transactions_start.i.i.i, align 4
+  %conv2.i.i.i = zext i8 %9 to i32
   %current_transactions.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 7940
   br label %for.body.i.i.i
 
@@ -508,22 +507,22 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %rem.i.i.i = and i32 %add.i.i.i, 3
   %idxprom.i.i.i = zext nneg i32 %rem.i.i.i to i64
   %arrayidx.i.i.i = getelementptr [4 x %struct.transaction], ptr %current_transactions.i.i.i, i64 0, i64 %idxprom.i.i.i
-  %11 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp4.i.i.i = icmp eq i32 %11, %packet.val20.i
+  %10 = load i32, ptr %arrayidx.i.i.i, align 4
+  %cmp4.i.i.i = icmp eq i32 %10, %packet.val20.i
   br i1 %cmp4.i.i.i, label %if.end8.i, label %for.cond.i.i.i
 
 if.end8.i:                                        ; preds = %for.body.i.i.i
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %packet, i64 4
   %packet.val.pre.i = load i8, ptr %.phi.trans.insert.i, align 4
-  %12 = icmp slt i8 %packet.val.pre.i, 0
-  br i1 %12, label %if.then10.i, label %if.else24.i
+  %11 = icmp slt i8 %packet.val.pre.i, 0
+  br i1 %11, label %if.then10.i, label %if.else24.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i.i, %if.end8.i
   %transaction.064.i = phi ptr [ %arrayidx.i.i.i, %if.end8.i ], [ %arrayidx.i.i, %land.lhs.true.i.i ]
-  %13 = getelementptr inbounds i8, ptr %packet, i64 5
-  %packet.val21.i = load i8, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %packet, i64 6
-  %packet.val22.i = load i8, ptr %14, align 2
+  %12 = getelementptr inbounds i8, ptr %packet, i64 5
+  %packet.val21.i = load i8, ptr %12, align 1
+  %13 = getelementptr inbounds i8, ptr %packet, i64 6
+  %packet.val22.i = load i8, ptr %13, align 2
   %conv.i24.i = zext i8 %packet.val21.i to i16
   %shl.i.i = shl nuw i16 %conv.i24.i, 8
   %conv3.i.i = zext i8 %packet.val22.i to i16
@@ -543,30 +542,30 @@ if.then15.i:                                      ; preds = %if.then10.i
 
 if.else24.i:                                      ; preds = %if.end8.i
   %resp_size25.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 6
-  %15 = load i16, ptr %resp_size25.i, align 2
-  %add.i = add i16 %15, 59
+  %14 = load i16, ptr %resp_size25.i, align 2
+  %add.i = add i16 %14, 59
   store i16 %add.i, ptr %resp_size25.i, align 2
   %resp_bcnt30.phi.trans.insert.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
   %.pre.i = load i16, ptr %resp_bcnt30.phi.trans.insert.i, align 4
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.else24.i, %if.then15.i, %if.then10.i
-  %16 = phi i16 [ %or5.i.i, %if.then10.i ], [ %or5.i.i, %if.then15.i ], [ %.pre.i, %if.else24.i ]
-  %17 = phi i16 [ 57, %if.then10.i ], [ 57, %if.then15.i ], [ %add.i, %if.else24.i ]
-  %cmp32.not.i = icmp ult i16 %17, %16
+  %15 = phi i16 [ %or5.i.i, %if.then10.i ], [ %or5.i.i, %if.then15.i ], [ %.pre.i, %if.else24.i ]
+  %16 = phi i16 [ 57, %if.then10.i ], [ 57, %if.then15.i ], [ %add.i, %if.else24.i ]
+  %cmp32.not.i = icmp ult i16 %16, %15
   br i1 %cmp32.not.i, label %if.end35.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.end27.i
   %current_transactions_num.i.i25.i = getelementptr inbounds i8, ptr %opaque, i64 8006
-  %18 = load i8, ptr %current_transactions_num.i.i25.i, align 2
-  %conv.i.i26.i = zext i8 %18 to i32
-  %cmp6.not.i.i27.i = icmp eq i8 %18, 0
+  %17 = load i8, ptr %current_transactions_num.i.i25.i, align 2
+  %conv.i.i26.i = zext i8 %17 to i32
+  %cmp6.not.i.i27.i = icmp eq i8 %17, 0
   br i1 %cmp6.not.i.i27.i, label %if.end35.i, label %for.body.lr.ph.i.i28.i
 
 for.body.lr.ph.i.i28.i:                           ; preds = %if.then34.i
   %current_transactions_start.i.i29.i = getelementptr inbounds i8, ptr %opaque, i64 8004
-  %19 = load i8, ptr %current_transactions_start.i.i29.i, align 4
-  %conv2.i.i30.i = zext i8 %19 to i32
+  %18 = load i8, ptr %current_transactions_start.i.i29.i, align 4
+  %conv2.i.i30.i = zext i8 %18 to i32
   %current_transactions.i.i31.i = getelementptr inbounds i8, ptr %opaque, i64 7940
   br label %for.body.i.i32.i
 
@@ -581,16 +580,16 @@ for.body.i.i32.i:                                 ; preds = %for.cond.i.i39.i, %
   %rem.i.i35.i = and i32 %add.i.i34.i, 3
   %idxprom.i.i36.i = zext nneg i32 %rem.i.i35.i to i64
   %arrayidx.i.i37.i = getelementptr [4 x %struct.transaction], ptr %current_transactions.i.i31.i, i64 0, i64 %idxprom.i.i36.i
-  %20 = load i32, ptr %arrayidx.i.i37.i, align 4
-  %cmp4.i.i38.i = icmp eq i32 %20, %packet.val20.i
+  %19 = load i32, ptr %arrayidx.i.i37.i, align 4
+  %cmp4.i.i38.i = icmp eq i32 %19, %packet.val20.i
   br i1 %cmp4.i.i38.i, label %if.end.i.i, label %for.cond.i.i39.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i32.i
   %add.i42.i = add nuw i32 %add.i.i34.i, 1
   %rem.i43.i = and i32 %add.i42.i, 3
   %current_transactions_end.i.i = getelementptr inbounds i8, ptr %opaque, i64 8005
-  %21 = load i8, ptr %current_transactions_end.i.i, align 1
-  %conv20.i.i = zext i8 %21 to i32
+  %20 = load i8, ptr %current_transactions_end.i.i, align 1
+  %conv20.i.i = zext i8 %20 to i32
   %cmp1.not21.i.i = icmp eq i32 %rem.i43.i, %conv20.i.i
   br i1 %cmp1.not21.i.i, label %while.end.i.i, label %while.body.i.i
 
@@ -604,8 +603,8 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i45.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
   %add6.i.i = add nuw nsw i32 %next_index.023.i.i, 1
   %rem7.i.i = and i32 %add6.i.i, 3
-  %22 = load i8, ptr %current_transactions_end.i.i, align 1
-  %conv.i46.i = zext i8 %22 to i32
+  %21 = load i8, ptr %current_transactions_end.i.i, align 1
+  %conv.i46.i = zext i8 %21 to i32
   %cmp1.not.i.i = icmp eq i32 %rem7.i.i, %conv.i46.i
   br i1 %cmp1.not.i.i, label %while.end.loopexit.i.i, label %while.body.i.i, !llvm.loop !7
 
@@ -614,11 +613,11 @@ while.end.loopexit.i.i:                           ; preds = %while.body.i.i
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.loopexit.i.i, %if.end.i.i
-  %23 = phi i8 [ %18, %if.end.i.i ], [ %.pre.i.i, %while.end.loopexit.i.i ]
+  %22 = phi i8 [ %17, %if.end.i.i ], [ %.pre.i.i, %while.end.loopexit.i.i ]
   %index.0.lcssa.i.i = phi i32 [ %rem.i.i35.i, %if.end.i.i ], [ %next_index.023.i.i, %while.end.loopexit.i.i ]
   %conv8.i.i = trunc i32 %index.0.lcssa.i.i to i8
   store i8 %conv8.i.i, ptr %current_transactions_end.i.i, align 1
-  %dec.i.i = add i8 %23, -1
+  %dec.i.i = add i8 %22, -1
   store i8 %dec.i.i, ptr %current_transactions_num.i.i25.i, align 2
   %cmp12.i.i = icmp eq i8 %dec.i.i, 0
   br i1 %cmp12.i.i, label %if.then14.i.i, label %if.end35.i
@@ -626,8 +625,8 @@ while.end.i.i:                                    ; preds = %while.end.loopexit.
 if.then14.i.i:                                    ; preds = %while.end.i.i
   %timer.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 8016
   tail call void @timer_del(ptr noundef nonnull %timer.i.i.i) #8
-  %24 = load i32, ptr %hidraw_fd, align 8
-  tail call void @qemu_set_fd_handler(i32 noundef %24, ptr noundef null, ptr noundef null, ptr noundef nonnull %opaque) #8
+  %23 = load i32, ptr %hidraw_fd, align 8
+  tail call void @qemu_set_fd_handler(i32 noundef %23, ptr noundef null, ptr noundef null, ptr noundef nonnull %opaque) #8
   %last_transaction_time.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 8008
   store i64 0, ptr %last_transaction_time.i.i.i, align 8
   store i8 0, ptr %current_transactions_start.i.i29.i, align 4

@@ -1081,7 +1081,7 @@ declare void @slurm_free_resource_allocation_response_msg(ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define void @pack_config_file(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = icmp ugt i16 %1, 10239
-  br i1 %4, label %5, label %29
+  br i1 %4, label %5, label %27
 
 5:                                                ; preds = %3
   %.not48 = icmp eq ptr %0, null
@@ -1092,98 +1092,95 @@ define void @pack_config_file(ptr noundef readonly %0, i16 noundef zeroext %1, p
   tail call void @packbool(i1 noundef zeroext false, ptr noundef %2) #8
   tail call void @packmem(ptr noundef null, i32 noundef 0, ptr noundef %2) #8
   tail call void @packmem(ptr noundef null, i32 noundef 0, ptr noundef %2) #8
-  br label %51
+  br label %48
 
 7:                                                ; preds = %5
   %8 = load i8, ptr %0, align 8
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
-  tail call void @packbool(i1 noundef zeroext %10, ptr noundef %2) #8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1
-  %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %14 = icmp ne i8 %13, 0
-  tail call void @packbool(i1 noundef zeroext %14, ptr noundef %2) #8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %.not49 = icmp eq ptr %16, null
-  br i1 %.not49, label %21, label %17
+  %9 = trunc i8 %8 to i1
+  tail call void @packbool(i1 noundef zeroext %9, ptr noundef %2) #8
+  %10 = getelementptr inbounds i8, ptr %0, i64 1
+  %11 = load i8, ptr %10, align 1
+  %12 = trunc i8 %11 to i1
+  tail call void @packbool(i1 noundef zeroext %12, ptr noundef %2) #8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %.not49 = icmp eq ptr %14, null
+  br i1 %.not49, label %19, label %15
 
-17:                                               ; preds = %7
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #9
-  %19 = trunc i64 %18 to i32
-  %20 = add i32 %19, 1
-  br label %21
+15:                                               ; preds = %7
+  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #9
+  %17 = trunc i64 %16 to i32
+  %18 = add i32 %17, 1
+  br label %19
 
-21:                                               ; preds = %17, %7
-  %.039 = phi i32 [ %20, %17 ], [ 0, %7 ]
-  tail call void @packmem(ptr noundef %16, i32 noundef %.039, ptr noundef %2) #8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %.not50 = icmp eq ptr %23, null
-  br i1 %.not50, label %28, label %24
+19:                                               ; preds = %15, %7
+  %.039 = phi i32 [ %18, %15 ], [ 0, %7 ]
+  tail call void @packmem(ptr noundef %14, i32 noundef %.039, ptr noundef %2) #8
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %.not50 = icmp eq ptr %21, null
+  br i1 %.not50, label %26, label %22
 
-24:                                               ; preds = %21
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #9
-  %26 = trunc i64 %25 to i32
-  %27 = add i32 %26, 1
-  br label %28
+22:                                               ; preds = %19
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #9
+  %24 = trunc i64 %23 to i32
+  %25 = add i32 %24, 1
+  br label %26
 
-28:                                               ; preds = %24, %21
-  %.038 = phi i32 [ %27, %24 ], [ 0, %21 ]
-  tail call void @packmem(ptr noundef %23, i32 noundef %.038, ptr noundef %2) #8
-  br label %51
+26:                                               ; preds = %22, %19
+  %.038 = phi i32 [ %25, %22 ], [ 0, %19 ]
+  tail call void @packmem(ptr noundef %21, i32 noundef %.038, ptr noundef %2) #8
+  br label %48
 
-29:                                               ; preds = %3
-  %30 = icmp ugt i16 %1, 9983
-  br i1 %30, label %31, label %51
+27:                                               ; preds = %3
+  %28 = icmp ugt i16 %1, 9983
+  br i1 %28, label %29, label %48
 
-31:                                               ; preds = %29
+29:                                               ; preds = %27
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %32, label %33
+  br i1 %.not, label %30, label %31
 
-32:                                               ; preds = %31
+30:                                               ; preds = %29
   tail call void @packbool(i1 noundef zeroext false, ptr noundef %2) #8
   tail call void @packmem(ptr noundef null, i32 noundef 0, ptr noundef %2) #8
   tail call void @packmem(ptr noundef null, i32 noundef 0, ptr noundef %2) #8
-  br label %51
+  br label %48
 
-33:                                               ; preds = %31
-  %34 = load i8, ptr %0, align 8
-  %35 = and i8 %34, 1
-  %36 = icmp ne i8 %35, 0
-  tail call void @packbool(i1 noundef zeroext %36, ptr noundef %2) #8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %.not46 = icmp eq ptr %38, null
-  br i1 %.not46, label %43, label %39
+31:                                               ; preds = %29
+  %32 = load i8, ptr %0, align 8
+  %33 = trunc i8 %32 to i1
+  tail call void @packbool(i1 noundef zeroext %33, ptr noundef %2) #8
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %.not46 = icmp eq ptr %35, null
+  br i1 %.not46, label %40, label %36
 
-39:                                               ; preds = %33
-  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #9
-  %41 = trunc i64 %40 to i32
-  %42 = add i32 %41, 1
-  br label %43
+36:                                               ; preds = %31
+  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #9
+  %38 = trunc i64 %37 to i32
+  %39 = add i32 %38, 1
+  br label %40
 
-43:                                               ; preds = %39, %33
-  %.037 = phi i32 [ %42, %39 ], [ 0, %33 ]
-  tail call void @packmem(ptr noundef %38, i32 noundef %.037, ptr noundef %2) #8
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %.not47 = icmp eq ptr %45, null
-  br i1 %.not47, label %50, label %46
+40:                                               ; preds = %36, %31
+  %.037 = phi i32 [ %39, %36 ], [ 0, %31 ]
+  tail call void @packmem(ptr noundef %35, i32 noundef %.037, ptr noundef %2) #8
+  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = load ptr, ptr %41, align 8
+  %.not47 = icmp eq ptr %42, null
+  br i1 %.not47, label %47, label %43
 
-46:                                               ; preds = %43
-  %47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #9
-  %48 = trunc i64 %47 to i32
-  %49 = add i32 %48, 1
-  br label %50
+43:                                               ; preds = %40
+  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #9
+  %45 = trunc i64 %44 to i32
+  %46 = add i32 %45, 1
+  br label %47
 
-50:                                               ; preds = %46, %43
-  %.0 = phi i32 [ %49, %46 ], [ 0, %43 ]
-  tail call void @packmem(ptr noundef %45, i32 noundef %.0, ptr noundef %2) #8
-  br label %51
+47:                                               ; preds = %43, %40
+  %.0 = phi i32 [ %46, %43 ], [ 0, %40 ]
+  tail call void @packmem(ptr noundef %42, i32 noundef %.0, ptr noundef %2) #8
+  br label %48
 
-51:                                               ; preds = %29, %50, %32, %28, %6
+48:                                               ; preds = %27, %47, %30, %26, %6
   ret void
 }
 
@@ -1602,12 +1599,12 @@ define noundef i32 @pack_msg(ptr noundef readonly %0, ptr noundef %1) local_unna
   %9 = load i16, ptr %8, align 4
   %10 = tail call ptr @rpc_num2string(i16 noundef zeroext %9) #8
   %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.pack_msg, i32 noundef %7, ptr noundef %10) #8
-  br label %356
+  br label %355
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 204
   %14 = load i16, ptr %13, align 4
-  switch i16 %14, label %350 [
+  switch i16 %14, label %349 [
     i16 2044, label %15
     i16 2038, label %15
     i16 2032, label %15
@@ -1646,24 +1643,24 @@ define noundef i32 @pack_msg(ptr noundef readonly %0, ptr noundef %1) local_unna
     i16 4027, label %66
     i16 4023, label %69
     i16 1024, label %72
-    i16 1001, label %356
-    i16 1003, label %356
-    i16 1008, label %356
-    i16 1009, label %356
-    i16 2053, label %356
-    i16 1012, label %356
-    i16 5024, label %356
-    i16 1011, label %356
-    i16 1017, label %356
-    i16 10002, label %356
-    i16 10003, label %356
-    i16 2028, label %356
-    i16 2037, label %356
-    i16 2049, label %356
-    i16 7001, label %356
-    i16 12001, label %356
-    i16 12011, label %356
-    i16 12003, label %356
+    i16 1001, label %355
+    i16 1003, label %355
+    i16 1008, label %355
+    i16 1009, label %355
+    i16 2053, label %355
+    i16 1012, label %355
+    i16 5024, label %355
+    i16 1011, label %355
+    i16 1017, label %355
+    i16 10002, label %355
+    i16 10003, label %355
+    i16 2028, label %355
+    i16 2037, label %355
+    i16 2049, label %355
+    i16 7001, label %355
+    i16 12001, label %355
+    i16 12011, label %355
+    i16 12003, label %355
     i16 1019, label %75
     i16 6500, label %78
     i16 1433, label %81
@@ -1753,13 +1750,13 @@ define noundef i32 @pack_msg(ptr noundef readonly %0, ptr noundef %1) local_unna
     i16 2039, label %243
     i16 2022, label %246
     i16 2023, label %247
-    i16 2026, label %356
+    i16 2026, label %355
     i16 2027, label %248
     i16 6014, label %251
     i16 7201, label %254
     i16 7204, label %254
     i16 7203, label %257
-    i16 9001, label %356
+    i16 9001, label %355
     i16 2018, label %260
     i16 2020, label %260
     i16 2017, label %260
@@ -1799,10 +1796,10 @@ define noundef i32 @pack_msg(ptr noundef readonly %0, ptr noundef %1) local_unna
     i16 12012, label %335
     i16 12007, label %_pack_container_signal_msg.exit
     i16 12009, label %_pack_container_delete_msg.exit
-    i16 12002, label %344
-    i16 12005, label %345
-    i16 3016, label %347
-    i16 3017, label %349
+    i16 12002, label %343
+    i16 12005, label %344
+    i16 3016, label %346
+    i16 3017, label %348
   ]
 
 15:                                               ; preds = %12, %12, %12, %12, %12, %12, %12, %12, %12, %12
@@ -1813,45 +1810,45 @@ define noundef i32 @pack_msg(ptr noundef readonly %0, ptr noundef %1) local_unna
   %18 = getelementptr i8, ptr %.val, i64 20
   %.val.val341 = load i32, ptr %18, align 4
   tail call void @packmem_array(ptr noundef %.val.val, i32 noundef %.val.val341, ptr noundef %1) #8
-  br label %356
+  br label %355
 
 19:                                               ; preds = %12
   %20 = getelementptr i8, ptr %0, i64 192
   %.val342 = load ptr, ptr %20, align 8
   tail call fastcc void @_pack_node_info_request_msg(ptr %.val342, ptr noundef %1)
-  br label %356
+  br label %355
 
 21:                                               ; preds = %12
   %22 = getelementptr i8, ptr %0, i64 192
   %.val343 = load ptr, ptr %22, align 8
   tail call fastcc void @_pack_node_info_single_msg(ptr %.val343, ptr noundef %1)
-  br label %356
+  br label %355
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds i8, ptr %0, i64 192
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @_pack_part_info_request_msg(ptr noundef %25, ptr noundef %1)
-  br label %356
+  br label %355
 
 26:                                               ; preds = %12
   %27 = getelementptr inbounds i8, ptr %0, i64 192
   %28 = load ptr, ptr %27, align 8
   %.val344 = load i64, ptr %28, align 8
   tail call void @pack_time(i64 noundef %.val344, ptr noundef %1) #8
-  br label %356
+  br label %355
 
 29:                                               ; preds = %12
   %30 = getelementptr inbounds i8, ptr %0, i64 192
   %31 = load ptr, ptr %30, align 8
   %.val345 = load i64, ptr %31, align 8
   tail call void @pack_time(i64 noundef %.val345, ptr noundef %1) #8
-  br label %356
+  br label %355
 
 32:                                               ; preds = %12
   %33 = getelementptr inbounds i8, ptr %0, i64 192
   %34 = load ptr, ptr %33, align 8
   tail call fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef %34, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 35:                                               ; preds = %12
   %36 = getelementptr inbounds i8, ptr %0, i64 192
@@ -1859,604 +1856,604 @@ define noundef i32 @pack_msg(ptr noundef readonly %0, ptr noundef %1) local_unna
   %38 = getelementptr i8, ptr %37, i64 8
   %.val346 = load ptr, ptr %38, align 8
   tail call fastcc void @_pack_job_script_msg(ptr %.val346, ptr noundef %1)
-  br label %356
+  br label %355
 
 39:                                               ; preds = %12
   %40 = getelementptr inbounds i8, ptr %0, i64 192
   %41 = load ptr, ptr %40, align 8
   tail call fastcc void @_pack_node_registration_status_msg(ptr noundef %41, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 42:                                               ; preds = %12, %12
   %43 = getelementptr inbounds i8, ptr %0, i64 192
   %44 = load ptr, ptr %43, align 8
   tail call fastcc void @_pack_acct_gather_node_resp_msg(ptr noundef %44, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 45:                                               ; preds = %12, %12, %12, %12
   %46 = getelementptr inbounds i8, ptr %0, i64 192
   %47 = load ptr, ptr %46, align 8
   tail call fastcc void @_pack_job_desc_msg(ptr noundef %47, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 48:                                               ; preds = %12, %12
   %49 = getelementptr inbounds i8, ptr %0, i64 192
   %50 = load ptr, ptr %49, align 8
   tail call fastcc void @_pack_job_desc_list_msg(ptr noundef %50, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 51:                                               ; preds = %12
   %52 = getelementptr inbounds i8, ptr %0, i64 192
   %53 = load ptr, ptr %52, align 8
   tail call fastcc void @_pack_job_info_list_msg(ptr noundef %53, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 54:                                               ; preds = %12, %12, %12
   %55 = getelementptr inbounds i8, ptr %0, i64 192
   %56 = load ptr, ptr %55, align 8
   tail call fastcc void @_pack_sib_msg(ptr noundef %56, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 57:                                               ; preds = %12
   %58 = getelementptr inbounds i8, ptr %0, i64 192
   %59 = load ptr, ptr %58, align 8
   tail call fastcc void @_pack_dep_msg(ptr noundef %59, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 60:                                               ; preds = %12
   %61 = getelementptr inbounds i8, ptr %0, i64 192
   %62 = load ptr, ptr %61, align 8
   tail call fastcc void @_pack_dep_update_origin_msg(ptr noundef %62, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 63:                                               ; preds = %12
   %64 = getelementptr inbounds i8, ptr %0, i64 192
   %65 = load ptr, ptr %64, align 8
   tail call fastcc void @_pack_update_job_step_msg(ptr noundef %65, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 66:                                               ; preds = %12, %12, %12
   %67 = getelementptr inbounds i8, ptr %0, i64 192
   %68 = load ptr, ptr %67, align 8
   tail call fastcc void @_pack_job_alloc_info_msg(ptr noundef %68, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 69:                                               ; preds = %12
   %70 = getelementptr inbounds i8, ptr %0, i64 192
   %71 = load ptr, ptr %70, align 8
   tail call fastcc void @_pack_step_alloc_info_msg(ptr noundef %71, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 72:                                               ; preds = %12
   %73 = getelementptr inbounds i8, ptr %0, i64 192
   %74 = load ptr, ptr %73, align 8
   tail call fastcc void @_pack_node_reg_resp(ptr noundef %74, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 75:                                               ; preds = %12
   %76 = getelementptr inbounds i8, ptr %0, i64 192
   %77 = load ptr, ptr %76, align 8
   tail call fastcc void @_pack_acct_gather_energy_req(ptr noundef %77, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 78:                                               ; preds = %12
   %79 = getelementptr inbounds i8, ptr %0, i64 192
   %80 = load ptr, ptr %79, align 8
   tail call void @slurm_persist_pack_init_req_msg(ptr noundef %80, ptr noundef %1) #8
-  br label %356
+  br label %355
 
 81:                                               ; preds = %12
   %82 = getelementptr inbounds i8, ptr %0, i64 192
   %83 = load ptr, ptr %82, align 8
   tail call void @slurm_persist_pack_rc_msg(ptr noundef %83, ptr noundef %1, i16 noundef zeroext %4) #8
-  br label %356
+  br label %355
 
 84:                                               ; preds = %12
   %85 = getelementptr inbounds i8, ptr %0, i64 192
   %86 = load ptr, ptr %85, align 8
   tail call fastcc void @_pack_reboot_msg(ptr noundef %86, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 87:                                               ; preds = %12
   %88 = getelementptr inbounds i8, ptr %0, i64 192
   %89 = load ptr, ptr %88, align 8
   %.val347 = load i16, ptr %89, align 2
   tail call void @pack16(i16 noundef zeroext %.val347, ptr noundef %1) #8
-  br label %356
+  br label %355
 
 90:                                               ; preds = %12
   tail call fastcc void @_pack_submit_response_msg(ptr noundef nonnull %0, ptr noundef %1)
-  br label %356
+  br label %355
 
 91:                                               ; preds = %12, %12
   tail call fastcc void @_pack_resource_allocation_response_msg(ptr noundef nonnull %0, ptr noundef %1)
-  br label %356
+  br label %355
 
 92:                                               ; preds = %12
   %93 = getelementptr inbounds i8, ptr %0, i64 192
   %94 = load ptr, ptr %93, align 8
   tail call fastcc void @_pack_will_run_response_msg(ptr noundef %94, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 95:                                               ; preds = %12
   %96 = getelementptr inbounds i8, ptr %0, i64 192
   %97 = load ptr, ptr %96, align 8
   tail call fastcc void @_pack_update_front_end_msg(ptr noundef %97, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 98:                                               ; preds = %12, %12, %12
   %99 = getelementptr inbounds i8, ptr %0, i64 192
   %100 = load ptr, ptr %99, align 8
   tail call fastcc void @_pack_update_node_msg(ptr noundef %100, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 101:                                              ; preds = %12, %12
   %102 = getelementptr i8, ptr %0, i64 192
   %.val348 = load ptr, ptr %102, align 8
   tail call fastcc void @_pack_update_partition_msg(ptr %.val348, i16 %4, ptr noundef %1)
-  br label %356
+  br label %355
 
 103:                                              ; preds = %12
   %104 = getelementptr inbounds i8, ptr %0, i64 192
   %105 = load ptr, ptr %104, align 8
   tail call fastcc void @_pack_delete_partition_msg(ptr noundef %105, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 106:                                              ; preds = %12, %12
   %107 = getelementptr inbounds i8, ptr %0, i64 192
   %108 = load ptr, ptr %107, align 8
   tail call fastcc void @_pack_update_resv_msg(ptr noundef %108, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 109:                                              ; preds = %12, %12
   %110 = getelementptr inbounds i8, ptr %0, i64 192
   %111 = load ptr, ptr %110, align 8
   tail call fastcc void @_pack_resv_name_msg(ptr noundef %111, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 112:                                              ; preds = %12
   %113 = getelementptr inbounds i8, ptr %0, i64 192
   %114 = load ptr, ptr %113, align 8
   tail call fastcc void @_pack_reattach_tasks_request_msg(ptr noundef %114, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 115:                                              ; preds = %12
   %116 = getelementptr inbounds i8, ptr %0, i64 192
   %117 = load ptr, ptr %116, align 8
   tail call fastcc void @_pack_reattach_tasks_response_msg(ptr noundef %117, ptr noundef %1)
-  br label %356
+  br label %355
 
 118:                                              ; preds = %12
   %119 = getelementptr inbounds i8, ptr %0, i64 192
   %120 = load ptr, ptr %119, align 8
   tail call fastcc void @_pack_launch_tasks_request_msg(ptr noundef %120, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 121:                                              ; preds = %12
   %122 = getelementptr inbounds i8, ptr %0, i64 192
   %123 = load ptr, ptr %122, align 8
   tail call fastcc void @_pack_launch_tasks_response_msg(ptr noundef %123, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 124:                                              ; preds = %12, %12
   %125 = getelementptr inbounds i8, ptr %0, i64 192
   %126 = load ptr, ptr %125, align 8
   tail call fastcc void @_pack_cancel_tasks_msg(ptr noundef %126, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 127:                                              ; preds = %12
   %128 = getelementptr inbounds i8, ptr %0, i64 192
   %129 = load ptr, ptr %128, align 8
   tail call fastcc void @_pack_job_step_info_req_msg(ptr noundef %129, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 130:                                              ; preds = %12
   %131 = getelementptr i8, ptr %0, i64 192
   %.val350 = load ptr, ptr %131, align 8
   tail call fastcc void @_pack_container_id_request_msg(ptr %.val350, i16 %4, ptr noundef %1)
-  br label %356
+  br label %355
 
 _pack_container_id_response_msg.exit:             ; preds = %12
   %132 = getelementptr inbounds i8, ptr %0, i64 192
   %133 = load ptr, ptr %132, align 8
   %134 = load ptr, ptr %133, align 8
   %135 = tail call i32 @slurm_pack_list(ptr noundef %134, ptr noundef nonnull @_pack_each_container_id_step, ptr noundef %1, i16 noundef zeroext %4), !range !16
-  br label %356
+  br label %355
 
 136:                                              ; preds = %12
   %137 = getelementptr inbounds i8, ptr %0, i64 192
   %138 = load ptr, ptr %137, align 8
   tail call fastcc void @_pack_job_info_request_msg(ptr noundef %138, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 139:                                              ; preds = %12
   %140 = getelementptr i8, ptr %0, i64 192
   %.val352 = load ptr, ptr %140, align 8
   tail call fastcc void @_pack_job_state_request_msg(ptr %.val352, i16 %4, ptr noundef %1)
-  br label %356
+  br label %355
 
 141:                                              ; preds = %12
   %142 = getelementptr i8, ptr %0, i64 192
   %.val354 = load ptr, ptr %142, align 8
   tail call fastcc void @_pack_job_state_response_msg(ptr %.val354, i16 %4, ptr noundef %1)
-  br label %356
+  br label %355
 
 143:                                              ; preds = %12, %12, %12
   %144 = getelementptr inbounds i8, ptr %0, i64 192
   %145 = load ptr, ptr %144, align 8
   tail call fastcc void @_pack_job_step_kill_msg(ptr noundef %145, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 146:                                              ; preds = %12
   %147 = getelementptr inbounds i8, ptr %0, i64 192
   %148 = load ptr, ptr %147, align 8
   tail call fastcc void @_pack_complete_job_allocation_msg(ptr noundef %148, ptr noundef %1)
-  br label %356
+  br label %355
 
 149:                                              ; preds = %12
   %150 = getelementptr inbounds i8, ptr %0, i64 192
   %151 = load ptr, ptr %150, align 8
   tail call fastcc void @_pack_complete_prolog_msg(ptr noundef %151, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 152:                                              ; preds = %12
   %153 = getelementptr inbounds i8, ptr %0, i64 192
   %154 = load ptr, ptr %153, align 8
   tail call fastcc void @_pack_complete_batch_script_msg(ptr noundef %154, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 155:                                              ; preds = %12
   %156 = getelementptr inbounds i8, ptr %0, i64 192
   %157 = load ptr, ptr %156, align 8
   tail call fastcc void @_pack_step_complete_msg(ptr noundef %157, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 158:                                              ; preds = %12
   %159 = getelementptr inbounds i8, ptr %0, i64 192
   %160 = load ptr, ptr %159, align 8
   tail call fastcc void @_pack_job_step_stat(ptr noundef %160, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 161:                                              ; preds = %12, %12, %12, %12
   %162 = getelementptr inbounds i8, ptr %0, i64 192
   %163 = load ptr, ptr %162, align 8
   tail call void @pack_step_id(ptr noundef %163, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 164:                                              ; preds = %12
   %165 = getelementptr inbounds i8, ptr %0, i64 192
   %166 = load ptr, ptr %165, align 8
   tail call void @pack_slurm_step_layout(ptr noundef %166, ptr noundef %1, i16 noundef zeroext %4) #8
-  br label %356
+  br label %355
 
 167:                                              ; preds = %12
   %168 = getelementptr inbounds i8, ptr %0, i64 192
   %169 = load ptr, ptr %168, align 8
   tail call fastcc void @_pack_job_step_pids(ptr noundef %169, ptr noundef %1)
-  br label %356
+  br label %355
 
 170:                                              ; preds = %12, %12, %12, %12
   %171 = getelementptr inbounds i8, ptr %0, i64 192
   %172 = load ptr, ptr %171, align 8
   tail call fastcc void @_pack_kill_job_msg(ptr noundef %172, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 173:                                              ; preds = %12
   %174 = getelementptr inbounds i8, ptr %0, i64 192
   %175 = load ptr, ptr %174, align 8
   tail call fastcc void @_pack_epilog_comp_msg(ptr noundef %175, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 176:                                              ; preds = %12
   %177 = getelementptr inbounds i8, ptr %0, i64 192
   %178 = load ptr, ptr %177, align 8
   tail call fastcc void @_pack_task_exit_msg(ptr noundef %178, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 179:                                              ; preds = %12
   %180 = getelementptr inbounds i8, ptr %0, i64 192
   %181 = load ptr, ptr %180, align 8
   tail call fastcc void @_pack_batch_job_launch_msg(ptr noundef %181, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 182:                                              ; preds = %12
   tail call fastcc void @_pack_prolog_launch_msg(ptr noundef nonnull %0, ptr noundef %1)
-  br label %356
+  br label %355
 
 183:                                              ; preds = %12, %12, %12, %12, %12, %12, %12
   %184 = getelementptr inbounds i8, ptr %0, i64 192
   %185 = load ptr, ptr %184, align 8
   %.val356 = load i32, ptr %185, align 4
   tail call void @pack32(i32 noundef %.val356, ptr noundef %1) #8
-  br label %356
+  br label %355
 
 186:                                              ; preds = %12
   tail call fastcc void @_pack_return_code2_msg(ptr noundef nonnull %0, ptr noundef %1)
-  br label %356
+  br label %355
 
 187:                                              ; preds = %12
   %188 = getelementptr inbounds i8, ptr %0, i64 192
   %189 = load ptr, ptr %188, align 8
   tail call fastcc void @_pack_reroute_msg(ptr noundef %189, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 190:                                              ; preds = %12
   %191 = getelementptr inbounds i8, ptr %0, i64 192
   %192 = load ptr, ptr %191, align 8
   tail call fastcc void @_pack_job_step_create_response_msg(ptr noundef %192, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 193:                                              ; preds = %12
   %194 = getelementptr inbounds i8, ptr %0, i64 192
   %195 = load ptr, ptr %194, align 8
   tail call fastcc void @_pack_job_step_create_request_msg(ptr noundef %195, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 196:                                              ; preds = %12
   %197 = getelementptr inbounds i8, ptr %0, i64 192
   %198 = load ptr, ptr %197, align 8
   %.val357 = load i32, ptr %198, align 4
   tail call void @pack32(i32 noundef %.val357, ptr noundef %1) #8
-  br label %356
+  br label %355
 
 199:                                              ; preds = %12
   %200 = getelementptr inbounds i8, ptr %0, i64 192
   %201 = load ptr, ptr %200, align 8
   tail call fastcc void @_pack_job_id_response_msg(ptr noundef %201, ptr noundef %1)
-  br label %356
+  br label %355
 
 _pack_config_request_msg.exit:                    ; preds = %12
   %202 = getelementptr inbounds i8, ptr %0, i64 192
   %203 = load ptr, ptr %202, align 8
   %204 = load i32, ptr %203, align 4
   tail call void @pack32(i32 noundef %204, ptr noundef %1) #8
-  br label %356
+  br label %355
 
 205:                                              ; preds = %12, %12, %12
   %206 = getelementptr inbounds i8, ptr %0, i64 192
   %207 = load ptr, ptr %206, align 8
   tail call void @pack_config_response_msg(ptr noundef %207, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 208:                                              ; preds = %12
   %209 = getelementptr i8, ptr %0, i64 192
   %.val358 = load ptr, ptr %209, align 8
   tail call fastcc void @_pack_srun_node_fail_msg(ptr %.val358, i16 %4, ptr noundef %1)
-  br label %356
+  br label %355
 
 210:                                              ; preds = %12
   %211 = getelementptr inbounds i8, ptr %0, i64 192
   %212 = load ptr, ptr %211, align 8
   tail call fastcc void @_pack_srun_step_missing_msg(ptr noundef %212, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 213:                                              ; preds = %12
   %214 = getelementptr inbounds i8, ptr %0, i64 192
   %215 = load ptr, ptr %214, align 8
   tail call fastcc void @_pack_srun_timeout_msg(ptr noundef %215, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 216:                                              ; preds = %12
   %217 = getelementptr inbounds i8, ptr %0, i64 192
   %218 = load ptr, ptr %217, align 8
   tail call fastcc void @_pack_srun_user_msg(ptr noundef %218, ptr noundef %1)
-  br label %356
+  br label %355
 
 219:                                              ; preds = %12
   %220 = getelementptr inbounds i8, ptr %0, i64 192
   %221 = load ptr, ptr %220, align 8
   tail call fastcc void @_pack_net_forward_msg(ptr noundef %221, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 222:                                              ; preds = %12, %12
   %223 = getelementptr inbounds i8, ptr %0, i64 192
   %224 = load ptr, ptr %223, align 8
   tail call fastcc void @_pack_suspend_msg(ptr noundef %224, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 225:                                              ; preds = %12
   %226 = getelementptr inbounds i8, ptr %0, i64 192
   %227 = load ptr, ptr %226, align 8
   tail call fastcc void @_pack_suspend_int_msg(ptr noundef %227, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 228:                                              ; preds = %12
   %229 = getelementptr inbounds i8, ptr %0, i64 192
   %230 = load ptr, ptr %229, align 8
   tail call fastcc void @_pack_top_job_msg(ptr noundef %230, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 231:                                              ; preds = %12
   %232 = getelementptr inbounds i8, ptr %0, i64 192
   %233 = load ptr, ptr %232, align 8
   tail call fastcc void @_pack_token_request_msg(ptr noundef %233, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 234:                                              ; preds = %12
   %235 = getelementptr inbounds i8, ptr %0, i64 192
   %236 = load ptr, ptr %235, align 8
   tail call fastcc void @_pack_token_response_msg(ptr noundef %236, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 237:                                              ; preds = %12, %12, %12
   %238 = getelementptr inbounds i8, ptr %0, i64 192
   %239 = load ptr, ptr %238, align 8
   tail call fastcc void @_pack_job_ready_msg(ptr noundef %239, ptr noundef %1)
-  br label %356
+  br label %355
 
 240:                                              ; preds = %12
   %241 = getelementptr inbounds i8, ptr %0, i64 192
   %242 = load ptr, ptr %241, align 8
   tail call fastcc void @_pack_job_requeue_msg(ptr noundef %242, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 243:                                              ; preds = %12
   %244 = getelementptr inbounds i8, ptr %0, i64 192
   %245 = load ptr, ptr %244, align 8
   tail call fastcc void @_pack_job_user_msg(ptr noundef %245, ptr noundef %1)
-  br label %356
+  br label %355
 
 246:                                              ; preds = %12
   tail call fastcc void @_pack_shares_request_msg(ptr noundef nonnull %0, ptr noundef %1)
-  br label %356
+  br label %355
 
 247:                                              ; preds = %12
   tail call fastcc void @_pack_shares_response_msg(ptr noundef nonnull %0, ptr noundef %1)
-  br label %356
+  br label %355
 
 248:                                              ; preds = %12
   %249 = getelementptr inbounds i8, ptr %0, i64 192
   %250 = load ptr, ptr %249, align 8
   tail call fastcc void @_pack_priority_factors_response_msg(ptr noundef %250, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 251:                                              ; preds = %12
   %252 = getelementptr inbounds i8, ptr %0, i64 192
   %253 = load ptr, ptr %252, align 8
   tail call fastcc void @_pack_file_bcast(ptr noundef %253, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 254:                                              ; preds = %12, %12
   %255 = getelementptr inbounds i8, ptr %0, i64 192
   %256 = load ptr, ptr %255, align 8
   tail call fastcc void @_pack_kvs_data(ptr noundef %256, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 257:                                              ; preds = %12
   %258 = getelementptr inbounds i8, ptr %0, i64 192
   %259 = load ptr, ptr %258, align 8
   tail call fastcc void @_pack_kvs_get(ptr noundef %259, ptr noundef %1)
-  br label %356
+  br label %355
 
 260:                                              ; preds = %12, %12, %12, %12, %12
   %261 = getelementptr inbounds i8, ptr %0, i64 192
   %262 = load ptr, ptr %261, align 8
   tail call fastcc void @_pack_trigger_msg(ptr noundef %262, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 263:                                              ; preds = %12
   %264 = getelementptr inbounds i8, ptr %0, i64 192
   %265 = load ptr, ptr %264, align 8
   tail call fastcc void @_pack_slurmd_status(ptr noundef %265, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 266:                                              ; preds = %12
   %267 = getelementptr inbounds i8, ptr %0, i64 192
   %268 = load ptr, ptr %267, align 8
   tail call fastcc void @_pack_job_notify(ptr noundef %268, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 269:                                              ; preds = %12
   %270 = getelementptr inbounds i8, ptr %0, i64 192
   %271 = load ptr, ptr %270, align 8
   tail call fastcc void @_pack_set_debug_flags_msg(ptr noundef %271, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 272:                                              ; preds = %12, %12
   %273 = getelementptr inbounds i8, ptr %0, i64 192
   %274 = load ptr, ptr %273, align 8
   %.val360 = load i32, ptr %274, align 4
   tail call void @pack32(i32 noundef %.val360, ptr noundef %1) #8
-  br label %356
+  br label %355
 
 275:                                              ; preds = %12, %12, %12
   %276 = getelementptr inbounds i8, ptr %0, i64 192
   %277 = load ptr, ptr %276, align 8
   tail call fastcc void @_pack_suspend_exc_update_msg(ptr noundef %277, ptr noundef %1)
-  br label %356
+  br label %355
 
 278:                                              ; preds = %12
   %279 = getelementptr inbounds i8, ptr %0, i64 192
   %280 = load ptr, ptr %279, align 8
   tail call fastcc void @_pack_accounting_update_msg(ptr noundef %280, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 281:                                              ; preds = %12
   %282 = getelementptr inbounds i8, ptr %0, i64 192
   %283 = load ptr, ptr %282, align 8
   tail call fastcc void @_pack_topo_info_msg(ptr noundef %283, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 284:                                              ; preds = %12
   tail call fastcc void @_pack_job_sbcast_cred_msg(ptr noundef nonnull %0, ptr noundef %1)
-  br label %356
+  br label %355
 
 285:                                              ; preds = %12
   %286 = getelementptr inbounds i8, ptr %0, i64 192
   %287 = load ptr, ptr %286, align 8
   %.val361 = load i64, ptr %287, align 8
   tail call void @pack_time(i64 noundef %.val361, ptr noundef %1) #8
-  br label %356
+  br label %355
 
 288:                                              ; preds = %12
   %289 = getelementptr inbounds i8, ptr %0, i64 192
   %290 = load ptr, ptr %289, align 8
   tail call void @slurmdb_pack_federation_rec(ptr noundef %290, i16 noundef zeroext %4, ptr noundef %1) #8
-  br label %356
+  br label %355
 
 _pack_stats_request_msg.exit:                     ; preds = %12
   %291 = getelementptr inbounds i8, ptr %0, i64 192
   %292 = load ptr, ptr %291, align 8
   %293 = load i16, ptr %292, align 2
   tail call void @pack16(i16 noundef zeroext %293, ptr noundef %1) #8
-  br label %356
+  br label %355
 
 294:                                              ; preds = %12
   %295 = getelementptr inbounds i8, ptr %0, i64 192
   %296 = load ptr, ptr %295, align 8
   tail call fastcc void @_pack_forward_data_msg(ptr noundef %296, ptr noundef %1)
-  br label %356
+  br label %355
 
 297:                                              ; preds = %12
   %298 = getelementptr inbounds i8, ptr %0, i64 192
   %299 = load ptr, ptr %298, align 8
   tail call fastcc void @_pack_ping_slurmd_resp(ptr noundef %299, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 300:                                              ; preds = %12
   %301 = getelementptr inbounds i8, ptr %0, i64 192
   %302 = load ptr, ptr %301, align 8
   tail call fastcc void @_pack_license_info_request_msg(ptr noundef %302, ptr noundef %1)
-  br label %356
+  br label %355
 
 303:                                              ; preds = %12
   %304 = getelementptr inbounds i8, ptr %0, i64 192
   %305 = load ptr, ptr %304, align 8
   tail call fastcc void @_pack_job_array_resp_msg(ptr noundef %305, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 306:                                              ; preds = %12
   %307 = getelementptr inbounds i8, ptr %0, i64 192
   %308 = load ptr, ptr %307, align 8
   tail call fastcc void @_pack_assoc_mgr_info_request_msg(ptr noundef %308, ptr noundef %1)
-  br label %356
+  br label %355
 
 309:                                              ; preds = %12
   tail call fastcc void @_pack_network_callerid_msg(ptr noundef nonnull %0, ptr noundef %1)
-  br label %356
+  br label %355
 
 310:                                              ; preds = %12
   tail call fastcc void @_pack_network_callerid_resp_msg(ptr noundef nonnull %0, ptr noundef %1)
-  br label %356
+  br label %355
 
 311:                                              ; preds = %12, %12
   %312 = getelementptr inbounds i8, ptr %0, i64 192
   %313 = load ptr, ptr %312, align 8
   tail call fastcc void @_pack_buf_list_msg(ptr noundef %313, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 _pack_set_fs_dampening_factor_msg.exit:           ; preds = %12
   %314 = getelementptr inbounds i8, ptr %0, i64 192
   %315 = load ptr, ptr %314, align 8
   %316 = load i16, ptr %315, align 2
   tail call void @pack16(i16 noundef zeroext %316, ptr noundef %1) #8
-  br label %356
+  br label %355
 
 317:                                              ; preds = %12
   %318 = getelementptr inbounds i8, ptr %0, i64 192
   %319 = load ptr, ptr %318, align 8
   tail call fastcc void @_pack_control_status_msg(ptr noundef %319, ptr noundef %1, i16 noundef zeroext %4)
-  br label %356
+  br label %355
 
 320:                                              ; preds = %12
   %321 = getelementptr inbounds i8, ptr %0, i64 192
@@ -2465,91 +2462,90 @@ _pack_set_fs_dampening_factor_msg.exit:           ; preds = %12
   %323 = getelementptr i8, ptr %322, i64 8
   %.val363 = load ptr, ptr %323, align 8
   tail call void @packstr_array(ptr noundef %.val363, i32 noundef %.val362, ptr noundef %1) #8
-  br label %356
+  br label %355
 
 324:                                              ; preds = %12
   %325 = getelementptr inbounds i8, ptr %0, i64 192
   %326 = load ptr, ptr %325, align 8
   %.val364 = load ptr, ptr %326, align 8
   tail call fastcc void @_pack_bb_status_resp_msg(ptr %.val364, ptr noundef %1)
-  br label %356
+  br label %355
 
 _pack_crontab_request_msg.exit:                   ; preds = %12
   %327 = getelementptr inbounds i8, ptr %0, i64 192
   %328 = load ptr, ptr %327, align 8
   %329 = load i32, ptr %328, align 4
   tail call void @pack32(i32 noundef %329, ptr noundef %1) #8
-  br label %356
+  br label %355
 
 330:                                              ; preds = %12
   %331 = getelementptr i8, ptr %0, i64 192
   %.val365 = load ptr, ptr %331, align 8
   tail call fastcc void @_pack_crontab_response_msg(ptr %.val365, i16 %4, ptr noundef %1)
-  br label %356
+  br label %355
 
 332:                                              ; preds = %12
   tail call fastcc void @_pack_crontab_update_request_msg(ptr noundef nonnull %0, ptr noundef %1)
-  br label %356
+  br label %355
 
 333:                                              ; preds = %12
   %334 = getelementptr i8, ptr %0, i64 192
   %.val367 = load ptr, ptr %334, align 8
   tail call fastcc void @_pack_crontab_update_response_msg(ptr %.val367, i16 %4, ptr noundef %1)
-  br label %356
+  br label %355
 
 335:                                              ; preds = %12
   tail call fastcc void @_pack_container_state_msg(ptr noundef nonnull %0, ptr noundef %1)
-  br label %356
+  br label %355
 
 _pack_container_signal_msg.exit:                  ; preds = %12
   %336 = getelementptr inbounds i8, ptr %0, i64 192
   %337 = load ptr, ptr %336, align 8
   %338 = load i32, ptr %337, align 4
   tail call void @pack32(i32 noundef %338, ptr noundef %1) #8
-  br label %356
+  br label %355
 
 _pack_container_delete_msg.exit:                  ; preds = %12
   %339 = getelementptr inbounds i8, ptr %0, i64 192
   %340 = load ptr, ptr %339, align 8
   %341 = load i8, ptr %340, align 1
-  %342 = and i8 %341, 1
-  %343 = icmp ne i8 %342, 0
-  tail call void @packbool(i1 noundef zeroext %343, ptr noundef %1) #8
-  br label %356
+  %342 = trunc i8 %341 to i1
+  tail call void @packbool(i1 noundef zeroext %342, ptr noundef %1) #8
+  br label %355
+
+343:                                              ; preds = %12
+  tail call fastcc void @_pack_container_started_msg(ptr noundef nonnull %0, ptr noundef %1)
+  br label %355
 
 344:                                              ; preds = %12
-  tail call fastcc void @_pack_container_started_msg(ptr noundef nonnull %0, ptr noundef %1)
-  br label %356
-
-345:                                              ; preds = %12
-  %346 = getelementptr i8, ptr %0, i64 192
-  %.val369 = load ptr, ptr %346, align 8
+  %345 = getelementptr i8, ptr %0, i64 192
+  %.val369 = load ptr, ptr %345, align 8
   tail call fastcc void @_pack_container_exec_msg(ptr %.val369, i16 %4, ptr noundef %1)
-  br label %356
+  br label %355
 
-347:                                              ; preds = %12
-  %348 = getelementptr i8, ptr %0, i64 192
-  %.val371 = load ptr, ptr %348, align 8
+346:                                              ; preds = %12
+  %347 = getelementptr i8, ptr %0, i64 192
+  %.val371 = load ptr, ptr %347, align 8
   tail call fastcc void @_pack_node_alias_addrs(ptr %.val371, i16 %4, ptr noundef %1)
-  br label %356
+  br label %355
+
+348:                                              ; preds = %12
+  tail call fastcc void @_pack_node_alias_addrs_resp_msg(ptr noundef nonnull %0, ptr noundef %1)
+  br label %355
 
 349:                                              ; preds = %12
-  tail call fastcc void @_pack_node_alias_addrs_resp_msg(ptr noundef nonnull %0, ptr noundef %1)
-  br label %356
+  %350 = tail call i32 @get_log_level() #8
+  %351 = icmp sgt i32 %350, 4
+  br i1 %351, label %352, label %355
 
-350:                                              ; preds = %12
-  %351 = tail call i32 @get_log_level() #8
-  %352 = icmp sgt i32 %351, 4
-  br i1 %352, label %353, label %356
+352:                                              ; preds = %349
+  %353 = load i16, ptr %13, align 4
+  %354 = zext i16 %353 to i32
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.5, i32 noundef %354) #8
+  br label %355
 
-353:                                              ; preds = %350
-  %354 = load i16, ptr %13, align 4
-  %355 = zext i16 %354 to i32
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.5, i32 noundef %355) #8
-  br label %356
-
-356:                                              ; preds = %15, %19, %21, %23, %26, %29, %32, %35, %39, %42, %45, %48, %51, %54, %57, %60, %63, %66, %69, %72, %75, %78, %81, %84, %87, %90, %91, %92, %95, %98, %101, %103, %106, %109, %112, %115, %118, %121, %124, %127, %130, %_pack_container_id_response_msg.exit, %136, %139, %141, %143, %146, %149, %152, %155, %158, %161, %164, %167, %170, %173, %176, %179, %182, %183, %186, %187, %190, %193, %196, %199, %_pack_config_request_msg.exit, %205, %208, %210, %213, %216, %219, %222, %225, %228, %231, %234, %237, %240, %243, %246, %247, %248, %251, %254, %257, %260, %263, %266, %269, %272, %275, %278, %281, %284, %285, %288, %_pack_stats_request_msg.exit, %294, %297, %300, %303, %306, %309, %310, %311, %_pack_set_fs_dampening_factor_msg.exit, %317, %320, %324, %_pack_crontab_request_msg.exit, %330, %332, %333, %335, %_pack_container_signal_msg.exit, %_pack_container_delete_msg.exit, %344, %345, %347, %349, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %350, %353, %6
-  %.0 = phi i32 [ -1, %6 ], [ 22, %353 ], [ 22, %350 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %349 ], [ 0, %347 ], [ 0, %345 ], [ 0, %344 ], [ 0, %_pack_container_delete_msg.exit ], [ 0, %_pack_container_signal_msg.exit ], [ 0, %335 ], [ 0, %333 ], [ 0, %332 ], [ 0, %330 ], [ 0, %_pack_crontab_request_msg.exit ], [ 0, %324 ], [ 0, %320 ], [ 0, %317 ], [ 0, %_pack_set_fs_dampening_factor_msg.exit ], [ 0, %311 ], [ 0, %310 ], [ 0, %309 ], [ 0, %306 ], [ 0, %303 ], [ 0, %300 ], [ 0, %297 ], [ 0, %294 ], [ 0, %_pack_stats_request_msg.exit ], [ 0, %288 ], [ 0, %285 ], [ 0, %284 ], [ 0, %281 ], [ 0, %278 ], [ 0, %275 ], [ 0, %272 ], [ 0, %269 ], [ 0, %266 ], [ 0, %263 ], [ 0, %260 ], [ 0, %257 ], [ 0, %254 ], [ 0, %251 ], [ 0, %248 ], [ 0, %247 ], [ 0, %246 ], [ 0, %243 ], [ 0, %240 ], [ 0, %237 ], [ 0, %234 ], [ 0, %231 ], [ 0, %228 ], [ 0, %225 ], [ 0, %222 ], [ 0, %219 ], [ 0, %216 ], [ 0, %213 ], [ 0, %210 ], [ 0, %208 ], [ 0, %205 ], [ 0, %_pack_config_request_msg.exit ], [ 0, %199 ], [ 0, %196 ], [ 0, %193 ], [ 0, %190 ], [ 0, %187 ], [ 0, %186 ], [ 0, %183 ], [ 0, %182 ], [ 0, %179 ], [ 0, %176 ], [ 0, %173 ], [ 0, %170 ], [ 0, %167 ], [ 0, %164 ], [ 0, %161 ], [ 0, %158 ], [ 0, %155 ], [ 0, %152 ], [ 0, %149 ], [ 0, %146 ], [ 0, %143 ], [ 0, %141 ], [ 0, %139 ], [ 0, %136 ], [ 0, %_pack_container_id_response_msg.exit ], [ 0, %130 ], [ 0, %127 ], [ 0, %124 ], [ 0, %121 ], [ 0, %118 ], [ 0, %115 ], [ 0, %112 ], [ 0, %109 ], [ 0, %106 ], [ 0, %103 ], [ 0, %101 ], [ 0, %98 ], [ 0, %95 ], [ 0, %92 ], [ 0, %91 ], [ 0, %90 ], [ 0, %87 ], [ 0, %84 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %72 ], [ 0, %69 ], [ 0, %66 ], [ 0, %63 ], [ 0, %60 ], [ 0, %57 ], [ 0, %54 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %39 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %23 ], [ 0, %21 ], [ 0, %19 ], [ 0, %15 ]
+355:                                              ; preds = %15, %19, %21, %23, %26, %29, %32, %35, %39, %42, %45, %48, %51, %54, %57, %60, %63, %66, %69, %72, %75, %78, %81, %84, %87, %90, %91, %92, %95, %98, %101, %103, %106, %109, %112, %115, %118, %121, %124, %127, %130, %_pack_container_id_response_msg.exit, %136, %139, %141, %143, %146, %149, %152, %155, %158, %161, %164, %167, %170, %173, %176, %179, %182, %183, %186, %187, %190, %193, %196, %199, %_pack_config_request_msg.exit, %205, %208, %210, %213, %216, %219, %222, %225, %228, %231, %234, %237, %240, %243, %246, %247, %248, %251, %254, %257, %260, %263, %266, %269, %272, %275, %278, %281, %284, %285, %288, %_pack_stats_request_msg.exit, %294, %297, %300, %303, %306, %309, %310, %311, %_pack_set_fs_dampening_factor_msg.exit, %317, %320, %324, %_pack_crontab_request_msg.exit, %330, %332, %333, %335, %_pack_container_signal_msg.exit, %_pack_container_delete_msg.exit, %343, %344, %346, %348, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %349, %352, %6
+  %.0 = phi i32 [ -1, %6 ], [ 22, %352 ], [ 22, %349 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %348 ], [ 0, %346 ], [ 0, %344 ], [ 0, %343 ], [ 0, %_pack_container_delete_msg.exit ], [ 0, %_pack_container_signal_msg.exit ], [ 0, %335 ], [ 0, %333 ], [ 0, %332 ], [ 0, %330 ], [ 0, %_pack_crontab_request_msg.exit ], [ 0, %324 ], [ 0, %320 ], [ 0, %317 ], [ 0, %_pack_set_fs_dampening_factor_msg.exit ], [ 0, %311 ], [ 0, %310 ], [ 0, %309 ], [ 0, %306 ], [ 0, %303 ], [ 0, %300 ], [ 0, %297 ], [ 0, %294 ], [ 0, %_pack_stats_request_msg.exit ], [ 0, %288 ], [ 0, %285 ], [ 0, %284 ], [ 0, %281 ], [ 0, %278 ], [ 0, %275 ], [ 0, %272 ], [ 0, %269 ], [ 0, %266 ], [ 0, %263 ], [ 0, %260 ], [ 0, %257 ], [ 0, %254 ], [ 0, %251 ], [ 0, %248 ], [ 0, %247 ], [ 0, %246 ], [ 0, %243 ], [ 0, %240 ], [ 0, %237 ], [ 0, %234 ], [ 0, %231 ], [ 0, %228 ], [ 0, %225 ], [ 0, %222 ], [ 0, %219 ], [ 0, %216 ], [ 0, %213 ], [ 0, %210 ], [ 0, %208 ], [ 0, %205 ], [ 0, %_pack_config_request_msg.exit ], [ 0, %199 ], [ 0, %196 ], [ 0, %193 ], [ 0, %190 ], [ 0, %187 ], [ 0, %186 ], [ 0, %183 ], [ 0, %182 ], [ 0, %179 ], [ 0, %176 ], [ 0, %173 ], [ 0, %170 ], [ 0, %167 ], [ 0, %164 ], [ 0, %161 ], [ 0, %158 ], [ 0, %155 ], [ 0, %152 ], [ 0, %149 ], [ 0, %146 ], [ 0, %143 ], [ 0, %141 ], [ 0, %139 ], [ 0, %136 ], [ 0, %_pack_container_id_response_msg.exit ], [ 0, %130 ], [ 0, %127 ], [ 0, %124 ], [ 0, %121 ], [ 0, %118 ], [ 0, %115 ], [ 0, %112 ], [ 0, %109 ], [ 0, %106 ], [ 0, %103 ], [ 0, %101 ], [ 0, %98 ], [ 0, %95 ], [ 0, %92 ], [ 0, %91 ], [ 0, %90 ], [ 0, %87 ], [ 0, %84 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %72 ], [ 0, %69 ], [ 0, %66 ], [ 0, %63 ], [ 0, %60 ], [ 0, %57 ], [ 0, %54 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %39 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %23 ], [ 0, %21 ], [ 0, %19 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -8430,7 +8426,7 @@ define internal fastcc void @_pack_sib_msg(ptr nocapture noundef readonly %0, pt
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_pack_dep_msg(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = icmp ugt i16 %2, 9983
-  br i1 %4, label %5, label %31
+  br i1 %4, label %5, label %30
 
 5:                                                ; preds = %3
   %6 = load i32, ptr %0, align 8
@@ -8454,32 +8450,31 @@ define internal fastcc void @_pack_dep_msg(ptr nocapture noundef readonly %0, pt
   tail call void @packmem(ptr noundef %10, i32 noundef %.020, ptr noundef %1) #8
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %19 = icmp ne i8 %18, 0
-  tail call void @packbool(i1 noundef zeroext %19, ptr noundef %1) #8
-  %20 = getelementptr inbounds i8, ptr %0, i64 20
-  %21 = load i32, ptr %20, align 4
-  tail call void @pack32(i32 noundef %21, ptr noundef %1) #8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %.not23 = icmp eq ptr %23, null
-  br i1 %.not23, label %28, label %24
+  %18 = trunc i8 %17 to i1
+  tail call void @packbool(i1 noundef zeroext %18, ptr noundef %1) #8
+  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %20 = load i32, ptr %19, align 4
+  tail call void @pack32(i32 noundef %20, ptr noundef %1) #8
+  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = load ptr, ptr %21, align 8
+  %.not23 = icmp eq ptr %22, null
+  br i1 %.not23, label %27, label %23
 
-24:                                               ; preds = %15
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #9
-  %26 = trunc i64 %25 to i32
-  %27 = add i32 %26, 1
-  br label %28
+23:                                               ; preds = %15
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #9
+  %25 = trunc i64 %24 to i32
+  %26 = add i32 %25, 1
+  br label %27
 
-28:                                               ; preds = %24, %15
-  %.0 = phi i32 [ %27, %24 ], [ 0, %15 ]
-  tail call void @packmem(ptr noundef %23, i32 noundef %.0, ptr noundef %1) #8
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
-  %30 = load i32, ptr %29, align 8
-  tail call void @pack32(i32 noundef %30, ptr noundef %1) #8
-  br label %31
+27:                                               ; preds = %23, %15
+  %.0 = phi i32 [ %26, %23 ], [ 0, %15 ]
+  tail call void @packmem(ptr noundef %22, i32 noundef %.0, ptr noundef %1) #8
+  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = load i32, ptr %28, align 8
+  tail call void @pack32(i32 noundef %29, ptr noundef %1) #8
+  br label %30
 
-31:                                               ; preds = %28, %3
+30:                                               ; preds = %27, %3
   ret void
 }
 

@@ -548,37 +548,37 @@ define hidden void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$ser
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..de..table..TableMapAccess$GT$17hb178b69a8e807f93E"(ptr noalias noundef nonnull align 8 dereferenceable(376) %1) #11
-          to label %17 unwind label %15
+          to label %18 unwind label %16
 
 _ZN5serde2de9MapAccess10next_entry17h89c93c7456314877E.llvm.16052892942114215271.exit: ; preds = %5
   %8 = load i64, ptr %3, align 8, !range !170, !noundef !5
   %9 = icmp eq i64 %8, 2
-  br i1 %9, label %10, label %12
+  br i1 %9, label %10, label %13
 
 10:                                               ; preds = %_ZN5serde2de9MapAccess10next_entry17h89c93c7456314877E.llvm.16052892942114215271.exit
   %11 = load i8, ptr %4, align 8, !range !171, !noundef !5
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %13, label %5
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %5, label %14
 
-12:                                               ; preds = %_ZN5serde2de9MapAccess10next_entry17h89c93c7456314877E.llvm.16052892942114215271.exit
+13:                                               ; preds = %_ZN5serde2de9MapAccess10next_entry17h89c93c7456314877E.llvm.16052892942114215271.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false)
-  br label %14
+  br label %15
 
-13:                                               ; preds = %10
+14:                                               ; preds = %10
   store i64 2, ptr %0, align 8
-  br label %14
+  br label %15
 
-14:                                               ; preds = %13, %12
+15:                                               ; preds = %14, %13
   tail call void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..de..table..TableMapAccess$GT$17hb178b69a8e807f93E"(ptr noalias noundef nonnull align 8 dereferenceable(376) %1)
   ret void
 
-15:                                               ; preds = %6
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %6
+  %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #12
   unreachable
 
-17:                                               ; preds = %6
+18:                                               ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -636,8 +636,8 @@ define internal fastcc void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20
 21:                                               ; preds = %19
   call void @llvm.experimental.noalias.scope.decl(metadata !172)
   %22 = load i64, ptr %9, align 8, !range !175, !alias.scope !176, !noalias !178, !noundef !5
-  %trunc.not.i = icmp eq i64 %22, 0
-  br i1 %trunc.not.i, label %23, label %24
+  %trunc.i = trunc i64 %22 to i1
+  br i1 %trunc.i, label %24, label %23
 
 23:                                               ; preds = %21
   invoke void @_ZN9toml_edit3key3Key4span17h584e867222327278E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %12)
@@ -779,36 +779,36 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..de..table..TableMapAccess$GT$17hb178b69a8e807f93E"(ptr noalias noundef nonnull align 8 dereferenceable(376) %4) #11
-          to label %17 unwind label %15, !noalias !200
+          to label %18 unwind label %16, !noalias !200
 
 _ZN5serde2de9MapAccess10next_entry17h89c93c7456314877E.llvm.16052892942114215271.exit.i: ; preds = %6
   %9 = load i64, ptr %3, align 8, !range !170, !noalias !203, !noundef !5
   %10 = icmp eq i64 %9, 2
-  br i1 %10, label %11, label %13
+  br i1 %10, label %11, label %14
 
 11:                                               ; preds = %_ZN5serde2de9MapAccess10next_entry17h89c93c7456314877E.llvm.16052892942114215271.exit.i
   %12 = load i8, ptr %5, align 8, !range !171, !noalias !203, !noundef !5
-  %.not.i = icmp eq i8 %12, 0
-  br i1 %.not.i, label %14, label %6
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %6, label %15
 
-13:                                               ; preds = %_ZN5serde2de9MapAccess10next_entry17h89c93c7456314877E.llvm.16052892942114215271.exit.i
+14:                                               ; preds = %_ZN5serde2de9MapAccess10next_entry17h89c93c7456314877E.llvm.16052892942114215271.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false), !noalias !205
   br label %"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de..Visitor$GT$9visit_map17hba0e2cbfb63ea03fE.llvm.16052892942114215271.exit"
 
-14:                                               ; preds = %11
+15:                                               ; preds = %11
   store i64 2, ptr %0, align 8, !alias.scope !200, !noalias !205
   br label %"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de..Visitor$GT$9visit_map17hba0e2cbfb63ea03fE.llvm.16052892942114215271.exit"
 
-15:                                               ; preds = %7
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %7
+  %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #12, !noalias !200
   unreachable
 
-17:                                               ; preds = %7
+18:                                               ; preds = %7
   resume { ptr, i32 } %8
 
-"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de..Visitor$GT$9visit_map17hba0e2cbfb63ea03fE.llvm.16052892942114215271.exit": ; preds = %13, %14
+"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de..Visitor$GT$9visit_map17hba0e2cbfb63ea03fE.llvm.16052892942114215271.exit": ; preds = %14, %15
   call void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..de..table..TableMapAccess$GT$17hb178b69a8e807f93E"(ptr noalias noundef nonnull align 8 dereferenceable(376) %4), !noalias !200
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4)
@@ -1150,8 +1150,8 @@ define hidden void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de.
 85:                                               ; preds = %84
   call void @llvm.experimental.noalias.scope.decl(metadata !293)
   %86 = load i64, ptr %9, align 8, !range !175, !alias.scope !296, !noalias !298, !noundef !5
-  %trunc.not.i.i.i = icmp eq i64 %86, 0
-  br i1 %trunc.not.i.i.i, label %87, label %88
+  %trunc.i.i.i = trunc i64 %86 to i1
+  br i1 %trunc.i.i.i, label %88, label %87
 
 87:                                               ; preds = %85
   invoke void @_ZN9toml_edit3key3Key4span17h584e867222327278E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %12)

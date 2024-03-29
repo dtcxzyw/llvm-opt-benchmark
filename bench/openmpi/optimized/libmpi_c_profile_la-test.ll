@@ -15,9 +15,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Test(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = load i8, ptr @ompi_mpi_param_check, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %15, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %15
 
 6:                                                ; preds = %3
   %7 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -33,12 +32,12 @@ define i32 @PMPI_Test(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %11
-  %.not19 = icmp eq ptr %1, null
-  br i1 %.not19, label %.thread, label %15
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %.thread, label %15
 
 .thread:                                          ; preds = %11, %13
-  %.01318 = phi i32 [ 13, %13 ], [ 7, %11 ]
-  %14 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.01318, ptr noundef nonnull @FUNC_NAME) #2
+  %.01317 = phi i32 [ 13, %13 ], [ 7, %11 ]
+  %14 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.01317, ptr noundef nonnull @FUNC_NAME) #2
   br label %25
 
 15:                                               ; preds = %13, %3
@@ -61,7 +60,7 @@ define i32 @PMPI_Test(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %25
 
 25:                                               ; preds = %21, %23, %.thread
-  %.0 = phi i32 [ %.01318, %.thread ], [ %24, %23 ], [ 0, %21 ]
+  %.0 = phi i32 [ %.01317, %.thread ], [ %24, %23 ], [ 0, %21 ]
   ret i32 %.0
 }
 

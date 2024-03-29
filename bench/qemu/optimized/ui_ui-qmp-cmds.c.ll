@@ -322,16 +322,14 @@ entry:
 sw.bb:                                            ; preds = %entry
   %u = getelementptr inbounds i8, ptr %arg, i64 4
   %1 = load i8, ptr %u, align 4
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %sw.epilog, label %land.lhs.true
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %land.lhs.true, label %sw.epilog
 
 land.lhs.true:                                    ; preds = %sw.bb
   %tls_certs = getelementptr inbounds i8, ptr %arg, i64 5
-  %3 = load i8, ptr %tls_certs, align 1
-  %4 = and i8 %3, 1
-  %tobool2.not = icmp eq i8 %4, 0
-  br i1 %tobool2.not, label %sw.epilog, label %if.then
+  %2 = load i8, ptr %tls_certs, align 1
+  %tobool2 = trunc i8 %2 to i1
+  br i1 %tobool2, label %if.then, label %sw.epilog
 
 if.then:                                          ; preds = %land.lhs.true
   %call = tail call zeroext i1 @vnc_display_reload_certs(ptr noundef null, ptr noundef %errp) #8
@@ -583,17 +581,16 @@ land.lhs.true5.i.i.i:                             ; preds = %if.else34
 
 if.then.i.i.i30:                                  ; preds = %land.lhs.true5.i.i.i
   %8 = load i8, ptr @message_with_timestamp, align 1
-  %9 = and i8 %8, 1
-  %tobool7.not.i.i.i = icmp eq i8 %9, 0
-  br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
+  %tobool7.i.i.i = trunc i8 %8 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i30
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #8
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #8
-  %10 = load i64, ptr %_now.i.i.i, align 8
+  %9 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %11 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %call19, ptr noundef %call18) #8
+  %10 = load i64, ptr %tv_usec.i.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %call19, ptr noundef %call18) #8
   br label %trace_ppm_save.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i30

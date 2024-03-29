@@ -122,117 +122,111 @@ define i64 @pqsecure_raw_write(ptr nocapture noundef %0, ptr noundef %1, i64 nou
   %6 = alloca %struct.sigpipe_info, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 765
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %.loopexit
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %0, i64 764
   %12 = load i8, ptr %11, align 4
-  %13 = and i8 %12, 1
-  %14 = zext nneg i8 %13 to i32
-  %spec.select = shl nuw nsw i32 %14, 14
-  %15 = getelementptr inbounds i8, ptr %6, i64 129
-  %16 = getelementptr inbounds i8, ptr %0, i64 763
-  %17 = getelementptr inbounds i8, ptr %6, i64 128
-  %18 = getelementptr inbounds i8, ptr %0, i64 472
-  %19 = and i8 %12, 1
-  %20 = icmp ne i8 %19, 0
-  br label %21
+  %13 = trunc i8 %12 to i1
+  %spec.select = select i1 %13, i32 16384, i32 0
+  %14 = getelementptr inbounds i8, ptr %6, i64 129
+  %15 = getelementptr inbounds i8, ptr %0, i64 763
+  %16 = getelementptr inbounds i8, ptr %6, i64 128
+  %17 = getelementptr inbounds i8, ptr %0, i64 472
+  %18 = trunc i8 %12 to i1
+  br label %19
 
-21:                                               ; preds = %36, %10
-  %.not36 = phi i1 [ %20, %10 ], [ false, %36 ]
-  %.128 = phi i32 [ %spec.select, %10 ], [ 0, %36 ]
-  %.0 = phi i32 [ 0, %10 ], [ 22, %36 ]
-  store i8 0, ptr %15, align 1
-  %22 = load i8, ptr %16, align 1
-  %23 = and i8 %22, 1
-  %.not35 = icmp ne i8 %23, 0
-  %brmerge = select i1 %.not35, i1 true, i1 %.not36
-  br i1 %brmerge, label %27, label %24
+19:                                               ; preds = %35, %10
+  %20 = phi i1 [ %18, %10 ], [ false, %35 ]
+  %.128 = phi i32 [ %spec.select, %10 ], [ 0, %35 ]
+  %.0 = phi i32 [ 0, %10 ], [ 22, %35 ]
+  store i8 0, ptr %14, align 1
+  %21 = load i8, ptr %15, align 1
+  %22 = trunc i8 %21 to i1
+  %brmerge = select i1 %22, i1 true, i1 %20
+  br i1 %brmerge, label %26, label %23
 
-24:                                               ; preds = %21
-  %25 = call i32 @pq_block_sigpipe(ptr noundef nonnull %6, ptr noundef nonnull %17), !range !4
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %.loopexit, label %27
+23:                                               ; preds = %19
+  %24 = call i32 @pq_block_sigpipe(ptr noundef nonnull %6, ptr noundef nonnull %16), !range !4
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %.loopexit, label %26
 
-27:                                               ; preds = %21, %24
-  %28 = load i32, ptr %18, align 8
-  %29 = call i64 @send(i32 noundef %28, ptr noundef %1, i64 noundef %2, i32 noundef %.128) #9
-  %30 = icmp slt i64 %29, 0
-  br i1 %30, label %31, label %.loopexit39
+26:                                               ; preds = %19, %23
+  %27 = load i32, ptr %17, align 8
+  %28 = call i64 @send(i32 noundef %27, ptr noundef %1, i64 noundef %2, i32 noundef %.128) #9
+  %29 = icmp slt i64 %28, 0
+  br i1 %29, label %30, label %.loopexit34
 
-31:                                               ; preds = %27
-  %32 = tail call ptr @__errno_location() #8
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp ne i32 %.128, 0
-  %35 = icmp eq i32 %33, 22
-  %or.cond = select i1 %34, i1 %35, i1 false
-  br i1 %or.cond, label %36, label %37
+30:                                               ; preds = %26
+  %31 = tail call ptr @__errno_location() #8
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp ne i32 %.128, 0
+  %34 = icmp eq i32 %32, 22
+  %or.cond = select i1 %33, i1 %34, i1 false
+  br i1 %or.cond, label %35, label %36
 
-36:                                               ; preds = %31
+35:                                               ; preds = %30
   store i8 0, ptr %11, align 4
-  br label %21
+  br label %19
 
-37:                                               ; preds = %31
-  switch i32 %33, label %41 [
-    i32 11, label %.loopexit39
-    i32 4, label %.loopexit39
-    i32 32, label %38
-    i32 104, label %39
+36:                                               ; preds = %30
+  switch i32 %32, label %40 [
+    i32 11, label %.loopexit34
+    i32 4, label %.loopexit34
+    i32 32, label %37
+    i32 104, label %38
   ]
 
-38:                                               ; preds = %37
-  store i8 1, ptr %15, align 1
-  br label %39
+37:                                               ; preds = %36
+  store i8 1, ptr %14, align 1
+  br label %38
 
-39:                                               ; preds = %38, %37
+38:                                               ; preds = %37, %36
   store i8 1, ptr %7, align 1
-  %40 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str) #9
-  br label %.loopexit39.sink.split
+  %39 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str) #9
+  br label %.loopexit34.sink.split
 
-41:                                               ; preds = %37
+40:                                               ; preds = %36
   store i8 1, ptr %7, align 1
-  %42 = call ptr @pg_strerror_r(i32 noundef %33, ptr noundef nonnull %5, i64 noundef 256) #9
-  %43 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.3, ptr noundef %42) #9
-  br label %.loopexit39.sink.split
+  %41 = call ptr @pg_strerror_r(i32 noundef %32, ptr noundef nonnull %5, i64 noundef 256) #9
+  %42 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.3, ptr noundef %41) #9
+  br label %.loopexit34.sink.split
 
-.loopexit39.sink.split:                           ; preds = %39, %41
-  %44 = call i64 @strlcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, i64 noundef 1024) #9
-  %45 = call noalias ptr @strdup(ptr noundef nonnull %4) #9
-  %46 = getelementptr inbounds i8, ptr %0, i64 768
-  store ptr %45, ptr %46, align 8
-  br label %.loopexit39
+.loopexit34.sink.split:                           ; preds = %38, %40
+  %43 = call i64 @strlcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, i64 noundef 1024) #9
+  %44 = call noalias ptr @strdup(ptr noundef nonnull %4) #9
+  %45 = getelementptr inbounds i8, ptr %0, i64 768
+  store ptr %44, ptr %45, align 8
+  br label %.loopexit34
 
-.loopexit39:                                      ; preds = %27, %.loopexit39.sink.split, %37, %37
-  %.029 = phi i64 [ %29, %37 ], [ %29, %37 ], [ %2, %.loopexit39.sink.split ], [ %29, %27 ]
-  %.1 = phi i32 [ %33, %37 ], [ %33, %37 ], [ %33, %.loopexit39.sink.split ], [ %.0, %27 ]
-  %47 = load i8, ptr %16, align 1
-  %48 = and i8 %47, 1
-  %.not37 = icmp eq i8 %48, 0
-  br i1 %.not37, label %49, label %57
+.loopexit34:                                      ; preds = %26, %.loopexit34.sink.split, %36, %36
+  %.029 = phi i64 [ %28, %36 ], [ %28, %36 ], [ %2, %.loopexit34.sink.split ], [ %28, %26 ]
+  %.1 = phi i32 [ %32, %36 ], [ %32, %36 ], [ %32, %.loopexit34.sink.split ], [ %.0, %26 ]
+  %46 = load i8, ptr %15, align 1
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %56, label %48
 
-49:                                               ; preds = %.loopexit39
-  %50 = load i8, ptr %11, align 4
-  %51 = and i8 %50, 1
-  %.not38 = icmp eq i8 %51, 0
-  br i1 %.not38, label %52, label %57
+48:                                               ; preds = %.loopexit34
+  %49 = load i8, ptr %11, align 4
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %56, label %51
 
-52:                                               ; preds = %49
-  %53 = load <2 x i8>, ptr %17, align 8
-  %54 = trunc <2 x i8> %53 to <2 x i1>
-  %55 = extractelement <2 x i1> %54, i64 0
-  %56 = extractelement <2 x i1> %54, i64 1
-  call void @pq_reset_sigpipe(ptr noundef nonnull %6, i1 noundef zeroext %55, i1 noundef zeroext %56)
-  br label %57
+51:                                               ; preds = %48
+  %52 = load i8, ptr %16, align 8
+  %53 = trunc i8 %52 to i1
+  %54 = load i8, ptr %14, align 1
+  %55 = trunc i8 %54 to i1
+  call void @pq_reset_sigpipe(ptr noundef nonnull %6, i1 noundef zeroext %53, i1 noundef zeroext %55)
+  br label %56
 
-57:                                               ; preds = %.loopexit39, %49, %52
-  %58 = tail call ptr @__errno_location() #8
-  store i32 %.1, ptr %58, align 4
+56:                                               ; preds = %.loopexit34, %48, %51
+  %57 = tail call ptr @__errno_location() #8
+  store i32 %.1, ptr %57, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %24, %3, %57
-  %.030 = phi i64 [ %.029, %57 ], [ %2, %3 ], [ -1, %24 ]
+.loopexit:                                        ; preds = %23, %3, %56
+  %.030 = phi i64 [ %.029, %56 ], [ %2, %3 ], [ -1, %23 ]
   ret i64 %.030
 }
 

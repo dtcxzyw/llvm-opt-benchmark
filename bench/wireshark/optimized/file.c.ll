@@ -3018,11 +3018,11 @@ define hidden i32 @cf_print_packets(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %31, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %28, %41
-  %.076103 = phi i32 [ %.177, %41 ], [ 0, %28 ]
-  %.078102 = phi i32 [ %.179, %41 ], [ 0, %28 ]
-  %.083101 = phi i32 [ %42, %41 ], [ 0, %28 ]
+  %.076102 = phi i32 [ %.177, %41 ], [ 0, %28 ]
+  %.078101 = phi i32 [ %.179, %41 ], [ 0, %28 ]
+  %.083100 = phi i32 [ %42, %41 ], [ 0, %28 ]
   %32 = load ptr, ptr @prefs, align 8
-  %33 = tail call ptr @g_list_nth(ptr noundef %32, i32 noundef %.083101) #21
+  %33 = tail call ptr @g_list_nth(ptr noundef %32, i32 noundef %.083100) #21
   %34 = icmp eq ptr %33, null
   br i1 %34, label %41, label %35
 
@@ -3030,17 +3030,17 @@ define hidden i32 @cf_print_packets(ptr noundef %0, ptr noundef %1, i32 noundef 
   %36 = load ptr, ptr %33, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 28
   %38 = load i8, ptr %37, align 4
-  %39 = and i8 %38, 1
-  %.not98 = icmp eq i8 %39, 0
-  %40 = zext nneg i8 %39 to i32
-  %spec.select = add i32 %.078102, %40
-  %spec.select99 = select i1 %.not98, i32 %.076103, i32 %.083101
+  %39 = trunc i8 %38 to i1
+  %.mask = and i8 %38, 1
+  %40 = zext nneg i8 %.mask to i32
+  %spec.select = add i32 %.078101, %40
+  %spec.select98 = select i1 %39, i32 %.083100, i32 %.076102
   br label %41
 
 41:                                               ; preds = %35, %.lr.ph
-  %.179 = phi i32 [ %.078102, %.lr.ph ], [ %spec.select, %35 ]
-  %.177 = phi i32 [ %.076103, %.lr.ph ], [ %spec.select99, %35 ]
-  %42 = add nuw nsw i32 %.083101, 1
+  %.179 = phi i32 [ %.078101, %.lr.ph ], [ %spec.select, %35 ]
+  %.177 = phi i32 [ %.076102, %.lr.ph ], [ %spec.select98, %35 ]
+  %42 = add nuw nsw i32 %.083100, 1
   %43 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i64 0, i32 1), align 8
   %44 = icmp slt i32 %42, %43
   br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !16
@@ -3064,17 +3064,17 @@ define hidden i32 @cf_print_packets(ptr noundef %0, ptr noundef %1, i32 noundef 
   %51 = getelementptr inbounds i8, ptr %0, i64 312
   %52 = load i32, ptr %51, align 8
   %53 = icmp sgt i32 %52, 0
-  br i1 %53, label %.lr.ph110, label %._crit_edge111
+  br i1 %53, label %.lr.ph109, label %._crit_edge110
 
-.lr.ph110:                                        ; preds = %47
+.lr.ph109:                                        ; preds = %47
   %54 = getelementptr inbounds i8, ptr %0, i64 320
   br label %55
 
-55:                                               ; preds = %.lr.ph110, %125
-  %indvars.iv = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next, %125 ]
-  %.073108 = phi ptr [ %29, %.lr.ph110 ], [ %.3, %125 ]
-  %.074107 = phi i32 [ 0, %.lr.ph110 ], [ %.175, %125 ]
-  %.080106 = phi i32 [ 0, %.lr.ph110 ], [ %.181, %125 ]
+55:                                               ; preds = %.lr.ph109, %125
+  %indvars.iv = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next, %125 ]
+  %.073107 = phi ptr [ %29, %.lr.ph109 ], [ %.3, %125 ]
+  %.074106 = phi i32 [ 0, %.lr.ph109 ], [ %.175, %125 ]
+  %.080105 = phi i32 [ 0, %.lr.ph109 ], [ %.181, %125 ]
   %56 = load ptr, ptr @prefs, align 8
   %57 = trunc i64 %indvars.iv to i32
   %58 = tail call ptr @g_list_nth(ptr noundef %56, i32 noundef %57) #21
@@ -3091,7 +3091,7 @@ define hidden i32 @cf_print_packets(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 66:                                               ; preds = %60
   %67 = load ptr, ptr %16, align 8
-  %68 = sext i32 %.074107 to i64
+  %68 = sext i32 %.074106 to i64
   %69 = getelementptr i32, ptr %67, i64 %68
   store i32 %57, ptr %69, align 4
   %70 = icmp eq i64 %indvars.iv, %45
@@ -3130,9 +3130,9 @@ define hidden i32 @cf_print_packets(ptr noundef %0, ptr noundef %1, i32 noundef 
   %92 = load ptr, ptr %91, align 8
   %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #24
   %94 = trunc i64 %93 to i32
-  %spec.select100 = tail call i32 @llvm.smax.i32(i32 %88, i32 %94)
-  %95 = add i32 %spec.select100, 1
-  %96 = add i32 %95, %.080106
+  %spec.select99 = tail call i32 @llvm.smax.i32(i32 %88, i32 %94)
+  %95 = add i32 %spec.select99, 1
+  %96 = add i32 %95, %.080105
   %97 = load i32, ptr %9, align 8
   %98 = icmp sgt i32 %96, %97
   br i1 %98, label %99, label %111
@@ -3140,7 +3140,7 @@ define hidden i32 @cf_print_packets(ptr noundef %0, ptr noundef %1, i32 noundef 
 99:                                               ; preds = %87
   %100 = getelementptr i32, ptr %89, i64 %68
   %101 = load ptr, ptr %8, align 8
-  %102 = ptrtoint ptr %.073108 to i64
+  %102 = ptrtoint ptr %.073107 to i64
   %103 = ptrtoint ptr %101 to i64
   %104 = sub i64 %102, %103
   %105 = shl i32 %96, 1
@@ -3153,18 +3153,18 @@ define hidden i32 @cf_print_packets(ptr noundef %0, ptr noundef %1, i32 noundef 
   %109 = ashr exact i64 %sext, 32
   %110 = getelementptr i8, ptr %108, i64 %109
   %.pre = load i32, ptr %100, align 4
-  %.pre114 = load ptr, ptr %54, align 8
-  %.phi.trans.insert = getelementptr %struct.col_item_t, ptr %.pre114, i64 %indvars.iv, i32 2
-  %.pre115 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre113 = load ptr, ptr %54, align 8
+  %.phi.trans.insert = getelementptr %struct.col_item_t, ptr %.pre113, i64 %indvars.iv, i32 2
+  %.pre114 = load ptr, ptr %.phi.trans.insert, align 8
   br label %111
 
 111:                                              ; preds = %99, %87
-  %112 = phi ptr [ %.pre115, %99 ], [ %92, %87 ]
+  %112 = phi ptr [ %.pre114, %99 ], [ %92, %87 ]
   %113 = phi i32 [ %.pre, %99 ], [ %88, %87 ]
-  %.1 = phi ptr [ %110, %99 ], [ %.073108, %87 ]
+  %.1 = phi ptr [ %110, %99 ], [ %.073107, %87 ]
   %114 = sext i32 %95 to i64
   %115 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.1, i64 noundef %114, ptr noundef nonnull @.str.25, i32 noundef %113, ptr noundef %112) #21
-  %116 = sext i32 %spec.select100 to i64
+  %116 = sext i32 %spec.select99 to i64
   %117 = getelementptr i8, ptr %.1, i64 %116
   %118 = load i32, ptr %51, align 8
   %119 = add i32 %118, -1
@@ -3179,20 +3179,20 @@ define hidden i32 @cf_print_packets(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 123:                                              ; preds = %121, %111
   %.2 = phi ptr [ %122, %121 ], [ %117, %111 ]
-  %124 = add i32 %.074107, 1
+  %124 = add i32 %.074106, 1
   br label %125
 
 125:                                              ; preds = %60, %55, %123
-  %.181 = phi i32 [ %.080106, %55 ], [ %.080106, %60 ], [ %96, %123 ]
-  %.175 = phi i32 [ %.074107, %55 ], [ %.074107, %60 ], [ %124, %123 ]
-  %.3 = phi ptr [ %.073108, %55 ], [ %.073108, %60 ], [ %.2, %123 ]
+  %.181 = phi i32 [ %.080105, %55 ], [ %.080105, %60 ], [ %96, %123 ]
+  %.175 = phi i32 [ %.074106, %55 ], [ %.074106, %60 ], [ %124, %123 ]
+  %.3 = phi ptr [ %.073107, %55 ], [ %.073107, %60 ], [ %.2, %123 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %126 = load i32, ptr %51, align 8
   %127 = sext i32 %126 to i64
   %128 = icmp slt i64 %indvars.iv.next, %127
-  br i1 %128, label %55, label %._crit_edge111, !llvm.loop !17
+  br i1 %128, label %55, label %._crit_edge110, !llvm.loop !17
 
-._crit_edge111:                                   ; preds = %125, %47
+._crit_edge110:                                   ; preds = %125, %47
   %.073.lcssa = phi ptr [ %29, %47 ], [ %.3, %125 ]
   store i8 0, ptr %.073.lcssa, align 1
   %129 = load i32, ptr %9, align 8
@@ -3201,11 +3201,11 @@ define hidden i32 @cf_print_packets(ptr noundef %0, ptr noundef %1, i32 noundef 
   %131 = sext i32 %130 to i64
   %132 = tail call noalias ptr @g_malloc(i64 noundef %131) #25
   store ptr %132, ptr %12, align 8
-  %.pre116 = load ptr, ptr %4, align 8
+  %.pre115 = load ptr, ptr %4, align 8
   br label %133
 
-133:                                              ; preds = %._crit_edge111, %25
-  %134 = phi ptr [ %.pre116, %._crit_edge111 ], [ %1, %25 ]
+133:                                              ; preds = %._crit_edge110, %25
+  %134 = phi ptr [ %.pre115, %._crit_edge110 ], [ %1, %25 ]
   %135 = getelementptr inbounds i8, ptr %134, i64 280
   %136 = load i32, ptr %135, align 8
   %.not92 = icmp eq i32 %136, 0

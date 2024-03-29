@@ -70,9 +70,8 @@ define i32 @ompi_datatype_create_vector(i32 noundef %0, i32 noundef %1, i32 noun
   %45 = tail call i32 @opal_datatype_add(ptr noundef %41, ptr noundef %20, i64 noundef %42, i64 noundef 0, i64 noundef %44) #3
   %46 = getelementptr inbounds i8, ptr %20, i64 8
   %47 = load i8, ptr @opal_uses_threads, align 1
-  %48 = and i8 %47, 1
-  %.not.i = icmp eq i8 %48, 0
-  br i1 %.not.i, label %52, label %49
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %52
 
 49:                                               ; preds = %35
   %50 = atomicrmw volatile add ptr %46, i32 -1 monotonic, align 4
@@ -105,8 +104,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %49, %52
   tail call void %62(ptr noundef nonnull %20) #3
   %63 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %64 = load ptr, ptr %63, align 8
-  %.not.i45 = icmp eq ptr %64, null
-  br i1 %.not.i45, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %64, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %57
   tail call void @free(ptr noundef %20) #3
@@ -183,9 +182,8 @@ define i32 @ompi_datatype_create_hvector(i32 noundef %0, i32 noundef %1, i64 nou
   %41 = tail call i32 @opal_datatype_add(ptr noundef %39, ptr noundef %20, i64 noundef %40, i64 noundef 0, i64 noundef %2) #3
   %42 = getelementptr inbounds i8, ptr %20, i64 8
   %43 = load i8, ptr @opal_uses_threads, align 1
-  %44 = and i8 %43, 1
-  %.not.i = icmp eq i8 %44, 0
-  br i1 %.not.i, label %48, label %45
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %48
 
 45:                                               ; preds = %34
   %46 = atomicrmw volatile add ptr %42, i32 -1 monotonic, align 4
@@ -218,8 +216,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %45, %48
   tail call void %58(ptr noundef nonnull %20) #3
   %59 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %60 = load ptr, ptr %59, align 8
-  %.not.i45 = icmp eq ptr %60, null
-  br i1 %.not.i45, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %60, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %53
   tail call void @free(ptr noundef %20) #3

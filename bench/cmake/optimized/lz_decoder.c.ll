@@ -206,9 +206,8 @@ define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias nound
   %54 = add i64 %48, %34
   store i64 %54, ptr %6, align 8, !alias.scope !5, !noalias !8
   %55 = load i8, ptr %32, align 8, !noalias !12
-  %56 = and i8 %55, 1
-  %.not44.i = icmp eq i8 %56, 0
-  br i1 %.not44.i, label %63, label %57
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %63
 
 57:                                               ; preds = %53
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !noalias !12
@@ -218,15 +217,15 @@ define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias nound
   %61 = getelementptr i8, ptr %60, i64 -1
   store i8 0, ptr %61, align 1, !noalias !13
   store i8 0, ptr %32, align 8, !noalias !12
-  %.not46.i = icmp ne i32 %46, 0
+  %.not45.i = icmp ne i32 %46, 0
   %62 = icmp eq i64 %54, %7
-  %or.cond47.i = select i1 %.not46.i, i1 true, i1 %62
-  br i1 %or.cond47.i, label %decode_buffer.exit, label %.backedge
+  %or.cond46.i = select i1 %.not45.i, i1 true, i1 %62
+  br i1 %or.cond46.i, label %decode_buffer.exit, label %.backedge
 
 63:                                               ; preds = %53
-  %.not45.i = icmp ne i32 %46, 0
+  %.not44.i = icmp ne i32 %46, 0
   %64 = icmp eq i64 %54, %7
-  %or.cond.i = select i1 %.not45.i, i1 true, i1 %64
+  %or.cond.i = select i1 %.not44.i, i1 true, i1 %64
   br i1 %or.cond.i, label %decode_buffer.exit, label %65
 
 65:                                               ; preds = %63
@@ -240,9 +239,8 @@ define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias nound
 68:                                               ; preds = %.lr.ph, %132
   %69 = phi i64 [ %.promoted, %.lr.ph ], [ %114, %132 ]
   %70 = load i8, ptr %15, align 8
-  %71 = and i8 %70, 1
-  %.not = icmp eq i8 %71, 0
-  br i1 %.not, label %72, label %84
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %84, label %72
 
 72:                                               ; preds = %68
   %73 = load i64, ptr %16, align 8
@@ -271,14 +269,13 @@ define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias nound
 
 84:                                               ; preds = %80, %81, %72, %68
   %85 = load i8, ptr %19, align 1
-  %86 = and i8 %85, 1
-  %.not51 = icmp eq i8 %86, 0
+  %86 = trunc i8 %85 to i1
   %87 = load i64, ptr %17, align 8
-  br i1 %.not51, label %92, label %88
+  br i1 %86, label %88, label %92
 
 88:                                               ; preds = %84
-  %.not54 = icmp eq i64 %87, 0
-  br i1 %.not54, label %89, label %decode_buffer.exit
+  %.not51 = icmp eq i64 %87, 0
+  br i1 %.not51, label %89, label %decode_buffer.exit
 
 89:                                               ; preds = %88
   %90 = load i8, ptr %15, align 8
@@ -290,8 +287,8 @@ define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias nound
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   br label %93
 
-93:                                               ; preds = %.backedge97, %92
-  %94 = phi i64 [ %69, %92 ], [ %114, %.backedge97 ]
+93:                                               ; preds = %.backedge92, %92
+  %94 = phi i64 [ %69, %92 ], [ %114, %.backedge92 ]
   %95 = load i64, ptr %20, align 8, !noalias !17
   %96 = load i64, ptr %21, align 8, !noalias !17
   %97 = icmp eq i64 %95, %96
@@ -305,16 +302,16 @@ define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias nound
   %100 = phi i64 [ 0, %98 ], [ %95, %93 ]
   %101 = sub i64 %7, %94
   %102 = sub i64 %96, %100
-  %..i57 = tail call i64 @llvm.umin.i64(i64 %101, i64 %102)
-  %103 = add i64 %..i57, %100
+  %..i53 = tail call i64 @llvm.umin.i64(i64 %101, i64 %102)
+  %103 = add i64 %..i53, %100
   store i64 %103, ptr %22, align 8, !noalias !17
   %104 = load ptr, ptr %24, align 8, !noalias !17
   %105 = load ptr, ptr %23, align 8, !noalias !17
   %106 = tail call i32 %104(ptr noundef %105, ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull %16, i64 noundef %87) #7, !noalias !21
   %107 = load i64, ptr %20, align 8, !noalias !17
   %108 = sub i64 %107, %100
-  %.not.i58 = icmp eq i64 %107, %100
-  br i1 %.not.i58, label %113, label %109
+  %.not.i54 = icmp eq i64 %107, %100
+  br i1 %.not.i54, label %113, label %109
 
 109:                                              ; preds = %99
   %110 = getelementptr inbounds i8, ptr %5, i64 %94
@@ -327,9 +324,8 @@ define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias nound
   %114 = add i64 %108, %94
   store i64 %114, ptr %6, align 8, !alias.scope !14, !noalias !22
   %115 = load i8, ptr %25, align 8, !noalias !17
-  %116 = and i8 %115, 1
-  %.not44.i59 = icmp eq i8 %116, 0
-  br i1 %.not44.i59, label %123, label %117
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %117, label %123
 
 117:                                              ; preds = %113
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false), !noalias !17
@@ -339,49 +335,48 @@ define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias nound
   %121 = getelementptr i8, ptr %120, i64 -1
   store i8 0, ptr %121, align 1, !noalias !21
   store i8 0, ptr %25, align 8, !noalias !17
-  %.not46.i60 = icmp ne i32 %106, 0
+  %.not45.i58 = icmp ne i32 %106, 0
   %122 = icmp eq i64 %114, %7
-  %or.cond47.i61 = select i1 %.not46.i60, i1 true, i1 %122
-  br i1 %or.cond47.i61, label %decode_buffer.exit65, label %.backedge97
+  %or.cond46.i59 = select i1 %.not45.i58, i1 true, i1 %122
+  br i1 %or.cond46.i59, label %decode_buffer.exit60, label %.backedge92
 
 123:                                              ; preds = %113
-  %.not45.i63 = icmp ne i32 %106, 0
+  %.not44.i55 = icmp ne i32 %106, 0
   %124 = icmp eq i64 %114, %7
-  %or.cond.i64 = select i1 %.not45.i63, i1 true, i1 %124
-  br i1 %or.cond.i64, label %decode_buffer.exit65, label %125
+  %or.cond.i56 = select i1 %.not44.i55, i1 true, i1 %124
+  br i1 %or.cond.i56, label %decode_buffer.exit60, label %125
 
 125:                                              ; preds = %123
   %126 = load i64, ptr %21, align 8, !noalias !17
   %127 = icmp ult i64 %107, %126
-  br i1 %127, label %decode_buffer.exit65.thread, label %.backedge97
+  br i1 %127, label %decode_buffer.exit60.thread, label %.backedge92
 
-.backedge97:                                      ; preds = %125, %117
+.backedge92:                                      ; preds = %125, %117
   br label %93
 
-decode_buffer.exit65:                             ; preds = %117, %123
+decode_buffer.exit60:                             ; preds = %117, %123
   switch i32 %106, label %decode_buffer.exit [
     i32 1, label %128
-    i32 0, label %decode_buffer.exit65.thread
+    i32 0, label %decode_buffer.exit60.thread
   ]
 
-128:                                              ; preds = %decode_buffer.exit65
+128:                                              ; preds = %decode_buffer.exit60
   store i8 1, ptr %19, align 1
   br label %132
 
-decode_buffer.exit65.thread:                      ; preds = %125, %decode_buffer.exit65
+decode_buffer.exit60.thread:                      ; preds = %125, %decode_buffer.exit60
   %129 = load i8, ptr %15, align 8
-  %130 = and i8 %129, 1
-  %.not53 = icmp ne i8 %130, 0
+  %130 = trunc i8 %129 to i1
   %131 = icmp ult i64 %114, %7
-  %or.cond = select i1 %.not53, i1 %131, i1 false
+  %or.cond = select i1 %130, i1 %131, i1 false
   br i1 %or.cond, label %decode_buffer.exit, label %132
 
-132:                                              ; preds = %decode_buffer.exit65.thread, %128
+132:                                              ; preds = %decode_buffer.exit60.thread, %128
   %133 = icmp ult i64 %114, %7
   br i1 %133, label %68, label %decode_buffer.exit, !llvm.loop !23
 
-decode_buffer.exit:                               ; preds = %76, %81, %decode_buffer.exit65, %132, %decode_buffer.exit65.thread, %65, %63, %57, %.preheader, %89, %88
-  %.0 = phi i32 [ 9, %88 ], [ %., %89 ], [ 0, %.preheader ], [ %46, %57 ], [ 0, %65 ], [ %46, %63 ], [ %79, %76 ], [ 0, %81 ], [ %106, %decode_buffer.exit65 ], [ 0, %132 ], [ 9, %decode_buffer.exit65.thread ]
+decode_buffer.exit:                               ; preds = %76, %81, %decode_buffer.exit60, %132, %decode_buffer.exit60.thread, %65, %63, %57, %.preheader, %89, %88
+  %.0 = phi i32 [ 9, %88 ], [ %., %89 ], [ 0, %.preheader ], [ %46, %57 ], [ 0, %65 ], [ %46, %63 ], [ %79, %76 ], [ 0, %81 ], [ %106, %decode_buffer.exit60 ], [ 0, %132 ], [ 9, %decode_buffer.exit60.thread ]
   ret i32 %.0
 }
 

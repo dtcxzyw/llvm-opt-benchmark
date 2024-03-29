@@ -29,21 +29,20 @@ define i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca i32, align 4
   %3 = load i8, ptr getelementptr inbounds (%struct.pmix_psquash_globals_t, ptr @pmix_psquash_globals, i64 0, i32 1), align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %._crit_edge
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %._crit_edge, label %5
 
 5:                                                ; preds = %0
   store i8 1, ptr getelementptr inbounds (%struct.pmix_psquash_globals_t, ptr @pmix_psquash_globals, i64 0, i32 1), align 1
-  %.02741 = load ptr, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psquash_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not3642 = icmp eq ptr %.02741, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psquash_base_framework, i64 0, i32 12, i32 1)
-  br i1 %.not3642, label %._crit_edge, label %.lr.ph
+  %.02739 = load ptr, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psquash_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
+  %.not40 = icmp eq ptr %.02739, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psquash_base_framework, i64 0, i32 12, i32 1)
+  br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %64
-  %.02745 = phi ptr [ %.027, %64 ], [ %.02741, %5 ]
-  %.044 = phi i8 [ %.1, %64 ], [ 0, %5 ]
-  %.02443 = phi i32 [ %.125, %64 ], [ -1, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.02745, i64 144
+  %.02743 = phi ptr [ %.027, %64 ], [ %.02739, %5 ]
+  %.042 = phi i1 [ %.1, %64 ], [ false, %5 ]
+  %.02441 = phi i32 [ %.125, %64 ], [ -1, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.02743, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psquash_base_framework, i64 0, i32 11), align 4
   %or.cond = icmp ult i32 %8, 64
@@ -129,23 +128,23 @@ define i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
 52:                                               ; preds = %37
   %53 = getelementptr inbounds i8, ptr %41, i64 16
   %54 = load ptr, ptr %53, align 8
-  %.not38 = icmp eq ptr %54, null
-  br i1 %.not38, label %57, label %55
+  %.not36 = icmp eq ptr %54, null
+  br i1 %.not36, label %57, label %55
 
 55:                                               ; preds = %52
   %56 = call i32 %54() #3
-  %.not39 = icmp eq i32 %56, 0
-  br i1 %.not39, label %57, label %64
+  %.not37 = icmp eq i32 %56, 0
+  br i1 %.not37, label %57, label %64
 
 57:                                               ; preds = %55, %52
   %58 = load i32, ptr %2, align 4
-  %59 = icmp slt i32 %.02443, %58
+  %59 = icmp slt i32 %.02441, %58
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %57
   %61 = load ptr, ptr getelementptr inbounds (%struct.pmix_psquash_base_module_t, ptr @pmix_psquash, i64 0, i32 3), align 8
-  %.not40 = icmp eq ptr %61, null
-  br i1 %.not40, label %63, label %62
+  %.not38 = icmp eq ptr %61, null
+  br i1 %.not38, label %63, label %62
 
 62:                                               ; preds = %60
   call void %61() #3
@@ -156,21 +155,19 @@ define i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
   br label %64
 
 64:                                               ; preds = %57, %63, %55, %43, %45, %50, %21, %22, %27
-  %.125 = phi i32 [ %.02443, %27 ], [ %.02443, %22 ], [ %.02443, %21 ], [ %.02443, %50 ], [ %.02443, %45 ], [ %.02443, %43 ], [ %.02443, %55 ], [ %58, %63 ], [ %.02443, %57 ]
-  %.1 = phi i8 [ %.044, %27 ], [ %.044, %22 ], [ %.044, %21 ], [ %.044, %50 ], [ %.044, %45 ], [ %.044, %43 ], [ %.044, %55 ], [ 1, %63 ], [ %.044, %57 ]
-  %65 = getelementptr inbounds i8, ptr %.02745, i64 120
+  %.125 = phi i32 [ %.02441, %27 ], [ %.02441, %22 ], [ %.02441, %21 ], [ %.02441, %50 ], [ %.02441, %45 ], [ %.02441, %43 ], [ %.02441, %55 ], [ %58, %63 ], [ %.02441, %57 ]
+  %.1 = phi i1 [ %.042, %27 ], [ %.042, %22 ], [ %.042, %21 ], [ %.042, %50 ], [ %.042, %45 ], [ %.042, %43 ], [ %.042, %55 ], [ true, %63 ], [ %.042, %57 ]
+  %65 = getelementptr inbounds i8, ptr %.02743, i64 120
   %.027 = load ptr, ptr %65, align 8
-  %.not36 = icmp eq ptr %.027, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psquash_base_framework, i64 0, i32 12, i32 1)
-  br i1 %.not36, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
+  %.not = icmp eq ptr %.027, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psquash_base_framework, i64 0, i32 12, i32 1)
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %64
-  %66 = and i8 %.1, 1
-  %67 = icmp eq i8 %66, 0
-  %68 = select i1 %67, i32 -46, i32 0
+  %66 = select i1 %.1, i32 0, i32 -46
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %5, %._crit_edge.loopexit, %0
-  %.026 = phi i32 [ 0, %0 ], [ -46, %5 ], [ %68, %._crit_edge.loopexit ]
+  %.026 = phi i32 [ 0, %0 ], [ -46, %5 ], [ %66, %._crit_edge.loopexit ]
   ret i32 %.026
 }
 

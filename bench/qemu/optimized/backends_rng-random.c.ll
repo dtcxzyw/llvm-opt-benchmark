@@ -168,9 +168,8 @@ entry:
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 18, ptr noundef nonnull @__func__.RNG_RANDOM) #5
   %opened = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i8, ptr %opened, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.6, i32 noundef 99, ptr noundef nonnull @__func__.rng_random_set_filename, ptr noundef nonnull @.str.10) #5
@@ -178,8 +177,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %filename2 = getelementptr inbounds i8, ptr %call.i3, i64 72
-  %2 = load ptr, ptr %filename2, align 8
-  tail call void @g_free(ptr noundef %2) #5
+  %1 = load ptr, ptr %filename2, align 8
+  tail call void @g_free(ptr noundef %1) #5
   %call3 = tail call noalias ptr @g_strdup(ptr noundef %filename) #5
   store ptr %call3, ptr %filename2, align 8
   br label %return

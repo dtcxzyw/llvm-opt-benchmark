@@ -101,20 +101,20 @@ entry:
   %m_static.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_static2.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i8, ptr %m_static2.i, align 8
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %m_static.i, align 8
+  %frombool.i = and i8 %0, 1
+  store i8 %frombool.i, ptr %m_static.i, align 8
   %m_infoGlobal.i = getelementptr inbounds i8, ptr %this, i64 16
   %m_infoGlobal3.i = getelementptr inbounds i8, ptr %other, i64 16
-  %2 = load ptr, ptr %m_infoGlobal3.i, align 8
-  store ptr %2, ptr %m_infoGlobal.i, align 8
+  %1 = load ptr, ptr %m_infoGlobal3.i, align 8
+  store ptr %1, ptr %m_infoGlobal.i, align 8
   %m_normal.i = getelementptr inbounds i8, ptr %this, i64 24
   %m_normal4.i = getelementptr inbounds i8, ptr %other, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV32btDeformableNodeAnchorConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_anchor = getelementptr inbounds i8, ptr %this, i64 40
   %m_anchor2 = getelementptr inbounds i8, ptr %other, i64 40
-  %3 = load ptr, ptr %m_anchor2, align 8
-  store ptr %3, ptr %m_anchor, align 8
+  %2 = load ptr, ptr %m_anchor2, align 8
+  store ptr %2, ptr %m_anchor, align 8
   ret void
 }
 
@@ -736,12 +736,12 @@ entry:
   %m_static.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_static2.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i8, ptr %m_static2.i, align 8
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %m_static.i, align 8
+  %frombool.i = and i8 %0, 1
+  store i8 %frombool.i, ptr %m_static.i, align 8
   %m_infoGlobal.i = getelementptr inbounds i8, ptr %this, i64 16
   %m_infoGlobal3.i = getelementptr inbounds i8, ptr %other, i64 16
-  %2 = load ptr, ptr %m_infoGlobal3.i, align 8
-  store ptr %2, ptr %m_infoGlobal.i, align 8
+  %1 = load ptr, ptr %m_infoGlobal3.i, align 8
+  store ptr %1, ptr %m_infoGlobal.i, align 8
   %m_normal.i = getelementptr inbounds i8, ptr %this, i64 24
   %m_normal4.i = getelementptr inbounds i8, ptr %other, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i, i64 16, i1 false)
@@ -750,21 +750,21 @@ entry:
   %m_total_tangent_dv = getelementptr inbounds i8, ptr %this, i64 56
   %m_penetration = getelementptr inbounds i8, ptr %this, i64 72
   %m_penetration3 = getelementptr inbounds i8, ptr %other, i64 72
-  %3 = load float, ptr %m_penetration3, align 8
-  store float %3, ptr %m_penetration, align 8
+  %2 = load float, ptr %m_penetration3, align 8
+  store float %2, ptr %m_penetration, align 8
   %m_total_split_impulse = getelementptr inbounds i8, ptr %this, i64 76
   %m_total_split_impulse4 = getelementptr inbounds i8, ptr %other, i64 76
-  %4 = load float, ptr %m_total_split_impulse4, align 4
-  store float %4, ptr %m_total_split_impulse, align 4
+  %3 = load float, ptr %m_total_split_impulse4, align 4
+  store float %3, ptr %m_total_split_impulse, align 4
   %m_binding = getelementptr inbounds i8, ptr %this, i64 80
   %m_binding5 = getelementptr inbounds i8, ptr %other, i64 80
-  %5 = load i8, ptr %m_binding5, align 8
-  %6 = and i8 %5, 1
-  store i8 %6, ptr %m_binding, align 8
+  %4 = load i8, ptr %m_binding5, align 8
+  %frombool = and i8 %4, 1
+  store i8 %frombool, ptr %m_binding, align 8
   %m_contact = getelementptr inbounds i8, ptr %this, i64 88
   %m_contact6 = getelementptr inbounds i8, ptr %other, i64 88
-  %7 = load ptr, ptr %m_contact6, align 8
-  store ptr %7, ptr %m_contact, align 8
+  %5 = load ptr, ptr %m_contact6, align 8
+  store ptr %5, ptr %m_contact, align 8
   %m_total_normal_dv7 = getelementptr inbounds i8, ptr %other, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv, ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv7, i64 16, i1 false)
   %m_total_tangent_dv9 = getelementptr inbounds i8, ptr %other, i64 56
@@ -2059,12 +2059,12 @@ entry:
   %m_static.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_static2.i.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i8, ptr %m_static2.i.i, align 8
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %m_static.i.i, align 8
+  %frombool.i.i = and i8 %0, 1
+  store i8 %frombool.i.i, ptr %m_static.i.i, align 8
   %m_infoGlobal.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %m_infoGlobal3.i.i = getelementptr inbounds i8, ptr %other, i64 16
-  %2 = load ptr, ptr %m_infoGlobal3.i.i, align 8
-  store ptr %2, ptr %m_infoGlobal.i.i, align 8
+  %1 = load ptr, ptr %m_infoGlobal3.i.i, align 8
+  store ptr %1, ptr %m_infoGlobal.i.i, align 8
   %m_normal.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %m_normal4.i.i = getelementptr inbounds i8, ptr %other, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i.i, i64 16, i1 false)
@@ -2073,21 +2073,21 @@ entry:
   %m_total_tangent_dv.i = getelementptr inbounds i8, ptr %this, i64 56
   %m_penetration.i = getelementptr inbounds i8, ptr %this, i64 72
   %m_penetration3.i = getelementptr inbounds i8, ptr %other, i64 72
-  %3 = load float, ptr %m_penetration3.i, align 8
-  store float %3, ptr %m_penetration.i, align 8
+  %2 = load float, ptr %m_penetration3.i, align 8
+  store float %2, ptr %m_penetration.i, align 8
   %m_total_split_impulse.i = getelementptr inbounds i8, ptr %this, i64 76
   %m_total_split_impulse4.i = getelementptr inbounds i8, ptr %other, i64 76
-  %4 = load float, ptr %m_total_split_impulse4.i, align 4
-  store float %4, ptr %m_total_split_impulse.i, align 4
+  %3 = load float, ptr %m_total_split_impulse4.i, align 4
+  store float %3, ptr %m_total_split_impulse.i, align 4
   %m_binding.i = getelementptr inbounds i8, ptr %this, i64 80
   %m_binding5.i = getelementptr inbounds i8, ptr %other, i64 80
-  %5 = load i8, ptr %m_binding5.i, align 8
-  %6 = and i8 %5, 1
-  store i8 %6, ptr %m_binding.i, align 8
+  %4 = load i8, ptr %m_binding5.i, align 8
+  %frombool.i = and i8 %4, 1
+  store i8 %frombool.i, ptr %m_binding.i, align 8
   %m_contact.i = getelementptr inbounds i8, ptr %this, i64 88
   %m_contact6.i = getelementptr inbounds i8, ptr %other, i64 88
-  %7 = load ptr, ptr %m_contact6.i, align 8
-  store ptr %7, ptr %m_contact.i, align 8
+  %5 = load ptr, ptr %m_contact6.i, align 8
+  store ptr %5, ptr %m_contact.i, align 8
   %m_total_normal_dv7.i = getelementptr inbounds i8, ptr %other, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv.i, ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv7.i, i64 16, i1 false)
   %m_total_tangent_dv9.i = getelementptr inbounds i8, ptr %other, i64 56
@@ -2095,8 +2095,8 @@ entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV38btDeformableNodeRigidContactConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_node = getelementptr inbounds i8, ptr %this, i64 96
   %m_node2 = getelementptr inbounds i8, ptr %other, i64 96
-  %8 = load ptr, ptr %m_node2, align 8
-  store ptr %8, ptr %m_node, align 8
+  %6 = load ptr, ptr %m_node2, align 8
+  store ptr %6, ptr %m_node, align 8
   ret void
 }
 
@@ -2309,12 +2309,12 @@ entry:
   %m_static.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_static2.i.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i8, ptr %m_static2.i.i, align 8
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %m_static.i.i, align 8
+  %frombool.i.i = and i8 %0, 1
+  store i8 %frombool.i.i, ptr %m_static.i.i, align 8
   %m_infoGlobal.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %m_infoGlobal3.i.i = getelementptr inbounds i8, ptr %other, i64 16
-  %2 = load ptr, ptr %m_infoGlobal3.i.i, align 8
-  store ptr %2, ptr %m_infoGlobal.i.i, align 8
+  %1 = load ptr, ptr %m_infoGlobal3.i.i, align 8
+  store ptr %1, ptr %m_infoGlobal.i.i, align 8
   %m_normal.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %m_normal4.i.i = getelementptr inbounds i8, ptr %other, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i.i, i64 16, i1 false)
@@ -2323,21 +2323,21 @@ entry:
   %m_total_tangent_dv.i = getelementptr inbounds i8, ptr %this, i64 56
   %m_penetration.i = getelementptr inbounds i8, ptr %this, i64 72
   %m_penetration3.i = getelementptr inbounds i8, ptr %other, i64 72
-  %3 = load float, ptr %m_penetration3.i, align 8
-  store float %3, ptr %m_penetration.i, align 8
+  %2 = load float, ptr %m_penetration3.i, align 8
+  store float %2, ptr %m_penetration.i, align 8
   %m_total_split_impulse.i = getelementptr inbounds i8, ptr %this, i64 76
   %m_total_split_impulse4.i = getelementptr inbounds i8, ptr %other, i64 76
-  %4 = load float, ptr %m_total_split_impulse4.i, align 4
-  store float %4, ptr %m_total_split_impulse.i, align 4
+  %3 = load float, ptr %m_total_split_impulse4.i, align 4
+  store float %3, ptr %m_total_split_impulse.i, align 4
   %m_binding.i = getelementptr inbounds i8, ptr %this, i64 80
   %m_binding5.i = getelementptr inbounds i8, ptr %other, i64 80
-  %5 = load i8, ptr %m_binding5.i, align 8
-  %6 = and i8 %5, 1
-  store i8 %6, ptr %m_binding.i, align 8
+  %4 = load i8, ptr %m_binding5.i, align 8
+  %frombool.i = and i8 %4, 1
+  store i8 %frombool.i, ptr %m_binding.i, align 8
   %m_contact.i = getelementptr inbounds i8, ptr %this, i64 88
   %m_contact6.i = getelementptr inbounds i8, ptr %other, i64 88
-  %7 = load ptr, ptr %m_contact6.i, align 8
-  store ptr %7, ptr %m_contact.i, align 8
+  %5 = load ptr, ptr %m_contact6.i, align 8
+  store ptr %5, ptr %m_contact.i, align 8
   %m_total_normal_dv7.i = getelementptr inbounds i8, ptr %other, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv.i, ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv7.i, i64 16, i1 false)
   %m_total_tangent_dv9.i = getelementptr inbounds i8, ptr %other, i64 56
@@ -2345,13 +2345,13 @@ entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV38btDeformableFaceRigidContactConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_face = getelementptr inbounds i8, ptr %this, i64 96
   %m_face2 = getelementptr inbounds i8, ptr %other, i64 96
-  %8 = load ptr, ptr %m_face2, align 8
-  store ptr %8, ptr %m_face, align 8
+  %6 = load ptr, ptr %m_face2, align 8
+  store ptr %6, ptr %m_face, align 8
   %m_useStrainLimiting = getelementptr inbounds i8, ptr %this, i64 104
   %m_useStrainLimiting3 = getelementptr inbounds i8, ptr %other, i64 104
-  %9 = load i8, ptr %m_useStrainLimiting3, align 8
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %m_useStrainLimiting, align 8
+  %7 = load i8, ptr %m_useStrainLimiting3, align 8
+  %frombool = and i8 %7, 1
+  store i8 %frombool, ptr %m_useStrainLimiting, align 8
   ret void
 }
 
@@ -2549,101 +2549,100 @@ if.then33:                                        ; preds = %if.end31
 if.end41:                                         ; preds = %if.then33, %if.end31
   %m_useStrainLimiting = getelementptr inbounds i8, ptr %this, i64 104
   %35 = load i8, ptr %m_useStrainLimiting, align 8
-  %36 = and i8 %35, 1
-  %tobool.not = icmp eq i8 %36, 0
-  br i1 %tobool.not, label %if.end104, label %if.then42
+  %tobool = trunc i8 %35 to i1
+  br i1 %tobool, label %if.then42, label %if.end104
 
 if.then42:                                        ; preds = %if.end41
   %m_infoGlobal = getelementptr inbounds i8, ptr %this, i64 16
-  %37 = load ptr, ptr %m_infoGlobal, align 8
-  %m_numIterations = getelementptr inbounds i8, ptr %37, i64 20
-  %38 = load i32, ptr %m_numIterations, align 4
-  %conv = sitofp i32 %38 to float
+  %36 = load ptr, ptr %m_infoGlobal, align 8
+  %m_numIterations = getelementptr inbounds i8, ptr %36, i64 20
+  %37 = load i32, ptr %m_numIterations, align 4
+  %conv = sitofp i32 %37 to float
   %conv44 = fdiv float 1.000000e+00, %conv
-  %39 = load float, ptr %m_im, align 4
-  %40 = load float, ptr %m_im13, align 4
-  %add48 = fadd float %27, %40
+  %38 = load float, ptr %m_im, align 4
+  %39 = load float, ptr %m_im13, align 4
+  %add48 = fadd float %27, %39
   %div49 = fdiv float %conv44, %add48
   %arrayidx11.i = getelementptr inbounds i8, ptr %9, i64 56
-  %41 = load float, ptr %arrayidx11.i, align 4
+  %40 = load float, ptr %arrayidx11.i, align 4
   %arrayidx13.i = getelementptr inbounds i8, ptr %8, i64 56
-  %42 = load float, ptr %arrayidx13.i, align 4
-  %sub14.i = fsub float %41, %42
+  %41 = load float, ptr %arrayidx13.i, align 4
+  %sub14.i = fsub float %40, %41
   %arrayidx11.i96 = getelementptr inbounds i8, ptr %10, i64 56
-  %43 = load float, ptr %arrayidx11.i96, align 4
-  %sub14.i98 = fsub float %43, %42
-  %sub14.i139 = fsub float %42, %41
-  %sub14.i161 = fsub float %43, %41
+  %42 = load float, ptr %arrayidx11.i96, align 4
+  %sub14.i98 = fsub float %42, %41
+  %sub14.i139 = fsub float %41, %40
+  %sub14.i161 = fsub float %42, %40
   %mul8.i.i171 = fmul float %div49, %sub14.i161
-  %sub14.i205 = fsub float %41, %43
+  %sub14.i205 = fsub float %40, %42
   %mul8.i.i215 = fmul float %div49, %sub14.i205
-  %sub14.i227 = fsub float %42, %43
-  %44 = insertelement <2 x float> poison, float %27, i64 0
-  %45 = insertelement <2 x float> %44, float %40, i64 1
-  %46 = insertelement <2 x float> poison, float %39, i64 0
-  %47 = shufflevector <2 x float> %46, <2 x float> poison, <2 x i32> zeroinitializer
-  %48 = fadd <2 x float> %45, %47
-  %49 = insertelement <2 x float> poison, float %conv44, i64 0
-  %50 = shufflevector <2 x float> %49, <2 x float> poison, <2 x i32> zeroinitializer
-  %51 = fdiv <2 x float> %50, %48
-  %52 = load <2 x float>, ptr %m_v, align 4
-  %53 = extractelement <2 x float> %51, i64 1
-  %mul8.i.i = fmul float %53, %sub14.i
-  %54 = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %55 = extractelement <2 x float> %51, i64 0
-  %mul8.i.i108 = fmul float %55, %sub14.i98
+  %sub14.i227 = fsub float %41, %42
+  %43 = insertelement <2 x float> poison, float %27, i64 0
+  %44 = insertelement <2 x float> %43, float %39, i64 1
+  %45 = insertelement <2 x float> poison, float %38, i64 0
+  %46 = shufflevector <2 x float> %45, <2 x float> poison, <2 x i32> zeroinitializer
+  %47 = fadd <2 x float> %44, %46
+  %48 = insertelement <2 x float> poison, float %conv44, i64 0
+  %49 = shufflevector <2 x float> %48, <2 x float> poison, <2 x i32> zeroinitializer
+  %50 = fdiv <2 x float> %49, %47
+  %51 = load <2 x float>, ptr %m_v, align 4
+  %52 = extractelement <2 x float> %50, i64 1
+  %mul8.i.i = fmul float %52, %sub14.i
+  %53 = shufflevector <2 x float> %50, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %54 = extractelement <2 x float> %50, i64 0
+  %mul8.i.i108 = fmul float %54, %sub14.i98
   %add14.i = fadd float %mul8.i.i, %mul8.i.i108
-  %mul8.i.i127 = fmul float %39, %add14.i
-  %mul8.i.i149 = fmul float %53, %sub14.i139
+  %mul8.i.i127 = fmul float %38, %add14.i
+  %mul8.i.i149 = fmul float %52, %sub14.i139
   %add14.i183 = fadd float %mul8.i.i149, %mul8.i.i171
-  %mul8.i.i193 = fmul float %40, %add14.i183
-  %mul8.i.i237 = fmul float %55, %sub14.i227
+  %mul8.i.i193 = fmul float %39, %add14.i183
+  %mul8.i.i237 = fmul float %54, %sub14.i227
   %add14.i249 = fadd float %mul8.i.i215, %mul8.i.i237
   %mul8.i.i259 = fmul float %27, %add14.i249
-  %add13.i = fadd float %42, %mul8.i.i127
-  %56 = load <2 x float>, ptr %m_v5, align 4
-  %57 = load <2 x float>, ptr %m_v8, align 4
-  %58 = fsub <2 x float> %57, %56
-  %59 = insertelement <2 x float> poison, float %div49, i64 0
-  %60 = shufflevector <2 x float> %59, <2 x float> poison, <2 x i32> zeroinitializer
-  %61 = fmul <2 x float> %60, %58
-  %62 = shufflevector <2 x float> %57, <2 x float> %56, <2 x i32> <i32 0, i32 3>
-  %63 = fsub <2 x float> %62, %52
-  %64 = shufflevector <2 x float> %56, <2 x float> %57, <2 x i32> <i32 0, i32 3>
-  %65 = fsub <2 x float> %64, %52
-  %66 = fmul <2 x float> %51, %63
-  %67 = fmul <2 x float> %54, %65
-  %68 = fadd <2 x float> %66, %67
-  %69 = fmul <2 x float> %47, %68
-  %70 = fsub <2 x float> %52, %56
-  %71 = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %72 = fmul <2 x float> %71, %70
-  %73 = fadd <2 x float> %72, %61
-  %74 = insertelement <2 x float> poison, float %40, i64 0
-  %75 = shufflevector <2 x float> %74, <2 x float> poison, <2 x i32> zeroinitializer
-  %76 = fmul <2 x float> %75, %73
-  %77 = fadd <2 x float> %52, %69
-  store <2 x float> %77, ptr %m_v, align 4
+  %add13.i = fadd float %41, %mul8.i.i127
+  %55 = load <2 x float>, ptr %m_v5, align 4
+  %56 = load <2 x float>, ptr %m_v8, align 4
+  %57 = fsub <2 x float> %56, %55
+  %58 = insertelement <2 x float> poison, float %div49, i64 0
+  %59 = shufflevector <2 x float> %58, <2 x float> poison, <2 x i32> zeroinitializer
+  %60 = fmul <2 x float> %59, %57
+  %61 = shufflevector <2 x float> %56, <2 x float> %55, <2 x i32> <i32 0, i32 3>
+  %62 = fsub <2 x float> %61, %51
+  %63 = shufflevector <2 x float> %55, <2 x float> %56, <2 x i32> <i32 0, i32 3>
+  %64 = fsub <2 x float> %63, %51
+  %65 = fmul <2 x float> %50, %62
+  %66 = fmul <2 x float> %53, %64
+  %67 = fadd <2 x float> %65, %66
+  %68 = fmul <2 x float> %46, %67
+  %69 = fsub <2 x float> %51, %55
+  %70 = shufflevector <2 x float> %50, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %71 = fmul <2 x float> %70, %69
+  %72 = fadd <2 x float> %71, %60
+  %73 = insertelement <2 x float> poison, float %39, i64 0
+  %74 = shufflevector <2 x float> %73, <2 x float> poison, <2 x i32> zeroinitializer
+  %75 = fmul <2 x float> %74, %72
+  %76 = fadd <2 x float> %51, %68
+  store <2 x float> %76, ptr %m_v, align 4
   store float %add13.i, ptr %arrayidx13.i, align 4
-  %78 = load <2 x float>, ptr %m_v5, align 4
-  %79 = fadd <2 x float> %76, %78
-  store <2 x float> %79, ptr %m_v5, align 4
-  %80 = load float, ptr %arrayidx11.i, align 4
-  %add13.i277 = fadd float %mul8.i.i193, %80
+  %77 = load <2 x float>, ptr %m_v5, align 4
+  %78 = fadd <2 x float> %75, %77
+  store <2 x float> %78, ptr %m_v5, align 4
+  %79 = load float, ptr %arrayidx11.i, align 4
+  %add13.i277 = fadd float %mul8.i.i193, %79
   store float %add13.i277, ptr %arrayidx11.i, align 4
-  %81 = fsub <2 x float> %56, %57
-  %82 = fmul <2 x float> %60, %81
-  %83 = fsub <2 x float> %52, %57
-  %84 = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> zeroinitializer
-  %85 = fmul <2 x float> %84, %83
-  %86 = fadd <2 x float> %82, %85
-  %87 = shufflevector <2 x float> %44, <2 x float> poison, <2 x i32> zeroinitializer
-  %88 = fmul <2 x float> %87, %86
-  %89 = load <2 x float>, ptr %m_v8, align 4
-  %90 = fadd <2 x float> %88, %89
-  store <2 x float> %90, ptr %m_v8, align 4
-  %91 = load float, ptr %arrayidx11.i96, align 4
-  %add13.i284 = fadd float %mul8.i.i259, %91
+  %80 = fsub <2 x float> %55, %56
+  %81 = fmul <2 x float> %59, %80
+  %82 = fsub <2 x float> %51, %56
+  %83 = shufflevector <2 x float> %50, <2 x float> poison, <2 x i32> zeroinitializer
+  %84 = fmul <2 x float> %83, %82
+  %85 = fadd <2 x float> %81, %84
+  %86 = shufflevector <2 x float> %43, <2 x float> poison, <2 x i32> zeroinitializer
+  %87 = fmul <2 x float> %86, %85
+  %88 = load <2 x float>, ptr %m_v8, align 4
+  %89 = fadd <2 x float> %87, %88
+  store <2 x float> %89, ptr %m_v8, align 4
+  %90 = load float, ptr %arrayidx11.i96, align 4
+  %add13.i284 = fadd float %mul8.i.i259, %90
   store float %add13.i284, ptr %arrayidx11.i96, align 4
   br label %if.end104
 

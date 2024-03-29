@@ -3142,9 +3142,8 @@ define internal fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr nocapture n
   %48 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 262, ptr %48, align 8
   %49 = load i8, ptr %4, align 1
-  %50 = and i8 %49, 1
-  %.not83 = icmp eq i8 %50, 0
-  br i1 %.not83, label %55, label %51
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %55
 
 51:                                               ; preds = %37
   call void @xmlBufferEmpty(ptr noundef nonnull %29) #11

@@ -11,14 +11,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_T_pvar_get_index(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = load volatile i32, ptr @ompi_mpit_init_count, align 4
-  %.not9 = icmp eq i32 %4, 0
-  br i1 %.not9, label %13, label %5
+  %.not8 = icmp eq i32 %4, 0
+  br i1 %.not8, label %13, label %5
 
 5:                                                ; preds = %3
   %6 = load i8, ptr @ompi_mpi_param_check, align 1
-  %7 = and i8 %6, 1
-  %.not7 = icmp eq i8 %7, 0
-  br i1 %.not7, label %11, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %5
   %9 = icmp eq ptr %2, null
@@ -30,8 +29,8 @@ define i32 @PMPI_T_pvar_get_index(ptr noundef %0, i32 noundef %1, ptr noundef %2
   tail call void @ompi_mpit_lock() #2
   %12 = tail call i32 @mca_base_pvar_find_by_name(ptr noundef %0, i32 noundef %1, ptr noundef %2) #2
   tail call void @ompi_mpit_unlock() #2
-  %.not8 = icmp eq i32 %12, 0
-  %. = select i1 %.not8, i32 0, i32 73
+  %.not7 = icmp eq i32 %12, 0
+  %. = select i1 %.not7, i32 0, i32 73
   br label %13
 
 13:                                               ; preds = %11, %8, %3

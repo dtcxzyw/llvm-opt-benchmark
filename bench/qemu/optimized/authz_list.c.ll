@@ -293,50 +293,48 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %0 = load ptr, ptr %value, align 8
   %has_format = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %has_format, align 4
-  %2 = and i8 %1, 1
-  %tobool2.not = icmp eq i8 %2, 0
-  br i1 %tobool2.not, label %cond.end, label %cond.true
+  %tobool2 = trunc i8 %1 to i1
+  br i1 %tobool2, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %while.body
   %format3 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load i32, ptr %format3, align 8
+  %2 = load i32, ptr %format3, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %while.body, %cond.true
-  %cond = phi i32 [ %3, %cond.true ], [ 0, %while.body ]
-  %4 = load ptr, ptr %0, align 8
+  %cond = phi i32 [ %2, %cond.true ], [ 0, %while.body ]
+  %3 = load ptr, ptr %0, align 8
   %policy = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = load i32, ptr %policy, align 8
+  %4 = load i32, ptr %policy, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %6 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %6, 0
-  %7 = load i16, ptr @_TRACE_QAUTHZ_LIST_CHECK_RULE_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %7, 0
+  %5 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %5, 0
+  %6 = load i16, ptr @_TRACE_QAUTHZ_LIST_CHECK_RULE_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %6, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_qauthz_list_check_rule.exit
 
 land.lhs.true5.i.i:                               ; preds = %cond.end
-  %8 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %8, 32768
+  %7 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %7, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_qauthz_list_check_rule.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %9 = load i8, ptr @message_with_timestamp, align 1
-  %10 = and i8 %9, 1
-  %tobool7.not.i.i = icmp eq i8 %10, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %8 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %8 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %11 = load i64, ptr %_now.i.i, align 8
-  %12 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %authz, ptr noundef %4, ptr noundef %identity, i32 noundef %cond, i32 noundef %5) #5
+  %9 = load i64, ptr %_now.i.i, align 8
+  %10 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %authz, ptr noundef %3, ptr noundef %identity, i32 noundef %cond, i32 noundef %4) #5
   br label %trace_qauthz_list_check_rule.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef %authz, ptr noundef %4, ptr noundef %identity, i32 noundef %cond, i32 noundef %5) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef %authz, ptr noundef %3, ptr noundef %identity, i32 noundef %cond, i32 noundef %4) #5
   br label %trace_qauthz_list_check_rule.exit
 
 trace_qauthz_list_check_rule.exit:                ; preds = %cond.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -347,27 +345,27 @@ trace_qauthz_list_check_rule.exit:                ; preds = %cond.end, %land.lhs
   ]
 
 sw.bb:                                            ; preds = %trace_qauthz_list_check_rule.exit
-  %13 = load ptr, ptr %0, align 8
-  %call5 = tail call i32 @g_str_equal(ptr noundef %13, ptr noundef %identity) #5
+  %11 = load ptr, ptr %0, align 8
+  %call5 = tail call i32 @g_str_equal(ptr noundef %11, ptr noundef %identity) #5
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %sw.epilog, label %if.then
 
 if.then:                                          ; preds = %sw.bb
   %policy.le = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = load i32, ptr %policy.le, align 8
-  %cmp = icmp eq i32 %14, 1
+  %12 = load i32, ptr %policy.le, align 8
+  %cmp = icmp eq i32 %12, 1
   br label %return
 
 sw.bb8:                                           ; preds = %trace_qauthz_list_check_rule.exit
-  %15 = load ptr, ptr %0, align 8
-  %call10 = tail call i32 @g_pattern_match_simple(ptr noundef %15, ptr noundef %identity) #5
+  %13 = load ptr, ptr %0, align 8
+  %call10 = tail call i32 @g_pattern_match_simple(ptr noundef %13, ptr noundef %identity) #5
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %sw.epilog, label %if.then12
 
 if.then12:                                        ; preds = %sw.bb8
   %policy.le45 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = load i32, ptr %policy.le45, align 8
-  %cmp14 = icmp eq i32 %16, 1
+  %14 = load i32, ptr %policy.le45, align 8
+  %cmp14 = icmp eq i32 %14, 1
   br label %return
 
 do.body:                                          ; preds = %trace_qauthz_list_check_rule.exit
@@ -381,44 +379,43 @@ sw.epilog:                                        ; preds = %sw.bb8, %sw.bb
 
 while.end:                                        ; preds = %sw.epilog, %entry
   %policy16 = getelementptr inbounds i8, ptr %call.i, i64 40
-  %17 = load i32, ptr %policy16, align 8
+  %15 = load i32, ptr %policy16, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i18)
-  %18 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i19 = icmp ne i32 %18, 0
-  %19 = load i16, ptr @_TRACE_QAUTHZ_LIST_DEFAULT_POLICY_DSTATE, align 2
-  %tobool4.i.i20 = icmp ne i16 %19, 0
+  %16 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i19 = icmp ne i32 %16, 0
+  %17 = load i16, ptr @_TRACE_QAUTHZ_LIST_DEFAULT_POLICY_DSTATE, align 2
+  %tobool4.i.i20 = icmp ne i16 %17, 0
   %or.cond.i.i21 = select i1 %tobool.i.i19, i1 %tobool4.i.i20, i1 false
   br i1 %or.cond.i.i21, label %land.lhs.true5.i.i22, label %trace_qauthz_list_default_policy.exit
 
 land.lhs.true5.i.i22:                             ; preds = %while.end
-  %20 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i23 = and i32 %20, 32768
+  %18 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i23 = and i32 %18, 32768
   %cmp.i.not.i.i24 = icmp eq i32 %and.i.i.i23, 0
   br i1 %cmp.i.not.i.i24, label %trace_qauthz_list_default_policy.exit, label %if.then.i.i25
 
 if.then.i.i25:                                    ; preds = %land.lhs.true5.i.i22
-  %21 = load i8, ptr @message_with_timestamp, align 1
-  %22 = and i8 %21, 1
-  %tobool7.not.i.i26 = icmp eq i8 %22, 0
-  br i1 %tobool7.not.i.i26, label %if.else.i.i31, label %if.then8.i.i27
+  %19 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i26 = trunc i8 %19 to i1
+  br i1 %tobool7.i.i26, label %if.then8.i.i28, label %if.else.i.i27
 
-if.then8.i.i27:                                   ; preds = %if.then.i.i25
-  %call9.i.i28 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i18, ptr noundef null) #5
-  %call10.i.i29 = tail call i32 @qemu_get_thread_id() #5
-  %23 = load i64, ptr %_now.i.i18, align 8
-  %tv_usec.i.i30 = getelementptr inbounds i8, ptr %_now.i.i18, i64 8
-  %24 = load i64, ptr %tv_usec.i.i30, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i29, i64 noundef %23, i64 noundef %24, ptr noundef %authz, ptr noundef %identity, i32 noundef %17) #5
+if.then8.i.i28:                                   ; preds = %if.then.i.i25
+  %call9.i.i29 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i18, ptr noundef null) #5
+  %call10.i.i30 = tail call i32 @qemu_get_thread_id() #5
+  %20 = load i64, ptr %_now.i.i18, align 8
+  %tv_usec.i.i31 = getelementptr inbounds i8, ptr %_now.i.i18, i64 8
+  %21 = load i64, ptr %tv_usec.i.i31, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i30, i64 noundef %20, i64 noundef %21, ptr noundef %authz, ptr noundef %identity, i32 noundef %15) #5
   br label %trace_qauthz_list_default_policy.exit
 
-if.else.i.i31:                                    ; preds = %if.then.i.i25
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, ptr noundef %authz, ptr noundef %identity, i32 noundef %17) #5
+if.else.i.i27:                                    ; preds = %if.then.i.i25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, ptr noundef %authz, ptr noundef %identity, i32 noundef %15) #5
   br label %trace_qauthz_list_default_policy.exit
 
-trace_qauthz_list_default_policy.exit:            ; preds = %while.end, %land.lhs.true5.i.i22, %if.then8.i.i27, %if.else.i.i31
+trace_qauthz_list_default_policy.exit:            ; preds = %while.end, %land.lhs.true5.i.i22, %if.then8.i.i28, %if.else.i.i27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i18)
-  %25 = load i32, ptr %policy16, align 8
-  %cmp18 = icmp eq i32 %25, 1
+  %22 = load i32, ptr %policy16, align 8
+  %cmp18 = icmp eq i32 %22, 1
   br label %return
 
 return:                                           ; preds = %trace_qauthz_list_default_policy.exit, %do.body, %if.then12, %if.then

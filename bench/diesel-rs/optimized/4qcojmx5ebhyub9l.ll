@@ -50,7 +50,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6b92a2575d290f82E"(ptr 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8, !range !5, !noundef !4
-  %8 = icmp ne i8 %7, 0
+  %8 = trunc i8 %7 to i1
   %9 = tail call i8 @_ZN4core3ops8function6FnOnce9call_once17hbd5dd4c421952836E(i1 zeroext %8), !range !6
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %9, ptr %10, align 8
@@ -74,7 +74,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7f00e3269acd8cdbE"(ptr 
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %2
-  %7 = icmp ne i8 %4, 0
+  %7 = trunc i8 %4 to i1
   %8 = tail call { ptr, i8 } @_ZN4core3ops8function6FnOnce9call_once17h86bca9eca4dd1406E(ptr nonnull %5, i1 zeroext %7)
   %9 = extractvalue { ptr, i8 } %8, 0
   %10 = extractvalue { ptr, i8 } %8, 1

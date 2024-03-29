@@ -1701,9 +1701,8 @@ rb_type.exit.thread.sink.split:                   ; preds = %rb_execarg_addopt_r
 switch.hole_check:                                ; preds = %22
   %switch.maskindex = trunc i64 %23 to i16
   %switch.shifted = lshr i16 547, %switch.maskindex
-  %461 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %461, 0
-  br i1 %switch.lobit.not, label %25, label %rb_type.exit.thread
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %rb_type.exit.thread, label %25
 
 rb_type.exit.thread:                              ; preds = %switch.hole_check, %rb_type.exit.thread.sink.split, %27, %rb_type.exit, %239, %92
   %.0 = phi i32 [ 1, %92 ], [ 1, %239 ], [ 1, %rb_type.exit ], [ 1, %27 ], [ 0, %rb_type.exit.thread.sink.split ], [ 1, %switch.hole_check ]

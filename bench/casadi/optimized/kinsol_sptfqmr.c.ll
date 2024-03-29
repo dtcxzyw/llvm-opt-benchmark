@@ -288,7 +288,7 @@ define internal noundef i32 @KINSptfqmrSolve(ptr noundef %0, ptr noundef %1, ptr
 
 48:                                               ; preds = %44
   store i64 4, ptr %45, align 8
-  br label %67
+  br label %66
 
 49:                                               ; preds = %44
   %50 = icmp slt i32 %46, 0
@@ -296,7 +296,7 @@ define internal noundef i32 @KINSptfqmrSolve(ptr noundef %0, ptr noundef %1, ptr
 
 51:                                               ; preds = %49
   store i64 -2, ptr %45, align 8
-  br label %67
+  br label %66
 
 52:                                               ; preds = %49
   %53 = load ptr, ptr %18, align 8
@@ -312,28 +312,27 @@ define internal noundef i32 @KINSptfqmrSolve(ptr noundef %0, ptr noundef %1, ptr
   store double %59, ptr %4, align 8
   %60 = load i32, ptr %31, align 4
   %61 = icmp sgt i32 %60, 2
-  br i1 %61, label %62, label %67
+  br i1 %61, label %62, label %66
 
 62:                                               ; preds = %52
   %63 = load double, ptr %8, align 8
   %64 = load double, ptr %16, align 8
   call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr noundef nonnull %0, i32 noundef 102, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.11, double noundef %63, double noundef %64) #5
-  br label %67
+  br label %66
 
 switch.hole_check:                                ; preds = %37
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -25, %switch.maskindex
-  %65 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %65, 0
-  br i1 %switch.lobit.not, label %44, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %44
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %66 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.KINSptfqmrSolve, i64 0, i64 %66
+  %65 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.KINSptfqmrSolve, i64 0, i64 %65
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %67
+  br label %66
 
-67:                                               ; preds = %switch.lookup, %52, %62, %51, %48
+66:                                               ; preds = %switch.lookup, %52, %62, %51, %48
   %.0 = phi i32 [ 1, %48 ], [ -1, %51 ], [ 0, %62 ], [ 0, %52 ], [ %switch.load, %switch.lookup ]
   ret i32 %.0
 }

@@ -156,16 +156,16 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %49 = load i64, ptr %48, align 8
   %50 = getelementptr ptr, ptr %47, i64 %49
   store ptr %46, ptr %50, align 8
-  %.pre1073 = load ptr, ptr %20, align 8
-  %.pre1074 = load i64, ptr %48, align 8
-  %.phi.trans.insert1075 = getelementptr ptr, ptr %.pre1073, i64 %.pre1074
-  %.pre1076 = load ptr, ptr %.phi.trans.insert1075, align 8
+  %.pre1068 = load ptr, ptr %20, align 8
+  %.pre1069 = load i64, ptr %48, align 8
+  %.phi.trans.insert1070 = getelementptr ptr, ptr %.pre1068, i64 %.pre1069
+  %.pre1071 = load ptr, ptr %.phi.trans.insert1070, align 8
   br label %51
 
 51:                                               ; preds = %df_yyensure_buffer_stack.exit, %22
-  %52 = phi ptr [ %.pre1076, %df_yyensure_buffer_stack.exit ], [ %26, %22 ]
-  %53 = phi i64 [ %.pre1074, %df_yyensure_buffer_stack.exit ], [ %24, %22 ]
-  %54 = phi ptr [ %.pre1073, %df_yyensure_buffer_stack.exit ], [ %21, %22 ]
+  %52 = phi ptr [ %.pre1071, %df_yyensure_buffer_stack.exit ], [ %26, %22 ]
+  %53 = phi i64 [ %.pre1069, %df_yyensure_buffer_stack.exit ], [ %24, %22 ]
+  %54 = phi ptr [ %.pre1068, %df_yyensure_buffer_stack.exit ], [ %21, %22 ]
   %55 = getelementptr ptr, ptr %54, i64 %53
   %56 = getelementptr inbounds i8, ptr %52, i64 28
   %57 = load i32, ptr %56, align 4
@@ -202,7 +202,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %81 = getelementptr inbounds i8, ptr %0, i64 16
   br label %82
 
-82:                                               ; preds = %.backedge1395, %68
+82:                                               ; preds = %.backedge1390, %68
   %83 = load ptr, ptr %69, align 8
   %84 = load i8, ptr %70, align 8
   store i8 %84, ptr %83, align 1
@@ -242,13 +242,13 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %101 = getelementptr [7614 x i16], ptr @yy_chk, i64 0, i64 %100
   %102 = load i16, ptr %101, align 2
   %103 = sext i16 %102 to i32
-  %.not583939 = icmp eq i32 %.1, %103
-  br i1 %.not583939, label %._crit_edge, label %.lr.ph
+  %.not583934 = icmp eq i32 %.1, %103
+  br i1 %.not583934, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %95, %112
   %104 = phi i64 [ %117, %112 ], [ %99, %95 ]
   %105 = phi i64 [ %113, %112 ], [ %91, %95 ]
-  %.0567940 = phi i8 [ %.1568, %112 ], [ %90, %95 ]
+  %.0567935 = phi i8 [ %.1568, %112 ], [ %90, %95 ]
   %106 = getelementptr [916 x i16], ptr @yy_def, i64 0, i64 %105
   %107 = load i16, ptr %106, align 2
   %108 = icmp sgt i16 %107, 877
@@ -260,7 +260,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br label %112
 
 112:                                              ; preds = %109, %.lr.ph
-  %.1568 = phi i8 [ %111, %109 ], [ %.0567940, %.lr.ph ]
+  %.1568 = phi i8 [ %111, %109 ], [ %.0567935, %.lr.ph ]
   %113 = sext i16 %107 to i64
   %114 = getelementptr [916 x i16], ptr @yy_base, i64 0, i64 %113
   %115 = load i16, ptr %114, align 2
@@ -426,7 +426,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %149 = add i64 %148, %147
   store i64 %149, ptr %145, align 8
   store i64 %144, ptr %146, align 8
-  br label %.backedge1395
+  br label %.backedge1390
 
 150:                                              ; preds = %137
   %151 = load ptr, ptr %0, align 8
@@ -1366,13 +1366,13 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %791 = load ptr, ptr %0, align 8
   %792 = getelementptr inbounds i8, ptr %791, i64 48
   store i8 1, ptr %792, align 8
-  br label %.backedge1395
+  br label %.backedge1390
 
 793:                                              ; preds = %773
   %794 = load ptr, ptr %0, align 8
   %795 = getelementptr inbounds i8, ptr %794, i64 48
   store i8 0, ptr %795, align 8
-  br label %.backedge1395
+  br label %.backedge1390
 
 796:                                              ; preds = %137
   %797 = load ptr, ptr %0, align 8
@@ -1450,16 +1450,15 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %850 = load ptr, ptr %0, align 8
   %851 = getelementptr inbounds i8, ptr %850, i64 48
   %852 = load i8, ptr %851, align 8
-  %853 = and i8 %852, 1
-  %.not593 = icmp eq i8 %853, 0
-  br i1 %.not593, label %859, label %854
+  %853 = trunc i8 %852 to i1
+  br i1 %853, label %854, label %859
 
 854:                                              ; preds = %838
   %855 = getelementptr inbounds i8, ptr %850, i64 40
   %856 = load ptr, ptr %855, align 8
   %857 = load ptr, ptr %74, align 8
   %858 = tail call ptr @g_string_append(ptr noundef %856, ptr noundef %857) #32
-  br label %.backedge1395
+  br label %.backedge1390
 
 859:                                              ; preds = %838
   %860 = load ptr, ptr %74, align 8
@@ -1488,7 +1487,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 877:                                              ; preds = %859
   %878 = trunc i64 %862 to i8
   %879 = tail call fastcc ptr @g_string_append_c_inline(ptr noundef %866, i8 noundef signext %878)
-  br label %.backedge1395
+  br label %.backedge1390
 
 880:                                              ; preds = %137
   %881 = load ptr, ptr %0, align 8
@@ -1508,16 +1507,15 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %892 = load ptr, ptr %0, align 8
   %893 = getelementptr inbounds i8, ptr %892, i64 48
   %894 = load i8, ptr %893, align 8
-  %895 = and i8 %894, 1
-  %.not592 = icmp eq i8 %895, 0
-  br i1 %.not592, label %901, label %896
+  %895 = trunc i8 %894 to i1
+  br i1 %895, label %896, label %901
 
 896:                                              ; preds = %880
   %897 = getelementptr inbounds i8, ptr %892, i64 40
   %898 = load ptr, ptr %897, align 8
   %899 = load ptr, ptr %74, align 8
   %900 = tail call ptr @g_string_append(ptr noundef %898, ptr noundef %899) #32
-  br label %.backedge1395
+  br label %.backedge1390
 
 901:                                              ; preds = %880
   %902 = load ptr, ptr %74, align 8
@@ -1528,7 +1526,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %907 = load ptr, ptr %906, align 8
   %908 = trunc i64 %904 to i8
   %909 = tail call fastcc ptr @g_string_append_c_inline(ptr noundef %907, i8 noundef signext %908)
-  br label %.backedge1395
+  br label %.backedge1390
 
 910:                                              ; preds = %137
   %911 = load ptr, ptr %0, align 8
@@ -1548,20 +1546,19 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %922 = load ptr, ptr %0, align 8
   %923 = getelementptr inbounds i8, ptr %922, i64 48
   %924 = load i8, ptr %923, align 8
-  %925 = and i8 %924, 1
-  %.not591 = icmp eq i8 %925, 0
+  %925 = trunc i8 %924 to i1
   %926 = getelementptr inbounds i8, ptr %922, i64 40
   %927 = load ptr, ptr %926, align 8
   %928 = load ptr, ptr %74, align 8
-  br i1 %.not591, label %931, label %929
+  br i1 %925, label %929, label %931
 
 929:                                              ; preds = %910
   %930 = tail call ptr @g_string_append(ptr noundef %927, ptr noundef %928) #32
-  br label %.backedge1395
+  br label %.backedge1390
 
 931:                                              ; preds = %910
   %932 = tail call fastcc zeroext i1 @append_universal_character_name(ptr noundef nonnull %922, ptr noundef %927, ptr noundef %928)
-  br i1 %932, label %.backedge1395, label %933
+  br i1 %932, label %.backedge1390, label %933
 
 933:                                              ; preds = %931
   %934 = load ptr, ptr %0, align 8
@@ -1591,20 +1588,19 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %952 = load ptr, ptr %0, align 8
   %953 = getelementptr inbounds i8, ptr %952, i64 48
   %954 = load i8, ptr %953, align 8
-  %955 = and i8 %954, 1
-  %.not590 = icmp eq i8 %955, 0
+  %955 = trunc i8 %954 to i1
   %956 = getelementptr inbounds i8, ptr %952, i64 40
   %957 = load ptr, ptr %956, align 8
   %958 = load ptr, ptr %74, align 8
-  br i1 %.not590, label %961, label %959
+  br i1 %955, label %959, label %961
 
 959:                                              ; preds = %940
   %960 = tail call ptr @g_string_append(ptr noundef %957, ptr noundef %958) #32
-  br label %.backedge1395
+  br label %.backedge1390
 
 961:                                              ; preds = %940
   %962 = tail call fastcc zeroext i1 @append_universal_character_name(ptr noundef nonnull %952, ptr noundef %957, ptr noundef %958)
-  br i1 %962, label %.backedge1395, label %963
+  br i1 %962, label %.backedge1390, label %963
 
 963:                                              ; preds = %961
   %964 = load ptr, ptr %0, align 8
@@ -1634,25 +1630,24 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %982 = load ptr, ptr %0, align 8
   %983 = getelementptr inbounds i8, ptr %982, i64 48
   %984 = load i8, ptr %983, align 8
-  %985 = and i8 %984, 1
-  %.not589 = icmp eq i8 %985, 0
+  %985 = trunc i8 %984 to i1
   %986 = getelementptr inbounds i8, ptr %982, i64 40
   %987 = load ptr, ptr %986, align 8
   %988 = load ptr, ptr %74, align 8
-  br i1 %.not589, label %991, label %989
+  br i1 %985, label %989, label %991
 
 989:                                              ; preds = %970
   %990 = tail call ptr @g_string_append(ptr noundef %987, ptr noundef %988) #32
-  br label %.backedge1395
+  br label %.backedge1390
 
-.backedge1395:                                    ; preds = %989, %991, %959, %961, %929, %931, %896, %901, %854, %877, %790, %793, %1353, %1098, %1081, %1019, %1002, %141
+.backedge1390:                                    ; preds = %989, %991, %959, %961, %929, %931, %896, %901, %854, %877, %790, %793, %1353, %1098, %1081, %1019, %1002, %141
   br label %82
 
 991:                                              ; preds = %970
   %992 = getelementptr i8, ptr %988, i64 1
   %993 = load i8, ptr %992, align 1
   %994 = tail call fastcc zeroext i1 @append_escaped_char(ptr noundef nonnull %982, ptr noundef %987, i8 noundef signext %993)
-  br i1 %994, label %.backedge1395, label %995
+  br i1 %994, label %.backedge1390, label %995
 
 995:                                              ; preds = %991
   %996 = load ptr, ptr %0, align 8
@@ -1684,7 +1679,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1016 = load ptr, ptr %1015, align 8
   %1017 = load ptr, ptr %74, align 8
   %1018 = tail call ptr @g_string_append(ptr noundef %1016, ptr noundef %1017) #32
-  br label %.backedge1395
+  br label %.backedge1390
 
 1019:                                             ; preds = %137
   store i32 9, ptr %71, align 4
@@ -1706,7 +1701,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1032 = load ptr, ptr %0, align 8
   %1033 = getelementptr inbounds i8, ptr %1032, i64 40
   store ptr %1031, ptr %1033, align 8
-  br label %.backedge1395
+  br label %.backedge1390
 
 1034:                                             ; preds = %137
   %1035 = load ptr, ptr %0, align 8
@@ -1790,7 +1785,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1095 = load ptr, ptr %1094, align 8
   %1096 = load ptr, ptr %74, align 8
   %1097 = tail call ptr @g_string_append(ptr noundef %1095, ptr noundef %1096) #32
-  br label %.backedge1395
+  br label %.backedge1390
 
 1098:                                             ; preds = %137
   %1099 = load ptr, ptr %0, align 8
@@ -1812,7 +1807,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1112 = load ptr, ptr %1111, align 8
   %1113 = load ptr, ptr %74, align 8
   %1114 = tail call ptr @g_string_append(ptr noundef %1112, ptr noundef %1113) #32
-  br label %.backedge1395
+  br label %.backedge1390
 
 1115:                                             ; preds = %137
   %1116 = load ptr, ptr %0, align 8
@@ -2165,7 +2160,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1356 = sext i32 %1355 to i64
   %1357 = load ptr, ptr %81, align 8
   %1358 = tail call i64 @fwrite(ptr noundef %1354, i64 noundef %1356, i64 noundef 1, ptr noundef %1357)
-  br label %.backedge1395
+  br label %.backedge1390
 
 1359:                                             ; preds = %137
   %1360 = load ptr, ptr %74, align 8
@@ -2193,16 +2188,16 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1377 = load ptr, ptr %1376, align 8
   %1378 = getelementptr inbounds i8, ptr %1377, i64 56
   store i32 1, ptr %1378, align 8
-  %.pre1077 = load ptr, ptr %76, align 8
-  %.pre1078 = load i64, ptr %77, align 8
-  %.phi.trans.insert1079 = getelementptr ptr, ptr %.pre1077, i64 %.pre1078
-  %.pre1080 = load ptr, ptr %.phi.trans.insert1079, align 8
+  %.pre1072 = load ptr, ptr %76, align 8
+  %.pre1073 = load i64, ptr %77, align 8
+  %.phi.trans.insert1074 = getelementptr ptr, ptr %.pre1072, i64 %.pre1073
+  %.pre1075 = load ptr, ptr %.phi.trans.insert1074, align 8
   br label %1379
 
 1379:                                             ; preds = %1369, %1359
-  %1380 = phi ptr [ %.pre1080, %1369 ], [ %1365, %1359 ]
-  %1381 = phi i64 [ %.pre1078, %1369 ], [ %1363, %1359 ]
-  %1382 = phi ptr [ %.pre1077, %1369 ], [ %1362, %1359 ]
+  %1380 = phi ptr [ %.pre1075, %1369 ], [ %1365, %1359 ]
+  %1381 = phi i64 [ %.pre1073, %1369 ], [ %1363, %1359 ]
+  %1382 = phi ptr [ %.pre1072, %1369 ], [ %1362, %1359 ]
   %1383 = load ptr, ptr %69, align 8
   %1384 = getelementptr inbounds i8, ptr %1380, i64 8
   %1385 = load ptr, ptr %1384, align 8
@@ -2243,10 +2238,10 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1403 = load i32, ptr %72, align 8
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %1402, %yy_get_next_buffer.exit.thread596
-  %.1565.ph.be = phi ptr [ %1629, %yy_get_next_buffer.exit.thread596 ], [ %1398, %1402 ]
-  %.2563.in.ph.be = phi ptr [ %69, %yy_get_next_buffer.exit.thread596 ], [ %73, %1402 ]
-  %.3.ph.be = phi i32 [ %1628, %yy_get_next_buffer.exit.thread596 ], [ %1403, %1402 ]
+.outer.backedge:                                  ; preds = %1402, %yy_get_next_buffer.exit.thread591
+  %.1565.ph.be = phi ptr [ %1629, %yy_get_next_buffer.exit.thread591 ], [ %1398, %1402 ]
+  %.2563.in.ph.be = phi ptr [ %69, %yy_get_next_buffer.exit.thread591 ], [ %73, %1402 ]
+  %.3.ph.be = phi i32 [ %1628, %yy_get_next_buffer.exit.thread591 ], [ %1403, %1402 ]
   br label %.outer
 
 1404:                                             ; preds = %1379
@@ -2272,7 +2267,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1417:                                             ; preds = %1411
   %1418 = sub i64 %1415, %1416
   %1419 = icmp eq i64 %1418, 1
-  br i1 %1419, label %yy_get_next_buffer.exit.thread, label %yy_get_next_buffer.exit.thread596
+  br i1 %1419, label %yy_get_next_buffer.exit.thread, label %yy_get_next_buffer.exit.thread591
 
 1420:                                             ; preds = %1411
   %1421 = xor i64 %1416, -1
@@ -2390,8 +2385,8 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1470 = tail call i32 @llvm.umin.i32(i32 %.0134.lcssa.i, i32 8192)
   %1471 = getelementptr inbounds i8, ptr %1469, i64 36
   %1472 = load i32, ptr %1471, align 4
-  %.not.i594 = icmp eq i32 %1472, 0
-  br i1 %.not.i594, label %1503, label %.preheader.i
+  %.not.i589 = icmp eq i32 %1472, 0
+  br i1 %.not.i589, label %1503, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge169.i
   %sext146.i = shl i64 %1422, 32
@@ -2630,20 +2625,20 @@ yy_get_next_buffer.exit:                          ; preds = %1555, %1584
   %1609 = getelementptr inbounds i8, ptr %1608, i64 8
   %1610 = load ptr, ptr %1609, align 8
   store ptr %1610, ptr %74, align 8
-  switch i32 %.0135.i, label %default.unreachable1086 [
+  switch i32 %.0135.i, label %default.unreachable1081 [
     i32 1, label %yy_get_next_buffer.exit.thread
     i32 0, label %1617
-    i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread596_crit_edge
+    i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread591_crit_edge
   ]
 
-yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread596_crit_edge: ; preds = %yy_get_next_buffer.exit
+yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread591_crit_edge: ; preds = %yy_get_next_buffer.exit
   %1611 = getelementptr ptr, ptr %1605, i64 %1606
-  %.pre1081 = load ptr, ptr %1611, align 8
-  %.phi.trans.insert1082 = getelementptr inbounds i8, ptr %.pre1081, i64 8
-  %.pre1083 = load ptr, ptr %.phi.trans.insert1082, align 8
-  %.pre1084 = load i32, ptr %78, align 4
-  %.pre1085 = sext i32 %.pre1084 to i64
-  br label %yy_get_next_buffer.exit.thread596
+  %.pre1076 = load ptr, ptr %1611, align 8
+  %.phi.trans.insert1077 = getelementptr inbounds i8, ptr %.pre1076, i64 8
+  %.pre1078 = load ptr, ptr %.phi.trans.insert1077, align 8
+  %.pre1079 = load i32, ptr %78, align 4
+  %.pre1080 = sext i32 %.pre1079 to i64
+  br label %yy_get_next_buffer.exit.thread591
 
 yy_get_next_buffer.exit.thread:                   ; preds = %1417, %yy_get_next_buffer.exit
   %1612 = phi ptr [ %1405, %1417 ], [ %1610, %yy_get_next_buffer.exit ]
@@ -2659,8 +2654,8 @@ yy_get_next_buffer.exit.thread:                   ; preds = %1417, %yy_get_next_
   %1618 = ptrtoint ptr %1360 to i64
   %1619 = xor i64 %1618, -1
   %1620 = add i64 %1619, %133
-  %sext951 = shl i64 %1620, 32
-  %1621 = ashr exact i64 %sext951, 32
+  %sext946 = shl i64 %1620, 32
+  %1621 = ashr exact i64 %sext946, 32
   %1622 = getelementptr i8, ptr %1610, i64 %1621
   store ptr %1622, ptr %69, align 8
   %1623 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %0)
@@ -2668,9 +2663,9 @@ yy_get_next_buffer.exit.thread:                   ; preds = %1417, %yy_get_next_
   %1625 = load ptr, ptr %74, align 8
   br label %.backedge.backedge
 
-yy_get_next_buffer.exit.thread596:                ; preds = %1417, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread596_crit_edge
-  %.pre-phi = phi i64 [ %.pre1085, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread596_crit_edge ], [ %1387, %1417 ]
-  %1626 = phi ptr [ %.pre1083, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread596_crit_edge ], [ %1385, %1417 ]
+yy_get_next_buffer.exit.thread591:                ; preds = %1417, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread591_crit_edge
+  %.pre-phi = phi i64 [ %.pre1080, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread591_crit_edge ], [ %1387, %1417 ]
+  %1626 = phi ptr [ %.pre1078, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread591_crit_edge ], [ %1385, %1417 ]
   %1627 = getelementptr i8, ptr %1626, i64 %.pre-phi
   store ptr %1627, ptr %69, align 8
   %1628 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %0)
@@ -2681,7 +2676,7 @@ yy_get_next_buffer.exit.thread596:                ; preds = %1417, %yy_get_next_
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #29
   unreachable
 
-default.unreachable1086:                          ; preds = %yy_get_next_buffer.exit
+default.unreachable1081:                          ; preds = %yy_get_next_buffer.exit
   unreachable
 
 .loopexit:                                        ; preds = %137, %137, %1344, %1349, %1320, %1309, %1307, %1302, %1274, %1262, %1250, %1249, %1247, %1222, %1210, %1208, %1207, %1179, %1167, %1165, %1164, %1137, %1126, %1115, %1057, %1034, %995, %963, %933, %867, %819, %796, %759, %748, %737, %726, %715, %700, %689, %678, %667, %656, %645, %634, %623, %612, %601, %590, %579, %568, %557, %546, %535, %524, %513, %502, %491, %480, %469, %458, %447, %436, %425, %414, %403, %392, %381, %370, %359, %348, %337, %326, %315, %304, %293, %282, %271, %260, %249, %238, %227, %216, %205, %194, %183, %172, %161, %150

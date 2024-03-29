@@ -175,9 +175,9 @@ define noundef i64 @_Z18fast_rv64i_uksub32P11processor_t6insn_tm(ptr nocapture n
   %45 = and i64 %38, %33
   %46 = udiv i64 %45, %42
   %47 = trunc i64 %46 to i32
-  %.not.i.not = icmp ugt i32 %47, %44
+  %.not.i = icmp ugt i32 %47, %44
   %48 = tail call noundef i32 @llvm.usub.sat.i32(i32 %44, i32 %47)
-  br i1 %.not.i.not, label %49, label %51
+  br i1 %.not.i, label %49, label %51
 
 49:                                               ; preds = %35
   %50 = load ptr, ptr %34, align 8
@@ -301,9 +301,9 @@ define noundef i64 @_Z20logged_rv64i_uksub32P11processor_t6insn_tm(ptr noundef %
   %45 = and i64 %38, %33
   %46 = udiv i64 %45, %42
   %47 = trunc i64 %46 to i32
-  %.not.i.not = icmp ugt i32 %47, %44
+  %.not.i = icmp ugt i32 %47, %44
   %48 = tail call noundef i32 @llvm.usub.sat.i32(i32 %44, i32 %47)
-  br i1 %.not.i.not, label %49, label %51
+  br i1 %.not.i, label %49, label %51
 
 49:                                               ; preds = %35
   %50 = load ptr, ptr %34, align 8
@@ -526,9 +526,9 @@ define noundef i64 @_Z18fast_rv64e_uksub32P11processor_t6insn_tm(ptr nocapture n
   %66 = and i64 %59, %54
   %67 = udiv i64 %66, %63
   %68 = trunc i64 %67 to i32
-  %.not.i.not = icmp ugt i32 %68, %65
+  %.not.i = icmp ugt i32 %68, %65
   %69 = tail call noundef i32 @llvm.usub.sat.i32(i32 %65, i32 %68)
-  br i1 %.not.i.not, label %70, label %72
+  br i1 %.not.i, label %70, label %72
 
 70:                                               ; preds = %56
   %71 = load ptr, ptr %55, align 8
@@ -694,9 +694,9 @@ define noundef i64 @_Z20logged_rv64e_uksub32P11processor_t6insn_tm(ptr noundef %
   %66 = and i64 %59, %54
   %67 = udiv i64 %66, %63
   %68 = trunc i64 %67 to i32
-  %.not.i.not = icmp ugt i32 %68, %65
+  %.not.i = icmp ugt i32 %68, %65
   %69 = tail call noundef i32 @llvm.usub.sat.i32(i32 %65, i32 %68)
-  br i1 %.not.i.not, label %70, label %72
+  br i1 %.not.i, label %70, label %72
 
 70:                                               ; preds = %56
   %71 = load ptr, ptr %55, align 8
@@ -788,9 +788,8 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %.loopexit, %106
 define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -989,9 +988,8 @@ define linkonce_odr ptr @_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

@@ -29,8 +29,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_vprotocol_pessimist_start(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %.not26 = icmp eq i64 %0, 0
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %0, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %17
   %.02225 = phi i64 [ %18, %17 ], [ 0, %2 ]
@@ -50,9 +50,8 @@ define i32 @mca_vprotocol_pessimist_start(i64 noundef %0, ptr noundef %1) local_
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %4, i64 488
   %11 = load i8, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i64 0, i32 9), align 16
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %17, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
   %14 = load i32, ptr %10, align 8

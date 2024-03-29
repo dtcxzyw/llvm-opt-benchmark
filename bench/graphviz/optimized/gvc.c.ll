@@ -60,9 +60,8 @@ define noundef i32 @gvLayout(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 81
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %39, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %39
 
 21:                                               ; preds = %13
   %22 = getelementptr inbounds i8, ptr %15, i64 40

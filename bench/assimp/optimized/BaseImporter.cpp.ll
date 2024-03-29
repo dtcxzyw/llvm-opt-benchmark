@@ -3031,8 +3031,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %validate = getelementptr inbounds i8, ptr %0, i64 76
   %1 = load i8, ptr %validate, align 4
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   ret i1 %tobool
 }
 
@@ -3324,26 +3323,25 @@ for.body:                                         ; preds = %entry, %for.inc
 land.lhs.true:                                    ; preds = %for.body
   %loaded = getelementptr inbounds i8, ptr %it.sroa.0.013, i64 64
   %2 = load i8, ptr %loaded, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %for.inc, label %if.then
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %land.lhs.true
   %scene = getelementptr inbounds i8, ptr %it.sroa.0.013, i64 56
-  %4 = load ptr, ptr %scene, align 8
+  %3 = load ptr, ptr %scene, align 8
   %refCnt = getelementptr inbounds i8, ptr %it.sroa.0.013, i64 52
-  %5 = load i32, ptr %refCnt, align 4
-  %dec = add i32 %5, -1
+  %4 = load i32, ptr %refCnt, align 4
+  %dec = add i32 %4, -1
   store i32 %dec, ptr %refCnt, align 4
   %tobool11.not = icmp eq i32 %dec, 0
   br i1 %tobool11.not, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.then
   %_M_storage.i.i.le = getelementptr inbounds i8, ptr %it.sroa.0.013, i64 16
-  %6 = load ptr, ptr %this, align 8
-  %_M_size.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
-  %7 = load i64, ptr %_M_size.i.i.i, align 8
-  %sub.i.i.i = add i64 %7, -1
+  %5 = load ptr, ptr %this, align 8
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = load i64, ptr %_M_size.i.i.i, align 8
+  %sub.i.i.i = add i64 %6, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.013) #24
   %map.i.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.013, i64 72
@@ -3358,7 +3356,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !32
 
 return:                                           ; preds = %for.inc, %entry, %if.then, %if.then12
-  %retval.0 = phi ptr [ %4, %if.then12 ], [ %4, %if.then ], [ null, %entry ], [ null, %for.inc ]
+  %retval.0 = phi ptr [ %3, %if.then12 ], [ %3, %if.then ], [ null, %entry ], [ null, %for.inc ]
   ret ptr %retval.0
 }
 
@@ -3372,31 +3370,30 @@ entry:
   br i1 %cmp.i.not29, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %if.end27
-  %1 = phi ptr [ %13, %if.end27 ], [ %0, %entry ]
+  %1 = phi ptr [ %10, %if.end27 ], [ %0, %entry ]
   %it.sroa.0.030 = phi ptr [ %it.sroa.0.0, %if.end27 ], [ %it.sroa.0.027, %entry ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %it.sroa.0.030, i64 16
   %flags = getelementptr inbounds i8, ptr %it.sroa.0.030, i64 48
   %2 = load i32, ptr %flags, align 8
   %validate = getelementptr inbounds i8, ptr %1, i64 76
   %3 = load i8, ptr %validate, align 4
-  %4 = and i8 %3, 1
-  %5 = zext nneg i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 10
-  %spec.select = or i32 %6, %2
+  %tobool = trunc i8 %3 to i1
+  %or = or i32 %2, 1024
+  %spec.select = select i1 %tobool, i32 %or, i32 %2
   %pImporter = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load ptr, ptr %pImporter, align 8
-  %8 = load ptr, ptr %7, align 8
+  %4 = load ptr, ptr %pImporter, align 8
+  %5 = load ptr, ptr %4, align 8
   %floats = getelementptr inbounds i8, ptr %it.sroa.0.030, i64 120
-  %mFloatProperties = getelementptr inbounds i8, ptr %8, i64 176
+  %mFloatProperties = getelementptr inbounds i8, ptr %5, i64 176
   %call.i = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeIjSt4pairIKjfESt10_Select1stIS2_ESt4lessIjESaIS2_EEaSERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %mFloatProperties, ptr noundef nonnull align 8 dereferenceable(48) %floats)
   %map14 = getelementptr inbounds i8, ptr %it.sroa.0.030, i64 72
-  %mIntProperties = getelementptr inbounds i8, ptr %8, i64 128
+  %mIntProperties = getelementptr inbounds i8, ptr %5, i64 128
   %call.i7 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EEaSERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %mIntProperties, ptr noundef nonnull align 8 dereferenceable(48) %map14)
   %strings = getelementptr inbounds i8, ptr %it.sroa.0.030, i64 168
-  %mStringProperties = getelementptr inbounds i8, ptr %8, i64 224
+  %mStringProperties = getelementptr inbounds i8, ptr %5, i64 224
   %call.i9 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EEaSERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %mStringProperties, ptr noundef nonnull align 8 dereferenceable(48) %strings)
   %matrices = getelementptr inbounds i8, ptr %it.sroa.0.030, i64 216
-  %mMatrixProperties = getelementptr inbounds i8, ptr %8, i64 272
+  %mMatrixProperties = getelementptr inbounds i8, ptr %5, i64 272
   %call.i11 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeIjSt4pairIKj12aiMatrix4x4tIfEESt10_Select1stIS4_ESt4lessIjESaIS4_EEaSERKSA_(ptr noundef nonnull align 8 dereferenceable(48) %mMatrixProperties, ptr noundef nonnull align 8 dereferenceable(48) %matrices)
   %call22 = tail call noundef zeroext i1 @_ZN6Assimp13DefaultLogger12isNullLoggerEv()
   br i1 %call22, label %if.end27, label %if.then23
@@ -3409,15 +3406,15 @@ if.then23:                                        ; preds = %for.body
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then23, %for.body
-  %9 = load ptr, ptr %this, align 8
-  %pImporter29 = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load ptr, ptr %pImporter29, align 8
+  %6 = load ptr, ptr %this, align 8
+  %pImporter29 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %pImporter29, align 8
   %call.i14 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i) #24
-  %call2.i = tail call noundef ptr @_ZN6Assimp8Importer8ReadFileEPKcj(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %call.i14, i32 noundef %spec.select)
-  %11 = load ptr, ptr %this, align 8
-  %pImporter34 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %pImporter34, align 8
-  %call35 = tail call noundef ptr @_ZN6Assimp8Importer16GetOrphanedSceneEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %call2.i = tail call noundef ptr @_ZN6Assimp8Importer8ReadFileEPKcj(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %call.i14, i32 noundef %spec.select)
+  %8 = load ptr, ptr %this, align 8
+  %pImporter34 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = load ptr, ptr %pImporter34, align 8
+  %call35 = tail call noundef ptr @_ZN6Assimp8Importer16GetOrphanedSceneEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
   %scene = getelementptr inbounds i8, ptr %it.sroa.0.030, i64 56
   store ptr %call35, ptr %scene, align 8
   %loaded = getelementptr inbounds i8, ptr %it.sroa.0.030, i64 64
@@ -3425,8 +3422,8 @@ if.end27:                                         ; preds = %if.then23, %for.bod
   %call38 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger4infoEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call38, ptr noundef nonnull @.str.16)
   %it.sroa.0.0 = load ptr, ptr %it.sroa.0.030, align 8
-  %13 = load ptr, ptr %this, align 8
-  %requests3 = getelementptr inbounds i8, ptr %13, i64 16
+  %10 = load ptr, ptr %this, align 8
+  %requests3 = getelementptr inbounds i8, ptr %10, i64 16
   %cmp.i.not = icmp eq ptr %it.sroa.0.0, %requests3
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !33
 
@@ -7368,7 +7365,7 @@ terminate.lpad.i.i5.i:                            ; preds = %if.end12.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i: ; preds = %if.end12.i
   %cmp.i.i6.i = icmp slt i32 %call.i.i4.i, 0
-  br i1 %cmp.i.i6.i, label %if.then, label %if.then.i9
+  br i1 %cmp.i.i6.i, label %if.then, label %if.then.i10
 
 if.then:                                          ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i, %if.then.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa30.i, %if.then.i ], [ %__y.0.lcssa31.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ]
@@ -7400,16 +7397,16 @@ cleanup.thread:                                   ; preds = %if.then, %_ZNKSt4le
   store i64 %inc.i.i, ptr %_M_node_count.i.i, align 8
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_Auto_nodeD2Ev.exit
 
-if.then.i9:                                       ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i
+if.then.i10:                                      ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i) #24
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #26
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_Auto_nodeD2Ev.exit
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_Auto_nodeD2Ev.exit: ; preds = %cleanup.thread, %if.then.i9
-  %retval.sroa.3.022 = phi i8 [ 1, %cleanup.thread ], [ 0, %if.then.i9 ]
-  %retval.sroa.0.021 = phi ptr [ %call5.i.i.i.i.i, %cleanup.thread ], [ %__j.sroa.0.0.i, %if.then.i9 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.021, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.3.022, 1
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_Auto_nodeD2Ev.exit: ; preds = %cleanup.thread, %if.then.i10
+  %retval.sroa.3.023 = phi i8 [ 1, %cleanup.thread ], [ 0, %if.then.i10 ]
+  %retval.sroa.0.022 = phi ptr [ %call5.i.i.i.i.i, %cleanup.thread ], [ %__j.sroa.0.0.i, %if.then.i10 ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.022, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.3.023, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 

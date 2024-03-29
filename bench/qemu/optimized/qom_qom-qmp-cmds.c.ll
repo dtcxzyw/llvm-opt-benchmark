@@ -40,9 +40,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load i8, ptr %ambiguous, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then1
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %if.then
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 42, ptr noundef nonnull @__func__.qmp_qom_list, ptr noundef nonnull @.str.1, ptr noundef %path) #5
@@ -66,12 +65,12 @@ while.body:                                       ; preds = %if.end2, %while.bod
   %value7 = getelementptr inbounds i8, ptr %call6, i64 8
   store ptr %call5, ptr %value7, align 8
   store ptr %props.013, ptr %call6, align 8
-  %2 = load ptr, ptr %call314, align 8
-  %call8 = call noalias ptr @g_strdup(ptr noundef %2) #5
+  %1 = load ptr, ptr %call314, align 8
+  %call8 = call noalias ptr @g_strdup(ptr noundef %1) #5
   store ptr %call8, ptr %call5, align 8
   %type = getelementptr inbounds i8, ptr %call314, i64 8
-  %3 = load ptr, ptr %type, align 8
-  %call10 = call noalias ptr @g_strdup(ptr noundef %3) #5
+  %2 = load ptr, ptr %type, align 8
+  %call10 = call noalias ptr @g_strdup(ptr noundef %2) #5
   %type11 = getelementptr inbounds i8, ptr %call5, i64 8
   store ptr %call10, ptr %type11, align 8
   %call3 = call ptr @object_property_iter_next(ptr noundef nonnull %iter) #5

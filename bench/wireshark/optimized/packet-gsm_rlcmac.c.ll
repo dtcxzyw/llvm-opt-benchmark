@@ -5671,18 +5671,18 @@ define internal i32 @dissect_gsm_rlcmac_downlink(ptr noundef %0, ptr noundef %1,
   %31 = getelementptr inbounds i8, ptr %18, i64 123688
   store i32 %30, ptr %31, align 4
   %32 = getelementptr inbounds i8, ptr %18, i64 123684
-  switch i32 %27, label %374 [
+  switch i32 %27, label %372 [
     i32 33, label %33
     i32 34, label %33
     i32 35, label %33
     i32 36, label %33
-    i32 49, label %204
-    i32 50, label %204
-    i32 51, label %204
-    i32 64, label %282
-    i32 65, label %336
-    i32 66, label %336
-    i32 67, label %336
+    i32 49, label %203
+    i32 50, label %203
+    i32 51, label %203
+    i32 64, label %281
+    i32 65, label %334
+    i32 66, label %334
+    i32 67, label %334
   ]
 
 33:                                               ; preds = %.thread, %25, %25, %25, %25
@@ -5808,7 +5808,7 @@ define internal i32 @dissect_gsm_rlcmac_downlink(ptr noundef %0, ptr noundef %1,
 113:                                              ; preds = %33
   %114 = load i32, ptr %34, align 4
   %115 = icmp eq i32 %114, 33
-  br i1 %115, label %116, label %202
+  br i1 %115, label %116, label %201
 
 116:                                              ; preds = %113
   %117 = icmp eq i8 %37, 2
@@ -5932,333 +5932,331 @@ define internal i32 @dissect_gsm_rlcmac_downlink(ptr noundef %0, ptr noundef %1,
 switch.hole_check:                                ; preds = %183
   %switch.maskindex = zext nneg i8 %switch.tableidx to i64
   %switch.shifted = lshr i64 28992055748337663, %switch.maskindex
-  %198 = and i64 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i64 %198, 0
-  br i1 %switch.lobit.not, label %dissect_dl_rlc_control_message.exit.i, label %switch.lookup
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %dissect_dl_rlc_control_message.exit.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %199 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [55 x ptr], ptr @switch.table.dissect_gsm_rlcmac_downlink, i64 0, i64 %199
+  %198 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [55 x ptr], ptr @switch.table.dissect_gsm_rlcmac_downlink, i64 0, i64 %198
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %200 = load i32, ptr @ett_gsm_rlcmac, align 4
-  %201 = call signext i16 @csnStreamDissector(ptr noundef %193, ptr noundef nonnull %9, ptr noundef nonnull %switch.load, ptr noundef %0, ptr noundef nonnull %18, i32 noundef %200) #6
+  %199 = load i32, ptr @ett_gsm_rlcmac, align 4
+  %200 = call signext i16 @csnStreamDissector(ptr noundef %193, ptr noundef nonnull %9, ptr noundef nonnull %switch.load, ptr noundef %0, ptr noundef nonnull %18, i32 noundef %199) #6
   br label %dissect_dl_rlc_control_message.exit.i
 
 dissect_dl_rlc_control_message.exit.i:            ; preds = %switch.hole_check, %183, %switch.lookup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %dissect_dl_gprs_block.exit
 
-202:                                              ; preds = %113
-  %203 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_rlcmac_coding_scheme_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.2842, i32 noundef %114) #6
+201:                                              ; preds = %113
+  %202 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_rlcmac_coding_scheme_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.2842, i32 noundef %114) #6
   br label %dissect_dl_gprs_block.exit
 
-dissect_dl_gprs_block.exit:                       ; preds = %90, %96, %99, %dissect_dl_rlc_control_message.exit.i, %202
+dissect_dl_gprs_block.exit:                       ; preds = %90, %96, %99, %dissect_dl_rlc_control_message.exit.i, %201
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  br label %376
+  br label %374
 
-204:                                              ; preds = %25, %25, %25
-  %205 = and i32 %30, 3
-  %.not48 = icmp eq i32 %205, 0
-  br i1 %.not48, label %208, label %206
+203:                                              ; preds = %25, %25, %25
+  %204 = and i32 %30, 3
+  %.not48 = icmp eq i32 %204, 0
+  br i1 %.not48, label %207, label %205
 
-206:                                              ; preds = %204
-  %207 = getelementptr inbounds i8, ptr %3, i64 20
-  tail call fastcc void @dissect_egprs_dl_data_block(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 %30, ptr noundef nonnull %207)
-  br label %376
+205:                                              ; preds = %203
+  %206 = getelementptr inbounds i8, ptr %3, i64 20
+  tail call fastcc void @dissect_egprs_dl_data_block(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 %30, ptr noundef nonnull %206)
+  br label %374
 
-208:                                              ; preds = %204
+207:                                              ; preds = %203
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %209 = and i32 %30, 8
-  %.not.i50 = icmp eq i32 %209, 0
-  br i1 %.not.i50, label %212, label %210
+  %208 = and i32 %30, 8
+  %.not.i50 = icmp eq i32 %208, 0
+  br i1 %.not.i50, label %211, label %209
 
-210:                                              ; preds = %208
-  %211 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_rlcmac_gprs_fanr_header_dissection_not_supported, ptr noundef %0, i32 noundef 0, i32 noundef -1) #6
+209:                                              ; preds = %207
+  %210 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_rlcmac_gprs_fanr_header_dissection_not_supported, ptr noundef %0, i32 noundef 0, i32 noundef -1) #6
   br label %dissect_egprs_dl_header_block.exit
 
-212:                                              ; preds = %208
-  %213 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
-  %214 = shl i32 %213, 3
-  %215 = load ptr, ptr %14, align 8
-  tail call void @col_append_sep_str(ptr noundef %215, i32 noundef 25, ptr noundef nonnull @.str.2644, ptr noundef nonnull @.str.3192) #6
-  %216 = load i32, ptr @proto_gsm_rlcmac, align 4
-  %217 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %216, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.3193) #6
-  %218 = load i32, ptr @ett_gsm_rlcmac, align 4
-  %219 = tail call ptr @proto_item_add_subtree(ptr noundef %217, i32 noundef %218) #6
-  %220 = getelementptr inbounds i8, ptr %3, i64 8
-  store i8 10, ptr %220, align 4
-  %221 = and i32 %214, 65528
-  call void @csnStreamInit(ptr noundef nonnull %8, i32 noundef 0, i32 noundef %221, ptr noundef nonnull %1) #6
-  %222 = load i32, ptr %32, align 4
-  switch i32 %222, label %247 [
-    i32 51, label %223
-    i32 50, label %231
-    i32 49, label %239
+211:                                              ; preds = %207
+  %212 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  %213 = shl i32 %212, 3
+  %214 = load ptr, ptr %14, align 8
+  tail call void @col_append_sep_str(ptr noundef %214, i32 noundef 25, ptr noundef nonnull @.str.2644, ptr noundef nonnull @.str.3192) #6
+  %215 = load i32, ptr @proto_gsm_rlcmac, align 4
+  %216 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %215, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.3193) #6
+  %217 = load i32, ptr @ett_gsm_rlcmac, align 4
+  %218 = tail call ptr @proto_item_add_subtree(ptr noundef %216, i32 noundef %217) #6
+  %219 = getelementptr inbounds i8, ptr %3, i64 8
+  store i8 10, ptr %219, align 4
+  %220 = and i32 %213, 65528
+  call void @csnStreamInit(ptr noundef nonnull %8, i32 noundef 0, i32 noundef %220, ptr noundef nonnull %1) #6
+  %221 = load i32, ptr %32, align 4
+  switch i32 %221, label %246 [
+    i32 51, label %222
+    i32 50, label %230
+    i32 49, label %238
   ]
 
-223:                                              ; preds = %212
-  %224 = load i32, ptr @ett_gsm_rlcmac, align 4
-  %225 = call signext i16 @csnStreamDissector(ptr noundef %219, ptr noundef nonnull %8, ptr noundef nonnull @CSNDESCR_DL_Data_Block_EGPRS_Header_Type3_t, ptr noundef %0, ptr noundef nonnull %18, i32 noundef %224) #6
-  %226 = getelementptr inbounds i8, ptr %18, i64 10
-  %227 = load i8, ptr %226, align 2
-  %228 = zext i8 %227 to i64
-  %229 = getelementptr [16 x i8], ptr @egprs_Header_type3_coding_puncturing_scheme_to_mcs, i64 0, i64 %228
-  %230 = load i8, ptr %229, align 1
-  store i8 %230, ptr %220, align 4
-  br label %249
+222:                                              ; preds = %211
+  %223 = load i32, ptr @ett_gsm_rlcmac, align 4
+  %224 = call signext i16 @csnStreamDissector(ptr noundef %218, ptr noundef nonnull %8, ptr noundef nonnull @CSNDESCR_DL_Data_Block_EGPRS_Header_Type3_t, ptr noundef %0, ptr noundef nonnull %18, i32 noundef %223) #6
+  %225 = getelementptr inbounds i8, ptr %18, i64 10
+  %226 = load i8, ptr %225, align 2
+  %227 = zext i8 %226 to i64
+  %228 = getelementptr [16 x i8], ptr @egprs_Header_type3_coding_puncturing_scheme_to_mcs, i64 0, i64 %227
+  %229 = load i8, ptr %228, align 1
+  store i8 %229, ptr %219, align 4
+  br label %248
 
-231:                                              ; preds = %212
-  %232 = load i32, ptr @ett_gsm_rlcmac, align 4
-  %233 = call signext i16 @csnStreamDissector(ptr noundef %219, ptr noundef nonnull %8, ptr noundef nonnull @CSNDESCR_DL_Data_Block_EGPRS_Header_Type2_t, ptr noundef %0, ptr noundef nonnull %18, i32 noundef %232) #6
-  %234 = getelementptr inbounds i8, ptr %18, i64 10
-  %235 = load i8, ptr %234, align 2
-  %236 = zext i8 %235 to i64
-  %237 = getelementptr [8 x i8], ptr @egprs_Header_type2_coding_puncturing_scheme_to_mcs, i64 0, i64 %236
-  %238 = load i8, ptr %237, align 1
-  store i8 %238, ptr %220, align 4
-  br label %249
+230:                                              ; preds = %211
+  %231 = load i32, ptr @ett_gsm_rlcmac, align 4
+  %232 = call signext i16 @csnStreamDissector(ptr noundef %218, ptr noundef nonnull %8, ptr noundef nonnull @CSNDESCR_DL_Data_Block_EGPRS_Header_Type2_t, ptr noundef %0, ptr noundef nonnull %18, i32 noundef %231) #6
+  %233 = getelementptr inbounds i8, ptr %18, i64 10
+  %234 = load i8, ptr %233, align 2
+  %235 = zext i8 %234 to i64
+  %236 = getelementptr [8 x i8], ptr @egprs_Header_type2_coding_puncturing_scheme_to_mcs, i64 0, i64 %235
+  %237 = load i8, ptr %236, align 1
+  store i8 %237, ptr %219, align 4
+  br label %248
 
-239:                                              ; preds = %212
-  %240 = load i32, ptr @ett_gsm_rlcmac, align 4
-  %241 = call signext i16 @csnStreamDissector(ptr noundef %219, ptr noundef nonnull %8, ptr noundef nonnull @CSNDESCR_DL_Data_Block_EGPRS_Header_Type1_t, ptr noundef %0, ptr noundef nonnull %18, i32 noundef %240) #6
-  %242 = getelementptr inbounds i8, ptr %18, i64 10
-  %243 = load i8, ptr %242, align 2
-  %244 = zext i8 %243 to i64
-  %245 = getelementptr [32 x i8], ptr @egprs_Header_type1_coding_puncturing_scheme_to_mcs, i64 0, i64 %244
-  %246 = load i8, ptr %245, align 1
-  store i8 %246, ptr %220, align 4
-  br label %249
+238:                                              ; preds = %211
+  %239 = load i32, ptr @ett_gsm_rlcmac, align 4
+  %240 = call signext i16 @csnStreamDissector(ptr noundef %218, ptr noundef nonnull %8, ptr noundef nonnull @CSNDESCR_DL_Data_Block_EGPRS_Header_Type1_t, ptr noundef %0, ptr noundef nonnull %18, i32 noundef %239) #6
+  %241 = getelementptr inbounds i8, ptr %18, i64 10
+  %242 = load i8, ptr %241, align 2
+  %243 = zext i8 %242 to i64
+  %244 = getelementptr [32 x i8], ptr @egprs_Header_type1_coding_puncturing_scheme_to_mcs, i64 0, i64 %243
+  %245 = load i8, ptr %244, align 1
+  store i8 %245, ptr %219, align 4
+  br label %248
 
-247:                                              ; preds = %212
-  %248 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_rlcmac_egprs_header_type_not_handled, ptr noundef %0, i32 noundef 0, i32 noundef -1) #6
-  %.pre.i = load i8, ptr %220, align 4
-  br label %249
+246:                                              ; preds = %211
+  %247 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_rlcmac_egprs_header_type_not_handled, ptr noundef %0, i32 noundef 0, i32 noundef -1) #6
+  %.pre.i = load i8, ptr %219, align 4
+  br label %248
 
-249:                                              ; preds = %247, %239, %231, %223
-  %250 = phi i8 [ %.pre.i, %247 ], [ %246, %239 ], [ %238, %231 ], [ %230, %223 ]
-  %251 = getelementptr inbounds i8, ptr %18, i64 4
-  %252 = load i16, ptr %251, align 4
-  %253 = getelementptr inbounds i8, ptr %3, i64 20
-  store i16 %252, ptr %253, align 4
-  %254 = getelementptr inbounds i8, ptr %18, i64 6
-  %255 = load i16, ptr %254, align 2
-  %256 = add i16 %255, %252
-  %257 = and i16 %256, 2047
-  %258 = getelementptr inbounds i8, ptr %3, i64 22
-  store i16 %257, ptr %258, align 2
-  %259 = load ptr, ptr %14, align 8
-  %260 = zext i8 %250 to i32
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %259, i32 noundef 25, ptr noundef nonnull @.str.2649, ptr noundef nonnull @.str.2807, i32 noundef %260) #6
-  %261 = load ptr, ptr %14, align 8
-  %262 = load i8, ptr %18, align 4
-  %263 = zext i8 %262 to i32
-  call void @col_append_str_uint(ptr noundef %261, i32 noundef 25, ptr noundef nonnull @.str.2652, i32 noundef %263, ptr noundef nonnull @.str.2649) #6
-  %264 = load ptr, ptr %14, align 8
-  %265 = load i16, ptr %253, align 4
-  %266 = zext i16 %265 to i32
-  call void @col_append_str_uint(ptr noundef %264, i32 noundef 25, ptr noundef nonnull @.str.2808, i32 noundef %266, ptr noundef nonnull @.str.2649) #6
-  %267 = load i32, ptr %32, align 4
-  %268 = icmp eq i32 %267, 49
-  br i1 %268, label %269, label %273
+248:                                              ; preds = %246, %238, %230, %222
+  %249 = phi i8 [ %.pre.i, %246 ], [ %245, %238 ], [ %237, %230 ], [ %229, %222 ]
+  %250 = getelementptr inbounds i8, ptr %18, i64 4
+  %251 = load i16, ptr %250, align 4
+  %252 = getelementptr inbounds i8, ptr %3, i64 20
+  store i16 %251, ptr %252, align 4
+  %253 = getelementptr inbounds i8, ptr %18, i64 6
+  %254 = load i16, ptr %253, align 2
+  %255 = add i16 %254, %251
+  %256 = and i16 %255, 2047
+  %257 = getelementptr inbounds i8, ptr %3, i64 22
+  store i16 %256, ptr %257, align 2
+  %258 = load ptr, ptr %14, align 8
+  %259 = zext i8 %249 to i32
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %258, i32 noundef 25, ptr noundef nonnull @.str.2649, ptr noundef nonnull @.str.2807, i32 noundef %259) #6
+  %260 = load ptr, ptr %14, align 8
+  %261 = load i8, ptr %18, align 4
+  %262 = zext i8 %261 to i32
+  call void @col_append_str_uint(ptr noundef %260, i32 noundef 25, ptr noundef nonnull @.str.2652, i32 noundef %262, ptr noundef nonnull @.str.2649) #6
+  %263 = load ptr, ptr %14, align 8
+  %264 = load i16, ptr %252, align 4
+  %265 = zext i16 %264 to i32
+  call void @col_append_str_uint(ptr noundef %263, i32 noundef 25, ptr noundef nonnull @.str.2808, i32 noundef %265, ptr noundef nonnull @.str.2649) #6
+  %266 = load i32, ptr %32, align 4
+  %267 = icmp eq i32 %266, 49
+  br i1 %267, label %268, label %272
 
-269:                                              ; preds = %249
-  %270 = load ptr, ptr %14, align 8
-  %271 = load i16, ptr %258, align 2
-  %272 = zext i16 %271 to i32
-  call void @col_append_str_uint(ptr noundef %270, i32 noundef 25, ptr noundef nonnull @.str.2809, i32 noundef %272, ptr noundef nonnull @.str.2649) #6
-  br label %273
+268:                                              ; preds = %248
+  %269 = load ptr, ptr %14, align 8
+  %270 = load i16, ptr %257, align 2
+  %271 = zext i16 %270 to i32
+  call void @col_append_str_uint(ptr noundef %269, i32 noundef 25, ptr noundef nonnull @.str.2809, i32 noundef %271, ptr noundef nonnull @.str.2649) #6
+  br label %272
 
-273:                                              ; preds = %269, %249
-  %274 = load ptr, ptr %14, align 8
-  %275 = getelementptr inbounds i8, ptr %18, i64 3
-  %276 = load i8, ptr %275, align 1
-  %277 = zext i8 %276 to i32
-  call void @col_append_str_uint(ptr noundef %274, i32 noundef 25, ptr noundef nonnull @.str.52, i32 noundef %277, ptr noundef nonnull @.str.2649) #6
-  %278 = getelementptr inbounds i8, ptr %18, i64 2
-  %279 = load i8, ptr %278, align 2
-  %.not48.i = icmp eq i8 %279, 0
-  br i1 %.not48.i, label %dissect_egprs_dl_header_block.exit, label %280
+272:                                              ; preds = %268, %248
+  %273 = load ptr, ptr %14, align 8
+  %274 = getelementptr inbounds i8, ptr %18, i64 3
+  %275 = load i8, ptr %274, align 1
+  %276 = zext i8 %275 to i32
+  call void @col_append_str_uint(ptr noundef %273, i32 noundef 25, ptr noundef nonnull @.str.52, i32 noundef %276, ptr noundef nonnull @.str.2649) #6
+  %277 = getelementptr inbounds i8, ptr %18, i64 2
+  %278 = load i8, ptr %277, align 2
+  %.not48.i = icmp eq i8 %278, 0
+  br i1 %.not48.i, label %dissect_egprs_dl_header_block.exit, label %279
 
-280:                                              ; preds = %273
-  %281 = load ptr, ptr %14, align 8
-  call void @col_append_str(ptr noundef %281, i32 noundef 25, ptr noundef nonnull @.str.2836) #6
+279:                                              ; preds = %272
+  %280 = load ptr, ptr %14, align 8
+  call void @col_append_str(ptr noundef %280, i32 noundef 25, ptr noundef nonnull @.str.2836) #6
   br label %dissect_egprs_dl_header_block.exit
 
-dissect_egprs_dl_header_block.exit:               ; preds = %210, %273, %280
+dissect_egprs_dl_header_block.exit:               ; preds = %209, %272, %279
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %376
+  br label %374
 
-282:                                              ; preds = %25
+281:                                              ; preds = %25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %283 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 1, i32 noundef 1) #6
-  %.not.not.i = icmp eq i8 %283, 0
-  %284 = select i1 %.not.not.i, i32 5, i32 13
-  %285 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
-  %286 = shl i32 %285, 3
-  %287 = sub i32 %286, %284
-  call void @csnStreamInit(ptr noundef nonnull %6, i32 noundef %284, i32 noundef %287, ptr noundef nonnull %1) #6
-  %288 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %284, i32 noundef 5) #6
-  store i8 %288, ptr %18, align 4
-  %289 = load ptr, ptr %14, align 8
-  %290 = zext i8 %288 to i32
-  %291 = call ptr @val_to_str_ext_const(i32 noundef %290, ptr noundef nonnull @ec_dl_rlc_message_type_vals_ext, ptr noundef nonnull @.str.2669) #6
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %289, i32 noundef 25, ptr noundef nonnull @.str.2644, ptr noundef nonnull @.str.3195, ptr noundef %291) #6
-  %292 = load i32, ptr @proto_gsm_rlcmac, align 4
-  %293 = load i8, ptr %18, align 4
-  %294 = zext i8 %293 to i32
-  %295 = call ptr @val_to_str_ext_const(i32 noundef %294, ptr noundef nonnull @ec_dl_rlc_message_type_vals_ext, ptr noundef nonnull @.str.2817) #6
-  %296 = load i8, ptr %18, align 4
-  %297 = zext i8 %296 to i32
-  %298 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %292, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.2846, ptr noundef %295, i32 noundef %297) #6
-  %299 = load i32, ptr @ett_gsm_rlcmac, align 4
-  %300 = call ptr @proto_item_add_subtree(ptr noundef %298, i32 noundef %299) #6
-  br i1 %.not.not.i, label %301, label %.critedge.i
+  %282 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 1, i32 noundef 1) #6
+  %.not.not.i = icmp eq i8 %282, 0
+  %283 = select i1 %.not.not.i, i32 5, i32 13
+  %284 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  %285 = shl i32 %284, 3
+  %286 = sub i32 %285, %283
+  call void @csnStreamInit(ptr noundef nonnull %6, i32 noundef %283, i32 noundef %286, ptr noundef nonnull %1) #6
+  %287 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %283, i32 noundef 5) #6
+  store i8 %287, ptr %18, align 4
+  %288 = load ptr, ptr %14, align 8
+  %289 = zext i8 %287 to i32
+  %290 = call ptr @val_to_str_ext_const(i32 noundef %289, ptr noundef nonnull @ec_dl_rlc_message_type_vals_ext, ptr noundef nonnull @.str.2669) #6
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %288, i32 noundef 25, ptr noundef nonnull @.str.2644, ptr noundef nonnull @.str.3195, ptr noundef %290) #6
+  %291 = load i32, ptr @proto_gsm_rlcmac, align 4
+  %292 = load i8, ptr %18, align 4
+  %293 = zext i8 %292 to i32
+  %294 = call ptr @val_to_str_ext_const(i32 noundef %293, ptr noundef nonnull @ec_dl_rlc_message_type_vals_ext, ptr noundef nonnull @.str.2817) #6
+  %295 = load i8, ptr %18, align 4
+  %296 = zext i8 %295 to i32
+  %297 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %291, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.2846, ptr noundef %294, i32 noundef %296) #6
+  %298 = load i32, ptr @ett_gsm_rlcmac, align 4
+  %299 = call ptr @proto_item_add_subtree(ptr noundef %297, i32 noundef %298) #6
+  br i1 %.not.not.i, label %300, label %.critedge.i
 
-301:                                              ; preds = %282
-  %302 = load i32, ptr @hf_dl_ec_ctrl_pr, align 4
-  %303 = call ptr @proto_tree_add_bits_item(ptr noundef %300, i32 noundef %302, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
-  %304 = load i32, ptr @hf_dl_ec_payload_type, align 4
-  %305 = call ptr @proto_tree_add_bits_item(ptr noundef %300, i32 noundef %304, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #6
-  %306 = load i32, ptr @hf_ec_rrbp, align 4
-  %307 = call ptr @proto_tree_add_bits_item(ptr noundef %300, i32 noundef %306, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #6
-  %308 = load i32, ptr @hf_s_p, align 4
-  %309 = call ptr @proto_tree_add_bits_item(ptr noundef %300, i32 noundef %308, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #6
-  br label %329
+300:                                              ; preds = %281
+  %301 = load i32, ptr @hf_dl_ec_ctrl_pr, align 4
+  %302 = call ptr @proto_tree_add_bits_item(ptr noundef %299, i32 noundef %301, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %303 = load i32, ptr @hf_dl_ec_payload_type, align 4
+  %304 = call ptr @proto_tree_add_bits_item(ptr noundef %299, i32 noundef %303, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #6
+  %305 = load i32, ptr @hf_ec_rrbp, align 4
+  %306 = call ptr @proto_tree_add_bits_item(ptr noundef %299, i32 noundef %305, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #6
+  %307 = load i32, ptr @hf_s_p, align 4
+  %308 = call ptr @proto_tree_add_bits_item(ptr noundef %299, i32 noundef %307, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #6
+  br label %328
 
-.critedge.i:                                      ; preds = %282
-  %310 = load i32, ptr @hf_dl_ec_payload_type, align 4
-  %311 = call ptr @proto_tree_add_bits_item(ptr noundef %300, i32 noundef %310, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #6
-  %312 = load i32, ptr @hf_ec_rrbp, align 4
-  %313 = call ptr @proto_tree_add_bits_item(ptr noundef %300, i32 noundef %312, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #6
-  %314 = load i32, ptr @hf_s_p, align 4
-  %315 = call ptr @proto_tree_add_bits_item(ptr noundef %300, i32 noundef %314, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #6
+.critedge.i:                                      ; preds = %281
+  %309 = load i32, ptr @hf_dl_ec_payload_type, align 4
+  %310 = call ptr @proto_tree_add_bits_item(ptr noundef %299, i32 noundef %309, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #6
+  %311 = load i32, ptr @hf_ec_rrbp, align 4
+  %312 = call ptr @proto_tree_add_bits_item(ptr noundef %299, i32 noundef %311, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #6
+  %313 = load i32, ptr @hf_s_p, align 4
+  %314 = call ptr @proto_tree_add_bits_item(ptr noundef %299, i32 noundef %313, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #6
   store i32 0, ptr %7, align 16
-  %316 = getelementptr inbounds i8, ptr %7, i64 4
-  store i8 1, ptr %316, align 4
-  %317 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 5, ptr %317, align 8
-  %318 = getelementptr inbounds i8, ptr %7, i64 12
-  store i8 1, ptr %318, align 4
-  %319 = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 0, ptr %319, align 16
-  %320 = getelementptr inbounds i8, ptr %7, i64 20
-  store i8 0, ptr %320, align 4
-  %321 = load i32, ptr @hf_dl_ec_ctrl_pre, align 4
-  %322 = call ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %300, i32 noundef %321, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %7, ptr noundef null) #6
-  %323 = load i32, ptr @hf_dl_ctrl_rbsn, align 4
-  %324 = call ptr @proto_tree_add_bits_item(ptr noundef %300, i32 noundef %323, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #6
-  %325 = load i32, ptr @hf_dl_ctrl_fs, align 4
-  %326 = call ptr @proto_tree_add_bits_item(ptr noundef %300, i32 noundef %325, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #6
-  %327 = load i32, ptr @hf_downlink_tfi, align 4
-  %328 = call ptr @proto_tree_add_bits_item(ptr noundef %300, i32 noundef %327, ptr noundef %0, i32 noundef 8, i32 noundef 5, i32 noundef 0) #6
-  br label %329
+  %315 = getelementptr inbounds i8, ptr %7, i64 4
+  store i8 1, ptr %315, align 4
+  %316 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 5, ptr %316, align 8
+  %317 = getelementptr inbounds i8, ptr %7, i64 12
+  store i8 1, ptr %317, align 4
+  %318 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 0, ptr %318, align 16
+  %319 = getelementptr inbounds i8, ptr %7, i64 20
+  store i8 0, ptr %319, align 4
+  %320 = load i32, ptr @hf_dl_ec_ctrl_pre, align 4
+  %321 = call ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %299, i32 noundef %320, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %7, ptr noundef null) #6
+  %322 = load i32, ptr @hf_dl_ctrl_rbsn, align 4
+  %323 = call ptr @proto_tree_add_bits_item(ptr noundef %299, i32 noundef %322, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #6
+  %324 = load i32, ptr @hf_dl_ctrl_fs, align 4
+  %325 = call ptr @proto_tree_add_bits_item(ptr noundef %299, i32 noundef %324, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #6
+  %326 = load i32, ptr @hf_downlink_tfi, align 4
+  %327 = call ptr @proto_tree_add_bits_item(ptr noundef %299, i32 noundef %326, ptr noundef %0, i32 noundef 8, i32 noundef 5, i32 noundef 0) #6
+  br label %328
 
-329:                                              ; preds = %.critedge.i, %301
-  %330 = load i8, ptr %18, align 4
-  %switch.tableidx53 = add i8 %330, -1
-  %331 = icmp ult i8 %switch.tableidx53, 18
-  br i1 %331, label %switch.hole_check54, label %dissect_dl_rlc_ec_control_message.exit
+328:                                              ; preds = %.critedge.i, %300
+  %329 = load i8, ptr %18, align 4
+  %switch.tableidx53 = add i8 %329, -1
+  %330 = icmp ult i8 %switch.tableidx53, 18
+  br i1 %330, label %switch.hole_check54, label %dissect_dl_rlc_ec_control_message.exit
 
-switch.hole_check54:                              ; preds = %329
+switch.hole_check54:                              ; preds = %328
   %switch.maskindex56 = zext nneg i8 %switch.tableidx53 to i32
   %switch.shifted57 = lshr i32 196735, %switch.maskindex56
-  %332 = and i32 %switch.shifted57, 1
-  %switch.lobit58.not = icmp eq i32 %332, 0
-  br i1 %switch.lobit58.not, label %dissect_dl_rlc_ec_control_message.exit, label %switch.lookup55
+  %switch.lobit58 = trunc i32 %switch.shifted57 to i1
+  br i1 %switch.lobit58, label %switch.lookup55, label %dissect_dl_rlc_ec_control_message.exit
 
 switch.lookup55:                                  ; preds = %switch.hole_check54
-  %333 = zext nneg i8 %switch.tableidx53 to i64
-  %switch.gep59 = getelementptr inbounds [18 x ptr], ptr @switch.table.dissect_gsm_rlcmac_downlink.3, i64 0, i64 %333
+  %331 = zext nneg i8 %switch.tableidx53 to i64
+  %switch.gep59 = getelementptr inbounds [18 x ptr], ptr @switch.table.dissect_gsm_rlcmac_downlink.3, i64 0, i64 %331
   %switch.load60 = load ptr, ptr %switch.gep59, align 8
-  %334 = load i32, ptr @ett_gsm_rlcmac, align 4
-  %335 = call signext i16 @csnStreamDissector(ptr noundef %300, ptr noundef nonnull %6, ptr noundef nonnull %switch.load60, ptr noundef %0, ptr noundef nonnull %18, i32 noundef %334) #6
+  %332 = load i32, ptr @ett_gsm_rlcmac, align 4
+  %333 = call signext i16 @csnStreamDissector(ptr noundef %299, ptr noundef nonnull %6, ptr noundef nonnull %switch.load60, ptr noundef %0, ptr noundef nonnull %18, i32 noundef %332) #6
   br label %dissect_dl_rlc_ec_control_message.exit
 
-dissect_dl_rlc_ec_control_message.exit:           ; preds = %switch.hole_check54, %329, %switch.lookup55
+dissect_dl_rlc_ec_control_message.exit:           ; preds = %switch.hole_check54, %328, %switch.lookup55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %376
+  br label %374
 
-336:                                              ; preds = %25, %25, %25
-  %337 = and i32 %30, 3
-  %.not47 = icmp eq i32 %337, 0
-  br i1 %.not47, label %340, label %338
+334:                                              ; preds = %25, %25, %25
+  %335 = and i32 %30, 3
+  %.not47 = icmp eq i32 %335, 0
+  br i1 %.not47, label %338, label %336
 
-338:                                              ; preds = %336
-  %339 = getelementptr inbounds i8, ptr %3, i64 20
-  tail call fastcc void @dissect_egprs_dl_data_block(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 %30, ptr noundef nonnull %339)
-  br label %376
+336:                                              ; preds = %334
+  %337 = getelementptr inbounds i8, ptr %3, i64 20
+  tail call fastcc void @dissect_egprs_dl_data_block(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 %30, ptr noundef nonnull %337)
+  br label %374
 
-340:                                              ; preds = %336
+338:                                              ; preds = %334
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %341 = and i32 %30, 8
-  %.not.i51 = icmp eq i32 %341, 0
-  br i1 %.not.i51, label %344, label %342
+  %339 = and i32 %30, 8
+  %.not.i51 = icmp eq i32 %339, 0
+  br i1 %.not.i51, label %342, label %340
 
-342:                                              ; preds = %340
-  %343 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_rlcmac_gprs_fanr_header_dissection_not_supported, ptr noundef %0, i32 noundef 0, i32 noundef -1) #6
+340:                                              ; preds = %338
+  %341 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_rlcmac_gprs_fanr_header_dissection_not_supported, ptr noundef %0, i32 noundef 0, i32 noundef -1) #6
   br label %dissect_ec_egprs_dl_header_block.exit
 
-344:                                              ; preds = %340
-  %345 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
-  %346 = shl i32 %345, 3
-  %347 = load ptr, ptr %14, align 8
-  tail call void @col_append_sep_str(ptr noundef %347, i32 noundef 25, ptr noundef nonnull @.str.2644, ptr noundef nonnull @.str.3229) #6
-  %348 = load i32, ptr @proto_gsm_rlcmac, align 4
-  %349 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %348, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.3230) #6
-  %350 = load i32, ptr @ett_gsm_rlcmac, align 4
-  %351 = tail call ptr @proto_item_add_subtree(ptr noundef %349, i32 noundef %350) #6
-  %352 = getelementptr inbounds i8, ptr %3, i64 8
-  store i8 10, ptr %352, align 4
-  %353 = and i32 %346, 65528
-  call void @csnStreamInit(ptr noundef nonnull %5, i32 noundef 0, i32 noundef %353, ptr noundef nonnull %1) #6
-  %354 = load i32, ptr %32, align 4
-  %cond.i = icmp eq i32 %354, 67
-  br i1 %cond.i, label %355, label %363
+342:                                              ; preds = %338
+  %343 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  %344 = shl i32 %343, 3
+  %345 = load ptr, ptr %14, align 8
+  tail call void @col_append_sep_str(ptr noundef %345, i32 noundef 25, ptr noundef nonnull @.str.2644, ptr noundef nonnull @.str.3229) #6
+  %346 = load i32, ptr @proto_gsm_rlcmac, align 4
+  %347 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %346, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.3230) #6
+  %348 = load i32, ptr @ett_gsm_rlcmac, align 4
+  %349 = tail call ptr @proto_item_add_subtree(ptr noundef %347, i32 noundef %348) #6
+  %350 = getelementptr inbounds i8, ptr %3, i64 8
+  store i8 10, ptr %350, align 4
+  %351 = and i32 %344, 65528
+  call void @csnStreamInit(ptr noundef nonnull %5, i32 noundef 0, i32 noundef %351, ptr noundef nonnull %1) #6
+  %352 = load i32, ptr %32, align 4
+  %cond.i = icmp eq i32 %352, 67
+  br i1 %cond.i, label %353, label %361
 
-355:                                              ; preds = %344
-  %356 = load i32, ptr @ett_gsm_rlcmac, align 4
-  %357 = call signext i16 @csnStreamDissector(ptr noundef %351, ptr noundef nonnull %5, ptr noundef nonnull @CSNDESCR_DL_Data_Block_EC_EGPRS_Header_Type3_t, ptr noundef %0, ptr noundef nonnull %18, i32 noundef %356) #6
-  %358 = getelementptr inbounds i8, ptr %18, i64 10
-  %359 = load i8, ptr %358, align 2
-  %360 = zext i8 %359 to i64
-  %361 = getelementptr [8 x i8], ptr @ec_egprs_Header_type3_coding_puncturing_scheme_to_mcs, i64 0, i64 %360
-  %362 = load i8, ptr %361, align 1
-  store i8 %362, ptr %352, align 4
-  br label %365
+353:                                              ; preds = %342
+  %354 = load i32, ptr @ett_gsm_rlcmac, align 4
+  %355 = call signext i16 @csnStreamDissector(ptr noundef %349, ptr noundef nonnull %5, ptr noundef nonnull @CSNDESCR_DL_Data_Block_EC_EGPRS_Header_Type3_t, ptr noundef %0, ptr noundef nonnull %18, i32 noundef %354) #6
+  %356 = getelementptr inbounds i8, ptr %18, i64 10
+  %357 = load i8, ptr %356, align 2
+  %358 = zext i8 %357 to i64
+  %359 = getelementptr [8 x i8], ptr @ec_egprs_Header_type3_coding_puncturing_scheme_to_mcs, i64 0, i64 %358
+  %360 = load i8, ptr %359, align 1
+  store i8 %360, ptr %350, align 4
+  br label %363
 
-363:                                              ; preds = %344
-  %364 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_rlcmac_egprs_header_type_not_handled, ptr noundef %0, i32 noundef 0, i32 noundef -1) #6
-  br label %365
+361:                                              ; preds = %342
+  %362 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_rlcmac_egprs_header_type_not_handled, ptr noundef %0, i32 noundef 0, i32 noundef -1) #6
+  br label %363
 
-365:                                              ; preds = %363, %355
-  %366 = getelementptr inbounds i8, ptr %18, i64 4
-  %367 = load i16, ptr %366, align 4
-  %368 = getelementptr inbounds i8, ptr %3, i64 20
-  store i16 %367, ptr %368, align 4
-  %369 = getelementptr inbounds i8, ptr %18, i64 6
-  %370 = load i16, ptr %369, align 2
-  %371 = add i16 %370, %367
-  %372 = and i16 %371, 2047
-  %373 = getelementptr inbounds i8, ptr %3, i64 22
-  store i16 %372, ptr %373, align 2
+363:                                              ; preds = %361, %353
+  %364 = getelementptr inbounds i8, ptr %18, i64 4
+  %365 = load i16, ptr %364, align 4
+  %366 = getelementptr inbounds i8, ptr %3, i64 20
+  store i16 %365, ptr %366, align 4
+  %367 = getelementptr inbounds i8, ptr %18, i64 6
+  %368 = load i16, ptr %367, align 2
+  %369 = add i16 %368, %365
+  %370 = and i16 %369, 2047
+  %371 = getelementptr inbounds i8, ptr %3, i64 22
+  store i16 %370, ptr %371, align 2
   br label %dissect_ec_egprs_dl_header_block.exit
 
-dissect_ec_egprs_dl_header_block.exit:            ; preds = %342, %365
+dissect_ec_egprs_dl_header_block.exit:            ; preds = %340, %363
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %376
+  br label %374
 
-374:                                              ; preds = %25
-  %375 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_rlcmac_coding_scheme_unknown, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.2643, i32 noundef %27) #6
-  br label %376
+372:                                              ; preds = %25
+  %373 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_rlcmac_coding_scheme_unknown, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.2643, i32 noundef %27) #6
+  br label %374
 
-376:                                              ; preds = %338, %dissect_ec_egprs_dl_header_block.exit, %206, %dissect_egprs_dl_header_block.exit, %374, %dissect_dl_rlc_ec_control_message.exit, %dissect_dl_gprs_block.exit
-  %377 = call i32 @tvb_reported_length(ptr noundef %0) #6
-  ret i32 %377
+374:                                              ; preds = %336, %dissect_ec_egprs_dl_header_block.exit, %205, %dissect_egprs_dl_header_block.exit, %372, %dissect_dl_rlc_ec_control_message.exit, %dissect_dl_gprs_block.exit
+  %375 = call i32 @tvb_reported_length(ptr noundef %0) #6
+  ret i32 %375
 }
 
 ; Function Attrs: nounwind uwtable

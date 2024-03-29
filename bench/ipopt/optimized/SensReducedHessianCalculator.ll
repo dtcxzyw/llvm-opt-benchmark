@@ -795,9 +795,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit73: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
   %256 = getelementptr inbounds i8, ptr %0, i64 72
   %257 = load i8, ptr %256, align 8
-  %258 = and i8 %257, 1
-  %.not = icmp eq i8 %258, 0
-  br i1 %.not, label %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit, label %259
+  %258 = trunc i8 %257 to i1
+  br i1 %258, label %259, label %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit
 
 259:                                              ; preds = %255
   %260 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15

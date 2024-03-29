@@ -344,16 +344,14 @@ define dso_local void @heap2_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
   %21 = zext i16 %20 to i32
   %22 = getelementptr inbounds i8, ptr %8, i64 8
   %23 = load i8, ptr %22, align 4
-  %24 = and i8 %23, 1
-  %.not99 = icmp eq i8 %24, 0
-  %25 = select i1 %.not99, i32 70, i32 84
+  %24 = trunc i8 %23 to i1
+  %25 = select i1 %24, i32 84, i32 70
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %15, i32 noundef %18, i32 noundef %21, i32 noundef %25) #3
   %26 = load ptr, ptr %5, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 135
   %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  %.not100 = icmp eq i8 %29, 0
-  br i1 %.not100, label %131, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %131
 
 30:                                               ; preds = %14
   %31 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %1, i8 noundef zeroext 0, ptr noundef nonnull %3) #3
@@ -390,9 +388,8 @@ define dso_local void @heap2_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
   %52 = load ptr, ptr %5, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 135
   %54 = load i8, ptr %53, align 1
-  %55 = and i8 %54, 1
-  %.not98 = icmp eq i8 %55, 0
-  br i1 %.not98, label %131, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %131
 
 56:                                               ; preds = %49
   %57 = tail call ptr @XLogRecGetBlockData(ptr noundef nonnull %1, i8 noundef zeroext 0, ptr noundef null) #3
@@ -409,16 +406,14 @@ define dso_local void @heap2_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
   %64 = zext i16 %63 to i32
   %65 = getelementptr inbounds i8, ptr %8, i64 6
   %66 = load i8, ptr %65, align 2
-  %67 = and i8 %66, 1
-  %.not96 = icmp eq i8 %67, 0
-  %68 = select i1 %.not96, i32 70, i32 84
+  %67 = trunc i8 %66 to i1
+  %68 = select i1 %67, i32 84, i32 70
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %61, i32 noundef %64, i32 noundef %68) #3
   %69 = load ptr, ptr %5, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 135
   %71 = load i8, ptr %70, align 1
-  %72 = and i8 %71, 1
-  %.not97 = icmp eq i8 %72, 0
-  br i1 %.not97, label %131, label %73
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %73, label %131
 
 73:                                               ; preds = %60
   %74 = tail call ptr @XLogRecGetBlockData(ptr noundef nonnull %1, i8 noundef zeroext 0, ptr noundef null) #3
@@ -451,10 +446,9 @@ define dso_local void @heap2_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
   %92 = load ptr, ptr %5, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 135
   %94 = load i8, ptr %93, align 1
-  %95 = and i8 %94, 1
-  %.not95 = icmp ne i8 %95, 0
+  %95 = trunc i8 %94 to i1
   %.not = icmp sgt i8 %10, -1
-  %or.cond = and i1 %.not, %.not95
+  %or.cond = and i1 %.not, %95
   br i1 %or.cond, label %96, label %131
 
 96:                                               ; preds = %86
@@ -490,14 +484,14 @@ define dso_local void @heap2_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
   %117 = getelementptr inbounds i8, ptr %8, i64 28
   %.val = load i16, ptr %117, align 2
   %118 = getelementptr i8, ptr %8, i64 30
-  %.val101 = load i16, ptr %118, align 2
+  %.val95 = load i16, ptr %118, align 2
   %119 = zext i16 %.val to i32
   %120 = shl nuw i32 %119, 16
-  %121 = zext i16 %.val101 to i32
+  %121 = zext i16 %.val95 to i32
   %122 = or disjoint i32 %120, %121
   %123 = getelementptr i8, ptr %8, i64 32
-  %.val102 = load i16, ptr %123, align 2
-  %124 = zext i16 %.val102 to i32
+  %.val96 = load i16, ptr %123, align 2
+  %124 = zext i16 %.val96 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.21, i32 noundef %112, i32 noundef %114, i32 noundef %116, i32 noundef %122, i32 noundef %124) #3
   %125 = getelementptr inbounds i8, ptr %8, i64 4
   %126 = load i32, ptr %125, align 4

@@ -63,9 +63,8 @@ define dso_local void @toast_tuple_init(ptr nocapture noundef %0) local_unnamed_
   %37 = load ptr, ptr %12, align 8
   %38 = getelementptr i8, ptr %37, i64 %indvars.iv
   %39 = load i8, ptr %38, align 1
-  %40 = and i8 %39, 1
-  %.not78 = icmp eq i8 %40, 0
-  br i1 %.not78, label %41, label %78
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %78, label %41
 
 41:                                               ; preds = %36
   %42 = load i8, ptr %28, align 1
@@ -82,9 +81,8 @@ define dso_local void @toast_tuple_init(ptr nocapture noundef %0) local_unnamed_
   %49 = load ptr, ptr %13, align 8
   %50 = getelementptr i8, ptr %49, i64 %indvars.iv
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not79 = icmp eq i8 %52, 0
-  br i1 %.not79, label %53, label %61
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %61, label %53
 
 53:                                               ; preds = %48
   %54 = load i8, ptr %32, align 1
@@ -99,8 +97,8 @@ define dso_local void @toast_tuple_init(ptr nocapture noundef %0) local_unnamed_
 
 60:                                               ; preds = %56
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %28, ptr noundef nonnull dereferenceable(18) %32, i64 18)
-  %.not80 = icmp eq i32 %bcmp, 0
-  br i1 %.not80, label %68, label %61
+  %.not78 = icmp eq i32 %bcmp, 0
+  br i1 %.not78, label %68, label %61
 
 61:                                               ; preds = %60, %56, %53, %48
   %62 = load ptr, ptr %9, align 8
@@ -133,9 +131,8 @@ define dso_local void @toast_tuple_init(ptr nocapture noundef %0) local_unnamed_
   %79 = load ptr, ptr %13, align 8
   %80 = getelementptr i8, ptr %79, i64 %indvars.iv
   %81 = load i8, ptr %80, align 1
-  %82 = and i8 %81, 1
-  %.not81 = icmp eq i8 %82, 0
-  br i1 %.not81, label %90, label %83
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %90
 
 83:                                               ; preds = %78
   %84 = load ptr, ptr %9, align 8
@@ -221,18 +218,18 @@ define dso_local void @toast_tuple_init(ptr nocapture noundef %0) local_unnamed_
 
 .thread:                                          ; preds = %103, %115
   %.in = phi i8 [ %.pr, %115 ], [ %104, %103 ]
-  %.285 = phi ptr [ %.1, %115 ], [ %.0, %103 ]
+  %.282 = phi ptr [ %.1, %115 ], [ %.0, %103 ]
   %135 = zext i8 %.in to i32
   %136 = and i32 %135, 1
-  %.not82 = icmp eq i32 %136, 0
-  br i1 %.not82, label %139, label %137
+  %.not79 = icmp eq i32 %136, 0
+  br i1 %.not79, label %139, label %137
 
 137:                                              ; preds = %.thread
   %138 = lshr i32 %135, 1
   br label %142
 
 139:                                              ; preds = %.thread
-  %140 = load i32, ptr %.285, align 4
+  %140 = load i32, ptr %.282, align 4
   %141 = lshr i32 %140, 2
   br label %142
 
@@ -684,9 +681,8 @@ define dso_local void @toast_delete_external(ptr noundef %0, ptr nocapture nound
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr i8, ptr %2, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %20, label %29
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %29, label %20
 
 20:                                               ; preds = %14
   %21 = inttoptr i64 %16 to ptr

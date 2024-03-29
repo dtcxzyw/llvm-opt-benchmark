@@ -229,9 +229,8 @@ if.end43:                                         ; preds = %for.body32, %for.bo
 land.lhs.true:                                    ; preds = %if.end43
   %m_first = getelementptr inbounds i8, ptr %this, i64 8
   %20 = load i8, ptr %m_first, align 8
-  %21 = and i8 %20, 1
-  %tobool.not = icmp eq i8 %21, 0
-  br i1 %tobool.not, label %return, label %if.then45
+  %tobool = trunc i8 %20 to i1
+  br i1 %tobool, label %if.then45, label %return
 
 if.then45:                                        ; preds = %land.lhs.true
   store i8 0, ptr %m_first, align 8
@@ -266,53 +265,51 @@ lor.lhs.false:                                    ; preds = %invoke.cont
           to label %invoke.cont3 unwind label %lpad.loopexit.split-lp
 
 invoke.cont3:                                     ; preds = %lor.lhs.false
-  br i1 %call4, label %land.lhs.true, label %if.end15
-
-land.lhs.true:                                    ; preds = %invoke.cont3
+  %call4.not = xor i1 %call4, true
   %2 = load i8, ptr %pos, align 1
-  %3 = and i8 %2, 1
-  %4 = icmp eq i8 %3, 0
-  %cmp = xor i1 %4, %polarity
-  br i1 %cmp, label %if.then, label %if.end15
+  %3 = trunc i8 %2 to i1
+  %4 = xor i1 %3, %polarity
+  %or.cond = select i1 %call4.not, i1 true, i1 %4
+  br i1 %or.cond, label %if.end15, label %if.then
 
-if.then:                                          ; preds = %land.lhs.true, %invoke.cont
+if.then:                                          ; preds = %invoke.cont3, %invoke.cont
   %5 = load ptr, ptr %lbls, align 8
   %6 = load i32, ptr %m_pos.i, align 8
   %idx.ext.i = zext i32 %6 to i64
   %add.ptr.i = getelementptr inbounds %class.symbol, ptr %5, i64 %idx.ext.i
-  %cmp11.not8 = icmp eq i32 %6, 0
-  br i1 %cmp11.not8, label %if.end15, label %for.body
+  %cmp11.not10 = icmp eq i32 %6, 0
+  br i1 %cmp11.not10, label %if.end15, label %for.body
 
 for.body:                                         ; preds = %if.then, %invoke.cont12
-  %count.010 = phi i32 [ %spec.select, %invoke.cont12 ], [ 0, %if.then ]
-  %it.09 = phi ptr [ %incdec.ptr, %invoke.cont12 ], [ %5, %if.then ]
-  %call13 = invoke noundef zeroext i1 @_ZNK6symbol8containsEc(ptr noundef nonnull align 8 dereferenceable(8) %it.09, i8 noundef signext 64)
+  %count.012 = phi i32 [ %spec.select, %invoke.cont12 ], [ 0, %if.then ]
+  %it.011 = phi ptr [ %incdec.ptr, %invoke.cont12 ], [ %5, %if.then ]
+  %call13 = invoke noundef zeroext i1 @_ZNK6symbol8containsEc(ptr noundef nonnull align 8 dereferenceable(8) %it.011, i8 noundef signext 64)
           to label %invoke.cont12 unwind label %lpad.loopexit
 
 invoke.cont12:                                    ; preds = %for.body
   %add = zext i1 %call13 to i32
-  %spec.select = add i32 %count.010, %add
-  %incdec.ptr = getelementptr inbounds i8, ptr %it.09, i64 8
+  %spec.select = add i32 %count.012, %add
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.011, i64 8
   %cmp11.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp11.not, label %if.end15, label %for.body, !llvm.loop !7
 
 lpad.loopexit:                                    ; preds = %for.body
-  %lpad.loopexit5 = landingpad { ptr, i32 }
+  %lpad.loopexit7 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %entry, %lor.lhs.false
-  %lpad.loopexit.split-lp6 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit7, %lpad.loopexit ], [ %lpad.loopexit.split-lp8, %lpad.loopexit.split-lp ]
   call void @_ZN6bufferI6symbolLb1ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %lbls) #15
   resume { ptr, i32 } %lpad.phi
 
-if.end15:                                         ; preds = %invoke.cont12, %if.then, %land.lhs.true, %invoke.cont3
-  %count.2 = phi i32 [ 0, %land.lhs.true ], [ 0, %invoke.cont3 ], [ 0, %if.then ], [ %spec.select, %invoke.cont12 ]
+if.end15:                                         ; preds = %invoke.cont12, %if.then, %invoke.cont3
+  %count.2 = phi i32 [ 0, %invoke.cont3 ], [ 0, %if.then ], [ %spec.select, %invoke.cont12 ]
   %7 = load ptr, ptr %lbls, align 8
   %cmp.not.i.i.i = icmp eq ptr %7, %m_initial_buffer.i
   %cmp.i.i.i.i = icmp eq ptr %7, null
@@ -492,9 +489,8 @@ if.end41:                                         ; preds = %for.body31, %for.bo
 land.lhs.true:                                    ; preds = %if.end41
   %m_first = getelementptr inbounds i8, ptr %this, i64 8
   %20 = load i8, ptr %m_first, align 8
-  %21 = and i8 %20, 1
-  %tobool.not = icmp eq i8 %21, 0
-  br i1 %tobool.not, label %return, label %if.then43
+  %tobool = trunc i8 %20 to i1
+  br i1 %tobool, label %if.then43, label %return
 
 if.then43:                                        ; preds = %land.lhs.true
   store i8 0, ptr %m_first, align 8

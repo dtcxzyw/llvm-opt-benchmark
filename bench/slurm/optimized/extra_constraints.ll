@@ -118,9 +118,8 @@ _element2str.exit:                                ; preds = %29, %_element2str.e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @extra_constraints_enabled() local_unnamed_addr #1 {
   %1 = load i8, ptr @extra_constraints_parsing, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -218,9 +217,8 @@ define noundef i32 @extra_constraints_parse(ptr noundef %0, ptr nocapture nounde
 
 7:                                                ; preds = %2
   %8 = load i8, ptr @extra_constraints_parsing, align 1
-  %9 = and i8 %8, 1
-  %.not5 = icmp eq i8 %9, 0
-  br i1 %.not5, label %23, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %23
 
 10:                                               ; preds = %7
   %11 = tail call ptr @xstrdup(ptr noundef nonnull %0) #7
@@ -229,8 +227,8 @@ define noundef i32 @extra_constraints_parse(ptr noundef %0, ptr nocapture nounde
   store ptr %12, ptr %6, align 8
   call fastcc void @_recurse(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef %12, ptr noundef nonnull %3)
   %13 = load i32, ptr %3, align 4
-  %.not6 = icmp eq i32 %13, 0
-  br i1 %.not6, label %16, label %14
+  %.not5 = icmp eq i32 %13, 0
+  br i1 %.not5, label %16, label %14
 
 14:                                               ; preds = %10
   %15 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.extra_constraints_parse, ptr noundef nonnull %0) #7
@@ -695,15 +693,14 @@ define void @extra_constraints_set_parsing(i1 noundef zeroext %0) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @extra_constraints_test(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @extra_constraints_parsing, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  %.not7 = icmp eq ptr %0, null
-  %or.cond = or i1 %.not7, %.not
-  br i1 %or.cond, label %8, label %5
+  %4 = trunc i8 %3 to i1
+  %.not = icmp ne ptr %0, null
+  %or.cond.not = and i1 %.not, %4
+  br i1 %or.cond.not, label %5, label %8
 
 5:                                                ; preds = %2
-  %.not8 = icmp eq ptr %1, null
-  br i1 %.not8, label %8, label %6
+  %.not7 = icmp eq ptr %1, null
+  br i1 %.not7, label %8, label %6
 
 6:                                                ; preds = %5
   %7 = tail call fastcc zeroext i1 @_test_extra_constraints(ptr noundef nonnull %0, ptr noundef nonnull %1)

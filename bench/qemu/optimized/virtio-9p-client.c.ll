@@ -838,55 +838,54 @@ v9fs_string_size.exit:                            ; preds = %do.end, %if.else.i
   store i64 0, ptr %t_off.i.i, align 8
   %requestOnly = getelementptr inbounds i8, ptr %opt, i64 24
   %19 = load i8, ptr %requestOnly, align 8
-  %20 = and i8 %19, 1
-  %tobool31.not = icmp eq i8 %20, 0
-  br i1 %tobool31.not, label %if.then32, label %if.end94
+  %tobool31 = trunc i8 %19 to i1
+  br i1 %tobool31, label %if.end94, label %if.then32
 
 if.then32:                                        ; preds = %v9fs_string_size.exit
-  %21 = load ptr, ptr %10, align 8
-  %22 = load ptr, ptr %vq.i, align 8
-  call void @qvirtio_wait_used_elem(ptr noundef %12, ptr noundef %21, ptr noundef %22, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
+  %20 = load ptr, ptr %10, align 8
+  %21 = load ptr, ptr %vq.i, align 8
+  call void @qvirtio_wait_used_elem(ptr noundef %12, ptr noundef %20, ptr noundef %21, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
   %expectErr = getelementptr inbounds i8, ptr %opt, i64 28
-  %23 = load i32, ptr %expectErr, align 4
-  %tobool33.not = icmp eq i32 %23, 0
+  %22 = load i32, ptr %expectErr, align 4
+  %tobool33.not = icmp eq i32 %22, 0
   br i1 %tobool33.not, label %if.else50, label %if.then34
 
 if.then34:                                        ; preds = %if.then32
   call void @v9fs_req_recv(ptr noundef nonnull %call28, i8 noundef zeroext 7)
-  %24 = load ptr, ptr %call28, align 8
-  %25 = load i64, ptr %r_msg.i, align 8
+  %23 = load ptr, ptr %call28, align 8
+  %24 = load i64, ptr %r_msg.i, align 8
   %r_off.i.i.i = getelementptr inbounds i8, ptr %call28, i64 56
+  %25 = load i64, ptr %r_off.i.i.i, align 8
+  %add.i.i.i = add i64 %25, %24
+  call void @qtest_memread(ptr noundef %23, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
   %26 = load i64, ptr %r_off.i.i.i, align 8
-  %add.i.i.i = add i64 %26, %25
-  call void @qtest_memread(ptr noundef %24, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
-  %27 = load i64, ptr %r_off.i.i.i, align 8
-  %add2.i.i.i = add i64 %27, 4
+  %add2.i.i.i = add i64 %26, 4
   store i64 %add2.i.i.i, ptr %r_off.i.i.i, align 8
-  %28 = load ptr, ptr @alloc, align 8
-  %29 = load i64, ptr %t_msg.i.i, align 8
-  call void @guest_free(ptr noundef %28, i64 noundef %29) #13
-  %30 = load ptr, ptr @alloc, align 8
-  %31 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %30, i64 noundef %31) #13
+  %27 = load ptr, ptr @alloc, align 8
+  %28 = load i64, ptr %t_msg.i.i, align 8
+  call void @guest_free(ptr noundef %27, i64 noundef %28) #13
+  %29 = load ptr, ptr @alloc, align 8
+  %30 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %29, i64 noundef %30) #13
   call void @g_free(ptr noundef nonnull %call28) #13
-  %32 = load i32, ptr %err, align 4
-  %cmp41 = icmp eq i32 %32, %23
+  %31 = load i32, ptr %err, align 4
+  %cmp41 = icmp eq i32 %31, %22
   br i1 %cmp41, label %if.end94, label %if.else44
 
 if.else44:                                        ; preds = %if.then34
-  %conv45 = uitofp i32 %32 to x86_fp80
-  %conv46 = uitofp i32 %23 to x86_fp80
+  %conv45 = uitofp i32 %31 to x86_fp80
+  %conv46 = uitofp i32 %22 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 330, ptr noundef nonnull @__func__.v9fs_tversion, ptr noundef nonnull @.str.17, x86_fp80 noundef %conv45, ptr noundef nonnull @.str.10, x86_fp80 noundef %conv46, i8 noundef signext 105) #13
   br label %if.end94
 
 if.else50:                                        ; preds = %if.then32
   call void @v9fs_rversion(ptr noundef nonnull %call28, ptr noundef nonnull %server_len, ptr noundef nonnull %server_version)
-  %33 = load ptr, ptr %server_version, align 8
-  %34 = load i16, ptr %server_len, align 2
+  %32 = load ptr, ptr %server_version, align 8
+  %33 = load i16, ptr %server_len, align 2
   %call55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
   %conv56 = trunc i64 %call55 to i32
-  %cmp57 = icmp ne i16 %34, 0
-  %cmp59 = icmp eq ptr %33, null
+  %cmp57 = icmp ne i16 %33, 0
+  %cmp59 = icmp eq ptr %32, null
   %or.cond = select i1 %cmp57, i1 %cmp59, i1 false
   br i1 %or.cond, label %if.then61, label %if.else69
 
@@ -895,12 +894,12 @@ if.then61:                                        ; preds = %if.else50
   br label %if.end94
 
 if.else69:                                        ; preds = %if.else50
-  %conv53 = zext i16 %34 to i32
+  %conv53 = zext i16 %33 to i32
   %cmp70.not = icmp eq i32 %conv53, %conv56
   br i1 %cmp70.not, label %if.else75, label %if.then72
 
 if.then72:                                        ; preds = %if.else69
-  %conv73 = uitofp i16 %34 to x86_fp80
+  %conv73 = uitofp i16 %33 to x86_fp80
   %conv74 = sitofp i32 %conv56 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 334, ptr noundef nonnull @__func__.v9fs_tversion, ptr noundef nonnull @.str.20, x86_fp80 noundef %conv73, ptr noundef nonnull @.str.10, x86_fp80 noundef %conv74, i8 noundef signext 105) #13
   br label %if.end94
@@ -909,8 +908,8 @@ if.else75:                                        ; preds = %if.else69
   br i1 %cmp57, label %land.lhs.true81, label %if.end94
 
 land.lhs.true81:                                  ; preds = %if.else75
-  %conv82 = zext i16 %34 to i64
-  %bcmp = call i32 @bcmp(ptr %33, ptr nonnull %5, i64 %conv82)
+  %conv82 = zext i16 %33 to i64
+  %bcmp = call i32 @bcmp(ptr %32, ptr nonnull %5, i64 %conv82)
   %cmp84.not = icmp eq i32 %bcmp, 0
   br i1 %cmp84.not, label %if.end94, label %if.then86
 
@@ -1061,21 +1060,20 @@ if.else5:                                         ; preds = %do.body1
 do.end7:                                          ; preds = %do.body1
   %requestOnly = getelementptr inbounds i8, ptr %opt, i64 32
   %3 = load i8, ptr %requestOnly, align 8
-  %4 = and i8 %3, 1
-  %tobool8.not = icmp eq i8 %4, 0
-  br i1 %tobool8.not, label %if.then9, label %if.end14
+  %tobool8 = trunc i8 %3 to i1
+  br i1 %tobool8, label %if.end14, label %if.then9
 
 if.then9:                                         ; preds = %do.end7
-  %5 = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false)
+  %4 = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   store ptr %0, ptr %.compoundliteral, align 8
   %call = tail call ptr @v9fs_tversion(ptr noundef nonnull byval(%struct.TVersionOpt) align 8 %.compoundliteral)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then9, %do.end7
   %n_uname = getelementptr inbounds i8, ptr %opt, i64 16
-  %6 = load i32, ptr %n_uname, align 8
-  %tobool15.not = icmp eq i32 %6, 0
+  %5 = load i32, ptr %n_uname, align 8
+  %tobool15.not = icmp eq i32 %5, 0
   br i1 %tobool15.not, label %if.then16, label %if.end19
 
 if.then16:                                        ; preds = %if.end14
@@ -1083,109 +1081,109 @@ if.then16:                                        ; preds = %if.end14
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then16, %if.end14
-  %7 = phi i32 [ %call17, %if.then16 ], [ %6, %if.end14 ]
+  %6 = phi i32 [ %call17, %if.then16 ], [ %5, %if.end14 ]
   %tag = getelementptr inbounds i8, ptr %opt, i64 8
-  %8 = load i16, ptr %tag, align 8
+  %7 = load i16, ptr %tag, align 8
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %hdr.i)
   %call.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #16
   %id2.i = getelementptr inbounds i8, ptr %hdr.i, i64 4
   store i8 104, ptr %id2.i, align 4
   %tag3.i = getelementptr inbounds i8, ptr %hdr.i, i64 5
-  store i16 %8, ptr %tag3.i, align 1
+  store i16 %7, ptr %tag3.i, align 1
   store i32 23, ptr %hdr.i, align 4
-  %9 = load ptr, ptr @global_qtest, align 8
-  store ptr %9, ptr %call.i, align 8
+  %8 = load ptr, ptr @global_qtest, align 8
+  store ptr %8, ptr %call.i, align 8
   %v9p23.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %0, ptr %v9p23.i, align 8
   %t_size.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 23, ptr %t_size.i, align 8
-  %10 = load ptr, ptr @alloc, align 8
-  %call26.i = tail call i64 @guest_alloc(ptr noundef %10, i64 noundef 23) #13
+  %9 = load ptr, ptr @alloc, align 8
+  %call26.i = tail call i64 @guest_alloc(ptr noundef %9, i64 noundef 23) #13
   %t_msg.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %call26.i, ptr %t_msg.i, align 8
   %t_off.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
-  %11 = load i64, ptr %t_off.i.i, align 8
-  %add.i.i = add i64 %11, %call26.i
-  call void @qtest_memwrite(ptr noundef %9, i64 noundef %add.i.i, ptr noundef nonnull %hdr.i, i64 noundef 7) #13
-  %add2.i.i = add i64 %11, 7
+  %10 = load i64, ptr %t_off.i.i, align 8
+  %add.i.i = add i64 %10, %call26.i
+  call void @qtest_memwrite(ptr noundef %8, i64 noundef %add.i.i, ptr noundef nonnull %hdr.i, i64 noundef 7) #13
+  %add2.i.i = add i64 %10, 7
   %tag27.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  store i16 %8, ptr %tag27.i, align 8
+  store i16 %7, ptr %tag27.i, align 8
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %hdr.i)
   %fid = getelementptr inbounds i8, ptr %opt, i64 12
-  %12 = load i32, ptr %fid, align 4
+  %11 = load i32, ptr %fid, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i)
-  store i32 %12, ptr %le_val.i, align 4
+  store i32 %11, ptr %le_val.i, align 4
   %add.i.i13 = add i64 %call26.i, %add2.i.i
-  call void @qtest_memwrite(ptr noundef %9, i64 noundef %add.i.i13, ptr noundef nonnull %le_val.i, i64 noundef 4) #13
-  %add2.i.i14 = add i64 %11, 11
+  call void @qtest_memwrite(ptr noundef %8, i64 noundef %add.i.i13, ptr noundef nonnull %le_val.i, i64 noundef 4) #13
+  %add2.i.i14 = add i64 %10, 11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i15)
   store i32 -1, ptr %le_val.i15, align 4
   %add.i.i18 = add i64 %call26.i, %add2.i.i14
-  call void @qtest_memwrite(ptr noundef %9, i64 noundef %add.i.i18, ptr noundef nonnull %le_val.i15, i64 noundef 4) #13
-  %add2.i.i19 = add i64 %11, 15
+  call void @qtest_memwrite(ptr noundef %8, i64 noundef %add.i.i18, ptr noundef nonnull %le_val.i15, i64 noundef 4) #13
+  %add2.i.i19 = add i64 %10, 15
   store i64 %add2.i.i19, ptr %t_off.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i15)
   call void @v9fs_string_write(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.23)
   call void @v9fs_string_write(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.23)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i20)
-  store i32 %7, ptr %le_val.i20, align 4
-  %13 = load ptr, ptr %call.i, align 8
-  %14 = load i64, ptr %t_msg.i, align 8
-  %15 = load i64, ptr %t_off.i.i, align 8
-  %add.i.i23 = add i64 %15, %14
-  call void @qtest_memwrite(ptr noundef %13, i64 noundef %add.i.i23, ptr noundef nonnull %le_val.i20, i64 noundef 4) #13
+  store i32 %6, ptr %le_val.i20, align 4
+  %12 = load ptr, ptr %call.i, align 8
+  %13 = load i64, ptr %t_msg.i, align 8
+  %14 = load i64, ptr %t_off.i.i, align 8
+  %add.i.i23 = add i64 %14, %13
+  call void @qtest_memwrite(ptr noundef %12, i64 noundef %add.i.i23, ptr noundef nonnull %le_val.i20, i64 noundef 4) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i20)
-  %16 = load ptr, ptr %v9p23.i, align 8
-  %17 = load ptr, ptr @alloc, align 8
-  %call.i25 = call i64 @guest_alloc(ptr noundef %17, i64 noundef 4096) #13
+  %15 = load ptr, ptr %v9p23.i, align 8
+  %16 = load ptr, ptr @alloc, align 8
+  %call.i25 = call i64 @guest_alloc(ptr noundef %16, i64 noundef 4096) #13
   %r_msg.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store i64 %call.i25, ptr %r_msg.i, align 8
-  %vq.i = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = load ptr, ptr %vq.i, align 8
-  %19 = load i32, ptr %t_size.i, align 8
-  %call2.i = call i32 @qvirtqueue_add(ptr noundef %13, ptr noundef %18, i64 noundef %14, i32 noundef %19, i1 noundef zeroext false, i1 noundef zeroext true) #13
+  %vq.i = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = load ptr, ptr %vq.i, align 8
+  %18 = load i32, ptr %t_size.i, align 8
+  %call2.i = call i32 @qvirtqueue_add(ptr noundef %12, ptr noundef %17, i64 noundef %13, i32 noundef %18, i1 noundef zeroext false, i1 noundef zeroext true) #13
   %free_head.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store i32 %call2.i, ptr %free_head.i, align 8
-  %20 = load ptr, ptr %vq.i, align 8
-  %call6.i = call i32 @qvirtqueue_add(ptr noundef %13, ptr noundef %20, i64 noundef %call.i25, i32 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false) #13
-  %21 = load ptr, ptr %16, align 8
-  %22 = load ptr, ptr %vq.i, align 8
-  call void @qvirtqueue_kick(ptr noundef %13, ptr noundef %21, ptr noundef %22, i32 noundef %call2.i) #13
+  %19 = load ptr, ptr %vq.i, align 8
+  %call6.i = call i32 @qvirtqueue_add(ptr noundef %12, ptr noundef %19, i64 noundef %call.i25, i32 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false) #13
+  %20 = load ptr, ptr %15, align 8
+  %21 = load ptr, ptr %vq.i, align 8
+  call void @qvirtqueue_kick(ptr noundef %12, ptr noundef %20, ptr noundef %21, i32 noundef %call2.i) #13
   store i64 0, ptr %t_off.i.i, align 8
-  br i1 %tobool8.not, label %if.then25, label %if.end43
+  br i1 %tobool8, label %if.end43, label %if.then25
 
 if.then25:                                        ; preds = %if.end19
-  %23 = load ptr, ptr %16, align 8
-  %24 = load ptr, ptr %vq.i, align 8
-  call void @qvirtio_wait_used_elem(ptr noundef %13, ptr noundef %23, ptr noundef %24, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
+  %22 = load ptr, ptr %15, align 8
+  %23 = load ptr, ptr %vq.i, align 8
+  call void @qvirtio_wait_used_elem(ptr noundef %12, ptr noundef %22, ptr noundef %23, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
   %tobool27.not = icmp eq i32 %1, 0
   br i1 %tobool27.not, label %if.else39, label %if.then28
 
 if.then28:                                        ; preds = %if.then25
   call void @v9fs_req_recv(ptr noundef nonnull %call.i, i8 noundef zeroext 7)
-  %25 = load ptr, ptr %call.i, align 8
-  %26 = load i64, ptr %r_msg.i, align 8
+  %24 = load ptr, ptr %call.i, align 8
+  %25 = load i64, ptr %r_msg.i, align 8
   %r_off.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %26 = load i64, ptr %r_off.i.i.i, align 8
+  %add.i.i.i = add i64 %26, %25
+  call void @qtest_memread(ptr noundef %24, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
   %27 = load i64, ptr %r_off.i.i.i, align 8
-  %add.i.i.i = add i64 %27, %26
-  call void @qtest_memread(ptr noundef %25, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
-  %28 = load i64, ptr %r_off.i.i.i, align 8
-  %add2.i.i.i = add i64 %28, 4
+  %add2.i.i.i = add i64 %27, 4
   store i64 %add2.i.i.i, ptr %r_off.i.i.i, align 8
-  %29 = load ptr, ptr @alloc, align 8
-  %30 = load i64, ptr %t_msg.i, align 8
-  call void @guest_free(ptr noundef %29, i64 noundef %30) #13
-  %31 = load ptr, ptr @alloc, align 8
-  %32 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %31, i64 noundef %32) #13
+  %28 = load ptr, ptr @alloc, align 8
+  %29 = load i64, ptr %t_msg.i, align 8
+  call void @guest_free(ptr noundef %28, i64 noundef %29) #13
+  %30 = load ptr, ptr @alloc, align 8
+  %31 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %30, i64 noundef %31) #13
   call void @g_free(ptr noundef nonnull %call.i) #13
-  %33 = load i32, ptr %err, align 4
-  %cmp = icmp eq i32 %33, %1
+  %32 = load i32, ptr %err, align 4
+  %cmp = icmp eq i32 %32, %1
   br i1 %cmp, label %if.end43, label %if.else34
 
 if.else34:                                        ; preds = %if.then28
-  %conv35 = uitofp i32 %33 to x86_fp80
+  %conv35 = uitofp i32 %32 to x86_fp80
   %conv36 = uitofp i32 %1 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 394, ptr noundef nonnull @__func__.v9fs_tattach, ptr noundef nonnull @.str.17, x86_fp80 noundef %conv35, ptr noundef nonnull @.str.10, x86_fp80 noundef %conv36, i8 noundef signext 105) #13
   br label %if.end43
@@ -1196,24 +1194,24 @@ if.else39:                                        ; preds = %if.then25
   br i1 %tobool.not.i, label %v9fs_rattach.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else39
-  %34 = load ptr, ptr %call.i, align 8
-  %35 = load i64, ptr %r_msg.i, align 8
+  %33 = load ptr, ptr %call.i, align 8
+  %34 = load i64, ptr %r_msg.i, align 8
   %r_off.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %35 = load i64, ptr %r_off.i.i, align 8
+  %add.i.i32 = add i64 %35, %34
+  call void @qtest_memread(ptr noundef %33, i64 noundef %add.i.i32, ptr noundef nonnull %2, i64 noundef 13) #13
   %36 = load i64, ptr %r_off.i.i, align 8
-  %add.i.i32 = add i64 %36, %35
-  call void @qtest_memread(ptr noundef %34, i64 noundef %add.i.i32, ptr noundef nonnull %2, i64 noundef 13) #13
-  %37 = load i64, ptr %r_off.i.i, align 8
-  %add2.i.i33 = add i64 %37, 13
+  %add2.i.i33 = add i64 %36, 13
   store i64 %add2.i.i33, ptr %r_off.i.i, align 8
   br label %v9fs_rattach.exit
 
 v9fs_rattach.exit:                                ; preds = %if.else39, %if.then.i
-  %38 = load ptr, ptr @alloc, align 8
-  %39 = load i64, ptr %t_msg.i, align 8
-  call void @guest_free(ptr noundef %38, i64 noundef %39) #13
-  %40 = load ptr, ptr @alloc, align 8
-  %41 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %40, i64 noundef %41) #13
+  %37 = load ptr, ptr @alloc, align 8
+  %38 = load i64, ptr %t_msg.i, align 8
+  call void @guest_free(ptr noundef %37, i64 noundef %38) #13
+  %39 = load ptr, ptr @alloc, align 8
+  %40 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %39, i64 noundef %40) #13
   call void @g_free(ptr noundef nonnull %call.i) #13
   br label %if.end43
 
@@ -1511,50 +1509,49 @@ for.end68:                                        ; preds = %for.body62, %for.en
   store i64 0, ptr %t_off.i.i, align 8
   %requestOnly = getelementptr inbounds i8, ptr %opt, i64 56
   %30 = load i8, ptr %requestOnly, align 8
-  %31 = and i8 %30, 1
-  %tobool69.not = icmp eq i8 %31, 0
-  br i1 %tobool69.not, label %if.then70, label %if.end94
+  %tobool69 = trunc i8 %30 to i1
+  br i1 %tobool69, label %if.end94, label %if.then70
 
 if.then70:                                        ; preds = %for.end68
-  %32 = load ptr, ptr %21, align 8
-  %33 = load ptr, ptr %vq.i, align 8
-  call void @qvirtio_wait_used_elem(ptr noundef %23, ptr noundef %32, ptr noundef %33, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
+  %31 = load ptr, ptr %21, align 8
+  %32 = load ptr, ptr %vq.i, align 8
+  call void @qvirtio_wait_used_elem(ptr noundef %23, ptr noundef %31, ptr noundef %32, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
   br i1 %tobool12.not, label %if.else88, label %if.then73
 
 if.then73:                                        ; preds = %if.then70
   call void @v9fs_req_recv(ptr noundef nonnull %call54, i8 noundef zeroext 7)
-  %34 = load ptr, ptr %call54, align 8
-  %35 = load i64, ptr %r_msg.i, align 8
+  %33 = load ptr, ptr %call54, align 8
+  %34 = load i64, ptr %r_msg.i, align 8
   %r_off.i.i.i = getelementptr inbounds i8, ptr %call54, i64 56
+  %35 = load i64, ptr %r_off.i.i.i, align 8
+  %add.i.i.i = add i64 %35, %34
+  call void @qtest_memread(ptr noundef %33, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
   %36 = load i64, ptr %r_off.i.i.i, align 8
-  %add.i.i.i = add i64 %36, %35
-  call void @qtest_memread(ptr noundef %34, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
-  %37 = load i64, ptr %r_off.i.i.i, align 8
-  %add2.i.i.i = add i64 %37, 4
+  %add2.i.i.i = add i64 %36, 4
   store i64 %add2.i.i.i, ptr %r_off.i.i.i, align 8
-  %38 = load ptr, ptr @alloc, align 8
-  %39 = load i64, ptr %t_msg.i.i, align 8
-  call void @guest_free(ptr noundef %38, i64 noundef %39) #13
-  %40 = load ptr, ptr @alloc, align 8
-  %41 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %40, i64 noundef %41) #13
+  %37 = load ptr, ptr @alloc, align 8
+  %38 = load i64, ptr %t_msg.i.i, align 8
+  call void @guest_free(ptr noundef %37, i64 noundef %38) #13
+  %39 = load ptr, ptr @alloc, align 8
+  %40 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %39, i64 noundef %40) #13
   call void @g_free(ptr noundef nonnull %call54) #13
-  %42 = load i32, ptr %err, align 4
-  %cmp80 = icmp eq i32 %42, %4
+  %41 = load i32, ptr %err, align 4
+  %cmp80 = icmp eq i32 %41, %4
   br i1 %cmp80, label %if.end94, label %if.else83
 
 if.else83:                                        ; preds = %if.then73
-  %conv84 = uitofp i32 %42 to x86_fp80
+  %conv84 = uitofp i32 %41 to x86_fp80
   %conv85 = uitofp i32 %4 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 459, ptr noundef nonnull @__func__.v9fs_twalk, ptr noundef nonnull @.str.17, x86_fp80 noundef %conv84, ptr noundef nonnull @.str.10, x86_fp80 noundef %conv85, i8 noundef signext 105) #13
   br label %if.end94
 
 if.else88:                                        ; preds = %if.then70
   %rwalk89 = getelementptr inbounds i8, ptr %opt, i64 40
-  %43 = load ptr, ptr %rwalk89, align 8
+  %42 = load ptr, ptr %rwalk89, align 8
   %wqid92 = getelementptr inbounds i8, ptr %opt, i64 48
-  %44 = load ptr, ptr %wqid92, align 8
-  call void @v9fs_rwalk(ptr noundef nonnull %call54, ptr noundef %43, ptr noundef %44)
+  %43 = load ptr, ptr %wqid92, align 8
+  call void @v9fs_rwalk(ptr noundef nonnull %call54, ptr noundef %42, ptr noundef %43)
   br label %if.end94
 
 if.end94:                                         ; preds = %if.else88, %if.else83, %if.then73, %for.end68
@@ -1563,19 +1560,19 @@ if.end94:                                         ; preds = %if.else88, %if.else
   br i1 %tobool.not.i, label %split_free.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end94
-  %45 = load ptr, ptr %wnames.0, align 8
-  %tobool1.not7.i = icmp eq ptr %45, null
+  %44 = load ptr, ptr %wnames.0, align 8
+  %tobool1.not7.i = icmp eq ptr %44, null
   br i1 %tobool1.not7.i, label %for.end.i45, label %for.body.i41
 
 for.body.i41:                                     ; preds = %for.cond.preheader.i, %for.body.i41
-  %46 = phi ptr [ %47, %for.body.i41 ], [ %45, %for.cond.preheader.i ]
+  %45 = phi ptr [ %46, %for.body.i41 ], [ %44, %for.cond.preheader.i ]
   %i.08.i = phi i32 [ %inc.i42, %for.body.i41 ], [ 0, %for.cond.preheader.i ]
-  call void @g_free(ptr noundef nonnull %46) #13
+  call void @g_free(ptr noundef nonnull %45) #13
   %inc.i42 = add i32 %i.08.i, 1
   %idxprom.i43 = sext i32 %inc.i42 to i64
   %arrayidx.i44 = getelementptr ptr, ptr %wnames.0, i64 %idxprom.i43
-  %47 = load ptr, ptr %arrayidx.i44, align 8
-  %tobool1.not.i = icmp eq ptr %47, null
+  %46 = load ptr, ptr %arrayidx.i44, align 8
+  %tobool1.not.i = icmp eq ptr %46, null
   br i1 %tobool1.not.i, label %for.end.i45, label %for.body.i41, !llvm.loop !10
 
 for.end.i45:                                      ; preds = %for.body.i41, %for.cond.preheader.i
@@ -1737,41 +1734,40 @@ do.end7:                                          ; preds = %do.body1
   store i64 0, ptr %t_off.i.i, align 8
   %requestOnly = getelementptr inbounds i8, ptr %opt, i64 32
   %14 = load i8, ptr %requestOnly, align 8
-  %15 = and i8 %14, 1
-  %tobool14.not = icmp eq i8 %15, 0
-  br i1 %tobool14.not, label %if.then15, label %if.end33
+  %tobool14 = trunc i8 %14 to i1
+  br i1 %tobool14, label %if.end33, label %if.then15
 
 if.then15:                                        ; preds = %do.end7
-  %16 = load ptr, ptr %0, align 8
-  %17 = load ptr, ptr %vq.i, align 8
-  call void @qvirtio_wait_used_elem(ptr noundef %5, ptr noundef %16, ptr noundef %17, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
+  %15 = load ptr, ptr %0, align 8
+  %16 = load ptr, ptr %vq.i, align 8
+  call void @qvirtio_wait_used_elem(ptr noundef %5, ptr noundef %15, ptr noundef %16, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
   %tobool17.not = icmp eq i32 %1, 0
   br i1 %tobool17.not, label %if.else29, label %if.then18
 
 if.then18:                                        ; preds = %if.then15
   call void @v9fs_req_recv(ptr noundef nonnull %call.i, i8 noundef zeroext 7)
-  %18 = load ptr, ptr %call.i, align 8
-  %19 = load i64, ptr %r_msg.i, align 8
+  %17 = load ptr, ptr %call.i, align 8
+  %18 = load i64, ptr %r_msg.i, align 8
   %r_off.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %19 = load i64, ptr %r_off.i.i.i, align 8
+  %add.i.i.i = add i64 %19, %18
+  call void @qtest_memread(ptr noundef %17, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
   %20 = load i64, ptr %r_off.i.i.i, align 8
-  %add.i.i.i = add i64 %20, %19
-  call void @qtest_memread(ptr noundef %18, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
-  %21 = load i64, ptr %r_off.i.i.i, align 8
-  %add2.i.i.i = add i64 %21, 4
+  %add2.i.i.i = add i64 %20, 4
   store i64 %add2.i.i.i, ptr %r_off.i.i.i, align 8
-  %22 = load ptr, ptr @alloc, align 8
-  %23 = load i64, ptr %t_msg.i, align 8
-  call void @guest_free(ptr noundef %22, i64 noundef %23) #13
-  %24 = load ptr, ptr @alloc, align 8
-  %25 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %24, i64 noundef %25) #13
+  %21 = load ptr, ptr @alloc, align 8
+  %22 = load i64, ptr %t_msg.i, align 8
+  call void @guest_free(ptr noundef %21, i64 noundef %22) #13
+  %23 = load ptr, ptr @alloc, align 8
+  %24 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %23, i64 noundef %24) #13
   call void @g_free(ptr noundef nonnull %call.i) #13
-  %26 = load i32, ptr %err, align 4
-  %cmp = icmp eq i32 %26, %1
+  %25 = load i32, ptr %err, align 4
+  %cmp = icmp eq i32 %25, %1
   br i1 %cmp, label %if.end33, label %if.else24
 
 if.else24:                                        ; preds = %if.then18
-  %conv25 = uitofp i32 %26 to x86_fp80
+  %conv25 = uitofp i32 %25 to x86_fp80
   %conv26 = uitofp i32 %1 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 514, ptr noundef nonnull @__func__.v9fs_tgetattr, ptr noundef nonnull @.str.17, x86_fp80 noundef %conv25, ptr noundef nonnull @.str.10, x86_fp80 noundef %conv26, i8 noundef signext 105) #13
   br label %if.end33
@@ -2070,52 +2066,51 @@ do.end13:                                         ; preds = %lor.lhs.false, %do.
   store i64 0, ptr %t_off.i.i, align 8
   %requestOnly = getelementptr inbounds i8, ptr %opt, i64 56
   %17 = load i8, ptr %requestOnly, align 8
-  %18 = and i8 %17, 1
-  %tobool16.not = icmp eq i8 %18, 0
-  br i1 %tobool16.not, label %if.then17, label %if.end39
+  %tobool16 = trunc i8 %17 to i1
+  br i1 %tobool16, label %if.end39, label %if.then17
 
 if.then17:                                        ; preds = %do.end13
-  %19 = load ptr, ptr %0, align 8
-  %20 = load ptr, ptr %vq.i, align 8
-  call void @qvirtio_wait_used_elem(ptr noundef %6, ptr noundef %19, ptr noundef %20, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
+  %18 = load ptr, ptr %0, align 8
+  %19 = load ptr, ptr %vq.i, align 8
+  call void @qvirtio_wait_used_elem(ptr noundef %6, ptr noundef %18, ptr noundef %19, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
   br i1 %tobool2.not, label %if.else31, label %if.then20
 
 if.then20:                                        ; preds = %if.then17
   call void @v9fs_req_recv(ptr noundef nonnull %call.i, i8 noundef zeroext 7)
-  %21 = load ptr, ptr %call.i, align 8
-  %22 = load i64, ptr %r_msg.i, align 8
+  %20 = load ptr, ptr %call.i, align 8
+  %21 = load i64, ptr %r_msg.i, align 8
   %r_off.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %22 = load i64, ptr %r_off.i.i.i, align 8
+  %add.i.i.i = add i64 %22, %21
+  call void @qtest_memread(ptr noundef %20, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
   %23 = load i64, ptr %r_off.i.i.i, align 8
-  %add.i.i.i = add i64 %23, %22
-  call void @qtest_memread(ptr noundef %21, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
-  %24 = load i64, ptr %r_off.i.i.i, align 8
-  %add2.i.i.i = add i64 %24, 4
+  %add2.i.i.i = add i64 %23, 4
   store i64 %add2.i.i.i, ptr %r_off.i.i.i, align 8
-  %25 = load ptr, ptr @alloc, align 8
-  %26 = load i64, ptr %t_msg.i, align 8
-  call void @guest_free(ptr noundef %25, i64 noundef %26) #13
-  %27 = load ptr, ptr @alloc, align 8
-  %28 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %27, i64 noundef %28) #13
+  %24 = load ptr, ptr @alloc, align 8
+  %25 = load i64, ptr %t_msg.i, align 8
+  call void @guest_free(ptr noundef %24, i64 noundef %25) #13
+  %26 = load ptr, ptr @alloc, align 8
+  %27 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %26, i64 noundef %27) #13
   call void @g_free(ptr noundef nonnull %call.i) #13
-  %29 = load i32, ptr %err, align 4
-  %cmp = icmp eq i32 %29, %1
+  %28 = load i32, ptr %err, align 4
+  %cmp = icmp eq i32 %28, %1
   br i1 %cmp, label %if.end39, label %if.else26
 
 if.else26:                                        ; preds = %if.then20
-  %conv27 = uitofp i32 %29 to x86_fp80
+  %conv27 = uitofp i32 %28 to x86_fp80
   %conv28 = uitofp i32 %1 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 580, ptr noundef nonnull @__func__.v9fs_treaddir, ptr noundef nonnull @.str.17, x86_fp80 noundef %conv27, ptr noundef nonnull @.str.10, x86_fp80 noundef %conv28, i8 noundef signext 105) #13
   br label %if.end39
 
 if.else31:                                        ; preds = %if.then17
   %rreaddir32 = getelementptr inbounds i8, ptr %opt, i64 32
-  %30 = load ptr, ptr %rreaddir32, align 8
+  %29 = load ptr, ptr %rreaddir32, align 8
   %nentries35 = getelementptr inbounds i8, ptr %opt, i64 40
-  %31 = load ptr, ptr %nentries35, align 8
+  %30 = load ptr, ptr %nentries35, align 8
   %entries37 = getelementptr inbounds i8, ptr %opt, i64 48
-  %32 = load ptr, ptr %entries37, align 8
-  call void @v9fs_rreaddir(ptr noundef nonnull %call.i, ptr noundef %30, ptr noundef %31, ptr noundef %32)
+  %31 = load ptr, ptr %entries37, align 8
+  call void @v9fs_rreaddir(ptr noundef nonnull %call.i, ptr noundef %29, ptr noundef %30, ptr noundef %31)
   br label %if.end39
 
 if.end39:                                         ; preds = %if.else31, %if.else26, %if.then20, %do.end13
@@ -2397,50 +2392,49 @@ do.end10:                                         ; preds = %lor.lhs.false, %do.
   store i64 0, ptr %t_off.i.i, align 8
   %requestOnly = getelementptr inbounds i8, ptr %opt, i64 40
   %15 = load i8, ptr %requestOnly, align 8
-  %16 = and i8 %15, 1
-  %tobool12.not = icmp eq i8 %16, 0
-  br i1 %tobool12.not, label %if.then13, label %if.end33
+  %tobool12 = trunc i8 %15 to i1
+  br i1 %tobool12, label %if.end33, label %if.then13
 
 if.then13:                                        ; preds = %do.end10
-  %17 = load ptr, ptr %0, align 8
-  %18 = load ptr, ptr %vq.i, align 8
-  call void @qvirtio_wait_used_elem(ptr noundef %5, ptr noundef %17, ptr noundef %18, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
+  %16 = load ptr, ptr %0, align 8
+  %17 = load ptr, ptr %vq.i, align 8
+  call void @qvirtio_wait_used_elem(ptr noundef %5, ptr noundef %16, ptr noundef %17, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
   br i1 %tobool2.not, label %if.else27, label %if.then16
 
 if.then16:                                        ; preds = %if.then13
   call void @v9fs_req_recv(ptr noundef nonnull %call.i, i8 noundef zeroext 7)
-  %19 = load ptr, ptr %call.i, align 8
-  %20 = load i64, ptr %r_msg.i, align 8
+  %18 = load ptr, ptr %call.i, align 8
+  %19 = load i64, ptr %r_msg.i, align 8
   %r_off.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %20 = load i64, ptr %r_off.i.i.i, align 8
+  %add.i.i.i = add i64 %20, %19
+  call void @qtest_memread(ptr noundef %18, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
   %21 = load i64, ptr %r_off.i.i.i, align 8
-  %add.i.i.i = add i64 %21, %20
-  call void @qtest_memread(ptr noundef %19, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
-  %22 = load i64, ptr %r_off.i.i.i, align 8
-  %add2.i.i.i = add i64 %22, 4
+  %add2.i.i.i = add i64 %21, 4
   store i64 %add2.i.i.i, ptr %r_off.i.i.i, align 8
-  %23 = load ptr, ptr @alloc, align 8
-  %24 = load i64, ptr %t_msg.i, align 8
-  call void @guest_free(ptr noundef %23, i64 noundef %24) #13
-  %25 = load ptr, ptr @alloc, align 8
-  %26 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %25, i64 noundef %26) #13
+  %22 = load ptr, ptr @alloc, align 8
+  %23 = load i64, ptr %t_msg.i, align 8
+  call void @guest_free(ptr noundef %22, i64 noundef %23) #13
+  %24 = load ptr, ptr @alloc, align 8
+  %25 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %24, i64 noundef %25) #13
   call void @g_free(ptr noundef nonnull %call.i) #13
-  %27 = load i32, ptr %err, align 4
-  %cmp = icmp eq i32 %27, %1
+  %26 = load i32, ptr %err, align 4
+  %cmp = icmp eq i32 %26, %1
   br i1 %cmp, label %if.end33, label %if.else22
 
 if.else22:                                        ; preds = %if.then16
-  %conv23 = uitofp i32 %27 to x86_fp80
+  %conv23 = uitofp i32 %26 to x86_fp80
   %conv24 = uitofp i32 %1 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 669, ptr noundef nonnull @__func__.v9fs_tlopen, ptr noundef nonnull @.str.17, x86_fp80 noundef %conv23, ptr noundef nonnull @.str.10, x86_fp80 noundef %conv24, i8 noundef signext 105) #13
   br label %if.end33
 
 if.else27:                                        ; preds = %if.then13
   %rlopen28 = getelementptr inbounds i8, ptr %opt, i64 24
-  %28 = load ptr, ptr %rlopen28, align 8
+  %27 = load ptr, ptr %rlopen28, align 8
   %iounit31 = getelementptr inbounds i8, ptr %opt, i64 32
-  %29 = load ptr, ptr %iounit31, align 8
-  call void @v9fs_rlopen(ptr noundef nonnull %call.i, ptr noundef %28, ptr noundef %29)
+  %28 = load ptr, ptr %iounit31, align 8
+  call void @v9fs_rlopen(ptr noundef nonnull %call.i, ptr noundef %27, ptr noundef %28)
   br label %if.end33
 
 if.end33:                                         ; preds = %if.else27, %if.else22, %if.then16, %do.end10
@@ -2592,72 +2586,71 @@ do.end9:                                          ; preds = %if.else5, %do.body1
   store i64 0, ptr %t_off.i.i, align 8
   %requestOnly = getelementptr inbounds i8, ptr %opt, i64 40
   %16 = load i8, ptr %requestOnly, align 8
-  %17 = and i8 %16, 1
-  %tobool15.not = icmp eq i8 %17, 0
-  br i1 %tobool15.not, label %if.then16, label %if.end35
+  %tobool15 = trunc i8 %16 to i1
+  br i1 %tobool15, label %if.end35, label %if.then16
 
 if.then16:                                        ; preds = %do.end9
-  %18 = load ptr, ptr %9, align 8
-  %19 = load ptr, ptr %vq.i, align 8
-  call void @qvirtio_wait_used_elem(ptr noundef %4, ptr noundef %18, ptr noundef %19, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %vq.i, align 8
+  call void @qvirtio_wait_used_elem(ptr noundef %4, ptr noundef %17, ptr noundef %18, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
   %expectErr = getelementptr inbounds i8, ptr %opt, i64 44
-  %20 = load i32, ptr %expectErr, align 4
-  %tobool17.not = icmp eq i32 %20, 0
+  %19 = load i32, ptr %expectErr, align 4
+  %tobool17.not = icmp eq i32 %19, 0
   %r_off.i.i.i32 = getelementptr inbounds i8, ptr %call, i64 56
   br i1 %tobool17.not, label %if.else33, label %if.then18
 
 if.then18:                                        ; preds = %if.then16
   call void @v9fs_req_recv(ptr noundef nonnull %call, i8 noundef zeroext 7)
-  %21 = load ptr, ptr %call, align 8
-  %22 = load i64, ptr %r_msg.i, align 8
+  %20 = load ptr, ptr %call, align 8
+  %21 = load i64, ptr %r_msg.i, align 8
+  %22 = load i64, ptr %r_off.i.i.i32, align 8
+  %add.i.i.i = add i64 %22, %21
+  call void @qtest_memread(ptr noundef %20, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
   %23 = load i64, ptr %r_off.i.i.i32, align 8
-  %add.i.i.i = add i64 %23, %22
-  call void @qtest_memread(ptr noundef %21, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
-  %24 = load i64, ptr %r_off.i.i.i32, align 8
-  %add2.i.i.i = add i64 %24, 4
+  %add2.i.i.i = add i64 %23, 4
   store i64 %add2.i.i.i, ptr %r_off.i.i.i32, align 8
-  %25 = load ptr, ptr @alloc, align 8
-  %26 = load i64, ptr %t_msg.i.i, align 8
-  call void @guest_free(ptr noundef %25, i64 noundef %26) #13
-  %27 = load ptr, ptr @alloc, align 8
-  %28 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %27, i64 noundef %28) #13
+  %24 = load ptr, ptr @alloc, align 8
+  %25 = load i64, ptr %t_msg.i.i, align 8
+  call void @guest_free(ptr noundef %24, i64 noundef %25) #13
+  %26 = load ptr, ptr @alloc, align 8
+  %27 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %26, i64 noundef %27) #13
   call void @g_free(ptr noundef nonnull %call) #13
-  %29 = load i32, ptr %err, align 4
-  %cmp25 = icmp eq i32 %29, %20
+  %28 = load i32, ptr %err, align 4
+  %cmp25 = icmp eq i32 %28, %19
   br i1 %cmp25, label %if.end35, label %if.else28
 
 if.else28:                                        ; preds = %if.then18
-  %conv29 = uitofp i32 %29 to x86_fp80
-  %conv30 = uitofp i32 %20 to x86_fp80
+  %conv29 = uitofp i32 %28 to x86_fp80
+  %conv30 = uitofp i32 %19 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 717, ptr noundef nonnull @__func__.v9fs_twrite, ptr noundef nonnull @.str.17, x86_fp80 noundef %conv29, ptr noundef nonnull @.str.10, x86_fp80 noundef %conv30, i8 noundef signext 105) #13
   br label %if.end35
 
 if.else33:                                        ; preds = %if.then16
   call void @v9fs_req_recv(ptr noundef nonnull %call, i8 noundef zeroext 119)
-  %30 = load ptr, ptr %call, align 8
-  %31 = load i64, ptr %r_msg.i, align 8
+  %29 = load ptr, ptr %call, align 8
+  %30 = load i64, ptr %r_msg.i, align 8
+  %31 = load i64, ptr %r_off.i.i.i32, align 8
+  %add.i.i.i33 = add i64 %31, %30
+  call void @qtest_memread(ptr noundef %29, i64 noundef %add.i.i.i33, ptr noundef nonnull %written, i64 noundef 4) #13
   %32 = load i64, ptr %r_off.i.i.i32, align 8
-  %add.i.i.i33 = add i64 %32, %31
-  call void @qtest_memread(ptr noundef %30, i64 noundef %add.i.i.i33, ptr noundef nonnull %written, i64 noundef 4) #13
-  %33 = load i64, ptr %r_off.i.i.i32, align 8
-  %add2.i.i.i34 = add i64 %33, 4
+  %add2.i.i.i34 = add i64 %32, 4
   store i64 %add2.i.i.i34, ptr %r_off.i.i.i32, align 8
-  %34 = load ptr, ptr @alloc, align 8
-  %35 = load i64, ptr %t_msg.i.i, align 8
-  call void @guest_free(ptr noundef %34, i64 noundef %35) #13
-  %36 = load ptr, ptr @alloc, align 8
-  %37 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %36, i64 noundef %37) #13
+  %33 = load ptr, ptr @alloc, align 8
+  %34 = load i64, ptr %t_msg.i.i, align 8
+  call void @guest_free(ptr noundef %33, i64 noundef %34) #13
+  %35 = load ptr, ptr @alloc, align 8
+  %36 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %35, i64 noundef %36) #13
   call void @g_free(ptr noundef nonnull %call) #13
   %.pre = load i32, ptr %written, align 4
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else33, %if.else28, %if.then18, %do.end9
-  %38 = phi i32 [ 0, %do.end9 ], [ 0, %if.then18 ], [ 0, %if.else28 ], [ %.pre, %if.else33 ]
+  %37 = phi i32 [ 0, %do.end9 ], [ 0, %if.then18 ], [ 0, %if.else28 ], [ %.pre, %if.else33 ]
   %req.0 = phi ptr [ %call, %do.end9 ], [ null, %if.then18 ], [ null, %if.else28 ], [ null, %if.else33 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %req.0, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %38, 1
+  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %37, 1
   ret { ptr, i32 } %.fca.1.insert
 }
 
@@ -2761,55 +2754,54 @@ do.end:                                           ; preds = %entry
   store i64 0, ptr %t_off.i.i, align 8
   %requestOnly = getelementptr inbounds i8, ptr %opt, i64 12
   %11 = load i8, ptr %requestOnly, align 4
-  %12 = and i8 %11, 1
-  %tobool2.not = icmp eq i8 %12, 0
-  br i1 %tobool2.not, label %if.then3, label %if.end19
+  %tobool2 = trunc i8 %11 to i1
+  br i1 %tobool2, label %if.end19, label %if.then3
 
 if.then3:                                         ; preds = %do.end
-  %13 = load ptr, ptr %0, align 8
-  %14 = load ptr, ptr %vq.i, align 8
-  call void @qvirtio_wait_used_elem(ptr noundef %2, ptr noundef %13, ptr noundef %14, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
+  %12 = load ptr, ptr %0, align 8
+  %13 = load ptr, ptr %vq.i, align 8
+  call void @qvirtio_wait_used_elem(ptr noundef %2, ptr noundef %12, ptr noundef %13, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
   %expectErr = getelementptr inbounds i8, ptr %opt, i64 16
-  %15 = load i32, ptr %expectErr, align 8
-  %tobool4.not = icmp eq i32 %15, 0
+  %14 = load i32, ptr %expectErr, align 8
+  %tobool4.not = icmp eq i32 %14, 0
   br i1 %tobool4.not, label %if.else17, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
   call void @v9fs_req_recv(ptr noundef nonnull %call.i, i8 noundef zeroext 7)
-  %16 = load ptr, ptr %call.i, align 8
-  %17 = load i64, ptr %r_msg.i, align 8
+  %15 = load ptr, ptr %call.i, align 8
+  %16 = load i64, ptr %r_msg.i, align 8
   %r_off.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %17 = load i64, ptr %r_off.i.i.i, align 8
+  %add.i.i.i = add i64 %17, %16
+  call void @qtest_memread(ptr noundef %15, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
   %18 = load i64, ptr %r_off.i.i.i, align 8
-  %add.i.i.i = add i64 %18, %17
-  call void @qtest_memread(ptr noundef %16, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
-  %19 = load i64, ptr %r_off.i.i.i, align 8
-  %add2.i.i.i = add i64 %19, 4
+  %add2.i.i.i = add i64 %18, 4
   store i64 %add2.i.i.i, ptr %r_off.i.i.i, align 8
-  %20 = load ptr, ptr @alloc, align 8
-  %21 = load i64, ptr %t_msg.i, align 8
-  call void @guest_free(ptr noundef %20, i64 noundef %21) #13
-  %22 = load ptr, ptr @alloc, align 8
-  %23 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %22, i64 noundef %23) #13
+  %19 = load ptr, ptr @alloc, align 8
+  %20 = load i64, ptr %t_msg.i, align 8
+  call void @guest_free(ptr noundef %19, i64 noundef %20) #13
+  %21 = load ptr, ptr @alloc, align 8
+  %22 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %21, i64 noundef %22) #13
   call void @g_free(ptr noundef nonnull %call.i) #13
-  %24 = load i32, ptr %err, align 4
-  %cmp = icmp eq i32 %24, %15
+  %23 = load i32, ptr %err, align 4
+  %cmp = icmp eq i32 %23, %14
   br i1 %cmp, label %if.end19, label %if.else12
 
 if.else12:                                        ; preds = %if.then5
-  %conv13 = uitofp i32 %24 to x86_fp80
-  %conv14 = uitofp i32 %15 to x86_fp80
+  %conv13 = uitofp i32 %23 to x86_fp80
+  %conv14 = uitofp i32 %14 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 756, ptr noundef nonnull @__func__.v9fs_tflush, ptr noundef nonnull @.str.17, x86_fp80 noundef %conv13, ptr noundef nonnull @.str.10, x86_fp80 noundef %conv14, i8 noundef signext 105) #13
   br label %if.end19
 
 if.else17:                                        ; preds = %if.then3
   call void @v9fs_req_recv(ptr noundef nonnull %call.i, i8 noundef zeroext 109)
-  %25 = load ptr, ptr @alloc, align 8
-  %26 = load i64, ptr %t_msg.i, align 8
-  call void @guest_free(ptr noundef %25, i64 noundef %26) #13
-  %27 = load ptr, ptr @alloc, align 8
-  %28 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %27, i64 noundef %28) #13
+  %24 = load ptr, ptr @alloc, align 8
+  %25 = load i64, ptr %t_msg.i, align 8
+  call void @guest_free(ptr noundef %24, i64 noundef %25) #13
+  %26 = load ptr, ptr @alloc, align 8
+  %27 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %26, i64 noundef %27) #13
   call void @g_free(ptr noundef nonnull %call.i) #13
   br label %if.end19
 
@@ -2966,41 +2958,40 @@ v9fs_string_size.exit:                            ; preds = %if.end24, %if.else.
   store i64 0, ptr %t_off.i.i, align 8
   %requestOnly = getelementptr inbounds i8, ptr %opt, i64 48
   %26 = load i8, ptr %requestOnly, align 8
-  %27 = and i8 %26, 1
-  %tobool46.not = icmp eq i8 %27, 0
-  br i1 %tobool46.not, label %if.then47, label %if.end69
+  %tobool46 = trunc i8 %26 to i1
+  br i1 %tobool46, label %if.end69, label %if.then47
 
 if.then47:                                        ; preds = %v9fs_string_size.exit
-  %28 = load ptr, ptr %19, align 8
-  %29 = load ptr, ptr %vq.i, align 8
-  call void @qvirtio_wait_used_elem(ptr noundef %15, ptr noundef %28, ptr noundef %29, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
+  %27 = load ptr, ptr %19, align 8
+  %28 = load ptr, ptr %vq.i, align 8
+  call void @qvirtio_wait_used_elem(ptr noundef %15, ptr noundef %27, ptr noundef %28, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
   %tobool49.not = icmp eq i32 %3, 0
   br i1 %tobool49.not, label %if.else65, label %if.then50
 
 if.then50:                                        ; preds = %if.then47
   call void @v9fs_req_recv(ptr noundef nonnull %call42, i8 noundef zeroext 7)
-  %30 = load ptr, ptr %call42, align 8
-  %31 = load i64, ptr %r_msg.i, align 8
+  %29 = load ptr, ptr %call42, align 8
+  %30 = load i64, ptr %r_msg.i, align 8
   %r_off.i.i.i = getelementptr inbounds i8, ptr %call42, i64 56
+  %31 = load i64, ptr %r_off.i.i.i, align 8
+  %add.i.i.i = add i64 %31, %30
+  call void @qtest_memread(ptr noundef %29, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
   %32 = load i64, ptr %r_off.i.i.i, align 8
-  %add.i.i.i = add i64 %32, %31
-  call void @qtest_memread(ptr noundef %30, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
-  %33 = load i64, ptr %r_off.i.i.i, align 8
-  %add2.i.i.i = add i64 %33, 4
+  %add2.i.i.i = add i64 %32, 4
   store i64 %add2.i.i.i, ptr %r_off.i.i.i, align 8
-  %34 = load ptr, ptr @alloc, align 8
-  %35 = load i64, ptr %t_msg.i.i, align 8
-  call void @guest_free(ptr noundef %34, i64 noundef %35) #13
-  %36 = load ptr, ptr @alloc, align 8
-  %37 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %36, i64 noundef %37) #13
+  %33 = load ptr, ptr @alloc, align 8
+  %34 = load i64, ptr %t_msg.i.i, align 8
+  call void @guest_free(ptr noundef %33, i64 noundef %34) #13
+  %35 = load ptr, ptr @alloc, align 8
+  %36 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %35, i64 noundef %36) #13
   call void @g_free(ptr noundef nonnull %call42) #13
-  %38 = load i32, ptr %err, align 4
-  %cmp57 = icmp eq i32 %38, %3
+  %37 = load i32, ptr %err, align 4
+  %cmp57 = icmp eq i32 %37, %3
   br i1 %cmp57, label %if.end69, label %if.else60
 
 if.else60:                                        ; preds = %if.then50
-  %conv61 = uitofp i32 %38 to x86_fp80
+  %conv61 = uitofp i32 %37 to x86_fp80
   %conv62 = uitofp i32 %3 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 811, ptr noundef nonnull @__func__.v9fs_tmkdir, ptr noundef nonnull @.str.17, x86_fp80 noundef %conv61, ptr noundef nonnull @.str.10, x86_fp80 noundef %conv62, i8 noundef signext 105) #13
   br label %if.end69
@@ -3011,12 +3002,12 @@ if.else65:                                        ; preds = %if.then47
   br i1 %tobool.not.i, label %if.else.i34, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else65
-  %39 = load ptr, ptr %call42, align 8
-  %40 = load i64, ptr %r_msg.i, align 8
+  %38 = load ptr, ptr %call42, align 8
+  %39 = load i64, ptr %r_msg.i, align 8
   %r_off.i.i = getelementptr inbounds i8, ptr %call42, i64 56
-  %41 = load i64, ptr %r_off.i.i, align 8
-  %add.i.i32 = add i64 %41, %40
-  call void @qtest_memread(ptr noundef %39, i64 noundef %add.i.i32, ptr noundef nonnull %4, i64 noundef 13) #13
+  %40 = load i64, ptr %r_off.i.i, align 8
+  %add.i.i32 = add i64 %40, %39
+  call void @qtest_memread(ptr noundef %38, i64 noundef %add.i.i32, ptr noundef nonnull %4, i64 noundef 13) #13
   br label %v9fs_rmkdir.exit
 
 if.else.i34:                                      ; preds = %if.else65
@@ -3025,15 +3016,15 @@ if.else.i34:                                      ; preds = %if.else65
 
 v9fs_rmkdir.exit:                                 ; preds = %if.then.i, %if.else.i34
   %r_off.i5.sink8.i = phi ptr [ %r_off.i5.i, %if.else.i34 ], [ %r_off.i.i, %if.then.i ]
-  %42 = load i64, ptr %r_off.i5.sink8.i, align 8
-  %add.i6.i = add i64 %42, 13
+  %41 = load i64, ptr %r_off.i5.sink8.i, align 8
+  %add.i6.i = add i64 %41, 13
   store i64 %add.i6.i, ptr %r_off.i5.sink8.i, align 8
-  %43 = load ptr, ptr @alloc, align 8
-  %44 = load i64, ptr %t_msg.i.i, align 8
-  call void @guest_free(ptr noundef %43, i64 noundef %44) #13
-  %45 = load ptr, ptr @alloc, align 8
-  %46 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %45, i64 noundef %46) #13
+  %42 = load ptr, ptr @alloc, align 8
+  %43 = load i64, ptr %t_msg.i.i, align 8
+  call void @guest_free(ptr noundef %42, i64 noundef %43) #13
+  %44 = load ptr, ptr @alloc, align 8
+  %45 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %44, i64 noundef %45) #13
   call void @g_free(ptr noundef nonnull %call42) #13
   br label %if.end69
 
@@ -3228,50 +3219,49 @@ v9fs_string_size.exit:                            ; preds = %if.end28, %if.else.
   store i64 0, ptr %t_off.i.i, align 8
   %requestOnly = getelementptr inbounds i8, ptr %opt, i64 64
   %28 = load i8, ptr %requestOnly, align 8
-  %29 = and i8 %28, 1
-  %tobool50.not = icmp eq i8 %29, 0
-  br i1 %tobool50.not, label %if.then51, label %if.end75
+  %tobool50 = trunc i8 %28 to i1
+  br i1 %tobool50, label %if.end75, label %if.then51
 
 if.then51:                                        ; preds = %v9fs_string_size.exit
-  %30 = load ptr, ptr %21, align 8
-  %31 = load ptr, ptr %vq.i, align 8
-  call void @qvirtio_wait_used_elem(ptr noundef %17, ptr noundef %30, ptr noundef %31, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
+  %29 = load ptr, ptr %21, align 8
+  %30 = load ptr, ptr %vq.i, align 8
+  call void @qvirtio_wait_used_elem(ptr noundef %17, ptr noundef %29, ptr noundef %30, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
   br i1 %tobool9.not, label %if.else69, label %if.then54
 
 if.then54:                                        ; preds = %if.then51
   call void @v9fs_req_recv(ptr noundef nonnull %call46, i8 noundef zeroext 7)
-  %32 = load ptr, ptr %call46, align 8
-  %33 = load i64, ptr %r_msg.i, align 8
+  %31 = load ptr, ptr %call46, align 8
+  %32 = load i64, ptr %r_msg.i, align 8
   %r_off.i.i.i = getelementptr inbounds i8, ptr %call46, i64 56
+  %33 = load i64, ptr %r_off.i.i.i, align 8
+  %add.i.i.i = add i64 %33, %32
+  call void @qtest_memread(ptr noundef %31, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
   %34 = load i64, ptr %r_off.i.i.i, align 8
-  %add.i.i.i = add i64 %34, %33
-  call void @qtest_memread(ptr noundef %32, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
-  %35 = load i64, ptr %r_off.i.i.i, align 8
-  %add2.i.i.i = add i64 %35, 4
+  %add2.i.i.i = add i64 %34, 4
   store i64 %add2.i.i.i, ptr %r_off.i.i.i, align 8
-  %36 = load ptr, ptr @alloc, align 8
-  %37 = load i64, ptr %t_msg.i.i, align 8
-  call void @guest_free(ptr noundef %36, i64 noundef %37) #13
-  %38 = load ptr, ptr @alloc, align 8
-  %39 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %38, i64 noundef %39) #13
+  %35 = load ptr, ptr @alloc, align 8
+  %36 = load i64, ptr %t_msg.i.i, align 8
+  call void @guest_free(ptr noundef %35, i64 noundef %36) #13
+  %37 = load ptr, ptr @alloc, align 8
+  %38 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %37, i64 noundef %38) #13
   call void @g_free(ptr noundef nonnull %call46) #13
-  %40 = load i32, ptr %err, align 4
-  %cmp61 = icmp eq i32 %40, %3
+  %39 = load i32, ptr %err, align 4
+  %cmp61 = icmp eq i32 %39, %3
   br i1 %cmp61, label %if.end75, label %if.else64
 
 if.else64:                                        ; preds = %if.then54
-  %conv65 = uitofp i32 %40 to x86_fp80
+  %conv65 = uitofp i32 %39 to x86_fp80
   %conv66 = uitofp i32 %3 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 872, ptr noundef nonnull @__func__.v9fs_tlcreate, ptr noundef nonnull @.str.17, x86_fp80 noundef %conv65, ptr noundef nonnull @.str.10, x86_fp80 noundef %conv66, i8 noundef signext 105) #13
   br label %if.end75
 
 if.else69:                                        ; preds = %if.then51
   %rlcreate70 = getelementptr inbounds i8, ptr %opt, i64 48
-  %41 = load ptr, ptr %rlcreate70, align 8
+  %40 = load ptr, ptr %rlcreate70, align 8
   %iounit73 = getelementptr inbounds i8, ptr %opt, i64 56
-  %42 = load ptr, ptr %iounit73, align 8
-  call void @v9fs_rlcreate(ptr noundef nonnull %call46, ptr noundef %41, ptr noundef %42)
+  %41 = load ptr, ptr %iounit73, align 8
+  call void @v9fs_rlcreate(ptr noundef nonnull %call46, ptr noundef %40, ptr noundef %41)
   br label %if.end75
 
 if.end75:                                         ; preds = %if.else69, %if.else64, %if.then54, %v9fs_string_size.exit
@@ -3472,41 +3462,40 @@ v9fs_string_size.exit22:                          ; preds = %v9fs_string_size.ex
   store i64 0, ptr %t_off.i.i, align 8
   %requestOnly = getelementptr inbounds i8, ptr %opt, i64 56
   %27 = load i8, ptr %requestOnly, align 8
-  %28 = and i8 %27, 1
-  %tobool48.not = icmp eq i8 %28, 0
-  br i1 %tobool48.not, label %if.then49, label %if.end71
+  %tobool48 = trunc i8 %27 to i1
+  br i1 %tobool48, label %if.end71, label %if.then49
 
 if.then49:                                        ; preds = %v9fs_string_size.exit22
-  %29 = load ptr, ptr %20, align 8
-  %30 = load ptr, ptr %vq.i, align 8
-  call void @qvirtio_wait_used_elem(ptr noundef %17, ptr noundef %29, ptr noundef %30, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
+  %28 = load ptr, ptr %20, align 8
+  %29 = load ptr, ptr %vq.i, align 8
+  call void @qvirtio_wait_used_elem(ptr noundef %17, ptr noundef %28, ptr noundef %29, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
   %tobool51.not = icmp eq i32 %3, 0
   br i1 %tobool51.not, label %if.else67, label %if.then52
 
 if.then52:                                        ; preds = %if.then49
   call void @v9fs_req_recv(ptr noundef nonnull %call44, i8 noundef zeroext 7)
-  %31 = load ptr, ptr %call44, align 8
-  %32 = load i64, ptr %r_msg.i, align 8
+  %30 = load ptr, ptr %call44, align 8
+  %31 = load i64, ptr %r_msg.i, align 8
   %r_off.i.i.i = getelementptr inbounds i8, ptr %call44, i64 56
+  %32 = load i64, ptr %r_off.i.i.i, align 8
+  %add.i.i.i = add i64 %32, %31
+  call void @qtest_memread(ptr noundef %30, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
   %33 = load i64, ptr %r_off.i.i.i, align 8
-  %add.i.i.i = add i64 %33, %32
-  call void @qtest_memread(ptr noundef %31, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
-  %34 = load i64, ptr %r_off.i.i.i, align 8
-  %add2.i.i.i = add i64 %34, 4
+  %add2.i.i.i = add i64 %33, 4
   store i64 %add2.i.i.i, ptr %r_off.i.i.i, align 8
-  %35 = load ptr, ptr @alloc, align 8
-  %36 = load i64, ptr %t_msg.i.i, align 8
-  call void @guest_free(ptr noundef %35, i64 noundef %36) #13
-  %37 = load ptr, ptr @alloc, align 8
-  %38 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %37, i64 noundef %38) #13
+  %34 = load ptr, ptr @alloc, align 8
+  %35 = load i64, ptr %t_msg.i.i, align 8
+  call void @guest_free(ptr noundef %34, i64 noundef %35) #13
+  %36 = load ptr, ptr @alloc, align 8
+  %37 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %36, i64 noundef %37) #13
   call void @g_free(ptr noundef nonnull %call44) #13
-  %39 = load i32, ptr %err, align 4
-  %cmp59 = icmp eq i32 %39, %3
+  %38 = load i32, ptr %err, align 4
+  %cmp59 = icmp eq i32 %38, %3
   br i1 %cmp59, label %if.end71, label %if.else62
 
 if.else62:                                        ; preds = %if.then52
-  %conv63 = uitofp i32 %39 to x86_fp80
+  %conv63 = uitofp i32 %38 to x86_fp80
   %conv64 = uitofp i32 %3 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 932, ptr noundef nonnull @__func__.v9fs_tsymlink, ptr noundef nonnull @.str.17, x86_fp80 noundef %conv63, ptr noundef nonnull @.str.10, x86_fp80 noundef %conv64, i8 noundef signext 105) #13
   br label %if.end71
@@ -3517,12 +3506,12 @@ if.else67:                                        ; preds = %if.then49
   br i1 %tobool.not.i, label %if.else.i35, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else67
-  %40 = load ptr, ptr %call44, align 8
-  %41 = load i64, ptr %r_msg.i, align 8
+  %39 = load ptr, ptr %call44, align 8
+  %40 = load i64, ptr %r_msg.i, align 8
   %r_off.i.i = getelementptr inbounds i8, ptr %call44, i64 56
-  %42 = load i64, ptr %r_off.i.i, align 8
-  %add.i.i33 = add i64 %42, %41
-  call void @qtest_memread(ptr noundef %40, i64 noundef %add.i.i33, ptr noundef nonnull %4, i64 noundef 13) #13
+  %41 = load i64, ptr %r_off.i.i, align 8
+  %add.i.i33 = add i64 %41, %40
+  call void @qtest_memread(ptr noundef %39, i64 noundef %add.i.i33, ptr noundef nonnull %4, i64 noundef 13) #13
   br label %v9fs_rsymlink.exit
 
 if.else.i35:                                      ; preds = %if.else67
@@ -3531,15 +3520,15 @@ if.else.i35:                                      ; preds = %if.else67
 
 v9fs_rsymlink.exit:                               ; preds = %if.then.i, %if.else.i35
   %r_off.i5.sink8.i = phi ptr [ %r_off.i5.i, %if.else.i35 ], [ %r_off.i.i, %if.then.i ]
-  %43 = load i64, ptr %r_off.i5.sink8.i, align 8
-  %add.i6.i = add i64 %43, 13
+  %42 = load i64, ptr %r_off.i5.sink8.i, align 8
+  %add.i6.i = add i64 %42, 13
   store i64 %add.i6.i, ptr %r_off.i5.sink8.i, align 8
-  %44 = load ptr, ptr @alloc, align 8
-  %45 = load i64, ptr %t_msg.i.i, align 8
-  call void @guest_free(ptr noundef %44, i64 noundef %45) #13
-  %46 = load ptr, ptr @alloc, align 8
-  %47 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %46, i64 noundef %47) #13
+  %43 = load ptr, ptr @alloc, align 8
+  %44 = load i64, ptr %t_msg.i.i, align 8
+  call void @guest_free(ptr noundef %43, i64 noundef %44) #13
+  %45 = load ptr, ptr @alloc, align 8
+  %46 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %45, i64 noundef %46) #13
   call void @g_free(ptr noundef nonnull %call44) #13
   br label %if.end71
 
@@ -3721,55 +3710,54 @@ v9fs_string_size.exit:                            ; preds = %if.end39, %if.else.
   store i64 0, ptr %t_off.i.i, align 8
   %requestOnly = getelementptr inbounds i8, ptr %opt, i64 48
   %26 = load i8, ptr %requestOnly, align 8
-  %27 = and i8 %26, 1
-  %tobool57.not = icmp eq i8 %27, 0
-  br i1 %tobool57.not, label %if.then58, label %if.end77
+  %tobool57 = trunc i8 %26 to i1
+  br i1 %tobool57, label %if.end77, label %if.then58
 
 if.then58:                                        ; preds = %v9fs_string_size.exit
-  %28 = load ptr, ptr %17, align 8
-  %29 = load ptr, ptr %vq.i, align 8
-  call void @qvirtio_wait_used_elem(ptr noundef %19, ptr noundef %28, ptr noundef %29, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
+  %27 = load ptr, ptr %17, align 8
+  %28 = load ptr, ptr %vq.i, align 8
+  call void @qvirtio_wait_used_elem(ptr noundef %19, ptr noundef %27, ptr noundef %28, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
   %expectErr = getelementptr inbounds i8, ptr %opt, i64 52
-  %30 = load i32, ptr %expectErr, align 4
-  %tobool59.not = icmp eq i32 %30, 0
+  %29 = load i32, ptr %expectErr, align 4
+  %tobool59.not = icmp eq i32 %29, 0
   br i1 %tobool59.not, label %if.else75, label %if.then60
 
 if.then60:                                        ; preds = %if.then58
   call void @v9fs_req_recv(ptr noundef nonnull %call53, i8 noundef zeroext 7)
-  %31 = load ptr, ptr %call53, align 8
-  %32 = load i64, ptr %r_msg.i, align 8
+  %30 = load ptr, ptr %call53, align 8
+  %31 = load i64, ptr %r_msg.i, align 8
   %r_off.i.i.i = getelementptr inbounds i8, ptr %call53, i64 56
+  %32 = load i64, ptr %r_off.i.i.i, align 8
+  %add.i.i.i = add i64 %32, %31
+  call void @qtest_memread(ptr noundef %30, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
   %33 = load i64, ptr %r_off.i.i.i, align 8
-  %add.i.i.i = add i64 %33, %32
-  call void @qtest_memread(ptr noundef %31, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
-  %34 = load i64, ptr %r_off.i.i.i, align 8
-  %add2.i.i.i = add i64 %34, 4
+  %add2.i.i.i = add i64 %33, 4
   store i64 %add2.i.i.i, ptr %r_off.i.i.i, align 8
-  %35 = load ptr, ptr @alloc, align 8
-  %36 = load i64, ptr %t_msg.i.i, align 8
-  call void @guest_free(ptr noundef %35, i64 noundef %36) #13
-  %37 = load ptr, ptr @alloc, align 8
-  %38 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %37, i64 noundef %38) #13
+  %34 = load ptr, ptr @alloc, align 8
+  %35 = load i64, ptr %t_msg.i.i, align 8
+  call void @guest_free(ptr noundef %34, i64 noundef %35) #13
+  %36 = load ptr, ptr @alloc, align 8
+  %37 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %36, i64 noundef %37) #13
   call void @g_free(ptr noundef nonnull %call53) #13
-  %39 = load i32, ptr %err, align 4
-  %cmp67 = icmp eq i32 %39, %30
+  %38 = load i32, ptr %err, align 4
+  %cmp67 = icmp eq i32 %38, %29
   br i1 %cmp67, label %if.end77, label %if.else70
 
 if.else70:                                        ; preds = %if.then60
-  %conv71 = uitofp i32 %39 to x86_fp80
-  %conv72 = uitofp i32 %30 to x86_fp80
+  %conv71 = uitofp i32 %38 to x86_fp80
+  %conv72 = uitofp i32 %29 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 991, ptr noundef nonnull @__func__.v9fs_tlink, ptr noundef nonnull @.str.17, x86_fp80 noundef %conv71, ptr noundef nonnull @.str.10, x86_fp80 noundef %conv72, i8 noundef signext 105) #13
   br label %if.end77
 
 if.else75:                                        ; preds = %if.then58
   call void @v9fs_req_recv(ptr noundef nonnull %call53, i8 noundef zeroext 71)
-  %40 = load ptr, ptr @alloc, align 8
-  %41 = load i64, ptr %t_msg.i.i, align 8
-  call void @guest_free(ptr noundef %40, i64 noundef %41) #13
-  %42 = load ptr, ptr @alloc, align 8
-  %43 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %42, i64 noundef %43) #13
+  %39 = load ptr, ptr @alloc, align 8
+  %40 = load i64, ptr %t_msg.i.i, align 8
+  call void @guest_free(ptr noundef %39, i64 noundef %40) #13
+  %41 = load ptr, ptr @alloc, align 8
+  %42 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %41, i64 noundef %42) #13
   call void @g_free(ptr noundef nonnull %call53) #13
   br label %if.end77
 
@@ -3901,55 +3889,54 @@ v9fs_string_size.exit:                            ; preds = %if.end15, %if.else.
   store i64 0, ptr %t_off.i.i, align 8
   %requestOnly = getelementptr inbounds i8, ptr %opt, i64 36
   %23 = load i8, ptr %requestOnly, align 4
-  %24 = and i8 %23, 1
-  %tobool32.not = icmp eq i8 %24, 0
-  br i1 %tobool32.not, label %if.then33, label %if.end52
+  %tobool32 = trunc i8 %23 to i1
+  br i1 %tobool32, label %if.end52, label %if.then33
 
 if.then33:                                        ; preds = %v9fs_string_size.exit
-  %25 = load ptr, ptr %16, align 8
-  %26 = load ptr, ptr %vq.i, align 8
-  call void @qvirtio_wait_used_elem(ptr noundef %13, ptr noundef %25, ptr noundef %26, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
+  %24 = load ptr, ptr %16, align 8
+  %25 = load ptr, ptr %vq.i, align 8
+  call void @qvirtio_wait_used_elem(ptr noundef %13, ptr noundef %24, ptr noundef %25, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
   %expectErr = getelementptr inbounds i8, ptr %opt, i64 40
-  %27 = load i32, ptr %expectErr, align 8
-  %tobool34.not = icmp eq i32 %27, 0
+  %26 = load i32, ptr %expectErr, align 8
+  %tobool34.not = icmp eq i32 %26, 0
   br i1 %tobool34.not, label %if.else50, label %if.then35
 
 if.then35:                                        ; preds = %if.then33
   call void @v9fs_req_recv(ptr noundef nonnull %call29, i8 noundef zeroext 7)
-  %28 = load ptr, ptr %call29, align 8
-  %29 = load i64, ptr %r_msg.i, align 8
+  %27 = load ptr, ptr %call29, align 8
+  %28 = load i64, ptr %r_msg.i, align 8
   %r_off.i.i.i = getelementptr inbounds i8, ptr %call29, i64 56
+  %29 = load i64, ptr %r_off.i.i.i, align 8
+  %add.i.i.i = add i64 %29, %28
+  call void @qtest_memread(ptr noundef %27, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
   %30 = load i64, ptr %r_off.i.i.i, align 8
-  %add.i.i.i = add i64 %30, %29
-  call void @qtest_memread(ptr noundef %28, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
-  %31 = load i64, ptr %r_off.i.i.i, align 8
-  %add2.i.i.i = add i64 %31, 4
+  %add2.i.i.i = add i64 %30, 4
   store i64 %add2.i.i.i, ptr %r_off.i.i.i, align 8
-  %32 = load ptr, ptr @alloc, align 8
-  %33 = load i64, ptr %t_msg.i.i, align 8
-  call void @guest_free(ptr noundef %32, i64 noundef %33) #13
-  %34 = load ptr, ptr @alloc, align 8
-  %35 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %34, i64 noundef %35) #13
+  %31 = load ptr, ptr @alloc, align 8
+  %32 = load i64, ptr %t_msg.i.i, align 8
+  call void @guest_free(ptr noundef %31, i64 noundef %32) #13
+  %33 = load ptr, ptr @alloc, align 8
+  %34 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %33, i64 noundef %34) #13
   call void @g_free(ptr noundef nonnull %call29) #13
-  %36 = load i32, ptr %err, align 4
-  %cmp42 = icmp eq i32 %36, %27
+  %35 = load i32, ptr %err, align 4
+  %cmp42 = icmp eq i32 %35, %26
   br i1 %cmp42, label %if.end52, label %if.else45
 
 if.else45:                                        ; preds = %if.then35
-  %conv46 = uitofp i32 %36 to x86_fp80
-  %conv47 = uitofp i32 %27 to x86_fp80
+  %conv46 = uitofp i32 %35 to x86_fp80
+  %conv47 = uitofp i32 %26 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1039, ptr noundef nonnull @__func__.v9fs_tunlinkat, ptr noundef nonnull @.str.17, x86_fp80 noundef %conv46, ptr noundef nonnull @.str.10, x86_fp80 noundef %conv47, i8 noundef signext 105) #13
   br label %if.end52
 
 if.else50:                                        ; preds = %if.then33
   call void @v9fs_req_recv(ptr noundef nonnull %call29, i8 noundef zeroext 77)
-  %37 = load ptr, ptr @alloc, align 8
-  %38 = load i64, ptr %t_msg.i.i, align 8
-  call void @guest_free(ptr noundef %37, i64 noundef %38) #13
-  %39 = load ptr, ptr @alloc, align 8
-  %40 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %39, i64 noundef %40) #13
+  %36 = load ptr, ptr @alloc, align 8
+  %37 = load i64, ptr %t_msg.i.i, align 8
+  call void @guest_free(ptr noundef %36, i64 noundef %37) #13
+  %38 = load ptr, ptr @alloc, align 8
+  %39 = load i64, ptr %r_msg.i, align 8
+  call void @guest_free(ptr noundef %38, i64 noundef %39) #13
   call void @g_free(ptr noundef nonnull %call29) #13
   br label %if.end52
 

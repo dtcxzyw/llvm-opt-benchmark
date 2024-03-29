@@ -1074,17 +1074,16 @@ entry:
   %tlem.i = alloca %"class.cvc5::internal::TrustNode", align 8
   %d_processingPendingLemmas = getelementptr inbounds i8, ptr %this, i64 352
   %0 = load i8, ptr %d_processingPendingLemmas, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %d_processingPendingLemmas, align 8
   %d_pendingLem = getelementptr inbounds i8, ptr %this, i64 256
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 264
-  %2 = load ptr, ptr %_M_finish.i, align 8
-  %3 = load ptr, ptr %d_pendingLem, align 8
-  %cmp14.not = icmp eq ptr %2, %3
+  %1 = load ptr, ptr %_M_finish.i, align 8
+  %2 = load ptr, ptr %d_pendingLem, align 8
+  %cmp14.not = icmp eq ptr %1, %2
   br i1 %cmp14.not, label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE5clearEv.exit, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
@@ -1092,28 +1091,28 @@ while.body.lr.ph:                                 ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4cvc58internal6theory24InferenceManagerBuffered20lemmaTheoryInferenceEPNS1_15TheoryInferenceE.exit
-  %4 = phi ptr [ %3, %while.body.lr.ph ], [ %15, %_ZN4cvc58internal6theory24InferenceManagerBuffered20lemmaTheoryInferenceEPNS1_15TheoryInferenceE.exit ]
+  %3 = phi ptr [ %2, %while.body.lr.ph ], [ %14, %_ZN4cvc58internal6theory24InferenceManagerBuffered20lemmaTheoryInferenceEPNS1_15TheoryInferenceE.exit ]
   %i.015 = phi i64 [ 0, %while.body.lr.ph ], [ %inc, %_ZN4cvc58internal6theory24InferenceManagerBuffered20lemmaTheoryInferenceEPNS1_15TheoryInferenceE.exit ]
-  %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.316", ptr %4, i64 %i.015
-  %5 = load ptr, ptr %add.ptr.i, align 8
+  %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.316", ptr %3, i64 %i.015
+  %4 = load ptr, ptr %add.ptr.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %p.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tlem.i)
   store i32 0, ptr %p.i, align 4
-  %vtable.i = load ptr, ptr %5, align 8
+  %vtable.i = load ptr, ptr %4, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %6 = load ptr, ptr %vfn.i, align 8
-  call void %6(ptr nonnull sret(%"class.cvc5::internal::TrustNode") align 8 %tlem.i, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(4) %p.i)
-  %d_id.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = load i32, ptr %d_id.i.i, align 8
-  %8 = load i32, ptr %p.i, align 4
-  %call3.i = invoke noundef zeroext i1 @_ZN4cvc58internal6theory22TheoryInferenceManager12trustedLemmaERKNS0_9TrustNodeENS1_11InferenceIdENS1_13LemmaPropertyE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull align 8 dereferenceable(24) %tlem.i, i32 noundef %7, i32 noundef %8)
+  %5 = load ptr, ptr %vfn.i, align 8
+  call void %5(ptr nonnull sret(%"class.cvc5::internal::TrustNode") align 8 %tlem.i, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(4) %p.i)
+  %d_id.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = load i32, ptr %d_id.i.i, align 8
+  %7 = load i32, ptr %p.i, align 4
+  %call3.i = invoke noundef zeroext i1 @_ZN4cvc58internal6theory22TheoryInferenceManager12trustedLemmaERKNS0_9TrustNodeENS1_11InferenceIdENS1_13LemmaPropertyE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull align 8 dereferenceable(24) %tlem.i, i32 noundef %6, i32 noundef %7)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %while.body
-  %9 = load ptr, ptr %d_proven.i.i, align 8
-  %bf.load.i.i.i.i = load i64, ptr %9, align 8
-  %10 = and i64 %bf.load.i.i.i.i, 1152920405095219200
-  %cmp.not.i.i.i.i = icmp eq i64 %10, 1152920405095219200
+  %8 = load ptr, ptr %d_proven.i.i, align 8
+  %bf.load.i.i.i.i = load i64, ptr %8, align 8
+  %9 = and i64 %bf.load.i.i.i.i, 1152920405095219200
+  %cmp.not.i.i.i.i = icmp eq i64 %9, 1152920405095219200
   br i1 %cmp.not.i.i.i.i, label %_ZN4cvc58internal6theory24InferenceManagerBuffered20lemmaTheoryInferenceEPNS1_15TheoryInferenceE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont2.i
@@ -1121,65 +1120,65 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont2.i
   %bf.shl.i.i.i.i = and i64 %bf.value.i.i.i.i, 1152920405095219200
   %bf.clear7.i.i.i.i = and i64 %bf.load.i.i.i.i, -1152920405095219201
   %bf.set.i.i.i.i = or disjoint i64 %bf.shl.i.i.i.i, %bf.clear7.i.i.i.i
-  store i64 %bf.set.i.i.i.i, ptr %9, align 8
+  store i64 %bf.set.i.i.i.i, ptr %8, align 8
   %cmp12.i.i.i.i = icmp eq i64 %bf.shl.i.i.i.i, 0
   br i1 %cmp12.i.i.i.i, label %if.then13.i.i.i.i, label %_ZN4cvc58internal6theory24InferenceManagerBuffered20lemmaTheoryInferenceEPNS1_15TheoryInferenceE.exit
 
 if.then13.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %_ZN4cvc58internal6theory24InferenceManagerBuffered20lemmaTheoryInferenceEPNS1_15TheoryInferenceE.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then13.i.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #16
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #16
   unreachable
 
 lpad.i:                                           ; preds = %while.body
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal9TrustNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %tlem.i) #17
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %12
 
 _ZN4cvc58internal6theory24InferenceManagerBuffered20lemmaTheoryInferenceEPNS1_15TheoryInferenceE.exit: ; preds = %invoke.cont2.i, %if.then.i.i.i.i, %if.then13.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %p.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tlem.i)
   %inc = add nuw i64 %i.015, 1
-  %14 = load ptr, ptr %_M_finish.i, align 8
-  %15 = load ptr, ptr %d_pendingLem, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i, align 8
+  %14 = load ptr, ptr %d_pendingLem, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !23
 
 while.end:                                        ; preds = %_ZN4cvc58internal6theory24InferenceManagerBuffered20lemmaTheoryInferenceEPNS1_15TheoryInferenceE.exit
-  %tobool.not.i.i = icmp eq ptr %14, %15
+  %tobool.not.i.i = icmp eq ptr %13, %14
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE5clearEv.exit, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %while.end, %_ZSt8_DestroyISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i ], [ %15, %while.end ]
-  %16 = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %16, null
+  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i ], [ %14, %while.end ]
+  %15 = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN4cvc58internal6theory15TheoryInferenceEEclEPS3_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory15TheoryInferenceEEclEPS3_.exit.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %16, align 8
+  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %15, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 8
-  %17 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(12) %16) #17
+  %16 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(12) %15) #17
   br label %_ZSt8_DestroyISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4cvc58internal6theory15TheoryInferenceEEclEPS3_.exit.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %14
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %13
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !18
 
 invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i
-  store ptr %15, ptr %_M_finish.i, align 8
+  store ptr %14, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE5clearEv.exit
 
 _ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE5clearEv.exit: ; preds = %if.end, %while.end, %invoke.cont.i.i
@@ -1262,8 +1261,7 @@ for.body:                                         ; preds = %entry, %for.body
   store ptr %1, ptr %agg.tmp, align 8
   %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.07, i64 40
   %2 = load i8, ptr %second, align 8
-  %3 = and i8 %2, 1
-  %tobool = icmp ne i8 %3, 0
+  %tobool = trunc i8 %2 to i1
   call void @_ZN4cvc58internal6theory22TheoryInferenceManager11preferPhaseENS0_12NodeTemplateILb0EEEb(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull %agg.tmp, i1 noundef zeroext %tobool)
   %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.07) #21
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
@@ -1271,15 +1269,15 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body, %entry
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 320
-  %4 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %d_pendingReqPhase, ptr noundef %4)
+  %3 = load ptr, ptr %_M_parent.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %d_pendingReqPhase, ptr noundef %3)
           to label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE5clearEv.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %for.end
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #16
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #16
   unreachable
 
 _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE5clearEv.exit: ; preds = %for.end

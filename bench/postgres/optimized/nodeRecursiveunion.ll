@@ -132,9 +132,8 @@ define internal noundef ptr @ExecRecursiveUnion(ptr nocapture noundef %0) #0 {
 11:                                               ; preds = %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 200
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not39 = icmp eq i8 %14, 0
-  br i1 %.not39, label %.preheader, label %42
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %42, label %.preheader
 
 .preheader:                                       ; preds = %11
   %15 = getelementptr inbounds i8, ptr %4, i64 104
@@ -163,8 +162,8 @@ ExecProcNode.exit:                                ; preds = %20, %22
   %27 = getelementptr inbounds i8, ptr %24, i64 4
   %28 = load i16, ptr %27, align 4
   %29 = and i16 %28, 2
-  %.not40 = icmp eq i16 %29, 0
-  br i1 %.not40, label %30, label %41
+  %.not39 = icmp eq i16 %29, 0
+  br i1 %.not39, label %30, label %41
 
 30:                                               ; preds = %26
   %31 = load i32, ptr %17, align 4
@@ -177,9 +176,8 @@ ExecProcNode.exit:                                ; preds = %20, %22
   %36 = load ptr, ptr %19, align 8
   call void @MemoryContextReset(ptr noundef %36) #3
   %37 = load i8, ptr %2, align 1
-  %38 = and i8 %37, 1
-  %.not41 = icmp eq i8 %38, 0
-  br i1 %.not41, label %20, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %20
 
 39:                                               ; preds = %33, %30
   %40 = getelementptr inbounds i8, ptr %0, i64 208
@@ -203,31 +201,30 @@ ExecProcNode.exit:                                ; preds = %20, %22
 
 .backedge:                                        ; preds = %.backedge.backedge, %42
   %52 = load ptr, ptr %43, align 8
-  %.not.i45 = icmp eq ptr %52, null
-  br i1 %.not.i45, label %ExecProcNode.exit46, label %53
+  %.not.i41 = icmp eq ptr %52, null
+  br i1 %.not.i41, label %ExecProcNode.exit42, label %53
 
 53:                                               ; preds = %.backedge
   call void @ExecReScan(ptr noundef nonnull %6) #3
-  br label %ExecProcNode.exit46
+  br label %ExecProcNode.exit42
 
-ExecProcNode.exit46:                              ; preds = %.backedge, %53
+ExecProcNode.exit42:                              ; preds = %.backedge, %53
   %54 = load ptr, ptr %44, align 8
   %55 = call ptr %54(ptr noundef nonnull %6) #3
   %56 = icmp eq ptr %55, null
   br i1 %56, label %61, label %57
 
-57:                                               ; preds = %ExecProcNode.exit46
+57:                                               ; preds = %ExecProcNode.exit42
   %58 = getelementptr inbounds i8, ptr %55, i64 4
   %59 = load i16, ptr %58, align 4
   %60 = and i16 %59, 2
-  %.not42 = icmp eq i16 %60, 0
-  br i1 %.not42, label %72, label %61
+  %.not40 = icmp eq i16 %60, 0
+  br i1 %.not40, label %72, label %61
 
-61:                                               ; preds = %57, %ExecProcNode.exit46
+61:                                               ; preds = %57, %ExecProcNode.exit42
   %62 = load i8, ptr %48, align 1
-  %63 = and i8 %62, 1
-  %.not44 = icmp eq i8 %63, 0
-  br i1 %.not44, label %64, label %.loopexit
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %.loopexit, label %64
 
 64:                                               ; preds = %61
   %65 = load ptr, ptr %49, align 8
@@ -258,18 +255,17 @@ ExecProcNode.exit46:                              ; preds = %.backedge, %53
   %78 = load ptr, ptr %47, align 8
   call void @MemoryContextReset(ptr noundef %78) #3
   %79 = load i8, ptr %2, align 1
-  %80 = and i8 %79, 1
-  %.not43 = icmp eq i8 %80, 0
-  br i1 %.not43, label %.backedge.backedge, label %81
+  %80 = trunc i8 %79 to i1
+  br i1 %80, label %81, label %.backedge.backedge
 
 81:                                               ; preds = %75, %72
   store i8 0, ptr %48, align 1
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %39, %81
-  %.sink56 = phi ptr [ %50, %81 ], [ %40, %39 ]
+  %.sink52 = phi ptr [ %50, %81 ], [ %40, %39 ]
   %.lcssa.sink = phi ptr [ %55, %81 ], [ %24, %39 ]
-  %82 = load ptr, ptr %.sink56, align 8
+  %82 = load ptr, ptr %.sink52, align 8
   call void @tuplestore_puttupleslot(ptr noundef %82, ptr noundef nonnull %.lcssa.sink) #3
   br label %.loopexit
 

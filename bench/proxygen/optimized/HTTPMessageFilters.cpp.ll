@@ -288,49 +288,48 @@ define void @_ZN8proxygen17HTTPMessageFilter5pauseEv(ptr nocapture noundef nonnu
 entry:
   %nextElementIsPaused_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %nextElementIsPaused_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.end19
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end19, label %if.end
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %nextElementIsPaused_, align 8
   %prev_ = getelementptr inbounds i8, ptr %this, i64 32
-  %2 = load i32, ptr %prev_, align 8
-  %.lobit.i = ashr i32 %2, 31
-  %cmp = icmp eq i32 %.lobit.i, %2
+  %1 = load i32, ptr %prev_, align 8
+  %.lobit.i = ashr i32 %1, 31
+  %cmp = icmp eq i32 %.lobit.i, %1
   %storage_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %3 = load ptr, ptr %storage_.i.i.i.i.i.i, align 8
-  %tobool6.not = icmp eq ptr %3, null
-  br i1 %cmp, label %if.then3, label %if.else
+  %2 = load ptr, ptr %storage_.i.i.i.i.i.i, align 8
+  %tobool6.not = icmp eq ptr %2, null
+  br i1 %cmp, label %invoke.cont, label %invoke.cont11
 
-if.then3:                                         ; preds = %if.end
+invoke.cont:                                      ; preds = %if.end
   br i1 %tobool6.not, label %if.end19, label %if.then7
 
-if.then7:                                         ; preds = %if.then3
-  %vtable = load ptr, ptr %3, align 8
+if.then7:                                         ; preds = %invoke.cont
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
-  %4 = load ptr, ptr %vfn, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(49) %3) #19
+  %3 = load ptr, ptr %vfn, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(49) %2) #19
   br label %if.end19
 
-if.else:                                          ; preds = %if.end
+invoke.cont11:                                    ; preds = %if.end
   br i1 %tobool6.not, label %if.end19, label %if.then14
 
-if.then14:                                        ; preds = %if.else
-  %vtable15 = load ptr, ptr %3, align 8
+if.then14:                                        ; preds = %invoke.cont11
+  %vtable15 = load ptr, ptr %2, align 8
   %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 224
-  %5 = load ptr, ptr %vfn16, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %4 = load ptr, ptr %vfn16, align 8
+  invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %if.end19 unwind label %terminate.lpad
 
-if.end19:                                         ; preds = %if.else, %if.then14, %if.then3, %if.then7, %entry
+if.end19:                                         ; preds = %invoke.cont11, %if.then14, %invoke.cont, %if.then7, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then14
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #20
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #20
   unreachable
 }
 
@@ -357,29 +356,29 @@ entry:
   %storage_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %storage_.i.i.i.i.i.i, align 8
   %tobool.not = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.else
+  br i1 %cmp, label %invoke.cont, label %invoke.cont7
 
-if.then:                                          ; preds = %entry
+invoke.cont:                                      ; preds = %entry
   br i1 %tobool.not, label %if.end15, label %if.then4
 
-if.then4:                                         ; preds = %if.then
+if.then4:                                         ; preds = %invoke.cont
   %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(49) %1, i64 noundef %offset) #19
   br label %if.end15
 
-if.else:                                          ; preds = %entry
+invoke.cont7:                                     ; preds = %entry
   br i1 %tobool.not, label %if.end15, label %if.then10
 
-if.then10:                                        ; preds = %if.else
+if.then10:                                        ; preds = %invoke.cont7
   %vtable11 = load ptr, ptr %1, align 8
   %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 232
   %3 = load ptr, ptr %vfn12, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %if.end15 unwind label %terminate.lpad
 
-if.end15:                                         ; preds = %if.else, %if.then10, %if.then, %if.then4
+if.end15:                                         ; preds = %invoke.cont7, %if.then10, %invoke.cont, %if.then4
   ret void
 
 terminate.lpad:                                   ; preds = %if.then10
@@ -764,9 +763,9 @@ entry:
   %0 = load i32, ptr %prev_, align 8
   %.lobit.i = ashr i32 %0, 31
   %cmp = icmp eq i32 %.lobit.i, %0
-  br i1 %cmp, label %land.lhs.true, label %if.end
+  br i1 %cmp, label %invoke.cont, label %if.end
 
-land.lhs.true:                                    ; preds = %entry
+invoke.cont:                                      ; preds = %entry
   %storage_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %storage_.i.i.i.i.i.i, align 8
   %cmp4 = icmp ne ptr %1, %prev
@@ -774,41 +773,40 @@ land.lhs.true:                                    ; preds = %entry
   %or.cond = and i1 %tobool, %cmp4
   br i1 %or.cond, label %land.lhs.true6, label %if.end
 
-land.lhs.true6:                                   ; preds = %land.lhs.true
+land.lhs.true6:                                   ; preds = %invoke.cont
   %nextElementIsPaused_ = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i8, ptr %nextElementIsPaused_, align 8
-  %3 = and i8 %2, 1
-  %tobool7.not = icmp eq i8 %3, 0
-  br i1 %tobool7.not, label %if.end, label %if.then
+  %tobool7 = trunc i8 %2 to i1
+  br i1 %tobool7, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true6
   %vtable = load ptr, ptr %prev, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
-  %4 = load ptr, ptr %vfn, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(49) %prev) #19
+  %3 = load ptr, ptr %vfn, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(49) %prev) #19
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %land.lhs.true6, %land.lhs.true, %entry
+if.end:                                           ; preds = %if.then, %land.lhs.true6, %invoke.cont, %entry
   %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google12CheckNotNullIRPN8proxygen17HTTPMessageFilterEEET_PKciS7_OS5_(ptr noundef nonnull @.str.3, i32 noundef 33, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %prev.addr)
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %if.end
-  %5 = load i32, ptr %prev_, align 8
-  %.lobit.i.i.i.i = ashr i32 %5, 31
-  %switch.i.i.i = icmp eq i32 %.lobit.i.i.i.i, %5
+  %4 = load i32, ptr %prev_, align 8
+  %.lobit.i.i.i.i = ashr i32 %4, 31
+  %switch.i.i.i = icmp eq i32 %.lobit.i.i.i.i, %4
   br i1 %switch.i.i.i, label %_ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant15direct_assignerIS3_EEEENT_11result_typeERSC_.exit.thread.i.i, label %if.then.i.i
 
 _ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant15direct_assignerIS3_EEEENT_11result_typeERSC_.exit.thread.i.i: ; preds = %invoke.cont8
   %storage_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %6 = load ptr, ptr %call9, align 8
-  store ptr %6, ptr %storage_.i.i.i.i, align 8
+  %5 = load ptr, ptr %call9, align 8
+  store ptr %5, ptr %storage_.i.i.i.i, align 8
   br label %invoke.cont11
 
 if.then.i.i:                                      ; preds = %invoke.cont8
-  %7 = load ptr, ptr %call9, align 8
-  %cmp.i.i.i = icmp eq i32 %5, 0
+  %6 = load ptr, ptr %call9, align 8
+  %cmp.i.i.i = icmp eq i32 %4, 0
   %storage_.i.i3.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr %7, ptr %storage_.i.i3.i.i, align 8
+  store ptr %6, ptr %storage_.i.i3.i.i, align 8
   br i1 %cmp.i.i.i, label %invoke.cont11, label %sw.bb.i47.i.i.i
 
 sw.bb.i47.i.i.i:                                  ; preds = %if.then.i.i
@@ -819,10 +817,10 @@ invoke.cont11:                                    ; preds = %sw.bb.i47.i.i.i, %i
   ret void
 
 terminate.lpad:                                   ; preds = %if.end
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #20
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #20
   unreachable
 }
 
@@ -870,15 +868,14 @@ invoke.cont:                                      ; preds = %land.lhs.true
 land.lhs.true6:                                   ; preds = %invoke.cont
   %nextElementIsPaused_ = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i8, ptr %nextElementIsPaused_, align 8
-  %4 = and i8 %3, 1
-  %tobool7.not = icmp eq i8 %4, 0
-  br i1 %tobool7.not, label %if.end, label %if.then
+  %tobool7 = trunc i8 %3 to i1
+  br i1 %tobool7, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true6
   %vtable = load ptr, ptr %prev, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
-  %5 = load ptr, ptr %vfn, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %prev)
+  %4 = load ptr, ptr %vfn, align 8
+  invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %prev)
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %land.lhs.true6, %invoke.cont, %entry
@@ -886,10 +883,10 @@ if.end:                                           ; preds = %if.then, %land.lhs.
           to label %invoke.cont9 unwind label %terminate.lpad
 
 invoke.cont9:                                     ; preds = %if.end
-  %6 = load i32, ptr %prev_, align 8
-  %.lobit.i.i.i.i = ashr i32 %6, 31
-  %switch.i.not.i.i = icmp eq i32 %.lobit.i.i.i.i, %6
-  %7 = load ptr, ptr %call10, align 8
+  %5 = load i32, ptr %prev_, align 8
+  %.lobit.i.i.i.i = ashr i32 %5, 31
+  %switch.i.not.i.i = icmp eq i32 %.lobit.i.i.i.i, %5
+  %6 = load ptr, ptr %call10, align 8
   br i1 %switch.i.not.i.i, label %invoke.cont.i.i, label %invoke.cont12
 
 invoke.cont.i.i:                                  ; preds = %invoke.cont9
@@ -897,19 +894,19 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont9
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %invoke.cont.i.i, %invoke.cont9
-  %8 = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr %7, ptr %8, align 8
+  %7 = getelementptr inbounds i8, ptr %this, i64 40
+  store ptr %6, ptr %7, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %if.end, %if.then
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad.body
 
 terminate.lpad.body:                              ; preds = %lpad.i.i.i, %terminate.lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %9, %terminate.lpad ], [ %1, %lpad.i.i.i ]
-  %10 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %10) #20
+  %eh.lpad-body = phi { ptr, i32 } [ %8, %terminate.lpad ], [ %1, %lpad.i.i.i ]
+  %9 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %9) #20
   unreachable
 }
 

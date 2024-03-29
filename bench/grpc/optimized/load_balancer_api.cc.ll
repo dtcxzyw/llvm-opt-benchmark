@@ -737,9 +737,9 @@ if.end38.i:                                       ; preds = %if.else35.i, %if.th
   %23 = load ptr, ptr %arrayidx.i, align 8
   %add.ptr.i.i32.i = getelementptr inbounds i8, ptr %23, i64 4
   %24 = load i8, ptr %add.ptr.i.i32.i, align 1
-  %25 = and i8 %24, 1
   %drop.i = getelementptr inbounds i8, ptr %call.i.i, i64 74
-  store i8 %25, ptr %drop.i, align 2
+  %frombool.i = and i8 %24, 1
+  store i8 %frombool.i, ptr %drop.i, align 2
   %inc.i = add nuw i64 %i.040.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %11
   br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !12
@@ -750,23 +750,23 @@ if.then:                                          ; preds = %if.end38.i, %grpc_l
 
 grpc_lb_v1_LoadBalanceResponse_initial_response.exit: ; preds = %grpc_lb_v1_LoadBalanceResponse_parse.exit
   %add.ptr.i.i19 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
-  %26 = load i64, ptr %add.ptr.i.i19, align 1
-  %cmp.not = icmp eq i64 %26, 0
+  %25 = load i64, ptr %add.ptr.i.i19, align 1
+  %cmp.not = icmp eq i64 %25, 0
   br i1 %cmp.not, label %return, label %if.then14
 
 if.then14:                                        ; preds = %grpc_lb_v1_LoadBalanceResponse_initial_response.exit
-  %27 = inttoptr i64 %26 to ptr
+  %26 = inttoptr i64 %25 to ptr
   store i32 0, ptr %result, align 8
-  %add.ptr.i.i20 = getelementptr inbounds i8, ptr %27, i64 8
-  %28 = load i64, ptr %add.ptr.i.i20, align 1
-  %cmp17.not = icmp eq i64 %28, 0
+  %add.ptr.i.i20 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = load i64, ptr %add.ptr.i.i20, align 1
+  %cmp17.not = icmp eq i64 %27, 0
   br i1 %cmp17.not, label %return, label %if.then18
 
 if.then18:                                        ; preds = %if.then14
-  %29 = inttoptr i64 %28 to ptr
-  %call16.val = load i32, ptr %29, align 1
-  %30 = getelementptr i8, ptr %29, i64 8
-  %call16.val14 = load i64, ptr %30, align 1
+  %28 = inttoptr i64 %27 to ptr
+  %call16.val = load i32, ptr %28, align 1
+  %29 = getelementptr i8, ptr %28, i64 8
+  %call16.val14 = load i64, ptr %29, align 1
   %cmp.not.i.i.i.i = icmp slt i64 %call16.val14, 9223372036854775
   %cmp4.not.i.i.i.i = icmp sgt i64 %call16.val14, -9223372036854775
   %mul8.i.i.i.i = mul nsw i64 %call16.val14, 1000

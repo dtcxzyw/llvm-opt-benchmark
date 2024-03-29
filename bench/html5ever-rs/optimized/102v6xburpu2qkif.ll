@@ -265,7 +265,7 @@ define void @_ZN8xml5ever9tokenizer8char_ref16CharRefTokenizer10get_result17hd77
 
 7:                                                ; preds = %2
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.e7a30d6e33280da73be555ffdab5e437.0, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7a30d6e33280da73be555ffdab5e437.2) #11
-          to label %27 unwind label %25
+          to label %28 unwind label %26
 
 8:                                                ; preds = %2
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 60
@@ -294,55 +294,55 @@ define void @_ZN8xml5ever9tokenizer8char_ref16CharRefTokenizer10get_result17hd77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !noalias !53
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   %17 = load i8, ptr %16, align 8, !range !54, !noalias !53, !noundef !10
-  %.not.i.i.i.i = icmp eq i8 %17, 0
+  %18 = trunc i8 %17 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !53
-  br i1 %.not.i.i.i.i, label %.sink.split.i.i.i.i, label %18
+  br i1 %18, label %19, label %.sink.split.i.i.i.i
 
-18:                                               ; preds = %15
-  %19 = load i64, ptr %12, align 8, !range !22, !alias.scope !53, !noundef !10
-  %20 = and i64 %19, -2
-  %21 = inttoptr i64 %20 to ptr
-  %22 = load i64, ptr %21, align 8, !noundef !10
-  %23 = add i64 %22, -1
-  store i64 %23, ptr %21, align 8
-  %24 = icmp eq i64 %22, 1
-  br i1 %24, label %.sink.split.i.i.i.i, label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17heb3abae07ce4e237E.llvm.6570740198009921828.exit.i.i"
+19:                                               ; preds = %15
+  %20 = load i64, ptr %12, align 8, !range !22, !alias.scope !53, !noundef !10
+  %21 = and i64 %20, -2
+  %22 = inttoptr i64 %21 to ptr
+  %23 = load i64, ptr %22, align 8, !noundef !10
+  %24 = add i64 %23, -1
+  store i64 %24, ptr %22, align 8
+  %25 = icmp eq i64 %23, 1
+  br i1 %25, label %.sink.split.i.i.i.i, label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17heb3abae07ce4e237E.llvm.6570740198009921828.exit.i.i"
 
-.sink.split.i.i.i.i:                              ; preds = %18, %15
+.sink.split.i.i.i.i:                              ; preds = %19, %15
   call void @"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hcf03f6c1c0652501E.llvm.6570740198009921828"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4)
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17heb3abae07ce4e237E.llvm.6570740198009921828.exit.i.i"
 
-"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17heb3abae07ce4e237E.llvm.6570740198009921828.exit.i.i": ; preds = %.sink.split.i.i.i.i, %18, %11
+"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17heb3abae07ce4e237E.llvm.6570740198009921828.exit.i.i": ; preds = %.sink.split.i.i.i.i, %19, %11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !52
   br label %"_ZN4core3ptr68drop_in_place$LT$xml5ever..tokenizer..char_ref..CharRefTokenizer$GT$17h8037be6ca170a2cbE.exit"
 
 "_ZN4core3ptr68drop_in_place$LT$xml5ever..tokenizer..char_ref..CharRefTokenizer$GT$17h8037be6ca170a2cbE.exit": ; preds = %8, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17heb3abae07ce4e237E.llvm.6570740198009921828.exit.i.i"
   ret void
 
-25:                                               ; preds = %7
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %7
+  %27 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr68drop_in_place$LT$xml5ever..tokenizer..char_ref..CharRefTokenizer$GT$17h8037be6ca170a2cbE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1) #13
-          to label %30 unwind label %28
+          to label %31 unwind label %29
 
-27:                                               ; preds = %7
+28:                                               ; preds = %7
   unreachable
 
-28:                                               ; preds = %25
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %26
+  %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #12
   unreachable
 
-30:                                               ; preds = %25
-  resume { ptr, i32 } %26
+31:                                               ; preds = %26
+  resume { ptr, i32 } %27
 }
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 ptr @_ZN8xml5ever9tokenizer8char_ref16CharRefTokenizer8name_buf17hb477550e9d902965E(ptr noundef nonnull readonly align 8 %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !44, !noundef !10
-  %trunc.not = icmp eq i64 %2, 0
-  br i1 %trunc.not, label %3, label %4
+  %trunc = trunc i64 %2 to i1
+  br i1 %trunc, label %4, label %3
 
 3:                                                ; preds = %1
   tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.e7a30d6e33280da73be555ffdab5e437.3, i64 noundef 45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7a30d6e33280da73be555ffdab5e437.4) #11
@@ -356,8 +356,8 @@ define noundef nonnull align 8 ptr @_ZN8xml5ever9tokenizer8char_ref16CharRefToke
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(16) ptr @_ZN8xml5ever9tokenizer8char_ref16CharRefTokenizer12name_buf_mut17hb0eb4ed3516a8ffaE(ptr noalias noundef readonly align 8 dereferenceable(80) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !44, !noundef !10
-  %trunc.not = icmp eq i64 %2, 0
-  br i1 %trunc.not, label %3, label %4
+  %trunc = trunc i64 %2 to i1
+  br i1 %trunc, label %4, label %3
 
 3:                                                ; preds = %1
   tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.e7a30d6e33280da73be555ffdab5e437.3, i64 noundef 45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7a30d6e33280da73be555ffdab5e437.5) #11

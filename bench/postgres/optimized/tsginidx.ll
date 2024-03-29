@@ -401,9 +401,9 @@ define dso_local i64 @gin_extract_tsquery(ptr nocapture noundef readonly %0) loc
   store i64 %55, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %41, i64 2
   %59 = load i8, ptr %58, align 2
-  %60 = and i8 %59, 1
-  %61 = getelementptr i8, ptr %32, i64 %56
-  store i8 %60, ptr %61, align 1
+  %60 = getelementptr i8, ptr %32, i64 %56
+  %61 = and i8 %59, 1
+  store i8 %61, ptr %60, align 1
   %62 = load ptr, ptr %13, align 8
   %63 = getelementptr ptr, ptr %62, i64 %56
   store ptr %37, ptr %63, align 8

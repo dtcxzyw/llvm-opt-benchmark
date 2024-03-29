@@ -63,10 +63,10 @@ define dso_local noundef ptr @ExecInitParallelPlan(ptr noundef %0, ptr noundef %
   %24 = getelementptr inbounds i8, ptr %22, i64 16
   %25 = load i32, ptr %23, align 4
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph67.i, label %._crit_edge.i
+  br i1 %26, label %.lr.ph66.i, label %._crit_edge.i
 
-.lr.ph67.i:                                       ; preds = %.lr.ph.i, %.lr.ph67.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph67.i ], [ 0, %.lr.ph.i ]
+.lr.ph66.i:                                       ; preds = %.lr.ph.i, %.lr.ph66.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph66.i ], [ 0, %.lr.ph.i ]
   %27 = load ptr, ptr %24, align 8
   %28 = getelementptr %union.ListCell, ptr %27, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
@@ -76,9 +76,9 @@ define dso_local noundef ptr @ExecInitParallelPlan(ptr noundef %0, ptr noundef %
   %31 = load i32, ptr %23, align 4
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next.i, %32
-  br i1 %33, label %.lr.ph67.i, label %._crit_edge.i
+  br i1 %33, label %.lr.ph66.i, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph67.i, %.lr.ph.i, %14
+._crit_edge.i:                                    ; preds = %.lr.ph66.i, %.lr.ph.i, %14
   %34 = tail call noundef ptr @palloc0(i64 noundef 136) #9
   store i32 314, ptr %34, align 4
   %35 = getelementptr inbounds i8, ptr %34, i64 4
@@ -111,42 +111,41 @@ define dso_local noundef ptr @ExecInitParallelPlan(ptr noundef %0, ptr noundef %
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 4
   %.not54.i = icmp eq ptr %53, null
-  br i1 %.not54.i, label %ExecSerializePlan.exit, label %.lr.ph70.i
+  br i1 %.not54.i, label %ExecSerializePlan.exit, label %.lr.ph69.i
 
-.lr.ph70.i:                                       ; preds = %._crit_edge.i
+.lr.ph69.i:                                       ; preds = %._crit_edge.i
   %55 = getelementptr inbounds i8, ptr %53, i64 16
   %56 = load i32, ptr %54, align 4
   %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.lr.ph74.i, label %ExecSerializePlan.exit
+  br i1 %57, label %.lr.ph73.i, label %ExecSerializePlan.exit
 
-.lr.ph74.i:                                       ; preds = %.lr.ph70.i, %66
-  %58 = phi ptr [ %67, %66 ], [ null, %.lr.ph70.i ]
-  %indvars.iv76.i = phi i64 [ %indvars.iv.next77.i, %66 ], [ 0, %.lr.ph70.i ]
+.lr.ph73.i:                                       ; preds = %.lr.ph69.i, %66
+  %58 = phi ptr [ %67, %66 ], [ null, %.lr.ph69.i ]
+  %indvars.iv75.i = phi i64 [ %indvars.iv.next76.i, %66 ], [ 0, %.lr.ph69.i ]
   %59 = load ptr, ptr %55, align 8
-  %60 = getelementptr %union.ListCell, ptr %59, i64 %indvars.iv76.i
+  %60 = getelementptr %union.ListCell, ptr %59, i64 %indvars.iv75.i
   %61 = load ptr, ptr %60, align 8
   %.not56.i = icmp eq ptr %61, null
   br i1 %.not56.i, label %66, label %62
 
-62:                                               ; preds = %.lr.ph74.i
+62:                                               ; preds = %.lr.ph73.i
   %63 = getelementptr inbounds i8, ptr %61, i64 37
   %64 = load i8, ptr %63, align 1
-  %65 = and i8 %64, 1
-  %.not57.i = icmp eq i8 %65, 0
-  %spec.store.select.i = select i1 %.not57.i, ptr null, ptr %61
+  %65 = trunc i8 %64 to i1
+  %spec.store.select.i = select i1 %65, ptr %61, ptr null
   br label %66
 
-66:                                               ; preds = %62, %.lr.ph74.i
-  %.0.i = phi ptr [ %spec.store.select.i, %62 ], [ null, %.lr.ph74.i ]
+66:                                               ; preds = %62, %.lr.ph73.i
+  %.0.i = phi ptr [ %spec.store.select.i, %62 ], [ null, %.lr.ph73.i ]
   %67 = tail call ptr @lappend(ptr noundef %58, ptr noundef %.0.i) #9
   store ptr %67, ptr %49, align 8
-  %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
+  %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %68 = load i32, ptr %54, align 4
   %69 = sext i32 %68 to i64
-  %70 = icmp slt i64 %indvars.iv.next77.i, %69
-  br i1 %70, label %.lr.ph74.i, label %ExecSerializePlan.exit
+  %70 = icmp slt i64 %indvars.iv.next76.i, %69
+  br i1 %70, label %.lr.ph73.i, label %ExecSerializePlan.exit
 
-ExecSerializePlan.exit:                           ; preds = %66, %._crit_edge.i, %.lr.ph70.i
+ExecSerializePlan.exit:                           ; preds = %66, %._crit_edge.i, %.lr.ph69.i
   %71 = getelementptr inbounds i8, ptr %34, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, i8 0, i64 32, i1 false)
   %72 = load ptr, ptr %50, align 8
@@ -527,9 +526,8 @@ define internal zeroext i1 @ExecParallelEstimate(ptr noundef %0, ptr noundef %1)
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 36
   %13 = load i8, ptr %12, align 4
-  %14 = and i8 %13, 1
-  %.not47 = icmp eq i8 %14, 0
-  br i1 %.not47, label %83, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %83
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %1, align 8
@@ -541,9 +539,8 @@ define internal zeroext i1 @ExecParallelEstimate(ptr noundef %0, ptr noundef %1)
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 36
   %21 = load i8, ptr %20, align 4
-  %22 = and i8 %21, 1
-  %.not46 = icmp eq i8 %22, 0
-  br i1 %.not46, label %83, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %83
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %1, align 8
@@ -555,9 +552,8 @@ define internal zeroext i1 @ExecParallelEstimate(ptr noundef %0, ptr noundef %1)
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 36
   %29 = load i8, ptr %28, align 4
-  %30 = and i8 %29, 1
-  %.not45 = icmp eq i8 %30, 0
-  br i1 %.not45, label %83, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %83
 
 31:                                               ; preds = %25
   %32 = load ptr, ptr %1, align 8
@@ -569,9 +565,8 @@ define internal zeroext i1 @ExecParallelEstimate(ptr noundef %0, ptr noundef %1)
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 36
   %37 = load i8, ptr %36, align 4
-  %38 = and i8 %37, 1
-  %.not44 = icmp eq i8 %38, 0
-  br i1 %.not44, label %83, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %83
 
 39:                                               ; preds = %33
   %40 = load ptr, ptr %1, align 8
@@ -583,9 +578,8 @@ define internal zeroext i1 @ExecParallelEstimate(ptr noundef %0, ptr noundef %1)
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 36
   %45 = load i8, ptr %44, align 4
-  %46 = and i8 %45, 1
-  %.not43 = icmp eq i8 %46, 0
-  br i1 %.not43, label %83, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %83
 
 47:                                               ; preds = %41
   %48 = load ptr, ptr %1, align 8
@@ -597,9 +591,8 @@ define internal zeroext i1 @ExecParallelEstimate(ptr noundef %0, ptr noundef %1)
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 36
   %53 = load i8, ptr %52, align 4
-  %54 = and i8 %53, 1
-  %.not42 = icmp eq i8 %54, 0
-  br i1 %.not42, label %83, label %55
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %83
 
 55:                                               ; preds = %49
   %56 = load ptr, ptr %1, align 8
@@ -611,9 +604,8 @@ define internal zeroext i1 @ExecParallelEstimate(ptr noundef %0, ptr noundef %1)
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 36
   %61 = load i8, ptr %60, align 4
-  %62 = and i8 %61, 1
-  %.not41 = icmp eq i8 %62, 0
-  br i1 %.not41, label %83, label %63
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %63, label %83
 
 63:                                               ; preds = %57
   %64 = load ptr, ptr %1, align 8
@@ -625,9 +617,8 @@ define internal zeroext i1 @ExecParallelEstimate(ptr noundef %0, ptr noundef %1)
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 36
   %69 = load i8, ptr %68, align 4
-  %70 = and i8 %69, 1
-  %.not = icmp eq i8 %70, 0
-  br i1 %.not, label %83, label %71
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %71, label %83
 
 71:                                               ; preds = %65
   %72 = load ptr, ptr %1, align 8
@@ -772,8 +763,8 @@ define internal fastcc noundef i64 @SerializeParamExecParams(ptr nocapture nound
   br label %13
 
 13:                                               ; preds = %27, %.lr.ph.i
-  %14 = phi i32 [ %9, %.lr.ph.i ], [ %41, %27 ]
-  %.01215.i = phi i64 [ 4, %.lr.ph.i ], [ %40, %27 ]
+  %14 = phi i32 [ %9, %.lr.ph.i ], [ %39, %27 ]
+  %.01215.i = phi i64 [ 4, %.lr.ph.i ], [ %38, %27 ]
   %15 = load ptr, ptr %11, align 8
   %16 = zext nneg i32 %14 to i64
   %17 = getelementptr %struct.ParamExecData, ptr %15, i64 %16
@@ -806,86 +797,82 @@ define internal fastcc noundef i64 @SerializeParamExecParams(ptr nocapture nound
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %17, i64 16
   %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, 1
-  %35 = icmp ne i8 %34, 0
-  %36 = and i8 %29, 1
-  %37 = icmp ne i8 %36, 0
-  %38 = sext i16 %28 to i32
-  %39 = call i64 @datumEstimateSpace(i64 noundef %31, i1 noundef zeroext %35, i1 noundef zeroext %37, i32 noundef %38) #9
-  %40 = call i64 @add_size(i64 noundef %24, i64 noundef %39) #9
-  %41 = call i32 @bms_next_member(ptr noundef %1, i32 noundef %14) #9
-  %42 = icmp sgt i32 %41, -1
-  br i1 %42, label %13, label %EstimateParamExecSpace.exit, !llvm.loop !8
+  %34 = trunc i8 %33 to i1
+  %35 = trunc i8 %29 to i1
+  %36 = sext i16 %28 to i32
+  %37 = call i64 @datumEstimateSpace(i64 noundef %31, i1 noundef zeroext %34, i1 noundef zeroext %35, i32 noundef %36) #9
+  %38 = call i64 @add_size(i64 noundef %24, i64 noundef %37) #9
+  %39 = call i32 @bms_next_member(ptr noundef %1, i32 noundef %14) #9
+  %40 = icmp sgt i32 %39, -1
+  br i1 %40, label %13, label %EstimateParamExecSpace.exit, !llvm.loop !8
 
 EstimateParamExecSpace.exit:                      ; preds = %27, %3
-  %.012.lcssa.i = phi i64 [ 4, %3 ], [ %40, %27 ]
+  %.012.lcssa.i = phi i64 [ 4, %3 ], [ %38, %27 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %43 = call i64 @dsa_allocate_extended(ptr noundef %2, i64 noundef %.012.lcssa.i, i32 noundef 0) #9
-  %44 = call ptr @dsa_get_address(ptr noundef %2, i64 noundef %43) #9
-  %45 = call i32 @bms_num_members(ptr noundef %1) #9
-  store i32 %45, ptr %44, align 1
-  %46 = getelementptr i8, ptr %44, i64 4
-  store ptr %46, ptr %6, align 8
-  %47 = call i32 @bms_next_member(ptr noundef %1, i32 noundef -1) #9
-  %48 = icmp sgt i32 %47, -1
-  br i1 %48, label %.lr.ph, label %._crit_edge
+  %41 = call i64 @dsa_allocate_extended(ptr noundef %2, i64 noundef %.012.lcssa.i, i32 noundef 0) #9
+  %42 = call ptr @dsa_get_address(ptr noundef %2, i64 noundef %41) #9
+  %43 = call i32 @bms_num_members(ptr noundef %1) #9
+  store i32 %43, ptr %42, align 1
+  %44 = getelementptr i8, ptr %42, i64 4
+  store ptr %44, ptr %6, align 8
+  %45 = call i32 @bms_next_member(ptr noundef %1, i32 noundef -1) #9
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %EstimateParamExecSpace.exit
-  %49 = getelementptr inbounds i8, ptr %0, i64 144
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
-  br label %51
+  %47 = getelementptr inbounds i8, ptr %0, i64 144
+  %48 = getelementptr inbounds i8, ptr %0, i64 64
+  br label %49
 
-51:                                               ; preds = %.lr.ph, %67
-  %52 = phi i32 [ %47, %.lr.ph ], [ %79, %67 ]
-  %53 = load ptr, ptr %49, align 8
-  %54 = zext nneg i32 %52 to i64
-  %55 = getelementptr %struct.ParamExecData, ptr %53, i64 %54
-  %56 = load ptr, ptr %50, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 112
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr i8, ptr %58, i64 16
-  %.val = load ptr, ptr %59, align 8
-  %60 = getelementptr %union.ListCell, ptr %.val, i64 %54
-  %61 = load i32, ptr %60, align 8
-  %62 = load ptr, ptr %6, align 8
-  store i32 %52, ptr %62, align 1
-  %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr i8, ptr %63, i64 4
-  store ptr %64, ptr %6, align 8
-  %.not = icmp eq i32 %61, 0
-  br i1 %.not, label %66, label %65
+49:                                               ; preds = %.lr.ph, %65
+  %50 = phi i32 [ %45, %.lr.ph ], [ %75, %65 ]
+  %51 = load ptr, ptr %47, align 8
+  %52 = zext nneg i32 %50 to i64
+  %53 = getelementptr %struct.ParamExecData, ptr %51, i64 %52
+  %54 = load ptr, ptr %48, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 112
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr i8, ptr %56, i64 16
+  %.val = load ptr, ptr %57, align 8
+  %58 = getelementptr %union.ListCell, ptr %.val, i64 %52
+  %59 = load i32, ptr %58, align 8
+  %60 = load ptr, ptr %6, align 8
+  store i32 %50, ptr %60, align 1
+  %61 = load ptr, ptr %6, align 8
+  %62 = getelementptr i8, ptr %61, i64 4
+  store ptr %62, ptr %6, align 8
+  %.not = icmp eq i32 %59, 0
+  br i1 %.not, label %64, label %63
 
-65:                                               ; preds = %51
-  call void @get_typlenbyval(i32 noundef %61, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
+63:                                               ; preds = %49
+  call void @get_typlenbyval(i32 noundef %59, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
   %.pre = load i8, ptr %8, align 1
   %.pre20 = load i16, ptr %7, align 2
-  br label %67
+  br label %65
 
-66:                                               ; preds = %51
+64:                                               ; preds = %49
   store i16 8, ptr %7, align 2
   store i8 1, ptr %8, align 1
-  br label %67
+  br label %65
 
-67:                                               ; preds = %66, %65
-  %68 = phi i16 [ 8, %66 ], [ %.pre20, %65 ]
-  %69 = phi i8 [ 1, %66 ], [ %.pre, %65 ]
-  %70 = getelementptr inbounds i8, ptr %55, i64 8
-  %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %55, i64 16
-  %73 = load i8, ptr %72, align 8
-  %74 = and i8 %73, 1
-  %75 = icmp ne i8 %74, 0
-  %76 = and i8 %69, 1
-  %77 = icmp ne i8 %76, 0
-  %78 = sext i16 %68 to i32
-  call void @datumSerialize(i64 noundef %71, i1 noundef zeroext %75, i1 noundef zeroext %77, i32 noundef %78, ptr noundef nonnull %6) #9
-  %79 = call i32 @bms_next_member(ptr noundef %1, i32 noundef %52) #9
-  %80 = icmp sgt i32 %79, -1
-  br i1 %80, label %51, label %._crit_edge, !llvm.loop !9
+65:                                               ; preds = %64, %63
+  %66 = phi i16 [ 8, %64 ], [ %.pre20, %63 ]
+  %67 = phi i8 [ 1, %64 ], [ %.pre, %63 ]
+  %68 = getelementptr inbounds i8, ptr %53, i64 8
+  %69 = load i64, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %53, i64 16
+  %71 = load i8, ptr %70, align 8
+  %72 = trunc i8 %71 to i1
+  %73 = trunc i8 %67 to i1
+  %74 = sext i16 %66 to i32
+  call void @datumSerialize(i64 noundef %69, i1 noundef zeroext %72, i1 noundef zeroext %73, i32 noundef %74, ptr noundef nonnull %6) #9
+  %75 = call i32 @bms_next_member(ptr noundef %1, i32 noundef %50) #9
+  %76 = icmp sgt i32 %75, -1
+  br i1 %76, label %49, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %67, %EstimateParamExecSpace.exit
-  ret i64 %43
+._crit_edge:                                      ; preds = %65, %EstimateParamExecSpace.exit
+  ret i64 %41
 }
 
 ; Function Attrs: nounwind uwtable
@@ -939,9 +926,8 @@ define internal zeroext i1 @ExecParallelInitializeDSM(ptr noundef %0, ptr nounde
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 36
   %26 = load i8, ptr %25, align 4
-  %27 = and i8 %26, 1
-  %.not53 = icmp eq i8 %27, 0
-  br i1 %.not53, label %96, label %28
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %96
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %1, align 8
@@ -953,9 +939,8 @@ define internal zeroext i1 @ExecParallelInitializeDSM(ptr noundef %0, ptr nounde
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 36
   %34 = load i8, ptr %33, align 4
-  %35 = and i8 %34, 1
-  %.not52 = icmp eq i8 %35, 0
-  br i1 %.not52, label %96, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %96
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %1, align 8
@@ -967,9 +952,8 @@ define internal zeroext i1 @ExecParallelInitializeDSM(ptr noundef %0, ptr nounde
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 36
   %42 = load i8, ptr %41, align 4
-  %43 = and i8 %42, 1
-  %.not51 = icmp eq i8 %43, 0
-  br i1 %.not51, label %96, label %44
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %96
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %1, align 8
@@ -981,9 +965,8 @@ define internal zeroext i1 @ExecParallelInitializeDSM(ptr noundef %0, ptr nounde
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 36
   %50 = load i8, ptr %49, align 4
-  %51 = and i8 %50, 1
-  %.not50 = icmp eq i8 %51, 0
-  br i1 %.not50, label %96, label %52
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %52, label %96
 
 52:                                               ; preds = %46
   %53 = load ptr, ptr %1, align 8
@@ -995,9 +978,8 @@ define internal zeroext i1 @ExecParallelInitializeDSM(ptr noundef %0, ptr nounde
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 36
   %58 = load i8, ptr %57, align 4
-  %59 = and i8 %58, 1
-  %.not49 = icmp eq i8 %59, 0
-  br i1 %.not49, label %96, label %60
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %60, label %96
 
 60:                                               ; preds = %54
   %61 = load ptr, ptr %1, align 8
@@ -1009,9 +991,8 @@ define internal zeroext i1 @ExecParallelInitializeDSM(ptr noundef %0, ptr nounde
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 36
   %66 = load i8, ptr %65, align 4
-  %67 = and i8 %66, 1
-  %.not48 = icmp eq i8 %67, 0
-  br i1 %.not48, label %96, label %68
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %96
 
 68:                                               ; preds = %62
   %69 = load ptr, ptr %1, align 8
@@ -1023,9 +1004,8 @@ define internal zeroext i1 @ExecParallelInitializeDSM(ptr noundef %0, ptr nounde
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 36
   %74 = load i8, ptr %73, align 4
-  %75 = and i8 %74, 1
-  %.not47 = icmp eq i8 %75, 0
-  br i1 %.not47, label %96, label %76
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %96
 
 76:                                               ; preds = %70
   %77 = load ptr, ptr %1, align 8
@@ -1037,9 +1017,8 @@ define internal zeroext i1 @ExecParallelInitializeDSM(ptr noundef %0, ptr nounde
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 36
   %82 = load i8, ptr %81, align 4
-  %83 = and i8 %82, 1
-  %.not46 = icmp eq i8 %83, 0
-  br i1 %.not46, label %96, label %84
+  %83 = trunc i8 %82 to i1
+  br i1 %83, label %84, label %96
 
 84:                                               ; preds = %78
   %85 = load ptr, ptr %1, align 8
@@ -1271,9 +1250,8 @@ define internal zeroext i1 @ExecParallelReInitializeDSM(ptr noundef %0, ptr noun
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 36
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %.not36 = icmp eq i8 %11, 0
-  br i1 %.not36, label %62, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %62
 
 12:                                               ; preds = %6
   tail call void @ExecSeqScanReInitializeDSM(ptr noundef nonnull %0, ptr noundef %1) #9
@@ -1284,9 +1262,8 @@ define internal zeroext i1 @ExecParallelReInitializeDSM(ptr noundef %0, ptr noun
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 36
   %17 = load i8, ptr %16, align 4
-  %18 = and i8 %17, 1
-  %.not35 = icmp eq i8 %18, 0
-  br i1 %.not35, label %62, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %62
 
 19:                                               ; preds = %13
   tail call void @ExecIndexScanReInitializeDSM(ptr noundef nonnull %0, ptr noundef %1) #9
@@ -1297,9 +1274,8 @@ define internal zeroext i1 @ExecParallelReInitializeDSM(ptr noundef %0, ptr noun
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 36
   %24 = load i8, ptr %23, align 4
-  %25 = and i8 %24, 1
-  %.not34 = icmp eq i8 %25, 0
-  br i1 %.not34, label %62, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %62
 
 26:                                               ; preds = %20
   tail call void @ExecIndexOnlyScanReInitializeDSM(ptr noundef nonnull %0, ptr noundef %1) #9
@@ -1310,9 +1286,8 @@ define internal zeroext i1 @ExecParallelReInitializeDSM(ptr noundef %0, ptr noun
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 36
   %31 = load i8, ptr %30, align 4
-  %32 = and i8 %31, 1
-  %.not33 = icmp eq i8 %32, 0
-  br i1 %.not33, label %62, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %62
 
 33:                                               ; preds = %27
   tail call void @ExecForeignScanReInitializeDSM(ptr noundef nonnull %0, ptr noundef %1) #9
@@ -1323,9 +1298,8 @@ define internal zeroext i1 @ExecParallelReInitializeDSM(ptr noundef %0, ptr noun
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 36
   %38 = load i8, ptr %37, align 4
-  %39 = and i8 %38, 1
-  %.not32 = icmp eq i8 %39, 0
-  br i1 %.not32, label %62, label %40
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %62
 
 40:                                               ; preds = %34
   tail call void @ExecAppendReInitializeDSM(ptr noundef nonnull %0, ptr noundef %1) #9
@@ -1336,9 +1310,8 @@ define internal zeroext i1 @ExecParallelReInitializeDSM(ptr noundef %0, ptr noun
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 36
   %45 = load i8, ptr %44, align 4
-  %46 = and i8 %45, 1
-  %.not31 = icmp eq i8 %46, 0
-  br i1 %.not31, label %62, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %62
 
 47:                                               ; preds = %41
   tail call void @ExecCustomScanReInitializeDSM(ptr noundef nonnull %0, ptr noundef %1) #9
@@ -1349,9 +1322,8 @@ define internal zeroext i1 @ExecParallelReInitializeDSM(ptr noundef %0, ptr noun
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 36
   %52 = load i8, ptr %51, align 4
-  %53 = and i8 %52, 1
-  %.not30 = icmp eq i8 %53, 0
-  br i1 %.not30, label %62, label %54
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %62
 
 54:                                               ; preds = %48
   tail call void @ExecBitmapHeapReInitializeDSM(ptr noundef nonnull %0, ptr noundef %1) #9
@@ -1362,9 +1334,8 @@ define internal zeroext i1 @ExecParallelReInitializeDSM(ptr noundef %0, ptr noun
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 36
   %59 = load i8, ptr %58, align 4
-  %60 = and i8 %59, 1
-  %.not = icmp eq i8 %60, 0
-  br i1 %.not, label %62, label %61
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %62
 
 61:                                               ; preds = %55
   tail call void @ExecHashJoinReInitializeDSM(ptr noundef nonnull %0, ptr noundef %1) #9
@@ -1387,21 +1358,20 @@ define dso_local void @ExecParallelFinish(ptr nocapture noundef %0) local_unname
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %35
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %35, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
-  %.not26 = icmp eq ptr %11, null
-  br i1 %.not26, label %17, label %.preheader28
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %17, label %.preheader27
 
-.preheader28:                                     ; preds = %9
+.preheader27:                                     ; preds = %9
   %12 = icmp sgt i32 %5, 0
   br i1 %12, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.preheader28
+.lr.ph.preheader:                                 ; preds = %.preheader27
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %.lr.ph
 
@@ -1419,8 +1389,8 @@ define dso_local void @ExecParallelFinish(ptr nocapture noundef %0) local_unname
   %.pre = load ptr, ptr %10, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader28
-  %16 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %11, %.preheader28 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader27
+  %16 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %11, %.preheader27 ]
   tail call void @pfree(ptr noundef %16) #9
   store ptr null, ptr %10, align 8
   br label %17
@@ -1428,65 +1398,65 @@ define dso_local void @ExecParallelFinish(ptr nocapture noundef %0) local_unname
 17:                                               ; preds = %._crit_edge, %9
   %18 = getelementptr inbounds i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8
-  %.not27 = icmp eq ptr %19, null
-  br i1 %.not27, label %25, label %.preheader
+  %.not26 = icmp eq ptr %19, null
+  br i1 %.not26, label %25, label %.preheader
 
 .preheader:                                       ; preds = %17
   %20 = icmp sgt i32 %5, 0
-  br i1 %20, label %.lr.ph31.preheader, label %._crit_edge32
+  br i1 %20, label %.lr.ph30.preheader, label %._crit_edge31
 
-.lr.ph31.preheader:                               ; preds = %.preheader
-  %wide.trip.count41 = zext nneg i32 %5 to i64
-  br label %.lr.ph31
+.lr.ph30.preheader:                               ; preds = %.preheader
+  %wide.trip.count40 = zext nneg i32 %5 to i64
+  br label %.lr.ph30
 
-.lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
-  %indvars.iv38 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next39, %.lr.ph31 ]
+.lr.ph30:                                         ; preds = %.lr.ph30.preheader, %.lr.ph30
+  %indvars.iv37 = phi i64 [ 0, %.lr.ph30.preheader ], [ %indvars.iv.next38, %.lr.ph30 ]
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr ptr, ptr %21, i64 %indvars.iv38
+  %22 = getelementptr ptr, ptr %21, i64 %indvars.iv37
   %23 = load ptr, ptr %22, align 8
   tail call void @DestroyTupleQueueReader(ptr noundef %23) #9
-  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %exitcond42.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count41
-  br i1 %exitcond42.not, label %._crit_edge32.loopexit, label %.lr.ph31, !llvm.loop !12
+  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
+  %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count40
+  br i1 %exitcond41.not, label %._crit_edge31.loopexit, label %.lr.ph30, !llvm.loop !12
 
-._crit_edge32.loopexit:                           ; preds = %.lr.ph31
-  %.pre48 = load ptr, ptr %18, align 8
-  br label %._crit_edge32
+._crit_edge31.loopexit:                           ; preds = %.lr.ph30
+  %.pre47 = load ptr, ptr %18, align 8
+  br label %._crit_edge31
 
-._crit_edge32:                                    ; preds = %._crit_edge32.loopexit, %.preheader
-  %24 = phi ptr [ %.pre48, %._crit_edge32.loopexit ], [ %19, %.preheader ]
+._crit_edge31:                                    ; preds = %._crit_edge31.loopexit, %.preheader
+  %24 = phi ptr [ %.pre47, %._crit_edge31.loopexit ], [ %19, %.preheader ]
   tail call void @pfree(ptr noundef %24) #9
   store ptr null, ptr %18, align 8
   br label %25
 
-25:                                               ; preds = %._crit_edge32, %17
+25:                                               ; preds = %._crit_edge31, %17
   %26 = load ptr, ptr %2, align 8
   tail call void @WaitForParallelWorkersToFinish(ptr noundef %26) #9
   %27 = icmp sgt i32 %5, 0
-  br i1 %27, label %.lr.ph35, label %._crit_edge36
+  br i1 %27, label %.lr.ph34, label %._crit_edge35
 
-.lr.ph35:                                         ; preds = %25
+.lr.ph34:                                         ; preds = %25
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   %29 = getelementptr inbounds i8, ptr %0, i64 24
-  %wide.trip.count46 = zext nneg i32 %5 to i64
+  %wide.trip.count45 = zext nneg i32 %5 to i64
   br label %30
 
-30:                                               ; preds = %.lr.ph35, %30
-  %indvars.iv43 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next44, %30 ]
+30:                                               ; preds = %.lr.ph34, %30
+  %indvars.iv42 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next43, %30 ]
   %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr %struct.BufferUsage, ptr %31, i64 %indvars.iv43
+  %32 = getelementptr %struct.BufferUsage, ptr %31, i64 %indvars.iv42
   %33 = load ptr, ptr %29, align 8
-  %34 = getelementptr %struct.WalUsage, ptr %33, i64 %indvars.iv43
+  %34 = getelementptr %struct.WalUsage, ptr %33, i64 %indvars.iv42
   tail call void @InstrAccumParallelQuery(ptr noundef %32, ptr noundef %34) #9
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
-  br i1 %exitcond47.not, label %._crit_edge36, label %30, !llvm.loop !13
+  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
+  %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
+  br i1 %exitcond46.not, label %._crit_edge35, label %30, !llvm.loop !13
 
-._crit_edge36:                                    ; preds = %30, %25
+._crit_edge35:                                    ; preds = %30, %25
   store i8 1, ptr %6, align 8
   br label %35
 
-35:                                               ; preds = %1, %._crit_edge36
+35:                                               ; preds = %1, %._crit_edge35
   ret void
 }
 
@@ -1937,9 +1907,8 @@ define internal zeroext i1 @ExecParallelInitializeWorker(ptr noundef %0, ptr nou
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 36
   %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 1
-  %.not46 = icmp eq i8 %11, 0
-  br i1 %.not46, label %67, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %67
 
 12:                                               ; preds = %6
   tail call void @ExecSeqScanInitializeWorker(ptr noundef nonnull %0, ptr noundef %1) #9
@@ -1950,9 +1919,8 @@ define internal zeroext i1 @ExecParallelInitializeWorker(ptr noundef %0, ptr nou
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 36
   %17 = load i8, ptr %16, align 4
-  %18 = and i8 %17, 1
-  %.not45 = icmp eq i8 %18, 0
-  br i1 %.not45, label %67, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %67
 
 19:                                               ; preds = %13
   tail call void @ExecIndexScanInitializeWorker(ptr noundef nonnull %0, ptr noundef %1) #9
@@ -1963,9 +1931,8 @@ define internal zeroext i1 @ExecParallelInitializeWorker(ptr noundef %0, ptr nou
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 36
   %24 = load i8, ptr %23, align 4
-  %25 = and i8 %24, 1
-  %.not44 = icmp eq i8 %25, 0
-  br i1 %.not44, label %67, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %67
 
 26:                                               ; preds = %20
   tail call void @ExecIndexOnlyScanInitializeWorker(ptr noundef nonnull %0, ptr noundef %1) #9
@@ -1976,9 +1943,8 @@ define internal zeroext i1 @ExecParallelInitializeWorker(ptr noundef %0, ptr nou
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 36
   %31 = load i8, ptr %30, align 4
-  %32 = and i8 %31, 1
-  %.not43 = icmp eq i8 %32, 0
-  br i1 %.not43, label %67, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %67
 
 33:                                               ; preds = %27
   tail call void @ExecForeignScanInitializeWorker(ptr noundef nonnull %0, ptr noundef %1) #9
@@ -1989,9 +1955,8 @@ define internal zeroext i1 @ExecParallelInitializeWorker(ptr noundef %0, ptr nou
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 36
   %38 = load i8, ptr %37, align 4
-  %39 = and i8 %38, 1
-  %.not42 = icmp eq i8 %39, 0
-  br i1 %.not42, label %67, label %40
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %67
 
 40:                                               ; preds = %34
   tail call void @ExecAppendInitializeWorker(ptr noundef nonnull %0, ptr noundef %1) #9
@@ -2002,9 +1967,8 @@ define internal zeroext i1 @ExecParallelInitializeWorker(ptr noundef %0, ptr nou
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 36
   %45 = load i8, ptr %44, align 4
-  %46 = and i8 %45, 1
-  %.not41 = icmp eq i8 %46, 0
-  br i1 %.not41, label %67, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %67
 
 47:                                               ; preds = %41
   tail call void @ExecCustomScanInitializeWorker(ptr noundef nonnull %0, ptr noundef %1) #9
@@ -2015,9 +1979,8 @@ define internal zeroext i1 @ExecParallelInitializeWorker(ptr noundef %0, ptr nou
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 36
   %52 = load i8, ptr %51, align 4
-  %53 = and i8 %52, 1
-  %.not40 = icmp eq i8 %53, 0
-  br i1 %.not40, label %67, label %54
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %67
 
 54:                                               ; preds = %48
   tail call void @ExecBitmapHeapInitializeWorker(ptr noundef nonnull %0, ptr noundef %1) #9
@@ -2028,9 +1991,8 @@ define internal zeroext i1 @ExecParallelInitializeWorker(ptr noundef %0, ptr nou
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 36
   %59 = load i8, ptr %58, align 4
-  %60 = and i8 %59, 1
-  %.not = icmp eq i8 %60, 0
-  br i1 %.not, label %67, label %61
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %67
 
 61:                                               ; preds = %55
   tail call void @ExecHashJoinInitializeWorker(ptr noundef nonnull %0, ptr noundef %1) #9

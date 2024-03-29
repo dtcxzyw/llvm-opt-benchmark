@@ -241,35 +241,34 @@ define hidden void @_ZN2pb10constraint13watch_literalERNS_16solver_interfaceEN3s
 entry:
   %m_pure.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i8, ptr %m_pure.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %land.rhs
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %land.rhs, label %if.end
 
 land.rhs:                                         ; preds = %entry
   %m_lit.i = getelementptr inbounds i8, ptr %this, i64 16
   %retval.sroa.0.0.copyload.i = load i32, ptr %m_lit.i, align 8
-  %2 = xor i32 %retval.sroa.0.0.copyload.i, %lit.coerce
-  %cmp.i = icmp eq i32 %2, 1
+  %1 = xor i32 %retval.sroa.0.0.copyload.i, %lit.coerce
+  %cmp.i = icmp eq i32 %1, 1
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %land.rhs
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  %3 = ptrtoint ptr %add.ptr.i.i.i to i64
+  %2 = ptrtoint ptr %add.ptr.i.i.i to i64
   %xor.i1 = xor i32 %lit.coerce, 1
   %vtable = load ptr, ptr %s, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %4 = load ptr, ptr %vfn, align 8
-  %call15 = tail call noundef nonnull align 8 dereferenceable(8) ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %s, i32 %xor.i1)
-  %5 = load ptr, ptr %call15, align 8
-  %cmp.i2 = icmp eq ptr %5, null
+  %3 = load ptr, ptr %vfn, align 8
+  %call15 = tail call noundef nonnull align 8 dereferenceable(8) ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %s, i32 %xor.i1)
+  %4 = load ptr, ptr %call15, align 8
+  %cmp.i2 = icmp eq ptr %4, null
   br i1 %cmp.i2, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 -4
-  %6 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds i8, ptr %5, i64 -8
-  %7 = load i32, ptr %arrayidx4.i, align 4
-  %cmp5.i = icmp eq i32 %6, %7
+  %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 -4
+  %5 = load i32, ptr %arrayidx.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %4, i64 -8
+  %6 = load i32, ptr %arrayidx4.i, align 4
+  %cmp5.i = icmp eq i32 %5, %6
   br i1 %cmp5.i, label %if.then.i, label %_ZN6vectorIN3sat7watchedELb1EjE9push_backERKS1_.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end
@@ -280,17 +279,17 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br label %_ZN6vectorIN3sat7watchedELb1EjE9push_backERKS1_.exit
 
 _ZN6vectorIN3sat7watchedELb1EjE9push_backERKS1_.exit: ; preds = %lor.lhs.false.i, %if.then.i
-  %8 = phi i32 [ %.pre1.i, %if.then.i ], [ %6, %lor.lhs.false.i ]
-  %9 = phi ptr [ %.pre.i, %if.then.i ], [ %5, %lor.lhs.false.i ]
-  %idx.ext.i = zext i32 %8 to i64
-  %add.ptr.i = getelementptr inbounds %"class.sat::watched", ptr %9, i64 %idx.ext.i
-  store i64 %3, ptr %add.ptr.i, align 8
+  %7 = phi i32 [ %.pre1.i, %if.then.i ], [ %5, %lor.lhs.false.i ]
+  %8 = phi ptr [ %.pre.i, %if.then.i ], [ %4, %lor.lhs.false.i ]
+  %idx.ext.i = zext i32 %7 to i64
+  %add.ptr.i = getelementptr inbounds %"class.sat::watched", ptr %8, i64 %idx.ext.i
+  store i64 %2, ptr %add.ptr.i, align 8
   %w.sroa.2.0.add.ptr.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   store i32 2, ptr %w.sroa.2.0.add.ptr.i.sroa_idx, align 8
-  %10 = load ptr, ptr %call15, align 8
-  %arrayidx10.i = getelementptr inbounds i8, ptr %10, i64 -4
-  %11 = load i32, ptr %arrayidx10.i, align 4
-  %inc.i = add i32 %11, 1
+  %9 = load ptr, ptr %call15, align 8
+  %arrayidx10.i = getelementptr inbounds i8, ptr %9, i64 -4
+  %10 = load i32, ptr %arrayidx10.i, align 4
+  %inc.i = add i32 %10, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   br label %return
 

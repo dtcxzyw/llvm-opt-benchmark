@@ -76,7 +76,7 @@ if.then.i:                                        ; preds = %invoke.cont.i
 
 common.resume:                                    ; preds = %lpad.i36, %lpad.i16, %lpad.i3, %lpad.i
   %spake2.i27.sink = phi ptr [ %spake2.i27, %lpad.i36 ], [ %spake2.i14, %lpad.i16 ], [ %spake2.i1, %lpad.i3 ], [ %spake2.i, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %24, %lpad.i36 ], [ %16, %lpad.i16 ], [ %9, %lpad.i3 ], [ %2, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %lpad.i36 ], [ %14, %lpad.i16 ], [ %8, %lpad.i3 ], [ %2, %lpad.i ]
   call void @_ZN9SPAKE2RunD2Ev(ptr noundef nonnull align 8 dereferenceable(197) %spake2.i27.sink) #11
   resume { ptr, i32 } %common.resume.op
 
@@ -87,13 +87,12 @@ lpad.i:                                           ; preds = %for.body.i
 
 if.end.i:                                         ; preds = %invoke.cont.i
   %3 = load i8, ptr %key_matches_.i.i, align 4
-  %4 = and i8 %3, 1
-  %tobool.i.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.i.not.i, label %if.then5.i, label %cleanup.i
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %cleanup.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  %5 = load ptr, ptr @stderr, align 8
-  %6 = call i64 @fwrite(ptr nonnull @.str.2, i64 38, i64 1, ptr %5) #10
+  %4 = load ptr, ptr @stderr, align 8
+  %5 = call i64 @fwrite(ptr nonnull @.str.2, i64 38, i64 1, ptr %4) #10
   br label %return.critedge.i
 
 cleanup.i:                                        ; preds = %if.end.i
@@ -137,25 +136,24 @@ invoke.cont1.i:                                   ; preds = %invoke.cont.i4
   br i1 %call2.i, label %if.end.i11, label %if.then.i5
 
 if.then.i5:                                       ; preds = %invoke.cont1.i
-  %7 = load ptr, ptr @stderr, align 8
-  %8 = call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %7) #10
+  %6 = load ptr, ptr @stderr, align 8
+  %7 = call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %6) #10
   br label %_ZL17TestWrongPasswordv.exit
 
 lpad.i3:                                          ; preds = %invoke.cont.i4, %lor.lhs.false
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.end.i11:                                       ; preds = %invoke.cont1.i
   %key_matches_.i.i12 = getelementptr inbounds i8, ptr %spake2.i1, i64 196
-  %10 = load i8, ptr %key_matches_.i.i12, align 4
-  %11 = and i8 %10, 1
-  %tobool.i.not.i13 = icmp eq i8 %11, 0
-  br i1 %tobool.i.not.i13, label %_ZL17TestWrongPasswordv.exit, label %if.then6.i
+  %9 = load i8, ptr %key_matches_.i.i12, align 4
+  %tobool.i.i13 = trunc i8 %9 to i1
+  br i1 %tobool.i.i13, label %if.then6.i, label %_ZL17TestWrongPasswordv.exit
 
 if.then6.i:                                       ; preds = %if.end.i11
-  %12 = load ptr, ptr @stderr, align 8
-  %13 = call i64 @fwrite(ptr nonnull @.str.7, i64 35, i64 1, ptr %12) #10
+  %10 = load ptr, ptr @stderr, align 8
+  %11 = call i64 @fwrite(ptr nonnull @.str.7, i64 35, i64 1, ptr %10) #10
   br label %_ZL17TestWrongPasswordv.exit
 
 _ZL17TestWrongPasswordv.exit:                     ; preds = %if.then.i5, %if.end.i11, %if.then6.i
@@ -193,25 +191,24 @@ invoke.cont4.i:                                   ; preds = %invoke.cont2.i
   br i1 %call5.i, label %if.end.i24, label %if.then.i18
 
 if.then.i18:                                      ; preds = %invoke.cont4.i
-  %14 = load ptr, ptr @stderr, align 8
-  %15 = call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %14) #10
+  %12 = load ptr, ptr @stderr, align 8
+  %13 = call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %12) #10
   br label %return.critedge
 
 lpad.i16:                                         ; preds = %invoke.cont2.i, %invoke.cont.i17, %lor.lhs.false2
-  %16 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.end.i24:                                       ; preds = %invoke.cont4.i
   %key_matches_.i.i25 = getelementptr inbounds i8, ptr %spake2.i14, i64 196
-  %17 = load i8, ptr %key_matches_.i.i25, align 4
-  %18 = and i8 %17, 1
-  %tobool.i.not.i26 = icmp eq i8 %18, 0
-  br i1 %tobool.i.not.i26, label %_ZL14TestWrongNamesv.exit, label %if.then9.i
+  %15 = load i8, ptr %key_matches_.i.i25, align 4
+  %tobool.i.i26 = trunc i8 %15 to i1
+  br i1 %tobool.i.i26, label %if.then9.i, label %_ZL14TestWrongNamesv.exit
 
 if.then9.i:                                       ; preds = %if.end.i24
-  %19 = load ptr, ptr @stderr, align 8
-  %20 = call i64 @fwrite(ptr nonnull @.str.9, i64 31, i64 1, ptr %19) #10
+  %16 = load ptr, ptr @stderr, align 8
+  %17 = call i64 @fwrite(ptr nonnull @.str.9, i64 31, i64 1, ptr %16) #10
   br label %return.critedge
 
 _ZL14TestWrongNamesv.exit:                        ; preds = %if.end.i24
@@ -247,14 +244,13 @@ invoke.cont.i37:                                  ; preds = %for.body.i34
   br i1 %call.i35, label %land.lhs.true.i, label %cleanup.i38
 
 land.lhs.true.i:                                  ; preds = %invoke.cont.i37
-  %21 = load i8, ptr %key_matches_.i.i28, align 4
-  %22 = and i8 %21, 1
-  %tobool.i.not.i43 = icmp eq i8 %22, 0
-  br i1 %tobool.i.not.i43, label %cleanup.i38, label %if.then.i44
+  %18 = load i8, ptr %key_matches_.i.i28, align 4
+  %tobool.i.i43 = trunc i8 %18 to i1
+  br i1 %tobool.i.i43, label %if.then.i44, label %cleanup.i38
 
 if.then.i44:                                      ; preds = %land.lhs.true.i
-  %23 = load ptr, ptr @stderr, align 8
-  %call3.i45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.10, i32 noundef %i.05.i) #10
+  %19 = load ptr, ptr @stderr, align 8
+  %call3.i45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.10, i32 noundef %i.05.i) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i30) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bob_names.i.i29) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i1.i.i32) #11
@@ -265,7 +261,7 @@ if.then.i44:                                      ; preds = %land.lhs.true.i
   br i1 %cmp6.i, label %if.end, label %return
 
 lpad.i36:                                         ; preds = %for.body.i34
-  %24 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 

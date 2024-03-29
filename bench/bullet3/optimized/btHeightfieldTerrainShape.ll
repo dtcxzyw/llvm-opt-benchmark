@@ -334,9 +334,8 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i.i, label %invoke.cont, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %invoke.cont
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
@@ -354,10 +353,10 @@ invoke.cont:                                      ; preds = %if.then.i.i.i, %ent
   ret void
 
 terminate.lpad:                                   ; preds = %if.then3.i.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #16
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #16
   unreachable
 }
 
@@ -372,9 +371,8 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE5clearEv.exit, label %if.then3.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE5clearEv.exit
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
@@ -414,19 +412,18 @@ entry:
 if.then.i.i.i.i:                                  ; preds = %entry
   %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i.i.i, label %_ZN25btHeightfieldTerrainShapeD2Ev.exit, label %if.then3.i.i.i.i
+  %tobool2.i.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i.i.i, label %if.then3.i.i.i.i, label %_ZN25btHeightfieldTerrainShapeD2Ev.exit
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
           to label %_ZN25btHeightfieldTerrainShapeD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then3.i.i.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #16
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #16
   unreachable
 
 _ZN25btHeightfieldTerrainShapeD2Ev.exit:          ; preds = %entry, %if.then.i.i.i.i, %if.then3.i.i.i.i
@@ -442,10 +439,10 @@ _ZN25btHeightfieldTerrainShapeD2Ev.exit:          ; preds = %entry, %if.then.i.i
           to label %_ZN25btHeightfieldTerrainShapedlEPv.exit unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %_ZN25btHeightfieldTerrainShapeD2Ev.exit
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #16
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #16
   unreachable
 
 _ZN25btHeightfieldTerrainShapedlEPv.exit:         ; preds = %_ZN25btHeightfieldTerrainShapeD2Ev.exit
@@ -946,13 +943,13 @@ for.cond112.preheader.lr.ph:                      ; preds = %sw.epilog
   %m_flipQuadEdges = getelementptr inbounds i8, ptr %this, i64 124
   %m_useDiamondSubdivision = getelementptr inbounds i8, ptr %this, i64 125
   %m_useZigzagSubdivision = getelementptr inbounds i8, ptr %this, i64 126
-  %.sroa.gep723 = getelementptr inbounds i8, ptr %vertices, i64 32
+  %.sroa.gep722 = getelementptr inbounds i8, ptr %vertices, i64 32
   %m_width28.i330 = getelementptr inbounds i8, ptr %this, i64 100
   %m_length34.i333 = getelementptr inbounds i8, ptr %this, i64 104
-  %.sroa.gep722.sroa.gep749 = getelementptr inbounds i8, ptr %vertices, i64 4
-  %.sroa.gep723.sroa.gep750 = getelementptr inbounds i8, ptr %vertices, i64 36
-  %.sroa.gep722.sroa.gep746 = getelementptr inbounds i8, ptr %vertices, i64 8
-  %.sroa.gep723.sroa.gep747 = getelementptr inbounds i8, ptr %vertices, i64 40
+  %.sroa.gep722.sroa.gep749 = getelementptr inbounds i8, ptr %vertices, i64 36
+  %.sroa.gep723.sroa.gep750 = getelementptr inbounds i8, ptr %vertices, i64 4
+  %.sroa.gep722.sroa.gep746 = getelementptr inbounds i8, ptr %vertices, i64 40
+  %.sroa.gep723.sroa.gep747 = getelementptr inbounds i8, ptr %vertices, i64 8
   %arrayidx202 = getelementptr inbounds i8, ptr %vertices, i64 16
   %arrayidx5.i17.i394 = getelementptr inbounds i8, ptr %vertices, i64 24
   %arrayidx7.i18.i395 = getelementptr inbounds i8, ptr %vertices, i64 28
@@ -973,122 +970,124 @@ for.cond112.preheader.us:                         ; preds = %for.cond112.prehead
 
 lor.lhs.false.us:                                 ; preds = %arrayctor.loop.preheader.us
   %58 = load i8, ptr %m_useDiamondSubdivision, align 1
-  %59 = and i8 %58, 1
-  %tobool120.not.us = icmp eq i8 %59, 0
-  br i1 %tobool120.not.us, label %lor.lhs.false122.us, label %land.lhs.true.us
+  %tobool120.us = trunc i8 %58 to i1
+  br i1 %tobool120.us, label %land.lhs.true.us, label %lor.lhs.false122.us
 
 land.lhs.true.us:                                 ; preds = %lor.lhs.false.us
   %add.us = add nuw nsw i32 %x.0865.us, %j.0867.us
   %and.us = and i32 %add.us, 1
   %tobool121.not.us = icmp eq i32 %and.us, 0
-  br i1 %tobool121.not.us, label %if.then127.us, label %lor.lhs.false122.us
+  %59 = load i8, ptr %m_useZigzagSubdivision, align 2
+  %tobool123.us = trunc i8 %59 to i1
+  %or.cond.us = and i1 %tobool126.not.us, %tobool123.us
+  %or.cond = select i1 %tobool121.not.us, i1 true, i1 %or.cond.us
+  br i1 %or.cond, label %if.then127.us, label %if.else.us
 
-lor.lhs.false122.us:                              ; preds = %land.lhs.true.us, %lor.lhs.false.us
-  %60 = load i8, ptr %m_useZigzagSubdivision, align 2
-  %61 = and i8 %60, 1
-  %tobool123.not.us = icmp ne i8 %61, 0
-  %or.cond.us = and i1 %tobool126.not.us, %tobool123.not.us
-  br i1 %or.cond.us, label %if.then127.us, label %if.else.us
+lor.lhs.false122.us:                              ; preds = %lor.lhs.false.us
+  %.old = load i8, ptr %m_useZigzagSubdivision, align 2
+  %tobool123.us.old = trunc i8 %.old to i1
+  %or.cond.us.old = and i1 %tobool126.not.us, %tobool123.us.old
+  br i1 %or.cond.us.old, label %if.then127.us, label %if.else.us
 
-if.else.us:                                       ; preds = %lor.lhs.false122.us
-  %spec.select77.sroa.sel724.us = select i1 %tobool.not.us, ptr %vertices, ptr %.sroa.gep723
+if.else.us:                                       ; preds = %land.lhs.true.us, %lor.lhs.false122.us
+  %spec.select77.sroa.sel724.us = select i1 %tobool.us, ptr %.sroa.gep722, ptr %vertices
   %vtable.i325.us = load ptr, ptr %this, align 8
   %vfn.i326.us = getelementptr inbounds i8, ptr %vtable.i325.us, i64 136
-  %62 = load ptr, ptr %vfn.i326.us, align 8
-  %call.i327.us = call noundef float %62(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %x.0865.us, i32 noundef %j.0867.us)
-  %63 = load i32, ptr %m_upAxis, align 8
-  switch i32 %63, label %entry.sw.epilog_crit_edge.i373.us [
+  %60 = load ptr, ptr %vfn.i326.us, align 8
+  %call.i327.us = call noundef float %60(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %x.0865.us, i32 noundef %j.0867.us)
+  %61 = load i32, ptr %m_upAxis, align 8
+  switch i32 %61, label %entry.sw.epilog_crit_edge.i373.us [
     i32 0, label %sw.bb.i361.us
     i32 1, label %sw.bb9.i349.us
     i32 2, label %sw.bb26.i329.us
   ]
 
 sw.bb26.i329.us:                                  ; preds = %if.else.us
-  %64 = load float, ptr %m_width28.i330, align 4
-  %div30.i331.us = fmul float %64, 5.000000e-01
+  %62 = load float, ptr %m_width28.i330, align 4
+  %div30.i331.us = fmul float %62, 5.000000e-01
   %conv31.i332.us = sitofp i32 %x.0865.us to float
-  %65 = fsub float %conv31.i332.us, %div30.i331.us
-  %66 = load float, ptr %m_length34.i333, align 8
-  %div36.i334.us = fmul float %66, 5.000000e-01
-  %67 = fsub float %conv37.i335.us, %div36.i334.us
-  %68 = load float, ptr %arrayidx10.i, align 4
-  %sub42.i337.us = fsub float %call.i327.us, %68
-  %spec.select77.sroa.sel724.sroa.sel760.v.us.sroa.sel = select i1 %tobool.not.us, ptr %.sroa.gep722.sroa.gep749, ptr %.sroa.gep723.sroa.gep750
-  store float %67, ptr %spec.select77.sroa.sel724.sroa.sel760.v.us.sroa.sel, align 4
-  %spec.select77.sroa.sel724.sroa.sel757.v.us.sroa.sel = select i1 %tobool.not.us, ptr %.sroa.gep722.sroa.gep746, ptr %.sroa.gep723.sroa.gep747
+  %63 = fsub float %conv31.i332.us, %div30.i331.us
+  %64 = load float, ptr %m_length34.i333, align 8
+  %div36.i334.us = fmul float %64, 5.000000e-01
+  %65 = fsub float %conv37.i335.us, %div36.i334.us
+  %66 = load float, ptr %arrayidx10.i, align 4
+  %sub42.i337.us = fsub float %call.i327.us, %66
+  %spec.select77.sroa.sel724.sroa.sel760.v.us.sroa.sel = select i1 %tobool.us, ptr %.sroa.gep722.sroa.gep749, ptr %.sroa.gep723.sroa.gep750
+  store float %65, ptr %spec.select77.sroa.sel724.sroa.sel760.v.us.sroa.sel, align 4
+  %spec.select77.sroa.sel724.sroa.sel757.v.us.sroa.sel = select i1 %tobool.us, ptr %.sroa.gep722.sroa.gep746, ptr %.sroa.gep723.sroa.gep747
   store float %sub42.i337.us, ptr %spec.select77.sroa.sel724.sroa.sel757.v.us.sroa.sel, align 8
-  %spec.select77.sroa.sel724.sroa.sel754.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 12, i64 44
+  %spec.select77.sroa.sel724.sroa.sel754.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 44, i64 12
   %spec.select77.sroa.sel724.sroa.sel754.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select77.sroa.sel724.sroa.sel754.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select77.sroa.sel724.sroa.sel754.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit379.us
 
 sw.bb9.i349.us:                                   ; preds = %if.else.us
-  %69 = load float, ptr %m_width28.i330, align 4
-  %div13.i351.us = fmul float %69, 5.000000e-01
+  %67 = load float, ptr %m_width28.i330, align 4
+  %div13.i351.us = fmul float %67, 5.000000e-01
   %conv14.i352.us = sitofp i32 %x.0865.us to float
-  %70 = fsub float %conv14.i352.us, %div13.i351.us
-  %71 = load float, ptr %arrayidx5.i98, align 8
-  %sub19.i354.us = fsub float %call.i327.us, %71
-  %72 = load float, ptr %m_length34.i333, align 8
-  %div23.i356.us = fmul float %72, 5.000000e-01
-  %73 = fsub float %conv37.i335.us, %div23.i356.us
-  %spec.select77.sroa.sel724.sroa.sel745.v.us.sroa.sel = select i1 %tobool.not.us, ptr %.sroa.gep722.sroa.gep749, ptr %.sroa.gep723.sroa.gep750
+  %68 = fsub float %conv14.i352.us, %div13.i351.us
+  %69 = load float, ptr %arrayidx5.i98, align 8
+  %sub19.i354.us = fsub float %call.i327.us, %69
+  %70 = load float, ptr %m_length34.i333, align 8
+  %div23.i356.us = fmul float %70, 5.000000e-01
+  %71 = fsub float %conv37.i335.us, %div23.i356.us
+  %spec.select77.sroa.sel724.sroa.sel745.v.us.sroa.sel = select i1 %tobool.us, ptr %.sroa.gep722.sroa.gep749, ptr %.sroa.gep723.sroa.gep750
   store float %sub19.i354.us, ptr %spec.select77.sroa.sel724.sroa.sel745.v.us.sroa.sel, align 4
-  %spec.select77.sroa.sel724.sroa.sel742.v.us.sroa.sel = select i1 %tobool.not.us, ptr %.sroa.gep722.sroa.gep746, ptr %.sroa.gep723.sroa.gep747
-  store float %73, ptr %spec.select77.sroa.sel724.sroa.sel742.v.us.sroa.sel, align 8
-  %spec.select77.sroa.sel724.sroa.sel739.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 12, i64 44
+  %spec.select77.sroa.sel724.sroa.sel742.v.us.sroa.sel = select i1 %tobool.us, ptr %.sroa.gep722.sroa.gep746, ptr %.sroa.gep723.sroa.gep747
+  store float %71, ptr %spec.select77.sroa.sel724.sroa.sel742.v.us.sroa.sel, align 8
+  %spec.select77.sroa.sel724.sroa.sel739.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 44, i64 12
   %spec.select77.sroa.sel724.sroa.sel739.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select77.sroa.sel724.sroa.sel739.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select77.sroa.sel724.sroa.sel739.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit379.us
 
 sw.bb.i361.us:                                    ; preds = %if.else.us
-  %74 = load float, ptr %m_localOrigin, align 4
-  %sub.i363.us = fsub float %call.i327.us, %74
-  %75 = load float, ptr %m_width28.i330, align 4
-  %div.i365.us = fmul float %75, 5.000000e-01
+  %72 = load float, ptr %m_localOrigin, align 4
+  %sub.i363.us = fsub float %call.i327.us, %72
+  %73 = load float, ptr %m_width28.i330, align 4
+  %div.i365.us = fmul float %73, 5.000000e-01
   %conv.i366.us = sitofp i32 %x.0865.us to float
-  %76 = fsub float %conv.i366.us, %div.i365.us
-  %77 = load float, ptr %m_length34.i333, align 8
-  %div6.i368.us = fmul float %77, 5.000000e-01
-  %78 = fsub float %conv37.i335.us, %div6.i368.us
-  %spec.select77.sroa.sel724.sroa.sel736.v.us.sroa.sel = select i1 %tobool.not.us, ptr %.sroa.gep722.sroa.gep749, ptr %.sroa.gep723.sroa.gep750
-  store float %76, ptr %spec.select77.sroa.sel724.sroa.sel736.v.us.sroa.sel, align 4
-  %spec.select77.sroa.sel724.sroa.sel733.v.us.sroa.sel = select i1 %tobool.not.us, ptr %.sroa.gep722.sroa.gep746, ptr %.sroa.gep723.sroa.gep747
-  store float %78, ptr %spec.select77.sroa.sel724.sroa.sel733.v.us.sroa.sel, align 8
-  %spec.select77.sroa.sel724.sroa.sel730.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 12, i64 44
+  %74 = fsub float %conv.i366.us, %div.i365.us
+  %75 = load float, ptr %m_length34.i333, align 8
+  %div6.i368.us = fmul float %75, 5.000000e-01
+  %76 = fsub float %conv37.i335.us, %div6.i368.us
+  %spec.select77.sroa.sel724.sroa.sel736.v.us.sroa.sel = select i1 %tobool.us, ptr %.sroa.gep722.sroa.gep749, ptr %.sroa.gep723.sroa.gep750
+  store float %74, ptr %spec.select77.sroa.sel724.sroa.sel736.v.us.sroa.sel, align 4
+  %spec.select77.sroa.sel724.sroa.sel733.v.us.sroa.sel = select i1 %tobool.us, ptr %.sroa.gep722.sroa.gep746, ptr %.sroa.gep723.sroa.gep747
+  store float %76, ptr %spec.select77.sroa.sel724.sroa.sel733.v.us.sroa.sel, align 8
+  %spec.select77.sroa.sel724.sroa.sel730.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 44, i64 12
   %spec.select77.sroa.sel724.sroa.sel730.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select77.sroa.sel724.sroa.sel730.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select77.sroa.sel724.sroa.sel730.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit379.us
 
 entry.sw.epilog_crit_edge.i373.us:                ; preds = %if.else.us
   %.pre.i374.us = load float, ptr %spec.select77.sroa.sel724.us, align 16
-  %spec.select77.sroa.sel724.sroa.sel727.v.us.sroa.sel = select i1 %tobool.not.us, ptr %.sroa.gep722.sroa.gep749, ptr %.sroa.gep723.sroa.gep750
+  %spec.select77.sroa.sel724.sroa.sel727.v.us.sroa.sel = select i1 %tobool.us, ptr %.sroa.gep722.sroa.gep749, ptr %.sroa.gep723.sroa.gep750
   %.pre21.i376.us = load float, ptr %spec.select77.sroa.sel724.sroa.sel727.v.us.sroa.sel, align 4
-  %spec.select77.sroa.sel724.sroa.sel.v.us.sroa.sel = select i1 %tobool.not.us, ptr %.sroa.gep722.sroa.gep746, ptr %.sroa.gep723.sroa.gep747
+  %spec.select77.sroa.sel724.sroa.sel.v.us.sroa.sel = select i1 %tobool.us, ptr %.sroa.gep722.sroa.gep746, ptr %.sroa.gep723.sroa.gep747
   %.pre22.i378.us = load float, ptr %spec.select77.sroa.sel724.sroa.sel.v.us.sroa.sel, align 8
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit379.us
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit379.us: ; preds = %entry.sw.epilog_crit_edge.i373.us, %sw.bb.i361.us, %sw.bb9.i349.us, %sw.bb26.i329.us
   %spec.select77.sroa.sel724.sroa.sel748.us.pre-phi = phi ptr [ %spec.select77.sroa.sel724.sroa.sel.v.us.sroa.sel, %entry.sw.epilog_crit_edge.i373.us ], [ %spec.select77.sroa.sel724.sroa.sel733.v.us.sroa.sel, %sw.bb.i361.us ], [ %spec.select77.sroa.sel724.sroa.sel742.v.us.sroa.sel, %sw.bb9.i349.us ], [ %spec.select77.sroa.sel724.sroa.sel757.v.us.sroa.sel, %sw.bb26.i329.us ]
   %spec.select77.sroa.sel724.sroa.sel751.us.pre-phi = phi ptr [ %spec.select77.sroa.sel724.sroa.sel727.v.us.sroa.sel, %entry.sw.epilog_crit_edge.i373.us ], [ %spec.select77.sroa.sel724.sroa.sel736.v.us.sroa.sel, %sw.bb.i361.us ], [ %spec.select77.sroa.sel724.sroa.sel745.v.us.sroa.sel, %sw.bb9.i349.us ], [ %spec.select77.sroa.sel724.sroa.sel760.v.us.sroa.sel, %sw.bb26.i329.us ]
-  %79 = phi float [ %.pre22.i378.us, %entry.sw.epilog_crit_edge.i373.us ], [ %78, %sw.bb.i361.us ], [ %73, %sw.bb9.i349.us ], [ %sub42.i337.us, %sw.bb26.i329.us ]
-  %80 = phi float [ %.pre21.i376.us, %entry.sw.epilog_crit_edge.i373.us ], [ %76, %sw.bb.i361.us ], [ %sub19.i354.us, %sw.bb9.i349.us ], [ %67, %sw.bb26.i329.us ]
-  %81 = phi float [ %.pre.i374.us, %entry.sw.epilog_crit_edge.i373.us ], [ %sub.i363.us, %sw.bb.i361.us ], [ %70, %sw.bb9.i349.us ], [ %65, %sw.bb26.i329.us ]
-  %82 = load float, ptr %m_localScaling, align 4
-  %mul.i.i342.us = fmul float %81, %82
+  %77 = phi float [ %.pre22.i378.us, %entry.sw.epilog_crit_edge.i373.us ], [ %76, %sw.bb.i361.us ], [ %71, %sw.bb9.i349.us ], [ %sub42.i337.us, %sw.bb26.i329.us ]
+  %78 = phi float [ %.pre21.i376.us, %entry.sw.epilog_crit_edge.i373.us ], [ %74, %sw.bb.i361.us ], [ %sub19.i354.us, %sw.bb9.i349.us ], [ %65, %sw.bb26.i329.us ]
+  %79 = phi float [ %.pre.i374.us, %entry.sw.epilog_crit_edge.i373.us ], [ %sub.i363.us, %sw.bb.i361.us ], [ %68, %sw.bb9.i349.us ], [ %63, %sw.bb26.i329.us ]
+  %80 = load float, ptr %m_localScaling, align 4
+  %mul.i.i342.us = fmul float %79, %80
   store float %mul.i.i342.us, ptr %spec.select77.sroa.sel724.us, align 16
-  %83 = load float, ptr %arrayidx6, align 8
-  %mul8.i.i345.us = fmul float %80, %83
+  %81 = load float, ptr %arrayidx6, align 8
+  %mul8.i.i345.us = fmul float %78, %81
   store float %mul8.i.i345.us, ptr %spec.select77.sroa.sel724.sroa.sel751.us.pre-phi, align 4
-  %84 = load float, ptr %arrayidx11, align 4
-  %mul13.i.i348.us = fmul float %79, %84
+  %82 = load float, ptr %arrayidx11, align 4
+  %mul13.i.i348.us = fmul float %77, %82
   store float %mul13.i.i348.us, ptr %spec.select77.sroa.sel724.sroa.sel748.us.pre-phi, align 4
   %vtable.i380.us = load ptr, ptr %this, align 8
   %vfn.i381.us = getelementptr inbounds i8, ptr %vtable.i380.us, i64 136
-  %85 = load ptr, ptr %vfn.i381.us, align 8
-  %call.i382.us = call noundef float %85(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %x.0865.us, i32 noundef %add199.us)
-  %86 = load i32, ptr %m_upAxis, align 8
-  switch i32 %86, label %entry.sw.epilog_crit_edge.i428.us [
+  %83 = load ptr, ptr %vfn.i381.us, align 8
+  %call.i382.us = call noundef float %83(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %x.0865.us, i32 noundef %add199.us)
+  %84 = load i32, ptr %m_upAxis, align 8
+  switch i32 %84, label %entry.sw.epilog_crit_edge.i428.us [
     i32 0, label %sw.bb.i416.us
     i32 1, label %sw.bb9.i404.us
     i32 2, label %sw.bb26.i384.us
@@ -1096,218 +1095,218 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit379.us: ; preds = %e
 
 sw.bb26.i384.us:                                  ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit379.us
   %conv31.i387.us = sitofp i32 %x.0865.us to float
-  %87 = load <2 x float>, ptr %m_width28.i330, align 4
-  %88 = fmul <2 x float> %87, <float 5.000000e-01, float 5.000000e-01>
-  %89 = insertelement <2 x float> %55, float %conv31.i387.us, i64 0
-  %90 = fsub <2 x float> %89, %88
-  %91 = load float, ptr %arrayidx10.i, align 4
-  %sub42.i392.us = fsub float %call.i382.us, %91
+  %85 = load <2 x float>, ptr %m_width28.i330, align 4
+  %86 = fmul <2 x float> %85, <float 5.000000e-01, float 5.000000e-01>
+  %87 = insertelement <2 x float> %55, float %conv31.i387.us, i64 0
+  %88 = fsub <2 x float> %87, %86
+  %89 = load float, ptr %arrayidx10.i, align 4
+  %sub42.i392.us = fsub float %call.i382.us, %89
   store float 0.000000e+00, ptr %arrayidx7.i18.i395, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit434.us
 
 sw.bb9.i404.us:                                   ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit379.us
-  %92 = load float, ptr %m_width28.i330, align 4
-  %div13.i406.us = fmul float %92, 5.000000e-01
+  %90 = load float, ptr %m_width28.i330, align 4
+  %div13.i406.us = fmul float %90, 5.000000e-01
   %conv14.i407.us = sitofp i32 %x.0865.us to float
-  %93 = load float, ptr %arrayidx5.i98, align 8
-  %94 = insertelement <2 x float> poison, float %conv14.i407.us, i64 0
-  %95 = insertelement <2 x float> %94, float %call.i382.us, i64 1
-  %96 = insertelement <2 x float> poison, float %div13.i406.us, i64 0
-  %97 = insertelement <2 x float> %96, float %93, i64 1
-  %98 = fsub <2 x float> %95, %97
-  %99 = load float, ptr %m_length34.i333, align 8
-  %div23.i411.us = fmul float %99, 5.000000e-01
-  %100 = fsub float %conv37.i390.us, %div23.i411.us
+  %91 = load float, ptr %arrayidx5.i98, align 8
+  %92 = insertelement <2 x float> poison, float %conv14.i407.us, i64 0
+  %93 = insertelement <2 x float> %92, float %call.i382.us, i64 1
+  %94 = insertelement <2 x float> poison, float %div13.i406.us, i64 0
+  %95 = insertelement <2 x float> %94, float %91, i64 1
+  %96 = fsub <2 x float> %93, %95
+  %97 = load float, ptr %m_length34.i333, align 8
+  %div23.i411.us = fmul float %97, 5.000000e-01
+  %98 = fsub float %conv37.i390.us, %div23.i411.us
   store float 0.000000e+00, ptr %arrayidx7.i18.i395, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit434.us
 
 sw.bb.i416.us:                                    ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit379.us
-  %101 = load <4 x float>, ptr %m_localOrigin, align 4
-  %102 = shufflevector <4 x float> %101, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %103 = load float, ptr %m_width28.i330, align 4
-  %div.i420.us = fmul float %103, 5.000000e-01
+  %99 = load <4 x float>, ptr %m_localOrigin, align 4
+  %100 = shufflevector <4 x float> %99, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %101 = load float, ptr %m_width28.i330, align 4
+  %div.i420.us = fmul float %101, 5.000000e-01
   %conv.i421.us = sitofp i32 %x.0865.us to float
-  %104 = insertelement <2 x float> poison, float %call.i382.us, i64 0
-  %105 = insertelement <2 x float> %104, float %conv.i421.us, i64 1
-  %106 = insertelement <2 x float> %102, float %div.i420.us, i64 1
-  %107 = fsub <2 x float> %105, %106
-  %108 = load float, ptr %m_length34.i333, align 8
-  %div6.i423.us = fmul float %108, 5.000000e-01
-  %109 = fsub float %conv37.i390.us, %div6.i423.us
+  %102 = insertelement <2 x float> poison, float %call.i382.us, i64 0
+  %103 = insertelement <2 x float> %102, float %conv.i421.us, i64 1
+  %104 = insertelement <2 x float> %100, float %div.i420.us, i64 1
+  %105 = fsub <2 x float> %103, %104
+  %106 = load float, ptr %m_length34.i333, align 8
+  %div6.i423.us = fmul float %106, 5.000000e-01
+  %107 = fsub float %conv37.i390.us, %div6.i423.us
   store float 0.000000e+00, ptr %arrayidx7.i18.i395, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit434.us
 
 entry.sw.epilog_crit_edge.i428.us:                ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit379.us
-  %110 = load <2 x float>, ptr %arrayidx202, align 16
+  %108 = load <2 x float>, ptr %arrayidx202, align 16
   %.pre22.i433.us = load float, ptr %arrayidx5.i17.i394, align 8
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit434.us
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit434.us: ; preds = %entry.sw.epilog_crit_edge.i428.us, %sw.bb.i416.us, %sw.bb9.i404.us, %sw.bb26.i384.us
-  %111 = phi float [ %.pre22.i433.us, %entry.sw.epilog_crit_edge.i428.us ], [ %sub42.i392.us, %sw.bb26.i384.us ], [ %100, %sw.bb9.i404.us ], [ %109, %sw.bb.i416.us ]
-  %112 = phi <2 x float> [ %110, %entry.sw.epilog_crit_edge.i428.us ], [ %90, %sw.bb26.i384.us ], [ %98, %sw.bb9.i404.us ], [ %107, %sw.bb.i416.us ]
-  %113 = load <2 x float>, ptr %m_localScaling, align 4
-  %114 = fmul <2 x float> %112, %113
-  store <2 x float> %114, ptr %arrayidx202, align 16
-  %115 = load float, ptr %arrayidx11, align 4
-  %mul13.i.i403.us = fmul float %111, %115
+  %109 = phi float [ %.pre22.i433.us, %entry.sw.epilog_crit_edge.i428.us ], [ %sub42.i392.us, %sw.bb26.i384.us ], [ %98, %sw.bb9.i404.us ], [ %107, %sw.bb.i416.us ]
+  %110 = phi <2 x float> [ %108, %entry.sw.epilog_crit_edge.i428.us ], [ %88, %sw.bb26.i384.us ], [ %96, %sw.bb9.i404.us ], [ %105, %sw.bb.i416.us ]
+  %111 = load <2 x float>, ptr %m_localScaling, align 4
+  %112 = fmul <2 x float> %110, %111
+  store <2 x float> %112, ptr %arrayidx202, align 16
+  %113 = load float, ptr %arrayidx11, align 4
+  %mul13.i.i403.us = fmul float %109, %113
   store float %mul13.i.i403.us, ptr %arrayidx5.i17.i394, align 8
   %add203.us = add nuw i32 %x.0865.us, 1
-  %spec.select76.sroa.sel763.us = select i1 %tobool.not.us, ptr %.sroa.gep723, ptr %vertices
+  %spec.select76.sroa.sel763.us = select i1 %tobool.us, ptr %vertices, ptr %.sroa.gep722
   %vtable.i435.us = load ptr, ptr %this, align 8
   %vfn.i436.us = getelementptr inbounds i8, ptr %vtable.i435.us, i64 136
-  %116 = load ptr, ptr %vfn.i436.us, align 8
-  %call.i437.us = call noundef float %116(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %add203.us, i32 noundef %j.0867.us)
-  %117 = load i32, ptr %m_upAxis, align 8
-  switch i32 %117, label %entry.sw.epilog_crit_edge.i483.us [
+  %114 = load ptr, ptr %vfn.i436.us, align 8
+  %call.i437.us = call noundef float %114(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %add203.us, i32 noundef %j.0867.us)
+  %115 = load i32, ptr %m_upAxis, align 8
+  switch i32 %115, label %entry.sw.epilog_crit_edge.i483.us [
     i32 0, label %sw.bb.i471.us
     i32 1, label %sw.bb9.i459.us
     i32 2, label %sw.bb26.i439.us
   ]
 
 sw.bb26.i439.us:                                  ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit434.us
-  %118 = load float, ptr %m_width28.i330, align 4
-  %div30.i441.us = fmul float %118, 5.000000e-01
+  %116 = load float, ptr %m_width28.i330, align 4
+  %div30.i441.us = fmul float %116, 5.000000e-01
   %conv31.i442.us = sitofp i32 %add203.us to float
-  %119 = fsub float %conv31.i442.us, %div30.i441.us
-  %120 = load float, ptr %m_length34.i333, align 8
-  %div36.i444.us = fmul float %120, 5.000000e-01
-  %121 = load float, ptr %arrayidx10.i, align 4
-  %122 = insertelement <2 x float> %57, float %call.i437.us, i64 1
-  %123 = insertelement <2 x float> poison, float %div36.i444.us, i64 0
-  %124 = insertelement <2 x float> %123, float %121, i64 1
-  %125 = fsub <2 x float> %122, %124
-  %spec.select76.sroa.sel763.sroa.sel838.us = select i1 %tobool.not.us, ptr %.sroa.gep723.sroa.gep750, ptr %.sroa.gep722.sroa.gep749
-  %126 = extractelement <2 x float> %125, i64 0
-  store float %126, ptr %spec.select76.sroa.sel763.sroa.sel838.us, align 4
-  %spec.select76.sroa.sel763.sroa.sel835.us = select i1 %tobool.not.us, ptr %.sroa.gep723.sroa.gep747, ptr %.sroa.gep722.sroa.gep746
-  %127 = extractelement <2 x float> %125, i64 1
-  store float %127, ptr %spec.select76.sroa.sel763.sroa.sel835.us, align 8
-  %spec.select76.sroa.sel763.sroa.sel832.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 44, i64 12
+  %117 = fsub float %conv31.i442.us, %div30.i441.us
+  %118 = load float, ptr %m_length34.i333, align 8
+  %div36.i444.us = fmul float %118, 5.000000e-01
+  %119 = load float, ptr %arrayidx10.i, align 4
+  %120 = insertelement <2 x float> %57, float %call.i437.us, i64 1
+  %121 = insertelement <2 x float> poison, float %div36.i444.us, i64 0
+  %122 = insertelement <2 x float> %121, float %119, i64 1
+  %123 = fsub <2 x float> %120, %122
+  %spec.select76.sroa.sel763.sroa.sel838.us = select i1 %tobool.us, ptr %.sroa.gep723.sroa.gep750, ptr %.sroa.gep722.sroa.gep749
+  %124 = extractelement <2 x float> %123, i64 0
+  store float %124, ptr %spec.select76.sroa.sel763.sroa.sel838.us, align 4
+  %spec.select76.sroa.sel763.sroa.sel835.us = select i1 %tobool.us, ptr %.sroa.gep723.sroa.gep747, ptr %.sroa.gep722.sroa.gep746
+  %125 = extractelement <2 x float> %123, i64 1
+  store float %125, ptr %spec.select76.sroa.sel763.sroa.sel835.us, align 8
+  %spec.select76.sroa.sel763.sroa.sel832.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 12, i64 44
   %spec.select76.sroa.sel763.sroa.sel832.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select76.sroa.sel763.sroa.sel832.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select76.sroa.sel763.sroa.sel832.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit489.us
 
 sw.bb9.i459.us:                                   ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit434.us
-  %128 = load float, ptr %m_width28.i330, align 4
-  %div13.i461.us = fmul float %128, 5.000000e-01
+  %126 = load float, ptr %m_width28.i330, align 4
+  %div13.i461.us = fmul float %126, 5.000000e-01
   %conv14.i462.us = sitofp i32 %add203.us to float
-  %129 = fsub float %conv14.i462.us, %div13.i461.us
-  %130 = load <4 x float>, ptr %arrayidx5.i98, align 8
-  %131 = shufflevector <4 x float> %130, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %132 = load float, ptr %m_length34.i333, align 8
-  %div23.i466.us = fmul float %132, 5.000000e-01
-  %133 = insertelement <2 x float> %54, float %call.i437.us, i64 0
-  %134 = insertelement <2 x float> %131, float %div23.i466.us, i64 1
-  %135 = fsub <2 x float> %133, %134
-  %spec.select76.sroa.sel763.sroa.sel823.us = select i1 %tobool.not.us, ptr %.sroa.gep723.sroa.gep750, ptr %.sroa.gep722.sroa.gep749
-  %136 = extractelement <2 x float> %135, i64 0
-  store float %136, ptr %spec.select76.sroa.sel763.sroa.sel823.us, align 4
-  %spec.select76.sroa.sel763.sroa.sel820.us = select i1 %tobool.not.us, ptr %.sroa.gep723.sroa.gep747, ptr %.sroa.gep722.sroa.gep746
-  %137 = extractelement <2 x float> %135, i64 1
-  store float %137, ptr %spec.select76.sroa.sel763.sroa.sel820.us, align 8
-  %spec.select76.sroa.sel763.sroa.sel817.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 44, i64 12
+  %127 = fsub float %conv14.i462.us, %div13.i461.us
+  %128 = load <4 x float>, ptr %arrayidx5.i98, align 8
+  %129 = shufflevector <4 x float> %128, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %130 = load float, ptr %m_length34.i333, align 8
+  %div23.i466.us = fmul float %130, 5.000000e-01
+  %131 = insertelement <2 x float> %54, float %call.i437.us, i64 0
+  %132 = insertelement <2 x float> %129, float %div23.i466.us, i64 1
+  %133 = fsub <2 x float> %131, %132
+  %spec.select76.sroa.sel763.sroa.sel823.us = select i1 %tobool.us, ptr %.sroa.gep723.sroa.gep750, ptr %.sroa.gep722.sroa.gep749
+  %134 = extractelement <2 x float> %133, i64 0
+  store float %134, ptr %spec.select76.sroa.sel763.sroa.sel823.us, align 4
+  %spec.select76.sroa.sel763.sroa.sel820.us = select i1 %tobool.us, ptr %.sroa.gep723.sroa.gep747, ptr %.sroa.gep722.sroa.gep746
+  %135 = extractelement <2 x float> %133, i64 1
+  store float %135, ptr %spec.select76.sroa.sel763.sroa.sel820.us, align 8
+  %spec.select76.sroa.sel763.sroa.sel817.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 12, i64 44
   %spec.select76.sroa.sel763.sroa.sel817.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select76.sroa.sel763.sroa.sel817.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select76.sroa.sel763.sroa.sel817.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit489.us
 
 sw.bb.i471.us:                                    ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit434.us
-  %138 = load float, ptr %m_localOrigin, align 4
-  %sub.i473.us = fsub float %call.i437.us, %138
+  %136 = load float, ptr %m_localOrigin, align 4
+  %sub.i473.us = fsub float %call.i437.us, %136
   %conv.i476.us = sitofp i32 %add203.us to float
-  %139 = load <2 x float>, ptr %m_width28.i330, align 4
-  %140 = fmul <2 x float> %139, <float 5.000000e-01, float 5.000000e-01>
-  %141 = insertelement <2 x float> %54, float %conv.i476.us, i64 0
-  %142 = fsub <2 x float> %141, %140
-  %spec.select76.sroa.sel763.sroa.sel814.us = select i1 %tobool.not.us, ptr %.sroa.gep723.sroa.gep750, ptr %.sroa.gep722.sroa.gep749
-  %143 = extractelement <2 x float> %142, i64 0
-  store float %143, ptr %spec.select76.sroa.sel763.sroa.sel814.us, align 4
-  %spec.select76.sroa.sel763.sroa.sel811.us = select i1 %tobool.not.us, ptr %.sroa.gep723.sroa.gep747, ptr %.sroa.gep722.sroa.gep746
-  %144 = extractelement <2 x float> %142, i64 1
-  store float %144, ptr %spec.select76.sroa.sel763.sroa.sel811.us, align 8
-  %spec.select76.sroa.sel763.sroa.sel808.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 44, i64 12
+  %137 = load <2 x float>, ptr %m_width28.i330, align 4
+  %138 = fmul <2 x float> %137, <float 5.000000e-01, float 5.000000e-01>
+  %139 = insertelement <2 x float> %54, float %conv.i476.us, i64 0
+  %140 = fsub <2 x float> %139, %138
+  %spec.select76.sroa.sel763.sroa.sel814.us = select i1 %tobool.us, ptr %.sroa.gep723.sroa.gep750, ptr %.sroa.gep722.sroa.gep749
+  %141 = extractelement <2 x float> %140, i64 0
+  store float %141, ptr %spec.select76.sroa.sel763.sroa.sel814.us, align 4
+  %spec.select76.sroa.sel763.sroa.sel811.us = select i1 %tobool.us, ptr %.sroa.gep723.sroa.gep747, ptr %.sroa.gep722.sroa.gep746
+  %142 = extractelement <2 x float> %140, i64 1
+  store float %142, ptr %spec.select76.sroa.sel763.sroa.sel811.us, align 8
+  %spec.select76.sroa.sel763.sroa.sel808.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 12, i64 44
   %spec.select76.sroa.sel763.sroa.sel808.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select76.sroa.sel763.sroa.sel808.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select76.sroa.sel763.sroa.sel808.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit489.us
 
 entry.sw.epilog_crit_edge.i483.us:                ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit434.us
   %.pre.i484.us = load float, ptr %spec.select76.sroa.sel763.us, align 16
-  %145 = load <2 x float>, ptr %.sroa.gep723.sroa.gep750, align 4
-  %146 = load <2 x float>, ptr %.sroa.gep722.sroa.gep749, align 4
-  %147 = insertelement <2 x i1> poison, i1 %tobool.not.us, i64 0
-  %148 = shufflevector <2 x i1> %147, <2 x i1> poison, <2 x i32> zeroinitializer
-  %149 = select <2 x i1> %148, <2 x float> %145, <2 x float> %146
-  %.pre952 = select i1 %tobool.not.us, ptr %.sroa.gep723.sroa.gep750, ptr %.sroa.gep722.sroa.gep749
-  %.pre953 = select i1 %tobool.not.us, ptr %.sroa.gep723.sroa.gep747, ptr %.sroa.gep722.sroa.gep746
+  %143 = load <2 x float>, ptr %.sroa.gep723.sroa.gep750, align 4
+  %144 = load <2 x float>, ptr %.sroa.gep722.sroa.gep749, align 4
+  %145 = insertelement <2 x i1> poison, i1 %tobool.us, i64 0
+  %146 = shufflevector <2 x i1> %145, <2 x i1> poison, <2 x i32> zeroinitializer
+  %147 = select <2 x i1> %146, <2 x float> %143, <2 x float> %144
+  %.pre953 = select i1 %tobool.us, ptr %.sroa.gep723.sroa.gep750, ptr %.sroa.gep722.sroa.gep749
+  %.pre954 = select i1 %tobool.us, ptr %.sroa.gep723.sroa.gep747, ptr %.sroa.gep722.sroa.gep746
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit489.us
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit489.us: ; preds = %entry.sw.epilog_crit_edge.i483.us, %sw.bb.i471.us, %sw.bb9.i459.us, %sw.bb26.i439.us
-  %spec.select76.sroa.sel763.sroa.sel826.us.pre-phi = phi ptr [ %.pre953, %entry.sw.epilog_crit_edge.i483.us ], [ %spec.select76.sroa.sel763.sroa.sel811.us, %sw.bb.i471.us ], [ %spec.select76.sroa.sel763.sroa.sel820.us, %sw.bb9.i459.us ], [ %spec.select76.sroa.sel763.sroa.sel835.us, %sw.bb26.i439.us ]
-  %spec.select76.sroa.sel763.sroa.sel829.us.pre-phi = phi ptr [ %.pre952, %entry.sw.epilog_crit_edge.i483.us ], [ %spec.select76.sroa.sel763.sroa.sel814.us, %sw.bb.i471.us ], [ %spec.select76.sroa.sel763.sroa.sel823.us, %sw.bb9.i459.us ], [ %spec.select76.sroa.sel763.sroa.sel838.us, %sw.bb26.i439.us ]
-  %150 = phi float [ %.pre.i484.us, %entry.sw.epilog_crit_edge.i483.us ], [ %sub.i473.us, %sw.bb.i471.us ], [ %129, %sw.bb9.i459.us ], [ %119, %sw.bb26.i439.us ]
-  %151 = phi <2 x float> [ %149, %entry.sw.epilog_crit_edge.i483.us ], [ %142, %sw.bb.i471.us ], [ %135, %sw.bb9.i459.us ], [ %125, %sw.bb26.i439.us ]
-  %152 = load float, ptr %m_localScaling, align 4
-  %mul.i.i452.us = fmul float %150, %152
+  %spec.select76.sroa.sel763.sroa.sel826.us.pre-phi = phi ptr [ %.pre954, %entry.sw.epilog_crit_edge.i483.us ], [ %spec.select76.sroa.sel763.sroa.sel811.us, %sw.bb.i471.us ], [ %spec.select76.sroa.sel763.sroa.sel820.us, %sw.bb9.i459.us ], [ %spec.select76.sroa.sel763.sroa.sel835.us, %sw.bb26.i439.us ]
+  %spec.select76.sroa.sel763.sroa.sel829.us.pre-phi = phi ptr [ %.pre953, %entry.sw.epilog_crit_edge.i483.us ], [ %spec.select76.sroa.sel763.sroa.sel814.us, %sw.bb.i471.us ], [ %spec.select76.sroa.sel763.sroa.sel823.us, %sw.bb9.i459.us ], [ %spec.select76.sroa.sel763.sroa.sel838.us, %sw.bb26.i439.us ]
+  %148 = phi float [ %.pre.i484.us, %entry.sw.epilog_crit_edge.i483.us ], [ %sub.i473.us, %sw.bb.i471.us ], [ %127, %sw.bb9.i459.us ], [ %117, %sw.bb26.i439.us ]
+  %149 = phi <2 x float> [ %147, %entry.sw.epilog_crit_edge.i483.us ], [ %140, %sw.bb.i471.us ], [ %133, %sw.bb9.i459.us ], [ %123, %sw.bb26.i439.us ]
+  %150 = load float, ptr %m_localScaling, align 4
+  %mul.i.i452.us = fmul float %148, %150
   store float %mul.i.i452.us, ptr %spec.select76.sroa.sel763.us, align 16
-  %153 = load float, ptr %arrayidx6, align 8
-  %154 = extractelement <2 x float> %151, i64 0
-  %mul8.i.i455.us = fmul float %154, %153
+  %151 = load float, ptr %arrayidx6, align 8
+  %152 = extractelement <2 x float> %149, i64 0
+  %mul8.i.i455.us = fmul float %152, %151
   store float %mul8.i.i455.us, ptr %spec.select76.sroa.sel763.sroa.sel829.us.pre-phi, align 4
-  %155 = load float, ptr %arrayidx11, align 4
-  %156 = extractelement <2 x float> %151, i64 1
-  %mul13.i.i458.us = fmul float %156, %155
+  %153 = load float, ptr %arrayidx11, align 4
+  %154 = extractelement <2 x float> %149, i64 1
+  %mul13.i.i458.us = fmul float %154, %153
   store float %mul13.i.i458.us, ptr %spec.select76.sroa.sel763.sroa.sel826.us.pre-phi, align 4
-  %idxprom211.us = sext i32 %117 to i64
+  %idxprom211.us = sext i32 %115 to i64
   %arrayidx212.us = getelementptr inbounds float, ptr %vertices, i64 %idxprom211.us
-  %157 = load float, ptr %arrayidx212.us, align 4
+  %155 = load float, ptr %arrayidx212.us, align 4
   %arrayidx217.us = getelementptr inbounds float, ptr %arrayidx202, i64 %idxprom211.us
-  %158 = load float, ptr %arrayidx217.us, align 4
-  %arrayidx222.us = getelementptr inbounds float, ptr %.sroa.gep723, i64 %idxprom211.us
-  %159 = load float, ptr %arrayidx222.us, align 4
-  %cmp.i490.us = fcmp ogt float %157, %158
+  %156 = load float, ptr %arrayidx217.us, align 4
+  %arrayidx222.us = getelementptr inbounds float, ptr %.sroa.gep722, i64 %idxprom211.us
+  %157 = load float, ptr %arrayidx222.us, align 4
+  %cmp.i490.us = fcmp ogt float %155, %156
   br i1 %cmp.i490.us, label %if.then.i504.us, label %if.else6.i491.us
 
 if.else6.i491.us:                                 ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit489.us
-  %cmp7.i492.us = fcmp ogt float %157, %159
+  %cmp7.i492.us = fcmp ogt float %155, %157
   br i1 %cmp7.i492.us, label %if.then8.i501.us, label %if.else9.i493.us
 
 if.else9.i493.us:                                 ; preds = %if.else6.i491.us
-  %cmp10.i494.us = fcmp ogt float %158, %159
-  %retval.sroa.0.0.vec.insert33.i495.us = insertelement <2 x float> poison, float %157, i64 0
+  %cmp10.i494.us = fcmp ogt float %156, %157
+  %retval.sroa.0.0.vec.insert33.i495.us = insertelement <2 x float> poison, float %155, i64 0
   br i1 %cmp10.i494.us, label %if.then11.i499.us, label %if.else12.i496.us
 
 if.else12.i496.us:                                ; preds = %if.else9.i493.us
-  %retval.sroa.0.4.vec.insert45.i497.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert33.i495.us, float %159, i64 1
+  %retval.sroa.0.4.vec.insert45.i497.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert33.i495.us, float %157, i64 1
   br label %_ZL11minmaxRangefff.exit516.us
 
 if.then11.i499.us:                                ; preds = %if.else9.i493.us
-  %retval.sroa.0.4.vec.insert43.i500.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert33.i495.us, float %158, i64 1
+  %retval.sroa.0.4.vec.insert43.i500.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert33.i495.us, float %156, i64 1
   br label %_ZL11minmaxRangefff.exit516.us
 
 if.then8.i501.us:                                 ; preds = %if.else6.i491.us
-  %retval.sroa.0.0.vec.insert31.i502.us = insertelement <2 x float> poison, float %159, i64 0
-  %retval.sroa.0.4.vec.insert41.i503.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i502.us, float %158, i64 1
+  %retval.sroa.0.0.vec.insert31.i502.us = insertelement <2 x float> poison, float %157, i64 0
+  %retval.sroa.0.4.vec.insert41.i503.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i502.us, float %156, i64 1
   br label %_ZL11minmaxRangefff.exit516.us
 
 if.then.i504.us:                                  ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit489.us
-  %cmp1.i505.us = fcmp ogt float %158, %159
+  %cmp1.i505.us = fcmp ogt float %156, %157
   br i1 %cmp1.i505.us, label %if.then2.i513.us, label %if.else.i506.us
 
 if.else.i506.us:                                  ; preds = %if.then.i504.us
-  %cmp3.i507.us = fcmp ogt float %157, %159
-  %retval.sroa.0.0.vec.insert27.i508.us = insertelement <2 x float> poison, float %158, i64 0
+  %cmp3.i507.us = fcmp ogt float %155, %157
+  %retval.sroa.0.0.vec.insert27.i508.us = insertelement <2 x float> poison, float %156, i64 0
   br i1 %cmp3.i507.us, label %if.then4.i511.us, label %if.else5.i509.us
 
 if.else5.i509.us:                                 ; preds = %if.else.i506.us
-  %retval.sroa.0.4.vec.insert39.i510.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert27.i508.us, float %159, i64 1
+  %retval.sroa.0.4.vec.insert39.i510.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert27.i508.us, float %157, i64 1
   br label %_ZL11minmaxRangefff.exit516.us
 
 if.then4.i511.us:                                 ; preds = %if.else.i506.us
-  %retval.sroa.0.4.vec.insert37.i512.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert27.i508.us, float %157, i64 1
+  %retval.sroa.0.4.vec.insert37.i512.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert27.i508.us, float %155, i64 1
   br label %_ZL11minmaxRangefff.exit516.us
 
 if.then2.i513.us:                                 ; preds = %if.then.i504.us
-  %retval.sroa.0.0.vec.insert.i514.us = insertelement <2 x float> poison, float %159, i64 0
-  %retval.sroa.0.4.vec.insert.i515.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i514.us, float %157, i64 1
+  %retval.sroa.0.0.vec.insert.i514.us = insertelement <2 x float> poison, float %157, i64 0
+  %retval.sroa.0.4.vec.insert.i515.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i514.us, float %155, i64 1
   br label %_ZL11minmaxRangefff.exit516.us
 
 _ZL11minmaxRangefff.exit516.us:                   ; preds = %if.then2.i513.us, %if.then4.i511.us, %if.else5.i509.us, %if.then8.i501.us, %if.then11.i499.us, %if.else12.i496.us
@@ -1323,18 +1322,18 @@ if.then225.us:                                    ; preds = %_ZL11minmaxRangefff
   %mul227.us = shl nuw nsw i32 %x.0865.us, 1
   %vtable228.us = load ptr, ptr %callback, align 8
   %vfn229.us = getelementptr inbounds i8, ptr %vtable228.us, i64 16
-  %160 = load ptr, ptr %vfn229.us, align 8
-  call void %160(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %vertices, i32 noundef %mul227.us, i32 noundef %j.0867.us)
+  %158 = load ptr, ptr %vfn229.us, align 8
+  call void %158(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %vertices, i32 noundef %mul227.us, i32 noundef %j.0867.us)
   br label %if.end230.us
 
 if.end230.us:                                     ; preds = %if.then225.us, %_ZL11minmaxRangefff.exit516.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %spec.select77.sroa.sel724.us, ptr noundef nonnull align 16 dereferenceable(16) %spec.select76.sroa.sel763.us, i64 16, i1 false)
   %vtable.i522.us = load ptr, ptr %this, align 8
   %vfn.i523.us = getelementptr inbounds i8, ptr %vtable.i522.us, i64 136
-  %161 = load ptr, ptr %vfn.i523.us, align 8
-  %call.i524.us = call noundef float %161(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %add203.us, i32 noundef %add199.us)
-  %162 = load i32, ptr %m_upAxis, align 8
-  switch i32 %162, label %entry.sw.epilog_crit_edge.i570.us [
+  %159 = load ptr, ptr %vfn.i523.us, align 8
+  %call.i524.us = call noundef float %159(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %add203.us, i32 noundef %add199.us)
+  %160 = load i32, ptr %m_upAxis, align 8
+  switch i32 %160, label %entry.sw.epilog_crit_edge.i570.us [
     i32 0, label %sw.bb.i558.us
     i32 1, label %sw.bb9.i546.us
     i32 2, label %sw.bb26.i526.us
@@ -1342,49 +1341,49 @@ if.end230.us:                                     ; preds = %if.then225.us, %_ZL
 
 sw.bb26.i526.us:                                  ; preds = %if.end230.us
   %conv31.i529.us = sitofp i32 %add203.us to float
-  %163 = load <2 x float>, ptr %m_width28.i330, align 4
-  %164 = fmul <2 x float> %163, <float 5.000000e-01, float 5.000000e-01>
-  %165 = insertelement <2 x float> %55, float %conv31.i529.us, i64 0
-  %166 = fsub <2 x float> %165, %164
-  %167 = load float, ptr %arrayidx10.i, align 4
-  %sub42.i534.us = fsub float %call.i524.us, %167
-  %spec.select76.sroa.sel763.sroa.sel793.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 44, i64 12
+  %161 = load <2 x float>, ptr %m_width28.i330, align 4
+  %162 = fmul <2 x float> %161, <float 5.000000e-01, float 5.000000e-01>
+  %163 = insertelement <2 x float> %55, float %conv31.i529.us, i64 0
+  %164 = fsub <2 x float> %163, %162
+  %165 = load float, ptr %arrayidx10.i, align 4
+  %sub42.i534.us = fsub float %call.i524.us, %165
+  %spec.select76.sroa.sel763.sroa.sel793.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 12, i64 44
   %spec.select76.sroa.sel763.sroa.sel793.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select76.sroa.sel763.sroa.sel793.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select76.sroa.sel763.sroa.sel793.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit576.us
 
 sw.bb9.i546.us:                                   ; preds = %if.end230.us
-  %168 = load float, ptr %m_width28.i330, align 4
-  %div13.i548.us = fmul float %168, 5.000000e-01
+  %166 = load float, ptr %m_width28.i330, align 4
+  %div13.i548.us = fmul float %166, 5.000000e-01
   %conv14.i549.us = sitofp i32 %add203.us to float
-  %169 = load float, ptr %arrayidx5.i98, align 8
-  %170 = insertelement <2 x float> poison, float %conv14.i549.us, i64 0
-  %171 = insertelement <2 x float> %170, float %call.i524.us, i64 1
-  %172 = insertelement <2 x float> poison, float %div13.i548.us, i64 0
-  %173 = insertelement <2 x float> %172, float %169, i64 1
-  %174 = fsub <2 x float> %171, %173
-  %175 = load float, ptr %m_length34.i333, align 8
-  %div23.i553.us = fmul float %175, 5.000000e-01
-  %176 = fsub float %conv37.i390.us, %div23.i553.us
-  %spec.select76.sroa.sel763.sroa.sel778.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 44, i64 12
+  %167 = load float, ptr %arrayidx5.i98, align 8
+  %168 = insertelement <2 x float> poison, float %conv14.i549.us, i64 0
+  %169 = insertelement <2 x float> %168, float %call.i524.us, i64 1
+  %170 = insertelement <2 x float> poison, float %div13.i548.us, i64 0
+  %171 = insertelement <2 x float> %170, float %167, i64 1
+  %172 = fsub <2 x float> %169, %171
+  %173 = load float, ptr %m_length34.i333, align 8
+  %div23.i553.us = fmul float %173, 5.000000e-01
+  %174 = fsub float %conv37.i390.us, %div23.i553.us
+  %spec.select76.sroa.sel763.sroa.sel778.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 12, i64 44
   %spec.select76.sroa.sel763.sroa.sel778.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select76.sroa.sel763.sroa.sel778.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select76.sroa.sel763.sroa.sel778.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit576.us
 
 sw.bb.i558.us:                                    ; preds = %if.end230.us
-  %177 = load <4 x float>, ptr %m_localOrigin, align 4
-  %178 = shufflevector <4 x float> %177, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %179 = load float, ptr %m_width28.i330, align 4
-  %div.i562.us = fmul float %179, 5.000000e-01
+  %175 = load <4 x float>, ptr %m_localOrigin, align 4
+  %176 = shufflevector <4 x float> %175, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %177 = load float, ptr %m_width28.i330, align 4
+  %div.i562.us = fmul float %177, 5.000000e-01
   %conv.i563.us = sitofp i32 %add203.us to float
-  %180 = insertelement <2 x float> poison, float %call.i524.us, i64 0
-  %181 = insertelement <2 x float> %180, float %conv.i563.us, i64 1
-  %182 = insertelement <2 x float> %178, float %div.i562.us, i64 1
-  %183 = fsub <2 x float> %181, %182
-  %184 = load float, ptr %m_length34.i333, align 8
-  %div6.i565.us = fmul float %184, 5.000000e-01
-  %185 = fsub float %conv37.i390.us, %div6.i565.us
-  %spec.select76.sroa.sel763.sroa.sel769.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 44, i64 12
+  %178 = insertelement <2 x float> poison, float %call.i524.us, i64 0
+  %179 = insertelement <2 x float> %178, float %conv.i563.us, i64 1
+  %180 = insertelement <2 x float> %176, float %div.i562.us, i64 1
+  %181 = fsub <2 x float> %179, %180
+  %182 = load float, ptr %m_length34.i333, align 8
+  %div6.i565.us = fmul float %182, 5.000000e-01
+  %183 = fsub float %conv37.i390.us, %div6.i565.us
+  %spec.select76.sroa.sel763.sroa.sel769.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 12, i64 44
   %spec.select76.sroa.sel763.sroa.sel769.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select76.sroa.sel763.sroa.sel769.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select76.sroa.sel763.sroa.sel769.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit576.us
@@ -1393,136 +1392,136 @@ entry.sw.epilog_crit_edge.i570.us:                ; preds = %if.end230.us
   %.pre.i571.us = load float, ptr %spec.select76.sroa.sel763.us, align 16
   %.pre21.i573.us = load float, ptr %spec.select76.sroa.sel763.sroa.sel829.us.pre-phi, align 4
   %.pre22.i575.us = load float, ptr %spec.select76.sroa.sel763.sroa.sel826.us.pre-phi, align 4
-  %186 = insertelement <2 x float> poison, float %.pre.i571.us, i64 0
-  %187 = insertelement <2 x float> %186, float %.pre21.i573.us, i64 1
+  %184 = insertelement <2 x float> poison, float %.pre.i571.us, i64 0
+  %185 = insertelement <2 x float> %184, float %.pre21.i573.us, i64 1
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit576.us
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit576.us: ; preds = %entry.sw.epilog_crit_edge.i570.us, %sw.bb.i558.us, %sw.bb9.i546.us, %sw.bb26.i526.us
-  %188 = phi float [ %.pre22.i575.us, %entry.sw.epilog_crit_edge.i570.us ], [ %sub42.i534.us, %sw.bb26.i526.us ], [ %176, %sw.bb9.i546.us ], [ %185, %sw.bb.i558.us ]
-  %189 = phi <2 x float> [ %187, %entry.sw.epilog_crit_edge.i570.us ], [ %166, %sw.bb26.i526.us ], [ %174, %sw.bb9.i546.us ], [ %183, %sw.bb.i558.us ]
-  %190 = load float, ptr %m_localScaling, align 4
-  %191 = extractelement <2 x float> %189, i64 0
-  %mul.i.i539.us = fmul float %191, %190
+  %186 = phi float [ %.pre22.i575.us, %entry.sw.epilog_crit_edge.i570.us ], [ %sub42.i534.us, %sw.bb26.i526.us ], [ %174, %sw.bb9.i546.us ], [ %183, %sw.bb.i558.us ]
+  %187 = phi <2 x float> [ %185, %entry.sw.epilog_crit_edge.i570.us ], [ %164, %sw.bb26.i526.us ], [ %172, %sw.bb9.i546.us ], [ %181, %sw.bb.i558.us ]
+  %188 = load float, ptr %m_localScaling, align 4
+  %189 = extractelement <2 x float> %187, i64 0
+  %mul.i.i539.us = fmul float %189, %188
   store float %mul.i.i539.us, ptr %spec.select76.sroa.sel763.us, align 16
-  %192 = load float, ptr %arrayidx6, align 8
-  %193 = extractelement <2 x float> %189, i64 1
-  %mul8.i.i542.us = fmul float %193, %192
+  %190 = load float, ptr %arrayidx6, align 8
+  %191 = extractelement <2 x float> %187, i64 1
+  %mul8.i.i542.us = fmul float %191, %190
   store float %mul8.i.i542.us, ptr %spec.select76.sroa.sel763.sroa.sel829.us.pre-phi, align 4
-  %194 = load float, ptr %arrayidx11, align 4
-  %mul13.i.i545.us = fmul float %188, %194
+  %192 = load float, ptr %arrayidx11, align 4
+  %mul13.i.i545.us = fmul float %186, %192
   store float %mul13.i.i545.us, ptr %spec.select76.sroa.sel763.sroa.sel826.us.pre-phi, align 4
-  %idxprom248.us = sext i32 %162 to i64
+  %idxprom248.us = sext i32 %160 to i64
   %arrayidx249.us = getelementptr inbounds float, ptr %spec.select76.sroa.sel763.us, i64 %idxprom248.us
-  %195 = load float, ptr %arrayidx249.us, align 4
-  %cmp.i577.us = fcmp olt float %upRange207.sroa.0.0.vec.extract, %195
-  %196 = select i1 %cmp.i577.us, float %upRange207.sroa.0.0.vec.extract, float %195
-  %cmp.i579.us = fcmp ogt float %upRange207.sroa.0.4.vec.extract, %195
+  %193 = load float, ptr %arrayidx249.us, align 4
+  %cmp.i577.us = fcmp olt float %upRange207.sroa.0.0.vec.extract, %193
+  %194 = select i1 %cmp.i577.us, float %upRange207.sroa.0.0.vec.extract, float %193
+  %cmp.i579.us = fcmp ogt float %upRange207.sroa.0.4.vec.extract, %193
   %upRange207.sroa.0.4.vec.extract876 = extractelement <2 x float> %retval.sroa.0.0.i498.us, i64 1
-  %197 = select i1 %cmp.i579.us, float %upRange207.sroa.0.4.vec.extract876, float %195
-  %cmp.i582.us = fcmp ule float %196, %53
-  %cmp4.i584.us = fcmp uge float %197, %52
+  %195 = select i1 %cmp.i579.us, float %upRange207.sroa.0.4.vec.extract876, float %193
+  %cmp.i582.us = fcmp ule float %194, %53
+  %cmp4.i584.us = fcmp uge float %195, %52
   %lnot.i585.us = select i1 %cmp.i582.us, i1 %cmp4.i584.us, i1 false
   br i1 %lnot.i585.us, label %for.inc271.us.sink.split, label %for.inc271.us
 
 if.then127.us:                                    ; preds = %lor.lhs.false122.us, %land.lhs.true.us, %arrayctor.loop.preheader.us
-  %spec.select77.sroa.sel.us = select i1 %tobool.not.us, ptr %vertices, ptr %.sroa.gep723
+  %spec.select77.sroa.sel.us = select i1 %tobool.us, ptr %.sroa.gep722, ptr %vertices
   %vtable.i.us = load ptr, ptr %this, align 8
   %vfn.i.us = getelementptr inbounds i8, ptr %vtable.i.us, i64 136
-  %198 = load ptr, ptr %vfn.i.us, align 8
-  %call.i.us = call noundef float %198(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %x.0865.us, i32 noundef %j.0867.us)
-  %199 = load i32, ptr %m_upAxis, align 8
-  switch i32 %199, label %entry.sw.epilog_crit_edge.i.us [
+  %196 = load ptr, ptr %vfn.i.us, align 8
+  %call.i.us = call noundef float %196(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %x.0865.us, i32 noundef %j.0867.us)
+  %197 = load i32, ptr %m_upAxis, align 8
+  switch i32 %197, label %entry.sw.epilog_crit_edge.i.us [
     i32 0, label %sw.bb.i.us
     i32 1, label %sw.bb9.i.us
     i32 2, label %sw.bb26.i.us
   ]
 
 sw.bb26.i.us:                                     ; preds = %if.then127.us
-  %200 = load float, ptr %m_width28.i330, align 4
-  %div30.i.us = fmul float %200, 5.000000e-01
+  %198 = load float, ptr %m_width28.i330, align 4
+  %div30.i.us = fmul float %198, 5.000000e-01
   %conv31.i.us = sitofp i32 %x.0865.us to float
-  %201 = fsub float %conv31.i.us, %div30.i.us
-  %202 = load float, ptr %m_length34.i333, align 8
-  %div36.i.us = fmul float %202, 5.000000e-01
-  %203 = fsub float %conv37.i335.us, %div36.i.us
-  %204 = load float, ptr %arrayidx10.i, align 4
-  %sub42.i.us = fsub float %call.i.us, %204
-  %spec.select77.sroa.sel.sroa.sel644.v.us.sroa.sel = select i1 %tobool.not.us, ptr %.sroa.gep722.sroa.gep749, ptr %.sroa.gep723.sroa.gep750
-  store float %203, ptr %spec.select77.sroa.sel.sroa.sel644.v.us.sroa.sel, align 4
-  %spec.select77.sroa.sel.sroa.sel641.v.us.sroa.sel = select i1 %tobool.not.us, ptr %.sroa.gep722.sroa.gep746, ptr %.sroa.gep723.sroa.gep747
+  %199 = fsub float %conv31.i.us, %div30.i.us
+  %200 = load float, ptr %m_length34.i333, align 8
+  %div36.i.us = fmul float %200, 5.000000e-01
+  %201 = fsub float %conv37.i335.us, %div36.i.us
+  %202 = load float, ptr %arrayidx10.i, align 4
+  %sub42.i.us = fsub float %call.i.us, %202
+  %spec.select77.sroa.sel.sroa.sel644.v.us.sroa.sel = select i1 %tobool.us, ptr %.sroa.gep722.sroa.gep749, ptr %.sroa.gep723.sroa.gep750
+  store float %201, ptr %spec.select77.sroa.sel.sroa.sel644.v.us.sroa.sel, align 4
+  %spec.select77.sroa.sel.sroa.sel641.v.us.sroa.sel = select i1 %tobool.us, ptr %.sroa.gep722.sroa.gep746, ptr %.sroa.gep723.sroa.gep747
   store float %sub42.i.us, ptr %spec.select77.sroa.sel.sroa.sel641.v.us.sroa.sel, align 8
-  %spec.select77.sroa.sel.sroa.sel638.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 12, i64 44
+  %spec.select77.sroa.sel.sroa.sel638.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 44, i64 12
   %spec.select77.sroa.sel.sroa.sel638.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select77.sroa.sel.sroa.sel638.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select77.sroa.sel.sroa.sel638.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.us
 
 sw.bb9.i.us:                                      ; preds = %if.then127.us
-  %205 = load float, ptr %m_width28.i330, align 4
-  %div13.i.us = fmul float %205, 5.000000e-01
+  %203 = load float, ptr %m_width28.i330, align 4
+  %div13.i.us = fmul float %203, 5.000000e-01
   %conv14.i.us = sitofp i32 %x.0865.us to float
-  %206 = fsub float %conv14.i.us, %div13.i.us
-  %207 = load float, ptr %arrayidx5.i98, align 8
-  %sub19.i.us = fsub float %call.i.us, %207
-  %208 = load float, ptr %m_length34.i333, align 8
-  %div23.i.us = fmul float %208, 5.000000e-01
-  %209 = fsub float %conv37.i335.us, %div23.i.us
-  %spec.select77.sroa.sel.sroa.sel629.v.us.sroa.sel = select i1 %tobool.not.us, ptr %.sroa.gep722.sroa.gep749, ptr %.sroa.gep723.sroa.gep750
+  %204 = fsub float %conv14.i.us, %div13.i.us
+  %205 = load float, ptr %arrayidx5.i98, align 8
+  %sub19.i.us = fsub float %call.i.us, %205
+  %206 = load float, ptr %m_length34.i333, align 8
+  %div23.i.us = fmul float %206, 5.000000e-01
+  %207 = fsub float %conv37.i335.us, %div23.i.us
+  %spec.select77.sroa.sel.sroa.sel629.v.us.sroa.sel = select i1 %tobool.us, ptr %.sroa.gep722.sroa.gep749, ptr %.sroa.gep723.sroa.gep750
   store float %sub19.i.us, ptr %spec.select77.sroa.sel.sroa.sel629.v.us.sroa.sel, align 4
-  %spec.select77.sroa.sel.sroa.sel626.v.us.sroa.sel = select i1 %tobool.not.us, ptr %.sroa.gep722.sroa.gep746, ptr %.sroa.gep723.sroa.gep747
-  store float %209, ptr %spec.select77.sroa.sel.sroa.sel626.v.us.sroa.sel, align 8
-  %spec.select77.sroa.sel.sroa.sel623.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 12, i64 44
+  %spec.select77.sroa.sel.sroa.sel626.v.us.sroa.sel = select i1 %tobool.us, ptr %.sroa.gep722.sroa.gep746, ptr %.sroa.gep723.sroa.gep747
+  store float %207, ptr %spec.select77.sroa.sel.sroa.sel626.v.us.sroa.sel, align 8
+  %spec.select77.sroa.sel.sroa.sel623.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 44, i64 12
   %spec.select77.sroa.sel.sroa.sel623.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select77.sroa.sel.sroa.sel623.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select77.sroa.sel.sroa.sel623.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.us
 
 sw.bb.i.us:                                       ; preds = %if.then127.us
-  %210 = load float, ptr %m_localOrigin, align 4
-  %sub.i.us = fsub float %call.i.us, %210
-  %211 = load float, ptr %m_width28.i330, align 4
-  %div.i.us = fmul float %211, 5.000000e-01
+  %208 = load float, ptr %m_localOrigin, align 4
+  %sub.i.us = fsub float %call.i.us, %208
+  %209 = load float, ptr %m_width28.i330, align 4
+  %div.i.us = fmul float %209, 5.000000e-01
   %conv.i.us = sitofp i32 %x.0865.us to float
-  %212 = fsub float %conv.i.us, %div.i.us
-  %213 = load float, ptr %m_length34.i333, align 8
-  %div6.i.us = fmul float %213, 5.000000e-01
-  %214 = fsub float %conv37.i335.us, %div6.i.us
-  %spec.select77.sroa.sel.sroa.sel620.v.us.sroa.sel = select i1 %tobool.not.us, ptr %.sroa.gep722.sroa.gep749, ptr %.sroa.gep723.sroa.gep750
-  store float %212, ptr %spec.select77.sroa.sel.sroa.sel620.v.us.sroa.sel, align 4
-  %spec.select77.sroa.sel.sroa.sel617.v.us.sroa.sel = select i1 %tobool.not.us, ptr %.sroa.gep722.sroa.gep746, ptr %.sroa.gep723.sroa.gep747
-  store float %214, ptr %spec.select77.sroa.sel.sroa.sel617.v.us.sroa.sel, align 8
-  %spec.select77.sroa.sel.sroa.sel614.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 12, i64 44
+  %210 = fsub float %conv.i.us, %div.i.us
+  %211 = load float, ptr %m_length34.i333, align 8
+  %div6.i.us = fmul float %211, 5.000000e-01
+  %212 = fsub float %conv37.i335.us, %div6.i.us
+  %spec.select77.sroa.sel.sroa.sel620.v.us.sroa.sel = select i1 %tobool.us, ptr %.sroa.gep722.sroa.gep749, ptr %.sroa.gep723.sroa.gep750
+  store float %210, ptr %spec.select77.sroa.sel.sroa.sel620.v.us.sroa.sel, align 4
+  %spec.select77.sroa.sel.sroa.sel617.v.us.sroa.sel = select i1 %tobool.us, ptr %.sroa.gep722.sroa.gep746, ptr %.sroa.gep723.sroa.gep747
+  store float %212, ptr %spec.select77.sroa.sel.sroa.sel617.v.us.sroa.sel, align 8
+  %spec.select77.sroa.sel.sroa.sel614.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 44, i64 12
   %spec.select77.sroa.sel.sroa.sel614.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select77.sroa.sel.sroa.sel614.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select77.sroa.sel.sroa.sel614.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.us
 
 entry.sw.epilog_crit_edge.i.us:                   ; preds = %if.then127.us
   %.pre.i.us = load float, ptr %spec.select77.sroa.sel.us, align 16
-  %spec.select77.sroa.sel.sroa.sel611.v.us.sroa.sel = select i1 %tobool.not.us, ptr %.sroa.gep722.sroa.gep749, ptr %.sroa.gep723.sroa.gep750
+  %spec.select77.sroa.sel.sroa.sel611.v.us.sroa.sel = select i1 %tobool.us, ptr %.sroa.gep722.sroa.gep749, ptr %.sroa.gep723.sroa.gep750
   %.pre21.i.us = load float, ptr %spec.select77.sroa.sel.sroa.sel611.v.us.sroa.sel, align 4
-  %spec.select77.sroa.sel.sroa.sel.v.us.sroa.sel = select i1 %tobool.not.us, ptr %.sroa.gep722.sroa.gep746, ptr %.sroa.gep723.sroa.gep747
+  %spec.select77.sroa.sel.sroa.sel.v.us.sroa.sel = select i1 %tobool.us, ptr %.sroa.gep722.sroa.gep746, ptr %.sroa.gep723.sroa.gep747
   %.pre22.i.us = load float, ptr %spec.select77.sroa.sel.sroa.sel.v.us.sroa.sel, align 8
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.us
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.us: ; preds = %entry.sw.epilog_crit_edge.i.us, %sw.bb.i.us, %sw.bb9.i.us, %sw.bb26.i.us
   %spec.select77.sroa.sel.sroa.sel632.us.pre-phi = phi ptr [ %spec.select77.sroa.sel.sroa.sel.v.us.sroa.sel, %entry.sw.epilog_crit_edge.i.us ], [ %spec.select77.sroa.sel.sroa.sel617.v.us.sroa.sel, %sw.bb.i.us ], [ %spec.select77.sroa.sel.sroa.sel626.v.us.sroa.sel, %sw.bb9.i.us ], [ %spec.select77.sroa.sel.sroa.sel641.v.us.sroa.sel, %sw.bb26.i.us ]
   %spec.select77.sroa.sel.sroa.sel635.us.pre-phi = phi ptr [ %spec.select77.sroa.sel.sroa.sel611.v.us.sroa.sel, %entry.sw.epilog_crit_edge.i.us ], [ %spec.select77.sroa.sel.sroa.sel620.v.us.sroa.sel, %sw.bb.i.us ], [ %spec.select77.sroa.sel.sroa.sel629.v.us.sroa.sel, %sw.bb9.i.us ], [ %spec.select77.sroa.sel.sroa.sel644.v.us.sroa.sel, %sw.bb26.i.us ]
-  %215 = phi float [ %.pre22.i.us, %entry.sw.epilog_crit_edge.i.us ], [ %214, %sw.bb.i.us ], [ %209, %sw.bb9.i.us ], [ %sub42.i.us, %sw.bb26.i.us ]
-  %216 = phi float [ %.pre21.i.us, %entry.sw.epilog_crit_edge.i.us ], [ %212, %sw.bb.i.us ], [ %sub19.i.us, %sw.bb9.i.us ], [ %203, %sw.bb26.i.us ]
-  %217 = phi float [ %.pre.i.us, %entry.sw.epilog_crit_edge.i.us ], [ %sub.i.us, %sw.bb.i.us ], [ %206, %sw.bb9.i.us ], [ %201, %sw.bb26.i.us ]
-  %218 = load float, ptr %m_localScaling, align 4
-  %mul.i.i.us = fmul float %217, %218
+  %213 = phi float [ %.pre22.i.us, %entry.sw.epilog_crit_edge.i.us ], [ %212, %sw.bb.i.us ], [ %207, %sw.bb9.i.us ], [ %sub42.i.us, %sw.bb26.i.us ]
+  %214 = phi float [ %.pre21.i.us, %entry.sw.epilog_crit_edge.i.us ], [ %210, %sw.bb.i.us ], [ %sub19.i.us, %sw.bb9.i.us ], [ %201, %sw.bb26.i.us ]
+  %215 = phi float [ %.pre.i.us, %entry.sw.epilog_crit_edge.i.us ], [ %sub.i.us, %sw.bb.i.us ], [ %204, %sw.bb9.i.us ], [ %199, %sw.bb26.i.us ]
+  %216 = load float, ptr %m_localScaling, align 4
+  %mul.i.i.us = fmul float %215, %216
   store float %mul.i.i.us, ptr %spec.select77.sroa.sel.us, align 16
-  %219 = load float, ptr %arrayidx6, align 8
-  %mul8.i.i.us = fmul float %216, %219
+  %217 = load float, ptr %arrayidx6, align 8
+  %mul8.i.i.us = fmul float %214, %217
   store float %mul8.i.i.us, ptr %spec.select77.sroa.sel.sroa.sel635.us.pre-phi, align 4
-  %220 = load float, ptr %arrayidx11, align 4
-  %mul13.i.i.us = fmul float %215, %220
+  %218 = load float, ptr %arrayidx11, align 4
+  %mul13.i.i.us = fmul float %213, %218
   store float %mul13.i.i.us, ptr %spec.select77.sroa.sel.sroa.sel632.us.pre-phi, align 4
   %vtable.i149.us = load ptr, ptr %this, align 8
   %vfn.i150.us = getelementptr inbounds i8, ptr %vtable.i149.us, i64 136
-  %221 = load ptr, ptr %vfn.i150.us, align 8
-  %call.i151.us = call noundef float %221(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %x.0865.us, i32 noundef %add199.us)
-  %222 = load i32, ptr %m_upAxis, align 8
-  switch i32 %222, label %entry.sw.epilog_crit_edge.i197.us [
+  %219 = load ptr, ptr %vfn.i150.us, align 8
+  %call.i151.us = call noundef float %219(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %x.0865.us, i32 noundef %add199.us)
+  %220 = load i32, ptr %m_upAxis, align 8
+  switch i32 %220, label %entry.sw.epilog_crit_edge.i197.us [
     i32 0, label %sw.bb.i185.us
     i32 1, label %sw.bb9.i173.us
     i32 2, label %sw.bb26.i153.us
@@ -1530,218 +1529,218 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.us: ; preds = %entr
 
 sw.bb26.i153.us:                                  ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.us
   %conv31.i156.us = sitofp i32 %x.0865.us to float
-  %223 = load <2 x float>, ptr %m_width28.i330, align 4
-  %224 = fmul <2 x float> %223, <float 5.000000e-01, float 5.000000e-01>
-  %225 = insertelement <2 x float> %55, float %conv31.i156.us, i64 0
-  %226 = fsub <2 x float> %225, %224
-  %227 = load float, ptr %arrayidx10.i, align 4
-  %sub42.i161.us = fsub float %call.i151.us, %227
+  %221 = load <2 x float>, ptr %m_width28.i330, align 4
+  %222 = fmul <2 x float> %221, <float 5.000000e-01, float 5.000000e-01>
+  %223 = insertelement <2 x float> %55, float %conv31.i156.us, i64 0
+  %224 = fsub <2 x float> %223, %222
+  %225 = load float, ptr %arrayidx10.i, align 4
+  %sub42.i161.us = fsub float %call.i151.us, %225
   store float 0.000000e+00, ptr %arrayidx7.i18.i395, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit203.us
 
 sw.bb9.i173.us:                                   ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.us
-  %228 = load float, ptr %m_width28.i330, align 4
-  %div13.i175.us = fmul float %228, 5.000000e-01
+  %226 = load float, ptr %m_width28.i330, align 4
+  %div13.i175.us = fmul float %226, 5.000000e-01
   %conv14.i176.us = sitofp i32 %x.0865.us to float
-  %229 = load float, ptr %arrayidx5.i98, align 8
-  %230 = insertelement <2 x float> poison, float %conv14.i176.us, i64 0
-  %231 = insertelement <2 x float> %230, float %call.i151.us, i64 1
-  %232 = insertelement <2 x float> poison, float %div13.i175.us, i64 0
-  %233 = insertelement <2 x float> %232, float %229, i64 1
-  %234 = fsub <2 x float> %231, %233
-  %235 = load float, ptr %m_length34.i333, align 8
-  %div23.i180.us = fmul float %235, 5.000000e-01
-  %236 = fsub float %conv37.i390.us, %div23.i180.us
+  %227 = load float, ptr %arrayidx5.i98, align 8
+  %228 = insertelement <2 x float> poison, float %conv14.i176.us, i64 0
+  %229 = insertelement <2 x float> %228, float %call.i151.us, i64 1
+  %230 = insertelement <2 x float> poison, float %div13.i175.us, i64 0
+  %231 = insertelement <2 x float> %230, float %227, i64 1
+  %232 = fsub <2 x float> %229, %231
+  %233 = load float, ptr %m_length34.i333, align 8
+  %div23.i180.us = fmul float %233, 5.000000e-01
+  %234 = fsub float %conv37.i390.us, %div23.i180.us
   store float 0.000000e+00, ptr %arrayidx7.i18.i395, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit203.us
 
 sw.bb.i185.us:                                    ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.us
-  %237 = load <4 x float>, ptr %m_localOrigin, align 4
-  %238 = shufflevector <4 x float> %237, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %239 = load float, ptr %m_width28.i330, align 4
-  %div.i189.us = fmul float %239, 5.000000e-01
+  %235 = load <4 x float>, ptr %m_localOrigin, align 4
+  %236 = shufflevector <4 x float> %235, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %237 = load float, ptr %m_width28.i330, align 4
+  %div.i189.us = fmul float %237, 5.000000e-01
   %conv.i190.us = sitofp i32 %x.0865.us to float
-  %240 = insertelement <2 x float> poison, float %call.i151.us, i64 0
-  %241 = insertelement <2 x float> %240, float %conv.i190.us, i64 1
-  %242 = insertelement <2 x float> %238, float %div.i189.us, i64 1
-  %243 = fsub <2 x float> %241, %242
-  %244 = load float, ptr %m_length34.i333, align 8
-  %div6.i192.us = fmul float %244, 5.000000e-01
-  %245 = fsub float %conv37.i390.us, %div6.i192.us
+  %238 = insertelement <2 x float> poison, float %call.i151.us, i64 0
+  %239 = insertelement <2 x float> %238, float %conv.i190.us, i64 1
+  %240 = insertelement <2 x float> %236, float %div.i189.us, i64 1
+  %241 = fsub <2 x float> %239, %240
+  %242 = load float, ptr %m_length34.i333, align 8
+  %div6.i192.us = fmul float %242, 5.000000e-01
+  %243 = fsub float %conv37.i390.us, %div6.i192.us
   store float 0.000000e+00, ptr %arrayidx7.i18.i395, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit203.us
 
 entry.sw.epilog_crit_edge.i197.us:                ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.us
-  %246 = load <2 x float>, ptr %arrayidx202, align 16
+  %244 = load <2 x float>, ptr %arrayidx202, align 16
   %.pre22.i202.us = load float, ptr %arrayidx5.i17.i394, align 8
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit203.us
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit203.us: ; preds = %entry.sw.epilog_crit_edge.i197.us, %sw.bb.i185.us, %sw.bb9.i173.us, %sw.bb26.i153.us
-  %247 = phi float [ %.pre22.i202.us, %entry.sw.epilog_crit_edge.i197.us ], [ %sub42.i161.us, %sw.bb26.i153.us ], [ %236, %sw.bb9.i173.us ], [ %245, %sw.bb.i185.us ]
-  %248 = phi <2 x float> [ %246, %entry.sw.epilog_crit_edge.i197.us ], [ %226, %sw.bb26.i153.us ], [ %234, %sw.bb9.i173.us ], [ %243, %sw.bb.i185.us ]
-  %249 = load <2 x float>, ptr %m_localScaling, align 4
-  %250 = fmul <2 x float> %248, %249
-  store <2 x float> %250, ptr %arrayidx202, align 16
-  %251 = load float, ptr %arrayidx11, align 4
-  %mul13.i.i172.us = fmul float %247, %251
+  %245 = phi float [ %.pre22.i202.us, %entry.sw.epilog_crit_edge.i197.us ], [ %sub42.i161.us, %sw.bb26.i153.us ], [ %234, %sw.bb9.i173.us ], [ %243, %sw.bb.i185.us ]
+  %246 = phi <2 x float> [ %244, %entry.sw.epilog_crit_edge.i197.us ], [ %224, %sw.bb26.i153.us ], [ %232, %sw.bb9.i173.us ], [ %241, %sw.bb.i185.us ]
+  %247 = load <2 x float>, ptr %m_localScaling, align 4
+  %248 = fmul <2 x float> %246, %247
+  store <2 x float> %248, ptr %arrayidx202, align 16
+  %249 = load float, ptr %arrayidx11, align 4
+  %mul13.i.i172.us = fmul float %245, %249
   store float %mul13.i.i172.us, ptr %arrayidx5.i17.i394, align 8
   %add135.us = add nuw i32 %x.0865.us, 1
-  %spec.select76.sroa.sel.us = select i1 %tobool.not.us, ptr %.sroa.gep723, ptr %vertices
+  %spec.select76.sroa.sel.us = select i1 %tobool.us, ptr %vertices, ptr %.sroa.gep722
   %vtable.i204.us = load ptr, ptr %this, align 8
   %vfn.i205.us = getelementptr inbounds i8, ptr %vtable.i204.us, i64 136
-  %252 = load ptr, ptr %vfn.i205.us, align 8
-  %call.i206.us = call noundef float %252(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %add135.us, i32 noundef %add199.us)
-  %253 = load i32, ptr %m_upAxis, align 8
-  switch i32 %253, label %entry.sw.epilog_crit_edge.i252.us [
+  %250 = load ptr, ptr %vfn.i205.us, align 8
+  %call.i206.us = call noundef float %250(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %add135.us, i32 noundef %add199.us)
+  %251 = load i32, ptr %m_upAxis, align 8
+  switch i32 %251, label %entry.sw.epilog_crit_edge.i252.us [
     i32 0, label %sw.bb.i240.us
     i32 1, label %sw.bb9.i228.us
     i32 2, label %sw.bb26.i208.us
   ]
 
 sw.bb26.i208.us:                                  ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit203.us
-  %254 = load float, ptr %m_width28.i330, align 4
-  %div30.i210.us = fmul float %254, 5.000000e-01
+  %252 = load float, ptr %m_width28.i330, align 4
+  %div30.i210.us = fmul float %252, 5.000000e-01
   %conv31.i211.us = sitofp i32 %add135.us to float
-  %255 = fsub float %conv31.i211.us, %div30.i210.us
-  %256 = load float, ptr %m_length34.i333, align 8
-  %div36.i213.us = fmul float %256, 5.000000e-01
-  %257 = load float, ptr %arrayidx10.i, align 4
-  %258 = insertelement <2 x float> %56, float %call.i206.us, i64 1
-  %259 = insertelement <2 x float> poison, float %div36.i213.us, i64 0
-  %260 = insertelement <2 x float> %259, float %257, i64 1
-  %261 = fsub <2 x float> %258, %260
-  %spec.select76.sroa.sel.sroa.sel721.us = select i1 %tobool.not.us, ptr %.sroa.gep723.sroa.gep750, ptr %.sroa.gep722.sroa.gep749
-  %262 = extractelement <2 x float> %261, i64 0
-  store float %262, ptr %spec.select76.sroa.sel.sroa.sel721.us, align 4
-  %spec.select76.sroa.sel.sroa.sel718.us = select i1 %tobool.not.us, ptr %.sroa.gep723.sroa.gep747, ptr %.sroa.gep722.sroa.gep746
-  %263 = extractelement <2 x float> %261, i64 1
-  store float %263, ptr %spec.select76.sroa.sel.sroa.sel718.us, align 8
-  %spec.select76.sroa.sel.sroa.sel715.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 44, i64 12
+  %253 = fsub float %conv31.i211.us, %div30.i210.us
+  %254 = load float, ptr %m_length34.i333, align 8
+  %div36.i213.us = fmul float %254, 5.000000e-01
+  %255 = load float, ptr %arrayidx10.i, align 4
+  %256 = insertelement <2 x float> %56, float %call.i206.us, i64 1
+  %257 = insertelement <2 x float> poison, float %div36.i213.us, i64 0
+  %258 = insertelement <2 x float> %257, float %255, i64 1
+  %259 = fsub <2 x float> %256, %258
+  %spec.select76.sroa.sel.sroa.sel721.us = select i1 %tobool.us, ptr %.sroa.gep723.sroa.gep750, ptr %.sroa.gep722.sroa.gep749
+  %260 = extractelement <2 x float> %259, i64 0
+  store float %260, ptr %spec.select76.sroa.sel.sroa.sel721.us, align 4
+  %spec.select76.sroa.sel.sroa.sel718.us = select i1 %tobool.us, ptr %.sroa.gep723.sroa.gep747, ptr %.sroa.gep722.sroa.gep746
+  %261 = extractelement <2 x float> %259, i64 1
+  store float %261, ptr %spec.select76.sroa.sel.sroa.sel718.us, align 8
+  %spec.select76.sroa.sel.sroa.sel715.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 12, i64 44
   %spec.select76.sroa.sel.sroa.sel715.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select76.sroa.sel.sroa.sel715.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select76.sroa.sel.sroa.sel715.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit258.us
 
 sw.bb9.i228.us:                                   ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit203.us
-  %264 = load float, ptr %m_width28.i330, align 4
-  %div13.i230.us = fmul float %264, 5.000000e-01
+  %262 = load float, ptr %m_width28.i330, align 4
+  %div13.i230.us = fmul float %262, 5.000000e-01
   %conv14.i231.us = sitofp i32 %add135.us to float
-  %265 = fsub float %conv14.i231.us, %div13.i230.us
-  %266 = load <4 x float>, ptr %arrayidx5.i98, align 8
-  %267 = shufflevector <4 x float> %266, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %268 = load float, ptr %m_length34.i333, align 8
-  %div23.i235.us = fmul float %268, 5.000000e-01
-  %269 = insertelement <2 x float> %55, float %call.i206.us, i64 0
-  %270 = insertelement <2 x float> %267, float %div23.i235.us, i64 1
-  %271 = fsub <2 x float> %269, %270
-  %spec.select76.sroa.sel.sroa.sel706.us = select i1 %tobool.not.us, ptr %.sroa.gep723.sroa.gep750, ptr %.sroa.gep722.sroa.gep749
-  %272 = extractelement <2 x float> %271, i64 0
-  store float %272, ptr %spec.select76.sroa.sel.sroa.sel706.us, align 4
-  %spec.select76.sroa.sel.sroa.sel703.us = select i1 %tobool.not.us, ptr %.sroa.gep723.sroa.gep747, ptr %.sroa.gep722.sroa.gep746
-  %273 = extractelement <2 x float> %271, i64 1
-  store float %273, ptr %spec.select76.sroa.sel.sroa.sel703.us, align 8
-  %spec.select76.sroa.sel.sroa.sel700.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 44, i64 12
+  %263 = fsub float %conv14.i231.us, %div13.i230.us
+  %264 = load <4 x float>, ptr %arrayidx5.i98, align 8
+  %265 = shufflevector <4 x float> %264, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %266 = load float, ptr %m_length34.i333, align 8
+  %div23.i235.us = fmul float %266, 5.000000e-01
+  %267 = insertelement <2 x float> %55, float %call.i206.us, i64 0
+  %268 = insertelement <2 x float> %265, float %div23.i235.us, i64 1
+  %269 = fsub <2 x float> %267, %268
+  %spec.select76.sroa.sel.sroa.sel706.us = select i1 %tobool.us, ptr %.sroa.gep723.sroa.gep750, ptr %.sroa.gep722.sroa.gep749
+  %270 = extractelement <2 x float> %269, i64 0
+  store float %270, ptr %spec.select76.sroa.sel.sroa.sel706.us, align 4
+  %spec.select76.sroa.sel.sroa.sel703.us = select i1 %tobool.us, ptr %.sroa.gep723.sroa.gep747, ptr %.sroa.gep722.sroa.gep746
+  %271 = extractelement <2 x float> %269, i64 1
+  store float %271, ptr %spec.select76.sroa.sel.sroa.sel703.us, align 8
+  %spec.select76.sroa.sel.sroa.sel700.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 12, i64 44
   %spec.select76.sroa.sel.sroa.sel700.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select76.sroa.sel.sroa.sel700.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select76.sroa.sel.sroa.sel700.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit258.us
 
 sw.bb.i240.us:                                    ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit203.us
-  %274 = load float, ptr %m_localOrigin, align 4
-  %sub.i242.us = fsub float %call.i206.us, %274
+  %272 = load float, ptr %m_localOrigin, align 4
+  %sub.i242.us = fsub float %call.i206.us, %272
   %conv.i245.us = sitofp i32 %add135.us to float
-  %275 = load <2 x float>, ptr %m_width28.i330, align 4
-  %276 = fmul <2 x float> %275, <float 5.000000e-01, float 5.000000e-01>
-  %277 = insertelement <2 x float> %55, float %conv.i245.us, i64 0
-  %278 = fsub <2 x float> %277, %276
-  %spec.select76.sroa.sel.sroa.sel697.us = select i1 %tobool.not.us, ptr %.sroa.gep723.sroa.gep750, ptr %.sroa.gep722.sroa.gep749
-  %279 = extractelement <2 x float> %278, i64 0
-  store float %279, ptr %spec.select76.sroa.sel.sroa.sel697.us, align 4
-  %spec.select76.sroa.sel.sroa.sel694.us = select i1 %tobool.not.us, ptr %.sroa.gep723.sroa.gep747, ptr %.sroa.gep722.sroa.gep746
-  %280 = extractelement <2 x float> %278, i64 1
-  store float %280, ptr %spec.select76.sroa.sel.sroa.sel694.us, align 8
-  %spec.select76.sroa.sel.sroa.sel691.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 44, i64 12
+  %273 = load <2 x float>, ptr %m_width28.i330, align 4
+  %274 = fmul <2 x float> %273, <float 5.000000e-01, float 5.000000e-01>
+  %275 = insertelement <2 x float> %55, float %conv.i245.us, i64 0
+  %276 = fsub <2 x float> %275, %274
+  %spec.select76.sroa.sel.sroa.sel697.us = select i1 %tobool.us, ptr %.sroa.gep723.sroa.gep750, ptr %.sroa.gep722.sroa.gep749
+  %277 = extractelement <2 x float> %276, i64 0
+  store float %277, ptr %spec.select76.sroa.sel.sroa.sel697.us, align 4
+  %spec.select76.sroa.sel.sroa.sel694.us = select i1 %tobool.us, ptr %.sroa.gep723.sroa.gep747, ptr %.sroa.gep722.sroa.gep746
+  %278 = extractelement <2 x float> %276, i64 1
+  store float %278, ptr %spec.select76.sroa.sel.sroa.sel694.us, align 8
+  %spec.select76.sroa.sel.sroa.sel691.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 12, i64 44
   %spec.select76.sroa.sel.sroa.sel691.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select76.sroa.sel.sroa.sel691.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select76.sroa.sel.sroa.sel691.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit258.us
 
 entry.sw.epilog_crit_edge.i252.us:                ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit203.us
   %.pre.i253.us = load float, ptr %spec.select76.sroa.sel.us, align 16
-  %281 = load <2 x float>, ptr %.sroa.gep723.sroa.gep750, align 4
-  %282 = load <2 x float>, ptr %.sroa.gep722.sroa.gep749, align 4
-  %283 = insertelement <2 x i1> poison, i1 %tobool.not.us, i64 0
-  %284 = shufflevector <2 x i1> %283, <2 x i1> poison, <2 x i32> zeroinitializer
-  %285 = select <2 x i1> %284, <2 x float> %281, <2 x float> %282
-  %.pre = select i1 %tobool.not.us, ptr %.sroa.gep723.sroa.gep750, ptr %.sroa.gep722.sroa.gep749
-  %.pre951 = select i1 %tobool.not.us, ptr %.sroa.gep723.sroa.gep747, ptr %.sroa.gep722.sroa.gep746
+  %279 = load <2 x float>, ptr %.sroa.gep723.sroa.gep750, align 4
+  %280 = load <2 x float>, ptr %.sroa.gep722.sroa.gep749, align 4
+  %281 = insertelement <2 x i1> poison, i1 %tobool.us, i64 0
+  %282 = shufflevector <2 x i1> %281, <2 x i1> poison, <2 x i32> zeroinitializer
+  %283 = select <2 x i1> %282, <2 x float> %279, <2 x float> %280
+  %.pre = select i1 %tobool.us, ptr %.sroa.gep723.sroa.gep750, ptr %.sroa.gep722.sroa.gep749
+  %.pre952 = select i1 %tobool.us, ptr %.sroa.gep723.sroa.gep747, ptr %.sroa.gep722.sroa.gep746
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit258.us
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit258.us: ; preds = %entry.sw.epilog_crit_edge.i252.us, %sw.bb.i240.us, %sw.bb9.i228.us, %sw.bb26.i208.us
-  %spec.select76.sroa.sel.sroa.sel709.us.pre-phi = phi ptr [ %.pre951, %entry.sw.epilog_crit_edge.i252.us ], [ %spec.select76.sroa.sel.sroa.sel694.us, %sw.bb.i240.us ], [ %spec.select76.sroa.sel.sroa.sel703.us, %sw.bb9.i228.us ], [ %spec.select76.sroa.sel.sroa.sel718.us, %sw.bb26.i208.us ]
+  %spec.select76.sroa.sel.sroa.sel709.us.pre-phi = phi ptr [ %.pre952, %entry.sw.epilog_crit_edge.i252.us ], [ %spec.select76.sroa.sel.sroa.sel694.us, %sw.bb.i240.us ], [ %spec.select76.sroa.sel.sroa.sel703.us, %sw.bb9.i228.us ], [ %spec.select76.sroa.sel.sroa.sel718.us, %sw.bb26.i208.us ]
   %spec.select76.sroa.sel.sroa.sel712.us.pre-phi = phi ptr [ %.pre, %entry.sw.epilog_crit_edge.i252.us ], [ %spec.select76.sroa.sel.sroa.sel697.us, %sw.bb.i240.us ], [ %spec.select76.sroa.sel.sroa.sel706.us, %sw.bb9.i228.us ], [ %spec.select76.sroa.sel.sroa.sel721.us, %sw.bb26.i208.us ]
-  %286 = phi float [ %.pre.i253.us, %entry.sw.epilog_crit_edge.i252.us ], [ %sub.i242.us, %sw.bb.i240.us ], [ %265, %sw.bb9.i228.us ], [ %255, %sw.bb26.i208.us ]
-  %287 = phi <2 x float> [ %285, %entry.sw.epilog_crit_edge.i252.us ], [ %278, %sw.bb.i240.us ], [ %271, %sw.bb9.i228.us ], [ %261, %sw.bb26.i208.us ]
-  %288 = load float, ptr %m_localScaling, align 4
-  %mul.i.i221.us = fmul float %286, %288
+  %284 = phi float [ %.pre.i253.us, %entry.sw.epilog_crit_edge.i252.us ], [ %sub.i242.us, %sw.bb.i240.us ], [ %263, %sw.bb9.i228.us ], [ %253, %sw.bb26.i208.us ]
+  %285 = phi <2 x float> [ %283, %entry.sw.epilog_crit_edge.i252.us ], [ %276, %sw.bb.i240.us ], [ %269, %sw.bb9.i228.us ], [ %259, %sw.bb26.i208.us ]
+  %286 = load float, ptr %m_localScaling, align 4
+  %mul.i.i221.us = fmul float %284, %286
   store float %mul.i.i221.us, ptr %spec.select76.sroa.sel.us, align 16
-  %289 = load float, ptr %arrayidx6, align 8
-  %290 = extractelement <2 x float> %287, i64 0
-  %mul8.i.i224.us = fmul float %290, %289
+  %287 = load float, ptr %arrayidx6, align 8
+  %288 = extractelement <2 x float> %285, i64 0
+  %mul8.i.i224.us = fmul float %288, %287
   store float %mul8.i.i224.us, ptr %spec.select76.sroa.sel.sroa.sel712.us.pre-phi, align 4
-  %291 = load float, ptr %arrayidx11, align 4
-  %292 = extractelement <2 x float> %287, i64 1
-  %mul13.i.i227.us = fmul float %292, %291
+  %289 = load float, ptr %arrayidx11, align 4
+  %290 = extractelement <2 x float> %285, i64 1
+  %mul13.i.i227.us = fmul float %290, %289
   store float %mul13.i.i227.us, ptr %spec.select76.sroa.sel.sroa.sel709.us.pre-phi, align 4
-  %idxprom143.us = sext i32 %253 to i64
+  %idxprom143.us = sext i32 %251 to i64
   %arrayidx144.us = getelementptr inbounds float, ptr %vertices, i64 %idxprom143.us
-  %293 = load float, ptr %arrayidx144.us, align 4
+  %291 = load float, ptr %arrayidx144.us, align 4
   %arrayidx149.us = getelementptr inbounds float, ptr %arrayidx202, i64 %idxprom143.us
-  %294 = load float, ptr %arrayidx149.us, align 4
-  %arrayidx154.us = getelementptr inbounds float, ptr %.sroa.gep723, i64 %idxprom143.us
-  %295 = load float, ptr %arrayidx154.us, align 4
-  %cmp.i.us = fcmp ogt float %293, %294
+  %292 = load float, ptr %arrayidx149.us, align 4
+  %arrayidx154.us = getelementptr inbounds float, ptr %.sroa.gep722, i64 %idxprom143.us
+  %293 = load float, ptr %arrayidx154.us, align 4
+  %cmp.i.us = fcmp ogt float %291, %292
   br i1 %cmp.i.us, label %if.then.i.us, label %if.else6.i.us
 
 if.else6.i.us:                                    ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit258.us
-  %cmp7.i.us = fcmp ogt float %293, %295
+  %cmp7.i.us = fcmp ogt float %291, %293
   br i1 %cmp7.i.us, label %if.then8.i.us, label %if.else9.i.us
 
 if.else9.i.us:                                    ; preds = %if.else6.i.us
-  %cmp10.i.us = fcmp ogt float %294, %295
-  %retval.sroa.0.0.vec.insert33.i.us = insertelement <2 x float> poison, float %293, i64 0
+  %cmp10.i.us = fcmp ogt float %292, %293
+  %retval.sroa.0.0.vec.insert33.i.us = insertelement <2 x float> poison, float %291, i64 0
   br i1 %cmp10.i.us, label %if.then11.i.us, label %if.else12.i.us
 
 if.else12.i.us:                                   ; preds = %if.else9.i.us
-  %retval.sroa.0.4.vec.insert45.i.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert33.i.us, float %295, i64 1
+  %retval.sroa.0.4.vec.insert45.i.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert33.i.us, float %293, i64 1
   br label %_ZL11minmaxRangefff.exit.us
 
 if.then11.i.us:                                   ; preds = %if.else9.i.us
-  %retval.sroa.0.4.vec.insert43.i.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert33.i.us, float %294, i64 1
+  %retval.sroa.0.4.vec.insert43.i.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert33.i.us, float %292, i64 1
   br label %_ZL11minmaxRangefff.exit.us
 
 if.then8.i.us:                                    ; preds = %if.else6.i.us
-  %retval.sroa.0.0.vec.insert31.i.us = insertelement <2 x float> poison, float %295, i64 0
-  %retval.sroa.0.4.vec.insert41.i.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i.us, float %294, i64 1
+  %retval.sroa.0.0.vec.insert31.i.us = insertelement <2 x float> poison, float %293, i64 0
+  %retval.sroa.0.4.vec.insert41.i.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i.us, float %292, i64 1
   br label %_ZL11minmaxRangefff.exit.us
 
 if.then.i.us:                                     ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit258.us
-  %cmp1.i.us = fcmp ogt float %294, %295
+  %cmp1.i.us = fcmp ogt float %292, %293
   br i1 %cmp1.i.us, label %if.then2.i.us, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %if.then.i.us
-  %cmp3.i.us = fcmp ogt float %293, %295
-  %retval.sroa.0.0.vec.insert27.i.us = insertelement <2 x float> poison, float %294, i64 0
+  %cmp3.i.us = fcmp ogt float %291, %293
+  %retval.sroa.0.0.vec.insert27.i.us = insertelement <2 x float> poison, float %292, i64 0
   br i1 %cmp3.i.us, label %if.then4.i.us, label %if.else5.i.us
 
 if.else5.i.us:                                    ; preds = %if.else.i.us
-  %retval.sroa.0.4.vec.insert39.i.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert27.i.us, float %295, i64 1
+  %retval.sroa.0.4.vec.insert39.i.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert27.i.us, float %293, i64 1
   br label %_ZL11minmaxRangefff.exit.us
 
 if.then4.i.us:                                    ; preds = %if.else.i.us
-  %retval.sroa.0.4.vec.insert37.i.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert27.i.us, float %293, i64 1
+  %retval.sroa.0.4.vec.insert37.i.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert27.i.us, float %291, i64 1
   br label %_ZL11minmaxRangefff.exit.us
 
 if.then2.i.us:                                    ; preds = %if.then.i.us
-  %retval.sroa.0.0.vec.insert.i259.us = insertelement <2 x float> poison, float %295, i64 0
-  %retval.sroa.0.4.vec.insert.i260.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i259.us, float %293, i64 1
+  %retval.sroa.0.0.vec.insert.i259.us = insertelement <2 x float> poison, float %293, i64 0
+  %retval.sroa.0.4.vec.insert.i260.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i259.us, float %291, i64 1
   br label %_ZL11minmaxRangefff.exit.us
 
 _ZL11minmaxRangefff.exit.us:                      ; preds = %if.then2.i.us, %if.then4.i.us, %if.else5.i.us, %if.then8.i.us, %if.then11.i.us, %if.else12.i.us
@@ -1757,18 +1756,18 @@ if.then157.us:                                    ; preds = %_ZL11minmaxRangefff
   %mul.us = shl nuw nsw i32 %x.0865.us, 1
   %vtable.us = load ptr, ptr %callback, align 8
   %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 16
-  %296 = load ptr, ptr %vfn.us, align 8
-  call void %296(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %vertices, i32 noundef %mul.us, i32 noundef %j.0867.us)
+  %294 = load ptr, ptr %vfn.us, align 8
+  call void %294(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %vertices, i32 noundef %mul.us, i32 noundef %j.0867.us)
   br label %if.end159.us
 
 if.end159.us:                                     ; preds = %if.then157.us, %_ZL11minmaxRangefff.exit.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx202, ptr noundef nonnull align 16 dereferenceable(16) %spec.select76.sroa.sel.us, i64 16, i1 false)
   %vtable.i262.us = load ptr, ptr %this, align 8
   %vfn.i263.us = getelementptr inbounds i8, ptr %vtable.i262.us, i64 136
-  %297 = load ptr, ptr %vfn.i263.us, align 8
-  %call.i264.us = call noundef float %297(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %add135.us, i32 noundef %j.0867.us)
-  %298 = load i32, ptr %m_upAxis, align 8
-  switch i32 %298, label %entry.sw.epilog_crit_edge.i310.us [
+  %295 = load ptr, ptr %vfn.i263.us, align 8
+  %call.i264.us = call noundef float %295(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %add135.us, i32 noundef %j.0867.us)
+  %296 = load i32, ptr %m_upAxis, align 8
+  switch i32 %296, label %entry.sw.epilog_crit_edge.i310.us [
     i32 0, label %sw.bb.i298.us
     i32 1, label %sw.bb9.i286.us
     i32 2, label %sw.bb26.i266.us
@@ -1776,49 +1775,49 @@ if.end159.us:                                     ; preds = %if.then157.us, %_ZL
 
 sw.bb26.i266.us:                                  ; preds = %if.end159.us
   %conv31.i269.us = sitofp i32 %add135.us to float
-  %299 = load <2 x float>, ptr %m_width28.i330, align 4
-  %300 = fmul <2 x float> %299, <float 5.000000e-01, float 5.000000e-01>
-  %301 = insertelement <2 x float> %54, float %conv31.i269.us, i64 0
-  %302 = fsub <2 x float> %301, %300
-  %303 = load float, ptr %arrayidx10.i, align 4
-  %sub42.i274.us = fsub float %call.i264.us, %303
-  %spec.select76.sroa.sel.sroa.sel676.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 44, i64 12
+  %297 = load <2 x float>, ptr %m_width28.i330, align 4
+  %298 = fmul <2 x float> %297, <float 5.000000e-01, float 5.000000e-01>
+  %299 = insertelement <2 x float> %54, float %conv31.i269.us, i64 0
+  %300 = fsub <2 x float> %299, %298
+  %301 = load float, ptr %arrayidx10.i, align 4
+  %sub42.i274.us = fsub float %call.i264.us, %301
+  %spec.select76.sroa.sel.sroa.sel676.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 12, i64 44
   %spec.select76.sroa.sel.sroa.sel676.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select76.sroa.sel.sroa.sel676.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select76.sroa.sel.sroa.sel676.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit316.us
 
 sw.bb9.i286.us:                                   ; preds = %if.end159.us
-  %304 = load float, ptr %m_width28.i330, align 4
-  %div13.i288.us = fmul float %304, 5.000000e-01
+  %302 = load float, ptr %m_width28.i330, align 4
+  %div13.i288.us = fmul float %302, 5.000000e-01
   %conv14.i289.us = sitofp i32 %add135.us to float
-  %305 = load float, ptr %arrayidx5.i98, align 8
-  %306 = insertelement <2 x float> poison, float %conv14.i289.us, i64 0
-  %307 = insertelement <2 x float> %306, float %call.i264.us, i64 1
-  %308 = insertelement <2 x float> poison, float %div13.i288.us, i64 0
-  %309 = insertelement <2 x float> %308, float %305, i64 1
-  %310 = fsub <2 x float> %307, %309
-  %311 = load float, ptr %m_length34.i333, align 8
-  %div23.i293.us = fmul float %311, 5.000000e-01
-  %312 = fsub float %conv37.i335.us, %div23.i293.us
-  %spec.select76.sroa.sel.sroa.sel661.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 44, i64 12
+  %303 = load float, ptr %arrayidx5.i98, align 8
+  %304 = insertelement <2 x float> poison, float %conv14.i289.us, i64 0
+  %305 = insertelement <2 x float> %304, float %call.i264.us, i64 1
+  %306 = insertelement <2 x float> poison, float %div13.i288.us, i64 0
+  %307 = insertelement <2 x float> %306, float %303, i64 1
+  %308 = fsub <2 x float> %305, %307
+  %309 = load float, ptr %m_length34.i333, align 8
+  %div23.i293.us = fmul float %309, 5.000000e-01
+  %310 = fsub float %conv37.i335.us, %div23.i293.us
+  %spec.select76.sroa.sel.sroa.sel661.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 12, i64 44
   %spec.select76.sroa.sel.sroa.sel661.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select76.sroa.sel.sroa.sel661.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select76.sroa.sel.sroa.sel661.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit316.us
 
 sw.bb.i298.us:                                    ; preds = %if.end159.us
-  %313 = load <4 x float>, ptr %m_localOrigin, align 4
-  %314 = shufflevector <4 x float> %313, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %315 = load float, ptr %m_width28.i330, align 4
-  %div.i302.us = fmul float %315, 5.000000e-01
+  %311 = load <4 x float>, ptr %m_localOrigin, align 4
+  %312 = shufflevector <4 x float> %311, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %313 = load float, ptr %m_width28.i330, align 4
+  %div.i302.us = fmul float %313, 5.000000e-01
   %conv.i303.us = sitofp i32 %add135.us to float
-  %316 = insertelement <2 x float> poison, float %call.i264.us, i64 0
-  %317 = insertelement <2 x float> %316, float %conv.i303.us, i64 1
-  %318 = insertelement <2 x float> %314, float %div.i302.us, i64 1
-  %319 = fsub <2 x float> %317, %318
-  %320 = load float, ptr %m_length34.i333, align 8
-  %div6.i305.us = fmul float %320, 5.000000e-01
-  %321 = fsub float %conv37.i335.us, %div6.i305.us
-  %spec.select76.sroa.sel.sroa.sel652.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.us, i64 44, i64 12
+  %314 = insertelement <2 x float> poison, float %call.i264.us, i64 0
+  %315 = insertelement <2 x float> %314, float %conv.i303.us, i64 1
+  %316 = insertelement <2 x float> %312, float %div.i302.us, i64 1
+  %317 = fsub <2 x float> %315, %316
+  %318 = load float, ptr %m_length34.i333, align 8
+  %div6.i305.us = fmul float %318, 5.000000e-01
+  %319 = fsub float %conv37.i335.us, %div6.i305.us
+  %spec.select76.sroa.sel.sroa.sel652.v.us.sroa.sel.v.sroa.sel.v = select i1 %tobool.us, i64 12, i64 44
   %spec.select76.sroa.sel.sroa.sel652.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %vertices, i64 %spec.select76.sroa.sel.sroa.sel652.v.us.sroa.sel.v.sroa.sel.v
   store float 0.000000e+00, ptr %spec.select76.sroa.sel.sroa.sel652.v.us.sroa.sel.v.sroa.sel, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit316.us
@@ -1827,34 +1826,34 @@ entry.sw.epilog_crit_edge.i310.us:                ; preds = %if.end159.us
   %.pre.i311.us = load float, ptr %spec.select76.sroa.sel.us, align 16
   %.pre21.i313.us = load float, ptr %spec.select76.sroa.sel.sroa.sel712.us.pre-phi, align 4
   %.pre22.i315.us = load float, ptr %spec.select76.sroa.sel.sroa.sel709.us.pre-phi, align 4
-  %322 = insertelement <2 x float> poison, float %.pre.i311.us, i64 0
-  %323 = insertelement <2 x float> %322, float %.pre21.i313.us, i64 1
+  %320 = insertelement <2 x float> poison, float %.pre.i311.us, i64 0
+  %321 = insertelement <2 x float> %320, float %.pre21.i313.us, i64 1
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit316.us
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit316.us: ; preds = %entry.sw.epilog_crit_edge.i310.us, %sw.bb.i298.us, %sw.bb9.i286.us, %sw.bb26.i266.us
-  %324 = phi float [ %.pre22.i315.us, %entry.sw.epilog_crit_edge.i310.us ], [ %sub42.i274.us, %sw.bb26.i266.us ], [ %312, %sw.bb9.i286.us ], [ %321, %sw.bb.i298.us ]
-  %325 = phi <2 x float> [ %323, %entry.sw.epilog_crit_edge.i310.us ], [ %302, %sw.bb26.i266.us ], [ %310, %sw.bb9.i286.us ], [ %319, %sw.bb.i298.us ]
-  %326 = load float, ptr %m_localScaling, align 4
-  %327 = extractelement <2 x float> %325, i64 0
-  %mul.i.i279.us = fmul float %327, %326
+  %322 = phi float [ %.pre22.i315.us, %entry.sw.epilog_crit_edge.i310.us ], [ %sub42.i274.us, %sw.bb26.i266.us ], [ %310, %sw.bb9.i286.us ], [ %319, %sw.bb.i298.us ]
+  %323 = phi <2 x float> [ %321, %entry.sw.epilog_crit_edge.i310.us ], [ %300, %sw.bb26.i266.us ], [ %308, %sw.bb9.i286.us ], [ %317, %sw.bb.i298.us ]
+  %324 = load float, ptr %m_localScaling, align 4
+  %325 = extractelement <2 x float> %323, i64 0
+  %mul.i.i279.us = fmul float %325, %324
   store float %mul.i.i279.us, ptr %spec.select76.sroa.sel.us, align 16
-  %328 = load float, ptr %arrayidx6, align 8
-  %329 = extractelement <2 x float> %325, i64 1
-  %mul8.i.i282.us = fmul float %329, %328
+  %326 = load float, ptr %arrayidx6, align 8
+  %327 = extractelement <2 x float> %323, i64 1
+  %mul8.i.i282.us = fmul float %327, %326
   store float %mul8.i.i282.us, ptr %spec.select76.sroa.sel.sroa.sel712.us.pre-phi, align 4
-  %330 = load float, ptr %arrayidx11, align 4
-  %mul13.i.i285.us = fmul float %324, %330
+  %328 = load float, ptr %arrayidx11, align 4
+  %mul13.i.i285.us = fmul float %322, %328
   store float %mul13.i.i285.us, ptr %spec.select76.sroa.sel.sroa.sel709.us.pre-phi, align 4
-  %idxprom175.us = sext i32 %298 to i64
+  %idxprom175.us = sext i32 %296 to i64
   %arrayidx176.us = getelementptr inbounds float, ptr %spec.select76.sroa.sel.us, i64 %idxprom175.us
-  %331 = load float, ptr %arrayidx176.us, align 4
-  %cmp.i317.us = fcmp olt float %upRange.sroa.0.0.vec.extract, %331
-  %332 = select i1 %cmp.i317.us, float %upRange.sroa.0.0.vec.extract, float %331
-  %cmp.i318.us = fcmp ogt float %upRange.sroa.0.4.vec.extract, %331
+  %329 = load float, ptr %arrayidx176.us, align 4
+  %cmp.i317.us = fcmp olt float %upRange.sroa.0.0.vec.extract, %329
+  %330 = select i1 %cmp.i317.us, float %upRange.sroa.0.0.vec.extract, float %329
+  %cmp.i318.us = fcmp ogt float %upRange.sroa.0.4.vec.extract, %329
   %upRange.sroa.0.4.vec.extract882 = extractelement <2 x float> %retval.sroa.0.0.i.us, i64 1
-  %333 = select i1 %cmp.i318.us, float %upRange.sroa.0.4.vec.extract882, float %331
-  %cmp.i321.us = fcmp ule float %332, %53
-  %cmp4.i323.us = fcmp uge float %333, %52
+  %331 = select i1 %cmp.i318.us, float %upRange.sroa.0.4.vec.extract882, float %329
+  %cmp.i321.us = fcmp ule float %330, %53
+  %cmp4.i323.us = fcmp uge float %331, %52
   %lnot.i324.us = select i1 %cmp.i321.us, i1 %cmp4.i323.us, i1 false
   br i1 %lnot.i324.us, label %for.inc271.us.sink.split, label %for.inc271.us
 
@@ -1864,8 +1863,8 @@ for.inc271.us.sink.split:                         ; preds = %_ZNK25btHeightfield
   %add192.us = or disjoint i32 %mul191.us, 1
   %vtable193.us = load ptr, ptr %callback, align 8
   %vfn194.us = getelementptr inbounds i8, ptr %vtable193.us, i64 16
-  %334 = load ptr, ptr %vfn194.us, align 8
-  call void %334(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %vertices, i32 noundef %add192.us, i32 noundef %j.0867.us)
+  %332 = load ptr, ptr %vfn194.us, align 8
+  call void %332(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %vertices, i32 noundef %add192.us, i32 noundef %j.0867.us)
   br label %for.inc271.us
 
 for.inc271.us:                                    ; preds = %for.inc271.us.sink.split, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit316.us, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit576.us
@@ -1875,13 +1874,11 @@ for.inc271.us:                                    ; preds = %for.inc271.us.sink.
 
 arrayctor.loop.preheader.us:                      ; preds = %for.cond112.preheader.us, %for.inc271.us
   %x.0865.us = phi i32 [ %startX.3, %for.cond112.preheader.us ], [ %inc272.us.pre-phi, %for.inc271.us ]
-  %335 = load i8, ptr %m_flipTriangleWinding, align 1
-  %336 = and i8 %335, 1
-  %tobool.not.us = icmp eq i8 %336, 0
-  %337 = load i8, ptr %m_flipQuadEdges, align 4
-  %338 = and i8 %337, 1
-  %tobool119.not.us = icmp eq i8 %338, 0
-  br i1 %tobool119.not.us, label %lor.lhs.false.us, label %if.then127.us
+  %333 = load i8, ptr %m_flipTriangleWinding, align 1
+  %tobool.us = trunc i8 %333 to i1
+  %334 = load i8, ptr %m_flipQuadEdges, align 4
+  %tobool119.us = trunc i8 %334 to i1
+  br i1 %tobool119.us, label %if.then127.us, label %lor.lhs.false.us
 
 for.cond112.for.inc274_crit_edge.us:              ; preds = %for.inc271.us
   %exitcond871.not = icmp eq i32 %add199.us, %endJ.0
@@ -1960,25 +1957,25 @@ entry:
   store ptr %this, ptr %processTriangles, align 8
   %m_flipQuadEdges = getelementptr inbounds i8, ptr %this, i64 124
   %14 = load i8, ptr %m_flipQuadEdges, align 4
-  %15 = and i8 %14, 1
   %flipQuadEdges = getelementptr inbounds i8, ptr %processTriangles, i64 8
-  store i8 %15, ptr %flipQuadEdges, align 8
+  %frombool = and i8 %14, 1
+  store i8 %frombool, ptr %flipQuadEdges, align 8
   %m_useDiamondSubdivision = getelementptr inbounds i8, ptr %this, i64 125
-  %16 = load i8, ptr %m_useDiamondSubdivision, align 1
-  %17 = and i8 %16, 1
+  %15 = load i8, ptr %m_useDiamondSubdivision, align 1
   %useDiamondSubdivision = getelementptr inbounds i8, ptr %processTriangles, i64 9
-  store i8 %17, ptr %useDiamondSubdivision, align 1
+  %frombool9 = and i8 %15, 1
+  store i8 %frombool9, ptr %useDiamondSubdivision, align 1
   %callback10 = getelementptr inbounds i8, ptr %processTriangles, i64 24
   store ptr %callback, ptr %callback10, align 8
   %m_heightStickWidth = getelementptr inbounds i8, ptr %this, i64 84
   %width = getelementptr inbounds i8, ptr %processTriangles, i64 12
-  %18 = load <2 x i32>, ptr %m_heightStickWidth, align 4
-  %19 = add nsw <2 x i32> %18, <i32 -1, i32 -1>
-  store <2 x i32> %19, ptr %width, align 4
+  %16 = load <2 x i32>, ptr %m_heightStickWidth, align 4
+  %17 = add nsw <2 x i32> %16, <i32 -1, i32 -1>
+  store <2 x i32> %17, ptr %width, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %indices, ptr noundef nonnull align 4 dereferenceable(12) @__const._ZNK25btHeightfieldTerrainShape14performRaycastEP18btTriangleCallbackRK9btVector3S4_.indices, i64 12, i1 false)
   %m_upAxis = getelementptr inbounds i8, ptr %this, i64 128
-  %20 = load i32, ptr %m_upAxis, align 8
-  %cmp = icmp eq i32 %20, 2
+  %18 = load i32, ptr %m_upAxis, align 8
+  %cmp = icmp eq i32 %18, 2
   %idxprom19.sroa.gep52 = getelementptr inbounds i8, ptr %endPos, i64 8
   %idxprom19.sroa.gep55 = getelementptr inbounds i8, ptr %beginPos, i64 8
   br i1 %cmp, label %if.then, label %if.end
@@ -1997,19 +1994,19 @@ if.end:                                           ; preds = %if.then, %entry
   %idxprom19.sroa.phi = phi ptr [ %rayDiff.sroa.0.4.gep.sroa_idx50, %if.then ], [ %rayDiff.sroa.2, %entry ]
   %idxprom19.sroa.phi51 = phi ptr [ %idxprom19.sroa.gep, %if.then ], [ %idxprom19.sroa.gep52, %entry ]
   %idxprom19.sroa.phi53 = phi ptr [ %idxprom19.sroa.gep54, %if.then ], [ %idxprom19.sroa.gep55, %entry ]
-  %21 = extractelement <2 x float> %12, i64 0
+  %19 = extractelement <2 x float> %12, i64 0
+  %20 = tail call noundef float @llvm.floor.f32(float %19)
+  %conv = fptosi float %20 to i32
+  %21 = load float, ptr %idxprom19.sroa.phi53, align 4
   %22 = tail call noundef float @llvm.floor.f32(float %21)
-  %conv = fptosi float %22 to i32
-  %23 = load float, ptr %idxprom19.sroa.phi53, align 4
+  %23 = extractelement <2 x float> %13, i64 0
   %24 = tail call noundef float @llvm.floor.f32(float %23)
-  %25 = extractelement <2 x float> %13, i64 0
+  %conv28 = fptosi float %24 to i32
+  %25 = load float, ptr %idxprom19.sroa.phi51, align 4
   %26 = tail call noundef float @llvm.floor.f32(float %25)
-  %conv28 = fptosi float %26 to i32
-  %27 = load float, ptr %idxprom19.sroa.phi51, align 4
-  %28 = tail call noundef float @llvm.floor.f32(float %27)
-  %conv34 = fptosi float %28 to i32
+  %conv34 = fptosi float %26 to i32
   %cmp35 = icmp eq i32 %conv, %conv28
-  %conv22 = fptosi float %24 to i32
+  %conv22 = fptosi float %22 to i32
   %cmp36 = icmp eq i32 %conv22, %conv34
   %or.cond = select i1 %cmp35, i1 %cmp36, i1 false
   br i1 %or.cond, label %if.then37, label %if.end38
@@ -2021,8 +2018,8 @@ if.then37:                                        ; preds = %if.end
 if.end38:                                         ; preds = %if.end
   %m_vboundsGrid = getelementptr inbounds i8, ptr %this, i64 152
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 156
-  %29 = load i32, ptr %m_size.i, align 4
-  %cmp40 = icmp eq i32 %29, 0
+  %27 = load i32, ptr %m_size.i, align 4
+  %cmp40 = icmp eq i32 %27, 0
   br i1 %cmp40, label %if.then41, label %if.else
 
 if.then41:                                        ; preds = %if.end38
@@ -2030,20 +2027,20 @@ if.then41:                                        ; preds = %if.end38
   br label %if.end88
 
 if.else:                                          ; preds = %if.end38
-  %30 = fsub <2 x float> %13, %12
+  %28 = fsub <2 x float> %13, %12
   %sub14.i = fsub float %add13.i23, %add13.i
   %retval.sroa.3.12.vec.insert.i30 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i, i64 0
-  store <2 x float> %30, ptr %rayDiff.sroa.0, align 8
+  store <2 x float> %28, ptr %rayDiff.sroa.0, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i30, ptr %rayDiff.sroa.2, align 8
-  %31 = load float, ptr %idxprom19.sroa.phi, align 4
-  %mul61 = fmul float %31, %31
-  %32 = extractelement <2 x float> %30, i64 0
-  %33 = tail call float @llvm.fmuladd.f32(float %32, float %32, float %mul61)
+  %29 = load float, ptr %idxprom19.sroa.phi, align 4
+  %mul61 = fmul float %29, %29
+  %30 = extractelement <2 x float> %28, i64 0
+  %31 = tail call float @llvm.fmuladd.f32(float %30, float %30, float %mul61)
   %m_vboundsChunkSize = getelementptr inbounds i8, ptr %this, i64 192
-  %34 = load i32, ptr %m_vboundsChunkSize, align 8
-  %mul = mul nsw i32 %34, %34
+  %32 = load i32, ptr %m_vboundsChunkSize, align 8
+  %mul = mul nsw i32 %32, %32
   %conv63 = sitofp i32 %mul to float
-  %cmp64 = fcmp olt float %33, %conv63
+  %cmp64 = fcmp olt float %31, %conv63
   br i1 %cmp64, label %if.then65, label %if.end67
 
 if.then65:                                        ; preds = %if.else
@@ -2056,47 +2053,47 @@ if.end67:                                         ; preds = %if.else
   store ptr %indices, ptr %m_indices.i, align 8
   %m_vboundsGridWidth = getelementptr inbounds i8, ptr %this, i64 184
   %width70 = getelementptr inbounds i8, ptr %processVBounds, i64 8
-  %35 = load <2 x i32>, ptr %m_vboundsGridWidth, align 8
-  store <2 x i32> %35, ptr %width70, align 8
+  %33 = load <2 x i32>, ptr %m_vboundsGridWidth, align 8
+  store <2 x i32> %33, ptr %width70, align 8
   %rayBegin = getelementptr inbounds i8, ptr %processVBounds, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %rayBegin, ptr noundef nonnull align 8 dereferenceable(16) %beginPos, i64 16, i1 false)
   %rayEnd = getelementptr inbounds i8, ptr %processVBounds, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %rayEnd, ptr noundef nonnull align 8 dereferenceable(16) %endPos, i64 16, i1 false)
-  %36 = fmul <2 x float> %30, %30
-  %mul8.i.i.i.i.i = extractelement <2 x float> %36, i64 1
-  %37 = call float @llvm.fmuladd.f32(float %32, float %32, float %mul8.i.i.i.i.i)
-  %38 = call noundef float @llvm.fmuladd.f32(float %sub14.i, float %sub14.i, float %37)
-  %sqrt.i.i.i = call noundef float @llvm.sqrt.f32(float %38)
+  %34 = fmul <2 x float> %28, %28
+  %mul8.i.i.i.i.i = extractelement <2 x float> %34, i64 1
+  %35 = call float @llvm.fmuladd.f32(float %30, float %30, float %mul8.i.i.i.i.i)
+  %36 = call noundef float @llvm.fmuladd.f32(float %sub14.i, float %sub14.i, float %35)
+  %sqrt.i.i.i = call noundef float @llvm.sqrt.f32(float %36)
   %div.i.i.i = fdiv float 1.000000e+00, %sqrt.i.i.i
-  %39 = insertelement <2 x float> poison, float %div.i.i.i, i64 0
-  %40 = shufflevector <2 x float> %39, <2 x float> poison, <2 x i32> zeroinitializer
-  %41 = fmul <2 x float> %30, %40
+  %37 = insertelement <2 x float> poison, float %div.i.i.i, i64 0
+  %38 = shufflevector <2 x float> %37, <2 x float> poison, <2 x i32> zeroinitializer
+  %39 = fmul <2 x float> %28, %38
   %mul7.i.i.i.i = fmul float %sub14.i, %div.i.i.i
   %nrm.sroa.6.8.vec.insert.i = insertelement <2 x float> %retval.sroa.3.12.vec.insert.i30, float %mul7.i.i.i.i, i64 0
   %rayDir = getelementptr inbounds i8, ptr %processVBounds, i64 52
-  store <2 x float> %41, ptr %rayDir, align 4
+  store <2 x float> %39, ptr %rayDir, align 4
   %ref.tmp.sroa.2.0.rayDir.sroa_idx = getelementptr inbounds i8, ptr %processVBounds, i64 60
   store <2 x float> %nrm.sroa.6.8.vec.insert.i, ptr %ref.tmp.sroa.2.0.rayDir.sroa_idx, align 4
   %processTriangles74 = getelementptr inbounds i8, ptr %processVBounds, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %processTriangles74, ptr noundef nonnull align 8 dereferenceable(32) %processTriangles, i64 32, i1 false)
   %chunkSize = getelementptr inbounds i8, ptr %processVBounds, i64 16
-  store i32 %34, ptr %chunkSize, align 8
-  %conv79 = sitofp i32 %34 to float
+  store i32 %32, ptr %chunkSize, align 8
+  %conv79 = sitofp i32 %32 to float
   %div.i35 = fdiv float 1.000000e+00, %conv79
-  %42 = insertelement <2 x float> poison, float %div.i35, i64 0
-  %43 = shufflevector <2 x float> %42, <2 x float> poison, <2 x i32> zeroinitializer
-  %44 = fmul <2 x float> %12, %43
+  %40 = insertelement <2 x float> poison, float %div.i35, i64 0
+  %41 = shufflevector <2 x float> %40, <2 x float> poison, <2 x i32> zeroinitializer
+  %42 = fmul <2 x float> %12, %41
   %mul8.i.i = fmul float %add13.i, %div.i35
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i.i, i64 0
-  store <2 x float> %44, ptr %ref.tmp76, align 8
-  %45 = getelementptr inbounds i8, ptr %ref.tmp76, i64 8
-  store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %45, align 8
-  %46 = fmul <2 x float> %13, %43
+  store <2 x float> %42, ptr %ref.tmp76, align 8
+  %43 = getelementptr inbounds i8, ptr %ref.tmp76, i64 8
+  store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %43, align 8
+  %44 = fmul <2 x float> %13, %41
   %mul8.i.i41 = fmul float %add13.i23, %div.i35
   %retval.sroa.3.12.vec.insert.i.i44 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i.i41, i64 0
-  store <2 x float> %46, ptr %ref.tmp82, align 8
-  %47 = getelementptr inbounds i8, ptr %ref.tmp82, i64 8
-  store <2 x float> %retval.sroa.3.12.vec.insert.i.i44, ptr %47, align 8
+  store <2 x float> %44, ptr %ref.tmp82, align 8
+  %45 = getelementptr inbounds i8, ptr %ref.tmp82, i64 8
+  store <2 x float> %retval.sroa.3.12.vec.insert.i.i44, ptr %45, align 8
   call void @_Z11gridRaycastI20ProcessVBoundsActionEvRT_RK9btVector3S5_Pi(ptr noundef nonnull align 8 dereferenceable(112) %processVBounds, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp76, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp82, ptr noundef nonnull %indices)
   br label %if.end88
 
@@ -2123,16 +2120,14 @@ entry:
 arrayctor.loop.preheader:                         ; preds = %entry
   %flipQuadEdges = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i8, ptr %flipQuadEdges, align 8
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %lor.lhs.false7, label %if.then10
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.then10, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %arrayctor.loop.preheader
   %useDiamondSubdivision = getelementptr inbounds i8, ptr %this, i64 9
-  %5 = load i8, ptr %useDiamondSubdivision, align 1
-  %6 = and i8 %5, 1
-  %tobool8.not = icmp eq i8 %6, 0
-  br i1 %tobool8.not, label %if.else, label %land.lhs.true
+  %4 = load i8, ptr %useDiamondSubdivision, align 1
+  %tobool8 = trunc i8 %4 to i1
+  br i1 %tobool8, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %lor.lhs.false7
   %add = add nuw nsw i32 %z, %x
@@ -2141,446 +2136,446 @@ land.lhs.true:                                    ; preds = %lor.lhs.false7
   br i1 %cmp9.not, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %land.lhs.true, %arrayctor.loop.preheader
-  %7 = load ptr, ptr %this, align 8
-  %vtable.i = load ptr, ptr %7, align 8
+  %5 = load ptr, ptr %this, align 8
+  %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 136
-  %8 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef float %8(ptr noundef nonnull align 8 dereferenceable(208) %7, i32 noundef %x, i32 noundef %z)
-  %m_upAxis.i = getelementptr inbounds i8, ptr %7, i64 128
-  %9 = load i32, ptr %m_upAxis.i, align 8
-  switch i32 %9, label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit [
+  %6 = load ptr, ptr %vfn.i, align 8
+  %call.i = tail call noundef float %6(ptr noundef nonnull align 8 dereferenceable(208) %5, i32 noundef %x, i32 noundef %z)
+  %m_upAxis.i = getelementptr inbounds i8, ptr %5, i64 128
+  %7 = load i32, ptr %m_upAxis.i, align 8
+  switch i32 %7, label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb9.i
     i32 2, label %sw.bb26.i
   ]
 
 sw.bb.i:                                          ; preds = %if.then10
-  %m_localOrigin.i = getelementptr inbounds i8, ptr %7, i64 68
-  %10 = load float, ptr %m_localOrigin.i, align 4
-  %m_width.i = getelementptr inbounds i8, ptr %7, i64 100
-  %11 = load float, ptr %m_width.i, align 4
-  %div.i = fmul float %11, 5.000000e-01
+  %m_localOrigin.i = getelementptr inbounds i8, ptr %5, i64 68
+  %8 = load float, ptr %m_localOrigin.i, align 4
+  %m_width.i = getelementptr inbounds i8, ptr %5, i64 100
+  %9 = load float, ptr %m_width.i, align 4
+  %div.i = fmul float %9, 5.000000e-01
   %conv.i = sitofp i32 %x to float
-  %12 = insertelement <2 x float> poison, float %call.i, i64 0
-  %13 = insertelement <2 x float> %12, float %conv.i, i64 1
-  %14 = insertelement <2 x float> poison, float %10, i64 0
-  %15 = insertelement <2 x float> %14, float %div.i, i64 1
-  %16 = fsub <2 x float> %13, %15
-  %m_length.i = getelementptr inbounds i8, ptr %7, i64 104
-  %17 = load float, ptr %m_length.i, align 8
-  %div6.i = fmul float %17, 5.000000e-01
+  %10 = insertelement <2 x float> poison, float %call.i, i64 0
+  %11 = insertelement <2 x float> %10, float %conv.i, i64 1
+  %12 = insertelement <2 x float> poison, float %8, i64 0
+  %13 = insertelement <2 x float> %12, float %div.i, i64 1
+  %14 = fsub <2 x float> %11, %13
+  %m_length.i = getelementptr inbounds i8, ptr %5, i64 104
+  %15 = load float, ptr %m_length.i, align 8
+  %div6.i = fmul float %15, 5.000000e-01
   %conv7.i = sitofp i32 %z to float
-  %18 = fsub float %conv7.i, %div6.i
+  %16 = fsub float %conv7.i, %div6.i
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split
 
 sw.bb9.i:                                         ; preds = %if.then10
-  %m_width11.i = getelementptr inbounds i8, ptr %7, i64 100
-  %19 = load float, ptr %m_width11.i, align 4
-  %div13.i = fmul float %19, 5.000000e-01
+  %m_width11.i = getelementptr inbounds i8, ptr %5, i64 100
+  %17 = load float, ptr %m_width11.i, align 4
+  %div13.i = fmul float %17, 5.000000e-01
   %conv14.i = sitofp i32 %x to float
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %7, i64 72
-  %20 = load float, ptr %arrayidx.i.i, align 4
-  %21 = insertelement <2 x float> poison, float %conv14.i, i64 0
-  %22 = insertelement <2 x float> %21, float %call.i, i64 1
-  %23 = insertelement <2 x float> poison, float %div13.i, i64 0
-  %24 = insertelement <2 x float> %23, float %20, i64 1
-  %25 = fsub <2 x float> %22, %24
-  %m_length21.i = getelementptr inbounds i8, ptr %7, i64 104
-  %26 = load float, ptr %m_length21.i, align 8
-  %div23.i = fmul float %26, 5.000000e-01
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 72
+  %18 = load float, ptr %arrayidx.i.i, align 4
+  %19 = insertelement <2 x float> poison, float %conv14.i, i64 0
+  %20 = insertelement <2 x float> %19, float %call.i, i64 1
+  %21 = insertelement <2 x float> poison, float %div13.i, i64 0
+  %22 = insertelement <2 x float> %21, float %18, i64 1
+  %23 = fsub <2 x float> %20, %22
+  %m_length21.i = getelementptr inbounds i8, ptr %5, i64 104
+  %24 = load float, ptr %m_length21.i, align 8
+  %div23.i = fmul float %24, 5.000000e-01
   %conv24.i = sitofp i32 %z to float
-  %27 = fsub float %conv24.i, %div23.i
+  %25 = fsub float %conv24.i, %div23.i
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split
 
 sw.bb26.i:                                        ; preds = %if.then10
-  %m_width28.i = getelementptr inbounds i8, ptr %7, i64 100
-  %28 = insertelement <2 x i32> poison, i32 %x, i64 0
-  %29 = insertelement <2 x i32> %28, i32 %z, i64 1
-  %30 = sitofp <2 x i32> %29 to <2 x float>
-  %31 = load <2 x float>, ptr %m_width28.i, align 4
-  %32 = fmul <2 x float> %31, <float 5.000000e-01, float 5.000000e-01>
-  %33 = fsub <2 x float> %30, %32
-  %arrayidx.i15.i = getelementptr inbounds i8, ptr %7, i64 76
-  %34 = load float, ptr %arrayidx.i15.i, align 4
-  %sub42.i = fsub float %call.i, %34
+  %m_width28.i = getelementptr inbounds i8, ptr %5, i64 100
+  %26 = insertelement <2 x i32> poison, i32 %x, i64 0
+  %27 = insertelement <2 x i32> %26, i32 %z, i64 1
+  %28 = sitofp <2 x i32> %27 to <2 x float>
+  %29 = load <2 x float>, ptr %m_width28.i, align 4
+  %30 = fmul <2 x float> %29, <float 5.000000e-01, float 5.000000e-01>
+  %31 = fsub <2 x float> %28, %30
+  %arrayidx.i15.i = getelementptr inbounds i8, ptr %5, i64 76
+  %32 = load float, ptr %arrayidx.i15.i, align 4
+  %sub42.i = fsub float %call.i, %32
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split: ; preds = %sw.bb26.i, %sw.bb9.i, %sw.bb.i
-  %.ph = phi float [ %18, %sw.bb.i ], [ %27, %sw.bb9.i ], [ %sub42.i, %sw.bb26.i ]
-  %35 = phi <2 x float> [ %16, %sw.bb.i ], [ %25, %sw.bb9.i ], [ %33, %sw.bb26.i ]
+  %.ph = phi float [ %16, %sw.bb.i ], [ %25, %sw.bb9.i ], [ %sub42.i, %sw.bb26.i ]
+  %33 = phi <2 x float> [ %14, %sw.bb.i ], [ %23, %sw.bb9.i ], [ %31, %sw.bb26.i ]
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %vertices, i64 12
   store float 0.000000e+00, ptr %arrayidx7.i.i, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit: ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split, %if.then10
-  %36 = phi float [ undef, %if.then10 ], [ %.ph, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split ]
-  %37 = phi <2 x float> [ undef, %if.then10 ], [ %35, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split ]
-  %m_localScaling.i = getelementptr inbounds i8, ptr %7, i64 132
-  %38 = load <2 x float>, ptr %m_localScaling.i, align 4
-  %39 = fmul <2 x float> %37, %38
-  store <2 x float> %39, ptr %vertices, align 16
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %7, i64 140
-  %40 = load float, ptr %arrayidx10.i.i, align 4
+  %34 = phi float [ undef, %if.then10 ], [ %.ph, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split ]
+  %35 = phi <2 x float> [ undef, %if.then10 ], [ %33, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split ]
+  %m_localScaling.i = getelementptr inbounds i8, ptr %5, i64 132
+  %36 = load <2 x float>, ptr %m_localScaling.i, align 4
+  %37 = fmul <2 x float> %35, %36
+  store <2 x float> %37, ptr %vertices, align 16
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %5, i64 140
+  %38 = load float, ptr %arrayidx10.i.i, align 4
   %arrayidx12.i.i = getelementptr inbounds i8, ptr %vertices, i64 8
-  %mul13.i.i = fmul float %36, %40
+  %mul13.i.i = fmul float %34, %38
   store float %mul13.i.i, ptr %arrayidx12.i.i, align 8
-  %41 = load ptr, ptr %this, align 8
+  %39 = load ptr, ptr %this, align 8
   %add12 = add nuw nsw i32 %x, 1
   %arrayidx13 = getelementptr inbounds i8, ptr %vertices, i64 16
-  %vtable.i38 = load ptr, ptr %41, align 8
+  %vtable.i38 = load ptr, ptr %39, align 8
   %vfn.i39 = getelementptr inbounds i8, ptr %vtable.i38, i64 136
-  %42 = load ptr, ptr %vfn.i39, align 8
-  %call.i40 = tail call noundef float %42(ptr noundef nonnull align 8 dereferenceable(208) %41, i32 noundef %add12, i32 noundef %z)
-  %m_upAxis.i41 = getelementptr inbounds i8, ptr %41, i64 128
-  %43 = load i32, ptr %m_upAxis.i41, align 8
-  switch i32 %43, label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92 [
+  %40 = load ptr, ptr %vfn.i39, align 8
+  %call.i40 = tail call noundef float %40(ptr noundef nonnull align 8 dereferenceable(208) %39, i32 noundef %add12, i32 noundef %z)
+  %m_upAxis.i41 = getelementptr inbounds i8, ptr %39, i64 128
+  %41 = load i32, ptr %m_upAxis.i41, align 8
+  switch i32 %41, label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92 [
     i32 0, label %sw.bb.i74
     i32 1, label %sw.bb9.i62
     i32 2, label %sw.bb26.i42
   ]
 
 sw.bb.i74:                                        ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit
-  %m_localOrigin.i75 = getelementptr inbounds i8, ptr %41, i64 68
-  %44 = load float, ptr %m_localOrigin.i75, align 4
-  %m_width.i77 = getelementptr inbounds i8, ptr %41, i64 100
-  %45 = load float, ptr %m_width.i77, align 4
-  %div.i78 = fmul float %45, 5.000000e-01
+  %m_localOrigin.i75 = getelementptr inbounds i8, ptr %39, i64 68
+  %42 = load float, ptr %m_localOrigin.i75, align 4
+  %m_width.i77 = getelementptr inbounds i8, ptr %39, i64 100
+  %43 = load float, ptr %m_width.i77, align 4
+  %div.i78 = fmul float %43, 5.000000e-01
   %conv.i79 = sitofp i32 %add12 to float
-  %46 = insertelement <2 x float> poison, float %call.i40, i64 0
-  %47 = insertelement <2 x float> %46, float %conv.i79, i64 1
-  %48 = insertelement <2 x float> poison, float %44, i64 0
-  %49 = insertelement <2 x float> %48, float %div.i78, i64 1
-  %50 = fsub <2 x float> %47, %49
-  %m_length.i80 = getelementptr inbounds i8, ptr %41, i64 104
-  %51 = load float, ptr %m_length.i80, align 8
-  %div6.i81 = fmul float %51, 5.000000e-01
+  %44 = insertelement <2 x float> poison, float %call.i40, i64 0
+  %45 = insertelement <2 x float> %44, float %conv.i79, i64 1
+  %46 = insertelement <2 x float> poison, float %42, i64 0
+  %47 = insertelement <2 x float> %46, float %div.i78, i64 1
+  %48 = fsub <2 x float> %45, %47
+  %m_length.i80 = getelementptr inbounds i8, ptr %39, i64 104
+  %49 = load float, ptr %m_length.i80, align 8
+  %div6.i81 = fmul float %49, 5.000000e-01
   %conv7.i82 = sitofp i32 %z to float
-  %52 = fsub float %conv7.i82, %div6.i81
+  %50 = fsub float %conv7.i82, %div6.i81
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92.sink.split
 
 sw.bb9.i62:                                       ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit
-  %m_width11.i63 = getelementptr inbounds i8, ptr %41, i64 100
-  %53 = load float, ptr %m_width11.i63, align 4
-  %div13.i64 = fmul float %53, 5.000000e-01
+  %m_width11.i63 = getelementptr inbounds i8, ptr %39, i64 100
+  %51 = load float, ptr %m_width11.i63, align 4
+  %div13.i64 = fmul float %51, 5.000000e-01
   %conv14.i65 = sitofp i32 %add12 to float
-  %arrayidx.i.i66 = getelementptr inbounds i8, ptr %41, i64 72
-  %54 = load float, ptr %arrayidx.i.i66, align 4
-  %55 = insertelement <2 x float> poison, float %conv14.i65, i64 0
-  %56 = insertelement <2 x float> %55, float %call.i40, i64 1
-  %57 = insertelement <2 x float> poison, float %div13.i64, i64 0
-  %58 = insertelement <2 x float> %57, float %54, i64 1
-  %59 = fsub <2 x float> %56, %58
-  %m_length21.i68 = getelementptr inbounds i8, ptr %41, i64 104
-  %60 = load float, ptr %m_length21.i68, align 8
-  %div23.i69 = fmul float %60, 5.000000e-01
+  %arrayidx.i.i66 = getelementptr inbounds i8, ptr %39, i64 72
+  %52 = load float, ptr %arrayidx.i.i66, align 4
+  %53 = insertelement <2 x float> poison, float %conv14.i65, i64 0
+  %54 = insertelement <2 x float> %53, float %call.i40, i64 1
+  %55 = insertelement <2 x float> poison, float %div13.i64, i64 0
+  %56 = insertelement <2 x float> %55, float %52, i64 1
+  %57 = fsub <2 x float> %54, %56
+  %m_length21.i68 = getelementptr inbounds i8, ptr %39, i64 104
+  %58 = load float, ptr %m_length21.i68, align 8
+  %div23.i69 = fmul float %58, 5.000000e-01
   %conv24.i70 = sitofp i32 %z to float
-  %61 = fsub float %conv24.i70, %div23.i69
+  %59 = fsub float %conv24.i70, %div23.i69
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92.sink.split
 
 sw.bb26.i42:                                      ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit
-  %m_width28.i43 = getelementptr inbounds i8, ptr %41, i64 100
-  %62 = insertelement <2 x i32> poison, i32 %add12, i64 0
-  %63 = insertelement <2 x i32> %62, i32 %z, i64 1
-  %64 = sitofp <2 x i32> %63 to <2 x float>
-  %65 = load <2 x float>, ptr %m_width28.i43, align 4
-  %66 = fmul <2 x float> %65, <float 5.000000e-01, float 5.000000e-01>
-  %67 = fsub <2 x float> %64, %66
-  %arrayidx.i15.i49 = getelementptr inbounds i8, ptr %41, i64 76
-  %68 = load float, ptr %arrayidx.i15.i49, align 4
-  %sub42.i50 = fsub float %call.i40, %68
+  %m_width28.i43 = getelementptr inbounds i8, ptr %39, i64 100
+  %60 = insertelement <2 x i32> poison, i32 %add12, i64 0
+  %61 = insertelement <2 x i32> %60, i32 %z, i64 1
+  %62 = sitofp <2 x i32> %61 to <2 x float>
+  %63 = load <2 x float>, ptr %m_width28.i43, align 4
+  %64 = fmul <2 x float> %63, <float 5.000000e-01, float 5.000000e-01>
+  %65 = fsub <2 x float> %62, %64
+  %arrayidx.i15.i49 = getelementptr inbounds i8, ptr %39, i64 76
+  %66 = load float, ptr %arrayidx.i15.i49, align 4
+  %sub42.i50 = fsub float %call.i40, %66
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92.sink.split
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92.sink.split: ; preds = %sw.bb26.i42, %sw.bb9.i62, %sw.bb.i74
-  %.ph645 = phi float [ %52, %sw.bb.i74 ], [ %61, %sw.bb9.i62 ], [ %sub42.i50, %sw.bb26.i42 ]
-  %69 = phi <2 x float> [ %50, %sw.bb.i74 ], [ %59, %sw.bb9.i62 ], [ %67, %sw.bb26.i42 ]
+  %.ph645 = phi float [ %50, %sw.bb.i74 ], [ %59, %sw.bb9.i62 ], [ %sub42.i50, %sw.bb26.i42 ]
+  %67 = phi <2 x float> [ %48, %sw.bb.i74 ], [ %57, %sw.bb9.i62 ], [ %65, %sw.bb26.i42 ]
   %arrayidx7.i.i85 = getelementptr inbounds i8, ptr %vertices, i64 28
   store float 0.000000e+00, ptr %arrayidx7.i.i85, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92: ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92.sink.split, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit
-  %70 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit ], [ %.ph645, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92.sink.split ]
-  %71 = phi <2 x float> [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit ], [ %69, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92.sink.split ]
-  %m_localScaling.i54 = getelementptr inbounds i8, ptr %41, i64 132
-  %72 = load <2 x float>, ptr %m_localScaling.i54, align 4
-  %73 = fmul <2 x float> %71, %72
-  store <2 x float> %73, ptr %arrayidx13, align 16
-  %arrayidx10.i.i59 = getelementptr inbounds i8, ptr %41, i64 140
-  %74 = load float, ptr %arrayidx10.i.i59, align 4
+  %68 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit ], [ %.ph645, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92.sink.split ]
+  %69 = phi <2 x float> [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit ], [ %67, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92.sink.split ]
+  %m_localScaling.i54 = getelementptr inbounds i8, ptr %39, i64 132
+  %70 = load <2 x float>, ptr %m_localScaling.i54, align 4
+  %71 = fmul <2 x float> %69, %70
+  store <2 x float> %71, ptr %arrayidx13, align 16
+  %arrayidx10.i.i59 = getelementptr inbounds i8, ptr %39, i64 140
+  %72 = load float, ptr %arrayidx10.i.i59, align 4
   %arrayidx12.i.i60 = getelementptr inbounds i8, ptr %vertices, i64 24
-  %mul13.i.i61 = fmul float %70, %74
+  %mul13.i.i61 = fmul float %68, %72
   store float %mul13.i.i61, ptr %arrayidx12.i.i60, align 8
-  %75 = load ptr, ptr %this, align 8
+  %73 = load ptr, ptr %this, align 8
   %add16 = add nuw nsw i32 %z, 1
   %arrayidx17 = getelementptr inbounds i8, ptr %vertices, i64 32
-  %vtable.i93 = load ptr, ptr %75, align 8
+  %vtable.i93 = load ptr, ptr %73, align 8
   %vfn.i94 = getelementptr inbounds i8, ptr %vtable.i93, i64 136
-  %76 = load ptr, ptr %vfn.i94, align 8
-  %call.i95 = tail call noundef float %76(ptr noundef nonnull align 8 dereferenceable(208) %75, i32 noundef %add12, i32 noundef %add16)
-  %m_upAxis.i96 = getelementptr inbounds i8, ptr %75, i64 128
-  %77 = load i32, ptr %m_upAxis.i96, align 8
-  switch i32 %77, label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit147 [
+  %74 = load ptr, ptr %vfn.i94, align 8
+  %call.i95 = tail call noundef float %74(ptr noundef nonnull align 8 dereferenceable(208) %73, i32 noundef %add12, i32 noundef %add16)
+  %m_upAxis.i96 = getelementptr inbounds i8, ptr %73, i64 128
+  %75 = load i32, ptr %m_upAxis.i96, align 8
+  switch i32 %75, label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit147 [
     i32 0, label %sw.bb.i129
     i32 1, label %sw.bb9.i117
     i32 2, label %sw.bb26.i97
   ]
 
 sw.bb.i129:                                       ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92
-  %m_localOrigin.i130 = getelementptr inbounds i8, ptr %75, i64 68
-  %78 = load float, ptr %m_localOrigin.i130, align 4
-  %m_width.i132 = getelementptr inbounds i8, ptr %75, i64 100
-  %79 = load float, ptr %m_width.i132, align 4
-  %div.i133 = fmul float %79, 5.000000e-01
+  %m_localOrigin.i130 = getelementptr inbounds i8, ptr %73, i64 68
+  %76 = load float, ptr %m_localOrigin.i130, align 4
+  %m_width.i132 = getelementptr inbounds i8, ptr %73, i64 100
+  %77 = load float, ptr %m_width.i132, align 4
+  %div.i133 = fmul float %77, 5.000000e-01
   %conv.i134 = sitofp i32 %add12 to float
-  %80 = insertelement <2 x float> poison, float %call.i95, i64 0
-  %81 = insertelement <2 x float> %80, float %conv.i134, i64 1
-  %82 = insertelement <2 x float> poison, float %78, i64 0
-  %83 = insertelement <2 x float> %82, float %div.i133, i64 1
-  %84 = fsub <2 x float> %81, %83
-  %m_length.i135 = getelementptr inbounds i8, ptr %75, i64 104
-  %85 = load float, ptr %m_length.i135, align 8
-  %div6.i136 = fmul float %85, 5.000000e-01
+  %78 = insertelement <2 x float> poison, float %call.i95, i64 0
+  %79 = insertelement <2 x float> %78, float %conv.i134, i64 1
+  %80 = insertelement <2 x float> poison, float %76, i64 0
+  %81 = insertelement <2 x float> %80, float %div.i133, i64 1
+  %82 = fsub <2 x float> %79, %81
+  %m_length.i135 = getelementptr inbounds i8, ptr %73, i64 104
+  %83 = load float, ptr %m_length.i135, align 8
+  %div6.i136 = fmul float %83, 5.000000e-01
   %conv7.i137 = sitofp i32 %add16 to float
-  %86 = fsub float %conv7.i137, %div6.i136
+  %84 = fsub float %conv7.i137, %div6.i136
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit147.sink.split
 
 sw.bb9.i117:                                      ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92
-  %m_width11.i118 = getelementptr inbounds i8, ptr %75, i64 100
-  %87 = load float, ptr %m_width11.i118, align 4
-  %div13.i119 = fmul float %87, 5.000000e-01
+  %m_width11.i118 = getelementptr inbounds i8, ptr %73, i64 100
+  %85 = load float, ptr %m_width11.i118, align 4
+  %div13.i119 = fmul float %85, 5.000000e-01
   %conv14.i120 = sitofp i32 %add12 to float
-  %arrayidx.i.i121 = getelementptr inbounds i8, ptr %75, i64 72
-  %88 = load float, ptr %arrayidx.i.i121, align 4
-  %89 = insertelement <2 x float> poison, float %conv14.i120, i64 0
-  %90 = insertelement <2 x float> %89, float %call.i95, i64 1
-  %91 = insertelement <2 x float> poison, float %div13.i119, i64 0
-  %92 = insertelement <2 x float> %91, float %88, i64 1
-  %93 = fsub <2 x float> %90, %92
-  %m_length21.i123 = getelementptr inbounds i8, ptr %75, i64 104
-  %94 = load float, ptr %m_length21.i123, align 8
-  %div23.i124 = fmul float %94, 5.000000e-01
+  %arrayidx.i.i121 = getelementptr inbounds i8, ptr %73, i64 72
+  %86 = load float, ptr %arrayidx.i.i121, align 4
+  %87 = insertelement <2 x float> poison, float %conv14.i120, i64 0
+  %88 = insertelement <2 x float> %87, float %call.i95, i64 1
+  %89 = insertelement <2 x float> poison, float %div13.i119, i64 0
+  %90 = insertelement <2 x float> %89, float %86, i64 1
+  %91 = fsub <2 x float> %88, %90
+  %m_length21.i123 = getelementptr inbounds i8, ptr %73, i64 104
+  %92 = load float, ptr %m_length21.i123, align 8
+  %div23.i124 = fmul float %92, 5.000000e-01
   %conv24.i125 = sitofp i32 %add16 to float
-  %95 = fsub float %conv24.i125, %div23.i124
+  %93 = fsub float %conv24.i125, %div23.i124
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit147.sink.split
 
 sw.bb26.i97:                                      ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92
-  %m_width28.i98 = getelementptr inbounds i8, ptr %75, i64 100
-  %96 = insertelement <2 x i32> poison, i32 %add12, i64 0
-  %97 = insertelement <2 x i32> %96, i32 %add16, i64 1
-  %98 = sitofp <2 x i32> %97 to <2 x float>
-  %99 = load <2 x float>, ptr %m_width28.i98, align 4
-  %100 = fmul <2 x float> %99, <float 5.000000e-01, float 5.000000e-01>
-  %101 = fsub <2 x float> %98, %100
-  %arrayidx.i15.i104 = getelementptr inbounds i8, ptr %75, i64 76
-  %102 = load float, ptr %arrayidx.i15.i104, align 4
-  %sub42.i105 = fsub float %call.i95, %102
+  %m_width28.i98 = getelementptr inbounds i8, ptr %73, i64 100
+  %94 = insertelement <2 x i32> poison, i32 %add12, i64 0
+  %95 = insertelement <2 x i32> %94, i32 %add16, i64 1
+  %96 = sitofp <2 x i32> %95 to <2 x float>
+  %97 = load <2 x float>, ptr %m_width28.i98, align 4
+  %98 = fmul <2 x float> %97, <float 5.000000e-01, float 5.000000e-01>
+  %99 = fsub <2 x float> %96, %98
+  %arrayidx.i15.i104 = getelementptr inbounds i8, ptr %73, i64 76
+  %100 = load float, ptr %arrayidx.i15.i104, align 4
+  %sub42.i105 = fsub float %call.i95, %100
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit147.sink.split
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit147.sink.split: ; preds = %sw.bb26.i97, %sw.bb9.i117, %sw.bb.i129
-  %.ph648 = phi float [ %86, %sw.bb.i129 ], [ %95, %sw.bb9.i117 ], [ %sub42.i105, %sw.bb26.i97 ]
-  %103 = phi <2 x float> [ %84, %sw.bb.i129 ], [ %93, %sw.bb9.i117 ], [ %101, %sw.bb26.i97 ]
+  %.ph648 = phi float [ %84, %sw.bb.i129 ], [ %93, %sw.bb9.i117 ], [ %sub42.i105, %sw.bb26.i97 ]
+  %101 = phi <2 x float> [ %82, %sw.bb.i129 ], [ %91, %sw.bb9.i117 ], [ %99, %sw.bb26.i97 ]
   %arrayidx7.i.i140 = getelementptr inbounds i8, ptr %vertices, i64 44
   store float 0.000000e+00, ptr %arrayidx7.i.i140, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit147
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit147: ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit147.sink.split, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92
-  %104 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92 ], [ %.ph648, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit147.sink.split ]
-  %105 = phi <2 x float> [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92 ], [ %103, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit147.sink.split ]
-  %m_localScaling.i109 = getelementptr inbounds i8, ptr %75, i64 132
+  %102 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92 ], [ %.ph648, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit147.sink.split ]
+  %103 = phi <2 x float> [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit92 ], [ %101, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit147.sink.split ]
+  %m_localScaling.i109 = getelementptr inbounds i8, ptr %73, i64 132
   %arrayidx7.i20.i112 = getelementptr inbounds i8, ptr %vertices, i64 36
-  %106 = load <2 x float>, ptr %m_localScaling.i109, align 4
-  %107 = fmul <2 x float> %105, %106
-  store <2 x float> %107, ptr %arrayidx17, align 16
-  %arrayidx10.i.i114 = getelementptr inbounds i8, ptr %75, i64 140
-  %108 = load float, ptr %arrayidx10.i.i114, align 4
+  %104 = load <2 x float>, ptr %m_localScaling.i109, align 4
+  %105 = fmul <2 x float> %103, %104
+  store <2 x float> %105, ptr %arrayidx17, align 16
+  %arrayidx10.i.i114 = getelementptr inbounds i8, ptr %73, i64 140
+  %106 = load float, ptr %arrayidx10.i.i114, align 4
   %arrayidx12.i.i115 = getelementptr inbounds i8, ptr %vertices, i64 40
-  %mul13.i.i116 = fmul float %104, %108
+  %mul13.i.i116 = fmul float %102, %106
   store float %mul13.i.i116, ptr %arrayidx12.i.i115, align 8
   %callback = getelementptr inbounds i8, ptr %this, i64 24
-  %109 = load ptr, ptr %callback, align 8
-  %vtable = load ptr, ptr %109, align 8
+  %107 = load ptr, ptr %callback, align 8
+  %vtable = load ptr, ptr %107, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %110 = load ptr, ptr %vfn, align 8
-  call void %110(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull %vertices, i32 noundef %x, i32 noundef %z)
-  %111 = load ptr, ptr %this, align 8
-  %vtable.i148 = load ptr, ptr %111, align 8
+  %108 = load ptr, ptr %vfn, align 8
+  call void %108(ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef nonnull %vertices, i32 noundef %x, i32 noundef %z)
+  %109 = load ptr, ptr %this, align 8
+  %vtable.i148 = load ptr, ptr %109, align 8
   %vfn.i149 = getelementptr inbounds i8, ptr %vtable.i148, i64 136
-  %112 = load ptr, ptr %vfn.i149, align 8
-  %call.i150 = call noundef float %112(ptr noundef nonnull align 8 dereferenceable(208) %111, i32 noundef %x, i32 noundef %z)
-  %m_upAxis.i151 = getelementptr inbounds i8, ptr %111, i64 128
-  %113 = load i32, ptr %m_upAxis.i151, align 8
-  switch i32 %113, label %entry.sw.epilog_crit_edge.i196 [
+  %110 = load ptr, ptr %vfn.i149, align 8
+  %call.i150 = call noundef float %110(ptr noundef nonnull align 8 dereferenceable(208) %109, i32 noundef %x, i32 noundef %z)
+  %m_upAxis.i151 = getelementptr inbounds i8, ptr %109, i64 128
+  %111 = load i32, ptr %m_upAxis.i151, align 8
+  switch i32 %111, label %entry.sw.epilog_crit_edge.i196 [
     i32 0, label %sw.bb.i184
     i32 1, label %sw.bb9.i172
     i32 2, label %sw.bb26.i152
   ]
 
 entry.sw.epilog_crit_edge.i196:                   ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit147
-  %114 = load <2 x float>, ptr %vertices, align 16
+  %112 = load <2 x float>, ptr %vertices, align 16
   %.pre22.i201 = load float, ptr %arrayidx12.i.i, align 8
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit202
 
 sw.bb.i184:                                       ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit147
-  %m_localOrigin.i185 = getelementptr inbounds i8, ptr %111, i64 68
-  %115 = load float, ptr %m_localOrigin.i185, align 4
-  %m_width.i187 = getelementptr inbounds i8, ptr %111, i64 100
-  %116 = load float, ptr %m_width.i187, align 4
-  %div.i188 = fmul float %116, 5.000000e-01
+  %m_localOrigin.i185 = getelementptr inbounds i8, ptr %109, i64 68
+  %113 = load float, ptr %m_localOrigin.i185, align 4
+  %m_width.i187 = getelementptr inbounds i8, ptr %109, i64 100
+  %114 = load float, ptr %m_width.i187, align 4
+  %div.i188 = fmul float %114, 5.000000e-01
   %conv.i189 = sitofp i32 %x to float
-  %117 = insertelement <2 x float> poison, float %call.i150, i64 0
-  %118 = insertelement <2 x float> %117, float %conv.i189, i64 1
-  %119 = insertelement <2 x float> poison, float %115, i64 0
-  %120 = insertelement <2 x float> %119, float %div.i188, i64 1
-  %121 = fsub <2 x float> %118, %120
-  %m_length.i190 = getelementptr inbounds i8, ptr %111, i64 104
-  %122 = load float, ptr %m_length.i190, align 8
-  %div6.i191 = fmul float %122, 5.000000e-01
+  %115 = insertelement <2 x float> poison, float %call.i150, i64 0
+  %116 = insertelement <2 x float> %115, float %conv.i189, i64 1
+  %117 = insertelement <2 x float> poison, float %113, i64 0
+  %118 = insertelement <2 x float> %117, float %div.i188, i64 1
+  %119 = fsub <2 x float> %116, %118
+  %m_length.i190 = getelementptr inbounds i8, ptr %109, i64 104
+  %120 = load float, ptr %m_length.i190, align 8
+  %div6.i191 = fmul float %120, 5.000000e-01
   %conv7.i192 = sitofp i32 %z to float
-  %123 = fsub float %conv7.i192, %div6.i191
+  %121 = fsub float %conv7.i192, %div6.i191
   %arrayidx7.i.i195 = getelementptr inbounds i8, ptr %vertices, i64 12
   store float 0.000000e+00, ptr %arrayidx7.i.i195, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit202
 
 sw.bb9.i172:                                      ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit147
-  %m_width11.i173 = getelementptr inbounds i8, ptr %111, i64 100
-  %124 = load float, ptr %m_width11.i173, align 4
-  %div13.i174 = fmul float %124, 5.000000e-01
+  %m_width11.i173 = getelementptr inbounds i8, ptr %109, i64 100
+  %122 = load float, ptr %m_width11.i173, align 4
+  %div13.i174 = fmul float %122, 5.000000e-01
   %conv14.i175 = sitofp i32 %x to float
-  %arrayidx.i.i176 = getelementptr inbounds i8, ptr %111, i64 72
-  %125 = load float, ptr %arrayidx.i.i176, align 4
-  %126 = insertelement <2 x float> poison, float %conv14.i175, i64 0
-  %127 = insertelement <2 x float> %126, float %call.i150, i64 1
-  %128 = insertelement <2 x float> poison, float %div13.i174, i64 0
-  %129 = insertelement <2 x float> %128, float %125, i64 1
-  %130 = fsub <2 x float> %127, %129
-  %m_length21.i178 = getelementptr inbounds i8, ptr %111, i64 104
-  %131 = load float, ptr %m_length21.i178, align 8
-  %div23.i179 = fmul float %131, 5.000000e-01
+  %arrayidx.i.i176 = getelementptr inbounds i8, ptr %109, i64 72
+  %123 = load float, ptr %arrayidx.i.i176, align 4
+  %124 = insertelement <2 x float> poison, float %conv14.i175, i64 0
+  %125 = insertelement <2 x float> %124, float %call.i150, i64 1
+  %126 = insertelement <2 x float> poison, float %div13.i174, i64 0
+  %127 = insertelement <2 x float> %126, float %123, i64 1
+  %128 = fsub <2 x float> %125, %127
+  %m_length21.i178 = getelementptr inbounds i8, ptr %109, i64 104
+  %129 = load float, ptr %m_length21.i178, align 8
+  %div23.i179 = fmul float %129, 5.000000e-01
   %conv24.i180 = sitofp i32 %z to float
-  %132 = fsub float %conv24.i180, %div23.i179
+  %130 = fsub float %conv24.i180, %div23.i179
   %arrayidx7.i14.i183 = getelementptr inbounds i8, ptr %vertices, i64 12
   store float 0.000000e+00, ptr %arrayidx7.i14.i183, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit202
 
 sw.bb26.i152:                                     ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit147
-  %m_width28.i153 = getelementptr inbounds i8, ptr %111, i64 100
-  %133 = insertelement <2 x i32> poison, i32 %x, i64 0
-  %134 = insertelement <2 x i32> %133, i32 %z, i64 1
-  %135 = sitofp <2 x i32> %134 to <2 x float>
-  %136 = load <2 x float>, ptr %m_width28.i153, align 4
-  %137 = fmul <2 x float> %136, <float 5.000000e-01, float 5.000000e-01>
-  %138 = fsub <2 x float> %135, %137
-  %arrayidx.i15.i159 = getelementptr inbounds i8, ptr %111, i64 76
-  %139 = load float, ptr %arrayidx.i15.i159, align 4
-  %sub42.i160 = fsub float %call.i150, %139
+  %m_width28.i153 = getelementptr inbounds i8, ptr %109, i64 100
+  %131 = insertelement <2 x i32> poison, i32 %x, i64 0
+  %132 = insertelement <2 x i32> %131, i32 %z, i64 1
+  %133 = sitofp <2 x i32> %132 to <2 x float>
+  %134 = load <2 x float>, ptr %m_width28.i153, align 4
+  %135 = fmul <2 x float> %134, <float 5.000000e-01, float 5.000000e-01>
+  %136 = fsub <2 x float> %133, %135
+  %arrayidx.i15.i159 = getelementptr inbounds i8, ptr %109, i64 76
+  %137 = load float, ptr %arrayidx.i15.i159, align 4
+  %sub42.i160 = fsub float %call.i150, %137
   %arrayidx7.i18.i163 = getelementptr inbounds i8, ptr %vertices, i64 12
   store float 0.000000e+00, ptr %arrayidx7.i18.i163, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit202
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit202: ; preds = %entry.sw.epilog_crit_edge.i196, %sw.bb.i184, %sw.bb9.i172, %sw.bb26.i152
-  %140 = phi float [ %.pre22.i201, %entry.sw.epilog_crit_edge.i196 ], [ %sub42.i160, %sw.bb26.i152 ], [ %132, %sw.bb9.i172 ], [ %123, %sw.bb.i184 ]
-  %141 = phi <2 x float> [ %114, %entry.sw.epilog_crit_edge.i196 ], [ %138, %sw.bb26.i152 ], [ %130, %sw.bb9.i172 ], [ %121, %sw.bb.i184 ]
-  %m_localScaling.i164 = getelementptr inbounds i8, ptr %111, i64 132
-  %142 = load <2 x float>, ptr %m_localScaling.i164, align 4
-  %143 = fmul <2 x float> %141, %142
-  store <2 x float> %143, ptr %vertices, align 16
-  %arrayidx10.i.i169 = getelementptr inbounds i8, ptr %111, i64 140
-  %144 = load float, ptr %arrayidx10.i.i169, align 4
-  %mul13.i.i171 = fmul float %140, %144
+  %138 = phi float [ %.pre22.i201, %entry.sw.epilog_crit_edge.i196 ], [ %sub42.i160, %sw.bb26.i152 ], [ %130, %sw.bb9.i172 ], [ %121, %sw.bb.i184 ]
+  %139 = phi <2 x float> [ %112, %entry.sw.epilog_crit_edge.i196 ], [ %136, %sw.bb26.i152 ], [ %128, %sw.bb9.i172 ], [ %119, %sw.bb.i184 ]
+  %m_localScaling.i164 = getelementptr inbounds i8, ptr %109, i64 132
+  %140 = load <2 x float>, ptr %m_localScaling.i164, align 4
+  %141 = fmul <2 x float> %139, %140
+  store <2 x float> %141, ptr %vertices, align 16
+  %arrayidx10.i.i169 = getelementptr inbounds i8, ptr %109, i64 140
+  %142 = load float, ptr %arrayidx10.i.i169, align 4
+  %mul13.i.i171 = fmul float %138, %142
   store float %mul13.i.i171, ptr %arrayidx12.i.i, align 8
-  %145 = load ptr, ptr %this, align 8
-  %vtable.i203 = load ptr, ptr %145, align 8
+  %143 = load ptr, ptr %this, align 8
+  %vtable.i203 = load ptr, ptr %143, align 8
   %vfn.i204 = getelementptr inbounds i8, ptr %vtable.i203, i64 136
-  %146 = load ptr, ptr %vfn.i204, align 8
-  %call.i205 = call noundef float %146(ptr noundef nonnull align 8 dereferenceable(208) %145, i32 noundef %add12, i32 noundef %add16)
-  %m_upAxis.i206 = getelementptr inbounds i8, ptr %145, i64 128
-  %147 = load i32, ptr %m_upAxis.i206, align 8
-  switch i32 %147, label %entry.sw.epilog_crit_edge.i251 [
+  %144 = load ptr, ptr %vfn.i204, align 8
+  %call.i205 = call noundef float %144(ptr noundef nonnull align 8 dereferenceable(208) %143, i32 noundef %add12, i32 noundef %add16)
+  %m_upAxis.i206 = getelementptr inbounds i8, ptr %143, i64 128
+  %145 = load i32, ptr %m_upAxis.i206, align 8
+  switch i32 %145, label %entry.sw.epilog_crit_edge.i251 [
     i32 0, label %sw.bb.i239
     i32 1, label %sw.bb9.i227
     i32 2, label %sw.bb26.i207
   ]
 
 entry.sw.epilog_crit_edge.i251:                   ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit202
-  %148 = load <2 x float>, ptr %arrayidx13, align 16
+  %146 = load <2 x float>, ptr %arrayidx13, align 16
   %.pre22.i256 = load float, ptr %arrayidx12.i.i60, align 8
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit257
 
 sw.bb.i239:                                       ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit202
-  %m_localOrigin.i240 = getelementptr inbounds i8, ptr %145, i64 68
-  %149 = load float, ptr %m_localOrigin.i240, align 4
-  %m_width.i242 = getelementptr inbounds i8, ptr %145, i64 100
-  %150 = load float, ptr %m_width.i242, align 4
-  %div.i243 = fmul float %150, 5.000000e-01
+  %m_localOrigin.i240 = getelementptr inbounds i8, ptr %143, i64 68
+  %147 = load float, ptr %m_localOrigin.i240, align 4
+  %m_width.i242 = getelementptr inbounds i8, ptr %143, i64 100
+  %148 = load float, ptr %m_width.i242, align 4
+  %div.i243 = fmul float %148, 5.000000e-01
   %conv.i244 = sitofp i32 %add12 to float
-  %151 = insertelement <2 x float> poison, float %call.i205, i64 0
-  %152 = insertelement <2 x float> %151, float %conv.i244, i64 1
-  %153 = insertelement <2 x float> poison, float %149, i64 0
-  %154 = insertelement <2 x float> %153, float %div.i243, i64 1
-  %155 = fsub <2 x float> %152, %154
-  %m_length.i245 = getelementptr inbounds i8, ptr %145, i64 104
-  %156 = load float, ptr %m_length.i245, align 8
-  %div6.i246 = fmul float %156, 5.000000e-01
+  %149 = insertelement <2 x float> poison, float %call.i205, i64 0
+  %150 = insertelement <2 x float> %149, float %conv.i244, i64 1
+  %151 = insertelement <2 x float> poison, float %147, i64 0
+  %152 = insertelement <2 x float> %151, float %div.i243, i64 1
+  %153 = fsub <2 x float> %150, %152
+  %m_length.i245 = getelementptr inbounds i8, ptr %143, i64 104
+  %154 = load float, ptr %m_length.i245, align 8
+  %div6.i246 = fmul float %154, 5.000000e-01
   %conv7.i247 = sitofp i32 %add16 to float
-  %157 = fsub float %conv7.i247, %div6.i246
+  %155 = fsub float %conv7.i247, %div6.i246
   %arrayidx7.i.i250 = getelementptr inbounds i8, ptr %vertices, i64 28
   store float 0.000000e+00, ptr %arrayidx7.i.i250, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit257
 
 sw.bb9.i227:                                      ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit202
-  %m_width11.i228 = getelementptr inbounds i8, ptr %145, i64 100
-  %158 = load float, ptr %m_width11.i228, align 4
-  %div13.i229 = fmul float %158, 5.000000e-01
+  %m_width11.i228 = getelementptr inbounds i8, ptr %143, i64 100
+  %156 = load float, ptr %m_width11.i228, align 4
+  %div13.i229 = fmul float %156, 5.000000e-01
   %conv14.i230 = sitofp i32 %add12 to float
-  %arrayidx.i.i231 = getelementptr inbounds i8, ptr %145, i64 72
-  %159 = load float, ptr %arrayidx.i.i231, align 4
-  %160 = insertelement <2 x float> poison, float %conv14.i230, i64 0
-  %161 = insertelement <2 x float> %160, float %call.i205, i64 1
-  %162 = insertelement <2 x float> poison, float %div13.i229, i64 0
-  %163 = insertelement <2 x float> %162, float %159, i64 1
-  %164 = fsub <2 x float> %161, %163
-  %m_length21.i233 = getelementptr inbounds i8, ptr %145, i64 104
-  %165 = load float, ptr %m_length21.i233, align 8
-  %div23.i234 = fmul float %165, 5.000000e-01
+  %arrayidx.i.i231 = getelementptr inbounds i8, ptr %143, i64 72
+  %157 = load float, ptr %arrayidx.i.i231, align 4
+  %158 = insertelement <2 x float> poison, float %conv14.i230, i64 0
+  %159 = insertelement <2 x float> %158, float %call.i205, i64 1
+  %160 = insertelement <2 x float> poison, float %div13.i229, i64 0
+  %161 = insertelement <2 x float> %160, float %157, i64 1
+  %162 = fsub <2 x float> %159, %161
+  %m_length21.i233 = getelementptr inbounds i8, ptr %143, i64 104
+  %163 = load float, ptr %m_length21.i233, align 8
+  %div23.i234 = fmul float %163, 5.000000e-01
   %conv24.i235 = sitofp i32 %add16 to float
-  %166 = fsub float %conv24.i235, %div23.i234
+  %164 = fsub float %conv24.i235, %div23.i234
   %arrayidx7.i14.i238 = getelementptr inbounds i8, ptr %vertices, i64 28
   store float 0.000000e+00, ptr %arrayidx7.i14.i238, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit257
 
 sw.bb26.i207:                                     ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit202
-  %m_width28.i208 = getelementptr inbounds i8, ptr %145, i64 100
-  %167 = insertelement <2 x i32> poison, i32 %add12, i64 0
-  %168 = insertelement <2 x i32> %167, i32 %add16, i64 1
-  %169 = sitofp <2 x i32> %168 to <2 x float>
-  %170 = load <2 x float>, ptr %m_width28.i208, align 4
-  %171 = fmul <2 x float> %170, <float 5.000000e-01, float 5.000000e-01>
-  %172 = fsub <2 x float> %169, %171
-  %arrayidx.i15.i214 = getelementptr inbounds i8, ptr %145, i64 76
-  %173 = load float, ptr %arrayidx.i15.i214, align 4
-  %sub42.i215 = fsub float %call.i205, %173
+  %m_width28.i208 = getelementptr inbounds i8, ptr %143, i64 100
+  %165 = insertelement <2 x i32> poison, i32 %add12, i64 0
+  %166 = insertelement <2 x i32> %165, i32 %add16, i64 1
+  %167 = sitofp <2 x i32> %166 to <2 x float>
+  %168 = load <2 x float>, ptr %m_width28.i208, align 4
+  %169 = fmul <2 x float> %168, <float 5.000000e-01, float 5.000000e-01>
+  %170 = fsub <2 x float> %167, %169
+  %arrayidx.i15.i214 = getelementptr inbounds i8, ptr %143, i64 76
+  %171 = load float, ptr %arrayidx.i15.i214, align 4
+  %sub42.i215 = fsub float %call.i205, %171
   %arrayidx7.i18.i218 = getelementptr inbounds i8, ptr %vertices, i64 28
   store float 0.000000e+00, ptr %arrayidx7.i18.i218, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit257
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit257: ; preds = %entry.sw.epilog_crit_edge.i251, %sw.bb.i239, %sw.bb9.i227, %sw.bb26.i207
-  %174 = phi float [ %.pre22.i256, %entry.sw.epilog_crit_edge.i251 ], [ %sub42.i215, %sw.bb26.i207 ], [ %166, %sw.bb9.i227 ], [ %157, %sw.bb.i239 ]
-  %175 = phi <2 x float> [ %148, %entry.sw.epilog_crit_edge.i251 ], [ %172, %sw.bb26.i207 ], [ %164, %sw.bb9.i227 ], [ %155, %sw.bb.i239 ]
-  %m_localScaling.i219 = getelementptr inbounds i8, ptr %145, i64 132
-  %176 = load <2 x float>, ptr %m_localScaling.i219, align 4
-  %177 = fmul <2 x float> %175, %176
-  store <2 x float> %177, ptr %arrayidx13, align 16
-  %arrayidx10.i.i224 = getelementptr inbounds i8, ptr %145, i64 140
-  %178 = load float, ptr %arrayidx10.i.i224, align 4
-  %mul13.i.i226 = fmul float %174, %178
+  %172 = phi float [ %.pre22.i256, %entry.sw.epilog_crit_edge.i251 ], [ %sub42.i215, %sw.bb26.i207 ], [ %164, %sw.bb9.i227 ], [ %155, %sw.bb.i239 ]
+  %173 = phi <2 x float> [ %146, %entry.sw.epilog_crit_edge.i251 ], [ %170, %sw.bb26.i207 ], [ %162, %sw.bb9.i227 ], [ %153, %sw.bb.i239 ]
+  %m_localScaling.i219 = getelementptr inbounds i8, ptr %143, i64 132
+  %174 = load <2 x float>, ptr %m_localScaling.i219, align 4
+  %175 = fmul <2 x float> %173, %174
+  store <2 x float> %175, ptr %arrayidx13, align 16
+  %arrayidx10.i.i224 = getelementptr inbounds i8, ptr %143, i64 140
+  %176 = load float, ptr %arrayidx10.i.i224, align 4
+  %mul13.i.i226 = fmul float %172, %176
   store float %mul13.i.i226, ptr %arrayidx12.i.i60, align 8
-  %179 = load ptr, ptr %this, align 8
-  %vtable.i258 = load ptr, ptr %179, align 8
+  %177 = load ptr, ptr %this, align 8
+  %vtable.i258 = load ptr, ptr %177, align 8
   %vfn.i259 = getelementptr inbounds i8, ptr %vtable.i258, i64 136
-  %180 = load ptr, ptr %vfn.i259, align 8
-  %call.i260 = call noundef float %180(ptr noundef nonnull align 8 dereferenceable(208) %179, i32 noundef %x, i32 noundef %add16)
-  %m_upAxis.i261 = getelementptr inbounds i8, ptr %179, i64 128
-  %181 = load i32, ptr %m_upAxis.i261, align 8
-  switch i32 %181, label %entry.sw.epilog_crit_edge.i306 [
+  %178 = load ptr, ptr %vfn.i259, align 8
+  %call.i260 = call noundef float %178(ptr noundef nonnull align 8 dereferenceable(208) %177, i32 noundef %x, i32 noundef %add16)
+  %m_upAxis.i261 = getelementptr inbounds i8, ptr %177, i64 128
+  %179 = load i32, ptr %m_upAxis.i261, align 8
+  switch i32 %179, label %entry.sw.epilog_crit_edge.i306 [
     i32 0, label %sw.bb.i294
     i32 1, label %sw.bb9.i282
     i32 2, label %sw.bb26.i262
@@ -2588,507 +2583,507 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit257: ; preds = %entr
 
 entry.sw.epilog_crit_edge.i306:                   ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit257
   %.pre.i307 = load float, ptr %arrayidx17, align 16
-  %182 = load <2 x float>, ptr %arrayidx7.i20.i112, align 4
+  %180 = load <2 x float>, ptr %arrayidx7.i20.i112, align 4
   br label %if.end57.sink.split
 
 sw.bb.i294:                                       ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit257
-  %m_localOrigin.i295 = getelementptr inbounds i8, ptr %179, i64 68
-  %183 = load float, ptr %m_localOrigin.i295, align 4
-  %sub.i296 = fsub float %call.i260, %183
-  %m_width.i297 = getelementptr inbounds i8, ptr %179, i64 100
-  %184 = insertelement <2 x i32> poison, i32 %x, i64 0
-  %185 = insertelement <2 x i32> %184, i32 %add16, i64 1
-  %186 = sitofp <2 x i32> %185 to <2 x float>
-  %187 = load <2 x float>, ptr %m_width.i297, align 4
-  %188 = fmul <2 x float> %187, <float 5.000000e-01, float 5.000000e-01>
-  %189 = fsub <2 x float> %186, %188
+  %m_localOrigin.i295 = getelementptr inbounds i8, ptr %177, i64 68
+  %181 = load float, ptr %m_localOrigin.i295, align 4
+  %sub.i296 = fsub float %call.i260, %181
+  %m_width.i297 = getelementptr inbounds i8, ptr %177, i64 100
+  %182 = insertelement <2 x i32> poison, i32 %x, i64 0
+  %183 = insertelement <2 x i32> %182, i32 %add16, i64 1
+  %184 = sitofp <2 x i32> %183 to <2 x float>
+  %185 = load <2 x float>, ptr %m_width.i297, align 4
+  %186 = fmul <2 x float> %185, <float 5.000000e-01, float 5.000000e-01>
+  %187 = fsub <2 x float> %184, %186
   %arrayidx7.i.i305 = getelementptr inbounds i8, ptr %vertices, i64 44
   store float 0.000000e+00, ptr %arrayidx7.i.i305, align 4
   br label %if.end57.sink.split
 
 sw.bb9.i282:                                      ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit257
-  %m_width11.i283 = getelementptr inbounds i8, ptr %179, i64 100
-  %190 = load float, ptr %m_width11.i283, align 4
-  %div13.i284 = fmul float %190, 5.000000e-01
+  %m_width11.i283 = getelementptr inbounds i8, ptr %177, i64 100
+  %188 = load float, ptr %m_width11.i283, align 4
+  %div13.i284 = fmul float %188, 5.000000e-01
   %conv14.i285 = sitofp i32 %x to float
-  %191 = fsub float %conv14.i285, %div13.i284
-  %arrayidx.i.i286 = getelementptr inbounds i8, ptr %179, i64 72
-  %192 = load float, ptr %arrayidx.i.i286, align 4
-  %m_length21.i288 = getelementptr inbounds i8, ptr %179, i64 104
-  %193 = load float, ptr %m_length21.i288, align 8
-  %div23.i289 = fmul float %193, 5.000000e-01
+  %189 = fsub float %conv14.i285, %div13.i284
+  %arrayidx.i.i286 = getelementptr inbounds i8, ptr %177, i64 72
+  %190 = load float, ptr %arrayidx.i.i286, align 4
+  %m_length21.i288 = getelementptr inbounds i8, ptr %177, i64 104
+  %191 = load float, ptr %m_length21.i288, align 8
+  %div23.i289 = fmul float %191, 5.000000e-01
   %conv24.i290 = sitofp i32 %add16 to float
-  %194 = insertelement <2 x float> poison, float %call.i260, i64 0
-  %195 = insertelement <2 x float> %194, float %conv24.i290, i64 1
-  %196 = insertelement <2 x float> poison, float %192, i64 0
-  %197 = insertelement <2 x float> %196, float %div23.i289, i64 1
-  %198 = fsub <2 x float> %195, %197
+  %192 = insertelement <2 x float> poison, float %call.i260, i64 0
+  %193 = insertelement <2 x float> %192, float %conv24.i290, i64 1
+  %194 = insertelement <2 x float> poison, float %190, i64 0
+  %195 = insertelement <2 x float> %194, float %div23.i289, i64 1
+  %196 = fsub <2 x float> %193, %195
   %arrayidx7.i14.i293 = getelementptr inbounds i8, ptr %vertices, i64 44
   store float 0.000000e+00, ptr %arrayidx7.i14.i293, align 4
   br label %if.end57.sink.split
 
 sw.bb26.i262:                                     ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit257
-  %m_width28.i263 = getelementptr inbounds i8, ptr %179, i64 100
-  %199 = load float, ptr %m_width28.i263, align 4
-  %div30.i264 = fmul float %199, 5.000000e-01
+  %m_width28.i263 = getelementptr inbounds i8, ptr %177, i64 100
+  %197 = load float, ptr %m_width28.i263, align 4
+  %div30.i264 = fmul float %197, 5.000000e-01
   %conv31.i265 = sitofp i32 %x to float
-  %200 = fsub float %conv31.i265, %div30.i264
-  %m_length34.i266 = getelementptr inbounds i8, ptr %179, i64 104
-  %201 = load float, ptr %m_length34.i266, align 8
-  %div36.i267 = fmul float %201, 5.000000e-01
+  %198 = fsub float %conv31.i265, %div30.i264
+  %m_length34.i266 = getelementptr inbounds i8, ptr %177, i64 104
+  %199 = load float, ptr %m_length34.i266, align 8
+  %div36.i267 = fmul float %199, 5.000000e-01
   %conv37.i268 = sitofp i32 %add16 to float
-  %arrayidx.i15.i269 = getelementptr inbounds i8, ptr %179, i64 76
-  %202 = load float, ptr %arrayidx.i15.i269, align 4
-  %203 = insertelement <2 x float> poison, float %conv37.i268, i64 0
-  %204 = insertelement <2 x float> %203, float %call.i260, i64 1
-  %205 = insertelement <2 x float> poison, float %div36.i267, i64 0
-  %206 = insertelement <2 x float> %205, float %202, i64 1
-  %207 = fsub <2 x float> %204, %206
+  %arrayidx.i15.i269 = getelementptr inbounds i8, ptr %177, i64 76
+  %200 = load float, ptr %arrayidx.i15.i269, align 4
+  %201 = insertelement <2 x float> poison, float %conv37.i268, i64 0
+  %202 = insertelement <2 x float> %201, float %call.i260, i64 1
+  %203 = insertelement <2 x float> poison, float %div36.i267, i64 0
+  %204 = insertelement <2 x float> %203, float %200, i64 1
+  %205 = fsub <2 x float> %202, %204
   %arrayidx7.i18.i273 = getelementptr inbounds i8, ptr %vertices, i64 44
   store float 0.000000e+00, ptr %arrayidx7.i18.i273, align 4
   br label %if.end57.sink.split
 
 if.else:                                          ; preds = %land.lhs.true, %lor.lhs.false7
-  %208 = load ptr, ptr %this, align 8
-  %vtable.i313 = load ptr, ptr %208, align 8
+  %206 = load ptr, ptr %this, align 8
+  %vtable.i313 = load ptr, ptr %206, align 8
   %vfn.i314 = getelementptr inbounds i8, ptr %vtable.i313, i64 136
-  %209 = load ptr, ptr %vfn.i314, align 8
-  %call.i315 = tail call noundef float %209(ptr noundef nonnull align 8 dereferenceable(208) %208, i32 noundef %x, i32 noundef %z)
-  %m_upAxis.i316 = getelementptr inbounds i8, ptr %208, i64 128
-  %210 = load i32, ptr %m_upAxis.i316, align 8
-  switch i32 %210, label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367 [
+  %207 = load ptr, ptr %vfn.i314, align 8
+  %call.i315 = tail call noundef float %207(ptr noundef nonnull align 8 dereferenceable(208) %206, i32 noundef %x, i32 noundef %z)
+  %m_upAxis.i316 = getelementptr inbounds i8, ptr %206, i64 128
+  %208 = load i32, ptr %m_upAxis.i316, align 8
+  switch i32 %208, label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367 [
     i32 0, label %sw.bb.i349
     i32 1, label %sw.bb9.i337
     i32 2, label %sw.bb26.i317
   ]
 
 sw.bb.i349:                                       ; preds = %if.else
-  %m_localOrigin.i350 = getelementptr inbounds i8, ptr %208, i64 68
-  %211 = load float, ptr %m_localOrigin.i350, align 4
-  %m_width.i352 = getelementptr inbounds i8, ptr %208, i64 100
-  %212 = load float, ptr %m_width.i352, align 4
-  %div.i353 = fmul float %212, 5.000000e-01
+  %m_localOrigin.i350 = getelementptr inbounds i8, ptr %206, i64 68
+  %209 = load float, ptr %m_localOrigin.i350, align 4
+  %m_width.i352 = getelementptr inbounds i8, ptr %206, i64 100
+  %210 = load float, ptr %m_width.i352, align 4
+  %div.i353 = fmul float %210, 5.000000e-01
   %conv.i354 = sitofp i32 %x to float
-  %213 = insertelement <2 x float> poison, float %call.i315, i64 0
-  %214 = insertelement <2 x float> %213, float %conv.i354, i64 1
-  %215 = insertelement <2 x float> poison, float %211, i64 0
-  %216 = insertelement <2 x float> %215, float %div.i353, i64 1
-  %217 = fsub <2 x float> %214, %216
-  %m_length.i355 = getelementptr inbounds i8, ptr %208, i64 104
-  %218 = load float, ptr %m_length.i355, align 8
-  %div6.i356 = fmul float %218, 5.000000e-01
+  %211 = insertelement <2 x float> poison, float %call.i315, i64 0
+  %212 = insertelement <2 x float> %211, float %conv.i354, i64 1
+  %213 = insertelement <2 x float> poison, float %209, i64 0
+  %214 = insertelement <2 x float> %213, float %div.i353, i64 1
+  %215 = fsub <2 x float> %212, %214
+  %m_length.i355 = getelementptr inbounds i8, ptr %206, i64 104
+  %216 = load float, ptr %m_length.i355, align 8
+  %div6.i356 = fmul float %216, 5.000000e-01
   %conv7.i357 = sitofp i32 %z to float
-  %219 = fsub float %conv7.i357, %div6.i356
+  %217 = fsub float %conv7.i357, %div6.i356
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367.sink.split
 
 sw.bb9.i337:                                      ; preds = %if.else
-  %m_width11.i338 = getelementptr inbounds i8, ptr %208, i64 100
-  %220 = load float, ptr %m_width11.i338, align 4
-  %div13.i339 = fmul float %220, 5.000000e-01
+  %m_width11.i338 = getelementptr inbounds i8, ptr %206, i64 100
+  %218 = load float, ptr %m_width11.i338, align 4
+  %div13.i339 = fmul float %218, 5.000000e-01
   %conv14.i340 = sitofp i32 %x to float
-  %arrayidx.i.i341 = getelementptr inbounds i8, ptr %208, i64 72
-  %221 = load float, ptr %arrayidx.i.i341, align 4
-  %222 = insertelement <2 x float> poison, float %conv14.i340, i64 0
-  %223 = insertelement <2 x float> %222, float %call.i315, i64 1
-  %224 = insertelement <2 x float> poison, float %div13.i339, i64 0
-  %225 = insertelement <2 x float> %224, float %221, i64 1
-  %226 = fsub <2 x float> %223, %225
-  %m_length21.i343 = getelementptr inbounds i8, ptr %208, i64 104
-  %227 = load float, ptr %m_length21.i343, align 8
-  %div23.i344 = fmul float %227, 5.000000e-01
+  %arrayidx.i.i341 = getelementptr inbounds i8, ptr %206, i64 72
+  %219 = load float, ptr %arrayidx.i.i341, align 4
+  %220 = insertelement <2 x float> poison, float %conv14.i340, i64 0
+  %221 = insertelement <2 x float> %220, float %call.i315, i64 1
+  %222 = insertelement <2 x float> poison, float %div13.i339, i64 0
+  %223 = insertelement <2 x float> %222, float %219, i64 1
+  %224 = fsub <2 x float> %221, %223
+  %m_length21.i343 = getelementptr inbounds i8, ptr %206, i64 104
+  %225 = load float, ptr %m_length21.i343, align 8
+  %div23.i344 = fmul float %225, 5.000000e-01
   %conv24.i345 = sitofp i32 %z to float
-  %228 = fsub float %conv24.i345, %div23.i344
+  %226 = fsub float %conv24.i345, %div23.i344
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367.sink.split
 
 sw.bb26.i317:                                     ; preds = %if.else
-  %m_width28.i318 = getelementptr inbounds i8, ptr %208, i64 100
-  %229 = insertelement <2 x i32> poison, i32 %x, i64 0
-  %230 = insertelement <2 x i32> %229, i32 %z, i64 1
-  %231 = sitofp <2 x i32> %230 to <2 x float>
-  %232 = load <2 x float>, ptr %m_width28.i318, align 4
-  %233 = fmul <2 x float> %232, <float 5.000000e-01, float 5.000000e-01>
-  %234 = fsub <2 x float> %231, %233
-  %arrayidx.i15.i324 = getelementptr inbounds i8, ptr %208, i64 76
-  %235 = load float, ptr %arrayidx.i15.i324, align 4
-  %sub42.i325 = fsub float %call.i315, %235
+  %m_width28.i318 = getelementptr inbounds i8, ptr %206, i64 100
+  %227 = insertelement <2 x i32> poison, i32 %x, i64 0
+  %228 = insertelement <2 x i32> %227, i32 %z, i64 1
+  %229 = sitofp <2 x i32> %228 to <2 x float>
+  %230 = load <2 x float>, ptr %m_width28.i318, align 4
+  %231 = fmul <2 x float> %230, <float 5.000000e-01, float 5.000000e-01>
+  %232 = fsub <2 x float> %229, %231
+  %arrayidx.i15.i324 = getelementptr inbounds i8, ptr %206, i64 76
+  %233 = load float, ptr %arrayidx.i15.i324, align 4
+  %sub42.i325 = fsub float %call.i315, %233
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367.sink.split
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367.sink.split: ; preds = %sw.bb26.i317, %sw.bb9.i337, %sw.bb.i349
-  %.ph651 = phi float [ %219, %sw.bb.i349 ], [ %228, %sw.bb9.i337 ], [ %sub42.i325, %sw.bb26.i317 ]
-  %236 = phi <2 x float> [ %217, %sw.bb.i349 ], [ %226, %sw.bb9.i337 ], [ %234, %sw.bb26.i317 ]
+  %.ph651 = phi float [ %217, %sw.bb.i349 ], [ %226, %sw.bb9.i337 ], [ %sub42.i325, %sw.bb26.i317 ]
+  %234 = phi <2 x float> [ %215, %sw.bb.i349 ], [ %224, %sw.bb9.i337 ], [ %232, %sw.bb26.i317 ]
   %arrayidx7.i.i360 = getelementptr inbounds i8, ptr %vertices, i64 12
   store float 0.000000e+00, ptr %arrayidx7.i.i360, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367: ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367.sink.split, %if.else
-  %237 = phi float [ undef, %if.else ], [ %.ph651, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367.sink.split ]
-  %238 = phi <2 x float> [ undef, %if.else ], [ %236, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367.sink.split ]
-  %m_localScaling.i329 = getelementptr inbounds i8, ptr %208, i64 132
-  %239 = load <2 x float>, ptr %m_localScaling.i329, align 4
-  %240 = fmul <2 x float> %238, %239
-  store <2 x float> %240, ptr %vertices, align 16
-  %arrayidx10.i.i334 = getelementptr inbounds i8, ptr %208, i64 140
-  %241 = load float, ptr %arrayidx10.i.i334, align 4
+  %235 = phi float [ undef, %if.else ], [ %.ph651, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367.sink.split ]
+  %236 = phi <2 x float> [ undef, %if.else ], [ %234, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367.sink.split ]
+  %m_localScaling.i329 = getelementptr inbounds i8, ptr %206, i64 132
+  %237 = load <2 x float>, ptr %m_localScaling.i329, align 4
+  %238 = fmul <2 x float> %236, %237
+  store <2 x float> %238, ptr %vertices, align 16
+  %arrayidx10.i.i334 = getelementptr inbounds i8, ptr %206, i64 140
+  %239 = load float, ptr %arrayidx10.i.i334, align 4
   %arrayidx12.i.i335 = getelementptr inbounds i8, ptr %vertices, i64 8
-  %mul13.i.i336 = fmul float %237, %241
+  %mul13.i.i336 = fmul float %235, %239
   store float %mul13.i.i336, ptr %arrayidx12.i.i335, align 8
-  %242 = load ptr, ptr %this, align 8
+  %240 = load ptr, ptr %this, align 8
   %add34 = add nuw nsw i32 %z, 1
   %arrayidx35 = getelementptr inbounds i8, ptr %vertices, i64 16
-  %vtable.i368 = load ptr, ptr %242, align 8
+  %vtable.i368 = load ptr, ptr %240, align 8
   %vfn.i369 = getelementptr inbounds i8, ptr %vtable.i368, i64 136
-  %243 = load ptr, ptr %vfn.i369, align 8
-  %call.i370 = tail call noundef float %243(ptr noundef nonnull align 8 dereferenceable(208) %242, i32 noundef %x, i32 noundef %add34)
-  %m_upAxis.i371 = getelementptr inbounds i8, ptr %242, i64 128
-  %244 = load i32, ptr %m_upAxis.i371, align 8
-  switch i32 %244, label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422 [
+  %241 = load ptr, ptr %vfn.i369, align 8
+  %call.i370 = tail call noundef float %241(ptr noundef nonnull align 8 dereferenceable(208) %240, i32 noundef %x, i32 noundef %add34)
+  %m_upAxis.i371 = getelementptr inbounds i8, ptr %240, i64 128
+  %242 = load i32, ptr %m_upAxis.i371, align 8
+  switch i32 %242, label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422 [
     i32 0, label %sw.bb.i404
     i32 1, label %sw.bb9.i392
     i32 2, label %sw.bb26.i372
   ]
 
 sw.bb.i404:                                       ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367
-  %m_localOrigin.i405 = getelementptr inbounds i8, ptr %242, i64 68
-  %245 = load float, ptr %m_localOrigin.i405, align 4
-  %m_width.i407 = getelementptr inbounds i8, ptr %242, i64 100
-  %246 = load float, ptr %m_width.i407, align 4
-  %div.i408 = fmul float %246, 5.000000e-01
+  %m_localOrigin.i405 = getelementptr inbounds i8, ptr %240, i64 68
+  %243 = load float, ptr %m_localOrigin.i405, align 4
+  %m_width.i407 = getelementptr inbounds i8, ptr %240, i64 100
+  %244 = load float, ptr %m_width.i407, align 4
+  %div.i408 = fmul float %244, 5.000000e-01
   %conv.i409 = sitofp i32 %x to float
-  %247 = insertelement <2 x float> poison, float %call.i370, i64 0
-  %248 = insertelement <2 x float> %247, float %conv.i409, i64 1
-  %249 = insertelement <2 x float> poison, float %245, i64 0
-  %250 = insertelement <2 x float> %249, float %div.i408, i64 1
-  %251 = fsub <2 x float> %248, %250
-  %m_length.i410 = getelementptr inbounds i8, ptr %242, i64 104
-  %252 = load float, ptr %m_length.i410, align 8
-  %div6.i411 = fmul float %252, 5.000000e-01
+  %245 = insertelement <2 x float> poison, float %call.i370, i64 0
+  %246 = insertelement <2 x float> %245, float %conv.i409, i64 1
+  %247 = insertelement <2 x float> poison, float %243, i64 0
+  %248 = insertelement <2 x float> %247, float %div.i408, i64 1
+  %249 = fsub <2 x float> %246, %248
+  %m_length.i410 = getelementptr inbounds i8, ptr %240, i64 104
+  %250 = load float, ptr %m_length.i410, align 8
+  %div6.i411 = fmul float %250, 5.000000e-01
   %conv7.i412 = sitofp i32 %add34 to float
-  %253 = fsub float %conv7.i412, %div6.i411
+  %251 = fsub float %conv7.i412, %div6.i411
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422.sink.split
 
 sw.bb9.i392:                                      ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367
-  %m_width11.i393 = getelementptr inbounds i8, ptr %242, i64 100
-  %254 = load float, ptr %m_width11.i393, align 4
-  %div13.i394 = fmul float %254, 5.000000e-01
+  %m_width11.i393 = getelementptr inbounds i8, ptr %240, i64 100
+  %252 = load float, ptr %m_width11.i393, align 4
+  %div13.i394 = fmul float %252, 5.000000e-01
   %conv14.i395 = sitofp i32 %x to float
-  %arrayidx.i.i396 = getelementptr inbounds i8, ptr %242, i64 72
-  %255 = load float, ptr %arrayidx.i.i396, align 4
-  %256 = insertelement <2 x float> poison, float %conv14.i395, i64 0
-  %257 = insertelement <2 x float> %256, float %call.i370, i64 1
-  %258 = insertelement <2 x float> poison, float %div13.i394, i64 0
-  %259 = insertelement <2 x float> %258, float %255, i64 1
-  %260 = fsub <2 x float> %257, %259
-  %m_length21.i398 = getelementptr inbounds i8, ptr %242, i64 104
-  %261 = load float, ptr %m_length21.i398, align 8
-  %div23.i399 = fmul float %261, 5.000000e-01
+  %arrayidx.i.i396 = getelementptr inbounds i8, ptr %240, i64 72
+  %253 = load float, ptr %arrayidx.i.i396, align 4
+  %254 = insertelement <2 x float> poison, float %conv14.i395, i64 0
+  %255 = insertelement <2 x float> %254, float %call.i370, i64 1
+  %256 = insertelement <2 x float> poison, float %div13.i394, i64 0
+  %257 = insertelement <2 x float> %256, float %253, i64 1
+  %258 = fsub <2 x float> %255, %257
+  %m_length21.i398 = getelementptr inbounds i8, ptr %240, i64 104
+  %259 = load float, ptr %m_length21.i398, align 8
+  %div23.i399 = fmul float %259, 5.000000e-01
   %conv24.i400 = sitofp i32 %add34 to float
-  %262 = fsub float %conv24.i400, %div23.i399
+  %260 = fsub float %conv24.i400, %div23.i399
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422.sink.split
 
 sw.bb26.i372:                                     ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367
-  %m_width28.i373 = getelementptr inbounds i8, ptr %242, i64 100
-  %263 = insertelement <2 x i32> poison, i32 %x, i64 0
-  %264 = insertelement <2 x i32> %263, i32 %add34, i64 1
-  %265 = sitofp <2 x i32> %264 to <2 x float>
-  %266 = load <2 x float>, ptr %m_width28.i373, align 4
-  %267 = fmul <2 x float> %266, <float 5.000000e-01, float 5.000000e-01>
-  %268 = fsub <2 x float> %265, %267
-  %arrayidx.i15.i379 = getelementptr inbounds i8, ptr %242, i64 76
-  %269 = load float, ptr %arrayidx.i15.i379, align 4
-  %sub42.i380 = fsub float %call.i370, %269
+  %m_width28.i373 = getelementptr inbounds i8, ptr %240, i64 100
+  %261 = insertelement <2 x i32> poison, i32 %x, i64 0
+  %262 = insertelement <2 x i32> %261, i32 %add34, i64 1
+  %263 = sitofp <2 x i32> %262 to <2 x float>
+  %264 = load <2 x float>, ptr %m_width28.i373, align 4
+  %265 = fmul <2 x float> %264, <float 5.000000e-01, float 5.000000e-01>
+  %266 = fsub <2 x float> %263, %265
+  %arrayidx.i15.i379 = getelementptr inbounds i8, ptr %240, i64 76
+  %267 = load float, ptr %arrayidx.i15.i379, align 4
+  %sub42.i380 = fsub float %call.i370, %267
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422.sink.split
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422.sink.split: ; preds = %sw.bb26.i372, %sw.bb9.i392, %sw.bb.i404
-  %.ph654 = phi float [ %253, %sw.bb.i404 ], [ %262, %sw.bb9.i392 ], [ %sub42.i380, %sw.bb26.i372 ]
-  %270 = phi <2 x float> [ %251, %sw.bb.i404 ], [ %260, %sw.bb9.i392 ], [ %268, %sw.bb26.i372 ]
+  %.ph654 = phi float [ %251, %sw.bb.i404 ], [ %260, %sw.bb9.i392 ], [ %sub42.i380, %sw.bb26.i372 ]
+  %268 = phi <2 x float> [ %249, %sw.bb.i404 ], [ %258, %sw.bb9.i392 ], [ %266, %sw.bb26.i372 ]
   %arrayidx7.i.i415 = getelementptr inbounds i8, ptr %vertices, i64 28
   store float 0.000000e+00, ptr %arrayidx7.i.i415, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422: ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422.sink.split, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367
-  %271 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367 ], [ %.ph654, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422.sink.split ]
-  %272 = phi <2 x float> [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367 ], [ %270, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422.sink.split ]
-  %m_localScaling.i384 = getelementptr inbounds i8, ptr %242, i64 132
-  %273 = load <2 x float>, ptr %m_localScaling.i384, align 4
-  %274 = fmul <2 x float> %272, %273
-  store <2 x float> %274, ptr %arrayidx35, align 16
-  %arrayidx10.i.i389 = getelementptr inbounds i8, ptr %242, i64 140
-  %275 = load float, ptr %arrayidx10.i.i389, align 4
+  %269 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367 ], [ %.ph654, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422.sink.split ]
+  %270 = phi <2 x float> [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit367 ], [ %268, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422.sink.split ]
+  %m_localScaling.i384 = getelementptr inbounds i8, ptr %240, i64 132
+  %271 = load <2 x float>, ptr %m_localScaling.i384, align 4
+  %272 = fmul <2 x float> %270, %271
+  store <2 x float> %272, ptr %arrayidx35, align 16
+  %arrayidx10.i.i389 = getelementptr inbounds i8, ptr %240, i64 140
+  %273 = load float, ptr %arrayidx10.i.i389, align 4
   %arrayidx12.i.i390 = getelementptr inbounds i8, ptr %vertices, i64 24
-  %mul13.i.i391 = fmul float %271, %275
+  %mul13.i.i391 = fmul float %269, %273
   store float %mul13.i.i391, ptr %arrayidx12.i.i390, align 8
-  %276 = load ptr, ptr %this, align 8
+  %274 = load ptr, ptr %this, align 8
   %add37 = add nuw nsw i32 %x, 1
   %arrayidx38 = getelementptr inbounds i8, ptr %vertices, i64 32
-  %vtable.i423 = load ptr, ptr %276, align 8
+  %vtable.i423 = load ptr, ptr %274, align 8
   %vfn.i424 = getelementptr inbounds i8, ptr %vtable.i423, i64 136
-  %277 = load ptr, ptr %vfn.i424, align 8
-  %call.i425 = tail call noundef float %277(ptr noundef nonnull align 8 dereferenceable(208) %276, i32 noundef %add37, i32 noundef %z)
-  %m_upAxis.i426 = getelementptr inbounds i8, ptr %276, i64 128
-  %278 = load i32, ptr %m_upAxis.i426, align 8
-  switch i32 %278, label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit477 [
+  %275 = load ptr, ptr %vfn.i424, align 8
+  %call.i425 = tail call noundef float %275(ptr noundef nonnull align 8 dereferenceable(208) %274, i32 noundef %add37, i32 noundef %z)
+  %m_upAxis.i426 = getelementptr inbounds i8, ptr %274, i64 128
+  %276 = load i32, ptr %m_upAxis.i426, align 8
+  switch i32 %276, label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit477 [
     i32 0, label %sw.bb.i459
     i32 1, label %sw.bb9.i447
     i32 2, label %sw.bb26.i427
   ]
 
 sw.bb.i459:                                       ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422
-  %m_localOrigin.i460 = getelementptr inbounds i8, ptr %276, i64 68
-  %279 = load float, ptr %m_localOrigin.i460, align 4
-  %m_width.i462 = getelementptr inbounds i8, ptr %276, i64 100
-  %280 = load float, ptr %m_width.i462, align 4
-  %div.i463 = fmul float %280, 5.000000e-01
+  %m_localOrigin.i460 = getelementptr inbounds i8, ptr %274, i64 68
+  %277 = load float, ptr %m_localOrigin.i460, align 4
+  %m_width.i462 = getelementptr inbounds i8, ptr %274, i64 100
+  %278 = load float, ptr %m_width.i462, align 4
+  %div.i463 = fmul float %278, 5.000000e-01
   %conv.i464 = sitofp i32 %add37 to float
-  %281 = insertelement <2 x float> poison, float %call.i425, i64 0
-  %282 = insertelement <2 x float> %281, float %conv.i464, i64 1
-  %283 = insertelement <2 x float> poison, float %279, i64 0
-  %284 = insertelement <2 x float> %283, float %div.i463, i64 1
-  %285 = fsub <2 x float> %282, %284
-  %m_length.i465 = getelementptr inbounds i8, ptr %276, i64 104
-  %286 = load float, ptr %m_length.i465, align 8
-  %div6.i466 = fmul float %286, 5.000000e-01
+  %279 = insertelement <2 x float> poison, float %call.i425, i64 0
+  %280 = insertelement <2 x float> %279, float %conv.i464, i64 1
+  %281 = insertelement <2 x float> poison, float %277, i64 0
+  %282 = insertelement <2 x float> %281, float %div.i463, i64 1
+  %283 = fsub <2 x float> %280, %282
+  %m_length.i465 = getelementptr inbounds i8, ptr %274, i64 104
+  %284 = load float, ptr %m_length.i465, align 8
+  %div6.i466 = fmul float %284, 5.000000e-01
   %conv7.i467 = sitofp i32 %z to float
-  %287 = fsub float %conv7.i467, %div6.i466
+  %285 = fsub float %conv7.i467, %div6.i466
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit477.sink.split
 
 sw.bb9.i447:                                      ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422
-  %m_width11.i448 = getelementptr inbounds i8, ptr %276, i64 100
-  %288 = load float, ptr %m_width11.i448, align 4
-  %div13.i449 = fmul float %288, 5.000000e-01
+  %m_width11.i448 = getelementptr inbounds i8, ptr %274, i64 100
+  %286 = load float, ptr %m_width11.i448, align 4
+  %div13.i449 = fmul float %286, 5.000000e-01
   %conv14.i450 = sitofp i32 %add37 to float
-  %arrayidx.i.i451 = getelementptr inbounds i8, ptr %276, i64 72
-  %289 = load float, ptr %arrayidx.i.i451, align 4
-  %290 = insertelement <2 x float> poison, float %conv14.i450, i64 0
-  %291 = insertelement <2 x float> %290, float %call.i425, i64 1
-  %292 = insertelement <2 x float> poison, float %div13.i449, i64 0
-  %293 = insertelement <2 x float> %292, float %289, i64 1
-  %294 = fsub <2 x float> %291, %293
-  %m_length21.i453 = getelementptr inbounds i8, ptr %276, i64 104
-  %295 = load float, ptr %m_length21.i453, align 8
-  %div23.i454 = fmul float %295, 5.000000e-01
+  %arrayidx.i.i451 = getelementptr inbounds i8, ptr %274, i64 72
+  %287 = load float, ptr %arrayidx.i.i451, align 4
+  %288 = insertelement <2 x float> poison, float %conv14.i450, i64 0
+  %289 = insertelement <2 x float> %288, float %call.i425, i64 1
+  %290 = insertelement <2 x float> poison, float %div13.i449, i64 0
+  %291 = insertelement <2 x float> %290, float %287, i64 1
+  %292 = fsub <2 x float> %289, %291
+  %m_length21.i453 = getelementptr inbounds i8, ptr %274, i64 104
+  %293 = load float, ptr %m_length21.i453, align 8
+  %div23.i454 = fmul float %293, 5.000000e-01
   %conv24.i455 = sitofp i32 %z to float
-  %296 = fsub float %conv24.i455, %div23.i454
+  %294 = fsub float %conv24.i455, %div23.i454
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit477.sink.split
 
 sw.bb26.i427:                                     ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422
-  %m_width28.i428 = getelementptr inbounds i8, ptr %276, i64 100
-  %297 = insertelement <2 x i32> poison, i32 %add37, i64 0
-  %298 = insertelement <2 x i32> %297, i32 %z, i64 1
-  %299 = sitofp <2 x i32> %298 to <2 x float>
-  %300 = load <2 x float>, ptr %m_width28.i428, align 4
-  %301 = fmul <2 x float> %300, <float 5.000000e-01, float 5.000000e-01>
-  %302 = fsub <2 x float> %299, %301
-  %arrayidx.i15.i434 = getelementptr inbounds i8, ptr %276, i64 76
-  %303 = load float, ptr %arrayidx.i15.i434, align 4
-  %sub42.i435 = fsub float %call.i425, %303
+  %m_width28.i428 = getelementptr inbounds i8, ptr %274, i64 100
+  %295 = insertelement <2 x i32> poison, i32 %add37, i64 0
+  %296 = insertelement <2 x i32> %295, i32 %z, i64 1
+  %297 = sitofp <2 x i32> %296 to <2 x float>
+  %298 = load <2 x float>, ptr %m_width28.i428, align 4
+  %299 = fmul <2 x float> %298, <float 5.000000e-01, float 5.000000e-01>
+  %300 = fsub <2 x float> %297, %299
+  %arrayidx.i15.i434 = getelementptr inbounds i8, ptr %274, i64 76
+  %301 = load float, ptr %arrayidx.i15.i434, align 4
+  %sub42.i435 = fsub float %call.i425, %301
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit477.sink.split
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit477.sink.split: ; preds = %sw.bb26.i427, %sw.bb9.i447, %sw.bb.i459
-  %.ph657 = phi float [ %287, %sw.bb.i459 ], [ %296, %sw.bb9.i447 ], [ %sub42.i435, %sw.bb26.i427 ]
-  %304 = phi <2 x float> [ %285, %sw.bb.i459 ], [ %294, %sw.bb9.i447 ], [ %302, %sw.bb26.i427 ]
+  %.ph657 = phi float [ %285, %sw.bb.i459 ], [ %294, %sw.bb9.i447 ], [ %sub42.i435, %sw.bb26.i427 ]
+  %302 = phi <2 x float> [ %283, %sw.bb.i459 ], [ %292, %sw.bb9.i447 ], [ %300, %sw.bb26.i427 ]
   %arrayidx7.i.i470 = getelementptr inbounds i8, ptr %vertices, i64 44
   store float 0.000000e+00, ptr %arrayidx7.i.i470, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit477
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit477: ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit477.sink.split, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422
-  %305 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422 ], [ %.ph657, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit477.sink.split ]
-  %306 = phi <2 x float> [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422 ], [ %304, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit477.sink.split ]
-  %m_localScaling.i439 = getelementptr inbounds i8, ptr %276, i64 132
+  %303 = phi float [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422 ], [ %.ph657, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit477.sink.split ]
+  %304 = phi <2 x float> [ undef, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit422 ], [ %302, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit477.sink.split ]
+  %m_localScaling.i439 = getelementptr inbounds i8, ptr %274, i64 132
   %arrayidx7.i20.i442 = getelementptr inbounds i8, ptr %vertices, i64 36
-  %307 = load <2 x float>, ptr %m_localScaling.i439, align 4
-  %308 = fmul <2 x float> %306, %307
-  store <2 x float> %308, ptr %arrayidx38, align 16
-  %arrayidx10.i.i444 = getelementptr inbounds i8, ptr %276, i64 140
-  %309 = load float, ptr %arrayidx10.i.i444, align 4
+  %305 = load <2 x float>, ptr %m_localScaling.i439, align 4
+  %306 = fmul <2 x float> %304, %305
+  store <2 x float> %306, ptr %arrayidx38, align 16
+  %arrayidx10.i.i444 = getelementptr inbounds i8, ptr %274, i64 140
+  %307 = load float, ptr %arrayidx10.i.i444, align 4
   %arrayidx12.i.i445 = getelementptr inbounds i8, ptr %vertices, i64 40
-  %mul13.i.i446 = fmul float %305, %309
+  %mul13.i.i446 = fmul float %303, %307
   store float %mul13.i.i446, ptr %arrayidx12.i.i445, align 8
   %callback39 = getelementptr inbounds i8, ptr %this, i64 24
-  %310 = load ptr, ptr %callback39, align 8
-  %vtable41 = load ptr, ptr %310, align 8
+  %308 = load ptr, ptr %callback39, align 8
+  %vtable41 = load ptr, ptr %308, align 8
   %vfn42 = getelementptr inbounds i8, ptr %vtable41, i64 16
-  %311 = load ptr, ptr %vfn42, align 8
-  call void %311(ptr noundef nonnull align 8 dereferenceable(8) %310, ptr noundef nonnull %vertices, i32 noundef %x, i32 noundef %z)
-  %312 = load ptr, ptr %this, align 8
-  %vtable.i478 = load ptr, ptr %312, align 8
+  %309 = load ptr, ptr %vfn42, align 8
+  call void %309(ptr noundef nonnull align 8 dereferenceable(8) %308, ptr noundef nonnull %vertices, i32 noundef %x, i32 noundef %z)
+  %310 = load ptr, ptr %this, align 8
+  %vtable.i478 = load ptr, ptr %310, align 8
   %vfn.i479 = getelementptr inbounds i8, ptr %vtable.i478, i64 136
-  %313 = load ptr, ptr %vfn.i479, align 8
-  %call.i480 = call noundef float %313(ptr noundef nonnull align 8 dereferenceable(208) %312, i32 noundef %add37, i32 noundef %z)
-  %m_upAxis.i481 = getelementptr inbounds i8, ptr %312, i64 128
-  %314 = load i32, ptr %m_upAxis.i481, align 8
-  switch i32 %314, label %entry.sw.epilog_crit_edge.i526 [
+  %311 = load ptr, ptr %vfn.i479, align 8
+  %call.i480 = call noundef float %311(ptr noundef nonnull align 8 dereferenceable(208) %310, i32 noundef %add37, i32 noundef %z)
+  %m_upAxis.i481 = getelementptr inbounds i8, ptr %310, i64 128
+  %312 = load i32, ptr %m_upAxis.i481, align 8
+  switch i32 %312, label %entry.sw.epilog_crit_edge.i526 [
     i32 0, label %sw.bb.i514
     i32 1, label %sw.bb9.i502
     i32 2, label %sw.bb26.i482
   ]
 
 entry.sw.epilog_crit_edge.i526:                   ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit477
-  %315 = load <2 x float>, ptr %vertices, align 16
+  %313 = load <2 x float>, ptr %vertices, align 16
   %.pre22.i531 = load float, ptr %arrayidx12.i.i335, align 8
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit532
 
 sw.bb.i514:                                       ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit477
-  %m_localOrigin.i515 = getelementptr inbounds i8, ptr %312, i64 68
-  %316 = load float, ptr %m_localOrigin.i515, align 4
-  %m_width.i517 = getelementptr inbounds i8, ptr %312, i64 100
-  %317 = load float, ptr %m_width.i517, align 4
-  %div.i518 = fmul float %317, 5.000000e-01
+  %m_localOrigin.i515 = getelementptr inbounds i8, ptr %310, i64 68
+  %314 = load float, ptr %m_localOrigin.i515, align 4
+  %m_width.i517 = getelementptr inbounds i8, ptr %310, i64 100
+  %315 = load float, ptr %m_width.i517, align 4
+  %div.i518 = fmul float %315, 5.000000e-01
   %conv.i519 = sitofp i32 %add37 to float
-  %318 = insertelement <2 x float> poison, float %call.i480, i64 0
-  %319 = insertelement <2 x float> %318, float %conv.i519, i64 1
-  %320 = insertelement <2 x float> poison, float %316, i64 0
-  %321 = insertelement <2 x float> %320, float %div.i518, i64 1
-  %322 = fsub <2 x float> %319, %321
-  %m_length.i520 = getelementptr inbounds i8, ptr %312, i64 104
-  %323 = load float, ptr %m_length.i520, align 8
-  %div6.i521 = fmul float %323, 5.000000e-01
+  %316 = insertelement <2 x float> poison, float %call.i480, i64 0
+  %317 = insertelement <2 x float> %316, float %conv.i519, i64 1
+  %318 = insertelement <2 x float> poison, float %314, i64 0
+  %319 = insertelement <2 x float> %318, float %div.i518, i64 1
+  %320 = fsub <2 x float> %317, %319
+  %m_length.i520 = getelementptr inbounds i8, ptr %310, i64 104
+  %321 = load float, ptr %m_length.i520, align 8
+  %div6.i521 = fmul float %321, 5.000000e-01
   %conv7.i522 = sitofp i32 %z to float
-  %324 = fsub float %conv7.i522, %div6.i521
+  %322 = fsub float %conv7.i522, %div6.i521
   %arrayidx7.i.i525 = getelementptr inbounds i8, ptr %vertices, i64 12
   store float 0.000000e+00, ptr %arrayidx7.i.i525, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit532
 
 sw.bb9.i502:                                      ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit477
-  %m_width11.i503 = getelementptr inbounds i8, ptr %312, i64 100
-  %325 = load float, ptr %m_width11.i503, align 4
-  %div13.i504 = fmul float %325, 5.000000e-01
+  %m_width11.i503 = getelementptr inbounds i8, ptr %310, i64 100
+  %323 = load float, ptr %m_width11.i503, align 4
+  %div13.i504 = fmul float %323, 5.000000e-01
   %conv14.i505 = sitofp i32 %add37 to float
-  %arrayidx.i.i506 = getelementptr inbounds i8, ptr %312, i64 72
-  %326 = load float, ptr %arrayidx.i.i506, align 4
-  %327 = insertelement <2 x float> poison, float %conv14.i505, i64 0
-  %328 = insertelement <2 x float> %327, float %call.i480, i64 1
-  %329 = insertelement <2 x float> poison, float %div13.i504, i64 0
-  %330 = insertelement <2 x float> %329, float %326, i64 1
-  %331 = fsub <2 x float> %328, %330
-  %m_length21.i508 = getelementptr inbounds i8, ptr %312, i64 104
-  %332 = load float, ptr %m_length21.i508, align 8
-  %div23.i509 = fmul float %332, 5.000000e-01
+  %arrayidx.i.i506 = getelementptr inbounds i8, ptr %310, i64 72
+  %324 = load float, ptr %arrayidx.i.i506, align 4
+  %325 = insertelement <2 x float> poison, float %conv14.i505, i64 0
+  %326 = insertelement <2 x float> %325, float %call.i480, i64 1
+  %327 = insertelement <2 x float> poison, float %div13.i504, i64 0
+  %328 = insertelement <2 x float> %327, float %324, i64 1
+  %329 = fsub <2 x float> %326, %328
+  %m_length21.i508 = getelementptr inbounds i8, ptr %310, i64 104
+  %330 = load float, ptr %m_length21.i508, align 8
+  %div23.i509 = fmul float %330, 5.000000e-01
   %conv24.i510 = sitofp i32 %z to float
-  %333 = fsub float %conv24.i510, %div23.i509
+  %331 = fsub float %conv24.i510, %div23.i509
   %arrayidx7.i14.i513 = getelementptr inbounds i8, ptr %vertices, i64 12
   store float 0.000000e+00, ptr %arrayidx7.i14.i513, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit532
 
 sw.bb26.i482:                                     ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit477
-  %m_width28.i483 = getelementptr inbounds i8, ptr %312, i64 100
-  %334 = insertelement <2 x i32> poison, i32 %add37, i64 0
-  %335 = insertelement <2 x i32> %334, i32 %z, i64 1
-  %336 = sitofp <2 x i32> %335 to <2 x float>
-  %337 = load <2 x float>, ptr %m_width28.i483, align 4
-  %338 = fmul <2 x float> %337, <float 5.000000e-01, float 5.000000e-01>
-  %339 = fsub <2 x float> %336, %338
-  %arrayidx.i15.i489 = getelementptr inbounds i8, ptr %312, i64 76
-  %340 = load float, ptr %arrayidx.i15.i489, align 4
-  %sub42.i490 = fsub float %call.i480, %340
+  %m_width28.i483 = getelementptr inbounds i8, ptr %310, i64 100
+  %332 = insertelement <2 x i32> poison, i32 %add37, i64 0
+  %333 = insertelement <2 x i32> %332, i32 %z, i64 1
+  %334 = sitofp <2 x i32> %333 to <2 x float>
+  %335 = load <2 x float>, ptr %m_width28.i483, align 4
+  %336 = fmul <2 x float> %335, <float 5.000000e-01, float 5.000000e-01>
+  %337 = fsub <2 x float> %334, %336
+  %arrayidx.i15.i489 = getelementptr inbounds i8, ptr %310, i64 76
+  %338 = load float, ptr %arrayidx.i15.i489, align 4
+  %sub42.i490 = fsub float %call.i480, %338
   %arrayidx7.i18.i493 = getelementptr inbounds i8, ptr %vertices, i64 12
   store float 0.000000e+00, ptr %arrayidx7.i18.i493, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit532
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit532: ; preds = %entry.sw.epilog_crit_edge.i526, %sw.bb.i514, %sw.bb9.i502, %sw.bb26.i482
-  %341 = phi float [ %.pre22.i531, %entry.sw.epilog_crit_edge.i526 ], [ %sub42.i490, %sw.bb26.i482 ], [ %333, %sw.bb9.i502 ], [ %324, %sw.bb.i514 ]
-  %342 = phi <2 x float> [ %315, %entry.sw.epilog_crit_edge.i526 ], [ %339, %sw.bb26.i482 ], [ %331, %sw.bb9.i502 ], [ %322, %sw.bb.i514 ]
-  %m_localScaling.i494 = getelementptr inbounds i8, ptr %312, i64 132
-  %343 = load <2 x float>, ptr %m_localScaling.i494, align 4
-  %344 = fmul <2 x float> %342, %343
-  store <2 x float> %344, ptr %vertices, align 16
-  %arrayidx10.i.i499 = getelementptr inbounds i8, ptr %312, i64 140
-  %345 = load float, ptr %arrayidx10.i.i499, align 4
-  %mul13.i.i501 = fmul float %341, %345
+  %339 = phi float [ %.pre22.i531, %entry.sw.epilog_crit_edge.i526 ], [ %sub42.i490, %sw.bb26.i482 ], [ %331, %sw.bb9.i502 ], [ %322, %sw.bb.i514 ]
+  %340 = phi <2 x float> [ %313, %entry.sw.epilog_crit_edge.i526 ], [ %337, %sw.bb26.i482 ], [ %329, %sw.bb9.i502 ], [ %320, %sw.bb.i514 ]
+  %m_localScaling.i494 = getelementptr inbounds i8, ptr %310, i64 132
+  %341 = load <2 x float>, ptr %m_localScaling.i494, align 4
+  %342 = fmul <2 x float> %340, %341
+  store <2 x float> %342, ptr %vertices, align 16
+  %arrayidx10.i.i499 = getelementptr inbounds i8, ptr %310, i64 140
+  %343 = load float, ptr %arrayidx10.i.i499, align 4
+  %mul13.i.i501 = fmul float %339, %343
   store float %mul13.i.i501, ptr %arrayidx12.i.i335, align 8
-  %346 = load ptr, ptr %this, align 8
-  %vtable.i533 = load ptr, ptr %346, align 8
+  %344 = load ptr, ptr %this, align 8
+  %vtable.i533 = load ptr, ptr %344, align 8
   %vfn.i534 = getelementptr inbounds i8, ptr %vtable.i533, i64 136
-  %347 = load ptr, ptr %vfn.i534, align 8
-  %call.i535 = call noundef float %347(ptr noundef nonnull align 8 dereferenceable(208) %346, i32 noundef %x, i32 noundef %add34)
-  %m_upAxis.i536 = getelementptr inbounds i8, ptr %346, i64 128
-  %348 = load i32, ptr %m_upAxis.i536, align 8
-  switch i32 %348, label %entry.sw.epilog_crit_edge.i581 [
+  %345 = load ptr, ptr %vfn.i534, align 8
+  %call.i535 = call noundef float %345(ptr noundef nonnull align 8 dereferenceable(208) %344, i32 noundef %x, i32 noundef %add34)
+  %m_upAxis.i536 = getelementptr inbounds i8, ptr %344, i64 128
+  %346 = load i32, ptr %m_upAxis.i536, align 8
+  switch i32 %346, label %entry.sw.epilog_crit_edge.i581 [
     i32 0, label %sw.bb.i569
     i32 1, label %sw.bb9.i557
     i32 2, label %sw.bb26.i537
   ]
 
 entry.sw.epilog_crit_edge.i581:                   ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit532
-  %349 = load <2 x float>, ptr %arrayidx35, align 16
+  %347 = load <2 x float>, ptr %arrayidx35, align 16
   %.pre22.i586 = load float, ptr %arrayidx12.i.i390, align 8
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit587
 
 sw.bb.i569:                                       ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit532
-  %m_localOrigin.i570 = getelementptr inbounds i8, ptr %346, i64 68
-  %350 = load float, ptr %m_localOrigin.i570, align 4
-  %m_width.i572 = getelementptr inbounds i8, ptr %346, i64 100
-  %351 = load float, ptr %m_width.i572, align 4
-  %div.i573 = fmul float %351, 5.000000e-01
+  %m_localOrigin.i570 = getelementptr inbounds i8, ptr %344, i64 68
+  %348 = load float, ptr %m_localOrigin.i570, align 4
+  %m_width.i572 = getelementptr inbounds i8, ptr %344, i64 100
+  %349 = load float, ptr %m_width.i572, align 4
+  %div.i573 = fmul float %349, 5.000000e-01
   %conv.i574 = sitofp i32 %x to float
-  %352 = insertelement <2 x float> poison, float %call.i535, i64 0
-  %353 = insertelement <2 x float> %352, float %conv.i574, i64 1
-  %354 = insertelement <2 x float> poison, float %350, i64 0
-  %355 = insertelement <2 x float> %354, float %div.i573, i64 1
-  %356 = fsub <2 x float> %353, %355
-  %m_length.i575 = getelementptr inbounds i8, ptr %346, i64 104
-  %357 = load float, ptr %m_length.i575, align 8
-  %div6.i576 = fmul float %357, 5.000000e-01
+  %350 = insertelement <2 x float> poison, float %call.i535, i64 0
+  %351 = insertelement <2 x float> %350, float %conv.i574, i64 1
+  %352 = insertelement <2 x float> poison, float %348, i64 0
+  %353 = insertelement <2 x float> %352, float %div.i573, i64 1
+  %354 = fsub <2 x float> %351, %353
+  %m_length.i575 = getelementptr inbounds i8, ptr %344, i64 104
+  %355 = load float, ptr %m_length.i575, align 8
+  %div6.i576 = fmul float %355, 5.000000e-01
   %conv7.i577 = sitofp i32 %add34 to float
-  %358 = fsub float %conv7.i577, %div6.i576
+  %356 = fsub float %conv7.i577, %div6.i576
   %arrayidx7.i.i580 = getelementptr inbounds i8, ptr %vertices, i64 28
   store float 0.000000e+00, ptr %arrayidx7.i.i580, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit587
 
 sw.bb9.i557:                                      ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit532
-  %m_width11.i558 = getelementptr inbounds i8, ptr %346, i64 100
-  %359 = load float, ptr %m_width11.i558, align 4
-  %div13.i559 = fmul float %359, 5.000000e-01
+  %m_width11.i558 = getelementptr inbounds i8, ptr %344, i64 100
+  %357 = load float, ptr %m_width11.i558, align 4
+  %div13.i559 = fmul float %357, 5.000000e-01
   %conv14.i560 = sitofp i32 %x to float
-  %arrayidx.i.i561 = getelementptr inbounds i8, ptr %346, i64 72
-  %360 = load float, ptr %arrayidx.i.i561, align 4
-  %361 = insertelement <2 x float> poison, float %conv14.i560, i64 0
-  %362 = insertelement <2 x float> %361, float %call.i535, i64 1
-  %363 = insertelement <2 x float> poison, float %div13.i559, i64 0
-  %364 = insertelement <2 x float> %363, float %360, i64 1
-  %365 = fsub <2 x float> %362, %364
-  %m_length21.i563 = getelementptr inbounds i8, ptr %346, i64 104
-  %366 = load float, ptr %m_length21.i563, align 8
-  %div23.i564 = fmul float %366, 5.000000e-01
+  %arrayidx.i.i561 = getelementptr inbounds i8, ptr %344, i64 72
+  %358 = load float, ptr %arrayidx.i.i561, align 4
+  %359 = insertelement <2 x float> poison, float %conv14.i560, i64 0
+  %360 = insertelement <2 x float> %359, float %call.i535, i64 1
+  %361 = insertelement <2 x float> poison, float %div13.i559, i64 0
+  %362 = insertelement <2 x float> %361, float %358, i64 1
+  %363 = fsub <2 x float> %360, %362
+  %m_length21.i563 = getelementptr inbounds i8, ptr %344, i64 104
+  %364 = load float, ptr %m_length21.i563, align 8
+  %div23.i564 = fmul float %364, 5.000000e-01
   %conv24.i565 = sitofp i32 %add34 to float
-  %367 = fsub float %conv24.i565, %div23.i564
+  %365 = fsub float %conv24.i565, %div23.i564
   %arrayidx7.i14.i568 = getelementptr inbounds i8, ptr %vertices, i64 28
   store float 0.000000e+00, ptr %arrayidx7.i14.i568, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit587
 
 sw.bb26.i537:                                     ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit532
-  %m_width28.i538 = getelementptr inbounds i8, ptr %346, i64 100
-  %368 = insertelement <2 x i32> poison, i32 %x, i64 0
-  %369 = insertelement <2 x i32> %368, i32 %add34, i64 1
-  %370 = sitofp <2 x i32> %369 to <2 x float>
-  %371 = load <2 x float>, ptr %m_width28.i538, align 4
-  %372 = fmul <2 x float> %371, <float 5.000000e-01, float 5.000000e-01>
-  %373 = fsub <2 x float> %370, %372
-  %arrayidx.i15.i544 = getelementptr inbounds i8, ptr %346, i64 76
-  %374 = load float, ptr %arrayidx.i15.i544, align 4
-  %sub42.i545 = fsub float %call.i535, %374
+  %m_width28.i538 = getelementptr inbounds i8, ptr %344, i64 100
+  %366 = insertelement <2 x i32> poison, i32 %x, i64 0
+  %367 = insertelement <2 x i32> %366, i32 %add34, i64 1
+  %368 = sitofp <2 x i32> %367 to <2 x float>
+  %369 = load <2 x float>, ptr %m_width28.i538, align 4
+  %370 = fmul <2 x float> %369, <float 5.000000e-01, float 5.000000e-01>
+  %371 = fsub <2 x float> %368, %370
+  %arrayidx.i15.i544 = getelementptr inbounds i8, ptr %344, i64 76
+  %372 = load float, ptr %arrayidx.i15.i544, align 4
+  %sub42.i545 = fsub float %call.i535, %372
   %arrayidx7.i18.i548 = getelementptr inbounds i8, ptr %vertices, i64 28
   store float 0.000000e+00, ptr %arrayidx7.i18.i548, align 4
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit587
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit587: ; preds = %entry.sw.epilog_crit_edge.i581, %sw.bb.i569, %sw.bb9.i557, %sw.bb26.i537
-  %375 = phi float [ %.pre22.i586, %entry.sw.epilog_crit_edge.i581 ], [ %sub42.i545, %sw.bb26.i537 ], [ %367, %sw.bb9.i557 ], [ %358, %sw.bb.i569 ]
-  %376 = phi <2 x float> [ %349, %entry.sw.epilog_crit_edge.i581 ], [ %373, %sw.bb26.i537 ], [ %365, %sw.bb9.i557 ], [ %356, %sw.bb.i569 ]
-  %m_localScaling.i549 = getelementptr inbounds i8, ptr %346, i64 132
-  %377 = load <2 x float>, ptr %m_localScaling.i549, align 4
-  %378 = fmul <2 x float> %376, %377
-  store <2 x float> %378, ptr %arrayidx35, align 16
-  %arrayidx10.i.i554 = getelementptr inbounds i8, ptr %346, i64 140
-  %379 = load float, ptr %arrayidx10.i.i554, align 4
-  %mul13.i.i556 = fmul float %375, %379
+  %373 = phi float [ %.pre22.i586, %entry.sw.epilog_crit_edge.i581 ], [ %sub42.i545, %sw.bb26.i537 ], [ %365, %sw.bb9.i557 ], [ %356, %sw.bb.i569 ]
+  %374 = phi <2 x float> [ %347, %entry.sw.epilog_crit_edge.i581 ], [ %371, %sw.bb26.i537 ], [ %363, %sw.bb9.i557 ], [ %354, %sw.bb.i569 ]
+  %m_localScaling.i549 = getelementptr inbounds i8, ptr %344, i64 132
+  %375 = load <2 x float>, ptr %m_localScaling.i549, align 4
+  %376 = fmul <2 x float> %374, %375
+  store <2 x float> %376, ptr %arrayidx35, align 16
+  %arrayidx10.i.i554 = getelementptr inbounds i8, ptr %344, i64 140
+  %377 = load float, ptr %arrayidx10.i.i554, align 4
+  %mul13.i.i556 = fmul float %373, %377
   store float %mul13.i.i556, ptr %arrayidx12.i.i390, align 8
-  %380 = load ptr, ptr %this, align 8
-  %vtable.i588 = load ptr, ptr %380, align 8
+  %378 = load ptr, ptr %this, align 8
+  %vtable.i588 = load ptr, ptr %378, align 8
   %vfn.i589 = getelementptr inbounds i8, ptr %vtable.i588, i64 136
-  %381 = load ptr, ptr %vfn.i589, align 8
-  %call.i590 = call noundef float %381(ptr noundef nonnull align 8 dereferenceable(208) %380, i32 noundef %add37, i32 noundef %add34)
-  %m_upAxis.i591 = getelementptr inbounds i8, ptr %380, i64 128
-  %382 = load i32, ptr %m_upAxis.i591, align 8
-  switch i32 %382, label %entry.sw.epilog_crit_edge.i636 [
+  %379 = load ptr, ptr %vfn.i589, align 8
+  %call.i590 = call noundef float %379(ptr noundef nonnull align 8 dereferenceable(208) %378, i32 noundef %add37, i32 noundef %add34)
+  %m_upAxis.i591 = getelementptr inbounds i8, ptr %378, i64 128
+  %380 = load i32, ptr %m_upAxis.i591, align 8
+  switch i32 %380, label %entry.sw.epilog_crit_edge.i636 [
     i32 0, label %sw.bb.i624
     i32 1, label %sw.bb9.i612
     i32 2, label %sw.bb26.i592
@@ -3096,93 +3091,93 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit587: ; preds = %entr
 
 entry.sw.epilog_crit_edge.i636:                   ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit587
   %.pre.i637 = load float, ptr %arrayidx38, align 16
-  %383 = load <2 x float>, ptr %arrayidx7.i20.i442, align 4
+  %381 = load <2 x float>, ptr %arrayidx7.i20.i442, align 4
   br label %if.end57.sink.split
 
 sw.bb.i624:                                       ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit587
-  %m_localOrigin.i625 = getelementptr inbounds i8, ptr %380, i64 68
-  %384 = load float, ptr %m_localOrigin.i625, align 4
-  %sub.i626 = fsub float %call.i590, %384
-  %m_width.i627 = getelementptr inbounds i8, ptr %380, i64 100
-  %385 = insertelement <2 x i32> poison, i32 %add37, i64 0
-  %386 = insertelement <2 x i32> %385, i32 %add34, i64 1
-  %387 = sitofp <2 x i32> %386 to <2 x float>
-  %388 = load <2 x float>, ptr %m_width.i627, align 4
-  %389 = fmul <2 x float> %388, <float 5.000000e-01, float 5.000000e-01>
-  %390 = fsub <2 x float> %387, %389
+  %m_localOrigin.i625 = getelementptr inbounds i8, ptr %378, i64 68
+  %382 = load float, ptr %m_localOrigin.i625, align 4
+  %sub.i626 = fsub float %call.i590, %382
+  %m_width.i627 = getelementptr inbounds i8, ptr %378, i64 100
+  %383 = insertelement <2 x i32> poison, i32 %add37, i64 0
+  %384 = insertelement <2 x i32> %383, i32 %add34, i64 1
+  %385 = sitofp <2 x i32> %384 to <2 x float>
+  %386 = load <2 x float>, ptr %m_width.i627, align 4
+  %387 = fmul <2 x float> %386, <float 5.000000e-01, float 5.000000e-01>
+  %388 = fsub <2 x float> %385, %387
   %arrayidx7.i.i635 = getelementptr inbounds i8, ptr %vertices, i64 44
   store float 0.000000e+00, ptr %arrayidx7.i.i635, align 4
   br label %if.end57.sink.split
 
 sw.bb9.i612:                                      ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit587
-  %m_width11.i613 = getelementptr inbounds i8, ptr %380, i64 100
-  %391 = load float, ptr %m_width11.i613, align 4
-  %div13.i614 = fmul float %391, 5.000000e-01
+  %m_width11.i613 = getelementptr inbounds i8, ptr %378, i64 100
+  %389 = load float, ptr %m_width11.i613, align 4
+  %div13.i614 = fmul float %389, 5.000000e-01
   %conv14.i615 = sitofp i32 %add37 to float
-  %392 = fsub float %conv14.i615, %div13.i614
-  %arrayidx.i.i616 = getelementptr inbounds i8, ptr %380, i64 72
-  %393 = load float, ptr %arrayidx.i.i616, align 4
-  %m_length21.i618 = getelementptr inbounds i8, ptr %380, i64 104
-  %394 = load float, ptr %m_length21.i618, align 8
-  %div23.i619 = fmul float %394, 5.000000e-01
+  %390 = fsub float %conv14.i615, %div13.i614
+  %arrayidx.i.i616 = getelementptr inbounds i8, ptr %378, i64 72
+  %391 = load float, ptr %arrayidx.i.i616, align 4
+  %m_length21.i618 = getelementptr inbounds i8, ptr %378, i64 104
+  %392 = load float, ptr %m_length21.i618, align 8
+  %div23.i619 = fmul float %392, 5.000000e-01
   %conv24.i620 = sitofp i32 %add34 to float
-  %395 = insertelement <2 x float> poison, float %call.i590, i64 0
-  %396 = insertelement <2 x float> %395, float %conv24.i620, i64 1
-  %397 = insertelement <2 x float> poison, float %393, i64 0
-  %398 = insertelement <2 x float> %397, float %div23.i619, i64 1
-  %399 = fsub <2 x float> %396, %398
+  %393 = insertelement <2 x float> poison, float %call.i590, i64 0
+  %394 = insertelement <2 x float> %393, float %conv24.i620, i64 1
+  %395 = insertelement <2 x float> poison, float %391, i64 0
+  %396 = insertelement <2 x float> %395, float %div23.i619, i64 1
+  %397 = fsub <2 x float> %394, %396
   %arrayidx7.i14.i623 = getelementptr inbounds i8, ptr %vertices, i64 44
   store float 0.000000e+00, ptr %arrayidx7.i14.i623, align 4
   br label %if.end57.sink.split
 
 sw.bb26.i592:                                     ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit587
-  %m_width28.i593 = getelementptr inbounds i8, ptr %380, i64 100
-  %400 = load float, ptr %m_width28.i593, align 4
-  %div30.i594 = fmul float %400, 5.000000e-01
+  %m_width28.i593 = getelementptr inbounds i8, ptr %378, i64 100
+  %398 = load float, ptr %m_width28.i593, align 4
+  %div30.i594 = fmul float %398, 5.000000e-01
   %conv31.i595 = sitofp i32 %add37 to float
-  %401 = fsub float %conv31.i595, %div30.i594
-  %m_length34.i596 = getelementptr inbounds i8, ptr %380, i64 104
-  %402 = load float, ptr %m_length34.i596, align 8
-  %div36.i597 = fmul float %402, 5.000000e-01
+  %399 = fsub float %conv31.i595, %div30.i594
+  %m_length34.i596 = getelementptr inbounds i8, ptr %378, i64 104
+  %400 = load float, ptr %m_length34.i596, align 8
+  %div36.i597 = fmul float %400, 5.000000e-01
   %conv37.i598 = sitofp i32 %add34 to float
-  %arrayidx.i15.i599 = getelementptr inbounds i8, ptr %380, i64 76
-  %403 = load float, ptr %arrayidx.i15.i599, align 4
-  %404 = insertelement <2 x float> poison, float %conv37.i598, i64 0
-  %405 = insertelement <2 x float> %404, float %call.i590, i64 1
-  %406 = insertelement <2 x float> poison, float %div36.i597, i64 0
-  %407 = insertelement <2 x float> %406, float %403, i64 1
-  %408 = fsub <2 x float> %405, %407
+  %arrayidx.i15.i599 = getelementptr inbounds i8, ptr %378, i64 76
+  %401 = load float, ptr %arrayidx.i15.i599, align 4
+  %402 = insertelement <2 x float> poison, float %conv37.i598, i64 0
+  %403 = insertelement <2 x float> %402, float %call.i590, i64 1
+  %404 = insertelement <2 x float> poison, float %div36.i597, i64 0
+  %405 = insertelement <2 x float> %404, float %401, i64 1
+  %406 = fsub <2 x float> %403, %405
   %arrayidx7.i18.i603 = getelementptr inbounds i8, ptr %vertices, i64 44
   store float 0.000000e+00, ptr %arrayidx7.i18.i603, align 4
   br label %if.end57.sink.split
 
 if.end57.sink.split:                              ; preds = %sw.bb26.i592, %sw.bb9.i612, %sw.bb.i624, %entry.sw.epilog_crit_edge.i636, %sw.bb26.i262, %sw.bb9.i282, %sw.bb.i294, %entry.sw.epilog_crit_edge.i306
-  %.sink669 = phi ptr [ %179, %entry.sw.epilog_crit_edge.i306 ], [ %179, %sw.bb.i294 ], [ %179, %sw.bb9.i282 ], [ %179, %sw.bb26.i262 ], [ %380, %entry.sw.epilog_crit_edge.i636 ], [ %380, %sw.bb.i624 ], [ %380, %sw.bb9.i612 ], [ %380, %sw.bb26.i592 ]
-  %.sink667 = phi float [ %.pre.i307, %entry.sw.epilog_crit_edge.i306 ], [ %sub.i296, %sw.bb.i294 ], [ %191, %sw.bb9.i282 ], [ %200, %sw.bb26.i262 ], [ %.pre.i637, %entry.sw.epilog_crit_edge.i636 ], [ %sub.i626, %sw.bb.i624 ], [ %392, %sw.bb9.i612 ], [ %401, %sw.bb26.i592 ]
+  %.sink669 = phi ptr [ %177, %entry.sw.epilog_crit_edge.i306 ], [ %177, %sw.bb.i294 ], [ %177, %sw.bb9.i282 ], [ %177, %sw.bb26.i262 ], [ %378, %entry.sw.epilog_crit_edge.i636 ], [ %378, %sw.bb.i624 ], [ %378, %sw.bb9.i612 ], [ %378, %sw.bb26.i592 ]
+  %.sink667 = phi float [ %.pre.i307, %entry.sw.epilog_crit_edge.i306 ], [ %sub.i296, %sw.bb.i294 ], [ %189, %sw.bb9.i282 ], [ %198, %sw.bb26.i262 ], [ %.pre.i637, %entry.sw.epilog_crit_edge.i636 ], [ %sub.i626, %sw.bb.i624 ], [ %390, %sw.bb9.i612 ], [ %399, %sw.bb26.i592 ]
   %arrayidx17.sink = phi ptr [ %arrayidx17, %entry.sw.epilog_crit_edge.i306 ], [ %arrayidx17, %sw.bb.i294 ], [ %arrayidx17, %sw.bb9.i282 ], [ %arrayidx17, %sw.bb26.i262 ], [ %arrayidx38, %entry.sw.epilog_crit_edge.i636 ], [ %arrayidx38, %sw.bb.i624 ], [ %arrayidx38, %sw.bb9.i612 ], [ %arrayidx38, %sw.bb26.i592 ]
   %arrayidx7.i20.i112.sink = phi ptr [ %arrayidx7.i20.i112, %entry.sw.epilog_crit_edge.i306 ], [ %arrayidx7.i20.i112, %sw.bb.i294 ], [ %arrayidx7.i20.i112, %sw.bb9.i282 ], [ %arrayidx7.i20.i112, %sw.bb26.i262 ], [ %arrayidx7.i20.i442, %entry.sw.epilog_crit_edge.i636 ], [ %arrayidx7.i20.i442, %sw.bb.i624 ], [ %arrayidx7.i20.i442, %sw.bb9.i612 ], [ %arrayidx7.i20.i442, %sw.bb26.i592 ]
   %arrayidx12.i.i115.sink = phi ptr [ %arrayidx12.i.i115, %entry.sw.epilog_crit_edge.i306 ], [ %arrayidx12.i.i115, %sw.bb.i294 ], [ %arrayidx12.i.i115, %sw.bb9.i282 ], [ %arrayidx12.i.i115, %sw.bb26.i262 ], [ %arrayidx12.i.i445, %entry.sw.epilog_crit_edge.i636 ], [ %arrayidx12.i.i445, %sw.bb.i624 ], [ %arrayidx12.i.i445, %sw.bb9.i612 ], [ %arrayidx12.i.i445, %sw.bb26.i592 ]
   %callback.sink = phi ptr [ %callback, %entry.sw.epilog_crit_edge.i306 ], [ %callback, %sw.bb.i294 ], [ %callback, %sw.bb9.i282 ], [ %callback, %sw.bb26.i262 ], [ %callback39, %entry.sw.epilog_crit_edge.i636 ], [ %callback39, %sw.bb.i624 ], [ %callback39, %sw.bb9.i612 ], [ %callback39, %sw.bb26.i592 ]
-  %409 = phi <2 x float> [ %182, %entry.sw.epilog_crit_edge.i306 ], [ %189, %sw.bb.i294 ], [ %198, %sw.bb9.i282 ], [ %207, %sw.bb26.i262 ], [ %383, %entry.sw.epilog_crit_edge.i636 ], [ %390, %sw.bb.i624 ], [ %399, %sw.bb9.i612 ], [ %408, %sw.bb26.i592 ]
+  %407 = phi <2 x float> [ %180, %entry.sw.epilog_crit_edge.i306 ], [ %187, %sw.bb.i294 ], [ %196, %sw.bb9.i282 ], [ %205, %sw.bb26.i262 ], [ %381, %entry.sw.epilog_crit_edge.i636 ], [ %388, %sw.bb.i624 ], [ %397, %sw.bb9.i612 ], [ %406, %sw.bb26.i592 ]
   %m_localScaling.i274 = getelementptr inbounds i8, ptr %.sink669, i64 132
-  %410 = load float, ptr %m_localScaling.i274, align 4
-  %mul.i.i275 = fmul float %.sink667, %410
+  %408 = load float, ptr %m_localScaling.i274, align 4
+  %mul.i.i275 = fmul float %.sink667, %408
   store float %mul.i.i275, ptr %arrayidx17.sink, align 4
   %arrayidx5.i19.i276 = getelementptr inbounds i8, ptr %.sink669, i64 136
-  %411 = load float, ptr %arrayidx5.i19.i276, align 4
-  %412 = extractelement <2 x float> %409, i64 0
-  %mul8.i.i278 = fmul float %412, %411
+  %409 = load float, ptr %arrayidx5.i19.i276, align 4
+  %410 = extractelement <2 x float> %407, i64 0
+  %mul8.i.i278 = fmul float %410, %409
   store float %mul8.i.i278, ptr %arrayidx7.i20.i112.sink, align 4
   %arrayidx10.i.i279 = getelementptr inbounds i8, ptr %.sink669, i64 140
-  %413 = load float, ptr %arrayidx10.i.i279, align 4
-  %414 = extractelement <2 x float> %409, i64 1
-  %mul13.i.i281 = fmul float %414, %413
+  %411 = load float, ptr %arrayidx10.i.i279, align 4
+  %412 = extractelement <2 x float> %407, i64 1
+  %mul13.i.i281 = fmul float %412, %411
   store float %mul13.i.i281, ptr %arrayidx12.i.i115.sink, align 4
-  %415 = load ptr, ptr %callback.sink, align 8
-  %vtable55 = load ptr, ptr %415, align 8
+  %413 = load ptr, ptr %callback.sink, align 8
+  %vtable55 = load ptr, ptr %413, align 8
   %vfn56 = getelementptr inbounds i8, ptr %vtable55, i64 16
-  %416 = load ptr, ptr %vfn56, align 8
-  call void %416(ptr noundef nonnull align 8 dereferenceable(8) %415, ptr noundef nonnull %vertices, i32 noundef %x, i32 noundef %z)
+  %414 = load ptr, ptr %vfn56, align 8
+  call void %414(ptr noundef nonnull align 8 dereferenceable(8) %413, ptr noundef nonnull %vertices, i32 noundef %x, i32 noundef %z)
   br label %if.end57
 
 if.end57:                                         ; preds = %if.end57.sink.split, %entry
@@ -3578,9 +3573,8 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i.i, label %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
@@ -3600,53 +3594,52 @@ if.end:                                           ; preds = %entry
   %m_vboundsChunkSize = getelementptr inbounds i8, ptr %this, i64 192
   store i32 %chunkSize, ptr %m_vboundsChunkSize, align 8
   %m_heightStickWidth = getelementptr inbounds i8, ptr %this, i64 84
-  %3 = load i32, ptr %m_heightStickWidth, align 4
-  %div = sdiv i32 %3, %chunkSize
+  %2 = load i32, ptr %m_heightStickWidth, align 4
+  %div = sdiv i32 %2, %chunkSize
   %m_heightStickLength = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i32, ptr %m_heightStickLength, align 8
-  %div2 = sdiv i32 %4, %chunkSize
-  %rem = srem i32 %3, %chunkSize
+  %3 = load i32, ptr %m_heightStickLength, align 8
+  %div2 = sdiv i32 %3, %chunkSize
+  %rem = srem i32 %2, %chunkSize
   %cmp4 = icmp sgt i32 %rem, 0
   %inc = zext i1 %cmp4 to i32
   %spec.select = add nsw i32 %div, %inc
-  %rem8 = srem i32 %4, %chunkSize
+  %rem8 = srem i32 %3, %chunkSize
   %cmp9 = icmp sgt i32 %rem8, 0
   %inc11 = zext i1 %cmp9 to i32
   %nChunksZ.0 = add i32 %div2, %inc11
   %m_vboundsGridWidth = getelementptr inbounds i8, ptr %this, i64 184
-  %5 = load i32, ptr %m_vboundsGridWidth, align 8
-  %cmp13.not = icmp eq i32 %5, %spec.select
+  %4 = load i32, ptr %m_vboundsGridWidth, align 8
+  %cmp13.not = icmp eq i32 %4, %spec.select
   %m_vboundsGridLength = getelementptr inbounds i8, ptr %this, i64 188
-  %6 = load i32, ptr %m_vboundsGridLength, align 4
-  %cmp14.not = icmp eq i32 %6, %nChunksZ.0
+  %5 = load i32, ptr %m_vboundsGridLength, align 4
+  %cmp14.not = icmp eq i32 %5, %nChunksZ.0
   %or.cond40 = select i1 %cmp13.not, i1 %cmp14.not, i1 false
   br i1 %or.cond40, label %if.end18, label %if.then15
 
 if.then15:                                        ; preds = %if.end
   %m_data.i.i.i41 = getelementptr inbounds i8, ptr %this, i64 168
-  %7 = load ptr, ptr %m_data.i.i.i41, align 8
-  %tobool.not.i.i.i42 = icmp eq ptr %7, null
+  %6 = load ptr, ptr %m_data.i.i.i41, align 8
+  %tobool.not.i.i.i42 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i42, label %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit50, label %if.then.i.i.i43
 
 if.then.i.i.i43:                                  ; preds = %if.then15
   %m_ownsMemory.i.i.i44 = getelementptr inbounds i8, ptr %this, i64 176
-  %8 = load i8, ptr %m_ownsMemory.i.i.i44, align 8
-  %9 = and i8 %8, 1
-  %tobool2.not.i.i.i45 = icmp eq i8 %9, 0
-  br i1 %tobool2.not.i.i.i45, label %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit50, label %if.then3.i.i.i46
+  %7 = load i8, ptr %m_ownsMemory.i.i.i44, align 8
+  %tobool2.i.i.i45 = trunc i8 %7 to i1
+  br i1 %tobool2.i.i.i45, label %if.then3.i.i.i49, label %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit50
 
-if.then3.i.i.i46:                                 ; preds = %if.then.i.i.i43
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %7)
+if.then3.i.i.i49:                                 ; preds = %if.then.i.i.i43
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %6)
   br label %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit50
 
-_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit50: ; preds = %if.then15, %if.then.i.i.i43, %if.then3.i.i.i46
-  %m_size.i.i.i47 = getelementptr inbounds i8, ptr %this, i64 156
-  %m_ownsMemory.i1.i.i48 = getelementptr inbounds i8, ptr %this, i64 176
-  store i8 1, ptr %m_ownsMemory.i1.i.i48, align 8
+_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit50: ; preds = %if.then15, %if.then.i.i.i43, %if.then3.i.i.i49
+  %m_size.i.i.i46 = getelementptr inbounds i8, ptr %this, i64 156
+  %m_ownsMemory.i1.i.i47 = getelementptr inbounds i8, ptr %this, i64 176
+  store i8 1, ptr %m_ownsMemory.i1.i.i47, align 8
   store ptr null, ptr %m_data.i.i.i41, align 8
-  store i32 0, ptr %m_size.i.i.i47, align 4
-  %m_capacity.i.i.i49 = getelementptr inbounds i8, ptr %this, i64 160
-  store i32 0, ptr %m_capacity.i.i.i49, align 8
+  store i32 0, ptr %m_size.i.i.i46, align 4
+  %m_capacity.i.i.i48 = getelementptr inbounds i8, ptr %this, i64 160
+  store i32 0, ptr %m_capacity.i.i.i48, align 8
   store i32 %spec.select, ptr %m_vboundsGridWidth, align 8
   store i32 %nChunksZ.0, ptr %m_vboundsGridLength, align 4
   br label %if.end18
@@ -3660,14 +3653,14 @@ if.end18:                                         ; preds = %if.end, %_ZN25btHei
 if.end23:                                         ; preds = %if.end18
   %mul = mul nsw i32 %nChunksZ.0, %spec.select
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 156
-  %10 = load i32, ptr %m_size.i.i, align 4
-  %cmp3.i = icmp slt i32 %10, %mul
+  %8 = load i32, ptr %m_size.i.i, align 4
+  %cmp3.i = icmp slt i32 %8, %mul
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit
 
 if.then4.i:                                       ; preds = %if.end23
   %m_capacity.i.i.i51 = getelementptr inbounds i8, ptr %this, i64 160
-  %11 = load i32, ptr %m_capacity.i.i.i51, align 8
-  %cmp.i.i = icmp slt i32 %11, %mul
+  %9 = load i32, ptr %m_capacity.i.i.i51, align 8
+  %cmp.i.i = icmp slt i32 %9, %mul
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit
 
 if.then.i.i:                                      ; preds = %if.then4.i
@@ -3682,42 +3675,41 @@ if.then.i.i.i53:                                  ; preds = %if.then.i.i
   br label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i.i
 
 _ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i.i: ; preds = %if.then.i.i.i53, %if.then.i.i
-  %12 = phi i32 [ %.pre.i, %if.then.i.i.i53 ], [ %10, %if.then.i.i ]
+  %10 = phi i32 [ %.pre.i, %if.then.i.i.i53 ], [ %8, %if.then.i.i ]
   %retval.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i53 ], [ null, %if.then.i.i ]
-  %cmp4.i.i.i = icmp sgt i32 %12, 0
+  %cmp4.i.i.i = icmp sgt i32 %10, 0
   br i1 %cmp4.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i.i
   %m_data.i.i.i57 = getelementptr inbounds i8, ptr %this, i64 168
-  %wide.trip.count.i.i.i = zext nneg i32 %12 to i64
+  %wide.trip.count.i.i.i = zext nneg i32 %10 to i64
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds %"struct.btHeightfieldTerrainShape::Range", ptr %retval.0.i.i.i, i64 %indvars.iv.i.i.i
-  %13 = load ptr, ptr %m_data.i.i.i57, align 8
-  %arrayidx3.i.i.i = getelementptr inbounds %"struct.btHeightfieldTerrainShape::Range", ptr %13, i64 %indvars.iv.i.i.i
-  %14 = load i64, ptr %arrayidx3.i.i.i, align 4
-  store i64 %14, ptr %arrayidx.i.i.i, align 4
+  %11 = load ptr, ptr %m_data.i.i.i57, align 8
+  %arrayidx3.i.i.i = getelementptr inbounds %"struct.btHeightfieldTerrainShape::Range", ptr %11, i64 %indvars.iv.i.i.i
+  %12 = load i64, ptr %arrayidx3.i.i.i, align 4
+  store i64 %12, ptr %arrayidx.i.i.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i, label %for.body.i.i.i, !llvm.loop !14
 
 _ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i: ; preds = %for.body.i.i.i, %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i.i
   %m_data.i5.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  %15 = load ptr, ptr %m_data.i5.i.i, align 8
-  %tobool.not.i6.i.i = icmp eq ptr %15, null
+  %13 = load ptr, ptr %m_data.i5.i.i, align 8
+  %tobool.not.i6.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i6.i.i, label %if.end.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i
   %m_ownsMemory.i.i.i54 = getelementptr inbounds i8, ptr %this, i64 176
-  %16 = load i8, ptr %m_ownsMemory.i.i.i54, align 8
-  %17 = and i8 %16, 1
-  %tobool2.not.i.i.i55 = icmp eq i8 %17, 0
-  br i1 %tobool2.not.i.i.i55, label %if.end.i, label %if.then3.i.i.i56
+  %14 = load i8, ptr %m_ownsMemory.i.i.i54, align 8
+  %tobool2.i.i.i55 = trunc i8 %14 to i1
+  br i1 %tobool2.i.i.i55, label %if.then3.i.i.i56, label %if.end.i
 
 if.then3.i.i.i56:                                 ; preds = %if.then.i7.i.i
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %15)
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %13)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i.i.i56, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i
@@ -3738,53 +3730,53 @@ for.body.lr.ph:                                   ; preds = %_ZN20btAlignedObjec
   br i1 %cmp2772, label %for.body.us.preheader, label %for.end74
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %18 = zext nneg i32 %chunkSize to i64
+  %15 = zext nneg i32 %chunkSize to i64
   %wide.trip.count112 = zext nneg i32 %nChunksZ.0 to i64
   %wide.trip.count = zext nneg i32 %spec.select to i64
   br label %for.body28.us76.preheader
 
 for.body28.us76.preheader:                        ; preds = %for.cond26.for.inc72_crit_edge.us, %for.body.us.preheader
   %indvars.iv106 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next107, %for.cond26.for.inc72_crit_edge.us ]
-  %19 = mul nsw i64 %indvars.iv106, %18
-  %20 = add nuw nsw i64 %19, %18
-  %21 = trunc i64 %indvars.iv106 to i32
-  %22 = mul i32 %spec.select, %21
-  %23 = zext i32 %22 to i64
-  %24 = trunc i64 %19 to i32
+  %16 = mul nsw i64 %indvars.iv106, %15
+  %17 = add nuw nsw i64 %16, %15
+  %18 = trunc i64 %indvars.iv106 to i32
+  %19 = mul i32 %spec.select, %18
+  %20 = zext i32 %19 to i64
+  %21 = trunc i64 %16 to i32
   br label %for.body34.us82.preheader
 
 for.body34.us82.preheader:                        ; preds = %for.cond31.for.end64_crit_edge.us, %for.body28.us76.preheader
   %indvars.iv = phi i64 [ 0, %for.body28.us76.preheader ], [ %indvars.iv.next, %for.cond31.for.end64_crit_edge.us ]
-  %25 = mul nsw i64 %indvars.iv, %18
+  %22 = mul nsw i64 %indvars.iv, %15
   %vtable.us79 = load ptr, ptr %this, align 8
   %vfn.us80 = getelementptr inbounds i8, ptr %vtable.us79, i64 136
-  %26 = load ptr, ptr %vfn.us80, align 8
-  %27 = trunc i64 %25 to i32
-  %call.us81 = tail call noundef float %26(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %27, i32 noundef %24)
-  %28 = add nuw nsw i64 %25, %18
+  %23 = load ptr, ptr %vfn.us80, align 8
+  %24 = trunc i64 %22 to i32
+  %call.us81 = tail call noundef float %23(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %24, i32 noundef %21)
+  %25 = add nuw nsw i64 %22, %15
   br label %for.body34.us82
 
 for.body34.us82:                                  ; preds = %for.body34.us82.preheader, %for.inc62.us85
-  %z.067.us83 = phi i32 [ %inc63.us86, %for.inc62.us85 ], [ %24, %for.body34.us82.preheader ]
+  %z.067.us83 = phi i32 [ %inc63.us86, %for.inc62.us85 ], [ %21, %for.body34.us82.preheader ]
   %r.sroa.0.066.us = phi float [ %r.sroa.0.3.us, %for.inc62.us85 ], [ %call.us81, %for.body34.us82.preheader ]
   %r.sroa.4.065.us = phi float [ %r.sroa.4.3.us, %for.inc62.us85 ], [ %call.us81, %for.body34.us82.preheader ]
-  %29 = load i32, ptr %m_heightStickLength, align 8
-  %cmp36.not.us84 = icmp slt i32 %z.067.us83, %29
+  %26 = load i32, ptr %m_heightStickLength, align 8
+  %cmp36.not.us84 = icmp slt i32 %z.067.us83, %26
   br i1 %cmp36.not.us84, label %for.body43.us, label %for.inc62.us85
 
 for.body43.us:                                    ; preds = %for.body34.us82, %for.inc.us
-  %x.062.us = phi i32 [ %inc61.us, %for.inc.us ], [ %27, %for.body34.us82 ]
+  %x.062.us = phi i32 [ %inc61.us, %for.inc.us ], [ %24, %for.body34.us82 ]
   %r.sroa.0.161.us = phi float [ %r.sroa.0.2.us, %for.inc.us ], [ %r.sroa.0.066.us, %for.body34.us82 ]
   %r.sroa.4.160.us = phi float [ %r.sroa.4.2.us, %for.inc.us ], [ %r.sroa.4.065.us, %for.body34.us82 ]
-  %30 = load i32, ptr %m_heightStickWidth, align 4
-  %cmp45.not.us = icmp slt i32 %x.062.us, %30
+  %27 = load i32, ptr %m_heightStickWidth, align 4
+  %cmp45.not.us = icmp slt i32 %x.062.us, %27
   br i1 %cmp45.not.us, label %if.end47.us, label %for.inc.us
 
 if.end47.us:                                      ; preds = %for.body43.us
   %vtable48.us = load ptr, ptr %this, align 8
   %vfn49.us = getelementptr inbounds i8, ptr %vtable48.us, i64 136
-  %31 = load ptr, ptr %vfn49.us, align 8
-  %call50.us = tail call noundef float %31(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %x.062.us, i32 noundef %z.067.us83)
+  %28 = load ptr, ptr %vfn49.us, align 8
+  %call50.us = tail call noundef float %28(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %x.062.us, i32 noundef %z.067.us83)
   %cmp52.us = fcmp olt float %call50.us, %r.sroa.0.161.us
   br i1 %cmp52.us, label %for.inc.us, label %if.else.us
 
@@ -3799,22 +3791,22 @@ for.inc.us:                                       ; preds = %if.then57.us, %if.e
   %r.sroa.4.2.us = phi float [ %call50.us, %if.then57.us ], [ %r.sroa.4.160.us, %if.else.us ], [ %r.sroa.4.160.us, %for.body43.us ], [ %r.sroa.4.160.us, %if.end47.us ]
   %r.sroa.0.2.us = phi float [ %r.sroa.0.161.us, %if.then57.us ], [ %r.sroa.0.161.us, %if.else.us ], [ %r.sroa.0.161.us, %for.body43.us ], [ %call50.us, %if.end47.us ]
   %inc61.us = add nuw nsw i32 %x.062.us, 1
-  %32 = sext i32 %x.062.us to i64
-  %cmp42.not.us.not = icmp sgt i64 %28, %32
+  %29 = sext i32 %x.062.us to i64
+  %cmp42.not.us.not = icmp sgt i64 %25, %29
   br i1 %cmp42.not.us.not, label %for.body43.us, label %for.inc62.us85, !llvm.loop !15
 
 for.inc62.us85:                                   ; preds = %for.inc.us, %for.body34.us82
   %r.sroa.4.3.us = phi float [ %r.sroa.4.065.us, %for.body34.us82 ], [ %r.sroa.4.2.us, %for.inc.us ]
   %r.sroa.0.3.us = phi float [ %r.sroa.0.066.us, %for.body34.us82 ], [ %r.sroa.0.2.us, %for.inc.us ]
   %inc63.us86 = add nuw nsw i32 %z.067.us83, 1
-  %33 = sext i32 %z.067.us83 to i64
-  %cmp33.not.us87.not = icmp sgt i64 %20, %33
+  %30 = sext i32 %z.067.us83 to i64
+  %cmp33.not.us87.not = icmp sgt i64 %17, %30
   br i1 %cmp33.not.us87.not, label %for.body34.us82, label %for.cond31.for.end64_crit_edge.us, !llvm.loop !16
 
 for.cond31.for.end64_crit_edge.us:                ; preds = %for.inc62.us85
-  %34 = load ptr, ptr %m_data.i, align 8
-  %35 = getelementptr %"struct.btHeightfieldTerrainShape::Range", ptr %34, i64 %indvars.iv
-  %arrayidx.i.us93 = getelementptr %"struct.btHeightfieldTerrainShape::Range", ptr %35, i64 %23
+  %31 = load ptr, ptr %m_data.i, align 8
+  %32 = getelementptr %"struct.btHeightfieldTerrainShape::Range", ptr %31, i64 %indvars.iv
+  %arrayidx.i.us93 = getelementptr %"struct.btHeightfieldTerrainShape::Range", ptr %32, i64 %20
   store float %r.sroa.0.3.us, ptr %arrayidx.i.us93, align 4
   %arrayidx.i.sroa_idx.us94 = getelementptr inbounds i8, ptr %arrayidx.i.us93, i64 4
   store float %r.sroa.4.3.us, ptr %arrayidx.i.sroa_idx.us94, align 4

@@ -143,9 +143,8 @@ define noundef i32 @ompi_mpi_register_params() local_unnamed_addr #0 {
   store i8 0, ptr @ompi_debug_no_free_handles, align 1
   %19 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @ompi_debug_no_free_handles) #9
   %20 = load i8, ptr @ompi_debug_no_free_handles, align 1
-  %21 = and i8 %20, 1
-  %.not24 = icmp eq i8 %21, 0
-  br i1 %.not24, label %23, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %23
 
 22:                                               ; preds = %9
   store i8 1, ptr @ompi_mpi_param_check, align 1
@@ -157,8 +156,8 @@ define noundef i32 @ompi_mpi_register_params() local_unnamed_addr #0 {
   store ptr null, ptr @ompi_mpi_show_mca_params_string, align 8
   %25 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @ompi_mpi_show_mca_params_string) #9
   %26 = load ptr, ptr @ompi_mpi_show_mca_params_string, align 8
-  %.not25 = icmp eq ptr %26, null
-  br i1 %.not25, label %54, label %27
+  %.not = icmp eq ptr %26, null
+  br i1 %.not, label %54, label %27
 
 27:                                               ; preds = %23
   store i8 1, ptr @ompi_mpi_show_mca_params, align 1
@@ -168,8 +167,8 @@ define noundef i32 @ompi_mpi_register_params() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %27
   %30 = load ptr, ptr %28, align 8
-  %.not2633 = icmp eq ptr %30, null
-  br i1 %.not2633, label %._crit_edge, label %.lr.ph
+  %.not2425 = icmp eq ptr %30, null
+  br i1 %.not2425, label %._crit_edge, label %.lr.ph
 
 31:                                               ; preds = %27
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.26) #9
@@ -226,8 +225,8 @@ define noundef i32 @ompi_mpi_register_params() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv.next
   %53 = load ptr, ptr %52, align 8
-  %.not26 = icmp eq ptr %53, null
-  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  %.not24 = icmp eq ptr %53, null
+  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %51, %.preheader
   call void @opal_argv_free(ptr noundef nonnull %28) #9
@@ -243,125 +242,119 @@ define noundef i32 @ompi_mpi_register_params() local_unnamed_addr #0 {
   %59 = load i8, ptr @ompi_mpi_have_sparse_group_storage, align 1
   %60 = and i8 %59, 1
   store i8 %60, ptr @ompi_use_sparse_group_storage, align 1
-  %61 = shl nuw nsw i8 %60, 1
-  %62 = xor i8 %61, 2
-  %63 = zext nneg i8 %62 to i32
-  %64 = zext nneg i8 %60 to i32
-  %65 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef %63, i32 noundef 8, i32 noundef %64, ptr noundef nonnull @ompi_use_sparse_group_storage) #9
-  %66 = load i8, ptr @ompi_use_sparse_group_storage, align 1
-  %67 = and i8 %66, 1
-  %.not28 = icmp eq i8 %67, 0
-  br i1 %.not28, label %74, label %68
+  %61 = trunc i8 %59 to i1
+  %62 = select i1 %61, i32 0, i32 2
+  %63 = zext nneg i8 %60 to i32
+  %64 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef %62, i32 noundef 8, i32 noundef %63, ptr noundef nonnull @ompi_use_sparse_group_storage) #9
+  %65 = load i8, ptr @ompi_use_sparse_group_storage, align 1
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %73
 
-68:                                               ; preds = %54
-  %69 = load i8, ptr @ompi_mpi_have_sparse_group_storage, align 1
-  %70 = and i8 %69, 1
-  %.not29 = icmp eq i8 %70, 0
-  br i1 %.not29, label %71, label %74
+67:                                               ; preds = %54
+  %68 = load i8, ptr @ompi_mpi_have_sparse_group_storage, align 1
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %73, label %70
 
-71:                                               ; preds = %68
-  %72 = load ptr, ptr @opal_show_help, align 8
-  %73 = call i32 (ptr, ptr, i32, ...) %72(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.42, i32 noundef 1) #9
+70:                                               ; preds = %67
+  %71 = load ptr, ptr @opal_show_help, align 8
+  %72 = call i32 (ptr, ptr, i32, ...) %71(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.42, i32 noundef 1) #9
   store i8 0, ptr @ompi_use_sparse_group_storage, align 1
-  br label %74
+  br label %73
 
-74:                                               ; preds = %71, %68, %54
-  %75 = call i32 @mca_base_var_find(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef nonnull @.str.44) #9
-  store i32 %75, ptr %1, align 4
-  %76 = icmp sgt i32 %75, -1
-  br i1 %76, label %77, label %79
+73:                                               ; preds = %70, %67, %54
+  %74 = call i32 @mca_base_var_find(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef nonnull @.str.44) #9
+  store i32 %74, ptr %1, align 4
+  %75 = icmp sgt i32 %74, -1
+  br i1 %75, label %76, label %78
 
-77:                                               ; preds = %74
-  %78 = call i32 @mca_base_var_register_synonym(i32 noundef %75, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.44, i32 noundef 1) #9
-  br label %79
+76:                                               ; preds = %73
+  %77 = call i32 @mca_base_var_register_synonym(i32 noundef %74, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.44, i32 noundef 1) #9
+  br label %78
 
-79:                                               ; preds = %77, %74
-  %80 = call i32 @mca_base_var_find(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef nonnull @.str.45) #9
-  store i32 %80, ptr %1, align 4
-  %81 = icmp sgt i32 %80, -1
-  br i1 %81, label %82, label %84
+78:                                               ; preds = %76, %73
+  %79 = call i32 @mca_base_var_find(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef nonnull @.str.45) #9
+  store i32 %79, ptr %1, align 4
+  %80 = icmp sgt i32 %79, -1
+  br i1 %80, label %81, label %83
 
-82:                                               ; preds = %79
-  %83 = call i32 @mca_base_var_register_synonym(i32 noundef %80, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.45, i32 noundef 0) #9
-  br label %84
+81:                                               ; preds = %78
+  %82 = call i32 @mca_base_var_register_synonym(i32 noundef %79, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.45, i32 noundef 0) #9
+  br label %83
 
-84:                                               ; preds = %82, %79
-  %85 = load i8, ptr @opal_cuda_support, align 1
-  %86 = and i8 %85, 1
-  %.not30 = icmp eq i8 %86, 0
-  br i1 %.not30, label %93, label %87
+83:                                               ; preds = %81, %78
+  %84 = load i8, ptr @opal_cuda_support, align 1
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %86, label %92
 
-87:                                               ; preds = %84
-  %88 = load i8, ptr @opal_built_with_cuda_support, align 1
-  %89 = and i8 %88, 1
-  %.not31 = icmp eq i8 %89, 0
-  br i1 %.not31, label %90, label %93
+86:                                               ; preds = %83
+  %87 = load i8, ptr @opal_built_with_cuda_support, align 1
+  %88 = trunc i8 %87 to i1
+  br i1 %88, label %92, label %89
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr @opal_show_help, align 8
-  %92 = call i32 (ptr, ptr, i32, ...) %91(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.46, i32 noundef 1) #9
+89:                                               ; preds = %86
+  %90 = load ptr, ptr @opal_show_help, align 8
+  %91 = call i32 (ptr, ptr, i32, ...) %90(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.46, i32 noundef 1) #9
   call void (i32, ptr, ...) @ompi_rte_abort(i32 noundef 1, ptr noundef null) #11
   unreachable
 
-93:                                               ; preds = %87, %84
+92:                                               ; preds = %86, %83
   store i32 0, ptr @ompi_add_procs_cutoff, align 4
-  %94 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @ompi_add_procs_cutoff) #9
+  %93 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @ompi_add_procs_cutoff) #9
   store i8 1, ptr @ompi_mpi_dynamics_enabled, align 1
-  %95 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, ptr noundef nonnull @ompi_mpi_dynamics_enabled) #9
+  %94 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, ptr noundef nonnull @ompi_mpi_dynamics_enabled) #9
   store i8 0, ptr @ompi_async_mpi_init, align 1
-  %96 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @ompi_async_mpi_init) #9
+  %95 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @ompi_async_mpi_init) #9
   store i8 0, ptr @ompi_async_mpi_finalize, align 1
-  %97 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @ompi_async_mpi_finalize) #9
-  %98 = call i32 @mca_base_var_find(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef nonnull @.str.56) #9
-  store i32 %98, ptr %1, align 4
-  %99 = icmp sgt i32 %98, -1
-  br i1 %99, label %100, label %102
+  %96 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @ompi_async_mpi_finalize) #9
+  %97 = call i32 @mca_base_var_find(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef nonnull @.str.56) #9
+  store i32 %97, ptr %1, align 4
+  %98 = icmp sgt i32 %97, -1
+  br i1 %98, label %99, label %101
 
-100:                                              ; preds = %93
-  %101 = call i32 @mca_base_var_register_synonym(i32 noundef %98, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 1) #9
-  br label %102
+99:                                               ; preds = %92
+  %100 = call i32 @mca_base_var_register_synonym(i32 noundef %97, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 1) #9
+  br label %101
 
-102:                                              ; preds = %100, %93
-  %103 = call i32 @mca_base_var_find(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef nonnull @.str.57) #9
-  store i32 %103, ptr %1, align 4
-  %104 = icmp sgt i32 %103, -1
-  br i1 %104, label %105, label %107
+101:                                              ; preds = %99, %92
+  %102 = call i32 @mca_base_var_find(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef nonnull @.str.57) #9
+  store i32 %102, ptr %1, align 4
+  %103 = icmp sgt i32 %102, -1
+  br i1 %103, label %104, label %106
 
-105:                                              ; preds = %102
-  %106 = call i32 @mca_base_var_register_synonym(i32 noundef %103, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.57, i32 noundef 1) #9
-  br label %107
+104:                                              ; preds = %101
+  %105 = call i32 @mca_base_var_register_synonym(i32 noundef %102, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.57, i32 noundef 1) #9
+  br label %106
 
-107:                                              ; preds = %105, %102
+106:                                              ; preds = %104, %101
   store i8 1, ptr @ompi_mpi_compat_mpi3, align 1
-  %108 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @ompi_mpi_compat_mpi3) #9
+  %107 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @ompi_mpi_compat_mpi3) #9
   store i32 0, ptr @ompi_pmix_connect_timeout, align 4
-  %109 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @ompi_pmix_connect_timeout) #9
+  %108 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @ompi_pmix_connect_timeout) #9
   store i8 0, ptr @ompi_enable_timing, align 1
-  %110 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @ompi_enable_timing) #9
-  %111 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @ompi_stream_buffering_mode) #9
-  %112 = load i32, ptr @ompi_stream_buffering_mode, align 4
-  %113 = icmp ult i32 %112, 3
-  br i1 %113, label %switch.lookup, label %118
+  %109 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @ompi_enable_timing) #9
+  %110 = call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @ompi_stream_buffering_mode) #9
+  %111 = load i32, ptr @ompi_stream_buffering_mode, align 4
+  %112 = icmp ult i32 %111, 3
+  br i1 %112, label %switch.lookup, label %117
 
-switch.lookup:                                    ; preds = %107
-  %switch.offset = sub nsw i32 2, %112
-  %114 = load ptr, ptr @stdout, align 8
-  %115 = call i32 @setvbuf(ptr noundef %114, ptr noundef null, i32 noundef %switch.offset, i64 noundef 0) #9
-  %116 = load ptr, ptr @stderr, align 8
-  %117 = call i32 @setvbuf(ptr noundef %116, ptr noundef null, i32 noundef %switch.offset, i64 noundef 0) #9
-  br label %118
+switch.lookup:                                    ; preds = %106
+  %switch.offset = sub nsw i32 2, %111
+  %113 = load ptr, ptr @stdout, align 8
+  %114 = call i32 @setvbuf(ptr noundef %113, ptr noundef null, i32 noundef %switch.offset, i64 noundef 0) #9
+  %115 = load ptr, ptr @stderr, align 8
+  %116 = call i32 @setvbuf(ptr noundef %115, ptr noundef null, i32 noundef %switch.offset, i64 noundef 0) #9
+  br label %117
 
-118:                                              ; preds = %107, %switch.lookup
-  %119 = load i8, ptr @ompi_ftmpi_enabled, align 1
-  %120 = and i8 %119, 1
-  %.not32 = icmp eq i8 %120, 0
-  br i1 %.not32, label %123, label %121
+117:                                              ; preds = %106, %switch.lookup
+  %118 = load i8, ptr @ompi_ftmpi_enabled, align 1
+  %119 = trunc i8 %118 to i1
+  br i1 %119, label %120, label %122
 
-121:                                              ; preds = %118
-  %122 = call i32 @mca_base_var_load_extra_files(ptr noundef nonnull @.str.66, i1 noundef zeroext false) #9
-  br label %123
+120:                                              ; preds = %117
+  %121 = call i32 @mca_base_var_load_extra_files(ptr noundef nonnull @.str.66, i1 noundef zeroext false) #9
+  br label %122
 
-123:                                              ; preds = %121, %118
+122:                                              ; preds = %120, %117
   ret i32 0
 }
 

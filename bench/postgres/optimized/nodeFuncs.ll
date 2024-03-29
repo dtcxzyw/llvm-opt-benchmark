@@ -383,12 +383,12 @@ declare ptr @format_type_be(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @exprTypmod(ptr noundef readonly %0) local_unnamed_addr #0 {
-  %.not209 = icmp eq ptr %0, null
-  br i1 %.not209, label %exprIsLengthCoercion.exit.thread, label %.lr.ph
+  %.not208 = icmp eq ptr %0, null
+  br i1 %.not208, label %exprIsLengthCoercion.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %tailrecurse.backedge
-  %.tr210 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %1 ]
-  %2 = load i32, ptr %.tr210, align 4
+  %.tr209 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %1 ]
+  %2 = load i32, ptr %.tr209, align 4
   switch i32 %2, label %exprIsLengthCoercion.exit.thread [
     i32 6, label %3
     i32 7, label %6
@@ -419,34 +419,34 @@ define dso_local i32 @exprTypmod(ptr noundef readonly %0) local_unnamed_addr #0 
   ]
 
 3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds i8, ptr %.tr210, i64 16
+  %4 = getelementptr inbounds i8, ptr %.tr209, i64 16
   %5 = load i32, ptr %4, align 8
   br label %exprIsLengthCoercion.exit.thread
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %.tr210, i64 8
+  %7 = getelementptr inbounds i8, ptr %.tr209, i64 8
   %8 = load i32, ptr %7, align 8
   br label %exprIsLengthCoercion.exit.thread
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.tr210, i64 16
+  %10 = getelementptr inbounds i8, ptr %.tr209, i64 16
   %11 = load i32, ptr %10, align 4
   br label %exprIsLengthCoercion.exit.thread
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.tr210, i64 16
+  %13 = getelementptr inbounds i8, ptr %.tr209, i64 16
   %14 = load i32, ptr %13, align 8
   br label %exprIsLengthCoercion.exit.thread
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %.tr210, i64 16
+  %16 = getelementptr inbounds i8, ptr %.tr209, i64 16
   %17 = load i32, ptr %16, align 8
   %.off.i = add i32 %17, -1
   %switch.i = icmp ult i32 %.off.i, 2
   br i1 %switch.i, label %18, label %exprIsLengthCoercion.exit.thread
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %.tr210, i64 32
+  %19 = getelementptr inbounds i8, ptr %.tr209, i64 32
   %20 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %exprIsLengthCoercion.exit.thread, label %list_length.exit.i
@@ -476,9 +476,8 @@ list_length.exit.i:                               ; preds = %18
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %27, i64 32
   %35 = load i8, ptr %34, align 8
-  %36 = and i8 %35, 1
-  %.not34.i.not = icmp eq i8 %36, 0
-  br i1 %.not34.i.not, label %37, label %exprIsLengthCoercion.exit.thread
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %exprIsLengthCoercion.exit.thread, label %37
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %27, i64 24
@@ -487,24 +486,24 @@ list_length.exit.i:                               ; preds = %18
   br label %exprIsLengthCoercion.exit.thread
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds i8, ptr %.tr210, i64 8
+  %42 = getelementptr inbounds i8, ptr %.tr209, i64 8
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %41, %43, %59, %71, %84, %211, %227
-  %.tr.be.in = phi ptr [ %42, %41 ], [ %.val162, %43 ], [ %64, %59 ], [ %.val160, %71 ], [ %85, %84 ], [ %212, %211 ], [ %228, %227 ]
+  %.tr.be.in = phi ptr [ %42, %41 ], [ %.val161, %43 ], [ %64, %59 ], [ %.val159, %71 ], [ %85, %84 ], [ %212, %211 ], [ %228, %227 ]
   %.tr.be = load ptr, ptr %.tr.be.in, align 8
   %.not = icmp eq ptr %.tr.be, null
   br i1 %.not, label %exprIsLengthCoercion.exit.thread, label %.lr.ph
 
 43:                                               ; preds = %.lr.ph
-  %44 = getelementptr inbounds i8, ptr %.tr210, i64 32
+  %44 = getelementptr inbounds i8, ptr %.tr209, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr i8, ptr %45, i64 16
-  %.val162 = load ptr, ptr %46, align 8
+  %.val161 = load ptr, ptr %46, align 8
   br label %tailrecurse.backedge
 
 47:                                               ; preds = %.lr.ph
-  %48 = getelementptr inbounds i8, ptr %.tr210, i64 4
+  %48 = getelementptr inbounds i8, ptr %.tr209, i64 4
   %49 = load i32, ptr %48, align 4
   switch i32 %49, label %exprIsLengthCoercion.exit.thread [
     i32 4, label %50
@@ -512,10 +511,10 @@ tailrecurse.backedge:                             ; preds = %41, %43, %59, %71, 
   ]
 
 50:                                               ; preds = %47, %47
-  %51 = getelementptr inbounds i8, ptr %.tr210, i64 32
+  %51 = getelementptr inbounds i8, ptr %.tr209, i64 32
   %52 = load ptr, ptr %51, align 8
-  %.not155 = icmp eq ptr %52, null
-  br i1 %.not155, label %56, label %53
+  %.not154 = icmp eq ptr %52, null
+  br i1 %.not154, label %56, label %53
 
 53:                                               ; preds = %50
   %54 = load i32, ptr %52, align 4
@@ -533,13 +532,13 @@ tailrecurse.backedge:                             ; preds = %41, %43, %59, %71, 
   %60 = getelementptr inbounds i8, ptr %52, i64 104
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr i8, ptr %61, i64 16
-  %.val161 = load ptr, ptr %62, align 8
-  %63 = load ptr, ptr %.val161, align 8
+  %.val160 = load ptr, ptr %62, align 8
+  %63 = load ptr, ptr %.val160, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
   br label %tailrecurse.backedge
 
 65:                                               ; preds = %.lr.ph
-  %66 = getelementptr inbounds i8, ptr %.tr210, i64 4
+  %66 = getelementptr inbounds i8, ptr %.tr209, i64 4
   %67 = load i32, ptr %66, align 4
   switch i32 %67, label %exprIsLengthCoercion.exit.thread [
     i32 4, label %68
@@ -547,48 +546,48 @@ tailrecurse.backedge:                             ; preds = %41, %43, %59, %71, 
   ]
 
 68:                                               ; preds = %65, %65
-  %69 = getelementptr inbounds i8, ptr %.tr210, i64 44
+  %69 = getelementptr inbounds i8, ptr %.tr209, i64 44
   %70 = load i32, ptr %69, align 4
   br label %exprIsLengthCoercion.exit.thread
 
 71:                                               ; preds = %.lr.ph
-  %72 = getelementptr inbounds i8, ptr %.tr210, i64 8
+  %72 = getelementptr inbounds i8, ptr %.tr209, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr i8, ptr %73, i64 16
-  %.val160 = load ptr, ptr %74, align 8
+  %.val159 = load ptr, ptr %74, align 8
   br label %tailrecurse.backedge
 
 75:                                               ; preds = %.lr.ph
-  %76 = getelementptr inbounds i8, ptr %.tr210, i64 24
+  %76 = getelementptr inbounds i8, ptr %.tr209, i64 24
   %77 = load i32, ptr %76, align 8
   br label %exprIsLengthCoercion.exit.thread
 
 78:                                               ; preds = %.lr.ph
-  %79 = getelementptr inbounds i8, ptr %.tr210, i64 20
+  %79 = getelementptr inbounds i8, ptr %.tr209, i64 20
   %80 = load i32, ptr %79, align 4
   br label %exprIsLengthCoercion.exit.thread
 
 81:                                               ; preds = %.lr.ph
-  %82 = getelementptr inbounds i8, ptr %.tr210, i64 28
+  %82 = getelementptr inbounds i8, ptr %.tr209, i64 28
   %83 = load i32, ptr %82, align 4
   br label %exprIsLengthCoercion.exit.thread
 
 84:                                               ; preds = %.lr.ph
-  %85 = getelementptr inbounds i8, ptr %.tr210, i64 8
+  %85 = getelementptr inbounds i8, ptr %.tr209, i64 8
   br label %tailrecurse.backedge
 
 86:                                               ; preds = %.lr.ph
-  %87 = getelementptr inbounds i8, ptr %.tr210, i64 4
+  %87 = getelementptr inbounds i8, ptr %.tr209, i64 4
   %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %.tr210, i64 32
+  %89 = getelementptr inbounds i8, ptr %.tr209, i64 32
   %90 = load ptr, ptr %89, align 8
-  %.not149 = icmp eq ptr %90, null
-  br i1 %.not149, label %exprIsLengthCoercion.exit.thread, label %91
+  %.not148 = icmp eq ptr %90, null
+  br i1 %.not148, label %exprIsLengthCoercion.exit.thread, label %91
 
 91:                                               ; preds = %86
   %92 = tail call i32 @exprType(ptr noundef nonnull %90)
-  %.not150 = icmp eq i32 %92, %88
-  br i1 %.not150, label %93, label %exprIsLengthCoercion.exit.thread
+  %.not149 = icmp eq i32 %92, %88
+  br i1 %.not149, label %93, label %exprIsLengthCoercion.exit.thread
 
 93:                                               ; preds = %91
   %94 = load ptr, ptr %89, align 8
@@ -597,109 +596,108 @@ tailrecurse.backedge:                             ; preds = %41, %43, %59, %71, 
   br i1 %96, label %exprIsLengthCoercion.exit.thread, label %97
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %.tr210, i64 24
+  %98 = getelementptr inbounds i8, ptr %.tr209, i64 24
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 4
   %101 = getelementptr inbounds i8, ptr %99, i64 16
-  %.not151 = icmp eq ptr %99, null
-  br i1 %.not151, label %exprIsLengthCoercion.exit.thread, label %.lr.ph259.split
+  %.not150 = icmp eq ptr %99, null
+  br i1 %.not150, label %exprIsLengthCoercion.exit.thread, label %.lr.ph258.split
 
-.lr.ph259.split:                                  ; preds = %97
+.lr.ph258.split:                                  ; preds = %97
   %102 = load i32, ptr %100, align 4
   %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %.lr.ph272, label %exprIsLengthCoercion.exit.thread
+  br i1 %103, label %.lr.ph271, label %exprIsLengthCoercion.exit.thread
 
 104:                                              ; preds = %114
-  %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
+  %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %105 = load i32, ptr %100, align 4
   %106 = sext i32 %105 to i64
-  %107 = icmp slt i64 %indvars.iv.next309, %106
-  br i1 %107, label %.lr.ph272, label %exprIsLengthCoercion.exit.thread
+  %107 = icmp slt i64 %indvars.iv.next308, %106
+  br i1 %107, label %.lr.ph271, label %exprIsLengthCoercion.exit.thread
 
-.lr.ph272:                                        ; preds = %.lr.ph259.split, %104
-  %indvars.iv308 = phi i64 [ %indvars.iv.next309, %104 ], [ 0, %.lr.ph259.split ]
+.lr.ph271:                                        ; preds = %.lr.ph258.split, %104
+  %indvars.iv307 = phi i64 [ %indvars.iv.next308, %104 ], [ 0, %.lr.ph258.split ]
   %108 = load ptr, ptr %101, align 8
-  %109 = getelementptr %union.ListCell, ptr %108, i64 %indvars.iv308
+  %109 = getelementptr %union.ListCell, ptr %108, i64 %indvars.iv307
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 16
   %112 = load ptr, ptr %111, align 8
   %113 = tail call i32 @exprType(ptr noundef %112)
-  %.not153 = icmp eq i32 %113, %88
-  br i1 %.not153, label %114, label %exprIsLengthCoercion.exit.thread
+  %.not152 = icmp eq i32 %113, %88
+  br i1 %.not152, label %114, label %exprIsLengthCoercion.exit.thread
 
-114:                                              ; preds = %.lr.ph272
+114:                                              ; preds = %.lr.ph271
   %115 = load ptr, ptr %111, align 8
   %116 = tail call i32 @exprTypmod(ptr noundef %115)
-  %.not154 = icmp eq i32 %116, %95
-  br i1 %.not154, label %104, label %exprIsLengthCoercion.exit.thread
+  %.not153 = icmp eq i32 %116, %95
+  br i1 %.not153, label %104, label %exprIsLengthCoercion.exit.thread
 
 117:                                              ; preds = %.lr.ph
-  %118 = getelementptr inbounds i8, ptr %.tr210, i64 8
+  %118 = getelementptr inbounds i8, ptr %.tr209, i64 8
   %119 = load i32, ptr %118, align 4
   br label %exprIsLengthCoercion.exit.thread
 
 120:                                              ; preds = %.lr.ph
-  %121 = getelementptr inbounds i8, ptr %.tr210, i64 16
+  %121 = getelementptr inbounds i8, ptr %.tr209, i64 16
   %122 = load ptr, ptr %121, align 8
   %123 = icmp eq ptr %122, null
   br i1 %123, label %exprIsLengthCoercion.exit.thread, label %124
 
 124:                                              ; preds = %120
   %125 = getelementptr i8, ptr %122, i64 16
-  %.val159 = load ptr, ptr %125, align 8
-  %126 = load ptr, ptr %.val159, align 8
+  %.val158 = load ptr, ptr %125, align 8
+  %126 = load ptr, ptr %.val158, align 8
   %127 = tail call i32 @exprTypmod(ptr noundef %126)
   %128 = icmp slt i32 %127, 0
   br i1 %128, label %exprIsLengthCoercion.exit.thread, label %129
 
 129:                                              ; preds = %124
-  %130 = getelementptr inbounds i8, ptr %.tr210, i64 24
+  %130 = getelementptr inbounds i8, ptr %.tr209, i64 24
   %131 = load i8, ptr %130, align 8
-  %132 = and i8 %131, 1
-  %.not144 = icmp eq i8 %132, 0
-  %.0114.in.v = select i1 %.not144, i64 12, i64 4
-  %.0114.in = getelementptr inbounds i8, ptr %.tr210, i64 %.0114.in.v
+  %132 = trunc i8 %131 to i1
+  %.0114.in.v = select i1 %132, i64 4, i64 12
+  %.0114.in = getelementptr inbounds i8, ptr %.tr209, i64 %.0114.in.v
   %.0114 = load i32, ptr %.0114.in, align 4
   %133 = load ptr, ptr %121, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 4
   %135 = getelementptr inbounds i8, ptr %133, i64 16
-  %.not145 = icmp eq ptr %133, null
-  br i1 %.not145, label %exprIsLengthCoercion.exit.thread, label %.lr.ph243.split
+  %.not144 = icmp eq ptr %133, null
+  br i1 %.not144, label %exprIsLengthCoercion.exit.thread, label %.lr.ph242.split
 
-.lr.ph243.split:                                  ; preds = %129
+.lr.ph242.split:                                  ; preds = %129
   %136 = load i32, ptr %134, align 4
   %137 = icmp sgt i32 %136, 0
-  br i1 %137, label %.lr.ph256, label %exprIsLengthCoercion.exit.thread
+  br i1 %137, label %.lr.ph255, label %exprIsLengthCoercion.exit.thread
 
 138:                                              ; preds = %146
-  %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
+  %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
   %139 = load i32, ptr %134, align 4
   %140 = sext i32 %139 to i64
-  %141 = icmp slt i64 %indvars.iv.next306, %140
-  br i1 %141, label %.lr.ph256, label %exprIsLengthCoercion.exit.thread
+  %141 = icmp slt i64 %indvars.iv.next305, %140
+  br i1 %141, label %.lr.ph255, label %exprIsLengthCoercion.exit.thread
 
-.lr.ph256:                                        ; preds = %.lr.ph243.split, %138
-  %indvars.iv305 = phi i64 [ %indvars.iv.next306, %138 ], [ 0, %.lr.ph243.split ]
+.lr.ph255:                                        ; preds = %.lr.ph242.split, %138
+  %indvars.iv304 = phi i64 [ %indvars.iv.next305, %138 ], [ 0, %.lr.ph242.split ]
   %142 = load ptr, ptr %135, align 8
-  %143 = getelementptr %union.ListCell, ptr %142, i64 %indvars.iv305
+  %143 = getelementptr %union.ListCell, ptr %142, i64 %indvars.iv304
   %144 = load ptr, ptr %143, align 8
   %145 = tail call i32 @exprType(ptr noundef %144)
-  %.not147 = icmp eq i32 %145, %.0114
-  br i1 %.not147, label %146, label %exprIsLengthCoercion.exit.thread
+  %.not146 = icmp eq i32 %145, %.0114
+  br i1 %.not146, label %146, label %exprIsLengthCoercion.exit.thread
 
-146:                                              ; preds = %.lr.ph256
+146:                                              ; preds = %.lr.ph255
   %147 = tail call i32 @exprTypmod(ptr noundef %144)
-  %.not148 = icmp eq i32 %147, %127
-  br i1 %.not148, label %138, label %exprIsLengthCoercion.exit.thread
+  %.not147 = icmp eq i32 %147, %127
+  br i1 %.not147, label %138, label %exprIsLengthCoercion.exit.thread
 
 148:                                              ; preds = %.lr.ph
-  %149 = getelementptr inbounds i8, ptr %.tr210, i64 4
+  %149 = getelementptr inbounds i8, ptr %.tr209, i64 4
   %150 = load i32, ptr %149, align 4
-  %151 = getelementptr inbounds i8, ptr %.tr210, i64 16
+  %151 = getelementptr inbounds i8, ptr %.tr209, i64 16
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr i8, ptr %152, i64 16
-  %.val158 = load ptr, ptr %153, align 8
-  %154 = load ptr, ptr %.val158, align 8
+  %.val157 = load ptr, ptr %153, align 8
+  %154 = load ptr, ptr %.val157, align 8
   %155 = tail call i32 @exprType(ptr noundef %154)
   %.not139 = icmp eq i32 %155, %150
   br i1 %.not139, label %156, label %exprIsLengthCoercion.exit.thread
@@ -707,8 +705,8 @@ tailrecurse.backedge:                             ; preds = %41, %43, %59, %71, 
 156:                                              ; preds = %148
   %157 = load ptr, ptr %151, align 8
   %158 = getelementptr i8, ptr %157, i64 16
-  %.val157 = load ptr, ptr %158, align 8
-  %159 = load ptr, ptr %.val157, align 8
+  %.val156 = load ptr, ptr %158, align 8
+  %159 = load ptr, ptr %.val156, align 8
   %160 = tail call i32 @exprTypmod(ptr noundef %159)
   %161 = icmp slt i32 %160, 0
   br i1 %161, label %exprIsLengthCoercion.exit.thread, label %162
@@ -718,42 +716,42 @@ tailrecurse.backedge:                             ; preds = %41, %43, %59, %71, 
   %164 = getelementptr inbounds i8, ptr %163, i64 4
   %165 = getelementptr inbounds i8, ptr %163, i64 16
   %.not140 = icmp eq ptr %163, null
-  br i1 %.not140, label %exprIsLengthCoercion.exit.thread, label %.lr.ph227.split
+  br i1 %.not140, label %exprIsLengthCoercion.exit.thread, label %.lr.ph226.split
 
-.lr.ph227.split:                                  ; preds = %162
+.lr.ph226.split:                                  ; preds = %162
   %166 = load i32, ptr %164, align 4
   %167 = icmp sgt i32 %166, 1
-  br i1 %167, label %.lr.ph240, label %exprIsLengthCoercion.exit.thread
+  br i1 %167, label %.lr.ph239, label %exprIsLengthCoercion.exit.thread
 
 168:                                              ; preds = %176
-  %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
+  %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
   %169 = load i32, ptr %164, align 4
   %170 = sext i32 %169 to i64
-  %171 = icmp slt i64 %indvars.iv.next303, %170
-  br i1 %171, label %.lr.ph240, label %exprIsLengthCoercion.exit.thread
+  %171 = icmp slt i64 %indvars.iv.next302, %170
+  br i1 %171, label %.lr.ph239, label %exprIsLengthCoercion.exit.thread
 
-.lr.ph240:                                        ; preds = %.lr.ph227.split, %168
-  %indvars.iv302 = phi i64 [ %indvars.iv.next303, %168 ], [ 1, %.lr.ph227.split ]
+.lr.ph239:                                        ; preds = %.lr.ph226.split, %168
+  %indvars.iv301 = phi i64 [ %indvars.iv.next302, %168 ], [ 1, %.lr.ph226.split ]
   %172 = load ptr, ptr %165, align 8
-  %173 = getelementptr %union.ListCell, ptr %172, i64 %indvars.iv302
+  %173 = getelementptr %union.ListCell, ptr %172, i64 %indvars.iv301
   %174 = load ptr, ptr %173, align 8
   %175 = tail call i32 @exprType(ptr noundef %174)
   %.not142 = icmp eq i32 %175, %150
   br i1 %.not142, label %176, label %exprIsLengthCoercion.exit.thread
 
-176:                                              ; preds = %.lr.ph240
+176:                                              ; preds = %.lr.ph239
   %177 = tail call i32 @exprTypmod(ptr noundef %174)
   %.not143 = icmp eq i32 %177, %160
   br i1 %.not143, label %168, label %exprIsLengthCoercion.exit.thread
 
 178:                                              ; preds = %.lr.ph
-  %179 = getelementptr inbounds i8, ptr %.tr210, i64 4
+  %179 = getelementptr inbounds i8, ptr %.tr209, i64 4
   %180 = load i32, ptr %179, align 4
-  %181 = getelementptr inbounds i8, ptr %.tr210, i64 24
+  %181 = getelementptr inbounds i8, ptr %.tr209, i64 24
   %182 = load ptr, ptr %181, align 8
   %183 = getelementptr i8, ptr %182, i64 16
-  %.val156 = load ptr, ptr %183, align 8
-  %184 = load ptr, ptr %.val156, align 8
+  %.val155 = load ptr, ptr %183, align 8
+  %184 = load ptr, ptr %.val155, align 8
   %185 = tail call i32 @exprType(ptr noundef %184)
   %.not134 = icmp eq i32 %185, %180
   br i1 %.not134, label %186, label %exprIsLengthCoercion.exit.thread
@@ -772,22 +770,22 @@ tailrecurse.backedge:                             ; preds = %41, %43, %59, %71, 
   %194 = getelementptr inbounds i8, ptr %193, i64 4
   %195 = getelementptr inbounds i8, ptr %193, i64 16
   %.not135 = icmp eq ptr %193, null
-  br i1 %.not135, label %exprIsLengthCoercion.exit.thread, label %.lr.ph213.split
+  br i1 %.not135, label %exprIsLengthCoercion.exit.thread, label %.lr.ph212.split
 
-.lr.ph213.split:                                  ; preds = %192
+.lr.ph212.split:                                  ; preds = %192
   %196 = load i32, ptr %194, align 4
   %197 = icmp sgt i32 %196, 1
-  br i1 %197, label %.lr.ph224, label %exprIsLengthCoercion.exit.thread
+  br i1 %197, label %.lr.ph223, label %exprIsLengthCoercion.exit.thread
 
 198:                                              ; preds = %206
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %199 = load i32, ptr %194, align 4
   %200 = sext i32 %199 to i64
   %201 = icmp slt i64 %indvars.iv.next, %200
-  br i1 %201, label %.lr.ph224, label %exprIsLengthCoercion.exit.thread
+  br i1 %201, label %.lr.ph223, label %exprIsLengthCoercion.exit.thread
 
-.lr.ph224:                                        ; preds = %.lr.ph213.split, %198
-  %indvars.iv = phi i64 [ %indvars.iv.next, %198 ], [ 1, %.lr.ph213.split ]
+.lr.ph223:                                        ; preds = %.lr.ph212.split, %198
+  %indvars.iv = phi i64 [ %indvars.iv.next, %198 ], [ 1, %.lr.ph212.split ]
   %202 = load ptr, ptr %195, align 8
   %203 = getelementptr %union.ListCell, ptr %202, i64 %indvars.iv
   %204 = load ptr, ptr %203, align 8
@@ -795,48 +793,48 @@ tailrecurse.backedge:                             ; preds = %41, %43, %59, %71, 
   %.not137 = icmp eq i32 %205, %180
   br i1 %.not137, label %206, label %exprIsLengthCoercion.exit.thread
 
-206:                                              ; preds = %.lr.ph224
+206:                                              ; preds = %.lr.ph223
   %207 = tail call i32 @exprTypmod(ptr noundef %204)
   %.not138 = icmp eq i32 %207, %190
   br i1 %.not138, label %198, label %exprIsLengthCoercion.exit.thread
 
 208:                                              ; preds = %.lr.ph
-  %209 = getelementptr inbounds i8, ptr %.tr210, i64 12
+  %209 = getelementptr inbounds i8, ptr %.tr209, i64 12
   %210 = load i32, ptr %209, align 4
   br label %exprIsLengthCoercion.exit.thread
 
 211:                                              ; preds = %.lr.ph
-  %212 = getelementptr inbounds i8, ptr %.tr210, i64 16
+  %212 = getelementptr inbounds i8, ptr %.tr209, i64 16
   br label %tailrecurse.backedge
 
 213:                                              ; preds = %.lr.ph
-  %214 = getelementptr inbounds i8, ptr %.tr210, i64 32
+  %214 = getelementptr inbounds i8, ptr %.tr209, i64 32
   %215 = load ptr, ptr %214, align 8
   %216 = getelementptr inbounds i8, ptr %215, i64 20
   %217 = load i32, ptr %216, align 4
   br label %exprIsLengthCoercion.exit.thread
 
 218:                                              ; preds = %.lr.ph
-  %219 = getelementptr inbounds i8, ptr %.tr210, i64 20
+  %219 = getelementptr inbounds i8, ptr %.tr209, i64 20
   %220 = load i32, ptr %219, align 4
   br label %exprIsLengthCoercion.exit.thread
 
 221:                                              ; preds = %.lr.ph
-  %222 = getelementptr inbounds i8, ptr %.tr210, i64 8
+  %222 = getelementptr inbounds i8, ptr %.tr209, i64 8
   %223 = load i32, ptr %222, align 4
   br label %exprIsLengthCoercion.exit.thread
 
 224:                                              ; preds = %.lr.ph
-  %225 = getelementptr inbounds i8, ptr %.tr210, i64 8
+  %225 = getelementptr inbounds i8, ptr %.tr209, i64 8
   %226 = load i32, ptr %225, align 4
   br label %exprIsLengthCoercion.exit.thread
 
 227:                                              ; preds = %.lr.ph
-  %228 = getelementptr inbounds i8, ptr %.tr210, i64 8
+  %228 = getelementptr inbounds i8, ptr %.tr209, i64 8
   br label %tailrecurse.backedge
 
-exprIsLengthCoercion.exit.thread:                 ; preds = %tailrecurse.backedge, %47, %.lr.ph, %.lr.ph224, %206, %198, %.lr.ph240, %176, %168, %.lr.ph256, %146, %138, %.lr.ph272, %114, %104, %1, %192, %.lr.ph213.split, %162, %.lr.ph227.split, %129, %.lr.ph243.split, %97, %.lr.ph259.split, %18, %24, %30, %33, %list_length.exit.i, %15, %37, %65, %186, %178, %156, %148, %124, %120, %93, %91, %86, %224, %221, %218, %213, %208, %117, %81, %78, %75, %68, %12, %9, %6, %3
-  %.0 = phi i32 [ %226, %224 ], [ %223, %221 ], [ %220, %218 ], [ %217, %213 ], [ %210, %208 ], [ %119, %117 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %70, %68 ], [ %14, %12 ], [ %11, %9 ], [ %8, %6 ], [ %5, %3 ], [ -1, %86 ], [ -1, %91 ], [ -1, %93 ], [ -1, %120 ], [ -1, %124 ], [ -1, %148 ], [ -1, %156 ], [ -1, %178 ], [ -1, %186 ], [ -1, %65 ], [ %40, %37 ], [ -1, %15 ], [ -1, %list_length.exit.i ], [ -1, %33 ], [ -1, %30 ], [ -1, %24 ], [ -1, %18 ], [ %95, %97 ], [ %95, %.lr.ph259.split ], [ %127, %129 ], [ %127, %.lr.ph243.split ], [ %160, %162 ], [ %160, %.lr.ph227.split ], [ %190, %192 ], [ %190, %.lr.ph213.split ], [ -1, %1 ], [ -1, %.lr.ph272 ], [ -1, %114 ], [ %95, %104 ], [ -1, %.lr.ph256 ], [ -1, %146 ], [ %127, %138 ], [ -1, %.lr.ph240 ], [ -1, %176 ], [ %160, %168 ], [ -1, %.lr.ph224 ], [ -1, %206 ], [ %190, %198 ], [ -1, %.lr.ph ], [ -1, %47 ], [ -1, %tailrecurse.backedge ]
+exprIsLengthCoercion.exit.thread:                 ; preds = %tailrecurse.backedge, %47, %.lr.ph, %.lr.ph223, %206, %198, %.lr.ph239, %176, %168, %.lr.ph255, %146, %138, %.lr.ph271, %114, %104, %1, %192, %.lr.ph212.split, %162, %.lr.ph226.split, %129, %.lr.ph242.split, %97, %.lr.ph258.split, %18, %24, %30, %33, %list_length.exit.i, %15, %37, %65, %186, %178, %156, %148, %124, %120, %93, %91, %86, %224, %221, %218, %213, %208, %117, %81, %78, %75, %68, %12, %9, %6, %3
+  %.0 = phi i32 [ %226, %224 ], [ %223, %221 ], [ %220, %218 ], [ %217, %213 ], [ %210, %208 ], [ %119, %117 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %70, %68 ], [ %14, %12 ], [ %11, %9 ], [ %8, %6 ], [ %5, %3 ], [ -1, %86 ], [ -1, %91 ], [ -1, %93 ], [ -1, %120 ], [ -1, %124 ], [ -1, %148 ], [ -1, %156 ], [ -1, %178 ], [ -1, %186 ], [ -1, %65 ], [ %40, %37 ], [ -1, %15 ], [ -1, %list_length.exit.i ], [ -1, %33 ], [ -1, %30 ], [ -1, %24 ], [ -1, %18 ], [ %95, %97 ], [ %95, %.lr.ph258.split ], [ %127, %129 ], [ %127, %.lr.ph242.split ], [ %160, %162 ], [ %160, %.lr.ph226.split ], [ %190, %192 ], [ %190, %.lr.ph212.split ], [ -1, %1 ], [ -1, %.lr.ph271 ], [ -1, %114 ], [ %95, %104 ], [ -1, %.lr.ph255 ], [ -1, %146 ], [ %127, %138 ], [ -1, %.lr.ph239 ], [ -1, %176 ], [ %160, %168 ], [ -1, %.lr.ph223 ], [ -1, %206 ], [ %190, %198 ], [ -1, %.lr.ph ], [ -1, %47 ], [ -1, %tailrecurse.backedge ]
   ret i32 %.0
 }
 
@@ -898,10 +896,9 @@ list_length.exit:                                 ; preds = %10
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %19, i64 32
   %27 = load i8, ptr %26, align 8
-  %28 = and i8 %27, 1
-  %.not34 = icmp ne i8 %28, 0
-  %brmerge = or i1 %.not, %.not34
-  %not..not34 = xor i1 %.not34, true
+  %28 = trunc i8 %27 to i1
+  %brmerge = or i1 %.not, %28
+  %not.37 = xor i1 %28, true
   br i1 %brmerge, label %.critedge, label %29
 
 29:                                               ; preds = %25
@@ -914,9 +911,9 @@ list_length.exit:                                 ; preds = %10
   %34 = getelementptr inbounds i8, ptr %0, i64 28
   %35 = load i32, ptr %34, align 4
   %36 = icmp slt i32 %35, 0
-  %brmerge35 = or i1 %.not, %36
+  %brmerge34 = or i1 %.not, %36
   %not. = xor i1 %36, true
-  br i1 %brmerge35, label %.critedge, label %.critedge.sink.split
+  br i1 %brmerge34, label %.critedge, label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %33, %29
   %.sink = phi i32 [ %32, %29 ], [ %35, %33 ]
@@ -924,7 +921,7 @@ list_length.exit:                                 ; preds = %10
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %5, %10, %33, %25, %7, %4, %16, %22, %list_length.exit
-  %.0 = phi i1 [ false, %7 ], [ false, %list_length.exit ], [ %not..not34, %25 ], [ false, %22 ], [ false, %16 ], [ %not., %33 ], [ false, %4 ], [ false, %10 ], [ false, %5 ], [ true, %.critedge.sink.split ]
+  %.0 = phi i1 [ false, %7 ], [ false, %list_length.exit ], [ %not.37, %25 ], [ false, %22 ], [ false, %16 ], [ %not., %33 ], [ false, %4 ], [ false, %10 ], [ false, %5 ], [ true, %.critedge.sink.split ]
   ret i1 %.0
 }
 
@@ -1407,28 +1404,26 @@ define dso_local zeroext i1 @expression_returns_set(ptr noundef %0) local_unname
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %.thread16.i, label %expression_returns_set_walker.exit
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %expression_returns_set_walker.exit, label %.thread15.i
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not15.i = icmp eq i8 %12, 0
-  br i1 %.not15.i, label %.thread16.i, label %expression_returns_set_walker.exit
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %expression_returns_set_walker.exit, label %.thread15.i
 
 13:                                               ; preds = %3
   %.off.i = add i32 %4, -9
   %switch.i = icmp ult i32 %.off.i, 3
-  br i1 %switch.i, label %expression_returns_set_walker.exit, label %.thread16.i
+  br i1 %switch.i, label %expression_returns_set_walker.exit, label %.thread15.i
 
-.thread16.i:                                      ; preds = %13, %9, %5
+.thread15.i:                                      ; preds = %13, %9, %5
   %14 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef nonnull %0) #13
   br label %expression_returns_set_walker.exit
 
-expression_returns_set_walker.exit:               ; preds = %1, %5, %9, %13, %.thread16.i
-  %.0.i = phi i1 [ %14, %.thread16.i ], [ false, %1 ], [ true, %5 ], [ true, %9 ], [ false, %13 ]
+expression_returns_set_walker.exit:               ; preds = %1, %5, %9, %13, %.thread15.i
+  %.0.i = phi i1 [ %14, %.thread15.i ], [ false, %1 ], [ true, %5 ], [ true, %9 ], [ false, %13 ]
   ret i1 %.0.i
 }
 
@@ -1447,28 +1442,26 @@ define internal fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %0)
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %.thread16, label %15
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %15, label %.thread15
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not15 = icmp eq i8 %12, 0
-  br i1 %.not15, label %.thread16, label %15
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %15, label %.thread15
 
 13:                                               ; preds = %3
   %.off = add i32 %4, -9
   %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %15, label %.thread16
+  br i1 %switch, label %15, label %.thread15
 
-.thread16:                                        ; preds = %5, %9, %13
+.thread15:                                        ; preds = %5, %9, %13
   %14 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef nonnull %0)
   br label %15
 
-15:                                               ; preds = %13, %9, %5, %1, %.thread16
-  %.0 = phi i1 [ %14, %.thread16 ], [ false, %1 ], [ true, %5 ], [ true, %9 ], [ false, %13 ]
+15:                                               ; preds = %13, %9, %5, %1, %.thread15
+  %.0 = phi i1 [ %14, %.thread15 ], [ false, %1 ], [ true, %5 ], [ true, %9 ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -6441,9 +6434,9 @@ define internal fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr
   br i1 %2, label %expression_returns_set_walker.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %tailrecurse
-  %.tr100 = phi ptr [ %96, %tailrecurse ], [ %0, %1 ]
+  %.tr99 = phi ptr [ %96, %tailrecurse ], [ %0, %1 ]
   tail call void @check_stack_depth() #12
-  %3 = load i32, ptr %.tr100, align 4
+  %3 = load i32, ptr %.tr99, align 4
   switch i32 %3, label %496 [
     i32 6, label %.loopexit
     i32 7, label %.loopexit
@@ -6525,237 +6518,237 @@ define internal fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr
   ]
 
 .preheader:                                       ; preds = %.lr.ph
-  %4 = getelementptr inbounds i8, ptr %.tr100, i64 4
+  %4 = getelementptr inbounds i8, ptr %.tr99, i64 4
   %5 = load i32, ptr %4, align 4
-  %.not101 = icmp sgt i32 %5, 0
-  br i1 %.not101, label %.lr.ph103, label %.loopexit
+  %.not100 = icmp sgt i32 %5, 0
+  br i1 %.not100, label %.lr.ph102, label %.loopexit
 
-.lr.ph103:                                        ; preds = %.preheader
-  %6 = getelementptr inbounds i8, ptr %.tr100, i64 16
+.lr.ph102:                                        ; preds = %.preheader
+  %6 = getelementptr inbounds i8, ptr %.tr99, i64 16
   br label %360
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.tr100, i64 24
+  %8 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %9)
   br label %expression_returns_set_walker.exit.thread
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %.tr100, i64 32
+  %12 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %13)
   br i1 %14, label %expression_returns_set_walker.exit.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.tr100, i64 40
+  %16 = getelementptr inbounds i8, ptr %.tr99, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %17)
   br i1 %18, label %expression_returns_set_walker.exit.thread, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %.tr100, i64 48
+  %20 = getelementptr inbounds i8, ptr %.tr99, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %21)
   br i1 %22, label %expression_returns_set_walker.exit.thread, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %.tr100, i64 56
+  %24 = getelementptr inbounds i8, ptr %.tr99, i64 56
   %25 = load ptr, ptr %24, align 8
   %26 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %25)
   br i1 %26, label %expression_returns_set_walker.exit.thread, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %.tr100, i64 64
+  %28 = getelementptr inbounds i8, ptr %.tr99, i64 64
   %29 = load ptr, ptr %28, align 8
   %30 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %29)
   br i1 %30, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %32 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %33)
   br i1 %34, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 35:                                               ; preds = %.lr.ph
-  %36 = getelementptr inbounds i8, ptr %.tr100, i64 24
+  %36 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %37)
   br i1 %38, label %expression_returns_set_walker.exit.thread, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %.tr100, i64 32
+  %40 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %41)
   br i1 %42, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
-  %44 = getelementptr inbounds i8, ptr %.tr100, i64 24
+  %44 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %45)
   br i1 %46, label %expression_returns_set_walker.exit.thread, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %.tr100, i64 32
+  %48 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %49)
   br i1 %50, label %expression_returns_set_walker.exit.thread, label %51
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %.tr100, i64 40
+  %52 = getelementptr inbounds i8, ptr %.tr99, i64 40
   %53 = load ptr, ptr %52, align 8
   %54 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %53)
   br i1 %54, label %expression_returns_set_walker.exit.thread, label %55
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %.tr100, i64 48
+  %56 = getelementptr inbounds i8, ptr %.tr99, i64 48
   %57 = load ptr, ptr %56, align 8
   %58 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %57)
   br i1 %58, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 59:                                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds i8, ptr %.tr100, i64 32
+  %60 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %61 = load ptr, ptr %60, align 8
   %62 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %61)
   br i1 %62, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 63:                                               ; preds = %.lr.ph
-  %64 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %64 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %65)
   br label %expression_returns_set_walker.exit.thread
 
 67:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %68 = getelementptr inbounds i8, ptr %.tr100, i64 32
+  %68 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %69 = load ptr, ptr %68, align 8
   %70 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %69)
   br i1 %70, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 71:                                               ; preds = %.lr.ph
-  %72 = getelementptr inbounds i8, ptr %.tr100, i64 32
+  %72 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %73 = load ptr, ptr %72, align 8
   %74 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %73)
   br i1 %74, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 75:                                               ; preds = %.lr.ph
-  %76 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %76 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %77)
   br i1 %78, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 79:                                               ; preds = %.lr.ph
-  %80 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %80 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %81)
   br i1 %82, label %expression_returns_set_walker.exit.thread, label %83
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %.tr100, i64 32
+  %84 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %85 = load ptr, ptr %84, align 8
   %86 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %85)
   br label %expression_returns_set_walker.exit.thread
 
 87:                                               ; preds = %.lr.ph
-  %88 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %88 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %89)
   br i1 %90, label %expression_returns_set_walker.exit.thread, label %91
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %.tr100, i64 72
+  %92 = getelementptr inbounds i8, ptr %.tr99, i64 72
   %93 = load ptr, ptr %92, align 8
   %94 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %93)
   br i1 %94, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %95 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %95 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
   br i1 %97, label %expression_returns_set_walker.exit.thread, label %.lr.ph
 
 98:                                               ; preds = %.lr.ph
-  %99 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %99 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %100 = load ptr, ptr %99, align 8
   %101 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %100)
   br label %expression_returns_set_walker.exit.thread
 
 102:                                              ; preds = %.lr.ph
-  %103 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %103 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %104 = load ptr, ptr %103, align 8
   %105 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %104)
   br i1 %105, label %expression_returns_set_walker.exit.thread, label %106
 
 106:                                              ; preds = %102
-  %107 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %107 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %108 = load ptr, ptr %107, align 8
   %109 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %108)
   br i1 %109, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 110:                                              ; preds = %.lr.ph
-  %111 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %111 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %112)
   br label %expression_returns_set_walker.exit.thread
 
 114:                                              ; preds = %.lr.ph
-  %115 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %115 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %116 = load ptr, ptr %115, align 8
   %117 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %116)
   br label %expression_returns_set_walker.exit.thread
 
 118:                                              ; preds = %.lr.ph
-  %119 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %119 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %120)
   br i1 %121, label %expression_returns_set_walker.exit.thread, label %122
 
 122:                                              ; preds = %118
-  %123 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %123 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %124 = load ptr, ptr %123, align 8
   %125 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %124)
   br i1 %125, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 126:                                              ; preds = %.lr.ph
-  %127 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %127 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %128)
   br label %expression_returns_set_walker.exit.thread
 
 130:                                              ; preds = %.lr.ph
-  %131 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %131 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %132 = load ptr, ptr %131, align 8
   %133 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %132)
   br label %expression_returns_set_walker.exit.thread
 
 134:                                              ; preds = %.lr.ph
-  %135 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %135 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %136 = load ptr, ptr %135, align 8
   %137 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %136)
   br i1 %137, label %expression_returns_set_walker.exit.thread, label %138
 
 138:                                              ; preds = %134
-  %139 = getelementptr inbounds i8, ptr %.tr100, i64 24
+  %139 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %140 = load ptr, ptr %139, align 8
   %.not1 = icmp eq ptr %140, null
-  br i1 %.not1, label %._crit_edge, label %.lr.ph105
+  br i1 %.not1, label %._crit_edge, label %.lr.ph104
 
-.lr.ph105:                                        ; preds = %138
+.lr.ph104:                                        ; preds = %138
   %141 = getelementptr inbounds i8, ptr %140, i64 4
   %142 = getelementptr inbounds i8, ptr %140, i64 16
   %143 = load i32, ptr %141, align 4
   %144 = icmp sgt i32 %143, 0
-  br i1 %144, label %.lr.ph108, label %._crit_edge
+  br i1 %144, label %.lr.ph107, label %._crit_edge
 
-.lr.ph108:                                        ; preds = %.lr.ph105, %expression_returns_set_walker.exit8.thread20
-  %indvars.iv175 = phi i64 [ %indvars.iv.next176, %expression_returns_set_walker.exit8.thread20 ], [ 0, %.lr.ph105 ]
+.lr.ph107:                                        ; preds = %.lr.ph104, %expression_returns_set_walker.exit6.thread19
+  %indvars.iv174 = phi i64 [ %indvars.iv.next175, %expression_returns_set_walker.exit6.thread19 ], [ 0, %.lr.ph104 ]
   %145 = load ptr, ptr %142, align 8
-  %146 = getelementptr %union.ListCell, ptr %145, i64 %indvars.iv175
+  %146 = getelementptr %union.ListCell, ptr %145, i64 %indvars.iv174
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 8
   %149 = load ptr, ptr %148, align 8
   %150 = icmp eq ptr %149, null
   br i1 %150, label %expression_returns_set_walker.exit.thread10, label %151
 
-151:                                              ; preds = %.lr.ph108
+151:                                              ; preds = %.lr.ph107
   %152 = load i32, ptr %149, align 4
   switch i32 %152, label %161 [
     i32 13, label %153
@@ -6765,16 +6758,14 @@ tailrecurse:                                      ; preds = %.lr.ph
 153:                                              ; preds = %151
   %154 = getelementptr inbounds i8, ptr %149, i64 12
   %155 = load i8, ptr %154, align 4
-  %156 = and i8 %155, 1
-  %.not.i = icmp eq i8 %156, 0
-  br i1 %.not.i, label %expression_returns_set_walker.exit, label %expression_returns_set_walker.exit.thread
+  %156 = trunc i8 %155 to i1
+  br i1 %156, label %expression_returns_set_walker.exit.thread, label %expression_returns_set_walker.exit
 
 157:                                              ; preds = %151
   %158 = getelementptr inbounds i8, ptr %149, i64 16
   %159 = load i8, ptr %158, align 8
-  %160 = and i8 %159, 1
-  %.not15.i = icmp eq i8 %160, 0
-  br i1 %.not15.i, label %expression_returns_set_walker.exit, label %expression_returns_set_walker.exit.thread
+  %160 = trunc i8 %159 to i1
+  br i1 %160, label %expression_returns_set_walker.exit.thread, label %expression_returns_set_walker.exit
 
 161:                                              ; preds = %151
   %.off.i = add i32 %152, -9
@@ -6785,11 +6776,11 @@ expression_returns_set_walker.exit:               ; preds = %153, %157, %161
   %162 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef nonnull %149)
   br i1 %162, label %expression_returns_set_walker.exit.thread, label %expression_returns_set_walker.exit.thread10
 
-expression_returns_set_walker.exit.thread10:      ; preds = %161, %.lr.ph108, %expression_returns_set_walker.exit
+expression_returns_set_walker.exit.thread10:      ; preds = %161, %.lr.ph107, %expression_returns_set_walker.exit
   %163 = getelementptr inbounds i8, ptr %147, i64 16
   %164 = load ptr, ptr %163, align 8
   %165 = icmp eq ptr %164, null
-  br i1 %165, label %expression_returns_set_walker.exit8.thread20, label %166
+  br i1 %165, label %expression_returns_set_walker.exit6.thread19, label %166
 
 166:                                              ; preds = %expression_returns_set_walker.exit.thread10
   %167 = load i32, ptr %164, align 4
@@ -6801,311 +6792,309 @@ expression_returns_set_walker.exit.thread10:      ; preds = %161, %.lr.ph108, %e
 168:                                              ; preds = %166
   %169 = getelementptr inbounds i8, ptr %164, i64 12
   %170 = load i8, ptr %169, align 4
-  %171 = and i8 %170, 1
-  %.not.i7 = icmp eq i8 %171, 0
-  br i1 %.not.i7, label %expression_returns_set_walker.exit8, label %expression_returns_set_walker.exit.thread
+  %171 = trunc i8 %170 to i1
+  br i1 %171, label %expression_returns_set_walker.exit.thread, label %expression_returns_set_walker.exit6
 
 172:                                              ; preds = %166
   %173 = getelementptr inbounds i8, ptr %164, i64 16
   %174 = load i8, ptr %173, align 8
-  %175 = and i8 %174, 1
-  %.not15.i6 = icmp eq i8 %175, 0
-  br i1 %.not15.i6, label %expression_returns_set_walker.exit8, label %expression_returns_set_walker.exit.thread
+  %175 = trunc i8 %174 to i1
+  br i1 %175, label %expression_returns_set_walker.exit.thread, label %expression_returns_set_walker.exit6
 
 176:                                              ; preds = %166
   %.off.i3 = add i32 %167, -9
   %switch.i4 = icmp ult i32 %.off.i3, 3
-  br i1 %switch.i4, label %expression_returns_set_walker.exit8.thread20, label %expression_returns_set_walker.exit8
+  br i1 %switch.i4, label %expression_returns_set_walker.exit6.thread19, label %expression_returns_set_walker.exit6
 
-expression_returns_set_walker.exit8:              ; preds = %168, %172, %176
+expression_returns_set_walker.exit6:              ; preds = %168, %172, %176
   %177 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef nonnull %164)
-  br i1 %177, label %expression_returns_set_walker.exit.thread, label %expression_returns_set_walker.exit8.thread20
+  br i1 %177, label %expression_returns_set_walker.exit.thread, label %expression_returns_set_walker.exit6.thread19
 
-expression_returns_set_walker.exit8.thread20:     ; preds = %176, %expression_returns_set_walker.exit.thread10, %expression_returns_set_walker.exit8
-  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
+expression_returns_set_walker.exit6.thread19:     ; preds = %176, %expression_returns_set_walker.exit.thread10, %expression_returns_set_walker.exit6
+  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %178 = load i32, ptr %141, align 4
   %179 = sext i32 %178 to i64
-  %180 = icmp slt i64 %indvars.iv.next176, %179
-  br i1 %180, label %.lr.ph108, label %._crit_edge
+  %180 = icmp slt i64 %indvars.iv.next175, %179
+  br i1 %180, label %.lr.ph107, label %._crit_edge
 
-._crit_edge:                                      ; preds = %expression_returns_set_walker.exit8.thread20, %.lr.ph105, %138
-  %181 = getelementptr inbounds i8, ptr %.tr100, i64 32
+._crit_edge:                                      ; preds = %expression_returns_set_walker.exit6.thread19, %.lr.ph104, %138
+  %181 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %182 = load ptr, ptr %181, align 8
   %183 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %182)
   br i1 %183, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 184:                                              ; preds = %.lr.ph
-  %185 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %185 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %186 = load ptr, ptr %185, align 8
   %187 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %186)
   br label %expression_returns_set_walker.exit.thread
 
 188:                                              ; preds = %.lr.ph
-  %189 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %189 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %190 = load ptr, ptr %189, align 8
   %191 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %190)
   br label %expression_returns_set_walker.exit.thread
 
 192:                                              ; preds = %.lr.ph
-  %193 = getelementptr inbounds i8, ptr %.tr100, i64 32
+  %193 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %194 = load ptr, ptr %193, align 8
   %195 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %194)
   br i1 %195, label %expression_returns_set_walker.exit.thread, label %196
 
 196:                                              ; preds = %192
-  %197 = getelementptr inbounds i8, ptr %.tr100, i64 40
+  %197 = getelementptr inbounds i8, ptr %.tr99, i64 40
   %198 = load ptr, ptr %197, align 8
   %199 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %198)
   br i1 %199, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 200:                                              ; preds = %.lr.ph
-  %201 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %201 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %202 = load ptr, ptr %201, align 8
   %203 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %202)
   br label %expression_returns_set_walker.exit.thread
 
 204:                                              ; preds = %.lr.ph
-  %205 = getelementptr inbounds i8, ptr %.tr100, i64 24
+  %205 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %206 = load ptr, ptr %205, align 8
   %207 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %206)
   br label %expression_returns_set_walker.exit.thread
 
 208:                                              ; preds = %.lr.ph
-  %209 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %209 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %210)
   br i1 %211, label %expression_returns_set_walker.exit.thread, label %212
 
 212:                                              ; preds = %208
-  %213 = getelementptr inbounds i8, ptr %.tr100, i64 32
+  %213 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %214 = load ptr, ptr %213, align 8
   %215 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %214)
   br i1 %215, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 216:                                              ; preds = %.lr.ph
-  %217 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %217 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %218 = load ptr, ptr %217, align 8
   %219 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %218)
   br i1 %219, label %expression_returns_set_walker.exit.thread, label %220
 
 220:                                              ; preds = %216
-  %221 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %221 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %222 = load ptr, ptr %221, align 8
   %223 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %222)
   br i1 %223, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 224:                                              ; preds = %.lr.ph
-  %225 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %225 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %226 = load ptr, ptr %225, align 8
   %227 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %226)
   br i1 %227, label %expression_returns_set_walker.exit.thread, label %228
 
 228:                                              ; preds = %224
-  %229 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %229 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %230 = load ptr, ptr %229, align 8
   %231 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %230)
   br i1 %231, label %expression_returns_set_walker.exit.thread, label %232
 
 232:                                              ; preds = %228
-  %233 = getelementptr inbounds i8, ptr %.tr100, i64 24
+  %233 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %234 = load ptr, ptr %233, align 8
   %235 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %234)
   br i1 %235, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 236:                                              ; preds = %.lr.ph
-  %237 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %237 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %238 = load ptr, ptr %237, align 8
   %239 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %238)
   br label %expression_returns_set_walker.exit.thread
 
 240:                                              ; preds = %.lr.ph
-  %241 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %241 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %242 = load ptr, ptr %241, align 8
   %243 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %242)
   br label %expression_returns_set_walker.exit.thread
 
 244:                                              ; preds = %.lr.ph
-  %245 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %245 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %246 = load ptr, ptr %245, align 8
   %247 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %246)
   br label %expression_returns_set_walker.exit.thread
 
 248:                                              ; preds = %.lr.ph
-  %249 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %249 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %250 = load ptr, ptr %249, align 8
   %251 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %250)
   br label %expression_returns_set_walker.exit.thread
 
 252:                                              ; preds = %.lr.ph
-  %253 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %253 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %254 = load ptr, ptr %253, align 8
   %255 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %254)
   br label %expression_returns_set_walker.exit.thread
 
 256:                                              ; preds = %.lr.ph
-  %257 = getelementptr inbounds i8, ptr %.tr100, i64 24
+  %257 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %258 = load ptr, ptr %257, align 8
   %259 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %258)
   br i1 %259, label %expression_returns_set_walker.exit.thread, label %260
 
 260:                                              ; preds = %256
-  %261 = getelementptr inbounds i8, ptr %.tr100, i64 32
+  %261 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %262 = load ptr, ptr %261, align 8
   %263 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %262)
   br i1 %263, label %expression_returns_set_walker.exit.thread, label %264
 
 264:                                              ; preds = %260
-  %265 = getelementptr inbounds i8, ptr %.tr100, i64 48
+  %265 = getelementptr inbounds i8, ptr %.tr99, i64 48
   %266 = load ptr, ptr %265, align 8
   %267 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %266)
   br i1 %267, label %expression_returns_set_walker.exit.thread, label %268
 
 268:                                              ; preds = %264
-  %269 = getelementptr inbounds i8, ptr %.tr100, i64 56
+  %269 = getelementptr inbounds i8, ptr %.tr99, i64 56
   %270 = load ptr, ptr %269, align 8
   %271 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %270)
   br i1 %271, label %expression_returns_set_walker.exit.thread, label %272
 
 272:                                              ; preds = %268
-  %273 = getelementptr inbounds i8, ptr %.tr100, i64 64
+  %273 = getelementptr inbounds i8, ptr %.tr99, i64 64
   %274 = load ptr, ptr %273, align 8
   %275 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %274)
   br i1 %275, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 276:                                              ; preds = %.lr.ph
-  %277 = getelementptr inbounds i8, ptr %.tr100, i64 24
+  %277 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %278 = load ptr, ptr %277, align 8
   %279 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %278)
   br i1 %279, label %expression_returns_set_walker.exit.thread, label %280
 
 280:                                              ; preds = %276
-  %281 = getelementptr inbounds i8, ptr %.tr100, i64 32
+  %281 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %282 = load ptr, ptr %281, align 8
   %283 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %282)
   br i1 %283, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 284:                                              ; preds = %.lr.ph
-  %285 = getelementptr inbounds i8, ptr %.tr100, i64 32
+  %285 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %286 = load ptr, ptr %285, align 8
   %287 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %286)
   br i1 %287, label %expression_returns_set_walker.exit.thread, label %288
 
 288:                                              ; preds = %284
-  %289 = getelementptr inbounds i8, ptr %.tr100, i64 40
+  %289 = getelementptr inbounds i8, ptr %.tr99, i64 40
   %290 = load ptr, ptr %289, align 8
   %291 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %290)
   br i1 %291, label %expression_returns_set_walker.exit.thread, label %292
 
 292:                                              ; preds = %288
-  %293 = getelementptr inbounds i8, ptr %.tr100, i64 48
+  %293 = getelementptr inbounds i8, ptr %.tr99, i64 48
   %294 = load ptr, ptr %293, align 8
   %295 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %294)
   br i1 %295, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 296:                                              ; preds = %.lr.ph
-  %297 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %297 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %298 = load ptr, ptr %297, align 8
   %299 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %298)
   br i1 %299, label %expression_returns_set_walker.exit.thread, label %300
 
 300:                                              ; preds = %296
-  %301 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %301 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %302 = load ptr, ptr %301, align 8
   %303 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %302)
   br i1 %303, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 304:                                              ; preds = %.lr.ph
-  %305 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %305 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %306 = load ptr, ptr %305, align 8
   %307 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %306)
   br i1 %307, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 308:                                              ; preds = %.lr.ph
-  %309 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %309 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %310 = load ptr, ptr %309, align 8
   %311 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %310)
   br i1 %311, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 312:                                              ; preds = %.lr.ph
-  %313 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %313 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %314 = load ptr, ptr %313, align 8
   %315 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %314)
   br i1 %315, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 316:                                              ; preds = %.lr.ph
-  %317 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %317 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %318 = load ptr, ptr %317, align 8
   %319 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %318)
   br i1 %319, label %expression_returns_set_walker.exit.thread, label %320
 
 320:                                              ; preds = %316
-  %321 = getelementptr inbounds i8, ptr %.tr100, i64 24
+  %321 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %322 = load ptr, ptr %321, align 8
   %323 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %322)
   br i1 %323, label %expression_returns_set_walker.exit.thread, label %324
 
 324:                                              ; preds = %320
-  %325 = getelementptr inbounds i8, ptr %.tr100, i64 32
+  %325 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %326 = load ptr, ptr %325, align 8
   %327 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %326)
   br i1 %327, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 328:                                              ; preds = %.lr.ph
-  %329 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %329 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %330 = load ptr, ptr %329, align 8
   %331 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %330)
   br i1 %331, label %expression_returns_set_walker.exit.thread, label %332
 
 332:                                              ; preds = %328
-  %333 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %333 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %334 = load ptr, ptr %333, align 8
   %335 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %334)
   br i1 %335, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 336:                                              ; preds = %.lr.ph
-  %337 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %337 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %338 = load ptr, ptr %337, align 8
   %339 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %338)
   br i1 %339, label %expression_returns_set_walker.exit.thread, label %340
 
 340:                                              ; preds = %336
-  %341 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %341 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %342 = load ptr, ptr %341, align 8
   %343 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %342)
   br i1 %343, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 344:                                              ; preds = %.lr.ph
-  %345 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %345 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %346 = load ptr, ptr %345, align 8
   %347 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %346)
   br i1 %347, label %expression_returns_set_walker.exit.thread, label %348
 
 348:                                              ; preds = %344
-  %349 = getelementptr inbounds i8, ptr %.tr100, i64 24
+  %349 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %350 = load ptr, ptr %349, align 8
   %351 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %350)
   br i1 %351, label %expression_returns_set_walker.exit.thread, label %352
 
 352:                                              ; preds = %348
-  %353 = getelementptr inbounds i8, ptr %.tr100, i64 32
+  %353 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %354 = load ptr, ptr %353, align 8
   %355 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %354)
   br i1 %355, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 356:                                              ; preds = %.lr.ph
-  %357 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %357 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %358 = load ptr, ptr %357, align 8
   %359 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %358)
   br i1 %359, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
-360:                                              ; preds = %.lr.ph103, %expression_returns_set_walker.exit14.thread32
-  %361 = phi i32 [ %5, %.lr.ph103 ], [ %378, %expression_returns_set_walker.exit14.thread32 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next, %expression_returns_set_walker.exit14.thread32 ]
+360:                                              ; preds = %.lr.ph102, %expression_returns_set_walker.exit10.thread31
+  %361 = phi i32 [ %5, %.lr.ph102 ], [ %378, %expression_returns_set_walker.exit10.thread31 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next, %expression_returns_set_walker.exit10.thread31 ]
   %362 = load ptr, ptr %6, align 8
   %363 = getelementptr %union.ListCell, ptr %362, i64 %indvars.iv
   %364 = load ptr, ptr %363, align 8
   %365 = icmp eq ptr %364, null
-  br i1 %365, label %expression_returns_set_walker.exit14.thread32, label %366
+  br i1 %365, label %expression_returns_set_walker.exit10.thread31, label %366
 
 366:                                              ; preds = %360
   %367 = load i32, ptr %364, align 4
@@ -7117,207 +7106,205 @@ expression_returns_set_walker.exit8.thread20:     ; preds = %176, %expression_re
 368:                                              ; preds = %366
   %369 = getelementptr inbounds i8, ptr %364, i64 12
   %370 = load i8, ptr %369, align 4
-  %371 = and i8 %370, 1
-  %.not.i13 = icmp eq i8 %371, 0
-  br i1 %.not.i13, label %expression_returns_set_walker.exit14, label %expression_returns_set_walker.exit.thread
+  %371 = trunc i8 %370 to i1
+  br i1 %371, label %expression_returns_set_walker.exit.thread, label %expression_returns_set_walker.exit10
 
 372:                                              ; preds = %366
   %373 = getelementptr inbounds i8, ptr %364, i64 16
   %374 = load i8, ptr %373, align 8
-  %375 = and i8 %374, 1
-  %.not15.i12 = icmp eq i8 %375, 0
-  br i1 %.not15.i12, label %expression_returns_set_walker.exit14, label %expression_returns_set_walker.exit.thread
+  %375 = trunc i8 %374 to i1
+  br i1 %375, label %expression_returns_set_walker.exit.thread, label %expression_returns_set_walker.exit10
 
 376:                                              ; preds = %366
-  %.off.i9 = add i32 %367, -9
-  %switch.i10 = icmp ult i32 %.off.i9, 3
-  br i1 %switch.i10, label %expression_returns_set_walker.exit14.thread32, label %expression_returns_set_walker.exit14
+  %.off.i7 = add i32 %367, -9
+  %switch.i8 = icmp ult i32 %.off.i7, 3
+  br i1 %switch.i8, label %expression_returns_set_walker.exit10.thread31, label %expression_returns_set_walker.exit10
 
-expression_returns_set_walker.exit14:             ; preds = %368, %372, %376
+expression_returns_set_walker.exit10:             ; preds = %368, %372, %376
   %377 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef nonnull %364)
-  br i1 %377, label %expression_returns_set_walker.exit.thread, label %expression_returns_set_walker.exit14.expression_returns_set_walker.exit14.thread32_crit_edge
+  br i1 %377, label %expression_returns_set_walker.exit.thread, label %expression_returns_set_walker.exit10.expression_returns_set_walker.exit10.thread31_crit_edge
 
-expression_returns_set_walker.exit14.expression_returns_set_walker.exit14.thread32_crit_edge: ; preds = %expression_returns_set_walker.exit14
+expression_returns_set_walker.exit10.expression_returns_set_walker.exit10.thread31_crit_edge: ; preds = %expression_returns_set_walker.exit10
   %.pre = load i32, ptr %4, align 4
-  br label %expression_returns_set_walker.exit14.thread32
+  br label %expression_returns_set_walker.exit10.thread31
 
-expression_returns_set_walker.exit14.thread32:    ; preds = %expression_returns_set_walker.exit14.expression_returns_set_walker.exit14.thread32_crit_edge, %376, %360
-  %378 = phi i32 [ %.pre, %expression_returns_set_walker.exit14.expression_returns_set_walker.exit14.thread32_crit_edge ], [ %361, %376 ], [ %361, %360 ]
+expression_returns_set_walker.exit10.thread31:    ; preds = %expression_returns_set_walker.exit10.expression_returns_set_walker.exit10.thread31_crit_edge, %376, %360
+  %378 = phi i32 [ %.pre, %expression_returns_set_walker.exit10.expression_returns_set_walker.exit10.thread31_crit_edge ], [ %361, %376 ], [ %361, %360 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %379 = sext i32 %378 to i64
   %.not = icmp slt i64 %indvars.iv.next, %379
   br i1 %.not, label %360, label %.loopexit, !llvm.loop !8
 
 380:                                              ; preds = %.lr.ph
-  %381 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %381 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %382 = load ptr, ptr %381, align 8
   %383 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %382)
   br i1 %383, label %expression_returns_set_walker.exit.thread, label %384
 
 384:                                              ; preds = %380
-  %385 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %385 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %386 = load ptr, ptr %385, align 8
   %387 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %386)
   br i1 %387, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 388:                                              ; preds = %.lr.ph
-  %389 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %389 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %390 = load ptr, ptr %389, align 8
   %391 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %390)
   br i1 %391, label %expression_returns_set_walker.exit.thread, label %392
 
 392:                                              ; preds = %388
-  %393 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %393 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %394 = load ptr, ptr %393, align 8
   %395 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %394)
   br i1 %395, label %expression_returns_set_walker.exit.thread, label %396
 
 396:                                              ; preds = %392
-  %397 = getelementptr inbounds i8, ptr %.tr100, i64 32
+  %397 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %398 = load ptr, ptr %397, align 8
   %399 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %398)
   br i1 %399, label %expression_returns_set_walker.exit.thread, label %400
 
 400:                                              ; preds = %396
-  %401 = getelementptr inbounds i8, ptr %.tr100, i64 40
+  %401 = getelementptr inbounds i8, ptr %.tr99, i64 40
   %402 = load ptr, ptr %401, align 8
   %403 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %402)
   br i1 %403, label %expression_returns_set_walker.exit.thread, label %404
 
 404:                                              ; preds = %400
-  %405 = getelementptr inbounds i8, ptr %.tr100, i64 56
+  %405 = getelementptr inbounds i8, ptr %.tr99, i64 56
   %406 = load ptr, ptr %405, align 8
   %407 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %406)
   br i1 %407, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 408:                                              ; preds = %.lr.ph
-  %409 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %409 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %410 = load ptr, ptr %409, align 8
   %411 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %410)
   br i1 %411, label %expression_returns_set_walker.exit.thread, label %412
 
 412:                                              ; preds = %408
-  %413 = getelementptr inbounds i8, ptr %.tr100, i64 24
+  %413 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %414 = load ptr, ptr %413, align 8
   %415 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %414)
   br i1 %415, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 416:                                              ; preds = %.lr.ph
-  %417 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %417 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %418 = load ptr, ptr %417, align 8
   %419 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %418)
   br i1 %419, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 420:                                              ; preds = %.lr.ph
-  %421 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %421 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %422 = load ptr, ptr %421, align 8
   %423 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %422)
   br i1 %423, label %expression_returns_set_walker.exit.thread, label %424
 
 424:                                              ; preds = %420
-  %425 = getelementptr inbounds i8, ptr %.tr100, i64 24
+  %425 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %426 = load ptr, ptr %425, align 8
   %427 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %426)
   br i1 %427, label %expression_returns_set_walker.exit.thread, label %428
 
 428:                                              ; preds = %424
-  %429 = getelementptr inbounds i8, ptr %.tr100, i64 48
+  %429 = getelementptr inbounds i8, ptr %.tr99, i64 48
   %430 = load ptr, ptr %429, align 8
   %431 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %430)
   br i1 %431, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 432:                                              ; preds = %.lr.ph
-  %433 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %433 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %434 = load ptr, ptr %433, align 8
   %435 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %434)
   br i1 %435, label %expression_returns_set_walker.exit.thread, label %436
 
 436:                                              ; preds = %432
-  %437 = getelementptr inbounds i8, ptr %.tr100, i64 24
+  %437 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %438 = load ptr, ptr %437, align 8
   %439 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %438)
   br i1 %439, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 440:                                              ; preds = %.lr.ph
-  %441 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %441 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %442 = load ptr, ptr %441, align 8
   %443 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %442)
   br i1 %443, label %expression_returns_set_walker.exit.thread, label %444
 
 444:                                              ; preds = %440
-  %445 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %445 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %446 = load ptr, ptr %445, align 8
   %447 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %446)
   br i1 %447, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 448:                                              ; preds = %.lr.ph
-  %449 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %449 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %450 = load ptr, ptr %449, align 8
   %451 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %450)
   br label %expression_returns_set_walker.exit.thread
 
 452:                                              ; preds = %.lr.ph
-  %453 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %453 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %454 = load ptr, ptr %453, align 8
   %455 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %454)
   br label %expression_returns_set_walker.exit.thread
 
 456:                                              ; preds = %.lr.ph
-  %457 = getelementptr inbounds i8, ptr %.tr100, i64 24
+  %457 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %458 = load ptr, ptr %457, align 8
   %459 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %458)
   br i1 %459, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 460:                                              ; preds = %.lr.ph
-  %461 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %461 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %462 = load ptr, ptr %461, align 8
   %463 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %462)
   br label %expression_returns_set_walker.exit.thread
 
 464:                                              ; preds = %.lr.ph
-  %465 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %465 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %466 = load ptr, ptr %465, align 8
   %467 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %466)
   br label %expression_returns_set_walker.exit.thread
 
 468:                                              ; preds = %.lr.ph
-  %469 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %469 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %470 = load ptr, ptr %469, align 8
   %471 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %470)
   br i1 %471, label %expression_returns_set_walker.exit.thread, label %472
 
 472:                                              ; preds = %468
-  %473 = getelementptr inbounds i8, ptr %.tr100, i64 16
+  %473 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %474 = load ptr, ptr %473, align 8
   %475 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %474)
   br i1 %475, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 476:                                              ; preds = %.lr.ph
-  %477 = getelementptr inbounds i8, ptr %.tr100, i64 8
+  %477 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %478 = load ptr, ptr %477, align 8
   %479 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %478)
   br i1 %479, label %expression_returns_set_walker.exit.thread, label %480
 
 480:                                              ; preds = %476
-  %481 = getelementptr inbounds i8, ptr %.tr100, i64 24
+  %481 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %482 = load ptr, ptr %481, align 8
   %483 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %482)
   br i1 %483, label %expression_returns_set_walker.exit.thread, label %484
 
 484:                                              ; preds = %480
-  %485 = getelementptr inbounds i8, ptr %.tr100, i64 32
+  %485 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %486 = load ptr, ptr %485, align 8
   %487 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %486)
   br i1 %487, label %expression_returns_set_walker.exit.thread, label %488
 
 488:                                              ; preds = %484
-  %489 = getelementptr inbounds i8, ptr %.tr100, i64 72
+  %489 = getelementptr inbounds i8, ptr %.tr99, i64 72
   %490 = load ptr, ptr %489, align 8
   %491 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %490)
   br i1 %491, label %expression_returns_set_walker.exit.thread, label %492
 
 492:                                              ; preds = %488
-  %493 = getelementptr inbounds i8, ptr %.tr100, i64 80
+  %493 = getelementptr inbounds i8, ptr %.tr99, i64 80
   %494 = load ptr, ptr %493, align 8
   %495 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %494)
   br i1 %495, label %expression_returns_set_walker.exit.thread, label %.loopexit
@@ -7325,16 +7312,16 @@ expression_returns_set_walker.exit14.thread32:    ; preds = %expression_returns_
 496:                                              ; preds = %.lr.ph
   %497 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %497)
-  %498 = load i32, ptr %.tr100, align 4
+  %498 = load i32, ptr %.tr99, align 4
   %499 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %498) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2540, ptr noundef nonnull @__func__.expression_tree_walker_impl) #12
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %expression_returns_set_walker.exit14.thread32, %.preheader, %492, %472, %456, %444, %436, %428, %416, %412, %404, %384, %356, %352, %340, %332, %324, %312, %308, %304, %300, %292, %280, %272, %232, %220, %212, %196, %._crit_edge, %122, %106, %91, %75, %71, %67, %59, %55, %39, %31, %27
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %expression_returns_set_walker.exit10.thread31, %.preheader, %492, %472, %456, %444, %436, %428, %416, %412, %404, %384, %356, %352, %340, %332, %324, %312, %308, %304, %300, %292, %280, %272, %232, %220, %212, %196, %._crit_edge, %122, %106, %91, %75, %71, %67, %59, %55, %39, %31, %27
   br label %expression_returns_set_walker.exit.thread
 
-expression_returns_set_walker.exit.thread:        ; preds = %tailrecurse, %372, %368, %expression_returns_set_walker.exit14, %expression_returns_set_walker.exit, %expression_returns_set_walker.exit8, %153, %157, %168, %172, %1, %492, %488, %484, %480, %476, %472, %468, %456, %444, %440, %436, %432, %428, %424, %420, %416, %412, %408, %404, %400, %396, %392, %388, %384, %380, %356, %352, %348, %344, %340, %336, %332, %328, %324, %320, %316, %312, %308, %304, %300, %296, %292, %288, %284, %280, %276, %272, %268, %264, %260, %256, %232, %228, %224, %220, %216, %212, %208, %196, %192, %._crit_edge, %134, %122, %118, %106, %102, %91, %87, %79, %75, %71, %67, %59, %55, %51, %47, %43, %39, %35, %31, %27, %23, %19, %15, %11, %.loopexit, %464, %460, %452, %448, %252, %248, %244, %240, %236, %204, %200, %188, %184, %130, %126, %114, %110, %98, %83, %63, %7
-  %.0 = phi i1 [ false, %.loopexit ], [ %467, %464 ], [ %463, %460 ], [ %455, %452 ], [ %451, %448 ], [ %255, %252 ], [ %251, %248 ], [ %247, %244 ], [ %243, %240 ], [ %239, %236 ], [ %207, %204 ], [ %203, %200 ], [ %191, %188 ], [ %187, %184 ], [ %133, %130 ], [ %129, %126 ], [ %117, %114 ], [ %113, %110 ], [ %101, %98 ], [ %86, %83 ], [ %66, %63 ], [ %10, %7 ], [ true, %11 ], [ true, %15 ], [ true, %19 ], [ true, %23 ], [ true, %27 ], [ true, %31 ], [ true, %35 ], [ true, %39 ], [ true, %43 ], [ true, %47 ], [ true, %51 ], [ true, %55 ], [ true, %59 ], [ true, %67 ], [ true, %71 ], [ true, %75 ], [ true, %79 ], [ true, %87 ], [ true, %91 ], [ true, %102 ], [ true, %106 ], [ true, %118 ], [ true, %122 ], [ true, %134 ], [ true, %._crit_edge ], [ true, %192 ], [ true, %196 ], [ true, %208 ], [ true, %212 ], [ true, %216 ], [ true, %220 ], [ true, %224 ], [ true, %228 ], [ true, %232 ], [ true, %256 ], [ true, %260 ], [ true, %264 ], [ true, %268 ], [ true, %272 ], [ true, %276 ], [ true, %280 ], [ true, %284 ], [ true, %288 ], [ true, %292 ], [ true, %296 ], [ true, %300 ], [ true, %304 ], [ true, %308 ], [ true, %312 ], [ true, %316 ], [ true, %320 ], [ true, %324 ], [ true, %328 ], [ true, %332 ], [ true, %336 ], [ true, %340 ], [ true, %344 ], [ true, %348 ], [ true, %352 ], [ true, %356 ], [ true, %380 ], [ true, %384 ], [ true, %388 ], [ true, %392 ], [ true, %396 ], [ true, %400 ], [ true, %404 ], [ true, %408 ], [ true, %412 ], [ true, %416 ], [ true, %420 ], [ true, %424 ], [ true, %428 ], [ true, %432 ], [ true, %436 ], [ true, %440 ], [ true, %444 ], [ true, %456 ], [ true, %468 ], [ true, %472 ], [ true, %476 ], [ true, %480 ], [ true, %484 ], [ true, %488 ], [ true, %492 ], [ false, %1 ], [ true, %172 ], [ true, %168 ], [ true, %157 ], [ true, %153 ], [ true, %expression_returns_set_walker.exit8 ], [ true, %expression_returns_set_walker.exit ], [ true, %expression_returns_set_walker.exit14 ], [ true, %368 ], [ true, %372 ], [ false, %tailrecurse ]
+expression_returns_set_walker.exit.thread:        ; preds = %tailrecurse, %372, %368, %expression_returns_set_walker.exit10, %expression_returns_set_walker.exit, %expression_returns_set_walker.exit6, %153, %157, %168, %172, %1, %492, %488, %484, %480, %476, %472, %468, %456, %444, %440, %436, %432, %428, %424, %420, %416, %412, %408, %404, %400, %396, %392, %388, %384, %380, %356, %352, %348, %344, %340, %336, %332, %328, %324, %320, %316, %312, %308, %304, %300, %296, %292, %288, %284, %280, %276, %272, %268, %264, %260, %256, %232, %228, %224, %220, %216, %212, %208, %196, %192, %._crit_edge, %134, %122, %118, %106, %102, %91, %87, %79, %75, %71, %67, %59, %55, %51, %47, %43, %39, %35, %31, %27, %23, %19, %15, %11, %.loopexit, %464, %460, %452, %448, %252, %248, %244, %240, %236, %204, %200, %188, %184, %130, %126, %114, %110, %98, %83, %63, %7
+  %.0 = phi i1 [ false, %.loopexit ], [ %467, %464 ], [ %463, %460 ], [ %455, %452 ], [ %451, %448 ], [ %255, %252 ], [ %251, %248 ], [ %247, %244 ], [ %243, %240 ], [ %239, %236 ], [ %207, %204 ], [ %203, %200 ], [ %191, %188 ], [ %187, %184 ], [ %133, %130 ], [ %129, %126 ], [ %117, %114 ], [ %113, %110 ], [ %101, %98 ], [ %86, %83 ], [ %66, %63 ], [ %10, %7 ], [ true, %11 ], [ true, %15 ], [ true, %19 ], [ true, %23 ], [ true, %27 ], [ true, %31 ], [ true, %35 ], [ true, %39 ], [ true, %43 ], [ true, %47 ], [ true, %51 ], [ true, %55 ], [ true, %59 ], [ true, %67 ], [ true, %71 ], [ true, %75 ], [ true, %79 ], [ true, %87 ], [ true, %91 ], [ true, %102 ], [ true, %106 ], [ true, %118 ], [ true, %122 ], [ true, %134 ], [ true, %._crit_edge ], [ true, %192 ], [ true, %196 ], [ true, %208 ], [ true, %212 ], [ true, %216 ], [ true, %220 ], [ true, %224 ], [ true, %228 ], [ true, %232 ], [ true, %256 ], [ true, %260 ], [ true, %264 ], [ true, %268 ], [ true, %272 ], [ true, %276 ], [ true, %280 ], [ true, %284 ], [ true, %288 ], [ true, %292 ], [ true, %296 ], [ true, %300 ], [ true, %304 ], [ true, %308 ], [ true, %312 ], [ true, %316 ], [ true, %320 ], [ true, %324 ], [ true, %328 ], [ true, %332 ], [ true, %336 ], [ true, %340 ], [ true, %344 ], [ true, %348 ], [ true, %352 ], [ true, %356 ], [ true, %380 ], [ true, %384 ], [ true, %388 ], [ true, %392 ], [ true, %396 ], [ true, %400 ], [ true, %404 ], [ true, %408 ], [ true, %412 ], [ true, %416 ], [ true, %420 ], [ true, %424 ], [ true, %428 ], [ true, %432 ], [ true, %436 ], [ true, %440 ], [ true, %444 ], [ true, %456 ], [ true, %468 ], [ true, %472 ], [ true, %476 ], [ true, %480 ], [ true, %484 ], [ true, %488 ], [ true, %492 ], [ false, %1 ], [ true, %172 ], [ true, %168 ], [ true, %157 ], [ true, %153 ], [ true, %expression_returns_set_walker.exit6 ], [ true, %expression_returns_set_walker.exit ], [ true, %expression_returns_set_walker.exit10 ], [ true, %368 ], [ true, %372 ], [ false, %tailrecurse ]
   ret i1 %.0
 }
 

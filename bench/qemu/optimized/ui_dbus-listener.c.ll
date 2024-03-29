@@ -94,17 +94,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) #7
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) #7
   br label %trace_dbus_update.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -113,8 +112,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_dbus_update.exit:                           ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %8 = or i32 %y, %x
-  %or.cond = icmp eq i32 %8, 0
+  %7 = or i32 %y, %x
+  %or.cond = icmp eq i32 %7, 0
   %.pre38 = load ptr, ptr %ds, align 8
   br i1 %or.cond, label %land.lhs.true2, label %if.end28
 
@@ -137,45 +136,45 @@ land.lhs.true5.if.end28_crit_edge:                ; preds = %land.lhs.true5
 
 if.then9:                                         ; preds = %land.lhs.true5
   %call10 = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.8) #7
-  %9 = load ptr, ptr %ds, align 8
-  %.val25 = load ptr, ptr %9, align 8
+  %8 = load ptr, ptr %ds, align 8
+  %.val25 = load ptr, ptr %8, align 8
   %call.i30 = tail call ptr @pixman_image_get_data(ptr noundef %.val25) #7
-  %10 = load ptr, ptr %ds, align 8
-  %.val26 = load ptr, ptr %10, align 8
+  %9 = load ptr, ptr %ds, align 8
+  %.val26 = load ptr, ptr %9, align 8
   %call.i31 = tail call i32 @pixman_image_get_stride(ptr noundef %.val26) #7
-  %11 = load ptr, ptr %ds, align 8
-  %.val23 = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %ds, align 8
+  %.val23 = load ptr, ptr %10, align 8
   %call.i32 = tail call i32 @pixman_image_get_height(ptr noundef %.val23) #7
   %mul = mul i32 %call.i32, %call.i31
   %conv = sext i32 %mul to i64
-  %12 = load ptr, ptr %ds, align 8
-  %13 = load ptr, ptr %12, align 8
-  %call18 = tail call ptr @pixman_image_ref(ptr noundef %13) #7
+  %11 = load ptr, ptr %ds, align 8
+  %12 = load ptr, ptr %11, align 8
+  %call18 = tail call ptr @pixman_image_ref(ptr noundef %12) #7
   %call19 = tail call ptr @g_variant_new_from_data(ptr noundef %call10, ptr noundef %call.i30, i64 noundef %conv, i32 noundef 1, ptr noundef nonnull @pixman_image_unref, ptr noundef %call18) #7
   %proxy = getelementptr i8, ptr %dcl, i64 -32
-  %14 = load ptr, ptr %proxy, align 8
-  %15 = load ptr, ptr %ds, align 8
-  %.val21 = load ptr, ptr %15, align 8
+  %13 = load ptr, ptr %proxy, align 8
+  %14 = load ptr, ptr %ds, align 8
+  %.val21 = load ptr, ptr %14, align 8
   %call.i33 = tail call i32 @pixman_image_get_width(ptr noundef %.val21) #7
-  %16 = load ptr, ptr %ds, align 8
-  %.val24 = load ptr, ptr %16, align 8
+  %15 = load ptr, ptr %ds, align 8
+  %.val24 = load ptr, ptr %15, align 8
   %call.i34 = tail call i32 @pixman_image_get_height(ptr noundef %.val24) #7
-  %17 = load ptr, ptr %ds, align 8
-  %.val27 = load ptr, ptr %17, align 8
+  %16 = load ptr, ptr %ds, align 8
+  %.val27 = load ptr, ptr %16, align 8
   %call.i35 = tail call i32 @pixman_image_get_stride(ptr noundef %.val27) #7
-  %18 = load ptr, ptr %ds, align 8
-  %.val28 = load ptr, ptr %18, align 8
+  %17 = load ptr, ptr %ds, align 8
+  %.val28 = load ptr, ptr %17, align 8
   %call.i36 = tail call i32 @pixman_image_get_format(ptr noundef %.val28) #7
-  tail call void @qemu_dbus_display1_listener_call_scanout(ptr noundef %14, i32 noundef %call.i33, i32 noundef %call.i34, i32 noundef %call.i35, i32 noundef %call.i36, ptr noundef %call19, i32 noundef 0, i32 noundef 1000, ptr noundef null, ptr noundef null, ptr noundef null) #7
+  tail call void @qemu_dbus_display1_listener_call_scanout(ptr noundef %13, i32 noundef %call.i33, i32 noundef %call.i34, i32 noundef %call.i35, i32 noundef %call.i36, ptr noundef %call19, i32 noundef 0, i32 noundef 1000, ptr noundef null, ptr noundef null, ptr noundef null) #7
   br label %return
 
 if.end28:                                         ; preds = %land.lhs.true5.if.end28_crit_edge, %land.lhs.true2, %trace_dbus_update.exit
-  %19 = phi ptr [ %.pre, %land.lhs.true5.if.end28_crit_edge ], [ %.pre37, %land.lhs.true2 ], [ %.pre38, %trace_dbus_update.exit ]
-  %.val20.i = load ptr, ptr %19, align 8
+  %18 = phi ptr [ %.pre, %land.lhs.true5.if.end28_crit_edge ], [ %.pre37, %land.lhs.true2 ], [ %.pre38, %trace_dbus_update.exit ]
+  %.val20.i = load ptr, ptr %18, align 8
   %call.i.i = tail call i32 @pixman_image_get_format(ptr noundef %.val20.i) #7
   %shr.i = lshr i32 %call.i.i, 24
-  %20 = load ptr, ptr %ds, align 8
-  %.val19.i = load ptr, ptr %20, align 8
+  %19 = load ptr, ptr %ds, align 8
+  %.val19.i = load ptr, ptr %19, align 8
   %call.i21.i = tail call i32 @pixman_image_get_format(ptr noundef %.val19.i) #7
   %shr3.i = lshr i32 %call.i21.i, 22
   %and4.i = and i32 %shr3.i, 3
@@ -183,17 +182,17 @@ if.end28:                                         ; preds = %land.lhs.true5.if.e
   %sub.i = add nuw nsw i32 %shl.i, 7
   %div18.i = lshr i32 %sub.i, 3
   %mul.i = mul i32 %div18.i, %w
-  %21 = load ptr, ptr %ds, align 8
-  %.val.i = load ptr, ptr %21, align 8
+  %20 = load ptr, ptr %ds, align 8
+  %.val.i = load ptr, ptr %20, align 8
   %call.i22.i = tail call i32 @pixman_image_get_format(ptr noundef %.val.i) #7
   %call8.i = tail call ptr @pixman_image_create_bits(i32 noundef %call.i22.i, i32 noundef %w, i32 noundef %h, ptr noundef null, i32 noundef %mul.i) #7
-  %22 = load ptr, ptr %ds, align 8
-  %23 = load ptr, ptr %22, align 8
+  %21 = load ptr, ptr %ds, align 8
+  %22 = load ptr, ptr %21, align 8
   %conv10.i = trunc i32 %x to i16
   %conv11.i = trunc i32 %y to i16
   %conv12.i = trunc i32 %w to i16
   %conv13.i = trunc i32 %h to i16
-  tail call void @pixman_image_composite(i32 noundef 1, ptr noundef %23, ptr noundef null, ptr noundef %call8.i, i16 noundef signext %conv10.i, i16 noundef signext %conv11.i, i16 noundef signext 0, i16 noundef signext 0, i16 noundef signext 0, i16 noundef signext 0, i16 noundef zeroext %conv12.i, i16 noundef zeroext %conv13.i) #7
+  tail call void @pixman_image_composite(i32 noundef 1, ptr noundef %22, ptr noundef null, ptr noundef %call8.i, i16 noundef signext %conv10.i, i16 noundef signext %conv11.i, i16 noundef signext 0, i16 noundef signext 0, i16 noundef signext 0, i16 noundef signext 0, i16 noundef zeroext %conv12.i, i16 noundef zeroext %conv13.i) #7
   %call14.i = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.8) #7
   %call15.i = tail call ptr @pixman_image_get_data(ptr noundef %call8.i) #7
   %call16.i = tail call i32 @pixman_image_get_stride(ptr noundef %call8.i) #7
@@ -201,10 +200,10 @@ if.end28:                                         ; preds = %land.lhs.true5.if.e
   %conv18.i = sext i32 %mul17.i to i64
   %call19.i = tail call ptr @g_variant_new_from_data(ptr noundef %call14.i, ptr noundef %call15.i, i64 noundef %conv18.i, i32 noundef 1, ptr noundef nonnull @pixman_image_unref, ptr noundef %call8.i) #7
   %proxy.i = getelementptr i8, ptr %dcl, i64 -32
-  %24 = load ptr, ptr %proxy.i, align 8
+  %23 = load ptr, ptr %proxy.i, align 8
   %call20.i = tail call i32 @pixman_image_get_stride(ptr noundef %call8.i) #7
   %call21.i = tail call i32 @pixman_image_get_format(ptr noundef %call8.i) #7
-  tail call void @qemu_dbus_display1_listener_call_update(ptr noundef %24, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef %call20.i, i32 noundef %call21.i, ptr noundef %call19.i, i32 noundef 0, i32 noundef 1000, ptr noundef null, ptr noundef null, ptr noundef null) #7
+  tail call void @qemu_dbus_display1_listener_call_update(ptr noundef %23, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef %call20.i, i32 noundef %call21.i, ptr noundef %call19.i, i32 noundef 0, i32 noundef 1000, ptr noundef null, ptr noundef null, ptr noundef null) #7
   br label %return
 
 return:                                           ; preds = %if.end28, %if.then9

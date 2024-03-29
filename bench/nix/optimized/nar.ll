@@ -2285,9 +2285,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFN3nix
 define linkonce_odr void @_ZNSt22_Optional_payload_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix3refINS7_7CommandEEEEE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %48, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %48
 
 5:                                                ; preds = %1
   store i8 0, ptr %2, align 8

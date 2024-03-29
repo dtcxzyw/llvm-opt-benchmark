@@ -289,13 +289,12 @@ sw.epilog:                                        ; preds = %switch.hole_check, 
 switch.hole_check:                                ; preds = %init.end24
   %switch.maskindex = trunc i32 %cause to i8
   %switch.shifted = lshr i8 23, %switch.maskindex
-  %17 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %17, 0
-  br i1 %switch.lobit.not, label %sw.epilog, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %18 = zext nneg i32 %cause to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN7rocksdb29WriteStallCauseToHyphenStringB5cxx11ENS_15WriteStallCauseE, i64 0, i64 %18
+  %17 = zext nneg i32 %cause to i64
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN7rocksdb29WriteStallCauseToHyphenStringB5cxx11ENS_15WriteStallCauseE, i64 0, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 

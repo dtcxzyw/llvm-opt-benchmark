@@ -100,11 +100,10 @@ entry:
 cond.true:                                        ; preds = %entry
   %is_cpu_.i = getelementptr inbounds i8, ptr %0, i64 9
   %1 = load i8, ptr %is_cpu_.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   %data_.i = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load ptr, ptr %data_.i, align 8
-  %cond.i = select i1 %tobool.not.i, ptr null, ptr %3
+  %2 = load ptr, ptr %data_.i, align 8
+  %cond.i = select i1 %tobool.i, ptr %2, ptr null
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
@@ -190,27 +189,25 @@ entry:
 cond.true:                                        ; preds = %entry
   %is_cpu_.i = getelementptr inbounds i8, ptr %0, i64 9
   %1 = load i8, ptr %is_cpu_.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   %data_.i = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load ptr, ptr %data_.i, align 8
-  %cond.i = select i1 %tobool.not.i, ptr null, ptr %3
+  %2 = load ptr, ptr %data_.i, align 8
+  %cond.i = select i1 %tobool.i, ptr %2, ptr null
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi ptr [ %cond.i, %cond.true ], [ null, %entry ]
-  %4 = load ptr, ptr %right_bitmap, align 8
-  %cmp.i3.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %right_bitmap, align 8
+  %cmp.i3.not = icmp eq ptr %3, null
   br i1 %cmp.i3.not, label %cond.end9, label %cond.true5
 
 cond.true5:                                       ; preds = %cond.end
-  %is_cpu_.i4 = getelementptr inbounds i8, ptr %4, i64 9
-  %5 = load i8, ptr %is_cpu_.i4, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i5 = icmp eq i8 %6, 0
-  %data_.i6 = getelementptr inbounds i8, ptr %4, i64 16
-  %7 = load ptr, ptr %data_.i6, align 8
-  %cond.i7 = select i1 %tobool.not.i5, ptr null, ptr %7
+  %is_cpu_.i4 = getelementptr inbounds i8, ptr %3, i64 9
+  %4 = load i8, ptr %is_cpu_.i4, align 1
+  %tobool.i5 = trunc i8 %4 to i1
+  %data_.i6 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = load ptr, ptr %data_.i6, align 8
+  %cond.i7 = select i1 %tobool.i5, ptr %5, ptr null
   br label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.true5
@@ -219,8 +216,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.tru
   %cmp2.i = icmp ne ptr %cond10, null
   %switch.selectcmp.i.i = xor i1 %cmp.i8, %cmp2.i
   %switch.select.i.i = zext i1 %switch.selectcmp.i.i to i32
-  %8 = or i1 %cmp.i8, %cmp2.i
-  %switch.select2.i.i = select i1 %8, i32 %switch.select.i.i, i32 2
+  %6 = or i1 %cmp.i8, %cmp2.i
+  %switch.select2.i.i = select i1 %6, i32 %switch.select.i.i, i32 2
   store i32 %switch.select2.i.i, ptr %this, align 8
   %position_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %position_.i, align 8

@@ -23,19 +23,18 @@ entry:
   store i64 0, ptr %cs_base, align 8
   %ext_zve32f = getelementptr i8, ptr %env, i64 5184
   %2 = load i8, ptr %ext_zve32f, align 16
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %vtype = getelementptr inbounds i8, ptr %env, i64 4640
-  %4 = load i64, ptr %vtype, align 16
-  %5 = getelementptr i8, ptr %env, i64 5288
-  %call.val = load i16, ptr %5, align 8
-  %6 = trunc i64 %4 to i32
-  %7 = lshr i32 %6, 3
-  %conv.i = and i32 %7, 7
-  %conv2.i = shl i32 %6, 29
+  %3 = load i64, ptr %vtype, align 16
+  %4 = getelementptr i8, ptr %env, i64 5288
+  %call.val = load i16, ptr %4, align 8
+  %5 = trunc i64 %3 to i32
+  %6 = lshr i32 %5, 3
+  %conv.i = and i32 %6, 7
+  %conv2.i = shl i32 %5, 29
   %conv5.i = zext i16 %call.val to i32
   %add.i = add nuw nsw i32 %conv.i, 3
   %conv7.i = ashr exact i32 %conv2.i, 29
@@ -43,61 +42,61 @@ if.then:                                          ; preds = %entry
   %shr.i = lshr i32 %conv5.i, %sub.i
   %shl = shl nuw nsw i32 %shr.i, %conv.i
   %vstart = getelementptr inbounds i8, ptr %env, i64 4632
-  %8 = load i64, ptr %vstart, align 8
-  %cmp6 = icmp eq i64 %8, 0
+  %7 = load i64, ptr %vstart, align 8
+  %cmp6 = icmp eq i64 %7, 0
   br i1 %cmp6, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %if.then
   %conv8 = zext nneg i32 %shr.i to i64
   %vl = getelementptr inbounds i8, ptr %env, i64 4624
-  %9 = load i64, ptr %vl, align 16
-  %cmp9 = icmp eq i64 %9, %conv8
+  %8 = load i64, ptr %vl, align 16
+  %cmp9 = icmp eq i64 %8, %conv8
   br i1 %cmp9, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
   %cmp11 = icmp ugt i32 %shl, 7
-  %10 = select i1 %cmp11, i32 8192, i32 0
+  %9 = select i1 %cmp11, i32 8192, i32 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true, %if.then
   %and6.i68 = phi i32 [ 32768, %land.lhs.true ], [ 0, %if.then ], [ 32768, %land.rhs ]
-  %bf.cast53 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.then ], [ %10, %land.rhs ]
+  %bf.cast53 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.then ], [ %9, %land.rhs ]
   %vill = getelementptr inbounds i8, ptr %env, i64 4648
-  %11 = load i8, ptr %vill, align 8
-  %12 = and i8 %11, 1
-  %shl57.i = zext nneg i8 %12 to i32
+  %10 = load i8, ptr %vill, align 8
+  %11 = and i8 %10, 1
+  %shl57.i = zext nneg i8 %11 to i32
   %and6.i = shl nuw nsw i32 %shl57.i, 14
   %and6.i47 = shl nuw nsw i32 %conv.i, 10
   %or.i = or disjoint i32 %and6.i, %and6.i47
-  %bf.cast40 = shl i32 %6, 7
+  %bf.cast40 = shl i32 %5, 7
   %and6.i50 = and i32 %bf.cast40, 896
   %or.i51 = or disjoint i32 %or.i, %and6.i50
   %and.i58 = or disjoint i32 %or.i51, %bf.cast53
-  %13 = shl i32 %6, 14
-  %and6.i59 = and i32 %13, 1048576
-  %and6.i64 = and i32 %13, 2097152
+  %12 = shl i32 %5, 14
+  %and6.i59 = and i32 %12, 1048576
+  %and6.i64 = and i32 %12, 2097152
   %and.i63.masked.masked = or disjoint i32 %and.i58, %and6.i59
   %and.i66.masked.masked = or disjoint i32 %and6.i64, %and6.i68
-  %14 = or i32 %and.i66.masked.masked, %and.i63.masked.masked
-  %15 = or i32 %14, 120
+  %13 = or i32 %and.i66.masked.masked, %and.i63.masked.masked
+  %14 = or i32 %13, 120
   br label %if.end
 
 if.end:                                           ; preds = %entry, %land.end
-  %flags.0 = phi i32 [ %15, %land.end ], [ 16504, %entry ]
-  %16 = load i32, ptr %xl, align 16
-  %bf.value130 = and i32 %16, 3
+  %flags.0 = phi i32 [ %14, %land.end ], [ 16504, %entry ]
+  %15 = load i32, ptr %xl, align 16
+  %bf.value130 = and i32 %15, 3
   %and6.i75 = shl nuw nsw i32 %bf.value130, 16
   %and.i77 = or i32 %and6.i75, %flags.0
   %and6.i78 = shl nuw nsw i32 %bf.value130, 26
   %or.i79 = or i32 %and.i77, %and6.i78
   %cur_pmmask = getelementptr inbounds i8, ptr %env, i64 5056
-  %17 = load i64, ptr %cur_pmmask, align 16
-  %cmp151.not = icmp eq i64 %17, 0
+  %16 = load i64, ptr %cur_pmmask, align 16
+  %cmp151.not = icmp eq i64 %16, 0
   %or.i81 = or i32 %or.i79, 262144
   %flags.1 = select i1 %cmp151.not, i32 %or.i79, i32 %or.i81
   %cur_pmbase = getelementptr inbounds i8, ptr %env, i64 5064
-  %18 = load i64, ptr %cur_pmbase, align 8
-  %cmp162.not = icmp eq i64 %18, 0
+  %17 = load i64, ptr %cur_pmbase, align 8
+  %cmp162.not = icmp eq i64 %17, 0
   %or.i83 = or i32 %flags.1, 524288
   %flags.2 = select i1 %cmp162.not, i32 %flags.1, i32 %or.i83
   store i32 %flags.2, ptr %pflags, align 4

@@ -162,9 +162,8 @@ define i32 @opal_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
   %6 = load i8, ptr @opal_uses_threads, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %11, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 32
@@ -183,9 +182,8 @@ define i32 @opal_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed
 
 17:                                               ; preds = %15
   %18 = load i8, ptr @opal_uses_threads, align 1
-  %19 = and i8 %18, 1
-  %.not61 = icmp eq i8 %19, 0
-  br i1 %.not61, label %79, label %.sink.split
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %.sink.split, label %79
 
 20:                                               ; preds = %15, %11
   %21 = getelementptr inbounds i8, ptr %0, i64 80
@@ -231,13 +229,13 @@ define i32 @opal_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed
   %50 = icmp eq i64 %49, 4294967295
   %51 = lshr i64 %45, 32
   %spec.select = select i1 %50, i32 32, i32 0
-  %spec.select64 = select i1 %50, i64 %51, i64 %45
-  %52 = and i64 %spec.select64, 65535
+  %spec.select61 = select i1 %50, i64 %51, i64 %45
+  %52 = and i64 %spec.select61, 65535
   %53 = icmp eq i64 %52, 65535
-  %54 = lshr i64 %spec.select64, 16
+  %54 = lshr i64 %spec.select61, 16
   %55 = or disjoint i32 %spec.select, 16
   %.155 = select i1 %53, i32 %55, i32 %spec.select
-  %.1 = select i1 %53, i64 %54, i64 %spec.select64
+  %.1 = select i1 %53, i64 %54, i64 %spec.select61
   %56 = and i64 %.1, 255
   %57 = icmp eq i64 %56, 255
   %58 = lshr i64 %.1, 8
@@ -271,9 +269,8 @@ define i32 @opal_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed
   %storemerge = phi i32 [ %73, %72 ], [ %71, %48 ]
   store i32 %storemerge, ptr %21, align 8
   %75 = load i8, ptr @opal_uses_threads, align 1
-  %76 = and i8 %75, 1
-  %.not63 = icmp eq i8 %76, 0
-  br i1 %.not63, label %79, label %.sink.split
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %.sink.split, label %79
 
 .sink.split:                                      ; preds = %74, %17
   %.053.ph = phi i32 [ -2, %17 ], [ %22, %74 ]
@@ -405,9 +402,8 @@ define noundef i32 @opal_pointer_array_set_item(ptr noundef %0, i32 noundef %1, 
 
 5:                                                ; preds = %3
   %6 = load i8, ptr @opal_uses_threads, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %11, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 32
@@ -417,8 +413,8 @@ define noundef i32 @opal_pointer_array_set_item(ptr noundef %0, i32 noundef %1, 
 11:                                               ; preds = %5, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 88
   %13 = load i32, ptr %12, align 8
-  %.not76 = icmp sgt i32 %13, %1
-  br i1 %.not76, label %19, label %14
+  %.not = icmp sgt i32 %13, %1
+  br i1 %.not, label %19, label %14
 
 14:                                               ; preds = %11
   %15 = tail call fastcc zeroext i1 @grow_table(ptr noundef nonnull %0, i32 noundef %1)
@@ -426,9 +422,8 @@ define noundef i32 @opal_pointer_array_set_item(ptr noundef %0, i32 noundef %1, 
 
 16:                                               ; preds = %14
   %17 = load i8, ptr @opal_uses_threads, align 1
-  %18 = and i8 %17, 1
-  %.not77 = icmp eq i8 %18, 0
-  br i1 %.not77, label %108, label %.sink.split
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %.sink.split, label %108
 
 19:                                               ; preds = %14, %11
   %20 = icmp eq ptr %2, null
@@ -437,11 +432,11 @@ define noundef i32 @opal_pointer_array_set_item(ptr noundef %0, i32 noundef %1, 
   %23 = zext nneg i32 %1 to i64
   %24 = getelementptr inbounds ptr, ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
-  %.not79 = icmp eq ptr %25, null
+  %.not77 = icmp eq ptr %25, null
   br i1 %20, label %26, label %46
 
 26:                                               ; preds = %19
-  br i1 %.not79, label %100, label %27
+  br i1 %.not77, label %100, label %27
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds i8, ptr %0, i64 80
@@ -472,7 +467,7 @@ define noundef i32 @opal_pointer_array_set_item(ptr noundef %0, i32 noundef %1, 
   br label %100
 
 46:                                               ; preds = %19
-  br i1 %.not79, label %47, label %100
+  br i1 %.not77, label %47, label %100
 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds i8, ptr %0, i64 84
@@ -523,13 +518,13 @@ define noundef i32 @opal_pointer_array_set_item(ptr noundef %0, i32 noundef %1, 
   %78 = icmp eq i64 %77, 4294967295
   %79 = lshr i64 %73, 32
   %spec.select = select i1 %78, i32 32, i32 0
-  %spec.select81 = select i1 %78, i64 %79, i64 %73
-  %80 = and i64 %spec.select81, 65535
+  %spec.select78 = select i1 %78, i64 %79, i64 %73
+  %80 = and i64 %spec.select78, 65535
   %81 = icmp eq i64 %80, 65535
-  %82 = lshr i64 %spec.select81, 16
+  %82 = lshr i64 %spec.select78, 16
   %83 = or disjoint i32 %spec.select, 16
   %.169 = select i1 %81, i32 %83, i32 %spec.select
-  %.1 = select i1 %81, i64 %82, i64 %spec.select81
+  %.1 = select i1 %81, i64 %82, i64 %spec.select78
   %84 = and i64 %.1, 255
   %85 = icmp eq i64 %84, 255
   %86 = lshr i64 %.1, 8
@@ -562,9 +557,8 @@ define noundef i32 @opal_pointer_array_set_item(ptr noundef %0, i32 noundef %1, 
   %103 = getelementptr inbounds ptr, ptr %102, i64 %23
   store ptr %2, ptr %103, align 8
   %104 = load i8, ptr @opal_uses_threads, align 1
-  %105 = and i8 %104, 1
-  %.not80 = icmp eq i8 %105, 0
-  br i1 %.not80, label %108, label %.sink.split
+  %105 = trunc i8 %104 to i1
+  br i1 %105, label %.sink.split, label %108
 
 .sink.split:                                      ; preds = %100, %16
   %.067.ph = phi i32 [ -1, %16 ], [ 0, %100 ]
@@ -580,9 +574,8 @@ define noundef i32 @opal_pointer_array_set_item(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @opal_uses_threads, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %9, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -601,14 +594,13 @@ define noundef zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef %0, 
   %16 = sext i32 %1 to i64
   %17 = getelementptr inbounds ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %.not68 = icmp eq ptr %18, null
-  br i1 %.not68, label %.thread, label %19
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %.thread, label %19
 
 19:                                               ; preds = %13
   %20 = load i8, ptr @opal_uses_threads, align 1
-  %21 = and i8 %20, 1
-  %.not73 = icmp eq i8 %21, 0
-  br i1 %.not73, label %87, label %.sink.split
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %.sink.split, label %87
 
 22:                                               ; preds = %9
   %23 = tail call fastcc zeroext i1 @grow_table(ptr noundef nonnull %0, i32 noundef %1)
@@ -617,17 +609,16 @@ define noundef zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef %0, 
 ..thread_crit_edge:                               ; preds = %22
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 112
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre75 = sext i32 %1 to i64
+  %.pre71 = sext i32 %1 to i64
   br label %.thread
 
 24:                                               ; preds = %22
   %25 = load i8, ptr @opal_uses_threads, align 1
-  %26 = and i8 %25, 1
-  %.not70 = icmp eq i8 %26, 0
-  br i1 %.not70, label %87, label %.sink.split
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %.sink.split, label %87
 
 .thread:                                          ; preds = %..thread_crit_edge, %13
-  %.pre-phi = phi i64 [ %.pre75, %..thread_crit_edge ], [ %16, %13 ]
+  %.pre-phi = phi i64 [ %.pre71, %..thread_crit_edge ], [ %16, %13 ]
   %27 = phi ptr [ %.pre, %..thread_crit_edge ], [ %15, %13 ]
   %28 = getelementptr inbounds ptr, ptr %27, i64 %.pre-phi
   store ptr %2, ptr %28, align 8
@@ -674,13 +665,13 @@ define noundef zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef %0, 
   %57 = icmp eq i64 %56, 4294967295
   %58 = lshr i64 %52, 32
   %spec.select = select i1 %57, i32 32, i32 0
-  %spec.select74 = select i1 %57, i64 %58, i64 %52
-  %59 = and i64 %spec.select74, 65535
+  %spec.select70 = select i1 %57, i64 %58, i64 %52
+  %59 = and i64 %spec.select70, 65535
   %60 = icmp eq i64 %59, 65535
-  %61 = lshr i64 %spec.select74, 16
+  %61 = lshr i64 %spec.select70, 16
   %62 = or disjoint i32 %spec.select, 16
   %.160 = select i1 %60, i32 %62, i32 %spec.select
-  %.1 = select i1 %60, i64 %61, i64 %spec.select74
+  %.1 = select i1 %60, i64 %61, i64 %spec.select70
   %63 = and i64 %.1, 255
   %64 = icmp eq i64 %63, 255
   %65 = lshr i64 %.1, 8
@@ -715,9 +706,8 @@ define noundef zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef %0, 
 
 82:                                               ; preds = %79, %55, %44
   %83 = load i8, ptr @opal_uses_threads, align 1
-  %84 = and i8 %83, 1
-  %.not72 = icmp eq i8 %84, 0
-  br i1 %.not72, label %87, label %.sink.split
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %.sink.split, label %87
 
 .sink.split:                                      ; preds = %82, %24, %19
   %.058.ph = phi i1 [ false, %19 ], [ false, %24 ], [ true, %82 ]
@@ -733,9 +723,8 @@ define noundef zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @opal_pointer_array_set_size(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @opal_uses_threads, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %8, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -754,19 +743,17 @@ define noundef i32 @opal_pointer_array_set_size(ptr noundef %0, i32 noundef %1) 
 
 12:                                               ; preds = %8
   %13 = tail call fastcc zeroext i1 @grow_table(ptr noundef nonnull %0, i32 noundef %1)
-  %.pre10 = load i8, ptr @opal_uses_threads, align 1
+  %.pre8 = load i8, ptr @opal_uses_threads, align 1
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %12
-  %15 = and i8 %.pre10, 1
-  %.not8 = icmp eq i8 %15, 0
-  br i1 %.not8, label %21, label %.sink.split
+  %15 = trunc i8 %.pre8 to i1
+  br i1 %15, label %.sink.split, label %21
 
 16:                                               ; preds = %._crit_edge, %12
-  %17 = phi i8 [ %.pre, %._crit_edge ], [ %.pre10, %12 ]
-  %18 = and i8 %17, 1
-  %.not9 = icmp eq i8 %18, 0
-  br i1 %.not9, label %21, label %.sink.split
+  %17 = phi i8 [ %.pre, %._crit_edge ], [ %.pre8, %12 ]
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %.sink.split, label %21
 
 .sink.split:                                      ; preds = %16, %14
   %.0.ph = phi i32 [ -1, %14 ], [ 0, %16 ]

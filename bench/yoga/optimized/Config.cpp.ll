@@ -44,18 +44,15 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false
 lor.rhs:                                          ; preds = %lor.lhs.false9
   %useWebDefaults_.i = getelementptr inbounds i8, ptr %oldConfig, i64 16
   %bf.load.i = load i8, ptr %useWebDefaults_.i, align 8
-  %4 = and i8 %bf.load.i, 1
-  %bf.cast.i = icmp ne i8 %4, 0
   %useWebDefaults_.i11 = getelementptr inbounds i8, ptr %newConfig, i64 16
   %bf.load.i12 = load i8, ptr %useWebDefaults_.i11, align 8
-  %5 = and i8 %bf.load.i12, 1
-  %bf.cast.i13 = icmp ne i8 %5, 0
-  %cmp16 = xor i1 %bf.cast.i, %bf.cast.i13
+  %cmp1614 = xor i8 %bf.load.i12, %bf.load.i
+  %cmp16 = trunc i8 %cmp1614 to i1
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false9, %lor.lhs.false, %entry
-  %6 = phi i1 [ true, %lor.lhs.false9 ], [ true, %lor.lhs.false ], [ true, %entry ], [ %cmp16, %lor.rhs ]
-  ret i1 %6
+  %4 = phi i1 [ true, %lor.lhs.false9 ], [ true, %lor.lhs.false ], [ true, %entry ], [ %cmp16, %lor.rhs ]
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -87,8 +84,7 @@ define noundef zeroext i1 @_ZNK8facebook4yoga6Config14useWebDefaultsEv(ptr nocap
 entry:
   %useWebDefaults_ = getelementptr inbounds i8, ptr %this, i64 16
   %bf.load = load i8, ptr %useWebDefaults_, align 8
-  %0 = and i8 %bf.load, 1
-  %bf.cast = icmp ne i8 %0, 0
+  %bf.cast = trunc i8 %bf.load to i1
   ret i1 %bf.cast
 }
 

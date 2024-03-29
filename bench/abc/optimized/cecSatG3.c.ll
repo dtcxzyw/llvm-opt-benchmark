@@ -1355,7 +1355,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #24
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #24
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1374,7 +1374,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -6147,13 +6147,12 @@ define void @Cec5_ManPackAddPatterns(ptr nocapture noundef readonly %0, i32 noun
   %41 = getelementptr inbounds i64, ptr %.val33, i64 %31
   %42 = getelementptr inbounds i32, ptr %41, i64 %22
   %43 = load i32, ptr %42, align 4
-  %44 = icmp eq i64 %indvars.iv, %indvars.iv40
-  %45 = and i32 %27, 1
-  %.tr = icmp ne i32 %45, 0
-  %.narrow = xor i1 %44, %.tr
-  %46 = and i32 %43, %24
-  %47 = icmp eq i32 %46, 0
-  %.not29 = xor i1 %.narrow, %47
+  %44 = lshr i32 %43, %23
+  %.tr = trunc i32 %27 to i1
+  %45 = trunc i32 %44 to i1
+  %46 = icmp ne i64 %indvars.iv, %indvars.iv40
+  %47 = xor i1 %46, %.tr
+  %.not29 = xor i1 %47, %45
   br i1 %.not29, label %50, label %48
 
 48:                                               ; preds = %38
@@ -6310,7 +6309,7 @@ define i32 @Cec5_ManPackAddPattern(ptr nocapture noundef %0, ptr nocapture nound
 
 9:                                                ; preds = %.lr.ph, %66
   %10 = phi i32 [ %7, %.lr.ph ], [ %68, %66 ]
-  %.062 = phi i32 [ 1, %.lr.ph ], [ %67, %66 ]
+  %.061 = phi i32 [ 1, %.lr.ph ], [ %67, %66 ]
   %11 = load i32, ptr %8, align 4
   %12 = add nsw i32 %11, 1
   %13 = add i32 %10, -2
@@ -6389,13 +6388,12 @@ define i32 @Cec5_ManPackAddPattern(ptr nocapture noundef %0, ptr nocapture nound
   %54 = getelementptr inbounds i64, ptr %.val33.i, i64 %44
   %55 = getelementptr inbounds i32, ptr %54, i64 %35
   %56 = load i32, ptr %55, align 4
-  %57 = icmp eq i64 %indvars.iv.i, %indvars.iv40.i
-  %58 = and i32 %40, 1
-  %.tr.i = icmp ne i32 %58, 0
-  %.narrow.i = xor i1 %57, %.tr.i
-  %59 = and i32 %56, %37
-  %60 = icmp eq i32 %59, 0
-  %.not29.i = xor i1 %.narrow.i, %60
+  %57 = lshr i32 %56, %36
+  %.tr.i = trunc i32 %40 to i1
+  %58 = trunc i32 %57 to i1
+  %59 = icmp ne i64 %indvars.iv.i, %indvars.iv40.i
+  %60 = xor i1 %59, %.tr.i
+  %.not29.i = xor i1 %60, %58
   br i1 %.not29.i, label %63, label %61
 
 61:                                               ; preds = %51
@@ -6419,7 +6417,7 @@ define i32 @Cec5_ManPackAddPattern(ptr nocapture noundef %0, ptr nocapture nound
   br i1 %exitcond.not.i, label %Cec5_ManPackAddPatterns.exit.loopexit, label %.lr.ph37.split.i, !llvm.loop !57
 
 66:                                               ; preds = %9
-  %67 = add nuw nsw i32 %.062, 1
+  %67 = add nuw nsw i32 %.061, 1
   %68 = shl nsw i32 %16, 6
   %69 = add nsw i32 %68, -1
   %70 = icmp slt i32 %67, %69
@@ -6431,26 +6429,26 @@ Cec5_ManPackAddPatterns.exit.loopexit:            ; preds = %.critedge.i
 
 Cec5_ManPackAddPatterns.exit:                     ; preds = %66, %Cec5_ManPackAddPatterns.exit.loopexit, %18, %17
   %71 = phi i32 [ %16, %18 ], [ %16, %17 ], [ %.pre, %Cec5_ManPackAddPatterns.exit.loopexit ], [ %16, %66 ]
-  %.060 = phi i32 [ %.062, %18 ], [ %.062, %17 ], [ %.062, %Cec5_ManPackAddPatterns.exit.loopexit ], [ %67, %66 ]
+  %.059 = phi i32 [ %.061, %18 ], [ %.061, %17 ], [ %.061, %Cec5_ManPackAddPatterns.exit.loopexit ], [ %67, %66 ]
   %72 = shl nsw i32 %71, 6
   %73 = add nsw i32 %72, -1
-  %74 = icmp eq i32 %.060, %73
+  %74 = icmp eq i32 %.059, %73
   br i1 %74, label %75, label %Cec5_ManPackAddPatterns.exit.thread
 
 75:                                               ; preds = %Cec5_ManPackAddPatterns.exit
   %76 = getelementptr inbounds i8, ptr %0, i64 812
-  store i32 %.060, ptr %76, align 4
-  %77 = tail call i32 @Cec5_ManPackAddPatternTry(ptr noundef nonnull %0, i32 noundef %.060, ptr noundef %1), !range !55
+  store i32 %.059, ptr %76, align 4
+  %77 = tail call i32 @Cec5_ManPackAddPatternTry(ptr noundef nonnull %0, i32 noundef %.059, ptr noundef %1), !range !55
   %.not28 = icmp eq i32 %77, 0
   br i1 %.not28, label %78, label %79
 
 78:                                               ; preds = %75
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %Cec5_ManPackAddPatterns.exit56
+  br label %Cec5_ManPackAddPatterns.exit55
 
 79:                                               ; preds = %75
   %.not29 = icmp eq i32 %2, 0
-  br i1 %.not29, label %Cec5_ManPackAddPatterns.exit56, label %80
+  br i1 %.not29, label %Cec5_ManPackAddPatterns.exit55, label %80
 
 80:                                               ; preds = %79
   %81 = getelementptr i8, ptr %1, i64 4
@@ -6460,7 +6458,7 @@ Cec5_ManPackAddPatterns.exit:                     ; preds = %66, %Cec5_ManPackAd
   %84 = add nsw i32 %83, -1
   %85 = tail call noundef i32 @llvm.smin.i32(i32 %.val30.i30, i32 %84)
   %86 = icmp sgt i32 %85, 0
-  br i1 %86, label %.lr.ph37.i31, label %Cec5_ManPackAddPatterns.exit56
+  br i1 %86, label %.lr.ph37.i31, label %Cec5_ManPackAddPatterns.exit55
 
 .lr.ph37.i31:                                     ; preds = %80
   %87 = load i32, ptr %76, align 4
@@ -6516,23 +6514,22 @@ Cec5_ManPackAddPatterns.exit:                     ; preds = %66, %Cec5_ManPackAd
   %117 = getelementptr inbounds i64, ptr %.val33.i51, i64 %107
   %118 = getelementptr inbounds i32, ptr %117, i64 %98
   %119 = load i32, ptr %118, align 4
-  %120 = icmp eq i64 %indvars.iv.i45, %indvars.iv40.i37
-  %121 = and i32 %103, 1
-  %.tr.i52 = icmp ne i32 %121, 0
-  %.narrow.i53 = xor i1 %120, %.tr.i52
-  %122 = and i32 %119, %100
-  %123 = icmp eq i32 %122, 0
-  %.not29.i54 = xor i1 %.narrow.i53, %123
-  br i1 %.not29.i54, label %126, label %124
+  %120 = lshr i32 %119, %99
+  %.tr.i52 = trunc i32 %103 to i1
+  %121 = trunc i32 %120 to i1
+  %122 = icmp ne i64 %indvars.iv.i45, %indvars.iv40.i37
+  %123 = xor i1 %122, %.tr.i52
+  %.not29.i53 = xor i1 %123, %121
+  br i1 %.not29.i53, label %126, label %124
 
 124:                                              ; preds = %114
   %125 = xor i32 %119, %100
   store i32 %125, ptr %118, align 4
-  %.val.pre.i55 = load i32, ptr %81, align 4
+  %.val.pre.i54 = load i32, ptr %81, align 4
   br label %126
 
 126:                                              ; preds = %124, %114, %101
-  %.val.i49 = phi i32 [ %.val47.i44, %114 ], [ %.val.pre.i55, %124 ], [ %.val47.i44, %101 ]
+  %.val.i49 = phi i32 [ %.val47.i44, %114 ], [ %.val.pre.i54, %124 ], [ %.val47.i44, %101 ]
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i45, 1
   %127 = sext i32 %.val.i49 to i64
   %128 = icmp slt i64 %indvars.iv.next.i50, %127
@@ -6543,15 +6540,15 @@ Cec5_ManPackAddPatterns.exit:                     ; preds = %66, %Cec5_ManPackAd
   %.val3444.i40 = phi i32 [ %.val34.i36, %.lr.ph37.split.i34 ], [ %.val.i49, %126 ]
   %indvars.iv.next41.i41 = add nuw nsw i64 %indvars.iv40.i37, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next41.i41, %wide.trip.count.i33
-  br i1 %exitcond.not.i42, label %Cec5_ManPackAddPatterns.exit56, label %.lr.ph37.split.i34, !llvm.loop !57
+  br i1 %exitcond.not.i42, label %Cec5_ManPackAddPatterns.exit55, label %.lr.ph37.split.i34, !llvm.loop !57
 
-Cec5_ManPackAddPatterns.exit56:                   ; preds = %.critedge.i38, %80, %79, %78
+Cec5_ManPackAddPatterns.exit55:                   ; preds = %.critedge.i38, %80, %79, %78
   %129 = load i32, ptr %4, align 8
   %130 = shl nsw i32 %129, 6
   br label %Cec5_ManPackAddPatterns.exit.thread
 
-Cec5_ManPackAddPatterns.exit.thread:              ; preds = %3, %Cec5_ManPackAddPatterns.exit, %Cec5_ManPackAddPatterns.exit56
-  %.026 = phi i32 [ %130, %Cec5_ManPackAddPatterns.exit56 ], [ %.060, %Cec5_ManPackAddPatterns.exit ], [ 1, %3 ]
+Cec5_ManPackAddPatterns.exit.thread:              ; preds = %3, %Cec5_ManPackAddPatterns.exit, %Cec5_ManPackAddPatterns.exit55
+  %.026 = phi i32 [ %130, %Cec5_ManPackAddPatterns.exit55 ], [ %.059, %Cec5_ManPackAddPatterns.exit ], [ 1, %3 ]
   ret i32 %.026
 }
 
@@ -6818,34 +6815,33 @@ Gia_ObjIsXor.exit:                                ; preds = %84
 
 145:                                              ; preds = %143
   %.val.i200 = load i64, ptr %1, align 4
-  %146 = and i64 %.val.i200, 2305843009213693952
-  %147 = icmp eq i64 %146, 0
-  %.not.i201 = xor i1 %.not, %147
-  %148 = lshr i64 %.val.i200, 32
-  %149 = and i64 %148, 536870911
-  %150 = sub nsw i64 0, %149
-  %151 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %150
-  %152 = load i64, ptr %151, align 4
-  %153 = lshr i64 %152, 62
-  %154 = trunc i64 %153 to i32
-  %155 = trunc i64 %152 to i32
-  %156 = lshr i32 %155, 30
-  %.in.i202 = select i1 %.not.i201, i32 %156, i32 %154
-  %157 = and i32 %.in.i202, 1
-  %.not164 = icmp eq i32 %157, 0
-  br i1 %.not164, label %158, label %284
+  %146 = lshr i64 %.val.i200, 61
+  %147 = trunc i64 %146 to i1
+  %148 = xor i1 %.not, %147
+  %149 = lshr i64 %.val.i200, 32
+  %150 = and i64 %149, 536870911
+  %151 = sub nsw i64 0, %150
+  %152 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %151
+  %153 = load i64, ptr %152, align 4
+  %154 = lshr i64 %153, 62
+  %155 = trunc i64 %154 to i32
+  %156 = trunc i64 %153 to i32
+  %157 = lshr i32 %156, 30
+  %.in.i202 = select i1 %148, i32 %155, i32 %157
+  %158 = and i32 %.in.i202, 1
+  %.not164 = icmp eq i32 %158, 0
+  br i1 %.not164, label %159, label %284
 
-158:                                              ; preds = %145
-  %159 = lshr i64 %.val.i200, 61
-  %160 = trunc i64 %159 to i32
+159:                                              ; preds = %145
+  %160 = trunc i64 %146 to i32
   %161 = and i32 %160, 1
   %.not.i204 = icmp eq i32 %161, %2
-  %.in.i205 = select i1 %.not.i204, i32 %156, i32 %154
+  %.in.i205 = select i1 %.not.i204, i32 %157, i32 %155
   %162 = and i32 %.in.i205, 1
   %.not165 = icmp eq i32 %162, 0
   br i1 %.not165, label %163, label %186
 
-163:                                              ; preds = %158
+163:                                              ; preds = %159
   %164 = tail call i32 @Cec5_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4), !range !55
   %.not166 = icmp eq i32 %164, 0
   br i1 %.not166, label %284, label %186
@@ -6888,7 +6884,7 @@ Gia_ObjIsXor.exit:                                ; preds = %84
   %.not162 = icmp eq i32 %185, 0
   br i1 %.not162, label %284, label %186
 
-186:                                              ; preds = %133, %181, %184, %158, %163, %125
+186:                                              ; preds = %133, %181, %184, %159, %163, %125
   br label %284
 
 Gia_ObjIsXor.exit.thread:                         ; preds = %84, %Gia_ObjIsXor.exit
@@ -12933,22 +12929,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #16
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #16
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #18
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_addr #0 {
@@ -13117,9 +13107,15 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #19
+declare void @exit(i32 noundef) local_unnamed_addr #18
 
 declare void @Gia_ObjAddFanout(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20
@@ -13158,10 +13154,10 @@ attributes #12 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vect
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nofree nounwind }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

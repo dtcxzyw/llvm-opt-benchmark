@@ -341,13 +341,12 @@ define i32 @PQfireResultCreateEvents(ptr noundef %0, ptr noundef %1) local_unnam
 
 9:                                                ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %.01520 = phi i32 [ 1, %.lr.ph ], [ %.1, %23 ]
+  %.01519 = phi i32 [ 1, %.lr.ph ], [ %.1, %23 ]
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr %struct.PGEvent, ptr %10, i64 %indvars.iv, i32 4
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not18 = icmp eq i8 %13, 0
-  br i1 %.not18, label %14, label %23
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %23, label %14
 
 14:                                               ; preds = %9
   store ptr %0, ptr %3, align 8
@@ -357,8 +356,8 @@ define i32 @PQfireResultCreateEvents(ptr noundef %0, ptr noundef %1) local_unnam
   %17 = getelementptr inbounds i8, ptr %15, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 %16(i32 noundef 3, ptr noundef nonnull %3, ptr noundef %18) #9
-  %.not19 = icmp eq i32 %19, 0
-  br i1 %.not19, label %23, label %20
+  %.not18 = icmp eq i32 %19, 0
+  br i1 %.not18, label %23, label %20
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %7, align 8
@@ -367,7 +366,7 @@ define i32 @PQfireResultCreateEvents(ptr noundef %0, ptr noundef %1) local_unnam
   br label %23
 
 23:                                               ; preds = %14, %9, %20
-  %.1 = phi i32 [ %.01520, %9 ], [ %.01520, %20 ], [ 0, %14 ]
+  %.1 = phi i32 [ %.01519, %9 ], [ %.01519, %20 ], [ 0, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %4, align 8
   %25 = sext i32 %24 to i64

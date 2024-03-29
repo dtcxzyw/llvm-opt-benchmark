@@ -248,8 +248,7 @@ switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !8, !noundef !7
   %switch.cast = trunc i8 %1 to i5
   %switch.downshift = lshr i5 -12, %switch.cast
-  %2 = and i5 %switch.downshift, 1
-  %switch.masked = icmp ne i5 %2, 0
+  %switch.masked = trunc i5 %switch.downshift to i1
   ret i1 %switch.masked
 }
 

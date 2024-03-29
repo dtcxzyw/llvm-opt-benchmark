@@ -57,25 +57,24 @@ entry:
   %retval = alloca %"class.icu_75::number::IntegerWidth", align 8
   %fHasError = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %fHasError, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %retval, ptr noundef nonnull align 4 dereferenceable(12) %this, i64 12, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load i16, ptr %this, align 4
+  %1 = load i16, ptr %this, align 4
   %or.cond = icmp ugt i32 %maxInt, 999
-  %conv = sext i16 %2 to i32
+  %conv = sext i16 %1 to i32
   %cmp4.not = icmp sgt i32 %conv, %maxInt
   %or.cond7 = select i1 %or.cond, i1 true, i1 %cmp4.not
   br i1 %or.cond7, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.end
   %conv6 = trunc i32 %maxInt to i16
-  call void @_ZN6icu_756number12IntegerWidthC1Essb(ptr noundef nonnull align 4 dereferenceable(9) %retval, i16 noundef signext %2, i16 noundef signext %conv6, i1 noundef zeroext false)
+  call void @_ZN6icu_756number12IntegerWidthC1Essb(ptr noundef nonnull align 4 dereferenceable(9) %retval, i16 noundef signext %1, i16 noundef signext %conv6, i1 noundef zeroext false)
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -83,7 +82,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp7, label %if.then8, label %if.else9
 
 if.then8:                                         ; preds = %if.else
-  call void @_ZN6icu_756number12IntegerWidthC1Essb(ptr noundef nonnull align 4 dereferenceable(9) %retval, i16 noundef signext %2, i16 noundef signext -1, i1 noundef zeroext false)
+  call void @_ZN6icu_756number12IntegerWidthC1Essb(ptr noundef nonnull align 4 dereferenceable(9) %retval, i16 noundef signext %1, i16 noundef signext -1, i1 noundef zeroext false)
   br label %return
 
 if.else9:                                         ; preds = %if.else
@@ -111,9 +110,8 @@ entry:
 if.end:                                           ; preds = %entry
   %fHasError = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %fHasError, align 4
-  %2 = and i8 %1, 1
-  %tobool2.not = icmp eq i8 %2, 0
-  br i1 %tobool2.not, label %if.else, label %if.then3
+  %tobool2 = trunc i8 %1 to i1
+  br i1 %tobool2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
   store i32 1, ptr %status, align 4
@@ -121,23 +119,22 @@ if.then3:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %fMaxInt = getelementptr inbounds i8, ptr %this, i64 2
-  %3 = load i16, ptr %fMaxInt, align 2
-  %conv = sext i16 %3 to i32
-  %cmp = icmp eq i16 %3, -1
+  %2 = load i16, ptr %fMaxInt, align 2
+  %conv = sext i16 %2 to i32
+  %cmp = icmp eq i16 %2, -1
   br i1 %cmp, label %if.then4, label %if.else7
 
 if.then4:                                         ; preds = %if.else
-  %4 = load i16, ptr %this, align 4
-  %conv6 = sext i16 %4 to i32
+  %3 = load i16, ptr %this, align 4
+  %conv6 = sext i16 %3 to i32
   tail call void @_ZN6icu_756number4impl15DecimalQuantity13setMinIntegerEi(ptr noundef nonnull align 8 dereferenceable(66) %quantity, i32 noundef %conv6)
   br label %if.end24
 
 if.else7:                                         ; preds = %if.else
   %fFormatFailIfMoreThanMaxDigits = getelementptr inbounds i8, ptr %this, i64 4
-  %5 = load i8, ptr %fFormatFailIfMoreThanMaxDigits, align 4
-  %6 = and i8 %5, 1
-  %tobool9.not = icmp eq i8 %6, 0
-  br i1 %tobool9.not, label %if.end16, label %land.lhs.true
+  %4 = load i8, ptr %fFormatFailIfMoreThanMaxDigits, align 4
+  %tobool9 = trunc i8 %4 to i1
+  br i1 %tobool9, label %land.lhs.true, label %if.end16
 
 land.lhs.true:                                    ; preds = %if.else7
   %call13 = tail call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %quantity)
@@ -149,11 +146,11 @@ if.then15:                                        ; preds = %land.lhs.true
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %land.lhs.true, %if.else7
-  %7 = load i16, ptr %this, align 4
-  %conv19 = sext i16 %7 to i32
+  %5 = load i16, ptr %this, align 4
+  %conv19 = sext i16 %5 to i32
   tail call void @_ZN6icu_756number4impl15DecimalQuantity13setMinIntegerEi(ptr noundef nonnull align 8 dereferenceable(66) %quantity, i32 noundef %conv19)
-  %8 = load i16, ptr %fMaxInt, align 2
-  %conv22 = sext i16 %8 to i32
+  %6 = load i16, ptr %fMaxInt, align 2
+  %conv22 = sext i16 %6 to i32
   tail call void @_ZN6icu_756number4impl15DecimalQuantity15applyMaxIntegerEi(ptr noundef nonnull align 8 dereferenceable(66) %quantity, i32 noundef %conv22)
   br label %if.end24
 

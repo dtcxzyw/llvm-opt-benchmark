@@ -877,13 +877,12 @@ switch.early.test:                                ; preds = %lor.lhs.false
 switch.lookup:                                    ; preds = %switch.early.test
   %switch.cast = zext nneg i8 %switch.tableidx to i54
   %switch.downshift = lshr i54 -9007199254740951, %switch.cast
-  %3 = and i54 %switch.downshift, 1
-  %switch.masked = icmp ne i54 %3, 0
+  %switch.masked = trunc i54 %switch.downshift to i1
   br label %lor.end
 
 lor.end:                                          ; preds = %switch.early.test, %switch.lookup, %lor.lhs.false, %entry
-  %4 = phi i1 [ true, %entry ], [ true, %lor.lhs.false ], [ %switch.masked, %switch.lookup ], [ false, %switch.early.test ]
-  ret i1 %4
+  %3 = phi i1 [ true, %entry ], [ true, %lor.lhs.false ], [ %switch.masked, %switch.lookup ], [ false, %switch.early.test ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
@@ -1019,16 +1018,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.not7, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
-  %equalSeen.09 = phi i8 [ %equalSeen.1, %for.inc ], [ 0, %if.end ]
+  %equalSeen.09 = phi i1 [ %cmp6, %for.inc ], [ false, %if.end ]
   %it.sroa.0.08 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %call1, %if.end ]
   %0 = load i8, ptr %it.sroa.0.08, align 1
   %cmp6 = icmp eq i8 %0, 61
   br i1 %cmp6, label %for.inc, label %if.else
 
 if.else:                                          ; preds = %for.body
-  %1 = and i8 %equalSeen.09, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %lor.lhs.false, label %return
+  br i1 %equalSeen.09, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else
   %conv.i = sext i8 %0 to i32
@@ -1039,13 +1036,12 @@ lor.lhs.false:                                    ; preds = %if.else
 _ZN8proxygen17StructuredHeaders31isValidEncodedBinaryContentCharEc.exit: ; preds = %lor.lhs.false
   %isdigittmp.i = add nsw i32 %conv.i, -48
   %isdigit.i = icmp ult i32 %isdigittmp.i, 10
-  %2 = and i8 %0, -5
-  %3 = icmp eq i8 %2, 43
-  %or.cond1.i = or i1 %3, %isdigit.i
+  %1 = and i8 %0, -5
+  %2 = icmp eq i8 %1, 43
+  %or.cond1.i = or i1 %2, %isdigit.i
   br i1 %or.cond1.i, label %for.inc, label %return
 
 for.inc:                                          ; preds = %lor.lhs.false, %for.body, %_ZN8proxygen17StructuredHeaders31isValidEncodedBinaryContentCharEc.exit
-  %equalSeen.1 = phi i8 [ %equalSeen.09, %_ZN8proxygen17StructuredHeaders31isValidEncodedBinaryContentCharEc.exit ], [ 1, %for.body ], [ %equalSeen.09, %lor.lhs.false ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.08, i64 1
   %call2 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #15
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %call2

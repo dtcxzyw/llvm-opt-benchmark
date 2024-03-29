@@ -1109,9 +1109,8 @@ entry:
   %0 = load ptr, ptr %m_fparams, align 8
   %m_profile_res_sub = getelementptr inbounds i8, ptr %0, i64 752
   %1 = load i8, ptr %m_profile_res_sub, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @_ZNK3smt7context26display_var_occs_histogramERSo(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef nonnull align 8 dereferenceable(8) %out)

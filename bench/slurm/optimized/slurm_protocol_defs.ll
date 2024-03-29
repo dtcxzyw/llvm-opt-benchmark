@@ -3213,9 +3213,8 @@ define void @slurm_msg_t_copy(ptr noundef %0, ptr nocapture noundef readonly %1)
   store i16 0, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 148
   %20 = load i8, ptr %19, align 4
-  %21 = and i8 %20, 1
-  %.not = icmp eq i8 %21, 0
-  br i1 %.not, label %25, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %25
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds i8, ptr %1, i64 140
@@ -3614,11 +3613,11 @@ define i32 @slurm_addto_char_list_with_case(ptr noundef %0, ptr noundef %1, i1 n
 
 5:                                                ; preds = %3
   %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #22
-  br label %82
+  br label %80
 
 7:                                                ; preds = %3
   %.not82 = icmp eq ptr %1, null
-  br i1 %.not82, label %80, label %8
+  br i1 %.not82, label %78, label %8
 
 8:                                                ; preds = %7
   %9 = load i8, ptr %1, align 1
@@ -3639,178 +3638,174 @@ define i32 @slurm_addto_char_list_with_case(ptr noundef %0, ptr noundef %1, i1 n
   %14 = zext nneg i32 %.067 to i64
   %15 = getelementptr inbounds i8, ptr %1, i64 %14
   %16 = load i8, ptr %15, align 1
-  %.not8399 = icmp eq i8 %16, 0
+  %.not8397 = icmp eq i8 %16, 0
   %17 = sext i8 %16 to i32
   %18 = icmp eq i32 %.075, %17
-  %or.cond100 = select i1 %.not84.not, i1 %18, i1 false
-  %or.cond97101 = select i1 %.not8399, i1 true, i1 %or.cond100
-  br i1 %or.cond97101, label %._crit_edge, label %.lr.ph106
+  %or.cond98 = select i1 %.not84.not, i1 %18, i1 false
+  %or.cond9599 = select i1 %.not8397, i1 true, i1 %or.cond98
+  br i1 %or.cond9599, label %._crit_edge, label %.lr.ph104
 
-.lr.ph106:                                        ; preds = %12, %.thread
+.lr.ph104:                                        ; preds = %12, %.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ %14, %12 ]
-  %19 = phi i8 [ %66, %.thread ], [ %16, %12 ]
-  %20 = phi ptr [ %65, %.thread ], [ %15, %12 ]
-  %.1105 = phi i32 [ %64, %.thread ], [ %.067, %12 ]
-  %.068104 = phi i32 [ %.3, %.thread ], [ %.067, %12 ]
-  %.070103 = phi i8 [ %.171, %.thread ], [ 0, %12 ]
-  %.072102 = phi i8 [ %.173, %.thread ], [ 0, %12 ]
+  %19 = phi i8 [ %64, %.thread ], [ %16, %12 ]
+  %20 = phi ptr [ %63, %.thread ], [ %15, %12 ]
+  %.1103 = phi i32 [ %62, %.thread ], [ %.067, %12 ]
+  %.068102 = phi i32 [ %.3, %.thread ], [ %.067, %12 ]
+  %.070101 = phi i1 [ %.171, %.thread ], [ false, %12 ]
+  %.072100 = phi i1 [ %.173, %.thread ], [ false, %12 ]
   switch i8 %19, label %.thread.fold.split [
     i8 34, label %21
     i8 39, label %21
     i8 91, label %.thread
     i8 44, label %22
-    i8 93, label %45
+    i8 93, label %43
   ]
 
-21:                                               ; preds = %.lr.ph106, %.lr.ph106
+21:                                               ; preds = %.lr.ph104, %.lr.ph104
   store i8 96, ptr %20, align 1
   br label %.thread
 
-22:                                               ; preds = %.lr.ph106
-  %23 = and i8 %.070103, 1
-  %.not85 = icmp eq i8 %23, 0
-  br i1 %.not85, label %24, label %.thread
+22:                                               ; preds = %.lr.ph104
+  br i1 %.070101, label %.thread, label %23
 
-24:                                               ; preds = %22
-  %25 = and i8 %.072102, 1
-  %.not86 = icmp eq i8 %25, 0
-  br i1 %.not86, label %26, label %43
+23:                                               ; preds = %22
+  br i1 %.072100, label %41, label %24
 
-26:                                               ; preds = %24
-  %27 = add nuw nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds i8, ptr %1, i64 %27
-  %29 = load i8, ptr %28, align 1
-  %.not87 = icmp eq i8 %29, 0
-  %30 = trunc i64 %indvars.iv to i32
-  br i1 %.not87, label %._crit_edge, label %31
+24:                                               ; preds = %23
+  %25 = add nuw nsw i64 %indvars.iv, 1
+  %26 = getelementptr inbounds i8, ptr %1, i64 %25
+  %27 = load i8, ptr %26, align 1
+  %.not85 = icmp eq i8 %27, 0
+  %28 = trunc i64 %indvars.iv to i32
+  br i1 %.not85, label %._crit_edge, label %29
 
-31:                                               ; preds = %26
-  %32 = zext i32 %.068104 to i64
-  %.not88 = icmp eq i64 %indvars.iv, %32
-  %33 = trunc i64 %27 to i32
-  br i1 %.not88, label %.thread, label %34
+29:                                               ; preds = %24
+  %30 = zext i32 %.068102 to i64
+  %.not86 = icmp eq i64 %indvars.iv, %30
+  %31 = trunc i64 %25 to i32
+  br i1 %.not86, label %.thread, label %32
 
-34:                                               ; preds = %31
-  %35 = sext i32 %.068104 to i64
-  %36 = getelementptr inbounds i8, ptr %1, i64 %35
-  %37 = sub nsw i32 %30, %.068104
-  %38 = sext i32 %37 to i64
-  %39 = call ptr @xstrndup(ptr noundef nonnull %36, i64 noundef %38) #22
-  store ptr %39, ptr %4, align 8
-  br i1 %2, label %40, label %_add_to_list.exit
+32:                                               ; preds = %29
+  %33 = sext i32 %.068102 to i64
+  %34 = getelementptr inbounds i8, ptr %1, i64 %33
+  %35 = sub nsw i32 %28, %.068102
+  %36 = sext i32 %35 to i64
+  %37 = call ptr @xstrndup(ptr noundef nonnull %34, i64 noundef %36) #22
+  store ptr %37, ptr %4, align 8
+  br i1 %2, label %38, label %_add_to_list.exit
 
-40:                                               ; preds = %34
-  %41 = call zeroext i1 @xstrtolower(ptr noundef %39) #22
+38:                                               ; preds = %32
+  %39 = call zeroext i1 @xstrtolower(ptr noundef %37) #22
   br label %_add_to_list.exit
 
-_add_to_list.exit:                                ; preds = %34, %40
-  %42 = call i32 @list_delete_all(ptr noundef nonnull %0, ptr noundef nonnull @slurm_find_char_exact_in_list, ptr noundef %39) #22
-  call void @list_append(ptr noundef nonnull %0, ptr noundef %39) #22
+_add_to_list.exit:                                ; preds = %32, %38
+  %40 = call i32 @list_delete_all(ptr noundef nonnull %0, ptr noundef nonnull @slurm_find_char_exact_in_list, ptr noundef %37) #22
+  call void @list_append(ptr noundef nonnull %0, ptr noundef %37) #22
   br label %.thread
 
-43:                                               ; preds = %24
-  %44 = add nuw nsw i32 %.1105, 1
+41:                                               ; preds = %23
+  %42 = add nuw nsw i32 %.1103, 1
   br label %.thread
 
-45:                                               ; preds = %.lr.ph106
-  %46 = sext i32 %.068104 to i64
-  %47 = getelementptr inbounds i8, ptr %1, i64 %46
-  %48 = trunc i64 %indvars.iv to i32
-  %49 = add i32 %48, 1
-  %50 = sub nsw i32 %49, %.068104
-  %51 = sext i32 %50 to i64
-  %52 = call ptr @xstrndup(ptr noundef nonnull %47, i64 noundef %51) #22
-  store ptr %52, ptr %4, align 8
-  %53 = call ptr @hostlist_create(ptr noundef %52) #22
-  %.not89 = icmp eq ptr %53, null
-  br i1 %.not89, label %.loopexit, label %.preheader
+43:                                               ; preds = %.lr.ph104
+  %44 = sext i32 %.068102 to i64
+  %45 = getelementptr inbounds i8, ptr %1, i64 %44
+  %46 = trunc i64 %indvars.iv to i32
+  %47 = add i32 %46, 1
+  %48 = sub nsw i32 %47, %.068102
+  %49 = sext i32 %48 to i64
+  %50 = call ptr @xstrndup(ptr noundef nonnull %45, i64 noundef %49) #22
+  store ptr %50, ptr %4, align 8
+  %51 = call ptr @hostlist_create(ptr noundef %50) #22
+  %.not87 = icmp eq ptr %51, null
+  br i1 %.not87, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %45
-  %54 = call ptr @hostlist_shift(ptr noundef nonnull %53) #22
-  %.not9098 = icmp eq ptr %54, null
-  br i1 %.not9098, label %.loopexit, label %.lr.ph
+.preheader:                                       ; preds = %43
+  %52 = call ptr @hostlist_shift(ptr noundef nonnull %51) #22
+  %.not8896 = icmp eq ptr %52, null
+  br i1 %.not8896, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  br i1 %2, label %_add_to_list.exit94.us, label %_add_to_list.exit94
+  br i1 %2, label %_add_to_list.exit92.us, label %_add_to_list.exit92
 
-_add_to_list.exit94.us:                           ; preds = %.lr.ph, %_add_to_list.exit94.us
-  %55 = phi ptr [ %59, %_add_to_list.exit94.us ], [ %54, %.lr.ph ]
-  %56 = call ptr @xstrdup(ptr noundef nonnull %55) #22
-  call void @free(ptr noundef nonnull %55) #22
-  %57 = call zeroext i1 @xstrtolower(ptr noundef %56) #22
-  %58 = call i32 @list_delete_all(ptr noundef nonnull %0, ptr noundef nonnull @slurm_find_char_exact_in_list, ptr noundef %56) #22
-  call void @list_append(ptr noundef nonnull %0, ptr noundef %56) #22
-  %59 = call ptr @hostlist_shift(ptr noundef nonnull %53) #22
-  %.not90.us = icmp eq ptr %59, null
-  br i1 %.not90.us, label %.loopexit, label %_add_to_list.exit94.us, !llvm.loop !17
+_add_to_list.exit92.us:                           ; preds = %.lr.ph, %_add_to_list.exit92.us
+  %53 = phi ptr [ %57, %_add_to_list.exit92.us ], [ %52, %.lr.ph ]
+  %54 = call ptr @xstrdup(ptr noundef nonnull %53) #22
+  call void @free(ptr noundef nonnull %53) #22
+  %55 = call zeroext i1 @xstrtolower(ptr noundef %54) #22
+  %56 = call i32 @list_delete_all(ptr noundef nonnull %0, ptr noundef nonnull @slurm_find_char_exact_in_list, ptr noundef %54) #22
+  call void @list_append(ptr noundef nonnull %0, ptr noundef %54) #22
+  %57 = call ptr @hostlist_shift(ptr noundef nonnull %51) #22
+  %.not88.us = icmp eq ptr %57, null
+  br i1 %.not88.us, label %.loopexit, label %_add_to_list.exit92.us, !llvm.loop !17
 
-_add_to_list.exit94:                              ; preds = %.lr.ph, %_add_to_list.exit94
-  %60 = phi ptr [ %63, %_add_to_list.exit94 ], [ %54, %.lr.ph ]
-  %61 = call ptr @xstrdup(ptr noundef nonnull %60) #22
-  call void @free(ptr noundef nonnull %60) #22
-  %62 = call i32 @list_delete_all(ptr noundef nonnull %0, ptr noundef nonnull @slurm_find_char_exact_in_list, ptr noundef %61) #22
-  call void @list_append(ptr noundef nonnull %0, ptr noundef %61) #22
-  %63 = call ptr @hostlist_shift(ptr noundef nonnull %53) #22
-  %.not90 = icmp eq ptr %63, null
-  br i1 %.not90, label %.loopexit, label %_add_to_list.exit94, !llvm.loop !17
+_add_to_list.exit92:                              ; preds = %.lr.ph, %_add_to_list.exit92
+  %58 = phi ptr [ %61, %_add_to_list.exit92 ], [ %52, %.lr.ph ]
+  %59 = call ptr @xstrdup(ptr noundef nonnull %58) #22
+  call void @free(ptr noundef nonnull %58) #22
+  %60 = call i32 @list_delete_all(ptr noundef nonnull %0, ptr noundef nonnull @slurm_find_char_exact_in_list, ptr noundef %59) #22
+  call void @list_append(ptr noundef nonnull %0, ptr noundef %59) #22
+  %61 = call ptr @hostlist_shift(ptr noundef nonnull %51) #22
+  %.not88 = icmp eq ptr %61, null
+  br i1 %.not88, label %.loopexit, label %_add_to_list.exit92, !llvm.loop !17
 
-.loopexit:                                        ; preds = %_add_to_list.exit94, %_add_to_list.exit94.us, %.preheader, %45
-  %.2 = phi i32 [ %.068104, %45 ], [ %.068104, %.preheader ], [ %49, %_add_to_list.exit94.us ], [ %49, %_add_to_list.exit94 ]
-  call void @hostlist_destroy(ptr noundef %53) #22
+.loopexit:                                        ; preds = %_add_to_list.exit92, %_add_to_list.exit92.us, %.preheader, %43
+  %.2 = phi i32 [ %.068102, %43 ], [ %.068102, %.preheader ], [ %47, %_add_to_list.exit92.us ], [ %47, %_add_to_list.exit92 ]
+  call void @hostlist_destroy(ptr noundef %51) #22
   call void @slurm_xfree(ptr noundef nonnull %4) #22
   br label %.thread
 
-.thread.fold.split:                               ; preds = %.lr.ph106
+.thread.fold.split:                               ; preds = %.lr.ph104
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph106, %.thread.fold.split, %22, %31, %_add_to_list.exit, %21, %43, %.loopexit
-  %.173 = phi i8 [ %.072102, %21 ], [ 1, %.loopexit ], [ 0, %43 ], [ %.072102, %.lr.ph106 ], [ %.072102, %_add_to_list.exit ], [ %.072102, %31 ], [ %.072102, %22 ], [ %.072102, %.thread.fold.split ]
-  %.171 = phi i8 [ %.070103, %21 ], [ 0, %.loopexit ], [ %.070103, %43 ], [ 1, %.lr.ph106 ], [ %.070103, %_add_to_list.exit ], [ %.070103, %31 ], [ %.070103, %22 ], [ %.070103, %.thread.fold.split ]
-  %.3 = phi i32 [ %.068104, %21 ], [ %.2, %.loopexit ], [ %44, %43 ], [ %.068104, %.lr.ph106 ], [ %33, %_add_to_list.exit ], [ %33, %31 ], [ %.068104, %22 ], [ %.068104, %.thread.fold.split ]
+.thread:                                          ; preds = %.lr.ph104, %.thread.fold.split, %22, %29, %_add_to_list.exit, %21, %41, %.loopexit
+  %.173 = phi i1 [ %.072100, %21 ], [ true, %.loopexit ], [ false, %41 ], [ %.072100, %.lr.ph104 ], [ false, %_add_to_list.exit ], [ false, %29 ], [ %.072100, %22 ], [ %.072100, %.thread.fold.split ]
+  %.171 = phi i1 [ %.070101, %21 ], [ false, %.loopexit ], [ false, %41 ], [ true, %.lr.ph104 ], [ false, %_add_to_list.exit ], [ false, %29 ], [ true, %22 ], [ %.070101, %.thread.fold.split ]
+  %.3 = phi i32 [ %.068102, %21 ], [ %.2, %.loopexit ], [ %42, %41 ], [ %.068102, %.lr.ph104 ], [ %31, %_add_to_list.exit ], [ %31, %29 ], [ %.068102, %22 ], [ %.068102, %.thread.fold.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %64 = add nuw nsw i32 %.1105, 1
-  %65 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
-  %66 = load i8, ptr %65, align 1
-  %.not83 = icmp eq i8 %66, 0
-  %67 = sext i8 %66 to i32
-  %68 = icmp eq i32 %.075, %67
-  %or.cond = select i1 %.not84.not, i1 %68, i1 false
-  %or.cond97 = select i1 %.not83, i1 true, i1 %or.cond
-  br i1 %or.cond97, label %._crit_edge, label %.lr.ph106, !llvm.loop !18
+  %62 = add nuw nsw i32 %.1103, 1
+  %63 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
+  %64 = load i8, ptr %63, align 1
+  %.not83 = icmp eq i8 %64, 0
+  %65 = sext i8 %64 to i32
+  %66 = icmp eq i32 %.075, %65
+  %or.cond = select i1 %.not84.not, i1 %66, i1 false
+  %or.cond95 = select i1 %.not83, i1 true, i1 %or.cond
+  br i1 %or.cond95, label %._crit_edge, label %.lr.ph104, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %.thread, %26, %12
-  %.068.lcssa = phi i32 [ %.067, %12 ], [ %.068104, %26 ], [ %.3, %.thread ]
-  %.1.lcssa = phi i32 [ %.067, %12 ], [ %30, %26 ], [ %64, %.thread ]
-  %69 = call i32 @list_count(ptr noundef nonnull %0) #22
-  %70 = icmp ne i32 %13, %69
-  %.not91 = icmp eq i32 %.1.lcssa, %.068.lcssa
-  %or.cond93 = select i1 %70, i1 %.not91, i1 false
-  br i1 %or.cond93, label %80, label %71
+._crit_edge:                                      ; preds = %.thread, %24, %12
+  %.068.lcssa = phi i32 [ %.067, %12 ], [ %.068102, %24 ], [ %.3, %.thread ]
+  %.1.lcssa = phi i32 [ %.067, %12 ], [ %28, %24 ], [ %62, %.thread ]
+  %67 = call i32 @list_count(ptr noundef nonnull %0) #22
+  %68 = icmp ne i32 %13, %67
+  %.not89 = icmp eq i32 %.1.lcssa, %.068.lcssa
+  %or.cond91 = select i1 %68, i1 %.not89, i1 false
+  br i1 %or.cond91, label %78, label %69
 
-71:                                               ; preds = %._crit_edge
-  %72 = sext i32 %.068.lcssa to i64
-  %73 = getelementptr inbounds i8, ptr %1, i64 %72
-  %74 = sub nsw i32 %.1.lcssa, %.068.lcssa
-  %75 = sext i32 %74 to i64
-  %76 = call ptr @xstrndup(ptr noundef nonnull %73, i64 noundef %75) #22
-  store ptr %76, ptr %4, align 8
-  br i1 %2, label %77, label %_add_to_list.exit95
+69:                                               ; preds = %._crit_edge
+  %70 = sext i32 %.068.lcssa to i64
+  %71 = getelementptr inbounds i8, ptr %1, i64 %70
+  %72 = sub nsw i32 %.1.lcssa, %.068.lcssa
+  %73 = sext i32 %72 to i64
+  %74 = call ptr @xstrndup(ptr noundef nonnull %71, i64 noundef %73) #22
+  store ptr %74, ptr %4, align 8
+  br i1 %2, label %75, label %_add_to_list.exit93
 
-77:                                               ; preds = %71
-  %78 = call zeroext i1 @xstrtolower(ptr noundef %76) #22
-  br label %_add_to_list.exit95
+75:                                               ; preds = %69
+  %76 = call zeroext i1 @xstrtolower(ptr noundef %74) #22
+  br label %_add_to_list.exit93
 
-_add_to_list.exit95:                              ; preds = %71, %77
-  %79 = call i32 @list_delete_all(ptr noundef nonnull %0, ptr noundef nonnull @slurm_find_char_exact_in_list, ptr noundef %76) #22
-  call void @list_append(ptr noundef nonnull %0, ptr noundef %76) #22
+_add_to_list.exit93:                              ; preds = %69, %75
+  %77 = call i32 @list_delete_all(ptr noundef nonnull %0, ptr noundef nonnull @slurm_find_char_exact_in_list, ptr noundef %74) #22
+  call void @list_append(ptr noundef nonnull %0, ptr noundef %74) #22
+  br label %78
+
+78:                                               ; preds = %._crit_edge, %_add_to_list.exit93, %7
+  %79 = call i32 @list_count(ptr noundef nonnull %0) #22
   br label %80
 
-80:                                               ; preds = %._crit_edge, %_add_to_list.exit95, %7
-  %81 = call i32 @list_count(ptr noundef nonnull %0) #22
-  br label %82
-
-82:                                               ; preds = %80, %5
-  %.0 = phi i32 [ %81, %80 ], [ 0, %5 ]
+80:                                               ; preds = %78, %5
+  %.0 = phi i32 [ %79, %78 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -3854,11 +3849,10 @@ define internal noundef i32 @_slurm_addto_id_char_list_internal(ptr noundef %0, 
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = load i8, ptr %2, align 1
-  %8 = and i8 %7, 1
-  %.not10 = icmp eq i8 %8, 0
+  %8 = trunc i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  br i1 %.not10, label %11, label %9
+  br i1 %8, label %9, label %11
 
 9:                                                ; preds = %3
   %10 = call i32 @gid_from_string(ptr noundef %1, ptr noundef nonnull %4) #22
@@ -3952,13 +3946,12 @@ define internal noundef i32 @_slurm_addto_mode_char_list_internal(ptr noundef %0
   br i1 %.not, label %20, label %11
 
 11:                                               ; preds = %.thread, %8
-  %.030 = phi i32 [ %6, %.thread ], [ %10, %8 ]
-  %.02129 = phi ptr [ %7, %.thread ], [ %1, %8 ]
+  %.028 = phi i32 [ %6, %.thread ], [ %10, %8 ]
+  %.02127 = phi ptr [ %7, %.thread ], [ %1, %8 ]
   %12 = getelementptr inbounds i8, ptr %2, i64 1
   %13 = load i8, ptr %12, align 1
-  %14 = and i8 %13, 1
-  %.not24 = icmp eq i8 %14, 0
-  br i1 %.not24, label %18, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %18
 
 15:                                               ; preds = %11
   %16 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.631, ptr noundef nonnull @.str.679) #22
@@ -3967,14 +3960,13 @@ define internal noundef i32 @_slurm_addto_mode_char_list_internal(ptr noundef %0
 
 18:                                               ; preds = %11
   store i8 1, ptr %2, align 4
-  %19 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.680, i32 noundef %.030, ptr noundef nonnull %.02129) #22
+  %19 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.680, i32 noundef %.028, ptr noundef nonnull %.02127) #22
   br label %29
 
 20:                                               ; preds = %8
   %21 = load i8, ptr %2, align 4
-  %22 = and i8 %21, 1
-  %.not23 = icmp eq i8 %22, 0
-  br i1 %.not23, label %26, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %26
 
 23:                                               ; preds = %20
   %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.631, ptr noundef nonnull @.str.679) #22
@@ -3991,8 +3983,8 @@ define internal noundef i32 @_slurm_addto_mode_char_list_internal(ptr noundef %0
   %30 = phi ptr [ %28, %26 ], [ %19, %18 ]
   store ptr %30, ptr %4, align 8
   %31 = tail call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @slurm_find_char_in_list, ptr noundef %30) #22
-  %.not25 = icmp eq ptr %31, null
-  br i1 %.not25, label %32, label %33
+  %.not23 = icmp eq ptr %31, null
+  br i1 %.not23, label %32, label %33
 
 32:                                               ; preds = %29
   tail call void @list_append(ptr noundef %0, ptr noundef %30) #22

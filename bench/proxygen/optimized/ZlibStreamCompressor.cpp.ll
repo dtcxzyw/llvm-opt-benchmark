@@ -58,9 +58,8 @@ entry:
   %ref.tmp53 = alloca %"class.google::LogMessage", align 8
   %init_ = getelementptr inbounds i8, ptr %this, i64 132
   %0 = load i8, ptr %init_, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.end62
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end62, label %if.end
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %init_, align 4
@@ -75,22 +74,22 @@ if.end:                                           ; preds = %entry
   %type_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %total_in, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %zalloc, i8 0, i64 24, i1 false)
-  %2 = load i32, ptr %type_, align 8
-  switch i32 %2, label %if.end62 [
+  %1 = load i32, ptr %type_, align 8
+  switch i32 %1, label %if.end62 [
     i32 2, label %sw.bb
     i32 1, label %sw.bb32
   ]
 
 sw.bb:                                            ; preds = %if.end
   %level_29 = getelementptr inbounds i8, ptr %this, i64 12
-  %3 = load i32, ptr %level_29, align 4
-  %call30 = tail call i32 @deflateInit2_(ptr noundef nonnull %zlibStream_, i32 noundef %3, i32 noundef 8, i32 noundef 31, i32 noundef 9, i32 noundef 0, ptr noundef nonnull @.str.5, i32 noundef 112)
+  %2 = load i32, ptr %level_29, align 4
+  %call30 = tail call i32 @deflateInit2_(ptr noundef nonnull %zlibStream_, i32 noundef %2, i32 noundef 8, i32 noundef 31, i32 noundef 9, i32 noundef 0, ptr noundef nonnull @.str.5, i32 noundef 112)
   br label %sw.epilog
 
 sw.bb32:                                          ; preds = %if.end
   %level_34 = getelementptr inbounds i8, ptr %this, i64 12
-  %4 = load i32, ptr %level_34, align 4
-  %call35 = tail call i32 @deflateInit_(ptr noundef nonnull %zlibStream_, i32 noundef %4, ptr noundef nonnull @.str.5, i32 noundef 112)
+  %3 = load i32, ptr %level_34, align 4
+  %call35 = tail call i32 @deflateInit_(ptr noundef nonnull %zlibStream_, i32 noundef %3, ptr noundef nonnull @.str.5, i32 noundef 112)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb32, %sw.bb
@@ -109,8 +108,8 @@ invoke.cont55:                                    ; preds = %if.then52
           to label %invoke.cont57 unwind label %lpad54
 
 invoke.cont57:                                    ; preds = %invoke.cont55
-  %5 = load i32, ptr %status_, align 8
-  %call61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call58, i32 noundef %5)
+  %4 = load i32, ptr %status_, align 8
+  %call61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call58, i32 noundef %4)
           to label %invoke.cont60 unwind label %lpad54
 
 invoke.cont60:                                    ; preds = %invoke.cont57
@@ -118,10 +117,10 @@ invoke.cont60:                                    ; preds = %invoke.cont57
   br label %if.end62
 
 lpad54:                                           ; preds = %invoke.cont57, %invoke.cont55, %if.then52
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp53) #11
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %5
 
 if.end62:                                         ; preds = %if.end, %entry, %invoke.cont60, %sw.epilog
   ret void
@@ -168,9 +167,8 @@ entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen20ZlibStreamCompressorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %init_ = getelementptr inbounds i8, ptr %this, i64 132
   %0 = load i8, ptr %init_, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %zlibStream_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -186,10 +184,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #12
+  %2 = extractvalue { ptr, i32 } %1, 0
+  tail call void @__clang_call_terminate(ptr %2) #12
   unreachable
 }
 

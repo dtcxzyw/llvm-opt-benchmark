@@ -926,12 +926,12 @@ define noundef i64 @_ZN11cache_sim_t9victimizeEm(ptr nocapture noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11cache_sim_t6accessEmmb(ptr noundef nonnull align 8 dereferenceable(153) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
   %. = select i1 %3, i64 88, i64 64
-  %.33 = select i1 %3, i64 104, i64 80
+  %.32 = select i1 %3, i64 104, i64 80
   %5 = getelementptr inbounds i8, ptr %0, i64 %.
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 %.33
+  %8 = getelementptr inbounds i8, ptr %0, i64 %.32
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %2
   store i64 %10, ptr %8, align 8
@@ -946,16 +946,15 @@ define void @_ZN11cache_sim_t6accessEmmb(ptr noundef nonnull align 8 dereference
   br i1 %3, label %.sink.split, label %69
 
 16:                                               ; preds = %4
-  %.34 = select i1 %3, i64 96, i64 72
-  %17 = getelementptr inbounds i8, ptr %0, i64 %.34
+  %.33 = select i1 %3, i64 96, i64 72
+  %17 = getelementptr inbounds i8, ptr %0, i64 %.33
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 1
   store i64 %19, ptr %17, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 152
   %21 = load i8, ptr %20, align 8
-  %22 = and i8 %21, 1
-  %.not19 = icmp eq i8 %22, 0
-  br i1 %.not19, label %33, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %33
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds i8, ptr %0, i64 120
@@ -980,8 +979,8 @@ define void @_ZN11cache_sim_t6accessEmmb(ptr noundef nonnull align 8 dereference
 39:                                               ; preds = %33
   %40 = getelementptr inbounds i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
-  %.not20 = icmp eq ptr %41, null
-  br i1 %.not20, label %49, label %42
+  %.not19 = icmp eq ptr %41, null
+  br i1 %.not19, label %49, label %42
 
 42:                                               ; preds = %39
   %43 = and i64 %37, 4611686018427387903
@@ -1003,8 +1002,8 @@ define void @_ZN11cache_sim_t6accessEmmb(ptr noundef nonnull align 8 dereference
 53:                                               ; preds = %49, %33
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load ptr, ptr %54, align 8
-  %.not21 = icmp eq ptr %55, null
-  br i1 %.not21, label %61, label %56
+  %.not20 = icmp eq ptr %55, null
+  br i1 %.not20, label %61, label %56
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1025,10 +1024,10 @@ define void @_ZN11cache_sim_t6accessEmmb(ptr noundef nonnull align 8 dereference
   br label %.sink.split
 
 .sink.split:                                      ; preds = %15, %62
-  %.sink31 = phi ptr [ %66, %62 ], [ %14, %15 ]
-  %67 = load i64, ptr %.sink31, align 8
+  %.sink30 = phi ptr [ %66, %62 ], [ %14, %15 ]
+  %67 = load i64, ptr %.sink30, align 8
   %68 = or i64 %67, 4611686018427387904
-  store i64 %68, ptr %.sink31, align 8
+  store i64 %68, ptr %.sink30, align 8
   br label %69
 
 69:                                               ; preds = %.sink.split, %15, %61

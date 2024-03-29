@@ -42,15 +42,14 @@ target triple = "x86_64-pc-linux-gnu"
 define internal void @cairogen_begin_job(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %9, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 248
   %7 = load ptr, ptr %6, align 8
-  %.not3 = icmp eq ptr %7, null
-  br i1 %.not3, label %9, label %8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %5
   tail call void @cairo_save(ptr noundef nonnull %7) #14
@@ -66,9 +65,8 @@ define internal void @cairogen_end_job(ptr nocapture noundef %0) #0 {
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 256
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %8, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
   tail call void @cairo_restore(ptr noundef %3) #14

@@ -50,15 +50,13 @@ define dso_local noundef zeroext i1 @do_lo_export(ptr nocapture noundef readonly
   %12 = tail call ptr @PQerrorMessage(ptr noundef %11) #7
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %12) #7
   %13 = load i8, ptr %3, align 1
-  %14 = and i8 %13, 1
-  %.not5 = icmp eq i8 %14, 0
-  br i1 %.not5, label %fail_lo_xact.exit, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %fail_lo_xact.exit
 
 15:                                               ; preds = %10
   %16 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 30), align 8
-  %17 = and i8 %16, 1
-  %.not.i = icmp eq i8 %17, 0
-  br i1 %.not.i, label %fail_lo_xact.exit, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %fail_lo_xact.exit
 
 18:                                               ; preds = %15
   %19 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #7
@@ -67,20 +65,18 @@ define dso_local noundef zeroext i1 @do_lo_export(ptr nocapture noundef readonly
 
 20:                                               ; preds = %5
   %21 = load i8, ptr %3, align 1
-  %22 = and i8 %21, 1
-  %.not6 = icmp eq i8 %22, 0
-  br i1 %.not6, label %30, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %20
   %24 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 30), align 8
-  %25 = and i8 %24, 1
-  %.not.i3 = icmp eq i8 %25, 0
-  br i1 %.not.i3, label %30, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %30
 
 26:                                               ; preds = %23
   %27 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.16) #7
-  %.not4.i = icmp eq ptr %27, null
-  br i1 %.not4.i, label %finish_lo_xact.exit, label %28
+  %.not.i = icmp eq ptr %27, null
+  br i1 %.not.i, label %finish_lo_xact.exit, label %28
 
 28:                                               ; preds = %26
   tail call void @PQclear(ptr noundef nonnull %27) #7
@@ -159,9 +155,8 @@ declare ptr @PQerrorMessage(ptr noundef) local_unnamed_addr #1
 define internal void @print_lo_result(ptr noundef %0, ...) unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 32), align 2
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %20
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %20, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), align 8
@@ -174,10 +169,10 @@ define internal void @print_lo_result(ptr noundef %0, ...) unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %8, %5
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %12 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
   %13 = call i32 @pg_vfprintf(ptr noundef %12, ptr noundef %0, ptr noundef nonnull %2) #7
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   %14 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 6), align 8
   %15 = icmp eq i32 %14, 4
   %16 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
@@ -193,16 +188,16 @@ define internal void @print_lo_result(ptr noundef %0, ...) unnamed_addr #0 {
 
 20:                                               ; preds = %17, %19, %1
   %21 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
-  %.not2 = icmp eq ptr %21, null
-  br i1 %.not2, label %26, label %22
+  %.not = icmp eq ptr %21, null
+  br i1 %.not, label %26, label %22
 
 22:                                               ; preds = %20
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %23 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
   %24 = call i32 @pg_vfprintf(ptr noundef %23, ptr noundef %0, ptr noundef nonnull %2) #7
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   %25 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
-  %fputc3 = call i32 @fputc(i32 10, ptr %25)
+  %fputc2 = call i32 @fputc(i32 10, ptr %25)
   br label %26
 
 26:                                               ; preds = %22, %20
@@ -229,15 +224,13 @@ define dso_local noundef zeroext i1 @do_lo_import(ptr noundef %0, ptr noundef %1
   %12 = tail call ptr @PQerrorMessage(ptr noundef %11) #7
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %12) #7
   %13 = load i8, ptr %4, align 1
-  %14 = and i8 %13, 1
-  %.not36 = icmp eq i8 %14, 0
-  br i1 %.not36, label %fail_lo_xact.exit, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %fail_lo_xact.exit
 
 15:                                               ; preds = %10
   %16 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 30), align 8
-  %17 = and i8 %16, 1
-  %.not.i = icmp eq i8 %17, 0
-  br i1 %.not.i, label %fail_lo_xact.exit, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %fail_lo_xact.exit
 
 18:                                               ; preds = %15
   %19 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #7
@@ -258,15 +251,13 @@ define dso_local noundef zeroext i1 @do_lo_import(ptr noundef %0, ptr noundef %1
 
 26:                                               ; preds = %21
   %27 = load i8, ptr %4, align 1
-  %28 = and i8 %27, 1
-  %.not34 = icmp eq i8 %28, 0
-  br i1 %.not34, label %fail_lo_xact.exit, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %fail_lo_xact.exit
 
 29:                                               ; preds = %26
   %30 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 30), align 8
-  %31 = and i8 %30, 1
-  %.not.i27 = icmp eq i8 %31, 0
-  br i1 %.not.i27, label %fail_lo_xact.exit, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %fail_lo_xact.exit
 
 32:                                               ; preds = %29
   %33 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #7
@@ -288,15 +279,13 @@ define dso_local noundef zeroext i1 @do_lo_import(ptr noundef %0, ptr noundef %1
 42:                                               ; preds = %34
   tail call void @free(ptr noundef nonnull %25) #7
   %43 = load i8, ptr %4, align 1
-  %44 = and i8 %43, 1
-  %.not33 = icmp eq i8 %44, 0
-  br i1 %.not33, label %fail_lo_xact.exit, label %45
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %fail_lo_xact.exit
 
 45:                                               ; preds = %42
   %46 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 30), align 8
-  %47 = and i8 %46, 1
-  %.not.i29 = icmp eq i8 %47, 0
-  br i1 %.not.i29, label %fail_lo_xact.exit, label %48
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %fail_lo_xact.exit
 
 48:                                               ; preds = %45
   %49 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #7
@@ -310,20 +299,18 @@ define dso_local noundef zeroext i1 @do_lo_import(ptr noundef %0, ptr noundef %1
 
 51:                                               ; preds = %50, %20
   %52 = load i8, ptr %4, align 1
-  %53 = and i8 %52, 1
-  %.not35 = icmp eq i8 %53, 0
-  br i1 %.not35, label %61, label %54
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %61
 
 54:                                               ; preds = %51
   %55 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 30), align 8
-  %56 = and i8 %55, 1
-  %.not.i31 = icmp eq i8 %56, 0
-  br i1 %.not.i31, label %61, label %57
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %61
 
 57:                                               ; preds = %54
   %58 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.16) #7
-  %.not4.i = icmp eq ptr %58, null
-  br i1 %.not4.i, label %finish_lo_xact.exit, label %59
+  %.not.i = icmp eq ptr %58, null
+  br i1 %.not.i, label %finish_lo_xact.exit, label %59
 
 59:                                               ; preds = %57
   tail call void @PQclear(ptr noundef nonnull %58) #7
@@ -387,15 +374,13 @@ define dso_local noundef zeroext i1 @do_lo_unlink(ptr nocapture noundef readonly
   %12 = tail call ptr @PQerrorMessage(ptr noundef %11) #7
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %12) #7
   %13 = load i8, ptr %2, align 1
-  %14 = and i8 %13, 1
-  %.not6 = icmp eq i8 %14, 0
-  br i1 %.not6, label %fail_lo_xact.exit, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %fail_lo_xact.exit
 
 15:                                               ; preds = %10
   %16 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 30), align 8
-  %17 = and i8 %16, 1
-  %.not.i = icmp eq i8 %17, 0
-  br i1 %.not.i, label %fail_lo_xact.exit, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %fail_lo_xact.exit
 
 18:                                               ; preds = %15
   %19 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #7
@@ -404,20 +389,18 @@ define dso_local noundef zeroext i1 @do_lo_unlink(ptr nocapture noundef readonly
 
 20:                                               ; preds = %6
   %21 = load i8, ptr %2, align 1
-  %22 = and i8 %21, 1
-  %.not = icmp eq i8 %22, 0
-  br i1 %.not, label %30, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %20
   %24 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 30), align 8
-  %25 = and i8 %24, 1
-  %.not.i4 = icmp eq i8 %25, 0
-  br i1 %.not.i4, label %30, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %30
 
 26:                                               ; preds = %23
   %27 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.16) #7
-  %.not4.i = icmp eq ptr %27, null
-  br i1 %.not4.i, label %finish_lo_xact.exit, label %28
+  %.not.i = icmp eq ptr %27, null
+  br i1 %.not.i, label %finish_lo_xact.exit, label %28
 
 28:                                               ; preds = %26
   tail call void @PQclear(ptr noundef nonnull %27) #7
@@ -441,13 +424,13 @@ declare i32 @lo_unlink(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @PQtransactionStatus(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 declare i32 @pg_vfprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
+declare void @llvm.va_start.p0(ptr) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6

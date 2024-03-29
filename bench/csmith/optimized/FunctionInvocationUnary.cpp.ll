@@ -47,105 +47,104 @@ define dso_local noundef nonnull ptr @_ZN23FunctionInvocationUnary29CreateFuncti
   %4 = alloca %"class.std::allocator.8", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %25, label %6
+  br i1 %.not, label %24, label %6
 
 6:                                                ; preds = %3
   %7 = load i8, ptr %2, align 4
-  %8 = and i8 %7, 1
-  %9 = icmp ne i8 %8, 0
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
-  %11 = load i32, ptr %10, align 4
-  %12 = tail call noundef i32 @_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize(i1 noundef zeroext %9, i32 noundef %11)
-  %13 = tail call noundef ptr @_ZNK9CGContext17get_current_blockEv(ptr noundef nonnull align 8 dereferenceable(216) %0)
-  call void @_ZNK5Block18create_new_tmp_varB5cxx11E11eSimpleType(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(192) %13, i32 noundef %12)
-  %14 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #10
-          to label %15 unwind label %20
+  %8 = trunc i8 %7 to i1
+  %9 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = load i32, ptr %9, align 4
+  %11 = tail call noundef i32 @_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize(i1 noundef zeroext %8, i32 noundef %10)
+  %12 = tail call noundef ptr @_ZNK9CGContext17get_current_blockEv(ptr noundef nonnull align 8 dereferenceable(216) %0)
+  call void @_ZNK5Block18create_new_tmp_varB5cxx11E11eSimpleType(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(192) %12, i32 noundef %11)
+  %13 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #10
+          to label %14 unwind label %19
 
-15:                                               ; preds = %6
-  invoke void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %14, i32 noundef 1, ptr noundef nonnull %2)
-          to label %.noexc unwind label %22
+14:                                               ; preds = %6
+  invoke void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %13, i32 noundef 1, ptr noundef nonnull %2)
+          to label %.noexc unwind label %21
 
-.noexc:                                           ; preds = %15
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, i32 0, i64 2), ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 56
-  store i32 %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %18
+.noexc:                                           ; preds = %14
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, i32 0, i64 2), ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %13, i64 56
+  store i32 %1, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %13, i64 64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %_ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %17
 
-18:                                               ; preds = %.noexc
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %.noexc
+  %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #11
+  call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #11
   br label %.body
 
 _ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
-  br label %33
+  br label %32
 
-20:                                               ; preds = %6
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %6
+  %20 = landingpad { ptr, i32 }
           cleanup
-  br label %24
+  br label %23
 
-22:                                               ; preds = %15
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %14
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %18, %22
-  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %19, %18 ]
-  call void @_ZdlPv(ptr noundef nonnull %14) #12
-  br label %24
+.body:                                            ; preds = %17, %21
+  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %18, %17 ]
+  call void @_ZdlPv(ptr noundef nonnull %13) #12
+  br label %23
 
-24:                                               ; preds = %.body, %20
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %21, %20 ]
+23:                                               ; preds = %.body, %19
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %20, %19 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
-  br label %34
+  br label %33
 
-25:                                               ; preds = %3
-  %26 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #10
+24:                                               ; preds = %3
+  %25 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  invoke void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %26, i32 noundef 1, ptr noundef null)
-          to label %.noexc21 unwind label %31
+  invoke void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %25, i32 noundef 1, ptr noundef null)
+          to label %.noexc21 unwind label %30
 
-.noexc21:                                         ; preds = %25
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, i32 0, i64 2), ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 56
-  store i32 %1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 64
+.noexc21:                                         ; preds = %24
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, i32 0, i64 2), ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 56
+  store i32 %1, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %25, i64 64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %_ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlags.exit unwind label %29
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %4)
+          to label %_ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlags.exit unwind label %28
 
-29:                                               ; preds = %.noexc21
-  %30 = landingpad { ptr, i32 }
+28:                                               ; preds = %.noexc21
+  %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #11
-  call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %26) #11
+  call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #11
   br label %.body22
 
 _ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlags.exit: ; preds = %.noexc21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %33
+  br label %32
 
-31:                                               ; preds = %25
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %24
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %.body22
 
-.body22:                                          ; preds = %29, %31
-  %eh.lpad-body23 = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
-  call void @_ZdlPv(ptr noundef nonnull %26) #12
-  br label %34
+.body22:                                          ; preds = %28, %30
+  %eh.lpad-body23 = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
+  call void @_ZdlPv(ptr noundef nonnull %25) #12
+  br label %33
 
-33:                                               ; preds = %_ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlags.exit, %_ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.016 = phi ptr [ %14, %_ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %26, %_ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlags.exit ]
+32:                                               ; preds = %_ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlags.exit, %_ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %.016 = phi ptr [ %13, %_ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %25, %_ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlags.exit ]
   ret ptr %.016
 
-34:                                               ; preds = %.body22, %24
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %24 ], [ %eh.lpad-body23, %.body22 ]
+33:                                               ; preds = %.body22, %23
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %23 ], [ %eh.lpad-body23, %.body22 ]
   resume { ptr, i32 } %.pn.pn
 }
 

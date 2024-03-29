@@ -1203,15 +1203,15 @@ define internal fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i
 
 9:                                                ; preds = %8
   %10 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.33) #11
-  br label %140
+  br label %138
 
 11:                                               ; preds = %8
   %12 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef %1) #11
-  br label %140
+  br label %138
 
 13:                                               ; preds = %8
   %14 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.35, ptr noundef %1) #11
-  br label %140
+  br label %138
 
 15:                                               ; preds = %8
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
@@ -1439,7 +1439,7 @@ mm_alloc.exit143:                                 ; preds = %mm_alloc.exit
 125:                                              ; preds = %123
   %char0 = load i8, ptr %5, align 1
   %126 = icmp eq i8 %char0, 0
-  br i1 %126, label %127, label %133
+  br i1 %126, label %127, label %132
 
 127:                                              ; preds = %.thread, %125, %123
   %switch.tableidx = add i32 %2, -1
@@ -1452,53 +1452,51 @@ mm_alloc.exit143:                                 ; preds = %mm_alloc.exit
 
 switch.hole_check:                                ; preds = %127
   %switch.shifted = lshr i32 -477118465, %switch.tableidx
-  %130 = and i32 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i32 %130, 0
-  br i1 %switch.lobit.not, label %129, label %switch.lookup
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %129
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %131 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [32 x ptr], ptr @switch.table.ECPGdump_a_simple.1, i64 0, i64 %131
+  %130 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [32 x ptr], ptr @switch.table.ECPGdump_a_simple.1, i64 0, i64 %130
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_type.exit
 
 get_type.exit:                                    ; preds = %switch.lookup, %129
   %.0.i = phi ptr [ null, %129 ], [ %switch.load, %switch.lookup ]
-  %132 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef %.0.i, ptr noundef nonnull %24, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %30) #11
-  br label %139
+  %131 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef %.0.i, ptr noundef nonnull %24, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %30) #11
+  br label %137
 
-133:                                              ; preds = %125
+132:                                              ; preds = %125
   %switch.tableidx148 = add i32 %2, -1
-  %134 = icmp ult i32 %switch.tableidx148, 32
-  br i1 %134, label %switch.hole_check149, label %135
+  %133 = icmp ult i32 %switch.tableidx148, 32
+  br i1 %133, label %switch.hole_check149, label %134
 
-135:                                              ; preds = %switch.hole_check149, %133
+134:                                              ; preds = %switch.hole_check149, %132
   tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.15, i32 noundef %2) #11
   br label %get_type.exit145
 
-switch.hole_check149:                             ; preds = %133
+switch.hole_check149:                             ; preds = %132
   %switch.shifted151 = lshr i32 -477118465, %switch.tableidx148
-  %136 = and i32 %switch.shifted151, 1
-  %switch.lobit152.not = icmp eq i32 %136, 0
-  br i1 %switch.lobit152.not, label %135, label %switch.lookup150
+  %switch.lobit152 = trunc i32 %switch.shifted151 to i1
+  br i1 %switch.lobit152, label %switch.lookup150, label %134
 
 switch.lookup150:                                 ; preds = %switch.hole_check149
-  %137 = zext nneg i32 %switch.tableidx148 to i64
-  %switch.gep153 = getelementptr inbounds [32 x ptr], ptr @switch.table.ECPGdump_a_simple.1, i64 0, i64 %137
+  %135 = zext nneg i32 %switch.tableidx148 to i64
+  %switch.gep153 = getelementptr inbounds [32 x ptr], ptr @switch.table.ECPGdump_a_simple.1, i64 0, i64 %135
   %switch.load154 = load ptr, ptr %switch.gep153, align 8
   br label %get_type.exit145
 
-get_type.exit145:                                 ; preds = %switch.lookup150, %135
-  %.0.i144 = phi ptr [ null, %135 ], [ %switch.load154, %switch.lookup150 ]
-  %138 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef %.0.i144, ptr noundef nonnull %24, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5) #11
-  br label %139
+get_type.exit145:                                 ; preds = %switch.lookup150, %134
+  %.0.i144 = phi ptr [ null, %134 ], [ %switch.load154, %switch.lookup150 ]
+  %136 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef %.0.i144, ptr noundef nonnull %24, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5) #11
+  br label %137
 
-139:                                              ; preds = %get_type.exit145, %get_type.exit
+137:                                              ; preds = %get_type.exit145, %get_type.exit
   tail call void @free(ptr noundef nonnull %24) #11
   tail call void @free(ptr noundef nonnull %30) #11
-  br label %140
+  br label %138
 
-140:                                              ; preds = %11, %139, %13, %9
+138:                                              ; preds = %11, %137, %13, %9
   ret void
 }
 
@@ -1639,21 +1637,20 @@ define dso_local noundef ptr @get_dtype(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %switch.hole_check, %1
   tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.32, i32 noundef %0) #11
-  br label %6
+  br label %5
 
 switch.hole_check:                                ; preds = %1
   %switch.shifted = lshr i32 98303, %switch.tableidx
-  %4 = and i32 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i32 %4, 0
-  br i1 %switch.lobit.not, label %3, label %switch.lookup
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %3
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [17 x ptr], ptr @switch.table.get_dtype, i64 0, i64 %5
+  %4 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [17 x ptr], ptr @switch.table.get_dtype, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %6
+  br label %5
 
-6:                                                ; preds = %switch.lookup, %3
+5:                                                ; preds = %switch.lookup, %3
   %.0 = phi ptr [ null, %3 ], [ %switch.load, %switch.lookup ]
   ret ptr %.0
 }

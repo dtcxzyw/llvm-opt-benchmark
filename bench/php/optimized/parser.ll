@@ -252,9 +252,9 @@ define hidden ptr @lxb_html_parse_chunk_begin(ptr nocapture noundef %0) local_un
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 82
   %19 = load i8, ptr %18, align 2
-  %20 = and i8 %19, 1
-  %21 = getelementptr inbounds i8, ptr %10, i64 250
-  store i8 %20, ptr %21, align 2
+  %20 = getelementptr inbounds i8, ptr %10, i64 250
+  %21 = and i8 %19, 1
+  store i8 %21, ptr %20, align 2
   store i32 1, ptr %2, align 8
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr i8, ptr %22, i64 96
@@ -453,219 +453,218 @@ define hidden i32 @lxb_html_parse_fragment_chunk_begin(ptr nocapture noundef %0,
 
 16:                                               ; preds = %12
   %17 = icmp eq ptr %1, null
-  br i1 %17, label %19, label %._crit_edge
+  br i1 %17, label %18, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %16
   %.phi.trans.insert = getelementptr inbounds i8, ptr %13, i64 250
   %.pre = load i8, ptr %.phi.trans.insert, align 2
-  %18 = and i8 %.pre, 1
-  br label %27
+  br label %26
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 82
-  %23 = load i8, ptr %22, align 2
-  %24 = and i8 %23, 1
-  %25 = getelementptr inbounds i8, ptr %13, i64 250
-  store i8 %24, ptr %25, align 2
-  %26 = getelementptr inbounds i8, ptr %13, i64 104
-  store i32 0, ptr %26, align 8
-  br label %27
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 82
+  %22 = load i8, ptr %21, align 2
+  %23 = getelementptr inbounds i8, ptr %13, i64 250
+  %24 = and i8 %22, 1
+  store i8 %24, ptr %23, align 2
+  %25 = getelementptr inbounds i8, ptr %13, i64 104
+  store i32 0, ptr %25, align 8
+  br label %26
 
-27:                                               ; preds = %._crit_edge, %19
-  %28 = phi i8 [ %18, %._crit_edge ], [ %24, %19 ]
-  %29 = load ptr, ptr %0, align 8
-  %30 = icmp ne i8 %28, 0
-  tail call void @lxb_html_tokenizer_set_state_by_tag(ptr noundef %29, i1 noundef zeroext %30, i64 noundef %2, i64 noundef %3) #7
-  %31 = tail call ptr @lxb_html_interface_create(ptr noundef nonnull %13, i64 noundef 101, i64 noundef 2) #7
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %31, ptr %32, align 8
-  %33 = icmp eq ptr %31, null
-  br i1 %33, label %.thread.thread, label %35
+26:                                               ; preds = %._crit_edge, %18
+  %27 = phi i8 [ %.pre, %._crit_edge ], [ %24, %18 ]
+  %28 = load ptr, ptr %0, align 8
+  %29 = trunc i8 %27 to i1
+  tail call void @lxb_html_tokenizer_set_state_by_tag(ptr noundef %28, i1 noundef zeroext %29, i64 noundef %2, i64 noundef %3) #7
+  %30 = tail call ptr @lxb_html_interface_create(ptr noundef nonnull %13, i64 noundef 101, i64 noundef 2) #7
+  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %30, ptr %31, align 8
+  %32 = icmp eq ptr %30, null
+  br i1 %32, label %.thread.thread, label %34
 
-.thread.thread:                                   ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 2, ptr %34, align 4
-  br label %96
+.thread.thread:                                   ; preds = %26
+  %33 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 2, ptr %33, align 4
+  br label %95
 
-35:                                               ; preds = %27
-  tail call void @lxb_dom_node_insert_child_wo_events(ptr noundef nonnull %13, ptr noundef nonnull %31) #7
-  %36 = load ptr, ptr %32, align 8
-  tail call void @lxb_dom_document_attach_element(ptr noundef nonnull %13, ptr noundef %36) #7
-  %37 = tail call ptr @lxb_html_interface_create(ptr noundef nonnull %13, i64 noundef %2, i64 noundef %3) #7
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
-  store ptr %37, ptr %40, align 8
-  %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %47
+34:                                               ; preds = %26
+  tail call void @lxb_dom_node_insert_child_wo_events(ptr noundef nonnull %13, ptr noundef nonnull %30) #7
+  %35 = load ptr, ptr %31, align 8
+  tail call void @lxb_dom_document_attach_element(ptr noundef nonnull %13, ptr noundef %35) #7
+  %36 = tail call ptr @lxb_html_interface_create(ptr noundef nonnull %13, i64 noundef %2, i64 noundef %3) #7
+  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  store ptr %36, ptr %39, align 8
+  %40 = load ptr, ptr %37, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %46
 
-45:                                               ; preds = %35
-  %46 = getelementptr inbounds i8, ptr %0, i64 44
+44:                                               ; preds = %34
+  %45 = getelementptr inbounds i8, ptr %0, i64 44
   br label %.thread.sink.split
 
-47:                                               ; preds = %35
-  %48 = load ptr, ptr %32, align 8
-  %49 = getelementptr i8, ptr %41, i64 32
-  %.val81 = load ptr, ptr %49, align 8
-  %50 = tail call i32 @lexbor_array_push(ptr noundef %.val81, ptr noundef %48) #7
-  %51 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 %50, ptr %51, align 4
-  %.not77 = icmp eq i32 %50, 0
-  br i1 %.not77, label %52, label %.thread
+46:                                               ; preds = %34
+  %47 = load ptr, ptr %31, align 8
+  %48 = getelementptr i8, ptr %40, i64 32
+  %.val81 = load ptr, ptr %48, align 8
+  %49 = tail call i32 @lexbor_array_push(ptr noundef %.val81, ptr noundef %47) #7
+  %50 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 %49, ptr %50, align 4
+  %.not77 = icmp eq i32 %49, 0
+  br i1 %.not77, label %51, label %.thread
 
-52:                                               ; preds = %47
-  %53 = icmp eq i64 %2, 179
-  %54 = icmp eq i64 %3, 2
-  %or.cond = and i1 %53, %54
-  br i1 %or.cond, label %55, label %60
+51:                                               ; preds = %46
+  %52 = icmp eq i64 %2, 179
+  %53 = icmp eq i64 %3, 2
+  %or.cond = and i1 %52, %53
+  br i1 %or.cond, label %54, label %59
 
-55:                                               ; preds = %52
-  %56 = load ptr, ptr %38, align 8
-  %57 = getelementptr i8, ptr %56, i64 48
-  %.val82 = load ptr, ptr %57, align 8
-  %58 = tail call ptr @lexbor_array_obj_push(ptr noundef %.val82) #7
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %.thread.sink.split, label %lxb_html_tree_template_insertion_push.exit.thread
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %37, align 8
+  %56 = getelementptr i8, ptr %55, i64 48
+  %.val82 = load ptr, ptr %56, align 8
+  %57 = tail call ptr @lexbor_array_obj_push(ptr noundef %.val82) #7
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %.thread.sink.split, label %lxb_html_tree_template_insertion_push.exit.thread
 
-lxb_html_tree_template_insertion_push.exit.thread: ; preds = %55
-  store ptr @lxb_html_tree_insertion_mode_in_template, ptr %58, align 8
-  store i32 0, ptr %51, align 4
-  br label %60
+lxb_html_tree_template_insertion_push.exit.thread: ; preds = %54
+  store ptr @lxb_html_tree_insertion_mode_in_template, ptr %57, align 8
+  store i32 0, ptr %50, align 4
+  br label %59
 
-60:                                               ; preds = %lxb_html_tree_template_insertion_push.exit.thread, %52
-  %61 = load ptr, ptr %38, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
-  store ptr %13, ptr %62, align 8
-  %63 = load ptr, ptr %38, align 8
-  tail call void @lxb_html_tree_reset_insertion_mode_appropriately(ptr noundef %63) #7
-  %64 = icmp eq i64 %2, 87
-  %or.cond3 = and i1 %64, %54
-  br i1 %or.cond3, label %65, label %72
+59:                                               ; preds = %lxb_html_tree_template_insertion_push.exit.thread, %51
+  %60 = load ptr, ptr %37, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  store ptr %13, ptr %61, align 8
+  %62 = load ptr, ptr %37, align 8
+  tail call void @lxb_html_tree_reset_insertion_mode_appropriately(ptr noundef %62) #7
+  %63 = icmp eq i64 %2, 87
+  %or.cond3 = and i1 %63, %53
+  br i1 %or.cond3, label %64, label %71
 
-65:                                               ; preds = %60
-  %66 = tail call ptr @lxb_html_interface_create(ptr noundef nonnull %13, i64 noundef 87, i64 noundef 2) #7
-  %67 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %66, ptr %67, align 8
-  %68 = icmp eq ptr %66, null
-  br i1 %68, label %.thread.sink.split, label %69
+64:                                               ; preds = %59
+  %65 = tail call ptr @lxb_html_interface_create(ptr noundef nonnull %13, i64 noundef 87, i64 noundef 2) #7
+  %66 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %65, ptr %66, align 8
+  %67 = icmp eq ptr %65, null
+  br i1 %67, label %.thread.sink.split, label %68
 
-69:                                               ; preds = %65
-  %70 = load ptr, ptr %38, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 24
-  store ptr %66, ptr %71, align 8
-  br label %72
+68:                                               ; preds = %64
+  %69 = load ptr, ptr %37, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 24
+  store ptr %65, ptr %70, align 8
+  br label %71
 
-72:                                               ; preds = %60, %69
-  %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr i8, ptr %73, i64 96
-  %.val = load ptr, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.val, ptr %75, align 8
-  %76 = load ptr, ptr %38, align 8
-  store ptr %76, ptr %74, align 8
-  %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %13, i64 200
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %77, i64 32
-  store ptr %79, ptr %80, align 8
-  %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %13, i64 208
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %81, i64 40
-  store ptr %83, ptr %84, align 8
-  %85 = load ptr, ptr %0, align 8
-  %86 = getelementptr inbounds i8, ptr %13, i64 192
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %85, i64 48
-  store ptr %87, ptr %88, align 8
-  %89 = load ptr, ptr %38, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
-  store ptr %13, ptr %90, align 8
-  %91 = load ptr, ptr %89, align 8
-  %92 = tail call i32 @lxb_html_tokenizer_begin(ptr noundef %91) #7
-  store i32 %92, ptr %51, align 4
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %lxb_html_parse_fragment_chunk_destroy.exit, label %.thread
+71:                                               ; preds = %59, %68
+  %72 = load ptr, ptr %0, align 8
+  %73 = getelementptr i8, ptr %72, i64 96
+  %.val = load ptr, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.val, ptr %74, align 8
+  %75 = load ptr, ptr %37, align 8
+  store ptr %75, ptr %73, align 8
+  %76 = load ptr, ptr %0, align 8
+  %77 = getelementptr inbounds i8, ptr %13, i64 200
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %76, i64 32
+  store ptr %78, ptr %79, align 8
+  %80 = load ptr, ptr %0, align 8
+  %81 = getelementptr inbounds i8, ptr %13, i64 208
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %80, i64 40
+  store ptr %82, ptr %83, align 8
+  %84 = load ptr, ptr %0, align 8
+  %85 = getelementptr inbounds i8, ptr %13, i64 192
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %84, i64 48
+  store ptr %86, ptr %87, align 8
+  %88 = load ptr, ptr %37, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  store ptr %13, ptr %89, align 8
+  %90 = load ptr, ptr %88, align 8
+  %91 = tail call i32 @lxb_html_tokenizer_begin(ptr noundef %90) #7
+  store i32 %91, ptr %50, align 4
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %lxb_html_parse_fragment_chunk_destroy.exit, label %.thread
 
-.thread.sink.split:                               ; preds = %65, %55, %45
-  %.sink = phi ptr [ %46, %45 ], [ %51, %55 ], [ %51, %65 ]
+.thread.sink.split:                               ; preds = %64, %54, %44
+  %.sink = phi ptr [ %45, %44 ], [ %50, %54 ], [ %50, %64 ]
   store i32 2, ptr %.sink, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %47, %72
-  %.pr = load ptr, ptr %32, align 8
+.thread:                                          ; preds = %.thread.sink.split, %46, %71
+  %.pr = load ptr, ptr %31, align 8
   %.not80 = icmp eq ptr %.pr, null
-  br i1 %.not80, label %96, label %94
+  br i1 %.not80, label %95, label %93
 
-94:                                               ; preds = %.thread
-  %95 = tail call ptr @lxb_html_html_element_interface_destroy(ptr noundef nonnull %.pr) #7
-  br label %96
+93:                                               ; preds = %.thread
+  %94 = tail call ptr @lxb_html_html_element_interface_destroy(ptr noundef nonnull %.pr) #7
+  br label %95
 
-96:                                               ; preds = %.thread.thread, %94, %.thread
+95:                                               ; preds = %.thread.thread, %93, %.thread
   store i32 4, ptr %5, align 8
-  store ptr null, ptr %32, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 32
-  %98 = load ptr, ptr %97, align 8
-  %.not.i = icmp eq ptr %98, null
-  br i1 %.not.i, label %101, label %99
+  store ptr null, ptr %31, align 8
+  %96 = getelementptr inbounds i8, ptr %0, i64 32
+  %97 = load ptr, ptr %96, align 8
+  %.not.i = icmp eq ptr %97, null
+  br i1 %.not.i, label %100, label %98
 
-99:                                               ; preds = %96
-  %100 = tail call ptr @lxb_html_form_element_interface_destroy(ptr noundef nonnull %98) #7
-  store ptr null, ptr %97, align 8
-  br label %101
+98:                                               ; preds = %95
+  %99 = tail call ptr @lxb_html_form_element_interface_destroy(ptr noundef nonnull %97) #7
+  store ptr null, ptr %96, align 8
+  br label %100
 
-101:                                              ; preds = %99, %96
-  %102 = getelementptr inbounds i8, ptr %0, i64 8
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 16
-  %105 = load ptr, ptr %104, align 8
-  %.not15.i = icmp eq ptr %105, null
-  br i1 %.not15.i, label %110, label %106
+100:                                              ; preds = %98, %95
+  %101 = getelementptr inbounds i8, ptr %0, i64 8
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 16
+  %104 = load ptr, ptr %103, align 8
+  %.not15.i = icmp eq ptr %104, null
+  br i1 %.not15.i, label %109, label %105
 
-106:                                              ; preds = %101
-  %107 = tail call ptr @lxb_html_interface_destroy(ptr noundef nonnull %105) #7
-  %108 = load ptr, ptr %102, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 16
-  store ptr null, ptr %109, align 8
-  %.pre.i = load ptr, ptr %102, align 8
-  br label %110
+105:                                              ; preds = %100
+  %106 = tail call ptr @lxb_html_interface_destroy(ptr noundef nonnull %104) #7
+  %107 = load ptr, ptr %101, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  store ptr null, ptr %108, align 8
+  %.pre.i = load ptr, ptr %101, align 8
+  br label %109
 
-110:                                              ; preds = %106, %101
-  %111 = phi ptr [ %.pre.i, %106 ], [ %103, %101 ]
-  %112 = getelementptr inbounds i8, ptr %111, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 32
-  %115 = load ptr, ptr %114, align 8
-  %116 = icmp eq ptr %115, %113
-  br i1 %116, label %lxb_html_parse_fragment_chunk_destroy.exit, label %117
+109:                                              ; preds = %105, %100
+  %110 = phi ptr [ %.pre.i, %105 ], [ %102, %100 ]
+  %111 = getelementptr inbounds i8, ptr %110, i64 8
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 32
+  %114 = load ptr, ptr %113, align 8
+  %115 = icmp eq ptr %114, %112
+  br i1 %115, label %lxb_html_parse_fragment_chunk_destroy.exit, label %116
 
-117:                                              ; preds = %110
-  %118 = load ptr, ptr %32, align 8
-  %.not16.i = icmp eq ptr %118, null
-  br i1 %.not16.i, label %121, label %119
+116:                                              ; preds = %109
+  %117 = load ptr, ptr %31, align 8
+  %.not16.i = icmp eq ptr %117, null
+  br i1 %.not16.i, label %120, label %118
 
-119:                                              ; preds = %117
-  %120 = getelementptr inbounds i8, ptr %118, i64 56
-  store ptr %115, ptr %120, align 8
-  %.pre17.i = load ptr, ptr %102, align 8
+118:                                              ; preds = %116
+  %119 = getelementptr inbounds i8, ptr %117, i64 56
+  store ptr %114, ptr %119, align 8
+  %.pre17.i = load ptr, ptr %101, align 8
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre17.i, i64 8
   %.pre18.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %121
+  br label %120
 
-121:                                              ; preds = %119, %117
-  %122 = phi ptr [ %.pre18.i, %119 ], [ %113, %117 ]
-  %123 = tail call ptr @lxb_html_document_interface_destroy(ptr noundef %122) #7
-  %124 = load ptr, ptr %102, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
-  store ptr null, ptr %125, align 8
+120:                                              ; preds = %118, %116
+  %121 = phi ptr [ %.pre18.i, %118 ], [ %112, %116 ]
+  %122 = tail call ptr @lxb_html_document_interface_destroy(ptr noundef %121) #7
+  %123 = load ptr, ptr %101, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  store ptr null, ptr %124, align 8
   br label %lxb_html_parse_fragment_chunk_destroy.exit
 
-lxb_html_parse_fragment_chunk_destroy.exit:       ; preds = %121, %110, %72, %15
+lxb_html_parse_fragment_chunk_destroy.exit:       ; preds = %120, %109, %71, %15
   %.0.in = getelementptr inbounds i8, ptr %0, i64 44
   %.0 = load i32, ptr %.0.in, align 4
   ret i32 %.0
@@ -968,9 +967,8 @@ define hidden zeroext i1 @lxb_html_parser_scripting_noi(ptr nocapture noundef re
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val, i64 82
   %.val.val = load i8, ptr %3, align 2
-  %4 = and i8 %.val.val, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %.val.val to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable

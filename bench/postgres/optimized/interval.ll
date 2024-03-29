@@ -42,8 +42,8 @@ define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noun
   store i32 17, ptr %3, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 0, ptr %5, align 4
-  %.0158202 = add i32 %2, -1
-  %10 = icmp sgt i32 %.0158202, -1
+  %.0158201 = add i32 %2, -1
+  %10 = icmp sgt i32 %.0158201, -1
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6
@@ -52,14 +52,14 @@ define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noun
   %13 = getelementptr inbounds i8, ptr %4, i64 20
   %14 = getelementptr inbounds i8, ptr %4, i64 16
   %15 = getelementptr inbounds i8, ptr %4, i64 12
-  %16 = zext nneg i32 %.0158202 to i64
+  %16 = zext nneg i32 %.0158201 to i64
   br label %17
 
 17:                                               ; preds = %.lr.ph, %302
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %302 ]
-  %.0157206 = phi i8 [ 0, %.lr.ph ], [ %.2, %302 ]
-  %.0160205 = phi i32 [ 8, %.lr.ph ], [ %.4, %302 ]
-  %.0163203 = phi i32 [ 0, %.lr.ph ], [ %.1164, %302 ]
+  %.0157205 = phi i1 [ false, %.lr.ph ], [ %.2, %302 ]
+  %.0160204 = phi i32 [ 8, %.lr.ph ], [ %.4, %302 ]
+  %.0163202 = phi i32 [ 0, %.lr.ph ], [ %.1164, %302 ]
   %18 = getelementptr i32, ptr %1, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   switch i32 %19, label %.loopexit [
@@ -75,10 +75,10 @@ define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noun
   %21 = getelementptr ptr, ptr %0, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @DecodeTime(ptr noundef %22, ptr noundef nonnull %8, ptr noundef %4, ptr noundef nonnull %5) #13
-  %.not190 = icmp eq i32 %23, 0
-  br i1 %.not190, label %._crit_edge209, label %.loopexit
+  %.not189 = icmp eq i32 %23, 0
+  br i1 %.not189, label %._crit_edge208, label %.loopexit
 
-._crit_edge209:                                   ; preds = %20
+._crit_edge208:                                   ; preds = %20
   %.pre = load i32, ptr %8, align 4
   br label %297
 
@@ -87,8 +87,8 @@ define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noun
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr i8, ptr %26, i64 1
   %28 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %27, i32 noundef 58) #14
-  %.not180 = icmp eq ptr %28, null
-  br i1 %.not180, label %44, label %29
+  %.not179 = icmp eq ptr %28, null
+  br i1 %.not179, label %44, label %29
 
 29:                                               ; preds = %24
   %30 = call i32 @DecodeTime(ptr noundef %27, ptr noundef nonnull %8, ptr noundef %4, ptr noundef nonnull %5) #13
@@ -118,8 +118,8 @@ define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noun
   br label %297
 
 44:                                               ; preds = %24, %29, %17, %17
-  %45 = icmp eq i32 %.0160205, 8
-  %.1161 = select i1 %45, i32 18, i32 %.0160205
+  %45 = icmp eq i32 %.0160204, 8
+  %.1161 = select i1 %45, i32 18, i32 %.0160204
   %46 = tail call ptr @__errno_location() #15
   store i32 0, ptr %46, align 4
   %47 = getelementptr ptr, ptr %0, i64 %indvars.iv
@@ -153,10 +153,10 @@ define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noun
 62:                                               ; preds = %55
   %63 = load ptr, ptr %7, align 8
   %64 = load i8, ptr %63, align 1
-  %.not183 = icmp eq i8 %64, 0
-  br i1 %.not183, label %.thread198, label %.loopexit
+  %.not182 = icmp eq i8 %64, 0
+  br i1 %.not182, label %.thread197, label %.loopexit
 
-.thread198:                                       ; preds = %62
+.thread197:                                       ; preds = %62
   %65 = load ptr, ptr %47, align 8
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 45
@@ -169,7 +169,7 @@ define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noun
   %72 = load i32, ptr %14, align 8
   %73 = add i32 %72, %71
   store i32 %73, ptr %14, align 8
-  br label %AdjustFractDays.exit194
+  br label %AdjustFractDays.exit193
 
 74:                                               ; preds = %52
   store i32 0, ptr %46, align 4
@@ -177,13 +177,13 @@ define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noun
   %76 = call double @strtod(ptr noundef %75, ptr noundef nonnull %7) #13
   %77 = load ptr, ptr %7, align 8
   %78 = load i8, ptr %77, align 1
-  %.not181 = icmp eq i8 %78, 0
-  br i1 %.not181, label %79, label %.loopexit
+  %.not180 = icmp eq i8 %78, 0
+  br i1 %.not180, label %79, label %.loopexit
 
 79:                                               ; preds = %74
   %80 = load i32, ptr %46, align 4
-  %.not182 = icmp eq i32 %80, 0
-  br i1 %.not182, label %81, label %.loopexit
+  %.not181 = icmp eq i32 %80, 0
+  br i1 %.not181, label %81, label %.loopexit
 
 81:                                               ; preds = %79
   %82 = load ptr, ptr %47, align 8
@@ -297,7 +297,7 @@ AdjustFractSeconds.exit:                          ; preds = %120, %125
   %141 = add i32 %140, %139
   store i32 %141, ptr %11, align 8
   %142 = fcmp oeq double %.0156, 0.000000e+00
-  br i1 %142, label %AdjustFractSeconds.exit192, label %143
+  br i1 %142, label %AdjustFractSeconds.exit191, label %143
 
 143:                                              ; preds = %138
   %144 = fmul double %.0156, 3.600000e+03
@@ -314,9 +314,9 @@ AdjustFractSeconds.exit:                          ; preds = %120, %125
   %154 = fadd double %151, %153
   %155 = fptosi double %154 to i32
   store i32 %155, ptr %5, align 4
-  br label %AdjustFractSeconds.exit192
+  br label %AdjustFractSeconds.exit191
 
-AdjustFractSeconds.exit192:                       ; preds = %138, %143
+AdjustFractSeconds.exit191:                       ; preds = %138, %143
   store i32 1024, ptr %8, align 4
   br label %297
 
@@ -326,7 +326,7 @@ AdjustFractSeconds.exit192:                       ; preds = %138, %143
   %159 = add i32 %158, %157
   store i32 %159, ptr %15, align 4
   %160 = fcmp oeq double %.0156, 0.000000e+00
-  br i1 %160, label %AdjustFractSeconds.exit193, label %161
+  br i1 %160, label %AdjustFractSeconds.exit192, label %161
 
 161:                                              ; preds = %156
   %162 = fmul double %.0156, 8.640000e+04
@@ -343,10 +343,10 @@ AdjustFractSeconds.exit192:                       ; preds = %138, %143
   %172 = fadd double %169, %171
   %173 = fptosi double %172 to i32
   store i32 %173, ptr %5, align 4
-  br label %AdjustFractSeconds.exit193
+  br label %AdjustFractSeconds.exit192
 
-AdjustFractSeconds.exit193:                       ; preds = %156, %161
-  %174 = and i32 %.0163203, 8
+AdjustFractSeconds.exit192:                       ; preds = %156, %161
+  %174 = and i32 %.0163202, 8
   %175 = xor i32 %174, 8
   store i32 %175, ptr %8, align 4
   br label %297
@@ -388,7 +388,7 @@ AdjustFractSeconds.exit193:                       ; preds = %156, %161
   br label %AdjustFractDays.exit
 
 AdjustFractDays.exit:                             ; preds = %176, %182, %189
-  %202 = and i32 %.0163203, 8
+  %202 = and i32 %.0163202, 8
   %203 = xor i32 %202, 8
   store i32 %203, ptr %8, align 4
   br label %297
@@ -399,7 +399,7 @@ AdjustFractDays.exit:                             ; preds = %176, %182, %189
   %207 = add i32 %206, %205
   store i32 %207, ptr %14, align 8
   %208 = fcmp oeq double %.0156, 0.000000e+00
-  br i1 %208, label %AdjustFractDays.exit194, label %209
+  br i1 %208, label %AdjustFractDays.exit193, label %209
 
 209:                                              ; preds = %204
   %210 = fmul double %.0156, 3.000000e+01
@@ -410,7 +410,7 @@ AdjustFractDays.exit:                             ; preds = %176, %182, %189
   %214 = sitofp i32 %211 to double
   %215 = fsub double %210, %214
   %216 = fcmp oeq double %215, 0.000000e+00
-  br i1 %216, label %AdjustFractDays.exit194, label %217
+  br i1 %216, label %AdjustFractDays.exit193, label %217
 
 217:                                              ; preds = %209
   %218 = fmul double %215, 8.640000e+04
@@ -427,9 +427,9 @@ AdjustFractDays.exit:                             ; preds = %176, %182, %189
   %228 = fadd double %225, %227
   %229 = fptosi double %228 to i32
   store i32 %229, ptr %5, align 4
-  br label %AdjustFractDays.exit194
+  br label %AdjustFractDays.exit193
 
-AdjustFractDays.exit194:                          ; preds = %.thread198, %204, %209, %217
+AdjustFractDays.exit193:                          ; preds = %.thread197, %204, %209, %217
   store i32 2, ptr %8, align 4
   br label %297
 
@@ -445,7 +445,7 @@ AdjustFractDays.exit194:                          ; preds = %.thread198, %204, %
   %238 = fadd double %235, %237
   %239 = fptosi double %238 to i32
   store i32 %239, ptr %14, align 8
-  %240 = and i32 %.0163203, 4
+  %240 = and i32 %.0163202, 4
   %241 = xor i32 %240, 4
   store i32 %241, ptr %8, align 4
   br label %297
@@ -464,7 +464,7 @@ AdjustFractDays.exit194:                          ; preds = %.thread198, %204, %
   %252 = fadd double %249, %251
   %253 = fptosi double %252 to i32
   store i32 %253, ptr %14, align 8
-  %254 = and i32 %.0163203, 4
+  %254 = and i32 %.0163202, 4
   %255 = xor i32 %254, 4
   store i32 %255, ptr %8, align 4
   br label %297
@@ -483,7 +483,7 @@ AdjustFractDays.exit194:                          ; preds = %.thread198, %204, %
   %266 = fadd double %263, %265
   %267 = fptosi double %266 to i32
   store i32 %267, ptr %14, align 8
-  %268 = and i32 %.0163203, 4
+  %268 = and i32 %.0163202, 4
   %269 = xor i32 %268, 4
   store i32 %269, ptr %8, align 4
   br label %297
@@ -502,7 +502,7 @@ AdjustFractDays.exit194:                          ; preds = %.thread198, %204, %
   %280 = fadd double %277, %279
   %281 = fptosi double %280 to i32
   store i32 %281, ptr %14, align 8
-  %282 = and i32 %.0163203, 4
+  %282 = and i32 %.0163202, 4
   %283 = xor i32 %282, 4
   store i32 %283, ptr %8, align 4
   br label %297
@@ -537,65 +537,63 @@ AdjustFractDays.exit194:                          ; preds = %.thread198, %204, %
   store i32 %296, ptr %3, align 4
   br label %297
 
-297:                                              ; preds = %._crit_edge209, %291, %293, %295, %88, %97, %AdjustFractSeconds.exit, %AdjustFractSeconds.exit192, %AdjustFractSeconds.exit193, %AdjustFractDays.exit, %AdjustFractDays.exit194, %230, %242, %256, %270, %119, %118, %43
-  %298 = phi i32 [ 7182, %295 ], [ 0, %293 ], [ 0, %291 ], [ %283, %270 ], [ %269, %256 ], [ %255, %242 ], [ %241, %230 ], [ 2, %AdjustFractDays.exit194 ], [ %203, %AdjustFractDays.exit ], [ %175, %AdjustFractSeconds.exit193 ], [ 1024, %AdjustFractSeconds.exit192 ], [ 2048, %AdjustFractSeconds.exit ], [ 4096, %118 ], [ 28672, %119 ], [ 8192, %97 ], [ 16384, %88 ], [ 32, %43 ], [ %.pre, %._crit_edge209 ]
-  %.3 = phi i32 [ 0, %295 ], [ %294, %293 ], [ %292, %291 ], [ 28, %270 ], [ 27, %256 ], [ 26, %242 ], [ 25, %230 ], [ 23, %AdjustFractDays.exit194 ], [ 22, %AdjustFractDays.exit ], [ 21, %AdjustFractSeconds.exit193 ], [ 21, %AdjustFractSeconds.exit192 ], [ 19, %AdjustFractSeconds.exit ], [ 18, %118 ], [ 18, %119 ], [ 29, %97 ], [ 30, %88 ], [ 21, %43 ], [ 21, %._crit_edge209 ]
-  %.1 = phi i8 [ %.0157206, %295 ], [ 1, %293 ], [ %.0157206, %291 ], [ %.0157206, %270 ], [ %.0157206, %256 ], [ %.0157206, %242 ], [ %.0157206, %230 ], [ %.0157206, %AdjustFractDays.exit194 ], [ %.0157206, %AdjustFractDays.exit ], [ %.0157206, %AdjustFractSeconds.exit193 ], [ %.0157206, %AdjustFractSeconds.exit192 ], [ %.0157206, %AdjustFractSeconds.exit ], [ %.0157206, %118 ], [ %.0157206, %119 ], [ %.0157206, %97 ], [ %.0157206, %88 ], [ %.0157206, %43 ], [ %.0157206, %._crit_edge209 ]
-  %299 = and i32 %298, %.0163203
-  %.not191 = icmp eq i32 %299, 0
-  br i1 %.not191, label %300, label %.loopexit
+297:                                              ; preds = %._crit_edge208, %291, %293, %295, %88, %97, %AdjustFractSeconds.exit, %AdjustFractSeconds.exit191, %AdjustFractSeconds.exit192, %AdjustFractDays.exit, %AdjustFractDays.exit193, %230, %242, %256, %270, %119, %118, %43
+  %298 = phi i32 [ 7182, %295 ], [ 0, %293 ], [ 0, %291 ], [ %283, %270 ], [ %269, %256 ], [ %255, %242 ], [ %241, %230 ], [ 2, %AdjustFractDays.exit193 ], [ %203, %AdjustFractDays.exit ], [ %175, %AdjustFractSeconds.exit192 ], [ 1024, %AdjustFractSeconds.exit191 ], [ 2048, %AdjustFractSeconds.exit ], [ 4096, %118 ], [ 28672, %119 ], [ 8192, %97 ], [ 16384, %88 ], [ 32, %43 ], [ %.pre, %._crit_edge208 ]
+  %.3 = phi i32 [ 0, %295 ], [ %294, %293 ], [ %292, %291 ], [ 28, %270 ], [ 27, %256 ], [ 26, %242 ], [ 25, %230 ], [ 23, %AdjustFractDays.exit193 ], [ 22, %AdjustFractDays.exit ], [ 21, %AdjustFractSeconds.exit192 ], [ 21, %AdjustFractSeconds.exit191 ], [ 19, %AdjustFractSeconds.exit ], [ 18, %118 ], [ 18, %119 ], [ 29, %97 ], [ 30, %88 ], [ 21, %43 ], [ 21, %._crit_edge208 ]
+  %.1 = phi i1 [ %.0157205, %295 ], [ true, %293 ], [ %.0157205, %291 ], [ %.0157205, %270 ], [ %.0157205, %256 ], [ %.0157205, %242 ], [ %.0157205, %230 ], [ %.0157205, %AdjustFractDays.exit193 ], [ %.0157205, %AdjustFractDays.exit ], [ %.0157205, %AdjustFractSeconds.exit192 ], [ %.0157205, %AdjustFractSeconds.exit191 ], [ %.0157205, %AdjustFractSeconds.exit ], [ %.0157205, %118 ], [ %.0157205, %119 ], [ %.0157205, %97 ], [ %.0157205, %88 ], [ %.0157205, %43 ], [ %.0157205, %._crit_edge208 ]
+  %299 = and i32 %298, %.0163202
+  %.not190 = icmp eq i32 %299, 0
+  br i1 %.not190, label %300, label %.loopexit
 
 300:                                              ; preds = %297
-  %301 = or i32 %298, %.0163203
+  %301 = or i32 %298, %.0163202
   br label %302
 
 302:                                              ; preds = %284, %300
-  %.1164 = phi i32 [ %.0163203, %284 ], [ %301, %300 ]
+  %.1164 = phi i32 [ %.0163202, %284 ], [ %301, %300 ]
   %.4 = phi i32 [ 8, %284 ], [ %.3, %300 ]
-  %.2 = phi i8 [ %.0157206, %284 ], [ %.1, %300 ]
+  %.2 = phi i1 [ %.0157205, %284 ], [ %.1, %300 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %303 = icmp sgt i64 %indvars.iv, 0
   br i1 %303, label %17, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %302
   %304 = icmp eq i32 %.1164, 0
-  %305 = and i8 %.2, 1
-  %306 = icmp eq i8 %305, 0
-  br i1 %304, label %.loopexit, label %307
+  br i1 %304, label %.loopexit, label %305
 
-307:                                              ; preds = %._crit_edge
-  %308 = load i32, ptr %5, align 4
-  %.not = icmp eq i32 %308, 0
-  br i1 %.not, label %315, label %309
+305:                                              ; preds = %._crit_edge
+  %306 = load i32, ptr %5, align 4
+  %.not = icmp eq i32 %306, 0
+  br i1 %.not, label %313, label %307
 
-309:                                              ; preds = %307
-  %310 = sdiv i32 %308, 1000000
-  %311 = mul nsw i32 %310, -1000000
+307:                                              ; preds = %305
+  %308 = sdiv i32 %306, 1000000
+  %309 = mul nsw i32 %308, -1000000
+  %310 = add i32 %309, %306
+  store i32 %310, ptr %5, align 4
+  %311 = load i32, ptr %4, align 8
   %312 = add i32 %311, %308
-  store i32 %312, ptr %5, align 4
-  %313 = load i32, ptr %4, align 8
-  %314 = add i32 %313, %310
-  store i32 %314, ptr %4, align 8
-  br label %315
+  store i32 %312, ptr %4, align 8
+  br label %313
 
-315:                                              ; preds = %307, %309
-  br i1 %306, label %.loopexit, label %316
+313:                                              ; preds = %305, %307
+  br i1 %.2, label %314, label %.loopexit
 
-316:                                              ; preds = %315
-  %317 = load i32, ptr %5, align 4
-  %318 = sub i32 0, %317
-  store i32 %318, ptr %5, align 4
-  %319 = load <4 x i32>, ptr %4, align 8
-  %320 = sub <4 x i32> zeroinitializer, %319
-  store <4 x i32> %320, ptr %4, align 8
-  %321 = getelementptr inbounds i8, ptr %4, i64 16
-  %322 = load <2 x i32>, ptr %321, align 8
-  %323 = sub <2 x i32> zeroinitializer, %322
-  store <2 x i32> %323, ptr %321, align 8
+314:                                              ; preds = %313
+  %315 = load i32, ptr %5, align 4
+  %316 = sub i32 0, %315
+  store i32 %316, ptr %5, align 4
+  %317 = load <4 x i32>, ptr %4, align 8
+  %318 = sub <4 x i32> zeroinitializer, %317
+  store <4 x i32> %318, ptr %4, align 8
+  %319 = getelementptr inbounds i8, ptr %4, i64 16
+  %320 = load <2 x i32>, ptr %319, align 8
+  %321 = sub <2 x i32> zeroinitializer, %320
+  store <2 x i32> %321, ptr %319, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %297, %17, %290, %87, %52, %74, %79, %62, %55, %44, %20, %6, %315, %316, %._crit_edge
-  %.0154 = phi i32 [ -1, %._crit_edge ], [ 0, %316 ], [ 0, %315 ], [ -1, %6 ], [ -1, %297 ], [ -1, %17 ], [ -1, %290 ], [ -1, %87 ], [ -1, %52 ], [ -1, %74 ], [ -1, %79 ], [ -1, %62 ], [ -2, %55 ], [ -2, %44 ], [ %23, %20 ]
+.loopexit:                                        ; preds = %297, %17, %290, %87, %52, %74, %79, %62, %55, %44, %20, %6, %313, %314, %._crit_edge
+  %.0154 = phi i32 [ -1, %._crit_edge ], [ 0, %314 ], [ 0, %313 ], [ -1, %6 ], [ -1, %297 ], [ -1, %17 ], [ -1, %290 ], [ -1, %87 ], [ -1, %52 ], [ -1, %74 ], [ -1, %79 ], [ -1, %62 ], [ -2, %55 ], [ -2, %44 ], [ %23, %20 ]
   ret i32 %.0154
 }
 
@@ -630,7 +628,7 @@ define void @EncodeInterval(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %13 = getelementptr inbounds i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %0, align 8
-  switch i32 %2, label %189 [
+  switch i32 %2, label %193 [
     i32 2, label %16
     i32 3, label %83
     i32 0, label %134
@@ -661,7 +659,7 @@ define void @EncodeInterval(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %29 = icmp sgt i32 %15, 0
   %or.cond19 = select i1 %or.cond17, i1 true, i1 %29
   %30 = icmp sgt i32 %1, 0
-  %spec.select266 = or i1 %30, %or.cond19
+  %spec.select259 = or i1 %30, %or.cond19
   %31 = icmp ne i32 %6, 0
   %32 = icmp ne i32 %8, 0
   %33 = select i1 %31, i1 true, i1 %32
@@ -671,13 +669,13 @@ define void @EncodeInterval(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %36 = icmp ne i32 %14, 0
   %or.cond23 = select i1 %or.cond21, i1 true, i1 %36
   %37 = icmp ne i32 %22, 0
-  %spec.select262 = select i1 %or.cond23, i1 true, i1 %37
-  %38 = and i1 %33, %spec.select262
+  %spec.select256 = select i1 %or.cond23, i1 true, i1 %37
+  %38 = and i1 %33, %spec.select256
   br i1 %spec.select, label %39, label %49
 
 39:                                               ; preds = %16
-  %40 = select i1 %spec.select266, i1 true, i1 %38
-  br i1 %40, label %.thread.thread401, label %.thread.thread
+  %40 = select i1 %spec.select259, i1 true, i1 %38
+  br i1 %40, label %.thread.thread382, label %.thread.thread
 
 .thread.thread:                                   ; preds = %39
   %41 = getelementptr i8, ptr %3, i64 1
@@ -692,16 +690,16 @@ define void @EncodeInterval(ptr nocapture noundef readonly %0, i32 noundef %1, i
   br label %71
 
 49:                                               ; preds = %16
-  br i1 %spec.select266, label %.thread, label %50
+  br i1 %spec.select259, label %.thread, label %50
 
 50:                                               ; preds = %49
   %51 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %3, ptr noundef nonnull @.str) #13
   br label %AppendSeconds.exit
 
 .thread:                                          ; preds = %49
-  br i1 %38, label %.thread.thread401, label %71
+  br i1 %38, label %.thread.thread382, label %71
 
-.thread.thread401:                                ; preds = %39, %.thread
+.thread.thread382:                                ; preds = %39, %.thread
   %or.cond27 = select i1 %20, i1 true, i1 %21
   %52 = select i1 %or.cond27, i1 true, i1 %23
   %53 = select i1 %52, i32 45, i32 43
@@ -719,46 +717,46 @@ define void @EncodeInterval(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %65 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
   br i1 %64, label %66, label %68
 
-66:                                               ; preds = %.thread.thread401
+66:                                               ; preds = %.thread.thread382
   %67 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %63, ptr noundef nonnull @.str.21, i32 noundef %65) #13
   br label %AppendSeconds.exit
 
-68:                                               ; preds = %.thread.thread401
+68:                                               ; preds = %.thread.thread382
   %69 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %70 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %63, ptr noundef nonnull @.str.23, i32 noundef %65, i32 noundef 6, i32 noundef %69) #13
   tail call void @TrimTrailingZeros(ptr noundef %63) #13
   br label %AppendSeconds.exit
 
 71:                                               ; preds = %.thread.thread, %.thread
-  %.0252366400 = phi i32 [ %47, %.thread.thread ], [ %15, %.thread ]
-  %.0251367399 = phi i32 [ %46, %.thread.thread ], [ %14, %.thread ]
-  %.0250368398 = phi i32 [ %45, %.thread.thread ], [ %12, %.thread ]
-  %.0249369397 = phi i32 [ %44, %.thread.thread ], [ %10, %.thread ]
-  %.0248370396 = phi i32 [ %43, %.thread.thread ], [ %8, %.thread ]
-  %.0247371395 = phi i32 [ %42, %.thread.thread ], [ %6, %.thread ]
-  %.0246372394 = phi ptr [ %41, %.thread.thread ], [ %3, %.thread ]
-  %.0373393 = phi i32 [ %48, %.thread.thread ], [ %1, %.thread ]
+  %.0252348381 = phi i32 [ %47, %.thread.thread ], [ %15, %.thread ]
+  %.0251349380 = phi i32 [ %46, %.thread.thread ], [ %14, %.thread ]
+  %.0250350379 = phi i32 [ %45, %.thread.thread ], [ %12, %.thread ]
+  %.0249351378 = phi i32 [ %44, %.thread.thread ], [ %10, %.thread ]
+  %.0248352377 = phi i32 [ %43, %.thread.thread ], [ %8, %.thread ]
+  %.0247353376 = phi i32 [ %42, %.thread.thread ], [ %6, %.thread ]
+  %.0246354375 = phi ptr [ %41, %.thread.thread ], [ %3, %.thread ]
+  %.0355374 = phi i32 [ %48, %.thread.thread ], [ %1, %.thread ]
   br i1 %33, label %72, label %74
 
 72:                                               ; preds = %71
-  %73 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246372394, ptr noundef nonnull @.str.2, i32 noundef %.0247371395, i32 noundef %.0248370396) #13
+  %73 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246354375, ptr noundef nonnull @.str.2, i32 noundef %.0247353376, i32 noundef %.0248352377) #13
   br label %AppendSeconds.exit
 
 74:                                               ; preds = %71
   br i1 %34, label %75, label %79
 
 75:                                               ; preds = %74
-  %76 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246372394, ptr noundef nonnull @.str.3, i32 noundef %.0249369397, i32 noundef %.0250368398, i32 noundef %.0251367399) #13
-  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0246372394) #14
-  %78 = getelementptr i8, ptr %.0246372394, i64 %77
-  tail call fastcc void @AppendSeconds(ptr noundef %78, i32 noundef %.0252366400, i32 noundef %.0373393, i1 noundef zeroext true)
+  %76 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246354375, ptr noundef nonnull @.str.3, i32 noundef %.0249351378, i32 noundef %.0250350379, i32 noundef %.0251349380) #13
+  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0246354375) #14
+  %78 = getelementptr i8, ptr %.0246354375, i64 %77
+  tail call fastcc void @AppendSeconds(ptr noundef %78, i32 noundef %.0252348381, i32 noundef %.0355374, i1 noundef zeroext true)
   br label %AppendSeconds.exit
 
 79:                                               ; preds = %74
-  %80 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246372394, ptr noundef nonnull @.str.4, i32 noundef %.0250368398, i32 noundef %.0251367399) #13
-  %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0246372394) #14
-  %82 = getelementptr i8, ptr %.0246372394, i64 %81
-  tail call fastcc void @AppendSeconds(ptr noundef %82, i32 noundef %.0252366400, i32 noundef %.0373393, i1 noundef zeroext true)
+  %80 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246354375, ptr noundef nonnull @.str.4, i32 noundef %.0250350379, i32 noundef %.0251349380) #13
+  %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0246354375) #14
+  %82 = getelementptr i8, ptr %.0246354375, i64 %81
+  tail call fastcc void @AppendSeconds(ptr noundef %82, i32 noundef %.0252348381, i32 noundef %.0355374, i1 noundef zeroext true)
   br label %AppendSeconds.exit
 
 83:                                               ; preds = %4
@@ -793,26 +791,26 @@ define void @EncodeInterval(ptr nocapture noundef readonly %0, i32 noundef %1, i
 
 AddISO8601IntPart.exit:                           ; preds = %93, %95
   %.0.i = phi ptr [ %98, %95 ], [ %94, %93 ]
-  br i1 %85, label %AddISO8601IntPart.exit268, label %99
+  br i1 %85, label %AddISO8601IntPart.exit261, label %99
 
 99:                                               ; preds = %AddISO8601IntPart.exit
   %100 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i, ptr noundef nonnull @.str.25, i32 noundef %8, i32 noundef 77) #13
   %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #14
   %102 = getelementptr i8, ptr %.0.i, i64 %101
-  br label %AddISO8601IntPart.exit268
+  br label %AddISO8601IntPart.exit261
 
-AddISO8601IntPart.exit268:                        ; preds = %AddISO8601IntPart.exit, %99
-  %.0.i267 = phi ptr [ %102, %99 ], [ %.0.i, %AddISO8601IntPart.exit ]
-  br i1 %86, label %AddISO8601IntPart.exit270, label %103
+AddISO8601IntPart.exit261:                        ; preds = %AddISO8601IntPart.exit, %99
+  %.0.i260 = phi ptr [ %102, %99 ], [ %.0.i, %AddISO8601IntPart.exit ]
+  br i1 %86, label %AddISO8601IntPart.exit263, label %103
 
-103:                                              ; preds = %AddISO8601IntPart.exit268
-  %104 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i267, ptr noundef nonnull @.str.25, i32 noundef %10, i32 noundef 68) #13
-  %105 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i267) #14
-  %106 = getelementptr i8, ptr %.0.i267, i64 %105
-  br label %AddISO8601IntPart.exit270
+103:                                              ; preds = %AddISO8601IntPart.exit261
+  %104 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i260, ptr noundef nonnull @.str.25, i32 noundef %10, i32 noundef 68) #13
+  %105 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i260) #14
+  %106 = getelementptr i8, ptr %.0.i260, i64 %105
+  br label %AddISO8601IntPart.exit263
 
-AddISO8601IntPart.exit270:                        ; preds = %AddISO8601IntPart.exit268, %103
-  %.0.i269 = phi ptr [ %106, %103 ], [ %.0.i267, %AddISO8601IntPart.exit268 ]
+AddISO8601IntPart.exit263:                        ; preds = %AddISO8601IntPart.exit261, %103
+  %.0.i262 = phi ptr [ %106, %103 ], [ %.0.i260, %AddISO8601IntPart.exit261 ]
   %107 = icmp ne i32 %12, 0
   %108 = icmp ne i32 %14, 0
   %or.cond43 = select i1 %107, i1 true, i1 %108
@@ -820,57 +818,57 @@ AddISO8601IntPart.exit270:                        ; preds = %AddISO8601IntPart.e
   %or.cond47 = select i1 %or.cond43, i1 true, i1 %109
   br i1 %or.cond47, label %110, label %AppendSeconds.exit
 
-110:                                              ; preds = %AddISO8601IntPart.exit270
-  %111 = getelementptr i8, ptr %.0.i269, i64 1
-  store i8 84, ptr %.0.i269, align 1
-  br i1 %87, label %AddISO8601IntPart.exit272, label %112
+110:                                              ; preds = %AddISO8601IntPart.exit263
+  %111 = getelementptr i8, ptr %.0.i262, i64 1
+  store i8 84, ptr %.0.i262, align 1
+  br i1 %87, label %AddISO8601IntPart.exit265, label %112
 
 112:                                              ; preds = %110
   %113 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %111, ptr noundef nonnull @.str.25, i32 noundef %12, i32 noundef 72) #13
   %114 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %111) #14
   %115 = getelementptr i8, ptr %111, i64 %114
-  br label %AddISO8601IntPart.exit272
+  br label %AddISO8601IntPart.exit265
 
-AddISO8601IntPart.exit272:                        ; preds = %110, %112
-  %.0.i271 = phi ptr [ %115, %112 ], [ %111, %110 ]
-  br i1 %88, label %AddISO8601IntPart.exit274, label %116
+AddISO8601IntPart.exit265:                        ; preds = %110, %112
+  %.0.i264 = phi ptr [ %115, %112 ], [ %111, %110 ]
+  br i1 %88, label %AddISO8601IntPart.exit267, label %116
 
-116:                                              ; preds = %AddISO8601IntPart.exit272
-  %117 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i271, ptr noundef nonnull @.str.25, i32 noundef %14, i32 noundef 77) #13
-  %118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i271) #14
-  %119 = getelementptr i8, ptr %.0.i271, i64 %118
-  br label %AddISO8601IntPart.exit274
+116:                                              ; preds = %AddISO8601IntPart.exit265
+  %117 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i264, ptr noundef nonnull @.str.25, i32 noundef %14, i32 noundef 77) #13
+  %118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i264) #14
+  %119 = getelementptr i8, ptr %.0.i264, i64 %118
+  br label %AddISO8601IntPart.exit267
 
-AddISO8601IntPart.exit274:                        ; preds = %AddISO8601IntPart.exit272, %116
-  %.0.i273 = phi ptr [ %119, %116 ], [ %.0.i271, %AddISO8601IntPart.exit272 ]
+AddISO8601IntPart.exit267:                        ; preds = %AddISO8601IntPart.exit265, %116
+  %.0.i266 = phi ptr [ %119, %116 ], [ %.0.i264, %AddISO8601IntPart.exit265 ]
   br i1 %90, label %AppendSeconds.exit, label %120
 
-120:                                              ; preds = %AddISO8601IntPart.exit274
+120:                                              ; preds = %AddISO8601IntPart.exit267
   %or.cond51.not = icmp sgt i32 %89, -1
   br i1 %or.cond51.not, label %123, label %121
 
 121:                                              ; preds = %120
-  %122 = getelementptr i8, ptr %.0.i273, i64 1
-  store i8 45, ptr %.0.i273, align 1
+  %122 = getelementptr i8, ptr %.0.i266, i64 1
+  store i8 45, ptr %.0.i266, align 1
   br label %123
 
 123:                                              ; preds = %120, %121
-  %.2 = phi ptr [ %122, %121 ], [ %.0.i273, %120 ]
+  %.2 = phi ptr [ %122, %121 ], [ %.0.i266, %120 ]
   %124 = icmp eq i32 %1, 0
   %125 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
   br i1 %124, label %126, label %128
 
 126:                                              ; preds = %123
   %127 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.2, ptr noundef nonnull @.str.22, i32 noundef %125) #13
-  br label %AppendSeconds.exit275
+  br label %AppendSeconds.exit268
 
 128:                                              ; preds = %123
   %129 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %130 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.2, ptr noundef nonnull @.str.24, i32 noundef %125, i32 noundef 6, i32 noundef %129) #13
   tail call void @TrimTrailingZeros(ptr noundef %.2) #13
-  br label %AppendSeconds.exit275
+  br label %AppendSeconds.exit268
 
-AppendSeconds.exit275:                            ; preds = %126, %128
+AppendSeconds.exit268:                            ; preds = %126, %128
   %131 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #14
   %132 = getelementptr i8, ptr %.2, i64 %131
   %133 = getelementptr i8, ptr %132, i64 1
@@ -879,340 +877,344 @@ AppendSeconds.exit275:                            ; preds = %126, %128
   br label %AppendSeconds.exit
 
 134:                                              ; preds = %4
-  %.not419 = icmp eq i32 %6, 0
-  br i1 %.not419, label %AddPostgresIntPart.exit, label %135
+  %135 = icmp eq i32 %6, 0
+  br i1 %135, label %AddPostgresIntPart.exit, label %136
 
-135:                                              ; preds = %134
-  %.not15.i = icmp eq i32 %6, 1
-  %136 = select i1 %.not15.i, ptr @.str.10, ptr @.str.18
-  %137 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %3, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.10, i32 noundef %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %136) #13
+136:                                              ; preds = %134
+  %.not.i = icmp eq i32 %6, 1
+  %137 = select i1 %.not.i, ptr @.str.10, ptr @.str.18
+  %138 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %3, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.10, i32 noundef %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %137) #13
   %.lobit.i = lshr i32 %6, 31
-  %138 = trunc i32 %.lobit.i to i8
-  %139 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
-  %140 = getelementptr i8, ptr %3, i64 %139
+  %139 = trunc i32 %.lobit.i to i8
+  %140 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
+  %141 = getelementptr i8, ptr %3, i64 %140
   br label %AddPostgresIntPart.exit
 
-AddPostgresIntPart.exit:                          ; preds = %134, %135
-  %.0348 = phi i8 [ 0, %134 ], [ %138, %135 ]
-  %.0343 = phi i8 [ 1, %134 ], [ 0, %135 ]
-  %.0.i276 = phi ptr [ %3, %134 ], [ %140, %135 ]
-  %141 = icmp eq i32 %8, 0
-  br i1 %141, label %AddPostgresIntPart.exit281, label %142
+AddPostgresIntPart.exit:                          ; preds = %134, %136
+  %.0330 = phi i8 [ 0, %134 ], [ %139, %136 ]
+  %.0325 = phi i8 [ 1, %134 ], [ 0, %136 ]
+  %.0.i269 = phi ptr [ %3, %134 ], [ %141, %136 ]
+  %142 = icmp eq i32 %8, 0
+  br i1 %142, label %AddPostgresIntPart.exit273, label %143
 
-142:                                              ; preds = %AddPostgresIntPart.exit
-  %143 = select i1 %.not419, ptr @.str.10, ptr @.str.11
-  %144 = icmp ne i8 %.0348, 0
-  %145 = icmp sgt i32 %8, 0
-  %146 = and i1 %145, %144
-  %147 = select i1 %146, ptr @.str.13, ptr @.str.10
-  %.not15.i278 = icmp eq i32 %8, 1
-  %148 = select i1 %.not15.i278, ptr @.str.10, ptr @.str.18
-  %149 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i276, ptr noundef nonnull @.str.26, ptr noundef nonnull %143, ptr noundef nonnull %147, i32 noundef %8, ptr noundef nonnull @.str.7, ptr noundef nonnull %148) #13
-  %.lobit.i279 = lshr i32 %8, 31
-  %150 = trunc i32 %.lobit.i279 to i8
-  %151 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i276) #14
-  %152 = getelementptr i8, ptr %.0.i276, i64 %151
-  br label %AddPostgresIntPart.exit281
+143:                                              ; preds = %AddPostgresIntPart.exit
+  %144 = trunc i8 %.0325 to i1
+  %145 = select i1 %144, ptr @.str.10, ptr @.str.11
+  %146 = trunc i8 %.0330 to i1
+  %147 = icmp sgt i32 %8, 0
+  %148 = and i1 %147, %146
+  %149 = select i1 %148, ptr @.str.13, ptr @.str.10
+  %.not.i270 = icmp eq i32 %8, 1
+  %150 = select i1 %.not.i270, ptr @.str.10, ptr @.str.18
+  %151 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i269, ptr noundef nonnull @.str.26, ptr noundef nonnull %145, ptr noundef nonnull %149, i32 noundef %8, ptr noundef nonnull @.str.7, ptr noundef nonnull %150) #13
+  %.lobit.i271 = lshr i32 %8, 31
+  %152 = trunc i32 %.lobit.i271 to i8
+  %153 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i269) #14
+  %154 = getelementptr i8, ptr %.0.i269, i64 %153
+  br label %AddPostgresIntPart.exit273
 
-AddPostgresIntPart.exit281:                       ; preds = %AddPostgresIntPart.exit, %142
-  %.1349 = phi i8 [ %.0348, %AddPostgresIntPart.exit ], [ %150, %142 ]
-  %.1344 = phi i8 [ %.0343, %AddPostgresIntPart.exit ], [ 0, %142 ]
-  %.0.i280 = phi ptr [ %.0.i276, %AddPostgresIntPart.exit ], [ %152, %142 ]
-  %153 = icmp eq i32 %10, 0
-  br i1 %153, label %AddPostgresIntPart.exit286, label %154
+AddPostgresIntPart.exit273:                       ; preds = %AddPostgresIntPart.exit, %143
+  %.1331 = phi i8 [ %.0330, %AddPostgresIntPart.exit ], [ %152, %143 ]
+  %.1326 = phi i8 [ %.0325, %AddPostgresIntPart.exit ], [ 0, %143 ]
+  %.0.i272 = phi ptr [ %.0.i269, %AddPostgresIntPart.exit ], [ %154, %143 ]
+  %155 = icmp eq i32 %10, 0
+  br i1 %155, label %AddPostgresIntPart.exit277, label %156
 
-154:                                              ; preds = %AddPostgresIntPart.exit281
-  %.not.i282 = icmp eq i8 %.1344, 0
-  %155 = select i1 %.not.i282, ptr @.str.11, ptr @.str.10
-  %156 = icmp ne i8 %.1349, 0
-  %157 = icmp sgt i32 %10, 0
-  %158 = and i1 %157, %156
-  %159 = select i1 %158, ptr @.str.13, ptr @.str.10
-  %.not15.i283 = icmp eq i32 %10, 1
-  %160 = select i1 %.not15.i283, ptr @.str.10, ptr @.str.18
-  %161 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i280, ptr noundef nonnull @.str.26, ptr noundef nonnull %155, ptr noundef nonnull %159, i32 noundef %10, ptr noundef nonnull @.str.8, ptr noundef nonnull %160) #13
-  %.lobit.i284 = lshr i32 %10, 31
-  %162 = trunc i32 %.lobit.i284 to i8
-  %163 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i280) #14
-  %164 = getelementptr i8, ptr %.0.i280, i64 %163
-  br label %AddPostgresIntPart.exit286
+156:                                              ; preds = %AddPostgresIntPart.exit273
+  %157 = trunc i8 %.1326 to i1
+  %158 = select i1 %157, ptr @.str.10, ptr @.str.11
+  %159 = trunc i8 %.1331 to i1
+  %160 = icmp sgt i32 %10, 0
+  %161 = and i1 %160, %159
+  %162 = select i1 %161, ptr @.str.13, ptr @.str.10
+  %.not.i274 = icmp eq i32 %10, 1
+  %163 = select i1 %.not.i274, ptr @.str.10, ptr @.str.18
+  %164 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i272, ptr noundef nonnull @.str.26, ptr noundef nonnull %158, ptr noundef nonnull %162, i32 noundef %10, ptr noundef nonnull @.str.8, ptr noundef nonnull %163) #13
+  %.lobit.i275 = lshr i32 %10, 31
+  %165 = trunc i32 %.lobit.i275 to i8
+  %166 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i272) #14
+  %167 = getelementptr i8, ptr %.0.i272, i64 %166
+  br label %AddPostgresIntPart.exit277
 
-AddPostgresIntPart.exit286:                       ; preds = %AddPostgresIntPart.exit281, %154
-  %.2350 = phi i8 [ %.1349, %AddPostgresIntPart.exit281 ], [ %162, %154 ]
-  %.2345 = phi i8 [ %.1344, %AddPostgresIntPart.exit281 ], [ 0, %154 ]
-  %.0.i285 = phi ptr [ %.0.i280, %AddPostgresIntPart.exit281 ], [ %164, %154 ]
-  %165 = icmp ne i8 %.2345, 0
-  %166 = icmp ne i32 %12, 0
-  %or.cond53 = select i1 %165, i1 true, i1 %166
-  %167 = icmp ne i32 %14, 0
-  %or.cond55 = select i1 %or.cond53, i1 true, i1 %167
-  %168 = or i32 %15, %1
-  %169 = icmp ne i32 %168, 0
-  %or.cond59 = select i1 %or.cond55, i1 true, i1 %169
-  br i1 %or.cond59, label %170, label %AppendSeconds.exit
+AddPostgresIntPart.exit277:                       ; preds = %AddPostgresIntPart.exit273, %156
+  %.2332 = phi i8 [ %.1331, %AddPostgresIntPart.exit273 ], [ %165, %156 ]
+  %.2327 = phi i8 [ %.1326, %AddPostgresIntPart.exit273 ], [ 0, %156 ]
+  %.0.i276 = phi ptr [ %.0.i272, %AddPostgresIntPart.exit273 ], [ %167, %156 ]
+  %168 = trunc i8 %.2327 to i1
+  %169 = icmp ne i32 %12, 0
+  %or.cond53 = select i1 %168, i1 true, i1 %169
+  %170 = icmp ne i32 %14, 0
+  %or.cond55 = select i1 %or.cond53, i1 true, i1 %170
+  %171 = or i32 %15, %1
+  %172 = icmp ne i32 %171, 0
+  %or.cond59 = select i1 %or.cond55, i1 true, i1 %172
+  br i1 %or.cond59, label %173, label %AppendSeconds.exit
 
-170:                                              ; preds = %AddPostgresIntPart.exit286
-  %171 = icmp slt i32 %12, 0
-  %172 = icmp slt i32 %14, 0
-  %or.cond61 = select i1 %171, i1 true, i1 %172
-  %173 = icmp slt i32 %168, 0
-  %spec.select265 = select i1 %or.cond61, i1 true, i1 %173
-  %.not = icmp eq i8 %.2345, 0
-  %174 = select i1 %.not, ptr @.str.11, ptr @.str.10
-  %.not254 = icmp eq i8 %.2350, 0
-  %175 = select i1 %.not254, ptr @.str.10, ptr @.str.13
-  %176 = select i1 %spec.select265, ptr @.str.12, ptr %175
-  %177 = tail call i32 @llvm.abs.i32(i32 %12, i1 false)
-  %178 = tail call i32 @llvm.abs.i32(i32 %14, i1 false)
-  %179 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i285, ptr noundef nonnull @.str.9, ptr noundef nonnull %174, ptr noundef nonnull %176, i32 noundef %177, i32 noundef %178) #13
-  %180 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i285) #14
-  %181 = getelementptr i8, ptr %.0.i285, i64 %180
-  %182 = icmp eq i32 %1, 0
-  %183 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
-  br i1 %182, label %184, label %186
+173:                                              ; preds = %AddPostgresIntPart.exit277
+  %174 = icmp slt i32 %12, 0
+  %175 = icmp slt i32 %14, 0
+  %or.cond61 = select i1 %174, i1 true, i1 %175
+  %176 = icmp slt i32 %171, 0
+  %spec.select258 = select i1 %or.cond61, i1 true, i1 %176
+  %177 = select i1 %168, ptr @.str.10, ptr @.str.11
+  %178 = trunc i8 %.2332 to i1
+  %179 = select i1 %178, ptr @.str.13, ptr @.str.10
+  %180 = select i1 %spec.select258, ptr @.str.12, ptr %179
+  %181 = tail call i32 @llvm.abs.i32(i32 %12, i1 false)
+  %182 = tail call i32 @llvm.abs.i32(i32 %14, i1 false)
+  %183 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i276, ptr noundef nonnull @.str.9, ptr noundef nonnull %177, ptr noundef nonnull %180, i32 noundef %181, i32 noundef %182) #13
+  %184 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i276) #14
+  %185 = getelementptr i8, ptr %.0.i276, i64 %184
+  %186 = icmp eq i32 %1, 0
+  %187 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
+  br i1 %186, label %188, label %190
 
-184:                                              ; preds = %170
-  %185 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %181, ptr noundef nonnull @.str.21, i32 noundef %183) #13
+188:                                              ; preds = %173
+  %189 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %185, ptr noundef nonnull @.str.21, i32 noundef %187) #13
   br label %AppendSeconds.exit
 
-186:                                              ; preds = %170
-  %187 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
-  %188 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %181, ptr noundef nonnull @.str.23, i32 noundef %183, i32 noundef 6, i32 noundef %187) #13
-  tail call void @TrimTrailingZeros(ptr noundef %181) #13
+190:                                              ; preds = %173
+  %191 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
+  %192 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %185, ptr noundef nonnull @.str.23, i32 noundef %187, i32 noundef 6, i32 noundef %191) #13
+  tail call void @TrimTrailingZeros(ptr noundef %185) #13
   br label %AppendSeconds.exit
 
-189:                                              ; preds = %4
+193:                                              ; preds = %4
   store i16 64, ptr %3, align 1
-  %190 = getelementptr i8, ptr %3, i64 1
-  %.not420 = icmp eq i32 %6, 0
-  br i1 %.not420, label %AddVerboseIntPart.exit, label %AddVerboseIntPart.exit.thread
+  %194 = getelementptr i8, ptr %3, i64 1
+  %195 = icmp eq i32 %6, 0
+  br i1 %195, label %AddVerboseIntPart.exit, label %196
 
-AddVerboseIntPart.exit:                           ; preds = %189
-  %191 = icmp eq i32 %8, 0
-  br i1 %191, label %AddVerboseIntPart.exit297.thread, label %200
+196:                                              ; preds = %193
+  %.lobit.i280 = lshr i32 %6, 31
+  %197 = trunc i32 %.lobit.i280 to i8
+  %198 = tail call i32 @llvm.abs.i32(i32 %6, i1 false)
+  %199 = icmp eq i32 %198, 1
+  %200 = select i1 %199, ptr @.str.10, ptr @.str.18
+  %201 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %194, ptr noundef nonnull @.str.27, i32 noundef %198, ptr noundef nonnull @.str.6, ptr noundef nonnull %200) #13
+  %202 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %194) #14
+  %203 = getelementptr i8, ptr %194, i64 %202
+  br label %AddVerboseIntPart.exit
 
-AddVerboseIntPart.exit.thread:                    ; preds = %189
-  %.lobit.i289 = lshr i32 %6, 31
-  %192 = trunc i32 %.lobit.i289 to i8
-  %193 = tail call i32 @llvm.abs.i32(i32 %6, i1 false)
-  %194 = icmp eq i32 %193, 1
-  %195 = select i1 %194, ptr @.str.10, ptr @.str.18
-  %196 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %190, ptr noundef nonnull @.str.27, i32 noundef %193, ptr noundef nonnull @.str.6, ptr noundef nonnull %195) #13
-  %197 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %190) #14
-  %198 = getelementptr i8, ptr %190, i64 %197
-  %199 = icmp eq i32 %8, 0
-  br i1 %199, label %AddVerboseIntPart.exit297, label %203
+AddVerboseIntPart.exit:                           ; preds = %193, %196
+  %.4334 = phi i8 [ 0, %193 ], [ %197, %196 ]
+  %.3328 = phi i8 [ 1, %193 ], [ 0, %196 ]
+  %.0.i279 = phi ptr [ %194, %193 ], [ %203, %196 ]
+  %204 = icmp eq i32 %8, 0
+  br i1 %204, label %AddVerboseIntPart.exit285, label %205
 
-200:                                              ; preds = %AddVerboseIntPart.exit
-  %.lobit.i292 = lshr i32 %8, 31
-  %201 = trunc i32 %.lobit.i292 to i8
-  %202 = tail call i32 @llvm.abs.i32(i32 %8, i1 false)
-  br label %205
+205:                                              ; preds = %AddVerboseIntPart.exit
+  %206 = trunc i8 %.3328 to i1
+  br i1 %206, label %207, label %210
 
-203:                                              ; preds = %AddVerboseIntPart.exit.thread
-  %204 = sub i32 0, %8
-  %.not17.i295492 = icmp slt i32 %6, 0
-  %spec.select.i296 = select i1 %.not17.i295492, i32 %204, i32 %8
-  br label %205
+207:                                              ; preds = %205
+  %.lobit.i284 = lshr i32 %8, 31
+  %208 = trunc i32 %.lobit.i284 to i8
+  %209 = tail call i32 @llvm.abs.i32(i32 %8, i1 false)
+  br label %213
 
-205:                                              ; preds = %203, %200
-  %.0.i290425429 = phi ptr [ %198, %203 ], [ %190, %200 ]
-  %.5353 = phi i8 [ %192, %203 ], [ %201, %200 ]
-  %.015.i293 = phi i32 [ %spec.select.i296, %203 ], [ %202, %200 ]
-  %206 = icmp eq i32 %.015.i293, 1
-  %207 = select i1 %206, ptr @.str.10, ptr @.str.18
-  %208 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i290425429, ptr noundef nonnull @.str.27, i32 noundef %.015.i293, ptr noundef nonnull @.str.7, ptr noundef nonnull %207) #13
-  %209 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i290425429) #14
-  %210 = getelementptr i8, ptr %.0.i290425429, i64 %209
-  br label %AddVerboseIntPart.exit297
+210:                                              ; preds = %205
+  %211 = trunc i8 %.4334 to i1
+  %212 = sub i32 0, %8
+  %spec.select.i281 = select i1 %211, i32 %212, i32 %8
+  br label %213
 
-AddVerboseIntPart.exit297:                        ; preds = %AddVerboseIntPart.exit.thread, %205
-  %.6354 = phi i8 [ %.5353, %205 ], [ %192, %AddVerboseIntPart.exit.thread ]
-  %.0.i294 = phi ptr [ %210, %205 ], [ %198, %AddVerboseIntPart.exit.thread ]
-  %211 = icmp eq i32 %10, 0
-  br i1 %211, label %AddVerboseIntPart.exit304, label %216
+213:                                              ; preds = %210, %207
+  %.5335 = phi i8 [ %208, %207 ], [ %.4334, %210 ]
+  %.015.i282 = phi i32 [ %209, %207 ], [ %spec.select.i281, %210 ]
+  %214 = icmp eq i32 %.015.i282, 1
+  %215 = select i1 %214, ptr @.str.10, ptr @.str.18
+  %216 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i279, ptr noundef nonnull @.str.27, i32 noundef %.015.i282, ptr noundef nonnull @.str.7, ptr noundef nonnull %215) #13
+  %217 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i279) #14
+  %218 = getelementptr i8, ptr %.0.i279, i64 %217
+  br label %AddVerboseIntPart.exit285
 
-AddVerboseIntPart.exit297.thread:                 ; preds = %AddVerboseIntPart.exit
-  %212 = icmp eq i32 %10, 0
-  br i1 %212, label %AddVerboseIntPart.exit304.thread, label %213
+AddVerboseIntPart.exit285:                        ; preds = %AddVerboseIntPart.exit, %213
+  %.6336 = phi i8 [ %.4334, %AddVerboseIntPart.exit ], [ %.5335, %213 ]
+  %.4329 = phi i8 [ %.3328, %AddVerboseIntPart.exit ], [ 0, %213 ]
+  %.0.i283 = phi ptr [ %.0.i279, %AddVerboseIntPart.exit ], [ %218, %213 ]
+  %219 = icmp eq i32 %10, 0
+  br i1 %219, label %AddVerboseIntPart.exit290, label %220
 
-213:                                              ; preds = %AddVerboseIntPart.exit297.thread
-  %.lobit.i299 = lshr i32 %10, 31
-  %214 = trunc i32 %.lobit.i299 to i8
-  %215 = tail call i32 @llvm.abs.i32(i32 %10, i1 false)
-  br label %218
+220:                                              ; preds = %AddVerboseIntPart.exit285
+  %221 = trunc i8 %.4329 to i1
+  br i1 %221, label %222, label %225
 
-216:                                              ; preds = %AddVerboseIntPart.exit297
-  %.not17.i302 = icmp eq i8 %.6354, 0
-  %217 = sub i32 0, %10
-  %spec.select.i303 = select i1 %.not17.i302, i32 %10, i32 %217
-  br label %218
+222:                                              ; preds = %220
+  %.lobit.i289 = lshr i32 %10, 31
+  %223 = trunc i32 %.lobit.i289 to i8
+  %224 = tail call i32 @llvm.abs.i32(i32 %10, i1 false)
+  br label %228
 
-218:                                              ; preds = %216, %213
-  %.0.i294437443 = phi ptr [ %.0.i294, %216 ], [ %190, %213 ]
-  %.7355 = phi i8 [ %.6354, %216 ], [ %214, %213 ]
-  %.015.i300 = phi i32 [ %spec.select.i303, %216 ], [ %215, %213 ]
-  %219 = icmp eq i32 %.015.i300, 1
-  %220 = select i1 %219, ptr @.str.10, ptr @.str.18
-  %221 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i294437443, ptr noundef nonnull @.str.27, i32 noundef %.015.i300, ptr noundef nonnull @.str.8, ptr noundef nonnull %220) #13
-  %222 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i294437443) #14
-  %223 = getelementptr i8, ptr %.0.i294437443, i64 %222
-  br label %AddVerboseIntPart.exit304
+225:                                              ; preds = %220
+  %226 = trunc i8 %.6336 to i1
+  %227 = sub i32 0, %10
+  %spec.select.i286 = select i1 %226, i32 %227, i32 %10
+  br label %228
 
-AddVerboseIntPart.exit304:                        ; preds = %AddVerboseIntPart.exit297, %218
-  %.8356 = phi i8 [ %.6354, %AddVerboseIntPart.exit297 ], [ %.7355, %218 ]
-  %.0.i301 = phi ptr [ %.0.i294, %AddVerboseIntPart.exit297 ], [ %223, %218 ]
-  %224 = icmp eq i32 %12, 0
-  br i1 %224, label %AddVerboseIntPart.exit311, label %229
+228:                                              ; preds = %225, %222
+  %.7337 = phi i8 [ %223, %222 ], [ %.6336, %225 ]
+  %.015.i287 = phi i32 [ %224, %222 ], [ %spec.select.i286, %225 ]
+  %229 = icmp eq i32 %.015.i287, 1
+  %230 = select i1 %229, ptr @.str.10, ptr @.str.18
+  %231 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i283, ptr noundef nonnull @.str.27, i32 noundef %.015.i287, ptr noundef nonnull @.str.8, ptr noundef nonnull %230) #13
+  %232 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i283) #14
+  %233 = getelementptr i8, ptr %.0.i283, i64 %232
+  br label %AddVerboseIntPart.exit290
 
-AddVerboseIntPart.exit304.thread:                 ; preds = %AddVerboseIntPart.exit297.thread
-  %225 = icmp eq i32 %12, 0
-  br i1 %225, label %AddVerboseIntPart.exit311.thread, label %226
+AddVerboseIntPart.exit290:                        ; preds = %AddVerboseIntPart.exit285, %228
+  %.8338 = phi i8 [ %.6336, %AddVerboseIntPart.exit285 ], [ %.7337, %228 ]
+  %.5 = phi i8 [ %.4329, %AddVerboseIntPart.exit285 ], [ 0, %228 ]
+  %.0.i288 = phi ptr [ %.0.i283, %AddVerboseIntPart.exit285 ], [ %233, %228 ]
+  %234 = icmp eq i32 %12, 0
+  br i1 %234, label %AddVerboseIntPart.exit295, label %235
 
-226:                                              ; preds = %AddVerboseIntPart.exit304.thread
-  %.lobit.i306 = lshr i32 %12, 31
-  %227 = trunc i32 %.lobit.i306 to i8
-  %228 = tail call i32 @llvm.abs.i32(i32 %12, i1 false)
-  br label %231
+235:                                              ; preds = %AddVerboseIntPart.exit290
+  %236 = trunc i8 %.5 to i1
+  br i1 %236, label %237, label %240
 
-229:                                              ; preds = %AddVerboseIntPart.exit304
-  %.not17.i309 = icmp eq i8 %.8356, 0
-  %230 = sub i32 0, %12
-  %spec.select.i310 = select i1 %.not17.i309, i32 %12, i32 %230
-  br label %231
+237:                                              ; preds = %235
+  %.lobit.i294 = lshr i32 %12, 31
+  %238 = trunc i32 %.lobit.i294 to i8
+  %239 = tail call i32 @llvm.abs.i32(i32 %12, i1 false)
+  br label %243
 
-231:                                              ; preds = %229, %226
-  %.0.i301450456 = phi ptr [ %.0.i301, %229 ], [ %190, %226 ]
-  %.9 = phi i8 [ %.8356, %229 ], [ %227, %226 ]
-  %.015.i307 = phi i32 [ %spec.select.i310, %229 ], [ %228, %226 ]
-  %232 = icmp eq i32 %.015.i307, 1
-  %233 = select i1 %232, ptr @.str.10, ptr @.str.18
-  %234 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i301450456, ptr noundef nonnull @.str.27, i32 noundef %.015.i307, ptr noundef nonnull @.str.15, ptr noundef nonnull %233) #13
-  %235 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i301450456) #14
-  %236 = getelementptr i8, ptr %.0.i301450456, i64 %235
-  br label %AddVerboseIntPart.exit311
+240:                                              ; preds = %235
+  %241 = trunc i8 %.8338 to i1
+  %242 = sub i32 0, %12
+  %spec.select.i291 = select i1 %241, i32 %242, i32 %12
+  br label %243
 
-AddVerboseIntPart.exit311:                        ; preds = %AddVerboseIntPart.exit304, %231
-  %.10 = phi i8 [ %.8356, %AddVerboseIntPart.exit304 ], [ %.9, %231 ]
-  %.0.i308 = phi ptr [ %.0.i301, %AddVerboseIntPart.exit304 ], [ %236, %231 ]
-  %237 = icmp eq i32 %14, 0
-  br i1 %237, label %AddVerboseIntPart.exit318, label %242
+243:                                              ; preds = %240, %237
+  %.9 = phi i8 [ %238, %237 ], [ %.8338, %240 ]
+  %.015.i292 = phi i32 [ %239, %237 ], [ %spec.select.i291, %240 ]
+  %244 = icmp eq i32 %.015.i292, 1
+  %245 = select i1 %244, ptr @.str.10, ptr @.str.18
+  %246 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i288, ptr noundef nonnull @.str.27, i32 noundef %.015.i292, ptr noundef nonnull @.str.15, ptr noundef nonnull %245) #13
+  %247 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i288) #14
+  %248 = getelementptr i8, ptr %.0.i288, i64 %247
+  br label %AddVerboseIntPart.exit295
 
-AddVerboseIntPart.exit311.thread:                 ; preds = %AddVerboseIntPart.exit304.thread
-  %238 = icmp eq i32 %14, 0
-  br i1 %238, label %AddVerboseIntPart.exit318.thread, label %239
+AddVerboseIntPart.exit295:                        ; preds = %AddVerboseIntPart.exit290, %243
+  %.10 = phi i8 [ %.8338, %AddVerboseIntPart.exit290 ], [ %.9, %243 ]
+  %.6 = phi i8 [ %.5, %AddVerboseIntPart.exit290 ], [ 0, %243 ]
+  %.0.i293 = phi ptr [ %.0.i288, %AddVerboseIntPart.exit290 ], [ %248, %243 ]
+  %249 = icmp eq i32 %14, 0
+  br i1 %249, label %AddVerboseIntPart.exit300, label %250
 
-239:                                              ; preds = %AddVerboseIntPart.exit311.thread
-  %.lobit.i313 = lshr i32 %14, 31
-  %240 = trunc i32 %.lobit.i313 to i8
-  %241 = tail call i32 @llvm.abs.i32(i32 %14, i1 false)
-  br label %244
+250:                                              ; preds = %AddVerboseIntPart.exit295
+  %251 = trunc i8 %.6 to i1
+  br i1 %251, label %252, label %255
 
-242:                                              ; preds = %AddVerboseIntPart.exit311
-  %.not17.i316 = icmp eq i8 %.10, 0
-  %243 = sub i32 0, %14
-  %spec.select.i317 = select i1 %.not17.i316, i32 %14, i32 %243
-  br label %244
+252:                                              ; preds = %250
+  %.lobit.i299 = lshr i32 %14, 31
+  %253 = trunc i32 %.lobit.i299 to i8
+  %254 = tail call i32 @llvm.abs.i32(i32 %14, i1 false)
+  br label %258
 
-244:                                              ; preds = %242, %239
-  %.0.i308463469 = phi ptr [ %.0.i308, %242 ], [ %190, %239 ]
-  %.11 = phi i8 [ %.10, %242 ], [ %240, %239 ]
-  %.015.i314 = phi i32 [ %spec.select.i317, %242 ], [ %241, %239 ]
-  %245 = icmp eq i32 %.015.i314, 1
-  %246 = select i1 %245, ptr @.str.10, ptr @.str.18
-  %247 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i308463469, ptr noundef nonnull @.str.27, i32 noundef %.015.i314, ptr noundef nonnull @.str.16, ptr noundef nonnull %246) #13
-  %248 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i308463469) #14
-  %249 = getelementptr i8, ptr %.0.i308463469, i64 %248
-  br label %AddVerboseIntPart.exit318
+255:                                              ; preds = %250
+  %256 = trunc i8 %.10 to i1
+  %257 = sub i32 0, %14
+  %spec.select.i296 = select i1 %256, i32 %257, i32 %14
+  br label %258
 
-AddVerboseIntPart.exit318:                        ; preds = %AddVerboseIntPart.exit311, %244
-  %.12 = phi i8 [ %.10, %AddVerboseIntPart.exit311 ], [ %.11, %244 ]
-  %.0.i315 = phi ptr [ %.0.i308, %AddVerboseIntPart.exit311 ], [ %249, %244 ]
-  %250 = or i32 %15, %1
-  %or.cond65.not = icmp eq i32 %250, 0
-  br i1 %or.cond65.not, label %276, label %252
+258:                                              ; preds = %255, %252
+  %.11 = phi i8 [ %253, %252 ], [ %.10, %255 ]
+  %.015.i297 = phi i32 [ %254, %252 ], [ %spec.select.i296, %255 ]
+  %259 = icmp eq i32 %.015.i297, 1
+  %260 = select i1 %259, ptr @.str.10, ptr @.str.18
+  %261 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i293, ptr noundef nonnull @.str.27, i32 noundef %.015.i297, ptr noundef nonnull @.str.16, ptr noundef nonnull %260) #13
+  %262 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i293) #14
+  %263 = getelementptr i8, ptr %.0.i293, i64 %262
+  br label %AddVerboseIntPart.exit300
 
-AddVerboseIntPart.exit318.thread:                 ; preds = %AddVerboseIntPart.exit311.thread
-  %251 = or i32 %15, %1
-  %or.cond65.not474 = icmp eq i32 %251, 0
-  br i1 %or.cond65.not474, label %.thread488, label %252
+AddVerboseIntPart.exit300:                        ; preds = %AddVerboseIntPart.exit295, %258
+  %.12 = phi i8 [ %.10, %AddVerboseIntPart.exit295 ], [ %.11, %258 ]
+  %.7 = phi i8 [ %.6, %AddVerboseIntPart.exit295 ], [ 0, %258 ]
+  %.0.i298 = phi ptr [ %.0.i293, %AddVerboseIntPart.exit295 ], [ %263, %258 ]
+  %264 = icmp ne i32 %1, 0
+  %265 = or i32 %15, %1
+  %or.cond65.not = icmp eq i32 %265, 0
+  br i1 %or.cond65.not, label %293, label %266
 
-252:                                              ; preds = %AddVerboseIntPart.exit318.thread, %AddVerboseIntPart.exit318
-  %.0.i315479 = phi ptr [ %190, %AddVerboseIntPart.exit318.thread ], [ %.0.i315, %AddVerboseIntPart.exit318 ]
-  %.not256 = phi i1 [ false, %AddVerboseIntPart.exit318.thread ], [ true, %AddVerboseIntPart.exit318 ]
-  %.12476 = phi i8 [ 0, %AddVerboseIntPart.exit318.thread ], [ %.12, %AddVerboseIntPart.exit318 ]
-  %253 = icmp ne i32 %1, 0
-  %254 = getelementptr i8, ptr %.0.i315479, i64 1
-  store i8 32, ptr %.0.i315479, align 1
-  %255 = icmp slt i32 %15, 0
-  br i1 %255, label %259, label %256
+266:                                              ; preds = %AddVerboseIntPart.exit300
+  %267 = getelementptr i8, ptr %.0.i298, i64 1
+  store i8 32, ptr %.0.i298, align 1
+  %268 = icmp slt i32 %15, 0
+  br i1 %268, label %272, label %269
 
-256:                                              ; preds = %252
-  %257 = icmp eq i32 %15, 0
-  %258 = icmp slt i32 %1, 0
-  %or.cond67 = and i1 %258, %257
-  br i1 %or.cond67, label %259, label %260
+269:                                              ; preds = %266
+  %270 = icmp eq i32 %15, 0
+  %271 = icmp slt i32 %1, 0
+  %or.cond67 = and i1 %271, %270
+  br i1 %or.cond67, label %272, label %276
 
-259:                                              ; preds = %256, %252
-  %.not257 = icmp eq i8 %.12476, 0
-  %or.cond418 = select i1 %.not256, i1 %.not257, i1 false
-  br i1 %or.cond418, label %.sink.split, label %262
+272:                                              ; preds = %269, %266
+  %273 = trunc i8 %.7 to i1
+  br i1 %273, label %279, label %274
 
-260:                                              ; preds = %256
-  %.not255 = icmp eq i8 %.12476, 0
-  br i1 %.not255, label %262, label %.sink.split
+274:                                              ; preds = %272
+  %275 = trunc i8 %.12 to i1
+  br i1 %275, label %279, label %.sink.split
 
-.sink.split:                                      ; preds = %260, %259
-  %.13.ph = phi i8 [ 0, %259 ], [ 1, %260 ]
-  %261 = getelementptr i8, ptr %.0.i315479, i64 2
-  store i8 45, ptr %254, align 1
-  br label %262
+276:                                              ; preds = %269
+  %277 = trunc i8 %.12 to i1
+  br i1 %277, label %.sink.split, label %279
 
-262:                                              ; preds = %.sink.split, %259, %260
-  %.13 = phi i8 [ 0, %260 ], [ 1, %259 ], [ %.13.ph, %.sink.split ]
-  %.3 = phi ptr [ %254, %260 ], [ %254, %259 ], [ %261, %.sink.split ]
-  %263 = icmp eq i32 %1, 0
-  %264 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
-  br i1 %263, label %265, label %267
+.sink.split:                                      ; preds = %276, %274
+  %278 = getelementptr i8, ptr %.0.i298, i64 2
+  store i8 45, ptr %267, align 1
+  br label %279
 
-265:                                              ; preds = %262
-  %266 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3, ptr noundef nonnull @.str.22, i32 noundef %264) #13
-  br label %.thread378
+279:                                              ; preds = %.sink.split, %272, %276, %274
+  %.13 = phi i8 [ %.12, %274 ], [ %.12, %276 ], [ 1, %272 ], [ %.12, %.sink.split ]
+  %.3 = phi ptr [ %267, %274 ], [ %267, %276 ], [ %267, %272 ], [ %278, %.sink.split ]
+  %280 = icmp eq i32 %1, 0
+  %281 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
+  br i1 %280, label %282, label %284
 
-267:                                              ; preds = %262
-  %268 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
-  %269 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3, ptr noundef nonnull @.str.24, i32 noundef %264, i32 noundef 6, i32 noundef %268) #13
+282:                                              ; preds = %279
+  %283 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3, ptr noundef nonnull @.str.22, i32 noundef %281) #13
+  br label %.thread360
+
+284:                                              ; preds = %279
+  %285 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
+  %286 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3, ptr noundef nonnull @.str.24, i32 noundef %281, i32 noundef 6, i32 noundef %285) #13
   tail call void @TrimTrailingZeros(ptr noundef %.3) #13
-  br label %.thread378
+  br label %.thread360
 
-.thread378:                                       ; preds = %267, %265
-  %270 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3) #14
-  %271 = getelementptr i8, ptr %.3, i64 %270
-  %272 = icmp ne i32 %264, 1
-  %273 = or i1 %253, %272
-  %274 = select i1 %273, ptr @.str.18, ptr @.str.10
-  %275 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %271, ptr noundef nonnull @.str.17, ptr noundef nonnull %274) #13
-  br label %276
+.thread360:                                       ; preds = %284, %282
+  %287 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3) #14
+  %288 = getelementptr i8, ptr %.3, i64 %287
+  %289 = icmp ne i32 %281, 1
+  %290 = or i1 %264, %289
+  %291 = select i1 %290, ptr @.str.18, ptr @.str.10
+  %292 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %288, ptr noundef nonnull @.str.17, ptr noundef nonnull %291) #13
+  br label %296
 
-.thread488:                                       ; preds = %AddVerboseIntPart.exit318.thread
-  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %190)
-  %endptr = getelementptr inbounds i8, ptr %190, i64 %strlen
+293:                                              ; preds = %AddVerboseIntPart.exit300
+  %294 = trunc i8 %.7 to i1
+  br i1 %294, label %295, label %296
+
+295:                                              ; preds = %293
+  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.0.i298)
+  %endptr = getelementptr inbounds i8, ptr %.0.i298, i64 %strlen
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr, ptr noundef nonnull align 1 dereferenceable(3) @.str.19, i64 3, i1 false)
+  br label %296
+
+296:                                              ; preds = %.thread360, %295, %293
+  %.4365 = phi ptr [ %288, %.thread360 ], [ %.0.i298, %295 ], [ %.0.i298, %293 ]
+  %.14364 = phi i8 [ %.13, %.thread360 ], [ %.12, %295 ], [ %.12, %293 ]
+  %297 = trunc i8 %.14364 to i1
+  br i1 %297, label %298, label %AppendSeconds.exit
+
+298:                                              ; preds = %296
+  %strlen254 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.4365)
+  %endptr255 = getelementptr inbounds i8, ptr %.4365, i64 %strlen254
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr255, ptr noundef nonnull align 1 dereferenceable(5) @.str.20, i64 5, i1 false)
   br label %AppendSeconds.exit
 
-276:                                              ; preds = %AddVerboseIntPart.exit318, %.thread378
-  %.4384 = phi ptr [ %271, %.thread378 ], [ %.0.i315, %AddVerboseIntPart.exit318 ]
-  %.14383 = phi i8 [ %.13, %.thread378 ], [ %.12, %AddVerboseIntPart.exit318 ]
-  %.not259 = icmp eq i8 %.14383, 0
-  br i1 %.not259, label %AppendSeconds.exit, label %277
-
-277:                                              ; preds = %276
-  %strlen260 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.4384)
-  %endptr261 = getelementptr inbounds i8, ptr %.4384, i64 %strlen260
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr261, ptr noundef nonnull align 1 dereferenceable(5) @.str.20, i64 5, i1 false)
-  br label %AppendSeconds.exit
-
-AppendSeconds.exit:                               ; preds = %.thread488, %AddISO8601IntPart.exit270, %186, %184, %68, %66, %276, %277, %AddPostgresIntPart.exit286, %AppendSeconds.exit275, %AddISO8601IntPart.exit274, %50, %72, %79, %75, %91
+AppendSeconds.exit:                               ; preds = %AddISO8601IntPart.exit263, %190, %188, %68, %66, %296, %298, %AddPostgresIntPart.exit277, %AppendSeconds.exit268, %AddISO8601IntPart.exit267, %50, %72, %79, %75, %91
   ret void
 }
 
@@ -1334,15 +1336,15 @@ define ptr @PGTYPESinterval_from_asc(ptr noundef %0, ptr noundef %1) local_unnam
 
 .outer.i:                                         ; preds = %.outer.i.backedge, %34
   %36 = phi ptr [ %35, %34 ], [ %.be, %.outer.i.backedge ]
-  %.lcssa176183.i = phi double [ undef, %34 ], [ %.lcssa176183.i.be, %.outer.i.backedge ]
-  %storemerge.i.lcssa170180.i = phi i32 [ undef, %34 ], [ %storemerge.i.lcssa170180.i.be, %.outer.i.backedge ]
-  %.not87.i = phi i1 [ false, %34 ], [ true, %.outer.i.backedge ]
+  %.lcssa177182.i = phi double [ undef, %34 ], [ %.lcssa177182.i.be, %.outer.i.backedge ]
+  %storemerge.i.lcssa171179.i = phi i32 [ undef, %34 ], [ %storemerge.i.lcssa171179.i.be, %.outer.i.backedge ]
+  %.073.ph.i = phi i1 [ true, %34 ], [ false, %.outer.i.backedge ]
   br label %AdjustFractDays.exit.i
 
 AdjustFractDays.exit.i:                           ; preds = %AdjustFractDays.exit.i.backedge, %.outer.i
   %37 = phi ptr [ %36, %.outer.i ], [ %70, %AdjustFractDays.exit.i.backedge ]
-  %38 = phi double [ %.lcssa176183.i, %.outer.i ], [ %69, %AdjustFractDays.exit.i.backedge ]
-  %storemerge.i169.i = phi i32 [ %storemerge.i.lcssa170180.i, %.outer.i ], [ %storemerge.i.i, %AdjustFractDays.exit.i.backedge ]
+  %38 = phi double [ %.lcssa177182.i, %.outer.i ], [ %69, %AdjustFractDays.exit.i.backedge ]
+  %storemerge.i168.i = phi i32 [ %storemerge.i.lcssa171179.i, %.outer.i ], [ %storemerge.i.i, %AdjustFractDays.exit.i.backedge ]
   %.074.i = phi i1 [ false, %.outer.i ], [ true, %AdjustFractDays.exit.i.backedge ]
   %39 = load i8, ptr %37, align 1
   switch i8 %39, label %42 [
@@ -1351,7 +1353,7 @@ AdjustFractDays.exit.i:                           ; preds = %AdjustFractDays.exi
   ]
 
 40:                                               ; preds = %AdjustFractDays.exit.i
-  store i32 %storemerge.i169.i, ptr %4, align 4
+  store i32 %storemerge.i168.i, ptr %4, align 4
   store double %38, ptr %5, align 8
   %41 = getelementptr i8, ptr %37, i64 1
   store ptr %41, ptr %3, align 8
@@ -1412,7 +1414,7 @@ AdjustFractDays.exit.i:                           ; preds = %AdjustFractDays.exi
   %70 = getelementptr i8, ptr %52, i64 1
   store ptr %70, ptr %3, align 8
   %71 = load i8, ptr %52, align 1
-  br i1 %.not87.i, label %288, label %72
+  br i1 %.073.ph.i, label %72, label %288
 
 72:                                               ; preds = %67
   switch i8 %71, label %DecodeISO8601Interval.exit.thread [
@@ -1422,7 +1424,7 @@ AdjustFractDays.exit.i:                           ; preds = %AdjustFractDays.exi
     i8 68, label %132
     i8 84, label %149
     i8 0, label %149
-    i8 45, label %.loopexit138.i
+    i8 45, label %.loopexit137.i
   ]
 
 73:                                               ; preds = %72
@@ -1560,7 +1562,7 @@ AdjustFractDays.exit.i:                           ; preds = %AdjustFractDays.exi
   %165 = add i32 %164, %163
   store i32 %165, ptr %16, align 4
   %166 = fcmp oeq double %69, 0.000000e+00
-  br i1 %166, label %AdjustFractSeconds.exit98.i, label %167
+  br i1 %166, label %AdjustFractSeconds.exit97.i, label %167
 
 167:                                              ; preds = %155
   %168 = fmul double %69, 8.640000e+04
@@ -1577,18 +1579,18 @@ AdjustFractDays.exit.i:                           ; preds = %AdjustFractDays.exi
   %178 = fadd double %175, %177
   %179 = fptosi double %178 to i32
   store i32 %179, ptr %6, align 4
-  br label %AdjustFractSeconds.exit98.i
+  br label %AdjustFractSeconds.exit97.i
 
-AdjustFractSeconds.exit98.i:                      ; preds = %167, %155
+AdjustFractSeconds.exit97.i:                      ; preds = %167, %155
   %180 = icmp eq i8 %71, 0
   br i1 %180, label %DecodeISO8601Interval.exit.thread42, label %.outer.i.backedge
 
-.loopexit138.i:                                   ; preds = %72
+.loopexit137.i:                                   ; preds = %72
   store i32 %storemerge.i.i, ptr %4, align 4
   store double %69, ptr %5, align 8
   br label %181
 
-181:                                              ; preds = %.loopexit138.i, %149
+181:                                              ; preds = %.loopexit137.i, %149
   br i1 %.074.i, label %DecodeISO8601Interval.exit.thread38, label %182
 
 182:                                              ; preds = %181
@@ -1613,13 +1615,13 @@ AdjustFractSeconds.exit98.i:                      ; preds = %167, %155
   %194 = zext i8 %193 to i64
   %195 = getelementptr i16, ptr %192, i64 %194
   %196 = load i16, ptr %195, align 2
-  %.fr24.i99.i = freeze i16 %196
-  %197 = and i16 %.fr24.i99.i, 2048
-  %.not.i100.i = icmp ne i16 %197, 0
-  %.off.i101.i = add i8 %193, -45
-  %switch.i102.i = icmp ult i8 %.off.i101.i, 2
-  %or.cond23.i103.i = or i1 %switch.i102.i, %.not.i100.i
-  br i1 %or.cond23.i103.i, label %198, label %DecodeISO8601Interval.exit.thread38
+  %.fr24.i98.i = freeze i16 %196
+  %197 = and i16 %.fr24.i98.i, 2048
+  %.not.i99.i = icmp ne i16 %197, 0
+  %.off.i100.i = add i8 %193, -45
+  %switch.i101.i = icmp ult i8 %.off.i100.i, 2
+  %or.cond23.i102.i = or i1 %switch.i101.i, %.not.i99.i
+  br i1 %or.cond23.i102.i, label %198, label %DecodeISO8601Interval.exit.thread38
 
 198:                                              ; preds = %191
   store i32 0, ptr %50, align 4
@@ -1630,14 +1632,14 @@ AdjustFractSeconds.exit98.i:                      ; preds = %167, %155
 
 202:                                              ; preds = %198
   %203 = load i32, ptr %50, align 4
-  %.not20.i105.i = icmp eq i32 %203, 0
-  br i1 %.not20.i105.i, label %204, label %DecodeISO8601Interval.exit.thread38
+  %.not20.i104.i = icmp eq i32 %203, 0
+  br i1 %.not20.i104.i, label %204, label %DecodeISO8601Interval.exit.thread38
 
 204:                                              ; preds = %202
   %205 = fcmp olt double %199, 0xC1E0000000000000
   %206 = fcmp ogt double %199, 0x41DFFFFFFFC00000
-  %or.cond.i106.i = or i1 %205, %206
-  br i1 %or.cond.i106.i, label %DecodeISO8601Interval.exit.thread38, label %207
+  %or.cond.i105.i = or i1 %205, %206
+  br i1 %or.cond.i105.i, label %DecodeISO8601Interval.exit.thread38, label %207
 
 207:                                              ; preds = %204
   %208 = fcmp ult double %199, 0.000000e+00
@@ -1654,17 +1656,17 @@ AdjustFractSeconds.exit98.i:                      ; preds = %167, %155
   br label %215
 
 215:                                              ; preds = %211, %209
-  %storemerge.in.i107.i = phi double [ %214, %211 ], [ %210, %209 ]
-  %storemerge.i108.i = fptosi double %storemerge.in.i107.i to i32
-  store i32 %storemerge.i108.i, ptr %4, align 4
-  %216 = sitofp i32 %storemerge.i108.i to double
+  %storemerge.in.i106.i = phi double [ %214, %211 ], [ %210, %209 ]
+  %storemerge.i107.i = fptosi double %storemerge.in.i106.i to i32
+  store i32 %storemerge.i107.i, ptr %4, align 4
+  %216 = sitofp i32 %storemerge.i107.i to double
   %217 = fsub double %199, %216
   store double %217, ptr %5, align 8
   %218 = load i32, ptr %15, align 8
-  %219 = add i32 %218, %storemerge.i108.i
+  %219 = add i32 %218, %storemerge.i107.i
   store i32 %219, ptr %15, align 8
   %220 = fcmp oeq double %217, 0.000000e+00
-  br i1 %220, label %AdjustFractDays.exit110.i, label %221
+  br i1 %220, label %AdjustFractDays.exit109.i, label %221
 
 221:                                              ; preds = %215
   %222 = fmul double %217, 3.000000e+01
@@ -1675,7 +1677,7 @@ AdjustFractSeconds.exit98.i:                      ; preds = %167, %155
   %226 = sitofp i32 %223 to double
   %227 = fsub double %222, %226
   %228 = fcmp oeq double %227, 0.000000e+00
-  br i1 %228, label %AdjustFractDays.exit110.i, label %229
+  br i1 %228, label %AdjustFractDays.exit109.i, label %229
 
 229:                                              ; preds = %221
   %230 = fmul double %227, 8.640000e+04
@@ -1692,9 +1694,9 @@ AdjustFractSeconds.exit98.i:                      ; preds = %167, %155
   %240 = fadd double %237, %239
   %241 = fptosi double %240 to i32
   store i32 %241, ptr %6, align 4
-  br label %AdjustFractDays.exit110.i
+  br label %AdjustFractDays.exit109.i
 
-AdjustFractDays.exit110.i:                        ; preds = %229, %221, %215
+AdjustFractDays.exit109.i:                        ; preds = %229, %221, %215
   %242 = load i8, ptr %200, align 1
   switch i8 %242, label %DecodeISO8601Interval.exit.thread [
     i8 0, label %DecodeISO8601Interval.exit.thread42
@@ -1702,7 +1704,7 @@ AdjustFractDays.exit110.i:                        ; preds = %229, %221, %215
     i8 45, label %243
   ]
 
-243:                                              ; preds = %AdjustFractDays.exit110.i
+243:                                              ; preds = %AdjustFractDays.exit109.i
   %244 = getelementptr i8, ptr %200, i64 1
   store ptr %244, ptr %3, align 8
   %245 = load ptr, ptr %43, align 8
@@ -1710,13 +1712,13 @@ AdjustFractDays.exit110.i:                        ; preds = %229, %221, %215
   %247 = zext i8 %246 to i64
   %248 = getelementptr i16, ptr %245, i64 %247
   %249 = load i16, ptr %248, align 2
-  %.fr24.i111.i = freeze i16 %249
-  %250 = and i16 %.fr24.i111.i, 2048
-  %.not.i112.i = icmp ne i16 %250, 0
-  %.off.i113.i = add i8 %246, -45
-  %switch.i114.i = icmp ult i8 %.off.i113.i, 2
-  %or.cond23.i115.i = or i1 %switch.i114.i, %.not.i112.i
-  br i1 %or.cond23.i115.i, label %251, label %DecodeISO8601Interval.exit.thread38
+  %.fr24.i110.i = freeze i16 %249
+  %250 = and i16 %.fr24.i110.i, 2048
+  %.not.i111.i = icmp ne i16 %250, 0
+  %.off.i112.i = add i8 %246, -45
+  %switch.i113.i = icmp ult i8 %.off.i112.i, 2
+  %or.cond23.i114.i = or i1 %switch.i113.i, %.not.i111.i
+  br i1 %or.cond23.i114.i, label %251, label %DecodeISO8601Interval.exit.thread38
 
 251:                                              ; preds = %243
   store i32 0, ptr %50, align 4
@@ -1727,14 +1729,14 @@ AdjustFractDays.exit110.i:                        ; preds = %229, %221, %215
 
 255:                                              ; preds = %251
   %256 = load i32, ptr %50, align 4
-  %.not20.i117.i = icmp eq i32 %256, 0
-  br i1 %.not20.i117.i, label %257, label %DecodeISO8601Interval.exit.thread38
+  %.not20.i116.i = icmp eq i32 %256, 0
+  br i1 %.not20.i116.i, label %257, label %DecodeISO8601Interval.exit.thread38
 
 257:                                              ; preds = %255
   %258 = fcmp olt double %252, 0xC1E0000000000000
   %259 = fcmp ogt double %252, 0x41DFFFFFFFC00000
-  %or.cond.i118.i = or i1 %258, %259
-  br i1 %or.cond.i118.i, label %DecodeISO8601Interval.exit.thread38, label %260
+  %or.cond.i117.i = or i1 %258, %259
+  br i1 %or.cond.i117.i, label %DecodeISO8601Interval.exit.thread38, label %260
 
 260:                                              ; preds = %257
   %261 = fcmp ult double %252, 0.000000e+00
@@ -1751,17 +1753,17 @@ AdjustFractDays.exit110.i:                        ; preds = %229, %221, %215
   br label %268
 
 268:                                              ; preds = %264, %262
-  %storemerge.in.i119.i = phi double [ %267, %264 ], [ %263, %262 ]
-  %storemerge.i120.i = fptosi double %storemerge.in.i119.i to i32
-  store i32 %storemerge.i120.i, ptr %4, align 4
-  %269 = sitofp i32 %storemerge.i120.i to double
+  %storemerge.in.i118.i = phi double [ %267, %264 ], [ %263, %262 ]
+  %storemerge.i119.i = fptosi double %storemerge.in.i118.i to i32
+  store i32 %storemerge.i119.i, ptr %4, align 4
+  %269 = sitofp i32 %storemerge.i119.i to double
   %270 = fsub double %252, %269
   store double %270, ptr %5, align 8
   %271 = load i32, ptr %16, align 4
-  %272 = add i32 %271, %storemerge.i120.i
+  %272 = add i32 %271, %storemerge.i119.i
   store i32 %272, ptr %16, align 4
   %273 = fcmp oeq double %270, 0.000000e+00
-  br i1 %273, label %AdjustFractSeconds.exit122.i, label %274
+  br i1 %273, label %AdjustFractSeconds.exit121.i, label %274
 
 274:                                              ; preds = %268
   %275 = fmul double %270, 8.640000e+04
@@ -1778,19 +1780,19 @@ AdjustFractDays.exit110.i:                        ; preds = %229, %221, %215
   %285 = fadd double %282, %284
   %286 = fptosi double %285 to i32
   store i32 %286, ptr %6, align 4
-  br label %AdjustFractSeconds.exit122.i
+  br label %AdjustFractSeconds.exit121.i
 
-AdjustFractSeconds.exit122.i:                     ; preds = %274, %268
+AdjustFractSeconds.exit121.i:                     ; preds = %274, %268
   %287 = load i8, ptr %253, align 1
   switch i8 %287, label %DecodeISO8601Interval.exit.thread [
     i8 0, label %DecodeISO8601Interval.exit.thread42
     i8 84, label %.outer.i.backedge
   ]
 
-.outer.i.backedge:                                ; preds = %AdjustFractSeconds.exit122.i, %AdjustFractDays.exit110.i, %182, %AdjustFractSeconds.exit98.i, %40
-  %.be = phi ptr [ %41, %40 ], [ %70, %AdjustFractSeconds.exit98.i ], [ %70, %182 ], [ %200, %AdjustFractDays.exit110.i ], [ %253, %AdjustFractSeconds.exit122.i ]
-  %.lcssa176183.i.be = phi double [ %38, %40 ], [ %69, %AdjustFractSeconds.exit98.i ], [ %69, %182 ], [ %217, %AdjustFractDays.exit110.i ], [ %270, %AdjustFractSeconds.exit122.i ]
-  %storemerge.i.lcssa170180.i.be = phi i32 [ %storemerge.i169.i, %40 ], [ %storemerge.i.i, %AdjustFractSeconds.exit98.i ], [ %storemerge.i.i, %182 ], [ %storemerge.i108.i, %AdjustFractDays.exit110.i ], [ %storemerge.i120.i, %AdjustFractSeconds.exit122.i ]
+.outer.i.backedge:                                ; preds = %AdjustFractSeconds.exit121.i, %AdjustFractDays.exit109.i, %182, %AdjustFractSeconds.exit97.i, %40
+  %.be = phi ptr [ %41, %40 ], [ %70, %AdjustFractSeconds.exit97.i ], [ %70, %182 ], [ %200, %AdjustFractDays.exit109.i ], [ %253, %AdjustFractSeconds.exit121.i ]
+  %.lcssa177182.i.be = phi double [ %38, %40 ], [ %69, %AdjustFractSeconds.exit97.i ], [ %69, %182 ], [ %217, %AdjustFractDays.exit109.i ], [ %270, %AdjustFractSeconds.exit121.i ]
+  %storemerge.i.lcssa171179.i.be = phi i32 [ %storemerge.i168.i, %40 ], [ %storemerge.i.i, %AdjustFractSeconds.exit97.i ], [ %storemerge.i.i, %182 ], [ %storemerge.i107.i, %AdjustFractDays.exit109.i ], [ %storemerge.i119.i, %AdjustFractSeconds.exit121.i ]
   br label %.outer.i, !llvm.loop !6
 
 288:                                              ; preds = %67
@@ -1880,13 +1882,13 @@ AdjustFractDays.exit.i.backedge:                  ; preds = %327, %323, %310, %3
   store double %69, ptr %5, align 8
   %339 = load i8, ptr %37, align 1
   %340 = icmp eq i8 %339, 45
-  %spec.select.idx.i126.i = zext i1 %340 to i64
-  %spec.select.i127.i = getelementptr i8, ptr %37, i64 %spec.select.idx.i126.i
-  %341 = call i64 @strspn(ptr noundef %spec.select.i127.i, ptr noundef nonnull @.str.28) #14
+  %spec.select.idx.i125.i = zext i1 %340 to i64
+  %spec.select.i126.i = getelementptr i8, ptr %37, i64 %spec.select.idx.i125.i
+  %341 = call i64 @strspn(ptr noundef %spec.select.i126.i, ptr noundef nonnull @.str.28) #14
   %342 = and i64 %341, 4294967295
   %343 = icmp ne i64 %342, 6
-  %brmerge96.i = or i1 %.074.i, %343
-  br i1 %brmerge96.i, label %367, label %344
+  %brmerge95.i = or i1 %.074.i, %343
+  br i1 %brmerge95.i, label %367, label %344
 
 344:                                              ; preds = %338
   %345 = sdiv i32 %storemerge.i.i, 10000
@@ -1933,7 +1935,7 @@ AdjustFractDays.exit.i.backedge:                  ; preds = %327, %323, %310, %3
   %370 = add i32 %369, %storemerge.i.i
   store i32 %370, ptr %17, align 8
   %371 = fcmp oeq double %69, 0.000000e+00
-  br i1 %371, label %AdjustFractSeconds.exit129.i, label %372
+  br i1 %371, label %AdjustFractSeconds.exit128.i, label %372
 
 372:                                              ; preds = %368
   %373 = fmul double %69, 3.600000e+03
@@ -1950,16 +1952,16 @@ AdjustFractDays.exit.i.backedge:                  ; preds = %327, %323, %310, %3
   %383 = fadd double %380, %382
   %384 = fptosi double %383 to i32
   store i32 %384, ptr %6, align 4
-  br label %AdjustFractSeconds.exit129.i
+  br label %AdjustFractSeconds.exit128.i
 
-AdjustFractSeconds.exit129.i:                     ; preds = %372, %368
+AdjustFractSeconds.exit128.i:                     ; preds = %372, %368
   %385 = icmp eq i8 %71, 0
   br i1 %385, label %DecodeISO8601Interval.exit.thread32, label %386
 
-386:                                              ; preds = %AdjustFractSeconds.exit129.i
+386:                                              ; preds = %AdjustFractSeconds.exit128.i
   %387 = call fastcc i32 @ParseISO8601Number(ptr noundef %70, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5), !range !7
-  %.not88.i = icmp eq i32 %387, 0
-  br i1 %.not88.i, label %388, label %DecodeISO8601Interval.exit.thread
+  %.not87.i = icmp eq i32 %387, 0
+  br i1 %.not87.i, label %388, label %DecodeISO8601Interval.exit.thread
 
 388:                                              ; preds = %386
   %389 = load i32, ptr %4, align 4
@@ -1968,7 +1970,7 @@ AdjustFractSeconds.exit129.i:                     ; preds = %372, %368
   store i32 %391, ptr %18, align 4
   %392 = load double, ptr %5, align 8
   %393 = fcmp oeq double %392, 0.000000e+00
-  br i1 %393, label %AdjustFractSeconds.exit130.i, label %394
+  br i1 %393, label %AdjustFractSeconds.exit129.i, label %394
 
 394:                                              ; preds = %388
   %395 = fmul double %392, 6.000000e+01
@@ -1985,9 +1987,9 @@ AdjustFractSeconds.exit129.i:                     ; preds = %372, %368
   %405 = fadd double %402, %404
   %406 = fptosi double %405 to i32
   store i32 %406, ptr %6, align 4
-  br label %AdjustFractSeconds.exit130.i
+  br label %AdjustFractSeconds.exit129.i
 
-AdjustFractSeconds.exit130.i:                     ; preds = %394, %388
+AdjustFractSeconds.exit129.i:                     ; preds = %394, %388
   %407 = load ptr, ptr %3, align 8
   %408 = load i8, ptr %407, align 1
   switch i8 %408, label %DecodeISO8601Interval.exit.thread [
@@ -1995,12 +1997,12 @@ AdjustFractSeconds.exit130.i:                     ; preds = %394, %388
     i8 58, label %409
   ]
 
-409:                                              ; preds = %AdjustFractSeconds.exit130.i
+409:                                              ; preds = %AdjustFractSeconds.exit129.i
   %410 = getelementptr i8, ptr %407, i64 1
   store ptr %410, ptr %3, align 8
   %411 = call fastcc i32 @ParseISO8601Number(ptr noundef %410, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5), !range !7
-  %.not90.i = icmp eq i32 %411, 0
-  br i1 %.not90.i, label %412, label %DecodeISO8601Interval.exit.thread
+  %.not89.i = icmp eq i32 %411, 0
+  br i1 %.not89.i, label %412, label %DecodeISO8601Interval.exit.thread
 
 412:                                              ; preds = %409
   %413 = load i32, ptr %4, align 4
@@ -2026,13 +2028,13 @@ AdjustFractSeconds.exit130.i:                     ; preds = %394, %388
   store i32 %428, ptr %6, align 4
   br label %DecodeISO8601Interval.exit
 
-DecodeISO8601Interval.exit.thread:                ; preds = %AdjustFractDays.exit110.i, %AdjustFractSeconds.exit122.i, %72, %288, %42, %56, %49, %54, %32, %29, %367, %386, %409, %AdjustFractSeconds.exit130.i
+DecodeISO8601Interval.exit.thread:                ; preds = %AdjustFractDays.exit109.i, %AdjustFractSeconds.exit121.i, %72, %288, %42, %56, %49, %54, %32, %29, %367, %386, %409, %AdjustFractSeconds.exit129.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %431
 
-DecodeISO8601Interval.exit.thread32:              ; preds = %AdjustFractDays.exit.i, %AdjustFractSeconds.exit129.i, %AdjustFractSeconds.exit130.i, %344, %356
+DecodeISO8601Interval.exit.thread32:              ; preds = %AdjustFractDays.exit.i, %AdjustFractSeconds.exit128.i, %AdjustFractSeconds.exit129.i, %344, %356
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -2044,7 +2046,7 @@ DecodeISO8601Interval.exit.thread38:              ; preds = %181, %191, %204, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %431
 
-DecodeISO8601Interval.exit.thread42:              ; preds = %AdjustFractSeconds.exit98.i, %182, %AdjustFractDays.exit110.i, %AdjustFractSeconds.exit122.i
+DecodeISO8601Interval.exit.thread42:              ; preds = %AdjustFractSeconds.exit97.i, %182, %AdjustFractDays.exit109.i, %AdjustFractSeconds.exit121.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)

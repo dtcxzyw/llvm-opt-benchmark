@@ -14,109 +14,108 @@ define noundef i32 @PMPI_T_cvar_read(ptr nocapture noundef readonly %0, ptr noun
   store ptr null, ptr %3, align 8
   %4 = load volatile i32, ptr @ompi_mpit_init_count, align 4
   %.not22 = icmp eq i32 %4, 0
-  br i1 %.not22, label %46, label %5
+  br i1 %.not22, label %45, label %5
 
 5:                                                ; preds = %2
   %6 = load i8, ptr @ompi_mpi_param_check, align 1
-  %7 = and i8 %6, 1
-  %8 = icmp ne i8 %7, 0
-  %9 = icmp eq ptr %1, null
-  %or.cond = and i1 %9, %8
-  br i1 %or.cond, label %46, label %10
+  %7 = trunc i8 %6 to i1
+  %8 = icmp eq ptr %1, null
+  %or.cond = and i1 %8, %7
+  br i1 %or.cond, label %45, label %9
 
-10:                                               ; preds = %5
+9:                                                ; preds = %5
   tail call void @ompi_mpit_lock() #3
-  %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
-  %13 = load i32, ptr %12, align 8
-  %14 = call i32 @mca_base_var_get_value(i32 noundef %13, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #3
-  %15 = icmp ne i32 %14, 0
-  %16 = load ptr, ptr %3, align 8
-  %17 = icmp eq ptr %16, null
-  %or.cond3 = select i1 %15, i1 true, i1 %17
-  br i1 %or.cond3, label %45, label %18
+  %10 = load ptr, ptr %0, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = load i32, ptr %11, align 8
+  %13 = call i32 @mca_base_var_get_value(i32 noundef %12, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #3
+  %14 = icmp ne i32 %13, 0
+  %15 = load ptr, ptr %3, align 8
+  %16 = icmp eq ptr %15, null
+  %or.cond3 = select i1 %14, i1 true, i1 %16
+  br i1 %or.cond3, label %44, label %17
 
-18:                                               ; preds = %10
-  %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 28
-  %21 = load i32, ptr %20, align 4
-  switch i32 %21, label %45 [
-    i32 0, label %22
-    i32 1, label %22
-    i32 10, label %24
-    i32 11, label %24
-    i32 12, label %26
-    i32 13, label %26
-    i32 9, label %28
-    i32 2, label %28
-    i32 3, label %30
-    i32 4, label %32
-    i32 7, label %34
-    i32 8, label %37
-    i32 5, label %39
+17:                                               ; preds = %9
+  %18 = load ptr, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 28
+  %20 = load i32, ptr %19, align 4
+  switch i32 %20, label %44 [
+    i32 0, label %21
+    i32 1, label %21
+    i32 10, label %23
+    i32 11, label %23
+    i32 12, label %25
+    i32 13, label %25
+    i32 9, label %27
+    i32 2, label %27
+    i32 3, label %29
+    i32 4, label %31
+    i32 7, label %33
+    i32 8, label %36
+    i32 5, label %38
   ]
 
-22:                                               ; preds = %18, %18
-  %23 = load i32, ptr %16, align 8
-  store i32 %23, ptr %1, align 4
-  br label %45
+21:                                               ; preds = %17, %17
+  %22 = load i32, ptr %15, align 8
+  store i32 %22, ptr %1, align 4
+  br label %44
 
-24:                                               ; preds = %18, %18
-  %25 = load i32, ptr %16, align 8
-  store i32 %25, ptr %1, align 4
-  br label %45
+23:                                               ; preds = %17, %17
+  %24 = load i32, ptr %15, align 8
+  store i32 %24, ptr %1, align 4
+  br label %44
 
-26:                                               ; preds = %18, %18
-  %27 = load i64, ptr %16, align 8
-  store i64 %27, ptr %1, align 8
-  br label %45
+25:                                               ; preds = %17, %17
+  %26 = load i64, ptr %15, align 8
+  store i64 %26, ptr %1, align 8
+  br label %44
 
-28:                                               ; preds = %18, %18
-  %29 = load i64, ptr %16, align 8
-  store i64 %29, ptr %1, align 8
-  br label %45
+27:                                               ; preds = %17, %17
+  %28 = load i64, ptr %15, align 8
+  store i64 %28, ptr %1, align 8
+  br label %44
 
-30:                                               ; preds = %18
-  %31 = load i64, ptr %16, align 8
-  store i64 %31, ptr %1, align 8
-  br label %45
+29:                                               ; preds = %17
+  %30 = load i64, ptr %15, align 8
+  store i64 %30, ptr %1, align 8
+  br label %44
 
-32:                                               ; preds = %18
-  %33 = load i64, ptr %16, align 8
-  store i64 %33, ptr %1, align 8
-  br label %45
+31:                                               ; preds = %17
+  %32 = load i64, ptr %15, align 8
+  store i64 %32, ptr %1, align 8
+  br label %44
 
-34:                                               ; preds = %18
-  %35 = load i8, ptr %16, align 8
-  %36 = and i8 %35, 1
-  store i8 %36, ptr %1, align 1
-  br label %45
+33:                                               ; preds = %17
+  %34 = load i8, ptr %15, align 8
+  %35 = and i8 %34, 1
+  store i8 %35, ptr %1, align 1
+  br label %44
 
-37:                                               ; preds = %18
-  %38 = load double, ptr %16, align 8
-  store double %38, ptr %1, align 8
-  br label %45
+36:                                               ; preds = %17
+  %37 = load double, ptr %15, align 8
+  store double %37, ptr %1, align 8
+  br label %44
 
-39:                                               ; preds = %18
-  %40 = load ptr, ptr %16, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %43
+38:                                               ; preds = %17
+  %39 = load ptr, ptr %15, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %42
 
-42:                                               ; preds = %39
+41:                                               ; preds = %38
   store i8 0, ptr %1, align 1
-  br label %45
+  br label %44
 
-43:                                               ; preds = %39
-  %44 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %40) #3
-  br label %45
+42:                                               ; preds = %38
+  %43 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %39) #3
+  br label %44
 
-45:                                               ; preds = %18, %10, %22, %24, %26, %28, %30, %32, %34, %37, %43, %42
-  %.0 = phi i32 [ 0, %42 ], [ 0, %43 ], [ 0, %37 ], [ 0, %34 ], [ 0, %32 ], [ 0, %30 ], [ 0, %28 ], [ 0, %26 ], [ 0, %24 ], [ 0, %22 ], [ 57, %10 ], [ 72, %18 ]
+44:                                               ; preds = %17, %9, %21, %23, %25, %27, %29, %31, %33, %36, %42, %41
+  %.0 = phi i32 [ 0, %41 ], [ 0, %42 ], [ 0, %36 ], [ 0, %33 ], [ 0, %31 ], [ 0, %29 ], [ 0, %27 ], [ 0, %25 ], [ 0, %23 ], [ 0, %21 ], [ 57, %9 ], [ 72, %17 ]
   call void @ompi_mpit_unlock() #3
-  br label %46
+  br label %45
 
-46:                                               ; preds = %5, %2, %45
-  %.018 = phi i32 [ %.0, %45 ], [ 55, %2 ], [ 72, %5 ]
+45:                                               ; preds = %5, %2, %44
+  %.018 = phi i32 [ %.0, %44 ], [ 55, %2 ], [ 72, %5 ]
   ret i32 %.018
 }
 

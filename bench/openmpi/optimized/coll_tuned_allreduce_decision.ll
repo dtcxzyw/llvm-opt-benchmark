@@ -52,9 +52,8 @@ define i32 @ompi_coll_tuned_allreduce_intra_check_forced_init(ptr nocapture noun
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @opal_uses_threads, align 1
-  %10 = and i8 %9, 1
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %14, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %14
 
 11:                                               ; preds = %1
   %12 = atomicrmw volatile add ptr %8, i32 -1 monotonic, align 4
@@ -87,8 +86,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %14
   call void %24(ptr noundef nonnull %7) #3
   %25 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %26 = load ptr, ptr %25, align 8
-  %.not.i13 = icmp eq ptr %26, null
-  br i1 %.not.i13, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %26, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %2, align 8

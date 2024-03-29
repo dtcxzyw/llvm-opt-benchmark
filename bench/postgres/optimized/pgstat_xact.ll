@@ -30,97 +30,95 @@ define dso_local void @AtEOXact_PgStat(i1 noundef zeroext %0, i1 noundef zeroext
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
-  %.not263338.i = icmp eq ptr %10, %5
-  %.not2633.i = select i1 %.not.i, i1 true, i1 %.not263338.i
-  br i1 %.not2633.i, label %AtEOXact_PgStat_DroppedStats.exit, label %.lr.ph.i
+  %.not263136.i = icmp eq ptr %10, %5
+  %.not2631.i = select i1 %.not.i, i1 true, i1 %.not263136.i
+  br i1 %.not2631.i, label %AtEOXact_PgStat_DroppedStats.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8
-  %.sroa.6.0.in31.i = getelementptr inbounds i8, ptr %10, i64 8
-  %.sroa.6.032.i = load ptr, ptr %.sroa.6.0.in31.i, align 8
+  %.sroa.6.0.in29.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.6.030.i = load ptr, ptr %.sroa.6.0.in29.i, align 8
   br i1 %0, label %.lr.ph.split.us.i, label %.critedge.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %23
-  %.sroa.6.037.us.i = phi ptr [ %.sroa.6.0.us.i, %23 ], [ %.sroa.6.032.i, %.lr.ph.i ]
-  %.sroa.6.0.in36.us.i = phi ptr [ %.sroa.6.0.in.us.i, %23 ], [ %.sroa.6.0.in31.i, %.lr.ph.i ]
-  %.sroa.0.035.us.i = phi ptr [ %.sroa.6.037.us.i, %23 ], [ %10, %.lr.ph.i ]
-  %.034.us.i = phi i32 [ %.1.us.i, %23 ], [ 0, %.lr.ph.i ]
-  %11 = getelementptr i8, ptr %.sroa.0.035.us.i, i64 -16
-  %12 = getelementptr i8, ptr %.sroa.0.035.us.i, i64 -4
+  %.sroa.6.035.us.i = phi ptr [ %.sroa.6.0.us.i, %23 ], [ %.sroa.6.030.i, %.lr.ph.i ]
+  %.sroa.6.0.in34.us.i = phi ptr [ %.sroa.6.0.in.us.i, %23 ], [ %.sroa.6.0.in29.i, %.lr.ph.i ]
+  %.sroa.0.033.us.i = phi ptr [ %.sroa.6.035.us.i, %23 ], [ %10, %.lr.ph.i ]
+  %.032.us.i = phi i32 [ %.1.us.i, %23 ], [ 0, %.lr.ph.i ]
+  %11 = getelementptr i8, ptr %.sroa.0.033.us.i, i64 -16
+  %12 = getelementptr i8, ptr %.sroa.0.033.us.i, i64 -4
   %13 = load i8, ptr %12, align 4
-  %14 = and i8 %13, 1
-  %.not27.us.i = icmp eq i8 %14, 0
-  br i1 %.not27.us.i, label %15, label %23
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %23, label %15
 
 15:                                               ; preds = %.lr.ph.split.us.i
   %16 = load i32, ptr %11, align 4
-  %17 = getelementptr i8, ptr %.sroa.0.035.us.i, i64 -12
+  %17 = getelementptr i8, ptr %.sroa.0.033.us.i, i64 -12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr i8, ptr %.sroa.0.035.us.i, i64 -8
+  %19 = getelementptr i8, ptr %.sroa.0.033.us.i, i64 -8
   %20 = load i32, ptr %19, align 4
   %21 = tail call zeroext i1 @pgstat_drop_entry(i32 noundef %16, i32 noundef %18, i32 noundef %20) #3
-  %not.30.us.i = xor i1 %21, true
-  %22 = zext i1 %not.30.us.i to i32
-  %spec.select.us.i = add i32 %.034.us.i, %22
-  %.pre40.i = load ptr, ptr %.sroa.6.0.in36.us.i, align 8
+  %not.28.us.i = xor i1 %21, true
+  %22 = zext i1 %not.28.us.i to i32
+  %spec.select.us.i = add i32 %.032.us.i, %22
+  %.pre38.i = load ptr, ptr %.sroa.6.0.in34.us.i, align 8
   br label %23
 
 23:                                               ; preds = %15, %.lr.ph.split.us.i
-  %24 = phi ptr [ %.pre40.i, %15 ], [ %.sroa.6.037.us.i, %.lr.ph.split.us.i ]
-  %.1.us.i = phi i32 [ %spec.select.us.i, %15 ], [ %.034.us.i, %.lr.ph.split.us.i ]
-  %25 = load ptr, ptr %.sroa.0.035.us.i, align 8
+  %24 = phi ptr [ %.pre38.i, %15 ], [ %.sroa.6.035.us.i, %.lr.ph.split.us.i ]
+  %.1.us.i = phi i32 [ %spec.select.us.i, %15 ], [ %.032.us.i, %.lr.ph.split.us.i ]
+  %25 = load ptr, ptr %.sroa.0.033.us.i, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %24, ptr %26, align 8
-  %27 = load ptr, ptr %.sroa.0.035.us.i, align 8
+  %27 = load ptr, ptr %.sroa.0.033.us.i, align 8
   store ptr %27, ptr %24, align 8
   %28 = load i32, ptr %6, align 8
   %29 = add i32 %28, -1
   store i32 %29, ptr %6, align 8
   tail call void @pfree(ptr noundef %11) #3
-  %.sroa.6.0.in.us.i = getelementptr inbounds i8, ptr %.sroa.6.037.us.i, i64 8
+  %.sroa.6.0.in.us.i = getelementptr inbounds i8, ptr %.sroa.6.035.us.i, i64 8
   %.sroa.6.0.us.i = load ptr, ptr %.sroa.6.0.in.us.i, align 8
-  %.not26.us.i = icmp eq ptr %.sroa.6.037.us.i, %5
+  %.not26.us.i = icmp eq ptr %.sroa.6.035.us.i, %5
   br i1 %.not26.us.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !5
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %42
-  %.sroa.6.037.i = phi ptr [ %.sroa.6.0.i, %42 ], [ %.sroa.6.032.i, %.lr.ph.i ]
-  %.sroa.6.0.in36.i = phi ptr [ %.sroa.6.0.in.i, %42 ], [ %.sroa.6.0.in31.i, %.lr.ph.i ]
-  %.sroa.0.035.i = phi ptr [ %.sroa.6.037.i, %42 ], [ %10, %.lr.ph.i ]
-  %.034.i = phi i32 [ %.1.i, %42 ], [ 0, %.lr.ph.i ]
-  %30 = getelementptr i8, ptr %.sroa.0.035.i, i64 -16
-  %31 = getelementptr i8, ptr %.sroa.0.035.i, i64 -4
+  %.sroa.6.035.i = phi ptr [ %.sroa.6.0.i, %42 ], [ %.sroa.6.030.i, %.lr.ph.i ]
+  %.sroa.6.0.in34.i = phi ptr [ %.sroa.6.0.in.i, %42 ], [ %.sroa.6.0.in29.i, %.lr.ph.i ]
+  %.sroa.0.033.i = phi ptr [ %.sroa.6.035.i, %42 ], [ %10, %.lr.ph.i ]
+  %.032.i = phi i32 [ %.1.i, %42 ], [ 0, %.lr.ph.i ]
+  %30 = getelementptr i8, ptr %.sroa.0.033.i, i64 -16
+  %31 = getelementptr i8, ptr %.sroa.0.033.i, i64 -4
   %32 = load i8, ptr %31, align 4
-  %33 = and i8 %32, 1
-  %.not28.i = icmp eq i8 %33, 0
-  br i1 %.not28.i, label %42, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %42
 
 34:                                               ; preds = %.critedge.i
   %35 = load i32, ptr %30, align 4
-  %36 = getelementptr i8, ptr %.sroa.0.035.i, i64 -12
+  %36 = getelementptr i8, ptr %.sroa.0.033.i, i64 -12
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr i8, ptr %.sroa.0.035.i, i64 -8
+  %38 = getelementptr i8, ptr %.sroa.0.033.i, i64 -8
   %39 = load i32, ptr %38, align 4
   %40 = tail call zeroext i1 @pgstat_drop_entry(i32 noundef %35, i32 noundef %37, i32 noundef %39) #3
   %not..i = xor i1 %40, true
   %41 = zext i1 %not..i to i32
-  %spec.select29.i = add i32 %.034.i, %41
-  %.pre.i = load ptr, ptr %.sroa.6.0.in36.i, align 8
+  %spec.select27.i = add i32 %.032.i, %41
+  %.pre.i = load ptr, ptr %.sroa.6.0.in34.i, align 8
   br label %42
 
 42:                                               ; preds = %34, %.critedge.i
-  %43 = phi ptr [ %.sroa.6.037.i, %.critedge.i ], [ %.pre.i, %34 ]
-  %.1.i = phi i32 [ %.034.i, %.critedge.i ], [ %spec.select29.i, %34 ]
-  %44 = load ptr, ptr %.sroa.0.035.i, align 8
+  %43 = phi ptr [ %.sroa.6.035.i, %.critedge.i ], [ %.pre.i, %34 ]
+  %.1.i = phi i32 [ %.032.i, %.critedge.i ], [ %spec.select27.i, %34 ]
+  %44 = load ptr, ptr %.sroa.0.033.i, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   store ptr %43, ptr %45, align 8
-  %46 = load ptr, ptr %.sroa.0.035.i, align 8
+  %46 = load ptr, ptr %.sroa.0.033.i, align 8
   store ptr %46, ptr %43, align 8
   %47 = load i32, ptr %6, align 8
   %48 = add i32 %47, -1
   store i32 %48, ptr %6, align 8
   tail call void @pfree(ptr noundef %30) #3
-  %.sroa.6.0.in.i = getelementptr inbounds i8, ptr %.sroa.6.037.i, i64 8
+  %.sroa.6.0.in.i = getelementptr inbounds i8, ptr %.sroa.6.035.i, i64 8
   %.sroa.6.0.i = load ptr, ptr %.sroa.6.0.in.i, align 8
-  %.not26.i = icmp eq ptr %.sroa.6.037.i, %5
+  %.not26.i = icmp eq ptr %.sroa.6.035.i, %5
   br i1 %.not26.i, label %._crit_edge.i, label %.critedge.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %42, %23
@@ -200,27 +198,27 @@ pgstat_get_xact_stack_level.exit.i:               ; preds = %18, %16
   %27 = getelementptr inbounds i8, ptr %3, i64 24
   %28 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %28, null
-  %.not252934.i = icmp eq ptr %28, %9
-  %.not2529.i = select i1 %.not.i, i1 true, i1 %.not252934.i
-  br i1 %.not2529.i, label %AtEOSubXact_PgStat_DroppedStats.exit, label %.lr.ph.i
+  %.not252833.i = icmp eq ptr %28, %9
+  %.not2528.i = select i1 %.not.i, i1 true, i1 %.not252833.i
+  br i1 %.not2528.i, label %AtEOSubXact_PgStat_DroppedStats.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %pgstat_get_xact_stack_level.exit.i
-  %.sroa.6.0.in27.i = getelementptr inbounds i8, ptr %28, i64 8
-  %.sroa.6.028.i = load ptr, ptr %.sroa.6.0.in27.i, align 8
+  %.sroa.6.0.in26.i = getelementptr inbounds i8, ptr %28, i64 8
+  %.sroa.6.027.i = load ptr, ptr %.sroa.6.0.in26.i, align 8
   %29 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
   %30 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
   %31 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
   br i1 %0, label %.critedge.us.i, label %.lr.ph.split.i
 
 .critedge.us.i:                                   ; preds = %.lr.ph.i, %dclist_push_tail.exit.us.i
-  %.sroa.6.033.us.i = phi ptr [ %.sroa.6.0.us.i, %dclist_push_tail.exit.us.i ], [ %.sroa.6.028.i, %.lr.ph.i ]
-  %.sroa.6.0.in32.us.i = phi ptr [ %.sroa.6.0.in.us.i, %dclist_push_tail.exit.us.i ], [ %.sroa.6.0.in27.i, %.lr.ph.i ]
-  %.sroa.0.031.us.i = phi ptr [ %.sroa.6.033.us.i, %dclist_push_tail.exit.us.i ], [ %28, %.lr.ph.i ]
-  %32 = load ptr, ptr %.sroa.0.031.us.i, align 8
+  %.sroa.6.032.us.i = phi ptr [ %.sroa.6.0.us.i, %dclist_push_tail.exit.us.i ], [ %.sroa.6.027.i, %.lr.ph.i ]
+  %.sroa.6.0.in31.us.i = phi ptr [ %.sroa.6.0.in.us.i, %dclist_push_tail.exit.us.i ], [ %.sroa.6.0.in26.i, %.lr.ph.i ]
+  %.sroa.0.030.us.i = phi ptr [ %.sroa.6.032.us.i, %dclist_push_tail.exit.us.i ], [ %28, %.lr.ph.i ]
+  %32 = load ptr, ptr %.sroa.0.030.us.i, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
-  store ptr %.sroa.6.033.us.i, ptr %33, align 8
-  %34 = load ptr, ptr %.sroa.0.031.us.i, align 8
-  store ptr %34, ptr %.sroa.6.033.us.i, align 8
+  store ptr %.sroa.6.032.us.i, ptr %33, align 8
+  %34 = load ptr, ptr %.sroa.0.030.us.i, align 8
+  store ptr %34, ptr %.sroa.6.032.us.i, align 8
   %35 = load i32, ptr %10, align 8
   %36 = add i32 %35, -1
   store i32 %36, ptr %10, align 8
@@ -235,49 +233,48 @@ pgstat_get_xact_stack_level.exit.i:               ; preds = %18, %16
   br label %dclist_push_tail.exit.us.i
 
 dclist_push_tail.exit.us.i:                       ; preds = %39, %.critedge.us.i
-  store ptr %29, ptr %.sroa.6.0.in32.us.i, align 8
+  store ptr %29, ptr %.sroa.6.0.in31.us.i, align 8
   %40 = load ptr, ptr %29, align 8
-  store ptr %40, ptr %.sroa.0.031.us.i, align 8
+  store ptr %40, ptr %.sroa.0.030.us.i, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 8
-  store ptr %.sroa.0.031.us.i, ptr %41, align 8
-  store ptr %.sroa.0.031.us.i, ptr %29, align 8
+  store ptr %.sroa.0.030.us.i, ptr %41, align 8
+  store ptr %.sroa.0.030.us.i, ptr %29, align 8
   %42 = load i32, ptr %31, align 8
   %43 = add i32 %42, 1
   store i32 %43, ptr %31, align 8
-  %.sroa.6.0.in.us.i = getelementptr inbounds i8, ptr %.sroa.6.033.us.i, i64 8
+  %.sroa.6.0.in.us.i = getelementptr inbounds i8, ptr %.sroa.6.032.us.i, i64 8
   %.sroa.6.0.us.i = load ptr, ptr %.sroa.6.0.in.us.i, align 8
-  %.not25.us.i = icmp eq ptr %.sroa.6.033.us.i, %9
+  %.not25.us.i = icmp eq ptr %.sroa.6.032.us.i, %9
   br i1 %.not25.us.i, label %AtEOSubXact_PgStat_DroppedStats.exit, label %.critedge.us.i, !llvm.loop !7
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %62
-  %.sroa.6.033.i = phi ptr [ %.sroa.6.0.i, %62 ], [ %.sroa.6.028.i, %.lr.ph.i ]
-  %.sroa.0.031.i = phi ptr [ %.sroa.6.033.i, %62 ], [ %28, %.lr.ph.i ]
-  %.030.i = phi i32 [ %.2.i, %62 ], [ 0, %.lr.ph.i ]
-  %44 = getelementptr i8, ptr %.sroa.0.031.i, i64 -16
-  %45 = load ptr, ptr %.sroa.0.031.i, align 8
+  %.sroa.6.032.i = phi ptr [ %.sroa.6.0.i, %62 ], [ %.sroa.6.027.i, %.lr.ph.i ]
+  %.sroa.0.030.i = phi ptr [ %.sroa.6.032.i, %62 ], [ %28, %.lr.ph.i ]
+  %.029.i = phi i32 [ %.2.i, %62 ], [ 0, %.lr.ph.i ]
+  %44 = getelementptr i8, ptr %.sroa.0.030.i, i64 -16
+  %45 = load ptr, ptr %.sroa.0.030.i, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 8
-  store ptr %.sroa.6.033.i, ptr %46, align 8
-  %47 = load ptr, ptr %.sroa.0.031.i, align 8
-  store ptr %47, ptr %.sroa.6.033.i, align 8
+  store ptr %.sroa.6.032.i, ptr %46, align 8
+  %47 = load ptr, ptr %.sroa.0.030.i, align 8
+  store ptr %47, ptr %.sroa.6.032.i, align 8
   %48 = load i32, ptr %10, align 8
   %49 = add i32 %48, -1
   store i32 %49, ptr %10, align 8
-  %50 = getelementptr i8, ptr %.sroa.0.031.i, i64 -4
+  %50 = getelementptr i8, ptr %.sroa.0.030.i, i64 -4
   %51 = load i8, ptr %50, align 4
-  %52 = and i8 %51, 1
-  %.not26.i = icmp eq i8 %52, 0
-  br i1 %.not26.i, label %61, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %61
 
 53:                                               ; preds = %.lr.ph.split.i
   %54 = load i32, ptr %44, align 4
-  %55 = getelementptr i8, ptr %.sroa.0.031.i, i64 -12
+  %55 = getelementptr i8, ptr %.sroa.0.030.i, i64 -12
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr i8, ptr %.sroa.0.031.i, i64 -8
+  %57 = getelementptr i8, ptr %.sroa.0.030.i, i64 -8
   %58 = load i32, ptr %57, align 4
   %59 = tail call zeroext i1 @pgstat_drop_entry(i32 noundef %54, i32 noundef %56, i32 noundef %58) #3
   %not..i = xor i1 %59, true
   %60 = zext i1 %not..i to i32
-  %spec.select.i = add i32 %.030.i, %60
+  %spec.select.i = add i32 %.029.i, %60
   tail call void @pfree(ptr noundef nonnull %44) #3
   br label %62
 
@@ -286,10 +283,10 @@ dclist_push_tail.exit.us.i:                       ; preds = %39, %.critedge.us.i
   br label %62
 
 62:                                               ; preds = %61, %53
-  %.2.i = phi i32 [ %.030.i, %61 ], [ %spec.select.i, %53 ]
-  %.sroa.6.0.in.i = getelementptr inbounds i8, ptr %.sroa.6.033.i, i64 8
+  %.2.i = phi i32 [ %.029.i, %61 ], [ %spec.select.i, %53 ]
+  %.sroa.6.0.in.i = getelementptr inbounds i8, ptr %.sroa.6.032.i, i64 8
   %.sroa.6.0.i = load ptr, ptr %.sroa.6.0.in.i, align 8
-  %.not25.i = icmp eq ptr %.sroa.6.033.i, %9
+  %.not25.i = icmp eq ptr %.sroa.6.032.i, %9
   br i1 %.not25.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %62
@@ -399,59 +396,57 @@ define dso_local i32 @pgstat_get_transactional_drops(i1 noundef zeroext %0, ptr 
   %11 = getelementptr inbounds i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
-  %.not202326 = icmp eq ptr %12, %6
-  %.not2023 = select i1 %.not, i1 true, i1 %.not202326
-  br i1 %.not2023, label %.loopexit, label %.lr.ph
+  %.not202124 = icmp eq ptr %12, %6
+  %.not2021 = select i1 %.not, i1 true, i1 %.not202124
+  br i1 %.not2021, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   br i1 %0, label %.lr.ph.split.us, label %.critedge
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %22
-  %.01725.us = phi i32 [ %.1.us, %22 ], [ 0, %.lr.ph ]
-  %.sroa.0.024.us = phi ptr [ %24, %22 ], [ %12, %.lr.ph ]
-  %13 = getelementptr i8, ptr %.sroa.0.024.us, i64 -4
+  %.01723.us = phi i32 [ %.1.us, %22 ], [ 0, %.lr.ph ]
+  %.sroa.0.022.us = phi ptr [ %24, %22 ], [ %12, %.lr.ph ]
+  %13 = getelementptr i8, ptr %.sroa.0.022.us, i64 -4
   %14 = load i8, ptr %13, align 4
-  %15 = and i8 %14, 1
-  %.not21.us = icmp eq i8 %15, 0
-  br i1 %.not21.us, label %16, label %22
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %22, label %16
 
 16:                                               ; preds = %.lr.ph.split.us
-  %17 = getelementptr i8, ptr %.sroa.0.024.us, i64 -16
+  %17 = getelementptr i8, ptr %.sroa.0.022.us, i64 -16
   %18 = load ptr, ptr %1, align 8
-  %19 = add i32 %.01725.us, 1
-  %20 = sext i32 %.01725.us to i64
+  %19 = add i32 %.01723.us, 1
+  %20 = sext i32 %.01723.us to i64
   %21 = getelementptr %struct.xl_xact_stats_item, ptr %18, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 8 dereferenceable(12) %17, i64 12, i1 false)
   br label %22
 
 22:                                               ; preds = %16, %.lr.ph.split.us
-  %.1.us = phi i32 [ %.01725.us, %.lr.ph.split.us ], [ %19, %16 ]
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.024.us, i64 8
+  %.1.us = phi i32 [ %.01723.us, %.lr.ph.split.us ], [ %19, %16 ]
+  %23 = getelementptr inbounds i8, ptr %.sroa.0.022.us, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not20.us = icmp eq ptr %24, %6
   br i1 %.not20.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph, %34
-  %.01725 = phi i32 [ %.1, %34 ], [ 0, %.lr.ph ]
-  %.sroa.0.024 = phi ptr [ %36, %34 ], [ %12, %.lr.ph ]
-  %25 = getelementptr i8, ptr %.sroa.0.024, i64 -4
+  %.01723 = phi i32 [ %.1, %34 ], [ 0, %.lr.ph ]
+  %.sroa.0.022 = phi ptr [ %36, %34 ], [ %12, %.lr.ph ]
+  %25 = getelementptr i8, ptr %.sroa.0.022, i64 -4
   %26 = load i8, ptr %25, align 4
-  %27 = and i8 %26, 1
-  %.not22 = icmp eq i8 %27, 0
-  br i1 %.not22, label %34, label %28
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %34
 
 28:                                               ; preds = %.critedge
-  %29 = getelementptr i8, ptr %.sroa.0.024, i64 -16
+  %29 = getelementptr i8, ptr %.sroa.0.022, i64 -16
   %30 = load ptr, ptr %1, align 8
-  %31 = add i32 %.01725, 1
-  %32 = sext i32 %.01725 to i64
+  %31 = add i32 %.01723, 1
+  %32 = sext i32 %.01723 to i64
   %33 = getelementptr %struct.xl_xact_stats_item, ptr %30, i64 %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %33, ptr noundef nonnull align 8 dereferenceable(12) %29, i64 12, i1 false)
   br label %34
 
 34:                                               ; preds = %.critedge, %28
-  %.1 = phi i32 [ %31, %28 ], [ %.01725, %.critedge ]
-  %35 = getelementptr inbounds i8, ptr %.sroa.0.024, i64 8
+  %.1 = phi i32 [ %31, %28 ], [ %.01723, %.critedge ]
+  %35 = getelementptr inbounds i8, ptr %.sroa.0.022, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not20 = icmp eq ptr %36, %6
   br i1 %.not20, label %.loopexit, label %.critedge, !llvm.loop !8

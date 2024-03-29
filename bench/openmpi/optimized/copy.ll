@@ -161,30 +161,29 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define noundef i32 @pmix20_bfrop_std_copy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
   %switch.tableidx = add i16 %2, -1
   %4 = icmp ult i16 %switch.tableidx, 43
-  br i1 %4, label %switch.hole_check, label %10
+  br i1 %4, label %switch.hole_check, label %9
 
 switch.hole_check:                                ; preds = %3
   %switch.maskindex = zext nneg i16 %switch.tableidx to i64
   %switch.shifted = lshr i64 5050345652219, %switch.maskindex
-  %5 = and i64 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i64 %5, 0
-  br i1 %switch.lobit.not, label %10, label %switch.lookup
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %9
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %6 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [43 x i64], ptr @switch.table.pmix20_bfrop_std_copy, i64 0, i64 %6
+  %5 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [43 x i64], ptr @switch.table.pmix20_bfrop_std_copy, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %7 = tail call noalias ptr @malloc(i64 noundef %switch.load) #15
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %10, label %9
+  %6 = tail call noalias ptr @malloc(i64 noundef %switch.load) #15
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-9:                                                ; preds = %switch.lookup
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %switch.load, i1 false)
-  store ptr %7, ptr %0, align 8
-  br label %10
+8:                                                ; preds = %switch.lookup
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %switch.load, i1 false)
+  store ptr %6, ptr %0, align 8
+  br label %9
 
-10:                                               ; preds = %switch.hole_check, %3, %switch.lookup, %9
-  %.08 = phi i32 [ 0, %9 ], [ -16, %3 ], [ -29, %switch.lookup ], [ -16, %switch.hole_check ]
+9:                                                ; preds = %switch.hole_check, %3, %switch.lookup, %8
+  %.08 = phi i32 [ 0, %8 ], [ -16, %3 ], [ -29, %switch.lookup ], [ -16, %switch.hole_check ]
   ret i32 %.08
 }
 
@@ -218,7 +217,7 @@ define noundef i32 @pmix20_bfrop_value_cmp(ptr nocapture noundef readonly %0, pt
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %6, %8
   %cond.fr46 = freeze i1 %9
-  br i1 %cond.fr46, label %93, label %94
+  br i1 %cond.fr46, label %92, label %93
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 8
@@ -227,7 +226,7 @@ define noundef i32 @pmix20_bfrop_value_cmp(ptr nocapture noundef readonly %0, pt
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %12, %14
   %cond.fr45 = freeze i1 %15
-  br i1 %cond.fr45, label %93, label %94
+  br i1 %cond.fr45, label %92, label %93
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds i8, ptr %0, i64 8
@@ -236,7 +235,7 @@ define noundef i32 @pmix20_bfrop_value_cmp(ptr nocapture noundef readonly %0, pt
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %18, %20
   %cond.fr44 = freeze i1 %21
-  br i1 %cond.fr44, label %93, label %94
+  br i1 %cond.fr44, label %92, label %93
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds i8, ptr %0, i64 8
@@ -245,7 +244,7 @@ define noundef i32 @pmix20_bfrop_value_cmp(ptr nocapture noundef readonly %0, pt
   %26 = load i8, ptr %25, align 8
   %27 = icmp eq i8 %24, %26
   %cond.fr43 = freeze i1 %27
-  br i1 %cond.fr43, label %93, label %94
+  br i1 %cond.fr43, label %92, label %93
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds i8, ptr %0, i64 8
@@ -254,7 +253,7 @@ define noundef i32 @pmix20_bfrop_value_cmp(ptr nocapture noundef readonly %0, pt
   %32 = load i16, ptr %31, align 8
   %33 = icmp eq i16 %30, %32
   %cond.fr42 = freeze i1 %33
-  br i1 %cond.fr42, label %93, label %94
+  br i1 %cond.fr42, label %92, label %93
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds i8, ptr %0, i64 8
@@ -263,7 +262,7 @@ define noundef i32 @pmix20_bfrop_value_cmp(ptr nocapture noundef readonly %0, pt
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %36, %38
   %cond.fr41 = freeze i1 %39
-  br i1 %cond.fr41, label %93, label %94
+  br i1 %cond.fr41, label %92, label %93
 
 40:                                               ; preds = %2
   %41 = getelementptr inbounds i8, ptr %0, i64 8
@@ -272,7 +271,7 @@ define noundef i32 @pmix20_bfrop_value_cmp(ptr nocapture noundef readonly %0, pt
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %42, %44
   %cond.fr40 = freeze i1 %45
-  br i1 %cond.fr40, label %93, label %94
+  br i1 %cond.fr40, label %92, label %93
 
 46:                                               ; preds = %2
   %47 = getelementptr inbounds i8, ptr %0, i64 8
@@ -281,7 +280,7 @@ define noundef i32 @pmix20_bfrop_value_cmp(ptr nocapture noundef readonly %0, pt
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %48, %50
   %cond.fr39 = freeze i1 %51
-  br i1 %cond.fr39, label %93, label %94
+  br i1 %cond.fr39, label %92, label %93
 
 52:                                               ; preds = %2
   %53 = getelementptr inbounds i8, ptr %0, i64 8
@@ -292,7 +291,7 @@ define noundef i32 @pmix20_bfrop_value_cmp(ptr nocapture noundef readonly %0, pt
   %58 = sext i8 %57 to i32
   %59 = icmp eq i32 %55, %58
   %cond.fr38 = freeze i1 %59
-  br i1 %cond.fr38, label %93, label %94
+  br i1 %cond.fr38, label %92, label %93
 
 60:                                               ; preds = %2
   %61 = getelementptr inbounds i8, ptr %0, i64 8
@@ -301,7 +300,7 @@ define noundef i32 @pmix20_bfrop_value_cmp(ptr nocapture noundef readonly %0, pt
   %64 = load i16, ptr %63, align 8
   %65 = icmp eq i16 %62, %64
   %cond.fr37 = freeze i1 %65
-  br i1 %cond.fr37, label %93, label %94
+  br i1 %cond.fr37, label %92, label %93
 
 66:                                               ; preds = %2
   %67 = getelementptr inbounds i8, ptr %0, i64 8
@@ -310,7 +309,7 @@ define noundef i32 @pmix20_bfrop_value_cmp(ptr nocapture noundef readonly %0, pt
   %70 = load i32, ptr %69, align 8
   %71 = icmp eq i32 %68, %70
   %cond.fr36 = freeze i1 %71
-  br i1 %cond.fr36, label %93, label %94
+  br i1 %cond.fr36, label %92, label %93
 
 72:                                               ; preds = %2
   %73 = getelementptr inbounds i8, ptr %0, i64 8
@@ -319,7 +318,7 @@ define noundef i32 @pmix20_bfrop_value_cmp(ptr nocapture noundef readonly %0, pt
   %76 = load i64, ptr %75, align 8
   %77 = icmp eq i64 %74, %76
   %cond.fr35 = freeze i1 %77
-  br i1 %cond.fr35, label %93, label %94
+  br i1 %cond.fr35, label %92, label %93
 
 78:                                               ; preds = %2
   %79 = getelementptr inbounds i8, ptr %0, i64 8
@@ -329,12 +328,12 @@ define noundef i32 @pmix20_bfrop_value_cmp(ptr nocapture noundef readonly %0, pt
   %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull dereferenceable(1) %82) #16
   %.fr = freeze i32 %83
   %.not = icmp eq i32 %.fr, 0
-  br i1 %.not, label %94, label %93
+  br i1 %.not, label %93, label %92
 
 .thread:                                          ; preds = %2
   %84 = zext i16 %3 to i32
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.2, i32 noundef %84) #14
-  br label %94
+  br label %93
 
 85:                                               ; preds = %2
   %86 = getelementptr inbounds i8, ptr %0, i64 8
@@ -343,16 +342,15 @@ define noundef i32 @pmix20_bfrop_value_cmp(ptr nocapture noundef readonly %0, pt
   %89 = load i8, ptr %88, align 8
   %90 = xor i8 %89, %87
   %.fr48 = freeze i8 %90
-  %91 = and i8 %.fr48, 1
-  %92 = icmp eq i8 %91, 0
-  br i1 %92, label %93, label %94
+  %91 = trunc i8 %.fr48 to i1
+  br i1 %91, label %93, label %92
 
-93:                                               ; preds = %4, %10, %16, %22, %28, %34, %40, %46, %52, %60, %66, %72, %78, %85
-  br label %94
+92:                                               ; preds = %4, %10, %16, %22, %28, %34, %40, %46, %52, %60, %66, %72, %78, %85
+  br label %93
 
-94:                                               ; preds = %4, %10, %16, %22, %28, %34, %40, %46, %52, %60, %66, %72, %78, %.thread, %85, %93
-  %95 = phi i32 [ 0, %93 ], [ 1, %85 ], [ 1, %.thread ], [ 1, %78 ], [ 1, %72 ], [ 1, %66 ], [ 1, %60 ], [ 1, %52 ], [ 1, %46 ], [ 1, %40 ], [ 1, %34 ], [ 1, %28 ], [ 1, %22 ], [ 1, %16 ], [ 1, %10 ], [ 1, %4 ]
-  ret i32 %95
+93:                                               ; preds = %4, %10, %16, %22, %28, %34, %40, %46, %52, %60, %66, %72, %78, %.thread, %85, %92
+  %94 = phi i32 [ 0, %92 ], [ 1, %85 ], [ 1, %.thread ], [ 1, %78 ], [ 1, %72 ], [ 1, %66 ], [ 1, %60 ], [ 1, %52 ], [ 1, %46 ], [ 1, %40 ], [ 1, %34 ], [ 1, %28 ], [ 1, %22 ], [ 1, %16 ], [ 1, %10 ], [ 1, %4 ]
+  ret i32 %94
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -411,8 +409,8 @@ define zeroext i1 @pmix_value_cmp(ptr nocapture noundef readonly %0, ptr nocaptu
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i8, ptr %10, align 8
   %12 = xor i8 %11, %9
-  %13 = and i8 %12, 1
-  %14 = icmp eq i8 %13, 0
+  %13 = trunc i8 %12 to i1
+  %14 = xor i1 %13, true
   br label %108
 
 15:                                               ; preds = %6
@@ -590,9 +588,9 @@ define i32 @pmix20_bfrop_value_xfer(ptr nocapture noundef %0, ptr nocapture noun
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %7, ptr %8, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = and i8 %6, 1
+  store i8 %8, ptr %7, align 8
   br label %.loopexit
 
 9:                                                ; preds = %2

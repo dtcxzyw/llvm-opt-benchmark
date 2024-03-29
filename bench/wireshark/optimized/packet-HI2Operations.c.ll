@@ -2184,12 +2184,11 @@ define internal i32 @dissect_UUS1_Content_PDU(ptr noundef %0, ptr noundef %1, pt
 
 25:                                               ; preds = %21
   %26 = load i8, ptr %6, align 1
-  %27 = and i8 %26, 1
-  %.not18.i = icmp eq i8 %27, 0
+  %27 = trunc i8 %26 to i1
   %28 = load i32, ptr %7, align 4
-  %.not19.i = icmp eq i32 %28, 1
-  %or.cond20.i = select i1 %.not18.i, i1 %.not19.i, i1 false
-  br i1 %or.cond20.i, label %29, label %dissect_HI2Operations_UUS1_Content.exit
+  %.not18.i = icmp ne i32 %28, 1
+  %or.cond20.not.i = select i1 %27, i1 true, i1 %.not18.i
+  br i1 %or.cond20.not.i, label %dissect_HI2Operations_UUS1_Content.exit, label %29
 
 29:                                               ; preds = %25
   %30 = load i32, ptr @ett_HI2Operations_UUS1_Content, align 4

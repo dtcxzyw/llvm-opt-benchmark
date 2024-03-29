@@ -562,12 +562,11 @@ while.body:                                       ; preds = %invoke.cont1
 invoke.cont2:                                     ; preds = %while.body
   %cmp = icmp eq i8 %call3, 33
   %0 = load i8, ptr %canBeHandle, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   br i1 %cmp, label %if.then, label %if.end11
 
 if.then:                                          ; preds = %invoke.cont2
-  br i1 %tobool.not, label %if.then4, label %nrvo.skipdtor
+  br i1 %tobool, label %nrvo.skipdtor, label %if.then4
 
 if.then4:                                         ; preds = %if.then
   %exception = call ptr @__cxa_allocate_exception(i64 64) #10
@@ -584,31 +583,31 @@ invoke.cont9:                                     ; preds = %invoke.cont7
           to label %unreachable unwind label %ehcleanup
 
 lpad:                                             ; preds = %cond.true.i.i40, %_ZNK4YAML5RegEx13IsValidSourceINS_16StreamCharSourceEEEbRKT_.exit.i.i42, %cond.true.i.i, %_ZNK4YAML5RegEx13IsValidSourceINS_16StreamCharSourceEEEbRKT_.exit.i.i, %if.end34, %if.then26, %if.then13, %while.body, %while.cond
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup41
 
 ehcleanup.thread:                                 ; preds = %if.then4
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #10
   br label %cleanup.action
 
 ehcleanup:                                        ; preds = %invoke.cont7, %invoke.cont9
   %cleanup.isactive.0 = phi i1 [ false, %invoke.cont9 ], [ true, %invoke.cont7 ]
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #10
   br i1 %cleanup.isactive.0, label %cleanup.action, label %ehcleanup41
 
 cleanup.action:                                   ; preds = %ehcleanup.thread, %ehcleanup
-  %.pn50 = phi { ptr, i32 } [ %3, %ehcleanup.thread ], [ %4, %ehcleanup ]
+  %.pn50 = phi { ptr, i32 } [ %2, %ehcleanup.thread ], [ %3, %ehcleanup ]
   call void @__cxa_free_exception(ptr %exception) #10
   br label %ehcleanup41
 
 if.end11:                                         ; preds = %invoke.cont2
-  br i1 %tobool.not, label %if.end24, label %if.then13
+  br i1 %tobool, label %if.then13, label %if.end24
 
 if.then13:                                        ; preds = %if.end11
   %call15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4YAML3Exp4WordEv()
@@ -618,24 +617,24 @@ invoke.cont14:                                    ; preds = %if.then13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %source.i)
   store i64 0, ptr %source.i, align 8
   store ptr %INPUT, ptr %m_stream.i.i, align 8
-  %5 = load ptr, ptr %_M_node.i.i.i.i.i.i.i, align 8
-  %6 = load ptr, ptr %_M_node1.i.i.i.i.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %6 to i64
+  %4 = load ptr, ptr %_M_node.i.i.i.i.i.i.i, align 8
+  %5 = load ptr, ptr %_M_node1.i.i.i.i.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %4 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 3
-  %tobool.i.i.i.i.i.i.i = icmp ne ptr %5, null
+  %tobool.i.i.i.i.i.i.i = icmp ne ptr %4, null
   %conv.neg.i.i.i.i.i.i.i = sext i1 %tobool.i.i.i.i.i.i.i to i64
   %sub.i.i.i.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i.i.i.i, %conv.neg.i.i.i.i.i.i.i
   %mul.i.i.i.i.i.i.i = shl nsw i64 %sub.i.i.i.i.i.i.i, 9
-  %7 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
-  %8 = load ptr, ptr %_M_first.i.i.i.i.i.i.i, align 8
-  %sub.ptr.lhs.cast3.i.i.i.i.i.i.i = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast4.i.i.i.i.i.i.i = ptrtoint ptr %8 to i64
-  %9 = load ptr, ptr %_M_last.i.i.i.i.i.i.i, align 8
-  %10 = load ptr, ptr %_M_start.i.i.i.i.i.i, align 8
-  %sub.ptr.lhs.cast7.i.i.i.i.i.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast8.i.i.i.i.i.i.i = ptrtoint ptr %10 to i64
+  %6 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
+  %7 = load ptr, ptr %_M_first.i.i.i.i.i.i.i, align 8
+  %sub.ptr.lhs.cast3.i.i.i.i.i.i.i = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast4.i.i.i.i.i.i.i = ptrtoint ptr %7 to i64
+  %8 = load ptr, ptr %_M_last.i.i.i.i.i.i.i, align 8
+  %9 = load ptr, ptr %_M_start.i.i.i.i.i.i, align 8
+  %sub.ptr.lhs.cast7.i.i.i.i.i.i.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast8.i.i.i.i.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub9.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i.i.i.i
   %sub.ptr.sub5.i.i.i.i.i.i.i = add i64 %sub.ptr.sub9.i.i.i.i.i.i.i, %sub.ptr.lhs.cast7.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i = add i64 %sub.ptr.sub5.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i
@@ -675,11 +674,10 @@ if.end24.thread:                                  ; preds = %invoke.cont16, %inv
   br label %if.then26
 
 if.end24:                                         ; preds = %invoke.cont16.if.end24_crit_edge, %if.end11
-  %11 = phi i8 [ %.pre, %invoke.cont16.if.end24_crit_edge ], [ %0, %if.end11 ]
+  %10 = phi i8 [ %.pre, %invoke.cont16.if.end24_crit_edge ], [ %0, %if.end11 ]
   %n.0 = phi i32 [ %call2.i.i15, %invoke.cont16.if.end24_crit_edge ], [ 0, %if.end11 ]
-  %12 = and i8 %11, 1
-  %tobool25.not = icmp eq i8 %12, 0
-  br i1 %tobool25.not, label %if.then26, label %if.end31
+  %tobool25 = trunc i8 %10 to i1
+  br i1 %tobool25, label %if.end31, label %if.then26
 
 if.then26:                                        ; preds = %if.end24.thread, %if.end24
   %call28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4YAML3Exp3TagEv()
@@ -689,24 +687,24 @@ invoke.cont27:                                    ; preds = %if.then26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %source.i16)
   store i64 0, ptr %source.i16, align 8
   store ptr %INPUT, ptr %m_stream.i.i17, align 8
-  %13 = load ptr, ptr %_M_node.i.i.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %_M_node1.i.i.i.i.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i22 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i23 = ptrtoint ptr %14 to i64
+  %11 = load ptr, ptr %_M_node.i.i.i.i.i.i.i, align 8
+  %12 = load ptr, ptr %_M_node1.i.i.i.i.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i22 = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i23 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i22, %sub.ptr.rhs.cast.i.i.i.i.i.i.i23
   %sub.ptr.div.i.i.i.i.i.i.i25 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i24, 3
-  %tobool.i.i.i.i.i.i.i26 = icmp ne ptr %13, null
+  %tobool.i.i.i.i.i.i.i26 = icmp ne ptr %11, null
   %conv.neg.i.i.i.i.i.i.i27 = sext i1 %tobool.i.i.i.i.i.i.i26 to i64
   %sub.i.i.i.i.i.i.i28 = add nsw i64 %sub.ptr.div.i.i.i.i.i.i.i25, %conv.neg.i.i.i.i.i.i.i27
   %mul.i.i.i.i.i.i.i29 = shl nsw i64 %sub.i.i.i.i.i.i.i28, 9
-  %15 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
-  %16 = load ptr, ptr %_M_first.i.i.i.i.i.i.i, align 8
-  %sub.ptr.lhs.cast3.i.i.i.i.i.i.i31 = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast4.i.i.i.i.i.i.i32 = ptrtoint ptr %16 to i64
-  %17 = load ptr, ptr %_M_last.i.i.i.i.i.i.i, align 8
-  %18 = load ptr, ptr %_M_start.i.i.i.i.i.i, align 8
-  %sub.ptr.lhs.cast7.i.i.i.i.i.i.i34 = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast8.i.i.i.i.i.i.i35 = ptrtoint ptr %18 to i64
+  %13 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
+  %14 = load ptr, ptr %_M_first.i.i.i.i.i.i.i, align 8
+  %sub.ptr.lhs.cast3.i.i.i.i.i.i.i31 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast4.i.i.i.i.i.i.i32 = ptrtoint ptr %14 to i64
+  %15 = load ptr, ptr %_M_last.i.i.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %_M_start.i.i.i.i.i.i, align 8
+  %sub.ptr.lhs.cast7.i.i.i.i.i.i.i34 = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast8.i.i.i.i.i.i.i35 = ptrtoint ptr %16 to i64
   %sub.ptr.sub9.i.i.i.i.i.i.i36 = sub i64 %sub.ptr.lhs.cast3.i.i.i.i.i.i.i31, %sub.ptr.rhs.cast4.i.i.i.i.i.i.i32
   %sub.ptr.sub5.i.i.i.i.i.i.i37 = add i64 %sub.ptr.sub9.i.i.i.i.i.i.i36, %sub.ptr.lhs.cast7.i.i.i.i.i.i.i34
   %add.i.i.i.i.i.i.i38 = add i64 %sub.ptr.sub5.i.i.i.i.i.i.i37, %mul.i.i.i.i.i.i.i29
@@ -747,7 +745,7 @@ invoke.cont38:                                    ; preds = %invoke.cont36
   br label %while.cond, !llvm.loop !7
 
 lpad37:                                           ; preds = %invoke.cont36
-  %19 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35) #10
   br label %ehcleanup41
@@ -756,7 +754,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont1, %if.e
   ret void
 
 ehcleanup41:                                      ; preds = %ehcleanup, %cleanup.action, %lpad37, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn50, %cleanup.action ], [ %4, %ehcleanup ], [ %19, %lpad37 ], [ %2, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn50, %cleanup.action ], [ %3, %ehcleanup ], [ %17, %lpad37 ], [ %1, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #10
   resume { ptr, i32 } %.pn.pn
 

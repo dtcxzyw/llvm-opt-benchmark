@@ -46,9 +46,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_pg_tablespace_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -78,9 +77,8 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_pg_type_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -101,9 +99,8 @@ define dso_local noundef i64 @binary_upgrade_set_next_pg_type_oid(ptr nocapture 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_array_pg_type_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -124,9 +121,8 @@ define dso_local noundef i64 @binary_upgrade_set_next_array_pg_type_oid(ptr noca
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_multirange_pg_type_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -147,9 +143,8 @@ define dso_local noundef i64 @binary_upgrade_set_next_multirange_pg_type_oid(ptr
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_multirange_array_pg_type_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -170,9 +165,8 @@ define dso_local noundef i64 @binary_upgrade_set_next_multirange_array_pg_type_o
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_heap_pg_class_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -193,9 +187,8 @@ define dso_local noundef i64 @binary_upgrade_set_next_heap_pg_class_oid(ptr noca
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_heap_relfilenode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -216,9 +209,8 @@ define dso_local noundef i64 @binary_upgrade_set_next_heap_relfilenode(ptr nocap
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_index_pg_class_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -239,9 +231,8 @@ define dso_local noundef i64 @binary_upgrade_set_next_index_pg_class_oid(ptr noc
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_index_relfilenode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -262,9 +253,8 @@ define dso_local noundef i64 @binary_upgrade_set_next_index_relfilenode(ptr noca
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_toast_pg_class_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -285,9 +275,8 @@ define dso_local noundef i64 @binary_upgrade_set_next_toast_pg_class_oid(ptr noc
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_toast_relfilenode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -308,9 +297,8 @@ define dso_local noundef i64 @binary_upgrade_set_next_toast_relfilenode(ptr noca
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_pg_enum_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -331,9 +319,8 @@ define dso_local noundef i64 @binary_upgrade_set_next_pg_enum_oid(ptr nocapture 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_next_pg_authid_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -356,9 +343,8 @@ define dso_local noundef i64 @binary_upgrade_create_empty_extension(ptr nocaptur
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = load i8, ptr @IsBinaryUpgrade, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %10
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %10, label %6
 
 6:                                                ; preds = %1
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -372,32 +358,28 @@ define dso_local noundef i64 @binary_upgrade_create_empty_extension(ptr nocaptur
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not31 = icmp eq i8 %14, 0
-  br i1 %.not31, label %15, label %29
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %29, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr i8, ptr %0, i64 48
   %17 = getelementptr i8, ptr %0, i64 56
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not32 = icmp eq i8 %19, 0
-  br i1 %.not32, label %20, label %29
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %29, label %20
 
 20:                                               ; preds = %15
   %21 = getelementptr i8, ptr %0, i64 64
   %22 = getelementptr i8, ptr %0, i64 72
   %23 = load i8, ptr %22, align 8
-  %24 = and i8 %23, 1
-  %.not33 = icmp eq i8 %24, 0
-  br i1 %.not33, label %25, label %29
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %29, label %25
 
 25:                                               ; preds = %20
   %26 = getelementptr i8, ptr %0, i64 88
   %27 = load i8, ptr %26, align 8
-  %28 = and i8 %27, 1
-  %.not34 = icmp eq i8 %28, 0
-  br i1 %.not34, label %32, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25, %20, %15, %10
   %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -420,9 +402,8 @@ define dso_local noundef i64 @binary_upgrade_create_empty_extension(ptr nocaptur
   %43 = tail call ptr @pg_detoast_datum_packed(ptr noundef %42) #5
   %44 = getelementptr i8, ptr %0, i64 104
   %45 = load i8, ptr %44, align 8
-  %46 = and i8 %45, 1
-  %.not35 = icmp eq i8 %46, 0
-  br i1 %.not35, label %47, label %50
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %50, label %47
 
 47:                                               ; preds = %32
   %48 = getelementptr i8, ptr %0, i64 96
@@ -433,9 +414,8 @@ define dso_local noundef i64 @binary_upgrade_create_empty_extension(ptr nocaptur
   %.0 = phi i64 [ %49, %47 ], [ 0, %32 ]
   %51 = getelementptr i8, ptr %0, i64 120
   %52 = load i8, ptr %51, align 8
-  %53 = and i8 %52, 1
-  %.not36 = icmp eq i8 %53, 0
-  br i1 %.not36, label %54, label %57
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %57, label %54
 
 54:                                               ; preds = %50
   %55 = getelementptr i8, ptr %0, i64 112
@@ -446,9 +426,8 @@ define dso_local noundef i64 @binary_upgrade_create_empty_extension(ptr nocaptur
   %.028 = phi i64 [ %56, %54 ], [ 0, %50 ]
   %58 = getelementptr i8, ptr %0, i64 136
   %59 = load i8, ptr %58, align 8
-  %60 = and i8 %59, 1
-  %.not37 = icmp eq i8 %60, 0
-  br i1 %.not37, label %61, label %.loopexit
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %.loopexit, label %61
 
 61:                                               ; preds = %57
   %62 = getelementptr i8, ptr %0, i64 128
@@ -462,14 +441,14 @@ define dso_local noundef i64 @binary_upgrade_create_empty_extension(ptr nocaptur
 
 .lr.ph:                                           ; preds = %61, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %61 ]
-  %.02939 = phi ptr [ %74, %.lr.ph ], [ null, %61 ]
+  %.02932 = phi ptr [ %74, %.lr.ph ], [ null, %61 ]
   %68 = load ptr, ptr %2, align 8
   %69 = getelementptr i64, ptr %68, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8
   %71 = inttoptr i64 %70 to ptr
   %72 = call ptr @text_to_cstring(ptr noundef %71) #5
   %73 = call i32 @get_extension_oid(ptr noundef %72, i1 noundef zeroext false) #5
-  %74 = call ptr @lappend_oid(ptr noundef %.02939, i32 noundef %73) #5
+  %74 = call ptr @lappend_oid(ptr noundef %.02932, i32 noundef %73) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = load i32, ptr %3, align 4
   %76 = sext i32 %75 to i64
@@ -511,9 +490,8 @@ declare i32 @get_namespace_oid(ptr noundef, i1 noundef zeroext) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_record_init_privs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -547,9 +525,8 @@ define dso_local noundef i64 @binary_upgrade_set_missing_value(ptr nocapture nou
   %12 = tail call ptr @text_to_cstring(ptr noundef %7) #5
   %13 = tail call ptr @text_to_cstring(ptr noundef %11) #5
   %14 = load i8, ptr @IsBinaryUpgrade, align 1
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %16, label %20
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %20, label %16
 
 16:                                               ; preds = %1
   %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -570,9 +547,8 @@ declare void @SetAttrMissing(i32 noundef, ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @binary_upgrade_logical_slot_has_caught_up(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -606,9 +582,8 @@ declare void @ReplicationSlotRelease() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_add_sub_rel_state(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -622,24 +597,21 @@ define dso_local noundef i64 @binary_upgrade_add_sub_rel_state(ptr nocapture nou
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not15 = icmp eq i8 %12, 0
-  br i1 %.not15, label %13, label %22
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %22, label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr i8, ptr %0, i64 48
   %15 = getelementptr i8, ptr %0, i64 56
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not16 = icmp eq i8 %17, 0
-  br i1 %.not16, label %18, label %22
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %22, label %18
 
 18:                                               ; preds = %13
   %19 = getelementptr i8, ptr %0, i64 72
   %20 = load i8, ptr %19, align 8
-  %21 = and i8 %20, 1
-  %.not17 = icmp eq i8 %21, 0
-  br i1 %.not17, label %25, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %25
 
 22:                                               ; preds = %18, %13, %8
   %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -658,9 +630,8 @@ define dso_local noundef i64 @binary_upgrade_add_sub_rel_state(ptr nocapture nou
   %32 = load i64, ptr %26, align 8
   %33 = getelementptr i8, ptr %0, i64 88
   %34 = load i8, ptr %33, align 8
-  %35 = and i8 %34, 1
-  %.not18 = icmp eq i8 %35, 0
-  br i1 %.not18, label %36, label %39
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %39, label %36
 
 36:                                               ; preds = %25
   %37 = getelementptr i8, ptr %0, i64 80
@@ -696,9 +667,8 @@ declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 define dso_local noundef i64 @binary_upgrade_replorigin_advance(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = load i8, ptr @IsBinaryUpgrade, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %9
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -711,9 +681,8 @@ define dso_local noundef i64 @binary_upgrade_replorigin_advance(ptr nocapture no
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not8 = icmp eq i8 %12, 0
-  br i1 %.not8, label %16, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
   %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
@@ -730,9 +699,8 @@ define dso_local noundef i64 @binary_upgrade_replorigin_advance(ptr nocapture no
   %21 = tail call ptr @text_to_cstring(ptr noundef %20) #5
   %22 = getelementptr i8, ptr %0, i64 56
   %23 = load i8, ptr %22, align 8
-  %24 = and i8 %23, 1
-  %.not9 = icmp eq i8 %24, 0
-  br i1 %.not9, label %25, label %28
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %28, label %25
 
 25:                                               ; preds = %16
   %26 = getelementptr i8, ptr %0, i64 48

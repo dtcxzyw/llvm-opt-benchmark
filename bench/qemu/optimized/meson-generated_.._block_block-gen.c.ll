@@ -223,16 +223,14 @@ if.then3.i:                                       ; preds = %if.end.i
 while.cond.preheader:                             ; preds = %if.then3.i, %land.lhs.true
   %in_progress = getelementptr inbounds i8, ptr %s, i64 8
   %4 = load i8, ptr %in_progress, align 8
-  %5 = and i8 %4, 1
-  %tobool4.not14 = icmp eq i8 %5, 0
-  br i1 %tobool4.not14, label %if.end25, label %while.body
+  %tobool414 = trunc i8 %4 to i1
+  br i1 %tobool414, label %while.body, label %if.end25
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %call5 = tail call zeroext i1 @aio_poll(ptr noundef nonnull %2, i1 noundef zeroext true) #5
-  %6 = load i8, ptr %in_progress, align 8
-  %7 = and i8 %6, 1
-  %tobool4.not = icmp eq i8 %7, 0
-  br i1 %tobool4.not, label %if.end25, label %while.body, !llvm.loop !5
+  %5 = load i8, ptr %in_progress, align 8
+  %tobool4 = trunc i8 %5 to i1
+  br i1 %tobool4, label %while.body, label %if.end25, !llvm.loop !5
 
 if.else6:                                         ; preds = %if.end.i, %if.then3.i, %if.end
   %call7 = tail call ptr @qemu_get_current_aio_context() #5
@@ -242,10 +240,9 @@ if.else6:                                         ; preds = %if.end.i, %if.then3
 
 while.cond12.preheader:                           ; preds = %if.else6
   %in_progress13 = getelementptr inbounds i8, ptr %s, i64 8
-  %8 = load i8, ptr %in_progress13, align 8
-  %9 = and i8 %8, 1
-  %tobool14.not15 = icmp eq i8 %9, 0
-  br i1 %tobool14.not15, label %if.end25, label %while.body15.lr.ph
+  %6 = load i8, ptr %in_progress13, align 8
+  %tobool1415 = trunc i8 %6 to i1
+  br i1 %tobool1415, label %while.body15.lr.ph, label %if.end25
 
 while.body15.lr.ph:                               ; preds = %while.cond12.preheader
   br i1 %tobool.not, label %while.body15.us, label %while.body15
@@ -253,10 +250,9 @@ while.body15.lr.ph:                               ; preds = %while.cond12.prehea
 while.body15.us:                                  ; preds = %while.body15.lr.ph, %while.body15.us
   %call19.c.us = tail call ptr @qemu_get_aio_context() #5
   %call20.c.us = tail call zeroext i1 @aio_poll(ptr noundef %call19.c.us, i1 noundef zeroext true) #5
-  %10 = load i8, ptr %in_progress13, align 8
-  %11 = and i8 %10, 1
-  %tobool14.not.us = icmp eq i8 %11, 0
-  br i1 %tobool14.not.us, label %if.end25, label %while.body15.us, !llvm.loop !7
+  %7 = load i8, ptr %in_progress13, align 8
+  %tobool14.us = trunc i8 %7 to i1
+  br i1 %tobool14.us, label %while.body15.us, label %if.end25, !llvm.loop !7
 
 if.else10:                                        ; preds = %if.else6
   tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12, i32 noundef 43, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_poll_co) #6
@@ -267,13 +263,12 @@ while.body15:                                     ; preds = %while.body15.lr.ph,
   %call19 = tail call ptr @qemu_get_aio_context() #5
   %call20 = tail call zeroext i1 @aio_poll(ptr noundef %call19, i1 noundef zeroext true) #5
   tail call void @aio_context_acquire(ptr noundef nonnull %2) #5
-  %12 = load i8, ptr %in_progress13, align 8
-  %13 = and i8 %12, 1
-  %tobool14.not = icmp eq i8 %13, 0
-  br i1 %tobool14.not, label %if.end25, label %while.body15, !llvm.loop !7
+  %8 = load i8, ptr %in_progress13, align 8
+  %tobool14 = trunc i8 %8 to i1
+  br i1 %tobool14, label %while.body15, label %if.end25, !llvm.loop !7
 
 if.end25:                                         ; preds = %while.body, %while.body15, %while.body15.us, %while.cond.preheader, %while.cond12.preheader
-  %14 = atomicrmw sub ptr @global_aio_wait, i32 1 seq_cst, align 4
+  %9 = atomicrmw sub ptr @global_aio_wait, i32 1 seq_cst, align 4
   ret void
 }
 
@@ -927,15 +922,14 @@ entry:
   %1 = load ptr, ptr %base, align 8
   %include_base = getelementptr inbounds i8, ptr %opaque, i64 48
   %2 = load i8, ptr %include_base, align 8
-  %3 = and i8 %2, 1
-  %tobool = icmp ne i8 %3, 0
+  %tobool = trunc i8 %2 to i1
   %offset = getelementptr inbounds i8, ptr %opaque, i64 56
-  %4 = load i64, ptr %offset, align 8
+  %3 = load i64, ptr %offset, align 8
   %bytes = getelementptr inbounds i8, ptr %opaque, i64 64
-  %5 = load i64, ptr %bytes, align 8
+  %4 = load i64, ptr %bytes, align 8
   %pnum = getelementptr inbounds i8, ptr %opaque, i64 72
-  %6 = load ptr, ptr %pnum, align 8
-  %call = tail call i32 @bdrv_co_is_allocated_above(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %tobool, i64 noundef %4, i64 noundef %5, ptr noundef %6) #5
+  %5 = load ptr, ptr %pnum, align 8
+  %call = tail call i32 @bdrv_co_is_allocated_above(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %tobool, i64 noundef %3, i64 noundef %4, ptr noundef %5) #5
   %ret = getelementptr inbounds i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
@@ -971,8 +965,7 @@ if.end:                                           ; preds = %entry
   store ptr %call3, ptr %co, align 8
   call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
   %0 = load i8, ptr %ret, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -1096,8 +1089,7 @@ entry:
   %2 = load ptr, ptr %backing_fmt, align 8
   %warn = getelementptr inbounds i8, ptr %opaque, i64 56
   %3 = load i8, ptr %warn, align 8
-  %4 = and i8 %3, 1
-  %tobool = icmp ne i8 %4, 0
+  %tobool = trunc i8 %3 to i1
   %call = tail call i32 @bdrv_co_change_backing_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %tobool) #5
   %ret = getelementptr inbounds i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
@@ -1189,8 +1181,7 @@ if.end:                                           ; preds = %entry
   store ptr %call6, ptr %co, align 8
   call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
   %0 = load i8, ptr %ret, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -1274,15 +1265,14 @@ entry:
   %1 = load i64, ptr %offset, align 8
   %exact = getelementptr inbounds i8, ptr %opaque, i64 48
   %2 = load i8, ptr %exact, align 8
-  %3 = and i8 %2, 1
-  %tobool = icmp ne i8 %3, 0
+  %tobool = trunc i8 %2 to i1
   %prealloc = getelementptr inbounds i8, ptr %opaque, i64 52
-  %4 = load i32, ptr %prealloc, align 4
+  %3 = load i32, ptr %prealloc, align 4
   %flags = getelementptr inbounds i8, ptr %opaque, i64 56
-  %5 = load i32, ptr %flags, align 8
+  %4 = load i32, ptr %flags, align 8
   %errp = getelementptr inbounds i8, ptr %opaque, i64 64
-  %6 = load ptr, ptr %errp, align 8
-  %call = tail call i32 @bdrv_co_truncate(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %tobool, i32 noundef %4, i32 noundef %5, ptr noundef %6) #5
+  %5 = load ptr, ptr %errp, align 8
+  %call = tail call i32 @bdrv_co_truncate(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %tobool, i32 noundef %3, i32 noundef %4, ptr noundef %5) #5
   %ret = getelementptr inbounds i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
@@ -1863,16 +1853,15 @@ entry:
   %5 = load i32, ptr %child_role, align 8
   %allow_none = getelementptr inbounds i8, ptr %opaque, i64 60
   %6 = load i8, ptr %allow_none, align 4
-  %7 = and i8 %6, 1
-  %tobool = icmp ne i8 %7, 0
+  %tobool = trunc i8 %6 to i1
   %errp = getelementptr inbounds i8, ptr %opaque, i64 64
-  %8 = load ptr, ptr %errp, align 8
-  %call1 = tail call ptr @bdrv_open_child(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %tobool, ptr noundef %8) #5
+  %7 = load ptr, ptr %errp, align 8
+  %call1 = tail call ptr @bdrv_open_child(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %tobool, ptr noundef %7) #5
   %ret = getelementptr inbounds i8, ptr %opaque, i64 8
   store ptr %call1, ptr %ret, align 8
   tail call void @aio_context_release(ptr noundef %call) #5
-  %9 = load ptr, ptr %opaque, align 8
-  tail call void @aio_co_wake(ptr noundef %9) #5
+  %8 = load ptr, ptr %opaque, align 8
+  tail call void @aio_co_wake(ptr noundef %8) #5
   ret void
 }
 
@@ -2282,8 +2271,7 @@ if.else:                                          ; preds = %entry
   store ptr %call4, ptr %co, align 8
   call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
   %0 = load i8, ptr %ret, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -2338,8 +2326,7 @@ if.else:                                          ; preds = %entry
   store ptr %call4, ptr %co, align 8
   call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
   %0 = load i8, ptr %ret, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -2402,8 +2389,7 @@ entry:
   %0 = load ptr, ptr %blk, align 8
   %locked = getelementptr inbounds i8, ptr %opaque, i64 32
   %1 = load i8, ptr %locked, align 8
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   tail call void @blk_co_lock_medium(ptr noundef %0, i1 noundef zeroext %tobool) #5
   %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
@@ -2447,8 +2433,7 @@ entry:
   %0 = load ptr, ptr %blk, align 8
   %eject_flag = getelementptr inbounds i8, ptr %opaque, i64 32
   %1 = load i8, ptr %eject_flag, align 8
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   tail call void @blk_co_eject(ptr noundef %0, i1 noundef zeroext %tobool) #5
   %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
@@ -3425,15 +3410,14 @@ entry:
   %1 = load i64, ptr %offset, align 8
   %exact = getelementptr inbounds i8, ptr %opaque, i64 48
   %2 = load i8, ptr %exact, align 8
-  %3 = and i8 %2, 1
-  %tobool = icmp ne i8 %3, 0
+  %tobool = trunc i8 %2 to i1
   %prealloc = getelementptr inbounds i8, ptr %opaque, i64 52
-  %4 = load i32, ptr %prealloc, align 4
+  %3 = load i32, ptr %prealloc, align 4
   %flags = getelementptr inbounds i8, ptr %opaque, i64 56
-  %5 = load i32, ptr %flags, align 8
+  %4 = load i32, ptr %flags, align 8
   %errp = getelementptr inbounds i8, ptr %opaque, i64 64
-  %6 = load ptr, ptr %errp, align 8
-  %call = tail call i32 @blk_co_truncate(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %tobool, i32 noundef %4, i32 noundef %5, ptr noundef %6) #5
+  %5 = load ptr, ptr %errp, align 8
+  %call = tail call i32 @blk_co_truncate(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %tobool, i32 noundef %3, i32 noundef %4, ptr noundef %5) #5
   %ret = getelementptr inbounds i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
@@ -3506,8 +3490,11 @@ entry:
   %base = getelementptr inbounds i8, ptr %opaque, i64 40
   %1 = load ptr, ptr %base, align 8
   %include_base = getelementptr inbounds i8, ptr %opaque, i64 48
-  %2 = load <2 x i8>, ptr %include_base, align 8
-  %3 = trunc <2 x i8> %2 to <2 x i1>
+  %2 = load i8, ptr %include_base, align 8
+  %tobool = trunc i8 %2 to i1
+  %want_zero = getelementptr inbounds i8, ptr %opaque, i64 49
+  %3 = load i8, ptr %want_zero, align 1
+  %tobool1 = trunc i8 %3 to i1
   %offset = getelementptr inbounds i8, ptr %opaque, i64 56
   %4 = load i64, ptr %offset, align 8
   %bytes = getelementptr inbounds i8, ptr %opaque, i64 64
@@ -3520,9 +3507,7 @@ entry:
   %8 = load ptr, ptr %file, align 8
   %depth = getelementptr inbounds i8, ptr %opaque, i64 96
   %9 = load ptr, ptr %depth, align 8
-  %10 = extractelement <2 x i1> %3, i64 0
-  %11 = extractelement <2 x i1> %3, i64 1
-  %call = tail call i32 @bdrv_co_common_block_status_above(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %10, i1 noundef zeroext %11, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #5
+  %call = tail call i32 @bdrv_co_common_block_status_above(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool1, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #5
   %ret = getelementptr inbounds i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
@@ -3580,11 +3565,10 @@ entry:
   %0 = load ptr, ptr %bs, align 8
   %blocking = getelementptr inbounds i8, ptr %opaque, i64 40
   %1 = load i8, ptr %blocking, align 8
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   %errp = getelementptr inbounds i8, ptr %opaque, i64 48
-  %3 = load ptr, ptr %errp, align 8
-  %call = tail call i32 @nbd_co_do_establish_connection(ptr noundef %0, i1 noundef zeroext %tobool, ptr noundef %3) #5
+  %2 = load ptr, ptr %errp, align 8
+  %call = tail call i32 @nbd_co_do_establish_connection(ptr noundef %0, i1 noundef zeroext %tobool, ptr noundef %2) #5
   %ret = getelementptr inbounds i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5

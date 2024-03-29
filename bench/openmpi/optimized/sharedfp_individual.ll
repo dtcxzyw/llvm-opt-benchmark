@@ -87,9 +87,8 @@ define noundef ptr @mca_sharedfp_individual_component_file_query(ptr nocapture n
   %28 = load ptr, ptr %4, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
-  %31 = and i8 %30, 1
-  %.not.i = icmp eq i8 %31, 0
-  br i1 %.not.i, label %35, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %35
 
 32:                                               ; preds = %27
   %33 = atomicrmw volatile add ptr %29, i32 -1 monotonic, align 4
@@ -122,8 +121,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %32, %35
   call void %45(ptr noundef nonnull %28) #4
   %46 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %47 = load ptr, ptr %46, align 8
-  %.not.i27 = icmp eq ptr %47, null
-  br i1 %.not.i27, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %4, align 8

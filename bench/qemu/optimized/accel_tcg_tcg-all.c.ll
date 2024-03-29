@@ -100,16 +100,16 @@ entry:
   store i8 1, ptr @tcg_allowed, align 1
   %mttcg_enabled = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i8, ptr %mttcg_enabled, align 8
-  %1 = and i8 %0, 1
-  store i8 %1, ptr @mttcg_enabled, align 1
+  %frombool = and i8 %0, 1
+  store i8 %frombool, ptr @mttcg_enabled, align 1
   tail call void @page_init() #4
   tail call void @tb_htable_init() #4
   %tb_size = getelementptr inbounds i8, ptr %call.i, i64 48
-  %2 = load i64, ptr %tb_size, align 8
-  %mul = shl i64 %2, 20
+  %1 = load i64, ptr %tb_size, align 8
+  %mul = shl i64 %1, 20
   %splitwx_enabled = getelementptr inbounds i8, ptr %call.i, i64 44
-  %3 = load i32, ptr %splitwx_enabled, align 4
-  tail call void @tcg_init(i64 noundef %mul, i32 noundef %3, i32 noundef 1) #4
+  %2 = load i32, ptr %splitwx_enabled, align 4
+  tail call void @tcg_init(i64 noundef %mul, i32 noundef %2, i32 noundef 1) #4
   ret i32 0
 }
 
@@ -134,9 +134,8 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 56, ptr noundef nonnull @__func__.TCG_STATE) #4
   %mttcg_enabled = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i8, ptr %mttcg_enabled, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %cond = select i1 %tobool.not, ptr @.str.13, ptr @.str.12
+  %tobool = trunc i8 %0 to i1
+  %cond = select i1 %tobool, ptr @.str.12, ptr @.str.13
   %call1 = tail call noalias ptr @g_strdup(ptr noundef nonnull %cond) #4
   ret ptr %call1
 }
@@ -246,8 +245,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 56, ptr noundef nonnull @__func__.TCG_STATE) #4
   %one_insn_per_tb = getelementptr inbounds i8, ptr %call.i, i64 41
   %0 = load i8, ptr %one_insn_per_tb, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

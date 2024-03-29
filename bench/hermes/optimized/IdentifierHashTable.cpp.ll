@@ -21,8 +21,8 @@ entry:
   %scale_.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %raw_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %identifierTable_ = getelementptr inbounds i8, ptr %this, i64 16
+  %tobool.not.i.i.i.i.i78 = icmp eq i64 %str.coerce1, 0
   %add.ptr.i.i92 = getelementptr inbounds i8, ptr %str.coerce0, i64 %str.coerce1
-  %cmp.not4.i.i.i.i.i93 = icmp eq i64 %str.coerce1, 0
   br i1 %mustBeNew, label %entry.split.us, label %while.body
 
 entry.split.us:                                   ; preds = %entry
@@ -40,16 +40,16 @@ entry.split.us.split.split.us:                    ; preds = %entry.split.us
   %arrayidx.i.i.i.us.us236 = getelementptr inbounds i8, ptr %2, i64 %idxprom.i.i.i.us181
   %3 = load i8, ptr %arrayidx.i.i.i.us.us236, align 1
   %cmp.i.us.us238 = icmp eq i8 %3, 0
-  br i1 %cmp.i.us.us238, label %if.then, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us
+  br i1 %cmp.i.us.us238, label %return, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us
 
 _ZNK6hermes12CompactTable9isDeletedEj.exit.us.us: ; preds = %entry.split.us.split.split.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us
   %4 = phi i8 [ %5, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ %3, %entry.split.us.split.split.us ]
   %base.0.us.us242 = phi i32 [ %inc.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ 1, %entry.split.us.split.split.us ]
   %idx.0.us.us241 = phi i32 [ %and55.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ %and, %entry.split.us.split.split.us ]
   %deletedIndex.sroa.0.0.us.us240 = phi i32 [ %idx.0.mux.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ 0, %entry.split.us.split.split.us ]
-  %deletedIndex.sroa.3.0.us.us239 = phi i8 [ %.mux.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ 0, %entry.split.us.split.split.us ]
+  %deletedIndex.sroa.3.0.us.us239 = phi i1 [ %.mux.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ false, %entry.split.us.split.split.us ]
   %cmp.i21.us.us = icmp eq i8 %4, 1
-  %.mux.us.us = select i1 %cmp.i21.us.us, i8 1, i8 %deletedIndex.sroa.3.0.us.us239
+  %.mux.us.us = select i1 %cmp.i21.us.us, i1 true, i1 %deletedIndex.sroa.3.0.us.us239
   %idx.0.mux.us.us = select i1 %cmp.i21.us.us, i32 %idx.0.us.us241, i32 %deletedIndex.sroa.0.0.us.us240
   %add.us.us = add i32 %base.0.us.us242, %idx.0.us.us241
   %and55.us.us = and i32 %add.us.us, %sub
@@ -64,16 +64,16 @@ entry.split.us.split.split.us148:                 ; preds = %entry.split.us
   %arrayidx.i4.i.i.us.us248 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i.i.i.us181
   %6 = load i16, ptr %arrayidx.i4.i.i.us.us248, align 2
   %cmp.i.us.us157250 = icmp eq i16 %6, 0
-  br i1 %cmp.i.us.us157250, label %if.then, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167
+  br i1 %cmp.i.us.us157250, label %return, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167
 
 _ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167: ; preds = %entry.split.us.split.split.us148, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167
   %7 = phi i16 [ %8, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167 ], [ %6, %entry.split.us.split.split.us148 ]
   %base.0.us.us153254 = phi i32 [ %inc.us.us174, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167 ], [ 1, %entry.split.us.split.split.us148 ]
   %idx.0.us.us152253 = phi i32 [ %and55.us.us173, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167 ], [ %and, %entry.split.us.split.split.us148 ]
   %deletedIndex.sroa.0.0.us.us151252 = phi i32 [ %idx.0.mux.us.us171, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167 ], [ 0, %entry.split.us.split.split.us148 ]
-  %deletedIndex.sroa.3.0.us.us150251 = phi i8 [ %.mux.us.us170, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167 ], [ 0, %entry.split.us.split.split.us148 ]
+  %deletedIndex.sroa.3.0.us.us150251 = phi i1 [ %.mux.us.us170, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167 ], [ false, %entry.split.us.split.split.us148 ]
   %cmp.i21.us.us169 = icmp eq i16 %7, 1
-  %.mux.us.us170 = select i1 %cmp.i21.us.us169, i8 1, i8 %deletedIndex.sroa.3.0.us.us150251
+  %.mux.us.us170 = select i1 %cmp.i21.us.us169, i1 true, i1 %deletedIndex.sroa.3.0.us.us150251
   %idx.0.mux.us.us171 = select i1 %cmp.i21.us.us169, i32 %idx.0.us.us152253, i32 %deletedIndex.sroa.0.0.us.us151252
   %add.us.us172 = add i32 %base.0.us.us153254, %idx.0.us.us152253
   %and55.us.us173 = and i32 %add.us.us172, %sub
@@ -88,16 +88,16 @@ entry.split.us.split.split:                       ; preds = %entry.split.us
   %arrayidx.i7.i.i.us182 = getelementptr inbounds i32, ptr %2, i64 %idxprom.i.i.i.us181
   %9 = load i32, ptr %arrayidx.i7.i.i.us182, align 4
   %cmp.i.us183 = icmp eq i32 %9, 0
-  br i1 %cmp.i.us183, label %if.then, label %if.else.us
+  br i1 %cmp.i.us183, label %return, label %if.else.us
 
 if.else.us:                                       ; preds = %entry.split.us.split.split, %if.else.us
   %10 = phi i32 [ %11, %if.else.us ], [ %9, %entry.split.us.split.split ]
   %base.0.us187 = phi i32 [ %inc.us, %if.else.us ], [ 1, %entry.split.us.split.split ]
   %idx.0.us186 = phi i32 [ %and55.us, %if.else.us ], [ %and, %entry.split.us.split.split ]
   %deletedIndex.sroa.0.0.us185 = phi i32 [ %idx.0.mux.us, %if.else.us ], [ 0, %entry.split.us.split.split ]
-  %deletedIndex.sroa.3.0.us184 = phi i8 [ %.mux.us, %if.else.us ], [ 0, %entry.split.us.split.split ]
+  %deletedIndex.sroa.3.0.us184 = phi i1 [ %.mux.us, %if.else.us ], [ false, %entry.split.us.split.split ]
   %cmp.i21.us = icmp eq i32 %10, 1
-  %.mux.us = select i1 %cmp.i21.us, i8 1, i8 %deletedIndex.sroa.3.0.us184
+  %.mux.us = select i1 %cmp.i21.us, i1 true, i1 %deletedIndex.sroa.3.0.us184
   %idx.0.mux.us = select i1 %cmp.i21.us, i32 %idx.0.us186, i32 %deletedIndex.sroa.0.0.us185
   %add.us = add i32 %base.0.us187, %idx.0.us186
   %and55.us = and i32 %add.us, %sub
@@ -109,7 +109,7 @@ if.else.us:                                       ; preds = %entry.split.us.spli
   br i1 %cmp.i.us, label %if.then, label %if.else.us, !llvm.loop !4
 
 while.body:                                       ; preds = %entry, %if.end53
-  %deletedIndex.sroa.3.0 = phi i8 [ %deletedIndex.sroa.3.1, %if.end53 ], [ 0, %entry ]
+  %deletedIndex.sroa.3.0 = phi i1 [ %deletedIndex.sroa.3.1, %if.end53 ], [ false, %entry ]
   %deletedIndex.sroa.0.0 = phi i32 [ %deletedIndex.sroa.0.1, %if.end53 ], [ 0, %entry ]
   %idx.0 = phi i32 [ %and55, %if.end53 ], [ %and, %entry ]
   %base.0 = phi i32 [ %inc, %if.end53 ], [ 1, %entry ]
@@ -147,13 +147,12 @@ _ZNK6hermes12CompactTable7isEmptyEj.exit:         ; preds = %sw.bb.i.i, %sw.bb2.
   %cmp.i = icmp eq i32 %retval.0.i.i, 0
   br i1 %cmp.i, label %if.then, label %if.else
 
-if.then:                                          ; preds = %_ZNK6hermes12CompactTable7isEmptyEj.exit, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us, %if.else.us, %entry.split.us.split.split.us, %entry.split.us.split.split, %entry.split.us.split.split.us148
-  %.us-phi = phi i8 [ 0, %entry.split.us.split.split.us ], [ 0, %entry.split.us.split.split.us148 ], [ 0, %entry.split.us.split.split ], [ %.mux.us, %if.else.us ], [ %.mux.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ %.mux.us.us170, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167 ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes12CompactTable7isEmptyEj.exit ]
-  %.us-phi143 = phi i32 [ 0, %entry.split.us.split.split.us ], [ 0, %entry.split.us.split.split.us148 ], [ 0, %entry.split.us.split.split ], [ %idx.0.mux.us, %if.else.us ], [ %idx.0.mux.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ %idx.0.mux.us.us171, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167 ], [ %deletedIndex.sroa.0.0, %_ZNK6hermes12CompactTable7isEmptyEj.exit ]
-  %.us-phi144 = phi i32 [ %and, %entry.split.us.split.split.us ], [ %and, %entry.split.us.split.split.us148 ], [ %and, %entry.split.us.split.split ], [ %and55.us, %if.else.us ], [ %and55.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ %and55.us.us173, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167 ], [ %idx.0, %_ZNK6hermes12CompactTable7isEmptyEj.exit ]
-  %17 = and i8 %.us-phi, 1
-  %tobool.i.not = icmp eq i8 %17, 0
-  %spec.select = select i1 %tobool.i.not, i32 %.us-phi144, i32 %.us-phi143
+if.then:                                          ; preds = %_ZNK6hermes12CompactTable7isEmptyEj.exit, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us, %if.else.us
+  %.us-phi = phi i1 [ %.mux.us, %if.else.us ], [ %.mux.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ %.mux.us.us170, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167 ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes12CompactTable7isEmptyEj.exit ]
+  %.us-phi143 = phi i32 [ %idx.0.mux.us, %if.else.us ], [ %idx.0.mux.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ %idx.0.mux.us.us171, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167 ], [ %deletedIndex.sroa.0.0, %_ZNK6hermes12CompactTable7isEmptyEj.exit ]
+  %.us-phi144 = phi i32 [ %and55.us, %if.else.us ], [ %and55.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ %and55.us.us173, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167 ], [ %idx.0, %_ZNK6hermes12CompactTable7isEmptyEj.exit ]
+  %cond.fr = freeze i1 %.us-phi
+  %spec.select = select i1 %cond.fr, i32 %.us-phi143, i32 %.us-phi144
   br label %return
 
 if.else:                                          ; preds = %_ZNK6hermes12CompactTable7isEmptyEj.exit
@@ -165,31 +164,31 @@ if.else:                                          ; preds = %_ZNK6hermes12Compac
 
 sw.bb.i.i25:                                      ; preds = %if.else
   %arrayidx.i.i.i26 = getelementptr inbounds i8, ptr %13, i64 %idxprom.i.i.i
-  %18 = load i8, ptr %arrayidx.i.i.i26, align 1
-  %conv.i.i.i27 = zext i8 %18 to i32
+  %17 = load i8, ptr %arrayidx.i.i.i26, align 1
+  %conv.i.i.i27 = zext i8 %17 to i32
   br label %_ZNK6hermes12CompactTable9isDeletedEj.exit
 
 sw.bb2.i.i22:                                     ; preds = %if.else
   %arrayidx.i4.i.i23 = getelementptr inbounds i16, ptr %13, i64 %idxprom.i.i.i
-  %19 = load i16, ptr %arrayidx.i4.i.i23, align 2
-  %conv.i5.i.i24 = zext i16 %19 to i32
+  %18 = load i16, ptr %arrayidx.i4.i.i23, align 2
+  %conv.i5.i.i24 = zext i16 %18 to i32
   br label %_ZNK6hermes12CompactTable9isDeletedEj.exit
 
 sw.bb5.i.i18:                                     ; preds = %if.else
   %arrayidx.i7.i.i19 = getelementptr inbounds i32, ptr %13, i64 %idxprom.i.i.i
-  %20 = load i32, ptr %arrayidx.i7.i.i19, align 4
+  %19 = load i32, ptr %arrayidx.i7.i.i19, align 4
   br label %_ZNK6hermes12CompactTable9isDeletedEj.exit
 
 sw.epilog.i.i28:                                  ; preds = %if.else
   unreachable
 
 _ZNK6hermes12CompactTable9isDeletedEj.exit:       ; preds = %sw.bb.i.i25, %sw.bb2.i.i22, %sw.bb5.i.i18
-  %retval.0.i.i20 = phi i32 [ %20, %sw.bb5.i.i18 ], [ %conv.i5.i.i24, %sw.bb2.i.i22 ], [ %conv.i.i.i27, %sw.bb.i.i25 ]
+  %retval.0.i.i20 = phi i32 [ %19, %sw.bb5.i.i18 ], [ %conv.i5.i.i24, %sw.bb2.i.i22 ], [ %conv.i.i.i27, %sw.bb.i.i25 ]
   %cmp.i21 = icmp eq i32 %retval.0.i.i20, 1
   br i1 %cmp.i21, label %if.end53, label %if.then9
 
 if.then9:                                         ; preds = %_ZNK6hermes12CompactTable9isDeletedEj.exit
-  %21 = load ptr, ptr %identifierTable_, align 8
+  %20 = load ptr, ptr %identifierTable_, align 8
   switch i32 %12, label %sw.epilog.i.i42 [
     i32 0, label %sw.bb.i.i39
     i32 1, label %sw.bb2.i.i36
@@ -198,50 +197,50 @@ if.then9:                                         ; preds = %_ZNK6hermes12Compac
 
 sw.bb.i.i39:                                      ; preds = %if.then9
   %arrayidx.i.i.i40 = getelementptr inbounds i8, ptr %13, i64 %idxprom.i.i.i
-  %22 = load i8, ptr %arrayidx.i.i.i40, align 1
-  %conv.i.i.i41 = zext i8 %22 to i32
+  %21 = load i8, ptr %arrayidx.i.i.i40, align 1
+  %conv.i.i.i41 = zext i8 %21 to i32
   br label %_ZNK6hermes12CompactTable3getEj.exit
 
 sw.bb2.i.i36:                                     ; preds = %if.then9
   %arrayidx.i4.i.i37 = getelementptr inbounds i16, ptr %13, i64 %idxprom.i.i.i
-  %23 = load i16, ptr %arrayidx.i4.i.i37, align 2
-  %conv.i5.i.i38 = zext i16 %23 to i32
+  %22 = load i16, ptr %arrayidx.i4.i.i37, align 2
+  %conv.i5.i.i38 = zext i16 %22 to i32
   br label %_ZNK6hermes12CompactTable3getEj.exit
 
 sw.bb5.i.i33:                                     ; preds = %if.then9
   %arrayidx.i7.i.i34 = getelementptr inbounds i32, ptr %13, i64 %idxprom.i.i.i
-  %24 = load i32, ptr %arrayidx.i7.i.i34, align 4
+  %23 = load i32, ptr %arrayidx.i7.i.i34, align 4
   br label %_ZNK6hermes12CompactTable3getEj.exit
 
 sw.epilog.i.i42:                                  ; preds = %if.then9
   unreachable
 
 _ZNK6hermes12CompactTable3getEj.exit:             ; preds = %sw.bb.i.i39, %sw.bb2.i.i36, %sw.bb5.i.i33
-  %retval.0.i.i35 = phi i32 [ %24, %sw.bb5.i.i33 ], [ %conv.i5.i.i38, %sw.bb2.i.i36 ], [ %conv.i.i.i41, %sw.bb.i.i39 ]
+  %retval.0.i.i35 = phi i32 [ %23, %sw.bb5.i.i33 ], [ %conv.i5.i.i38, %sw.bb2.i.i36 ], [ %conv.i.i.i41, %sw.bb.i.i39 ]
   %sub.i = add i32 %retval.0.i.i35, -2
   %conv.i = zext i32 %sub.i to i64
-  %25 = load ptr, ptr %21, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %25, i64 %conv.i
+  %24 = load ptr, ptr %20, align 8
+  %add.ptr.i.i = getelementptr inbounds %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %24, i64 %conv.i
   %hash_.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 12
-  %26 = load i32, ptr %hash_.i, align 4
-  %cmp = icmp eq i32 %26, %hash
+  %25 = load i32, ptr %hash_.i, align 4
+  %cmp = icmp eq i32 %25, %hash
   br i1 %cmp, label %if.then14, label %if.end53
 
 if.then14:                                        ; preds = %_ZNK6hermes12CompactTable3getEj.exit
-  %27 = load ptr, ptr %add.ptr.i.i, align 8
-  %tobool.not.i = icmp ne ptr %27, null
+  %26 = load ptr, ptr %add.ptr.i.i, align 8
+  %tobool.not.i = icmp ne ptr %26, null
   %num_.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %bf.load.i = load i32, ptr %num_.i, align 8
   %cmp.i43 = icmp ugt i32 %bf.load.i, -9
-  %28 = select i1 %tobool.not.i, i1 %cmp.i43, i1 false
-  br i1 %28, label %if.then16, label %if.else32
+  %27 = select i1 %tobool.not.i, i1 %cmp.i43, i1 false
+  br i1 %27, label %if.then16, label %if.else32
 
 if.then16:                                        ; preds = %if.then14
-  %bf.load.i.i.i = load i32, ptr %27, align 4
-  %29 = and i32 %bf.load.i.i.i, 16777216
-  %cmp.i44 = icmp eq i32 %29, 0
-  %lengthAndUniquedFlag_.i.i = getelementptr inbounds i8, ptr %27, i64 4
-  %30 = load i32, ptr %lengthAndUniquedFlag_.i.i, align 4
+  %bf.load.i.i.i = load i32, ptr %26, align 4
+  %28 = and i32 %bf.load.i.i.i, 16777216
+  %cmp.i44 = icmp eq i32 %28, 0
+  %lengthAndUniquedFlag_.i.i = getelementptr inbounds i8, ptr %26, i64 4
+  %29 = load i32, ptr %lengthAndUniquedFlag_.i.i, align 4
   %cmp.i.i.i.i = icmp ugt i32 %bf.load.i.i.i, 150994943
   br i1 %cmp.i44, label %if.then19, label %if.else24
 
@@ -249,7 +248,7 @@ if.then19:                                        ; preds = %if.then16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then19
-  %contents_.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 16
+  %contents_.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 16
   %call.i.i.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i, i64 noundef 0) #7
   br label %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit
 
@@ -261,31 +260,31 @@ if.else.i.i.i:                                    ; preds = %if.then19
   ]
 
 if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 12
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 12
   br label %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit
 
 if.then10.i.i.i:                                  ; preds = %if.else.i.i.i
-  %add.ptr.i.i.i4.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
+  %add.ptr.i.i.i4.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
   br label %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit
 
 if.else13.i.i.i:                                  ; preds = %if.else.i.i.i
-  %concatBufferHV_.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
+  %concatBufferHV_.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %concatBufferHV_.i.i.i.i.i, align 8
   %and.i.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i, 281474976710655
-  %31 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
-  %contents_.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 16
+  %30 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
+  %contents_.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 16
   %call.i.i.i.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i, i64 noundef 0) #7
   br label %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit
 
 _ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit: ; preds = %if.then.i.i.i, %if.then5.i.i.i, %if.then10.i.i.i, %if.else13.i.i.i
   %retval.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.then5.i.i.i ], [ %add.ptr.i.i.i4.i.i.i, %if.then10.i.i.i ], [ %call.i.i.i.i.i, %if.else13.i.i.i ]
-  %and.i.i = and i32 %30, 2147483647
+  %and.i.i = and i32 %29, 2147483647
   %conv.i.i = zext nneg i32 %and.i.i to i64
   %cmp.not.i = icmp eq i64 %conv.i.i, %str.coerce1
   br i1 %cmp.not.i, label %if.end.i, label %if.end53
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit
-  br i1 %cmp.not4.i.i.i.i.i93, label %return, label %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit
+  br i1 %tobool.not.i.i.i.i.i78, label %return, label %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit
 
 _ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit: ; preds = %if.end.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %str.coerce0, ptr nonnull %retval.0.i.i.i, i64 %str.coerce1)
@@ -296,8 +295,8 @@ if.else24:                                        ; preds = %if.then16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i64, label %if.else.i.i.i48
 
 if.then.i.i.i64:                                  ; preds = %if.else24
-  %contents_.i.i.i.i65 = getelementptr inbounds i8, ptr %27, i64 16
-  %32 = load ptr, ptr %contents_.i.i.i.i65, align 8
+  %contents_.i.i.i.i65 = getelementptr inbounds i8, ptr %26, i64 16
+  %31 = load ptr, ptr %contents_.i.i.i.i65, align 8
   br label %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit
 
 if.else.i.i.i48:                                  ; preds = %if.else24
@@ -308,39 +307,39 @@ if.else.i.i.i48:                                  ; preds = %if.else24
   ]
 
 if.then5.i.i.i57:                                 ; preds = %if.else.i.i.i48
-  %add.ptr.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %27, i64 12
+  %add.ptr.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %26, i64 12
   br label %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit
 
 if.then10.i.i.i50:                                ; preds = %if.else.i.i.i48
-  %add.ptr.i.i.i4.i.i.i51 = getelementptr inbounds i8, ptr %27, i64 8
+  %add.ptr.i.i.i4.i.i.i51 = getelementptr inbounds i8, ptr %26, i64 8
   br label %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit
 
 if.else13.i.i.i59:                                ; preds = %if.else.i.i.i48
-  %concatBufferHV_.i.i.i.i.i60 = getelementptr inbounds i8, ptr %27, i64 8
+  %concatBufferHV_.i.i.i.i.i60 = getelementptr inbounds i8, ptr %26, i64 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i61 = load i64, ptr %concatBufferHV_.i.i.i.i.i60, align 8
   %and.i.i.i.i.i.i.i62 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i61, 281474976710655
-  %33 = inttoptr i64 %and.i.i.i.i.i.i.i62 to ptr
-  %contents_.i.i.i.i.i63 = getelementptr inbounds i8, ptr %33, i64 16
-  %34 = load ptr, ptr %contents_.i.i.i.i.i63, align 8
+  %32 = inttoptr i64 %and.i.i.i.i.i.i.i62 to ptr
+  %contents_.i.i.i.i.i63 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = load ptr, ptr %contents_.i.i.i.i.i63, align 8
   br label %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit
 
 _ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit: ; preds = %if.then.i.i.i64, %if.then5.i.i.i57, %if.then10.i.i.i50, %if.else13.i.i.i59
-  %retval.0.i.i.i52 = phi ptr [ %32, %if.then.i.i.i64 ], [ %add.ptr.i.i.i.i.i.i58, %if.then5.i.i.i57 ], [ %add.ptr.i.i.i4.i.i.i51, %if.then10.i.i.i50 ], [ %34, %if.else13.i.i.i59 ]
-  %and.i.i53 = and i32 %30, 2147483647
+  %retval.0.i.i.i52 = phi ptr [ %31, %if.then.i.i.i64 ], [ %add.ptr.i.i.i.i.i.i58, %if.then5.i.i.i57 ], [ %add.ptr.i.i.i4.i.i.i51, %if.then10.i.i.i50 ], [ %33, %if.else13.i.i.i59 ]
+  %and.i.i53 = and i32 %29, 2147483647
   %conv.i.i54 = zext nneg i32 %and.i.i53 to i64
   %cmp.not.i66 = icmp eq i64 %conv.i.i54, %str.coerce1
   br i1 %cmp.not.i66, label %if.end.i68, label %if.end53
 
 if.end.i68:                                       ; preds = %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit
-  br i1 %cmp.not4.i.i.i.i.i93, label %return, label %for.body.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i78, label %return, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.end.i68, %for.inc.i.i.i.i.i
   %__first2.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %retval.0.i.i.i52, %if.end.i68 ]
   %__first1.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %str.coerce0, %if.end.i68 ]
-  %35 = load i8, ptr %__first1.addr.05.i.i.i.i.i, align 1
-  %conv.i.i.i.i.i = sext i8 %35 to i32
-  %36 = load i16, ptr %__first2.addr.06.i.i.i.i.i, align 2
-  %conv1.i.i.i.i.i = zext i16 %36 to i32
+  %34 = load i8, ptr %__first1.addr.05.i.i.i.i.i, align 1
+  %conv.i.i.i.i.i = sext i8 %34 to i32
+  %35 = load i16, ptr %__first2.addr.06.i.i.i.i.i, align 2
+  %conv1.i.i.i.i.i = zext i16 %35 to i32
   %cmp2.i.i.i.i.i = icmp eq i32 %conv.i.i.i.i.i, %conv1.i.i.i.i.i
   br i1 %cmp2.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %if.end53
 
@@ -351,38 +350,38 @@ for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %return, label %for.body.i.i.i.i.i, !llvm.loop !6
 
 if.else32:                                        ; preds = %if.then14
-  %37 = and i32 %bf.load.i, 1
-  %bf.cast.not.i = icmp eq i32 %37, 0
-  %38 = select i1 %tobool.not.i, i1 %bf.cast.not.i, i1 false
-  %bf.lshr.i = lshr i32 %bf.load.i, 2
-  %conv.i74 = zext nneg i32 %bf.lshr.i to i64
-  %cmp.not.i75 = icmp eq i64 %conv.i74, %str.coerce1
-  br i1 %38, label %if.then34, label %if.else41
+  %bf.cast.i = trunc i32 %bf.load.i to i1
+  %not.tobool.not.i = xor i1 %tobool.not.i, true
+  %36 = select i1 %not.tobool.not.i, i1 true, i1 %bf.cast.i
+  %bf.lshr.i85 = lshr i32 %bf.load.i, 2
+  %conv.i86 = zext nneg i32 %bf.lshr.i85 to i64
+  %cmp.not.i89 = icmp eq i64 %conv.i86, %str.coerce1
+  br i1 %36, label %if.else41, label %if.then34
 
 if.then34:                                        ; preds = %if.else32
-  br i1 %cmp.not.i75, label %if.end.i77, label %if.end53
+  br i1 %cmp.not.i89, label %if.end.i77, label %if.end53
 
 if.end.i77:                                       ; preds = %if.then34
-  br i1 %cmp.not4.i.i.i.i.i93, label %return, label %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit82
+  br i1 %tobool.not.i.i.i.i.i78, label %return, label %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit82
 
 _ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit82: ; preds = %if.end.i77
-  %bcmp.i.i.i.i.i80 = tail call i32 @bcmp(ptr %str.coerce0, ptr nonnull %27, i64 %str.coerce1)
+  %bcmp.i.i.i.i.i80 = tail call i32 @bcmp(ptr %str.coerce0, ptr nonnull %26, i64 %str.coerce1)
   %tobool1.not.i.i.i.i.i81 = icmp eq i32 %bcmp.i.i.i.i.i80, 0
   br i1 %tobool1.not.i.i.i.i.i81, label %return, label %if.end53
 
 if.else41:                                        ; preds = %if.else32
-  br i1 %cmp.not.i75, label %if.end.i91, label %if.end53
+  br i1 %cmp.not.i89, label %if.end.i91, label %if.end53
 
 if.end.i91:                                       ; preds = %if.else41
-  br i1 %cmp.not4.i.i.i.i.i93, label %return, label %for.body.i.i.i.i.i94
+  br i1 %tobool.not.i.i.i.i.i78, label %return, label %for.body.i.i.i.i.i94
 
 for.body.i.i.i.i.i94:                             ; preds = %if.end.i91, %for.inc.i.i.i.i.i100
-  %__first2.addr.06.i.i.i.i.i95 = phi ptr [ %incdec.ptr3.i.i.i.i.i102, %for.inc.i.i.i.i.i100 ], [ %27, %if.end.i91 ]
+  %__first2.addr.06.i.i.i.i.i95 = phi ptr [ %incdec.ptr3.i.i.i.i.i102, %for.inc.i.i.i.i.i100 ], [ %26, %if.end.i91 ]
   %__first1.addr.05.i.i.i.i.i96 = phi ptr [ %incdec.ptr.i.i.i.i.i101, %for.inc.i.i.i.i.i100 ], [ %str.coerce0, %if.end.i91 ]
-  %39 = load i8, ptr %__first1.addr.05.i.i.i.i.i96, align 1
-  %conv.i.i.i.i.i97 = sext i8 %39 to i32
-  %40 = load i16, ptr %__first2.addr.06.i.i.i.i.i95, align 2
-  %conv1.i.i.i.i.i98 = zext i16 %40 to i32
+  %37 = load i8, ptr %__first1.addr.05.i.i.i.i.i96, align 1
+  %conv.i.i.i.i.i97 = sext i8 %37 to i32
+  %38 = load i16, ptr %__first2.addr.06.i.i.i.i.i95, align 2
+  %conv1.i.i.i.i.i98 = zext i16 %38 to i32
   %cmp2.i.i.i.i.i99 = icmp eq i32 %conv.i.i.i.i.i97, %conv1.i.i.i.i.i98
   br i1 %cmp2.i.i.i.i.i99, label %for.inc.i.i.i.i.i100, label %if.end53
 
@@ -393,15 +392,15 @@ for.inc.i.i.i.i.i100:                             ; preds = %for.body.i.i.i.i.i9
   br i1 %cmp.not.i.i.i.i.i103, label %return, label %for.body.i.i.i.i.i94, !llvm.loop !6
 
 if.end53:                                         ; preds = %for.body.i.i.i.i.i94, %for.body.i.i.i.i.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit, %if.then34, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit, %if.else41, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit, %_ZNK6hermes12CompactTable3getEj.exit, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit82, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit
-  %deletedIndex.sroa.3.1 = phi i8 [ %deletedIndex.sroa.3.0, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit ], [ %deletedIndex.sroa.3.0, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit82 ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes12CompactTable3getEj.exit ], [ 1, %_ZNK6hermes12CompactTable9isDeletedEj.exit ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit ], [ %deletedIndex.sroa.3.0, %if.else41 ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit ], [ %deletedIndex.sroa.3.0, %if.then34 ], [ %deletedIndex.sroa.3.0, %for.body.i.i.i.i.i ], [ %deletedIndex.sroa.3.0, %for.body.i.i.i.i.i94 ]
+  %deletedIndex.sroa.3.1 = phi i1 [ %deletedIndex.sroa.3.0, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit ], [ %deletedIndex.sroa.3.0, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit82 ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes12CompactTable3getEj.exit ], [ true, %_ZNK6hermes12CompactTable9isDeletedEj.exit ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit ], [ %deletedIndex.sroa.3.0, %if.else41 ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit ], [ %deletedIndex.sroa.3.0, %if.then34 ], [ %deletedIndex.sroa.3.0, %for.body.i.i.i.i.i ], [ %deletedIndex.sroa.3.0, %for.body.i.i.i.i.i94 ]
   %deletedIndex.sroa.0.1 = phi i32 [ %deletedIndex.sroa.0.0, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit ], [ %deletedIndex.sroa.0.0, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit82 ], [ %deletedIndex.sroa.0.0, %_ZNK6hermes12CompactTable3getEj.exit ], [ %idx.0, %_ZNK6hermes12CompactTable9isDeletedEj.exit ], [ %deletedIndex.sroa.0.0, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit ], [ %deletedIndex.sroa.0.0, %if.else41 ], [ %deletedIndex.sroa.0.0, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit ], [ %deletedIndex.sroa.0.0, %if.then34 ], [ %deletedIndex.sroa.0.0, %for.body.i.i.i.i.i ], [ %deletedIndex.sroa.0.0, %for.body.i.i.i.i.i94 ]
   %add = add i32 %base.0, %idx.0
   %and55 = and i32 %add, %sub
   %inc = add i32 %base.0, 1
   br label %while.body, !llvm.loop !4
 
-return:                                           ; preds = %if.end.i91, %if.end.i77, %if.end.i68, %if.end.i, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit82, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit, %for.inc.i.i.i.i.i100, %for.inc.i.i.i.i.i, %if.then
-  %retval.0.in.sroa.speculated = phi i32 [ %spec.select, %if.then ], [ %idx.0, %for.inc.i.i.i.i.i ], [ %idx.0, %for.inc.i.i.i.i.i100 ], [ %idx.0, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit ], [ %idx.0, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit82 ], [ %idx.0, %if.end.i ], [ %idx.0, %if.end.i68 ], [ %idx.0, %if.end.i77 ], [ %idx.0, %if.end.i91 ]
+return:                                           ; preds = %if.end.i91, %if.end.i77, %if.end.i68, %if.end.i, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit82, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit, %for.inc.i.i.i.i.i100, %for.inc.i.i.i.i.i, %if.then, %entry.split.us.split.split, %entry.split.us.split.split.us148, %entry.split.us.split.split.us
+  %retval.0.in.sroa.speculated = phi i32 [ %and, %entry.split.us.split.split.us ], [ %and, %entry.split.us.split.split.us148 ], [ %and, %entry.split.us.split.split ], [ %spec.select, %if.then ], [ %idx.0, %for.inc.i.i.i.i.i ], [ %idx.0, %for.inc.i.i.i.i.i100 ], [ %idx.0, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit ], [ %idx.0, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit82 ], [ %idx.0, %if.end.i ], [ %idx.0, %if.end.i68 ], [ %idx.0, %if.end.i77 ], [ %idx.0, %if.end.i91 ]
   ret i32 %retval.0.in.sroa.speculated
 }
 
@@ -414,9 +413,9 @@ entry:
   %scale_.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %raw_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %identifierTable_ = getelementptr inbounds i8, ptr %this, i64 16
-  %tobool.not.i.i.i.i.i100 = icmp eq i64 %str.coerce1, 0
-  %add.ptr.i.idx.i102 = shl nuw nsw i64 %str.coerce1, 1
   %add.ptr.i.i78 = getelementptr inbounds i16, ptr %str.coerce0, i64 %str.coerce1
+  %cmp.not4.i.i.i.i.i79 = icmp eq i64 %str.coerce1, 0
+  %add.ptr.i.idx.i102 = shl nuw nsw i64 %str.coerce1, 1
   br i1 %mustBeNew, label %entry.split.us, label %while.body
 
 entry.split.us:                                   ; preds = %entry
@@ -434,16 +433,16 @@ entry.split.us.split.split.us:                    ; preds = %entry.split.us
   %arrayidx.i.i.i.us.us237 = getelementptr inbounds i8, ptr %2, i64 %idxprom.i.i.i.us182
   %3 = load i8, ptr %arrayidx.i.i.i.us.us237, align 1
   %cmp.i.us.us239 = icmp eq i8 %3, 0
-  br i1 %cmp.i.us.us239, label %if.then, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us
+  br i1 %cmp.i.us.us239, label %return, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us
 
 _ZNK6hermes12CompactTable9isDeletedEj.exit.us.us: ; preds = %entry.split.us.split.split.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us
   %4 = phi i8 [ %5, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ %3, %entry.split.us.split.split.us ]
   %base.0.us.us243 = phi i32 [ %inc.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ 1, %entry.split.us.split.split.us ]
   %idx.0.us.us242 = phi i32 [ %and55.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ %and, %entry.split.us.split.split.us ]
   %deletedIndex.sroa.0.0.us.us241 = phi i32 [ %idx.0.mux.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ 0, %entry.split.us.split.split.us ]
-  %deletedIndex.sroa.3.0.us.us240 = phi i8 [ %.mux.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ 0, %entry.split.us.split.split.us ]
+  %deletedIndex.sroa.3.0.us.us240 = phi i1 [ %.mux.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ false, %entry.split.us.split.split.us ]
   %cmp.i21.us.us = icmp eq i8 %4, 1
-  %.mux.us.us = select i1 %cmp.i21.us.us, i8 1, i8 %deletedIndex.sroa.3.0.us.us240
+  %.mux.us.us = select i1 %cmp.i21.us.us, i1 true, i1 %deletedIndex.sroa.3.0.us.us240
   %idx.0.mux.us.us = select i1 %cmp.i21.us.us, i32 %idx.0.us.us242, i32 %deletedIndex.sroa.0.0.us.us241
   %add.us.us = add i32 %base.0.us.us243, %idx.0.us.us242
   %and55.us.us = and i32 %add.us.us, %sub
@@ -458,16 +457,16 @@ entry.split.us.split.split.us149:                 ; preds = %entry.split.us
   %arrayidx.i4.i.i.us.us249 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i.i.i.us182
   %6 = load i16, ptr %arrayidx.i4.i.i.us.us249, align 2
   %cmp.i.us.us158251 = icmp eq i16 %6, 0
-  br i1 %cmp.i.us.us158251, label %if.then, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168
+  br i1 %cmp.i.us.us158251, label %return, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168
 
 _ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168: ; preds = %entry.split.us.split.split.us149, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168
   %7 = phi i16 [ %8, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168 ], [ %6, %entry.split.us.split.split.us149 ]
   %base.0.us.us154255 = phi i32 [ %inc.us.us175, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168 ], [ 1, %entry.split.us.split.split.us149 ]
   %idx.0.us.us153254 = phi i32 [ %and55.us.us174, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168 ], [ %and, %entry.split.us.split.split.us149 ]
   %deletedIndex.sroa.0.0.us.us152253 = phi i32 [ %idx.0.mux.us.us172, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168 ], [ 0, %entry.split.us.split.split.us149 ]
-  %deletedIndex.sroa.3.0.us.us151252 = phi i8 [ %.mux.us.us171, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168 ], [ 0, %entry.split.us.split.split.us149 ]
+  %deletedIndex.sroa.3.0.us.us151252 = phi i1 [ %.mux.us.us171, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168 ], [ false, %entry.split.us.split.split.us149 ]
   %cmp.i21.us.us170 = icmp eq i16 %7, 1
-  %.mux.us.us171 = select i1 %cmp.i21.us.us170, i8 1, i8 %deletedIndex.sroa.3.0.us.us151252
+  %.mux.us.us171 = select i1 %cmp.i21.us.us170, i1 true, i1 %deletedIndex.sroa.3.0.us.us151252
   %idx.0.mux.us.us172 = select i1 %cmp.i21.us.us170, i32 %idx.0.us.us153254, i32 %deletedIndex.sroa.0.0.us.us152253
   %add.us.us173 = add i32 %base.0.us.us154255, %idx.0.us.us153254
   %and55.us.us174 = and i32 %add.us.us173, %sub
@@ -482,16 +481,16 @@ entry.split.us.split.split:                       ; preds = %entry.split.us
   %arrayidx.i7.i.i.us183 = getelementptr inbounds i32, ptr %2, i64 %idxprom.i.i.i.us182
   %9 = load i32, ptr %arrayidx.i7.i.i.us183, align 4
   %cmp.i.us184 = icmp eq i32 %9, 0
-  br i1 %cmp.i.us184, label %if.then, label %if.else.us
+  br i1 %cmp.i.us184, label %return, label %if.else.us
 
 if.else.us:                                       ; preds = %entry.split.us.split.split, %if.else.us
   %10 = phi i32 [ %11, %if.else.us ], [ %9, %entry.split.us.split.split ]
   %base.0.us188 = phi i32 [ %inc.us, %if.else.us ], [ 1, %entry.split.us.split.split ]
   %idx.0.us187 = phi i32 [ %and55.us, %if.else.us ], [ %and, %entry.split.us.split.split ]
   %deletedIndex.sroa.0.0.us186 = phi i32 [ %idx.0.mux.us, %if.else.us ], [ 0, %entry.split.us.split.split ]
-  %deletedIndex.sroa.3.0.us185 = phi i8 [ %.mux.us, %if.else.us ], [ 0, %entry.split.us.split.split ]
+  %deletedIndex.sroa.3.0.us185 = phi i1 [ %.mux.us, %if.else.us ], [ false, %entry.split.us.split.split ]
   %cmp.i21.us = icmp eq i32 %10, 1
-  %.mux.us = select i1 %cmp.i21.us, i8 1, i8 %deletedIndex.sroa.3.0.us185
+  %.mux.us = select i1 %cmp.i21.us, i1 true, i1 %deletedIndex.sroa.3.0.us185
   %idx.0.mux.us = select i1 %cmp.i21.us, i32 %idx.0.us187, i32 %deletedIndex.sroa.0.0.us186
   %add.us = add i32 %base.0.us188, %idx.0.us187
   %and55.us = and i32 %add.us, %sub
@@ -503,7 +502,7 @@ if.else.us:                                       ; preds = %entry.split.us.spli
   br i1 %cmp.i.us, label %if.then, label %if.else.us, !llvm.loop !7
 
 while.body:                                       ; preds = %entry, %if.end53
-  %deletedIndex.sroa.3.0 = phi i8 [ %deletedIndex.sroa.3.1, %if.end53 ], [ 0, %entry ]
+  %deletedIndex.sroa.3.0 = phi i1 [ %deletedIndex.sroa.3.1, %if.end53 ], [ false, %entry ]
   %deletedIndex.sroa.0.0 = phi i32 [ %deletedIndex.sroa.0.1, %if.end53 ], [ 0, %entry ]
   %idx.0 = phi i32 [ %and55, %if.end53 ], [ %and, %entry ]
   %base.0 = phi i32 [ %inc, %if.end53 ], [ 1, %entry ]
@@ -541,13 +540,12 @@ _ZNK6hermes12CompactTable7isEmptyEj.exit:         ; preds = %sw.bb.i.i, %sw.bb2.
   %cmp.i = icmp eq i32 %retval.0.i.i, 0
   br i1 %cmp.i, label %if.then, label %if.else
 
-if.then:                                          ; preds = %_ZNK6hermes12CompactTable7isEmptyEj.exit, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us, %if.else.us, %entry.split.us.split.split.us, %entry.split.us.split.split, %entry.split.us.split.split.us149
-  %.us-phi = phi i8 [ 0, %entry.split.us.split.split.us ], [ 0, %entry.split.us.split.split.us149 ], [ 0, %entry.split.us.split.split ], [ %.mux.us, %if.else.us ], [ %.mux.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ %.mux.us.us171, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168 ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes12CompactTable7isEmptyEj.exit ]
-  %.us-phi144 = phi i32 [ 0, %entry.split.us.split.split.us ], [ 0, %entry.split.us.split.split.us149 ], [ 0, %entry.split.us.split.split ], [ %idx.0.mux.us, %if.else.us ], [ %idx.0.mux.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ %idx.0.mux.us.us172, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168 ], [ %deletedIndex.sroa.0.0, %_ZNK6hermes12CompactTable7isEmptyEj.exit ]
-  %.us-phi145 = phi i32 [ %and, %entry.split.us.split.split.us ], [ %and, %entry.split.us.split.split.us149 ], [ %and, %entry.split.us.split.split ], [ %and55.us, %if.else.us ], [ %and55.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ %and55.us.us174, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168 ], [ %idx.0, %_ZNK6hermes12CompactTable7isEmptyEj.exit ]
-  %17 = and i8 %.us-phi, 1
-  %tobool.i.not = icmp eq i8 %17, 0
-  %spec.select = select i1 %tobool.i.not, i32 %.us-phi145, i32 %.us-phi144
+if.then:                                          ; preds = %_ZNK6hermes12CompactTable7isEmptyEj.exit, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us, %if.else.us
+  %.us-phi = phi i1 [ %.mux.us, %if.else.us ], [ %.mux.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ %.mux.us.us171, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168 ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes12CompactTable7isEmptyEj.exit ]
+  %.us-phi144 = phi i32 [ %idx.0.mux.us, %if.else.us ], [ %idx.0.mux.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ %idx.0.mux.us.us172, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168 ], [ %deletedIndex.sroa.0.0, %_ZNK6hermes12CompactTable7isEmptyEj.exit ]
+  %.us-phi145 = phi i32 [ %and55.us, %if.else.us ], [ %and55.us.us, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us ], [ %and55.us.us174, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168 ], [ %idx.0, %_ZNK6hermes12CompactTable7isEmptyEj.exit ]
+  %cond.fr = freeze i1 %.us-phi
+  %spec.select = select i1 %cond.fr, i32 %.us-phi144, i32 %.us-phi145
   br label %return
 
 if.else:                                          ; preds = %_ZNK6hermes12CompactTable7isEmptyEj.exit
@@ -559,31 +557,31 @@ if.else:                                          ; preds = %_ZNK6hermes12Compac
 
 sw.bb.i.i25:                                      ; preds = %if.else
   %arrayidx.i.i.i26 = getelementptr inbounds i8, ptr %13, i64 %idxprom.i.i.i
-  %18 = load i8, ptr %arrayidx.i.i.i26, align 1
-  %conv.i.i.i27 = zext i8 %18 to i32
+  %17 = load i8, ptr %arrayidx.i.i.i26, align 1
+  %conv.i.i.i27 = zext i8 %17 to i32
   br label %_ZNK6hermes12CompactTable9isDeletedEj.exit
 
 sw.bb2.i.i22:                                     ; preds = %if.else
   %arrayidx.i4.i.i23 = getelementptr inbounds i16, ptr %13, i64 %idxprom.i.i.i
-  %19 = load i16, ptr %arrayidx.i4.i.i23, align 2
-  %conv.i5.i.i24 = zext i16 %19 to i32
+  %18 = load i16, ptr %arrayidx.i4.i.i23, align 2
+  %conv.i5.i.i24 = zext i16 %18 to i32
   br label %_ZNK6hermes12CompactTable9isDeletedEj.exit
 
 sw.bb5.i.i18:                                     ; preds = %if.else
   %arrayidx.i7.i.i19 = getelementptr inbounds i32, ptr %13, i64 %idxprom.i.i.i
-  %20 = load i32, ptr %arrayidx.i7.i.i19, align 4
+  %19 = load i32, ptr %arrayidx.i7.i.i19, align 4
   br label %_ZNK6hermes12CompactTable9isDeletedEj.exit
 
 sw.epilog.i.i28:                                  ; preds = %if.else
   unreachable
 
 _ZNK6hermes12CompactTable9isDeletedEj.exit:       ; preds = %sw.bb.i.i25, %sw.bb2.i.i22, %sw.bb5.i.i18
-  %retval.0.i.i20 = phi i32 [ %20, %sw.bb5.i.i18 ], [ %conv.i5.i.i24, %sw.bb2.i.i22 ], [ %conv.i.i.i27, %sw.bb.i.i25 ]
+  %retval.0.i.i20 = phi i32 [ %19, %sw.bb5.i.i18 ], [ %conv.i5.i.i24, %sw.bb2.i.i22 ], [ %conv.i.i.i27, %sw.bb.i.i25 ]
   %cmp.i21 = icmp eq i32 %retval.0.i.i20, 1
   br i1 %cmp.i21, label %if.end53, label %if.then9
 
 if.then9:                                         ; preds = %_ZNK6hermes12CompactTable9isDeletedEj.exit
-  %21 = load ptr, ptr %identifierTable_, align 8
+  %20 = load ptr, ptr %identifierTable_, align 8
   switch i32 %12, label %sw.epilog.i.i42 [
     i32 0, label %sw.bb.i.i39
     i32 1, label %sw.bb2.i.i36
@@ -592,50 +590,50 @@ if.then9:                                         ; preds = %_ZNK6hermes12Compac
 
 sw.bb.i.i39:                                      ; preds = %if.then9
   %arrayidx.i.i.i40 = getelementptr inbounds i8, ptr %13, i64 %idxprom.i.i.i
-  %22 = load i8, ptr %arrayidx.i.i.i40, align 1
-  %conv.i.i.i41 = zext i8 %22 to i32
+  %21 = load i8, ptr %arrayidx.i.i.i40, align 1
+  %conv.i.i.i41 = zext i8 %21 to i32
   br label %_ZNK6hermes12CompactTable3getEj.exit
 
 sw.bb2.i.i36:                                     ; preds = %if.then9
   %arrayidx.i4.i.i37 = getelementptr inbounds i16, ptr %13, i64 %idxprom.i.i.i
-  %23 = load i16, ptr %arrayidx.i4.i.i37, align 2
-  %conv.i5.i.i38 = zext i16 %23 to i32
+  %22 = load i16, ptr %arrayidx.i4.i.i37, align 2
+  %conv.i5.i.i38 = zext i16 %22 to i32
   br label %_ZNK6hermes12CompactTable3getEj.exit
 
 sw.bb5.i.i33:                                     ; preds = %if.then9
   %arrayidx.i7.i.i34 = getelementptr inbounds i32, ptr %13, i64 %idxprom.i.i.i
-  %24 = load i32, ptr %arrayidx.i7.i.i34, align 4
+  %23 = load i32, ptr %arrayidx.i7.i.i34, align 4
   br label %_ZNK6hermes12CompactTable3getEj.exit
 
 sw.epilog.i.i42:                                  ; preds = %if.then9
   unreachable
 
 _ZNK6hermes12CompactTable3getEj.exit:             ; preds = %sw.bb.i.i39, %sw.bb2.i.i36, %sw.bb5.i.i33
-  %retval.0.i.i35 = phi i32 [ %24, %sw.bb5.i.i33 ], [ %conv.i5.i.i38, %sw.bb2.i.i36 ], [ %conv.i.i.i41, %sw.bb.i.i39 ]
+  %retval.0.i.i35 = phi i32 [ %23, %sw.bb5.i.i33 ], [ %conv.i5.i.i38, %sw.bb2.i.i36 ], [ %conv.i.i.i41, %sw.bb.i.i39 ]
   %sub.i = add i32 %retval.0.i.i35, -2
   %conv.i = zext i32 %sub.i to i64
-  %25 = load ptr, ptr %21, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %25, i64 %conv.i
+  %24 = load ptr, ptr %20, align 8
+  %add.ptr.i.i = getelementptr inbounds %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %24, i64 %conv.i
   %hash_.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 12
-  %26 = load i32, ptr %hash_.i, align 4
-  %cmp = icmp eq i32 %26, %hash
+  %25 = load i32, ptr %hash_.i, align 4
+  %cmp = icmp eq i32 %25, %hash
   br i1 %cmp, label %if.then14, label %if.end53
 
 if.then14:                                        ; preds = %_ZNK6hermes12CompactTable3getEj.exit
-  %27 = load ptr, ptr %add.ptr.i.i, align 8
-  %tobool.not.i = icmp ne ptr %27, null
+  %26 = load ptr, ptr %add.ptr.i.i, align 8
+  %tobool.not.i = icmp ne ptr %26, null
   %num_.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %bf.load.i = load i32, ptr %num_.i, align 8
   %cmp.i43 = icmp ugt i32 %bf.load.i, -9
-  %28 = select i1 %tobool.not.i, i1 %cmp.i43, i1 false
-  br i1 %28, label %if.then16, label %if.else32
+  %27 = select i1 %tobool.not.i, i1 %cmp.i43, i1 false
+  br i1 %27, label %if.then16, label %if.else32
 
 if.then16:                                        ; preds = %if.then14
-  %bf.load.i.i.i = load i32, ptr %27, align 4
-  %29 = and i32 %bf.load.i.i.i, 16777216
-  %cmp.i44 = icmp eq i32 %29, 0
-  %lengthAndUniquedFlag_.i.i = getelementptr inbounds i8, ptr %27, i64 4
-  %30 = load i32, ptr %lengthAndUniquedFlag_.i.i, align 4
+  %bf.load.i.i.i = load i32, ptr %26, align 4
+  %28 = and i32 %bf.load.i.i.i, 16777216
+  %cmp.i44 = icmp eq i32 %28, 0
+  %lengthAndUniquedFlag_.i.i = getelementptr inbounds i8, ptr %26, i64 4
+  %29 = load i32, ptr %lengthAndUniquedFlag_.i.i, align 4
   %cmp.i.i.i.i = icmp ugt i32 %bf.load.i.i.i, 150994943
   br i1 %cmp.i44, label %if.then19, label %if.else24
 
@@ -643,7 +641,7 @@ if.then19:                                        ; preds = %if.then16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then19
-  %contents_.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 16
+  %contents_.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 16
   %call.i.i.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i, i64 noundef 0) #7
   br label %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit
 
@@ -655,39 +653,39 @@ if.else.i.i.i:                                    ; preds = %if.then19
   ]
 
 if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 12
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 12
   br label %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit
 
 if.then10.i.i.i:                                  ; preds = %if.else.i.i.i
-  %add.ptr.i.i.i4.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
+  %add.ptr.i.i.i4.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
   br label %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit
 
 if.else13.i.i.i:                                  ; preds = %if.else.i.i.i
-  %concatBufferHV_.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
+  %concatBufferHV_.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %concatBufferHV_.i.i.i.i.i, align 8
   %and.i.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i, 281474976710655
-  %31 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
-  %contents_.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 16
+  %30 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
+  %contents_.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 16
   %call.i.i.i.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i, i64 noundef 0) #7
   br label %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit
 
 _ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit: ; preds = %if.then.i.i.i, %if.then5.i.i.i, %if.then10.i.i.i, %if.else13.i.i.i
   %retval.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.then5.i.i.i ], [ %add.ptr.i.i.i4.i.i.i, %if.then10.i.i.i ], [ %call.i.i.i.i.i, %if.else13.i.i.i ]
-  %and.i.i = and i32 %30, 2147483647
+  %and.i.i = and i32 %29, 2147483647
   %conv.i.i = zext nneg i32 %and.i.i to i64
   %cmp.not.i = icmp eq i64 %conv.i.i, %str.coerce1
   br i1 %cmp.not.i, label %if.end.i, label %if.end53
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit
-  br i1 %tobool.not.i.i.i.i.i100, label %return, label %for.body.i.i.i.i.i
+  br i1 %cmp.not4.i.i.i.i.i79, label %return, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.end.i, %for.inc.i.i.i.i.i
   %__first2.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %retval.0.i.i.i, %if.end.i ]
   %__first1.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %str.coerce0, %if.end.i ]
-  %32 = load i16, ptr %__first1.addr.05.i.i.i.i.i, align 2
-  %conv.i.i.i.i.i = zext i16 %32 to i32
-  %33 = load i8, ptr %__first2.addr.06.i.i.i.i.i, align 1
-  %conv1.i.i.i.i.i = sext i8 %33 to i32
+  %31 = load i16, ptr %__first1.addr.05.i.i.i.i.i, align 2
+  %conv.i.i.i.i.i = zext i16 %31 to i32
+  %32 = load i8, ptr %__first2.addr.06.i.i.i.i.i, align 1
+  %conv1.i.i.i.i.i = sext i8 %32 to i32
   %cmp2.i.i.i.i.i = icmp eq i32 %conv.i.i.i.i.i, %conv1.i.i.i.i.i
   br i1 %cmp2.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %if.end53
 
@@ -701,8 +699,8 @@ if.else24:                                        ; preds = %if.then16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i65, label %if.else.i.i.i49
 
 if.then.i.i.i65:                                  ; preds = %if.else24
-  %contents_.i.i.i.i66 = getelementptr inbounds i8, ptr %27, i64 16
-  %34 = load ptr, ptr %contents_.i.i.i.i66, align 8
+  %contents_.i.i.i.i66 = getelementptr inbounds i8, ptr %26, i64 16
+  %33 = load ptr, ptr %contents_.i.i.i.i66, align 8
   br label %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit
 
 if.else.i.i.i49:                                  ; preds = %if.else24
@@ -713,31 +711,31 @@ if.else.i.i.i49:                                  ; preds = %if.else24
   ]
 
 if.then5.i.i.i58:                                 ; preds = %if.else.i.i.i49
-  %add.ptr.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %27, i64 12
+  %add.ptr.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %26, i64 12
   br label %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit
 
 if.then10.i.i.i51:                                ; preds = %if.else.i.i.i49
-  %add.ptr.i.i.i4.i.i.i52 = getelementptr inbounds i8, ptr %27, i64 8
+  %add.ptr.i.i.i4.i.i.i52 = getelementptr inbounds i8, ptr %26, i64 8
   br label %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit
 
 if.else13.i.i.i60:                                ; preds = %if.else.i.i.i49
-  %concatBufferHV_.i.i.i.i.i61 = getelementptr inbounds i8, ptr %27, i64 8
+  %concatBufferHV_.i.i.i.i.i61 = getelementptr inbounds i8, ptr %26, i64 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i62 = load i64, ptr %concatBufferHV_.i.i.i.i.i61, align 8
   %and.i.i.i.i.i.i.i63 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i62, 281474976710655
-  %35 = inttoptr i64 %and.i.i.i.i.i.i.i63 to ptr
-  %contents_.i.i.i.i.i64 = getelementptr inbounds i8, ptr %35, i64 16
-  %36 = load ptr, ptr %contents_.i.i.i.i.i64, align 8
+  %34 = inttoptr i64 %and.i.i.i.i.i.i.i63 to ptr
+  %contents_.i.i.i.i.i64 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = load ptr, ptr %contents_.i.i.i.i.i64, align 8
   br label %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit
 
 _ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit: ; preds = %if.then.i.i.i65, %if.then5.i.i.i58, %if.then10.i.i.i51, %if.else13.i.i.i60
-  %retval.0.i.i.i53 = phi ptr [ %34, %if.then.i.i.i65 ], [ %add.ptr.i.i.i.i.i.i59, %if.then5.i.i.i58 ], [ %add.ptr.i.i.i4.i.i.i52, %if.then10.i.i.i51 ], [ %36, %if.else13.i.i.i60 ]
-  %and.i.i54 = and i32 %30, 2147483647
+  %retval.0.i.i.i53 = phi ptr [ %33, %if.then.i.i.i65 ], [ %add.ptr.i.i.i.i.i.i59, %if.then5.i.i.i58 ], [ %add.ptr.i.i.i4.i.i.i52, %if.then10.i.i.i51 ], [ %35, %if.else13.i.i.i60 ]
+  %and.i.i54 = and i32 %29, 2147483647
   %conv.i.i55 = zext nneg i32 %and.i.i54 to i64
   %cmp.not.i67 = icmp eq i64 %conv.i.i55, %str.coerce1
   br i1 %cmp.not.i67, label %if.end.i69, label %if.end53
 
 if.end.i69:                                       ; preds = %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit
-  br i1 %tobool.not.i.i.i.i.i100, label %return, label %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit
+  br i1 %cmp.not4.i.i.i.i.i79, label %return, label %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit
 
 _ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit: ; preds = %if.end.i69
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %str.coerce0, ptr %retval.0.i.i.i53, i64 %add.ptr.i.idx.i102)
@@ -745,27 +743,27 @@ _ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit: ; pre
   br i1 %tobool1.not.i.i.i.i.i, label %return, label %if.end53
 
 if.else32:                                        ; preds = %if.then14
-  %37 = and i32 %bf.load.i, 1
-  %bf.cast.not.i = icmp eq i32 %37, 0
-  %38 = select i1 %tobool.not.i, i1 %bf.cast.not.i, i1 false
-  %bf.lshr.i = lshr i32 %bf.load.i, 2
-  %conv.i74 = zext nneg i32 %bf.lshr.i to i64
-  %cmp.not.i75 = icmp eq i64 %conv.i74, %str.coerce1
-  br i1 %38, label %if.then34, label %if.else41
+  %bf.cast.i = trunc i32 %bf.load.i to i1
+  %not.tobool.not.i = xor i1 %tobool.not.i, true
+  %36 = select i1 %not.tobool.not.i, i1 true, i1 %bf.cast.i
+  %bf.lshr.i93 = lshr i32 %bf.load.i, 2
+  %conv.i94 = zext nneg i32 %bf.lshr.i93 to i64
+  %cmp.not.i97 = icmp eq i64 %conv.i94, %str.coerce1
+  br i1 %36, label %if.else41, label %if.then34
 
 if.then34:                                        ; preds = %if.else32
-  br i1 %cmp.not.i75, label %if.end.i77, label %if.end53
+  br i1 %cmp.not.i97, label %if.end.i77, label %if.end53
 
 if.end.i77:                                       ; preds = %if.then34
-  br i1 %tobool.not.i.i.i.i.i100, label %return, label %for.body.i.i.i.i.i80
+  br i1 %cmp.not4.i.i.i.i.i79, label %return, label %for.body.i.i.i.i.i80
 
 for.body.i.i.i.i.i80:                             ; preds = %if.end.i77, %for.inc.i.i.i.i.i86
-  %__first2.addr.06.i.i.i.i.i81 = phi ptr [ %incdec.ptr3.i.i.i.i.i88, %for.inc.i.i.i.i.i86 ], [ %27, %if.end.i77 ]
+  %__first2.addr.06.i.i.i.i.i81 = phi ptr [ %incdec.ptr3.i.i.i.i.i88, %for.inc.i.i.i.i.i86 ], [ %26, %if.end.i77 ]
   %__first1.addr.05.i.i.i.i.i82 = phi ptr [ %incdec.ptr.i.i.i.i.i87, %for.inc.i.i.i.i.i86 ], [ %str.coerce0, %if.end.i77 ]
-  %39 = load i16, ptr %__first1.addr.05.i.i.i.i.i82, align 2
-  %conv.i.i.i.i.i83 = zext i16 %39 to i32
-  %40 = load i8, ptr %__first2.addr.06.i.i.i.i.i81, align 1
-  %conv1.i.i.i.i.i84 = sext i8 %40 to i32
+  %37 = load i16, ptr %__first1.addr.05.i.i.i.i.i82, align 2
+  %conv.i.i.i.i.i83 = zext i16 %37 to i32
+  %38 = load i8, ptr %__first2.addr.06.i.i.i.i.i81, align 1
+  %conv1.i.i.i.i.i84 = sext i8 %38 to i32
   %cmp2.i.i.i.i.i85 = icmp eq i32 %conv.i.i.i.i.i83, %conv1.i.i.i.i.i84
   br i1 %cmp2.i.i.i.i.i85, label %for.inc.i.i.i.i.i86, label %if.end53
 
@@ -776,26 +774,26 @@ for.inc.i.i.i.i.i86:                              ; preds = %for.body.i.i.i.i.i8
   br i1 %cmp.not.i.i.i.i.i89, label %return, label %for.body.i.i.i.i.i80, !llvm.loop !8
 
 if.else41:                                        ; preds = %if.else32
-  br i1 %cmp.not.i75, label %if.end.i99, label %if.end53
+  br i1 %cmp.not.i97, label %if.end.i99, label %if.end53
 
 if.end.i99:                                       ; preds = %if.else41
-  br i1 %tobool.not.i.i.i.i.i100, label %return, label %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit105
+  br i1 %cmp.not4.i.i.i.i.i79, label %return, label %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit105
 
 _ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit105: ; preds = %if.end.i99
-  %bcmp.i.i.i.i.i103 = tail call i32 @bcmp(ptr %str.coerce0, ptr %27, i64 %add.ptr.i.idx.i102)
+  %bcmp.i.i.i.i.i103 = tail call i32 @bcmp(ptr %str.coerce0, ptr %26, i64 %add.ptr.i.idx.i102)
   %tobool1.not.i.i.i.i.i104 = icmp eq i32 %bcmp.i.i.i.i.i103, 0
   br i1 %tobool1.not.i.i.i.i.i104, label %return, label %if.end53
 
 if.end53:                                         ; preds = %for.body.i.i.i.i.i80, %for.body.i.i.i.i.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit, %if.else41, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit, %if.then34, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit, %_ZNK6hermes12CompactTable3getEj.exit, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit105, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit
-  %deletedIndex.sroa.3.1 = phi i8 [ %deletedIndex.sroa.3.0, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit ], [ %deletedIndex.sroa.3.0, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit105 ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes12CompactTable3getEj.exit ], [ 1, %_ZNK6hermes12CompactTable9isDeletedEj.exit ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit ], [ %deletedIndex.sroa.3.0, %if.then34 ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit ], [ %deletedIndex.sroa.3.0, %if.else41 ], [ %deletedIndex.sroa.3.0, %for.body.i.i.i.i.i ], [ %deletedIndex.sroa.3.0, %for.body.i.i.i.i.i80 ]
+  %deletedIndex.sroa.3.1 = phi i1 [ %deletedIndex.sroa.3.0, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit ], [ %deletedIndex.sroa.3.0, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit105 ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes12CompactTable3getEj.exit ], [ true, %_ZNK6hermes12CompactTable9isDeletedEj.exit ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit ], [ %deletedIndex.sroa.3.0, %if.then34 ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit ], [ %deletedIndex.sroa.3.0, %if.else41 ], [ %deletedIndex.sroa.3.0, %for.body.i.i.i.i.i ], [ %deletedIndex.sroa.3.0, %for.body.i.i.i.i.i80 ]
   %deletedIndex.sroa.0.1 = phi i32 [ %deletedIndex.sroa.0.0, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit ], [ %deletedIndex.sroa.0.0, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit105 ], [ %deletedIndex.sroa.0.0, %_ZNK6hermes12CompactTable3getEj.exit ], [ %idx.0, %_ZNK6hermes12CompactTable9isDeletedEj.exit ], [ %deletedIndex.sroa.0.0, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit ], [ %deletedIndex.sroa.0.0, %if.then34 ], [ %deletedIndex.sroa.0.0, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit ], [ %deletedIndex.sroa.0.0, %if.else41 ], [ %deletedIndex.sroa.0.0, %for.body.i.i.i.i.i ], [ %deletedIndex.sroa.0.0, %for.body.i.i.i.i.i80 ]
   %add = add i32 %base.0, %idx.0
   %and55 = and i32 %add, %sub
   %inc = add i32 %base.0, 1
   br label %while.body, !llvm.loop !7
 
-return:                                           ; preds = %if.end.i99, %if.end.i77, %if.end.i69, %if.end.i, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit105, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit, %for.inc.i.i.i.i.i86, %for.inc.i.i.i.i.i, %if.then
-  %retval.0.in.sroa.speculated = phi i32 [ %spec.select, %if.then ], [ %idx.0, %for.inc.i.i.i.i.i ], [ %idx.0, %for.inc.i.i.i.i.i86 ], [ %idx.0, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit ], [ %idx.0, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit105 ], [ %idx.0, %if.end.i ], [ %idx.0, %if.end.i69 ], [ %idx.0, %if.end.i77 ], [ %idx.0, %if.end.i99 ]
+return:                                           ; preds = %if.end.i99, %if.end.i77, %if.end.i69, %if.end.i, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit105, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit, %for.inc.i.i.i.i.i86, %for.inc.i.i.i.i.i, %if.then, %entry.split.us.split.split, %entry.split.us.split.split.us149, %entry.split.us.split.split.us
+  %retval.0.in.sroa.speculated = phi i32 [ %and, %entry.split.us.split.split.us ], [ %and, %entry.split.us.split.split.us149 ], [ %and, %entry.split.us.split.split ], [ %spec.select, %if.then ], [ %idx.0, %for.inc.i.i.i.i.i ], [ %idx.0, %for.inc.i.i.i.i.i86 ], [ %idx.0, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit ], [ %idx.0, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit105 ], [ %idx.0, %if.end.i ], [ %idx.0, %if.end.i69 ], [ %idx.0, %if.end.i77 ], [ %idx.0, %if.end.i99 ]
   ret i32 %retval.0.in.sroa.speculated
 }
 
@@ -1144,8 +1142,8 @@ if.end:                                           ; preds = %entry
   %raw_4.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %raw_4.i.i, align 8
   store ptr %call.i.i, ptr %raw_4.i.i, align 8
-  %cmp595.not = icmp eq i32 %2, 0
-  br i1 %cmp595.not, label %for.end, label %for.body.lr.ph
+  %cmp598.not = icmp eq i32 %2, 0
+  br i1 %cmp598.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
   %identifierTable_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -1234,214 +1232,211 @@ if.then13:                                        ; preds = %_ZNK6hermes12Compac
   br label %if.end28
 
 if.else:                                          ; preds = %_ZNK6hermes12CompactTable3getEj.exit
-  %16 = and i32 %bf.load.i, 1
-  %bf.cast.not.i = icmp eq i32 %16, 0
-  %17 = select i1 %tobool.not.i, i1 %bf.cast.not.i, i1 false
-  br i1 %17, label %if.then17, label %if.else20
+  %bf.cast.i = trunc i32 %bf.load.i to i1
+  %not.tobool.not.i = xor i1 %tobool.not.i, true
+  %16 = select i1 %not.tobool.not.i, i1 true, i1 %bf.cast.i
+  br i1 %16, label %if.else20, label %if.then17
 
 if.then17:                                        ; preds = %if.else
-  %18 = load i32, ptr %this, align 8
-  %sub.i37 = add i32 %18, -1
+  %17 = load i32, ptr %this, align 8
+  %sub.i37 = add i32 %17, -1
   %and.i = and i32 %sub.i37, %13
-  %19 = load i32, ptr %scale_.i, align 4
-  %20 = load ptr, ptr %raw_4.i.i, align 8
-  %switch.i = icmp ult i32 %19, 3
+  %18 = load i32, ptr %scale_.i, align 4
+  %19 = load ptr, ptr %raw_4.i.i, align 8
+  %switch.i = icmp ult i32 %18, 3
   tail call void @llvm.assume(i1 %switch.i)
   %idxprom.i.i.i.us181.i = zext i32 %and.i to i64
-  switch i32 %19, label %entry.split.us.split.split.i [
+  switch i32 %18, label %entry.split.us.split.split.i [
     i32 0, label %entry.split.us.split.split.us.i
     i32 1, label %entry.split.us.split.split.us148.i
   ]
 
 entry.split.us.split.split.us.i:                  ; preds = %if.then17
-  %arrayidx.i.i.i.us.us236.i = getelementptr inbounds i8, ptr %20, i64 %idxprom.i.i.i.us181.i
-  %21 = load i8, ptr %arrayidx.i.i.i.us.us236.i, align 1
-  %cmp.i.us.us238.i = icmp eq i8 %21, 0
-  br i1 %cmp.i.us.us238.i, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEjb.exit, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i
+  %arrayidx.i.i.i.us.us236.i = getelementptr inbounds i8, ptr %19, i64 %idxprom.i.i.i.us181.i
+  %20 = load i8, ptr %arrayidx.i.i.i.us.us236.i, align 1
+  %cmp.i.us.us238.i = icmp eq i8 %20, 0
+  br i1 %cmp.i.us.us238.i, label %if.end28, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i
 
 _ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i: ; preds = %entry.split.us.split.split.us.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i
-  %22 = phi i8 [ %23, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i ], [ %21, %entry.split.us.split.split.us.i ]
+  %21 = phi i8 [ %22, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i ], [ %20, %entry.split.us.split.split.us.i ]
   %base.0.us.us242.i = phi i32 [ %inc.us.us.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i ], [ 1, %entry.split.us.split.split.us.i ]
   %idx.0.us.us241.i = phi i32 [ %and55.us.us.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i ], [ %and.i, %entry.split.us.split.split.us.i ]
   %deletedIndex.sroa.0.0.us.us240.i = phi i32 [ %idx.0.mux.us.us.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i ], [ 0, %entry.split.us.split.split.us.i ]
-  %deletedIndex.sroa.3.0.us.us239.i = phi i8 [ %.mux.us.us.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i ], [ 0, %entry.split.us.split.split.us.i ]
-  %cmp.i21.us.us.i = icmp eq i8 %22, 1
-  %.mux.us.us.i = select i1 %cmp.i21.us.us.i, i8 1, i8 %deletedIndex.sroa.3.0.us.us239.i
+  %deletedIndex.sroa.3.0.us.us239.i = phi i1 [ %.mux.us.us.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i ], [ false, %entry.split.us.split.split.us.i ]
+  %cmp.i21.us.us.i = icmp eq i8 %21, 1
+  %.mux.us.us.i = select i1 %cmp.i21.us.us.i, i1 true, i1 %deletedIndex.sroa.3.0.us.us239.i
   %idx.0.mux.us.us.i = select i1 %cmp.i21.us.us.i, i32 %idx.0.us.us241.i, i32 %deletedIndex.sroa.0.0.us.us240.i
   %add.us.us.i = add i32 %idx.0.us.us241.i, %base.0.us.us242.i
   %and55.us.us.i = and i32 %add.us.us.i, %sub.i37
   %inc.us.us.i = add i32 %base.0.us.us242.i, 1
   %idxprom.i.i.i.us.us.i = zext i32 %and55.us.us.i to i64
-  %arrayidx.i.i.i.us.us.i = getelementptr inbounds i8, ptr %20, i64 %idxprom.i.i.i.us.us.i
-  %23 = load i8, ptr %arrayidx.i.i.i.us.us.i, align 1
-  %cmp.i.us.us.i = icmp eq i8 %23, 0
-  br i1 %cmp.i.us.us.i, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEjb.exit, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i, !llvm.loop !4
+  %arrayidx.i.i.i.us.us.i = getelementptr inbounds i8, ptr %19, i64 %idxprom.i.i.i.us.us.i
+  %22 = load i8, ptr %arrayidx.i.i.i.us.us.i, align 1
+  %cmp.i.us.us.i = icmp eq i8 %22, 0
+  br i1 %cmp.i.us.us.i, label %if.then.i, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i, !llvm.loop !4
 
 entry.split.us.split.split.us148.i:               ; preds = %if.then17
-  %arrayidx.i4.i.i.us.us248.i = getelementptr inbounds i16, ptr %20, i64 %idxprom.i.i.i.us181.i
-  %24 = load i16, ptr %arrayidx.i4.i.i.us.us248.i, align 2
-  %cmp.i.us.us157250.i = icmp eq i16 %24, 0
-  br i1 %cmp.i.us.us157250.i, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEjb.exit, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i
+  %arrayidx.i4.i.i.us.us248.i = getelementptr inbounds i16, ptr %19, i64 %idxprom.i.i.i.us181.i
+  %23 = load i16, ptr %arrayidx.i4.i.i.us.us248.i, align 2
+  %cmp.i.us.us157250.i = icmp eq i16 %23, 0
+  br i1 %cmp.i.us.us157250.i, label %if.end28, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i
 
 _ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i: ; preds = %entry.split.us.split.split.us148.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i
-  %25 = phi i16 [ %26, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i ], [ %24, %entry.split.us.split.split.us148.i ]
+  %24 = phi i16 [ %25, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i ], [ %23, %entry.split.us.split.split.us148.i ]
   %base.0.us.us153254.i = phi i32 [ %inc.us.us174.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i ], [ 1, %entry.split.us.split.split.us148.i ]
   %idx.0.us.us152253.i = phi i32 [ %and55.us.us173.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i ], [ %and.i, %entry.split.us.split.split.us148.i ]
   %deletedIndex.sroa.0.0.us.us151252.i = phi i32 [ %idx.0.mux.us.us171.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i ], [ 0, %entry.split.us.split.split.us148.i ]
-  %deletedIndex.sroa.3.0.us.us150251.i = phi i8 [ %.mux.us.us170.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i ], [ 0, %entry.split.us.split.split.us148.i ]
-  %cmp.i21.us.us169.i = icmp eq i16 %25, 1
-  %.mux.us.us170.i = select i1 %cmp.i21.us.us169.i, i8 1, i8 %deletedIndex.sroa.3.0.us.us150251.i
+  %deletedIndex.sroa.3.0.us.us150251.i = phi i1 [ %.mux.us.us170.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i ], [ false, %entry.split.us.split.split.us148.i ]
+  %cmp.i21.us.us169.i = icmp eq i16 %24, 1
+  %.mux.us.us170.i = select i1 %cmp.i21.us.us169.i, i1 true, i1 %deletedIndex.sroa.3.0.us.us150251.i
   %idx.0.mux.us.us171.i = select i1 %cmp.i21.us.us169.i, i32 %idx.0.us.us152253.i, i32 %deletedIndex.sroa.0.0.us.us151252.i
   %add.us.us172.i = add i32 %idx.0.us.us152253.i, %base.0.us.us153254.i
   %and55.us.us173.i = and i32 %add.us.us172.i, %sub.i37
   %inc.us.us174.i = add i32 %base.0.us.us153254.i, 1
   %idxprom.i.i.i.us.us154.i = zext i32 %and55.us.us173.i to i64
-  %arrayidx.i4.i.i.us.us.i = getelementptr inbounds i16, ptr %20, i64 %idxprom.i.i.i.us.us154.i
-  %26 = load i16, ptr %arrayidx.i4.i.i.us.us.i, align 2
-  %cmp.i.us.us157.i = icmp eq i16 %26, 0
-  br i1 %cmp.i.us.us157.i, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEjb.exit, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i, !llvm.loop !4
+  %arrayidx.i4.i.i.us.us.i = getelementptr inbounds i16, ptr %19, i64 %idxprom.i.i.i.us.us154.i
+  %25 = load i16, ptr %arrayidx.i4.i.i.us.us.i, align 2
+  %cmp.i.us.us157.i = icmp eq i16 %25, 0
+  br i1 %cmp.i.us.us157.i, label %if.then.i, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i, !llvm.loop !4
 
 entry.split.us.split.split.i:                     ; preds = %if.then17
-  %arrayidx.i7.i.i.us182.i = getelementptr inbounds i32, ptr %20, i64 %idxprom.i.i.i.us181.i
-  %27 = load i32, ptr %arrayidx.i7.i.i.us182.i, align 4
-  %cmp.i.us183.i = icmp eq i32 %27, 0
-  br i1 %cmp.i.us183.i, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEjb.exit, label %if.else.us.i
+  %arrayidx.i7.i.i.us182.i = getelementptr inbounds i32, ptr %19, i64 %idxprom.i.i.i.us181.i
+  %26 = load i32, ptr %arrayidx.i7.i.i.us182.i, align 4
+  %cmp.i.us183.i = icmp eq i32 %26, 0
+  br i1 %cmp.i.us183.i, label %if.end28, label %if.else.us.i
 
 if.else.us.i:                                     ; preds = %entry.split.us.split.split.i, %if.else.us.i
-  %28 = phi i32 [ %29, %if.else.us.i ], [ %27, %entry.split.us.split.split.i ]
+  %27 = phi i32 [ %28, %if.else.us.i ], [ %26, %entry.split.us.split.split.i ]
   %base.0.us187.i = phi i32 [ %inc.us.i, %if.else.us.i ], [ 1, %entry.split.us.split.split.i ]
   %idx.0.us186.i = phi i32 [ %and55.us.i, %if.else.us.i ], [ %and.i, %entry.split.us.split.split.i ]
   %deletedIndex.sroa.0.0.us185.i = phi i32 [ %idx.0.mux.us.i, %if.else.us.i ], [ 0, %entry.split.us.split.split.i ]
-  %deletedIndex.sroa.3.0.us184.i = phi i8 [ %.mux.us.i, %if.else.us.i ], [ 0, %entry.split.us.split.split.i ]
-  %cmp.i21.us.i = icmp eq i32 %28, 1
-  %.mux.us.i = select i1 %cmp.i21.us.i, i8 1, i8 %deletedIndex.sroa.3.0.us184.i
+  %deletedIndex.sroa.3.0.us184.i = phi i1 [ %.mux.us.i, %if.else.us.i ], [ false, %entry.split.us.split.split.i ]
+  %cmp.i21.us.i = icmp eq i32 %27, 1
+  %.mux.us.i = select i1 %cmp.i21.us.i, i1 true, i1 %deletedIndex.sroa.3.0.us184.i
   %idx.0.mux.us.i = select i1 %cmp.i21.us.i, i32 %idx.0.us186.i, i32 %deletedIndex.sroa.0.0.us185.i
   %add.us.i = add i32 %idx.0.us186.i, %base.0.us187.i
   %and55.us.i = and i32 %add.us.i, %sub.i37
   %inc.us.i = add i32 %base.0.us187.i, 1
   %idxprom.i.i.i.us.i = zext i32 %and55.us.i to i64
-  %arrayidx.i7.i.i.us.i = getelementptr inbounds i32, ptr %20, i64 %idxprom.i.i.i.us.i
-  %29 = load i32, ptr %arrayidx.i7.i.i.us.i, align 4
-  %cmp.i.us.i = icmp eq i32 %29, 0
-  br i1 %cmp.i.us.i, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEjb.exit, label %if.else.us.i, !llvm.loop !4
+  %arrayidx.i7.i.i.us.i = getelementptr inbounds i32, ptr %19, i64 %idxprom.i.i.i.us.i
+  %28 = load i32, ptr %arrayidx.i7.i.i.us.i, align 4
+  %cmp.i.us.i = icmp eq i32 %28, 0
+  br i1 %cmp.i.us.i, label %if.then.i, label %if.else.us.i, !llvm.loop !4
 
-_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEjb.exit: ; preds = %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i, %if.else.us.i, %entry.split.us.split.split.us.i, %entry.split.us.split.split.us148.i, %entry.split.us.split.split.i
-  %.us-phi.i = phi i8 [ 0, %entry.split.us.split.split.us.i ], [ 0, %entry.split.us.split.split.us148.i ], [ 0, %entry.split.us.split.split.i ], [ %.mux.us.i, %if.else.us.i ], [ %.mux.us.us.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i ], [ %.mux.us.us170.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i ]
-  %.us-phi143.i = phi i32 [ 0, %entry.split.us.split.split.us.i ], [ 0, %entry.split.us.split.split.us148.i ], [ 0, %entry.split.us.split.split.i ], [ %idx.0.mux.us.i, %if.else.us.i ], [ %idx.0.mux.us.us.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i ], [ %idx.0.mux.us.us171.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i ]
-  %.us-phi144.i = phi i32 [ %and.i, %entry.split.us.split.split.us.i ], [ %and.i, %entry.split.us.split.split.us148.i ], [ %and.i, %entry.split.us.split.split.i ], [ %and55.us.i, %if.else.us.i ], [ %and55.us.us.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i ], [ %and55.us.us173.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i ]
-  %30 = and i8 %.us-phi.i, 1
-  %tobool.i.not.i = icmp eq i8 %30, 0
-  %spec.select.i = select i1 %tobool.i.not.i, i32 %.us-phi144.i, i32 %.us-phi143.i
+if.then.i:                                        ; preds = %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i, %if.else.us.i
+  %.us-phi.i = phi i1 [ %.mux.us.i, %if.else.us.i ], [ %.mux.us.us.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i ], [ %.mux.us.us170.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i ]
+  %.us-phi143.i = phi i32 [ %idx.0.mux.us.i, %if.else.us.i ], [ %idx.0.mux.us.us.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i ], [ %idx.0.mux.us.us171.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i ]
+  %.us-phi144.i = phi i32 [ %and55.us.i, %if.else.us.i ], [ %and55.us.us.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i ], [ %and55.us.us173.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us167.i ]
+  %cond.fr.i = freeze i1 %.us-phi.i
+  %spec.select.i = select i1 %cond.fr.i, i32 %.us-phi143.i, i32 %.us-phi144.i
   br label %if.end28
 
 if.else20:                                        ; preds = %if.else
-  %bf.cast.i = icmp ne i32 %16, 0
-  %31 = select i1 %tobool.not.i, i1 %bf.cast.i, i1 false
-  br i1 %31, label %if.then22, label %if.end28
+  %29 = select i1 %tobool.not.i, i1 %bf.cast.i, i1 false
+  br i1 %29, label %if.then22, label %if.end28
 
 if.then22:                                        ; preds = %if.else20
-  %32 = load i32, ptr %this, align 8
-  %sub.i47 = add i32 %32, -1
-  %and.i48 = and i32 %sub.i47, %13
-  %33 = load i32, ptr %scale_.i, align 4
-  %34 = load ptr, ptr %raw_4.i.i, align 8
-  %switch.i52 = icmp ult i32 %33, 3
-  tail call void @llvm.assume(i1 %switch.i52)
-  %idxprom.i.i.i.us182.i = zext i32 %and.i48 to i64
-  switch i32 %33, label %entry.split.us.split.split.i69 [
-    i32 0, label %entry.split.us.split.split.us.i58
+  %30 = load i32, ptr %this, align 8
+  %sub.i48 = add i32 %30, -1
+  %and.i49 = and i32 %sub.i48, %13
+  %31 = load i32, ptr %scale_.i, align 4
+  %32 = load ptr, ptr %raw_4.i.i, align 8
+  %switch.i53 = icmp ult i32 %31, 3
+  tail call void @llvm.assume(i1 %switch.i53)
+  %idxprom.i.i.i.us182.i = zext i32 %and.i49 to i64
+  switch i32 %31, label %entry.split.us.split.split.i72 [
+    i32 0, label %entry.split.us.split.split.us.i61
     i32 1, label %entry.split.us.split.split.us149.i
   ]
 
-entry.split.us.split.split.us.i58:                ; preds = %if.then22
-  %arrayidx.i.i.i.us.us237.i = getelementptr inbounds i8, ptr %34, i64 %idxprom.i.i.i.us182.i
-  %35 = load i8, ptr %arrayidx.i.i.i.us.us237.i, align 1
-  %cmp.i.us.us239.i = icmp eq i8 %35, 0
-  br i1 %cmp.i.us.us239.i, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEjb.exit, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i59
+entry.split.us.split.split.us.i61:                ; preds = %if.then22
+  %arrayidx.i.i.i.us.us237.i = getelementptr inbounds i8, ptr %32, i64 %idxprom.i.i.i.us182.i
+  %33 = load i8, ptr %arrayidx.i.i.i.us.us237.i, align 1
+  %cmp.i.us.us239.i = icmp eq i8 %33, 0
+  br i1 %cmp.i.us.us239.i, label %if.end28, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62
 
-_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i59: ; preds = %entry.split.us.split.split.us.i58, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i59
-  %36 = phi i8 [ %37, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i59 ], [ %35, %entry.split.us.split.split.us.i58 ]
-  %base.0.us.us243.i = phi i32 [ %inc.us.us.i65, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i59 ], [ 1, %entry.split.us.split.split.us.i58 ]
-  %idx.0.us.us242.i = phi i32 [ %and55.us.us.i64, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i59 ], [ %and.i48, %entry.split.us.split.split.us.i58 ]
-  %deletedIndex.sroa.0.0.us.us241.i = phi i32 [ %idx.0.mux.us.us.i62, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i59 ], [ 0, %entry.split.us.split.split.us.i58 ]
-  %deletedIndex.sroa.3.0.us.us240.i = phi i8 [ %.mux.us.us.i61, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i59 ], [ 0, %entry.split.us.split.split.us.i58 ]
-  %cmp.i21.us.us.i60 = icmp eq i8 %36, 1
-  %.mux.us.us.i61 = select i1 %cmp.i21.us.us.i60, i8 1, i8 %deletedIndex.sroa.3.0.us.us240.i
-  %idx.0.mux.us.us.i62 = select i1 %cmp.i21.us.us.i60, i32 %idx.0.us.us242.i, i32 %deletedIndex.sroa.0.0.us.us241.i
-  %add.us.us.i63 = add i32 %idx.0.us.us242.i, %base.0.us.us243.i
-  %and55.us.us.i64 = and i32 %add.us.us.i63, %sub.i47
-  %inc.us.us.i65 = add i32 %base.0.us.us243.i, 1
-  %idxprom.i.i.i.us.us.i66 = zext i32 %and55.us.us.i64 to i64
-  %arrayidx.i.i.i.us.us.i67 = getelementptr inbounds i8, ptr %34, i64 %idxprom.i.i.i.us.us.i66
-  %37 = load i8, ptr %arrayidx.i.i.i.us.us.i67, align 1
-  %cmp.i.us.us.i68 = icmp eq i8 %37, 0
-  br i1 %cmp.i.us.us.i68, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEjb.exit, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i59, !llvm.loop !7
+_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62: ; preds = %entry.split.us.split.split.us.i61, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62
+  %34 = phi i8 [ %35, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62 ], [ %33, %entry.split.us.split.split.us.i61 ]
+  %base.0.us.us243.i = phi i32 [ %inc.us.us.i68, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62 ], [ 1, %entry.split.us.split.split.us.i61 ]
+  %idx.0.us.us242.i = phi i32 [ %and55.us.us.i67, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62 ], [ %and.i49, %entry.split.us.split.split.us.i61 ]
+  %deletedIndex.sroa.0.0.us.us241.i = phi i32 [ %idx.0.mux.us.us.i65, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62 ], [ 0, %entry.split.us.split.split.us.i61 ]
+  %deletedIndex.sroa.3.0.us.us240.i = phi i1 [ %.mux.us.us.i64, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62 ], [ false, %entry.split.us.split.split.us.i61 ]
+  %cmp.i21.us.us.i63 = icmp eq i8 %34, 1
+  %.mux.us.us.i64 = select i1 %cmp.i21.us.us.i63, i1 true, i1 %deletedIndex.sroa.3.0.us.us240.i
+  %idx.0.mux.us.us.i65 = select i1 %cmp.i21.us.us.i63, i32 %idx.0.us.us242.i, i32 %deletedIndex.sroa.0.0.us.us241.i
+  %add.us.us.i66 = add i32 %idx.0.us.us242.i, %base.0.us.us243.i
+  %and55.us.us.i67 = and i32 %add.us.us.i66, %sub.i48
+  %inc.us.us.i68 = add i32 %base.0.us.us243.i, 1
+  %idxprom.i.i.i.us.us.i69 = zext i32 %and55.us.us.i67 to i64
+  %arrayidx.i.i.i.us.us.i70 = getelementptr inbounds i8, ptr %32, i64 %idxprom.i.i.i.us.us.i69
+  %35 = load i8, ptr %arrayidx.i.i.i.us.us.i70, align 1
+  %cmp.i.us.us.i71 = icmp eq i8 %35, 0
+  br i1 %cmp.i.us.us.i71, label %if.then.i55, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62, !llvm.loop !7
 
 entry.split.us.split.split.us149.i:               ; preds = %if.then22
-  %arrayidx.i4.i.i.us.us249.i = getelementptr inbounds i16, ptr %34, i64 %idxprom.i.i.i.us182.i
-  %38 = load i16, ptr %arrayidx.i4.i.i.us.us249.i, align 2
-  %cmp.i.us.us158251.i = icmp eq i16 %38, 0
-  br i1 %cmp.i.us.us158251.i, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEjb.exit, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i
+  %arrayidx.i4.i.i.us.us249.i = getelementptr inbounds i16, ptr %32, i64 %idxprom.i.i.i.us182.i
+  %36 = load i16, ptr %arrayidx.i4.i.i.us.us249.i, align 2
+  %cmp.i.us.us158251.i = icmp eq i16 %36, 0
+  br i1 %cmp.i.us.us158251.i, label %if.end28, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i
 
 _ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i: ; preds = %entry.split.us.split.split.us149.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i
-  %39 = phi i16 [ %40, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ], [ %38, %entry.split.us.split.split.us149.i ]
+  %37 = phi i16 [ %38, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ], [ %36, %entry.split.us.split.split.us149.i ]
   %base.0.us.us154255.i = phi i32 [ %inc.us.us175.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ], [ 1, %entry.split.us.split.split.us149.i ]
-  %idx.0.us.us153254.i = phi i32 [ %and55.us.us174.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ], [ %and.i48, %entry.split.us.split.split.us149.i ]
+  %idx.0.us.us153254.i = phi i32 [ %and55.us.us174.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ], [ %and.i49, %entry.split.us.split.split.us149.i ]
   %deletedIndex.sroa.0.0.us.us152253.i = phi i32 [ %idx.0.mux.us.us172.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ], [ 0, %entry.split.us.split.split.us149.i ]
-  %deletedIndex.sroa.3.0.us.us151252.i = phi i8 [ %.mux.us.us171.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ], [ 0, %entry.split.us.split.split.us149.i ]
-  %cmp.i21.us.us170.i = icmp eq i16 %39, 1
-  %.mux.us.us171.i = select i1 %cmp.i21.us.us170.i, i8 1, i8 %deletedIndex.sroa.3.0.us.us151252.i
+  %deletedIndex.sroa.3.0.us.us151252.i = phi i1 [ %.mux.us.us171.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ], [ false, %entry.split.us.split.split.us149.i ]
+  %cmp.i21.us.us170.i = icmp eq i16 %37, 1
+  %.mux.us.us171.i = select i1 %cmp.i21.us.us170.i, i1 true, i1 %deletedIndex.sroa.3.0.us.us151252.i
   %idx.0.mux.us.us172.i = select i1 %cmp.i21.us.us170.i, i32 %idx.0.us.us153254.i, i32 %deletedIndex.sroa.0.0.us.us152253.i
   %add.us.us173.i = add i32 %idx.0.us.us153254.i, %base.0.us.us154255.i
-  %and55.us.us174.i = and i32 %add.us.us173.i, %sub.i47
+  %and55.us.us174.i = and i32 %add.us.us173.i, %sub.i48
   %inc.us.us175.i = add i32 %base.0.us.us154255.i, 1
   %idxprom.i.i.i.us.us155.i = zext i32 %and55.us.us174.i to i64
-  %arrayidx.i4.i.i.us.us.i53 = getelementptr inbounds i16, ptr %34, i64 %idxprom.i.i.i.us.us155.i
-  %40 = load i16, ptr %arrayidx.i4.i.i.us.us.i53, align 2
-  %cmp.i.us.us158.i = icmp eq i16 %40, 0
-  br i1 %cmp.i.us.us158.i, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEjb.exit, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i, !llvm.loop !7
+  %arrayidx.i4.i.i.us.us.i54 = getelementptr inbounds i16, ptr %32, i64 %idxprom.i.i.i.us.us155.i
+  %38 = load i16, ptr %arrayidx.i4.i.i.us.us.i54, align 2
+  %cmp.i.us.us158.i = icmp eq i16 %38, 0
+  br i1 %cmp.i.us.us158.i, label %if.then.i55, label %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i, !llvm.loop !7
 
-entry.split.us.split.split.i69:                   ; preds = %if.then22
-  %arrayidx.i7.i.i.us183.i = getelementptr inbounds i32, ptr %34, i64 %idxprom.i.i.i.us182.i
-  %41 = load i32, ptr %arrayidx.i7.i.i.us183.i, align 4
-  %cmp.i.us184.i = icmp eq i32 %41, 0
-  br i1 %cmp.i.us184.i, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEjb.exit, label %if.else.us.i70
+entry.split.us.split.split.i72:                   ; preds = %if.then22
+  %arrayidx.i7.i.i.us183.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i.i.us182.i
+  %39 = load i32, ptr %arrayidx.i7.i.i.us183.i, align 4
+  %cmp.i.us184.i = icmp eq i32 %39, 0
+  br i1 %cmp.i.us184.i, label %if.end28, label %if.else.us.i73
 
-if.else.us.i70:                                   ; preds = %entry.split.us.split.split.i69, %if.else.us.i70
-  %42 = phi i32 [ %43, %if.else.us.i70 ], [ %41, %entry.split.us.split.split.i69 ]
-  %base.0.us188.i = phi i32 [ %inc.us.i76, %if.else.us.i70 ], [ 1, %entry.split.us.split.split.i69 ]
-  %idx.0.us187.i = phi i32 [ %and55.us.i75, %if.else.us.i70 ], [ %and.i48, %entry.split.us.split.split.i69 ]
-  %deletedIndex.sroa.0.0.us186.i = phi i32 [ %idx.0.mux.us.i73, %if.else.us.i70 ], [ 0, %entry.split.us.split.split.i69 ]
-  %deletedIndex.sroa.3.0.us185.i = phi i8 [ %.mux.us.i72, %if.else.us.i70 ], [ 0, %entry.split.us.split.split.i69 ]
-  %cmp.i21.us.i71 = icmp eq i32 %42, 1
-  %.mux.us.i72 = select i1 %cmp.i21.us.i71, i8 1, i8 %deletedIndex.sroa.3.0.us185.i
-  %idx.0.mux.us.i73 = select i1 %cmp.i21.us.i71, i32 %idx.0.us187.i, i32 %deletedIndex.sroa.0.0.us186.i
-  %add.us.i74 = add i32 %idx.0.us187.i, %base.0.us188.i
-  %and55.us.i75 = and i32 %add.us.i74, %sub.i47
-  %inc.us.i76 = add i32 %base.0.us188.i, 1
-  %idxprom.i.i.i.us.i77 = zext i32 %and55.us.i75 to i64
-  %arrayidx.i7.i.i.us.i78 = getelementptr inbounds i32, ptr %34, i64 %idxprom.i.i.i.us.i77
-  %43 = load i32, ptr %arrayidx.i7.i.i.us.i78, align 4
-  %cmp.i.us.i79 = icmp eq i32 %43, 0
-  br i1 %cmp.i.us.i79, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEjb.exit, label %if.else.us.i70, !llvm.loop !7
+if.else.us.i73:                                   ; preds = %entry.split.us.split.split.i72, %if.else.us.i73
+  %40 = phi i32 [ %41, %if.else.us.i73 ], [ %39, %entry.split.us.split.split.i72 ]
+  %base.0.us188.i = phi i32 [ %inc.us.i79, %if.else.us.i73 ], [ 1, %entry.split.us.split.split.i72 ]
+  %idx.0.us187.i = phi i32 [ %and55.us.i78, %if.else.us.i73 ], [ %and.i49, %entry.split.us.split.split.i72 ]
+  %deletedIndex.sroa.0.0.us186.i = phi i32 [ %idx.0.mux.us.i76, %if.else.us.i73 ], [ 0, %entry.split.us.split.split.i72 ]
+  %deletedIndex.sroa.3.0.us185.i = phi i1 [ %.mux.us.i75, %if.else.us.i73 ], [ false, %entry.split.us.split.split.i72 ]
+  %cmp.i21.us.i74 = icmp eq i32 %40, 1
+  %.mux.us.i75 = select i1 %cmp.i21.us.i74, i1 true, i1 %deletedIndex.sroa.3.0.us185.i
+  %idx.0.mux.us.i76 = select i1 %cmp.i21.us.i74, i32 %idx.0.us187.i, i32 %deletedIndex.sroa.0.0.us186.i
+  %add.us.i77 = add i32 %idx.0.us187.i, %base.0.us188.i
+  %and55.us.i78 = and i32 %add.us.i77, %sub.i48
+  %inc.us.i79 = add i32 %base.0.us188.i, 1
+  %idxprom.i.i.i.us.i80 = zext i32 %and55.us.i78 to i64
+  %arrayidx.i7.i.i.us.i81 = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i.i.us.i80
+  %41 = load i32, ptr %arrayidx.i7.i.i.us.i81, align 4
+  %cmp.i.us.i82 = icmp eq i32 %41, 0
+  br i1 %cmp.i.us.i82, label %if.then.i55, label %if.else.us.i73, !llvm.loop !7
 
-_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEjb.exit: ; preds = %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i59, %if.else.us.i70, %entry.split.us.split.split.us.i58, %entry.split.us.split.split.us149.i, %entry.split.us.split.split.i69
-  %.us-phi.i54 = phi i8 [ 0, %entry.split.us.split.split.us.i58 ], [ 0, %entry.split.us.split.split.us149.i ], [ 0, %entry.split.us.split.split.i69 ], [ %.mux.us.i72, %if.else.us.i70 ], [ %.mux.us.us.i61, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i59 ], [ %.mux.us.us171.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ]
-  %.us-phi144.i55 = phi i32 [ 0, %entry.split.us.split.split.us.i58 ], [ 0, %entry.split.us.split.split.us149.i ], [ 0, %entry.split.us.split.split.i69 ], [ %idx.0.mux.us.i73, %if.else.us.i70 ], [ %idx.0.mux.us.us.i62, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i59 ], [ %idx.0.mux.us.us172.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ]
-  %.us-phi145.i = phi i32 [ %and.i48, %entry.split.us.split.split.us.i58 ], [ %and.i48, %entry.split.us.split.split.us149.i ], [ %and.i48, %entry.split.us.split.split.i69 ], [ %and55.us.i75, %if.else.us.i70 ], [ %and55.us.us.i64, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i59 ], [ %and55.us.us174.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ]
-  %44 = and i8 %.us-phi.i54, 1
-  %tobool.i.not.i56 = icmp eq i8 %44, 0
-  %spec.select.i57 = select i1 %tobool.i.not.i56, i32 %.us-phi145.i, i32 %.us-phi144.i55
+if.then.i55:                                      ; preds = %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62, %if.else.us.i73
+  %.us-phi.i56 = phi i1 [ %.mux.us.i75, %if.else.us.i73 ], [ %.mux.us.us.i64, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62 ], [ %.mux.us.us171.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ]
+  %.us-phi144.i57 = phi i32 [ %idx.0.mux.us.i76, %if.else.us.i73 ], [ %idx.0.mux.us.us.i65, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62 ], [ %idx.0.mux.us.us172.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ]
+  %.us-phi145.i = phi i32 [ %and55.us.i78, %if.else.us.i73 ], [ %and55.us.us.i67, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62 ], [ %and55.us.us174.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ]
+  %cond.fr.i58 = freeze i1 %.us-phi.i56
+  %spec.select.i59 = select i1 %cond.fr.i58, i32 %.us-phi144.i57, i32 %.us-phi145.i
   br label %if.end28
 
-if.end28:                                         ; preds = %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEjb.exit, %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEjb.exit, %if.else20, %if.then13
-  %idx.0 = phi i32 [ %call15, %if.then13 ], [ %spec.select.i, %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEjb.exit ], [ %spec.select.i57, %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEjb.exit ], [ 0, %if.else20 ]
+if.end28:                                         ; preds = %if.then.i55, %entry.split.us.split.split.i72, %entry.split.us.split.split.us149.i, %entry.split.us.split.split.us.i61, %if.then.i, %entry.split.us.split.split.i, %entry.split.us.split.split.us148.i, %entry.split.us.split.split.us.i, %if.else20, %if.then13
+  %idx.0 = phi i32 [ %call15, %if.then13 ], [ 0, %if.else20 ], [ %and.i, %entry.split.us.split.split.us.i ], [ %and.i, %entry.split.us.split.split.us148.i ], [ %and.i, %entry.split.us.split.split.i ], [ %spec.select.i, %if.then.i ], [ %and.i49, %entry.split.us.split.split.us.i61 ], [ %and.i49, %entry.split.us.split.split.us149.i ], [ %and.i49, %entry.split.us.split.split.i72 ], [ %spec.select.i59, %if.then.i55 ]
   %cmp.i5.i.i.i = icmp ult i32 %retval.0.i.i23, 65536
   br i1 %cmp.i5.i.i.i, label %entry.split.us.i.i, label %while.cond.i.preheader.i
 
 while.cond.i.preheader.i:                         ; preds = %if.end28
-  %45 = load i32, ptr %scale_.i, align 4
-  %switch.i2.i = icmp ult i32 %45, 2
+  %42 = load i32, ptr %scale_.i, align 4
+  %switch.i2.i = icmp ult i32 %42, 2
   br i1 %switch.i2.i, label %while.body.i.i, label %sw.bb5.i.i.i
 
 entry.split.us.i.i:                               ; preds = %if.end28
@@ -1449,16 +1444,16 @@ entry.split.us.i.i:                               ; preds = %if.end28
   br i1 %cmp.i.i.i.i, label %while.cond.us.us.i.i, label %while.cond.us.i.i
 
 while.cond.us.us.i.i:                             ; preds = %entry.split.us.i.i
-  %46 = load i32, ptr %scale_.i, align 4
-  switch i32 %46, label %sw.epilog.i.i.i [
+  %43 = load i32, ptr %scale_.i, align 4
+  switch i32 %43, label %sw.epilog.i.i.i [
     i32 0, label %if.end.i.i.i.i
     i32 1, label %if.end.i6.i.i.i
     i32 2, label %sw.bb5.i.i.i
   ]
 
 while.cond.us.i.i:                                ; preds = %entry.split.us.i.i, %sw.bb.i.us.i.i
-  %47 = load i32, ptr %scale_.i, align 4
-  switch i32 %47, label %sw.epilog.i.i.i [
+  %44 = load i32, ptr %scale_.i, align 4
+  switch i32 %44, label %sw.epilog.i.i.i [
     i32 0, label %sw.bb.i.us.i.i
     i32 1, label %if.end.i6.i.i.i
     i32 2, label %sw.bb5.i.i.i
@@ -1469,25 +1464,25 @@ sw.bb.i.us.i.i:                                   ; preds = %while.cond.us.i.i
   br label %while.cond.us.i.i, !llvm.loop !9
 
 if.end.i.i.i.i:                                   ; preds = %while.cond.us.us.i.i
-  %48 = load ptr, ptr %raw_4.i.i, align 8
+  %45 = load ptr, ptr %raw_4.i.i, align 8
   %conv1.i.i.i.i = trunc i32 %retval.0.i.i23 to i8
   %idxprom.i.i.i.i = zext i32 %idx.0 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %48, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %45, i64 %idxprom.i.i.i.i
   store i8 %conv1.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
   br label %for.inc
 
 if.end.i6.i.i.i:                                  ; preds = %while.cond.us.i.i, %while.cond.us.us.i.i
-  %49 = load ptr, ptr %raw_4.i.i, align 8
+  %46 = load ptr, ptr %raw_4.i.i, align 8
   %conv1.i7.i.i.i = trunc i32 %retval.0.i.i23 to i16
   %idxprom.i8.i.i.i = zext i32 %idx.0 to i64
-  %arrayidx.i9.i.i.i = getelementptr inbounds i16, ptr %49, i64 %idxprom.i8.i.i.i
+  %arrayidx.i9.i.i.i = getelementptr inbounds i16, ptr %46, i64 %idxprom.i8.i.i.i
   store i16 %conv1.i7.i.i.i, ptr %arrayidx.i9.i.i.i, align 2
   br label %for.inc
 
 sw.bb5.i.i.i:                                     ; preds = %while.body.i.i, %while.cond.us.i.i, %while.cond.us.us.i.i, %while.cond.i.preheader.i
-  %50 = load ptr, ptr %raw_4.i.i, align 8
+  %47 = load ptr, ptr %raw_4.i.i, align 8
   %idxprom.i10.i.i.i = zext i32 %idx.0 to i64
-  %arrayidx.i11.i.i.i = getelementptr inbounds i32, ptr %50, i64 %idxprom.i10.i.i.i
+  %arrayidx.i11.i.i.i = getelementptr inbounds i32, ptr %47, i64 %idxprom.i10.i.i.i
   store i32 %retval.0.i.i23, ptr %arrayidx.i11.i.i.i, align 4
   br label %for.inc
 
@@ -1496,8 +1491,8 @@ sw.epilog.i.i.i:                                  ; preds = %while.cond.us.us.i.
 
 while.body.i.i:                                   ; preds = %while.cond.i.preheader.i, %while.body.i.i
   tail call void @_ZN6hermes12CompactArray7scaleUpEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #7
-  %51 = load i32, ptr %scale_.i, align 4
-  %switch.i.i = icmp ult i32 %51, 2
+  %48 = load i32, ptr %scale_.i, align 4
+  %switch.i.i = icmp ult i32 %48, 2
   br i1 %switch.i.i, label %while.body.i.i, label %sw.bb5.i.i.i, !llvm.loop !9
 
 for.inc:                                          ; preds = %sw.bb5.i.i.i, %if.end.i6.i.i.i, %if.end.i.i.i.i, %_ZNK6hermes12CompactTable7isValidEj.exit
@@ -1507,9 +1502,9 @@ for.inc:                                          ; preds = %sw.bb5.i.i.i, %if.e
 
 for.end:                                          ; preds = %for.inc, %if.end
   %size_ = getelementptr inbounds i8, ptr %this, i64 24
-  %52 = load i32, ptr %size_, align 8
+  %49 = load i32, ptr %size_, align 8
   %nonEmptyEntryCount_ = getelementptr inbounds i8, ptr %this, i64 28
-  store i32 %52, ptr %nonEmptyEntryCount_, align 4
+  store i32 %49, ptr %nonEmptyEntryCount_, align 4
   tail call void @free(ptr noundef %4) #7
   ret void
 }

@@ -107,31 +107,30 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 define dso_local void @tb_flush(ptr noundef %cpu) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr @tcg_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end4, label %while.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %while.end, label %if.end4
 
 while.end:                                        ; preds = %entry
-  %2 = load atomic i32, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i64 0, i32 1) monotonic, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i64 0, i32 1) monotonic, align 8
   %tcg_cflags.i = getelementptr inbounds i8, ptr %cpu, i64 720
-  %3 = load i32, ptr %tcg_cflags.i, align 16
-  %and.i = and i32 %3, 32768
+  %2 = load i32, ptr %tcg_cflags.i, align 16
+  %and.i = and i32 %2, 32768
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.then1, label %cpu_in_serial_context.exit
 
 cpu_in_serial_context.exit:                       ; preds = %while.end
-  %4 = getelementptr i8, ptr %cpu, i64 208
-  %cs.val.i = load i32, ptr %4, align 16
+  %3 = getelementptr i8, ptr %cpu, i64 208
+  %cs.val.i = load i32, ptr %3, align 16
   %tobool.i.i.not = icmp eq i32 %cs.val.i, 0
   br i1 %tobool.i.i.not, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %while.end, %cpu_in_serial_context.exit
-  %.compoundliteral.sroa.0.0.insert.ext = zext i32 %2 to i64
+  %.compoundliteral.sroa.0.0.insert.ext = zext i32 %1 to i64
   tail call void @do_tb_flush(ptr nonnull poison, i64 %.compoundliteral.sroa.0.0.insert.ext)
   br label %if.end4
 
 if.else:                                          ; preds = %cpu_in_serial_context.exit
-  %.compoundliteral2.sroa.0.0.insert.ext = zext i32 %2 to i64
+  %.compoundliteral2.sroa.0.0.insert.ext = zext i32 %1 to i64
   tail call void @async_safe_run_on_cpu(ptr noundef nonnull %cpu, ptr noundef nonnull @do_tb_flush, i64 %.compoundliteral2.sroa.0.0.insert.ext) #8
   br label %if.end4
 

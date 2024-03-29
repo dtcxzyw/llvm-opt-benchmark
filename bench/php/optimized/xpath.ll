@@ -461,22 +461,21 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
   %55 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %.17, ptr %55, align 8
   %56 = load i8, ptr %6, align 1
-  %57 = and i8 %56, 1
-  %.not156 = icmp eq i8 %57, 0
-  br i1 %.not156, label %.loopexit11, label %58
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %.loopexit11
 
 58:                                               ; preds = %54
   %59 = call ptr @xmlGetNsList(ptr noundef nonnull %27, ptr noundef %.17) #11
-  %.not157 = icmp eq ptr %59, null
-  br i1 %.not157, label %.loopexit11, label %.preheader
+  %.not156 = icmp eq ptr %59, null
+  br i1 %.not156, label %.loopexit11, label %.preheader
 
 .preheader:                                       ; preds = %58, %.preheader
   %.0139 = phi i64 [ %62, %.preheader ], [ 0, %58 ]
   %60 = getelementptr inbounds ptr, ptr %59, i64 %.0139
   %61 = load ptr, ptr %60, align 8
-  %.not158 = icmp eq ptr %61, null
+  %.not157 = icmp eq ptr %61, null
   %62 = add i64 %.0139, 1
-  br i1 %.not158, label %.loopexit11.loopexit, label %.preheader
+  br i1 %.not157, label %.loopexit11.loopexit, label %.preheader
 
 .loopexit11.loopexit:                             ; preds = %.preheader
   %63 = trunc i64 %.0139 to i32
@@ -492,8 +491,8 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
   %66 = load ptr, ptr %5, align 8
   %67 = call ptr @xmlXPathEvalExpression(ptr noundef %66, ptr noundef nonnull %21) #11
   store ptr null, ptr %55, align 8
-  %.not159 = icmp eq ptr %.0142, null
-  br i1 %.not159, label %70, label %68
+  %.not158 = icmp eq ptr %.0142, null
+  br i1 %.not158, label %70, label %68
 
 68:                                               ; preds = %.loopexit11
   %69 = load ptr, ptr @xmlFree, align 8
@@ -503,8 +502,8 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
   br label %70
 
 70:                                               ; preds = %68, %.loopexit11
-  %.not160 = icmp eq ptr %67, null
-  br i1 %.not160, label %71, label %73
+  %.not159 = icmp eq ptr %67, null
+  br i1 %.not159, label %71, label %73
 
 71:                                               ; preds = %70
   %72 = getelementptr inbounds i8, ptr %0, i64 8
@@ -531,13 +530,13 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
 .thread10:                                        ; preds = %75, %76
   %78 = getelementptr inbounds i8, ptr %67, i64 8
   %79 = load ptr, ptr %78, align 8
-  %.not162 = icmp eq ptr %79, null
-  br i1 %.not162, label %.loopexit, label %80
+  %.not161 = icmp eq ptr %79, null
+  br i1 %.not161, label %.loopexit, label %80
 
 80:                                               ; preds = %.thread10
   %81 = load i32, ptr %79, align 8
-  %.not163 = icmp eq i32 %81, 0
-  br i1 %.not163, label %.loopexit, label %82
+  %.not162 = icmp eq i32 %81, 0
+  br i1 %.not162, label %.loopexit, label %82
 
 82:                                               ; preds = %80
   %83 = call ptr @_zend_new_array(i32 noundef %81) #11
@@ -586,20 +585,20 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
   call void @php_dom_create_iterator(ptr noundef %0, i32 noundef 0) #11
   %107 = load ptr, ptr %0, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 -24
-  %.val165 = load ptr, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %.val165, i64 8
+  %.val164 = load ptr, ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %.val164, i64 8
   store ptr %.sroa.0.0, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %.val165, i64 16
+  %110 = getelementptr inbounds i8, ptr %.val164, i64 16
   store i32 %.sroa.4.0, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %.val165, i64 24
+  %111 = getelementptr inbounds i8, ptr %.val164, i64 24
   store i32 19, ptr %111, align 8
   br label %136
 
 112:                                              ; preds = %75
   %113 = getelementptr inbounds i8, ptr %67, i64 16
   %114 = load i32, ptr %113, align 8
-  %.not161 = icmp eq i32 %114, 0
-  %115 = select i1 %.not161, i32 2, i32 3
+  %.not160 = icmp eq i32 %114, 0
+  %115 = select i1 %.not160, i32 2, i32 3
   %116 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %115, ptr %116, align 8
   br label %136

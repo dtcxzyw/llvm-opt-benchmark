@@ -47,11 +47,10 @@ list_length.exit:                                 ; preds = %13, %14
   %21 = call i32 @bms_num_members(ptr noundef %20) #2
   %22 = getelementptr inbounds i8, ptr %18, i64 25
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %.not71 = icmp eq i8 %24, 0
-  %25 = icmp sgt i32 %21, 0
-  %or.cond = select i1 %.not71, i1 %25, i1 false
-  br i1 %or.cond, label %26, label %38
+  %24 = trunc i8 %23 to i1
+  %25 = icmp slt i32 %21, 1
+  %or.cond.not = select i1 %24, i1 true, i1 %25
+  br i1 %or.cond.not, label %38, label %26
 
 26:                                               ; preds = %list_length.exit
   %27 = add nsw i32 %21, -1
@@ -168,9 +167,9 @@ list_length.exit73:                               ; preds = %29, %30
   %90 = load ptr, ptr %79, align 8
   %91 = getelementptr i8, ptr %90, i64 %indvars.iv
   %92 = load i8, ptr %91, align 1
-  %93 = and i8 %92, 1
-  %94 = getelementptr inbounds i8, ptr %84, i64 13
-  store i8 %93, ptr %94, align 1
+  %93 = getelementptr inbounds i8, ptr %84, i64 13
+  %94 = and i8 %92, 1
+  store i8 %94, ptr %93, align 1
   %95 = load ptr, ptr %80, align 8
   %96 = getelementptr i16, ptr %95, i64 %indvars.iv
   %97 = load i16, ptr %96, align 2
@@ -207,9 +206,8 @@ define internal ptr @ExecMergeAppend(ptr nocapture noundef %0) #0 {
 4:                                                ; preds = %1, %3
   %5 = getelementptr inbounds i8, ptr %0, i64 240
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %.not44 = icmp eq i8 %7, 0
-  br i1 %.not44, label %8, label %64
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %64, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 208
@@ -284,8 +282,8 @@ ExecProcNode.exit:                                ; preds = %34, %42
   %53 = getelementptr inbounds i8, ptr %50, i64 4
   %54 = load i16, ptr %53, align 4
   %55 = and i16 %54, 2
-  %.not45 = icmp eq i16 %55, 0
-  br i1 %.not45, label %56, label %58
+  %.not44 = icmp eq i16 %55, 0
+  br i1 %.not44, label %56, label %58
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr %33, align 8
@@ -317,14 +315,14 @@ ExecProcNode.exit:                                ; preds = %34, %42
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 104
   %74 = load ptr, ptr %73, align 8
-  %.not.i47 = icmp eq ptr %74, null
-  br i1 %.not.i47, label %ExecProcNode.exit48, label %75
+  %.not.i46 = icmp eq ptr %74, null
+  br i1 %.not.i46, label %ExecProcNode.exit47, label %75
 
 75:                                               ; preds = %64
   tail call void @ExecReScan(ptr noundef nonnull %72) #2
-  br label %ExecProcNode.exit48
+  br label %ExecProcNode.exit47
 
-ExecProcNode.exit48:                              ; preds = %64, %75
+ExecProcNode.exit47:                              ; preds = %64, %75
   %76 = getelementptr inbounds i8, ptr %72, i64 24
   %77 = load ptr, ptr %76, align 8
   %78 = tail call ptr %77(ptr noundef nonnull %72) #2
@@ -338,19 +336,19 @@ ExecProcNode.exit48:                              ; preds = %64, %75
   %85 = icmp eq ptr %84, null
   br i1 %85, label %92, label %86
 
-86:                                               ; preds = %ExecProcNode.exit48
+86:                                               ; preds = %ExecProcNode.exit47
   %87 = getelementptr inbounds i8, ptr %84, i64 4
   %88 = load i16, ptr %87, align 4
   %89 = and i16 %88, 2
-  %.not46 = icmp eq i16 %89, 0
-  br i1 %.not46, label %90, label %92
+  %.not45 = icmp eq i16 %89, 0
+  br i1 %.not45, label %90, label %92
 
 90:                                               ; preds = %86
   %91 = load ptr, ptr %65, align 8
   tail call void @binaryheap_replace_first(ptr noundef %91, i64 noundef %70) #2
   br label %95
 
-92:                                               ; preds = %86, %ExecProcNode.exit48
+92:                                               ; preds = %86, %ExecProcNode.exit47
   %93 = load ptr, ptr %65, align 8
   %94 = tail call i64 @binaryheap_remove_first(ptr noundef %93) #2
   br label %95
@@ -376,8 +374,8 @@ ExecProcNode.exit48:                              ; preds = %64, %75
   %108 = tail call i64 @binaryheap_first(ptr noundef nonnull %97) #2
   %109 = getelementptr inbounds i8, ptr %0, i64 224
   %110 = load ptr, ptr %109, align 8
-  %sext49 = shl i64 %108, 32
-  %111 = ashr exact i64 %sext49, 32
+  %sext48 = shl i64 %108, 32
+  %111 = ashr exact i64 %sext48, 32
   %112 = getelementptr ptr, ptr %110, i64 %111
   %113 = load ptr, ptr %112, align 8
   br label %114
@@ -447,59 +445,54 @@ slot_getattr.exit:                                ; preds = %22, %slot_getsomeat
   %32 = sext i32 %31 to i64
   %33 = getelementptr i8, ptr %30, i64 %32
   %34 = load i8, ptr %33, align 1
-  %35 = and i8 %34, 1
-  %36 = load ptr, ptr %18, align 8
-  %37 = getelementptr i64, ptr %36, i64 %32
-  %38 = load i64, ptr %37, align 8
-  %39 = load i16, ptr %19, align 2
-  %40 = icmp slt i16 %39, %26
-  br i1 %40, label %slot_getsomeattrs.exit.i26, label %slot_getattr.exit27
+  %35 = load ptr, ptr %18, align 8
+  %36 = getelementptr i64, ptr %35, i64 %32
+  %37 = load i64, ptr %36, align 8
+  %38 = load i16, ptr %19, align 2
+  %39 = icmp slt i16 %38, %26
+  br i1 %39, label %slot_getsomeattrs.exit.i26, label %slot_getattr.exit27
 
 slot_getsomeattrs.exit.i26:                       ; preds = %slot_getattr.exit
   tail call void @slot_getsomeattrs_int(ptr noundef nonnull %11, i32 noundef %27) #2
   br label %slot_getattr.exit27
 
 slot_getattr.exit27:                              ; preds = %slot_getattr.exit, %slot_getsomeattrs.exit.i26
-  %41 = load ptr, ptr %20, align 8
-  %42 = getelementptr i8, ptr %41, i64 %32
-  %43 = load i8, ptr %42, align 1
-  %44 = and i8 %43, 1
-  %45 = load ptr, ptr %21, align 8
-  %46 = getelementptr i64, ptr %45, i64 %32
-  %47 = load i64, ptr %46, align 8
-  %.not44 = icmp eq i8 %35, 0
-  %.not45 = icmp eq i8 %44, 0
-  br i1 %.not44, label %53, label %48
+  %40 = load ptr, ptr %20, align 8
+  %41 = getelementptr i8, ptr %40, i64 %32
+  %42 = load i8, ptr %41, align 1
+  %43 = load ptr, ptr %21, align 8
+  %44 = getelementptr i64, ptr %43, i64 %32
+  %45 = load i64, ptr %44, align 8
+  %46 = trunc i8 %34 to i1
+  %47 = trunc i8 %42 to i1
+  br i1 %46, label %48, label %53
 
 48:                                               ; preds = %slot_getattr.exit27
-  br i1 %.not45, label %49, label %ApplySortComparator.exit.thread32
+  br i1 %47, label %ApplySortComparator.exit.thread32, label %49
 
 49:                                               ; preds = %48
   %50 = getelementptr inbounds i8, ptr %24, i64 13
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %.not13.i = icmp eq i8 %52, 0
-  br i1 %.not13.i, label %ApplySortComparator.exit.thread.thread, label %ApplySortComparator.exit.thread.thread40
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %ApplySortComparator.exit.thread.thread40, label %ApplySortComparator.exit.thread.thread
 
 53:                                               ; preds = %slot_getattr.exit27
-  br i1 %.not45, label %58, label %54
+  br i1 %47, label %54, label %58
 
 54:                                               ; preds = %53
   %55 = getelementptr inbounds i8, ptr %24, i64 13
   %56 = load i8, ptr %55, align 1
-  %57 = and i8 %56, 1
-  %.not12.i = icmp eq i8 %57, 0
-  br i1 %.not12.i, label %ApplySortComparator.exit.thread.thread40, label %ApplySortComparator.exit.thread.thread
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %ApplySortComparator.exit.thread.thread, label %ApplySortComparator.exit.thread.thread40
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds i8, ptr %24, i64 24
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call i32 %60(i64 noundef %38, i64 noundef %47, ptr noundef %24) #2
+  %61 = tail call i32 %60(i64 noundef %37, i64 noundef %45, ptr noundef %24) #2
   %62 = getelementptr inbounds i8, ptr %24, i64 12
   %63 = load i8, ptr %62, align 4
-  %64 = and i8 %63, 1
-  %.not.i = icmp eq i8 %64, 0
-  br i1 %.not.i, label %ApplySortComparator.exit, label %65
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %65, label %ApplySortComparator.exit
 
 65:                                               ; preds = %58
   %66 = icmp slt i32 %61, 0
@@ -517,7 +510,7 @@ ApplySortComparator.exit.thread:                  ; preds = %ApplySortComparator
   %69 = sub i32 0, %.0.i.fr
   br i1 %68, label %ApplySortComparator.exit.thread.thread40, label %ApplySortComparator.exit.thread.thread
 
-ApplySortComparator.exit.thread.thread40:         ; preds = %54, %49, %ApplySortComparator.exit.thread
+ApplySortComparator.exit.thread.thread40:         ; preds = %49, %54, %ApplySortComparator.exit.thread
   br label %ApplySortComparator.exit.thread.thread
 
 ApplySortComparator.exit.thread32:                ; preds = %48, %ApplySortComparator.exit
@@ -527,8 +520,8 @@ ApplySortComparator.exit.thread32:                ; preds = %48, %ApplySortCompa
   %72 = icmp slt i64 %indvars.iv.next, %71
   br i1 %72, label %22, label %ApplySortComparator.exit.thread.thread, !llvm.loop !9
 
-ApplySortComparator.exit.thread.thread:           ; preds = %ApplySortComparator.exit.thread32, %65, %3, %49, %54, %ApplySortComparator.exit.thread.thread40, %ApplySortComparator.exit.thread
-  %.0 = phi i32 [ 1, %ApplySortComparator.exit.thread.thread40 ], [ %69, %ApplySortComparator.exit.thread ], [ -1, %54 ], [ -1, %49 ], [ 0, %3 ], [ 0, %ApplySortComparator.exit.thread32 ], [ -1, %65 ]
+ApplySortComparator.exit.thread.thread:           ; preds = %ApplySortComparator.exit.thread32, %65, %3, %54, %49, %ApplySortComparator.exit.thread.thread40, %ApplySortComparator.exit.thread
+  %.0 = phi i32 [ 1, %ApplySortComparator.exit.thread.thread40 ], [ %69, %ApplySortComparator.exit.thread ], [ -1, %49 ], [ -1, %54 ], [ 0, %3 ], [ 0, %ApplySortComparator.exit.thread32 ], [ -1, %65 ]
   ret i32 %.0
 }
 

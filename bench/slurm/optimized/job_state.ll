@@ -139,16 +139,15 @@ define internal fastcc void @_dump_job_state_locked(ptr noundef %0, i16 noundef 
   %33 = add i32 %32, 1
   store i32 %33, ptr %8, align 8
   %34 = load i8, ptr %9, align 8
-  %35 = and i8 %34, 1
-  %.not.i.i.i = icmp eq i8 %35, 0
-  br i1 %.not.i.i.i, label %36, label %_add_job_state_by_job_id.exit
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %_add_job_state_by_job_id.exit, label %36
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %10, align 8
   %38 = sext i32 %32 to i64
   %39 = getelementptr inbounds %struct.job_state_response_job_t, ptr %37, i64 %38
-  %.not16.i.i = icmp eq ptr %37, null
-  br i1 %.not16.i.i, label %_add_job_state_by_job_id.exit.thread, label %40
+  %.not.i.i = icmp eq ptr %37, null
+  br i1 %.not.i.i, label %_add_job_state_by_job_id.exit.thread, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %18, i64 392
@@ -162,8 +161,8 @@ define internal fastcc void @_dump_job_state_locked(ptr noundef %0, i16 noundef 
   %47 = getelementptr inbounds i8, ptr %39, i64 8
   store i32 %46, ptr %47, align 8
   %48 = load ptr, ptr %29, align 8
-  %.not.i17.i.i = icmp eq ptr %48, null
-  br i1 %.not.i17.i.i, label %_job_state_array_bitmap.exit.i.i, label %49
+  %.not.i.i.i = icmp eq ptr %48, null
+  br i1 %.not.i.i.i, label %_job_state_array_bitmap.exit.i.i, label %49
 
 49:                                               ; preds = %40
   %50 = getelementptr inbounds i8, ptr %48, i64 8
@@ -184,9 +183,9 @@ define internal fastcc void @_dump_job_state_locked(ptr noundef %0, i16 noundef 
   br label %_job_state_array_bitmap.exit.i.i
 
 _job_state_array_bitmap.exit.i.i:                 ; preds = %54, %52, %49, %40
-  %.0.i18.i.i = phi ptr [ %58, %54 ], [ null, %40 ], [ null, %52 ], [ null, %49 ]
+  %.0.i16.i.i = phi ptr [ %58, %54 ], [ null, %40 ], [ null, %52 ], [ null, %49 ]
   %59 = getelementptr inbounds i8, ptr %39, i64 16
-  store ptr %.0.i18.i.i, ptr %59, align 8
+  store ptr %.0.i16.i.i, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %18, i64 360
   %61 = load i32, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %39, i64 24
@@ -202,16 +201,15 @@ _job_state_array_bitmap.exit.i.i:                 ; preds = %54, %52, %49, %40
   %68 = add i32 %67, 1
   store i32 %68, ptr %8, align 8
   %69 = load i8, ptr %9, align 8
-  %70 = and i8 %69, 1
-  %.not.i.i32.i = icmp eq i8 %70, 0
-  br i1 %.not.i.i32.i, label %71, label %_add_job_state_job.exit40.i
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %_add_job_state_job.exit39.i, label %71
 
 71:                                               ; preds = %66
   %72 = load ptr, ptr %10, align 8
   %73 = sext i32 %67 to i64
   %74 = getelementptr inbounds %struct.job_state_response_job_t, ptr %72, i64 %73
-  %.not16.i34.i = icmp eq ptr %72, null
-  br i1 %.not16.i34.i, label %_add_job_state_by_job_id.exit.thread, label %75
+  %.not.i32.i = icmp eq ptr %72, null
+  br i1 %.not.i32.i, label %_add_job_state_by_job_id.exit.thread, label %75
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds i8, ptr %18, i64 392
@@ -226,31 +224,31 @@ _job_state_array_bitmap.exit.i.i:                 ; preds = %54, %52, %49, %40
   store i32 %81, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %18, i64 56
   %84 = load ptr, ptr %83, align 8
-  %.not.i17.i35.i = icmp eq ptr %84, null
-  br i1 %.not.i17.i35.i, label %_job_state_array_bitmap.exit.i38.i, label %85
+  %.not.i.i33.i = icmp eq ptr %84, null
+  br i1 %.not.i.i33.i, label %_job_state_array_bitmap.exit.i36.i, label %85
 
 85:                                               ; preds = %75
   %86 = getelementptr inbounds i8, ptr %84, i64 8
   %87 = load ptr, ptr %86, align 8
-  %.not7.i.i36.i = icmp eq ptr %87, null
-  br i1 %.not7.i.i36.i, label %_job_state_array_bitmap.exit.i38.i, label %88
+  %.not7.i.i34.i = icmp eq ptr %87, null
+  br i1 %.not7.i.i34.i, label %_job_state_array_bitmap.exit.i36.i, label %88
 
 88:                                               ; preds = %85
   %89 = call i64 @bit_ffs(ptr noundef nonnull %87) #6
-  %.not8.i.i37.i = icmp eq i64 %89, -1
-  br i1 %.not8.i.i37.i, label %_job_state_array_bitmap.exit.i38.i, label %90
+  %.not8.i.i35.i = icmp eq i64 %89, -1
+  br i1 %.not8.i.i35.i, label %_job_state_array_bitmap.exit.i36.i, label %90
 
 90:                                               ; preds = %88
   %91 = load ptr, ptr %83, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 8
   %93 = load ptr, ptr %92, align 8
   %94 = call ptr @bit_copy(ptr noundef %93) #6
-  br label %_job_state_array_bitmap.exit.i38.i
+  br label %_job_state_array_bitmap.exit.i36.i
 
-_job_state_array_bitmap.exit.i38.i:               ; preds = %90, %88, %85, %75
-  %.0.i18.i39.i = phi ptr [ %94, %90 ], [ null, %75 ], [ null, %88 ], [ null, %85 ]
+_job_state_array_bitmap.exit.i36.i:               ; preds = %90, %88, %85, %75
+  %.0.i16.i37.i = phi ptr [ %94, %90 ], [ null, %75 ], [ null, %88 ], [ null, %85 ]
   %95 = getelementptr inbounds i8, ptr %74, i64 16
-  store ptr %.0.i18.i39.i, ptr %95, align 8
+  store ptr %.0.i16.i37.i, ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %18, i64 360
   %97 = load i32, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %74, i64 24
@@ -259,36 +257,35 @@ _job_state_array_bitmap.exit.i38.i:               ; preds = %90, %88, %85, %75
   %100 = load i32, ptr %99, align 8
   %101 = getelementptr inbounds i8, ptr %74, i64 28
   store i32 %100, ptr %101, align 4
-  br label %_add_job_state_job.exit40.i
+  br label %_add_job_state_job.exit39.i
 
-_add_job_state_job.exit40.i:                      ; preds = %_job_state_array_bitmap.exit.i38.i, %66
+_add_job_state_job.exit39.i:                      ; preds = %_job_state_array_bitmap.exit.i36.i, %66
   %102 = getelementptr inbounds i8, ptr %18, i64 416
   %103 = load ptr, ptr %102, align 8
-  %.not3054.i = icmp eq ptr %103, null
-  br i1 %.not3054.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not3052.i = icmp eq ptr %103, null
+  br i1 %.not3052.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_add_job_state_job.exit40.i, %_add_job_state_job.exit49.thread.i
-  %104 = phi ptr [ %145, %_add_job_state_job.exit49.thread.i ], [ %103, %_add_job_state_job.exit40.i ]
+.lr.ph.i:                                         ; preds = %_add_job_state_job.exit39.i, %_add_job_state_job.exit47.thread.i
+  %104 = phi ptr [ %145, %_add_job_state_job.exit47.thread.i ], [ %103, %_add_job_state_job.exit39.i ]
   %105 = getelementptr inbounds i8, ptr %104, i64 48
   %106 = load i32, ptr %105, align 8
   %107 = icmp eq i32 %106, %17
-  br i1 %107, label %108, label %_add_job_state_job.exit49.thread.i
+  br i1 %107, label %108, label %_add_job_state_job.exit47.thread.i
 
 108:                                              ; preds = %.lr.ph.i
   %109 = load i32, ptr %8, align 8
   %110 = add i32 %109, 1
   store i32 %110, ptr %8, align 8
   %111 = load i8, ptr %9, align 8
-  %112 = and i8 %111, 1
-  %.not.i.i41.i = icmp eq i8 %112, 0
-  br i1 %.not.i.i41.i, label %113, label %_add_job_state_job.exit49.thread.i
+  %112 = trunc i8 %111 to i1
+  br i1 %112, label %_add_job_state_job.exit47.thread.i, label %113
 
 113:                                              ; preds = %108
   %114 = load ptr, ptr %10, align 8
   %115 = sext i32 %109 to i64
   %116 = getelementptr inbounds %struct.job_state_response_job_t, ptr %114, i64 %115
-  %.not16.i43.i = icmp eq ptr %114, null
-  br i1 %.not16.i43.i, label %_add_job_state_by_job_id.exit.thread, label %117
+  %.not.i40.i = icmp eq ptr %114, null
+  br i1 %.not.i40.i, label %_add_job_state_by_job_id.exit.thread, label %117
 
 117:                                              ; preds = %113
   %118 = getelementptr inbounds i8, ptr %104, i64 392
@@ -303,31 +300,31 @@ _add_job_state_job.exit40.i:                      ; preds = %_job_state_array_bi
   store i32 %123, ptr %124, align 8
   %125 = getelementptr inbounds i8, ptr %104, i64 56
   %126 = load ptr, ptr %125, align 8
-  %.not.i17.i44.i = icmp eq ptr %126, null
-  br i1 %.not.i17.i44.i, label %_job_state_array_bitmap.exit.i47.i, label %127
+  %.not.i.i41.i = icmp eq ptr %126, null
+  br i1 %.not.i.i41.i, label %_job_state_array_bitmap.exit.i44.i, label %127
 
 127:                                              ; preds = %117
   %128 = getelementptr inbounds i8, ptr %126, i64 8
   %129 = load ptr, ptr %128, align 8
-  %.not7.i.i45.i = icmp eq ptr %129, null
-  br i1 %.not7.i.i45.i, label %_job_state_array_bitmap.exit.i47.i, label %130
+  %.not7.i.i42.i = icmp eq ptr %129, null
+  br i1 %.not7.i.i42.i, label %_job_state_array_bitmap.exit.i44.i, label %130
 
 130:                                              ; preds = %127
   %131 = call i64 @bit_ffs(ptr noundef nonnull %129) #6
-  %.not8.i.i46.i = icmp eq i64 %131, -1
-  br i1 %.not8.i.i46.i, label %_job_state_array_bitmap.exit.i47.i, label %132
+  %.not8.i.i43.i = icmp eq i64 %131, -1
+  br i1 %.not8.i.i43.i, label %_job_state_array_bitmap.exit.i44.i, label %132
 
 132:                                              ; preds = %130
   %133 = load ptr, ptr %125, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 8
   %135 = load ptr, ptr %134, align 8
   %136 = call ptr @bit_copy(ptr noundef %135) #6
-  br label %_job_state_array_bitmap.exit.i47.i
+  br label %_job_state_array_bitmap.exit.i44.i
 
-_job_state_array_bitmap.exit.i47.i:               ; preds = %132, %130, %127, %117
-  %.0.i18.i48.i = phi ptr [ %136, %132 ], [ null, %117 ], [ null, %130 ], [ null, %127 ]
+_job_state_array_bitmap.exit.i44.i:               ; preds = %132, %130, %127, %117
+  %.0.i16.i45.i = phi ptr [ %136, %132 ], [ null, %117 ], [ null, %130 ], [ null, %127 ]
   %137 = getelementptr inbounds i8, ptr %116, i64 16
-  store ptr %.0.i18.i48.i, ptr %137, align 8
+  store ptr %.0.i16.i45.i, ptr %137, align 8
   %138 = getelementptr inbounds i8, ptr %104, i64 360
   %139 = load i32, ptr %138, align 8
   %140 = getelementptr inbounds i8, ptr %116, i64 24
@@ -336,15 +333,15 @@ _job_state_array_bitmap.exit.i47.i:               ; preds = %132, %130, %127, %1
   %142 = load i32, ptr %141, align 8
   %143 = getelementptr inbounds i8, ptr %116, i64 28
   store i32 %142, ptr %143, align 4
-  br label %_add_job_state_job.exit49.thread.i
+  br label %_add_job_state_job.exit47.thread.i
 
-_add_job_state_job.exit49.thread.i:               ; preds = %_job_state_array_bitmap.exit.i47.i, %108, %.lr.ph.i
+_add_job_state_job.exit47.thread.i:               ; preds = %_job_state_array_bitmap.exit.i44.i, %108, %.lr.ph.i
   %144 = getelementptr inbounds i8, ptr %104, i64 416
   %145 = load ptr, ptr %144, align 8
   %.not30.i = icmp eq ptr %145, null
   br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %_add_job_state_job.exit49.thread.i, %_add_job_state_job.exit40.i
+._crit_edge.i:                                    ; preds = %_add_job_state_job.exit47.thread.i, %_add_job_state_job.exit39.i
   %146 = load i32, ptr %5, align 4
   br label %_add_job_state_by_job_id.exit
 
@@ -379,17 +376,16 @@ define internal noundef i32 @_foreach_job_state_filter(ptr nocapture noundef rea
   store i32 %5, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not.i.i = icmp eq i8 %8, 0
-  br i1 %.not.i.i, label %9, label %_add_job_state_job.exit
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %_add_job_state_job.exit, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %4 to i64
   %13 = getelementptr inbounds %struct.job_state_response_job_t, ptr %11, i64 %12
-  %.not16.i = icmp eq ptr %11, null
-  br i1 %.not16.i, label %_add_job_state_job.exit, label %14
+  %.not.i = icmp eq ptr %11, null
+  br i1 %.not.i, label %_add_job_state_job.exit, label %14
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %0, i64 392
@@ -405,8 +401,8 @@ define internal noundef i32 @_foreach_job_state_filter(ptr nocapture noundef rea
   store i32 %21, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 56
   %24 = load ptr, ptr %23, align 8
-  %.not.i17.i = icmp eq ptr %24, null
-  br i1 %.not.i17.i, label %_job_state_array_bitmap.exit.i, label %25
+  %.not.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i, label %_job_state_array_bitmap.exit.i, label %25
 
 25:                                               ; preds = %14
   %26 = getelementptr inbounds i8, ptr %24, i64 8
@@ -427,9 +423,9 @@ define internal noundef i32 @_foreach_job_state_filter(ptr nocapture noundef rea
   br label %_job_state_array_bitmap.exit.i
 
 _job_state_array_bitmap.exit.i:                   ; preds = %30, %28, %25, %14
-  %.0.i18.i = phi ptr [ %34, %30 ], [ null, %14 ], [ null, %28 ], [ null, %25 ]
+  %.0.i16.i = phi ptr [ %34, %30 ], [ null, %14 ], [ null, %28 ], [ null, %25 ]
   %35 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr %.0.i18.i, ptr %35, align 8
+  store ptr %.0.i16.i, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 360
   %37 = load i32, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %13, i64 24
@@ -474,17 +470,16 @@ define internal noundef i32 @_foreach_add_job_state_het_job(ptr nocapture nounde
   store i32 %14, ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %11, i64 24
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not.i.i = icmp eq i8 %17, 0
-  br i1 %.not.i.i, label %18, label %_add_job_state_job.exit
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %_add_job_state_job.exit, label %18
 
 18:                                               ; preds = %9
   %19 = getelementptr inbounds i8, ptr %11, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = sext i32 %13 to i64
   %22 = getelementptr inbounds %struct.job_state_response_job_t, ptr %20, i64 %21
-  %.not16.i = icmp eq ptr %20, null
-  br i1 %.not16.i, label %_add_job_state_job.exit, label %23
+  %.not.i = icmp eq ptr %20, null
+  br i1 %.not.i, label %_add_job_state_job.exit, label %23
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %0, i64 392
@@ -500,8 +495,8 @@ define internal noundef i32 @_foreach_add_job_state_het_job(ptr nocapture nounde
   store i32 %30, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8
-  %.not.i17.i = icmp eq ptr %33, null
-  br i1 %.not.i17.i, label %_job_state_array_bitmap.exit.i, label %34
+  %.not.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i, label %_job_state_array_bitmap.exit.i, label %34
 
 34:                                               ; preds = %23
   %35 = getelementptr inbounds i8, ptr %33, i64 8
@@ -522,9 +517,9 @@ define internal noundef i32 @_foreach_add_job_state_het_job(ptr nocapture nounde
   br label %_job_state_array_bitmap.exit.i
 
 _job_state_array_bitmap.exit.i:                   ; preds = %39, %37, %34, %23
-  %.0.i18.i = phi ptr [ %43, %39 ], [ null, %23 ], [ null, %37 ], [ null, %34 ]
+  %.0.i16.i = phi ptr [ %43, %39 ], [ null, %23 ], [ null, %37 ], [ null, %34 ]
   %44 = getelementptr inbounds i8, ptr %22, i64 16
-  store ptr %.0.i18.i, ptr %44, align 8
+  store ptr %.0.i16.i, ptr %44, align 8
   %45 = load i32, ptr %3, align 8
   %46 = getelementptr inbounds i8, ptr %22, i64 24
   store i32 %45, ptr %46, align 8

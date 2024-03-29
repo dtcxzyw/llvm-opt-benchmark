@@ -137,9 +137,8 @@ entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #9
   %was_unset_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %was_unset_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %cond.end, label %if.then.i
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then.i, label %cond.end
 
 cond.end:                                         ; preds = %entry
   %old_value_ = getelementptr inbounds i8, ptr %this, i64 32

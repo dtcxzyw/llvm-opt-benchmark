@@ -76,9 +76,9 @@ define hidden noundef nonnull align 4 ptr @"_ZN3std3sys6common12thread_local10fa
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 4 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h15d311754e63d5bcE"(ptr noundef nonnull align 4 %0, ptr noalias nocapture noundef align 4 dereferenceable_or_null(12) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %0, align 4, !range !18, !noundef !19
-  %trunc.not = icmp eq i32 %3, 0
+  %trunc = trunc i32 %3 to i1
   %4 = getelementptr inbounds i8, ptr %0, i64 4
-  br i1 %trunc.not, label %5, label %13
+  br i1 %trunc, label %13, label %5
 
 5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
@@ -121,9 +121,9 @@ define hidden noundef nonnull align 4 ptr @"_ZN3std3sys6common12thread_local10fa
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h868333d49a63ea28E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !31, !noundef !19
-  %trunc.not = icmp eq i64 %3, 0
+  %trunc = trunc i64 %3 to i1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %trunc.not, label %5, label %12
+  br i1 %trunc, label %12, label %5
 
 5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)

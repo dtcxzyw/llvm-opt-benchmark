@@ -520,8 +520,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantif
 entry:
   %d_closed_enum_type = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %d_closed_enum_type, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

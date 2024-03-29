@@ -232,9 +232,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 57:                                               ; preds = %54
   %58 = call ptr @get_controlfile(ptr noundef nonnull %.1, ptr noundef nonnull %3) #8
   %59 = load i8, ptr %3, align 1
-  %60 = and i8 %59, 1
-  %.not105 = icmp eq i8 %60, 0
-  br i1 %.not105, label %61, label %62
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %62, label %61
 
 61:                                               ; preds = %57
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.13) #8
@@ -275,8 +274,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store i64 %81, ptr %4, align 8
   %82 = call ptr @localtime(ptr noundef nonnull %4) #8
   %83 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef %82) #8
-  %.not106 = icmp eq i32 %64, 0
-  br i1 %.not106, label %96, label %84
+  %.not105 = icmp eq i32 %64, 0
+  br i1 %.not105, label %96, label %84
 
 84:                                               ; preds = %74
   %85 = load i64, ptr %79, align 8
@@ -356,9 +355,8 @@ dbState.exit:                                     ; preds = %106, %switch.lookup
   %138 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.30, i32 noundef %137) #8
   %139 = getelementptr inbounds i8, ptr %58, i64 56
   %140 = load i8, ptr %139, align 8
-  %141 = and i8 %140, 1
-  %.not107 = icmp eq i8 %141, 0
-  %142 = select i1 %.not107, ptr @.str.33, ptr @.str.32
+  %141 = trunc i8 %140 to i1
+  %142 = select i1 %141, ptr @.str.32, ptr @.str.33
   %143 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.31, ptr noundef nonnull %142) #8
   %144 = getelementptr inbounds i8, ptr %58, i64 64
   %145 = load i64, ptr %144, align 8
@@ -426,29 +424,27 @@ dbState.exit:                                     ; preds = %106, %switch.lookup
   %207 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.50, i32 noundef %205, i32 noundef %206) #8
   %208 = getelementptr inbounds i8, ptr %58, i64 168
   %209 = load i8, ptr %208, align 8
-  %210 = and i8 %209, 1
-  %.not108 = icmp eq i8 %210, 0
-  %211 = select i1 %.not108, ptr @.str.53, ptr @.str.52
+  %210 = trunc i8 %209 to i1
+  %211 = select i1 %210, ptr @.str.52, ptr @.str.53
   %212 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.51, ptr noundef nonnull %211) #8
   %213 = getelementptr inbounds i8, ptr %58, i64 172
   %214 = load i32, ptr %213, align 4
   %215 = icmp ult i32 %214, 3
-  br i1 %215, label %switch.lookup119, label %wal_level_str.exit
+  br i1 %215, label %switch.lookup113, label %wal_level_str.exit
 
-switch.lookup119:                                 ; preds = %dbState.exit
+switch.lookup113:                                 ; preds = %dbState.exit
   %216 = zext nneg i32 %214 to i64
-  %switch.gep120 = getelementptr inbounds [3 x ptr], ptr @switch.table.main.1, i64 0, i64 %216
-  %switch.load121 = load ptr, ptr %switch.gep120, align 8
+  %switch.gep114 = getelementptr inbounds [3 x ptr], ptr @switch.table.main.1, i64 0, i64 %216
+  %switch.load115 = load ptr, ptr %switch.gep114, align 8
   br label %wal_level_str.exit
 
-wal_level_str.exit:                               ; preds = %dbState.exit, %switch.lookup119
-  %.0.i112 = phi ptr [ %switch.load121, %switch.lookup119 ], [ @.str.103, %dbState.exit ]
-  %217 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.54, ptr noundef nonnull %.0.i112) #8
+wal_level_str.exit:                               ; preds = %dbState.exit, %switch.lookup113
+  %.0.i106 = phi ptr [ %switch.load115, %switch.lookup113 ], [ @.str.103, %dbState.exit ]
+  %217 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.54, ptr noundef nonnull %.0.i106) #8
   %218 = getelementptr inbounds i8, ptr %58, i64 176
   %219 = load i8, ptr %218, align 8
-  %220 = and i8 %219, 1
-  %.not109 = icmp eq i8 %220, 0
-  %221 = select i1 %.not109, ptr @.str.33, ptr @.str.32
+  %220 = trunc i8 %219 to i1
+  %221 = select i1 %220, ptr @.str.32, ptr @.str.33
   %222 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.55, ptr noundef nonnull %221) #8
   %223 = getelementptr inbounds i8, ptr %58, i64 180
   %224 = load i32, ptr %223, align 4
@@ -467,9 +463,8 @@ wal_level_str.exit:                               ; preds = %dbState.exit, %swit
   %237 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.60, i32 noundef %236) #8
   %238 = getelementptr inbounds i8, ptr %58, i64 200
   %239 = load i8, ptr %238, align 8
-  %240 = and i8 %239, 1
-  %.not110 = icmp eq i8 %240, 0
-  %241 = select i1 %.not110, ptr @.str.33, ptr @.str.32
+  %240 = trunc i8 %239 to i1
+  %241 = select i1 %240, ptr @.str.32, ptr @.str.33
   %242 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.61, ptr noundef nonnull %241) #8
   %243 = getelementptr inbounds i8, ptr %58, i64 204
   %244 = load i32, ptr %243, align 4
@@ -500,9 +495,8 @@ wal_level_str.exit:                               ; preds = %dbState.exit, %swit
   %269 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72) #8
   %270 = getelementptr inbounds i8, ptr %58, i64 248
   %271 = load i8, ptr %270, align 8
-  %272 = and i8 %271, 1
-  %.not111 = icmp eq i8 %272, 0
-  %273 = select i1 %.not111, ptr @.str.75, ptr @.str.74
+  %272 = trunc i8 %271 to i1
+  %273 = select i1 %272, ptr @.str.74, ptr @.str.75
   %274 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.73, ptr noundef nonnull %273) #8
   %275 = getelementptr inbounds i8, ptr %58, i64 252
   %276 = load i32, ptr %275, align 4

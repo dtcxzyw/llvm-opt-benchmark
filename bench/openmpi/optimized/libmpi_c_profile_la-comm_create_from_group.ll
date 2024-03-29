@@ -31,9 +31,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Comm_create_from_group(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = load i8, ptr @ompi_mpi_param_check, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %40, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %40
 
 8:                                                ; preds = %5
   %9 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -71,9 +70,8 @@ define i32 @PMPI_Comm_create_from_group(ptr noundef %0, ptr noundef %1, ptr noun
 27:                                               ; preds = %25
   %28 = getelementptr i8, ptr %2, i64 76
   %.val = load i8, ptr %28, align 4
-  %29 = and i8 %.val, 1
-  %.not31 = icmp eq i8 %29, 0
-  br i1 %.not31, label %34, label %30
+  %29 = trunc i8 %.val to i1
+  br i1 %29, label %30, label %34
 
 30:                                               ; preds = %27, %25
   %31 = getelementptr inbounds i8, ptr %3, i64 80
@@ -97,8 +95,8 @@ define i32 @PMPI_Comm_create_from_group(ptr noundef %0, ptr noundef %1, ptr noun
 
 42:                                               ; preds = %40
   %43 = getelementptr i8, ptr %0, i64 20
-  %.val30 = load i32, ptr %43, align 4
-  %44 = icmp eq i32 %.val30, -32766
+  %.val29 = load i32, ptr %43, align 4
+  %44 = icmp eq i32 %.val29, -32766
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %42, %40
@@ -107,8 +105,8 @@ define i32 @PMPI_Comm_create_from_group(ptr noundef %0, ptr noundef %1, ptr noun
 
 46:                                               ; preds = %42
   %47 = tail call i32 @ompi_comm_create_from_group(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2
-  %.not29 = icmp eq i32 %47, 0
-  br i1 %.not29, label %52, label %48
+  %.not = icmp eq i32 %47, 0
+  br i1 %.not, label %52, label %48
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds i8, ptr %3, i64 80

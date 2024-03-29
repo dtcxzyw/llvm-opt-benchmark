@@ -93,9 +93,8 @@ entry:
   store i32 648, ptr %fr, align 4
   %closed = getelementptr inbounds i8, ptr %evws, i64 72
   %0 = load i8, ptr %closed, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %closed, align 8
@@ -103,11 +102,11 @@ if.end:                                           ; preds = %entry
   %call = tail call zeroext i16 @htons(i16 noundef zeroext %reason) #10
   store i16 %call, ptr %arrayidx, align 2
   %bufev = getelementptr inbounds i8, ptr %evws, i64 16
-  %2 = load ptr, ptr %bufev, align 8
-  %call2 = tail call ptr @bufferevent_get_output(ptr noundef %2) #9
+  %1 = load ptr, ptr %bufev, align 8
+  %call2 = tail call ptr @bufferevent_get_output(ptr noundef %1) #9
   %call3 = call i32 @evbuffer_add(ptr noundef %call2, ptr noundef nonnull %fr, i64 noundef 4) #9
-  %3 = load ptr, ptr %bufev, align 8
-  call void @bufferevent_setcb(ptr noundef %3, ptr noundef null, ptr noundef nonnull @close_after_write_cb, ptr noundef nonnull @close_event_cb, ptr noundef nonnull %evws) #9
+  %2 = load ptr, ptr %bufev, align 8
+  call void @bufferevent_setcb(ptr noundef %2, ptr noundef null, ptr noundef nonnull @close_after_write_cb, ptr noundef nonnull @close_event_cb, ptr noundef nonnull %evws) #9
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -736,19 +735,18 @@ sw.bb33:                                          ; preds = %if.end8.thread, %if
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %fr.i.i)
   store i32 648, ptr %fr.i.i, align 4
   %21 = load i8, ptr %closed.i.i36, align 8
-  %22 = and i8 %21, 1
-  %tobool.not.i.i = icmp eq i8 %22, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %evws_force_disconnect_.exit
+  %tobool.i.i = trunc i8 %21 to i1
+  br i1 %tobool.i.i, label %evws_force_disconnect_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.bb33
   store i8 1, ptr %closed.i.i36, align 8
   %call.i.i = call zeroext i16 @htons(i16 noundef zeroext 0) #10
   store i16 %call.i.i, ptr %arrayidx.i.i, align 2
-  %23 = load ptr, ptr %bufev1, align 8
-  %call2.i.i = call ptr @bufferevent_get_output(ptr noundef %23) #9
+  %22 = load ptr, ptr %bufev1, align 8
+  %call2.i.i = call ptr @bufferevent_get_output(ptr noundef %22) #9
   %call3.i.i = call i32 @evbuffer_add(ptr noundef %call2.i.i, ptr noundef nonnull %fr.i.i, i64 noundef 4) #9
-  %24 = load ptr, ptr %bufev1, align 8
-  call void @bufferevent_setcb(ptr noundef %24, ptr noundef null, ptr noundef nonnull @close_after_write_cb, ptr noundef nonnull @close_event_cb, ptr noundef nonnull %arg) #9
+  %23 = load ptr, ptr %bufev1, align 8
+  call void @bufferevent_setcb(ptr noundef %23, ptr noundef null, ptr noundef nonnull @close_after_write_cb, ptr noundef nonnull @close_event_cb, ptr noundef nonnull %arg) #9
   br label %evws_force_disconnect_.exit
 
 evws_force_disconnect_.exit:                      ; preds = %sw.bb33, %if.end.i.i
@@ -759,20 +757,19 @@ sw.default:                                       ; preds = %if.end8
   call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.ws_evhttp_read_cb, i32 noundef %conv75..i) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %fr.i.i35)
   store i32 648, ptr %fr.i.i35, align 4
-  %25 = load i8, ptr %closed.i.i36, align 8
-  %26 = and i8 %25, 1
-  %tobool.not.i.i37 = icmp eq i8 %26, 0
-  br i1 %tobool.not.i.i37, label %if.end.i.i38, label %evws_force_disconnect_.exit44
+  %24 = load i8, ptr %closed.i.i36, align 8
+  %tobool.i.i37 = trunc i8 %24 to i1
+  br i1 %tobool.i.i37, label %evws_force_disconnect_.exit44, label %if.end.i.i38
 
 if.end.i.i38:                                     ; preds = %sw.default
   store i8 1, ptr %closed.i.i36, align 8
   %call.i.i40 = call zeroext i16 @htons(i16 noundef zeroext 0) #10
   store i16 %call.i.i40, ptr %arrayidx.i.i39, align 2
-  %27 = load ptr, ptr %bufev1, align 8
-  %call2.i.i42 = call ptr @bufferevent_get_output(ptr noundef %27) #9
+  %25 = load ptr, ptr %bufev1, align 8
+  %call2.i.i42 = call ptr @bufferevent_get_output(ptr noundef %25) #9
   %call3.i.i43 = call i32 @evbuffer_add(ptr noundef %call2.i.i42, ptr noundef nonnull %fr.i.i35, i64 noundef 4) #9
-  %28 = load ptr, ptr %bufev1, align 8
-  call void @bufferevent_setcb(ptr noundef %28, ptr noundef null, ptr noundef nonnull @close_after_write_cb, ptr noundef nonnull @close_event_cb, ptr noundef nonnull %arg) #9
+  %26 = load ptr, ptr %bufev1, align 8
+  call void @bufferevent_setcb(ptr noundef %26, ptr noundef null, ptr noundef nonnull @close_after_write_cb, ptr noundef nonnull @close_event_cb, ptr noundef nonnull %arg) #9
   br label %evws_force_disconnect_.exit44
 
 evws_force_disconnect_.exit44:                    ; preds = %sw.default, %if.end.i.i38
@@ -785,8 +782,8 @@ sw.epilog:                                        ; preds = %if.end8, %if.end8, 
   br label %while.cond.backedge
 
 bailout:                                          ; preds = %while.body, %while.cond.backedge, %if.then20.i, %if.then29.i, %if.end45.i, %entry
-  %29 = load ptr, ptr %bufev1, align 8
-  %call37 = call i32 @bufferevent_decref_and_unlock_(ptr noundef %29) #9
+  %27 = load ptr, ptr %bufev1, align 8
+  %call37 = call i32 @bufferevent_decref_and_unlock_(ptr noundef %27) #9
   ret void
 }
 

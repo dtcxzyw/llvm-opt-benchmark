@@ -637,15 +637,14 @@ invoke.cont10:                                    ; preds = %invoke.cont8
 invoke.cont13:                                    ; preds = %invoke.cont10
   %m_print_success.i.i = getelementptr inbounds i8, ptr %ctx, i64 258
   %4 = load i8, ptr %m_print_success.i.i, align 2
-  %5 = and i8 %4, 1
-  %tobool.i.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.i.not.i, label %invoke.cont15, label %if.then.i
+  %tobool.i.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i, label %if.then.i, label %invoke.cont15
 
 if.then.i:                                        ; preds = %invoke.cont13
   %vtable.i = load ptr, ptr %ctx, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
-  %6 = load ptr, ptr %vfn.i, align 8
-  %call2.i5 = invoke noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(872) %ctx)
+  %5 = load ptr, ptr %vfn.i, align 8
+  %call2.i5 = invoke noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(872) %ctx)
           to label %call2.i.noexc unwind label %lpad3
 
 call2.i.noexc:                                    ; preds = %if.then.i
@@ -659,8 +658,8 @@ call3.i.noexc:                                    ; preds = %call2.i.noexc
 invoke.cont15:                                    ; preds = %invoke.cont13, %call3.i.noexc
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %7 = load ptr, ptr %vfn, align 8
-  invoke void %7(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx)
+  %6 = load ptr, ptr %vfn, align 8
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx)
           to label %invoke.cont16 unwind label %lpad3
 
 invoke.cont16:                                    ; preds = %invoke.cont15
@@ -668,33 +667,33 @@ invoke.cont16:                                    ; preds = %invoke.cont15
           to label %invoke.cont17 unwind label %lpad3
 
 invoke.cont17:                                    ; preds = %invoke.cont16
-  %8 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(16) %weight)
+  %7 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %weight)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %invoke.cont17
   %m_den.i.i = getelementptr inbounds i8, ptr %weight, i64 16
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i)
           to label %_ZN8rationalD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.cont17
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #15
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #15
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   ret void
 
 lpad3:                                            ; preds = %invoke.cont16, %call3.i.noexc, %call2.i.noexc, %if.then.i, %invoke.cont15, %invoke.cont10, %invoke.cont8, %invoke.cont7, %if.end
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %weight) #13
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad3, %lpad
-  %.pn = phi { ptr, i32 } [ %11, %lpad3 ], [ %1, %lpad ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad3 ], [ %1, %lpad ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1238,7 +1237,7 @@ declare void @_ZN11cmd_context7set_optEP11opt_wrapper(ptr noundef nonnull align 
 
 declare void @_ZN3opt7contextC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(792), ptr noundef nonnull align 8 dereferenceable(976)) unnamed_addr #0
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #10
 
 declare void @__cxa_bad_cast() local_unnamed_addr
@@ -1334,20 +1333,18 @@ if.end:                                           ; preds = %entry
   %call2 = tail call fastcc noundef nonnull align 8 dereferenceable(792) ptr @_ZL7get_optR11cmd_contextPN3opt7contextE(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef %1)
   %m_is_max = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i8, ptr %m_is_max, align 8
-  %3 = and i8 %2, 1
-  %tobool = icmp ne i8 %3, 0
+  %tobool = trunc i8 %2 to i1
   %call4 = tail call noundef i32 @_ZN3opt7context13add_objectiveEP3appb(ptr noundef nonnull align 8 dereferenceable(792) %call2, ptr noundef nonnull %t, i1 noundef zeroext %tobool)
   %m_print_success.i.i = getelementptr inbounds i8, ptr %ctx, i64 258
-  %4 = load i8, ptr %m_print_success.i.i, align 2
-  %5 = and i8 %4, 1
-  %tobool.i.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.i.not.i, label %_ZN11cmd_context13print_successEv.exit, label %if.then.i
+  %3 = load i8, ptr %m_print_success.i.i, align 2
+  %tobool.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i, label %if.then.i, label %_ZN11cmd_context13print_successEv.exit
 
 if.then.i:                                        ; preds = %if.end
   %vtable.i = load ptr, ptr %ctx, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
-  %6 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(872) %ctx)
+  %4 = load ptr, ptr %vfn.i, align 8
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %4(ptr noundef nonnull align 8 dereferenceable(872) %ctx)
   %call3.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull @.str.17)
   %call4.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call3.i, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %_ZN11cmd_context13print_successEv.exit
@@ -1432,22 +1429,21 @@ define linkonce_odr hidden void @_ZN18get_objectives_cmd7executeER11cmd_context(
 entry:
   %m_ignore_check.i = getelementptr inbounds i8, ptr %ctx, i64 273
   %0 = load i8, ptr %m_ignore_check.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.then, label %if.end
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %m_opt = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load ptr, ptr %m_opt, align 8
-  %call2 = tail call fastcc noundef nonnull align 8 dereferenceable(792) ptr @_ZL7get_optR11cmd_contextPN3opt7contextE(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef %2)
+  %1 = load ptr, ptr %m_opt, align 8
+  %call2 = tail call fastcc noundef nonnull align 8 dereferenceable(792) ptr @_ZL7get_optR11cmd_contextPN3opt7contextE(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef %1)
   %vtable = load ptr, ptr %ctx, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
-  %3 = load ptr, ptr %vfn, align 8
-  %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %ctx)
+  %2 = load ptr, ptr %vfn, align 8
+  %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(872) %ctx)
   %vtable4 = load ptr, ptr %call2, align 8
   %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 120
-  %4 = load ptr, ptr %vfn5, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(792) %call2, ptr noundef nonnull align 8 dereferenceable(8) %call3)
+  %3 = load ptr, ptr %vfn5, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(792) %call2, ptr noundef nonnull align 8 dereferenceable(8) %call3)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1475,7 +1471,7 @@ attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind memory(read) }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { nounwind }

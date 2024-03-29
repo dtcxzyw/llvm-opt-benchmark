@@ -32,9 +32,8 @@ declare i32 @ompi_comm_rbcast_register_cb_type(ptr noundef) local_unnamed_addr #
 define internal noundef i32 @ompi_comm_revoke_local(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 361
   %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %14
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 360
@@ -42,9 +41,8 @@ define internal noundef i32 @ompi_comm_revoke_local(ptr noundef %0, ptr nocaptur
   %8 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 6), align 8
   %9 = tail call i32 %8(ptr noundef nonnull %0, i1 noundef zeroext false) #2
   %10 = load i8, ptr @opal_uses_threads, align 1
-  %11 = and i8 %10, 1
-  %.not3 = icmp eq i8 %11, 0
-  br i1 %.not3, label %13, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %6
   tail call void @opal_threads_base_wait_sync_global_wakeup_mt(i32 noundef 77) #2
@@ -74,9 +72,8 @@ define i32 @ompi_comm_revoke_internal(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ompi_comm_rbcast_message_t, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 361
   %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, 1
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %6, label %ompi_comm_revoke_local.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %ompi_comm_revoke_local.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 360
@@ -84,9 +81,8 @@ define i32 @ompi_comm_revoke_internal(ptr noundef %0) local_unnamed_addr #0 {
   %8 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 6), align 8
   %9 = tail call i32 %8(ptr noundef nonnull %0, i1 noundef zeroext false) #2
   %10 = load i8, ptr @opal_uses_threads, align 1
-  %11 = and i8 %10, 1
-  %.not3.i = icmp eq i8 %11, 0
-  br i1 %.not3.i, label %13, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %6
   tail call void @opal_threads_base_wait_sync_global_wakeup_mt(i32 noundef 77) #2

@@ -72,10 +72,9 @@ define dso_local void @add_file_to_manifest(ptr noundef %0, ptr noundef %1, i64 
   %10 = trunc i64 %9 to i32
   %11 = getelementptr inbounds i8, ptr %0, i64 1056
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
+  %13 = trunc i8 %12 to i1
   %14 = getelementptr inbounds i8, ptr %0, i64 1032
-  br i1 %.not, label %16, label %15
+  br i1 %13, label %15, label %16
 
 15:                                               ; preds = %7
   tail call void @appendStringInfoChar(ptr noundef nonnull %14, i8 noundef signext 10) #6
@@ -449,9 +448,8 @@ define internal fastcc void @flush_manifest(ptr noundef %0) unnamed_addr #0 {
 27:                                               ; preds = %16
   %28 = getelementptr inbounds i8, ptr %0, i64 1057
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not22 = icmp eq i8 %30, 0
-  br i1 %.not22, label %37, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %0, i64 1064

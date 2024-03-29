@@ -546,8 +546,7 @@ entry:
 define dso_local noundef zeroext i1 @_ZN4absl18container_internal19IsHashtablezEnabledEv() local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_120g_hashtablez_enabledE.0 acquire, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.i = icmp ne i8 %1, 0
+  %tobool.i.i = trunc i8 %0 to i1
   ret i1 %tobool.i.i
 }
 

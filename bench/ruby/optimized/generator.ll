@@ -3015,9 +3015,8 @@ define internal fastcc void @Check_Type(i64 noundef %0, i32 noundef %1) unnamed_
 switch.hole_check:                                ; preds = %12
   %switch.maskindex = trunc i64 %13 to i16
   %switch.shifted = lshr i16 547, %switch.maskindex
-  %20 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %20, 0
-  br i1 %switch.lobit.not, label %15, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %15
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.Check_Type, i64 0, i64 %13
@@ -3026,25 +3025,25 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 rb_type.exit.i:                                   ; preds = %switch.lookup, %17, %15, %7
   %.0.i.i = phi i32 [ %11, %7 ], [ 21, %15 ], [ %spec.select.i.i, %17 ], [ %switch.load, %switch.lookup ]
-  %21 = icmp eq i32 %.0.i.i, %1
-  br i1 %21, label %22, label %.critedge
+  %20 = icmp eq i32 %.0.i.i, %1
+  br i1 %20, label %21, label %.critedge
 
-22:                                               ; preds = %rb_type.exit.i
-  %23 = icmp eq i32 %1, 12
-  br i1 %23, label %24, label %.thread
+21:                                               ; preds = %rb_type.exit.i
+  %22 = icmp eq i32 %1, 12
+  br i1 %22, label %23, label %.thread
 
-24:                                               ; preds = %22
-  %25 = inttoptr i64 %0 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
-  %27 = load i64, ptr %26, align 8
-  %28 = add i64 %27, -1
-  %29 = icmp ult i64 %28, 3
-  br i1 %29, label %.critedge, label %.thread
+23:                                               ; preds = %21
+  %24 = inttoptr i64 %0 to ptr
+  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %26 = load i64, ptr %25, align 8
+  %27 = add i64 %26, -1
+  %28 = icmp ult i64 %27, 3
+  br i1 %28, label %.critedge, label %.thread
 
-.thread:                                          ; preds = %24, %22
+.thread:                                          ; preds = %23, %21
   ret void
 
-.critedge:                                        ; preds = %rb_type.exit.i, %24
+.critedge:                                        ; preds = %rb_type.exit.i, %23
   tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef %1) #19
   unreachable
 }
@@ -5582,7 +5581,7 @@ convert_UTF8_to_JSON_ASCII.exit:                  ; preds = %411, %RSTRING_PTR.e
   %416 = load volatile i64, ptr %415, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %626
+  br label %625
 
 417:                                              ; preds = %enc_utf8_compatible_p.exit.thread
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4)
@@ -5876,13 +5875,12 @@ fbuffer_append.exit83.i:                          ; preds = %536, %534
 
 switch.hole_check:                                ; preds = %435
   %switch.shifted = lshr i8 55, %switch.tableidx
-  %550 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %550, 0
-  br i1 %switch.lobit.not, label %437, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %437
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %551 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.generate_json_string, i64 0, i64 %551
+  %550 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.generate_json_string, i64 0, i64 %550
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.loopexit.i
 
@@ -5892,231 +5890,231 @@ switch.lookup:                                    ; preds = %switch.hole_check
 .loopexit.i:                                      ; preds = %448, %447, %.loopexit.i.loopexit, %switch.lookup, %437
   %.061.i = phi i64 [ 6, %437 ], [ 2, %switch.lookup ], [ 2, %447 ], [ 2, %448 ], [ 2, %.loopexit.i.loopexit ]
   %.060.i = phi ptr [ %4, %437 ], [ %switch.load, %switch.lookup ], [ @.str.86, %447 ], [ @.str.88, %448 ], [ @.str.87, %.loopexit.i.loopexit ]
-  %552 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.0.ph134.i
-  %553 = sub i64 %.058128.i, %.0.ph134.i
+  %551 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.0.ph134.i
+  %552 = sub i64 %.058128.i, %.0.ph134.i
   %.not.i84.i = icmp eq i64 %.058128.i, %.0.ph134.i
-  br i1 %.not.i84.i, label %fbuffer_append.exit92.i, label %554
+  br i1 %.not.i84.i, label %fbuffer_append.exit92.i, label %553
 
-554:                                              ; preds = %.loopexit.i
-  %555 = load ptr, ptr %7, align 8
-  %.not.i.i85.i = icmp eq ptr %555, null
-  br i1 %.not.i.i85.i, label %556, label %._crit_edge.i.i86.i
+553:                                              ; preds = %.loopexit.i
+  %554 = load ptr, ptr %7, align 8
+  %.not.i.i85.i = icmp eq ptr %554, null
+  br i1 %.not.i.i85.i, label %555, label %._crit_edge.i.i86.i
 
-._crit_edge.i.i86.i:                              ; preds = %554
+._crit_edge.i.i86.i:                              ; preds = %553
   %.pre.i.i88.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8
-  br label %560
+  br label %559
 
-556:                                              ; preds = %554
-  %557 = load i64, ptr %0, align 8
-  %558 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %557, i64 noundef 1) #16
-  store ptr %558, ptr %7, align 8
-  %559 = load i64, ptr %0, align 8
-  store i64 %559, ptr %.phi.trans.insert.i.i.i, align 8
-  br label %560
+555:                                              ; preds = %553
+  %556 = load i64, ptr %0, align 8
+  %557 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %556, i64 noundef 1) #16
+  store ptr %557, ptr %7, align 8
+  %558 = load i64, ptr %0, align 8
+  store i64 %558, ptr %.phi.trans.insert.i.i.i, align 8
+  br label %559
 
-560:                                              ; preds = %556, %._crit_edge.i.i86.i
-  %561 = phi ptr [ %555, %._crit_edge.i.i86.i ], [ %558, %556 ]
-  %562 = phi i64 [ %.pre.i.i88.i, %._crit_edge.i.i86.i ], [ %559, %556 ]
-  %563 = load i64, ptr %17, align 8
-  br label %564
+559:                                              ; preds = %555, %._crit_edge.i.i86.i
+  %560 = phi ptr [ %554, %._crit_edge.i.i86.i ], [ %557, %555 ]
+  %561 = phi i64 [ %.pre.i.i88.i, %._crit_edge.i.i86.i ], [ %558, %555 ]
+  %562 = load i64, ptr %17, align 8
+  br label %563
 
-564:                                              ; preds = %564, %560
-  %.0.i.i89.i = phi i64 [ %562, %560 ], [ %567, %564 ]
-  %565 = sub i64 %.0.i.i89.i, %563
-  %566 = icmp ult i64 %565, %553
-  %567 = shl i64 %.0.i.i89.i, 1
-  br i1 %566, label %564, label %568, !llvm.loop !6
+563:                                              ; preds = %563, %559
+  %.0.i.i89.i = phi i64 [ %561, %559 ], [ %566, %563 ]
+  %564 = sub i64 %.0.i.i89.i, %562
+  %565 = icmp ult i64 %564, %552
+  %566 = shl i64 %.0.i.i89.i, 1
+  br i1 %565, label %563, label %567, !llvm.loop !6
 
-568:                                              ; preds = %564
-  %569 = icmp ugt i64 %.0.i.i89.i, %562
-  br i1 %569, label %570, label %rbimpl_size_mul_or_raise.exit.i90.i
+567:                                              ; preds = %563
+  %568 = icmp ugt i64 %.0.i.i89.i, %561
+  br i1 %568, label %569, label %rbimpl_size_mul_or_raise.exit.i90.i
 
-570:                                              ; preds = %568
-  %571 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %561, i64 noundef %.0.i.i89.i, i64 noundef 1) #18
-  store ptr %571, ptr %7, align 8
+569:                                              ; preds = %567
+  %570 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %560, i64 noundef %.0.i.i89.i, i64 noundef 1) #18
+  store ptr %570, ptr %7, align 8
   store i64 %.0.i.i89.i, ptr %.phi.trans.insert.i.i.i, align 8
   %.pre.i91.i = load i64, ptr %17, align 8
   br label %rbimpl_size_mul_or_raise.exit.i90.i
 
-rbimpl_size_mul_or_raise.exit.i90.i:              ; preds = %570, %568
-  %572 = phi i64 [ %.pre.i91.i, %570 ], [ %563, %568 ]
-  %573 = phi ptr [ %571, %570 ], [ %561, %568 ]
-  %574 = getelementptr inbounds i8, ptr %573, i64 %572
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %574, ptr align 1 %552, i64 %553, i1 false)
-  %575 = load i64, ptr %17, align 8
-  %576 = add i64 %575, %553
-  store i64 %576, ptr %17, align 8
+rbimpl_size_mul_or_raise.exit.i90.i:              ; preds = %569, %567
+  %571 = phi i64 [ %.pre.i91.i, %569 ], [ %562, %567 ]
+  %572 = phi ptr [ %570, %569 ], [ %560, %567 ]
+  %573 = getelementptr inbounds i8, ptr %572, i64 %571
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %573, ptr align 1 %551, i64 %552, i1 false)
+  %574 = load i64, ptr %17, align 8
+  %575 = add i64 %574, %552
+  store i64 %575, ptr %17, align 8
   br label %fbuffer_append.exit92.i
 
 fbuffer_append.exit92.i:                          ; preds = %rbimpl_size_mul_or_raise.exit.i90.i, %.loopexit.i
-  %577 = load ptr, ptr %7, align 8
-  %.not.i.i93.i = icmp eq ptr %577, null
-  br i1 %.not.i.i93.i, label %578, label %._crit_edge.i.i94.i
+  %576 = load ptr, ptr %7, align 8
+  %.not.i.i93.i = icmp eq ptr %576, null
+  br i1 %.not.i.i93.i, label %577, label %._crit_edge.i.i94.i
 
 ._crit_edge.i.i94.i:                              ; preds = %fbuffer_append.exit92.i
   %.pre.i.i96.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8
-  br label %582
+  br label %581
 
-578:                                              ; preds = %fbuffer_append.exit92.i
-  %579 = load i64, ptr %0, align 8
-  %580 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %579, i64 noundef 1) #16
-  store ptr %580, ptr %7, align 8
-  %581 = load i64, ptr %0, align 8
-  store i64 %581, ptr %.phi.trans.insert.i.i.i, align 8
-  br label %582
+577:                                              ; preds = %fbuffer_append.exit92.i
+  %578 = load i64, ptr %0, align 8
+  %579 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %578, i64 noundef 1) #16
+  store ptr %579, ptr %7, align 8
+  %580 = load i64, ptr %0, align 8
+  store i64 %580, ptr %.phi.trans.insert.i.i.i, align 8
+  br label %581
 
-582:                                              ; preds = %578, %._crit_edge.i.i94.i
-  %583 = phi ptr [ %577, %._crit_edge.i.i94.i ], [ %580, %578 ]
-  %584 = phi i64 [ %.pre.i.i96.i, %._crit_edge.i.i94.i ], [ %581, %578 ]
-  %585 = load i64, ptr %17, align 8
-  br label %586
+581:                                              ; preds = %577, %._crit_edge.i.i94.i
+  %582 = phi ptr [ %576, %._crit_edge.i.i94.i ], [ %579, %577 ]
+  %583 = phi i64 [ %.pre.i.i96.i, %._crit_edge.i.i94.i ], [ %580, %577 ]
+  %584 = load i64, ptr %17, align 8
+  br label %585
 
-586:                                              ; preds = %586, %582
-  %.0.i.i97.i = phi i64 [ %584, %582 ], [ %589, %586 ]
-  %587 = sub i64 %.0.i.i97.i, %585
-  %588 = icmp ult i64 %587, %.061.i
-  %589 = shl i64 %.0.i.i97.i, 1
-  br i1 %588, label %586, label %590, !llvm.loop !6
+585:                                              ; preds = %585, %581
+  %.0.i.i97.i = phi i64 [ %583, %581 ], [ %588, %585 ]
+  %586 = sub i64 %.0.i.i97.i, %584
+  %587 = icmp ult i64 %586, %.061.i
+  %588 = shl i64 %.0.i.i97.i, 1
+  br i1 %587, label %585, label %589, !llvm.loop !6
 
-590:                                              ; preds = %586
-  %591 = icmp ugt i64 %.0.i.i97.i, %584
-  br i1 %591, label %592, label %fbuffer_append.exit100.i19
+589:                                              ; preds = %585
+  %590 = icmp ugt i64 %.0.i.i97.i, %583
+  br i1 %590, label %591, label %fbuffer_append.exit100.i19
 
-592:                                              ; preds = %590
-  %593 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %583, i64 noundef %.0.i.i97.i, i64 noundef 1) #18
-  store ptr %593, ptr %7, align 8
+591:                                              ; preds = %589
+  %592 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %582, i64 noundef %.0.i.i97.i, i64 noundef 1) #18
+  store ptr %592, ptr %7, align 8
   store i64 %.0.i.i97.i, ptr %.phi.trans.insert.i.i.i, align 8
   %.pre.i99.i20 = load i64, ptr %17, align 8
   br label %fbuffer_append.exit100.i19
 
-fbuffer_append.exit100.i19:                       ; preds = %592, %590
-  %594 = phi i64 [ %.pre.i99.i20, %592 ], [ %585, %590 ]
-  %595 = phi ptr [ %593, %592 ], [ %583, %590 ]
-  %596 = getelementptr inbounds i8, ptr %595, i64 %594
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %596, ptr noundef nonnull align 1 dereferenceable(1) %.060.i, i64 %.061.i, i1 false)
-  %597 = load i64, ptr %17, align 8
-  %598 = add i64 %597, %.061.i
-  store i64 %598, ptr %17, align 8
-  %599 = add i64 %.058128.i, 1
+fbuffer_append.exit100.i19:                       ; preds = %591, %589
+  %593 = phi i64 [ %.pre.i99.i20, %591 ], [ %584, %589 ]
+  %594 = phi ptr [ %592, %591 ], [ %582, %589 ]
+  %595 = getelementptr inbounds i8, ptr %594, i64 %593
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %595, ptr noundef nonnull align 1 dereferenceable(1) %.060.i, i64 %.061.i, i1 false)
+  %596 = load i64, ptr %17, align 8
+  %597 = add i64 %596, %.061.i
+  store i64 %597, ptr %17, align 8
+  %598 = add i64 %.058128.i, 1
   br label %.outer.backedge.i
 
 .outer.backedge.i:                                ; preds = %fbuffer_append.exit100.i19, %fbuffer_append.exit83.i, %fbuffer_append.exit75.i
-  %.058.ph.be.i = phi i64 [ %599, %fbuffer_append.exit100.i19 ], [ %457, %fbuffer_append.exit83.i ], [ %457, %fbuffer_append.exit75.i ]
-  %600 = icmp ult i64 %.058.ph.be.i, %424
-  br i1 %600, label %.lr.ph.i18, label %convert_UTF8_to_JSON.exit, !llvm.loop !38
+  %.058.ph.be.i = phi i64 [ %598, %fbuffer_append.exit100.i19 ], [ %457, %fbuffer_append.exit83.i ], [ %457, %fbuffer_append.exit75.i ]
+  %599 = icmp ult i64 %.058.ph.be.i, %424
+  br i1 %599, label %.lr.ph.i18, label %convert_UTF8_to_JSON.exit, !llvm.loop !38
 
 .outer._crit_edge.i:                              ; preds = %._crit_edge.i
-  %601 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.0.ph134.i
-  %602 = sub i64 %548, %.0.ph134.i
+  %600 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.0.ph134.i
+  %601 = sub i64 %548, %.0.ph134.i
   %.not.i101.i = icmp eq i64 %548, %.0.ph134.i
-  br i1 %.not.i101.i, label %convert_UTF8_to_JSON.exit, label %603
+  br i1 %.not.i101.i, label %convert_UTF8_to_JSON.exit, label %602
 
-603:                                              ; preds = %.outer._crit_edge.i
-  %604 = load ptr, ptr %7, align 8
-  %.not.i.i102.i = icmp eq ptr %604, null
-  br i1 %.not.i.i102.i, label %605, label %._crit_edge.i.i103.i
+602:                                              ; preds = %.outer._crit_edge.i
+  %603 = load ptr, ptr %7, align 8
+  %.not.i.i102.i = icmp eq ptr %603, null
+  br i1 %.not.i.i102.i, label %604, label %._crit_edge.i.i103.i
 
-._crit_edge.i.i103.i:                             ; preds = %603
+._crit_edge.i.i103.i:                             ; preds = %602
   %.pre.i.i105.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8
-  br label %609
+  br label %608
 
-605:                                              ; preds = %603
-  %606 = load i64, ptr %0, align 8
-  %607 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %606, i64 noundef 1) #16
-  store ptr %607, ptr %7, align 8
-  %608 = load i64, ptr %0, align 8
-  store i64 %608, ptr %.phi.trans.insert.i.i.i, align 8
-  br label %609
+604:                                              ; preds = %602
+  %605 = load i64, ptr %0, align 8
+  %606 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %605, i64 noundef 1) #16
+  store ptr %606, ptr %7, align 8
+  %607 = load i64, ptr %0, align 8
+  store i64 %607, ptr %.phi.trans.insert.i.i.i, align 8
+  br label %608
 
-609:                                              ; preds = %605, %._crit_edge.i.i103.i
-  %610 = phi ptr [ %604, %._crit_edge.i.i103.i ], [ %607, %605 ]
-  %611 = phi i64 [ %.pre.i.i105.i, %._crit_edge.i.i103.i ], [ %608, %605 ]
-  %612 = load i64, ptr %17, align 8
-  br label %613
+608:                                              ; preds = %604, %._crit_edge.i.i103.i
+  %609 = phi ptr [ %603, %._crit_edge.i.i103.i ], [ %606, %604 ]
+  %610 = phi i64 [ %.pre.i.i105.i, %._crit_edge.i.i103.i ], [ %607, %604 ]
+  %611 = load i64, ptr %17, align 8
+  br label %612
 
-613:                                              ; preds = %613, %609
-  %.0.i.i106.i = phi i64 [ %611, %609 ], [ %616, %613 ]
-  %614 = sub i64 %.0.i.i106.i, %612
-  %615 = icmp ult i64 %614, %602
-  %616 = shl i64 %.0.i.i106.i, 1
-  br i1 %615, label %613, label %617, !llvm.loop !6
+612:                                              ; preds = %612, %608
+  %.0.i.i106.i = phi i64 [ %610, %608 ], [ %615, %612 ]
+  %613 = sub i64 %.0.i.i106.i, %611
+  %614 = icmp ult i64 %613, %601
+  %615 = shl i64 %.0.i.i106.i, 1
+  br i1 %614, label %612, label %616, !llvm.loop !6
 
-617:                                              ; preds = %613
-  %618 = icmp ugt i64 %.0.i.i106.i, %611
-  br i1 %618, label %619, label %rbimpl_size_mul_or_raise.exit.i107.i
+616:                                              ; preds = %612
+  %617 = icmp ugt i64 %.0.i.i106.i, %610
+  br i1 %617, label %618, label %rbimpl_size_mul_or_raise.exit.i107.i
 
-619:                                              ; preds = %617
-  %620 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %610, i64 noundef %.0.i.i106.i, i64 noundef 1) #18
-  store ptr %620, ptr %7, align 8
+618:                                              ; preds = %616
+  %619 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %609, i64 noundef %.0.i.i106.i, i64 noundef 1) #18
+  store ptr %619, ptr %7, align 8
   store i64 %.0.i.i106.i, ptr %.phi.trans.insert.i.i.i, align 8
   %.pre.i108.i = load i64, ptr %17, align 8
   br label %rbimpl_size_mul_or_raise.exit.i107.i
 
-rbimpl_size_mul_or_raise.exit.i107.i:             ; preds = %619, %617
-  %621 = phi i64 [ %.pre.i108.i, %619 ], [ %612, %617 ]
-  %622 = phi ptr [ %620, %619 ], [ %610, %617 ]
-  %623 = getelementptr inbounds i8, ptr %622, i64 %621
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %623, ptr align 1 %601, i64 %602, i1 false)
-  %624 = load i64, ptr %17, align 8
-  %625 = add i64 %624, %602
-  store i64 %625, ptr %17, align 8
+rbimpl_size_mul_or_raise.exit.i107.i:             ; preds = %618, %616
+  %620 = phi i64 [ %.pre.i108.i, %618 ], [ %611, %616 ]
+  %621 = phi ptr [ %619, %618 ], [ %609, %616 ]
+  %622 = getelementptr inbounds i8, ptr %621, i64 %620
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %622, ptr align 1 %600, i64 %601, i1 false)
+  %623 = load i64, ptr %17, align 8
+  %624 = add i64 %623, %601
+  store i64 %624, ptr %17, align 8
   br label %convert_UTF8_to_JSON.exit
 
 convert_UTF8_to_JSON.exit:                        ; preds = %.outer.backedge.i, %RSTRING_PTR.exit.i15, %.outer._crit_edge.i, %rbimpl_size_mul_or_raise.exit.i107.i
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4)
-  br label %626
+  br label %625
 
-626:                                              ; preds = %convert_UTF8_to_JSON.exit, %convert_UTF8_to_JSON_ASCII.exit
-  %627 = load ptr, ptr %7, align 8
-  %.not.i.i28 = icmp eq ptr %627, null
-  br i1 %.not.i.i28, label %628, label %._crit_edge.i.i29
+625:                                              ; preds = %convert_UTF8_to_JSON.exit, %convert_UTF8_to_JSON_ASCII.exit
+  %626 = load ptr, ptr %7, align 8
+  %.not.i.i28 = icmp eq ptr %626, null
+  br i1 %.not.i.i28, label %627, label %._crit_edge.i.i29
 
-._crit_edge.i.i29:                                ; preds = %626
+._crit_edge.i.i29:                                ; preds = %625
   %.phi.trans.insert.i.i30 = getelementptr inbounds i8, ptr %0, i64 24
   %.pre.i.i31 = load i64, ptr %.phi.trans.insert.i.i30, align 8
-  br label %633
+  br label %632
 
-628:                                              ; preds = %626
-  %629 = load i64, ptr %0, align 8
-  %630 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %629, i64 noundef 1) #16
-  store ptr %630, ptr %7, align 8
-  %631 = load i64, ptr %0, align 8
-  %632 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %631, ptr %632, align 8
-  br label %633
+627:                                              ; preds = %625
+  %628 = load i64, ptr %0, align 8
+  %629 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %628, i64 noundef 1) #16
+  store ptr %629, ptr %7, align 8
+  %630 = load i64, ptr %0, align 8
+  %631 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %630, ptr %631, align 8
+  br label %632
 
-633:                                              ; preds = %628, %._crit_edge.i.i29
-  %634 = phi ptr [ %627, %._crit_edge.i.i29 ], [ %630, %628 ]
-  %635 = phi i64 [ %.pre.i.i31, %._crit_edge.i.i29 ], [ %631, %628 ]
-  %636 = load i64, ptr %17, align 8
-  br label %637
+632:                                              ; preds = %627, %._crit_edge.i.i29
+  %633 = phi ptr [ %626, %._crit_edge.i.i29 ], [ %629, %627 ]
+  %634 = phi i64 [ %.pre.i.i31, %._crit_edge.i.i29 ], [ %630, %627 ]
+  %635 = load i64, ptr %17, align 8
+  br label %636
 
-637:                                              ; preds = %637, %633
-  %.0.i.i32 = phi i64 [ %635, %633 ], [ %639, %637 ]
-  %638 = icmp eq i64 %.0.i.i32, %636
-  %639 = shl i64 %.0.i.i32, 1
-  br i1 %638, label %637, label %640, !llvm.loop !6
+636:                                              ; preds = %636, %632
+  %.0.i.i32 = phi i64 [ %634, %632 ], [ %638, %636 ]
+  %637 = icmp eq i64 %.0.i.i32, %635
+  %638 = shl i64 %.0.i.i32, 1
+  br i1 %637, label %636, label %639, !llvm.loop !6
 
-640:                                              ; preds = %637
-  %641 = icmp ugt i64 %.0.i.i32, %635
-  br i1 %641, label %642, label %fbuffer_append_char.exit34
+639:                                              ; preds = %636
+  %640 = icmp ugt i64 %.0.i.i32, %634
+  br i1 %640, label %641, label %fbuffer_append_char.exit34
 
-642:                                              ; preds = %640
-  %643 = getelementptr inbounds i8, ptr %0, i64 24
-  %644 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %634, i64 noundef %.0.i.i32, i64 noundef 1) #18
-  store ptr %644, ptr %7, align 8
-  store i64 %.0.i.i32, ptr %643, align 8
+641:                                              ; preds = %639
+  %642 = getelementptr inbounds i8, ptr %0, i64 24
+  %643 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %633, i64 noundef %.0.i.i32, i64 noundef 1) #18
+  store ptr %643, ptr %7, align 8
+  store i64 %.0.i.i32, ptr %642, align 8
   %.pre.i33 = load i64, ptr %17, align 8
   br label %fbuffer_append_char.exit34
 
-fbuffer_append_char.exit34:                       ; preds = %640, %642
-  %645 = phi i64 [ %636, %640 ], [ %.pre.i33, %642 ]
-  %646 = phi ptr [ %634, %640 ], [ %644, %642 ]
-  %647 = getelementptr inbounds i8, ptr %646, i64 %645
-  store i8 34, ptr %647, align 1
-  %648 = load i64, ptr %17, align 8
-  %649 = add i64 %648, 1
-  store i64 %649, ptr %17, align 8
+fbuffer_append_char.exit34:                       ; preds = %639, %641
+  %644 = phi i64 [ %635, %639 ], [ %.pre.i33, %641 ]
+  %645 = phi ptr [ %633, %639 ], [ %643, %641 ]
+  %646 = getelementptr inbounds i8, ptr %645, i64 %644
+  store i8 34, ptr %646, align 1
+  %647 = load i64, ptr %17, align 8
+  %648 = add i64 %647, 1
+  store i64 %648, ptr %17, align 8
   ret void
 }
 

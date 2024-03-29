@@ -380,9 +380,8 @@ entry:
   %offset = getelementptr inbounds i8, ptr %arg, i64 8
   %crypt_physical_offset = getelementptr inbounds i8, ptr %0, i64 240
   %2 = load i8, ptr %crypt_physical_offset, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  %cond = select i1 %tobool.not, i64 %guest_offset, i64 %host_offset
+  %tobool = trunc i8 %2 to i1
+  %cond = select i1 %tobool, i64 %host_offset, i64 %guest_offset
   store i64 %cond, ptr %offset, align 8
   %buf1 = getelementptr inbounds i8, ptr %arg, i64 16
   store ptr %buf, ptr %buf1, align 8

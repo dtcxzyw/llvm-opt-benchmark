@@ -48,16 +48,15 @@ define internal i32 @pmix_prm_open(i32 noundef %0) #1 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @pmix_prm_close() #1 {
   %1 = load i8, ptr @pmix_prm_base, align 1
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %8, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %8
 
 3:                                                ; preds = %0
   store i8 0, ptr @pmix_prm_base, align 1
   store i8 0, ptr getelementptr inbounds (%struct.pmix_prm_globals_t, ptr @pmix_prm_base, i64 0, i32 1), align 1
   %4 = load ptr, ptr getelementptr inbounds (%struct.pmix_prm_module_t, ptr @pmix_prm, i64 0, i32 2), align 8
-  %.not2 = icmp eq ptr %4, null
-  br i1 %.not2, label %6, label %5
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %3
   tail call void %4() #3

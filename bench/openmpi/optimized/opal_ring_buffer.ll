@@ -170,9 +170,8 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define ptr @opal_ring_buffer_push(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @opal_uses_threads, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %8, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -182,9 +181,8 @@ define ptr @opal_ring_buffer_push(ptr noundef %0, ptr noundef %1) local_unnamed_
 8:                                                ; preds = %2, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 104
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not3033 = icmp eq i8 %11, 0
-  br i1 %.not3033, label %._crit_edge, label %.lr.ph
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 80
@@ -194,9 +192,8 @@ define ptr @opal_ring_buffer_push(ptr noundef %0, ptr noundef %1) local_unnamed_
 14:                                               ; preds = %.lr.ph, %14
   tail call fastcc void @opal_condition_wait(ptr noundef nonnull %12, ptr noundef nonnull %13)
   %15 = load i8, ptr %9, align 8
-  %16 = and i8 %15, 1
-  %.not30 = icmp eq i8 %16, 0
-  br i1 %.not30, label %._crit_edge, label %14, !llvm.loop !7
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %14, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %14, %8
   store i8 1, ptr %9, align 8
@@ -207,8 +204,8 @@ define ptr @opal_ring_buffer_push(ptr noundef %0, ptr noundef %1) local_unnamed_
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds ptr, ptr %18, i64 %21
   %23 = load ptr, ptr %22, align 8
-  %.not31 = icmp eq ptr %23, null
-  br i1 %.not31, label %31, label %.sink.split
+  %.not = icmp eq ptr %23, null
+  br i1 %.not, label %31, label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge
   %24 = getelementptr inbounds i8, ptr %0, i64 112
@@ -248,9 +245,8 @@ define ptr @opal_ring_buffer_push(ptr noundef %0, ptr noundef %1) local_unnamed_
   %44 = getelementptr inbounds i8, ptr %0, i64 100
   store volatile i32 %43, ptr %44, align 4
   %45 = load i8, ptr @opal_uses_threads, align 1
-  %46 = and i8 %45, 1
-  %.not32 = icmp eq i8 %46, 0
-  br i1 %.not32, label %50, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %50
 
 47:                                               ; preds = %36
   %48 = getelementptr inbounds i8, ptr %0, i64 32
@@ -268,72 +264,70 @@ define internal fastcc void @opal_condition_wait(ptr noundef %0, ptr noundef %1)
   %5 = add nsw i32 %4, 1
   store volatile i32 %5, ptr %3, align 8
   %6 = load i8, ptr @opal_uses_threads, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
+  %7 = trunc i8 %6 to i1
   %8 = getelementptr inbounds i8, ptr %0, i64 20
   %9 = load volatile i32, ptr %8, align 4
-  %10 = icmp eq i32 %9, 0
-  br i1 %.not, label %.preheader, label %11
+  %.not = icmp eq i32 %9, 0
+  br i1 %7, label %10, label %.preheader13
 
-.preheader:                                       ; preds = %2
-  br i1 %10, label %.lr.ph16, label %.loopexit
+.preheader13:                                     ; preds = %2
+  br i1 %.not, label %.lr.ph, label %.loopexit
 
-11:                                               ; preds = %2
-  br i1 %10, label %.preheader14, label %15
+10:                                               ; preds = %2
+  br i1 %.not, label %.preheader, label %14
 
-.preheader14:                                     ; preds = %11
-  %12 = load volatile i32, ptr %8, align 4
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.lr.ph, label %.loopexit
+.preheader:                                       ; preds = %10
+  %11 = load volatile i32, ptr %8, align 4
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %.lr.ph15, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader14
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  br label %22
+.lr.ph15:                                         ; preds = %.preheader
+  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  br label %21
 
-15:                                               ; preds = %11
-  %16 = load volatile i32, ptr %3, align 8
-  %17 = add nsw i32 %16, -1
-  store volatile i32 %17, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #6
-  %20 = tail call i32 @opal_progress() #6
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #6
-  br label %36
+14:                                               ; preds = %10
+  %15 = load volatile i32, ptr %3, align 8
+  %16 = add nsw i32 %15, -1
+  store volatile i32 %16, ptr %3, align 8
+  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %17) #6
+  %19 = tail call i32 @opal_progress() #6
+  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %17) #6
+  br label %35
 
-22:                                               ; preds = %.lr.ph, %22
-  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #6
-  %24 = tail call i32 @opal_progress() #6
-  %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %14) #6
-  %26 = load volatile i32, ptr %8, align 4
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %22, label %.loopexit, !llvm.loop !8
+21:                                               ; preds = %.lr.ph15, %21
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #6
+  %23 = tail call i32 @opal_progress() #6
+  %24 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %13) #6
+  %25 = load volatile i32, ptr %8, align 4
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %21, label %.loopexit, !llvm.loop !8
 
-.lr.ph16:                                         ; preds = %.preheader, %.lr.ph16
-  %28 = tail call i32 @opal_progress() #6
-  %29 = load volatile i32, ptr %8, align 4
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.lr.ph16, label %.loopexit, !llvm.loop !9
+.lr.ph:                                           ; preds = %.preheader13, %.lr.ph
+  %27 = tail call i32 @opal_progress() #6
+  %28 = load volatile i32, ptr %8, align 4
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %22, %.lr.ph16, %.preheader14, %.preheader
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
-  %32 = load volatile i32, ptr %31, align 4
-  %33 = add nsw i32 %32, -1
-  store volatile i32 %33, ptr %31, align 4
-  %34 = load volatile i32, ptr %3, align 8
-  %35 = add nsw i32 %34, -1
-  store volatile i32 %35, ptr %3, align 8
-  br label %36
+.loopexit:                                        ; preds = %.lr.ph, %21, %.preheader13, %.preheader
+  %30 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = load volatile i32, ptr %30, align 4
+  %32 = add nsw i32 %31, -1
+  store volatile i32 %32, ptr %30, align 4
+  %33 = load volatile i32, ptr %3, align 8
+  %34 = add nsw i32 %33, -1
+  store volatile i32 %34, ptr %3, align 8
+  br label %35
 
-36:                                               ; preds = %.loopexit, %15
+35:                                               ; preds = %.loopexit, %14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @opal_ring_buffer_pop(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @opal_uses_threads, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %7, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -343,9 +337,8 @@ define ptr @opal_ring_buffer_pop(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %1, %4
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not2325 = icmp eq i8 %10, 0
-  br i1 %.not2325, label %._crit_edge, label %.lr.ph
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
   %11 = getelementptr inbounds i8, ptr %0, i64 80
@@ -355,9 +348,8 @@ define ptr @opal_ring_buffer_pop(ptr noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %.lr.ph, %13
   tail call fastcc void @opal_condition_wait(ptr noundef nonnull %11, ptr noundef nonnull %12)
   %14 = load i8, ptr %8, align 8
-  %15 = and i8 %14, 1
-  %.not23 = icmp eq i8 %15, 0
-  br i1 %.not23, label %._crit_edge, label %13, !llvm.loop !10
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %13, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %13, %7
   store i8 1, ptr %8, align 8
@@ -395,9 +387,8 @@ define ptr @opal_ring_buffer_pop(ptr noundef %0) local_unnamed_addr #0 {
   %37 = getelementptr inbounds i8, ptr %0, i64 100
   store volatile i32 %36, ptr %37, align 4
   %38 = load i8, ptr @opal_uses_threads, align 1
-  %39 = and i8 %38, 1
-  %.not24 = icmp eq i8 %39, 0
-  br i1 %.not24, label %43, label %40
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %43
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds i8, ptr %0, i64 32
@@ -411,9 +402,8 @@ define ptr @opal_ring_buffer_pop(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define ptr @opal_ring_buffer_poke(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @opal_uses_threads, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %8, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -423,9 +413,8 @@ define ptr @opal_ring_buffer_poke(ptr noundef %0, i32 noundef %1) local_unnamed_
 8:                                                ; preds = %2, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 104
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not3135 = icmp eq i8 %11, 0
-  br i1 %.not3135, label %._crit_edge, label %.lr.ph
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 80
@@ -435,16 +424,15 @@ define ptr @opal_ring_buffer_poke(ptr noundef %0, i32 noundef %1) local_unnamed_
 14:                                               ; preds = %.lr.ph, %14
   tail call fastcc void @opal_condition_wait(ptr noundef nonnull %12, ptr noundef nonnull %13)
   %15 = load i8, ptr %9, align 8
-  %16 = and i8 %15, 1
-  %.not31 = icmp eq i8 %16, 0
-  br i1 %.not31, label %._crit_edge, label %14, !llvm.loop !11
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %14, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %14, %8
   store i8 1, ptr %9, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 116
   %18 = load i32, ptr %17, align 4
-  %.not32 = icmp sgt i32 %18, %1
-  br i1 %.not32, label %19, label %47
+  %.not = icmp sgt i32 %18, %1
+  br i1 %.not, label %19, label %47
 
 19:                                               ; preds = %._crit_edge
   %20 = getelementptr inbounds i8, ptr %0, i64 112
@@ -478,8 +466,8 @@ define ptr @opal_ring_buffer_poke(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 39:                                               ; preds = %23
   %40 = add nsw i32 %21, %1
-  %.not33 = icmp sgt i32 %18, %40
-  %41 = select i1 %.not33, i32 0, i32 %18
+  %.not31 = icmp sgt i32 %18, %40
+  %41 = select i1 %.not31, i32 0, i32 %18
   %spec.select = sub nsw i32 %40, %41
   %42 = getelementptr inbounds i8, ptr %0, i64 120
   %43 = load ptr, ptr %42, align 8
@@ -500,9 +488,8 @@ define ptr @opal_ring_buffer_poke(ptr noundef %0, i32 noundef %1) local_unnamed_
   %50 = getelementptr inbounds i8, ptr %0, i64 100
   store volatile i32 %49, ptr %50, align 4
   %51 = load i8, ptr @opal_uses_threads, align 1
-  %52 = and i8 %51, 1
-  %.not34 = icmp eq i8 %52, 0
-  br i1 %.not34, label %56, label %53
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %56
 
 53:                                               ; preds = %47
   %54 = getelementptr inbounds i8, ptr %0, i64 32

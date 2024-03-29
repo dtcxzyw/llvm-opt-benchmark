@@ -79,8 +79,8 @@ define hidden void @"_ZN101_$LT$diesel..connection..statement_cache..StatementCa
   store i64 %31, ptr %5, align 8, !noalias !39
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h49bb2815b4a489eeE.llvm.14530165242193695371"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 8), !noalias !44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !39
-  %trunc.not.i.i.i = icmp eq i32 %30, 0
-  br i1 %trunc.not.i.i.i, label %32, label %37
+  %trunc.i.i.i = trunc i32 %30 to i1
+  br i1 %trunc.i.i.i, label %37, label %32
 
 32:                                               ; preds = %.lr.ph.i
   %33 = getelementptr inbounds i8, ptr %.sroa.0.06.i, i64 4
@@ -515,8 +515,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !align !64, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !201)
   %5 = load i64, ptr %4, align 8, !range !204, !alias.scope !201, !noalias !205, !noundef !5
-  %trunc.not.i = icmp eq i64 %5, 0
-  br i1 %trunc.not.i, label %6, label %8
+  %trunc.i = trunc i64 %5 to i1
+  br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e0f049d80bdfd738301f61769ac79e9c.7, i64 noundef 4), !noalias !201
@@ -1912,13 +1912,13 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !508
   call void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h39d2e11dc5cf76acE.llvm.241371645245257412"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
   %33 = load i8, ptr %5, align 8, !range !510, !noalias !508, !noundef !5
-  %trunc.not.i = icmp eq i8 %33, 0
-  br i1 %trunc.not.i, label %34, label %36
+  %trunc.i = trunc i8 %33 to i1
+  br i1 %trunc.i, label %36, label %34
 
 34:                                               ; preds = %32
   %35 = load i8, ptr %30, align 1, !range !510, !noalias !508, !noundef !5
-  %trunc5.not.i = icmp eq i8 %35, 0
-  br i1 %trunc5.not.i, label %39, label %41
+  %trunc5.i = trunc i8 %35 to i1
+  br i1 %trunc5.i, label %41, label %39
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %5, i64 8

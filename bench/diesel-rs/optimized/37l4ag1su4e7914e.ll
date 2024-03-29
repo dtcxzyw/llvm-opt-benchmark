@@ -719,8 +719,8 @@ define void @_ZN25diesel_demo_step_2_sqlite20establish_connection17he611412172f4
   call void @llvm.experimental.noalias.scope.decl(metadata !78)
   call void @llvm.experimental.noalias.scope.decl(metadata !81)
   %32 = load i64, ptr %15, align 8, !range !83, !alias.scope !81, !noalias !78, !noundef !4
-  %trunc.not.i = icmp eq i64 %32, 0
-  br i1 %trunc.not.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17he20628db8bc10467E.exit", label %33
+  %trunc.i = trunc i64 %32 to i1
+  br i1 %trunc.i, label %33, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17he20628db8bc10467E.exit"
 
 33:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h15fa76a532966404E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !84

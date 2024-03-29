@@ -27,9 +27,8 @@ define dso_local void @block_acct_init(ptr noundef %stats) local_unnamed_addr #0
 entry:
   tail call void @qemu_mutex_init(ptr noundef %stats) #8
   %0 = load i8, ptr @qtest_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %if.then
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store i1 true, ptr @clock_type, align 4
@@ -50,8 +49,6 @@ define dso_local void @block_acct_setup(ptr nocapture noundef %stats, i32 nounde
 entry:
   %account_invalid1 = getelementptr inbounds i8, ptr %stats, i64 352
   %0 = load i8, ptr %account_invalid1, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
   switch i32 %account_invalid, label %sw.default.i [
     i32 0, label %bool_from_onoffauto.exit
     i32 1, label %sw.bb1.i
@@ -69,13 +66,11 @@ sw.default.i:                                     ; preds = %entry
   unreachable
 
 bool_from_onoffauto.exit:                         ; preds = %entry, %sw.bb1.i, %sw.bb2.i
-  %retval.0.i = phi i1 [ false, %sw.bb2.i ], [ true, %sw.bb1.i ], [ %tobool, %entry ]
-  %frombool = zext i1 %retval.0.i to i8
+  %retval.0.i = phi i8 [ 0, %sw.bb2.i ], [ 1, %sw.bb1.i ], [ %0, %entry ]
+  %frombool = and i8 %retval.0.i, 1
   store i8 %frombool, ptr %account_invalid1, align 8
   %account_failed3 = getelementptr inbounds i8, ptr %stats, i64 353
-  %2 = load i8, ptr %account_failed3, align 1
-  %3 = and i8 %2, 1
-  %tobool4 = icmp ne i8 %3, 0
+  %1 = load i8, ptr %account_failed3, align 1
   switch i32 %account_failed, label %sw.default.i7 [
     i32 0, label %bool_from_onoffauto.exit8
     i32 1, label %sw.bb1.i6
@@ -93,8 +88,8 @@ sw.default.i7:                                    ; preds = %bool_from_onoffauto
   unreachable
 
 bool_from_onoffauto.exit8:                        ; preds = %bool_from_onoffauto.exit, %sw.bb1.i6, %sw.bb2.i4
-  %retval.0.i5 = phi i1 [ false, %sw.bb2.i4 ], [ true, %sw.bb1.i6 ], [ %tobool4, %bool_from_onoffauto.exit ]
-  %frombool7 = zext i1 %retval.0.i5 to i8
+  %retval.0.i5 = phi i8 [ 0, %sw.bb2.i4 ], [ 1, %sw.bb1.i6 ], [ %1, %bool_from_onoffauto.exit ]
+  %frombool7 = and i8 %retval.0.i5, 1
   store i8 %frombool7, ptr %account_failed3, align 1
   ret void
 }
@@ -315,12 +310,11 @@ entry:
   %1 = load i64, ptr %start_time_ns, align 8
   %sub = sub i64 %call, %1
   %2 = load i8, ptr @qtest_allowed, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not = icmp eq i8 %3, 0
-  %spec.select = select i1 %tobool.i.not, i64 %sub, i64 1000000
+  %tobool.i = trunc i8 %2 to i1
+  %spec.select = select i1 %tobool.i, i64 1000000, i64 %sub
   %type = getelementptr inbounds i8, ptr %cookie, i64 16
-  %4 = load i32, ptr %type, align 8
-  %cmp = icmp ult i32 %4, 6
+  %3 = load i32, ptr %type, align 8
+  %cmp = icmp ult i32 %3, 6
   br i1 %cmp, label %if.end3, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -328,13 +322,13 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end3:                                          ; preds = %entry
-  %cmp5 = icmp eq i32 %4, 0
+  %cmp5 = icmp eq i32 %3, 0
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
-  %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %6 = inttoptr i64 %5 to ptr
-  tail call void %6(ptr noundef %stats, ptr noundef nonnull @.str.3, i32 noundef 122) #8
+  %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %5 = inttoptr i64 %4 to ptr
+  tail call void %5(ptr noundef %stats, ptr noundef nonnull @.str.3, i32 noundef 122) #8
   %latency_histogram = getelementptr inbounds i8, ptr %stats, i64 360
   %account_failed = getelementptr inbounds i8, ptr %stats, i64 353
   %total_time_ns = getelementptr inbounds i8, ptr %stats, i64 240
@@ -344,58 +338,58 @@ if.end7:                                          ; preds = %if.end3
 
 if.else13:                                        ; preds = %if.end7
   %nr_bytes = getelementptr inbounds i8, ptr %stats, i64 48
-  %7 = load i64, ptr %cookie, align 8
-  %8 = load i32, ptr %type, align 8
-  %idxprom15 = zext i32 %8 to i64
+  %6 = load i64, ptr %cookie, align 8
+  %7 = load i32, ptr %type, align 8
+  %idxprom15 = zext i32 %7 to i64
   %arrayidx16 = getelementptr [6 x i64], ptr %nr_bytes, i64 0, i64 %idxprom15
-  %9 = load i64, ptr %arrayidx16, align 8
-  %add = add i64 %9, %7
+  %8 = load i64, ptr %arrayidx16, align 8
+  %add = add i64 %8, %6
   store i64 %add, ptr %arrayidx16, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end7, %if.else13
-  %10 = phi i64 [ 96, %if.else13 ], [ 192, %if.end7 ]
-  %11 = getelementptr inbounds i8, ptr %stats, i64 %10
-  %12 = load i32, ptr %type, align 8
-  %idxprom18 = zext i32 %12 to i64
-  %arrayidx19 = getelementptr [6 x i64], ptr %11, i64 0, i64 %idxprom18
-  %13 = load i64, ptr %arrayidx19, align 8
-  %inc20 = add i64 %13, 1
+  %9 = phi i64 [ 96, %if.else13 ], [ 192, %if.end7 ]
+  %10 = getelementptr inbounds i8, ptr %stats, i64 %9
+  %11 = load i32, ptr %type, align 8
+  %idxprom18 = zext i32 %11 to i64
+  %arrayidx19 = getelementptr [6 x i64], ptr %10, i64 0, i64 %idxprom18
+  %12 = load i64, ptr %arrayidx19, align 8
+  %inc20 = add i64 %12, 1
   store i64 %inc20, ptr %arrayidx19, align 8
-  %14 = load i32, ptr %type, align 8
-  %idxprom23 = zext i32 %14 to i64
+  %13 = load i32, ptr %type, align 8
+  %idxprom23 = zext i32 %13 to i64
   %arrayidx24 = getelementptr [6 x %struct.BlockLatencyHistogram], ptr %latency_histogram, i64 0, i64 %idxprom23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %latency_ns.addr.i)
   store i64 %spec.select, ptr %latency_ns.addr.i, align 8
   %bins.i = getelementptr inbounds i8, ptr %arrayidx24, i64 16
-  %15 = load ptr, ptr %bins.i, align 8
-  %cmp.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %bins.i, align 8
+  %cmp.i = icmp eq ptr %14, null
   br i1 %cmp.i, label %block_latency_histogram_account.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end21
   %boundaries.i = getelementptr inbounds i8, ptr %arrayidx24, i64 8
-  %16 = load ptr, ptr %boundaries.i, align 8
-  %17 = load i64, ptr %16, align 8
-  %cmp1.i = icmp ugt i64 %17, %spec.select
+  %15 = load ptr, ptr %boundaries.i, align 8
+  %16 = load i64, ptr %15, align 8
+  %cmp1.i = icmp ugt i64 %16, %spec.select
   br i1 %cmp1.i, label %return.sink.split.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %18 = load i32, ptr %arrayidx24, align 8
-  %sub.i = add i32 %18, -2
+  %17 = load i32, ptr %arrayidx24, align 8
+  %sub.i = add i32 %17, -2
   %idxprom.i = sext i32 %sub.i to i64
-  %arrayidx7.i = getelementptr i64, ptr %16, i64 %idxprom.i
-  %19 = load i64, ptr %arrayidx7.i, align 8
-  %cmp8.not.i = icmp ugt i64 %19, %spec.select
+  %arrayidx7.i = getelementptr i64, ptr %15, i64 %idxprom.i
+  %18 = load i64, ptr %arrayidx7.i, align 8
+  %cmp8.not.i = icmp ugt i64 %18, %spec.select
   br i1 %cmp8.not.i, label %if.end16.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end5.i
-  %sub12.i = add i32 %18, -1
+  %sub12.i = add i32 %17, -1
   %idxprom13.i = sext i32 %sub12.i to i64
-  %arrayidx14.i = getelementptr i64, ptr %15, i64 %idxprom13.i
+  %arrayidx14.i = getelementptr i64, ptr %14, i64 %idxprom13.i
   br label %return.sink.split.i
 
 if.end16.i:                                       ; preds = %if.end5.i
-  %call.i = call ptr @bsearch(ptr noundef nonnull %latency_ns.addr.i, ptr noundef nonnull %16, i64 noundef %idxprom.i, i64 noundef 8, ptr noundef nonnull @block_latency_histogram_compare_func) #8
+  %call.i = call ptr @bsearch(ptr noundef nonnull %latency_ns.addr.i, ptr noundef nonnull %15, i64 noundef %idxprom.i, i64 noundef 8, ptr noundef nonnull @block_latency_histogram_compare_func) #8
   %cmp20.not.i = icmp eq ptr %call.i, null
   br i1 %cmp20.not.i, label %if.else.i, label %if.end23.i
 
@@ -404,19 +398,19 @@ if.else.i:                                        ; preds = %if.end16.i
   unreachable
 
 if.end23.i:                                       ; preds = %if.end16.i
-  %20 = load ptr, ptr %bins.i, align 8
-  %21 = load ptr, ptr %boundaries.i, align 8
+  %19 = load ptr, ptr %bins.i, align 8
+  %20 = load ptr, ptr %boundaries.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %21 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %22 = getelementptr i8, ptr %20, i64 %sub.ptr.sub.i
-  %arrayidx26.i = getelementptr i8, ptr %22, i64 8
+  %21 = getelementptr i8, ptr %19, i64 %sub.ptr.sub.i
+  %arrayidx26.i = getelementptr i8, ptr %21, i64 8
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end23.i, %if.then9.i, %if.end.i
-  %arrayidx26.sink12.i = phi ptr [ %arrayidx26.i, %if.end23.i ], [ %arrayidx14.i, %if.then9.i ], [ %15, %if.end.i ]
-  %23 = load i64, ptr %arrayidx26.sink12.i, align 8
-  %inc27.i = add i64 %23, 1
+  %arrayidx26.sink12.i = phi ptr [ %arrayidx26.i, %if.end23.i ], [ %arrayidx14.i, %if.then9.i ], [ %14, %if.end.i ]
+  %22 = load i64, ptr %arrayidx26.sink12.i, align 8
+  %inc27.i = add i64 %22, 1
   store i64 %inc27.i, ptr %arrayidx26.sink12.i, align 8
   br label %block_latency_histogram_account.exit
 
@@ -425,17 +419,16 @@ block_latency_histogram_account.exit:             ; preds = %if.end21, %return.s
   br i1 %failed, label %lor.lhs.false, label %if.then27
 
 lor.lhs.false:                                    ; preds = %block_latency_histogram_account.exit
-  %24 = load i8, ptr %account_failed, align 1
-  %25 = and i8 %24, 1
-  %tobool26.not = icmp eq i8 %25, 0
-  br i1 %tobool26.not, label %qemu_lockable_auto_unlock.exit, label %if.then27
+  %23 = load i8, ptr %account_failed, align 1
+  %tobool26 = trunc i8 %23 to i1
+  br i1 %tobool26, label %if.then27, label %qemu_lockable_auto_unlock.exit
 
 if.then27:                                        ; preds = %lor.lhs.false, %block_latency_histogram_account.exit
-  %26 = load i32, ptr %type, align 8
-  %idxprom29 = zext i32 %26 to i64
+  %24 = load i32, ptr %type, align 8
+  %idxprom29 = zext i32 %24 to i64
   %arrayidx30 = getelementptr [6 x i64], ptr %total_time_ns, i64 0, i64 %idxprom29
-  %27 = load i64, ptr %arrayidx30, align 8
-  %add31 = add i64 %27, %spec.select
+  %25 = load i64, ptr %arrayidx30, align 8
+  %add31 = add i64 %25, %spec.select
   store i64 %add31, ptr %arrayidx30, align 8
   store i64 %call, ptr %last_access_time_ns, align 8
   %s.028 = load ptr, ptr %intervals, align 8
@@ -445,8 +438,8 @@ if.then27:                                        ; preds = %lor.lhs.false, %blo
 for.body34:                                       ; preds = %if.then27, %for.body34
   %s.030 = phi ptr [ %s.0, %for.body34 ], [ %s.028, %if.then27 ]
   %latency = getelementptr inbounds i8, ptr %s.030, i64 8
-  %28 = load i32, ptr %type, align 8
-  %idxprom36 = zext i32 %28 to i64
+  %26 = load i32, ptr %type, align 8
+  %idxprom36 = zext i32 %26 to i64
   %arrayidx37 = getelementptr [6 x %struct.TimedAverage], ptr %latency, i64 0, i64 %idxprom36
   call void @timed_average_account(ptr noundef %arrayidx37, i64 noundef %spec.select) #8
   %entries = getelementptr inbounds i8, ptr %s.030, i64 592
@@ -492,14 +485,13 @@ while.end:                                        ; preds = %entry
   store i64 %inc, ptr %arrayidx, align 8
   %account_invalid = getelementptr inbounds i8, ptr %stats, i64 352
   %3 = load i8, ptr %account_invalid, align 8
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.end2, label %if.then1
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %while.end
   %.b = load i1, ptr @clock_type, align 4
-  %5 = zext i1 %.b to i32
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef %5) #8
+  %4 = zext i1 %.b to i32
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef %4) #8
   %last_access_time_ns = getelementptr inbounds i8, ptr %stats, i64 336
   store i64 %call, ptr %last_access_time_ns, align 8
   br label %if.end2

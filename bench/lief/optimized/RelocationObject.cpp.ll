@@ -267,9 +267,8 @@ declare void @_ZN4LIEF5MachO10Relocation4swapERS1_(ptr noundef nonnull align 8 d
 define noundef zeroext i1 @_ZNK4LIEF5MachO16RelocationObject14is_pc_relativeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -288,9 +287,8 @@ define noundef i64 @_ZNK4LIEF5MachO16RelocationObject4sizeEv(ptr nocapture nound
 define noundef zeroext i1 @_ZNK4LIEF5MachO16RelocationObject12is_scatteredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 57
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -328,9 +326,8 @@ define noundef i32 @_ZNK4LIEF5MachO16RelocationObject5valueEv(ptr nocapture noun
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 57
   %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %9
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -406,9 +403,8 @@ define void @_ZN4LIEF5MachO16RelocationObject5valueEi(ptr nocapture noundef nonn
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 57
   %5 = load i8, ptr %4, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %10
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %10, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -617,66 +613,65 @@ define linkonce_odr hidden void @_ZN6spdlog6logger3logIPKcEEvNS_5level10level_en
   %10 = getelementptr inbounds i8, ptr %0, i64 104
   %11 = getelementptr inbounds i8, ptr %0, i64 144
   %12 = load atomic i8, ptr %11 monotonic, align 8
-  %13 = and i8 %12, 1
-  %14 = icmp ne i8 %13, 0
-  %brmerge.i = or i1 %9, %14
-  br i1 %brmerge.i, label %15, label %_ZN6spdlog6logger3logENS_10source_locENS_5level10level_enumEN3fmt2v917basic_string_viewIcEE.exit
+  %13 = trunc i8 %12 to i1
+  %brmerge.i = or i1 %9, %13
+  br i1 %brmerge.i, label %14, label %_ZN6spdlog6logger3logENS_10source_locENS_5level10level_enumEN3fmt2v917basic_string_viewIcEE.exit
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #17
-  %18 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #17
-  %19 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #17
-  store ptr %17, ptr %4, align 8
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #17
+  %17 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #17
+  %18 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #17
+  store ptr %16, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %18, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 %19, ptr %21, align 8
-  %22 = load i8, ptr @_ZGVZN6spdlog7details2os9thread_idEvE3tid, align 8
-  %23 = icmp eq i8 %22, 0
-  br i1 %23, label %24, label %._crit_edge.i.i.i.i, !prof !4
+  store i64 %17, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 %1, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 %18, ptr %20, align 8
+  %21 = load i8, ptr @_ZGVZN6spdlog7details2os9thread_idEvE3tid, align 8
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %23, label %._crit_edge.i.i.i.i, !prof !4
 
-._crit_edge.i.i.i.i:                              ; preds = %15
+._crit_edge.i.i.i.i:                              ; preds = %14
   %.pre.i.i.i.i = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN6spdlog7details2os9thread_idEvE3tid)
   br label %_ZN6spdlog7details7log_msgC2ENS_10source_locEN3fmt2v917basic_string_viewIcEENS_5level10level_enumES6_.exit.i
 
-24:                                               ; preds = %15
-  %25 = tail call noundef i64 (i64, ...) @syscall(i64 noundef 186) #17
-  %26 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN6spdlog7details2os9thread_idEvE3tid)
-  store i64 %25, ptr %26, align 8
+23:                                               ; preds = %14
+  %24 = tail call noundef i64 (i64, ...) @syscall(i64 noundef 186) #17
+  %25 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN6spdlog7details2os9thread_idEvE3tid)
+  store i64 %24, ptr %25, align 8
   store i8 1, ptr @_ZGVZN6spdlog7details2os9thread_idEvE3tid, align 8
   br label %_ZN6spdlog7details7log_msgC2ENS_10source_locEN3fmt2v917basic_string_viewIcEENS_5level10level_enumES6_.exit.i
 
-_ZN6spdlog7details7log_msgC2ENS_10source_locEN3fmt2v917basic_string_viewIcEENS_5level10level_enumES6_.exit.i: ; preds = %24, %._crit_edge.i.i.i.i
-  %.pre-phi.i.i.i.i = phi ptr [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %26, %24 ]
-  %27 = getelementptr inbounds i8, ptr %4, i64 32
-  %28 = load i64, ptr %.pre-phi.i.i.i.i, align 8
-  store i64 %28, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 40
-  %30 = getelementptr inbounds i8, ptr %4, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 40, i1 false)
-  store ptr %5, ptr %30, align 8
+_ZN6spdlog7details7log_msgC2ENS_10source_locEN3fmt2v917basic_string_viewIcEENS_5level10level_enumES6_.exit.i: ; preds = %23, %._crit_edge.i.i.i.i
+  %.pre-phi.i.i.i.i = phi ptr [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %25, %23 ]
+  %26 = getelementptr inbounds i8, ptr %4, i64 32
+  %27 = load i64, ptr %.pre-phi.i.i.i.i, align 8
+  store i64 %27, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %4, i64 40
+  %29 = getelementptr inbounds i8, ptr %4, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, i8 0, i64 40, i1 false)
+  store ptr %5, ptr %29, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 88
   store i64 %6, ptr %.sroa.4.0..sroa_idx.i.i, align 8
-  br i1 %9, label %31, label %35
+  br i1 %9, label %30, label %34
 
-31:                                               ; preds = %_ZN6spdlog7details7log_msgC2ENS_10source_locEN3fmt2v917basic_string_viewIcEENS_5level10level_enumES6_.exit.i
-  %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
-  %34 = load ptr, ptr %33, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(96) %4)
-  br label %35
+30:                                               ; preds = %_ZN6spdlog7details7log_msgC2ENS_10source_locEN3fmt2v917basic_string_viewIcEENS_5level10level_enumES6_.exit.i
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %33 = load ptr, ptr %32, align 8
+  call void %33(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(96) %4)
+  br label %34
 
-35:                                               ; preds = %31, %_ZN6spdlog7details7log_msgC2ENS_10source_locEN3fmt2v917basic_string_viewIcEENS_5level10level_enumES6_.exit.i
-  br i1 %14, label %36, label %_ZN6spdlog6logger3logENS_10source_locENS_5level10level_enumEN3fmt2v917basic_string_viewIcEE.exit
+34:                                               ; preds = %30, %_ZN6spdlog7details7log_msgC2ENS_10source_locEN3fmt2v917basic_string_viewIcEENS_5level10level_enumES6_.exit.i
+  br i1 %13, label %35, label %_ZN6spdlog6logger3logENS_10source_locENS_5level10level_enumEN3fmt2v917basic_string_viewIcEE.exit
 
-36:                                               ; preds = %35
+35:                                               ; preds = %34
   call void @_ZN6spdlog7details10backtracer9push_backERKNS0_7log_msgE(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(96) %4)
   br label %_ZN6spdlog6logger3logENS_10source_locENS_5level10level_enumEN3fmt2v917basic_string_viewIcEE.exit
 
-_ZN6spdlog6logger3logENS_10source_locENS_5level10level_enumEN3fmt2v917basic_string_viewIcEE.exit: ; preds = %3, %35, %36
+_ZN6spdlog6logger3logENS_10source_locENS_5level10level_enumEN3fmt2v917basic_string_viewIcEE.exit: ; preds = %3, %34, %35
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   ret void
 }

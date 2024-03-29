@@ -127,18 +127,16 @@ if.end3:                                          ; preds = %if.end
 sw.bb:                                            ; preds = %if.end3
   %readonly = getelementptr inbounds i8, ptr %call.i, i64 410
   %3 = load i8, ptr %readonly, align 2
-  %4 = and i8 %3, 1
-  %tobool4.not = icmp eq i8 %4, 0
-  %cond = select i1 %tobool4.not, i32 2, i32 1
+  %tobool4 = trunc i8 %3 to i1
+  %cond = select i1 %tobool4, i32 1, i32 2
   store i32 %cond, ptr %rom, align 4
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %if.end3
   %readonly7 = getelementptr inbounds i8, ptr %call.i, i64 410
-  %5 = load i8, ptr %readonly7, align 2
-  %6 = and i8 %5, 1
-  %tobool8.not = icmp eq i8 %6, 0
-  br i1 %tobool8.not, label %if.then9, label %sw.epilog
+  %4 = load i8, ptr %readonly7, align 2
+  %tobool8 = trunc i8 %4 to i1
+  br i1 %tobool8, label %sw.epilog, label %if.then9
 
 if.then9:                                         ; preds = %sw.bb6
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 67, ptr noundef nonnull @__func__.file_backend_memory_alloc, ptr noundef nonnull @.str.16) #3
@@ -146,17 +144,15 @@ if.then9:                                         ; preds = %sw.bb6
 
 sw.bb11:                                          ; preds = %if.end3
   %readonly12 = getelementptr inbounds i8, ptr %call.i, i64 410
-  %7 = load i8, ptr %readonly12, align 2
-  %8 = and i8 %7, 1
-  %tobool13.not = icmp eq i8 %8, 0
-  br i1 %tobool13.not, label %sw.epilog, label %land.lhs.true
+  %5 = load i8, ptr %readonly12, align 2
+  %tobool13 = trunc i8 %5 to i1
+  br i1 %tobool13, label %land.lhs.true, label %sw.epilog
 
 land.lhs.true:                                    ; preds = %sw.bb11
   %share = getelementptr inbounds i8, ptr %backend, i64 53
-  %9 = load i8, ptr %share, align 1
-  %10 = and i8 %9, 1
-  %tobool14.not = icmp eq i8 %10, 0
-  br i1 %tobool14.not, label %sw.epilog, label %if.then15
+  %6 = load i8, ptr %share, align 1
+  %tobool14 = trunc i8 %6 to i1
+  br i1 %tobool14, label %if.then15, label %sw.epilog
 
 if.then15:                                        ; preds = %land.lhs.true
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 74, ptr noundef nonnull @__func__.file_backend_memory_alloc, ptr noundef nonnull @.str.17) #3
@@ -169,41 +165,36 @@ sw.default:                                       ; preds = %if.end3
 sw.epilog:                                        ; preds = %sw.bb11, %land.lhs.true, %sw.bb6, %sw.bb
   %call17 = tail call ptr @host_memory_backend_get_name(ptr noundef nonnull %backend) #3
   %share18 = getelementptr inbounds i8, ptr %backend, i64 53
-  %11 = load i8, ptr %share18, align 1
-  %12 = shl i8 %11, 1
-  %13 = and i8 %12, 2
-  %cond20 = zext nneg i8 %13 to i32
+  %7 = load i8, ptr %share18, align 1
+  %tobool19 = trunc i8 %7 to i1
   %readonly21 = getelementptr inbounds i8, ptr %call.i, i64 410
-  %14 = load i8, ptr %readonly21, align 2
-  %15 = and i8 %14, 1
-  %16 = zext nneg i8 %15 to i32
-  %cond23 = shl nuw nsw i32 %16, 11
-  %or = or disjoint i32 %cond23, %cond20
-  %17 = load i32, ptr %rom, align 4
-  %cmp = icmp eq i32 %17, 1
+  %8 = load i8, ptr %readonly21, align 2
+  %tobool22 = trunc i8 %8 to i1
+  %cond23 = select i1 %tobool22, i32 2048, i32 0
+  %9 = load i32, ptr %rom, align 4
+  %cmp = icmp eq i32 %9, 1
   %cond25 = select i1 %cmp, i32 1024, i32 0
-  %or26 = or disjoint i32 %or, %cond25
   %reserve = getelementptr inbounds i8, ptr %backend, i64 54
-  %18 = load i8, ptr %reserve, align 2
-  %19 = xor i8 %18, -1
-  %20 = shl i8 %19, 7
-  %cond28 = zext i8 %20 to i32
-  %or29 = or disjoint i32 %or26, %cond28
+  %10 = load i8, ptr %reserve, align 2
+  %tobool27 = trunc i8 %10 to i1
+  %cond28 = select i1 %tobool27, i32 0, i32 128
   %is_pmem = getelementptr inbounds i8, ptr %call.i, i64 409
-  %21 = load i8, ptr %is_pmem, align 1
-  %22 = shl i8 %21, 5
-  %23 = and i8 %22, 32
-  %cond31 = zext nneg i8 %23 to i32
-  %or32 = or disjoint i32 %or29, %cond31
-  %or33 = or disjoint i32 %or32, 512
+  %11 = load i8, ptr %is_pmem, align 1
+  %tobool30 = trunc i8 %11 to i1
+  %cond31 = select i1 %tobool30, i32 32, i32 0
+  %or = select i1 %tobool19, i32 514, i32 512
+  %or26 = or disjoint i32 %or, %cond23
+  %or29 = or disjoint i32 %or26, %cond25
+  %or32 = or disjoint i32 %or29, %cond28
+  %or33 = or disjoint i32 %or32, %cond31
   %mr = getelementptr inbounds i8, ptr %backend, i64 112
-  %24 = load i64, ptr %size, align 8
+  %12 = load i64, ptr %size, align 8
   %align = getelementptr inbounds i8, ptr %call.i, i64 392
-  %25 = load i64, ptr %align, align 8
-  %26 = load ptr, ptr %mem_path, align 16
+  %13 = load i64, ptr %align, align 8
+  %14 = load ptr, ptr %mem_path, align 16
   %offset = getelementptr inbounds i8, ptr %call.i, i64 400
-  %27 = load i64, ptr %offset, align 16
-  tail call void @memory_region_init_ram_from_file(ptr noundef nonnull %mr, ptr noundef nonnull %backend, ptr noundef %call17, i64 noundef %24, i64 noundef %25, i32 noundef %or33, ptr noundef %26, i64 noundef %27, ptr noundef %errp) #3
+  %15 = load i64, ptr %offset, align 16
+  tail call void @memory_region_init_ram_from_file(ptr noundef nonnull %mr, ptr noundef nonnull %backend, ptr noundef %call17, i64 noundef %12, i64 noundef %13, i32 noundef %or33, ptr noundef %14, i64 noundef %15, ptr noundef %errp) #3
   tail call void @g_free(ptr noundef %call17) #3
   br label %return
 
@@ -222,9 +213,8 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %discard_data = getelementptr inbounds i8, ptr %call.i4, i64 408
   %0 = load i8, ptr %discard_data, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   %mr = getelementptr inbounds i8, ptr %call.i, i64 112
@@ -245,8 +235,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 24, ptr noundef nonnull @__func__.MEMORY_BACKEND_FILE) #3
   %discard_data = getelementptr inbounds i8, ptr %call.i, i64 408
   %0 = load i8, ptr %discard_data, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -387,8 +376,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 24, ptr noundef nonnull @__func__.MEMORY_BACKEND_FILE) #3
   %readonly = getelementptr inbounds i8, ptr %call.i, i64 410
   %0 = load i8, ptr %readonly, align 2
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

@@ -61,9 +61,8 @@ define dso_local i64 @intset_memory_usage(ptr nocapture noundef readonly %0) loc
 define dso_local void @intset_add_member(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4004
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %9, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -75,14 +74,14 @@ define dso_local void @intset_add_member(ptr nocapture noundef %0, i64 noundef %
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
-  %.not12 = icmp ult i64 %11, %1
-  br i1 %.not12, label %18, label %12
+  %.not = icmp ult i64 %11, %1
+  br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
-  %.not13 = icmp eq i64 %14, 0
-  br i1 %.not13, label %18, label %15
+  %.not12 = icmp eq i64 %14, 0
+  br i1 %.not12, label %18, label %15
 
 15:                                               ; preds = %12
   %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11

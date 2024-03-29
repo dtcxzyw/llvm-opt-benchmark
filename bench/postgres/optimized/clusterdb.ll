@@ -88,8 +88,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.047 = phi ptr [ null, %2 ], [ %.047.be, %.backedge ]
   %.045 = phi i32 [ 0, %2 ], [ %.045.be, %.backedge ]
   %.043 = phi i8 [ 0, %2 ], [ %.043.be, %.backedge ]
-  %.041 = phi i8 [ 0, %2 ], [ %.041.be, %.backedge ]
-  %.039 = phi i8 [ 0, %2 ], [ %.039.be, %.backedge ]
+  %.041 = phi i1 [ false, %2 ], [ %.041.be, %.backedge ]
+  %.039 = phi i1 [ false, %2 ], [ %.039.be, %.backedge ]
   %.038 = phi i8 [ 0, %2 ], [ %.038.be, %.backedge ]
   %11 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.14, ptr noundef nonnull @main.long_options, ptr noundef nonnull %3) #8
   switch i32 %11, label %34 [
@@ -116,8 +116,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.047.be = phi ptr [ %.047, %31 ], [ %.047, %30 ], [ %.047, %29 ], [ %.047, %28 ], [ %27, %25 ], [ %.047, %23 ], [ %.047, %22 ], [ %.047, %19 ], [ %.047, %16 ], [ %.047, %15 ], [ %.047, %12 ], [ %.047, %10 ]
   %.045.be = phi i32 [ %.045, %31 ], [ 2, %30 ], [ 1, %29 ], [ %.045, %28 ], [ %.045, %25 ], [ %.045, %23 ], [ %.045, %22 ], [ %.045, %19 ], [ %.045, %16 ], [ %.045, %15 ], [ %.045, %12 ], [ %.045, %10 ]
   %.043.be = phi i8 [ %.043, %31 ], [ %.043, %30 ], [ %.043, %29 ], [ %.043, %28 ], [ %.043, %25 ], [ %.043, %23 ], [ %.043, %22 ], [ %.043, %19 ], [ %.043, %16 ], [ 1, %15 ], [ %.043, %12 ], [ %.043, %10 ]
-  %.041.be = phi i8 [ %.041, %31 ], [ %.041, %30 ], [ %.041, %29 ], [ %.041, %28 ], [ %.041, %25 ], [ %.041, %23 ], [ 1, %22 ], [ %.041, %19 ], [ %.041, %16 ], [ %.041, %15 ], [ %.041, %12 ], [ %.041, %10 ]
-  %.039.be = phi i8 [ %.039, %31 ], [ %.039, %30 ], [ %.039, %29 ], [ %.039, %28 ], [ %.039, %25 ], [ %.039, %23 ], [ %.039, %22 ], [ %.039, %19 ], [ %.039, %16 ], [ %.039, %15 ], [ %.039, %12 ], [ 1, %10 ]
+  %.041.be = phi i1 [ %.041, %31 ], [ %.041, %30 ], [ %.041, %29 ], [ %.041, %28 ], [ %.041, %25 ], [ %.041, %23 ], [ true, %22 ], [ %.041, %19 ], [ %.041, %16 ], [ %.041, %15 ], [ %.041, %12 ], [ %.041, %10 ]
+  %.039.be = phi i1 [ %.039, %31 ], [ %.039, %30 ], [ %.039, %29 ], [ %.039, %28 ], [ %.039, %25 ], [ %.039, %23 ], [ %.039, %22 ], [ %.039, %19 ], [ %.039, %16 ], [ %.039, %15 ], [ %.039, %12 ], [ true, %10 ]
   %.038.be = phi i8 [ %.038, %31 ], [ %.038, %30 ], [ %.038, %29 ], [ 1, %28 ], [ %.038, %25 ], [ %.038, %23 ], [ %.038, %22 ], [ %.038, %19 ], [ %.038, %16 ], [ %.038, %15 ], [ %.038, %12 ], [ %.038, %10 ]
   br label %10, !llvm.loop !5
 
@@ -213,109 +213,107 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %56 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %56, align 8
   call void @setup_cancel_handler(ptr noundef null) #8
-  %.not63 = icmp eq i8 %.039, 0
-  %57 = icmp eq ptr %.2, null
-  br i1 %.not63, label %81, label %58
+  %.not67 = icmp eq ptr %.2, null
+  br i1 %.039, label %57, label %80
 
-58:                                               ; preds = %51
-  br i1 %57, label %60, label %59
+57:                                               ; preds = %51
+  br i1 %.not67, label %59, label %58
 
-59:                                               ; preds = %58
+58:                                               ; preds = %57
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17) #8
   call void @exit(i32 noundef 1) #9
   unreachable
 
-60:                                               ; preds = %58
-  %61 = load ptr, ptr %5, align 8
-  %.not69 = icmp eq ptr %61, null
-  br i1 %.not69, label %63, label %62
+59:                                               ; preds = %57
+  %60 = load ptr, ptr %5, align 8
+  %.not68 = icmp eq ptr %60, null
+  br i1 %.not68, label %62, label %61
 
-62:                                               ; preds = %60
+61:                                               ; preds = %59
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.18) #8
   call void @exit(i32 noundef 1) #9
   unreachable
 
-63:                                               ; preds = %60
+62:                                               ; preds = %59
   store ptr %.053, ptr %4, align 8
-  %64 = icmp ne i8 %.038, 0
-  %65 = icmp ne i8 %.043, 0
-  %66 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %4, ptr noundef %8, i1 noundef zeroext %65) #8
-  %67 = call ptr @executeQuery(ptr noundef %66, ptr noundef nonnull @.str.25, i1 noundef zeroext %65) #8
-  call void @PQfinish(ptr noundef %66) #8
-  %68 = call i32 @PQntuples(ptr noundef %67) #8
-  %69 = icmp sgt i32 %68, 0
-  br i1 %69, label %.lr.ph.i, label %cluster_all_databases.exit
+  %63 = trunc i8 %.038 to i1
+  %64 = trunc i8 %.043 to i1
+  %65 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %4, ptr noundef %8, i1 noundef zeroext %64) #8
+  %66 = call ptr @executeQuery(ptr noundef %65, ptr noundef nonnull @.str.25, i1 noundef zeroext %64) #8
+  call void @PQfinish(ptr noundef %65) #8
+  %67 = call i32 @PQntuples(ptr noundef %66) #8
+  %68 = icmp sgt i32 %67, 0
+  br i1 %68, label %.lr.ph.i, label %cluster_all_databases.exit
 
-.lr.ph.i:                                         ; preds = %63
-  %.not = icmp eq i8 %.041, 0
-  br i1 %.not, label %.lr.ph.split.i, label %.lr.ph.split.us.i
+.lr.ph.i:                                         ; preds = %62
+  br i1 %.041, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
-  %.020.us.i = phi i32 [ %71, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
-  %70 = call ptr @PQgetvalue(ptr noundef %67, i32 noundef %.020.us.i, i32 noundef 0) #8
-  store ptr %70, ptr %56, align 8
-  call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %64, i1 noundef zeroext %65)
-  %71 = add nuw nsw i32 %.020.us.i, 1
-  %72 = call i32 @PQntuples(ptr noundef %67) #8
-  %73 = icmp slt i32 %71, %72
-  br i1 %73, label %.lr.ph.split.us.i, label %cluster_all_databases.exit, !llvm.loop !7
+  %.020.us.i = phi i32 [ %70, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
+  %69 = call ptr @PQgetvalue(ptr noundef %66, i32 noundef %.020.us.i, i32 noundef 0) #8
+  store ptr %69, ptr %56, align 8
+  call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %63, i1 noundef zeroext %64)
+  %70 = add nuw nsw i32 %.020.us.i, 1
+  %71 = call i32 @PQntuples(ptr noundef %66) #8
+  %72 = icmp slt i32 %70, %71
+  br i1 %72, label %.lr.ph.split.us.i, label %cluster_all_databases.exit, !llvm.loop !7
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
-  %.020.i = phi i32 [ %78, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
-  %74 = call ptr @PQgetvalue(ptr noundef %67, i32 noundef %.020.i, i32 noundef 0) #8
-  %75 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef %8, ptr noundef %74) #8
-  %76 = load ptr, ptr @stdout, align 8
-  %77 = call i32 @fflush(ptr noundef %76)
-  store ptr %74, ptr %56, align 8
-  call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %64, i1 noundef zeroext %65)
-  %78 = add nuw nsw i32 %.020.i, 1
-  %79 = call i32 @PQntuples(ptr noundef %67) #8
-  %80 = icmp slt i32 %78, %79
-  br i1 %80, label %.lr.ph.split.i, label %cluster_all_databases.exit, !llvm.loop !7
+  %.020.i = phi i32 [ %77, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
+  %73 = call ptr @PQgetvalue(ptr noundef %66, i32 noundef %.020.i, i32 noundef 0) #8
+  %74 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef %8, ptr noundef %73) #8
+  %75 = load ptr, ptr @stdout, align 8
+  %76 = call i32 @fflush(ptr noundef %75)
+  store ptr %73, ptr %56, align 8
+  call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %63, i1 noundef zeroext %64)
+  %77 = add nuw nsw i32 %.020.i, 1
+  %78 = call i32 @PQntuples(ptr noundef %66) #8
+  %79 = icmp slt i32 %77, %78
+  br i1 %79, label %.lr.ph.split.i, label %cluster_all_databases.exit, !llvm.loop !7
 
-cluster_all_databases.exit:                       ; preds = %.lr.ph.split.us.i, %.lr.ph.split.i, %63
-  call void @PQclear(ptr noundef %67) #8
+cluster_all_databases.exit:                       ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %62
+  call void @PQclear(ptr noundef %66) #8
   br label %.loopexit
 
-81:                                               ; preds = %51
-  br i1 %57, label %82, label %88
+80:                                               ; preds = %51
+  br i1 %.not67, label %81, label %87
 
-82:                                               ; preds = %81
-  %83 = call ptr @getenv(ptr noundef nonnull @.str.19) #8
-  %.not64 = icmp eq ptr %83, null
-  br i1 %.not64, label %84, label %88
+81:                                               ; preds = %80
+  %82 = call ptr @getenv(ptr noundef nonnull @.str.19) #8
+  %.not63 = icmp eq ptr %82, null
+  br i1 %.not63, label %83, label %87
 
-84:                                               ; preds = %82
-  %85 = call ptr @getenv(ptr noundef nonnull @.str.20) #8
-  %.not65 = icmp eq ptr %85, null
-  br i1 %.not65, label %86, label %88
+83:                                               ; preds = %81
+  %84 = call ptr @getenv(ptr noundef nonnull @.str.20) #8
+  %.not64 = icmp eq ptr %84, null
+  br i1 %.not64, label %85, label %87
 
-86:                                               ; preds = %84
-  %87 = call ptr @get_user_name_or_exit(ptr noundef %8) #8
-  br label %88
+85:                                               ; preds = %83
+  %86 = call ptr @get_user_name_or_exit(ptr noundef %8) #8
+  br label %87
 
-88:                                               ; preds = %84, %82, %86, %81
-  %.3 = phi ptr [ %87, %86 ], [ %.2, %81 ], [ %83, %82 ], [ %85, %84 ]
+87:                                               ; preds = %83, %81, %85, %80
+  %.3 = phi ptr [ %86, %85 ], [ %.2, %80 ], [ %82, %81 ], [ %84, %83 ]
   store ptr %.3, ptr %4, align 8
-  %89 = load ptr, ptr %5, align 8
-  %.not66 = icmp eq ptr %89, null
-  %90 = icmp ne i8 %.038, 0
-  %91 = icmp ne i8 %.043, 0
-  br i1 %.not66, label %94, label %.preheader
+  %88 = load ptr, ptr %5, align 8
+  %.not65 = icmp eq ptr %88, null
+  %89 = trunc i8 %.038 to i1
+  %90 = trunc i8 %.043 to i1
+  br i1 %.not65, label %93, label %.preheader
 
-.preheader:                                       ; preds = %88, %.preheader
-  %.081 = phi ptr [ %93, %.preheader ], [ %89, %88 ]
-  %92 = getelementptr inbounds i8, ptr %.081, i64 9
-  call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef nonnull %92, ptr noundef %8, i1 noundef zeroext %90, i1 noundef zeroext %91)
-  %93 = load ptr, ptr %.081, align 8
-  %.not67 = icmp eq ptr %93, null
-  br i1 %.not67, label %.loopexit, label %.preheader, !llvm.loop !8
+.preheader:                                       ; preds = %87, %.preheader
+  %.080 = phi ptr [ %92, %.preheader ], [ %88, %87 ]
+  %91 = getelementptr inbounds i8, ptr %.080, i64 9
+  call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef nonnull %91, ptr noundef %8, i1 noundef zeroext %89, i1 noundef zeroext %90)
+  %92 = load ptr, ptr %.080, align 8
+  %.not66 = icmp eq ptr %92, null
+  br i1 %.not66, label %.loopexit, label %.preheader, !llvm.loop !8
 
-94:                                               ; preds = %88
-  call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %90, i1 noundef zeroext %91)
+93:                                               ; preds = %87
+  call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %89, i1 noundef zeroext %90)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %94, %cluster_all_databases.exit
+.loopexit:                                        ; preds = %.preheader, %93, %cluster_all_databases.exit
   call void @exit(i32 noundef 0) #9
   unreachable
 }

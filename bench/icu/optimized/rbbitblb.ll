@@ -453,15 +453,13 @@ if.else43:                                        ; preds = %if.end14
 switch.hole_check:                                ; preds = %if.end
   %switch.maskindex = trunc i32 %0 to i8
   %switch.shifted = lshr i8 113, %switch.maskindex
-  %13 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %13, 0
-  br i1 %switch.lobit.not, label %if.end14, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %if.end14
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %switch.cast = trunc i32 %0 to i7
   %switch.downshift = lshr i7 48, %switch.cast
-  %14 = and i7 %switch.downshift, 1
-  %switch.masked = icmp ne i7 %14, 0
+  %switch.masked = trunc i7 %switch.downshift to i1
   br label %if.end47.sink.split
 
 if.end47.sink.split:                              ; preds = %switch.lookup, %if.end14, %if.end14, %if.then26, %land.rhs, %if.then17, %lor.rhs, %if.else43
@@ -1452,7 +1450,7 @@ for.body.lr.ph:                                   ; preds = %if.end9
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc64
-  %12 = phi ptr [ %10, %for.body.lr.ph ], [ %34, %for.inc64 ]
+  %12 = phi ptr [ %10, %for.body.lr.ph ], [ %33, %for.inc64 ]
   %n.045 = phi i32 [ 0, %for.body.lr.ph ], [ %inc65, %for.inc64 ]
   %call18 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef %n.045)
   %fPositions = getelementptr inbounds i8, ptr %call18, i64 32
@@ -1465,7 +1463,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.body22:                                       ; preds = %for.body, %for.inc
   %15 = phi ptr [ %22, %for.inc ], [ %13, %for.body ]
   %laSlotForState.038 = phi i32 [ %laSlotForState.1, %for.inc ], [ 0, %for.body ]
-  %sawLookAheadNode.037 = phi i8 [ %sawLookAheadNode.1, %for.inc ], [ 0, %for.body ]
+  %sawLookAheadNode.037 = phi i1 [ %sawLookAheadNode.1, %for.inc ], [ false, %for.body ]
   %ipos.036 = phi i32 [ %inc, %for.inc ], [ 0, %for.body ]
   %call24 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %15, i32 noundef %ipos.036)
   %16 = load i32, ptr %call24, align 8
@@ -1500,7 +1498,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %if.end27, %cond.tru
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit, %for.body22
-  %sawLookAheadNode.1 = phi i8 [ %sawLookAheadNode.037, %for.body22 ], [ 1, %_ZNK6icu_759UVector3210elementAtiEi.exit ]
+  %sawLookAheadNode.1 = phi i1 [ %sawLookAheadNode.037, %for.body22 ], [ true, %_ZNK6icu_759UVector3210elementAtiEi.exit ]
   %laSlotForState.1 = phi i32 [ %laSlotForState.038, %for.body22 ], [ %spec.select, %_ZNK6icu_759UVector3210elementAtiEi.exit ]
   %inc = add nuw nsw i32 %ipos.036, 1
   %22 = load ptr, ptr %fPositions, align 8
@@ -1510,58 +1508,56 @@ for.inc:                                          ; preds = %_ZNK6icu_759UVector
   br i1 %cmp21, label %for.body22, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc
-  %24 = and i8 %sawLookAheadNode.1, 1
-  %tobool36.not = icmp eq i8 %24, 0
-  br i1 %tobool36.not, label %for.inc64, label %if.end38
+  br i1 %sawLookAheadNode.1, label %if.end38, label %for.inc64
 
 if.end38:                                         ; preds = %for.end
   %cmp39 = icmp eq i32 %laSlotForState.1, 0
   br i1 %cmp39, label %if.then40, label %if.end42
 
 if.then40:                                        ; preds = %if.end38
-  %25 = load i32, ptr %fLASlotsInUse, align 8
-  %inc41 = add nsw i32 %25, 1
+  %24 = load i32, ptr %fLASlotsInUse, align 8
+  %inc41 = add nsw i32 %24, 1
   store i32 %inc41, ptr %fLASlotsInUse, align 8
   %.pre = load ptr, ptr %fPositions, align 8
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then40, %if.end38
-  %26 = phi ptr [ %.pre, %if.then40 ], [ %22, %if.end38 ]
+  %25 = phi ptr [ %.pre, %if.then40 ], [ %22, %if.end38 ]
   %laSlotForState.2 = phi i32 [ %inc41, %if.then40 ], [ %laSlotForState.1, %if.end38 ]
-  %count.i1940 = getelementptr inbounds i8, ptr %26, i64 8
-  %27 = load i32, ptr %count.i1940, align 8
-  %cmp4741 = icmp sgt i32 %27, 0
+  %count.i1940 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = load i32, ptr %count.i1940, align 8
+  %cmp4741 = icmp sgt i32 %26, 0
   br i1 %cmp4741, label %for.body48, label %for.inc64
 
 for.body48:                                       ; preds = %if.end42, %for.inc61
-  %28 = phi ptr [ %32, %for.inc61 ], [ %26, %if.end42 ]
+  %27 = phi ptr [ %31, %for.inc61 ], [ %25, %if.end42 ]
   %ipos43.042 = phi i32 [ %inc62, %for.inc61 ], [ 0, %if.end42 ]
-  %call51 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef %ipos43.042)
-  %29 = load i32, ptr %call51, align 8
-  %cmp53.not = icmp eq i32 %29, 4
+  %call51 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %27, i32 noundef %ipos43.042)
+  %28 = load i32, ptr %call51, align 8
+  %cmp53.not = icmp eq i32 %28, 4
   br i1 %cmp53.not, label %if.end55, label %for.inc61
 
 if.end55:                                         ; preds = %for.body48
   %fVal57 = getelementptr inbounds i8, ptr %call51, i64 124
-  %30 = load i32, ptr %fVal57, align 4
-  %31 = load ptr, ptr %fLookAheadRuleMap32, align 8
-  tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %31, i32 noundef %laSlotForState.2, i32 noundef %30)
+  %29 = load i32, ptr %fVal57, align 4
+  %30 = load ptr, ptr %fLookAheadRuleMap32, align 8
+  tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef %laSlotForState.2, i32 noundef %29)
   br label %for.inc61
 
 for.inc61:                                        ; preds = %for.body48, %if.end55
   %inc62 = add nuw nsw i32 %ipos43.042, 1
-  %32 = load ptr, ptr %fPositions, align 8
-  %count.i19 = getelementptr inbounds i8, ptr %32, i64 8
-  %33 = load i32, ptr %count.i19, align 8
-  %cmp47 = icmp slt i32 %inc62, %33
+  %31 = load ptr, ptr %fPositions, align 8
+  %count.i19 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = load i32, ptr %count.i19, align 8
+  %cmp47 = icmp slt i32 %inc62, %32
   br i1 %cmp47, label %for.body48, label %for.inc64, !llvm.loop !17
 
 for.inc64:                                        ; preds = %for.inc61, %for.body, %if.end42, %for.end
   %inc65 = add nuw nsw i32 %n.045, 1
-  %34 = load ptr, ptr %fDStates, align 8
-  %count.i = getelementptr inbounds i8, ptr %34, i64 8
-  %35 = load i32, ptr %count.i, align 8
-  %cmp16 = icmp slt i32 %inc65, %35
+  %33 = load ptr, ptr %fDStates, align 8
+  %count.i = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = load i32, ptr %count.i, align 8
+  %cmp16 = icmp slt i32 %inc65, %34
   br i1 %cmp16, label %for.body, label %for.end66, !llvm.loop !18
 
 for.end66:                                        ; preds = %for.inc64, %if.end9, %if.end
@@ -4060,7 +4056,7 @@ invoke.cont124:                                   ; preds = %invoke.cont118
           to label %for.inc128 unwind label %lpad43.loopexit.split-lp.loopexit
 
 for.inc128:                                       ; preds = %invoke.cont124
-  %indvars.iv.next172 = add nuw i64 %indvars.iv171, 2
+  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 2
   %37 = load i16, ptr %fUnion2.i, align 8
   %cmp.i.i67 = icmp slt i16 %37, 0
   %38 = ashr i16 %37, 5

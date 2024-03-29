@@ -176,9 +176,8 @@ define dso_local noundef i32 @license_init(ptr noundef %0) local_unnamed_addr #0
   %11 = call fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef nonnull %2)
   store ptr %11, ptr @cluster_license_list, align 8
   %12 = load i8, ptr %2, align 1
-  %13 = and i8 %12, 1
-  %.not7 = icmp eq i8 %13, 0
-  br i1 %.not7, label %14, label %15
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %15, label %14
 
 14:                                               ; preds = %10
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.6, ptr noundef %0) #13
@@ -187,8 +186,8 @@ define dso_local noundef i32 @license_init(ptr noundef %0) local_unnamed_addr #0
 15:                                               ; preds = %10
   tail call fastcc void @_licenses_print(ptr noundef nonnull @.str.7, ptr noundef %11, ptr noundef null)
   %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @license_mutex) #11
-  %.not8 = icmp eq i32 %16, 0
-  br i1 %.not8, label %19, label %17
+  %.not7 = icmp eq i32 %16, 0
+  br i1 %.not7, label %19, label %17
 
 17:                                               ; preds = %15
   %18 = tail call ptr @__errno_location() #12
@@ -231,20 +230,19 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr nocapture no
   %12 = tail call ptr @xstrdup(ptr noundef nonnull %0) #11
   store ptr %12, ptr %4, align 8
   %13 = call ptr @strtok_r(ptr noundef %12, ptr noundef nonnull @.str.36, ptr noundef nonnull %5) #11
-  %.not63 = icmp eq ptr %13, null
-  br i1 %.not63, label %.critedge, label %.lr.ph66
+  %.not61 = icmp eq ptr %13, null
+  br i1 %.not61, label %.critedge, label %.lr.ph64
 
-.lr.ph66:                                         ; preds = %10, %53
-  %.04064 = phi ptr [ %54, %53 ], [ %13, %10 ]
+.lr.ph64:                                         ; preds = %10, %53
+  %.04062 = phi ptr [ %54, %53 ], [ %13, %10 ]
   %14 = load i8, ptr %1, align 1
-  %15 = and i8 %14, 1
-  %.not48 = icmp eq i8 %15, 0
-  br i1 %.not48, label %.critedge, label %.preheader
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.preheader, label %.critedge
 
-.preheader:                                       ; preds = %.lr.ph66
-  %16 = load i8, ptr %.04064, align 1
-  %.not4961 = icmp eq i8 %16, 0
-  br i1 %.not4961, label %.thread, label %.lr.ph
+.preheader:                                       ; preds = %.lr.ph64
+  %16 = load i8, ptr %.04062, align 1
+  %.not4859 = icmp eq i8 %16, 0
+  br i1 %.not4859, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %17 = tail call ptr @__ctype_b_loc() #12
@@ -258,8 +256,8 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr nocapture no
   %22 = getelementptr inbounds i16, ptr %18, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 8192
-  %.not50 = icmp eq i16 %24, 0
-  br i1 %.not50, label %25, label %.thread.thread
+  %.not49 = icmp eq i16 %24, 0
+  br i1 %.not49, label %25, label %.thread.thread
 
 25:                                               ; preds = %19
   switch i8 %20, label %36 [
@@ -268,17 +266,17 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr nocapture no
   ]
 
 26:                                               ; preds = %25, %25
-  %27 = getelementptr inbounds i8, ptr %.04064, i64 %indvars.iv
+  %27 = getelementptr inbounds i8, ptr %.04062, i64 %indvars.iv
   %28 = add nuw i64 %indvars.iv, 1
   store i8 0, ptr %27, align 1
   %29 = and i64 %28, 4294967295
-  %30 = getelementptr inbounds i8, ptr %.04064, i64 %29
+  %30 = getelementptr inbounds i8, ptr %.04062, i64 %29
   %31 = call i64 @strtol(ptr noundef nonnull %30, ptr noundef nonnull %3, i32 noundef 10) #11
   %32 = trunc i64 %31 to i32
   %33 = load ptr, ptr %3, align 8
   %34 = load i8, ptr %33, align 1
-  %.not51 = icmp eq i8 %34, 0
-  br i1 %.not51, label %39, label %35
+  %.not50 = icmp eq i8 %34, 0
+  br i1 %.not50, label %39, label %35
 
 35:                                               ; preds = %26
   store i8 0, ptr %1, align 1
@@ -286,10 +284,10 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr nocapture no
 
 36:                                               ; preds = %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = getelementptr inbounds i8, ptr %.04064, i64 %indvars.iv.next
+  %37 = getelementptr inbounds i8, ptr %.04062, i64 %indvars.iv.next
   %38 = load i8, ptr %37, align 1
-  %.not49 = icmp eq i8 %38, 0
-  br i1 %.not49, label %.thread, label %19, !llvm.loop !9
+  %.not48 = icmp eq i8 %38, 0
+  br i1 %.not48, label %.thread, label %19, !llvm.loop !9
 
 39:                                               ; preds = %26, %35
   %40 = icmp slt i32 %32, 0
@@ -301,42 +299,41 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr nocapture no
 
 .thread:                                          ; preds = %36, %..thread_crit_edge, %.preheader
   %41 = phi i8 [ %.pre, %..thread_crit_edge ], [ %14, %.preheader ], [ %14, %36 ]
-  %.056 = phi i32 [ %32, %..thread_crit_edge ], [ 1, %.preheader ], [ 1, %36 ]
-  %42 = and i8 %41, 1
-  %.not52 = icmp eq i8 %42, 0
-  br i1 %.not52, label %.thread.thread, label %43
+  %.054 = phi i32 [ %32, %..thread_crit_edge ], [ 1, %.preheader ], [ 1, %36 ]
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread, %39, %19
   store i8 0, ptr %1, align 1
   br label %.critedge
 
 43:                                               ; preds = %.thread
-  %44 = call ptr @list_find_first(ptr noundef %11, ptr noundef nonnull @_license_find_rec, ptr noundef nonnull %.04064) #11
-  %.not53 = icmp eq ptr %44, null
-  br i1 %.not53, label %49, label %45
+  %44 = call ptr @list_find_first(ptr noundef %11, ptr noundef nonnull @_license_find_rec, ptr noundef nonnull %.04062) #11
+  %.not51 = icmp eq ptr %44, null
+  br i1 %.not51, label %49, label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds i8, ptr %44, i64 8
   %47 = load i32, ptr %46, align 8
-  %48 = add i32 %47, %.056
+  %48 = add i32 %47, %.054
   store i32 %48, ptr %46, align 8
   br label %53
 
 49:                                               ; preds = %43
   %50 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 174, ptr noundef nonnull @__func__._build_license_list) #11
-  %51 = call ptr @xstrdup(ptr noundef nonnull %.04064) #11
+  %51 = call ptr @xstrdup(ptr noundef nonnull %.04062) #11
   store ptr %51, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %50, i64 8
-  store i32 %.056, ptr %52, align 8
+  store i32 %.054, ptr %52, align 8
   call void @list_push(ptr noundef %11, ptr noundef nonnull %50) #11
   br label %53
 
 53:                                               ; preds = %49, %45
   %54 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.36, ptr noundef nonnull %5) #11
   %.not = icmp eq ptr %54, null
-  br i1 %.not, label %.critedge, label %.lr.ph66, !llvm.loop !10
+  br i1 %.not, label %.critedge, label %.lr.ph64, !llvm.loop !10
 
-.critedge:                                        ; preds = %.lr.ph66, %53, %10, %.thread.thread
+.critedge:                                        ; preds = %.lr.ph64, %53, %10, %.thread.thread
   call void @slurm_xfree(ptr noundef nonnull %4) #11
   %55 = load i8, ptr %1, align 1
   %56 = and i8 %55, 1
@@ -344,8 +341,8 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr nocapture no
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %.critedge
-  %.not54 = icmp eq ptr %11, null
-  br i1 %.not54, label %60, label %59
+  %.not52 = icmp eq ptr %11, null
+  br i1 %.not52, label %60, label %59
 
 59:                                               ; preds = %58
   call void @list_destroy(ptr noundef nonnull %11) #11
@@ -435,9 +432,8 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
   %3 = call fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef nonnull %2)
   %.fr = freeze ptr %3
   %4 = load i8, ptr %2, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %7
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %7, label %6
 
 6:                                                ; preds = %1
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.6, ptr noundef %0) #13
@@ -445,8 +441,8 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
 
 7:                                                ; preds = %1
   %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @license_mutex) #11
-  %.not34 = icmp eq i32 %8, 0
-  br i1 %.not34, label %11, label %9
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %7
   %10 = tail call ptr @__errno_location() #12
@@ -456,14 +452,14 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @cluster_license_list, align 8
-  %.not35 = icmp eq ptr %12, null
-  br i1 %.not35, label %13, label %17
+  %.not34 = icmp eq ptr %12, null
+  br i1 %.not34, label %13, label %17
 
 13:                                               ; preds = %11
   store ptr %.fr, ptr @cluster_license_list, align 8
   %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @license_mutex) #11
-  %.not36 = icmp eq i32 %14, 0
-  br i1 %.not36, label %68, label %15
+  %.not35 = icmp eq i32 %14, 0
+  br i1 %.not35, label %68, label %15
 
 15:                                               ; preds = %13
   %16 = tail call ptr @__errno_location() #12
@@ -474,21 +470,21 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
 17:                                               ; preds = %11
   %18 = tail call ptr @list_iterator_create(ptr noundef nonnull %12) #11
   %19 = tail call ptr @list_next(ptr noundef %18) #11
-  %.not374750 = icmp eq ptr %19, null
-  br i1 %.not374750, label %.outer._crit_edge, label %.lr.ph
+  %.not364649 = icmp eq ptr %19, null
+  br i1 %.not364649, label %.outer._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %.outer
   %20 = phi ptr [ %39, %.outer ], [ %19, %17 ]
-  %.028.ph51 = phi ptr [ %.1, %.outer ], [ %.fr, %17 ]
-  %.not41 = icmp eq ptr %.028.ph51, null
-  br i1 %.not41, label %.lr.ph.split.us, label %.lr.ph.split
+  %.028.ph50 = phi ptr [ %.1, %.outer ], [ %.fr, %17 ]
+  %.not40 = icmp eq ptr %.028.ph50, null
+  br i1 %.not40, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %30
   %21 = phi ptr [ %31, %30 ], [ %20, %.lr.ph ]
   %22 = getelementptr inbounds i8, ptr %21, i64 20
   %23 = load i8, ptr %22, align 4
-  %.not40.us = icmp eq i8 %23, 0
-  br i1 %.not40.us, label %.thread.us, label %.split.us
+  %.not39.us = icmp eq i8 %23, 0
+  br i1 %.not39.us, label %.thread.us, label %.split.us
 
 .thread.us:                                       ; preds = %.lr.ph.split.us
   %24 = tail call i32 @get_log_level() #11
@@ -504,39 +500,39 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
 
 30:                                               ; preds = %26, %.thread.us
   %31 = tail call ptr @list_next(ptr noundef %18) #11
-  %.not37.us = icmp eq ptr %31, null
-  br i1 %.not37.us, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
+  %.not36.us = icmp eq ptr %31, null
+  br i1 %.not36.us, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %60
   %32 = phi ptr [ %61, %60 ], [ %20, %.lr.ph ]
   %33 = getelementptr inbounds i8, ptr %32, i64 20
   %34 = load i8, ptr %33, align 4
-  %.not40 = icmp eq i8 %34, 0
-  br i1 %.not40, label %40, label %.split.us
+  %.not39 = icmp eq i8 %34, 0
+  br i1 %.not39, label %40, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi ptr [ %21, %.lr.ph.split.us ], [ %32, %.lr.ph.split ]
   %35 = tail call ptr @list_remove(ptr noundef %18) #11
-  br i1 %.not41, label %36, label %.outer
+  br i1 %.not40, label %36, label %.outer
 
 36:                                               ; preds = %.split.us
   %37 = tail call ptr @list_create(ptr noundef nonnull @license_free_rec) #11
   br label %.outer
 
 .outer:                                           ; preds = %36, %.split.us
-  %.1 = phi ptr [ %.028.ph51, %.split.us ], [ %37, %36 ]
+  %.1 = phi ptr [ %.028.ph50, %.split.us ], [ %37, %36 ]
   %38 = getelementptr inbounds i8, ptr %.us-phi, i64 12
   store i32 0, ptr %38, align 4
   tail call void @list_append(ptr noundef %.1, ptr noundef nonnull %.us-phi) #11
   %39 = tail call ptr @list_next(ptr noundef %18) #11
-  %.not3747 = icmp eq ptr %39, null
-  br i1 %.not3747, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !12
+  %.not3646 = icmp eq ptr %39, null
+  br i1 %.not3646, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !12
 
 40:                                               ; preds = %.lr.ph.split
   %41 = load ptr, ptr %32, align 8
-  %42 = tail call ptr @list_find_first(ptr noundef nonnull %.028.ph51, ptr noundef nonnull @_license_find_rec, ptr noundef %41) #11
-  %.not42 = icmp eq ptr %42, null
-  br i1 %.not42, label %.thread, label %49
+  %42 = tail call ptr @list_find_first(ptr noundef nonnull %.028.ph50, ptr noundef nonnull @_license_find_rec, ptr noundef %41) #11
+  %.not41 = icmp eq ptr %42, null
+  br i1 %.not41, label %.thread, label %49
 
 .thread:                                          ; preds = %40
   %43 = tail call i32 @get_log_level() #11
@@ -570,15 +566,15 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
 
 60:                                               ; preds = %49, %58, %55, %.thread, %45
   %61 = tail call ptr @list_next(ptr noundef %18) #11
-  %.not37 = icmp eq ptr %61, null
-  br i1 %.not37, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !12
+  %.not36 = icmp eq ptr %61, null
+  br i1 %.not36, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 .outer._crit_edge:                                ; preds = %.outer, %60, %30, %17
-  %.028.ph.lcssa = phi ptr [ %.fr, %17 ], [ null, %30 ], [ %.028.ph51, %60 ], [ %.1, %.outer ]
+  %.028.ph.lcssa = phi ptr [ %.fr, %17 ], [ null, %30 ], [ %.028.ph50, %60 ], [ %.1, %.outer ]
   tail call void @list_iterator_destroy(ptr noundef %18) #11
   %62 = load ptr, ptr @cluster_license_list, align 8
-  %.not38 = icmp eq ptr %62, null
-  br i1 %.not38, label %64, label %63
+  %.not37 = icmp eq ptr %62, null
+  br i1 %.not37, label %64, label %63
 
 63:                                               ; preds = %.outer._crit_edge
   tail call void @list_destroy(ptr noundef nonnull %62) #11
@@ -588,8 +584,8 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
   store ptr %.028.ph.lcssa, ptr @cluster_license_list, align 8
   tail call fastcc void @_licenses_print(ptr noundef nonnull @.str.11, ptr noundef %.028.ph.lcssa, ptr noundef null)
   %65 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @license_mutex) #11
-  %.not39 = icmp eq i32 %65, 0
-  br i1 %.not39, label %68, label %66
+  %.not38 = icmp eq i32 %65, 0
+  br i1 %.not38, label %68, label %66
 
 66:                                               ; preds = %64
   %67 = tail call ptr @__errno_location() #12
@@ -1328,8 +1324,8 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 8, %7 ]
   %10 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8
-  %.not61 = icmp eq i64 %11, 0
-  br i1 %.not61, label %20, label %12
+  %.not60 = icmp eq i64 %11, 0
+  br i1 %.not60, label %20, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = load ptr, ptr @assoc_mgr_tres_array, align 8
@@ -1338,8 +1334,8 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
   %16 = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @xstrcasecmp(ptr noundef %17, ptr noundef nonnull @.str.17) #11
-  %.not62 = icmp eq i32 %18, 0
-  br i1 %.not62, label %19, label %20
+  %.not61 = icmp eq i32 %18, 0
+  br i1 %.not61, label %19, label %20
 
 19:                                               ; preds = %12
   store i64 0, ptr %10, align 8
@@ -1386,19 +1382,19 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
   call fastcc void @_licenses_print(ptr noundef nonnull @.str.18, ptr noundef nonnull %25, ptr noundef null)
   %33 = call ptr @list_iterator_create(ptr noundef nonnull %25) #11
   %34 = call ptr @list_next(ptr noundef %33) #11
-  %.not5570 = icmp eq ptr %34, null
-  br i1 %.not5570, label %.loopexit, label %.lr.ph72
+  %.not5569 = icmp eq ptr %34, null
+  br i1 %.not5569, label %.loopexit, label %.lr.ph71
 
-.lr.ph72:                                         ; preds = %32
-  br i1 %.not, label %.lr.ph72.split.us, label %.lr.ph72.split
+.lr.ph71:                                         ; preds = %32
+  br i1 %.not, label %.lr.ph71.split.us, label %.lr.ph71.split
 
-.lr.ph72.split.us:                                ; preds = %.lr.ph72, %.backedge.us
-  %35 = phi ptr [ %54, %.backedge.us ], [ %34, %.lr.ph72 ]
+.lr.ph71.split.us:                                ; preds = %.lr.ph71, %.backedge.us
+  %35 = phi ptr [ %54, %.backedge.us ], [ %34, %.lr.ph71 ]
   %36 = load ptr, ptr @cluster_license_list, align 8
   %.not56.us = icmp eq ptr %36, null
   br i1 %.not56.us, label %.thread.us, label %37
 
-37:                                               ; preds = %.lr.ph72.split.us
+37:                                               ; preds = %.lr.ph71.split.us
   %38 = load ptr, ptr %35, align 8
   %39 = call ptr @list_find_first(ptr noundef nonnull %36, ptr noundef nonnull @_license_find_rec, ptr noundef %38) #11
   %.not57.us = icmp eq ptr %39, null
@@ -1415,7 +1411,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
   %46 = icmp ugt i32 %43, %45
   br i1 %46, label %.split.us, label %.backedge.us
 
-.thread.us:                                       ; preds = %37, %.lr.ph72.split.us
+.thread.us:                                       ; preds = %37, %.lr.ph71.split.us
   %47 = call i32 @get_log_level() #11
   %48 = icmp sgt i32 %47, 4
   br i1 %48, label %49, label %51
@@ -1435,22 +1431,22 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 .backedge.us:                                     ; preds = %40, %41, %52
   %54 = call ptr @list_next(ptr noundef %33) #11
   %.not55.us = icmp eq ptr %54, null
-  br i1 %.not55.us, label %.loopexit, label %.lr.ph72.split.us, !llvm.loop !18
+  br i1 %.not55.us, label %.loopexit, label %.lr.ph71.split.us, !llvm.loop !18
 
-.lr.ph72.split:                                   ; preds = %.lr.ph72
-  br i1 %1, label %.lr.ph72.split.split.us, label %.lr.ph72.split.split
+.lr.ph71.split:                                   ; preds = %.lr.ph71
+  br i1 %1, label %.lr.ph71.split.split.us, label %.lr.ph71.split.split
 
-.lr.ph72.split.split.us:                          ; preds = %.lr.ph72.split, %.backedge.us80
-  %55 = phi ptr [ %81, %.backedge.us80 ], [ %34, %.lr.ph72.split ]
+.lr.ph71.split.split.us:                          ; preds = %.lr.ph71.split, %.backedge.us79
+  %55 = phi ptr [ %81, %.backedge.us79 ], [ %34, %.lr.ph71.split ]
   %56 = load ptr, ptr @cluster_license_list, align 8
-  %.not56.us77 = icmp eq ptr %56, null
-  br i1 %.not56.us77, label %.thread.us79, label %57
+  %.not56.us76 = icmp eq ptr %56, null
+  br i1 %.not56.us76, label %.thread.us78, label %57
 
-57:                                               ; preds = %.lr.ph72.split.split.us
+57:                                               ; preds = %.lr.ph71.split.split.us
   %58 = load ptr, ptr %55, align 8
   %59 = call ptr @list_find_first(ptr noundef nonnull %56, ptr noundef nonnull @_license_find_rec, ptr noundef %58) #11
-  %.not57.us78 = icmp eq ptr %59, null
-  br i1 %.not57.us78, label %.thread.us79, label %60
+  %.not57.us77 = icmp eq ptr %59, null
+  br i1 %.not57.us77, label %.thread.us78, label %60
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds i8, ptr %55, i64 8
@@ -1465,7 +1461,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
   store ptr %67, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @license_validate.tres_req, i64 0, i32 4), align 8
   %68 = call i32 @assoc_mgr_find_tres_pos(ptr noundef nonnull @license_validate.tres_req, i1 noundef zeroext false) #11
   %.not58.us = icmp eq i32 %68, -1
-  br i1 %.not58.us, label %.backedge.us80, label %69
+  br i1 %.not58.us, label %.backedge.us79, label %69
 
 69:                                               ; preds = %66
   %70 = load i32, ptr %61, align 8
@@ -1473,43 +1469,43 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
   %72 = sext i32 %68 to i64
   %73 = getelementptr inbounds i64, ptr %3, i64 %72
   store i64 %71, ptr %73, align 8
-  br label %.backedge.us80
+  br label %.backedge.us79
 
-.thread.us79:                                     ; preds = %57, %.lr.ph72.split.split.us
+.thread.us78:                                     ; preds = %57, %.lr.ph71.split.split.us
   %74 = call i32 @get_log_level() #11
   %75 = icmp sgt i32 %74, 4
   br i1 %75, label %76, label %78
 
-76:                                               ; preds = %.thread.us79
+76:                                               ; preds = %.thread.us78
   %77 = load ptr, ptr %55, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.19, ptr noundef %77) #11
   br label %78
 
-78:                                               ; preds = %76, %.thread.us79
+78:                                               ; preds = %76, %.thread.us78
   br i1 %2, label %.loopexit.sink.split, label %79
 
 79:                                               ; preds = %78
   %80 = call i32 @list_delete_item(ptr noundef %33) #11
-  br label %.backedge.us80
+  br label %.backedge.us79
 
-.backedge.us80:                                   ; preds = %66, %69, %79
+.backedge.us79:                                   ; preds = %66, %69, %79
   %81 = call ptr @list_next(ptr noundef %33) #11
-  %.not55.us81 = icmp eq ptr %81, null
-  br i1 %.not55.us81, label %.loopexit, label %.lr.ph72.split.split.us, !llvm.loop !18
+  %.not55.us80 = icmp eq ptr %81, null
+  br i1 %.not55.us80, label %.loopexit, label %.lr.ph71.split.split.us, !llvm.loop !18
 
-.lr.ph72.split.split:                             ; preds = %.lr.ph72.split, %.backedge
-  %82 = phi ptr [ %94, %.backedge ], [ %34, %.lr.ph72.split ]
+.lr.ph71.split.split:                             ; preds = %.lr.ph71.split, %.backedge
+  %82 = phi ptr [ %94, %.backedge ], [ %34, %.lr.ph71.split ]
   %83 = load ptr, ptr @cluster_license_list, align 8
   %.not56 = icmp eq ptr %83, null
   br i1 %.not56, label %.thread, label %84
 
-84:                                               ; preds = %.lr.ph72.split.split
+84:                                               ; preds = %.lr.ph71.split.split
   %85 = load ptr, ptr %82, align 8
   %86 = call ptr @list_find_first(ptr noundef nonnull %83, ptr noundef nonnull @_license_find_rec, ptr noundef %85) #11
   %.not57 = icmp eq ptr %86, null
   br i1 %.not57, label %.thread, label %95
 
-.thread:                                          ; preds = %.lr.ph72.split.split, %84
+.thread:                                          ; preds = %.lr.ph71.split.split, %84
   %87 = call i32 @get_log_level() #11
   %88 = icmp sgt i32 %87, 4
   br i1 %88, label %89, label %91
@@ -1529,7 +1525,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 .backedge:                                        ; preds = %106, %95, %92
   %94 = call ptr @list_next(ptr noundef %33) #11
   %.not55 = icmp eq ptr %94, null
-  br i1 %.not55, label %.loopexit, label %.lr.ph72.split.split, !llvm.loop !18
+  br i1 %.not55, label %.loopexit, label %.lr.ph71.split.split, !llvm.loop !18
 
 95:                                               ; preds = %84
   %96 = load ptr, ptr %82, align 8
@@ -1540,15 +1536,15 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 
 .split.us:                                        ; preds = %60, %41
   %.us-phi = phi ptr [ %35, %41 ], [ %55, %60 ]
-  %.us-phi73 = phi ptr [ %39, %41 ], [ %59, %60 ]
+  %.us-phi72 = phi ptr [ %39, %41 ], [ %59, %60 ]
   %98 = call i32 @get_log_level() #11
   %99 = icmp sgt i32 %98, 4
   br i1 %99, label %100, label %.loopexit.sink.split
 
 100:                                              ; preds = %.split.us
-  %101 = getelementptr inbounds i8, ptr %.us-phi73, i64 8
+  %101 = getelementptr inbounds i8, ptr %.us-phi72, i64 8
   %102 = getelementptr inbounds i8, ptr %.us-phi, i64 8
-  %103 = load ptr, ptr %.us-phi73, align 8
+  %103 = load ptr, ptr %.us-phi72, align 8
   %104 = load i32, ptr %102, align 8
   %105 = load i32, ptr %101, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.20, ptr noundef %103, i32 noundef %104, i32 noundef %105) #11
@@ -1567,7 +1563,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
   store i8 0, ptr %4, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.backedge, %.backedge.us80, %.backedge.us, %.loopexit.sink.split, %32
+.loopexit:                                        ; preds = %.backedge, %.backedge.us79, %.backedge.us, %.loopexit.sink.split, %32
   call void @list_iterator_destroy(ptr noundef %33) #11
   %112 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @license_mutex) #11
   %.not59 = icmp eq i32 %112, 0
@@ -1581,9 +1577,8 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 
 115:                                              ; preds = %.loopexit
   %116 = load i8, ptr %4, align 1
-  %117 = and i8 %116, 1
-  %.not60 = icmp eq i8 %117, 0
-  br i1 %.not60, label %118, label %119
+  %117 = trunc i8 %116 to i1
+  br i1 %117, label %119, label %118
 
 118:                                              ; preds = %115
   call void @list_destroy(ptr noundef nonnull %25) #11

@@ -136,64 +136,63 @@ entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %advise_erase = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load i8, ptr %advise_erase, align 8
-  %1 = and i8 %0, 1
-  %tobool.not11 = icmp eq i8 %1, 0
-  %cmp = icmp ne i8 %type, 0
-  %or.cond = and i1 %cmp, %tobool.not11
-  br i1 %or.cond, label %invoke.cont, label %if.else
+  %tobool = trunc i8 %0 to i1
+  %cmp = icmp eq i8 %type, 0
+  %or.cond.not = or i1 %cmp, %tobool
+  br i1 %or.cond.not, label %if.else, label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   %comp_sec_cache = getelementptr inbounds i8, ptr %ctx, i64 48
-  %2 = load ptr, ptr %comp_sec_cache, align 8
-  %3 = load ptr, ptr %ctx, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %comp_sec_cache, align 8
+  %2 = load ptr, ptr %ctx, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
-  %4 = load ptr, ptr %vfn, align 8
-  call void %4(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %data, i8 noundef zeroext %type, i8 noundef zeroext %source)
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %data, i8 noundef zeroext %type, i8 noundef zeroext %source)
   %state_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %5 = load ptr, ptr %state_.i, align 8
-  %cmp.not.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %state_.i, align 8
+  %cmp.not.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %invoke.cont
-  call void @_ZdaPv(ptr noundef nonnull %5) #14
+  call void @_ZdaPv(ptr noundef nonnull %4) #14
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %invoke.cont, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   store ptr null, ptr %state_.i, align 8
   %stats = getelementptr inbounds i8, ptr %ctx, i64 56
-  %6 = load ptr, ptr %stats, align 8
-  %tobool.not.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %stats, align 8
+  %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN7rocksdb6StatusD2Ev.exit
-  %vtable.i = load ptr, ptr %6, align 8
+  %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 176
-  %7 = load ptr, ptr %vfn.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(33) %6, i32 noundef 213, i64 noundef 1)
+  %6 = load ptr, ptr %vfn.i, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(33) %5, i32 noundef 213, i64 noundef 1)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %stats1 = getelementptr inbounds i8, ptr %ctx, i64 56
-  %8 = load ptr, ptr %stats1, align 8
-  %tobool.not.i16 = icmp eq ptr %8, null
-  br i1 %tobool.not.i16, label %if.end, label %if.then.i17
+  %7 = load ptr, ptr %stats1, align 8
+  %tobool.not.i15 = icmp eq ptr %7, null
+  br i1 %tobool.not.i15, label %if.end, label %if.then.i16
 
-if.then.i17:                                      ; preds = %if.else
-  %vtable.i18 = load ptr, ptr %8, align 8
-  %vfn.i19 = getelementptr inbounds i8, ptr %vtable.i18, i64 176
-  %9 = load ptr, ptr %vfn.i19, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(33) %8, i32 noundef 214, i64 noundef 1)
+if.then.i16:                                      ; preds = %if.else
+  %vtable.i17 = load ptr, ptr %7, align 8
+  %vfn.i18 = getelementptr inbounds i8, ptr %vtable.i17, i64 176
+  %8 = load ptr, ptr %vfn.i18, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(33) %7, i32 noundef 214, i64 noundef 1)
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i17, %if.else, %if.then.i, %_ZN7rocksdb6StatusD2Ev.exit
+if.end:                                           ; preds = %if.then.i16, %if.else, %if.then.i, %_ZN7rocksdb6StatusD2Ev.exit
   %helper = getelementptr inbounds i8, ptr %ctx, i64 16
-  %10 = load ptr, ptr %helper, align 8
-  %create_cb = getelementptr inbounds i8, ptr %10, i64 24
-  %11 = load ptr, ptr %create_cb, align 8
+  %9 = load ptr, ptr %helper, align 8
+  %create_cb = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = load ptr, ptr %create_cb, align 8
   %inner_ctx = getelementptr inbounds i8, ptr %ctx, i64 24
-  %12 = load ptr, ptr %inner_ctx, align 8
-  call void %11(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %data, i8 noundef zeroext %type, i8 noundef zeroext %source, ptr noundef %12, ptr noundef %allocator, ptr noundef %out_obj, ptr noundef %out_charge)
+  %11 = load ptr, ptr %inner_ctx, align 8
+  call void %10(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %data, i8 noundef zeroext %type, i8 noundef zeroext %source, ptr noundef %11, ptr noundef %allocator, ptr noundef %out_obj, ptr noundef %out_charge)
   ret void
 }
 
@@ -1709,8 +1708,7 @@ _ZN7rocksdb20TieredSecondaryCache12ResultHandle8CompleteEv.exit: ; preds = %if.t
 if.end:                                           ; preds = %_ZN7rocksdb20TieredSecondaryCache12ResultHandle8CompleteEv.exit, %land.lhs.true, %entry
   %ready_ = getelementptr inbounds i8, ptr %this, i64 96
   %8 = load i8, ptr %ready_, align 8
-  %9 = and i8 %8, 1
-  %tobool = icmp ne i8 %9, 0
+  %tobool = trunc i8 %8 to i1
   ret i1 %tobool
 }
 

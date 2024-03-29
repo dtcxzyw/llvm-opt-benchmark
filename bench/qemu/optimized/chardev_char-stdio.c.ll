@@ -159,47 +159,46 @@ if.end9:                                          ; preds = %if.end2
   call void @qemu_chr_open_fd(ptr noundef %chr, i32 noundef 0, i32 noundef 1) #8
   %has_signal = getelementptr inbounds i8, ptr %0, i64 10
   %3 = load i8, ptr %has_signal, align 2
-  %4 = and i8 %3, 1
-  %tobool12.not = icmp eq i8 %4, 0
-  br i1 %tobool12.not, label %lor.end, label %lor.rhs
+  %tobool12 = trunc i8 %3 to i1
+  br i1 %tobool12, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %if.end9
   %signal = getelementptr inbounds i8, ptr %0, i64 11
-  %5 = load i8, ptr %signal, align 1
-  %6 = and i8 %5, 1
+  %4 = load i8, ptr %signal, align 1
+  %5 = and i8 %4, 1
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.end9
-  %frombool = phi i8 [ 1, %if.end9 ], [ %6, %lor.rhs ]
+  %frombool = phi i8 [ 1, %if.end9 ], [ %5, %lor.rhs ]
   store i8 %frombool, ptr @stdio_allow_signal, align 1
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %tty.i)
   store i8 0, ptr @stdio_echo_state, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %tty.i, ptr noundef nonnull align 4 dereferenceable(60) @oldtty, i64 60, i1 false)
-  %7 = load i32, ptr %tty.i, align 4
-  %and.i = and i32 %7, -1516
+  %6 = load i32, ptr %tty.i, align 4
+  %and.i = and i32 %6, -1516
   store i32 %and.i, ptr %tty.i, align 4
   %c_oflag.i = getelementptr inbounds i8, ptr %tty.i, i64 4
-  %8 = load i32, ptr %c_oflag.i, align 4
-  %or.i = or i32 %8, 1
+  %7 = load i32, ptr %c_oflag.i, align 4
+  %or.i = or i32 %7, 1
   store i32 %or.i, ptr %c_oflag.i, align 4
   %c_lflag.i = getelementptr inbounds i8, ptr %tty.i, i64 12
-  %9 = load i32, ptr %c_lflag.i, align 4
-  %and3.i = and i32 %9, -32843
+  %8 = load i32, ptr %c_lflag.i, align 4
+  %and3.i = and i32 %8, -32843
   store i32 %and3.i, ptr %c_lflag.i, align 4
   %c_cflag.i = getelementptr inbounds i8, ptr %tty.i, i64 8
-  %10 = load i32, ptr %c_cflag.i, align 4
-  %and4.i = and i32 %10, -305
+  %9 = load i32, ptr %c_cflag.i, align 4
+  %and4.i = and i32 %9, -305
   %or6.i = or disjoint i32 %and4.i, 48
   store i32 %or6.i, ptr %c_cflag.i, align 4
   %arrayidx.i = getelementptr inbounds i8, ptr %tty.i, i64 23
   store i8 1, ptr %arrayidx.i, align 1
   %arrayidx8.i = getelementptr inbounds i8, ptr %tty.i, i64 22
   store i8 0, ptr %arrayidx8.i, align 2
-  %tobool9.not.i = icmp eq i8 %frombool, 0
-  br i1 %tobool9.not.i, label %if.then10.i, label %qemu_chr_set_echo_stdio.exit
+  %tobool9.i = trunc i8 %frombool to i1
+  br i1 %tobool9.i, label %qemu_chr_set_echo_stdio.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %lor.end
-  %and12.i = and i32 %9, -32844
+  %and12.i = and i32 %8, -32844
   store i32 %and12.i, ptr %c_lflag.i, align 4
   br label %qemu_chr_set_echo_stdio.exit
 
@@ -246,14 +245,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %4 = load i8, ptr @stdio_allow_signal, align 1
-  %5 = and i8 %4, 1
-  %tobool9.not = icmp eq i8 %5, 0
-  br i1 %tobool9.not, label %if.then10, label %if.end13
+  %tobool9 = trunc i8 %4 to i1
+  br i1 %tobool9, label %if.end13, label %if.then10
 
 if.then10:                                        ; preds = %if.end
   %c_lflag11 = getelementptr inbounds i8, ptr %tty, i64 12
-  %6 = load i32, ptr %c_lflag11, align 4
-  %and12 = and i32 %6, -2
+  %5 = load i32, ptr %c_lflag11, align 4
+  %and12 = and i32 %5, -2
   store i32 %and12, ptr %c_lflag11, align 4
   br label %if.end13
 
@@ -296,28 +294,28 @@ define internal void @term_stdio_handler(i32 %sig) #0 {
 entry:
   %tty.i = alloca %struct.termios, align 4
   %0 = load i8, ptr @stdio_echo_state, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %tty.i)
-  store i8 %1, ptr @stdio_echo_state, align 1
+  %frombool.i = and i8 %0, 1
+  store i8 %frombool.i, ptr @stdio_echo_state, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %tty.i, ptr noundef nonnull align 4 dereferenceable(60) @oldtty, i64 60, i1 false)
-  br i1 %tobool.not, label %if.then.i, label %if.end.i
+  br i1 %tobool, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %2 = load i32, ptr %tty.i, align 4
-  %and.i = and i32 %2, -1516
+  %1 = load i32, ptr %tty.i, align 4
+  %and.i = and i32 %1, -1516
   store i32 %and.i, ptr %tty.i, align 4
   %c_oflag.i = getelementptr inbounds i8, ptr %tty.i, i64 4
-  %3 = load i32, ptr %c_oflag.i, align 4
-  %or.i = or i32 %3, 1
+  %2 = load i32, ptr %c_oflag.i, align 4
+  %or.i = or i32 %2, 1
   store i32 %or.i, ptr %c_oflag.i, align 4
   %c_lflag.i = getelementptr inbounds i8, ptr %tty.i, i64 12
-  %4 = load i32, ptr %c_lflag.i, align 4
-  %and3.i = and i32 %4, -32843
+  %3 = load i32, ptr %c_lflag.i, align 4
+  %and3.i = and i32 %3, -32843
   store i32 %and3.i, ptr %c_lflag.i, align 4
   %c_cflag.i = getelementptr inbounds i8, ptr %tty.i, i64 8
-  %5 = load i32, ptr %c_cflag.i, align 4
-  %and4.i = and i32 %5, -305
+  %4 = load i32, ptr %c_cflag.i, align 4
+  %and4.i = and i32 %4, -305
   %or6.i = or disjoint i32 %and4.i, 48
   store i32 %or6.i, ptr %c_cflag.i, align 4
   %arrayidx.i = getelementptr inbounds i8, ptr %tty.i, i64 23
@@ -327,15 +325,14 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %6 = load i8, ptr @stdio_allow_signal, align 1
-  %7 = and i8 %6, 1
-  %tobool9.not.i = icmp eq i8 %7, 0
-  br i1 %tobool9.not.i, label %if.then10.i, label %qemu_chr_set_echo_stdio.exit
+  %5 = load i8, ptr @stdio_allow_signal, align 1
+  %tobool9.i = trunc i8 %5 to i1
+  br i1 %tobool9.i, label %qemu_chr_set_echo_stdio.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
   %c_lflag11.i = getelementptr inbounds i8, ptr %tty.i, i64 12
-  %8 = load i32, ptr %c_lflag11.i, align 4
-  %and12.i = and i32 %8, -2
+  %6 = load i32, ptr %c_lflag11.i, align 4
+  %and12.i = and i32 %6, -2
   store i32 %and12.i, ptr %c_lflag11.i, align 4
   br label %qemu_chr_set_echo_stdio.exit
 

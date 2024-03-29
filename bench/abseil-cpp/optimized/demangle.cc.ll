@@ -247,12 +247,14 @@ while.cond.i.i:                                   ; preds = %if.end32.i.i, %if.t
   %i.0.i.i = phi i64 [ 0, %if.then6.i ], [ %i.4.i.i, %if.end32.i.i ]
   %arrayidx.i21.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 %i.0.i.i
   %3 = load i8, ptr %arrayidx.i21.i, align 1
-  switch i8 %3, label %if.end12.i [
-    i8 0, label %land.lhs.true
-    i8 46, label %land.lhs.true.i.i
-  ]
+  %cmp.not.i.i = icmp eq i8 %3, 0
+  br i1 %cmp.not.i.i, label %land.lhs.true, label %while.body.i.i
 
-land.lhs.true.i.i:                                ; preds = %while.cond.i.i
+while.body.i.i:                                   ; preds = %while.cond.i.i
+  %cmp3.i22.i = icmp eq i8 %3, 46
+  br i1 %cmp3.i22.i, label %land.lhs.true.i.i, label %if.end.i.i
+
+land.lhs.true.i.i:                                ; preds = %while.body.i.i
   %arrayidx4.i.i = getelementptr i8, ptr %arrayidx.i21.i, i64 1
   %4 = load i8, ptr %arrayidx4.i.i, align 1
   %5 = and i8 %4, -33
@@ -278,18 +280,20 @@ while.cond10.i.i:                                 ; preds = %while.cond10.i.i, %
   %inc.i23.i = add i64 %i.1.i.i, 1
   br i1 %or.cond21.i.i, label %while.cond10.i.i, label %if.end.i.i, !llvm.loop !5
 
-if.end.i.i:                                       ; preds = %while.cond10.i.i
-  %cmp19.i.i = icmp eq i8 %8, 46
+if.end.i.i:                                       ; preds = %while.cond10.i.i, %while.body.i.i
+  %12 = phi i8 [ %3, %while.body.i.i ], [ %8, %while.cond10.i.i ]
+  %i.2.i.i = phi i64 [ %i.0.i.i, %while.body.i.i ], [ %i.1.i.i, %while.cond10.i.i ]
+  %cmp19.i.i = icmp eq i8 %12, 46
   br i1 %cmp19.i.i, label %land.lhs.true20.i.i, label %if.end32.i.i
 
 land.lhs.true20.i.i:                              ; preds = %if.end.i.i, %land.lhs.true.i.i
-  %parsed.026.i.i = phi i8 [ 1, %if.end.i.i ], [ 0, %land.lhs.true.i.i ]
-  %i.225.i.i = phi i64 [ %i.1.i.i, %if.end.i.i ], [ %i.0.i.i, %land.lhs.true.i.i ]
+  %parsed.026.i.i = phi i1 [ %cmp3.i22.i, %if.end.i.i ], [ false, %land.lhs.true.i.i ]
+  %i.225.i.i = phi i64 [ %i.2.i.i, %if.end.i.i ], [ %i.0.i.i, %land.lhs.true.i.i ]
   %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %i.225.i.i
-  %12 = load i8, ptr %gep.i.i, align 1
-  %13 = add i8 %12, -48
-  %14 = icmp ult i8 %13, 10
-  br i1 %14, label %if.then24.i.i, label %if.end32.i.i
+  %13 = load i8, ptr %gep.i.i, align 1
+  %14 = add i8 %13, -48
+  %15 = icmp ult i8 %14, 10
+  br i1 %15, label %if.then24.i.i, label %if.end32.i.i
 
 if.then24.i.i:                                    ; preds = %land.lhs.true20.i.i
   %add25.i.i = add i64 %i.225.i.i, 2
@@ -298,34 +302,33 @@ if.then24.i.i:                                    ; preds = %land.lhs.true20.i.i
 while.cond26.i.i:                                 ; preds = %while.cond26.i.i, %if.then24.i.i
   %i.3.i.i = phi i64 [ %add25.i.i, %if.then24.i.i ], [ %inc30.i.i, %while.cond26.i.i ]
   %arrayidx27.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 %i.3.i.i
-  %15 = load i8, ptr %arrayidx27.i.i, align 1
-  %16 = add i8 %15, -48
-  %17 = icmp ult i8 %16, 10
+  %16 = load i8, ptr %arrayidx27.i.i, align 1
+  %17 = add i8 %16, -48
+  %18 = icmp ult i8 %17, 10
   %inc30.i.i = add i64 %i.3.i.i, 1
-  br i1 %17, label %while.cond26.i.i, label %if.end32.i.i, !llvm.loop !7
+  br i1 %18, label %while.cond26.i.i, label %if.end32.i.i, !llvm.loop !7
 
 if.end32.i.i:                                     ; preds = %while.cond26.i.i, %land.lhs.true20.i.i, %if.end.i.i
-  %i.4.i.i = phi i64 [ %i.225.i.i, %land.lhs.true20.i.i ], [ %i.1.i.i, %if.end.i.i ], [ %i.3.i.i, %while.cond26.i.i ]
-  %parsed.1.i.i = phi i8 [ %parsed.026.i.i, %land.lhs.true20.i.i ], [ 1, %if.end.i.i ], [ 1, %while.cond26.i.i ]
-  %tobool.not.i.i = icmp eq i8 %parsed.1.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end12.i, label %while.cond.i.i, !llvm.loop !8
+  %i.4.i.i = phi i64 [ %i.225.i.i, %land.lhs.true20.i.i ], [ %i.2.i.i, %if.end.i.i ], [ %i.3.i.i, %while.cond26.i.i ]
+  %parsed.1.i.i = phi i1 [ %parsed.026.i.i, %land.lhs.true20.i.i ], [ %cmp3.i22.i, %if.end.i.i ], [ true, %while.cond26.i.i ]
+  br i1 %parsed.1.i.i, label %while.cond.i.i, label %if.end12.i, !llvm.loop !8
 
-if.end12.i:                                       ; preds = %if.end32.i.i, %while.cond.i.i
+if.end12.i:                                       ; preds = %if.end32.i.i
   %cmp17.i = icmp eq i8 %2, 64
   br i1 %cmp17.i, label %if.then18.i, label %land.end
 
 if.then18.i:                                      ; preds = %if.end12.i
   %bf.load.i.i = load i32, ptr %prev_name_length.i, align 8
-  %tobool.not.i28.i = icmp sgt i32 %bf.load.i.i, -1
-  br i1 %tobool.not.i28.i, label %land.lhs.true, label %while.body.i.i.i
+  %tobool.not.i.i = icmp sgt i32 %bf.load.i.i, -1
+  br i1 %tobool.not.i.i, label %land.lhs.true, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then18.i, %while.body.i.i.i
   %len.05.i.i.i = phi i64 [ %inc.i.i.i, %while.body.i.i.i ], [ 0, %if.then18.i ]
   %str.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %arrayidx.i.i, %if.then18.i ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %str.addr.04.i.i.i, i64 1
   %inc.i.i.i = add i64 %len.05.i.i.i, 1
-  %18 = load i8, ptr %incdec.ptr.i.i.i, align 1
-  %cmp.not.i.i.i = icmp eq i8 %18, 0
+  %19 = load i8, ptr %incdec.ptr.i.i.i, align 1
+  %cmp.not.i.i.i = icmp eq i8 %19, 0
   br i1 %cmp.not.i.i.i, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i, label %while.body.i.i.i, !llvm.loop !9
 
 _ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i: ; preds = %while.body.i.i.i
@@ -334,16 +337,16 @@ _ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i: ; preds = %while.body.i.i.i
 
 land.lhs.true:                                    ; preds = %while.cond.i.i, %if.then3.i, %if.then18.i, %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i
   %state.val = load i32, ptr %out_end_idx.i, align 8
-  %19 = getelementptr inbounds i8, ptr %state, i64 32
-  %state.val1 = load i32, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %state, i64 32
+  %state.val1 = load i32, ptr %20, align 8
   %cmp.i.not = icmp slt i32 %state.val1, %state.val
   %cmp = icmp sgt i32 %state.val1, 0
   %spec.select = and i1 %cmp.i.not, %cmp
   br label %land.end
 
 land.end:                                         ; preds = %if.end12.i, %if.end.i, %land.lhs.true
-  %20 = phi i1 [ %spec.select, %land.lhs.true ], [ false, %if.end.i ], [ false, %if.end12.i ]
-  ret i1 %20
+  %21 = phi i1 [ %spec.select, %land.lhs.true ], [ false, %if.end.i ], [ false, %if.end12.i ]
+  ret i1 %21
 }
 
 ; Function Attrs: mustprogress uwtable

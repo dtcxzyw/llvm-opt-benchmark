@@ -396,9 +396,8 @@ define dso_local void @_ZN6Sample17handleMeshChangedEP9InputGeom(ptr nocapture n
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 124
   %5 = load i8, ptr %4, align 4
-  %6 = and i8 %5, 1
-  %.not.i = icmp eq i8 %6, 0
-  br i1 %.not.i, label %50, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %50
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %1, i64 40
@@ -541,12 +540,11 @@ define dso_local void @_ZN6Sample20handleCommonSettingsEv(ptr noundef nonnull al
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %10, i64 124
   %13 = load i8, ptr %12, align 4
-  %14 = and i8 %13, 1
-  %.not.i = icmp eq i8 %14, 0
-  %.v.i = select i1 %.not.i, i64 16, i64 96
+  %14 = trunc i8 %13 to i1
+  %.v.i = select i1 %14, i64 96, i64 16
   %15 = getelementptr inbounds i8, ptr %10, i64 %.v.i
-  %.v.i7 = select i1 %.not.i, i64 28, i64 108
-  %16 = getelementptr inbounds i8, ptr %10, i64 %.v.i7
+  %.v.i3 = select i1 %14, i64 108, i64 28
+  %16 = getelementptr inbounds i8, ptr %10, i64 %.v.i3
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
   %17 = load float, ptr %5, align 4
@@ -594,19 +592,19 @@ define dso_local void @_ZN6Sample20handleCommonSettingsEv(ptr noundef nonnull al
 40:                                               ; preds = %._crit_edge, %39
   %41 = phi i1 [ %38, %._crit_edge ], [ false, %39 ]
   %42 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.14, i1 noundef zeroext %41, i1 noundef zeroext true)
-  br i1 %42, label %44, label %._crit_edge8
+  br i1 %42, label %44, label %._crit_edge4
 
-._crit_edge8:                                     ; preds = %40
-  %.pre9 = load i32, ptr %34, align 8
-  %43 = icmp eq i32 %.pre9, 2
+._crit_edge4:                                     ; preds = %40
+  %.pre5 = load i32, ptr %34, align 8
+  %43 = icmp eq i32 %.pre5, 2
   br label %45
 
 44:                                               ; preds = %40
   store i32 1, ptr %34, align 8
   br label %45
 
-45:                                               ; preds = %._crit_edge8, %44
-  %46 = phi i1 [ %43, %._crit_edge8 ], [ false, %44 ]
+45:                                               ; preds = %._crit_edge4, %44
+  %46 = phi i1 [ %43, %._crit_edge4 ], [ false, %44 ]
   %47 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.15, i1 noundef zeroext %46, i1 noundef zeroext true)
   br i1 %47, label %48, label %49
 
@@ -619,63 +617,60 @@ define dso_local void @_ZN6Sample20handleCommonSettingsEv(ptr noundef nonnull al
   call void @_Z10imguiLabelPKc(ptr noundef nonnull @.str.16)
   %50 = getelementptr inbounds i8, ptr %0, i64 100
   %51 = load i8, ptr %50, align 4
-  %52 = and i8 %51, 1
-  %53 = icmp ne i8 %52, 0
-  %54 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.17, i1 noundef zeroext %53, i1 noundef zeroext true)
-  br i1 %54, label %55, label %59
+  %52 = trunc i8 %51 to i1
+  %53 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.17, i1 noundef zeroext %52, i1 noundef zeroext true)
+  br i1 %53, label %54, label %58
 
-55:                                               ; preds = %49
-  %56 = load i8, ptr %50, align 4
-  %57 = and i8 %56, 1
-  %58 = xor i8 %57, 1
-  store i8 %58, ptr %50, align 4
-  br label %59
+54:                                               ; preds = %49
+  %55 = load i8, ptr %50, align 4
+  %56 = and i8 %55, 1
+  %57 = xor i8 %56, 1
+  store i8 %57, ptr %50, align 4
+  br label %58
 
-59:                                               ; preds = %55, %49
-  %60 = getelementptr inbounds i8, ptr %0, i64 101
-  %61 = load i8, ptr %60, align 1
-  %62 = and i8 %61, 1
-  %63 = icmp ne i8 %62, 0
-  %64 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.18, i1 noundef zeroext %63, i1 noundef zeroext true)
-  br i1 %64, label %65, label %69
+58:                                               ; preds = %54, %49
+  %59 = getelementptr inbounds i8, ptr %0, i64 101
+  %60 = load i8, ptr %59, align 1
+  %61 = trunc i8 %60 to i1
+  %62 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.18, i1 noundef zeroext %61, i1 noundef zeroext true)
+  br i1 %62, label %63, label %67
 
-65:                                               ; preds = %59
-  %66 = load i8, ptr %60, align 1
-  %67 = and i8 %66, 1
-  %68 = xor i8 %67, 1
-  store i8 %68, ptr %60, align 1
-  br label %69
+63:                                               ; preds = %58
+  %64 = load i8, ptr %59, align 1
+  %65 = and i8 %64, 1
+  %66 = xor i8 %65, 1
+  store i8 %66, ptr %59, align 1
+  br label %67
 
-69:                                               ; preds = %65, %59
-  %70 = getelementptr inbounds i8, ptr %0, i64 102
-  %71 = load i8, ptr %70, align 2
-  %72 = and i8 %71, 1
-  %73 = icmp ne i8 %72, 0
-  %74 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.19, i1 noundef zeroext %73, i1 noundef zeroext true)
-  br i1 %74, label %75, label %79
+67:                                               ; preds = %63, %58
+  %68 = getelementptr inbounds i8, ptr %0, i64 102
+  %69 = load i8, ptr %68, align 2
+  %70 = trunc i8 %69 to i1
+  %71 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.19, i1 noundef zeroext %70, i1 noundef zeroext true)
+  br i1 %71, label %72, label %76
 
-75:                                               ; preds = %69
-  %76 = load i8, ptr %70, align 2
-  %77 = and i8 %76, 1
-  %78 = xor i8 %77, 1
-  store i8 %78, ptr %70, align 2
-  br label %79
+72:                                               ; preds = %67
+  %73 = load i8, ptr %68, align 2
+  %74 = and i8 %73, 1
+  %75 = xor i8 %74, 1
+  store i8 %75, ptr %68, align 2
+  br label %76
 
-79:                                               ; preds = %75, %69
+76:                                               ; preds = %72, %67
   call void @_Z14imguiSeparatorv()
   call void @_Z10imguiLabelPKc(ptr noundef nonnull @.str.20)
-  %80 = getelementptr inbounds i8, ptr %0, i64 76
-  %81 = call noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef nonnull @.str.21, ptr noundef nonnull %80, float noundef 0.000000e+00, float noundef 5.000000e+01, float noundef 1.000000e+00, i1 noundef zeroext true)
-  %82 = getelementptr inbounds i8, ptr %0, i64 80
-  %83 = call noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef nonnull @.str.22, ptr noundef nonnull %82, float noundef 0x3FB99999A0000000, float noundef 3.000000e+00, float noundef 0x3FB99999A0000000, i1 noundef zeroext true)
-  %84 = getelementptr inbounds i8, ptr %0, i64 84
-  %85 = call noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef nonnull @.str.23, ptr noundef nonnull %84, float noundef 3.000000e+00, float noundef 1.200000e+01, float noundef 1.000000e+00, i1 noundef zeroext true)
+  %77 = getelementptr inbounds i8, ptr %0, i64 76
+  %78 = call noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef nonnull @.str.21, ptr noundef nonnull %77, float noundef 0.000000e+00, float noundef 5.000000e+01, float noundef 1.000000e+00, i1 noundef zeroext true)
+  %79 = getelementptr inbounds i8, ptr %0, i64 80
+  %80 = call noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef nonnull @.str.22, ptr noundef nonnull %79, float noundef 0x3FB99999A0000000, float noundef 3.000000e+00, float noundef 0x3FB99999A0000000, i1 noundef zeroext true)
+  %81 = getelementptr inbounds i8, ptr %0, i64 84
+  %82 = call noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef nonnull @.str.23, ptr noundef nonnull %81, float noundef 3.000000e+00, float noundef 1.200000e+01, float noundef 1.000000e+00, i1 noundef zeroext true)
   call void @_Z14imguiSeparatorv()
   call void @_Z10imguiLabelPKc(ptr noundef nonnull @.str.24)
-  %86 = getelementptr inbounds i8, ptr %0, i64 88
-  %87 = call noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef nonnull @.str.25, ptr noundef nonnull %86, float noundef 0.000000e+00, float noundef 1.600000e+01, float noundef 1.000000e+00, i1 noundef zeroext true)
-  %88 = getelementptr inbounds i8, ptr %0, i64 92
-  %89 = call noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef nonnull @.str.26, ptr noundef nonnull %88, float noundef 0.000000e+00, float noundef 1.600000e+01, float noundef 1.000000e+00, i1 noundef zeroext true)
+  %83 = getelementptr inbounds i8, ptr %0, i64 88
+  %84 = call noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef nonnull @.str.25, ptr noundef nonnull %83, float noundef 0.000000e+00, float noundef 1.600000e+01, float noundef 1.000000e+00, i1 noundef zeroext true)
+  %85 = getelementptr inbounds i8, ptr %0, i64 92
+  %86 = call noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef nonnull @.str.26, ptr noundef nonnull %85, float noundef 0.000000e+00, float noundef 1.600000e+01, float noundef 1.000000e+00, i1 noundef zeroext true)
   call void @_Z14imguiSeparatorv()
   ret void
 }

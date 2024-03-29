@@ -236,9 +236,8 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 define dso_local i64 @quote_nullable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %8, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
   %6 = tail call ptr @cstring_to_text(ptr noundef nonnull @.str) #3

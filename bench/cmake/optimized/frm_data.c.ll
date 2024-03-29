@@ -52,19 +52,19 @@ define dso_local zeroext i1 @data_behind(ptr noundef readonly %0) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @data_ahead(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %100, label %2
+  br i1 %.not, label %99, label %2
 
 2:                                                ; preds = %1
   %3 = load i16, ptr %0, align 8
   %4 = and i16 %3, 1
   %.not62 = icmp eq i16 %4, 0
-  br i1 %.not62, label %100, label %5
+  br i1 %.not62, label %99, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %.not63 = icmp eq ptr %7, null
-  br i1 %.not63, label %100, label %8
+  br i1 %.not63, label %99, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %7, i64 4
@@ -87,7 +87,7 @@ define dso_local noundef zeroext i1 @data_ahead(ptr noundef readonly %0) local_u
   %20 = load i32, ptr %19, align 8
   %21 = add nsw i32 %20, %18
   %22 = icmp eq i32 %21, 1
-  br i1 %22, label %23, label %59
+  br i1 %22, label %23, label %58
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds i8, ptr %0, i64 20
@@ -104,10 +104,10 @@ define dso_local noundef zeroext i1 @data_ahead(ptr noundef readonly %0) local_u
   %32 = getelementptr inbounds i8, ptr %7, i64 36
   br label %33
 
-33:                                               ; preds = %.lr.ph76, %53
-  %34 = phi i16 [ %10, %.lr.ph76 ], [ %54, %53 ]
-  %35 = phi i32 [ %29, %.lr.ph76 ], [ %57, %53 ]
-  %.05175 = phi i32 [ %27, %.lr.ph76 ], [ %56, %53 ]
+33:                                               ; preds = %.lr.ph76, %52
+  %34 = phi i16 [ %10, %.lr.ph76 ], [ %53, %52 ]
+  %35 = phi i32 [ %29, %.lr.ph76 ], [ %56, %52 ]
+  %.05175 = phi i32 [ %27, %.lr.ph76 ], [ %55, %52 ]
   %36 = sub nsw i32 %35, %.05175
   %37 = sext i16 %34 to i32
   %spec.select = tail call i32 @llvm.smin.i32(i32 %36, i32 %37)
@@ -133,93 +133,92 @@ define dso_local noundef zeroext i1 @data_ahead(ptr noundef readonly %0) local_u
   br i1 %51, label %45, label %After_Last_Non_Pad_Position.exit, !llvm.loop !5
 
 After_Last_Non_Pad_Position.exit:                 ; preds = %45, %47
-  %52 = icmp eq ptr %.0.i, %.052
-  br i1 %52, label %53, label %.loopexit
+  %.not85 = icmp ne ptr %.0.i, %.052
+  br i1 %.not85, label %.loopexit, label %52
 
-53:                                               ; preds = %After_Last_Non_Pad_Position.exit
-  %54 = load i16, ptr %9, align 4
-  %55 = sext i16 %54 to i32
-  %56 = add nsw i32 %.05175, %55
-  %57 = load i32, ptr %28, align 8
-  %58 = icmp slt i32 %56, %57
-  br i1 %58, label %33, label %.loopexit, !llvm.loop !7
+52:                                               ; preds = %After_Last_Non_Pad_Position.exit
+  %53 = load i16, ptr %9, align 4
+  %54 = sext i16 %53 to i32
+  %55 = add nsw i32 %.05175, %54
+  %56 = load i32, ptr %28, align 8
+  %57 = icmp slt i32 %55, %56
+  br i1 %57, label %33, label %.loopexit, !llvm.loop !7
 
-59:                                               ; preds = %15
-  %60 = getelementptr inbounds i8, ptr %0, i64 16
-  %61 = load i32, ptr %60, align 8
-  %62 = add nsw i32 %61, %18
-  %63 = getelementptr inbounds i8, ptr %7, i64 12
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp slt i32 %62, %64
-  br i1 %65, label %.lr.ph, label %.loopexit
+58:                                               ; preds = %15
+  %59 = getelementptr inbounds i8, ptr %0, i64 16
+  %60 = load i32, ptr %59, align 8
+  %61 = add nsw i32 %60, %18
+  %62 = getelementptr inbounds i8, ptr %7, i64 12
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp slt i32 %61, %63
+  br i1 %64, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %0, i64 56
-  %67 = getelementptr inbounds i8, ptr %7, i64 36
-  br label %71
+.lr.ph:                                           ; preds = %58
+  %65 = getelementptr inbounds i8, ptr %0, i64 56
+  %66 = getelementptr inbounds i8, ptr %7, i64 36
+  br label %70
 
-68:                                               ; preds = %After_Last_Non_Pad_Position.exit67
-  %69 = load i32, ptr %63, align 4
-  %70 = icmp slt i32 %74, %69
-  br i1 %70, label %71, label %.loopexit, !llvm.loop !8
+67:                                               ; preds = %After_Last_Non_Pad_Position.exit67
+  %68 = load i32, ptr %62, align 4
+  %69 = icmp slt i32 %73, %68
+  br i1 %69, label %70, label %.loopexit, !llvm.loop !8
 
-71:                                               ; preds = %.lr.ph, %68
-  %.171 = phi i32 [ %62, %.lr.ph ], [ %74, %68 ]
-  %72 = load ptr, ptr %66, align 8
-  %73 = tail call i32 @wmove(ptr noundef %72, i32 noundef %.171, i32 noundef 0) #7
-  %74 = add nsw i32 %.171, 1
-  %75 = load ptr, ptr %66, align 8
-  %76 = load i16, ptr %9, align 4
-  %77 = sext i16 %76 to i32
-  %78 = tail call i32 @winnstr(ptr noundef %75, ptr noundef %.052, i32 noundef %77) #7
-  %79 = load i16, ptr %9, align 4
-  %80 = load i32, ptr %67, align 4
-  %81 = sext i16 %79 to i64
-  %82 = getelementptr inbounds i8, ptr %.052, i64 %81
-  br label %83
+70:                                               ; preds = %.lr.ph, %67
+  %.171 = phi i32 [ %61, %.lr.ph ], [ %73, %67 ]
+  %71 = load ptr, ptr %65, align 8
+  %72 = tail call i32 @wmove(ptr noundef %71, i32 noundef %.171, i32 noundef 0) #7
+  %73 = add nsw i32 %.171, 1
+  %74 = load ptr, ptr %65, align 8
+  %75 = load i16, ptr %9, align 4
+  %76 = sext i16 %75 to i32
+  %77 = tail call i32 @winnstr(ptr noundef %74, ptr noundef %.052, i32 noundef %76) #7
+  %78 = load i16, ptr %9, align 4
+  %79 = load i32, ptr %66, align 4
+  %80 = sext i16 %78 to i64
+  %81 = getelementptr inbounds i8, ptr %.052, i64 %80
+  br label %82
 
-83:                                               ; preds = %85, %71
-  %.0.i66 = phi ptr [ %82, %71 ], [ %86, %85 ]
-  %84 = icmp ugt ptr %.0.i66, %.052
-  br i1 %84, label %85, label %After_Last_Non_Pad_Position.exit67
+82:                                               ; preds = %84, %70
+  %.0.i66 = phi ptr [ %81, %70 ], [ %85, %84 ]
+  %83 = icmp ugt ptr %.0.i66, %.052
+  br i1 %83, label %84, label %After_Last_Non_Pad_Position.exit67
 
-85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %.0.i66, i64 -1
-  %87 = load i8, ptr %86, align 1
-  %88 = sext i8 %87 to i32
-  %89 = icmp eq i32 %80, %88
-  br i1 %89, label %83, label %After_Last_Non_Pad_Position.exit67, !llvm.loop !5
+84:                                               ; preds = %82
+  %85 = getelementptr inbounds i8, ptr %.0.i66, i64 -1
+  %86 = load i8, ptr %85, align 1
+  %87 = sext i8 %86 to i32
+  %88 = icmp eq i32 %79, %87
+  br i1 %88, label %82, label %After_Last_Non_Pad_Position.exit67, !llvm.loop !5
 
-After_Last_Non_Pad_Position.exit67:               ; preds = %83, %85
-  %.not64 = icmp eq ptr %.0.i66, %.052
-  br i1 %.not64, label %68, label %.loopexit, !llvm.loop !8
+After_Last_Non_Pad_Position.exit67:               ; preds = %82, %84
+  %.not64.not = icmp ne ptr %.0.i66, %.052
+  br i1 %.not64.not, label %.loopexit, label %67, !llvm.loop !8
 
-.loopexit:                                        ; preds = %68, %After_Last_Non_Pad_Position.exit67, %53, %After_Last_Non_Pad_Position.exit, %59, %23
-  %.055 = phi i8 [ 0, %23 ], [ 0, %59 ], [ 0, %53 ], [ 1, %After_Last_Non_Pad_Position.exit ], [ 0, %68 ], [ 1, %After_Last_Non_Pad_Position.exit67 ]
-  %.2 = phi i1 [ false, %23 ], [ false, %59 ], [ true, %After_Last_Non_Pad_Position.exit ], [ true, %53 ], [ true, %After_Last_Non_Pad_Position.exit67 ], [ true, %68 ]
-  br i1 %11, label %90, label %91
+.loopexit:                                        ; preds = %67, %After_Last_Non_Pad_Position.exit67, %52, %After_Last_Non_Pad_Position.exit, %58, %23
+  %.055 = phi i1 [ false, %23 ], [ false, %58 ], [ %.not85, %After_Last_Non_Pad_Position.exit ], [ %.not85, %52 ], [ %.not64.not, %After_Last_Non_Pad_Position.exit67 ], [ %.not64.not, %67 ]
+  %.2 = phi i1 [ false, %23 ], [ false, %58 ], [ true, %After_Last_Non_Pad_Position.exit ], [ true, %52 ], [ true, %After_Last_Non_Pad_Position.exit67 ], [ true, %67 ]
+  br i1 %11, label %89, label %90
 
-90:                                               ; preds = %.loopexit
+89:                                               ; preds = %.loopexit
   tail call void @free(ptr noundef %.052) #7
-  br label %91
+  br label %90
 
-91:                                               ; preds = %90, %.loopexit
-  br i1 %.2, label %92, label %100
+90:                                               ; preds = %89, %.loopexit
+  br i1 %.2, label %91, label %99
 
-92:                                               ; preds = %91
-  %93 = getelementptr inbounds i8, ptr %0, i64 56
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 8
-  %96 = load i32, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 12
-  %98 = load i32, ptr %97, align 4
-  %99 = tail call i32 @wmove(ptr noundef %94, i32 noundef %96, i32 noundef %98) #7
-  br label %100
+91:                                               ; preds = %90
+  %92 = getelementptr inbounds i8, ptr %0, i64 56
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %0, i64 8
+  %95 = load i32, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %0, i64 12
+  %97 = load i32, ptr %96, align 4
+  %98 = tail call i32 @wmove(ptr noundef %93, i32 noundef %95, i32 noundef %97) #7
+  br label %99
 
-100:                                              ; preds = %91, %92, %5, %2, %1
-  %.156 = phi i8 [ %.055, %92 ], [ %.055, %91 ], [ 0, %5 ], [ 0, %2 ], [ 0, %1 ]
-  %101 = icmp ne i8 %.156, 0
-  ret i1 %101
+99:                                               ; preds = %90, %91, %5, %2, %1
+  %.156 = phi i1 [ %.055, %91 ], [ %.055, %90 ], [ false, %5 ], [ false, %2 ], [ false, %1 ]
+  ret i1 %.156
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

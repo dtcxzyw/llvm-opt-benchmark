@@ -48,9 +48,8 @@ define dso_local void @PMSignalShmemInit() local_unnamed_addr #0 {
   %6 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef %5, ptr noundef nonnull %1) #12
   store ptr %6, ptr @PMSignalState, align 8
   %7 = load i8, ptr %1, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %44
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %44, label %9
 
 9:                                                ; preds = %0
   %10 = call i32 @MaxLivePostmasterChildren() #12
@@ -96,22 +95,22 @@ define dso_local void @PMSignalShmemInit() local_unnamed_addr #0 {
   %33 = getelementptr inbounds i8, ptr %32, i64 36
   store volatile i32 %31, ptr %33, align 4
   %34 = load ptr, ptr @PostmasterContext, align 8
-  %.not17 = icmp eq ptr %34, null
-  br i1 %.not17, label %43, label %35
+  %.not = icmp eq ptr %34, null
+  br i1 %.not, label %43, label %35
 
 35:                                               ; preds = %.loopexit
   %36 = load ptr, ptr @PMChildInUse, align 8
-  %.not18 = icmp eq ptr %36, null
-  br i1 %.not18, label %38, label %37
+  %.not17 = icmp eq ptr %36, null
+  br i1 %.not17, label %38, label %37
 
 37:                                               ; preds = %35
   call void @pfree(ptr noundef nonnull %36) #12
   %.pre = load ptr, ptr @PostmasterContext, align 8
-  %.pre20 = load i32, ptr @num_child_inuse, align 4
+  %.pre19 = load i32, ptr @num_child_inuse, align 4
   br label %38
 
 38:                                               ; preds = %37, %35
-  %39 = phi i32 [ %.pre20, %37 ], [ %31, %35 ]
+  %39 = phi i32 [ %.pre19, %37 ], [ %31, %35 ]
   %40 = phi ptr [ %.pre, %37 ], [ %34, %35 ]
   %41 = sext i32 %39 to i64
   %42 = call ptr @MemoryContextAllocZero(ptr noundef %40, i64 noundef %41) #12
@@ -138,9 +137,8 @@ declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local void @SendPostmasterSignal(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsUnderPostmaster, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %10, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %10
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @PMSignalState, align 8
@@ -186,12 +184,11 @@ define dso_local void @SetQuitSignalReason(i32 noundef %0) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define dso_local i32 @GetQuitSignalReason() local_unnamed_addr #5 {
   %1 = load i8, ptr @IsUnderPostmaster, align 1
-  %2 = and i8 %1, 1
-  %.not3 = icmp eq i8 %2, 0
+  %2 = trunc i8 %1 to i1
   %3 = load ptr, ptr @PMSignalState, align 8
-  %4 = icmp eq ptr %3, null
-  %or.cond = select i1 %.not3, i1 true, i1 %4
-  br i1 %or.cond, label %8, label %5
+  %4 = icmp ne ptr %3, null
+  %or.cond.not = select i1 %2, i1 %4, i1 false
+  br i1 %or.cond.not, label %5, label %8
 
 5:                                                ; preds = %0
   %6 = getelementptr inbounds i8, ptr %3, i64 32
@@ -229,9 +226,8 @@ define dso_local i32 @AssignPostmasterChildSlot() local_unnamed_addr #0 {
   %12 = sext i32 %.1 to i64
   %13 = getelementptr i8, ptr %5, i64 %12
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %16, label %6
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %6, label %16
 
 16:                                               ; preds = %9
   %17 = getelementptr i8, ptr %5, i64 %12

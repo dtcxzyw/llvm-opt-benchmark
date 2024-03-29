@@ -64,8 +64,8 @@ define hidden void @convert_old_uat_file() local_unnamed_addr #0 {
 14:                                               ; preds = %12
   %15 = call nonnull ptr @ws_filter_list_read(i32 noundef 2) #4
   %16 = load i32, ptr @num_macros, align 4
-  %.not21 = icmp eq i32 %16, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not20 = icmp eq i32 %16, 0
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %14 ]
@@ -73,9 +73,8 @@ define hidden void @convert_old_uat_file() local_unnamed_addr #0 {
   %18 = getelementptr %struct._dfilter_macro_t, ptr %17, i64 %indvars.iv
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load i8, ptr %19, align 8
-  %21 = and i8 %20, 1
-  %.not19 = icmp eq i8 %21, 0
-  br i1 %.not19, label %32, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %32
 
 22:                                               ; preds = %.lr.ph
   %23 = load ptr, ptr %18, align 8
@@ -304,9 +303,9 @@ define internal noundef ptr @macro_uat_copy(ptr noundef returned %0, ptr nocaptu
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  store i8 %12, ptr %13, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = and i8 %11, 1
+  store i8 %13, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null

@@ -88,20 +88,20 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %m_filter, ptr noundef nonnull align 2 dereferenceable(6) %filter, i64 6, i1 false)
   %isSensor = getelementptr inbounds i8, ptr %def, i64 32
   %4 = load i8, ptr %isSensor, align 8
-  %5 = and i8 %4, 1
   %m_isSensor = getelementptr inbounds i8, ptr %this, i64 66
-  store i8 %5, ptr %m_isSensor, align 2
-  %6 = load ptr, ptr %def, align 8
-  %vtable = load ptr, ptr %6, align 8
+  %frombool = and i8 %4, 1
+  store i8 %frombool, ptr %m_isSensor, align 2
+  %5 = load ptr, ptr %def, align 8
+  %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %7 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %allocator)
+  %6 = load ptr, ptr %vfn, align 8
+  %call = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %allocator)
   %m_shape = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %call, ptr %m_shape, align 8
   %vtable3 = load ptr, ptr %call, align 8
   %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 24
-  %8 = load ptr, ptr %vfn4, align 8
-  %call5 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(16) %call)
+  %7 = load ptr, ptr %vfn4, align 8
+  %call5 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(16) %call)
   %mul = shl i32 %call5, 5
   %call7 = tail call noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(128) %allocator, i32 noundef %mul)
   %m_proxies = getelementptr inbounds i8, ptr %this, i64 48
@@ -115,11 +115,11 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %9 = load ptr, ptr %m_proxies, align 8
-  %fixture = getelementptr inbounds %struct.b2FixtureProxy, ptr %9, i64 %indvars.iv, i32 1
+  %8 = load ptr, ptr %m_proxies, align 8
+  %fixture = getelementptr inbounds %struct.b2FixtureProxy, ptr %8, i64 %indvars.iv, i32 1
   store ptr null, ptr %fixture, align 8
-  %10 = load ptr, ptr %m_proxies, align 8
-  %proxyId = getelementptr inbounds %struct.b2FixtureProxy, ptr %10, i64 %indvars.iv, i32 3
+  %9 = load ptr, ptr %m_proxies, align 8
+  %proxyId = getelementptr inbounds %struct.b2FixtureProxy, ptr %9, i64 %indvars.iv, i32 3
   store i32 -1, ptr %proxyId, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -129,8 +129,8 @@ for.end:                                          ; preds = %for.body, %entry
   %m_proxyCount = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %m_proxyCount, align 8
   %density = getelementptr inbounds i8, ptr %def, i64 28
-  %11 = load float, ptr %density, align 4
-  store float %11, ptr %this, align 8
+  %10 = load float, ptr %density, align 4
+  store float %10, ptr %this, align 8
   ret void
 }
 
@@ -514,10 +514,9 @@ define void @_ZN9b2Fixture9SetSensorEb(ptr nocapture noundef nonnull align 8 der
 entry:
   %m_isSensor = getelementptr inbounds i8, ptr %this, i64 66
   %0 = load i8, ptr %m_isSensor, align 2
-  %1 = and i8 %0, 1
-  %2 = icmp eq i8 %1, 0
-  %cmp.not = xor i1 %2, %sensor
-  br i1 %cmp.not, label %if.end, label %if.then
+  %1 = trunc i8 %0 to i1
+  %2 = xor i1 %1, %sensor
+  br i1 %2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %frombool = zext i1 %sensor to i8

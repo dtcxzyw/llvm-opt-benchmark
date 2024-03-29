@@ -1040,12 +1040,12 @@ define i32 @rsock_connect(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 no
   %11 = call i64 @rb_thread_io_blocking_region(ptr noundef nonnull @connect_blocking, ptr noundef nonnull %8, i32 noundef %0) #9
   %12 = trunc i64 %11 to i32
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %37
+  br i1 %13, label %14, label %36
 
 14:                                               ; preds = %5
   %15 = call ptr @rb_errno_ptr() #9
   %16 = load i32, ptr %15, align 4
-  switch i32 %16, label %37 [
+  switch i32 %16, label %36 [
     i32 4, label %17
     i32 85, label %17
     i32 11, label %17
@@ -1098,29 +1098,28 @@ define i32 @rsock_connect(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 no
 switch.hole_check:                                ; preds = %20
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 417, %switch.maskindex
-  %34 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %34, 0
-  br i1 %switch.lobit.not, label %23, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %23
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table.rsock_connect, i64 0, i64 %35
+  %34 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table.rsock_connect, i64 0, i64 %34
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %switch.lookup, %31, %29
   %.sink.i = phi i32 [ 110, %31 ], [ %30, %29 ], [ %switch.load, %switch.lookup ]
-  %36 = call ptr @rb_errno_ptr() #9
-  store i32 %.sink.i, ptr %36, align 4
+  %35 = call ptr @rb_errno_ptr() #9
+  store i32 %.sink.i, ptr %35, align 4
   br label %wait_connectable.exit
 
 wait_connectable.exit:                            ; preds = %17, %23, %26, %29, %29, %29, %29, %29, %29, %31, %.sink.split.i
   %.0.i = phi i32 [ -1, %17 ], [ -1, %23 ], [ -1, %26 ], [ 0, %31 ], [ 0, %29 ], [ 0, %29 ], [ 0, %29 ], [ 0, %29 ], [ 0, %29 ], [ 0, %29 ], [ -1, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %37
+  br label %36
 
-37:                                               ; preds = %5, %14, %wait_connectable.exit
+36:                                               ; preds = %5, %14, %wait_connectable.exit
   %.0 = phi i32 [ %.0.i, %wait_connectable.exit ], [ %12, %14 ], [ %12, %5 ]
   ret i32 %.0
 }

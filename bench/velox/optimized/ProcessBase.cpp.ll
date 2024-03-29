@@ -407,26 +407,22 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #2
 define noundef zeroext i1 @_ZN8facebook5velox7process7hasAvx2Ev() local_unnamed_addr #7 {
 entry:
   %0 = load i8, ptr @_ZN8facebook5velox7process12_GLOBAL__N_111avx2CpuFlagE, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
-  %2 = load i8, ptr @_ZN3fLB10FLAGS_avx2E, align 1
-  %3 = and i8 %2, 1
-  %tobool1 = icmp ne i8 %3, 0
-  %4 = select i1 %tobool, i1 %tobool1, i1 false
-  ret i1 %4
+  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr @_ZN3fLB10FLAGS_avx2E, align 1
+  %tobool1 = trunc i8 %1 to i1
+  %2 = select i1 %tobool, i1 %tobool1, i1 false
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN8facebook5velox7process7hasBmi2Ev() local_unnamed_addr #7 {
 entry:
   %0 = load i8, ptr @_ZN8facebook5velox7process12_GLOBAL__N_111bmi2CpuFlagE, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
-  %2 = load i8, ptr @_ZN3fLB10FLAGS_bmi2E, align 1
-  %3 = and i8 %2, 1
-  %tobool1 = icmp ne i8 %3, 0
-  %4 = select i1 %tobool, i1 %tobool1, i1 false
-  ret i1 %4
+  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr @_ZN3fLB10FLAGS_bmi2E, align 1
+  %tobool1 = trunc i8 %1 to i1
+  %2 = select i1 %tobool, i1 %tobool1, i1 false
+  ret i1 %2
 }
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
@@ -644,22 +640,21 @@ _ZN5folly6detail14ScopeGuardImplIZNS_8readFileINSt7__cxx1112basic_stringIcSt11ch
 define linkonce_odr void @_ZN5folly6detail14ScopeGuardImplIZNS_8readFileINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKcRT_mEUlvE_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %function_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %function_.i, align 8
-  %3 = load i32, ptr %2, align 4
-  %call.i.i = invoke noundef i32 @_ZN5folly10closeNoIntEi(i32 noundef %3)
+  %1 = load ptr, ptr %function_.i, align 8
+  %2 = load i32, ptr %1, align 4
+  %call.i.i = invoke noundef i32 @_ZN5folly10closeNoIntEi(i32 noundef %2)
           to label %if.end unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #16
   unreachable
 
 if.end:                                           ; preds = %if.then, %entry
@@ -682,24 +677,23 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 define linkonce_odr void @_ZN5folly6detail14ScopeGuardImplIZNS_8readFileINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbiRT_mEUlvE_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %function_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %function_.i, align 8
-  %3 = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load ptr, ptr %3, align 8
-  %5 = load i64, ptr %4, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %5)
+  %1 = load ptr, ptr %function_.i, align 8
+  %2 = getelementptr inbounds i8, ptr %this, i64 16
+  %3 = load ptr, ptr %2, align 8
+  %4 = load i64, ptr %3, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %4)
           to label %if.end unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #16
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #16
   unreachable
 
 if.end:                                           ; preds = %if.then, %entry

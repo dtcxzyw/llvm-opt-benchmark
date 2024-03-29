@@ -171,9 +171,8 @@ opal_obj_new.exit.thread:                         ; preds = %7, %opal_obj_new.ex
 define void @ompi_osc_rdma_sync_return(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr @opal_uses_threads, align 1
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %8, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
   %6 = atomicrmw volatile add ptr %2, i32 -1 monotonic, align 4
@@ -206,8 +205,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %5, %8
   tail call void %18(ptr noundef nonnull %0) #5
   %19 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %20 = load ptr, ptr %19, align 8
-  %.not.i4 = icmp eq ptr %20, null
-  br i1 %.not.i4, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
+  %.not.i = icmp eq ptr %20, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %13
   tail call void @free(ptr noundef %0) #5

@@ -250,9 +250,8 @@ define noundef i64 @_ZN5faiss19OnDiskInvertedLists11add_entriesEmmPKlPKh(ptr nou
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 128
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %27, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %27
 
 11:                                               ; preds = %5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
@@ -316,9 +315,8 @@ define noundef i64 @_ZN5faiss19OnDiskInvertedLists11add_entriesEmmPKlPKh(ptr nou
   %42 = call noundef i64 @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKi(ptr noundef nonnull align 8 dereferenceable(56) %41, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %43 = getelementptr inbounds i8, ptr %39, i64 244
   %44 = load i8, ptr %43, align 4
-  %45 = and i8 %44, 1
-  %.not.i = icmp eq i8 %45, 0
-  br i1 %.not.i, label %49, label %46
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %49
 
 46:                                               ; preds = %27
   %47 = getelementptr inbounds i8, ptr %39, i64 136
@@ -346,9 +344,8 @@ define void @_ZN5faiss19OnDiskInvertedLists14update_entriesEmmmPKlPKh(ptr nounde
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 128
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %27, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %27
 
 11:                                               ; preds = %6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
@@ -426,9 +423,8 @@ define void @_ZN5faiss19OnDiskInvertedLists6resizeEmm(ptr noundef nonnull align 
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %25, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %25
 
 9:                                                ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
@@ -483,9 +479,8 @@ define void @_ZN5faiss19OnDiskInvertedLists6resizeEmm(ptr noundef nonnull align 
   %32 = call noundef i64 @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKi(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %33 = getelementptr inbounds i8, ptr %29, i64 244
   %34 = load i8, ptr %33, align 4
-  %35 = and i8 %34, 1
-  %.not.i = icmp eq i8 %35, 0
-  br i1 %.not.i, label %39, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %39
 
 36:                                               ; preds = %25
   %37 = getelementptr inbounds i8, ptr %29, i64 136
@@ -3237,9 +3232,8 @@ _ZN5faiss19OnDiskInvertedLists15OngoingPrefetch13get_next_listEv.exit: ; preds =
   %62 = call noundef i64 @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKi(ptr noundef nonnull align 8 dereferenceable(56) %61, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %63 = getelementptr inbounds i8, ptr %59, i64 244
   %64 = load i8, ptr %63, align 4
-  %65 = and i8 %64, 1
-  %.not.i = icmp eq i8 %65, 0
-  br i1 %.not.i, label %69, label %66
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %69
 
 66:                                               ; preds = %._crit_edge40
   %67 = getelementptr inbounds i8, ptr %59, i64 136
@@ -3282,9 +3276,8 @@ define linkonce_odr void @_ZN5faiss10LockLevels6lock_1Ei(ptr noundef nonnull ali
 
 13:                                               ; preds = %.critedge, %2
   %14 = load i8, ptr %6, align 4
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %16, label %.critedge
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %13
   %17 = load i64, ptr %8, align 8
@@ -3456,9 +3449,8 @@ define linkonce_odr ptr @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equa
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1
@@ -3838,14 +3830,13 @@ define void @_ZN5faiss19OnDiskInvertedLists7do_mmapEv(ptr noundef nonnull align 
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  %7 = select i1 %.not, ptr @.str.3, ptr @.str.2
+  %6 = trunc i8 %5 to i1
+  %7 = select i1 %6, ptr @.str.2, ptr @.str.3
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   %10 = tail call noalias ptr @fopen(ptr noundef %9, ptr noundef nonnull %7)
-  %.not18 = icmp eq ptr %10, null
-  br i1 %.not18, label %11, label %33
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %11, label %33
 
 11:                                               ; preds = %1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
@@ -3889,14 +3880,14 @@ define void @_ZN5faiss19OnDiskInvertedLists7do_mmapEv(ptr noundef nonnull align 
   br label %64
 
 33:                                               ; preds = %1
-  %34 = select i1 %.not, i32 3, i32 1
+  %34 = select i1 %6, i32 1, i32 3
   %35 = getelementptr inbounds i8, ptr %0, i64 112
   %36 = load i64, ptr %35, align 8
   %37 = tail call i32 @fileno(ptr noundef nonnull %10) #16
   %38 = tail call ptr @mmap(ptr noundef null, i64 noundef %36, i32 noundef %34, i32 noundef 1, i32 noundef %37, i64 noundef 0) #16
   %39 = tail call i32 @fclose(ptr noundef nonnull %10)
-  %.not20 = icmp eq ptr %38, inttoptr (i64 -1 to ptr)
-  br i1 %.not20, label %40, label %62
+  %.not19 = icmp eq ptr %38, inttoptr (i64 -1 to ptr)
+  br i1 %.not19, label %40, label %62
 
 40:                                               ; preds = %33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
@@ -3946,9 +3937,9 @@ define void @_ZN5faiss19OnDiskInvertedLists7do_mmapEv(ptr noundef nonnull align 
 
 64:                                               ; preds = %58, %60, %29, %31
   %.sink = phi ptr [ %2, %31 ], [ %2, %29 ], [ %3, %60 ], [ %3, %58 ]
-  %.pn21.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ], [ %61, %60 ], [ %59, %58 ]
+  %.pn20.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ], [ %61, %60 ], [ %59, %58 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #16
-  resume { ptr, i32 } %.pn21.pn
+  resume { ptr, i32 } %.pn20.pn
 
 65:                                               ; preds = %57, %28
   unreachable
@@ -4949,9 +4940,8 @@ define void @_ZN5faiss19OnDiskInvertedLists13resize_lockedEmm(ptr noundef nonnul
   store i32 %20, ptr %18, align 8
   %21 = getelementptr inbounds i8, ptr %16, i64 244
   %22 = load i8, ptr %21, align 4
-  %23 = and i8 %22, 1
-  %.not.i = icmp eq i8 %23, 0
-  br i1 %.not.i, label %27, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %27
 
 24:                                               ; preds = %14
   %25 = getelementptr inbounds i8, ptr %16, i64 136
@@ -4961,9 +4951,8 @@ define void @_ZN5faiss19OnDiskInvertedLists13resize_lockedEmm(ptr noundef nonnul
 27:                                               ; preds = %24, %14
   %28 = getelementptr inbounds i8, ptr %16, i64 245
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not12.i = icmp eq i8 %30, 0
-  br i1 %.not12.i, label %_ZN5faiss10LockLevels6lock_2Ev.exit, label %.lr.ph.i
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %.lr.ph.i, label %_ZN5faiss10LockLevels6lock_2Ev.exit
 
 .lr.ph.i:                                         ; preds = %27
   %31 = getelementptr inbounds i8, ptr %16, i64 88
@@ -4972,9 +4961,8 @@ define void @_ZN5faiss19OnDiskInvertedLists13resize_lockedEmm(ptr noundef nonnul
 32:                                               ; preds = %32, %.lr.ph.i
   %33 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %31, ptr noundef nonnull %16)
   %34 = load i8, ptr %28, align 1
-  %35 = and i8 %34, 1
-  %.not1.i = icmp eq i8 %35, 0
-  br i1 %.not1.i, label %_ZN5faiss10LockLevels6lock_2Ev.exit, label %32, !llvm.loop !30
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %32, label %_ZN5faiss10LockLevels6lock_2Ev.exit, !llvm.loop !30
 
 _ZN5faiss10LockLevels6lock_2Ev.exit:              ; preds = %32, %27
   store i8 1, ptr %28, align 1
@@ -5407,8 +5395,8 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_
 
 .preheader:                                       ; preds = %._crit_edge, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit
   %45 = phi i64 [ %35, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ], [ %88, %._crit_edge ]
-  %.not63 = icmp eq i64 %45, 0
-  br i1 %.not63, label %._crit_edge60, label %.lr.ph59
+  %.not62 = icmp eq i64 %45, 0
+  br i1 %.not62, label %._crit_edge60, label %.lr.ph59
 
 .lr.ph59:                                         ; preds = %.preheader
   %46 = getelementptr inbounds i8, ptr %0, i64 32
@@ -5435,8 +5423,8 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_
   br i1 %60, label %.preheader52, label %61
 
 .preheader52:                                     ; preds = %56
-  %.not62 = icmp eq i64 %50, 0
-  br i1 %.not62, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %50, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 61:                                               ; preds = %48, %56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
@@ -5557,9 +5545,8 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_
   store double %113, ptr %12, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss19OnDiskInvertedLists10merge_fromEPPKNS_13InvertedListsEib.omp_outlined, ptr nonnull %0, ptr nonnull %6, ptr nonnull %5, ptr nonnull %7, ptr nonnull %10, ptr nonnull %12, ptr nonnull %11)
   %115 = load i8, ptr %7, align 1
-  %116 = and i8 %115, 1
-  %.not = icmp eq i8 %116, 0
-  br i1 %.not, label %118, label %117
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %117, label %118
 
 117:                                              ; preds = %114
   %putchar = call i32 @putchar(i32 10)
@@ -5618,17 +5605,17 @@ define internal void @_ZN5faiss19OnDiskInvertedLists10merge_fromEPPKNS_13Inverte
   %20 = call i64 @llvm.umin.i64(i64 %19, i64 %17)
   store i64 %20, ptr %11, align 8
   %21 = load i64, ptr %10, align 8
-  %.not49 = icmp ugt i64 %21, %20
-  br i1 %.not49, label %._crit_edge47, label %.lr.ph46
+  %.not48 = icmp ugt i64 %21, %20
+  br i1 %.not48, label %._crit_edge46, label %.lr.ph45
 
-.lr.ph46:                                         ; preds = %16
+.lr.ph45:                                         ; preds = %16
   %22 = getelementptr inbounds i8, ptr %2, i64 32
   br label %23
 
-23:                                               ; preds = %.lr.ph46, %84
-  %.044 = phi i64 [ %21, %.lr.ph46 ], [ %85, %84 ]
+23:                                               ; preds = %.lr.ph45, %84
+  %.043 = phi i64 [ %21, %.lr.ph45 ], [ %85, %84 ]
   %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds %"struct.faiss::OnDiskOneList", ptr %24, i64 %.044
+  %25 = getelementptr inbounds %"struct.faiss::OnDiskOneList", ptr %24, i64 %.043
   %26 = load i32, ptr %3, align 4
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.lr.ph, label %._crit_edge
@@ -5641,7 +5628,7 @@ define internal void @_ZN5faiss19OnDiskInvertedLists10merge_fromEPPKNS_13Inverte
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = invoke noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(25) %30, i64 noundef %.044)
+  %34 = invoke noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(25) %30, i64 noundef %.043)
           to label %35 unwind label %.loopexit
 
 35:                                               ; preds = %.lr.ph
@@ -5651,28 +5638,28 @@ define internal void @_ZN5faiss19OnDiskInvertedLists10merge_fromEPPKNS_13Inverte
   %38 = load ptr, ptr %30, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 40
   %40 = load ptr, ptr %39, align 8
-  %41 = invoke noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(25) %30, i64 noundef %.044)
+  %41 = invoke noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(25) %30, i64 noundef %.043)
           to label %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit unwind label %.loopexit
 
 _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit: ; preds = %35
   %42 = load ptr, ptr %30, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8
-  %45 = invoke noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(25) %30, i64 noundef %.044)
+  %45 = invoke noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(25) %30, i64 noundef %.043)
           to label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit unwind label %.loopexit
 
 _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit
   %46 = load ptr, ptr %2, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 112
   %48 = load ptr, ptr %47, align 8
-  invoke void %48(ptr noundef nonnull align 8 dereferenceable(156) %2, i64 noundef %.044, i64 noundef %36, i64 noundef %34, ptr noundef %41, ptr noundef %45)
+  invoke void %48(ptr noundef nonnull align 8 dereferenceable(156) %2, i64 noundef %.043, i64 noundef %36, i64 noundef %34, ptr noundef %41, ptr noundef %45)
           to label %49 unwind label %.loopexit
 
 49:                                               ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit
   %50 = load ptr, ptr %30, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 48
   %52 = load ptr, ptr %51, align 8
-  invoke void %52(ptr noundef nonnull align 8 dereferenceable(25) %30, i64 noundef %.044, ptr noundef %45)
+  invoke void %52(ptr noundef nonnull align 8 dereferenceable(25) %30, i64 noundef %.043, ptr noundef %45)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit unwind label %53
 
 53:                                               ; preds = %49
@@ -5686,7 +5673,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %49
   %56 = load ptr, ptr %30, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 56
   %58 = load ptr, ptr %57, align 8
-  invoke void %58(ptr noundef nonnull align 8 dereferenceable(25) %30, i64 noundef %.044, ptr noundef %41)
+  invoke void %58(ptr noundef nonnull align 8 dereferenceable(25) %30, i64 noundef %.043, ptr noundef %41)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit unwind label %59
 
 59:                                               ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit
@@ -5705,9 +5692,8 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit:      ; preds = %_ZN5faiss13Inverted
 
 ._crit_edge:                                      ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit, %23
   %65 = load i8, ptr %5, align 1
-  %66 = and i8 %65, 1
-  %.not37 = icmp eq i8 %66, 0
-  br i1 %.not37, label %84, label %67
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %84
 
 67:                                               ; preds = %._crit_edge
   call void @__kmpc_critical(ptr nonnull @2, i32 %18, ptr nonnull @.gomp_critical_user_.var)
@@ -5739,17 +5725,17 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit:      ; preds = %_ZN5faiss13Inverted
   br label %84
 
 84:                                               ; preds = %83, %._crit_edge
-  %85 = add nuw i64 %.044, 1
+  %85 = add nuw i64 %.043, 1
   %86 = load i64, ptr %11, align 8
   %87 = add i64 %86, 1
   %88 = icmp ult i64 %85, %87
-  br i1 %88, label %23, label %._crit_edge47
+  br i1 %88, label %23, label %._crit_edge46
 
-._crit_edge47:                                    ; preds = %84, %16
+._crit_edge46:                                    ; preds = %84, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %18)
   br label %89
 
-89:                                               ; preds = %._crit_edge47, %9
+89:                                               ; preds = %._crit_edge46, %9
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit, %35, %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit

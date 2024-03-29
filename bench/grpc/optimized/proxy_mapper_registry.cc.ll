@@ -209,9 +209,8 @@ invoke.cont:                                      ; preds = %for.body
 
 invoke.cont8:                                     ; preds = %invoke.cont
   %4 = load i8, ptr %_M_engaged.i.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.i.i.not = icmp eq i8 %5, 0
-  br i1 %tobool.i.i.not, label %for.cond, label %cleanup14
+  %tobool.i.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i, label %cleanup14, label %for.cond
 
 lpad.loopexit:                                    ; preds = %for.body, %invoke.cont
   %lpad.loopexit7 = landingpad { ptr, i32 }
@@ -286,9 +285,8 @@ invoke.cont:                                      ; preds = %for.body
 
 invoke.cont8:                                     ; preds = %invoke.cont
   %4 = load i8, ptr %_M_engaged.i.i, align 4
-  %5 = and i8 %4, 1
-  %tobool.i.i.not = icmp eq i8 %5, 0
-  br i1 %tobool.i.i.not, label %for.cond, label %cleanup
+  %tobool.i.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i, label %cleanup, label %for.cond
 
 lpad.loopexit:                                    ; preds = %for.body, %invoke.cont
   %lpad.loopexit7 = landingpad { ptr, i32 }

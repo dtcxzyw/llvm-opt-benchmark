@@ -231,139 +231,137 @@ define dso_local void @init_ps_display(ptr noundef %0) local_unnamed_addr #0 {
 5:                                                ; preds = %2, %1
   %.09 = phi ptr [ %0, %1 ], [ %4, %2 ]
   %6 = load i8, ptr @IsUnderPostmaster, align 1
-  %7 = and i8 %6, 1
-  %8 = icmp ne i8 %7, 0
-  %9 = load ptr, ptr @save_argv, align 8
-  %10 = icmp ne ptr %9, null
-  %or.cond = select i1 %8, i1 %10, i1 false
-  %11 = load ptr, ptr @ps_buffer, align 8
-  %12 = icmp ne ptr %11, null
-  %or.cond3 = select i1 %or.cond, i1 %12, i1 false
-  br i1 %or.cond3, label %.preheader, label %70
+  %7 = trunc i8 %6 to i1
+  %8 = load ptr, ptr @save_argv, align 8
+  %9 = icmp ne ptr %8, null
+  %or.cond = select i1 %7, i1 %9, i1 false
+  %10 = load ptr, ptr @ps_buffer, align 8
+  %11 = icmp ne ptr %10, null
+  %or.cond3 = select i1 %or.cond, i1 %11, i1 false
+  br i1 %or.cond3, label %.preheader, label %69
 
 .preheader:                                       ; preds = %5
-  %13 = load i32, ptr @save_argc, align 4
-  %14 = icmp sgt i32 %13, 1
-  br i1 %14, label %.lr.ph, label %._crit_edge
+  %12 = load i32, ptr @save_argc, align 4
+  %13 = icmp sgt i32 %12, 1
+  br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %15 = load i64, ptr @ps_buffer_size, align 8
-  %16 = getelementptr i8, ptr %11, i64 %15
-  %wide.trip.count = zext nneg i32 %13 to i64
-  br label %17
+  %14 = load i64, ptr @ps_buffer_size, align 8
+  %15 = getelementptr i8, ptr %10, i64 %14
+  %wide.trip.count = zext nneg i32 %12 to i64
+  br label %16
 
-17:                                               ; preds = %.lr.ph, %17
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr ptr, ptr %9, i64 %indvars.iv
-  store ptr %16, ptr %18, align 8
+16:                                               ; preds = %.lr.ph, %16
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %16 ]
+  %17 = getelementptr ptr, ptr %8, i64 %indvars.iv
+  store ptr %15, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %17, %.preheader
-  %19 = load ptr, ptr @cluster_name, align 8
-  %20 = load i8, ptr %19, align 1
-  %21 = icmp eq i8 %20, 0
-  %22 = load i64, ptr @ps_buffer_size, align 8
-  br i1 %21, label %23, label %25
+._crit_edge:                                      ; preds = %16, %.preheader
+  %18 = load ptr, ptr @cluster_name, align 8
+  %19 = load i8, ptr %18, align 1
+  %20 = icmp eq i8 %19, 0
+  %21 = load i64, ptr @ps_buffer_size, align 8
+  br i1 %20, label %22, label %24
 
-23:                                               ; preds = %._crit_edge
-  %24 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef %22, ptr noundef nonnull @.str.1, ptr noundef %.09) #15
-  br label %27
+22:                                               ; preds = %._crit_edge
+  %23 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef %21, ptr noundef nonnull @.str.1, ptr noundef %.09) #15
+  br label %26
 
-25:                                               ; preds = %._crit_edge
-  %26 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef %22, ptr noundef nonnull @.str.2, ptr noundef nonnull %19, ptr noundef %.09) #15
-  br label %27
+24:                                               ; preds = %._crit_edge
+  %25 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef %21, ptr noundef nonnull @.str.2, ptr noundef nonnull %18, ptr noundef %.09) #15
+  br label %26
 
-27:                                               ; preds = %23, %25
-  %28 = load ptr, ptr @ps_buffer, align 8
-  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #13
-  store i64 %29, ptr @ps_buffer_fixed_size, align 8
-  store i64 %29, ptr @ps_buffer_cur_len, align 8
-  %30 = load i8, ptr @update_process_title, align 1
-  %31 = and i8 %30, 1
-  %32 = load i8, ptr @IsUnderPostmaster, align 1
-  %33 = and i8 %32, 1
-  %.not1.i.i.i = icmp ne i8 %33, 0
-  %.not2.i.i.i = icmp ne ptr %28, null
-  %or.cond.i.i = and i1 %.not2.i.i.i, %.not1.i.i.i
-  br i1 %or.cond.i.i, label %34, label %set_ps_display.exit
+26:                                               ; preds = %22, %24
+  %27 = load ptr, ptr @ps_buffer, align 8
+  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #13
+  store i64 %28, ptr @ps_buffer_fixed_size, align 8
+  store i64 %28, ptr @ps_buffer_cur_len, align 8
+  %29 = load i8, ptr @update_process_title, align 1
+  %30 = and i8 %29, 1
+  %31 = load i8, ptr @IsUnderPostmaster, align 1
+  %32 = trunc i8 %31 to i1
+  %.not.i.i.i = icmp ne ptr %27, null
+  %or.cond.i.i = and i1 %.not.i.i.i, %32
+  br i1 %or.cond.i.i, label %33, label %set_ps_display.exit
 
-34:                                               ; preds = %27
+33:                                               ; preds = %26
   store i64 0, ptr @ps_buffer_nosuffix_len, align 8
-  %35 = load i64, ptr @ps_buffer_size, align 8
-  %.not.i.i = icmp ult i64 %29, %35
-  %36 = getelementptr i8, ptr %28, i64 %29
-  br i1 %.not.i.i, label %43, label %37
+  %34 = load i64, ptr @ps_buffer_size, align 8
+  %.not.i.i = icmp ult i64 %28, %34
+  %35 = getelementptr i8, ptr %27, i64 %28
+  br i1 %.not.i.i, label %42, label %36
 
-37:                                               ; preds = %34
-  %38 = xor i64 %29, -1
-  %39 = add i64 %35, %38
-  tail call void @llvm.memset.p0.i64(ptr align 1 %36, i8 0, i64 %39, i1 false)
-  %40 = getelementptr i8, ptr %28, i64 %35
-  %41 = getelementptr i8, ptr %40, i64 -1
-  store i8 0, ptr %41, align 1
-  %42 = add i64 %35, -1
-  br label %44
+36:                                               ; preds = %33
+  %37 = xor i64 %28, -1
+  %38 = add i64 %34, %37
+  tail call void @llvm.memset.p0.i64(ptr align 1 %35, i8 0, i64 %38, i1 false)
+  %39 = getelementptr i8, ptr %27, i64 %34
+  %40 = getelementptr i8, ptr %39, i64 -1
+  store i8 0, ptr %40, align 1
+  %41 = add i64 %34, -1
+  br label %43
 
-43:                                               ; preds = %34
-  store i8 0, ptr %36, align 1
-  br label %44
+42:                                               ; preds = %33
+  store i8 0, ptr %35, align 1
+  br label %43
 
-44:                                               ; preds = %43, %37
-  %storemerge.i.i = phi i64 [ %29, %43 ], [ %42, %37 ]
+43:                                               ; preds = %42, %36
+  %storemerge.i.i = phi i64 [ %28, %42 ], [ %41, %36 ]
   store i64 %storemerge.i.i, ptr @ps_buffer_cur_len, align 8
-  %45 = load i64, ptr @last_status_len, align 8
-  %46 = icmp ugt i64 %45, %storemerge.i.i
-  br i1 %46, label %47, label %flush_ps_display.exit.i.i
+  %44 = load i64, ptr @last_status_len, align 8
+  %45 = icmp ugt i64 %44, %storemerge.i.i
+  br i1 %45, label %46, label %flush_ps_display.exit.i.i
 
-47:                                               ; preds = %44
-  %48 = ptrtoint ptr %28 to i64
-  %49 = getelementptr i8, ptr %28, i64 %storemerge.i.i
-  %50 = sub i64 %45, %storemerge.i.i
-  %51 = ptrtoint ptr %49 to i64
-  %52 = and i64 %51, 7
-  %53 = icmp eq i64 %52, 0
-  br i1 %53, label %54, label %69
+46:                                               ; preds = %43
+  %47 = ptrtoint ptr %27 to i64
+  %48 = getelementptr i8, ptr %27, i64 %storemerge.i.i
+  %49 = sub i64 %44, %storemerge.i.i
+  %50 = ptrtoint ptr %48 to i64
+  %51 = and i64 %50, 7
+  %52 = icmp eq i64 %51, 0
+  br i1 %52, label %53, label %68
 
-54:                                               ; preds = %47
-  %55 = and i64 %50, 7
-  %56 = icmp eq i64 %55, 0
-  %57 = icmp ult i64 %50, 1025
-  %or.cond3.i.i.i = and i1 %57, %56
-  br i1 %or.cond3.i.i.i, label %58, label %69
+53:                                               ; preds = %46
+  %54 = and i64 %49, 7
+  %55 = icmp eq i64 %54, 0
+  %56 = icmp ult i64 %49, 1025
+  %or.cond3.i.i.i = and i1 %56, %55
+  br i1 %or.cond3.i.i.i, label %57, label %68
 
-58:                                               ; preds = %54
-  %59 = getelementptr i8, ptr %28, i64 %45
-  %60 = icmp ult ptr %49, %59
-  br i1 %60, label %.lr.ph.preheader.i.i.i, label %flush_ps_display.exit.i.i
+57:                                               ; preds = %53
+  %58 = getelementptr i8, ptr %27, i64 %44
+  %59 = icmp ult ptr %48, %58
+  br i1 %59, label %.lr.ph.preheader.i.i.i, label %flush_ps_display.exit.i.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %58
-  %61 = add i64 %48, 8
-  %62 = add i64 %61, %storemerge.i.i
-  %63 = add i64 %45, %48
-  %umax.i.i.i = tail call i64 @llvm.umax.i64(i64 %62, i64 %63)
-  %64 = xor i64 %storemerge.i.i, -1
-  %65 = sub i64 %64, %48
-  %66 = add i64 %65, %umax.i.i.i
-  %67 = and i64 %66, -8
-  %68 = add i64 %67, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %49, i8 0, i64 %68, i1 false)
+.lr.ph.preheader.i.i.i:                           ; preds = %57
+  %60 = add i64 %47, 8
+  %61 = add i64 %60, %storemerge.i.i
+  %62 = add i64 %44, %47
+  %umax.i.i.i = tail call i64 @llvm.umax.i64(i64 %61, i64 %62)
+  %63 = xor i64 %storemerge.i.i, -1
+  %64 = sub i64 %63, %47
+  %65 = add i64 %64, %umax.i.i.i
+  %66 = and i64 %65, -8
+  %67 = add i64 %66, 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %48, i8 0, i64 %67, i1 false)
   br label %flush_ps_display.exit.i.i
 
-69:                                               ; preds = %54, %47
-  tail call void @llvm.memset.p0.i64(ptr align 1 %49, i8 0, i64 %50, i1 false)
+68:                                               ; preds = %53, %46
+  tail call void @llvm.memset.p0.i64(ptr align 1 %48, i8 0, i64 %49, i1 false)
   br label %flush_ps_display.exit.i.i
 
-flush_ps_display.exit.i.i:                        ; preds = %69, %.lr.ph.preheader.i.i.i, %58, %44
+flush_ps_display.exit.i.i:                        ; preds = %68, %.lr.ph.preheader.i.i.i, %57, %43
   store i64 %storemerge.i.i, ptr @last_status_len, align 8
   br label %set_ps_display.exit
 
-set_ps_display.exit:                              ; preds = %27, %flush_ps_display.exit.i.i
-  store i8 %31, ptr @update_process_title, align 1
-  br label %70
+set_ps_display.exit:                              ; preds = %26, %flush_ps_display.exit.i.i
+  store i8 %30, ptr @update_process_title, align 1
+  br label %69
 
-70:                                               ; preds = %5, %set_ps_display.exit
+69:                                               ; preds = %5, %set_ps_display.exit
   ret void
 }
 
@@ -374,17 +372,15 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @set_ps_display_suffix(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = load i8, ptr @update_process_title, align 1
-  %3 = and i8 %2, 1
-  %.not.i = icmp eq i8 %3, 0
-  br i1 %.not.i, label %update_ps_display_precheck.exit.thread, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %update_ps_display_precheck.exit.thread
 
 4:                                                ; preds = %1
   %5 = load i8, ptr @IsUnderPostmaster, align 1
-  %6 = and i8 %5, 1
-  %.not1.i = icmp ne i8 %6, 0
+  %6 = trunc i8 %5 to i1
   %7 = load ptr, ptr @ps_buffer, align 8
-  %.not2.i = icmp ne ptr %7, null
-  %or.cond = select i1 %.not1.i, i1 %.not2.i, i1 false
+  %.not.i = icmp ne ptr %7, null
+  %or.cond = select i1 %6, i1 %.not.i, i1 false
   br i1 %or.cond, label %8, label %update_ps_display_precheck.exit.thread
 
 8:                                                ; preds = %4
@@ -498,22 +494,20 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define dso_local void @set_ps_display_remove_suffix() local_unnamed_addr #8 {
   %1 = load i8, ptr @update_process_title, align 1
-  %2 = and i8 %1, 1
-  %.not.i = icmp eq i8 %2, 0
-  br i1 %.not.i, label %update_ps_display_precheck.exit.thread, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %update_ps_display_precheck.exit.thread
 
 3:                                                ; preds = %0
   %4 = load i8, ptr @IsUnderPostmaster, align 1
-  %5 = and i8 %4, 1
-  %.not1.i = icmp eq i8 %5, 0
-  br i1 %.not1.i, label %update_ps_display_precheck.exit.thread, label %update_ps_display_precheck.exit
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %update_ps_display_precheck.exit, label %update_ps_display_precheck.exit.thread
 
 update_ps_display_precheck.exit:                  ; preds = %3
   %6 = load ptr, ptr @ps_buffer, align 8
-  %.not2.i = icmp ne ptr %6, null
+  %.not.i = icmp ne ptr %6, null
   %7 = load i64, ptr @ps_buffer_nosuffix_len, align 8
   %8 = icmp ne i64 %7, 0
-  %or.cond.not = select i1 %.not2.i, i1 %8, i1 false
+  %or.cond.not = select i1 %.not.i, i1 %8, i1 false
   br i1 %or.cond.not, label %9, label %update_ps_display_precheck.exit.thread
 
 9:                                                ; preds = %update_ps_display_precheck.exit
@@ -573,17 +567,15 @@ update_ps_display_precheck.exit.thread:           ; preds = %3, %0, %update_ps_d
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @set_ps_display_with_len(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #9 {
   %3 = load i8, ptr @update_process_title, align 1
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %update_ps_display_precheck.exit.thread, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %update_ps_display_precheck.exit.thread
 
 5:                                                ; preds = %2
   %6 = load i8, ptr @IsUnderPostmaster, align 1
-  %7 = and i8 %6, 1
-  %.not1.i = icmp ne i8 %7, 0
+  %7 = trunc i8 %6 to i1
   %8 = load ptr, ptr @ps_buffer, align 8
-  %.not2.i = icmp ne ptr %8, null
-  %or.cond = select i1 %.not1.i, i1 %.not2.i, i1 false
+  %.not.i = icmp ne ptr %8, null
+  %or.cond = select i1 %7, i1 %.not.i, i1 false
   br i1 %or.cond, label %9, label %update_ps_display_precheck.exit.thread
 
 9:                                                ; preds = %5

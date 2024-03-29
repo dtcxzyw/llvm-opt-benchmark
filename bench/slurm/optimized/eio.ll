@@ -587,16 +587,15 @@ define noundef zeroext i1 @eio_message_socket_readable(ptr nocapture noundef %0)
 10:                                               ; preds = %4, %1
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %25, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %25
 
 14:                                               ; preds = %10
   %15 = load i32, ptr %0, align 8
-  %.not7 = icmp eq i32 %15, -1
+  %.not = icmp eq i32 %15, -1
   %16 = tail call i32 @get_log_level() #10
   %17 = icmp sgt i32 %16, 5
-  br i1 %.not7, label %23, label %18
+  br i1 %.not, label %23, label %18
 
 18:                                               ; preds = %14
   br i1 %17, label %19, label %20
@@ -619,7 +618,8 @@ define noundef zeroext i1 @eio_message_socket_readable(ptr nocapture noundef %0)
   br label %25
 
 25:                                               ; preds = %10, %20, %24, %23
-  ret i1 %.not
+  %.0 = xor i1 %13, true
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable

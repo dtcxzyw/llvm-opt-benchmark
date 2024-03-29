@@ -67,22 +67,22 @@ define void @arrow_flags(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture
 
 .preheader:                                       ; preds = %10, %21
   %13 = phi ptr [ %23, %21 ], [ @.str.2, %10 ]
-  %.052 = phi ptr [ %22, %21 ], [ @Arrowdirs, %10 ]
+  %.051 = phi ptr [ %22, %21 ], [ @Arrowdirs, %10 ]
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %13) #12
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %.preheader
-  %17 = getelementptr inbounds i8, ptr %.052, i64 8
+  %17 = getelementptr inbounds i8, ptr %.051, i64 8
   %18 = load i32, ptr %17, align 8
   store i32 %18, ptr %1, align 4
-  %19 = getelementptr inbounds i8, ptr %.052, i64 12
+  %19 = getelementptr inbounds i8, ptr %.051, i64 12
   %20 = load i32, ptr %19, align 4
   store i32 %20, ptr %2, align 4
   br label %24
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds i8, ptr %.052, i64 16
+  %22 = getelementptr inbounds i8, ptr %.051, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not45 = icmp eq ptr %23, null
   br i1 %.not45, label %thread-pre-split, label %.preheader
@@ -138,9 +138,8 @@ thread-pre-split:                                 ; preds = %21, %10
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 209
   %48 = load i8, ptr %47, align 1
-  %49 = and i8 %48, 1
-  %.not50 = icmp eq i8 %49, 0
-  br i1 %.not50, label %76, label %50
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %76
 
 50:                                               ; preds = %44
   %51 = load i32, ptr %0, align 8

@@ -165,9 +165,9 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hccf6ea949ac8
   %8 = alloca { { i8, [7 x i8] }, { ptr, i64 } }, align 8
   %.sroa.0 = alloca { { i64, ptr, {} }, i64 }, align 8
   %9 = load i64, ptr %1, align 8, !range !31, !noundef !4
-  %trunc.not = icmp eq i64 %9, 0
+  %trunc = trunc i64 %9 to i1
   %10 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %trunc.not, label %11, label %17
+  br i1 %trunc, label %17, label %11
 
 11:                                               ; preds = %4
   %12 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
@@ -320,13 +320,13 @@ define void @_ZN8grep_cli7pattern15pattern_from_os17hfdb218031bf42c68E(ptr noali
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @_ZN3std3sys6os_str5bytes5Slice6to_str17h328f49daa1d0d44cE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %8 = load i64, ptr %7, align 8, !range !31, !noundef !4
-  %trunc.not.not = icmp eq i64 %8, 0
+  %trunc = trunc i64 %8 to i1
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !align !5
   %11 = getelementptr inbounds i8, ptr %7, i64 16
   %12 = load i64, ptr %11, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br i1 %trunc.not.not, label %53, label %13
+  br i1 %trunc, label %13, label %53
 
 13:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -494,9 +494,9 @@ define void @_ZN8grep_cli7pattern18pattern_from_bytes17hac5fbb6ec38b0a6eE(ptr no
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
   %9 = load i64, ptr %8, align 8, !range !31, !alias.scope !96, !noalias !98, !noundef !4
-  %trunc.not.i = icmp eq i64 %9, 0
+  %trunc.i = trunc i64 %9 to i1
   %10 = getelementptr inbounds i8, ptr %8, i64 8
-  br i1 %trunc.not.i, label %11, label %17
+  br i1 %trunc.i, label %17, label %11
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %10, align 8, !alias.scope !96, !noalias !98, !nonnull !4, !align !5, !noundef !4

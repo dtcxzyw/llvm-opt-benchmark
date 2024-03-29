@@ -45,9 +45,8 @@ define i32 @mca_io_ompio_file_set_view(ptr noundef %0, i64 noundef %1, ptr nound
 
 22:                                               ; preds = %14, %18
   %23 = load i8, ptr @opal_uses_threads, align 1
-  %24 = and i8 %23, 1
-  %.not21 = icmp eq i8 %24, 0
-  br i1 %.not21, label %28, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %28
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %0, i64 160
@@ -57,9 +56,8 @@ define i32 @mca_io_ompio_file_set_view(ptr noundef %0, i64 noundef %1, ptr nound
 28:                                               ; preds = %22, %25
   %29 = tail call i32 @mca_common_ompio_set_view(ptr noundef %16, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #7
   %30 = load i8, ptr @opal_uses_threads, align 1
-  %31 = and i8 %30, 1
-  %.not22 = icmp eq i8 %31, 0
-  br i1 %.not22, label %35, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %0, i64 160
@@ -85,9 +83,8 @@ define noundef i32 @mca_io_ompio_file_get_view(ptr noundef %0, ptr nocapture nou
   %10 = getelementptr inbounds i8, ptr %0, i64 952
   %11 = load ptr, ptr %10, align 8
   %12 = load i8, ptr @opal_uses_threads, align 1
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %17, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %17
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i8, ptr %0, i64 160
@@ -112,9 +109,8 @@ define noundef i32 @mca_io_ompio_file_get_view(ptr noundef %0, ptr nocapture nou
 24:                                               ; preds = %17
   %25 = getelementptr inbounds i8, ptr %21, i64 8
   %26 = load i8, ptr @opal_uses_threads, align 1
-  %27 = and i8 %26, 1
-  %.not.i.i = icmp eq i8 %27, 0
-  br i1 %.not.i.i, label %30, label %28
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %30
 
 28:                                               ; preds = %24
   %29 = atomicrmw volatile add ptr %25, i32 1 monotonic, align 4
@@ -156,66 +152,64 @@ datatype_duplicate.exit:                          ; preds = %opal_thread_add_fet
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %43, ptr %6, align 8
   %44 = getelementptr i8, ptr %43, i64 16
-  %.val.i13 = load i16, ptr %44, align 8
-  %45 = and i16 %.val.i13, 512
-  %.not.i14 = icmp eq i16 %45, 0
-  br i1 %.not.i14, label %56, label %46
+  %.val.i12 = load i16, ptr %44, align 8
+  %45 = and i16 %.val.i12, 512
+  %.not.i13 = icmp eq i16 %45, 0
+  br i1 %.not.i13, label %56, label %46
 
 46:                                               ; preds = %datatype_duplicate.exit
   %47 = getelementptr inbounds i8, ptr %43, i64 8
   %48 = load i8, ptr @opal_uses_threads, align 1
-  %49 = and i8 %48, 1
-  %.not.i.i15 = icmp eq i8 %49, 0
-  br i1 %.not.i.i15, label %52, label %50
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %52
 
 50:                                               ; preds = %46
   %51 = atomicrmw volatile add ptr %47, i32 1 monotonic, align 4
-  br label %opal_thread_add_fetch_32.exit.i16
+  br label %opal_thread_add_fetch_32.exit.i14
 
 52:                                               ; preds = %46
   %53 = load volatile i32, ptr %47, align 4
   %54 = add nsw i32 %53, 1
   store volatile i32 %54, ptr %47, align 4
   %55 = load volatile i32, ptr %47, align 4
-  br label %opal_thread_add_fetch_32.exit.i16
+  br label %opal_thread_add_fetch_32.exit.i14
 
-opal_thread_add_fetch_32.exit.i16:                ; preds = %52, %50
+opal_thread_add_fetch_32.exit.i14:                ; preds = %52, %50
   store ptr %43, ptr %3, align 8
-  br label %datatype_duplicate.exit19
+  br label %datatype_duplicate.exit17
 
 56:                                               ; preds = %datatype_duplicate.exit
   %57 = call i32 @ompi_datatype_duplicate(ptr noundef nonnull %43, ptr noundef nonnull %7) #7
-  %.not4.i18 = icmp eq i32 %57, 0
-  br i1 %.not4.i18, label %60, label %58
+  %.not4.i16 = icmp eq i32 %57, 0
+  br i1 %.not4.i16, label %60, label %58
 
 58:                                               ; preds = %56
   %59 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %7) #7
-  br label %datatype_duplicate.exit19
+  br label %datatype_duplicate.exit17
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %7, align 8
   %62 = call i32 @ompi_datatype_set_args(ptr noundef %61, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %6, i32 noundef 1) #7
   %63 = load ptr, ptr %7, align 8
   store ptr %63, ptr %3, align 8
-  br label %datatype_duplicate.exit19
+  br label %datatype_duplicate.exit17
 
-datatype_duplicate.exit19:                        ; preds = %opal_thread_add_fetch_32.exit.i16, %58, %60
+datatype_duplicate.exit17:                        ; preds = %opal_thread_add_fetch_32.exit.i14, %58, %60
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %64 = getelementptr inbounds i8, ptr %11, i64 64
   %65 = load ptr, ptr %64, align 8
   %66 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %65) #7
   %67 = load i8, ptr @opal_uses_threads, align 1
-  %68 = and i8 %67, 1
-  %.not12 = icmp eq i8 %68, 0
-  br i1 %.not12, label %72, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %72
 
-69:                                               ; preds = %datatype_duplicate.exit19
+69:                                               ; preds = %datatype_duplicate.exit17
   %70 = getelementptr inbounds i8, ptr %0, i64 160
   %71 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %70) #7
   br label %72
 
-72:                                               ; preds = %datatype_duplicate.exit19, %69
+72:                                               ; preds = %datatype_duplicate.exit17, %69
   ret i32 0
 }
 

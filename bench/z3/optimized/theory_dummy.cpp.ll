@@ -148,31 +148,31 @@ define hidden void @_ZN3smt12theory_dummy17found_theory_exprEv(ptr noundef nonnu
 entry:
   %m_theory_exprs = getelementptr inbounds i8, ptr %this, i64 53
   %0 = load i8, ptr %m_theory_exprs, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %ctx.i = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load ptr, ptr %ctx.i, align 8
-  %m_trail_stack.i = getelementptr inbounds i8, ptr %2, i64 10008
-  %m_region.i = getelementptr inbounds i8, ptr %2, i64 8952
+  %1 = load ptr, ptr %ctx.i, align 8
+  %frombool.i = and i8 %0, 1
+  %m_trail_stack.i = getelementptr inbounds i8, ptr %1, i64 10008
+  %m_region.i = getelementptr inbounds i8, ptr %1, i64 8952
   %call.i.i1 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i, i64 noundef 24)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIbE, i64 0, i32 0, i64 2), ptr %call.i.i1, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %call.i.i1, i64 8
   store ptr %m_theory_exprs, ptr %m_value.i.i, align 8
   %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i1, i64 16
-  store i8 0, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx, align 8
-  %3 = load ptr, ptr %m_trail_stack.i, align 8
-  %cmp.i.i = icmp eq ptr %3, null
+  store i8 %frombool.i, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx, align 8
+  %2 = load ptr, ptr %m_trail_stack.i, align 8
+  %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 -4
-  %4 = load i32, ptr %arrayidx.i.i, align 4
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr %3, i64 -8
-  %5 = load i32, ptr %arrayidx4.i.i, align 4
-  %cmp5.i.i = icmp eq i32 %4, %5
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 -4
+  %3 = load i32, ptr %arrayidx.i.i, align 4
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %2, i64 -8
+  %4 = load i32, ptr %arrayidx4.i.i, align 4
+  %cmp5.i.i = icmp eq i32 %3, %4
   br i1 %cmp5.i.i, label %if.then.i.i, label %invoke.cont
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.then
@@ -183,15 +183,15 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i, %lor.lhs.false.i.i
-  %6 = phi i32 [ %.pre1.i.i, %if.then.i.i ], [ %4, %lor.lhs.false.i.i ]
-  %7 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ %3, %lor.lhs.false.i.i ]
-  %idx.ext.i.i = zext i32 %6 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %7, i64 %idx.ext.i.i
+  %5 = phi i32 [ %.pre1.i.i, %if.then.i.i ], [ %3, %lor.lhs.false.i.i ]
+  %6 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ %2, %lor.lhs.false.i.i ]
+  %idx.ext.i.i = zext i32 %5 to i64
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %6, i64 %idx.ext.i.i
   store ptr %call.i.i1, ptr %add.ptr.i.i, align 8
-  %8 = load ptr, ptr %m_trail_stack.i, align 8
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %8, i64 -4
-  %9 = load i32, ptr %arrayidx10.i.i, align 4
-  %inc.i.i = add i32 %9, 1
+  %7 = load ptr, ptr %m_trail_stack.i, align 8
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %7, i64 -4
+  %8 = load i32, ptr %arrayidx10.i.i, align 4
+  %inc.i.i = add i32 %8, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   store i8 1, ptr %m_theory_exprs, align 1
   br label %if.end
@@ -227,31 +227,31 @@ define hidden noundef zeroext i1 @_ZN3smt12theory_dummy16internalize_atomEP3appb
 entry:
   %m_theory_exprs.i = getelementptr inbounds i8, ptr %this, i64 53
   %0 = load i8, ptr %m_theory_exprs.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.then.i, label %_ZN3smt12theory_dummy17found_theory_exprEv.exit
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %_ZN3smt12theory_dummy17found_theory_exprEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %ctx.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load ptr, ptr %ctx.i.i, align 8
-  %m_trail_stack.i.i = getelementptr inbounds i8, ptr %2, i64 10008
-  %m_region.i.i = getelementptr inbounds i8, ptr %2, i64 8952
+  %1 = load ptr, ptr %ctx.i.i, align 8
+  %frombool.i.i = and i8 %0, 1
+  %m_trail_stack.i.i = getelementptr inbounds i8, ptr %1, i64 10008
+  %m_region.i.i = getelementptr inbounds i8, ptr %1, i64 8952
   %call.i.i1.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 24)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIbE, i64 0, i32 0, i64 2), ptr %call.i.i1.i, align 8
   %m_value.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 8
   store ptr %m_theory_exprs.i, ptr %m_value.i.i.i, align 8
   %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 16
-  store i8 0, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i, align 8
-  %3 = load ptr, ptr %m_trail_stack.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %3, null
+  store i8 %frombool.i.i, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i, align 8
+  %2 = load ptr, ptr %m_trail_stack.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then.i
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
-  %4 = load i32, ptr %arrayidx.i.i.i, align 4
-  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
-  %5 = load i32, ptr %arrayidx4.i.i.i, align 4
-  %cmp5.i.i.i = icmp eq i32 %4, %5
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %2, i64 -4
+  %3 = load i32, ptr %arrayidx.i.i.i, align 4
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
+  %4 = load i32, ptr %arrayidx4.i.i.i, align 4
+  %cmp5.i.i.i = icmp eq i32 %3, %4
   br i1 %cmp5.i.i.i, label %if.then.i.i.i, label %invoke.cont.i
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %if.then.i
@@ -262,15 +262,15 @@ if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then.i.i.i, %lor.lhs.false.i.i.i
-  %6 = phi i32 [ %.pre1.i.i.i, %if.then.i.i.i ], [ %4, %lor.lhs.false.i.i.i ]
-  %7 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ %3, %lor.lhs.false.i.i.i ]
-  %idx.ext.i.i.i = zext i32 %6 to i64
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %idx.ext.i.i.i
+  %5 = phi i32 [ %.pre1.i.i.i, %if.then.i.i.i ], [ %3, %lor.lhs.false.i.i.i ]
+  %6 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ %2, %lor.lhs.false.i.i.i ]
+  %idx.ext.i.i.i = zext i32 %5 to i64
+  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %idx.ext.i.i.i
   store ptr %call.i.i1.i, ptr %add.ptr.i.i.i, align 8
-  %8 = load ptr, ptr %m_trail_stack.i.i, align 8
-  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %8, i64 -4
-  %9 = load i32, ptr %arrayidx10.i.i.i, align 4
-  %inc.i.i.i = add i32 %9, 1
+  %7 = load ptr, ptr %m_trail_stack.i.i, align 8
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %7, i64 -4
+  %8 = load i32, ptr %arrayidx10.i.i.i, align 4
+  %inc.i.i.i = add i32 %8, 1
   store i32 %inc.i.i.i, ptr %arrayidx10.i.i.i, align 4
   store i8 1, ptr %m_theory_exprs.i, align 1
   br label %_ZN3smt12theory_dummy17found_theory_exprEv.exit
@@ -284,31 +284,31 @@ define hidden noundef zeroext i1 @_ZN3smt12theory_dummy16internalize_termEP3app(
 entry:
   %m_theory_exprs.i = getelementptr inbounds i8, ptr %this, i64 53
   %0 = load i8, ptr %m_theory_exprs.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.then.i, label %_ZN3smt12theory_dummy17found_theory_exprEv.exit
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %_ZN3smt12theory_dummy17found_theory_exprEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %ctx.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load ptr, ptr %ctx.i.i, align 8
-  %m_trail_stack.i.i = getelementptr inbounds i8, ptr %2, i64 10008
-  %m_region.i.i = getelementptr inbounds i8, ptr %2, i64 8952
+  %1 = load ptr, ptr %ctx.i.i, align 8
+  %frombool.i.i = and i8 %0, 1
+  %m_trail_stack.i.i = getelementptr inbounds i8, ptr %1, i64 10008
+  %m_region.i.i = getelementptr inbounds i8, ptr %1, i64 8952
   %call.i.i1.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 24)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIbE, i64 0, i32 0, i64 2), ptr %call.i.i1.i, align 8
   %m_value.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 8
   store ptr %m_theory_exprs.i, ptr %m_value.i.i.i, align 8
   %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 16
-  store i8 0, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i, align 8
-  %3 = load ptr, ptr %m_trail_stack.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %3, null
+  store i8 %frombool.i.i, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i, align 8
+  %2 = load ptr, ptr %m_trail_stack.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then.i
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
-  %4 = load i32, ptr %arrayidx.i.i.i, align 4
-  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
-  %5 = load i32, ptr %arrayidx4.i.i.i, align 4
-  %cmp5.i.i.i = icmp eq i32 %4, %5
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %2, i64 -4
+  %3 = load i32, ptr %arrayidx.i.i.i, align 4
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
+  %4 = load i32, ptr %arrayidx4.i.i.i, align 4
+  %cmp5.i.i.i = icmp eq i32 %3, %4
   br i1 %cmp5.i.i.i, label %if.then.i.i.i, label %invoke.cont.i
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %if.then.i
@@ -319,15 +319,15 @@ if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then.i.i.i, %lor.lhs.false.i.i.i
-  %6 = phi i32 [ %.pre1.i.i.i, %if.then.i.i.i ], [ %4, %lor.lhs.false.i.i.i ]
-  %7 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ %3, %lor.lhs.false.i.i.i ]
-  %idx.ext.i.i.i = zext i32 %6 to i64
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %idx.ext.i.i.i
+  %5 = phi i32 [ %.pre1.i.i.i, %if.then.i.i.i ], [ %3, %lor.lhs.false.i.i.i ]
+  %6 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ %2, %lor.lhs.false.i.i.i ]
+  %idx.ext.i.i.i = zext i32 %5 to i64
+  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %idx.ext.i.i.i
   store ptr %call.i.i1.i, ptr %add.ptr.i.i.i, align 8
-  %8 = load ptr, ptr %m_trail_stack.i.i, align 8
-  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %8, i64 -4
-  %9 = load i32, ptr %arrayidx10.i.i.i, align 4
-  %inc.i.i.i = add i32 %9, 1
+  %7 = load ptr, ptr %m_trail_stack.i.i, align 8
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %7, i64 -4
+  %8 = load i32, ptr %arrayidx10.i.i.i, align 4
+  %inc.i.i.i = add i32 %8, 1
   store i32 %inc.i.i.i, ptr %arrayidx10.i.i.i, align 4
   store i8 1, ptr %m_theory_exprs.i, align 1
   br label %_ZN3smt12theory_dummy17found_theory_exprEv.exit
@@ -379,9 +379,8 @@ define hidden noundef i32 @_ZN3smt12theory_dummy14final_check_ehEv(ptr nocapture
 entry:
   %m_theory_exprs = getelementptr inbounds i8, ptr %this, i64 53
   %0 = load i8, ptr %m_theory_exprs, align 1
-  %1 = shl i8 %0, 1
-  %2 = and i8 %1, 2
-  %cond = zext nneg i8 %2 to i32
+  %tobool = trunc i8 %0 to i1
+  %cond = select i1 %tobool, i32 2, i32 0
   ret i32 %cond
 }
 
@@ -973,10 +972,10 @@ define linkonce_odr hidden void @_ZN11value_trailIbE4undoEv(ptr noundef nonnull 
 entry:
   %m_old_value = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %m_old_value, align 8
-  %1 = and i8 %0, 1
   %m_value = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %m_value, align 8
-  store i8 %1, ptr %2, align 1
+  %1 = load ptr, ptr %m_value, align 8
+  %frombool = and i8 %0, 1
+  store i8 %frombool, ptr %1, align 1
   ret void
 }
 

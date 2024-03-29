@@ -1510,7 +1510,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %if.end23
   %so.027 = phi ptr [ %so.023, %for.body.lr.ph ], [ %so.0, %if.end23 ]
   %n.addr.026 = phi i1 [ %1, %for.body.lr.ph ], [ true, %if.end23 ]
-  %name.addr.025 = phi ptr [ %name, %for.body.lr.ph ], [ %10, %if.end23 ]
+  %name.addr.025 = phi ptr [ %name, %for.body.lr.ph ], [ %9, %if.end23 ]
   br i1 %n.addr.026, label %if.else7, label %if.end23
 
 if.else7:                                         ; preds = %for.body
@@ -1540,18 +1540,17 @@ if.then9:                                         ; preds = %qobject_type.exit
 
 if.else15:                                        ; preds = %qobject_type.exit
   %6 = load i8, ptr %keyval, align 8
-  %7 = and i8 %6, 1
-  %tobool16.not = icmp eq i8 %7, 0
-  %cond17 = select i1 %tobool16.not, ptr @.str.17, ptr @.str.16
+  %tobool16 = trunc i8 %6 to i1
+  %cond17 = select i1 %tobool16, ptr @.str.16, ptr @.str.17
   %index = getelementptr inbounds i8, ptr %so.027, i64 40
-  %8 = load i32, ptr %index, align 8
-  %call18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 32, ptr noundef nonnull %cond17, i32 noundef %8) #8
-  %9 = load ptr, ptr %errname, align 8
-  %call21 = call ptr @g_string_prepend(ptr noundef %9, ptr noundef nonnull %buf) #8
+  %7 = load i32, ptr %index, align 8
+  %call18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 32, ptr noundef nonnull %cond17, i32 noundef %7) #8
+  %8 = load ptr, ptr %errname, align 8
+  %call21 = call ptr @g_string_prepend(ptr noundef %8, ptr noundef nonnull %buf) #8
   br label %if.end23
 
 if.end23:                                         ; preds = %for.body, %if.then9, %if.else15
-  %10 = load ptr, ptr %so.027, align 8
+  %9 = load ptr, ptr %so.027, align 8
   %node = getelementptr inbounds i8, ptr %so.027, i64 48
   %so.0 = load ptr, ptr %node, align 8
   %tobool4.not = icmp eq ptr %so.0, null
@@ -1565,34 +1564,34 @@ if.else27:                                        ; preds = %for.end
   unreachable
 
 if.end28:                                         ; preds = %if.end23, %for.end
-  %name.addr.0.lcssa31 = phi ptr [ %name, %for.end ], [ %10, %if.end23 ]
+  %name.addr.0.lcssa31 = phi ptr [ %name, %for.end ], [ %9, %if.end23 ]
   %tobool29.not = icmp eq ptr %name.addr.0.lcssa31, null
-  %11 = load ptr, ptr %errname, align 8
+  %10 = load ptr, ptr %errname, align 8
   br i1 %tobool29.not, label %if.else33, label %if.then30
 
 if.then30:                                        ; preds = %if.end28
-  %call32 = call ptr @g_string_prepend(ptr noundef %11, ptr noundef nonnull %name.addr.0.lcssa31) #8
+  %call32 = call ptr @g_string_prepend(ptr noundef %10, ptr noundef nonnull %name.addr.0.lcssa31) #8
   br label %if.end48
 
 if.else33:                                        ; preds = %if.end28
-  %12 = load ptr, ptr %11, align 8
-  %13 = load i8, ptr %12, align 1
-  switch i8 %13, label %if.end48 [
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i8, ptr %11, align 1
+  switch i8 %12, label %if.end48 [
     i8 46, label %if.then37
     i8 0, label %return
   ]
 
 if.then37:                                        ; preds = %if.else33
-  %call39 = call ptr @g_string_erase(ptr noundef nonnull %11, i64 noundef 0, i64 noundef 1) #8
+  %call39 = call ptr @g_string_erase(ptr noundef nonnull %10, i64 noundef 0, i64 noundef 1) #8
   br label %if.end48
 
 if.end48:                                         ; preds = %if.else33, %if.then37, %if.then30
-  %14 = load ptr, ptr %errname, align 8
-  %15 = load ptr, ptr %14, align 8
+  %13 = load ptr, ptr %errname, align 8
+  %14 = load ptr, ptr %13, align 8
   br label %return
 
 return:                                           ; preds = %if.else33, %if.end48
-  %retval.0 = phi ptr [ %15, %if.end48 ], [ @.str.15, %if.else33 ]
+  %retval.0 = phi ptr [ %14, %if.end48 ], [ @.str.15, %if.else33 ]
   ret ptr %retval.0
 }
 

@@ -107,9 +107,12 @@ declare noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11Channel
 define internal noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_141IsEverythingBelowClientChannelPromiseSafeERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(8) %args) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args, i64 19, ptr nonnull @.str.2)
-  %0 = and i16 %call, 257
-  %retval.0.i.not = icmp eq i16 %0, 256
-  ret i1 %retval.0.i.not
+  %0 = and i16 %call, 256
+  %tobool.i.i.not = icmp eq i16 %0, 0
+  %1 = trunc i16 %call to i1
+  %retval.0.i = or i1 %tobool.i.i.not, %1
+  %lnot = xor i1 %retval.0.i, true
+  ret i1 %lnot
 }
 
 declare i32 @__gxx_personality_v0(...)

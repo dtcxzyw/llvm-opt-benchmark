@@ -42,38 +42,37 @@ define dso_local noundef ptr @ExecInitJunkFilter(ptr noundef %0, ptr noundef %1)
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %16 = load i32, ptr %14, align 4
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph43, label %.thread
+  br i1 %17, label %.lr.ph42, label %.thread
 
-.lr.ph43:                                         ; preds = %.lr.ph, %31
+.lr.ph42:                                         ; preds = %.lr.ph, %31
   %18 = phi i32 [ %32, %31 ], [ %16, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph ]
-  %.0293842 = phi i16 [ %.1, %31 ], [ 0, %.lr.ph ]
+  %.0293741 = phi i16 [ %.1, %31 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %15, align 8
   %20 = getelementptr %union.ListCell, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 42
   %23 = load i8, ptr %22, align 2
-  %24 = and i8 %23, 1
-  %.not35 = icmp eq i8 %24, 0
-  br i1 %.not35, label %25, label %31
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %31, label %25
 
-25:                                               ; preds = %.lr.ph43
+25:                                               ; preds = %.lr.ph42
   %26 = getelementptr inbounds i8, ptr %21, i64 16
   %27 = load i16, ptr %26, align 8
-  %28 = sext i16 %.0293842 to i64
+  %28 = sext i16 %.0293741 to i64
   %29 = getelementptr i16, ptr %13, i64 %28
   store i16 %27, ptr %29, align 2
-  %30 = add i16 %.0293842, 1
+  %30 = add i16 %.0293741, 1
   %.pre = load i32, ptr %14, align 4
   br label %31
 
-31:                                               ; preds = %.lr.ph43, %25
-  %32 = phi i32 [ %18, %.lr.ph43 ], [ %.pre, %25 ]
-  %.1 = phi i16 [ %.0293842, %.lr.ph43 ], [ %30, %25 ]
+31:                                               ; preds = %.lr.ph42, %25
+  %32 = phi i32 [ %18, %.lr.ph42 ], [ %.pre, %25 ]
+  %.1 = phi i16 [ %.0293741, %.lr.ph42 ], [ %30, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph43, label %.thread
+  br i1 %34, label %.lr.ph42, label %.thread
 
 .thread:                                          ; preds = %31, %10, %.lr.ph, %7
   %.027 = phi ptr [ null, %7 ], [ %13, %.lr.ph ], [ %13, %10 ], [ %13, %31 ]
@@ -139,31 +138,29 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
 
 21:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %.02936 = phi ptr [ %17, %.lr.ph ], [ %.2, %38 ]
+  %.02934 = phi ptr [ %17, %.lr.ph ], [ %.2, %38 ]
   %22 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %18, i64 0, i64 %indvars.iv, i32 17
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %.not33 = icmp eq i8 %24, 0
-  br i1 %.not33, label %.preheader, label %38
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %38, label %.preheader
 
 .preheader:                                       ; preds = %21
   %.val = load i32, ptr %19, align 4
-  %.val35 = load ptr, ptr %20, align 8
+  %.val33 = load ptr, ptr %20, align 8
   %25 = sext i32 %.val to i64
-  %26 = getelementptr %union.ListCell, ptr %.val35, i64 %25
+  %26 = getelementptr %union.ListCell, ptr %.val33, i64 %25
   br label %27
 
 27:                                               ; preds = %.preheader, %27
-  %.1 = phi ptr [ %..i, %27 ], [ %.02936, %.preheader ]
+  %.1 = phi ptr [ %..i, %27 ], [ %.02934, %.preheader ]
   %28 = load ptr, ptr %.1, align 8
   %29 = getelementptr i8, ptr %.1, i64 8
   %30 = icmp ult ptr %29, %26
   %..i = select i1 %30, ptr %29, ptr null
   %31 = getelementptr inbounds i8, ptr %28, i64 42
   %32 = load i8, ptr %31, align 2
-  %33 = and i8 %32, 1
-  %.not34 = icmp eq i8 %33, 0
-  br i1 %.not34, label %34, label %27
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %27, label %34
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds i8, ptr %28, i64 16
@@ -173,7 +170,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   br label %38
 
 38:                                               ; preds = %21, %34
-  %.2 = phi ptr [ %.02936, %21 ], [ %..i, %34 ]
+  %.2 = phi ptr [ %.02934, %21 ], [ %..i, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !5
@@ -206,29 +203,28 @@ define dso_local signext i16 @ExecFindJunkAttribute(ptr nocapture noundef readon
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph22.i, label %ExecFindJunkAttributeInTlist.exit
+  br i1 %7, label %.lr.ph21.i, label %ExecFindJunkAttributeInTlist.exit
 
-.lr.ph22.i:                                       ; preds = %.lr.ph.i
+.lr.ph21.i:                                       ; preds = %.lr.ph.i
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
   %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %10
 
-10:                                               ; preds = %24, %.lr.ph22.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph22.i ], [ %indvars.iv.next.i, %24 ]
+10:                                               ; preds = %24, %.lr.ph21.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph21.i ], [ %indvars.iv.next.i, %24 ]
   %11 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 42
   %14 = load i8, ptr %13, align 2
-  %15 = and i8 %14, 1
-  %.not15.i = icmp eq i8 %15, 0
-  br i1 %.not15.i, label %24, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %24
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %12, i64 24
   %18 = load ptr, ptr %17, align 8
-  %.not16.i = icmp eq ptr %18, null
-  br i1 %.not16.i, label %24, label %19
+  %.not15.i = icmp eq ptr %18, null
+  br i1 %.not15.i, label %24, label %19
 
 19:                                               ; preds = %16
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %1) #5
@@ -259,29 +255,28 @@ define dso_local signext i16 @ExecFindJunkAttributeInTlist(ptr noundef readonly 
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph22, label %.thread
+  br i1 %5, label %.lr.ph21, label %.thread
 
-.lr.ph22:                                         ; preds = %.lr.ph
+.lr.ph21:                                         ; preds = %.lr.ph
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %8
 
-8:                                                ; preds = %.lr.ph22, %22
-  %indvars.iv = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next, %22 ]
+8:                                                ; preds = %.lr.ph21, %22
+  %indvars.iv = phi i64 [ 0, %.lr.ph21 ], [ %indvars.iv.next, %22 ]
   %9 = getelementptr %union.ListCell, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 42
   %12 = load i8, ptr %11, align 2
-  %13 = and i8 %12, 1
-  %.not15 = icmp eq i8 %13, 0
-  br i1 %.not15, label %22, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %22
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %10, i64 24
   %16 = load ptr, ptr %15, align 8
-  %.not16 = icmp eq ptr %16, null
-  br i1 %.not16, label %22, label %17
+  %.not15 = icmp eq ptr %16, null
+  br i1 %.not15, label %22, label %17
 
 17:                                               ; preds = %14
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %1) #5

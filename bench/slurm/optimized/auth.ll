@@ -123,9 +123,8 @@ define zeroext i1 @slurm_get_plugin_hash_enable(i32 noundef %0) local_unnamed_ad
   %8 = getelementptr inbounds %struct.auth_ops_t, ptr %6, i64 %7, i32 2
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %12 = icmp ne i8 %11, 0
-  ret i1 %12
+  %11 = trunc i8 %10 to i1
+  ret i1 %11
 }
 
 ; Function Attrs: noreturn

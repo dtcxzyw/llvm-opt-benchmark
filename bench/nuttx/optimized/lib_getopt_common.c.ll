@@ -24,9 +24,8 @@ define i32 @getopt_common(i32 noundef %0, ptr noundef readonly %1, ptr noundef r
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %7, i64 32
   %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not108 = icmp eq i8 %17, 0
-  br i1 %.not108, label %18, label %._crit_edge
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %._crit_edge, label %18
 
 ._crit_edge:                                      ; preds = %14
   %.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 24
@@ -53,8 +52,8 @@ define i32 @getopt_common(i32 noundef %0, ptr noundef readonly %1, ptr noundef r
 25:                                               ; preds = %42, %22
   %26 = phi i32 [ %31, %42 ], [ %23, %22 ]
   %27 = phi ptr [ %43, %42 ], [ %.promoted, %22 ]
-  %.not109 = icmp eq ptr %27, null
-  br i1 %.not109, label %.critedge.thread, label %28
+  %.not107 = icmp eq ptr %27, null
+  br i1 %.not107, label %.critedge.thread, label %28
 
 28:                                               ; preds = %25
   %29 = load i8, ptr %27, align 1
@@ -82,8 +81,8 @@ define i32 @getopt_common(i32 noundef %0, ptr noundef readonly %1, ptr noundef r
   %35 = getelementptr inbounds ptr, ptr %1, i64 %34
   %36 = load ptr, ptr %35, align 8
   store ptr %36, ptr %24, align 8
-  %.not121 = icmp eq ptr %36, null
-  br i1 %.not121, label %.loopexit, label %38
+  %.not119 = icmp eq ptr %36, null
+  br i1 %.not119, label %.loopexit, label %38
 
 .loopexit:                                        ; preds = %33, %.thread
   %37 = getelementptr inbounds i8, ptr %7, i64 32
@@ -92,8 +91,8 @@ define i32 @getopt_common(i32 noundef %0, ptr noundef readonly %1, ptr noundef r
 
 38:                                               ; preds = %33
   %39 = load i8, ptr %36, align 1
-  %.not122 = icmp eq i8 %39, 45
-  br i1 %.not122, label %42, label %40
+  %.not120 = icmp eq i8 %39, 45
+  br i1 %.not120, label %42, label %40
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %7, i64 32
@@ -114,8 +113,8 @@ define i32 @getopt_common(i32 noundef %0, ptr noundef readonly %1, ptr noundef r
 
 47:                                               ; preds = %28
   %48 = and i32 %5, 1
-  %.not111 = icmp eq i32 %48, 0
-  br i1 %.not111, label %.thread125, label %49
+  %.not109 = icmp eq i32 %48, 0
+  br i1 %.not109, label %.thread123, label %49
 
 49:                                               ; preds = %47
   %50 = icmp eq i8 %29, 45
@@ -137,13 +136,13 @@ define i32 @getopt_common(i32 noundef %0, ptr noundef readonly %1, ptr noundef r
 
 58:                                               ; preds = %49
   %59 = and i32 %5, 2
-  %.not112 = icmp eq i32 %59, 0
-  br i1 %.not112, label %71, label %60
+  %.not110 = icmp eq i32 %59, 0
+  br i1 %.not110, label %71, label %60
 
 60:                                               ; preds = %58
   %61 = tail call fastcc i32 @getopt_long_option(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %3, ptr noundef %4)
-  %.not113 = icmp eq i32 %61, 63
-  br i1 %.not113, label %62, label %130
+  %.not111 = icmp eq i32 %61, 63
+  br i1 %.not111, label %62, label %130
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr %24, align 8
@@ -153,8 +152,8 @@ define i32 @getopt_common(i32 noundef %0, ptr noundef readonly %1, ptr noundef r
 65:                                               ; preds = %62
   %66 = getelementptr inbounds i8, ptr %63, i64 1
   %67 = load i8, ptr %66, align 1
-  %.not114 = icmp eq i8 %67, 0
-  br i1 %.not114, label %71, label %68
+  %.not112 = icmp eq i8 %67, 0
+  br i1 %.not112, label %71, label %68
 
 68:                                               ; preds = %65, %62
   %69 = load i32, ptr %11, align 4
@@ -167,11 +166,11 @@ define i32 @getopt_common(i32 noundef %0, ptr noundef readonly %1, ptr noundef r
   %72 = phi ptr [ %63, %65 ], [ %27, %58 ]
   %73 = icmp eq ptr %2, null
   %74 = load i8, ptr %72, align 1
-  br i1 %73, label %76, label %._crit_edge145
+  br i1 %73, label %76, label %._crit_edge143
 
-.thread125:                                       ; preds = %47
+.thread123:                                       ; preds = %47
   %75 = icmp eq ptr %2, null
-  br i1 %75, label %.thread126, label %._crit_edge145
+  br i1 %75, label %.thread124, label %._crit_edge143
 
 76:                                               ; preds = %71
   %77 = sext i8 %74 to i32
@@ -183,37 +182,37 @@ define i32 @getopt_common(i32 noundef %0, ptr noundef readonly %1, ptr noundef r
   store i32 %80, ptr %11, align 4
   br label %130
 
-.thread126:                                       ; preds = %.thread125
+.thread124:                                       ; preds = %.thread123
   %81 = getelementptr inbounds i8, ptr %7, i64 32
   store i8 0, ptr %81, align 8
   br label %130
 
-._crit_edge145:                                   ; preds = %71, %.thread125
-  %82 = phi i8 [ %29, %.thread125 ], [ %74, %71 ]
-  %83 = phi ptr [ %27, %.thread125 ], [ %72, %71 ]
+._crit_edge143:                                   ; preds = %71, %.thread123
+  %82 = phi i8 [ %29, %.thread123 ], [ %74, %71 ]
+  %83 = phi ptr [ %27, %.thread123 ], [ %72, %71 ]
   %84 = load i8, ptr %2, align 1
   %85 = icmp eq i8 %84, 58
   %spec.select.idx = zext i1 %85 to i64
   %spec.select = getelementptr inbounds i8, ptr %2, i64 %spec.select.idx
-  %spec.select123 = select i1 %85, i32 58, i32 63
+  %spec.select121 = select i1 %85, i32 58, i32 63
   %86 = sext i8 %82 to i32
   %87 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %spec.select, i32 noundef %86) #4
-  %.not115 = icmp eq ptr %87, null
-  br i1 %.not115, label %88, label %91
+  %.not113 = icmp eq ptr %87, null
+  br i1 %.not113, label %88, label %91
 
-88:                                               ; preds = %._crit_edge145
+88:                                               ; preds = %._crit_edge143
   %89 = getelementptr inbounds i8, ptr %7, i64 16
   store i32 %86, ptr %89, align 8
   %90 = getelementptr inbounds i8, ptr %83, i64 1
   store ptr %90, ptr %24, align 8
   br label %130
 
-91:                                               ; preds = %._crit_edge145
+91:                                               ; preds = %._crit_edge143
   %92 = getelementptr inbounds i8, ptr %87, i64 1
   %93 = load i8, ptr %92, align 1
-  %.not116 = icmp eq i8 %93, 58
+  %.not114 = icmp eq i8 %93, 58
   %94 = getelementptr inbounds i8, ptr %83, i64 1
-  br i1 %.not116, label %98, label %95
+  br i1 %.not114, label %98, label %95
 
 95:                                               ; preds = %91
   store ptr %94, ptr %24, align 8
@@ -223,8 +222,8 @@ define i32 @getopt_common(i32 noundef %0, ptr noundef readonly %1, ptr noundef r
 
 98:                                               ; preds = %91
   %99 = load i8, ptr %94, align 1
-  %.not117 = icmp eq i8 %99, 0
-  br i1 %.not117, label %105, label %100
+  %.not115 = icmp eq i8 %99, 0
+  br i1 %.not115, label %105, label %100
 
 100:                                              ; preds = %98
   store ptr %94, ptr %7, align 8
@@ -242,13 +241,13 @@ define i32 @getopt_common(i32 noundef %0, ptr noundef readonly %1, ptr noundef r
   %108 = getelementptr ptr, ptr %1, i64 %107
   %109 = getelementptr i8, ptr %108, i64 8
   %110 = load ptr, ptr %109, align 8
-  %.not118 = icmp eq ptr %110, null
-  br i1 %.not118, label %117, label %111
+  %.not116 = icmp eq ptr %110, null
+  br i1 %.not116, label %117, label %111
 
 111:                                              ; preds = %105
   %112 = load i8, ptr %110, align 1
-  %.not119 = icmp eq i8 %112, 45
-  br i1 %.not119, label %117, label %113
+  %.not117 = icmp eq i8 %112, 45
+  br i1 %.not117, label %117, label %113
 
 113:                                              ; preds = %111
   store ptr %110, ptr %7, align 8
@@ -283,8 +282,8 @@ define i32 @getopt_common(i32 noundef %0, ptr noundef readonly %1, ptr noundef r
   store i8 0, ptr %129, align 8
   br label %130
 
-130:                                              ; preds = %125, %117, %60, %51, %55, %6, %128, %113, %100, %95, %88, %.thread126, %76, %68, %44, %40, %.loopexit
-  %.094 = phi i32 [ -1, %40 ], [ -1, %.loopexit ], [ 63, %44 ], [ 63, %68 ], [ 63, %76 ], [ -1, %.thread126 ], [ %97, %95 ], [ %104, %100 ], [ %116, %113 ], [ 63, %88 ], [ -1, %128 ], [ 63, %6 ], [ 63, %55 ], [ %53, %51 ], [ %61, %60 ], [ %127, %125 ], [ %spec.select123, %117 ]
+130:                                              ; preds = %125, %117, %60, %51, %55, %6, %128, %113, %100, %95, %88, %.thread124, %76, %68, %44, %40, %.loopexit
+  %.094 = phi i32 [ -1, %40 ], [ -1, %.loopexit ], [ 63, %44 ], [ 63, %68 ], [ 63, %76 ], [ -1, %.thread124 ], [ %97, %95 ], [ %104, %100 ], [ %116, %113 ], [ 63, %88 ], [ -1, %128 ], [ 63, %6 ], [ 63, %55 ], [ %53, %51 ], [ %61, %60 ], [ %127, %125 ], [ %spec.select121, %117 ]
   ret i32 %.094
 }
 

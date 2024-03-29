@@ -2644,14 +2644,13 @@ define internal noundef i32 @sapi_cli_server_send_headers(ptr noundef %0) #0 {
 
 7:                                                ; preds = %1
   %8 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 9), align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %121
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %121, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 2, i32 4), align 8
-  %.not164 = icmp eq ptr %11, null
-  br i1 %.not164, label %31, label %12
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %31, label %12
 
 12:                                               ; preds = %10
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #30
@@ -2668,19 +2667,19 @@ define internal noundef i32 @sapi_cli_server_send_headers(ptr noundef %0) #0 {
   %20 = add i64 %13, 2
   %21 = getelementptr inbounds i8, ptr %3, i64 8
   %22 = load i64, ptr %21, align 8
-  %.not168 = icmp ult i64 %20, %22
-  br i1 %.not168, label %24, label %23
+  %.not167 = icmp ult i64 %20, %22
+  br i1 %.not167, label %24, label %23
 
 23:                                               ; preds = %12
   call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %20) #29
-  %.pre183 = load ptr, ptr %3, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre183, i64 16
-  %.pre184 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre182 = load ptr, ptr %3, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre182, i64 16
+  %.pre183 = load i64, ptr %.phi.trans.insert, align 8
   br label %24
 
 24:                                               ; preds = %23, %12
-  %25 = phi i64 [ %.pre184, %23 ], [ %13, %12 ]
-  %26 = phi ptr [ %.pre183, %23 ], [ %18, %12 ]
+  %25 = phi i64 [ %.pre183, %23 ], [ %13, %12 ]
+  %26 = phi ptr [ %.pre182, %23 ], [ %18, %12 ]
   %27 = getelementptr inbounds i8, ptr %26, i64 24
   %28 = getelementptr inbounds i8, ptr %27, i64 %25
   store i16 2573, ptr %28, align 1
@@ -2699,45 +2698,45 @@ define internal noundef i32 @sapi_cli_server_send_headers(ptr noundef %0) #0 {
 35:                                               ; preds = %31, %24
   call fastcc void @append_essential_headers(ptr noundef nonnull %3, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef %0)
   %36 = call ptr @zend_llist_get_first_ex(ptr noundef %0, ptr noundef nonnull %4) #29
-  %.not169179 = icmp eq ptr %36, null
-  br i1 %.not169179, label %._crit_edge, label %.lr.ph
+  %.not168178 = icmp eq ptr %36, null
+  br i1 %.not168178, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35
   %37 = getelementptr inbounds i8, ptr %3, i64 8
   br label %38
 
 38:                                               ; preds = %.lr.ph, %67
-  %.0180 = phi ptr [ %36, %.lr.ph ], [ %68, %67 ]
-  %39 = getelementptr inbounds i8, ptr %.0180, i64 8
+  %.0179 = phi ptr [ %36, %.lr.ph ], [ %68, %67 ]
+  %39 = getelementptr inbounds i8, ptr %.0179, i64 8
   %40 = load i64, ptr %39, align 8
-  %.not174 = icmp eq i64 %40, 0
-  br i1 %.not174, label %67, label %41
+  %.not173 = icmp eq i64 %40, 0
+  br i1 %.not173, label %67, label %41
 
 41:                                               ; preds = %38
-  %42 = load ptr, ptr %.0180, align 8
+  %42 = load ptr, ptr %.0179, align 8
   %43 = load ptr, ptr %3, align 8
-  %.not175 = icmp eq ptr %43, null
-  br i1 %.not175, label %49, label %44
+  %.not174 = icmp eq ptr %43, null
+  br i1 %.not174, label %49, label %44
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds i8, ptr %43, i64 16
   %46 = load i64, ptr %45, align 8
   %47 = add i64 %46, %40
   %48 = load i64, ptr %37, align 8
-  %.not176 = icmp ult i64 %47, %48
-  br i1 %.not176, label %50, label %49
+  %.not175 = icmp ult i64 %47, %48
+  br i1 %.not175, label %50, label %49
 
 49:                                               ; preds = %41, %44
   %.0141 = phi i64 [ %40, %41 ], [ %47, %44 ]
   call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %.0141) #29
-  %.pre185 = load ptr, ptr %3, align 8
-  %.phi.trans.insert186 = getelementptr inbounds i8, ptr %.pre185, i64 16
-  %.pre187 = load i64, ptr %.phi.trans.insert186, align 8
+  %.pre184 = load ptr, ptr %3, align 8
+  %.phi.trans.insert185 = getelementptr inbounds i8, ptr %.pre184, i64 16
+  %.pre186 = load i64, ptr %.phi.trans.insert185, align 8
   br label %50
 
 50:                                               ; preds = %44, %49
-  %51 = phi i64 [ %.pre187, %49 ], [ %46, %44 ]
-  %52 = phi ptr [ %.pre185, %49 ], [ %43, %44 ]
+  %51 = phi i64 [ %.pre186, %49 ], [ %46, %44 ]
+  %52 = phi ptr [ %.pre184, %49 ], [ %43, %44 ]
   %.1142 = phi i64 [ %.0141, %49 ], [ %47, %44 ]
   %53 = getelementptr inbounds i8, ptr %52, i64 24
   %54 = getelementptr inbounds i8, ptr %53, i64 %51
@@ -2747,19 +2746,19 @@ define internal noundef i32 @sapi_cli_server_send_headers(ptr noundef %0) #0 {
   store i64 %.1142, ptr %56, align 8
   %57 = add i64 %.1142, 2
   %58 = load i64, ptr %37, align 8
-  %.not178 = icmp ult i64 %57, %58
-  br i1 %.not178, label %60, label %59
+  %.not177 = icmp ult i64 %57, %58
+  br i1 %.not177, label %60, label %59
 
 59:                                               ; preds = %50
   call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %57) #29
-  %.pre188 = load ptr, ptr %3, align 8
-  %.phi.trans.insert189 = getelementptr inbounds i8, ptr %.pre188, i64 16
-  %.pre190 = load i64, ptr %.phi.trans.insert189, align 8
+  %.pre187 = load ptr, ptr %3, align 8
+  %.phi.trans.insert188 = getelementptr inbounds i8, ptr %.pre187, i64 16
+  %.pre189 = load i64, ptr %.phi.trans.insert188, align 8
   br label %60
 
 60:                                               ; preds = %59, %50
-  %61 = phi i64 [ %.pre190, %59 ], [ %.1142, %50 ]
-  %62 = phi ptr [ %.pre188, %59 ], [ %55, %50 ]
+  %61 = phi i64 [ %.pre189, %59 ], [ %.1142, %50 ]
+  %62 = phi ptr [ %.pre187, %59 ], [ %55, %50 ]
   %63 = getelementptr inbounds i8, ptr %62, i64 24
   %64 = getelementptr inbounds i8, ptr %63, i64 %61
   store i16 2573, ptr %64, align 1
@@ -2770,13 +2769,13 @@ define internal noundef i32 @sapi_cli_server_send_headers(ptr noundef %0) #0 {
 
 67:                                               ; preds = %60, %38
   %68 = call ptr @zend_llist_get_next_ex(ptr noundef %0, ptr noundef nonnull %4) #29
-  %.not169 = icmp eq ptr %68, null
-  br i1 %.not169, label %._crit_edge, label %38
+  %.not168 = icmp eq ptr %68, null
+  br i1 %.not168, label %._crit_edge, label %38
 
 ._crit_edge:                                      ; preds = %67, %35
   %69 = load ptr, ptr %3, align 8
-  %.not170 = icmp eq ptr %69, null
-  br i1 %.not170, label %76, label %70
+  %.not169 = icmp eq ptr %69, null
+  br i1 %.not169, label %76, label %70
 
 70:                                               ; preds = %._crit_edge
   %71 = getelementptr inbounds i8, ptr %69, i64 16
@@ -2784,20 +2783,20 @@ define internal noundef i32 @sapi_cli_server_send_headers(ptr noundef %0) #0 {
   %73 = add i64 %72, 2
   %74 = getelementptr inbounds i8, ptr %3, i64 8
   %75 = load i64, ptr %74, align 8
-  %.not171 = icmp ult i64 %73, %75
-  br i1 %.not171, label %77, label %76
+  %.not170 = icmp ult i64 %73, %75
+  br i1 %.not170, label %77, label %76
 
 76:                                               ; preds = %._crit_edge, %70
   %.0146 = phi i64 [ 2, %._crit_edge ], [ %73, %70 ]
   call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %.0146) #29
-  %.pre191 = load ptr, ptr %3, align 8
-  %.phi.trans.insert192 = getelementptr inbounds i8, ptr %.pre191, i64 16
-  %.pre193 = load i64, ptr %.phi.trans.insert192, align 8
+  %.pre190 = load ptr, ptr %3, align 8
+  %.phi.trans.insert191 = getelementptr inbounds i8, ptr %.pre190, i64 16
+  %.pre192 = load i64, ptr %.phi.trans.insert191, align 8
   br label %77
 
 77:                                               ; preds = %76, %70
-  %78 = phi i64 [ %.pre193, %76 ], [ %72, %70 ]
-  %79 = phi ptr [ %.pre191, %76 ], [ %69, %70 ]
+  %78 = phi i64 [ %.pre192, %76 ], [ %72, %70 ]
+  %79 = phi ptr [ %.pre190, %76 ], [ %69, %70 ]
   %.1147 = phi i64 [ %.0146, %76 ], [ %73, %70 ]
   %80 = getelementptr inbounds i8, ptr %79, i64 24
   %81 = getelementptr inbounds i8, ptr %80, i64 %78
@@ -2856,15 +2855,15 @@ define internal noundef i32 @sapi_cli_server_send_headers(ptr noundef %0) #0 {
 
 php_cli_server_client_send_through.exit:          ; preds = %108, %.loopexit.sink.split.i
   %110 = load ptr, ptr %3, align 8
-  %.not172 = icmp eq ptr %110, null
-  br i1 %.not172, label %121, label %111
+  %.not171 = icmp eq ptr %110, null
+  br i1 %.not171, label %121, label %111
 
 111:                                              ; preds = %php_cli_server_client_send_through.exit
   %112 = getelementptr inbounds i8, ptr %110, i64 4
   %113 = load i32, ptr %112, align 4
   %114 = and i32 %113, 64
-  %.not173 = icmp eq i32 %114, 0
-  br i1 %.not173, label %115, label %121
+  %.not172 = icmp eq i32 %114, 0
+  br i1 %.not172, label %115, label %121
 
 115:                                              ; preds = %111
   %116 = load i32, ptr %110, align 4
@@ -4728,9 +4727,9 @@ define internal void @php_cli_server_logf(i32 noundef %0, ptr noundef %1, ...) u
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %8 = call i64 @zend_vspprintf(ptr noundef nonnull %3, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %4) #29
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %9 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %12, label %10
@@ -6136,9 +6135,8 @@ php_cli_server_request_dtor.exit.i:               ; preds = %81, %76
 101:                                              ; preds = %100, %95, %87
   %102 = getelementptr inbounds i8, ptr %2, i64 480
   %103 = load i8, ptr %102, align 8
-  %104 = and i8 %103, 1
-  %.not15.i = icmp eq i8 %104, 0
-  br i1 %.not15.i, label %php_cli_server_client_dtor.exit, label %105
+  %104 = trunc i8 %103 to i1
+  br i1 %104, label %105, label %php_cli_server_client_dtor.exit
 
 105:                                              ; preds = %101
   %106 = getelementptr inbounds i8, ptr %2, i64 488
@@ -6236,13 +6234,7 @@ declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #1
 
 declare ptr @zend_hash_str_add(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #20
-
 declare i64 @zend_vspprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #20
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @php_cli_server_recv_event_read_request(ptr noundef %0, ptr noundef %1) #0 {
@@ -6252,9 +6244,8 @@ define internal noundef i32 @php_cli_server_recv_event_read_request(ptr noundef 
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %5)
   %6 = getelementptr inbounds i8, ptr %1, i64 72
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %9, label %php_cli_server_client_read_request.exit.thread25
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %php_cli_server_client_read_request.exit.thread25, label %9
 
 php_cli_server_client_read_request.exit.thread25: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %5)
@@ -6307,8 +6298,8 @@ php_cli_server_client_read_request.exit.thread28: ; preds = %15
   store ptr %1, ptr %34, align 8
   %35 = and i64 %12, 2147483647
   %36 = call i64 @php_http_parser_execute(ptr noundef nonnull %33, ptr noundef nonnull @php_cli_server_client_read_request.settings, ptr noundef nonnull %5, i64 noundef %35) #29
-  %.not22.i = icmp eq i64 %36, %35
-  br i1 %.not22.i, label %php_cli_server_client_read_request.exit, label %37
+  %.not.i = icmp eq i64 %36, %35
+  br i1 %.not.i, label %php_cli_server_client_read_request.exit, label %37
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @php_cli_server_log_level, align 4
@@ -7085,9 +7076,8 @@ php_cli_server_dispatch.exit:                     ; preds = %401, %397, %383, %3
 define internal noundef i32 @php_cli_server_send_event(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 480
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %111, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %111
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 504
@@ -7098,8 +7088,8 @@ define internal noundef i32 @php_cli_server_send_event(ptr noundef %0, ptr nocap
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %1, i64 488
   %12 = load ptr, ptr %11, align 8
-  %.not21 = icmp eq ptr %12, null
-  br i1 %.not21, label %13, label %48
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %13, label %48
 
 13:                                               ; preds = %10
   %14 = tail call noalias dereferenceable_or_null(131112) ptr @__zend_malloc(i64 noundef 131112) #31
@@ -7218,20 +7208,20 @@ php_cli_server_content_sender_pull.exit:          ; preds = %40
 
 67:                                               ; preds = %64
   %68 = load i32, ptr %55, align 8
-  %cond.i.i23 = icmp eq i32 %68, 0
-  br i1 %cond.i.i23, label %69, label %php_cli_server_chunk_dtor.exit.i24
+  %cond.i.i22 = icmp eq i32 %68, 0
+  br i1 %cond.i.i22, label %69, label %php_cli_server_chunk_dtor.exit.i23
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds i8, ptr %.04859.i, i64 16
   %71 = load ptr, ptr %70, align 8
-  %.not.i.i25 = icmp eq ptr %71, %.04859.i
-  br i1 %.not.i.i25, label %php_cli_server_chunk_dtor.exit.i24, label %72
+  %.not.i.i24 = icmp eq ptr %71, %.04859.i
+  br i1 %.not.i.i24, label %php_cli_server_chunk_dtor.exit.i23, label %72
 
 72:                                               ; preds = %69
   tail call void @free(ptr noundef %71) #29
-  br label %php_cli_server_chunk_dtor.exit.i24
+  br label %php_cli_server_chunk_dtor.exit.i23
 
-php_cli_server_chunk_dtor.exit.i24:               ; preds = %72, %69, %67
+php_cli_server_chunk_dtor.exit.i23:               ; preds = %72, %69, %67
   tail call void @free(ptr noundef nonnull %.04859.i) #29
   store ptr %54, ptr %49, align 8
   %cond = icmp eq ptr %54, null
@@ -7276,8 +7266,8 @@ php_cli_server_chunk_dtor.exit.i24:               ; preds = %72, %69, %67
 php_cli_server_chunk_dtor.exit55.i:               ; preds = %91, %89, %87
   tail call void @free(ptr noundef nonnull %.04859.i) #29
   store ptr %54, ptr %49, align 8
-  %cond37 = icmp eq ptr %54, null
-  br i1 %cond37, label %php_cli_server_content_sender_send.exit.thread.thread.sink.split, label %.backedge.backedge
+  %cond36 = icmp eq ptr %54, null
+  br i1 %cond36, label %php_cli_server_content_sender_send.exit.thread.thread.sink.split, label %.backedge.backedge
 
 92:                                               ; preds = %84
   %93 = load ptr, ptr %78, align 8
@@ -7291,7 +7281,7 @@ php_cli_server_chunk_dtor.exit55.i:               ; preds = %91, %89, %87
   %.not.i = icmp eq ptr %54, null
   br i1 %.not.i, label %php_cli_server_content_sender_send.exit.thread, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %96, %php_cli_server_chunk_dtor.exit.i24, %php_cli_server_chunk_dtor.exit55.i
+.backedge.backedge:                               ; preds = %96, %php_cli_server_chunk_dtor.exit.i23, %php_cli_server_chunk_dtor.exit55.i
   br label %.backedge
 
 php_cli_server_content_sender_send.exit:          ; preds = %77, %57
@@ -7311,10 +7301,10 @@ php_cli_server_content_sender_send.exit:          ; preds = %77, %57
 
 php_cli_server_content_sender_send.exit.thread:   ; preds = %96, %php_cli_server_content_sender_send.exit, %php_cli_server_content_sender_send.exit
   %.pr.pr = load ptr, ptr %49, align 8
-  %.not22 = icmp eq ptr %.pr.pr, null
-  br i1 %.not22, label %php_cli_server_content_sender_send.exit.thread.thread, label %111
+  %.not21 = icmp eq ptr %.pr.pr, null
+  br i1 %.not21, label %php_cli_server_content_sender_send.exit.thread.thread, label %111
 
-php_cli_server_content_sender_send.exit.thread.thread.sink.split: ; preds = %php_cli_server_chunk_dtor.exit55.i, %php_cli_server_chunk_dtor.exit.i24
+php_cli_server_content_sender_send.exit.thread.thread.sink.split: ; preds = %php_cli_server_chunk_dtor.exit55.i, %php_cli_server_chunk_dtor.exit.i23
   store ptr null, ptr %53, align 8
   br label %php_cli_server_content_sender_send.exit.thread.thread
 
@@ -7331,10 +7321,10 @@ php_cli_server_content_sender_send.exit.thread.thread: ; preds = %php_cli_server
   br label %.sink.split
 
 .sink.split:                                      ; preds = %php_cli_server_content_sender_pull.exit.thread, %98, %104
-  %.sink36 = phi ptr [ %50, %104 ], [ %50, %98 ], [ %38, %php_cli_server_content_sender_pull.exit.thread ]
+  %.sink35 = phi ptr [ %50, %104 ], [ %50, %98 ], [ %38, %php_cli_server_content_sender_pull.exit.thread ]
   %.0.ph = phi i32 [ 0, %104 ], [ -1, %98 ], [ -1, %php_cli_server_content_sender_pull.exit.thread ]
   %.sink = getelementptr inbounds i8, ptr %0, i64 592
-  %108 = load i32, ptr %.sink36, align 8
+  %108 = load i32, ptr %.sink35, align 8
   %109 = sext i32 %108 to i64
   %110 = tail call i32 @zend_hash_index_del(ptr noundef nonnull %.sink, i64 noundef %109) #29
   br label %111
@@ -7568,7 +7558,7 @@ declare void @php_network_populate_name_from_sockaddr(ptr noundef, i32 noundef, 
 declare void @php_http_parser_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @cli_header_value_dtor(ptr nocapture noundef readonly %0) #21 {
+define internal void @cli_header_value_dtor(ptr nocapture noundef readonly %0) #20 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 4
@@ -8314,7 +8304,7 @@ php_cli_server_poller_add.exit:                   ; preds = %302, %306
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @php_cli_server_client_read_request_on_message_begin(ptr nocapture readnone %0) #22 {
+define internal noundef i32 @php_cli_server_client_read_request_on_message_begin(ptr nocapture readnone %0) #21 {
   ret i32 0
 }
 
@@ -8764,7 +8754,7 @@ cli_concat_persistent_zstr_with_char.exit:        ; preds = %46, %55, %68
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @php_cli_server_client_read_request_on_fragment(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2) #22 {
+define internal noundef i32 @php_cli_server_client_read_request_on_fragment(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2) #21 {
   ret i32 0
 }
 
@@ -9306,7 +9296,7 @@ declare i64 @php_http_parser_execute(ptr noundef, ptr noundef, ptr noundef, i64 
 declare i64 @php_raw_url_decode(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(1)
-declare ptr @__zend_realloc(ptr noundef, i64 noundef) local_unnamed_addr #23
+declare ptr @__zend_realloc(ptr noundef, i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @php_cli_server_client_save_header(ptr noundef %0) unnamed_addr #0 {
@@ -9635,7 +9625,7 @@ define internal fastcc noundef i32 @php_cli_server_dispatch_script(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @sapi_cli_server_discard_headers(ptr nocapture readnone %0) #22 {
+define internal noundef i32 @sapi_cli_server_discard_headers(ptr nocapture readnone %0) #21 {
   ret i32 1
 }
 
@@ -9648,7 +9638,7 @@ declare i32 @php_request_startup() local_unnamed_addr #1
 declare void @zend_stream_init_filename(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #24
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #23
 
 declare zeroext i1 @php_execute_script_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -9662,7 +9652,7 @@ declare i32 @chdir(ptr noundef) local_unnamed_addr #6
 declare zeroext i1 @php_execute_script(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #25
+declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #24
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @get_mime_type(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
@@ -9708,9 +9698,15 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare ptr @zend_str_tolower_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #25
+declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #24
 
 declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #25
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #25
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #26
@@ -9744,12 +9740,12 @@ attributes #16 = { mustprogress nofree nounwind willreturn "frame-pointer"="all"
 attributes #17 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #21 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #26 = { nofree nounwind }
 attributes #27 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

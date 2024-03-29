@@ -232,12 +232,11 @@ if.end58:                                         ; preds = %if.end42
   store i8 %frombool62, ptr %_is_multicast, align 4
   %call65 = call noundef zeroext i16 @_ZNK3zmq9ip_addr_t4portEv(ptr noundef nonnull align 4 dereferenceable(28) %_target_address)
   %4 = load i8, ptr %_is_multicast, align 4
-  %5 = and i8 %4, 1
-  %tobool77.not = icmp eq i8 %5, 0
+  %tobool77 = trunc i8 %4 to i1
   br i1 %tobool.not.not, label %if.else75, label %if.then67
 
 if.then67:                                        ; preds = %if.end58
-  br i1 %tobool77.not, label %if.then70, label %if.end72
+  br i1 %tobool77, label %if.end72, label %if.then70
 
 if.then70:                                        ; preds = %if.then67
   %call71 = tail call ptr @__errno_location() #13
@@ -250,8 +249,9 @@ if.end72:                                         ; preds = %if.then67
   br label %if.end93
 
 if.else75:                                        ; preds = %if.end58
-  %brmerge.not = and i1 %tobool77.not, %bind_
-  br i1 %brmerge.not, label %if.else89, label %if.then79
+  %bind_.not = xor i1 %bind_, true
+  %brmerge = or i1 %bind_.not, %tobool77
+  br i1 %brmerge, label %if.then79, label %if.else89
 
 if.then79:                                        ; preds = %if.else75
   %call83 = call noundef i32 @_ZNK3zmq9ip_addr_t6familyEv(ptr noundef nonnull align 4 dereferenceable(28) %_target_address)
@@ -284,13 +284,12 @@ if.end103:                                        ; preds = %if.end93
   br i1 %ipv6_, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end103
-  %6 = load i8, ptr %_is_multicast, align 4
-  %7 = and i8 %6, 1
-  %tobool106.not = icmp ne i8 %7, 0
+  %5 = load i8, ptr %_is_multicast, align 4
+  %tobool106 = trunc i8 %5 to i1
   %_bind_interface108 = getelementptr inbounds i8, ptr %this, i64 36
-  %8 = load i32, ptr %_bind_interface108, align 4
-  %cmp109 = icmp slt i32 %8, 0
-  %or.cond = select i1 %tobool106.not, i1 %cmp109, i1 false
+  %6 = load i32, ptr %_bind_interface108, align 4
+  %cmp109 = icmp slt i32 %6, 0
+  %or.cond = select i1 %tobool106, i1 %cmp109, i1 false
   br i1 %or.cond, label %if.then110, label %return
 
 if.then110:                                       ; preds = %land.lhs.true
@@ -366,8 +365,7 @@ define noundef zeroext i1 @_ZNK3zmq13udp_address_t8is_mcastEv(ptr nocapture noun
 entry:
   %_is_multicast = getelementptr inbounds i8, ptr %this, i64 68
   %0 = load i8, ptr %_is_multicast, align 4
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

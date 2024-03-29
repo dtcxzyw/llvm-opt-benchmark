@@ -279,7 +279,7 @@ lpad:                                             ; preds = %invoke.cont, %dynam
   resume { ptr, i32 } %6
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
@@ -2319,7 +2319,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit42
-  %foundContextVars.049 = phi i8 [ 0, %for.body.lr.ph ], [ %spec.select, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit42 ]
+  %foundContextVars.049 = phi i1 [ false, %for.body.lr.ph ], [ %spec.select, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit42 ]
   %idx.048 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit42 ]
   %vtable1 = load ptr, ptr %tr, align 8
   %vfn2 = getelementptr inbounds i8, ptr %vtable1, i64 72
@@ -2426,7 +2426,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %spec.select = select i1 %call3, i8 1, i8 %foundContextVars.049
+  %spec.select = select i1 %call3, i1 true, i1 %foundContextVars.049
   %18 = load ptr, ptr %_M_refcount3.i.i, align 8
   %cmp.not.i.i.i12 = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i12, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit42, label %if.then.i.i.i13
@@ -2506,7 +2506,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit42: ; preds = %_ZN
   %29 = load ptr, ptr %vfn, align 8
   %call = call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(8) %tr) #17
   %cmp = icmp slt i32 %inc, %call
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !12
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 lpad:                                             ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit
   %30 = landingpad { ptr, i32 }
@@ -2515,13 +2515,8 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIK
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %child) #17
   resume { ptr, i32 } %30
 
-for.end.loopexit:                                 ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit42
-  %31 = and i8 %spec.select, 1
-  %32 = icmp ne i8 %31, 0
-  br label %for.end
-
-for.end:                                          ; preds = %for.end.loopexit, %entry
-  %foundContextVars.0.lcssa = phi i1 [ false, %entry ], [ %32, %for.end.loopexit ]
+for.end:                                          ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit42, %entry
+  %foundContextVars.0.lcssa = phi i1 [ false, %entry ], [ %spec.select, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit42 ]
   ret i1 %foundContextVars.0.lcssa
 }
 
@@ -3426,7 +3421,7 @@ attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #2 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind memory(read) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nosync nounwind memory(none) }

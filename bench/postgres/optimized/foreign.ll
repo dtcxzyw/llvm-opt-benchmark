@@ -103,9 +103,8 @@ define dso_local noundef ptr @GetForeignDataWrapperExtended(i32 noundef %0, i16 
   store i32 %30, ptr %31, align 4
   %32 = call i64 @SysCacheGetAttr(i32 noundef 28, ptr noundef nonnull %5, i16 noundef signext 7, ptr noundef nonnull %3) #7
   %33 = load i8, ptr %3, align 1
-  %34 = and i8 %33, 1
-  %.not23 = icmp eq i8 %34, 0
-  br i1 %.not23, label %35, label %37
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %37, label %35
 
 35:                                               ; preds = %12
   %36 = call ptr @untransformRelOptions(i64 noundef %32) #7
@@ -240,9 +239,8 @@ define dso_local noundef ptr @GetForeignServerExtended(i32 noundef %0, i16 nound
   store i32 %27, ptr %28, align 4
   %29 = call i64 @SysCacheGetAttr(i32 noundef 30, ptr noundef nonnull %5, i16 noundef signext 5, ptr noundef nonnull %3) #7
   %30 = load i8, ptr %3, align 1
-  %31 = and i8 %30, 1
-  %.not27 = icmp eq i8 %31, 0
-  br i1 %.not27, label %32, label %35
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %35, label %32
 
 32:                                               ; preds = %12
   %33 = inttoptr i64 %29 to ptr
@@ -255,9 +253,8 @@ define dso_local noundef ptr @GetForeignServerExtended(i32 noundef %0, i16 nound
   store ptr %36, ptr %37, align 8
   %38 = call i64 @SysCacheGetAttr(i32 noundef 30, ptr noundef nonnull %5, i16 noundef signext 6, ptr noundef nonnull %3) #7
   %39 = load i8, ptr %3, align 1
-  %40 = and i8 %39, 1
-  %.not28 = icmp eq i8 %40, 0
-  br i1 %.not28, label %41, label %44
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %44, label %41
 
 41:                                               ; preds = %35
   %42 = inttoptr i64 %38 to ptr
@@ -270,9 +267,8 @@ define dso_local noundef ptr @GetForeignServerExtended(i32 noundef %0, i16 nound
   store ptr %45, ptr %46, align 8
   %47 = call i64 @SysCacheGetAttr(i32 noundef 30, ptr noundef nonnull %5, i16 noundef signext 8, ptr noundef nonnull %3) #7
   %48 = load i8, ptr %3, align 1
-  %49 = and i8 %48, 1
-  %.not29 = icmp eq i8 %49, 0
-  br i1 %.not29, label %50, label %52
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %52, label %50
 
 50:                                               ; preds = %44
   %51 = call ptr @untransformRelOptions(i64 noundef %47) #7
@@ -376,9 +372,9 @@ define dso_local noundef ptr @GetUserMapping(i32 noundef %0, i32 noundef %1) loc
   unreachable
 
 .thread:                                          ; preds = %2, %7
-  %.028 = phi ptr [ %8, %7 ], [ %6, %2 ]
+  %.027 = phi ptr [ %8, %7 ], [ %6, %2 ]
   %20 = tail call ptr @palloc(i64 noundef 24) #7
-  %21 = getelementptr inbounds i8, ptr %.028, i64 16
+  %21 = getelementptr inbounds i8, ptr %.027, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 22
   %24 = load i8, ptr %23, align 2
@@ -390,11 +386,10 @@ define dso_local noundef ptr @GetUserMapping(i32 noundef %0, i32 noundef %1) loc
   store i32 %0, ptr %28, align 4
   %29 = getelementptr inbounds i8, ptr %20, i64 8
   store i32 %1, ptr %29, align 8
-  %30 = call i64 @SysCacheGetAttr(i32 noundef 82, ptr noundef nonnull %.028, i16 noundef signext 4, ptr noundef nonnull %3) #7
+  %30 = call i64 @SysCacheGetAttr(i32 noundef 82, ptr noundef nonnull %.027, i16 noundef signext 4, ptr noundef nonnull %3) #7
   %31 = load i8, ptr %3, align 1
-  %32 = and i8 %31, 1
-  %.not25 = icmp eq i8 %32, 0
-  br i1 %.not25, label %33, label %35
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %35, label %33
 
 33:                                               ; preds = %.thread
   %34 = call ptr @untransformRelOptions(i64 noundef %30) #7
@@ -404,7 +399,7 @@ define dso_local noundef ptr @GetUserMapping(i32 noundef %0, i32 noundef %1) loc
   %.sink = phi ptr [ %34, %33 ], [ null, %.thread ]
   %36 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %.sink, ptr %36, align 8
-  call void @ReleaseSysCache(ptr noundef nonnull %.028) #7
+  call void @ReleaseSysCache(ptr noundef nonnull %.027) #7
   ret ptr %20
 }
 
@@ -446,9 +441,8 @@ define dso_local noundef ptr @GetForeignTable(i32 noundef %0) local_unnamed_addr
   store i32 %17, ptr %18, align 4
   %19 = call i64 @SysCacheGetAttr(i32 noundef 31, ptr noundef nonnull %4, i16 noundef signext 3, ptr noundef nonnull %2) #7
   %20 = load i8, ptr %2, align 1
-  %21 = and i8 %20, 1
-  %.not14 = icmp eq i8 %21, 0
-  br i1 %.not14, label %22, label %24
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %24, label %22
 
 22:                                               ; preds = %8
   %23 = call ptr @untransformRelOptions(i64 noundef %19) #7
@@ -482,9 +476,8 @@ define dso_local ptr @GetForeignColumnOptions(i32 noundef %0, i16 noundef signex
 11:                                               ; preds = %2
   %12 = call i64 @SysCacheGetAttr(i32 noundef 7, ptr noundef nonnull %6, i16 noundef signext 25, ptr noundef nonnull %3) #7
   %13 = load i8, ptr %3, align 1
-  %14 = and i8 %13, 1
-  %.not9 = icmp eq i8 %14, 0
-  br i1 %.not9, label %15, label %17
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %17, label %15
 
 15:                                               ; preds = %11
   %16 = call ptr @untransformRelOptions(i64 noundef %12) #7
@@ -884,16 +877,16 @@ define dso_local noundef i64 @postgresql_fdw_validator(ptr nocapture noundef rea
   %9 = getelementptr inbounds i8, ptr %5, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph38, label %._crit_edge
+  br i1 %11, label %.lr.ph37, label %._crit_edge
 
-.lr.ph38:                                         ; preds = %.lr.ph
+.lr.ph37:                                         ; preds = %.lr.ph
   %12 = getelementptr inbounds i8, ptr %5, i64 16
   %13 = load ptr, ptr %12, align 8
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %14
 
-14:                                               ; preds = %.lr.ph38, %53
-  %indvars.iv = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next, %53 ]
+14:                                               ; preds = %.lr.ph37, %52
+  %indvars.iv = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next, %52 ]
   %15 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
@@ -911,7 +904,7 @@ define dso_local noundef i64 @postgresql_fdw_validator(ptr nocapture noundef rea
 24:                                               ; preds = %19
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %18) #9
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %53, label %27
+  br i1 %26, label %52, label %27
 
 27:                                               ; preds = %24, %19
   %28 = getelementptr i8, ptr %.08.i, i64 16
@@ -926,9 +919,9 @@ is_conninfo_option.exit:                          ; preds = %27
 
 31:                                               ; preds = %is_conninfo_option.exit, %37
   %32 = phi ptr [ @.str.14, %is_conninfo_option.exit ], [ %39, %37 ]
-  %.040 = phi i8 [ 0, %is_conninfo_option.exit ], [ %.1, %37 ]
-  %.02139 = phi ptr [ @libpq_conninfo_options, %is_conninfo_option.exit ], [ %38, %37 ]
-  %33 = getelementptr inbounds i8, ptr %.02139, i64 8
+  %.039 = phi i1 [ false, %is_conninfo_option.exit ], [ %.1, %37 ]
+  %.02138 = phi ptr [ @libpq_conninfo_options, %is_conninfo_option.exit ], [ %38, %37 ]
+  %33 = getelementptr inbounds i8, ptr %.02138, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, %8
   br i1 %35, label %36, label %37
@@ -938,8 +931,8 @@ is_conninfo_option.exit:                          ; preds = %27
   br label %37
 
 37:                                               ; preds = %31, %36
-  %.1 = phi i8 [ 1, %36 ], [ %.040, %31 ]
-  %38 = getelementptr i8, ptr %.02139, i64 16
+  %.1 = phi i1 [ true, %36 ], [ %.039, %31 ]
+  %38 = getelementptr i8, ptr %.02138, i64 16
   %39 = load ptr, ptr %38, align 8
   %.not26 = icmp eq ptr %39, null
   br i1 %.not26, label %40, label %31, !llvm.loop !7
@@ -951,32 +944,30 @@ is_conninfo_option.exit:                          ; preds = %27
   %43 = call i32 @errcode(i32 noundef 16801924) #7
   %44 = load ptr, ptr %30, align 8
   %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %44) #7
-  %46 = and i8 %.1, 1
-  %.not27 = icmp eq i8 %46, 0
-  br i1 %.not27, label %50, label %47
+  br i1 %.1, label %46, label %49
 
-47:                                               ; preds = %40
-  %.not28 = icmp eq ptr %41, null
-  br i1 %.not28, label %52, label %48
+46:                                               ; preds = %40
+  %.not27 = icmp eq ptr %41, null
+  br i1 %.not27, label %51, label %47
 
-48:                                               ; preds = %47
-  %49 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.10, ptr noundef nonnull %41) #7
-  br label %52
+47:                                               ; preds = %46
+  %48 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.10, ptr noundef nonnull %41) #7
+  br label %51
 
-50:                                               ; preds = %40
-  %51 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.11) #7
-  br label %52
+49:                                               ; preds = %40
+  %50 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.11) #7
+  br label %51
 
-52:                                               ; preds = %48, %47, %50
+51:                                               ; preds = %47, %46, %49
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 655, ptr noundef nonnull @__func__.postgresql_fdw_validator) #7
   unreachable
 
-53:                                               ; preds = %24
+52:                                               ; preds = %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %14
 
-._crit_edge:                                      ; preds = %53, %.lr.ph, %1
+._crit_edge:                                      ; preds = %52, %.lr.ph, %1
   ret i64 1
 }
 

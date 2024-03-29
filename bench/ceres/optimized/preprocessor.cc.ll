@@ -359,93 +359,91 @@ _ZNSt10shared_ptrIN5ceres8internal9EvaluatorEEaSERKS3_.exit: ; preds = %1, %_ZNS
   %70 = getelementptr inbounds i8, ptr %0, i64 416
   %71 = load i32, ptr %70, align 8
   %.not = icmp eq i32 %71, 0
-  br i1 %.not, label %90, label %72
+  br i1 %.not, label %89, label %72
 
 72:                                               ; preds = %_ZNSt10shared_ptrIN5ceres8internal9EvaluatorEEaSERKS3_.exit
   %73 = getelementptr inbounds i8, ptr %0, i64 420
   %74 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16, !noalias !10
   %75 = load i32, ptr %5, align 4, !noalias !10
   %76 = load i8, ptr %73, align 1, !noalias !10
-  %77 = and i8 %76, 1
-  %78 = icmp ne i8 %77, 0
-  invoke void @_ZN5ceres8internal15LoggingCallbackC1ENS_13MinimizerTypeEb(ptr noundef nonnull align 8 dereferenceable(16) %74, i32 noundef %75, i1 noundef zeroext %78)
-          to label %_ZSt11make_uniqueIN5ceres8internal15LoggingCallbackEJRKNS0_13MinimizerTypeERKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %79, !noalias !10
+  %77 = trunc i8 %76 to i1
+  invoke void @_ZN5ceres8internal15LoggingCallbackC1ENS_13MinimizerTypeEb(ptr noundef nonnull align 8 dereferenceable(16) %74, i32 noundef %75, i1 noundef zeroext %77)
+          to label %_ZSt11make_uniqueIN5ceres8internal15LoggingCallbackEJRKNS0_13MinimizerTypeERKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %78, !noalias !10
 
-common.resume:                                    ; preds = %96, %79
-  %.sink = phi ptr [ %95, %96 ], [ %74, %79 ]
-  %common.resume.op = phi { ptr, i32 } [ %97, %96 ], [ %80, %79 ]
+common.resume:                                    ; preds = %95, %78
+  %.sink = phi ptr [ %94, %95 ], [ %74, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %96, %95 ], [ %79, %78 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #19, !noalias !13
   resume { ptr, i32 } %common.resume.op
 
-79:                                               ; preds = %72
-  %80 = landingpad { ptr, i32 }
+78:                                               ; preds = %72
+  %79 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZSt11make_uniqueIN5ceres8internal15LoggingCallbackEJRKNS0_13MinimizerTypeERKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %72
-  %81 = getelementptr inbounds i8, ptr %0, i64 1088
-  %82 = load ptr, ptr %81, align 8
-  store ptr %74, ptr %81, align 8
-  %.not.i.i.i26 = icmp eq ptr %82, null
-  br i1 %.not.i.i.i26, label %_ZNSt10unique_ptrIN5ceres8internal15LoggingCallbackESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i.i.i
+  %80 = getelementptr inbounds i8, ptr %0, i64 1088
+  %81 = load ptr, ptr %80, align 8
+  store ptr %74, ptr %80, align 8
+  %.not.i.i.i25 = icmp eq ptr %81, null
+  br i1 %.not.i.i.i25, label %_ZNSt10unique_ptrIN5ceres8internal15LoggingCallbackESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i.i.i: ; preds = %_ZSt11make_uniqueIN5ceres8internal15LoggingCallbackEJRKNS0_13MinimizerTypeERKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
-  %85 = load ptr, ptr %84, align 8
-  call void %85(ptr noundef nonnull align 8 dereferenceable(8) %82) #18
-  %.pre = load ptr, ptr %81, align 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %84 = load ptr, ptr %83, align 8
+  call void %84(ptr noundef nonnull align 8 dereferenceable(8) %81) #18
+  %.pre = load ptr, ptr %80, align 8
   br label %_ZNSt10unique_ptrIN5ceres8internal15LoggingCallbackESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5ceres8internal15LoggingCallbackESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i.i.i, %_ZSt11make_uniqueIN5ceres8internal15LoggingCallbackEJRKNS0_13MinimizerTypeERKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %86 = phi ptr [ %.pre, %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i.i.i ], [ %74, %_ZSt11make_uniqueIN5ceres8internal15LoggingCallbackEJRKNS0_13MinimizerTypeERKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
-  %87 = getelementptr inbounds i8, ptr %0, i64 968
-  %88 = load ptr, ptr %87, align 8
-  store ptr %86, ptr %3, align 8
-  %89 = call ptr @_ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr %88, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br label %90
+  %85 = phi ptr [ %.pre, %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i.i.i ], [ %74, %_ZSt11make_uniqueIN5ceres8internal15LoggingCallbackEJRKNS0_13MinimizerTypeERKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
+  %86 = getelementptr inbounds i8, ptr %0, i64 968
+  %87 = load ptr, ptr %86, align 8
+  store ptr %85, ptr %3, align 8
+  %88 = call ptr @_ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr %87, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  br label %89
 
-90:                                               ; preds = %_ZNSt10unique_ptrIN5ceres8internal15LoggingCallbackESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10shared_ptrIN5ceres8internal9EvaluatorEEaSERKS3_.exit
-  %91 = getelementptr inbounds i8, ptr %0, i64 504
-  %92 = load i8, ptr %91, align 8
-  %93 = and i8 %92, 1
-  %.not25 = icmp eq i8 %93, 0
-  br i1 %.not25, label %107, label %94
+89:                                               ; preds = %_ZNSt10unique_ptrIN5ceres8internal15LoggingCallbackESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10shared_ptrIN5ceres8internal9EvaluatorEEaSERKS3_.exit
+  %90 = getelementptr inbounds i8, ptr %0, i64 504
+  %91 = load i8, ptr %90, align 8
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %106
 
-94:                                               ; preds = %90
-  %95 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16, !noalias !14
-  invoke void @_ZN5ceres8internal21StateUpdatingCallbackC1EPNS0_7ProgramEPd(ptr noundef nonnull align 8 dereferenceable(24) %95, ptr noundef nonnull %7, ptr noundef %11)
-          to label %_ZSt11make_uniqueIN5ceres8internal21StateUpdatingCallbackEJRPNS1_7ProgramERPdEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %96, !noalias !14
+93:                                               ; preds = %89
+  %94 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16, !noalias !14
+  invoke void @_ZN5ceres8internal21StateUpdatingCallbackC1EPNS0_7ProgramEPd(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull %7, ptr noundef %11)
+          to label %_ZSt11make_uniqueIN5ceres8internal21StateUpdatingCallbackEJRPNS1_7ProgramERPdEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %95, !noalias !14
 
-96:                                               ; preds = %94
-  %97 = landingpad { ptr, i32 }
+95:                                               ; preds = %93
+  %96 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZSt11make_uniqueIN5ceres8internal21StateUpdatingCallbackEJRPNS1_7ProgramERPdEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %0, i64 1096
-  %99 = load ptr, ptr %98, align 8
-  store ptr %95, ptr %98, align 8
-  %.not.i.i.i27 = icmp eq ptr %99, null
-  br i1 %.not.i.i.i27, label %_ZNSt10unique_ptrIN5ceres8internal21StateUpdatingCallbackESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i.i.i28
+_ZSt11make_uniqueIN5ceres8internal21StateUpdatingCallbackEJRPNS1_7ProgramERPdEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %93
+  %97 = getelementptr inbounds i8, ptr %0, i64 1096
+  %98 = load ptr, ptr %97, align 8
+  store ptr %94, ptr %97, align 8
+  %.not.i.i.i26 = icmp eq ptr %98, null
+  br i1 %.not.i.i.i26, label %_ZNSt10unique_ptrIN5ceres8internal21StateUpdatingCallbackESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i.i.i27
 
-_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i.i.i28: ; preds = %_ZSt11make_uniqueIN5ceres8internal21StateUpdatingCallbackEJRPNS1_7ProgramERPdEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
-  %102 = load ptr, ptr %101, align 8
-  call void %102(ptr noundef nonnull align 8 dereferenceable(8) %99) #18
-  %.pre39 = load ptr, ptr %98, align 8
+_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i.i.i27: ; preds = %_ZSt11make_uniqueIN5ceres8internal21StateUpdatingCallbackEJRPNS1_7ProgramERPdEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 8
+  %101 = load ptr, ptr %100, align 8
+  call void %101(ptr noundef nonnull align 8 dereferenceable(8) %98) #18
+  %.pre38 = load ptr, ptr %97, align 8
   br label %_ZNSt10unique_ptrIN5ceres8internal21StateUpdatingCallbackESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN5ceres8internal21StateUpdatingCallbackESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i.i.i28, %_ZSt11make_uniqueIN5ceres8internal21StateUpdatingCallbackEJRPNS1_7ProgramERPdEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %103 = phi ptr [ %.pre39, %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i.i.i28 ], [ %95, %_ZSt11make_uniqueIN5ceres8internal21StateUpdatingCallbackEJRPNS1_7ProgramERPdEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
-  %104 = getelementptr inbounds i8, ptr %0, i64 968
-  %105 = load ptr, ptr %104, align 8
-  store ptr %103, ptr %4, align 8
-  %106 = call ptr @_ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %104, ptr %105, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  br label %107
+_ZNSt10unique_ptrIN5ceres8internal21StateUpdatingCallbackESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i.i.i27, %_ZSt11make_uniqueIN5ceres8internal21StateUpdatingCallbackEJRPNS1_7ProgramERPdEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  %102 = phi ptr [ %.pre38, %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i.i.i27 ], [ %94, %_ZSt11make_uniqueIN5ceres8internal21StateUpdatingCallbackEJRPNS1_7ProgramERPdEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
+  %103 = getelementptr inbounds i8, ptr %0, i64 968
+  %104 = load ptr, ptr %103, align 8
+  store ptr %102, ptr %4, align 8
+  %105 = call ptr @_ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr %104, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  br label %106
 
-107:                                              ; preds = %_ZNSt10unique_ptrIN5ceres8internal21StateUpdatingCallbackESt14default_deleteIS2_EED2Ev.exit, %90
+106:                                              ; preds = %_ZNSt10unique_ptrIN5ceres8internal21StateUpdatingCallbackESt14default_deleteIS2_EED2Ev.exit, %89
   ret void
 }
 
@@ -1243,14 +1241,14 @@ define linkonce_odr hidden void @_ZN5ceres8internal9Minimizer7Options4InitERKNS_
   store double %25, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %1, i64 352
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 80
-  store i8 %29, ptr %30, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %30 = and i8 %28, 1
+  store i8 %30, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %1, i64 96
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %34 = getelementptr inbounds i8, ptr %0, i64 81
-  store i8 %33, ptr %34, align 1
+  %33 = getelementptr inbounds i8, ptr %0, i64 81
+  %34 = and i8 %32, 1
+  store i8 %34, ptr %33, align 1
   %35 = getelementptr inbounds i8, ptr %1, i64 100
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds i8, ptr %0, i64 84
@@ -1291,9 +1289,9 @@ define linkonce_odr hidden void @_ZN5ceres8internal9Minimizer7Options4InitERKNS_
   store i32 %63, ptr %64, align 4
   %65 = getelementptr inbounds i8, ptr %1, i64 20
   %66 = load i8, ptr %65, align 4
-  %67 = and i8 %66, 1
-  %68 = getelementptr inbounds i8, ptr %0, i64 184
-  store i8 %67, ptr %68, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 184
+  %68 = and i8 %66, 1
+  store i8 %68, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %1, i64 24
   %70 = load i32, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 188

@@ -273,9 +273,8 @@ entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #8
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #8
   %0 = load i8, ptr @tcg_allowed, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 151, ptr noundef nonnull @__PRETTY_FUNCTION__.cpu_check_watchpoint) #10
@@ -283,8 +282,8 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %watchpoint_hit = getelementptr inbounds i8, ptr %cpu, i64 616
-  %2 = load ptr, ptr %watchpoint_hit, align 8
-  %tobool1.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %watchpoint_hit, align 8
+  %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
@@ -295,15 +294,15 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %tcg_ops = getelementptr inbounds i8, ptr %call1.i, i64 328
-  %3 = load ptr, ptr %tcg_ops, align 8
-  %adjust_watchpoint_address = getelementptr inbounds i8, ptr %3, i64 88
-  %4 = load ptr, ptr %adjust_watchpoint_address, align 8
-  %tobool4.not = icmp eq ptr %4, null
+  %2 = load ptr, ptr %tcg_ops, align 8
+  %adjust_watchpoint_address = getelementptr inbounds i8, ptr %2, i64 88
+  %3 = load ptr, ptr %adjust_watchpoint_address, align 8
+  %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.end9, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
   %conv = trunc i64 %len to i32
-  %call8 = tail call i64 %4(ptr noundef nonnull %cpu, i64 noundef %addr, i32 noundef %conv) #8
+  %call8 = tail call i64 %3(ptr noundef nonnull %cpu, i64 noundef %addr, i32 noundef %conv) #8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then5, %if.end3
@@ -329,15 +328,15 @@ for.body.lr.ph:                                   ; preds = %if.end13
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %wp.048 = phi ptr [ %wp.046, %for.body.lr.ph ], [ %wp.0, %for.inc ]
   %flags15 = getelementptr inbounds i8, ptr %wp.048, i64 28
-  %5 = load i32, ptr %flags15, align 4
-  %and16 = and i32 %5, %flags
+  %4 = load i32, ptr %flags15, align 4
+  %and16 = and i32 %4, %flags
   %tobool17.not = icmp eq i32 %and16, 0
   br i1 %tobool17.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
   %wp.0.val = load i64, ptr %wp.048, align 8
-  %6 = getelementptr i8, ptr %wp.048, i64 8
-  %wp.0.val42 = load i64, ptr %6, align 8
+  %5 = getelementptr i8, ptr %wp.048, i64 8
+  %wp.0.val42 = load i64, ptr %5, align 8
   %add.i = add i64 %wp.0.val, -1
   %sub.i = add i64 %add.i, %wp.0.val42
   %cmp.i = icmp uge i64 %sub.i, %addr.addr.0
@@ -351,10 +350,9 @@ if.then20:                                        ; preds = %land.lhs.true
 
 if.then22:                                        ; preds = %if.then20
   %can_do_io = getelementptr inbounds i8, ptr %cpu, i64 10164
-  %7 = load i8, ptr %can_do_io, align 4
-  %8 = and i8 %7, 1
-  %tobool23.not = icmp eq i8 %8, 0
-  br i1 %tobool23.not, label %if.then24, label %if.end26
+  %6 = load i8, ptr %can_do_io, align 4
+  %tobool23 = trunc i8 %6 to i1
+  br i1 %tobool23, label %if.end26, label %if.then24
 
 if.then24:                                        ; preds = %if.then22
   %call25 = tail call i32 @curr_cflags(ptr noundef nonnull %cpu) #8
@@ -370,28 +368,28 @@ if.end26:                                         ; preds = %if.then22
 
 if.end27:                                         ; preds = %if.then20
   %shl = shl nuw nsw i32 %and16, 6
-  %9 = load i32, ptr %flags15, align 4
-  %or29 = or i32 %9, %shl
+  %7 = load i32, ptr %flags15, align 4
+  %or29 = or i32 %7, %shl
   store i32 %or29, ptr %flags15, align 4
-  %10 = load i64, ptr %wp.048, align 8
-  %cond = tail call i64 @llvm.umax.i64(i64 %addr.addr.0, i64 %10)
+  %8 = load i64, ptr %wp.048, align 8
+  %cond = tail call i64 @llvm.umax.i64(i64 %addr.addr.0, i64 %8)
   %hitaddr = getelementptr inbounds i8, ptr %wp.048, i64 16
   store i64 %cond, ptr %hitaddr, align 8
   %hitattrs = getelementptr inbounds i8, ptr %wp.048, i64 24
   store i32 %attrs.coerce, ptr %hitattrs, align 8
-  %and33 = and i32 %9, 32
+  %and33 = and i32 %7, 32
   %tobool34.not = icmp eq i32 %and33, 0
   br i1 %tobool34.not, label %if.end45, label %land.lhs.true35
 
 land.lhs.true35:                                  ; preds = %if.end27
-  %11 = load ptr, ptr %tcg_ops, align 8
-  %debug_check_watchpoint = getelementptr inbounds i8, ptr %11, i64 96
-  %12 = load ptr, ptr %debug_check_watchpoint, align 8
-  %tobool37.not = icmp eq ptr %12, null
+  %9 = load ptr, ptr %tcg_ops, align 8
+  %debug_check_watchpoint = getelementptr inbounds i8, ptr %9, i64 96
+  %10 = load ptr, ptr %debug_check_watchpoint, align 8
+  %tobool37.not = icmp eq ptr %10, null
   br i1 %tobool37.not, label %if.end45, label %land.lhs.true38
 
 land.lhs.true38:                                  ; preds = %land.lhs.true35
-  %call41 = tail call zeroext i1 %12(ptr noundef %cpu, ptr noundef nonnull %wp.048) #8
+  %call41 = tail call zeroext i1 %10(ptr noundef %cpu, ptr noundef nonnull %wp.048) #8
   br i1 %call41, label %if.end45, label %land.lhs.true38.for.inc_crit_edge
 
 land.lhs.true38.for.inc_crit_edge:                ; preds = %land.lhs.true38
@@ -401,8 +399,8 @@ land.lhs.true38.for.inc_crit_edge:                ; preds = %land.lhs.true38
 if.end45:                                         ; preds = %land.lhs.true38, %land.lhs.true35, %if.end27
   store ptr %wp.048, ptr %watchpoint_hit, align 8
   tail call void @tb_check_watchpoint(ptr noundef %cpu, i64 noundef %ra) #8
-  %13 = load i32, ptr %flags15, align 4
-  %and48 = and i32 %13, 4
+  %11 = load i32, ptr %flags15, align 4
+  %and48 = and i32 %11, 4
   %tobool49.not = icmp eq i32 %and48, 0
   br i1 %tobool49.not, label %if.else51, label %if.then50
 
@@ -421,7 +419,7 @@ if.else51:                                        ; preds = %if.end45
   unreachable
 
 for.inc:                                          ; preds = %land.lhs.true38.for.inc_crit_edge, %for.body, %land.lhs.true
-  %storemerge.in = phi i32 [ %storemerge.in.pre, %land.lhs.true38.for.inc_crit_edge ], [ %5, %for.body ], [ %5, %land.lhs.true ]
+  %storemerge.in = phi i32 [ %storemerge.in.pre, %land.lhs.true38.for.inc_crit_edge ], [ %4, %for.body ], [ %4, %land.lhs.true ]
   %storemerge = and i32 %storemerge.in, -193
   store i32 %storemerge, ptr %flags15, align 4
   %entry59 = getelementptr inbounds i8, ptr %wp.048, i64 32

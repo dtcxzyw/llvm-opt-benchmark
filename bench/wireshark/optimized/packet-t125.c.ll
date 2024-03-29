@@ -367,9 +367,8 @@ define internal noundef i32 @dissect_t125_heur(ptr noundef %0, ptr noundef %1, p
   call void @except_free(ptr noundef %60) #5
   %61 = call ptr @except_pop() #5
   %.0..0..0..0.19 = load volatile i8, ptr %8, align 1
-  %62 = and i8 %.0..0..0..0.19, 1
-  %.not33 = icmp eq i8 %62, 0
-  br i1 %.not33, label %63, label %73
+  %62 = trunc i8 %.0..0..0..0.19 to i1
+  br i1 %62, label %73, label %63
 
 63:                                               ; preds = %58
   %64 = load i8, ptr %5, align 1

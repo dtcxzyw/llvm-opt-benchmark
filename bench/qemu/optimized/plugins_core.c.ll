@@ -132,9 +132,8 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
   %realized = getelementptr inbounds i8, ptr %call.i, i64 56
   %1 = load i8, ptr %realized, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   tail call void @async_run_on_cpu(ptr noundef %add.ptr, ptr noundef nonnull @plugin_cpu_update__async, i64 %0) #10
@@ -182,26 +181,25 @@ plugin_id_to_ctx_locked.exit:                     ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %id.addr.i)
   %uninstalling = getelementptr i8, ptr %call.i, i64 105
   %4 = load i8, ptr %uninstalling, align 1
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.end, label %glib_autoptr_cleanup_QemuLockable.exit
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end
 
 if.end:                                           ; preds = %plugin_id_to_ctx_locked.exit
   %tobool5.not = icmp eq ptr %func, null
   %callbacks.i = getelementptr i8, ptr %call.i, i64 8
   %idxprom.i = zext i32 %ev to i64
   %arrayidx.i30 = getelementptr [9 x ptr], ptr %callbacks.i, i64 0, i64 %idxprom.i
-  %6 = load ptr, ptr %arrayidx.i30, align 8
-  %cmp.i31 = icmp eq ptr %6, null
+  %5 = load ptr, ptr %arrayidx.i30, align 8
+  %cmp.i31 = icmp eq ptr %5, null
   br i1 %tobool5.not, label %if.else51, label %if.then6
 
 if.then6:                                         ; preds = %if.end
   br i1 %cmp.i31, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %if.then6
-  %f = getelementptr inbounds i8, ptr %6, i64 8
+  %f = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %func, ptr %f, align 8
-  %udata9 = getelementptr inbounds i8, ptr %6, i64 16
+  %udata9 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %udata, ptr %udata9, align 8
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
@@ -217,61 +215,61 @@ if.else:                                          ; preds = %if.then6
   %entry19 = getelementptr inbounds i8, ptr %call10, i64 24
   %le_prev = getelementptr inbounds i8, ptr %call10, i64 32
   store ptr %arrayidx18, ptr %le_prev, align 8
-  %7 = load ptr, ptr %arrayidx18, align 8
-  store ptr %7, ptr %entry19, align 8
-  %8 = ptrtoint ptr %call10 to i64
-  store atomic i64 %8, ptr %arrayidx18 release, align 8
-  %cmp.not = icmp eq ptr %7, null
+  %6 = load ptr, ptr %arrayidx18, align 8
+  store ptr %6, ptr %entry19, align 8
+  %7 = ptrtoint ptr %call10 to i64
+  store atomic i64 %7, ptr %arrayidx18 release, align 8
+  %cmp.not = icmp eq ptr %6, null
   br i1 %cmp.not, label %do.end43, label %if.then34
 
 if.then34:                                        ; preds = %if.else
-  %le_prev40 = getelementptr inbounds i8, ptr %7, i64 32
+  %le_prev40 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %entry19, ptr %le_prev40, align 8
   br label %do.end43
 
 do.end43:                                         ; preds = %if.then34, %if.else
   %div2.i = lshr i64 %idxprom.i, 6
   %arrayidx.i = getelementptr i64, ptr getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i64 0, i32 4), i64 %div2.i
-  %9 = load i64, ptr %arrayidx.i, align 8
+  %8 = load i64, ptr %arrayidx.i, align 8
   %and.i = and i64 %idxprom.i, 63
-  %10 = shl nuw i64 1, %and.i
-  %11 = and i64 %9, %10
-  %tobool46.not = icmp eq i64 %11, 0
+  %9 = shl nuw i64 1, %and.i
+  %10 = and i64 %8, %9
+  %tobool46.not = icmp eq i64 %10, 0
   br i1 %tobool46.not, label %if.then47, label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.then47:                                        ; preds = %do.end43
-  %or.i = or i64 %9, %10
+  %or.i = or i64 %8, %9
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i64 0, i32 3), align 8
-  call void @g_hash_table_foreach(ptr noundef %12, ptr noundef nonnull @plugin_cpu_update__locked, ptr noundef null) #10
+  %11 = load ptr, ptr getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i64 0, i32 3), align 8
+  call void @g_hash_table_foreach(ptr noundef %11, ptr noundef nonnull @plugin_cpu_update__locked, ptr noundef null) #10
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.else51:                                        ; preds = %if.end
   br i1 %cmp.i31, label %glib_autoptr_cleanup_QemuLockable.exit, label %do.body.i
 
 do.body.i:                                        ; preds = %if.else51
-  %entry1.i = getelementptr inbounds i8, ptr %6, i64 24
-  %13 = load ptr, ptr %entry1.i, align 8
-  %cmp2.not.i = icmp eq ptr %13, null
-  %le_prev13.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 32
+  %entry1.i = getelementptr inbounds i8, ptr %5, i64 24
+  %12 = load ptr, ptr %entry1.i, align 8
+  %cmp2.not.i = icmp eq ptr %12, null
+  %le_prev13.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 32
   %.pre.i = load ptr, ptr %le_prev13.phi.trans.insert.i, align 8
   br i1 %cmp2.not.i, label %while.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %do.body.i
-  %le_prev8.i = getelementptr inbounds i8, ptr %13, i64 32
+  %le_prev8.i = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %.pre.i, ptr %le_prev8.i, align 8
   %.pre12.i = load ptr, ptr %entry1.i, align 8
-  %14 = ptrtoint ptr %.pre12.i to i64
+  %13 = ptrtoint ptr %.pre12.i to i64
   br label %while.end.i
 
 while.end.i:                                      ; preds = %if.then3.i, %do.body.i
-  %15 = phi i64 [ %14, %if.then3.i ], [ 0, %do.body.i ]
-  store atomic i64 %15, ptr %.pre.i monotonic, align 8
-  call void @g_free(ptr noundef nonnull %6) #10
+  %14 = phi i64 [ %13, %if.then3.i ], [ 0, %do.body.i ]
+  store atomic i64 %14, ptr %.pre.i monotonic, align 8
+  call void @g_free(ptr noundef nonnull %5) #10
   store ptr null, ptr %arrayidx.i30, align 8
   %arrayidx27.i = getelementptr %struct.qemu_plugin_state, ptr @plugin, i64 0, i32 1, i64 %idxprom.i
-  %16 = load atomic i64, ptr %arrayidx27.i monotonic, align 8
-  %cmp28.i = icmp eq i64 %16, 0
+  %15 = load atomic i64, ptr %arrayidx27.i monotonic, align 8
+  %cmp28.i = icmp eq i64 %15, 0
   br i1 %cmp28.i, label %if.then29.i, label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.then29.i:                                      ; preds = %while.end.i
@@ -280,11 +278,11 @@ if.then29.i:                                      ; preds = %while.end.i
   %div2.i.i = lshr i64 %idxprom.i, 6
   %add.ptr.i.i = getelementptr i64, ptr getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i64 0, i32 4), i64 %div2.i.i
   %not.i.i = xor i64 %shl.i.i, -1
-  %17 = load i64, ptr %add.ptr.i.i, align 8
-  %and.i.i = and i64 %17, %not.i.i
+  %16 = load i64, ptr %add.ptr.i.i, align 8
+  %and.i.i = and i64 %16, %not.i.i
   store i64 %and.i.i, ptr %add.ptr.i.i, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i64 0, i32 3), align 8
-  call void @g_hash_table_foreach(ptr noundef %18, ptr noundef nonnull @plugin_cpu_update__locked, ptr noundef null) #10
+  %17 = load ptr, ptr getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i64 0, i32 3), align 8
+  call void @g_hash_table_foreach(ptr noundef %17, ptr noundef nonnull @plugin_cpu_update__locked, ptr noundef null) #10
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.then29.i, %while.end.i, %if.else51, %do.end43, %if.then47, %if.then8, %plugin_id_to_ctx_locked.exit
@@ -310,9 +308,8 @@ entry:
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cpu, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
   %realized.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
   %3 = load i8, ptr %realized.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @async_run_on_cpu(ptr noundef %cpu, ptr noundef nonnull @plugin_cpu_update__async, i64 %2) #10
@@ -325,8 +322,8 @@ if.else.i:                                        ; preds = %entry
   br label %plugin_cpu_update__locked.exit
 
 plugin_cpu_update__locked.exit:                   ; preds = %if.then.i, %if.else.i
-  %5 = load ptr, ptr getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i64 0, i32 3), align 8
-  %call = tail call i32 @g_hash_table_insert(ptr noundef %5, ptr noundef nonnull %cpu_index, ptr noundef nonnull %cpu_index) #10
+  %4 = load ptr, ptr getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i64 0, i32 3), align 8
+  %call = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef nonnull %cpu_index, ptr noundef nonnull %cpu_index) #10
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.else, label %do.end5
 
@@ -336,26 +333,26 @@ if.else:                                          ; preds = %plugin_cpu_update__
 
 do.end5:                                          ; preds = %plugin_cpu_update__locked.exit
   tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i64 0, i32 5), ptr noundef nonnull @.str.1, i32 noundef 221) #10
-  %6 = load atomic i64, ptr getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i64 0, i32 1, i64 0) monotonic, align 8
+  %5 = load atomic i64, ptr getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i64 0, i32 1, i64 0) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !5
-  %tobool.not5.i = icmp eq i64 %6, 0
+  %tobool.not5.i = icmp eq i64 %5, 0
   br i1 %tobool.not5.i, label %plugin_vcpu_cb__simple.exit, label %while.end5.i
 
 while.end5.i:                                     ; preds = %do.end5, %while.end5.i
-  %cb.0.in6.i = phi i64 [ %7, %while.end5.i ], [ %6, %do.end5 ]
+  %cb.0.in6.i = phi i64 [ %6, %while.end5.i ], [ %5, %do.end5 ]
   %cb.0.i = inttoptr i64 %cb.0.in6.i to ptr
   %entry6.i = getelementptr inbounds i8, ptr %cb.0.i, i64 24
-  %7 = load atomic i64, ptr %entry6.i monotonic, align 8
+  %6 = load atomic i64, ptr %entry6.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   %f.i = getelementptr inbounds i8, ptr %cb.0.i, i64 8
-  %8 = load ptr, ptr %f.i, align 8
-  %9 = load ptr, ptr %cb.0.i, align 8
-  %id.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i64, ptr %id.i, align 8
-  %11 = load i32, ptr %cpu_index, align 8
-  tail call void %8(i64 noundef %10, i32 noundef %11) #10
-  %tobool.not.i4 = icmp eq i64 %7, 0
-  br i1 %tobool.not.i4, label %plugin_vcpu_cb__simple.exit, label %while.end5.i, !llvm.loop !7
+  %7 = load ptr, ptr %f.i, align 8
+  %8 = load ptr, ptr %cb.0.i, align 8
+  %id.i = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = load i64, ptr %id.i, align 8
+  %10 = load i32, ptr %cpu_index, align 8
+  tail call void %7(i64 noundef %9, i32 noundef %10) #10
+  %tobool.not.i = icmp eq i64 %6, 0
+  br i1 %tobool.not.i, label %plugin_vcpu_cb__simple.exit, label %while.end5.i, !llvm.loop !7
 
 plugin_vcpu_cb__simple.exit:                      ; preds = %while.end5.i, %do.end5
   ret void

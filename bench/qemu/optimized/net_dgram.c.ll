@@ -243,13 +243,12 @@ do.body.i:                                        ; preds = %if.end53.i, %if.end
   %17 = load i32, ptr %fd2.i.i, align 8
   %write_poll.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 70049
   %18 = load i8, ptr %write_poll.i.i.i.i, align 1
-  %19 = and i8 %18, 1
-  %tobool1.not.i.i.i.i = icmp eq i8 %19, 0
-  %cond2.i.i.i.i = select i1 %tobool1.not.i.i.i.i, ptr null, ptr @net_dgram_writable
+  %tobool1.i.i.i.i = trunc i8 %18 to i1
+  %cond2.i.i.i.i = select i1 %tobool1.i.i.i.i, ptr @net_dgram_writable, ptr null
   call void @qemu_set_fd_handler(i32 noundef %17, ptr noundef nonnull @net_dgram_send, ptr noundef %cond2.i.i.i.i, ptr noundef %call.i.i) #12
   %dest_addr.i = getelementptr inbounds i8, ptr %call.i.i, i64 70056
-  %20 = load ptr, ptr %dest_addr.i, align 8
-  %cmp61.i = icmp eq ptr %20, null
+  %19 = load ptr, ptr %dest_addr.i, align 8
+  %cmp61.i = icmp eq ptr %19, null
   br i1 %cmp61.i, label %do.end.i, label %if.else63.i
 
 if.else63.i:                                      ; preds = %do.body.i
@@ -264,40 +263,40 @@ do.end.i:                                         ; preds = %do.body.i
 
 if.then67.i:                                      ; preds = %do.end.i
   %sin_addr68.i = getelementptr inbounds i8, ptr %saddr.0.i, i64 4
-  %21 = load i32, ptr %sin_addr68.i, align 4
-  %call69.i = call ptr @inet_ntoa(i32 %21) #12
+  %20 = load i32, ptr %sin_addr68.i, align 4
+  %call69.i = call ptr @inet_ntoa(i32 %20) #12
   %sin_port.i = getelementptr inbounds i8, ptr %saddr.0.i, i64 2
-  %22 = load i16, ptr %sin_port.i, align 2
-  %call70.i = call zeroext i16 @ntohs(i16 noundef zeroext %22) #13
+  %21 = load i16, ptr %sin_port.i, align 2
+  %call70.i = call zeroext i16 @ntohs(i16 noundef zeroext %21) #13
   %conv.i = zext i16 %call70.i to i32
   call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.26, ptr noundef %call69.i, i32 noundef %conv.i) #12
   br label %net_dgram_mcast_init.exit
 
 if.else71.i:                                      ; preds = %do.end.i
-  %23 = load i32, ptr %2, align 8
-  switch i32 %23, label %do.body90.i [
+  %22 = load i32, ptr %2, align 8
+  switch i32 %22, label %do.body90.i [
     i32 0, label %sw.bb73.i
     i32 3, label %sw.bb81.i
   ]
 
 sw.bb73.i:                                        ; preds = %if.else71.i
   %sin_addr75.i = getelementptr inbounds i8, ptr %saddr.0.i, i64 4
-  %24 = load i32, ptr %sin_addr75.i, align 4
-  %call77.i = call ptr @inet_ntoa(i32 %24) #12
+  %23 = load i32, ptr %sin_addr75.i, align 4
+  %call77.i = call ptr @inet_ntoa(i32 %23) #12
   %sin_port78.i = getelementptr inbounds i8, ptr %saddr.0.i, i64 2
-  %25 = load i16, ptr %sin_port78.i, align 2
-  %call79.i = call zeroext i16 @ntohs(i16 noundef zeroext %25) #13
+  %24 = load i16, ptr %sin_port78.i, align 2
+  %call79.i = call zeroext i16 @ntohs(i16 noundef zeroext %24) #13
   %conv80.i = zext i16 %call79.i to i32
   call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.26, ptr noundef %call77.i, i32 noundef %conv80.i) #12
   br label %net_dgram_mcast_init.exit
 
 sw.bb81.i:                                        ; preds = %if.else71.i
   %sin_addr83.i = getelementptr inbounds i8, ptr %saddr.0.i, i64 4
-  %26 = load i32, ptr %sin_addr83.i, align 4
-  %call85.i = call ptr @inet_ntoa(i32 %26) #12
+  %25 = load i32, ptr %sin_addr83.i, align 4
+  %call85.i = call ptr @inet_ntoa(i32 %25) #12
   %sin_port86.i = getelementptr inbounds i8, ptr %saddr.0.i, i64 2
-  %27 = load i16, ptr %sin_port86.i, align 2
-  %call87.i = call zeroext i16 @ntohs(i16 noundef zeroext %27) #13
+  %26 = load i16, ptr %sin_port86.i, align 2
+  %call87.i = call zeroext i16 @ntohs(i16 noundef zeroext %26) #13
   %conv88.i = zext i16 %call87.i to i32
   call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.27, i32 noundef %fd.0.i, ptr noundef %call85.i, i32 noundef %conv88.i) #12
   br label %net_dgram_mcast_init.exit
@@ -324,8 +323,8 @@ if.then19:                                        ; preds = %if.end17.thread, %i
   br label %return
 
 if.then22:                                        ; preds = %if.end17
-  %28 = load i32, ptr %2, align 8
-  %cmp24 = icmp eq i32 %28, 3
+  %27 = load i32, ptr %2, align 8
+  %cmp24 = icmp eq i32 %27, 3
   br i1 %cmp24, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %if.then22
@@ -333,8 +332,8 @@ if.then25:                                        ; preds = %if.then22
   br label %return
 
 if.end26:                                         ; preds = %if.then22
-  %29 = load i32, ptr %1, align 8
-  %cmp29.not = icmp eq i32 %29, %28
+  %28 = load i32, ptr %1, align 8
+  %cmp29.not = icmp eq i32 %28, %27
   br i1 %cmp29.not, label %if.end37, label %if.then30
 
 if.then30:                                        ; preds = %if.end26
@@ -342,8 +341,8 @@ if.then30:                                        ; preds = %if.end26
   br label %return
 
 if.else32:                                        ; preds = %if.end17.thread
-  %30 = load i32, ptr %2, align 8
-  %cmp34.not = icmp eq i32 %30, 3
+  %29 = load i32, ptr %2, align 8
+  %cmp34.not = icmp eq i32 %29, 3
   br i1 %cmp34.not, label %sw.bb139, label %if.then35
 
 if.then35:                                        ; preds = %if.else32
@@ -351,26 +350,26 @@ if.then35:                                        ; preds = %if.else32
   br label %return
 
 if.end37:                                         ; preds = %if.end26
-  switch i32 %28, label %sw.default [
+  switch i32 %27, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb77
   ]
 
 sw.bb:                                            ; preds = %if.end37
   %u39 = getelementptr inbounds i8, ptr %2, i64 8
-  %31 = load ptr, ptr %u39, align 8
+  %30 = load ptr, ptr %u39, align 8
   %port42 = getelementptr inbounds i8, ptr %2, i64 16
-  %32 = load ptr, ptr %port42, align 8
-  %call43 = call i32 @convert_host_port(ptr noundef nonnull %laddr_in, ptr noundef %31, ptr noundef %32, ptr noundef %errp) #12
+  %31 = load ptr, ptr %port42, align 8
+  %call43 = call i32 @convert_host_port(ptr noundef nonnull %laddr_in, ptr noundef %30, ptr noundef %31, ptr noundef %errp) #12
   %cmp44 = icmp slt i32 %call43, 0
   br i1 %cmp44, label %return, label %if.end46
 
 if.end46:                                         ; preds = %sw.bb
   %u47 = getelementptr inbounds i8, ptr %1, i64 8
-  %33 = load ptr, ptr %u47, align 8
+  %32 = load ptr, ptr %u47, align 8
   %port50 = getelementptr inbounds i8, ptr %1, i64 16
-  %34 = load ptr, ptr %port50, align 8
-  %call51 = call i32 @convert_host_port(ptr noundef nonnull %raddr_in, ptr noundef %33, ptr noundef %34, ptr noundef %errp) #12
+  %33 = load ptr, ptr %port50, align 8
+  %call51 = call i32 @convert_host_port(ptr noundef nonnull %raddr_in, ptr noundef %32, ptr noundef %33, ptr noundef %errp) #12
   %cmp52 = icmp slt i32 %call51, 0
   br i1 %cmp52, label %return, label %if.end54
 
@@ -381,8 +380,8 @@ if.end54:                                         ; preds = %if.end46
 
 if.then57:                                        ; preds = %if.end54
   %call58 = tail call ptr @__errno_location() #13
-  %35 = load i32, ptr %call58, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 489, ptr noundef nonnull @__func__.net_init_dgram, i32 noundef %35, ptr noundef nonnull @.str.7) #12
+  %34 = load i32, ptr %call58, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 489, ptr noundef nonnull @__func__.net_init_dgram, i32 noundef %34, ptr noundef nonnull @.str.7) #12
   br label %return
 
 if.end59:                                         ; preds = %if.end54
@@ -392,8 +391,8 @@ if.end59:                                         ; preds = %if.end54
 
 if.then62:                                        ; preds = %if.end59
   %call63 = tail call ptr @__errno_location() #13
-  %36 = load i32, ptr %call63, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 496, ptr noundef nonnull @__func__.net_init_dgram, i32 noundef %36, ptr noundef nonnull @.str.8) #12
+  %35 = load i32, ptr %call63, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 496, ptr noundef nonnull @__func__.net_init_dgram, i32 noundef %35, ptr noundef nonnull @.str.8) #12
   %call64 = call i32 @close(i32 noundef %call55) #12
   br label %return
 
@@ -404,11 +403,11 @@ if.end65:                                         ; preds = %if.end59
 
 if.then68:                                        ; preds = %if.end65
   %call69 = tail call ptr @__errno_location() #13
-  %37 = load i32, ptr %call69, align 4
+  %36 = load i32, ptr %call69, align 4
   %sin_addr70 = getelementptr inbounds i8, ptr %laddr_in, i64 4
-  %38 = load i32, ptr %sin_addr70, align 4
-  %call72 = call ptr @inet_ntoa(i32 %38) #12
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 503, ptr noundef nonnull @__func__.net_init_dgram, i32 noundef %37, ptr noundef nonnull @.str.9, ptr noundef %call72) #12
+  %37 = load i32, ptr %sin_addr70, align 4
+  %call72 = call ptr @inet_ntoa(i32 %37) #12
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 503, ptr noundef nonnull @__func__.net_init_dgram, i32 noundef %36, ptr noundef nonnull @.str.9, ptr noundef %call72) #12
   %call73 = call i32 @close(i32 noundef %call55) #12
   br label %return
 
@@ -420,33 +419,33 @@ if.end74:                                         ; preds = %if.end65
 
 sw.bb77:                                          ; preds = %if.end37
   %u78 = getelementptr inbounds i8, ptr %2, i64 8
-  %39 = load ptr, ptr %u78, align 8
-  %call79 = call i32 @unlink(ptr noundef %39) #12
+  %38 = load ptr, ptr %u78, align 8
+  %call79 = call i32 @unlink(ptr noundef %38) #12
   %cmp80 = icmp slt i32 %call79, 0
   br i1 %cmp80, label %land.lhs.true82, label %if.end90
 
 land.lhs.true82:                                  ; preds = %sw.bb77
   %call83 = tail call ptr @__errno_location() #13
-  %40 = load i32, ptr %call83, align 4
-  %cmp84.not = icmp eq i32 %40, 2
+  %39 = load i32, ptr %call83, align 4
+  %cmp84.not = icmp eq i32 %39, 2
   br i1 %cmp84.not, label %if.end90, label %if.then86
 
 if.then86:                                        ; preds = %land.lhs.true82
-  %41 = load ptr, ptr %u78, align 8
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 517, ptr noundef nonnull @__func__.net_init_dgram, i32 noundef %40, ptr noundef nonnull @.str.10, ptr noundef %41) #12
+  %40 = load ptr, ptr %u78, align 8
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 517, ptr noundef nonnull @__func__.net_init_dgram, i32 noundef %39, ptr noundef nonnull @.str.10, ptr noundef %40) #12
   br label %return
 
 if.end90:                                         ; preds = %land.lhs.true82, %sw.bb77
   store i16 1, ptr %laddr_un, align 2
   %sun_path = getelementptr inbounds i8, ptr %laddr_un, i64 2
-  %42 = load ptr, ptr %u78, align 8
-  %call93 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %sun_path, i64 noundef 108, ptr noundef nonnull @.str.11, ptr noundef %42) #12
+  %41 = load ptr, ptr %u78, align 8
+  %call93 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %sun_path, i64 noundef 108, ptr noundef nonnull @.str.11, ptr noundef %41) #12
   %cmp97 = icmp ugt i32 %call93, 107
   br i1 %cmp97, label %if.then99, label %if.end102
 
 if.then99:                                        ; preds = %if.end90
-  %43 = load ptr, ptr %u78, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 526, ptr noundef nonnull @__func__.net_init_dgram, ptr noundef nonnull @.str.12, ptr noundef %43) #12
+  %42 = load ptr, ptr %u78, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 526, ptr noundef nonnull @__func__.net_init_dgram, ptr noundef nonnull @.str.12, ptr noundef %42) #12
   call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.13, i64 noundef 108) #12
   br label %if.end102
 
@@ -454,14 +453,14 @@ if.end102:                                        ; preds = %if.end90, %if.then9
   store i16 1, ptr %raddr_un, align 2
   %sun_path104 = getelementptr inbounds i8, ptr %raddr_un, i64 2
   %u106 = getelementptr inbounds i8, ptr %1, i64 8
-  %44 = load ptr, ptr %u106, align 8
-  %call108 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %sun_path104, i64 noundef 108, ptr noundef nonnull @.str.11, ptr noundef %44) #12
+  %43 = load ptr, ptr %u106, align 8
+  %call108 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %sun_path104, i64 noundef 108, ptr noundef nonnull @.str.11, ptr noundef %43) #12
   %cmp113 = icmp ugt i32 %call108, 107
   br i1 %cmp113, label %if.then115, label %if.end118
 
 if.then115:                                       ; preds = %if.end102
-  %45 = load ptr, ptr %u106, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 536, ptr noundef nonnull @__func__.net_init_dgram, ptr noundef nonnull @.str.12, ptr noundef %45) #12
+  %44 = load ptr, ptr %u106, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 536, ptr noundef nonnull @__func__.net_init_dgram, ptr noundef nonnull @.str.12, ptr noundef %44) #12
   call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.13, i64 noundef 108) #12
   br label %if.end118
 
@@ -472,8 +471,8 @@ if.end118:                                        ; preds = %if.end102, %if.then
 
 if.then122:                                       ; preds = %if.end118
   %call123 = tail call ptr @__errno_location() #13
-  %46 = load i32, ptr %call123, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 543, ptr noundef nonnull @__func__.net_init_dgram, i32 noundef %46, ptr noundef nonnull @.str.7) #12
+  %45 = load i32, ptr %call123, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 543, ptr noundef nonnull @__func__.net_init_dgram, i32 noundef %45, ptr noundef nonnull @.str.7) #12
   br label %return
 
 if.end124:                                        ; preds = %if.end118
@@ -483,8 +482,8 @@ if.end124:                                        ; preds = %if.end118
 
 if.then130:                                       ; preds = %if.end124
   %call131 = tail call ptr @__errno_location() #13
-  %47 = load i32, ptr %call131, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 550, ptr noundef nonnull @__func__.net_init_dgram, i32 noundef %47, ptr noundef nonnull @.str.14, ptr noundef nonnull %sun_path) #12
+  %46 = load i32, ptr %call131, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 550, ptr noundef nonnull @__func__.net_init_dgram, i32 noundef %46, ptr noundef nonnull @.str.14, ptr noundef nonnull %sun_path) #12
   %call134 = call i32 @close(i32 noundef %call119) #12
   br label %return
 
@@ -497,8 +496,8 @@ if.end135:                                        ; preds = %if.end124
 sw.bb139:                                         ; preds = %if.else32
   %call140 = tail call ptr @monitor_cur() #12
   %u141 = getelementptr inbounds i8, ptr %2, i64 8
-  %48 = load ptr, ptr %u141, align 8
-  %call142 = tail call i32 @monitor_fd_param(ptr noundef %call140, ptr noundef %48, ptr noundef %errp) #12
+  %47 = load ptr, ptr %u141, align 8
+  %call142 = tail call i32 @monitor_fd_param(ptr noundef %call140, ptr noundef %47, ptr noundef %errp) #12
   %cmp143 = icmp eq i32 %call142, -1
   br i1 %cmp143, label %return, label %if.end146
 
@@ -527,19 +526,18 @@ if.end155:                                        ; preds = %if.end74, %if.end13
   call void @net_socket_rs_init(ptr noundef nonnull %rs.i, ptr noundef nonnull @net_dgram_rs_finalize, i1 noundef zeroext false) #12
   %read_poll.i.i = getelementptr inbounds i8, ptr %call.i96, i64 70048
   store i8 1, ptr %read_poll.i.i, align 8
-  %49 = load i32, ptr %fd2.i, align 8
+  %48 = load i32, ptr %fd2.i, align 8
   %write_poll.i.i.i = getelementptr inbounds i8, ptr %call.i96, i64 70049
-  %50 = load i8, ptr %write_poll.i.i.i, align 1
-  %51 = and i8 %50, 1
-  %tobool1.not.i.i.i = icmp eq i8 %51, 0
-  %cond2.i.i.i = select i1 %tobool1.not.i.i.i, ptr null, ptr @net_dgram_writable
-  call void @qemu_set_fd_handler(i32 noundef %49, ptr noundef nonnull @net_dgram_send, ptr noundef %cond2.i.i.i, ptr noundef %call.i96) #12
+  %49 = load i8, ptr %write_poll.i.i.i, align 1
+  %tobool1.i.i.i = trunc i8 %49 to i1
+  %cond2.i.i.i = select i1 %tobool1.i.i.i, ptr @net_dgram_writable, ptr null
+  call void @qemu_set_fd_handler(i32 noundef %48, ptr noundef nonnull @net_dgram_send, ptr noundef %cond2.i.i.i, ptr noundef %call.i96) #12
   br i1 %tobool.not, label %if.end166, label %do.body
 
 do.body:                                          ; preds = %if.end155
   %dest_addr158 = getelementptr inbounds i8, ptr %call.i96, i64 70056
-  %52 = load ptr, ptr %dest_addr158, align 8
-  %cmp159 = icmp eq ptr %52, null
+  %50 = load ptr, ptr %dest_addr158, align 8
+  %cmp159 = icmp eq ptr %50, null
   br i1 %cmp159, label %do.end, label %if.else162
 
 if.else162:                                       ; preds = %do.body
@@ -553,8 +551,8 @@ do.end:                                           ; preds = %do.body
   br label %if.end166
 
 if.end166:                                        ; preds = %do.end, %if.end155
-  %53 = load i32, ptr %2, align 8
-  switch i32 %53, label %do.body197 [
+  %51 = load i32, ptr %2, align 8
+  switch i32 %51, label %do.body197 [
     i32 0, label %sw.bb168
     i32 1, label %sw.bb180
     i32 3, label %sw.bb186
@@ -562,18 +560,18 @@ if.end166:                                        ; preds = %do.end, %if.end155
 
 sw.bb168:                                         ; preds = %if.end166
   %sin_addr169 = getelementptr inbounds i8, ptr %laddr_in, i64 4
-  %54 = load i32, ptr %sin_addr169, align 4
-  %call171 = call ptr @inet_ntoa(i32 %54) #12
+  %52 = load i32, ptr %sin_addr169, align 4
+  %call171 = call ptr @inet_ntoa(i32 %52) #12
   %sin_port = getelementptr inbounds i8, ptr %laddr_in, i64 2
-  %55 = load i16, ptr %sin_port, align 2
-  %call172 = call zeroext i16 @ntohs(i16 noundef zeroext %55) #13
+  %53 = load i16, ptr %sin_port, align 2
+  %call172 = call zeroext i16 @ntohs(i16 noundef zeroext %53) #13
   %conv173 = zext i16 %call172 to i32
   %sin_addr174 = getelementptr inbounds i8, ptr %raddr_in, i64 4
-  %56 = load i32, ptr %sin_addr174, align 4
-  %call176 = call ptr @inet_ntoa(i32 %56) #12
+  %54 = load i32, ptr %sin_addr174, align 4
+  %call176 = call ptr @inet_ntoa(i32 %54) #12
   %sin_port177 = getelementptr inbounds i8, ptr %raddr_in, i64 2
-  %57 = load i16, ptr %sin_port177, align 2
-  %call178 = call zeroext i16 @ntohs(i16 noundef zeroext %57) #13
+  %55 = load i16, ptr %sin_port177, align 2
+  %call178 = call zeroext i16 @ntohs(i16 noundef zeroext %55) #13
   %conv179 = zext i16 %call178 to i32
   call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef nonnull %call.i96, ptr noundef nonnull @.str.19, ptr noundef %call171, i32 noundef %conv173, ptr noundef %call176, i32 noundef %conv179) #12
   br label %return
@@ -590,9 +588,9 @@ sw.bb186:                                         ; preds = %if.end166
   br i1 %tobool188.not, label %if.else193, label %if.then189
 
 if.then189:                                       ; preds = %sw.bb186
-  %58 = load i32, ptr %call187, align 8
+  %56 = load i32, ptr %call187, align 8
   call void @qapi_free_SocketAddress(ptr noundef nonnull %call187) #12
-  %call192 = call ptr @qapi_enum_lookup(ptr noundef nonnull @SocketAddressType_lookup, i32 noundef %58) #12
+  %call192 = call ptr @qapi_enum_lookup(ptr noundef nonnull @SocketAddressType_lookup, i32 noundef %56) #12
   call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef nonnull %call.i96, ptr noundef nonnull @.str.21, i32 noundef %fd.0, ptr noundef %call192) #12
   br label %return
 
@@ -836,9 +834,8 @@ if.then:                                          ; preds = %entry
   %1 = load i32, ptr %fd.i.i, align 8
   %write_poll.i.i = getelementptr i8, ptr %rs, i64 69665
   %2 = load i8, ptr %write_poll.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool1.not.i.i = icmp eq i8 %3, 0
-  %cond2.i.i = select i1 %tobool1.not.i.i, ptr null, ptr @net_dgram_writable
+  %tobool1.i.i = trunc i8 %2 to i1
+  %cond2.i.i = select i1 %tobool1.i.i, ptr @net_dgram_writable, ptr null
   tail call void @qemu_set_fd_handler(i32 noundef %1, ptr noundef null, ptr noundef %cond2.i.i, ptr noundef %add.ptr) #12
   br label %if.end
 
@@ -888,9 +885,8 @@ if.then10:                                        ; preds = %land.rhs
   %4 = load i32, ptr %fd, align 8
   %read_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 70048
   %5 = load i8, ptr %read_poll.i.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
-  %cond.i.i = select i1 %tobool.not.i.i, ptr null, ptr @net_dgram_send
+  %tobool.i.i = trunc i8 %5 to i1
+  %cond.i.i = select i1 %tobool.i.i, ptr @net_dgram_send, ptr null
   tail call void @qemu_set_fd_handler(i32 noundef %4, ptr noundef %cond.i.i, ptr noundef nonnull @net_dgram_writable, ptr noundef nonnull %nc) #12
   br label %return
 
@@ -912,26 +908,24 @@ if.then:                                          ; preds = %entry
   store i8 0, ptr %read_poll.i, align 8
   %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 70049
   %1 = load i8, ptr %write_poll.i.i, align 1
-  %2 = and i8 %1, 1
-  %tobool1.not.i.i = icmp eq i8 %2, 0
-  %cond2.i.i = select i1 %tobool1.not.i.i, ptr null, ptr @net_dgram_writable
+  %tobool1.i.i = trunc i8 %1 to i1
+  %cond2.i.i = select i1 %tobool1.i.i, ptr @net_dgram_writable, ptr null
   tail call void @qemu_set_fd_handler(i32 noundef %0, ptr noundef null, ptr noundef %cond2.i.i, ptr noundef nonnull %nc) #12
   store i8 0, ptr %write_poll.i.i, align 1
-  %3 = load i32, ptr %fd, align 8
-  %4 = load i8, ptr %read_poll.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i.i = icmp eq i8 %5, 0
-  %cond.i.i = select i1 %tobool.not.i.i, ptr null, ptr @net_dgram_send
-  tail call void @qemu_set_fd_handler(i32 noundef %3, ptr noundef %cond.i.i, ptr noundef null, ptr noundef nonnull %nc) #12
-  %6 = load i32, ptr %fd, align 8
-  %call = tail call i32 @close(i32 noundef %6) #12
+  %2 = load i32, ptr %fd, align 8
+  %3 = load i8, ptr %read_poll.i, align 8
+  %tobool.i.i = trunc i8 %3 to i1
+  %cond.i.i = select i1 %tobool.i.i, ptr @net_dgram_send, ptr null
+  tail call void @qemu_set_fd_handler(i32 noundef %2, ptr noundef %cond.i.i, ptr noundef null, ptr noundef nonnull %nc) #12
+  %4 = load i32, ptr %fd, align 8
+  %call = tail call i32 @close(i32 noundef %4) #12
   store i32 -1, ptr %fd, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %dest_addr = getelementptr inbounds i8, ptr %nc, i64 70056
-  %7 = load ptr, ptr %dest_addr, align 8
-  tail call void @g_free(ptr noundef %7) #12
+  %5 = load ptr, ptr %dest_addr, align 8
+  tail call void @g_free(ptr noundef %5) #12
   store ptr null, ptr %dest_addr, align 8
   %dest_len = getelementptr inbounds i8, ptr %nc, i64 70064
   store i32 0, ptr %dest_len, align 8
@@ -965,17 +959,15 @@ if.then4:                                         ; preds = %if.end
   %1 = load i32, ptr %fd, align 8
   %write_poll.i.i = getelementptr inbounds i8, ptr %opaque, i64 70049
   %2 = load i8, ptr %write_poll.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool1.not.i.i = icmp eq i8 %3, 0
-  %cond2.i.i = select i1 %tobool1.not.i.i, ptr null, ptr @net_dgram_writable
+  %tobool1.i.i = trunc i8 %2 to i1
+  %cond2.i.i = select i1 %tobool1.i.i, ptr @net_dgram_writable, ptr null
   tail call void @qemu_set_fd_handler(i32 noundef %1, ptr noundef null, ptr noundef %cond2.i.i, ptr noundef nonnull %opaque) #12
   store i8 0, ptr %write_poll.i.i, align 1
-  %4 = load i32, ptr %fd, align 8
-  %5 = load i8, ptr %read_poll.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i.i = icmp eq i8 %6, 0
-  %cond.i.i = select i1 %tobool.not.i.i, ptr null, ptr @net_dgram_send
-  tail call void @qemu_set_fd_handler(i32 noundef %4, ptr noundef %cond.i.i, ptr noundef null, ptr noundef nonnull %opaque) #12
+  %3 = load i32, ptr %fd, align 8
+  %4 = load i8, ptr %read_poll.i, align 8
+  %tobool.i.i = trunc i8 %4 to i1
+  %cond.i.i = select i1 %tobool.i.i, ptr @net_dgram_send, ptr null
+  tail call void @qemu_set_fd_handler(i32 noundef %3, ptr noundef %cond.i.i, ptr noundef null, ptr noundef nonnull %opaque) #12
   br label %if.end13
 
 if.end5:                                          ; preds = %if.end
@@ -986,13 +978,12 @@ if.end5:                                          ; preds = %if.end
 if.then12:                                        ; preds = %if.end5
   %read_poll.i10 = getelementptr inbounds i8, ptr %opaque, i64 70048
   store i8 0, ptr %read_poll.i10, align 8
-  %7 = load i32, ptr %fd, align 8
+  %5 = load i32, ptr %fd, align 8
   %write_poll.i.i12 = getelementptr inbounds i8, ptr %opaque, i64 70049
-  %8 = load i8, ptr %write_poll.i.i12, align 1
-  %9 = and i8 %8, 1
-  %tobool1.not.i.i13 = icmp eq i8 %9, 0
-  %cond2.i.i14 = select i1 %tobool1.not.i.i13, ptr null, ptr @net_dgram_writable
-  tail call void @qemu_set_fd_handler(i32 noundef %7, ptr noundef null, ptr noundef %cond2.i.i14, ptr noundef nonnull %opaque) #12
+  %6 = load i8, ptr %write_poll.i.i12, align 1
+  %tobool1.i.i13 = trunc i8 %6 to i1
+  %cond2.i.i14 = select i1 %tobool1.i.i13, ptr @net_dgram_writable, ptr null
+  tail call void @qemu_set_fd_handler(i32 noundef %5, ptr noundef null, ptr noundef %cond2.i.i14, ptr noundef nonnull %opaque) #12
   br label %if.end13
 
 if.end13:                                         ; preds = %entry, %if.then12, %if.end5, %if.then4
@@ -1008,9 +999,8 @@ entry:
   %0 = load i32, ptr %fd.i.i, align 8
   %read_poll.i.i = getelementptr inbounds i8, ptr %opaque, i64 70048
   %1 = load i8, ptr %read_poll.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  %cond.i.i = select i1 %tobool.not.i.i, ptr null, ptr @net_dgram_send
+  %tobool.i.i = trunc i8 %1 to i1
+  %cond.i.i = select i1 %tobool.i.i, ptr @net_dgram_send, ptr null
   tail call void @qemu_set_fd_handler(i32 noundef %0, ptr noundef %cond.i.i, ptr noundef null, ptr noundef %opaque) #12
   tail call void @qemu_flush_queued_packets(ptr noundef %opaque) #12
   ret void
@@ -1025,20 +1015,18 @@ define internal void @net_dgram_send_completed(ptr noundef %nc, i64 %len) #0 {
 entry:
   %read_poll = getelementptr inbounds i8, ptr %nc, i64 70048
   %0 = load i8, ptr %read_poll, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   store i8 1, ptr %read_poll, align 8
   %fd.i.i = getelementptr inbounds i8, ptr %nc, i64 376
-  %2 = load i32, ptr %fd.i.i, align 8
+  %1 = load i32, ptr %fd.i.i, align 8
   %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 70049
-  %3 = load i8, ptr %write_poll.i.i, align 1
-  %4 = and i8 %3, 1
-  %tobool1.not.i.i = icmp eq i8 %4, 0
-  %cond2.i.i = select i1 %tobool1.not.i.i, ptr null, ptr @net_dgram_writable
-  tail call void @qemu_set_fd_handler(i32 noundef %2, ptr noundef nonnull @net_dgram_send, ptr noundef %cond2.i.i, ptr noundef nonnull %nc) #12
+  %2 = load i8, ptr %write_poll.i.i, align 1
+  %tobool1.i.i = trunc i8 %2 to i1
+  %cond2.i.i = select i1 %tobool1.i.i, ptr @net_dgram_writable, ptr null
+  tail call void @qemu_set_fd_handler(i32 noundef %1, ptr noundef nonnull @net_dgram_send, ptr noundef %cond2.i.i, ptr noundef nonnull %nc) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

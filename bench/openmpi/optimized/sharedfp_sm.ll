@@ -76,9 +76,8 @@ define noundef ptr @mca_sharedfp_sm_component_file_query(ptr nocapture noundef r
 28:                                               ; preds = %18
   %29 = getelementptr inbounds i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
-  %31 = and i8 %30, 1
-  %.not.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i, label %34, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %28
   %33 = atomicrmw volatile add ptr %29, i32 1 monotonic, align 4

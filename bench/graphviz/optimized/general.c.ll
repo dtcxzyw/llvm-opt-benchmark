@@ -468,41 +468,39 @@ define ptr @strip_dir(ptr noundef %0) local_unnamed_addr #11 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
   br label %4
 
-4:                                                ; preds = %13, %2
-  %.015 = phi i8 [ 1, %2 ], [ %.123, %13 ]
-  %.0 = phi i64 [ %3, %2 ], [ %14, %13 ]
-  %5 = and i8 %.015, 1
-  %.not19 = icmp ne i8 %5, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 %.0
-  %.pre = load i8, ptr %.phi.trans.insert, align 1
-  %6 = icmp eq i8 %.pre, 46
-  %or.cond = select i1 %.not19, i1 %6, i1 false
+4:                                                ; preds = %14, %2
+  %.015 = phi i1 [ true, %2 ], [ %.122, %14 ]
+  %.0 = phi i64 [ %3, %2 ], [ %15, %14 ]
+  %5 = getelementptr inbounds i8, ptr %0, i64 %.0
+  %6 = load i8, ptr %5, align 1
+  %7 = icmp eq i8 %6, 46
+  %or.cond = select i1 %.015, i1 %7, i1 false
   br i1 %or.cond, label %.thread, label %._crit_edge
 
 .thread:                                          ; preds = %4
-  store i8 0, ptr %.phi.trans.insert, align 1
-  br label %11
+  store i8 0, ptr %5, align 1
+  br label %12
 
 ._crit_edge:                                      ; preds = %4
-  %7 = icmp eq i8 %.pre, 47
-  br i1 %7, label %8, label %11
+  %8 = icmp eq i8 %6, 47
+  br i1 %8, label %9, label %12
 
-8:                                                ; preds = %._crit_edge
-  %9 = getelementptr inbounds i8, ptr %0, i64 %.0
-  %10 = getelementptr i8, ptr %9, i64 1
+9:                                                ; preds = %._crit_edge
+  %10 = getelementptr inbounds i8, ptr %0, i64 %.0
+  %11 = getelementptr i8, ptr %10, i64 1
   br label %.loopexit
 
-11:                                               ; preds = %.thread, %._crit_edge
-  %.123 = phi i8 [ 0, %.thread ], [ %.015, %._crit_edge ]
-  %12 = icmp eq i64 %.0, 0
-  br i1 %12, label %.loopexit, label %13
+12:                                               ; preds = %.thread, %._crit_edge
+  %.122 = phi i1 [ false, %.thread ], [ %.015, %._crit_edge ]
+  %13 = icmp eq i64 %.0, 0
+  br i1 %13, label %.loopexit, label %14
 
-13:                                               ; preds = %11
-  %14 = add i64 %.0, -1
+14:                                               ; preds = %12
+  %15 = add i64 %.0, -1
   br label %4
 
-.loopexit:                                        ; preds = %11, %1, %8
-  %.016 = phi ptr [ %10, %8 ], [ null, %1 ], [ %0, %11 ]
+.loopexit:                                        ; preds = %12, %1, %9
+  %.016 = phi ptr [ %11, %9 ], [ null, %1 ], [ %0, %12 ]
   ret ptr %.016
 }
 

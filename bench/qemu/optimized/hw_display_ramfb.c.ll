@@ -71,9 +71,8 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %dma_enabled = getelementptr inbounds i8, ptr %call, i64 892
   %0 = load i8, ptr %dma_enabled, align 4
-  %1 = and i8 %0, 1
-  %tobool1.not = icmp eq i8 %1, 0
-  br i1 %tobool1.not, label %if.then, label %if.end
+  %tobool1 = trunc i8 %0 to i1
+  br i1 %tobool1, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 144, ptr noundef nonnull @__func__.ramfb_setup, ptr noundef nonnull @.str.3) #5

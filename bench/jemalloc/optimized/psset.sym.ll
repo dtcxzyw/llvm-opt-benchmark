@@ -164,9 +164,8 @@ entry:
   tail call fastcc void @psset_stats_remove(ptr noundef %psset, ptr noundef %ps)
   %0 = getelementptr i8, ptr %ps, i64 18
   %ps.val = load i8, ptr %0, align 2
-  %1 = and i8 %ps.val, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %do.end2
+  %tobool.i = trunc i8 %ps.val to i1
+  br i1 %tobool.i, label %do.end2, label %if.end
 
 do.end2:                                          ; preds = %entry
   tail call fastcc void @psset_alloc_container_remove(ptr noundef %psset, ptr noundef nonnull %ps)
@@ -384,27 +383,25 @@ define internal fastcc void @psset_maybe_remove_purge_list(ptr nocapture noundef
 entry:
   %0 = getelementptr i8, ptr %ps, i64 19
   %ps.val = load i8, ptr %0, align 1
-  %1 = and i8 %ps.val, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end4, label %if.then
+  %tobool.i = trunc i8 %ps.val to i1
+  br i1 %tobool.i, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
-  %2 = getelementptr i8, ptr %ps, i64 104
-  %ps.val11.i = load i64, ptr %2, align 8
+  %1 = getelementptr i8, ptr %ps, i64 104
+  %ps.val11.i = load i64, ptr %1, align 8
   %cmp.i = icmp eq i64 %ps.val11.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %3 = getelementptr i8, ptr %ps, i64 16
-  %ps.val9.i = load i8, ptr %3, align 8
-  %4 = and i8 %ps.val9.i, 1
-  %tobool.i.not.i = icmp eq i8 %4, 0
-  %..i = select i1 %tobool.i.not.i, i64 126, i64 127
+  %2 = getelementptr i8, ptr %ps, i64 16
+  %ps.val9.i = load i8, ptr %2, align 8
+  %tobool.i.i = trunc i8 %ps.val9.i to i1
+  %..i = select i1 %tobool.i.i, i64 127, i64 126
   br label %psset_purge_list_ind.exit
 
 if.end.i:                                         ; preds = %if.then
-  %5 = getelementptr i8, ptr %ps, i64 176
-  %ps.val12.i = load i64, ptr %5, align 8
+  %3 = getelementptr i8, ptr %ps, i64 176
+  %ps.val12.i = load i64, ptr %3, align 8
   %sub.i.i = sub i64 %ps.val12.i, %ps.val11.i
   %shl.i = shl i64 %sub.i.i, 12
   %call4.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i) #8
@@ -414,30 +411,30 @@ if.end.i:                                         ; preds = %if.then
 if.end.i.i:                                       ; preds = %if.end.i
   %cmp.i.i.i = icmp ne i64 %call4.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i)
-  %6 = add nsw i64 %call4.i, -1
-  %7 = tail call i64 @llvm.ctlz.i64(i64 %6, i1 false), !range !7
-  %8 = trunc i64 %7 to i32
-  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %8)
-  %cmp4.i.i = icmp ugt i32 %8, 49
+  %4 = add nsw i64 %call4.i, -1
+  %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 false), !range !7
+  %6 = trunc i64 %5 to i32
+  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %6)
+  %cmp4.i.i = icmp ugt i32 %6, 49
   %add.i.i = add nuw nsw i32 %cond.i.i, 11
   %cond10.i.i = select i1 %cmp4.i.i, i32 12, i32 %add.i.i
   %sh_prom.i.i = zext nneg i32 %cond10.i.i to i64
-  %shr.i.i = lshr i64 %6, %sh_prom.i.i
-  %9 = trunc i64 %shr.i.i to i32
-  %10 = shl nuw nsw i32 %cond.i.i, 3
-  %conv12.i.i = shl i32 %9, 1
-  %11 = and i32 %conv12.i.i, 6
-  %12 = or disjoint i32 %11, %10
-  %13 = zext nneg i32 %12 to i64
+  %shr.i.i = lshr i64 %4, %sh_prom.i.i
+  %7 = trunc i64 %shr.i.i to i32
+  %8 = shl nuw nsw i32 %cond.i.i, 3
+  %conv12.i.i = shl i32 %7, 1
+  %9 = and i32 %conv12.i.i, 6
+  %10 = or disjoint i32 %9, %8
+  %11 = zext nneg i32 %10 to i64
   br label %sz_psz2ind.exit.i
 
 sz_psz2ind.exit.i:                                ; preds = %if.end.i.i, %if.end.i
-  %retval.i.0.i = phi i64 [ %13, %if.end.i.i ], [ 398, %if.end.i ]
-  %14 = getelementptr i8, ptr %ps, i64 16
-  %ps.val.i = load i8, ptr %14, align 8
-  %15 = and i8 %ps.val.i, 1
-  %16 = xor i8 %15, 1
-  %conv8.i = zext nneg i8 %16 to i64
+  %retval.i.0.i = phi i64 [ %11, %if.end.i.i ], [ 398, %if.end.i ]
+  %12 = getelementptr i8, ptr %ps, i64 16
+  %ps.val.i = load i8, ptr %12, align 8
+  %13 = and i8 %ps.val.i, 1
+  %14 = xor i8 %13, 1
+  %conv8.i = zext nneg i8 %14 to i64
   %add.i = add nuw nsw i64 %retval.i.0.i, %conv8.i
   br label %psset_purge_list_ind.exit
 
@@ -445,19 +442,19 @@ psset_purge_list_ind.exit:                        ; preds = %if.then.i, %sz_psz2
   %retval.0.i = phi i64 [ %add.i, %sz_psz2ind.exit.i ], [ %..i, %if.then.i ]
   %to_purge = getelementptr inbounds i8, ptr %psset, i64 4232
   %arrayidx = getelementptr inbounds [128 x %struct.hpdata_purge_list_t], ptr %to_purge, i64 0, i64 %retval.0.i
-  %17 = load ptr, ptr %arrayidx, align 8
-  %cmp.i6 = icmp eq ptr %17, %ps
+  %15 = load ptr, ptr %arrayidx, align 8
+  %cmp.i6 = icmp eq ptr %15, %ps
   br i1 %cmp.i6, label %if.then.i8, label %if.end.i7
 
 if.then.i8:                                       ; preds = %psset_purge_list_ind.exit
   %ql_link_purge.i = getelementptr inbounds i8, ptr %ps, i64 64
-  %18 = load ptr, ptr %ql_link_purge.i, align 8
-  store ptr %18, ptr %arrayidx, align 8
+  %16 = load ptr, ptr %ql_link_purge.i, align 8
+  store ptr %16, ptr %arrayidx, align 8
   br label %if.end.i7
 
 if.end.i7:                                        ; preds = %if.then.i8, %psset_purge_list_ind.exit
-  %19 = phi ptr [ %18, %if.then.i8 ], [ %17, %psset_purge_list_ind.exit ]
-  %cmp7.not.i = icmp eq ptr %19, %ps
+  %17 = phi ptr [ %16, %if.then.i8 ], [ %15, %psset_purge_list_ind.exit ]
+  %cmp7.not.i = icmp eq ptr %17, %ps
   br i1 %cmp7.not.i, label %hpdata_purge_list_remove.exit.thread, label %hpdata_purge_list_remove.exit
 
 hpdata_purge_list_remove.exit.thread:             ; preds = %if.end.i7
@@ -466,27 +463,27 @@ hpdata_purge_list_remove.exit.thread:             ; preds = %if.end.i7
 
 hpdata_purge_list_remove.exit:                    ; preds = %if.end.i7
   %ql_link_purge10.i = getelementptr inbounds i8, ptr %ps, i64 64
-  %20 = load ptr, ptr %ql_link_purge10.i, align 8
-  %qre_prev.i = getelementptr inbounds i8, ptr %20, i64 72
-  %21 = load ptr, ptr %qre_prev.i, align 8
+  %18 = load ptr, ptr %ql_link_purge10.i, align 8
+  %qre_prev.i = getelementptr inbounds i8, ptr %18, i64 72
+  %19 = load ptr, ptr %qre_prev.i, align 8
   %qre_prev14.i = getelementptr inbounds i8, ptr %ps, i64 72
-  %22 = load ptr, ptr %qre_prev14.i, align 8
-  %ql_link_purge15.i = getelementptr inbounds i8, ptr %22, i64 64
-  store ptr %21, ptr %ql_link_purge15.i, align 8
-  %23 = load ptr, ptr %qre_prev14.i, align 8
+  %20 = load ptr, ptr %qre_prev14.i, align 8
+  %ql_link_purge15.i = getelementptr inbounds i8, ptr %20, i64 64
+  store ptr %19, ptr %ql_link_purge15.i, align 8
+  %21 = load ptr, ptr %qre_prev14.i, align 8
+  %22 = load ptr, ptr %ql_link_purge10.i, align 8
+  %qre_prev22.i = getelementptr inbounds i8, ptr %22, i64 72
+  store ptr %21, ptr %qre_prev22.i, align 8
+  %ql_link_purge25.i = getelementptr inbounds i8, ptr %21, i64 64
+  %23 = load ptr, ptr %ql_link_purge25.i, align 8
+  store ptr %23, ptr %qre_prev14.i, align 8
   %24 = load ptr, ptr %ql_link_purge10.i, align 8
-  %qre_prev22.i = getelementptr inbounds i8, ptr %24, i64 72
-  store ptr %23, ptr %qre_prev22.i, align 8
-  %ql_link_purge25.i = getelementptr inbounds i8, ptr %23, i64 64
-  %25 = load ptr, ptr %ql_link_purge25.i, align 8
-  store ptr %25, ptr %qre_prev14.i, align 8
-  %26 = load ptr, ptr %ql_link_purge10.i, align 8
-  %qre_prev34.i = getelementptr inbounds i8, ptr %26, i64 72
-  %27 = load ptr, ptr %qre_prev34.i, align 8
-  %ql_link_purge35.i = getelementptr inbounds i8, ptr %27, i64 64
-  store ptr %26, ptr %ql_link_purge35.i, align 8
-  %28 = load ptr, ptr %qre_prev14.i, align 8
-  %ql_link_purge39.i = getelementptr inbounds i8, ptr %28, i64 64
+  %qre_prev34.i = getelementptr inbounds i8, ptr %24, i64 72
+  %25 = load ptr, ptr %qre_prev34.i, align 8
+  %ql_link_purge35.i = getelementptr inbounds i8, ptr %25, i64 64
+  store ptr %24, ptr %ql_link_purge35.i, align 8
+  %26 = load ptr, ptr %qre_prev14.i, align 8
+  %ql_link_purge39.i = getelementptr inbounds i8, ptr %26, i64 64
   store ptr %ps, ptr %ql_link_purge39.i, align 8
   %arrayidx.val.pr = load ptr, ptr %arrayidx, align 8
   %cmp.i9 = icmp eq ptr %arrayidx.val.pr, null
@@ -499,8 +496,8 @@ if.then3:                                         ; preds = %hpdata_purge_list_r
   %shl.i10 = shl nuw i64 1, %rem.i
   %not.i = xor i64 %shl.i10, -1
   %arrayidx.i = getelementptr inbounds i64, ptr %purge_bitmap, i64 %div2.i
-  %29 = load i64, ptr %arrayidx.i, align 8
-  %and.i = and i64 %29, %not.i
+  %27 = load i64, ptr %arrayidx.i, align 8
+  %and.i = and i64 %27, %not.i
   store i64 %and.i, ptr %arrayidx.i, align 8
   br label %if.end4
 
@@ -516,9 +513,8 @@ entry:
   tail call fastcc void @psset_stats_insert(ptr noundef %psset, ptr noundef %ps)
   %0 = getelementptr i8, ptr %ps, i64 17
   %ps.val = load i8, ptr %0, align 1
-  %1 = and i8 %ps.val, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %if.then
+  %tobool.i = trunc i8 %ps.val to i1
+  br i1 %tobool.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call fastcc void @psset_alloc_container_insert(ptr noundef %psset, ptr noundef nonnull %ps)
@@ -526,101 +522,99 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   tail call fastcc void @psset_maybe_insert_purge_list(ptr noundef %psset, ptr noundef nonnull %ps)
-  %2 = getelementptr i8, ptr %ps, i64 20
-  %ps.val18 = load i8, ptr %2, align 4
-  %3 = and i8 %ps.val18, 1
-  %tobool.i22.not = icmp eq i8 %3, 0
-  %4 = getelementptr i8, ptr %ps, i64 32
-  %ps.val21 = load i8, ptr %4, align 8
-  %5 = and i8 %ps.val21, 1
-  %tobool.i25.not = icmp eq i8 %5, 0
-  br i1 %tobool.i22.not, label %land.lhs.true7, label %land.lhs.true
+  %1 = getelementptr i8, ptr %ps, i64 20
+  %ps.val18 = load i8, ptr %1, align 4
+  %tobool.i22 = trunc i8 %ps.val18 to i1
+  %2 = getelementptr i8, ptr %ps, i64 32
+  %ps.val20 = load i8, ptr %2, align 8
+  %tobool.i23 = trunc i8 %ps.val20 to i1
+  br i1 %tobool.i22, label %land.lhs.true, label %land.lhs.true7
 
 land.lhs.true:                                    ; preds = %if.end
-  br i1 %tobool.i25.not, label %if.then5, label %if.end12
+  br i1 %tobool.i23, label %if.end12, label %if.then5
 
 if.then5:                                         ; preds = %land.lhs.true
-  store i8 1, ptr %4, align 8
+  store i8 1, ptr %2, align 8
   %to_hugify = getelementptr inbounds i8, ptr %psset, i64 5272
   %ql_link_hugify.i = getelementptr inbounds i8, ptr %ps, i64 80
   store ptr %ps, ptr %ql_link_hugify.i, align 8
   %qre_prev.i = getelementptr inbounds i8, ptr %ps, i64 88
   store ptr %ps, ptr %qre_prev.i, align 8
-  %6 = load ptr, ptr %to_hugify, align 8
-  %cmp.i = icmp eq ptr %6, null
+  %3 = load ptr, ptr %to_hugify, align 8
+  %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %hpdata_hugify_list_append.exit, label %do.body3.i
 
 do.body3.i:                                       ; preds = %if.then5
-  %qre_prev7.i = getelementptr inbounds i8, ptr %6, i64 88
-  %7 = load ptr, ptr %qre_prev7.i, align 8
-  store ptr %7, ptr %ql_link_hugify.i, align 8
-  %8 = load ptr, ptr %to_hugify, align 8
-  %qre_prev17.i = getelementptr inbounds i8, ptr %8, i64 88
+  %qre_prev7.i = getelementptr inbounds i8, ptr %3, i64 88
+  %4 = load ptr, ptr %qre_prev7.i, align 8
+  store ptr %4, ptr %ql_link_hugify.i, align 8
+  %5 = load ptr, ptr %to_hugify, align 8
+  %qre_prev17.i = getelementptr inbounds i8, ptr %5, i64 88
   store ptr %ps, ptr %qre_prev17.i, align 8
-  %9 = load ptr, ptr %qre_prev.i, align 8
-  %ql_link_hugify20.i = getelementptr inbounds i8, ptr %9, i64 80
-  %10 = load ptr, ptr %ql_link_hugify20.i, align 8
-  store ptr %10, ptr %qre_prev.i, align 8
-  %11 = load ptr, ptr %to_hugify, align 8
-  %qre_prev29.i = getelementptr inbounds i8, ptr %11, i64 88
-  %12 = load ptr, ptr %qre_prev29.i, align 8
-  %ql_link_hugify30.i = getelementptr inbounds i8, ptr %12, i64 80
-  store ptr %11, ptr %ql_link_hugify30.i, align 8
-  %13 = load ptr, ptr %qre_prev.i, align 8
-  %ql_link_hugify34.i = getelementptr inbounds i8, ptr %13, i64 80
+  %6 = load ptr, ptr %qre_prev.i, align 8
+  %ql_link_hugify20.i = getelementptr inbounds i8, ptr %6, i64 80
+  %7 = load ptr, ptr %ql_link_hugify20.i, align 8
+  store ptr %7, ptr %qre_prev.i, align 8
+  %8 = load ptr, ptr %to_hugify, align 8
+  %qre_prev29.i = getelementptr inbounds i8, ptr %8, i64 88
+  %9 = load ptr, ptr %qre_prev29.i, align 8
+  %ql_link_hugify30.i = getelementptr inbounds i8, ptr %9, i64 80
+  store ptr %8, ptr %ql_link_hugify30.i, align 8
+  %10 = load ptr, ptr %qre_prev.i, align 8
+  %ql_link_hugify34.i = getelementptr inbounds i8, ptr %10, i64 80
   store ptr %ps, ptr %ql_link_hugify34.i, align 8
   %.pre.i = load ptr, ptr %ql_link_hugify.i, align 8
   br label %hpdata_hugify_list_append.exit
 
 hpdata_hugify_list_append.exit:                   ; preds = %if.then5, %do.body3.i
-  %14 = phi ptr [ %.pre.i, %do.body3.i ], [ %ps, %if.then5 ]
-  store ptr %14, ptr %to_hugify, align 8
+  %11 = phi ptr [ %.pre.i, %do.body3.i ], [ %ps, %if.then5 ]
+  store ptr %11, ptr %to_hugify, align 8
   br label %if.end12
 
 land.lhs.true7:                                   ; preds = %if.end
-  br i1 %tobool.i25.not, label %if.end12, label %if.then9
+  br i1 %tobool.i23, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %land.lhs.true7
-  store i8 0, ptr %4, align 8
+  store i8 0, ptr %2, align 8
   %to_hugify10 = getelementptr inbounds i8, ptr %psset, i64 5272
-  %15 = load ptr, ptr %to_hugify10, align 8
-  %cmp.i27 = icmp eq ptr %15, %ps
+  %12 = load ptr, ptr %to_hugify10, align 8
+  %cmp.i27 = icmp eq ptr %12, %ps
   br i1 %cmp.i27, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then9
   %ql_link_hugify.i29 = getelementptr inbounds i8, ptr %ps, i64 80
-  %16 = load ptr, ptr %ql_link_hugify.i29, align 8
-  store ptr %16, ptr %to_hugify10, align 8
+  %13 = load ptr, ptr %ql_link_hugify.i29, align 8
+  store ptr %13, ptr %to_hugify10, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then9
-  %17 = phi ptr [ %16, %if.then.i ], [ %15, %if.then9 ]
-  %cmp7.not.i = icmp eq ptr %17, %ps
+  %14 = phi ptr [ %13, %if.then.i ], [ %12, %if.then9 ]
+  %cmp7.not.i = icmp eq ptr %14, %ps
   br i1 %cmp7.not.i, label %do.body41.i, label %do.body9.i
 
 do.body9.i:                                       ; preds = %if.end.i
   %ql_link_hugify10.i = getelementptr inbounds i8, ptr %ps, i64 80
-  %18 = load ptr, ptr %ql_link_hugify10.i, align 8
-  %qre_prev.i28 = getelementptr inbounds i8, ptr %18, i64 88
-  %19 = load ptr, ptr %qre_prev.i28, align 8
+  %15 = load ptr, ptr %ql_link_hugify10.i, align 8
+  %qre_prev.i28 = getelementptr inbounds i8, ptr %15, i64 88
+  %16 = load ptr, ptr %qre_prev.i28, align 8
   %qre_prev14.i = getelementptr inbounds i8, ptr %ps, i64 88
-  %20 = load ptr, ptr %qre_prev14.i, align 8
-  %ql_link_hugify15.i = getelementptr inbounds i8, ptr %20, i64 80
-  store ptr %19, ptr %ql_link_hugify15.i, align 8
-  %21 = load ptr, ptr %qre_prev14.i, align 8
-  %22 = load ptr, ptr %ql_link_hugify10.i, align 8
-  %qre_prev22.i = getelementptr inbounds i8, ptr %22, i64 88
-  store ptr %21, ptr %qre_prev22.i, align 8
-  %ql_link_hugify25.i = getelementptr inbounds i8, ptr %21, i64 80
-  %23 = load ptr, ptr %ql_link_hugify25.i, align 8
-  store ptr %23, ptr %qre_prev14.i, align 8
-  %24 = load ptr, ptr %ql_link_hugify10.i, align 8
-  %qre_prev34.i = getelementptr inbounds i8, ptr %24, i64 88
-  %25 = load ptr, ptr %qre_prev34.i, align 8
-  %ql_link_hugify35.i = getelementptr inbounds i8, ptr %25, i64 80
-  store ptr %24, ptr %ql_link_hugify35.i, align 8
-  %26 = load ptr, ptr %qre_prev14.i, align 8
-  %ql_link_hugify39.i = getelementptr inbounds i8, ptr %26, i64 80
+  %17 = load ptr, ptr %qre_prev14.i, align 8
+  %ql_link_hugify15.i = getelementptr inbounds i8, ptr %17, i64 80
+  store ptr %16, ptr %ql_link_hugify15.i, align 8
+  %18 = load ptr, ptr %qre_prev14.i, align 8
+  %19 = load ptr, ptr %ql_link_hugify10.i, align 8
+  %qre_prev22.i = getelementptr inbounds i8, ptr %19, i64 88
+  store ptr %18, ptr %qre_prev22.i, align 8
+  %ql_link_hugify25.i = getelementptr inbounds i8, ptr %18, i64 80
+  %20 = load ptr, ptr %ql_link_hugify25.i, align 8
+  store ptr %20, ptr %qre_prev14.i, align 8
+  %21 = load ptr, ptr %ql_link_hugify10.i, align 8
+  %qre_prev34.i = getelementptr inbounds i8, ptr %21, i64 88
+  %22 = load ptr, ptr %qre_prev34.i, align 8
+  %ql_link_hugify35.i = getelementptr inbounds i8, ptr %22, i64 80
+  store ptr %21, ptr %ql_link_hugify35.i, align 8
+  %23 = load ptr, ptr %qre_prev14.i, align 8
+  %ql_link_hugify39.i = getelementptr inbounds i8, ptr %23, i64 80
   store ptr %ps, ptr %ql_link_hugify39.i, align 8
   br label %if.end12
 
@@ -829,27 +823,25 @@ define internal fastcc void @psset_maybe_insert_purge_list(ptr nocapture noundef
 entry:
   %0 = getelementptr i8, ptr %ps, i64 19
   %ps.val = load i8, ptr %0, align 1
-  %1 = and i8 %ps.val, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end4, label %if.then
+  %tobool.i = trunc i8 %ps.val to i1
+  br i1 %tobool.i, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
-  %2 = getelementptr i8, ptr %ps, i64 104
-  %ps.val11.i = load i64, ptr %2, align 8
+  %1 = getelementptr i8, ptr %ps, i64 104
+  %ps.val11.i = load i64, ptr %1, align 8
   %cmp.i = icmp eq i64 %ps.val11.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %3 = getelementptr i8, ptr %ps, i64 16
-  %ps.val9.i = load i8, ptr %3, align 8
-  %4 = and i8 %ps.val9.i, 1
-  %tobool.i.not.i = icmp eq i8 %4, 0
-  %..i = select i1 %tobool.i.not.i, i64 126, i64 127
+  %2 = getelementptr i8, ptr %ps, i64 16
+  %ps.val9.i = load i8, ptr %2, align 8
+  %tobool.i.i = trunc i8 %ps.val9.i to i1
+  %..i = select i1 %tobool.i.i, i64 127, i64 126
   br label %psset_purge_list_ind.exit
 
 if.end.i:                                         ; preds = %if.then
-  %5 = getelementptr i8, ptr %ps, i64 176
-  %ps.val12.i = load i64, ptr %5, align 8
+  %3 = getelementptr i8, ptr %ps, i64 176
+  %ps.val12.i = load i64, ptr %3, align 8
   %sub.i.i = sub i64 %ps.val12.i, %ps.val11.i
   %shl.i = shl i64 %sub.i.i, 12
   %call4.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i) #8
@@ -859,30 +851,30 @@ if.end.i:                                         ; preds = %if.then
 if.end.i.i:                                       ; preds = %if.end.i
   %cmp.i.i.i = icmp ne i64 %call4.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i)
-  %6 = add nsw i64 %call4.i, -1
-  %7 = tail call i64 @llvm.ctlz.i64(i64 %6, i1 false), !range !7
-  %8 = trunc i64 %7 to i32
-  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %8)
-  %cmp4.i.i = icmp ugt i32 %8, 49
+  %4 = add nsw i64 %call4.i, -1
+  %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 false), !range !7
+  %6 = trunc i64 %5 to i32
+  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %6)
+  %cmp4.i.i = icmp ugt i32 %6, 49
   %add.i.i = add nuw nsw i32 %cond.i.i, 11
   %cond10.i.i = select i1 %cmp4.i.i, i32 12, i32 %add.i.i
   %sh_prom.i.i = zext nneg i32 %cond10.i.i to i64
-  %shr.i.i = lshr i64 %6, %sh_prom.i.i
-  %9 = trunc i64 %shr.i.i to i32
-  %10 = shl nuw nsw i32 %cond.i.i, 3
-  %conv12.i.i = shl i32 %9, 1
-  %11 = and i32 %conv12.i.i, 6
-  %12 = or disjoint i32 %11, %10
-  %13 = zext nneg i32 %12 to i64
+  %shr.i.i = lshr i64 %4, %sh_prom.i.i
+  %7 = trunc i64 %shr.i.i to i32
+  %8 = shl nuw nsw i32 %cond.i.i, 3
+  %conv12.i.i = shl i32 %7, 1
+  %9 = and i32 %conv12.i.i, 6
+  %10 = or disjoint i32 %9, %8
+  %11 = zext nneg i32 %10 to i64
   br label %sz_psz2ind.exit.i
 
 sz_psz2ind.exit.i:                                ; preds = %if.end.i.i, %if.end.i
-  %retval.i.0.i = phi i64 [ %13, %if.end.i.i ], [ 398, %if.end.i ]
-  %14 = getelementptr i8, ptr %ps, i64 16
-  %ps.val.i = load i8, ptr %14, align 8
-  %15 = and i8 %ps.val.i, 1
-  %16 = xor i8 %15, 1
-  %conv8.i = zext nneg i8 %16 to i64
+  %retval.i.0.i = phi i64 [ %11, %if.end.i.i ], [ 398, %if.end.i ]
+  %12 = getelementptr i8, ptr %ps, i64 16
+  %ps.val.i = load i8, ptr %12, align 8
+  %13 = and i8 %ps.val.i, 1
+  %14 = xor i8 %13, 1
+  %conv8.i = zext nneg i8 %14 to i64
   %add.i = add nuw nsw i64 %retval.i.0.i, %conv8.i
   br label %psset_purge_list_ind.exit
 
@@ -900,8 +892,8 @@ if.then3:                                         ; preds = %psset_purge_list_in
   %rem.i = and i64 %retval.0.i, 63
   %shl.i7 = shl nuw i64 1, %rem.i
   %arrayidx.i = getelementptr inbounds i64, ptr %purge_bitmap, i64 %div2.i
-  %17 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %17, %shl.i7
+  %15 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %15, %shl.i7
   store i64 %or.i, ptr %arrayidx.i, align 8
   br label %if.end
 
@@ -910,35 +902,35 @@ if.end:                                           ; preds = %if.then3, %psset_pu
   store ptr %ps, ptr %ql_link_purge.i, align 8
   %qre_prev.i = getelementptr inbounds i8, ptr %ps, i64 72
   store ptr %ps, ptr %qre_prev.i, align 8
-  %18 = load ptr, ptr %arrayidx, align 8
-  %cmp.i8 = icmp eq ptr %18, null
+  %16 = load ptr, ptr %arrayidx, align 8
+  %cmp.i8 = icmp eq ptr %16, null
   br i1 %cmp.i8, label %hpdata_purge_list_append.exit, label %do.body3.i
 
 do.body3.i:                                       ; preds = %if.end
-  %qre_prev7.i = getelementptr inbounds i8, ptr %18, i64 72
-  %19 = load ptr, ptr %qre_prev7.i, align 8
-  store ptr %19, ptr %ql_link_purge.i, align 8
-  %20 = load ptr, ptr %arrayidx, align 8
-  %qre_prev17.i = getelementptr inbounds i8, ptr %20, i64 72
+  %qre_prev7.i = getelementptr inbounds i8, ptr %16, i64 72
+  %17 = load ptr, ptr %qre_prev7.i, align 8
+  store ptr %17, ptr %ql_link_purge.i, align 8
+  %18 = load ptr, ptr %arrayidx, align 8
+  %qre_prev17.i = getelementptr inbounds i8, ptr %18, i64 72
   store ptr %ps, ptr %qre_prev17.i, align 8
-  %21 = load ptr, ptr %qre_prev.i, align 8
-  %ql_link_purge20.i = getelementptr inbounds i8, ptr %21, i64 64
-  %22 = load ptr, ptr %ql_link_purge20.i, align 8
-  store ptr %22, ptr %qre_prev.i, align 8
-  %23 = load ptr, ptr %arrayidx, align 8
-  %qre_prev29.i = getelementptr inbounds i8, ptr %23, i64 72
-  %24 = load ptr, ptr %qre_prev29.i, align 8
-  %ql_link_purge30.i = getelementptr inbounds i8, ptr %24, i64 64
-  store ptr %23, ptr %ql_link_purge30.i, align 8
-  %25 = load ptr, ptr %qre_prev.i, align 8
-  %ql_link_purge34.i = getelementptr inbounds i8, ptr %25, i64 64
+  %19 = load ptr, ptr %qre_prev.i, align 8
+  %ql_link_purge20.i = getelementptr inbounds i8, ptr %19, i64 64
+  %20 = load ptr, ptr %ql_link_purge20.i, align 8
+  store ptr %20, ptr %qre_prev.i, align 8
+  %21 = load ptr, ptr %arrayidx, align 8
+  %qre_prev29.i = getelementptr inbounds i8, ptr %21, i64 72
+  %22 = load ptr, ptr %qre_prev29.i, align 8
+  %ql_link_purge30.i = getelementptr inbounds i8, ptr %22, i64 64
+  store ptr %21, ptr %ql_link_purge30.i, align 8
+  %23 = load ptr, ptr %qre_prev.i, align 8
+  %ql_link_purge34.i = getelementptr inbounds i8, ptr %23, i64 64
   store ptr %ps, ptr %ql_link_purge34.i, align 8
   %.pre.i = load ptr, ptr %ql_link_purge.i, align 8
   br label %hpdata_purge_list_append.exit
 
 hpdata_purge_list_append.exit:                    ; preds = %if.end, %do.body3.i
-  %26 = phi ptr [ %.pre.i, %do.body3.i ], [ %ps, %if.end ]
-  store ptr %26, ptr %arrayidx, align 8
+  %24 = phi ptr [ %.pre.i, %do.body3.i ], [ %ps, %if.end ]
+  store ptr %24, ptr %arrayidx, align 8
   br label %if.end4
 
 if.end4:                                          ; preds = %hpdata_purge_list_append.exit, %entry
@@ -1070,9 +1062,8 @@ entry:
   tail call fastcc void @psset_stats_insert(ptr noundef %psset, ptr noundef %ps)
   %0 = getelementptr i8, ptr %ps, i64 17
   %ps.val = load i8, ptr %0, align 1
-  %1 = and i8 %ps.val, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %if.then
+  %tobool.i = trunc i8 %ps.val to i1
+  br i1 %tobool.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call fastcc void @psset_alloc_container_insert(ptr noundef %psset, ptr noundef nonnull %ps)
@@ -1080,11 +1071,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   tail call fastcc void @psset_maybe_insert_purge_list(ptr noundef %psset, ptr noundef nonnull %ps)
-  %2 = getelementptr i8, ptr %ps, i64 20
-  %ps.val11 = load i8, ptr %2, align 4
-  %3 = and i8 %ps.val11, 1
-  %tobool.i12.not = icmp eq i8 %3, 0
-  br i1 %tobool.i12.not, label %if.end3, label %if.then2
+  %1 = getelementptr i8, ptr %ps, i64 20
+  %ps.val11 = load i8, ptr %1, align 4
+  %tobool.i12 = trunc i8 %ps.val11 to i1
+  br i1 %tobool.i12, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
   %h_in_psset_hugify_container.i = getelementptr inbounds i8, ptr %ps, i64 32
@@ -1094,35 +1084,35 @@ if.then2:                                         ; preds = %if.end
   store ptr %ps, ptr %ql_link_hugify.i, align 8
   %qre_prev.i = getelementptr inbounds i8, ptr %ps, i64 88
   store ptr %ps, ptr %qre_prev.i, align 8
-  %4 = load ptr, ptr %to_hugify, align 8
-  %cmp.i = icmp eq ptr %4, null
+  %2 = load ptr, ptr %to_hugify, align 8
+  %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %hpdata_hugify_list_append.exit, label %do.body3.i
 
 do.body3.i:                                       ; preds = %if.then2
-  %qre_prev7.i = getelementptr inbounds i8, ptr %4, i64 88
-  %5 = load ptr, ptr %qre_prev7.i, align 8
-  store ptr %5, ptr %ql_link_hugify.i, align 8
-  %6 = load ptr, ptr %to_hugify, align 8
-  %qre_prev17.i = getelementptr inbounds i8, ptr %6, i64 88
+  %qre_prev7.i = getelementptr inbounds i8, ptr %2, i64 88
+  %3 = load ptr, ptr %qre_prev7.i, align 8
+  store ptr %3, ptr %ql_link_hugify.i, align 8
+  %4 = load ptr, ptr %to_hugify, align 8
+  %qre_prev17.i = getelementptr inbounds i8, ptr %4, i64 88
   store ptr %ps, ptr %qre_prev17.i, align 8
-  %7 = load ptr, ptr %qre_prev.i, align 8
-  %ql_link_hugify20.i = getelementptr inbounds i8, ptr %7, i64 80
-  %8 = load ptr, ptr %ql_link_hugify20.i, align 8
-  store ptr %8, ptr %qre_prev.i, align 8
-  %9 = load ptr, ptr %to_hugify, align 8
-  %qre_prev29.i = getelementptr inbounds i8, ptr %9, i64 88
-  %10 = load ptr, ptr %qre_prev29.i, align 8
-  %ql_link_hugify30.i = getelementptr inbounds i8, ptr %10, i64 80
-  store ptr %9, ptr %ql_link_hugify30.i, align 8
-  %11 = load ptr, ptr %qre_prev.i, align 8
-  %ql_link_hugify34.i = getelementptr inbounds i8, ptr %11, i64 80
+  %5 = load ptr, ptr %qre_prev.i, align 8
+  %ql_link_hugify20.i = getelementptr inbounds i8, ptr %5, i64 80
+  %6 = load ptr, ptr %ql_link_hugify20.i, align 8
+  store ptr %6, ptr %qre_prev.i, align 8
+  %7 = load ptr, ptr %to_hugify, align 8
+  %qre_prev29.i = getelementptr inbounds i8, ptr %7, i64 88
+  %8 = load ptr, ptr %qre_prev29.i, align 8
+  %ql_link_hugify30.i = getelementptr inbounds i8, ptr %8, i64 80
+  store ptr %7, ptr %ql_link_hugify30.i, align 8
+  %9 = load ptr, ptr %qre_prev.i, align 8
+  %ql_link_hugify34.i = getelementptr inbounds i8, ptr %9, i64 80
   store ptr %ps, ptr %ql_link_hugify34.i, align 8
   %.pre.i = load ptr, ptr %ql_link_hugify.i, align 8
   br label %hpdata_hugify_list_append.exit
 
 hpdata_hugify_list_append.exit:                   ; preds = %if.then2, %do.body3.i
-  %12 = phi ptr [ %.pre.i, %do.body3.i ], [ %ps, %if.then2 ]
-  store ptr %12, ptr %to_hugify, align 8
+  %10 = phi ptr [ %.pre.i, %do.body3.i ], [ %ps, %if.then2 ]
+  store ptr %10, ptr %to_hugify, align 8
   br label %if.end3
 
 if.end3:                                          ; preds = %hpdata_hugify_list_append.exit, %if.end
@@ -1137,9 +1127,8 @@ entry:
   tail call fastcc void @psset_stats_remove(ptr noundef %psset, ptr noundef %ps)
   %0 = getelementptr i8, ptr %ps, i64 18
   %ps.val = load i8, ptr %0, align 2
-  %1 = and i8 %ps.val, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %if.then
+  %tobool.i = trunc i8 %ps.val to i1
+  br i1 %tobool.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call fastcc void @psset_alloc_container_remove(ptr noundef %psset, ptr noundef nonnull %ps)
@@ -1147,53 +1136,52 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   tail call fastcc void @psset_maybe_remove_purge_list(ptr noundef %psset, ptr noundef nonnull %ps)
-  %2 = getelementptr i8, ptr %ps, i64 32
-  %ps.val11 = load i8, ptr %2, align 8
-  %3 = and i8 %ps.val11, 1
-  %tobool.i12.not = icmp eq i8 %3, 0
-  br i1 %tobool.i12.not, label %if.end3, label %if.then2
+  %1 = getelementptr i8, ptr %ps, i64 32
+  %ps.val11 = load i8, ptr %1, align 8
+  %tobool.i12 = trunc i8 %ps.val11 to i1
+  br i1 %tobool.i12, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  store i8 0, ptr %2, align 8
+  store i8 0, ptr %1, align 8
   %to_hugify = getelementptr inbounds i8, ptr %psset, i64 5272
-  %4 = load ptr, ptr %to_hugify, align 8
-  %cmp.i = icmp eq ptr %4, %ps
+  %2 = load ptr, ptr %to_hugify, align 8
+  %cmp.i = icmp eq ptr %2, %ps
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then2
   %ql_link_hugify.i = getelementptr inbounds i8, ptr %ps, i64 80
-  %5 = load ptr, ptr %ql_link_hugify.i, align 8
-  store ptr %5, ptr %to_hugify, align 8
+  %3 = load ptr, ptr %ql_link_hugify.i, align 8
+  store ptr %3, ptr %to_hugify, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then2
-  %6 = phi ptr [ %5, %if.then.i ], [ %4, %if.then2 ]
-  %cmp7.not.i = icmp eq ptr %6, %ps
+  %4 = phi ptr [ %3, %if.then.i ], [ %2, %if.then2 ]
+  %cmp7.not.i = icmp eq ptr %4, %ps
   br i1 %cmp7.not.i, label %do.body41.i, label %do.body9.i
 
 do.body9.i:                                       ; preds = %if.end.i
   %ql_link_hugify10.i = getelementptr inbounds i8, ptr %ps, i64 80
-  %7 = load ptr, ptr %ql_link_hugify10.i, align 8
-  %qre_prev.i = getelementptr inbounds i8, ptr %7, i64 88
-  %8 = load ptr, ptr %qre_prev.i, align 8
+  %5 = load ptr, ptr %ql_link_hugify10.i, align 8
+  %qre_prev.i = getelementptr inbounds i8, ptr %5, i64 88
+  %6 = load ptr, ptr %qre_prev.i, align 8
   %qre_prev14.i = getelementptr inbounds i8, ptr %ps, i64 88
-  %9 = load ptr, ptr %qre_prev14.i, align 8
-  %ql_link_hugify15.i = getelementptr inbounds i8, ptr %9, i64 80
-  store ptr %8, ptr %ql_link_hugify15.i, align 8
-  %10 = load ptr, ptr %qre_prev14.i, align 8
+  %7 = load ptr, ptr %qre_prev14.i, align 8
+  %ql_link_hugify15.i = getelementptr inbounds i8, ptr %7, i64 80
+  store ptr %6, ptr %ql_link_hugify15.i, align 8
+  %8 = load ptr, ptr %qre_prev14.i, align 8
+  %9 = load ptr, ptr %ql_link_hugify10.i, align 8
+  %qre_prev22.i = getelementptr inbounds i8, ptr %9, i64 88
+  store ptr %8, ptr %qre_prev22.i, align 8
+  %ql_link_hugify25.i = getelementptr inbounds i8, ptr %8, i64 80
+  %10 = load ptr, ptr %ql_link_hugify25.i, align 8
+  store ptr %10, ptr %qre_prev14.i, align 8
   %11 = load ptr, ptr %ql_link_hugify10.i, align 8
-  %qre_prev22.i = getelementptr inbounds i8, ptr %11, i64 88
-  store ptr %10, ptr %qre_prev22.i, align 8
-  %ql_link_hugify25.i = getelementptr inbounds i8, ptr %10, i64 80
-  %12 = load ptr, ptr %ql_link_hugify25.i, align 8
-  store ptr %12, ptr %qre_prev14.i, align 8
-  %13 = load ptr, ptr %ql_link_hugify10.i, align 8
-  %qre_prev34.i = getelementptr inbounds i8, ptr %13, i64 88
-  %14 = load ptr, ptr %qre_prev34.i, align 8
-  %ql_link_hugify35.i = getelementptr inbounds i8, ptr %14, i64 80
-  store ptr %13, ptr %ql_link_hugify35.i, align 8
-  %15 = load ptr, ptr %qre_prev14.i, align 8
-  %ql_link_hugify39.i = getelementptr inbounds i8, ptr %15, i64 80
+  %qre_prev34.i = getelementptr inbounds i8, ptr %11, i64 88
+  %12 = load ptr, ptr %qre_prev34.i, align 8
+  %ql_link_hugify35.i = getelementptr inbounds i8, ptr %12, i64 80
+  store ptr %11, ptr %ql_link_hugify35.i, align 8
+  %13 = load ptr, ptr %qre_prev14.i, align 8
+  %ql_link_hugify39.i = getelementptr inbounds i8, ptr %13, i64 80
   store ptr %ps, ptr %ql_link_hugify39.i, align 8
   br label %if.end3
 

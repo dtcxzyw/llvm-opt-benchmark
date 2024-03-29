@@ -498,13 +498,12 @@ switch.lookup:                                    ; preds = %sw.bb
 switch.hole_check:                                ; preds = %sw.bb19
   %switch.maskindex = trunc i32 %frame_type to i16
   %switch.shifted = lshr i16 16377, %switch.maskindex
-  %6 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %6, 0
-  br i1 %switch.lobit.not, label %sw.default32, label %switch.lookup9
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup9, label %sw.default32
 
 switch.lookup9:                                   ; preds = %switch.hole_check
-  %7 = zext nneg i32 %frame_type to i64
-  %switch.gep10 = getelementptr inbounds [14 x i32], ptr @switch.table._ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE.1, i64 0, i64 %7
+  %6 = zext nneg i32 %frame_type to i64
+  %switch.gep10 = getelementptr inbounds [14 x i32], ptr @switch.table._ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE.1, i64 0, i64 %6
   %switch.load11 = load i32, ptr %switch.gep10, align 4
   br label %return
 
@@ -564,19 +563,18 @@ lpad:                                             ; preds = %invoke.cont26, %con
 switch.hole_check:                                ; preds = %sw.bb
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 495, %switch.maskindex
-  %3 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %3, 0
-  br i1 %switch.lobit.not, label %sw.epilog23, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.epilog23
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi, i64 0, i64 %4
+  %3 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
 switch.lookup3:                                   ; preds = %sw.bb9
-  %5 = zext nneg i32 %frame_type_field to i64
-  %switch.gep4 = getelementptr inbounds [12 x i32], ptr @switch.table._ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi.2, i64 0, i64 %5
+  %4 = zext nneg i32 %frame_type_field to i64
+  %switch.gep4 = getelementptr inbounds [12 x i32], ptr @switch.table._ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi.2, i64 0, i64 %4
   %switch.load5 = load i32, ptr %switch.gep4, align 4
   br label %return
 
@@ -639,8 +637,7 @@ if.else:                                          ; preds = %entry
 switch.lookup:                                    ; preds = %if.then
   %switch.cast = trunc i32 %frame_type_field to i12
   %switch.downshift = lshr i12 374, %switch.cast
-  %2 = and i12 %switch.downshift, 1
-  %switch.masked = icmp ne i12 %2, 0
+  %switch.masked = trunc i12 %switch.downshift to i1
   br label %return
 
 return:                                           ; preds = %if.then, %switch.lookup, %if.else
@@ -789,13 +786,12 @@ lpad53:                                           ; preds = %invoke.cont56, %con
 switch.hole_check:                                ; preds = %sw.bb18
   %switch.maskindex = trunc i32 %switch.tableidx9 to i8
   %switch.shifted = lshr i8 -7, %switch.maskindex
-  %5 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %5, 0
-  br i1 %switch.lobit.not, label %sw.default25, label %switch.lookup10
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup10, label %sw.default25
 
 switch.lookup10:                                  ; preds = %switch.hole_check
-  %6 = zext nneg i32 %switch.tableidx9 to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN3net13SpdyConstants18SerializeSettingIdENS_16SpdyMajorVersionENS_15SpdySettingsIdsE, i64 0, i64 %6
+  %5 = zext nneg i32 %switch.tableidx9 to i64
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN3net13SpdyConstants18SerializeSettingIdENS_16SpdyMajorVersionENS_15SpdySettingsIdsE, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -1005,26 +1001,24 @@ lpad61:                                           ; preds = %invoke.cont64, %con
 switch.hole_check:                                ; preds = %sw.bb
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1535, %switch.maskindex
-  %5 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %5, 0
-  br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 0, i64 %6
+  %5 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
 switch.hole_check10:                              ; preds = %sw.bb21
   %switch.maskindex12 = trunc i32 %switch.tableidx9 to i16
   %switch.shifted13 = lshr i16 -2953, %switch.maskindex12
-  %7 = and i16 %switch.shifted13, 1
-  %switch.lobit14.not = icmp eq i16 %7, 0
-  br i1 %switch.lobit14.not, label %sw.default33, label %switch.lookup11
+  %switch.lobit14 = trunc i16 %switch.shifted13 to i1
+  br i1 %switch.lobit14, label %switch.lookup11, label %sw.default33
 
 switch.lookup11:                                  ; preds = %switch.hole_check10
-  %8 = zext nneg i32 %switch.tableidx9 to i64
-  %switch.gep15 = getelementptr inbounds [16 x i32], ptr @switch.table._ZN3net13SpdyConstants24SerializeRstStreamStatusENS_16SpdyMajorVersionENS_19SpdyRstStreamStatusE.3, i64 0, i64 %8
+  %6 = zext nneg i32 %switch.tableidx9 to i64
+  %switch.gep15 = getelementptr inbounds [16 x i32], ptr @switch.table._ZN3net13SpdyConstants24SerializeRstStreamStatusENS_16SpdyMajorVersionENS_19SpdyRstStreamStatusE.3, i64 0, i64 %6
   %switch.load16 = load i32, ptr %switch.gep15, align 4
   br label %return
 
@@ -1085,26 +1079,24 @@ lpad:                                             ; preds = %invoke.cont27, %con
 switch.hole_check:                                ; preds = %sw.bb
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1535, %switch.maskindex
-  %3 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %3, 0
-  br i1 %switch.lobit.not, label %sw.epilog24, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.epilog24
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 0, i64 %4
+  %3 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
 switch.hole_check5:                               ; preds = %sw.bb11
   %switch.maskindex7 = trunc i32 %switch.tableidx4 to i16
   %switch.shifted8 = lshr i16 7927, %switch.maskindex7
-  %5 = and i16 %switch.shifted8, 1
-  %switch.lobit9.not = icmp eq i16 %5, 0
-  br i1 %switch.lobit9.not, label %sw.epilog24, label %switch.lookup6
+  %switch.lobit9 = trunc i16 %switch.shifted8 to i1
+  br i1 %switch.lobit9, label %switch.lookup6, label %sw.epilog24
 
 switch.lookup6:                                   ; preds = %switch.hole_check5
-  %6 = zext nneg i32 %switch.tableidx4 to i64
-  %switch.gep10 = getelementptr inbounds [13 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi.4, i64 0, i64 %6
+  %4 = zext nneg i32 %switch.tableidx4 to i64
+  %switch.gep10 = getelementptr inbounds [13 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi.4, i64 0, i64 %4
   %switch.load11 = load i32, ptr %switch.gep10, align 4
   br label %return
 

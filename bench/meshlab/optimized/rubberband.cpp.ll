@@ -92,9 +92,8 @@ define void @_ZN3vcg10Rubberband6RenderEP9QGLWidget(ptr noundef nonnull align 8 
   %12 = alloca %"class.vcg::Point2", align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %64, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %64
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds i8, ptr %0, i64 16

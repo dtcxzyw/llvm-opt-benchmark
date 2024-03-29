@@ -610,9 +610,8 @@ define internal noundef i32 @_handle_abort(i32 %0, i32 %1, ptr noundef %2) #0 {
   %9 = tail call i32 @client_req_parse_body(ptr noundef %2) #6
   %10 = call zeroext i1 @client_req_get_bool(ptr noundef %2, ptr noundef nonnull @.str.41, ptr noundef nonnull %4) #6
   %11 = load i8, ptr %4, align 1
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %17, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %17
 
 13:                                               ; preds = %8
   %14 = load i32, ptr @job_info, align 8
@@ -886,9 +885,8 @@ define internal i32 @_handle_info_getnodeattr(i32 noundef %0, i32 noundef %1, pt
 
 15:                                               ; preds = %9
   %16 = load i8, ptr %5, align 1
-  %17 = and i8 %16, 1
-  %.not16 = icmp eq i8 %17, 0
-  br i1 %.not16, label %18, label %24
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %24, label %18
 
 18:                                               ; preds = %15, %9
   %19 = call ptr @client_resp_new() #6

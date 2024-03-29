@@ -251,20 +251,19 @@ define internal void @vcpu_haddr(i32 noundef %cpu_index, i32 noundef %meminfo, i
 entry:
   %call = tail call ptr @qemu_plugin_get_hwaddr(i32 noundef %meminfo, i64 noundef %vaddr) #6
   %0 = load i8, ptr @track_io, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %tobool5.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %if.else4, label %if.then
+  %tobool = trunc i8 %0 to i1
+  %tobool1.not = icmp eq ptr %call, null
+  br i1 %tobool, label %if.then, label %if.else4
 
 if.then:                                          ; preds = %entry
-  br i1 %tobool5.not, label %return, label %land.lhs.true
+  br i1 %tobool1.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
   %call2 = tail call zeroext i1 @qemu_plugin_hwaddr_is_io(ptr noundef nonnull %call) #6
   br i1 %call2, label %if.end12, label %return
 
 if.else4:                                         ; preds = %entry
-  br i1 %tobool5.not, label %if.end12, label %land.lhs.true6
+  br i1 %tobool1.not, label %if.end12, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %if.else4
   %call7 = tail call zeroext i1 @qemu_plugin_hwaddr_is_io(ptr noundef nonnull %call) #6
@@ -276,21 +275,21 @@ if.then8:                                         ; preds = %land.lhs.true6
 
 if.end12:                                         ; preds = %if.else4, %land.lhs.true6, %land.lhs.true, %if.then8
   %page.0 = phi i64 [ %call9, %if.then8 ], [ %vaddr, %land.lhs.true ], [ %vaddr, %land.lhs.true6 ], [ %vaddr, %if.else4 ]
-  %2 = load i64, ptr @page_mask, align 8
-  %not = xor i64 %2, -1
+  %1 = load i64, ptr @page_mask, align 8
+  %not = xor i64 %1, -1
   %and = and i64 %page.0, %not
   tail call void @g_mutex_lock(ptr noundef nonnull @lock) #6
-  %3 = load ptr, ptr @pages, align 8
-  %4 = inttoptr i64 %and to ptr
-  %call13 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %4) #6
+  %2 = load ptr, ptr @pages, align 8
+  %3 = inttoptr i64 %and to ptr
+  %call13 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %3) #6
   %tobool14.not = icmp eq ptr %call13, null
   br i1 %tobool14.not, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %if.end12
   %call16 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #8
   store i64 %and, ptr %call16, align 8
-  %5 = load ptr, ptr @pages, align 8
-  %call17 = tail call i32 @g_hash_table_insert(ptr noundef %5, ptr noundef %4, ptr noundef nonnull %call16) #6
+  %4 = load ptr, ptr @pages, align 8
+  %call17 = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef %3, ptr noundef nonnull %call16) #6
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then15, %if.end12
@@ -301,23 +300,23 @@ if.end18:                                         ; preds = %if.then15, %if.end1
 
 if.then20:                                        ; preds = %if.end18
   %writes = getelementptr inbounds i8, ptr %count.0, i64 24
-  %6 = load i64, ptr %writes, align 8
-  %inc = add i64 %6, 1
+  %5 = load i64, ptr %writes, align 8
+  %inc = add i64 %5, 1
   store i64 %inc, ptr %writes, align 8
   %cpu_write = getelementptr inbounds i8, ptr %count.0, i64 12
-  %7 = load i32, ptr %cpu_write, align 4
-  %or = or i32 %7, %shl
+  %6 = load i32, ptr %cpu_write, align 4
+  %or = or i32 %6, %shl
   store i32 %or, ptr %cpu_write, align 4
   br label %if.end25
 
 if.else21:                                        ; preds = %if.end18
   %reads = getelementptr inbounds i8, ptr %count.0, i64 16
-  %8 = load i64, ptr %reads, align 8
-  %inc22 = add i64 %8, 1
+  %7 = load i64, ptr %reads, align 8
+  %inc22 = add i64 %7, 1
   store i64 %inc22, ptr %reads, align 8
   %cpu_read = getelementptr inbounds i8, ptr %count.0, i64 8
-  %9 = load i32, ptr %cpu_read, align 8
-  %or24 = or i32 %9, %shl
+  %8 = load i32, ptr %cpu_read, align 8
+  %or24 = or i32 %8, %shl
   store i32 %or24, ptr %cpu_read, align 8
   br label %if.end25
 

@@ -40,9 +40,8 @@ define noundef i32 @prte_iof_hnp_send_data_to_endpoint(ptr noundef %0, ptr nound
 
 11:                                               ; preds = %5
   %12 = load i8, ptr @prte_dvm_abort_ordered, align 1
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %14, label %61
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %61, label %14
 
 14:                                               ; preds = %11, %5
   %15 = tail call ptr @PMIx_Data_buffer_create() #2

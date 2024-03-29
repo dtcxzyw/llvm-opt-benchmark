@@ -366,9 +366,8 @@ define void @_ZN5faiss15IDSelectorRangeC2Ellb(ptr nocapture noundef nonnull writ
 define void @_ZNK5faiss15IDSelectorRange22find_sorted_ids_boundsEmPKlPmS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %12
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %12, label %9
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @stderr, align 8
@@ -384,8 +383,8 @@ define void @_ZNK5faiss15IDSelectorRange22find_sorted_ids_boundsEmPKlPmS3_(ptr n
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = load i64, ptr %2, align 8
-  %.not47 = icmp sgt i64 %16, %17
-  br i1 %.not47, label %18, label %25
+  %.not = icmp sgt i64 %16, %17
+  br i1 %.not, label %18, label %25
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %0, i64 8
@@ -402,29 +401,29 @@ define void @_ZNK5faiss15IDSelectorRange22find_sorted_ids_boundsEmPKlPmS3_(ptr n
   br label %47
 
 26:                                               ; preds = %18
-  %.not48 = icmp slt i64 %17, %20
-  br i1 %.not48, label %.preheader52, label %.loopexit
+  %.not47 = icmp slt i64 %17, %20
+  br i1 %.not47, label %.preheader51, label %.loopexit
 
-.preheader52:                                     ; preds = %26
-  %.not59 = icmp eq i64 %1, 1
-  br i1 %.not59, label %.loopexit, label %.lr.ph
+.preheader51:                                     ; preds = %26
+  %.not58 = icmp eq i64 %1, 1
+  br i1 %.not58, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader52, %.lr.ph
-  %.054 = phi i64 [ %..0, %.lr.ph ], [ 0, %.preheader52 ]
-  %.04153 = phi i64 [ %.041., %.lr.ph ], [ %1, %.preheader52 ]
-  %27 = add i64 %.054, %.04153
+.lr.ph:                                           ; preds = %.preheader51, %.lr.ph
+  %.053 = phi i64 [ %..0, %.lr.ph ], [ 0, %.preheader51 ]
+  %.04152 = phi i64 [ %.041., %.lr.ph ], [ %1, %.preheader51 ]
+  %27 = add i64 %.053, %.04152
   %28 = lshr i64 %27, 1
   %29 = getelementptr inbounds i64, ptr %2, i64 %28
   %30 = load i64, ptr %29, align 8
-  %.not49 = icmp slt i64 %30, %20
-  %.041. = select i1 %.not49, i64 %.04153, i64 %28
-  %..0 = select i1 %.not49, i64 %28, i64 %.054
+  %.not48 = icmp slt i64 %30, %20
+  %.041. = select i1 %.not48, i64 %.04152, i64 %28
+  %..0 = select i1 %.not48, i64 %28, i64 %.053
   %31 = add nuw i64 %..0, 1
   %32 = icmp ugt i64 %.041., %31
   br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader52, %26
-  %storemerge = phi i64 [ 0, %26 ], [ 1, %.preheader52 ], [ %.041., %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.preheader51, %26
+  %storemerge = phi i64 [ 0, %26 ], [ 1, %.preheader51 ], [ %.041., %.lr.ph ]
   store i64 %storemerge, ptr %3, align 8
   %33 = icmp eq i64 %storemerge, %1
   br i1 %33, label %40, label %34
@@ -433,34 +432,34 @@ define void @_ZNK5faiss15IDSelectorRange22find_sorted_ids_boundsEmPKlPmS3_(ptr n
   %35 = getelementptr inbounds i64, ptr %2, i64 %storemerge
   %36 = load i64, ptr %35, align 8
   %37 = load i64, ptr %15, align 8
-  %.not50 = icmp slt i64 %36, %37
-  br i1 %.not50, label %.preheader, label %40
+  %.not49 = icmp slt i64 %36, %37
+  br i1 %.not49, label %.preheader, label %40
 
 .preheader:                                       ; preds = %34
   %38 = add nuw i64 %storemerge, 1
   %39 = icmp ult i64 %38, %1
-  br i1 %39, label %.lr.ph57, label %._crit_edge
+  br i1 %39, label %.lr.ph56, label %._crit_edge
 
 40:                                               ; preds = %34, %.loopexit
   store i64 %storemerge, ptr %4, align 8
   br label %47
 
-.lr.ph57:                                         ; preds = %.preheader, %.lr.ph57
-  %.03756 = phi i64 [ %.037., %.lr.ph57 ], [ %1, %.preheader ]
-  %.03955 = phi i64 [ %..039, %.lr.ph57 ], [ %storemerge, %.preheader ]
-  %41 = add i64 %.03756, %.03955
+.lr.ph56:                                         ; preds = %.preheader, %.lr.ph56
+  %.03755 = phi i64 [ %.037., %.lr.ph56 ], [ %1, %.preheader ]
+  %.03954 = phi i64 [ %..039, %.lr.ph56 ], [ %storemerge, %.preheader ]
+  %41 = add i64 %.03755, %.03954
   %42 = lshr i64 %41, 1
   %43 = getelementptr inbounds i64, ptr %2, i64 %42
   %44 = load i64, ptr %43, align 8
-  %.not51 = icmp slt i64 %44, %37
-  %..039 = select i1 %.not51, i64 %42, i64 %.03955
-  %.037. = select i1 %.not51, i64 %.03756, i64 %42
+  %.not50 = icmp slt i64 %44, %37
+  %..039 = select i1 %.not50, i64 %42, i64 %.03954
+  %.037. = select i1 %.not50, i64 %.03755, i64 %42
   %45 = add i64 %..039, 1
   %46 = icmp ugt i64 %.037., %45
-  br i1 %46, label %.lr.ph57, label %._crit_edge, !llvm.loop !11
+  br i1 %46, label %.lr.ph56, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph57, %.preheader
-  %.037.lcssa = phi i64 [ %1, %.preheader ], [ %.037., %.lr.ph57 ]
+._crit_edge:                                      ; preds = %.lr.ph56, %.preheader
+  %.037.lcssa = phi i64 [ %1, %.preheader ], [ %.037., %.lr.ph56 ]
   store i64 %.037.lcssa, ptr %4, align 8
   br label %47
 
@@ -904,9 +903,8 @@ define linkonce_odr ptr @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equa
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

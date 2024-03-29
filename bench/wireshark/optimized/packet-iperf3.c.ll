@@ -234,9 +234,8 @@ define internal i32 @dissect_iperf3_tcp(ptr noundef %0, ptr noundef %1, ptr noun
 
 57:                                               ; preds = %51, %39
   %58 = load i8, ptr %.0, align 4
-  %59 = and i8 %58, 1
-  %.not39 = icmp eq i8 %59, 0
-  br i1 %.not39, label %71, label %60
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %60, label %71
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds i8, ptr %1, i64 8

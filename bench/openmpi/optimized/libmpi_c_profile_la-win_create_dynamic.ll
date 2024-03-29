@@ -29,9 +29,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Win_create_dynamic(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = load i8, ptr @ompi_mpi_param_check, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %._crit_edge, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 224
@@ -71,9 +70,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %11, %ompi_comm_inva
 20:                                               ; preds = %18
   %21 = getelementptr i8, ptr %0, i64 76
   %.val = load i8, ptr %21, align 4
-  %22 = and i8 %.val, 1
-  %.not28 = icmp eq i8 %22, 0
-  br i1 %.not28, label %29, label %23
+  %22 = trunc i8 %.val to i1
+  br i1 %22, label %23, label %29
 
 23:                                               ; preds = %20, %18
   %24 = getelementptr inbounds i8, ptr %1, i64 296
@@ -98,8 +96,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %11, %ompi_comm_inva
 37:                                               ; preds = %._crit_edge, %29
   %38 = phi i32 [ %.pre, %._crit_edge ], [ %15, %29 ]
   %39 = and i32 %38, 1
-  %.not24 = icmp eq i32 %39, 0
-  br i1 %.not24, label %46, label %40
+  %.not23 = icmp eq i32 %39, 0
+  br i1 %.not23, label %46, label %40
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds i8, ptr %1, i64 296
@@ -111,8 +109,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %11, %ompi_comm_inva
 
 46:                                               ; preds = %37
   %47 = tail call i32 @ompi_win_create_dynamic(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #2
-  %.not25 = icmp eq i32 %47, 0
-  br i1 %.not25, label %54, label %48
+  %.not24 = icmp eq i32 %47, 0
+  br i1 %.not24, label %54, label %48
 
 48:                                               ; preds = %46
   store ptr @ompi_mpi_win_null, ptr %2, align 8

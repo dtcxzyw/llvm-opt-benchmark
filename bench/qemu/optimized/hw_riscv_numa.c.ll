@@ -231,7 +231,7 @@ riscv_socket_last_hartid.exit:                    ; preds = %for.body.i21
   br i1 %or.cond, label %return, label %if.end10
 
 if.end10:                                         ; preds = %riscv_socket_last_hartid.exit
-  %reass.sub = sub i32 %cond19.i, %first_hartid.1.i
+  %reass.sub = sub nsw i32 %cond19.i, %first_hartid.1.i
   %add = add i32 %reass.sub, 1
   br label %return
 
@@ -466,9 +466,8 @@ numa_enabled.exit:                                ; preds = %entry
 land.lhs.true:                                    ; preds = %numa_enabled.exit
   %have_numa_distance = getelementptr inbounds i8, ptr %ms.val, i64 4
   %2 = load i8, ptr %have_numa_distance, align 4
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end, label %riscv_socket_count.exit32
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %riscv_socket_count.exit32, label %if.end
 
 riscv_socket_count.exit32:                        ; preds = %land.lhs.true
   %mul = mul i32 %1, 12
@@ -486,25 +485,25 @@ for.cond9.preheader.us.preheader:                 ; preds = %riscv_socket_count.
   %arrayidx22.us.us = getelementptr i8, ptr %call6, i64 4
   store i32 0, ptr %arrayidx22.us.us, align 4
   %arrayidx27.us.us = getelementptr i8, ptr %ms.val.i33.fr, i64 30
-  %4 = load i8, ptr %arrayidx27.us.us, align 1
-  %conv28.us.us = zext i8 %4 to i32
-  %5 = shl nuw i32 %conv28.us.us, 24
+  %3 = load i8, ptr %arrayidx27.us.us, align 1
+  %conv28.us.us = zext i8 %3 to i32
+  %4 = shl nuw i32 %conv28.us.us, 24
   %arrayidx32.us.us = getelementptr i8, ptr %call6, i64 8
-  store i32 %5, ptr %arrayidx32.us.us, align 4
+  store i32 %4, ptr %arrayidx32.us.us, align 4
   br label %for.end35
 
 riscv_socket_count.exit32.split:                  ; preds = %riscv_socket_count.exit32
-  %6 = load i32, ptr %ms.val.i33.fr, align 8
-  %spec.select.i3657 = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
+  %5 = load i32, ptr %ms.val.i33.fr, align 8
+  %spec.select.i3657 = tail call i32 @llvm.umax.i32(i32 %5, i32 1)
   %cmp58 = icmp sgt i32 %spec.select.i3657, 0
   br i1 %cmp58, label %for.cond9.preheader, label %for.end35
 
 for.cond9.preheader:                              ; preds = %riscv_socket_count.exit32.split, %for.inc33.split
-  %7 = phi i32 [ %17, %for.inc33.split ], [ %6, %riscv_socket_count.exit32.split ]
+  %6 = phi i32 [ %16, %for.inc33.split ], [ %5, %riscv_socket_count.exit32.split ]
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %for.inc33.split ], [ 0, %riscv_socket_count.exit32.split ]
-  %8 = trunc i64 %indvars.iv63 to i32
-  %9 = tail call i32 @llvm.bswap.i32(i32 %8)
-  %spec.select.i4253 = tail call i32 @llvm.umax.i32(i32 %7, i32 1)
+  %7 = trunc i64 %indvars.iv63 to i32
+  %8 = tail call i32 @llvm.bswap.i32(i32 %7)
+  %spec.select.i4253 = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
   %cmp115254 = icmp sgt i32 %spec.select.i4253, 0
   br i1 %cmp115254, label %numa_enabled.exit.i47, label %for.cond9.preheader.for.inc33.split_crit_edge
 
@@ -513,51 +512,51 @@ for.cond9.preheader.for.inc33.split_crit_edge:    ; preds = %for.cond9.preheader
   br label %for.inc33.split
 
 numa_enabled.exit.i47:                            ; preds = %for.cond9.preheader, %numa_enabled.exit.i47
-  %10 = phi i32 [ %15, %numa_enabled.exit.i47 ], [ %7, %for.cond9.preheader ]
+  %9 = phi i32 [ %14, %numa_enabled.exit.i47 ], [ %6, %for.cond9.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %numa_enabled.exit.i47 ], [ 0, %for.cond9.preheader ]
-  %spec.select.i48 = tail call i32 @llvm.umax.i32(i32 %10, i32 1)
-  %mul15 = mul i32 %spec.select.i48, %8
-  %11 = trunc i64 %indvars.iv to i32
-  %add = add i32 %mul15, %11
+  %spec.select.i48 = tail call i32 @llvm.umax.i32(i32 %9, i32 1)
+  %mul15 = mul i32 %spec.select.i48, %7
+  %10 = trunc i64 %indvars.iv to i32
+  %add = add i32 %mul15, %10
   %mul16 = mul i32 %add, 3
   %idxprom = sext i32 %mul16 to i64
   %arrayidx = getelementptr i32, ptr %call6, i64 %idxprom
-  store i32 %9, ptr %arrayidx, align 4
-  %12 = tail call noundef i32 @llvm.bswap.i32(i32 %11)
+  store i32 %8, ptr %arrayidx, align 4
+  %11 = tail call noundef i32 @llvm.bswap.i32(i32 %10)
   %add20 = add i32 %mul16, 1
   %idxprom21 = sext i32 %add20 to i64
   %arrayidx22 = getelementptr i32, ptr %call6, i64 %idxprom21
-  store i32 %12, ptr %arrayidx22, align 4
+  store i32 %11, ptr %arrayidx22, align 4
   %arrayidx27 = getelementptr [128 x %struct.NodeInfo], ptr %nodes, i64 0, i64 %indvars.iv63, i32 6, i64 %indvars.iv
-  %13 = load i8, ptr %arrayidx27, align 1
-  %conv28 = zext i8 %13 to i32
-  %14 = shl nuw i32 %conv28, 24
+  %12 = load i8, ptr %arrayidx27, align 1
+  %conv28 = zext i8 %12 to i32
+  %13 = shl nuw i32 %conv28, 24
   %add30 = add i32 %mul16, 2
   %idxprom31 = sext i32 %add30 to i64
   %arrayidx32 = getelementptr i32, ptr %call6, i64 %idxprom31
-  store i32 %14, ptr %arrayidx32, align 4
+  store i32 %13, ptr %arrayidx32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = load i32, ptr %ms.val.i33.fr, align 8
-  %spec.select.i42 = tail call i32 @llvm.umax.i32(i32 %15, i32 1)
-  %16 = sext i32 %spec.select.i42 to i64
-  %cmp1152 = icmp slt i64 %indvars.iv.next, %16
+  %14 = load i32, ptr %ms.val.i33.fr, align 8
+  %spec.select.i42 = tail call i32 @llvm.umax.i32(i32 %14, i32 1)
+  %15 = sext i32 %spec.select.i42 to i64
+  %cmp1152 = icmp slt i64 %indvars.iv.next, %15
   br i1 %cmp1152, label %numa_enabled.exit.i47, label %for.inc33.split, !llvm.loop !10
 
 for.inc33.split:                                  ; preds = %numa_enabled.exit.i47, %for.cond9.preheader.for.inc33.split_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %for.cond9.preheader.for.inc33.split_crit_edge ], [ %16, %numa_enabled.exit.i47 ]
-  %17 = phi i32 [ %7, %for.cond9.preheader.for.inc33.split_crit_edge ], [ %15, %numa_enabled.exit.i47 ]
+  %.pre-phi = phi i64 [ %.pre, %for.cond9.preheader.for.inc33.split_crit_edge ], [ %15, %numa_enabled.exit.i47 ]
+  %16 = phi i32 [ %6, %for.cond9.preheader.for.inc33.split_crit_edge ], [ %14, %numa_enabled.exit.i47 ]
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %cmp = icmp slt i64 %indvars.iv.next64, %.pre-phi
   br i1 %cmp, label %for.cond9.preheader, label %for.end35, !llvm.loop !11
 
 for.end35:                                        ; preds = %for.inc33.split, %for.cond9.preheader.us.preheader, %riscv_socket_count.exit32.split
   %fdt = getelementptr inbounds i8, ptr %ms, i64 40
+  %17 = load ptr, ptr %fdt, align 8
+  %call36 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %17, ptr noundef nonnull @.str.1) #9
   %18 = load ptr, ptr %fdt, align 8
-  %call36 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %18, ptr noundef nonnull @.str.1) #9
+  %call38 = tail call i32 @qemu_fdt_setprop_string(ptr noundef %18, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #9
   %19 = load ptr, ptr %fdt, align 8
-  %call38 = tail call i32 @qemu_fdt_setprop_string(ptr noundef %19, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #9
-  %20 = load ptr, ptr %fdt, align 8
-  %call40 = tail call i32 @qemu_fdt_setprop(ptr noundef %20, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef %call6, i32 noundef %mul3) #9
+  %call40 = tail call i32 @qemu_fdt_setprop(ptr noundef %19, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef %call6, i32 noundef %mul3) #9
   tail call void @g_free(ptr noundef %call6) #9
   br label %if.end
 

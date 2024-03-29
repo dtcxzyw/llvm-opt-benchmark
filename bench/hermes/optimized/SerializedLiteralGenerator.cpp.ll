@@ -93,9 +93,8 @@ if.else:                                          ; preds = %cond.end
 sw.bb25:                                          ; preds = %for.body
   %value.i34 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load i8, ptr %value.i34, align 8
-  %8 = and i8 %7, 1
-  %tobool.i35.not = icmp eq i8 %8, 0
-  %cond29 = select i1 %tobool.i35.not, i8 32, i8 16
+  %tobool.i35 = trunc i8 %7 to i1
+  %cond29 = select i1 %tobool.i35, i8 16, i8 32
   br label %sw.epilog
 
 sw.default:                                       ; preds = %for.body
@@ -116,12 +115,12 @@ if.then34:                                        ; preds = %sw.epilog
 if.then36:                                        ; preds = %if.then34
   %conv37 = trunc i64 %seqLength.0421 to i32
   tail call fastcc void @_ZN6hermes3hbc12_GLOBAL__N_117appendTagToBufferERSt6vectorIhSaIhEEhi(ptr noundef nonnull align 8 dereferenceable(24) %buff, i8 noundef zeroext %lastTag.0422, i32 noundef %conv37)
-  %9 = load ptr, ptr %_M_finish.i, align 8
-  %10 = load ptr, ptr %buff, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
+  %8 = load ptr, ptr %_M_finish.i, align 8
+  %9 = load ptr, ptr %buff, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %sub.ptr.sub.i.i
   tail call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %buff, ptr %add.ptr.i.i, ptr %tmpSeqBuffer.sroa.0.0419, ptr %tmpSeqBuffer.sroa.25.0418)
   br label %if.end54
 
@@ -130,9 +129,9 @@ if.end54:                                         ; preds = %if.then36, %if.then
   %seqLength.1 = phi i64 [ 0, %if.then34 ], [ %seqLength.0421, %sw.epilog ], [ 0, %if.then36 ]
   %lastTag.1 = phi i8 [ %newTag.0, %if.then34 ], [ %lastTag.0422, %sw.epilog ], [ %newTag.0, %if.then36 ]
   %inc = add i64 %seqLength.1, 1
-  %11 = load ptr, ptr %arrayidx.i, align 8
-  %12 = load i8, ptr %11, align 8
-  switch i8 %12, label %sw.default98 [
+  %10 = load ptr, ptr %arrayidx.i, align 8
+  %11 = load i8, ptr %10, align 8
+  switch i8 %11, label %sw.default98 [
     i8 114, label %sw.bb57
     i8 116, label %sw.bb68
     i8 117, label %for.inc
@@ -140,42 +139,42 @@ if.end54:                                         ; preds = %if.then36, %if.then
   ]
 
 sw.bb57:                                          ; preds = %if.end54
-  %value.i42 = getelementptr inbounds i8, ptr %11, i64 48
-  %13 = load double, ptr %value.i42, align 8
-  %cmp.i43 = fcmp ogt double %13, 0x41DFFFFFFFC00000
-  %cmp5.i44 = fcmp olt double %13, 0xC1E0000000000000
+  %value.i42 = getelementptr inbounds i8, ptr %10, i64 48
+  %12 = load double, ptr %value.i42, align 8
+  %cmp.i43 = fcmp ogt double %12, 0x41DFFFFFFFC00000
+  %cmp5.i44 = fcmp olt double %12, 0xC1E0000000000000
   %or.cond.i45 = or i1 %cmp.i43, %cmp5.i44
-  %14 = fcmp uno double %13, 0.000000e+00
-  %or.cond4.i46 = or i1 %14, %or.cond.i45
+  %13 = fcmp uno double %12, 0.000000e+00
+  %or.cond4.i46 = or i1 %13, %or.cond.i45
   br i1 %or.cond4.i46, label %if.else65, label %if.end9.i47
 
 if.end9.i47:                                      ; preds = %sw.bb57
-  %conv11.i48 = fptosi double %13 to i32
+  %conv11.i48 = fptosi double %12 to i32
   %conv12.i49 = sitofp i32 %conv11.i48 to double
-  %cmp14.i50 = fcmp oeq double %13, %conv12.i49
+  %cmp14.i50 = fcmp oeq double %12, %conv12.i49
   br i1 %cmp14.i50, label %land.lhs.true.i56, label %if.else65
 
 land.lhs.true.i56:                                ; preds = %if.end9.i47
   %tobool.not.i57 = icmp eq i32 %conv11.i48, 0
-  %15 = bitcast double %13 to i64
-  %16 = icmp slt i64 %15, 0
-  %or.cond461 = and i1 %tobool.not.i57, %16
-  br i1 %or.cond461, label %if.else65, label %if.then63
+  %14 = bitcast double %12 to i64
+  %15 = icmp slt i64 %14, 0
+  %or.cond462 = and i1 %tobool.not.i57, %15
+  br i1 %or.cond462, label %if.else65, label %if.then63
 
 if.then63:                                        ; preds = %land.lhs.true.i56
   %sub.ptr.lhs.cast.i.i63 = ptrtoint ptr %tmpSeqBuffer.sroa.25.2 to i64
   %sub.ptr.rhs.cast.i.i64 = ptrtoint ptr %tmpSeqBuffer.sroa.0.0419 to i64
-  %reass.sub428 = sub i64 %sub.ptr.lhs.cast.i.i63, %sub.ptr.rhs.cast.i.i64
-  %add.i = add i64 %reass.sub428, 4
-  %cmp.i121 = icmp ult i64 %reass.sub428, -4
+  %reass.sub429 = sub i64 %sub.ptr.lhs.cast.i.i63, %sub.ptr.rhs.cast.i.i64
+  %add.i = add i64 %reass.sub429, 4
+  %cmp.i121 = icmp ult i64 %reass.sub429, -4
   br i1 %cmp.i121, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then63
   %sub.ptr.lhs.cast.i8.i = ptrtoint ptr %tmpSeqBuffer.sroa.59.0417 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i8.i, %sub.ptr.lhs.cast.i.i63
-  %cmp4.i.i = icmp sgt i64 %reass.sub428, -1
+  %cmp4.i.i = icmp sgt i64 %reass.sub429, -1
   tail call void @llvm.assume(i1 %cmp4.i.i)
-  %sub.i.i = xor i64 %reass.sub428, 9223372036854775807
+  %sub.i.i = xor i64 %reass.sub429, 9223372036854775807
   %cmp6.i.i = icmp ule i64 %sub.ptr.sub.i9.i, %sub.i.i
   tail call void @llvm.assume(i1 %cmp6.i.i)
   %cmp8.not.i.i = icmp ult i64 %sub.ptr.sub.i9.i, 4
@@ -195,17 +194,17 @@ if.then.i.i.i129:                                 ; preds = %if.else.i.i
   unreachable
 
 _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i.i
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %reass.sub428, i64 4)
-  %add.i.i.i = add nuw i64 %.sroa.speculated.i.i.i, %reass.sub428
-  %17 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 9223372036854775807)
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #10
-  %add.ptr.i.i127 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %reass.sub428
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %reass.sub429, i64 4)
+  %add.i.i.i = add nuw i64 %.sroa.speculated.i.i.i, %reass.sub429
+  %16 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 9223372036854775807)
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #10
+  %add.ptr.i.i127 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %reass.sub429
   %cmp.i.i.i.not.i.i = icmp eq ptr %tmpSeqBuffer.sroa.25.2, %tmpSeqBuffer.sroa.0.0419
   store i32 0, ptr %add.ptr.i.i127, align 1
   br i1 %cmp.i.i.i.not.i.i, label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i, label %if.then.i.i.i27.i.i
 
 if.then.i.i.i27.i.i:                              ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i, ptr align 1 %tmpSeqBuffer.sroa.0.0419, i64 %reass.sub428, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i, ptr align 1 %tmpSeqBuffer.sroa.0.0419, i64 %reass.sub429, i1 false)
   br label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i
 
 _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i: ; preds = %if.then.i.i.i27.i.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i
@@ -218,8 +217,8 @@ if.then.i28.i.i:                                  ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i: ; preds = %if.then.i28.i.i, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i
   %add.ptr33.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %add.i
-  %add.ptr36.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %17
-  %.pre442 = ptrtoint ptr %call5.i.i.i.i.i to i64
+  %add.ptr36.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %16
+  %.pre = ptrtoint ptr %call5.i.i.i.i.i to i64
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit130
 
 if.else.i:                                        ; preds = %if.then63
@@ -227,7 +226,7 @@ if.else.i:                                        ; preds = %if.then63
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit130
 
 _ZNSt6vectorIhSaIhEE6resizeEm.exit130:            ; preds = %if.else.i, %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i
-  %sub.ptr.rhs.cast.i6.i.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i.i64, %if.else.i ], [ %sub.ptr.rhs.cast.i.i64, %if.then.i.i.i.i.i ], [ %.pre442, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ]
+  %sub.ptr.rhs.cast.i6.i.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i.i64, %if.else.i ], [ %sub.ptr.rhs.cast.i.i64, %if.then.i.i.i.i.i ], [ %.pre, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ]
   %tmpSeqBuffer.sroa.59.1 = phi ptr [ %tmpSeqBuffer.sroa.59.0417, %if.else.i ], [ %tmpSeqBuffer.sroa.59.0417, %if.then.i.i.i.i.i ], [ %add.ptr36.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ]
   %tmpSeqBuffer.sroa.25.3 = phi ptr [ %add.ptr.i124, %if.else.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr33.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ]
   %tmpSeqBuffer.sroa.0.1 = phi ptr [ %tmpSeqBuffer.sroa.0.0419, %if.else.i ], [ %tmpSeqBuffer.sroa.0.0419, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ]
@@ -242,17 +241,17 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit130:            ; preds = %if.else.i, %if.then
 if.else65:                                        ; preds = %land.lhs.true.i56, %if.end9.i47, %sw.bb57
   %sub.ptr.lhs.cast.i.i68 = ptrtoint ptr %tmpSeqBuffer.sroa.25.2 to i64
   %sub.ptr.rhs.cast.i.i69 = ptrtoint ptr %tmpSeqBuffer.sroa.0.0419 to i64
-  %reass.sub429 = sub i64 %sub.ptr.lhs.cast.i.i68, %sub.ptr.rhs.cast.i.i69
-  %add.i71 = add i64 %reass.sub429, 8
-  %cmp.i135 = icmp ult i64 %reass.sub429, -8
+  %reass.sub428 = sub i64 %sub.ptr.lhs.cast.i.i68, %sub.ptr.rhs.cast.i.i69
+  %add.i71 = add i64 %reass.sub428, 8
+  %cmp.i135 = icmp ult i64 %reass.sub428, -8
   br i1 %cmp.i135, label %if.then.i142, label %if.else.i136
 
 if.then.i142:                                     ; preds = %if.else65
   %sub.ptr.lhs.cast.i8.i145 = ptrtoint ptr %tmpSeqBuffer.sroa.59.0417 to i64
   %sub.ptr.sub.i9.i146 = sub i64 %sub.ptr.lhs.cast.i8.i145, %sub.ptr.lhs.cast.i.i68
-  %cmp4.i.i147 = icmp sgt i64 %reass.sub429, -1
+  %cmp4.i.i147 = icmp sgt i64 %reass.sub428, -1
   tail call void @llvm.assume(i1 %cmp4.i.i147)
-  %sub.i.i148 = xor i64 %reass.sub429, 9223372036854775807
+  %sub.i.i148 = xor i64 %reass.sub428, 9223372036854775807
   %cmp6.i.i149 = icmp ule i64 %sub.ptr.sub.i9.i146, %sub.i.i148
   tail call void @llvm.assume(i1 %cmp6.i.i149)
   %cmp8.not.i.i150 = icmp ult i64 %sub.ptr.sub.i9.i146, 8
@@ -272,17 +271,17 @@ if.then.i.i.i179:                                 ; preds = %if.else.i.i159
   unreachable
 
 _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i161: ; preds = %if.else.i.i159
-  %.sroa.speculated.i.i.i162 = tail call i64 @llvm.umax.i64(i64 %reass.sub429, i64 8)
-  %add.i.i.i163 = add nuw i64 %.sroa.speculated.i.i.i162, %reass.sub429
-  %18 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i163, i64 9223372036854775807)
-  %call5.i.i.i.i.i164 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #10
-  %add.ptr.i.i165 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i164, i64 %reass.sub429
+  %.sroa.speculated.i.i.i162 = tail call i64 @llvm.umax.i64(i64 %reass.sub428, i64 8)
+  %add.i.i.i163 = add nuw i64 %.sroa.speculated.i.i.i162, %reass.sub428
+  %17 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i163, i64 9223372036854775807)
+  %call5.i.i.i.i.i164 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #10
+  %add.ptr.i.i165 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i164, i64 %reass.sub428
   %cmp.i.i.i.not.i.i171 = icmp eq ptr %tmpSeqBuffer.sroa.25.2, %tmpSeqBuffer.sroa.0.0419
   store i64 0, ptr %add.ptr.i.i165, align 1
   br i1 %cmp.i.i.i.not.i.i171, label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i173, label %if.then.i.i.i27.i.i172
 
 if.then.i.i.i27.i.i172:                           ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i161
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i164, ptr align 1 %tmpSeqBuffer.sroa.0.0419, i64 %reass.sub429, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i164, ptr align 1 %tmpSeqBuffer.sroa.0.0419, i64 %reass.sub428, i1 false)
   br label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i173
 
 _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i173: ; preds = %if.then.i.i.i27.i.i172, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i161
@@ -295,8 +294,8 @@ if.then.i28.i.i175:                               ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i176: ; preds = %if.then.i28.i.i175, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i173
   %add.ptr33.i.i177 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i164, i64 %add.i71
-  %add.ptr36.i.i178 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i164, i64 %18
-  %.pre = ptrtoint ptr %call5.i.i.i.i.i164 to i64
+  %add.ptr36.i.i178 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i164, i64 %17
+  %.pre442 = ptrtoint ptr %call5.i.i.i.i.i164 to i64
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit180
 
 if.else.i136:                                     ; preds = %if.else65
@@ -304,7 +303,7 @@ if.else.i136:                                     ; preds = %if.else65
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit180
 
 _ZNSt6vectorIhSaIhEE6resizeEm.exit180:            ; preds = %if.else.i136, %if.then.i.i.i.i.i151, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i176
-  %sub.ptr.rhs.cast.i6.i73.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i.i69, %if.else.i136 ], [ %sub.ptr.rhs.cast.i.i69, %if.then.i.i.i.i.i151 ], [ %.pre, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i176 ]
+  %sub.ptr.rhs.cast.i6.i73.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i.i69, %if.else.i136 ], [ %sub.ptr.rhs.cast.i.i69, %if.then.i.i.i.i.i151 ], [ %.pre442, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i176 ]
   %tmpSeqBuffer.sroa.59.2 = phi ptr [ %tmpSeqBuffer.sroa.59.0417, %if.else.i136 ], [ %tmpSeqBuffer.sroa.59.0417, %if.then.i.i.i.i.i151 ], [ %add.ptr36.i.i178, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i176 ]
   %tmpSeqBuffer.sroa.25.4 = phi ptr [ %add.ptr.i139, %if.else.i136 ], [ %add.ptr.i.i.i.i.i.i.i156, %if.then.i.i.i.i.i151 ], [ %add.ptr33.i.i177, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i176 ]
   %tmpSeqBuffer.sroa.0.2 = phi ptr [ %tmpSeqBuffer.sroa.0.0419, %if.else.i136 ], [ %tmpSeqBuffer.sroa.0.0419, %if.then.i.i.i.i.i151 ], [ %call5.i.i.i.i.i164, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i176 ]
@@ -313,24 +312,24 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit180:            ; preds = %if.else.i136, %if.t
   %add.ptr.i75 = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.0.2, i64 %sub.ptr.sub.i7.i74
   %add.ptr3.i76 = getelementptr inbounds i8, ptr %add.ptr.i75, i64 -8
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr3.i76, i64 1) ]
-  store double %13, ptr %add.ptr3.i76, align 1
+  store double %12, ptr %add.ptr3.i76, align 1
   br label %for.inc
 
 sw.bb68:                                          ; preds = %if.end54
-  %value.i78 = getelementptr inbounds i8, ptr %11, i64 48
+  %value.i78 = getelementptr inbounds i8, ptr %10, i64 48
   %retval.sroa.0.0.copyload.i79 = load ptr, ptr %value.i78, align 8
   %str69.sroa.0.0.copyload = load ptr, ptr %retval.sroa.0.0.copyload.i79, align 8
   %str69.sroa.3.0.call75.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i79, i64 8
   %str69.sroa.3.0.copyload = load i64, ptr %str69.sroa.3.0.call75.sroa_idx, align 8
-  %19 = load ptr, ptr %this, align 8
+  %18 = load ptr, ptr %this, align 8
   br i1 %isKeyBuffer, label %cond.true77, label %cond.false81
 
 cond.true77:                                      ; preds = %sw.bb68
-  %call80 = tail call noundef i32 @_ZNK6hermes3hbc23BytecodeModuleGenerator15getIdentifierIDEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(964) %19, ptr %str69.sroa.0.0.copyload, i64 %str69.sroa.3.0.copyload) #8
+  %call80 = tail call noundef i32 @_ZNK6hermes3hbc23BytecodeModuleGenerator15getIdentifierIDEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(964) %18, ptr %str69.sroa.0.0.copyload, i64 %str69.sroa.3.0.copyload) #8
   br label %cond.end85
 
 cond.false81:                                     ; preds = %sw.bb68
-  %call84 = tail call noundef i32 @_ZNK6hermes3hbc23BytecodeModuleGenerator11getStringIDEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(964) %19, ptr %str69.sroa.0.0.copyload, i64 %str69.sroa.3.0.copyload) #8
+  %call84 = tail call noundef i32 @_ZNK6hermes3hbc23BytecodeModuleGenerator11getStringIDEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(964) %18, ptr %str69.sroa.0.0.copyload, i64 %str69.sroa.3.0.copyload) #8
   br label %cond.end85
 
 cond.end85:                                       ; preds = %cond.false81, %cond.true77
@@ -373,8 +372,8 @@ if.then.i.i.i229:                                 ; preds = %if.else.i.i209
 _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i211: ; preds = %if.else.i.i209
   %.sroa.speculated.i.i.i212 = tail call i64 @llvm.umax.i64(i64 %reass.sub427, i64 4)
   %add.i.i.i213 = add nuw i64 %.sroa.speculated.i.i.i212, %reass.sub427
-  %20 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i213, i64 9223372036854775807)
-  %call5.i.i.i.i.i214 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #10
+  %19 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i213, i64 9223372036854775807)
+  %call5.i.i.i.i.i214 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #10
   %add.ptr.i.i215 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i214, i64 %reass.sub427
   %cmp.i.i.i.not.i.i221 = icmp eq ptr %tmpSeqBuffer.sroa.25.2, %tmpSeqBuffer.sroa.0.0419
   store i32 0, ptr %add.ptr.i.i215, align 1
@@ -394,7 +393,7 @@ if.then.i28.i.i225:                               ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i226: ; preds = %if.then.i28.i.i225, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i223
   %add.ptr33.i.i227 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i214, i64 %add.i84
-  %add.ptr36.i.i228 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i214, i64 %20
+  %add.ptr36.i.i228 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i214, i64 %19
   %.pre443 = ptrtoint ptr %call5.i.i.i.i.i214 to i64
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit230
 
@@ -457,8 +456,8 @@ if.then.i.i.i279:                                 ; preds = %if.else.i.i259
 _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i261: ; preds = %if.else.i.i259
   %.sroa.speculated.i.i.i262 = tail call i64 @llvm.umax.i64(i64 %reass.sub426, i64 2)
   %add.i.i.i263 = add nuw i64 %.sroa.speculated.i.i.i262, %reass.sub426
-  %21 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i263, i64 9223372036854775807)
-  %call5.i.i.i.i.i264 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #10
+  %20 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i263, i64 9223372036854775807)
+  %call5.i.i.i.i.i264 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #10
   %add.ptr.i.i265 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i264, i64 %reass.sub426
   store i8 0, ptr %add.ptr.i.i265, align 1
   %incdec.ptr.i.i.i20.i.i269 = getelementptr inbounds i8, ptr %add.ptr.i.i265, i64 1
@@ -480,7 +479,7 @@ if.then.i28.i.i275:                               ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i276: ; preds = %if.then.i28.i.i275, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i273
   %add.ptr33.i.i277 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i264, i64 %add.i94
-  %add.ptr36.i.i278 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i264, i64 %21
+  %add.ptr36.i.i278 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i264, i64 %20
   %.pre444 = ptrtoint ptr %call5.i.i.i.i.i264 to i64
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit280
 
@@ -534,8 +533,8 @@ if.then.i.i.i329:                                 ; preds = %if.else.i.i309
 _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i311: ; preds = %if.else.i.i309
   %.sroa.speculated.i.i.i312 = tail call i64 @llvm.umax.i64(i64 %reass.sub426, i64 1)
   %add.i.i.i313 = add nuw i64 %.sroa.speculated.i.i.i312, %reass.sub426
-  %22 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i313, i64 9223372036854775807)
-  %call5.i.i.i.i.i314 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #10
+  %21 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i313, i64 9223372036854775807)
+  %call5.i.i.i.i.i314 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #10
   %add.ptr.i.i315 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i314, i64 %reass.sub426
   store i8 0, ptr %add.ptr.i.i315, align 1
   %cmp.i.i.i.not.i.i321 = icmp eq ptr %tmpSeqBuffer.sroa.59.0417, %tmpSeqBuffer.sroa.0.0419
@@ -555,7 +554,7 @@ if.then.i28.i.i325:                               ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i326: ; preds = %if.then.i28.i.i325, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i323
   %add.ptr33.i.i327 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i314, i64 %add.i104
-  %add.ptr36.i.i328 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i314, i64 %22
+  %add.ptr36.i.i328 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i314, i64 %21
   %.pre445 = ptrtoint ptr %call5.i.i.i.i.i314 to i64
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit330
 
@@ -589,22 +588,22 @@ for.inc:                                          ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !4
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %23 = trunc i64 %inc to i32
+  %22 = trunc i64 %inc to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %tmpSeqBuffer.sroa.25.0.lcssa = phi ptr [ null, %entry ], [ %tmpSeqBuffer.sroa.25.8, %for.end.loopexit ]
   %tmpSeqBuffer.sroa.0.0.lcssa = phi ptr [ null, %entry ], [ %tmpSeqBuffer.sroa.0.6, %for.end.loopexit ]
-  %seqLength.0.lcssa = phi i32 [ 0, %entry ], [ %23, %for.end.loopexit ]
+  %seqLength.0.lcssa = phi i32 [ 0, %entry ], [ %22, %for.end.loopexit ]
   %lastTag.0.lcssa = phi i8 [ 48, %entry ], [ %lastTag.1, %for.end.loopexit ]
   tail call fastcc void @_ZN6hermes3hbc12_GLOBAL__N_117appendTagToBufferERSt6vectorIhSaIhEEhi(ptr noundef nonnull align 8 dereferenceable(24) %buff, i8 noundef zeroext %lastTag.0.lcssa, i32 noundef %seqLength.0.lcssa)
   %_M_finish.i110 = getelementptr inbounds i8, ptr %buff, i64 8
-  %24 = load ptr, ptr %_M_finish.i110, align 8
-  %25 = load ptr, ptr %buff, align 8
-  %sub.ptr.lhs.cast.i.i112 = ptrtoint ptr %24 to i64
-  %sub.ptr.rhs.cast.i.i113 = ptrtoint ptr %25 to i64
+  %23 = load ptr, ptr %_M_finish.i110, align 8
+  %24 = load ptr, ptr %buff, align 8
+  %sub.ptr.lhs.cast.i.i112 = ptrtoint ptr %23 to i64
+  %sub.ptr.rhs.cast.i.i113 = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i.i114 = sub i64 %sub.ptr.lhs.cast.i.i112, %sub.ptr.rhs.cast.i.i113
-  %add.ptr.i.i115 = getelementptr inbounds i8, ptr %25, i64 %sub.ptr.sub.i.i114
+  %add.ptr.i.i115 = getelementptr inbounds i8, ptr %24, i64 %sub.ptr.sub.i.i114
   tail call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %buff, ptr %add.ptr.i.i115, ptr %tmpSeqBuffer.sroa.0.0.lcssa, ptr %tmpSeqBuffer.sroa.25.0.lcssa)
   %tobool.not.i.i.i = icmp eq ptr %tmpSeqBuffer.sroa.0.0.lcssa, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i

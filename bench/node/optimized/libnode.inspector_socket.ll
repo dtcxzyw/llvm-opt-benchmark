@@ -855,9 +855,8 @@ entry:
   %1 = inttoptr i64 %sub.i.i.i to ptr
   %parsing_value_ = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load i8, ptr %parsing_value_, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %parsing_value_, align 8
@@ -1280,7 +1279,7 @@ if.end7:                                          ; preds = %if.then6, %_ZNSt6ve
 
 for.body.lr.ph:                                   ; preds = %if.end7
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ipv6.i.i, i64 16
-  %tcp_.i16 = getelementptr inbounds i8, ptr %this, i64 16
+  %tcp_.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1441,24 +1440,22 @@ lor.lhs.false:                                    ; preds = %while.body.i.i, %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %host.i)
   %isGET = getelementptr inbounds i8, ptr %__begin3.sroa.0.022, i64 33
   %16 = load i8, ptr %isGET, align 1
-  %17 = and i8 %16, 1
-  %tobool.not = icmp eq i8 %17, 0
-  br i1 %tobool.not, label %cleanup.sink.split, label %if.else
+  %tobool = trunc i8 %16 to i1
+  br i1 %tobool, label %if.else, label %cleanup.sink.split
 
 if.else:                                          ; preds = %lor.lhs.false
   %upgrade = getelementptr inbounds i8, ptr %__begin3.sroa.0.022, i64 32
-  %18 = load i8, ptr %upgrade, align 8
-  %19 = and i8 %18, 1
-  %tobool17.not = icmp eq i8 %19, 0
-  br i1 %tobool17.not, label %if.then18, label %if.else23
+  %17 = load i8, ptr %upgrade, align 8
+  %tobool17 = trunc i8 %17 to i1
+  br i1 %tobool17, label %if.else23, label %if.then18
 
 if.then18:                                        ; preds = %if.else
-  %20 = load ptr, ptr %tcp_.i16, align 8
-  %delegate_.i.i = getelementptr inbounds i8, ptr %20, i64 248
-  %21 = load ptr, ptr %delegate_.i.i, align 8
-  %vtable21 = load ptr, ptr %21, align 8
-  %22 = load ptr, ptr %vtable21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(32) %host, ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.022) #19
+  %18 = load ptr, ptr %tcp_.i, align 8
+  %delegate_.i.i = getelementptr inbounds i8, ptr %18, i64 248
+  %19 = load ptr, ptr %delegate_.i.i, align 8
+  %vtable21 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %vtable21, align 8
+  call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(32) %host, ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.022) #19
   br label %for.inc
 
 if.else23:                                        ; preds = %if.else
@@ -1467,13 +1464,13 @@ if.else23:                                        ; preds = %if.else
   br i1 %call24, label %cleanup.sink.split, label %if.else28
 
 if.else28:                                        ; preds = %if.else23
-  %23 = load ptr, ptr %tcp_.i16, align 8
-  %delegate_.i.i17 = getelementptr inbounds i8, ptr %23, i64 248
-  %24 = load ptr, ptr %delegate_.i.i17, align 8
-  %vtable33 = load ptr, ptr %24, align 8
+  %21 = load ptr, ptr %tcp_.i, align 8
+  %delegate_.i.i17 = getelementptr inbounds i8, ptr %21, i64 248
+  %22 = load ptr, ptr %delegate_.i.i17, align 8
+  %vtable33 = load ptr, ptr %22, align 8
   %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 8
-  %25 = load ptr, ptr %vfn34, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(32) %host, ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.022, ptr noundef nonnull align 8 dereferenceable(32) %ws_key) #19
+  %23 = load ptr, ptr %vfn34, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(32) %host, ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.022, ptr noundef nonnull align 8 dereferenceable(32) %ws_key) #19
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else28, %if.then18
@@ -1484,8 +1481,8 @@ for.inc:                                          ; preds = %if.else28, %if.then
 cleanup.sink.split:                               ; preds = %if.else23, %lor.lhs.false, %_ZNK4node9inspector12_GLOBAL__N_111HttpHandler13IsAllowedHostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %vtable26 = load ptr, ptr %this, align 8
   %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 32
-  %26 = load ptr, ptr %vfn27, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(448) %this) #19
+  %24 = load ptr, ptr %vfn27, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(448) %this) #19
   br label %cleanup
 
 cleanup:                                          ; preds = %for.inc, %cleanup.sink.split
@@ -1946,7 +1943,7 @@ entry:
   br i1 %cmp.i.not10, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %header_found.012 = phi i8 [ %header_found.1, %for.inc ], [ 0, %entry ]
+  %header_found.012 = phi i1 [ %header_found.1, %for.inc ], [ false, %entry ]
   %__begin3.sroa.0.011 = phi ptr [ %call.i6, %for.inc ], [ %0, %entry ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.011, i64 32
   %call6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i) #19
@@ -1985,9 +1982,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %or.cond.i, label %if.then, label %for.body.i, !llvm.loop !20
 
 if.then:                                          ; preds = %if.end.i, %for.body
-  %6 = and i8 %header_found.012, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %if.end, label %if.then10
+  br i1 %header_found.012, label %if.then10, label %if.end
 
 if.then10:                                        ; preds = %if.then
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
@@ -2003,7 +1998,7 @@ if.end:                                           ; preds = %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body.i, %if.end
-  %header_found.1 = phi i8 [ 1, %if.end ], [ %header_found.012, %for.body.i ]
+  %header_found.1 = phi i1 [ true, %if.end ], [ %header_found.012, %for.body.i ]
   %call.i6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.011) #23
   %cmp.i.not = icmp eq ptr %call.i6, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -2601,15 +2596,14 @@ if.then.i.i:                                      ; preds = %entry
 _ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEE5resetES4_.exit: ; preds = %entry, %if.then.i.i
   %dispose_ = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i8, ptr %dispose_, align 8
-  %2 = and i8 %1, 1
-  %tobool.not1 = icmp eq i8 %2, 0
-  br i1 %tobool.not1, label %if.end, label %delete.notnull
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %delete.notnull, label %if.end
 
 delete.notnull:                                   ; preds = %_ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEE5resetES4_.exit
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
-  %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(57) %this) #19
+  %2 = load ptr, ptr %vfn, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(57) %this) #19
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %_ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEE5resetES4_.exit

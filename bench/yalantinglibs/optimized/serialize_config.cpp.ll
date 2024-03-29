@@ -70,7 +70,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i:
           to label %call.i.noexc unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad.body, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %7, %lpad.body ]
+  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %6, %lpad.body ]
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buffer) #9
   resume { ptr, i32 } %common.resume.op
 
@@ -86,10 +86,10 @@ call.i.noexc:                                     ; preds = %.noexc13
   store i8 1, ptr %m_has_val.i.i.i.i.i.i.i, align 4
   %2 = load ptr, ptr %buffer, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %sub.ptr.lhs.cast.i16 = ptrtoint ptr %3 to i64
-  %sub.ptr.rhs.cast.i17 = ptrtoint ptr %2 to i64
-  %sub.ptr.sub.i18 = sub i64 %sub.ptr.lhs.cast.i16, %sub.ptr.rhs.cast.i17
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i18
+  %sub.ptr.lhs.cast.i15 = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i16 = ptrtoint ptr %2 to i64
+  %sub.ptr.sub.i17 = sub i64 %sub.ptr.lhs.cast.i15, %sub.ptr.rhs.cast.i16
+  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i17
   store ptr %2, ptr %reader.i, align 8
   %end2.i = getelementptr inbounds i8, ptr %reader.i, i64 8
   store ptr %add.ptr.i, ptr %end2.i, align 8
@@ -97,42 +97,41 @@ call.i.noexc:                                     ; preds = %.noexc13
   store ptr %reader.i, ptr %reader_.i, align 8
   %size_type_.i.i = getelementptr inbounds i8, ptr %in.i, i64 16
   store i8 0, ptr %size_type_.i.i, align 8
-  %call.i.i19 = invoke noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm3EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0E4rectEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %in.i, ptr noundef nonnull align 4 dereferenceable(16) %ret.i)
+  %call.i.i18 = invoke noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm3EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0E4rectEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %in.i, ptr noundef nonnull align 4 dereferenceable(16) %ret.i)
           to label %call1.i.noexc unwind label %lpad.body
 
 call1.i.noexc:                                    ; preds = %call.i.noexc
-  %cmp.i.not = icmp eq i32 %call.i.i19, 0
+  %cmp.i.not = icmp eq i32 %call.i.i18, 0
   br i1 %cmp.i.not, label %_ZN11struct_pack11deserializeILm3EJ4rectETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT1_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %call1.i.noexc
   %4 = load i8, ptr %m_has_val.i.i.i.i.i.i.i, align 4, !noalias !5
-  %5 = and i8 %4, 1
-  %tobool.i.not.i21 = icmp eq i8 %5, 0
-  br i1 %tobool.i.not.i21, label %_ZN2tl8expectedI4rectN11struct_pack4errcEEaSIS3_TnPNSt9enable_ifIXaasr3std29is_nothrow_move_constructibleIT_EE5valuesr3std18is_move_assignableIS7_EE5valueEvE4typeELPv0EEERS4_ONS_10unexpectedIS7_EE.exit, label %invoke.cont.i22
+  %tobool.i.i20 = trunc i8 %4 to i1
+  br i1 %tobool.i.i20, label %invoke.cont.i21, label %_ZN2tl8expectedI4rectN11struct_pack4errcEEaSIS3_TnPNSt9enable_ifIXaasr3std29is_nothrow_move_constructibleIT_EE5valuesr3std18is_move_assignableIS7_EE5valueEvE4typeELPv0EEERS4_ONS_10unexpectedIS7_EE.exit
 
-invoke.cont.i22:                                  ; preds = %if.then.i
+invoke.cont.i21:                                  ; preds = %if.then.i
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i, align 4, !noalias !5
   br label %_ZN2tl8expectedI4rectN11struct_pack4errcEEaSIS3_TnPNSt9enable_ifIXaasr3std29is_nothrow_move_constructibleIT_EE5valuesr3std18is_move_assignableIS7_EE5valueEvE4typeELPv0EEERS4_ONS_10unexpectedIS7_EE.exit
 
-_ZN2tl8expectedI4rectN11struct_pack4errcEEaSIS3_TnPNSt9enable_ifIXaasr3std29is_nothrow_move_constructibleIT_EE5valuesr3std18is_move_assignableIS7_EE5valueEvE4typeELPv0EEERS4_ONS_10unexpectedIS7_EE.exit: ; preds = %if.then.i, %invoke.cont.i22
-  store i32 %call.i.i19, ptr %ret.i, align 4, !noalias !5
+_ZN2tl8expectedI4rectN11struct_pack4errcEEaSIS3_TnPNSt9enable_ifIXaasr3std29is_nothrow_move_constructibleIT_EE5valuesr3std18is_move_assignableIS7_EE5valueEvE4typeELPv0EEERS4_ONS_10unexpectedIS7_EE.exit: ; preds = %if.then.i, %invoke.cont.i21
+  store i32 %call.i.i18, ptr %ret.i, align 4, !noalias !5
   br label %_ZN11struct_pack11deserializeILm3EJ4rectETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT1_.exit
 
 _ZN11struct_pack11deserializeILm3EJ4rectETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT1_.exit: ; preds = %_ZN2tl8expectedI4rectN11struct_pack4errcEEaSIS3_TnPNSt9enable_ifIXaasr3std29is_nothrow_move_constructibleIT_EE5valuesr3std18is_move_assignableIS7_EE5valueEvE4typeELPv0EEERS4_ONS_10unexpectedIS7_EE.exit, %call1.i.noexc
-  %6 = load ptr, ptr %buffer, align 8
-  %tobool.not.i.i.i24 = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i.i24, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i25
+  %5 = load ptr, ptr %buffer, align 8
+  %tobool.not.i.i.i23 = icmp eq ptr %5, null
+  br i1 %tobool.not.i.i.i23, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i24
 
-if.then.i.i.i25:                                  ; preds = %_ZN11struct_pack11deserializeILm3EJ4rectETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT1_.exit
-  call void @_ZdlPv(ptr noundef nonnull %6) #11
+if.then.i.i.i24:                                  ; preds = %_ZN11struct_pack11deserializeILm3EJ4rectETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT1_.exit
+  call void @_ZdlPv(ptr noundef nonnull %5) #11
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
-_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN11struct_pack11deserializeILm3EJ4rectETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT1_.exit, %if.then.i.i.i25
+_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN11struct_pack11deserializeILm3EJ4rectETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT1_.exit, %if.then.i.i.i24
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer) #9
   ret void
 
 lpad.body:                                        ; preds = %call.i.noexc
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 }
@@ -195,7 +194,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i:
           to label %call.i.noexc unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad.body, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %7, %lpad.body ]
+  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %6, %lpad.body ]
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buffer) #9
   resume { ptr, i32 } %common.resume.op
 
@@ -211,10 +210,10 @@ call.i.noexc:                                     ; preds = %.noexc13
   store i8 1, ptr %m_has_val.i.i.i.i.i.i.i, align 4
   %2 = load ptr, ptr %buffer, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %sub.ptr.lhs.cast.i16 = ptrtoint ptr %3 to i64
-  %sub.ptr.rhs.cast.i17 = ptrtoint ptr %2 to i64
-  %sub.ptr.sub.i18 = sub i64 %sub.ptr.lhs.cast.i16, %sub.ptr.rhs.cast.i17
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i18
+  %sub.ptr.lhs.cast.i15 = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i16 = ptrtoint ptr %2 to i64
+  %sub.ptr.sub.i17 = sub i64 %sub.ptr.lhs.cast.i15, %sub.ptr.rhs.cast.i16
+  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i17
   store ptr %2, ptr %reader.i, align 8
   %end2.i = getelementptr inbounds i8, ptr %reader.i, i64 8
   store ptr %add.ptr.i, ptr %end2.i, align 8
@@ -222,42 +221,41 @@ call.i.noexc:                                     ; preds = %.noexc13
   store ptr %reader.i, ptr %reader_.i, align 8
   %size_type_.i.i = getelementptr inbounds i8, ptr %in.i, i64 16
   store i8 0, ptr %size_type_.i.i, align 8
-  %call.i.i19 = invoke noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0E4rectEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %in.i, ptr noundef nonnull align 4 dereferenceable(16) %ret.i)
+  %call.i.i18 = invoke noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0E4rectEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %in.i, ptr noundef nonnull align 4 dereferenceable(16) %ret.i)
           to label %call1.i.noexc unwind label %lpad.body
 
 call1.i.noexc:                                    ; preds = %call.i.noexc
-  %cmp.i.not = icmp eq i32 %call.i.i19, 0
+  %cmp.i.not = icmp eq i32 %call.i.i18, 0
   br i1 %cmp.i.not, label %_ZN11struct_pack11deserializeIJ4rectETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %call1.i.noexc
   %4 = load i8, ptr %m_has_val.i.i.i.i.i.i.i, align 4, !noalias !8
-  %5 = and i8 %4, 1
-  %tobool.i.not.i21 = icmp eq i8 %5, 0
-  br i1 %tobool.i.not.i21, label %_ZN2tl8expectedI4rectN11struct_pack4errcEEaSIS3_TnPNSt9enable_ifIXaasr3std29is_nothrow_move_constructibleIT_EE5valuesr3std18is_move_assignableIS7_EE5valueEvE4typeELPv0EEERS4_ONS_10unexpectedIS7_EE.exit, label %invoke.cont.i22
+  %tobool.i.i20 = trunc i8 %4 to i1
+  br i1 %tobool.i.i20, label %invoke.cont.i21, label %_ZN2tl8expectedI4rectN11struct_pack4errcEEaSIS3_TnPNSt9enable_ifIXaasr3std29is_nothrow_move_constructibleIT_EE5valuesr3std18is_move_assignableIS7_EE5valueEvE4typeELPv0EEERS4_ONS_10unexpectedIS7_EE.exit
 
-invoke.cont.i22:                                  ; preds = %if.then.i
+invoke.cont.i21:                                  ; preds = %if.then.i
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i, align 4, !noalias !8
   br label %_ZN2tl8expectedI4rectN11struct_pack4errcEEaSIS3_TnPNSt9enable_ifIXaasr3std29is_nothrow_move_constructibleIT_EE5valuesr3std18is_move_assignableIS7_EE5valueEvE4typeELPv0EEERS4_ONS_10unexpectedIS7_EE.exit
 
-_ZN2tl8expectedI4rectN11struct_pack4errcEEaSIS3_TnPNSt9enable_ifIXaasr3std29is_nothrow_move_constructibleIT_EE5valuesr3std18is_move_assignableIS7_EE5valueEvE4typeELPv0EEERS4_ONS_10unexpectedIS7_EE.exit: ; preds = %if.then.i, %invoke.cont.i22
-  store i32 %call.i.i19, ptr %ret.i, align 4, !noalias !8
+_ZN2tl8expectedI4rectN11struct_pack4errcEEaSIS3_TnPNSt9enable_ifIXaasr3std29is_nothrow_move_constructibleIT_EE5valuesr3std18is_move_assignableIS7_EE5valueEvE4typeELPv0EEERS4_ONS_10unexpectedIS7_EE.exit: ; preds = %if.then.i, %invoke.cont.i21
+  store i32 %call.i.i18, ptr %ret.i, align 4, !noalias !8
   br label %_ZN11struct_pack11deserializeIJ4rectETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT0_.exit
 
 _ZN11struct_pack11deserializeIJ4rectETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT0_.exit: ; preds = %_ZN2tl8expectedI4rectN11struct_pack4errcEEaSIS3_TnPNSt9enable_ifIXaasr3std29is_nothrow_move_constructibleIT_EE5valuesr3std18is_move_assignableIS7_EE5valueEvE4typeELPv0EEERS4_ONS_10unexpectedIS7_EE.exit, %call1.i.noexc
-  %6 = load ptr, ptr %buffer, align 8
-  %tobool.not.i.i.i24 = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i.i24, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i25
+  %5 = load ptr, ptr %buffer, align 8
+  %tobool.not.i.i.i23 = icmp eq ptr %5, null
+  br i1 %tobool.not.i.i.i23, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i24
 
-if.then.i.i.i25:                                  ; preds = %_ZN11struct_pack11deserializeIJ4rectETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT0_.exit
-  call void @_ZdlPv(ptr noundef nonnull %6) #11
+if.then.i.i.i24:                                  ; preds = %_ZN11struct_pack11deserializeIJ4rectETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT0_.exit
+  call void @_ZdlPv(ptr noundef nonnull %5) #11
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
-_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN11struct_pack11deserializeIJ4rectETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT0_.exit, %if.then.i.i.i25
+_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN11struct_pack11deserializeIJ4rectETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT0_.exit, %if.then.i.i.i24
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer) #9
   ret void
 
 lpad.body:                                        ; preds = %call.i.noexc
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 }

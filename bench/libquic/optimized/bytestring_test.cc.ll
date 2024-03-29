@@ -706,17 +706,17 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false14
   %tobool19 = icmp ne i32 %call18, 0
   %2 = load ptr, ptr %out_buf, align 8
   %cmp22 = icmp eq ptr %2, %buf
-  %or.cond2.not = select i1 %tobool19, i1 %cmp22, i1 false
+  %or.cond2.not6 = select i1 %tobool19, i1 %cmp22, i1 false
   %3 = load i64, ptr %out_size, align 8
   %cmp24 = icmp eq i64 %3, 1
-  %or.cond3 = select i1 %or.cond2.not, i1 %cmp24, i1 false
+  %or.cond3.not5 = select i1 %or.cond2.not6, i1 %cmp24, i1 false
   %4 = load i8, ptr %buf, align 1
   %cmp26 = icmp eq i8 %4, 1
-  %or.cond4 = select i1 %or.cond3, i1 %cmp26, i1 false
+  %or.cond4.not = select i1 %or.cond3.not5, i1 %cmp26, i1 false
   br label %return
 
 return:                                           ; preds = %lor.lhs.false17, %if.end, %lor.lhs.false11, %lor.lhs.false14, %entry, %lor.lhs.false, %lor.lhs.false3
-  %retval.0 = phi i1 [ false, %lor.lhs.false3 ], [ false, %lor.lhs.false ], [ false, %entry ], [ false, %lor.lhs.false14 ], [ false, %lor.lhs.false11 ], [ false, %if.end ], [ %or.cond4, %lor.lhs.false17 ]
+  %retval.0 = phi i1 [ false, %lor.lhs.false3 ], [ false, %lor.lhs.false ], [ false, %entry ], [ false, %lor.lhs.false14 ], [ false, %lor.lhs.false11 ], [ false, %if.end ], [ %or.cond4.not, %lor.lhs.false17 ]
   ret i1 %retval.0
 }
 
@@ -1540,10 +1540,9 @@ for.body:                                         ; preds = %_ZNSt10unique_ptrIh
   %tobool = icmp ne i32 %call, 0
   %ok2 = getelementptr inbounds i8, ptr %__begin1.0.ptr16, i64 16
   %3 = load i8, ptr %ok2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp eq i8 %4, 0
-  %cmp5.not = xor i1 %tobool, %5
-  br i1 %cmp5.not, label %if.end, label %if.then
+  %4 = trunc i8 %3 to i1
+  %5 = xor i1 %tobool, %4
+  br i1 %5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
   %6 = load ptr, ptr @stderr, align 8

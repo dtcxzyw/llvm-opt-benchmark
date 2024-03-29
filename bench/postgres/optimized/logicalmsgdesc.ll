@@ -29,15 +29,14 @@ define dso_local void @logicalmsg_desc(ptr noundef %0, ptr nocapture noundef rea
   %14 = getelementptr i8, ptr %11, i64 %13
   %15 = getelementptr inbounds i8, ptr %10, i64 4
   %16 = load i8, ptr %15, align 4
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  %18 = select i1 %.not, ptr @.str.3, ptr @.str.2
+  %17 = trunc i8 %16 to i1
+  %18 = select i1 %17, ptr @.str.2, ptr @.str.3
   %19 = getelementptr inbounds i8, ptr %10, i64 16
   %20 = load i64, ptr %19, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %18, ptr noundef nonnull %11, i64 noundef %20) #3
   %21 = load i64, ptr %19, align 8
-  %.not21 = icmp eq i64 %21, 0
-  br i1 %.not21, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i64 %21, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %22 = phi i64 [ %27, %.lr.ph ], [ 0, %8 ]

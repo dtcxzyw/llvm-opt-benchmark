@@ -38,9 +38,8 @@ define dso_local noundef i64 @spg_kd_choose(ptr nocapture noundef readonly %0) l
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 20
   %6 = load i8, ptr %5, align 4
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %11, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -243,9 +242,8 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
   %10 = load double, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 53
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %.preheader, label %20
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %20, label %.preheader
 
 .preheader:                                       ; preds = %1
   %14 = getelementptr inbounds i8, ptr %5, i64 16
@@ -269,7 +267,7 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
 
 23:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %.0104142 = phi i32 [ 6, %.lr.ph ], [ %.1130, %.thread ]
+  %.0104141 = phi i32 [ 6, %.lr.ph ], [ %.1129, %.thread ]
   %24 = getelementptr %struct.ScanKeyData, ptr %17, i64 %indvars.iv, i32 6
   %25 = load i64, ptr %24, align 8
   %26 = inttoptr i64 %25 to ptr
@@ -289,33 +287,33 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
 29:                                               ; preds = %23
   %30 = load i32, ptr %18, align 8
   %31 = and i32 %30, 1
-  %.not111 = icmp eq i32 %31, 0
-  br i1 %.not111, label %.thread, label %32
+  %.not110 = icmp eq i32 %31, 0
+  br i1 %.not110, label %.thread, label %32
 
 32:                                               ; preds = %29
   %33 = load double, ptr %26, align 8
   %34 = fadd double %33, 0x3EB0C6F7A0B5ED8D
   %35 = fcmp olt double %34, %10
-  %36 = and i32 %.0104142, 2
+  %36 = and i32 %.0104141, 2
   br i1 %35, label %select.unfold, label %.thread
 
 37:                                               ; preds = %23
   %38 = load i32, ptr %18, align 8
   %39 = and i32 %38, 1
-  %.not110 = icmp eq i32 %39, 0
-  br i1 %.not110, label %.thread, label %40
+  %.not109 = icmp eq i32 %39, 0
+  br i1 %.not109, label %.thread, label %40
 
 40:                                               ; preds = %37
   %41 = load double, ptr %26, align 8
   %42 = fcmp olt double %19, %41
-  %43 = and i32 %.0104142, 4
+  %43 = and i32 %.0104141, 4
   br i1 %42, label %select.unfold, label %.thread
 
 44:                                               ; preds = %23
   %45 = load i32, ptr %18, align 8
   %46 = and i32 %45, 1
-  %.not109 = icmp eq i32 %46, 0
-  br i1 %.not109, label %56, label %47
+  %.not108 = icmp eq i32 %46, 0
+  br i1 %.not108, label %56, label %47
 
 47:                                               ; preds = %44
   %48 = load double, ptr %26, align 8
@@ -324,12 +322,12 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %47
-  %52 = and i32 %.0104142, 2
+  %52 = and i32 %.0104141, 2
   br label %select.unfold
 
 53:                                               ; preds = %47
   %54 = fcmp olt double %19, %48
-  %55 = and i32 %.0104142, 4
+  %55 = and i32 %.0104141, 4
   br i1 %54, label %select.unfold, label %.thread
 
 56:                                               ; preds = %44
@@ -340,12 +338,12 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %56
-  %62 = and i32 %.0104142, 2
+  %62 = and i32 %.0104141, 2
   br label %select.unfold
 
 63:                                               ; preds = %56
   %64 = fcmp olt double %19, %58
-  %65 = and i32 %.0104142, 4
+  %65 = and i32 %.0104141, 4
   br i1 %64, label %select.unfold, label %.thread
 
 66:                                               ; preds = %23, %23
@@ -359,7 +357,7 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
   %72 = load double, ptr %71, align 8
   %73 = fadd double %72, 0x3EB0C6F7A0B5ED8D
   %74 = fcmp olt double %73, %10
-  %75 = and i32 %.0104142, 2
+  %75 = and i32 %.0104141, 2
   br i1 %74, label %select.unfold, label %.thread
 
 76:                                               ; preds = %23, %23
@@ -372,14 +370,14 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
   %81 = getelementptr inbounds i8, ptr %26, i64 8
   %82 = load double, ptr %81, align 8
   %83 = fcmp olt double %19, %82
-  %84 = and i32 %.0104142, 4
+  %84 = and i32 %.0104141, 4
   br i1 %83, label %select.unfold, label %.thread
 
 85:                                               ; preds = %23
   %86 = load i32, ptr %18, align 8
   %87 = and i32 %86, 1
-  %.not108 = icmp eq i32 %87, 0
-  br i1 %.not108, label %99, label %88
+  %.not = icmp eq i32 %87, 0
+  br i1 %.not, label %99, label %88
 
 88:                                               ; preds = %85
   %89 = load double, ptr %26, align 8
@@ -388,14 +386,14 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %88
-  %93 = and i32 %.0104142, 2
+  %93 = and i32 %.0104141, 2
   br label %select.unfold
 
 94:                                               ; preds = %88
   %95 = getelementptr inbounds i8, ptr %26, i64 16
   %96 = load double, ptr %95, align 8
   %97 = fcmp olt double %19, %96
-  %98 = and i32 %.0104142, 4
+  %98 = and i32 %.0104141, 4
   br i1 %97, label %select.unfold, label %.thread
 
 99:                                               ; preds = %85
@@ -406,14 +404,14 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %99
-  %105 = and i32 %.0104142, 2
+  %105 = and i32 %.0104141, 2
   br label %select.unfold
 
 106:                                              ; preds = %99
   %107 = getelementptr inbounds i8, ptr %26, i64 24
   %108 = load double, ptr %107, align 8
   %109 = fcmp olt double %19, %108
-  %110 = and i32 %.0104142, 4
+  %110 = and i32 %.0104141, 4
   br i1 %109, label %select.unfold, label %.thread
 
 111:                                              ; preds = %23
@@ -430,20 +428,20 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
 select.unfold:                                    ; preds = %106, %94, %80, %70, %63, %53, %40, %32, %92, %104, %51, %61
   %.1 = phi i32 [ %93, %92 ], [ %105, %104 ], [ %52, %51 ], [ %62, %61 ], [ %36, %32 ], [ %43, %40 ], [ %55, %53 ], [ %65, %63 ], [ %75, %70 ], [ %84, %80 ], [ %98, %94 ], [ %110, %106 ]
   %118 = icmp eq i32 %.1, 0
-  br i1 %118, label %.thread131, label %.thread
+  br i1 %118, label %.thread130, label %.thread
 
-.thread131:                                       ; preds = %select.unfold
+.thread130:                                       ; preds = %select.unfold
   store i32 0, ptr %8, align 8
   br label %206
 
 .thread:                                          ; preds = %106, %94, %80, %70, %63, %53, %40, %32, %29, %37, %66, %76, %select.unfold
-  %.1130 = phi i32 [ %.1, %select.unfold ], [ %.0104142, %76 ], [ %.0104142, %66 ], [ %.0104142, %37 ], [ %.0104142, %29 ], [ %.0104142, %32 ], [ %.0104142, %40 ], [ %.0104142, %53 ], [ %.0104142, %63 ], [ %.0104142, %70 ], [ %.0104142, %80 ], [ %.0104142, %94 ], [ %.0104142, %106 ]
+  %.1129 = phi i32 [ %.1, %select.unfold ], [ %.0104141, %76 ], [ %.0104141, %66 ], [ %.0104141, %37 ], [ %.0104141, %29 ], [ %.0104141, %32 ], [ %.0104141, %40 ], [ %.0104141, %53 ], [ %.0104141, %63 ], [ %.0104141, %70 ], [ %.0104141, %80 ], [ %.0104141, %94 ], [ %.0104141, %106 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.thread, %.preheader
-  %.0104.lcssa = phi i32 [ 6, %.preheader ], [ %.1130, %.thread ]
+  %.0104.lcssa = phi i32 [ 6, %.preheader ], [ %.1129, %.thread ]
   store i32 0, ptr %8, align 8
   %119 = tail call ptr @palloc(i64 noundef 8) #8
   %120 = getelementptr inbounds i8, ptr %8, i64 8
@@ -470,9 +468,9 @@ select.unfold:                                    ; preds = %106, %94, %80, %70,
   %136 = getelementptr inbounds i8, ptr %5, i64 48
   %137 = load i32, ptr %136, align 8
   %138 = icmp eq i32 %137, 0
-  br i1 %138, label %.thread134, label %141
+  br i1 %138, label %.thread133, label %141
 
-.thread134:                                       ; preds = %124
+.thread133:                                       ; preds = %124
   %139 = getelementptr inbounds i8, ptr %2, i64 16
   store <2 x double> <double 0xFFF0000000000000, double 0xFFF0000000000000>, ptr %139, align 16
   %140 = getelementptr inbounds i8, ptr %2, i64 32
@@ -488,12 +486,12 @@ select.unfold:                                    ; preds = %106, %94, %80, %70,
   %146 = getelementptr inbounds i8, ptr %2, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %146, ptr noundef nonnull align 8 dereferenceable(16) %143, i64 16, i1 false)
   %147 = and i32 %137, 1
-  %.not113 = icmp eq i32 %147, 0
-  br i1 %.not113, label %._crit_edge151, label %148
+  %.not112 = icmp eq i32 %147, 0
+  br i1 %.not112, label %._crit_edge150, label %148
 
-._crit_edge151:                                   ; preds = %141
+._crit_edge150:                                   ; preds = %141
   %.pre = load double, ptr %143, align 8
-  %.pre152 = load double, ptr %145, align 8
+  %.pre151 = load double, ptr %145, align 8
   br label %156
 
 148:                                              ; preds = %141
@@ -510,9 +508,9 @@ select.unfold:                                    ; preds = %106, %94, %80, %70,
   store double %154, ptr %155, align 8
   br label %162
 
-156:                                              ; preds = %._crit_edge151, %.thread134
-  %157 = phi double [ 0xFFF0000000000000, %.thread134 ], [ %.pre152, %._crit_edge151 ]
-  %158 = phi double [ 0x7FF0000000000000, %.thread134 ], [ %.pre, %._crit_edge151 ]
+156:                                              ; preds = %._crit_edge150, %.thread133
+  %157 = phi double [ 0xFFF0000000000000, %.thread133 ], [ %.pre151, %._crit_edge150 ]
+  %158 = phi double [ 0x7FF0000000000000, %.thread133 ], [ %.pre, %._crit_edge150 ]
   %159 = getelementptr inbounds i8, ptr %2, i64 48
   %160 = getelementptr inbounds i8, ptr %2, i64 56
   store double %10, ptr %160, align 8
@@ -530,15 +528,15 @@ select.unfold:                                    ; preds = %106, %94, %80, %70,
   br label %167
 
 167:                                              ; preds = %162, %200
-  %indvars.iv147 = phi i64 [ 1, %162 ], [ %indvars.iv.next148, %200 ]
-  %168 = trunc i64 %indvars.iv147 to i32
+  %indvars.iv146 = phi i64 [ 1, %162 ], [ %indvars.iv.next147, %200 ]
+  %168 = trunc i64 %indvars.iv146 to i32
   %169 = shl nuw nsw i32 1, %168
   %170 = and i32 %169, %.0104.lcssa
-  %.not114 = icmp eq i32 %170, 0
-  br i1 %.not114, label %200, label %171
+  %.not113 = icmp eq i32 %170, 0
+  br i1 %.not113, label %200, label %171
 
 171:                                              ; preds = %167
-  %172 = add nsw i64 %indvars.iv147, -1
+  %172 = add nsw i64 %indvars.iv146, -1
   %173 = load ptr, ptr %120, align 8
   %174 = load i32, ptr %8, align 8
   %175 = sext i32 %174 to i64
@@ -579,9 +577,9 @@ select.unfold:                                    ; preds = %106, %94, %80, %70,
   br label %200
 
 200:                                              ; preds = %167, %197
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %exitcond150.not = icmp eq i64 %indvars.iv.next148, 3
-  br i1 %exitcond150.not, label %201, label %167, !llvm.loop !9
+  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
+  %exitcond149.not = icmp eq i64 %indvars.iv.next147, 3
+  br i1 %exitcond149.not, label %201, label %167, !llvm.loop !9
 
 201:                                              ; preds = %200
   %202 = call ptr @palloc(i64 noundef 8) #8
@@ -593,7 +591,7 @@ select.unfold:                                    ; preds = %106, %94, %80, %70,
   store i32 1, ptr %205, align 4
   br label %206
 
-206:                                              ; preds = %.thread131, %201
+206:                                              ; preds = %.thread130, %201
   ret i64 0
 }
 

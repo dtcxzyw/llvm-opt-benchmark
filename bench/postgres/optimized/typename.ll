@@ -38,13 +38,12 @@ define dso_local noundef nonnull ptr @ecpg_type_name(i32 noundef %0) local_unnam
 
 switch.hole_check:                                ; preds = %1
   %switch.shifted = lshr i32 -1559248897, %switch.tableidx
-  %4 = and i32 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i32 %4, 0
-  br i1 %switch.lobit.not, label %3, label %switch.lookup
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %3
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [32 x ptr], ptr @switch.table.ecpg_type_name, i64 0, i64 %5
+  %4 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [32 x ptr], ptr @switch.table.ecpg_type_name, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

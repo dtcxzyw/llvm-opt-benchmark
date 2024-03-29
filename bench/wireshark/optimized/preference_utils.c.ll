@@ -406,9 +406,8 @@ define hidden noundef i32 @column_prefs_custom_resolve(ptr noundef %0) local_unn
 switch.hole_check:                                ; preds = %16
   %switch.maskindex = zext nneg i32 %switch.tableidx to i64
   %switch.shifted = lshr i64 4295098367, %switch.maskindex
-  %22 = and i64 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i64 %22, 0
-  br i1 %switch.lobit.not, label %18, label %._crit_edge
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  br i1 %switch.lobit, label %._crit_edge, label %18
 
 ._crit_edge:                                      ; preds = %18, %10, %10, %10, %10, %10, %10, %10, %switch.hole_check, %1
   %.lcssa = phi i32 [ 0, %1 ], [ 1, %switch.hole_check ], [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 0, %18 ]

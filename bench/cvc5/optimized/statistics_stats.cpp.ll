@@ -138,8 +138,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %d_running = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i8, ptr %d_running, align 8
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   ret i1 %tobool
 }
 
@@ -155,18 +154,18 @@ lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %timer, align 8
   %d_running.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i8, ptr %d_running.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  store i8 %2, ptr %d_reentrant, align 8
-  br i1 %tobool.i.not, label %if.then, label %if.end
+  %tobool.i = trunc i8 %1 to i1
+  %frombool4 = and i8 %1, 1
+  store i8 %frombool4, ptr %d_reentrant, align 8
+  br i1 %tobool.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #5
-  %3 = load ptr, ptr %timer, align 8
-  %d_start.i = getelementptr inbounds i8, ptr %3, i64 24
+  %2 = load ptr, ptr %timer, align 8
+  %d_start.i = getelementptr inbounds i8, ptr %2, i64 24
   store i64 %call.i, ptr %d_start.i, align 8
-  %4 = load ptr, ptr %timer, align 8
-  %d_running.i1 = getelementptr inbounds i8, ptr %4, i64 32
+  %3 = load ptr, ptr %timer, align 8
+  %d_running.i1 = getelementptr inbounds i8, ptr %3, i64 32
   store i8 1, ptr %d_running.i1, align 8
   br label %if.end
 
@@ -179,23 +178,22 @@ define hidden void @_ZN4cvc58internal9CodeTimerD2Ev(ptr nocapture noundef nonnul
 entry:
   %d_reentrant = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %d_reentrant, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %this, align 8
+  %1 = load ptr, ptr %this, align 8
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #5
-  %3 = load ptr, ptr %2, align 8
-  %d_start.i = getelementptr inbounds i8, ptr %3, i64 24
+  %2 = load ptr, ptr %1, align 8
+  %d_start.i = getelementptr inbounds i8, ptr %2, i64 24
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %d_start.i, align 8
   %sub.i.i.i = sub i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
-  %d_duration.i = getelementptr inbounds i8, ptr %3, i64 16
-  %4 = load i64, ptr %d_duration.i, align 8
-  %add.i.i = add nsw i64 %sub.i.i.i, %4
+  %d_duration.i = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = load i64, ptr %d_duration.i, align 8
+  %add.i.i = add nsw i64 %sub.i.i.i, %3
   store i64 %add.i.i, ptr %d_duration.i, align 8
-  %5 = load ptr, ptr %2, align 8
-  %d_running.i = getelementptr inbounds i8, ptr %5, i64 32
+  %4 = load ptr, ptr %1, align 8
+  %d_running.i = getelementptr inbounds i8, ptr %4, i64 32
   store i8 0, ptr %d_running.i, align 8
   br label %if.end
 

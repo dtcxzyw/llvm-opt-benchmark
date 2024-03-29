@@ -424,9 +424,8 @@ define dso_local void @output_statement(ptr noundef %0, i32 noundef %1, i32 noun
   %14 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %4, ptr noundef nonnull @.str.7, i32 noundef %5, i32 noundef %8, ptr noundef nonnull %10, i32 noundef %13) #8
   %15 = icmp eq i32 %2, 3
   %16 = load i8, ptr @auto_prepare, align 1
-  %17 = and i8 %16, 1
-  %.not9 = icmp eq i8 %17, 0
-  %spec.select = select i1 %.not9, i32 0, i32 3
+  %17 = trunc i8 %16 to i1
+  %spec.select = select i1 %17, i32 3, i32 0
   %.0 = select i1 %15, i32 %spec.select, i32 %2
   %18 = load ptr, ptr @base_yyout, align 8
   %19 = zext i32 %.0 to i64

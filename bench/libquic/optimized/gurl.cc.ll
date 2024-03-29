@@ -119,8 +119,8 @@ entry:
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 32
   %is_valid_3 = getelementptr inbounds i8, ptr %other, i64 32
   %0 = load i8, ptr %is_valid_3, align 8
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %is_valid_, align 8
+  %frombool = and i8 %0, 1
+  store i8 %frombool, ptr %is_valid_, align 8
   %parsed_ = getelementptr inbounds i8, ptr %this, i64 40
   %parsed_4 = getelementptr inbounds i8, ptr %other, i64 40
   invoke void @_ZN3url6ParsedC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %parsed_, ptr noundef nonnull align 8 dereferenceable(72) %parsed_4)
@@ -130,8 +130,8 @@ invoke.cont:                                      ; preds = %entry
   %inner_url_ = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %inner_url_, align 8
   %inner_url_5 = getelementptr inbounds i8, ptr %other, i64 112
-  %2 = load ptr, ptr %inner_url_5, align 8
-  %cmp.i.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %inner_url_5, align 8
+  %cmp.i.not = icmp eq ptr %1, null
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
@@ -139,36 +139,36 @@ if.then:                                          ; preds = %invoke.cont
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %if.then
-  invoke void @_ZN4GURLC2ERKS_(ptr noundef nonnull align 8 dereferenceable(120) %call9, ptr noundef nonnull align 8 dereferenceable(120) %2)
+  invoke void @_ZN4GURLC2ERKS_(ptr noundef nonnull align 8 dereferenceable(120) %call9, ptr noundef nonnull align 8 dereferenceable(120) %1)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont8
-  %3 = load ptr, ptr %inner_url_, align 8
+  %2 = load ptr, ptr %inner_url_, align 8
   store ptr %call9, ptr %inner_url_, align 8
-  %tobool.not.i.i = icmp eq ptr %3, null
+  %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %if.end, label %_ZNKSt14default_deleteI4GURLEclEPS0_.exit.i.i
 
 _ZNKSt14default_deleteI4GURLEclEPS0_.exit.i.i:    ; preds = %invoke.cont13
-  %inner_url_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
+  %inner_url_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 112
   tail call void @_ZNSt10unique_ptrI4GURLSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %inner_url_.i.i.i.i) #12
-  %parsed_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
+  %parsed_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 40
   tail call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %parsed_.i.i.i.i) #12
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup15
 
 lpad7:                                            ; preds = %if.then
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad12:                                           ; preds = %invoke.cont8
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call9) #14
   br label %ehcleanup
@@ -177,13 +177,13 @@ if.end:                                           ; preds = %_ZNKSt14default_del
   ret void
 
 ehcleanup:                                        ; preds = %lpad12, %lpad7
-  %.pn = phi { ptr, i32 } [ %6, %lpad12 ], [ %5, %lpad7 ]
+  %.pn = phi { ptr, i32 } [ %5, %lpad12 ], [ %4, %lpad7 ]
   tail call void @_ZNSt10unique_ptrI4GURLSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %inner_url_) #12
   tail call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %parsed_) #12
   br label %ehcleanup15
 
 ehcleanup15:                                      ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
   resume { ptr, i32 } %.pn.pn
 }
@@ -291,9 +291,8 @@ invoke.cont6:                                     ; preds = %invoke.cont4
 
 invoke.cont9:                                     ; preds = %invoke.cont6
   %1 = load i8, ptr %is_valid_, align 8
-  %2 = and i8 %1, 1
-  %tobool11.not = icmp eq i8 %2, 0
-  br i1 %tobool11.not, label %if.end, label %land.lhs.true
+  %tobool11 = trunc i8 %1 to i1
+  br i1 %tobool11, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %invoke.cont9
   %call13 = invoke noundef zeroext i1 @_ZNK4GURL18SchemeIsFileSystemEv(ptr noundef nonnull align 8 dereferenceable(120) %this)
@@ -315,32 +314,32 @@ invoke.cont14:                                    ; preds = %if.then
 invoke.cont20:                                    ; preds = %invoke.cont14
   %conv22 = sext i32 %call21 to i64
   %inner_parsed_.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %inner_parsed_.i, align 8
-  invoke void @_ZN4GURLC2EPKcmRKN3url6ParsedEb(ptr noundef nonnull align 8 dereferenceable(120) %call15, ptr noundef %call17, i64 noundef %conv22, ptr noundef nonnull align 8 dereferenceable(72) %3, i1 noundef zeroext true)
+  %2 = load ptr, ptr %inner_parsed_.i, align 8
+  invoke void @_ZN4GURLC2EPKcmRKN3url6ParsedEb(ptr noundef nonnull align 8 dereferenceable(120) %call15, ptr noundef %call17, i64 noundef %conv22, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext true)
           to label %invoke.cont25 unwind label %lpad19
 
 invoke.cont25:                                    ; preds = %invoke.cont20
-  %4 = load ptr, ptr %inner_url_, align 8
+  %3 = load ptr, ptr %inner_url_, align 8
   store ptr %call15, ptr %inner_url_, align 8
-  %tobool.not.i.i = icmp eq ptr %4, null
+  %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %if.end, label %_ZNKSt14default_deleteI4GURLEclEPS0_.exit.i.i
 
 _ZNKSt14default_deleteI4GURLEclEPS0_.exit.i.i:    ; preds = %invoke.cont25
-  %inner_url_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 112
+  %inner_url_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
   call void @_ZNSt10unique_ptrI4GURLSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %inner_url_.i.i.i.i) #12
-  %parsed_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
+  %parsed_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %parsed_.i.i.i.i) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
-  call void @_ZdlPv(ptr noundef nonnull %4) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  call void @_ZdlPv(ptr noundef nonnull %3) #14
   br label %if.end
 
 lpad:                                             ; preds = %if.then, %land.lhs.true, %invoke.cont6, %invoke.cont4, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad19:                                           ; preds = %invoke.cont20, %invoke.cont14
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call15) #14
   br label %ehcleanup
@@ -350,7 +349,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
   ret void
 
 ehcleanup:                                        ; preds = %lpad19, %lpad
-  %.pn = phi { ptr, i32 } [ %6, %lpad19 ], [ %5, %lpad ]
+  %.pn = phi { ptr, i32 } [ %5, %lpad19 ], [ %4, %lpad ]
   call void @_ZN3url20StdStringCanonOutputD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output) #12
   resume { ptr, i32 } %.pn
 }
@@ -427,9 +426,8 @@ invoke.cont6:                                     ; preds = %invoke.cont4
 
 invoke.cont9:                                     ; preds = %invoke.cont6
   %1 = load i8, ptr %is_valid_, align 8
-  %2 = and i8 %1, 1
-  %tobool11.not = icmp eq i8 %2, 0
-  br i1 %tobool11.not, label %if.end, label %land.lhs.true
+  %tobool11 = trunc i8 %1 to i1
+  br i1 %tobool11, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %invoke.cont9
   %call13 = invoke noundef zeroext i1 @_ZNK4GURL18SchemeIsFileSystemEv(ptr noundef nonnull align 8 dereferenceable(120) %this)
@@ -451,32 +449,32 @@ invoke.cont14:                                    ; preds = %if.then
 invoke.cont20:                                    ; preds = %invoke.cont14
   %conv22 = sext i32 %call21 to i64
   %inner_parsed_.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %inner_parsed_.i, align 8
-  invoke void @_ZN4GURLC2EPKcmRKN3url6ParsedEb(ptr noundef nonnull align 8 dereferenceable(120) %call15, ptr noundef %call17, i64 noundef %conv22, ptr noundef nonnull align 8 dereferenceable(72) %3, i1 noundef zeroext true)
+  %2 = load ptr, ptr %inner_parsed_.i, align 8
+  invoke void @_ZN4GURLC2EPKcmRKN3url6ParsedEb(ptr noundef nonnull align 8 dereferenceable(120) %call15, ptr noundef %call17, i64 noundef %conv22, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext true)
           to label %invoke.cont25 unwind label %lpad19
 
 invoke.cont25:                                    ; preds = %invoke.cont20
-  %4 = load ptr, ptr %inner_url_, align 8
+  %3 = load ptr, ptr %inner_url_, align 8
   store ptr %call15, ptr %inner_url_, align 8
-  %tobool.not.i.i = icmp eq ptr %4, null
+  %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %if.end, label %_ZNKSt14default_deleteI4GURLEclEPS0_.exit.i.i
 
 _ZNKSt14default_deleteI4GURLEclEPS0_.exit.i.i:    ; preds = %invoke.cont25
-  %inner_url_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 112
+  %inner_url_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
   call void @_ZNSt10unique_ptrI4GURLSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %inner_url_.i.i.i.i) #12
-  %parsed_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
+  %parsed_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %parsed_.i.i.i.i) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
-  call void @_ZdlPv(ptr noundef nonnull %4) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  call void @_ZdlPv(ptr noundef nonnull %3) #14
   br label %if.end
 
 lpad:                                             ; preds = %if.then, %land.lhs.true, %invoke.cont6, %invoke.cont4, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad19:                                           ; preds = %invoke.cont20, %invoke.cont14
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call15) #14
   br label %ehcleanup
@@ -486,7 +484,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
   ret void
 
 ehcleanup:                                        ; preds = %lpad19, %lpad
-  %.pn = phi { ptr, i32 } [ %6, %lpad19 ], [ %5, %lpad ]
+  %.pn = phi { ptr, i32 } [ %5, %lpad19 ], [ %4, %lpad ]
   call void @_ZN3url20StdStringCanonOutputD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output) #12
   resume { ptr, i32 } %.pn
 }
@@ -603,9 +601,8 @@ define dso_local void @_ZN4GURL27InitializeFromCanonicalSpecEv(ptr noundef nonnu
 entry:
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %is_valid_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %call = tail call noundef zeroext i1 @_ZNK4GURL18SchemeIsFileSystemEv(ptr noundef nonnull align 8 dereferenceable(120) %this)
@@ -622,30 +619,30 @@ if.then:                                          ; preds = %land.lhs.true
 invoke.cont:                                      ; preds = %if.then
   %conv = sext i32 %call4 to i64
   %inner_parsed_.i = getelementptr inbounds i8, ptr %this, i64 104
-  %2 = load ptr, ptr %inner_parsed_.i, align 8
-  invoke void @_ZN4GURLC2EPKcmRKN3url6ParsedEb(ptr noundef nonnull align 8 dereferenceable(120) %call2, ptr noundef %call3, i64 noundef %conv, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext true)
+  %1 = load ptr, ptr %inner_parsed_.i, align 8
+  invoke void @_ZN4GURLC2EPKcmRKN3url6ParsedEb(ptr noundef nonnull align 8 dereferenceable(120) %call2, ptr noundef %call3, i64 noundef %conv, ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext true)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont
-  %3 = load ptr, ptr %inner_url_, align 8
+  %2 = load ptr, ptr %inner_url_, align 8
   store ptr %call2, ptr %inner_url_, align 8
-  %tobool.not.i.i = icmp eq ptr %3, null
+  %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %if.end, label %_ZNKSt14default_deleteI4GURLEclEPS0_.exit.i.i
 
 _ZNKSt14default_deleteI4GURLEclEPS0_.exit.i.i:    ; preds = %invoke.cont8
-  %inner_url_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
+  %inner_url_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 112
   tail call void @_ZNSt10unique_ptrI4GURLSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %inner_url_.i.i.i.i) #12
-  %parsed_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
+  %parsed_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 40
   tail call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %parsed_.i.i.i.i) #12
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont, %if.then
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call2) #14
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %_ZNKSt14default_deleteI4GURLEclEPS0_.exit.i.i, %invoke.cont8, %land.lhs.true, %entry
   ret void
@@ -774,11 +771,11 @@ entry:
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 32
   %is_valid_3 = getelementptr inbounds i8, ptr %other, i64 32
   %0 = load i8, ptr %is_valid_, align 8
-  %1 = and i8 %0, 1
-  %2 = load i8, ptr %is_valid_3, align 1
-  %3 = and i8 %2, 1
-  store i8 %3, ptr %is_valid_, align 8
-  store i8 %1, ptr %is_valid_3, align 1
+  %frombool.i = and i8 %0, 1
+  %1 = load i8, ptr %is_valid_3, align 1
+  %frombool2.i = and i8 %1, 1
+  store i8 %frombool2.i, ptr %is_valid_, align 8
+  store i8 %frombool.i, ptr %is_valid_3, align 1
   %parsed_ = getelementptr inbounds i8, ptr %this, i64 40
   %parsed_4 = getelementptr inbounds i8, ptr %other, i64 40
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %__tmp.i)
@@ -791,20 +788,20 @@ invoke.cont.i:                                    ; preds = %entry
           to label %_ZSt4swapIN3url6ParsedEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %entry
-  %4 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %__tmp.i) #12
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %2
 
 _ZSt4swapIN3url6ParsedEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit: ; preds = %invoke.cont.i
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %__tmp.i) #12
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %__tmp.i)
   %inner_url_ = getelementptr inbounds i8, ptr %this, i64 112
   %inner_url_5 = getelementptr inbounds i8, ptr %other, i64 112
-  %5 = load ptr, ptr %inner_url_, align 8
-  %6 = load ptr, ptr %inner_url_5, align 8
-  store ptr %6, ptr %inner_url_, align 8
-  store ptr %5, ptr %inner_url_5, align 8
+  %3 = load ptr, ptr %inner_url_, align 8
+  %4 = load ptr, ptr %inner_url_5, align 8
+  store ptr %4, ptr %inner_url_, align 8
+  store ptr %3, ptr %inner_url_5, align 8
   ret void
 }
 
@@ -813,9 +810,8 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4GURL4spec
 entry:
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %is_valid_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %lor.lhs.false, label %return
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
@@ -823,11 +819,11 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %call.i = tail call i32 @pthread_once(ptr noundef nonnull @_ZN12_GLOBAL__N_117empty_string_onceE, ptr noundef nonnull @_ZN12_GLOBAL__N_122EmptyStringForGURLOnceEv)
-  %2 = load ptr, ptr @_ZN12_GLOBAL__N_112empty_stringB5cxx11E, align 8
+  %1 = load ptr, ptr @_ZN12_GLOBAL__N_112empty_stringB5cxx11E, align 8
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
-  %retval.0 = phi ptr [ %2, %if.end ], [ %this, %lor.lhs.false ], [ %this, %entry ]
+  %retval.0 = phi ptr [ %1, %if.end ], [ %this, %lor.lhs.false ], [ %this, %entry ]
   ret ptr %retval.0
 }
 
@@ -927,9 +923,8 @@ entry:
   %output = alloca %"class.url::StdStringCanonOutput", align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %is_valid_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
@@ -940,11 +935,11 @@ if.then:                                          ; preds = %entry
           to label %_ZN4GURLC2Ev.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %ehcleanup40, %lpad.i6, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %3, %lpad.i6 ], [ %.pn.pn, %ehcleanup40 ]
+  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %2, %lpad.i6 ], [ %.pn.pn, %ehcleanup40 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
   br label %common.resume
@@ -963,7 +958,7 @@ if.end:                                           ; preds = %entry
           to label %_ZN4GURLC2Ev.exit8 unwind label %lpad.i6
 
 lpad.i6:                                          ; preds = %if.end
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result) #12
   br label %common.resume
@@ -1003,7 +998,7 @@ if.then16:                                        ; preds = %invoke.cont14
           to label %_ZN4GURLC2Ev.exit13 unwind label %lpad.i11
 
 lpad.i11:                                         ; preds = %if.then16
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
   br label %ehcleanup
@@ -1014,12 +1009,12 @@ _ZN4GURLC2Ev.exit13:                              ; preds = %if.then16
   br label %cleanup
 
 lpad:                                             ; preds = %invoke.cont, %_ZN4GURLC2Ev.exit8
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup40
 
 lpad13:                                           ; preds = %if.end37, %if.then23, %invoke.cont19, %if.end18, %invoke.cont4
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -1047,27 +1042,27 @@ invoke.cont24:                                    ; preds = %if.then23
 invoke.cont30:                                    ; preds = %invoke.cont24
   %conv32 = sext i32 %call31 to i64
   %inner_parsed_.i = getelementptr inbounds i8, ptr %result, i64 104
-  %7 = load ptr, ptr %inner_parsed_.i, align 8
-  invoke void @_ZN4GURLC2EPKcmRKN3url6ParsedEb(ptr noundef nonnull align 8 dereferenceable(120) %call25, ptr noundef %call27, i64 noundef %conv32, ptr noundef nonnull align 8 dereferenceable(72) %7, i1 noundef zeroext true)
+  %6 = load ptr, ptr %inner_parsed_.i, align 8
+  invoke void @_ZN4GURLC2EPKcmRKN3url6ParsedEb(ptr noundef nonnull align 8 dereferenceable(120) %call25, ptr noundef %call27, i64 noundef %conv32, ptr noundef nonnull align 8 dereferenceable(72) %6, i1 noundef zeroext true)
           to label %invoke.cont36 unwind label %lpad29
 
 invoke.cont36:                                    ; preds = %invoke.cont30
-  %8 = load ptr, ptr %inner_url_.i7, align 8
+  %7 = load ptr, ptr %inner_url_.i7, align 8
   store ptr %call25, ptr %inner_url_.i7, align 8
-  %tobool.not.i.i = icmp eq ptr %8, null
+  %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %if.end37, label %_ZNKSt14default_deleteI4GURLEclEPS0_.exit.i.i
 
 _ZNKSt14default_deleteI4GURLEclEPS0_.exit.i.i:    ; preds = %invoke.cont36
-  %inner_url_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %inner_url_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 112
   call void @_ZNSt10unique_ptrI4GURLSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %inner_url_.i.i.i.i) #12
-  %parsed_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 40
+  %parsed_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %parsed_.i.i.i.i) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
-  call void @_ZdlPv(ptr noundef nonnull %8) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  call void @_ZdlPv(ptr noundef nonnull %7) #14
   br label %if.end37
 
 lpad29:                                           ; preds = %invoke.cont30, %invoke.cont24
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call25) #14
   br label %ehcleanup
@@ -1084,12 +1079,12 @@ cleanup:                                          ; preds = %_ZN4GURLC2Ev.exit13
   br label %return
 
 ehcleanup:                                        ; preds = %lpad13, %lpad.i11, %lpad29
-  %.pn = phi { ptr, i32 } [ %9, %lpad29 ], [ %6, %lpad13 ], [ %4, %lpad.i11 ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad29 ], [ %5, %lpad13 ], [ %3, %lpad.i11 ]
   call void @_ZN3url20StdStringCanonOutputD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output) #12
   br label %ehcleanup40
 
 ehcleanup40:                                      ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %5, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %4, %lpad ]
   call void @_ZN4GURLD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %result) #12
   br label %common.resume
 
@@ -1124,9 +1119,8 @@ entry:
   %output = alloca %"class.url::StdStringCanonOutput", align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %is_valid_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
@@ -1137,11 +1131,11 @@ if.then:                                          ; preds = %entry
           to label %_ZN4GURLC2Ev.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %ehcleanup40, %lpad.i6, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %3, %lpad.i6 ], [ %.pn.pn, %ehcleanup40 ]
+  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %2, %lpad.i6 ], [ %.pn.pn, %ehcleanup40 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
   br label %common.resume
@@ -1160,7 +1154,7 @@ if.end:                                           ; preds = %entry
           to label %_ZN4GURLC2Ev.exit8 unwind label %lpad.i6
 
 lpad.i6:                                          ; preds = %if.end
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result) #12
   br label %common.resume
@@ -1200,7 +1194,7 @@ if.then16:                                        ; preds = %invoke.cont14
           to label %_ZN4GURLC2Ev.exit13 unwind label %lpad.i11
 
 lpad.i11:                                         ; preds = %if.then16
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
   br label %ehcleanup
@@ -1211,12 +1205,12 @@ _ZN4GURLC2Ev.exit13:                              ; preds = %if.then16
   br label %cleanup
 
 lpad:                                             ; preds = %invoke.cont, %_ZN4GURLC2Ev.exit8
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup40
 
 lpad13:                                           ; preds = %if.end37, %if.then23, %invoke.cont19, %if.end18, %invoke.cont4
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -1244,27 +1238,27 @@ invoke.cont24:                                    ; preds = %if.then23
 invoke.cont30:                                    ; preds = %invoke.cont24
   %conv32 = sext i32 %call31 to i64
   %inner_parsed_.i = getelementptr inbounds i8, ptr %result, i64 104
-  %7 = load ptr, ptr %inner_parsed_.i, align 8
-  invoke void @_ZN4GURLC2EPKcmRKN3url6ParsedEb(ptr noundef nonnull align 8 dereferenceable(120) %call25, ptr noundef %call27, i64 noundef %conv32, ptr noundef nonnull align 8 dereferenceable(72) %7, i1 noundef zeroext true)
+  %6 = load ptr, ptr %inner_parsed_.i, align 8
+  invoke void @_ZN4GURLC2EPKcmRKN3url6ParsedEb(ptr noundef nonnull align 8 dereferenceable(120) %call25, ptr noundef %call27, i64 noundef %conv32, ptr noundef nonnull align 8 dereferenceable(72) %6, i1 noundef zeroext true)
           to label %invoke.cont36 unwind label %lpad29
 
 invoke.cont36:                                    ; preds = %invoke.cont30
-  %8 = load ptr, ptr %inner_url_.i7, align 8
+  %7 = load ptr, ptr %inner_url_.i7, align 8
   store ptr %call25, ptr %inner_url_.i7, align 8
-  %tobool.not.i.i = icmp eq ptr %8, null
+  %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %if.end37, label %_ZNKSt14default_deleteI4GURLEclEPS0_.exit.i.i
 
 _ZNKSt14default_deleteI4GURLEclEPS0_.exit.i.i:    ; preds = %invoke.cont36
-  %inner_url_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %inner_url_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 112
   call void @_ZNSt10unique_ptrI4GURLSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %inner_url_.i.i.i.i) #12
-  %parsed_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 40
+  %parsed_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %parsed_.i.i.i.i) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
-  call void @_ZdlPv(ptr noundef nonnull %8) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  call void @_ZdlPv(ptr noundef nonnull %7) #14
   br label %if.end37
 
 lpad29:                                           ; preds = %invoke.cont30, %invoke.cont24
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call25) #14
   br label %ehcleanup
@@ -1281,12 +1275,12 @@ cleanup:                                          ; preds = %_ZN4GURLC2Ev.exit13
   br label %return
 
 ehcleanup:                                        ; preds = %lpad13, %lpad.i11, %lpad29
-  %.pn = phi { ptr, i32 } [ %9, %lpad29 ], [ %6, %lpad13 ], [ %4, %lpad.i11 ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad29 ], [ %5, %lpad13 ], [ %3, %lpad.i11 ]
   call void @_ZN3url20StdStringCanonOutputD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output) #12
   br label %ehcleanup40
 
 ehcleanup40:                                      ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %5, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %4, %lpad ]
   call void @_ZN4GURLD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %result) #12
   br label %common.resume
 
@@ -1329,9 +1323,8 @@ _ZN4GURLC2Ev.exit:                                ; preds = %entry
   store ptr null, ptr %inner_url_.i, align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %is_valid_, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN4GURLC2Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
@@ -1342,7 +1335,7 @@ if.then:                                          ; preds = %_ZN4GURLC2Ev.exit
           to label %_ZN4GURLC2Ev.exit7 unwind label %lpad.i5
 
 lpad.i5:                                          ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
   br label %ehcleanup36
@@ -1353,7 +1346,7 @@ _ZN4GURLC2Ev.exit7:                               ; preds = %if.then
   br label %cleanup
 
 lpad:                                             ; preds = %invoke.cont3, %if.end
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup36
 
@@ -1382,10 +1375,9 @@ invoke.cont12:                                    ; preds = %invoke.cont5
           to label %invoke.cont15 unwind label %lpad11
 
 invoke.cont15:                                    ; preds = %invoke.cont12
-  %5 = load i8, ptr %is_valid_.i, align 8
-  %6 = and i8 %5, 1
-  %tobool17.not = icmp eq i8 %6, 0
-  br i1 %tobool17.not, label %if.end34, label %land.lhs.true
+  %4 = load i8, ptr %is_valid_.i, align 8
+  %tobool17 = trunc i8 %4 to i1
+  br i1 %tobool17, label %land.lhs.true, label %if.end34
 
 land.lhs.true:                                    ; preds = %invoke.cont15
   %call19 = invoke noundef zeroext i1 @_ZNK4GURL18SchemeIsFileSystemEv(ptr noundef nonnull align 8 dereferenceable(120) %result)
@@ -1406,32 +1398,32 @@ invoke.cont21:                                    ; preds = %if.then20
 invoke.cont27:                                    ; preds = %invoke.cont21
   %conv29 = sext i32 %call28 to i64
   %inner_parsed_.i = getelementptr inbounds i8, ptr %result, i64 104
-  %7 = load ptr, ptr %inner_parsed_.i, align 8
-  invoke void @_ZN4GURLC2EPKcmRKN3url6ParsedEb(ptr noundef nonnull align 8 dereferenceable(120) %call22, ptr noundef %call24, i64 noundef %conv29, ptr noundef nonnull align 8 dereferenceable(72) %7, i1 noundef zeroext true)
+  %5 = load ptr, ptr %inner_parsed_.i, align 8
+  invoke void @_ZN4GURLC2EPKcmRKN3url6ParsedEb(ptr noundef nonnull align 8 dereferenceable(120) %call22, ptr noundef %call24, i64 noundef %conv29, ptr noundef nonnull align 8 dereferenceable(72) %5, i1 noundef zeroext true)
           to label %invoke.cont33 unwind label %lpad26
 
 invoke.cont33:                                    ; preds = %invoke.cont27
-  %8 = load ptr, ptr %inner_url_.i, align 8
+  %6 = load ptr, ptr %inner_url_.i, align 8
   store ptr %call22, ptr %inner_url_.i, align 8
-  %tobool.not.i.i = icmp eq ptr %8, null
+  %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %if.end34, label %_ZNKSt14default_deleteI4GURLEclEPS0_.exit.i.i
 
 _ZNKSt14default_deleteI4GURLEclEPS0_.exit.i.i:    ; preds = %invoke.cont33
-  %inner_url_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %inner_url_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 112
   call void @_ZNSt10unique_ptrI4GURLSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %inner_url_.i.i.i.i) #12
-  %parsed_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 40
+  %parsed_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %parsed_.i.i.i.i) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
-  call void @_ZdlPv(ptr noundef nonnull %8) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
+  call void @_ZdlPv(ptr noundef nonnull %6) #14
   br label %if.end34
 
 lpad11:                                           ; preds = %if.end34, %if.then20, %land.lhs.true, %invoke.cont12, %invoke.cont5
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad26:                                           ; preds = %invoke.cont27, %invoke.cont21
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call22) #14
   br label %ehcleanup
@@ -1445,7 +1437,7 @@ invoke.cont35:                                    ; preds = %if.end34
   br label %cleanup
 
 ehcleanup:                                        ; preds = %lpad26, %lpad11
-  %.pn = phi { ptr, i32 } [ %9, %lpad11 ], [ %10, %lpad26 ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad11 ], [ %8, %lpad26 ]
   call void @_ZN3url20StdStringCanonOutputD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output) #12
   br label %ehcleanup36
 
@@ -1456,7 +1448,7 @@ cleanup:                                          ; preds = %_ZN4GURLC2Ev.exit7,
   ret void
 
 ehcleanup36:                                      ; preds = %lpad, %lpad.i5, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %4, %lpad ], [ %3, %lpad.i5 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad ], [ %2, %lpad.i5 ]
   call void @_ZN4GURLD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %result) #12
   br label %common.resume
 }
@@ -1490,9 +1482,8 @@ _ZN4GURLC2Ev.exit:                                ; preds = %entry
   store ptr null, ptr %inner_url_.i, align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %is_valid_, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN4GURLC2Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
@@ -1503,7 +1494,7 @@ if.then:                                          ; preds = %_ZN4GURLC2Ev.exit
           to label %_ZN4GURLC2Ev.exit7 unwind label %lpad.i5
 
 lpad.i5:                                          ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
   br label %ehcleanup36
@@ -1514,7 +1505,7 @@ _ZN4GURLC2Ev.exit7:                               ; preds = %if.then
   br label %cleanup
 
 lpad:                                             ; preds = %invoke.cont3, %if.end
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup36
 
@@ -1543,10 +1534,9 @@ invoke.cont12:                                    ; preds = %invoke.cont5
           to label %invoke.cont15 unwind label %lpad11
 
 invoke.cont15:                                    ; preds = %invoke.cont12
-  %5 = load i8, ptr %is_valid_.i, align 8
-  %6 = and i8 %5, 1
-  %tobool17.not = icmp eq i8 %6, 0
-  br i1 %tobool17.not, label %if.end34, label %land.lhs.true
+  %4 = load i8, ptr %is_valid_.i, align 8
+  %tobool17 = trunc i8 %4 to i1
+  br i1 %tobool17, label %land.lhs.true, label %if.end34
 
 land.lhs.true:                                    ; preds = %invoke.cont15
   %call19 = invoke noundef zeroext i1 @_ZNK4GURL18SchemeIsFileSystemEv(ptr noundef nonnull align 8 dereferenceable(120) %result)
@@ -1567,32 +1557,32 @@ invoke.cont21:                                    ; preds = %if.then20
 invoke.cont27:                                    ; preds = %invoke.cont21
   %conv29 = sext i32 %call28 to i64
   %inner_parsed_.i = getelementptr inbounds i8, ptr %result, i64 104
-  %7 = load ptr, ptr %inner_parsed_.i, align 8
-  invoke void @_ZN4GURLC2EPKcmRKN3url6ParsedEb(ptr noundef nonnull align 8 dereferenceable(120) %call22, ptr noundef %call24, i64 noundef %conv29, ptr noundef nonnull align 8 dereferenceable(72) %7, i1 noundef zeroext true)
+  %5 = load ptr, ptr %inner_parsed_.i, align 8
+  invoke void @_ZN4GURLC2EPKcmRKN3url6ParsedEb(ptr noundef nonnull align 8 dereferenceable(120) %call22, ptr noundef %call24, i64 noundef %conv29, ptr noundef nonnull align 8 dereferenceable(72) %5, i1 noundef zeroext true)
           to label %invoke.cont33 unwind label %lpad26
 
 invoke.cont33:                                    ; preds = %invoke.cont27
-  %8 = load ptr, ptr %inner_url_.i, align 8
+  %6 = load ptr, ptr %inner_url_.i, align 8
   store ptr %call22, ptr %inner_url_.i, align 8
-  %tobool.not.i.i = icmp eq ptr %8, null
+  %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %if.end34, label %_ZNKSt14default_deleteI4GURLEclEPS0_.exit.i.i
 
 _ZNKSt14default_deleteI4GURLEclEPS0_.exit.i.i:    ; preds = %invoke.cont33
-  %inner_url_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %inner_url_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 112
   call void @_ZNSt10unique_ptrI4GURLSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %inner_url_.i.i.i.i) #12
-  %parsed_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 40
+  %parsed_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %parsed_.i.i.i.i) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
-  call void @_ZdlPv(ptr noundef nonnull %8) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
+  call void @_ZdlPv(ptr noundef nonnull %6) #14
   br label %if.end34
 
 lpad11:                                           ; preds = %if.end34, %if.then20, %land.lhs.true, %invoke.cont12, %invoke.cont5
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad26:                                           ; preds = %invoke.cont27, %invoke.cont21
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call22) #14
   br label %ehcleanup
@@ -1606,7 +1596,7 @@ invoke.cont35:                                    ; preds = %if.end34
   br label %cleanup
 
 ehcleanup:                                        ; preds = %lpad26, %lpad11
-  %.pn = phi { ptr, i32 } [ %9, %lpad11 ], [ %10, %lpad26 ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad11 ], [ %8, %lpad26 ]
   call void @_ZN3url20StdStringCanonOutputD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output) #12
   br label %ehcleanup36
 
@@ -1617,7 +1607,7 @@ cleanup:                                          ; preds = %_ZN4GURLC2Ev.exit7,
   ret void
 
 ehcleanup36:                                      ; preds = %lpad, %lpad.i5, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %4, %lpad ], [ %3, %lpad.i5 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad ], [ %2, %lpad.i5 ]
   call void @_ZN4GURLD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %result) #12
   br label %common.resume
 }
@@ -1630,12 +1620,11 @@ entry:
   %replacements = alloca %"class.url::Replacements", align 8
   %is_valid_5 = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %is_valid_5, align 8
-  %1 = and i8 %0, 1
-  %tobool.not6 = icmp eq i8 %1, 0
-  br i1 %tobool.not6, label %if.then, label %lor.lhs.false
+  %tobool6 = trunc i8 %0 to i1
+  br i1 %tobool6, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry, %if.then3
-  %this.tr7 = phi ptr [ %3, %if.then3 ], [ %this, %entry ]
+  %this.tr7 = phi ptr [ %2, %if.then3 ], [ %this, %entry ]
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this.tr7) #12
   %parsed_.i = getelementptr inbounds i8, ptr %this.tr7, i64 40
   %call2.i = tail call noundef zeroext i1 @_ZN3url10IsStandardEPKcRKNS_9ComponentE(ptr noundef %call.i, ptr noundef nonnull align 4 dereferenceable(8) %parsed_.i)
@@ -1650,11 +1639,11 @@ if.then:                                          ; preds = %if.then3, %lor.lhs.
           to label %_ZN4GURLC2Ev.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %6, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %4, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
   br label %common.resume
@@ -1670,12 +1659,11 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.then3:                                         ; preds = %if.end
   %inner_url_ = getelementptr inbounds i8, ptr %this.tr7, i64 112
-  %3 = load ptr, ptr %inner_url_, align 8
-  %is_valid_ = getelementptr inbounds i8, ptr %3, i64 32
-  %4 = load i8, ptr %is_valid_, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.then, label %lor.lhs.false
+  %2 = load ptr, ptr %inner_url_, align 8
+  %is_valid_ = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = load i8, ptr %is_valid_, align 8
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %lor.lhs.false, label %if.then
 
 invoke.cont9:                                     ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %replacements, i8 0, i64 64, i1 false)
@@ -1709,7 +1697,7 @@ invoke.cont10:                                    ; preds = %invoke.cont9
   br label %return
 
 lpad:                                             ; preds = %invoke.cont9
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %components_.i) #12
   br label %common.resume
@@ -1733,9 +1721,8 @@ entry:
   %replacements = alloca %"class.url::Replacements", align 8
   %is_valid_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %is_valid_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.then, label %_ZNK4GURL24SchemeIsValidForReferrerEv.exit
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %_ZNK4GURL24SchemeIsValidForReferrerEv.exit, label %if.then
 
 _ZNK4GURL24SchemeIsValidForReferrerEv.exit:       ; preds = %entry
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
@@ -1752,11 +1739,11 @@ if.then:                                          ; preds = %entry, %_ZNK4GURL24
           to label %_ZN4GURLC2Ev.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %6, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %5, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
   br label %common.resume
@@ -1768,15 +1755,15 @@ _ZN4GURLC2Ev.exit:                                ; preds = %if.then
 
 if.end:                                           ; preds = %_ZNK4GURL24SchemeIsValidForReferrerEv.exit
   %len.i = getelementptr inbounds i8, ptr %this, i64 100
-  %3 = load i32, ptr %len.i, align 4
-  %cmp.i = icmp sgt i32 %3, -1
+  %2 = load i32, ptr %len.i, align 4
+  %cmp.i = icmp sgt i32 %2, -1
   %len.i3 = getelementptr inbounds i8, ptr %this, i64 52
-  %4 = load i32, ptr %len.i3, align 4
-  %cmp.i4 = icmp sgt i32 %4, -1
+  %3 = load i32, ptr %len.i3, align 4
+  %cmp.i4 = icmp sgt i32 %3, -1
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.i4
   %len.i5 = getelementptr inbounds i8, ptr %this, i64 60
-  %5 = load i32, ptr %len.i5, align 4
-  %cmp.i6 = icmp sgt i32 %5, -1
+  %4 = load i32, ptr %len.i5, align 4
+  %cmp.i6 = icmp sgt i32 %4, -1
   %or.cond9 = select i1 %or.cond, i1 true, i1 %cmp.i6
   br i1 %or.cond9, label %invoke.cont9, label %if.then6
 
@@ -1808,7 +1795,7 @@ invoke.cont10:                                    ; preds = %invoke.cont9
   br label %return
 
 lpad:                                             ; preds = %invoke.cont9
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %components_.i) #12
   br label %common.resume
@@ -1822,9 +1809,8 @@ define dso_local noundef zeroext i1 @_ZNK4GURL24SchemeIsValidForReferrerEv(ptr n
 entry:
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %is_valid_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %land.end, label %land.rhs
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
@@ -1833,8 +1819,8 @@ land.rhs:                                         ; preds = %entry
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %call2, %land.rhs ]
-  ret i1 %2
+  %1 = phi i1 [ false, %entry ], [ %call2, %land.rhs ]
+  ret i1 %1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1842,9 +1828,8 @@ define dso_local void @_ZNK4GURL16GetWithEmptyPathEv(ptr noalias sret(%class.GUR
 entry:
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %is_valid_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.then, label %lor.lhs.false
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
@@ -1861,11 +1846,11 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
           to label %_ZN4GURLC2Ev.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %6, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %5, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
   br label %common.resume
@@ -1878,16 +1863,16 @@ _ZN4GURLC2Ev.exit:                                ; preds = %if.then
 if.end:                                           ; preds = %lor.lhs.false
   tail call void @_ZN4GURLC2ERKS_(ptr noundef nonnull align 8 dereferenceable(120) %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this)
   %len = getelementptr inbounds i8, ptr %this, i64 84
-  %3 = load i32, ptr %len, align 4
-  %cmp = icmp eq i32 %3, 0
+  %2 = load i32, ptr %len, align 4
+  %cmp = icmp eq i32 %2, 0
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
   %query = getelementptr inbounds i8, ptr %agg.result, i64 88
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %query, align 8
   %path8 = getelementptr inbounds i8, ptr %agg.result, i64 80
-  %4 = load i32, ptr %path8, align 8
-  %conv = sext i32 %4 to i64
+  %3 = load i32, ptr %path8, align 8
+  %conv = sext i32 %3 to i64
   %call10 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %conv)
           to label %invoke.cont9 unwind label %lpad
 
@@ -1895,14 +1880,14 @@ invoke.cont9:                                     ; preds = %if.end3
   store i8 47, ptr %call10, align 1
   %len13 = getelementptr inbounds i8, ptr %agg.result, i64 84
   store i32 1, ptr %len13, align 4
-  %5 = load i32, ptr %path8, align 8
-  %add = add nsw i32 %5, 1
+  %4 = load i32, ptr %path8, align 8
+  %add = add nsw i32 %4, 1
   %conv18 = sext i32 %add to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %conv18)
           to label %return unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont9, %if.end3
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN4GURLD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %agg.result) #12
   br label %common.resume
@@ -2367,9 +2352,8 @@ define dso_local void @_ZNK4GURL10GetContentB5cxx11Ev(ptr noalias sret(%"class.s
 entry:
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %is_valid_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
   %parsed_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -2406,9 +2390,8 @@ entry:
   %host_info = alloca %"struct.url::CanonHostInfo", align 16
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %is_valid_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %lor.lhs.false
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
@@ -2416,8 +2399,8 @@ lor.lhs.false:                                    ; preds = %entry
 
 invoke.cont:                                      ; preds = %lor.lhs.false
   %buffer_.i.i = getelementptr inbounds i8, ptr %ignored_output, i64 8
-  %2 = getelementptr inbounds i8, ptr %ignored_output, i64 16
-  store i64 128, ptr %2, align 8
+  %1 = getelementptr inbounds i8, ptr %ignored_output, i64 16
+  store i64 128, ptr %1, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 0, i32 0, i64 2), ptr %ignored_output, align 8
   %fixed_buffer_.i = getelementptr inbounds i8, ptr %ignored_output, i64 24
   store ptr %fixed_buffer_.i, ptr %buffer_.i.i, align 8
@@ -2428,36 +2411,36 @@ invoke.cont:                                      ; preds = %lor.lhs.false
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %3 = load i32, ptr %host_info, align 16
-  %4 = and i32 %3, -2
-  %spec.select.i = icmp eq i32 %4, 2
+  %2 = load i32, ptr %host_info, align 16
+  %3 = and i32 %2, -2
+  %spec.select.i = icmp eq i32 %3, 2
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 0, i32 0, i64 2), ptr %ignored_output, align 8
-  %5 = load ptr, ptr %buffer_.i.i, align 8
-  %cmp.not.i = icmp eq ptr %5, %fixed_buffer_.i
-  %isnull.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %buffer_.i.i, align 8
+  %cmp.not.i = icmp eq ptr %4, %fixed_buffer_.i
+  %isnull.i = icmp eq ptr %4, null
   %or.cond.i = or i1 %cmp.not.i, %isnull.i
   br i1 %or.cond.i, label %return, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %invoke.cont4
-  call void @_ZdaPv(ptr noundef nonnull %5) #14
+  call void @_ZdaPv(ptr noundef nonnull %4) #14
   br label %return
 
 lpad:                                             ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 0, i32 0, i64 2), ptr %ignored_output, align 8
-  %7 = load ptr, ptr %buffer_.i.i, align 8
-  %cmp.not.i4 = icmp eq ptr %7, %fixed_buffer_.i
-  %isnull.i5 = icmp eq ptr %7, null
+  %6 = load ptr, ptr %buffer_.i.i, align 8
+  %cmp.not.i4 = icmp eq ptr %6, %fixed_buffer_.i
+  %isnull.i5 = icmp eq ptr %6, null
   %or.cond.i6 = or i1 %cmp.not.i4, %isnull.i5
   br i1 %or.cond.i6, label %_ZN3url15RawCanonOutputTIcLi128EED2Ev.exit8, label %delete.notnull.i7
 
 delete.notnull.i7:                                ; preds = %lpad
-  call void @_ZdaPv(ptr noundef nonnull %7) #14
+  call void @_ZdaPv(ptr noundef nonnull %6) #14
   br label %_ZN3url15RawCanonOutputTIcLi128EED2Ev.exit8
 
 _ZN3url15RawCanonOutputTIcLi128EED2Ev.exit8:      ; preds = %lpad, %delete.notnull.i7
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %5
 
 return:                                           ; preds = %delete.notnull.i, %invoke.cont4, %entry, %lor.lhs.false
   %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ %spec.select.i, %invoke.cont4 ], [ %spec.select.i, %delete.notnull.i ]
@@ -2531,12 +2514,11 @@ entry:
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %land.lhs.true, %entry
-  %this.tr = phi ptr [ %this, %entry ], [ %2, %land.lhs.true ]
+  %this.tr = phi ptr [ %this, %entry ], [ %1, %land.lhs.true ]
   %is_valid_ = getelementptr inbounds i8, ptr %this.tr, i64 32
   %0 = load i8, ptr %is_valid_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %tailrecurse
   %call = tail call noundef zeroext i1 @_ZNK4GURL18SchemeIsFileSystemEv(ptr noundef nonnull align 8 dereferenceable(120) %this.tr)
@@ -2544,15 +2526,15 @@ if.end:                                           ; preds = %tailrecurse
 
 land.lhs.true:                                    ; preds = %if.end
   %inner_url_ = getelementptr inbounds i8, ptr %this.tr, i64 112
-  %2 = load ptr, ptr %inner_url_, align 8
-  %cmp.i.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %inner_url_, align 8
+  %cmp.i.not = icmp eq ptr %1, null
   br i1 %cmp.i.not, label %if.end7, label %tailrecurse
 
 if.end7:                                          ; preds = %land.lhs.true, %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i)
   %len.i.i = getelementptr inbounds i8, ptr %this.tr, i64 68
-  %3 = load i32, ptr %len.i.i, align 4
-  %cmp.i.i = icmp slt i32 %3, 1
+  %2 = load i32, ptr %len.i.i, align 4
+  %cmp.i.i = icmp slt i32 %2, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end7
@@ -2561,11 +2543,11 @@ if.then.i.i:                                      ; preds = %if.end7
 
 if.end.i.i:                                       ; preds = %if.end7
   %host.i = getelementptr inbounds i8, ptr %this.tr, i64 64
-  %4 = load i32, ptr %host.i, align 4
-  %conv.i.i = sext i32 %4 to i64
+  %3 = load i32, ptr %host.i, align 4
+  %conv.i.i = sext i32 %3 to i64
   %call.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this.tr, i64 noundef %conv.i.i) #12
-  %5 = load i32, ptr %len.i.i, align 4
-  %conv3.i.i = sext i32 %5 to i64
+  %4 = load i32, ptr %len.i.i, align 4
+  %conv3.i.i = sext i32 %4 to i64
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i, ptr noundef nonnull %call.i.i, i64 noundef %conv3.i.i)
   br label %_ZNK4GURL10host_pieceB5cxx11Ev.exit
 

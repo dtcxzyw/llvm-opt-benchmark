@@ -320,27 +320,26 @@ if.end104:                                        ; preds = %if.then100
 if.else142:                                       ; preds = %while.end
   %contains_tail = getelementptr inbounds i8, ptr %ctx, i64 32
   %60 = load i8, ptr %contains_tail, align 8
-  %61 = and i8 %60, 1
-  %tobool = icmp ne i8 %61, 0
+  %tobool = trunc i8 %60 to i1
   %cmp144 = icmp ugt i64 %sub.ptr.sub, 1
   %or.cond = and i1 %cmp144, %tobool
   br i1 %or.cond, label %if.then145, label %return
 
 if.then145:                                       ; preds = %if.else142
-  %62 = load ptr, ptr %output_end, align 8
+  %61 = load ptr, ptr %output_end, align 8
   %arrayidx148 = getelementptr inbounds [4 x i8], ptr @_ZL9tail_xtra, i64 0, i64 %sub.ptr.sub
-  %63 = load i8, ptr %arrayidx148, align 1
-  %idx.ext = zext i8 %63 to i64
+  %62 = load i8, ptr %arrayidx148, align 1
+  %idx.ext = zext i8 %62 to i64
   %add.ptr150 = getelementptr inbounds i8, ptr %34, i64 %idx.ext
-  %cmp151.not = icmp ult ptr %62, %add.ptr150
+  %cmp151.not = icmp ult ptr %61, %add.ptr150
   br i1 %cmp151.not, label %return, label %for.body.i59.preheader
 
 for.body.i59.preheader:                           ; preds = %if.then145
-  %64 = load i8, ptr %.lcssa, align 1
-  %idxprom.i6389 = zext i8 %64 to i64
+  %63 = load i8, ptr %.lcssa, align 1
+  %idxprom.i6389 = zext i8 %63 to i64
   %arrayidx1.i6490 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom.i6389
-  %65 = load i8, ptr %arrayidx1.i6490, align 1
-  %cmp2.not.i6591 = icmp ult i8 %65, 64
+  %64 = load i8, ptr %arrayidx1.i6490, align 1
+  %cmp2.not.i6591 = icmp ult i8 %64, 64
   br i1 %cmp2.not.i6591, label %for.cond.i69, label %return.critedge
 
 for.cond.i69:                                     ; preds = %for.body.i59.preheader, %for.body.i59
@@ -351,16 +350,16 @@ for.cond.i69:                                     ; preds = %for.body.i59.prehea
 
 for.body.i59:                                     ; preds = %for.cond.i69
   %arrayidx.i62 = getelementptr inbounds i8, ptr %.lcssa, i64 %inc.i70
-  %66 = load i8, ptr %arrayidx.i62, align 1
-  %idxprom.i63 = zext i8 %66 to i64
+  %65 = load i8, ptr %arrayidx.i62, align 1
+  %idxprom.i63 = zext i8 %65 to i64
   %arrayidx1.i64 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom.i63
-  %67 = load i8, ptr %arrayidx1.i64, align 1
-  %cmp2.not.i65 = icmp ult i8 %67, 64
+  %66 = load i8, ptr %arrayidx1.i64, align 1
+  %cmp2.not.i65 = icmp ult i8 %66, 64
   br i1 %cmp2.not.i65, label %for.cond.i69, label %if.then.i66, !llvm.loop !7
 
 if.then.i66:                                      ; preds = %for.body.i59
   %cmp.i71.not.le = icmp ult i64 %inc.i70, %sub.ptr.sub
-  %conv4.i67 = sext i8 %64 to i32
+  %conv4.i67 = sext i8 %63 to i32
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 61, i32 noundef 2, ptr noundef nonnull @.str.10, i32 noundef %conv4.i67)
   br i1 %cmp.i71.not.le, label %return, label %if.end156
 
@@ -371,49 +370,49 @@ if.end156:                                        ; preds = %for.cond.i69, %if.t
   ]
 
 sw.bb:                                            ; preds = %if.end156
-  %68 = load ptr, ptr %ctx, align 8
-  %arrayidx158 = getelementptr inbounds i8, ptr %68, i64 1
-  %69 = load i8, ptr %arrayidx158, align 1
-  %idxprom159 = zext i8 %69 to i64
+  %67 = load ptr, ptr %ctx, align 8
+  %arrayidx158 = getelementptr inbounds i8, ptr %67, i64 1
+  %68 = load i8, ptr %arrayidx158, align 1
+  %idxprom159 = zext i8 %68 to i64
   %arrayidx160 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom159
-  %70 = load i8, ptr %arrayidx160, align 1
-  %shl162 = shl i8 %70, 4
-  %arrayidx164 = getelementptr inbounds i8, ptr %68, i64 2
-  %71 = load i8, ptr %arrayidx164, align 1
-  %idxprom165 = zext i8 %71 to i64
+  %69 = load i8, ptr %arrayidx160, align 1
+  %shl162 = shl i8 %69, 4
+  %arrayidx164 = getelementptr inbounds i8, ptr %67, i64 2
+  %70 = load i8, ptr %arrayidx164, align 1
+  %idxprom165 = zext i8 %70 to i64
   %arrayidx166 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom165
-  %72 = load i8, ptr %arrayidx166, align 1
-  %73 = lshr i8 %72, 2
-  %or169 = or i8 %73, %shl162
-  %74 = load ptr, ptr %output_cur, align 8
-  %arrayidx172 = getelementptr inbounds i8, ptr %74, i64 1
+  %71 = load i8, ptr %arrayidx166, align 1
+  %72 = lshr i8 %71, 2
+  %or169 = or i8 %72, %shl162
+  %73 = load ptr, ptr %output_cur, align 8
+  %arrayidx172 = getelementptr inbounds i8, ptr %73, i64 1
   store i8 %or169, ptr %arrayidx172, align 1
   br label %sw.bb173
 
 sw.bb173:                                         ; preds = %sw.bb, %if.end156
-  %75 = load ptr, ptr %ctx, align 8
-  %76 = load i8, ptr %75, align 1
-  %idxprom176 = zext i8 %76 to i64
+  %74 = load ptr, ptr %ctx, align 8
+  %75 = load i8, ptr %74, align 1
+  %idxprom176 = zext i8 %75 to i64
   %arrayidx177 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom176
-  %77 = load i8, ptr %arrayidx177, align 1
-  %shl179 = shl i8 %77, 2
-  %arrayidx181 = getelementptr inbounds i8, ptr %75, i64 1
-  %78 = load i8, ptr %arrayidx181, align 1
-  %idxprom182 = zext i8 %78 to i64
+  %76 = load i8, ptr %arrayidx177, align 1
+  %shl179 = shl i8 %76, 2
+  %arrayidx181 = getelementptr inbounds i8, ptr %74, i64 1
+  %77 = load i8, ptr %arrayidx181, align 1
+  %idxprom182 = zext i8 %77 to i64
   %arrayidx183 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom182
-  %79 = load i8, ptr %arrayidx183, align 1
-  %80 = lshr i8 %79, 4
-  %or186 = or i8 %80, %shl179
-  %81 = load ptr, ptr %output_cur, align 8
-  store i8 %or186, ptr %81, align 1
+  %78 = load i8, ptr %arrayidx183, align 1
+  %79 = lshr i8 %78, 4
+  %or186 = or i8 %79, %shl179
+  %80 = load ptr, ptr %output_cur, align 8
+  store i8 %or186, ptr %80, align 1
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb173, %if.end156
-  %82 = load ptr, ptr %output_cur, align 8
-  %add.ptr194 = getelementptr inbounds i8, ptr %82, i64 %idx.ext
+  %81 = load ptr, ptr %output_cur, align 8
+  %add.ptr194 = getelementptr inbounds i8, ptr %81, i64 %idx.ext
   store ptr %add.ptr194, ptr %output_cur, align 8
-  %83 = load ptr, ptr %ctx, align 8
-  %add.ptr196 = getelementptr inbounds i8, ptr %83, i64 %sub.ptr.sub
+  %82 = load ptr, ptr %ctx, align 8
+  %add.ptr196 = getelementptr inbounds i8, ptr %82, i64 %sub.ptr.sub
   store ptr %add.ptr196, ptr %ctx, align 8
   br label %return
 
@@ -423,7 +422,7 @@ return.loopexit.critedge:                         ; preds = %for.body.i.preheade
   br label %return
 
 return.critedge:                                  ; preds = %for.body.i59.preheader
-  %conv4.i67.c = sext i8 %64 to i32
+  %conv4.i67.c = sext i8 %63 to i32
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 61, i32 noundef 2, ptr noundef nonnull @.str.10, i32 noundef %conv4.i67.c)
   br label %return
 

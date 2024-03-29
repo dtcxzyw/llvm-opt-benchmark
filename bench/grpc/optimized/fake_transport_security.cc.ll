@@ -363,14 +363,13 @@ _ZL36tsi_fake_handshake_message_to_stringi.exit29.i: ; preds = %if.end.i24.i, %i
 
 if.end15.i:                                       ; preds = %_ZL36tsi_fake_handshake_message_to_stringi.exit29.i, %if.end10.i
   %10 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %11 = and i8 %10, 1
-  %tobool.i.i.i.not.i = icmp eq i8 %11, 0
-  br i1 %tobool.i.i.i.not.i, label %if.end20.i, label %if.then17.i
+  %tobool.i.i.i.i = trunc i8 %10 to i1
+  br i1 %tobool.i.i.i.i, label %if.then17.i, label %if.end20.i
 
 if.then17.i:                                      ; preds = %if.end15.i
   %is_client.i = getelementptr inbounds i8, ptr %self, i64 16
-  %12 = load i32, ptr %is_client.i, align 8
-  %tobool18.not.i = icmp eq i32 %12, 0
+  %11 = load i32, ptr %is_client.i, align 8
+  %tobool18.not.i = icmp eq i32 %11, 0
   %.str.6..str.7.i = select i1 %tobool18.not.i, ptr @.str.7, ptr @.str.6
   %or.cond.i30.i = icmp ugt i32 %7, 3
   br i1 %or.cond.i30.i, label %if.then.i35.i, label %if.end.i31.i
@@ -382,11 +381,11 @@ if.then.i35.i:                                    ; preds = %if.then17.i
 if.end.i31.i:                                     ; preds = %if.then17.i
   %idxprom.i32.i = and i64 %indvars.iv.i.i, 3
   %arrayidx.i33.i = getelementptr inbounds [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %idxprom.i32.i
-  %13 = load ptr, ptr %arrayidx.i33.i, align 8
+  %12 = load ptr, ptr %arrayidx.i33.i, align 8
   br label %_ZL36tsi_fake_handshake_message_to_stringi.exit36.i
 
 _ZL36tsi_fake_handshake_message_to_stringi.exit36.i: ; preds = %if.end.i31.i, %if.then.i35.i
-  %retval.0.i34.i = phi ptr [ @.str.17, %if.then.i35.i ], [ %13, %if.end.i31.i ]
+  %retval.0.i34.i = phi ptr [ @.str.17, %if.then.i35.i ], [ %12, %if.end.i31.i ]
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 695, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef nonnull %.str.6..str.7.i, ptr noundef %retval.0.i34.i)
   br label %if.end20.i
 
@@ -398,20 +397,19 @@ if.end20.i:                                       ; preds = %_ZL36tsi_fake_hands
   %size.i.i = getelementptr inbounds i8, ptr %self, i64 40
   store i64 0, ptr %size.i.i, align 8
   store i32 0, ptr %needs_incoming_message.i, align 8
-  %14 = load i32, ptr %next_message_to_send.i, align 4
-  %cmp24.i = icmp eq i32 %14, 4
+  %13 = load i32, ptr %next_message_to_send.i, align 4
+  %cmp24.i = icmp eq i32 %13, 4
   br i1 %cmp24.i, label %if.then25.i, label %if.end17
 
 if.then25.i:                                      ; preds = %if.end20.i
-  %15 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %16 = and i8 %15, 1
-  %tobool.i.i.i39.not.i = icmp eq i8 %16, 0
-  br i1 %tobool.i.i.i39.not.i, label %if.end35.i, label %if.then27.i
+  %14 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %tobool.i.i.i39.i = trunc i8 %14 to i1
+  br i1 %tobool.i.i.i39.i, label %if.then27.i, label %if.end35.i
 
 if.then27.i:                                      ; preds = %if.then25.i
   %is_client28.i = getelementptr inbounds i8, ptr %self, i64 16
-  %17 = load i32, ptr %is_client28.i, align 8
-  %tobool29.not.i = icmp eq i32 %17, 0
+  %15 = load i32, ptr %is_client28.i, align 8
+  %tobool29.not.i = icmp eq i32 %15, 0
   %.str.6..str.71.i = select i1 %tobool29.not.i, ptr @.str.7, ptr @.str.6
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 703, i32 noundef 1, ptr noundef nonnull @.str.8, ptr noundef nonnull %.str.6..str.71.i)
   br label %if.end35.i
@@ -424,13 +422,13 @@ if.end17:                                         ; preds = %if.end20.i, %if.end
   %outgoing_bytes_buffer_size = getelementptr inbounds i8, ptr %self, i64 120
   %outgoing_bytes_buffer = getelementptr inbounds i8, ptr %self, i64 112
   %needs_incoming_message.i38 = getelementptr inbounds i8, ptr %self, i64 24
-  %18 = load i32, ptr %needs_incoming_message.i38, align 8
-  %tobool.not.i3992 = icmp eq i32 %18, 0
+  %16 = load i32, ptr %needs_incoming_message.i38, align 8
+  %tobool.not.i3992 = icmp eq i32 %16, 0
   br i1 %tobool.not.i3992, label %lor.lhs.false.i42.lr.ph, label %if.end30
 
 lor.lhs.false.i42.lr.ph:                          ; preds = %if.end17
-  %19 = load ptr, ptr %outgoing_bytes_buffer, align 8
-  %20 = load i64, ptr %outgoing_bytes_buffer_size, align 8
+  %17 = load ptr, ptr %outgoing_bytes_buffer, align 8
+  %18 = load i64, ptr %outgoing_bytes_buffer_size, align 8
   %result1.i43 = getelementptr inbounds i8, ptr %self, i64 128
   %outgoing_frame.i = getelementptr inbounds i8, ptr %self, i64 72
   %needs_draining.i = getelementptr inbounds i8, ptr %self, i64 104
@@ -442,48 +440,48 @@ lor.lhs.false.i42.lr.ph:                          ; preds = %if.end17
   br label %lor.lhs.false.i42
 
 lor.lhs.false.i42:                                ; preds = %lor.lhs.false.i42.lr.ph, %if.then20
-  %add.ptr95 = phi ptr [ %19, %lor.lhs.false.i42.lr.ph ], [ %add.ptr, %if.then20 ]
-  %sub94 = phi i64 [ %20, %lor.lhs.false.i42.lr.ph ], [ %sub, %if.then20 ]
-  %21 = phi i64 [ %20, %lor.lhs.false.i42.lr.ph ], [ %53, %if.then20 ]
-  %offset.093 = phi i64 [ 0, %lor.lhs.false.i42.lr.ph ], [ %21, %if.then20 ]
-  %22 = load i32, ptr %result1.i43, align 8
-  %cmp.i44 = icmp eq i32 %22, 0
+  %add.ptr95 = phi ptr [ %17, %lor.lhs.false.i42.lr.ph ], [ %add.ptr, %if.then20 ]
+  %sub94 = phi i64 [ %18, %lor.lhs.false.i42.lr.ph ], [ %sub, %if.then20 ]
+  %19 = phi i64 [ %18, %lor.lhs.false.i42.lr.ph ], [ %49, %if.then20 ]
+  %offset.093 = phi i64 [ 0, %lor.lhs.false.i42.lr.ph ], [ %19, %if.then20 ]
+  %20 = load i32, ptr %result1.i43, align 8
+  %cmp.i44 = icmp eq i32 %20, 0
   br i1 %cmp.i44, label %if.end30, label %if.end.i45
 
 if.end.i45:                                       ; preds = %lor.lhs.false.i42
-  %23 = load i32, ptr %needs_draining.i, align 8
-  %tobool2.not.i = icmp eq i32 %23, 0
+  %21 = load i32, ptr %needs_draining.i, align 8
+  %tobool2.not.i = icmp eq i32 %21, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end18.thread.i
 
 if.end18.thread.i:                                ; preds = %if.end.i45
-  %24 = load i64, ptr %size.i2536.i, align 8
-  %25 = load i64, ptr %offset.i2637.i, align 8
-  %sub.i38.i = sub i64 %24, %25
+  %22 = load i64, ptr %size.i2536.i, align 8
+  %23 = load i64, ptr %offset.i2637.i, align 8
+  %sub.i38.i = sub i64 %22, %23
   br label %if.end2.i.i
 
 if.then3.i:                                       ; preds = %if.end.i45
-  %26 = load i32, ptr %next_message_to_send4.i, align 4
-  %or.cond.i.i46 = icmp ugt i32 %26, 3
+  %24 = load i32, ptr %next_message_to_send4.i, align 4
+  %or.cond.i.i46 = icmp ugt i32 %24, 3
   br i1 %or.cond.i.i46, label %if.then.i.i, label %if.end.i.i47
 
 if.then.i.i:                                      ; preds = %if.then3.i
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 93, i32 noundef 2, ptr noundef nonnull @.str.16, i32 noundef %26)
+  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 93, i32 noundef 2, ptr noundef nonnull @.str.16, i32 noundef %24)
   br label %_ZL36tsi_fake_handshake_message_to_stringi.exit.i50
 
 if.end.i.i47:                                     ; preds = %if.then3.i
-  %idxprom.i.i48 = zext nneg i32 %26 to i64
+  %idxprom.i.i48 = zext nneg i32 %24 to i64
   %arrayidx.i.i49 = getelementptr inbounds [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %idxprom.i.i48
-  %27 = load ptr, ptr %arrayidx.i.i49, align 8
+  %25 = load ptr, ptr %arrayidx.i.i49, align 8
   br label %_ZL36tsi_fake_handshake_message_to_stringi.exit.i50
 
 _ZL36tsi_fake_handshake_message_to_stringi.exit.i50: ; preds = %if.end.i.i47, %if.then.i.i
-  %retval.0.i.i = phi ptr [ @.str.17, %if.then.i.i ], [ %27, %if.end.i.i47 ]
+  %retval.0.i.i = phi ptr [ @.str.17, %if.then.i.i ], [ %25, %if.end.i.i47 ]
   %call6.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i) #11
   store i64 0, ptr %offset.i2637.i, align 8
   %add.i.i = add i64 %call6.i, 4
   store i64 %add.i.i, ptr %size.i2536.i, align 8
-  %28 = load ptr, ptr %outgoing_frame.i, align 8
-  %cmp.i.i.i = icmp eq ptr %28, null
+  %26 = load ptr, ptr %outgoing_frame.i, align 8
+  %cmp.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZL36tsi_fake_handshake_message_to_stringi.exit.i50
@@ -494,79 +492,78 @@ if.then.i.i.i:                                    ; preds = %_ZL36tsi_fake_hands
   br label %_ZL23tsi_fake_frame_set_dataPhmP14tsi_fake_frame.exit.i
 
 if.else.i.i.i:                                    ; preds = %_ZL36tsi_fake_handshake_message_to_stringi.exit.i50
-  %29 = load i64, ptr %allocated_size.i.i.i, align 8
-  %cmp5.i.i.i = icmp ugt i64 %add.i.i, %29
+  %27 = load i64, ptr %allocated_size.i.i.i, align 8
+  %cmp5.i.i.i = icmp ugt i64 %add.i.i, %27
   br i1 %cmp5.i.i.i, label %if.then6.i.i.i, label %_ZL23tsi_fake_frame_set_dataPhmP14tsi_fake_frame.exit.i
 
 if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
-  %call9.i.i.i = tail call ptr @gpr_realloc(ptr noundef nonnull %28, i64 noundef %add.i.i)
+  %call9.i.i.i = tail call ptr @gpr_realloc(ptr noundef nonnull %26, i64 noundef %add.i.i)
   store ptr %call9.i.i.i, ptr %outgoing_frame.i, align 8
-  %30 = load i64, ptr %size.i2536.i, align 8
-  store i64 %30, ptr %allocated_size.i.i.i, align 8
+  %28 = load i64, ptr %size.i2536.i, align 8
+  store i64 %28, ptr %allocated_size.i.i.i, align 8
   br label %_ZL23tsi_fake_frame_set_dataPhmP14tsi_fake_frame.exit.i
 
 _ZL23tsi_fake_frame_set_dataPhmP14tsi_fake_frame.exit.i: ; preds = %if.then6.i.i.i, %if.else.i.i.i, %if.then.i.i.i
-  %31 = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %28, %if.else.i.i.i ], [ %call9.i.i.i, %if.then6.i.i.i ]
-  %32 = phi i64 [ %.pre.i.i, %if.then.i.i.i ], [ %add.i.i, %if.else.i.i.i ], [ %30, %if.then6.i.i.i ]
-  %shr.i8.i.i = lshr i64 %32, 24
+  %29 = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %26, %if.else.i.i.i ], [ %call9.i.i.i, %if.then6.i.i.i ]
+  %30 = phi i64 [ %.pre.i.i, %if.then.i.i.i ], [ %add.i.i, %if.else.i.i.i ], [ %28, %if.then6.i.i.i ]
+  %shr.i8.i.i = lshr i64 %30, 24
   %conv.i.i.i = trunc i64 %shr.i8.i.i to i8
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %31, i64 3
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %29, i64 3
   store i8 %conv.i.i.i, ptr %arrayidx.i.i.i, align 1
-  %shr1.i9.i.i = lshr i64 %32, 16
+  %shr1.i9.i.i = lshr i64 %30, 16
   %conv3.i.i.i = trunc i64 %shr1.i9.i.i to i8
-  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %31, i64 2
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %29, i64 2
   store i8 %conv3.i.i.i, ptr %arrayidx4.i.i.i, align 1
-  %shr5.i10.i.i = lshr i64 %32, 8
+  %shr5.i10.i.i = lshr i64 %30, 8
   %conv7.i.i.i = trunc i64 %shr5.i10.i.i to i8
-  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %31, i64 1
+  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %29, i64 1
   store i8 %conv7.i.i.i, ptr %arrayidx8.i.i.i, align 1
-  %conv10.i.i.i = trunc i64 %32 to i8
-  store i8 %conv10.i.i.i, ptr %31, align 1
-  %33 = load ptr, ptr %outgoing_frame.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %33, i64 4
+  %conv10.i.i.i = trunc i64 %30 to i8
+  store i8 %conv10.i.i.i, ptr %29, align 1
+  %31 = load ptr, ptr %outgoing_frame.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %31, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr align 1 %retval.0.i.i, i64 %call6.i, i1 false)
   store i64 0, ptr %offset.i2637.i, align 8
   store i32 1, ptr %needs_draining.i, align 8
-  %34 = tail call i32 @llvm.smin.i32(i32 %26, i32 2)
-  %spec.store.select.i = add nsw i32 %34, 2
-  %35 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %36 = and i8 %35, 1
-  %tobool.i.i.i.not.i53 = icmp eq i8 %36, 0
-  br i1 %tobool.i.i.i.not.i53, label %if.end18.thread42.i, label %if.then12.i54
+  %32 = tail call i32 @llvm.smin.i32(i32 %24, i32 2)
+  %spec.store.select.i = add nsw i32 %32, 2
+  %33 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %tobool.i.i.i.i53 = trunc i8 %33 to i1
+  br i1 %tobool.i.i.i.i53, label %if.then12.i54, label %if.end18.thread42.i
 
 if.end18.thread42.i:                              ; preds = %_ZL23tsi_fake_frame_set_dataPhmP14tsi_fake_frame.exit.i
   store i32 %spec.store.select.i, ptr %next_message_to_send4.i, align 4
-  %37 = load i64, ptr %size.i2536.i, align 8
+  %34 = load i64, ptr %size.i2536.i, align 8
   br label %if.end2.i.i
 
 if.then12.i54:                                    ; preds = %_ZL23tsi_fake_frame_set_dataPhmP14tsi_fake_frame.exit.i
-  %38 = load i32, ptr %is_client.i55, align 8
-  %tobool13.not.i = icmp eq i32 %38, 0
+  %35 = load i32, ptr %is_client.i55, align 8
+  %tobool13.not.i = icmp eq i32 %35, 0
   %.str.6..str.7.i56 = select i1 %tobool13.not.i, ptr @.str.7, ptr @.str.6
-  %39 = load i32, ptr %next_message_to_send4.i, align 4
-  %or.cond.i18.i = icmp ugt i32 %39, 3
+  %36 = load i32, ptr %next_message_to_send4.i, align 4
+  %or.cond.i18.i = icmp ugt i32 %36, 3
   br i1 %or.cond.i18.i, label %if.then.i23.i, label %if.end.i19.i
 
 if.then.i23.i:                                    ; preds = %if.then12.i54
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 93, i32 noundef 2, ptr noundef nonnull @.str.16, i32 noundef %39)
+  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 93, i32 noundef 2, ptr noundef nonnull @.str.16, i32 noundef %36)
   br label %if.end18.i
 
 if.end.i19.i:                                     ; preds = %if.then12.i54
-  %idxprom.i20.i = zext nneg i32 %39 to i64
+  %idxprom.i20.i = zext nneg i32 %36 to i64
   %arrayidx.i21.i = getelementptr inbounds [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %idxprom.i20.i
-  %40 = load ptr, ptr %arrayidx.i21.i, align 8
+  %37 = load ptr, ptr %arrayidx.i21.i, align 8
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end.i19.i, %if.then.i23.i
-  %retval.0.i22.i = phi ptr [ @.str.17, %if.then.i23.i ], [ %40, %if.end.i19.i ]
+  %retval.0.i22.i = phi ptr [ @.str.17, %if.then.i23.i ], [ %37, %if.end.i19.i ]
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 641, i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.6..str.7.i56, ptr noundef %retval.0.i22.i)
   %.pre.pre.i = load i32, ptr %needs_draining.i, align 8
-  %41 = icmp eq i32 %.pre.pre.i, 0
+  %38 = icmp eq i32 %.pre.pre.i, 0
   store i32 %spec.store.select.i, ptr %next_message_to_send4.i, align 4
-  %42 = load i64, ptr %size.i2536.i, align 8
-  %43 = load i64, ptr %offset.i2637.i, align 8
-  %sub.i.i = sub i64 %42, %43
-  br i1 %41, label %if.then.i30.i, label %if.end2.i.i
+  %39 = load i64, ptr %size.i2536.i, align 8
+  %40 = load i64, ptr %offset.i2637.i, align 8
+  %sub.i.i = sub i64 %39, %40
+  br i1 %38, label %if.then.i30.i, label %if.end2.i.i
 
 if.then.i30.i:                                    ; preds = %if.end18.i
   %cmp.not.i.i = icmp eq ptr %error, null
@@ -577,11 +574,11 @@ if.then1.i.i:                                     ; preds = %if.then.i30.i
   br label %return
 
 if.end2.i.i:                                      ; preds = %if.end18.i, %if.end18.thread42.i, %if.end18.thread.i
-  %sub.i41.i = phi i64 [ %sub.i38.i, %if.end18.thread.i ], [ %sub.i.i, %if.end18.i ], [ %37, %if.end18.thread42.i ]
-  %44 = phi i64 [ %25, %if.end18.thread.i ], [ %43, %if.end18.i ], [ 0, %if.end18.thread42.i ]
+  %sub.i41.i = phi i64 [ %sub.i38.i, %if.end18.thread.i ], [ %sub.i.i, %if.end18.i ], [ %34, %if.end18.thread42.i ]
+  %41 = phi i64 [ %23, %if.end18.thread.i ], [ %40, %if.end18.i ], [ 0, %if.end18.thread42.i ]
   %cmp3.i.i = icmp ult i64 %sub94, %sub.i41.i
-  %45 = load ptr, ptr %outgoing_frame.i, align 8
-  %add.ptr.i27.i = getelementptr inbounds i8, ptr %45, i64 %44
+  %42 = load ptr, ptr %outgoing_frame.i, align 8
+  %add.ptr.i27.i = getelementptr inbounds i8, ptr %42, i64 %41
   br i1 %cmp3.i.i, label %if.then20, label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end2.i.i
@@ -589,20 +586,19 @@ if.end23.i:                                       ; preds = %if.end2.i.i
   store i64 0, ptr %offset.i2637.i, align 8
   store i32 0, ptr %needs_draining.i, align 8
   store i64 0, ptr %size.i2536.i, align 8
-  %46 = load i32, ptr %is_client.i55, align 8
-  %tobool25.not.i = icmp eq i32 %46, 0
+  %43 = load i32, ptr %is_client.i55, align 8
+  %tobool25.not.i = icmp eq i32 %43, 0
   br i1 %tobool25.not.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.end23.i
-  %47 = load i32, ptr %next_message_to_send4.i, align 4
-  %cmp27.i = icmp eq i32 %47, 4
+  %44 = load i32, ptr %next_message_to_send4.i, align 4
+  %cmp27.i = icmp eq i32 %44, 4
   br i1 %cmp27.i, label %if.then28.i, label %if.else.i
 
 if.then28.i:                                      ; preds = %land.lhs.true.i
-  %48 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %49 = and i8 %48, 1
-  %tobool.i.i.i31.not.i = icmp eq i8 %49, 0
-  br i1 %tobool.i.i.i31.not.i, label %if.end31.i, label %if.then30.i
+  %45 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @tsi_tracing_enabled, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %tobool.i.i.i31.i = trunc i8 %45 to i1
+  br i1 %tobool.i.i.i31.i, label %if.then30.i, label %if.end31.i
 
 if.then30.i:                                      ; preds = %if.then28.i
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 654, i32 noundef 1, ptr noundef nonnull @.str.19)
@@ -618,31 +614,31 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %i
 
 if.then20:                                        ; preds = %if.end2.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr95, ptr align 1 %add.ptr.i27.i, i64 %sub94, i1 false)
-  %50 = load i64, ptr %offset.i2637.i, align 8
-  %add.i29.i = add i64 %50, %sub94
+  %46 = load i64, ptr %offset.i2637.i, align 8
+  %add.i29.i = add i64 %46, %sub94
   store i64 %add.i29.i, ptr %offset.i2637.i, align 8
-  %51 = load i64, ptr %outgoing_bytes_buffer_size, align 8
-  %mul = shl i64 %51, 1
+  %47 = load i64, ptr %outgoing_bytes_buffer_size, align 8
+  %mul = shl i64 %47, 1
   store i64 %mul, ptr %outgoing_bytes_buffer_size, align 8
-  %52 = load ptr, ptr %outgoing_bytes_buffer, align 8
-  %call24 = tail call ptr @gpr_realloc(ptr noundef %52, i64 noundef %mul)
+  %48 = load ptr, ptr %outgoing_bytes_buffer, align 8
+  %call24 = tail call ptr @gpr_realloc(ptr noundef %48, i64 noundef %mul)
   store ptr %call24, ptr %outgoing_bytes_buffer, align 8
-  %53 = load i64, ptr %outgoing_bytes_buffer_size, align 8
-  %sub = sub i64 %53, %21
-  %add.ptr = getelementptr inbounds i8, ptr %call24, i64 %21
-  %54 = load i32, ptr %needs_incoming_message.i38, align 8
-  %tobool.not.i39 = icmp eq i32 %54, 0
+  %49 = load i64, ptr %outgoing_bytes_buffer_size, align 8
+  %sub = sub i64 %49, %19
+  %add.ptr = getelementptr inbounds i8, ptr %call24, i64 %19
+  %50 = load i32, ptr %needs_incoming_message.i38, align 8
+  %tobool.not.i39 = icmp eq i32 %50, 0
   br i1 %tobool.not.i39, label %lor.lhs.false.i42, label %if.end30, !llvm.loop !8
 
 if.end30:                                         ; preds = %if.then20, %lor.lhs.false.i42, %if.end17, %if.else.i, %if.end31.i
-  %offset.088 = phi i64 [ %offset.093, %if.else.i ], [ %offset.093, %if.end31.i ], [ 0, %if.end17 ], [ %21, %if.then20 ], [ %offset.093, %lor.lhs.false.i42 ]
+  %offset.088 = phi i64 [ %offset.093, %if.else.i ], [ %offset.093, %if.end31.i ], [ 0, %if.end17 ], [ %19, %if.then20 ], [ %offset.093, %lor.lhs.false.i42 ]
   %sent_bytes_size.0.ph = phi i64 [ %sub.i41.i, %if.else.i ], [ %sub.i41.i, %if.end31.i ], [ 0, %if.end17 ], [ 0, %lor.lhs.false.i42 ], [ 0, %if.then20 ]
   %add70 = add i64 %sent_bytes_size.0.ph, %offset.088
-  %55 = load ptr, ptr %outgoing_bytes_buffer, align 8
-  store ptr %55, ptr %bytes_to_send, align 8
+  %51 = load ptr, ptr %outgoing_bytes_buffer, align 8
+  store ptr %51, ptr %bytes_to_send, align 8
   store i64 %add70, ptr %bytes_to_send_size, align 8
-  %56 = getelementptr i8, ptr %self, i64 128
-  %self.val = load i32, ptr %56, align 8
+  %52 = getelementptr i8, ptr %self, i64 128
+  %self.val = load i32, ptr %52, align 8
   %cmp33 = icmp eq i32 %self.val, 11
   br i1 %cmp33, label %if.then34, label %if.else
 
@@ -651,12 +647,12 @@ if.then34:                                        ; preds = %if.end30
   br label %return
 
 if.else:                                          ; preds = %if.end30
-  %57 = load i64, ptr %consumed_bytes_size, align 8
-  %sub35 = sub i64 %received_bytes_size, %57
-  %cmp36.not = icmp eq i64 %57, %received_bytes_size
-  %add.ptr38 = getelementptr inbounds i8, ptr %received_bytes, i64 %57
+  %53 = load i64, ptr %consumed_bytes_size, align 8
+  %sub35 = sub i64 %received_bytes_size, %53
+  %cmp36.not = icmp eq i64 %53, %received_bytes_size
+  %add.ptr38 = getelementptr inbounds i8, ptr %received_bytes, i64 %53
   %spec.select = select i1 %cmp36.not, ptr null, ptr %add.ptr38
-  %cmp.i58 = icmp ne i64 %57, %received_bytes_size
+  %cmp.i58 = icmp ne i64 %53, %received_bytes_size
   %cmp1.i = icmp eq ptr %spec.select, null
   %or.cond.i = and i1 %cmp.i58, %cmp1.i
   br i1 %or.cond.i, label %if.then.i62, label %if.end5.i

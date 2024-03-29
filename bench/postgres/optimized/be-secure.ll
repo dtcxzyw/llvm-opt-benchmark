@@ -64,35 +64,33 @@ define dso_local i64 @secure_read(ptr nocapture noundef readonly %0, ptr noundef
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   %9 = getelementptr inbounds i8, ptr %4, i64 4
   %10 = load i8, ptr %8, align 4
-  %11 = and i8 %10, 1
-  %.not13 = icmp eq i8 %11, 0
-  br i1 %.not13, label %.lr.ph14.preheader, label %._crit_edge
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %._crit_edge, label %.lr.ph12.preheader
 
-.lr.ph14.preheader:                               ; preds = %.lr.ph
+.lr.ph12.preheader:                               ; preds = %.lr.ph
   %12 = tail call ptr @__errno_location() #7
-  br label %.lr.ph14
+  br label %.lr.ph12
 
 13:                                               ; preds = %33
   %14 = load i8, ptr %8, align 4
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %.lr.ph14, label %._crit_edge
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %._crit_edge, label %.lr.ph12
 
-.lr.ph14:                                         ; preds = %.lr.ph14.preheader, %13
-  %16 = phi i64 [ %35, %13 ], [ %6, %.lr.ph14.preheader ]
+.lr.ph12:                                         ; preds = %.lr.ph12.preheader, %13
+  %16 = phi i64 [ %35, %13 ], [ %6, %.lr.ph12.preheader ]
   %17 = load i32, ptr %12, align 4
   %18 = icmp eq i32 %17, 11
   br i1 %18, label %19, label %._crit_edge
 
-19:                                               ; preds = %.lr.ph14
+19:                                               ; preds = %.lr.ph12
   %20 = load ptr, ptr @FeBeWaitSet, align 8
   call void @ModifyWaitEvent(ptr noundef %20, i32 noundef 0, i32 noundef 2, ptr noundef null) #6
   %21 = load ptr, ptr @FeBeWaitSet, align 8
   %22 = call i32 @WaitEventSetWait(ptr noundef %21, i64 noundef -1, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 100663296) #6
   %23 = load i32, ptr %9, align 4
   %24 = and i32 %23, 16
-  %.not6 = icmp eq i32 %24, 0
-  br i1 %.not6, label %29, label %25
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %29, label %25
 
 25:                                               ; preds = %19
   %26 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
@@ -104,8 +102,8 @@ define dso_local i64 @secure_read(ptr nocapture noundef readonly %0, ptr noundef
 
 29:                                               ; preds = %19
   %30 = and i32 %23, 1
-  %.not7 = icmp eq i32 %30, 0
-  br i1 %.not7, label %33, label %31
+  %.not6 = icmp eq i32 %30, 0
+  br i1 %.not6, label %33, label %31
 
 31:                                               ; preds = %29
   %32 = load ptr, ptr @MyLatch, align 8
@@ -119,8 +117,8 @@ define dso_local i64 @secure_read(ptr nocapture noundef readonly %0, ptr noundef
   %36 = icmp slt i64 %35, 0
   br i1 %36, label %13, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph14, %13, %33, %.lr.ph, %3
-  %.lcssa = phi i64 [ %6, %3 ], [ %6, %.lr.ph ], [ %35, %33 ], [ %35, %13 ], [ %16, %.lr.ph14 ]
+._crit_edge:                                      ; preds = %.lr.ph12, %13, %33, %.lr.ph, %3
+  %.lcssa = phi i64 [ %6, %3 ], [ %6, %.lr.ph ], [ %35, %33 ], [ %35, %13 ], [ %16, %.lr.ph12 ]
   call void @ProcessClientReadInterrupt(i1 noundef zeroext false) #6
   ret i64 %.lcssa
 }
@@ -167,35 +165,33 @@ define dso_local i64 @secure_write(ptr nocapture noundef readonly %0, ptr nounde
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   %9 = getelementptr inbounds i8, ptr %4, i64 4
   %10 = load i8, ptr %8, align 4
-  %11 = and i8 %10, 1
-  %.not13 = icmp eq i8 %11, 0
-  br i1 %.not13, label %.lr.ph14.preheader, label %._crit_edge
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %._crit_edge, label %.lr.ph12.preheader
 
-.lr.ph14.preheader:                               ; preds = %.lr.ph
+.lr.ph12.preheader:                               ; preds = %.lr.ph
   %12 = tail call ptr @__errno_location() #7
-  br label %.lr.ph14
+  br label %.lr.ph12
 
 13:                                               ; preds = %33
   %14 = load i8, ptr %8, align 4
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %.lr.ph14, label %._crit_edge
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %._crit_edge, label %.lr.ph12
 
-.lr.ph14:                                         ; preds = %.lr.ph14.preheader, %13
-  %16 = phi i64 [ %35, %13 ], [ %6, %.lr.ph14.preheader ]
+.lr.ph12:                                         ; preds = %.lr.ph12.preheader, %13
+  %16 = phi i64 [ %35, %13 ], [ %6, %.lr.ph12.preheader ]
   %17 = load i32, ptr %12, align 4
   %18 = icmp eq i32 %17, 11
   br i1 %18, label %19, label %._crit_edge
 
-19:                                               ; preds = %.lr.ph14
+19:                                               ; preds = %.lr.ph12
   %20 = load ptr, ptr @FeBeWaitSet, align 8
   call void @ModifyWaitEvent(ptr noundef %20, i32 noundef 0, i32 noundef 4, ptr noundef null) #6
   %21 = load ptr, ptr @FeBeWaitSet, align 8
   %22 = call i32 @WaitEventSetWait(ptr noundef %21, i64 noundef -1, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 100663297) #6
   %23 = load i32, ptr %9, align 4
   %24 = and i32 %23, 16
-  %.not6 = icmp eq i32 %24, 0
-  br i1 %.not6, label %29, label %25
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %29, label %25
 
 25:                                               ; preds = %19
   %26 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
@@ -207,8 +203,8 @@ define dso_local i64 @secure_write(ptr nocapture noundef readonly %0, ptr nounde
 
 29:                                               ; preds = %19
   %30 = and i32 %23, 1
-  %.not7 = icmp eq i32 %30, 0
-  br i1 %.not7, label %33, label %31
+  %.not6 = icmp eq i32 %30, 0
+  br i1 %.not6, label %33, label %31
 
 31:                                               ; preds = %29
   %32 = load ptr, ptr @MyLatch, align 8
@@ -222,8 +218,8 @@ define dso_local i64 @secure_write(ptr nocapture noundef readonly %0, ptr nounde
   %36 = icmp slt i64 %35, 0
   br i1 %36, label %13, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph14, %13, %33, %.lr.ph, %3
-  %.lcssa = phi i64 [ %6, %3 ], [ %6, %.lr.ph ], [ %35, %33 ], [ %35, %13 ], [ %16, %.lr.ph14 ]
+._crit_edge:                                      ; preds = %.lr.ph12, %13, %33, %.lr.ph, %3
+  %.lcssa = phi i64 [ %6, %3 ], [ %6, %.lr.ph ], [ %35, %33 ], [ %35, %13 ], [ %16, %.lr.ph12 ]
   call void @ProcessClientWriteInterrupt(i1 noundef zeroext false) #6
   ret i64 %.lcssa
 }

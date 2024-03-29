@@ -480,7 +480,7 @@ if.then7.i:                                       ; preds = %if.end.i
   br label %return
 
 for.cond1:                                        ; preds = %for.cond1.backedge, %for.cond1.outer
-  br i1 %tobool.not, label %if.end5, label %if.then2
+  br i1 %stdin_open.0.ph, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %for.cond1
   %2 = load i64, ptr %read_fds, align 8
@@ -527,7 +527,7 @@ if.then25:                                        ; preds = %do.body18
   br label %for.cond1.outer, !llvm.loop !9
 
 for.cond1.outer:                                  ; preds = %for.cond1.preheader, %if.then25
-  %tobool.not = phi i1 [ false, %for.cond1.preheader ], [ true, %if.then25 ]
+  %stdin_open.0.ph = phi i1 [ true, %for.cond1.preheader ], [ false, %if.then25 ]
   br label %for.cond1
 
 if.else:                                          ; preds = %do.body18

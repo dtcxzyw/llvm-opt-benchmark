@@ -83,7 +83,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %44
 
 .preheader:                                       ; preds = %109, %26
-  %.0.lcssa = phi i8 [ 1, %26 ], [ %.2, %109 ]
+  %.0.lcssa = phi i1 [ true, %26 ], [ %.2, %109 ]
   %40 = getelementptr inbounds i8, ptr %34, i64 64
   %41 = load i32, ptr %40, align 8
   %42 = icmp sgt i32 %41, 0
@@ -95,7 +95,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
 
 44:                                               ; preds = %.lr.ph, %109
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %109 ]
-  %.0149 = phi i8 [ 1, %.lr.ph ], [ %.2, %109 ]
+  %.0149 = phi i1 [ true, %.lr.ph ], [ %.2, %109 ]
   %45 = getelementptr [0 x ptr], ptr %39, i64 0, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 80
@@ -125,7 +125,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %65
 
 65:                                               ; preds = %59, %57, %44
-  %.1 = phi i8 [ %.0149, %44 ], [ 0, %57 ], [ 0, %59 ]
+  %.1 = phi i1 [ %.0149, %44 ], [ false, %57 ], [ false, %59 ]
   %66 = load i32, ptr %53, align 4
   %.not139 = icmp eq i32 %66, %17
   br i1 %.not139, label %67, label %109
@@ -207,7 +207,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %109
 
 109:                                              ; preds = %.sink.split, %70, %74, %78, %82, %86, %90, %100, %94, %96, %65
-  %.2 = phi i8 [ %.1, %65 ], [ %.1, %96 ], [ 0, %94 ], [ 0, %100 ], [ %.1, %90 ], [ %.1, %86 ], [ %.1, %82 ], [ %.1, %78 ], [ %.1, %74 ], [ %.1, %70 ], [ 0, %.sink.split ]
+  %.2 = phi i1 [ %.1, %65 ], [ %.1, %96 ], [ false, %94 ], [ false, %100 ], [ %.1, %90 ], [ %.1, %86 ], [ %.1, %82 ], [ %.1, %78 ], [ %.1, %74 ], [ %.1, %70 ], [ false, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %110 = load i32, ptr %36, align 8
   %111 = sext i32 %110 to i64
@@ -216,7 +216,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
 
 113:                                              ; preds = %.lr.ph152, %164
   %indvars.iv169 = phi i64 [ 0, %.lr.ph152 ], [ %indvars.iv.next170, %164 ]
-  %.3151 = phi i8 [ %.0.lcssa, %.lr.ph152 ], [ %.6, %164 ]
+  %.3151 = phi i1 [ %.0.lcssa, %.lr.ph152 ], [ %.6, %164 ]
   %114 = getelementptr [0 x ptr], ptr %43, i64 0, i64 %indvars.iv169
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 80
@@ -247,7 +247,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %135
 
 135:                                              ; preds = %127, %125, %113
-  %.4 = phi i8 [ %.3151, %113 ], [ 0, %125 ], [ 0, %127 ]
+  %.4 = phi i1 [ %.3151, %113 ], [ false, %125 ], [ false, %127 ]
   %136 = getelementptr inbounds i8, ptr %121, i64 18
   %137 = load i8, ptr %136, align 2
   %.not136 = icmp eq i8 %137, 115
@@ -273,7 +273,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %149
 
 149:                                              ; preds = %143, %141, %138
-  %.5 = phi i8 [ %.4, %138 ], [ 0, %141 ], [ 0, %143 ]
+  %.5 = phi i1 [ %.4, %138 ], [ false, %141 ], [ false, %143 ]
   %150 = getelementptr inbounds i8, ptr %121, i64 20
   %151 = load i32, ptr %150, align 4
   %152 = getelementptr inbounds i8, ptr %121, i64 8
@@ -296,7 +296,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %164
 
 164:                                              ; preds = %159, %157, %149
-  %.6 = phi i8 [ %.5, %149 ], [ 0, %157 ], [ 0, %159 ]
+  %.6 = phi i1 [ %.5, %149 ], [ false, %157 ], [ false, %159 ]
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %165 = load i32, ptr %40, align 8
   %166 = sext i32 %165 to i64
@@ -304,7 +304,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %167, label %113, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %164, %.preheader
-  %.3.lcssa = phi i8 [ %.0.lcssa, %.preheader ], [ %.6, %164 ]
+  %.3.lcssa = phi i1 [ %.0.lcssa, %.preheader ], [ %.6, %164 ]
   %168 = tail call ptr @identify_opfamily_groups(ptr noundef nonnull %34, ptr noundef %35) #4
   %.not131 = icmp eq ptr %168, null
   br i1 %.not131, label %._crit_edge160, label %.lr.ph157
@@ -382,14 +382,14 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %200
 
 200:                                              ; preds = %197, %195, %190
-  %.8 = phi i8 [ %.7168.ph, %190 ], [ 0, %195 ], [ 0, %197 ]
+  %.8 = phi i1 [ %.7168.ph, %190 ], [ false, %195 ], [ false, %197 ]
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next175, 8
   br i1 %exitcond176.not, label %201, label %.outer, !llvm.loop !8
 
 .outer:                                           ; preds = %200, %._crit_edge160
   %indvars.iv174.ph = phi i64 [ %indvars.iv.next175, %200 ], [ 1, %._crit_edge160 ]
-  %.7168.ph = phi i8 [ %.8, %200 ], [ %.3.lcssa, %._crit_edge160 ]
+  %.7168.ph = phi i1 [ %.8, %200 ], [ %.3.lcssa, %._crit_edge160 ]
   br label %185
 
 .thread:                                          ; preds = %186
@@ -401,7 +401,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not134, label %204, label %.thread181
 
 .thread181:                                       ; preds = %.thread, %201
-  %.8180183 = phi i8 [ %.8, %201 ], [ %.7168.ph, %.thread ]
+  %.8180183 = phi i1 [ %.8, %201 ], [ %.7168.ph, %.thread ]
   %202 = load i64, ptr %174, align 8
   %203 = and i64 %202, 80
   %or.cond144 = icmp eq i64 %203, 0
@@ -418,14 +418,12 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %209
 
 209:                                              ; preds = %206, %204, %.thread181
-  %.9 = phi i8 [ %.8180183, %.thread181 ], [ 0, %204 ], [ 0, %206 ]
+  %.9 = phi i1 [ %.8180183, %.thread181 ], [ false, %204 ], [ false, %206 ]
   tail call void @ReleaseCatCacheList(ptr noundef %35) #4
   tail call void @ReleaseCatCacheList(ptr noundef %34) #4
   tail call void @ReleaseSysCache(ptr noundef nonnull %22) #4
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #4
-  %210 = and i8 %.9, 1
-  %211 = icmp ne i8 %210, 0
-  ret i1 %211
+  ret i1 %.9
 }
 
 declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #1

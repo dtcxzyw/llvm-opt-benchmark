@@ -4187,42 +4187,41 @@ if.end:                                           ; preds = %entry
   tail call void @_ZN17expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef %k, ptr noundef nonnull %new_def, ptr noundef null, ptr noundef null)
   %m_produce_models = getelementptr inbounds i8, ptr %1, i64 168
   %3 = load i8, ptr %m_produce_models, align 8
-  %4 = and i8 %3, 1
-  %tobool2.not = icmp eq i8 %4, 0
-  br i1 %tobool2.not, label %if.end24, label %if.then3
+  %tobool2 = trunc i8 %3 to i1
+  br i1 %tobool2, label %if.then3, label %if.end24
 
 if.then3:                                         ; preds = %if.end
   %m_mc = getelementptr inbounds i8, ptr %1, i64 144
-  %5 = load ptr, ptr %m_mc, align 8
-  %cmp.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %m_mc, align 8
+  %cmp.i = icmp eq ptr %4, null
   br i1 %cmp.i, label %if.end.i, label %if.end8
 
 if.end.i:                                         ; preds = %if.then3
   %call5 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 80)
   %m = getelementptr inbounds i8, ptr %1, i64 16
-  %6 = load ptr, ptr %m, align 8
-  tail call void @_ZN23generic_model_converterC2ER11ast_managerPKc(ptr noundef nonnull align 8 dereferenceable(80) %call5, ptr noundef nonnull align 8 dereferenceable(976) %6, ptr noundef nonnull @.str.12)
+  %5 = load ptr, ptr %m, align 8
+  tail call void @_ZN23generic_model_converterC2ER11ast_managerPKc(ptr noundef nonnull align 8 dereferenceable(80) %call5, ptr noundef nonnull align 8 dereferenceable(976) %5, ptr noundef nonnull @.str.12)
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %call5, i64 8
-  %7 = load i32, ptr %m_ref_count.i.i, align 8
-  %inc.i.i = add i32 %7, 1
+  %6 = load i32, ptr %m_ref_count.i.i, align 8
+  %inc.i.i = add i32 %6, 1
   store i32 %inc.i.i, ptr %m_ref_count.i.i, align 8
-  %8 = load ptr, ptr %m_mc, align 8
-  %tobool.not.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %m_mc, align 8
+  %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %_ZN3refI23generic_model_converterEaSEPS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load i32, ptr %m_ref_count.i.i.i, align 8
-  %dec.i.i.i = add i32 %9, -1
+  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load i32, ptr %m_ref_count.i.i.i, align 8
+  %dec.i.i.i = add i32 %8, -1
   store i32 %dec.i.i.i, ptr %m_ref_count.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN3refI23generic_model_converterEaSEPS0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %vtable.i.i.i.i = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %vtable.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %8) #16
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %8)
+  %vtable.i.i.i.i = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %vtable.i.i.i.i, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(12) %7) #16
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %7)
   br label %_ZN3refI23generic_model_converterEaSEPS0_.exit
 
 _ZN3refI23generic_model_converterEaSEPS0_.exit:   ; preds = %if.end.i, %if.then.i.i, %if.then.i.i.i
@@ -4230,13 +4229,13 @@ _ZN3refI23generic_model_converterEaSEPS0_.exit:   ; preds = %if.end.i, %if.then.
   br label %if.end8
 
 if.end8:                                          ; preds = %_ZN3refI23generic_model_converterEaSEPS0_.exit, %if.then3
-  %11 = phi ptr [ %call5, %_ZN3refI23generic_model_converterEaSEPS0_.exit ], [ %5, %if.then3 ]
+  %10 = phi ptr [ %call5, %_ZN3refI23generic_model_converterEaSEPS0_.exit ], [ %4, %if.then3 ]
   %m_decl.i.i = getelementptr inbounds i8, ptr %k, i64 16
-  %12 = load ptr, ptr %m_decl.i.i, align 8
-  tail call void @_ZN23generic_model_converter3addEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(80) %11, ptr noundef %12, ptr noundef nonnull %new_def)
+  %11 = load ptr, ptr %m_decl.i.i, align 8
+  tail call void @_ZN23generic_model_converter3addEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef %11, ptr noundef nonnull %new_def)
   %m_fmc = getelementptr inbounds i8, ptr %1, i64 152
-  %13 = load ptr, ptr %m_fmc, align 8
-  %cmp.i6 = icmp eq ptr %13, null
+  %12 = load ptr, ptr %m_fmc, align 8
+  %cmp.i6 = icmp eq ptr %12, null
   %tobool12 = icmp ne ptr %new_const, null
   %or.cond = and i1 %tobool12, %cmp.i6
   br i1 %or.cond, label %if.end.i11, label %if.end18
@@ -4244,29 +4243,29 @@ if.end8:                                          ; preds = %_ZN3refI23generic_m
 if.end.i11:                                       ; preds = %if.end8
   %call14 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 80)
   %m15 = getelementptr inbounds i8, ptr %1, i64 16
-  %14 = load ptr, ptr %m15, align 8
-  tail call void @_ZN23generic_model_converterC2ER11ast_managerPKc(ptr noundef nonnull align 8 dereferenceable(80) %call14, ptr noundef nonnull align 8 dereferenceable(976) %14, ptr noundef nonnull @.str.12)
+  %13 = load ptr, ptr %m15, align 8
+  tail call void @_ZN23generic_model_converterC2ER11ast_managerPKc(ptr noundef nonnull align 8 dereferenceable(80) %call14, ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull @.str.12)
   %m_ref_count.i.i9 = getelementptr inbounds i8, ptr %call14, i64 8
-  %15 = load i32, ptr %m_ref_count.i.i9, align 8
-  %inc.i.i10 = add i32 %15, 1
+  %14 = load i32, ptr %m_ref_count.i.i9, align 8
+  %inc.i.i10 = add i32 %14, 1
   store i32 %inc.i.i10, ptr %m_ref_count.i.i9, align 8
-  %16 = load ptr, ptr %m_fmc, align 8
-  %tobool.not.i.i12 = icmp eq ptr %16, null
+  %15 = load ptr, ptr %m_fmc, align 8
+  %tobool.not.i.i12 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i12, label %if.end18.thread, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %if.end.i11
-  %m_ref_count.i.i.i14 = getelementptr inbounds i8, ptr %16, i64 8
-  %17 = load i32, ptr %m_ref_count.i.i.i14, align 8
-  %dec.i.i.i15 = add i32 %17, -1
+  %m_ref_count.i.i.i14 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load i32, ptr %m_ref_count.i.i.i14, align 8
+  %dec.i.i.i15 = add i32 %16, -1
   store i32 %dec.i.i.i15, ptr %m_ref_count.i.i.i14, align 8
   %cmp.i.i.i16 = icmp eq i32 %dec.i.i.i15, 0
   br i1 %cmp.i.i.i16, label %if.then.i.i.i17, label %if.end18.thread
 
 if.then.i.i.i17:                                  ; preds = %if.then.i.i13
-  %vtable.i.i.i.i18 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr %vtable.i.i.i.i18, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(12) %16) #16
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %16)
+  %vtable.i.i.i.i18 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %vtable.i.i.i.i18, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(12) %15) #16
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %15)
   br label %if.end18.thread
 
 if.end18.thread:                                  ; preds = %if.then.i.i.i17, %if.then.i.i13, %if.end.i11
@@ -4277,23 +4276,23 @@ if.end18:                                         ; preds = %if.end8
   br i1 %tobool12, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end18.thread, %if.end18
-  %19 = phi ptr [ %call14, %if.end18.thread ], [ %13, %if.end18 ]
+  %18 = phi ptr [ %call14, %if.end18.thread ], [ %12, %if.end18 ]
   %m_decl.i.i20 = getelementptr inbounds i8, ptr %new_const, i64 16
-  %20 = load ptr, ptr %m_decl.i.i20, align 8
+  %19 = load ptr, ptr %m_decl.i.i20, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i.i)
-  %m_entries.i.i = getelementptr inbounds i8, ptr %19, i64 72
-  %m.i.i = getelementptr inbounds i8, ptr %19, i64 32
-  %21 = load ptr, ptr %m.i.i, align 8
-  store ptr %20, ptr %ref.tmp.i.i, align 8
+  %m_entries.i.i = getelementptr inbounds i8, ptr %18, i64 72
+  %m.i.i = getelementptr inbounds i8, ptr %18, i64 32
+  %20 = load ptr, ptr %m.i.i, align 8
+  store ptr %19, ptr %ref.tmp.i.i, align 8
   %m_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %21, ptr %m_manager.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %20, null
+  store ptr %20, ptr %m_manager.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN23generic_model_converter5entryC2EP9func_declP4exprR11ast_managerNS_11instructionE.exit.i.i, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i.i:    ; preds = %if.then20
-  %m_ref_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
-  %22 = load i32, ptr %m_ref_count.i.i.i.i.i.i.i, align 4
-  %inc.i.i.i.i.i.i.i = add i32 %22, 1
+  %m_ref_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load i32, ptr %m_ref_count.i.i.i.i.i.i.i, align 4
+  %inc.i.i.i.i.i.i.i = add i32 %21, 1
   store i32 %inc.i.i.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i.i.i, align 4
   br label %_ZN23generic_model_converter5entryC2EP9func_declP4exprR11ast_managerNS_11instructionE.exit.i.i
 
@@ -4301,19 +4300,19 @@ _ZN23generic_model_converter5entryC2EP9func_declP4exprR11ast_managerNS_11instruc
   %m_def.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store ptr null, ptr %m_def.i.i.i, align 8
   %m_manager.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
-  store ptr %21, ptr %m_manager.i2.i.i.i, align 8
+  store ptr %20, ptr %m_manager.i2.i.i.i, align 8
   %m_instruction.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 32
   store i32 0, ptr %m_instruction.i.i.i, align 8
-  %23 = load ptr, ptr %m_entries.i.i, align 8
-  %cmp.i.i.i21 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %m_entries.i.i, align 8
+  %cmp.i.i.i21 = icmp eq ptr %22, null
   br i1 %cmp.i.i.i21, label %if.then.i.i.i22, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %_ZN23generic_model_converter5entryC2EP9func_declP4exprR11ast_managerNS_11instructionE.exit.i.i
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %23, i64 -4
-  %24 = load i32, ptr %arrayidx.i.i.i, align 4
-  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %23, i64 -8
-  %25 = load i32, ptr %arrayidx4.i.i.i, align 4
-  %cmp5.i.i.i = icmp eq i32 %24, %25
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %22, i64 -4
+  %23 = load i32, ptr %arrayidx.i.i.i, align 4
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %22, i64 -8
+  %24 = load i32, ptr %arrayidx4.i.i.i, align 4
+  %cmp5.i.i.i = icmp eq i32 %23, %24
   br i1 %cmp5.i.i.i, label %if.then.i.i.i22, label %_ZN23generic_model_converter4hideEP4expr.exit
 
 if.then.i.i.i22:                                  ; preds = %lor.lhs.false.i.i.i, %_ZN23generic_model_converter5entryC2EP9func_declP4exprR11ast_managerNS_11instructionE.exit.i.i
@@ -4327,39 +4326,39 @@ if.then.i.i.i22:                                  ; preds = %lor.lhs.false.i.i.i
   br label %_ZN23generic_model_converter4hideEP4expr.exit
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i22
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN23generic_model_converter5entryD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i.i) #16
-  resume { ptr, i32 } %26
+  resume { ptr, i32 } %25
 
 _ZN23generic_model_converter4hideEP4expr.exit:    ; preds = %lor.lhs.false.i.i.i, %.noexc.i.i
-  %27 = phi i32 [ %.pre1.i.i.i, %.noexc.i.i ], [ %24, %lor.lhs.false.i.i.i ]
-  %28 = phi ptr [ %.pre.i.i.i, %.noexc.i.i ], [ %23, %lor.lhs.false.i.i.i ]
-  %idx.ext.i.i.i = zext i32 %27 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.generic_model_converter::entry", ptr %28, i64 %idx.ext.i.i.i
+  %26 = phi i32 [ %.pre1.i.i.i, %.noexc.i.i ], [ %23, %lor.lhs.false.i.i.i ]
+  %27 = phi ptr [ %.pre.i.i.i, %.noexc.i.i ], [ %22, %lor.lhs.false.i.i.i ]
+  %idx.ext.i.i.i = zext i32 %26 to i64
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.generic_model_converter::entry", ptr %27, i64 %idx.ext.i.i.i
   %m_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
-  store ptr %21, ptr %m_manager.i.i.i.i.i, align 8
-  store ptr %20, ptr %add.ptr.i.i.i, align 8
+  store ptr %20, ptr %m_manager.i.i.i.i.i, align 8
+  store ptr %19, ptr %add.ptr.i.i.i, align 8
   %m_def.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
   %m_manager.i3.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 24
-  store ptr %21, ptr %m_manager.i3.i.i.i.i, align 8
+  store ptr %20, ptr %m_manager.i3.i.i.i.i, align 8
   store ptr null, ptr %m_def.i.i.i.i, align 8
   %m_instruction.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 32
   store i32 0, ptr %m_instruction.i.i.i.i, align 8
-  %29 = load ptr, ptr %m_entries.i.i, align 8
-  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %29, i64 -4
-  %30 = load i32, ptr %arrayidx10.i.i.i, align 4
-  %inc.i.i.i = add i32 %30, 1
+  %28 = load ptr, ptr %m_entries.i.i, align 8
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %28, i64 -4
+  %29 = load i32, ptr %arrayidx10.i.i.i, align 4
+  %inc.i.i.i = add i32 %29, 1
   store i32 %inc.i.i.i, ptr %arrayidx10.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i.i)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end18, %_ZN23generic_model_converter4hideEP4expr.exit, %if.end
-  %31 = getelementptr inbounds i8, ptr %this, i64 16
-  %32 = load ptr, ptr %31, align 8
-  %33 = load i32, ptr %32, align 4
-  %inc = add i32 %33, 1
-  store i32 %inc, ptr %32, align 4
+  %30 = getelementptr inbounds i8, ptr %this, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %32 = load i32, ptr %31, align 4
+  %inc = add i32 %32, 1
+  store i32 %inc, ptr %31, align 4
   br label %return
 
 return:                                           ; preds = %entry, %if.end24

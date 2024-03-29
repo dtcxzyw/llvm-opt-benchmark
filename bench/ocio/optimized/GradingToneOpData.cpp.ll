@@ -344,13 +344,12 @@ call7.i.noexc:                                    ; preds = %call.i.noexc
   %13 = load ptr, ptr %m_value5.i, align 8
   %m_isDynamic.i.i = getelementptr inbounds i8, ptr %13, i64 12
   %14 = load i8, ptr %m_isDynamic.i.i, align 4
-  %15 = and i8 %14, 1
-  %tobool.i.not.i = icmp eq i8 %15, 0
-  br i1 %tobool.i.not.i, label %invoke.cont8, label %if.then13.i
+  %tobool.i.i = trunc i8 %14 to i1
+  br i1 %tobool.i.i, label %if.then13.i, label %invoke.cont8
 
 if.then13.i:                                      ; preds = %.noexc
-  %16 = load ptr, ptr %m_value, align 8
-  %m_isDynamic.i6.i = getelementptr inbounds i8, ptr %16, i64 12
+  %15 = load ptr, ptr %m_value, align 8
+  %m_isDynamic.i6.i = getelementptr inbounds i8, ptr %15, i64 12
   store i8 1, ptr %m_isDynamic.i6.i, align 4
   br label %invoke.cont8
 
@@ -358,18 +357,18 @@ invoke.cont8:                                     ; preds = %if.then13.i, %.noex
   ret void
 
 lpad:                                             ; preds = %invoke.cont
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad7:                                            ; preds = %call7.i.noexc, %call.i.noexc, %if.end.i
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_value) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %lpad7
-  %.pn = phi { ptr, i32 } [ %18, %lpad7 ], [ %17, %lpad ], [ %6, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %17, %lpad7 ], [ %16, %lpad ], [ %6, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev6OpDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_metadata.i = getelementptr inbounds i8, ptr %this, i64 48
   call void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i) #19
@@ -409,13 +408,12 @@ if.end:                                           ; preds = %entry
   %6 = load ptr, ptr %m_value5, align 8
   %m_isDynamic.i = getelementptr inbounds i8, ptr %6, i64 12
   %7 = load i8, ptr %m_isDynamic.i, align 4
-  %8 = and i8 %7, 1
-  %tobool.i.not = icmp eq i8 %8, 0
-  br i1 %tobool.i.not, label %return, label %if.then13
+  %tobool.i = trunc i8 %7 to i1
+  br i1 %tobool.i, label %if.then13, label %return
 
 if.then13:                                        ; preds = %if.end
-  %9 = load ptr, ptr %m_value, align 8
-  %m_isDynamic.i6 = getelementptr inbounds i8, ptr %9, i64 12
+  %8 = load ptr, ptr %m_value, align 8
+  %m_isDynamic.i6 = getelementptr inbounds i8, ptr %8, i64 12
   store i8 1, ptr %m_isDynamic.i6, align 4
   br label %return
 
@@ -737,15 +735,14 @@ entry:
   %0 = load ptr, ptr %m_value.i, align 8
   %m_isDynamic.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %m_isDynamic.i.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.i.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.i.not, label %if.end, label %return
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %3 = load ptr, ptr %vfn, align 8
-  %call3 = tail call noundef nonnull align 8 dereferenceable(248) ptr %3(ptr noundef nonnull align 8 dereferenceable(1208) %0)
+  %2 = load ptr, ptr %vfn, align 8
+  %call3 = tail call noundef nonnull align 8 dereferenceable(248) ptr %2(ptr noundef nonnull align 8 dereferenceable(1208) %0)
   %call4 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev10IsIdentityERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(248) %call3)
   br label %return
 
@@ -761,8 +758,7 @@ entry:
   %0 = load ptr, ptr %m_value, align 8
   %m_isDynamic.i = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %m_isDynamic.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   ret i1 %tobool.i
 }
 
@@ -775,39 +771,37 @@ entry:
   %0 = load ptr, ptr %m_value.i, align 8
   %m_isDynamic.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %m_isDynamic.i.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.i.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.i.not, label %lor.lhs.false, label %return
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %3 = load ptr, ptr %r, align 8
-  %m_value.i4 = getelementptr inbounds i8, ptr %3, i64 176
-  %4 = load ptr, ptr %m_value.i4, align 8
-  %m_isDynamic.i.i5 = getelementptr inbounds i8, ptr %4, i64 12
-  %5 = load i8, ptr %m_isDynamic.i.i5, align 4
-  %6 = and i8 %5, 1
-  %tobool.i.i6.not = icmp eq i8 %6, 0
-  br i1 %tobool.i.i6.not, label %if.end, label %return
+  %2 = load ptr, ptr %r, align 8
+  %m_value.i4 = getelementptr inbounds i8, ptr %2, i64 176
+  %3 = load ptr, ptr %m_value.i4, align 8
+  %m_isDynamic.i.i5 = getelementptr inbounds i8, ptr %3, i64 12
+  %4 = load i8, ptr %m_isDynamic.i.i5, align 4
+  %tobool.i.i6 = trunc i8 %4 to i1
+  br i1 %tobool.i.i6, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   %m_style = getelementptr inbounds i8, ptr %this, i64 168
-  %7 = load i32, ptr %m_style, align 8
-  %m_style5 = getelementptr inbounds i8, ptr %3, i64 168
-  %8 = load i32, ptr %m_style5, align 8
-  %cmp = icmp eq i32 %7, %8
+  %5 = load i32, ptr %m_style, align 8
+  %m_style5 = getelementptr inbounds i8, ptr %2, i64 168
+  %6 = load i32, ptr %m_style5, align 8
+  %cmp = icmp eq i32 %5, %6
   br i1 %cmp, label %land.lhs.true, label %if.end19
 
 land.lhs.true:                                    ; preds = %if.end
-  %call10 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev19DynamicPropertyImpl6equalsERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %0, ptr noundef nonnull align 8 dereferenceable(13) %4)
+  %call10 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev19DynamicPropertyImpl6equalsERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %0, ptr noundef nonnull align 8 dereferenceable(13) %3)
   br i1 %call10, label %if.then11, label %if.end19
 
 if.then11:                                        ; preds = %land.lhs.true
   %m_direction.i = getelementptr inbounds i8, ptr %this, i64 192
-  %9 = load i32, ptr %m_direction.i, align 8
-  %10 = load ptr, ptr %r, align 8
-  %m_direction.i7 = getelementptr inbounds i8, ptr %10, i64 192
-  %11 = load i32, ptr %m_direction.i7, align 8
-  %call15 = tail call noundef i32 @_ZN19OpenColorIO_v2_4dev26CombineTransformDirectionsENS_18TransformDirectionES0_(i32 noundef %9, i32 noundef %11)
+  %7 = load i32, ptr %m_direction.i, align 8
+  %8 = load ptr, ptr %r, align 8
+  %m_direction.i7 = getelementptr inbounds i8, ptr %8, i64 192
+  %9 = load i32, ptr %m_direction.i7, align 8
+  %call15 = tail call noundef i32 @_ZN19OpenColorIO_v2_4dev26CombineTransformDirectionsENS_18TransformDirectionES0_(i32 noundef %7, i32 noundef %9)
   %cmp16 = icmp eq i32 %call15, 1
   br i1 %cmp16, label %return, label %if.end19
 
@@ -1047,15 +1041,14 @@ invoke.cont25:                                    ; preds = %invoke.cont23
   %4 = load ptr, ptr %m_value.i, align 8
   %m_isDynamic.i.i = getelementptr inbounds i8, ptr %4, i64 12
   %5 = load i8, ptr %m_isDynamic.i.i, align 4
-  %6 = and i8 %5, 1
-  %tobool.i.i.not = icmp eq i8 %6, 0
-  br i1 %tobool.i.i.not, label %if.then28, label %if.end35
+  %tobool.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i, label %if.end35, label %if.then28
 
 if.then28:                                        ; preds = %invoke.cont25
   %vtable30 = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable30, i64 24
-  %7 = load ptr, ptr %vfn, align 8
-  %call32 = invoke noundef nonnull align 8 dereferenceable(248) ptr %7(ptr noundef nonnull align 8 dereferenceable(1208) %4)
+  %6 = load ptr, ptr %vfn, align 8
+  %call32 = invoke noundef nonnull align 8 dereferenceable(248) ptr %6(ptr noundef nonnull align 8 dereferenceable(1208) %4)
           to label %invoke.cont31 unwind label %lpad2
 
 invoke.cont31:                                    ; preds = %if.then28

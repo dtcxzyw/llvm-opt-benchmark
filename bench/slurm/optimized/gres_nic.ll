@@ -120,9 +120,8 @@ define void @gres_p_job_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
 define internal fastcc void @_set_env(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  %.str.4..str.3 = select i1 %.not, ptr @.str.4, ptr @.str.3
+  %4 = trunc i8 %3 to i1
+  %.str.3..str.4 = select i1 %4, ptr @.str.3, ptr @.str.4
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr @.str.5, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 88
@@ -130,28 +129,28 @@ define internal fastcc void @_set_env(ptr noundef %0) unnamed_addr #0 {
   tail call void @common_gres_set_env(ptr noundef %0) #6
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %.not18 = icmp eq ptr %8, null
+  %.not = icmp eq ptr %8, null
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  br i1 %.not18, label %13, label %11
+  br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %1
-  %12 = tail call i32 @slurm_env_array_overwrite(ptr noundef %10, ptr noundef nonnull %.str.4..str.3, ptr noundef nonnull %8) #6
+  %12 = tail call i32 @slurm_env_array_overwrite(ptr noundef %10, ptr noundef nonnull %.str.3..str.4, ptr noundef nonnull %8) #6
   tail call void @slurm_xfree(ptr noundef nonnull %7) #6
   br label %15
 
 13:                                               ; preds = %1
   %14 = load ptr, ptr %10, align 8
-  tail call void @slurm_unsetenvp(ptr noundef %14, ptr noundef nonnull %.str.4..str.3) #6
+  tail call void @slurm_unsetenvp(ptr noundef %14, ptr noundef nonnull %.str.3..str.4) #6
   br label %15
 
 15:                                               ; preds = %13, %11
   %16 = getelementptr inbounds i8, ptr %0, i64 64
   %17 = load ptr, ptr %16, align 8
-  %.not19 = icmp eq ptr %17, null
+  %.not18 = icmp eq ptr %17, null
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
-  br i1 %.not19, label %22, label %20
+  br i1 %.not18, label %22, label %20
 
 20:                                               ; preds = %15
   %21 = tail call i32 @slurm_env_array_overwrite(ptr noundef %19, ptr noundef nonnull @.str.6, ptr noundef nonnull %17) #6

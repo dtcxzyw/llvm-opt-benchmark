@@ -2158,87 +2158,85 @@ define internal fastcc void @dissect_u3v_register(i64 noundef %0, ptr noundef %1
   %88 = load i64, ptr %87, align 8
   %89 = add i64 %88, -1
   %or.cond201.not = icmp ult i64 %89, %0
-  br i1 %or.cond201.not, label %90, label %97
+  br i1 %or.cond201.not, label %90, label %96
 
 90:                                               ; preds = %86
   %91 = sub i64 %0, %88
   %92 = tail call i64 @llvm.fshl.i64(i64 %91, i64 %91, i64 62)
   %93 = icmp ult i64 %92, 17
-  br i1 %93, label %switch.hole_check, label %97
+  br i1 %93, label %switch.hole_check, label %96
 
 switch.hole_check:                                ; preds = %90
   %switch.maskindex = trunc i64 %92 to i32
   %switch.shifted = lshr i32 93675, %switch.maskindex
-  %94 = and i32 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i32 %94, 0
-  br i1 %switch.lobit.not, label %97, label %switch.lookup
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %96
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep = getelementptr inbounds [17 x ptr], ptr @switch.table.dissect_u3v_register, i64 0, i64 %92
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.gep1 = getelementptr inbounds [17 x i32], ptr @switch.table.dissect_u3v_register.7, i64 0, i64 %92
   %switch.load2 = load i32, ptr %switch.gep1, align 4
-  %95 = load i32, ptr %switch.load, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %95, ptr noundef %2, i32 noundef %3, i32 noundef %switch.load2, i32 noundef -2147483648) #5
-  br label %97
+  %94 = load i32, ptr %switch.load, align 4
+  %95 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %94, ptr noundef %2, i32 noundef %3, i32 noundef %switch.load2, i32 noundef -2147483648) #5
+  br label %96
 
-97:                                               ; preds = %switch.hole_check, %90, %switch.lookup, %86
-  %98 = getelementptr inbounds i8, ptr %5, i64 16
-  %99 = load i64, ptr %98, align 8
-  %100 = add i64 %99, -1
-  %or.cond202.not = icmp ult i64 %100, %0
-  br i1 %or.cond202.not, label %101, label %108
+96:                                               ; preds = %switch.hole_check, %90, %switch.lookup, %86
+  %97 = getelementptr inbounds i8, ptr %5, i64 16
+  %98 = load i64, ptr %97, align 8
+  %99 = add i64 %98, -1
+  %or.cond202.not = icmp ult i64 %99, %0
+  br i1 %or.cond202.not, label %100, label %106
 
-101:                                              ; preds = %97
-  %102 = sub i64 %0, %99
-  %103 = tail call i64 @llvm.fshl.i64(i64 %102, i64 %102, i64 62)
-  %104 = icmp ult i64 %103, 12
-  br i1 %104, label %switch.hole_check4, label %108
+100:                                              ; preds = %96
+  %101 = sub i64 %0, %98
+  %102 = tail call i64 @llvm.fshl.i64(i64 %101, i64 %101, i64 62)
+  %103 = icmp ult i64 %102, 12
+  br i1 %103, label %switch.hole_check4, label %106
 
-switch.hole_check4:                               ; preds = %101
-  %switch.maskindex6 = trunc i64 %103 to i16
+switch.hole_check4:                               ; preds = %100
+  %switch.maskindex6 = trunc i64 %102 to i16
   %switch.shifted7 = lshr i16 4087, %switch.maskindex6
-  %105 = and i16 %switch.shifted7, 1
-  %switch.lobit8.not = icmp eq i16 %105, 0
-  br i1 %switch.lobit8.not, label %108, label %switch.lookup5
+  %switch.lobit8 = trunc i16 %switch.shifted7 to i1
+  br i1 %switch.lobit8, label %switch.lookup5, label %106
 
 switch.lookup5:                                   ; preds = %switch.hole_check4
-  %switch.gep9 = getelementptr inbounds [12 x ptr], ptr @switch.table.dissect_u3v_register.8, i64 0, i64 %103
+  %switch.gep9 = getelementptr inbounds [12 x ptr], ptr @switch.table.dissect_u3v_register.8, i64 0, i64 %102
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
-  %switch.gep11 = getelementptr inbounds [12 x i32], ptr @switch.table.dissect_u3v_register.9, i64 0, i64 %103
+  %switch.gep11 = getelementptr inbounds [12 x i32], ptr @switch.table.dissect_u3v_register.9, i64 0, i64 %102
   %switch.load12 = load i32, ptr %switch.gep11, align 4
-  %106 = load i32, ptr %switch.load10, align 4
-  %107 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %106, ptr noundef %2, i32 noundef %3, i32 noundef %switch.load12, i32 noundef -2147483648) #5
-  br label %108
+  %104 = load i32, ptr %switch.load10, align 4
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %104, ptr noundef %2, i32 noundef %3, i32 noundef %switch.load12, i32 noundef -2147483648) #5
+  br label %106
 
-108:                                              ; preds = %switch.hole_check4, %101, %switch.lookup5, %97
-  %109 = getelementptr inbounds i8, ptr %5, i64 24
-  %110 = load i64, ptr %109, align 8
-  %111 = add i64 %110, -1
-  %or.cond203.not = icmp ult i64 %111, %0
-  br i1 %or.cond203.not, label %112, label %118
+106:                                              ; preds = %switch.hole_check4, %100, %switch.lookup5, %96
+  %107 = getelementptr inbounds i8, ptr %5, i64 24
+  %108 = load i64, ptr %107, align 8
+  %109 = add i64 %108, -1
+  %or.cond203.not = icmp ult i64 %109, %0
+  br i1 %or.cond203.not, label %110, label %116
 
-112:                                              ; preds = %108
-  %113 = sub i64 %0, %110
-  switch i64 %113, label %118 [
+110:                                              ; preds = %106
+  %111 = sub i64 %0, %108
+  switch i64 %111, label %116 [
     i64 0, label %.sink.split207
-    i64 4, label %114
-    i64 8, label %115
+    i64 4, label %112
+    i64 8, label %113
   ]
 
-114:                                              ; preds = %112
+112:                                              ; preds = %110
   br label %.sink.split207
 
-115:                                              ; preds = %112
+113:                                              ; preds = %110
   br label %.sink.split207
 
-.sink.split207:                                   ; preds = %112, %115, %114
-  %hf_u3v_bootstrap_EI_Control.sink = phi ptr [ @hf_u3v_bootstrap_Maximum_Event_Transfer_Length, %114 ], [ @hf_u3v_bootstrap_Event_Test_Control, %115 ], [ @hf_u3v_bootstrap_EI_Control, %112 ]
-  %116 = load i32, ptr %hf_u3v_bootstrap_EI_Control.sink, align 4
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %116, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %118
+.sink.split207:                                   ; preds = %110, %113, %112
+  %hf_u3v_bootstrap_EI_Control.sink = phi ptr [ @hf_u3v_bootstrap_Maximum_Event_Transfer_Length, %112 ], [ @hf_u3v_bootstrap_Event_Test_Control, %113 ], [ @hf_u3v_bootstrap_EI_Control, %110 ]
+  %114 = load i32, ptr %hf_u3v_bootstrap_EI_Control.sink, align 4
+  %115 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %114, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #5
+  br label %116
 
-118:                                              ; preds = %.sink.split207, %112, %108
+116:                                              ; preds = %.sink.split207, %110, %106
   ret void
 }
 

@@ -419,14 +419,13 @@ define internal noundef zeroext i1 @_tree_listen_readable(ptr nocapture noundef 
 5:                                                ; preds = %4, %1
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %17, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %5
   %10 = load i32, ptr %0, align 8
-  %.not6 = icmp eq i32 %10, -1
-  br i1 %.not6, label %13, label %11
+  %.not = icmp eq i32 %10, -1
+  br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %9
   %12 = tail call i32 @close(i32 noundef %10) #10
@@ -443,7 +442,8 @@ define internal noundef zeroext i1 @_tree_listen_readable(ptr nocapture noundef 
   br label %17
 
 17:                                               ; preds = %5, %13, %16
-  ret i1 %.not
+  %.0 = xor i1 %8, true
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -711,14 +711,13 @@ define internal noundef zeroext i1 @_task_readable(ptr nocapture noundef %0) #0 
 17:                                               ; preds = %5
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %28, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %28
 
 21:                                               ; preds = %17
   %22 = load i32, ptr %0, align 8
-  %.not7 = icmp eq i32 %22, -1
-  br i1 %.not7, label %25, label %23
+  %.not = icmp eq i32 %22, -1
+  br i1 %.not, label %25, label %23
 
 23:                                               ; preds = %21
   %24 = tail call i32 @close(i32 noundef %22) #10

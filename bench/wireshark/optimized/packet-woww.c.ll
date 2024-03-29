@@ -7398,9 +7398,8 @@ define internal i32 @dissect_woww(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %76 = zext nneg i16 %75 to i64
   %77 = getelementptr i8, ptr %46, i64 %76
   %78 = load i8, ptr %77, align 1
-  %79 = and i8 %78, 1
-  %.not.i.i = icmp eq i8 %79, 0
-  %spec.select.i.i = select i1 %.not.i.i, i32 0, i32 %.068.i.i
+  %79 = trunc i8 %78 to i1
+  %spec.select.i.i = select i1 %79, i32 %.068.i.i, i32 0
   %indvars.iv.next.i.i = add nuw nsw i16 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i16 %indvars.iv.next.i.i, %43
   br i1 %exitcond.not.i.i, label %session_key_is_fully_deduced.exit.i, label %74, !llvm.loop !6
@@ -7415,25 +7414,24 @@ session_key_is_fully_deduced.exit.i:              ; preds = %74
   br label %82
 
 82:                                               ; preds = %82, %.critedge.i
-  %indvars.iv.i88.i = phi i16 [ 0, %.critedge.i ], [ %indvars.iv.next.i93.i, %82 ]
-  %.068.i89.i = phi i32 [ 1, %.critedge.i ], [ %spec.select.i92.i, %82 ]
+  %indvars.iv.i88.i = phi i16 [ 0, %.critedge.i ], [ %indvars.iv.next.i92.i, %82 ]
+  %.068.i89.i = phi i32 [ 1, %.critedge.i ], [ %spec.select.i91.i, %82 ]
   %.lhs.trunc.i90.i = add nuw nsw i16 %indvars.iv.i88.i, %81
   %83 = urem i16 %.lhs.trunc.i90.i, 40
   %84 = zext nneg i16 %83 to i64
   %85 = getelementptr i8, ptr %46, i64 %84
   %86 = load i8, ptr %85, align 1
-  %87 = and i8 %86, 1
-  %.not.i91.i = icmp eq i8 %87, 0
-  %spec.select.i92.i = select i1 %.not.i91.i, i32 0, i32 %.068.i89.i
-  %indvars.iv.next.i93.i = add nuw nsw i16 %indvars.iv.i88.i, 1
-  %exitcond.not.i94.i = icmp eq i16 %indvars.iv.next.i93.i, %43
-  br i1 %exitcond.not.i94.i, label %session_key_is_fully_deduced.exit96.i, label %82, !llvm.loop !6
+  %87 = trunc i8 %86 to i1
+  %spec.select.i91.i = select i1 %87, i32 %.068.i89.i, i32 0
+  %indvars.iv.next.i92.i = add nuw nsw i16 %indvars.iv.i88.i, 1
+  %exitcond.not.i93.i = icmp eq i16 %indvars.iv.next.i92.i, %43
+  br i1 %exitcond.not.i93.i, label %session_key_is_fully_deduced.exit95.i, label %82, !llvm.loop !6
 
-session_key_is_fully_deduced.exit96.i:            ; preds = %82
-  %.not84.i = icmp eq i32 %spec.select.i92.i, 0
+session_key_is_fully_deduced.exit95.i:            ; preds = %82
+  %.not84.i = icmp eq i32 %spec.select.i91.i, 0
   br i1 %.not84.i, label %88, label %113
 
-88:                                               ; preds = %session_key_is_fully_deduced.exit96.i
+88:                                               ; preds = %session_key_is_fully_deduced.exit95.i
   %89 = call ptr @wmem_file_scope() #5
   %90 = call noalias ptr @wmem_alloc0(ptr noundef %89, i64 noundef 2) #5
   %91 = load i8, ptr %47, align 1
@@ -7471,37 +7469,37 @@ session_key_is_fully_deduced.exit96.i:            ; preds = %82
   store i8 %112, ptr %.046, align 8
   br label %handle_packet_header.exit.thread
 
-113:                                              ; preds = %session_key_is_fully_deduced.exit96.i, %session_key_is_fully_deduced.exit.i
-  br i1 %.not82.i, label %.thread.i, label %.thread107.i
+113:                                              ; preds = %session_key_is_fully_deduced.exit95.i, %session_key_is_fully_deduced.exit.i
+  br i1 %.not82.i, label %.thread.i, label %.thread106.i
 
-.thread107.i:                                     ; preds = %113
+.thread106.i:                                     ; preds = %113
   store i64 0, ptr %42, align 8
   %114 = getelementptr inbounds i8, ptr %70, i64 1
   %115 = load ptr, ptr %45, align 8
   %116 = call ptr @wmem_map_remove(ptr noundef %115, ptr noundef nonnull %5) #5
   br label %.thread.i
 
-.thread.i:                                        ; preds = %.thread107.i, %113
-  %.073.i = phi ptr [ %70, %.thread107.i ], [ %47, %113 ]
-  %.072.i = phi ptr [ %114, %.thread107.i ], [ %.046, %113 ]
+.thread.i:                                        ; preds = %.thread106.i, %113
+  %.073.i = phi ptr [ %70, %.thread106.i ], [ %47, %113 ]
+  %.072.i = phi ptr [ %114, %.thread106.i ], [ %.046, %113 ]
   %117 = call ptr @wmem_file_scope() #5
   %118 = call noalias ptr @wmem_alloc0(ptr noundef %117, i64 noundef 8) #5
   %.pre.i.i = load i8, ptr %.073.i, align 1
   %.pre.i = load i8, ptr %.072.i, align 1
-  br label %.lr.ph.i99.i
+  br label %.lr.ph.i98.i
 
-.lr.ph.i99.i:                                     ; preds = %.lr.ph.i99.i, %.thread.i
-  %119 = phi i8 [ %.pre.i, %.thread.i ], [ %122, %.lr.ph.i99.i ]
-  %120 = phi i8 [ %.pre.i.i, %.thread.i ], [ %132, %.lr.ph.i99.i ]
-  %indvars.iv.i100.i = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next.i101.i, %.lr.ph.i99.i ]
-  %121 = getelementptr i8, ptr %62, i64 %indvars.iv.i100.i
+.lr.ph.i98.i:                                     ; preds = %.lr.ph.i98.i, %.thread.i
+  %119 = phi i8 [ %.pre.i, %.thread.i ], [ %122, %.lr.ph.i98.i ]
+  %120 = phi i8 [ %.pre.i.i, %.thread.i ], [ %132, %.lr.ph.i98.i ]
+  %indvars.iv.i99.i = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next.i100.i, %.lr.ph.i98.i ]
+  %121 = getelementptr i8, ptr %62, i64 %indvars.iv.i99.i
   %122 = load i8, ptr %121, align 1
   %123 = sub i8 %122, %119
   %124 = zext i8 %120 to i64
   %125 = getelementptr i8, ptr %.044, i64 %124
   %126 = load i8, ptr %125, align 1
   %127 = xor i8 %126, %123
-  %128 = getelementptr i8, ptr %118, i64 %indvars.iv.i100.i
+  %128 = getelementptr i8, ptr %118, i64 %indvars.iv.i99.i
   store i8 %127, ptr %128, align 1
   store i8 %122, ptr %.072.i, align 1
   %129 = zext i8 %120 to i16
@@ -7509,11 +7507,11 @@ session_key_is_fully_deduced.exit96.i:            ; preds = %82
   %131 = urem i16 %130, 40
   %132 = trunc i16 %131 to i8
   store i8 %132, ptr %.073.i, align 1
-  %indvars.iv.next.i101.i = add nuw nsw i64 %indvars.iv.i100.i, 1
-  %exitcond.not.i102.i = icmp eq i64 %indvars.iv.next.i101.i, %wide.trip.count.i
-  br i1 %exitcond.not.i102.i, label %get_decrypted_header.exit.i, label %.lr.ph.i99.i, !llvm.loop !7
+  %indvars.iv.next.i100.i = add nuw nsw i64 %indvars.iv.i99.i, 1
+  %exitcond.not.i101.i = icmp eq i64 %indvars.iv.next.i100.i, %wide.trip.count.i
+  br i1 %exitcond.not.i101.i, label %get_decrypted_header.exit.i, label %.lr.ph.i98.i, !llvm.loop !7
 
-get_decrypted_header.exit.i:                      ; preds = %.lr.ph.i99.i
+get_decrypted_header.exit.i:                      ; preds = %.lr.ph.i98.i
   %133 = call ptr @wmem_file_scope() #5
   %134 = call noalias ptr @wmem_alloc0(ptr noundef %133, i64 noundef 8) #5
   %135 = load i64, ptr %5, align 8

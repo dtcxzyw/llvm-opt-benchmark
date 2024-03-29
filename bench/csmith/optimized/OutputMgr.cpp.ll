@@ -525,8 +525,8 @@ define dso_local void @_ZN9OutputMgr15OutputPtrResetsERSoRKSt6vectorIPK8Variable
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %2, align 8
-  %.not24 = icmp eq ptr %8, %9
-  br i1 %.not24, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq ptr %8, %9
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %41
   %10 = phi ptr [ %44, %41 ], [ %9, %3 ]
@@ -535,9 +535,8 @@ define dso_local void @_ZN9OutputMgr15OutputPtrResetsERSoRKSt6vectorIPK8Variable
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 96
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %30, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %30
 
 16:                                               ; preds = %.lr.ph
   %17 = call noundef ptr @_Z12get_int_typev()

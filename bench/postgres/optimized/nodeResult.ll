@@ -124,9 +124,8 @@ define internal noundef ptr @ExecResult(ptr nocapture noundef %0) #0 {
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 209
   %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %.not21 = icmp eq i8 %11, 0
-  br i1 %.not21, label %24, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %24
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %0, i64 200
@@ -149,10 +148,10 @@ ExecQual.exit:                                    ; preds = %12
   %20 = load ptr, ptr %19, align 8
   %21 = call i64 %20(ptr noundef nonnull %14, ptr noundef %8, ptr noundef nonnull %3) #5
   store ptr %18, ptr @CurrentMemoryContext, align 8
-  %.not26 = icmp eq i64 %21, 0
+  %.not24 = icmp eq i64 %21, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   store i8 0, ptr %9, align 1
-  br i1 %.not26, label %22, label %24
+  br i1 %.not24, label %22, label %24
 
 22:                                               ; preds = %ExecQual.exit
   %23 = getelementptr inbounds i8, ptr %0, i64 208
@@ -165,15 +164,14 @@ ExecQual.exit:                                    ; preds = %12
   call void @MemoryContextReset(ptr noundef %26) #5
   %27 = getelementptr inbounds i8, ptr %0, i64 208
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not22 = icmp eq i8 %29, 0
-  br i1 %.not22, label %30, label %74
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %74, label %30
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds i8, ptr %0, i64 72
   %32 = load ptr, ptr %31, align 8
-  %.not23 = icmp eq ptr %32, null
-  br i1 %.not23, label %47, label %33
+  %.not21 = icmp eq ptr %32, null
+  br i1 %.not21, label %47, label %33
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %32, i64 104
@@ -196,8 +194,8 @@ ExecProcNode.exit:                                ; preds = %33, %36
   %42 = getelementptr inbounds i8, ptr %39, i64 4
   %43 = load i16, ptr %42, align 4
   %44 = and i16 %43, 2
-  %.not24 = icmp eq i16 %44, 0
-  br i1 %.not24, label %45, label %74
+  %.not22 = icmp eq i16 %44, 0
+  br i1 %.not22, label %45, label %74
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds i8, ptr %8, i64 24

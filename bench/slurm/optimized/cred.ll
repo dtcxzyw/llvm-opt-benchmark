@@ -666,9 +666,8 @@ define ptr @slurm_cred_verify(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not13 = icmp eq i8 %10, 0
-  br i1 %.not13, label %21, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %21
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %0, i64 88
@@ -689,8 +688,8 @@ define ptr @slurm_cred_verify(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @slurm_seterrno(i32 noundef %.sink) #10
   %22 = tail call i32 @slurm_get_errno() #10
   %23 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #10
-  %.not14 = icmp eq i32 %23, 0
-  br i1 %.not14, label %26, label %24
+  %.not13 = icmp eq i32 %23, 0
+  br i1 %.not13, label %26, label %24
 
 24:                                               ; preds = %21
   %25 = tail call ptr @__errno_location() #12

@@ -61,12 +61,12 @@ define void @_ZN10jtag_dtm_t5resetEv(ptr nocapture noundef nonnull writeonly ali
 define void @_ZN10jtag_dtm_t8set_pinsEbbb(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #4 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = load i8, ptr %5, align 4
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  %brmerge.not = and i1 %.not, %1
+  %7 = trunc i8 %6 to i1
+  %.not4 = xor i1 %1, true
+  %brmerge = or i1 %.not4, %7
   %8 = getelementptr inbounds i8, ptr %0, i64 68
   %9 = load i32, ptr %8, align 4
-  br i1 %brmerge.not, label %10, label %46
+  br i1 %brmerge, label %46, label %10
 
 10:                                               ; preds = %4
   switch i32 %9, label %38 [
@@ -131,8 +131,8 @@ define void @_ZN10jtag_dtm_t8set_pinsEbbb(ptr nocapture noundef nonnull align 8 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds i8, ptr %0, i64 60
   %49 = load i32, ptr %48, align 4
-  %.not4 = icmp eq i32 %49, 0
-  br i1 %.not4, label %52, label %50
+  %.not = icmp eq i32 %49, 0
+  br i1 %.not, label %52, label %50
 
 50:                                               ; preds = %47
   %51 = add i32 %49, -1
@@ -226,9 +226,8 @@ define void @_ZN10jtag_dtm_t10capture_drEv(ptr nocapture noundef nonnull align 8
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %0, i64 64
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %.not1 = icmp eq i8 %19, 0
-  br i1 %.not1, label %23, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %23
 
 20:                                               ; preds = %16, %13
   %21 = getelementptr inbounds i8, ptr %0, i64 24
@@ -286,8 +285,8 @@ define void @_ZN10jtag_dtm_t9update_drEv(ptr nocapture noundef nonnull align 8 d
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 65536
-  %.not8 = icmp eq i64 %8, 0
-  br i1 %.not8, label %11, label %9
+  %.not = icmp eq i64 %8, 0
+  br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 64
@@ -296,8 +295,8 @@ define void @_ZN10jtag_dtm_t9update_drEv(ptr nocapture noundef nonnull align 8 d
 
 11:                                               ; preds = %9, %5
   %12 = and i64 %7, 131072
-  %.not9 = icmp eq i64 %12, 0
-  br i1 %.not9, label %69, label %13
+  %.not8 = icmp eq i64 %12, 0
+  br i1 %.not8, label %69, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %0, i64 68
@@ -321,9 +320,8 @@ define void @_ZN10jtag_dtm_t9update_drEv(ptr nocapture noundef nonnull align 8 d
 23:                                               ; preds = %1
   %24 = getelementptr inbounds i8, ptr %0, i64 64
   %25 = load i8, ptr %24, align 8
-  %26 = and i8 %25, 1
-  %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %27, label %69
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %69, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %0, i64 24
@@ -352,7 +350,7 @@ define void @_ZN10jtag_dtm_t9update_drEv(ptr nocapture noundef nonnull align 8 d
 45:                                               ; preds = %27
   %46 = load ptr, ptr %0, align 8
   %47 = call noundef zeroext i1 @_ZN14debug_module_t8dmi_readEjPj(ptr noundef nonnull align 8 dereferenceable(1372) %46, i32 noundef %43, ptr noundef nonnull %2)
-  br i1 %47, label %48, label %.critedge11
+  br i1 %47, label %48, label %.critedge10
 
 48:                                               ; preds = %45
   %49 = load i64, ptr %44, align 8
@@ -368,7 +366,7 @@ define void @_ZN10jtag_dtm_t9update_drEv(ptr nocapture noundef nonnull align 8 d
   %57 = trunc i64 %56 to i32
   %58 = load ptr, ptr %0, align 8
   %59 = tail call noundef zeroext i1 @_ZN14debug_module_t9dmi_writeEjj(ptr noundef nonnull align 8 dereferenceable(1372) %58, i32 noundef %43, i32 noundef %57)
-  br i1 %59, label %..critedge_crit_edge, label %.critedge11
+  br i1 %59, label %..critedge_crit_edge, label %.critedge10
 
 ..critedge_crit_edge:                             ; preds = %55
   %.pre = load i64, ptr %44, align 8
@@ -379,14 +377,14 @@ define void @_ZN10jtag_dtm_t9update_drEv(ptr nocapture noundef nonnull align 8 d
   %61 = and i64 %60, -4
   br label %65
 
-.critedge11:                                      ; preds = %45, %55
+.critedge10:                                      ; preds = %45, %55
   %62 = load i64, ptr %44, align 8
   %63 = and i64 %62, -4
   %64 = or disjoint i64 %63, 2
   br label %65
 
-65:                                               ; preds = %.critedge11, %.critedge
-  %storemerge = phi i64 [ %64, %.critedge11 ], [ %61, %.critedge ]
+65:                                               ; preds = %.critedge10, %.critedge
+  %storemerge = phi i64 [ %64, %.critedge10 ], [ %61, %.critedge ]
   store i64 %storemerge, ptr %44, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 8
   %67 = load i32, ptr %66, align 8

@@ -82,12 +82,12 @@ define noundef i64 @_Z20fast_rv32i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
   %6 = lshr i64 %1, 20
   %7 = and i64 %6, 31
   %.not = icmp eq i64 %5, %7
-  br i1 %.not, label %._crit_edge140, label %8
+  br i1 %.not, label %._crit_edge138, label %8
 
-._crit_edge140:                                   ; preds = %3
+._crit_edge138:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 659816
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.pre141 = trunc i64 %7 to i32
+  %.pre139 = trunc i64 %7 to i32
   br label %24
 
 8:                                                ; preds = %3
@@ -102,8 +102,8 @@ define noundef i64 @_Z20fast_rv32i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %15, i32 %16)
   %17 = tail call i32 @llvm.umin.i32(i32 %10, i32 %9)
   %18 = sub nsw i32 %.sroa.speculated.i, %17
-  %.not134 = icmp sgt i32 %18, %14
-  br i1 %.not134, label %24, label %19
+  %.not132 = icmp sgt i32 %18, %14
+  br i1 %.not132, label %24, label %19
 
 19:                                               ; preds = %8
   %20 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -117,9 +117,9 @@ define noundef i64 @_Z20fast_rv32i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
   tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #15
   unreachable
 
-24:                                               ; preds = %._crit_edge140, %8
-  %.pre-phi = phi i32 [ %.pre141, %._crit_edge140 ], [ %10, %8 ]
-  %25 = phi float [ %.pre, %._crit_edge140 ], [ %12, %8 ]
+24:                                               ; preds = %._crit_edge138, %8
+  %.pre-phi = phi i32 [ %.pre139, %._crit_edge138 ], [ %10, %8 ]
+  %25 = phi float [ %.pre, %._crit_edge138 ], [ %12, %8 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 659640
   %27 = fptoui float %25 to i32
   %.not.i = icmp eq i32 %27, 0
@@ -202,9 +202,8 @@ define noundef i64 @_Z20fast_rv32i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
 65:                                               ; preds = %55
   %66 = getelementptr inbounds i8, ptr %0, i64 659840
   %67 = load i8, ptr %66, align 8
-  %68 = and i8 %67, 1
-  %.not103 = icmp eq i8 %68, 0
-  br i1 %.not103, label %74, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %74
 
 69:                                               ; preds = %65
   %70 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -221,9 +220,8 @@ define noundef i64 @_Z20fast_rv32i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
 74:                                               ; preds = %65
   %75 = getelementptr inbounds i8, ptr %0, i64 659841
   %76 = load i8, ptr %75, align 1
-  %77 = and i8 %76, 1
-  %.not104 = icmp eq i8 %77, 0
-  br i1 %.not104, label %78, label %90
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %90, label %78
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %0, i64 659744
@@ -232,8 +230,8 @@ define noundef i64 @_Z20fast_rv32i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef i64 %83(ptr noundef nonnull align 8 dereferenceable(48) %80) #14
-  %.not105 = icmp eq i64 %84, 0
-  br i1 %.not105, label %90, label %85
+  %.not103 = icmp eq i64 %84, 0
+  br i1 %.not103, label %90, label %85
 
 85:                                               ; preds = %78
   %86 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -300,8 +298,8 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %103, %98, %.loopexit.i.i
   %.0.i.pn.i.i = phi ptr [ %99, %98 ], [ %113, %.loopexit.i.i ], [ %105, %103 ]
-  %.0.i.i109 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i109, i8 0, i64 16, i1 false)
+  %.0.i.i107 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i107, i8 0, i64 16, i1 false)
   %115 = load ptr, ptr %47, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %115, i64 noundef 1536)
   %116 = getelementptr inbounds i8, ptr %0, i64 659760
@@ -332,14 +330,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %138
 
 138:                                              ; preds = %.lr.ph, %192
-  %.099138 = phi i64 [ %128, %.lr.ph ], [ %201, %192 ]
-  %139 = trunc i64 %.099138 to i32
+  %.099136 = phi i64 [ %128, %.lr.ph ], [ %201, %192 ]
+  %139 = trunc i64 %.099136 to i32
   %140 = and i32 %139, 63
-  %141 = shl i64 %.099138, 26
+  %141 = shl i64 %.099136, 26
   %142 = ashr i64 %141, 32
   %143 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef 0, i64 noundef %142, i1 noundef zeroext false)
   %144 = load i64, ptr %143, align 8
-  %145 = and i64 %.099138, 63
+  %145 = and i64 %.099136, 63
   %146 = shl nuw i64 1, %145
   %147 = lshr i64 %144, %145
   %148 = and i64 %147, 1
@@ -353,33 +351,33 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   ]
 
 151:                                              ; preds = %138
-  %152 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099138, i1 noundef zeroext false)
+  %152 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099136, i1 noundef zeroext false)
   %153 = load i8, ptr %152, align 1
   %154 = load i64, ptr %137, align 8
   %155 = zext i8 %153 to i128
   %156 = and i64 %154, 255
-  %narrow107 = add nuw nsw i64 %156, %149
-  %157 = zext nneg i64 %narrow107 to i128
+  %narrow105 = add nuw nsw i64 %156, %149
+  %157 = zext nneg i64 %narrow105 to i128
   %158 = sub nsw i128 %155, %157
   %159 = lshr i128 %158, 8
   %160 = and i128 %159, 1
   br label %192
 
 161:                                              ; preds = %138
-  %162 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099138, i1 noundef zeroext false)
+  %162 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099136, i1 noundef zeroext false)
   %163 = load i16, ptr %162, align 2
   %164 = load i64, ptr %137, align 8
   %165 = zext i16 %163 to i128
   %166 = and i64 %164, 65535
-  %narrow106 = add nuw nsw i64 %166, %149
-  %167 = zext nneg i64 %narrow106 to i128
+  %narrow104 = add nuw nsw i64 %166, %149
+  %167 = zext nneg i64 %narrow104 to i128
   %168 = sub nsw i128 %165, %167
   %169 = lshr i128 %168, 16
   %170 = and i128 %169, 1
   br label %192
 
 171:                                              ; preds = %138
-  %172 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099138, i1 noundef zeroext false)
+  %172 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099136, i1 noundef zeroext false)
   %173 = load i32, ptr %172, align 4
   %174 = load i64, ptr %137, align 8
   %175 = zext i32 %173 to i128
@@ -392,7 +390,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %192
 
 181:                                              ; preds = %138
-  %182 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltIlEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099138, i1 noundef zeroext false)
+  %182 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltIlEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099136, i1 noundef zeroext false)
   %183 = load i64, ptr %182, align 8
   %184 = load i64, ptr %137, align 8
   %185 = zext i64 %183 to i128
@@ -415,7 +413,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %199 = and i64 %146, %198
   %200 = or i64 %199, %195
   store i64 %200, ptr %150, align 8
-  %201 = add i64 %.099138, 1
+  %201 = add i64 %.099136, 1
   %exitcond.not = icmp eq i64 %201, %121
   br i1 %exitcond.not, label %._crit_edge, label %138, !llvm.loop !6
 
@@ -466,12 +464,12 @@ define noundef i64 @_Z20fast_rv64i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
   %6 = lshr i64 %1, 20
   %7 = and i64 %6, 31
   %.not = icmp eq i64 %5, %7
-  br i1 %.not, label %._crit_edge140, label %8
+  br i1 %.not, label %._crit_edge138, label %8
 
-._crit_edge140:                                   ; preds = %3
+._crit_edge138:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 659816
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.pre141 = trunc i64 %7 to i32
+  %.pre139 = trunc i64 %7 to i32
   br label %24
 
 8:                                                ; preds = %3
@@ -486,8 +484,8 @@ define noundef i64 @_Z20fast_rv64i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %15, i32 %16)
   %17 = tail call i32 @llvm.umin.i32(i32 %10, i32 %9)
   %18 = sub nsw i32 %.sroa.speculated.i, %17
-  %.not134 = icmp sgt i32 %18, %14
-  br i1 %.not134, label %24, label %19
+  %.not132 = icmp sgt i32 %18, %14
+  br i1 %.not132, label %24, label %19
 
 19:                                               ; preds = %8
   %20 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -501,9 +499,9 @@ define noundef i64 @_Z20fast_rv64i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
   tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #15
   unreachable
 
-24:                                               ; preds = %._crit_edge140, %8
-  %.pre-phi = phi i32 [ %.pre141, %._crit_edge140 ], [ %10, %8 ]
-  %25 = phi float [ %.pre, %._crit_edge140 ], [ %12, %8 ]
+24:                                               ; preds = %._crit_edge138, %8
+  %.pre-phi = phi i32 [ %.pre139, %._crit_edge138 ], [ %10, %8 ]
+  %25 = phi float [ %.pre, %._crit_edge138 ], [ %12, %8 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 659640
   %27 = fptoui float %25 to i32
   %.not.i = icmp eq i32 %27, 0
@@ -586,9 +584,8 @@ define noundef i64 @_Z20fast_rv64i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
 65:                                               ; preds = %55
   %66 = getelementptr inbounds i8, ptr %0, i64 659840
   %67 = load i8, ptr %66, align 8
-  %68 = and i8 %67, 1
-  %.not103 = icmp eq i8 %68, 0
-  br i1 %.not103, label %74, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %74
 
 69:                                               ; preds = %65
   %70 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -605,9 +602,8 @@ define noundef i64 @_Z20fast_rv64i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
 74:                                               ; preds = %65
   %75 = getelementptr inbounds i8, ptr %0, i64 659841
   %76 = load i8, ptr %75, align 1
-  %77 = and i8 %76, 1
-  %.not104 = icmp eq i8 %77, 0
-  br i1 %.not104, label %78, label %90
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %90, label %78
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %0, i64 659744
@@ -616,8 +612,8 @@ define noundef i64 @_Z20fast_rv64i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef i64 %83(ptr noundef nonnull align 8 dereferenceable(48) %80) #14
-  %.not105 = icmp eq i64 %84, 0
-  br i1 %.not105, label %90, label %85
+  %.not103 = icmp eq i64 %84, 0
+  br i1 %.not103, label %90, label %85
 
 85:                                               ; preds = %78
   %86 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -684,8 +680,8 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %103, %98, %.loopexit.i.i
   %.0.i.pn.i.i = phi ptr [ %99, %98 ], [ %113, %.loopexit.i.i ], [ %105, %103 ]
-  %.0.i.i109 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i109, i8 0, i64 16, i1 false)
+  %.0.i.i107 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i107, i8 0, i64 16, i1 false)
   %115 = load ptr, ptr %47, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %115, i64 noundef 1536)
   %116 = getelementptr inbounds i8, ptr %0, i64 659760
@@ -716,14 +712,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %138
 
 138:                                              ; preds = %.lr.ph, %192
-  %.099138 = phi i64 [ %128, %.lr.ph ], [ %201, %192 ]
-  %139 = trunc i64 %.099138 to i32
+  %.099136 = phi i64 [ %128, %.lr.ph ], [ %201, %192 ]
+  %139 = trunc i64 %.099136 to i32
   %140 = and i32 %139, 63
-  %141 = shl i64 %.099138, 26
+  %141 = shl i64 %.099136, 26
   %142 = ashr i64 %141, 32
   %143 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef 0, i64 noundef %142, i1 noundef zeroext false)
   %144 = load i64, ptr %143, align 8
-  %145 = and i64 %.099138, 63
+  %145 = and i64 %.099136, 63
   %146 = shl nuw i64 1, %145
   %147 = lshr i64 %144, %145
   %148 = and i64 %147, 1
@@ -737,33 +733,33 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   ]
 
 151:                                              ; preds = %138
-  %152 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099138, i1 noundef zeroext false)
+  %152 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099136, i1 noundef zeroext false)
   %153 = load i8, ptr %152, align 1
   %154 = load i64, ptr %137, align 8
   %155 = zext i8 %153 to i128
   %156 = and i64 %154, 255
-  %narrow107 = add nuw nsw i64 %156, %149
-  %157 = zext nneg i64 %narrow107 to i128
+  %narrow105 = add nuw nsw i64 %156, %149
+  %157 = zext nneg i64 %narrow105 to i128
   %158 = sub nsw i128 %155, %157
   %159 = lshr i128 %158, 8
   %160 = and i128 %159, 1
   br label %192
 
 161:                                              ; preds = %138
-  %162 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099138, i1 noundef zeroext false)
+  %162 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099136, i1 noundef zeroext false)
   %163 = load i16, ptr %162, align 2
   %164 = load i64, ptr %137, align 8
   %165 = zext i16 %163 to i128
   %166 = and i64 %164, 65535
-  %narrow106 = add nuw nsw i64 %166, %149
-  %167 = zext nneg i64 %narrow106 to i128
+  %narrow104 = add nuw nsw i64 %166, %149
+  %167 = zext nneg i64 %narrow104 to i128
   %168 = sub nsw i128 %165, %167
   %169 = lshr i128 %168, 16
   %170 = and i128 %169, 1
   br label %192
 
 171:                                              ; preds = %138
-  %172 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099138, i1 noundef zeroext false)
+  %172 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099136, i1 noundef zeroext false)
   %173 = load i32, ptr %172, align 4
   %174 = load i64, ptr %137, align 8
   %175 = zext i32 %173 to i128
@@ -776,7 +772,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %192
 
 181:                                              ; preds = %138
-  %182 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltIlEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099138, i1 noundef zeroext false)
+  %182 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltIlEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099136, i1 noundef zeroext false)
   %183 = load i64, ptr %182, align 8
   %184 = load i64, ptr %137, align 8
   %185 = zext i64 %183 to i128
@@ -799,7 +795,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %199 = and i64 %146, %198
   %200 = or i64 %199, %195
   store i64 %200, ptr %150, align 8
-  %201 = add i64 %.099138, 1
+  %201 = add i64 %.099136, 1
   %exitcond.not = icmp eq i64 %201, %121
   br i1 %exitcond.not, label %._crit_edge, label %138, !llvm.loop !7
 
@@ -817,12 +813,12 @@ define noundef i64 @_Z22logged_rv32i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
   %6 = lshr i64 %1, 20
   %7 = and i64 %6, 31
   %.not = icmp eq i64 %5, %7
-  br i1 %.not, label %._crit_edge140, label %8
+  br i1 %.not, label %._crit_edge138, label %8
 
-._crit_edge140:                                   ; preds = %3
+._crit_edge138:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 659816
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.pre141 = trunc i64 %7 to i32
+  %.pre139 = trunc i64 %7 to i32
   br label %24
 
 8:                                                ; preds = %3
@@ -837,8 +833,8 @@ define noundef i64 @_Z22logged_rv32i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %15, i32 %16)
   %17 = tail call i32 @llvm.umin.i32(i32 %10, i32 %9)
   %18 = sub nsw i32 %.sroa.speculated.i, %17
-  %.not134 = icmp sgt i32 %18, %14
-  br i1 %.not134, label %24, label %19
+  %.not132 = icmp sgt i32 %18, %14
+  br i1 %.not132, label %24, label %19
 
 19:                                               ; preds = %8
   %20 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -852,9 +848,9 @@ define noundef i64 @_Z22logged_rv32i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
   tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #15
   unreachable
 
-24:                                               ; preds = %._crit_edge140, %8
-  %.pre-phi = phi i32 [ %.pre141, %._crit_edge140 ], [ %10, %8 ]
-  %25 = phi float [ %.pre, %._crit_edge140 ], [ %12, %8 ]
+24:                                               ; preds = %._crit_edge138, %8
+  %.pre-phi = phi i32 [ %.pre139, %._crit_edge138 ], [ %10, %8 ]
+  %25 = phi float [ %.pre, %._crit_edge138 ], [ %12, %8 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 659640
   %27 = fptoui float %25 to i32
   %.not.i = icmp eq i32 %27, 0
@@ -937,9 +933,8 @@ define noundef i64 @_Z22logged_rv32i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
 65:                                               ; preds = %55
   %66 = getelementptr inbounds i8, ptr %0, i64 659840
   %67 = load i8, ptr %66, align 8
-  %68 = and i8 %67, 1
-  %.not103 = icmp eq i8 %68, 0
-  br i1 %.not103, label %74, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %74
 
 69:                                               ; preds = %65
   %70 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -956,9 +951,8 @@ define noundef i64 @_Z22logged_rv32i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
 74:                                               ; preds = %65
   %75 = getelementptr inbounds i8, ptr %0, i64 659841
   %76 = load i8, ptr %75, align 1
-  %77 = and i8 %76, 1
-  %.not104 = icmp eq i8 %77, 0
-  br i1 %.not104, label %78, label %90
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %90, label %78
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %0, i64 659744
@@ -967,8 +961,8 @@ define noundef i64 @_Z22logged_rv32i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef i64 %83(ptr noundef nonnull align 8 dereferenceable(48) %80) #14
-  %.not105 = icmp eq i64 %84, 0
-  br i1 %.not105, label %90, label %85
+  %.not103 = icmp eq i64 %84, 0
+  br i1 %.not103, label %90, label %85
 
 85:                                               ; preds = %78
   %86 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -1035,8 +1029,8 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %103, %98, %.loopexit.i.i
   %.0.i.pn.i.i = phi ptr [ %99, %98 ], [ %113, %.loopexit.i.i ], [ %105, %103 ]
-  %.0.i.i109 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i109, i8 0, i64 16, i1 false)
+  %.0.i.i107 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i107, i8 0, i64 16, i1 false)
   %115 = load ptr, ptr %47, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %115, i64 noundef 1536)
   %116 = getelementptr inbounds i8, ptr %0, i64 659760
@@ -1067,14 +1061,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %138
 
 138:                                              ; preds = %.lr.ph, %192
-  %.099138 = phi i64 [ %128, %.lr.ph ], [ %201, %192 ]
-  %139 = trunc i64 %.099138 to i32
+  %.099136 = phi i64 [ %128, %.lr.ph ], [ %201, %192 ]
+  %139 = trunc i64 %.099136 to i32
   %140 = and i32 %139, 63
-  %141 = shl i64 %.099138, 26
+  %141 = shl i64 %.099136, 26
   %142 = ashr i64 %141, 32
   %143 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef 0, i64 noundef %142, i1 noundef zeroext false)
   %144 = load i64, ptr %143, align 8
-  %145 = and i64 %.099138, 63
+  %145 = and i64 %.099136, 63
   %146 = shl nuw i64 1, %145
   %147 = lshr i64 %144, %145
   %148 = and i64 %147, 1
@@ -1088,33 +1082,33 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   ]
 
 151:                                              ; preds = %138
-  %152 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099138, i1 noundef zeroext false)
+  %152 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099136, i1 noundef zeroext false)
   %153 = load i8, ptr %152, align 1
   %154 = load i64, ptr %137, align 8
   %155 = zext i8 %153 to i128
   %156 = and i64 %154, 255
-  %narrow107 = add nuw nsw i64 %156, %149
-  %157 = zext nneg i64 %narrow107 to i128
+  %narrow105 = add nuw nsw i64 %156, %149
+  %157 = zext nneg i64 %narrow105 to i128
   %158 = sub nsw i128 %155, %157
   %159 = lshr i128 %158, 8
   %160 = and i128 %159, 1
   br label %192
 
 161:                                              ; preds = %138
-  %162 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099138, i1 noundef zeroext false)
+  %162 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099136, i1 noundef zeroext false)
   %163 = load i16, ptr %162, align 2
   %164 = load i64, ptr %137, align 8
   %165 = zext i16 %163 to i128
   %166 = and i64 %164, 65535
-  %narrow106 = add nuw nsw i64 %166, %149
-  %167 = zext nneg i64 %narrow106 to i128
+  %narrow104 = add nuw nsw i64 %166, %149
+  %167 = zext nneg i64 %narrow104 to i128
   %168 = sub nsw i128 %165, %167
   %169 = lshr i128 %168, 16
   %170 = and i128 %169, 1
   br label %192
 
 171:                                              ; preds = %138
-  %172 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099138, i1 noundef zeroext false)
+  %172 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099136, i1 noundef zeroext false)
   %173 = load i32, ptr %172, align 4
   %174 = load i64, ptr %137, align 8
   %175 = zext i32 %173 to i128
@@ -1127,7 +1121,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %192
 
 181:                                              ; preds = %138
-  %182 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltIlEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099138, i1 noundef zeroext false)
+  %182 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltIlEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099136, i1 noundef zeroext false)
   %183 = load i64, ptr %182, align 8
   %184 = load i64, ptr %137, align 8
   %185 = zext i64 %183 to i128
@@ -1150,7 +1144,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %199 = and i64 %146, %198
   %200 = or i64 %199, %195
   store i64 %200, ptr %150, align 8
-  %201 = add i64 %.099138, 1
+  %201 = add i64 %.099136, 1
   %exitcond.not = icmp eq i64 %201, %121
   br i1 %exitcond.not, label %._crit_edge, label %138, !llvm.loop !8
 
@@ -1170,12 +1164,12 @@ define noundef i64 @_Z22logged_rv64i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
   %6 = lshr i64 %1, 20
   %7 = and i64 %6, 31
   %.not = icmp eq i64 %5, %7
-  br i1 %.not, label %._crit_edge140, label %8
+  br i1 %.not, label %._crit_edge138, label %8
 
-._crit_edge140:                                   ; preds = %3
+._crit_edge138:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 659816
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.pre141 = trunc i64 %7 to i32
+  %.pre139 = trunc i64 %7 to i32
   br label %24
 
 8:                                                ; preds = %3
@@ -1190,8 +1184,8 @@ define noundef i64 @_Z22logged_rv64i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %15, i32 %16)
   %17 = tail call i32 @llvm.umin.i32(i32 %10, i32 %9)
   %18 = sub nsw i32 %.sroa.speculated.i, %17
-  %.not134 = icmp sgt i32 %18, %14
-  br i1 %.not134, label %24, label %19
+  %.not132 = icmp sgt i32 %18, %14
+  br i1 %.not132, label %24, label %19
 
 19:                                               ; preds = %8
   %20 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -1205,9 +1199,9 @@ define noundef i64 @_Z22logged_rv64i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
   tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #15
   unreachable
 
-24:                                               ; preds = %._crit_edge140, %8
-  %.pre-phi = phi i32 [ %.pre141, %._crit_edge140 ], [ %10, %8 ]
-  %25 = phi float [ %.pre, %._crit_edge140 ], [ %12, %8 ]
+24:                                               ; preds = %._crit_edge138, %8
+  %.pre-phi = phi i32 [ %.pre139, %._crit_edge138 ], [ %10, %8 ]
+  %25 = phi float [ %.pre, %._crit_edge138 ], [ %12, %8 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 659640
   %27 = fptoui float %25 to i32
   %.not.i = icmp eq i32 %27, 0
@@ -1290,9 +1284,8 @@ define noundef i64 @_Z22logged_rv64i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
 65:                                               ; preds = %55
   %66 = getelementptr inbounds i8, ptr %0, i64 659840
   %67 = load i8, ptr %66, align 8
-  %68 = and i8 %67, 1
-  %.not103 = icmp eq i8 %68, 0
-  br i1 %.not103, label %74, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %74
 
 69:                                               ; preds = %65
   %70 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -1309,9 +1302,8 @@ define noundef i64 @_Z22logged_rv64i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
 74:                                               ; preds = %65
   %75 = getelementptr inbounds i8, ptr %0, i64 659841
   %76 = load i8, ptr %75, align 1
-  %77 = and i8 %76, 1
-  %.not104 = icmp eq i8 %77, 0
-  br i1 %.not104, label %78, label %90
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %90, label %78
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %0, i64 659744
@@ -1320,8 +1312,8 @@ define noundef i64 @_Z22logged_rv64i_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef i64 %83(ptr noundef nonnull align 8 dereferenceable(48) %80) #14
-  %.not105 = icmp eq i64 %84, 0
-  br i1 %.not105, label %90, label %85
+  %.not103 = icmp eq i64 %84, 0
+  br i1 %.not103, label %90, label %85
 
 85:                                               ; preds = %78
   %86 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -1388,8 +1380,8 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %103, %98, %.loopexit.i.i
   %.0.i.pn.i.i = phi ptr [ %99, %98 ], [ %113, %.loopexit.i.i ], [ %105, %103 ]
-  %.0.i.i109 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i109, i8 0, i64 16, i1 false)
+  %.0.i.i107 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i107, i8 0, i64 16, i1 false)
   %115 = load ptr, ptr %47, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %115, i64 noundef 1536)
   %116 = getelementptr inbounds i8, ptr %0, i64 659760
@@ -1420,14 +1412,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %138
 
 138:                                              ; preds = %.lr.ph, %192
-  %.099138 = phi i64 [ %128, %.lr.ph ], [ %201, %192 ]
-  %139 = trunc i64 %.099138 to i32
+  %.099136 = phi i64 [ %128, %.lr.ph ], [ %201, %192 ]
+  %139 = trunc i64 %.099136 to i32
   %140 = and i32 %139, 63
-  %141 = shl i64 %.099138, 26
+  %141 = shl i64 %.099136, 26
   %142 = ashr i64 %141, 32
   %143 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef 0, i64 noundef %142, i1 noundef zeroext false)
   %144 = load i64, ptr %143, align 8
-  %145 = and i64 %.099138, 63
+  %145 = and i64 %.099136, 63
   %146 = shl nuw i64 1, %145
   %147 = lshr i64 %144, %145
   %148 = and i64 %147, 1
@@ -1441,33 +1433,33 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   ]
 
 151:                                              ; preds = %138
-  %152 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099138, i1 noundef zeroext false)
+  %152 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099136, i1 noundef zeroext false)
   %153 = load i8, ptr %152, align 1
   %154 = load i64, ptr %137, align 8
   %155 = zext i8 %153 to i128
   %156 = and i64 %154, 255
-  %narrow107 = add nuw nsw i64 %156, %149
-  %157 = zext nneg i64 %narrow107 to i128
+  %narrow105 = add nuw nsw i64 %156, %149
+  %157 = zext nneg i64 %narrow105 to i128
   %158 = sub nsw i128 %155, %157
   %159 = lshr i128 %158, 8
   %160 = and i128 %159, 1
   br label %192
 
 161:                                              ; preds = %138
-  %162 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099138, i1 noundef zeroext false)
+  %162 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099136, i1 noundef zeroext false)
   %163 = load i16, ptr %162, align 2
   %164 = load i64, ptr %137, align 8
   %165 = zext i16 %163 to i128
   %166 = and i64 %164, 65535
-  %narrow106 = add nuw nsw i64 %166, %149
-  %167 = zext nneg i64 %narrow106 to i128
+  %narrow104 = add nuw nsw i64 %166, %149
+  %167 = zext nneg i64 %narrow104 to i128
   %168 = sub nsw i128 %165, %167
   %169 = lshr i128 %168, 16
   %170 = and i128 %169, 1
   br label %192
 
 171:                                              ; preds = %138
-  %172 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099138, i1 noundef zeroext false)
+  %172 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099136, i1 noundef zeroext false)
   %173 = load i32, ptr %172, align 4
   %174 = load i64, ptr %137, align 8
   %175 = zext i32 %173 to i128
@@ -1480,7 +1472,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %192
 
 181:                                              ; preds = %138
-  %182 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltIlEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099138, i1 noundef zeroext false)
+  %182 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltIlEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.099136, i1 noundef zeroext false)
   %183 = load i64, ptr %182, align 8
   %184 = load i64, ptr %137, align 8
   %185 = zext i64 %183 to i128
@@ -1503,7 +1495,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %199 = and i64 %146, %198
   %200 = or i64 %199, %195
   store i64 %200, ptr %150, align 8
-  %201 = add i64 %.099138, 1
+  %201 = add i64 %.099136, 1
   %exitcond.not = icmp eq i64 %201, %121
   br i1 %exitcond.not, label %._crit_edge, label %138, !llvm.loop !9
 
@@ -1521,12 +1513,12 @@ define noundef i64 @_Z20fast_rv32e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
   %6 = lshr i64 %1, 20
   %7 = and i64 %6, 31
   %.not = icmp eq i64 %5, %7
-  br i1 %.not, label %._crit_edge158, label %8
+  br i1 %.not, label %._crit_edge156, label %8
 
-._crit_edge158:                                   ; preds = %3
+._crit_edge156:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 659816
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.pre159 = trunc i64 %7 to i32
+  %.pre157 = trunc i64 %7 to i32
   br label %24
 
 8:                                                ; preds = %3
@@ -1541,8 +1533,8 @@ define noundef i64 @_Z20fast_rv32e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %15, i32 %16)
   %17 = tail call i32 @llvm.umin.i32(i32 %10, i32 %9)
   %18 = sub nsw i32 %.sroa.speculated.i, %17
-  %.not149 = icmp sgt i32 %18, %14
-  br i1 %.not149, label %24, label %19
+  %.not147 = icmp sgt i32 %18, %14
+  br i1 %.not147, label %24, label %19
 
 19:                                               ; preds = %8
   %20 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -1556,9 +1548,9 @@ define noundef i64 @_Z20fast_rv32e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
   tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #15
   unreachable
 
-24:                                               ; preds = %._crit_edge158, %8
-  %.pre-phi = phi i32 [ %.pre159, %._crit_edge158 ], [ %10, %8 ]
-  %25 = phi float [ %.pre, %._crit_edge158 ], [ %12, %8 ]
+24:                                               ; preds = %._crit_edge156, %8
+  %.pre-phi = phi i32 [ %.pre157, %._crit_edge156 ], [ %10, %8 ]
+  %25 = phi float [ %.pre, %._crit_edge156 ], [ %12, %8 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 659640
   %27 = fptoui float %25 to i32
   %.not.i = icmp eq i32 %27, 0
@@ -1641,9 +1633,8 @@ define noundef i64 @_Z20fast_rv32e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
 65:                                               ; preds = %55
   %66 = getelementptr inbounds i8, ptr %0, i64 659840
   %67 = load i8, ptr %66, align 8
-  %68 = and i8 %67, 1
-  %.not111 = icmp eq i8 %68, 0
-  br i1 %.not111, label %74, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %74
 
 69:                                               ; preds = %65
   %70 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -1660,9 +1651,8 @@ define noundef i64 @_Z20fast_rv32e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
 74:                                               ; preds = %65
   %75 = getelementptr inbounds i8, ptr %0, i64 659841
   %76 = load i8, ptr %75, align 1
-  %77 = and i8 %76, 1
-  %.not112 = icmp eq i8 %77, 0
-  br i1 %.not112, label %78, label %90
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %90, label %78
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %0, i64 659744
@@ -1671,8 +1661,8 @@ define noundef i64 @_Z20fast_rv32e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef i64 %83(ptr noundef nonnull align 8 dereferenceable(48) %80) #14
-  %.not113 = icmp eq i64 %84, 0
-  br i1 %.not113, label %90, label %85
+  %.not111 = icmp eq i64 %84, 0
+  br i1 %.not111, label %90, label %85
 
 85:                                               ; preds = %78
   %86 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -1739,8 +1729,8 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %103, %98, %.loopexit.i.i
   %.0.i.pn.i.i = phi ptr [ %99, %98 ], [ %113, %.loopexit.i.i ], [ %105, %103 ]
-  %.0.i.i116 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i116, i8 0, i64 16, i1 false)
+  %.0.i.i114 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i114, i8 0, i64 16, i1 false)
   %115 = load ptr, ptr %47, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %115, i64 noundef 1536)
   %116 = getelementptr inbounds i8, ptr %0, i64 659760
@@ -1775,14 +1765,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %142
 
 142:                                              ; preds = %.lr.ph, %223
-  %.0107156 = phi i64 [ %128, %.lr.ph ], [ %232, %223 ]
-  %143 = trunc i64 %.0107156 to i32
+  %.0107154 = phi i64 [ %128, %.lr.ph ], [ %232, %223 ]
+  %143 = trunc i64 %.0107154 to i32
   %144 = and i32 %143, 63
-  %145 = shl i64 %.0107156, 26
+  %145 = shl i64 %.0107154, 26
   %146 = ashr i64 %145, 32
   %147 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef 0, i64 noundef %146, i1 noundef zeroext false)
   %148 = load i64, ptr %147, align 8
-  %149 = and i64 %.0107156, 63
+  %149 = and i64 %.0107154, 63
   %150 = shl nuw i64 1, %149
   %151 = lshr i64 %148, %149
   %152 = and i64 %151, 1
@@ -1796,7 +1786,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   ]
 
 155:                                              ; preds = %142
-  %156 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107156, i1 noundef zeroext false)
+  %156 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107154, i1 noundef zeroext false)
   br i1 %139, label %157, label %162
 
 157:                                              ; preds = %155
@@ -1826,7 +1816,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %223
 
 174:                                              ; preds = %142
-  %175 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107156, i1 noundef zeroext false)
+  %175 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107154, i1 noundef zeroext false)
   br i1 %139, label %176, label %181
 
 176:                                              ; preds = %174
@@ -1846,15 +1836,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %183 = load i64, ptr %141, align 8
   %184 = zext i16 %182 to i128
   %185 = and i64 %183, 65535
-  %narrow114 = add nuw nsw i64 %185, %153
-  %186 = zext nneg i64 %narrow114 to i128
+  %narrow112 = add nuw nsw i64 %185, %153
+  %186 = zext nneg i64 %narrow112 to i128
   %187 = sub nsw i128 %184, %186
   %188 = lshr i128 %187, 16
   %189 = and i128 %188, 1
   br label %223
 
 190:                                              ; preds = %142
-  %191 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107156, i1 noundef zeroext false)
+  %191 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107154, i1 noundef zeroext false)
   br i1 %139, label %192, label %197
 
 192:                                              ; preds = %190
@@ -1882,7 +1872,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %223
 
 206:                                              ; preds = %142
-  %207 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltIlEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107156, i1 noundef zeroext false)
+  %207 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltIlEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107154, i1 noundef zeroext false)
   br i1 %139, label %208, label %213
 
 208:                                              ; preds = %206
@@ -1920,7 +1910,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %230 = and i64 %150, %229
   %231 = or i64 %230, %226
   store i64 %231, ptr %154, align 8
-  %232 = add i64 %.0107156, 1
+  %232 = add i64 %.0107154, 1
   %exitcond.not = icmp eq i64 %232, %121
   br i1 %exitcond.not, label %._crit_edge, label %142, !llvm.loop !10
 
@@ -1940,12 +1930,12 @@ define noundef i64 @_Z20fast_rv64e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
   %6 = lshr i64 %1, 20
   %7 = and i64 %6, 31
   %.not = icmp eq i64 %5, %7
-  br i1 %.not, label %._crit_edge158, label %8
+  br i1 %.not, label %._crit_edge156, label %8
 
-._crit_edge158:                                   ; preds = %3
+._crit_edge156:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 659816
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.pre159 = trunc i64 %7 to i32
+  %.pre157 = trunc i64 %7 to i32
   br label %24
 
 8:                                                ; preds = %3
@@ -1960,8 +1950,8 @@ define noundef i64 @_Z20fast_rv64e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %15, i32 %16)
   %17 = tail call i32 @llvm.umin.i32(i32 %10, i32 %9)
   %18 = sub nsw i32 %.sroa.speculated.i, %17
-  %.not149 = icmp sgt i32 %18, %14
-  br i1 %.not149, label %24, label %19
+  %.not147 = icmp sgt i32 %18, %14
+  br i1 %.not147, label %24, label %19
 
 19:                                               ; preds = %8
   %20 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -1975,9 +1965,9 @@ define noundef i64 @_Z20fast_rv64e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
   tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #15
   unreachable
 
-24:                                               ; preds = %._crit_edge158, %8
-  %.pre-phi = phi i32 [ %.pre159, %._crit_edge158 ], [ %10, %8 ]
-  %25 = phi float [ %.pre, %._crit_edge158 ], [ %12, %8 ]
+24:                                               ; preds = %._crit_edge156, %8
+  %.pre-phi = phi i32 [ %.pre157, %._crit_edge156 ], [ %10, %8 ]
+  %25 = phi float [ %.pre, %._crit_edge156 ], [ %12, %8 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 659640
   %27 = fptoui float %25 to i32
   %.not.i = icmp eq i32 %27, 0
@@ -2060,9 +2050,8 @@ define noundef i64 @_Z20fast_rv64e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
 65:                                               ; preds = %55
   %66 = getelementptr inbounds i8, ptr %0, i64 659840
   %67 = load i8, ptr %66, align 8
-  %68 = and i8 %67, 1
-  %.not111 = icmp eq i8 %68, 0
-  br i1 %.not111, label %74, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %74
 
 69:                                               ; preds = %65
   %70 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -2079,9 +2068,8 @@ define noundef i64 @_Z20fast_rv64e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
 74:                                               ; preds = %65
   %75 = getelementptr inbounds i8, ptr %0, i64 659841
   %76 = load i8, ptr %75, align 1
-  %77 = and i8 %76, 1
-  %.not112 = icmp eq i8 %77, 0
-  br i1 %.not112, label %78, label %90
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %90, label %78
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %0, i64 659744
@@ -2090,8 +2078,8 @@ define noundef i64 @_Z20fast_rv64e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef %
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef i64 %83(ptr noundef nonnull align 8 dereferenceable(48) %80) #14
-  %.not113 = icmp eq i64 %84, 0
-  br i1 %.not113, label %90, label %85
+  %.not111 = icmp eq i64 %84, 0
+  br i1 %.not111, label %90, label %85
 
 85:                                               ; preds = %78
   %86 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -2158,8 +2146,8 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %103, %98, %.loopexit.i.i
   %.0.i.pn.i.i = phi ptr [ %99, %98 ], [ %113, %.loopexit.i.i ], [ %105, %103 ]
-  %.0.i.i116 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i116, i8 0, i64 16, i1 false)
+  %.0.i.i114 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i114, i8 0, i64 16, i1 false)
   %115 = load ptr, ptr %47, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %115, i64 noundef 1536)
   %116 = getelementptr inbounds i8, ptr %0, i64 659760
@@ -2194,14 +2182,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %142
 
 142:                                              ; preds = %.lr.ph, %223
-  %.0107156 = phi i64 [ %128, %.lr.ph ], [ %232, %223 ]
-  %143 = trunc i64 %.0107156 to i32
+  %.0107154 = phi i64 [ %128, %.lr.ph ], [ %232, %223 ]
+  %143 = trunc i64 %.0107154 to i32
   %144 = and i32 %143, 63
-  %145 = shl i64 %.0107156, 26
+  %145 = shl i64 %.0107154, 26
   %146 = ashr i64 %145, 32
   %147 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef 0, i64 noundef %146, i1 noundef zeroext false)
   %148 = load i64, ptr %147, align 8
-  %149 = and i64 %.0107156, 63
+  %149 = and i64 %.0107154, 63
   %150 = shl nuw i64 1, %149
   %151 = lshr i64 %148, %149
   %152 = and i64 %151, 1
@@ -2215,7 +2203,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   ]
 
 155:                                              ; preds = %142
-  %156 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107156, i1 noundef zeroext false)
+  %156 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107154, i1 noundef zeroext false)
   br i1 %139, label %157, label %162
 
 157:                                              ; preds = %155
@@ -2245,7 +2233,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %223
 
 174:                                              ; preds = %142
-  %175 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107156, i1 noundef zeroext false)
+  %175 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107154, i1 noundef zeroext false)
   br i1 %139, label %176, label %181
 
 176:                                              ; preds = %174
@@ -2265,15 +2253,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %183 = load i64, ptr %141, align 8
   %184 = zext i16 %182 to i128
   %185 = and i64 %183, 65535
-  %narrow114 = add nuw nsw i64 %185, %153
-  %186 = zext nneg i64 %narrow114 to i128
+  %narrow112 = add nuw nsw i64 %185, %153
+  %186 = zext nneg i64 %narrow112 to i128
   %187 = sub nsw i128 %184, %186
   %188 = lshr i128 %187, 16
   %189 = and i128 %188, 1
   br label %223
 
 190:                                              ; preds = %142
-  %191 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107156, i1 noundef zeroext false)
+  %191 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107154, i1 noundef zeroext false)
   br i1 %139, label %192, label %197
 
 192:                                              ; preds = %190
@@ -2301,7 +2289,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %223
 
 206:                                              ; preds = %142
-  %207 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltIlEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107156, i1 noundef zeroext false)
+  %207 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltIlEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107154, i1 noundef zeroext false)
   br i1 %139, label %208, label %213
 
 208:                                              ; preds = %206
@@ -2339,7 +2327,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %230 = and i64 %150, %229
   %231 = or i64 %230, %226
   store i64 %231, ptr %154, align 8
-  %232 = add i64 %.0107156, 1
+  %232 = add i64 %.0107154, 1
   %exitcond.not = icmp eq i64 %232, %121
   br i1 %exitcond.not, label %._crit_edge, label %142, !llvm.loop !11
 
@@ -2357,12 +2345,12 @@ define noundef i64 @_Z22logged_rv32e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
   %6 = lshr i64 %1, 20
   %7 = and i64 %6, 31
   %.not = icmp eq i64 %5, %7
-  br i1 %.not, label %._crit_edge158, label %8
+  br i1 %.not, label %._crit_edge156, label %8
 
-._crit_edge158:                                   ; preds = %3
+._crit_edge156:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 659816
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.pre159 = trunc i64 %7 to i32
+  %.pre157 = trunc i64 %7 to i32
   br label %24
 
 8:                                                ; preds = %3
@@ -2377,8 +2365,8 @@ define noundef i64 @_Z22logged_rv32e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %15, i32 %16)
   %17 = tail call i32 @llvm.umin.i32(i32 %10, i32 %9)
   %18 = sub nsw i32 %.sroa.speculated.i, %17
-  %.not149 = icmp sgt i32 %18, %14
-  br i1 %.not149, label %24, label %19
+  %.not147 = icmp sgt i32 %18, %14
+  br i1 %.not147, label %24, label %19
 
 19:                                               ; preds = %8
   %20 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -2392,9 +2380,9 @@ define noundef i64 @_Z22logged_rv32e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
   tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #15
   unreachable
 
-24:                                               ; preds = %._crit_edge158, %8
-  %.pre-phi = phi i32 [ %.pre159, %._crit_edge158 ], [ %10, %8 ]
-  %25 = phi float [ %.pre, %._crit_edge158 ], [ %12, %8 ]
+24:                                               ; preds = %._crit_edge156, %8
+  %.pre-phi = phi i32 [ %.pre157, %._crit_edge156 ], [ %10, %8 ]
+  %25 = phi float [ %.pre, %._crit_edge156 ], [ %12, %8 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 659640
   %27 = fptoui float %25 to i32
   %.not.i = icmp eq i32 %27, 0
@@ -2477,9 +2465,8 @@ define noundef i64 @_Z22logged_rv32e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
 65:                                               ; preds = %55
   %66 = getelementptr inbounds i8, ptr %0, i64 659840
   %67 = load i8, ptr %66, align 8
-  %68 = and i8 %67, 1
-  %.not111 = icmp eq i8 %68, 0
-  br i1 %.not111, label %74, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %74
 
 69:                                               ; preds = %65
   %70 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -2496,9 +2483,8 @@ define noundef i64 @_Z22logged_rv32e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
 74:                                               ; preds = %65
   %75 = getelementptr inbounds i8, ptr %0, i64 659841
   %76 = load i8, ptr %75, align 1
-  %77 = and i8 %76, 1
-  %.not112 = icmp eq i8 %77, 0
-  br i1 %.not112, label %78, label %90
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %90, label %78
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %0, i64 659744
@@ -2507,8 +2493,8 @@ define noundef i64 @_Z22logged_rv32e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef i64 %83(ptr noundef nonnull align 8 dereferenceable(48) %80) #14
-  %.not113 = icmp eq i64 %84, 0
-  br i1 %.not113, label %90, label %85
+  %.not111 = icmp eq i64 %84, 0
+  br i1 %.not111, label %90, label %85
 
 85:                                               ; preds = %78
   %86 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -2575,8 +2561,8 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %103, %98, %.loopexit.i.i
   %.0.i.pn.i.i = phi ptr [ %99, %98 ], [ %113, %.loopexit.i.i ], [ %105, %103 ]
-  %.0.i.i116 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i116, i8 0, i64 16, i1 false)
+  %.0.i.i114 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i114, i8 0, i64 16, i1 false)
   %115 = load ptr, ptr %47, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %115, i64 noundef 1536)
   %116 = getelementptr inbounds i8, ptr %0, i64 659760
@@ -2611,14 +2597,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %142
 
 142:                                              ; preds = %.lr.ph, %223
-  %.0107156 = phi i64 [ %128, %.lr.ph ], [ %232, %223 ]
-  %143 = trunc i64 %.0107156 to i32
+  %.0107154 = phi i64 [ %128, %.lr.ph ], [ %232, %223 ]
+  %143 = trunc i64 %.0107154 to i32
   %144 = and i32 %143, 63
-  %145 = shl i64 %.0107156, 26
+  %145 = shl i64 %.0107154, 26
   %146 = ashr i64 %145, 32
   %147 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef 0, i64 noundef %146, i1 noundef zeroext false)
   %148 = load i64, ptr %147, align 8
-  %149 = and i64 %.0107156, 63
+  %149 = and i64 %.0107154, 63
   %150 = shl nuw i64 1, %149
   %151 = lshr i64 %148, %149
   %152 = and i64 %151, 1
@@ -2632,7 +2618,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   ]
 
 155:                                              ; preds = %142
-  %156 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107156, i1 noundef zeroext false)
+  %156 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107154, i1 noundef zeroext false)
   br i1 %139, label %157, label %162
 
 157:                                              ; preds = %155
@@ -2662,7 +2648,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %223
 
 174:                                              ; preds = %142
-  %175 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107156, i1 noundef zeroext false)
+  %175 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107154, i1 noundef zeroext false)
   br i1 %139, label %176, label %181
 
 176:                                              ; preds = %174
@@ -2682,15 +2668,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %183 = load i64, ptr %141, align 8
   %184 = zext i16 %182 to i128
   %185 = and i64 %183, 65535
-  %narrow114 = add nuw nsw i64 %185, %153
-  %186 = zext nneg i64 %narrow114 to i128
+  %narrow112 = add nuw nsw i64 %185, %153
+  %186 = zext nneg i64 %narrow112 to i128
   %187 = sub nsw i128 %184, %186
   %188 = lshr i128 %187, 16
   %189 = and i128 %188, 1
   br label %223
 
 190:                                              ; preds = %142
-  %191 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107156, i1 noundef zeroext false)
+  %191 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107154, i1 noundef zeroext false)
   br i1 %139, label %192, label %197
 
 192:                                              ; preds = %190
@@ -2718,7 +2704,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %223
 
 206:                                              ; preds = %142
-  %207 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltIlEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107156, i1 noundef zeroext false)
+  %207 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltIlEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107154, i1 noundef zeroext false)
   br i1 %139, label %208, label %213
 
 208:                                              ; preds = %206
@@ -2756,7 +2742,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %230 = and i64 %150, %229
   %231 = or i64 %230, %226
   store i64 %231, ptr %154, align 8
-  %232 = add i64 %.0107156, 1
+  %232 = add i64 %.0107154, 1
   %exitcond.not = icmp eq i64 %232, %121
   br i1 %exitcond.not, label %._crit_edge, label %142, !llvm.loop !12
 
@@ -2776,12 +2762,12 @@ define noundef i64 @_Z22logged_rv64e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
   %6 = lshr i64 %1, 20
   %7 = and i64 %6, 31
   %.not = icmp eq i64 %5, %7
-  br i1 %.not, label %._crit_edge158, label %8
+  br i1 %.not, label %._crit_edge156, label %8
 
-._crit_edge158:                                   ; preds = %3
+._crit_edge156:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 659816
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.pre159 = trunc i64 %7 to i32
+  %.pre157 = trunc i64 %7 to i32
   br label %24
 
 8:                                                ; preds = %3
@@ -2796,8 +2782,8 @@ define noundef i64 @_Z22logged_rv64e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %15, i32 %16)
   %17 = tail call i32 @llvm.umin.i32(i32 %10, i32 %9)
   %18 = sub nsw i32 %.sroa.speculated.i, %17
-  %.not149 = icmp sgt i32 %18, %14
-  br i1 %.not149, label %24, label %19
+  %.not147 = icmp sgt i32 %18, %14
+  br i1 %.not147, label %24, label %19
 
 19:                                               ; preds = %8
   %20 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -2811,9 +2797,9 @@ define noundef i64 @_Z22logged_rv64e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
   tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #15
   unreachable
 
-24:                                               ; preds = %._crit_edge158, %8
-  %.pre-phi = phi i32 [ %.pre159, %._crit_edge158 ], [ %10, %8 ]
-  %25 = phi float [ %.pre, %._crit_edge158 ], [ %12, %8 ]
+24:                                               ; preds = %._crit_edge156, %8
+  %.pre-phi = phi i32 [ %.pre157, %._crit_edge156 ], [ %10, %8 ]
+  %25 = phi float [ %.pre, %._crit_edge156 ], [ %12, %8 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 659640
   %27 = fptoui float %25 to i32
   %.not.i = icmp eq i32 %27, 0
@@ -2896,9 +2882,8 @@ define noundef i64 @_Z22logged_rv64e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
 65:                                               ; preds = %55
   %66 = getelementptr inbounds i8, ptr %0, i64 659840
   %67 = load i8, ptr %66, align 8
-  %68 = and i8 %67, 1
-  %.not111 = icmp eq i8 %68, 0
-  br i1 %.not111, label %74, label %69
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %74
 
 69:                                               ; preds = %65
   %70 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -2915,9 +2900,8 @@ define noundef i64 @_Z22logged_rv64e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
 74:                                               ; preds = %65
   %75 = getelementptr inbounds i8, ptr %0, i64 659841
   %76 = load i8, ptr %75, align 1
-  %77 = and i8 %76, 1
-  %.not112 = icmp eq i8 %77, 0
-  br i1 %.not112, label %78, label %90
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %90, label %78
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %0, i64 659744
@@ -2926,8 +2910,8 @@ define noundef i64 @_Z22logged_rv64e_vmsbc_vxmP11processor_t6insn_tm(ptr noundef
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef i64 %83(ptr noundef nonnull align 8 dereferenceable(48) %80) #14
-  %.not113 = icmp eq i64 %84, 0
-  br i1 %.not113, label %90, label %85
+  %.not111 = icmp eq i64 %84, 0
+  br i1 %.not111, label %90, label %85
 
 85:                                               ; preds = %78
   %86 = tail call ptr @__cxa_allocate_exception(i64 32) #14
@@ -2994,8 +2978,8 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %103, %98, %.loopexit.i.i
   %.0.i.pn.i.i = phi ptr [ %99, %98 ], [ %113, %.loopexit.i.i ], [ %105, %103 ]
-  %.0.i.i116 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i116, i8 0, i64 16, i1 false)
+  %.0.i.i114 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i114, i8 0, i64 16, i1 false)
   %115 = load ptr, ptr %47, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %115, i64 noundef 1536)
   %116 = getelementptr inbounds i8, ptr %0, i64 659760
@@ -3030,14 +3014,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %142
 
 142:                                              ; preds = %.lr.ph, %223
-  %.0107156 = phi i64 [ %128, %.lr.ph ], [ %232, %223 ]
-  %143 = trunc i64 %.0107156 to i32
+  %.0107154 = phi i64 [ %128, %.lr.ph ], [ %232, %223 ]
+  %143 = trunc i64 %.0107154 to i32
   %144 = and i32 %143, 63
-  %145 = shl i64 %.0107156, 26
+  %145 = shl i64 %.0107154, 26
   %146 = ashr i64 %145, 32
   %147 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef 0, i64 noundef %146, i1 noundef zeroext false)
   %148 = load i64, ptr %147, align 8
-  %149 = and i64 %.0107156, 63
+  %149 = and i64 %.0107154, 63
   %150 = shl nuw i64 1, %149
   %151 = lshr i64 %148, %149
   %152 = and i64 %151, 1
@@ -3051,7 +3035,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   ]
 
 155:                                              ; preds = %142
-  %156 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107156, i1 noundef zeroext false)
+  %156 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIaEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107154, i1 noundef zeroext false)
   br i1 %139, label %157, label %162
 
 157:                                              ; preds = %155
@@ -3081,7 +3065,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %223
 
 174:                                              ; preds = %142
-  %175 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107156, i1 noundef zeroext false)
+  %175 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltIsEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107154, i1 noundef zeroext false)
   br i1 %139, label %176, label %181
 
 176:                                              ; preds = %174
@@ -3101,15 +3085,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %183 = load i64, ptr %141, align 8
   %184 = zext i16 %182 to i128
   %185 = and i64 %183, 65535
-  %narrow114 = add nuw nsw i64 %185, %153
-  %186 = zext nneg i64 %narrow114 to i128
+  %narrow112 = add nuw nsw i64 %185, %153
+  %186 = zext nneg i64 %narrow112 to i128
   %187 = sub nsw i128 %184, %186
   %188 = lshr i128 %187, 16
   %189 = and i128 %188, 1
   br label %223
 
 190:                                              ; preds = %142
-  %191 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107156, i1 noundef zeroext false)
+  %191 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107154, i1 noundef zeroext false)
   br i1 %139, label %192, label %197
 
 192:                                              ; preds = %190
@@ -3137,7 +3121,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %223
 
 206:                                              ; preds = %142
-  %207 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltIlEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107156, i1 noundef zeroext false)
+  %207 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltIlEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %26, i64 noundef %7, i64 noundef %.0107154, i1 noundef zeroext false)
   br i1 %139, label %208, label %213
 
 208:                                              ; preds = %206
@@ -3175,7 +3159,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %230 = and i64 %150, %229
   %231 = or i64 %230, %226
   store i64 %231, ptr %154, align 8
-  %232 = add i64 %.0107156, 1
+  %232 = add i64 %.0107154, 1
   %exitcond.not = icmp eq i64 %232, %121
   br i1 %exitcond.not, label %._crit_edge, label %142, !llvm.loop !13
 
@@ -3190,9 +3174,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3391,9 +3374,8 @@ define linkonce_odr ptr @_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

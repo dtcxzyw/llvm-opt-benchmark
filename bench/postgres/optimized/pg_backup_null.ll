@@ -200,21 +200,20 @@ declare void @DropLOIfExists(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @_WriteLOData(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %12, label %4
+  br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %3
   %5 = tail call ptr @createPQExpBuffer() #6
   %6 = getelementptr inbounds i8, ptr %0, i64 68
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %9 = icmp ne i8 %8, 0
-  tail call void @appendByteaLiteral(ptr noundef %5, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %9) #6
-  %10 = load ptr, ptr %5, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @ahprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %10) #6
+  %8 = trunc i8 %7 to i1
+  tail call void @appendByteaLiteral(ptr noundef %5, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %8) #6
+  %9 = load ptr, ptr %5, align 8
+  %10 = tail call i32 (ptr, ptr, ...) @ahprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %9) #6
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %5) #6
-  br label %12
+  br label %11
 
-12:                                               ; preds = %4, %3
+11:                                               ; preds = %4, %3
   ret void
 }
 

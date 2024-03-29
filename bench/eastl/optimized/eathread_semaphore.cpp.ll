@@ -72,24 +72,23 @@ if.then6.i:                                       ; preds = %if.then.i
 if.end.i:                                         ; preds = %if.then6.i, %if.then.i
   %mbIntraProcess.i = getelementptr inbounds i8, ptr %pSemaphoreParameters, i64 8
   %4 = load i8, ptr %mbIntraProcess.i, align 4
-  %5 = and i8 %4, 1
   %mbIntraProcess12.i = getelementptr inbounds i8, ptr %this, i64 40
-  store i8 %5, ptr %mbIntraProcess12.i, align 8
-  %cond.i = zext nneg i8 %5 to i32
-  %6 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %call20.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef %cond.i, i32 noundef %6) #12
+  %frombool.i = and i8 %4, 1
+  store i8 %frombool.i, ptr %mbIntraProcess12.i, align 8
+  %cond.i = zext nneg i8 %frombool.i to i32
+  %5 = load atomic i32, ptr %mnCount.i seq_cst, align 8
+  %call20.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef %cond.i, i32 noundef %5) #12
   %cmp21.i = icmp eq i32 %call20.i, -1
   br i1 %cmp21.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %7 = load i8, ptr %mbIntraProcess12.i, align 8
-  %8 = and i8 %7, 1
-  %tobool24.not.i = icmp eq i8 %8, 0
-  br i1 %tobool24.not.i, label %if.end, label %if.then25.i
+  %6 = load i8, ptr %mbIntraProcess12.i, align 8
+  %tobool24.i = trunc i8 %6 to i1
+  br i1 %tobool24.i, label %if.then25.i, label %if.end
 
 if.then25.i:                                      ; preds = %land.lhs.true.i
-  %9 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %call31.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %9) #12
+  %7 = load atomic i32, ptr %mnCount.i seq_cst, align 8
+  %call31.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %7) #12
   %cmp32.i = icmp eq i32 %call31.i, -1
   br i1 %cmp32.i, label %if.then33.i, label %if.else.i
 
@@ -107,43 +106,42 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   store atomic i32 0, ptr %mnCount.i seq_cst, align 8
   store i32 2147483647, ptr %mnMaxCount.i, align 4
-  %10 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %cmp.i13 = icmp slt i32 %10, 0
-  br i1 %cmp.i13, label %if.then6.i28, label %if.end.i14
+  %8 = load atomic i32, ptr %mnCount.i seq_cst, align 8
+  %cmp.i13 = icmp slt i32 %8, 0
+  br i1 %cmp.i13, label %if.then6.i29, label %if.end.i14
 
-if.then6.i28:                                     ; preds = %if.then
+if.then6.i29:                                     ; preds = %if.then
   store atomic i32 0, ptr %mnCount.i seq_cst, align 8
   br label %if.end.i14
 
-if.end.i14:                                       ; preds = %if.then6.i28, %if.then
+if.end.i14:                                       ; preds = %if.then6.i29, %if.then
   %mbIntraProcess12.i16 = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %mbIntraProcess12.i16, align 8
+  %9 = load atomic i32, ptr %mnCount.i seq_cst, align 8
+  %call20.i19 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 1, i32 noundef %9) #12
+  %cmp21.i20 = icmp eq i32 %call20.i19, -1
+  br i1 %cmp21.i20, label %land.lhs.true.i22, label %if.end
+
+land.lhs.true.i22:                                ; preds = %if.end.i14
+  %10 = load i8, ptr %mbIntraProcess12.i16, align 8
+  %tobool24.i23 = trunc i8 %10 to i1
+  br i1 %tobool24.i23, label %if.then25.i24, label %if.end
+
+if.then25.i24:                                    ; preds = %land.lhs.true.i22
   %11 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %call20.i18 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 1, i32 noundef %11) #12
-  %cmp21.i19 = icmp eq i32 %call20.i18, -1
-  br i1 %cmp21.i19, label %land.lhs.true.i21, label %if.end
+  %call31.i25 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %11) #12
+  %cmp32.i26 = icmp eq i32 %call31.i25, -1
+  br i1 %cmp32.i26, label %if.then33.i28, label %if.else.i27
 
-land.lhs.true.i21:                                ; preds = %if.end.i14
-  %12 = load i8, ptr %mbIntraProcess12.i16, align 8
-  %13 = and i8 %12, 1
-  %tobool24.not.i22 = icmp eq i8 %13, 0
-  br i1 %tobool24.not.i22, label %if.end, label %if.then25.i23
-
-if.then25.i23:                                    ; preds = %land.lhs.true.i21
-  %14 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %call31.i24 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %14) #12
-  %cmp32.i25 = icmp eq i32 %call31.i24, -1
-  br i1 %cmp32.i25, label %if.then33.i27, label %if.else.i26
-
-if.then33.i27:                                    ; preds = %if.then25.i23
+if.then33.i28:                                    ; preds = %if.then25.i24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   br label %if.end
 
-if.else.i26:                                      ; preds = %if.then25.i23
+if.else.i27:                                      ; preds = %if.then25.i24
   store i8 0, ptr %mbIntraProcess12.i16, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.else.i26, %if.then33.i27, %land.lhs.true.i21, %if.end.i14, %land.lhs.true, %if.else.i, %if.then33.i, %land.lhs.true.i, %if.end.i
+if.end:                                           ; preds = %if.else.i27, %if.then33.i28, %land.lhs.true.i22, %if.end.i14, %land.lhs.true, %if.else.i, %if.then33.i, %land.lhs.true.i, %if.end.i
   ret void
 }
 
@@ -172,24 +170,23 @@ if.then6:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then6, %if.then
   %mbIntraProcess = getelementptr inbounds i8, ptr %pSemaphoreParameters, i64 8
   %3 = load i8, ptr %mbIntraProcess, align 4
-  %4 = and i8 %3, 1
   %mbIntraProcess12 = getelementptr inbounds i8, ptr %this, i64 40
-  store i8 %4, ptr %mbIntraProcess12, align 8
-  %cond = zext nneg i8 %4 to i32
-  %5 = load atomic i32, ptr %mnCount seq_cst, align 8
-  %call20 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef %cond, i32 noundef %5) #12
+  %frombool = and i8 %3, 1
+  store i8 %frombool, ptr %mbIntraProcess12, align 8
+  %cond = zext nneg i8 %frombool to i32
+  %4 = load atomic i32, ptr %mnCount seq_cst, align 8
+  %call20 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef %cond, i32 noundef %4) #12
   %cmp21 = icmp eq i32 %call20, -1
   br i1 %cmp21, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
-  %6 = load i8, ptr %mbIntraProcess12, align 8
-  %7 = and i8 %6, 1
-  %tobool24.not = icmp eq i8 %7, 0
-  br i1 %tobool24.not, label %return, label %if.then25
+  %5 = load i8, ptr %mbIntraProcess12, align 8
+  %tobool24 = trunc i8 %5 to i1
+  br i1 %tobool24, label %if.then25, label %return
 
 if.then25:                                        ; preds = %land.lhs.true
-  %8 = load atomic i32, ptr %mnCount seq_cst, align 8
-  %call31 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %8) #12
+  %6 = load atomic i32, ptr %mnCount seq_cst, align 8
+  %call31 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %6) #12
   %cmp32 = icmp eq i32 %call31, -1
   br i1 %cmp32, label %if.then33, label %if.else
 
@@ -234,13 +231,12 @@ if.end.i:                                         ; preds = %if.then6.i, %entry
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %3 = load i8, ptr %mbIntraProcess12.i, align 8
-  %4 = and i8 %3, 1
-  %tobool24.not.i = icmp eq i8 %4, 0
-  br i1 %tobool24.not.i, label %_ZN2EA6Thread9Semaphore4InitEPKNS0_19SemaphoreParametersE.exit, label %if.then25.i
+  %tobool24.i = trunc i8 %3 to i1
+  br i1 %tobool24.i, label %if.then25.i, label %_ZN2EA6Thread9Semaphore4InitEPKNS0_19SemaphoreParametersE.exit
 
 if.then25.i:                                      ; preds = %land.lhs.true.i
-  %5 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %call31.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %5) #12
+  %4 = load atomic i32, ptr %mnCount.i seq_cst, align 8
+  %call31.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %4) #12
   %cmp32.i = icmp eq i32 %call31.i, -1
   br i1 %cmp32.i, label %if.then33.i, label %if.else.i
 
@@ -453,87 +449,85 @@ if.then:                                          ; preds = %entry
   store i32 2147483647, ptr %mnMaxCount.i.i, align 4
   %3 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
   %cmp.i13.i = icmp slt i32 %3, 0
-  br i1 %cmp.i13.i, label %if.then6.i28.i, label %if.end.i14.i
+  br i1 %cmp.i13.i, label %if.then6.i29.i, label %if.end.i14.i
 
-if.then6.i28.i:                                   ; preds = %if.then
+if.then6.i29.i:                                   ; preds = %if.then
   store atomic i32 0, ptr %mnCount.i.i seq_cst, align 4
   br label %if.end.i14.i
 
-if.end.i14.i:                                     ; preds = %if.then6.i28.i, %if.then
+if.end.i14.i:                                     ; preds = %if.then6.i29.i, %if.then
   %mbIntraProcess12.i16.i = getelementptr inbounds i8, ptr %call, i64 40
   store i8 1, ptr %mbIntraProcess12.i16.i, align 8
   %4 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
-  %call20.i18.i = tail call i32 @sem_init(ptr noundef nonnull %call, i32 noundef 1, i32 noundef %4) #12
-  %cmp21.i19.i = icmp eq i32 %call20.i18.i, -1
-  br i1 %cmp21.i19.i, label %land.lhs.true.i21.i, label %return
+  %call20.i19.i = tail call i32 @sem_init(ptr noundef nonnull %call, i32 noundef 1, i32 noundef %4) #12
+  %cmp21.i20.i = icmp eq i32 %call20.i19.i, -1
+  br i1 %cmp21.i20.i, label %land.lhs.true.i22.i, label %return
 
-land.lhs.true.i21.i:                              ; preds = %if.end.i14.i
+land.lhs.true.i22.i:                              ; preds = %if.end.i14.i
   %5 = load i8, ptr %mbIntraProcess12.i16.i, align 8
-  %6 = and i8 %5, 1
-  %tobool24.not.i22.i = icmp eq i8 %6, 0
-  br i1 %tobool24.not.i22.i, label %return, label %if.then25.i23.i
+  %tobool24.i23.i = trunc i8 %5 to i1
+  br i1 %tobool24.i23.i, label %if.then25.i24.i, label %return
 
-if.then25.i23.i:                                  ; preds = %land.lhs.true.i21.i
-  %7 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
-  %call31.i24.i = tail call i32 @sem_init(ptr noundef nonnull %call, i32 noundef 0, i32 noundef %7) #12
-  %cmp32.i25.i = icmp eq i32 %call31.i24.i, -1
-  br i1 %cmp32.i25.i, label %if.then33.i27.i, label %if.else.i26.i
+if.then25.i24.i:                                  ; preds = %land.lhs.true.i22.i
+  %6 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
+  %call31.i25.i = tail call i32 @sem_init(ptr noundef nonnull %call, i32 noundef 0, i32 noundef %6) #12
+  %cmp32.i26.i = icmp eq i32 %call31.i25.i, -1
+  br i1 %cmp32.i26.i, label %if.then33.i28.i, label %if.else.i27.i
 
-if.then33.i27.i:                                  ; preds = %if.then25.i23.i
+if.then33.i28.i:                                  ; preds = %if.then25.i24.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call, i8 0, i64 32, i1 false)
   br label %return
 
-if.else.i26.i:                                    ; preds = %if.then25.i23.i
+if.else.i27.i:                                    ; preds = %if.then25.i24.i
   store i8 0, ptr %mbIntraProcess12.i16.i, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
   %call1 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %mnCount.i.i1 = getelementptr inbounds i8, ptr %call1, i64 32
-  %8 = atomicrmw xchg ptr %mnCount.i.i1, i32 0 seq_cst, align 4
+  %7 = atomicrmw xchg ptr %mnCount.i.i1, i32 0 seq_cst, align 4
   %mnMaxCount.i.i2 = getelementptr inbounds i8, ptr %call1, i64 36
   store i32 2147483647, ptr %mnMaxCount.i.i2, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call1, i8 0, i64 32, i1 false)
   store atomic i32 0, ptr %mnCount.i.i1 seq_cst, align 4
   store i32 2147483647, ptr %mnMaxCount.i.i2, align 4
-  %9 = load atomic i32, ptr %mnCount.i.i1 seq_cst, align 4
-  %cmp.i13.i3 = icmp slt i32 %9, 0
-  br i1 %cmp.i13.i3, label %if.then6.i28.i15, label %if.end.i14.i4
+  %8 = load atomic i32, ptr %mnCount.i.i1 seq_cst, align 4
+  %cmp.i13.i3 = icmp slt i32 %8, 0
+  br i1 %cmp.i13.i3, label %if.then6.i29.i15, label %if.end.i14.i4
 
-if.then6.i28.i15:                                 ; preds = %if.else
+if.then6.i29.i15:                                 ; preds = %if.else
   store atomic i32 0, ptr %mnCount.i.i1 seq_cst, align 4
   br label %if.end.i14.i4
 
-if.end.i14.i4:                                    ; preds = %if.then6.i28.i15, %if.else
+if.end.i14.i4:                                    ; preds = %if.then6.i29.i15, %if.else
   %mbIntraProcess12.i16.i5 = getelementptr inbounds i8, ptr %call1, i64 40
   store i8 1, ptr %mbIntraProcess12.i16.i5, align 8
-  %10 = load atomic i32, ptr %mnCount.i.i1 seq_cst, align 4
-  %call20.i18.i6 = tail call i32 @sem_init(ptr noundef nonnull %call1, i32 noundef 1, i32 noundef %10) #12
-  %cmp21.i19.i7 = icmp eq i32 %call20.i18.i6, -1
-  br i1 %cmp21.i19.i7, label %land.lhs.true.i21.i8, label %return
+  %9 = load atomic i32, ptr %mnCount.i.i1 seq_cst, align 4
+  %call20.i19.i6 = tail call i32 @sem_init(ptr noundef nonnull %call1, i32 noundef 1, i32 noundef %9) #12
+  %cmp21.i20.i7 = icmp eq i32 %call20.i19.i6, -1
+  br i1 %cmp21.i20.i7, label %land.lhs.true.i22.i8, label %return
 
-land.lhs.true.i21.i8:                             ; preds = %if.end.i14.i4
-  %11 = load i8, ptr %mbIntraProcess12.i16.i5, align 8
-  %12 = and i8 %11, 1
-  %tobool24.not.i22.i9 = icmp eq i8 %12, 0
-  br i1 %tobool24.not.i22.i9, label %return, label %if.then25.i23.i10
+land.lhs.true.i22.i8:                             ; preds = %if.end.i14.i4
+  %10 = load i8, ptr %mbIntraProcess12.i16.i5, align 8
+  %tobool24.i23.i9 = trunc i8 %10 to i1
+  br i1 %tobool24.i23.i9, label %if.then25.i24.i10, label %return
 
-if.then25.i23.i10:                                ; preds = %land.lhs.true.i21.i8
-  %13 = load atomic i32, ptr %mnCount.i.i1 seq_cst, align 4
-  %call31.i24.i11 = tail call i32 @sem_init(ptr noundef nonnull %call1, i32 noundef 0, i32 noundef %13) #12
-  %cmp32.i25.i12 = icmp eq i32 %call31.i24.i11, -1
-  br i1 %cmp32.i25.i12, label %if.then33.i27.i14, label %if.else.i26.i13
+if.then25.i24.i10:                                ; preds = %land.lhs.true.i22.i8
+  %11 = load atomic i32, ptr %mnCount.i.i1 seq_cst, align 4
+  %call31.i25.i11 = tail call i32 @sem_init(ptr noundef nonnull %call1, i32 noundef 0, i32 noundef %11) #12
+  %cmp32.i26.i12 = icmp eq i32 %call31.i25.i11, -1
+  br i1 %cmp32.i26.i12, label %if.then33.i28.i14, label %if.else.i27.i13
 
-if.then33.i27.i14:                                ; preds = %if.then25.i23.i10
+if.then33.i28.i14:                                ; preds = %if.then25.i24.i10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call1, i8 0, i64 32, i1 false)
   br label %return
 
-if.else.i26.i13:                                  ; preds = %if.then25.i23.i10
+if.else.i27.i13:                                  ; preds = %if.then25.i24.i10
   store i8 0, ptr %mbIntraProcess12.i16.i5, align 8
   br label %return
 
-return:                                           ; preds = %if.else.i26.i13, %if.then33.i27.i14, %land.lhs.true.i21.i8, %if.end.i14.i4, %if.else.i26.i, %if.then33.i27.i, %land.lhs.true.i21.i, %if.end.i14.i
-  %retval.0 = phi ptr [ %call, %if.end.i14.i ], [ %call, %land.lhs.true.i21.i ], [ %call, %if.then33.i27.i ], [ %call, %if.else.i26.i ], [ %call1, %if.end.i14.i4 ], [ %call1, %land.lhs.true.i21.i8 ], [ %call1, %if.then33.i27.i14 ], [ %call1, %if.else.i26.i13 ]
+return:                                           ; preds = %if.else.i27.i13, %if.then33.i28.i14, %land.lhs.true.i22.i8, %if.end.i14.i4, %if.else.i27.i, %if.then33.i28.i, %land.lhs.true.i22.i, %if.end.i14.i
+  %retval.0 = phi ptr [ %call, %if.end.i14.i ], [ %call, %land.lhs.true.i22.i ], [ %call, %if.then33.i28.i ], [ %call, %if.else.i27.i ], [ %call1, %if.end.i14.i4 ], [ %call1, %land.lhs.true.i22.i8 ], [ %call1, %if.then33.i28.i14 ], [ %call1, %if.else.i27.i13 ]
   ret ptr %retval.0
 }
 
@@ -632,41 +626,40 @@ entry:
   store i32 2147483647, ptr %mnMaxCount.i.i, align 4
   %1 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
   %cmp.i13.i = icmp slt i32 %1, 0
-  br i1 %cmp.i13.i, label %if.then6.i28.i, label %if.end.i14.i
+  br i1 %cmp.i13.i, label %if.then6.i29.i, label %if.end.i14.i
 
-if.then6.i28.i:                                   ; preds = %entry
+if.then6.i29.i:                                   ; preds = %entry
   store atomic i32 0, ptr %mnCount.i.i seq_cst, align 4
   br label %if.end.i14.i
 
-if.end.i14.i:                                     ; preds = %if.then6.i28.i, %entry
+if.end.i14.i:                                     ; preds = %if.then6.i29.i, %entry
   %mbIntraProcess12.i16.i = getelementptr inbounds i8, ptr %pMemory, i64 40
   store i8 1, ptr %mbIntraProcess12.i16.i, align 8
   %2 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
-  %call20.i18.i = tail call i32 @sem_init(ptr noundef nonnull %pMemory, i32 noundef 1, i32 noundef %2) #12
-  %cmp21.i19.i = icmp eq i32 %call20.i18.i, -1
-  br i1 %cmp21.i19.i, label %land.lhs.true.i21.i, label %_ZN2EA6Thread9SemaphoreC2EPKNS0_19SemaphoreParametersEb.exit
+  %call20.i19.i = tail call i32 @sem_init(ptr noundef nonnull %pMemory, i32 noundef 1, i32 noundef %2) #12
+  %cmp21.i20.i = icmp eq i32 %call20.i19.i, -1
+  br i1 %cmp21.i20.i, label %land.lhs.true.i22.i, label %_ZN2EA6Thread9SemaphoreC2EPKNS0_19SemaphoreParametersEb.exit
 
-land.lhs.true.i21.i:                              ; preds = %if.end.i14.i
+land.lhs.true.i22.i:                              ; preds = %if.end.i14.i
   %3 = load i8, ptr %mbIntraProcess12.i16.i, align 8
-  %4 = and i8 %3, 1
-  %tobool24.not.i22.i = icmp eq i8 %4, 0
-  br i1 %tobool24.not.i22.i, label %_ZN2EA6Thread9SemaphoreC2EPKNS0_19SemaphoreParametersEb.exit, label %if.then25.i23.i
+  %tobool24.i23.i = trunc i8 %3 to i1
+  br i1 %tobool24.i23.i, label %if.then25.i24.i, label %_ZN2EA6Thread9SemaphoreC2EPKNS0_19SemaphoreParametersEb.exit
 
-if.then25.i23.i:                                  ; preds = %land.lhs.true.i21.i
-  %5 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
-  %call31.i24.i = tail call i32 @sem_init(ptr noundef nonnull %pMemory, i32 noundef 0, i32 noundef %5) #12
-  %cmp32.i25.i = icmp eq i32 %call31.i24.i, -1
-  br i1 %cmp32.i25.i, label %if.then33.i27.i, label %if.else.i26.i
+if.then25.i24.i:                                  ; preds = %land.lhs.true.i22.i
+  %4 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
+  %call31.i25.i = tail call i32 @sem_init(ptr noundef nonnull %pMemory, i32 noundef 0, i32 noundef %4) #12
+  %cmp32.i26.i = icmp eq i32 %call31.i25.i, -1
+  br i1 %cmp32.i26.i, label %if.then33.i28.i, label %if.else.i27.i
 
-if.then33.i27.i:                                  ; preds = %if.then25.i23.i
+if.then33.i28.i:                                  ; preds = %if.then25.i24.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %pMemory, i8 0, i64 32, i1 false)
   br label %_ZN2EA6Thread9SemaphoreC2EPKNS0_19SemaphoreParametersEb.exit
 
-if.else.i26.i:                                    ; preds = %if.then25.i23.i
+if.else.i27.i:                                    ; preds = %if.then25.i24.i
   store i8 0, ptr %mbIntraProcess12.i16.i, align 8
   br label %_ZN2EA6Thread9SemaphoreC2EPKNS0_19SemaphoreParametersEb.exit
 
-_ZN2EA6Thread9SemaphoreC2EPKNS0_19SemaphoreParametersEb.exit: ; preds = %if.end.i14.i, %land.lhs.true.i21.i, %if.then33.i27.i, %if.else.i26.i
+_ZN2EA6Thread9SemaphoreC2EPKNS0_19SemaphoreParametersEb.exit: ; preds = %if.end.i14.i, %land.lhs.true.i22.i, %if.then33.i28.i, %if.else.i27.i
   ret ptr %pMemory
 }
 

@@ -555,9 +555,8 @@ declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #10
 define void @zend_destroy_file_handle(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 58
   %3 = load i8, ptr %2, align 2
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %7, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
   tail call void @zend_llist_del_element(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 13), ptr noundef nonnull %0, ptr noundef nonnull @zend_compare_file_handles) #16

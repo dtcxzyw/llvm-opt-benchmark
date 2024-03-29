@@ -221,9 +221,8 @@ define void @mca_common_monitoring_finalize() local_unnamed_addr #0 {
   %15 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i8, ptr @opal_uses_threads, align 1
-  %18 = and i8 %17, 1
-  %.not.i = icmp eq i8 %18, 0
-  br i1 %.not.i, label %22, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %22
 
 19:                                               ; preds = %6
   %20 = atomicrmw volatile add ptr %16, i32 -1 monotonic, align 4
@@ -256,8 +255,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %19, %22
   tail call void %32(ptr noundef nonnull %15) #19
   %33 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %34 = load ptr, ptr %33, align 8
-  %.not.i2 = icmp eq ptr %34, null
-  br i1 %.not.i2, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  %.not.i = icmp eq ptr %34, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8

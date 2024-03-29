@@ -326,7 +326,7 @@ define hidden void @"_ZN105_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   br label %11
 
-11:                                               ; preds = %35, %2
+11:                                               ; preds = %36, %2
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.9)
   call void @llvm.experimental.noalias.scope.decl(metadata !124)
   call void @llvm.experimental.noalias.scope.decl(metadata !127)
@@ -379,12 +379,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h158debfebab1b264E.llvm.5761680
 20:                                               ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h158debfebab1b264E.llvm.5761680391814234304.exit.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h158debfebab1b264E.llvm.5761680391814234304.exit.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !155)
   %21 = load i64, ptr %5, align 8, !range !158, !noundef !7
-  %trunc.not.i.i.i = icmp eq i64 %21, 0
-  br i1 %trunc.not.i.i.i, label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$GT$$GT$17h9f323ba51233ef57E.llvm.566609780180471337.exit.i.thread11", label %22
-
-"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$GT$$GT$17h9f323ba51233ef57E.llvm.566609780180471337.exit.i.thread11": ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.9)
-  br label %"_ZN4core3ptr228drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$C$core..array..iter..IntoIter$LT$syn..path..PathSegment$C$1_usize$GT$$GT$$GT$17h271a2640e5996d4cE.exit"
+  %trunc.i.i.i = trunc i64 %21 to i1
+  br i1 %trunc.i.i.i, label %22, label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$GT$$GT$17h9f323ba51233ef57E.llvm.566609780180471337.exit.i"
 
 22:                                               ; preds = %20
   call void @llvm.experimental.noalias.scope.decl(metadata !159)
@@ -396,9 +392,9 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h158debfebab1b264E.llvm.5761680
 .thread5:                                         ; preds = %.noexc1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.6.0..sroa_idx6.i, i64 88, i1 false), !noalias !127
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3), !noalias !132
-  br label %34
+  br label %35
 
-25:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h8857f6884409c604E.exit.i.i, %14, %34
+25:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h8857f6884409c604E.exit.i.i, %14, %35
   %26 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -406,7 +402,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h158debfebab1b264E.llvm.5761680
 .body:                                            ; preds = %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$syn..path..PathSegment$GT$$GT$17hf34f11c9f3a6977fE.exit.i.i", %25
   %eh.lpad-body = phi { ptr, i32 } [ %26, %25 ], [ %19, %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$syn..path..PathSegment$GT$$GT$17hf34f11c9f3a6977fE.exit.i.i" ]
   invoke void @"_ZN4core3ptr228drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$C$core..array..iter..IntoIter$LT$syn..path..PathSegment$C$1_usize$GT$$GT$$GT$17h271a2640e5996d4cE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %5) #20
-          to label %common.resume unwind label %36
+          to label %common.resume unwind label %37
 
 27:                                               ; preds = %22
   store i64 1, ptr %9, align 8, !alias.scope !162, !noalias !166
@@ -415,43 +411,40 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h158debfebab1b264E.llvm.5761680
   %.sroa.0.0.copyload2 = load i64, ptr %8, align 8, !alias.scope !168, !noalias !169
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.9.0..sroa_idx3, i64 88, i1 false), !alias.scope !168, !noalias !169
   %29 = icmp eq i64 %.sroa.0.0.copyload2, -9223372036854775807
-  br i1 %29, label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$GT$$GT$17h9f323ba51233ef57E.llvm.566609780180471337.exit.i.thread", label %34
+  br i1 %29, label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$GT$$GT$17h9f323ba51233ef57E.llvm.566609780180471337.exit.i", label %35
 
-"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$GT$$GT$17h9f323ba51233ef57E.llvm.566609780180471337.exit.i.thread": ; preds = %27
+"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$GT$$GT$17h9f323ba51233ef57E.llvm.566609780180471337.exit.i": ; preds = %27, %20, %22
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.9)
-  br label %30
+  %30 = icmp eq i64 %21, 0
+  br i1 %30, label %"_ZN4core3ptr228drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$C$core..array..iter..IntoIter$LT$syn..path..PathSegment$C$1_usize$GT$$GT$$GT$17h271a2640e5996d4cE.exit", label %31
 
-"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$GT$$GT$17h9f323ba51233ef57E.llvm.566609780180471337.exit.i": ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.9)
-  br label %30
-
-30:                                               ; preds = %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$GT$$GT$17h9f323ba51233ef57E.llvm.566609780180471337.exit.i", %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$GT$$GT$17h9f323ba51233ef57E.llvm.566609780180471337.exit.i.thread"
-  %31 = call { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_slice17h41ada16ea521a985E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(112) %8)
-  %32 = extractvalue { ptr, i64 } %31, 0
-  %33 = extractvalue { ptr, i64 } %31, 1
-  call void @"_ZN4core3ptr53drop_in_place$LT$$u5b$syn..path..PathSegment$u5d$$GT$17hc0eca5b7b31bc0d7E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 %32, i64 noundef %33)
+31:                                               ; preds = %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$GT$$GT$17h9f323ba51233ef57E.llvm.566609780180471337.exit.i"
+  %32 = call { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_slice17h41ada16ea521a985E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(112) %8)
+  %33 = extractvalue { ptr, i64 } %32, 0
+  %34 = extractvalue { ptr, i64 } %32, 1
+  call void @"_ZN4core3ptr53drop_in_place$LT$$u5b$syn..path..PathSegment$u5d$$GT$17hc0eca5b7b31bc0d7E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 %33, i64 noundef %34)
   br label %"_ZN4core3ptr228drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$C$core..array..iter..IntoIter$LT$syn..path..PathSegment$C$1_usize$GT$$GT$$GT$17h271a2640e5996d4cE.exit"
 
 common.resume:                                    ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 
-"_ZN4core3ptr228drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$C$core..array..iter..IntoIter$LT$syn..path..PathSegment$C$1_usize$GT$$GT$$GT$17h271a2640e5996d4cE.exit": ; preds = %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$GT$$GT$17h9f323ba51233ef57E.llvm.566609780180471337.exit.i.thread11", %30
+"_ZN4core3ptr228drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$C$core..array..iter..IntoIter$LT$syn..path..PathSegment$C$1_usize$GT$$GT$$GT$17h271a2640e5996d4cE.exit": ; preds = %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..iter..adapters..cloned..Cloned$LT$syn..punctuated..Iter$LT$syn..path..PathSegment$GT$$GT$$GT$$GT$17h9f323ba51233ef57E.llvm.566609780180471337.exit.i", %31
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5)
   ret void
 
-34:                                               ; preds = %.thread5, %27
+35:                                               ; preds = %.thread5, %27
   %.sroa.0.07 = phi i64 [ %.pr.i.i, %.thread5 ], [ %.sroa.0.0.copyload2, %27 ]
   store i64 %.sroa.0.07, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.9, i64 88, i1 false)
   invoke void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17hbc42de4897879fe9E.llvm.5761680391814234304"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %4)
-          to label %35 unwind label %25
+          to label %36 unwind label %25
 
-35:                                               ; preds = %34
+36:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.9)
   br label %11
 
-36:                                               ; preds = %.body
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %.body
+  %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #21
   unreachable
@@ -826,9 +819,9 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h158debfebab1b264E.llvm.5761680
   tail call void @llvm.experimental.noalias.scope.decl(metadata !274)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !277)
   %15 = load i64, ptr %1, align 8, !range !158, !alias.scope !279, !noalias !280, !noundef !7
-  %trunc.not.i.i = icmp eq i64 %15, 0
+  %trunc.i.i = trunc i64 %15 to i1
   %16 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %trunc.not.i.i, label %25, label %17
+  br i1 %trunc.i.i, label %17, label %25
 
 17:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !281)
@@ -4623,9 +4616,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$7or_else17h7bc06c2438170fac
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1295)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1298)
   %7 = load i64, ptr %2, align 8, !range !158, !alias.scope !1298, !noalias !1295, !noundef !7
-  %trunc.not.i = icmp eq i64 %7, 0
+  %trunc.i = trunc i64 %7 to i1
   %8 = getelementptr inbounds i8, ptr %2, i64 8
-  br i1 %trunc.not.i, label %17, label %9
+  br i1 %trunc.i, label %9, label %17
 
 9:                                                ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1300)

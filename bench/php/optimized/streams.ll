@@ -285,9 +285,9 @@ define void @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %1, ptr no
   %8 = alloca %struct._zend_llist, align 8
   store ptr %0, ptr %5, align 8
   store ptr null, ptr %7, align 8
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   %9 = call i64 @zend_vspprintf(ptr noundef nonnull %7, i64 noundef 0, ptr noundef %2, ptr noundef nonnull %6) #27
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   %10 = and i32 %1, 8
   %11 = icmp ne i32 %10, 0
   %12 = icmp eq ptr %0, null
@@ -353,13 +353,7 @@ define void @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %1, ptr no
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 declare i64 @zend_vspprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
 
 declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
@@ -419,9 +413,8 @@ define noundef ptr @_php_stream_alloc(ptr noundef %0, ptr noundef %1, ptr nounde
   %18 = getelementptr inbounds i8, ptr %10, i64 192
   store i64 %17, ptr %18, align 8
   %19 = load i8, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 2), align 8
-  %20 = and i8 %19, 1
-  %.not35 = icmp eq i8 %20, 0
-  br i1 %.not35, label %23, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %9
   %22 = getelementptr inbounds i8, ptr %10, i64 116
@@ -469,17 +462,17 @@ define noundef ptr @_php_stream_alloc(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #7
+declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #6
 
 declare noalias ptr @_emalloc_224() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 declare ptr @zend_register_persistent_resource(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 declare i64 @php_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
@@ -930,7 +923,7 @@ declare void @zend_list_close(ptr noundef) local_unnamed_addr #5
 declare i32 @zend_list_delete(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #9
 
 declare ptr @php_stream_filter_remove(ptr noundef, i32 noundef) local_unnamed_addr #5
 
@@ -939,7 +932,7 @@ declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #5
 declare void @zend_hash_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_php_stream_free_persistent(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #11 {
+define internal i32 @_php_stream_free_persistent(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -1311,23 +1304,23 @@ php_stream_notification_notify.exit:              ; preds = %168
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #7
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #6
 
 declare ptr @php_stream_bucket_new(ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #5
 
 declare void @php_stream_bucket_append(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: allocsize(1)
-declare ptr @__zend_realloc(ptr noundef, i64 noundef) local_unnamed_addr #13
+declare ptr @__zend_realloc(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: allocsize(1)
-declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #13
+declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 declare void @php_stream_bucket_unlink(ptr noundef) local_unnamed_addr #5
 
@@ -1922,7 +1915,7 @@ define i32 @_php_stream_stat(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @php_stream_locate_eol(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #14 {
+define ptr @php_stream_locate_eol(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %12
 
@@ -2469,7 +2462,7 @@ define internal fastcc i64 @_php_stream_write_filtered(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
+declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @_php_stream_write_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 {
@@ -2592,9 +2585,9 @@ php_stream_notification_notify.exit:              ; preds = %55
 define i64 @_php_stream_printf(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call i64 @zend_vspprintf(ptr noundef nonnull %3, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %4) #27
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %6 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %27, label %7
@@ -2651,7 +2644,7 @@ _php_stream_write.exit:                           ; preds = %7, %13, %21, %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_php_stream_tell(ptr nocapture noundef readonly %0) local_unnamed_addr #16 {
+define i64 @_php_stream_tell(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -2852,7 +2845,7 @@ _php_stream_flush.exit:                           ; preds = %67, %60, %57
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define i32 @_php_stream_sync(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
@@ -3928,7 +3921,7 @@ declare i32 @php_stream_parse_fopen_modes(ptr noundef, ptr noundef) local_unname
 declare i64 @copy_file_range(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #17
+declare ptr @__errno_location() local_unnamed_addr #16
 
 declare i32 @_php_stream_mmap_unmap(ptr noundef) local_unnamed_addr #5
 
@@ -4263,9 +4256,9 @@ define noundef ptr @php_stream_locate_url_wrapper(ptr noundef %0, ptr noundef wr
 
 12:                                               ; preds = %8
   %13 = and i32 %2, 64
-  %.not148 = icmp eq i32 %13, 0
-  %14 = select i1 %.not148, ptr @php_plain_files_wrapper, ptr null
-  br label %98
+  %.not144 = icmp eq i32 %13, 0
+  %14 = select i1 %.not144, ptr @php_plain_files_wrapper, ptr null
+  br label %97
 
 15:                                               ; preds = %.preheader, %.critedge
   %.0108 = phi ptr [ %22, %.critedge ], [ %0, %.preheader ]
@@ -4274,8 +4267,8 @@ define noundef ptr @php_stream_locate_url_wrapper(ptr noundef %0, ptr noundef wr
   %17 = sext i8 %16 to i64
   %18 = getelementptr inbounds i16, ptr %11, i64 %17
   %19 = load i16, ptr %18, align 2
-  %.fr189 = freeze i16 %19
-  %20 = and i16 %.fr189, 8
+  %.fr185 = freeze i16 %19
+  %20 = and i16 %.fr185, 8
   %.not122.not = icmp eq i16 %20, 0
   br i1 %.not122.not, label %switch.early.test, label %.critedge
 
@@ -4295,7 +4288,7 @@ switch.early.test:                                ; preds = %15
   %24 = icmp eq i8 %16, 58
   %25 = icmp ugt i64 %.0104, 1
   %or.cond = select i1 %24, i1 %25, i1 false
-  br i1 %or.cond, label %26, label %.critedge153
+  br i1 %or.cond, label %26, label %.critedge149
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %.0108, i64 1
@@ -4305,25 +4298,25 @@ switch.early.test:                                ; preds = %15
 
 29:                                               ; preds = %26
   %30 = icmp eq i64 %.0104, 4
-  br i1 %30, label %31, label %.critedge153
+  br i1 %30, label %31, label %.critedge149
 
 31:                                               ; preds = %29
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.11, ptr noundef nonnull dereferenceable(5) %0, i64 5)
   %.not124 = icmp ne i32 %bcmp, 0
   %.not125 = icmp eq ptr %0, null
-  %or.cond188 = or i1 %.not125, %.not124
-  br i1 %or.cond188, label %.critedge153, label %33
+  %or.cond184 = or i1 %.not125, %.not124
+  br i1 %or.cond184, label %.critedge149, label %33
 
 32:                                               ; preds = %26
   %.not125.old = icmp eq ptr %0, null
-  br i1 %.not125.old, label %.critedge153, label %33
+  br i1 %.not125.old, label %.critedge149, label %33
 
 33:                                               ; preds = %31, %32
   %34 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %6, ptr noundef nonnull %0, i64 noundef %.0104) #27
   %.not126 = icmp eq ptr %34, null
-  br i1 %.not126, label %36, label %.thread169
+  br i1 %.not126, label %36, label %.thread165
 
-.thread169:                                       ; preds = %33
+.thread165:                                       ; preds = %33
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   br label %42
 
@@ -4332,24 +4325,24 @@ switch.early.test:                                ; preds = %15
   tail call void @zend_str_tolower(ptr noundef %37, i64 noundef %.0104) #27
   %38 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %6, ptr noundef %37, i64 noundef %.0104) #27
   %.not127 = icmp eq ptr %38, null
-  br i1 %.not127, label %.thread177, label %40
+  br i1 %.not127, label %.thread173, label %40
 
-.thread177:                                       ; preds = %36
+.thread173:                                       ; preds = %36
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %.0104, i64 31)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %0, i64 %spec.store.select, i1 false)
   %39 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 %spec.store.select
   store i8 0, ptr %39, align 1
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.12, ptr noundef nonnull %4) #27
   call void @_efree(ptr noundef %37) #27
-  br label %.critedge153
+  br label %.critedge149
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %38, align 8, !nonnull !4, !noundef !4
   tail call void @_efree(ptr noundef %37) #27
   br label %42
 
-42:                                               ; preds = %40, %.thread169
-  %.1110174 = phi ptr [ %35, %.thread169 ], [ %41, %40 ]
+42:                                               ; preds = %40, %.thread165
+  %.1110170 = phi ptr [ %35, %.thread165 ], [ %41, %40 ]
   %43 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, i64 noundef %.0104) #28
   %.not129 = icmp eq i32 %43, 0
   br i1 %.not129, label %44, label %75
@@ -4371,14 +4364,14 @@ switch.early.test:                                ; preds = %15
 50:                                               ; preds = %46
   %51 = and i32 %2, 8
   %.not139 = icmp eq i32 %51, 0
-  br i1 %.not139, label %98, label %52
+  br i1 %.not139, label %97, label %52
 
 52:                                               ; preds = %50
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef nonnull %0) #27
-  br label %98
+  br label %97
 
 53:                                               ; preds = %46, %46, %44
-  br i1 %.not120, label %.critedge153, label %54
+  br i1 %.not120, label %.critedge149, label %54
 
 54:                                               ; preds = %53
   %55 = getelementptr inbounds i8, ptr %0, i64 %.0104
@@ -4396,22 +4389,22 @@ switch.early.test:                                ; preds = %15
 
 61:                                               ; preds = %56
   store ptr %57, ptr %1, align 8
-  br label %.critedge153
+  br label %.critedge149
 
-.critedge153:                                     ; preds = %23, %29, %31, %32, %.thread177, %53, %61
-  %.1110168 = phi ptr [ %.1110174, %53 ], [ %.1110174, %61 ], [ null, %.thread177 ], [ null, %32 ], [ null, %31 ], [ null, %29 ], [ null, %23 ]
+.critedge149:                                     ; preds = %23, %29, %31, %32, %.thread173, %53, %61
+  %.1110164 = phi ptr [ %.1110170, %53 ], [ %.1110170, %61 ], [ null, %.thread173 ], [ null, %32 ], [ null, %31 ], [ null, %29 ], [ null, %23 ]
   %62 = and i32 %2, 64
   %.not133 = icmp eq i32 %62, 0
-  br i1 %.not133, label %63, label %98
+  br i1 %.not133, label %63, label %97
 
-63:                                               ; preds = %.critedge153
+63:                                               ; preds = %.critedge149
   %64 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i64 0, i32 8), align 8
   %.not134 = icmp eq ptr %64, null
-  br i1 %.not134, label %98, label %65
+  br i1 %.not134, label %97, label %65
 
 65:                                               ; preds = %63
-  %.not135 = icmp eq ptr %.1110168, null
-  br i1 %.not135, label %66, label %98
+  %.not135 = icmp eq ptr %.1110164, null
+  br i1 %.not135, label %66, label %97
 
 66:                                               ; preds = %65
   %67 = load ptr, ptr @zend_known_strings, align 8
@@ -4422,76 +4415,73 @@ switch.early.test:                                ; preds = %15
 
 70:                                               ; preds = %66
   %71 = load ptr, ptr %69, align 8, !nonnull !4, !noundef !4
-  br label %98
+  br label %97
 
 72:                                               ; preds = %66
   %73 = and i32 %2, 8
   %.not138 = icmp eq i32 %73, 0
-  br i1 %.not138, label %98, label %74
+  br i1 %.not138, label %97, label %74
 
 74:                                               ; preds = %72
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.16) #27
-  br label %98
+  br label %97
 
 75:                                               ; preds = %42
-  %76 = getelementptr inbounds i8, ptr %.1110174, i64 16
+  %76 = getelementptr inbounds i8, ptr %.1110170, i64 16
   %77 = load i32, ptr %76, align 8
   %.not141 = icmp ne i32 %77, 0
   %78 = and i32 %2, 8192
   %79 = icmp eq i32 %78, 0
-  %or.cond155 = and i1 %79, %.not141
-  br i1 %or.cond155, label %80, label %98
+  %or.cond151 = and i1 %79, %.not141
+  br i1 %or.cond151, label %80, label %97
 
 80:                                               ; preds = %75
   %81 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 52), align 1
-  %82 = and i8 %81, 1
-  %.not142 = icmp eq i8 %82, 0
-  br i1 %.not142, label %91, label %83
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %.thread181
 
 83:                                               ; preds = %80
   %84 = and i32 %2, 128
-  %.not143 = icmp eq i32 %84, 0
-  br i1 %.not143, label %85, label %88
+  %.not142 = icmp eq i32 %84, 0
+  br i1 %.not142, label %85, label %88
 
 85:                                               ; preds = %83
   %86 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 71), align 4
-  %87 = and i8 %86, 1
-  %.not144 = icmp eq i8 %87, 0
-  br i1 %.not144, label %98, label %88
+  %87 = trunc i8 %86 to i1
+  br i1 %87, label %88, label %97
 
 88:                                               ; preds = %85, %83
   %89 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 70), align 1
-  %90 = and i8 %89, 1
-  %.not145 = icmp eq i8 %90, 0
-  br i1 %.not145, label %.thread185, label %98
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %97, label %91
 
-91:                                               ; preds = %80
+91:                                               ; preds = %88
   %92 = and i32 %2, 8
-  %.not146 = icmp eq i32 %92, 0
-  br i1 %.not146, label %98, label %94
+  %.not143 = icmp eq i32 %92, 0
+  br i1 %.not143, label %97, label %95
 
-.thread185:                                       ; preds = %88
+.thread181:                                       ; preds = %80
   %93 = and i32 %2, 8
-  %.not146186 = icmp eq i32 %93, 0
-  br i1 %.not146186, label %98, label %96
+  %.not143182 = icmp eq i32 %93, 0
+  br i1 %.not143182, label %97, label %.thread183
 
-94:                                               ; preds = %91
-  %95 = trunc i64 %.0104 to i32
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.17, i32 noundef %95, ptr noundef nonnull %0) #27
-  br label %98
+.thread183:                                       ; preds = %.thread181
+  %94 = trunc i64 %.0104 to i32
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.17, i32 noundef %94, ptr noundef nonnull %0) #27
+  br label %97
 
-96:                                               ; preds = %.thread185
-  %97 = trunc i64 %.0104 to i32
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef %97, ptr noundef nonnull %0) #27
-  br label %98
+95:                                               ; preds = %91
+  %96 = trunc i64 %.0104 to i32
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef %96, ptr noundef nonnull %0) #27
+  br label %97
 
-98:                                               ; preds = %.thread185, %70, %75, %85, %88, %91, %96, %94, %63, %72, %74, %65, %.critedge153, %50, %52, %12
-  %.0113 = phi ptr [ %14, %12 ], [ null, %52 ], [ null, %50 ], [ null, %.critedge153 ], [ %.1110168, %65 ], [ %71, %70 ], [ null, %74 ], [ null, %72 ], [ @php_plain_files_wrapper, %63 ], [ null, %94 ], [ null, %96 ], [ null, %91 ], [ %.1110174, %88 ], [ %.1110174, %85 ], [ %.1110174, %75 ], [ null, %.thread185 ]
+97:                                               ; preds = %.thread181, %70, %75, %85, %88, %91, %95, %.thread183, %63, %72, %74, %65, %.critedge149, %50, %52, %12
+  %.0113 = phi ptr [ %14, %12 ], [ null, %52 ], [ null, %50 ], [ null, %.critedge149 ], [ %.1110164, %65 ], [ %71, %70 ], [ null, %74 ], [ null, %72 ], [ @php_plain_files_wrapper, %63 ], [ null, %.thread183 ], [ null, %95 ], [ null, %91 ], [ %.1110170, %88 ], [ %.1110170, %85 ], [ %.1110170, %75 ], [ null, %.thread181 ]
   ret ptr %.0113
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #17
+declare ptr @__ctype_b_loc() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
@@ -4501,7 +4491,7 @@ declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #5
 declare void @zend_str_tolower(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #18
+declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
 define i32 @_php_stream_mkdir(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
@@ -4690,32 +4680,31 @@ define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, p
   %15 = call i64 @zend_llist_count(ptr noundef nonnull %14) #27
   %16 = trunc i64 %15 to i32
   %17 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 43), align 1
-  %18 = and i8 %17, 1
-  %.not81 = icmp eq i8 %18, 0
-  %. = select i1 %.not81, i64 1, i64 7
-  %.str.29..str.28 = select i1 %.not81, ptr @.str.29, ptr @.str.28
+  %18 = trunc i8 %17 to i1
+  %. = select i1 %18, i64 7, i64 1
+  %.str.28..str.29 = select i1 %18, ptr @.str.28, ptr @.str.29
   %19 = call ptr @zend_llist_get_first_ex(ptr noundef nonnull %14, ptr noundef nonnull %5) #27
-  %.not8287 = icmp eq ptr %19, null
-  br i1 %.not8287, label %._crit_edge, label %.lr.ph
+  %.not8186 = icmp eq ptr %19, null
+  br i1 %.not8186, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %20 = add nsw i32 %16, -1
   br label %21
 
 21:                                               ; preds = %.lr.ph, %21
-  %.090 = phi ptr [ %19, %.lr.ph ], [ %27, %21 ]
-  %.07089 = phi i32 [ 0, %.lr.ph ], [ %28, %21 ]
-  %.07388 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %21 ]
-  %22 = load ptr, ptr %.090, align 8
+  %.089 = phi ptr [ %19, %.lr.ph ], [ %27, %21 ]
+  %.07088 = phi i32 [ 0, %.lr.ph ], [ %28, %21 ]
+  %.07387 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %21 ]
+  %22 = load ptr, ptr %.089, align 8
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #28
-  %24 = icmp slt i32 %.07089, %20
+  %24 = icmp slt i32 %.07088, %20
   %25 = select i1 %24, i64 %., i64 0
-  %26 = add i64 %25, %.07388
+  %26 = add i64 %25, %.07387
   %spec.select = add i64 %26, %23
   %27 = call ptr @zend_llist_get_next_ex(ptr noundef nonnull %14, ptr noundef nonnull %5) #27
-  %28 = add nuw nsw i32 %.07089, 1
-  %.not82 = icmp eq ptr %27, null
-  br i1 %.not82, label %._crit_edge.loopexit, label %21
+  %28 = add nuw nsw i32 %.07088, 1
+  %.not81 = icmp eq ptr %27, null
+  br i1 %.not81, label %._crit_edge.loopexit, label %21
 
 ._crit_edge.loopexit:                             ; preds = %21
   %29 = add i64 %spec.select, 1
@@ -4726,30 +4715,30 @@ define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, p
   %30 = call noalias ptr @_emalloc(i64 noundef %.073.lcssa) #29
   store i8 0, ptr %30, align 1
   %31 = call ptr @zend_llist_get_first_ex(ptr noundef nonnull %14, ptr noundef nonnull %5) #27
-  %.not8391 = icmp eq ptr %31, null
-  br i1 %.not8391, label %.loopexit, label %.lr.ph95
+  %.not8290 = icmp eq ptr %31, null
+  br i1 %.not8290, label %.loopexit, label %.lr.ph94
 
-.lr.ph95:                                         ; preds = %._crit_edge
+.lr.ph94:                                         ; preds = %._crit_edge
   %32 = add nsw i32 %16, -1
   br label %33
 
-33:                                               ; preds = %.lr.ph95, %39
-  %.193 = phi ptr [ %31, %.lr.ph95 ], [ %40, %39 ]
-  %.17192 = phi i32 [ 0, %.lr.ph95 ], [ %41, %39 ]
-  %34 = load ptr, ptr %.193, align 8
+33:                                               ; preds = %.lr.ph94, %39
+  %.192 = phi ptr [ %31, %.lr.ph94 ], [ %40, %39 ]
+  %.17191 = phi i32 [ 0, %.lr.ph94 ], [ %41, %39 ]
+  %34 = load ptr, ptr %.192, align 8
   %35 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %34) #27
-  %36 = icmp slt i32 %.17192, %32
+  %36 = icmp slt i32 %.17191, %32
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %33
-  %38 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %.str.29..str.28) #27
+  %38 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %.str.28..str.29) #27
   br label %39
 
 39:                                               ; preds = %33, %37
   %40 = call ptr @zend_llist_get_next_ex(ptr noundef nonnull %14, ptr noundef nonnull %5) #27
-  %41 = add nuw nsw i32 %.17192, 1
-  %.not83 = icmp eq ptr %40, null
-  br i1 %.not83, label %.loopexit, label %33
+  %41 = add nuw nsw i32 %.17191, 1
+  %.not82 = icmp eq ptr %40, null
+  br i1 %.not82, label %.loopexit, label %33
 
 42:                                               ; preds = %9, %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -4763,12 +4752,12 @@ define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %._crit_edge, %7, %42, %44
-  %.not84 = phi i1 [ true, %44 ], [ true, %42 ], [ true, %7 ], [ false, %._crit_edge ], [ false, %39 ]
+  %.not83 = phi i1 [ true, %44 ], [ true, %42 ], [ true, %7 ], [ false, %._crit_edge ], [ false, %39 ]
   %.069 = phi ptr [ %47, %44 ], [ @.str.30, %42 ], [ @.str.31, %7 ], [ %30, %._crit_edge ], [ %30, %39 ]
   %48 = call ptr @php_strip_url_passwd(ptr noundef %8) #27
   call void (ptr, ptr, i32, ptr, ...) @php_error_docref1(ptr noundef null, ptr noundef %8, i32 noundef 2, ptr noundef nonnull @.str.32, ptr noundef %2, ptr noundef %.069) #27
   call void @_efree(ptr noundef %8) #27
-  br i1 %.not84, label %50, label %49
+  br i1 %.not83, label %50, label %49
 
 49:                                               ; preds = %.loopexit
   call void @_efree(ptr noundef %.069) #27
@@ -5352,7 +5341,7 @@ define noundef ptr @php_stream_context_alloc() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #19
+declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #18
 
 declare ptr @_zend_new_array_0() local_unnamed_addr #5
 
@@ -5492,7 +5481,7 @@ declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #5
 declare ptr @zend_hash_str_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i32 @php_stream_dirent_alphasort(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #20 {
+define i32 @php_stream_dirent_alphasort(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #19 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %1, align 8
@@ -5502,10 +5491,10 @@ define i32 @php_stream_dirent_alphasort(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcoll(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare i32 @strcoll(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i32 @php_stream_dirent_alphasortr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #20 {
+define i32 @php_stream_dirent_alphasortr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #19 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %0, align 8
@@ -5621,7 +5610,7 @@ select.unfold._crit_edge:                         ; preds = %.split92, %.split
 declare ptr @_safe_erealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #20
 
 declare void @zend_llist_destroy(ptr noundef) local_unnamed_addr #5
 
@@ -5640,10 +5629,16 @@ declare ptr @zend_llist_get_first_ex(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @zend_llist_get_next_ex(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #22
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #21
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #23
+declare ptr @strerror(i32 noundef) local_unnamed_addr #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #23
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #24
@@ -5669,24 +5664,24 @@ attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #25 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #26 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

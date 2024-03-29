@@ -1215,20 +1215,19 @@ _ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_delete
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip) #14
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %4 = load i8, ptr %_M_engaged.i.i.i.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i.i.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt8optionalIN9grpc_core13StringMatcherEED2Ev.exit, label %if.then.i.i.i.i
+  %tobool.i.i.i.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt8optionalIN9grpc_core13StringMatcherEED2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit
   store i8 0, ptr %_M_engaged.i.i.i.i, align 8
   %regex_matcher_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  %6 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.i.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i
-  tail call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %6) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #18
+  tail call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %5) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #18
   br label %_ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i
@@ -1239,13 +1238,13 @@ _ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.
 
 _ZNSt8optionalIN9grpc_core13StringMatcherEED2Ev.exit: ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %_ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.i.i.i
   %regex_matcher_.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %7 = load ptr, ptr %regex_matcher_.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %regex_matcher_.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13HeaderMatcherD2Ev.exit, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i: ; preds = %_ZNSt8optionalIN9grpc_core13StringMatcherEED2Ev.exit
-  tail call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %7) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #18
+  tail call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %6) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #18
   br label %_ZN9grpc_core13HeaderMatcherD2Ev.exit
 
 _ZN9grpc_core13HeaderMatcherD2Ev.exit:            ; preds = %_ZNSt8optionalIN9grpc_core13StringMatcherEED2Ev.exit, %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i

@@ -233,9 +233,8 @@ define void @_ZN4LIEF5MachO11BindingInfo6addendEl(ptr nocapture noundef nonnull 
 define noundef zeroext i1 @_ZNK4LIEF5MachO11BindingInfo14is_weak_importEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

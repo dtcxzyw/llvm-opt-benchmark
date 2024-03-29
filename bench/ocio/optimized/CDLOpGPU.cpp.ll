@@ -291,9 +291,8 @@ invoke.cont91:                                    ; preds = %invoke.cont89
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp87) #5
   %m_isReverse.i = getelementptr inbounds i8, ptr %params, i64 52
   %14 = load i8, ptr %m_isReverse.i, align 4
-  %15 = and i8 %14, 1
-  %tobool.i.not = icmp eq i8 %15, 0
-  br i1 %tobool.i.not, label %if.then, label %if.else259
+  %tobool.i = trunc i8 %14 to i1
+  br i1 %tobool.i, label %if.else259, label %if.then
 
 if.then:                                          ; preds = %invoke.cont91
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText7newLineEv(ptr nonnull sret(%"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine") align 8 %ref.tmp97, ptr noundef nonnull align 8 dereferenceable(764) %ss)
@@ -339,10 +338,9 @@ invoke.cont116:                                   ; preds = %invoke.cont114
 invoke.cont118:                                   ; preds = %invoke.cont116
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp109) #5
   %m_isNoClamp.i = getelementptr inbounds i8, ptr %params, i64 53
-  %16 = load i8, ptr %m_isNoClamp.i, align 1
-  %17 = and i8 %16, 1
-  %tobool.i48.not = icmp eq i8 %17, 0
-  br i1 %tobool.i48.not, label %if.then123, label %if.else
+  %15 = load i8, ptr %m_isNoClamp.i, align 1
+  %tobool.i48 = trunc i8 %15 to i1
+  br i1 %tobool.i48, label %if.else, label %if.then123
 
 if.then123:                                       ; preds = %invoke.cont118
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText7newLineEv(ptr nonnull sret(%"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine") align 8 %ref.tmp124, ptr noundef nonnull align 8 dereferenceable(764) %ss)
@@ -386,161 +384,161 @@ invoke.cont143:                                   ; preds = %invoke.cont141
           to label %if.end unwind label %lpad138
 
 lpad:                                             ; preds = %invoke.cont32, %invoke.cont27, %invoke.cont22, %invoke.cont8, %invoke.cont, %entry
-  %18 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup457
 
 lpad7:                                            ; preds = %invoke.cont6
-  %19 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #5
   br label %ehcleanup457
 
 lpad12:                                           ; preds = %invoke.cont20, %invoke.cont18, %invoke.cont13, %invoke.cont11
-  %20 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10) #5
   br label %ehcleanup457
 
 lpad26:                                           ; preds = %invoke.cont25
-  %21 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24) #5
   br label %ehcleanup457
 
 lpad31:                                           ; preds = %invoke.cont30
-  %22 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp29) #5
   br label %ehcleanup457
 
 lpad38:                                           ; preds = %invoke.cont34
-  %23 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp37) #5
   br label %ehcleanup457
 
 lpad42:                                           ; preds = %invoke.cont39
-  %24 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad44:                                           ; preds = %invoke.cont43
-  %25 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #5
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad44, %lpad42
-  %.pn = phi { ptr, i32 } [ %25, %lpad44 ], [ %24, %lpad42 ]
+  %.pn = phi { ptr, i32 } [ %23, %lpad44 ], [ %22, %lpad42 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp41) #5
   br label %ehcleanup456
 
 lpad48:                                           ; preds = %invoke.cont45
-  %26 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup53
 
 lpad50:                                           ; preds = %invoke.cont49
-  %27 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46) #5
   br label %ehcleanup53
 
 ehcleanup53:                                      ; preds = %lpad50, %lpad48
-  %.pn11 = phi { ptr, i32 } [ %27, %lpad50 ], [ %26, %lpad48 ]
+  %.pn11 = phi { ptr, i32 } [ %25, %lpad50 ], [ %24, %lpad48 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp47) #5
   br label %ehcleanup455
 
 lpad56:                                           ; preds = %invoke.cont51
-  %28 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup63
 
 lpad60:                                           ; preds = %invoke.cont57
-  %29 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54) #5
   br label %ehcleanup63
 
 ehcleanup63:                                      ; preds = %lpad60, %lpad56
-  %.pn13 = phi { ptr, i32 } [ %29, %lpad60 ], [ %28, %lpad56 ]
+  %.pn13 = phi { ptr, i32 } [ %27, %lpad60 ], [ %26, %lpad56 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp55) #5
   br label %ehcleanup455
 
 lpad66:                                           ; preds = %invoke.cont61
-  %30 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup74
 
 lpad71:                                           ; preds = %invoke.cont67
-  %31 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64) #5
   br label %ehcleanup74
 
 ehcleanup74:                                      ; preds = %lpad71, %lpad66
-  %.pn15 = phi { ptr, i32 } [ %31, %lpad71 ], [ %30, %lpad66 ]
+  %.pn15 = phi { ptr, i32 } [ %29, %lpad71 ], [ %28, %lpad66 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp65) #5
   br label %ehcleanup455
 
 lpad77:                                           ; preds = %invoke.cont72
-  %32 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup85
 
 lpad82:                                           ; preds = %invoke.cont78
-  %33 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75) #5
   br label %ehcleanup85
 
 ehcleanup85:                                      ; preds = %lpad82, %lpad77
-  %.pn17 = phi { ptr, i32 } [ %33, %lpad82 ], [ %32, %lpad77 ]
+  %.pn17 = phi { ptr, i32 } [ %31, %lpad82 ], [ %30, %lpad77 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp76) #5
   br label %ehcleanup455
 
 lpad88:                                           ; preds = %invoke.cont83
-  %34 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup93
 
 lpad90:                                           ; preds = %invoke.cont89
-  %35 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp86) #5
   br label %ehcleanup93
 
 ehcleanup93:                                      ; preds = %lpad90, %lpad88
-  %.pn19 = phi { ptr, i32 } [ %35, %lpad90 ], [ %34, %lpad88 ]
+  %.pn19 = phi { ptr, i32 } [ %33, %lpad90 ], [ %32, %lpad88 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp87) #5
   br label %ehcleanup455
 
 lpad94:                                           ; preds = %invoke.cont445, %invoke.cont441, %if.end440, %if.then426, %invoke.cont409, %if.end399, %invoke.cont364, %invoke.cont342, %if.else325, %invoke.cont310, %if.then300, %invoke.cont283, %if.end275, %if.then262, %if.then245, %invoke.cont228, %if.end, %invoke.cont186, %invoke.cont164, %if.else, %invoke.cont133, %if.then123, %invoke.cont106, %if.then
-  %36 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup455
 
 lpad99:                                           ; preds = %invoke.cont104, %invoke.cont102, %invoke.cont100, %invoke.cont98
-  %37 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp97) #5
   br label %ehcleanup455
 
 lpad111:                                          ; preds = %invoke.cont116, %invoke.cont114, %invoke.cont112, %invoke.cont110
-  %38 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp109) #5
   br label %ehcleanup455
 
 lpad126:                                          ; preds = %invoke.cont131, %invoke.cont129, %invoke.cont127, %invoke.cont125
-  %39 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp124) #5
   br label %ehcleanup455
 
 lpad138:                                          ; preds = %invoke.cont143, %invoke.cont141, %invoke.cont139, %invoke.cont137
-  %40 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp136) #5
   br label %ehcleanup455
@@ -654,103 +652,103 @@ invoke.cont213:                                   ; preds = %invoke.cont211
   br label %if.end
 
 lpad153:                                          ; preds = %invoke.cont149
-  %41 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup168
 
 lpad155:                                          ; preds = %invoke.cont154
-  %42 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup167
 
 lpad157:                                          ; preds = %invoke.cont162, %invoke.cont160, %invoke.cont158, %invoke.cont156
-  %43 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp150) #5
   br label %ehcleanup167
 
 ehcleanup167:                                     ; preds = %lpad157, %lpad155
-  %.pn21 = phi { ptr, i32 } [ %43, %lpad157 ], [ %42, %lpad155 ]
+  %.pn21 = phi { ptr, i32 } [ %41, %lpad157 ], [ %40, %lpad155 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp151) #5
   br label %ehcleanup168
 
 ehcleanup168:                                     ; preds = %ehcleanup167, %lpad153
-  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %ehcleanup167 ], [ %41, %lpad153 ]
+  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %ehcleanup167 ], [ %39, %lpad153 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp152) #5
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp148) #5
   br label %ehcleanup455
 
 lpad175:                                          ; preds = %invoke.cont171
-  %44 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup190
 
 lpad177:                                          ; preds = %invoke.cont176
-  %45 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup189
 
 lpad179:                                          ; preds = %invoke.cont184, %invoke.cont182, %invoke.cont180, %invoke.cont178
-  %46 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp172) #5
   br label %ehcleanup189
 
 ehcleanup189:                                     ; preds = %lpad179, %lpad177
-  %.pn24 = phi { ptr, i32 } [ %46, %lpad179 ], [ %45, %lpad177 ]
+  %.pn24 = phi { ptr, i32 } [ %44, %lpad179 ], [ %43, %lpad177 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp173) #5
   br label %ehcleanup190
 
 ehcleanup190:                                     ; preds = %ehcleanup189, %lpad175
-  %.pn24.pn = phi { ptr, i32 } [ %.pn24, %ehcleanup189 ], [ %44, %lpad175 ]
+  %.pn24.pn = phi { ptr, i32 } [ %.pn24, %ehcleanup189 ], [ %42, %lpad175 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp174) #5
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp170) #5
   br label %ehcleanup455
 
 lpad194:                                          ; preds = %invoke.cont195, %invoke.cont193
-  %47 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup220
 
 lpad202:                                          ; preds = %invoke.cont197
-  %48 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup219
 
 lpad206:                                          ; preds = %invoke.cont203
-  %49 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup217
 
 lpad208:                                          ; preds = %invoke.cont207
-  %50 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup216
 
 lpad210:                                          ; preds = %invoke.cont211, %invoke.cont209
-  %51 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp199) #5
   br label %ehcleanup216
 
 ehcleanup216:                                     ; preds = %lpad210, %lpad208
-  %.pn27 = phi { ptr, i32 } [ %51, %lpad210 ], [ %50, %lpad208 ]
+  %.pn27 = phi { ptr, i32 } [ %49, %lpad210 ], [ %48, %lpad208 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204) #5
   br label %ehcleanup217
 
 ehcleanup217:                                     ; preds = %ehcleanup216, %lpad206
-  %.pn27.pn = phi { ptr, i32 } [ %.pn27, %ehcleanup216 ], [ %49, %lpad206 ]
+  %.pn27.pn = phi { ptr, i32 } [ %.pn27, %ehcleanup216 ], [ %47, %lpad206 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp205) #5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp200) #5
   br label %ehcleanup219
 
 ehcleanup219:                                     ; preds = %ehcleanup217, %lpad202
-  %.pn27.pn.pn = phi { ptr, i32 } [ %.pn27.pn, %ehcleanup217 ], [ %48, %lpad202 ]
+  %.pn27.pn.pn = phi { ptr, i32 } [ %.pn27.pn, %ehcleanup217 ], [ %46, %lpad202 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp201) #5
   br label %ehcleanup220
 
 ehcleanup220:                                     ; preds = %ehcleanup219, %lpad194
-  %.pn27.pn.pn.pn = phi { ptr, i32 } [ %.pn27.pn.pn, %ehcleanup219 ], [ %47, %lpad194 ]
+  %.pn27.pn.pn.pn = phi { ptr, i32 } [ %.pn27.pn.pn, %ehcleanup219 ], [ %45, %lpad194 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp192) #5
   br label %ehcleanup455
 
@@ -795,10 +793,9 @@ invoke.cont238:                                   ; preds = %invoke.cont236
 
 invoke.cont240:                                   ; preds = %invoke.cont238
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp231) #5
-  %52 = load i8, ptr %m_isNoClamp.i, align 1
-  %53 = and i8 %52, 1
-  %tobool.i50.not = icmp eq i8 %53, 0
-  br i1 %tobool.i50.not, label %if.then245, label %if.end440
+  %50 = load i8, ptr %m_isNoClamp.i, align 1
+  %tobool.i50 = trunc i8 %50 to i1
+  br i1 %tobool.i50, label %if.end440, label %if.then245
 
 if.then245:                                       ; preds = %invoke.cont240
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText7newLineEv(ptr nonnull sret(%"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine") align 8 %ref.tmp246, ptr noundef nonnull align 8 dereferenceable(764) %ss)
@@ -821,29 +818,28 @@ invoke.cont253:                                   ; preds = %invoke.cont251
           to label %if.end440.sink.split unwind label %lpad248
 
 lpad223:                                          ; preds = %invoke.cont226, %invoke.cont224, %invoke.cont222
-  %54 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp221) #5
   br label %ehcleanup455
 
 lpad233:                                          ; preds = %invoke.cont238, %invoke.cont236, %invoke.cont234, %invoke.cont232
-  %55 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp231) #5
   br label %ehcleanup455
 
 lpad248:                                          ; preds = %invoke.cont253, %invoke.cont251, %invoke.cont249, %invoke.cont247
-  %56 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp246) #5
   br label %ehcleanup455
 
 if.else259:                                       ; preds = %invoke.cont91
   %m_isNoClamp.i51 = getelementptr inbounds i8, ptr %params, i64 53
-  %57 = load i8, ptr %m_isNoClamp.i51, align 1
-  %58 = and i8 %57, 1
-  %tobool.i52.not = icmp eq i8 %58, 0
-  br i1 %tobool.i52.not, label %if.then262, label %if.end275
+  %54 = load i8, ptr %m_isNoClamp.i51, align 1
+  %tobool.i52 = trunc i8 %54 to i1
+  br i1 %tobool.i52, label %if.end275, label %if.then262
 
 if.then262:                                       ; preds = %if.else259
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText7newLineEv(ptr nonnull sret(%"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine") align 8 %ref.tmp263, ptr noundef nonnull align 8 dereferenceable(764) %ss)
@@ -870,7 +866,7 @@ invoke.cont272:                                   ; preds = %invoke.cont270
   br label %if.end275
 
 lpad265:                                          ; preds = %invoke.cont270, %invoke.cont268, %invoke.cont266, %invoke.cont264
-  %59 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp263) #5
   br label %ehcleanup455
@@ -914,10 +910,9 @@ invoke.cont293:                                   ; preds = %invoke.cont291
 
 invoke.cont295:                                   ; preds = %invoke.cont293
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp286) #5
-  %60 = load i8, ptr %m_isNoClamp.i51, align 1
-  %61 = and i8 %60, 1
-  %tobool.i54.not = icmp eq i8 %61, 0
-  br i1 %tobool.i54.not, label %if.then300, label %if.else325
+  %56 = load i8, ptr %m_isNoClamp.i51, align 1
+  %tobool.i54 = trunc i8 %56 to i1
+  br i1 %tobool.i54, label %if.else325, label %if.then300
 
 if.then300:                                       ; preds = %invoke.cont295
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText7newLineEv(ptr nonnull sret(%"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine") align 8 %ref.tmp301, ptr noundef nonnull align 8 dereferenceable(764) %ss)
@@ -961,25 +956,25 @@ invoke.cont320:                                   ; preds = %invoke.cont318
           to label %if.end399 unwind label %lpad315
 
 lpad278:                                          ; preds = %invoke.cont281, %invoke.cont279, %invoke.cont277
-  %62 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp276) #5
   br label %ehcleanup455
 
 lpad288:                                          ; preds = %invoke.cont293, %invoke.cont291, %invoke.cont289, %invoke.cont287
-  %63 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp286) #5
   br label %ehcleanup455
 
 lpad303:                                          ; preds = %invoke.cont308, %invoke.cont306, %invoke.cont304, %invoke.cont302
-  %64 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp301) #5
   br label %ehcleanup455
 
 lpad315:                                          ; preds = %invoke.cont320, %invoke.cont318, %invoke.cont316, %invoke.cont314
-  %65 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp313) #5
   br label %ehcleanup455
@@ -1093,103 +1088,103 @@ invoke.cont391:                                   ; preds = %invoke.cont389
   br label %if.end399
 
 lpad331:                                          ; preds = %invoke.cont327
-  %66 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup346
 
 lpad333:                                          ; preds = %invoke.cont332
-  %67 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup345
 
 lpad335:                                          ; preds = %invoke.cont340, %invoke.cont338, %invoke.cont336, %invoke.cont334
-  %68 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp328) #5
   br label %ehcleanup345
 
 ehcleanup345:                                     ; preds = %lpad335, %lpad333
-  %.pn32 = phi { ptr, i32 } [ %68, %lpad335 ], [ %67, %lpad333 ]
+  %.pn32 = phi { ptr, i32 } [ %63, %lpad335 ], [ %62, %lpad333 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp329) #5
   br label %ehcleanup346
 
 ehcleanup346:                                     ; preds = %ehcleanup345, %lpad331
-  %.pn32.pn = phi { ptr, i32 } [ %.pn32, %ehcleanup345 ], [ %66, %lpad331 ]
+  %.pn32.pn = phi { ptr, i32 } [ %.pn32, %ehcleanup345 ], [ %61, %lpad331 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp330) #5
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp326) #5
   br label %ehcleanup455
 
 lpad353:                                          ; preds = %invoke.cont349
-  %69 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup368
 
 lpad355:                                          ; preds = %invoke.cont354
-  %70 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup367
 
 lpad357:                                          ; preds = %invoke.cont362, %invoke.cont360, %invoke.cont358, %invoke.cont356
-  %71 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp350) #5
   br label %ehcleanup367
 
 ehcleanup367:                                     ; preds = %lpad357, %lpad355
-  %.pn35 = phi { ptr, i32 } [ %71, %lpad357 ], [ %70, %lpad355 ]
+  %.pn35 = phi { ptr, i32 } [ %66, %lpad357 ], [ %65, %lpad355 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp351) #5
   br label %ehcleanup368
 
 ehcleanup368:                                     ; preds = %ehcleanup367, %lpad353
-  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %ehcleanup367 ], [ %69, %lpad353 ]
+  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %ehcleanup367 ], [ %64, %lpad353 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp352) #5
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp348) #5
   br label %ehcleanup455
 
 lpad372:                                          ; preds = %invoke.cont373, %invoke.cont371
-  %72 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup398
 
 lpad380:                                          ; preds = %invoke.cont375
-  %73 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup397
 
 lpad384:                                          ; preds = %invoke.cont381
-  %74 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup395
 
 lpad386:                                          ; preds = %invoke.cont385
-  %75 = landingpad { ptr, i32 }
+  %70 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup394
 
 lpad388:                                          ; preds = %invoke.cont389, %invoke.cont387
-  %76 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp377) #5
   br label %ehcleanup394
 
 ehcleanup394:                                     ; preds = %lpad388, %lpad386
-  %.pn38 = phi { ptr, i32 } [ %76, %lpad388 ], [ %75, %lpad386 ]
+  %.pn38 = phi { ptr, i32 } [ %71, %lpad388 ], [ %70, %lpad386 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp382) #5
   br label %ehcleanup395
 
 ehcleanup395:                                     ; preds = %ehcleanup394, %lpad384
-  %.pn38.pn = phi { ptr, i32 } [ %.pn38, %ehcleanup394 ], [ %74, %lpad384 ]
+  %.pn38.pn = phi { ptr, i32 } [ %.pn38, %ehcleanup394 ], [ %69, %lpad384 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp383) #5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp378) #5
   br label %ehcleanup397
 
 ehcleanup397:                                     ; preds = %ehcleanup395, %lpad380
-  %.pn38.pn.pn = phi { ptr, i32 } [ %.pn38.pn, %ehcleanup395 ], [ %73, %lpad380 ]
+  %.pn38.pn.pn = phi { ptr, i32 } [ %.pn38.pn, %ehcleanup395 ], [ %68, %lpad380 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp379) #5
   br label %ehcleanup398
 
 ehcleanup398:                                     ; preds = %ehcleanup397, %lpad372
-  %.pn38.pn.pn.pn = phi { ptr, i32 } [ %.pn38.pn.pn, %ehcleanup397 ], [ %72, %lpad372 ]
+  %.pn38.pn.pn.pn = phi { ptr, i32 } [ %.pn38.pn.pn, %ehcleanup397 ], [ %67, %lpad372 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp370) #5
   br label %ehcleanup455
 
@@ -1238,10 +1233,9 @@ invoke.cont419:                                   ; preds = %invoke.cont417
 
 invoke.cont421:                                   ; preds = %invoke.cont419
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp412) #5
-  %77 = load i8, ptr %m_isNoClamp.i51, align 1
-  %78 = and i8 %77, 1
-  %tobool.i56.not = icmp eq i8 %78, 0
-  br i1 %tobool.i56.not, label %if.then426, label %if.end440
+  %72 = load i8, ptr %m_isNoClamp.i51, align 1
+  %tobool.i56 = trunc i8 %72 to i1
+  br i1 %tobool.i56, label %if.end440, label %if.then426
 
 if.then426:                                       ; preds = %invoke.cont421
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText7newLineEv(ptr nonnull sret(%"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine") align 8 %ref.tmp427, ptr noundef nonnull align 8 dereferenceable(764) %ss)
@@ -1264,19 +1258,19 @@ invoke.cont434:                                   ; preds = %invoke.cont432
           to label %if.end440.sink.split unwind label %lpad429
 
 lpad402:                                          ; preds = %invoke.cont407, %invoke.cont405, %invoke.cont403, %invoke.cont401
-  %79 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp400) #5
   br label %ehcleanup455
 
 lpad414:                                          ; preds = %invoke.cont419, %invoke.cont417, %invoke.cont415, %invoke.cont413
-  %80 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp412) #5
   br label %ehcleanup455
 
 lpad429:                                          ; preds = %invoke.cont434, %invoke.cont432, %invoke.cont430, %invoke.cont428
-  %81 = landingpad { ptr, i32 }
+  %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp427) #5
   br label %ehcleanup455
@@ -1300,16 +1294,16 @@ invoke.cont443:                                   ; preds = %invoke.cont441
 
 invoke.cont445:                                   ; preds = %invoke.cont443
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp442) #5
-  %82 = load ptr, ptr %shaderCreator, align 8
+  %76 = load ptr, ptr %shaderCreator, align 8
   invoke void @_ZNK19OpenColorIO_v2_4dev13GpuShaderText6stringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp449, ptr noundef nonnull align 8 dereferenceable(764) %ss)
           to label %invoke.cont450 unwind label %lpad94
 
 invoke.cont450:                                   ; preds = %invoke.cont445
   %call451 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp449) #5
-  %vtable = load ptr, ptr %82, align 8
+  %vtable = load ptr, ptr %76, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
-  %83 = load ptr, ptr %vfn, align 8
-  invoke void %83(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef %call451)
+  %77 = load ptr, ptr %vfn, align 8
+  invoke void %77(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef %call451)
           to label %invoke.cont453 unwind label %lpad452
 
 invoke.cont453:                                   ; preds = %invoke.cont450
@@ -1323,19 +1317,19 @@ invoke.cont453:                                   ; preds = %invoke.cont450
   ret void
 
 lpad444:                                          ; preds = %invoke.cont443
-  %84 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp442) #5
   br label %ehcleanup455
 
 lpad452:                                          ; preds = %invoke.cont450
-  %85 = landingpad { ptr, i32 }
+  %79 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp449) #5
   br label %ehcleanup455
 
 ehcleanup455:                                     ; preds = %lpad452, %lpad444, %lpad429, %lpad414, %lpad402, %ehcleanup398, %ehcleanup368, %ehcleanup346, %lpad315, %lpad303, %lpad288, %lpad278, %lpad265, %lpad248, %lpad233, %lpad223, %ehcleanup220, %ehcleanup190, %ehcleanup168, %lpad138, %lpad126, %lpad111, %lpad99, %lpad94, %ehcleanup93, %ehcleanup85, %ehcleanup74, %ehcleanup63, %ehcleanup53
-  %.pn43 = phi { ptr, i32 } [ %85, %lpad452 ], [ %36, %lpad94 ], [ %84, %lpad444 ], [ %81, %lpad429 ], [ %80, %lpad414 ], [ %79, %lpad402 ], [ %.pn38.pn.pn.pn, %ehcleanup398 ], [ %.pn35.pn, %ehcleanup368 ], [ %.pn32.pn, %ehcleanup346 ], [ %65, %lpad315 ], [ %64, %lpad303 ], [ %63, %lpad288 ], [ %62, %lpad278 ], [ %59, %lpad265 ], [ %56, %lpad248 ], [ %55, %lpad233 ], [ %54, %lpad223 ], [ %.pn27.pn.pn.pn, %ehcleanup220 ], [ %.pn24.pn, %ehcleanup190 ], [ %.pn21.pn, %ehcleanup168 ], [ %40, %lpad138 ], [ %39, %lpad126 ], [ %38, %lpad111 ], [ %37, %lpad99 ], [ %.pn19, %ehcleanup93 ], [ %.pn17, %ehcleanup85 ], [ %.pn15, %ehcleanup74 ], [ %.pn13, %ehcleanup63 ], [ %.pn11, %ehcleanup53 ]
+  %.pn43 = phi { ptr, i32 } [ %79, %lpad452 ], [ %34, %lpad94 ], [ %78, %lpad444 ], [ %75, %lpad429 ], [ %74, %lpad414 ], [ %73, %lpad402 ], [ %.pn38.pn.pn.pn, %ehcleanup398 ], [ %.pn35.pn, %ehcleanup368 ], [ %.pn32.pn, %ehcleanup346 ], [ %60, %lpad315 ], [ %59, %lpad303 ], [ %58, %lpad288 ], [ %57, %lpad278 ], [ %55, %lpad265 ], [ %53, %lpad248 ], [ %52, %lpad233 ], [ %51, %lpad223 ], [ %.pn27.pn.pn.pn, %ehcleanup220 ], [ %.pn24.pn, %ehcleanup190 ], [ %.pn21.pn, %ehcleanup168 ], [ %38, %lpad138 ], [ %37, %lpad126 ], [ %36, %lpad111 ], [ %35, %lpad99 ], [ %.pn19, %ehcleanup93 ], [ %.pn17, %ehcleanup85 ], [ %.pn15, %ehcleanup74 ], [ %.pn13, %ehcleanup63 ], [ %.pn11, %ehcleanup53 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pixrgb) #5
   br label %ehcleanup456
 
@@ -1345,7 +1339,7 @@ ehcleanup456:                                     ; preds = %ehcleanup455, %ehcl
   br label %ehcleanup457
 
 ehcleanup457:                                     ; preds = %ehcleanup456, %lpad38, %lpad31, %lpad26, %lpad12, %lpad7, %lpad
-  %.pn43.pn.pn = phi { ptr, i32 } [ %.pn43.pn, %ehcleanup456 ], [ %23, %lpad38 ], [ %18, %lpad ], [ %22, %lpad31 ], [ %21, %lpad26 ], [ %20, %lpad12 ], [ %19, %lpad7 ]
+  %.pn43.pn.pn = phi { ptr, i32 } [ %.pn43.pn, %ehcleanup456 ], [ %21, %lpad38 ], [ %16, %lpad ], [ %20, %lpad31 ], [ %19, %lpad26 ], [ %18, %lpad12 ], [ %17, %lpad7 ]
   %m_ossLine.i57 = getelementptr inbounds i8, ptr %ss, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i57) #5
   %m_ossText.i58 = getelementptr inbounds i8, ptr %ss, i64 8

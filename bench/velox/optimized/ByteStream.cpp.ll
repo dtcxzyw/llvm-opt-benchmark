@@ -1155,13 +1155,12 @@ if.then46:                                        ; preds = %_ZNK8facebook5velox
 if.end47:                                         ; preds = %_ZNK8facebook5velox16ByteOutputStream12newRangeSizeEi.exit
   %isBits_ = getelementptr inbounds i8, ptr %this, i64 8
   %26 = load i8, ptr %isBits_, align 8
-  %27 = and i8 %26, 1
-  %tobool48.not = icmp eq i8 %27, 0
-  br i1 %tobool48.not, label %if.end52, label %if.then49
+  %tobool48 = trunc i8 %26 to i1
+  br i1 %tobool48, label %if.then49, label %if.end52
 
 if.then49:                                        ; preds = %if.end47
-  %28 = load i32, ptr %size42, align 8
-  %mul = shl nsw i32 %28, 3
+  %27 = load i32, ptr %size42, align 8
+  %mul = shl nsw i32 %27, 3
   store i32 %mul, ptr %size42, align 8
   br label %if.end52
 
@@ -1874,10 +1873,10 @@ if.then.i:                                        ; preds = %land.lhs.true4.i
   br label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %land.lhs.true.i, %land.lhs.true4.i, %if.then.i
-  %sub.ptr.rhs.cast.i19 = ptrtoint ptr %0 to i64
-  %sub.ptr.lhs.cast.i18 = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i20 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.rhs.cast.i19
-  %sub.ptr.div.i21 = ashr exact i64 %sub.ptr.sub.i20, 4
+  %sub.ptr.rhs.cast.i21 = ptrtoint ptr %0 to i64
+  %sub.ptr.lhs.cast.i20 = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i21
+  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 4
   %lastRangeEnd_ = getelementptr inbounds i8, ptr %this, i64 56
   %isBits_ = getelementptr inbounds i8, ptr %this, i64 8
   %isReverseBitOrder_ = getelementptr inbounds i8, ptr %this, i64 9
@@ -1886,35 +1885,32 @@ for.body.lr.ph:                                   ; preds = %land.lhs.true.i, %l
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end ]
-  %sub.ptr.div.i25 = phi i64 [ %sub.ptr.div.i21, %for.body.lr.ph ], [ %sub.ptr.div.i, %if.end ]
-  %5 = phi ptr [ %0, %for.body.lr.ph ], [ %18, %if.end ]
-  %sub = add nsw i64 %sub.ptr.div.i25, -1
+  %sub.ptr.div.i27 = phi i64 [ %sub.ptr.div.i23, %for.body.lr.ph ], [ %sub.ptr.div.i, %if.end ]
+  %5 = phi ptr [ %0, %for.body.lr.ph ], [ %15, %if.end ]
+  %sub = add nsw i64 %sub.ptr.div.i27, -1
   %cmp5 = icmp eq i64 %sub, %indvars.iv
   %size = getelementptr inbounds %"struct.facebook::velox::ByteRange", ptr %5, i64 %indvars.iv, i32 1
   %cond.in = select i1 %cmp5, ptr %lastRangeEnd_, ptr %size
   %cond = load i32, ptr %cond.in, align 8
   %6 = load i8, ptr %isBits_, align 8
-  %7 = and i8 %6, 1
-  %tobool.not = icmp eq i8 %7, 0
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  %tobool = trunc i8 %6 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %for.body
   %add.i.i = add i32 %cond, 7
   %div.i = sdiv i32 %add.i.i, 8
-  %8 = load i8, ptr %isReverseBitOrder_, align 1
-  %9 = and i8 %8, 1
-  %tobool18.not = icmp eq i8 %9, 0
-  br i1 %tobool18.not, label %if.end, label %land.lhs.true19
+  %7 = load i8, ptr %isReverseBitOrder_, align 1
+  %tobool18 = trunc i8 %7 to i1
+  br i1 %tobool18, label %land.lhs.true19, label %if.end
 
 land.lhs.true19:                                  ; preds = %land.lhs.true
-  %10 = load i8, ptr %isReversed_, align 2
-  %11 = and i8 %10, 1
-  %tobool20.not = icmp eq i8 %11, 0
-  br i1 %tobool20.not, label %if.then, label %if.end
+  %8 = load i8, ptr %isReversed_, align 2
+  %tobool20 = trunc i8 %8 to i1
+  br i1 %tobool20, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true19
   %add.ptr.i13 = getelementptr inbounds %"struct.facebook::velox::ByteRange", ptr %5, i64 %indvars.iv
-  %12 = load ptr, ptr %add.ptr.i13, align 8
+  %9 = load ptr, ptr %add.ptr.i13, align 8
   %cmp15.i = icmp sgt i32 %add.i.i, 7
   br i1 %cmp15.i, label %for.body.preheader.i, label %if.end
 
@@ -1924,9 +1920,9 @@ for.body.preheader.i:                             ; preds = %if.then
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %12, i64 %indvars.iv.i
-  %13 = load i8, ptr %arrayidx.i, align 1
-  %rev.i = tail call i8 @llvm.bitreverse.i8(i8 %13)
+  %arrayidx.i = getelementptr inbounds i8, ptr %9, i64 %indvars.iv.i
+  %10 = load i8, ptr %arrayidx.i, align 1
+  %rev.i = tail call i8 @llvm.bitreverse.i8(i8 %10)
   store i8 %rev.i, ptr %arrayidx.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1937,20 +1933,20 @@ if.end.loopexit:                                  ; preds = %for.body.i
   br label %if.end
 
 if.end:                                           ; preds = %if.end.loopexit, %for.body, %if.then, %land.lhs.true19, %land.lhs.true
-  %14 = phi ptr [ %5, %land.lhs.true19 ], [ %5, %land.lhs.true ], [ %5, %if.then ], [ %5, %for.body ], [ %.pre, %if.end.loopexit ]
+  %11 = phi ptr [ %5, %land.lhs.true19 ], [ %5, %land.lhs.true ], [ %5, %if.then ], [ %5, %for.body ], [ %.pre, %if.end.loopexit ]
   %cond1417.in = phi i32 [ %div.i, %land.lhs.true19 ], [ %div.i, %land.lhs.true ], [ %div.i, %if.then ], [ %cond, %for.body ], [ %div.i, %if.end.loopexit ]
-  %add.ptr.i14 = getelementptr inbounds %"struct.facebook::velox::ByteRange", ptr %14, i64 %indvars.iv
-  %15 = load ptr, ptr %add.ptr.i14, align 8
+  %add.ptr.i14 = getelementptr inbounds %"struct.facebook::velox::ByteRange", ptr %11, i64 %indvars.iv
+  %12 = load ptr, ptr %add.ptr.i14, align 8
   %conv28 = sext i32 %cond1417.in to i64
   %vtable = load ptr, ptr %out, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %16 = load ptr, ptr %vfn, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %out, ptr noundef %15, i64 noundef %conv28)
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %17 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %18 = load ptr, ptr %ranges_.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %18 to i64
+  %13 = load ptr, ptr %vfn, align 8
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %out, ptr noundef %12, i64 noundef %conv28)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %14 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %15 = load ptr, ptr %ranges_.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %cmp = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next
@@ -1958,17 +1954,15 @@ if.end:                                           ; preds = %if.end.loopexit, %f
 
 for.end:                                          ; preds = %if.end, %entry
   %isBits_29 = getelementptr inbounds i8, ptr %this, i64 8
-  %19 = load i8, ptr %isBits_29, align 8
-  %20 = and i8 %19, 1
-  %tobool30.not = icmp eq i8 %20, 0
-  br i1 %tobool30.not, label %if.end36, label %land.lhs.true31
+  %16 = load i8, ptr %isBits_29, align 8
+  %tobool30 = trunc i8 %16 to i1
+  br i1 %tobool30, label %land.lhs.true31, label %if.end36
 
 land.lhs.true31:                                  ; preds = %for.end
   %isReverseBitOrder_32 = getelementptr inbounds i8, ptr %this, i64 9
-  %21 = load i8, ptr %isReverseBitOrder_32, align 1
-  %22 = and i8 %21, 1
-  %tobool33.not = icmp eq i8 %22, 0
-  br i1 %tobool33.not, label %if.end36, label %if.then34
+  %17 = load i8, ptr %isReverseBitOrder_32, align 1
+  %tobool33 = trunc i8 %17 to i1
+  br i1 %tobool33, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %land.lhs.true31
   %isReversed_35 = getelementptr inbounds i8, ptr %this, i64 10
@@ -3040,15 +3034,14 @@ if.then3:                                         ; preds = %if.end
   %sh_prom.i24 = zext nneg i32 %sub.i23 to i64
   %shl.i = shl i64 %sub.i.i, %sh_prom.i24
   %and7 = and i64 %shl.i, %sub.i22
-  %2 = and i8 %partialWordFunc.coerce1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %partialWordFunc.coerce1 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then3
   %idxprom.i = sext i32 %div to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom.i
-  %3 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %3, %and7
+  %2 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %2, %and7
   store i64 %or.i, ptr %arrayidx.i, align 8
   br label %if.end23
 
@@ -3056,8 +3049,8 @@ if.else.i:                                        ; preds = %if.then3
   %not.i = xor i64 %and7, -1
   %idxprom2.i = sext i32 %div to i64
   %arrayidx3.i = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom2.i
-  %4 = load i64, ptr %arrayidx3.i, align 8
-  %and4.i = and i64 %4, %not.i
+  %3 = load i64, ptr %arrayidx3.i, align 8
+  %and4.i = and i64 %3, %not.i
   store i64 %and4.i, ptr %arrayidx3.i, align 8
   br label %if.end23
 
@@ -3074,36 +3067,35 @@ if.then10:                                        ; preds = %if.end8
   %sub.i28 = sub nsw i32 64, %sub12
   %sh_prom.i29 = zext nneg i32 %sub.i28 to i64
   %shl.i30 = shl i64 %sub.i.i27, %sh_prom.i29
-  %5 = and i8 %partialWordFunc.coerce1, 1
-  %tobool.not.i31 = icmp eq i8 %5, 0
-  br i1 %tobool.not.i31, label %if.else.i36, label %if.then.i32
+  %tobool.i31 = trunc i8 %partialWordFunc.coerce1 to i1
+  br i1 %tobool.i31, label %if.then.i37, label %if.else.i32
 
-if.then.i32:                                      ; preds = %if.then10
-  %idxprom.i33 = sext i32 %div11 to i64
-  %arrayidx.i34 = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom.i33
-  %6 = load i64, ptr %arrayidx.i34, align 8
-  %or.i35 = or i64 %6, %shl.i30
-  store i64 %or.i35, ptr %arrayidx.i34, align 8
+if.then.i37:                                      ; preds = %if.then10
+  %idxprom.i38 = sext i32 %div11 to i64
+  %arrayidx.i39 = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom.i38
+  %4 = load i64, ptr %arrayidx.i39, align 8
+  %or.i40 = or i64 %4, %shl.i30
+  store i64 %or.i40, ptr %arrayidx.i39, align 8
   br label %if.end14
 
-if.else.i36:                                      ; preds = %if.then10
-  %not.i37 = xor i64 %shl.i30, -1
-  %idxprom2.i38 = sext i32 %div11 to i64
-  %arrayidx3.i39 = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom2.i38
-  %7 = load i64, ptr %arrayidx3.i39, align 8
-  %and4.i40 = and i64 %7, %not.i37
-  store i64 %and4.i40, ptr %arrayidx3.i39, align 8
+if.else.i32:                                      ; preds = %if.then10
+  %not.i33 = xor i64 %shl.i30, -1
+  %idxprom2.i34 = sext i32 %div11 to i64
+  %arrayidx3.i35 = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom2.i34
+  %5 = load i64, ptr %arrayidx3.i35, align 8
+  %and4.i36 = and i64 %5, %not.i33
+  store i64 %and4.i36, ptr %arrayidx3.i35, align 8
   br label %if.end14
 
-if.end14:                                         ; preds = %if.else.i36, %if.then.i32, %if.end8
+if.end14:                                         ; preds = %if.else.i32, %if.then.i37, %if.end8
   %add64 = add nsw i32 %mul.i, 64
   %cmp15.not65 = icmp sgt i32 %add64, %1
   br i1 %cmp15.not65, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end14
-  %8 = and i8 %fullWordFunc.coerce1, 1
-  %sext.i = sub nsw i8 0, %8
-  %conv.i = sext i8 %sext.i to i64
+  %6 = and i8 %fullWordFunc.coerce1, 1
+  %7 = zext nneg i8 %6 to i64
+  %cond.i = sub nsw i64 0, %7
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -3112,7 +3104,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %div16 = sdiv i32 %i.066, 64
   %idxprom.i42 = sext i32 %div16 to i64
   %arrayidx.i43 = getelementptr inbounds i64, ptr %fullWordFunc.coerce0, i64 %idxprom.i42
-  store i64 %conv.i, ptr %arrayidx.i43, align 8
+  store i64 %cond.i, ptr %arrayidx.i43, align 8
   %add = add nsw i32 %add67, 64
   %cmp15.not = icmp sgt i32 %add, %1
   br i1 %cmp15.not, label %for.end, label %for.body, !llvm.loop !21
@@ -3126,28 +3118,27 @@ if.then19:                                        ; preds = %for.end
   %sub21 = and i32 %end, 63
   %sh_prom.i44 = zext nneg i32 %sub21 to i64
   %notmask.i45 = shl nsw i64 -1, %sh_prom.i44
-  %9 = and i8 %partialWordFunc.coerce1, 1
-  %tobool.not.i47 = icmp eq i8 %9, 0
-  br i1 %tobool.not.i47, label %if.else.i52, label %if.then.i48
+  %tobool.i47 = trunc i8 %partialWordFunc.coerce1 to i1
+  br i1 %tobool.i47, label %if.then.i52, label %if.else.i48
 
-if.then.i48:                                      ; preds = %if.then19
+if.then.i52:                                      ; preds = %if.then19
   %sub.i46 = xor i64 %notmask.i45, -1
-  %idxprom.i49 = sext i32 %div20 to i64
-  %arrayidx.i50 = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom.i49
-  %10 = load i64, ptr %arrayidx.i50, align 8
-  %or.i51 = or i64 %10, %sub.i46
-  store i64 %or.i51, ptr %arrayidx.i50, align 8
+  %idxprom.i53 = sext i32 %div20 to i64
+  %arrayidx.i54 = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom.i53
+  %8 = load i64, ptr %arrayidx.i54, align 8
+  %or.i55 = or i64 %8, %sub.i46
+  store i64 %or.i55, ptr %arrayidx.i54, align 8
   br label %if.end23
 
-if.else.i52:                                      ; preds = %if.then19
-  %idxprom2.i53 = sext i32 %div20 to i64
-  %arrayidx3.i54 = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom2.i53
-  %11 = load i64, ptr %arrayidx3.i54, align 8
-  %and4.i55 = and i64 %11, %notmask.i45
-  store i64 %and4.i55, ptr %arrayidx3.i54, align 8
+if.else.i48:                                      ; preds = %if.then19
+  %idxprom2.i49 = sext i32 %div20 to i64
+  %arrayidx3.i50 = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom2.i49
+  %9 = load i64, ptr %arrayidx3.i50, align 8
+  %and4.i51 = and i64 %9, %notmask.i45
+  store i64 %and4.i51, ptr %arrayidx3.i50, align 8
   br label %if.end23
 
-if.end23:                                         ; preds = %if.else.i52, %if.then.i48, %if.else.i, %if.then.i, %entry, %for.end
+if.end23:                                         ; preds = %if.else.i48, %if.then.i52, %if.else.i, %if.then.i, %entry, %for.end
   ret void
 }
 

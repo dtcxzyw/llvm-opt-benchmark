@@ -237,9 +237,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5mmu_t17store_conditionalIjEEbmT_(ptr
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %25, i64 3801
   %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  %.not24 = icmp eq i8 %29, 0
-  br i1 %.not24, label %.critedge, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %.critedge
 
 30:                                               ; preds = %26
   store i8 4, ptr %5, align 8
@@ -1081,9 +1080,8 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %76, %77
 define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1298,8 +1296,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5mmu_t22check_load_reservationEmm(ptr
   %16 = load i64, ptr %15, align 8, !noalias !6
   %17 = getelementptr inbounds i8, ptr %10, i64 1656
   %18 = load ptr, ptr %17, align 8, !noalias !6
-  %.not3.i.i = icmp eq ptr %18, null
-  br i1 %.not3.i.i, label %25, label %19
+  %.not2.i.i = icmp eq ptr %18, null
+  br i1 %.not2.i.i, label %25, label %19
 
 19:                                               ; preds = %11
   %20 = load ptr, ptr %18, align 8, !noalias !6
@@ -1318,9 +1316,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5mmu_t22check_load_reservationEmm(ptr
   %26 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %10, %11 ]
   %27 = getelementptr inbounds i8, ptr %26, i64 2248
   %28 = load i8, ptr %27, align 8, !noalias !6
-  %29 = and i8 %28, 1
-  %.not2.i.i = icmp eq i8 %29, 0
-  br i1 %.not2.i.i, label %_ZN5mmu_t7in_mprvEv.exit.i, label %_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit, label %_ZN5mmu_t7in_mprvEv.exit.i
 
 _ZN5mmu_t7in_mprvEv.exit.i:                       ; preds = %25
   %30 = getelementptr inbounds i8, ptr %26, i64 984
@@ -1328,8 +1325,8 @@ _ZN5mmu_t7in_mprvEv.exit.i:                       ; preds = %25
   %32 = getelementptr inbounds i8, ptr %31, i64 56
   %33 = load i64, ptr %32, align 8, !noalias !6
   %34 = and i64 %33, 131072
-  %.not15.i = icmp eq i64 %34, 0
-  br i1 %.not15.i, label %_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit, label %35
+  %.not14.i = icmp eq i64 %34, 0
+  br i1 %.not14.i, label %_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit, label %35
 
 35:                                               ; preds = %_ZN5mmu_t7in_mprvEv.exit.i
   %36 = lshr i64 %33, 11
@@ -1408,9 +1405,8 @@ define linkonce_odr void @_ZN23trap_store_access_faultD2Ev(ptr noundef nonnull a
 define linkonce_odr noundef zeroext i1 @_ZN10mem_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1585,9 +1581,8 @@ define linkonce_odr ptr @_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

@@ -394,7 +394,7 @@ _ZN12grep_printer9hyperlink15HyperlinkConfig3new17hc5ac2ad558efd413E.exit: ; pre
 define noundef zeroext i1 @_ZN12grep_printer9hyperlink15HyperlinkFormat17is_line_dependent17h67e8b02ec55ddce7E(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !range !51, !noundef !5
-  %4 = icmp ne i8 %3, 0
+  %4 = trunc i8 %3 to i1
   ret i1 %4
 }
 
@@ -1837,10 +1837,10 @@ define void @_ZN12grep_printer9hyperlink4Part14interpolate_to17h17845da3864336c8
 81:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   %82 = load i64, ptr %2, align 8, !range !293, !noundef !5
-  %trunc34.not = icmp eq i64 %82, 0
+  %trunc34 = trunc i64 %82 to i1
   %83 = getelementptr inbounds i8, ptr %2, i64 8
   %84 = load i64, ptr %83, align 8
-  %.032 = select i1 %trunc34.not, i64 1, i64 %84
+  %.032 = select i1 %trunc34, i64 %84, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !294)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %6, i8 0, i64 20, i1 false), !noalias !294
@@ -1905,10 +1905,10 @@ _ZN12grep_printer4util16DecimalFormatter8as_bytes17h24d6ce99b36f8b03E.exit: ; pr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %115 = getelementptr inbounds i8, ptr %2, i64 16
   %116 = load i64, ptr %115, align 8, !range !293, !noundef !5
-  %trunc.not = icmp eq i64 %116, 0
+  %trunc = trunc i64 %116 to i1
   %117 = getelementptr inbounds i8, ptr %2, i64 24
   %118 = load i64, ptr %117, align 8
-  %.033 = select i1 %trunc.not, i64 1, i64 %118
+  %.033 = select i1 %trunc, i64 %118, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !307)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %5, i8 0, i64 20, i1 false), !noalias !307

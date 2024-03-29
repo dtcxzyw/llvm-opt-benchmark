@@ -679,9 +679,8 @@ define hidden ptr @rb_shape_get_next(ptr noundef %0, i64 noundef %1, i64 noundef
 
 33:                                               ; preds = %32, %24
   %34 = load i8, ptr %4, align 1
-  %35 = and i8 %34, 1
-  %.not = icmp eq i8 %35, 0
-  br i1 %.not, label %46, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %46
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %28, i64 148

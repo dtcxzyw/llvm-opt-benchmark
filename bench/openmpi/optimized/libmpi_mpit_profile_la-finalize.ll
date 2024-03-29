@@ -14,8 +14,8 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @PMPI_T_finalize() #0 {
   tail call void @ompi_mpit_lock() #3
   %1 = load volatile i32, ptr @ompi_mpit_init_count, align 4
-  %.not9 = icmp eq i32 %1, 0
-  br i1 %.not9, label %35, label %2
+  %.not8 = icmp eq i32 %1, 0
+  br i1 %.not8, label %35, label %2
 
 2:                                                ; preds = %0
   %3 = load volatile i32, ptr @ompi_mpit_init_count, align 4
@@ -37,9 +37,8 @@ define noundef i32 @PMPI_T_finalize() #0 {
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load i8, ptr @opal_uses_threads, align 1
-  %14 = and i8 %13, 1
-  %.not.i = icmp eq i8 %14, 0
-  br i1 %.not.i, label %18, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %18
 
 15:                                               ; preds = %11
   %16 = atomicrmw volatile add ptr %12, i32 -1 monotonic, align 4
@@ -72,8 +71,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %15, %18
   tail call void %28(ptr noundef nonnull %9) #3
   %29 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %30 = load ptr, ptr %29, align 8
-  %.not.i8 = icmp eq ptr %30, null
-  br i1 %.not.i8, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %30, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr @ompi_mpi_main_thread, align 8

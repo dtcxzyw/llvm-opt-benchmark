@@ -2172,9 +2172,9 @@ define void @_ZN13WirelessFrame13updateWidgetsEv(ptr nocapture noundef nonnull r
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 56
   %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, 1
-  %.not = icmp eq i8 %34, 0
-  %35 = and i1 %7, %.not
+  %34 = trunc i8 %33 to i1
+  %not. = xor i1 %34, true
+  %35 = and i1 %7, %not.
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %31, i1 noundef zeroext %35)
   ret void
 }

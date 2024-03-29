@@ -34,16 +34,15 @@ define dso_local noundef i64 @inet_spg_choose(ptr nocapture noundef readonly %0)
   %10 = tail call ptr @pg_detoast_datum_packed(ptr noundef %9) #4
   %11 = getelementptr inbounds i8, ptr %4, i64 21
   %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %14, label %22
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %22, label %14
 
 14:                                               ; preds = %1
   store i32 1, ptr %7, align 8
   %15 = load i8, ptr %10, align 1
   %16 = and i8 %15, 1
-  %.not77 = icmp eq i8 %16, 0
-  %.v = select i1 %.not77, i64 4, i64 1
+  %.not = icmp eq i8 %16, 0
+  %.v = select i1 %.not, i64 4, i64 1
   %17 = getelementptr inbounds i8, ptr %10, i64 %.v
   %18 = load i8, ptr %17, align 1
   %19 = icmp ne i8 %18, 2
@@ -59,23 +58,23 @@ define dso_local noundef i64 @inet_spg_choose(ptr nocapture noundef readonly %0)
   %26 = tail call ptr @pg_detoast_datum_packed(ptr noundef %25) #4
   %27 = load i8, ptr %26, align 1
   %28 = and i8 %27, 1
-  %.not78 = icmp eq i8 %28, 0
+  %.not77 = icmp eq i8 %28, 0
   %29 = getelementptr inbounds i8, ptr %26, i64 1
   %30 = getelementptr inbounds i8, ptr %26, i64 4
-  %31 = select i1 %.not78, ptr %30, ptr %29
+  %31 = select i1 %.not77, ptr %30, ptr %29
   %32 = getelementptr inbounds i8, ptr %31, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = load i8, ptr %10, align 1
   %36 = and i8 %35, 1
-  %.not79 = icmp eq i8 %36, 0
+  %.not78 = icmp eq i8 %36, 0
   %37 = getelementptr inbounds i8, ptr %10, i64 1
   %38 = getelementptr inbounds i8, ptr %10, i64 4
-  %39 = select i1 %.not79, ptr %38, ptr %37
+  %39 = select i1 %.not78, ptr %38, ptr %37
   %40 = load i8, ptr %39, align 1
   %41 = load i8, ptr %31, align 1
-  %.not80 = icmp eq i8 %40, %41
-  br i1 %.not80, label %54, label %42
+  %.not79 = icmp eq i8 %40, %41
+  br i1 %.not79, label %54, label %42
 
 42:                                               ; preds = %22
   store i32 3, ptr %7, align 8
@@ -87,8 +86,8 @@ define dso_local noundef i64 @inet_spg_choose(ptr nocapture noundef readonly %0)
   store ptr null, ptr %45, align 8
   %46 = load i8, ptr %26, align 1
   %47 = and i8 %46, 1
-  %.not84 = icmp eq i8 %47, 0
-  %48 = select i1 %.not84, ptr %30, ptr %29
+  %.not83 = icmp eq i8 %47, 0
+  %48 = select i1 %.not83, ptr %30, ptr %29
   %49 = load i8, ptr %48, align 1
   %50 = icmp ne i8 %49, 2
   %51 = zext i1 %50 to i32
@@ -108,24 +107,24 @@ define dso_local noundef i64 @inet_spg_choose(ptr nocapture noundef readonly %0)
   %59 = getelementptr inbounds i8, ptr %31, i64 2
   %60 = getelementptr inbounds i8, ptr %39, i64 2
   %61 = tail call i32 @bitncmp(ptr noundef nonnull %59, ptr noundef nonnull %60, i32 noundef %34) #4
-  %.not81 = icmp eq i32 %61, 0
-  br i1 %.not81, label %102, label %._crit_edge
+  %.not80 = icmp eq i32 %61, 0
+  br i1 %.not80, label %102, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %58
   %.pre = load i8, ptr %26, align 1
-  %.pre93 = load i8, ptr %10, align 1
-  %.pre94 = and i8 %.pre, 1
-  %.pre95 = and i8 %.pre93, 1
+  %.pre92 = load i8, ptr %10, align 1
+  %.pre93 = and i8 %.pre, 1
+  %.pre94 = and i8 %.pre92, 1
   br label %62
 
 62:                                               ; preds = %._crit_edge, %54
-  %.pre-phi96 = phi i8 [ %.pre95, %._crit_edge ], [ %36, %54 ]
-  %.pre-phi = phi i8 [ %.pre94, %._crit_edge ], [ %28, %54 ]
-  %.not82 = icmp eq i8 %.pre-phi, 0
-  %63 = select i1 %.not82, ptr %30, ptr %29
+  %.pre-phi95 = phi i8 [ %.pre94, %._crit_edge ], [ %36, %54 ]
+  %.pre-phi = phi i8 [ %.pre93, %._crit_edge ], [ %28, %54 ]
+  %.not81 = icmp eq i8 %.pre-phi, 0
+  %63 = select i1 %.not81, ptr %30, ptr %29
   %64 = getelementptr inbounds i8, ptr %63, i64 2
-  %.not83 = icmp eq i8 %.pre-phi96, 0
-  %65 = select i1 %.not83, ptr %38, ptr %37
+  %.not82 = icmp eq i8 %.pre-phi95, 0
+  %65 = select i1 %.not82, ptr %38, ptr %37
   %66 = getelementptr inbounds i8, ptr %65, i64 2
   %67 = getelementptr inbounds i8, ptr %65, i64 1
   %68 = load i8, ptr %67, align 1
@@ -185,14 +184,14 @@ inet_spg_node_number.exit:                        ; preds = %62, %85
   store i32 1, ptr %7, align 8
   %103 = load i8, ptr %10, align 1
   %104 = and i8 %103, 1
-  %.not.i85 = icmp eq i8 %104, 0
-  %.v.i86 = select i1 %.not.i85, i64 4, i64 1
-  %105 = getelementptr inbounds i8, ptr %10, i64 %.v.i86
+  %.not.i84 = icmp eq i8 %104, 0
+  %.v.i85 = select i1 %.not.i84, i64 4, i64 1
+  %105 = getelementptr inbounds i8, ptr %10, i64 %.v.i85
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, 2
   %108 = select i1 %107, i32 32, i32 128
   %109 = icmp ugt i32 %108, %34
-  br i1 %109, label %110, label %inet_spg_node_number.exit90
+  br i1 %109, label %110, label %inet_spg_node_number.exit89
 
 110:                                              ; preds = %102
   %111 = getelementptr inbounds i8, ptr %105, i64 2
@@ -205,25 +204,25 @@ inet_spg_node_number.exit:                        ; preds = %62, %85
   %118 = xor i8 %117, 7
   %119 = zext nneg i8 %118 to i32
   %120 = lshr i32 %116, %119
-  %spec.select.i89 = and i32 %120, 1
-  br label %inet_spg_node_number.exit90
+  %spec.select.i88 = and i32 %120, 1
+  br label %inet_spg_node_number.exit89
 
-inet_spg_node_number.exit90:                      ; preds = %102, %110
-  %.0.i87 = phi i32 [ 0, %102 ], [ %spec.select.i89, %110 ]
+inet_spg_node_number.exit89:                      ; preds = %102, %110
+  %.0.i86 = phi i32 [ 0, %102 ], [ %spec.select.i88, %110 ]
   %121 = getelementptr inbounds i8, ptr %105, i64 1
   %122 = load i8, ptr %121, align 1
   %123 = icmp ugt i8 %122, %33
-  %124 = or disjoint i32 %.0.i87, 2
-  %spec.select18.i88 = select i1 %123, i32 %124, i32 %.0.i87
+  %124 = or disjoint i32 %.0.i86, 2
+  %spec.select18.i87 = select i1 %123, i32 %124, i32 %.0.i86
   %125 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 %spec.select18.i88, ptr %125, align 8
+  store i32 %spec.select18.i87, ptr %125, align 8
   br label %126
 
-126:                                              ; preds = %inet_spg_node_number.exit90, %inet_spg_node_number.exit, %42, %14
-  %.sink99 = phi ptr [ %10, %inet_spg_node_number.exit90 ], [ %26, %inet_spg_node_number.exit ], [ %26, %42 ], [ %10, %14 ]
-  %.sink98 = phi i64 [ 16, %inet_spg_node_number.exit90 ], [ 48, %inet_spg_node_number.exit ], [ 48, %42 ], [ 16, %14 ]
-  %127 = ptrtoint ptr %.sink99 to i64
-  %128 = getelementptr inbounds i8, ptr %7, i64 %.sink98
+126:                                              ; preds = %inet_spg_node_number.exit89, %inet_spg_node_number.exit, %42, %14
+  %.sink98 = phi ptr [ %10, %inet_spg_node_number.exit89 ], [ %26, %inet_spg_node_number.exit ], [ %26, %42 ], [ %10, %14 ]
+  %.sink97 = phi i64 [ 16, %inet_spg_node_number.exit89 ], [ 48, %inet_spg_node_number.exit ], [ 48, %42 ], [ 16, %14 ]
+  %127 = ptrtoint ptr %.sink98 to i64
+  %128 = getelementptr inbounds i8, ptr %7, i64 %.sink97
   store i64 %127, ptr %128, align 8
   ret i64 0
 }
@@ -438,9 +437,8 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds i8, ptr %4, i64 54
   %9 = load i8, ptr %8, align 2
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %.preheader, label %50
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %50, label %.preheader
 
 .preheader:                                       ; preds = %1
   %11 = getelementptr inbounds i8, ptr %4, i64 16
@@ -450,7 +448,7 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %.preheader, %46
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %.preheader ]
-  %.04055 = phi i32 [ %.141, %46 ], [ 3, %.preheader ]
+  %.04053 = phi i32 [ %.141, %46 ], [ 3, %.preheader ]
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr %struct.ScanKeyData, ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds i8, ptr %15, i64 6
@@ -470,59 +468,58 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
 22:                                               ; preds = %.lr.ph, %.lr.ph
   %23 = load i8, ptr %21, align 1
   %24 = and i8 %23, 1
-  %.not43 = icmp eq i8 %24, 0
-  %.v44 = select i1 %.not43, i64 4, i64 1
-  %25 = getelementptr inbounds i8, ptr %21, i64 %.v44
+  %.not42 = icmp eq i8 %24, 0
+  %.v43 = select i1 %.not42, i64 4, i64 1
+  %25 = getelementptr inbounds i8, ptr %21, i64 %.v43
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 2
-  %28 = and i32 %.04055, 1
-  %spec.select = select i1 %27, i32 %28, i32 %.04055
+  %28 = and i32 %.04053, 1
+  %spec.select = select i1 %27, i32 %28, i32 %.04053
   br label %46
 
 29:                                               ; preds = %.lr.ph, %.lr.ph
   %30 = load i8, ptr %21, align 1
   %31 = and i8 %30, 1
-  %.not42 = icmp eq i8 %31, 0
-  %.v = select i1 %.not42, i64 4, i64 1
+  %.not = icmp eq i8 %31, 0
+  %.v = select i1 %.not, i64 4, i64 1
   %32 = getelementptr inbounds i8, ptr %21, i64 %.v
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 3
-  %35 = and i32 %.04055, 2
-  %spec.select50 = select i1 %34, i32 %35, i32 %.04055
+  %35 = and i32 %.04053, 2
+  %spec.select48 = select i1 %34, i32 %35, i32 %.04053
   br label %46
 
 36:                                               ; preds = %.lr.ph
   %37 = load i8, ptr %21, align 1
   %38 = and i8 %37, 1
-  %.not45 = icmp eq i8 %38, 0
-  %.v46 = select i1 %.not45, i64 4, i64 1
-  %39 = getelementptr inbounds i8, ptr %21, i64 %.v46
+  %.not44 = icmp eq i8 %38, 0
+  %.v45 = select i1 %.not44, i64 4, i64 1
+  %39 = getelementptr inbounds i8, ptr %21, i64 %.v45
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 2
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %36
-  %43 = and i32 %.04055, 1
+  %43 = and i32 %.04053, 1
   br label %46
 
 44:                                               ; preds = %36
-  %45 = and i32 %.04055, 2
+  %45 = and i32 %.04053, 2
   br label %46
 
 46:                                               ; preds = %29, %22, %.lr.ph, %44, %42
-  %.141 = phi i32 [ %43, %42 ], [ %45, %44 ], [ %.04055, %.lr.ph ], [ %spec.select, %22 ], [ %spec.select50, %29 ]
+  %.141 = phi i32 [ %43, %42 ], [ %45, %44 ], [ %.04053, %.lr.ph ], [ %spec.select, %22 ], [ %spec.select48, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %11, align 8
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph, label %.loopexit54, !llvm.loop !9
+  br i1 %49, label %.lr.ph, label %.loopexit52, !llvm.loop !9
 
 50:                                               ; preds = %1
   %51 = getelementptr inbounds i8, ptr %4, i64 53
   %52 = load i8, ptr %51, align 1
-  %53 = and i8 %52, 1
-  %.not47 = icmp eq i8 %53, 0
-  br i1 %.not47, label %54, label %.sink.split
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %.sink.split, label %54
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds i8, ptr %4, i64 56
@@ -533,21 +530,21 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
   %60 = load i32, ptr %59, align 8
   %61 = load ptr, ptr %4, align 8
   %62 = tail call fastcc i32 @inet_spg_consistent_bitmap(ptr noundef %58, i32 noundef %60, ptr noundef %61, i1 noundef zeroext false), !range !10
-  br label %.loopexit54
+  br label %.loopexit52
 
-.loopexit54:                                      ; preds = %46, %54
+.loopexit52:                                      ; preds = %46, %54
   %.2 = phi i32 [ %62, %54 ], [ %.141, %46 ]
   store i32 0, ptr %7, align 8
-  %.not48 = icmp eq i32 %.2, 0
-  br i1 %.not48, label %.loopexit, label %63
+  %.not46 = icmp eq i32 %.2, 0
+  br i1 %.not46, label %.loopexit, label %63
 
 .sink.split:                                      ; preds = %50, %.preheader
-  %.253.ph = phi i32 [ 3, %.preheader ], [ -1, %50 ]
+  %.251.ph = phi i32 [ 3, %.preheader ], [ -1, %50 ]
   store i32 0, ptr %7, align 8
   br label %63
 
-63:                                               ; preds = %.sink.split, %.loopexit54
-  %.253 = phi i32 [ %.2, %.loopexit54 ], [ %.253.ph, %.sink.split ]
+63:                                               ; preds = %.sink.split, %.loopexit52
+  %.251 = phi i32 [ %.2, %.loopexit52 ], [ %.251.ph, %.sink.split ]
   %64 = getelementptr inbounds i8, ptr %4, i64 64
   %65 = load i32, ptr %64, align 8
   %66 = sext i32 %65 to i64
@@ -557,35 +554,35 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
   store ptr %68, ptr %69, align 8
   %70 = load i32, ptr %64, align 8
   %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %.lr.ph58, label %.loopexit
+  br i1 %71, label %.lr.ph56, label %.loopexit
 
-.lr.ph58:                                         ; preds = %63, %82
+.lr.ph56:                                         ; preds = %63, %82
   %72 = phi i32 [ %83, %82 ], [ %70, %63 ]
-  %.157 = phi i32 [ %84, %82 ], [ 0, %63 ]
-  %73 = shl nuw i32 1, %.157
-  %74 = and i32 %73, %.253
-  %.not49 = icmp eq i32 %74, 0
-  br i1 %.not49, label %82, label %75
+  %.155 = phi i32 [ %84, %82 ], [ 0, %63 ]
+  %73 = shl nuw i32 1, %.155
+  %74 = and i32 %73, %.251
+  %.not47 = icmp eq i32 %74, 0
+  br i1 %.not47, label %82, label %75
 
-75:                                               ; preds = %.lr.ph58
+75:                                               ; preds = %.lr.ph56
   %76 = load ptr, ptr %69, align 8
   %77 = load i32, ptr %7, align 8
   %78 = sext i32 %77 to i64
   %79 = getelementptr i32, ptr %76, i64 %78
-  store i32 %.157, ptr %79, align 4
+  store i32 %.155, ptr %79, align 4
   %80 = load i32, ptr %7, align 8
   %81 = add i32 %80, 1
   store i32 %81, ptr %7, align 8
   %.pre = load i32, ptr %64, align 8
   br label %82
 
-82:                                               ; preds = %.lr.ph58, %75
-  %83 = phi i32 [ %72, %.lr.ph58 ], [ %.pre, %75 ]
-  %84 = add nuw nsw i32 %.157, 1
+82:                                               ; preds = %.lr.ph56, %75
+  %83 = phi i32 [ %72, %.lr.ph56 ], [ %.pre, %75 ]
+  %84 = add nuw nsw i32 %.155, 1
   %85 = icmp slt i32 %84, %83
-  br i1 %85, label %.lr.ph58, label %.loopexit, !llvm.loop !11
+  br i1 %85, label %.lr.ph56, label %.loopexit, !llvm.loop !11
 
-.loopexit:                                        ; preds = %82, %63, %.loopexit54
+.loopexit:                                        ; preds = %82, %63, %.loopexit52
   ret i64 0
 }
 

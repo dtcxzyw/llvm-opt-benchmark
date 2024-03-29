@@ -468,9 +468,8 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %m_already_configured.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
   %1 = load i8, ptr %m_already_configured.i.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.i.not.i.i, label %if.end.i.i, label %_ZN3smt7context9set_logicERK6symbol.exit
+  %tobool.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i.i, label %_ZN3smt7context9set_logicERK6symbol.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %m_logic.i.i = getelementptr inbounds i8, ptr %0, i64 168
@@ -478,7 +477,8 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZN3smt7context9set_logicERK6symbol.exit
 
 _ZN3smt7context9set_logicERK6symbol.exit:         ; preds = %entry, %if.end.i.i
-  ret i1 %tobool.i.not.i.i
+  %retval.0.i.i = xor i1 %tobool.i.i.i, true
+  ret i1 %retval.0.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -666,10 +666,9 @@ entry:
   %cmp.i.i.i = icmp ne ptr %1, null
   %m_inconsistent.i.i = getelementptr inbounds i8, ptr %0, i64 2416
   %2 = load i8, ptr %m_inconsistent.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.i.i = icmp ne i8 %3, 0
-  %4 = select i1 %cmp.i.i.i, i1 true, i1 %tobool.i.i
-  ret i1 %4
+  %tobool.i.i = trunc i8 %2 to i1
+  %3 = select i1 %cmp.i.i.i, i1 true, i1 %tobool.i.i
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable

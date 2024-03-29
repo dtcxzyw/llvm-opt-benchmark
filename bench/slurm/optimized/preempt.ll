@@ -226,10 +226,9 @@ slurm_preemption_enabled.exit:                    ; preds = %22
   %29 = load ptr, ptr getelementptr inbounds (%struct.slurm_preempt_ops, ptr @ops, i64 0, i32 2), align 8
   %30 = call i32 %29(ptr noundef null, i32 noundef 0, ptr noundef nonnull %2) #8
   %31 = load i8, ptr %2, align 1
-  %32 = and i8 %31, 1
-  %.not19 = icmp eq i8 %32, 0
+  %32 = trunc i8 %31 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  br i1 %.not19, label %33, label %35
+  br i1 %32, label %35, label %33
 
 33:                                               ; preds = %slurm_preemption_enabled.exit
   %34 = call zeroext i1 @job_uses_max_start_delay_resv(ptr noundef nonnull %0) #8
@@ -263,18 +262,17 @@ define zeroext i1 @slurm_preemption_enabled() local_unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   %2 = load i32, ptr @plugin_inited, align 4
   %3 = icmp eq i32 %2, 1
-  br i1 %3, label %10, label %4
+  br i1 %3, label %9, label %4
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_preempt_ops, ptr @ops, i64 0, i32 2), align 8
   %6 = call i32 %5(ptr noundef null, i32 noundef 0, ptr noundef nonnull %1) #8
   %7 = load i8, ptr %1, align 1
-  %8 = and i8 %7, 1
-  %9 = icmp ne i8 %8, 0
-  br label %10
+  %8 = trunc i8 %7 to i1
+  br label %9
 
-10:                                               ; preds = %4, %0
-  %.0 = phi i1 [ false, %0 ], [ %9, %4 ]
+9:                                                ; preds = %4, %0
+  %.0 = phi i1 [ false, %0 ], [ %8, %4 ]
   ret i1 %.0
 }
 
@@ -538,14 +536,13 @@ _job_check_grace.exit:                            ; preds = %12, %16
 
 18:                                               ; preds = %_job_check_grace.exit
   %19 = load i8, ptr @preempt_send_user_signal, align 1
-  %20 = and i8 %19, 1
-  %.not32 = icmp eq i8 %20, 0
-  br i1 %.not32, label %26, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %26
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %10, align 8
-  %.not33 = icmp eq ptr %22, null
-  br i1 %.not33, label %25, label %23
+  %.not32 = icmp eq ptr %22, null
+  br i1 %.not32, label %25, label %23
 
 23:                                               ; preds = %21
   %24 = call i32 @list_for_each(ptr noundef nonnull %22, ptr noundef nonnull @_job_warn_signal_wrapper, ptr noundef nonnull %5) #8
@@ -563,8 +560,8 @@ _job_check_grace.exit:                            ; preds = %12, %16
 
 27:                                               ; preds = %26
   %28 = load ptr, ptr %10, align 8
-  %.not34 = icmp eq ptr %28, null
-  br i1 %.not34, label %31, label %29
+  %.not33 = icmp eq ptr %28, null
+  br i1 %.not33, label %31, label %29
 
 29:                                               ; preds = %27
   %30 = call i32 @het_job_signal(ptr noundef nonnull %0, i16 noundef zeroext 9, i16 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true) #8
@@ -606,8 +603,8 @@ _job_check_grace.exit:                            ; preds = %12, %16
 
 48:                                               ; preds = %33, %39, %26
   %49 = load ptr, ptr %10, align 8
-  %.not36 = icmp eq ptr %49, null
-  br i1 %.not36, label %52, label %50
+  %.not35 = icmp eq ptr %49, null
+  br i1 %.not35, label %52, label %50
 
 50:                                               ; preds = %48
   %51 = call i32 @het_job_signal(ptr noundef nonnull %0, i16 noundef zeroext 9, i16 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true) #8
@@ -647,9 +644,8 @@ _job_check_grace.exit:                            ; preds = %12, %16
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_job_warn_signal_wrapper(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load i8, ptr %1, align 1
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  tail call void @send_job_warn_signal(ptr noundef %0, i1 noundef zeroext %5) #8
+  %4 = trunc i8 %3 to i1
+  tail call void @send_job_warn_signal(ptr noundef %0, i1 noundef zeroext %4) #8
   ret i32 0
 }
 
@@ -780,8 +776,8 @@ define internal noundef i32 @_job_check_grace_internal(ptr noundef %0, ptr nound
   %7 = tail call i64 @time(ptr noundef null) #8
   %8 = getelementptr inbounds i8, ptr %0, i64 232
   %9 = load i64, ptr %8, align 8
-  %.not36 = icmp slt i64 %7, %9
-  br i1 %.not36, label %48, label %10
+  %.not35 = icmp slt i64 %7, %9
+  br i1 %.not35, label %48, label %10
 
 10:                                               ; preds = %6
   %11 = tail call i64 @time(ptr noundef null) #8
@@ -840,21 +836,20 @@ slurm_job_get_grace_time.exit:                    ; preds = %18, %21
 
 35:                                               ; preds = %34, %31
   %36 = load i8, ptr @preempt_send_user_signal, align 1
-  %37 = and i8 %36, 1
-  %.not33 = icmp eq i8 %37, 0
-  br i1 %.not33, label %45, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %45
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %0, i64 1084
   %40 = load i16, ptr %39, align 4
-  %.not34 = icmp eq i16 %40, 0
-  br i1 %.not34, label %45, label %41
+  %.not33 = icmp eq i16 %40, 0
+  br i1 %.not33, label %45, label %41
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %0, i64 1082
   %43 = load i16, ptr %42, align 2
-  %.not35 = icmp sgt i16 %43, -1
-  br i1 %.not35, label %44, label %45
+  %.not34 = icmp sgt i16 %43, -1
+  br i1 %.not34, label %44, label %45
 
 44:                                               ; preds = %41
   call void @send_job_warn_signal(ptr noundef nonnull %0, i1 noundef zeroext true) #8

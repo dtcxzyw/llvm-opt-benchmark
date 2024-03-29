@@ -662,10 +662,10 @@ define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain12InternalData7Prepare
   br label %.sink.split
 
 .sink.split:                                      ; preds = %13, %17
-  %.sink117 = phi i64 [ 56, %17 ], [ 48, %13 ]
-  %.sink115 = phi i32 [ %20, %17 ], [ %16, %13 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 %.sink117
-  store i32 %.sink115, ptr %21, align 8
+  %.sink116 = phi i64 [ 56, %17 ], [ 48, %13 ]
+  %.sink114 = phi i32 [ %20, %17 ], [ %16, %13 ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 %.sink116
+  store i32 %.sink114, ptr %21, align 8
   br label %22
 
 22:                                               ; preds = %.sink.split, %13
@@ -711,7 +711,7 @@ define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain12InternalData7Prepare
   br i1 %45, label %.loopexit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %41
-  %.pre95 = load ptr, ptr %0, align 8
+  %.pre94 = load ptr, ptr %0, align 8
   br label %51
 
 46:                                               ; preds = %22
@@ -724,7 +724,7 @@ define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain12InternalData7Prepare
   br label %51
 
 51:                                               ; preds = %._crit_edge, %46, %26, %22
-  %52 = phi ptr [ %.pre95, %._crit_edge ], [ %14, %46 ], [ %14, %26 ], [ %14, %22 ]
+  %52 = phi ptr [ %.pre94, %._crit_edge ], [ %14, %46 ], [ %14, %26 ], [ %14, %22 ]
   %53 = getelementptr inbounds i8, ptr %52, i64 8
   %54 = getelementptr inbounds i8, ptr %0, i64 64
   %55 = load i32, ptr %53, align 4
@@ -742,9 +742,8 @@ define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain12InternalData7Prepare
 58:                                               ; preds = %51
   %59 = getelementptr inbounds i8, ptr %52, i64 80
   %60 = load i8, ptr %59, align 8
-  %61 = and i8 %60, 1
-  %.not45 = icmp eq i8 %61, 0
-  br i1 %.not45, label %68, label %62
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %62, label %68
 
 62:                                               ; preds = %58
   %63 = load i32, ptr %24, align 8
@@ -782,10 +781,10 @@ define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain12InternalData7Prepare
   %83 = load i32, ptr %76, align 8
   %84 = call i32 @uv_pipe_open(ptr noundef %82, i32 noundef %83)
   %85 = icmp slt i32 %84, 0
-  br i1 %85, label %.loopexit, label %._crit_edge96
+  br i1 %85, label %.loopexit, label %._crit_edge95
 
-._crit_edge96:                                    ; preds = %81
-  %.pre97 = load ptr, ptr %0, align 8
+._crit_edge95:                                    ; preds = %81
+  %.pre96 = load ptr, ptr %0, align 8
   br label %91
 
 86:                                               ; preds = %51
@@ -797,14 +796,14 @@ define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain12InternalData7Prepare
   store i32 %89, ptr %90, align 8
   br label %91
 
-91:                                               ; preds = %._crit_edge96, %62, %86, %56, %51
-  %92 = phi ptr [ %.pre97, %._crit_edge96 ], [ %52, %62 ], [ %52, %86 ], [ %52, %56 ], [ %52, %51 ]
+91:                                               ; preds = %._crit_edge95, %62, %86, %56, %51
+  %92 = phi ptr [ %.pre96, %._crit_edge95 ], [ %52, %62 ], [ %52, %86 ], [ %52, %56 ], [ %52, %51 ]
   %93 = getelementptr inbounds i8, ptr %92, i64 24
   %94 = getelementptr inbounds i8, ptr %92, i64 32
   %95 = load ptr, ptr %94, align 8
   %96 = load ptr, ptr %93, align 8
-  %.not77 = icmp eq ptr %95, %96
-  br i1 %.not77, label %.loopexit, label %.lr.ph
+  %.not76 = icmp eq ptr %95, %96
+  br i1 %.not76, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %91
   %97 = getelementptr inbounds i8, ptr %0, i64 152
@@ -814,8 +813,8 @@ define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain12InternalData7Prepare
   br label %101
 
 101:                                              ; preds = %.lr.ph, %172
-  %.04266 = phi i1 [ true, %.lr.ph ], [ false, %172 ]
-  %.04365 = phi i64 [ 0, %.lr.ph ], [ %173, %172 ]
+  %.04265 = phi i1 [ true, %.lr.ph ], [ false, %172 ]
+  %.04364 = phi i64 [ 0, %.lr.ph ], [ %173, %172 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %102 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #24, !noalias !15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %102, i8 0, i64 80, i1 false), !noalias !15
@@ -888,9 +887,9 @@ _ZNSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14d
 
 124:                                              ; preds = %118
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.34) #22
-          to label %.noexc47 unwind label %.loopexit.split-lp
+          to label %.noexc46 unwind label %.loopexit.split-lp
 
-.noexc47:                                         ; preds = %124
+.noexc46:                                         ; preds = %124
   unreachable
 
 _ZNKSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i: ; preds = %118
@@ -906,7 +905,7 @@ _ZNKSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14
 130:                                              ; preds = %_ZNKSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
   %131 = shl nuw nsw i64 %129, 3
   %132 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %131) #24
-          to label %_ZNSt12_Vector_baseISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i unwind label %.loopexit50
+          to label %_ZNSt12_Vector_baseISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i unwind label %.loopexit49
 
 _ZNSt12_Vector_baseISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i: ; preds = %130, %_ZNKSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
   %133 = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i ], [ %132, %130 ]
@@ -952,18 +951,18 @@ _ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_del
   store ptr %0, ptr %142, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 60
   store i8 0, ptr %143, align 4
-  br i1 %.04266, label %172, label %144
+  br i1 %.04265, label %172, label %144
 
 144:                                              ; preds = %_ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS2_EED2Ev.exit
   %145 = load ptr, ptr %97, align 8
-  %146 = getelementptr %"class.std::unique_ptr.23", ptr %145, i64 %.04365
+  %146 = getelementptr %"class.std::unique_ptr.23", ptr %145, i64 %.04364
   %147 = getelementptr i8, ptr %146, i64 -8
   %148 = load ptr, ptr %147, align 8
   %149 = call noundef i32 @_Z10cmGetPipesPi(ptr noundef nonnull %6)
   %150 = icmp slt i32 %149, 0
   br i1 %150, label %.loopexit, label %152
 
-.loopexit50:                                      ; preds = %130
+.loopexit49:                                      ; preds = %130
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %151
@@ -973,8 +972,8 @@ _ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_del
           cleanup
   br label %151
 
-151:                                              ; preds = %.loopexit.split-lp, %.loopexit50
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit50 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+151:                                              ; preds = %.loopexit.split-lp, %.loopexit49
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit49 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
   br label %common.resume
 
@@ -1007,7 +1006,7 @@ _ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_del
   br i1 %171, label %.loopexit, label %172
 
 172:                                              ; preds = %167, %_ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS2_EED2Ev.exit
-  %173 = add nuw i64 %.04365, 1
+  %173 = add nuw i64 %.04364, 1
   %174 = load ptr, ptr %0, align 8
   %175 = getelementptr inbounds i8, ptr %174, i64 24
   %176 = getelementptr inbounds i8, ptr %174, i64 32
@@ -1527,9 +1526,8 @@ define dso_local noundef zeroext i1 @_ZNK16cmUVProcessChain5ValidEv(ptr nocaptur
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %6 = icmp ne i8 %5, 0
-  ret i1 %6
+  %5 = trunc i8 %4 to i1
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1572,9 +1570,8 @@ define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain4WaitEm(ptr nocapture 
 
 13:                                               ; preds = %.preheader, %30
   %14 = load i8, ptr %3, align 1
-  %15 = and i8 %14, 1
-  %.not4 = icmp eq i8 %15, 0
-  br i1 %.not4, label %16, label %.critedge
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %0, align 8
@@ -1599,8 +1596,9 @@ define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain4WaitEm(ptr nocapture 
           to label %13 unwind label %.loopexit, !llvm.loop !28
 
 .critedge:                                        ; preds = %13, %16
+  %34 = xor i1 %15, true
   call void @_ZN2cm19uv_handle_ptr_base_I10uv_timer_sED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
-  ret i1 %.not4
+  ret i1 %34
 }
 
 declare noundef i32 @_ZN2cm12uv_timer_ptr4initER9uv_loop_sPv(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(848), ptr noundef) local_unnamed_addr #4
@@ -1747,9 +1745,8 @@ define dso_local void @_ZNK16cmUVProcessChain6Status12GetExceptionB5cxx11Ev(ptr 
 42:                                               ; preds = %2
   %43 = getelementptr inbounds i8, ptr %1, i64 4
   %44 = load i8, ptr %43, align 4
-  %45 = and i8 %44, 1
-  %.not1 = icmp eq i8 %45, 0
-  br i1 %.not1, label %114, label %46
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %114
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds i8, ptr %1, i64 16

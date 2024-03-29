@@ -636,9 +636,8 @@ invoke.cont26:                                    ; preds = %invoke.cont20
 invoke.cont32:                                    ; preds = %invoke.cont26
   %noSkeletonMesh = getelementptr inbounds i8, ptr %this, i64 176
   %11 = load i8, ptr %noSkeletonMesh, align 8
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
-  br i1 %tobool.not, label %if.then33, label %if.end35
+  %tobool = trunc i8 %11 to i1
+  br i1 %tobool, label %if.end35, label %if.then33
 
 if.then33:                                        ; preds = %invoke.cont32
   invoke void @_ZN6Assimp19SkeletonMeshBuilderC1EP7aiSceneP6aiNodeb(ptr noundef nonnull align 8 dereferenceable(73) %meshBuilder, ptr noundef %pScene, ptr noundef null, i1 noundef zeroext false)
@@ -646,31 +645,31 @@ if.then33:                                        ; preds = %invoke.cont32
 
 invoke.cont34:                                    ; preds = %if.then33
   %mBones.i = getelementptr inbounds i8, ptr %meshBuilder, i64 48
-  %13 = load ptr, ptr %mBones.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %13, null
+  %12 = load ptr, ptr %mBones.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont34
-  call void @_ZdlPv(ptr noundef nonnull %13) #21
+  call void @_ZdlPv(ptr noundef nonnull %12) #21
   br label %_ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit.i:         ; preds = %if.then.i.i.i.i, %invoke.cont34
   %mFaces.i = getelementptr inbounds i8, ptr %meshBuilder, i64 24
-  %14 = load ptr, ptr %mFaces.i, align 8
-  %tobool.not.i.i.i1.i = icmp eq ptr %14, null
+  %13 = load ptr, ptr %mFaces.i, align 8
+  %tobool.not.i.i.i1.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i1.i, label %_ZNSt6vectorIN6Assimp19SkeletonMeshBuilder4FaceESaIS2_EED2Ev.exit.i, label %if.then.i.i.i2.i
 
 if.then.i.i.i2.i:                                 ; preds = %_ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %14) #21
+  call void @_ZdlPv(ptr noundef nonnull %13) #21
   br label %_ZNSt6vectorIN6Assimp19SkeletonMeshBuilder4FaceESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN6Assimp19SkeletonMeshBuilder4FaceESaIS2_EED2Ev.exit.i: ; preds = %if.then.i.i.i2.i, %_ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit.i
-  %15 = load ptr, ptr %meshBuilder, align 8
-  %tobool.not.i.i.i3.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %meshBuilder, align 8
+  %tobool.not.i.i.i3.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i3.i, label %if.end35, label %if.then.i.i.i4.i
 
 if.then.i.i.i4.i:                                 ; preds = %_ZNSt6vectorIN6Assimp19SkeletonMeshBuilder4FaceESaIS2_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %15) #21
+  call void @_ZdlPv(ptr noundef nonnull %14) #21
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then.i.i.i4.i, %_ZNSt6vectorIN6Assimp19SkeletonMeshBuilder4FaceESaIS2_EED2Ev.exit.i, %invoke.cont32
@@ -680,8 +679,8 @@ if.end35:                                         ; preds = %if.then.i.i.i4.i, %
 _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.end35
   %vtable.i.i = load ptr, ptr %call3.i12, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %16 = load ptr, ptr %vfn.i.i, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %call3.i12) #20
+  %15 = load ptr, ptr %vfn.i.i, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(8) %call3.i12) #20
   ret void
 
 ehcleanup37.thread27:                             ; preds = %if.end, %invoke.cont17, %if.end19, %invoke.cont20, %invoke.cont26, %if.then33, %if.end35
@@ -693,8 +692,8 @@ _ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i14: ; preds = %ehcleanup
   %.pn826 = phi { ptr, i32 } [ %6, %ehcleanup37.thread24 ], [ %lpad.thr_comm, %ehcleanup37.thread27 ]
   %vtable.i.i15 = load ptr, ptr %call3.i12, align 8
   %vfn.i.i16 = getelementptr inbounds i8, ptr %vtable.i.i15, i64 8
-  %17 = load ptr, ptr %vfn.i.i16, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %call3.i12) #20
+  %16 = load ptr, ptr %vfn.i.i16, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %call3.i12) #20
   br label %eh.resume
 
 eh.resume:                                        ; preds = %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i14, %ehcleanup37.thread, %ehcleanup

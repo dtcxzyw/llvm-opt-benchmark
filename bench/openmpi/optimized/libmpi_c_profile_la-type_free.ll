@@ -19,9 +19,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Type_free(ptr noundef %0) #0 {
   %2 = load i8, ptr @ompi_mpi_param_check, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %20, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %20
 
 4:                                                ; preds = %1
   %5 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -47,8 +46,8 @@ define i32 @PMPI_Type_free(ptr noundef %0) #0 {
   %16 = getelementptr i8, ptr %12, i64 16
   %.val = load i16, ptr %16, align 8
   %17 = and i16 %.val, 512
-  %.not11 = icmp eq i16 %17, 0
-  br i1 %.not11, label %20, label %18
+  %.not = icmp eq i16 %17, 0
+  br i1 %.not, label %20, label %18
 
 18:                                               ; preds = %15, %11, %9
   %19 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 3, ptr noundef nonnull @FUNC_NAME) #2
@@ -56,8 +55,8 @@ define i32 @PMPI_Type_free(ptr noundef %0) #0 {
 
 20:                                               ; preds = %15, %1
   %21 = tail call i32 @ompi_datatype_destroy(ptr noundef %0) #2
-  %.not12 = icmp eq i32 %21, 0
-  br i1 %.not12, label %24, label %22
+  %.not11 = icmp eq i32 %21, 0
+  br i1 %.not11, label %24, label %22
 
 22:                                               ; preds = %20
   %23 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 17, ptr noundef nonnull @FUNC_NAME) #2

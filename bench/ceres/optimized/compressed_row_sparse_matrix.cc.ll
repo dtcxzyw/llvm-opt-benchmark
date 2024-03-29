@@ -9849,9 +9849,8 @@ declare x86_fp80 @logl(x86_fp80 noundef) local_unnamed_addr #18
 define linkonce_odr noundef double @_ZNSt19normal_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(5000) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %.preheader, label %10
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %10, label %.preheader
 
 .preheader:                                       ; preds = %3
   %7 = getelementptr inbounds i8, ptr %1, i64 4992

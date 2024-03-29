@@ -64,9 +64,8 @@ define dso_local void @spg_desc(ptr noundef %0, ptr nocapture noundef readonly %
   %24 = zext i16 %23 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %15, i32 noundef %18, i32 noundef %21, i32 noundef %24) #3
   %25 = load i8, ptr %6, align 2
-  %26 = and i8 %25, 1
-  %.not77 = icmp eq i8 %26, 0
-  br i1 %.not77, label %28, label %27
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %28
 
 27:                                               ; preds = %12
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1) #3
@@ -75,9 +74,8 @@ define dso_local void @spg_desc(ptr noundef %0, ptr nocapture noundef readonly %
 28:                                               ; preds = %27, %12
   %29 = getelementptr inbounds i8, ptr %6, i64 1
   %30 = load i8, ptr %29, align 1
-  %31 = and i8 %30, 1
-  %.not78 = icmp eq i8 %31, 0
-  br i1 %.not78, label %146, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %146
 
 32:                                               ; preds = %28
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.2) #3
@@ -95,9 +93,8 @@ define dso_local void @spg_desc(ptr noundef %0, ptr nocapture noundef readonly %
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %35, i32 noundef %38, i32 noundef %41) #3
   %42 = getelementptr inbounds i8, ptr %6, i64 2
   %43 = load i8, ptr %42, align 2
-  %44 = and i8 %43, 1
-  %.not74 = icmp eq i8 %44, 0
-  br i1 %.not74, label %46, label %45
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %46
 
 45:                                               ; preds = %33
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1) #3
@@ -106,9 +103,8 @@ define dso_local void @spg_desc(ptr noundef %0, ptr nocapture noundef readonly %
 46:                                               ; preds = %45, %33
   %47 = getelementptr inbounds i8, ptr %6, i64 3
   %48 = load i8, ptr %47, align 1
-  %49 = and i8 %48, 1
-  %.not75 = icmp eq i8 %49, 0
-  br i1 %.not75, label %51, label %50
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %51
 
 50:                                               ; preds = %46
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.4) #3
@@ -117,9 +113,8 @@ define dso_local void @spg_desc(ptr noundef %0, ptr nocapture noundef readonly %
 51:                                               ; preds = %50, %46
   %52 = getelementptr inbounds i8, ptr %6, i64 4
   %53 = load i8, ptr %52, align 4
-  %54 = and i8 %53, 1
-  %.not76 = icmp eq i8 %54, 0
-  br i1 %.not76, label %146, label %55
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %146
 
 55:                                               ; preds = %51
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.2) #3
@@ -143,9 +138,8 @@ define dso_local void @spg_desc(ptr noundef %0, ptr nocapture noundef readonly %
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %58, i32 noundef %61, i32 noundef %64, i32 noundef %67, i32 noundef %70) #3
   %71 = getelementptr inbounds i8, ptr %6, i64 4
   %72 = load i8, ptr %71, align 4
-  %73 = and i8 %72, 1
-  %.not73 = icmp eq i8 %73, 0
-  br i1 %.not73, label %146, label %74
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %74, label %146
 
 74:                                               ; preds = %56
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1) #3
@@ -160,9 +154,8 @@ define dso_local void @spg_desc(ptr noundef %0, ptr nocapture noundef readonly %
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %77, i32 noundef %80) #3
   %81 = getelementptr inbounds i8, ptr %6, i64 4
   %82 = load i8, ptr %81, align 2
-  %83 = and i8 %82, 1
-  %.not71 = icmp eq i8 %83, 0
-  br i1 %.not71, label %85, label %84
+  %83 = trunc i8 %82 to i1
+  br i1 %83, label %84, label %85
 
 84:                                               ; preds = %75
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1) #3
@@ -171,9 +164,8 @@ define dso_local void @spg_desc(ptr noundef %0, ptr nocapture noundef readonly %
 85:                                               ; preds = %84, %75
   %86 = getelementptr inbounds i8, ptr %6, i64 5
   %87 = load i8, ptr %86, align 1
-  %88 = and i8 %87, 1
-  %.not72 = icmp eq i8 %88, 0
-  br i1 %.not72, label %146, label %89
+  %88 = trunc i8 %87 to i1
+  br i1 %88, label %89, label %146
 
 89:                                               ; preds = %85
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.7) #3
@@ -198,9 +190,8 @@ define dso_local void @spg_desc(ptr noundef %0, ptr nocapture noundef readonly %
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %93, i32 noundef %96, i32 noundef %99, i32 noundef %102, i32 noundef %105) #3
   %106 = getelementptr inbounds i8, ptr %6, i64 12
   %107 = load i8, ptr %106, align 4
-  %108 = and i8 %107, 1
-  %.not68 = icmp eq i8 %108, 0
-  br i1 %.not68, label %110, label %109
+  %108 = trunc i8 %107 to i1
+  br i1 %108, label %109, label %110
 
 109:                                              ; preds = %90
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.9) #3
@@ -209,9 +200,8 @@ define dso_local void @spg_desc(ptr noundef %0, ptr nocapture noundef readonly %
 110:                                              ; preds = %109, %90
   %111 = getelementptr inbounds i8, ptr %6, i64 11
   %112 = load i8, ptr %111, align 1
-  %113 = and i8 %112, 1
-  %.not69 = icmp eq i8 %113, 0
-  br i1 %.not69, label %115, label %114
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %114, label %115
 
 114:                                              ; preds = %110
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.2) #3
@@ -219,9 +209,8 @@ define dso_local void @spg_desc(ptr noundef %0, ptr nocapture noundef readonly %
 
 115:                                              ; preds = %114, %110
   %116 = load i8, ptr %6, align 4
-  %117 = and i8 %116, 1
-  %.not70 = icmp eq i8 %117, 0
-  br i1 %.not70, label %146, label %118
+  %117 = trunc i8 %116 to i1
+  br i1 %117, label %118, label %146
 
 118:                                              ; preds = %115
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.10) #3
@@ -258,9 +247,8 @@ define dso_local void @spg_desc(ptr noundef %0, ptr nocapture noundef readonly %
   %141 = load i32, ptr %140, align 4
   %142 = getelementptr inbounds i8, ptr %6, i64 8
   %143 = load i8, ptr %142, align 4
-  %144 = and i8 %143, 1
-  %.not = icmp eq i8 %144, 0
-  %145 = select i1 %.not, i32 70, i32 84
+  %144 = trunc i8 %143 to i1
+  %145 = select i1 %144, i32 84, i32 70
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %136, i32 noundef %139, i32 noundef %141, i32 noundef %145) #3
   br label %146
 

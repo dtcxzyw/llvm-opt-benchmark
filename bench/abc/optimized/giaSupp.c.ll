@@ -3220,29 +3220,29 @@ define i32 @Gia_Min2ManSolve(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %48 = getelementptr inbounds i32, ptr %.val59, i64 %46
   %49 = load i32, ptr %48, align 4
   %50 = tail call signext i8 @satoko_var_polarity(ptr noundef %44, i32 noundef %49) #15
-  %51 = icmp eq i8 %50, 0
-  %52 = load i32, ptr %33, align 4
+  %51 = load i32, ptr %33, align 4
   %.val60 = load ptr, ptr %34, align 8
-  %53 = getelementptr i8, ptr %.val60, i64 8
-  %.val60.val = load ptr, ptr %53, align 8
-  %54 = getelementptr inbounds i64, ptr %.val60.val, i64 %46
-  %55 = ashr i32 %52, 5
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i32, ptr %54, i64 %56
-  %58 = load i32, ptr %57, align 4
-  %59 = and i32 %52, 31
-  %60 = shl nuw i32 1, %59
-  %61 = and i32 %58, %60
-  %62 = icmp eq i32 %61, 0
-  %.not.i = xor i1 %51, %62
-  br i1 %.not.i, label %Gia_Min2SimSetInputBit.exit, label %63
+  %52 = getelementptr i8, ptr %.val60, i64 8
+  %.val60.val = load ptr, ptr %52, align 8
+  %53 = getelementptr inbounds i64, ptr %.val60.val, i64 %46
+  %54 = ashr i32 %51, 5
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds i32, ptr %53, i64 %55
+  %57 = load i32, ptr %56, align 4
+  %58 = and i32 %51, 31
+  %59 = lshr i32 %57, %58
+  %60 = trunc i32 %59 to i1
+  %61 = icmp ne i8 %50, 0
+  %.not.i = xor i1 %61, %60
+  br i1 %.not.i, label %Gia_Min2SimSetInputBit.exit, label %62
 
-63:                                               ; preds = %.lr.ph
-  %64 = xor i32 %58, %60
-  store i32 %64, ptr %57, align 4
+62:                                               ; preds = %.lr.ph
+  %63 = shl nuw i32 1, %58
+  %64 = xor i32 %57, %63
+  store i32 %64, ptr %56, align 4
   br label %Gia_Min2SimSetInputBit.exit
 
-Gia_Min2SimSetInputBit.exit:                      ; preds = %.lr.ph, %63
+Gia_Min2SimSetInputBit.exit:                      ; preds = %.lr.ph, %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = load ptr, ptr %36, align 8
   %66 = getelementptr i8, ptr %65, i64 4

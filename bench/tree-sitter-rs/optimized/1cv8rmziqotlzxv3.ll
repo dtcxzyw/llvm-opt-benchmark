@@ -317,10 +317,10 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
 
 .outer.split.us:                                  ; preds = %.outer
   %51 = load <2 x i64>, ptr %.sroa.063.sroa.2.0..sroa_idx, align 8
-  %.sroa.11.0.copyload76.us = load i64, ptr %.sroa.063.sroa.4.0..sroa_idx, align 8
-  %.sroa.12.0.copyload78.us = load i64, ptr %.sroa.063.sroa.5.0..sroa_idx, align 8
-  %.sroa.13.0.copyload80.us = load i64, ptr %.sroa.063.sroa.6.0..sroa_idx, align 8
-  %.sroa.14.0.copyload82.us = load i64, ptr %.sroa.063.sroa.7.0..sroa_idx, align 8
+  %.sroa.11.0.copyload.us = load i64, ptr %.sroa.063.sroa.4.0..sroa_idx, align 8
+  %.sroa.12.0.copyload.us = load i64, ptr %.sroa.063.sroa.5.0..sroa_idx, align 8
+  %.sroa.13.0.copyload.us = load i64, ptr %.sroa.063.sroa.6.0..sroa_idx, align 8
+  %.sroa.14.0.copyload.us = load i64, ptr %.sroa.063.sroa.7.0..sroa_idx, align 8
   br label %52
 
 52:                                               ; preds = %61, %.outer.split.us
@@ -343,16 +343,16 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h12e45d2471c79850E.exit.i.us"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h12e45d2471c79850E.exit.i.us": ; preds = %56, %52
-  %.sroa.12.2.us = phi i64 [ %.sroa.12.1.us, %52 ], [ %.sroa.12.0.copyload78.us, %56 ]
-  %.sroa.11.2.us = phi i64 [ %.sroa.11.1.us, %52 ], [ %.sroa.11.0.copyload76.us, %56 ]
-  %.sroa.13.2.us = phi i64 [ %.sroa.13.1.us, %52 ], [ %.sroa.13.0.copyload80.us, %56 ]
-  %.sroa.14.2.us = phi i64 [ %.sroa.14.1.us, %52 ], [ %.sroa.14.0.copyload82.us, %56 ]
+  %.sroa.12.2.us = phi i64 [ %.sroa.12.1.us, %52 ], [ %.sroa.12.0.copyload.us, %56 ]
+  %.sroa.11.2.us = phi i64 [ %.sroa.11.1.us, %52 ], [ %.sroa.11.0.copyload.us, %56 ]
+  %.sroa.13.2.us = phi i64 [ %.sroa.13.1.us, %52 ], [ %.sroa.13.0.copyload.us, %56 ]
+  %.sroa.14.2.us = phi i64 [ %.sroa.14.1.us, %52 ], [ %.sroa.14.0.copyload.us, %56 ]
   %.sink.i.i.us = phi ptr [ %.sroa.068, %52 ], [ %8, %56 ]
   %57 = phi <2 x i64> [ %53, %52 ], [ %51, %56 ]
   store i64 0, ptr %.sink.i.i.us, align 8, !alias.scope !32, !noalias !26
   %.sroa.068.0..sroa.068.0..sroa.068.0..sroa.068.0..us = load i64, ptr %.sroa.068, align 8, !range !33, !noundef !4
-  %trunc.not.us = icmp eq i64 %.sroa.068.0..sroa.068.0..sroa.068.0..sroa.068.0..us, 0
-  br i1 %trunc.not.us, label %.split.us, label %58
+  %trunc.us = trunc i64 %.sroa.068.0..sroa.068.0..sroa.068.0..sroa.068.0..us to i1
+  br i1 %trunc.us, label %58, label %.split.us
 
 58:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h12e45d2471c79850E.exit.i.us"
   %59 = load i64, ptr %48, align 8, !noundef !4
@@ -385,8 +385,8 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
 
 .noexc:                                           ; preds = %65
   %66 = load i64, ptr %7, align 8, !range !33, !noalias !34, !noundef !4
-  %trunc.not.i.i.i.i = icmp eq i64 %66, 0
-  br i1 %trunc.not.i.i.i.i, label %67, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread"
+  %trunc.i.i.i.i = trunc i64 %66 to i1
+  br i1 %trunc.i.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread", label %67
 
 67:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7), !noalias !34
@@ -401,10 +401,10 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
 71:                                               ; preds = %68
   store i64 %69, ptr %.sroa.068, align 8, !alias.scope !28, !noalias !26
   %72 = load <2 x i64>, ptr %.sroa.063.sroa.2.0..sroa_idx, align 8, !alias.scope !28, !noalias !26
-  %.sroa.11.0.copyload76 = load i64, ptr %.sroa.063.sroa.4.0..sroa_idx, align 8, !alias.scope !28, !noalias !26
-  %.sroa.12.0.copyload78 = load i64, ptr %.sroa.063.sroa.5.0..sroa_idx, align 8, !alias.scope !28, !noalias !26
-  %.sroa.13.0.copyload80 = load i64, ptr %.sroa.063.sroa.6.0..sroa_idx, align 8, !alias.scope !28, !noalias !26
-  %.sroa.14.0.copyload82 = load i64, ptr %.sroa.063.sroa.7.0..sroa_idx, align 8, !alias.scope !28, !noalias !26
+  %.sroa.11.0.copyload = load i64, ptr %.sroa.063.sroa.4.0..sroa_idx, align 8, !alias.scope !28, !noalias !26
+  %.sroa.12.0.copyload = load i64, ptr %.sroa.063.sroa.5.0..sroa_idx, align 8, !alias.scope !28, !noalias !26
+  %.sroa.13.0.copyload = load i64, ptr %.sroa.063.sroa.6.0..sroa_idx, align 8, !alias.scope !28, !noalias !26
+  %.sroa.14.0.copyload = load i64, ptr %.sroa.063.sroa.7.0..sroa_idx, align 8, !alias.scope !28, !noalias !26
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread": ; preds = %.noexc
@@ -420,16 +420,16 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   br label %77
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit": ; preds = %68, %71
-  %.sroa.12.2 = phi i64 [ %.sroa.12.1, %68 ], [ %.sroa.12.0.copyload78, %71 ]
-  %.sroa.11.2 = phi i64 [ %.sroa.11.1, %68 ], [ %.sroa.11.0.copyload76, %71 ]
-  %.sroa.13.2 = phi i64 [ %.sroa.13.1, %68 ], [ %.sroa.13.0.copyload80, %71 ]
-  %.sroa.14.2 = phi i64 [ %.sroa.14.1, %68 ], [ %.sroa.14.0.copyload82, %71 ]
+  %.sroa.12.2 = phi i64 [ %.sroa.12.1, %68 ], [ %.sroa.12.0.copyload, %71 ]
+  %.sroa.11.2 = phi i64 [ %.sroa.11.1, %68 ], [ %.sroa.11.0.copyload, %71 ]
+  %.sroa.13.2 = phi i64 [ %.sroa.13.1, %68 ], [ %.sroa.13.0.copyload, %71 ]
+  %.sroa.14.2 = phi i64 [ %.sroa.14.1, %68 ], [ %.sroa.14.0.copyload, %71 ]
   %.sink.i.i = phi ptr [ %.sroa.068, %68 ], [ %8, %71 ]
   %74 = phi <2 x i64> [ %63, %68 ], [ %72, %71 ]
   store i64 0, ptr %.sink.i.i, align 8, !alias.scope !32, !noalias !26
   %.sroa.068.0..sroa.068.0..sroa.068.0..sroa.068.0..pre = load i64, ptr %.sroa.068, align 8, !range !33
-  %trunc.not = icmp eq i64 %.sroa.068.0..sroa.068.0..sroa.068.0..sroa.068.0..pre, 0
-  br i1 %trunc.not, label %.split.us, label %77
+  %trunc = trunc i64 %.sroa.068.0..sroa.068.0..sroa.068.0..sroa.068.0..pre to i1
+  br i1 %trunc, label %77, label %.split.us
 
 .split.us:                                        ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit", %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h12e45d2471c79850E.exit.i.us"
   %.us-phi217 = phi i64 [ %.sroa.12.2.us, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h12e45d2471c79850E.exit.i.us" ], [ %.sroa.12.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
@@ -651,8 +651,8 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit": ; preds = %2, %8
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !noundef !4
-  %.not43 = icmp eq ptr %11, null
-  br i1 %.not43, label %18, label %12
+  %.not44 = icmp eq ptr %11, null
+  br i1 %.not44, label %18, label %12
 
 12:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit"
   %13 = getelementptr inbounds i8, ptr %1, i64 48
@@ -660,22 +660,22 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
   %17 = icmp ult i64 %14, %16
-  br i1 %17, label %.thread44, label %26, !prof !66
+  br i1 %17, label %.thread45, label %26, !prof !66
 
 18:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit"
   %19 = getelementptr inbounds i8, ptr %1, i64 152
   %20 = load i64, ptr %19, align 8, !noundef !4
   %.not.not = icmp eq i64 %20, 0
-  br i1 %.not.not, label %.thread38, label %27
+  br i1 %.not.not, label %.thread39, label %27
 
-.thread44:                                        ; preds = %12
+.thread45:                                        ; preds = %12
   %21 = load ptr, ptr %10, align 8, !nonnull !4, !align !11, !noundef !4
   %22 = getelementptr inbounds [0 x { { { [4 x i32], ptr, ptr }, {} }, i32, [1 x i32] }], ptr %21, i64 0, i64 %14
   %23 = tail call noundef i64 @_ZN11tree_sitter4Node10start_byte17h7b19fd76ffed13b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %22)
   %24 = getelementptr inbounds i8, ptr %1, i64 152
   %25 = load i64, ptr %24, align 8, !noundef !4
-  %.not.not46 = icmp eq i64 %25, 0
-  br i1 %.not.not46, label %.thread40, label %35
+  %.not.not47 = icmp eq i64 %25, 0
+  br i1 %.not.not47, label %.thread41, label %35
 
 26:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %14, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7846843607c3237cb579c64a79ba54af.16) #15
@@ -694,15 +694,15 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   store i64 %5, ptr %.sroa.522.0..sroa_idx, align 8
   br label %34
 
-.thread38:                                        ; preds = %18
+.thread39:                                        ; preds = %18
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 2, ptr %33, align 8
   br label %34
 
-34:                                               ; preds = %42, %43, %.thread40, %.thread38, %27
+34:                                               ; preds = %42, %43, %.thread41, %.thread39, %27
   ret void
 
-.thread40:                                        ; preds = %.thread44
+.thread41:                                        ; preds = %.thread45
   store i64 %23, ptr %0, align 8
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %.sroa.416.0..sroa_idx, align 8
@@ -710,7 +710,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   store i64 %5, ptr %.sroa.518.0..sroa_idx, align 8
   br label %34
 
-35:                                               ; preds = %.thread44
+35:                                               ; preds = %.thread45
   %36 = getelementptr inbounds i8, ptr %1, i64 144
   %37 = load ptr, ptr %36, align 8, !nonnull !4
   %38 = add i64 %25, -1
@@ -1062,11 +1062,11 @@ define void @_ZN21tree_sitter_highlight19injection_for_match17he9a09c7c5997cc6bE
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @_ZN11tree_sitter4Node9utf8_text17h2fcc80af116bbc5cE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.099.us112, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %7)
   %37 = load i64, ptr %9, align 8, !range !33, !noundef !4
-  %trunc.not.us = icmp eq i64 %37, 0
+  %trunc.us = trunc i64 %37 to i1
   %38 = load ptr, ptr %23, align 8, !nonnull !4, !align !95
   %39 = load i64, ptr %24, align 8
-  %.sroa.015.0.us = select i1 %trunc.not.us, ptr %38, ptr null
-  %.sroa.516.2.us = select i1 %trunc.not.us, i64 %39, i64 %.sroa.516.0100.us111
+  %.sroa.015.0.us = select i1 %trunc.us, ptr null, ptr %38
+  %.sroa.516.2.us = select i1 %trunc.us, i64 %.sroa.516.0100.us111, i64 %39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %40
 
@@ -1207,11 +1207,11 @@ define void @_ZN21tree_sitter_highlight19injection_for_match17he9a09c7c5997cc6bE
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @_ZN11tree_sitter4Node9utf8_text17h2fcc80af116bbc5cE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.099, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %7)
   %82 = load i64, ptr %9, align 8, !range !33, !noundef !4
-  %trunc.not = icmp eq i64 %82, 0
+  %trunc = trunc i64 %82 to i1
   %83 = load ptr, ptr %23, align 8, !nonnull !4, !align !95
   %84 = load i64, ptr %24, align 8
-  %.sroa.015.0 = select i1 %trunc.not, ptr %83, ptr null
-  %.sroa.516.2 = select i1 %trunc.not, i64 %84, i64 %.sroa.516.0100
+  %.sroa.015.0 = select i1 %trunc, ptr null, ptr %83
+  %.sroa.516.2 = select i1 %trunc, i64 %.sroa.516.0100, i64 %84
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %88
 

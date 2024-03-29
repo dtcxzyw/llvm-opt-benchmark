@@ -102,8 +102,8 @@ if.end15:                                         ; preds = %if.end15.sink.split
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local { i64, i64 } @divu256(ptr nocapture noundef %plow, ptr nocapture noundef %phigh, i64 noundef %divisor.coerce0, i64 noundef %divisor.coerce1) local_unnamed_addr #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define dso_local { i64, i64 } @divu256(ptr nocapture noundef %plow, ptr nocapture noundef %phigh, i64 noundef %divisor.coerce0, i64 noundef %divisor.coerce1) local_unnamed_addr #0 {
 entry:
   %dhi = alloca i128, align 16
   %rem = alloca i128, align 16
@@ -274,7 +274,7 @@ return:                                           ; preds = %if.end83, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal fastcc { i64, i64 } @udiv256_qrnnd(ptr nocapture noundef writeonly %r, i64 noundef %n1.coerce0, i64 noundef %n1.coerce1, i64 noundef %n0.coerce0, i64 noundef %n0.coerce1, i128 noundef %d) unnamed_addr #2 {
+define internal fastcc { i64, i64 } @udiv256_qrnnd(ptr nocapture noundef writeonly %r, i64 noundef %n1.coerce0, i64 noundef %n1.coerce1, i64 noundef %n0.coerce0, i64 noundef %n0.coerce1, i128 noundef %d) unnamed_addr #1 {
 entry:
   %coerce.sroa.2.0.extract.shift = lshr i128 %d, 64
   %coerce.sroa.2.0.extract.trunc = trunc i128 %coerce.sroa.2.0.extract.shift to i64
@@ -409,8 +409,8 @@ if.end126:                                        ; preds = %if.then95, %if.then
   ret { i64, i64 } %.fca.1.insert.i305
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local { i64, i64 } @divs256(ptr nocapture noundef %plow, ptr nocapture noundef %phigh, i64 noundef %divisor.coerce0, i64 noundef %divisor.coerce1) local_unnamed_addr #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define dso_local { i64, i64 } @divs256(ptr nocapture noundef %plow, ptr nocapture noundef %phigh, i64 noundef %divisor.coerce0, i64 noundef %divisor.coerce1) local_unnamed_addr #0 {
 entry:
   %unsig_hi = alloca i128, align 16
   %unsig_lo = alloca i128, align 16
@@ -455,7 +455,7 @@ if.end17:                                         ; preds = %if.then7, %if.else,
   br i1 %cmp.i42, label %if.end27, label %if.then20
 
 if.then20:                                        ; preds = %if.end17
-  %frombool23 = zext i1 %cmp.i to i8
+  %lnot22 = xor i8 %neg_quotient.0, 1
   %a.coerce1.neg.i43 = sub i64 0, %divisor.coerce1
   %a.coerce1.neg.z.i44 = zext i64 %a.coerce1.neg.i43 to i128
   %a.sroa.2.0.insert.shift.neg.i45 = shl nuw i128 %a.coerce1.neg.z.i44, 64
@@ -467,14 +467,14 @@ if.then20:                                        ; preds = %if.end17
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then20, %if.end17
-  %neg_quotient.1 = phi i8 [ %neg_quotient.0, %if.end17 ], [ %frombool23, %if.then20 ]
+  %neg_quotient.1 = phi i8 [ %neg_quotient.0, %if.end17 ], [ %lnot22, %if.then20 ]
   %divisor.addr.0.off0 = phi i64 [ %divisor.coerce0, %if.end17 ], [ %retval.sroa.0.0.extract.trunc.i48, %if.then20 ]
   %divisor.addr.0.off64 = phi i64 [ %divisor.coerce1, %if.end17 ], [ %retval.sroa.2.0.extract.trunc.i50, %if.then20 ]
   %call29 = call { i64, i64 } @divu256(ptr noundef nonnull %unsig_lo, ptr noundef nonnull %unsig_hi, i64 noundef %divisor.addr.0.off0, i64 noundef %divisor.addr.0.off64)
   %2 = extractvalue { i64, i64 } %call29, 0
   %3 = extractvalue { i64, i64 } %call29, 1
-  %tobool31.not = icmp eq i8 %neg_quotient.1, 0
-  br i1 %tobool31.not, label %if.else49, label %if.then32
+  %tobool31 = trunc i8 %neg_quotient.1 to i1
+  br i1 %tobool31, label %if.then32, label %if.else49
 
 if.then32:                                        ; preds = %if.end27
   %4 = load i128, ptr %unsig_lo, align 16
@@ -515,7 +515,8 @@ if.else49:                                        ; preds = %if.end27
 if.end50:                                         ; preds = %if.then35, %if.else41, %if.else49
   %.sink = phi i128 [ 0, %if.then35 ], [ %a.sroa.0.0.insert.insert.neg.i82, %if.else41 ], [ %8, %if.else49 ]
   store i128 %.sink, ptr %plow, align 16
-  br i1 %cmp.i, label %return, label %if.then52
+  %tobool51 = trunc i8 %neg_quotient.0 to i1
+  br i1 %tobool51, label %if.then52, label %return
 
 if.then52:                                        ; preds = %if.end50
   %a.coerce1.neg.i88 = sub i64 0, %3
@@ -536,12 +537,11 @@ return:                                           ; preds = %if.end50, %if.then5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #3
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #2
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

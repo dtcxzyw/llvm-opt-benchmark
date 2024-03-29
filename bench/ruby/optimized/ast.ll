@@ -222,17 +222,17 @@ vm_proc_iseq.exit:                                ; preds = %tailrecurse.i
 rb_obj_is_iseq.exit:                              ; preds = %vm_proc_iseq.exit
   %24 = load i64, ptr %18, align 8
   %25 = and i64 %24, 61471
-  %.not61 = icmp eq i64 %25, 28698
-  br i1 %.not61, label %.thread55, label %rb_obj_is_iseq.exit.thread
+  %.not60 = icmp eq i64 %25, 28698
+  br i1 %.not60, label %.thread54, label %rb_obj_is_iseq.exit.thread
 
 26:                                               ; preds = %8
   %27 = tail call ptr @rb_method_iseq(i64 noundef %2) #10
   %.not41 = icmp eq ptr %27, null
-  br i1 %.not41, label %rb_obj_is_iseq.exit.thread, label %.thread55
+  br i1 %.not41, label %rb_obj_is_iseq.exit.thread, label %.thread54
 
-.thread55:                                        ; preds = %26, %rb_obj_is_iseq.exit
-  %.03750 = phi ptr [ %27, %26 ], [ %18, %rb_obj_is_iseq.exit ]
-  %28 = getelementptr inbounds i8, ptr %.03750, i64 16
+.thread54:                                        ; preds = %26, %rb_obj_is_iseq.exit
+  %.03749 = phi ptr [ %27, %26 ], [ %18, %rb_obj_is_iseq.exit ]
+  %28 = getelementptr inbounds i8, ptr %.03749, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 92
   %31 = load i32, ptr %30, align 4
@@ -249,15 +249,14 @@ rb_obj_is_iseq.exit:                              ; preds = %vm_proc_iseq.exit
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %35
 
-35:                                               ; preds = %._crit_edge, %.thread55
-  %36 = phi ptr [ %29, %.thread55 ], [ %.pre, %._crit_edge ]
-  %.03660 = phi i32 [ %31, %.thread55 ], [ %34, %._crit_edge ]
-  %.159 = phi ptr [ %.03750, %.thread55 ], [ %33, %._crit_edge ]
+35:                                               ; preds = %._crit_edge, %.thread54
+  %36 = phi ptr [ %29, %.thread54 ], [ %.pre, %._crit_edge ]
+  %.03659 = phi i32 [ %31, %.thread54 ], [ %34, %._crit_edge ]
+  %.158 = phi ptr [ %.03749, %.thread54 ], [ %33, %._crit_edge ]
   %37 = getelementptr inbounds i8, ptr %36, i64 264
   %38 = load i8, ptr %37, align 8
-  %39 = and i8 %38, 1
-  %.not43 = icmp eq i8 %39, 0
-  br i1 %.not43, label %42, label %40
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %42
 
 40:                                               ; preds = %35
   %41 = load i64, ptr @rb_eRuntimeError, align 8
@@ -267,7 +266,7 @@ rb_obj_is_iseq.exit:                              ; preds = %vm_proc_iseq.exit
 42:                                               ; preds = %35
   %43 = getelementptr inbounds i8, ptr %36, i64 200
   %44 = load i64, ptr %43, align 8
-  %45 = tail call i64 @rb_iseq_path(ptr noundef nonnull %.159) #10
+  %45 = tail call i64 @rb_iseq_path(ptr noundef nonnull %.158) #10
   %46 = inttoptr i64 %45 to ptr
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   %48 = load i64, ptr %47, align 8
@@ -297,7 +296,7 @@ RSTRING_PTR.exit:                                 ; preds = %50, %54
   br i1 %58, label %59, label %.critedge
 
 59:                                               ; preds = %56
-  %60 = tail call i32 @rb_iseq_from_eval_p(ptr noundef nonnull %.159) #10
+  %60 = tail call i32 @rb_iseq_from_eval_p(ptr noundef nonnull %.158) #10
   %61 = icmp eq i32 %60, 0
   %or.cond = select i1 %61, i1 true, i1 %57
   br i1 %or.cond, label %64, label %62
@@ -347,8 +346,8 @@ RSTRING_PTR.exit:                                 ; preds = %50, %54
   %79 = tail call ptr @rb_parser_compile_generic(i64 noundef %69, ptr noundef nonnull @lex_array, i64 noundef 4, i64 noundef %67, i32 noundef 1) #10
   %80 = getelementptr inbounds i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
-  %.not.i.i45 = icmp eq ptr %81, null
-  br i1 %.not.i.i45, label %82, label %rb_ast_parse_array.exit
+  %.not.i.i44 = icmp eq ptr %81, null
+  br i1 %.not.i.i44, label %82, label %rb_ast_parse_array.exit
 
 82:                                               ; preds = %78
   tail call void @rb_ast_dispose(ptr noundef nonnull %79) #10
@@ -382,7 +381,7 @@ rb_ast_parse_array.exit:                          ; preds = %78
 
 97:                                               ; preds = %92, %95, %rb_ast_parse_array.exit
   %.035 = phi i64 [ %94, %92 ], [ %96, %95 ], [ %88, %rb_ast_parse_array.exit ]
-  %98 = tail call fastcc i64 @node_find(i64 noundef %.035, i32 noundef %.03660)
+  %98 = tail call fastcc i64 @node_find(i64 noundef %.035, i32 noundef %.03659)
   br label %rb_obj_is_iseq.exit.thread
 
 rb_obj_is_iseq.exit.thread:                       ; preds = %tailrecurse.i, %tailrecurse.i, %26, %vm_proc_iseq.exit, %32, %rb_obj_is_iseq.exit, %97
@@ -1156,8 +1155,8 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   %65 = tail call i64 (ptr, i64, ...) @rb_ary_new_from_node_args(ptr noundef %0, i64 noundef 2, ptr noundef %62, ptr noundef %64)
   %66 = getelementptr inbounds i8, ptr %1, i64 48
   %67 = load i64, ptr %66, align 8
-  %.not527 = icmp eq i64 %67, 0
-  %68 = select i1 %.not527, i64 0, i64 20
+  %.not526 = icmp eq i64 %67, 0
+  %68 = select i1 %.not526, i64 0, i64 20
   %69 = tail call i64 @rb_ary_push(i64 noundef %65, i64 noundef %68) #10
   br label %908
 
@@ -1243,8 +1242,8 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   %.0398 = phi ptr [ %1, %122 ], [ %136, %137 ]
   %125 = getelementptr inbounds i8, ptr %.0398, i64 32
   %126 = load ptr, ptr %125, align 8
-  %.not524 = icmp eq ptr %126, null
-  br i1 %.not524, label %132, label %127
+  %.not523 = icmp eq ptr %126, null
+  br i1 %.not523, label %132, label %127
 
 127:                                              ; preds = %124
   %128 = load i64, ptr @rb_cNode, align 8
@@ -1260,8 +1259,8 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   %134 = tail call i64 @rb_ary_push(i64 noundef %123, i64 noundef %133) #10
   %135 = getelementptr inbounds i8, ptr %.0398, i64 40
   %136 = load ptr, ptr %135, align 8
-  %.not525 = icmp eq ptr %136, null
-  br i1 %.not525, label %.thread, label %137
+  %.not524 = icmp eq ptr %136, null
+  br i1 %.not524, label %.thread, label %137
 
 137:                                              ; preds = %132
   %.val = load i64, ptr %136, align 8
@@ -1283,10 +1282,10 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
 146:                                              ; preds = %2
   %147 = getelementptr inbounds i8, ptr %1, i64 48
   %148 = load ptr, ptr %147, align 8
-  %.not521 = icmp eq ptr %148, inttoptr (i64 -1 to ptr)
+  %.not520 = icmp eq ptr %148, inttoptr (i64 -1 to ptr)
   %149 = getelementptr inbounds i8, ptr %1, i64 40
   %150 = load ptr, ptr %149, align 8
-  br i1 %.not521, label %155, label %151
+  br i1 %.not520, label %155, label %151
 
 151:                                              ; preds = %146
   %152 = getelementptr inbounds i8, ptr %1, i64 32
@@ -1295,8 +1294,8 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br label %908
 
 155:                                              ; preds = %146
-  %.not522 = icmp eq ptr %150, null
-  br i1 %.not522, label %158, label %156
+  %.not521 = icmp eq ptr %150, null
+  br i1 %.not521, label %158, label %156
 
 156:                                              ; preds = %155
   %157 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %150)
@@ -1306,8 +1305,8 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   %159 = phi i64 [ %157, %156 ], [ 4, %155 ]
   %160 = getelementptr inbounds i8, ptr %1, i64 32
   %161 = load ptr, ptr %160, align 8
-  %.not523 = icmp eq ptr %161, null
-  br i1 %.not523, label %164, label %162
+  %.not522 = icmp eq ptr %161, null
+  br i1 %.not522, label %164, label %162
 
 162:                                              ; preds = %158
   %163 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %161)
@@ -1336,8 +1335,8 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
 
 179:                                              ; preds = %168
   %180 = load ptr, ptr %169, align 8
-  %.not520 = icmp eq ptr %180, null
-  br i1 %.not520, label %183, label %181
+  %.not519 = icmp eq ptr %180, null
+  br i1 %.not519, label %183, label %181
 
 181:                                              ; preds = %179
   %182 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %180)
@@ -1365,8 +1364,8 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
 
 197:                                              ; preds = %186
   %198 = load ptr, ptr %187, align 8
-  %.not519 = icmp eq ptr %198, null
-  br i1 %.not519, label %201, label %199
+  %.not518 = icmp eq ptr %198, null
+  br i1 %.not518, label %201, label %199
 
 199:                                              ; preds = %197
   %200 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %198)
@@ -1383,8 +1382,8 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   %207 = tail call fastcc i64 @var_name(i64 noundef %206)
   %208 = getelementptr inbounds i8, ptr %1, i64 40
   %209 = load ptr, ptr %208, align 8
-  %.not518 = icmp eq ptr %209, null
-  br i1 %.not518, label %212, label %210
+  %.not517 = icmp eq ptr %209, null
+  br i1 %.not517, label %212, label %210
 
 210:                                              ; preds = %204
   %211 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %209)
@@ -1401,8 +1400,8 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   %218 = tail call fastcc i64 @var_name(i64 noundef %217)
   %219 = getelementptr inbounds i8, ptr %1, i64 40
   %220 = load ptr, ptr %219, align 8
-  %.not517 = icmp eq ptr %220, null
-  br i1 %.not517, label %223, label %221
+  %.not516 = icmp eq ptr %220, null
+  br i1 %.not516, label %223, label %221
 
 221:                                              ; preds = %215
   %222 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %220)
@@ -1419,8 +1418,8 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   %229 = tail call fastcc i64 @var_name(i64 noundef %228)
   %230 = getelementptr inbounds i8, ptr %1, i64 40
   %231 = load ptr, ptr %230, align 8
-  %.not516 = icmp eq ptr %231, null
-  br i1 %.not516, label %234, label %232
+  %.not515 = icmp eq ptr %231, null
+  br i1 %.not515, label %234, label %232
 
 232:                                              ; preds = %226
   %233 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %231)
@@ -1434,15 +1433,15 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
 237:                                              ; preds = %2
   %238 = getelementptr inbounds i8, ptr %1, i64 32
   %239 = load i64, ptr %238, align 8
-  %.not512 = icmp eq i64 %239, 0
-  br i1 %.not512, label %249, label %240
+  %.not511 = icmp eq i64 %239, 0
+  br i1 %.not511, label %249, label %240
 
 240:                                              ; preds = %237
   %241 = tail call i64 @rb_id2sym(i64 noundef %239) #10
   %242 = getelementptr inbounds i8, ptr %1, i64 40
   %243 = load ptr, ptr %242, align 8
-  %.not515 = icmp eq ptr %243, null
-  br i1 %.not515, label %246, label %244
+  %.not514 = icmp eq ptr %243, null
+  br i1 %.not514, label %246, label %244
 
 244:                                              ; preds = %240
   %245 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %243)
@@ -1457,14 +1456,14 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   %250 = getelementptr inbounds i8, ptr %1, i64 48
   %251 = load ptr, ptr %250, align 8, !nonnull !13, !noundef !13
   %252 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %251)
-  %.pre532 = load ptr, ptr %250, align 8
-  %253 = getelementptr inbounds i8, ptr %.pre532, i64 40
+  %.pre531 = load ptr, ptr %250, align 8
+  %253 = getelementptr inbounds i8, ptr %.pre531, i64 40
   %254 = load i64, ptr %253, align 8
   %255 = tail call i64 @rb_id2sym(i64 noundef %254) #10
   %256 = getelementptr inbounds i8, ptr %1, i64 40
   %257 = load ptr, ptr %256, align 8
-  %.not514 = icmp eq ptr %257, null
-  br i1 %.not514, label %260, label %258
+  %.not513 = icmp eq ptr %257, null
+  br i1 %.not513, label %260, label %258
 
 258:                                              ; preds = %249
   %259 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %257)
@@ -1478,8 +1477,8 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
 263:                                              ; preds = %2
   %264 = getelementptr inbounds i8, ptr %1, i64 32
   %265 = load ptr, ptr %264, align 8
-  %.not509 = icmp eq ptr %265, null
-  br i1 %.not509, label %268, label %266
+  %.not508 = icmp eq ptr %265, null
+  br i1 %.not508, label %268, label %266
 
 266:                                              ; preds = %263
   %267 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %265)
@@ -1492,8 +1491,8 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   %272 = tail call i64 @rb_id2sym(i64 noundef %271) #10
   %273 = getelementptr inbounds i8, ptr %1, i64 48
   %274 = load ptr, ptr %273, align 8
-  %.not510 = icmp eq ptr %274, null
-  br i1 %.not510, label %277, label %275
+  %.not509 = icmp eq ptr %274, null
+  br i1 %.not509, label %277, label %275
 
 275:                                              ; preds = %268
   %276 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %274)
@@ -1503,8 +1502,8 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   %278 = phi i64 [ %276, %275 ], [ 4, %268 ]
   %279 = getelementptr inbounds i8, ptr %1, i64 56
   %280 = load ptr, ptr %279, align 8
-  %.not511 = icmp eq ptr %280, null
-  br i1 %.not511, label %283, label %281
+  %.not510 = icmp eq ptr %280, null
+  br i1 %.not510, label %283, label %281
 
 281:                                              ; preds = %277
   %282 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %280)
@@ -1529,9 +1528,8 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   %292 = phi i64 [ %290, %289 ], [ 4, %286 ]
   %293 = getelementptr inbounds i8, ptr %1, i64 64
   %294 = load i8, ptr %293, align 8
-  %295 = and i8 %294, 1
-  %.not507 = icmp eq i8 %295, 0
-  %296 = select i1 %.not507, i64 0, i64 20
+  %295 = trunc i8 %294 to i1
+  %296 = select i1 %295, i64 20, i64 0
   %297 = getelementptr inbounds i8, ptr %1, i64 48
   %298 = load i64, ptr %297, align 8
   %299 = tail call i64 @rb_id2sym(i64 noundef %298) #10
@@ -1540,8 +1538,8 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   %302 = tail call i64 @rb_id2sym(i64 noundef %301) #10
   %303 = getelementptr inbounds i8, ptr %1, i64 40
   %304 = load ptr, ptr %303, align 8
-  %.not508 = icmp eq ptr %304, null
-  br i1 %.not508, label %307, label %305
+  %.not507 = icmp eq ptr %304, null
+  br i1 %.not507, label %307, label %305
 
 305:                                              ; preds = %291
   %306 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %304)
@@ -2335,9 +2333,9 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   %798 = getelementptr inbounds i8, ptr %1, i64 32
   %799 = load ptr, ptr %798, align 8
   %.not471 = icmp eq ptr %799, null
-  br i1 %.not471, label %.thread533, label %801
+  br i1 %.not471, label %.thread532, label %801
 
-.thread533:                                       ; preds = %797
+.thread532:                                       ; preds = %797
   %800 = tail call i64 @rb_ary_new_capa(i64 noundef 0) #10
   br label %._crit_edge
 
@@ -2376,8 +2374,8 @@ var_name.exit:                                    ; preds = %807, %810, %812
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %807, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %var_name.exit, %.thread533, %801
-  %815 = phi i64 [ %800, %.thread533 ], [ %804, %801 ], [ %804, %var_name.exit ]
+._crit_edge:                                      ; preds = %var_name.exit, %.thread532, %801
+  %815 = phi i64 [ %800, %.thread532 ], [ %804, %801 ], [ %804, %var_name.exit ]
   %816 = getelementptr inbounds i8, ptr %1, i64 48
   %817 = load ptr, ptr %816, align 8
   %.not472 = icmp eq ptr %817, null
@@ -2602,7 +2600,7 @@ define internal fastcc i64 @dump_block(ptr noundef %0, ptr nocapture noundef rea
 define internal i64 @rb_ary_new_from_node_args(ptr noundef %0, i64 noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = tail call i64 @rb_ary_new_capa(i64 noundef %1) #10
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %5 = icmp sgt i64 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -2654,7 +2652,7 @@ define internal i64 @rb_ary_new_from_node_args(ptr noundef %0, i64 noundef %1, .
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %27, %2
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret i64 %4
 }
 
@@ -2842,12 +2840,6 @@ declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #7
 
 declare ptr @ruby_node_name(i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
-
 declare i64 @rb_id2str(i64 noundef) local_unnamed_addr #2
 
 declare i64 @rb_sym_intern_ascii_cstr(ptr noundef) local_unnamed_addr #2
@@ -2861,6 +2853,12 @@ declare i64 @rb_obj_class(i64 noundef) local_unnamed_addr #2
 declare i64 @rb_str_append(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 declare i64 @rb_str_catf(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9

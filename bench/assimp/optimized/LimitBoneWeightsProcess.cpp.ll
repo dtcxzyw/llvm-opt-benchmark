@@ -535,53 +535,52 @@ for.inc146:                                       ; preds = %for.body130, %for.b
 for.end148:                                       ; preds = %for.inc146, %for.cond115.preheader
   %mRemoveEmptyBones = getelementptr inbounds i8, ptr %this, i64 28
   %71 = load i8, ptr %mRemoveEmptyBones, align 4
-  %72 = and i8 %71, 1
-  %tobool.not = icmp eq i8 %72, 0
-  br i1 %tobool.not, label %if.end153, label %if.then149
+  %tobool = trunc i8 %71 to i1
+  br i1 %tobool, label %if.then149, label %if.end153
 
 if.then149:                                       ; preds = %for.end148
-  %73 = load i32, ptr %mNumBones.i, align 8
-  %cmp8.not.i = icmp eq i32 %73, 0
+  %72 = load i32, ptr %mNumBones.i, align 8
+  %cmp8.not.i = icmp eq i32 %72, 0
   br i1 %cmp8.not.i, label %_ZN6AssimpL16removeEmptyBonesEP6aiMesh.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then149, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.then149 ]
   %writeBone.010.i = phi i32 [ %writeBone.1.i, %for.inc.i ], [ 0, %if.then149 ]
-  %74 = load ptr, ptr %mBones.i, align 8
-  %arrayidx.i72 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv.i
-  %75 = load ptr, ptr %arrayidx.i72, align 8
-  %mNumWeights.i = getelementptr inbounds i8, ptr %75, i64 1028
-  %76 = load i32, ptr %mNumWeights.i, align 4
-  %cmp1.not.i = icmp eq i32 %76, 0
+  %73 = load ptr, ptr %mBones.i, align 8
+  %arrayidx.i72 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv.i
+  %74 = load ptr, ptr %arrayidx.i72, align 8
+  %mNumWeights.i = getelementptr inbounds i8, ptr %74, i64 1028
+  %75 = load i32, ptr %mNumWeights.i, align 4
+  %cmp1.not.i = icmp eq i32 %75, 0
   br i1 %cmp1.not.i, label %delete.notnull.i, label %if.then.i73
 
 if.then.i73:                                      ; preds = %for.body.i
   %inc.i74 = add i32 %writeBone.010.i, 1
   %idxprom3.i = zext i32 %writeBone.010.i to i64
-  %arrayidx4.i = getelementptr inbounds ptr, ptr %74, i64 %idxprom3.i
-  store ptr %75, ptr %arrayidx4.i, align 8
+  %arrayidx4.i = getelementptr inbounds ptr, ptr %73, i64 %idxprom3.i
+  store ptr %74, ptr %arrayidx4.i, align 8
   br label %for.inc.i
 
 delete.notnull.i:                                 ; preds = %for.body.i
-  %mWeights.i.i = getelementptr inbounds i8, ptr %75, i64 1048
-  %77 = load ptr, ptr %mWeights.i.i, align 8
-  %isnull.i.i76 = icmp eq ptr %77, null
+  %mWeights.i.i = getelementptr inbounds i8, ptr %74, i64 1048
+  %76 = load ptr, ptr %mWeights.i.i, align 8
+  %isnull.i.i76 = icmp eq ptr %76, null
   br i1 %isnull.i.i76, label %_ZN6aiBoneD2Ev.exit.i, label %delete.notnull.i.i77
 
 delete.notnull.i.i77:                             ; preds = %delete.notnull.i
-  tail call void @_ZdaPv(ptr noundef nonnull %77) #14
+  tail call void @_ZdaPv(ptr noundef nonnull %76) #14
   br label %_ZN6aiBoneD2Ev.exit.i
 
 _ZN6aiBoneD2Ev.exit.i:                            ; preds = %delete.notnull.i.i77, %delete.notnull.i
-  tail call void @_ZdlPv(ptr noundef nonnull %75) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %74) #14
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZN6aiBoneD2Ev.exit.i, %if.then.i73
   %writeBone.1.i = phi i32 [ %inc.i74, %if.then.i73 ], [ %writeBone.010.i, %_ZN6aiBoneD2Ev.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %78 = load i32, ptr %mNumBones.i, align 8
-  %79 = zext i32 %78 to i64
-  %cmp.i75 = icmp ult i64 %indvars.iv.next.i, %79
+  %77 = load i32, ptr %mNumBones.i, align 8
+  %78 = zext i32 %77 to i64
+  %cmp.i75 = icmp ult i64 %indvars.iv.next.i, %78
   br i1 %cmp.i75, label %for.body.i, label %_ZN6AssimpL16removeEmptyBonesEP6aiMesh.exit, !llvm.loop !16
 
 _ZN6AssimpL16removeEmptyBonesEP6aiMesh.exit:      ; preds = %for.inc.i, %if.then149
@@ -605,27 +604,27 @@ invoke.cont157:                                   ; preds = %if.then156
           to label %cleanup unwind label %lpad16.loopexit.split-lp.loopexit.split-lp
 
 cleanup:                                          ; preds = %invoke.cont154, %invoke.cont157, %for.end29
-  %80 = phi ptr [ %36, %invoke.cont154 ], [ %36, %invoke.cont157 ], [ %.pre141.pre, %for.end29 ]
+  %79 = phi ptr [ %36, %invoke.cont154 ], [ %36, %invoke.cont157 ], [ %.pre141.pre, %for.end29 ]
   %.pr.i = phi ptr [ %56, %invoke.cont154 ], [ %56, %invoke.cont157 ], [ %33, %for.end29 ]
-  %cmp.not3.i.i.i.i = icmp eq ptr %.pr.i, %80
+  %cmp.not3.i.i.i.i = icmp eq ptr %.pr.i, %79
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %cleanup, %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i ], [ %.pr.i, %cleanup ]
-  %81 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
+  %80 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
   %mInplaceStorage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 24
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %81, %mInplaceStorage.i.i.i.i.i.i
-  %isnull.i.i.i.i.i.i = icmp eq ptr %81, null
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %80, %mInplaceStorage.i.i.i.i.i.i
+  %isnull.i.i.i.i.i.i = icmp eq ptr %80, null
   %or.cond.i.i.i.i.i.i = or i1 %cmp.not.i.i.i.i.i.i, %isnull.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i, label %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %81) #14
+  call void @_ZdaPv(ptr noundef nonnull %80) #14
   br label %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 88
-  %cmp.not.i.i.i.i79 = icmp eq ptr %incdec.ptr.i.i.i.i, %80
+  %cmp.not.i.i.i.i79 = icmp eq ptr %incdec.ptr.i.i.i.i, %79
   br i1 %cmp.not.i.i.i.i79, label %invoke.cont.i, label %for.body.i.i.i.i, !llvm.loop !17
 
 invoke.cont.i:                                    ; preds = %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i, %cleanup

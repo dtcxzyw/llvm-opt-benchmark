@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @_ZN5arrow8internal12BitRunReaderC1EPKhll = unnamed_addr alias void (ptr, ptr, i64, i64), ptr @_ZN5arrow8internal12BitRunReaderC2EPKhll
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5arrow8internal12BitRunReaderC2EPKhll(ptr nocapture noundef nonnull align 8 dereferenceable(33) %this, ptr noundef %bitmap, i64 noundef %start_offset, i64 noundef %length) unnamed_addr #0 align 2 {
 entry:
   %div = sdiv i64 %start_offset, 8
@@ -74,30 +74,35 @@ if.else.i:                                        ; preds = %if.end
   %xor105.i.i = xor i8 %and4.i.i, %8
   store i8 %xor105.i.i, ptr %arrayidx.i8.i, align 1
   %.pre = load i8, ptr %current_run_bit_set_, align 8
-  br label %if.end.i
+  %.pre8.pre = load i64, ptr %word_.i, align 8
+  %10 = trunc i8 %.pre to i1
+  br i1 %10, label %if.then8.i, label %_ZN5arrow8internal12BitRunReader8LoadWordEl.exit
 
-if.end.i:                                         ; preds = %if.end, %if.else.i
-  %.pre7.in = phi ptr [ %word_.i, %if.else.i ], [ %add.ptr, %if.end ]
-  %10 = phi i8 [ %.pre, %if.else.i ], [ %frombool, %if.end ]
-  %.pre7 = load i64, ptr %.pre7.in, align 1
-  %11 = and i8 %10, 1
-  %sext = sub nsw i8 0, %11
-  %not.i = sext i8 %sext to i64
-  %spec.select = xor i64 %.pre7, %not.i
-  %12 = load i64, ptr %position_, align 8
-  %notmask.i = shl nsw i64 -1, %12
-  %and = and i64 %notmask.i, %spec.select
+if.end.i:                                         ; preds = %if.end
+  %11 = load i64, ptr %add.ptr, align 1
+  br i1 %tobool.i.not, label %if.then8.i, label %_ZN5arrow8internal12BitRunReader8LoadWordEl.exit
+
+if.then8.i:                                       ; preds = %if.else.i, %if.end.i
+  %.pre810 = phi i64 [ %.pre8.pre, %if.else.i ], [ %11, %if.end.i ]
+  %not.i = xor i64 %.pre810, -1
+  br label %_ZN5arrow8internal12BitRunReader8LoadWordEl.exit
+
+_ZN5arrow8internal12BitRunReader8LoadWordEl.exit: ; preds = %if.else.i, %if.end.i, %if.then8.i
+  %12 = phi i64 [ %11, %if.end.i ], [ %not.i, %if.then8.i ], [ %.pre8.pre, %if.else.i ]
+  %13 = load i64, ptr %position_, align 8
+  %notmask.i = shl nsw i64 -1, %13
+  %and = and i64 %notmask.i, %12
   store i64 %and, ptr %word_.i, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i, %if.then
+return:                                           ; preds = %_ZN5arrow8internal12BitRunReader8LoadWordEl.exit, %if.then
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

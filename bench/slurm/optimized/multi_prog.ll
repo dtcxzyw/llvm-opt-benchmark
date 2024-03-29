@@ -524,10 +524,10 @@ define dso_local noundef i32 @verify_multi_name(ptr noundef %0, ptr nocapture no
   %24 = tail call ptr @bit_alloc(i64 noundef %23) #10
   store ptr %24, ptr %7, align 8
   %25 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 16384, ptr noundef nonnull %17)
-  %.not104 = icmp eq ptr %25, null
-  br i1 %.not104, label %.preheader, label %.lr.ph107
+  %.not103 = icmp eq ptr %25, null
+  br i1 %.not103, label %.preheader, label %.lr.ph106
 
-.lr.ph107:                                        ; preds = %21
+.lr.ph106:                                        ; preds = %21
   %26 = getelementptr inbounds i8, ptr %1, i64 124
   %27 = getelementptr inbounds i8, ptr %1, i64 112
   br label %30
@@ -535,12 +535,12 @@ define dso_local noundef i32 @verify_multi_name(ptr noundef %0, ptr nocapture no
 .preheader:                                       ; preds = %.backedge, %21
   %28 = load i32, ptr %8, align 8
   %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.lr.ph109, label %.loopexit
+  br i1 %29, label %.lr.ph108, label %.loopexit
 
-30:                                               ; preds = %.lr.ph107, %.backedge
-  %.050.shrunk106 = phi i1 [ false, %.lr.ph107 ], [ %.049, %.backedge ]
-  %.053105 = phi i32 [ 0, %.lr.ph107 ], [ %31, %.backedge ]
-  %31 = add nuw nsw i32 %.053105, 1
+30:                                               ; preds = %.lr.ph106, %.backedge
+  %.050.shrunk105 = phi i1 [ false, %.lr.ph106 ], [ %.049, %.backedge ]
+  %.053104 = phi i32 [ 0, %.lr.ph106 ], [ %31, %.backedge ]
+  %31 = add nuw nsw i32 %.053104, 1
   %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
   %33 = trunc i64 %32 to i32
   %34 = icmp ugt i32 %33, 16382
@@ -551,8 +551,8 @@ define dso_local noundef i32 @verify_multi_name(ptr noundef %0, ptr nocapture no
   br label %.loopexit
 
 37:                                               ; preds = %30
-  %.not75 = icmp eq i32 %33, 0
-  br i1 %.not75, label %.thread, label %38
+  %.not74 = icmp eq i32 %33, 0
+  br i1 %.not74, label %.thread, label %38
 
 38:                                               ; preds = %37
   %39 = add i64 %32, 4294967295
@@ -563,8 +563,8 @@ define dso_local noundef i32 @verify_multi_name(ptr noundef %0, ptr nocapture no
   br i1 %43, label %52, label %44
 
 44:                                               ; preds = %38
-  %.not76 = icmp eq i32 %33, 1
-  br i1 %.not76, label %.thread, label %45
+  %.not75 = icmp eq i32 %33, 1
+  br i1 %.not75, label %.thread, label %45
 
 45:                                               ; preds = %44
   %46 = add i64 %32, 4294967294
@@ -573,29 +573,29 @@ define dso_local noundef i32 @verify_multi_name(ptr noundef %0, ptr nocapture no
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 92
   %51 = icmp eq i8 %42, 10
-  %or.cond160 = and i1 %50, %51
-  br i1 %or.cond160, label %52, label %.thread
+  %or.cond159 = and i1 %50, %51
+  br i1 %or.cond159, label %52, label %.thread
 
 .thread:                                          ; preds = %37, %45, %44
   br label %52
 
 52:                                               ; preds = %45, %38, %.thread
   %.049 = phi i1 [ false, %.thread ], [ true, %38 ], [ true, %45 ]
-  br i1 %.050.shrunk106, label %.backedge, label %.preheader77
+  br i1 %.050.shrunk105, label %.backedge, label %.preheader76
 
-.preheader77:                                     ; preds = %52
+.preheader76:                                     ; preds = %52
   %53 = load i8, ptr %4, align 16
-  %cond102 = icmp eq i8 %53, 0
-  br i1 %cond102, label %.backedge, label %.lr.ph
+  %cond101 = icmp eq i8 %53, 0
+  br i1 %cond101, label %.backedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader77
+.lr.ph:                                           ; preds = %.preheader76
   %54 = tail call ptr @__ctype_b_loc() #12
   %55 = load ptr, ptr %54, align 8
   br label %56
 
 56:                                               ; preds = %.lr.ph, %62
   %57 = phi i8 [ %53, %.lr.ph ], [ %64, %62 ]
-  %.054103 = phi ptr [ %4, %.lr.ph ], [ %63, %62 ]
+  %.054102 = phi ptr [ %4, %.lr.ph ], [ %63, %62 ]
   %58 = sext i8 %57 to i64
   %59 = getelementptr inbounds i16, ptr %55, i64 %58
   %60 = load i16, ptr %59, align 2
@@ -604,17 +604,17 @@ define dso_local noundef i32 @verify_multi_name(ptr noundef %0, ptr nocapture no
   br i1 %.not64, label %.critedge, label %62
 
 62:                                               ; preds = %56
-  %63 = getelementptr inbounds i8, ptr %.054103, i64 1
+  %63 = getelementptr inbounds i8, ptr %.054102, i64 1
   %64 = load i8, ptr %63, align 1
   %cond = icmp eq i8 %64, 0
   br i1 %cond, label %.backedge, label %56, !llvm.loop !16
 
 .critedge:                                        ; preds = %56
-  %cond135 = icmp eq i8 %57, 35
-  br i1 %cond135, label %.backedge, label %65
+  %cond134 = icmp eq i8 %57, 35
+  br i1 %cond134, label %.backedge, label %65
 
 65:                                               ; preds = %.critedge
-  %66 = call ptr @strtok_r(ptr noundef nonnull %.054103, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #10
+  %66 = call ptr @strtok_r(ptr noundef nonnull %.054102, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #10
   %67 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #10
   %68 = icmp ne ptr %66, null
   %69 = icmp ne ptr %67, null
@@ -641,7 +641,7 @@ define dso_local noundef i32 @verify_multi_name(ptr noundef %0, ptr nocapture no
 79:                                               ; preds = %75, %72
   %80 = call ptr @strtok_r(ptr noundef nonnull %66, ptr noundef nonnull @.str.14, ptr noundef nonnull %3) #10
   %.not53.i = icmp eq ptr %80, null
-  br i1 %.not53.i, label %_validate_ranks.exit.thread72, label %.lr.ph55.i
+  br i1 %.not53.i, label %_validate_ranks.exit.thread71, label %.lr.ph55.i
 
 .lr.ph55.i:                                       ; preds = %79, %121
   %.03354.i = phi ptr [ %122, %121 ], [ %80, %79 ]
@@ -737,13 +737,13 @@ define dso_local noundef i32 @verify_multi_name(ptr noundef %0, ptr nocapture no
 121:                                              ; preds = %119
   %122 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %3) #10
   %.not.i = icmp eq ptr %122, null
-  br i1 %.not.i, label %_validate_ranks.exit.thread72, label %.lr.ph55.i, !llvm.loop !20
+  br i1 %.not.i, label %_validate_ranks.exit.thread71, label %.lr.ph55.i, !llvm.loop !20
 
 _validate_ranks.exit.thread:                      ; preds = %119, %96, %112, %117
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %.loopexit79
+  br label %.loopexit78
 
-_validate_ranks.exit.thread72:                    ; preds = %121, %79
+_validate_ranks.exit.thread71:                    ; preds = %121, %79
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %131
 
@@ -760,26 +760,25 @@ _validate_ranks.exit:                             ; preds = %75
   %129 = call fastcc i32 @_update_task_mask(i32 noundef 0, i32 noundef %124, ptr noundef %1, ptr noundef nonnull %7, i1 noundef zeroext true), !range !19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not65 = icmp eq i32 %129, 0
-  br i1 %.not65, label %131, label %.loopexit79
+  br i1 %.not65, label %131, label %.loopexit78
 
-.loopexit79:                                      ; preds = %_validate_ranks.exit, %_validate_ranks.exit.thread
+.loopexit78:                                      ; preds = %_validate_ranks.exit, %_validate_ranks.exit.thread
   %130 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, i32 noundef %31, ptr noundef %0) #10
   br label %.loopexit
 
-131:                                              ; preds = %_validate_ranks.exit.thread72, %_validate_ranks.exit
+131:                                              ; preds = %_validate_ranks.exit.thread71, %_validate_ranks.exit
   %132 = load ptr, ptr %14, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 224
   %134 = load i8, ptr %133, align 8
-  %135 = and i8 %134, 1
-  %.not66 = icmp eq i8 %135, 0
-  br i1 %.not66, label %141, label %136
+  %135 = trunc i8 %134 to i1
+  br i1 %135, label %136, label %141
 
 136:                                              ; preds = %131
   %137 = load ptr, ptr %27, align 8
   %138 = call ptr @search_path(ptr noundef %137, ptr noundef nonnull %67, i1 noundef zeroext true, i32 noundef 1, i1 noundef zeroext true) #10
   store ptr %138, ptr %6, align 8
-  %.not67 = icmp eq ptr %138, null
-  br i1 %.not67, label %139, label %141
+  %.not66 = icmp eq ptr %138, null
+  br i1 %.not66, label %139, label %141
 
 139:                                              ; preds = %136
   %140 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10, i32 noundef %31, ptr noundef %0, ptr noundef nonnull %67) #10
@@ -789,36 +788,36 @@ _validate_ranks.exit:                             ; preds = %75
   call void @slurm_xfree(ptr noundef nonnull %6) #10
   br label %.backedge
 
-.backedge:                                        ; preds = %62, %.critedge, %.preheader77, %141, %52
+.backedge:                                        ; preds = %62, %.critedge, %.preheader76, %141, %52
   %142 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 16384, ptr noundef nonnull %17)
   %.not = icmp eq ptr %142, null
   br i1 %.not, label %.preheader, label %30, !llvm.loop !21
 
-.lr.ph109:                                        ; preds = %.preheader, %148
+.lr.ph108:                                        ; preds = %.preheader, %148
   %indvars.iv = phi i64 [ %indvars.iv.next, %148 ], [ 0, %.preheader ]
   %143 = load ptr, ptr %7, align 8
   %144 = call i32 @bit_test(ptr noundef %143, i64 noundef %indvars.iv) #10
   %.not62 = icmp eq i32 %144, 0
   br i1 %.not62, label %145, label %148
 
-145:                                              ; preds = %.lr.ph109
+145:                                              ; preds = %.lr.ph108
   %146 = trunc i64 %indvars.iv to i32
   %147 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef %0, i32 noundef %146) #10
   br label %.loopexit
 
-148:                                              ; preds = %.lr.ph109
+148:                                              ; preds = %.lr.ph108
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %149 = load i32, ptr %8, align 8
   %150 = sext i32 %149 to i64
   %151 = icmp slt i64 %indvars.iv.next, %150
-  br i1 %151, label %.lr.ph109, label %.loopexit, !llvm.loop !22
+  br i1 %151, label %.lr.ph108, label %.loopexit, !llvm.loop !22
 
-.loopexit:                                        ; preds = %148, %.preheader, %145, %139, %.loopexit79, %70, %35
-  %.051 = phi i32 [ -1, %35 ], [ -1, %.loopexit79 ], [ -1, %139 ], [ -1, %70 ], [ -1, %145 ], [ 0, %.preheader ], [ 0, %148 ]
+.loopexit:                                        ; preds = %148, %.preheader, %145, %139, %.loopexit78, %70, %35
+  %.051 = phi i32 [ -1, %35 ], [ -1, %.loopexit78 ], [ -1, %139 ], [ -1, %70 ], [ -1, %145 ], [ 0, %.preheader ], [ 0, %148 ]
   %152 = call i32 @fclose(ptr noundef nonnull %17)
   %153 = load ptr, ptr %7, align 8
-  %.not68 = icmp eq ptr %153, null
-  br i1 %.not68, label %155, label %154
+  %.not67 = icmp eq ptr %153, null
+  br i1 %.not67, label %155, label %154
 
 154:                                              ; preds = %.loopexit
   call void @slurm_bit_free(ptr noundef nonnull %7) #10
@@ -866,13 +865,12 @@ define internal fastcc noundef i32 @_update_task_mask(i32 noundef %0, i32 nounde
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %2, i64 124
   %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 1
-  %.not29 = icmp eq i8 %19, 0
-  br i1 %.not29, label %23, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %23
 
 20:                                               ; preds = %16
-  %.b30 = load i1, ptr @_update_task_mask.i_set_ntasks, align 1
-  br i1 %.b30, label %23, label %21
+  %.b29 = load i1, ptr @_update_task_mask.i_set_ntasks, align 1
+  br i1 %.b29, label %23, label %21
 
 21:                                               ; preds = %20
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, i32 noundef %1) #10
@@ -892,29 +890,29 @@ define internal fastcc noundef i32 @_update_task_mask(i32 noundef %0, i32 nounde
   br i1 %4, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %32
-  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %32 ], [ %27, %.lr.ph ]
+  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %32 ], [ %27, %.lr.ph ]
   %28 = load ptr, ptr %3, align 8
-  %29 = tail call i32 @bit_test(ptr noundef %28, i64 noundef %indvars.iv40) #10
-  %.not32.us = icmp eq i32 %29, 0
-  br i1 %.not32.us, label %30, label %32
+  %29 = tail call i32 @bit_test(ptr noundef %28, i64 noundef %indvars.iv39) #10
+  %.not31.us = icmp eq i32 %29, 0
+  br i1 %.not31.us, label %30, label %32
 
 30:                                               ; preds = %.lr.ph.split.us
   %31 = load ptr, ptr %3, align 8
-  tail call void @bit_set(ptr noundef %31, i64 noundef %indvars.iv40) #10
+  tail call void @bit_set(ptr noundef %31, i64 noundef %indvars.iv39) #10
   br label %32
 
 32:                                               ; preds = %.lr.ph.split.us, %30
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %33 = trunc i64 %indvars.iv40 to i32
-  %.not31.us.not = icmp slt i32 %33, %1
-  br i1 %.not31.us.not, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !23
+  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
+  %33 = trunc i64 %indvars.iv39 to i32
+  %.not30.us.not = icmp slt i32 %33, %1
+  br i1 %.not30.us.not, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ %27, %.lr.ph ]
   %34 = load ptr, ptr %3, align 8
   %35 = tail call i32 @bit_test(ptr noundef %34, i64 noundef %indvars.iv) #10
-  %.not32 = icmp eq i32 %35, 0
-  br i1 %.not32, label %39, label %36
+  %.not31 = icmp eq i32 %35, 0
+  br i1 %.not31, label %39, label %36
 
 36:                                               ; preds = %.lr.ph.split
   %37 = trunc i64 %indvars.iv to i32
@@ -926,8 +924,8 @@ define internal fastcc noundef i32 @_update_task_mask(i32 noundef %0, i32 nounde
   tail call void @bit_set(ptr noundef %40, i64 noundef %indvars.iv) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = trunc i64 %indvars.iv to i32
-  %.not31.not = icmp slt i32 %41, %1
-  br i1 %.not31.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !23
+  %.not30.not = icmp slt i32 %41, %1
+  br i1 %.not30.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %39, %32, %36, %21, %11, %7
   %.025 = phi i32 [ -1, %7 ], [ -1, %11 ], [ -1, %36 ], [ -1, %21 ], [ 0, %32 ], [ 0, %39 ]

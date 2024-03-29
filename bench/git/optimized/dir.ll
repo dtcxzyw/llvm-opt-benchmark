@@ -4726,10 +4726,9 @@ if.then21.i.i:                                    ; preds = %lor.lhs.false.i.i, 
 if.end24.i.i:                                     ; preds = %lor.lhs.false.if.end24_crit_edge.i.i, %land.lhs.true.i.i
   %bf.load26.i.i = phi i8 [ %bf.load26.pre.i.i, %lor.lhs.false.if.end24_crit_edge.i.i ], [ %bf.load3.i.i, %land.lhs.true.i.i ]
   %check_only25.i.i = getelementptr inbounds i8, ptr %untracked, i64 68
-  %tobool29.i.i = icmp ne i32 %check_only, 0
-  %5 = and i8 %bf.load26.i.i, 1
-  %6 = icmp eq i8 %5, 0
-  %cmp.not.i.i = xor i1 %tobool29.i.i, %6
+  %5 = trunc i8 %bf.load26.i.i to i1
+  %6 = icmp eq i32 %check_only, 0
+  %cmp.not.i.i = xor i1 %6, %5
   br i1 %cmp.not.i.i, label %if.end32.i.i, label %valid_cached_dir.exit.thread.i
 
 if.end32.i.i:                                     ; preds = %if.end24.i.i

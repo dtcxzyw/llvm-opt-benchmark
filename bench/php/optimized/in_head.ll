@@ -195,8 +195,8 @@ lxb_html_tree_template_insertion_pop.exit.i.i:    ; preds = %lxb_html_tree_node_
 
 75:                                               ; preds = %69
   %76 = getelementptr i8, ptr %0, i64 32
-  %.val67.i = load ptr, ptr %76, align 8
-  %77 = tail call ptr @lexbor_array_pop(ptr noundef %.val67.i) #4
+  %.val66.i = load ptr, ptr %76, align 8
+  %77 = tail call ptr @lexbor_array_pop(ptr noundef %.val66.i) #4
   %78 = load i32, ptr %5, align 8
   %79 = and i32 %78, 2
   %80 = icmp eq i32 %79, 0
@@ -241,9 +241,8 @@ lxb_html_tree_template_insertion_pop.exit.i.i:    ; preds = %lxb_html_tree_node_
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 250
   %94 = load i8, ptr %93, align 2
-  %95 = and i8 %94, 1
-  %.not66.i = icmp eq i8 %95, 0
-  br i1 %.not66.i, label %98, label %96
+  %95 = trunc i8 %94 to i1
+  br i1 %95, label %96, label %98
 
 96:                                               ; preds = %90
   %97 = tail call ptr @lxb_html_tree_generic_rawtext_parsing(ptr noundef nonnull %0, ptr noundef nonnull %1) #4
@@ -374,13 +373,13 @@ lxb_html_tree_insertion_mode_in_head_script.exit.i: ; preds = %lxb_html_tree_ins
 
 157:                                              ; preds = %151
   %158 = getelementptr i8, ptr %0, i64 40
-  %.val.i69.i = load ptr, ptr %158, align 8
+  %.val.i68.i = load ptr, ptr %158, align 8
   %159 = tail call ptr @lxb_html_tree_active_formatting_marker() #4
-  %160 = tail call i32 @lexbor_array_push(ptr noundef %.val.i69.i, ptr noundef %159) #4
+  %160 = tail call i32 @lexbor_array_push(ptr noundef %.val.i68.i, ptr noundef %159) #4
   %161 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 %160, ptr %161, align 8
-  %.not.i70.i = icmp eq i32 %160, 0
-  br i1 %.not.i70.i, label %165, label %162
+  %.not.i69.i = icmp eq i32 %160, 0
+  br i1 %.not.i69.i, label %165, label %162
 
 162:                                              ; preds = %157
   %163 = tail call ptr @lxb_html_template_element_interface_destroy(ptr noundef nonnull %152) #4
@@ -453,8 +452,8 @@ lxb_html_tree_template_insertion_push.exit.thread.i.i: ; preds = %165
 
 195:                                              ; preds = %189, %42
   %196 = getelementptr i8, ptr %0, i64 32
-  %.val.i72.i = load ptr, ptr %196, align 8
-  %197 = call ptr @lexbor_array_pop(ptr noundef %.val.i72.i) #4
+  %.val.i71.i = load ptr, ptr %196, align 8
+  %197 = call ptr @lexbor_array_pop(ptr noundef %.val.i71.i) #4
   %198 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @lxb_html_tree_insertion_mode_after_head, ptr %198, align 8
   br label %lxb_html_tree_insertion_mode_in_head_open.exit

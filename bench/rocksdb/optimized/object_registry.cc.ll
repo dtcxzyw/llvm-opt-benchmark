@@ -233,7 +233,7 @@ if.then24:                                        ; preds = %if.else16
   br i1 %cmp110.i, label %for.body.i, label %return
 
 for.body.i:                                       ; preds = %if.then24, %for.inc.i
-  %point.013.i = phi i8 [ %point.1.i, %for.inc.i ], [ 0, %if.then24 ]
+  %point.013.i = phi i1 [ %point.1.i, %for.inc.i ], [ false, %if.then24 ]
   %digits.012.i = phi i32 [ %digits.1.i, %for.inc.i ], [ 0, %if.then24 ]
   %start.addr.111.i = phi i64 [ %inc18.i, %for.inc.i ], [ %spec.select.i25, %if.then24 ]
   %call2.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %target, i64 noundef %start.addr.111.i) #16
@@ -242,14 +242,12 @@ for.body.i:                                       ; preds = %if.then24, %for.inc
   br i1 %cmp4.i, label %if.then5.i, label %if.else8.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  %4 = and i8 %point.013.i, 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i, label %for.inc.i, label %return
+  br i1 %point.013.i, label %return, label %for.inc.i
 
 if.else8.i:                                       ; preds = %for.body.i
   %call9.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %target, i64 noundef %start.addr.111.i) #16
-  %5 = load i8, ptr %call9.i, align 1
-  %conv10.i = sext i8 %5 to i32
+  %4 = load i8, ptr %call9.i, align 1
+  %conv10.i = sext i8 %4 to i32
   %isdigittmp.i27 = add nsw i32 %conv10.i, -48
   %isdigit.i28 = icmp ult i32 %isdigittmp.i27, 10
   br i1 %isdigit.i28, label %if.else14.i, label %return
@@ -260,14 +258,14 @@ if.else14.i:                                      ; preds = %if.else8.i
 
 for.inc.i:                                        ; preds = %if.else14.i, %if.then5.i
   %digits.1.i = phi i32 [ %inc15.i, %if.else14.i ], [ %digits.012.i, %if.then5.i ]
-  %point.1.i = phi i8 [ %point.013.i, %if.else14.i ], [ 1, %if.then5.i ]
+  %point.1.i = phi i1 [ %point.013.i, %if.else14.i ], [ true, %if.then5.i ]
   %inc18.i = add nuw i64 %start.addr.111.i, 1
   %cmp1.i29 = icmp ult i64 %inc18.i, %pos.0
   br i1 %cmp1.i29, label %for.body.i, label %_ZN7rocksdb12_GLOBAL__N_114MatchesDecimalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit, !llvm.loop !6
 
 _ZN7rocksdb12_GLOBAL__N_114MatchesDecimalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit: ; preds = %for.inc.i
-  %6 = icmp sgt i32 %digits.1.i, 0
-  br i1 %6, label %if.end30, label %return
+  %5 = icmp sgt i32 %digits.1.i, 0
+  br i1 %5, label %if.end30, label %return
 
 if.end30:                                         ; preds = %if.else.i, %if.else16, %_ZN7rocksdb12_GLOBAL__N_114MatchesDecimalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit
   %add31 = add i64 %pos.0, %call
@@ -331,7 +329,7 @@ entry:
   br i1 %cmp110, label %for.body, label %return
 
 for.body:                                         ; preds = %entry, %for.inc
-  %point.013 = phi i8 [ %point.1, %for.inc ], [ 0, %entry ]
+  %point.013 = phi i1 [ %point.1, %for.inc ], [ false, %entry ]
   %digits.012 = phi i32 [ %digits.1, %for.inc ], [ 0, %entry ]
   %start.addr.111 = phi i64 [ %inc18, %for.inc ], [ %spec.select, %entry ]
   %call2 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %target, i64 noundef %start.addr.111) #16
@@ -340,14 +338,12 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp4, label %if.then5, label %if.else8
 
 if.then5:                                         ; preds = %for.body
-  %2 = and i8 %point.013, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %for.inc, label %return
+  br i1 %point.013, label %return, label %for.inc
 
 if.else8:                                         ; preds = %for.body
   %call9 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %target, i64 noundef %start.addr.111) #16
-  %3 = load i8, ptr %call9, align 1
-  %conv10 = sext i8 %3 to i32
+  %2 = load i8, ptr %call9, align 1
+  %conv10 = sext i8 %2 to i32
   %isdigittmp = add nsw i32 %conv10, -48
   %isdigit = icmp ult i32 %isdigittmp, 10
   br i1 %isdigit, label %if.else14, label %return
@@ -358,17 +354,17 @@ if.else14:                                        ; preds = %if.else8
 
 for.inc:                                          ; preds = %if.then5, %if.else14
   %digits.1 = phi i32 [ %inc15, %if.else14 ], [ %digits.012, %if.then5 ]
-  %point.1 = phi i8 [ %point.013, %if.else14 ], [ 1, %if.then5 ]
+  %point.1 = phi i1 [ %point.013, %if.else14 ], [ true, %if.then5 ]
   %inc18 = add nuw i64 %start.addr.111, 1
   %cmp1 = icmp ult i64 %inc18, %pos
   br i1 %cmp1, label %for.body, label %for.end.loopexit, !llvm.loop !6
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %4 = icmp sgt i32 %digits.1, 0
+  %3 = icmp sgt i32 %digits.1, 0
   br label %return
 
 return:                                           ; preds = %if.else8, %if.then5, %entry, %for.end.loopexit
-  %retval.0 = phi i1 [ false, %entry ], [ %4, %for.end.loopexit ], [ false, %if.then5 ], [ false, %if.else8 ]
+  %retval.0 = phi i1 [ false, %entry ], [ %3, %for.end.loopexit ], [ false, %if.then5 ], [ false, %if.else8 ]
   ret i1 %retval.0
 }
 
@@ -410,9 +406,8 @@ if.else:                                          ; preds = %entry
 if.then4:                                         ; preds = %if.else
   %optional_ = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load i8, ptr %optional_, align 8
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %return, label %land.rhs5
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %land.rhs5, label %return
 
 land.rhs5:                                        ; preds = %if.then4
   %call.i34 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #16
@@ -429,13 +424,13 @@ land.rhs.i37:                                     ; preds = %land.rhs5
 
 if.end.i.i42:                                     ; preds = %land.rhs.i37
   %bcmp.i43 = tail call i32 @bcmp(ptr %call2.i38, ptr %call3.i39, i64 %call4.i40)
-  %5 = icmp eq i32 %bcmp.i43, 0
+  %4 = icmp eq i32 %bcmp.i43, 0
   br label %return
 
 if.else8:                                         ; preds = %if.else
   %slength_ = getelementptr inbounds i8, ptr %this, i64 80
-  %6 = load i64, ptr %slength_, align 8
-  %add = add i64 %6, %nlen
+  %5 = load i64, ptr %slength_, align 8
+  %add = add i64 %5, %nlen
   %cmp9 = icmp ugt i64 %add, %tlen
   br i1 %cmp9, label %return, label %if.else11
 
@@ -445,36 +440,36 @@ if.else11:                                        ; preds = %if.else8
   br i1 %cmp13.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.else11
-  %7 = load ptr, ptr %_M_finish.i.i, align 8
-  %8 = load ptr, ptr %separators_, align 8
-  %cmp1851.not = icmp eq ptr %7, %8
+  %6 = load ptr, ptr %_M_finish.i.i, align 8
+  %7 = load ptr, ptr %separators_, align 8
+  %cmp1851.not = icmp eq ptr %6, %7
   br i1 %cmp1851.not, label %if.then26, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %if.else24
-  %9 = phi ptr [ %12, %if.else24 ], [ %8, %for.cond.preheader ]
+  %8 = phi ptr [ %11, %if.else24 ], [ %7, %for.cond.preheader ]
   %idx.054 = phi i64 [ %inc, %if.else24 ], [ 0, %for.cond.preheader ]
-  %mode.053 = phi i32 [ %10, %if.else24 ], [ 2, %for.cond.preheader ]
+  %mode.053 = phi i32 [ %9, %if.else24 ], [ 2, %for.cond.preheader ]
   %start.052 = phi i64 [ %call21, %if.else24 ], [ %nlen, %for.cond.preheader ]
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %9, i64 %idx.054
+  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %8, i64 %idx.054
   %call21 = tail call noundef i64 @_ZNK7rocksdb13ObjectLibrary12PatternEntry16MatchSeparatorAtEmNS1_10QuantifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSA_(ptr nonnull align 8 poison, i64 noundef %start.052, i32 noundef %mode.053, ptr noundef nonnull align 8 dereferenceable(32) %target, i64 noundef %tlen, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i)
   %cmp22 = icmp eq i64 %call21, -1
   br i1 %cmp22, label %return, label %if.else24
 
 if.else24:                                        ; preds = %for.body
   %second = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
-  %10 = load i32, ptr %second, align 8
+  %9 = load i32, ptr %second, align 8
   %inc = add nuw i64 %idx.054, 1
-  %11 = load ptr, ptr %_M_finish.i.i, align 8
-  %12 = load ptr, ptr %separators_, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %12 to i64
+  %10 = load ptr, ptr %_M_finish.i.i, align 8
+  %11 = load ptr, ptr %separators_, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
   %cmp18 = icmp ult i64 %inc, %sub.ptr.div.i
   br i1 %cmp18, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %if.else24
-  %cmp25 = icmp eq i32 %10, 2
+  %cmp25 = icmp eq i32 %9, 2
   br i1 %cmp25, label %if.then26, label %if.else28
 
 if.then26:                                        ; preds = %for.cond.preheader, %for.end
@@ -488,12 +483,12 @@ if.else28:                                        ; preds = %for.end
 
 lor.lhs.false:                                    ; preds = %if.else28
   %cmp30 = icmp eq i64 %call21, %tlen
-  %cmp31 = icmp ne i32 %10, 0
+  %cmp31 = icmp ne i32 %9, 0
   %or.cond = and i1 %cmp30, %cmp31
   br i1 %or.cond, label %return, label %if.else33
 
 if.else33:                                        ; preds = %lor.lhs.false
-  switch i32 %10, label %return [
+  switch i32 %9, label %return [
     i32 3, label %if.then35
     i32 4, label %if.then39
   ]
@@ -507,7 +502,7 @@ if.then39:                                        ; preds = %if.else33
   br label %return
 
 return:                                           ; preds = %for.body, %if.end.i.i42, %land.rhs.i37, %land.rhs5, %if.end.i.i, %land.rhs.i, %land.rhs, %if.else33, %if.else28, %lor.lhs.false, %if.else11, %if.else8, %if.then4, %if.then, %if.then39, %if.then35, %if.then26
-  %retval.0 = phi i1 [ %cmp27, %if.then26 ], [ %call36, %if.then35 ], [ %call40, %if.then39 ], [ false, %if.then ], [ false, %if.then4 ], [ false, %if.else8 ], [ false, %if.else11 ], [ false, %lor.lhs.false ], [ false, %if.else28 ], [ true, %if.else33 ], [ false, %land.rhs ], [ %2, %if.end.i.i ], [ true, %land.rhs.i ], [ false, %land.rhs5 ], [ %5, %if.end.i.i42 ], [ true, %land.rhs.i37 ], [ false, %for.body ]
+  %retval.0 = phi i1 [ %cmp27, %if.then26 ], [ %call36, %if.then35 ], [ %call40, %if.then39 ], [ false, %if.then ], [ false, %if.then4 ], [ false, %if.else8 ], [ false, %if.else11 ], [ false, %lor.lhs.false ], [ false, %if.else28 ], [ true, %if.else33 ], [ false, %land.rhs ], [ %2, %if.end.i.i ], [ true, %land.rhs.i ], [ false, %land.rhs5 ], [ %4, %if.end.i.i42 ], [ true, %land.rhs.i37 ], [ false, %for.body ]
   ret i1 %retval.0
 }
 
@@ -766,12 +761,12 @@ ehcleanup:                                        ; preds = %lpad20, %lpad.i, %l
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit21
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %invoke.cont23, %if.then, %invoke.cont
-  %call1.i.i.i.i12 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #16
+  %call1.i.i.i.i13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #16
   ret void
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit21:          ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit27, %lpad.loopexit ], [ %lpad.loopexit.split-lp28, %lpad.loopexit.split-lp ]
-  %call1.i.i.i.i19 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #16
+  %call1.i.i.i.i20 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #16
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -4299,14 +4294,14 @@ entry:
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not = icmp ugt i64 %0, 20
   %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %__it.sroa.0.020 = load ptr, ptr %_M_before_begin.i.i, align 8
-  %cmp.i.not21 = icmp eq ptr %__it.sroa.0.020, null
-  %or.cond = select i1 %cmp.not, i1 true, i1 %cmp.i.not21
+  %__it.sroa.0.022 = load ptr, ptr %_M_before_begin.i.i, align 8
+  %cmp.i.not23 = icmp eq ptr %__it.sroa.0.022, null
+  %or.cond = select i1 %cmp.not, i1 true, i1 %cmp.i.not23
   br i1 %or.cond, label %if.end13, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %__it.sroa.0.022 = phi ptr [ %__it.sroa.0.0, %for.inc ], [ %__it.sroa.0.020, %entry ]
-  %add.ptr = getelementptr inbounds i8, ptr %__it.sroa.0.022, i64 8
+  %__it.sroa.0.024 = phi ptr [ %__it.sroa.0.0, %for.inc ], [ %__it.sroa.0.022, %entry ]
+  %add.ptr = getelementptr inbounds i8, ptr %__it.sroa.0.024, i64 8
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #16
   %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #16
   %cmp.i.i.i = icmp eq i64 %call.i.i.i, %call1.i.i.i
@@ -4325,7 +4320,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %1, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit
-  %__it.sroa.0.0 = load ptr, ptr %__it.sroa.0.022, align 8
+  %__it.sroa.0.0 = load ptr, ptr %__it.sroa.0.024, align 8
   %cmp.i.not = icmp eq ptr %__it.sroa.0.0, null
   br i1 %cmp.i.not, label %if.end13, label %for.body, !llvm.loop !73
 
@@ -4410,7 +4405,7 @@ lpad:                                             ; preds = %_ZNSt8__detail12_No
   br label %common.resume
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit, %land.rhs.i.i.i, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_NS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit
-  %retval.sroa.0.0 = phi ptr [ %6, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit ], [ %call28, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_NS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ %__it.sroa.0.022, %land.rhs.i.i.i ], [ %__it.sroa.0.022, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ]
+  %retval.sroa.0.0 = phi ptr [ %6, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit ], [ %call28, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_NS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ %__it.sroa.0.024, %land.rhs.i.i.i ], [ %__it.sroa.0.024, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ]
   %retval.sroa.4.0 = phi i8 [ 0, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_NS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ 0, %land.rhs.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
@@ -4429,95 +4424,94 @@ entry:
   %2 = load i64, ptr %_M_element_count, align 8
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %5 = extractvalue { i8, i64 } %call3, 1
-  invoke void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %5)
+  %4 = extractvalue { i8, i64 } %call3, 1
+  invoke void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %4)
           to label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_rehashEmRKm.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #16
+  %6 = extractvalue { ptr, i32 } %5, 0
+  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #16
   store i64 %0, ptr %_M_next_resize.i, align 8
   invoke void @__cxa_rethrow() #17
           to label %unreachable.i unwind label %lpad2.i
 
 lpad2.i:                                          ; preds = %lpad.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
 eh.resume.i:                                      ; preds = %lpad2.i
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %8
 
 terminate.lpad.i:                                 ; preds = %lpad2.i
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #20
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #20
   unreachable
 
 unreachable.i:                                    ; preds = %lpad.i
   unreachable
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_rehashEmRKm.exit: ; preds = %if.then
-  %12 = load i64, ptr %_M_bucket_count, align 8
-  %rem.i.i.i = urem i64 %__code, %12
+  %11 = load i64, ptr %_M_bucket_count, align 8
+  %rem.i.i.i = urem i64 %__code, %11
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_rehashEmRKm.exit, %entry
   %__bkt.addr.0 = phi i64 [ %rem.i.i.i, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %__bkt, %entry ]
   %add.ptr = getelementptr inbounds i8, ptr %__node, i64 40
   store i64 %__code, ptr %add.ptr, align 8
-  %13 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %13, i64 %__bkt.addr.0
-  %14 = load ptr, ptr %arrayidx.i, align 8
-  %tobool.not.i = icmp eq ptr %14, null
+  %12 = load ptr, ptr %this, align 8
+  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %__bkt.addr.0
+  %13 = load ptr, ptr %arrayidx.i, align 8
+  %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %__node, align 8
-  %16 = load ptr, ptr %this, align 8
-  %arrayidx6.i = getelementptr inbounds ptr, ptr %16, i64 %__bkt.addr.0
-  %17 = load ptr, ptr %arrayidx6.i, align 8
-  store ptr %__node, ptr %17, align 8
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %__node, align 8
+  %15 = load ptr, ptr %this, align 8
+  %arrayidx6.i = getelementptr inbounds ptr, ptr %15, i64 %__bkt.addr.0
+  %16 = load ptr, ptr %arrayidx6.i, align 8
+  store ptr %__node, ptr %16, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS7_10_Hash_nodeIS5_Lb1EEE.exit
 
 if.else.i:                                        ; preds = %if.end
   %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load ptr, ptr %_M_before_begin.i, align 8
-  store ptr %18, ptr %__node, align 8
+  %17 = load ptr, ptr %_M_before_begin.i, align 8
+  store ptr %17, ptr %__node, align 8
   store ptr %__node, ptr %_M_before_begin.i, align 8
-  %19 = load ptr, ptr %__node, align 8
-  %tobool13.not.i = icmp eq ptr %19, null
+  %18 = load ptr, ptr %__node, align 8
+  %tobool13.not.i = icmp eq ptr %18, null
   br i1 %tobool13.not.i, label %if.end.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.else.i
-  %20 = load ptr, ptr %this, align 8
-  %21 = load i64, ptr %_M_bucket_count, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 40
-  %22 = load i64, ptr %add.ptr.i.i.i, align 8
-  %rem.i.i.i.i = urem i64 %22, %21
-  %arrayidx17.i = getelementptr inbounds ptr, ptr %20, i64 %rem.i.i.i.i
+  %19 = load ptr, ptr %this, align 8
+  %20 = load i64, ptr %_M_bucket_count, align 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 40
+  %21 = load i64, ptr %add.ptr.i.i.i, align 8
+  %rem.i.i.i.i = urem i64 %21, %20
+  %arrayidx17.i = getelementptr inbounds ptr, ptr %19, i64 %rem.i.i.i.i
   store ptr %__node, ptr %arrayidx17.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then14.i, %if.else.i
-  %23 = load ptr, ptr %this, align 8
-  %arrayidx20.i = getelementptr inbounds ptr, ptr %23, i64 %__bkt.addr.0
+  %22 = load ptr, ptr %this, align 8
+  %arrayidx20.i = getelementptr inbounds ptr, ptr %22, i64 %__bkt.addr.0
   store ptr %_M_before_begin.i, ptr %arrayidx20.i, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS7_10_Hash_nodeIS5_Lb1EEE.exit
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS7_10_Hash_nodeIS5_Lb1EEE.exit: ; preds = %if.then.i, %if.end.i
-  %24 = load i64, ptr %_M_element_count, align 8
-  %inc = add i64 %24, 1
+  %23 = load i64, ptr %_M_element_count, align 8
+  %inc = add i64 %23, 1
   store i64 %inc, ptr %_M_element_count, align 8
   ret ptr %__node
 }

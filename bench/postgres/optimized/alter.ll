@@ -309,9 +309,8 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   %122 = getelementptr i8, ptr %118, i64 %121
   %123 = getelementptr inbounds i8, ptr %122, i64 89
   %124 = load i8, ptr %123, align 1
-  %125 = and i8 %124, 1
-  %.not115.i = icmp eq i8 %125, 0
-  br i1 %.not115.i, label %126, label %.thread.i
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %.thread.i, label %126
 
 126:                                              ; preds = %116
   %127 = call zeroext i1 @superuser() #7
@@ -415,9 +414,9 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   br i1 %188, label %189, label %210
 
 189:                                              ; preds = %187
-  %.not116.i = icmp eq i32 %.0.i, 0
+  %.not115.i = icmp eq i32 %.0.i, 0
   %190 = ptrtoint ptr %57 to i64
-  br i1 %.not116.i, label %195, label %191
+  br i1 %.not115.i, label %195, label %191
 
 191:                                              ; preds = %189
   %192 = zext i32 %.0.i to i64
@@ -504,8 +503,8 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   %235 = getelementptr inbounds i8, ptr %65, i64 4
   call void @CatalogTupleUpdate(ptr noundef nonnull %55, ptr noundef nonnull %235, ptr noundef %234) #7
   %236 = load ptr, ptr @object_access_hook, align 8
-  %.not117.i = icmp eq ptr %236, null
-  br i1 %.not117.i, label %AlterObjectRename_internal.exit, label %237
+  %.not116.i = icmp eq ptr %236, null
+  br i1 %.not116.i, label %AlterObjectRename_internal.exit, label %237
 
 237:                                              ; preds = %210
   call void @RunObjectPostAlterHook(i32 noundef %59, i32 noundef %.sroa.14.0.extract.trunc, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #7
@@ -624,9 +623,9 @@ define dso_local { i64, i32 } @ExecAlterObjectDependsStmt(ptr nocapture noundef 
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %.fca.1.extract, ptr %.sroa.24.0..sroa_idx, align 8
   %.not23 = icmp eq ptr %1, null
-  %26 = trunc i64 %.fca.0.extract to i32
-  %27 = lshr i64 %.fca.0.extract, 32
-  %28 = trunc i64 %27 to i32
+  %26 = lshr i64 %.fca.0.extract, 32
+  %27 = trunc i64 %26 to i32
+  %28 = trunc i64 %.fca.0.extract to i32
   br i1 %.not23, label %30, label %29
 
 29:                                               ; preds = %22
@@ -636,17 +635,16 @@ define dso_local { i64, i32 } @ExecAlterObjectDependsStmt(ptr nocapture noundef 
 30:                                               ; preds = %29, %22
   %31 = getelementptr inbounds i8, ptr %0, i64 32
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not24 = icmp eq i8 %33, 0
-  br i1 %.not24, label %36, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
-  %35 = call i64 @deleteDependencyRecordsForSpecific(i32 noundef %18, i32 noundef %20, i8 noundef signext 120, i32 noundef %26, i32 noundef %28) #7
+  %35 = call i64 @deleteDependencyRecordsForSpecific(i32 noundef %18, i32 noundef %20, i8 noundef signext 120, i32 noundef %28, i32 noundef %27) #7
   br label %40
 
 36:                                               ; preds = %30
   %37 = call ptr @getAutoExtensionsOfObject(i32 noundef %18, i32 noundef %20) #7
-  %38 = call zeroext i1 @list_member_oid(ptr noundef %37, i32 noundef %28) #7
+  %38 = call zeroext i1 @list_member_oid(ptr noundef %37, i32 noundef %27) #7
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %36
@@ -1358,9 +1356,8 @@ define dso_local void @AlterObjectOwner_internal(i32 noundef %0, i32 noundef %1,
   %72 = load ptr, ptr %24, align 8
   %73 = call fastcc i64 @heap_getattr(ptr noundef nonnull %14, i32 noundef %70, ptr noundef %72, ptr noundef nonnull %4)
   %74 = load i8, ptr %4, align 1
-  %75 = and i8 %74, 1
-  %.not92 = icmp eq i8 %75, 0
-  br i1 %.not92, label %76, label %85
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %85, label %76
 
 76:                                               ; preds = %71
   %77 = inttoptr i64 %73 to ptr
@@ -1388,8 +1385,8 @@ define dso_local void @AlterObjectOwner_internal(i32 noundef %0, i32 noundef %1,
 
 89:                                               ; preds = %33, %85
   %90 = load ptr, ptr @object_access_hook, align 8
-  %.not93 = icmp eq ptr %90, null
-  br i1 %.not93, label %92, label %91
+  %.not92 = icmp eq ptr %90, null
+  br i1 %.not92, label %92, label %91
 
 91:                                               ; preds = %89
   call void @RunObjectPostAlterHook(i32 noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #7
@@ -1459,11 +1456,10 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %35 = getelementptr i8, ptr %33, i64 %34
   %36 = getelementptr inbounds i8, ptr %25, i64 86
   %37 = load i8, ptr %36, align 2
-  %38 = and i8 %37, 1
-  %.not20.i = icmp eq i8 %38, 0
+  %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %25, i64 72
   %40 = load i16, ptr %39, align 4
-  br i1 %.not20.i, label %57, label %41
+  br i1 %38, label %41, label %57
 
 41:                                               ; preds = %29
   switch i16 %40, label %53 [

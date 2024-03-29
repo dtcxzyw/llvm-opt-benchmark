@@ -269,9 +269,9 @@ define internal fastcc void @AssignTransactionId(ptr nocapture noundef %0) unnam
   unreachable
 
 15:                                               ; preds = %1
-  br i1 %5, label %18, label %.thread50
+  br i1 %5, label %18, label %.thread49
 
-.thread50:                                        ; preds = %15
+.thread49:                                        ; preds = %15
   %16 = tail call i64 @GetNewTransactionId(i1 noundef zeroext false) #22
   store i64 %16, ptr %0, align 8
   store i64 %16, ptr @XactTopFullTransactionId.0, align 8
@@ -283,7 +283,7 @@ define internal fastcc void @AssignTransactionId(ptr nocapture noundef %0) unnam
   %19 = load i64, ptr %4, align 8
   %20 = and i64 %19, 4294967295
   %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %21, label %.critedge42
+  br i1 %.not, label %21, label %.critedge41
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %0, i64 36
@@ -294,30 +294,30 @@ define internal fastcc void @AssignTransactionId(ptr nocapture noundef %0) unnam
   br label %27
 
 27:                                               ; preds = %21, %30
-  %.03554 = phi i64 [ 0, %21 ], [ %31, %30 ]
-  %.03653 = phi ptr [ %4, %21 ], [ %34, %30 ]
-  %28 = load i64, ptr %.03653, align 8
+  %.03553 = phi i64 [ 0, %21 ], [ %31, %30 ]
+  %.03652 = phi ptr [ %4, %21 ], [ %34, %30 ]
+  %28 = load i64, ptr %.03652, align 8
   %29 = and i64 %28, 4294967295
   %.not38 = icmp eq i64 %29, 0
   br i1 %.not38, label %30, label %.critedge
 
 30:                                               ; preds = %27
-  %31 = add i64 %.03554, 1
-  %32 = getelementptr ptr, ptr %26, i64 %.03554
-  store ptr %.03653, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.03653, i64 104
+  %31 = add i64 %.03553, 1
+  %32 = getelementptr ptr, ptr %26, i64 %.03553
+  store ptr %.03652, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %.03652, i64 104
   %34 = load ptr, ptr %33, align 8
   %.not37 = icmp eq ptr %34, null
   br i1 %.not37, label %.critedge, label %27, !llvm.loop !5
 
 .critedge:                                        ; preds = %30, %27
-  %.035.lcssa = phi i64 [ %31, %30 ], [ %.03554, %27 ]
-  %.not3955 = icmp eq i64 %.035.lcssa, 0
-  br i1 %.not3955, label %._crit_edge, label %.lr.ph
+  %.035.lcssa = phi i64 [ %31, %30 ], [ %.03553, %27 ]
+  %.not3954 = icmp eq i64 %.035.lcssa, 0
+  br i1 %.not3954, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge, %.lr.ph
-  %.156 = phi i64 [ %35, %.lr.ph ], [ %.035.lcssa, %.critedge ]
-  %35 = add i64 %.156, -1
+  %.155 = phi i64 [ %35, %.lr.ph ], [ %.035.lcssa, %.critedge ]
+  %35 = add i64 %.155, -1
   %36 = getelementptr ptr, ptr %26, i64 %35
   %37 = load ptr, ptr %36, align 8
   tail call fastcc void @AssignTransactionId(ptr noundef %37)
@@ -326,15 +326,15 @@ define internal fastcc void @AssignTransactionId(ptr nocapture noundef %0) unnam
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.critedge
   tail call void @pfree(ptr noundef %26) #22
-  br label %.critedge42
+  br label %.critedge41
 
-.critedge42:                                      ; preds = %._crit_edge, %18
+.critedge41:                                      ; preds = %._crit_edge, %18
   %38 = load i32, ptr @wal_level, align 4
   %39 = icmp sgt i32 %38, 1
   %40 = load i8, ptr getelementptr inbounds (%struct.TransactionStateData, ptr @TopTransactionStateData, i64 0, i32 17), align 2
-  %41 = and i8 %40, 1
-  %.not40 = icmp eq i8 %41, 0
-  %.049 = select i1 %39, i1 %.not40, i1 false
+  %41 = trunc i8 %40 to i1
+  %not. = xor i1 %41, true
+  %.048 = select i1 %39, i1 %not., i1 false
   %42 = tail call i64 @GetNewTransactionId(i1 noundef zeroext true) #22
   store i64 %42, ptr %0, align 8
   %43 = trunc i64 %42 to i32
@@ -344,8 +344,8 @@ define internal fastcc void @AssignTransactionId(ptr nocapture noundef %0) unnam
   tail call void @SubTransSetParent(i32 noundef %43, i32 noundef %46) #22
   br label %47
 
-47:                                               ; preds = %.critedge42, %.thread50
-  %.048 = phi i1 [ %.049, %.critedge42 ], [ false, %.thread50 ]
+47:                                               ; preds = %.critedge41, %.thread49
+  %.047 = phi i1 [ %.048, %.critedge41 ], [ false, %.thread49 ]
   %48 = load ptr, ptr @CurrentResourceOwner, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 56
   %50 = load ptr, ptr %49, align 8
@@ -369,7 +369,7 @@ define internal fastcc void @AssignTransactionId(ptr nocapture noundef %0) unnam
   %61 = add i32 %58, 1
   store i32 %61, ptr @nUnreportedXids, align 4
   %62 = icmp sgt i32 %61, 63
-  %brmerge = or i1 %.048, %62
+  %brmerge = or i1 %.047, %62
   br i1 %brmerge, label %63, label %74
 
 63:                                               ; preds = %55
@@ -381,11 +381,11 @@ define internal fastcc void @AssignTransactionId(ptr nocapture noundef %0) unnam
 66:                                               ; preds = %63
   tail call fastcc void @AssignTransactionId(ptr noundef nonnull @TopTransactionStateData)
   %.pre = load i64, ptr @XactTopFullTransactionId.0, align 8
-  %.pre57 = load i32, ptr @nUnreportedXids, align 4
+  %.pre56 = load i32, ptr @nUnreportedXids, align 4
   br label %GetTopTransactionId.exit
 
 GetTopTransactionId.exit:                         ; preds = %63, %66
-  %67 = phi i32 [ %61, %63 ], [ %.pre57, %66 ]
+  %67 = phi i32 [ %61, %63 ], [ %.pre56, %66 ]
   %68 = phi i64 [ %64, %63 ], [ %.pre, %66 ]
   %69 = trunc i64 %68 to i32
   store i32 %69, ptr %2, align 4
@@ -512,12 +512,11 @@ define dso_local zeroext i1 @IsSubxactTopXidLogPending() local_unnamed_addr #0 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 97
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
+  %4 = trunc i8 %3 to i1
   %5 = load i32, ptr @wal_level, align 4
-  %6 = icmp sgt i32 %5, 1
-  %or.cond = select i1 %.not, i1 %6, i1 false
-  br i1 %or.cond, label %7, label %18
+  %6 = icmp slt i32 %5, 2
+  %or.cond.not = select i1 %4, i1 true, i1 %6
+  br i1 %or.cond.not, label %18, label %7
 
 7:                                                ; preds = %0
   %8 = getelementptr inbounds i8, ptr %1, i64 28
@@ -534,11 +533,11 @@ define dso_local zeroext i1 @IsSubxactTopXidLogPending() local_unnamed_addr #0 {
 15:                                               ; preds = %11
   %16 = load i64, ptr %1, align 8
   %17 = and i64 %16, 4294967295
-  %.not1 = icmp ne i64 %17, 0
+  %.not = icmp ne i64 %17, 0
   br label %18
 
 18:                                               ; preds = %15, %11, %7, %0
-  %.0 = phi i1 [ false, %0 ], [ false, %7 ], [ false, %11 ], [ %.not1, %15 ]
+  %.0 = phi i1 [ false, %0 ], [ false, %7 ], [ false, %11 ], [ %.not, %15 ]
   ret i1 %.0
 }
 
@@ -817,9 +816,8 @@ define dso_local zeroext i1 @TransactionStartedDuringRecovery() local_unnamed_ad
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 89
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -1119,13 +1117,13 @@ define dso_local void @SaveTransactionCharacteristics(ptr nocapture noundef writ
   %2 = load i32, ptr @XactIsoLevel, align 4
   store i32 %2, ptr %0, align 4
   %3 = load i8, ptr @XactReadOnly, align 1
-  %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
-  store i8 %4, ptr %5, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = and i8 %3, 1
+  store i8 %5, ptr %4, align 4
   %6 = load i8, ptr @XactDeferrable, align 1
-  %7 = and i8 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 5
-  store i8 %7, ptr %8, align 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 5
+  %8 = and i8 %6, 1
+  store i8 %8, ptr %7, align 1
   ret void
 }
 
@@ -1171,12 +1169,12 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 10, label %44
     i32 11, label %46
     i32 13, label %.preheader
-    i32 14, label %.preheader55
+    i32 14, label %.preheader52
     i32 16, label %tailrecurse.backedge
     i32 17, label %70
   ]
 
-.preheader55:                                     ; preds = %tailrecurse
+.preheader52:                                     ; preds = %tailrecurse
   %7 = and i8 %3, 1
   %8 = and i8 %4, 1
   br label %52
@@ -1212,9 +1210,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %1, i64 96
   %23 = load i8, ptr %22, align 8
-  %24 = and i8 %23, 1
-  %.not45 = icmp eq i8 %24, 0
-  br i1 %.not45, label %.loopexit, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %.loopexit
 
 25:                                               ; preds = %20
   %26 = and i8 %4, 1
@@ -1233,9 +1230,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   store i32 0, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %1, i64 96
   %31 = load i8, ptr %30, align 8
-  %32 = and i8 %31, 1
-  %.not44 = icmp eq i8 %32, 0
-  br i1 %.not44, label %.loopexit, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %.loopexit
 
 33:                                               ; preds = %28
   %34 = and i8 %4, 1
@@ -1255,9 +1251,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   store i32 0, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %1, i64 96
   %39 = load i8, ptr %38, align 8
-  %40 = and i8 %39, 1
-  %.not43 = icmp eq i8 %40, 0
-  br i1 %.not43, label %.loopexit, label %41
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %.loopexit
 
 41:                                               ; preds = %36
   %42 = and i8 %4, 1
@@ -1290,7 +1285,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %51 = icmp eq i32 %50, 13
   br i1 %51, label %.preheader, label %.loopexit, !llvm.loop !12
 
-52:                                               ; preds = %.preheader55, %52
+52:                                               ; preds = %.preheader52, %52
   tail call fastcc void @CommitSubTransaction()
   %53 = load ptr, ptr @CurrentTransactionState, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 32
@@ -1307,9 +1302,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   store i32 0, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %53, i64 96
   %59 = load i8, ptr %58, align 8
-  %60 = and i8 %59, 1
-  %.not = icmp eq i8 %60, 0
-  br i1 %.not, label %.loopexit, label %61
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %.loopexit
 
 61:                                               ; preds = %56
   tail call fastcc void @StartTransaction()
@@ -1469,8 +1463,8 @@ CallXactCallbacks.exit:                           ; preds = %.lr.ph.i, %28
   %36 = load ptr, ptr @CurrentTransactionState, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 92
   %38 = load i32, ptr %37, align 4
-  %.not30 = icmp eq i32 %38, 0
-  br i1 %.not30, label %40, label %39
+  %.not31 = icmp eq i32 %38, 0
+  br i1 %.not31, label %40, label %39
 
 39:                                               ; preds = %CallXactCallbacks.exit
   tail call void @AtEOXact_Parallel(i1 noundef zeroext true) #22
@@ -1505,7 +1499,7 @@ CallXactCallbacks.exit:                           ; preds = %.lr.ph.i, %28
   br label %49
 
 49:                                               ; preds = %48, %42
-  br i1 %8, label %150, label %50
+  br i1 %8, label %152, label %50
 
 50:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
@@ -1514,77 +1508,76 @@ CallXactCallbacks.exit:                           ; preds = %.lr.ph.i, %28
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %51 = load i64, ptr @XactTopFullTransactionId.0, align 8
   %52 = trunc i64 %51 to i32
-  %.not75.i = icmp eq i32 %52, 0
+  %53 = icmp ne i32 %52, 0
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
   store i8 0, ptr %4, align 1
-  %53 = load i32, ptr @wal_level, align 4
-  %54 = icmp sgt i32 %53, 1
-  br i1 %54, label %55, label %56
+  %54 = load i32, ptr @wal_level, align 4
+  %55 = icmp sgt i32 %54, 1
+  br i1 %55, label %56, label %57
 
-55:                                               ; preds = %50
+56:                                               ; preds = %50
   tail call void @LogLogicalInvalidations() #22
-  br label %56
+  br label %57
 
-56:                                               ; preds = %55, %50
-  %57 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext true, ptr noundef nonnull %1) #22
-  %58 = load ptr, ptr @CurrentTransactionState, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 72
-  %60 = load i32, ptr %59, align 8
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %xactGetCommittedChildren.exit.i, label %62
+57:                                               ; preds = %56, %50
+  %58 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext true, ptr noundef nonnull %1) #22
+  %59 = load ptr, ptr @CurrentTransactionState, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 72
+  %61 = load i32, ptr %60, align 8
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %xactGetCommittedChildren.exit.i, label %63
 
-62:                                               ; preds = %56
-  %63 = getelementptr inbounds i8, ptr %58, i64 64
-  %64 = load ptr, ptr %63, align 8
+63:                                               ; preds = %57
+  %64 = getelementptr inbounds i8, ptr %59, i64 64
+  %65 = load ptr, ptr %64, align 8
   br label %xactGetCommittedChildren.exit.i
 
-xactGetCommittedChildren.exit.i:                  ; preds = %62, %56
-  %storemerge.i.i = phi ptr [ %64, %62 ], [ null, %56 ]
-  %65 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext true, ptr noundef nonnull %2) #22
-  %66 = load i32, ptr @wal_level, align 4
-  %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %68, label %70
+xactGetCommittedChildren.exit.i:                  ; preds = %63, %57
+  %storemerge.i.i = phi ptr [ %65, %63 ], [ null, %57 ]
+  %66 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext true, ptr noundef nonnull %2) #22
+  %67 = load i32, ptr @wal_level, align 4
+  %68 = icmp sgt i32 %67, 0
+  br i1 %68, label %69, label %71
 
-68:                                               ; preds = %xactGetCommittedChildren.exit.i
-  %69 = call i32 @xactGetCommittedInvalidationMessages(ptr noundef nonnull %3, ptr noundef nonnull %4) #22
-  br label %70
+69:                                               ; preds = %xactGetCommittedChildren.exit.i
+  %70 = call i32 @xactGetCommittedInvalidationMessages(ptr noundef nonnull %3, ptr noundef nonnull %4) #22
+  br label %71
 
-70:                                               ; preds = %68, %xactGetCommittedChildren.exit.i
-  %.039.i = phi i32 [ %69, %68 ], [ 0, %xactGetCommittedChildren.exit.i ]
-  %71 = load i64, ptr @XactLastRecEnd, align 8
-  %.not76.i = icmp eq i64 %71, 0
-  br i1 %.not75.i, label %72, label %84
+71:                                               ; preds = %69, %xactGetCommittedChildren.exit.i
+  %.039.i = phi i32 [ %70, %69 ], [ 0, %xactGetCommittedChildren.exit.i ]
+  %72 = load i64, ptr @XactLastRecEnd, align 8
+  %.not61.i = icmp eq i64 %72, 0
+  br i1 %53, label %84, label %73
 
-72:                                               ; preds = %70
-  %73 = icmp ne i32 %57, 0
-  %74 = icmp ne i32 %65, 0
-  %or.cond.i = select i1 %73, i1 true, i1 %74
-  br i1 %or.cond.i, label %75, label %78
+73:                                               ; preds = %71
+  %74 = icmp ne i32 %58, 0
+  %75 = icmp ne i32 %66, 0
+  %or.cond.i = select i1 %74, i1 true, i1 %75
+  br i1 %or.cond.i, label %76, label %79
 
-75:                                               ; preds = %72
-  %76 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
-  call void @llvm.assume(i1 %76)
-  %77 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.58) #22
+76:                                               ; preds = %73
+  %77 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
+  call void @llvm.assume(i1 %77)
+  %78 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.58) #22
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1333, ptr noundef nonnull @__func__.RecordTransactionCommit) #22
   unreachable
 
-78:                                               ; preds = %72
+79:                                               ; preds = %73
   %.not43.i = icmp eq i32 %.039.i, 0
-  br i1 %.not43.i, label %83, label %.thread.i
+  br i1 %.not43.i, label %83, label %.thread58.i
 
-.thread.i:                                        ; preds = %78
-  %79 = load ptr, ptr %3, align 8
-  %80 = load i8, ptr %4, align 1
-  %81 = and i8 %80, 1
-  %82 = icmp ne i8 %81, 0
-  call void @LogStandbyInvalidations(i32 noundef %.039.i, ptr noundef %79, i1 noundef zeroext %82) #22
-  br label %.thread66.i
+.thread58.i:                                      ; preds = %79
+  %80 = load ptr, ptr %3, align 8
+  %81 = load i8, ptr %4, align 1
+  %82 = trunc i8 %81 to i1
+  call void @LogStandbyInvalidations(i32 noundef %.039.i, ptr noundef %80, i1 noundef zeroext %82) #22
+  br label %.critedge63.thread.i
 
-83:                                               ; preds = %78
-  br i1 %.not76.i, label %144, label %.thread66.i
+83:                                               ; preds = %79
+  br i1 %.not61.i, label %146, label %.critedge63.thread.i
 
-84:                                               ; preds = %70
+84:                                               ; preds = %71
   %85 = load i16, ptr @replorigin_session_origin, align 2
   %86 = add i16 %85, 1
   %87 = icmp ult i16 %86, 2
@@ -1611,170 +1604,169 @@ GetCurrentTransactionStopTimestamp.exit.i:        ; preds = %96, %84
   %100 = load ptr, ptr %2, align 8
   %101 = load ptr, ptr %3, align 8
   %102 = load i8, ptr %4, align 1
-  %103 = and i8 %102, 1
-  %104 = icmp ne i8 %103, 0
-  %105 = load i32, ptr @MyXactFlags, align 4
-  %106 = call i64 @XactLogCommitRecord(i64 noundef %98, i32 noundef %60, ptr noundef %storemerge.i.i, i32 noundef %57, ptr noundef %99, i32 noundef %65, ptr noundef %100, i32 noundef %.039.i, ptr noundef %101, i1 noundef zeroext %104, i32 noundef %105, i32 noundef 0, ptr noundef null)
-  br i1 %87, label %.thread56.i, label %107
+  %103 = trunc i8 %102 to i1
+  %104 = load i32, ptr @MyXactFlags, align 4
+  %105 = call i64 @XactLogCommitRecord(i64 noundef %98, i32 noundef %61, ptr noundef %storemerge.i.i, i32 noundef %58, ptr noundef %99, i32 noundef %66, ptr noundef %100, i32 noundef %.039.i, ptr noundef %101, i1 noundef zeroext %103, i32 noundef %104, i32 noundef 0, ptr noundef null)
+  br i1 %87, label %.thread54.i, label %106
 
-107:                                              ; preds = %GetCurrentTransactionStopTimestamp.exit.i
-  %108 = load i64, ptr @replorigin_session_origin_lsn, align 8
-  %109 = load i64, ptr @XactLastRecEnd, align 8
-  call void @replorigin_session_advance(i64 noundef %108, i64 noundef %109) #22
-  %110 = load i64, ptr @replorigin_session_origin_timestamp, align 8
-  %111 = icmp eq i64 %110, 0
-  br i1 %111, label %.thread56.i, label %117
+106:                                              ; preds = %GetCurrentTransactionStopTimestamp.exit.i
+  %107 = load i64, ptr @replorigin_session_origin_lsn, align 8
+  %108 = load i64, ptr @XactLastRecEnd, align 8
+  call void @replorigin_session_advance(i64 noundef %107, i64 noundef %108) #22
+  %109 = load i64, ptr @replorigin_session_origin_timestamp, align 8
+  %110 = icmp eq i64 %109, 0
+  br i1 %110, label %.thread54.i, label %116
 
-.thread56.i:                                      ; preds = %107, %GetCurrentTransactionStopTimestamp.exit.i
-  %112 = load i64, ptr @xactStopTimestamp, align 8
-  %113 = icmp eq i64 %112, 0
-  br i1 %113, label %114, label %GetCurrentTransactionStopTimestamp.exit49.i
+.thread54.i:                                      ; preds = %106, %GetCurrentTransactionStopTimestamp.exit.i
+  %111 = load i64, ptr @xactStopTimestamp, align 8
+  %112 = icmp eq i64 %111, 0
+  br i1 %112, label %113, label %GetCurrentTransactionStopTimestamp.exit48.i
 
-114:                                              ; preds = %.thread56.i
-  %115 = call i64 @GetCurrentTimestamp() #22
-  store i64 %115, ptr @xactStopTimestamp, align 8
-  br label %GetCurrentTransactionStopTimestamp.exit49.i
+113:                                              ; preds = %.thread54.i
+  %114 = call i64 @GetCurrentTimestamp() #22
+  store i64 %114, ptr @xactStopTimestamp, align 8
+  br label %GetCurrentTransactionStopTimestamp.exit48.i
 
-GetCurrentTransactionStopTimestamp.exit49.i:      ; preds = %114, %.thread56.i
-  %116 = phi i64 [ %115, %114 ], [ %112, %.thread56.i ]
-  store i64 %116, ptr @replorigin_session_origin_timestamp, align 8
-  br label %117
+GetCurrentTransactionStopTimestamp.exit48.i:      ; preds = %113, %.thread54.i
+  %115 = phi i64 [ %114, %113 ], [ %111, %.thread54.i ]
+  store i64 %115, ptr @replorigin_session_origin_timestamp, align 8
+  br label %116
 
-117:                                              ; preds = %GetCurrentTransactionStopTimestamp.exit49.i, %107
-  %118 = phi i64 [ %116, %GetCurrentTransactionStopTimestamp.exit49.i ], [ %110, %107 ]
-  %119 = load i16, ptr @replorigin_session_origin, align 2
-  call void @TransactionTreeSetCommitTsData(i32 noundef %52, i32 noundef %60, ptr noundef %storemerge.i.i, i64 noundef %118, i16 noundef zeroext %119) #22
-  br i1 %.not76.i, label %.thread66.i, label %120
+116:                                              ; preds = %GetCurrentTransactionStopTimestamp.exit48.i, %106
+  %117 = phi i64 [ %109, %106 ], [ %115, %GetCurrentTransactionStopTimestamp.exit48.i ]
+  %118 = load i16, ptr @replorigin_session_origin, align 2
+  call void @TransactionTreeSetCommitTsData(i32 noundef %52, i32 noundef %61, ptr noundef %storemerge.i.i, i64 noundef %117, i16 noundef zeroext %118) #22
+  br i1 %.not61.i, label %.critedge63.thread.i, label %.critedge63.i
 
-120:                                              ; preds = %117
-  %121 = load i32, ptr @synchronous_commit, align 4
-  %122 = icmp sgt i32 %121, 0
-  br i1 %122, label %.thread69.i, label %.thread66.i
+.critedge63.i:                                    ; preds = %116
+  %119 = load i32, ptr @synchronous_commit, align 4
+  %120 = icmp sgt i32 %119, 0
+  br i1 %120, label %.thread60.i, label %.critedge63.thread.i
 
-.thread69.i:                                      ; preds = %120
-  %123 = load i64, ptr @XactLastRecEnd, align 8
-  call void @XLogFlush(i64 noundef %123) #22
-  br label %127
+.thread60.i:                                      ; preds = %.critedge63.i
+  %121 = load i64, ptr @XactLastRecEnd, align 8
+  call void @XLogFlush(i64 noundef %121) #22
+  br label %126
 
-.thread66.i:                                      ; preds = %120, %117, %83, %.thread.i
-  %.not65.i = phi i1 [ false, %120 ], [ true, %117 ], [ false, %.thread.i ], [ false, %83 ]
-  %.b45.i = load i1, ptr @forceSyncCommit, align 1
-  %124 = icmp sgt i32 %57, 0
-  %or.cond7.i = select i1 %.b45.i, i1 true, i1 %124
-  %125 = load i64, ptr @XactLastRecEnd, align 8
-  br i1 %or.cond7.i, label %126, label %128
+.critedge63.thread.i:                             ; preds = %.critedge63.i, %116, %83, %.thread58.i
+  %122 = phi i1 [ true, %.critedge63.i ], [ false, %116 ], [ true, %.thread58.i ], [ true, %83 ]
+  %.b44.i = load i1, ptr @forceSyncCommit, align 1
+  %123 = icmp sgt i32 %58, 0
+  %or.cond7.i = select i1 %.b44.i, i1 true, i1 %123
+  %124 = load i64, ptr @XactLastRecEnd, align 8
+  br i1 %or.cond7.i, label %125, label %128
 
-126:                                              ; preds = %.thread66.i
-  call void @XLogFlush(i64 noundef %125) #22
-  br i1 %.not75.i, label %.critedge.thread.i, label %127
+125:                                              ; preds = %.critedge63.thread.i
+  call void @XLogFlush(i64 noundef %124) #22
+  br i1 %53, label %126, label %.critedge.thread.i
 
-127:                                              ; preds = %126, %.thread69.i
-  %.not6371.i = phi i1 [ false, %.thread69.i ], [ %.not65.i, %126 ]
-  call void @TransactionIdCommitTree(i32 noundef %52, i32 noundef %60, ptr noundef %storemerge.i.i) #22
+126:                                              ; preds = %125, %.thread60.i
+  %127 = phi i1 [ true, %.thread60.i ], [ %122, %125 ]
+  call void @TransactionIdCommitTree(i32 noundef %52, i32 noundef %61, ptr noundef %storemerge.i.i) #22
   br label %.critedge.i
 
-128:                                              ; preds = %.thread66.i
-  call void @XLogSetAsyncXactLSN(i64 noundef %125) #22
-  br i1 %.not75.i, label %.critedge.thread.i, label %129
+128:                                              ; preds = %.critedge63.thread.i
+  call void @XLogSetAsyncXactLSN(i64 noundef %124) #22
+  br i1 %53, label %129, label %.critedge.thread.i
 
 129:                                              ; preds = %128
   %130 = load i64, ptr @XactLastRecEnd, align 8
-  call void @TransactionIdAsyncCommitTree(i32 noundef %52, i32 noundef %60, ptr noundef %storemerge.i.i, i64 noundef %130) #22
+  call void @TransactionIdAsyncCommitTree(i32 noundef %52, i32 noundef %61, ptr noundef %storemerge.i.i, i64 noundef %130) #22
   br label %.critedge.i
 
-.critedge.thread.i:                               ; preds = %128, %126
-  %131 = call i32 @TransactionIdLatest(i32 noundef %52, i32 noundef %60, ptr noundef %storemerge.i.i) #22
-  br label %141
+.critedge.thread.i:                               ; preds = %128, %125
+  %131 = call i32 @TransactionIdLatest(i32 noundef %52, i32 noundef %61, ptr noundef %storemerge.i.i) #22
+  br label %143
 
-.critedge.i:                                      ; preds = %129, %127
-  %.not62.i = phi i1 [ %.not65.i, %129 ], [ %.not6371.i, %127 ]
-  %132 = load ptr, ptr @MyProc, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 144
-  %134 = load i32, ptr %133, align 8
-  %135 = and i32 %134, -2
-  store i32 %135, ptr %133, align 8
-  %136 = load volatile i32, ptr @CritSectionCount, align 4
-  %137 = add i32 %136, -1
-  store volatile i32 %137, ptr @CritSectionCount, align 4
-  %138 = call i32 @TransactionIdLatest(i32 noundef %52, i32 noundef %60, ptr noundef %storemerge.i.i) #22
-  %brmerge.i = select i1 %.not62.i, i1 true, i1 %.not75.i
-  br i1 %brmerge.i, label %141, label %139
+.critedge.i:                                      ; preds = %129, %126
+  %132 = phi i1 [ %122, %129 ], [ %127, %126 ]
+  %133 = load ptr, ptr @MyProc, align 8
+  %134 = getelementptr inbounds i8, ptr %133, i64 144
+  %135 = load i32, ptr %134, align 8
+  %136 = and i32 %135, -2
+  store i32 %136, ptr %134, align 8
+  %137 = load volatile i32, ptr @CritSectionCount, align 4
+  %138 = add i32 %137, -1
+  store volatile i32 %138, ptr @CritSectionCount, align 4
+  %139 = call i32 @TransactionIdLatest(i32 noundef %52, i32 noundef %61, ptr noundef %storemerge.i.i) #22
+  %140 = select i1 %132, i1 %53, i1 false
+  br i1 %140, label %141, label %143
 
-139:                                              ; preds = %.critedge.i
-  %140 = load i64, ptr @XactLastRecEnd, align 8
-  call void @SyncRepWaitForLSN(i64 noundef %140, i1 noundef zeroext true) #22
-  br label %141
+141:                                              ; preds = %.critedge.i
+  %142 = load i64, ptr @XactLastRecEnd, align 8
+  call void @SyncRepWaitForLSN(i64 noundef %142, i1 noundef zeroext true) #22
+  br label %143
 
-141:                                              ; preds = %139, %.critedge.i, %.critedge.thread.i
-  %142 = phi i32 [ %131, %.critedge.thread.i ], [ %138, %.critedge.i ], [ %138, %139 ]
-  %143 = load i64, ptr @XactLastRecEnd, align 8
-  store i64 %143, ptr @XactLastCommitEnd, align 8
+143:                                              ; preds = %141, %.critedge.i, %.critedge.thread.i
+  %144 = phi i32 [ %131, %.critedge.thread.i ], [ %139, %.critedge.i ], [ %139, %141 ]
+  %145 = load i64, ptr @XactLastRecEnd, align 8
+  store i64 %145, ptr @XactLastCommitEnd, align 8
   store i64 0, ptr @XactLastRecEnd, align 8
-  br label %144
+  br label %146
 
-144:                                              ; preds = %141, %83
-  %.0.i24 = phi i32 [ %142, %141 ], [ 0, %83 ]
-  %145 = load ptr, ptr %1, align 8
-  %.not46.i = icmp eq ptr %145, null
-  br i1 %.not46.i, label %147, label %146
+146:                                              ; preds = %143, %83
+  %.0.i24 = phi i32 [ %144, %143 ], [ 0, %83 ]
+  %147 = load ptr, ptr %1, align 8
+  %.not.i25 = icmp eq ptr %147, null
+  br i1 %.not.i25, label %149, label %148
 
-146:                                              ; preds = %144
-  call void @pfree(ptr noundef nonnull %145) #22
-  br label %147
+148:                                              ; preds = %146
+  call void @pfree(ptr noundef nonnull %147) #22
+  br label %149
 
-147:                                              ; preds = %146, %144
-  %.not47.i = icmp eq i32 %65, 0
-  br i1 %.not47.i, label %RecordTransactionCommit.exit, label %148
+149:                                              ; preds = %148, %146
+  %.not45.i = icmp eq i32 %66, 0
+  br i1 %.not45.i, label %RecordTransactionCommit.exit, label %150
 
-148:                                              ; preds = %147
-  %149 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %149) #22
+150:                                              ; preds = %149
+  %151 = load ptr, ptr %2, align 8
+  call void @pfree(ptr noundef %151) #22
   br label %RecordTransactionCommit.exit
 
-RecordTransactionCommit.exit:                     ; preds = %147, %148
+RecordTransactionCommit.exit:                     ; preds = %149, %150
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %152
+  br label %154
 
-150:                                              ; preds = %49
-  %151 = load i64, ptr @XactLastRecEnd, align 8
-  tail call void @ParallelWorkerReportLastRecEnd(i64 noundef %151) #22
-  br label %152
+152:                                              ; preds = %49
+  %153 = load i64, ptr @XactLastRecEnd, align 8
+  tail call void @ParallelWorkerReportLastRecEnd(i64 noundef %153) #22
+  br label %154
 
-152:                                              ; preds = %150, %RecordTransactionCommit.exit
-  %.0 = phi i32 [ 0, %150 ], [ %.0.i24, %RecordTransactionCommit.exit ]
-  %153 = load ptr, ptr @MyProc, align 8
-  call void @ProcArrayEndTransaction(ptr noundef %153, i32 noundef %.0) #22
-  %154 = zext i1 %8 to i32
-  %155 = load ptr, ptr @Xact_callbacks, align 8
-  %.not5.i25 = icmp eq ptr %155, null
-  br i1 %.not5.i25, label %CallXactCallbacks.exit29, label %.lr.ph.i26
+154:                                              ; preds = %152, %RecordTransactionCommit.exit
+  %.0 = phi i32 [ 0, %152 ], [ %.0.i24, %RecordTransactionCommit.exit ]
+  %155 = load ptr, ptr @MyProc, align 8
+  call void @ProcArrayEndTransaction(ptr noundef %155, i32 noundef %.0) #22
+  %156 = zext i1 %8 to i32
+  %157 = load ptr, ptr @Xact_callbacks, align 8
+  %.not5.i26 = icmp eq ptr %157, null
+  br i1 %.not5.i26, label %CallXactCallbacks.exit30, label %.lr.ph.i27
 
-.lr.ph.i26:                                       ; preds = %152, %.lr.ph.i26
-  %.06.i27 = phi ptr [ %156, %.lr.ph.i26 ], [ %155, %152 ]
-  %156 = load ptr, ptr %.06.i27, align 8
-  %157 = getelementptr inbounds i8, ptr %.06.i27, i64 8
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %.06.i27, i64 16
+.lr.ph.i27:                                       ; preds = %154, %.lr.ph.i27
+  %.06.i28 = phi ptr [ %158, %.lr.ph.i27 ], [ %157, %154 ]
+  %158 = load ptr, ptr %.06.i28, align 8
+  %159 = getelementptr inbounds i8, ptr %.06.i28, i64 8
   %160 = load ptr, ptr %159, align 8
-  call void %158(i32 noundef %154, ptr noundef %160) #22
-  %.not.i28 = icmp eq ptr %156, null
-  br i1 %.not.i28, label %CallXactCallbacks.exit29, label %.lr.ph.i26, !llvm.loop !13
+  %161 = getelementptr inbounds i8, ptr %.06.i28, i64 16
+  %162 = load ptr, ptr %161, align 8
+  call void %160(i32 noundef %156, ptr noundef %162) #22
+  %.not.i29 = icmp eq ptr %158, null
+  br i1 %.not.i29, label %CallXactCallbacks.exit30, label %.lr.ph.i27, !llvm.loop !13
 
-CallXactCallbacks.exit29:                         ; preds = %.lr.ph.i26, %152
+CallXactCallbacks.exit30:                         ; preds = %.lr.ph.i27, %154
   store ptr null, ptr @CurrentResourceOwner, align 8
-  %161 = load ptr, ptr @TopTransactionResourceOwner, align 8
-  call void @ResourceOwnerRelease(ptr noundef %161, i32 noundef 1, i1 noundef zeroext true, i1 noundef zeroext true) #22
+  %163 = load ptr, ptr @TopTransactionResourceOwner, align 8
+  call void @ResourceOwnerRelease(ptr noundef %163, i32 noundef 1, i1 noundef zeroext true, i1 noundef zeroext true) #22
   call void @AtEOXact_Buffers(i1 noundef zeroext true) #22
   call void @AtEOXact_RelationCache(i1 noundef zeroext true) #22
   call void @AtEOXact_Inval(i1 noundef zeroext true) #22
   call void @AtEOXact_MultiXact() #22
-  %162 = load ptr, ptr @TopTransactionResourceOwner, align 8
-  call void @ResourceOwnerRelease(ptr noundef %162, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true) #22
-  %163 = load ptr, ptr @TopTransactionResourceOwner, align 8
-  call void @ResourceOwnerRelease(ptr noundef %163, i32 noundef 3, i1 noundef zeroext true, i1 noundef zeroext true) #22
+  %164 = load ptr, ptr @TopTransactionResourceOwner, align 8
+  call void @ResourceOwnerRelease(ptr noundef %164, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true) #22
+  %165 = load ptr, ptr @TopTransactionResourceOwner, align 8
+  call void @ResourceOwnerRelease(ptr noundef %165, i32 noundef 3, i1 noundef zeroext true, i1 noundef zeroext true) #22
   call void @smgrDoPendingDeletes(i1 noundef zeroext true) #22
   call void @AtCommit_Notify() #22
   call void @AtEOXact_GUC(i1 noundef zeroext true, i32 noundef 1) #22
@@ -1791,36 +1783,36 @@ CallXactCallbacks.exit29:                         ; preds = %.lr.ph.i26, %152
   call void @AtEOXact_ApplyLauncher(i1 noundef zeroext true) #22
   call void @AtEOXact_LogicalRepWorkers(i1 noundef zeroext true) #22
   call void @pgstat_report_xact_timestamp(i64 noundef 0) #22
-  %164 = load ptr, ptr @TopTransactionResourceOwner, align 8
-  call void @ResourceOwnerDelete(ptr noundef %164) #22
-  %165 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr null, ptr %165, align 8
+  %166 = load ptr, ptr @TopTransactionResourceOwner, align 8
+  call void @ResourceOwnerDelete(ptr noundef %166) #22
+  %167 = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr null, ptr %167, align 8
   store ptr null, ptr @CurTransactionResourceOwner, align 8
   store ptr null, ptr @TopTransactionResourceOwner, align 8
-  %166 = load ptr, ptr @TopMemoryContext, align 8
-  store ptr %166, ptr @CurrentMemoryContext, align 8
-  %167 = load ptr, ptr @TopTransactionContext, align 8
-  call void @MemoryContextDelete(ptr noundef %167) #22
+  %168 = load ptr, ptr @TopMemoryContext, align 8
+  store ptr %168, ptr @CurrentMemoryContext, align 8
+  %169 = load ptr, ptr @TopTransactionContext, align 8
+  call void @MemoryContextDelete(ptr noundef %169) #22
   store ptr null, ptr @TopTransactionContext, align 8
   store ptr null, ptr @CurTransactionContext, align 8
-  %168 = load ptr, ptr @CurrentTransactionState, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 48
-  store ptr null, ptr %169, align 8
+  %170 = load ptr, ptr @CurrentTransactionState, align 8
+  %171 = getelementptr inbounds i8, ptr %170, i64 48
+  store ptr null, ptr %171, align 8
   store i64 0, ptr %5, align 8
-  %170 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 0, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %5, i64 36
-  store i32 0, ptr %171, align 4
-  %172 = getelementptr inbounds i8, ptr %5, i64 40
+  %172 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 0, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %5, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %173, i8 0, i64 16, i1 false)
+  %173 = getelementptr inbounds i8, ptr %5, i64 36
+  store i32 0, ptr %173, align 4
+  %174 = getelementptr inbounds i8, ptr %5, i64 40
+  store i32 0, ptr %174, align 8
+  %175 = getelementptr inbounds i8, ptr %5, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %175, i8 0, i64 16, i1 false)
   store i64 0, ptr @XactTopFullTransactionId.0, align 8
   store i32 0, ptr @nParallelCurrentXids, align 4
   store i32 0, ptr %17, align 4
-  %174 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %175 = add i32 %174, -1
-  store volatile i32 %175, ptr @InterruptHoldoffCount, align 4
+  %176 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %177 = add i32 %176, -1
+  store volatile i32 %177, ptr @InterruptHoldoffCount, align 4
   ret void
 }
 
@@ -3994,14 +3986,14 @@ define internal fastcc void @PushTransaction() unnamed_addr #1 {
   %26 = getelementptr inbounds i8, ptr %3, i64 84
   tail call void @GetUserIdAndSecContext(ptr noundef nonnull %25, ptr noundef nonnull %26) #22
   %27 = load i8, ptr @XactReadOnly, align 1
-  %28 = and i8 %27, 1
-  %29 = getelementptr inbounds i8, ptr %3, i64 88
-  store i8 %28, ptr %29, align 8
+  %28 = getelementptr inbounds i8, ptr %3, i64 88
+  %29 = and i8 %27, 1
+  store i8 %29, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %1, i64 89
   %31 = load i8, ptr %30, align 1
-  %32 = and i8 %31, 1
-  %33 = getelementptr inbounds i8, ptr %3, i64 89
-  store i8 %32, ptr %33, align 1
+  %32 = getelementptr inbounds i8, ptr %3, i64 89
+  %33 = and i8 %31, 1
+  store i8 %33, ptr %32, align 1
   %34 = getelementptr inbounds i8, ptr %3, i64 92
   store i32 0, ptr %34, align 4
   %35 = getelementptr inbounds i8, ptr %3, i64 97
@@ -4711,9 +4703,9 @@ define dso_local void @SerializeTransactionState(i64 noundef %0, ptr nocapture n
   %3 = load i32, ptr @XactIsoLevel, align 4
   store i32 %3, ptr %1, align 8
   %4 = load i8, ptr @XactDeferrable, align 1
-  %5 = and i8 %4, 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  store i8 %5, ptr %6, align 4
+  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = and i8 %4, 1
+  store i8 %6, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i64, ptr @XactTopFullTransactionId.0, align 8
   store i64 %8, ptr %7, align 8

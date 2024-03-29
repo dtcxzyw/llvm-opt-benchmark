@@ -2944,8 +2944,8 @@ define internal fastcc noundef i64 @rand_init(ptr nocapture noundef readonly %0,
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %3
-  %8 = icmp ult i64 %5, 4611686018427387904
-  br i1 %8, label %.thread, label %9
+  %8 = icmp ugt i64 %5, 4611686018427387903
+  br i1 %8, label %9, label %.thread
 
 9:                                                ; preds = %7
   tail call void @ruby_malloc_size_overflow(i64 noundef %spec.store.select, i64 noundef 4) #23
@@ -4085,8 +4085,8 @@ define internal fastcc i64 @random_ulong_limited_big(i64 noundef %0, ptr noundef
   br label %19
 
 13:                                               ; preds = %6
-  %14 = icmp ult i64 %8, 4611686018427387904
-  br i1 %14, label %rb_alloc_tmp_buffer2.exit, label %15
+  %14 = icmp ugt i64 %8, 4611686018427387903
+  br i1 %14, label %15, label %rb_alloc_tmp_buffer2.exit
 
 15:                                               ; preds = %13
   call void @ruby_malloc_size_overflow(i64 noundef %8, i64 noundef 4) #23
@@ -4220,8 +4220,8 @@ define internal fastcc i64 @limited_big_rand(ptr nocapture noundef readonly %0, 
   br label %17
 
 11:                                               ; preds = %3
-  %12 = icmp ult i64 %6, 4611686018427387904
-  br i1 %12, label %rb_alloc_tmp_buffer2.exit, label %13
+  %12 = icmp ugt i64 %6, 4611686018427387903
+  br i1 %12, label %13, label %rb_alloc_tmp_buffer2.exit
 
 13:                                               ; preds = %11
   tail call void @ruby_malloc_size_overflow(i64 noundef %6, i64 noundef 4) #23

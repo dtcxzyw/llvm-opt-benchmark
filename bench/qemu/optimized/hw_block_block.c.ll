@@ -342,18 +342,17 @@ entry:
   %shared_perm.0 = select i1 %resizable, i64 13, i64 5
   %share_rw = getelementptr inbounds i8, ptr %conf, i64 64
   %1 = load i8, ptr %share_rw, align 8
-  %2 = shl i8 %1, 1
-  %3 = and i8 %2, 2
-  %4 = zext nneg i8 %3 to i64
-  %shared_perm.1 = or disjoint i64 %shared_perm.0, %4
+  %tobool7 = trunc i8 %1 to i1
+  %or9 = or disjoint i64 %shared_perm.0, 2
+  %shared_perm.1 = select i1 %tobool7, i64 %or9, i64 %shared_perm.0
   %call = tail call i32 @blk_set_perm(ptr noundef %0, i64 noundef %spec.select, i64 noundef %shared_perm.1, ptr noundef %errp) #5
   %cmp = icmp sgt i32 %call, -1
   br i1 %cmp, label %if.end12, label %return
 
 if.end12:                                         ; preds = %entry
   %wce13 = getelementptr inbounds i8, ptr %conf, i64 60
-  %5 = load i32, ptr %wce13, align 4
-  switch i32 %5, label %sw.default [
+  %2 = load i32, ptr %wce13, align 4
+  switch i32 %2, label %sw.default [
     i32 1, label %sw.epilog
     i32 2, label %sw.bb14
     i32 0, label %sw.bb15
@@ -373,8 +372,8 @@ sw.default:                                       ; preds = %if.end12
 sw.epilog:                                        ; preds = %if.end12, %sw.bb15, %sw.bb14
   %wce.0 = phi i1 [ %call16, %sw.bb15 ], [ false, %sw.bb14 ], [ true, %if.end12 ]
   %rerror18 = getelementptr inbounds i8, ptr %conf, i64 76
-  %6 = load i32, ptr %rerror18, align 4
-  %cmp19 = icmp eq i32 %6, 4
+  %3 = load i32, ptr %rerror18, align 4
+  %cmp19 = icmp eq i32 %3, 4
   br i1 %cmp19, label %if.then20, label %if.end22
 
 if.then20:                                        ; preds = %sw.epilog
@@ -382,10 +381,10 @@ if.then20:                                        ; preds = %sw.epilog
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then20, %sw.epilog
-  %rerror.0 = phi i32 [ %call21, %if.then20 ], [ %6, %sw.epilog ]
+  %rerror.0 = phi i32 [ %call21, %if.then20 ], [ %3, %sw.epilog ]
   %werror23 = getelementptr inbounds i8, ptr %conf, i64 80
-  %7 = load i32, ptr %werror23, align 8
-  %cmp24 = icmp eq i32 %7, 4
+  %4 = load i32, ptr %werror23, align 8
+  %cmp24 = icmp eq i32 %4, 4
   br i1 %cmp24, label %if.then25, label %if.end27
 
 if.then25:                                        ; preds = %if.end22
@@ -393,15 +392,15 @@ if.then25:                                        ; preds = %if.end22
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then25, %if.end22
-  %werror.0 = phi i32 [ %call26, %if.then25 ], [ %7, %if.end22 ]
+  %werror.0 = phi i32 [ %call26, %if.then25 ], [ %4, %if.end22 ]
   tail call void @blk_set_enable_write_cache(ptr noundef %0, i1 noundef zeroext %wce.0) #5
   tail call void @blk_set_on_error(ptr noundef %0, i32 noundef %rerror.0, i32 noundef %werror.0) #5
   %call29 = tail call ptr @blk_get_stats(ptr noundef %0) #5
   %account_invalid = getelementptr inbounds i8, ptr %conf, i64 68
-  %8 = load i32, ptr %account_invalid, align 4
+  %5 = load i32, ptr %account_invalid, align 4
   %account_failed = getelementptr inbounds i8, ptr %conf, i64 72
-  %9 = load i32, ptr %account_failed, align 8
-  tail call void @block_acct_setup(ptr noundef %call29, i32 noundef %8, i32 noundef %9) #5
+  %6 = load i32, ptr %account_failed, align 8
+  tail call void @block_acct_setup(ptr noundef %call29, i32 noundef %5, i32 noundef %6) #5
   br label %return
 
 return:                                           ; preds = %entry, %if.end27

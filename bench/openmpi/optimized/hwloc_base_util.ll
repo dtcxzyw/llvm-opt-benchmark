@@ -259,8 +259,8 @@ define noundef i32 @opal_hwloc_base_get_topology() local_unnamed_addr #0 {
 104:                                              ; preds = %102
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.10) #9
   %105 = call ptr @fgets(ptr noundef nonnull %19, i32 noundef 256, ptr noundef nonnull %103)
-  %.not70146 = icmp eq ptr %105, null
-  br i1 %.not70146, label %._crit_edge, label %.lr.ph
+  %.not70154 = icmp eq ptr %105, null
+  br i1 %.not70154, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %104, %108
   %106 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %19, i32 noundef 10) #10
@@ -499,108 +499,114 @@ opal_hwloc_base_topology_set_flags.exit.thread:   ; preds = %190, %194, %opal_hw
   %202 = icmp eq ptr %201, null
   br i1 %202, label %opal_hwloc_base_set_local_cpuset.exit, label %.preheader.i
 
-.preheaderthread-pre-split.i:                     ; preds = %opal_hwloc_base_get_obj_by_type.exit.thread.i
+.preheaderthread-pre-split.i:                     ; preds = %opal_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge, %opal_hwloc_base_get_obj_by_type.exit.thread.i.thread
+  %.pr.i = phi ptr [ null, %opal_hwloc_base_get_obj_by_type.exit.thread.i.thread ], [ %.pr.i.pre, %opal_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge ]
+  %.117.lcssa.i148 = phi i32 [ %.01637.i, %opal_hwloc_base_get_obj_by_type.exit.thread.i.thread ], [ %.117.lcssa.i, %opal_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge ]
   %203 = add nsw i32 %.01936.i, -1
-  %.pr.i = load ptr, ptr @opal_hwloc_topology, align 8
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %200, %.preheaderthread-pre-split.i
-  %204 = phi ptr [ %.pr.i, %.preheaderthread-pre-split.i ], [ %201, %200 ]
-  %.039.i = phi i8 [ %.1.lcssa.i, %.preheaderthread-pre-split.i ], [ 0, %200 ]
+  %.pr.i160 = phi ptr [ %.pr.i, %.preheaderthread-pre-split.i ], [ %201, %200 ]
   %.01538.i = phi i32 [ 4, %.preheaderthread-pre-split.i ], [ 5, %200 ]
-  %.01637.i = phi i32 [ %.117.lcssa.i, %.preheaderthread-pre-split.i ], [ 4096, %200 ]
+  %.01637.i = phi i32 [ %.117.lcssa.i148, %.preheaderthread-pre-split.i ], [ 4096, %200 ]
   %.01936.i = phi i32 [ %203, %.preheaderthread-pre-split.i ], [ 2, %200 ]
-  %205 = icmp eq ptr %204, null
-  br i1 %205, label %opal_hwloc_base_get_obj_by_type.exit.thread.i, label %.lr.ph.i
+  %204 = icmp eq ptr %.pr.i160, null
+  br i1 %204, label %opal_hwloc_base_get_obj_by_type.exit.thread.i.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %220
-  %206 = phi ptr [ %222, %220 ], [ %204, %.preheader.i ]
-  %.129.i = phi i8 [ %.2.i, %220 ], [ %.039.i, %.preheader.i ]
-  %.01428.i = phi i32 [ %221, %220 ], [ 0, %.preheader.i ]
-  %.11727.i = phi i32 [ %.218.i, %220 ], [ %.01637.i, %.preheader.i ]
-  %207 = call i32 @hwloc_get_type_depth(ptr noundef nonnull %206, i32 noundef %.01538.i) #9
-  %switch.i.i.i = icmp ugt i32 %207, -3
+.lr.ph.i:                                         ; preds = %.preheader.i, %218
+  %205 = phi ptr [ %220, %218 ], [ %.pr.i160, %.preheader.i ]
+  %.129.i = phi i1 [ %.2.i, %218 ], [ false, %.preheader.i ]
+  %.01428.i = phi i32 [ %219, %218 ], [ 0, %.preheader.i ]
+  %.11727.i = phi i32 [ %.218.i, %218 ], [ %.01637.i, %.preheader.i ]
+  %206 = call i32 @hwloc_get_type_depth(ptr noundef nonnull %205, i32 noundef %.01538.i) #9
+  %switch.i.i.i = icmp ugt i32 %206, -3
   br i1 %switch.i.i.i, label %opal_hwloc_base_get_obj_by_type.exit.thread.i, label %opal_hwloc_base_get_obj_by_type.exit.i
 
 opal_hwloc_base_get_obj_by_type.exit.i:           ; preds = %.lr.ph.i
-  %208 = call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %206, i32 noundef %207, i32 noundef %.01428.i) #10
-  %209 = icmp eq ptr %208, null
-  br i1 %209, label %opal_hwloc_base_get_obj_by_type.exit.thread.i, label %213
+  %207 = call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %205, i32 noundef %206, i32 noundef %.01428.i) #10
+  %208 = icmp eq ptr %207, null
+  br i1 %208, label %opal_hwloc_base_get_obj_by_type.exit.thread.i, label %211
 
-opal_hwloc_base_get_obj_by_type.exit.thread.i:    ; preds = %220, %opal_hwloc_base_get_obj_by_type.exit.i, %.lr.ph.i, %.preheader.i
-  %.117.lcssa.i = phi i32 [ %.01637.i, %.preheader.i ], [ %.11727.i, %opal_hwloc_base_get_obj_by_type.exit.i ], [ %.218.i, %220 ], [ %.11727.i, %.lr.ph.i ]
-  %.1.lcssa.i = phi i8 [ %.039.i, %.preheader.i ], [ %.129.i, %opal_hwloc_base_get_obj_by_type.exit.i ], [ %.2.i, %220 ], [ %.129.i, %.lr.ph.i ]
-  %210 = icmp ugt i32 %.01936.i, 1
-  %211 = and i8 %.1.lcssa.i, 1
-  %.not.i84 = icmp eq i8 %211, 0
-  %212 = select i1 %210, i1 %.not.i84, i1 false
-  br i1 %212, label %.preheaderthread-pre-split.i, label %.split41.us.i, !llvm.loop !6
+opal_hwloc_base_get_obj_by_type.exit.thread.i:    ; preds = %218, %opal_hwloc_base_get_obj_by_type.exit.i, %.lr.ph.i
+  %.117.lcssa.i = phi i32 [ %.11727.i, %.lr.ph.i ], [ %.218.i, %218 ], [ %.11727.i, %opal_hwloc_base_get_obj_by_type.exit.i ]
+  %.1.lcssa.i = phi i1 [ %.129.i, %.lr.ph.i ], [ %.2.i, %218 ], [ %.129.i, %opal_hwloc_base_get_obj_by_type.exit.i ]
+  %209 = icmp ult i32 %.01936.i, 2
+  %.not23.i = select i1 %209, i1 true, i1 %.1.lcssa.i
+  br i1 %.not23.i, label %.split41.us.i, label %opal_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge, !llvm.loop !6
 
-213:                                              ; preds = %opal_hwloc_base_get_obj_by_type.exit.i
-  %214 = getelementptr inbounds i8, ptr %208, i64 40
-  %215 = load ptr, ptr %214, align 8
-  %.not23.i = icmp eq ptr %215, null
-  br i1 %.not23.i, label %220, label %216
+opal_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge: ; preds = %opal_hwloc_base_get_obj_by_type.exit.thread.i
+  %.pr.i.pre = load ptr, ptr @opal_hwloc_topology, align 8
+  br label %.preheaderthread-pre-split.i
 
-216:                                              ; preds = %213
-  %217 = getelementptr inbounds i8, ptr %215, i64 12
-  %218 = load i32, ptr %217, align 4
-  %.not24.i = icmp ne i32 %218, 0
-  %219 = icmp ugt i32 %.11727.i, %218
-  %or.cond.i = select i1 %.not24.i, i1 %219, i1 false
-  %spec.select.i = select i1 %or.cond.i, i32 %218, i32 %.11727.i
-  %spec.select25.i = select i1 %or.cond.i, i8 1, i8 %.129.i
-  br label %220
+opal_hwloc_base_get_obj_by_type.exit.thread.i.thread: ; preds = %.preheader.i
+  %210 = icmp ult i32 %.01936.i, 2
+  br i1 %210, label %fill_cache_line_size.exit, label %.preheaderthread-pre-split.i, !llvm.loop !6
 
-220:                                              ; preds = %216, %213
-  %.218.i = phi i32 [ %.11727.i, %213 ], [ %spec.select.i, %216 ]
-  %.2.i = phi i8 [ %.129.i, %213 ], [ %spec.select25.i, %216 ]
-  %221 = add nuw nsw i32 %.01428.i, 1
-  %222 = load ptr, ptr @opal_hwloc_topology, align 8
-  %223 = icmp eq ptr %222, null
-  br i1 %223, label %opal_hwloc_base_get_obj_by_type.exit.thread.i, label %.lr.ph.i
+211:                                              ; preds = %opal_hwloc_base_get_obj_by_type.exit.i
+  %212 = getelementptr inbounds i8, ptr %207, i64 40
+  %213 = load ptr, ptr %212, align 8
+  %.not.i84 = icmp eq ptr %213, null
+  br i1 %.not.i84, label %218, label %214
+
+214:                                              ; preds = %211
+  %215 = getelementptr inbounds i8, ptr %213, i64 12
+  %216 = load i32, ptr %215, align 4
+  %.not24.i = icmp ne i32 %216, 0
+  %217 = icmp ugt i32 %.11727.i, %216
+  %or.cond.i = select i1 %.not24.i, i1 %217, i1 false
+  %spec.select.i = select i1 %or.cond.i, i32 %216, i32 %.11727.i
+  %spec.select25.i = select i1 %or.cond.i, i1 true, i1 %.129.i
+  br label %218
+
+218:                                              ; preds = %214, %211
+  %.218.i = phi i32 [ %.11727.i, %211 ], [ %spec.select.i, %214 ]
+  %.2.i = phi i1 [ %.129.i, %211 ], [ %spec.select25.i, %214 ]
+  %219 = add nuw nsw i32 %.01428.i, 1
+  %220 = load ptr, ptr @opal_hwloc_topology, align 8
+  %221 = icmp eq ptr %220, null
+  br i1 %221, label %opal_hwloc_base_get_obj_by_type.exit.thread.i, label %.lr.ph.i
 
 .split41.us.i:                                    ; preds = %opal_hwloc_base_get_obj_by_type.exit.thread.i
-  br i1 %.not.i84, label %fill_cache_line_size.exit, label %224
+  br i1 %.1.lcssa.i, label %222, label %fill_cache_line_size.exit
 
-224:                                              ; preds = %.split41.us.i
+222:                                              ; preds = %.split41.us.i
   store i32 %.117.lcssa.i, ptr @opal_cache_line_size, align 4
   br label %fill_cache_line_size.exit
 
-fill_cache_line_size.exit:                        ; preds = %.split41.us.i, %224
-  %.pr144 = load ptr, ptr @opal_hwloc_topology, align 8
-  %.not.i85 = icmp eq ptr %.pr144, null
-  br i1 %.not.i85, label %opal_hwloc_base_set_local_cpuset.exit, label %225
+fill_cache_line_size.exit:                        ; preds = %opal_hwloc_base_get_obj_by_type.exit.thread.i.thread, %.split41.us.i, %222
+  %.pr152 = load ptr, ptr @opal_hwloc_topology, align 8
+  %.not.i85 = icmp eq ptr %.pr152, null
+  br i1 %.not.i85, label %opal_hwloc_base_set_local_cpuset.exit, label %223
 
-225:                                              ; preds = %fill_cache_line_size.exit
-  %226 = load ptr, ptr @opal_hwloc_my_cpuset, align 8
-  %227 = icmp eq ptr %226, null
-  br i1 %227, label %228, label %230
+223:                                              ; preds = %fill_cache_line_size.exit
+  %224 = load ptr, ptr @opal_hwloc_my_cpuset, align 8
+  %225 = icmp eq ptr %224, null
+  br i1 %225, label %226, label %228
 
-228:                                              ; preds = %225
-  %229 = call noalias ptr @hwloc_bitmap_alloc() #9
-  store ptr %229, ptr @opal_hwloc_my_cpuset, align 8
+226:                                              ; preds = %223
+  %227 = call noalias ptr @hwloc_bitmap_alloc() #9
+  store ptr %227, ptr @opal_hwloc_my_cpuset, align 8
   %.pre.i = load ptr, ptr @opal_hwloc_topology, align 8
-  br label %230
+  br label %228
 
-230:                                              ; preds = %228, %225
-  %231 = phi ptr [ %229, %228 ], [ %226, %225 ]
-  %232 = phi ptr [ %.pre.i, %228 ], [ %.pr144, %225 ]
-  %233 = call i32 @hwloc_get_cpubind(ptr noundef %232, ptr noundef %231, i32 noundef 1) #9
-  %234 = icmp slt i32 %233, 0
-  br i1 %234, label %235, label %opal_hwloc_base_set_local_cpuset.exit
+228:                                              ; preds = %226, %223
+  %229 = phi ptr [ %227, %226 ], [ %224, %223 ]
+  %230 = phi ptr [ %.pre.i, %226 ], [ %.pr152, %223 ]
+  %231 = call i32 @hwloc_get_cpubind(ptr noundef %230, ptr noundef %229, i32 noundef 1) #9
+  %232 = icmp slt i32 %231, 0
+  br i1 %232, label %233, label %opal_hwloc_base_set_local_cpuset.exit
 
-235:                                              ; preds = %230
-  %236 = load ptr, ptr @opal_hwloc_topology, align 8
-  %237 = call ptr @hwloc_get_obj_by_depth(ptr noundef %236, i32 noundef 0, i32 noundef 0) #10
-  %238 = load ptr, ptr @opal_hwloc_my_cpuset, align 8
-  %239 = getelementptr inbounds i8, ptr %237, i64 184
-  %240 = load ptr, ptr %239, align 8
-  %241 = call i32 @hwloc_bitmap_copy(ptr noundef %238, ptr noundef %240) #9
+233:                                              ; preds = %228
+  %234 = load ptr, ptr @opal_hwloc_topology, align 8
+  %235 = call ptr @hwloc_get_obj_by_depth(ptr noundef %234, i32 noundef 0, i32 noundef 0) #10
+  %236 = load ptr, ptr @opal_hwloc_my_cpuset, align 8
+  %237 = getelementptr inbounds i8, ptr %235, i64 184
+  %238 = load ptr, ptr %237, align 8
+  %239 = call i32 @hwloc_bitmap_copy(ptr noundef %236, ptr noundef %238) #9
   br label %opal_hwloc_base_set_local_cpuset.exit
 
-opal_hwloc_base_set_local_cpuset.exit:            ; preds = %200, %235, %230, %fill_cache_line_size.exit, %32, %opal_hwloc_base_topology_set_flags.exit.thread, %159, %91
-  %.0 = phi i32 [ -21, %91 ], [ -1, %159 ], [ -8, %opal_hwloc_base_topology_set_flags.exit.thread ], [ 0, %32 ], [ 0, %fill_cache_line_size.exit ], [ 0, %230 ], [ 0, %235 ], [ 0, %200 ]
+opal_hwloc_base_set_local_cpuset.exit:            ; preds = %200, %233, %228, %fill_cache_line_size.exit, %32, %opal_hwloc_base_topology_set_flags.exit.thread, %159, %91
+  %.0 = phi i32 [ -21, %91 ], [ -1, %159 ], [ -8, %opal_hwloc_base_topology_set_flags.exit.thread ], [ 0, %32 ], [ 0, %fill_cache_line_size.exit ], [ 0, %228 ], [ 0, %233 ], [ 0, %200 ]
   ret i32 %.0
 }
 
@@ -1210,54 +1216,53 @@ hwloc_get_obj_by_type.exit:                       ; preds = %11, %9, %5, %13
 ; Function Attrs: nounwind uwtable
 define noalias ptr @opal_hwloc_base_get_location(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %21, label %5
+  br i1 %4, label %20, label %5
 
 5:                                                ; preds = %3
   %switch.tableidx = add i32 %1, -1
   %6 = icmp ult i32 %switch.tableidx, 13
-  br i1 %6, label %switch.hole_check, label %21
+  br i1 %6, label %switch.hole_check, label %20
 
 switch.hole_check:                                ; preds = %5
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 4159, %switch.maskindex
-  %7 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %7, 0
-  br i1 %switch.lobit.not, label %21, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %20
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table.opal_hwloc_base_get_location, i64 0, i64 %8
+  %7 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table.opal_hwloc_base_get_location, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %9 = tail call noalias ptr @opal_argv_split(ptr noundef nonnull %0, i32 noundef 58) #9
-  %10 = load ptr, ptr %9, align 8
-  %.not19 = icmp eq ptr %10, null
+  %8 = tail call noalias ptr @opal_argv_split(ptr noundef nonnull %0, i32 noundef 58) #9
+  %9 = load ptr, ptr %8, align 8
+  %.not19 = icmp eq ptr %9, null
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
-11:                                               ; preds = %.lr.ph
-  %12 = add i64 %.020, 1
-  %13 = getelementptr inbounds ptr, ptr %9, i64 %12
-  %14 = load ptr, ptr %13, align 8
-  %.not = icmp eq ptr %14, null
+10:                                               ; preds = %.lr.ph
+  %11 = add i64 %.020, 1
+  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %13 = load ptr, ptr %12, align 8
+  %.not = icmp eq ptr %13, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
-.lr.ph:                                           ; preds = %switch.lookup, %11
-  %15 = phi ptr [ %14, %11 ], [ %10, %switch.lookup ]
-  %.020 = phi i64 [ %12, %11 ], [ 0, %switch.lookup ]
-  %16 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(3) %switch.load, i64 noundef 2) #10
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %11
+.lr.ph:                                           ; preds = %switch.lookup, %10
+  %14 = phi ptr [ %13, %10 ], [ %9, %switch.lookup ]
+  %.020 = phi i64 [ %11, %10 ], [ 0, %switch.lookup ]
+  %15 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(3) %switch.load, i64 noundef 2) #10
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %10
 
-18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %15, i64 2
-  %20 = tail call noalias ptr @strdup(ptr noundef nonnull %19) #9
+17:                                               ; preds = %.lr.ph
+  %18 = getelementptr inbounds i8, ptr %14, i64 2
+  %19 = tail call noalias ptr @strdup(ptr noundef nonnull %18) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %switch.lookup, %18
-  %.013 = phi ptr [ %20, %18 ], [ null, %switch.lookup ], [ null, %11 ]
-  tail call void @opal_argv_free(ptr noundef nonnull %9) #9
-  br label %21
+.loopexit:                                        ; preds = %10, %switch.lookup, %17
+  %.013 = phi ptr [ %19, %17 ], [ null, %switch.lookup ], [ null, %10 ]
+  tail call void @opal_argv_free(ptr noundef nonnull %8) #9
+  br label %20
 
-21:                                               ; preds = %switch.hole_check, %5, %3, %.loopexit
+20:                                               ; preds = %switch.hole_check, %5, %3, %.loopexit
   %.015 = phi ptr [ %.013, %.loopexit ], [ null, %3 ], [ null, %5 ], [ null, %switch.hole_check ]
   ret ptr %.015
 }

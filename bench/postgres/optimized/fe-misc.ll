@@ -817,24 +817,23 @@ define internal fastcc i32 @pqSendSome(ptr noundef %0, i32 noundef %1) unnamed_a
   %6 = getelementptr inbounds i8, ptr %0, i64 924
   %7 = getelementptr inbounds i8, ptr %0, i64 765
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %17, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %17
 
 10:                                               ; preds = %2
   store i32 0, ptr %6, align 4
   %11 = getelementptr inbounds i8, ptr %0, i64 472
   %12 = load i32, ptr %11, align 8
-  %.not48 = icmp eq i32 %12, -1
-  br i1 %.not48, label %16, label %13
+  %.not45 = icmp eq i32 %12, -1
+  br i1 %.not45, label %16, label %13
 
 13:                                               ; preds = %10
   %14 = tail call i32 @pqReadData(ptr noundef nonnull %0), !range !11
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %78, label %16
+  br i1 %15, label %80, label %16
 
 16:                                               ; preds = %13, %10
-  br label %78
+  br label %80
 
 17:                                               ; preds = %2
   %18 = load i32, ptr %6, align 4
@@ -860,13 +859,13 @@ define internal fastcc i32 @pqSendSome(ptr noundef %0, i32 noundef %1) unnamed_a
   %29 = getelementptr inbounds i8, ptr %0, i64 768
   store ptr %28, ptr %29, align 8
   store i32 0, ptr %6, align 4
-  br label %78
+  br label %80
 
 30:                                               ; preds = %.outer.split, %34
-  %31 = call i64 @pqsecure_write(ptr noundef %0, ptr noundef %.038.ph89, i64 noundef %72) #19
+  %31 = call i64 @pqsecure_write(ptr noundef %0, ptr noundef %.038.ph86, i64 noundef %74) #19
   %32 = trunc i64 %31 to i32
   %33 = icmp slt i32 %32, 0
-  br i1 %33, label %34, label %45
+  br i1 %33, label %34, label %47
 
 34:                                               ; preds = %30
   %35 = tail call ptr @__errno_location() #21
@@ -879,118 +878,118 @@ define internal fastcc i32 @pqSendSome(ptr noundef %0, i32 noundef %1) unnamed_a
 37:                                               ; preds = %34
   store i32 0, ptr %6, align 4
   %38 = load i32, ptr %20, align 8
-  %.not46 = icmp eq i32 %38, -1
-  br i1 %.not46, label %42, label %39
+  %.not44 = icmp eq i32 %38, -1
+  br i1 %.not44, label %42, label %39
 
 39:                                               ; preds = %37
   %40 = call i32 @pqReadData(ptr noundef nonnull %0), !range !11
   %41 = icmp slt i32 %40, 0
-  br i1 %41, label %78, label %42
+  br i1 %41, label %80, label %42
 
 42:                                               ; preds = %39, %37
   %43 = load i8, ptr %7, align 1
   %44 = and i8 %43, 1
-  %sext = add nsw i8 %44, -1
-  %. = sext i8 %sext to i32
-  br label %78
+  %45 = xor i8 %44, 1
+  %46 = zext nneg i8 %45 to i32
+  %. = sub nsw i32 0, %46
+  br label %80
 
-45:                                               ; preds = %30
-  %46 = and i64 %31, 2147483647
-  %47 = getelementptr i8, ptr %.038.ph89, i64 %46
-  %48 = sub nsw i32 %.041.ph88, %32
-  %49 = sub i32 %.037.ph90, %32
-  %50 = icmp sgt i32 %48, 0
-  br i1 %50, label %.thread, label %pqWait.exit.thread
+47:                                               ; preds = %30
+  %48 = and i64 %31, 2147483647
+  %49 = getelementptr i8, ptr %.038.ph86, i64 %48
+  %50 = sub nsw i32 %.041.ph85, %32
+  %51 = sub i32 %.037.ph87, %32
+  %52 = icmp sgt i32 %50, 0
+  br i1 %52, label %.thread, label %pqWait.exit.thread
 
-.thread:                                          ; preds = %34, %45
-  %.157 = phi i32 [ %49, %45 ], [ %.037.ph90, %34 ]
-  %.13955 = phi ptr [ %47, %45 ], [ %.038.ph89, %34 ]
-  %.14253 = phi i32 [ %48, %45 ], [ %.041.ph88, %34 ]
-  %51 = call i32 @pqReadData(ptr noundef %0), !range !11
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %pqWait.exit.thread, label %53
+.thread:                                          ; preds = %34, %47
+  %.154 = phi i32 [ %51, %47 ], [ %.037.ph87, %34 ]
+  %.13952 = phi ptr [ %49, %47 ], [ %.038.ph86, %34 ]
+  %.14250 = phi i32 [ %50, %47 ], [ %.041.ph85, %34 ]
+  %53 = call i32 @pqReadData(ptr noundef %0), !range !11
+  %54 = icmp slt i32 %53, 0
+  br i1 %54, label %pqWait.exit.thread, label %55
 
-53:                                               ; preds = %.thread
-  %54 = load i8, ptr %24, align 1
-  %55 = and i8 %54, 1
-  %.not44 = icmp eq i8 %55, 0
-  br i1 %.not44, label %56, label %pqWait.exit.thread
+55:                                               ; preds = %.thread
+  %56 = load i8, ptr %24, align 1
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %pqWait.exit.thread, label %58
 
-56:                                               ; preds = %53
+58:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
-  %57 = load i32, ptr %20, align 8
-  %58 = icmp eq i32 %57, -1
-  br i1 %58, label %66, label %pqSocketPoll.exit.us.i
-
-pqSocketPoll.exit.us.i:                           ; preds = %56, %62
   %59 = load i32, ptr %20, align 8
+  %60 = icmp eq i32 %59, -1
+  br i1 %60, label %68, label %pqSocketPoll.exit.us.i
+
+pqSocketPoll.exit.us.i:                           ; preds = %58, %64
+  %61 = load i32, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store i32 %59, ptr %3, align 4
+  store i32 %61, ptr %3, align 4
   store i16 0, ptr %26, align 2
   store i16 13, ptr %25, align 4
-  %60 = call i32 @poll(ptr noundef nonnull %3, i64 noundef 1, i32 noundef -1) #19
+  %62 = call i32 @poll(ptr noundef nonnull %3, i64 noundef 1, i32 noundef -1) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %62, label %68
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %64, label %70
 
-62:                                               ; preds = %pqSocketPoll.exit.us.i
-  %63 = tail call ptr @__errno_location() #21
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp eq i32 %64, 4
-  br i1 %65, label %pqSocketPoll.exit.us.i, label %.critedge.i, !llvm.loop !13
+64:                                               ; preds = %pqSocketPoll.exit.us.i
+  %65 = tail call ptr @__errno_location() #21
+  %66 = load i32, ptr %65, align 4
+  %67 = icmp eq i32 %66, 4
+  br i1 %67, label %pqSocketPoll.exit.us.i, label %.critedge.i, !llvm.loop !13
 
-66:                                               ; preds = %56
+68:                                               ; preds = %58
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.9)
   br label %pqSocketCheck.exit.thread
 
-.critedge.i:                                      ; preds = %62
-  %67 = call ptr @pg_strerror_r(i32 noundef %64, ptr noundef nonnull %4, i64 noundef 256) #19
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef %67)
+.critedge.i:                                      ; preds = %64
+  %69 = call ptr @pg_strerror_r(i32 noundef %66, ptr noundef nonnull %4, i64 noundef 256) #19
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef %69)
   br label %pqSocketCheck.exit.thread
 
-pqSocketCheck.exit.thread:                        ; preds = %66, %.critedge.i
+pqSocketCheck.exit.thread:                        ; preds = %68, %.critedge.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   br label %pqWait.exit.thread
 
-68:                                               ; preds = %pqSocketPoll.exit.us.i
+70:                                               ; preds = %pqSocketPoll.exit.us.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
-  %69 = icmp eq i32 %60, 0
-  br i1 %69, label %70, label %pqWait.exit
+  %71 = icmp eq i32 %62, 0
+  br i1 %71, label %72, label %pqWait.exit
 
-70:                                               ; preds = %68
+72:                                               ; preds = %70
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.6)
   br label %pqWait.exit.thread
 
-pqWait.exit:                                      ; preds = %68
-  %71 = icmp sgt i32 %.14253, 0
-  br i1 %71, label %.outer.split, label %pqWait.exit.thread, !llvm.loop !12
+pqWait.exit:                                      ; preds = %70
+  %73 = icmp sgt i32 %.14250, 0
+  br i1 %73, label %.outer.split, label %pqWait.exit.thread, !llvm.loop !12
 
 .outer.split:                                     ; preds = %.outer.split.lr.ph, %pqWait.exit
-  %.037.ph90 = phi i32 [ %18, %.outer.split.lr.ph ], [ %.157, %pqWait.exit ]
-  %.038.ph89 = phi ptr [ %19, %.outer.split.lr.ph ], [ %.13955, %pqWait.exit ]
-  %.041.ph88 = phi i32 [ %1, %.outer.split.lr.ph ], [ %.14253, %pqWait.exit ]
-  %72 = zext nneg i32 %.041.ph88 to i64
+  %.037.ph87 = phi i32 [ %18, %.outer.split.lr.ph ], [ %.154, %pqWait.exit ]
+  %.038.ph86 = phi ptr [ %19, %.outer.split.lr.ph ], [ %.13952, %pqWait.exit ]
+  %.041.ph85 = phi i32 [ %1, %.outer.split.lr.ph ], [ %.14250, %pqWait.exit ]
+  %74 = zext nneg i32 %.041.ph85 to i64
   br label %30
 
-pqWait.exit.thread:                               ; preds = %45, %pqWait.exit, %53, %.thread, %.preheader, %pqSocketCheck.exit.thread, %70
-  %.240 = phi ptr [ %.13955, %70 ], [ %.13955, %pqSocketCheck.exit.thread ], [ %19, %.preheader ], [ %47, %45 ], [ %.13955, %pqWait.exit ], [ %.13955, %53 ], [ %.13955, %.thread ]
-  %.2 = phi i32 [ %.157, %70 ], [ %.157, %pqSocketCheck.exit.thread ], [ %18, %.preheader ], [ %49, %45 ], [ %.157, %pqWait.exit ], [ %.157, %53 ], [ %.157, %.thread ]
-  %.036 = phi i32 [ -1, %70 ], [ -1, %pqSocketCheck.exit.thread ], [ 0, %.preheader ], [ 0, %45 ], [ 0, %pqWait.exit ], [ 1, %53 ], [ -1, %.thread ]
-  %73 = icmp sgt i32 %.2, 0
-  br i1 %73, label %74, label %77
+pqWait.exit.thread:                               ; preds = %47, %pqWait.exit, %55, %.thread, %.preheader, %pqSocketCheck.exit.thread, %72
+  %.240 = phi ptr [ %.13952, %72 ], [ %.13952, %pqSocketCheck.exit.thread ], [ %19, %.preheader ], [ %49, %47 ], [ %.13952, %pqWait.exit ], [ %.13952, %55 ], [ %.13952, %.thread ]
+  %.2 = phi i32 [ %.154, %72 ], [ %.154, %pqSocketCheck.exit.thread ], [ %18, %.preheader ], [ %51, %47 ], [ %.154, %pqWait.exit ], [ %.154, %55 ], [ %.154, %.thread ]
+  %.036 = phi i32 [ -1, %72 ], [ -1, %pqSocketCheck.exit.thread ], [ 0, %.preheader ], [ 0, %47 ], [ 0, %pqWait.exit ], [ 1, %55 ], [ -1, %.thread ]
+  %75 = icmp sgt i32 %.2, 0
+  br i1 %75, label %76, label %79
 
-74:                                               ; preds = %pqWait.exit.thread
-  %75 = load ptr, ptr %5, align 8
-  %76 = zext nneg i32 %.2 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %75, ptr align 1 %.240, i64 %76, i1 false)
-  br label %77
+76:                                               ; preds = %pqWait.exit.thread
+  %77 = load ptr, ptr %5, align 8
+  %78 = zext nneg i32 %.2 to i64
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %77, ptr align 1 %.240, i64 %78, i1 false)
+  br label %79
 
-77:                                               ; preds = %74, %pqWait.exit.thread
+79:                                               ; preds = %76, %pqWait.exit.thread
   store i32 %.2, ptr %6, align 4
-  br label %78
+  br label %80
 
-78:                                               ; preds = %42, %39, %13, %77, %27, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %27 ], [ %.036, %77 ], [ -1, %13 ], [ -1, %39 ], [ %., %42 ]
+80:                                               ; preds = %42, %39, %13, %79, %27, %16
+  %.0 = phi i32 [ 0, %16 ], [ 0, %27 ], [ %.036, %79 ], [ -1, %13 ], [ -1, %39 ], [ %., %42 ]
   ret i32 %.0
 }
 
@@ -1208,9 +1207,9 @@ define void @libpq_append_conn_error(ptr noundef %0, ptr noundef %1, ...) local_
 
 .preheader:                                       ; preds = %2, %.preheader
   store i32 %5, ptr %4, align 4
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %10 = call zeroext i1 @appendPQExpBufferVA(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %3) #19
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br i1 %10, label %11, label %.preheader, !llvm.loop !14
 
 11:                                               ; preds = %.preheader
@@ -1463,9 +1462,9 @@ define void @libpq_append_error(ptr noundef %0, ptr noundef %1, ...) local_unnam
 
 .preheader:                                       ; preds = %7, %.preheader
   store i32 %5, ptr %4, align 4
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %11 = call zeroext i1 @appendPQExpBufferVA(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3) #19
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br i1 %11, label %12, label %.preheader, !llvm.loop !15
 
 12:                                               ; preds = %.preheader
@@ -1476,13 +1475,7 @@ define void @libpq_append_error(ptr noundef %0, ptr noundef %1, ...) local_unnam
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #13
-
 declare zeroext i1 @appendPQExpBufferVA(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #13
 
 declare void @appendPQExpBufferChar(ptr noundef, i8 noundef signext) local_unnamed_addr #8
 
@@ -1491,16 +1484,22 @@ declare void @resetPQExpBuffer(ptr noundef) local_unnamed_addr #8
 declare void @appendBinaryPQExpBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #14
+declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #13
 
 declare i64 @pqsecure_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 declare ptr @pg_strerror_r(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #15
+declare i64 @time(ptr noundef) local_unnamed_addr #14
 
 declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16
@@ -1524,9 +1523,9 @@ attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsiz
 attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nounwind allocsize(1) }

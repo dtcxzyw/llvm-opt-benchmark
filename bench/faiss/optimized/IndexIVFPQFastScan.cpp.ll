@@ -188,9 +188,8 @@ define void @_ZNK5faiss18IndexIVFPQFastScan14encode_vectorsElPKfPKlPhb(ptr nound
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 256
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %53, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %53
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %0, i64 8
@@ -238,8 +237,8 @@ _ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.i: ; preds = %11
 _ZN5faiss12AlignedTableIfLi32EEC2Em.exit:         ; preds = %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.i, %25
   %.sroa.0.0 = phi ptr [ null, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.i ], [ %26, %25 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %.not48 = icmp eq i64 %1, 0
-  br i1 %.not48, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5faiss12AlignedTableIfLi32EEC2Em.exit
   %27 = getelementptr inbounds i8, ptr %0, i64 48
@@ -346,20 +345,19 @@ _ZN5faiss12AlignedTableIfLi32EEC2Em.exit:         ; preds = %_ZN5faiss12AlignedT
 define void @_ZN5faiss18IndexIVFPQFastScan13train_encoderElPKfPKl(ptr noundef nonnull align 8 dereferenceable(568) %0, i64 noundef %1, ptr noundef %2, ptr nocapture readnone %3) unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 328
-  %9 = getelementptr inbounds i8, ptr %0, i64 384
-  store i8 %7, ptr %9, align 8
-  tail call void @_ZN5faiss16ProductQuantizer5trainEmPKf(ptr noundef nonnull align 8 dereferenceable(208) %8, i64 noundef %1, ptr noundef %2)
+  %7 = getelementptr inbounds i8, ptr %0, i64 328
+  %8 = getelementptr inbounds i8, ptr %0, i64 384
+  %9 = and i8 %6, 1
+  store i8 %9, ptr %8, align 8
+  tail call void @_ZN5faiss16ProductQuantizer5trainEmPKf(ptr noundef nonnull align 8 dereferenceable(208) %7, i64 noundef %1, ptr noundef %2)
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not = icmp ne i8 %12, 0
+  %12 = trunc i8 %11 to i1
   %13 = getelementptr inbounds i8, ptr %0, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 1
-  %or.cond = select i1 %.not, i1 %15, i1 false
-  br i1 %or.cond, label %16, label %24
+  %or.cond = select i1 %12, i1 %15, i1 false
+  br i1 %or.cond, label %16, label %23
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %0, i64 536
@@ -367,12 +365,11 @@ define void @_ZN5faiss18IndexIVFPQFastScan13train_encoderElPKfPKl(ptr noundef no
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 544
   %21 = load i8, ptr %5, align 8
-  %22 = and i8 %21, 1
-  %23 = icmp ne i8 %22, 0
-  tail call void @_ZN5faiss34initialize_IVFPQ_precomputed_tableERiPKNS_5IndexERKNS_16ProductQuantizerERNS_12AlignedTableIfLi32EEEbb(ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(208) %8, ptr noundef nonnull align 8 dereferenceable(24) %20, i1 noundef zeroext true, i1 noundef zeroext %23)
-  br label %24
+  %22 = trunc i8 %21 to i1
+  tail call void @_ZN5faiss34initialize_IVFPQ_precomputed_tableERiPKNS_5IndexERKNS_16ProductQuantizerERNS_12AlignedTableIfLi32EEEbb(ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef nonnull align 8 dereferenceable(24) %20, i1 noundef zeroext true, i1 noundef zeroext %22)
+  br label %23
 
-24:                                               ; preds = %16, %4
+23:                                               ; preds = %16, %4
   ret void
 }
 
@@ -405,12 +402,11 @@ declare void @_ZNK5faiss8IndexIVF14copy_subset_toERS0_NS_13InvertedLists13subset
 define noundef zeroext i1 @_ZNK5faiss18IndexIVFPQFastScan18lookup_table_is_3dEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(568) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp ne i8 %4, 0
+  %4 = trunc i8 %3 to i1
   %5 = getelementptr inbounds i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 1
-  %8 = select i1 %.not, i1 %7, i1 false
+  %8 = select i1 %4, i1 %7, i1 false
   ret i1 %8
 }
 
@@ -446,9 +442,8 @@ define void @_ZNK5faiss18IndexIVFPQFastScan11compute_LUTEmPKfRKNS_16IndexIVFFast
   store i64 %29, ptr %12, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 256
   %31 = load i8, ptr %30, align 8
-  %32 = and i8 %31, 1
-  %.not = icmp eq i8 %32, 0
-  br i1 %.not, label %129, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %129
 
 33:                                               ; preds = %6
   %34 = getelementptr inbounds i8, ptr %0, i64 28
@@ -1003,18 +998,18 @@ define void @_ZN5faiss18IndexIVFPQFastScanC2ERKNS_10IndexIVFPQEi(ptr noundef non
 49:                                               ; preds = %44
   %50 = getelementptr inbounds i8, ptr %1, i64 256
   %51 = load i8, ptr %50, align 8
-  %52 = and i8 %51, 1
-  %53 = getelementptr inbounds i8, ptr %0, i64 256
-  store i8 %52, ptr %53, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 256
+  %53 = and i8 %51, 1
+  store i8 %53, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %1, i64 16
   %55 = load i64, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %55, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %1, i64 25
   %58 = load i8, ptr %57, align 1
-  %59 = and i8 %58, 1
-  %60 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 %59, ptr %60, align 1
+  %59 = getelementptr inbounds i8, ptr %0, i64 25
+  %60 = and i8 %58, 1
+  store i8 %60, ptr %59, align 1
   %61 = getelementptr inbounds i8, ptr %1, i64 120
   %62 = load i64, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1674,13 +1669,11 @@ define void @_ZN5faiss18IndexIVFPQFastScan16precompute_tableEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 544
   %7 = getelementptr inbounds i8, ptr %0, i64 256
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
-  %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %14 = icmp ne i8 %13, 0
-  tail call void @_ZN5faiss34initialize_IVFPQ_precomputed_tableERiPKNS_5IndexERKNS_16ProductQuantizerERNS_12AlignedTableIfLi32EEEbb(ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext %10, i1 noundef zeroext %14)
+  %9 = trunc i8 %8 to i1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = load i8, ptr %10, align 8
+  %12 = trunc i8 %11 to i1
+  tail call void @_ZN5faiss34initialize_IVFPQ_precomputed_tableERiPKNS_5IndexERKNS_16ProductQuantizerERNS_12AlignedTableIfLi32EEEbb(ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext %9, i1 noundef zeroext %12)
   ret void
 }
 

@@ -2335,13 +2335,13 @@ define internal fastcc void @spl_filesystem_object_create_type(i32 noundef %0, p
 19:                                               ; preds = %16
   %20 = load ptr, ptr @spl_ce_RuntimeException, align 8
   %21 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %20, i64 noundef 0, ptr noundef nonnull @.str.41) #18
-  br label %218
+  br label %217
 
 22:                                               ; preds = %5, %16
   switch i32 %2, label %default.unreachable [
     i32 0, label %23
     i32 2, label %107
-    i32 1, label %215
+    i32 1, label %214
   ]
 
 23:                                               ; preds = %22
@@ -2382,7 +2382,7 @@ define internal fastcc void @spl_filesystem_object_create_type(i32 noundef %0, p
   store i32 776, ptr %45, align 8
   %46 = tail call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %1), !range !4
   %47 = icmp eq i32 %46, -1
-  br i1 %47, label %218, label %48
+  br i1 %47, label %217, label %48
 
 48:                                               ; preds = %27
   %49 = getelementptr inbounds i8, ptr %28, i64 256
@@ -2416,7 +2416,7 @@ define internal fastcc void @spl_filesystem_object_create_type(i32 noundef %0, p
   %65 = load ptr, ptr %4, align 8
   %66 = call ptr @zend_call_method(ptr noundef %65, ptr noundef nonnull %28, ptr noundef nonnull %49, ptr noundef nonnull @.str.42, i64 noundef 11, ptr noundef null, i32 noundef 1, ptr noundef nonnull %9, ptr noundef null) #18
   call void @zval_ptr_dtor(ptr noundef nonnull %9) #18
-  br label %218
+  br label %217
 
 67:                                               ; preds = %48
   %68 = getelementptr inbounds i8, ptr %55, i64 4
@@ -2494,7 +2494,7 @@ spl_filesystem_object_get_path.exit:              ; preds = %83, %87, %96, %99, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %106 = getelementptr inbounds i8, ptr %39, i64 16
   store ptr %.0.i, ptr %106, align 8
-  br label %218
+  br label %217
 
 107:                                              ; preds = %22
   %.not94 = icmp eq ptr %3, null
@@ -2512,7 +2512,7 @@ spl_filesystem_object_get_path.exit:              ; preds = %83, %87, %96, %99, 
   store ptr null, ptr %13, align 8
   %114 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %0, ptr noundef nonnull @.str.43, ptr noundef nonnull %12, ptr noundef nonnull %8, ptr noundef nonnull %13) #18
   %115 = icmp eq i32 %114, -1
-  br i1 %115, label %218, label %116
+  br i1 %115, label %217, label %116
 
 116:                                              ; preds = %111
   %117 = getelementptr inbounds i8, ptr %112, i64 32
@@ -2542,7 +2542,7 @@ spl_filesystem_object_get_path.exit:              ; preds = %83, %87, %96, %99, 
   store i32 776, ptr %133, align 8
   %134 = call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %1), !range !4
   %135 = icmp eq i32 %134, -1
-  br i1 %135, label %218, label %136
+  br i1 %135, label %217, label %136
 
 136:                                              ; preds = %116
   %137 = getelementptr inbounds i8, ptr %112, i64 256
@@ -2595,7 +2595,7 @@ spl_filesystem_object_get_path.exit:              ; preds = %83, %87, %96, %99, 
   %163 = call ptr @zend_call_method(ptr noundef %162, ptr noundef nonnull %112, ptr noundef nonnull %137, ptr noundef nonnull @.str.42, i64 noundef 11, ptr noundef null, i32 noundef 2, ptr noundef nonnull %9, ptr noundef nonnull %10) #18
   call void @zval_ptr_dtor(ptr noundef nonnull %9) #18
   call void @zval_ptr_dtor(ptr noundef nonnull %10) #18
-  br label %218
+  br label %217
 
 164:                                              ; preds = %136
   %165 = getelementptr inbounds i8, ptr %127, i64 32
@@ -2682,27 +2682,26 @@ spl_filesystem_object_get_path.exit107:           ; preds = %173, %177, %186, %1
   %208 = load ptr, ptr @spl_ce_RuntimeException, align 8
   call void @zend_replace_error_handling(i32 noundef 1, ptr noundef %208, ptr noundef nonnull %11) #18
   %209 = load i8, ptr %8, align 1
-  %210 = and i8 %209, 1
-  %211 = icmp ne i8 %210, 0
-  %212 = call fastcc i32 @spl_filesystem_file_open(ptr noundef nonnull %127, i1 noundef zeroext %211), !range !4
-  %213 = icmp eq i32 %212, -1
+  %210 = trunc i8 %209 to i1
+  %211 = call fastcc i32 @spl_filesystem_file_open(ptr noundef nonnull %127, i1 noundef zeroext %210), !range !4
+  %212 = icmp eq i32 %211, -1
   call void @zend_restore_error_handling(ptr noundef nonnull %11) #18
-  br i1 %213, label %214, label %218
+  br i1 %212, label %213, label %217
 
-214:                                              ; preds = %204
+213:                                              ; preds = %204
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #18
   store i32 1, ptr %133, align 8
-  br label %218
+  br label %217
 
-215:                                              ; preds = %22
-  %216 = load ptr, ptr @spl_ce_RuntimeException, align 8
-  %217 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %216, i64 noundef 0, ptr noundef nonnull @.str.44) #18
-  br label %218
+214:                                              ; preds = %22
+  %215 = load ptr, ptr @spl_ce_RuntimeException, align 8
+  %216 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %215, i64 noundef 0, ptr noundef nonnull @.str.44) #18
+  br label %217
 
 default.unreachable:                              ; preds = %22
   unreachable
 
-218:                                              ; preds = %204, %spl_filesystem_object_get_path.exit, %63, %160, %116, %111, %27, %215, %214, %19
+217:                                              ; preds = %204, %spl_filesystem_object_get_path.exit, %63, %160, %116, %111, %27, %214, %213, %19
   ret void
 }
 
@@ -5141,49 +5140,49 @@ define hidden void @zim_RecursiveDirectoryIterator_hasChildren(ptr noundef %0, p
 
 10:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #18
-  br label %.thread109
+  br label %.thread108
 
 11:                                               ; preds = %2
   %12 = icmp eq i32 %8, 0
-  br i1 %12, label %.thread102, label %13
+  br i1 %12, label %.thread101, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %0, i64 88
   %15 = load i8, ptr %14, align 8
   switch i8 %15, label %17 [
-    i8 3, label %.thread98
+    i8 3, label %.thread97
     i8 2, label %16
   ]
 
 16:                                               ; preds = %13
-  br label %.thread98
+  br label %.thread97
 
-.thread98:                                        ; preds = %16, %13
+.thread97:                                        ; preds = %16, %13
   %storemerge = phi i8 [ 0, %16 ], [ 1, %13 ]
   store i8 %storemerge, ptr %3, align 1
-  br label %.thread102
+  br label %.thread101
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %0, i64 80
   %19 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %18, ptr noundef nonnull %3, i32 noundef 1) #18
   %.fr = freeze i1 %19
-  br i1 %.fr, label %.thread102, label %.thread109
+  br i1 %.fr, label %.thread101, label %.thread108
 
-.thread109:                                       ; preds = %17, %10
-  %.0118 = phi i32 [ 1, %10 ], [ 9, %17 ]
-  %.076117 = phi i32 [ 0, %10 ], [ 2, %17 ]
-  %.077116 = phi ptr [ null, %10 ], [ %18, %17 ]
-  %.078115 = phi i32 [ 0, %10 ], [ 1, %17 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0118, i32 noundef %.078115, ptr noundef null, i32 noundef %.076117, ptr noundef %.077116) #18
+.thread108:                                       ; preds = %17, %10
+  %.0117 = phi i32 [ 1, %10 ], [ 9, %17 ]
+  %.076116 = phi i32 [ 0, %10 ], [ 2, %17 ]
+  %.077115 = phi ptr [ null, %10 ], [ %18, %17 ]
+  %.078114 = phi i32 [ 0, %10 ], [ 1, %17 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0117, i32 noundef %.078114, ptr noundef null, i32 noundef %.076116, ptr noundef %.077115) #18
   br label %63
 
-.thread102:                                       ; preds = %17, %.thread98, %11
+.thread101:                                       ; preds = %17, %.thread97, %11
   %20 = getelementptr inbounds i8, ptr %5, i64 -264
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %spl_filesystem_is_invalid_or_dot.exit.thread, label %23
 
-23:                                               ; preds = %.thread102
+23:                                               ; preds = %.thread101
   %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(2) @.str.39) #20
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %spl_filesystem_is_invalid_or_dot.exit.thread, label %spl_filesystem_is_invalid_or_dot.exit
@@ -5193,7 +5192,7 @@ spl_filesystem_is_invalid_or_dot.exit:            ; preds = %23
   %.not2.i.i = icmp eq i32 %25, 0
   br i1 %.not2.i.i, label %spl_filesystem_is_invalid_or_dot.exit.thread, label %27
 
-spl_filesystem_is_invalid_or_dot.exit.thread:     ; preds = %23, %.thread102, %spl_filesystem_is_invalid_or_dot.exit
+spl_filesystem_is_invalid_or_dot.exit.thread:     ; preds = %23, %.thread101, %spl_filesystem_is_invalid_or_dot.exit
   %26 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %26, align 8
   br label %63
@@ -5250,16 +5249,15 @@ spl_filesystem_is_invalid_or_dot.exit.thread:     ; preds = %23, %.thread102, %s
 
 53:                                               ; preds = %46
   %54 = load i8, ptr %3, align 1
-  %55 = and i8 %54, 1
-  %.not83 = icmp eq i8 %55, 0
-  br i1 %.not83, label %56, label %61
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %61, label %56
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i8, ptr %5, i64 -336
   %58 = load i64, ptr %57, align 8
   %59 = and i64 %58, 16384
-  %.not84 = icmp eq i64 %59, 0
-  br i1 %.not84, label %60, label %61
+  %.not83 = icmp eq i64 %59, 0
+  br i1 %.not83, label %60, label %61
 
 60:                                               ; preds = %56
   store i32 2, ptr %43, align 8
@@ -5270,7 +5268,7 @@ spl_filesystem_is_invalid_or_dot.exit.thread:     ; preds = %23, %.thread102, %s
   call void @php_stat(ptr noundef %62, i32 noundef 13, ptr noundef nonnull %1) #18
   br label %63
 
-63:                                               ; preds = %40, %61, %60, %50, %37, %32, %30, %spl_filesystem_is_invalid_or_dot.exit.thread, %.thread109
+63:                                               ; preds = %40, %61, %60, %50, %37, %32, %30, %spl_filesystem_is_invalid_or_dot.exit.thread, %.thread108
   ret void
 }
 
@@ -5623,7 +5621,7 @@ define hidden void @zim_SplFileObject___construct(ptr nocapture noundef readonly
   %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
-  br label %65
+  br label %64
 
 21:                                               ; preds = %2
   %22 = load ptr, ptr %3, align 8
@@ -5644,72 +5642,71 @@ define hidden void @zim_SplFileObject___construct(ptr nocapture noundef readonly
   %30 = load ptr, ptr @spl_ce_RuntimeException, align 8
   call void @zend_replace_error_handling(i32 noundef 1, ptr noundef %30, ptr noundef nonnull %5) #18
   %31 = load i8, ptr %4, align 1
-  %32 = and i8 %31, 1
-  %33 = icmp ne i8 %32, 0
-  %34 = call fastcc i32 @spl_filesystem_file_open(ptr noundef nonnull %8, i1 noundef zeroext %33), !range !4
+  %32 = trunc i8 %31 to i1
+  %33 = call fastcc i32 @spl_filesystem_file_open(ptr noundef nonnull %8, i1 noundef zeroext %32), !range !4
   call void @zend_restore_error_handling(ptr noundef nonnull %5) #18
-  %35 = icmp eq i32 %34, -1
-  br i1 %35, label %36, label %39
+  %34 = icmp eq i32 %33, -1
+  br i1 %34, label %35, label %38
 
-36:                                               ; preds = %29
-  %37 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %38 = icmp ne ptr %37, null
-  call void @llvm.assume(i1 %38)
-  br label %65
+35:                                               ; preds = %29
+  %36 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %37 = icmp ne ptr %36, null
+  call void @llvm.assume(i1 %37)
+  br label %64
 
-39:                                               ; preds = %29
-  %40 = load ptr, ptr %10, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 136
-  %42 = load ptr, ptr %41, align 8
-  %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #20
-  %44 = icmp ugt i64 %43, 1
-  br i1 %44, label %45, label %.critedge
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %10, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 136
+  %41 = load ptr, ptr %40, align 8
+  %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #20
+  %43 = icmp ugt i64 %42, 1
+  br i1 %43, label %44, label %.critedge
 
-45:                                               ; preds = %39
-  %46 = getelementptr i8, ptr %42, i64 %43
-  %47 = getelementptr i8, ptr %46, i64 -1
-  %48 = load i8, ptr %47, align 1
-  %49 = icmp eq i8 %48, 47
-  %50 = sext i1 %49 to i64
-  %spec.select = add i64 %43, %50
-  %invariant.gep = getelementptr i8, ptr %42, i64 -1
-  %51 = icmp ugt i64 %spec.select, 1
-  br i1 %51, label %.lr.ph, label %.critedge
+44:                                               ; preds = %38
+  %45 = getelementptr i8, ptr %41, i64 %42
+  %46 = getelementptr i8, ptr %45, i64 -1
+  %47 = load i8, ptr %46, align 1
+  %48 = icmp eq i8 %47, 47
+  %49 = sext i1 %48 to i64
+  %spec.select = add i64 %42, %49
+  %invariant.gep = getelementptr i8, ptr %41, i64 -1
+  %50 = icmp ugt i64 %spec.select, 1
+  br i1 %50, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %45, %53
-  %.188 = phi i64 [ %54, %53 ], [ %spec.select, %45 ]
+.lr.ph:                                           ; preds = %44, %52
+  %.188 = phi i64 [ %53, %52 ], [ %spec.select, %44 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.188
-  %52 = load i8, ptr %gep, align 1
-  %.not85 = icmp eq i8 %52, 47
-  br i1 %.not85, label %.critedge, label %53
+  %51 = load i8, ptr %gep, align 1
+  %.not85 = icmp eq i8 %51, 47
+  br i1 %.not85, label %.critedge, label %52
 
-53:                                               ; preds = %.lr.ph
-  %54 = add i64 %.188, -1
-  %55 = icmp ugt i64 %54, 1
-  br i1 %55, label %.lr.ph, label %.critedge
+52:                                               ; preds = %.lr.ph
+  %53 = add i64 %.188, -1
+  %54 = icmp ugt i64 %53, 1
+  br i1 %54, label %.lr.ph, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %53, %39, %45
-  %.1.lcssa = phi i64 [ 1, %45 ], [ %43, %39 ], [ 1, %53 ], [ %.188, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %52, %38, %44
+  %.1.lcssa = phi i64 [ 1, %44 ], [ %42, %38 ], [ 1, %52 ], [ %.188, %.lr.ph ]
   %spec.select87 = call i64 @llvm.usub.sat.i64(i64 %.1.lcssa, i64 1)
-  %56 = and i64 %spec.select87, -8
-  %57 = add i64 %56, 32
-  %58 = call noalias ptr @_emalloc(i64 noundef %57) #19
-  store i32 1, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
-  store i32 22, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %58, i64 8
-  store i64 0, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %58, i64 16
-  store i64 %spec.select87, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %58, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %62, ptr align 1 %42, i64 %spec.select87, i1 false)
-  %63 = getelementptr inbounds [1 x i8], ptr %62, i64 0, i64 %spec.select87
-  store i8 0, ptr %63, align 1
-  %64 = getelementptr inbounds i8, ptr %7, i64 -368
-  store ptr %58, ptr %64, align 8
-  br label %65
+  %55 = and i64 %spec.select87, -8
+  %56 = add i64 %55, 32
+  %57 = call noalias ptr @_emalloc(i64 noundef %56) #19
+  store i32 1, ptr %57, align 4
+  %58 = getelementptr inbounds i8, ptr %57, i64 4
+  store i32 22, ptr %58, align 4
+  %59 = getelementptr inbounds i8, ptr %57, i64 8
+  store i64 0, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %57, i64 16
+  store i64 %spec.select87, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %57, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr align 1 %41, i64 %spec.select87, i1 false)
+  %62 = getelementptr inbounds [1 x i8], ptr %61, i64 0, i64 %spec.select87
+  store i8 0, ptr %62, align 1
+  %63 = getelementptr inbounds i8, ptr %7, i64 -368
+  store ptr %57, ptr %63, align 8
+  br label %64
 
-65:                                               ; preds = %.critedge, %36, %18
+64:                                               ; preds = %.critedge, %35, %18
   ret void
 }
 

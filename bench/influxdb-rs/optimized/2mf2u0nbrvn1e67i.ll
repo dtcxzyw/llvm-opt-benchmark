@@ -199,8 +199,8 @@ define noundef zeroext i1 @"_ZN66_$LT$influxdb3_client..QueryKind$u20$as$u20$cor
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %5 = load i8, ptr %0, align 1, !range !8, !noundef !4
-  %trunc.not = icmp eq i8 %5, 0
-  br i1 %trunc.not, label %6, label %12
+  %trunc = trunc i8 %5 to i1
+  br i1 %trunc, label %12, label %6
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)

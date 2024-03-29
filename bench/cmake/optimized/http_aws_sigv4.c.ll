@@ -996,7 +996,7 @@ define internal fastcc i32 @canon_query(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %.080, ptr %.078, align 8
   %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.080, i32 noundef 38) #13
   %.not99 = icmp eq ptr %8, null
-  br i1 %.not99, label %.loopexit125, label %9
+  br i1 %.not99, label %.loopexit124, label %9
 
 9:                                                ; preds = %.preheader
   %10 = ptrtoint ptr %8 to i64
@@ -1007,20 +1007,20 @@ define internal fastcc i32 @canon_query(ptr noundef %0, ptr noundef %1, ptr noun
   %14 = getelementptr inbounds i8, ptr %.078, i64 16
   %15 = getelementptr inbounds i8, ptr %8, i64 1
   %exitcond.not = icmp eq i32 %7, 64
-  br i1 %exitcond.not, label %.loopexit125.thread, label %.preheader, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit124.thread, label %.preheader, !llvm.loop !18
 
-.loopexit125:                                     ; preds = %.preheader
+.loopexit124:                                     ; preds = %.preheader
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.080) #13
   %17 = getelementptr inbounds i8, ptr %.078, i64 8
   store i64 %16, ptr %17, align 8
   %18 = icmp eq i32 %7, 64
-  br i1 %18, label %.loopexit125.thread, label %19
+  br i1 %18, label %.loopexit124.thread, label %19
 
-.loopexit125.thread:                              ; preds = %9, %.loopexit125
+.loopexit124.thread:                              ; preds = %9, %.loopexit124
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.34) #12
   br label %.loopexit
 
-19:                                               ; preds = %.loopexit125
+19:                                               ; preds = %.loopexit124
   %20 = zext nneg i32 %7 to i64
   call void @qsort(ptr noundef nonnull %4, i64 noundef %20, i64 noundef 16, ptr noundef nonnull @compare_func) #12
   %21 = getelementptr inbounds i8, ptr %5, i64 1
@@ -1029,33 +1029,33 @@ define internal fastcc i32 @canon_query(ptr noundef %0, ptr noundef %1, ptr noun
   %24 = getelementptr inbounds i8, ptr %6, i64 2
   br label %25
 
-25:                                               ; preds = %19, %.thread115
-  %.179135 = phi ptr [ %4, %19 ], [ %86, %.thread115 ]
-  %.081134 = phi i32 [ 0, %19 ], [ %85, %.thread115 ]
-  %26 = getelementptr inbounds i8, ptr %.179135, i64 8
+25:                                               ; preds = %19, %.thread114
+  %.179134 = phi ptr [ %4, %19 ], [ %85, %.thread114 ]
+  %.081133 = phi i32 [ 0, %19 ], [ %84, %.thread114 ]
+  %26 = getelementptr inbounds i8, ptr %.179134, i64 8
   %27 = load i64, ptr %26, align 8
   %.not101 = icmp eq i64 %27, 0
-  br i1 %.not101, label %.thread115, label %28
+  br i1 %.not101, label %.thread114, label %28
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr %.179135, align 8
+  %29 = load ptr, ptr %.179134, align 8
   br label %30
 
 30:                                               ; preds = %28, %72
-  %.0133 = phi i8 [ 0, %28 ], [ %.1, %72 ]
-  %.073132 = phi ptr [ %29, %28 ], [ %73, %72 ]
-  %.075131 = phi i64 [ %27, %28 ], [ %74, %72 ]
-  %31 = load i8, ptr %.073132, align 1
+  %.0132 = phi i1 [ false, %28 ], [ %.1, %72 ]
+  %.073131 = phi ptr [ %29, %28 ], [ %73, %72 ]
+  %.075130 = phi i64 [ %27, %28 ], [ %74, %72 ]
+  %31 = load i8, ptr %.073131, align 1
   %32 = add i8 %31, -48
   %or.cond = icmp ult i8 %32, 10
   %33 = and i8 %31, -33
   %34 = add i8 %33, -65
   %35 = icmp ult i8 %34, 26
-  %or.cond119 = or i1 %or.cond, %35
-  br i1 %or.cond119, label %36, label %38
+  %or.cond118 = or i1 %or.cond, %35
+  br i1 %or.cond118, label %36, label %38
 
 36:                                               ; preds = %30
-  %37 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull %.073132, i64 noundef 1) #12
+  %37 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull %.073131, i64 noundef 1) #12
   br label %72
 
 38:                                               ; preds = %30
@@ -1069,23 +1069,23 @@ define internal fastcc i32 @canon_query(ptr noundef %0, ptr noundef %1, ptr noun
   ]
 
 39:                                               ; preds = %38, %38, %38, %38
-  %40 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull %.073132, i64 noundef 1) #12
+  %40 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull %.073131, i64 noundef 1) #12
   br label %72
 
 41:                                               ; preds = %38
-  %42 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull %.073132, i64 noundef 1) #12
+  %42 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull %.073131, i64 noundef 1) #12
   br label %72
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %.073132, i64 1
+  %44 = getelementptr inbounds i8, ptr %.073131, i64 1
   %45 = load i8, ptr %44, align 1
-  %.fr136 = freeze i8 %45
-  %46 = add i8 %.fr136, -48
-  %or.cond107 = icmp ult i8 %46, 10
-  br i1 %or.cond107, label %47, label %switch.early.test
+  %.fr135 = freeze i8 %45
+  %46 = add i8 %.fr135, -48
+  %or.cond106 = icmp ult i8 %46, 10
+  br i1 %or.cond106, label %47, label %switch.early.test
 
 switch.early.test:                                ; preds = %43
-  switch i8 %.fr136, label %58 [
+  switch i8 %.fr135, label %58 [
     i8 102, label %47
     i8 101, label %47
     i8 100, label %47
@@ -1101,15 +1101,15 @@ switch.early.test:                                ; preds = %43
   ]
 
 47:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %43
-  %48 = getelementptr inbounds i8, ptr %.073132, i64 2
+  %48 = getelementptr inbounds i8, ptr %.073131, i64 2
   %49 = load i8, ptr %48, align 1
-  %.fr137 = freeze i8 %49
-  %50 = add i8 %.fr137, -48
-  %or.cond110 = icmp ult i8 %50, 10
-  br i1 %or.cond110, label %51, label %switch.early.test124
+  %.fr136 = freeze i8 %49
+  %50 = add i8 %.fr136, -48
+  %or.cond109 = icmp ult i8 %50, 10
+  br i1 %or.cond109, label %51, label %switch.early.test123
 
-switch.early.test124:                             ; preds = %47
-  switch i8 %.fr137, label %58 [
+switch.early.test123:                             ; preds = %47
+  switch i8 %.fr136, label %58 [
     i8 102, label %51
     i8 101, label %51
     i8 100, label %51
@@ -1124,7 +1124,7 @@ switch.early.test124:                             ; preds = %47
     i8 65, label %51
   ]
 
-51:                                               ; preds = %switch.early.test124, %switch.early.test124, %switch.early.test124, %switch.early.test124, %switch.early.test124, %switch.early.test124, %switch.early.test124, %switch.early.test124, %switch.early.test124, %switch.early.test124, %switch.early.test124, %switch.early.test124, %47
+51:                                               ; preds = %switch.early.test123, %switch.early.test123, %switch.early.test123, %switch.early.test123, %switch.early.test123, %switch.early.test123, %switch.early.test123, %switch.early.test123, %switch.early.test123, %switch.early.test123, %switch.early.test123, %switch.early.test123, %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(3) @__const.canon_query.out, i64 3, i1 false)
   %52 = load i8, ptr %44, align 1
   %53 = call signext i8 @Curl_raw_toupper(i8 noundef signext %52) #12
@@ -1133,22 +1133,22 @@ switch.early.test124:                             ; preds = %47
   %55 = call signext i8 @Curl_raw_toupper(i8 noundef signext %54) #12
   store i8 %55, ptr %22, align 1
   %56 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 3) #12
-  %57 = add i64 %.075131, -2
+  %57 = add i64 %.075130, -2
   br label %72
 
-58:                                               ; preds = %switch.early.test124, %switch.early.test
+58:                                               ; preds = %switch.early.test123, %switch.early.test
   %59 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull @.str.35, i64 noundef 3) #12
   br label %72
 
 60:                                               ; preds = %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %6, ptr noundef nonnull align 1 dereferenceable(3) @__const.canon_query.out, i64 3, i1 false)
-  %61 = load i8, ptr %.073132, align 1
+  %61 = load i8, ptr %.073131, align 1
   %62 = lshr i8 %61, 4
   %63 = zext nneg i8 %62 to i64
   %64 = getelementptr inbounds [17 x i8], ptr @__const.canon_query.hex, i64 0, i64 %63
   %65 = load i8, ptr %64, align 1
   store i8 %65, ptr %23, align 1
-  %66 = load i8, ptr %.073132, align 1
+  %66 = load i8, ptr %.073131, align 1
   %67 = and i8 %66, 15
   %68 = zext nneg i8 %67 to i64
   %69 = getelementptr inbounds [17 x i8], ptr @__const.canon_query.hex, i64 0, i64 %68
@@ -1159,9 +1159,9 @@ switch.early.test124:                             ; preds = %47
 
 72:                                               ; preds = %36, %51, %58, %60, %41, %39
   %.2 = phi i32 [ %37, %36 ], [ %71, %60 ], [ %56, %51 ], [ %59, %58 ], [ %42, %41 ], [ %40, %39 ]
-  %.176 = phi i64 [ %.075131, %36 ], [ %.075131, %60 ], [ %57, %51 ], [ %.075131, %58 ], [ %.075131, %41 ], [ %.075131, %39 ]
-  %.174 = phi ptr [ %.073132, %36 ], [ %.073132, %60 ], [ %48, %51 ], [ %.073132, %58 ], [ %.073132, %41 ], [ %.073132, %39 ]
-  %.1 = phi i8 [ %.0133, %36 ], [ %.0133, %60 ], [ %.0133, %51 ], [ %.0133, %58 ], [ 1, %41 ], [ %.0133, %39 ]
+  %.176 = phi i64 [ %.075130, %36 ], [ %.075130, %60 ], [ %57, %51 ], [ %.075130, %58 ], [ %.075130, %41 ], [ %.075130, %39 ]
+  %.174 = phi ptr [ %.073131, %36 ], [ %.073131, %60 ], [ %48, %51 ], [ %.073131, %58 ], [ %.073131, %41 ], [ %.073131, %39 ]
+  %.1 = phi i1 [ %.0132, %36 ], [ %.0132, %60 ], [ %.0132, %51 ], [ %.0132, %58 ], [ true, %41 ], [ %.0132, %39 ]
   %73 = getelementptr inbounds i8, ptr %.174, i64 1
   %74 = add i64 %.176, -1
   %75 = icmp ne i64 %74, 0
@@ -1173,34 +1173,32 @@ switch.early.test124:                             ; preds = %47
   br i1 %.not102, label %78, label %.loopexit
 
 78:                                               ; preds = %77
-  %79 = and i8 %.1, 1
-  %.not103 = icmp eq i8 %79, 0
-  br i1 %.not103, label %80, label %.thread
+  br i1 %.1, label %.thread, label %79
 
-80:                                               ; preds = %78
-  %81 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull @.str.36, i64 noundef 1) #12
-  %.not104 = icmp eq i32 %81, 0
-  br i1 %.not104, label %.thread, label %.loopexit
+79:                                               ; preds = %78
+  %80 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull @.str.36, i64 noundef 1) #12
+  %.not103 = icmp eq i32 %80, 0
+  br i1 %.not103, label %.thread, label %.loopexit
 
-.thread:                                          ; preds = %78, %80
-  %82 = icmp ult i32 %.081134, %.082
-  br i1 %82, label %83, label %.thread115
+.thread:                                          ; preds = %78, %79
+  %81 = icmp ult i32 %.081133, %.082
+  br i1 %81, label %82, label %.thread114
 
-83:                                               ; preds = %.thread
-  %84 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull @.str.37, i64 noundef 1) #12
-  br label %.thread115
+82:                                               ; preds = %.thread
+  %83 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull @.str.37, i64 noundef 1) #12
+  br label %.thread114
 
-.thread115:                                       ; preds = %.thread, %83, %25
-  %.4 = phi i32 [ %84, %83 ], [ 0, %.thread ], [ 0, %25 ]
-  %85 = add nuw nsw i32 %.081134, 1
-  %86 = getelementptr inbounds i8, ptr %.179135, i64 16
+.thread114:                                       ; preds = %.thread, %82, %25
+  %.4 = phi i32 [ %83, %82 ], [ 0, %.thread ], [ 0, %25 ]
+  %84 = add nuw nsw i32 %.081133, 1
+  %85 = getelementptr inbounds i8, ptr %.179134, i64 16
   %.not100 = icmp eq i32 %.4, 0
-  %87 = icmp ult i32 %.081134, %.082
-  %88 = select i1 %.not100, i1 %87, i1 false
-  br i1 %88, label %25, label %.loopexit, !llvm.loop !20
+  %86 = icmp ult i32 %.081133, %.082
+  %87 = select i1 %.not100, i1 %86, i1 false
+  br i1 %87, label %25, label %.loopexit, !llvm.loop !20
 
-.loopexit:                                        ; preds = %77, %80, %.thread115, %3, %.loopexit125.thread
-  %.077 = phi i32 [ 3, %.loopexit125.thread ], [ 0, %3 ], [ %81, %80 ], [ %.2, %77 ], [ %.4, %.thread115 ]
+.loopexit:                                        ; preds = %77, %79, %.thread114, %3, %.loopexit124.thread
+  %.077 = phi i32 [ 3, %.loopexit124.thread ], [ 0, %3 ], [ %80, %79 ], [ %.2, %77 ], [ %.4, %.thread114 ]
   ret i32 %.077
 }
 

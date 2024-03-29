@@ -3902,15 +3902,13 @@ define void @_ZN9MeshModel14updateDataMaskEv(ptr nocapture noundef nonnull align
   %2 = getelementptr inbounds i8, ptr %0, i64 1200
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  %spec.store.select = select i1 %.not, i32 28703, i32 28767
+  %5 = trunc i8 %4 to i1
+  %spec.store.select = select i1 %5, i32 28767, i32 28703
   store i32 %spec.store.select, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 251
   %7 = load i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %.not1 = icmp eq i8 %8, 0
-  br i1 %.not1, label %11, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %11
 
 9:                                                ; preds = %1
   %10 = or disjoint i32 %spec.store.select, 32
@@ -3921,9 +3919,8 @@ define void @_ZN9MeshModel14updateDataMaskEv(ptr nocapture noundef nonnull align
   %12 = phi i32 [ %10, %9 ], [ %spec.store.select, %1 ]
   %13 = getelementptr inbounds i8, ptr %0, i64 255
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %.not2 = icmp eq i8 %15, 0
-  br i1 %.not2, label %18, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %18
 
 16:                                               ; preds = %11
   %17 = or i32 %12, 1024
@@ -3934,9 +3931,8 @@ define void @_ZN9MeshModel14updateDataMaskEv(ptr nocapture noundef nonnull align
   %19 = phi i32 [ %17, %16 ], [ %12, %11 ]
   %20 = getelementptr inbounds i8, ptr %0, i64 250
   %21 = load i8, ptr %20, align 2
-  %22 = and i8 %21, 1
-  %.not3 = icmp eq i8 %22, 0
-  br i1 %.not3, label %25, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %25
 
 23:                                               ; preds = %18
   %24 = or i32 %19, 256
@@ -3947,9 +3943,8 @@ define void @_ZN9MeshModel14updateDataMaskEv(ptr nocapture noundef nonnull align
   %26 = phi i32 [ %24, %23 ], [ %19, %18 ]
   %27 = getelementptr inbounds i8, ptr %0, i64 254
   %28 = load i8, ptr %27, align 2
-  %29 = and i8 %28, 1
-  %.not4 = icmp eq i8 %29, 0
-  br i1 %.not4, label %32, label %30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %25
   %31 = or i32 %26, 512
@@ -3960,9 +3955,8 @@ define void @_ZN9MeshModel14updateDataMaskEv(ptr nocapture noundef nonnull align
   %33 = phi i32 [ %31, %30 ], [ %26, %25 ]
   %34 = getelementptr inbounds i8, ptr %0, i64 572
   %35 = load i8, ptr %34, align 4
-  %36 = and i8 %35, 1
-  %.not5 = icmp eq i8 %36, 0
-  br i1 %.not5, label %39, label %37
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %39
 
 37:                                               ; preds = %32
   %38 = or i32 %33, 65536
@@ -3973,9 +3967,8 @@ define void @_ZN9MeshModel14updateDataMaskEv(ptr nocapture noundef nonnull align
   %40 = phi i32 [ %38, %37 ], [ %33, %32 ]
   %41 = getelementptr inbounds i8, ptr %0, i64 570
   %42 = load i8, ptr %41, align 2
-  %43 = and i8 %42, 1
-  %.not6 = icmp eq i8 %43, 0
-  br i1 %.not6, label %46, label %44
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %46
 
 44:                                               ; preds = %39
   %45 = or i32 %40, 131072
@@ -3986,9 +3979,8 @@ define void @_ZN9MeshModel14updateDataMaskEv(ptr nocapture noundef nonnull align
   %47 = phi i32 [ %45, %44 ], [ %40, %39 ]
   %48 = getelementptr inbounds i8, ptr %0, i64 568
   %49 = load i8, ptr %48, align 8
-  %50 = and i8 %49, 1
-  %.not7 = icmp eq i8 %50, 0
-  br i1 %.not7, label %53, label %51
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %53
 
 51:                                               ; preds = %46
   %52 = or i32 %47, 32768
@@ -3999,9 +3991,8 @@ define void @_ZN9MeshModel14updateDataMaskEv(ptr nocapture noundef nonnull align
   %54 = phi i32 [ %52, %51 ], [ %47, %46 ]
   %55 = getelementptr inbounds i8, ptr %0, i64 577
   %56 = load i8, ptr %55, align 1
-  %57 = and i8 %56, 1
-  %.not8 = icmp eq i8 %57, 0
-  br i1 %.not8, label %60, label %58
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %60
 
 58:                                               ; preds = %53
   %59 = or i32 %54, 262144
@@ -4012,9 +4003,8 @@ define void @_ZN9MeshModel14updateDataMaskEv(ptr nocapture noundef nonnull align
   %61 = phi i32 [ %59, %58 ], [ %54, %53 ]
   %62 = getelementptr inbounds i8, ptr %0, i64 576
   %63 = load i8, ptr %62, align 8
-  %64 = and i8 %63, 1
-  %.not9 = icmp eq i8 %64, 0
-  br i1 %.not9, label %67, label %65
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %65, label %67
 
 65:                                               ; preds = %60
   %66 = or i32 %61, 64
@@ -4025,9 +4015,8 @@ define void @_ZN9MeshModel14updateDataMaskEv(ptr nocapture noundef nonnull align
   %68 = phi i32 [ %66, %65 ], [ %61, %60 ]
   %69 = getelementptr inbounds i8, ptr %0, i64 569
   %70 = load i8, ptr %69, align 1
-  %71 = and i8 %70, 1
-  %.not10 = icmp eq i8 %71, 0
-  br i1 %.not10, label %74, label %72
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %72, label %74
 
 72:                                               ; preds = %67
   %73 = or i32 %68, 1048576
@@ -4038,9 +4027,8 @@ define void @_ZN9MeshModel14updateDataMaskEv(ptr nocapture noundef nonnull align
   %75 = phi i32 [ %73, %72 ], [ %68, %67 ]
   %76 = getelementptr inbounds i8, ptr %0, i64 575
   %77 = load i8, ptr %76, align 1
-  %78 = and i8 %77, 1
-  %.not11 = icmp eq i8 %78, 0
-  br i1 %.not11, label %81, label %79
+  %78 = trunc i8 %77 to i1
+  br i1 %78, label %79, label %81
 
 79:                                               ; preds = %74
   %80 = or i32 %75, 2097152
@@ -5027,9 +5015,8 @@ define linkonce_odr void @_ZN3vcg3tri18RequireFFAdjacencyI6CMeshOEEvRKT_(ptr nou
   %3 = alloca %"class.std::allocator.135", align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 577
   %5 = load i8, ptr %4, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %15
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %15, label %7
 
 7:                                                ; preds = %1
   %8 = tail call ptr @__cxa_allocate_exception(i64 16) #28
@@ -6258,56 +6245,54 @@ define linkonce_odr void @_ZN3vcg3tri18RequireVFAdjacencyI6CMeshOEEvRKT_(ptr nou
   %3 = alloca %"class.std::allocator.135", align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 576
   %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %7 = icmp ne i8 %6, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 256
-  %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %11 = icmp ne i8 %10, 0
-  %12 = select i1 %7, i1 %11, i1 false
-  br i1 %12, label %21, label %13
+  %6 = trunc i8 %5 to i1
+  %7 = getelementptr inbounds i8, ptr %0, i64 256
+  %8 = load i8, ptr %7, align 8
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %6, i1 %9, i1 false
+  br i1 %10, label %19, label %11
 
-13:                                               ; preds = %1
-  %14 = tail call ptr @__cxa_allocate_exception(i64 16) #28
+11:                                               ; preds = %1
+  %12 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #28
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.23, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %15 unwind label %.thread
+          to label %13 unwind label %.thread
 
-15:                                               ; preds = %13
-  invoke void @_ZN3vcg25MissingComponentExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %16 unwind label %18
+13:                                               ; preds = %11
+  invoke void @_ZN3vcg25MissingComponentExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(32) %2)
+          to label %14 unwind label %16
 
-16:                                               ; preds = %15
-  invoke void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTIN3vcg25MissingComponentExceptionE, ptr nonnull @_ZN3vcg25MissingComponentExceptionD2Ev) #32
-          to label %23 unwind label %18
+14:                                               ; preds = %13
+  invoke void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTIN3vcg25MissingComponentExceptionE, ptr nonnull @_ZN3vcg25MissingComponentExceptionD2Ev) #32
+          to label %21 unwind label %16
 
-.thread:                                          ; preds = %13
-  %17 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %11
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #28
-  br label %20
+  br label %18
 
-18:                                               ; preds = %15, %16
-  %.0 = phi i1 [ false, %16 ], [ true, %15 ]
-  %19 = landingpad { ptr, i32 }
+16:                                               ; preds = %13, %14
+  %.0 = phi i1 [ false, %14 ], [ true, %13 ]
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #28
-  br i1 %.0, label %20, label %22
+  br i1 %.0, label %18, label %20
 
-20:                                               ; preds = %.thread, %18
-  %.pn9 = phi { ptr, i32 } [ %17, %.thread ], [ %19, %18 ]
-  call void @__cxa_free_exception(ptr %14) #28
-  br label %22
+18:                                               ; preds = %.thread, %16
+  %.pn9 = phi { ptr, i32 } [ %15, %.thread ], [ %17, %16 ]
+  call void @__cxa_free_exception(ptr %12) #28
+  br label %20
 
-21:                                               ; preds = %1
+19:                                               ; preds = %1
   ret void
 
-22:                                               ; preds = %18, %20
-  %.pn8 = phi { ptr, i32 } [ %19, %18 ], [ %.pn9, %20 ]
+20:                                               ; preds = %16, %18
+  %.pn8 = phi { ptr, i32 } [ %17, %16 ], [ %.pn9, %18 ]
   resume { ptr, i32 } %.pn8
 
-23:                                               ; preds = %16
+21:                                               ; preds = %14
   unreachable
 }
 
@@ -8088,9 +8073,8 @@ _ZN9MeshModel14updateDataMaskEi.exit19:           ; preds = %158, %160, %162, %1
 define noundef zeroext i1 @_ZNK9MeshModel12meshModifiedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1228
   %3 = load i8, ptr %2, align 4
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

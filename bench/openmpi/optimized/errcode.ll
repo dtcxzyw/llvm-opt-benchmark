@@ -2768,1484 +2768,1478 @@ define noundef i32 @ompi_mpi_errcode_finalize() #1 {
   %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @errcode_lock, i64 0, i32 1, i32 0, i32 0)) #8
   %2 = load i32, ptr @ompi_mpi_errcode_lastpredefined, align 4
   %3 = load i32, ptr @ompi_mpi_errcode_lastused, align 4
-  %.not.not416 = icmp slt i32 %2, %3
-  br i1 %.not.not416, label %.lr.ph.preheader, label %._crit_edge
+  %.not.not414 = icmp slt i32 %2, %3
+  br i1 %.not.not414, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %0
-  %.pre419.pre420 = load i8, ptr @opal_uses_threads, align 1
+  %.pre417.pre418 = load i8, ptr @opal_uses_threads, align 1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
-  %.pre419 = phi i8 [ %.pre419421, %41 ], [ %.pre419.pre420, %.lr.ph.preheader ]
-  %.0.in417 = phi i32 [ %.0418, %41 ], [ %2, %.lr.ph.preheader ]
-  %.0418 = add nsw i32 %.0.in417, 1
-  %4 = icmp slt i32 %.0.in417, -1
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %38
+  %.pre417 = phi i8 [ %.pre417420, %38 ], [ %.pre417.pre418, %.lr.ph.preheader ]
+  %.0.in415 = phi i32 [ %.0416, %38 ], [ %2, %.lr.ph.preheader ]
+  %.0416 = add nsw i32 %.0.in415, 1
+  %4 = icmp slt i32 %.0.in415, -1
   %5 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 4), align 8
-  %6 = icmp sle i32 %5, %.0418
+  %6 = icmp sle i32 %5, %.0416
   %7 = select i1 %4, i1 true, i1 %6
   br i1 %7, label %opal_pointer_array_get_item.exit, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = and i8 %.pre419, 1
-  %.not.i = icmp eq i8 %9, 0
-  br i1 %.not.i, label %.thread.i, label %14
+  %9 = trunc i8 %.pre417 to i1
+  br i1 %9, label %10, label %12
 
-.thread.i:                                        ; preds = %8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 8), align 8
-  %11 = zext nneg i32 %.0418 to i64
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
-  %13 = load ptr, ptr %12, align 8
-  br label %opal_pointer_array_get_item.exit
-
-14:                                               ; preds = %8
-  %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 1, i32 1, i32 0, i32 0)) #8
+10:                                               ; preds = %8
+  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 1, i32 1, i32 0, i32 0)) #8
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
-  %.pre1.i = and i8 %.pre.i, 1
-  %16 = icmp eq i8 %.pre1.i, 0
-  %17 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 8), align 8
-  %18 = zext nneg i32 %.0418 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
-  %20 = load ptr, ptr %19, align 8
-  br i1 %16, label %opal_pointer_array_get_item.exit, label %21
+  br label %12
 
-21:                                               ; preds = %14
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 1, i32 1, i32 0, i32 0)) #8
+12:                                               ; preds = %10, %8
+  %.pre417419 = phi i8 [ %.pre417, %8 ], [ %.pre.i, %10 ]
+  %13 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 8), align 8
+  %14 = zext nneg i32 %.0416 to i64
+  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %16 = load ptr, ptr %15, align 8
+  %17 = trunc i8 %.pre417419 to i1
+  br i1 %17, label %18, label %opal_pointer_array_get_item.exit
+
+18:                                               ; preds = %12
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 1, i32 1, i32 0, i32 0)) #8
   %.pre = load i8, ptr @opal_uses_threads, align 1
   br label %opal_pointer_array_get_item.exit
 
-opal_pointer_array_get_item.exit:                 ; preds = %.lr.ph, %.thread.i, %14, %21
-  %.pre419422 = phi i8 [ %.pre419, %.lr.ph ], [ %.pre.i, %14 ], [ %.pre, %21 ], [ %.pre419, %.thread.i ]
-  %.0.i = phi ptr [ null, %.lr.ph ], [ %20, %14 ], [ %20, %21 ], [ %13, %.thread.i ]
-  %23 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %24 = and i8 %.pre419422, 1
-  %.not.i7 = icmp eq i8 %24, 0
-  br i1 %.not.i7, label %28, label %25
+opal_pointer_array_get_item.exit:                 ; preds = %.lr.ph, %12, %18
+  %.pre417421 = phi i8 [ %.pre417, %.lr.ph ], [ %.pre417419, %12 ], [ %.pre, %18 ]
+  %.0.i = phi ptr [ null, %.lr.ph ], [ %16, %12 ], [ %16, %18 ]
+  %20 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %21 = trunc i8 %.pre417421 to i1
+  br i1 %21, label %22, label %25
+
+22:                                               ; preds = %opal_pointer_array_get_item.exit
+  %23 = atomicrmw volatile add ptr %20, i32 -1 monotonic, align 4
+  %24 = add i32 %23, -1
+  br label %opal_thread_add_fetch_32.exit
 
 25:                                               ; preds = %opal_pointer_array_get_item.exit
-  %26 = atomicrmw volatile add ptr %23, i32 -1 monotonic, align 4
-  %27 = add i32 %26, -1
+  %26 = load volatile i32, ptr %20, align 4
+  %27 = add nsw i32 %26, -1
+  store volatile i32 %27, ptr %20, align 4
+  %28 = load volatile i32, ptr %20, align 4
   br label %opal_thread_add_fetch_32.exit
 
-28:                                               ; preds = %opal_pointer_array_get_item.exit
-  %29 = load volatile i32, ptr %23, align 4
-  %30 = add nsw i32 %29, -1
-  store volatile i32 %30, ptr %23, align 4
-  %31 = load volatile i32, ptr %23, align 4
-  br label %opal_thread_add_fetch_32.exit
+opal_thread_add_fetch_32.exit:                    ; preds = %22, %25
+  %.0.i7 = phi i32 [ %24, %22 ], [ %28, %25 ]
+  %29 = icmp eq i32 %.0.i7, 0
+  br i1 %29, label %30, label %38
 
-opal_thread_add_fetch_32.exit:                    ; preds = %25, %28
-  %.0.i8 = phi i32 [ %27, %25 ], [ %31, %28 ]
-  %32 = icmp eq i32 %.0.i8, 0
-  br i1 %32, label %33, label %41
-
-33:                                               ; preds = %opal_thread_add_fetch_32.exit
-  %34 = load ptr, ptr %.0.i, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 48
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %36, align 8
-  %.not6.i = icmp eq ptr %37, null
+30:                                               ; preds = %opal_thread_add_fetch_32.exit
+  %31 = load ptr, ptr %.0.i, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 48
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %33, align 8
+  %.not6.i = icmp eq ptr %34, null
   br i1 %.not6.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %33, %.lr.ph.i
-  %38 = phi ptr [ %40, %.lr.ph.i ], [ %37, %33 ]
-  %.07.i = phi ptr [ %39, %.lr.ph.i ], [ %36, %33 ]
-  tail call void %38(ptr noundef nonnull %.0.i) #8
-  %39 = getelementptr inbounds i8, ptr %.07.i, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %.not.i9 = icmp eq ptr %40, null
-  br i1 %.not.i9, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
+.lr.ph.i:                                         ; preds = %30, %.lr.ph.i
+  %35 = phi ptr [ %37, %.lr.ph.i ], [ %34, %30 ]
+  %.07.i = phi ptr [ %36, %.lr.ph.i ], [ %33, %30 ]
+  tail call void %35(ptr noundef nonnull %.0.i) #8
+  %36 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %.not.i = icmp eq ptr %37, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
-opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %33
+opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %30
   tail call void @free(ptr noundef %.0.i) #8
-  %.pre419.pre = load i8, ptr @opal_uses_threads, align 1
-  br label %41
+  %.pre417.pre = load i8, ptr @opal_uses_threads, align 1
+  br label %38
 
-41:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit
-  %.pre419421 = phi i8 [ %.pre419.pre, %opal_obj_run_destructors.exit ], [ %.pre419422, %opal_thread_add_fetch_32.exit ]
-  %42 = load i32, ptr @ompi_mpi_errcode_lastused, align 4
-  %.not.not = icmp slt i32 %.0418, %42
+38:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit
+  %.pre417420 = phi i8 [ %.pre417.pre, %opal_obj_run_destructors.exit ], [ %.pre417421, %opal_thread_add_fetch_32.exit ]
+  %39 = load i32, ptr @ompi_mpi_errcode_lastused, align 4
+  %.not.not = icmp slt i32 %.0416, %39
   br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %41, %0
-  %43 = load ptr, ptr @ompi_success, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 48
-  %45 = load ptr, ptr %44, align 8
+._crit_edge:                                      ; preds = %38, %0
+  %40 = load ptr, ptr @ompi_success, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %42, align 8
+  %.not6.i8 = icmp eq ptr %43, null
+  br i1 %.not6.i8, label %opal_obj_run_destructors.exit12, label %.lr.ph.i9
+
+.lr.ph.i9:                                        ; preds = %._crit_edge, %.lr.ph.i9
+  %44 = phi ptr [ %46, %.lr.ph.i9 ], [ %43, %._crit_edge ]
+  %.07.i10 = phi ptr [ %45, %.lr.ph.i9 ], [ %42, %._crit_edge ]
+  tail call void %44(ptr noundef nonnull @ompi_success) #8
+  %45 = getelementptr inbounds i8, ptr %.07.i10, i64 8
   %46 = load ptr, ptr %45, align 8
-  %.not6.i10 = icmp eq ptr %46, null
-  br i1 %.not6.i10, label %opal_obj_run_destructors.exit14, label %.lr.ph.i11
+  %.not.i11 = icmp eq ptr %46, null
+  br i1 %.not.i11, label %opal_obj_run_destructors.exit12, label %.lr.ph.i9, !llvm.loop !6
 
-.lr.ph.i11:                                       ; preds = %._crit_edge, %.lr.ph.i11
-  %47 = phi ptr [ %49, %.lr.ph.i11 ], [ %46, %._crit_edge ]
-  %.07.i12 = phi ptr [ %48, %.lr.ph.i11 ], [ %45, %._crit_edge ]
-  tail call void %47(ptr noundef nonnull @ompi_success) #8
-  %48 = getelementptr inbounds i8, ptr %.07.i12, i64 8
+opal_obj_run_destructors.exit12:                  ; preds = %.lr.ph.i9, %._crit_edge
+  %47 = load ptr, ptr @ompi_err_buffer, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 48
   %49 = load ptr, ptr %48, align 8
-  %.not.i13 = icmp eq ptr %49, null
-  br i1 %.not.i13, label %opal_obj_run_destructors.exit14, label %.lr.ph.i11, !llvm.loop !6
+  %50 = load ptr, ptr %49, align 8
+  %.not6.i13 = icmp eq ptr %50, null
+  br i1 %.not6.i13, label %opal_obj_run_destructors.exit17, label %.lr.ph.i14
 
-opal_obj_run_destructors.exit14:                  ; preds = %.lr.ph.i11, %._crit_edge
-  %50 = load ptr, ptr @ompi_err_buffer, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 48
-  %52 = load ptr, ptr %51, align 8
+.lr.ph.i14:                                       ; preds = %opal_obj_run_destructors.exit12, %.lr.ph.i14
+  %51 = phi ptr [ %53, %.lr.ph.i14 ], [ %50, %opal_obj_run_destructors.exit12 ]
+  %.07.i15 = phi ptr [ %52, %.lr.ph.i14 ], [ %49, %opal_obj_run_destructors.exit12 ]
+  tail call void %51(ptr noundef nonnull @ompi_err_buffer) #8
+  %52 = getelementptr inbounds i8, ptr %.07.i15, i64 8
   %53 = load ptr, ptr %52, align 8
-  %.not6.i15 = icmp eq ptr %53, null
-  br i1 %.not6.i15, label %opal_obj_run_destructors.exit19, label %.lr.ph.i16
+  %.not.i16 = icmp eq ptr %53, null
+  br i1 %.not.i16, label %opal_obj_run_destructors.exit17, label %.lr.ph.i14, !llvm.loop !6
 
-.lr.ph.i16:                                       ; preds = %opal_obj_run_destructors.exit14, %.lr.ph.i16
-  %54 = phi ptr [ %56, %.lr.ph.i16 ], [ %53, %opal_obj_run_destructors.exit14 ]
-  %.07.i17 = phi ptr [ %55, %.lr.ph.i16 ], [ %52, %opal_obj_run_destructors.exit14 ]
-  tail call void %54(ptr noundef nonnull @ompi_err_buffer) #8
-  %55 = getelementptr inbounds i8, ptr %.07.i17, i64 8
+opal_obj_run_destructors.exit17:                  ; preds = %.lr.ph.i14, %opal_obj_run_destructors.exit12
+  %54 = load ptr, ptr @ompi_err_count, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 48
   %56 = load ptr, ptr %55, align 8
-  %.not.i18 = icmp eq ptr %56, null
-  br i1 %.not.i18, label %opal_obj_run_destructors.exit19, label %.lr.ph.i16, !llvm.loop !6
+  %57 = load ptr, ptr %56, align 8
+  %.not6.i18 = icmp eq ptr %57, null
+  br i1 %.not6.i18, label %opal_obj_run_destructors.exit22, label %.lr.ph.i19
 
-opal_obj_run_destructors.exit19:                  ; preds = %.lr.ph.i16, %opal_obj_run_destructors.exit14
-  %57 = load ptr, ptr @ompi_err_count, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 48
-  %59 = load ptr, ptr %58, align 8
+.lr.ph.i19:                                       ; preds = %opal_obj_run_destructors.exit17, %.lr.ph.i19
+  %58 = phi ptr [ %60, %.lr.ph.i19 ], [ %57, %opal_obj_run_destructors.exit17 ]
+  %.07.i20 = phi ptr [ %59, %.lr.ph.i19 ], [ %56, %opal_obj_run_destructors.exit17 ]
+  tail call void %58(ptr noundef nonnull @ompi_err_count) #8
+  %59 = getelementptr inbounds i8, ptr %.07.i20, i64 8
   %60 = load ptr, ptr %59, align 8
-  %.not6.i20 = icmp eq ptr %60, null
-  br i1 %.not6.i20, label %opal_obj_run_destructors.exit24, label %.lr.ph.i21
+  %.not.i21 = icmp eq ptr %60, null
+  br i1 %.not.i21, label %opal_obj_run_destructors.exit22, label %.lr.ph.i19, !llvm.loop !6
 
-.lr.ph.i21:                                       ; preds = %opal_obj_run_destructors.exit19, %.lr.ph.i21
-  %61 = phi ptr [ %63, %.lr.ph.i21 ], [ %60, %opal_obj_run_destructors.exit19 ]
-  %.07.i22 = phi ptr [ %62, %.lr.ph.i21 ], [ %59, %opal_obj_run_destructors.exit19 ]
-  tail call void %61(ptr noundef nonnull @ompi_err_count) #8
-  %62 = getelementptr inbounds i8, ptr %.07.i22, i64 8
+opal_obj_run_destructors.exit22:                  ; preds = %.lr.ph.i19, %opal_obj_run_destructors.exit17
+  %61 = load ptr, ptr @ompi_err_type, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 48
   %63 = load ptr, ptr %62, align 8
-  %.not.i23 = icmp eq ptr %63, null
-  br i1 %.not.i23, label %opal_obj_run_destructors.exit24, label %.lr.ph.i21, !llvm.loop !6
+  %64 = load ptr, ptr %63, align 8
+  %.not6.i23 = icmp eq ptr %64, null
+  br i1 %.not6.i23, label %opal_obj_run_destructors.exit27, label %.lr.ph.i24
 
-opal_obj_run_destructors.exit24:                  ; preds = %.lr.ph.i21, %opal_obj_run_destructors.exit19
-  %64 = load ptr, ptr @ompi_err_type, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 48
-  %66 = load ptr, ptr %65, align 8
+.lr.ph.i24:                                       ; preds = %opal_obj_run_destructors.exit22, %.lr.ph.i24
+  %65 = phi ptr [ %67, %.lr.ph.i24 ], [ %64, %opal_obj_run_destructors.exit22 ]
+  %.07.i25 = phi ptr [ %66, %.lr.ph.i24 ], [ %63, %opal_obj_run_destructors.exit22 ]
+  tail call void %65(ptr noundef nonnull @ompi_err_type) #8
+  %66 = getelementptr inbounds i8, ptr %.07.i25, i64 8
   %67 = load ptr, ptr %66, align 8
-  %.not6.i25 = icmp eq ptr %67, null
-  br i1 %.not6.i25, label %opal_obj_run_destructors.exit29, label %.lr.ph.i26
+  %.not.i26 = icmp eq ptr %67, null
+  br i1 %.not.i26, label %opal_obj_run_destructors.exit27, label %.lr.ph.i24, !llvm.loop !6
 
-.lr.ph.i26:                                       ; preds = %opal_obj_run_destructors.exit24, %.lr.ph.i26
-  %68 = phi ptr [ %70, %.lr.ph.i26 ], [ %67, %opal_obj_run_destructors.exit24 ]
-  %.07.i27 = phi ptr [ %69, %.lr.ph.i26 ], [ %66, %opal_obj_run_destructors.exit24 ]
-  tail call void %68(ptr noundef nonnull @ompi_err_type) #8
-  %69 = getelementptr inbounds i8, ptr %.07.i27, i64 8
+opal_obj_run_destructors.exit27:                  ; preds = %.lr.ph.i24, %opal_obj_run_destructors.exit22
+  %68 = load ptr, ptr @ompi_err_tag, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 48
   %70 = load ptr, ptr %69, align 8
-  %.not.i28 = icmp eq ptr %70, null
-  br i1 %.not.i28, label %opal_obj_run_destructors.exit29, label %.lr.ph.i26, !llvm.loop !6
+  %71 = load ptr, ptr %70, align 8
+  %.not6.i28 = icmp eq ptr %71, null
+  br i1 %.not6.i28, label %opal_obj_run_destructors.exit32, label %.lr.ph.i29
 
-opal_obj_run_destructors.exit29:                  ; preds = %.lr.ph.i26, %opal_obj_run_destructors.exit24
-  %71 = load ptr, ptr @ompi_err_tag, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 48
-  %73 = load ptr, ptr %72, align 8
+.lr.ph.i29:                                       ; preds = %opal_obj_run_destructors.exit27, %.lr.ph.i29
+  %72 = phi ptr [ %74, %.lr.ph.i29 ], [ %71, %opal_obj_run_destructors.exit27 ]
+  %.07.i30 = phi ptr [ %73, %.lr.ph.i29 ], [ %70, %opal_obj_run_destructors.exit27 ]
+  tail call void %72(ptr noundef nonnull @ompi_err_tag) #8
+  %73 = getelementptr inbounds i8, ptr %.07.i30, i64 8
   %74 = load ptr, ptr %73, align 8
-  %.not6.i30 = icmp eq ptr %74, null
-  br i1 %.not6.i30, label %opal_obj_run_destructors.exit34, label %.lr.ph.i31
+  %.not.i31 = icmp eq ptr %74, null
+  br i1 %.not.i31, label %opal_obj_run_destructors.exit32, label %.lr.ph.i29, !llvm.loop !6
 
-.lr.ph.i31:                                       ; preds = %opal_obj_run_destructors.exit29, %.lr.ph.i31
-  %75 = phi ptr [ %77, %.lr.ph.i31 ], [ %74, %opal_obj_run_destructors.exit29 ]
-  %.07.i32 = phi ptr [ %76, %.lr.ph.i31 ], [ %73, %opal_obj_run_destructors.exit29 ]
-  tail call void %75(ptr noundef nonnull @ompi_err_tag) #8
-  %76 = getelementptr inbounds i8, ptr %.07.i32, i64 8
+opal_obj_run_destructors.exit32:                  ; preds = %.lr.ph.i29, %opal_obj_run_destructors.exit27
+  %75 = load ptr, ptr @ompi_err_comm, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 48
   %77 = load ptr, ptr %76, align 8
-  %.not.i33 = icmp eq ptr %77, null
-  br i1 %.not.i33, label %opal_obj_run_destructors.exit34, label %.lr.ph.i31, !llvm.loop !6
+  %78 = load ptr, ptr %77, align 8
+  %.not6.i33 = icmp eq ptr %78, null
+  br i1 %.not6.i33, label %opal_obj_run_destructors.exit37, label %.lr.ph.i34
 
-opal_obj_run_destructors.exit34:                  ; preds = %.lr.ph.i31, %opal_obj_run_destructors.exit29
-  %78 = load ptr, ptr @ompi_err_comm, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 48
-  %80 = load ptr, ptr %79, align 8
+.lr.ph.i34:                                       ; preds = %opal_obj_run_destructors.exit32, %.lr.ph.i34
+  %79 = phi ptr [ %81, %.lr.ph.i34 ], [ %78, %opal_obj_run_destructors.exit32 ]
+  %.07.i35 = phi ptr [ %80, %.lr.ph.i34 ], [ %77, %opal_obj_run_destructors.exit32 ]
+  tail call void %79(ptr noundef nonnull @ompi_err_comm) #8
+  %80 = getelementptr inbounds i8, ptr %.07.i35, i64 8
   %81 = load ptr, ptr %80, align 8
-  %.not6.i35 = icmp eq ptr %81, null
-  br i1 %.not6.i35, label %opal_obj_run_destructors.exit39, label %.lr.ph.i36
+  %.not.i36 = icmp eq ptr %81, null
+  br i1 %.not.i36, label %opal_obj_run_destructors.exit37, label %.lr.ph.i34, !llvm.loop !6
 
-.lr.ph.i36:                                       ; preds = %opal_obj_run_destructors.exit34, %.lr.ph.i36
-  %82 = phi ptr [ %84, %.lr.ph.i36 ], [ %81, %opal_obj_run_destructors.exit34 ]
-  %.07.i37 = phi ptr [ %83, %.lr.ph.i36 ], [ %80, %opal_obj_run_destructors.exit34 ]
-  tail call void %82(ptr noundef nonnull @ompi_err_comm) #8
-  %83 = getelementptr inbounds i8, ptr %.07.i37, i64 8
+opal_obj_run_destructors.exit37:                  ; preds = %.lr.ph.i34, %opal_obj_run_destructors.exit32
+  %82 = load ptr, ptr @ompi_err_rank, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 48
   %84 = load ptr, ptr %83, align 8
-  %.not.i38 = icmp eq ptr %84, null
-  br i1 %.not.i38, label %opal_obj_run_destructors.exit39, label %.lr.ph.i36, !llvm.loop !6
+  %85 = load ptr, ptr %84, align 8
+  %.not6.i38 = icmp eq ptr %85, null
+  br i1 %.not6.i38, label %opal_obj_run_destructors.exit42, label %.lr.ph.i39
 
-opal_obj_run_destructors.exit39:                  ; preds = %.lr.ph.i36, %opal_obj_run_destructors.exit34
-  %85 = load ptr, ptr @ompi_err_rank, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 48
-  %87 = load ptr, ptr %86, align 8
+.lr.ph.i39:                                       ; preds = %opal_obj_run_destructors.exit37, %.lr.ph.i39
+  %86 = phi ptr [ %88, %.lr.ph.i39 ], [ %85, %opal_obj_run_destructors.exit37 ]
+  %.07.i40 = phi ptr [ %87, %.lr.ph.i39 ], [ %84, %opal_obj_run_destructors.exit37 ]
+  tail call void %86(ptr noundef nonnull @ompi_err_rank) #8
+  %87 = getelementptr inbounds i8, ptr %.07.i40, i64 8
   %88 = load ptr, ptr %87, align 8
-  %.not6.i40 = icmp eq ptr %88, null
-  br i1 %.not6.i40, label %opal_obj_run_destructors.exit44, label %.lr.ph.i41
+  %.not.i41 = icmp eq ptr %88, null
+  br i1 %.not.i41, label %opal_obj_run_destructors.exit42, label %.lr.ph.i39, !llvm.loop !6
 
-.lr.ph.i41:                                       ; preds = %opal_obj_run_destructors.exit39, %.lr.ph.i41
-  %89 = phi ptr [ %91, %.lr.ph.i41 ], [ %88, %opal_obj_run_destructors.exit39 ]
-  %.07.i42 = phi ptr [ %90, %.lr.ph.i41 ], [ %87, %opal_obj_run_destructors.exit39 ]
-  tail call void %89(ptr noundef nonnull @ompi_err_rank) #8
-  %90 = getelementptr inbounds i8, ptr %.07.i42, i64 8
+opal_obj_run_destructors.exit42:                  ; preds = %.lr.ph.i39, %opal_obj_run_destructors.exit37
+  %89 = load ptr, ptr @ompi_err_request, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 48
   %91 = load ptr, ptr %90, align 8
-  %.not.i43 = icmp eq ptr %91, null
-  br i1 %.not.i43, label %opal_obj_run_destructors.exit44, label %.lr.ph.i41, !llvm.loop !6
+  %92 = load ptr, ptr %91, align 8
+  %.not6.i43 = icmp eq ptr %92, null
+  br i1 %.not6.i43, label %opal_obj_run_destructors.exit47, label %.lr.ph.i44
 
-opal_obj_run_destructors.exit44:                  ; preds = %.lr.ph.i41, %opal_obj_run_destructors.exit39
-  %92 = load ptr, ptr @ompi_err_request, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 48
-  %94 = load ptr, ptr %93, align 8
+.lr.ph.i44:                                       ; preds = %opal_obj_run_destructors.exit42, %.lr.ph.i44
+  %93 = phi ptr [ %95, %.lr.ph.i44 ], [ %92, %opal_obj_run_destructors.exit42 ]
+  %.07.i45 = phi ptr [ %94, %.lr.ph.i44 ], [ %91, %opal_obj_run_destructors.exit42 ]
+  tail call void %93(ptr noundef nonnull @ompi_err_request) #8
+  %94 = getelementptr inbounds i8, ptr %.07.i45, i64 8
   %95 = load ptr, ptr %94, align 8
-  %.not6.i45 = icmp eq ptr %95, null
-  br i1 %.not6.i45, label %opal_obj_run_destructors.exit49, label %.lr.ph.i46
+  %.not.i46 = icmp eq ptr %95, null
+  br i1 %.not.i46, label %opal_obj_run_destructors.exit47, label %.lr.ph.i44, !llvm.loop !6
 
-.lr.ph.i46:                                       ; preds = %opal_obj_run_destructors.exit44, %.lr.ph.i46
-  %96 = phi ptr [ %98, %.lr.ph.i46 ], [ %95, %opal_obj_run_destructors.exit44 ]
-  %.07.i47 = phi ptr [ %97, %.lr.ph.i46 ], [ %94, %opal_obj_run_destructors.exit44 ]
-  tail call void %96(ptr noundef nonnull @ompi_err_request) #8
-  %97 = getelementptr inbounds i8, ptr %.07.i47, i64 8
+opal_obj_run_destructors.exit47:                  ; preds = %.lr.ph.i44, %opal_obj_run_destructors.exit42
+  %96 = load ptr, ptr @ompi_err_root, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 48
   %98 = load ptr, ptr %97, align 8
-  %.not.i48 = icmp eq ptr %98, null
-  br i1 %.not.i48, label %opal_obj_run_destructors.exit49, label %.lr.ph.i46, !llvm.loop !6
+  %99 = load ptr, ptr %98, align 8
+  %.not6.i48 = icmp eq ptr %99, null
+  br i1 %.not6.i48, label %opal_obj_run_destructors.exit52, label %.lr.ph.i49
 
-opal_obj_run_destructors.exit49:                  ; preds = %.lr.ph.i46, %opal_obj_run_destructors.exit44
-  %99 = load ptr, ptr @ompi_err_root, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 48
-  %101 = load ptr, ptr %100, align 8
+.lr.ph.i49:                                       ; preds = %opal_obj_run_destructors.exit47, %.lr.ph.i49
+  %100 = phi ptr [ %102, %.lr.ph.i49 ], [ %99, %opal_obj_run_destructors.exit47 ]
+  %.07.i50 = phi ptr [ %101, %.lr.ph.i49 ], [ %98, %opal_obj_run_destructors.exit47 ]
+  tail call void %100(ptr noundef nonnull @ompi_err_root) #8
+  %101 = getelementptr inbounds i8, ptr %.07.i50, i64 8
   %102 = load ptr, ptr %101, align 8
-  %.not6.i50 = icmp eq ptr %102, null
-  br i1 %.not6.i50, label %opal_obj_run_destructors.exit54, label %.lr.ph.i51
+  %.not.i51 = icmp eq ptr %102, null
+  br i1 %.not.i51, label %opal_obj_run_destructors.exit52, label %.lr.ph.i49, !llvm.loop !6
 
-.lr.ph.i51:                                       ; preds = %opal_obj_run_destructors.exit49, %.lr.ph.i51
-  %103 = phi ptr [ %105, %.lr.ph.i51 ], [ %102, %opal_obj_run_destructors.exit49 ]
-  %.07.i52 = phi ptr [ %104, %.lr.ph.i51 ], [ %101, %opal_obj_run_destructors.exit49 ]
-  tail call void %103(ptr noundef nonnull @ompi_err_root) #8
-  %104 = getelementptr inbounds i8, ptr %.07.i52, i64 8
+opal_obj_run_destructors.exit52:                  ; preds = %.lr.ph.i49, %opal_obj_run_destructors.exit47
+  %103 = load ptr, ptr @ompi_err_group, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 48
   %105 = load ptr, ptr %104, align 8
-  %.not.i53 = icmp eq ptr %105, null
-  br i1 %.not.i53, label %opal_obj_run_destructors.exit54, label %.lr.ph.i51, !llvm.loop !6
+  %106 = load ptr, ptr %105, align 8
+  %.not6.i53 = icmp eq ptr %106, null
+  br i1 %.not6.i53, label %opal_obj_run_destructors.exit57, label %.lr.ph.i54
 
-opal_obj_run_destructors.exit54:                  ; preds = %.lr.ph.i51, %opal_obj_run_destructors.exit49
-  %106 = load ptr, ptr @ompi_err_group, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 48
-  %108 = load ptr, ptr %107, align 8
+.lr.ph.i54:                                       ; preds = %opal_obj_run_destructors.exit52, %.lr.ph.i54
+  %107 = phi ptr [ %109, %.lr.ph.i54 ], [ %106, %opal_obj_run_destructors.exit52 ]
+  %.07.i55 = phi ptr [ %108, %.lr.ph.i54 ], [ %105, %opal_obj_run_destructors.exit52 ]
+  tail call void %107(ptr noundef nonnull @ompi_err_group) #8
+  %108 = getelementptr inbounds i8, ptr %.07.i55, i64 8
   %109 = load ptr, ptr %108, align 8
-  %.not6.i55 = icmp eq ptr %109, null
-  br i1 %.not6.i55, label %opal_obj_run_destructors.exit59, label %.lr.ph.i56
+  %.not.i56 = icmp eq ptr %109, null
+  br i1 %.not.i56, label %opal_obj_run_destructors.exit57, label %.lr.ph.i54, !llvm.loop !6
 
-.lr.ph.i56:                                       ; preds = %opal_obj_run_destructors.exit54, %.lr.ph.i56
-  %110 = phi ptr [ %112, %.lr.ph.i56 ], [ %109, %opal_obj_run_destructors.exit54 ]
-  %.07.i57 = phi ptr [ %111, %.lr.ph.i56 ], [ %108, %opal_obj_run_destructors.exit54 ]
-  tail call void %110(ptr noundef nonnull @ompi_err_group) #8
-  %111 = getelementptr inbounds i8, ptr %.07.i57, i64 8
+opal_obj_run_destructors.exit57:                  ; preds = %.lr.ph.i54, %opal_obj_run_destructors.exit52
+  %110 = load ptr, ptr @ompi_err_op, align 8
+  %111 = getelementptr inbounds i8, ptr %110, i64 48
   %112 = load ptr, ptr %111, align 8
-  %.not.i58 = icmp eq ptr %112, null
-  br i1 %.not.i58, label %opal_obj_run_destructors.exit59, label %.lr.ph.i56, !llvm.loop !6
+  %113 = load ptr, ptr %112, align 8
+  %.not6.i58 = icmp eq ptr %113, null
+  br i1 %.not6.i58, label %opal_obj_run_destructors.exit62, label %.lr.ph.i59
 
-opal_obj_run_destructors.exit59:                  ; preds = %.lr.ph.i56, %opal_obj_run_destructors.exit54
-  %113 = load ptr, ptr @ompi_err_op, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 48
-  %115 = load ptr, ptr %114, align 8
+.lr.ph.i59:                                       ; preds = %opal_obj_run_destructors.exit57, %.lr.ph.i59
+  %114 = phi ptr [ %116, %.lr.ph.i59 ], [ %113, %opal_obj_run_destructors.exit57 ]
+  %.07.i60 = phi ptr [ %115, %.lr.ph.i59 ], [ %112, %opal_obj_run_destructors.exit57 ]
+  tail call void %114(ptr noundef nonnull @ompi_err_op) #8
+  %115 = getelementptr inbounds i8, ptr %.07.i60, i64 8
   %116 = load ptr, ptr %115, align 8
-  %.not6.i60 = icmp eq ptr %116, null
-  br i1 %.not6.i60, label %opal_obj_run_destructors.exit64, label %.lr.ph.i61
+  %.not.i61 = icmp eq ptr %116, null
+  br i1 %.not.i61, label %opal_obj_run_destructors.exit62, label %.lr.ph.i59, !llvm.loop !6
 
-.lr.ph.i61:                                       ; preds = %opal_obj_run_destructors.exit59, %.lr.ph.i61
-  %117 = phi ptr [ %119, %.lr.ph.i61 ], [ %116, %opal_obj_run_destructors.exit59 ]
-  %.07.i62 = phi ptr [ %118, %.lr.ph.i61 ], [ %115, %opal_obj_run_destructors.exit59 ]
-  tail call void %117(ptr noundef nonnull @ompi_err_op) #8
-  %118 = getelementptr inbounds i8, ptr %.07.i62, i64 8
+opal_obj_run_destructors.exit62:                  ; preds = %.lr.ph.i59, %opal_obj_run_destructors.exit57
+  %117 = load ptr, ptr @ompi_err_topology, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 48
   %119 = load ptr, ptr %118, align 8
-  %.not.i63 = icmp eq ptr %119, null
-  br i1 %.not.i63, label %opal_obj_run_destructors.exit64, label %.lr.ph.i61, !llvm.loop !6
+  %120 = load ptr, ptr %119, align 8
+  %.not6.i63 = icmp eq ptr %120, null
+  br i1 %.not6.i63, label %opal_obj_run_destructors.exit67, label %.lr.ph.i64
 
-opal_obj_run_destructors.exit64:                  ; preds = %.lr.ph.i61, %opal_obj_run_destructors.exit59
-  %120 = load ptr, ptr @ompi_err_topology, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 48
-  %122 = load ptr, ptr %121, align 8
+.lr.ph.i64:                                       ; preds = %opal_obj_run_destructors.exit62, %.lr.ph.i64
+  %121 = phi ptr [ %123, %.lr.ph.i64 ], [ %120, %opal_obj_run_destructors.exit62 ]
+  %.07.i65 = phi ptr [ %122, %.lr.ph.i64 ], [ %119, %opal_obj_run_destructors.exit62 ]
+  tail call void %121(ptr noundef nonnull @ompi_err_topology) #8
+  %122 = getelementptr inbounds i8, ptr %.07.i65, i64 8
   %123 = load ptr, ptr %122, align 8
-  %.not6.i65 = icmp eq ptr %123, null
-  br i1 %.not6.i65, label %opal_obj_run_destructors.exit69, label %.lr.ph.i66
+  %.not.i66 = icmp eq ptr %123, null
+  br i1 %.not.i66, label %opal_obj_run_destructors.exit67, label %.lr.ph.i64, !llvm.loop !6
 
-.lr.ph.i66:                                       ; preds = %opal_obj_run_destructors.exit64, %.lr.ph.i66
-  %124 = phi ptr [ %126, %.lr.ph.i66 ], [ %123, %opal_obj_run_destructors.exit64 ]
-  %.07.i67 = phi ptr [ %125, %.lr.ph.i66 ], [ %122, %opal_obj_run_destructors.exit64 ]
-  tail call void %124(ptr noundef nonnull @ompi_err_topology) #8
-  %125 = getelementptr inbounds i8, ptr %.07.i67, i64 8
+opal_obj_run_destructors.exit67:                  ; preds = %.lr.ph.i64, %opal_obj_run_destructors.exit62
+  %124 = load ptr, ptr @ompi_err_dims, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 48
   %126 = load ptr, ptr %125, align 8
-  %.not.i68 = icmp eq ptr %126, null
-  br i1 %.not.i68, label %opal_obj_run_destructors.exit69, label %.lr.ph.i66, !llvm.loop !6
+  %127 = load ptr, ptr %126, align 8
+  %.not6.i68 = icmp eq ptr %127, null
+  br i1 %.not6.i68, label %opal_obj_run_destructors.exit72, label %.lr.ph.i69
 
-opal_obj_run_destructors.exit69:                  ; preds = %.lr.ph.i66, %opal_obj_run_destructors.exit64
-  %127 = load ptr, ptr @ompi_err_dims, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 48
-  %129 = load ptr, ptr %128, align 8
+.lr.ph.i69:                                       ; preds = %opal_obj_run_destructors.exit67, %.lr.ph.i69
+  %128 = phi ptr [ %130, %.lr.ph.i69 ], [ %127, %opal_obj_run_destructors.exit67 ]
+  %.07.i70 = phi ptr [ %129, %.lr.ph.i69 ], [ %126, %opal_obj_run_destructors.exit67 ]
+  tail call void %128(ptr noundef nonnull @ompi_err_dims) #8
+  %129 = getelementptr inbounds i8, ptr %.07.i70, i64 8
   %130 = load ptr, ptr %129, align 8
-  %.not6.i70 = icmp eq ptr %130, null
-  br i1 %.not6.i70, label %opal_obj_run_destructors.exit74, label %.lr.ph.i71
+  %.not.i71 = icmp eq ptr %130, null
+  br i1 %.not.i71, label %opal_obj_run_destructors.exit72, label %.lr.ph.i69, !llvm.loop !6
 
-.lr.ph.i71:                                       ; preds = %opal_obj_run_destructors.exit69, %.lr.ph.i71
-  %131 = phi ptr [ %133, %.lr.ph.i71 ], [ %130, %opal_obj_run_destructors.exit69 ]
-  %.07.i72 = phi ptr [ %132, %.lr.ph.i71 ], [ %129, %opal_obj_run_destructors.exit69 ]
-  tail call void %131(ptr noundef nonnull @ompi_err_dims) #8
-  %132 = getelementptr inbounds i8, ptr %.07.i72, i64 8
+opal_obj_run_destructors.exit72:                  ; preds = %.lr.ph.i69, %opal_obj_run_destructors.exit67
+  %131 = load ptr, ptr @ompi_err_arg, align 8
+  %132 = getelementptr inbounds i8, ptr %131, i64 48
   %133 = load ptr, ptr %132, align 8
-  %.not.i73 = icmp eq ptr %133, null
-  br i1 %.not.i73, label %opal_obj_run_destructors.exit74, label %.lr.ph.i71, !llvm.loop !6
+  %134 = load ptr, ptr %133, align 8
+  %.not6.i73 = icmp eq ptr %134, null
+  br i1 %.not6.i73, label %opal_obj_run_destructors.exit77, label %.lr.ph.i74
 
-opal_obj_run_destructors.exit74:                  ; preds = %.lr.ph.i71, %opal_obj_run_destructors.exit69
-  %134 = load ptr, ptr @ompi_err_arg, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 48
-  %136 = load ptr, ptr %135, align 8
+.lr.ph.i74:                                       ; preds = %opal_obj_run_destructors.exit72, %.lr.ph.i74
+  %135 = phi ptr [ %137, %.lr.ph.i74 ], [ %134, %opal_obj_run_destructors.exit72 ]
+  %.07.i75 = phi ptr [ %136, %.lr.ph.i74 ], [ %133, %opal_obj_run_destructors.exit72 ]
+  tail call void %135(ptr noundef nonnull @ompi_err_arg) #8
+  %136 = getelementptr inbounds i8, ptr %.07.i75, i64 8
   %137 = load ptr, ptr %136, align 8
-  %.not6.i75 = icmp eq ptr %137, null
-  br i1 %.not6.i75, label %opal_obj_run_destructors.exit79, label %.lr.ph.i76
+  %.not.i76 = icmp eq ptr %137, null
+  br i1 %.not.i76, label %opal_obj_run_destructors.exit77, label %.lr.ph.i74, !llvm.loop !6
 
-.lr.ph.i76:                                       ; preds = %opal_obj_run_destructors.exit74, %.lr.ph.i76
-  %138 = phi ptr [ %140, %.lr.ph.i76 ], [ %137, %opal_obj_run_destructors.exit74 ]
-  %.07.i77 = phi ptr [ %139, %.lr.ph.i76 ], [ %136, %opal_obj_run_destructors.exit74 ]
-  tail call void %138(ptr noundef nonnull @ompi_err_arg) #8
-  %139 = getelementptr inbounds i8, ptr %.07.i77, i64 8
+opal_obj_run_destructors.exit77:                  ; preds = %.lr.ph.i74, %opal_obj_run_destructors.exit72
+  %138 = load ptr, ptr @ompi_err_unknown, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 48
   %140 = load ptr, ptr %139, align 8
-  %.not.i78 = icmp eq ptr %140, null
-  br i1 %.not.i78, label %opal_obj_run_destructors.exit79, label %.lr.ph.i76, !llvm.loop !6
+  %141 = load ptr, ptr %140, align 8
+  %.not6.i78 = icmp eq ptr %141, null
+  br i1 %.not6.i78, label %opal_obj_run_destructors.exit82, label %.lr.ph.i79
 
-opal_obj_run_destructors.exit79:                  ; preds = %.lr.ph.i76, %opal_obj_run_destructors.exit74
-  %141 = load ptr, ptr @ompi_err_unknown, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 48
-  %143 = load ptr, ptr %142, align 8
+.lr.ph.i79:                                       ; preds = %opal_obj_run_destructors.exit77, %.lr.ph.i79
+  %142 = phi ptr [ %144, %.lr.ph.i79 ], [ %141, %opal_obj_run_destructors.exit77 ]
+  %.07.i80 = phi ptr [ %143, %.lr.ph.i79 ], [ %140, %opal_obj_run_destructors.exit77 ]
+  tail call void %142(ptr noundef nonnull @ompi_err_unknown) #8
+  %143 = getelementptr inbounds i8, ptr %.07.i80, i64 8
   %144 = load ptr, ptr %143, align 8
-  %.not6.i80 = icmp eq ptr %144, null
-  br i1 %.not6.i80, label %opal_obj_run_destructors.exit84, label %.lr.ph.i81
+  %.not.i81 = icmp eq ptr %144, null
+  br i1 %.not.i81, label %opal_obj_run_destructors.exit82, label %.lr.ph.i79, !llvm.loop !6
 
-.lr.ph.i81:                                       ; preds = %opal_obj_run_destructors.exit79, %.lr.ph.i81
-  %145 = phi ptr [ %147, %.lr.ph.i81 ], [ %144, %opal_obj_run_destructors.exit79 ]
-  %.07.i82 = phi ptr [ %146, %.lr.ph.i81 ], [ %143, %opal_obj_run_destructors.exit79 ]
-  tail call void %145(ptr noundef nonnull @ompi_err_unknown) #8
-  %146 = getelementptr inbounds i8, ptr %.07.i82, i64 8
+opal_obj_run_destructors.exit82:                  ; preds = %.lr.ph.i79, %opal_obj_run_destructors.exit77
+  %145 = load ptr, ptr @ompi_err_truncate, align 8
+  %146 = getelementptr inbounds i8, ptr %145, i64 48
   %147 = load ptr, ptr %146, align 8
-  %.not.i83 = icmp eq ptr %147, null
-  br i1 %.not.i83, label %opal_obj_run_destructors.exit84, label %.lr.ph.i81, !llvm.loop !6
+  %148 = load ptr, ptr %147, align 8
+  %.not6.i83 = icmp eq ptr %148, null
+  br i1 %.not6.i83, label %opal_obj_run_destructors.exit87, label %.lr.ph.i84
 
-opal_obj_run_destructors.exit84:                  ; preds = %.lr.ph.i81, %opal_obj_run_destructors.exit79
-  %148 = load ptr, ptr @ompi_err_truncate, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 48
-  %150 = load ptr, ptr %149, align 8
+.lr.ph.i84:                                       ; preds = %opal_obj_run_destructors.exit82, %.lr.ph.i84
+  %149 = phi ptr [ %151, %.lr.ph.i84 ], [ %148, %opal_obj_run_destructors.exit82 ]
+  %.07.i85 = phi ptr [ %150, %.lr.ph.i84 ], [ %147, %opal_obj_run_destructors.exit82 ]
+  tail call void %149(ptr noundef nonnull @ompi_err_truncate) #8
+  %150 = getelementptr inbounds i8, ptr %.07.i85, i64 8
   %151 = load ptr, ptr %150, align 8
-  %.not6.i85 = icmp eq ptr %151, null
-  br i1 %.not6.i85, label %opal_obj_run_destructors.exit89, label %.lr.ph.i86
+  %.not.i86 = icmp eq ptr %151, null
+  br i1 %.not.i86, label %opal_obj_run_destructors.exit87, label %.lr.ph.i84, !llvm.loop !6
 
-.lr.ph.i86:                                       ; preds = %opal_obj_run_destructors.exit84, %.lr.ph.i86
-  %152 = phi ptr [ %154, %.lr.ph.i86 ], [ %151, %opal_obj_run_destructors.exit84 ]
-  %.07.i87 = phi ptr [ %153, %.lr.ph.i86 ], [ %150, %opal_obj_run_destructors.exit84 ]
-  tail call void %152(ptr noundef nonnull @ompi_err_truncate) #8
-  %153 = getelementptr inbounds i8, ptr %.07.i87, i64 8
+opal_obj_run_destructors.exit87:                  ; preds = %.lr.ph.i84, %opal_obj_run_destructors.exit82
+  %152 = load ptr, ptr @ompi_err_other, align 8
+  %153 = getelementptr inbounds i8, ptr %152, i64 48
   %154 = load ptr, ptr %153, align 8
-  %.not.i88 = icmp eq ptr %154, null
-  br i1 %.not.i88, label %opal_obj_run_destructors.exit89, label %.lr.ph.i86, !llvm.loop !6
+  %155 = load ptr, ptr %154, align 8
+  %.not6.i88 = icmp eq ptr %155, null
+  br i1 %.not6.i88, label %opal_obj_run_destructors.exit92, label %.lr.ph.i89
 
-opal_obj_run_destructors.exit89:                  ; preds = %.lr.ph.i86, %opal_obj_run_destructors.exit84
-  %155 = load ptr, ptr @ompi_err_other, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 48
-  %157 = load ptr, ptr %156, align 8
+.lr.ph.i89:                                       ; preds = %opal_obj_run_destructors.exit87, %.lr.ph.i89
+  %156 = phi ptr [ %158, %.lr.ph.i89 ], [ %155, %opal_obj_run_destructors.exit87 ]
+  %.07.i90 = phi ptr [ %157, %.lr.ph.i89 ], [ %154, %opal_obj_run_destructors.exit87 ]
+  tail call void %156(ptr noundef nonnull @ompi_err_other) #8
+  %157 = getelementptr inbounds i8, ptr %.07.i90, i64 8
   %158 = load ptr, ptr %157, align 8
-  %.not6.i90 = icmp eq ptr %158, null
-  br i1 %.not6.i90, label %opal_obj_run_destructors.exit94, label %.lr.ph.i91
+  %.not.i91 = icmp eq ptr %158, null
+  br i1 %.not.i91, label %opal_obj_run_destructors.exit92, label %.lr.ph.i89, !llvm.loop !6
 
-.lr.ph.i91:                                       ; preds = %opal_obj_run_destructors.exit89, %.lr.ph.i91
-  %159 = phi ptr [ %161, %.lr.ph.i91 ], [ %158, %opal_obj_run_destructors.exit89 ]
-  %.07.i92 = phi ptr [ %160, %.lr.ph.i91 ], [ %157, %opal_obj_run_destructors.exit89 ]
-  tail call void %159(ptr noundef nonnull @ompi_err_other) #8
-  %160 = getelementptr inbounds i8, ptr %.07.i92, i64 8
+opal_obj_run_destructors.exit92:                  ; preds = %.lr.ph.i89, %opal_obj_run_destructors.exit87
+  %159 = load ptr, ptr @ompi_err_intern, align 8
+  %160 = getelementptr inbounds i8, ptr %159, i64 48
   %161 = load ptr, ptr %160, align 8
-  %.not.i93 = icmp eq ptr %161, null
-  br i1 %.not.i93, label %opal_obj_run_destructors.exit94, label %.lr.ph.i91, !llvm.loop !6
+  %162 = load ptr, ptr %161, align 8
+  %.not6.i93 = icmp eq ptr %162, null
+  br i1 %.not6.i93, label %opal_obj_run_destructors.exit97, label %.lr.ph.i94
 
-opal_obj_run_destructors.exit94:                  ; preds = %.lr.ph.i91, %opal_obj_run_destructors.exit89
-  %162 = load ptr, ptr @ompi_err_intern, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 48
-  %164 = load ptr, ptr %163, align 8
+.lr.ph.i94:                                       ; preds = %opal_obj_run_destructors.exit92, %.lr.ph.i94
+  %163 = phi ptr [ %165, %.lr.ph.i94 ], [ %162, %opal_obj_run_destructors.exit92 ]
+  %.07.i95 = phi ptr [ %164, %.lr.ph.i94 ], [ %161, %opal_obj_run_destructors.exit92 ]
+  tail call void %163(ptr noundef nonnull @ompi_err_intern) #8
+  %164 = getelementptr inbounds i8, ptr %.07.i95, i64 8
   %165 = load ptr, ptr %164, align 8
-  %.not6.i95 = icmp eq ptr %165, null
-  br i1 %.not6.i95, label %opal_obj_run_destructors.exit99, label %.lr.ph.i96
+  %.not.i96 = icmp eq ptr %165, null
+  br i1 %.not.i96, label %opal_obj_run_destructors.exit97, label %.lr.ph.i94, !llvm.loop !6
 
-.lr.ph.i96:                                       ; preds = %opal_obj_run_destructors.exit94, %.lr.ph.i96
-  %166 = phi ptr [ %168, %.lr.ph.i96 ], [ %165, %opal_obj_run_destructors.exit94 ]
-  %.07.i97 = phi ptr [ %167, %.lr.ph.i96 ], [ %164, %opal_obj_run_destructors.exit94 ]
-  tail call void %166(ptr noundef nonnull @ompi_err_intern) #8
-  %167 = getelementptr inbounds i8, ptr %.07.i97, i64 8
+opal_obj_run_destructors.exit97:                  ; preds = %.lr.ph.i94, %opal_obj_run_destructors.exit92
+  %166 = load ptr, ptr @ompi_err_in_status, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i64 48
   %168 = load ptr, ptr %167, align 8
-  %.not.i98 = icmp eq ptr %168, null
-  br i1 %.not.i98, label %opal_obj_run_destructors.exit99, label %.lr.ph.i96, !llvm.loop !6
+  %169 = load ptr, ptr %168, align 8
+  %.not6.i98 = icmp eq ptr %169, null
+  br i1 %.not6.i98, label %opal_obj_run_destructors.exit102, label %.lr.ph.i99
 
-opal_obj_run_destructors.exit99:                  ; preds = %.lr.ph.i96, %opal_obj_run_destructors.exit94
-  %169 = load ptr, ptr @ompi_err_in_status, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 48
-  %171 = load ptr, ptr %170, align 8
+.lr.ph.i99:                                       ; preds = %opal_obj_run_destructors.exit97, %.lr.ph.i99
+  %170 = phi ptr [ %172, %.lr.ph.i99 ], [ %169, %opal_obj_run_destructors.exit97 ]
+  %.07.i100 = phi ptr [ %171, %.lr.ph.i99 ], [ %168, %opal_obj_run_destructors.exit97 ]
+  tail call void %170(ptr noundef nonnull @ompi_err_in_status) #8
+  %171 = getelementptr inbounds i8, ptr %.07.i100, i64 8
   %172 = load ptr, ptr %171, align 8
-  %.not6.i100 = icmp eq ptr %172, null
-  br i1 %.not6.i100, label %opal_obj_run_destructors.exit104, label %.lr.ph.i101
+  %.not.i101 = icmp eq ptr %172, null
+  br i1 %.not.i101, label %opal_obj_run_destructors.exit102, label %.lr.ph.i99, !llvm.loop !6
 
-.lr.ph.i101:                                      ; preds = %opal_obj_run_destructors.exit99, %.lr.ph.i101
-  %173 = phi ptr [ %175, %.lr.ph.i101 ], [ %172, %opal_obj_run_destructors.exit99 ]
-  %.07.i102 = phi ptr [ %174, %.lr.ph.i101 ], [ %171, %opal_obj_run_destructors.exit99 ]
-  tail call void %173(ptr noundef nonnull @ompi_err_in_status) #8
-  %174 = getelementptr inbounds i8, ptr %.07.i102, i64 8
+opal_obj_run_destructors.exit102:                 ; preds = %.lr.ph.i99, %opal_obj_run_destructors.exit97
+  %173 = load ptr, ptr @ompi_err_pending, align 8
+  %174 = getelementptr inbounds i8, ptr %173, i64 48
   %175 = load ptr, ptr %174, align 8
-  %.not.i103 = icmp eq ptr %175, null
-  br i1 %.not.i103, label %opal_obj_run_destructors.exit104, label %.lr.ph.i101, !llvm.loop !6
+  %176 = load ptr, ptr %175, align 8
+  %.not6.i103 = icmp eq ptr %176, null
+  br i1 %.not6.i103, label %opal_obj_run_destructors.exit107, label %.lr.ph.i104
 
-opal_obj_run_destructors.exit104:                 ; preds = %.lr.ph.i101, %opal_obj_run_destructors.exit99
-  %176 = load ptr, ptr @ompi_err_pending, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 48
-  %178 = load ptr, ptr %177, align 8
+.lr.ph.i104:                                      ; preds = %opal_obj_run_destructors.exit102, %.lr.ph.i104
+  %177 = phi ptr [ %179, %.lr.ph.i104 ], [ %176, %opal_obj_run_destructors.exit102 ]
+  %.07.i105 = phi ptr [ %178, %.lr.ph.i104 ], [ %175, %opal_obj_run_destructors.exit102 ]
+  tail call void %177(ptr noundef nonnull @ompi_err_pending) #8
+  %178 = getelementptr inbounds i8, ptr %.07.i105, i64 8
   %179 = load ptr, ptr %178, align 8
-  %.not6.i105 = icmp eq ptr %179, null
-  br i1 %.not6.i105, label %opal_obj_run_destructors.exit109, label %.lr.ph.i106
+  %.not.i106 = icmp eq ptr %179, null
+  br i1 %.not.i106, label %opal_obj_run_destructors.exit107, label %.lr.ph.i104, !llvm.loop !6
 
-.lr.ph.i106:                                      ; preds = %opal_obj_run_destructors.exit104, %.lr.ph.i106
-  %180 = phi ptr [ %182, %.lr.ph.i106 ], [ %179, %opal_obj_run_destructors.exit104 ]
-  %.07.i107 = phi ptr [ %181, %.lr.ph.i106 ], [ %178, %opal_obj_run_destructors.exit104 ]
-  tail call void %180(ptr noundef nonnull @ompi_err_pending) #8
-  %181 = getelementptr inbounds i8, ptr %.07.i107, i64 8
+opal_obj_run_destructors.exit107:                 ; preds = %.lr.ph.i104, %opal_obj_run_destructors.exit102
+  %180 = load ptr, ptr @ompi_err_access, align 8
+  %181 = getelementptr inbounds i8, ptr %180, i64 48
   %182 = load ptr, ptr %181, align 8
-  %.not.i108 = icmp eq ptr %182, null
-  br i1 %.not.i108, label %opal_obj_run_destructors.exit109, label %.lr.ph.i106, !llvm.loop !6
+  %183 = load ptr, ptr %182, align 8
+  %.not6.i108 = icmp eq ptr %183, null
+  br i1 %.not6.i108, label %opal_obj_run_destructors.exit112, label %.lr.ph.i109
 
-opal_obj_run_destructors.exit109:                 ; preds = %.lr.ph.i106, %opal_obj_run_destructors.exit104
-  %183 = load ptr, ptr @ompi_err_access, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 48
-  %185 = load ptr, ptr %184, align 8
+.lr.ph.i109:                                      ; preds = %opal_obj_run_destructors.exit107, %.lr.ph.i109
+  %184 = phi ptr [ %186, %.lr.ph.i109 ], [ %183, %opal_obj_run_destructors.exit107 ]
+  %.07.i110 = phi ptr [ %185, %.lr.ph.i109 ], [ %182, %opal_obj_run_destructors.exit107 ]
+  tail call void %184(ptr noundef nonnull @ompi_err_access) #8
+  %185 = getelementptr inbounds i8, ptr %.07.i110, i64 8
   %186 = load ptr, ptr %185, align 8
-  %.not6.i110 = icmp eq ptr %186, null
-  br i1 %.not6.i110, label %opal_obj_run_destructors.exit114, label %.lr.ph.i111
+  %.not.i111 = icmp eq ptr %186, null
+  br i1 %.not.i111, label %opal_obj_run_destructors.exit112, label %.lr.ph.i109, !llvm.loop !6
 
-.lr.ph.i111:                                      ; preds = %opal_obj_run_destructors.exit109, %.lr.ph.i111
-  %187 = phi ptr [ %189, %.lr.ph.i111 ], [ %186, %opal_obj_run_destructors.exit109 ]
-  %.07.i112 = phi ptr [ %188, %.lr.ph.i111 ], [ %185, %opal_obj_run_destructors.exit109 ]
-  tail call void %187(ptr noundef nonnull @ompi_err_access) #8
-  %188 = getelementptr inbounds i8, ptr %.07.i112, i64 8
+opal_obj_run_destructors.exit112:                 ; preds = %.lr.ph.i109, %opal_obj_run_destructors.exit107
+  %187 = load ptr, ptr @ompi_err_amode, align 8
+  %188 = getelementptr inbounds i8, ptr %187, i64 48
   %189 = load ptr, ptr %188, align 8
-  %.not.i113 = icmp eq ptr %189, null
-  br i1 %.not.i113, label %opal_obj_run_destructors.exit114, label %.lr.ph.i111, !llvm.loop !6
+  %190 = load ptr, ptr %189, align 8
+  %.not6.i113 = icmp eq ptr %190, null
+  br i1 %.not6.i113, label %opal_obj_run_destructors.exit117, label %.lr.ph.i114
 
-opal_obj_run_destructors.exit114:                 ; preds = %.lr.ph.i111, %opal_obj_run_destructors.exit109
-  %190 = load ptr, ptr @ompi_err_amode, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 48
-  %192 = load ptr, ptr %191, align 8
+.lr.ph.i114:                                      ; preds = %opal_obj_run_destructors.exit112, %.lr.ph.i114
+  %191 = phi ptr [ %193, %.lr.ph.i114 ], [ %190, %opal_obj_run_destructors.exit112 ]
+  %.07.i115 = phi ptr [ %192, %.lr.ph.i114 ], [ %189, %opal_obj_run_destructors.exit112 ]
+  tail call void %191(ptr noundef nonnull @ompi_err_amode) #8
+  %192 = getelementptr inbounds i8, ptr %.07.i115, i64 8
   %193 = load ptr, ptr %192, align 8
-  %.not6.i115 = icmp eq ptr %193, null
-  br i1 %.not6.i115, label %opal_obj_run_destructors.exit119, label %.lr.ph.i116
+  %.not.i116 = icmp eq ptr %193, null
+  br i1 %.not.i116, label %opal_obj_run_destructors.exit117, label %.lr.ph.i114, !llvm.loop !6
 
-.lr.ph.i116:                                      ; preds = %opal_obj_run_destructors.exit114, %.lr.ph.i116
-  %194 = phi ptr [ %196, %.lr.ph.i116 ], [ %193, %opal_obj_run_destructors.exit114 ]
-  %.07.i117 = phi ptr [ %195, %.lr.ph.i116 ], [ %192, %opal_obj_run_destructors.exit114 ]
-  tail call void %194(ptr noundef nonnull @ompi_err_amode) #8
-  %195 = getelementptr inbounds i8, ptr %.07.i117, i64 8
+opal_obj_run_destructors.exit117:                 ; preds = %.lr.ph.i114, %opal_obj_run_destructors.exit112
+  %194 = load ptr, ptr @ompi_err_assert, align 8
+  %195 = getelementptr inbounds i8, ptr %194, i64 48
   %196 = load ptr, ptr %195, align 8
-  %.not.i118 = icmp eq ptr %196, null
-  br i1 %.not.i118, label %opal_obj_run_destructors.exit119, label %.lr.ph.i116, !llvm.loop !6
+  %197 = load ptr, ptr %196, align 8
+  %.not6.i118 = icmp eq ptr %197, null
+  br i1 %.not6.i118, label %opal_obj_run_destructors.exit122, label %.lr.ph.i119
 
-opal_obj_run_destructors.exit119:                 ; preds = %.lr.ph.i116, %opal_obj_run_destructors.exit114
-  %197 = load ptr, ptr @ompi_err_assert, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 48
-  %199 = load ptr, ptr %198, align 8
+.lr.ph.i119:                                      ; preds = %opal_obj_run_destructors.exit117, %.lr.ph.i119
+  %198 = phi ptr [ %200, %.lr.ph.i119 ], [ %197, %opal_obj_run_destructors.exit117 ]
+  %.07.i120 = phi ptr [ %199, %.lr.ph.i119 ], [ %196, %opal_obj_run_destructors.exit117 ]
+  tail call void %198(ptr noundef nonnull @ompi_err_assert) #8
+  %199 = getelementptr inbounds i8, ptr %.07.i120, i64 8
   %200 = load ptr, ptr %199, align 8
-  %.not6.i120 = icmp eq ptr %200, null
-  br i1 %.not6.i120, label %opal_obj_run_destructors.exit124, label %.lr.ph.i121
+  %.not.i121 = icmp eq ptr %200, null
+  br i1 %.not.i121, label %opal_obj_run_destructors.exit122, label %.lr.ph.i119, !llvm.loop !6
 
-.lr.ph.i121:                                      ; preds = %opal_obj_run_destructors.exit119, %.lr.ph.i121
-  %201 = phi ptr [ %203, %.lr.ph.i121 ], [ %200, %opal_obj_run_destructors.exit119 ]
-  %.07.i122 = phi ptr [ %202, %.lr.ph.i121 ], [ %199, %opal_obj_run_destructors.exit119 ]
-  tail call void %201(ptr noundef nonnull @ompi_err_assert) #8
-  %202 = getelementptr inbounds i8, ptr %.07.i122, i64 8
+opal_obj_run_destructors.exit122:                 ; preds = %.lr.ph.i119, %opal_obj_run_destructors.exit117
+  %201 = load ptr, ptr @ompi_err_bad_file, align 8
+  %202 = getelementptr inbounds i8, ptr %201, i64 48
   %203 = load ptr, ptr %202, align 8
-  %.not.i123 = icmp eq ptr %203, null
-  br i1 %.not.i123, label %opal_obj_run_destructors.exit124, label %.lr.ph.i121, !llvm.loop !6
+  %204 = load ptr, ptr %203, align 8
+  %.not6.i123 = icmp eq ptr %204, null
+  br i1 %.not6.i123, label %opal_obj_run_destructors.exit127, label %.lr.ph.i124
 
-opal_obj_run_destructors.exit124:                 ; preds = %.lr.ph.i121, %opal_obj_run_destructors.exit119
-  %204 = load ptr, ptr @ompi_err_bad_file, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 48
-  %206 = load ptr, ptr %205, align 8
+.lr.ph.i124:                                      ; preds = %opal_obj_run_destructors.exit122, %.lr.ph.i124
+  %205 = phi ptr [ %207, %.lr.ph.i124 ], [ %204, %opal_obj_run_destructors.exit122 ]
+  %.07.i125 = phi ptr [ %206, %.lr.ph.i124 ], [ %203, %opal_obj_run_destructors.exit122 ]
+  tail call void %205(ptr noundef nonnull @ompi_err_bad_file) #8
+  %206 = getelementptr inbounds i8, ptr %.07.i125, i64 8
   %207 = load ptr, ptr %206, align 8
-  %.not6.i125 = icmp eq ptr %207, null
-  br i1 %.not6.i125, label %opal_obj_run_destructors.exit129, label %.lr.ph.i126
+  %.not.i126 = icmp eq ptr %207, null
+  br i1 %.not.i126, label %opal_obj_run_destructors.exit127, label %.lr.ph.i124, !llvm.loop !6
 
-.lr.ph.i126:                                      ; preds = %opal_obj_run_destructors.exit124, %.lr.ph.i126
-  %208 = phi ptr [ %210, %.lr.ph.i126 ], [ %207, %opal_obj_run_destructors.exit124 ]
-  %.07.i127 = phi ptr [ %209, %.lr.ph.i126 ], [ %206, %opal_obj_run_destructors.exit124 ]
-  tail call void %208(ptr noundef nonnull @ompi_err_bad_file) #8
-  %209 = getelementptr inbounds i8, ptr %.07.i127, i64 8
+opal_obj_run_destructors.exit127:                 ; preds = %.lr.ph.i124, %opal_obj_run_destructors.exit122
+  %208 = load ptr, ptr @ompi_err_base, align 8
+  %209 = getelementptr inbounds i8, ptr %208, i64 48
   %210 = load ptr, ptr %209, align 8
-  %.not.i128 = icmp eq ptr %210, null
-  br i1 %.not.i128, label %opal_obj_run_destructors.exit129, label %.lr.ph.i126, !llvm.loop !6
+  %211 = load ptr, ptr %210, align 8
+  %.not6.i128 = icmp eq ptr %211, null
+  br i1 %.not6.i128, label %opal_obj_run_destructors.exit132, label %.lr.ph.i129
 
-opal_obj_run_destructors.exit129:                 ; preds = %.lr.ph.i126, %opal_obj_run_destructors.exit124
-  %211 = load ptr, ptr @ompi_err_base, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 48
-  %213 = load ptr, ptr %212, align 8
+.lr.ph.i129:                                      ; preds = %opal_obj_run_destructors.exit127, %.lr.ph.i129
+  %212 = phi ptr [ %214, %.lr.ph.i129 ], [ %211, %opal_obj_run_destructors.exit127 ]
+  %.07.i130 = phi ptr [ %213, %.lr.ph.i129 ], [ %210, %opal_obj_run_destructors.exit127 ]
+  tail call void %212(ptr noundef nonnull @ompi_err_base) #8
+  %213 = getelementptr inbounds i8, ptr %.07.i130, i64 8
   %214 = load ptr, ptr %213, align 8
-  %.not6.i130 = icmp eq ptr %214, null
-  br i1 %.not6.i130, label %opal_obj_run_destructors.exit134, label %.lr.ph.i131
+  %.not.i131 = icmp eq ptr %214, null
+  br i1 %.not.i131, label %opal_obj_run_destructors.exit132, label %.lr.ph.i129, !llvm.loop !6
 
-.lr.ph.i131:                                      ; preds = %opal_obj_run_destructors.exit129, %.lr.ph.i131
-  %215 = phi ptr [ %217, %.lr.ph.i131 ], [ %214, %opal_obj_run_destructors.exit129 ]
-  %.07.i132 = phi ptr [ %216, %.lr.ph.i131 ], [ %213, %opal_obj_run_destructors.exit129 ]
-  tail call void %215(ptr noundef nonnull @ompi_err_base) #8
-  %216 = getelementptr inbounds i8, ptr %.07.i132, i64 8
+opal_obj_run_destructors.exit132:                 ; preds = %.lr.ph.i129, %opal_obj_run_destructors.exit127
+  %215 = load ptr, ptr @ompi_err_conversion, align 8
+  %216 = getelementptr inbounds i8, ptr %215, i64 48
   %217 = load ptr, ptr %216, align 8
-  %.not.i133 = icmp eq ptr %217, null
-  br i1 %.not.i133, label %opal_obj_run_destructors.exit134, label %.lr.ph.i131, !llvm.loop !6
+  %218 = load ptr, ptr %217, align 8
+  %.not6.i133 = icmp eq ptr %218, null
+  br i1 %.not6.i133, label %opal_obj_run_destructors.exit137, label %.lr.ph.i134
 
-opal_obj_run_destructors.exit134:                 ; preds = %.lr.ph.i131, %opal_obj_run_destructors.exit129
-  %218 = load ptr, ptr @ompi_err_conversion, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 48
-  %220 = load ptr, ptr %219, align 8
+.lr.ph.i134:                                      ; preds = %opal_obj_run_destructors.exit132, %.lr.ph.i134
+  %219 = phi ptr [ %221, %.lr.ph.i134 ], [ %218, %opal_obj_run_destructors.exit132 ]
+  %.07.i135 = phi ptr [ %220, %.lr.ph.i134 ], [ %217, %opal_obj_run_destructors.exit132 ]
+  tail call void %219(ptr noundef nonnull @ompi_err_conversion) #8
+  %220 = getelementptr inbounds i8, ptr %.07.i135, i64 8
   %221 = load ptr, ptr %220, align 8
-  %.not6.i135 = icmp eq ptr %221, null
-  br i1 %.not6.i135, label %opal_obj_run_destructors.exit139, label %.lr.ph.i136
+  %.not.i136 = icmp eq ptr %221, null
+  br i1 %.not.i136, label %opal_obj_run_destructors.exit137, label %.lr.ph.i134, !llvm.loop !6
 
-.lr.ph.i136:                                      ; preds = %opal_obj_run_destructors.exit134, %.lr.ph.i136
-  %222 = phi ptr [ %224, %.lr.ph.i136 ], [ %221, %opal_obj_run_destructors.exit134 ]
-  %.07.i137 = phi ptr [ %223, %.lr.ph.i136 ], [ %220, %opal_obj_run_destructors.exit134 ]
-  tail call void %222(ptr noundef nonnull @ompi_err_conversion) #8
-  %223 = getelementptr inbounds i8, ptr %.07.i137, i64 8
+opal_obj_run_destructors.exit137:                 ; preds = %.lr.ph.i134, %opal_obj_run_destructors.exit132
+  %222 = load ptr, ptr @ompi_err_disp, align 8
+  %223 = getelementptr inbounds i8, ptr %222, i64 48
   %224 = load ptr, ptr %223, align 8
-  %.not.i138 = icmp eq ptr %224, null
-  br i1 %.not.i138, label %opal_obj_run_destructors.exit139, label %.lr.ph.i136, !llvm.loop !6
+  %225 = load ptr, ptr %224, align 8
+  %.not6.i138 = icmp eq ptr %225, null
+  br i1 %.not6.i138, label %opal_obj_run_destructors.exit142, label %.lr.ph.i139
 
-opal_obj_run_destructors.exit139:                 ; preds = %.lr.ph.i136, %opal_obj_run_destructors.exit134
-  %225 = load ptr, ptr @ompi_err_disp, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 48
-  %227 = load ptr, ptr %226, align 8
+.lr.ph.i139:                                      ; preds = %opal_obj_run_destructors.exit137, %.lr.ph.i139
+  %226 = phi ptr [ %228, %.lr.ph.i139 ], [ %225, %opal_obj_run_destructors.exit137 ]
+  %.07.i140 = phi ptr [ %227, %.lr.ph.i139 ], [ %224, %opal_obj_run_destructors.exit137 ]
+  tail call void %226(ptr noundef nonnull @ompi_err_disp) #8
+  %227 = getelementptr inbounds i8, ptr %.07.i140, i64 8
   %228 = load ptr, ptr %227, align 8
-  %.not6.i140 = icmp eq ptr %228, null
-  br i1 %.not6.i140, label %opal_obj_run_destructors.exit144, label %.lr.ph.i141
+  %.not.i141 = icmp eq ptr %228, null
+  br i1 %.not.i141, label %opal_obj_run_destructors.exit142, label %.lr.ph.i139, !llvm.loop !6
 
-.lr.ph.i141:                                      ; preds = %opal_obj_run_destructors.exit139, %.lr.ph.i141
-  %229 = phi ptr [ %231, %.lr.ph.i141 ], [ %228, %opal_obj_run_destructors.exit139 ]
-  %.07.i142 = phi ptr [ %230, %.lr.ph.i141 ], [ %227, %opal_obj_run_destructors.exit139 ]
-  tail call void %229(ptr noundef nonnull @ompi_err_disp) #8
-  %230 = getelementptr inbounds i8, ptr %.07.i142, i64 8
+opal_obj_run_destructors.exit142:                 ; preds = %.lr.ph.i139, %opal_obj_run_destructors.exit137
+  %229 = load ptr, ptr @ompi_err_dup_datarep, align 8
+  %230 = getelementptr inbounds i8, ptr %229, i64 48
   %231 = load ptr, ptr %230, align 8
-  %.not.i143 = icmp eq ptr %231, null
-  br i1 %.not.i143, label %opal_obj_run_destructors.exit144, label %.lr.ph.i141, !llvm.loop !6
+  %232 = load ptr, ptr %231, align 8
+  %.not6.i143 = icmp eq ptr %232, null
+  br i1 %.not6.i143, label %opal_obj_run_destructors.exit147, label %.lr.ph.i144
 
-opal_obj_run_destructors.exit144:                 ; preds = %.lr.ph.i141, %opal_obj_run_destructors.exit139
-  %232 = load ptr, ptr @ompi_err_dup_datarep, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 48
-  %234 = load ptr, ptr %233, align 8
+.lr.ph.i144:                                      ; preds = %opal_obj_run_destructors.exit142, %.lr.ph.i144
+  %233 = phi ptr [ %235, %.lr.ph.i144 ], [ %232, %opal_obj_run_destructors.exit142 ]
+  %.07.i145 = phi ptr [ %234, %.lr.ph.i144 ], [ %231, %opal_obj_run_destructors.exit142 ]
+  tail call void %233(ptr noundef nonnull @ompi_err_dup_datarep) #8
+  %234 = getelementptr inbounds i8, ptr %.07.i145, i64 8
   %235 = load ptr, ptr %234, align 8
-  %.not6.i145 = icmp eq ptr %235, null
-  br i1 %.not6.i145, label %opal_obj_run_destructors.exit149, label %.lr.ph.i146
+  %.not.i146 = icmp eq ptr %235, null
+  br i1 %.not.i146, label %opal_obj_run_destructors.exit147, label %.lr.ph.i144, !llvm.loop !6
 
-.lr.ph.i146:                                      ; preds = %opal_obj_run_destructors.exit144, %.lr.ph.i146
-  %236 = phi ptr [ %238, %.lr.ph.i146 ], [ %235, %opal_obj_run_destructors.exit144 ]
-  %.07.i147 = phi ptr [ %237, %.lr.ph.i146 ], [ %234, %opal_obj_run_destructors.exit144 ]
-  tail call void %236(ptr noundef nonnull @ompi_err_dup_datarep) #8
-  %237 = getelementptr inbounds i8, ptr %.07.i147, i64 8
+opal_obj_run_destructors.exit147:                 ; preds = %.lr.ph.i144, %opal_obj_run_destructors.exit142
+  %236 = load ptr, ptr @ompi_err_file_exists, align 8
+  %237 = getelementptr inbounds i8, ptr %236, i64 48
   %238 = load ptr, ptr %237, align 8
-  %.not.i148 = icmp eq ptr %238, null
-  br i1 %.not.i148, label %opal_obj_run_destructors.exit149, label %.lr.ph.i146, !llvm.loop !6
+  %239 = load ptr, ptr %238, align 8
+  %.not6.i148 = icmp eq ptr %239, null
+  br i1 %.not6.i148, label %opal_obj_run_destructors.exit152, label %.lr.ph.i149
 
-opal_obj_run_destructors.exit149:                 ; preds = %.lr.ph.i146, %opal_obj_run_destructors.exit144
-  %239 = load ptr, ptr @ompi_err_file_exists, align 8
-  %240 = getelementptr inbounds i8, ptr %239, i64 48
-  %241 = load ptr, ptr %240, align 8
+.lr.ph.i149:                                      ; preds = %opal_obj_run_destructors.exit147, %.lr.ph.i149
+  %240 = phi ptr [ %242, %.lr.ph.i149 ], [ %239, %opal_obj_run_destructors.exit147 ]
+  %.07.i150 = phi ptr [ %241, %.lr.ph.i149 ], [ %238, %opal_obj_run_destructors.exit147 ]
+  tail call void %240(ptr noundef nonnull @ompi_err_file_exists) #8
+  %241 = getelementptr inbounds i8, ptr %.07.i150, i64 8
   %242 = load ptr, ptr %241, align 8
-  %.not6.i150 = icmp eq ptr %242, null
-  br i1 %.not6.i150, label %opal_obj_run_destructors.exit154, label %.lr.ph.i151
+  %.not.i151 = icmp eq ptr %242, null
+  br i1 %.not.i151, label %opal_obj_run_destructors.exit152, label %.lr.ph.i149, !llvm.loop !6
 
-.lr.ph.i151:                                      ; preds = %opal_obj_run_destructors.exit149, %.lr.ph.i151
-  %243 = phi ptr [ %245, %.lr.ph.i151 ], [ %242, %opal_obj_run_destructors.exit149 ]
-  %.07.i152 = phi ptr [ %244, %.lr.ph.i151 ], [ %241, %opal_obj_run_destructors.exit149 ]
-  tail call void %243(ptr noundef nonnull @ompi_err_file_exists) #8
-  %244 = getelementptr inbounds i8, ptr %.07.i152, i64 8
+opal_obj_run_destructors.exit152:                 ; preds = %.lr.ph.i149, %opal_obj_run_destructors.exit147
+  %243 = load ptr, ptr @ompi_err_file_in_use, align 8
+  %244 = getelementptr inbounds i8, ptr %243, i64 48
   %245 = load ptr, ptr %244, align 8
-  %.not.i153 = icmp eq ptr %245, null
-  br i1 %.not.i153, label %opal_obj_run_destructors.exit154, label %.lr.ph.i151, !llvm.loop !6
+  %246 = load ptr, ptr %245, align 8
+  %.not6.i153 = icmp eq ptr %246, null
+  br i1 %.not6.i153, label %opal_obj_run_destructors.exit157, label %.lr.ph.i154
 
-opal_obj_run_destructors.exit154:                 ; preds = %.lr.ph.i151, %opal_obj_run_destructors.exit149
-  %246 = load ptr, ptr @ompi_err_file_in_use, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 48
-  %248 = load ptr, ptr %247, align 8
+.lr.ph.i154:                                      ; preds = %opal_obj_run_destructors.exit152, %.lr.ph.i154
+  %247 = phi ptr [ %249, %.lr.ph.i154 ], [ %246, %opal_obj_run_destructors.exit152 ]
+  %.07.i155 = phi ptr [ %248, %.lr.ph.i154 ], [ %245, %opal_obj_run_destructors.exit152 ]
+  tail call void %247(ptr noundef nonnull @ompi_err_file_in_use) #8
+  %248 = getelementptr inbounds i8, ptr %.07.i155, i64 8
   %249 = load ptr, ptr %248, align 8
-  %.not6.i155 = icmp eq ptr %249, null
-  br i1 %.not6.i155, label %opal_obj_run_destructors.exit159, label %.lr.ph.i156
+  %.not.i156 = icmp eq ptr %249, null
+  br i1 %.not.i156, label %opal_obj_run_destructors.exit157, label %.lr.ph.i154, !llvm.loop !6
 
-.lr.ph.i156:                                      ; preds = %opal_obj_run_destructors.exit154, %.lr.ph.i156
-  %250 = phi ptr [ %252, %.lr.ph.i156 ], [ %249, %opal_obj_run_destructors.exit154 ]
-  %.07.i157 = phi ptr [ %251, %.lr.ph.i156 ], [ %248, %opal_obj_run_destructors.exit154 ]
-  tail call void %250(ptr noundef nonnull @ompi_err_file_in_use) #8
-  %251 = getelementptr inbounds i8, ptr %.07.i157, i64 8
+opal_obj_run_destructors.exit157:                 ; preds = %.lr.ph.i154, %opal_obj_run_destructors.exit152
+  %250 = load ptr, ptr @ompi_err_file, align 8
+  %251 = getelementptr inbounds i8, ptr %250, i64 48
   %252 = load ptr, ptr %251, align 8
-  %.not.i158 = icmp eq ptr %252, null
-  br i1 %.not.i158, label %opal_obj_run_destructors.exit159, label %.lr.ph.i156, !llvm.loop !6
+  %253 = load ptr, ptr %252, align 8
+  %.not6.i158 = icmp eq ptr %253, null
+  br i1 %.not6.i158, label %opal_obj_run_destructors.exit162, label %.lr.ph.i159
 
-opal_obj_run_destructors.exit159:                 ; preds = %.lr.ph.i156, %opal_obj_run_destructors.exit154
-  %253 = load ptr, ptr @ompi_err_file, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 48
-  %255 = load ptr, ptr %254, align 8
+.lr.ph.i159:                                      ; preds = %opal_obj_run_destructors.exit157, %.lr.ph.i159
+  %254 = phi ptr [ %256, %.lr.ph.i159 ], [ %253, %opal_obj_run_destructors.exit157 ]
+  %.07.i160 = phi ptr [ %255, %.lr.ph.i159 ], [ %252, %opal_obj_run_destructors.exit157 ]
+  tail call void %254(ptr noundef nonnull @ompi_err_file) #8
+  %255 = getelementptr inbounds i8, ptr %.07.i160, i64 8
   %256 = load ptr, ptr %255, align 8
-  %.not6.i160 = icmp eq ptr %256, null
-  br i1 %.not6.i160, label %opal_obj_run_destructors.exit164, label %.lr.ph.i161
+  %.not.i161 = icmp eq ptr %256, null
+  br i1 %.not.i161, label %opal_obj_run_destructors.exit162, label %.lr.ph.i159, !llvm.loop !6
 
-.lr.ph.i161:                                      ; preds = %opal_obj_run_destructors.exit159, %.lr.ph.i161
-  %257 = phi ptr [ %259, %.lr.ph.i161 ], [ %256, %opal_obj_run_destructors.exit159 ]
-  %.07.i162 = phi ptr [ %258, %.lr.ph.i161 ], [ %255, %opal_obj_run_destructors.exit159 ]
-  tail call void %257(ptr noundef nonnull @ompi_err_file) #8
-  %258 = getelementptr inbounds i8, ptr %.07.i162, i64 8
+opal_obj_run_destructors.exit162:                 ; preds = %.lr.ph.i159, %opal_obj_run_destructors.exit157
+  %257 = load ptr, ptr @ompi_err_info_key, align 8
+  %258 = getelementptr inbounds i8, ptr %257, i64 48
   %259 = load ptr, ptr %258, align 8
-  %.not.i163 = icmp eq ptr %259, null
-  br i1 %.not.i163, label %opal_obj_run_destructors.exit164, label %.lr.ph.i161, !llvm.loop !6
+  %260 = load ptr, ptr %259, align 8
+  %.not6.i163 = icmp eq ptr %260, null
+  br i1 %.not6.i163, label %opal_obj_run_destructors.exit167, label %.lr.ph.i164
 
-opal_obj_run_destructors.exit164:                 ; preds = %.lr.ph.i161, %opal_obj_run_destructors.exit159
-  %260 = load ptr, ptr @ompi_err_info_key, align 8
-  %261 = getelementptr inbounds i8, ptr %260, i64 48
-  %262 = load ptr, ptr %261, align 8
+.lr.ph.i164:                                      ; preds = %opal_obj_run_destructors.exit162, %.lr.ph.i164
+  %261 = phi ptr [ %263, %.lr.ph.i164 ], [ %260, %opal_obj_run_destructors.exit162 ]
+  %.07.i165 = phi ptr [ %262, %.lr.ph.i164 ], [ %259, %opal_obj_run_destructors.exit162 ]
+  tail call void %261(ptr noundef nonnull @ompi_err_info_key) #8
+  %262 = getelementptr inbounds i8, ptr %.07.i165, i64 8
   %263 = load ptr, ptr %262, align 8
-  %.not6.i165 = icmp eq ptr %263, null
-  br i1 %.not6.i165, label %opal_obj_run_destructors.exit169, label %.lr.ph.i166
+  %.not.i166 = icmp eq ptr %263, null
+  br i1 %.not.i166, label %opal_obj_run_destructors.exit167, label %.lr.ph.i164, !llvm.loop !6
 
-.lr.ph.i166:                                      ; preds = %opal_obj_run_destructors.exit164, %.lr.ph.i166
-  %264 = phi ptr [ %266, %.lr.ph.i166 ], [ %263, %opal_obj_run_destructors.exit164 ]
-  %.07.i167 = phi ptr [ %265, %.lr.ph.i166 ], [ %262, %opal_obj_run_destructors.exit164 ]
-  tail call void %264(ptr noundef nonnull @ompi_err_info_key) #8
-  %265 = getelementptr inbounds i8, ptr %.07.i167, i64 8
+opal_obj_run_destructors.exit167:                 ; preds = %.lr.ph.i164, %opal_obj_run_destructors.exit162
+  %264 = load ptr, ptr @ompi_err_info_nokey, align 8
+  %265 = getelementptr inbounds i8, ptr %264, i64 48
   %266 = load ptr, ptr %265, align 8
-  %.not.i168 = icmp eq ptr %266, null
-  br i1 %.not.i168, label %opal_obj_run_destructors.exit169, label %.lr.ph.i166, !llvm.loop !6
+  %267 = load ptr, ptr %266, align 8
+  %.not6.i168 = icmp eq ptr %267, null
+  br i1 %.not6.i168, label %opal_obj_run_destructors.exit172, label %.lr.ph.i169
 
-opal_obj_run_destructors.exit169:                 ; preds = %.lr.ph.i166, %opal_obj_run_destructors.exit164
-  %267 = load ptr, ptr @ompi_err_info_nokey, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 48
-  %269 = load ptr, ptr %268, align 8
+.lr.ph.i169:                                      ; preds = %opal_obj_run_destructors.exit167, %.lr.ph.i169
+  %268 = phi ptr [ %270, %.lr.ph.i169 ], [ %267, %opal_obj_run_destructors.exit167 ]
+  %.07.i170 = phi ptr [ %269, %.lr.ph.i169 ], [ %266, %opal_obj_run_destructors.exit167 ]
+  tail call void %268(ptr noundef nonnull @ompi_err_info_nokey) #8
+  %269 = getelementptr inbounds i8, ptr %.07.i170, i64 8
   %270 = load ptr, ptr %269, align 8
-  %.not6.i170 = icmp eq ptr %270, null
-  br i1 %.not6.i170, label %opal_obj_run_destructors.exit174, label %.lr.ph.i171
+  %.not.i171 = icmp eq ptr %270, null
+  br i1 %.not.i171, label %opal_obj_run_destructors.exit172, label %.lr.ph.i169, !llvm.loop !6
 
-.lr.ph.i171:                                      ; preds = %opal_obj_run_destructors.exit169, %.lr.ph.i171
-  %271 = phi ptr [ %273, %.lr.ph.i171 ], [ %270, %opal_obj_run_destructors.exit169 ]
-  %.07.i172 = phi ptr [ %272, %.lr.ph.i171 ], [ %269, %opal_obj_run_destructors.exit169 ]
-  tail call void %271(ptr noundef nonnull @ompi_err_info_nokey) #8
-  %272 = getelementptr inbounds i8, ptr %.07.i172, i64 8
+opal_obj_run_destructors.exit172:                 ; preds = %.lr.ph.i169, %opal_obj_run_destructors.exit167
+  %271 = load ptr, ptr @ompi_err_info_value, align 8
+  %272 = getelementptr inbounds i8, ptr %271, i64 48
   %273 = load ptr, ptr %272, align 8
-  %.not.i173 = icmp eq ptr %273, null
-  br i1 %.not.i173, label %opal_obj_run_destructors.exit174, label %.lr.ph.i171, !llvm.loop !6
+  %274 = load ptr, ptr %273, align 8
+  %.not6.i173 = icmp eq ptr %274, null
+  br i1 %.not6.i173, label %opal_obj_run_destructors.exit177, label %.lr.ph.i174
 
-opal_obj_run_destructors.exit174:                 ; preds = %.lr.ph.i171, %opal_obj_run_destructors.exit169
-  %274 = load ptr, ptr @ompi_err_info_value, align 8
-  %275 = getelementptr inbounds i8, ptr %274, i64 48
-  %276 = load ptr, ptr %275, align 8
+.lr.ph.i174:                                      ; preds = %opal_obj_run_destructors.exit172, %.lr.ph.i174
+  %275 = phi ptr [ %277, %.lr.ph.i174 ], [ %274, %opal_obj_run_destructors.exit172 ]
+  %.07.i175 = phi ptr [ %276, %.lr.ph.i174 ], [ %273, %opal_obj_run_destructors.exit172 ]
+  tail call void %275(ptr noundef nonnull @ompi_err_info_value) #8
+  %276 = getelementptr inbounds i8, ptr %.07.i175, i64 8
   %277 = load ptr, ptr %276, align 8
-  %.not6.i175 = icmp eq ptr %277, null
-  br i1 %.not6.i175, label %opal_obj_run_destructors.exit179, label %.lr.ph.i176
+  %.not.i176 = icmp eq ptr %277, null
+  br i1 %.not.i176, label %opal_obj_run_destructors.exit177, label %.lr.ph.i174, !llvm.loop !6
 
-.lr.ph.i176:                                      ; preds = %opal_obj_run_destructors.exit174, %.lr.ph.i176
-  %278 = phi ptr [ %280, %.lr.ph.i176 ], [ %277, %opal_obj_run_destructors.exit174 ]
-  %.07.i177 = phi ptr [ %279, %.lr.ph.i176 ], [ %276, %opal_obj_run_destructors.exit174 ]
-  tail call void %278(ptr noundef nonnull @ompi_err_info_value) #8
-  %279 = getelementptr inbounds i8, ptr %.07.i177, i64 8
+opal_obj_run_destructors.exit177:                 ; preds = %.lr.ph.i174, %opal_obj_run_destructors.exit172
+  %278 = load ptr, ptr @ompi_err_info, align 8
+  %279 = getelementptr inbounds i8, ptr %278, i64 48
   %280 = load ptr, ptr %279, align 8
-  %.not.i178 = icmp eq ptr %280, null
-  br i1 %.not.i178, label %opal_obj_run_destructors.exit179, label %.lr.ph.i176, !llvm.loop !6
+  %281 = load ptr, ptr %280, align 8
+  %.not6.i178 = icmp eq ptr %281, null
+  br i1 %.not6.i178, label %opal_obj_run_destructors.exit182, label %.lr.ph.i179
 
-opal_obj_run_destructors.exit179:                 ; preds = %.lr.ph.i176, %opal_obj_run_destructors.exit174
-  %281 = load ptr, ptr @ompi_err_info, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 48
-  %283 = load ptr, ptr %282, align 8
+.lr.ph.i179:                                      ; preds = %opal_obj_run_destructors.exit177, %.lr.ph.i179
+  %282 = phi ptr [ %284, %.lr.ph.i179 ], [ %281, %opal_obj_run_destructors.exit177 ]
+  %.07.i180 = phi ptr [ %283, %.lr.ph.i179 ], [ %280, %opal_obj_run_destructors.exit177 ]
+  tail call void %282(ptr noundef nonnull @ompi_err_info) #8
+  %283 = getelementptr inbounds i8, ptr %.07.i180, i64 8
   %284 = load ptr, ptr %283, align 8
-  %.not6.i180 = icmp eq ptr %284, null
-  br i1 %.not6.i180, label %opal_obj_run_destructors.exit184, label %.lr.ph.i181
+  %.not.i181 = icmp eq ptr %284, null
+  br i1 %.not.i181, label %opal_obj_run_destructors.exit182, label %.lr.ph.i179, !llvm.loop !6
 
-.lr.ph.i181:                                      ; preds = %opal_obj_run_destructors.exit179, %.lr.ph.i181
-  %285 = phi ptr [ %287, %.lr.ph.i181 ], [ %284, %opal_obj_run_destructors.exit179 ]
-  %.07.i182 = phi ptr [ %286, %.lr.ph.i181 ], [ %283, %opal_obj_run_destructors.exit179 ]
-  tail call void %285(ptr noundef nonnull @ompi_err_info) #8
-  %286 = getelementptr inbounds i8, ptr %.07.i182, i64 8
+opal_obj_run_destructors.exit182:                 ; preds = %.lr.ph.i179, %opal_obj_run_destructors.exit177
+  %285 = load ptr, ptr @ompi_err_io, align 8
+  %286 = getelementptr inbounds i8, ptr %285, i64 48
   %287 = load ptr, ptr %286, align 8
-  %.not.i183 = icmp eq ptr %287, null
-  br i1 %.not.i183, label %opal_obj_run_destructors.exit184, label %.lr.ph.i181, !llvm.loop !6
+  %288 = load ptr, ptr %287, align 8
+  %.not6.i183 = icmp eq ptr %288, null
+  br i1 %.not6.i183, label %opal_obj_run_destructors.exit187, label %.lr.ph.i184
 
-opal_obj_run_destructors.exit184:                 ; preds = %.lr.ph.i181, %opal_obj_run_destructors.exit179
-  %288 = load ptr, ptr @ompi_err_io, align 8
-  %289 = getelementptr inbounds i8, ptr %288, i64 48
-  %290 = load ptr, ptr %289, align 8
+.lr.ph.i184:                                      ; preds = %opal_obj_run_destructors.exit182, %.lr.ph.i184
+  %289 = phi ptr [ %291, %.lr.ph.i184 ], [ %288, %opal_obj_run_destructors.exit182 ]
+  %.07.i185 = phi ptr [ %290, %.lr.ph.i184 ], [ %287, %opal_obj_run_destructors.exit182 ]
+  tail call void %289(ptr noundef nonnull @ompi_err_io) #8
+  %290 = getelementptr inbounds i8, ptr %.07.i185, i64 8
   %291 = load ptr, ptr %290, align 8
-  %.not6.i185 = icmp eq ptr %291, null
-  br i1 %.not6.i185, label %opal_obj_run_destructors.exit189, label %.lr.ph.i186
+  %.not.i186 = icmp eq ptr %291, null
+  br i1 %.not.i186, label %opal_obj_run_destructors.exit187, label %.lr.ph.i184, !llvm.loop !6
 
-.lr.ph.i186:                                      ; preds = %opal_obj_run_destructors.exit184, %.lr.ph.i186
-  %292 = phi ptr [ %294, %.lr.ph.i186 ], [ %291, %opal_obj_run_destructors.exit184 ]
-  %.07.i187 = phi ptr [ %293, %.lr.ph.i186 ], [ %290, %opal_obj_run_destructors.exit184 ]
-  tail call void %292(ptr noundef nonnull @ompi_err_io) #8
-  %293 = getelementptr inbounds i8, ptr %.07.i187, i64 8
+opal_obj_run_destructors.exit187:                 ; preds = %.lr.ph.i184, %opal_obj_run_destructors.exit182
+  %292 = load ptr, ptr @ompi_err_keyval, align 8
+  %293 = getelementptr inbounds i8, ptr %292, i64 48
   %294 = load ptr, ptr %293, align 8
-  %.not.i188 = icmp eq ptr %294, null
-  br i1 %.not.i188, label %opal_obj_run_destructors.exit189, label %.lr.ph.i186, !llvm.loop !6
+  %295 = load ptr, ptr %294, align 8
+  %.not6.i188 = icmp eq ptr %295, null
+  br i1 %.not6.i188, label %opal_obj_run_destructors.exit192, label %.lr.ph.i189
 
-opal_obj_run_destructors.exit189:                 ; preds = %.lr.ph.i186, %opal_obj_run_destructors.exit184
-  %295 = load ptr, ptr @ompi_err_keyval, align 8
-  %296 = getelementptr inbounds i8, ptr %295, i64 48
-  %297 = load ptr, ptr %296, align 8
+.lr.ph.i189:                                      ; preds = %opal_obj_run_destructors.exit187, %.lr.ph.i189
+  %296 = phi ptr [ %298, %.lr.ph.i189 ], [ %295, %opal_obj_run_destructors.exit187 ]
+  %.07.i190 = phi ptr [ %297, %.lr.ph.i189 ], [ %294, %opal_obj_run_destructors.exit187 ]
+  tail call void %296(ptr noundef nonnull @ompi_err_keyval) #8
+  %297 = getelementptr inbounds i8, ptr %.07.i190, i64 8
   %298 = load ptr, ptr %297, align 8
-  %.not6.i190 = icmp eq ptr %298, null
-  br i1 %.not6.i190, label %opal_obj_run_destructors.exit194, label %.lr.ph.i191
+  %.not.i191 = icmp eq ptr %298, null
+  br i1 %.not.i191, label %opal_obj_run_destructors.exit192, label %.lr.ph.i189, !llvm.loop !6
 
-.lr.ph.i191:                                      ; preds = %opal_obj_run_destructors.exit189, %.lr.ph.i191
-  %299 = phi ptr [ %301, %.lr.ph.i191 ], [ %298, %opal_obj_run_destructors.exit189 ]
-  %.07.i192 = phi ptr [ %300, %.lr.ph.i191 ], [ %297, %opal_obj_run_destructors.exit189 ]
-  tail call void %299(ptr noundef nonnull @ompi_err_keyval) #8
-  %300 = getelementptr inbounds i8, ptr %.07.i192, i64 8
+opal_obj_run_destructors.exit192:                 ; preds = %.lr.ph.i189, %opal_obj_run_destructors.exit187
+  %299 = load ptr, ptr @ompi_err_locktype, align 8
+  %300 = getelementptr inbounds i8, ptr %299, i64 48
   %301 = load ptr, ptr %300, align 8
-  %.not.i193 = icmp eq ptr %301, null
-  br i1 %.not.i193, label %opal_obj_run_destructors.exit194, label %.lr.ph.i191, !llvm.loop !6
+  %302 = load ptr, ptr %301, align 8
+  %.not6.i193 = icmp eq ptr %302, null
+  br i1 %.not6.i193, label %opal_obj_run_destructors.exit197, label %.lr.ph.i194
 
-opal_obj_run_destructors.exit194:                 ; preds = %.lr.ph.i191, %opal_obj_run_destructors.exit189
-  %302 = load ptr, ptr @ompi_err_locktype, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 48
-  %304 = load ptr, ptr %303, align 8
+.lr.ph.i194:                                      ; preds = %opal_obj_run_destructors.exit192, %.lr.ph.i194
+  %303 = phi ptr [ %305, %.lr.ph.i194 ], [ %302, %opal_obj_run_destructors.exit192 ]
+  %.07.i195 = phi ptr [ %304, %.lr.ph.i194 ], [ %301, %opal_obj_run_destructors.exit192 ]
+  tail call void %303(ptr noundef nonnull @ompi_err_locktype) #8
+  %304 = getelementptr inbounds i8, ptr %.07.i195, i64 8
   %305 = load ptr, ptr %304, align 8
-  %.not6.i195 = icmp eq ptr %305, null
-  br i1 %.not6.i195, label %opal_obj_run_destructors.exit199, label %.lr.ph.i196
+  %.not.i196 = icmp eq ptr %305, null
+  br i1 %.not.i196, label %opal_obj_run_destructors.exit197, label %.lr.ph.i194, !llvm.loop !6
 
-.lr.ph.i196:                                      ; preds = %opal_obj_run_destructors.exit194, %.lr.ph.i196
-  %306 = phi ptr [ %308, %.lr.ph.i196 ], [ %305, %opal_obj_run_destructors.exit194 ]
-  %.07.i197 = phi ptr [ %307, %.lr.ph.i196 ], [ %304, %opal_obj_run_destructors.exit194 ]
-  tail call void %306(ptr noundef nonnull @ompi_err_locktype) #8
-  %307 = getelementptr inbounds i8, ptr %.07.i197, i64 8
+opal_obj_run_destructors.exit197:                 ; preds = %.lr.ph.i194, %opal_obj_run_destructors.exit192
+  %306 = load ptr, ptr @ompi_err_name, align 8
+  %307 = getelementptr inbounds i8, ptr %306, i64 48
   %308 = load ptr, ptr %307, align 8
-  %.not.i198 = icmp eq ptr %308, null
-  br i1 %.not.i198, label %opal_obj_run_destructors.exit199, label %.lr.ph.i196, !llvm.loop !6
+  %309 = load ptr, ptr %308, align 8
+  %.not6.i198 = icmp eq ptr %309, null
+  br i1 %.not6.i198, label %opal_obj_run_destructors.exit202, label %.lr.ph.i199
 
-opal_obj_run_destructors.exit199:                 ; preds = %.lr.ph.i196, %opal_obj_run_destructors.exit194
-  %309 = load ptr, ptr @ompi_err_name, align 8
-  %310 = getelementptr inbounds i8, ptr %309, i64 48
-  %311 = load ptr, ptr %310, align 8
+.lr.ph.i199:                                      ; preds = %opal_obj_run_destructors.exit197, %.lr.ph.i199
+  %310 = phi ptr [ %312, %.lr.ph.i199 ], [ %309, %opal_obj_run_destructors.exit197 ]
+  %.07.i200 = phi ptr [ %311, %.lr.ph.i199 ], [ %308, %opal_obj_run_destructors.exit197 ]
+  tail call void %310(ptr noundef nonnull @ompi_err_name) #8
+  %311 = getelementptr inbounds i8, ptr %.07.i200, i64 8
   %312 = load ptr, ptr %311, align 8
-  %.not6.i200 = icmp eq ptr %312, null
-  br i1 %.not6.i200, label %opal_obj_run_destructors.exit204, label %.lr.ph.i201
+  %.not.i201 = icmp eq ptr %312, null
+  br i1 %.not.i201, label %opal_obj_run_destructors.exit202, label %.lr.ph.i199, !llvm.loop !6
 
-.lr.ph.i201:                                      ; preds = %opal_obj_run_destructors.exit199, %.lr.ph.i201
-  %313 = phi ptr [ %315, %.lr.ph.i201 ], [ %312, %opal_obj_run_destructors.exit199 ]
-  %.07.i202 = phi ptr [ %314, %.lr.ph.i201 ], [ %311, %opal_obj_run_destructors.exit199 ]
-  tail call void %313(ptr noundef nonnull @ompi_err_name) #8
-  %314 = getelementptr inbounds i8, ptr %.07.i202, i64 8
+opal_obj_run_destructors.exit202:                 ; preds = %.lr.ph.i199, %opal_obj_run_destructors.exit197
+  %313 = load ptr, ptr @ompi_err_no_mem, align 8
+  %314 = getelementptr inbounds i8, ptr %313, i64 48
   %315 = load ptr, ptr %314, align 8
-  %.not.i203 = icmp eq ptr %315, null
-  br i1 %.not.i203, label %opal_obj_run_destructors.exit204, label %.lr.ph.i201, !llvm.loop !6
+  %316 = load ptr, ptr %315, align 8
+  %.not6.i203 = icmp eq ptr %316, null
+  br i1 %.not6.i203, label %opal_obj_run_destructors.exit207, label %.lr.ph.i204
 
-opal_obj_run_destructors.exit204:                 ; preds = %.lr.ph.i201, %opal_obj_run_destructors.exit199
-  %316 = load ptr, ptr @ompi_err_no_mem, align 8
-  %317 = getelementptr inbounds i8, ptr %316, i64 48
-  %318 = load ptr, ptr %317, align 8
+.lr.ph.i204:                                      ; preds = %opal_obj_run_destructors.exit202, %.lr.ph.i204
+  %317 = phi ptr [ %319, %.lr.ph.i204 ], [ %316, %opal_obj_run_destructors.exit202 ]
+  %.07.i205 = phi ptr [ %318, %.lr.ph.i204 ], [ %315, %opal_obj_run_destructors.exit202 ]
+  tail call void %317(ptr noundef nonnull @ompi_err_no_mem) #8
+  %318 = getelementptr inbounds i8, ptr %.07.i205, i64 8
   %319 = load ptr, ptr %318, align 8
-  %.not6.i205 = icmp eq ptr %319, null
-  br i1 %.not6.i205, label %opal_obj_run_destructors.exit209, label %.lr.ph.i206
+  %.not.i206 = icmp eq ptr %319, null
+  br i1 %.not.i206, label %opal_obj_run_destructors.exit207, label %.lr.ph.i204, !llvm.loop !6
 
-.lr.ph.i206:                                      ; preds = %opal_obj_run_destructors.exit204, %.lr.ph.i206
-  %320 = phi ptr [ %322, %.lr.ph.i206 ], [ %319, %opal_obj_run_destructors.exit204 ]
-  %.07.i207 = phi ptr [ %321, %.lr.ph.i206 ], [ %318, %opal_obj_run_destructors.exit204 ]
-  tail call void %320(ptr noundef nonnull @ompi_err_no_mem) #8
-  %321 = getelementptr inbounds i8, ptr %.07.i207, i64 8
+opal_obj_run_destructors.exit207:                 ; preds = %.lr.ph.i204, %opal_obj_run_destructors.exit202
+  %320 = load ptr, ptr @ompi_err_not_same, align 8
+  %321 = getelementptr inbounds i8, ptr %320, i64 48
   %322 = load ptr, ptr %321, align 8
-  %.not.i208 = icmp eq ptr %322, null
-  br i1 %.not.i208, label %opal_obj_run_destructors.exit209, label %.lr.ph.i206, !llvm.loop !6
+  %323 = load ptr, ptr %322, align 8
+  %.not6.i208 = icmp eq ptr %323, null
+  br i1 %.not6.i208, label %opal_obj_run_destructors.exit212, label %.lr.ph.i209
 
-opal_obj_run_destructors.exit209:                 ; preds = %.lr.ph.i206, %opal_obj_run_destructors.exit204
-  %323 = load ptr, ptr @ompi_err_not_same, align 8
-  %324 = getelementptr inbounds i8, ptr %323, i64 48
-  %325 = load ptr, ptr %324, align 8
+.lr.ph.i209:                                      ; preds = %opal_obj_run_destructors.exit207, %.lr.ph.i209
+  %324 = phi ptr [ %326, %.lr.ph.i209 ], [ %323, %opal_obj_run_destructors.exit207 ]
+  %.07.i210 = phi ptr [ %325, %.lr.ph.i209 ], [ %322, %opal_obj_run_destructors.exit207 ]
+  tail call void %324(ptr noundef nonnull @ompi_err_not_same) #8
+  %325 = getelementptr inbounds i8, ptr %.07.i210, i64 8
   %326 = load ptr, ptr %325, align 8
-  %.not6.i210 = icmp eq ptr %326, null
-  br i1 %.not6.i210, label %opal_obj_run_destructors.exit214, label %.lr.ph.i211
+  %.not.i211 = icmp eq ptr %326, null
+  br i1 %.not.i211, label %opal_obj_run_destructors.exit212, label %.lr.ph.i209, !llvm.loop !6
 
-.lr.ph.i211:                                      ; preds = %opal_obj_run_destructors.exit209, %.lr.ph.i211
-  %327 = phi ptr [ %329, %.lr.ph.i211 ], [ %326, %opal_obj_run_destructors.exit209 ]
-  %.07.i212 = phi ptr [ %328, %.lr.ph.i211 ], [ %325, %opal_obj_run_destructors.exit209 ]
-  tail call void %327(ptr noundef nonnull @ompi_err_not_same) #8
-  %328 = getelementptr inbounds i8, ptr %.07.i212, i64 8
+opal_obj_run_destructors.exit212:                 ; preds = %.lr.ph.i209, %opal_obj_run_destructors.exit207
+  %327 = load ptr, ptr @ompi_err_no_space, align 8
+  %328 = getelementptr inbounds i8, ptr %327, i64 48
   %329 = load ptr, ptr %328, align 8
-  %.not.i213 = icmp eq ptr %329, null
-  br i1 %.not.i213, label %opal_obj_run_destructors.exit214, label %.lr.ph.i211, !llvm.loop !6
+  %330 = load ptr, ptr %329, align 8
+  %.not6.i213 = icmp eq ptr %330, null
+  br i1 %.not6.i213, label %opal_obj_run_destructors.exit217, label %.lr.ph.i214
 
-opal_obj_run_destructors.exit214:                 ; preds = %.lr.ph.i211, %opal_obj_run_destructors.exit209
-  %330 = load ptr, ptr @ompi_err_no_space, align 8
-  %331 = getelementptr inbounds i8, ptr %330, i64 48
-  %332 = load ptr, ptr %331, align 8
+.lr.ph.i214:                                      ; preds = %opal_obj_run_destructors.exit212, %.lr.ph.i214
+  %331 = phi ptr [ %333, %.lr.ph.i214 ], [ %330, %opal_obj_run_destructors.exit212 ]
+  %.07.i215 = phi ptr [ %332, %.lr.ph.i214 ], [ %329, %opal_obj_run_destructors.exit212 ]
+  tail call void %331(ptr noundef nonnull @ompi_err_no_space) #8
+  %332 = getelementptr inbounds i8, ptr %.07.i215, i64 8
   %333 = load ptr, ptr %332, align 8
-  %.not6.i215 = icmp eq ptr %333, null
-  br i1 %.not6.i215, label %opal_obj_run_destructors.exit219, label %.lr.ph.i216
+  %.not.i216 = icmp eq ptr %333, null
+  br i1 %.not.i216, label %opal_obj_run_destructors.exit217, label %.lr.ph.i214, !llvm.loop !6
 
-.lr.ph.i216:                                      ; preds = %opal_obj_run_destructors.exit214, %.lr.ph.i216
-  %334 = phi ptr [ %336, %.lr.ph.i216 ], [ %333, %opal_obj_run_destructors.exit214 ]
-  %.07.i217 = phi ptr [ %335, %.lr.ph.i216 ], [ %332, %opal_obj_run_destructors.exit214 ]
-  tail call void %334(ptr noundef nonnull @ompi_err_no_space) #8
-  %335 = getelementptr inbounds i8, ptr %.07.i217, i64 8
+opal_obj_run_destructors.exit217:                 ; preds = %.lr.ph.i214, %opal_obj_run_destructors.exit212
+  %334 = load ptr, ptr @ompi_err_no_such_file, align 8
+  %335 = getelementptr inbounds i8, ptr %334, i64 48
   %336 = load ptr, ptr %335, align 8
-  %.not.i218 = icmp eq ptr %336, null
-  br i1 %.not.i218, label %opal_obj_run_destructors.exit219, label %.lr.ph.i216, !llvm.loop !6
+  %337 = load ptr, ptr %336, align 8
+  %.not6.i218 = icmp eq ptr %337, null
+  br i1 %.not6.i218, label %opal_obj_run_destructors.exit222, label %.lr.ph.i219
 
-opal_obj_run_destructors.exit219:                 ; preds = %.lr.ph.i216, %opal_obj_run_destructors.exit214
-  %337 = load ptr, ptr @ompi_err_no_such_file, align 8
-  %338 = getelementptr inbounds i8, ptr %337, i64 48
-  %339 = load ptr, ptr %338, align 8
+.lr.ph.i219:                                      ; preds = %opal_obj_run_destructors.exit217, %.lr.ph.i219
+  %338 = phi ptr [ %340, %.lr.ph.i219 ], [ %337, %opal_obj_run_destructors.exit217 ]
+  %.07.i220 = phi ptr [ %339, %.lr.ph.i219 ], [ %336, %opal_obj_run_destructors.exit217 ]
+  tail call void %338(ptr noundef nonnull @ompi_err_no_such_file) #8
+  %339 = getelementptr inbounds i8, ptr %.07.i220, i64 8
   %340 = load ptr, ptr %339, align 8
-  %.not6.i220 = icmp eq ptr %340, null
-  br i1 %.not6.i220, label %opal_obj_run_destructors.exit224, label %.lr.ph.i221
+  %.not.i221 = icmp eq ptr %340, null
+  br i1 %.not.i221, label %opal_obj_run_destructors.exit222, label %.lr.ph.i219, !llvm.loop !6
 
-.lr.ph.i221:                                      ; preds = %opal_obj_run_destructors.exit219, %.lr.ph.i221
-  %341 = phi ptr [ %343, %.lr.ph.i221 ], [ %340, %opal_obj_run_destructors.exit219 ]
-  %.07.i222 = phi ptr [ %342, %.lr.ph.i221 ], [ %339, %opal_obj_run_destructors.exit219 ]
-  tail call void %341(ptr noundef nonnull @ompi_err_no_such_file) #8
-  %342 = getelementptr inbounds i8, ptr %.07.i222, i64 8
+opal_obj_run_destructors.exit222:                 ; preds = %.lr.ph.i219, %opal_obj_run_destructors.exit217
+  %341 = load ptr, ptr @ompi_err_port, align 8
+  %342 = getelementptr inbounds i8, ptr %341, i64 48
   %343 = load ptr, ptr %342, align 8
-  %.not.i223 = icmp eq ptr %343, null
-  br i1 %.not.i223, label %opal_obj_run_destructors.exit224, label %.lr.ph.i221, !llvm.loop !6
+  %344 = load ptr, ptr %343, align 8
+  %.not6.i223 = icmp eq ptr %344, null
+  br i1 %.not6.i223, label %opal_obj_run_destructors.exit227, label %.lr.ph.i224
 
-opal_obj_run_destructors.exit224:                 ; preds = %.lr.ph.i221, %opal_obj_run_destructors.exit219
-  %344 = load ptr, ptr @ompi_err_port, align 8
-  %345 = getelementptr inbounds i8, ptr %344, i64 48
-  %346 = load ptr, ptr %345, align 8
+.lr.ph.i224:                                      ; preds = %opal_obj_run_destructors.exit222, %.lr.ph.i224
+  %345 = phi ptr [ %347, %.lr.ph.i224 ], [ %344, %opal_obj_run_destructors.exit222 ]
+  %.07.i225 = phi ptr [ %346, %.lr.ph.i224 ], [ %343, %opal_obj_run_destructors.exit222 ]
+  tail call void %345(ptr noundef nonnull @ompi_err_port) #8
+  %346 = getelementptr inbounds i8, ptr %.07.i225, i64 8
   %347 = load ptr, ptr %346, align 8
-  %.not6.i225 = icmp eq ptr %347, null
-  br i1 %.not6.i225, label %opal_obj_run_destructors.exit229, label %.lr.ph.i226
+  %.not.i226 = icmp eq ptr %347, null
+  br i1 %.not.i226, label %opal_obj_run_destructors.exit227, label %.lr.ph.i224, !llvm.loop !6
 
-.lr.ph.i226:                                      ; preds = %opal_obj_run_destructors.exit224, %.lr.ph.i226
-  %348 = phi ptr [ %350, %.lr.ph.i226 ], [ %347, %opal_obj_run_destructors.exit224 ]
-  %.07.i227 = phi ptr [ %349, %.lr.ph.i226 ], [ %346, %opal_obj_run_destructors.exit224 ]
-  tail call void %348(ptr noundef nonnull @ompi_err_port) #8
-  %349 = getelementptr inbounds i8, ptr %.07.i227, i64 8
+opal_obj_run_destructors.exit227:                 ; preds = %.lr.ph.i224, %opal_obj_run_destructors.exit222
+  %348 = load ptr, ptr @ompi_err_proc_aborted, align 8
+  %349 = getelementptr inbounds i8, ptr %348, i64 48
   %350 = load ptr, ptr %349, align 8
-  %.not.i228 = icmp eq ptr %350, null
-  br i1 %.not.i228, label %opal_obj_run_destructors.exit229, label %.lr.ph.i226, !llvm.loop !6
+  %351 = load ptr, ptr %350, align 8
+  %.not6.i228 = icmp eq ptr %351, null
+  br i1 %.not6.i228, label %opal_obj_run_destructors.exit232, label %.lr.ph.i229
 
-opal_obj_run_destructors.exit229:                 ; preds = %.lr.ph.i226, %opal_obj_run_destructors.exit224
-  %351 = load ptr, ptr @ompi_err_proc_aborted, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 48
-  %353 = load ptr, ptr %352, align 8
+.lr.ph.i229:                                      ; preds = %opal_obj_run_destructors.exit227, %.lr.ph.i229
+  %352 = phi ptr [ %354, %.lr.ph.i229 ], [ %351, %opal_obj_run_destructors.exit227 ]
+  %.07.i230 = phi ptr [ %353, %.lr.ph.i229 ], [ %350, %opal_obj_run_destructors.exit227 ]
+  tail call void %352(ptr noundef nonnull @ompi_err_proc_aborted) #8
+  %353 = getelementptr inbounds i8, ptr %.07.i230, i64 8
   %354 = load ptr, ptr %353, align 8
-  %.not6.i230 = icmp eq ptr %354, null
-  br i1 %.not6.i230, label %opal_obj_run_destructors.exit234, label %.lr.ph.i231
+  %.not.i231 = icmp eq ptr %354, null
+  br i1 %.not.i231, label %opal_obj_run_destructors.exit232, label %.lr.ph.i229, !llvm.loop !6
 
-.lr.ph.i231:                                      ; preds = %opal_obj_run_destructors.exit229, %.lr.ph.i231
-  %355 = phi ptr [ %357, %.lr.ph.i231 ], [ %354, %opal_obj_run_destructors.exit229 ]
-  %.07.i232 = phi ptr [ %356, %.lr.ph.i231 ], [ %353, %opal_obj_run_destructors.exit229 ]
-  tail call void %355(ptr noundef nonnull @ompi_err_proc_aborted) #8
-  %356 = getelementptr inbounds i8, ptr %.07.i232, i64 8
+opal_obj_run_destructors.exit232:                 ; preds = %.lr.ph.i229, %opal_obj_run_destructors.exit227
+  %355 = load ptr, ptr @ompi_err_quota, align 8
+  %356 = getelementptr inbounds i8, ptr %355, i64 48
   %357 = load ptr, ptr %356, align 8
-  %.not.i233 = icmp eq ptr %357, null
-  br i1 %.not.i233, label %opal_obj_run_destructors.exit234, label %.lr.ph.i231, !llvm.loop !6
+  %358 = load ptr, ptr %357, align 8
+  %.not6.i233 = icmp eq ptr %358, null
+  br i1 %.not6.i233, label %opal_obj_run_destructors.exit237, label %.lr.ph.i234
 
-opal_obj_run_destructors.exit234:                 ; preds = %.lr.ph.i231, %opal_obj_run_destructors.exit229
-  %358 = load ptr, ptr @ompi_err_quota, align 8
-  %359 = getelementptr inbounds i8, ptr %358, i64 48
-  %360 = load ptr, ptr %359, align 8
+.lr.ph.i234:                                      ; preds = %opal_obj_run_destructors.exit232, %.lr.ph.i234
+  %359 = phi ptr [ %361, %.lr.ph.i234 ], [ %358, %opal_obj_run_destructors.exit232 ]
+  %.07.i235 = phi ptr [ %360, %.lr.ph.i234 ], [ %357, %opal_obj_run_destructors.exit232 ]
+  tail call void %359(ptr noundef nonnull @ompi_err_quota) #8
+  %360 = getelementptr inbounds i8, ptr %.07.i235, i64 8
   %361 = load ptr, ptr %360, align 8
-  %.not6.i235 = icmp eq ptr %361, null
-  br i1 %.not6.i235, label %opal_obj_run_destructors.exit239, label %.lr.ph.i236
+  %.not.i236 = icmp eq ptr %361, null
+  br i1 %.not.i236, label %opal_obj_run_destructors.exit237, label %.lr.ph.i234, !llvm.loop !6
 
-.lr.ph.i236:                                      ; preds = %opal_obj_run_destructors.exit234, %.lr.ph.i236
-  %362 = phi ptr [ %364, %.lr.ph.i236 ], [ %361, %opal_obj_run_destructors.exit234 ]
-  %.07.i237 = phi ptr [ %363, %.lr.ph.i236 ], [ %360, %opal_obj_run_destructors.exit234 ]
-  tail call void %362(ptr noundef nonnull @ompi_err_quota) #8
-  %363 = getelementptr inbounds i8, ptr %.07.i237, i64 8
+opal_obj_run_destructors.exit237:                 ; preds = %.lr.ph.i234, %opal_obj_run_destructors.exit232
+  %362 = load ptr, ptr @ompi_err_read_only, align 8
+  %363 = getelementptr inbounds i8, ptr %362, i64 48
   %364 = load ptr, ptr %363, align 8
-  %.not.i238 = icmp eq ptr %364, null
-  br i1 %.not.i238, label %opal_obj_run_destructors.exit239, label %.lr.ph.i236, !llvm.loop !6
+  %365 = load ptr, ptr %364, align 8
+  %.not6.i238 = icmp eq ptr %365, null
+  br i1 %.not6.i238, label %opal_obj_run_destructors.exit242, label %.lr.ph.i239
 
-opal_obj_run_destructors.exit239:                 ; preds = %.lr.ph.i236, %opal_obj_run_destructors.exit234
-  %365 = load ptr, ptr @ompi_err_read_only, align 8
-  %366 = getelementptr inbounds i8, ptr %365, i64 48
-  %367 = load ptr, ptr %366, align 8
+.lr.ph.i239:                                      ; preds = %opal_obj_run_destructors.exit237, %.lr.ph.i239
+  %366 = phi ptr [ %368, %.lr.ph.i239 ], [ %365, %opal_obj_run_destructors.exit237 ]
+  %.07.i240 = phi ptr [ %367, %.lr.ph.i239 ], [ %364, %opal_obj_run_destructors.exit237 ]
+  tail call void %366(ptr noundef nonnull @ompi_err_read_only) #8
+  %367 = getelementptr inbounds i8, ptr %.07.i240, i64 8
   %368 = load ptr, ptr %367, align 8
-  %.not6.i240 = icmp eq ptr %368, null
-  br i1 %.not6.i240, label %opal_obj_run_destructors.exit244, label %.lr.ph.i241
+  %.not.i241 = icmp eq ptr %368, null
+  br i1 %.not.i241, label %opal_obj_run_destructors.exit242, label %.lr.ph.i239, !llvm.loop !6
 
-.lr.ph.i241:                                      ; preds = %opal_obj_run_destructors.exit239, %.lr.ph.i241
-  %369 = phi ptr [ %371, %.lr.ph.i241 ], [ %368, %opal_obj_run_destructors.exit239 ]
-  %.07.i242 = phi ptr [ %370, %.lr.ph.i241 ], [ %367, %opal_obj_run_destructors.exit239 ]
-  tail call void %369(ptr noundef nonnull @ompi_err_read_only) #8
-  %370 = getelementptr inbounds i8, ptr %.07.i242, i64 8
+opal_obj_run_destructors.exit242:                 ; preds = %.lr.ph.i239, %opal_obj_run_destructors.exit237
+  %369 = load ptr, ptr @ompi_err_rma_conflict, align 8
+  %370 = getelementptr inbounds i8, ptr %369, i64 48
   %371 = load ptr, ptr %370, align 8
-  %.not.i243 = icmp eq ptr %371, null
-  br i1 %.not.i243, label %opal_obj_run_destructors.exit244, label %.lr.ph.i241, !llvm.loop !6
+  %372 = load ptr, ptr %371, align 8
+  %.not6.i243 = icmp eq ptr %372, null
+  br i1 %.not6.i243, label %opal_obj_run_destructors.exit247, label %.lr.ph.i244
 
-opal_obj_run_destructors.exit244:                 ; preds = %.lr.ph.i241, %opal_obj_run_destructors.exit239
-  %372 = load ptr, ptr @ompi_err_rma_conflict, align 8
-  %373 = getelementptr inbounds i8, ptr %372, i64 48
-  %374 = load ptr, ptr %373, align 8
+.lr.ph.i244:                                      ; preds = %opal_obj_run_destructors.exit242, %.lr.ph.i244
+  %373 = phi ptr [ %375, %.lr.ph.i244 ], [ %372, %opal_obj_run_destructors.exit242 ]
+  %.07.i245 = phi ptr [ %374, %.lr.ph.i244 ], [ %371, %opal_obj_run_destructors.exit242 ]
+  tail call void %373(ptr noundef nonnull @ompi_err_rma_conflict) #8
+  %374 = getelementptr inbounds i8, ptr %.07.i245, i64 8
   %375 = load ptr, ptr %374, align 8
-  %.not6.i245 = icmp eq ptr %375, null
-  br i1 %.not6.i245, label %opal_obj_run_destructors.exit249, label %.lr.ph.i246
+  %.not.i246 = icmp eq ptr %375, null
+  br i1 %.not.i246, label %opal_obj_run_destructors.exit247, label %.lr.ph.i244, !llvm.loop !6
 
-.lr.ph.i246:                                      ; preds = %opal_obj_run_destructors.exit244, %.lr.ph.i246
-  %376 = phi ptr [ %378, %.lr.ph.i246 ], [ %375, %opal_obj_run_destructors.exit244 ]
-  %.07.i247 = phi ptr [ %377, %.lr.ph.i246 ], [ %374, %opal_obj_run_destructors.exit244 ]
-  tail call void %376(ptr noundef nonnull @ompi_err_rma_conflict) #8
-  %377 = getelementptr inbounds i8, ptr %.07.i247, i64 8
+opal_obj_run_destructors.exit247:                 ; preds = %.lr.ph.i244, %opal_obj_run_destructors.exit242
+  %376 = load ptr, ptr @ompi_err_rma_sync, align 8
+  %377 = getelementptr inbounds i8, ptr %376, i64 48
   %378 = load ptr, ptr %377, align 8
-  %.not.i248 = icmp eq ptr %378, null
-  br i1 %.not.i248, label %opal_obj_run_destructors.exit249, label %.lr.ph.i246, !llvm.loop !6
+  %379 = load ptr, ptr %378, align 8
+  %.not6.i248 = icmp eq ptr %379, null
+  br i1 %.not6.i248, label %opal_obj_run_destructors.exit252, label %.lr.ph.i249
 
-opal_obj_run_destructors.exit249:                 ; preds = %.lr.ph.i246, %opal_obj_run_destructors.exit244
-  %379 = load ptr, ptr @ompi_err_rma_sync, align 8
-  %380 = getelementptr inbounds i8, ptr %379, i64 48
-  %381 = load ptr, ptr %380, align 8
+.lr.ph.i249:                                      ; preds = %opal_obj_run_destructors.exit247, %.lr.ph.i249
+  %380 = phi ptr [ %382, %.lr.ph.i249 ], [ %379, %opal_obj_run_destructors.exit247 ]
+  %.07.i250 = phi ptr [ %381, %.lr.ph.i249 ], [ %378, %opal_obj_run_destructors.exit247 ]
+  tail call void %380(ptr noundef nonnull @ompi_err_rma_sync) #8
+  %381 = getelementptr inbounds i8, ptr %.07.i250, i64 8
   %382 = load ptr, ptr %381, align 8
-  %.not6.i250 = icmp eq ptr %382, null
-  br i1 %.not6.i250, label %opal_obj_run_destructors.exit254, label %.lr.ph.i251
+  %.not.i251 = icmp eq ptr %382, null
+  br i1 %.not.i251, label %opal_obj_run_destructors.exit252, label %.lr.ph.i249, !llvm.loop !6
 
-.lr.ph.i251:                                      ; preds = %opal_obj_run_destructors.exit249, %.lr.ph.i251
-  %383 = phi ptr [ %385, %.lr.ph.i251 ], [ %382, %opal_obj_run_destructors.exit249 ]
-  %.07.i252 = phi ptr [ %384, %.lr.ph.i251 ], [ %381, %opal_obj_run_destructors.exit249 ]
-  tail call void %383(ptr noundef nonnull @ompi_err_rma_sync) #8
-  %384 = getelementptr inbounds i8, ptr %.07.i252, i64 8
+opal_obj_run_destructors.exit252:                 ; preds = %.lr.ph.i249, %opal_obj_run_destructors.exit247
+  %383 = load ptr, ptr @ompi_err_service, align 8
+  %384 = getelementptr inbounds i8, ptr %383, i64 48
   %385 = load ptr, ptr %384, align 8
-  %.not.i253 = icmp eq ptr %385, null
-  br i1 %.not.i253, label %opal_obj_run_destructors.exit254, label %.lr.ph.i251, !llvm.loop !6
+  %386 = load ptr, ptr %385, align 8
+  %.not6.i253 = icmp eq ptr %386, null
+  br i1 %.not6.i253, label %opal_obj_run_destructors.exit257, label %.lr.ph.i254
 
-opal_obj_run_destructors.exit254:                 ; preds = %.lr.ph.i251, %opal_obj_run_destructors.exit249
-  %386 = load ptr, ptr @ompi_err_service, align 8
-  %387 = getelementptr inbounds i8, ptr %386, i64 48
-  %388 = load ptr, ptr %387, align 8
+.lr.ph.i254:                                      ; preds = %opal_obj_run_destructors.exit252, %.lr.ph.i254
+  %387 = phi ptr [ %389, %.lr.ph.i254 ], [ %386, %opal_obj_run_destructors.exit252 ]
+  %.07.i255 = phi ptr [ %388, %.lr.ph.i254 ], [ %385, %opal_obj_run_destructors.exit252 ]
+  tail call void %387(ptr noundef nonnull @ompi_err_service) #8
+  %388 = getelementptr inbounds i8, ptr %.07.i255, i64 8
   %389 = load ptr, ptr %388, align 8
-  %.not6.i255 = icmp eq ptr %389, null
-  br i1 %.not6.i255, label %opal_obj_run_destructors.exit259, label %.lr.ph.i256
+  %.not.i256 = icmp eq ptr %389, null
+  br i1 %.not.i256, label %opal_obj_run_destructors.exit257, label %.lr.ph.i254, !llvm.loop !6
 
-.lr.ph.i256:                                      ; preds = %opal_obj_run_destructors.exit254, %.lr.ph.i256
-  %390 = phi ptr [ %392, %.lr.ph.i256 ], [ %389, %opal_obj_run_destructors.exit254 ]
-  %.07.i257 = phi ptr [ %391, %.lr.ph.i256 ], [ %388, %opal_obj_run_destructors.exit254 ]
-  tail call void %390(ptr noundef nonnull @ompi_err_service) #8
-  %391 = getelementptr inbounds i8, ptr %.07.i257, i64 8
+opal_obj_run_destructors.exit257:                 ; preds = %.lr.ph.i254, %opal_obj_run_destructors.exit252
+  %390 = load ptr, ptr @ompi_err_size, align 8
+  %391 = getelementptr inbounds i8, ptr %390, i64 48
   %392 = load ptr, ptr %391, align 8
-  %.not.i258 = icmp eq ptr %392, null
-  br i1 %.not.i258, label %opal_obj_run_destructors.exit259, label %.lr.ph.i256, !llvm.loop !6
+  %393 = load ptr, ptr %392, align 8
+  %.not6.i258 = icmp eq ptr %393, null
+  br i1 %.not6.i258, label %opal_obj_run_destructors.exit262, label %.lr.ph.i259
 
-opal_obj_run_destructors.exit259:                 ; preds = %.lr.ph.i256, %opal_obj_run_destructors.exit254
-  %393 = load ptr, ptr @ompi_err_size, align 8
-  %394 = getelementptr inbounds i8, ptr %393, i64 48
-  %395 = load ptr, ptr %394, align 8
+.lr.ph.i259:                                      ; preds = %opal_obj_run_destructors.exit257, %.lr.ph.i259
+  %394 = phi ptr [ %396, %.lr.ph.i259 ], [ %393, %opal_obj_run_destructors.exit257 ]
+  %.07.i260 = phi ptr [ %395, %.lr.ph.i259 ], [ %392, %opal_obj_run_destructors.exit257 ]
+  tail call void %394(ptr noundef nonnull @ompi_err_size) #8
+  %395 = getelementptr inbounds i8, ptr %.07.i260, i64 8
   %396 = load ptr, ptr %395, align 8
-  %.not6.i260 = icmp eq ptr %396, null
-  br i1 %.not6.i260, label %opal_obj_run_destructors.exit264, label %.lr.ph.i261
+  %.not.i261 = icmp eq ptr %396, null
+  br i1 %.not.i261, label %opal_obj_run_destructors.exit262, label %.lr.ph.i259, !llvm.loop !6
 
-.lr.ph.i261:                                      ; preds = %opal_obj_run_destructors.exit259, %.lr.ph.i261
-  %397 = phi ptr [ %399, %.lr.ph.i261 ], [ %396, %opal_obj_run_destructors.exit259 ]
-  %.07.i262 = phi ptr [ %398, %.lr.ph.i261 ], [ %395, %opal_obj_run_destructors.exit259 ]
-  tail call void %397(ptr noundef nonnull @ompi_err_size) #8
-  %398 = getelementptr inbounds i8, ptr %.07.i262, i64 8
+opal_obj_run_destructors.exit262:                 ; preds = %.lr.ph.i259, %opal_obj_run_destructors.exit257
+  %397 = load ptr, ptr @ompi_err_spawn, align 8
+  %398 = getelementptr inbounds i8, ptr %397, i64 48
   %399 = load ptr, ptr %398, align 8
-  %.not.i263 = icmp eq ptr %399, null
-  br i1 %.not.i263, label %opal_obj_run_destructors.exit264, label %.lr.ph.i261, !llvm.loop !6
+  %400 = load ptr, ptr %399, align 8
+  %.not6.i263 = icmp eq ptr %400, null
+  br i1 %.not6.i263, label %opal_obj_run_destructors.exit267, label %.lr.ph.i264
 
-opal_obj_run_destructors.exit264:                 ; preds = %.lr.ph.i261, %opal_obj_run_destructors.exit259
-  %400 = load ptr, ptr @ompi_err_spawn, align 8
-  %401 = getelementptr inbounds i8, ptr %400, i64 48
-  %402 = load ptr, ptr %401, align 8
+.lr.ph.i264:                                      ; preds = %opal_obj_run_destructors.exit262, %.lr.ph.i264
+  %401 = phi ptr [ %403, %.lr.ph.i264 ], [ %400, %opal_obj_run_destructors.exit262 ]
+  %.07.i265 = phi ptr [ %402, %.lr.ph.i264 ], [ %399, %opal_obj_run_destructors.exit262 ]
+  tail call void %401(ptr noundef nonnull @ompi_err_spawn) #8
+  %402 = getelementptr inbounds i8, ptr %.07.i265, i64 8
   %403 = load ptr, ptr %402, align 8
-  %.not6.i265 = icmp eq ptr %403, null
-  br i1 %.not6.i265, label %opal_obj_run_destructors.exit269, label %.lr.ph.i266
+  %.not.i266 = icmp eq ptr %403, null
+  br i1 %.not.i266, label %opal_obj_run_destructors.exit267, label %.lr.ph.i264, !llvm.loop !6
 
-.lr.ph.i266:                                      ; preds = %opal_obj_run_destructors.exit264, %.lr.ph.i266
-  %404 = phi ptr [ %406, %.lr.ph.i266 ], [ %403, %opal_obj_run_destructors.exit264 ]
-  %.07.i267 = phi ptr [ %405, %.lr.ph.i266 ], [ %402, %opal_obj_run_destructors.exit264 ]
-  tail call void %404(ptr noundef nonnull @ompi_err_spawn) #8
-  %405 = getelementptr inbounds i8, ptr %.07.i267, i64 8
+opal_obj_run_destructors.exit267:                 ; preds = %.lr.ph.i264, %opal_obj_run_destructors.exit262
+  %404 = load ptr, ptr @ompi_err_unsupported_datarep, align 8
+  %405 = getelementptr inbounds i8, ptr %404, i64 48
   %406 = load ptr, ptr %405, align 8
-  %.not.i268 = icmp eq ptr %406, null
-  br i1 %.not.i268, label %opal_obj_run_destructors.exit269, label %.lr.ph.i266, !llvm.loop !6
+  %407 = load ptr, ptr %406, align 8
+  %.not6.i268 = icmp eq ptr %407, null
+  br i1 %.not6.i268, label %opal_obj_run_destructors.exit272, label %.lr.ph.i269
 
-opal_obj_run_destructors.exit269:                 ; preds = %.lr.ph.i266, %opal_obj_run_destructors.exit264
-  %407 = load ptr, ptr @ompi_err_unsupported_datarep, align 8
-  %408 = getelementptr inbounds i8, ptr %407, i64 48
-  %409 = load ptr, ptr %408, align 8
+.lr.ph.i269:                                      ; preds = %opal_obj_run_destructors.exit267, %.lr.ph.i269
+  %408 = phi ptr [ %410, %.lr.ph.i269 ], [ %407, %opal_obj_run_destructors.exit267 ]
+  %.07.i270 = phi ptr [ %409, %.lr.ph.i269 ], [ %406, %opal_obj_run_destructors.exit267 ]
+  tail call void %408(ptr noundef nonnull @ompi_err_unsupported_datarep) #8
+  %409 = getelementptr inbounds i8, ptr %.07.i270, i64 8
   %410 = load ptr, ptr %409, align 8
-  %.not6.i270 = icmp eq ptr %410, null
-  br i1 %.not6.i270, label %opal_obj_run_destructors.exit274, label %.lr.ph.i271
+  %.not.i271 = icmp eq ptr %410, null
+  br i1 %.not.i271, label %opal_obj_run_destructors.exit272, label %.lr.ph.i269, !llvm.loop !6
 
-.lr.ph.i271:                                      ; preds = %opal_obj_run_destructors.exit269, %.lr.ph.i271
-  %411 = phi ptr [ %413, %.lr.ph.i271 ], [ %410, %opal_obj_run_destructors.exit269 ]
-  %.07.i272 = phi ptr [ %412, %.lr.ph.i271 ], [ %409, %opal_obj_run_destructors.exit269 ]
-  tail call void %411(ptr noundef nonnull @ompi_err_unsupported_datarep) #8
-  %412 = getelementptr inbounds i8, ptr %.07.i272, i64 8
+opal_obj_run_destructors.exit272:                 ; preds = %.lr.ph.i269, %opal_obj_run_destructors.exit267
+  %411 = load ptr, ptr @ompi_err_unsupported_operation, align 8
+  %412 = getelementptr inbounds i8, ptr %411, i64 48
   %413 = load ptr, ptr %412, align 8
-  %.not.i273 = icmp eq ptr %413, null
-  br i1 %.not.i273, label %opal_obj_run_destructors.exit274, label %.lr.ph.i271, !llvm.loop !6
+  %414 = load ptr, ptr %413, align 8
+  %.not6.i273 = icmp eq ptr %414, null
+  br i1 %.not6.i273, label %opal_obj_run_destructors.exit277, label %.lr.ph.i274
 
-opal_obj_run_destructors.exit274:                 ; preds = %.lr.ph.i271, %opal_obj_run_destructors.exit269
-  %414 = load ptr, ptr @ompi_err_unsupported_operation, align 8
-  %415 = getelementptr inbounds i8, ptr %414, i64 48
-  %416 = load ptr, ptr %415, align 8
+.lr.ph.i274:                                      ; preds = %opal_obj_run_destructors.exit272, %.lr.ph.i274
+  %415 = phi ptr [ %417, %.lr.ph.i274 ], [ %414, %opal_obj_run_destructors.exit272 ]
+  %.07.i275 = phi ptr [ %416, %.lr.ph.i274 ], [ %413, %opal_obj_run_destructors.exit272 ]
+  tail call void %415(ptr noundef nonnull @ompi_err_unsupported_operation) #8
+  %416 = getelementptr inbounds i8, ptr %.07.i275, i64 8
   %417 = load ptr, ptr %416, align 8
-  %.not6.i275 = icmp eq ptr %417, null
-  br i1 %.not6.i275, label %opal_obj_run_destructors.exit279, label %.lr.ph.i276
+  %.not.i276 = icmp eq ptr %417, null
+  br i1 %.not.i276, label %opal_obj_run_destructors.exit277, label %.lr.ph.i274, !llvm.loop !6
 
-.lr.ph.i276:                                      ; preds = %opal_obj_run_destructors.exit274, %.lr.ph.i276
-  %418 = phi ptr [ %420, %.lr.ph.i276 ], [ %417, %opal_obj_run_destructors.exit274 ]
-  %.07.i277 = phi ptr [ %419, %.lr.ph.i276 ], [ %416, %opal_obj_run_destructors.exit274 ]
-  tail call void %418(ptr noundef nonnull @ompi_err_unsupported_operation) #8
-  %419 = getelementptr inbounds i8, ptr %.07.i277, i64 8
+opal_obj_run_destructors.exit277:                 ; preds = %.lr.ph.i274, %opal_obj_run_destructors.exit272
+  %418 = load ptr, ptr @ompi_err_win, align 8
+  %419 = getelementptr inbounds i8, ptr %418, i64 48
   %420 = load ptr, ptr %419, align 8
-  %.not.i278 = icmp eq ptr %420, null
-  br i1 %.not.i278, label %opal_obj_run_destructors.exit279, label %.lr.ph.i276, !llvm.loop !6
+  %421 = load ptr, ptr %420, align 8
+  %.not6.i278 = icmp eq ptr %421, null
+  br i1 %.not6.i278, label %opal_obj_run_destructors.exit282, label %.lr.ph.i279
 
-opal_obj_run_destructors.exit279:                 ; preds = %.lr.ph.i276, %opal_obj_run_destructors.exit274
-  %421 = load ptr, ptr @ompi_err_win, align 8
-  %422 = getelementptr inbounds i8, ptr %421, i64 48
-  %423 = load ptr, ptr %422, align 8
+.lr.ph.i279:                                      ; preds = %opal_obj_run_destructors.exit277, %.lr.ph.i279
+  %422 = phi ptr [ %424, %.lr.ph.i279 ], [ %421, %opal_obj_run_destructors.exit277 ]
+  %.07.i280 = phi ptr [ %423, %.lr.ph.i279 ], [ %420, %opal_obj_run_destructors.exit277 ]
+  tail call void %422(ptr noundef nonnull @ompi_err_win) #8
+  %423 = getelementptr inbounds i8, ptr %.07.i280, i64 8
   %424 = load ptr, ptr %423, align 8
-  %.not6.i280 = icmp eq ptr %424, null
-  br i1 %.not6.i280, label %opal_obj_run_destructors.exit284, label %.lr.ph.i281
+  %.not.i281 = icmp eq ptr %424, null
+  br i1 %.not.i281, label %opal_obj_run_destructors.exit282, label %.lr.ph.i279, !llvm.loop !6
 
-.lr.ph.i281:                                      ; preds = %opal_obj_run_destructors.exit279, %.lr.ph.i281
-  %425 = phi ptr [ %427, %.lr.ph.i281 ], [ %424, %opal_obj_run_destructors.exit279 ]
-  %.07.i282 = phi ptr [ %426, %.lr.ph.i281 ], [ %423, %opal_obj_run_destructors.exit279 ]
-  tail call void %425(ptr noundef nonnull @ompi_err_win) #8
-  %426 = getelementptr inbounds i8, ptr %.07.i282, i64 8
+opal_obj_run_destructors.exit282:                 ; preds = %.lr.ph.i279, %opal_obj_run_destructors.exit277
+  %425 = load ptr, ptr @ompi_t_err_memory, align 8
+  %426 = getelementptr inbounds i8, ptr %425, i64 48
   %427 = load ptr, ptr %426, align 8
-  %.not.i283 = icmp eq ptr %427, null
-  br i1 %.not.i283, label %opal_obj_run_destructors.exit284, label %.lr.ph.i281, !llvm.loop !6
+  %428 = load ptr, ptr %427, align 8
+  %.not6.i283 = icmp eq ptr %428, null
+  br i1 %.not6.i283, label %opal_obj_run_destructors.exit287, label %.lr.ph.i284
 
-opal_obj_run_destructors.exit284:                 ; preds = %.lr.ph.i281, %opal_obj_run_destructors.exit279
-  %428 = load ptr, ptr @ompi_t_err_memory, align 8
-  %429 = getelementptr inbounds i8, ptr %428, i64 48
-  %430 = load ptr, ptr %429, align 8
+.lr.ph.i284:                                      ; preds = %opal_obj_run_destructors.exit282, %.lr.ph.i284
+  %429 = phi ptr [ %431, %.lr.ph.i284 ], [ %428, %opal_obj_run_destructors.exit282 ]
+  %.07.i285 = phi ptr [ %430, %.lr.ph.i284 ], [ %427, %opal_obj_run_destructors.exit282 ]
+  tail call void %429(ptr noundef nonnull @ompi_t_err_memory) #8
+  %430 = getelementptr inbounds i8, ptr %.07.i285, i64 8
   %431 = load ptr, ptr %430, align 8
-  %.not6.i285 = icmp eq ptr %431, null
-  br i1 %.not6.i285, label %opal_obj_run_destructors.exit289, label %.lr.ph.i286
+  %.not.i286 = icmp eq ptr %431, null
+  br i1 %.not.i286, label %opal_obj_run_destructors.exit287, label %.lr.ph.i284, !llvm.loop !6
 
-.lr.ph.i286:                                      ; preds = %opal_obj_run_destructors.exit284, %.lr.ph.i286
-  %432 = phi ptr [ %434, %.lr.ph.i286 ], [ %431, %opal_obj_run_destructors.exit284 ]
-  %.07.i287 = phi ptr [ %433, %.lr.ph.i286 ], [ %430, %opal_obj_run_destructors.exit284 ]
-  tail call void %432(ptr noundef nonnull @ompi_t_err_memory) #8
-  %433 = getelementptr inbounds i8, ptr %.07.i287, i64 8
+opal_obj_run_destructors.exit287:                 ; preds = %.lr.ph.i284, %opal_obj_run_destructors.exit282
+  %432 = load ptr, ptr @ompi_t_err_not_initialized, align 8
+  %433 = getelementptr inbounds i8, ptr %432, i64 48
   %434 = load ptr, ptr %433, align 8
-  %.not.i288 = icmp eq ptr %434, null
-  br i1 %.not.i288, label %opal_obj_run_destructors.exit289, label %.lr.ph.i286, !llvm.loop !6
+  %435 = load ptr, ptr %434, align 8
+  %.not6.i288 = icmp eq ptr %435, null
+  br i1 %.not6.i288, label %opal_obj_run_destructors.exit292, label %.lr.ph.i289
 
-opal_obj_run_destructors.exit289:                 ; preds = %.lr.ph.i286, %opal_obj_run_destructors.exit284
-  %435 = load ptr, ptr @ompi_t_err_not_initialized, align 8
-  %436 = getelementptr inbounds i8, ptr %435, i64 48
-  %437 = load ptr, ptr %436, align 8
+.lr.ph.i289:                                      ; preds = %opal_obj_run_destructors.exit287, %.lr.ph.i289
+  %436 = phi ptr [ %438, %.lr.ph.i289 ], [ %435, %opal_obj_run_destructors.exit287 ]
+  %.07.i290 = phi ptr [ %437, %.lr.ph.i289 ], [ %434, %opal_obj_run_destructors.exit287 ]
+  tail call void %436(ptr noundef nonnull @ompi_t_err_not_initialized) #8
+  %437 = getelementptr inbounds i8, ptr %.07.i290, i64 8
   %438 = load ptr, ptr %437, align 8
-  %.not6.i290 = icmp eq ptr %438, null
-  br i1 %.not6.i290, label %opal_obj_run_destructors.exit294, label %.lr.ph.i291
+  %.not.i291 = icmp eq ptr %438, null
+  br i1 %.not.i291, label %opal_obj_run_destructors.exit292, label %.lr.ph.i289, !llvm.loop !6
 
-.lr.ph.i291:                                      ; preds = %opal_obj_run_destructors.exit289, %.lr.ph.i291
-  %439 = phi ptr [ %441, %.lr.ph.i291 ], [ %438, %opal_obj_run_destructors.exit289 ]
-  %.07.i292 = phi ptr [ %440, %.lr.ph.i291 ], [ %437, %opal_obj_run_destructors.exit289 ]
-  tail call void %439(ptr noundef nonnull @ompi_t_err_not_initialized) #8
-  %440 = getelementptr inbounds i8, ptr %.07.i292, i64 8
+opal_obj_run_destructors.exit292:                 ; preds = %.lr.ph.i289, %opal_obj_run_destructors.exit287
+  %439 = load ptr, ptr @ompi_t_err_cannot_init, align 8
+  %440 = getelementptr inbounds i8, ptr %439, i64 48
   %441 = load ptr, ptr %440, align 8
-  %.not.i293 = icmp eq ptr %441, null
-  br i1 %.not.i293, label %opal_obj_run_destructors.exit294, label %.lr.ph.i291, !llvm.loop !6
+  %442 = load ptr, ptr %441, align 8
+  %.not6.i293 = icmp eq ptr %442, null
+  br i1 %.not6.i293, label %opal_obj_run_destructors.exit297, label %.lr.ph.i294
 
-opal_obj_run_destructors.exit294:                 ; preds = %.lr.ph.i291, %opal_obj_run_destructors.exit289
-  %442 = load ptr, ptr @ompi_t_err_cannot_init, align 8
-  %443 = getelementptr inbounds i8, ptr %442, i64 48
-  %444 = load ptr, ptr %443, align 8
+.lr.ph.i294:                                      ; preds = %opal_obj_run_destructors.exit292, %.lr.ph.i294
+  %443 = phi ptr [ %445, %.lr.ph.i294 ], [ %442, %opal_obj_run_destructors.exit292 ]
+  %.07.i295 = phi ptr [ %444, %.lr.ph.i294 ], [ %441, %opal_obj_run_destructors.exit292 ]
+  tail call void %443(ptr noundef nonnull @ompi_t_err_cannot_init) #8
+  %444 = getelementptr inbounds i8, ptr %.07.i295, i64 8
   %445 = load ptr, ptr %444, align 8
-  %.not6.i295 = icmp eq ptr %445, null
-  br i1 %.not6.i295, label %opal_obj_run_destructors.exit299, label %.lr.ph.i296
+  %.not.i296 = icmp eq ptr %445, null
+  br i1 %.not.i296, label %opal_obj_run_destructors.exit297, label %.lr.ph.i294, !llvm.loop !6
 
-.lr.ph.i296:                                      ; preds = %opal_obj_run_destructors.exit294, %.lr.ph.i296
-  %446 = phi ptr [ %448, %.lr.ph.i296 ], [ %445, %opal_obj_run_destructors.exit294 ]
-  %.07.i297 = phi ptr [ %447, %.lr.ph.i296 ], [ %444, %opal_obj_run_destructors.exit294 ]
-  tail call void %446(ptr noundef nonnull @ompi_t_err_cannot_init) #8
-  %447 = getelementptr inbounds i8, ptr %.07.i297, i64 8
+opal_obj_run_destructors.exit297:                 ; preds = %.lr.ph.i294, %opal_obj_run_destructors.exit292
+  %446 = load ptr, ptr @ompi_t_err_invalid_index, align 8
+  %447 = getelementptr inbounds i8, ptr %446, i64 48
   %448 = load ptr, ptr %447, align 8
-  %.not.i298 = icmp eq ptr %448, null
-  br i1 %.not.i298, label %opal_obj_run_destructors.exit299, label %.lr.ph.i296, !llvm.loop !6
+  %449 = load ptr, ptr %448, align 8
+  %.not6.i298 = icmp eq ptr %449, null
+  br i1 %.not6.i298, label %opal_obj_run_destructors.exit302, label %.lr.ph.i299
 
-opal_obj_run_destructors.exit299:                 ; preds = %.lr.ph.i296, %opal_obj_run_destructors.exit294
-  %449 = load ptr, ptr @ompi_t_err_invalid_index, align 8
-  %450 = getelementptr inbounds i8, ptr %449, i64 48
-  %451 = load ptr, ptr %450, align 8
+.lr.ph.i299:                                      ; preds = %opal_obj_run_destructors.exit297, %.lr.ph.i299
+  %450 = phi ptr [ %452, %.lr.ph.i299 ], [ %449, %opal_obj_run_destructors.exit297 ]
+  %.07.i300 = phi ptr [ %451, %.lr.ph.i299 ], [ %448, %opal_obj_run_destructors.exit297 ]
+  tail call void %450(ptr noundef nonnull @ompi_t_err_invalid_index) #8
+  %451 = getelementptr inbounds i8, ptr %.07.i300, i64 8
   %452 = load ptr, ptr %451, align 8
-  %.not6.i300 = icmp eq ptr %452, null
-  br i1 %.not6.i300, label %opal_obj_run_destructors.exit304, label %.lr.ph.i301
+  %.not.i301 = icmp eq ptr %452, null
+  br i1 %.not.i301, label %opal_obj_run_destructors.exit302, label %.lr.ph.i299, !llvm.loop !6
 
-.lr.ph.i301:                                      ; preds = %opal_obj_run_destructors.exit299, %.lr.ph.i301
-  %453 = phi ptr [ %455, %.lr.ph.i301 ], [ %452, %opal_obj_run_destructors.exit299 ]
-  %.07.i302 = phi ptr [ %454, %.lr.ph.i301 ], [ %451, %opal_obj_run_destructors.exit299 ]
-  tail call void %453(ptr noundef nonnull @ompi_t_err_invalid_index) #8
-  %454 = getelementptr inbounds i8, ptr %.07.i302, i64 8
+opal_obj_run_destructors.exit302:                 ; preds = %.lr.ph.i299, %opal_obj_run_destructors.exit297
+  %453 = load ptr, ptr @ompi_t_err_invalid_item, align 8
+  %454 = getelementptr inbounds i8, ptr %453, i64 48
   %455 = load ptr, ptr %454, align 8
-  %.not.i303 = icmp eq ptr %455, null
-  br i1 %.not.i303, label %opal_obj_run_destructors.exit304, label %.lr.ph.i301, !llvm.loop !6
+  %456 = load ptr, ptr %455, align 8
+  %.not6.i303 = icmp eq ptr %456, null
+  br i1 %.not6.i303, label %opal_obj_run_destructors.exit307, label %.lr.ph.i304
 
-opal_obj_run_destructors.exit304:                 ; preds = %.lr.ph.i301, %opal_obj_run_destructors.exit299
-  %456 = load ptr, ptr @ompi_t_err_invalid_item, align 8
-  %457 = getelementptr inbounds i8, ptr %456, i64 48
-  %458 = load ptr, ptr %457, align 8
+.lr.ph.i304:                                      ; preds = %opal_obj_run_destructors.exit302, %.lr.ph.i304
+  %457 = phi ptr [ %459, %.lr.ph.i304 ], [ %456, %opal_obj_run_destructors.exit302 ]
+  %.07.i305 = phi ptr [ %458, %.lr.ph.i304 ], [ %455, %opal_obj_run_destructors.exit302 ]
+  tail call void %457(ptr noundef nonnull @ompi_t_err_invalid_item) #8
+  %458 = getelementptr inbounds i8, ptr %.07.i305, i64 8
   %459 = load ptr, ptr %458, align 8
-  %.not6.i305 = icmp eq ptr %459, null
-  br i1 %.not6.i305, label %opal_obj_run_destructors.exit309, label %.lr.ph.i306
+  %.not.i306 = icmp eq ptr %459, null
+  br i1 %.not.i306, label %opal_obj_run_destructors.exit307, label %.lr.ph.i304, !llvm.loop !6
 
-.lr.ph.i306:                                      ; preds = %opal_obj_run_destructors.exit304, %.lr.ph.i306
-  %460 = phi ptr [ %462, %.lr.ph.i306 ], [ %459, %opal_obj_run_destructors.exit304 ]
-  %.07.i307 = phi ptr [ %461, %.lr.ph.i306 ], [ %458, %opal_obj_run_destructors.exit304 ]
-  tail call void %460(ptr noundef nonnull @ompi_t_err_invalid_item) #8
-  %461 = getelementptr inbounds i8, ptr %.07.i307, i64 8
+opal_obj_run_destructors.exit307:                 ; preds = %.lr.ph.i304, %opal_obj_run_destructors.exit302
+  %460 = load ptr, ptr @ompi_t_err_invalid_handle, align 8
+  %461 = getelementptr inbounds i8, ptr %460, i64 48
   %462 = load ptr, ptr %461, align 8
-  %.not.i308 = icmp eq ptr %462, null
-  br i1 %.not.i308, label %opal_obj_run_destructors.exit309, label %.lr.ph.i306, !llvm.loop !6
+  %463 = load ptr, ptr %462, align 8
+  %.not6.i308 = icmp eq ptr %463, null
+  br i1 %.not6.i308, label %opal_obj_run_destructors.exit312, label %.lr.ph.i309
 
-opal_obj_run_destructors.exit309:                 ; preds = %.lr.ph.i306, %opal_obj_run_destructors.exit304
-  %463 = load ptr, ptr @ompi_t_err_invalid_handle, align 8
-  %464 = getelementptr inbounds i8, ptr %463, i64 48
-  %465 = load ptr, ptr %464, align 8
+.lr.ph.i309:                                      ; preds = %opal_obj_run_destructors.exit307, %.lr.ph.i309
+  %464 = phi ptr [ %466, %.lr.ph.i309 ], [ %463, %opal_obj_run_destructors.exit307 ]
+  %.07.i310 = phi ptr [ %465, %.lr.ph.i309 ], [ %462, %opal_obj_run_destructors.exit307 ]
+  tail call void %464(ptr noundef nonnull @ompi_t_err_invalid_handle) #8
+  %465 = getelementptr inbounds i8, ptr %.07.i310, i64 8
   %466 = load ptr, ptr %465, align 8
-  %.not6.i310 = icmp eq ptr %466, null
-  br i1 %.not6.i310, label %opal_obj_run_destructors.exit314, label %.lr.ph.i311
+  %.not.i311 = icmp eq ptr %466, null
+  br i1 %.not.i311, label %opal_obj_run_destructors.exit312, label %.lr.ph.i309, !llvm.loop !6
 
-.lr.ph.i311:                                      ; preds = %opal_obj_run_destructors.exit309, %.lr.ph.i311
-  %467 = phi ptr [ %469, %.lr.ph.i311 ], [ %466, %opal_obj_run_destructors.exit309 ]
-  %.07.i312 = phi ptr [ %468, %.lr.ph.i311 ], [ %465, %opal_obj_run_destructors.exit309 ]
-  tail call void %467(ptr noundef nonnull @ompi_t_err_invalid_handle) #8
-  %468 = getelementptr inbounds i8, ptr %.07.i312, i64 8
+opal_obj_run_destructors.exit312:                 ; preds = %.lr.ph.i309, %opal_obj_run_destructors.exit307
+  %467 = load ptr, ptr @ompi_t_err_out_of_handles, align 8
+  %468 = getelementptr inbounds i8, ptr %467, i64 48
   %469 = load ptr, ptr %468, align 8
-  %.not.i313 = icmp eq ptr %469, null
-  br i1 %.not.i313, label %opal_obj_run_destructors.exit314, label %.lr.ph.i311, !llvm.loop !6
+  %470 = load ptr, ptr %469, align 8
+  %.not6.i313 = icmp eq ptr %470, null
+  br i1 %.not6.i313, label %opal_obj_run_destructors.exit317, label %.lr.ph.i314
 
-opal_obj_run_destructors.exit314:                 ; preds = %.lr.ph.i311, %opal_obj_run_destructors.exit309
-  %470 = load ptr, ptr @ompi_t_err_out_of_handles, align 8
-  %471 = getelementptr inbounds i8, ptr %470, i64 48
-  %472 = load ptr, ptr %471, align 8
+.lr.ph.i314:                                      ; preds = %opal_obj_run_destructors.exit312, %.lr.ph.i314
+  %471 = phi ptr [ %473, %.lr.ph.i314 ], [ %470, %opal_obj_run_destructors.exit312 ]
+  %.07.i315 = phi ptr [ %472, %.lr.ph.i314 ], [ %469, %opal_obj_run_destructors.exit312 ]
+  tail call void %471(ptr noundef nonnull @ompi_t_err_out_of_handles) #8
+  %472 = getelementptr inbounds i8, ptr %.07.i315, i64 8
   %473 = load ptr, ptr %472, align 8
-  %.not6.i315 = icmp eq ptr %473, null
-  br i1 %.not6.i315, label %opal_obj_run_destructors.exit319, label %.lr.ph.i316
+  %.not.i316 = icmp eq ptr %473, null
+  br i1 %.not.i316, label %opal_obj_run_destructors.exit317, label %.lr.ph.i314, !llvm.loop !6
 
-.lr.ph.i316:                                      ; preds = %opal_obj_run_destructors.exit314, %.lr.ph.i316
-  %474 = phi ptr [ %476, %.lr.ph.i316 ], [ %473, %opal_obj_run_destructors.exit314 ]
-  %.07.i317 = phi ptr [ %475, %.lr.ph.i316 ], [ %472, %opal_obj_run_destructors.exit314 ]
-  tail call void %474(ptr noundef nonnull @ompi_t_err_out_of_handles) #8
-  %475 = getelementptr inbounds i8, ptr %.07.i317, i64 8
+opal_obj_run_destructors.exit317:                 ; preds = %.lr.ph.i314, %opal_obj_run_destructors.exit312
+  %474 = load ptr, ptr @ompi_t_err_out_of_sessions, align 8
+  %475 = getelementptr inbounds i8, ptr %474, i64 48
   %476 = load ptr, ptr %475, align 8
-  %.not.i318 = icmp eq ptr %476, null
-  br i1 %.not.i318, label %opal_obj_run_destructors.exit319, label %.lr.ph.i316, !llvm.loop !6
+  %477 = load ptr, ptr %476, align 8
+  %.not6.i318 = icmp eq ptr %477, null
+  br i1 %.not6.i318, label %opal_obj_run_destructors.exit322, label %.lr.ph.i319
 
-opal_obj_run_destructors.exit319:                 ; preds = %.lr.ph.i316, %opal_obj_run_destructors.exit314
-  %477 = load ptr, ptr @ompi_t_err_out_of_sessions, align 8
-  %478 = getelementptr inbounds i8, ptr %477, i64 48
-  %479 = load ptr, ptr %478, align 8
+.lr.ph.i319:                                      ; preds = %opal_obj_run_destructors.exit317, %.lr.ph.i319
+  %478 = phi ptr [ %480, %.lr.ph.i319 ], [ %477, %opal_obj_run_destructors.exit317 ]
+  %.07.i320 = phi ptr [ %479, %.lr.ph.i319 ], [ %476, %opal_obj_run_destructors.exit317 ]
+  tail call void %478(ptr noundef nonnull @ompi_t_err_out_of_sessions) #8
+  %479 = getelementptr inbounds i8, ptr %.07.i320, i64 8
   %480 = load ptr, ptr %479, align 8
-  %.not6.i320 = icmp eq ptr %480, null
-  br i1 %.not6.i320, label %opal_obj_run_destructors.exit324, label %.lr.ph.i321
+  %.not.i321 = icmp eq ptr %480, null
+  br i1 %.not.i321, label %opal_obj_run_destructors.exit322, label %.lr.ph.i319, !llvm.loop !6
 
-.lr.ph.i321:                                      ; preds = %opal_obj_run_destructors.exit319, %.lr.ph.i321
-  %481 = phi ptr [ %483, %.lr.ph.i321 ], [ %480, %opal_obj_run_destructors.exit319 ]
-  %.07.i322 = phi ptr [ %482, %.lr.ph.i321 ], [ %479, %opal_obj_run_destructors.exit319 ]
-  tail call void %481(ptr noundef nonnull @ompi_t_err_out_of_sessions) #8
-  %482 = getelementptr inbounds i8, ptr %.07.i322, i64 8
+opal_obj_run_destructors.exit322:                 ; preds = %.lr.ph.i319, %opal_obj_run_destructors.exit317
+  %481 = load ptr, ptr @ompi_t_err_invalid_session, align 8
+  %482 = getelementptr inbounds i8, ptr %481, i64 48
   %483 = load ptr, ptr %482, align 8
-  %.not.i323 = icmp eq ptr %483, null
-  br i1 %.not.i323, label %opal_obj_run_destructors.exit324, label %.lr.ph.i321, !llvm.loop !6
+  %484 = load ptr, ptr %483, align 8
+  %.not6.i323 = icmp eq ptr %484, null
+  br i1 %.not6.i323, label %opal_obj_run_destructors.exit327, label %.lr.ph.i324
 
-opal_obj_run_destructors.exit324:                 ; preds = %.lr.ph.i321, %opal_obj_run_destructors.exit319
-  %484 = load ptr, ptr @ompi_t_err_invalid_session, align 8
-  %485 = getelementptr inbounds i8, ptr %484, i64 48
-  %486 = load ptr, ptr %485, align 8
+.lr.ph.i324:                                      ; preds = %opal_obj_run_destructors.exit322, %.lr.ph.i324
+  %485 = phi ptr [ %487, %.lr.ph.i324 ], [ %484, %opal_obj_run_destructors.exit322 ]
+  %.07.i325 = phi ptr [ %486, %.lr.ph.i324 ], [ %483, %opal_obj_run_destructors.exit322 ]
+  tail call void %485(ptr noundef nonnull @ompi_t_err_invalid_session) #8
+  %486 = getelementptr inbounds i8, ptr %.07.i325, i64 8
   %487 = load ptr, ptr %486, align 8
-  %.not6.i325 = icmp eq ptr %487, null
-  br i1 %.not6.i325, label %opal_obj_run_destructors.exit329, label %.lr.ph.i326
+  %.not.i326 = icmp eq ptr %487, null
+  br i1 %.not.i326, label %opal_obj_run_destructors.exit327, label %.lr.ph.i324, !llvm.loop !6
 
-.lr.ph.i326:                                      ; preds = %opal_obj_run_destructors.exit324, %.lr.ph.i326
-  %488 = phi ptr [ %490, %.lr.ph.i326 ], [ %487, %opal_obj_run_destructors.exit324 ]
-  %.07.i327 = phi ptr [ %489, %.lr.ph.i326 ], [ %486, %opal_obj_run_destructors.exit324 ]
-  tail call void %488(ptr noundef nonnull @ompi_t_err_invalid_session) #8
-  %489 = getelementptr inbounds i8, ptr %.07.i327, i64 8
+opal_obj_run_destructors.exit327:                 ; preds = %.lr.ph.i324, %opal_obj_run_destructors.exit322
+  %488 = load ptr, ptr @ompi_t_err_cvar_set_not_now, align 8
+  %489 = getelementptr inbounds i8, ptr %488, i64 48
   %490 = load ptr, ptr %489, align 8
-  %.not.i328 = icmp eq ptr %490, null
-  br i1 %.not.i328, label %opal_obj_run_destructors.exit329, label %.lr.ph.i326, !llvm.loop !6
+  %491 = load ptr, ptr %490, align 8
+  %.not6.i328 = icmp eq ptr %491, null
+  br i1 %.not6.i328, label %opal_obj_run_destructors.exit332, label %.lr.ph.i329
 
-opal_obj_run_destructors.exit329:                 ; preds = %.lr.ph.i326, %opal_obj_run_destructors.exit324
-  %491 = load ptr, ptr @ompi_t_err_cvar_set_not_now, align 8
-  %492 = getelementptr inbounds i8, ptr %491, i64 48
-  %493 = load ptr, ptr %492, align 8
+.lr.ph.i329:                                      ; preds = %opal_obj_run_destructors.exit327, %.lr.ph.i329
+  %492 = phi ptr [ %494, %.lr.ph.i329 ], [ %491, %opal_obj_run_destructors.exit327 ]
+  %.07.i330 = phi ptr [ %493, %.lr.ph.i329 ], [ %490, %opal_obj_run_destructors.exit327 ]
+  tail call void %492(ptr noundef nonnull @ompi_t_err_cvar_set_not_now) #8
+  %493 = getelementptr inbounds i8, ptr %.07.i330, i64 8
   %494 = load ptr, ptr %493, align 8
-  %.not6.i330 = icmp eq ptr %494, null
-  br i1 %.not6.i330, label %opal_obj_run_destructors.exit334, label %.lr.ph.i331
+  %.not.i331 = icmp eq ptr %494, null
+  br i1 %.not.i331, label %opal_obj_run_destructors.exit332, label %.lr.ph.i329, !llvm.loop !6
 
-.lr.ph.i331:                                      ; preds = %opal_obj_run_destructors.exit329, %.lr.ph.i331
-  %495 = phi ptr [ %497, %.lr.ph.i331 ], [ %494, %opal_obj_run_destructors.exit329 ]
-  %.07.i332 = phi ptr [ %496, %.lr.ph.i331 ], [ %493, %opal_obj_run_destructors.exit329 ]
-  tail call void %495(ptr noundef nonnull @ompi_t_err_cvar_set_not_now) #8
-  %496 = getelementptr inbounds i8, ptr %.07.i332, i64 8
+opal_obj_run_destructors.exit332:                 ; preds = %.lr.ph.i329, %opal_obj_run_destructors.exit327
+  %495 = load ptr, ptr @ompi_t_err_cvar_set_never, align 8
+  %496 = getelementptr inbounds i8, ptr %495, i64 48
   %497 = load ptr, ptr %496, align 8
-  %.not.i333 = icmp eq ptr %497, null
-  br i1 %.not.i333, label %opal_obj_run_destructors.exit334, label %.lr.ph.i331, !llvm.loop !6
+  %498 = load ptr, ptr %497, align 8
+  %.not6.i333 = icmp eq ptr %498, null
+  br i1 %.not6.i333, label %opal_obj_run_destructors.exit337, label %.lr.ph.i334
 
-opal_obj_run_destructors.exit334:                 ; preds = %.lr.ph.i331, %opal_obj_run_destructors.exit329
-  %498 = load ptr, ptr @ompi_t_err_cvar_set_never, align 8
-  %499 = getelementptr inbounds i8, ptr %498, i64 48
-  %500 = load ptr, ptr %499, align 8
+.lr.ph.i334:                                      ; preds = %opal_obj_run_destructors.exit332, %.lr.ph.i334
+  %499 = phi ptr [ %501, %.lr.ph.i334 ], [ %498, %opal_obj_run_destructors.exit332 ]
+  %.07.i335 = phi ptr [ %500, %.lr.ph.i334 ], [ %497, %opal_obj_run_destructors.exit332 ]
+  tail call void %499(ptr noundef nonnull @ompi_t_err_cvar_set_never) #8
+  %500 = getelementptr inbounds i8, ptr %.07.i335, i64 8
   %501 = load ptr, ptr %500, align 8
-  %.not6.i335 = icmp eq ptr %501, null
-  br i1 %.not6.i335, label %opal_obj_run_destructors.exit339, label %.lr.ph.i336
+  %.not.i336 = icmp eq ptr %501, null
+  br i1 %.not.i336, label %opal_obj_run_destructors.exit337, label %.lr.ph.i334, !llvm.loop !6
 
-.lr.ph.i336:                                      ; preds = %opal_obj_run_destructors.exit334, %.lr.ph.i336
-  %502 = phi ptr [ %504, %.lr.ph.i336 ], [ %501, %opal_obj_run_destructors.exit334 ]
-  %.07.i337 = phi ptr [ %503, %.lr.ph.i336 ], [ %500, %opal_obj_run_destructors.exit334 ]
-  tail call void %502(ptr noundef nonnull @ompi_t_err_cvar_set_never) #8
-  %503 = getelementptr inbounds i8, ptr %.07.i337, i64 8
+opal_obj_run_destructors.exit337:                 ; preds = %.lr.ph.i334, %opal_obj_run_destructors.exit332
+  %502 = load ptr, ptr @ompi_t_err_pvar_no_startstop, align 8
+  %503 = getelementptr inbounds i8, ptr %502, i64 48
   %504 = load ptr, ptr %503, align 8
-  %.not.i338 = icmp eq ptr %504, null
-  br i1 %.not.i338, label %opal_obj_run_destructors.exit339, label %.lr.ph.i336, !llvm.loop !6
+  %505 = load ptr, ptr %504, align 8
+  %.not6.i338 = icmp eq ptr %505, null
+  br i1 %.not6.i338, label %opal_obj_run_destructors.exit342, label %.lr.ph.i339
 
-opal_obj_run_destructors.exit339:                 ; preds = %.lr.ph.i336, %opal_obj_run_destructors.exit334
-  %505 = load ptr, ptr @ompi_t_err_pvar_no_startstop, align 8
-  %506 = getelementptr inbounds i8, ptr %505, i64 48
-  %507 = load ptr, ptr %506, align 8
+.lr.ph.i339:                                      ; preds = %opal_obj_run_destructors.exit337, %.lr.ph.i339
+  %506 = phi ptr [ %508, %.lr.ph.i339 ], [ %505, %opal_obj_run_destructors.exit337 ]
+  %.07.i340 = phi ptr [ %507, %.lr.ph.i339 ], [ %504, %opal_obj_run_destructors.exit337 ]
+  tail call void %506(ptr noundef nonnull @ompi_t_err_pvar_no_startstop) #8
+  %507 = getelementptr inbounds i8, ptr %.07.i340, i64 8
   %508 = load ptr, ptr %507, align 8
-  %.not6.i340 = icmp eq ptr %508, null
-  br i1 %.not6.i340, label %opal_obj_run_destructors.exit344, label %.lr.ph.i341
+  %.not.i341 = icmp eq ptr %508, null
+  br i1 %.not.i341, label %opal_obj_run_destructors.exit342, label %.lr.ph.i339, !llvm.loop !6
 
-.lr.ph.i341:                                      ; preds = %opal_obj_run_destructors.exit339, %.lr.ph.i341
-  %509 = phi ptr [ %511, %.lr.ph.i341 ], [ %508, %opal_obj_run_destructors.exit339 ]
-  %.07.i342 = phi ptr [ %510, %.lr.ph.i341 ], [ %507, %opal_obj_run_destructors.exit339 ]
-  tail call void %509(ptr noundef nonnull @ompi_t_err_pvar_no_startstop) #8
-  %510 = getelementptr inbounds i8, ptr %.07.i342, i64 8
+opal_obj_run_destructors.exit342:                 ; preds = %.lr.ph.i339, %opal_obj_run_destructors.exit337
+  %509 = load ptr, ptr @ompi_t_err_pvar_no_write, align 8
+  %510 = getelementptr inbounds i8, ptr %509, i64 48
   %511 = load ptr, ptr %510, align 8
-  %.not.i343 = icmp eq ptr %511, null
-  br i1 %.not.i343, label %opal_obj_run_destructors.exit344, label %.lr.ph.i341, !llvm.loop !6
+  %512 = load ptr, ptr %511, align 8
+  %.not6.i343 = icmp eq ptr %512, null
+  br i1 %.not6.i343, label %opal_obj_run_destructors.exit347, label %.lr.ph.i344
 
-opal_obj_run_destructors.exit344:                 ; preds = %.lr.ph.i341, %opal_obj_run_destructors.exit339
-  %512 = load ptr, ptr @ompi_t_err_pvar_no_write, align 8
-  %513 = getelementptr inbounds i8, ptr %512, i64 48
-  %514 = load ptr, ptr %513, align 8
+.lr.ph.i344:                                      ; preds = %opal_obj_run_destructors.exit342, %.lr.ph.i344
+  %513 = phi ptr [ %515, %.lr.ph.i344 ], [ %512, %opal_obj_run_destructors.exit342 ]
+  %.07.i345 = phi ptr [ %514, %.lr.ph.i344 ], [ %511, %opal_obj_run_destructors.exit342 ]
+  tail call void %513(ptr noundef nonnull @ompi_t_err_pvar_no_write) #8
+  %514 = getelementptr inbounds i8, ptr %.07.i345, i64 8
   %515 = load ptr, ptr %514, align 8
-  %.not6.i345 = icmp eq ptr %515, null
-  br i1 %.not6.i345, label %opal_obj_run_destructors.exit349, label %.lr.ph.i346
+  %.not.i346 = icmp eq ptr %515, null
+  br i1 %.not.i346, label %opal_obj_run_destructors.exit347, label %.lr.ph.i344, !llvm.loop !6
 
-.lr.ph.i346:                                      ; preds = %opal_obj_run_destructors.exit344, %.lr.ph.i346
-  %516 = phi ptr [ %518, %.lr.ph.i346 ], [ %515, %opal_obj_run_destructors.exit344 ]
-  %.07.i347 = phi ptr [ %517, %.lr.ph.i346 ], [ %514, %opal_obj_run_destructors.exit344 ]
-  tail call void %516(ptr noundef nonnull @ompi_t_err_pvar_no_write) #8
-  %517 = getelementptr inbounds i8, ptr %.07.i347, i64 8
+opal_obj_run_destructors.exit347:                 ; preds = %.lr.ph.i344, %opal_obj_run_destructors.exit342
+  %516 = load ptr, ptr @ompi_t_err_pvar_no_atomic, align 8
+  %517 = getelementptr inbounds i8, ptr %516, i64 48
   %518 = load ptr, ptr %517, align 8
-  %.not.i348 = icmp eq ptr %518, null
-  br i1 %.not.i348, label %opal_obj_run_destructors.exit349, label %.lr.ph.i346, !llvm.loop !6
+  %519 = load ptr, ptr %518, align 8
+  %.not6.i348 = icmp eq ptr %519, null
+  br i1 %.not6.i348, label %opal_obj_run_destructors.exit352, label %.lr.ph.i349
 
-opal_obj_run_destructors.exit349:                 ; preds = %.lr.ph.i346, %opal_obj_run_destructors.exit344
-  %519 = load ptr, ptr @ompi_t_err_pvar_no_atomic, align 8
-  %520 = getelementptr inbounds i8, ptr %519, i64 48
-  %521 = load ptr, ptr %520, align 8
+.lr.ph.i349:                                      ; preds = %opal_obj_run_destructors.exit347, %.lr.ph.i349
+  %520 = phi ptr [ %522, %.lr.ph.i349 ], [ %519, %opal_obj_run_destructors.exit347 ]
+  %.07.i350 = phi ptr [ %521, %.lr.ph.i349 ], [ %518, %opal_obj_run_destructors.exit347 ]
+  tail call void %520(ptr noundef nonnull @ompi_t_err_pvar_no_atomic) #8
+  %521 = getelementptr inbounds i8, ptr %.07.i350, i64 8
   %522 = load ptr, ptr %521, align 8
-  %.not6.i350 = icmp eq ptr %522, null
-  br i1 %.not6.i350, label %opal_obj_run_destructors.exit354, label %.lr.ph.i351
+  %.not.i351 = icmp eq ptr %522, null
+  br i1 %.not.i351, label %opal_obj_run_destructors.exit352, label %.lr.ph.i349, !llvm.loop !6
 
-.lr.ph.i351:                                      ; preds = %opal_obj_run_destructors.exit349, %.lr.ph.i351
-  %523 = phi ptr [ %525, %.lr.ph.i351 ], [ %522, %opal_obj_run_destructors.exit349 ]
-  %.07.i352 = phi ptr [ %524, %.lr.ph.i351 ], [ %521, %opal_obj_run_destructors.exit349 ]
-  tail call void %523(ptr noundef nonnull @ompi_t_err_pvar_no_atomic) #8
-  %524 = getelementptr inbounds i8, ptr %.07.i352, i64 8
+opal_obj_run_destructors.exit352:                 ; preds = %.lr.ph.i349, %opal_obj_run_destructors.exit347
+  %523 = load ptr, ptr @ompi_err_rma_range, align 8
+  %524 = getelementptr inbounds i8, ptr %523, i64 48
   %525 = load ptr, ptr %524, align 8
-  %.not.i353 = icmp eq ptr %525, null
-  br i1 %.not.i353, label %opal_obj_run_destructors.exit354, label %.lr.ph.i351, !llvm.loop !6
+  %526 = load ptr, ptr %525, align 8
+  %.not6.i353 = icmp eq ptr %526, null
+  br i1 %.not6.i353, label %opal_obj_run_destructors.exit357, label %.lr.ph.i354
 
-opal_obj_run_destructors.exit354:                 ; preds = %.lr.ph.i351, %opal_obj_run_destructors.exit349
-  %526 = load ptr, ptr @ompi_err_rma_range, align 8
-  %527 = getelementptr inbounds i8, ptr %526, i64 48
-  %528 = load ptr, ptr %527, align 8
+.lr.ph.i354:                                      ; preds = %opal_obj_run_destructors.exit352, %.lr.ph.i354
+  %527 = phi ptr [ %529, %.lr.ph.i354 ], [ %526, %opal_obj_run_destructors.exit352 ]
+  %.07.i355 = phi ptr [ %528, %.lr.ph.i354 ], [ %525, %opal_obj_run_destructors.exit352 ]
+  tail call void %527(ptr noundef nonnull @ompi_err_rma_range) #8
+  %528 = getelementptr inbounds i8, ptr %.07.i355, i64 8
   %529 = load ptr, ptr %528, align 8
-  %.not6.i355 = icmp eq ptr %529, null
-  br i1 %.not6.i355, label %opal_obj_run_destructors.exit359, label %.lr.ph.i356
+  %.not.i356 = icmp eq ptr %529, null
+  br i1 %.not.i356, label %opal_obj_run_destructors.exit357, label %.lr.ph.i354, !llvm.loop !6
 
-.lr.ph.i356:                                      ; preds = %opal_obj_run_destructors.exit354, %.lr.ph.i356
-  %530 = phi ptr [ %532, %.lr.ph.i356 ], [ %529, %opal_obj_run_destructors.exit354 ]
-  %.07.i357 = phi ptr [ %531, %.lr.ph.i356 ], [ %528, %opal_obj_run_destructors.exit354 ]
-  tail call void %530(ptr noundef nonnull @ompi_err_rma_range) #8
-  %531 = getelementptr inbounds i8, ptr %.07.i357, i64 8
+opal_obj_run_destructors.exit357:                 ; preds = %.lr.ph.i354, %opal_obj_run_destructors.exit352
+  %530 = load ptr, ptr @ompi_err_rma_attach, align 8
+  %531 = getelementptr inbounds i8, ptr %530, i64 48
   %532 = load ptr, ptr %531, align 8
-  %.not.i358 = icmp eq ptr %532, null
-  br i1 %.not.i358, label %opal_obj_run_destructors.exit359, label %.lr.ph.i356, !llvm.loop !6
+  %533 = load ptr, ptr %532, align 8
+  %.not6.i358 = icmp eq ptr %533, null
+  br i1 %.not6.i358, label %opal_obj_run_destructors.exit362, label %.lr.ph.i359
 
-opal_obj_run_destructors.exit359:                 ; preds = %.lr.ph.i356, %opal_obj_run_destructors.exit354
-  %533 = load ptr, ptr @ompi_err_rma_attach, align 8
-  %534 = getelementptr inbounds i8, ptr %533, i64 48
-  %535 = load ptr, ptr %534, align 8
+.lr.ph.i359:                                      ; preds = %opal_obj_run_destructors.exit357, %.lr.ph.i359
+  %534 = phi ptr [ %536, %.lr.ph.i359 ], [ %533, %opal_obj_run_destructors.exit357 ]
+  %.07.i360 = phi ptr [ %535, %.lr.ph.i359 ], [ %532, %opal_obj_run_destructors.exit357 ]
+  tail call void %534(ptr noundef nonnull @ompi_err_rma_attach) #8
+  %535 = getelementptr inbounds i8, ptr %.07.i360, i64 8
   %536 = load ptr, ptr %535, align 8
-  %.not6.i360 = icmp eq ptr %536, null
-  br i1 %.not6.i360, label %opal_obj_run_destructors.exit364, label %.lr.ph.i361
+  %.not.i361 = icmp eq ptr %536, null
+  br i1 %.not.i361, label %opal_obj_run_destructors.exit362, label %.lr.ph.i359, !llvm.loop !6
 
-.lr.ph.i361:                                      ; preds = %opal_obj_run_destructors.exit359, %.lr.ph.i361
-  %537 = phi ptr [ %539, %.lr.ph.i361 ], [ %536, %opal_obj_run_destructors.exit359 ]
-  %.07.i362 = phi ptr [ %538, %.lr.ph.i361 ], [ %535, %opal_obj_run_destructors.exit359 ]
-  tail call void %537(ptr noundef nonnull @ompi_err_rma_attach) #8
-  %538 = getelementptr inbounds i8, ptr %.07.i362, i64 8
+opal_obj_run_destructors.exit362:                 ; preds = %.lr.ph.i359, %opal_obj_run_destructors.exit357
+  %537 = load ptr, ptr @ompi_err_rma_flavor, align 8
+  %538 = getelementptr inbounds i8, ptr %537, i64 48
   %539 = load ptr, ptr %538, align 8
-  %.not.i363 = icmp eq ptr %539, null
-  br i1 %.not.i363, label %opal_obj_run_destructors.exit364, label %.lr.ph.i361, !llvm.loop !6
+  %540 = load ptr, ptr %539, align 8
+  %.not6.i363 = icmp eq ptr %540, null
+  br i1 %.not6.i363, label %opal_obj_run_destructors.exit367, label %.lr.ph.i364
 
-opal_obj_run_destructors.exit364:                 ; preds = %.lr.ph.i361, %opal_obj_run_destructors.exit359
-  %540 = load ptr, ptr @ompi_err_rma_flavor, align 8
-  %541 = getelementptr inbounds i8, ptr %540, i64 48
-  %542 = load ptr, ptr %541, align 8
+.lr.ph.i364:                                      ; preds = %opal_obj_run_destructors.exit362, %.lr.ph.i364
+  %541 = phi ptr [ %543, %.lr.ph.i364 ], [ %540, %opal_obj_run_destructors.exit362 ]
+  %.07.i365 = phi ptr [ %542, %.lr.ph.i364 ], [ %539, %opal_obj_run_destructors.exit362 ]
+  tail call void %541(ptr noundef nonnull @ompi_err_rma_flavor) #8
+  %542 = getelementptr inbounds i8, ptr %.07.i365, i64 8
   %543 = load ptr, ptr %542, align 8
-  %.not6.i365 = icmp eq ptr %543, null
-  br i1 %.not6.i365, label %opal_obj_run_destructors.exit369, label %.lr.ph.i366
+  %.not.i366 = icmp eq ptr %543, null
+  br i1 %.not.i366, label %opal_obj_run_destructors.exit367, label %.lr.ph.i364, !llvm.loop !6
 
-.lr.ph.i366:                                      ; preds = %opal_obj_run_destructors.exit364, %.lr.ph.i366
-  %544 = phi ptr [ %546, %.lr.ph.i366 ], [ %543, %opal_obj_run_destructors.exit364 ]
-  %.07.i367 = phi ptr [ %545, %.lr.ph.i366 ], [ %542, %opal_obj_run_destructors.exit364 ]
-  tail call void %544(ptr noundef nonnull @ompi_err_rma_flavor) #8
-  %545 = getelementptr inbounds i8, ptr %.07.i367, i64 8
+opal_obj_run_destructors.exit367:                 ; preds = %.lr.ph.i364, %opal_obj_run_destructors.exit362
+  %544 = load ptr, ptr @ompi_err_rma_shared, align 8
+  %545 = getelementptr inbounds i8, ptr %544, i64 48
   %546 = load ptr, ptr %545, align 8
-  %.not.i368 = icmp eq ptr %546, null
-  br i1 %.not.i368, label %opal_obj_run_destructors.exit369, label %.lr.ph.i366, !llvm.loop !6
+  %547 = load ptr, ptr %546, align 8
+  %.not6.i368 = icmp eq ptr %547, null
+  br i1 %.not6.i368, label %opal_obj_run_destructors.exit372, label %.lr.ph.i369
 
-opal_obj_run_destructors.exit369:                 ; preds = %.lr.ph.i366, %opal_obj_run_destructors.exit364
-  %547 = load ptr, ptr @ompi_err_rma_shared, align 8
-  %548 = getelementptr inbounds i8, ptr %547, i64 48
-  %549 = load ptr, ptr %548, align 8
+.lr.ph.i369:                                      ; preds = %opal_obj_run_destructors.exit367, %.lr.ph.i369
+  %548 = phi ptr [ %550, %.lr.ph.i369 ], [ %547, %opal_obj_run_destructors.exit367 ]
+  %.07.i370 = phi ptr [ %549, %.lr.ph.i369 ], [ %546, %opal_obj_run_destructors.exit367 ]
+  tail call void %548(ptr noundef nonnull @ompi_err_rma_shared) #8
+  %549 = getelementptr inbounds i8, ptr %.07.i370, i64 8
   %550 = load ptr, ptr %549, align 8
-  %.not6.i370 = icmp eq ptr %550, null
-  br i1 %.not6.i370, label %opal_obj_run_destructors.exit374, label %.lr.ph.i371
+  %.not.i371 = icmp eq ptr %550, null
+  br i1 %.not.i371, label %opal_obj_run_destructors.exit372, label %.lr.ph.i369, !llvm.loop !6
 
-.lr.ph.i371:                                      ; preds = %opal_obj_run_destructors.exit369, %.lr.ph.i371
-  %551 = phi ptr [ %553, %.lr.ph.i371 ], [ %550, %opal_obj_run_destructors.exit369 ]
-  %.07.i372 = phi ptr [ %552, %.lr.ph.i371 ], [ %549, %opal_obj_run_destructors.exit369 ]
-  tail call void %551(ptr noundef nonnull @ompi_err_rma_shared) #8
-  %552 = getelementptr inbounds i8, ptr %.07.i372, i64 8
+opal_obj_run_destructors.exit372:                 ; preds = %.lr.ph.i369, %opal_obj_run_destructors.exit367
+  %551 = load ptr, ptr @ompi_t_err_invalid, align 8
+  %552 = getelementptr inbounds i8, ptr %551, i64 48
   %553 = load ptr, ptr %552, align 8
-  %.not.i373 = icmp eq ptr %553, null
-  br i1 %.not.i373, label %opal_obj_run_destructors.exit374, label %.lr.ph.i371, !llvm.loop !6
+  %554 = load ptr, ptr %553, align 8
+  %.not6.i373 = icmp eq ptr %554, null
+  br i1 %.not6.i373, label %opal_obj_run_destructors.exit377, label %.lr.ph.i374
 
-opal_obj_run_destructors.exit374:                 ; preds = %.lr.ph.i371, %opal_obj_run_destructors.exit369
-  %554 = load ptr, ptr @ompi_t_err_invalid, align 8
-  %555 = getelementptr inbounds i8, ptr %554, i64 48
-  %556 = load ptr, ptr %555, align 8
+.lr.ph.i374:                                      ; preds = %opal_obj_run_destructors.exit372, %.lr.ph.i374
+  %555 = phi ptr [ %557, %.lr.ph.i374 ], [ %554, %opal_obj_run_destructors.exit372 ]
+  %.07.i375 = phi ptr [ %556, %.lr.ph.i374 ], [ %553, %opal_obj_run_destructors.exit372 ]
+  tail call void %555(ptr noundef nonnull @ompi_t_err_invalid) #8
+  %556 = getelementptr inbounds i8, ptr %.07.i375, i64 8
   %557 = load ptr, ptr %556, align 8
-  %.not6.i375 = icmp eq ptr %557, null
-  br i1 %.not6.i375, label %opal_obj_run_destructors.exit379, label %.lr.ph.i376
+  %.not.i376 = icmp eq ptr %557, null
+  br i1 %.not.i376, label %opal_obj_run_destructors.exit377, label %.lr.ph.i374, !llvm.loop !6
 
-.lr.ph.i376:                                      ; preds = %opal_obj_run_destructors.exit374, %.lr.ph.i376
-  %558 = phi ptr [ %560, %.lr.ph.i376 ], [ %557, %opal_obj_run_destructors.exit374 ]
-  %.07.i377 = phi ptr [ %559, %.lr.ph.i376 ], [ %556, %opal_obj_run_destructors.exit374 ]
-  tail call void %558(ptr noundef nonnull @ompi_t_err_invalid) #8
-  %559 = getelementptr inbounds i8, ptr %.07.i377, i64 8
+opal_obj_run_destructors.exit377:                 ; preds = %.lr.ph.i374, %opal_obj_run_destructors.exit372
+  %558 = load ptr, ptr @ompi_t_err_invalid_name, align 8
+  %559 = getelementptr inbounds i8, ptr %558, i64 48
   %560 = load ptr, ptr %559, align 8
-  %.not.i378 = icmp eq ptr %560, null
-  br i1 %.not.i378, label %opal_obj_run_destructors.exit379, label %.lr.ph.i376, !llvm.loop !6
+  %561 = load ptr, ptr %560, align 8
+  %.not6.i378 = icmp eq ptr %561, null
+  br i1 %.not6.i378, label %opal_obj_run_destructors.exit382, label %.lr.ph.i379
 
-opal_obj_run_destructors.exit379:                 ; preds = %.lr.ph.i376, %opal_obj_run_destructors.exit374
-  %561 = load ptr, ptr @ompi_t_err_invalid_name, align 8
-  %562 = getelementptr inbounds i8, ptr %561, i64 48
-  %563 = load ptr, ptr %562, align 8
+.lr.ph.i379:                                      ; preds = %opal_obj_run_destructors.exit377, %.lr.ph.i379
+  %562 = phi ptr [ %564, %.lr.ph.i379 ], [ %561, %opal_obj_run_destructors.exit377 ]
+  %.07.i380 = phi ptr [ %563, %.lr.ph.i379 ], [ %560, %opal_obj_run_destructors.exit377 ]
+  tail call void %562(ptr noundef nonnull @ompi_t_err_invalid_name) #8
+  %563 = getelementptr inbounds i8, ptr %.07.i380, i64 8
   %564 = load ptr, ptr %563, align 8
-  %.not6.i380 = icmp eq ptr %564, null
-  br i1 %.not6.i380, label %opal_obj_run_destructors.exit384, label %.lr.ph.i381
+  %.not.i381 = icmp eq ptr %564, null
+  br i1 %.not.i381, label %opal_obj_run_destructors.exit382, label %.lr.ph.i379, !llvm.loop !6
 
-.lr.ph.i381:                                      ; preds = %opal_obj_run_destructors.exit379, %.lr.ph.i381
-  %565 = phi ptr [ %567, %.lr.ph.i381 ], [ %564, %opal_obj_run_destructors.exit379 ]
-  %.07.i382 = phi ptr [ %566, %.lr.ph.i381 ], [ %563, %opal_obj_run_destructors.exit379 ]
-  tail call void %565(ptr noundef nonnull @ompi_t_err_invalid_name) #8
-  %566 = getelementptr inbounds i8, ptr %.07.i382, i64 8
+opal_obj_run_destructors.exit382:                 ; preds = %.lr.ph.i379, %opal_obj_run_destructors.exit377
+  %565 = load ptr, ptr @ompi_err_proc_fail_stop, align 8
+  %566 = getelementptr inbounds i8, ptr %565, i64 48
   %567 = load ptr, ptr %566, align 8
-  %.not.i383 = icmp eq ptr %567, null
-  br i1 %.not.i383, label %opal_obj_run_destructors.exit384, label %.lr.ph.i381, !llvm.loop !6
+  %568 = load ptr, ptr %567, align 8
+  %.not6.i383 = icmp eq ptr %568, null
+  br i1 %.not6.i383, label %opal_obj_run_destructors.exit387, label %.lr.ph.i384
 
-opal_obj_run_destructors.exit384:                 ; preds = %.lr.ph.i381, %opal_obj_run_destructors.exit379
-  %568 = load ptr, ptr @ompi_err_proc_fail_stop, align 8
-  %569 = getelementptr inbounds i8, ptr %568, i64 48
-  %570 = load ptr, ptr %569, align 8
+.lr.ph.i384:                                      ; preds = %opal_obj_run_destructors.exit382, %.lr.ph.i384
+  %569 = phi ptr [ %571, %.lr.ph.i384 ], [ %568, %opal_obj_run_destructors.exit382 ]
+  %.07.i385 = phi ptr [ %570, %.lr.ph.i384 ], [ %567, %opal_obj_run_destructors.exit382 ]
+  tail call void %569(ptr noundef nonnull @ompi_err_proc_fail_stop) #8
+  %570 = getelementptr inbounds i8, ptr %.07.i385, i64 8
   %571 = load ptr, ptr %570, align 8
-  %.not6.i385 = icmp eq ptr %571, null
-  br i1 %.not6.i385, label %opal_obj_run_destructors.exit389, label %.lr.ph.i386
+  %.not.i386 = icmp eq ptr %571, null
+  br i1 %.not.i386, label %opal_obj_run_destructors.exit387, label %.lr.ph.i384, !llvm.loop !6
 
-.lr.ph.i386:                                      ; preds = %opal_obj_run_destructors.exit384, %.lr.ph.i386
-  %572 = phi ptr [ %574, %.lr.ph.i386 ], [ %571, %opal_obj_run_destructors.exit384 ]
-  %.07.i387 = phi ptr [ %573, %.lr.ph.i386 ], [ %570, %opal_obj_run_destructors.exit384 ]
-  tail call void %572(ptr noundef nonnull @ompi_err_proc_fail_stop) #8
-  %573 = getelementptr inbounds i8, ptr %.07.i387, i64 8
+opal_obj_run_destructors.exit387:                 ; preds = %.lr.ph.i384, %opal_obj_run_destructors.exit382
+  %572 = load ptr, ptr @ompi_err_proc_fail_pending, align 8
+  %573 = getelementptr inbounds i8, ptr %572, i64 48
   %574 = load ptr, ptr %573, align 8
-  %.not.i388 = icmp eq ptr %574, null
-  br i1 %.not.i388, label %opal_obj_run_destructors.exit389, label %.lr.ph.i386, !llvm.loop !6
+  %575 = load ptr, ptr %574, align 8
+  %.not6.i388 = icmp eq ptr %575, null
+  br i1 %.not6.i388, label %opal_obj_run_destructors.exit392, label %.lr.ph.i389
 
-opal_obj_run_destructors.exit389:                 ; preds = %.lr.ph.i386, %opal_obj_run_destructors.exit384
-  %575 = load ptr, ptr @ompi_err_proc_fail_pending, align 8
-  %576 = getelementptr inbounds i8, ptr %575, i64 48
-  %577 = load ptr, ptr %576, align 8
+.lr.ph.i389:                                      ; preds = %opal_obj_run_destructors.exit387, %.lr.ph.i389
+  %576 = phi ptr [ %578, %.lr.ph.i389 ], [ %575, %opal_obj_run_destructors.exit387 ]
+  %.07.i390 = phi ptr [ %577, %.lr.ph.i389 ], [ %574, %opal_obj_run_destructors.exit387 ]
+  tail call void %576(ptr noundef nonnull @ompi_err_proc_fail_pending) #8
+  %577 = getelementptr inbounds i8, ptr %.07.i390, i64 8
   %578 = load ptr, ptr %577, align 8
-  %.not6.i390 = icmp eq ptr %578, null
-  br i1 %.not6.i390, label %opal_obj_run_destructors.exit394, label %.lr.ph.i391
+  %.not.i391 = icmp eq ptr %578, null
+  br i1 %.not.i391, label %opal_obj_run_destructors.exit392, label %.lr.ph.i389, !llvm.loop !6
 
-.lr.ph.i391:                                      ; preds = %opal_obj_run_destructors.exit389, %.lr.ph.i391
-  %579 = phi ptr [ %581, %.lr.ph.i391 ], [ %578, %opal_obj_run_destructors.exit389 ]
-  %.07.i392 = phi ptr [ %580, %.lr.ph.i391 ], [ %577, %opal_obj_run_destructors.exit389 ]
-  tail call void %579(ptr noundef nonnull @ompi_err_proc_fail_pending) #8
-  %580 = getelementptr inbounds i8, ptr %.07.i392, i64 8
+opal_obj_run_destructors.exit392:                 ; preds = %.lr.ph.i389, %opal_obj_run_destructors.exit387
+  %579 = load ptr, ptr @ompi_err_revoked, align 8
+  %580 = getelementptr inbounds i8, ptr %579, i64 48
   %581 = load ptr, ptr %580, align 8
-  %.not.i393 = icmp eq ptr %581, null
-  br i1 %.not.i393, label %opal_obj_run_destructors.exit394, label %.lr.ph.i391, !llvm.loop !6
+  %582 = load ptr, ptr %581, align 8
+  %.not6.i393 = icmp eq ptr %582, null
+  br i1 %.not6.i393, label %opal_obj_run_destructors.exit397, label %.lr.ph.i394
 
-opal_obj_run_destructors.exit394:                 ; preds = %.lr.ph.i391, %opal_obj_run_destructors.exit389
-  %582 = load ptr, ptr @ompi_err_revoked, align 8
-  %583 = getelementptr inbounds i8, ptr %582, i64 48
-  %584 = load ptr, ptr %583, align 8
+.lr.ph.i394:                                      ; preds = %opal_obj_run_destructors.exit392, %.lr.ph.i394
+  %583 = phi ptr [ %585, %.lr.ph.i394 ], [ %582, %opal_obj_run_destructors.exit392 ]
+  %.07.i395 = phi ptr [ %584, %.lr.ph.i394 ], [ %581, %opal_obj_run_destructors.exit392 ]
+  tail call void %583(ptr noundef nonnull @ompi_err_revoked) #8
+  %584 = getelementptr inbounds i8, ptr %.07.i395, i64 8
   %585 = load ptr, ptr %584, align 8
-  %.not6.i395 = icmp eq ptr %585, null
-  br i1 %.not6.i395, label %opal_obj_run_destructors.exit399, label %.lr.ph.i396
+  %.not.i396 = icmp eq ptr %585, null
+  br i1 %.not.i396, label %opal_obj_run_destructors.exit397, label %.lr.ph.i394, !llvm.loop !6
 
-.lr.ph.i396:                                      ; preds = %opal_obj_run_destructors.exit394, %.lr.ph.i396
-  %586 = phi ptr [ %588, %.lr.ph.i396 ], [ %585, %opal_obj_run_destructors.exit394 ]
-  %.07.i397 = phi ptr [ %587, %.lr.ph.i396 ], [ %584, %opal_obj_run_destructors.exit394 ]
-  tail call void %586(ptr noundef nonnull @ompi_err_revoked) #8
-  %587 = getelementptr inbounds i8, ptr %.07.i397, i64 8
+opal_obj_run_destructors.exit397:                 ; preds = %.lr.ph.i394, %opal_obj_run_destructors.exit392
+  %586 = load ptr, ptr @ompi_err_session, align 8
+  %587 = getelementptr inbounds i8, ptr %586, i64 48
   %588 = load ptr, ptr %587, align 8
-  %.not.i398 = icmp eq ptr %588, null
-  br i1 %.not.i398, label %opal_obj_run_destructors.exit399, label %.lr.ph.i396, !llvm.loop !6
+  %589 = load ptr, ptr %588, align 8
+  %.not6.i398 = icmp eq ptr %589, null
+  br i1 %.not6.i398, label %opal_obj_run_destructors.exit402, label %.lr.ph.i399
 
-opal_obj_run_destructors.exit399:                 ; preds = %.lr.ph.i396, %opal_obj_run_destructors.exit394
-  %589 = load ptr, ptr @ompi_err_session, align 8
-  %590 = getelementptr inbounds i8, ptr %589, i64 48
-  %591 = load ptr, ptr %590, align 8
+.lr.ph.i399:                                      ; preds = %opal_obj_run_destructors.exit397, %.lr.ph.i399
+  %590 = phi ptr [ %592, %.lr.ph.i399 ], [ %589, %opal_obj_run_destructors.exit397 ]
+  %.07.i400 = phi ptr [ %591, %.lr.ph.i399 ], [ %588, %opal_obj_run_destructors.exit397 ]
+  tail call void %590(ptr noundef nonnull @ompi_err_session) #8
+  %591 = getelementptr inbounds i8, ptr %.07.i400, i64 8
   %592 = load ptr, ptr %591, align 8
-  %.not6.i400 = icmp eq ptr %592, null
-  br i1 %.not6.i400, label %opal_obj_run_destructors.exit404, label %.lr.ph.i401
+  %.not.i401 = icmp eq ptr %592, null
+  br i1 %.not.i401, label %opal_obj_run_destructors.exit402, label %.lr.ph.i399, !llvm.loop !6
 
-.lr.ph.i401:                                      ; preds = %opal_obj_run_destructors.exit399, %.lr.ph.i401
-  %593 = phi ptr [ %595, %.lr.ph.i401 ], [ %592, %opal_obj_run_destructors.exit399 ]
-  %.07.i402 = phi ptr [ %594, %.lr.ph.i401 ], [ %591, %opal_obj_run_destructors.exit399 ]
-  tail call void %593(ptr noundef nonnull @ompi_err_session) #8
-  %594 = getelementptr inbounds i8, ptr %.07.i402, i64 8
+opal_obj_run_destructors.exit402:                 ; preds = %.lr.ph.i399, %opal_obj_run_destructors.exit397
+  %593 = load ptr, ptr @ompi_err_value_too_large, align 8
+  %594 = getelementptr inbounds i8, ptr %593, i64 48
   %595 = load ptr, ptr %594, align 8
-  %.not.i403 = icmp eq ptr %595, null
-  br i1 %.not.i403, label %opal_obj_run_destructors.exit404, label %.lr.ph.i401, !llvm.loop !6
+  %596 = load ptr, ptr %595, align 8
+  %.not6.i403 = icmp eq ptr %596, null
+  br i1 %.not6.i403, label %opal_obj_run_destructors.exit407, label %.lr.ph.i404
 
-opal_obj_run_destructors.exit404:                 ; preds = %.lr.ph.i401, %opal_obj_run_destructors.exit399
-  %596 = load ptr, ptr @ompi_err_value_too_large, align 8
-  %597 = getelementptr inbounds i8, ptr %596, i64 48
-  %598 = load ptr, ptr %597, align 8
+.lr.ph.i404:                                      ; preds = %opal_obj_run_destructors.exit402, %.lr.ph.i404
+  %597 = phi ptr [ %599, %.lr.ph.i404 ], [ %596, %opal_obj_run_destructors.exit402 ]
+  %.07.i405 = phi ptr [ %598, %.lr.ph.i404 ], [ %595, %opal_obj_run_destructors.exit402 ]
+  tail call void %597(ptr noundef nonnull @ompi_err_value_too_large) #8
+  %598 = getelementptr inbounds i8, ptr %.07.i405, i64 8
   %599 = load ptr, ptr %598, align 8
-  %.not6.i405 = icmp eq ptr %599, null
-  br i1 %.not6.i405, label %opal_obj_run_destructors.exit409, label %.lr.ph.i406
+  %.not.i406 = icmp eq ptr %599, null
+  br i1 %.not.i406, label %opal_obj_run_destructors.exit407, label %.lr.ph.i404, !llvm.loop !6
 
-.lr.ph.i406:                                      ; preds = %opal_obj_run_destructors.exit404, %.lr.ph.i406
-  %600 = phi ptr [ %602, %.lr.ph.i406 ], [ %599, %opal_obj_run_destructors.exit404 ]
-  %.07.i407 = phi ptr [ %601, %.lr.ph.i406 ], [ %598, %opal_obj_run_destructors.exit404 ]
-  tail call void %600(ptr noundef nonnull @ompi_err_value_too_large) #8
-  %601 = getelementptr inbounds i8, ptr %.07.i407, i64 8
+opal_obj_run_destructors.exit407:                 ; preds = %.lr.ph.i404, %opal_obj_run_destructors.exit402
+  %600 = load ptr, ptr @ompi_mpi_errcodes, align 8
+  %601 = getelementptr inbounds i8, ptr %600, i64 48
   %602 = load ptr, ptr %601, align 8
-  %.not.i408 = icmp eq ptr %602, null
-  br i1 %.not.i408, label %opal_obj_run_destructors.exit409, label %.lr.ph.i406, !llvm.loop !6
+  %603 = load ptr, ptr %602, align 8
+  %.not6.i408 = icmp eq ptr %603, null
+  br i1 %.not6.i408, label %opal_obj_run_destructors.exit412, label %.lr.ph.i409
 
-opal_obj_run_destructors.exit409:                 ; preds = %.lr.ph.i406, %opal_obj_run_destructors.exit404
-  %603 = load ptr, ptr @ompi_mpi_errcodes, align 8
-  %604 = getelementptr inbounds i8, ptr %603, i64 48
-  %605 = load ptr, ptr %604, align 8
+.lr.ph.i409:                                      ; preds = %opal_obj_run_destructors.exit407, %.lr.ph.i409
+  %604 = phi ptr [ %606, %.lr.ph.i409 ], [ %603, %opal_obj_run_destructors.exit407 ]
+  %.07.i410 = phi ptr [ %605, %.lr.ph.i409 ], [ %602, %opal_obj_run_destructors.exit407 ]
+  tail call void %604(ptr noundef nonnull @ompi_mpi_errcodes) #8
+  %605 = getelementptr inbounds i8, ptr %.07.i410, i64 8
   %606 = load ptr, ptr %605, align 8
-  %.not6.i410 = icmp eq ptr %606, null
-  br i1 %.not6.i410, label %opal_obj_run_destructors.exit414, label %.lr.ph.i411
+  %.not.i411 = icmp eq ptr %606, null
+  br i1 %.not.i411, label %opal_obj_run_destructors.exit412, label %.lr.ph.i409, !llvm.loop !6
 
-.lr.ph.i411:                                      ; preds = %opal_obj_run_destructors.exit409, %.lr.ph.i411
-  %607 = phi ptr [ %609, %.lr.ph.i411 ], [ %606, %opal_obj_run_destructors.exit409 ]
-  %.07.i412 = phi ptr [ %608, %.lr.ph.i411 ], [ %605, %opal_obj_run_destructors.exit409 ]
-  tail call void %607(ptr noundef nonnull @ompi_mpi_errcodes) #8
-  %608 = getelementptr inbounds i8, ptr %.07.i412, i64 8
-  %609 = load ptr, ptr %608, align 8
-  %.not.i413 = icmp eq ptr %609, null
-  br i1 %.not.i413, label %opal_obj_run_destructors.exit414, label %.lr.ph.i411, !llvm.loop !6
-
-opal_obj_run_destructors.exit414:                 ; preds = %.lr.ph.i411, %opal_obj_run_destructors.exit409
+opal_obj_run_destructors.exit412:                 ; preds = %.lr.ph.i409, %opal_obj_run_destructors.exit407
   store i32 0, ptr @ompi_mpi_errcode_lastpredefined, align 4
-  %610 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @errcode_lock, i64 0, i32 1, i32 0, i32 0)) #8
+  %607 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @errcode_lock, i64 0, i32 1, i32 0, i32 0)) #8
   ret i32 0
 }
 
@@ -4364,46 +4358,40 @@ define noundef i32 @ompi_mpi_errnum_add_string(i32 noundef %0, ptr noundef %1, i
 
 8:                                                ; preds = %3
   %9 = load i8, ptr @opal_uses_threads, align 1
-  %10 = and i8 %9, 1
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %.thread.i, label %15
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %13
 
-.thread.i:                                        ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 8), align 8
-  %12 = zext nneg i32 %0 to i64
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
-  %14 = load ptr, ptr %13, align 8
-  br label %opal_pointer_array_get_item.exit
-
-15:                                               ; preds = %8
-  %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 1, i32 1, i32 0, i32 0)) #8
+11:                                               ; preds = %8
+  %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 1, i32 1, i32 0, i32 0)) #8
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
-  %.pre1.i = and i8 %.pre.i, 1
-  %17 = icmp eq i8 %.pre1.i, 0
-  %18 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 8), align 8
-  %19 = zext nneg i32 %0 to i64
-  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
-  %21 = load ptr, ptr %20, align 8
-  br i1 %17, label %opal_pointer_array_get_item.exit, label %22
+  br label %13
 
-22:                                               ; preds = %15
-  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 1, i32 1, i32 0, i32 0)) #8
+13:                                               ; preds = %11, %8
+  %14 = phi i8 [ %9, %8 ], [ %.pre.i, %11 ]
+  %15 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 8), align 8
+  %16 = zext nneg i32 %0 to i64
+  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %18 = load ptr, ptr %17, align 8
+  %19 = trunc i8 %14 to i1
+  br i1 %19, label %20, label %opal_pointer_array_get_item.exit
+
+20:                                               ; preds = %13
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_errcodes, i64 0, i32 1, i32 1, i32 0, i32 0)) #8
   br label %opal_pointer_array_get_item.exit
 
-opal_pointer_array_get_item.exit:                 ; preds = %.thread.i, %15, %22
-  %.0.i = phi ptr [ %21, %15 ], [ %21, %22 ], [ %14, %.thread.i ]
-  %24 = icmp eq ptr %.0.i, null
-  br i1 %24, label %opal_pointer_array_get_item.exit.thread, label %25
+opal_pointer_array_get_item.exit:                 ; preds = %13, %20
+  %22 = icmp eq ptr %18, null
+  br i1 %22, label %opal_pointer_array_get_item.exit.thread, label %23
 
-25:                                               ; preds = %opal_pointer_array_get_item.exit
+23:                                               ; preds = %opal_pointer_array_get_item.exit
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %2, i32 256)
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  %27 = zext nneg i32 %spec.store.select to i64
-  tail call void @opal_string_copy(ptr noundef nonnull %26, ptr noundef %1, i64 noundef %27) #8
+  %24 = getelementptr inbounds i8, ptr %18, i64 24
+  %25 = zext nneg i32 %spec.store.select to i64
+  tail call void @opal_string_copy(ptr noundef nonnull %24, ptr noundef %1, i64 noundef %25) #8
   br label %opal_pointer_array_get_item.exit.thread
 
-opal_pointer_array_get_item.exit.thread:          ; preds = %3, %opal_pointer_array_get_item.exit, %25
-  %.0 = phi i32 [ 0, %25 ], [ -1, %opal_pointer_array_get_item.exit ], [ -1, %3 ]
+opal_pointer_array_get_item.exit.thread:          ; preds = %3, %opal_pointer_array_get_item.exit, %23
+  %.0 = phi i32 [ 0, %23 ], [ -1, %opal_pointer_array_get_item.exit ], [ -1, %3 ]
   ret i32 %.0
 }
 

@@ -11,9 +11,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Session_create_errhandler(ptr noundef %0, ptr noundef writeonly %1) #0 {
   %3 = load i8, ptr @ompi_mpi_param_check, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %10, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = icmp eq ptr %1, null
@@ -28,8 +27,8 @@ define i32 @PMPI_Session_create_errhandler(ptr noundef %0, ptr noundef writeonly
 10:                                               ; preds = %5, %2
   %11 = tail call ptr @ompi_errhandler_create(i32 noundef 4, ptr noundef %0, i32 noundef 0) #2
   store ptr %11, ptr %1, align 8
-  %.not11 = icmp eq ptr %11, null
-  br i1 %.not11, label %12, label %14
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %12, label %14
 
 12:                                               ; preds = %10
   %13 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 17, ptr noundef nonnull @FUNC_NAME) #2

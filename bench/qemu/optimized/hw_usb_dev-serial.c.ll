@@ -191,9 +191,8 @@ if.end3:                                          ; preds = %if.end
   call void @usb_serial_handle_reset(ptr noundef nonnull %dev)
   %always_plugged = getelementptr inbounds i8, ptr %call.i, i64 6375
   %1 = load i8, ptr %always_plugged, align 1
-  %2 = and i8 %1, 1
-  %tobool5.not = icmp eq i8 %2, 0
-  br i1 %tobool5.not, label %lor.lhs.false, label %land.lhs.true
+  %tobool5 = trunc i8 %1 to i1
+  br i1 %tobool5, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
   %call7 = call zeroext i1 @qemu_chr_fe_backend_open(ptr noundef nonnull %cs) #7
@@ -201,10 +200,9 @@ lor.lhs.false:                                    ; preds = %if.end3
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %if.end3
   %attached = getelementptr inbounds i8, ptr %dev, i64 264
-  %3 = load i8, ptr %attached, align 8
-  %4 = and i8 %3, 1
-  %tobool8.not = icmp eq i8 %4, 0
-  br i1 %tobool8.not, label %if.then9, label %if.end10
+  %2 = load i8, ptr %attached, align 8
+  %tobool8 = trunc i8 %2 to i1
+  br i1 %tobool8, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true
   call void @usb_device_attach(ptr noundef nonnull %dev, ptr noundef nonnull @error_abort) #7
@@ -248,17 +246,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %6 = load i8, ptr @message_with_timestamp, align 1
-  %7 = and i8 %6, 1
-  %tobool7.not.i.i = icmp eq i8 %7, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %6 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
-  %8 = load i64, ptr %_now.i.i, align 8
+  %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %1, i32 noundef %conv) #7
+  %8 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1, i32 noundef %conv) #7
   br label %trace_usb_serial_reset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -310,17 +307,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %6 = load i8, ptr @message_with_timestamp, align 1
-  %7 = and i8 %6, 1
-  %tobool7.not.i.i = icmp eq i8 %7, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %6 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
-  %8 = load i64, ptr %_now.i.i, align 8
+  %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %1, i32 noundef %conv, i32 noundef %request, i32 noundef %value) #7
+  %8 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1, i32 noundef %conv, i32 noundef %request, i32 noundef %value) #7
   br label %trace_usb_serial_handle_control.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -381,8 +377,8 @@ sw.bb8:                                           ; preds = %if.end
   br i1 %tobool.not, label %if.end16, label %if.then10
 
 if.then10:                                        ; preds = %sw.bb8
-  %10 = load i32, ptr @usb_serial_handle_control.flags, align 4
-  %and14 = and i32 %10, -5
+  %9 = load i32, ptr @usb_serial_handle_control.flags, align 4
+  %and14 = and i32 %9, -5
   %and11 = shl i32 %value, 1
   %masksel = and i32 %and11, 4
   %or.sink = or disjoint i32 %and14, %masksel
@@ -395,8 +391,8 @@ if.end16:                                         ; preds = %if.then10, %sw.bb8
   br i1 %tobool18.not, label %if.end27, label %if.then19
 
 if.then19:                                        ; preds = %if.end16
-  %11 = load i32, ptr @usb_serial_handle_control.flags, align 4
-  %and25 = and i32 %11, -3
+  %10 = load i32, ptr @usb_serial_handle_control.flags, align 4
+  %and25 = and i32 %10, -3
   %and20 = shl i32 %value, 1
   %masksel112 = and i32 %and20, 2
   %or23.sink = or disjoint i32 %and25, %masksel112
@@ -411,8 +407,8 @@ sw.bb30:                                          ; preds = %if.end
   %shr = lshr i32 %index, 8
   %conv31 = trunc i32 %shr to i8
   tail call fastcc void @usb_serial_set_flow_control(ptr noundef %call.i, i8 noundef zeroext %conv31)
-  %12 = and i32 %index, 1024
-  %tobool34.not = icmp eq i32 %12, 0
+  %11 = and i32 %index, 1024
+  %tobool34.not = icmp eq i32 %11, 0
   br i1 %tobool34.not, label %sw.epilog138, label %if.then35
 
 if.then35:                                        ; preds = %sw.bb30
@@ -427,57 +423,56 @@ sw.bb37:                                          ; preds = %if.end
   %or41 = or disjoint i32 %shl, %shr39
   %idxprom = zext nneg i32 %or41 to i64
   %arrayidx = getelementptr [8 x i32], ptr @usb_serial_handle_control.subdivisors8, i64 0, i64 %idxprom
-  %13 = load i32, ptr %arrayidx, align 4
+  %12 = load i32, ptr %arrayidx, align 4
   %and42 = and i32 %value, 16383
   %cmp43 = icmp eq i32 %and42, 1
   %cmp45 = icmp eq i32 %or41, 0
   %or.cond = and i1 %cmp43, %cmp45
-  %spec.store.select = select i1 %or.cond, i32 4, i32 %13
-  %14 = or i32 %spec.store.select, %and42
-  %or.cond1 = icmp eq i32 %14, 0
-  %15 = shl nuw nsw i32 %and42, 3
-  %mul = select i1 %or.cond1, i32 8, i32 %15
+  %spec.store.select = select i1 %or.cond, i32 4, i32 %12
+  %13 = or i32 %spec.store.select, %and42
+  %or.cond1 = icmp eq i32 %13, 0
+  %14 = shl nuw nsw i32 %and42, 3
+  %mul = select i1 %or.cond1, i32 8, i32 %14
   %add = add i32 %mul, %spec.store.select
   %div = sdiv i32 24000000, %add
   %params = getelementptr inbounds i8, ptr %call.i, i64 6380
   store i32 %div, ptr %params, align 4
-  %16 = load i32, ptr %busnr, align 8
-  %17 = load i8, ptr %addr, align 8
-  %conv58 = zext i8 %17 to i32
+  %15 = load i32, ptr %busnr, align 8
+  %16 = load i8, ptr %addr, align 8
+  %conv58 = zext i8 %16 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i81)
-  %18 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i82 = icmp ne i32 %18, 0
-  %19 = load i16, ptr @_TRACE_USB_SERIAL_SET_BAUD_DSTATE, align 2
-  %tobool4.i.i83 = icmp ne i16 %19, 0
+  %17 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i82 = icmp ne i32 %17, 0
+  %18 = load i16, ptr @_TRACE_USB_SERIAL_SET_BAUD_DSTATE, align 2
+  %tobool4.i.i83 = icmp ne i16 %18, 0
   %or.cond.i.i84 = select i1 %tobool.i.i82, i1 %tobool4.i.i83, i1 false
   br i1 %or.cond.i.i84, label %land.lhs.true5.i.i85, label %trace_usb_serial_set_baud.exit
 
 land.lhs.true5.i.i85:                             ; preds = %sw.bb37
-  %20 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i86 = and i32 %20, 32768
+  %19 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i86 = and i32 %19, 32768
   %cmp.i.not.i.i87 = icmp eq i32 %and.i.i.i86, 0
   br i1 %cmp.i.not.i.i87, label %trace_usb_serial_set_baud.exit, label %if.then.i.i88
 
 if.then.i.i88:                                    ; preds = %land.lhs.true5.i.i85
-  %21 = load i8, ptr @message_with_timestamp, align 1
-  %22 = and i8 %21, 1
-  %tobool7.not.i.i89 = icmp eq i8 %22, 0
-  br i1 %tobool7.not.i.i89, label %if.else.i.i94, label %if.then8.i.i90
+  %20 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i89 = trunc i8 %20 to i1
+  br i1 %tobool7.i.i89, label %if.then8.i.i91, label %if.else.i.i90
 
-if.then8.i.i90:                                   ; preds = %if.then.i.i88
-  %call9.i.i91 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i81, ptr noundef null) #7
-  %call10.i.i92 = tail call i32 @qemu_get_thread_id() #7
-  %23 = load i64, ptr %_now.i.i81, align 8
-  %tv_usec.i.i93 = getelementptr inbounds i8, ptr %_now.i.i81, i64 8
-  %24 = load i64, ptr %tv_usec.i.i93, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i92, i64 noundef %23, i64 noundef %24, i32 noundef %16, i32 noundef %conv58, i32 noundef %div) #7
+if.then8.i.i91:                                   ; preds = %if.then.i.i88
+  %call9.i.i92 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i81, ptr noundef null) #7
+  %call10.i.i93 = tail call i32 @qemu_get_thread_id() #7
+  %21 = load i64, ptr %_now.i.i81, align 8
+  %tv_usec.i.i94 = getelementptr inbounds i8, ptr %_now.i.i81, i64 8
+  %22 = load i64, ptr %tv_usec.i.i94, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i93, i64 noundef %21, i64 noundef %22, i32 noundef %15, i32 noundef %conv58, i32 noundef %div) #7
   br label %trace_usb_serial_set_baud.exit
 
-if.else.i.i94:                                    ; preds = %if.then.i.i88
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %16, i32 noundef %conv58, i32 noundef %div) #7
+if.else.i.i90:                                    ; preds = %if.then.i.i88
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %15, i32 noundef %conv58, i32 noundef %div) #7
   br label %trace_usb_serial_set_baud.exit
 
-trace_usb_serial_set_baud.exit:                   ; preds = %sw.bb37, %land.lhs.true5.i.i85, %if.then8.i.i90, %if.else.i.i94
+trace_usb_serial_set_baud.exit:                   ; preds = %sw.bb37, %land.lhs.true5.i.i85, %if.then8.i.i91, %if.else.i.i90
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i81)
   %cs61 = getelementptr inbounds i8, ptr %call.i, i64 6400
   %call63 = tail call i32 @qemu_chr_fe_ioctl(ptr noundef nonnull %cs61, i32 noundef 1, ptr noundef nonnull %params) #7
@@ -495,10 +490,10 @@ sw.bb68:                                          ; preds = %sw.bb64
 
 sw.default:                                       ; preds = %sw.bb64
   %and65 = and i32 %value, 255
-  %25 = load i32, ptr %busnr, align 8
-  %26 = load i8, ptr %addr, align 8
-  %conv73 = zext i8 %26 to i32
-  tail call fastcc void @trace_usb_serial_unsupported_data_bits(i32 noundef %25, i32 noundef %conv73, i32 noundef %and65)
+  %23 = load i32, ptr %busnr, align 8
+  %24 = load i8, ptr %addr, align 8
+  %conv73 = zext i8 %24 to i32
+  tail call fastcc void @trace_usb_serial_unsupported_data_bits(i32 noundef %23, i32 noundef %conv73, i32 noundef %and65)
   br label %sw.epilog77
 
 sw.epilog77:                                      ; preds = %sw.bb64, %sw.default, %sw.bb68
@@ -519,10 +514,10 @@ sw.bb84:                                          ; preds = %sw.epilog77
   br label %sw.epilog92
 
 sw.default87:                                     ; preds = %sw.epilog77
-  %27 = load i32, ptr %busnr, align 8
-  %28 = load i8, ptr %addr, align 8
-  %conv90 = zext i8 %28 to i32
-  tail call fastcc void @trace_usb_serial_unsupported_parity(i32 noundef %27, i32 noundef %conv90, i32 noundef %and78)
+  %25 = load i32, ptr %busnr, align 8
+  %26 = load i8, ptr %addr, align 8
+  %conv90 = zext i8 %26 to i32
+  tail call fastcc void @trace_usb_serial_unsupported_parity(i32 noundef %25, i32 noundef %conv90, i32 noundef %and78)
   br label %fail
 
 sw.epilog92:                                      ; preds = %sw.epilog77, %sw.bb84, %sw.bb81
@@ -539,21 +534,21 @@ sw.bb96:                                          ; preds = %sw.epilog92
   br label %sw.epilog104
 
 sw.default99:                                     ; preds = %sw.epilog92
-  %29 = load i32, ptr %busnr, align 8
-  %30 = load i8, ptr %addr, align 8
-  %conv102 = zext i8 %30 to i32
-  tail call fastcc void @trace_usb_serial_unsupported_stopbits(i32 noundef %29, i32 noundef %conv102, i32 noundef %and93)
+  %27 = load i32, ptr %busnr, align 8
+  %28 = load i8, ptr %addr, align 8
+  %conv102 = zext i8 %28 to i32
+  tail call fastcc void @trace_usb_serial_unsupported_stopbits(i32 noundef %27, i32 noundef %conv102, i32 noundef %and93)
   br label %fail
 
 sw.epilog104:                                     ; preds = %sw.epilog92, %sw.bb96
   %.sink111 = phi i32 [ 2, %sw.bb96 ], [ 1, %sw.epilog92 ]
   %stop_bits98 = getelementptr inbounds i8, ptr %call.i, i64 6392
   store i32 %.sink111, ptr %stop_bits98, align 4
-  %31 = load i32, ptr %busnr, align 8
-  %32 = load i8, ptr %addr, align 8
-  %conv107 = zext i8 %32 to i32
+  %29 = load i32, ptr %busnr, align 8
+  %30 = load i8, ptr %addr, align 8
+  %conv107 = zext i8 %30 to i32
   %params108 = getelementptr inbounds i8, ptr %call.i, i64 6380
-  tail call fastcc void @trace_usb_serial_set_data(i32 noundef %31, i32 noundef %conv107, i32 noundef %.sink110, i32 noundef %.sink, i32 noundef %.sink111)
+  tail call fastcc void @trace_usb_serial_set_data(i32 noundef %29, i32 noundef %conv107, i32 noundef %.sink110, i32 noundef %.sink, i32 noundef %.sink111)
   %cs114 = getelementptr inbounds i8, ptr %call.i, i64 6400
   %call116 = tail call i32 @qemu_chr_fe_ioctl(ptr noundef nonnull %cs114, i32 noundef 1, ptr noundef nonnull %params108) #7
   br label %sw.epilog138
@@ -566,22 +561,22 @@ sw.bb117:                                         ; preds = %if.end
   br i1 %cmp.i, label %usb_get_modem_lines.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb117
-  %33 = load i32, ptr %flags.i, align 4
-  %34 = trunc i32 %33 to i8
-  %35 = lshr i8 %34, 1
-  %and4.i = lshr i32 %33, 3
-  %36 = trunc i32 %and4.i to i8
-  %37 = and i8 %36, 32
-  %38 = and i8 %35, 80
-  %39 = shl i8 %34, 1
-  %40 = and i8 %39, -128
-  %ret.2.i = or disjoint i8 %37, %38
-  %ret.3.i = or disjoint i8 %ret.2.i, %40
-  %41 = or disjoint i8 %ret.3.i, 1
+  %31 = load i32, ptr %flags.i, align 4
+  %32 = trunc i32 %31 to i8
+  %33 = lshr i8 %32, 1
+  %and4.i = lshr i32 %31, 3
+  %34 = trunc i32 %and4.i to i8
+  %35 = and i8 %34, 32
+  %36 = and i8 %33, 80
+  %37 = shl i8 %32, 1
+  %38 = and i8 %37, -128
+  %ret.2.i = or disjoint i8 %35, %36
+  %ret.3.i = or disjoint i8 %ret.2.i, %38
+  %39 = or disjoint i8 %ret.3.i, 1
   br label %usb_get_modem_lines.exit
 
 usb_get_modem_lines.exit:                         ; preds = %sw.bb117, %if.end.i
-  %retval.0.i = phi i8 [ %41, %if.end.i ], [ -79, %sw.bb117 ]
+  %retval.0.i = phi i8 [ %39, %if.end.i ], [ -79, %sw.bb117 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i)
   store i8 %retval.0.i, ptr %data, align 1
   %arrayidx123 = getelementptr i8, ptr %data, i64 1
@@ -609,51 +604,50 @@ sw.bb128:                                         ; preds = %if.end
 
 sw.bb129:                                         ; preds = %if.end
   %latency130 = getelementptr inbounds i8, ptr %call.i, i64 6396
-  %42 = load i32, ptr %latency130, align 4
-  %conv131 = trunc i32 %42 to i8
+  %40 = load i32, ptr %latency130, align 4
+  %conv131 = trunc i32 %40 to i8
   store i8 %conv131, ptr %data, align 1
   %actual_length133 = getelementptr inbounds i8, ptr %p, i64 88
   store i32 1, ptr %actual_length133, align 8
   br label %sw.epilog138
 
 fail:                                             ; preds = %if.end, %sw.default99, %sw.default87
-  %43 = load i32, ptr %busnr, align 8
-  %44 = load i8, ptr %addr, align 8
-  %conv137 = zext i8 %44 to i32
+  %41 = load i32, ptr %busnr, align 8
+  %42 = load i8, ptr %addr, align 8
+  %conv137 = zext i8 %42 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i96)
-  %45 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i97 = icmp ne i32 %45, 0
-  %46 = load i16, ptr @_TRACE_USB_SERIAL_UNSUPPORTED_CONTROL_DSTATE, align 2
-  %tobool4.i.i98 = icmp ne i16 %46, 0
+  %43 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i97 = icmp ne i32 %43, 0
+  %44 = load i16, ptr @_TRACE_USB_SERIAL_UNSUPPORTED_CONTROL_DSTATE, align 2
+  %tobool4.i.i98 = icmp ne i16 %44, 0
   %or.cond.i.i99 = select i1 %tobool.i.i97, i1 %tobool4.i.i98, i1 false
   br i1 %or.cond.i.i99, label %land.lhs.true5.i.i100, label %trace_usb_serial_unsupported_control.exit
 
 land.lhs.true5.i.i100:                            ; preds = %fail
-  %47 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i101 = and i32 %47, 32768
+  %45 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i101 = and i32 %45, 32768
   %cmp.i.not.i.i102 = icmp eq i32 %and.i.i.i101, 0
   br i1 %cmp.i.not.i.i102, label %trace_usb_serial_unsupported_control.exit, label %if.then.i.i103
 
 if.then.i.i103:                                   ; preds = %land.lhs.true5.i.i100
-  %48 = load i8, ptr @message_with_timestamp, align 1
-  %49 = and i8 %48, 1
-  %tobool7.not.i.i104 = icmp eq i8 %49, 0
-  br i1 %tobool7.not.i.i104, label %if.else.i.i109, label %if.then8.i.i105
+  %46 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i104 = trunc i8 %46 to i1
+  br i1 %tobool7.i.i104, label %if.then8.i.i106, label %if.else.i.i105
 
-if.then8.i.i105:                                  ; preds = %if.then.i.i103
-  %call9.i.i106 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i96, ptr noundef null) #7
-  %call10.i.i107 = tail call i32 @qemu_get_thread_id() #7
-  %50 = load i64, ptr %_now.i.i96, align 8
-  %tv_usec.i.i108 = getelementptr inbounds i8, ptr %_now.i.i96, i64 8
-  %51 = load i64, ptr %tv_usec.i.i108, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i107, i64 noundef %50, i64 noundef %51, i32 noundef %43, i32 noundef %conv137, i32 noundef %request, i32 noundef %value) #7
+if.then8.i.i106:                                  ; preds = %if.then.i.i103
+  %call9.i.i107 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i96, ptr noundef null) #7
+  %call10.i.i108 = tail call i32 @qemu_get_thread_id() #7
+  %47 = load i64, ptr %_now.i.i96, align 8
+  %tv_usec.i.i109 = getelementptr inbounds i8, ptr %_now.i.i96, i64 8
+  %48 = load i64, ptr %tv_usec.i.i109, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i108, i64 noundef %47, i64 noundef %48, i32 noundef %41, i32 noundef %conv137, i32 noundef %request, i32 noundef %value) #7
   br label %trace_usb_serial_unsupported_control.exit
 
-if.else.i.i109:                                   ; preds = %if.then.i.i103
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %43, i32 noundef %conv137, i32 noundef %request, i32 noundef %value) #7
+if.else.i.i105:                                   ; preds = %if.then.i.i103
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %41, i32 noundef %conv137, i32 noundef %request, i32 noundef %value) #7
   br label %trace_usb_serial_unsupported_control.exit
 
-trace_usb_serial_unsupported_control.exit:        ; preds = %fail, %land.lhs.true5.i.i100, %if.then8.i.i105, %if.else.i.i109
+trace_usb_serial_unsupported_control.exit:        ; preds = %fail, %land.lhs.true5.i.i100, %if.then8.i.i106, %if.else.i.i105
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i96)
   %status = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status, align 4
@@ -867,17 +861,16 @@ land.lhs.true5.i.i:                               ; preds = %sw.default
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %37 = load i8, ptr @message_with_timestamp, align 1
-  %38 = and i8 %37, 1
-  %tobool7.not.i.i = icmp eq i8 %38, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %37 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
-  %39 = load i64, ptr %_now.i.i, align 8
+  %38 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %40 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %39, i64 noundef %40, i32 noundef %32, i32 noundef %conv18) #7
+  %39 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %38, i64 noundef %39, i32 noundef %32, i32 noundef %conv18) #7
   br label %trace_usb_serial_bad_token.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -918,14 +911,13 @@ define internal i32 @usb_serial_can_read(ptr nocapture noundef readonly %opaque)
 entry:
   %attached = getelementptr inbounds i8, ptr %opaque, i64 264
   %0 = load i8, ptr %attached, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %recv_used = getelementptr inbounds i8, ptr %opaque, i64 6370
-  %2 = load i16, ptr %recv_used, align 2
-  %conv = zext i16 %2 to i32
+  %1 = load i16, ptr %recv_used, align 2
+  %conv = zext i16 %1 to i32
   %sub = sub nsw i32 496, %conv
   br label %return
 
@@ -1006,16 +998,14 @@ sw.bb:                                            ; preds = %entry
 sw.bb2:                                           ; preds = %entry
   %always_plugged = getelementptr inbounds i8, ptr %opaque, i64 6375
   %2 = load i8, ptr %always_plugged, align 1
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %land.lhs.true, label %sw.epilog
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %sw.epilog, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb2
   %attached = getelementptr inbounds i8, ptr %opaque, i64 264
-  %4 = load i8, ptr %attached, align 8
-  %5 = and i8 %4, 1
-  %tobool3.not = icmp eq i8 %5, 0
-  br i1 %tobool3.not, label %if.then, label %sw.epilog
+  %3 = load i8, ptr %attached, align 8
+  %tobool3 = trunc i8 %3 to i1
+  br i1 %tobool3, label %sw.epilog, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   tail call void @usb_device_attach(ptr noundef nonnull %opaque, ptr noundef nonnull @error_abort) #7
@@ -1023,17 +1013,15 @@ if.then:                                          ; preds = %land.lhs.true
 
 sw.bb5:                                           ; preds = %entry
   %always_plugged6 = getelementptr inbounds i8, ptr %opaque, i64 6375
-  %6 = load i8, ptr %always_plugged6, align 1
-  %7 = and i8 %6, 1
-  %tobool7.not = icmp eq i8 %7, 0
-  br i1 %tobool7.not, label %land.lhs.true8, label %sw.epilog
+  %4 = load i8, ptr %always_plugged6, align 1
+  %tobool7 = trunc i8 %4 to i1
+  br i1 %tobool7, label %sw.epilog, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %sw.bb5
   %attached10 = getelementptr inbounds i8, ptr %opaque, i64 264
-  %8 = load i8, ptr %attached10, align 8
-  %9 = and i8 %8, 1
-  %tobool11.not = icmp eq i8 %9, 0
-  br i1 %tobool11.not, label %sw.epilog, label %if.then13
+  %5 = load i8, ptr %attached10, align 8
+  %tobool11 = trunc i8 %5 to i1
+  br i1 %tobool11, label %if.then13, label %sw.epilog
 
 if.then13:                                        ; preds = %land.lhs.true8
   %call = tail call i32 @usb_device_detach(ptr noundef nonnull %opaque) #7
@@ -1096,17 +1084,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %6 = load i8, ptr @message_with_timestamp, align 1
-  %7 = and i8 %6, 1
-  %tobool7.not.i.i = icmp eq i8 %7, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %6 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
-  %8 = load i64, ptr %_now.i.i, align 8
+  %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %1, i32 noundef %conv, i32 noundef %conv3) #7
+  %8 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1, i32 noundef %conv, i32 noundef %conv3) #7
   br label %trace_usb_serial_set_flow_control.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1157,19 +1144,18 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %6 = load i8, ptr @message_with_timestamp, align 1
-  %7 = and i8 %6, 1
-  %tobool7.not.i.i = icmp eq i8 %7, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %6 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
-  %8 = load i64, ptr %_now.i.i, align 8
+  %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %9 = load i64, ptr %tv_usec.i.i, align 8
+  %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = and i32 %xonxoff, 255
   %conv12.i.i = and i32 %shr, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %1, i32 noundef %conv4, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i) #7
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1, i32 noundef %conv4, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i) #7
   br label %trace_usb_serial_set_xonxoff.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1203,17 +1189,16 @@ land.lhs.true5.i:                                 ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true5.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i, label %if.else.i, label %if.then8.i
+  %tobool7.i = trunc i8 %3 to i1
+  br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #7
   %call10.i = tail call i32 @qemu_get_thread_id() #7
-  %5 = load i64, ptr %_now.i, align 8
+  %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
-  %6 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %bus, i32 noundef %addr, i32 noundef %value) #7
+  %5 = load i64, ptr %tv_usec.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %bus, i32 noundef %addr, i32 noundef %value) #7
   br label %_nocheck__trace_usb_serial_unsupported_data_bits.exit
 
 if.else.i:                                        ; preds = %if.then.i
@@ -1245,17 +1230,16 @@ land.lhs.true5.i:                                 ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true5.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i, label %if.else.i, label %if.then8.i
+  %tobool7.i = trunc i8 %3 to i1
+  br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #7
   %call10.i = tail call i32 @qemu_get_thread_id() #7
-  %5 = load i64, ptr %_now.i, align 8
+  %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
-  %6 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %bus, i32 noundef %addr, i32 noundef %value) #7
+  %5 = load i64, ptr %tv_usec.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %bus, i32 noundef %addr, i32 noundef %value) #7
   br label %_nocheck__trace_usb_serial_unsupported_parity.exit
 
 if.else.i:                                        ; preds = %if.then.i
@@ -1287,17 +1271,16 @@ land.lhs.true5.i:                                 ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true5.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i, label %if.else.i, label %if.then8.i
+  %tobool7.i = trunc i8 %3 to i1
+  br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #7
   %call10.i = tail call i32 @qemu_get_thread_id() #7
-  %5 = load i64, ptr %_now.i, align 8
+  %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
-  %6 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %bus, i32 noundef %addr, i32 noundef %value) #7
+  %5 = load i64, ptr %tv_usec.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %bus, i32 noundef %addr, i32 noundef %value) #7
   br label %_nocheck__trace_usb_serial_unsupported_stopbits.exit
 
 if.else.i:                                        ; preds = %if.then.i
@@ -1329,17 +1312,16 @@ land.lhs.true5.i:                                 ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true5.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i, label %if.else.i, label %if.then8.i
+  %tobool7.i = trunc i8 %3 to i1
+  br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #7
   %call10.i = tail call i32 @qemu_get_thread_id() #7
-  %5 = load i64, ptr %_now.i, align 8
+  %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
-  %6 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %bus, i32 noundef %addr, i32 noundef %parity, i32 noundef %data, i32 noundef %stop) #7
+  %5 = load i64, ptr %tv_usec.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %bus, i32 noundef %addr, i32 noundef %parity, i32 noundef %data, i32 noundef %stop) #7
   br label %_nocheck__trace_usb_serial_set_data.exit
 
 if.else.i:                                        ; preds = %if.then.i

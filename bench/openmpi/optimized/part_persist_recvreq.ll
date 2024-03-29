@@ -148,9 +148,8 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   %42 = getelementptr inbounds i8, ptr %4, i64 88
   store ptr null, ptr %42, align 8
   %43 = load i8, ptr @opal_uses_threads, align 1
-  %44 = and i8 %43, 1
-  %.not.i = icmp eq i8 %44, 0
-  br i1 %.not.i, label %47, label %45
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %47
 
 45:                                               ; preds = %.loopexit
   %46 = atomicrmw volatile xchg ptr %42, i64 0 monotonic, align 8

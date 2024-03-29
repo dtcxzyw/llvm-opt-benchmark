@@ -400,88 +400,85 @@ declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @quote_if_needed(ptr noundef %0, ptr noundef readonly %1, i8 noundef signext %2, i8 noundef signext %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 {
-  %7 = zext i1 %4 to i8
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
-  %9 = shl i64 %8, 1
-  %10 = add i64 %9, 3
-  %11 = tail call ptr @pg_malloc(i64 noundef %10) #7
-  %12 = getelementptr i8, ptr %11, i64 1
-  store i8 %2, ptr %11, align 1
-  %13 = load i8, ptr %0, align 1
-  %.not43 = icmp eq i8 %13, 0
-  br i1 %.not43, label %._crit_edge, label %.lr.ph47
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
+  %8 = shl i64 %7, 1
+  %9 = add i64 %8, 3
+  %10 = tail call ptr @pg_malloc(i64 noundef %9) #7
+  %11 = getelementptr i8, ptr %10, i64 1
+  store i8 %2, ptr %10, align 1
+  %12 = load i8, ptr %0, align 1
+  %.not42 = icmp eq i8 %12, 0
+  br i1 %.not42, label %._crit_edge, label %.lr.ph46
 
-.loopexit:                                        ; preds = %.lr.ph, %26
-  %.2.lcssa = phi ptr [ %.131, %26 ], [ %31, %.lr.ph ]
-  %.1.lcssa = phi ptr [ %.02746, %26 ], [ %29, %.lr.ph ]
-  %14 = load i8, ptr %.1.lcssa, align 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph47, !llvm.loop !9
+.loopexit:                                        ; preds = %.lr.ph, %25
+  %.2.lcssa = phi ptr [ %.131, %25 ], [ %30, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %.02745, %25 ], [ %28, %.lr.ph ]
+  %13 = load i8, ptr %.1.lcssa, align 1
+  %.not = icmp eq i8 %13, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph46, !llvm.loop !9
 
-.lr.ph47:                                         ; preds = %6, %.loopexit
-  %15 = phi i8 [ %14, %.loopexit ], [ %13, %6 ]
-  %.02746 = phi ptr [ %.1.lcssa, %.loopexit ], [ %0, %6 ]
-  %.02845 = phi i8 [ %.129, %.loopexit ], [ %7, %6 ]
-  %.03044 = phi ptr [ %.2.lcssa, %.loopexit ], [ %12, %6 ]
-  %16 = sext i8 %15 to i32
-  %17 = icmp eq i8 %15, %2
-  br i1 %17, label %18, label %20
+.lr.ph46:                                         ; preds = %6, %.loopexit
+  %14 = phi i8 [ %13, %.loopexit ], [ %12, %6 ]
+  %.02745 = phi ptr [ %.1.lcssa, %.loopexit ], [ %0, %6 ]
+  %.02844 = phi i1 [ %.129, %.loopexit ], [ %4, %6 ]
+  %.03043 = phi ptr [ %.2.lcssa, %.loopexit ], [ %11, %6 ]
+  %15 = sext i8 %14 to i32
+  %16 = icmp eq i8 %14, %2
+  br i1 %16, label %17, label %19
 
-18:                                               ; preds = %.lr.ph47
-  %19 = getelementptr i8, ptr %.03044, i64 1
-  store i8 %2, ptr %.03044, align 1
-  br label %26
+17:                                               ; preds = %.lr.ph46
+  %18 = getelementptr i8, ptr %.03043, i64 1
+  store i8 %2, ptr %.03043, align 1
+  br label %25
 
-20:                                               ; preds = %.lr.ph47
-  %21 = icmp eq i8 %15, %3
-  br i1 %21, label %22, label %24
+19:                                               ; preds = %.lr.ph46
+  %20 = icmp eq i8 %14, %3
+  br i1 %20, label %21, label %23
 
-22:                                               ; preds = %20
-  %23 = getelementptr i8, ptr %.03044, i64 1
-  store i8 %3, ptr %.03044, align 1
-  br label %26
+21:                                               ; preds = %19
+  %22 = getelementptr i8, ptr %.03043, i64 1
+  store i8 %3, ptr %.03043, align 1
+  br label %25
 
-24:                                               ; preds = %20
-  %25 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef %16) #8
-  %.not36 = icmp eq ptr %25, null
-  %spec.select = select i1 %.not36, i8 %.02845, i8 1
-  br label %26
+23:                                               ; preds = %19
+  %24 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef %15) #8
+  %.not35 = icmp ne ptr %24, null
+  %spec.select = select i1 %.not35, i1 true, i1 %.02844
+  br label %25
 
-26:                                               ; preds = %24, %22, %18
-  %.131 = phi ptr [ %19, %18 ], [ %23, %22 ], [ %.03044, %24 ]
-  %.129 = phi i8 [ 1, %18 ], [ 1, %22 ], [ %spec.select, %24 ]
-  %27 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.02746, i32 noundef %5) #7
-  %.not3738 = icmp eq i32 %27, 0
-  br i1 %.not3738, label %.loopexit, label %.lr.ph
+25:                                               ; preds = %23, %21, %17
+  %.131 = phi ptr [ %18, %17 ], [ %22, %21 ], [ %.03043, %23 ]
+  %.129 = phi i1 [ true, %17 ], [ true, %21 ], [ %spec.select, %23 ]
+  %26 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.02745, i32 noundef %5) #7
+  %.not3637 = icmp eq i32 %26, 0
+  br i1 %.not3637, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %26, %.lr.ph
-  %.041 = phi i32 [ %28, %.lr.ph ], [ %27, %26 ]
-  %.140 = phi ptr [ %29, %.lr.ph ], [ %.02746, %26 ]
-  %.239 = phi ptr [ %31, %.lr.ph ], [ %.131, %26 ]
-  %28 = add i32 %.041, -1
-  %29 = getelementptr i8, ptr %.140, i64 1
-  %30 = load i8, ptr %.140, align 1
-  %31 = getelementptr i8, ptr %.239, i64 1
-  store i8 %30, ptr %.239, align 1
-  %.not37 = icmp eq i32 %28, 0
-  br i1 %.not37, label %.loopexit, label %.lr.ph, !llvm.loop !10
+.lr.ph:                                           ; preds = %25, %.lr.ph
+  %.040 = phi i32 [ %27, %.lr.ph ], [ %26, %25 ]
+  %.139 = phi ptr [ %28, %.lr.ph ], [ %.02745, %25 ]
+  %.238 = phi ptr [ %30, %.lr.ph ], [ %.131, %25 ]
+  %27 = add i32 %.040, -1
+  %28 = getelementptr i8, ptr %.139, i64 1
+  %29 = load i8, ptr %.139, align 1
+  %30 = getelementptr i8, ptr %.238, i64 1
+  store i8 %29, ptr %.238, align 1
+  %.not36 = icmp eq i32 %27, 0
+  br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit, %6
-  %.030.lcssa = phi ptr [ %12, %6 ], [ %.2.lcssa, %.loopexit ]
-  %.028.lcssa = phi i8 [ %7, %6 ], [ %.129, %.loopexit ]
-  %32 = getelementptr i8, ptr %.030.lcssa, i64 1
+  %.030.lcssa = phi ptr [ %11, %6 ], [ %.2.lcssa, %.loopexit ]
+  %.028.lcssa = phi i1 [ %4, %6 ], [ %.129, %.loopexit ]
+  %31 = getelementptr i8, ptr %.030.lcssa, i64 1
   store i8 %2, ptr %.030.lcssa, align 1
-  store i8 0, ptr %32, align 1
-  %33 = and i8 %.028.lcssa, 1
-  %.not35 = icmp eq i8 %33, 0
-  br i1 %.not35, label %34, label %35
+  store i8 0, ptr %31, align 1
+  br i1 %.028.lcssa, label %33, label %32
 
-34:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef %11) #7
-  br label %35
+32:                                               ; preds = %._crit_edge
+  tail call void @free(ptr noundef %10) #7
+  br label %33
 
-35:                                               ; preds = %34, %._crit_edge
-  %.032 = phi ptr [ %11, %._crit_edge ], [ null, %34 ]
+33:                                               ; preds = %32, %._crit_edge
+  %.032 = phi ptr [ %10, %._crit_edge ], [ null, %32 ]
   ret ptr %.032
 }
 

@@ -170,8 +170,7 @@ if.else:                                          ; preds = %_ZN13EARWMutexDataC
 
 if.then.i:                                        ; preds = %if.else
   %3 = load i8, ptr %pRWMutexParameters, align 1
-  %4 = and i8 %3, 1
-  %tobool2.i11 = icmp ne i8 %4, 0
+  %tobool2.i11 = trunc i8 %3 to i1
   invoke void @_ZN2EA6Thread15MutexParametersC1EbPKc(ptr noundef nonnull align 1 dereferenceable(129) %mup.i9, i1 noundef zeroext %tobool2.i11, ptr noundef null)
           to label %.noexc16 unwind label %lpad
 
@@ -180,9 +179,8 @@ if.then.i:                                        ; preds = %if.else
           to label %call.i.noexc17 unwind label %lpad
 
 call.i.noexc17:                                   ; preds = %.noexc16
-  %5 = load i8, ptr %pRWMutexParameters, align 1
-  %6 = and i8 %5, 1
-  %tobool4.i13 = icmp ne i8 %6, 0
+  %4 = load i8, ptr %pRWMutexParameters, align 1
+  %tobool4.i13 = trunc i8 %4 to i1
   invoke void @_ZN2EA6Thread19ConditionParametersC1EbPKc(ptr noundef nonnull align 1 dereferenceable(17) %mop.i10, i1 noundef zeroext %tobool4.i13, ptr noundef null)
           to label %.noexc19 unwind label %lpad
 
@@ -213,14 +211,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load i8, ptr %pRWMutexParameters, align 1
-  %1 = and i8 %0, 1
-  %tobool2 = icmp ne i8 %1, 0
+  %tobool2 = trunc i8 %0 to i1
   call void @_ZN2EA6Thread15MutexParametersC1EbPKc(ptr noundef nonnull align 1 dereferenceable(129) %mup, i1 noundef zeroext %tobool2, ptr noundef null)
   %mMutex = getelementptr inbounds i8, ptr %this, i64 24
   %call = call noundef zeroext i1 @_ZN2EA6Thread5Mutex4InitEPKNS0_15MutexParametersE(ptr noundef nonnull align 8 dereferenceable(48) %mMutex, ptr noundef nonnull %mup)
-  %2 = load i8, ptr %pRWMutexParameters, align 1
-  %3 = and i8 %2, 1
-  %tobool4 = icmp ne i8 %3, 0
+  %1 = load i8, ptr %pRWMutexParameters, align 1
+  %tobool4 = trunc i8 %1 to i1
   call void @_ZN2EA6Thread19ConditionParametersC1EbPKc(ptr noundef nonnull align 1 dereferenceable(17) %mop, i1 noundef zeroext %tobool4, ptr noundef null)
   %mReadCondition = getelementptr inbounds i8, ptr %this, i64 72
   %call6 = call noundef zeroext i1 @_ZN2EA6Thread9Condition4InitEPKNS0_19ConditionParametersE(ptr noundef nonnull align 8 dereferenceable(48) %mReadCondition, ptr noundef nonnull %mop)

@@ -284,9 +284,8 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_b
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions12compute_hashEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions13compute_hash_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -299,9 +298,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions12compute_hashEb(i1 noundef re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions13depth_protectEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions14depth_protect_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -432,9 +430,8 @@ define dso_local noundef i32 @_ZN9CGOptions14max_expr_depthEi(i32 noundef return
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions14wrap_volatilesEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions15wrap_volatiles_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -447,9 +444,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions14wrap_volatilesEb(i1 noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions20allow_const_volatileEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions21allow_const_volatile_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -462,9 +458,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions20allow_const_volatileEb(i1 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions21avoid_signed_overflowEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions22avoid_signed_overflow_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -526,9 +521,8 @@ define dso_local void @_ZN9CGOptions13struct_outputENSt7__cxx1112basic_stringIcS
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions19fixed_struct_fieldsEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions20fixed_struct_fields_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -541,9 +535,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions19fixed_struct_fieldsEb(i1 nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions13expand_structEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions14expand_struct_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -556,9 +549,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions13expand_structEb(i1 noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions10use_structEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions11use_struct_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -571,9 +563,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions10use_structEb(i1 noundef retu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions9use_unionEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions10use_union_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -646,9 +637,8 @@ define dso_local noundef i32 @_ZN9CGOptions16interested_factsEi(i32 noundef retu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions8paranoidEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions9paranoid_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -661,9 +651,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions8paranoidEb(i1 noundef returne
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions5quietEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions6quiet_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -676,9 +665,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions5quietEb(i1 noundef returned z
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions7conciseEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions8concise_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -691,9 +679,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions7conciseEb(i1 noundef returned
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions6nomainEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions7nomain_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -706,9 +693,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions6nomainEb(i1 noundef returned 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions12random_basedEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions13random_based_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -721,9 +707,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions12random_basedEb(i1 noundef re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions14dfs_exhaustiveEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions15dfs_exhaustive_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -761,9 +746,8 @@ define dso_local noundef i32 @_ZN9CGOptions20max_exhaustive_depthEi(i32 noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions14compact_outputEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions15compact_output_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -788,9 +772,8 @@ define dso_local noundef i32 @_ZN9CGOptions16func1_max_paramsEi(i32 noundef retu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions4kleeEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions5klee_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -803,9 +786,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions4kleeEb(i1 noundef returned ze
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions5crestEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions6crest_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -818,9 +800,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions5crestEb(i1 noundef returned z
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions5ccompEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions6ccomp_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -833,9 +814,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions5ccompEb(i1 noundef returned z
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions13coverage_testEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -860,9 +840,8 @@ define dso_local noundef i32 @_ZN9CGOptions18coverage_test_sizeEi(i32 noundef re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions13packed_structEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions14packed_struct_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -875,9 +854,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions13packed_structEb(i1 noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions9bitfieldsEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions10bitfields_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -890,9 +868,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions9bitfieldsEb(i1 noundef return
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions11prefix_nameEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions12prefix_name_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -905,9 +882,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions11prefix_nameEb(i1 noundef ret
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions20sequence_name_prefixEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions21sequence_name_prefix_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -920,9 +896,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions20sequence_name_prefixEb(i1 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions16compatible_checkEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions17compatible_check_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1000,9 +975,8 @@ define dso_local void @_ZN9CGOptions11delta_inputENSt7__cxx1112basic_stringIcSt1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions18no_delta_reductionEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions19no_delta_reduction_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1015,9 +989,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions18no_delta_reductionEb(i1 noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions6math64Ev() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions7math64_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1030,9 +1003,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions6math64Eb(i1 noundef returned 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions15inline_functionEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions16inline_function_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1045,9 +1017,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions15inline_functionEb(i1 noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions10math_notmpEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions11math_notmp_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1060,9 +1031,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions10math_notmpEb(i1 noundef retu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions8longlongEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions9longlong_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1075,9 +1045,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions8longlongEb(i1 noundef returne
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions4int8Ev() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions5int8_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1090,9 +1059,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions4int8Eb(i1 noundef returned ze
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions5uint8Ev() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions6uint8_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1105,9 +1073,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions5uint8Eb(i1 noundef returned z
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions12enable_floatEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions13enable_float_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1120,9 +1087,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions12enable_floatEb(i1 noundef re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions12strict_floatEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions13strict_float_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1135,9 +1101,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions12strict_floatEb(i1 noundef re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions8pointersEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions9pointers_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1150,9 +1115,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions8pointersEb(i1 noundef returne
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions6arraysEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions7arrays_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1165,9 +1129,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions6arraysEb(i1 noundef returned 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions19strict_const_arraysEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions20strict_const_arrays_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1180,9 +1143,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions19strict_const_arraysEb(i1 nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions5jumpsEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions6jumps_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1195,9 +1157,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions5jumpsEb(i1 noundef returned z
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions14return_structsEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions15return_structs_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1210,9 +1171,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions14return_structsEb(i1 noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions11arg_structsEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions12arg_structs_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1225,9 +1185,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions11arg_structsEb(i1 noundef ret
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions13return_unionsEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions14return_unions_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1240,9 +1199,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions13return_unionsEb(i1 noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions10arg_unionsEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions11arg_unions_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1255,9 +1213,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions10arg_unionsEb(i1 noundef retu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions9volatilesEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions10volatiles_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1270,9 +1227,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions9volatilesEb(i1 noundef return
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions17volatile_pointersEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions18volatile_pointers_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1285,9 +1241,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions17volatile_pointersEb(i1 nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions14const_pointersEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions15const_pointers_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1300,9 +1255,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions14const_pointersEb(i1 noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions16global_variablesEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions17global_variables_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1315,9 +1269,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions16global_variablesEb(i1 nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions11access_onceEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions12access_once_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1330,9 +1283,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions11access_onceEb(i1 noundef ret
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions20strict_volatile_ruleEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions21strict_volatile_rule_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1345,9 +1297,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions20strict_volatile_ruleEb(i1 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions20addr_taken_of_localsEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions21addr_taken_of_locals_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1360,9 +1311,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions20addr_taken_of_localsEb(i1 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions26fresh_array_ctrl_var_namesEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions27fresh_array_ctrl_var_names_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1375,9 +1325,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions26fresh_array_ctrl_var_namesEb
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions6constsEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions7consts_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1390,9 +1339,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions6constsEb(i1 noundef returned 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions8builtinsEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions9builtins_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1405,9 +1353,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions8builtinsEb(i1 noundef returne
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions20dangling_global_ptrsEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions21dangling_global_ptrs_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1420,9 +1367,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions20dangling_global_ptrsEb(i1 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions4divsEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions5divs_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1435,9 +1381,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions4divsEb(i1 noundef returned ze
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions4mulsEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions5muls_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1450,9 +1395,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions4mulsEb(i1 noundef returned ze
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions11accept_argcEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions12accept_argc_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1465,9 +1409,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions11accept_argcEb(i1 noundef ret
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions13random_randomEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions14random_random_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1492,9 +1435,8 @@ define dso_local noundef i32 @_ZN9CGOptions12stop_by_stmtEi(i32 noundef returned
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions17step_hash_by_stmtEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions18step_hash_by_stmt_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1507,9 +1449,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions17step_hash_by_stmtEb(i1 nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions19compound_assignmentEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions20compound_assignment_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1561,9 +1502,8 @@ define dso_local void @_ZN9CGOptions25probability_configurationENSt7__cxx1112bas
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions18const_as_conditionEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions19const_as_condition_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1576,9 +1516,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions18const_as_conditionEb(i1 noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions22match_exact_qualifiersEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions23match_exact_qualifiers_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1591,9 +1530,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions22match_exact_qualifiersEb(i1 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions18blind_check_globalEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions19blind_check_global_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1606,9 +1544,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions18blind_check_globalEb(i1 noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions18no_return_dead_ptrEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions19no_return_dead_ptr_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1621,9 +1558,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions18no_return_dead_ptrEb(i1 noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions17hash_value_printfEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions18hash_value_printf_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1636,9 +1572,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions17hash_value_printfEb(i1 nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions17signed_char_indexEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions18signed_char_index_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1663,9 +1598,8 @@ define dso_local noundef i32 @_ZN9CGOptions21max_array_num_in_loopEi(i32 noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions17identify_wrappersEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions18identify_wrappers_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1678,9 +1612,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions17identify_wrappersEb(i1 nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions18mark_mutable_constEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions19mark_mutable_const_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1693,9 +1626,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions18mark_mutable_constEb(i1 noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions20force_globals_staticEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions21force_globals_static_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1708,9 +1640,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions20force_globals_staticEb(i1 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions28force_non_uniform_array_initEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions29force_non_uniform_array_init_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1771,9 +1702,8 @@ define dso_local noundef i32 @_ZN9CGOptions29dead_pointer_dereference_probEi(i32
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions17pre_incr_operatorEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions18pre_incr_operator_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1786,9 +1716,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions17pre_incr_operatorEb(i1 nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions17pre_decr_operatorEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions18pre_decr_operator_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1801,9 +1730,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions17pre_decr_operatorEb(i1 nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions18post_incr_operatorEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions19post_incr_operator_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1816,9 +1744,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions18post_incr_operatorEb(i1 noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions18post_decr_operatorEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions19post_decr_operator_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1831,9 +1758,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions18post_decr_operatorEb(i1 noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions19unary_plus_operatorEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions20unary_plus_operator_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1846,9 +1772,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions19unary_plus_operatorEb(i1 nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions20use_embedded_assignsEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions21use_embedded_assigns_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1861,9 +1786,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions20use_embedded_assignsEb(i1 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions15use_comma_exprsEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions16use_comma_exprs_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1876,9 +1800,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions15use_comma_exprsEb(i1 noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions21take_union_field_addrEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions22take_union_field_addr_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1891,9 +1814,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions21take_union_field_addrEb(i1 n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions23vol_struct_union_fieldsEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions24vol_struct_union_fields_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1906,9 +1828,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions23vol_struct_union_fieldsEb(i1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions25const_struct_union_fieldsEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions26const_struct_union_fields_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1921,9 +1842,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions25const_struct_union_fieldsEb(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions8lang_cppEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions9lang_cpp_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1936,9 +1856,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions8lang_cppEb(i1 noundef returne
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions5cpp11Ev() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions6cpp11_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1951,9 +1870,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions5cpp11Eb(i1 noundef returned z
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions14fast_executionEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions15fast_execution_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1978,9 +1896,8 @@ define dso_local noundef i32 @_ZN9CGOptions14array_oob_probEi(i32 noundef return
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions14func_attr_flagEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions15func_attr_flag_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1993,9 +1910,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions14func_attr_flagEb(i1 noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions14type_attr_flagEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions15type_attr_flag_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -2008,9 +1924,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions14type_attr_flagEb(i1 noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions15label_attr_flagEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions16label_attr_flag_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -2023,9 +1938,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions15label_attr_flagEb(i1 noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions13var_attr_flagEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions14var_attr_flag_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -2038,9 +1952,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions13var_attr_flagEb(i1 noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions6Int128Ev() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions7Int128_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -2053,9 +1966,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions6Int128Eb(i1 noundef returned 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions7UInt128Ev() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions8UInt128_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -2068,9 +1980,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions7UInt128Eb(i1 noundef returned
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions15binary_constantEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions16binary_constant_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -2592,9 +2503,8 @@ define dso_local noundef i32 @_ZN9CGOptions12pointer_sizeEv() local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions9is_randomEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions13random_based_E, align 1
-  %2 = and i8 %1, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2606,9 +2516,8 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN9CGOptions1
 define dso_local noundef zeroext i1 @_ZN9CGOptions25has_random_based_conflictEv() local_unnamed_addr #6 align 2 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = load i8, ptr @_ZN9CGOptions13random_based_E, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %12
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %12, label %4
 
 4:                                                ; preds = %0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions16split_files_dir_B5cxx11E)
@@ -2629,15 +2538,14 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions25has_random_based_conflictEv(
 
 12:                                               ; preds = %0
   %13 = load i8, ptr @_ZN9CGOptions21sequence_name_prefix_E, align 1
-  %14 = and i8 %13, 1
-  %.not6 = icmp eq i8 %14, 0
-  br i1 %.not6, label %17, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %17
 
 15:                                               ; preds = %12
   %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.26)
   br label %17
 
-17:                                               ; preds = %6, %15, %12, %9
+17:                                               ; preds = %15, %12, %6, %9
   %.03 = phi i1 [ true, %9 ], [ true, %15 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.03
 }
@@ -2654,15 +2562,13 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions26resolve_exhaustive_optionsEv
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = load i8, ptr @_ZN9CGOptions15dfs_exhaustive_E, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %41, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %41
 
 5:                                                ; preds = %0
   %6 = load i8, ptr @_ZN9CGOptions17compatible_check_E, align 1
-  %7 = and i8 %6, 1
-  %.not3 = icmp eq i8 %7, 0
-  br i1 %.not3, label %9, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5
   tail call void @_ZN17CompatibleChecker23enable_compatible_checkEv()
@@ -2704,15 +2610,13 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions26resolve_exhaustive_optionsEv
 
 23:                                               ; preds = %18
   %24 = load i8, ptr @_ZN9CGOptions11use_struct_E, align 1
-  %25 = and i8 %24, 1
-  %.not4 = icmp eq i8 %25, 0
-  br i1 %.not4, label %26, label %31
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %31, label %26
 
 26:                                               ; preds = %23
   %27 = load i8, ptr @_ZN9CGOptions14expand_struct_E, align 1
-  %28 = and i8 %27, 1
-  %.not5 = icmp eq i8 %28, 0
-  br i1 %.not5, label %31, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
   %30 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.29)
@@ -2720,21 +2624,18 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions26resolve_exhaustive_optionsEv
 
 31:                                               ; preds = %26, %23
   %32 = load i8, ptr @_ZN9CGOptions5klee_E, align 1
-  %33 = and i8 %32, 1
-  %.not.i = icmp eq i8 %33, 0
-  br i1 %.not.i, label %34, label %_ZN9CGOptions21has_extension_supportEv.exit.thread
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %_ZN9CGOptions21has_extension_supportEv.exit.thread, label %34
 
 34:                                               ; preds = %31
   %35 = load i8, ptr @_ZN9CGOptions6crest_E, align 1
-  %36 = and i8 %35, 1
-  %.not1.i = icmp eq i8 %36, 0
-  br i1 %.not1.i, label %_ZN9CGOptions21has_extension_supportEv.exit, label %_ZN9CGOptions21has_extension_supportEv.exit.thread
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %_ZN9CGOptions21has_extension_supportEv.exit.thread, label %_ZN9CGOptions21has_extension_supportEv.exit
 
 _ZN9CGOptions21has_extension_supportEv.exit:      ; preds = %34
   %37 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1
-  %38 = and i8 %37, 1
-  %.not6 = icmp eq i8 %38, 0
-  br i1 %.not6, label %40, label %_ZN9CGOptions21has_extension_supportEv.exit.thread
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %_ZN9CGOptions21has_extension_supportEv.exit.thread, label %40
 
 _ZN9CGOptions21has_extension_supportEv.exit.thread: ; preds = %31, %34, %_ZN9CGOptions21has_extension_supportEv.exit
   %39 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.30)
@@ -2756,25 +2657,22 @@ declare noundef zeroext i1 @_ZN15PartialExpander21init_partial_expanderERKNSt7__
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions21has_extension_supportEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions5klee_E, align 1
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %3, label %10
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %9, label %3
 
 3:                                                ; preds = %0
   %4 = load i8, ptr @_ZN9CGOptions6crest_E, align 1
-  %5 = and i8 %4, 1
-  %.not1 = icmp eq i8 %5, 0
-  br i1 %.not1, label %6, label %10
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
   %7 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1
-  %8 = and i8 %7, 1
-  %9 = icmp ne i8 %8, 0
-  br label %10
+  %8 = trunc i8 %7 to i1
+  br label %9
 
-10:                                               ; preds = %6, %3, %0
-  %11 = phi i1 [ true, %3 ], [ true, %0 ], [ %9, %6 ]
-  ret i1 %11
+9:                                                ; preds = %6, %3, %0
+  %10 = phi i1 [ true, %3 ], [ true, %0 ], [ %8, %6 ]
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2838,37 +2736,32 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions22has_extension_conflictEv() l
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN9CGOptions11allow_int64Ev() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions5klee_E, align 1
-  %2 = and i8 %1, 1
-  %.not.i = icmp eq i8 %2, 0
-  br i1 %.not.i, label %3, label %_ZN9CGOptions21has_extension_supportEv.exit.thread
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %_ZN9CGOptions21has_extension_supportEv.exit.thread, label %3
 
 3:                                                ; preds = %0
   %4 = load i8, ptr @_ZN9CGOptions6crest_E, align 1
-  %5 = and i8 %4, 1
-  %.not1.i = icmp eq i8 %5, 0
-  br i1 %.not1.i, label %_ZN9CGOptions21has_extension_supportEv.exit, label %_ZN9CGOptions21has_extension_supportEv.exit.thread
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %_ZN9CGOptions21has_extension_supportEv.exit.thread, label %_ZN9CGOptions21has_extension_supportEv.exit
 
 _ZN9CGOptions21has_extension_supportEv.exit:      ; preds = %3
   %6 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %8, label %_ZN9CGOptions21has_extension_supportEv.exit.thread
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %_ZN9CGOptions21has_extension_supportEv.exit.thread, label %8
 
 8:                                                ; preds = %_ZN9CGOptions21has_extension_supportEv.exit
   %9 = load i8, ptr @_ZN9CGOptions7math64_E, align 1
-  %10 = and i8 %9, 1
-  %.not1 = icmp eq i8 %10, 0
-  br i1 %.not1, label %_ZN9CGOptions21has_extension_supportEv.exit.thread, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN9CGOptions21has_extension_supportEv.exit.thread
 
 11:                                               ; preds = %8
   %12 = load i8, ptr @_ZN9CGOptions9longlong_E, align 1
-  %13 = and i8 %12, 1
-  %14 = icmp ne i8 %13, 0
+  %13 = trunc i8 %12 to i1
   br label %_ZN9CGOptions21has_extension_supportEv.exit.thread
 
 _ZN9CGOptions21has_extension_supportEv.exit.thread: ; preds = %0, %3, %11, %8, %_ZN9CGOptions21has_extension_supportEv.exit
-  %15 = phi i1 [ false, %8 ], [ false, %_ZN9CGOptions21has_extension_supportEv.exit ], [ %14, %11 ], [ false, %3 ], [ false, %0 ]
-  ret i1 %15
+  %14 = phi i1 [ false, %8 ], [ false, %_ZN9CGOptions21has_extension_supportEv.exit ], [ %13, %11 ], [ false, %3 ], [ false, %0 ]
+  ret i1 %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2876,174 +2769,206 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions12has_conflictEv() local_unnam
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = alloca %"class.std::allocator.3", align 1
-  %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  %6 = tail call noundef zeroext i1 @_ZN9CGOptions25has_random_based_conflictEv()
-  br i1 %6, label %79, label %7
+  %4 = alloca %"class.std::__cxx11::basic_string", align 8
+  %5 = alloca %"class.std::allocator.3", align 1
+  %6 = alloca %"class.std::__cxx11::basic_string", align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1)
+  %7 = load i8, ptr @_ZN9CGOptions13random_based_E, align 1
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %17, label %9
 
-7:                                                ; preds = %0
-  %8 = tail call noundef zeroext i1 @_ZN9CGOptions26resolve_exhaustive_optionsEv()
-  br i1 %8, label %79, label %9
+9:                                                ; preds = %0
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions16split_files_dir_B5cxx11E)
+  %10 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #22
+  br i1 %10, label %11, label %14
 
-9:                                                ; preds = %7
-  %10 = load i8, ptr @_ZN9CGOptions5klee_E, align 1
-  %11 = and i8 %10, 1
-  %12 = load i8, ptr @_ZN9CGOptions6crest_E, align 1
-  %13 = and i8 %12, 1
-  %narrow.i = add nuw nsw i8 %13, %11
-  %14 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1
-  %15 = and i8 %14, 1
-  %narrow5.i = add nuw nsw i8 %narrow.i, %15
-  %16 = icmp ugt i8 %narrow5.i, 1
-  br i1 %16, label %_ZN9CGOptions22has_extension_conflictEv.exit.thread, label %_ZN9CGOptions22has_extension_conflictEv.exit
+11:                                               ; preds = %9
+  %12 = load i32, ptr @_ZN9CGOptions16max_split_files_E, align 4
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %14, label %22
 
-_ZN9CGOptions22has_extension_conflictEv.exit.thread: ; preds = %9
-  %17 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.32)
-  br label %79
+14:                                               ; preds = %11, %9
+  %.str.23.sink.i = phi ptr [ @.str.23, %9 ], [ @.str.24, %11 ]
+  %15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull %.str.23.sink.i)
+  %16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.25)
+  br label %_ZN9CGOptions25has_random_based_conflictEv.exit.thread
 
-_ZN9CGOptions22has_extension_conflictEv.exit:     ; preds = %9
-  %18 = tail call noundef zeroext i1 @_ZN9CGOptions18has_delta_conflictEv()
-  br i1 %18, label %79, label %19
+17:                                               ; preds = %0
+  %18 = load i8, ptr @_ZN9CGOptions21sequence_name_prefix_E, align 1
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %22
 
-19:                                               ; preds = %_ZN9CGOptions22has_extension_conflictEv.exit
-  %20 = load i32, ptr @_ZN9CGOptions21inline_function_prob_E, align 4
-  %21 = icmp ugt i32 %20, 100
-  br i1 %21, label %22, label %24
+20:                                               ; preds = %17
+  %21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.26)
+  br label %_ZN9CGOptions25has_random_based_conflictEv.exit.thread
 
-22:                                               ; preds = %19
-  %23 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.33)
-  br label %79
+_ZN9CGOptions25has_random_based_conflictEv.exit.thread: ; preds = %14, %20
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
+  br label %94
 
-24:                                               ; preds = %19
-  %25 = load i32, ptr @_ZN9CGOptions22builtin_function_prob_E, align 4
-  %26 = icmp ugt i32 %25, 100
-  br i1 %26, label %27, label %29
+22:                                               ; preds = %17, %11
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
+  %23 = call noundef zeroext i1 @_ZN9CGOptions26resolve_exhaustive_optionsEv()
+  br i1 %23, label %94, label %24
 
-27:                                               ; preds = %24
-  %28 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.34)
-  br label %79
+24:                                               ; preds = %22
+  %25 = load i8, ptr @_ZN9CGOptions5klee_E, align 1
+  %26 = and i8 %25, 1
+  %27 = load i8, ptr @_ZN9CGOptions6crest_E, align 1
+  %28 = and i8 %27, 1
+  %narrow.i = add nuw nsw i8 %28, %26
+  %29 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1
+  %30 = and i8 %29, 1
+  %narrow5.i = add nuw nsw i8 %narrow.i, %30
+  %31 = icmp ugt i8 %narrow5.i, 1
+  br i1 %31, label %_ZN9CGOptions22has_extension_conflictEv.exit.thread, label %_ZN9CGOptions22has_extension_conflictEv.exit
 
-29:                                               ; preds = %24
-  %30 = load i32, ptr @_ZN9CGOptions15array_oob_prob_E, align 4
-  %31 = icmp ugt i32 %30, 100
-  br i1 %31, label %32, label %34
+_ZN9CGOptions22has_extension_conflictEv.exit.thread: ; preds = %24
+  %32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.32)
+  br label %94
 
-32:                                               ; preds = %29
-  %33 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.35)
-  br label %79
+_ZN9CGOptions22has_extension_conflictEv.exit:     ; preds = %24
+  %33 = call noundef zeroext i1 @_ZN9CGOptions18has_delta_conflictEv()
+  br i1 %33, label %94, label %34
 
-34:                                               ; preds = %29
-  %35 = load i32, ptr @_ZN9CGOptions10max_funcs_E, align 4
-  %36 = icmp slt i32 %35, 1
+34:                                               ; preds = %_ZN9CGOptions22has_extension_conflictEv.exit
+  %35 = load i32, ptr @_ZN9CGOptions21inline_function_prob_E, align 4
+  %36 = icmp ugt i32 %35, 100
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %34
-  %38 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.36)
-  br label %79
+  %38 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.33)
+  br label %94
 
 39:                                               ; preds = %34
-  %40 = load i32, ptr @_ZN9CGOptions14max_blk_depth_E, align 4
-  %41 = icmp slt i32 %40, 1
+  %40 = load i32, ptr @_ZN9CGOptions22builtin_function_prob_E, align 4
+  %41 = icmp ugt i32 %40, 100
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %39
-  %43 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.37)
-  br label %79
+  %43 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.34)
+  br label %94
 
 44:                                               ; preds = %39
-  %45 = load i32, ptr @_ZN9CGOptions17func1_max_params_E, align 4
-  %46 = load i32, ptr @_ZN9CGOptions11max_params_E, align 4
-  %47 = icmp sgt i32 %45, %46
-  br i1 %47, label %48, label %50
+  %45 = load i32, ptr @_ZN9CGOptions15array_oob_prob_E, align 4
+  %46 = icmp ugt i32 %45, 100
+  br i1 %46, label %47, label %49
 
-48:                                               ; preds = %44
-  %49 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.38)
-  br label %79
+47:                                               ; preds = %44
+  %48 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.35)
+  br label %94
 
-50:                                               ; preds = %44
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions16split_files_dir_B5cxx11E)
-  %51 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #22
-  br i1 %51, label %52, label %61
+49:                                               ; preds = %44
+  %50 = load i32, ptr @_ZN9CGOptions10max_funcs_E, align 4
+  %51 = icmp slt i32 %50, 1
+  br i1 %51, label %52, label %54
 
-52:                                               ; preds = %50
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.39, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %53 unwind label %56
+52:                                               ; preds = %49
+  %53 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.36)
+  br label %94
 
-53:                                               ; preds = %52
-  %54 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions16split_files_dir_B5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %55 unwind label %58
+54:                                               ; preds = %49
+  %55 = load i32, ptr @_ZN9CGOptions14max_blk_depth_E, align 4
+  %56 = icmp slt i32 %55, 1
+  br i1 %56, label %57, label %59
 
-55:                                               ; preds = %53
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #22
+57:                                               ; preds = %54
+  %58 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.37)
+  br label %94
+
+59:                                               ; preds = %54
+  %60 = load i32, ptr @_ZN9CGOptions17func1_max_params_E, align 4
+  %61 = load i32, ptr @_ZN9CGOptions11max_params_E, align 4
+  %62 = icmp sgt i32 %60, %61
+  br i1 %62, label %63, label %65
+
+63:                                               ; preds = %59
+  %64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.38)
+  br label %94
+
+65:                                               ; preds = %59
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions16split_files_dir_B5cxx11E)
+  %66 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
+  br i1 %66, label %67, label %76
+
+67:                                               ; preds = %65
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.39, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %68 unwind label %71
+
+68:                                               ; preds = %67
+  %69 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions16split_files_dir_B5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %70 unwind label %73
+
+70:                                               ; preds = %68
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
-  br label %61
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
+  br label %76
 
-56:                                               ; preds = %52
-  %57 = landingpad { ptr, i32 }
+71:                                               ; preds = %67
+  %72 = landingpad { ptr, i32 }
           cleanup
-  br label %60
+  br label %75
 
-58:                                               ; preds = %53
-  %59 = landingpad { ptr, i32 }
+73:                                               ; preds = %68
+  %74 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
-  br label %60
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
+  br label %75
 
-60:                                               ; preds = %58, %56
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %57, %56 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
-  br label %80
+75:                                               ; preds = %73, %71
+  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %72, %71 ]
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
+  br label %95
 
-61:                                               ; preds = %55, %50
-  %62 = load i32, ptr @_ZN9CGOptions16max_split_files_E, align 4
-  %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %64, label %71
+76:                                               ; preds = %70, %65
+  %77 = load i32, ptr @_ZN9CGOptions16max_split_files_E, align 4
+  %78 = icmp sgt i32 %77, 0
+  br i1 %78, label %79, label %86
 
-64:                                               ; preds = %61
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions16split_files_dir_B5cxx11E)
-  %65 = invoke noundef zeroext i1 @_ZN16DefaultOutputMgr17create_output_dirENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %5)
-          to label %66 unwind label %69
+79:                                               ; preds = %76
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions16split_files_dir_B5cxx11E)
+  %80 = invoke noundef zeroext i1 @_ZN16DefaultOutputMgr17create_output_dirENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %6)
+          to label %81 unwind label %84
 
-66:                                               ; preds = %64
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
-  br i1 %65, label %71, label %67
+81:                                               ; preds = %79
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
+  br i1 %80, label %86, label %82
 
-67:                                               ; preds = %66
-  %68 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.40)
-  br label %79
+82:                                               ; preds = %81
+  %83 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.40)
+  br label %94
 
-69:                                               ; preds = %64
-  %70 = landingpad { ptr, i32 }
+84:                                               ; preds = %79
+  %85 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
-  br label %80
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
+  br label %95
 
-71:                                               ; preds = %66, %61
-  %72 = load i8, ptr @_ZN9CGOptions9lang_cpp_E, align 1
-  %73 = and i8 %72, 1
-  %.not = icmp eq i8 %73, 0
-  br i1 %.not, label %74, label %79
+86:                                               ; preds = %81, %76
+  %87 = load i8, ptr @_ZN9CGOptions9lang_cpp_E, align 1
+  %88 = trunc i8 %87 to i1
+  br i1 %88, label %94, label %89
 
-74:                                               ; preds = %71
-  %75 = load i8, ptr @_ZN9CGOptions6cpp11_E, align 1
-  %76 = and i8 %75, 1
-  %.not10 = icmp eq i8 %76, 0
-  br i1 %.not10, label %79, label %77
+89:                                               ; preds = %86
+  %90 = load i8, ptr @_ZN9CGOptions6cpp11_E, align 1
+  %91 = trunc i8 %90 to i1
+  br i1 %91, label %92, label %94
 
-77:                                               ; preds = %74
-  %78 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.41)
-  br label %79
+92:                                               ; preds = %89
+  %93 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.41)
+  br label %94
 
-79:                                               ; preds = %_ZN9CGOptions22has_extension_conflictEv.exit.thread, %71, %74, %_ZN9CGOptions22has_extension_conflictEv.exit, %7, %0, %77, %67, %48, %42, %37, %32, %27, %22
-  %.04 = phi i1 [ true, %22 ], [ true, %27 ], [ true, %32 ], [ true, %37 ], [ true, %42 ], [ true, %48 ], [ true, %67 ], [ true, %77 ], [ true, %0 ], [ true, %7 ], [ true, %_ZN9CGOptions22has_extension_conflictEv.exit ], [ false, %74 ], [ false, %71 ], [ true, %_ZN9CGOptions22has_extension_conflictEv.exit.thread ]
+94:                                               ; preds = %_ZN9CGOptions22has_extension_conflictEv.exit.thread, %_ZN9CGOptions25has_random_based_conflictEv.exit.thread, %86, %89, %_ZN9CGOptions22has_extension_conflictEv.exit, %22, %92, %82, %63, %57, %52, %47, %42, %37
+  %.04 = phi i1 [ true, %37 ], [ true, %42 ], [ true, %47 ], [ true, %52 ], [ true, %57 ], [ true, %63 ], [ true, %82 ], [ true, %92 ], [ true, %22 ], [ true, %_ZN9CGOptions22has_extension_conflictEv.exit ], [ false, %89 ], [ false, %86 ], [ true, %_ZN9CGOptions25has_random_based_conflictEv.exit.thread ], [ true, %_ZN9CGOptions22has_extension_conflictEv.exit.thread ]
   ret i1 %.04
 
-80:                                               ; preds = %69, %60
-  %.pn6 = phi { ptr, i32 } [ %70, %69 ], [ %.pn, %60 ]
+95:                                               ; preds = %84, %75
+  %.pn6 = phi { ptr, i32 } [ %85, %84 ], [ %.pn, %75 ]
   resume { ptr, i32 } %.pn6
 }
 
@@ -3614,12 +3539,11 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEE4findERS9_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
   %17 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
   %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  %20 = icmp ne i8 %19, 0
+  %19 = trunc i8 %18 to i1
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEE4findERS9_.exit.thread
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEE4findERS9_.exit.thread: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i, %1, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEE4findERS9_.exit
-  %.0 = phi i1 [ %20, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEE4findERS9_.exit ], [ false, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ false, %1 ], [ false, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %.0 = phi i1 [ %19, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEE4findERS9_.exit ], [ false, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ false, %1 ], [ false, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
   ret i1 %.0
 }
 
@@ -3643,8 +3567,8 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions15enabled_builtinERKNSt7__cxx1
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
-  %.not22 = icmp eq ptr %7, %9
-  br i1 %.not22, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph
+  %.not = icmp eq ptr %7, %9
+  br i1 %.not, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %10 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN9CGOptions22enabled_builtin_kinds_B5cxx11E, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
@@ -3707,9 +3631,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZN9CGOptions20enabled_builtin_kindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %27 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 64
   %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 1
-  %.not = icmp eq i8 %29, 0
-  br i1 %.not, label %_ZN9CGOptions20enabled_builtin_kindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %._crit_edge.loopexit19
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %._crit_edge.loopexit19, label %_ZN9CGOptions20enabled_builtin_kindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
 30:                                               ; preds = %1
   %31 = landingpad { ptr, i32 }
@@ -3730,8 +3653,8 @@ _ZN9CGOptions20enabled_builtin_kindERKNSt7__cxx1112basic_stringIcSt11char_traits
 
 _ZN9CGOptions20enabled_builtin_kindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i, %.lr.ph.split, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZN9CGOptions20enabled_builtin_kindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %35 = getelementptr inbounds i8, ptr %.sroa.011.017, i64 32
-  %.not23 = icmp eq ptr %35, %9
-  br i1 %.not23, label %._crit_edge.loopexit19, label %.lr.ph.splitthread-pre-split, !llvm.loop !16
+  %.not22 = icmp eq ptr %35, %9
+  br i1 %.not22, label %._crit_edge.loopexit19, label %.lr.ph.splitthread-pre-split, !llvm.loop !16
 
 ._crit_edge.loopexit19:                           ; preds = %_ZN9CGOptions20enabled_builtin_kindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %_ZN9CGOptions20enabled_builtin_kindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.lcssa.ph = phi i1 [ true, %_ZN9CGOptions20enabled_builtin_kindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %_ZN9CGOptions20enabled_builtin_kindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
@@ -3758,7 +3681,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %6, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %._crit_edge
-  %.lcssa27 = phi i1 [ %.lcssa, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %.lcssa, %._crit_edge ], [ false, %6 ]
+  %.lcssa26 = phi i1 [ %.lcssa, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %.lcssa, %._crit_edge ], [ false, %6 ]
   %39 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %36, %._crit_edge ], [ %7, %6 ]
   %.not.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %40
@@ -3768,7 +3691,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %40
-  ret i1 %.lcssa27
+  ret i1 %.lcssa26
 }
 
 ; Function Attrs: noreturn nounwind uwtable
@@ -4697,17 +4620,17 @@ __cxx_global_var_init.42.exit:                    ; preds = %__cxx_global_var_in
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4727,8 +4650,8 @@ attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "frame-p
 attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { builtin nounwind }
 attributes #21 = { noreturn nounwind }
 attributes #22 = { nounwind }

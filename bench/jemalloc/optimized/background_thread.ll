@@ -148,14 +148,13 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
   %5 = load atomic i8, ptr @background_thread_enabled_state monotonic, align 1
-  %6 = and i8 %5, 1
-  %tobool.i.not = icmp eq i8 %6, 0
-  br i1 %tobool.i.not, label %if.then8.critedge, label %land.rhs
+  %tobool.i = trunc i8 %5 to i1
+  br i1 %tobool.i, label %land.rhs, label %if.then8.critedge
 
 land.rhs:                                         ; preds = %malloc_mutex_lock.exit
   %state = getelementptr inbounds i8, ptr %arrayidx, i64 168
-  %7 = load i32, ptr %state, align 8
-  %cmp = icmp eq i32 %7, 0
+  %6 = load i32, ptr %state, align 8
+  %cmp = icmp eq i32 %6, 0
   br i1 %cmp, label %if.then, label %if.then8.critedge
 
 if.then:                                          ; preds = %land.rhs
@@ -168,8 +167,8 @@ if.then:                                          ; preds = %land.rhs
   %tot_sleep_time.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %npages_to_purge_new.i.i, i8 0, i64 16, i1 false)
   tail call void @nstime_copy(ptr noundef nonnull %tot_sleep_time.i.i, ptr noundef nonnull @nstime_zero) #11
-  %8 = load i64, ptr @n_background_threads, align 8
-  %inc.i = add i64 %8, 1
+  %7 = load i64, ptr @n_background_threads, align 8
+  %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr @n_background_threads, align 8
   %locked.i23 = getelementptr inbounds i8, ptr %arrayidx, i64 120
   store atomic i8 0, ptr %locked.i23 monotonic, align 1
@@ -184,52 +183,52 @@ if.then8.critedge:                                ; preds = %malloc_mutex_lock.e
   br label %return
 
 if.then12:                                        ; preds = %if.then
-  %9 = load ptr, ptr @background_thread_info, align 8
-  %lock.i.i27 = getelementptr inbounds i8, ptr %9, i64 128
+  %8 = load ptr, ptr @background_thread_info, align 8
+  %lock.i.i27 = getelementptr inbounds i8, ptr %8, i64 128
   %call.i.i28 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i27) #11
   %cmp.i.not.i29 = icmp eq i32 %call.i.i28, 0
   br i1 %cmp.i.not.i29, label %if.end.i32, label %if.then.i30
 
 if.then.i30:                                      ; preds = %if.then12
-  %mtx15 = getelementptr inbounds i8, ptr %9, i64 56
+  %mtx15 = getelementptr inbounds i8, ptr %8, i64 56
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx15) #11
-  %locked.i31 = getelementptr inbounds i8, ptr %9, i64 120
+  %locked.i31 = getelementptr inbounds i8, ptr %8, i64 120
   store atomic i8 1, ptr %locked.i31 monotonic, align 1
   br label %if.end.i32
 
 if.end.i32:                                       ; preds = %if.then.i30, %if.then12
-  %n_lock_ops.i.i33 = getelementptr inbounds i8, ptr %9, i64 112
-  %10 = load i64, ptr %n_lock_ops.i.i33, align 8
-  %inc.i.i34 = add i64 %10, 1
+  %n_lock_ops.i.i33 = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load i64, ptr %n_lock_ops.i.i33, align 8
+  %inc.i.i34 = add i64 %9, 1
   store i64 %inc.i.i34, ptr %n_lock_ops.i.i33, align 8
-  %prev_owner.i.i35 = getelementptr inbounds i8, ptr %9, i64 104
-  %11 = load ptr, ptr %prev_owner.i.i35, align 8
-  %cmp.not.i.i36 = icmp eq ptr %11, %tsd
+  %prev_owner.i.i35 = getelementptr inbounds i8, ptr %8, i64 104
+  %10 = load ptr, ptr %prev_owner.i.i35, align 8
+  %cmp.not.i.i36 = icmp eq ptr %10, %tsd
   br i1 %cmp.not.i.i36, label %malloc_mutex_lock.exit40, label %if.then.i.i37
 
 if.then.i.i37:                                    ; preds = %if.end.i32
   store ptr %tsd, ptr %prev_owner.i.i35, align 8
-  %n_owner_switches.i.i38 = getelementptr inbounds i8, ptr %9, i64 96
-  %12 = load i64, ptr %n_owner_switches.i.i38, align 8
-  %inc2.i.i39 = add i64 %12, 1
+  %n_owner_switches.i.i38 = getelementptr inbounds i8, ptr %8, i64 96
+  %11 = load i64, ptr %n_owner_switches.i.i38, align 8
+  %inc2.i.i39 = add i64 %11, 1
   store i64 %inc2.i.i39, ptr %n_owner_switches.i.i38, align 8
   br label %malloc_mutex_lock.exit40
 
 malloc_mutex_lock.exit40:                         ; preds = %if.end.i32, %if.then.i.i37
-  %cond = getelementptr inbounds i8, ptr %9, i64 8
+  %cond = getelementptr inbounds i8, ptr %8, i64 8
   %call18 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cond) #11
-  %locked.i41 = getelementptr inbounds i8, ptr %9, i64 120
+  %locked.i41 = getelementptr inbounds i8, ptr %8, i64 120
   store atomic i8 0, ptr %locked.i41 monotonic, align 1
   %call1.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i27) #11
   br label %return
 
 if.end21:                                         ; preds = %if.then
   %state.i.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 824
-  %13 = load i8, ptr %state.i.i.i.i, align 8
-  %cmp.i.i.i = icmp eq i8 %13, 0
+  %12 = load i8, ptr %state.i.i.i.i, align 8
+  %cmp.i.i.i = icmp eq i8 %12, 0
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 1
-  %14 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
-  %inc.i.i44 = add i8 %14, 1
+  %13 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
+  %inc.i.i44 = add i8 %13, 1
   store i8 %inc.i.i44, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
   br i1 %cmp.i.i.i, label %if.then.i.i45, label %pre_reentrancy.exit
 
@@ -246,19 +245,18 @@ pre_reentrancy.exit:                              ; preds = %if.end21, %if.then.
   br i1 %cmp.not.i, label %if.end.i47, label %background_thread_create_signals_masked.exit
 
 if.end.i47:                                       ; preds = %pre_reentrancy.exit
-  %15 = inttoptr i64 %rem to ptr
-  %16 = load ptr, ptr @pthread_create_fptr, align 8, !noalias !5
-  %call.i.i48 = call i32 %16(ptr noundef nonnull %arrayidx, ptr noundef null, ptr noundef nonnull @background_thread_entry, ptr noundef %15) #11
+  %14 = inttoptr i64 %rem to ptr
+  %15 = load ptr, ptr @pthread_create_fptr, align 8, !noalias !5
+  %call.i.i48 = call i32 %15(ptr noundef nonnull %arrayidx, ptr noundef null, ptr noundef nonnull @background_thread_entry, ptr noundef %14) #11
   %call3.i = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %oldset.i, ptr noundef null) #11
   %cmp4.not.i = icmp eq i32 %call3.i, 0
   br i1 %cmp4.not.i, label %background_thread_create_signals_masked.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i47
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.3, i32 noundef %call.i.i48, i32 noundef %call3.i) #11
-  %17 = load i8, ptr @opt_abort, align 1
-  %18 = and i8 %17, 1
-  %tobool.not.i = icmp eq i8 %18, 0
-  br i1 %tobool.not.i, label %background_thread_create_signals_masked.exit, label %if.then6.i
+  %16 = load i8, ptr @opt_abort, align 1
+  %tobool.i49 = trunc i8 %16 to i1
+  br i1 %tobool.i49, label %if.then6.i, label %background_thread_create_signals_masked.exit
 
 if.then6.i:                                       ; preds = %if.then5.i
   call void @abort() #12
@@ -268,58 +266,58 @@ background_thread_create_signals_masked.exit:     ; preds = %pre_reentrancy.exit
   %retval.0.i = phi i32 [ %call1.i46, %pre_reentrancy.exit ], [ %call.i.i48, %if.then5.i ], [ %call.i.i48, %if.end.i47 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %set.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %oldset.i)
-  %19 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
-  %dec.i.i = add i8 %19, -1
+  %17 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
+  %dec.i.i = add i8 %17, -1
   store i8 %dec.i.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
   %cmp.i.i = icmp eq i8 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then.i.i50, label %post_reentrancy.exit
+  br i1 %cmp.i.i, label %if.then.i.i51, label %post_reentrancy.exit
 
-if.then.i.i50:                                    ; preds = %background_thread_create_signals_masked.exit
+if.then.i.i51:                                    ; preds = %background_thread_create_signals_masked.exit
   call void @tsd_slow_update(ptr noundef nonnull %tsd) #11
   br label %post_reentrancy.exit
 
-post_reentrancy.exit:                             ; preds = %background_thread_create_signals_masked.exit, %if.then.i.i50
+post_reentrancy.exit:                             ; preds = %background_thread_create_signals_masked.exit, %if.then.i.i51
   %cmp23.not = icmp eq i32 %retval.0.i, 0
   br i1 %cmp23.not, label %return, label %if.then25
 
 if.then25:                                        ; preds = %post_reentrancy.exit
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.2, i32 noundef %retval.0.i) #11
-  %call.i.i52 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #11
-  %cmp.i.not.i53 = icmp eq i32 %call.i.i52, 0
-  br i1 %cmp.i.not.i53, label %if.end.i56, label %if.then.i54
+  %call.i.i53 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #11
+  %cmp.i.not.i54 = icmp eq i32 %call.i.i53, 0
+  br i1 %cmp.i.not.i54, label %if.end.i57, label %if.then.i55
 
-if.then.i54:                                      ; preds = %if.then25
+if.then.i55:                                      ; preds = %if.then25
   call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx) #11
   store atomic i8 1, ptr %locked.i23 monotonic, align 1
-  br label %if.end.i56
+  br label %if.end.i57
 
-if.end.i56:                                       ; preds = %if.then.i54, %if.then25
-  %20 = load i64, ptr %n_lock_ops.i.i, align 8
-  %inc.i.i58 = add i64 %20, 1
-  store i64 %inc.i.i58, ptr %n_lock_ops.i.i, align 8
-  %21 = load ptr, ptr %prev_owner.i.i, align 8
-  %cmp.not.i.i60 = icmp eq ptr %21, %tsd
-  br i1 %cmp.not.i.i60, label %malloc_mutex_lock.exit64, label %if.then.i.i61
+if.end.i57:                                       ; preds = %if.then.i55, %if.then25
+  %18 = load i64, ptr %n_lock_ops.i.i, align 8
+  %inc.i.i59 = add i64 %18, 1
+  store i64 %inc.i.i59, ptr %n_lock_ops.i.i, align 8
+  %19 = load ptr, ptr %prev_owner.i.i, align 8
+  %cmp.not.i.i61 = icmp eq ptr %19, %tsd
+  br i1 %cmp.not.i.i61, label %malloc_mutex_lock.exit65, label %if.then.i.i62
 
-if.then.i.i61:                                    ; preds = %if.end.i56
+if.then.i.i62:                                    ; preds = %if.end.i57
   store ptr %tsd, ptr %prev_owner.i.i, align 8
-  %n_owner_switches.i.i62 = getelementptr inbounds i8, ptr %arrayidx, i64 96
-  %22 = load i64, ptr %n_owner_switches.i.i62, align 8
-  %inc2.i.i63 = add i64 %22, 1
-  store i64 %inc2.i.i63, ptr %n_owner_switches.i.i62, align 8
-  br label %malloc_mutex_lock.exit64
+  %n_owner_switches.i.i63 = getelementptr inbounds i8, ptr %arrayidx, i64 96
+  %20 = load i64, ptr %n_owner_switches.i.i63, align 8
+  %inc2.i.i64 = add i64 %20, 1
+  store i64 %inc2.i.i64, ptr %n_owner_switches.i.i63, align 8
+  br label %malloc_mutex_lock.exit65
 
-malloc_mutex_lock.exit64:                         ; preds = %if.end.i56, %if.then.i.i61
+malloc_mutex_lock.exit65:                         ; preds = %if.end.i57, %if.then.i.i62
   store i32 0, ptr %state, align 8
-  %23 = load i64, ptr @n_background_threads, align 8
-  %dec = add i64 %23, -1
+  %21 = load i64, ptr @n_background_threads, align 8
+  %dec = add i64 %21, -1
   store i64 %dec, ptr @n_background_threads, align 8
   store atomic i8 0, ptr %locked.i23 monotonic, align 1
-  %call1.i67 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
+  %call1.i68 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
   br label %return
 
-return:                                           ; preds = %post_reentrancy.exit, %if.then8.critedge, %malloc_mutex_lock.exit64, %malloc_mutex_lock.exit40
-  %retval.0 = phi i1 [ false, %malloc_mutex_lock.exit40 ], [ true, %malloc_mutex_lock.exit64 ], [ false, %if.then8.critedge ], [ false, %post_reentrancy.exit ]
+return:                                           ; preds = %post_reentrancy.exit, %if.then8.critedge, %malloc_mutex_lock.exit65, %malloc_mutex_lock.exit40
+  %retval.0 = phi i1 [ false, %malloc_mutex_lock.exit40 ], [ true, %malloc_mutex_lock.exit65 ], [ false, %if.then8.critedge ], [ false, %post_reentrancy.exit ]
   ret i1 %retval.0
 }
 
@@ -353,27 +351,26 @@ for.body10.preheader:                             ; preds = %for.end
   br label %for.body10
 
 for.body10:                                       ; preds = %for.body10.preheader, %for.inc35
-  %1 = phi i64 [ %.pre38, %for.body10.preheader ], [ %11, %for.inc35 ]
+  %1 = phi i64 [ %.pre38, %for.body10.preheader ], [ %10, %for.inc35 ]
   %indvars.iv = phi i64 [ 1, %for.body10.preheader ], [ %indvars.iv.next, %for.inc35 ]
   %nmarked.029 = phi i32 [ 0, %for.body10.preheader ], [ %nmarked.1, %for.inc35 ]
   %rem = urem i64 %indvars.iv, %1
   %arrayidx12 = getelementptr inbounds i8, ptr %vla, i64 %rem
   %2 = load i8, ptr %arrayidx12, align 1
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %lor.lhs.false, label %for.inc35
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %for.inc35, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body10
   %arrayidx.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %indvars.iv
-  %4 = load atomic i64, ptr %arrayidx.i acquire, align 8
-  %cmp16 = icmp eq i64 %4, 0
+  %3 = load atomic i64, ptr %arrayidx.i acquire, align 8
+  %cmp16 = icmp eq i64 %3, 0
   %.pre = load i64, ptr @max_background_threads, align 8
   br i1 %cmp16, label %for.inc35, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %5 = load ptr, ptr @background_thread_info, align 8
+  %4 = load ptr, ptr @background_thread_info, align 8
   %rem19 = urem i64 %indvars.iv, %.pre
-  %arrayidx20 = getelementptr inbounds %struct.background_thread_info_s, ptr %5, i64 %rem19
+  %arrayidx20 = getelementptr inbounds %struct.background_thread_info_s, ptr %4, i64 %rem19
   %lock.i.i = getelementptr inbounds i8, ptr %arrayidx20, i64 128
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #11
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
@@ -388,19 +385,19 @@ if.then.i:                                        ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.then.i, %if.end
   %n_lock_ops.i.i = getelementptr inbounds i8, ptr %arrayidx20, i64 112
-  %6 = load i64, ptr %n_lock_ops.i.i, align 8
-  %inc.i.i = add i64 %6, 1
+  %5 = load i64, ptr %n_lock_ops.i.i, align 8
+  %inc.i.i = add i64 %5, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
   %prev_owner.i.i = getelementptr inbounds i8, ptr %arrayidx20, i64 104
-  %7 = load ptr, ptr %prev_owner.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %7, %tsd
+  %6 = load ptr, ptr %prev_owner.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %6, %tsd
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsd, ptr %prev_owner.i.i, align 8
   %n_owner_switches.i.i = getelementptr inbounds i8, ptr %arrayidx20, i64 96
-  %8 = load i64, ptr %n_owner_switches.i.i, align 8
-  %inc2.i.i = add i64 %8, 1
+  %7 = load i64, ptr %n_owner_switches.i.i, align 8
+  %inc2.i.i = add i64 %7, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit
 
@@ -415,23 +412,23 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   %tot_sleep_time.i.i = getelementptr inbounds i8, ptr %arrayidx20, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %npages_to_purge_new.i.i, i8 0, i64 16, i1 false)
   tail call void @nstime_copy(ptr noundef nonnull %tot_sleep_time.i.i, ptr noundef nonnull @nstime_zero) #11
-  %9 = load i64, ptr @n_background_threads, align 8
-  %inc.i = add i64 %9, 1
+  %8 = load i64, ptr @n_background_threads, align 8
+  %inc.i = add i64 %8, 1
   store i64 %inc.i, ptr @n_background_threads, align 8
   %locked.i21 = getelementptr inbounds i8, ptr %arrayidx20, i64 120
   store atomic i8 0, ptr %locked.i21 monotonic, align 1
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
-  %10 = load i64, ptr @max_background_threads, align 8
-  %rem27 = urem i64 %indvars.iv, %10
+  %9 = load i64, ptr @max_background_threads, align 8
+  %rem27 = urem i64 %indvars.iv, %9
   %arrayidx28 = getelementptr inbounds i8, ptr %vla, i64 %rem27
   store i8 1, ptr %arrayidx28, align 1
   %inc29 = add i32 %nmarked.029, 1
   %conv30 = zext i32 %inc29 to i64
-  %cmp31 = icmp eq i64 %10, %conv30
+  %cmp31 = icmp eq i64 %9, %conv30
   br i1 %cmp31, label %for.end37, label %for.inc35
 
 for.inc35:                                        ; preds = %malloc_mutex_lock.exit, %for.body10, %lor.lhs.false
-  %11 = phi i64 [ %1, %for.body10 ], [ %.pre, %lor.lhs.false ], [ %10, %malloc_mutex_lock.exit ]
+  %10 = phi i64 [ %1, %for.body10 ], [ %.pre, %lor.lhs.false ], [ %9, %malloc_mutex_lock.exit ]
   %nmarked.1 = phi i32 [ %nmarked.029, %for.body10 ], [ %nmarked.029, %lor.lhs.false ], [ %inc29, %malloc_mutex_lock.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -450,13 +447,13 @@ for.body46.preheader:                             ; preds = %for.end37
 for.body46:                                       ; preds = %for.body46.preheader, %for.inc54
   %indvars.iv33 = phi i64 [ 0, %for.body46.preheader ], [ %indvars.iv.next34, %for.inc54 ]
   %arrayidx.i23 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %indvars.iv33
-  %12 = load atomic i64, ptr %arrayidx.i23 acquire, align 8
-  %cmp49.not = icmp eq i64 %12, 0
+  %11 = load atomic i64, ptr %arrayidx.i23 acquire, align 8
+  %cmp49.not = icmp eq i64 %11, 0
   br i1 %cmp49.not, label %for.inc54, label %if.then51
 
 if.then51:                                        ; preds = %for.body46
-  %13 = inttoptr i64 %12 to ptr
-  %pa_shard = getelementptr inbounds i8, ptr %13, i64 10664
+  %12 = inttoptr i64 %11 to ptr
+  %pa_shard = getelementptr inbounds i8, ptr %12, i64 10664
   tail call void @pa_shard_set_deferral_allowed(ptr noundef %tsd, ptr noundef nonnull %pa_shard, i1 noundef zeroext true) #11
   br label %for.inc54
 
@@ -660,8 +657,8 @@ define hidden void @background_thread_prefork0(ptr noundef %tsdn) local_unnamed_
 entry:
   tail call void @malloc_mutex_prefork(ptr noundef %tsdn, ptr noundef nonnull @background_thread_lock) #11
   %0 = load atomic i8, ptr @background_thread_enabled_state monotonic, align 1
-  %1 = and i8 %0, 1
-  store i8 %1, ptr @background_thread_enabled_at_fork, align 1
+  %frombool = and i8 %0, 1
+  store i8 %frombool, ptr @background_thread_enabled_at_fork, align 1
   ret void
 }
 
@@ -738,9 +735,8 @@ for.body:                                         ; preds = %entry, %for.body
 for.end:                                          ; preds = %for.body, %entry
   tail call void @malloc_mutex_postfork_child(ptr noundef %tsdn, ptr noundef nonnull @background_thread_lock) #11
   %3 = load i8, ptr @background_thread_enabled_at_fork, align 1
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %for.end
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #11
@@ -753,32 +749,32 @@ if.then.i:                                        ; preds = %if.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end
-  %5 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %inc.i.i = add i64 %5, 1
+  %4 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %inc.i.i = add i64 %4, 1
   store i64 %inc.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %cmp.not.i.i = icmp eq ptr %6, %tsdn
+  %5 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  %cmp.not.i.i = icmp eq ptr %5, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsdn, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
-  %inc2.i.i = add i64 %7, 1
+  %6 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  %inc2.i.i = add i64 %6, 1
   store i64 %inc2.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
   store i64 0, ptr @n_background_threads, align 8
   store atomic i8 0, ptr @background_thread_enabled_state monotonic, align 1
-  %8 = load i64, ptr @max_background_threads, align 8
-  %cmp532.not = icmp eq i64 %8, 0
+  %7 = load i64, ptr @max_background_threads, align 8
+  %cmp532.not = icmp eq i64 %7, 0
   br i1 %cmp532.not, label %for.end14, label %for.body7
 
 for.body7:                                        ; preds = %malloc_mutex_lock.exit, %malloc_mutex_lock.exit26
   %conv434 = phi i64 [ %conv4, %malloc_mutex_lock.exit26 ], [ 0, %malloc_mutex_lock.exit ]
   %i2.033 = phi i32 [ %inc13, %malloc_mutex_lock.exit26 ], [ 0, %malloc_mutex_lock.exit ]
-  %9 = load ptr, ptr @background_thread_info, align 8
-  %arrayidx9 = getelementptr inbounds %struct.background_thread_info_s, ptr %9, i64 %conv434
+  %8 = load ptr, ptr @background_thread_info, align 8
+  %arrayidx9 = getelementptr inbounds %struct.background_thread_info_s, ptr %8, i64 %conv434
   %lock.i.i = getelementptr inbounds i8, ptr %arrayidx9, i64 128
   %call.i.i18 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #11
   %cmp.i.not.i19 = icmp eq i32 %call.i.i18, 0
@@ -793,19 +789,19 @@ if.then.i20:                                      ; preds = %for.body7
 
 if.end.i21:                                       ; preds = %if.then.i20, %for.body7
   %n_lock_ops.i.i = getelementptr inbounds i8, ptr %arrayidx9, i64 112
-  %10 = load i64, ptr %n_lock_ops.i.i, align 8
-  %inc.i.i22 = add i64 %10, 1
+  %9 = load i64, ptr %n_lock_ops.i.i, align 8
+  %inc.i.i22 = add i64 %9, 1
   store i64 %inc.i.i22, ptr %n_lock_ops.i.i, align 8
   %prev_owner.i.i = getelementptr inbounds i8, ptr %arrayidx9, i64 104
-  %11 = load ptr, ptr %prev_owner.i.i, align 8
-  %cmp.not.i.i23 = icmp eq ptr %11, %tsdn
+  %10 = load ptr, ptr %prev_owner.i.i, align 8
+  %cmp.not.i.i23 = icmp eq ptr %10, %tsdn
   br i1 %cmp.not.i.i23, label %malloc_mutex_lock.exit26, label %if.then.i.i24
 
 if.then.i.i24:                                    ; preds = %if.end.i21
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
   %n_owner_switches.i.i = getelementptr inbounds i8, ptr %arrayidx9, i64 96
-  %12 = load i64, ptr %n_owner_switches.i.i, align 8
-  %inc2.i.i25 = add i64 %12, 1
+  %11 = load i64, ptr %n_owner_switches.i.i, align 8
+  %inc2.i.i25 = add i64 %11, 1
   store i64 %inc2.i.i25, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit26
 
@@ -827,8 +823,8 @@ malloc_mutex_lock.exit26:                         ; preds = %if.end.i21, %if.the
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
   %inc13 = add i32 %i2.033, 1
   %conv4 = zext i32 %inc13 to i64
-  %13 = load i64, ptr @max_background_threads, align 8
-  %cmp5 = icmp ugt i64 %13, %conv4
+  %12 = load i64, ptr @max_background_threads, align 8
+  %cmp5 = icmp ugt i64 %12, %conv4
   br i1 %cmp5, label %for.body7, label %for.end14, !llvm.loop !17
 
 for.end14:                                        ; preds = %malloc_mutex_lock.exit26, %malloc_mutex_lock.exit
@@ -874,19 +870,18 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
   %3 = load atomic i8, ptr @background_thread_enabled_state monotonic, align 1
-  %4 = and i8 %3, 1
-  %tobool.i.not = icmp eq i8 %4, 0
-  br i1 %tobool.i.not, label %return, label %if.end
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.end, label %return
 
 if.end:                                           ; preds = %malloc_mutex_lock.exit
   %run_interval = getelementptr inbounds i8, ptr %stats, i64 16
   tail call void @nstime_copy(ptr noundef nonnull %run_interval, ptr noundef nonnull @nstime_zero) #11
   %max_counter_per_bg_thd = getelementptr inbounds i8, ptr %stats, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %max_counter_per_bg_thd, i8 0, i64 64, i1 false)
-  %5 = load i64, ptr @n_background_threads, align 8
-  store i64 %5, ptr %stats, align 8
-  %6 = load i64, ptr @max_background_threads, align 8
-  %cmp32.not = icmp eq i64 %6, 0
+  %4 = load i64, ptr @n_background_threads, align 8
+  store i64 %4, ptr %stats, align 8
+  %5 = load i64, ptr @max_background_threads, align 8
+  %cmp32.not = icmp eq i64 %5, 0
   br i1 %cmp32.not, label %for.end.thread, label %for.body.lr.ph
 
 for.end.thread:                                   ; preds = %if.end
@@ -907,8 +902,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv35 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %for.inc ]
   %i.034 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %num_runs.033 = phi i64 [ 0, %for.body.lr.ph ], [ %num_runs.2, %for.inc ]
-  %7 = load ptr, ptr @background_thread_info, align 8
-  %arrayidx = getelementptr inbounds %struct.background_thread_info_s, ptr %7, i64 %conv35
+  %6 = load ptr, ptr @background_thread_info, align 8
+  %arrayidx = getelementptr inbounds %struct.background_thread_info_s, ptr %6, i64 %conv35
   %mtx = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %lock.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 128
   %call.i.i22 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #11
@@ -917,32 +912,32 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.end.i23:                                       ; preds = %for.body
   %n_lock_ops.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 112
-  %8 = load i64, ptr %n_lock_ops.i.i, align 8
-  %inc.i.i24 = add i64 %8, 1
+  %7 = load i64, ptr %n_lock_ops.i.i, align 8
+  %inc.i.i24 = add i64 %7, 1
   store i64 %inc.i.i24, ptr %n_lock_ops.i.i, align 8
   %prev_owner.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 104
-  %9 = load ptr, ptr %prev_owner.i.i, align 8
-  %cmp.not.i.i25 = icmp eq ptr %9, %tsdn
+  %8 = load ptr, ptr %prev_owner.i.i, align 8
+  %cmp.not.i.i25 = icmp eq ptr %8, %tsdn
   br i1 %cmp.not.i.i25, label %if.end4, label %if.then.i.i26
 
 if.then.i.i26:                                    ; preds = %if.end.i23
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
   %n_owner_switches.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 96
-  %10 = load i64, ptr %n_owner_switches.i.i, align 8
-  %inc2.i.i27 = add i64 %10, 1
+  %9 = load i64, ptr %n_owner_switches.i.i, align 8
+  %inc2.i.i27 = add i64 %9, 1
   store i64 %inc2.i.i27, ptr %n_owner_switches.i.i, align 8
   br label %if.end4
 
 if.end4:                                          ; preds = %if.end.i23, %if.then.i.i26
   %state = getelementptr inbounds i8, ptr %arrayidx, i64 168
-  %11 = load i32, ptr %state, align 8
-  %cmp5.not = icmp eq i32 %11, 0
+  %10 = load i32, ptr %state, align 8
+  %cmp5.not = icmp eq i32 %10, 0
   br i1 %cmp5.not, label %if.end11, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
   %tot_n_runs = getelementptr inbounds i8, ptr %arrayidx, i64 192
-  %12 = load i64, ptr %tot_n_runs, align 8
-  %add = add i64 %12, %num_runs.033
+  %11 = load i64, ptr %tot_n_runs, align 8
+  %add = add i64 %11, %num_runs.033
   %tot_sleep_time = getelementptr inbounds i8, ptr %arrayidx, i64 200
   tail call void @nstime_add(ptr noundef nonnull %run_interval, ptr noundef nonnull %tot_sleep_time) #11
   %call.i = tail call i32 @nstime_compare(ptr noundef nonnull %mtx, ptr noundef nonnull %max_counter_per_bg_thd) #11
@@ -965,56 +960,56 @@ if.then7.i:                                       ; preds = %if.end.i28
 
 if.end10.i:                                       ; preds = %if.then7.i, %if.end.i28
   %n_wait_times.i = getelementptr inbounds i8, ptr %arrayidx, i64 72
-  %13 = load i64, ptr %n_wait_times.i, align 8
-  %14 = load i64, ptr %n_wait_times11.i, align 8
-  %cmp12.i = icmp ugt i64 %13, %14
+  %12 = load i64, ptr %n_wait_times.i, align 8
+  %13 = load i64, ptr %n_wait_times11.i, align 8
+  %cmp12.i = icmp ugt i64 %12, %13
   br i1 %cmp12.i, label %if.then13.i, label %if.end16.i
 
 if.then13.i:                                      ; preds = %if.end10.i
-  store i64 %13, ptr %n_wait_times11.i, align 8
+  store i64 %12, ptr %n_wait_times11.i, align 8
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then13.i, %if.end10.i
   %n_spin_acquired.i = getelementptr inbounds i8, ptr %arrayidx, i64 80
-  %15 = load i64, ptr %n_spin_acquired.i, align 8
-  %16 = load i64, ptr %n_spin_acquired17.i, align 8
-  %cmp18.i = icmp ugt i64 %15, %16
+  %14 = load i64, ptr %n_spin_acquired.i, align 8
+  %15 = load i64, ptr %n_spin_acquired17.i, align 8
+  %cmp18.i = icmp ugt i64 %14, %15
   br i1 %cmp18.i, label %if.then19.i, label %if.end22.i
 
 if.then19.i:                                      ; preds = %if.end16.i
-  store i64 %15, ptr %n_spin_acquired17.i, align 8
+  store i64 %14, ptr %n_spin_acquired17.i, align 8
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.then19.i, %if.end16.i
   %max_n_thds.i = getelementptr inbounds i8, ptr %arrayidx, i64 88
-  %17 = load i32, ptr %max_n_thds.i, align 8
-  %18 = load i32, ptr %max_n_thds23.i, align 8
-  %cmp24.i = icmp ugt i32 %17, %18
+  %16 = load i32, ptr %max_n_thds.i, align 8
+  %17 = load i32, ptr %max_n_thds23.i, align 8
+  %cmp24.i = icmp ugt i32 %16, %17
   br i1 %cmp24.i, label %if.then25.i, label %if.end28.i
 
 if.then25.i:                                      ; preds = %if.end22.i
-  store i32 %17, ptr %max_n_thds23.i, align 8
+  store i32 %16, ptr %max_n_thds23.i, align 8
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end22.i
   %n_owner_switches.i = getelementptr inbounds i8, ptr %arrayidx, i64 96
-  %19 = load i64, ptr %n_owner_switches.i, align 8
-  %20 = load i64, ptr %n_owner_switches29.i, align 8
-  %cmp30.i = icmp ugt i64 %19, %20
+  %18 = load i64, ptr %n_owner_switches.i, align 8
+  %19 = load i64, ptr %n_owner_switches29.i, align 8
+  %cmp30.i = icmp ugt i64 %18, %19
   br i1 %cmp30.i, label %if.then31.i, label %if.end34.i
 
 if.then31.i:                                      ; preds = %if.end28.i
-  store i64 %19, ptr %n_owner_switches29.i, align 8
+  store i64 %18, ptr %n_owner_switches29.i, align 8
   br label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.then31.i, %if.end28.i
-  %21 = load i64, ptr %n_lock_ops.i.i, align 8
-  %22 = load i64, ptr %n_lock_ops35.i, align 8
-  %cmp36.i = icmp ugt i64 %21, %22
+  %20 = load i64, ptr %n_lock_ops.i.i, align 8
+  %21 = load i64, ptr %n_lock_ops35.i, align 8
+  %cmp36.i = icmp ugt i64 %20, %21
   br i1 %cmp36.i, label %if.then37.i, label %if.end11
 
 if.then37.i:                                      ; preds = %if.end34.i
-  store i64 %21, ptr %n_lock_ops35.i, align 8
+  store i64 %20, ptr %n_lock_ops35.i, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then37.i, %if.end34.i, %if.end4
@@ -1028,8 +1023,8 @@ for.inc:                                          ; preds = %for.body, %if.end11
   %num_runs.2 = phi i64 [ %num_runs.1, %if.end11 ], [ %num_runs.033, %for.body ]
   %inc = add i32 %i.034, 1
   %conv = zext i32 %inc to i64
-  %23 = load i64, ptr @max_background_threads, align 8
-  %cmp = icmp ugt i64 %23, %conv
+  %22 = load i64, ptr @max_background_threads, align 8
+  %cmp = icmp ugt i64 %22, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc
@@ -1045,7 +1040,8 @@ if.then16:                                        ; preds = %for.end
 return:                                           ; preds = %for.end, %if.then16, %for.end.thread, %malloc_mutex_lock.exit
   store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1, i32 0) monotonic, align 8
   %call1.i31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #11
-  ret i1 %tobool.i.not
+  %retval.0 = xor i1 %tobool.i, true
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1077,11 +1073,10 @@ pthread_create_fptr_init.exit:                    ; preds = %entry, %if.end.i
 define hidden noundef zeroext i1 @background_thread_boot0() local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr @opt_background_thread, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp ne i8 %1, 0
-  %2 = load ptr, ptr @pthread_create_fptr, align 8
-  %cmp.not.i = icmp eq ptr %2, null
-  %or.cond = select i1 %tobool.not, i1 %cmp.not.i, i1 false
+  %tobool = trunc i8 %0 to i1
+  %1 = load ptr, ptr @pthread_create_fptr, align 8
+  %cmp.not.i = icmp eq ptr %1, null
+  %or.cond = select i1 %tobool, i1 %cmp.not.i, i1 false
   br i1 %or.cond, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
@@ -1110,29 +1105,29 @@ if.end:                                           ; preds = %if.then, %entry
   %1 = phi i64 [ 4, %if.then ], [ %0, %entry ]
   store i64 %1, ptr @max_background_threads, align 8
   %2 = load i8, ptr @opt_background_thread, align 1
-  %3 = and i8 %2, 1
-  store atomic i8 %3, ptr @background_thread_enabled_state monotonic, align 1
+  %frombool.i = and i8 %2, 1
+  store atomic i8 %frombool.i, ptr @background_thread_enabled_state monotonic, align 1
   %call = tail call zeroext i1 @malloc_mutex_init(ptr noundef nonnull @background_thread_lock, ptr noundef nonnull @.str, i32 noundef 5, i32 noundef 0) #11
   br i1 %call, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %4 = load i64, ptr @opt_max_background_threads, align 8
-  %mul = mul i64 %4, 208
+  %3 = load i64, ptr @opt_max_background_threads, align 8
+  %mul = mul i64 %3, 208
   %call5 = tail call ptr @base_alloc(ptr noundef %tsdn, ptr noundef %base, i64 noundef %mul, i64 noundef 64) #11
   store ptr %call5, ptr @background_thread_info, align 8
   %cmp6 = icmp eq ptr %call5, null
   br i1 %cmp6, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end4
-  %5 = load i64, ptr @max_background_threads, align 8
-  %cmp915.not = icmp eq i64 %5, 0
+  %4 = load i64, ptr @max_background_threads, align 8
+  %cmp915.not = icmp eq i64 %4, 0
   br i1 %cmp915.not, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %malloc_mutex_lock.exit
   %conv17 = phi i64 [ %conv, %malloc_mutex_lock.exit ], [ 0, %for.cond.preheader ]
   %i.016 = phi i32 [ %inc, %malloc_mutex_lock.exit ], [ 0, %for.cond.preheader ]
-  %6 = load ptr, ptr @background_thread_info, align 8
-  %arrayidx = getelementptr inbounds %struct.background_thread_info_s, ptr %6, i64 %conv17
+  %5 = load ptr, ptr @background_thread_info, align 8
+  %arrayidx = getelementptr inbounds %struct.background_thread_info_s, ptr %5, i64 %conv17
   %mtx = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %call11 = tail call zeroext i1 @malloc_mutex_init(ptr noundef nonnull %mtx, ptr noundef nonnull @.str.1, i32 noundef 13, i32 noundef 1) #11
   br i1 %call11, label %return, label %if.end13
@@ -1157,19 +1152,19 @@ if.then.i:                                        ; preds = %if.end17
 
 if.end.i:                                         ; preds = %if.then.i, %if.end17
   %n_lock_ops.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 112
-  %7 = load i64, ptr %n_lock_ops.i.i, align 8
-  %inc.i.i = add i64 %7, 1
+  %6 = load i64, ptr %n_lock_ops.i.i, align 8
+  %inc.i.i = add i64 %6, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
   %prev_owner.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 104
-  %8 = load ptr, ptr %prev_owner.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %8, %tsdn
+  %7 = load ptr, ptr %prev_owner.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %7, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
   %n_owner_switches.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 96
-  %9 = load i64, ptr %n_owner_switches.i.i, align 8
-  %inc2.i.i = add i64 %9, 1
+  %8 = load i64, ptr %n_owner_switches.i.i, align 8
+  %inc2.i.i = add i64 %8, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit
 
@@ -1189,8 +1184,8 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
   %inc = add i32 %i.016, 1
   %conv = zext i32 %inc to i64
-  %10 = load i64, ptr @max_background_threads, align 8
-  %cmp9 = icmp ugt i64 %10, %conv
+  %9 = load i64, ptr @max_background_threads, align 8
+  %cmp9 = icmp ugt i64 %9, %conv
   br i1 %cmp9, label %for.body, label %return, !llvm.loop !19
 
 return:                                           ; preds = %for.body, %if.end13, %malloc_mutex_lock.exit, %for.cond.preheader, %if.end4, %if.end
@@ -1374,7 +1369,7 @@ while.cond.outer.us:                              ; preds = %while.cond.preheade
   br label %while.cond.us
 
 while.body.us:                                    ; preds = %while.cond.us
-  %call6.us = call fastcc zeroext i1 @background_thread_pause_check(ptr noundef %tsd, ptr noundef nonnull %24)
+  %call6.us = call fastcc zeroext i1 @background_thread_pause_check(ptr noundef %tsd, ptr noundef nonnull %21)
   br i1 %call6.us, label %while.cond.us, label %if.end.us, !llvm.loop !21
 
 if.end.us:                                        ; preds = %while.body.us
@@ -1396,13 +1391,12 @@ for.body.i.us:                                    ; preds = %if.end.i.us, %for.i
   %i.047.i.us = phi i32 [ %inc32.i.us, %for.inc.i.us ], [ 1, %if.end.i.us ]
   %arrayidx8.i.us = getelementptr inbounds i8, ptr %vla, i64 %conv548.i.us
   %3 = load i8, ptr %arrayidx8.i.us, align 1
-  %4 = and i8 %3, 1
-  %tobool9.not.i.us = icmp eq i8 %4, 0
-  br i1 %tobool9.not.i.us, label %if.end11.i.us, label %for.inc.i.us
+  %tobool9.i.us = trunc i8 %3 to i1
+  br i1 %tobool9.i.us, label %for.inc.i.us, label %if.end11.i.us
 
 if.end11.i.us:                                    ; preds = %for.body.i.us
-  %5 = load ptr, ptr @background_thread_info, align 8
-  %arrayidx13.i.us = getelementptr inbounds %struct.background_thread_info_s, ptr %5, i64 %conv548.i.us
+  %4 = load ptr, ptr @background_thread_info, align 8
+  %arrayidx13.i.us = getelementptr inbounds %struct.background_thread_info_s, ptr %4, i64 %conv548.i.us
   %lock.i.i.i.us = getelementptr inbounds i8, ptr %arrayidx13.i.us, i64 128
   %call.i.i.i.us = call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i.i.us) #11
   %cmp.i.not.i.i.us = icmp eq i32 %call.i.i.i.us, 0
@@ -1417,43 +1411,37 @@ if.then.i.i.us:                                   ; preds = %if.end11.i.us
 
 if.end.i.i.us:                                    ; preds = %if.then.i.i.us, %if.end11.i.us
   %n_lock_ops.i.i.i.us = getelementptr inbounds i8, ptr %arrayidx13.i.us, i64 112
-  %6 = load i64, ptr %n_lock_ops.i.i.i.us, align 8
-  %inc.i.i.i.us = add i64 %6, 1
+  %5 = load i64, ptr %n_lock_ops.i.i.i.us, align 8
+  %inc.i.i.i.us = add i64 %5, 1
   store i64 %inc.i.i.i.us, ptr %n_lock_ops.i.i.i.us, align 8
   %prev_owner.i.i.i.us = getelementptr inbounds i8, ptr %arrayidx13.i.us, i64 104
-  %7 = load ptr, ptr %prev_owner.i.i.i.us, align 8
-  %cmp.not.i.i.i.us = icmp eq ptr %7, %tsd
+  %6 = load ptr, ptr %prev_owner.i.i.i.us, align 8
+  %cmp.not.i.i.i.us = icmp eq ptr %6, %tsd
   br i1 %cmp.not.i.i.i.us, label %malloc_mutex_lock.exit.i.us, label %if.then.i.i.i.us
 
 if.then.i.i.i.us:                                 ; preds = %if.end.i.i.us
   store ptr %tsd, ptr %prev_owner.i.i.i.us, align 8
   %n_owner_switches.i.i.i.us = getelementptr inbounds i8, ptr %arrayidx13.i.us, i64 96
-  %8 = load i64, ptr %n_owner_switches.i.i.i.us, align 8
-  %inc2.i.i.i.us = add i64 %8, 1
+  %7 = load i64, ptr %n_owner_switches.i.i.i.us, align 8
+  %inc2.i.i.i.us = add i64 %7, 1
   store i64 %inc2.i.i.i.us, ptr %n_owner_switches.i.i.i.us, align 8
   br label %malloc_mutex_lock.exit.i.us
 
 malloc_mutex_lock.exit.i.us:                      ; preds = %if.then.i.i.i.us, %if.end.i.i.us
   %state.i.us = getelementptr inbounds i8, ptr %arrayidx13.i.us, i64 168
-  %9 = load i32, ptr %state.i.us, align 8
-  %cmp15.i.us = icmp eq i32 %9, 1
+  %8 = load i32, ptr %state.i.us, align 8
+  %cmp15.i.us = icmp eq i32 %8, 1
   %locked.i19.i.us = getelementptr inbounds i8, ptr %arrayidx13.i.us, i64 120
   store atomic i8 0, ptr %locked.i19.i.us monotonic, align 1
   %call1.i21.i.us = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i.i.us) #11
   br i1 %cmp15.i.us, label %if.end20.i.us, label %for.inc.i.us
 
-for.inc.i.us:                                     ; preds = %malloc_mutex_lock.exit.i.us, %for.body.i.us
-  %inc32.i.us = add i32 %i.047.i.us, 1
-  %conv5.i.us = zext i32 %inc32.i.us to i64
-  %cmp6.i.us = icmp ugt i64 %.fr, %conv5.i.us
-  br i1 %cmp6.i.us, label %for.body.i.us, label %for.end.i.us, !llvm.loop !22
-
 if.end20.i.us:                                    ; preds = %malloc_mutex_lock.exit.i.us
   %arrayidx8.i.us.le = getelementptr inbounds i8, ptr %vla, i64 %conv548.i.us
-  %10 = load i8, ptr %state.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.us = icmp eq i8 %10, 0
-  %11 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
-  %inc.i.i22.i.us = add i8 %11, 1
+  %9 = load i8, ptr %state.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.us = icmp eq i8 %9, 0
+  %10 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
+  %inc.i.i22.i.us = add i8 %10, 1
   store i8 %inc.i.i22.i.us, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
   br i1 %cmp.i.i.i.i.us, label %if.then.i.i23.i.us, label %pre_reentrancy.exit.i.us
 
@@ -1470,26 +1458,25 @@ pre_reentrancy.exit.i.us:                         ; preds = %if.then.i.i23.i.us,
   br i1 %cmp.not.i.i.us, label %if.end.i25.i.us, label %background_thread_create_signals_masked.exit.i.us
 
 if.end.i25.i.us:                                  ; preds = %pre_reentrancy.exit.i.us
-  %12 = inttoptr i64 %conv548.i.us to ptr
-  %13 = load ptr, ptr @pthread_create_fptr, align 8, !noalias !23
-  %call.i.i26.i.us = call i32 %13(ptr noundef nonnull %arrayidx13.i.us, ptr noundef null, ptr noundef nonnull @background_thread_entry, ptr noundef %12) #11
+  %11 = inttoptr i64 %conv548.i.us to ptr
+  %12 = load ptr, ptr @pthread_create_fptr, align 8, !noalias !22
+  %call.i.i26.i.us = call i32 %12(ptr noundef nonnull %arrayidx13.i.us, ptr noundef null, ptr noundef nonnull @background_thread_entry, ptr noundef %11) #11
   %call3.i.i.us = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %oldset.i.i, ptr noundef null) #11
   %cmp4.not.i.i.us = icmp eq i32 %call3.i.i.us, 0
   br i1 %cmp4.not.i.i.us, label %background_thread_create_signals_masked.exit.i.us, label %if.then5.i.i.us
 
 if.then5.i.i.us:                                  ; preds = %if.end.i25.i.us
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.3, i32 noundef %call.i.i26.i.us, i32 noundef %call3.i.i.us) #11
-  %14 = load i8, ptr @opt_abort, align 1
-  %15 = and i8 %14, 1
-  %tobool.not.i.i.us = icmp eq i8 %15, 0
-  br i1 %tobool.not.i.i.us, label %background_thread_create_signals_masked.exit.i.us, label %if.then6.i.i
+  %13 = load i8, ptr @opt_abort, align 1
+  %tobool.i.i.us = trunc i8 %13 to i1
+  br i1 %tobool.i.i.us, label %if.then6.i.i, label %background_thread_create_signals_masked.exit.i.us
 
 background_thread_create_signals_masked.exit.i.us: ; preds = %if.then5.i.i.us, %if.end.i25.i.us, %pre_reentrancy.exit.i.us
   %retval.0.i.i.us = phi i32 [ %call1.i24.i.us, %pre_reentrancy.exit.i.us ], [ %call.i.i26.i.us, %if.then5.i.i.us ], [ %call.i.i26.i.us, %if.end.i25.i.us ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %set.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %oldset.i.i)
-  %16 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
-  %dec.i.i.i.us = add i8 %16, -1
+  %14 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
+  %dec.i.i.i.us = add i8 %14, -1
   store i8 %dec.i.i.i.us, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
   %cmp.i.i.i.us = icmp eq i8 %dec.i.i.i.us, 0
   br i1 %cmp.i.i.i.us, label %if.then.i.i28.i.us, label %post_reentrancy.exit.i.us
@@ -1504,47 +1491,52 @@ post_reentrancy.exit.i.us:                        ; preds = %if.then.i.i28.i.us,
 
 if.else.i.us:                                     ; preds = %post_reentrancy.exit.i.us
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.5, i32 noundef %retval.0.i.i.us) #11
-  %17 = load i8, ptr @opt_abort, align 1
-  %18 = and i8 %17, 1
-  %tobool28.not.i.us = icmp eq i8 %18, 0
-  br i1 %tobool28.not.i.us, label %for.end.i.us, label %if.then29.i
+  %15 = load i8, ptr @opt_abort, align 1
+  %tobool28.i.us = trunc i8 %15 to i1
+  br i1 %tobool28.i.us, label %if.then29.i, label %for.end.i.us
 
 if.then25.i.us:                                   ; preds = %post_reentrancy.exit.i.us
   %inc.i.us = add i32 %n_created.0.ph.us, 1
   store i8 1, ptr %arrayidx8.i.us.le, align 1
   br label %for.end.i.us
 
+for.inc.i.us:                                     ; preds = %malloc_mutex_lock.exit.i.us, %for.body.i.us
+  %inc32.i.us = add i32 %i.047.i.us, 1
+  %conv5.i.us = zext i32 %inc32.i.us to i64
+  %cmp6.i.us = icmp ugt i64 %.fr, %conv5.i.us
+  br i1 %cmp6.i.us, label %for.body.i.us, label %for.end.i.us, !llvm.loop !26
+
 for.end.i.us:                                     ; preds = %for.inc.i.us, %if.then25.i.us, %if.else.i.us
   %n_created.1.us = phi i32 [ %inc.i.us, %if.then25.i.us ], [ %n_created.0.ph.us, %if.else.i.us ], [ %n_created.0.ph.us, %for.inc.i.us ]
   %cmp644.i.us = phi i1 [ true, %if.then25.i.us ], [ true, %if.else.i.us ], [ false, %for.inc.i.us ]
-  %19 = load ptr, ptr @background_thread_info, align 8
-  %lock.i.i29.i.us = getelementptr inbounds i8, ptr %19, i64 128
+  %16 = load ptr, ptr @background_thread_info, align 8
+  %lock.i.i29.i.us = getelementptr inbounds i8, ptr %16, i64 128
   %call.i.i30.i.us = call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i29.i.us) #11
   %cmp.i.not.i31.i.us = icmp eq i32 %call.i.i30.i.us, 0
   br i1 %cmp.i.not.i31.i.us, label %if.end.i34.i.us, label %if.then.i32.i.us
 
 if.then.i32.i.us:                                 ; preds = %for.end.i.us
-  %mtx34.i.us = getelementptr inbounds i8, ptr %19, i64 56
+  %mtx34.i.us = getelementptr inbounds i8, ptr %16, i64 56
   call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx34.i.us) #11
-  %locked.i33.i.us = getelementptr inbounds i8, ptr %19, i64 120
+  %locked.i33.i.us = getelementptr inbounds i8, ptr %16, i64 120
   store atomic i8 1, ptr %locked.i33.i.us monotonic, align 1
   br label %if.end.i34.i.us
 
 if.end.i34.i.us:                                  ; preds = %if.then.i32.i.us, %for.end.i.us
-  %n_lock_ops.i.i35.i.us = getelementptr inbounds i8, ptr %19, i64 112
-  %20 = load i64, ptr %n_lock_ops.i.i35.i.us, align 8
-  %inc.i.i36.i.us = add i64 %20, 1
+  %n_lock_ops.i.i35.i.us = getelementptr inbounds i8, ptr %16, i64 112
+  %17 = load i64, ptr %n_lock_ops.i.i35.i.us, align 8
+  %inc.i.i36.i.us = add i64 %17, 1
   store i64 %inc.i.i36.i.us, ptr %n_lock_ops.i.i35.i.us, align 8
-  %prev_owner.i.i37.i.us = getelementptr inbounds i8, ptr %19, i64 104
-  %21 = load ptr, ptr %prev_owner.i.i37.i.us, align 8
-  %cmp.not.i.i38.i.us = icmp eq ptr %21, %tsd
+  %prev_owner.i.i37.i.us = getelementptr inbounds i8, ptr %16, i64 104
+  %18 = load ptr, ptr %prev_owner.i.i37.i.us, align 8
+  %cmp.not.i.i38.i.us = icmp eq ptr %18, %tsd
   br i1 %cmp.not.i.i38.i.us, label %check_background_thread_creation.exit.us, label %if.then.i.i39.i.us
 
 if.then.i.i39.i.us:                               ; preds = %if.end.i34.i.us
   store ptr %tsd, ptr %prev_owner.i.i37.i.us, align 8
-  %n_owner_switches.i.i40.i.us = getelementptr inbounds i8, ptr %19, i64 96
-  %22 = load i64, ptr %n_owner_switches.i.i40.i.us, align 8
-  %inc2.i.i41.i.us = add i64 %22, 1
+  %n_owner_switches.i.i40.i.us = getelementptr inbounds i8, ptr %16, i64 96
+  %19 = load i64, ptr %n_owner_switches.i.i40.i.us, align 8
+  %inc2.i.i41.i.us = add i64 %19, 1
   store i64 %inc2.i.i41.i.us, ptr %n_owner_switches.i.i40.i.us, align 8
   br i1 %cmp644.i.us, label %while.cond.outer.us.backedge, label %if.end9.us
 
@@ -1553,8 +1545,8 @@ check_background_thread_creation.exit.us:         ; preds = %if.end.i34.i.us
 
 if.end9.us:                                       ; preds = %check_background_thread_creation.exit.us, %if.then.i.i39.i.us, %if.end.us
   %n_created.228.us = phi i32 [ %n_created.1.us, %check_background_thread_creation.exit.us ], [ %n_created.1.us, %if.then.i.i39.i.us ], [ %n_created.0.ph.us, %if.end.us ]
-  %23 = load ptr, ptr @background_thread_info, align 8
-  call fastcc void @background_work_sleep_once(ptr noundef %tsd, ptr noundef %23, i32 noundef 0)
+  %20 = load ptr, ptr @background_thread_info, align 8
+  call fastcc void @background_work_sleep_once(ptr noundef %tsd, ptr noundef %20, i32 noundef 0)
   br label %while.cond.outer.us.backedge
 
 while.cond.outer.us.backedge:                     ; preds = %if.end9.us, %check_background_thread_creation.exit.us, %if.then.i.i39.i.us
@@ -1562,10 +1554,10 @@ while.cond.outer.us.backedge:                     ; preds = %if.end9.us, %check_
   br label %while.cond.outer.us, !llvm.loop !21
 
 while.cond.us:                                    ; preds = %while.body.us, %while.cond.outer.us
-  %24 = load ptr, ptr @background_thread_info, align 8
-  %state.us = getelementptr inbounds i8, ptr %24, i64 168
-  %25 = load i32, ptr %state.us, align 8
-  %cmp3.not.us = icmp eq i32 %25, 0
+  %21 = load ptr, ptr @background_thread_info, align 8
+  %state.us = getelementptr inbounds i8, ptr %21, i64 168
+  %22 = load i32, ptr %state.us, align 8
+  %cmp3.not.us = icmp eq i32 %22, 0
   br i1 %cmp3.not.us, label %for.cond14.preheader, label %while.body.us
 
 for.body:                                         ; preds = %entry, %for.body
@@ -1579,36 +1571,36 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp, label %for.body, label %while.cond.preheader, !llvm.loop !27
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.preheader56
-  %26 = load ptr, ptr @background_thread_info, align 8
-  %state = getelementptr inbounds i8, ptr %26, i64 168
-  %27 = load i32, ptr %state, align 8
-  %cmp3.not = icmp eq i32 %27, 0
+  %23 = load ptr, ptr @background_thread_info, align 8
+  %state = getelementptr inbounds i8, ptr %23, i64 168
+  %24 = load i32, ptr %state, align 8
+  %cmp3.not = icmp eq i32 %24, 0
   br i1 %cmp3.not, label %for.cond14.preheader, label %while.body
 
 for.cond14.preheader:                             ; preds = %while.cond, %while.cond.us
-  %28 = phi ptr [ %24, %while.cond.us ], [ %26, %while.cond ]
+  %25 = phi ptr [ %21, %while.cond.us ], [ %23, %while.cond ]
   br i1 %cmp31, label %for.body18, label %for.end43
 
 while.body:                                       ; preds = %while.cond
-  %call6 = tail call fastcc zeroext i1 @background_thread_pause_check(ptr noundef %tsd, ptr noundef nonnull %26)
+  %call6 = tail call fastcc zeroext i1 @background_thread_pause_check(ptr noundef %tsd, ptr noundef nonnull %23)
   br i1 %call6, label %while.cond.backedge, label %if.end
 
 while.cond.backedge:                              ; preds = %while.body, %if.end9
   br label %while.cond, !llvm.loop !21
 
 if.end:                                           ; preds = %while.body
-  %29 = load i64, ptr @n_background_threads, align 8
-  %cmp.i = icmp eq i64 %29, 1
+  %26 = load i64, ptr @n_background_threads, align 8
+  %cmp.i = icmp eq i64 %26, 1
   br i1 %cmp.i, label %if.end9, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %30 = load ptr, ptr @background_thread_info, align 8
-  %locked.i.i = getelementptr inbounds i8, ptr %30, i64 120
+  %27 = load ptr, ptr @background_thread_info, align 8
+  %locked.i.i = getelementptr inbounds i8, ptr %27, i64 120
   store atomic i8 0, ptr %locked.i.i monotonic, align 1
-  %lock.i.i = getelementptr inbounds i8, ptr %30, i64 128
+  %lock.i.i = getelementptr inbounds i8, ptr %27, i64 128
   %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
-  %31 = load ptr, ptr @background_thread_info, align 8
-  %lock.i.i29.i = getelementptr inbounds i8, ptr %31, i64 128
+  %28 = load ptr, ptr @background_thread_info, align 8
+  %lock.i.i29.i = getelementptr inbounds i8, ptr %28, i64 128
   %call.i.i30.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i29.i) #11
   %cmp.i.not.i31.i = icmp eq i32 %call.i.i30.i, 0
   br i1 %cmp.i.not.i31.i, label %if.end.i34.i, label %if.then.i32.i
@@ -1622,45 +1614,44 @@ if.then29.i:                                      ; preds = %if.else.i.us
   unreachable
 
 if.then.i32.i:                                    ; preds = %if.end.i
-  %mtx34.i = getelementptr inbounds i8, ptr %31, i64 56
+  %mtx34.i = getelementptr inbounds i8, ptr %28, i64 56
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx34.i) #11
-  %locked.i33.i = getelementptr inbounds i8, ptr %31, i64 120
+  %locked.i33.i = getelementptr inbounds i8, ptr %28, i64 120
   store atomic i8 1, ptr %locked.i33.i monotonic, align 1
   br label %if.end.i34.i
 
 if.end.i34.i:                                     ; preds = %if.then.i32.i, %if.end.i
-  %n_lock_ops.i.i35.i = getelementptr inbounds i8, ptr %31, i64 112
-  %32 = load i64, ptr %n_lock_ops.i.i35.i, align 8
-  %inc.i.i36.i = add i64 %32, 1
+  %n_lock_ops.i.i35.i = getelementptr inbounds i8, ptr %28, i64 112
+  %29 = load i64, ptr %n_lock_ops.i.i35.i, align 8
+  %inc.i.i36.i = add i64 %29, 1
   store i64 %inc.i.i36.i, ptr %n_lock_ops.i.i35.i, align 8
-  %prev_owner.i.i37.i = getelementptr inbounds i8, ptr %31, i64 104
-  %33 = load ptr, ptr %prev_owner.i.i37.i, align 8
-  %cmp.not.i.i38.i = icmp eq ptr %33, %tsd
+  %prev_owner.i.i37.i = getelementptr inbounds i8, ptr %28, i64 104
+  %30 = load ptr, ptr %prev_owner.i.i37.i, align 8
+  %cmp.not.i.i38.i = icmp eq ptr %30, %tsd
   br i1 %cmp.not.i.i38.i, label %if.end9, label %if.then.i.i39.i
 
 if.then.i.i39.i:                                  ; preds = %if.end.i34.i
   store ptr %tsd, ptr %prev_owner.i.i37.i, align 8
-  %n_owner_switches.i.i40.i = getelementptr inbounds i8, ptr %31, i64 96
-  %34 = load i64, ptr %n_owner_switches.i.i40.i, align 8
-  %inc2.i.i41.i = add i64 %34, 1
+  %n_owner_switches.i.i40.i = getelementptr inbounds i8, ptr %28, i64 96
+  %31 = load i64, ptr %n_owner_switches.i.i40.i, align 8
+  %inc2.i.i41.i = add i64 %31, 1
   store i64 %inc2.i.i41.i, ptr %n_owner_switches.i.i40.i, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end.i34.i, %if.then.i.i39.i, %if.end
-  %35 = load ptr, ptr @background_thread_info, align 8
-  tail call fastcc void @background_work_sleep_once(ptr noundef %tsd, ptr noundef %35, i32 noundef 0)
+  %32 = load ptr, ptr @background_thread_info, align 8
+  tail call fastcc void @background_work_sleep_once(ptr noundef %tsd, ptr noundef %32, i32 noundef 0)
   br label %while.cond.backedge
 
 for.body18:                                       ; preds = %for.cond14.preheader, %for.inc41
   %conv1537 = phi i64 [ %conv15, %for.inc41 ], [ 1, %for.cond14.preheader ]
   %i.136 = phi i32 [ %inc42, %for.inc41 ], [ 1, %for.cond14.preheader ]
-  %36 = load ptr, ptr @background_thread_info, align 8
-  %arrayidx20 = getelementptr inbounds %struct.background_thread_info_s, ptr %36, i64 %conv1537
+  %33 = load ptr, ptr @background_thread_info, align 8
+  %arrayidx20 = getelementptr inbounds %struct.background_thread_info_s, ptr %33, i64 %conv1537
   %arrayidx25 = getelementptr inbounds i8, ptr %vla, i64 %conv1537
-  %37 = load i8, ptr %arrayidx25, align 1
-  %38 = and i8 %37, 1
-  %tobool.not = icmp eq i8 %38, 0
-  br i1 %tobool.not, label %if.else, label %if.then26
+  %34 = load i8, ptr %arrayidx25, align 1
+  %tobool = trunc i8 %34 to i1
+  br i1 %tobool, label %if.then26, label %if.else
 
 if.then26:                                        ; preds = %for.body18
   %call27 = call fastcc zeroext i1 @background_threads_disable_single(ptr noundef %tsd, ptr noundef %arrayidx20)
@@ -1681,31 +1672,31 @@ if.then.i:                                        ; preds = %if.else
 
 if.end.i21:                                       ; preds = %if.then.i, %if.else
   %n_lock_ops.i.i = getelementptr inbounds i8, ptr %arrayidx20, i64 112
-  %39 = load i64, ptr %n_lock_ops.i.i, align 8
-  %inc.i.i = add i64 %39, 1
+  %35 = load i64, ptr %n_lock_ops.i.i, align 8
+  %inc.i.i = add i64 %35, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
   %prev_owner.i.i = getelementptr inbounds i8, ptr %arrayidx20, i64 104
-  %40 = load ptr, ptr %prev_owner.i.i, align 8
-  %cmp.not.i.i22 = icmp eq ptr %40, %tsd
+  %36 = load ptr, ptr %prev_owner.i.i, align 8
+  %cmp.not.i.i22 = icmp eq ptr %36, %tsd
   br i1 %cmp.not.i.i22, label %malloc_mutex_lock.exit, label %if.then.i.i23
 
 if.then.i.i23:                                    ; preds = %if.end.i21
   store ptr %tsd, ptr %prev_owner.i.i, align 8
   %n_owner_switches.i.i = getelementptr inbounds i8, ptr %arrayidx20, i64 96
-  %41 = load i64, ptr %n_owner_switches.i.i, align 8
-  %inc2.i.i = add i64 %41, 1
+  %37 = load i64, ptr %n_owner_switches.i.i, align 8
+  %inc2.i.i = add i64 %37, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i21, %if.then.i.i23
   %state29 = getelementptr inbounds i8, ptr %arrayidx20, i64 168
-  %42 = load i32, ptr %state29, align 8
-  %cmp30.not = icmp eq i32 %42, 0
+  %38 = load i32, ptr %state29, align 8
+  %cmp30.not = icmp eq i32 %38, 0
   br i1 %cmp30.not, label %if.end37, label %do.end35
 
 do.end35:                                         ; preds = %malloc_mutex_lock.exit
-  %43 = load i64, ptr @n_background_threads, align 8
-  %dec = add i64 %43, -1
+  %39 = load i64, ptr @n_background_threads, align 8
+  %dec = add i64 %39, -1
   store i64 %dec, ptr @n_background_threads, align 8
   store i32 0, ptr %state29, align 8
   br label %if.end37
@@ -1727,8 +1718,8 @@ for.end43.loopexit:                               ; preds = %for.inc41
   br label %for.end43
 
 for.end43:                                        ; preds = %for.end43.loopexit, %for.cond14.preheader
-  %44 = phi ptr [ %.pre, %for.end43.loopexit ], [ %28, %for.cond14.preheader ]
-  %state45 = getelementptr inbounds i8, ptr %44, i64 168
+  %40 = phi ptr [ %.pre, %for.end43.loopexit ], [ %25, %for.cond14.preheader ]
+  %state45 = getelementptr inbounds i8, ptr %40, i64 168
   store i32 0, ptr %state45, align 8
   ret void
 }
@@ -1821,37 +1812,33 @@ entry:
   br i1 %cmp14, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %.fr17 = freeze i8 %0
-  %1 = and i8 %.fr17, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %for.body.us, label %for.body
+  %.fr = freeze i8 %0
+  %tobool.i = trunc i8 %.fr to i1
+  br i1 %tobool.i, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %i.016.us = phi i32 [ %conv13.us, %for.inc.us ], [ %ind, %for.body.lr.ph ]
   %ns_until_deferred.015.us = phi i64 [ %ns_until_deferred.1.us, %for.inc.us ], [ -1, %for.body.lr.ph ]
   %idxprom.i.us = zext i32 %i.016.us to i64
   %arrayidx.i.us = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i.us
-  %2 = load atomic i64, ptr %arrayidx.i.us acquire, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %tobool.not.us = icmp eq i64 %2, 0
-  br i1 %tobool.not.us, label %for.inc.us, label %if.end.us
-
-if.end.us:                                        ; preds = %for.body.us
-  tail call void @arena_do_deferred_work(ptr noundef %tsdn, ptr noundef nonnull %3) #11
+  %1 = load atomic i64, ptr %arrayidx.i.us acquire, align 8
+  %tobool.not.us = icmp eq i64 %1, 0
   %cmp6.us = icmp ult i64 %ns_until_deferred.015.us, 100000001
-  br i1 %cmp6.us, label %for.inc.us, label %if.end8.us
+  %or.cond = select i1 %tobool.not.us, i1 true, i1 %cmp6.us
+  br i1 %or.cond, label %for.inc.us, label %if.end8.us
 
-if.end8.us:                                       ; preds = %if.end.us
-  %pa_shard.us = getelementptr inbounds i8, ptr %3, i64 10664
+if.end8.us:                                       ; preds = %for.body.us
+  %2 = inttoptr i64 %1 to ptr
+  %pa_shard.us = getelementptr inbounds i8, ptr %2, i64 10664
   %call9.us = tail call i64 @pa_shard_time_until_deferred_work(ptr noundef %tsdn, ptr noundef nonnull %pa_shard.us) #11
   %spec.select.us = tail call i64 @llvm.umin.i64(i64 %call9.us, i64 %ns_until_deferred.015.us)
   br label %for.inc.us
 
-for.inc.us:                                       ; preds = %if.end8.us, %if.end.us, %for.body.us
-  %ns_until_deferred.1.us = phi i64 [ %ns_until_deferred.015.us, %if.end.us ], [ %ns_until_deferred.015.us, %for.body.us ], [ %spec.select.us, %if.end8.us ]
-  %4 = load i64, ptr @max_background_threads, align 8
-  %5 = trunc i64 %4 to i32
-  %conv13.us = add i32 %i.016.us, %5
+for.inc.us:                                       ; preds = %if.end8.us, %for.body.us
+  %ns_until_deferred.1.us = phi i64 [ %ns_until_deferred.015.us, %for.body.us ], [ %spec.select.us, %if.end8.us ]
+  %3 = load i64, ptr @max_background_threads, align 8
+  %4 = trunc i64 %3 to i32
+  %conv13.us = add i32 %i.016.us, %4
   %cmp.us = icmp ult i32 %conv13.us, %call
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !29
 
@@ -1860,24 +1847,27 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %ns_until_deferred.015 = phi i64 [ %ns_until_deferred.1, %for.inc ], [ -1, %for.body.lr.ph ]
   %idxprom.i = zext i32 %i.016 to i64
   %arrayidx.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i
-  %6 = load atomic i64, ptr %arrayidx.i acquire, align 8
-  %tobool.not = icmp eq i64 %6, 0
-  %cmp6 = icmp ult i64 %ns_until_deferred.015, 100000001
-  %or.cond = select i1 %tobool.not, i1 true, i1 %cmp6
-  br i1 %or.cond, label %for.inc, label %if.end8
+  %5 = load atomic i64, ptr %arrayidx.i acquire, align 8
+  %6 = inttoptr i64 %5 to ptr
+  %tobool.not = icmp eq i64 %5, 0
+  br i1 %tobool.not, label %for.inc, label %if.end
 
-if.end8:                                          ; preds = %for.body
-  %7 = inttoptr i64 %6 to ptr
-  %pa_shard = getelementptr inbounds i8, ptr %7, i64 10664
+if.end:                                           ; preds = %for.body
+  tail call void @arena_do_deferred_work(ptr noundef %tsdn, ptr noundef nonnull %6) #11
+  %cmp6 = icmp ult i64 %ns_until_deferred.015, 100000001
+  br i1 %cmp6, label %for.inc, label %if.end8
+
+if.end8:                                          ; preds = %if.end
+  %pa_shard = getelementptr inbounds i8, ptr %6, i64 10664
   %call9 = tail call i64 @pa_shard_time_until_deferred_work(ptr noundef %tsdn, ptr noundef nonnull %pa_shard) #11
   %spec.select = tail call i64 @llvm.umin.i64(i64 %call9, i64 %ns_until_deferred.015)
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end8, %for.body
-  %ns_until_deferred.1 = phi i64 [ %ns_until_deferred.015, %for.body ], [ %spec.select, %if.end8 ]
-  %8 = load i64, ptr @max_background_threads, align 8
-  %9 = trunc i64 %8 to i32
-  %conv13 = add i32 %i.016, %9
+for.inc:                                          ; preds = %if.end8, %if.end, %for.body
+  %ns_until_deferred.1 = phi i64 [ %ns_until_deferred.015, %if.end ], [ %ns_until_deferred.015, %for.body ], [ %spec.select, %if.end8 ]
+  %7 = load i64, ptr @max_background_threads, align 8
+  %8 = trunc i64 %7 to i32
+  %conv13 = add i32 %i.016, %8
   %cmp = icmp ult i32 %conv13, %call
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !29
 
@@ -1890,17 +1880,17 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %after_sleep.i)
   %tot_n_runs.i = getelementptr inbounds i8, ptr %info, i64 192
-  %10 = load i64, ptr %tot_n_runs.i, align 8
-  %inc.i = add i64 %10, 1
+  %9 = load i64, ptr %tot_n_runs.i, align 8
+  %inc.i = add i64 %9, 1
   store i64 %inc.i, ptr %tot_n_runs.i, align 8
   %npages_to_purge_new.i = getelementptr inbounds i8, ptr %info, i64 184
   store i64 0, ptr %npages_to_purge_new.i, align 8
   %call.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #11
-  %11 = load i64, ptr %tv.i, align 8
+  %10 = load i64, ptr %tv.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
-  %12 = load i64, ptr %tv_usec.i, align 8
-  %mul.i = mul nsw i64 %12, 1000
-  call void @nstime_init2(ptr noundef nonnull %before_sleep.i, i64 noundef %11, i64 noundef %mul.i) #11
+  %11 = load i64, ptr %tv_usec.i, align 8
+  %mul.i = mul nsw i64 %11, 1000
+  call void @nstime_init2(ptr noundef nonnull %before_sleep.i, i64 noundef %10, i64 noundef %mul.i) #11
   %cmp.i = icmp eq i64 %ns_until_deferred.0.lcssa, -1
   br i1 %cmp.i, label %if.then.i, label %do.end3.i
 
@@ -1937,10 +1927,10 @@ do.end3.i:                                        ; preds = %for.end
 
 if.end.i:                                         ; preds = %do.end3.i, %if.then.i
   %call18.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #11
-  %13 = load i64, ptr %tv.i, align 8
-  %14 = load i64, ptr %tv_usec.i, align 8
-  %mul21.i = mul nsw i64 %14, 1000
-  call void @nstime_init2(ptr noundef nonnull %after_sleep.i, i64 noundef %13, i64 noundef %mul21.i) #11
+  %12 = load i64, ptr %tv.i, align 8
+  %13 = load i64, ptr %tv_usec.i, align 8
+  %mul21.i = mul nsw i64 %13, 1000
+  call void @nstime_init2(ptr noundef nonnull %after_sleep.i, i64 noundef %12, i64 noundef %mul21.i) #11
   %call22.i = call i32 @nstime_compare(ptr noundef nonnull %after_sleep.i, ptr noundef nonnull %before_sleep.i) #11
   %cmp23.i = icmp sgt i32 %call22.i, 0
   br i1 %cmp23.i, label %if.then24.i, label %background_thread_sleep.exit
@@ -2059,11 +2049,11 @@ attributes #13 = { nounwind willreturn memory(none) }
 !19 = distinct !{!19, !10}
 !20 = distinct !{!20, !10}
 !21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
-!23 = !{!24, !26}
-!24 = distinct !{!24, !25, !"pthread_create_wrapper: %thread"}
-!25 = distinct !{!25, !"pthread_create_wrapper"}
-!26 = distinct !{!26, !25, !"pthread_create_wrapper: %arg"}
+!22 = !{!23, !25}
+!23 = distinct !{!23, !24, !"pthread_create_wrapper: %thread"}
+!24 = distinct !{!24, !"pthread_create_wrapper"}
+!25 = distinct !{!25, !24, !"pthread_create_wrapper: %arg"}
+!26 = distinct !{!26, !10}
 !27 = distinct !{!27, !10}
 !28 = distinct !{!28, !10}
 !29 = distinct !{!29, !10}

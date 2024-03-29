@@ -405,9 +405,8 @@ define dso_local i64 @bool_accum(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %.thread
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -440,9 +439,8 @@ makeBoolAggState.exit:                            ; preds = %.thread
   %.0 = phi ptr [ %16, %makeBoolAggState.exit ], [ %9, %6 ]
   %18 = getelementptr i8, ptr %0, i64 56
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not10 = icmp eq i8 %20, 0
-  br i1 %.not10, label %21, label %30
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %30, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr i8, ptr %0, i64 48
@@ -450,8 +448,8 @@ makeBoolAggState.exit:                            ; preds = %.thread
   %24 = add i64 %23, 1
   store i64 %24, ptr %.0, align 8
   %25 = load i64, ptr %22, align 8
-  %.not11 = icmp eq i64 %25, 0
-  br i1 %.not11, label %30, label %26
+  %.not = icmp eq i64 %25, 0
+  br i1 %.not, label %30, label %26
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds i8, ptr %.0, i64 8
@@ -469,9 +467,8 @@ makeBoolAggState.exit:                            ; preds = %.thread
 define dso_local i64 @bool_accum_inv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %.thread
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -490,9 +487,8 @@ define dso_local i64 @bool_accum_inv(ptr nocapture noundef readonly %0) local_un
 12:                                               ; preds = %5
   %13 = getelementptr i8, ptr %0, i64 56
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not8 = icmp eq i8 %15, 0
-  br i1 %.not8, label %16, label %25
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %25, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr i8, ptr %0, i64 48
@@ -500,8 +496,8 @@ define dso_local i64 @bool_accum_inv(ptr nocapture noundef readonly %0) local_un
   %19 = add i64 %18, -1
   store i64 %19, ptr %8, align 8
   %20 = load i64, ptr %17, align 8
-  %.not9 = icmp eq i64 %20, 0
-  br i1 %.not9, label %25, label %21
+  %.not = icmp eq i64 %20, 0
+  br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds i8, ptr %8, i64 8
@@ -525,9 +521,8 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 define dso_local i64 @bool_alltrue(ptr nocapture noundef %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %.thread
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -562,9 +557,8 @@ define dso_local i64 @bool_alltrue(ptr nocapture noundef %0) local_unnamed_addr 
 define dso_local i64 @bool_anytrue(ptr nocapture noundef %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %.thread
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 32

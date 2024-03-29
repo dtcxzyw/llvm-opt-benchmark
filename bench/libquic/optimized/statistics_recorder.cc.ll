@@ -153,7 +153,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN4base18StatisticsRecorderC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4base18StatisticsRecorderC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base18StatisticsRecorder17HistogramIteratorC2ERKSt17_Rb_tree_iteratorISt4pairIKNS0_9StringKeyEPNS_13HistogramBaseEEEb(ptr noundef nonnull align 8 dereferenceable(9) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %iter, i1 noundef zeroext %include_persistent) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base18StatisticsRecorder17HistogramIteratorC2ERKSt17_Rb_tree_iteratorISt4pairIKNS0_9StringKeyEPNS_13HistogramBaseEEEb(ptr nocapture noundef nonnull align 8 dereferenceable(9) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %iter, i1 noundef zeroext %include_persistent) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %include_persistent to i8
   %0 = load i64, ptr %iter, align 8
@@ -161,13 +161,15 @@ entry:
   %include_persistent_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %frombool, ptr %include_persistent_, align 8
   %1 = inttoptr i64 %0 to ptr
+  br i1 %include_persistent, label %if.end, label %land.lhs.true
+
+land.lhs.true:                                    ; preds = %entry
   %2 = load ptr, ptr @_ZN4base18StatisticsRecorder11histograms_E, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp.i.not = icmp eq ptr %add.ptr.i.i, %1
-  %or.cond = select i1 %include_persistent, i1 true, i1 %cmp.i.not
-  br i1 %or.cond, label %if.end, label %land.rhs
+  br i1 %cmp.i.not, label %if.end, label %land.rhs
 
-land.rhs:                                         ; preds = %entry
+land.rhs:                                         ; preds = %land.lhs.true
   %second = getelementptr inbounds i8, ptr %1, i64 48
   %3 = load ptr, ptr %second, align 8
   %flags_.i = getelementptr inbounds i8, ptr %3, i64 40
@@ -177,10 +179,51 @@ land.rhs:                                         ; preds = %entry
   br i1 %tobool10.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.rhs
-  %call11 = tail call noundef nonnull align 8 dereferenceable(9) ptr @_ZN4base18StatisticsRecorder17HistogramIteratorppEv(ptr noundef nonnull align 8 dereferenceable(9) %this)
-  br label %if.end
+  %5 = load ptr, ptr @_ZN4base18StatisticsRecorder5lock_E, align 8
+  %cmp.i1 = icmp eq ptr %5, null
+  br i1 %cmp.i1, label %if.end, label %if.end.i
 
-if.end:                                           ; preds = %entry, %if.then, %land.rhs
+if.end.i:                                         ; preds = %if.then
+  tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
+  %6 = load i8, ptr %include_persistent_, align 8
+  %.fr.i = freeze i8 %6
+  %tobool.i = trunc i8 %.fr.i to i1
+  %7 = load ptr, ptr %this, align 8
+  br i1 %tobool.i, label %for.cond.us.i, label %for.cond.i
+
+for.cond.us.i:                                    ; preds = %if.end.i
+  %call.i.us.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %7) #16
+  store ptr %call.i.us.i, ptr %this, align 8
+  br label %for.end.i
+
+for.cond.i:                                       ; preds = %if.end.i, %if.end8.i
+  %8 = phi ptr [ %call.i.i, %if.end8.i ], [ %7, %if.end.i ]
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %8) #16
+  store ptr %call.i.i, ptr %this, align 8
+  %cmp.i1.i = icmp eq ptr %call.i.i, %add.ptr.i.i
+  br i1 %cmp.i1.i, label %for.end.i, label %if.end8.i
+
+if.end8.i:                                        ; preds = %for.cond.i
+  %second.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
+  %9 = load ptr, ptr %second.i, align 8
+  %flags_.i.i = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = load atomic volatile i32, ptr %flags_.i.i monotonic, align 4
+  %and.i = and i32 %10, 64
+  %tobool12.not.i = icmp eq i32 %and.i, 0
+  br i1 %tobool12.not.i, label %for.end.i, label %for.cond.i, !llvm.loop !5
+
+for.end.i:                                        ; preds = %if.end8.i, %for.cond.i, %for.cond.us.i
+  invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
+          to label %if.end unwind label %terminate.lpad.i2.i
+
+terminate.lpad.i2.i:                              ; preds = %for.end.i
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #17
+  unreachable
+
+if.end:                                           ; preds = %for.end.i, %if.then, %land.lhs.true, %entry, %land.rhs
   ret void
 }
 
@@ -203,34 +246,33 @@ if.end:                                           ; preds = %entry
   tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
   %include_persistent_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i8, ptr %include_persistent_, align 8
-  %.fr6 = freeze i8 %3
-  %4 = and i8 %.fr6, 1
-  %tobool.not = icmp eq i8 %4, 0
-  %.pre = load ptr, ptr %this, align 8
-  br i1 %tobool.not, label %for.cond.us, label %for.cond
+  %.fr = freeze i8 %3
+  %tobool = trunc i8 %.fr to i1
+  %4 = load ptr, ptr %this, align 8
+  br i1 %tobool, label %for.cond.us, label %for.cond
 
-for.cond.us:                                      ; preds = %if.end, %if.end8.us
-  %5 = phi ptr [ %call.i.us, %if.end8.us ], [ %.pre, %if.end ]
-  %call.i.us = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #16
+for.cond.us:                                      ; preds = %if.end
+  %call.i.us = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %4) #16
   store ptr %call.i.us, ptr %this, align 8
-  %cmp.i1.us = icmp eq ptr %call.i.us, %add.ptr.i.i
-  br i1 %cmp.i1.us, label %for.end, label %if.end8.us
-
-if.end8.us:                                       ; preds = %for.cond.us
-  %second.us = getelementptr inbounds i8, ptr %call.i.us, i64 48
-  %6 = load ptr, ptr %second.us, align 8
-  %flags_.i.us = getelementptr inbounds i8, ptr %6, i64 40
-  %7 = load atomic volatile i32, ptr %flags_.i.us monotonic, align 4
-  %and.us = and i32 %7, 64
-  %tobool12.not.us = icmp eq i32 %and.us, 0
-  br i1 %tobool12.not.us, label %for.end, label %for.cond.us, !llvm.loop !5
-
-for.cond:                                         ; preds = %if.end
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.pre) #16
-  store ptr %call.i, ptr %this, align 8
   br label %for.end
 
-for.end:                                          ; preds = %for.cond.us, %if.end8.us, %for.cond
+for.cond:                                         ; preds = %if.end, %if.end8
+  %5 = phi ptr [ %call.i, %if.end8 ], [ %4, %if.end ]
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #16
+  store ptr %call.i, ptr %this, align 8
+  %cmp.i1 = icmp eq ptr %call.i, %add.ptr.i.i
+  br i1 %cmp.i1, label %for.end, label %if.end8
+
+if.end8:                                          ; preds = %for.cond
+  %second = getelementptr inbounds i8, ptr %call.i, i64 48
+  %6 = load ptr, ptr %second, align 8
+  %flags_.i = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = load atomic volatile i32, ptr %flags_.i monotonic, align 4
+  %and = and i32 %7, 64
+  %tobool12.not = icmp eq i32 %and, 0
+  br i1 %tobool12.not, label %for.end, label %for.cond, !llvm.loop !5
+
+for.end:                                          ; preds = %for.cond, %if.end8, %for.cond.us
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
           to label %return unwind label %terminate.lpad.i2
 
@@ -253,8 +295,8 @@ entry:
   %include_persistent_ = getelementptr inbounds i8, ptr %this, i64 8
   %include_persistent_3 = getelementptr inbounds i8, ptr %rhs, i64 8
   %1 = load i8, ptr %include_persistent_3, align 8
-  %2 = and i8 %1, 1
-  store i8 %2, ptr %include_persistent_, align 8
+  %frombool = and i8 %1, 1
+  store i8 %frombool, ptr %include_persistent_, align 8
   ret void
 }
 
@@ -1930,12 +1972,10 @@ invoke.cont15:                                    ; preds = %invoke.cont14
   br i1 %cmp.i9.not16, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont15, %invoke.cont28
-  %first_histogram.018 = phi i8 [ %first_histogram.1, %invoke.cont28 ], [ 1, %invoke.cont15 ]
+  %first_histogram.018 = phi i1 [ false, %invoke.cont28 ], [ true, %invoke.cont15 ]
   %__begin1.sroa.0.017 = phi ptr [ %incdec.ptr.i, %invoke.cont28 ], [ %7, %invoke.cont15 ]
   %9 = load ptr, ptr %__begin1.sroa.0.017, align 8
-  %10 = and i8 %first_histogram.018, 1
-  %tobool.not = icmp eq i8 %10, 0
-  br i1 %tobool.not, label %if.else, label %if.end25
+  br i1 %first_histogram.018, label %if.end25, label %if.else
 
 lpad13.loopexit:                                  ; preds = %if.else
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1953,7 +1993,6 @@ if.else:                                          ; preds = %for.body
           to label %if.end25 unwind label %lpad13.loopexit
 
 if.end25:                                         ; preds = %for.body, %if.else
-  %first_histogram.1 = phi i8 [ %first_histogram.018, %if.else ], [ 0, %for.body ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %json) #19
   invoke void @_ZNK4base13HistogramBase9WriteJSONEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(44) %9, ptr noundef nonnull %json)
           to label %invoke.cont27 unwind label %lpad26
@@ -1969,7 +2008,7 @@ invoke.cont28:                                    ; preds = %invoke.cont27
   br i1 %cmp.i9.not, label %for.end, label %for.body
 
 lpad26:                                           ; preds = %invoke.cont27, %if.end25
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %json) #19
   br label %ehcleanup
@@ -1987,13 +2026,13 @@ if.then.i.i.i:                                    ; preds = %invoke.cont31
   br label %return
 
 ehcleanup:                                        ; preds = %lpad13.loopexit, %lpad13.loopexit.split-lp, %lpad26
-  %12 = phi ptr [ %7, %lpad26 ], [ %7, %lpad13.loopexit ], [ %.pre, %lpad13.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %11, %lpad26 ], [ %lpad.loopexit, %lpad13.loopexit ], [ %lpad.loopexit.split-lp, %lpad13.loopexit.split-lp ]
-  %tobool.not.i.i.i10 = icmp eq ptr %12, null
+  %11 = phi ptr [ %7, %lpad26 ], [ %7, %lpad13.loopexit ], [ %.pre, %lpad13.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad26 ], [ %lpad.loopexit, %lpad13.loopexit ], [ %lpad.loopexit.split-lp, %lpad13.loopexit.split-lp ]
+  %tobool.not.i.i.i10 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i10, label %ehcleanup33, label %if.then.i.i.i11
 
 if.then.i.i.i11:                                  ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef nonnull %12) #18
+  call void @_ZdlPv(ptr noundef nonnull %11) #18
   br label %ehcleanup33
 
 ehcleanup33:                                      ; preds = %if.then.i.i.i11, %ehcleanup, %lpad3
@@ -2484,8 +2523,9 @@ if.end2:                                          ; preds = %entry, %if.then1, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base18StatisticsRecorder5beginEb(ptr noalias sret(%"class.base::StatisticsRecorder::HistogramIterator") align 8 %agg.result, i1 noundef zeroext %include_persistent) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base18StatisticsRecorder5beginEb(ptr noalias nocapture sret(%"class.base::StatisticsRecorder::HistogramIterator") align 8 %agg.result, i1 noundef zeroext %include_persistent) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
+  %iter_begin = alloca %"struct.std::_Rb_tree_iterator", align 8
   %0 = load ptr, ptr @_ZN4base18StatisticsRecorder5lock_E, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %_ZN4base18StatisticsRecorder32ImportGlobalPersistentHistogramsEv.exit, label %if.end.i
@@ -2505,6 +2545,7 @@ _ZN4base18StatisticsRecorder32ImportGlobalPersistentHistogramsEv.exit: ; preds =
   %2 = load ptr, ptr @_ZN4base18StatisticsRecorder11histograms_E, align 8
   %_M_left.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %_M_left.i.i, align 8
+  store ptr %3, ptr %iter_begin, align 8
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %_ZN4base8AutoLockD2Ev.exit unwind label %terminate.lpad.i
 
@@ -2516,31 +2557,7 @@ terminate.lpad.i:                                 ; preds = %_ZN4base18Statistic
   unreachable
 
 _ZN4base8AutoLockD2Ev.exit:                       ; preds = %_ZN4base18StatisticsRecorder32ImportGlobalPersistentHistogramsEv.exit
-  %frombool.i = zext i1 %include_persistent to i8
-  %6 = ptrtoint ptr %3 to i64
-  store i64 %6, ptr %agg.result, align 8
-  %include_persistent_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i8 %frombool.i, ptr %include_persistent_.i, align 8
-  %7 = load ptr, ptr @_ZN4base18StatisticsRecorder11histograms_E, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %cmp.i.not.i = icmp eq ptr %add.ptr.i.i.i, %3
-  %or.cond.i = select i1 %include_persistent, i1 true, i1 %cmp.i.not.i
-  br i1 %or.cond.i, label %_ZN4base18StatisticsRecorder17HistogramIteratorC2ERKSt17_Rb_tree_iteratorISt4pairIKNS0_9StringKeyEPNS_13HistogramBaseEEEb.exit, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %_ZN4base8AutoLockD2Ev.exit
-  %second.i = getelementptr inbounds i8, ptr %3, i64 48
-  %8 = load ptr, ptr %second.i, align 8
-  %flags_.i.i = getelementptr inbounds i8, ptr %8, i64 40
-  %9 = load atomic volatile i32, ptr %flags_.i.i monotonic, align 4
-  %and.i = and i32 %9, 64
-  %tobool10.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool10.not.i, label %_ZN4base18StatisticsRecorder17HistogramIteratorC2ERKSt17_Rb_tree_iteratorISt4pairIKNS0_9StringKeyEPNS_13HistogramBaseEEEb.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %land.rhs.i
-  %call11.i = tail call noundef nonnull align 8 dereferenceable(9) ptr @_ZN4base18StatisticsRecorder17HistogramIteratorppEv(ptr noundef nonnull align 8 dereferenceable(9) %agg.result)
-  br label %_ZN4base18StatisticsRecorder17HistogramIteratorC2ERKSt17_Rb_tree_iteratorISt4pairIKNS0_9StringKeyEPNS_13HistogramBaseEEEb.exit
-
-_ZN4base18StatisticsRecorder17HistogramIteratorC2ERKSt17_Rb_tree_iteratorISt4pairIKNS0_9StringKeyEPNS_13HistogramBaseEEEb.exit: ; preds = %_ZN4base8AutoLockD2Ev.exit, %land.rhs.i, %if.then.i
+  call void @_ZN4base18StatisticsRecorder17HistogramIteratorC2ERKSt17_Rb_tree_iteratorISt4pairIKNS0_9StringKeyEPNS_13HistogramBaseEEEb(ptr noundef nonnull align 8 dereferenceable(9) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %iter_begin, i1 noundef zeroext %include_persistent)
   ret void
 }
 
@@ -2602,9 +2619,8 @@ invoke.cont:                                      ; preds = %call3.i.i.noexc, %i
   %3 = inttoptr i64 %2 to ptr
   %vlog_initialized_.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load i8, ptr %vlog_initialized_.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %land.lhs.true.i, label %invoke.cont1
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %invoke.cont1, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %invoke.cont
   %call.i.i3 = invoke noundef i32 @_ZN7logging18GetVlogLevelHelperEPKcm(ptr noundef nonnull @.str, i64 noundef 133)
@@ -2624,30 +2640,30 @@ invoke.cont1:                                     ; preds = %call.i.i.noexc, %in
           to label %return unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont1
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #17
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #17
   unreachable
 
 return:                                           ; preds = %invoke.cont1, %entry
   ret void
 
 lpad:                                             ; preds = %if.then.i, %land.lhs.true.i, %.noexc, %if.then.i.i, %land.lhs.true.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %_ZN4base8AutoLockD2Ev.exit6 unwind label %terminate.lpad.i5
 
 terminate.lpad.i5:                                ; preds = %lpad
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #17
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #17
   unreachable
 
 _ZN4base8AutoLockD2Ev.exit6:                      ; preds = %lpad
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %7
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2655,9 +2671,8 @@ define dso_local void @_ZN4base18StatisticsRecorder28InitLogOnShutdownWithoutLoc
 entry:
   %vlog_initialized_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %vlog_initialized_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %land.lhs.true, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %call.i = tail call noundef i32 @_ZN7logging18GetVlogLevelHelperEPKcm(ptr noundef nonnull @.str, i64 noundef 133)
@@ -2819,8 +2834,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i, label %if.then.i, label %invoke.cont8
 
 if.then.i:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4base8CallbackIFviELNS6_8internal8CopyModeE1ELNS9_10RepeatModeE1EEESt4lessIS5_ESaISt4pairIKS5_SC_EEE11lower_boundERSG_.exit.i, %invoke.cont6
-  %__y.addr.0.lcssa.i.i.i9.i = phi ptr [ %add.ptr.i.i.i.i4, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4base8CallbackIFviELNS6_8internal8CopyModeE1ELNS9_10RepeatModeE1EEESt4lessIS5_ESaISt4pairIKS5_SC_EEE11lower_boundERSG_.exit.i ], [ %__y.addr.1.i.i.i.i14, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %add.ptr.i.i.i.i4, %invoke.cont6 ]
-  %call.i.i20 = invoke ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4base8CallbackIFviELNS8_8internal8CopyModeE1ELNSB_10RepeatModeE1EEEESt10_Select1stISF_ESt4lessIS5_ESaISF_EE22_M_emplace_hint_uniqueIJS6_IS5_SE_EEEESt17_Rb_tree_iteratorISF_ESt23_Rb_tree_const_iteratorISF_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr %__y.addr.0.lcssa.i.i.i9.i, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp)
+  %__y.addr.0.lcssa.i.i.i10.i = phi ptr [ %add.ptr.i.i.i.i4, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4base8CallbackIFviELNS6_8internal8CopyModeE1ELNS9_10RepeatModeE1EEESt4lessIS5_ESaISt4pairIKS5_SC_EEE11lower_boundERSG_.exit.i ], [ %__y.addr.1.i.i.i.i14, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %add.ptr.i.i.i.i4, %invoke.cont6 ]
+  %call.i.i20 = invoke ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4base8CallbackIFviELNS8_8internal8CopyModeE1ELNSB_10RepeatModeE1EEEESt10_Select1stISF_ESt4lessIS5_ESaISF_EE22_M_emplace_hint_uniqueIJS6_IS5_SE_EEEESt17_Rb_tree_iteratorISF_ESt23_Rb_tree_const_iteratorISF_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr %__y.addr.0.lcssa.i.i.i10.i, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i, %if.then.i
@@ -3423,9 +3438,8 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   store i64 0, ptr %_M_node_count.i.i.i.i.i17, align 8
   store ptr %call14, ptr @_ZN4base18StatisticsRecorder7ranges_B5cxx11E, align 8
   %22 = load i8, ptr %vlog_initialized_, align 8
-  %23 = and i8 %22, 1
-  %tobool.not.i = icmp eq i8 %23, 0
-  br i1 %tobool.not.i, label %land.lhs.true.i, label %invoke.cont15
+  %tobool.i = trunc i8 %22 to i1
+  br i1 %tobool.i, label %invoke.cont15, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %invoke.cont13
   %call.i.i18 = invoke noundef i32 @_ZN7logging18GetVlogLevelHelperEPKcm(ptr noundef nonnull @.str, i64 noundef 133)
@@ -3445,30 +3459,30 @@ invoke.cont15:                                    ; preds = %call.i.i.noexc, %in
           to label %_ZN4base8AutoLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont15
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #17
+  %24 = extractvalue { ptr, i32 } %23, 0
+  tail call void @__clang_call_terminate(ptr %24) #17
   unreachable
 
 _ZN4base8AutoLockD2Ev.exit:                       ; preds = %invoke.cont15
   ret void
 
 lpad8:                                            ; preds = %if.then.i, %land.lhs.true.i, %invoke.cont11, %invoke.cont9, %_ZNSt10unique_ptrISt3mapIjPNSt7__cxx114listIPKN4base12BucketRangesESaIS6_EEESt4lessIjESaISt4pairIKjS9_EEESt14default_deleteISG_EE5resetEPSG_.exit
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %ehcleanup unwind label %terminate.lpad.i19
 
 terminate.lpad.i19:                               ; preds = %lpad8
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #17
+  %27 = extractvalue { ptr, i32 } %26, 0
+  tail call void @__clang_call_terminate(ptr %27) #17
   unreachable
 
 ehcleanup:                                        ; preds = %lpad8, %lpad2, %lpad
-  %.pn = phi { ptr, i32 } [ %1, %lpad ], [ %2, %lpad2 ], [ %26, %lpad8 ]
+  %.pn = phi { ptr, i32 } [ %1, %lpad ], [ %2, %lpad2 ], [ %25, %lpad8 ]
   tail call void @_ZNSt10unique_ptrISt3mapIjPNSt7__cxx114listIPKN4base12BucketRangesESaIS6_EEESt4lessIjESaISt4pairIKjS9_EEESt14default_deleteISG_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %existing_ranges_) #19
   tail call void @_ZNSt10unique_ptrISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4base8CallbackIFviELNS7_8internal8CopyModeE1ELNSA_10RepeatModeE1EEESt4lessIS6_ESaISt4pairIKS6_SD_EEESt14default_deleteISK_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %existing_callbacks_) #19
   tail call void @_ZNSt10unique_ptrISt3mapIN4base18StatisticsRecorder9StringKeyEPNS1_13HistogramBaseESt4lessIS3_ESaISt4pairIKS3_S5_EEESt14default_deleteISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19

@@ -61,29 +61,28 @@ define dso_local void @rpc_queue_init() local_unnamed_addr #0 {
 5:                                                ; preds = %0
   %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #7
   %7 = load i16, ptr @slurmctld_rpcs, align 8
-  %.not3352 = icmp eq i16 %7, 0
-  br i1 %.not3352, label %.loopexit, label %.lr.ph
+  %.not3351 = icmp eq i16 %7, 0
+  br i1 %.not3351, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %59
   %8 = phi i16 [ %61, %59 ], [ %7, %5 ]
-  %.053 = phi ptr [ %60, %59 ], [ @slurmctld_rpcs, %5 ]
-  %9 = getelementptr inbounds i8, ptr %.053, i64 56
+  %.052 = phi ptr [ %60, %59 ], [ @slurmctld_rpcs, %5 ]
+  %9 = getelementptr inbounds i8, ptr %.052, i64 56
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %.not34 = icmp eq i8 %11, 0
-  br i1 %.not34, label %59, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %59
 
 12:                                               ; preds = %.lr.ph
   %13 = call ptr @rpc_num2string(i16 noundef zeroext %8) #7
-  %14 = getelementptr inbounds i8, ptr %.053, i64 48
+  %14 = getelementptr inbounds i8, ptr %.052, i64 48
   store ptr %13, ptr %14, align 8
   %15 = call ptr @list_create(ptr noundef null) #7
-  %16 = getelementptr inbounds i8, ptr %.053, i64 160
+  %16 = getelementptr inbounds i8, ptr %.052, i64 160
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %.053, i64 72
+  %17 = getelementptr inbounds i8, ptr %.052, i64 72
   %18 = call i32 @pthread_cond_init(ptr noundef nonnull %17, ptr noundef null) #7
-  %.not35 = icmp eq i32 %18, 0
-  br i1 %.not35, label %21, label %19
+  %.not34 = icmp eq i32 %18, 0
+  br i1 %.not34, label %21, label %19
 
 19:                                               ; preds = %12
   %20 = tail call ptr @__errno_location() #8
@@ -92,10 +91,10 @@ define dso_local void @rpc_queue_init() local_unnamed_addr #0 {
   unreachable
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %.053, i64 120
+  %22 = getelementptr inbounds i8, ptr %.052, i64 120
   %23 = call i32 @pthread_mutex_init(ptr noundef nonnull %22, ptr noundef null) #7
-  %.not36 = icmp eq i32 %23, 0
-  br i1 %.not36, label %26, label %24
+  %.not35 = icmp eq i32 %23, 0
+  br i1 %.not35, label %26, label %24
 
 24:                                               ; preds = %21
   %25 = tail call ptr @__errno_location() #8
@@ -104,12 +103,12 @@ define dso_local void @rpc_queue_init() local_unnamed_addr #0 {
   unreachable
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %.053, i64 57
+  %27 = getelementptr inbounds i8, ptr %.052, i64 57
   store i8 0, ptr %27, align 1
   %28 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %29 = and i64 %28, 67108864
-  %.not37 = icmp eq i64 %29, 0
-  br i1 %.not37, label %35, label %30
+  %.not36 = icmp eq i64 %29, 0
+  br i1 %.not36, label %35, label %30
 
 30:                                               ; preds = %26
   %31 = call i32 @get_log_level() #7
@@ -123,8 +122,8 @@ define dso_local void @rpc_queue_init() local_unnamed_addr #0 {
 
 35:                                               ; preds = %26, %30, %33
   %36 = call i32 @pthread_attr_init(ptr noundef nonnull %1) #7
-  %.not38 = icmp eq i32 %36, 0
-  br i1 %.not38, label %39, label %37
+  %.not37 = icmp eq i32 %36, 0
+  br i1 %.not37, label %39, label %37
 
 37:                                               ; preds = %35
   %38 = tail call ptr @__errno_location() #8
@@ -134,8 +133,8 @@ define dso_local void @rpc_queue_init() local_unnamed_addr #0 {
 
 39:                                               ; preds = %35
   %40 = call i32 @pthread_attr_setscope(ptr noundef nonnull %1, i32 noundef 0) #7
-  %.not39 = icmp eq i32 %40, 0
-  br i1 %.not39, label %44, label %41
+  %.not38 = icmp eq i32 %40, 0
+  br i1 %.not38, label %44, label %41
 
 41:                                               ; preds = %39
   %42 = tail call ptr @__errno_location() #8
@@ -145,8 +144,8 @@ define dso_local void @rpc_queue_init() local_unnamed_addr #0 {
 
 44:                                               ; preds = %41, %39
   %45 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %1, i64 noundef 1048576) #7
-  %.not40 = icmp eq i32 %45, 0
-  br i1 %.not40, label %49, label %46
+  %.not39 = icmp eq i32 %45, 0
+  br i1 %.not39, label %49, label %46
 
 46:                                               ; preds = %44
   %47 = tail call ptr @__errno_location() #8
@@ -155,10 +154,10 @@ define dso_local void @rpc_queue_init() local_unnamed_addr #0 {
   br label %49
 
 49:                                               ; preds = %44, %46
-  %50 = getelementptr inbounds i8, ptr %.053, i64 64
-  %51 = call i32 @pthread_create(ptr noundef nonnull %50, ptr noundef nonnull %1, ptr noundef nonnull @_rpc_queue_worker, ptr noundef nonnull %.053) #7
-  %.not41 = icmp eq i32 %51, 0
-  br i1 %.not41, label %54, label %52
+  %50 = getelementptr inbounds i8, ptr %.052, i64 64
+  %51 = call i32 @pthread_create(ptr noundef nonnull %50, ptr noundef nonnull %1, ptr noundef nonnull @_rpc_queue_worker, ptr noundef nonnull %.052) #7
+  %.not40 = icmp eq i32 %51, 0
+  br i1 %.not40, label %54, label %52
 
 52:                                               ; preds = %49
   %53 = tail call ptr @__errno_location() #8
@@ -168,8 +167,8 @@ define dso_local void @rpc_queue_init() local_unnamed_addr #0 {
 
 54:                                               ; preds = %49
   %55 = call i32 @pthread_attr_destroy(ptr noundef nonnull %1) #7
-  %.not42 = icmp eq i32 %55, 0
-  br i1 %.not42, label %59, label %56
+  %.not41 = icmp eq i32 %55, 0
+  br i1 %.not41, label %59, label %56
 
 56:                                               ; preds = %54
   %57 = tail call ptr @__errno_location() #8
@@ -178,7 +177,7 @@ define dso_local void @rpc_queue_init() local_unnamed_addr #0 {
   br label %59
 
 59:                                               ; preds = %54, %56, %.lr.ph
-  %60 = getelementptr inbounds i8, ptr %.053, i64 168
+  %60 = getelementptr inbounds i8, ptr %.052, i64 168
   %61 = load i16, ptr %60, align 8
   %.not33 = icmp eq i16 %61, 0
   br i1 %.not33, label %.loopexit, label %.lr.ph, !llvm.loop !7
@@ -306,15 +305,14 @@ define internal noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
 
 43:                                               ; preds = %38
   %44 = load i8, ptr %21, align 1
-  %45 = and i8 %44, 1
-  %.not48 = icmp eq i8 %45, 0
-  br i1 %.not48, label %59, label %46
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %59
 
 46:                                               ; preds = %43
   %47 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %48 = and i64 %47, 67108864
-  %.not53 = icmp eq i64 %48, 0
-  br i1 %.not53, label %54, label %49
+  %.not52 = icmp eq i64 %48, 0
+  br i1 %.not52, label %54, label %49
 
 49:                                               ; preds = %46
   %50 = call i32 @get_log_level() #7
@@ -328,8 +326,8 @@ define internal noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
 
 54:                                               ; preds = %52, %49, %46
   %55 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #7
-  %.not54 = icmp eq i32 %55, 0
-  br i1 %.not54, label %58, label %56
+  %.not53 = icmp eq i32 %55, 0
+  br i1 %.not53, label %58, label %56
 
 56:                                               ; preds = %54
   %57 = tail call ptr @__errno_location() #8
@@ -343,13 +341,13 @@ define internal noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
 59:                                               ; preds = %43
   %60 = load ptr, ptr %16, align 8
   %61 = call i32 @list_count(ptr noundef %60) #7
-  %.not49 = icmp eq i32 %61, 0
-  br i1 %.not49, label %62, label %67
+  %.not48 = icmp eq i32 %61, 0
+  br i1 %.not48, label %62, label %67
 
 62:                                               ; preds = %59
   %63 = call i32 @pthread_cond_wait(ptr noundef nonnull %22, ptr noundef nonnull %20) #7
-  %.not50 = icmp eq i32 %63, 0
-  br i1 %.not50, label %67, label %64
+  %.not49 = icmp eq i32 %63, 0
+  br i1 %.not49, label %67, label %64
 
 64:                                               ; preds = %62
   %65 = tail call ptr @__errno_location() #8
@@ -359,8 +357,8 @@ define internal noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
 
 67:                                               ; preds = %59, %62, %64
   %68 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #7
-  %.not51 = icmp eq i32 %68, 0
-  br i1 %.not51, label %71, label %69
+  %.not50 = icmp eq i32 %68, 0
+  br i1 %.not50, label %71, label %69
 
 69:                                               ; preds = %67
   %70 = tail call ptr @__errno_location() #8
@@ -371,8 +369,8 @@ define internal noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
 71:                                               ; preds = %67
   %72 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %73 = and i64 %72, 67108864
-  %.not52 = icmp eq i64 %73, 0
-  br i1 %.not52, label %79, label %74
+  %.not51 = icmp eq i64 %73, 0
+  br i1 %.not51, label %79, label %74
 
 74:                                               ; preds = %71
   %75 = call i32 @get_log_level() #7
@@ -432,34 +430,32 @@ declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @rpc_queue_shutdown() local_unnamed_addr #0 {
   %1 = load i8, ptr @enabled, align 1
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %.loopexit, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %.loopexit
 
 3:                                                ; preds = %0
   store i8 0, ptr @enabled, align 1
   %4 = load i16, ptr @slurmctld_rpcs, align 8
-  %.not3044 = icmp eq i16 %4, 0
-  br i1 %.not3044, label %.loopexit, label %.lr.ph
+  %.not41 = icmp eq i16 %4, 0
+  br i1 %.not41, label %.loopexit, label %.lr.ph
 
 .preheader:                                       ; preds = %25
   %.pre = load i16, ptr @slurmctld_rpcs, align 8
   %5 = icmp eq i16 %.pre, 0
-  br i1 %5, label %.loopexit, label %.lr.ph48
+  br i1 %5, label %.loopexit, label %.lr.ph45
 
 .lr.ph:                                           ; preds = %3, %25
-  %.02445 = phi ptr [ %26, %25 ], [ @slurmctld_rpcs, %3 ]
-  %6 = getelementptr inbounds i8, ptr %.02445, i64 56
+  %.02442 = phi ptr [ %26, %25 ], [ @slurmctld_rpcs, %3 ]
+  %6 = getelementptr inbounds i8, ptr %.02442, i64 56
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not36 = icmp eq i8 %8, 0
-  br i1 %.not36, label %25, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %25
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.02445, i64 120
+  %10 = getelementptr inbounds i8, ptr %.02442, i64 120
   %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #7
-  %.not37 = icmp eq i32 %11, 0
-  br i1 %.not37, label %14, label %12
+  %.not34 = icmp eq i32 %11, 0
+  br i1 %.not34, label %14, label %12
 
 12:                                               ; preds = %9
   %13 = tail call ptr @__errno_location() #8
@@ -468,12 +464,12 @@ define dso_local void @rpc_queue_shutdown() local_unnamed_addr #0 {
   unreachable
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %.02445, i64 57
+  %15 = getelementptr inbounds i8, ptr %.02442, i64 57
   store i8 1, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %.02445, i64 72
+  %16 = getelementptr inbounds i8, ptr %.02442, i64 72
   %17 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %16) #7
-  %.not38 = icmp eq i32 %17, 0
-  br i1 %.not38, label %21, label %18
+  %.not35 = icmp eq i32 %17, 0
+  br i1 %.not35, label %21, label %18
 
 18:                                               ; preds = %14
   %19 = tail call ptr @__errno_location() #8
@@ -483,8 +479,8 @@ define dso_local void @rpc_queue_shutdown() local_unnamed_addr #0 {
 
 21:                                               ; preds = %18, %14
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #7
-  %.not39 = icmp eq i32 %22, 0
-  br i1 %.not39, label %25, label %23
+  %.not36 = icmp eq i32 %22, 0
+  br i1 %.not36, label %25, label %23
 
 23:                                               ; preds = %21
   %24 = tail call ptr @__errno_location() #8
@@ -493,30 +489,29 @@ define dso_local void @rpc_queue_shutdown() local_unnamed_addr #0 {
   unreachable
 
 25:                                               ; preds = %21, %.lr.ph
-  %26 = getelementptr inbounds i8, ptr %.02445, i64 168
+  %26 = getelementptr inbounds i8, ptr %.02442, i64 168
   %27 = load i16, ptr %26, align 8
-  %.not30 = icmp eq i16 %27, 0
-  br i1 %.not30, label %.preheader, label %.lr.ph, !llvm.loop !9
+  %.not = icmp eq i16 %27, 0
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !9
 
-.lr.ph48:                                         ; preds = %.preheader, %43
-  %.02347 = phi ptr [ %44, %43 ], [ @slurmctld_rpcs, %.preheader ]
-  %28 = getelementptr inbounds i8, ptr %.02347, i64 56
+.lr.ph45:                                         ; preds = %.preheader, %43
+  %.02344 = phi ptr [ %44, %43 ], [ @slurmctld_rpcs, %.preheader ]
+  %28 = getelementptr inbounds i8, ptr %.02344, i64 56
   %29 = load i8, ptr %28, align 8
-  %30 = and i8 %29, 1
-  %.not32 = icmp eq i8 %30, 0
-  br i1 %.not32, label %43, label %31
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %43
 
-31:                                               ; preds = %.lr.ph48
-  %32 = getelementptr inbounds i8, ptr %.02347, i64 64
+31:                                               ; preds = %.lr.ph45
+  %32 = getelementptr inbounds i8, ptr %.02344, i64 64
   %33 = load i64, ptr %32, align 8
-  %.not33 = icmp eq i64 %33, 0
-  br i1 %.not33, label %.thread, label %34
+  %.not31 = icmp eq i64 %33, 0
+  br i1 %.not31, label %.thread, label %34
 
 34:                                               ; preds = %31
   %35 = tail call i32 @pthread_join(i64 noundef %33, ptr noundef null) #7
   store i64 0, ptr %32, align 8
-  %.not34 = icmp eq i32 %35, 0
-  br i1 %.not34, label %.thread, label %36
+  %.not32 = icmp eq i32 %35, 0
+  br i1 %.not32, label %.thread, label %36
 
 36:                                               ; preds = %34
   %37 = tail call ptr @__errno_location() #8
@@ -525,10 +520,10 @@ define dso_local void @rpc_queue_shutdown() local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %31, %36, %34
-  %39 = getelementptr inbounds i8, ptr %.02347, i64 160
+  %39 = getelementptr inbounds i8, ptr %.02344, i64 160
   %40 = load ptr, ptr %39, align 8
-  %.not35 = icmp eq ptr %40, null
-  br i1 %.not35, label %42, label %41
+  %.not33 = icmp eq ptr %40, null
+  br i1 %.not33, label %42, label %41
 
 41:                                               ; preds = %.thread
   tail call void @list_destroy(ptr noundef nonnull %40) #7
@@ -538,11 +533,11 @@ define dso_local void @rpc_queue_shutdown() local_unnamed_addr #0 {
   store ptr null, ptr %39, align 8
   br label %43
 
-43:                                               ; preds = %.lr.ph48, %42
-  %44 = getelementptr inbounds i8, ptr %.02347, i64 168
+43:                                               ; preds = %.lr.ph45, %42
+  %44 = getelementptr inbounds i8, ptr %.02344, i64 168
   %45 = load i16, ptr %44, align 8
-  %.not31 = icmp eq i16 %45, 0
-  br i1 %.not31, label %.loopexit, label %.lr.ph48, !llvm.loop !10
+  %.not30 = icmp eq i16 %45, 0
+  br i1 %.not30, label %.loopexit, label %.lr.ph45, !llvm.loop !10
 
 .loopexit:                                        ; preds = %43, %3, %.preheader, %0
   ret void
@@ -564,14 +559,13 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @rpc_enqueue(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @enabled, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %.loopexit, label %.preheader
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %1
   %4 = load i16, ptr @slurmctld_rpcs, align 8
-  %.not2127 = icmp eq i16 %4, 0
-  br i1 %.not2127, label %.loopexit, label %.lr.ph
+  %.not25 = icmp eq i16 %4, 0
+  br i1 %.not25, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %5 = getelementptr inbounds i8, ptr %0, i64 204
@@ -580,25 +574,24 @@ define dso_local noundef zeroext i1 @rpc_enqueue(ptr noundef %0) local_unnamed_a
 
 7:                                                ; preds = %.lr.ph, %31
   %8 = phi i16 [ %4, %.lr.ph ], [ %33, %31 ]
-  %.01628 = phi ptr [ @slurmctld_rpcs, %.lr.ph ], [ %32, %31 ]
+  %.01626 = phi ptr [ @slurmctld_rpcs, %.lr.ph ], [ %32, %31 ]
   %9 = icmp eq i16 %8, %6
   br i1 %9, label %10, label %31
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %.01628, i64 56
+  %11 = getelementptr inbounds i8, ptr %.01626, i64 56
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not22 = icmp eq i8 %13, 0
-  br i1 %.not22, label %.loopexit, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %.loopexit
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %.01628, i64 160
+  %15 = getelementptr inbounds i8, ptr %.01626, i64 160
   %16 = load ptr, ptr %15, align 8
   tail call void @list_enqueue(ptr noundef %16, ptr noundef nonnull %0) #7
-  %17 = getelementptr inbounds i8, ptr %.01628, i64 120
+  %17 = getelementptr inbounds i8, ptr %.01626, i64 120
   %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %17) #7
-  %.not23 = icmp eq i32 %18, 0
-  br i1 %.not23, label %21, label %19
+  %.not21 = icmp eq i32 %18, 0
+  br i1 %.not21, label %21, label %19
 
 19:                                               ; preds = %14
   %20 = tail call ptr @__errno_location() #8
@@ -607,10 +600,10 @@ define dso_local noundef zeroext i1 @rpc_enqueue(ptr noundef %0) local_unnamed_a
   unreachable
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %.01628, i64 72
+  %22 = getelementptr inbounds i8, ptr %.01626, i64 72
   %23 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %22) #7
-  %.not24 = icmp eq i32 %23, 0
-  br i1 %.not24, label %27, label %24
+  %.not22 = icmp eq i32 %23, 0
+  br i1 %.not22, label %27, label %24
 
 24:                                               ; preds = %21
   %25 = tail call ptr @__errno_location() #8
@@ -620,8 +613,8 @@ define dso_local noundef zeroext i1 @rpc_enqueue(ptr noundef %0) local_unnamed_a
 
 27:                                               ; preds = %24, %21
   %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %17) #7
-  %.not25 = icmp eq i32 %28, 0
-  br i1 %.not25, label %.loopexit, label %29
+  %.not23 = icmp eq i32 %28, 0
+  br i1 %.not23, label %.loopexit, label %29
 
 29:                                               ; preds = %27
   %30 = tail call ptr @__errno_location() #8
@@ -630,10 +623,10 @@ define dso_local noundef zeroext i1 @rpc_enqueue(ptr noundef %0) local_unnamed_a
   unreachable
 
 31:                                               ; preds = %7
-  %32 = getelementptr inbounds i8, ptr %.01628, i64 168
+  %32 = getelementptr inbounds i8, ptr %.01626, i64 168
   %33 = load i16, ptr %32, align 8
-  %.not21 = icmp eq i16 %33, 0
-  br i1 %.not21, label %.loopexit, label %7, !llvm.loop !11
+  %.not = icmp eq i16 %33, 0
+  br i1 %.not, label %.loopexit, label %7, !llvm.loop !11
 
 .loopexit:                                        ; preds = %31, %.preheader, %10, %27, %1
   %.0 = phi i1 [ false, %1 ], [ true, %27 ], [ false, %10 ], [ false, %.preheader ], [ false, %31 ]

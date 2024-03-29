@@ -167,121 +167,118 @@ define internal fastcc void @maybe_comma_name(ptr nocapture noundef %writer, ptr
 entry:
   %need_comma = getelementptr inbounds i8, ptr %writer, i64 1
   %0 = load i8, ptr %need_comma, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  %contents1 = getelementptr inbounds i8, ptr %writer, i64 8
-  %2 = load ptr, ptr %contents1, align 8
-  %len = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load i64, ptr %len, align 8
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  %contents = getelementptr inbounds i8, ptr %writer, i64 8
+  %1 = load ptr, ptr %contents, align 8
+  %len.i = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = load i64, ptr %len.i, align 8
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %add.i = add i64 %3, 1
-  %allocated_len.i = getelementptr inbounds i8, ptr %2, i64 16
-  %4 = load i64, ptr %allocated_len.i, align 8
-  %cmp.i = icmp ult i64 %add.i, %4
+  %add.i = add i64 %2, 1
+  %allocated_len.i = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = load i64, ptr %allocated_len.i, align 8
+  %cmp.i = icmp ult i64 %add.i, %3
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %5 = load ptr, ptr %2, align 8
-  store i64 %add.i, ptr %len, align 8
-  %arrayidx.i = getelementptr i8, ptr %5, i64 %3
+  %4 = load ptr, ptr %1, align 8
+  store i64 %add.i, ptr %len.i, align 8
+  %arrayidx.i = getelementptr i8, ptr %4, i64 %2
   store i8 44, ptr %arrayidx.i, align 1
-  %6 = load ptr, ptr %2, align 8
-  %7 = load i64, ptr %len, align 8
-  %arrayidx4.i = getelementptr i8, ptr %6, i64 %7
+  %5 = load ptr, ptr %1, align 8
+  %6 = load i64, ptr %len.i, align 8
+  %arrayidx4.i = getelementptr i8, ptr %5, i64 %6
   store i8 0, ptr %arrayidx4.i, align 1
   br label %g_string_append_c_inline.exit
 
 if.else.i:                                        ; preds = %if.then
-  %call.i = tail call ptr @g_string_insert_c(ptr noundef nonnull %2, i64 noundef -1, i8 noundef signext 44) #6
+  %call.i = tail call ptr @g_string_insert_c(ptr noundef nonnull %1, i64 noundef -1, i8 noundef signext 44) #6
   br label %g_string_append_c_inline.exit
 
 g_string_append_c_inline.exit:                    ; preds = %if.then.i, %if.else.i
-  %8 = load i8, ptr %writer, align 8
-  %9 = and i8 %8, 1
-  %tobool.not.i = icmp eq i8 %9, 0
-  %10 = load ptr, ptr %contents1, align 8
-  br i1 %tobool.not.i, label %if.else.i11, label %if.then.i9
+  %7 = load i8, ptr %writer, align 8
+  %tobool.i = trunc i8 %7 to i1
+  %8 = load ptr, ptr %contents, align 8
+  br i1 %tobool.i, label %if.then.i10, label %if.else.i9
 
-if.then.i9:                                       ; preds = %g_string_append_c_inline.exit
+if.then.i10:                                      ; preds = %g_string_append_c_inline.exit
   %container_is_array.i = getelementptr inbounds i8, ptr %writer, i64 16
-  %11 = load ptr, ptr %container_is_array.i, align 8
-  %len.i10 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load i32, ptr %len.i10, align 8
-  %mul.i = shl i32 %12, 2
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %10, ptr noundef nonnull @.str.9, i32 noundef %mul.i, ptr noundef nonnull @.str.10) #6
+  %9 = load ptr, ptr %container_is_array.i, align 8
+  %len.i11 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load i32, ptr %len.i11, align 8
+  %mul.i = shl i32 %10, 2
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %8, ptr noundef nonnull @.str.9, i32 noundef %mul.i, ptr noundef nonnull @.str.10) #6
   br label %if.end5
 
-if.else.i11:                                      ; preds = %g_string_append_c_inline.exit
-  %len.i.i = getelementptr inbounds i8, ptr %10, i64 8
-  %13 = load i64, ptr %len.i.i, align 8
-  %add.i.i = add i64 %13, 1
-  %allocated_len.i.i = getelementptr inbounds i8, ptr %10, i64 16
-  %14 = load i64, ptr %allocated_len.i.i, align 8
-  %cmp.i.i = icmp ult i64 %add.i.i, %14
+if.else.i9:                                       ; preds = %g_string_append_c_inline.exit
+  %len.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = load i64, ptr %len.i.i, align 8
+  %add.i.i = add i64 %11, 1
+  %allocated_len.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = load i64, ptr %allocated_len.i.i, align 8
+  %cmp.i.i = icmp ult i64 %add.i.i, %12
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
-if.then.i.i:                                      ; preds = %if.else.i11
-  %15 = load ptr, ptr %10, align 8
+if.then.i.i:                                      ; preds = %if.else.i9
+  %13 = load ptr, ptr %8, align 8
   store i64 %add.i.i, ptr %len.i.i, align 8
-  %arrayidx.i.i = getelementptr i8, ptr %15, i64 %13
+  %arrayidx.i.i = getelementptr i8, ptr %13, i64 %11
   store i8 32, ptr %arrayidx.i.i, align 1
-  %16 = load ptr, ptr %10, align 8
-  %17 = load i64, ptr %len.i.i, align 8
-  %arrayidx4.i.i = getelementptr i8, ptr %16, i64 %17
+  %14 = load ptr, ptr %8, align 8
+  %15 = load i64, ptr %len.i.i, align 8
+  %arrayidx4.i.i = getelementptr i8, ptr %14, i64 %15
   store i8 0, ptr %arrayidx4.i.i, align 1
   br label %if.end5
 
-if.else.i.i:                                      ; preds = %if.else.i11
-  %call.i.i = tail call ptr @g_string_insert_c(ptr noundef nonnull %10, i64 noundef -1, i8 noundef signext 32) #6
+if.else.i.i:                                      ; preds = %if.else.i9
+  %call.i.i = tail call ptr @g_string_insert_c(ptr noundef nonnull %8, i64 noundef -1, i8 noundef signext 32) #6
   br label %if.end5
 
 if.else:                                          ; preds = %entry
-  %tobool2.not = icmp eq i64 %3, 0
+  %tobool2.not = icmp eq i64 %2, 0
   br i1 %tobool2.not, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %if.else
-  %18 = load i8, ptr %writer, align 8
-  %19 = and i8 %18, 1
-  %tobool.not.i12 = icmp eq i8 %19, 0
-  br i1 %tobool.not.i12, label %if.end, label %if.then.i13
+  %16 = load i8, ptr %writer, align 8
+  %tobool.i12 = trunc i8 %16 to i1
+  br i1 %tobool.i12, label %if.then.i13, label %if.end
 
 if.then.i13:                                      ; preds = %if.then3
-  %container_is_array.i14 = getelementptr inbounds i8, ptr %writer, i64 16
-  %20 = load ptr, ptr %container_is_array.i14, align 8
-  %len.i15 = getelementptr inbounds i8, ptr %20, i64 8
-  %21 = load i32, ptr %len.i15, align 8
-  %mul.i16 = shl i32 %21, 2
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef nonnull %2, ptr noundef nonnull @.str.9, i32 noundef %mul.i16, ptr noundef nonnull @.str.10) #6
+  %container_is_array.i15 = getelementptr inbounds i8, ptr %writer, i64 16
+  %17 = load ptr, ptr %container_is_array.i15, align 8
+  %len.i16 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load i32, ptr %len.i16, align 8
+  %mul.i17 = shl i32 %18, 2
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.9, i32 noundef %mul.i17, ptr noundef nonnull @.str.10) #6
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i13, %if.then3, %if.else
   store i8 1, ptr %need_comma, align 1
   br label %if.end5
 
-if.end5:                                          ; preds = %if.else.i.i, %if.then.i.i, %if.then.i9, %if.end
-  %22 = getelementptr i8, ptr %writer, i64 16
-  %writer.val = load ptr, ptr %22, align 8
-  %len.i17 = getelementptr inbounds i8, ptr %writer.val, i64 8
-  %23 = load i32, ptr %len.i17, align 8
-  %tobool.not.i18 = icmp eq i32 %23, 0
-  br i1 %tobool.not.i18, label %if.end10, label %in_object.exit
+if.end5:                                          ; preds = %if.else.i.i, %if.then.i.i, %if.then.i10, %if.end
+  %19 = getelementptr i8, ptr %writer, i64 16
+  %writer.val = load ptr, ptr %19, align 8
+  %len.i18 = getelementptr inbounds i8, ptr %writer.val, i64 8
+  %20 = load i32, ptr %len.i18, align 8
+  %tobool.not.i = icmp eq i32 %20, 0
+  br i1 %tobool.not.i, label %if.end10, label %in_object.exit
 
 in_object.exit:                                   ; preds = %if.end5
-  %24 = load ptr, ptr %writer.val, align 8
-  %sub.i = add i32 %23, -1
+  %21 = load ptr, ptr %writer.val, align 8
+  %sub.i = add i32 %20, -1
   %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i19 = getelementptr i8, ptr %24, i64 %idxprom.i
-  %25 = load i8, ptr %arrayidx.i19, align 1
-  %tobool2.not.i = icmp eq i8 %25, 0
+  %arrayidx.i19 = getelementptr i8, ptr %21, i64 %idxprom.i
+  %22 = load i8, ptr %arrayidx.i19, align 1
+  %tobool2.not.i = icmp eq i8 %22, 0
   br i1 %tobool2.not.i, label %if.then7, label %if.end10
 
 if.then7:                                         ; preds = %in_object.exit
   tail call fastcc void @quoted_str(ptr noundef nonnull %writer, ptr noundef %name)
   %contents8 = getelementptr inbounds i8, ptr %writer, i64 8
-  %26 = load ptr, ptr %contents8, align 8
-  %call9 = tail call ptr @g_string_append(ptr noundef %26, ptr noundef nonnull @.str.8) #6
+  %23 = load ptr, ptr %contents8, align 8
+  %call9 = tail call ptr @g_string_append(ptr noundef %23, ptr noundef nonnull @.str.8) #6
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end5, %if.then7, %in_object.exit
@@ -320,47 +317,46 @@ leave_container.exit:                             ; preds = %if.end.i
   %need_comma.i = getelementptr inbounds i8, ptr %writer, i64 1
   store i8 1, ptr %need_comma.i, align 1
   %4 = load i8, ptr %writer, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i3 = icmp eq i8 %5, 0
-  br i1 %tobool.not.i3, label %pretty_newline.exit, label %if.then.i
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %if.then.i, label %pretty_newline.exit
 
 if.then.i:                                        ; preds = %leave_container.exit
   %contents.i = getelementptr inbounds i8, ptr %writer, i64 8
-  %6 = load ptr, ptr %contents.i, align 8
-  %7 = load ptr, ptr %container_is_array.i, align 8
-  %len.i5 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load i32, ptr %len.i5, align 8
-  %mul.i = shl i32 %8, 2
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %6, ptr noundef nonnull @.str.9, i32 noundef %mul.i, ptr noundef nonnull @.str.10) #6
+  %5 = load ptr, ptr %contents.i, align 8
+  %6 = load ptr, ptr %container_is_array.i, align 8
+  %len.i5 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load i32, ptr %len.i5, align 8
+  %mul.i = shl i32 %7, 2
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %5, ptr noundef nonnull @.str.9, i32 noundef %mul.i, ptr noundef nonnull @.str.10) #6
   br label %pretty_newline.exit
 
 pretty_newline.exit:                              ; preds = %leave_container.exit, %if.then.i
   %contents = getelementptr inbounds i8, ptr %writer, i64 8
-  %9 = load ptr, ptr %contents, align 8
-  %len.i7 = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i64, ptr %len.i7, align 8
-  %add.i = add i64 %10, 1
-  %allocated_len.i = getelementptr inbounds i8, ptr %9, i64 16
-  %11 = load i64, ptr %allocated_len.i, align 8
-  %cmp.i8 = icmp ult i64 %add.i, %11
-  br i1 %cmp.i8, label %if.then.i12, label %if.else.i9
+  %8 = load ptr, ptr %contents, align 8
+  %len.i6 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = load i64, ptr %len.i6, align 8
+  %add.i = add i64 %9, 1
+  %allocated_len.i = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = load i64, ptr %allocated_len.i, align 8
+  %cmp.i7 = icmp ult i64 %add.i, %10
+  br i1 %cmp.i7, label %if.then.i11, label %if.else.i8
 
-if.then.i12:                                      ; preds = %pretty_newline.exit
-  %12 = load ptr, ptr %9, align 8
-  store i64 %add.i, ptr %len.i7, align 8
-  %arrayidx.i13 = getelementptr i8, ptr %12, i64 %10
-  store i8 125, ptr %arrayidx.i13, align 1
-  %13 = load ptr, ptr %9, align 8
-  %14 = load i64, ptr %len.i7, align 8
-  %arrayidx4.i = getelementptr i8, ptr %13, i64 %14
+if.then.i11:                                      ; preds = %pretty_newline.exit
+  %11 = load ptr, ptr %8, align 8
+  store i64 %add.i, ptr %len.i6, align 8
+  %arrayidx.i12 = getelementptr i8, ptr %11, i64 %9
+  store i8 125, ptr %arrayidx.i12, align 1
+  %12 = load ptr, ptr %8, align 8
+  %13 = load i64, ptr %len.i6, align 8
+  %arrayidx4.i = getelementptr i8, ptr %12, i64 %13
   store i8 0, ptr %arrayidx4.i, align 1
   br label %g_string_append_c_inline.exit
 
-if.else.i9:                                       ; preds = %pretty_newline.exit
-  %call.i10 = tail call ptr @g_string_insert_c(ptr noundef nonnull %9, i64 noundef -1, i8 noundef signext 125) #6
+if.else.i8:                                       ; preds = %pretty_newline.exit
+  %call.i9 = tail call ptr @g_string_insert_c(ptr noundef nonnull %8, i64 noundef -1, i8 noundef signext 125) #6
   br label %g_string_append_c_inline.exit
 
-g_string_append_c_inline.exit:                    ; preds = %if.then.i12, %if.else.i9
+g_string_append_c_inline.exit:                    ; preds = %if.then.i11, %if.else.i8
   ret void
 }
 
@@ -442,47 +438,46 @@ leave_container.exit:                             ; preds = %if.end.i
   %need_comma.i = getelementptr inbounds i8, ptr %writer, i64 1
   store i8 1, ptr %need_comma.i, align 1
   %4 = load i8, ptr %writer, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i3 = icmp eq i8 %5, 0
-  br i1 %tobool.not.i3, label %pretty_newline.exit, label %if.then.i
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %if.then.i, label %pretty_newline.exit
 
 if.then.i:                                        ; preds = %leave_container.exit
   %contents.i = getelementptr inbounds i8, ptr %writer, i64 8
-  %6 = load ptr, ptr %contents.i, align 8
-  %7 = load ptr, ptr %container_is_array.i, align 8
-  %len.i5 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load i32, ptr %len.i5, align 8
-  %mul.i = shl i32 %8, 2
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %6, ptr noundef nonnull @.str.9, i32 noundef %mul.i, ptr noundef nonnull @.str.10) #6
+  %5 = load ptr, ptr %contents.i, align 8
+  %6 = load ptr, ptr %container_is_array.i, align 8
+  %len.i5 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load i32, ptr %len.i5, align 8
+  %mul.i = shl i32 %7, 2
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %5, ptr noundef nonnull @.str.9, i32 noundef %mul.i, ptr noundef nonnull @.str.10) #6
   br label %pretty_newline.exit
 
 pretty_newline.exit:                              ; preds = %leave_container.exit, %if.then.i
   %contents = getelementptr inbounds i8, ptr %writer, i64 8
-  %9 = load ptr, ptr %contents, align 8
-  %len.i7 = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i64, ptr %len.i7, align 8
-  %add.i = add i64 %10, 1
-  %allocated_len.i = getelementptr inbounds i8, ptr %9, i64 16
-  %11 = load i64, ptr %allocated_len.i, align 8
-  %cmp.i8 = icmp ult i64 %add.i, %11
-  br i1 %cmp.i8, label %if.then.i12, label %if.else.i9
+  %8 = load ptr, ptr %contents, align 8
+  %len.i6 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = load i64, ptr %len.i6, align 8
+  %add.i = add i64 %9, 1
+  %allocated_len.i = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = load i64, ptr %allocated_len.i, align 8
+  %cmp.i7 = icmp ult i64 %add.i, %10
+  br i1 %cmp.i7, label %if.then.i11, label %if.else.i8
 
-if.then.i12:                                      ; preds = %pretty_newline.exit
-  %12 = load ptr, ptr %9, align 8
-  store i64 %add.i, ptr %len.i7, align 8
-  %arrayidx.i13 = getelementptr i8, ptr %12, i64 %10
-  store i8 93, ptr %arrayidx.i13, align 1
-  %13 = load ptr, ptr %9, align 8
-  %14 = load i64, ptr %len.i7, align 8
-  %arrayidx4.i = getelementptr i8, ptr %13, i64 %14
+if.then.i11:                                      ; preds = %pretty_newline.exit
+  %11 = load ptr, ptr %8, align 8
+  store i64 %add.i, ptr %len.i6, align 8
+  %arrayidx.i12 = getelementptr i8, ptr %11, i64 %9
+  store i8 93, ptr %arrayidx.i12, align 1
+  %12 = load ptr, ptr %8, align 8
+  %13 = load i64, ptr %len.i6, align 8
+  %arrayidx4.i = getelementptr i8, ptr %12, i64 %13
   store i8 0, ptr %arrayidx4.i, align 1
   br label %g_string_append_c_inline.exit
 
-if.else.i9:                                       ; preds = %pretty_newline.exit
-  %call.i10 = tail call ptr @g_string_insert_c(ptr noundef nonnull %9, i64 noundef -1, i8 noundef signext 93) #6
+if.else.i8:                                       ; preds = %pretty_newline.exit
+  %call.i9 = tail call ptr @g_string_insert_c(ptr noundef nonnull %8, i64 noundef -1, i8 noundef signext 93) #6
   br label %g_string_append_c_inline.exit
 
-g_string_append_c_inline.exit:                    ; preds = %if.then.i12, %if.else.i9
+g_string_append_c_inline.exit:                    ; preds = %if.then.i11, %if.else.i8
   ret void
 }
 

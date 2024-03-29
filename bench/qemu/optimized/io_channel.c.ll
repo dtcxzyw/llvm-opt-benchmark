@@ -233,7 +233,7 @@ while.body.lr.ph.lr.ph:                           ; preds = %if.end3
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %next_iter
   %1 = phi i32 [ %call7, %while.body.lr.ph.lr.ph ], [ %.pr, %next_iter ]
   %tobool963 = phi i1 [ %tobool1, %while.body.lr.ph.lr.ph ], [ false, %next_iter ]
-  %tobool26.not = phi i1 [ true, %while.body.lr.ph.lr.ph ], [ false, %next_iter ]
+  %partial.0.ph62 = phi i1 [ false, %while.body.lr.ph.lr.ph ], [ true, %next_iter ]
   %local_nfds.0.ph60 = phi ptr [ %nfds, %while.body.lr.ph.lr.ph ], [ null, %next_iter ]
   %local_fds.0.ph59 = phi ptr [ %fds, %while.body.lr.ph.lr.ph ], [ null, %next_iter ]
   %tobool1.i = icmp ne ptr %local_nfds.0.ph60, null
@@ -369,7 +369,7 @@ land.lhs.true:                                    ; preds = %if.then21
   br i1 %tobool23.not, label %if.else25, label %next_iter
 
 if.else25:                                        ; preds = %land.lhs.true, %if.then21
-  br i1 %tobool26.not, label %cleanup, label %if.else28
+  br i1 %partial.0.ph62, label %if.else28, label %cleanup
 
 if.else28:                                        ; preds = %if.else25
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 183, ptr noundef nonnull @__func__.qio_channel_readv_full_all_eof, ptr noundef nonnull @.str.5) #7
@@ -1089,9 +1089,8 @@ define internal void @qio_channel_set_fd_handlers(ptr noundef %ioc, i32 noundef 
 entry:
   %follow_coroutine_ctx = getelementptr inbounds i8, ptr %ioc, i64 88
   %0 = load i8, ptr %follow_coroutine_ctx, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %cond.false, label %cond.true
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
   %call = tail call ptr @qemu_coroutine_self() #7
@@ -1116,14 +1115,14 @@ if.then:                                          ; preds = %cond.end
   %read_ctx4 = getelementptr inbounds i8, ptr %ioc, i64 56
   store ptr %cond, ptr %read_ctx4, align 8
   %write_coroutine = getelementptr inbounds i8, ptr %ioc, i64 80
-  %2 = load ptr, ptr %write_coroutine, align 8
-  %tobool5.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %write_coroutine, align 8
+  %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %if.end23, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
   %write_ctx6 = getelementptr inbounds i8, ptr %ioc, i64 72
-  %3 = load ptr, ptr %write_ctx6, align 8
-  %cmp7 = icmp eq ptr %3, %cond
+  %2 = load ptr, ptr %write_ctx6, align 8
+  %cmp7 = icmp eq ptr %2, %cond
   %spec.select = select i1 %cmp7, ptr %cond, ptr null
   %spec.select19 = select i1 %cmp7, ptr @qio_channel_restart_write, ptr null
   br label %if.end23
@@ -1135,14 +1134,14 @@ if.then10:                                        ; preds = %cond.end
   %write_ctx13 = getelementptr inbounds i8, ptr %ioc, i64 72
   store ptr %cond, ptr %write_ctx13, align 8
   %read_coroutine14 = getelementptr inbounds i8, ptr %ioc, i64 64
-  %4 = load ptr, ptr %read_coroutine14, align 8
-  %tobool15.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %read_coroutine14, align 8
+  %tobool15.not = icmp eq ptr %3, null
   br i1 %tobool15.not, label %if.end23, label %land.lhs.true16
 
 land.lhs.true16:                                  ; preds = %if.then10
   %read_ctx17 = getelementptr inbounds i8, ptr %ioc, i64 56
-  %5 = load ptr, ptr %read_ctx17, align 8
-  %cmp18 = icmp eq ptr %5, %cond
+  %4 = load ptr, ptr %read_ctx17, align 8
+  %cmp18 = icmp eq ptr %4, %cond
   %spec.select20 = select i1 %cmp18, ptr %cond, ptr null
   %spec.select21 = select i1 %cmp18, ptr @qio_channel_restart_read, ptr null
   br label %if.end23
@@ -1159,8 +1158,8 @@ if.end23:                                         ; preds = %land.lhs.true16, %l
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %ioc) #7
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_GET_CLASS) #7
   %io_set_aio_fd_handler.i = getelementptr inbounds i8, ptr %call1.i.i, i64 168
-  %6 = load ptr, ptr %io_set_aio_fd_handler.i, align 8
-  tail call void %6(ptr noundef nonnull %ioc, ptr noundef %read_ctx.0, ptr noundef %io_read.0, ptr noundef %write_ctx.0, ptr noundef %io_write.0, ptr noundef nonnull %ioc) #7
+  %5 = load ptr, ptr %io_set_aio_fd_handler.i, align 8
+  tail call void %5(ptr noundef nonnull %ioc, ptr noundef %read_ctx.0, ptr noundef %io_read.0, ptr noundef %write_ctx.0, ptr noundef %io_write.0, ptr noundef nonnull %ioc) #7
   ret void
 }
 

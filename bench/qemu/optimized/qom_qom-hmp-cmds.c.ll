@@ -214,9 +214,8 @@ if.then3:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %0 = load i8, ptr %ambiguous, align 1
-  %1 = and i8 %0, 1
-  %tobool5.not = icmp eq i8 %1, 0
-  br i1 %tobool5.not, label %if.end10, label %if.then6
+  %tobool5 = trunc i8 %0 to i1
+  br i1 %tobool5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.end
   %call7 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.10, ptr noundef nonnull %call) #4

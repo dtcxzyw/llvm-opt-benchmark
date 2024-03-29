@@ -53,9 +53,8 @@ define dso_local i64 @Curl_h1_req_parse_read(ptr noundef %0, ptr noundef %1, i64
   store i32 0, ptr %5, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not63 = icmp eq i8 %10, 0
-  br i1 %.not63, label %.lr.ph, label %.loopexit
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 48
@@ -69,9 +68,9 @@ define dso_local i64 @Curl_h1_req_parse_read(ptr noundef %0, ptr noundef %1, i64
   br label %16
 
 16:                                               ; preds = %.lr.ph, %127
-  %.067 = phi ptr [ %1, %.lr.ph ], [ %62, %127 ]
-  %.03465 = phi i64 [ 0, %.lr.ph ], [ %61, %127 ]
-  %.03564 = phi i64 [ %2, %.lr.ph ], [ %63, %127 ]
+  %.065 = phi ptr [ %1, %.lr.ph ], [ %62, %127 ]
+  %.03463 = phi i64 [ 0, %.lr.ph ], [ %61, %127 ]
+  %.03562 = phi i64 [ %2, %.lr.ph ], [ %63, %127 ]
   %17 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %19, label %18
@@ -83,14 +82,14 @@ define dso_local i64 @Curl_h1_req_parse_read(ptr noundef %0, ptr noundef %1, i64
   br label %19
 
 19:                                               ; preds = %18, %16
-  %20 = call ptr @memchr(ptr noundef %.067, i32 noundef 10, i64 noundef %.03564) #7
+  %20 = call ptr @memchr(ptr noundef %.065, i32 noundef 10, i64 noundef %.03562) #7
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %55, label %detect_line.exit.i
 
 detect_line.exit.i:                               ; preds = %19
-  store ptr %.067, ptr %11, align 8
+  store ptr %.065, ptr %11, align 8
   %21 = ptrtoint ptr %20 to i64
-  %22 = ptrtoint ptr %.067 to i64
+  %22 = ptrtoint ptr %.065 to i64
   %reass.sub = sub i64 %21, %22
   %23 = add i64 %reass.sub, 1
   store i64 %23, ptr %12, align 8
@@ -159,27 +158,27 @@ thread-pre-split.thread.i.i:                      ; preds = %thread-pre-split.i.
   br i1 %.not18.i.i, label %51, label %.loopexit.sink.split
 
 49:                                               ; preds = %thread-pre-split.i.i
-  br i1 %.not18.i.i, label %next_line.exit.thread48, label %.loopexit.sink.split
+  br i1 %.not18.i.i, label %next_line.exit.thread47, label %.loopexit.sink.split
 
 50:                                               ; preds = %34
-  br i1 %.not18.i.i, label %next_line.exit.thread48, label %.loopexit.sink.split
+  br i1 %.not18.i.i, label %next_line.exit.thread47, label %.loopexit.sink.split
 
 51:                                               ; preds = %48, %46
   %52 = phi i64 [ %44, %48 ], [ %47, %46 ]
   %53 = load i64, ptr %15, align 8
   %54 = icmp ugt i64 %52, %53
-  br i1 %54, label %.loopexit.sink.split, label %next_line.exit.thread48
+  br i1 %54, label %.loopexit.sink.split, label %next_line.exit.thread47
 
-next_line.exit.thread48:                          ; preds = %49, %50, %51
+next_line.exit.thread47:                          ; preds = %49, %50, %51
   store i32 0, ptr %5, align 4
   br label %60
 
 55:                                               ; preds = %19
   store i32 81, ptr %5, align 4
-  %56 = call i32 @Curl_dyn_addn(ptr noundef nonnull %13, ptr noundef %.067, i64 noundef %.03564) #6
+  %56 = call i32 @Curl_dyn_addn(ptr noundef nonnull %13, ptr noundef %.065, i64 noundef %.03562) #6
   store i32 %56, ptr %5, align 4
   %.not33.i = icmp ne i32 %56, 0
-  %57 = icmp slt i64 %.03564, 0
+  %57 = icmp slt i64 %.03562, 0
   %or.cond = select i1 %.not33.i, i1 true, i1 %57
   br i1 %or.cond, label %next_line.exit.thread.loopexit, label %60
 
@@ -187,34 +186,34 @@ next_line.exit.thread.loopexit:                   ; preds = %28, %55
   %58 = phi i32 [ %30, %28 ], [ %56, %55 ]
   %.fr = freeze i32 %58
   %59 = icmp eq i32 %.fr, 81
-  %spec.select = select i1 %59, i64 %.03465, i64 -1
+  %spec.select = select i1 %59, i64 %.03463, i64 -1
   br label %.loopexit.sink.split
 
-60:                                               ; preds = %55, %next_line.exit.thread48
-  %.031.i50 = phi i64 [ %24, %next_line.exit.thread48 ], [ %.03564, %55 ]
-  %61 = add i64 %.031.i50, %.03465
-  %62 = getelementptr inbounds i8, ptr %.067, i64 %.031.i50
-  %63 = sub i64 %.03564, %.031.i50
+60:                                               ; preds = %55, %next_line.exit.thread47
+  %.031.i49 = phi i64 [ %24, %next_line.exit.thread47 ], [ %.03562, %55 ]
+  %61 = add i64 %.031.i49, %.03463
+  %62 = getelementptr inbounds i8, ptr %.065, i64 %.031.i49
+  %63 = sub i64 %.03562, %.031.i49
   %64 = load ptr, ptr %11, align 8
-  %.not40 = icmp eq ptr %64, null
-  br i1 %.not40, label %65, label %66
+  %.not = icmp eq ptr %64, null
+  br i1 %.not, label %65, label %66
 
 65:                                               ; preds = %60
-  %.not41 = icmp eq i64 %63, 0
-  br i1 %.not41, label %.loopexit, label %127
+  %.not40 = icmp eq i64 %63, 0
+  br i1 %.not40, label %.loopexit, label %127
 
 66:                                               ; preds = %60
   %67 = load ptr, ptr %0, align 8
-  %.not42 = icmp eq ptr %67, null
-  br i1 %.not42, label %68, label %120
+  %.not41 = icmp eq ptr %67, null
+  br i1 %.not41, label %68, label %120
 
 68:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %7)
   %69 = load i64, ptr %12, align 8
   %70 = call ptr @memchr(ptr noundef nonnull %64, i32 noundef 32, i64 noundef %69) #7
-  %.not.i46 = icmp eq ptr %70, null
+  %.not.i45 = icmp eq ptr %70, null
   %71 = icmp eq ptr %70, %64
-  %or.cond96.i = or i1 %.not.i46, %71
+  %or.cond96.i = or i1 %.not.i45, %71
   br i1 %or.cond96.i, label %start_req.exit.thread, label %72
 
 72:                                               ; preds = %68
@@ -326,8 +325,8 @@ start_req.exit:                                   ; preds = %113, %118
   call void @curl_url_cleanup(ptr noundef %.2.i) #6
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %7)
   store i32 %.071.i, ptr %5, align 4
-  %.not43 = icmp eq i32 %.071.i, 0
-  br i1 %.not43, label %127, label %.loopexit
+  %.not42 = icmp eq i32 %.071.i, 0
+  br i1 %.not42, label %127, label %.loopexit
 
 120:                                              ; preds = %66
   %121 = load i64, ptr %12, align 8
@@ -343,14 +342,13 @@ start_req.exit:                                   ; preds = %113, %118
   %125 = getelementptr inbounds i8, ptr %67, i64 48
   %126 = call i32 @Curl_dynhds_h1_add_line(ptr noundef nonnull %125, ptr noundef nonnull %64, i64 noundef %121) #6
   store i32 %126, ptr %5, align 4
-  %.not44 = icmp eq i32 %126, 0
-  br i1 %.not44, label %127, label %.loopexit
+  %.not43 = icmp eq i32 %126, 0
+  br i1 %.not43, label %127, label %.loopexit
 
 127:                                              ; preds = %start_req.exit, %124, %123, %65
   %128 = load i8, ptr %8, align 8
-  %129 = and i8 %128, 1
-  %.not = icmp eq i8 %129, 0
-  br i1 %.not, label %16, label %.loopexit, !llvm.loop !7
+  %129 = trunc i8 %128 to i1
+  br i1 %129, label %.loopexit, label %16, !llvm.loop !7
 
 .loopexit.sink.split:                             ; preds = %51, %50, %49, %48, %detect_line.exit.i, %next_line.exit.thread.loopexit, %start_req.exit.thread
   %.071.i.ph.sink = phi i32 [ %.071.i.ph, %start_req.exit.thread ], [ 0, %next_line.exit.thread.loopexit ], [ 0, %detect_line.exit.i ], [ 0, %48 ], [ 0, %49 ], [ 0, %50 ], [ 0, %51 ]

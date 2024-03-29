@@ -28,10 +28,10 @@ define dso_local void @LockTableCommand(ptr noundef %0) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 20
   %8 = load i32, ptr %4, align 4
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %.lr.ph27, label %._crit_edge
+  br i1 %9, label %.lr.ph25, label %._crit_edge
 
-.lr.ph27:                                         ; preds = %.lr.ph, %35
-  %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %.lr.ph ]
+.lr.ph25:                                         ; preds = %.lr.ph, %32
+  %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.lr.ph ]
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr %union.ListCell, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
@@ -39,43 +39,39 @@ define dso_local void @LockTableCommand(ptr noundef %0) local_unnamed_addr #0 {
   %14 = load i8, ptr %13, align 8
   %15 = load i32, ptr %6, align 8
   %16 = load i8, ptr %7, align 4
-  %17 = shl i8 %16, 1
-  %18 = and i8 %17, 2
-  %19 = zext nneg i8 %18 to i32
-  %20 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %12, i32 noundef %15, i32 noundef %19, ptr noundef nonnull @RangeVarCallbackForLockTable, ptr noundef nonnull %6) #4
-  %21 = tail call signext i8 @get_rel_relkind(i32 noundef %20) #4
-  %22 = icmp eq i8 %21, 118
-  br i1 %22, label %23, label %28
+  %17 = trunc i8 %16 to i1
+  %18 = select i1 %17, i32 2, i32 0
+  %19 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %12, i32 noundef %15, i32 noundef %18, ptr noundef nonnull @RangeVarCallbackForLockTable, ptr noundef nonnull %6) #4
+  %20 = tail call signext i8 @get_rel_relkind(i32 noundef %19) #4
+  %21 = icmp eq i8 %20, 118
+  br i1 %21, label %22, label %26
 
-23:                                               ; preds = %.lr.ph27
-  %24 = load i32, ptr %6, align 8
-  %25 = load i8, ptr %7, align 4
-  %26 = and i8 %25, 1
-  %27 = icmp ne i8 %26, 0
-  tail call fastcc void @LockViewRecurse(i32 noundef %20, i32 noundef %24, i1 noundef zeroext %27, ptr noundef null)
-  br label %35
+22:                                               ; preds = %.lr.ph25
+  %23 = load i32, ptr %6, align 8
+  %24 = load i8, ptr %7, align 4
+  %25 = trunc i8 %24 to i1
+  tail call fastcc void @LockViewRecurse(i32 noundef %19, i32 noundef %23, i1 noundef zeroext %25, ptr noundef null)
+  br label %32
 
-28:                                               ; preds = %.lr.ph27
-  %29 = and i8 %14, 1
-  %.not20 = icmp eq i8 %29, 0
-  br i1 %.not20, label %35, label %30
+26:                                               ; preds = %.lr.ph25
+  %27 = trunc i8 %14 to i1
+  br i1 %27, label %28, label %32
 
-30:                                               ; preds = %28
-  %31 = load i32, ptr %6, align 8
-  %32 = load i8, ptr %7, align 4
-  %33 = and i8 %32, 1
-  %34 = icmp ne i8 %33, 0
-  tail call fastcc void @LockTableRecurse(i32 noundef %20, i32 noundef %31, i1 noundef zeroext %34)
-  br label %35
+28:                                               ; preds = %26
+  %29 = load i32, ptr %6, align 8
+  %30 = load i8, ptr %7, align 4
+  %31 = trunc i8 %30 to i1
+  tail call fastcc void @LockTableRecurse(i32 noundef %19, i32 noundef %29, i1 noundef zeroext %31)
+  br label %32
 
-35:                                               ; preds = %23, %30, %28
+32:                                               ; preds = %22, %28, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = load i32, ptr %4, align 4
-  %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph27, label %._crit_edge
+  %33 = load i32, ptr %4, align 4
+  %34 = sext i32 %33 to i64
+  %35 = icmp slt i64 %indvars.iv.next, %34
+  br i1 %35, label %.lr.ph25, label %._crit_edge
 
-._crit_edge:                                      ; preds = %35, %.lr.ph, %1
+._crit_edge:                                      ; preds = %32, %.lr.ph, %1
   ret void
 }
 
@@ -323,12 +319,12 @@ declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %72, label %4
+  br i1 %3, label %70, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 4
   %6 = icmp eq i32 %5, 59
-  br i1 %6, label %7, label %70
+  br i1 %6, label %7, label %68
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 64
@@ -344,28 +340,28 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
   %14 = getelementptr inbounds i8, ptr %1, i64 4
   %15 = load i32, ptr %10, align 4
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph62, label %._crit_edge
+  br i1 %16, label %.lr.ph60, label %._crit_edge
 
-.lr.ph62:                                         ; preds = %.lr.ph, %65
-  %indvars.iv61 = phi i64 [ %indvars.iv.next, %65 ], [ 0, %.lr.ph ]
+.lr.ph60:                                         ; preds = %.lr.ph, %63
+  %indvars.iv59 = phi i64 [ %indvars.iv.next, %63 ], [ 0, %.lr.ph ]
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr %union.ListCell, ptr %17, i64 %indvars.iv61
+  %18 = getelementptr %union.ListCell, ptr %17, i64 %indvars.iv59
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 12
   %23 = load i8, ptr %22, align 4
   %24 = tail call ptr @get_rel_name(i32 noundef %21) #4
-  switch i8 %23, label %65 [
+  switch i8 %23, label %63 [
     i8 118, label %25
     i8 114, label %25
     i8 112, label %25
   ]
 
-25:                                               ; preds = %.lr.ph62, %.lr.ph62, %.lr.ph62
+25:                                               ; preds = %.lr.ph60, %.lr.ph60, %.lr.ph60
   %26 = load ptr, ptr %12, align 8
   %27 = tail call zeroext i1 @list_member_oid(ptr noundef %26, i32 noundef %21) #4
-  br i1 %27, label %65, label %28
+  br i1 %27, label %63, label %28
 
 28:                                               ; preds = %25
   %29 = load i32, ptr %1, align 8
@@ -386,10 +382,9 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
 
 37:                                               ; preds = %35, %28
   %38 = load i8, ptr %14, align 4
-  %39 = and i8 %38, 1
-  %.not54 = icmp eq i8 %39, 0
+  %39 = trunc i8 %38 to i1
   %40 = load i32, ptr %1, align 8
-  br i1 %.not54, label %41, label %42
+  br i1 %39, label %42, label %41
 
 41:                                               ; preds = %37
   tail call void @LockRelationOid(i32 noundef %21, i32 noundef %40) #4
@@ -409,49 +404,46 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
 
 48:                                               ; preds = %42, %41
   %49 = icmp eq i8 %23, 118
-  br i1 %49, label %50, label %56
+  br i1 %49, label %50, label %55
 
 50:                                               ; preds = %48
   %51 = load i32, ptr %1, align 8
   %52 = load i8, ptr %14, align 4
-  %53 = and i8 %52, 1
-  %54 = icmp ne i8 %53, 0
-  %55 = load ptr, ptr %12, align 8
-  tail call fastcc void @LockViewRecurse(i32 noundef %21, i32 noundef %51, i1 noundef zeroext %54, ptr noundef %55)
-  br label %65
+  %53 = trunc i8 %52 to i1
+  %54 = load ptr, ptr %12, align 8
+  tail call fastcc void @LockViewRecurse(i32 noundef %21, i32 noundef %51, i1 noundef zeroext %53, ptr noundef %54)
+  br label %63
 
-56:                                               ; preds = %48
-  %57 = getelementptr inbounds i8, ptr %19, i64 201
-  %58 = load i8, ptr %57, align 1
-  %59 = and i8 %58, 1
-  %.not55 = icmp eq i8 %59, 0
-  br i1 %.not55, label %65, label %60
+55:                                               ; preds = %48
+  %56 = getelementptr inbounds i8, ptr %19, i64 201
+  %57 = load i8, ptr %56, align 1
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %59, label %63
 
-60:                                               ; preds = %56
-  %61 = load i32, ptr %1, align 8
-  %62 = load i8, ptr %14, align 4
-  %63 = and i8 %62, 1
-  %64 = icmp ne i8 %63, 0
-  tail call fastcc void @LockTableRecurse(i32 noundef %21, i32 noundef %61, i1 noundef zeroext %64)
-  br label %65
+59:                                               ; preds = %55
+  %60 = load i32, ptr %1, align 8
+  %61 = load i8, ptr %14, align 4
+  %62 = trunc i8 %61 to i1
+  tail call fastcc void @LockTableRecurse(i32 noundef %21, i32 noundef %60, i1 noundef zeroext %62)
+  br label %63
 
-65:                                               ; preds = %.lr.ph62, %50, %60, %56, %25
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv61, 1
-  %66 = load i32, ptr %10, align 4
-  %67 = sext i32 %66 to i64
-  %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %.lr.ph62, label %._crit_edge
+63:                                               ; preds = %.lr.ph60, %50, %59, %55, %25
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv59, 1
+  %64 = load i32, ptr %10, align 4
+  %65 = sext i32 %64 to i64
+  %66 = icmp slt i64 %indvars.iv.next, %65
+  br i1 %66, label %.lr.ph60, label %._crit_edge
 
-._crit_edge:                                      ; preds = %65, %.lr.ph, %7
-  %69 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @LockViewRecurse_walker, ptr noundef %1, i32 noundef 4) #4
-  br label %72
+._crit_edge:                                      ; preds = %63, %.lr.ph, %7
+  %67 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @LockViewRecurse_walker, ptr noundef %1, i32 noundef 4) #4
+  br label %70
 
-70:                                               ; preds = %4
-  %71 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @LockViewRecurse_walker, ptr noundef %1) #4
-  br label %72
+68:                                               ; preds = %4
+  %69 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @LockViewRecurse_walker, ptr noundef %1) #4
+  br label %70
 
-72:                                               ; preds = %2, %70, %._crit_edge
-  %.0 = phi i1 [ %69, %._crit_edge ], [ %71, %70 ], [ false, %2 ]
+70:                                               ; preds = %2, %68, %._crit_edge
+  %.0 = phi i1 [ %67, %._crit_edge ], [ %69, %68 ], [ false, %2 ]
   ret i1 %.0
 }
 

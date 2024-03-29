@@ -2825,9 +2825,9 @@ define internal fastcc i32 @pmix_bfrops_base_tma_value_xfer(ptr noundef %0, ptr 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %7, ptr %8, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = and i8 %6, 1
+  store i8 %8, ptr %7, align 8
   br label %pmix_bfrops_base_tma_copy_resource_unit.exit
 
 9:                                                ; preds = %2

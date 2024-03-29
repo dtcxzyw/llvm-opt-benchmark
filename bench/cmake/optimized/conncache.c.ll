@@ -819,7 +819,7 @@ define dso_local void @Curl_conncache_close_all_connections(ptr noundef %0) loca
   %8 = getelementptr inbounds i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %sigpipe_restore.exit31, label %10
+  br i1 %.not, label %sigpipe_restore.exit29, label %10
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %9, i64 3152
@@ -854,15 +854,15 @@ conncache_find_first_connection.exit.thread:      ; preds = %19, %10
 conncache_find_first_connection.exit:             ; preds = %.lr.ph.i
   %21 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %.not1835 = icmp eq ptr %21, null
-  br i1 %.not1835, label %._crit_edge, label %.lr.ph
+  %.not1833 = icmp eq ptr %21, null
+  br i1 %.not1833, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %conncache_find_first_connection.exit
   %22 = getelementptr inbounds i8, ptr %7, i64 152
   br label %23
 
-23:                                               ; preds = %.lr.ph, %conncache_find_first_connection.exit27
-  %.036 = phi ptr [ %21, %.lr.ph ], [ %47, %conncache_find_first_connection.exit27 ]
+23:                                               ; preds = %.lr.ph, %conncache_find_first_connection.exit26
+  %.034 = phi ptr [ %21, %.lr.ph ], [ %47, %conncache_find_first_connection.exit26 ]
   %24 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4)
   %25 = getelementptr inbounds i8, ptr %24, i64 2642
@@ -884,15 +884,14 @@ conncache_find_first_connection.exit:             ; preds = %.lr.ph.i
 
 sigpipe_ignore.exit:                              ; preds = %23, %31
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4)
-  call void @Curl_conncontrol(ptr noundef nonnull %.036, i32 noundef 1) #7
+  call void @Curl_conncontrol(ptr noundef nonnull %.034, i32 noundef 1) #7
   %34 = load ptr, ptr %8, align 8
-  call void @Curl_conncache_remove_conn(ptr noundef %34, ptr noundef nonnull %.036, i1 noundef zeroext true)
+  call void @Curl_conncache_remove_conn(ptr noundef %34, ptr noundef nonnull %.034, i1 noundef zeroext true)
   %35 = load ptr, ptr %8, align 8
-  call void @Curl_disconnect(ptr noundef %35, ptr noundef nonnull %.036, i1 noundef zeroext false) #7
+  call void @Curl_disconnect(ptr noundef %35, ptr noundef nonnull %.034, i1 noundef zeroext false) #7
   %36 = load i8, ptr %22, align 8
-  %37 = and i8 %36, 1
-  %.not.i20 = icmp eq i8 %37, 0
-  br i1 %.not.i20, label %38, label %sigpipe_restore.exit
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %sigpipe_restore.exit, label %38
 
 38:                                               ; preds = %sigpipe_ignore.exit
   %39 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %7, ptr noundef null) #7
@@ -902,34 +901,34 @@ sigpipe_restore.exit:                             ; preds = %sigpipe_ignore.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @Curl_hash_start_iterate(ptr noundef nonnull %0, ptr noundef nonnull %3) #7
   %40 = call ptr @Curl_hash_next_element(ptr noundef nonnull %3) #7
-  %.not10.i21 = icmp eq ptr %40, null
-  br i1 %.not10.i21, label %conncache_find_first_connection.exit27.thread, label %.lr.ph.i22
+  %.not10.i20 = icmp eq ptr %40, null
+  br i1 %.not10.i20, label %conncache_find_first_connection.exit26.thread, label %.lr.ph.i21
 
-.lr.ph.i22:                                       ; preds = %sigpipe_restore.exit, %45
-  %.0711.i23 = phi ptr [ %46, %45 ], [ %40, %sigpipe_restore.exit ]
-  %41 = getelementptr inbounds i8, ptr %.0711.i23, i64 24
+.lr.ph.i21:                                       ; preds = %sigpipe_restore.exit, %45
+  %.0711.i22 = phi ptr [ %46, %45 ], [ %40, %sigpipe_restore.exit ]
+  %41 = getelementptr inbounds i8, ptr %.0711.i22, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  %.not9.i24 = icmp eq ptr %44, null
-  br i1 %.not9.i24, label %45, label %conncache_find_first_connection.exit27
+  %.not9.i23 = icmp eq ptr %44, null
+  br i1 %.not9.i23, label %45, label %conncache_find_first_connection.exit26
 
-45:                                               ; preds = %.lr.ph.i22
+45:                                               ; preds = %.lr.ph.i21
   %46 = call ptr @Curl_hash_next_element(ptr noundef nonnull %3) #7
-  %.not.i26 = icmp eq ptr %46, null
-  br i1 %.not.i26, label %conncache_find_first_connection.exit27.thread, label %.lr.ph.i22, !llvm.loop !13
+  %.not.i25 = icmp eq ptr %46, null
+  br i1 %.not.i25, label %conncache_find_first_connection.exit26.thread, label %.lr.ph.i21, !llvm.loop !13
 
-conncache_find_first_connection.exit27.thread:    ; preds = %sigpipe_restore.exit, %45
+conncache_find_first_connection.exit26.thread:    ; preds = %sigpipe_restore.exit, %45
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %._crit_edge
 
-conncache_find_first_connection.exit27:           ; preds = %.lr.ph.i22
+conncache_find_first_connection.exit26:           ; preds = %.lr.ph.i21
   %47 = load ptr, ptr %44, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %.not18 = icmp eq ptr %47, null
   br i1 %.not18, label %._crit_edge, label %23, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %conncache_find_first_connection.exit27, %conncache_find_first_connection.exit27.thread, %conncache_find_first_connection.exit.thread, %conncache_find_first_connection.exit
+._crit_edge:                                      ; preds = %conncache_find_first_connection.exit26, %conncache_find_first_connection.exit26.thread, %conncache_find_first_connection.exit.thread, %conncache_find_first_connection.exit
   %48 = load ptr, ptr %8, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 3152
   store ptr null, ptr %49, align 8
@@ -943,8 +942,8 @@ conncache_find_first_connection.exit27:           ; preds = %.lr.ph.i22
   %56 = and i8 %55, 1
   store i8 %56, ptr %53, align 8
   %57 = and i64 %52, 4294967296
-  %.not.i28 = icmp eq i64 %57, 0
-  br i1 %.not.i28, label %58, label %sigpipe_ignore.exit29
+  %.not.i27 = icmp eq i64 %57, 0
+  br i1 %.not.i27, label %58, label %sigpipe_ignore.exit28
 
 58:                                               ; preds = %._crit_edge
   %59 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %7) #7
@@ -952,9 +951,9 @@ conncache_find_first_connection.exit27:           ; preds = %.lr.ph.i22
   store ptr inttoptr (i64 1 to ptr), ptr %2, align 8
   %60 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %2, ptr noundef null) #7
   %.pre = load ptr, ptr %8, align 8
-  br label %sigpipe_ignore.exit29
+  br label %sigpipe_ignore.exit28
 
-sigpipe_ignore.exit29:                            ; preds = %._crit_edge, %58
+sigpipe_ignore.exit28:                            ; preds = %._crit_edge, %58
   %61 = phi ptr [ %50, %._crit_edge ], [ %.pre, %58 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2)
   %62 = getelementptr inbounds i8, ptr %61, i64 176
@@ -962,15 +961,14 @@ sigpipe_ignore.exit29:                            ; preds = %._crit_edge, %58
   call void @Curl_hostcache_clean(ptr noundef %61, ptr noundef %63) #7
   %64 = call i32 @Curl_close(ptr noundef nonnull %8) #7
   %65 = load i8, ptr %53, align 8
-  %66 = and i8 %65, 1
-  %.not.i30 = icmp eq i8 %66, 0
-  br i1 %.not.i30, label %67, label %sigpipe_restore.exit31
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %sigpipe_restore.exit29, label %67
 
-67:                                               ; preds = %sigpipe_ignore.exit29
+67:                                               ; preds = %sigpipe_ignore.exit28
   %68 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %7, ptr noundef null) #7
-  br label %sigpipe_restore.exit31
+  br label %sigpipe_restore.exit29
 
-sigpipe_restore.exit31:                           ; preds = %67, %sigpipe_ignore.exit29, %1
+sigpipe_restore.exit29:                           ; preds = %67, %sigpipe_ignore.exit28, %1
   ret void
 }
 

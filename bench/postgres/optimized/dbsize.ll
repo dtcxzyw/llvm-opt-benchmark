@@ -654,14 +654,13 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef %0) unnamed_addr 
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 112
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %59, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %59
 
 9:                                                ; preds = %1
   %10 = tail call ptr @RelationGetIndexList(ptr noundef nonnull %0) #10
-  %.not20 = icmp eq ptr %10, null
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
   %11 = getelementptr inbounds i8, ptr %10, i64 4
@@ -669,13 +668,13 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef %0) unnamed_addr 
   %13 = getelementptr inbounds i8, ptr %3, i64 48
   %14 = load i32, ptr %11, align 4
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph37, label %._crit_edge
+  br i1 %15, label %.lr.ph36, label %._crit_edge
 
-.lr.ph37:                                         ; preds = %.lr.ph, %55
-  %.0172936 = phi i64 [ %53, %55 ], [ 0, %.lr.ph ]
-  %indvars.iv35 = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.lr.ph ]
+.lr.ph36:                                         ; preds = %.lr.ph, %55
+  %.0172835 = phi i64 [ %53, %55 ], [ 0, %.lr.ph ]
+  %indvars.iv34 = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.lr.ph ]
   %16 = load ptr, ptr %12, align 8
-  %17 = getelementptr %union.ListCell, ptr %16, i64 %indvars.iv35
+  %17 = getelementptr %union.ListCell, ptr %16, i64 %indvars.iv34
   %18 = load i32, ptr %17, align 8
   %19 = call ptr @relation_open(i32 noundef %18, i32 noundef 1) #10
   %20 = getelementptr inbounds i8, ptr %19, i64 28
@@ -683,16 +682,16 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef %0) unnamed_addr 
   %22 = getelementptr inbounds i8, ptr %19, i64 8
   br label %23
 
-23:                                               ; preds = %.lr.ph37, %calculate_relation_size.exit
-  %.027 = phi i32 [ 0, %.lr.ph37 ], [ %54, %calculate_relation_size.exit ]
-  %.126 = phi i64 [ %.0172936, %.lr.ph37 ], [ %53, %calculate_relation_size.exit ]
+23:                                               ; preds = %.lr.ph36, %calculate_relation_size.exit
+  %.026 = phi i32 [ 0, %.lr.ph36 ], [ %54, %calculate_relation_size.exit ]
+  %.125 = phi i64 [ %.0172835, %.lr.ph36 ], [ %53, %calculate_relation_size.exit ]
   %24 = load i32, ptr %20, align 4
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   %25 = load i32, ptr %21, align 4
   %26 = load i32, ptr %19, align 4
   %27 = load i32, ptr %22, align 4
-  %28 = call ptr @GetRelationPath(i32 noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %24, i32 noundef %.027) #10
+  %28 = call ptr @GetRelationPath(i32 noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %24, i32 noundef %.026) #10
   br label %29
 
 29:                                               ; preds = %49, %23
@@ -746,18 +745,18 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef %0) unnamed_addr 
 calculate_relation_size.exit:                     ; preds = %41
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
-  %53 = add i64 %.011.i, %.126
-  %54 = add nuw nsw i32 %.027, 1
+  %53 = add i64 %.011.i, %.125
+  %54 = add nuw nsw i32 %.026, 1
   %exitcond.not = icmp eq i32 %54, 4
   br i1 %exitcond.not, label %55, label %23, !llvm.loop !11
 
 55:                                               ; preds = %calculate_relation_size.exit
   call void @relation_close(ptr noundef nonnull %19, i32 noundef 1) #10
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv35, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv34, 1
   %56 = load i32, ptr %11, align 4
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph37, label %._crit_edge
+  br i1 %58, label %.lr.ph36, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %55, %.lr.ph, %9
   %.017.lcssa = phi i64 [ 0, %9 ], [ 0, %.lr.ph ], [ %53, %55 ]
@@ -805,11 +804,11 @@ define dso_local i64 @pg_size_pretty(ptr nocapture noundef readonly %0) local_un
 5:                                                ; preds = %1, %22
   %6 = phi ptr [ @.str.21, %1 ], [ %40, %22 ]
   %7 = phi ptr [ getelementptr inbounds ([7 x %struct.size_pretty_unit], ptr @size_pretty_units, i64 0, i64 1, i32 0), %1 ], [ %39, %22 ]
-  %.0162329 = phi ptr [ @size_pretty_units, %1 ], [ %7, %22 ]
-  %.02428 = phi i64 [ %4, %1 ], [ %38, %22 ]
+  %.0162228 = phi ptr [ @size_pretty_units, %1 ], [ %7, %22 ]
+  %.02327 = phi i64 [ %4, %1 ], [ %38, %22 ]
   %8 = phi ptr [ @.str.20, %1 ], [ %6, %22 ]
-  %9 = tail call i64 @llvm.abs.i64(i64 %.02428, i1 false)
-  %10 = getelementptr inbounds i8, ptr %.0162329, i64 8
+  %9 = tail call i64 @llvm.abs.i64(i64 %.02327, i1 false)
+  %10 = getelementptr inbounds i8, ptr %.0162228, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = icmp slt i64 %9, %12
@@ -817,30 +816,29 @@ define dso_local i64 @pg_size_pretty(ptr nocapture noundef readonly %0) local_un
 
 14:                                               ; preds = %5, %22
   %.lcssa = phi ptr [ %8, %5 ], [ %6, %22 ]
-  %.024.lcssa = phi i64 [ %.02428, %5 ], [ %38, %22 ]
-  %.01623.lcssa = phi ptr [ %.0162329, %5 ], [ getelementptr inbounds ([7 x %struct.size_pretty_unit], ptr @size_pretty_units, i64 0, i64 5, i32 0), %22 ]
-  %15 = getelementptr inbounds i8, ptr %.01623.lcssa, i64 12
+  %.023.lcssa = phi i64 [ %.02327, %5 ], [ %38, %22 ]
+  %.01622.lcssa = phi ptr [ %.0162228, %5 ], [ getelementptr inbounds ([7 x %struct.size_pretty_unit], ptr @size_pretty_units, i64 0, i64 5, i32 0), %22 ]
+  %15 = getelementptr inbounds i8, ptr %.01622.lcssa, i64 12
   %16 = load i8, ptr %15, align 4
-  %17 = and i8 %16, 1
-  %.not17 = icmp eq i8 %17, 0
-  br i1 %.not17, label %.loopexit, label %18
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %.loopexit
 
 18:                                               ; preds = %14
-  %.inv = icmp sgt i64 %.024.lcssa, -1
+  %.inv = icmp sgt i64 %.023.lcssa, -1
   %19 = select i1 %.inv, i64 1, i64 -1
-  %20 = add i64 %19, %.024.lcssa
+  %20 = add i64 %19, %.023.lcssa
   %21 = sdiv i64 %20, 2
   br label %.loopexit
 
 22:                                               ; preds = %5
-  %23 = getelementptr i8, ptr %.0162329, i64 29
+  %23 = getelementptr i8, ptr %.0162228, i64 29
   %24 = load i8, ptr %23, align 1
-  %25 = getelementptr inbounds i8, ptr %.0162329, i64 13
+  %25 = getelementptr inbounds i8, ptr %.0162228, i64 13
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr i8, ptr %.0162329, i64 28
+  %27 = getelementptr i8, ptr %.0162228, i64 28
   %28 = load i8, ptr %27, align 4
   %29 = and i8 %28, 1
-  %30 = getelementptr inbounds i8, ptr %.0162329, i64 12
+  %30 = getelementptr inbounds i8, ptr %.0162228, i64 12
   %31 = load i8, ptr %30, align 4
   %32 = and i8 %31, 1
   %33 = add i8 %26, %29
@@ -848,14 +846,14 @@ define dso_local i64 @pg_size_pretty(ptr nocapture noundef readonly %0) local_un
   %35 = add i8 %34, %32
   %36 = zext nneg i8 %35 to i64
   %37 = shl nuw i64 1, %36
-  %38 = sdiv i64 %.02428, %37
+  %38 = sdiv i64 %.02327, %37
   %39 = getelementptr i8, ptr %7, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %14, label %5
 
 .loopexit:                                        ; preds = %14, %18
-  %.1 = phi i64 [ %21, %18 ], [ %.024.lcssa, %14 ]
+  %.1 = phi i64 [ %21, %18 ], [ %.023.lcssa, %14 ]
   %42 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 64, ptr noundef nonnull @.str, i64 noundef %.1, ptr noundef nonnull %.lcssa) #10
   %43 = call ptr @cstring_to_text(ptr noundef nonnull %2) #10
   %44 = ptrtoint ptr %43 to i64
@@ -881,31 +879,30 @@ define dso_local i64 @pg_size_pretty_numeric(ptr nocapture noundef readonly %0) 
   %7 = phi ptr [ @.str.21, %1 ], [ %65, %39 ]
   %8 = phi ptr [ getelementptr inbounds ([7 x %struct.size_pretty_unit], ptr @size_pretty_units, i64 0, i64 1, i32 0), %1 ], [ %64, %39 ]
   %9 = phi ptr [ %5, %1 ], [ %63, %39 ]
-  %.0162532 = phi ptr [ @size_pretty_units, %1 ], [ %8, %39 ]
+  %.0162431 = phi ptr [ @size_pretty_units, %1 ], [ %8, %39 ]
   %10 = phi ptr [ @.str.20, %1 ], [ %7, %39 ]
   %11 = ptrtoint ptr %9 to i64
   %12 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @numeric_abs, i32 noundef 0, i64 noundef %11) #10
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #10
-  %15 = getelementptr inbounds i8, ptr %.0162532, i64 8
+  %15 = getelementptr inbounds i8, ptr %.0162431, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = tail call ptr @int64_to_numeric(i64 noundef %17) #10
   %19 = ptrtoint ptr %14 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_lt, i32 noundef 0, i64 noundef %19, i64 noundef %20) #10
-  %.not19 = icmp eq i64 %21, 0
-  br i1 %.not19, label %39, label %22
+  %.not18 = icmp eq i64 %21, 0
+  br i1 %.not18, label %39, label %22
 
 22:                                               ; preds = %6, %39
-  %.lcssa31 = phi ptr [ %10, %6 ], [ %7, %39 ]
-  %.01625.lcssa = phi ptr [ %.0162532, %6 ], [ %8, %39 ]
+  %.lcssa30 = phi ptr [ %10, %6 ], [ %7, %39 ]
+  %.01624.lcssa = phi ptr [ %.0162431, %6 ], [ %8, %39 ]
   %.lcssa = phi ptr [ %9, %6 ], [ %63, %39 ]
-  %23 = getelementptr inbounds i8, ptr %.01625.lcssa, i64 12
+  %23 = getelementptr inbounds i8, ptr %.01624.lcssa, i64 12
   %24 = load i8, ptr %23, align 4
-  %25 = and i8 %24, 1
-  %.not18 = icmp eq i8 %25, 0
-  br i1 %.not18, label %.loopexit, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %.loopexit
 
 26:                                               ; preds = %22
   %27 = ptrtoint ptr %.lcssa to i64
@@ -925,17 +922,17 @@ define dso_local i64 @pg_size_pretty_numeric(ptr nocapture noundef readonly %0) 
   br label %.loopexit
 
 39:                                               ; preds = %6
-  %40 = getelementptr i8, ptr %.0162532, i64 29
+  %40 = getelementptr i8, ptr %.0162431, i64 29
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %.0162532, i64 13
+  %43 = getelementptr inbounds i8, ptr %.0162431, i64 13
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i64
-  %46 = getelementptr i8, ptr %.0162532, i64 28
+  %46 = getelementptr i8, ptr %.0162431, i64 28
   %47 = load i8, ptr %46, align 4
   %48 = and i8 %47, 1
   %49 = zext nneg i8 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %.0162532, i64 12
+  %50 = getelementptr inbounds i8, ptr %.0162431, i64 12
   %51 = load i8, ptr %50, align 4
   %52 = and i8 %51, 1
   %53 = zext nneg i8 %52 to i64
@@ -959,7 +956,7 @@ define dso_local i64 @pg_size_pretty_numeric(ptr nocapture noundef readonly %0) 
   %67 = ptrtoint ptr %.1 to i64
   %68 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @numeric_out, i32 noundef 0, i64 noundef %67) #10
   %69 = inttoptr i64 %68 to ptr
-  %70 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.1, ptr noundef %69, ptr noundef nonnull %.lcssa31) #10
+  %70 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.1, ptr noundef %69, ptr noundef nonnull %.lcssa30) #10
   %71 = tail call ptr @cstring_to_text(ptr noundef %70) #10
   %72 = ptrtoint ptr %71 to i64
   ret i64 %72
@@ -1001,20 +998,20 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
 18:                                               ; preds = %17, %17
   %.pre = load i8, ptr %16, align 1
   %.phi.trans.insert = zext i8 %.pre to i64
-  %.phi.trans.insert121 = getelementptr i16, ptr %9, i64 %.phi.trans.insert
-  %.pre122 = load i16, ptr %.phi.trans.insert121, align 2
+  %.phi.trans.insert119 = getelementptr i16, ptr %9, i64 %.phi.trans.insert
+  %.pre120 = load i16, ptr %.phi.trans.insert119, align 2
   br label %19
 
 19:                                               ; preds = %17, %18
-  %20 = phi i16 [ %.pre122, %18 ], [ %14, %17 ]
+  %20 = phi i16 [ %.pre120, %18 ], [ %14, %17 ]
   %21 = phi i8 [ %.pre, %18 ], [ %11, %17 ]
   %.066 = phi ptr [ %16, %18 ], [ %.0, %17 ]
   %22 = and i16 %20, 2048
-  %.not79 = icmp eq i16 %22, 0
-  br i1 %.not79, label %.loopexit, label %.preheader100
+  %.not79.not = icmp eq i16 %22, 0
+  br i1 %.not79.not, label %.loopexit, label %.preheader98
 
-.preheader100:                                    ; preds = %19, %.preheader100
-  %.167 = phi ptr [ %23, %.preheader100 ], [ %.066, %19 ]
+.preheader98:                                     ; preds = %19, %.preheader98
+  %.167 = phi ptr [ %23, %.preheader98 ], [ %.066, %19 ]
   %23 = getelementptr i8, ptr %.167, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
@@ -1022,11 +1019,11 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 2048
   %.not80 = icmp eq i16 %28, 0
-  br i1 %.not80, label %.loopexit, label %.preheader100, !llvm.loop !13
+  br i1 %.not80, label %.loopexit, label %.preheader98, !llvm.loop !13
 
-.loopexit:                                        ; preds = %.preheader100, %19
-  %29 = phi i8 [ %21, %19 ], [ %24, %.preheader100 ]
-  %.2 = phi ptr [ %.066, %19 ], [ %23, %.preheader100 ]
+.loopexit:                                        ; preds = %.preheader98, %19
+  %29 = phi i8 [ %21, %19 ], [ %24, %.preheader98 ]
+  %.2 = phi ptr [ %.066, %19 ], [ %23, %.preheader98 ]
   %30 = icmp eq i8 %29, 46
   br i1 %30, label %31, label %44
 
@@ -1038,10 +1035,10 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 2048
   %.not81 = icmp eq i16 %37, 0
-  br i1 %.not81, label %44, label %.preheader99
+  br i1 %.not81, label %44, label %.preheader97
 
-.preheader99:                                     ; preds = %31, %.preheader99
-  %.3 = phi ptr [ %38, %.preheader99 ], [ %32, %31 ]
+.preheader97:                                     ; preds = %31, %.preheader97
+  %.3 = phi ptr [ %38, %.preheader97 ], [ %32, %31 ]
   %38 = getelementptr i8, ptr %.3, i64 1
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i64
@@ -1049,12 +1046,12 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
   %42 = load i16, ptr %41, align 2
   %43 = and i16 %42, 2048
   %.not82 = icmp eq i16 %43, 0
-  br i1 %.not82, label %.thread, label %.preheader99, !llvm.loop !14
+  br i1 %.not82, label %.thread, label %.preheader97, !llvm.loop !14
 
 44:                                               ; preds = %31, %.loopexit
   %45 = phi i8 [ %33, %31 ], [ %29, %.loopexit ]
   %.4 = phi ptr [ %32, %31 ], [ %.2, %.loopexit ]
-  br i1 %.not79, label %46, label %.thread
+  br i1 %.not79.not, label %46, label %.thread
 
 46:                                               ; preds = %44
   %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -1064,26 +1061,26 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 761, ptr noundef nonnull @__func__.pg_size_bytes) #10
   unreachable
 
-.thread:                                          ; preds = %.preheader99, %44
-  %50 = phi i8 [ %45, %44 ], [ %39, %.preheader99 ]
-  %.494 = phi ptr [ %.4, %44 ], [ %38, %.preheader99 ]
+.thread:                                          ; preds = %.preheader97, %44
+  %50 = phi i8 [ %45, %44 ], [ %39, %.preheader97 ]
+  %.492 = phi ptr [ %.4, %44 ], [ %38, %.preheader97 ]
   switch i8 %50, label %56 [
     i8 101, label %51
     i8 69, label %51
   ]
 
 51:                                               ; preds = %.thread, %.thread
-  %52 = getelementptr i8, ptr %.494, i64 1
+  %52 = getelementptr i8, ptr %.492, i64 1
   %53 = call i64 @strtol(ptr noundef %52, ptr noundef nonnull %2, i32 noundef 10) #10
   %54 = load ptr, ptr %2, align 8
   %55 = icmp ugt ptr %54, %52
-  %spec.select = select i1 %55, ptr %54, ptr %.494
-  %.pre123 = load i8, ptr %spec.select, align 1
+  %spec.select = select i1 %55, ptr %54, ptr %.492
+  %.pre121 = load i8, ptr %spec.select, align 1
   br label %56
 
 56:                                               ; preds = %51, %.thread
-  %57 = phi i8 [ %50, %.thread ], [ %.pre123, %51 ]
-  %.5 = phi ptr [ %.494, %.thread ], [ %spec.select, %51 ]
+  %57 = phi i8 [ %50, %.thread ], [ %.pre121, %51 ]
+  %.5 = phi ptr [ %.492, %.thread ], [ %spec.select, %51 ]
   store i8 0, ptr %.5, align 1
   %58 = ptrtoint ptr %.0 to i64
   %59 = tail call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %58, i64 noundef 0, i64 noundef -1) #10
@@ -1095,25 +1092,25 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
   %64 = getelementptr i16, ptr %62, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = and i16 %65, 8192
-  %.not84109 = icmp eq i16 %66, 0
-  br i1 %.not84109, label %._crit_edge, label %.lr.ph
+  %.not83107 = icmp eq i16 %66, 0
+  br i1 %.not83107, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %56, %.lr.ph
-  %.1110 = phi ptr [ %67, %.lr.ph ], [ %.5, %56 ]
-  %67 = getelementptr i8, ptr %.1110, i64 1
+  %.1108 = phi ptr [ %67, %.lr.ph ], [ %.5, %56 ]
+  %67 = getelementptr i8, ptr %.1108, i64 1
   %.pr = load i8, ptr %67, align 1
   %68 = zext i8 %.pr to i64
   %69 = getelementptr i16, ptr %62, i64 %68
   %70 = load i16, ptr %69, align 2
   %71 = and i16 %70, 8192
-  %.not84 = icmp eq i16 %71, 0
-  br i1 %.not84, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  %.not83 = icmp eq i16 %71, 0
+  br i1 %.not83, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %56
-  %.lcssa103 = phi i8 [ %57, %56 ], [ %.pr, %.lr.ph ]
+  %.lcssa101 = phi i8 [ %57, %56 ], [ %.pr, %.lr.ph ]
   %.1.lcssa = phi ptr [ %.5, %56 ], [ %67, %.lr.ph ]
-  %.not85 = icmp eq i8 %.lcssa103, 0
-  br i1 %.not85, label %132, label %72
+  %.not84 = icmp eq i8 %.lcssa101, 0
+  br i1 %.not84, label %132, label %72
 
 72:                                               ; preds = %._crit_edge
   %73 = load i8, ptr %6, align 1
@@ -1135,8 +1132,8 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
 
 85:                                               ; preds = %72
   %86 = and i32 %74, 1
-  %.not86 = icmp eq i32 %86, 0
-  br i1 %.not86, label %91, label %87
+  %.not85 = icmp eq i32 %86, 0
+  br i1 %.not85, label %91, label %87
 
 87:                                               ; preds = %85
   %88 = lshr i32 %74, 1
@@ -1164,8 +1161,8 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
   %102 = getelementptr i16, ptr %62, i64 %101
   %103 = load i16, ptr %102, align 2
   %104 = and i16 %103, 8192
-  %.not87 = icmp eq i16 %104, 0
-  br i1 %.not87, label %105, label %99, !llvm.loop !16
+  %.not86 = icmp eq i16 %104, 0
+  br i1 %.not86, label %105, label %99, !llvm.loop !16
 
 105:                                              ; preds = %99
   store i8 0, ptr %.pn, align 1
@@ -1173,23 +1170,23 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
 
 .preheader:                                       ; preds = %111
   %106 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %.1.lcssa, ptr noundef nonnull @.str.26) #10
-  %.not125 = icmp eq i32 %106, 0
-  br i1 %.not125, label %.thread95.thread, label %.thread95
+  %.not123 = icmp eq i32 %106, 0
+  br i1 %.not123, label %.thread93.thread, label %.thread93
 
 107:                                              ; preds = %105, %111
   %108 = phi ptr [ @.str.20, %105 ], [ %113, %111 ]
-  %.064113 = phi ptr [ @size_pretty_units, %105 ], [ %112, %111 ]
+  %.064111 = phi ptr [ @size_pretty_units, %105 ], [ %112, %111 ]
   %109 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %.1.lcssa, ptr noundef nonnull %108) #10
   %110 = icmp eq i32 %109, 0
-  br i1 %110, label %.thread95.thread, label %111
+  br i1 %110, label %.thread93.thread, label %111
 
 111:                                              ; preds = %107
-  %112 = getelementptr i8, ptr %.064113, i64 16
+  %112 = getelementptr i8, ptr %.064111, i64 16
   %113 = load ptr, ptr %112, align 8
-  %.not88 = icmp eq ptr %113, null
-  br i1 %.not88, label %.preheader, label %107, !llvm.loop !17
+  %.not87 = icmp eq ptr %113, null
+  br i1 %.not87, label %.preheader, label %107, !llvm.loop !17
 
-.thread95:                                        ; preds = %.preheader
+.thread93:                                        ; preds = %.preheader
   %114 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %114)
   %115 = tail call i32 @errcode(i32 noundef 50856066) #10
@@ -1200,16 +1197,16 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 839, ptr noundef nonnull @__func__.pg_size_bytes) #10
   unreachable
 
-.thread95.thread:                                 ; preds = %107, %.preheader
-  %.16598 = phi ptr [ @size_pretty_units, %.preheader ], [ %.064113, %107 ]
-  %120 = getelementptr inbounds i8, ptr %.16598, i64 13
+.thread93.thread:                                 ; preds = %107, %.preheader
+  %.16596 = phi ptr [ @size_pretty_units, %.preheader ], [ %.064111, %107 ]
+  %120 = getelementptr inbounds i8, ptr %.16596, i64 13
   %121 = load i8, ptr %120, align 1
   %122 = zext nneg i8 %121 to i64
   %123 = shl nuw i64 1, %122
   %124 = icmp sgt i64 %123, 1
   br i1 %124, label %125, label %132
 
-125:                                              ; preds = %.thread95.thread
+125:                                              ; preds = %.thread93.thread
   %126 = tail call ptr @int64_to_numeric(i64 noundef %123) #10
   %127 = ptrtoint ptr %126 to i64
   %128 = ptrtoint ptr %61 to i64
@@ -1218,8 +1215,8 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
   %131 = tail call ptr @pg_detoast_datum(ptr noundef %130) #10
   br label %132
 
-132:                                              ; preds = %.thread95.thread, %125, %._crit_edge
-  %.070 = phi ptr [ %131, %125 ], [ %61, %.thread95.thread ], [ %61, %._crit_edge ]
+132:                                              ; preds = %.thread93.thread, %125, %._crit_edge
+  %.070 = phi ptr [ %131, %125 ], [ %61, %.thread93.thread ], [ %61, %._crit_edge ]
   %133 = ptrtoint ptr %.070 to i64
   %134 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @numeric_int8, i32 noundef 0, i64 noundef %133) #10
   ret i64 %134
@@ -1271,7 +1268,7 @@ define dso_local i64 @pg_relation_filenode(ptr nocapture noundef %0) local_unnam
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %8, align 4
-  br label %31
+  br label %30
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %6, i64 16
@@ -1292,7 +1289,7 @@ define dso_local i64 @pg_relation_filenode(ptr nocapture noundef %0) local_unnam
 
 .thread:                                          ; preds = %9
   tail call void @ReleaseSysCache(ptr noundef nonnull %6) #10
-  br label %27
+  br label %26
 
 18:                                               ; preds = %9, %9, %9, %9, %9
   %19 = getelementptr inbounds i8, ptr %15, i64 88
@@ -1302,30 +1299,29 @@ define dso_local i64 @pg_relation_filenode(ptr nocapture noundef %0) local_unnam
 
 .thread27:                                        ; preds = %18
   tail call void @ReleaseSysCache(ptr noundef nonnull %6) #10
-  br label %29
+  br label %28
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %15, i64 113
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %25 = icmp ne i8 %24, 0
-  %26 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %4, i1 noundef zeroext %25) #10
+  %24 = trunc i8 %23 to i1
+  %25 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %4, i1 noundef zeroext %24) #10
   tail call void @ReleaseSysCache(ptr noundef nonnull %6) #10
-  %.not24 = icmp eq i32 %26, 0
-  br i1 %.not24, label %27, label %29
+  %.not24 = icmp eq i32 %25, 0
+  br i1 %.not24, label %26, label %28
 
-27:                                               ; preds = %.thread, %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %28, align 4
-  br label %31
+26:                                               ; preds = %.thread, %21
+  %27 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %27, align 4
+  br label %30
 
-29:                                               ; preds = %.thread27, %21
-  %.01930 = phi i32 [ %20, %.thread27 ], [ %26, %21 ]
-  %30 = zext i32 %.01930 to i64
-  br label %31
+28:                                               ; preds = %.thread27, %21
+  %.01930 = phi i32 [ %20, %.thread27 ], [ %25, %21 ]
+  %29 = zext i32 %.01930 to i64
+  br label %30
 
-31:                                               ; preds = %29, %27, %7
-  %.0 = phi i64 [ %30, %29 ], [ 0, %27 ], [ 0, %7 ]
+30:                                               ; preds = %28, %26, %7
+  %.0 = phi i64 [ %29, %28 ], [ 0, %26 ], [ 0, %7 ]
   ret i64 %.0
 }
 
@@ -1385,7 +1381,7 @@ define dso_local i64 @pg_relation_filepath(ptr nocapture noundef %0) local_unnam
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %8, align 4
-  br label %56
+  br label %55
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %6, i64 16
@@ -1421,65 +1417,64 @@ define dso_local i64 @pg_relation_filepath(ptr nocapture noundef %0) local_unnam
 26:                                               ; preds = %18
   %27 = getelementptr inbounds i8, ptr %15, i64 113
   %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  %30 = icmp ne i8 %29, 0
-  %31 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %4, i1 noundef zeroext %30) #10
-  %.not35 = icmp eq i32 %31, 0
+  %29 = trunc i8 %28 to i1
+  %30 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %4, i1 noundef zeroext %29) #10
+  %.not35 = icmp eq i32 %30, 0
   br i1 %.not35, label %.thread, label %.thread40
 
 .thread:                                          ; preds = %9, %26
   tail call void @ReleaseSysCache(ptr noundef nonnull %6) #10
-  %32 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %32, align 4
-  br label %56
+  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %31, align 4
+  br label %55
 
 .thread40:                                        ; preds = %18, %26
-  %.sroa.9.045 = phi i32 [ %31, %26 ], [ %25, %18 ]
-  %33 = getelementptr inbounds i8, ptr %15, i64 114
-  %34 = load i8, ptr %33, align 2
-  switch i8 %34, label %47 [
-    i8 117, label %52
-    i8 112, label %52
-    i8 116, label %35
+  %.sroa.9.045 = phi i32 [ %30, %26 ], [ %25, %18 ]
+  %32 = getelementptr inbounds i8, ptr %15, i64 114
+  %33 = load i8, ptr %32, align 2
+  switch i8 %33, label %46 [
+    i8 117, label %51
+    i8 112, label %51
+    i8 116, label %34
   ]
 
-35:                                               ; preds = %.thread40
-  %36 = getelementptr inbounds i8, ptr %15, i64 68
-  %37 = load i32, ptr %36, align 4
-  %38 = tail call zeroext i1 @isTempOrTempToastNamespace(i32 noundef %37) #10
-  br i1 %38, label %39, label %44
+34:                                               ; preds = %.thread40
+  %35 = getelementptr inbounds i8, ptr %15, i64 68
+  %36 = load i32, ptr %35, align 4
+  %37 = tail call zeroext i1 @isTempOrTempToastNamespace(i32 noundef %36) #10
+  br i1 %37, label %38, label %43
 
-39:                                               ; preds = %35
-  %40 = load i32, ptr @ParallelLeaderProcNumber, align 4
-  %41 = icmp eq i32 %40, -1
-  %42 = load i32, ptr @MyProcNumber, align 4
-  %43 = select i1 %41, i32 %42, i32 %40
-  br label %52
+38:                                               ; preds = %34
+  %39 = load i32, ptr @ParallelLeaderProcNumber, align 4
+  %40 = icmp eq i32 %39, -1
+  %41 = load i32, ptr @MyProcNumber, align 4
+  %42 = select i1 %40, i32 %41, i32 %39
+  br label %51
 
-44:                                               ; preds = %35
-  %45 = load i32, ptr %36, align 4
-  %46 = tail call i32 @GetTempNamespaceProcNumber(i32 noundef %45) #10
-  br label %52
+43:                                               ; preds = %34
+  %44 = load i32, ptr %35, align 4
+  %45 = tail call i32 @GetTempNamespaceProcNumber(i32 noundef %44) #10
+  br label %51
 
-47:                                               ; preds = %.thread40
-  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %48)
-  %49 = load i8, ptr %33, align 2
-  %50 = sext i8 %49 to i32
-  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %50) #10
+46:                                               ; preds = %.thread40
+  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %47)
+  %48 = load i8, ptr %32, align 2
+  %49 = sext i8 %48 to i32
+  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %49) #10
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1012, ptr noundef nonnull @__func__.pg_relation_filepath) #10
   unreachable
 
-52:                                               ; preds = %.thread40, %.thread40, %39, %44
-  %.028 = phi i32 [ %43, %39 ], [ %46, %44 ], [ -1, %.thread40 ], [ -1, %.thread40 ]
+51:                                               ; preds = %.thread40, %.thread40, %38, %43
+  %.028 = phi i32 [ %42, %38 ], [ %45, %43 ], [ -1, %.thread40 ], [ -1, %.thread40 ]
   tail call void @ReleaseSysCache(ptr noundef nonnull %6) #10
-  %53 = tail call ptr @GetRelationPath(i32 noundef %.sroa.5.0, i32 noundef %.sroa.0.0, i32 noundef %.sroa.9.045, i32 noundef %.028, i32 noundef 0) #10
-  %54 = tail call ptr @cstring_to_text(ptr noundef %53) #10
-  %55 = ptrtoint ptr %54 to i64
-  br label %56
+  %52 = tail call ptr @GetRelationPath(i32 noundef %.sroa.5.0, i32 noundef %.sroa.0.0, i32 noundef %.sroa.9.045, i32 noundef %.028, i32 noundef 0) #10
+  %53 = tail call ptr @cstring_to_text(ptr noundef %52) #10
+  %54 = ptrtoint ptr %53 to i64
+  br label %55
 
-56:                                               ; preds = %52, %.thread, %7
-  %.0 = phi i64 [ %55, %52 ], [ 0, %.thread ], [ 0, %7 ]
+55:                                               ; preds = %51, %.thread, %7
+  %.0 = phi i64 [ %54, %51 ], [ 0, %.thread ], [ 0, %7 ]
   ret i64 %.0
 }
 

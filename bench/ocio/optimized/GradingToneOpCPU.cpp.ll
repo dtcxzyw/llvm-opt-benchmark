@@ -489,9 +489,8 @@ entry:
   %0 = load ptr, ptr %m_gt, align 8
   %m_localBypass.i = getelementptr inbounds i8, ptr %0, i64 1200
   %1 = load i8, ptr %m_localBypass.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %if.end4, label %if.then
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
   %cmp.not = icmp eq ptr %inImg, %outImg
@@ -505,15 +504,15 @@ if.then3:                                         ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %3 = load ptr, ptr %vfn, align 8
-  %call7 = tail call noundef nonnull align 8 dereferenceable(248) ptr %3(ptr noundef nonnull align 8 dereferenceable(1208) %0)
-  %4 = load ptr, ptr %m_gt, align 8
-  %m_preRenderValues.i = getelementptr inbounds i8, ptr %4, i64 272
+  %2 = load ptr, ptr %vfn, align 8
+  %call7 = tail call noundef nonnull align 8 dereferenceable(248) ptr %2(ptr noundef nonnull align 8 dereferenceable(1208) %0)
+  %3 = load ptr, ptr %m_gt, align 8
+  %m_preRenderValues.i = getelementptr inbounds i8, ptr %3, i64 272
   %cmp1176 = icmp sgt i64 %numPixels, 0
   br i1 %cmp1176, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end4
-  %5 = getelementptr inbounds i8, ptr %call7, i64 240
+  %4 = getelementptr inbounds i8, ptr %call7, i64 240
   %.pre = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5moffsE, align 16
   %.pre80 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants6mshiftE, align 16
   %.pre81 = load <2 x i64>, ptr @_ZN19OpenColorIO_v2_4devL5EMASKE, align 16
@@ -528,53 +527,53 @@ for.body.lr.ph:                                   ; preds = %if.end4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %6 = phi <4 x i32> [ %.pre89, %for.body.lr.ph ], [ %47, %for.body ]
-  %7 = phi <4 x float> [ %.pre88, %for.body.lr.ph ], [ %43, %for.body ]
-  %8 = phi <4 x float> [ %.pre87, %for.body.lr.ph ], [ %42, %for.body ]
-  %9 = phi <4 x float> [ %.pre86, %for.body.lr.ph ], [ %41, %for.body ]
-  %10 = phi <4 x float> [ %.pre85, %for.body.lr.ph ], [ %40, %for.body ]
-  %11 = phi <4 x float> [ %.pre84, %for.body.lr.ph ], [ %39, %for.body ]
-  %12 = phi <4 x float> [ %.pre83, %for.body.lr.ph ], [ %38, %for.body ]
-  %13 = phi <4 x i32> [ %.pre82, %for.body.lr.ph ], [ %36, %for.body ]
-  %14 = phi <2 x i64> [ %.pre81, %for.body.lr.ph ], [ %33, %for.body ]
-  %15 = phi <4 x float> [ %.pre80, %for.body.lr.ph ], [ %68, %for.body ]
-  %16 = phi <4 x float> [ %.pre, %for.body.lr.ph ], [ %30, %for.body ]
+  %5 = phi <4 x i32> [ %.pre89, %for.body.lr.ph ], [ %46, %for.body ]
+  %6 = phi <4 x float> [ %.pre88, %for.body.lr.ph ], [ %42, %for.body ]
+  %7 = phi <4 x float> [ %.pre87, %for.body.lr.ph ], [ %41, %for.body ]
+  %8 = phi <4 x float> [ %.pre86, %for.body.lr.ph ], [ %40, %for.body ]
+  %9 = phi <4 x float> [ %.pre85, %for.body.lr.ph ], [ %39, %for.body ]
+  %10 = phi <4 x float> [ %.pre84, %for.body.lr.ph ], [ %38, %for.body ]
+  %11 = phi <4 x float> [ %.pre83, %for.body.lr.ph ], [ %37, %for.body ]
+  %12 = phi <4 x i32> [ %.pre82, %for.body.lr.ph ], [ %35, %for.body ]
+  %13 = phi <2 x i64> [ %.pre81, %for.body.lr.ph ], [ %32, %for.body ]
+  %14 = phi <4 x float> [ %.pre80, %for.body.lr.ph ], [ %67, %for.body ]
+  %15 = phi <4 x float> [ %.pre, %for.body.lr.ph ], [ %29, %for.body ]
   %idx.079 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %in.078 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
   %out.077 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
   %in.0.val = load <4 x float>, ptr %in.078, align 1
-  %17 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mxbrkE, align 16
-  %18 = fcmp uge <4 x float> %17, %in.0.val
-  %19 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mgainE, align 16
-  %mul.i14.i = fmul <4 x float> %in.0.val, %19
-  %add.i19.i = fadd <4 x float> %mul.i14.i, %16
-  %add.i.i = fadd <4 x float> %in.0.val, %15
-  %20 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants2mmE, align 16
-  %mul.i.i = fmul <4 x float> %add.i.i, %20
-  %21 = bitcast <2 x i64> %14 to <4 x i32>
-  %not.i.i.i = xor <4 x i32> %21, <i32 -1, i32 -1, i32 -1, i32 -1>
-  %22 = bitcast <4 x float> %mul.i.i to <4 x i32>
-  %and.i.i.i = and <4 x i32> %not.i.i.i, %22
-  %or.i.i.i = or <4 x i32> %and.i.i.i, %13
-  %23 = bitcast <4 x i32> %or.i.i.i to <4 x float>
-  %mul.i31.i.i = fmul <4 x float> %12, %23
-  %add.i48.i.i = fadd <4 x float> %11, %mul.i31.i.i
-  %mul.i28.i.i = fmul <4 x float> %add.i48.i.i, %23
-  %add.i45.i.i = fadd <4 x float> %10, %mul.i28.i.i
-  %mul.i25.i.i = fmul <4 x float> %add.i45.i.i, %23
-  %add.i42.i.i = fadd <4 x float> %9, %mul.i25.i.i
-  %mul.i22.i.i = fmul <4 x float> %add.i42.i.i, %23
-  %add.i39.i.i = fadd <4 x float> %8, %mul.i22.i.i
-  %mul.i.i.i = fmul <4 x float> %add.i39.i.i, %23
-  %add.i36.i.i = fadd <4 x float> %7, %mul.i.i.i
-  %24 = bitcast <4 x float> %mul.i.i to <2 x i64>
-  %and.i58.i.i = and <2 x i64> %14, %24
-  %25 = bitcast <2 x i64> %and.i58.i.i to <4 x i32>
-  %26 = lshr <4 x i32> %25, <i32 23, i32 23, i32 23, i32 23>
-  %sub.i.i.i = sub <4 x i32> %26, %6
+  %16 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mxbrkE, align 16
+  %17 = fcmp uge <4 x float> %16, %in.0.val
+  %18 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mgainE, align 16
+  %mul.i14.i = fmul <4 x float> %in.0.val, %18
+  %add.i19.i = fadd <4 x float> %mul.i14.i, %15
+  %add.i.i = fadd <4 x float> %in.0.val, %14
+  %19 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants2mmE, align 16
+  %mul.i.i = fmul <4 x float> %add.i.i, %19
+  %20 = bitcast <2 x i64> %13 to <4 x i32>
+  %not.i.i.i = xor <4 x i32> %20, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %21 = bitcast <4 x float> %mul.i.i to <4 x i32>
+  %and.i.i.i = and <4 x i32> %not.i.i.i, %21
+  %or.i.i.i = or <4 x i32> %and.i.i.i, %12
+  %22 = bitcast <4 x i32> %or.i.i.i to <4 x float>
+  %mul.i31.i.i = fmul <4 x float> %11, %22
+  %add.i48.i.i = fadd <4 x float> %10, %mul.i31.i.i
+  %mul.i28.i.i = fmul <4 x float> %add.i48.i.i, %22
+  %add.i45.i.i = fadd <4 x float> %9, %mul.i28.i.i
+  %mul.i25.i.i = fmul <4 x float> %add.i45.i.i, %22
+  %add.i42.i.i = fadd <4 x float> %8, %mul.i25.i.i
+  %mul.i22.i.i = fmul <4 x float> %add.i42.i.i, %22
+  %add.i39.i.i = fadd <4 x float> %7, %mul.i22.i.i
+  %mul.i.i.i = fmul <4 x float> %add.i39.i.i, %22
+  %add.i36.i.i = fadd <4 x float> %6, %mul.i.i.i
+  %23 = bitcast <4 x float> %mul.i.i to <2 x i64>
+  %and.i58.i.i = and <2 x i64> %13, %23
+  %24 = bitcast <2 x i64> %and.i58.i.i to <4 x i32>
+  %25 = lshr <4 x i32> %24, <i32 23, i32 23, i32 23, i32 23>
+  %sub.i.i.i = sub <4 x i32> %25, %5
   %conv.i.i.i = sitofp <4 x i32> %sub.i.i.i to <4 x float>
   %add.i.i.i = fadd <4 x float> %add.i36.i.i, %conv.i.i.i
-  %or.i.v.i = select <4 x i1> %18, <4 x float> %add.i19.i, <4 x float> %add.i.i.i
+  %or.i.v.i = select <4 x i1> %17, <4 x float> %add.i19.i, <4 x float> %add.i.i.i
   store <4 x float> %or.i.v.i, ptr %out.077, align 1
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 0, ptr noundef nonnull %out.077)
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 1, ptr noundef nonnull %out.077)
@@ -596,95 +595,95 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %out.077)
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull %out.077)
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 3, i1 noundef zeroext true, ptr noundef nonnull %out.077)
-  %call7.val = load double, ptr %5, align 8
+  %call7.val = load double, ptr %4, align 8
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU9scontrastERKNS_11GradingToneERKNS_20GradingTonePreRenderEPf(double %call7.val, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, ptr noundef nonnull %out.077)
-  %27 = load <4 x float>, ptr %out.077, align 1
-  %28 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mybrkE, align 16
-  %29 = fcmp uge <4 x float> %28, %27
-  %30 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5moffsE, align 16
-  %sub.i28.i = fsub <4 x float> %27, %30
-  %31 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants8mgainInvE, align 16
-  %mul.i14.i72 = fmul <4 x float> %sub.i28.i, %31
-  %32 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants6mpowerE, align 16
-  %33 = load <2 x i64>, ptr @_ZN19OpenColorIO_v2_4devL5EMASKE, align 16
-  %34 = bitcast <2 x i64> %33 to <4 x i32>
-  %not.i.i.i.i = xor <4 x i32> %34, <i32 -1, i32 -1, i32 -1, i32 -1>
-  %35 = bitcast <4 x float> %32 to <4 x i32>
-  %and.i.i.i.i = and <4 x i32> %not.i.i.i.i, %35
-  %36 = load <4 x i32>, ptr @_ZN19OpenColorIO_v2_4devL4EONEE, align 16
-  %or.i.i.i.i = or <4 x i32> %and.i.i.i.i, %36
-  %37 = bitcast <4 x i32> %or.i.i.i.i to <4 x float>
-  %38 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG5E, align 16
-  %mul.i31.i.i.i = fmul <4 x float> %38, %37
-  %39 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG4E, align 16
-  %add.i48.i.i.i = fadd <4 x float> %39, %mul.i31.i.i.i
-  %mul.i28.i.i.i = fmul <4 x float> %add.i48.i.i.i, %37
-  %40 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG3E, align 16
-  %add.i45.i.i.i = fadd <4 x float> %40, %mul.i28.i.i.i
-  %mul.i25.i.i.i = fmul <4 x float> %add.i45.i.i.i, %37
-  %41 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG2E, align 16
-  %add.i42.i.i.i = fadd <4 x float> %41, %mul.i25.i.i.i
-  %mul.i22.i.i.i = fmul <4 x float> %add.i42.i.i.i, %37
-  %42 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG1E, align 16
-  %add.i39.i.i.i = fadd <4 x float> %42, %mul.i22.i.i.i
-  %mul.i.i.i.i = fmul <4 x float> %add.i39.i.i.i, %37
-  %43 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG0E, align 16
-  %add.i36.i.i.i = fadd <4 x float> %43, %mul.i.i.i.i
-  %44 = bitcast <4 x float> %32 to <2 x i64>
-  %and.i58.i.i.i = and <2 x i64> %33, %44
-  %45 = bitcast <2 x i64> %and.i58.i.i.i to <4 x i32>
-  %46 = lshr <4 x i32> %45, <i32 23, i32 23, i32 23, i32 23>
-  %47 = load <4 x i32>, ptr @_ZN19OpenColorIO_v2_4devL5EBIASE, align 16
-  %sub.i.i.i.i = sub <4 x i32> %46, %47
+  %26 = load <4 x float>, ptr %out.077, align 1
+  %27 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mybrkE, align 16
+  %28 = fcmp uge <4 x float> %27, %26
+  %29 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5moffsE, align 16
+  %sub.i28.i = fsub <4 x float> %26, %29
+  %30 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants8mgainInvE, align 16
+  %mul.i14.i72 = fmul <4 x float> %sub.i28.i, %30
+  %31 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants6mpowerE, align 16
+  %32 = load <2 x i64>, ptr @_ZN19OpenColorIO_v2_4devL5EMASKE, align 16
+  %33 = bitcast <2 x i64> %32 to <4 x i32>
+  %not.i.i.i.i = xor <4 x i32> %33, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %34 = bitcast <4 x float> %31 to <4 x i32>
+  %and.i.i.i.i = and <4 x i32> %not.i.i.i.i, %34
+  %35 = load <4 x i32>, ptr @_ZN19OpenColorIO_v2_4devL4EONEE, align 16
+  %or.i.i.i.i = or <4 x i32> %and.i.i.i.i, %35
+  %36 = bitcast <4 x i32> %or.i.i.i.i to <4 x float>
+  %37 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG5E, align 16
+  %mul.i31.i.i.i = fmul <4 x float> %37, %36
+  %38 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG4E, align 16
+  %add.i48.i.i.i = fadd <4 x float> %38, %mul.i31.i.i.i
+  %mul.i28.i.i.i = fmul <4 x float> %add.i48.i.i.i, %36
+  %39 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG3E, align 16
+  %add.i45.i.i.i = fadd <4 x float> %39, %mul.i28.i.i.i
+  %mul.i25.i.i.i = fmul <4 x float> %add.i45.i.i.i, %36
+  %40 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG2E, align 16
+  %add.i42.i.i.i = fadd <4 x float> %40, %mul.i25.i.i.i
+  %mul.i22.i.i.i = fmul <4 x float> %add.i42.i.i.i, %36
+  %41 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG1E, align 16
+  %add.i39.i.i.i = fadd <4 x float> %41, %mul.i22.i.i.i
+  %mul.i.i.i.i = fmul <4 x float> %add.i39.i.i.i, %36
+  %42 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG0E, align 16
+  %add.i36.i.i.i = fadd <4 x float> %42, %mul.i.i.i.i
+  %43 = bitcast <4 x float> %31 to <2 x i64>
+  %and.i58.i.i.i = and <2 x i64> %32, %43
+  %44 = bitcast <2 x i64> %and.i58.i.i.i to <4 x i32>
+  %45 = lshr <4 x i32> %44, <i32 23, i32 23, i32 23, i32 23>
+  %46 = load <4 x i32>, ptr @_ZN19OpenColorIO_v2_4devL5EBIASE, align 16
+  %sub.i.i.i.i = sub <4 x i32> %45, %46
   %conv.i.i.i.i = sitofp <4 x i32> %sub.i.i.i.i to <4 x float>
   %add.i.i.i.i = fadd <4 x float> %add.i36.i.i.i, %conv.i.i.i.i
-  %mul.i.i.i73 = fmul <4 x float> %27, %add.i.i.i.i
-  %48 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %mul.i.i.i73)
-  %49 = fcmp ult <4 x float> %mul.i.i.i73, zeroinitializer
-  %50 = sext <4 x i1> %49 to <4 x i32>
-  %add.i57.i.i.i = add <4 x i32> %48, %50
-  %add.i54.i.i.i = add <4 x i32> %add.i57.i.i.i, %47
-  %51 = shl <4 x i32> %add.i54.i.i.i, <i32 23, i32 23, i32 23, i32 23>
-  %52 = bitcast <4 x i32> %51 to <4 x float>
+  %mul.i.i.i73 = fmul <4 x float> %26, %add.i.i.i.i
+  %47 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %mul.i.i.i73)
+  %48 = fcmp ult <4 x float> %mul.i.i.i73, zeroinitializer
+  %49 = sext <4 x i1> %48 to <4 x i32>
+  %add.i57.i.i.i = add <4 x i32> %47, %49
+  %add.i54.i.i.i = add <4 x i32> %add.i57.i.i.i, %46
+  %50 = shl <4 x i32> %add.i54.i.i.i, <i32 23, i32 23, i32 23, i32 23>
+  %51 = bitcast <4 x i32> %50 to <4 x float>
   %conv.i.i5.i.i = sitofp <4 x i32> %add.i57.i.i.i to <4 x float>
   %sub.i.i6.i.i = fsub <4 x float> %mul.i.i.i73, %conv.i.i5.i.i
-  %53 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP4E, align 16
-  %mul.i34.i.i.i = fmul <4 x float> %53, %sub.i.i6.i.i
-  %54 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP3E, align 16
-  %add.i45.i7.i.i = fadd <4 x float> %54, %mul.i34.i.i.i
+  %52 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP4E, align 16
+  %mul.i34.i.i.i = fmul <4 x float> %52, %sub.i.i6.i.i
+  %53 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP3E, align 16
+  %add.i45.i7.i.i = fadd <4 x float> %53, %mul.i34.i.i.i
   %mul.i31.i8.i.i = fmul <4 x float> %sub.i.i6.i.i, %add.i45.i7.i.i
-  %55 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP2E, align 16
-  %add.i42.i9.i.i = fadd <4 x float> %55, %mul.i31.i8.i.i
+  %54 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP2E, align 16
+  %add.i42.i9.i.i = fadd <4 x float> %54, %mul.i31.i8.i.i
   %mul.i28.i10.i.i = fmul <4 x float> %sub.i.i6.i.i, %add.i42.i9.i.i
-  %56 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP1E, align 16
-  %add.i39.i11.i.i = fadd <4 x float> %56, %mul.i28.i10.i.i
+  %55 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP1E, align 16
+  %add.i39.i11.i.i = fadd <4 x float> %55, %mul.i28.i10.i.i
   %mul.i25.i12.i.i = fmul <4 x float> %sub.i.i6.i.i, %add.i39.i11.i.i
-  %57 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP0E, align 16
-  %add.i.i13.i.i = fadd <4 x float> %57, %mul.i25.i12.i.i
-  %mul.i.i14.i.i = fmul <4 x float> %add.i.i13.i.i, %52
-  %58 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL7ENEG126E, align 16
-  %59 = fcmp ule <4 x float> %58, %mul.i.i.i73
-  %60 = select <4 x i1> %59, <4 x float> %mul.i.i14.i.i, <4 x float> zeroinitializer
-  %61 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL7EPOS128E, align 16
-  %62 = fcmp ole <4 x float> %61, %mul.i.i.i73
-  %63 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL7EPOSINFE, align 16
-  %64 = select <4 x i1> %62, <4 x float> %63, <4 x float> %60
-  %65 = fcmp ogt <4 x float> %32, zeroinitializer
-  %66 = select <4 x i1> %65, <4 x float> %64, <4 x float> zeroinitializer
-  %67 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants9mshift018E, align 16
-  %mul.i.i74 = fmul <4 x float> %67, %66
-  %68 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants6mshiftE, align 16
-  %sub.i.i = fsub <4 x float> %mul.i.i74, %68
-  %or.i.v.i75 = select <4 x i1> %29, <4 x float> %mul.i14.i72, <4 x float> %sub.i.i
+  %56 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP0E, align 16
+  %add.i.i13.i.i = fadd <4 x float> %56, %mul.i25.i12.i.i
+  %mul.i.i14.i.i = fmul <4 x float> %add.i.i13.i.i, %51
+  %57 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL7ENEG126E, align 16
+  %58 = fcmp ule <4 x float> %57, %mul.i.i.i73
+  %59 = select <4 x i1> %58, <4 x float> %mul.i.i14.i.i, <4 x float> zeroinitializer
+  %60 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL7EPOS128E, align 16
+  %61 = fcmp ole <4 x float> %60, %mul.i.i.i73
+  %62 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL7EPOSINFE, align 16
+  %63 = select <4 x i1> %61, <4 x float> %62, <4 x float> %59
+  %64 = fcmp ogt <4 x float> %31, zeroinitializer
+  %65 = select <4 x i1> %64, <4 x float> %63, <4 x float> zeroinitializer
+  %66 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants9mshift018E, align 16
+  %mul.i.i74 = fmul <4 x float> %66, %65
+  %67 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants6mshiftE, align 16
+  %sub.i.i = fsub <4 x float> %mul.i.i74, %67
+  %or.i.v.i75 = select <4 x i1> %28, <4 x float> %mul.i14.i72, <4 x float> %sub.i.i
   store <4 x float> %or.i.v.i75, ptr %out.077, align 1
-  %69 = shufflevector <4 x float> %or.i.v.i75, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %70 = fcmp ogt <2 x float> %69, <float 6.550400e+04, float 6.550400e+04>
-  %71 = select <2 x i1> %70, <2 x float> <float 6.550400e+04, float 6.550400e+04>, <2 x float> %69
-  store <2 x float> %71, ptr %out.077, align 4
+  %68 = shufflevector <4 x float> %or.i.v.i75, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %69 = fcmp ogt <2 x float> %68, <float 6.550400e+04, float 6.550400e+04>
+  %70 = select <2 x i1> %69, <2 x float> <float 6.550400e+04, float 6.550400e+04>, <2 x float> %68
+  store <2 x float> %70, ptr %out.077, align 4
   %arrayidx6.i = getelementptr inbounds i8, ptr %out.077, i64 8
-  %72 = extractelement <4 x float> %or.i.v.i75, i64 2
-  %cmp.i8.i = fcmp ogt float %72, 6.550400e+04
-  %.sroa.speculated.i = select i1 %cmp.i8.i, float 6.550400e+04, float %72
+  %71 = extractelement <4 x float> %or.i.v.i75, i64 2
+  %cmp.i8.i = fcmp ogt float %71, 6.550400e+04
+  %.sroa.speculated.i = select i1 %cmp.i8.i, float 6.550400e+04, float %71
   store float %.sroa.speculated.i, ptr %arrayidx6.i, align 4
   %add.ptr = getelementptr inbounds i8, ptr %in.078, i64 16
   %add.ptr12 = getelementptr inbounds i8, ptr %out.077, i64 16
@@ -703,8 +702,7 @@ entry:
   %0 = load ptr, ptr %m_gt, align 8
   %m_isDynamic.i = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %m_isDynamic.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   ret i1 %tobool.i
 }
 
@@ -719,8 +717,7 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %m_gt, align 8
   %m_isDynamic.i = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %m_isDynamic.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = trunc i8 %1 to i1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -739,33 +736,32 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %m_gt, align 8
   %m_isDynamic.i = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %m_isDynamic.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %if.else, label %if.then3
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
   store ptr %0, ptr %agg.result, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %3, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %2, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_30DynamicPropertyGradingToneImplEvEERKS_IT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then3
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %4, 0
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %5 = load i32, ptr %_M_use_count.i.i.i.i, align 4
-  %add.i.i.i.i.i = add nsw i32 %5, 1
+  %4 = load i32, ptr %_M_use_count.i.i.i.i, align 4
+  %add.i.i.i.i.i = add nsw i32 %4, 1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_30DynamicPropertyGradingToneImplEvEERKS_IT_E.exit
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %6 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
+  %5 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_30DynamicPropertyGradingToneImplEvEERKS_IT_E.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_30DynamicPropertyGradingToneImplEvEERKS_IT_E.exit: ; preds = %if.then3, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
@@ -781,7 +777,7 @@ invoke.cont:                                      ; preds = %if.else
   unreachable
 
 lpad:                                             ; preds = %if.else
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -795,13 +791,13 @@ invoke.cont7:                                     ; preds = %if.end
   unreachable
 
 lpad6:                                            ; preds = %if.end
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad6, %lpad
   %exception5.sink = phi ptr [ %exception5, %lpad6 ], [ %exception, %lpad ]
-  %.pn = phi { ptr, i32 } [ %8, %lpad6 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad6 ], [ %6, %lpad ]
   tail call void @__cxa_free_exception(ptr %exception5.sink) #24
   resume { ptr, i32 } %.pn
 }
@@ -922,9 +918,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEED2Ev.e
   %19 = load ptr, ptr %m_gt, align 8
   %m_isDynamic.i = getelementptr inbounds i8, ptr %19, i64 12
   %20 = load i8, ptr %m_isDynamic.i, align 4
-  %21 = and i8 %20, 1
-  %tobool.i.not = icmp eq i8 %21, 0
-  br i1 %tobool.i.not, label %if.end, label %if.then
+  %tobool.i = trunc i8 %20 to i1
+  br i1 %tobool.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEED2Ev.exit
   invoke void @_ZNK19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImpl18createEditableCopyEv(ptr nonnull sret(%"class.std::shared_ptr.8") align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(1208) %19)
@@ -932,159 +927,159 @@ if.then:                                          ; preds = %_ZNSt10shared_ptrIN
 
 invoke.cont:                                      ; preds = %if.then
   %_M_refcount4.i.i.i11 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
-  %22 = load <2 x ptr>, ptr %ref.tmp9, align 16
+  %21 = load <2 x ptr>, ptr %ref.tmp9, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp9, i8 0, i64 16, i1 false)
-  %23 = load ptr, ptr %_M_refcount3.i.i.i2, align 8
-  store <2 x ptr> %22, ptr %m_gt, align 8
-  %cmp.not.i.i.i.i13 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %_M_refcount3.i.i.i2, align 8
+  store <2 x ptr> %21, ptr %m_gt, align 8
+  %cmp.not.i.i.i.i13 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i.i13, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEEaSEOS2_.exit43, label %if.then.i.i.i.i14
 
 if.then.i.i.i.i14:                                ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i15 = getelementptr inbounds i8, ptr %23, i64 8
-  %24 = load atomic i64, ptr %_M_use_count.i.i.i.i.i15 acquire, align 8
-  %cmp.i.i.i.i.i16 = icmp eq i64 %24, 4294967297
-  %25 = trunc i64 %24 to i32
+  %_M_use_count.i.i.i.i.i15 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = load atomic i64, ptr %_M_use_count.i.i.i.i.i15 acquire, align 8
+  %cmp.i.i.i.i.i16 = icmp eq i64 %23, 4294967297
+  %24 = trunc i64 %23 to i32
   br i1 %cmp.i.i.i.i.i16, label %if.then.i.i.i.i.i39, label %if.end.i.i.i.i.i17
 
 if.then.i.i.i.i.i39:                              ; preds = %if.then.i.i.i.i14
   store i32 0, ptr %_M_use_count.i.i.i.i.i15, align 8
-  %_M_weak_count.i.i.i.i.i40 = getelementptr inbounds i8, ptr %23, i64 12
+  %_M_weak_count.i.i.i.i.i40 = getelementptr inbounds i8, ptr %22, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i40, align 4
-  %vtable.i.i.i.i.i41 = load ptr, ptr %23, align 8
+  %vtable.i.i.i.i.i41 = load ptr, ptr %22, align 8
   %vfn.i.i.i.i.i42 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i41, i64 16
-  %26 = load ptr, ptr %vfn.i.i.i.i.i42, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(16) %23) #24
+  %25 = load ptr, ptr %vfn.i.i.i.i.i42, align 8
+  call void %25(ptr noundef nonnull align 8 dereferenceable(16) %22) #24
   br label %if.end8.sink.split.i.i.i.i.i34
 
 if.end.i.i.i.i.i17:                               ; preds = %if.then.i.i.i.i14
-  %27 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i18 = icmp eq i8 %27, 0
+  %26 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i18 = icmp eq i8 %26, 0
   br i1 %tobool.i.not.i.i.i.i.i18, label %if.else.i.i.i.i.i.i38, label %if.then.i.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i19:                            ; preds = %if.end.i.i.i.i.i17
-  %add.i.i.i.i.i.i20 = add nsw i32 %25, -1
+  %add.i.i.i.i.i.i20 = add nsw i32 %24, -1
   store i32 %add.i.i.i.i.i.i20, ptr %_M_use_count.i.i.i.i.i15, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i21
 
 if.else.i.i.i.i.i.i38:                            ; preds = %if.end.i.i.i.i.i17
-  %28 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i15, i32 -1 acq_rel, align 4
+  %27 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i15, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i21
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i21: ; preds = %if.else.i.i.i.i.i.i38, %if.then.i.i.i.i.i.i19
-  %retval.i.0.i.i.i.i.i22 = phi i32 [ %25, %if.then.i.i.i.i.i.i19 ], [ %28, %if.else.i.i.i.i.i.i38 ]
+  %retval.i.0.i.i.i.i.i22 = phi i32 [ %24, %if.then.i.i.i.i.i.i19 ], [ %27, %if.else.i.i.i.i.i.i38 ]
   %cmp6.i.i.i.i.i23 = icmp eq i32 %retval.i.0.i.i.i.i.i22, 1
   br i1 %cmp6.i.i.i.i.i23, label %if.then7.i.i.i.i.i24, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEEaSEOS2_.exit43
 
 if.then7.i.i.i.i.i24:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i21
-  %vtable.i.i.i.i.i.i.i25 = load ptr, ptr %23, align 8
+  %vtable.i.i.i.i.i.i.i25 = load ptr, ptr %22, align 8
   %vfn.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i25, i64 16
-  %29 = load ptr, ptr %vfn.i.i.i.i.i.i.i26, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(16) %23) #24
-  %_M_weak_count.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %23, i64 12
-  %30 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i.i.i28 = icmp eq i8 %30, 0
+  %28 = load ptr, ptr %vfn.i.i.i.i.i.i.i26, align 8
+  call void %28(ptr noundef nonnull align 8 dereferenceable(16) %22) #24
+  %_M_weak_count.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %22, i64 12
+  %29 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i.i.i28 = icmp eq i8 %29, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i28, label %if.else.i.i.i.i.i.i.i.i37, label %if.then.i.i.i.i.i.i.i.i29
 
 if.then.i.i.i.i.i.i.i.i29:                        ; preds = %if.then7.i.i.i.i.i24
-  %31 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i27, align 4
-  %add.i.i.i.i.i.i.i.i30 = add nsw i32 %31, -1
+  %30 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i27, align 4
+  %add.i.i.i.i.i.i.i.i30 = add nsw i32 %30, -1
   store i32 %add.i.i.i.i.i.i.i.i30, ptr %_M_weak_count.i.i.i.i.i.i.i27, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31
 
 if.else.i.i.i.i.i.i.i.i37:                        ; preds = %if.then7.i.i.i.i.i24
-  %32 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i27, i32 -1 acq_rel, align 4
+  %31 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i27, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31: ; preds = %if.else.i.i.i.i.i.i.i.i37, %if.then.i.i.i.i.i.i.i.i29
-  %retval.i.0.i.i.i.i.i.i.i32 = phi i32 [ %31, %if.then.i.i.i.i.i.i.i.i29 ], [ %32, %if.else.i.i.i.i.i.i.i.i37 ]
+  %retval.i.0.i.i.i.i.i.i.i32 = phi i32 [ %30, %if.then.i.i.i.i.i.i.i.i29 ], [ %31, %if.else.i.i.i.i.i.i.i.i37 ]
   %cmp.i.i.i.i.i.i.i33 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i32, 1
   br i1 %cmp.i.i.i.i.i.i.i33, label %if.end8.sink.split.i.i.i.i.i34, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEEaSEOS2_.exit43
 
 if.end8.sink.split.i.i.i.i.i34:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31, %if.then.i.i.i.i.i39
-  %vtable2.i.i.i.i.i.i.i35 = load ptr, ptr %23, align 8
+  %vtable2.i.i.i.i.i.i.i35 = load ptr, ptr %22, align 8
   %vfn3.i.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i35, i64 24
-  %33 = load ptr, ptr %vfn3.i.i.i.i.i.i.i36, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(16) %23) #24
+  %32 = load ptr, ptr %vfn3.i.i.i.i.i.i.i36, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %22) #24
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEEaSEOS2_.exit43
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEEaSEOS2_.exit43: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i21, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31, %if.end8.sink.split.i.i.i.i.i34
-  %34 = load ptr, ptr %_M_refcount4.i.i.i11, align 8
-  %cmp.not.i.i.i45 = icmp eq ptr %34, null
+  %33 = load ptr, ptr %_M_refcount4.i.i.i11, align 8
+  %cmp.not.i.i.i45 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i.i45, label %if.end, label %if.then.i.i.i46
 
 if.then.i.i.i46:                                  ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEEaSEOS2_.exit43
-  %_M_use_count.i.i.i.i47 = getelementptr inbounds i8, ptr %34, i64 8
-  %35 = load atomic i64, ptr %_M_use_count.i.i.i.i47 acquire, align 8
-  %cmp.i.i.i.i48 = icmp eq i64 %35, 4294967297
-  %36 = trunc i64 %35 to i32
+  %_M_use_count.i.i.i.i47 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = load atomic i64, ptr %_M_use_count.i.i.i.i47 acquire, align 8
+  %cmp.i.i.i.i48 = icmp eq i64 %34, 4294967297
+  %35 = trunc i64 %34 to i32
   br i1 %cmp.i.i.i.i48, label %if.then.i.i.i.i71, label %if.end.i.i.i.i49
 
 if.then.i.i.i.i71:                                ; preds = %if.then.i.i.i46
   store i32 0, ptr %_M_use_count.i.i.i.i47, align 8
-  %_M_weak_count.i.i.i.i72 = getelementptr inbounds i8, ptr %34, i64 12
+  %_M_weak_count.i.i.i.i72 = getelementptr inbounds i8, ptr %33, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i72, align 4
-  %vtable.i.i.i.i73 = load ptr, ptr %34, align 8
+  %vtable.i.i.i.i73 = load ptr, ptr %33, align 8
   %vfn.i.i.i.i74 = getelementptr inbounds i8, ptr %vtable.i.i.i.i73, i64 16
-  %37 = load ptr, ptr %vfn.i.i.i.i74, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(16) %34) #24
+  %36 = load ptr, ptr %vfn.i.i.i.i74, align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(16) %33) #24
   br label %if.end8.sink.split.i.i.i.i66
 
 if.end.i.i.i.i49:                                 ; preds = %if.then.i.i.i46
-  %38 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i50 = icmp eq i8 %38, 0
+  %37 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i50 = icmp eq i8 %37, 0
   br i1 %tobool.i.not.i.i.i.i50, label %if.else.i.i.i.i.i70, label %if.then.i.i.i.i.i51
 
 if.then.i.i.i.i.i51:                              ; preds = %if.end.i.i.i.i49
-  %add.i.i.i.i.i52 = add nsw i32 %36, -1
+  %add.i.i.i.i.i52 = add nsw i32 %35, -1
   store i32 %add.i.i.i.i.i52, ptr %_M_use_count.i.i.i.i47, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i53
 
 if.else.i.i.i.i.i70:                              ; preds = %if.end.i.i.i.i49
-  %39 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i47, i32 -1 acq_rel, align 4
+  %38 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i47, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i53
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i53: ; preds = %if.else.i.i.i.i.i70, %if.then.i.i.i.i.i51
-  %retval.i.0.i.i.i.i54 = phi i32 [ %36, %if.then.i.i.i.i.i51 ], [ %39, %if.else.i.i.i.i.i70 ]
+  %retval.i.0.i.i.i.i54 = phi i32 [ %35, %if.then.i.i.i.i.i51 ], [ %38, %if.else.i.i.i.i.i70 ]
   %cmp6.i.i.i.i55 = icmp eq i32 %retval.i.0.i.i.i.i54, 1
   br i1 %cmp6.i.i.i.i55, label %if.then7.i.i.i.i56, label %if.end
 
 if.then7.i.i.i.i56:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i53
-  %vtable.i.i.i.i.i.i57 = load ptr, ptr %34, align 8
+  %vtable.i.i.i.i.i.i57 = load ptr, ptr %33, align 8
   %vfn.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i57, i64 16
-  %40 = load ptr, ptr %vfn.i.i.i.i.i.i58, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %34) #24
-  %_M_weak_count.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %34, i64 12
-  %41 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i.i60 = icmp eq i8 %41, 0
+  %39 = load ptr, ptr %vfn.i.i.i.i.i.i58, align 8
+  call void %39(ptr noundef nonnull align 8 dereferenceable(16) %33) #24
+  %_M_weak_count.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %33, i64 12
+  %40 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i.i60 = icmp eq i8 %40, 0
   br i1 %tobool.i.not.i.i.i.i.i.i60, label %if.else.i.i.i.i.i.i.i69, label %if.then.i.i.i.i.i.i.i61
 
 if.then.i.i.i.i.i.i.i61:                          ; preds = %if.then7.i.i.i.i56
-  %42 = load i32, ptr %_M_weak_count.i.i.i.i.i.i59, align 4
-  %add.i.i.i.i.i.i.i62 = add nsw i32 %42, -1
+  %41 = load i32, ptr %_M_weak_count.i.i.i.i.i.i59, align 4
+  %add.i.i.i.i.i.i.i62 = add nsw i32 %41, -1
   store i32 %add.i.i.i.i.i.i.i62, ptr %_M_weak_count.i.i.i.i.i.i59, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i63
 
 if.else.i.i.i.i.i.i.i69:                          ; preds = %if.then7.i.i.i.i56
-  %43 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i59, i32 -1 acq_rel, align 4
+  %42 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i59, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i63
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i63: ; preds = %if.else.i.i.i.i.i.i.i69, %if.then.i.i.i.i.i.i.i61
-  %retval.i.0.i.i.i.i.i.i64 = phi i32 [ %42, %if.then.i.i.i.i.i.i.i61 ], [ %43, %if.else.i.i.i.i.i.i.i69 ]
+  %retval.i.0.i.i.i.i.i.i64 = phi i32 [ %41, %if.then.i.i.i.i.i.i.i61 ], [ %42, %if.else.i.i.i.i.i.i.i69 ]
   %cmp.i.i.i.i.i.i65 = icmp eq i32 %retval.i.0.i.i.i.i.i.i64, 1
   br i1 %cmp.i.i.i.i.i.i65, label %if.end8.sink.split.i.i.i.i66, label %if.end
 
 if.end8.sink.split.i.i.i.i66:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i63, %if.then.i.i.i.i71
-  %vtable2.i.i.i.i.i.i67 = load ptr, ptr %34, align 8
+  %vtable2.i.i.i.i.i.i67 = load ptr, ptr %33, align 8
   %vfn3.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i67, i64 24
-  %44 = load ptr, ptr %vfn3.i.i.i.i.i.i68, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(16) %34) #24
+  %43 = load ptr, ptr %vfn3.i.i.i.i.i.i68, align 8
+  call void %43(ptr noundef nonnull align 8 dereferenceable(16) %33) #24
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %45 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_gt) #24
-  resume { ptr, i32 } %45
+  resume { ptr, i32 } %44
 
 if.end:                                           ; preds = %if.end8.sink.split.i.i.i.i66, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i63, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i53, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEEaSEOS2_.exit43, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEED2Ev.exit
   ret void
@@ -1260,9 +1255,8 @@ entry:
   %0 = load ptr, ptr %m_gt, align 8
   %m_localBypass.i = getelementptr inbounds i8, ptr %0, i64 1200
   %1 = load i8, ptr %m_localBypass.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %if.end4, label %if.then
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
   %cmp.not = icmp eq ptr %inImg, %outImg
@@ -1276,15 +1270,15 @@ if.then3:                                         ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %3 = load ptr, ptr %vfn, align 8
-  %call7 = tail call noundef nonnull align 8 dereferenceable(248) ptr %3(ptr noundef nonnull align 8 dereferenceable(1208) %0)
-  %4 = load ptr, ptr %m_gt, align 8
-  %m_preRenderValues.i = getelementptr inbounds i8, ptr %4, i64 272
+  %2 = load ptr, ptr %vfn, align 8
+  %call7 = tail call noundef nonnull align 8 dereferenceable(248) ptr %2(ptr noundef nonnull align 8 dereferenceable(1208) %0)
+  %3 = load ptr, ptr %m_gt, align 8
+  %m_preRenderValues.i = getelementptr inbounds i8, ptr %3, i64 272
   %cmp1171 = icmp sgt i64 %numPixels, 0
   br i1 %cmp1171, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end4
-  %5 = getelementptr inbounds i8, ptr %call7, i64 240
+  %4 = getelementptr inbounds i8, ptr %call7, i64 240
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1312,16 +1306,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 1, i1 noundef zeroext true, ptr noundef %out.072)
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 2, i1 noundef zeroext true, ptr noundef %out.072)
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 3, i1 noundef zeroext true, ptr noundef %out.072)
-  %call7.val = load double, ptr %5, align 8
+  %call7.val = load double, ptr %4, align 8
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU9scontrastERKNS_11GradingToneERKNS_20GradingTonePreRenderEPf(double %call7.val, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, ptr noundef %out.072)
-  %6 = load <2 x float>, ptr %out.072, align 4
-  %7 = fcmp ogt <2 x float> %6, <float 6.550400e+04, float 6.550400e+04>
-  %8 = select <2 x i1> %7, <2 x float> <float 6.550400e+04, float 6.550400e+04>, <2 x float> %6
-  store <2 x float> %8, ptr %out.072, align 4
+  %5 = load <2 x float>, ptr %out.072, align 4
+  %6 = fcmp ogt <2 x float> %5, <float 6.550400e+04, float 6.550400e+04>
+  %7 = select <2 x i1> %6, <2 x float> <float 6.550400e+04, float 6.550400e+04>, <2 x float> %5
+  store <2 x float> %7, ptr %out.072, align 4
   %arrayidx6.i = getelementptr inbounds i8, ptr %out.072, i64 8
-  %9 = load float, ptr %arrayidx6.i, align 4
-  %cmp.i8.i = fcmp ogt float %9, 6.550400e+04
-  %.sroa.speculated.i = select i1 %cmp.i8.i, float 6.550400e+04, float %9
+  %8 = load float, ptr %arrayidx6.i, align 4
+  %cmp.i8.i = fcmp ogt float %8, 6.550400e+04
+  %.sroa.speculated.i = select i1 %cmp.i8.i, float 6.550400e+04, float %8
   store float %.sroa.speculated.i, ptr %arrayidx6.i, align 4
   %add.ptr = getelementptr inbounds i8, ptr %in.073, i64 16
   %add.ptr12 = getelementptr inbounds i8, ptr %out.072, i64 16
@@ -3106,9 +3100,8 @@ entry:
   %0 = load ptr, ptr %m_gt, align 8
   %m_localBypass.i = getelementptr inbounds i8, ptr %0, i64 1200
   %1 = load i8, ptr %m_localBypass.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %if.end4, label %if.then
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
   %cmp.not = icmp eq ptr %inImg, %outImg
@@ -3122,15 +3115,15 @@ if.then3:                                         ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %3 = load ptr, ptr %vfn, align 8
-  %call7 = tail call noundef nonnull align 8 dereferenceable(248) ptr %3(ptr noundef nonnull align 8 dereferenceable(1208) %0)
-  %4 = load ptr, ptr %m_gt, align 8
-  %m_preRenderValues.i = getelementptr inbounds i8, ptr %4, i64 272
+  %2 = load ptr, ptr %vfn, align 8
+  %call7 = tail call noundef nonnull align 8 dereferenceable(248) ptr %2(ptr noundef nonnull align 8 dereferenceable(1208) %0)
+  %3 = load ptr, ptr %m_gt, align 8
+  %m_preRenderValues.i = getelementptr inbounds i8, ptr %3, i64 272
   %cmp1176 = icmp sgt i64 %numPixels, 0
   br i1 %cmp1176, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end4
-  %5 = getelementptr inbounds i8, ptr %call7, i64 240
+  %4 = getelementptr inbounds i8, ptr %call7, i64 240
   %.pre = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5moffsE, align 16
   %.pre80 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants6mshiftE, align 16
   %.pre81 = load <2 x i64>, ptr @_ZN19OpenColorIO_v2_4devL5EMASKE, align 16
@@ -3145,55 +3138,55 @@ for.body.lr.ph:                                   ; preds = %if.end4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %6 = phi <4 x i32> [ %.pre89, %for.body.lr.ph ], [ %47, %for.body ]
-  %7 = phi <4 x float> [ %.pre88, %for.body.lr.ph ], [ %43, %for.body ]
-  %8 = phi <4 x float> [ %.pre87, %for.body.lr.ph ], [ %42, %for.body ]
-  %9 = phi <4 x float> [ %.pre86, %for.body.lr.ph ], [ %41, %for.body ]
-  %10 = phi <4 x float> [ %.pre85, %for.body.lr.ph ], [ %40, %for.body ]
-  %11 = phi <4 x float> [ %.pre84, %for.body.lr.ph ], [ %39, %for.body ]
-  %12 = phi <4 x float> [ %.pre83, %for.body.lr.ph ], [ %38, %for.body ]
-  %13 = phi <4 x i32> [ %.pre82, %for.body.lr.ph ], [ %36, %for.body ]
-  %14 = phi <2 x i64> [ %.pre81, %for.body.lr.ph ], [ %33, %for.body ]
-  %15 = phi <4 x float> [ %.pre80, %for.body.lr.ph ], [ %68, %for.body ]
-  %16 = phi <4 x float> [ %.pre, %for.body.lr.ph ], [ %30, %for.body ]
+  %5 = phi <4 x i32> [ %.pre89, %for.body.lr.ph ], [ %46, %for.body ]
+  %6 = phi <4 x float> [ %.pre88, %for.body.lr.ph ], [ %42, %for.body ]
+  %7 = phi <4 x float> [ %.pre87, %for.body.lr.ph ], [ %41, %for.body ]
+  %8 = phi <4 x float> [ %.pre86, %for.body.lr.ph ], [ %40, %for.body ]
+  %9 = phi <4 x float> [ %.pre85, %for.body.lr.ph ], [ %39, %for.body ]
+  %10 = phi <4 x float> [ %.pre84, %for.body.lr.ph ], [ %38, %for.body ]
+  %11 = phi <4 x float> [ %.pre83, %for.body.lr.ph ], [ %37, %for.body ]
+  %12 = phi <4 x i32> [ %.pre82, %for.body.lr.ph ], [ %35, %for.body ]
+  %13 = phi <2 x i64> [ %.pre81, %for.body.lr.ph ], [ %32, %for.body ]
+  %14 = phi <4 x float> [ %.pre80, %for.body.lr.ph ], [ %67, %for.body ]
+  %15 = phi <4 x float> [ %.pre, %for.body.lr.ph ], [ %29, %for.body ]
   %idx.079 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %in.078 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
   %out.077 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
   %in.0.val = load <4 x float>, ptr %in.078, align 1
-  %17 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mxbrkE, align 16
-  %18 = fcmp uge <4 x float> %17, %in.0.val
-  %19 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mgainE, align 16
-  %mul.i14.i = fmul <4 x float> %in.0.val, %19
-  %add.i19.i = fadd <4 x float> %mul.i14.i, %16
-  %add.i.i = fadd <4 x float> %in.0.val, %15
-  %20 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants2mmE, align 16
-  %mul.i.i = fmul <4 x float> %add.i.i, %20
-  %21 = bitcast <2 x i64> %14 to <4 x i32>
-  %not.i.i.i = xor <4 x i32> %21, <i32 -1, i32 -1, i32 -1, i32 -1>
-  %22 = bitcast <4 x float> %mul.i.i to <4 x i32>
-  %and.i.i.i = and <4 x i32> %not.i.i.i, %22
-  %or.i.i.i = or <4 x i32> %and.i.i.i, %13
-  %23 = bitcast <4 x i32> %or.i.i.i to <4 x float>
-  %mul.i31.i.i = fmul <4 x float> %12, %23
-  %add.i48.i.i = fadd <4 x float> %11, %mul.i31.i.i
-  %mul.i28.i.i = fmul <4 x float> %add.i48.i.i, %23
-  %add.i45.i.i = fadd <4 x float> %10, %mul.i28.i.i
-  %mul.i25.i.i = fmul <4 x float> %add.i45.i.i, %23
-  %add.i42.i.i = fadd <4 x float> %9, %mul.i25.i.i
-  %mul.i22.i.i = fmul <4 x float> %add.i42.i.i, %23
-  %add.i39.i.i = fadd <4 x float> %8, %mul.i22.i.i
-  %mul.i.i.i = fmul <4 x float> %add.i39.i.i, %23
-  %add.i36.i.i = fadd <4 x float> %7, %mul.i.i.i
-  %24 = bitcast <4 x float> %mul.i.i to <2 x i64>
-  %and.i58.i.i = and <2 x i64> %14, %24
-  %25 = bitcast <2 x i64> %and.i58.i.i to <4 x i32>
-  %26 = lshr <4 x i32> %25, <i32 23, i32 23, i32 23, i32 23>
-  %sub.i.i.i = sub <4 x i32> %26, %6
+  %16 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mxbrkE, align 16
+  %17 = fcmp uge <4 x float> %16, %in.0.val
+  %18 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mgainE, align 16
+  %mul.i14.i = fmul <4 x float> %in.0.val, %18
+  %add.i19.i = fadd <4 x float> %mul.i14.i, %15
+  %add.i.i = fadd <4 x float> %in.0.val, %14
+  %19 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants2mmE, align 16
+  %mul.i.i = fmul <4 x float> %add.i.i, %19
+  %20 = bitcast <2 x i64> %13 to <4 x i32>
+  %not.i.i.i = xor <4 x i32> %20, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %21 = bitcast <4 x float> %mul.i.i to <4 x i32>
+  %and.i.i.i = and <4 x i32> %not.i.i.i, %21
+  %or.i.i.i = or <4 x i32> %and.i.i.i, %12
+  %22 = bitcast <4 x i32> %or.i.i.i to <4 x float>
+  %mul.i31.i.i = fmul <4 x float> %11, %22
+  %add.i48.i.i = fadd <4 x float> %10, %mul.i31.i.i
+  %mul.i28.i.i = fmul <4 x float> %add.i48.i.i, %22
+  %add.i45.i.i = fadd <4 x float> %9, %mul.i28.i.i
+  %mul.i25.i.i = fmul <4 x float> %add.i45.i.i, %22
+  %add.i42.i.i = fadd <4 x float> %8, %mul.i25.i.i
+  %mul.i22.i.i = fmul <4 x float> %add.i42.i.i, %22
+  %add.i39.i.i = fadd <4 x float> %7, %mul.i22.i.i
+  %mul.i.i.i = fmul <4 x float> %add.i39.i.i, %22
+  %add.i36.i.i = fadd <4 x float> %6, %mul.i.i.i
+  %23 = bitcast <4 x float> %mul.i.i to <2 x i64>
+  %and.i58.i.i = and <2 x i64> %13, %23
+  %24 = bitcast <2 x i64> %and.i58.i.i to <4 x i32>
+  %25 = lshr <4 x i32> %24, <i32 23, i32 23, i32 23, i32 23>
+  %sub.i.i.i = sub <4 x i32> %25, %5
   %conv.i.i.i = sitofp <4 x i32> %sub.i.i.i to <4 x float>
   %add.i.i.i = fadd <4 x float> %add.i36.i.i, %conv.i.i.i
-  %or.i.v.i = select <4 x i1> %18, <4 x float> %add.i19.i, <4 x float> %add.i.i.i
+  %or.i.v.i = select <4 x i1> %17, <4 x float> %add.i19.i, <4 x float> %add.i.i.i
   store <4 x float> %or.i.v.i, ptr %out.077, align 1
-  %call7.val = load double, ptr %5, align 8
+  %call7.val = load double, ptr %4, align 8
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU9scontrastERKNS_11GradingToneERKNS_20GradingTonePreRenderEPf(double %call7.val, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, ptr noundef nonnull %out.077)
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 3, i1 noundef zeroext true, ptr noundef nonnull %out.077)
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %out.077)
@@ -3215,93 +3208,93 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 0, ptr noundef nonnull %out.077)
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 1, ptr noundef nonnull %out.077)
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 2, ptr noundef nonnull %out.077)
-  %27 = load <4 x float>, ptr %out.077, align 1
-  %28 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mybrkE, align 16
-  %29 = fcmp uge <4 x float> %28, %27
-  %30 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5moffsE, align 16
-  %sub.i28.i = fsub <4 x float> %27, %30
-  %31 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants8mgainInvE, align 16
-  %mul.i14.i72 = fmul <4 x float> %sub.i28.i, %31
-  %32 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants6mpowerE, align 16
-  %33 = load <2 x i64>, ptr @_ZN19OpenColorIO_v2_4devL5EMASKE, align 16
-  %34 = bitcast <2 x i64> %33 to <4 x i32>
-  %not.i.i.i.i = xor <4 x i32> %34, <i32 -1, i32 -1, i32 -1, i32 -1>
-  %35 = bitcast <4 x float> %32 to <4 x i32>
-  %and.i.i.i.i = and <4 x i32> %not.i.i.i.i, %35
-  %36 = load <4 x i32>, ptr @_ZN19OpenColorIO_v2_4devL4EONEE, align 16
-  %or.i.i.i.i = or <4 x i32> %and.i.i.i.i, %36
-  %37 = bitcast <4 x i32> %or.i.i.i.i to <4 x float>
-  %38 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG5E, align 16
-  %mul.i31.i.i.i = fmul <4 x float> %38, %37
-  %39 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG4E, align 16
-  %add.i48.i.i.i = fadd <4 x float> %39, %mul.i31.i.i.i
-  %mul.i28.i.i.i = fmul <4 x float> %add.i48.i.i.i, %37
-  %40 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG3E, align 16
-  %add.i45.i.i.i = fadd <4 x float> %40, %mul.i28.i.i.i
-  %mul.i25.i.i.i = fmul <4 x float> %add.i45.i.i.i, %37
-  %41 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG2E, align 16
-  %add.i42.i.i.i = fadd <4 x float> %41, %mul.i25.i.i.i
-  %mul.i22.i.i.i = fmul <4 x float> %add.i42.i.i.i, %37
-  %42 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG1E, align 16
-  %add.i39.i.i.i = fadd <4 x float> %42, %mul.i22.i.i.i
-  %mul.i.i.i.i = fmul <4 x float> %add.i39.i.i.i, %37
-  %43 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG0E, align 16
-  %add.i36.i.i.i = fadd <4 x float> %43, %mul.i.i.i.i
-  %44 = bitcast <4 x float> %32 to <2 x i64>
-  %and.i58.i.i.i = and <2 x i64> %33, %44
-  %45 = bitcast <2 x i64> %and.i58.i.i.i to <4 x i32>
-  %46 = lshr <4 x i32> %45, <i32 23, i32 23, i32 23, i32 23>
-  %47 = load <4 x i32>, ptr @_ZN19OpenColorIO_v2_4devL5EBIASE, align 16
-  %sub.i.i.i.i = sub <4 x i32> %46, %47
+  %26 = load <4 x float>, ptr %out.077, align 1
+  %27 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mybrkE, align 16
+  %28 = fcmp uge <4 x float> %27, %26
+  %29 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5moffsE, align 16
+  %sub.i28.i = fsub <4 x float> %26, %29
+  %30 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants8mgainInvE, align 16
+  %mul.i14.i72 = fmul <4 x float> %sub.i28.i, %30
+  %31 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants6mpowerE, align 16
+  %32 = load <2 x i64>, ptr @_ZN19OpenColorIO_v2_4devL5EMASKE, align 16
+  %33 = bitcast <2 x i64> %32 to <4 x i32>
+  %not.i.i.i.i = xor <4 x i32> %33, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %34 = bitcast <4 x float> %31 to <4 x i32>
+  %and.i.i.i.i = and <4 x i32> %not.i.i.i.i, %34
+  %35 = load <4 x i32>, ptr @_ZN19OpenColorIO_v2_4devL4EONEE, align 16
+  %or.i.i.i.i = or <4 x i32> %and.i.i.i.i, %35
+  %36 = bitcast <4 x i32> %or.i.i.i.i to <4 x float>
+  %37 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG5E, align 16
+  %mul.i31.i.i.i = fmul <4 x float> %37, %36
+  %38 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG4E, align 16
+  %add.i48.i.i.i = fadd <4 x float> %38, %mul.i31.i.i.i
+  %mul.i28.i.i.i = fmul <4 x float> %add.i48.i.i.i, %36
+  %39 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG3E, align 16
+  %add.i45.i.i.i = fadd <4 x float> %39, %mul.i28.i.i.i
+  %mul.i25.i.i.i = fmul <4 x float> %add.i45.i.i.i, %36
+  %40 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG2E, align 16
+  %add.i42.i.i.i = fadd <4 x float> %40, %mul.i25.i.i.i
+  %mul.i22.i.i.i = fmul <4 x float> %add.i42.i.i.i, %36
+  %41 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG1E, align 16
+  %add.i39.i.i.i = fadd <4 x float> %41, %mul.i22.i.i.i
+  %mul.i.i.i.i = fmul <4 x float> %add.i39.i.i.i, %36
+  %42 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG0E, align 16
+  %add.i36.i.i.i = fadd <4 x float> %42, %mul.i.i.i.i
+  %43 = bitcast <4 x float> %31 to <2 x i64>
+  %and.i58.i.i.i = and <2 x i64> %32, %43
+  %44 = bitcast <2 x i64> %and.i58.i.i.i to <4 x i32>
+  %45 = lshr <4 x i32> %44, <i32 23, i32 23, i32 23, i32 23>
+  %46 = load <4 x i32>, ptr @_ZN19OpenColorIO_v2_4devL5EBIASE, align 16
+  %sub.i.i.i.i = sub <4 x i32> %45, %46
   %conv.i.i.i.i = sitofp <4 x i32> %sub.i.i.i.i to <4 x float>
   %add.i.i.i.i = fadd <4 x float> %add.i36.i.i.i, %conv.i.i.i.i
-  %mul.i.i.i73 = fmul <4 x float> %27, %add.i.i.i.i
-  %48 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %mul.i.i.i73)
-  %49 = fcmp ult <4 x float> %mul.i.i.i73, zeroinitializer
-  %50 = sext <4 x i1> %49 to <4 x i32>
-  %add.i57.i.i.i = add <4 x i32> %48, %50
-  %add.i54.i.i.i = add <4 x i32> %add.i57.i.i.i, %47
-  %51 = shl <4 x i32> %add.i54.i.i.i, <i32 23, i32 23, i32 23, i32 23>
-  %52 = bitcast <4 x i32> %51 to <4 x float>
+  %mul.i.i.i73 = fmul <4 x float> %26, %add.i.i.i.i
+  %47 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %mul.i.i.i73)
+  %48 = fcmp ult <4 x float> %mul.i.i.i73, zeroinitializer
+  %49 = sext <4 x i1> %48 to <4 x i32>
+  %add.i57.i.i.i = add <4 x i32> %47, %49
+  %add.i54.i.i.i = add <4 x i32> %add.i57.i.i.i, %46
+  %50 = shl <4 x i32> %add.i54.i.i.i, <i32 23, i32 23, i32 23, i32 23>
+  %51 = bitcast <4 x i32> %50 to <4 x float>
   %conv.i.i5.i.i = sitofp <4 x i32> %add.i57.i.i.i to <4 x float>
   %sub.i.i6.i.i = fsub <4 x float> %mul.i.i.i73, %conv.i.i5.i.i
-  %53 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP4E, align 16
-  %mul.i34.i.i.i = fmul <4 x float> %53, %sub.i.i6.i.i
-  %54 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP3E, align 16
-  %add.i45.i7.i.i = fadd <4 x float> %54, %mul.i34.i.i.i
+  %52 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP4E, align 16
+  %mul.i34.i.i.i = fmul <4 x float> %52, %sub.i.i6.i.i
+  %53 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP3E, align 16
+  %add.i45.i7.i.i = fadd <4 x float> %53, %mul.i34.i.i.i
   %mul.i31.i8.i.i = fmul <4 x float> %sub.i.i6.i.i, %add.i45.i7.i.i
-  %55 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP2E, align 16
-  %add.i42.i9.i.i = fadd <4 x float> %55, %mul.i31.i8.i.i
+  %54 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP2E, align 16
+  %add.i42.i9.i.i = fadd <4 x float> %54, %mul.i31.i8.i.i
   %mul.i28.i10.i.i = fmul <4 x float> %sub.i.i6.i.i, %add.i42.i9.i.i
-  %56 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP1E, align 16
-  %add.i39.i11.i.i = fadd <4 x float> %56, %mul.i28.i10.i.i
+  %55 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP1E, align 16
+  %add.i39.i11.i.i = fadd <4 x float> %55, %mul.i28.i10.i.i
   %mul.i25.i12.i.i = fmul <4 x float> %sub.i.i6.i.i, %add.i39.i11.i.i
-  %57 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP0E, align 16
-  %add.i.i13.i.i = fadd <4 x float> %57, %mul.i25.i12.i.i
-  %mul.i.i14.i.i = fmul <4 x float> %add.i.i13.i.i, %52
-  %58 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL7ENEG126E, align 16
-  %59 = fcmp ule <4 x float> %58, %mul.i.i.i73
-  %60 = select <4 x i1> %59, <4 x float> %mul.i.i14.i.i, <4 x float> zeroinitializer
-  %61 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL7EPOS128E, align 16
-  %62 = fcmp ole <4 x float> %61, %mul.i.i.i73
-  %63 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL7EPOSINFE, align 16
-  %64 = select <4 x i1> %62, <4 x float> %63, <4 x float> %60
-  %65 = fcmp ogt <4 x float> %32, zeroinitializer
-  %66 = select <4 x i1> %65, <4 x float> %64, <4 x float> zeroinitializer
-  %67 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants9mshift018E, align 16
-  %mul.i.i74 = fmul <4 x float> %67, %66
-  %68 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants6mshiftE, align 16
-  %sub.i.i = fsub <4 x float> %mul.i.i74, %68
-  %or.i.v.i75 = select <4 x i1> %29, <4 x float> %mul.i14.i72, <4 x float> %sub.i.i
+  %56 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP0E, align 16
+  %add.i.i13.i.i = fadd <4 x float> %56, %mul.i25.i12.i.i
+  %mul.i.i14.i.i = fmul <4 x float> %add.i.i13.i.i, %51
+  %57 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL7ENEG126E, align 16
+  %58 = fcmp ule <4 x float> %57, %mul.i.i.i73
+  %59 = select <4 x i1> %58, <4 x float> %mul.i.i14.i.i, <4 x float> zeroinitializer
+  %60 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL7EPOS128E, align 16
+  %61 = fcmp ole <4 x float> %60, %mul.i.i.i73
+  %62 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL7EPOSINFE, align 16
+  %63 = select <4 x i1> %61, <4 x float> %62, <4 x float> %59
+  %64 = fcmp ogt <4 x float> %31, zeroinitializer
+  %65 = select <4 x i1> %64, <4 x float> %63, <4 x float> zeroinitializer
+  %66 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants9mshift018E, align 16
+  %mul.i.i74 = fmul <4 x float> %66, %65
+  %67 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants6mshiftE, align 16
+  %sub.i.i = fsub <4 x float> %mul.i.i74, %67
+  %or.i.v.i75 = select <4 x i1> %28, <4 x float> %mul.i14.i72, <4 x float> %sub.i.i
   store <4 x float> %or.i.v.i75, ptr %out.077, align 1
-  %69 = shufflevector <4 x float> %or.i.v.i75, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %70 = fcmp ogt <2 x float> %69, <float 6.550400e+04, float 6.550400e+04>
-  %71 = select <2 x i1> %70, <2 x float> <float 6.550400e+04, float 6.550400e+04>, <2 x float> %69
-  store <2 x float> %71, ptr %out.077, align 4
+  %68 = shufflevector <4 x float> %or.i.v.i75, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %69 = fcmp ogt <2 x float> %68, <float 6.550400e+04, float 6.550400e+04>
+  %70 = select <2 x i1> %69, <2 x float> <float 6.550400e+04, float 6.550400e+04>, <2 x float> %68
+  store <2 x float> %70, ptr %out.077, align 4
   %arrayidx6.i = getelementptr inbounds i8, ptr %out.077, i64 8
-  %72 = extractelement <4 x float> %or.i.v.i75, i64 2
-  %cmp.i8.i = fcmp ogt float %72, 6.550400e+04
-  %.sroa.speculated.i = select i1 %cmp.i8.i, float 6.550400e+04, float %72
+  %71 = extractelement <4 x float> %or.i.v.i75, i64 2
+  %cmp.i8.i = fcmp ogt float %71, 6.550400e+04
+  %.sroa.speculated.i = select i1 %cmp.i8.i, float 6.550400e+04, float %71
   store float %.sroa.speculated.i, ptr %arrayidx6.i, align 4
   %add.ptr = getelementptr inbounds i8, ptr %in.078, i64 16
   %add.ptr12 = getelementptr inbounds i8, ptr %out.077, i64 16
@@ -3483,9 +3476,8 @@ entry:
   %0 = load ptr, ptr %m_gt, align 8
   %m_localBypass.i = getelementptr inbounds i8, ptr %0, i64 1200
   %1 = load i8, ptr %m_localBypass.i, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %if.end4, label %if.then
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
   %cmp.not = icmp eq ptr %inImg, %outImg
@@ -3499,15 +3491,15 @@ if.then3:                                         ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %3 = load ptr, ptr %vfn, align 8
-  %call7 = tail call noundef nonnull align 8 dereferenceable(248) ptr %3(ptr noundef nonnull align 8 dereferenceable(1208) %0)
-  %4 = load ptr, ptr %m_gt, align 8
-  %m_preRenderValues.i = getelementptr inbounds i8, ptr %4, i64 272
+  %2 = load ptr, ptr %vfn, align 8
+  %call7 = tail call noundef nonnull align 8 dereferenceable(248) ptr %2(ptr noundef nonnull align 8 dereferenceable(1208) %0)
+  %3 = load ptr, ptr %m_gt, align 8
+  %m_preRenderValues.i = getelementptr inbounds i8, ptr %3, i64 272
   %cmp1171 = icmp sgt i64 %numPixels, 0
   br i1 %cmp1171, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end4
-  %5 = getelementptr inbounds i8, ptr %call7, i64 240
+  %4 = getelementptr inbounds i8, ptr %call7, i64 240
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -3515,7 +3507,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %in.073 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
   %out.072 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %out.072, ptr noundef nonnull align 4 dereferenceable(16) %in.073, i64 16, i1 false)
-  %call7.val = load double, ptr %5, align 8
+  %call7.val = load double, ptr %4, align 8
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU9scontrastERKNS_11GradingToneERKNS_20GradingTonePreRenderEPf(double %call7.val, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, ptr noundef %out.072)
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 3, i1 noundef zeroext true, ptr noundef %out.072)
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 0, i1 noundef zeroext true, ptr noundef %out.072)
@@ -3537,14 +3529,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 0, ptr noundef %out.072)
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 1, ptr noundef %out.072)
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 2, ptr noundef %out.072)
-  %6 = load <2 x float>, ptr %out.072, align 4
-  %7 = fcmp ogt <2 x float> %6, <float 6.550400e+04, float 6.550400e+04>
-  %8 = select <2 x i1> %7, <2 x float> <float 6.550400e+04, float 6.550400e+04>, <2 x float> %6
-  store <2 x float> %8, ptr %out.072, align 4
+  %5 = load <2 x float>, ptr %out.072, align 4
+  %6 = fcmp ogt <2 x float> %5, <float 6.550400e+04, float 6.550400e+04>
+  %7 = select <2 x i1> %6, <2 x float> <float 6.550400e+04, float 6.550400e+04>, <2 x float> %5
+  store <2 x float> %7, ptr %out.072, align 4
   %arrayidx6.i = getelementptr inbounds i8, ptr %out.072, i64 8
-  %9 = load float, ptr %arrayidx6.i, align 4
-  %cmp.i8.i = fcmp ogt float %9, 6.550400e+04
-  %.sroa.speculated.i = select i1 %cmp.i8.i, float 6.550400e+04, float %9
+  %8 = load float, ptr %arrayidx6.i, align 4
+  %cmp.i8.i = fcmp ogt float %8, 6.550400e+04
+  %.sroa.speculated.i = select i1 %cmp.i8.i, float 6.550400e+04, float %8
   store float %.sroa.speculated.i, ptr %arrayidx6.i, align 4
   %add.ptr = getelementptr inbounds i8, ptr %in.073, i64 16
   %add.ptr12 = getelementptr inbounds i8, ptr %out.072, i64 16

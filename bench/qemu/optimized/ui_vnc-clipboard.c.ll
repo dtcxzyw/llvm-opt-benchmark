@@ -177,14 +177,13 @@ land.lhs.true37:                                  ; preds = %land.lhs.true34
 land.lhs.true45:                                  ; preds = %land.lhs.true37
   %types47 = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load i8, ptr %types47, align 8
-  %12 = and i8 %11, 1
-  %tobool50.not = icmp eq i8 %12, 0
-  br i1 %tobool50.not, label %if.end62, label %if.then51
+  %tobool50 = trunc i8 %11 to i1
+  br i1 %tobool50, label %if.then51, label %if.end62
 
 if.then51:                                        ; preds = %land.lhs.true45
   %data55 = getelementptr inbounds i8, ptr %9, i64 48
-  %13 = load ptr, ptr %data55, align 8
-  %tobool56.not = icmp eq ptr %13, null
+  %12 = load ptr, ptr %data55, align 8
+  %tobool56.not = icmp eq ptr %12, null
   br i1 %tobool56.not, label %if.else, label %if.then57
 
 if.then57:                                        ; preds = %if.then51
@@ -193,8 +192,8 @@ if.then57:                                        ; preds = %if.then51
 
 if.else:                                          ; preds = %if.then51
   %cbpending = getelementptr inbounds i8, ptr %vs, i64 66280
-  %14 = load i32, ptr %cbpending, align 8
-  %or = or i32 %14, 1
+  %13 = load i32, ptr %cbpending, align 8
+  %or = or i32 %13, 1
   store i32 %or, ptr %cbpending, align 8
   call void @qemu_clipboard_request(ptr noundef nonnull %9, i32 noundef 0) #6
   br label %if.end62
@@ -446,9 +445,8 @@ if.then.i:                                        ; preds = %sw.bb
 if.then4.i:                                       ; preds = %if.then.i
   %types.i = getelementptr inbounds i8, ptr %2, i64 32
   %5 = load i8, ptr %types.i, align 8
-  %6 = and i8 %5, 1
-  %tobool5.not.i = icmp eq i8 %6, 0
-  %spec.select.i = select i1 %tobool5.not.i, i32 134217728, i32 134217729
+  %tobool5.i = trunc i8 %5 to i1
+  %spec.select.i = select i1 %tobool5.i, i32 134217729, i32 134217728
   store i32 %spec.select.i, ptr %flags.i, align 4
   call fastcc void @vnc_clipboard_send(ptr noundef nonnull %add.ptr, i32 noundef 1, ptr noundef nonnull %flags.i)
   br label %vnc_clipboard_update_info.exit
@@ -458,13 +456,13 @@ if.end9.i:                                        ; preds = %sw.bb
 
 for.body.i:                                       ; preds = %if.end9.i
   %cbpending14.i = getelementptr i8, ptr %notifier, i64 40
-  %7 = load i32, ptr %cbpending14.i, align 8
-  %and.i = and i32 %7, 1
+  %6 = load i32, ptr %cbpending14.i, align 8
+  %and.i = and i32 %6, 1
   %tobool15.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool15.not.i, label %vnc_clipboard_update_info.exit, label %if.then16.i
 
 if.then16.i:                                      ; preds = %for.body.i
-  %and19.i = and i32 %7, -2
+  %and19.i = and i32 %6, -2
   store i32 %and19.i, ptr %cbpending14.i, align 8
   tail call fastcc void @vnc_clipboard_provide(ptr noundef nonnull %add.ptr, ptr noundef nonnull %2)
   br label %vnc_clipboard_update_info.exit

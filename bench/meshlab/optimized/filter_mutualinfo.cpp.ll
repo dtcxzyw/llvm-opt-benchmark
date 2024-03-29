@@ -4293,9 +4293,8 @@ _ZN11GLLogStream4logfIJiRiEEEviPKcDpOT_.exit.i:   ; preds = %160, %.noexc
 _ZNK19MeshLabPluginLogger3logIJiRiEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStream4logfIJiRiEEEviPKcDpOT_.exit.i, %.lr.ph
   store i32 30, ptr %86, align 8
   %161 = load i8, ptr %81, align 1
-  %162 = and i8 %161, 1
-  %.not = icmp eq i8 %162, 0
-  br i1 %.not, label %165, label %163
+  %162 = trunc i8 %161 to i1
+  br i1 %162, label %163, label %165
 
 163:                                              ; preds = %_ZNK19MeshLabPluginLogger3logIJiRiEEEvPKcDpOT_.exit
   %164 = invoke noundef i32 @_ZN6Solver8optimizeEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4_8Matrix44IfEEEE(ptr noundef nonnull align 8 dereferenceable(1000) %12, ptr noundef nonnull %71, ptr noundef nonnull %13, ptr noundef nonnull align 4 dereferenceable(132) %100)

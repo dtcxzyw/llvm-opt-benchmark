@@ -448,9 +448,8 @@ define hidden void @drange_append_drange_node(ptr nocapture noundef %0, ptr noun
 
 11:                                               ; preds = %3
   %12 = load i8, ptr %9, align 8
-  %13 = and i8 %12, 1
-  %.not.i = icmp eq i8 %13, 0
-  br i1 %.not.i, label %20, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %20
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %1, i64 4
@@ -527,9 +526,8 @@ define internal void @drange_append_wrapper(ptr noundef %0, ptr nocapture nounde
 
 11:                                               ; preds = %3
   %12 = load i8, ptr %9, align 8
-  %13 = and i8 %12, 1
-  %.not.i.i = icmp eq i8 %13, 0
-  br i1 %.not.i.i, label %20, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %20
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %0, i64 4
@@ -622,9 +620,8 @@ define hidden noalias noundef ptr @drange_dup(ptr noundef readonly %0) local_unn
 
 26:                                               ; preds = %10
   %27 = load i8, ptr %4, align 8
-  %28 = and i8 %27, 1
-  %.not.i.i = icmp eq i8 %28, 0
-  br i1 %.not.i.i, label %33, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %33
 
 29:                                               ; preds = %26
   %30 = load i32, ptr %15, align 4
@@ -684,9 +681,8 @@ declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #2
 define hidden zeroext i1 @drange_has_total_length(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -731,9 +727,8 @@ define hidden void @drange_prepend_drange_node(ptr nocapture noundef %0, ptr nou
 
 11:                                               ; preds = %3
   %12 = load i8, ptr %9, align 8
-  %13 = and i8 %12, 1
-  %.not.i = icmp eq i8 %13, 0
-  br i1 %.not.i, label %20, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %20
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %1, i64 4

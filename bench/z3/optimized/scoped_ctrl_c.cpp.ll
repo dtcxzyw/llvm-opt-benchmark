@@ -58,33 +58,31 @@ entry:
   %1 = load ptr, ptr @_ZL5g_obj, align 8
   %m_first = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr %m_first, align 8
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %1, align 8
-  %vtable = load ptr, ptr %4, align 8
+  %3 = load ptr, ptr %1, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %5 = load ptr, ptr %vfn, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 1)
-  %6 = load ptr, ptr @_ZL5g_obj, align 8
-  %m_once = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %m_once, align 1
-  %8 = and i8 %7, 1
-  %tobool1.not = icmp eq i8 %8, 0
-  br i1 %tobool1.not, label %if.end6, label %if.then2
+  %4 = load ptr, ptr %vfn, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef 1)
+  %5 = load ptr, ptr @_ZL5g_obj, align 8
+  %m_once = getelementptr inbounds i8, ptr %5, i64 9
+  %6 = load i8, ptr %m_once, align 1
+  %tobool1 = trunc i8 %6 to i1
+  br i1 %tobool1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.then
-  %m_first3 = getelementptr inbounds i8, ptr %6, i64 8
+  %m_first3 = getelementptr inbounds i8, ptr %5, i64 8
   store i8 0, ptr %m_first3, align 8
   %call = tail call ptr @signal(i32 noundef 2, ptr noundef nonnull @_ZL9on_ctrl_ci) #6
   br label %if.end6
 
 if.else:                                          ; preds = %entry
   %m_old_handler = getelementptr inbounds i8, ptr %1, i64 16
-  %9 = load ptr, ptr %m_old_handler, align 8
-  %call4 = tail call ptr @signal(i32 noundef 2, ptr noundef %9) #6
+  %7 = load ptr, ptr %m_old_handler, align 8
+  %call4 = tail call ptr @signal(i32 noundef 2, ptr noundef %7) #6
   %call5 = tail call i32 @raise(i32 noundef 2) #6
   br label %if.end6
 
@@ -97,21 +95,20 @@ define hidden void @_ZN13scoped_ctrl_cD2Ev(ptr nocapture noundef nonnull readonl
 entry:
   %m_enabled = getelementptr inbounds i8, ptr %this, i64 10
   %0 = load i8, ptr %m_enabled, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end4, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
   %m_old_scoped_ctrl_c = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load ptr, ptr %m_old_scoped_ctrl_c, align 8
-  store ptr %2, ptr @_ZL5g_obj, align 8
+  %1 = load ptr, ptr %m_old_scoped_ctrl_c, align 8
+  store ptr %1, ptr @_ZL5g_obj, align 8
   %m_old_handler = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load ptr, ptr %m_old_handler, align 8
-  %cmp.not = icmp eq ptr %3, inttoptr (i64 -1 to ptr)
+  %2 = load ptr, ptr %m_old_handler, align 8
+  %cmp.not = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
   br i1 %cmp.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %call = tail call ptr @signal(i32 noundef 2, ptr noundef %3) #6
+  %call = tail call ptr @signal(i32 noundef 2, ptr noundef %2) #6
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then, %if.then2, %entry

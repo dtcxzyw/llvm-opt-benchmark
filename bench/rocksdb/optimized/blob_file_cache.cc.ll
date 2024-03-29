@@ -53,8 +53,7 @@ entry:
   store i64 128, ptr %0, align 8
   %.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 64
   %1 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1
-  %2 = and i8 %1, 1
-  %tobool.i.i = icmp ne i8 %2, 0
+  %tobool.i.i = trunc i8 %1 to i1
   br label %arrayctor.loop.i
 
 arrayctor.loop.i:                                 ; preds = %invoke.cont.i, %entry
@@ -69,7 +68,7 @@ invoke.cont.i:                                    ; preds = %arrayctor.loop.i
   br i1 %arrayctor.done.i, label %_ZN7rocksdb7StripedINS_19CacheAlignedWrapperINS_4port5MutexEEENS_5SliceENS_15SliceNPHasher64EEC2Em.exit, label %arrayctor.loop.i
 
 lpad.i:                                           ; preds = %arrayctor.loop.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   %arraydestroy.isempty.i = icmp eq i64 %arrayctor.cur.idx.i, 64
   br i1 %arraydestroy.isempty.i, label %arraydestroy.done2.i, label %arraydestroy.body.i
@@ -84,7 +83,7 @@ arraydestroy.body.i:                              ; preds = %lpad.i, %arraydestr
 
 arraydestroy.done2.i:                             ; preds = %arraydestroy.body.i, %lpad.i
   tail call void @_ZdaPvSt11align_val_t(ptr noundef nonnull %call.i, i64 noundef 64) #12
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %2
 
 _ZN7rocksdb7StripedINS_19CacheAlignedWrapperINS_4port5MutexEEENS_5SliceENS_15SliceNPHasher64EEC2Em.exit: ; preds = %invoke.cont.i
   %data_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -98,29 +97,29 @@ _ZN7rocksdb7StripedINS_19CacheAlignedWrapperINS_4port5MutexEEENS_5SliceENS_15Sli
   %blob_file_read_hist_ = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %blob_file_read_hist, ptr %blob_file_read_hist_, align 8
   %io_tracer_ = getelementptr inbounds i8, ptr %this, i64 64
-  %4 = load ptr, ptr %io_tracer, align 8
-  store ptr %4, ptr %io_tracer_, align 8
+  %3 = load ptr, ptr %io_tracer, align 8
+  store ptr %3, ptr %io_tracer_, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %io_tracer, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %5, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %4, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN7rocksdb7StripedINS_19CacheAlignedWrapperINS_4port5MutexEEENS_5SliceENS_15SliceNPHasher64EEC2Em.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i = icmp eq i8 %6, 0
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %7 = load i32, ptr %_M_use_count.i.i.i.i, align 4
-  %add.i.i.i.i.i = add nsw i32 %7, 1
+  %6 = load i32, ptr %_M_use_count.i.i.i.i, align 4
+  %add.i.i.i.i.i = add nsw i32 %6, 1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %8 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
+  %7 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit: ; preds = %_ZN7rocksdb7StripedINS_19CacheAlignedWrapperINS_4port5MutexEEENS_5SliceENS_15SliceNPHasher64EEC2Em.exit, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i

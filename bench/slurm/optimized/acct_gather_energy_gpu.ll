@@ -341,19 +341,18 @@ _thread_init.exit:                                ; preds = %9
 45:                                               ; preds = %43
   %46 = tail call i32 @slurm_cgroup_conf_init() #10
   %47 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 11), align 8
-  %48 = and i8 %47, 1
-  %.not17.i = icmp ne i8 %48, 0
+  %48 = trunc i8 %47 to i1
   %49 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 206), align 8
   %50 = tail call ptr @slurm_xstrstr(ptr noundef %49, ptr noundef nonnull @.str.25) #10
-  %.not18.not.i = icmp ne ptr %50, null
-  %brmerge.not.i = select i1 %.not17.i, i1 %.not18.not.i, i1 false
+  %.not17.not.i = icmp ne ptr %50, null
+  %brmerge.not.i = select i1 %48, i1 %.not17.not.i, i1 false
   %51 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %52 = and i64 %51, 262144
-  %.not20.i = icmp eq i64 %52, 0
+  %.not19.i = icmp eq i64 %52, 0
   br i1 %brmerge.not.i, label %53, label %57
 
 53:                                               ; preds = %45
-  br i1 %.not20.i, label %61, label %54
+  br i1 %.not19.i, label %61, label %54
 
 54:                                               ; preds = %53
   %55 = tail call i32 @slurm_get_log_level() #10
@@ -361,7 +360,7 @@ _thread_init.exit:                                ; preds = %9
   br i1 %56, label %.sink.split.i, label %61
 
 57:                                               ; preds = %45
-  br i1 %.not20.i, label %61, label %58
+  br i1 %.not19.i, label %61, label %58
 
 58:                                               ; preds = %57
   %59 = tail call i32 @slurm_get_log_level() #10
@@ -387,8 +386,8 @@ _thread_init.exit:                                ; preds = %9
   %indvars105 = trunc i64 %indvars.iv27.i to i32
   %63 = load ptr, ptr @saved_usable_gpus, align 8
   %64 = tail call i32 @slurm_bit_test(ptr noundef %63, i64 noundef %indvars.iv27.i) #10
-  %.not22.us.i = icmp eq i32 %64, 0
-  br i1 %.not22.us.i, label %68, label %65
+  %.not21.us.i = icmp eq i32 %64, 0
+  br i1 %.not21.us.i, label %68, label %65
 
 65:                                               ; preds = %.lr.ph.split.us.i
   %66 = load ptr, ptr @gpus, align 8
@@ -399,8 +398,8 @@ _thread_init.exit:                                ; preds = %9
 68:                                               ; preds = %.lr.ph.split.us.i
   %69 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %70 = and i64 %69, 262144
-  %.not23.us.i = icmp eq i64 %70, 0
-  br i1 %.not23.us.i, label %75, label %71
+  %.not22.us.i = icmp eq i64 %70, 0
+  br i1 %.not22.us.i, label %75, label %71
 
 71:                                               ; preds = %68
   %72 = tail call i32 @slurm_get_log_level() #10
@@ -433,8 +432,8 @@ _thread_init.exit:                                ; preds = %9
 ._crit_edge.i76:                                  ; preds = %.lr.ph.split.i, %75, %61
   %84 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %85 = and i64 %84, 262144
-  %.not21.i = icmp eq i64 %85, 0
-  br i1 %.not21.i, label %_get_node_energy.exit, label %86
+  %.not20.i = icmp eq i64 %85, 0
+  br i1 %.not20.i, label %_get_node_energy.exit, label %86
 
 86:                                               ; preds = %._crit_edge.i76
   %87 = tail call i32 @slurm_get_log_level() #10

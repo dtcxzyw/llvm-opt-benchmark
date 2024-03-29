@@ -626,24 +626,23 @@ land.lhs.true6:                                   ; preds = %for.cond.i, %land.l
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %call3, i64 84
   %7 = load i8, ptr %_M_engaged.i.i, align 4
-  %8 = and i8 %7, 1
-  %tobool.i.i.not = icmp eq i8 %8, 0
-  br i1 %tobool.i.i.not, label %return, label %lor.lhs.false
+  %tobool.i.i = trunc i8 %7 to i1
+  br i1 %tobool.i.i, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %land.lhs.true6
   %fraction_per_million = getelementptr inbounds i8, ptr %call3, i64 80
-  %9 = load i32, ptr %fraction_per_million, align 8
+  %8 = load i32, ptr %fraction_per_million, align 8
   %call.i = call i32 @rand() #20
   %rem.i = srem i32 %call.i, 1000000
-  %cmp.i = icmp ult i32 %rem.i, %9
+  %cmp.i = icmp ult i32 %rem.i, %8
   br i1 %cmp.i, label %return, label %for.inc
 
 for.inc:                                          ; preds = %_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.exit, %for.body, %lor.lhs.false
   %inc = add nuw i64 %storemerge15, 1
   %vtable = load ptr, ptr %route_list_iterator, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %10 = load ptr, ptr %vfn, align 8
-  %call = call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %route_list_iterator)
+  %9 = load ptr, ptr %vfn, align 8
+  %call = call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %route_list_iterator)
   %cmp = icmp ult i64 %inc, %call
   br i1 %cmp, label %for.body, label %return, !llvm.loop !14
 

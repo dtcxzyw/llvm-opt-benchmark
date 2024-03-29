@@ -1650,9 +1650,8 @@ define void @_ZN22LteMacStatisticsDialog15drawCommonStatsEv(ptr nocapture nounde
   %29 = alloca %class.QString, align 16
   %30 = getelementptr inbounds i8, ptr %0, i64 328
   %31 = load i8, ptr %30, align 8
-  %32 = and i8 %31, 1
-  %.not = icmp eq i8 %32, 0
-  br i1 %.not, label %33, label %_ZN7QStringD2Ev.exit123
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %_ZN7QStringD2Ev.exit123, label %33
 
 33:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
@@ -7059,9 +7058,8 @@ define linkonce_odr void @_ZN9QtPrivate27QDebugStreamOperatorForTypeIdLb1EE11deb
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 48
   %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, 1
-  %.not.i.i = icmp eq i8 %10, 0
-  br i1 %.not.i.i, label %_ZN6QDebuglsEd.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN6QDebuglsEd.exit
 
 11:                                               ; preds = %3
   %12 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 noundef signext 32)

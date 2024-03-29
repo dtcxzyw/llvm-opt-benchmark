@@ -88,24 +88,23 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.end
   %4 = load i8, ptr %done, align 1
-  %5 = and i8 %4, 1
-  %tobool5.not = icmp eq i8 %5, 0
-  br i1 %tobool5.not, label %return, label %if.end7
+  %tobool5 = trunc i8 %4 to i1
+  br i1 %tobool5, label %if.end7, label %return
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %6 = load i32, ptr %0, align 8
-  switch i32 %6, label %sw.default [
+  %5 = load i32, ptr %0, align 8
+  switch i32 %5, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb13
   ]
 
 sw.bb:                                            ; preds = %if.end7
   %cf.val = load ptr, ptr %ctx1, align 8
-  %7 = getelementptr i8, ptr %cf, i64 24
-  %cf.val24 = load ptr, ptr %7, align 8
+  %6 = getelementptr i8, ptr %cf, i64 24
+  %cf.val24 = load ptr, ptr %6, align 8
   %unix_domain_socket.i = getelementptr inbounds i8, ptr %cf.val24, i64 1120
-  %8 = load ptr, ptr %unix_domain_socket.i, align 8
-  %tobool.not.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %unix_domain_socket.i, align 8
+  %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb
@@ -116,21 +115,21 @@ if.then.i:                                        ; preds = %sw.bb
 if.else.i:                                        ; preds = %sw.bb
   %bits.i = getelementptr inbounds i8, ptr %cf.val24, i64 704
   %bf.load.i = load i32, ptr %bits.i, align 8
-  %9 = and i32 %bf.load.i, 4096
-  %tobool5.not.i = icmp eq i32 %9, 0
+  %8 = and i32 %bf.load.i, 4096
+  %tobool5.not.i = icmp eq i32 %8, 0
   %cond.i = select i1 %tobool5.not.i, ptr @.str.4, ptr @.str.3
   %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 2432
-  %10 = load ptr, ptr %arrayidx.i, align 8
-  %tobool6.not.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %arrayidx.i, align 8
+  %tobool6.not.i = icmp eq ptr %9, null
   %conn_local_ip.i = getelementptr inbounds i8, ptr %data, i64 5196
-  %client_ip.0.i = select i1 %tobool6.not.i, ptr %conn_local_ip.i, ptr %10
+  %client_ip.0.i = select i1 %tobool6.not.i, ptr %conn_local_ip.i, ptr %9
   %data_out12.i = getelementptr inbounds i8, ptr %cf.val, i64 8
   %conn_primary_ip.i = getelementptr inbounds i8, ptr %data, i64 5140
   %conn_local_port.i = getelementptr inbounds i8, ptr %data, i64 5244
-  %11 = load i32, ptr %conn_local_port.i, align 4
+  %10 = load i32, ptr %conn_local_port.i, align 4
   %conn_primary_port.i = getelementptr inbounds i8, ptr %data, i64 5188
-  %12 = load i32, ptr %conn_primary_port.i, align 4
-  %call17.i = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %data_out12.i, ptr noundef nonnull @.str.5, ptr noundef nonnull %cond.i, ptr noundef nonnull %client_ip.0.i, ptr noundef nonnull %conn_primary_ip.i, i32 noundef %11, i32 noundef %12) #3
+  %11 = load i32, ptr %conn_primary_port.i, align 4
+  %call17.i = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %data_out12.i, ptr noundef nonnull @.str.5, ptr noundef nonnull %cond.i, ptr noundef nonnull %client_ip.0.i, ptr noundef nonnull %conn_primary_ip.i, i32 noundef %10, i32 noundef %11) #3
   br label %cf_haproxy_date_out_set.exit
 
 cf_haproxy_date_out_set.exit:                     ; preds = %if.then.i, %if.else.i
@@ -151,9 +150,9 @@ sw.bb13:                                          ; preds = %if.end11, %if.end7
 
 if.then15:                                        ; preds = %sw.bb13
   %sockindex = getelementptr inbounds i8, ptr %cf, i64 32
-  %13 = load i32, ptr %sockindex, align 8
+  %12 = load i32, ptr %sockindex, align 8
   %call17 = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %data_out) #3
-  %call18 = call i64 @Curl_conn_send(ptr noundef %data, i32 noundef %13, ptr noundef %call17, i64 noundef %call14, ptr noundef nonnull %result) #3
+  %call18 = call i64 @Curl_conn_send(ptr noundef %data, i32 noundef %12, ptr noundef %call17, i64 noundef %call14, ptr noundef nonnull %result) #3
   %cmp19 = icmp slt i64 %call18, 0
   br i1 %cmp19, label %out, label %if.end21
 
@@ -179,14 +178,14 @@ out:                                              ; preds = %if.then15, %sw.defa
   br i1 %tobool32.not, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end21, %out
-  %14 = load i32, ptr %0, align 8
-  %cmp34 = icmp eq i32 %14, 2
-  %15 = zext i1 %cmp34 to i8
+  %13 = load i32, ptr %0, align 8
+  %cmp34 = icmp eq i32 %13, 2
+  %14 = zext i1 %cmp34 to i8
   br label %land.end
 
 land.end:                                         ; preds = %cf_haproxy_date_out_set.exit, %land.rhs, %out
-  %16 = phi i32 [ %.pr, %out ], [ 0, %land.rhs ], [ %result.0.i, %cf_haproxy_date_out_set.exit ]
-  %frombool35 = phi i8 [ 0, %out ], [ %15, %land.rhs ], [ 0, %cf_haproxy_date_out_set.exit ]
+  %15 = phi i32 [ %.pr, %out ], [ 0, %land.rhs ], [ %result.0.i, %cf_haproxy_date_out_set.exit ]
+  %frombool35 = phi i8 [ 0, %out ], [ %14, %land.rhs ], [ 0, %cf_haproxy_date_out_set.exit ]
   store i8 %frombool35, ptr %done, align 1
   %bf.load38 = load i8, ptr %connected, align 4
   %bf.clear39 = and i8 %bf.load38, -2
@@ -195,7 +194,7 @@ land.end:                                         ; preds = %cf_haproxy_date_out
   br label %return
 
 return:                                           ; preds = %if.end, %lor.lhs.false, %land.end, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %16, %land.end ], [ 0, %lor.lhs.false ], [ %call, %if.end ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ %15, %land.end ], [ 0, %lor.lhs.false ], [ %call, %if.end ]
   ret i32 %retval.0
 }
 

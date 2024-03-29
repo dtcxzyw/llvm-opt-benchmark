@@ -1833,8 +1833,8 @@ do.end:                                           ; preds = %do.body
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @readback_part(ptr noundef %part, ptr noundef %buffer, i64 noundef %bufsize, ptr nocapture noundef %hasread) unnamed_addr #0 {
 entry:
-  %tobool.not116 = icmp eq i64 %bufsize, 0
-  br i1 %tobool.not116, label %return, label %while.body.lr.ph
+  %tobool.not115 = icmp eq i64 %bufsize, 0
+  br i1 %tobool.not115, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %state = getelementptr inbounds i8, ptr %part, i64 120
@@ -1851,9 +1851,9 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog56
-  %cursize.0121 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %sw.epilog56 ]
-  %buffer.addr.0119 = phi ptr [ %buffer, %while.body.lr.ph ], [ %add.ptr, %sw.epilog56 ]
-  %bufsize.addr.0117 = phi i64 [ %bufsize, %while.body.lr.ph ], [ %sub, %sw.epilog56 ]
+  %cursize.0120 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %sw.epilog56 ]
+  %buffer.addr.0118 = phi ptr [ %buffer, %while.body.lr.ph ], [ %add.ptr, %sw.epilog56 ]
+  %bufsize.addr.0116 = phi i64 [ %bufsize, %while.body.lr.ph ], [ %sub, %sw.epilog56 ]
   %0 = load ptr, ptr %ptr, align 8
   %1 = load i32, ptr %state, align 8
   switch i32 %1, label %sw.epilog56 [
@@ -1890,11 +1890,11 @@ if.end:                                           ; preds = %sw.bb5
   %4 = load ptr, ptr %0, align 8
   %call.i = tail call i32 @curl_strnequal(ptr noundef %4, ptr noundef nonnull @.str, i64 noundef 12) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
-  %.pre136 = load ptr, ptr %0, align 8
+  %.pre135 = load ptr, ptr %0, align 8
   br i1 %tobool.not.i, label %if.else, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %arrayidx.i = getelementptr inbounds i8, ptr %.pre136, i64 12
+  %arrayidx.i = getelementptr inbounds i8, ptr %.pre135, i64 12
   %5 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %5, 58
   br i1 %cmp.i, label %for.cond.i.preheader, label %if.else
@@ -1912,7 +1912,7 @@ sw.bb12:                                          ; preds = %while.body
   br i1 %tobool13.not, label %if.then14, label %sw.bb12.if.else_crit_edge
 
 sw.bb12.if.else_crit_edge:                        ; preds = %sw.bb12
-  %.pre135 = load ptr, ptr %0, align 8
+  %.pre134 = load ptr, ptr %0, align 8
   br label %if.else
 
 if.then14:                                        ; preds = %sw.bb12
@@ -1923,7 +1923,7 @@ if.then14:                                        ; preds = %sw.bb12
   br label %sw.epilog56
 
 if.else:                                          ; preds = %sw.bb12.if.else_crit_edge, %land.lhs.true.i, %if.end
-  %8 = phi ptr [ %.pre135, %sw.bb12.if.else_crit_edge ], [ %.pre136, %land.lhs.true.i ], [ %.pre136, %if.end ]
+  %8 = phi ptr [ %.pre134, %sw.bb12.if.else_crit_edge ], [ %.pre135, %land.lhs.true.i ], [ %.pre135, %if.end ]
   %call18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
   %9 = load i64, ptr %offset.i79, align 8
   %call.i57 = tail call i64 @curlx_sotouz(i64 noundef %9) #16
@@ -1948,8 +1948,8 @@ if.end.i:                                         ; preds = %if.else.i
 readback_bytes.exit:                              ; preds = %if.then.i, %if.end.i
   %bytes.addr.0.i = phi ptr [ %add.ptr.i, %if.then.i ], [ %add.ptr5.i, %if.end.i ]
   %sz.0.i = phi i64 [ %sub.i, %if.then.i ], [ %sub6.i, %if.end.i ]
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sz.0.i, i64 %bufsize.addr.0117)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0119, ptr align 1 %bytes.addr.0.i, i64 %spec.select.i, i1 false)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sz.0.i, i64 %bufsize.addr.0116)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0118, ptr align 1 %bytes.addr.0.i, i64 %spec.select.i, i1 false)
   %10 = load i64, ptr %offset.i79, align 8
   %add.i = add i64 %10, %spec.select.i
   store i64 %add.i, ptr %offset.i79, align 8
@@ -1972,8 +1972,8 @@ sw.bb28:                                          ; preds = %while.body
 readback_bytes.exit75:                            ; preds = %sw.bb28
   %sub.i68 = sub nuw nsw i64 2, %call.i62
   %add.ptr.i69 = getelementptr inbounds i8, ptr @.str.41, i64 %call.i62
-  %spec.select.i73 = tail call i64 @llvm.umin.i64(i64 %sub.i68, i64 %bufsize.addr.0117)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0119, ptr nonnull align 1 %add.ptr.i69, i64 %spec.select.i73, i1 false)
+  %spec.select.i73 = tail call i64 @llvm.umin.i64(i64 %sub.i68, i64 %bufsize.addr.0116)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0118, ptr nonnull align 1 %add.ptr.i69, i64 %spec.select.i73, i1 false)
   %13 = load i64, ptr %offset.i79, align 8
   %add.i74 = add i64 %13, %spec.select.i73
   store i64 %add.i74, ptr %offset.i79, align 8
@@ -1996,31 +1996,31 @@ sw.bb37:                                          ; preds = %while.body
   br i1 %tobool38.not, label %if.else41, label %for.cond.i80.outer
 
 for.cond.i80.outer:                               ; preds = %sw.bb37, %sw.default.i
-  %bufsize.addr.0.i.ph = phi i64 [ %sub.i88, %sw.default.i ], [ %bufsize.addr.0117, %sw.bb37 ]
-  %buffer.addr.0.i.ph = phi ptr [ %add.ptr.i87, %sw.default.i ], [ %buffer.addr.0119, %sw.bb37 ]
-  %cursize.0.i.ph = phi i64 [ %add.i86, %sw.default.i ], [ 0, %sw.bb37 ]
+  %bufsize.addr.0.i.ph = phi i64 [ %sub.i87, %sw.default.i ], [ %bufsize.addr.0116, %sw.bb37 ]
+  %buffer.addr.0.i.ph = phi ptr [ %add.ptr.i86, %sw.default.i ], [ %buffer.addr.0118, %sw.bb37 ]
+  %cursize.0.i.ph = phi i64 [ %add.i85, %sw.default.i ], [ 0, %sw.bb37 ]
   %ateof.0.i.ph = phi i8 [ %ateof.0.i.ph164, %sw.default.i ], [ 0, %sw.bb37 ]
   br label %for.cond.i80.outer163
 
 for.cond.i80.outer163:                            ; preds = %if.end31.i, %for.cond.i80.outer
   %ateof.0.i.ph164 = phi i8 [ %ateof.0.i.ph, %for.cond.i80.outer ], [ 1, %if.end31.i ]
-  %15 = and i8 %ateof.0.i.ph164, 1
-  %tobool.not.i82 = icmp eq i8 %15, 0
-  %tobool1.i = icmp ne i8 %15, 0
+  %.pre136 = trunc i8 %ateof.0.i.ph164 to i1
   br label %for.cond.i80
 
 for.cond.i80:                                     ; preds = %for.cond.i80.outer163, %sw.default46.i
-  %16 = load i64, ptr %bufbeg.i, align 8
-  %17 = load i64, ptr %bufend.i, align 8
-  %cmp.i81 = icmp uge i64 %16, %17
-  %or.cond.i = select i1 %cmp.i81, i1 %tobool.not.i82, i1 false
-  br i1 %or.cond.i, label %if.end6.i, label %if.then.i83
+  %15 = load i64, ptr %bufbeg.i, align 8
+  %16 = load i64, ptr %bufend.i, align 8
+  %cmp.i81 = icmp ult i64 %15, %16
+  %brmerge = select i1 %cmp.i81, i1 true, i1 %.pre136
+  %not.cmp.i81 = xor i1 %cmp.i81, true
+  %.pre136.mux = select i1 %not.cmp.i81, i1 true, i1 %.pre136
+  br i1 %brmerge, label %if.then.i83, label %if.end6.i
 
 if.then.i83:                                      ; preds = %for.cond.i80
-  %18 = load ptr, ptr %encoder, align 8
-  %encodefunc.i = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = load ptr, ptr %encodefunc.i, align 8
-  %call.i84 = tail call i64 %19(ptr noundef %buffer.addr.0.i.ph, i64 noundef %bufsize.addr.0.i.ph, i1 noundef zeroext %tobool1.i, ptr noundef nonnull %part) #16
+  %17 = load ptr, ptr %encoder, align 8
+  %encodefunc.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load ptr, ptr %encodefunc.i, align 8
+  %call.i84 = tail call i64 %18(ptr noundef %buffer.addr.0.i.ph, i64 noundef %bufsize.addr.0.i.ph, i1 noundef zeroext %.pre136.mux, ptr noundef nonnull %part) #16
   switch i64 %call.i84, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 -1, label %sw.bb4.i
@@ -2028,7 +2028,7 @@ if.then.i83:                                      ; preds = %for.cond.i80
   ]
 
 sw.bb.i:                                          ; preds = %if.then.i83
-  br i1 %tobool1.i, label %if.end43, label %sw.bb.i.if.end6.i_crit_edge
+  br i1 %.pre136.mux, label %if.end43, label %sw.bb.i.if.end6.i_crit_edge
 
 sw.bb.i.if.end6.i_crit_edge:                      ; preds = %sw.bb.i
   %.pre = load i64, ptr %bufbeg.i, align 8
@@ -2040,24 +2040,24 @@ sw.bb4.i:                                         ; preds = %if.then.i83, %if.th
   br label %if.end43
 
 sw.default.i:                                     ; preds = %if.then.i83
-  %add.i86 = add i64 %call.i84, %cursize.0.i.ph
-  %add.ptr.i87 = getelementptr inbounds i8, ptr %buffer.addr.0.i.ph, i64 %call.i84
-  %sub.i88 = sub i64 %bufsize.addr.0.i.ph, %call.i84
+  %add.i85 = add i64 %call.i84, %cursize.0.i.ph
+  %add.ptr.i86 = getelementptr inbounds i8, ptr %buffer.addr.0.i.ph, i64 %call.i84
+  %sub.i87 = sub i64 %bufsize.addr.0.i.ph, %call.i84
   br label %for.cond.i80.outer
 
-if.end6.i:                                        ; preds = %sw.bb.i.if.end6.i_crit_edge, %for.cond.i80
-  %20 = phi i64 [ %.pre, %sw.bb.i.if.end6.i_crit_edge ], [ %16, %for.cond.i80 ]
-  %tobool8.not.i = icmp eq i64 %20, 0
+if.end6.i:                                        ; preds = %for.cond.i80, %sw.bb.i.if.end6.i_crit_edge
+  %19 = phi i64 [ %.pre, %sw.bb.i.if.end6.i_crit_edge ], [ %15, %for.cond.i80 ]
+  %tobool8.not.i = icmp eq i64 %19, 0
   %.pr = load i64, ptr %bufend.i, align 8
   br i1 %tobool8.not.i, label %if.end22.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end6.i
-  %sub12.i = sub i64 %.pr, %20
-  %tobool13.not.i = icmp eq i64 %.pr, %20
+  %sub12.i = sub i64 %.pr, %19
+  %tobool13.not.i = icmp eq i64 %.pr, %19
   br i1 %tobool13.not.i, label %if.end19.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.then9.i
-  %add.ptr18.i = getelementptr inbounds i8, ptr %buf.i, i64 %20
+  %add.ptr18.i = getelementptr inbounds i8, ptr %buf.i, i64 %19
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %buf.i, ptr nonnull align 1 %add.ptr18.i, i64 %sub12.i, i1 false)
   br label %if.end19.i
 
@@ -2067,8 +2067,8 @@ if.end19.i:                                       ; preds = %if.then14.i, %if.th
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.end6.i, %if.end19.i
-  %21 = phi i64 [ %sub12.i, %if.end19.i ], [ %.pr, %if.end6.i ]
-  %cmp24.i = icmp ugt i64 %21, 255
+  %20 = phi i64 [ %sub12.i, %if.end19.i ], [ %.pr, %if.end6.i ]
+  %cmp24.i = icmp ugt i64 %20, 255
   br i1 %cmp24.i, label %if.then25.i, label %if.end31.i
 
 if.then25.i:                                      ; preds = %if.end22.i
@@ -2076,8 +2076,8 @@ if.then25.i:                                      ; preds = %if.end22.i
   br i1 %tobool26.not.i, label %sw.bb52, label %if.end43
 
 if.end31.i:                                       ; preds = %if.end22.i
-  %add.ptr35.i = getelementptr inbounds i8, ptr %buf.i, i64 %21
-  %sub37.i = sub nuw nsw i64 256, %21
+  %add.ptr35.i = getelementptr inbounds i8, ptr %buf.i, i64 %20
+  %sub37.i = sub nuw nsw i64 256, %20
   %call38.i = tail call fastcc i64 @read_part_content(ptr noundef nonnull %part, ptr noundef nonnull %add.ptr35.i, i64 noundef %sub37.i, ptr noundef %hasread)
   switch i64 %call38.i, label %sw.default46.i [
     i64 0, label %for.cond.i80.outer163
@@ -2093,13 +2093,13 @@ sw.bb40.i:                                        ; preds = %if.end31.i, %if.end
   br label %if.end43
 
 sw.default46.i:                                   ; preds = %if.end31.i
-  %22 = load i64, ptr %bufend.i, align 8
-  %add48.i = add i64 %22, %call38.i
+  %21 = load i64, ptr %bufend.i, align 8
+  %add48.i = add i64 %21, %call38.i
   store i64 %add48.i, ptr %bufend.i, align 8
   br label %for.cond.i80
 
 if.else41:                                        ; preds = %sw.bb37
-  %call42 = tail call fastcc i64 @read_part_content(ptr noundef nonnull %part, ptr noundef %buffer.addr.0119, i64 noundef %bufsize.addr.0117, ptr noundef %hasread)
+  %call42 = tail call fastcc i64 @read_part_content(ptr noundef nonnull %part, ptr noundef %buffer.addr.0118, i64 noundef %bufsize.addr.0116, ptr noundef %hasread)
   br label %if.end43
 
 if.end43:                                         ; preds = %sw.bb.i, %sw.bb40.i, %sw.bb4.i, %if.then25.i, %if.else41
@@ -2116,37 +2116,37 @@ sw.bb44:                                          ; preds = %if.end43
   store i32 8, ptr %state, align 8
   %kind = getelementptr inbounds i8, ptr %part, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ptr, i8 0, i64 16, i1 false)
-  %23 = load i32, ptr %kind, align 8
-  %cmp = icmp eq i32 %23, 2
+  %22 = load i32, ptr %kind, align 8
+  %cmp = icmp eq i32 %22, 2
   br i1 %cmp, label %land.lhs.true, label %sw.bb52
 
 land.lhs.true:                                    ; preds = %sw.bb44
   %fp = getelementptr inbounds i8, ptr %part, i64 64
-  %24 = load ptr, ptr %fp, align 8
-  %tobool46.not = icmp eq ptr %24, null
+  %23 = load ptr, ptr %fp, align 8
+  %tobool46.not = icmp eq ptr %23, null
   br i1 %tobool46.not, label %sw.bb52, label %if.then47
 
 if.then47:                                        ; preds = %land.lhs.true
-  %call49 = tail call i32 @fclose(ptr noundef nonnull %24)
+  %call49 = tail call i32 @fclose(ptr noundef nonnull %23)
   store ptr null, ptr %fp, align 8
   br label %sw.bb52
 
 sw.bb52:                                          ; preds = %if.then25.i, %if.end43, %if.end43, %if.end43, %if.end43, %sw.bb44, %land.lhs.true, %if.then47
-  %sz.0101 = phi i64 [ 0, %sw.bb44 ], [ 0, %land.lhs.true ], [ 0, %if.then47 ], [ -1, %if.then25.i ], [ %sz.0, %if.end43 ], [ %sz.0, %if.end43 ], [ %sz.0, %if.end43 ], [ %sz.0, %if.end43 ]
-  %tobool53.not = icmp eq i64 %cursize.0121, 0
-  %cond54 = select i1 %tobool53.not, i64 %sz.0101, i64 %cursize.0121
+  %sz.0100 = phi i64 [ 0, %sw.bb44 ], [ 0, %land.lhs.true ], [ 0, %if.then47 ], [ -1, %if.then25.i ], [ %sz.0, %if.end43 ], [ %sz.0, %if.end43 ], [ %sz.0, %if.end43 ], [ %sz.0, %if.end43 ]
+  %tobool53.not = icmp eq i64 %cursize.0120, 0
+  %cond54 = select i1 %tobool53.not, i64 %sz.0100, i64 %cursize.0120
   br label %return
 
 sw.epilog56:                                      ; preds = %readback_bytes.exit75, %while.body, %if.end43, %if.then32, %if.then14, %if.then21, %readback_bytes.exit, %sw.bb35, %for.cond.i.preheader, %if.then, %sw.bb
   %sz.1 = phi i64 [ 0, %while.body ], [ %sz.0, %if.end43 ], [ 0, %sw.bb35 ], [ %spec.select.i73, %readback_bytes.exit75 ], [ 0, %if.then32 ], [ %spec.select.i, %readback_bytes.exit ], [ 0, %if.then21 ], [ 0, %if.then14 ], [ 0, %for.cond.i.preheader ], [ 0, %if.then ], [ 0, %sw.bb ]
-  %add = add i64 %sz.1, %cursize.0121
-  %add.ptr = getelementptr inbounds i8, ptr %buffer.addr.0119, i64 %sz.1
-  %sub = sub i64 %bufsize.addr.0117, %sz.1
+  %add = add i64 %sz.1, %cursize.0120
+  %add.ptr = getelementptr inbounds i8, ptr %buffer.addr.0118, i64 %sz.1
+  %sub = sub i64 %bufsize.addr.0116, %sz.1
   %tobool.not = icmp eq i64 %sub, 0
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !12
 
 return:                                           ; preds = %while.body, %sw.epilog56, %entry, %sw.bb52
-  %retval.0 = phi i64 [ %cond54, %sw.bb52 ], [ 0, %entry ], [ %cursize.0121, %while.body ], [ %add, %sw.epilog56 ]
+  %retval.0 = phi i64 [ %cond54, %sw.bb52 ], [ 0, %entry ], [ %cursize.0120, %while.body ], [ %add, %sw.epilog56 ]
   ret i64 %retval.0
 }
 
@@ -2330,9 +2330,9 @@ if.end13:                                         ; preds = %slist_size.exit20, 
 define hidden noundef i32 @Curl_mime_add_header(ptr nocapture noundef %slp, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call ptr @curl_mvaprintf(ptr noundef %fmt, ptr noundef nonnull %ap) #16
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end6, label %if.then
 
@@ -2356,13 +2356,7 @@ if.end6:                                          ; preds = %if.then5, %if.else,
   ret i32 %hdr.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 declare ptr @curl_mvaprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
 
 declare ptr @Curl_slist_append_nodup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2969,7 +2963,7 @@ for.end20:                                        ; preds = %land.rhs, %for.inc1
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @Curl_mime_unpause(ptr noundef %part) local_unnamed_addr #9 {
+define hidden void @Curl_mime_unpause(ptr noundef %part) local_unnamed_addr #8 {
 entry:
   %tobool.not = icmp eq ptr %part, null
   br i1 %tobool.not, label %if.end10, label %if.then
@@ -3017,7 +3011,7 @@ if.end10:                                         ; preds = %for.body, %for.cond
 declare i64 @curlx_sotouz(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
@@ -3032,7 +3026,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare ptr @__xpg_basename(ptr noundef) local_unnamed_addr #11
+declare ptr @__xpg_basename(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal i64 @encoder_nop_read(ptr nocapture noundef writeonly %buffer, i64 noundef %size, i1 zeroext %ateof, ptr nocapture noundef %part) #5 {
@@ -3069,7 +3063,7 @@ return:                                           ; preds = %entry, %if.end7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @encoder_nop_size(ptr nocapture noundef readonly %part) #12 {
+define internal i64 @encoder_nop_size(ptr nocapture noundef readonly %part) #11 {
 entry:
   %datasize = getelementptr inbounds i8, ptr %part, i64 112
   %0 = load i64, ptr %datasize, align 8
@@ -3077,7 +3071,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i64 @encoder_7bit_read(ptr nocapture noundef writeonly %buffer, i64 noundef %size, i1 zeroext %ateof, ptr nocapture noundef %part) #13 {
+define internal i64 @encoder_7bit_read(ptr nocapture noundef writeonly %buffer, i64 noundef %size, i1 zeroext %ateof, ptr nocapture noundef %part) #12 {
 entry:
   %bufbeg = getelementptr inbounds i8, ptr %part, i64 160
   %tobool1.not = icmp eq i64 %size, 0
@@ -3127,7 +3121,7 @@ return:                                           ; preds = %if.end9, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i64 @encoder_base64_read(ptr nocapture noundef writeonly %buffer, i64 noundef %size, i1 noundef zeroext %ateof, ptr nocapture noundef %part) #13 {
+define internal i64 @encoder_base64_read(ptr nocapture noundef writeonly %buffer, i64 noundef %size, i1 noundef zeroext %ateof, ptr nocapture noundef %part) #12 {
 entry:
   %encstate = getelementptr inbounds i8, ptr %part, i64 152
   %bufbeg = getelementptr inbounds i8, ptr %part, i64 160
@@ -3333,7 +3327,7 @@ return:                                           ; preds = %if.then61, %while.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @encoder_base64_size(ptr nocapture noundef readonly %part) #12 {
+define internal i64 @encoder_base64_size(ptr nocapture noundef readonly %part) #11 {
 entry:
   %datasize = getelementptr inbounds i8, ptr %part, i64 112
   %0 = load i64, ptr %datasize, align 8
@@ -3357,7 +3351,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @encoder_qp_read(ptr nocapture noundef writeonly %buffer, i64 noundef %size, i1 noundef zeroext %ateof, ptr nocapture noundef %part) #14 {
+define internal i64 @encoder_qp_read(ptr nocapture noundef writeonly %buffer, i64 noundef %size, i1 noundef zeroext %ateof, ptr nocapture noundef %part) #13 {
 entry:
   %buf = alloca [4 x i8], align 4
   %encstate = getelementptr inbounds i8, ptr %part, i64 152
@@ -3568,7 +3562,7 @@ return:                                           ; preds = %qp_lookahead_eol.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @encoder_qp_size(ptr nocapture noundef readonly %part) #12 {
+define internal i64 @encoder_qp_size(ptr nocapture noundef readonly %part) #11 {
 entry:
   %datasize = getelementptr inbounds i8, ptr %part, i64 112
   %0 = load i64, ptr %datasize, align 8
@@ -3800,9 +3794,8 @@ if.then13:                                        ; preds = %sw.default11
 
 if.then15:                                        ; preds = %if.then13
   %17 = load i8, ptr %hasread, align 1
-  %18 = and i8 %17, 1
-  %tobool16.not = icmp eq i8 %18, 0
-  br i1 %tobool16.not, label %if.end18, label %return
+  %tobool16 = trunc i8 %17 to i1
+  br i1 %tobool16, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.then15
   store i8 1, ptr %hasread, align 1
@@ -3810,10 +3803,10 @@ if.end18:                                         ; preds = %if.then15
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end18, %if.then13
-  %19 = phi ptr [ %.pre, %if.end18 ], [ %15, %if.then13 ]
+  %18 = phi ptr [ %.pre, %if.end18 ], [ %15, %if.then13 ]
   %arg21 = getelementptr inbounds i8, ptr %part, i64 56
-  %20 = load ptr, ptr %arg21, align 8
-  %call22 = tail call i64 %19(ptr noundef %buffer, i64 noundef 1, i64 noundef %bufsize, ptr noundef %20) #16
+  %19 = load ptr, ptr %arg21, align 8
+  %call22 = tail call i64 %18(ptr noundef %buffer, i64 noundef 1, i64 noundef %bufsize, ptr noundef %19) #16
   br label %if.end25
 
 if.end25:                                         ; preds = %sw.epilog34.i, %while.body.i, %sw.bb29.i, %if.end19
@@ -3828,8 +3821,8 @@ if.end25:                                         ; preds = %sw.epilog34.i, %whi
 
 sw.default29:                                     ; preds = %if.end25
   %offset31 = getelementptr inbounds i8, ptr %part, i64 136
-  %21 = load i64, ptr %offset31, align 8
-  %add = add i64 %21, %sz.0
+  %20 = load i64, ptr %offset31, align 8
+  %add = add i64 %20, %sz.0
   store i64 %add, ptr %offset31, align 8
   br label %return.sink.split
 
@@ -3844,7 +3837,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #6
@@ -3856,6 +3849,12 @@ declare i32 @Curl_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare i32 @Curl_dyn_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @Curl_dyn_ptr(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
@@ -3871,13 +3870,13 @@ attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }
 attributes #17 = { nounwind willreturn memory(read) }

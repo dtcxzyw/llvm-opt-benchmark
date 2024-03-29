@@ -174,16 +174,14 @@ define noundef i32 @_ZN3zmq16null_mechanism_t22next_handshake_commandEPNS_5msg_t
 entry:
   %_ready_command_sent = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i8, ptr %_ready_command_sent, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %_error_command_sent = getelementptr inbounds i8, ptr %this, i64 73
-  %2 = load i8, ptr %_error_command_sent, align 1
-  %3 = and i8 %2, 1
-  %tobool2.not = icmp eq i8 %3, 0
-  br i1 %tobool2.not, label %if.end, label %if.then
+  %1 = load i8, ptr %_error_command_sent, align 1
+  %tobool2 = trunc i8 %1 to i1
+  br i1 %tobool2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %call = tail call ptr @__errno_location() #17
@@ -197,17 +195,15 @@ if.end:                                           ; preds = %lor.lhs.false
 
 land.lhs.true:                                    ; preds = %if.end
   %_zap_reply_received = getelementptr inbounds i8, ptr %this, i64 77
-  %4 = load i8, ptr %_zap_reply_received, align 1
-  %5 = and i8 %4, 1
-  %tobool4.not = icmp eq i8 %5, 0
-  br i1 %tobool4.not, label %if.then5, label %if.end32
+  %2 = load i8, ptr %_zap_reply_received, align 1
+  %tobool4 = trunc i8 %2 to i1
+  br i1 %tobool4, label %if.end32, label %if.then5
 
 if.then5:                                         ; preds = %land.lhs.true
   %_zap_request_sent = getelementptr inbounds i8, ptr %this, i64 76
-  %6 = load i8, ptr %_zap_request_sent, align 4
-  %7 = and i8 %6, 1
-  %tobool6.not = icmp eq i8 %7, 0
-  br i1 %tobool6.not, label %if.end9, label %if.then7
+  %3 = load i8, ptr %_zap_request_sent, align 4
+  %tobool6 = trunc i8 %3 to i1
+  br i1 %tobool6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.then5
   %call8 = tail call ptr @__errno_location() #17
@@ -216,8 +212,8 @@ if.then7:                                         ; preds = %if.then5
 
 if.end9:                                          ; preds = %if.then5
   %session = getelementptr inbounds i8, ptr %this, i64 1568
-  %8 = load ptr, ptr %session, align 8
-  %call11 = tail call noundef i32 @_ZN3zmq14session_base_t11zap_connectEv(ptr noundef nonnull align 8 dereferenceable(1624) %8)
+  %4 = load ptr, ptr %session, align 8
+  %call11 = tail call noundef i32 @_ZN3zmq14session_base_t11zap_connectEv(ptr noundef nonnull align 8 dereferenceable(1624) %4)
   switch i32 %call11, label %if.end32 [
     i32 -1, label %land.lhs.true12
     i32 0, label %if.then24
@@ -225,16 +221,15 @@ if.end9:                                          ; preds = %if.then5
 
 land.lhs.true12:                                  ; preds = %if.end9
   %zap_enforce_domain = getelementptr inbounds i8, ptr %this, i64 1080
-  %9 = load i8, ptr %zap_enforce_domain, align 8
-  %10 = and i8 %9, 1
-  %tobool14.not = icmp eq i8 %10, 0
-  br i1 %tobool14.not, label %if.end32, label %if.then15
+  %5 = load i8, ptr %zap_enforce_domain, align 8
+  %tobool14 = trunc i8 %5 to i1
+  br i1 %tobool14, label %if.then15, label %if.end32
 
 if.then15:                                        ; preds = %land.lhs.true12
-  %11 = load ptr, ptr %session, align 8
-  %call18 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %11)
-  %12 = load ptr, ptr %session, align 8
-  %call21 = tail call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %12)
+  %6 = load ptr, ptr %session, align 8
+  %call18 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %6)
+  %7 = load ptr, ptr %session, align 8
+  %call21 = tail call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %7)
   tail call void @_ZN3zmq13socket_base_t32event_handshake_failed_no_detailERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %call18, ptr noundef nonnull align 8 dereferenceable(68) %call21, i32 noundef 14)
   br label %return
 
@@ -251,10 +246,9 @@ if.end29:                                         ; preds = %if.then24
 
 if.end32:                                         ; preds = %land.lhs.true12, %if.end9, %if.end29, %land.lhs.true, %if.end
   %_zap_reply_received33 = getelementptr inbounds i8, ptr %this, i64 77
-  %13 = load i8, ptr %_zap_reply_received33, align 1
-  %14 = and i8 %13, 1
-  %tobool34.not = icmp eq i8 %14, 0
-  br i1 %tobool34.not, label %if.end56, label %land.lhs.true35
+  %8 = load i8, ptr %_zap_reply_received33, align 1
+  %tobool34 = trunc i8 %8 to i1
+  br i1 %tobool34, label %land.lhs.true35, label %if.end56
 
 land.lhs.true35:                                  ; preds = %if.end32
   %status_code = getelementptr inbounds i8, ptr %this, i64 40
@@ -274,10 +268,10 @@ if.then41:                                        ; preds = %if.then37
   br i1 %cmp44.not, label %do.end, label %if.then45
 
 if.then45:                                        ; preds = %if.then41
-  %15 = load ptr, ptr @stderr, align 8
-  %call46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 81) #18
-  %16 = load ptr, ptr @stderr, align 8
-  %call47 = tail call i32 @fflush(ptr noundef %16)
+  %9 = load ptr, ptr @stderr, align 8
+  %call46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 81) #18
+  %10 = load ptr, ptr @stderr, align 8
+  %call47 = tail call i32 @fflush(ptr noundef %10)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.3)
   br label %do.end
 
@@ -364,23 +358,21 @@ define noundef i32 @_ZN3zmq16null_mechanism_t25process_handshake_commandEPNS_5ms
 entry:
   %_ready_command_received = getelementptr inbounds i8, ptr %this, i64 74
   %0 = load i8, ptr %_ready_command_received, align 2
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %_error_command_received = getelementptr inbounds i8, ptr %this, i64 75
-  %2 = load i8, ptr %_error_command_received, align 1
-  %3 = and i8 %2, 1
-  %tobool2.not = icmp eq i8 %3, 0
-  br i1 %tobool2.not, label %if.end, label %if.then
+  %1 = load i8, ptr %_error_command_received, align 1
+  %tobool2 = trunc i8 %1 to i1
+  br i1 %tobool2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %session = getelementptr inbounds i8, ptr %this, i64 1568
-  %4 = load ptr, ptr %session, align 8
-  %call = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %4)
-  %5 = load ptr, ptr %session, align 8
-  %call5 = tail call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %5)
+  %2 = load ptr, ptr %session, align 8
+  %call = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %2)
+  %3 = load ptr, ptr %session, align 8
+  %call5 = tail call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %3)
   tail call void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %call, ptr noundef nonnull align 8 dereferenceable(68) %call5, i32 noundef 268435457)
   %call6 = tail call ptr @__errno_location() #17
   store i32 71, ptr %call6, align 4
@@ -416,10 +408,10 @@ if.then17:                                        ; preds = %land.lhs.true14
 
 if.end28.thread:                                  ; preds = %land.lhs.true14, %if.end
   %session21 = getelementptr inbounds i8, ptr %this, i64 1568
-  %6 = load ptr, ptr %session21, align 8
-  %call22 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %6)
-  %7 = load ptr, ptr %session21, align 8
-  %call25 = tail call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %7)
+  %4 = load ptr, ptr %session21, align 8
+  %call22 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %4)
+  %5 = load ptr, ptr %session21, align 8
+  %call25 = tail call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %5)
   tail call void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %call22, ptr noundef nonnull align 8 dereferenceable(68) %call25, i32 noundef 268435457)
   %call26 = tail call ptr @__errno_location() #17
   store i32 71, ptr %call26, align 4
@@ -437,12 +429,12 @@ if.then30:                                        ; preds = %if.end28
 
 if.then33:                                        ; preds = %if.then30
   %call34 = tail call ptr @__errno_location() #17
-  %8 = load i32, ptr %call34, align 4
-  %call35 = tail call ptr @strerror(i32 noundef %8) #15
-  %9 = load ptr, ptr @stderr, align 8
-  %call36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.5, ptr noundef %call35, ptr noundef nonnull @.str.4, i32 noundef 132) #18
-  %10 = load ptr, ptr @stderr, align 8
-  %call37 = tail call i32 @fflush(ptr noundef %10)
+  %6 = load i32, ptr %call34, align 4
+  %call35 = tail call ptr @strerror(i32 noundef %6) #15
+  %7 = load ptr, ptr @stderr, align 8
+  %call36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.5, ptr noundef %call35, ptr noundef nonnull @.str.4, i32 noundef 132) #18
+  %8 = load ptr, ptr @stderr, align 8
+  %call37 = tail call i32 @fflush(ptr noundef %8)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call35)
   br label %do.end
 
@@ -453,12 +445,12 @@ do.end:                                           ; preds = %if.then30, %if.then
 
 if.then43:                                        ; preds = %do.end
   %call45 = tail call ptr @__errno_location() #17
-  %11 = load i32, ptr %call45, align 4
-  %call46 = tail call ptr @strerror(i32 noundef %11) #15
-  %12 = load ptr, ptr @stderr, align 8
-  %call47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.5, ptr noundef %call46, ptr noundef nonnull @.str.4, i32 noundef 134) #18
-  %13 = load ptr, ptr @stderr, align 8
-  %call48 = tail call i32 @fflush(ptr noundef %13)
+  %9 = load i32, ptr %call45, align 4
+  %call46 = tail call ptr @strerror(i32 noundef %9) #15
+  %10 = load ptr, ptr @stderr, align 8
+  %call47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.5, ptr noundef %call46, ptr noundef nonnull @.str.4, i32 noundef 134) #18
+  %11 = load ptr, ptr @stderr, align 8
+  %call48 = tail call i32 @fflush(ptr noundef %11)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call46)
   br label %return
 
@@ -559,9 +551,8 @@ define noundef i32 @_ZN3zmq16null_mechanism_t17zap_msg_availableEv(ptr noundef n
 entry:
   %_zap_reply_received = getelementptr inbounds i8, ptr %this, i64 77
   %0 = load i8, ptr %_zap_reply_received, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = tail call ptr @__errno_location() #17
@@ -596,9 +587,8 @@ entry:
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   %_zap_reply_received.i = getelementptr inbounds i8, ptr %3, i64 77
   %4 = load i8, ptr %_zap_reply_received.i, align 1
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call ptr @__errno_location() #17
@@ -629,39 +619,30 @@ define noundef i32 @_ZNK3zmq16null_mechanism_t6statusEv(ptr nocapture noundef no
 entry:
   %_ready_command_sent = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i8, ptr %_ready_command_sent, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   %_ready_command_received = getelementptr inbounds i8, ptr %this, i64 74
-  %2 = load i8, ptr %_ready_command_received, align 2
-  %3 = and i8 %2, 1
-  br i1 %tobool.not, label %land.lhs.true, label %entry.if.end_crit_edge
+  %1 = load i8, ptr %_ready_command_received, align 2
+  %tobool2 = trunc i8 %1 to i1
+  %2 = select i1 %tobool, i1 %tobool2, i1 false
+  br i1 %2, label %return, label %if.end
 
-entry.if.end_crit_edge:                           ; preds = %entry
-  %4 = icmp ne i8 %3, 0
-  br label %if.end
-
-land.lhs.true:                                    ; preds = %entry
-  %tobool2.not = icmp eq i8 %3, 0
-  br i1 %tobool2.not, label %if.end, label %return
-
-if.end:                                           ; preds = %entry.if.end_crit_edge, %land.lhs.true
-  %.pre-phi = phi i1 [ %4, %entry.if.end_crit_edge ], [ false, %land.lhs.true ]
+if.end:                                           ; preds = %entry
+  %tobool.not = xor i1 %tobool, true
+  %tobool2.mux = select i1 %tobool.not, i1 %tobool2, i1 false
   %_error_command_sent = getelementptr inbounds i8, ptr %this, i64 73
-  %5 = load i8, ptr %_error_command_sent, align 1
-  %6 = and i8 %5, 1
-  %tobool5 = icmp ne i8 %6, 0
-  %7 = select i1 %tobool.not, i1 true, i1 %tobool5
+  %3 = load i8, ptr %_error_command_sent, align 1
+  %tobool5 = trunc i8 %3 to i1
+  %4 = select i1 %tobool, i1 true, i1 %tobool5
   %_error_command_received = getelementptr inbounds i8, ptr %this, i64 75
-  %8 = load i8, ptr %_error_command_received, align 1
-  %9 = and i8 %8, 1
-  %tobool9 = icmp ne i8 %9, 0
-  %10 = select i1 %.pre-phi, i1 true, i1 %tobool9
-  %11 = select i1 %7, i1 %10, i1 false
-  %cond = select i1 %11, i32 2, i32 0
+  %5 = load i8, ptr %_error_command_received, align 1
+  %tobool9 = trunc i8 %5 to i1
+  %6 = select i1 %tobool2.mux, i1 true, i1 %tobool9
+  %7 = select i1 %4, i1 %6, i1 false
+  %cond = select i1 %7, i32 2, i32 0
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi i32 [ %cond, %if.end ], [ 1, %land.lhs.true ]
+return:                                           ; preds = %entry, %if.end
+  %retval.0 = phi i32 [ %cond, %if.end ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -674,39 +655,30 @@ entry:
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   %_ready_command_sent.i = getelementptr inbounds i8, ptr %3, i64 72
   %4 = load i8, ptr %_ready_command_sent.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp ne i8 %5, 0
+  %tobool.i = trunc i8 %4 to i1
   %_ready_command_received.i = getelementptr inbounds i8, ptr %3, i64 74
-  %6 = load i8, ptr %_ready_command_received.i, align 2
-  %7 = and i8 %6, 1
-  br i1 %tobool.not.i, label %land.lhs.true.i, label %entry.if.end_crit_edge.i
+  %5 = load i8, ptr %_ready_command_received.i, align 2
+  %tobool2.i = trunc i8 %5 to i1
+  %6 = select i1 %tobool.i, i1 %tobool2.i, i1 false
+  br i1 %6, label %_ZNK3zmq16null_mechanism_t6statusEv.exit, label %if.end.i
 
-entry.if.end_crit_edge.i:                         ; preds = %entry
-  %8 = icmp ne i8 %7, 0
-  br label %if.end.i
-
-land.lhs.true.i:                                  ; preds = %entry
-  %tobool2.not.i = icmp eq i8 %7, 0
-  br i1 %tobool2.not.i, label %if.end.i, label %_ZNK3zmq16null_mechanism_t6statusEv.exit
-
-if.end.i:                                         ; preds = %land.lhs.true.i, %entry.if.end_crit_edge.i
-  %.pre-phi.i = phi i1 [ %8, %entry.if.end_crit_edge.i ], [ false, %land.lhs.true.i ]
+if.end.i:                                         ; preds = %entry
+  %tobool.not.i = xor i1 %tobool.i, true
+  %tobool2.mux.i = select i1 %tobool.not.i, i1 %tobool2.i, i1 false
   %_error_command_sent.i = getelementptr inbounds i8, ptr %3, i64 73
-  %9 = load i8, ptr %_error_command_sent.i, align 1
-  %10 = and i8 %9, 1
-  %tobool5.i = icmp ne i8 %10, 0
-  %11 = select i1 %tobool.not.i, i1 true, i1 %tobool5.i
+  %7 = load i8, ptr %_error_command_sent.i, align 1
+  %tobool5.i = trunc i8 %7 to i1
+  %8 = select i1 %tobool.i, i1 true, i1 %tobool5.i
   %_error_command_received.i = getelementptr inbounds i8, ptr %3, i64 75
-  %12 = load i8, ptr %_error_command_received.i, align 1
-  %13 = and i8 %12, 1
-  %tobool9.i = icmp ne i8 %13, 0
-  %14 = select i1 %.pre-phi.i, i1 true, i1 %tobool9.i
-  %15 = select i1 %11, i1 %14, i1 false
-  %cond.i = select i1 %15, i32 2, i32 0
+  %9 = load i8, ptr %_error_command_received.i, align 1
+  %tobool9.i = trunc i8 %9 to i1
+  %10 = select i1 %tobool2.mux.i, i1 true, i1 %tobool9.i
+  %11 = select i1 %8, i1 %10, i1 false
+  %cond.i = select i1 %11, i32 2, i32 0
   br label %_ZNK3zmq16null_mechanism_t6statusEv.exit
 
-_ZNK3zmq16null_mechanism_t6statusEv.exit:         ; preds = %land.lhs.true.i, %if.end.i
-  %retval.0.i = phi i32 [ %cond.i, %if.end.i ], [ 1, %land.lhs.true.i ]
+_ZNK3zmq16null_mechanism_t6statusEv.exit:         ; preds = %entry, %if.end.i
+  %retval.0.i = phi i32 [ %cond.i, %if.end.i ], [ 1, %entry ]
   ret i32 %retval.0.i
 }
 

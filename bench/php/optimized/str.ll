@@ -1262,9 +1262,8 @@ define hidden noundef zeroext i1 @lexbor_str_data_cmp_ws(ptr nocapture noundef r
 switch.hole_check:                                ; preds = %.lr.ph
   %switch.maskindex = zext nneg i8 %5 to i64
   %switch.shifted = lshr i64 4294981121, %switch.maskindex
-  %12 = and i64 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i64 %12, 0
-  br i1 %switch.lobit.not, label %7, label %._crit_edge
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  br i1 %switch.lobit, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %7, %switch.hole_check, %2
   %.not.lcssa = phi i1 [ false, %2 ], [ true, %switch.hole_check ], [ false, %7 ]

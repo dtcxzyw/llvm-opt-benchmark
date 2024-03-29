@@ -116,9 +116,8 @@ _ZNK11QModelIndex4dataEi.exit:                    ; preds = %28, %24
 31:                                               ; preds = %_ZNK11QModelIndex4dataEi.exit
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #9
   %32 = load i8, ptr %9, align 1
-  %33 = and i8 %32, 1
-  %.not.not = icmp eq i8 %33, 0
-  br i1 %.not.not, label %_ZN7QStringD2Ev.exit88, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %_ZN7QStringD2Ev.exit88
 
 34:                                               ; preds = %31
   call void @llvm.experimental.noalias.scope.decl(metadata !7)

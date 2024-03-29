@@ -576,8 +576,8 @@ define void @_ZN3nix54FileSerialisationMethod_testRoundTripPrintParse_1_Test8Tes
   br label %10
 
 10:                                               ; preds = %1, %_ZN7testing15AssertionResultD2Ev.exit
-  %.09.idx19 = phi i64 [ 0, %1 ], [ %.09.add, %_ZN7testing15AssertionResultD2Ev.exit ]
-  %.09.ptr = getelementptr inbounds i8, ptr %2, i64 %.09.idx19
+  %.09.idx18 = phi i64 [ 0, %1 ], [ %.09.add, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %.09.ptr = getelementptr inbounds i8, ptr %2, i64 %.09.idx18
   %11 = load i8, ptr %.09.ptr, align 1
   store i8 %11, ptr %3, align 1
   %12 = call { i64, ptr } @_ZN3nix29renderFileSerialisationMethodENS_23FileSerialisationMethodE(i8 noundef zeroext %11)
@@ -599,9 +599,8 @@ define void @_ZN3nix54FileSerialisationMethod_testRoundTripPrintParse_1_Test8Tes
 
 _ZN7testing8internal8EqHelper7CompareIN3nix23FileSerialisationMethodES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_.exit: ; preds = %18, %19
   %20 = load i8, ptr %4, align 8
-  %21 = and i8 %20, 1
-  %.not18 = icmp eq i8 %21, 0
-  br i1 %.not18, label %24, label %45
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %45, label %24
 
 22:                                               ; preds = %24
   %23 = landingpad { ptr, i32 }
@@ -704,7 +703,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %45, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %9, align 8
-  %.09.add = add nuw nsw i64 %.09.idx19, 1
+  %.09.add = add nuw nsw i64 %.09.idx18, 1
   %.not = icmp eq i64 %.09.add, 2
   br i1 %.not, label %55, label %10
 
@@ -781,8 +780,8 @@ define void @_ZN3nix54FileSerialisationMethod_testRoundTripPrintParse_2_Test8Tes
   br label %12
 
 12:                                               ; preds = %1, %_ZN7testing15AssertionResultD2Ev.exit
-  %.09.idx19 = phi i64 [ 0, %1 ], [ %.09.add, %_ZN7testing15AssertionResultD2Ev.exit ]
-  %.09.ptr = getelementptr inbounds i8, ptr %2, i64 %.09.idx19
+  %.09.idx18 = phi i64 [ 0, %1 ], [ %.09.add, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %.09.ptr = getelementptr inbounds i8, ptr %2, i64 %.09.idx18
   %13 = load ptr, ptr %.09.ptr, align 8
   %14 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #20
   store i64 %14, ptr %3, align 8
@@ -817,9 +816,8 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.i.i: ; preds = 
 
 _ZN7testing8internal8EqHelper7CompareISt17basic_string_viewIcSt11char_traitsIcEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit: ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.i.i, %23
   %24 = load i8, ptr %4, align 8
-  %25 = and i8 %24, 1
-  %.not18 = icmp eq i8 %25, 0
-  br i1 %.not18, label %28, label %49
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %49, label %28
 
 26:                                               ; preds = %28
   %27 = landingpad { ptr, i32 }
@@ -922,7 +920,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %49, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %11, align 8
-  %.09.add = add nuw nsw i64 %.09.idx19, 8
+  %.09.add = add nuw nsw i64 %.09.idx18, 8
   %.not = icmp eq i64 %.09.add, 16
   br i1 %.not, label %59, label %12
 
@@ -1442,8 +1440,8 @@ define void @_ZN3nix50FileIngestionMethod_testRoundTripPrintParse_1_Test8TestBod
   br label %11
 
 11:                                               ; preds = %1, %_ZN7testing15AssertionResultD2Ev.exit
-  %.09.idx19 = phi i64 [ 0, %1 ], [ %.09.add, %_ZN7testing15AssertionResultD2Ev.exit ]
-  %.09.ptr = getelementptr inbounds i8, ptr %2, i64 %.09.idx19
+  %.09.idx18 = phi i64 [ 0, %1 ], [ %.09.add, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %.09.ptr = getelementptr inbounds i8, ptr %2, i64 %.09.idx18
   %12 = load i8, ptr %.09.ptr, align 1
   store i8 %12, ptr %3, align 1
   %13 = call { i64, ptr } @_ZN3nix25renderFileIngestionMethodENS_19FileIngestionMethodE(i8 noundef zeroext %12)
@@ -1465,9 +1463,8 @@ define void @_ZN3nix50FileIngestionMethod_testRoundTripPrintParse_1_Test8TestBod
 
 _ZN7testing8internal8EqHelper7CompareIN3nix19FileIngestionMethodES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_.exit: ; preds = %19, %20
   %21 = load i8, ptr %4, align 8
-  %22 = and i8 %21, 1
-  %.not18 = icmp eq i8 %22, 0
-  br i1 %.not18, label %25, label %46
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %46, label %25
 
 23:                                               ; preds = %25
   %24 = landingpad { ptr, i32 }
@@ -1570,7 +1567,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %46, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %10, align 8
-  %.09.add = add nuw nsw i64 %.09.idx19, 1
+  %.09.add = add nuw nsw i64 %.09.idx18, 1
   %.not = icmp eq i64 %.09.add, 3
   br i1 %.not, label %56, label %11
 
@@ -1600,8 +1597,8 @@ define void @_ZN3nix50FileIngestionMethod_testRoundTripPrintParse_2_Test8TestBod
   br label %10
 
 10:                                               ; preds = %1, %_ZN7testing15AssertionResultD2Ev.exit
-  %.09.idx19 = phi i64 [ 0, %1 ], [ %.09.add, %_ZN7testing15AssertionResultD2Ev.exit ]
-  %.09.ptr = getelementptr inbounds i8, ptr @constinit, i64 %.09.idx19
+  %.09.idx18 = phi i64 [ 0, %1 ], [ %.09.add, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %.09.ptr = getelementptr inbounds i8, ptr @constinit, i64 %.09.idx18
   %11 = load ptr, ptr %.09.ptr, align 8
   %12 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #20
   store i64 %12, ptr %2, align 8
@@ -1636,9 +1633,8 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.i.i: ; preds = 
 
 _ZN7testing8internal8EqHelper7CompareISt17basic_string_viewIcSt11char_traitsIcEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit: ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.i.i, %21
   %22 = load i8, ptr %3, align 8
-  %23 = and i8 %22, 1
-  %.not18 = icmp eq i8 %23, 0
-  br i1 %.not18, label %26, label %47
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %47, label %26
 
 24:                                               ; preds = %26
   %25 = landingpad { ptr, i32 }
@@ -1741,7 +1737,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %47, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %9, align 8
-  %.09.add = add nuw nsw i64 %.09.idx19, 8
+  %.09.add = add nuw nsw i64 %.09.idx18, 8
   %.not = icmp eq i64 %.09.add, 24
   br i1 %.not, label %57, label %10
 

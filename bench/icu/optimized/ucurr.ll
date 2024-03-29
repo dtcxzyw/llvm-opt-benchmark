@@ -3304,7 +3304,7 @@ if.then10:                                        ; preds = %if.end7
 
 for.body.preheader.i:                             ; preds = %if.then10
   %21 = sext i32 %20 to i64
-  %22 = add i32 %storemerge.i, 1
+  %22 = add nsw i32 %storemerge.i, 1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc34.i, %for.body.preheader.i
@@ -4307,55 +4307,54 @@ if.end65:                                         ; preds = %if.then59, %if.else
   %currIndex.2 = phi i32 [ %currIndex.1, %if.end57 ], [ %currIndex.058, %if.else ], [ %inc60, %if.then59 ]
   call void @ures_close_75(ptr noundef %call29)
   call void @ures_close_75(ptr noundef %call31)
-  %7 = and i8 %matchFound.2, 1
-  %tobool66.not = icmp eq i8 %7, 0
-  br i1 %tobool66.not, label %for.cond, label %if.end70.loopexit
+  %tobool66 = trunc i8 %matchFound.2 to i1
+  br i1 %tobool66, label %if.end70.loopexit, label %for.cond
 
 if.end70.loopexit:                                ; preds = %for.cond, %if.end65
-  %8 = and i8 %matchFound.2, 1
-  %9 = icmp eq i8 %8, 0
+  %7 = trunc i8 %matchFound.2 to i1
+  %8 = xor i1 %7, true
   br label %if.end70
 
 if.end70:                                         ; preds = %if.end70.loopexit, %for.cond.preheader, %if.end13
-  %matchFound.3 = phi i1 [ true, %if.end13 ], [ true, %for.cond.preheader ], [ %9, %if.end70.loopexit ]
+  %matchFound.3 = phi i1 [ true, %if.end13 ], [ true, %for.cond.preheader ], [ %8, %if.end70.loopexit ]
   %s.1 = phi ptr [ null, %if.end13 ], [ null, %for.cond.preheader ], [ %call30, %if.end70.loopexit ]
   call void @ures_close_75(ptr noundef %call17)
-  %10 = load i32, ptr %ec, align 4
-  %cmp71 = icmp eq i32 %10, 0
-  %11 = load i32, ptr %localStatus, align 4
-  %cmp73 = icmp ne i32 %11, 0
+  %9 = load i32, ptr %ec, align 4
+  %cmp71 = icmp eq i32 %9, 0
+  %10 = load i32, ptr %localStatus, align 4
+  %cmp73 = icmp ne i32 %10, 0
   %or.cond2 = select i1 %cmp71, i1 true, i1 %cmp73
   br i1 %or.cond2, label %if.then74, label %if.end75
 
 if.then74:                                        ; preds = %if.end70
-  store i32 %11, ptr %ec, align 4
+  store i32 %10, ptr %ec, align 4
   br label %if.end75
 
 if.end75:                                         ; preds = %if.end70, %if.then74
-  %12 = phi i32 [ %10, %if.end70 ], [ %11, %if.then74 ]
-  %cmp.i52 = icmp sgt i32 %12, 0
+  %11 = phi i32 [ %9, %if.end70 ], [ %10, %if.then74 ]
+  %cmp.i52 = icmp sgt i32 %11, 0
   br i1 %cmp.i52, label %if.end86, label %if.then78
 
 if.then78:                                        ; preds = %if.end75
-  %13 = load i32, ptr %resLen, align 4
-  %cmp79 = icmp sge i32 %13, %buffCapacity
-  %or.cond = select i1 %cmp79, i1 true, i1 %matchFound.3
-  br i1 %or.cond, label %return, label %if.then82
+  %12 = load i32, ptr %resLen, align 4
+  %cmp79 = icmp sge i32 %12, %buffCapacity
+  %brmerge = select i1 %cmp79, i1 true, i1 %matchFound.3
+  br i1 %brmerge, label %return, label %if.then82
 
 if.then82:                                        ; preds = %if.then78
   %call83 = call ptr @u_strcpy_75(ptr noundef %buff, ptr noundef %s.1)
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then82, %if.end75
-  %14 = load i32, ptr %resLen, align 4
-  %call87 = call i32 @u_terminateUChars_75(ptr noundef %buff, i32 noundef %buffCapacity, i32 noundef %14, ptr noundef nonnull %ec)
+  %13 = load i32, ptr %resLen, align 4
+  %call87 = call i32 @u_terminateUChars_75(ptr noundef %buff, i32 noundef %buffCapacity, i32 noundef %13, ptr noundef nonnull %ec)
   br label %return
 
 if.else88:                                        ; preds = %if.then
   store i32 1, ptr %ec, align 4
   br label %return
 
-return:                                           ; preds = %entry, %land.lhs.true, %if.else88, %if.then78, %if.then5, %if.end86, %if.then25
+return:                                           ; preds = %if.then78, %entry, %land.lhs.true, %if.else88, %if.then5, %if.end86, %if.then25
   %retval.0 = phi i32 [ 0, %if.then25 ], [ %call87, %if.end86 ], [ 0, %if.then5 ], [ 0, %if.then78 ], [ 0, %if.else88 ], [ 0, %land.lhs.true ], [ 0, %entry ]
   ret i32 %retval.0
 }

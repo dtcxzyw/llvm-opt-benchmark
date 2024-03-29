@@ -51,45 +51,44 @@ define i32 @ieee80211_mhz_to_chan(i32 noundef %0) local_unnamed_addr #0 {
 define i32 @ieee80211_chan_to_mhz(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   br label %3
 
-3:                                                ; preds = %2, %24
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %24 ]
+3:                                                ; preds = %2, %23
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %23 ]
   %4 = getelementptr [5 x %struct.freq_cvt_s], ptr @freq_cvt, i64 0, i64 %indvars.iv
   %5 = getelementptr inbounds i8, ptr %4, i64 12
   %6 = load i8, ptr %5, align 4
-  %7 = and i8 %6, 1
-  %8 = icmp eq i8 %7, 0
-  %9 = xor i1 %8, %1
-  br i1 %9, label %10, label %24
+  %7 = trunc i8 %6 to i1
+  %8 = xor i1 %7, %1
+  br i1 %8, label %23, label %9
 
-10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = load i32, ptr %11, align 8
-  %.not = icmp sgt i32 %12, %0
-  br i1 %.not, label %24, label %13
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = load i32, ptr %10, align 8
+  %.not = icmp sgt i32 %11, %0
+  br i1 %.not, label %23, label %12
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %4, i64 4
-  %15 = load i32, ptr %14, align 4
-  %16 = load i32, ptr %4, align 16
-  %17 = sub i32 %15, %16
-  %18 = udiv i32 %17, 5
-  %19 = add i32 %18, %12
-  %.not18 = icmp slt i32 %19, %0
-  br i1 %.not18, label %24, label %20
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %4, i64 4
+  %14 = load i32, ptr %13, align 4
+  %15 = load i32, ptr %4, align 16
+  %16 = sub i32 %14, %15
+  %17 = udiv i32 %16, 5
+  %18 = add i32 %17, %11
+  %.not18 = icmp slt i32 %18, %0
+  br i1 %.not18, label %23, label %19
 
-20:                                               ; preds = %13
-  %21 = sub i32 %0, %12
-  %22 = mul i32 %21, 5
-  %23 = add i32 %16, %22
+19:                                               ; preds = %12
+  %20 = sub i32 %0, %11
+  %21 = mul i32 %20, 5
+  %22 = add i32 %15, %21
   br label %.loopexit
 
-24:                                               ; preds = %3, %10, %13
+23:                                               ; preds = %3, %9, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !6
 
-.loopexit:                                        ; preds = %24, %20
-  %.014 = phi i32 [ %23, %20 ], [ 0, %24 ]
+.loopexit:                                        ; preds = %23, %19
+  %.014 = phi i32 [ %22, %19 ], [ 0, %23 ]
   ret i32 %.014
 }
 

@@ -280,26 +280,25 @@ entry:
   %0 = load ptr, ptr %spc, align 8
   %cs = getelementptr inbounds i8, ptr %dev, i64 168
   %1 = load i8, ptr %cs, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  %cs_polarity4 = getelementptr inbounds i8, ptr %0, i64 200
-  %3 = load i32, ptr %cs_polarity4, align 8
-  br i1 %tobool.not, label %land.lhs.true3, label %land.lhs.true
+  %tobool = trunc i8 %1 to i1
+  %cs_polarity = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = load i32, ptr %cs_polarity, align 8
+  br i1 %tobool, label %land.lhs.true, label %land.lhs.true3
 
 land.lhs.true:                                    ; preds = %entry
-  switch i32 %3, label %return [
+  switch i32 %2, label %return [
     i32 2, label %if.then
     i32 0, label %if.then
   ]
 
 land.lhs.true3:                                   ; preds = %entry
-  %switch = icmp ult i32 %3, 2
+  %switch = icmp ult i32 %2, 2
   br i1 %switch, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true3, %land.lhs.true, %land.lhs.true
   %transfer = getelementptr inbounds i8, ptr %0, i64 184
-  %4 = load ptr, ptr %transfer, align 8
-  %call = tail call i32 %4(ptr noundef nonnull %dev, i32 noundef %val) #3
+  %3 = load ptr, ptr %transfer, align 8
+  %call = tail call i32 %3(ptr noundef nonnull %dev, i32 noundef %val) #3
   br label %return
 
 return:                                           ; preds = %land.lhs.true3, %land.lhs.true, %if.then
@@ -324,10 +323,9 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %cs2 = getelementptr inbounds i8, ptr %call.i, i64 168
   %0 = load i8, ptr %cs2, align 8
-  %1 = and i8 %0, 1
-  %2 = icmp eq i8 %1, 0
-  %cmp6.not = xor i1 %tobool, %2
-  br i1 %cmp6.not, label %if.end16, label %if.then8
+  %1 = trunc i8 %0 to i1
+  %2 = xor i1 %tobool, %1
+  br i1 %2, label %if.then8, label %if.end16
 
 if.then8:                                         ; preds = %if.end
   %spc = getelementptr inbounds i8, ptr %call.i, i64 160

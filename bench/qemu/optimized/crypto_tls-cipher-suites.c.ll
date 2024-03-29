@@ -71,17 +71,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %0) #5
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %0) #5
   br label %trace_qcrypto_tls_cipher_suite_priority.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -90,82 +89,81 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_qcrypto_tls_cipher_suite_priority.exit:     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %8 = load ptr, ptr %priority, align 8
-  %call2 = call i32 @gnutls_priority_init(ptr noundef nonnull %pcache, ptr noundef %8, ptr noundef nonnull %err) #5
+  %7 = load ptr, ptr %priority, align 8
+  %call2 = call i32 @gnutls_priority_init(ptr noundef nonnull %pcache, ptr noundef %7, ptr noundef nonnull %err) #5
   %cmp = icmp slt i32 %call2, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %trace_qcrypto_tls_cipher_suite_priority.exit
-  %9 = load ptr, ptr %priority, align 8
+  %8 = load ptr, ptr %priority, align 8
   %call4 = call ptr @gnutls_strerror(i32 noundef %call2) #6
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 48, ptr noundef nonnull @__func__.qcrypto_tls_cipher_suites_get_data, ptr noundef nonnull @.str.1, ptr noundef %9, ptr noundef %call4) #5
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 48, ptr noundef nonnull @__func__.qcrypto_tls_cipher_suites_get_data, ptr noundef nonnull @.str.1, ptr noundef %8, ptr noundef %call4) #5
   br label %return
 
 if.end:                                           ; preds = %trace_qcrypto_tls_cipher_suite_priority.exit
   %call5 = call ptr @g_byte_array_new() #5
   %arrayidx25 = getelementptr inbounds i8, ptr %cipher, i64 1
-  %tv_usec.i.i22 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
+  %tv_usec.i.i23 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
   %i.0 = phi i32 [ 0, %if.end ], [ %inc, %for.inc ]
-  %10 = load ptr, ptr %pcache, align 8
-  %call6 = call i32 @gnutls_priority_get_cipher_suite_index(ptr noundef %10, i32 noundef %i.0, ptr noundef nonnull %idx) #5
+  %9 = load ptr, ptr %pcache, align 8
+  %call6 = call i32 @gnutls_priority_get_cipher_suite_index(ptr noundef %9, i32 noundef %i.0, ptr noundef nonnull %idx) #5
   switch i32 %call6, label %if.end14 [
     i32 -56, label %for.end
     i32 -21, label %for.inc
   ]
 
 if.end14:                                         ; preds = %for.cond
-  %11 = load i32, ptr %idx, align 4
-  %conv15 = zext i32 %11 to i64
+  %10 = load i32, ptr %idx, align 4
+  %conv15 = zext i32 %10 to i64
   %call16 = call ptr @gnutls_cipher_suite_info(i64 noundef %conv15, ptr noundef nonnull %cipher, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %protocol) #5
   %cmp17 = icmp eq ptr %call16, null
   br i1 %cmp17, label %for.inc, label %if.end20
 
 if.end20:                                         ; preds = %if.end14
-  %12 = load i32, ptr %protocol, align 4
-  %call21 = call ptr @gnutls_protocol_get_name(i32 noundef %12) #6
+  %11 = load i32, ptr %protocol, align 4
+  %call21 = call ptr @gnutls_protocol_get_name(i32 noundef %11) #6
   %call22 = call ptr @g_byte_array_append(ptr noundef %call5, ptr noundef nonnull %cipher, i32 noundef 2) #5
-  %13 = load i8, ptr %cipher, align 1
-  %14 = load i8, ptr %arrayidx25, align 1
+  %12 = load i8, ptr %cipher, align 1
+  %13 = load i8, ptr %arrayidx25, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i10)
-  %15 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i11 = icmp ne i32 %15, 0
-  %16 = load i16, ptr @_TRACE_QCRYPTO_TLS_CIPHER_SUITE_INFO_DSTATE, align 2
-  %tobool4.i.i12 = icmp ne i16 %16, 0
+  %14 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i11 = icmp ne i32 %14, 0
+  %15 = load i16, ptr @_TRACE_QCRYPTO_TLS_CIPHER_SUITE_INFO_DSTATE, align 2
+  %tobool4.i.i12 = icmp ne i16 %15, 0
   %or.cond.i.i13 = select i1 %tobool.i.i11, i1 %tobool4.i.i12, i1 false
   br i1 %or.cond.i.i13, label %land.lhs.true5.i.i14, label %trace_qcrypto_tls_cipher_suite_info.exit
 
 land.lhs.true5.i.i14:                             ; preds = %if.end20
-  %17 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i15 = and i32 %17, 32768
+  %16 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i15 = and i32 %16, 32768
   %cmp.i.not.i.i16 = icmp eq i32 %and.i.i.i15, 0
   br i1 %cmp.i.not.i.i16, label %trace_qcrypto_tls_cipher_suite_info.exit, label %if.then.i.i17
 
 if.then.i.i17:                                    ; preds = %land.lhs.true5.i.i14
-  %18 = load i8, ptr @message_with_timestamp, align 1
-  %19 = and i8 %18, 1
-  %tobool7.not.i.i18 = icmp eq i8 %19, 0
-  br i1 %tobool7.not.i.i18, label %if.else.i.i23, label %if.then8.i.i19
+  %17 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i18 = trunc i8 %17 to i1
+  br i1 %tobool7.i.i18, label %if.then8.i.i20, label %if.else.i.i19
 
-if.then8.i.i19:                                   ; preds = %if.then.i.i17
-  %call9.i.i20 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10, ptr noundef null) #5
-  %call10.i.i21 = call i32 @qemu_get_thread_id() #5
-  %20 = load i64, ptr %_now.i.i10, align 8
-  %21 = load i64, ptr %tv_usec.i.i22, align 8
-  %conv11.i.i = zext i8 %13 to i32
-  %conv12.i.i = zext i8 %14 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i21, i64 noundef %20, i64 noundef %21, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i, ptr noundef %call21, ptr noundef nonnull %call16) #5
+if.then8.i.i20:                                   ; preds = %if.then.i.i17
+  %call9.i.i21 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10, ptr noundef null) #5
+  %call10.i.i22 = call i32 @qemu_get_thread_id() #5
+  %18 = load i64, ptr %_now.i.i10, align 8
+  %19 = load i64, ptr %tv_usec.i.i23, align 8
+  %conv11.i.i = zext i8 %12 to i32
+  %conv12.i.i = zext i8 %13 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i22, i64 noundef %18, i64 noundef %19, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i, ptr noundef %call21, ptr noundef nonnull %call16) #5
   br label %trace_qcrypto_tls_cipher_suite_info.exit
 
-if.else.i.i23:                                    ; preds = %if.then.i.i17
-  %conv13.i.i = zext i8 %13 to i32
-  %conv14.i.i = zext i8 %14 to i32
+if.else.i.i19:                                    ; preds = %if.then.i.i17
+  %conv13.i.i = zext i8 %12 to i32
+  %conv14.i.i = zext i8 %13 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i, ptr noundef %call21, ptr noundef nonnull %call16) #5
   br label %trace_qcrypto_tls_cipher_suite_info.exit
 
-trace_qcrypto_tls_cipher_suite_info.exit:         ; preds = %if.end20, %land.lhs.true5.i.i14, %if.then8.i.i19, %if.else.i.i23
+trace_qcrypto_tls_cipher_suite_info.exit:         ; preds = %if.end20, %land.lhs.true5.i.i14, %if.then8.i.i20, %if.else.i.i19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i10)
   br label %for.inc
 
@@ -175,44 +173,43 @@ for.inc:                                          ; preds = %for.cond, %if.end14
 
 for.end:                                          ; preds = %for.cond
   %len = getelementptr inbounds i8, ptr %call5, i64 8
-  %22 = load i32, ptr %len, align 8
+  %20 = load i32, ptr %len, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i24)
-  %23 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i25 = icmp ne i32 %23, 0
-  %24 = load i16, ptr @_TRACE_QCRYPTO_TLS_CIPHER_SUITE_COUNT_DSTATE, align 2
-  %tobool4.i.i26 = icmp ne i16 %24, 0
+  %21 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i25 = icmp ne i32 %21, 0
+  %22 = load i16, ptr @_TRACE_QCRYPTO_TLS_CIPHER_SUITE_COUNT_DSTATE, align 2
+  %tobool4.i.i26 = icmp ne i16 %22, 0
   %or.cond.i.i27 = select i1 %tobool.i.i25, i1 %tobool4.i.i26, i1 false
   br i1 %or.cond.i.i27, label %land.lhs.true5.i.i28, label %trace_qcrypto_tls_cipher_suite_count.exit
 
 land.lhs.true5.i.i28:                             ; preds = %for.end
-  %25 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i29 = and i32 %25, 32768
+  %23 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i29 = and i32 %23, 32768
   %cmp.i.not.i.i30 = icmp eq i32 %and.i.i.i29, 0
   br i1 %cmp.i.not.i.i30, label %trace_qcrypto_tls_cipher_suite_count.exit, label %if.then.i.i31
 
 if.then.i.i31:                                    ; preds = %land.lhs.true5.i.i28
-  %26 = load i8, ptr @message_with_timestamp, align 1
-  %27 = and i8 %26, 1
-  %tobool7.not.i.i32 = icmp eq i8 %27, 0
-  br i1 %tobool7.not.i.i32, label %if.else.i.i37, label %if.then8.i.i33
+  %24 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i32 = trunc i8 %24 to i1
+  br i1 %tobool7.i.i32, label %if.then8.i.i34, label %if.else.i.i33
 
-if.then8.i.i33:                                   ; preds = %if.then.i.i31
-  %call9.i.i34 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i24, ptr noundef null) #5
-  %call10.i.i35 = call i32 @qemu_get_thread_id() #5
-  %28 = load i64, ptr %_now.i.i24, align 8
-  %tv_usec.i.i36 = getelementptr inbounds i8, ptr %_now.i.i24, i64 8
-  %29 = load i64, ptr %tv_usec.i.i36, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i35, i64 noundef %28, i64 noundef %29, i32 noundef %22) #5
+if.then8.i.i34:                                   ; preds = %if.then.i.i31
+  %call9.i.i35 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i24, ptr noundef null) #5
+  %call10.i.i36 = call i32 @qemu_get_thread_id() #5
+  %25 = load i64, ptr %_now.i.i24, align 8
+  %tv_usec.i.i37 = getelementptr inbounds i8, ptr %_now.i.i24, i64 8
+  %26 = load i64, ptr %tv_usec.i.i37, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i36, i64 noundef %25, i64 noundef %26, i32 noundef %20) #5
   br label %trace_qcrypto_tls_cipher_suite_count.exit
 
-if.else.i.i37:                                    ; preds = %if.then.i.i31
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %22) #5
+if.else.i.i33:                                    ; preds = %if.then.i.i31
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %20) #5
   br label %trace_qcrypto_tls_cipher_suite_count.exit
 
-trace_qcrypto_tls_cipher_suite_count.exit:        ; preds = %for.end, %land.lhs.true5.i.i28, %if.then8.i.i33, %if.else.i.i37
+trace_qcrypto_tls_cipher_suite_count.exit:        ; preds = %for.end, %land.lhs.true5.i.i28, %if.then8.i.i34, %if.else.i.i33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i24)
-  %30 = load ptr, ptr %pcache, align 8
-  call void @gnutls_priority_deinit(ptr noundef %30) #5
+  %27 = load ptr, ptr %pcache, align 8
+  call void @gnutls_priority_deinit(ptr noundef %27) #5
   br label %return
 
 return:                                           ; preds = %trace_qcrypto_tls_cipher_suite_count.exit, %if.then

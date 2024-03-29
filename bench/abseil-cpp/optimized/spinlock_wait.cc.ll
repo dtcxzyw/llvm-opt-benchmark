@@ -89,9 +89,8 @@ for.cond.backedge:                                ; preds = %monotonic_fail9.i, 
 if.then12:                                        ; preds = %monotonic_fail9.i, %if.else
   %done = getelementptr inbounds i8, ptr %arrayidx6, i64 8
   %7 = load i8, ptr %done, align 4
-  %8 = and i8 %7, 1
-  %tobool.not = icmp eq i8 %8, 0
-  br i1 %tobool.not, label %for.cond.backedge, label %if.then15
+  %tobool = trunc i8 %7 to i1
+  br i1 %tobool, label %if.then15, label %for.cond.backedge
 
 if.then15:                                        ; preds = %if.then12
   ret i32 %2

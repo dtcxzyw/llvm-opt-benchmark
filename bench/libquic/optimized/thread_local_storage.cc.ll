@@ -40,48 +40,46 @@ entry:
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %for.end.i, %entry
-  %need_to_scan_destructors.0.i = phi i8 [ 1, %entry ], [ %need_to_scan_destructors.1.lcssa.i, %for.end.i ]
+  %need_to_scan_destructors.0.i = phi i1 [ true, %entry ], [ %need_to_scan_destructors.1.lcssa.i, %for.end.i ]
   %remaining_attempts.0.i = phi i32 [ 256, %entry ], [ %dec11.i, %for.end.i ]
-  %1 = and i8 %need_to_scan_destructors.0.i, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %_ZN12_GLOBAL__N_120OnThreadExitInternalEPv.exit, label %while.body.i
+  br i1 %need_to_scan_destructors.0.i, label %while.body.i, label %_ZN12_GLOBAL__N_120OnThreadExitInternalEPv.exit
 
 while.body.i:                                     ; preds = %while.cond.i
-  %2 = load atomic volatile i32, ptr @_ZN12_GLOBAL__N_119g_last_used_tls_keyE monotonic, align 4
-  %cmp10.i = icmp sgt i32 %2, 0
+  %1 = load atomic volatile i32, ptr @_ZN12_GLOBAL__N_119g_last_used_tls_keyE monotonic, align 4
+  %cmp10.i = icmp sgt i32 %1, 0
   br i1 %cmp10.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %while.body.i
-  %3 = zext nneg i32 %2 to i64
+  %2 = zext nneg i32 %1 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ %3, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %need_to_scan_destructors.112.i = phi i8 [ 0, %for.body.preheader.i ], [ %need_to_scan_destructors.2.i, %for.inc.i ]
+  %indvars.iv.i = phi i64 [ %2, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
+  %need_to_scan_destructors.112.i = phi i1 [ false, %for.body.preheader.i ], [ %need_to_scan_destructors.2.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds [256 x ptr], ptr %stack_allocated_tls_data.i, i64 0, i64 %indvars.iv.i
-  %4 = load ptr, ptr %arrayidx.i, align 8
-  %cmp3.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %arrayidx.i, align 8
+  %cmp3.i = icmp eq ptr %3, null
   br i1 %cmp3.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
   %arrayidx5.i = getelementptr inbounds [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %indvars.iv.i
-  %5 = load volatile ptr, ptr %arrayidx5.i, align 8
-  %cmp6.i = icmp eq ptr %5, null
+  %4 = load volatile ptr, ptr %arrayidx5.i, align 8
+  %cmp6.i = icmp eq ptr %4, null
   br i1 %cmp6.i, label %for.inc.i, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
   store ptr null, ptr %arrayidx.i, align 8
-  call void %5(ptr noundef nonnull %4)
+  call void %4(ptr noundef nonnull %3)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end8.i, %if.end.i, %for.body.i
-  %need_to_scan_destructors.2.i = phi i8 [ %need_to_scan_destructors.112.i, %for.body.i ], [ %need_to_scan_destructors.112.i, %if.end.i ], [ 1, %if.end8.i ]
+  %need_to_scan_destructors.2.i = phi i1 [ %need_to_scan_destructors.112.i, %for.body.i ], [ %need_to_scan_destructors.112.i, %if.end.i ], [ true, %if.end8.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.i = icmp sgt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.inc.i, %while.body.i
-  %need_to_scan_destructors.1.lcssa.i = phi i8 [ 0, %while.body.i ], [ %need_to_scan_destructors.2.i, %for.inc.i ]
+  %need_to_scan_destructors.1.lcssa.i = phi i1 [ false, %while.body.i ], [ %need_to_scan_destructors.2.i, %for.inc.i ]
   %dec11.i = add nsw i32 %remaining_attempts.0.i, -1
   %cmp12.i = icmp ult i32 %remaining_attempts.0.i, 2
   br i1 %cmp12.i, label %_ZN12_GLOBAL__N_120OnThreadExitInternalEPv.exit, label %while.cond.i, !llvm.loop !7

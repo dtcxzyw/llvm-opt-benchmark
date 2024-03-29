@@ -2395,8 +2395,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl8LogEntry6prefixEv(pt
 entry:
   %prefix_ = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i8, ptr %prefix_, align 4
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -10835,9 +10834,8 @@ invoke.cont:                                      ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i)
   %9 = load ptr, ptr %stream_.i, align 8
   %10 = load i8, ptr %value, align 1
-  %11 = and i8 %10, 1
-  %tobool.not.i.i = icmp eq i8 %11, 0
-  %cond.i.i.i = select i1 %tobool.not.i.i, ptr @.str.32, ptr @.str.31
+  %tobool.i.i = trunc i8 %10 to i1
+  %cond.i.i.i = select i1 %tobool.i.i, ptr @.str.31, ptr @.str.32
   %call.i.i.i14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %cond.i.i.i)
           to label %invoke.cont4 unwind label %lpad
 
@@ -10856,8 +10854,8 @@ _ZN7testing8internal18IsReadableTypeNameERKNSt7__cxx1112basic_stringIcSt11char_t
   br i1 %cmp2.i, label %if.then7, label %if.end16
 
 if.then7:                                         ; preds = %invoke.cont5, %_ZN7testing8internal18IsReadableTypeNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %12 = load ptr, ptr %stream_.i, align 8
-  %call11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.27)
+  %11 = load ptr, ptr %stream_.i, align 8
+  %call11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.27)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %if.then7
@@ -10869,12 +10867,12 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %if.end16 unwind label %lpad9
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont, %if.end.i, %if.else.i, %if.end
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup22
 
 lpad9:                                            ; preds = %if.end16, %invoke.cont12, %invoke.cont10, %if.then7
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -10883,14 +10881,14 @@ if.end16:                                         ; preds = %invoke.cont12, %_ZN
           to label %invoke.cont18 unwind label %lpad9
 
 invoke.cont18:                                    ; preds = %if.end16
-  %15 = load ptr, ptr %stream_.i, align 8
+  %14 = load ptr, ptr %stream_.i, align 8
   %call.i21 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #20
-  %cmp.i22 = icmp eq ptr %15, null
+  %cmp.i22 = icmp eq ptr %14, null
   %or.cond.not.i = or i1 %cmp.i22, %call.i21
   br i1 %or.cond.not.i, label %invoke.cont21, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont18
-  %call1.i2325 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.30)
+  %call1.i2325 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.30)
           to label %call1.i23.noexc unwind label %lpad20
 
 call1.i23.noexc:                                  ; preds = %if.then.i
@@ -10905,18 +10903,18 @@ invoke.cont21:                                    ; preds = %invoke.cont18, %cal
   br label %return
 
 lpad20:                                           ; preds = %call1.i23.noexc, %if.then.i
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #20
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad20, %lpad9
-  %.pn = phi { ptr, i32 } [ %16, %lpad20 ], [ %14, %lpad9 ]
+  %.pn = phi { ptr, i32 } [ %15, %lpad20 ], [ %13, %lpad9 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   br label %ehcleanup22
 
 ehcleanup22:                                      ; preds = %lpad, %lpad.i, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %13, %lpad ], [ %6, %lpad.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %12, %lpad ], [ %6, %lpad.i ]
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, i32 0, i64 2), ptr %inner_listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #20
   br label %common.resume
@@ -13366,8 +13364,8 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %"_ZNK7testing8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0E15MatchAndExplainIKNS2_4TimeEEEbRT_PNS_19MatchResultListenerE.exit"
 
 "_ZNK7testing8internal12TrulyMatcherIZN4absl12log_internal22TimestampInMatchWindowEvE3$_0E15MatchAndExplainIKNS2_4TimeEEEbRT_PNS_19MatchResultListenerE.exit": ; preds = %cond.true.i.i.i.i.i, %cond.true13.i.i.i.i.i, %"_ZZN4absl12log_internal22TimestampInMatchWindowEvENK3$_0clENS_4TimeE.exit.i", %if.end.i, %if.then.i.i
-  %cond27.i.i.i.i1.i = phi i1 [ true, %cond.true.i.i.i.i.i ], [ false, %if.then.i.i ], [ false, %if.end.i ], [ true, %"_ZZN4absl12log_internal22TimestampInMatchWindowEvENK3$_0clENS_4TimeE.exit.i" ], [ true, %cond.true13.i.i.i.i.i ]
-  ret i1 %cond27.i.i.i.i1.i
+  %lnot.i.i.i = phi i1 [ true, %cond.true.i.i.i.i.i ], [ false, %if.then.i.i ], [ false, %if.end.i ], [ true, %"_ZZN4absl12log_internal22TimestampInMatchWindowEvENK3$_0clENS_4TimeE.exit.i" ], [ true, %cond.true13.i.i.i.i.i ]
+  ret i1 %lnot.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

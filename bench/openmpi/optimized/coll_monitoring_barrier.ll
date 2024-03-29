@@ -57,9 +57,8 @@ define i32 @mca_coll_monitoring_barrier(ptr noundef %0, ptr nocapture noundef re
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
-  %33 = and i8 %32, 1
-  %.not.i.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not.i.i.i.i, label %36, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
   %35 = atomicrmw volatile add ptr %31, i32 1 monotonic, align 4
@@ -181,9 +180,8 @@ define i32 @mca_coll_monitoring_ibarrier(ptr noundef %0, ptr noundef %1, ptr noc
 31:                                               ; preds = %21
   %32 = getelementptr inbounds i8, ptr %25, i64 8
   %33 = load i8, ptr @opal_uses_threads, align 1
-  %34 = and i8 %33, 1
-  %.not.i.i.i.i = icmp eq i8 %34, 0
-  br i1 %.not.i.i.i.i, label %37, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %31
   %36 = atomicrmw volatile add ptr %32, i32 1 monotonic, align 4

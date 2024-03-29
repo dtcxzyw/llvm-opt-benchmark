@@ -68,9 +68,8 @@ define noundef i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, ptr nound
 
 11:                                               ; preds = %6, %6, %6, %6
   %12 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 19), align 8
-  %13 = and i8 %12, 1
-  %.not257 = icmp eq i8 %13, 0
-  br i1 %.not257, label %16, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %10, align 8
@@ -78,9 +77,9 @@ define noundef i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, ptr nound
   br label %16
 
 16:                                               ; preds = %14, %11
-  %.not258 = icmp eq ptr %1, null
+  %.not256 = icmp eq ptr %1, null
   %17 = getelementptr inbounds i8, ptr %1, i64 24
-  %18 = select i1 %.not258, ptr null, ptr %17
+  %18 = select i1 %.not256, ptr null, ptr %17
   store ptr %18, ptr %10, align 8
   store i8 0, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 19), align 8
   br label %163
@@ -98,23 +97,23 @@ define noundef i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, ptr nound
 23:                                               ; preds = %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %24 = tail call noalias ptr @_estrdup(ptr noundef nonnull %21) #16
-  %.not236264 = icmp eq ptr %24, null
-  br i1 %.not236264, label %.critedge, label %.lr.ph
+  %.not236262 = icmp eq ptr %24, null
+  br i1 %.not236262, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
   %25 = getelementptr inbounds i8, ptr %7, i64 8
   br label %26
 
 26:                                               ; preds = %.lr.ph, %84
-  %.0214265 = phi ptr [ %24, %.lr.ph ], [ %.0213, %84 ]
-  %27 = load i8, ptr %.0214265, align 1
+  %.0214263 = phi ptr [ %24, %.lr.ph ], [ %.0213, %84 ]
+  %27 = load i8, ptr %.0214263, align 1
   %.not237 = icmp eq i8 %27, 0
   br i1 %.not237, label %.critedge, label %28
 
 28:                                               ; preds = %26
-  %29 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0214265, i32 noundef 58) #17
-  %.not245 = icmp eq ptr %29, null
-  br i1 %.not245, label %32, label %30
+  %29 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0214263, i32 noundef 58) #17
+  %.not244 = icmp eq ptr %29, null
+  br i1 %.not244, label %32, label %30
 
 30:                                               ; preds = %28
   store i8 0, ptr %29, align 1
@@ -123,22 +122,22 @@ define noundef i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, ptr nound
 
 32:                                               ; preds = %30, %28
   %.0213 = phi ptr [ %31, %30 ], [ null, %28 ]
-  %33 = call ptr @expand_filepath_with_mode(ptr noundef nonnull %.0214265, ptr noundef nonnull %8, ptr noundef null, i64 noundef 0, i32 noundef 1)
+  %33 = call ptr @expand_filepath_with_mode(ptr noundef nonnull %.0214263, ptr noundef nonnull %8, ptr noundef null, i64 noundef 0, i32 noundef 1)
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %47
 
 35:                                               ; preds = %32
   call void @_efree(ptr noundef nonnull %24) #16
   %36 = load ptr, ptr %7, align 8
-  %.not255 = icmp eq ptr %36, null
-  br i1 %.not255, label %163, label %37
+  %.not254 = icmp eq ptr %36, null
+  br i1 %.not254, label %163, label %37
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 64
-  %.not256 = icmp eq i32 %40, 0
-  br i1 %.not256, label %41, label %163
+  %.not255 = icmp eq i32 %40, 0
+  br i1 %.not255, label %41, label %163
 
 41:                                               ; preds = %37
   %42 = load i32, ptr %36, align 4
@@ -155,21 +154,21 @@ define noundef i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, ptr nound
 
 47:                                               ; preds = %32
   %48 = call i32 @php_check_open_basedir_ex(ptr noundef nonnull %8, i32 noundef 0), !range !4
-  %.not246 = icmp eq i32 %48, 0
-  br i1 %.not246, label %61, label %49
+  %.not245 = icmp eq i32 %48, 0
+  br i1 %.not245, label %61, label %49
 
 49:                                               ; preds = %47
   call void @_efree(ptr noundef nonnull %24) #16
   %50 = load ptr, ptr %7, align 8
-  %.not253 = icmp eq ptr %50, null
-  br i1 %.not253, label %163, label %51
+  %.not252 = icmp eq ptr %50, null
+  br i1 %.not252, label %163, label %51
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds i8, ptr %50, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 64
-  %.not254 = icmp eq i32 %54, 0
-  br i1 %.not254, label %55, label %163
+  %.not253 = icmp eq i32 %54, 0
+  br i1 %.not253, label %55, label %163
 
 55:                                               ; preds = %51
   %56 = load i32, ptr %50, align 4
@@ -186,31 +185,31 @@ define noundef i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, ptr nound
 
 61:                                               ; preds = %47
   %62 = load ptr, ptr %7, align 8
-  %.not247 = icmp eq ptr %62, null
-  br i1 %.not247, label %.thread260, label %64
+  %.not246 = icmp eq ptr %62, null
+  br i1 %.not246, label %.thread258, label %64
 
-.thread260:                                       ; preds = %61
+.thread258:                                       ; preds = %61
   %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
   br label %82
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds i8, ptr %62, i64 16
   %66 = load i64, ptr %65, align 8
-  %.not248 = icmp eq i64 %66, 0
-  br i1 %.not248, label %76, label %67
+  %.not247 = icmp eq i64 %66, 0
+  br i1 %.not247, label %76, label %67
 
 67:                                               ; preds = %64
   %68 = add i64 %66, 1
   %69 = load i64, ptr %25, align 8
-  %.not250 = icmp ult i64 %68, %69
-  br i1 %.not250, label %.thread262, label %70
+  %.not249 = icmp ult i64 %68, %69
+  br i1 %.not249, label %.thread260, label %70
 
 70:                                               ; preds = %67
   call void @smart_str_erealloc(ptr noundef nonnull %7, i64 noundef %68) #16
   %.pre = load ptr, ptr %7, align 8
-  br label %.thread262
+  br label %.thread260
 
-.thread262:                                       ; preds = %67, %70
+.thread260:                                       ; preds = %67, %70
   %71 = phi ptr [ %62, %67 ], [ %.pre, %70 ]
   %72 = getelementptr inbounds i8, ptr %71, i64 24
   %73 = getelementptr inbounds [1 x i8], ptr %72, i64 0, i64 %66
@@ -220,27 +219,27 @@ define noundef i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, ptr nound
   store i64 %68, ptr %75, align 8
   br label %76
 
-76:                                               ; preds = %64, %.thread262
-  %77 = phi i64 [ %68, %.thread262 ], [ 0, %64 ]
-  %78 = phi ptr [ %74, %.thread262 ], [ %62, %64 ]
+76:                                               ; preds = %64, %.thread260
+  %77 = phi i64 [ %68, %.thread260 ], [ 0, %64 ]
+  %78 = phi ptr [ %74, %.thread260 ], [ %62, %64 ]
   %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
   %80 = add i64 %77, %79
   %81 = load i64, ptr %25, align 8
-  %.not252 = icmp ult i64 %80, %81
-  br i1 %.not252, label %84, label %82
+  %.not251 = icmp ult i64 %80, %81
+  br i1 %.not251, label %84, label %82
 
-82:                                               ; preds = %.thread260, %76
-  %83 = phi i64 [ %79, %76 ], [ %63, %.thread260 ]
-  %.0216 = phi i64 [ %80, %76 ], [ %63, %.thread260 ]
+82:                                               ; preds = %.thread258, %76
+  %83 = phi i64 [ %79, %76 ], [ %63, %.thread258 ]
+  %.0216 = phi i64 [ %80, %76 ], [ %63, %.thread258 ]
   call void @smart_str_erealloc(ptr noundef nonnull %7, i64 noundef %.0216) #16
-  %.pre267 = load ptr, ptr %7, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre267, i64 16
-  %.pre268 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre265 = load ptr, ptr %7, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre265, i64 16
+  %.pre266 = load i64, ptr %.phi.trans.insert, align 8
   br label %84
 
 84:                                               ; preds = %82, %76
-  %85 = phi i64 [ %.pre268, %82 ], [ %77, %76 ]
-  %86 = phi ptr [ %.pre267, %82 ], [ %78, %76 ]
+  %85 = phi i64 [ %.pre266, %82 ], [ %77, %76 ]
+  %86 = phi ptr [ %.pre265, %82 ], [ %78, %76 ]
   %87 = phi i64 [ %83, %82 ], [ %79, %76 ]
   %.1 = phi i64 [ %.0216, %82 ], [ %80, %76 ]
   %88 = getelementptr inbounds i8, ptr %86, i64 24
@@ -351,9 +350,8 @@ define noundef i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, ptr nound
   %144 = getelementptr inbounds i8, ptr %.0215, i64 24
   %145 = call noalias ptr @_estrdup(ptr noundef nonnull %144) #16
   %146 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 19), align 8
-  %147 = and i8 %146, 1
-  %.not242 = icmp eq i8 %147, 0
-  br i1 %.not242, label %150, label %148
+  %147 = trunc i8 %146 to i1
+  br i1 %147, label %148, label %150
 
 148:                                              ; preds = %143
   %149 = load ptr, ptr %10, align 8
@@ -366,8 +364,8 @@ define noundef i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, ptr nound
   %151 = getelementptr inbounds i8, ptr %.0215, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = and i32 %152, 64
-  %.not243 = icmp eq i32 %153, 0
-  br i1 %.not243, label %154, label %163
+  %.not242 = icmp eq i32 %153, 0
+  br i1 %.not242, label %154, label %163
 
 154:                                              ; preds = %150
   %155 = load i32, ptr %.0215, align 4
@@ -380,8 +378,8 @@ define noundef i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, ptr nound
 
 159:                                              ; preds = %154
   %160 = and i32 %152, 128
-  %.not244 = icmp eq i32 %160, 0
-  br i1 %.not244, label %162, label %161
+  %.not243 = icmp eq i32 %160, 0
+  br i1 %.not243, label %162, label %161
 
 161:                                              ; preds = %159
   call void @free(ptr noundef nonnull %.0215) #16

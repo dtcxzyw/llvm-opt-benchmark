@@ -396,12 +396,11 @@ define dso_local zeroext i1 @restriction_is_securely_promotable(ptr nocapture no
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 21
   %9 = load i8, ptr %8, align 1
-  %10 = and i8 %9, 1
-  %.not4 = icmp ne i8 %10, 0
+  %10 = trunc i8 %9 to i1
   br label %11
 
 11:                                               ; preds = %7, %2
-  %.0 = phi i1 [ true, %2 ], [ %.not4, %7 ]
+  %.0 = phi i1 [ true, %2 ], [ %10, %7 ]
   ret i1 %.0
 }
 
@@ -451,55 +450,53 @@ define dso_local ptr @extract_actual_clauses(ptr noundef readonly %0, i1 noundef
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph24, label %._crit_edge
 
-.lr.ph24:                                         ; preds = %.lr.ph, %27
-  %7 = phi i32 [ %28, %27 ], [ %5, %.lr.ph ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.lr.ph ]
-  %.01822 = phi ptr [ %.1, %27 ], [ null, %.lr.ph ]
+.lr.ph24:                                         ; preds = %.lr.ph, %26
+  %7 = phi i32 [ %27, %26 ], [ %5, %.lr.ph ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.lr.ph ]
+  %.01822 = phi ptr [ %.1, %26 ], [ null, %.lr.ph ]
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr %union.ListCell, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 18
   %12 = load i8, ptr %11, align 2
-  %13 = and i8 %12, 1
-  %14 = icmp eq i8 %13, 0
-  %15 = xor i1 %14, %1
-  br i1 %15, label %16, label %27
+  %13 = trunc i8 %12 to i1
+  %14 = xor i1 %13, %1
+  br i1 %14, label %26, label %15
 
-16:                                               ; preds = %.lr.ph24
-  %17 = getelementptr i8, ptr %10, i64 8
-  %.val = load ptr, ptr %17, align 8
-  %18 = load i32, ptr %.val, align 4
-  %19 = icmp eq i32 %18, 7
-  br i1 %19, label %20, label %rinfo_is_constant_true.exit.thread
+15:                                               ; preds = %.lr.ph24
+  %16 = getelementptr i8, ptr %10, i64 8
+  %.val = load ptr, ptr %16, align 8
+  %17 = load i32, ptr %.val, align 4
+  %18 = icmp eq i32 %17, 7
+  br i1 %18, label %19, label %rinfo_is_constant_true.exit.thread
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %.val, i64 32
-  %22 = load i8, ptr %21, align 8
-  %23 = and i8 %22, 1
-  %.not.i = icmp eq i8 %23, 0
-  br i1 %.not.i, label %rinfo_is_constant_true.exit, label %rinfo_is_constant_true.exit.thread
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds i8, ptr %.val, i64 32
+  %21 = load i8, ptr %20, align 8
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %rinfo_is_constant_true.exit.thread, label %rinfo_is_constant_true.exit
 
-rinfo_is_constant_true.exit:                      ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %.val, i64 24
-  %25 = load i64, ptr %24, align 8
-  %.not16 = icmp eq i64 %25, 0
-  br i1 %.not16, label %rinfo_is_constant_true.exit.thread, label %27
+rinfo_is_constant_true.exit:                      ; preds = %19
+  %23 = getelementptr inbounds i8, ptr %.val, i64 24
+  %24 = load i64, ptr %23, align 8
+  %.not16 = icmp eq i64 %24, 0
+  br i1 %.not16, label %rinfo_is_constant_true.exit.thread, label %26
 
-rinfo_is_constant_true.exit.thread:               ; preds = %16, %20, %rinfo_is_constant_true.exit
-  %26 = tail call ptr @lappend(ptr noundef %.01822, ptr noundef nonnull %.val) #5
+rinfo_is_constant_true.exit.thread:               ; preds = %15, %19, %rinfo_is_constant_true.exit
+  %25 = tail call ptr @lappend(ptr noundef %.01822, ptr noundef nonnull %.val) #5
   %.pre = load i32, ptr %3, align 4
-  br label %27
+  br label %26
 
-27:                                               ; preds = %.lr.ph24, %rinfo_is_constant_true.exit, %rinfo_is_constant_true.exit.thread
-  %28 = phi i32 [ %7, %rinfo_is_constant_true.exit ], [ %.pre, %rinfo_is_constant_true.exit.thread ], [ %7, %.lr.ph24 ]
-  %.1 = phi ptr [ %.01822, %rinfo_is_constant_true.exit ], [ %26, %rinfo_is_constant_true.exit.thread ], [ %.01822, %.lr.ph24 ]
+26:                                               ; preds = %.lr.ph24, %rinfo_is_constant_true.exit, %rinfo_is_constant_true.exit.thread
+  %27 = phi i32 [ %7, %rinfo_is_constant_true.exit ], [ %.pre, %rinfo_is_constant_true.exit.thread ], [ %7, %.lr.ph24 ]
+  %.1 = phi ptr [ %.01822, %rinfo_is_constant_true.exit ], [ %25, %rinfo_is_constant_true.exit.thread ], [ %.01822, %.lr.ph24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = sext i32 %28 to i64
-  %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %.lr.ph24, label %._crit_edge
+  %28 = sext i32 %27 to i64
+  %29 = icmp slt i64 %indvars.iv.next, %28
+  br i1 %29, label %.lr.ph24, label %._crit_edge
 
-._crit_edge:                                      ; preds = %27, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ %.1, %27 ]
+._crit_edge:                                      ; preds = %26, %.lr.ph, %2
+  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ %.1, %26 ]
   ret ptr %.0.lcssa
 }
 
@@ -515,51 +512,48 @@ define dso_local void @extract_actual_join_clauses(ptr noundef readonly %0, ptr 
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %5, align 4
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph37, label %._crit_edge
+  br i1 %8, label %.lr.ph31, label %._crit_edge
 
-.lr.ph37:                                         ; preds = %.lr.ph, %45
-  %indvars.iv36 = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph ]
+.lr.ph31:                                         ; preds = %.lr.ph, %45
+  %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv36
+  %10 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not22 = icmp eq i8 %14, 0
-  br i1 %.not22, label %15, label %19
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %19, label %15
 
-15:                                               ; preds = %.lr.ph37
+15:                                               ; preds = %.lr.ph31
   %16 = getelementptr inbounds i8, ptr %11, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @bms_is_subset(ptr noundef %17, ptr noundef %1) #5
   br i1 %18, label %33, label %19
 
-19:                                               ; preds = %15, %.lr.ph37
+19:                                               ; preds = %15, %.lr.ph31
   %20 = getelementptr inbounds i8, ptr %11, i64 18
   %21 = load i8, ptr %20, align 2
-  %22 = and i8 %21, 1
-  %.not23 = icmp eq i8 %22, 0
-  br i1 %.not23, label %23, label %45
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %45, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr i8, ptr %11, i64 8
-  %.val24 = load ptr, ptr %24, align 8
-  %25 = load i32, ptr %.val24, align 4
+  %.val22 = load ptr, ptr %24, align 8
+  %25 = load i32, ptr %.val22, align 4
   %26 = icmp eq i32 %25, 7
   br i1 %26, label %27, label %.sink.split
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %.val24, i64 32
+  %28 = getelementptr inbounds i8, ptr %.val22, i64 32
   %29 = load i8, ptr %28, align 8
-  %30 = and i8 %29, 1
-  %.not.i = icmp eq i8 %30, 0
-  br i1 %.not.i, label %rinfo_is_constant_true.exit, label %.sink.split
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %.sink.split, label %rinfo_is_constant_true.exit
 
 rinfo_is_constant_true.exit:                      ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.val24, i64 24
+  %31 = getelementptr inbounds i8, ptr %.val22, i64 24
   %32 = load i64, ptr %31, align 8
-  %.not29 = icmp eq i64 %32, 0
-  br i1 %.not29, label %.sink.split, label %45
+  %.not27 = icmp eq i64 %32, 0
+  br i1 %.not27, label %.sink.split, label %45
 
 33:                                               ; preds = %15
   %34 = getelementptr i8, ptr %11, i64 8
@@ -571,30 +565,29 @@ rinfo_is_constant_true.exit:                      ; preds = %27
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %.val, i64 32
   %39 = load i8, ptr %38, align 8
-  %40 = and i8 %39, 1
-  %.not.i25 = icmp eq i8 %40, 0
-  br i1 %.not.i25, label %rinfo_is_constant_true.exit26, label %.sink.split
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %.sink.split, label %rinfo_is_constant_true.exit23
 
-rinfo_is_constant_true.exit26:                    ; preds = %37
+rinfo_is_constant_true.exit23:                    ; preds = %37
   %41 = getelementptr inbounds i8, ptr %.val, i64 24
   %42 = load i64, ptr %41, align 8
-  %.not30 = icmp eq i64 %42, 0
-  br i1 %.not30, label %.sink.split, label %45
+  %.not26 = icmp eq i64 %42, 0
+  br i1 %.not26, label %.sink.split, label %45
 
-.sink.split:                                      ; preds = %rinfo_is_constant_true.exit26, %37, %33, %rinfo_is_constant_true.exit, %27, %23
-  %.sink = phi ptr [ %3, %23 ], [ %3, %27 ], [ %3, %rinfo_is_constant_true.exit ], [ %2, %33 ], [ %2, %37 ], [ %2, %rinfo_is_constant_true.exit26 ]
-  %.val24.sink = phi ptr [ %.val24, %23 ], [ %.val24, %27 ], [ %.val24, %rinfo_is_constant_true.exit ], [ %.val, %33 ], [ %.val, %37 ], [ %.val, %rinfo_is_constant_true.exit26 ]
+.sink.split:                                      ; preds = %rinfo_is_constant_true.exit23, %37, %33, %rinfo_is_constant_true.exit, %27, %23
+  %.sink = phi ptr [ %3, %23 ], [ %3, %27 ], [ %3, %rinfo_is_constant_true.exit ], [ %2, %33 ], [ %2, %37 ], [ %2, %rinfo_is_constant_true.exit23 ]
+  %.val22.sink = phi ptr [ %.val22, %23 ], [ %.val22, %27 ], [ %.val22, %rinfo_is_constant_true.exit ], [ %.val, %33 ], [ %.val, %37 ], [ %.val, %rinfo_is_constant_true.exit23 ]
   %43 = load ptr, ptr %.sink, align 8
-  %44 = tail call ptr @lappend(ptr noundef %43, ptr noundef nonnull %.val24.sink) #5
+  %44 = tail call ptr @lappend(ptr noundef %43, ptr noundef nonnull %.val22.sink) #5
   store ptr %44, ptr %.sink, align 8
   br label %45
 
-45:                                               ; preds = %.sink.split, %rinfo_is_constant_true.exit, %19, %rinfo_is_constant_true.exit26
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv36, 1
+45:                                               ; preds = %.sink.split, %rinfo_is_constant_true.exit, %19, %rinfo_is_constant_true.exit23
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %5, align 4
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph37, label %._crit_edge
+  br i1 %48, label %.lr.ph31, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %45, %.lr.ph, %4
   ret void
@@ -635,12 +628,12 @@ define dso_local zeroext i1 @join_clause_is_movable_to(ptr nocapture noundef rea
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %0, i64 20
   %25 = load i8, ptr %24, align 4
-  %26 = and i8 %25, 1
-  %.not = icmp eq i8 %26, 0
+  %26 = trunc i8 %25 to i1
+  %not. = xor i1 %26, true
   br label %27
 
 27:                                               ; preds = %23, %18, %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %13 ], [ false, %18 ], [ %.not, %23 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %13 ], [ false, %18 ], [ %not., %23 ]
   ret i1 %.0
 }
 

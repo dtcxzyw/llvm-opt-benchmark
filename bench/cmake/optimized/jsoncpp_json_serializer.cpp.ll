@@ -328,9 +328,8 @@ define dso_local void @_ZN3dap4json19JsonCppDeserializerD2Ev(ptr nocapture nound
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap4json19JsonCppDeserializerE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %10, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -355,9 +354,8 @@ define dso_local void @_ZN3dap4json19JsonCppDeserializerD0Ev(ptr noundef nonnull
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap4json19JsonCppDeserializerE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %_ZN3dap4json19JsonCppDeserializerD2Ev.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZN3dap4json19JsonCppDeserializerD2Ev.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -577,9 +575,8 @@ _ZN3dap3anyD2Ev.exit:                             ; preds = %44, %.noexc.i, %52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap4json19JsonCppDeserializerE, i64 0, i32 0, i64 2), ptr %5, align 8
   %56 = load i8, ptr %30, align 8
-  %57 = and i8 %56, 1
-  %.not.i = icmp eq i8 %57, 0
-  br i1 %.not.i, label %_ZN3dap4json19JsonCppDeserializerD2Ev.exit, label %58
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %_ZN3dap4json19JsonCppDeserializerD2Ev.exit
 
 58:                                               ; preds = %_ZN3dap3anyD2Ev.exit
   %59 = load ptr, ptr %29, align 8
@@ -1632,9 +1629,8 @@ define dso_local noundef zeroext i1 @_ZNK3dap4json19JsonCppDeserializer5arrayERK
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap4json19JsonCppDeserializerE, i64 0, i32 0, i64 2), ptr %6, align 8
   %34 = load i8, ptr %22, align 8
-  %35 = and i8 %34, 1
-  %.not.i = icmp eq i8 %35, 0
-  br i1 %.not.i, label %_ZN3dap4json19JsonCppDeserializerD2Ev.exit, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %_ZN3dap4json19JsonCppDeserializerD2Ev.exit
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %21, align 8
@@ -1728,9 +1724,8 @@ _ZNKSt8functionIFbPN3dap12DeserializerEEEclES2_.exit: ; preds = %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap4json19JsonCppDeserializerE, i64 0, i32 0, i64 2), ptr %6, align 8
   %36 = load i8, ptr %27, align 8
-  %37 = and i8 %36, 1
-  %.not.i = icmp eq i8 %37, 0
-  br i1 %.not.i, label %_ZN3dap4json19JsonCppDeserializerD2Ev.exit, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %_ZN3dap4json19JsonCppDeserializerD2Ev.exit
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr %26, align 8
@@ -1816,9 +1811,8 @@ define dso_local void @_ZN3dap4json17JsonCppSerializerD2Ev(ptr nocapture noundef
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap4json17JsonCppSerializerE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %10, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1840,9 +1834,8 @@ define dso_local void @_ZN3dap4json17JsonCppSerializerD0Ev(ptr noundef nonnull a
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap4json17JsonCppSerializerE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %_ZN3dap4json17JsonCppSerializerD2Ev.exit, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %_ZN3dap4json17JsonCppSerializerD2Ev.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1890,12 +1883,11 @@ declare void @_ZN4Json19StreamWriterBuilderD1Ev(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3dap4json17JsonCppSerializer9serializeENS_7booleanE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %0, i8 %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.Json::Value", align 8
-  %4 = and i8 %1, 1
-  %5 = icmp ne i8 %4, 0
-  call void @_ZN4Json5ValueC1Eb(ptr noundef nonnull align 8 dereferenceable(40) %3, i1 noundef zeroext %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %3) #21
+  %4 = trunc i8 %1 to i1
+  call void @_ZN4Json5ValueC1Eb(ptr noundef nonnull align 8 dereferenceable(40) %3, i1 noundef zeroext %4)
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %3) #21
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #21
   ret i1 true
 }
@@ -1994,9 +1986,8 @@ define dso_local noundef zeroext i1 @_ZN3dap4json17JsonCppSerializer9serializeER
 25:                                               ; preds = %17
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap4json17JsonCppSerializerE, i64 0, i32 0, i64 2), ptr %4, align 8
   %26 = load i8, ptr %14, align 8
-  %27 = and i8 %26, 1
-  %.not.i = icmp eq i8 %27, 0
-  br i1 %.not.i, label %_ZN3dap4json17JsonCppSerializerD2Ev.exit, label %28
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %_ZN3dap4json17JsonCppSerializerD2Ev.exit
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %13, align 8
@@ -2027,99 +2018,98 @@ define dso_local noundef zeroext i1 @_ZN3dap4json17JsonCppSerializer9serializeER
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr @_ZN3dap6TypeOfINS_7booleanEE4typeEv()
   %10 = icmp eq ptr %8, %9
-  br i1 %10, label %11, label %19
+  br i1 %10, label %11, label %18
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %1, align 8
   %13 = load i8, ptr %12, align 1
-  %14 = and i8 %13, 1
-  %15 = icmp ne i8 %14, 0
-  call void @_ZN4Json5ValueC1Eb(ptr noundef nonnull align 8 dereferenceable(40) %3, i1 noundef zeroext %15)
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %3) #21
+  %14 = trunc i8 %13 to i1
+  call void @_ZN4Json5ValueC1Eb(ptr noundef nonnull align 8 dereferenceable(40) %3, i1 noundef zeroext %14)
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %3) #21
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #21
-  br label %67
+  br label %66
 
-19:                                               ; preds = %2
-  %20 = load ptr, ptr %7, align 8
-  %21 = tail call noundef ptr @_ZN3dap6TypeOfINS_7integerEE4typeEv()
-  %22 = icmp eq ptr %20, %21
-  br i1 %22, label %23, label %29
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %7, align 8
+  %20 = tail call noundef ptr @_ZN3dap6TypeOfINS_7integerEE4typeEv()
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %22, label %28
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %1, align 8
-  %25 = load i64, ptr %24, align 8
-  call void @_ZN4Json5ValueC1El(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef %25)
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %4) #21
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %1, align 8
+  %24 = load i64, ptr %23, align 8
+  call void @_ZN4Json5ValueC1El(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef %24)
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %4) #21
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #21
-  br label %67
+  br label %66
 
-29:                                               ; preds = %19
-  %30 = load ptr, ptr %7, align 8
-  %31 = tail call noundef ptr @_ZN3dap6TypeOfINS_6numberEE4typeEv()
-  %32 = icmp eq ptr %30, %31
-  br i1 %32, label %33, label %39
+28:                                               ; preds = %18
+  %29 = load ptr, ptr %7, align 8
+  %30 = tail call noundef ptr @_ZN3dap6TypeOfINS_6numberEE4typeEv()
+  %31 = icmp eq ptr %29, %30
+  br i1 %31, label %32, label %38
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %1, align 8
-  %35 = load double, ptr %34, align 8
-  call void @_ZN4Json5ValueC1Ed(ptr noundef nonnull align 8 dereferenceable(40) %5, double noundef %35)
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %5) #21
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %1, align 8
+  %34 = load double, ptr %33, align 8
+  call void @_ZN4Json5ValueC1Ed(ptr noundef nonnull align 8 dereferenceable(40) %5, double noundef %34)
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %5) #21
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #21
-  br label %67
+  br label %66
 
-39:                                               ; preds = %29
-  %40 = load ptr, ptr %7, align 8
-  %41 = tail call noundef ptr @_ZN3dap6TypeOfINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4typeEv()
-  %42 = icmp eq ptr %40, %41
-  br i1 %42, label %43, label %48
+38:                                               ; preds = %28
+  %39 = load ptr, ptr %7, align 8
+  %40 = tail call noundef ptr @_ZN3dap6TypeOfINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4typeEv()
+  %41 = icmp eq ptr %39, %40
+  br i1 %41, label %42, label %47
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %1, align 8
-  call void @_ZN4Json5ValueC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(32) %44)
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %6) #21
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %1, align 8
+  call void @_ZN4Json5ValueC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(32) %43)
+  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %6) #21
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #21
-  br label %67
+  br label %66
 
-48:                                               ; preds = %39
-  %49 = load ptr, ptr %7, align 8
-  %50 = tail call noundef ptr @_ZN3dap6TypeOfISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3anyESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEEE4typeEv()
-  %51 = icmp eq ptr %49, %50
-  %52 = load ptr, ptr %1, align 8
-  br i1 %51, label %53, label %58
+47:                                               ; preds = %38
+  %48 = load ptr, ptr %7, align 8
+  %49 = tail call noundef ptr @_ZN3dap6TypeOfISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3anyESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEEE4typeEv()
+  %50 = icmp eq ptr %48, %49
+  %51 = load ptr, ptr %1, align 8
+  br i1 %50, label %52, label %57
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 48
-  %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull align 8 dereferenceable(56) %52)
-  br label %67
+52:                                               ; preds = %47
+  %53 = load ptr, ptr %0, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 48
+  %55 = load ptr, ptr %54, align 8
+  %56 = tail call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull align 8 dereferenceable(56) %51)
+  br label %66
 
-58:                                               ; preds = %48
-  %59 = icmp eq ptr %52, null
-  br i1 %59, label %67, label %60
+57:                                               ; preds = %47
+  %58 = icmp eq ptr %51, null
+  br i1 %58, label %66, label %59
 
-60:                                               ; preds = %58
-  %61 = load ptr, ptr %7, align 8
-  %.not = icmp eq ptr %61, null
-  br i1 %.not, label %67, label %62
+59:                                               ; preds = %57
+  %60 = load ptr, ptr %7, align 8
+  %.not = icmp eq ptr %60, null
+  br i1 %.not, label %66, label %61
 
-62:                                               ; preds = %60
-  %63 = load ptr, ptr %61, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 72
-  %65 = load ptr, ptr %64, align 8
-  %66 = tail call noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull %0, ptr noundef nonnull %52)
-  br label %67
+61:                                               ; preds = %59
+  %62 = load ptr, ptr %60, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 72
+  %64 = load ptr, ptr %63, align 8
+  %65 = tail call noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull %0, ptr noundef nonnull %51)
+  br label %66
 
-67:                                               ; preds = %11, %33, %58, %43, %23, %60, %62, %53
-  %.0 = phi i1 [ %57, %53 ], [ %66, %62 ], [ false, %60 ], [ true, %23 ], [ true, %43 ], [ true, %58 ], [ true, %33 ], [ true, %11 ]
+66:                                               ; preds = %11, %32, %57, %42, %22, %59, %61, %52
+  %.0 = phi i1 [ %56, %52 ], [ %65, %61 ], [ false, %59 ], [ true, %22 ], [ true, %42 ], [ true, %57 ], [ true, %32 ], [ true, %11 ]
   ret i1 %.0
 }
 
@@ -2197,9 +2187,8 @@ define dso_local noundef zeroext i1 @_ZN3dap4json17JsonCppSerializer5arrayEmRKSt
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap4json17JsonCppSerializerE, i64 0, i32 0, i64 2), ptr %6, align 8
   %31 = load i8, ptr %12, align 8
-  %32 = and i8 %31, 1
-  %.not.i = icmp eq i8 %32, 0
-  br i1 %.not.i, label %_ZN3dap4json17JsonCppSerializerD2Ev.exit, label %33
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %_ZN3dap4json17JsonCppSerializerD2Ev.exit
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %11, align 8
@@ -2468,9 +2457,8 @@ define internal noundef zeroext i1 @_ZZN3dap4json17JsonCppSerializer6objectERKSt
 19:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %20 = load i8, ptr %11, align 1
-  %21 = and i8 %20, 1
-  %.not = icmp eq i8 %21, 0
-  br i1 %.not, label %26, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %26
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %6, align 8
@@ -2486,9 +2474,8 @@ define internal noundef zeroext i1 @_ZZN3dap4json17JsonCppSerializer6objectERKSt
 26:                                               ; preds = %22, %19
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap4json17JsonCppSerializerE, i64 0, i32 0, i64 2), ptr %5, align 8
   %27 = load i8, ptr %10, align 8
-  %28 = and i8 %27, 1
-  %.not.i = icmp eq i8 %28, 0
-  br i1 %.not.i, label %_ZN3dap4json17JsonCppSerializerD2Ev.exit, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %_ZN3dap4json17JsonCppSerializerD2Ev.exit
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %9, align 8
@@ -2745,9 +2732,8 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIc
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = and i8 %14, 1
-  %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %31, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
   %17 = extractvalue { i8, i64 } %13, 1

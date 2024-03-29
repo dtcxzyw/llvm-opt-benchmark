@@ -1472,42 +1472,41 @@ invoke.cont326:                                   ; preds = %for.end325
   store i32 %or, ptr %pScene, align 8
   %noSkeletonMesh = getelementptr inbounds i8, ptr %this, i64 72
   %110 = load i8, ptr %noSkeletonMesh, align 8
-  %111 = and i8 %110, 1
-  %tobool334.not = icmp eq i8 %111, 0
-  br i1 %tobool334.not, label %if.then335, label %_ZNSt10unique_ptrI11aiAnimationSt14default_deleteIS0_EED2Ev.exit
+  %tobool334 = trunc i8 %110 to i1
+  br i1 %tobool334, label %_ZNSt10unique_ptrI11aiAnimationSt14default_deleteIS0_EED2Ev.exit, label %if.then335
 
 if.then335:                                       ; preds = %invoke.cont326
-  %112 = load ptr, ptr %mRootNode, align 8
-  invoke void @_ZN6Assimp19SkeletonMeshBuilderC1EP7aiSceneP6aiNodeb(ptr noundef nonnull align 8 dereferenceable(73) %maker, ptr noundef nonnull %pScene, ptr noundef %112, i1 noundef zeroext true)
+  %111 = load ptr, ptr %mRootNode, align 8
+  invoke void @_ZN6Assimp19SkeletonMeshBuilderC1EP7aiSceneP6aiNodeb(ptr noundef nonnull align 8 dereferenceable(73) %maker, ptr noundef nonnull %pScene, ptr noundef %111, i1 noundef zeroext true)
           to label %invoke.cont337 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont337:                                   ; preds = %if.then335
   %mBones.i = getelementptr inbounds i8, ptr %maker, i64 48
-  %113 = load ptr, ptr %mBones.i, align 8
-  %tobool.not.i.i.i.i245 = icmp eq ptr %113, null
+  %112 = load ptr, ptr %mBones.i, align 8
+  %tobool.not.i.i.i.i245 = icmp eq ptr %112, null
   br i1 %tobool.not.i.i.i.i245, label %_ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit.i, label %if.then.i.i.i.i246
 
 if.then.i.i.i.i246:                               ; preds = %invoke.cont337
-  call void @_ZdlPv(ptr noundef nonnull %113) #20
+  call void @_ZdlPv(ptr noundef nonnull %112) #20
   br label %_ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit.i:         ; preds = %if.then.i.i.i.i246, %invoke.cont337
   %mFaces.i = getelementptr inbounds i8, ptr %maker, i64 24
-  %114 = load ptr, ptr %mFaces.i, align 8
-  %tobool.not.i.i.i1.i = icmp eq ptr %114, null
+  %113 = load ptr, ptr %mFaces.i, align 8
+  %tobool.not.i.i.i1.i = icmp eq ptr %113, null
   br i1 %tobool.not.i.i.i1.i, label %_ZNSt6vectorIN6Assimp19SkeletonMeshBuilder4FaceESaIS2_EED2Ev.exit.i, label %if.then.i.i.i2.i
 
 if.then.i.i.i2.i:                                 ; preds = %_ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %114) #20
+  call void @_ZdlPv(ptr noundef nonnull %113) #20
   br label %_ZNSt6vectorIN6Assimp19SkeletonMeshBuilder4FaceESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN6Assimp19SkeletonMeshBuilder4FaceESaIS2_EED2Ev.exit.i: ; preds = %if.then.i.i.i2.i, %_ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit.i
-  %115 = load ptr, ptr %maker, align 8
-  %tobool.not.i.i.i3.i = icmp eq ptr %115, null
+  %114 = load ptr, ptr %maker, align 8
+  %tobool.not.i.i.i3.i = icmp eq ptr %114, null
   br i1 %tobool.not.i.i.i3.i, label %_ZNSt10unique_ptrI11aiAnimationSt14default_deleteIS0_EED2Ev.exit, label %if.then.i.i.i4.i
 
 if.then.i.i.i4.i:                                 ; preds = %_ZNSt6vectorIN6Assimp19SkeletonMeshBuilder4FaceESaIS2_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %115) #20
+  call void @_ZdlPv(ptr noundef nonnull %114) #20
   br label %_ZNSt10unique_ptrI11aiAnimationSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrI11aiAnimationSt14default_deleteIS0_EED2Ev.exit: ; preds = %if.then.i.i.i4.i, %_ZNSt6vectorIN6Assimp19SkeletonMeshBuilder4FaceESaIS2_EED2Ev.exit.i, %invoke.cont326
@@ -1523,8 +1522,8 @@ _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds =
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %mBuffer2) #16
   %vtable.i.i = load ptr, ptr %call3.i59, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %116 = load ptr, ptr %vfn.i.i, align 8
-  call void %116(ptr noundef nonnull align 8 dereferenceable(8) %call3.i59) #16
+  %115 = load ptr, ptr %vfn.i.i, align 8
+  call void %115(ptr noundef nonnull align 8 dereferenceable(8) %call3.i59) #16
   ret void
 
 ehcleanup341:                                     ; preds = %lpad16.loopexit, %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad16.loopexit.split-lp.loopexit, %lpad117, %lpad186, %lpad207, %lpad218, %lpad251, %lpad276, %lpad302, %ehcleanup107, %if.then.i.i.i167
@@ -1537,8 +1536,8 @@ _ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i253: ; preds = %ehcleanu
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mBuffer2) #16
   %vtable.i.i254 = load ptr, ptr %call3.i59, align 8
   %vfn.i.i255 = getelementptr inbounds i8, ptr %vtable.i.i254, i64 8
-  %117 = load ptr, ptr %vfn.i.i255, align 8
-  call void %117(ptr noundef nonnull align 8 dereferenceable(8) %call3.i59) #16
+  %116 = load ptr, ptr %vfn.i.i255, align 8
+  call void %116(ptr noundef nonnull align 8 dereferenceable(8) %call3.i59) #16
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad6, %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i253, %ehcleanup

@@ -301,14 +301,13 @@ define internal fastcc noundef i64 @make_scalar_key(ptr nocapture noundef readon
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
+  %12 = trunc i8 %11 to i1
   %13 = tail call ptr @palloc(i64 noundef 6) #8
   store i32 24, ptr %13, align 4
   %14 = getelementptr inbounds i8, ptr %13, i64 4
   store i8 3, ptr %14, align 4
   %15 = getelementptr i8, ptr %13, i64 5
-  %16 = select i1 %.not, i8 102, i8 116
+  %16 = select i1 %12, i8 116, i8 102
   store i8 %16, ptr %15, align 1
   br label %56
 
@@ -435,10 +434,10 @@ define dso_local i64 @gin_extract_jsonb_query(ptr nocapture noundef readonly %0)
   %29 = load i8, ptr %27, align 1
   %30 = zext i8 %29 to i32
   %31 = and i32 %30, 1
-  %.not77 = icmp eq i32 %31, 0
+  %.not76 = icmp eq i32 %31, 0
   %32 = getelementptr inbounds i8, ptr %27, i64 1
   %33 = getelementptr inbounds i8, ptr %27, i64 4
-  %34 = select i1 %.not77, ptr %33, ptr %32
+  %34 = select i1 %.not76, ptr %33, ptr %32
   %35 = icmp eq i8 %29, 1
   br i1 %35, label %.thread, label %43
 
@@ -447,15 +446,15 @@ define dso_local i64 @gin_extract_jsonb_query(ptr nocapture noundef readonly %0)
   %37 = icmp eq i8 %36, 1
   %38 = and i8 %36, -2
   %39 = icmp eq i8 %38, 2
-  %or.cond79 = or i1 %37, %39
+  %or.cond78 = or i1 %37, %39
   %40 = icmp eq i8 %36, 18
   %41 = select i1 %40, i32 16, i32 0
-  %42 = select i1 %or.cond79, i32 8, i32 %41
+  %42 = select i1 %or.cond78, i32 8, i32 %41
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3)
   br label %make_text_key.exit
 
 43:                                               ; preds = %24
-  br i1 %.not77, label %47, label %44
+  br i1 %.not76, label %47, label %44
 
 44:                                               ; preds = %43
   %45 = lshr i32 %30, 1
@@ -520,13 +519,12 @@ make_text_key.exit:                               ; preds = %.thread, %51, %54
 .lr.ph:                                           ; preds = %68, %128
   %78 = phi i32 [ %129, %128 ], [ %76, %68 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %128 ], [ 0, %68 ]
-  %.06687 = phi i32 [ %.1, %128 ], [ 0, %68 ]
+  %.06686 = phi i32 [ %.1, %128 ], [ 0, %68 ]
   %79 = load ptr, ptr %5, align 8
   %80 = getelementptr i8, ptr %79, i64 %indvars.iv
   %81 = load i8, ptr %80, align 1
-  %82 = and i8 %81, 1
-  %.not74 = icmp eq i8 %82, 0
-  br i1 %.not74, label %83, label %128
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %128, label %83
 
 83:                                               ; preds = %.lr.ph
   %84 = load ptr, ptr %4, align 8
@@ -535,30 +533,30 @@ make_text_key.exit:                               ; preds = %.thread, %51, %54
   %87 = inttoptr i64 %86 to ptr
   %88 = load i8, ptr %87, align 1
   %89 = and i8 %88, 1
-  %.not75 = icmp eq i8 %89, 0
+  %.not74 = icmp eq i8 %89, 0
   %90 = getelementptr inbounds i8, ptr %87, i64 1
   %91 = getelementptr inbounds i8, ptr %87, i64 4
-  %92 = select i1 %.not75, ptr %91, ptr %90
+  %92 = select i1 %.not74, ptr %91, ptr %90
   %93 = zext i8 %88 to i32
   %94 = icmp eq i8 %88, 1
-  br i1 %94, label %.thread86, label %102
+  br i1 %94, label %.thread85, label %102
 
-.thread86:                                        ; preds = %83
+.thread85:                                        ; preds = %83
   %95 = load i8, ptr %90, align 1
   %96 = icmp eq i8 %95, 1
   %97 = and i8 %95, -2
   %98 = icmp eq i8 %97, 2
-  %or.cond81 = or i1 %96, %98
+  %or.cond80 = or i1 %96, %98
   %99 = icmp eq i8 %95, 18
   %100 = select i1 %99, i32 16, i32 0
-  %101 = select i1 %or.cond81, i32 8, i32 %100
+  %101 = select i1 %or.cond80, i32 8, i32 %100
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %2)
-  br label %make_text_key.exit85
+  br label %make_text_key.exit84
 
 102:                                              ; preds = %83
   %103 = and i32 %93, 1
-  %.not76 = icmp eq i32 %103, 0
-  br i1 %.not76, label %107, label %104
+  %.not75 = icmp eq i32 %103, 0
+  br i1 %.not75, label %107, label %104
 
 104:                                              ; preds = %102
   %105 = lshr i32 %93, 1
@@ -575,39 +573,39 @@ make_text_key.exit:                               ; preds = %.thread, %51, %54
   %112 = phi i32 [ %106, %104 ], [ %110, %107 ]
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %2)
   %113 = icmp sgt i32 %112, 125
-  br i1 %113, label %114, label %make_text_key.exit85
+  br i1 %113, label %114, label %make_text_key.exit84
 
 114:                                              ; preds = %111
   %115 = call i32 @hash_bytes(ptr noundef nonnull %92, i32 noundef %112) #8
   %116 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %115) #8
-  br label %make_text_key.exit85
+  br label %make_text_key.exit84
 
-make_text_key.exit85:                             ; preds = %.thread86, %111, %114
-  %.014.i82 = phi i32 [ 8, %114 ], [ %112, %111 ], [ %101, %.thread86 ]
-  %.013.i83 = phi ptr [ %2, %114 ], [ %92, %111 ], [ %92, %.thread86 ]
-  %.0.i84 = phi i8 [ 17, %114 ], [ 1, %111 ], [ 1, %.thread86 ]
-  %117 = add nsw i32 %.014.i82, 5
+make_text_key.exit84:                             ; preds = %.thread85, %111, %114
+  %.014.i81 = phi i32 [ 8, %114 ], [ %112, %111 ], [ %101, %.thread85 ]
+  %.013.i82 = phi ptr [ %2, %114 ], [ %92, %111 ], [ %92, %.thread85 ]
+  %.0.i83 = phi i8 [ 17, %114 ], [ 1, %111 ], [ 1, %.thread85 ]
+  %117 = add nsw i32 %.014.i81, 5
   %118 = zext nneg i32 %117 to i64
   %119 = call ptr @palloc(i64 noundef %118) #8
   %120 = shl nuw nsw i32 %117, 2
   store i32 %120, ptr %119, align 4
   %121 = getelementptr inbounds i8, ptr %119, i64 4
-  store i8 %.0.i84, ptr %121, align 4
+  store i8 %.0.i83, ptr %121, align 4
   %122 = getelementptr i8, ptr %119, i64 5
-  %123 = sext i32 %.014.i82 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %122, ptr align 1 %.013.i83, i64 %123, i1 false)
+  %123 = sext i32 %.014.i81 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %122, ptr align 1 %.013.i82, i64 %123, i1 false)
   %124 = ptrtoint ptr %119 to i64
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %2)
-  %125 = add i32 %.06687, 1
-  %126 = sext i32 %.06687 to i64
+  %125 = add i32 %.06686, 1
+  %126 = sext i32 %.06686 to i64
   %127 = getelementptr i64, ptr %75, i64 %126
   store i64 %124, ptr %127, align 8
   %.pre = load i32, ptr %6, align 4
   br label %128
 
-128:                                              ; preds = %.lr.ph, %make_text_key.exit85
-  %129 = phi i32 [ %78, %.lr.ph ], [ %.pre, %make_text_key.exit85 ]
-  %.1 = phi i32 [ %.06687, %.lr.ph ], [ %125, %make_text_key.exit85 ]
+128:                                              ; preds = %.lr.ph, %make_text_key.exit84
+  %129 = phi i32 [ %78, %.lr.ph ], [ %.pre, %make_text_key.exit84 ]
+  %.1 = phi i32 [ %.06686, %.lr.ph ], [ %125, %make_text_key.exit84 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %130 = sext i32 %129 to i64
   %131 = icmp slt i64 %indvars.iv.next, %130
@@ -761,24 +759,23 @@ define dso_local i64 @gin_consistent_jsonb(ptr nocapture noundef readonly %0) lo
 17:                                               ; preds = %1
   store i8 1, ptr %16, align 1
   %18 = icmp sgt i32 %10, 0
-  br i1 %18, label %.lr.ph41.preheader, label %.loopexit
+  br i1 %18, label %.lr.ph40.preheader, label %.loopexit
 
-.lr.ph41.preheader:                               ; preds = %17
-  %wide.trip.count51 = and i64 %9, 2147483647
-  br label %.lr.ph41
+.lr.ph40.preheader:                               ; preds = %17
+  %wide.trip.count50 = and i64 %9, 2147483647
+  br label %.lr.ph40
 
-19:                                               ; preds = %.lr.ph41
-  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph41, !llvm.loop !8
+19:                                               ; preds = %.lr.ph40
+  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
+  %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
+  br i1 %exitcond51.not, label %.loopexit, label %.lr.ph40, !llvm.loop !8
 
-.lr.ph41:                                         ; preds = %.lr.ph41.preheader, %19
-  %indvars.iv48 = phi i64 [ 0, %.lr.ph41.preheader ], [ %indvars.iv.next49, %19 ]
-  %20 = getelementptr i8, ptr %4, i64 %indvars.iv48
+.lr.ph40:                                         ; preds = %.lr.ph40.preheader, %19
+  %indvars.iv47 = phi i64 [ 0, %.lr.ph40.preheader ], [ %indvars.iv.next48, %19 ]
+  %20 = getelementptr i8, ptr %4, i64 %indvars.iv47
   %21 = load i8, ptr %20, align 1
-  %22 = and i8 %21, 1
-  %.not34 = icmp eq i8 %22, 0
-  br i1 %.not34, label %.loopexit, label %19
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %19, label %.loopexit
 
 23:                                               ; preds = %1
   store i8 1, ptr %16, align 1
@@ -806,9 +803,8 @@ define dso_local i64 @gin_consistent_jsonb(ptr nocapture noundef readonly %0) lo
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
   %28 = getelementptr i8, ptr %4, i64 %indvars.iv
   %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %.loopexit, label %27
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %27, label %.loopexit
 
 31:                                               ; preds = %1
   %32 = add i16 %7, -15
@@ -836,8 +832,8 @@ define dso_local i64 @gin_consistent_jsonb(ptr nocapture noundef readonly %0) lo
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1007, ptr noundef nonnull @__func__.gin_consistent_jsonb) #8
   unreachable
 
-.loopexit:                                        ; preds = %27, %.lr.ph, %19, %.lr.ph41, %25, %17, %23, %33, %35, %24
-  %.032 = phi i64 [ 1, %23 ], [ 1, %24 ], [ %39, %35 ], [ 1, %33 ], [ 1, %17 ], [ 1, %25 ], [ 1, %19 ], [ 0, %.lr.ph41 ], [ 1, %27 ], [ 0, %.lr.ph ]
+.loopexit:                                        ; preds = %27, %.lr.ph, %19, %.lr.ph40, %25, %17, %23, %33, %35, %24
+  %.032 = phi i64 [ 1, %23 ], [ 1, %24 ], [ %39, %35 ], [ 1, %33 ], [ 1, %17 ], [ 1, %25 ], [ 1, %19 ], [ 0, %.lr.ph40 ], [ 1, %27 ], [ 0, %.lr.ph ]
   ret i64 %.032
 }
 
@@ -1276,9 +1272,8 @@ define dso_local i64 @gin_consistent_jsonb_path(ptr nocapture noundef readonly %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
   %21 = getelementptr i8, ptr %4, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %.loopexit, label %20
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %20, label %.loopexit
 
 24:                                               ; preds = %1
   %25 = add i16 %7, -15
@@ -1513,30 +1508,30 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
   br i1 %.not, label %48, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %.not3033 = icmp eq ptr %1, null
-  br i1 %.not3033, label %._crit_edge, label %.lr.ph
+  %.not3032 = icmp eq ptr %1, null
+  br i1 %.not3032, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %14
-  %.035 = phi ptr [ %.1, %14 ], [ %3, %.preheader ]
-  %.02334 = phi ptr [ %15, %14 ], [ %1, %.preheader ]
-  %5 = getelementptr inbounds i8, ptr %.02334, i64 16
+  %.034 = phi ptr [ %.1, %14 ], [ %3, %.preheader ]
+  %.02333 = phi ptr [ %15, %14 ], [ %1, %.preheader ]
+  %5 = getelementptr inbounds i8, ptr %.02333, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 25
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.02334, i64 8
+  %9 = getelementptr inbounds i8, ptr %.02333, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %10, ptr %12, align 8
-  %13 = tail call ptr @lappend(ptr noundef %.035, ptr noundef nonnull %11) #8
+  %13 = tail call ptr @lappend(ptr noundef %.034, ptr noundef nonnull %11) #8
   br label %14
 
 14:                                               ; preds = %.lr.ph, %8
-  %.1 = phi ptr [ %13, %8 ], [ %.035, %.lr.ph ]
-  %15 = load ptr, ptr %.02334, align 8
+  %.1 = phi ptr [ %13, %8 ], [ %.034, %.lr.ph ]
+  %15 = load ptr, ptr %.02333, align 8
   %.not30 = icmp eq ptr %15, null
   br i1 %.not30, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
@@ -1549,12 +1544,11 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
 18:                                               ; preds = %._crit_edge
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   %20 = load i8, ptr %19, align 8
-  %21 = and i8 %20, 1
-  %.not31 = icmp eq i8 %21, 0
-  br i1 %.not31, label %22, label %27
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %27, label %22
 
 22:                                               ; preds = %18
-  br i1 %.not3033, label %38, label %23
+  br i1 %.not3032, label %38, label %23
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds i8, ptr %1, i64 16

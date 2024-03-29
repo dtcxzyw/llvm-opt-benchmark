@@ -92,8 +92,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 13, ptr noundef nonnull @__func__.RAMFB) #2
   %migrate = getelementptr inbounds i8, ptr %call.i, i64 832
   %0 = load i8, ptr %migrate, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

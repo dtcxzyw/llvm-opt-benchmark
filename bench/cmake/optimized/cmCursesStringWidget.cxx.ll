@@ -101,9 +101,8 @@ define dso_local void @_ZN20cmCursesStringWidget5OnTabEP16cmCursesMainFormP7_win
 define dso_local void @_ZN20cmCursesStringWidget8OnReturnEP16cmCursesMainFormP7_win_st(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, ptr nocapture readnone %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   %5 = load i8, ptr %4, align 4
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %14, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %14
 
 7:                                                ; preds = %3
   tail call void @_ZN12cmCursesForm10LogMessageEPKc(ptr noundef nonnull @.str)
@@ -163,9 +162,8 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget11HandleInputERiP1
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 60
   %9 = load i8, ptr %8, align 4
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %11, label %.lr.ph
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %.lr.ph, label %11
 
 11:                                               ; preds = %4
   %12 = load i32, ptr %1, align 4
@@ -180,7 +178,7 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget11HandleInputERiP1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #8
   %14 = getelementptr inbounds i8, ptr %0, i64 96
   store i8 0, ptr %14, align 8
-  %.not102 = icmp eq ptr %3, null
+  %.not96 = icmp eq ptr %3, null
   %15 = getelementptr inbounds i8, ptr %3, i64 4
   br label %16
 
@@ -190,8 +188,8 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget11HandleInputERiP1
   call void @_ZN12cmCursesForm10LogMessageEPKc(ptr noundef nonnull %5)
   call void @_ZN16cmCursesMainForm9PrintKeysEi(ptr noundef nonnull align 8 dereferenceable(297) %2, i32 noundef 0)
   %19 = load ptr, ptr @stdscr, align 8
-  %.not91 = icmp eq ptr %19, null
-  br i1 %.not91, label %.thread106, label %20
+  %.not89 = icmp eq ptr %19, null
+  br i1 %.not89, label %.thread100, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %19, i64 4
@@ -201,188 +199,185 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget11HandleInputERiP1
   %25 = icmp slt i16 %24, 64
   %26 = icmp slt i16 %22, 5
   %or.cond = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond, label %.thread106, label %32
+  br i1 %or.cond, label %.thread100, label %32
 
-.thread106:                                       ; preds = %16, %20
+.thread100:                                       ; preds = %16, %20
   %27 = load i32, ptr %1, align 4
   %28 = icmp eq i32 %27, 113
   br i1 %28, label %.loopexit, label %.backedge.sink.split
 
-.backedge.sink.split:                             ; preds = %.thread106, %94
-  %.sink112 = phi ptr [ %98, %94 ], [ %19, %.thread106 ]
-  %29 = call i32 @wgetch(ptr noundef %.sink112)
+.backedge.sink.split:                             ; preds = %.thread100, %93
+  %.sink106 = phi ptr [ %97, %93 ], [ %19, %.thread100 ]
+  %29 = call i32 @wgetch(ptr noundef %.sink106)
   store i32 %29, ptr %1, align 4
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.sink.split, %86
+.backedge:                                        ; preds = %.backedge.sink.split, %85
   %30 = load i8, ptr %14, align 8
-  %31 = and i8 %30, 1
-  %.not90 = icmp eq i8 %31, 0
-  br i1 %.not90, label %16, label %.loopexit, !llvm.loop !5
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %.loopexit, label %16, !llvm.loop !5
 
 32:                                               ; preds = %20
   %33 = load i8, ptr %8, align 4
-  %34 = and i8 %33, 1
-  %.not93 = icmp eq i8 %34, 0
-  %35 = load i32, ptr %1, align 4
-  br i1 %.not93, label %36, label %thread-pre-split
+  %34 = trunc i8 %33 to i1
+  %.pr = load i32, ptr %1, align 4
+  br i1 %34, label %thread-pre-split, label %35
 
-36:                                               ; preds = %32
-  switch i32 %35, label %.loopexit [
-    i32 10, label %39
-    i32 343, label %39
-    i32 105, label %37
+35:                                               ; preds = %32
+  switch i32 %.pr, label %.loopexit [
+    i32 10, label %38
+    i32 343, label %38
+    i32 105, label %36
   ]
 
 thread-pre-split:                                 ; preds = %32
-  switch i32 %35, label %37 [
-    i32 10, label %39
-    i32 343, label %39
+  switch i32 %.pr, label %36 [
+    i32 10, label %38
+    i32 343, label %38
   ]
 
-37:                                               ; preds = %36, %thread-pre-split
-  %38 = icmp eq i32 %35, 105
-  %or.cond103 = and i1 %.not93, %38
-  br i1 %or.cond103, label %39, label %43
+36:                                               ; preds = %35, %thread-pre-split
+  %37 = icmp ne i32 %.pr, 105
+  %or.cond97.not = or i1 %37, %34
+  br i1 %or.cond97.not, label %42, label %38
 
-39:                                               ; preds = %36, %36, %37, %thread-pre-split, %thread-pre-split
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 64
-  %42 = load ptr, ptr %41, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %2, ptr noundef %3)
-  br label %86
+38:                                               ; preds = %35, %35, %36, %thread-pre-split, %thread-pre-split
+  %39 = load ptr, ptr %0, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 64
+  %41 = load ptr, ptr %40, align 8
+  call void %41(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %2, ptr noundef %3)
+  br label %85
 
-43:                                               ; preds = %37
-  switch i32 %35, label %82 [
-    i32 258, label %44
-    i32 14, label %44
-    i32 259, label %44
-    i32 16, label %44
-    i32 338, label %44
-    i32 4, label %44
-    i32 339, label %44
-    i32 21, label %44
-    i32 27, label %47
-    i32 9, label %60
-    i32 260, label %64
-    i32 2, label %64
-    i32 261, label %66
-    i32 6, label %66
-    i32 11, label %68
-    i32 1, label %70
-    i32 262, label %70
-    i32 5, label %72
-    i32 360, label %72
-    i32 127, label %74
-    i32 263, label %74
-    i32 330, label %80
+42:                                               ; preds = %36
+  switch i32 %.pr, label %81 [
+    i32 258, label %43
+    i32 14, label %43
+    i32 259, label %43
+    i32 16, label %43
+    i32 338, label %43
+    i32 4, label %43
+    i32 339, label %43
+    i32 21, label %43
+    i32 27, label %46
+    i32 9, label %59
+    i32 260, label %63
+    i32 2, label %63
+    i32 261, label %65
+    i32 6, label %65
+    i32 11, label %67
+    i32 1, label %69
+    i32 262, label %69
+    i32 5, label %71
+    i32 360, label %71
+    i32 127, label %73
+    i32 263, label %73
+    i32 330, label %79
   ]
 
-44:                                               ; preds = %43, %43, %43, %43, %43, %43, %43, %43
+43:                                               ; preds = %42, %42, %42, %42, %42, %42, %42, %42
   store i8 0, ptr %8, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #8
-  %45 = call i32 @form_driver(ptr noundef %7, i32 noundef 516)
-  %46 = call i32 @form_driver(ptr noundef %7, i32 noundef 517)
+  %44 = call i32 @form_driver(ptr noundef %7, i32 noundef 516)
+  %45 = call i32 @form_driver(ptr noundef %7, i32 noundef 517)
   br label %.loopexit
 
-47:                                               ; preds = %43
-  br i1 %.not93, label %86, label %48
+46:                                               ; preds = %42
+  br i1 %34, label %47, label %85
 
-48:                                               ; preds = %47
+47:                                               ; preds = %46
   store i8 0, ptr %8, align 4
   call void @_ZN16cmCursesMainForm9PrintKeysEi(ptr noundef nonnull align 8 dereferenceable(297) %2, i32 noundef 0)
-  %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 32
-  %51 = load ptr, ptr %50, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  %48 = load ptr, ptr %0, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 32
+  %50 = load ptr, ptr %49, align 8
+  call void %50(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(32) %13)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #8
-  br i1 %.not102, label %56, label %52
+  br i1 %.not96, label %55, label %51
 
-52:                                               ; preds = %48
-  %53 = load i16, ptr %15, align 4
-  %54 = sext i16 %53 to i32
-  %55 = add nsw i32 %54, 1
-  br label %56
+51:                                               ; preds = %47
+  %52 = load i16, ptr %15, align 4
+  %53 = sext i16 %52 to i32
+  %54 = add nsw i32 %53, 1
+  br label %55
 
-56:                                               ; preds = %48, %52
-  %57 = phi i32 [ %55, %52 ], [ -1, %48 ]
-  %58 = call i32 @wtouchln(ptr noundef %3, i32 noundef 0, i32 noundef %57, i32 noundef 1)
-  %59 = call i32 @wrefresh(ptr noundef %3)
+55:                                               ; preds = %47, %51
+  %56 = phi i32 [ %54, %51 ], [ -1, %47 ]
+  %57 = call i32 @wtouchln(ptr noundef %3, i32 noundef 0, i32 noundef %56, i32 noundef 1)
+  %58 = call i32 @wrefresh(ptr noundef %3)
   br label %.loopexit
 
-60:                                               ; preds = %43
-  %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 56
-  %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %2, ptr noundef %3)
-  br label %86
+59:                                               ; preds = %42
+  %60 = load ptr, ptr %0, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 56
+  %62 = load ptr, ptr %61, align 8
+  call void %62(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %2, ptr noundef %3)
+  br label %85
 
-64:                                               ; preds = %43, %43
-  %65 = call i32 @form_driver(ptr noundef %7, i32 noundef 529)
-  br label %86
+63:                                               ; preds = %42, %42
+  %64 = call i32 @form_driver(ptr noundef %7, i32 noundef 529)
+  br label %85
 
-66:                                               ; preds = %43, %43
-  %67 = call i32 @form_driver(ptr noundef %7, i32 noundef 528)
-  br label %86
+65:                                               ; preds = %42, %42
+  %66 = call i32 @form_driver(ptr noundef %7, i32 noundef 528)
+  br label %85
 
-68:                                               ; preds = %43
-  %69 = call i32 @form_driver(ptr noundef %7, i32 noundef 549)
-  br label %86
+67:                                               ; preds = %42
+  %68 = call i32 @form_driver(ptr noundef %7, i32 noundef 549)
+  br label %85
 
-70:                                               ; preds = %43, %43
-  %71 = call i32 @form_driver(ptr noundef %7, i32 noundef 534)
-  br label %86
+69:                                               ; preds = %42, %42
+  %70 = call i32 @form_driver(ptr noundef %7, i32 noundef 534)
+  br label %85
 
-72:                                               ; preds = %43, %43
-  %73 = call i32 @form_driver(ptr noundef %7, i32 noundef 535)
-  br label %86
+71:                                               ; preds = %42, %42
+  %72 = call i32 @form_driver(ptr noundef %7, i32 noundef 535)
+  br label %85
 
-74:                                               ; preds = %43, %43
-  %75 = call ptr @current_field(ptr noundef %7)
-  %76 = call i32 @form_driver(ptr noundef %7, i32 noundef 546)
-  %77 = call ptr @current_field(ptr noundef %7)
-  %.not98 = icmp eq ptr %77, %75
-  br i1 %.not98, label %86, label %78
+73:                                               ; preds = %42, %42
+  %74 = call ptr @current_field(ptr noundef %7)
+  %75 = call i32 @form_driver(ptr noundef %7, i32 noundef 546)
+  %76 = call ptr @current_field(ptr noundef %7)
+  %.not94 = icmp eq ptr %76, %74
+  br i1 %.not94, label %85, label %77
 
-78:                                               ; preds = %74
-  %79 = call i32 @set_current_field(ptr noundef %7, ptr noundef %75)
-  br label %86
+77:                                               ; preds = %73
+  %78 = call i32 @set_current_field(ptr noundef %7, ptr noundef %74)
+  br label %85
 
-80:                                               ; preds = %43
-  %81 = call i32 @form_driver(ptr noundef %7, i32 noundef 545)
-  br label %86
+79:                                               ; preds = %42
+  %80 = call i32 @form_driver(ptr noundef %7, i32 noundef 545)
+  br label %85
 
-82:                                               ; preds = %43
-  %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 72
-  %85 = load ptr, ptr %84, align 8
-  call void %85(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull %2, ptr noundef %3)
-  br label %86
+81:                                               ; preds = %42
+  %82 = load ptr, ptr %0, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 72
+  %84 = load ptr, ptr %83, align 8
+  call void %84(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull %2, ptr noundef %3)
+  br label %85
 
-86:                                               ; preds = %60, %66, %70, %78, %74, %82, %80, %72, %68, %64, %47, %39
-  %87 = load i8, ptr %14, align 8
-  %88 = and i8 %87, 1
-  %.not101 = icmp eq i8 %88, 0
-  br i1 %.not101, label %89, label %.backedge
+85:                                               ; preds = %59, %65, %69, %77, %73, %81, %79, %71, %67, %63, %46, %38
+  %86 = load i8, ptr %14, align 8
+  %87 = trunc i8 %86 to i1
+  br i1 %87, label %.backedge, label %88
 
-89:                                               ; preds = %86
-  br i1 %.not102, label %94, label %90
+88:                                               ; preds = %85
+  br i1 %.not96, label %93, label %89
 
-90:                                               ; preds = %89
-  %91 = load i16, ptr %15, align 4
-  %92 = sext i16 %91 to i32
-  %93 = add nsw i32 %92, 1
-  br label %94
+89:                                               ; preds = %88
+  %90 = load i16, ptr %15, align 4
+  %91 = sext i16 %90 to i32
+  %92 = add nsw i32 %91, 1
+  br label %93
 
-94:                                               ; preds = %89, %90
-  %95 = phi i32 [ %93, %90 ], [ -1, %89 ]
-  %96 = call i32 @wtouchln(ptr noundef %3, i32 noundef 0, i32 noundef %95, i32 noundef 1)
-  %97 = call i32 @wrefresh(ptr noundef %3)
-  %98 = load ptr, ptr @stdscr, align 8
+93:                                               ; preds = %88, %89
+  %94 = phi i32 [ %92, %89 ], [ -1, %88 ]
+  %95 = call i32 @wtouchln(ptr noundef %3, i32 noundef 0, i32 noundef %94, i32 noundef 1)
+  %96 = call i32 @wrefresh(ptr noundef %3)
+  %97 = load ptr, ptr @stdscr, align 8
   br label %.backedge.sink.split
 
-.loopexit:                                        ; preds = %.thread106, %.backedge, %36, %11, %56, %44
-  %.0 = phi i1 [ false, %44 ], [ true, %56 ], [ false, %11 ], [ false, %.thread106 ], [ false, %36 ], [ true, %.backedge ]
+.loopexit:                                        ; preds = %.thread100, %.backedge, %35, %11, %55, %43
+  %.0 = phi i1 [ false, %43 ], [ true, %55 ], [ false, %11 ], [ false, %.thread100 ], [ false, %35 ], [ true, %.backedge ]
   ret i1 %.0
 }
 
@@ -430,7 +425,7 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget9PrintKeysEv(ptr n
   %2 = alloca [3 x i8], align 1
   %3 = load ptr, ptr @stdscr, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.thread13, label %4
+  br i1 %.not, label %.thread12, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 4
@@ -441,14 +436,13 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget9PrintKeysEv(ptr n
   %10 = icmp slt i16 %9, 64
   %11 = icmp slt i16 %6, 5
   %or.cond = select i1 %10, i1 true, i1 %11
-  br i1 %or.cond, label %.thread13, label %12
+  br i1 %or.cond, label %.thread12, label %12
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %0, i64 60
   %14 = load i8, ptr %13, align 4
-  %15 = and i8 %14, 1
-  %.not12 = icmp eq i8 %15, 0
-  br i1 %.not12, label %.thread13, label %16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %.thread12
 
 16:                                               ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %2, ptr noundef nonnull align 1 dereferenceable(3) @__const._ZN20cmCursesStringWidget9PrintKeysEv.fmt_s, i64 3, i1 false)
@@ -469,9 +463,9 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget9PrintKeysEv(ptr n
   %31 = call i32 @move(i32 noundef %7, i32 noundef 0)
   %32 = load ptr, ptr @stdscr, align 8
   %33 = call i32 @wclrtoeol(ptr noundef %32)
-  br label %.thread13
+  br label %.thread12
 
-.thread13:                                        ; preds = %1, %12, %4, %16
+.thread12:                                        ; preds = %1, %12, %4, %16
   %.0 = phi i1 [ true, %16 ], [ false, %4 ], [ false, %12 ], [ false, %1 ]
   ret i1 %.0
 }

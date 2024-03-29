@@ -2621,7 +2621,7 @@ define dso_local i32 @curl_multi_perform(ptr noundef %0, ptr nocapture noundef w
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not36 = icmp eq ptr %21, null
-  br i1 %.not36, label %sigpipe_restore.exit46, label %22
+  br i1 %.not36, label %sigpipe_restore.exit44, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %21, i64 2642
@@ -2665,44 +2665,43 @@ sigpipe_ignore.exit:                              ; preds = %22, %30
 
 43:                                               ; preds = %33
   %44 = load i8, ptr %28, align 8
-  %45 = and i8 %44, 1
-  %.not.i42 = icmp eq i8 %45, 0
-  br i1 %.not.i42, label %46, label %sigpipe_restore.exit
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %sigpipe_restore.exit, label %46
 
 46:                                               ; preds = %43
   %47 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %7, ptr noundef null) #19
   %.pre = load i64, ptr %36, align 2
-  %.pre51 = lshr i64 %.pre, 32
+  %.pre49 = lshr i64 %.pre, 32
   br label %sigpipe_restore.exit
 
 sigpipe_restore.exit:                             ; preds = %43, %46
-  %.pre-phi = phi i64 [ %38, %43 ], [ %.pre51, %46 ]
+  %.pre-phi = phi i64 [ %38, %43 ], [ %.pre49, %46 ]
   %48 = phi i64 [ %37, %43 ], [ %.pre, %46 ]
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3)
   %49 = trunc i64 %.pre-phi to i8
   %50 = and i8 %49, 1
   store i8 %50, ptr %28, align 8
   %51 = and i64 %48, 4294967296
-  %.not.i43 = icmp eq i64 %51, 0
-  br i1 %.not.i43, label %52, label %sigpipe_ignore.exit44
+  %.not.i42 = icmp eq i64 %51, 0
+  br i1 %.not.i42, label %52, label %sigpipe_ignore.exit43
 
 52:                                               ; preds = %sigpipe_restore.exit
   %53 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %7) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef nonnull align 8 dereferenceable(152) %7, i64 152, i1 false)
   store ptr inttoptr (i64 1 to ptr), ptr %3, align 8
   %54 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %3, ptr noundef null) #19
-  %.pre50 = load i64, ptr %36, align 2
-  %.pre52 = lshr i64 %.pre50, 32
-  %.pre54 = trunc i64 %.pre52 to i8
-  br label %sigpipe_ignore.exit44
+  %.pre48 = load i64, ptr %36, align 2
+  %.pre50 = lshr i64 %.pre48, 32
+  %.pre52 = trunc i64 %.pre50 to i8
+  br label %sigpipe_ignore.exit43
 
-sigpipe_ignore.exit44:                            ; preds = %sigpipe_restore.exit, %52
-  %.pre-phi57 = phi i8 [ %50, %sigpipe_restore.exit ], [ %.pre54, %52 ]
+sigpipe_ignore.exit43:                            ; preds = %sigpipe_restore.exit, %52
+  %.pre-phi55 = phi i8 [ %50, %sigpipe_restore.exit ], [ %.pre52, %52 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3)
   br label %55
 
-55:                                               ; preds = %sigpipe_ignore.exit44, %33
-  %.1 = phi i8 [ %.pre-phi57, %sigpipe_ignore.exit44 ], [ %.026, %33 ]
+55:                                               ; preds = %sigpipe_ignore.exit43, %33
+  %.1 = phi i8 [ %.pre-phi55, %sigpipe_ignore.exit43 ], [ %.026, %33 ]
   %56 = call fastcc i32 @multi_runsingle(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %.027), !range !7
   %.not38 = icmp eq i32 %56, 0
   %spec.select = select i1 %.not38, i32 %.028, i32 %56
@@ -2711,20 +2710,19 @@ sigpipe_ignore.exit44:                            ; preds = %sigpipe_restore.exi
 
 57:                                               ; preds = %55
   %58 = load i8, ptr %28, align 8
-  %59 = and i8 %58, 1
-  %.not.i45 = icmp eq i8 %59, 0
-  br i1 %.not.i45, label %60, label %sigpipe_restore.exit46
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %sigpipe_restore.exit44, label %60
 
 60:                                               ; preds = %57
   %61 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %7, ptr noundef null) #19
-  br label %sigpipe_restore.exit46
+  br label %sigpipe_restore.exit44
 
-sigpipe_restore.exit46:                           ; preds = %60, %57, %19
+sigpipe_restore.exit44:                           ; preds = %60, %57, %19
   %.2 = phi i32 [ 0, %19 ], [ %spec.select, %57 ], [ %spec.select, %60 ]
   %62 = getelementptr inbounds i8, ptr %0, i64 208
   br label %63
 
-63:                                               ; preds = %add_next_timeout.exit, %sigpipe_restore.exit46
+63:                                               ; preds = %add_next_timeout.exit, %sigpipe_restore.exit44
   %64 = load ptr, ptr %62, align 8
   %65 = load i64, ptr %6, align 8
   %66 = load i32, ptr %10, align 8
@@ -2760,8 +2758,8 @@ sigpipe_restore.exit46:                           ; preds = %60, %57, %19
 
 86:                                               ; preds = %.lr.ph.i
   call void @Curl_llist_remove(ptr noundef nonnull %75, ptr noundef nonnull %.023.i, ptr noundef null) #19
-  %.not.i47 = icmp eq ptr %78, null
-  br i1 %.not.i47, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
+  %.not.i45 = icmp eq ptr %78, null
+  br i1 %.not.i45, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %86, %.lr.ph.i
   %.pre.i = load ptr, ptr %75, align 8
@@ -2879,9 +2877,9 @@ mstate.exit:                                      ; preds = %27, %21, %17
   %51 = getelementptr inbounds i8, ptr %2, i64 2642
   %52 = getelementptr inbounds i8, ptr %2, i64 4936
   %53 = getelementptr inbounds i8, ptr %2, i64 4592
-  %54 = getelementptr inbounds i8, ptr %2, i64 360
-  %55 = getelementptr inbounds i8, ptr %2, i64 352
-  %56 = getelementptr inbounds i8, ptr %2, i64 4939
+  %54 = getelementptr inbounds i8, ptr %2, i64 4939
+  %55 = getelementptr inbounds i8, ptr %2, i64 360
+  %56 = getelementptr inbounds i8, ptr %2, i64 352
   %57 = getelementptr inbounds i8, ptr %1, i64 8
   %58 = getelementptr inbounds i8, ptr %2, i64 632
   %59 = getelementptr inbounds i8, ptr %2, i64 200
@@ -2920,8 +2918,8 @@ mstate.exit:                                      ; preds = %27, %21, %17
   %88 = and i8 %87, -3
   store i8 %88, ptr %18, align 1
   %89 = and i8 %87, 2
-  %.not602 = icmp eq i8 %89, 0
-  br i1 %.not602, label %process_pending_handles.exit, label %90
+  %.not587 = icmp eq i8 %89, 0
+  br i1 %.not587, label %process_pending_handles.exit, label %90
 
 90:                                               ; preds = %.critedge
   %91 = load ptr, ptr %33, align 8
@@ -2974,26 +2972,26 @@ mstate.exit.i:                                    ; preds = %105, %link_easy.exi
 process_pending_handles.exit:                     ; preds = %mstate.exit.i, %90, %.critedge
   %109 = load i32, ptr %36, align 8
   %110 = add i32 %109, -3
-  %or.cond450 = icmp ult i32 %110, 12
+  %or.cond = icmp ult i32 %110, 12
   %.pre = load ptr, ptr %37, align 8
   %.not360 = icmp eq ptr %.pre, null
-  %or.cond665 = select i1 %or.cond450, i1 %.not360, i1 false
-  br i1 %or.cond665, label %.loopexit, label %111
+  %or.cond651 = select i1 %or.cond, i1 %.not360, i1 false
+  br i1 %or.cond651, label %.loopexit, label %111
 
 111:                                              ; preds = %process_pending_handles.exit
   %.not361 = icmp ne ptr %.pre, null
   %112 = add i32 %109, -2
-  %or.cond451 = icmp ult i32 %112, 13
-  %or.cond601 = and i1 %or.cond451, %.not361
-  br i1 %or.cond601, label %113, label %._crit_edge
+  %or.cond438 = icmp ult i32 %112, 13
+  %or.cond586 = and i1 %or.cond438, %.not361
+  br i1 %or.cond586, label %113, label %._crit_edge
 
 113:                                              ; preds = %111
   %114 = call fastcc zeroext i1 @multi_handle_timeout(ptr noundef nonnull %2, ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %9, i1 noundef zeroext false)
-  %.pr591.pre625 = load i32, ptr %36, align 8
-  br i1 %114, label %815, label %._crit_edge
+  %.pr576.pre609 = load i32, ptr %36, align 8
+  br i1 %114, label %814, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %113, %111
-  %115 = phi i32 [ %109, %111 ], [ %.pr591.pre625, %113 ]
+  %115 = phi i32 [ %109, %111 ], [ %.pr576.pre609, %113 ]
   switch i32 %115, label %.loopexit [
     i32 0, label %116
     i32 2, label %125
@@ -3008,40 +3006,40 @@ process_pending_handles.exit:                     ; preds = %mstate.exit.i, %90,
     i32 11, label %556
     i32 13, label %607
     i32 12, label %654
-    i32 14, label %759
-    i32 15, label %mstate.exit463thread-pre-split
-    i32 1, label %mstate.exit463thread-pre-split
-    i32 16, label %mstate.exit463thread-pre-split
+    i32 14, label %758
+    i32 15, label %mstate.exit449thread-pre-split
+    i32 1, label %mstate.exit449thread-pre-split
+    i32 16, label %mstate.exit449thread-pre-split
   ]
 
 116:                                              ; preds = %._crit_edge
   %117 = call i32 @Curl_pretransfer(ptr noundef nonnull %2) #19
   store i32 %117, ptr %9, align 4
-  %.not442 = icmp eq i32 %117, 0
-  br i1 %.not442, label %118, label %mstate.exit463thread-pre-split
+  %.not431 = icmp eq i32 %117, 0
+  br i1 %.not431, label %118, label %mstate.exit449thread-pre-split
 
 118:                                              ; preds = %116
   %119 = load i32, ptr %36, align 8
   %120 = icmp eq i32 %119, 2
-  br i1 %120, label %mstate.exit453, label %121
+  br i1 %120, label %mstate.exit439, label %121
 
 121:                                              ; preds = %118
   store i32 2, ptr %36, align 8
   call void @Curl_init_CONNECT(ptr noundef nonnull %2) #19
-  br label %mstate.exit453
+  br label %mstate.exit439
 
-mstate.exit453:                                   ; preds = %118, %121
+mstate.exit439:                                   ; preds = %118, %121
   %122 = call { i64, i32 } @Curl_pgrsTime(ptr noundef nonnull %2, i32 noundef 1) #19
   %123 = extractvalue { i64, i32 } %122, 0
   %124 = extractvalue { i64, i32 } %122, 1
   store i64 %123, ptr %1, align 8
   store i32 %124, ptr %57, align 8
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 125:                                              ; preds = %._crit_edge
   %126 = load ptr, ptr %78, align 8
-  %.not.i454 = icmp eq ptr %126, null
-  br i1 %.not.i454, label %127, label %133
+  %.not.i440 = icmp eq ptr %126, null
+  br i1 %.not.i440, label %127, label %133
 
 127:                                              ; preds = %125
   %128 = load ptr, ptr @Curl_cmalloc, align 8
@@ -3055,7 +3053,7 @@ mstate.exit453:                                   ; preds = %118, %121
 
 Curl_preconnect.exit:                             ; preds = %127
   store i32 27, ptr %9, align 4
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 133:                                              ; preds = %125, %127
   %134 = call { i64, i32 } @Curl_pgrsTime(ptr noundef nonnull %2, i32 noundef 2) #19
@@ -3064,8 +3062,8 @@ Curl_preconnect.exit:                             ; preds = %127
   store i64 %135, ptr %1, align 8
   store i32 %136, ptr %57, align 8
   %137 = load i32, ptr %80, align 8
-  %.not435 = icmp eq i32 %137, 0
-  br i1 %.not435, label %140, label %138
+  %.not426 = icmp eq i32 %137, 0
+  br i1 %.not426, label %140, label %138
 
 138:                                              ; preds = %133
   %139 = zext i32 %137 to i64
@@ -3074,8 +3072,8 @@ Curl_preconnect.exit:                             ; preds = %127
 
 140:                                              ; preds = %138, %133
   %141 = load i32, ptr %81, align 4
-  %.not436 = icmp eq i32 %141, 0
-  br i1 %.not436, label %144, label %142
+  %.not427 = icmp eq i32 %141, 0
+  br i1 %.not427, label %144, label %142
 
 142:                                              ; preds = %140
   %143 = zext i32 %141 to i64
@@ -3091,20 +3089,20 @@ Curl_preconnect.exit:                             ; preds = %127
 147:                                              ; preds = %144
   %148 = load i32, ptr %36, align 8
   %149 = icmp eq i32 %148, 1
-  br i1 %149, label %mstate.exit455, label %150
+  br i1 %149, label %mstate.exit441, label %150
 
 150:                                              ; preds = %147
   store i32 1, ptr %36, align 8
-  br label %mstate.exit455
+  br label %mstate.exit441
 
-mstate.exit455:                                   ; preds = %147, %150
+mstate.exit441:                                   ; preds = %147, %150
   %151 = load ptr, ptr %82, align 8
   call void @Curl_llist_insert_next(ptr noundef nonnull %33, ptr noundef %151, ptr noundef nonnull %2, ptr noundef nonnull %83) #19
   %152 = load ptr, ptr %84, align 8
-  %.not.i456 = icmp eq ptr %152, null
+  %.not.i442 = icmp eq ptr %152, null
   %153 = load ptr, ptr %85, align 8
   %154 = getelementptr inbounds i8, ptr %152, i64 16
-  %.sink.i = select i1 %.not.i456, ptr %34, ptr %154
+  %.sink.i = select i1 %.not.i442, ptr %34, ptr %154
   store ptr %153, ptr %.sink.i, align 8
   %.not13.i = icmp eq ptr %153, null
   %155 = load ptr, ptr %84, align 8
@@ -3113,19 +3111,19 @@ mstate.exit455:                                   ; preds = %147, %150
   store ptr %155, ptr %.sink14.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false)
   store i32 0, ptr %9, align 4
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 157:                                              ; preds = %144
   %158 = load i32, ptr %38, align 4
   %159 = and i32 %158, 4096
-  %.not437 = icmp eq i32 %159, 0
-  br i1 %.not437, label %process_pending_handles.exit462, label %160
+  %.not428 = icmp eq i32 %159, 0
+  br i1 %.not428, label %process_pending_handles.exit448, label %160
 
 160:                                              ; preds = %157
   %161 = load i64, ptr %51, align 2
   %162 = and i64 %161, 268435456
-  %.not438 = icmp eq i64 %162, 0
-  br i1 %.not438, label %164, label %163
+  %.not429 = icmp eq i64 %162, 0
+  br i1 %.not429, label %164, label %163
 
 163:                                              ; preds = %160
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %2, ptr noundef nonnull @.str.5) #19
@@ -3135,8 +3133,8 @@ mstate.exit455:                                   ; preds = %147, %150
   %165 = load ptr, ptr %40, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 64
   %167 = load ptr, ptr %166, align 8
-  %.not.i457 = icmp eq ptr %167, null
-  br i1 %.not.i457, label %process_pending_handles.exit462, label %168
+  %.not.i443 = icmp eq ptr %167, null
+  br i1 %.not.i443, label %process_pending_handles.exit448, label %168
 
 168:                                              ; preds = %164
   %169 = load ptr, ptr %167, align 8
@@ -3144,8 +3142,8 @@ mstate.exit455:                                   ; preds = %147, %150
   store ptr null, ptr %170, align 8
   %171 = getelementptr inbounds i8, ptr %165, i64 8
   %172 = load ptr, ptr %171, align 8
-  %.not.i.i458 = icmp eq ptr %172, null
-  br i1 %.not.i.i458, label %178, label %173
+  %.not.i.i444 = icmp eq ptr %172, null
+  br i1 %.not.i.i444, label %178, label %173
 
 173:                                              ; preds = %168
   %174 = getelementptr inbounds i8, ptr %165, i64 16
@@ -3154,83 +3152,81 @@ mstate.exit455:                                   ; preds = %147, %150
   store ptr %169, ptr %176, align 8
   %177 = getelementptr inbounds i8, ptr %169, i64 24
   store ptr %175, ptr %177, align 8
-  br label %link_easy.exit.i459
+  br label %link_easy.exit.i445
 
 178:                                              ; preds = %168
   %179 = getelementptr inbounds i8, ptr %169, i64 24
   store ptr null, ptr %179, align 8
   store ptr %169, ptr %171, align 8
   %180 = getelementptr inbounds i8, ptr %165, i64 16
-  br label %link_easy.exit.i459
+  br label %link_easy.exit.i445
 
-link_easy.exit.i459:                              ; preds = %178, %173
-  %.sink.i.i460 = phi ptr [ %180, %178 ], [ %174, %173 ]
-  store ptr %169, ptr %.sink.i.i460, align 8
+link_easy.exit.i445:                              ; preds = %178, %173
+  %.sink.i.i446 = phi ptr [ %180, %178 ], [ %174, %173 ]
+  store ptr %169, ptr %.sink.i.i446, align 8
   %181 = getelementptr inbounds i8, ptr %169, i64 88
   %182 = load i32, ptr %181, align 8
   %183 = icmp eq i32 %182, 2
-  br i1 %183, label %mstate.exit.i461, label %184
+  br i1 %183, label %mstate.exit.i447, label %184
 
-184:                                              ; preds = %link_easy.exit.i459
+184:                                              ; preds = %link_easy.exit.i445
   store i32 2, ptr %181, align 8
   call void @Curl_init_CONNECT(ptr noundef nonnull %169) #19
-  br label %mstate.exit.i461
+  br label %mstate.exit.i447
 
-mstate.exit.i461:                                 ; preds = %184, %link_easy.exit.i459
+mstate.exit.i447:                                 ; preds = %184, %link_easy.exit.i445
   call void @Curl_llist_remove(ptr noundef nonnull %166, ptr noundef nonnull %167, ptr noundef null) #19
   call void @Curl_expire(ptr noundef nonnull %169, i64 noundef 0, i32 noundef 8)
   %185 = getelementptr inbounds i8, ptr %169, i64 4940
   %186 = load i32, ptr %185, align 4
   %187 = or i32 %186, 4096
   store i32 %187, ptr %185, align 4
-  br label %process_pending_handles.exit462
+  br label %process_pending_handles.exit448
 
-process_pending_handles.exit462:                  ; preds = %mstate.exit.i461, %164, %157
-  %.not439 = icmp eq i32 %145, 0
-  br i1 %.not439, label %188, label %mstate.exit463thread-pre-split
+process_pending_handles.exit448:                  ; preds = %mstate.exit.i447, %164, %157
+  %.not430 = icmp eq i32 %145, 0
+  br i1 %.not430, label %188, label %mstate.exit449thread-pre-split
 
-188:                                              ; preds = %process_pending_handles.exit462
+188:                                              ; preds = %process_pending_handles.exit448
   %189 = call { i64, i32 } @Curl_pgrsTime(ptr noundef nonnull %2, i32 noundef 3) #19
   %190 = extractvalue { i64, i32 } %189, 0
   %191 = extractvalue { i64, i32 } %189, 1
   store i64 %190, ptr %1, align 8
   store i32 %191, ptr %57, align 8
   %192 = load i8, ptr %5, align 1
-  %193 = and i8 %192, 1
-  %.not440 = icmp eq i8 %193, 0
-  br i1 %.not440, label %198, label %194
+  %193 = trunc i8 %192 to i1
+  br i1 %193, label %194, label %198
 
 194:                                              ; preds = %188
   %195 = load i32, ptr %36, align 8
   %196 = icmp eq i32 %195, 3
-  br i1 %196, label %mstate.exit463, label %197
+  br i1 %196, label %mstate.exit449, label %197
 
 197:                                              ; preds = %194
   store i32 3, ptr %36, align 8
-  br label %mstate.exit463
+  br label %mstate.exit449
 
 198:                                              ; preds = %188
   %199 = load i8, ptr %4, align 1
-  %200 = and i8 %199, 1
-  %.not441 = icmp eq i8 %200, 0
+  %200 = trunc i8 %199 to i1
   %201 = load i32, ptr %36, align 8
-  br i1 %.not441, label %205, label %202
+  br i1 %200, label %202, label %205
 
 202:                                              ; preds = %198
   %203 = icmp eq i32 %201, 6
-  br i1 %203, label %mstate.exit463, label %204
+  br i1 %203, label %mstate.exit449, label %204
 
 204:                                              ; preds = %202
   store i32 6, ptr %36, align 8
-  br label %mstate.exit463
+  br label %mstate.exit449
 
 205:                                              ; preds = %198
   %206 = icmp eq i32 %201, 4
-  br i1 %206, label %mstate.exit463, label %207
+  br i1 %206, label %mstate.exit449, label %207
 
 207:                                              ; preds = %205
   store i32 4, ptr %36, align 8
-  br label %mstate.exit463
+  br label %mstate.exit449
 
 208:                                              ; preds = %._crit_edge
   store ptr null, ptr %12, align 8
@@ -3238,89 +3234,88 @@ process_pending_handles.exit462:                  ; preds = %mstate.exit.i461, %
   %210 = getelementptr inbounds i8, ptr %209, i64 672
   %211 = load i32, ptr %210, align 8
   %212 = and i32 %211, 1
-  %.not424 = icmp eq i32 %212, 0
+  %.not416 = icmp eq i32 %212, 0
   %213 = and i32 %211, 512
-  %.not425 = icmp eq i32 %213, 0
-  %. = select i1 %.not425, i64 80, i64 128
-  %.sink = select i1 %.not424, i64 %., i64 216
+  %.not417 = icmp eq i32 %213, 0
+  %. = select i1 %.not417, i64 80, i64 128
+  %.sink = select i1 %.not416, i64 %., i64 216
   %214 = getelementptr inbounds i8, ptr %209, i64 %.sink
   %.0331 = load ptr, ptr %214, align 8
   %215 = getelementptr inbounds i8, ptr %209, i64 1128
   %216 = load i32, ptr %215, align 8
   %217 = call ptr @Curl_fetch_addr(ptr noundef nonnull %2, ptr noundef %.0331, i32 noundef %216) #19
   store ptr %217, ptr %12, align 8
-  %.not426 = icmp eq ptr %217, null
-  br i1 %.not426, label %.thread, label %218
+  %.not418 = icmp eq ptr %217, null
+  br i1 %.not418, label %.thread, label %218
 
 218:                                              ; preds = %208
   store i32 0, ptr %9, align 4
   %219 = load i64, ptr %51, align 2
   %220 = and i64 %219, 268435456
-  %.not427 = icmp eq i64 %220, 0
-  br i1 %.not427, label %.thread627, label %221
+  %.not419 = icmp eq i64 %220, 0
+  br i1 %.not419, label %.thread613, label %221
 
 221:                                              ; preds = %218
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %2, ptr noundef nonnull @.str.6, ptr noundef %.0331) #19
   %.pr.pre = load ptr, ptr %12, align 8
-  %.not428 = icmp eq ptr %.pr.pre, null
-  br i1 %.not428, label %.thread, label %.thread627
+  %.not420 = icmp eq ptr %.pr.pre, null
+  br i1 %.not420, label %.thread, label %.thread613
 
 .thread:                                          ; preds = %208, %221
   %222 = call i32 @Curl_resolv_check(ptr noundef nonnull %2, ptr noundef nonnull %12) #19
   store i32 %222, ptr %9, align 4
-  br label %.thread627
+  br label %.thread613
 
-.thread627:                                       ; preds = %218, %.thread, %221
-  %.pr544623 = phi i32 [ %222, %.thread ], [ 0, %221 ], [ 0, %218 ]
+.thread613:                                       ; preds = %218, %.thread, %221
+  %.pr530607 = phi i32 [ %222, %.thread ], [ 0, %221 ], [ 0, %218 ]
   %223 = call fastcc i32 @singlesocket(ptr noundef nonnull %0, ptr noundef nonnull %2), !range !7
-  %.not429 = icmp eq i32 %223, 0
-  br i1 %.not429, label %224, label %.loopexit
+  %.not421 = icmp eq i32 %223, 0
+  br i1 %.not421, label %224, label %.loopexit
 
-224:                                              ; preds = %.thread627
+224:                                              ; preds = %.thread613
   %225 = load ptr, ptr %12, align 8
-  %.not430 = icmp eq ptr %225, null
-  br i1 %.not430, label %mstate.exit466, label %226
+  %.not422 = icmp eq ptr %225, null
+  br i1 %.not422, label %mstate.exit452, label %226
 
 226:                                              ; preds = %224
   %227 = call i32 @Curl_once_resolved(ptr noundef nonnull %2, ptr noundef nonnull %4) #19
   store i32 %227, ptr %9, align 4
-  %.not431 = icmp eq i32 %227, 0
-  br i1 %.not431, label %228, label %mstate.exit466.thread
+  %.not423 = icmp eq i32 %227, 0
+  br i1 %.not423, label %228, label %mstate.exit452.thread
 
-mstate.exit466.thread:                            ; preds = %226
+mstate.exit452.thread:                            ; preds = %226
   store ptr null, ptr %37, align 8
   br label %238
 
 228:                                              ; preds = %226
   %229 = load i8, ptr %4, align 1
-  %230 = and i8 %229, 1
-  %.not432 = icmp eq i8 %230, 0
+  %230 = trunc i8 %229 to i1
   %231 = load i32, ptr %36, align 8
-  br i1 %.not432, label %235, label %232
+  br i1 %230, label %232, label %235
 
 232:                                              ; preds = %228
   %233 = icmp eq i32 %231, 6
-  br i1 %233, label %mstate.exit463thread-pre-split, label %234
+  br i1 %233, label %mstate.exit449thread-pre-split, label %234
 
 234:                                              ; preds = %232
   store i32 6, ptr %36, align 8
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 235:                                              ; preds = %228
   %236 = icmp eq i32 %231, 4
-  br i1 %236, label %mstate.exit463thread-pre-split, label %237
+  br i1 %236, label %mstate.exit449thread-pre-split, label %237
 
 237:                                              ; preds = %235
   store i32 4, ptr %36, align 8
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
-mstate.exit466:                                   ; preds = %224
-  %.not433 = icmp eq i32 %.pr544623, 0
-  br i1 %.not433, label %mstate.exit463thread-pre-split, label %238
+mstate.exit452:                                   ; preds = %224
+  %.not424 = icmp eq i32 %.pr530607, 0
+  br i1 %.not424, label %mstate.exit449thread-pre-split, label %238
 
-238:                                              ; preds = %mstate.exit466.thread, %mstate.exit466
+238:                                              ; preds = %mstate.exit452.thread, %mstate.exit452
   store i8 1, ptr %11, align 1
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 239:                                              ; preds = %._crit_edge
   %240 = call i32 @Curl_http_connect(ptr noundef nonnull %2, ptr noundef nonnull %6) #19
@@ -3337,63 +3332,62 @@ mstate.exit466:                                   ; preds = %224
   %246 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef 0, i1 noundef zeroext false)
   %247 = load i32, ptr %36, align 8
   %248 = icmp eq i32 %247, 2
-  br i1 %248, label %mstate.exit463, label %249
+  br i1 %248, label %mstate.exit449, label %249
 
 249:                                              ; preds = %245
   store i32 2, ptr %36, align 8
   call void @Curl_init_CONNECT(ptr noundef nonnull %2) #19
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 250:                                              ; preds = %239
-  %.not423 = icmp eq i32 %240, 0
-  br i1 %.not423, label %251, label %255
+  %.not415 = icmp eq i32 %240, 0
+  br i1 %.not415, label %251, label %255
 
 251:                                              ; preds = %250
   %252 = load i32, ptr %36, align 8
   %253 = icmp eq i32 %252, 6
-  br i1 %253, label %mstate.exit463, label %254
+  br i1 %253, label %mstate.exit449, label %254
 
 254:                                              ; preds = %251
   store i32 6, ptr %36, align 8
-  br label %mstate.exit463
+  br label %mstate.exit449
 
 255:                                              ; preds = %250
   store i8 1, ptr %11, align 1
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 256:                                              ; preds = %._crit_edge
   %257 = call i32 @Curl_conn_connect(ptr noundef nonnull %2, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %4) #19
   store i32 %257, ptr %9, align 4
   %258 = load i8, ptr %4, align 1
-  %259 = and i8 %258, 1
-  %.not422 = icmp eq i8 %259, 0
-  %260 = icmp ne i32 %257, 0
-  %or.cond = select i1 %.not422, i1 true, i1 %260
-  br i1 %or.cond, label %265, label %261
+  %259 = trunc i8 %258 to i1
+  %260 = icmp eq i32 %257, 0
+  %or.cond.not = select i1 %259, i1 %260, i1 false
+  br i1 %or.cond.not, label %261, label %265
 
 261:                                              ; preds = %256
   %262 = load i32, ptr %36, align 8
   %263 = icmp eq i32 %262, 6
-  br i1 %263, label %mstate.exit463, label %264
+  br i1 %263, label %mstate.exit449, label %264
 
 264:                                              ; preds = %261
   store i32 6, ptr %36, align 8
-  br label %mstate.exit463
+  br label %mstate.exit449
 
 265:                                              ; preds = %256
-  br i1 %260, label %266, label %mstate.exit463thread-pre-split
+  br i1 %260, label %mstate.exit449thread-pre-split, label %266
 
 266:                                              ; preds = %265
   %267 = call i32 @Curl_posttransfer(ptr noundef nonnull %2) #19
   %268 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef %257, i1 noundef zeroext true)
   store i8 1, ptr %11, align 1
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 269:                                              ; preds = %._crit_edge
   %270 = load i32, ptr %38, align 4
   %271 = and i32 %270, 524288
-  %.not415 = icmp eq i32 %271, 0
-  br i1 %.not415, label %thread-pre-split548, label %272
+  %.not408 = icmp eq i32 %271, 0
+  br i1 %.not408, label %thread-pre-split534, label %272
 
 272:                                              ; preds = %269
   %273 = and i32 %270, -524289
@@ -3407,8 +3401,8 @@ mstate.exit466:                                   ; preds = %224
   %279 = getelementptr inbounds i8, ptr %278, i64 132
   %280 = load i32, ptr %279, align 4
   %281 = and i32 %280, 3
-  %.not.i471 = icmp eq i32 %281, 0
-  br i1 %.not.i471, label %284, label %282
+  %.not.i457 = icmp eq i32 %281, 0
+  br i1 %.not.i457, label %284, label %282
 
 282:                                              ; preds = %272
   %283 = load ptr, ptr %69, align 8
@@ -3456,8 +3450,8 @@ mstate.exit466:                                   ; preds = %224
   br i1 %.not9.i.i, label %300, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %295, %293
-  %.sink.i.i473 = phi ptr [ %294, %293 ], [ %296, %295 ]
-  %297 = getelementptr inbounds i8, ptr %.sink.i.i473, i64 433
+  %.sink.i.i459 = phi ptr [ %294, %293 ], [ %296, %295 ]
+  %297 = getelementptr inbounds i8, ptr %.sink.i.i459, i64 433
   %298 = load i8, ptr %297, align 1
   %299 = or i8 %298, 4
   store i8 %299, ptr %297, align 1
@@ -3572,43 +3566,43 @@ Curl_set_in_callback.exit72.i:                    ; preds = %.sink.split.i69.i, 
   br label %readrewind.exit
 
 readrewind.exit:                                  ; preds = %284, %286, %286, %288, %290, %Curl_set_in_callback.exit60.i, %310, %333, %334, %338, %341
-  %.0.i472 = phi i32 [ %289, %290 ], [ 65, %310 ], [ 65, %334 ], [ 65, %341 ], [ 0, %338 ], [ 0, %286 ], [ 0, %286 ], [ 0, %288 ], [ 0, %333 ], [ 0, %Curl_set_in_callback.exit60.i ], [ 0, %284 ]
-  store i32 %.0.i472, ptr %9, align 4
+  %.0.i458 = phi i32 [ %289, %290 ], [ 65, %310 ], [ 65, %334 ], [ 65, %341 ], [ 0, %338 ], [ 0, %286 ], [ 0, %286 ], [ 0, %288 ], [ 0, %333 ], [ 0, %Curl_set_in_callback.exit60.i ], [ 0, %284 ]
+  store i32 %.0.i458, ptr %9, align 4
   br label %342
 
-thread-pre-split548:                              ; preds = %269
-  %.pr549 = load i32, ptr %9, align 4
+thread-pre-split534:                              ; preds = %269
+  %.pr535 = load i32, ptr %9, align 4
   br label %342
 
-342:                                              ; preds = %thread-pre-split548, %readrewind.exit
-  %.pr552 = phi i32 [ %.pr549, %thread-pre-split548 ], [ %.0.i472, %readrewind.exit ]
-  %.not416 = icmp eq i32 %.pr552, 0
-  br i1 %.not416, label %343, label %thread-pre-split551.thread
+342:                                              ; preds = %thread-pre-split534, %readrewind.exit
+  %.pr538 = phi i32 [ %.pr535, %thread-pre-split534 ], [ %.0.i458, %readrewind.exit ]
+  %.not409 = icmp eq i32 %.pr538, 0
+  br i1 %.not409, label %343, label %thread-pre-split537.thread
 
 343:                                              ; preds = %342
   %344 = load ptr, ptr %37, align 8
   %345 = getelementptr inbounds i8, ptr %344, i64 672
   %346 = load i32, ptr %345, align 8
   %347 = and i32 %346, 128
-  %.not417 = icmp eq i32 %347, 0
-  br i1 %.not417, label %352, label %348
+  %.not410 = icmp eq i32 %347, 0
+  br i1 %.not410, label %352, label %348
 
 348:                                              ; preds = %343
   %349 = load i32, ptr %36, align 8
   %350 = icmp eq i32 %349, 8
-  br i1 %350, label %mstate.exit463, label %351
+  br i1 %350, label %mstate.exit449, label %351
 
 351:                                              ; preds = %348
   store i32 8, ptr %36, align 8
-  br label %mstate.exit463
+  br label %mstate.exit449
 
 352:                                              ; preds = %343
   store i8 0, ptr %6, align 1
   %353 = call zeroext i1 @Curl_conn_is_connected(ptr noundef nonnull %344, i32 noundef 0) #19
   %354 = load i32, ptr %345, align 8
   %355 = and i32 %354, 16384
-  %.not.i475 = icmp ne i32 %355, 0
-  %or.cond.not.i = select i1 %353, i1 %.not.i475, i1 false
+  %.not.i461 = icmp ne i32 %355, 0
+  %or.cond.not.i = select i1 %353, i1 %.not.i461, i1 false
   br i1 %or.cond.not.i, label %356, label %._crit_edge.i
 
 356:                                              ; preds = %352
@@ -3642,57 +3636,56 @@ thread-pre-split548:                              ; preds = %269
 367:                                              ; preds = %362
   %368 = call i32 %366(ptr noundef nonnull %2, ptr noundef nonnull %6) #19
   %.not19.i = icmp eq i32 %368, 0
-  br i1 %.not19.i, label %._crit_edge619, label %thread-pre-split551
+  br i1 %.not19.i, label %._crit_edge603, label %thread-pre-split537
 
-._crit_edge619:                                   ; preds = %367
-  %.pre620 = load i32, ptr %345, align 8
+._crit_edge603:                                   ; preds = %367
+  %.pre604 = load i32, ptr %345, align 8
   br label %369
 
-369:                                              ; preds = %._crit_edge619, %.thread.i
-  %370 = phi i32 [ %.pre620, %._crit_edge619 ], [ %354, %.thread.i ]
+369:                                              ; preds = %._crit_edge603, %.thread.i
+  %370 = phi i32 [ %.pre604, %._crit_edge603 ], [ %354, %.thread.i ]
   %371 = or i32 %370, 16384
   store i32 %371, ptr %345, align 8
   br label %372
 
-thread-pre-split551:                              ; preds = %367
+thread-pre-split537:                              ; preds = %367
   store i32 %368, ptr %9, align 4
-  br label %thread-pre-split551.thread
+  br label %thread-pre-split537.thread
 
 372:                                              ; preds = %361, %356, %._crit_edge.i, %369
   store i32 0, ptr %9, align 4
   %373 = load i8, ptr %6, align 1
-  %374 = and i8 %373, 1
-  %.not420 = icmp eq i8 %374, 0
+  %374 = trunc i8 %373 to i1
   %375 = load i32, ptr %36, align 8
-  br i1 %.not420, label %376, label %379
+  br i1 %374, label %379, label %376
 
 376:                                              ; preds = %372
   %377 = icmp eq i32 %375, 7
-  br i1 %377, label %mstate.exit463, label %378
+  br i1 %377, label %mstate.exit449, label %378
 
 378:                                              ; preds = %376
   store i32 7, ptr %36, align 8
-  br label %mstate.exit463
+  br label %mstate.exit449
 
 379:                                              ; preds = %372
   %380 = icmp eq i32 %375, 8
-  br i1 %380, label %mstate.exit463, label %381
+  br i1 %380, label %mstate.exit449, label %381
 
 381:                                              ; preds = %379
   store i32 8, ptr %36, align 8
-  br label %mstate.exit463
+  br label %mstate.exit449
 
-thread-pre-split551.thread:                       ; preds = %342, %thread-pre-split551
-  %382 = phi i32 [ %368, %thread-pre-split551 ], [ %.pr552, %342 ]
+thread-pre-split537.thread:                       ; preds = %342, %thread-pre-split537
+  %382 = phi i32 [ %368, %thread-pre-split537 ], [ %.pr538, %342 ]
   %383 = call i32 @Curl_posttransfer(ptr noundef nonnull %2) #19
   %384 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef %382, i1 noundef zeroext true)
   store i8 1, ptr %11, align 1
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 385:                                              ; preds = %._crit_edge
   %386 = load ptr, ptr %37, align 8
-  %.not.i479 = icmp eq ptr %386, null
-  br i1 %.not.i479, label %.thread638, label %387
+  %.not.i465 = icmp eq ptr %386, null
+  br i1 %.not.i465, label %.thread624, label %387
 
 387:                                              ; preds = %385
   %388 = getelementptr inbounds i8, ptr %386, i64 680
@@ -3700,9 +3693,9 @@ thread-pre-split551.thread:                       ; preds = %342, %thread-pre-sp
   %390 = getelementptr inbounds i8, ptr %389, i64 48
   %391 = load ptr, ptr %390, align 8
   %.not9.i = icmp eq ptr %391, null
-  br i1 %.not9.i, label %.thread638, label %protocol_connecting.exit
+  br i1 %.not9.i, label %.thread624, label %protocol_connecting.exit
 
-.thread638:                                       ; preds = %387, %385
+.thread624:                                       ; preds = %387, %385
   store i8 1, ptr %6, align 1
   store i32 0, ptr %9, align 4
   br label %395
@@ -3711,34 +3704,33 @@ protocol_connecting.exit:                         ; preds = %387
   store i8 0, ptr %6, align 1
   %392 = call i32 %391(ptr noundef nonnull %2, ptr noundef nonnull %6) #19
   store i32 %392, ptr %9, align 4
-  %.not412 = icmp eq i32 %392, 0
-  br i1 %.not412, label %393, label %399
+  %.not406 = icmp eq i32 %392, 0
+  br i1 %.not406, label %393, label %399
 
 393:                                              ; preds = %protocol_connecting.exit
-  %.pre618 = load i8, ptr %6, align 1
-  %394 = and i8 %.pre618, 1
-  %.not413 = icmp eq i8 %394, 0
-  br i1 %.not413, label %mstate.exit463thread-pre-split, label %395
+  %.pre602 = load i8, ptr %6, align 1
+  %394 = trunc i8 %.pre602 to i1
+  br i1 %394, label %395, label %mstate.exit449thread-pre-split
 
-395:                                              ; preds = %.thread638, %393
+395:                                              ; preds = %.thread624, %393
   %396 = load i32, ptr %36, align 8
   %397 = icmp eq i32 %396, 8
-  br i1 %397, label %mstate.exit463, label %398
+  br i1 %397, label %mstate.exit449, label %398
 
 398:                                              ; preds = %395
   store i32 8, ptr %36, align 8
-  br label %mstate.exit463
+  br label %mstate.exit449
 
 399:                                              ; preds = %protocol_connecting.exit
   %400 = call i32 @Curl_posttransfer(ptr noundef nonnull %2) #19
   %401 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef %392, i1 noundef zeroext true)
   store i8 1, ptr %11, align 1
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 402:                                              ; preds = %._crit_edge
   %403 = load ptr, ptr %58, align 8
-  %.not400 = icmp eq ptr %403, null
-  br i1 %.not400, label %426, label %404
+  %.not395 = icmp eq ptr %403, null
+  br i1 %.not395, label %426, label %404
 
 404:                                              ; preds = %402
   %405 = load ptr, ptr %59, align 8
@@ -3747,54 +3739,54 @@ protocol_connecting.exit:                         ; preds = %387
 
 406:                                              ; preds = %404
   %407 = load ptr, ptr %40, align 8
-  %.not9.i484 = icmp eq ptr %407, null
-  br i1 %.not9.i484, label %411, label %.sink.split.i
+  %.not9.i470 = icmp eq ptr %407, null
+  br i1 %.not9.i470, label %411, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %406, %404
-  %.sink.i483 = phi ptr [ %405, %404 ], [ %407, %406 ]
-  %408 = getelementptr inbounds i8, ptr %.sink.i483, i64 433
+  %.sink.i469 = phi ptr [ %405, %404 ], [ %407, %406 ]
+  %408 = getelementptr inbounds i8, ptr %.sink.i469, i64 433
   %409 = load i8, ptr %408, align 1
   %410 = or i8 %409, 4
   store i8 %410, ptr %408, align 1
-  %.pre617 = load ptr, ptr %58, align 8
+  %.pre601 = load ptr, ptr %58, align 8
   br label %411
 
 411:                                              ; preds = %.sink.split.i, %406
-  %412 = phi ptr [ %.pre617, %.sink.split.i ], [ %403, %406 ]
+  %412 = phi ptr [ %.pre601, %.sink.split.i ], [ %403, %406 ]
   %413 = load ptr, ptr %60, align 8
   %414 = load i32, ptr %63, align 4
   %415 = load i32, ptr %64, align 4
   %416 = call i32 %412(ptr noundef %413, ptr noundef nonnull %61, ptr noundef nonnull %62, i32 noundef %414, i32 noundef %415) #19
   %417 = load ptr, ptr %59, align 8
-  %.not8.i486 = icmp eq ptr %417, null
-  br i1 %.not8.i486, label %418, label %.sink.split.i487
+  %.not8.i472 = icmp eq ptr %417, null
+  br i1 %.not8.i472, label %418, label %.sink.split.i473
 
 418:                                              ; preds = %411
   %419 = load ptr, ptr %40, align 8
-  %.not9.i489 = icmp eq ptr %419, null
-  br i1 %.not9.i489, label %Curl_set_in_callback.exit490, label %.sink.split.i487
+  %.not9.i475 = icmp eq ptr %419, null
+  br i1 %.not9.i475, label %Curl_set_in_callback.exit476, label %.sink.split.i473
 
-.sink.split.i487:                                 ; preds = %418, %411
-  %.sink.i488 = phi ptr [ %417, %411 ], [ %419, %418 ]
-  %420 = getelementptr inbounds i8, ptr %.sink.i488, i64 433
+.sink.split.i473:                                 ; preds = %418, %411
+  %.sink.i474 = phi ptr [ %417, %411 ], [ %419, %418 ]
+  %420 = getelementptr inbounds i8, ptr %.sink.i474, i64 433
   %421 = load i8, ptr %420, align 1
   %422 = and i8 %421, -5
   store i8 %422, ptr %420, align 1
-  br label %Curl_set_in_callback.exit490
+  br label %Curl_set_in_callback.exit476
 
-Curl_set_in_callback.exit490:                     ; preds = %418, %.sink.split.i487
-  %.not401 = icmp eq i32 %416, 0
-  br i1 %.not401, label %426, label %423
+Curl_set_in_callback.exit476:                     ; preds = %418, %.sink.split.i473
+  %.not396 = icmp eq i32 %416, 0
+  br i1 %.not396, label %426, label %423
 
-423:                                              ; preds = %Curl_set_in_callback.exit490
+423:                                              ; preds = %Curl_set_in_callback.exit476
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.7) #19
   store i32 42, ptr %9, align 4
   %424 = call i32 @Curl_posttransfer(ptr noundef nonnull %2) #19
   %425 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef 42, i1 noundef zeroext false)
   store i8 1, ptr %11, align 1
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
-426:                                              ; preds = %Curl_set_in_callback.exit490, %402
+426:                                              ; preds = %Curl_set_in_callback.exit476, %402
   %427 = load i8, ptr %65, align 1
   %428 = icmp eq i8 %427, 1
   %429 = load ptr, ptr %37, align 8
@@ -3804,23 +3796,23 @@ Curl_set_in_callback.exit490:                     ; preds = %418, %.sink.split.i
   call void @Curl_conncontrol(ptr noundef %429, i32 noundef 0) #19
   %431 = load i32, ptr %36, align 8
   %432 = icmp eq i32 %431, 14
-  br i1 %432, label %mstate.exit491, label %433
+  br i1 %432, label %mstate.exit477, label %433
 
 433:                                              ; preds = %430
   store i32 14, ptr %36, align 8
-  br label %mstate.exit491
+  br label %mstate.exit477
 
-mstate.exit491:                                   ; preds = %430, %433
+mstate.exit477:                                   ; preds = %430, %433
   store i32 0, ptr %9, align 4
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 434:                                              ; preds = %426
   %435 = getelementptr inbounds i8, ptr %429, i64 680
   %436 = load ptr, ptr %435, align 8
   %437 = getelementptr inbounds i8, ptr %436, i64 16
   %438 = load ptr, ptr %437, align 8
-  %.not.i492 = icmp eq ptr %438, null
-  br i1 %.not.i492, label %multi_do.exit.thread, label %multi_do.exit
+  %.not.i478 = icmp eq ptr %438, null
+  br i1 %.not.i478, label %multi_do.exit.thread, label %multi_do.exit
 
 multi_do.exit.thread:                             ; preds = %434
   store i32 0, ptr %9, align 4
@@ -3836,15 +3828,14 @@ multi_do.exit:                                    ; preds = %434
 
 440:                                              ; preds = %multi_do.exit.thread, %multi_do.exit
   %441 = load i8, ptr %7, align 1
-  %442 = and i8 %441, 1
-  %.not403 = icmp eq i8 %442, 0
-  br i1 %.not403, label %443, label %458
+  %442 = trunc i8 %441 to i1
+  br i1 %442, label %458, label %443
 
 443:                                              ; preds = %440
   %444 = load i32, ptr %38, align 4
   %445 = and i32 %444, 64
-  %.not404 = icmp eq i32 %445, 0
-  br i1 %.not404, label %454, label %446
+  %.not398 = icmp eq i32 %445, 0
+  br i1 %.not398, label %454, label %446
 
 446:                                              ; preds = %443
   %447 = load ptr, ptr %39, align 8
@@ -3858,40 +3849,40 @@ multi_do.exit:                                    ; preds = %434
 450:                                              ; preds = %446, %446
   %451 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef 0, i1 noundef zeroext false)
   %452 = load ptr, ptr %37, align 8
-  %.not405 = icmp eq ptr %452, null
-  %453 = select i1 %.not405, i32 15, i32 14
+  %.not399 = icmp eq ptr %452, null
+  %453 = select i1 %.not399, i32 15, i32 14
   call fastcc void @mstate(ptr noundef nonnull %2, i32 noundef %453)
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 454:                                              ; preds = %446, %443
   %455 = load i32, ptr %36, align 8
   %456 = icmp eq i32 %455, 9
-  br i1 %456, label %mstate.exit463, label %457
+  br i1 %456, label %mstate.exit449, label %457
 
 457:                                              ; preds = %454
   store i32 9, ptr %36, align 8
-  br label %mstate.exit463
+  br label %mstate.exit449
 
 458:                                              ; preds = %440
   %459 = load ptr, ptr %37, align 8
   %460 = getelementptr inbounds i8, ptr %459, i64 672
   %461 = load i32, ptr %460, align 8
   %462 = and i32 %461, 8192
-  %.not406 = icmp eq i32 %462, 0
+  %.not400 = icmp eq i32 %462, 0
   %463 = load i32, ptr %36, align 8
-  br i1 %.not406, label %467, label %464
+  br i1 %.not400, label %467, label %464
 
 464:                                              ; preds = %458
   %465 = icmp eq i32 %463, 10
-  br i1 %465, label %mstate.exit463, label %466
+  br i1 %465, label %mstate.exit449, label %466
 
 466:                                              ; preds = %464
   store i32 10, ptr %36, align 8
-  br label %mstate.exit463
+  br label %mstate.exit449
 
 467:                                              ; preds = %458
   %468 = icmp eq i32 %463, 11
-  br i1 %468, label %mstate.exit463, label %469
+  br i1 %468, label %mstate.exit449, label %469
 
 469:                                              ; preds = %467
   store i32 11, ptr %36, align 8
@@ -3899,21 +3890,21 @@ multi_do.exit:                                    ; preds = %434
   %471 = and i16 %470, -129
   store i16 %471, ptr %66, align 1
   %472 = call { i64, i32 } @Curl_pgrsTime(ptr noundef nonnull %2, i32 noundef 7) #19
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 473:                                              ; preds = %multi_do.exit
   %474 = load ptr, ptr %37, align 8
   %475 = getelementptr inbounds i8, ptr %474, i64 672
   %476 = load i32, ptr %475, align 8
   %477 = and i32 %476, 128
-  %.not407 = icmp eq i32 %477, 0
-  br i1 %.not407, label %499, label %478
+  %.not401 = icmp eq i32 %477, 0
+  br i1 %.not401, label %499, label %478
 
 478:                                              ; preds = %473
   store ptr null, ptr %13, align 8
   %479 = call i32 @Curl_retry_request(ptr noundef nonnull %2, ptr noundef nonnull %13) #19
-  %.not409 = icmp eq i32 %479, 0
-  br i1 %.not409, label %481, label %480
+  %.not403 = icmp eq i32 %479, 0
+  br i1 %.not403, label %481, label %480
 
 480:                                              ; preds = %478
   store i32 %479, ptr %9, align 4
@@ -3925,8 +3916,8 @@ multi_do.exit:                                    ; preds = %434
   %483 = call i32 @Curl_posttransfer(ptr noundef nonnull %2) #19
   %484 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef %482, i1 noundef zeroext false)
   %485 = load ptr, ptr %13, align 8
-  %.not410 = icmp eq ptr %485, null
-  br i1 %.not410, label %495, label %486
+  %.not404 = icmp eq ptr %485, null
+  br i1 %.not404, label %495, label %486
 
 486:                                              ; preds = %481
   switch i32 %484, label %494 [
@@ -3936,20 +3927,20 @@ multi_do.exit:                                    ; preds = %434
 
 487:                                              ; preds = %486, %486
   %488 = call i32 @Curl_follow(ptr noundef nonnull %2, ptr noundef nonnull %485, i32 noundef 2) #19
-  %.not411 = icmp eq i32 %488, 0
-  br i1 %.not411, label %489, label %493
+  %.not405 = icmp eq i32 %488, 0
+  br i1 %.not405, label %489, label %493
 
 489:                                              ; preds = %487
   %490 = load i32, ptr %36, align 8
   %491 = icmp eq i32 %490, 2
-  br i1 %491, label %mstate.exit497, label %492
+  br i1 %491, label %mstate.exit483, label %492
 
 492:                                              ; preds = %489
   store i32 2, ptr %36, align 8
   call void @Curl_init_CONNECT(ptr noundef nonnull %2) #19
-  br label %mstate.exit497
+  br label %mstate.exit483
 
-mstate.exit497:                                   ; preds = %489, %492
+mstate.exit483:                                   ; preds = %489, %492
   store i32 0, ptr %9, align 4
   br label %496
 
@@ -3965,18 +3956,18 @@ mstate.exit497:                                   ; preds = %489, %492
   store i8 1, ptr %11, align 1
   br label %496
 
-496:                                              ; preds = %494, %493, %mstate.exit497, %495
-  %.1 = phi i32 [ 0, %493 ], [ -1, %mstate.exit497 ], [ 0, %494 ], [ 0, %495 ]
+496:                                              ; preds = %494, %493, %mstate.exit483, %495
+  %.1 = phi i32 [ 0, %493 ], [ -1, %mstate.exit483 ], [ 0, %494 ], [ 0, %495 ]
   %497 = load ptr, ptr @Curl_cfree, align 8
   %498 = load ptr, ptr %13, align 8
   call void %497(ptr noundef %498) #19
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 499:                                              ; preds = %multi_do.exit, %473
   %500 = call i32 @Curl_posttransfer(ptr noundef nonnull %2) #19
   %501 = load ptr, ptr %37, align 8
-  %.not408 = icmp eq ptr %501, null
-  br i1 %.not408, label %504, label %502
+  %.not402 = icmp eq ptr %501, null
+  br i1 %.not402, label %504, label %502
 
 502:                                              ; preds = %499
   %503 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef %439, i1 noundef zeroext false)
@@ -3984,22 +3975,22 @@ mstate.exit497:                                   ; preds = %489, %492
 
 504:                                              ; preds = %502, %499
   store i8 1, ptr %11, align 1
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 505:                                              ; preds = %._crit_edge
   %506 = load ptr, ptr %37, align 8
-  %.not.i498 = icmp eq ptr %506, null
-  br i1 %.not.i498, label %.thread640, label %507
+  %.not.i484 = icmp eq ptr %506, null
+  br i1 %.not.i484, label %.thread625, label %507
 
 507:                                              ; preds = %505
   %508 = getelementptr inbounds i8, ptr %506, i64 680
   %509 = load ptr, ptr %508, align 8
   %510 = getelementptr inbounds i8, ptr %509, i64 56
   %511 = load ptr, ptr %510, align 8
-  %.not9.i499 = icmp eq ptr %511, null
-  br i1 %.not9.i499, label %.thread640, label %protocol_doing.exit
+  %.not9.i485 = icmp eq ptr %511, null
+  br i1 %.not9.i485, label %.thread625, label %protocol_doing.exit
 
-.thread640:                                       ; preds = %507, %505
+.thread625:                                       ; preds = %507, %505
   store i8 1, ptr %7, align 1
   store i32 0, ptr %9, align 4
   br label %515
@@ -4008,25 +3999,24 @@ protocol_doing.exit:                              ; preds = %507
   store i8 0, ptr %7, align 1
   %512 = call i32 %511(ptr noundef nonnull %2, ptr noundef nonnull %7) #19
   store i32 %512, ptr %9, align 4
-  %.not397 = icmp eq i32 %512, 0
-  br i1 %.not397, label %513, label %530
+  %.not393 = icmp eq i32 %512, 0
+  br i1 %.not393, label %513, label %530
 
 513:                                              ; preds = %protocol_doing.exit
-  %.pre616 = load i8, ptr %7, align 1
-  %514 = and i8 %.pre616, 1
-  %.not398 = icmp eq i8 %514, 0
-  br i1 %.not398, label %mstate.exit463thread-pre-split, label %515
+  %.pre600 = load i8, ptr %7, align 1
+  %514 = trunc i8 %.pre600 to i1
+  br i1 %514, label %515, label %mstate.exit449thread-pre-split
 
-515:                                              ; preds = %.thread640, %513
+515:                                              ; preds = %.thread625, %513
   %516 = load ptr, ptr %37, align 8
   %517 = getelementptr inbounds i8, ptr %516, i64 672
   %518 = load i32, ptr %517, align 8
   %519 = and i32 %518, 8192
-  %.not399 = icmp eq i32 %519, 0
-  %520 = select i1 %.not399, i32 11, i32 10
+  %.not394 = icmp eq i32 %519, 0
+  %520 = select i1 %.not394, i32 11, i32 10
   %521 = load i32, ptr %36, align 8
   %522 = icmp eq i32 %521, %520
-  br i1 %522, label %mstate.exit463, label %523
+  br i1 %522, label %mstate.exit449, label %523
 
 523:                                              ; preds = %515
   store i32 %520, ptr %36, align 8
@@ -4034,19 +4024,19 @@ protocol_doing.exit:                              ; preds = %507
   %525 = lshr i64 96251, %524
   %526 = and i64 %525, 1
   %.not.not.i = icmp eq i64 %526, 0
-  br i1 %.not.not.i, label %527, label %mstate.exit463
+  br i1 %.not.not.i, label %527, label %mstate.exit449
 
 527:                                              ; preds = %523
   %528 = getelementptr inbounds [17 x ptr], ptr @mstate.finit, i64 0, i64 %524
   %529 = load ptr, ptr %528, align 8
   call void %529(ptr noundef nonnull %2) #19
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 530:                                              ; preds = %protocol_doing.exit
   %531 = call i32 @Curl_posttransfer(ptr noundef nonnull %2) #19
   %532 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef %512, i1 noundef zeroext false)
   store i8 1, ptr %11, align 1
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 533:                                              ; preds = %._crit_edge
   %534 = load ptr, ptr %37, align 8
@@ -4055,71 +4045,71 @@ protocol_doing.exit:                              ; preds = %507
   %536 = load ptr, ptr %535, align 8
   %537 = getelementptr inbounds i8, ptr %536, i64 32
   %538 = load ptr, ptr %537, align 8
-  %.not.i502 = icmp eq ptr %538, null
-  br i1 %.not.i502, label %.thread642, label %multi_do_more.exit
+  %.not.i488 = icmp eq ptr %538, null
+  br i1 %.not.i488, label %.thread626, label %multi_do_more.exit
 
-.thread642:                                       ; preds = %533
+.thread626:                                       ; preds = %533
   store i32 0, ptr %9, align 4
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 multi_do_more.exit:                               ; preds = %533
   %539 = call i32 %538(ptr noundef nonnull %2, ptr noundef nonnull %10) #19
   store i32 %539, ptr %9, align 4
-  %.not395 = icmp eq i32 %539, 0
-  br i1 %.not395, label %540, label %553
+  %.not391 = icmp eq i32 %539, 0
+  br i1 %.not391, label %540, label %553
 
 540:                                              ; preds = %multi_do_more.exit
-  %.pre615 = load i32, ptr %10, align 4
-  %.not396 = icmp eq i32 %.pre615, 0
-  br i1 %.not396, label %mstate.exit463thread-pre-split, label %541
+  %.pre599 = load i32, ptr %10, align 4
+  %.not392 = icmp eq i32 %.pre599, 0
+  br i1 %.not392, label %mstate.exit449thread-pre-split, label %541
 
 541:                                              ; preds = %540
-  %542 = icmp eq i32 %.pre615, 1
+  %542 = icmp eq i32 %.pre599, 1
   %543 = select i1 %542, i32 11, i32 9
   %544 = load i32, ptr %36, align 8
   %545 = icmp eq i32 %544, %543
-  br i1 %545, label %mstate.exit463, label %546
+  br i1 %545, label %mstate.exit449, label %546
 
 546:                                              ; preds = %541
   store i32 %543, ptr %36, align 8
   %547 = zext nneg i32 %543 to i64
   %548 = lshr i64 96251, %547
   %549 = and i64 %548, 1
-  %.not.not.i504 = icmp eq i64 %549, 0
-  br i1 %.not.not.i504, label %550, label %mstate.exit463
+  %.not.not.i490 = icmp eq i64 %549, 0
+  br i1 %.not.not.i490, label %550, label %mstate.exit449
 
 550:                                              ; preds = %546
   %551 = getelementptr inbounds [17 x ptr], ptr @mstate.finit, i64 0, i64 %547
   %552 = load ptr, ptr %551, align 8
   call void %552(ptr noundef nonnull %2) #19
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 553:                                              ; preds = %multi_do_more.exit
   %554 = call i32 @Curl_posttransfer(ptr noundef nonnull %2) #19
   %555 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef %539, i1 noundef zeroext false)
   store i8 1, ptr %11, align 1
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 556:                                              ; preds = %._crit_edge
   %557 = load ptr, ptr %37, align 8
   %558 = getelementptr inbounds i8, ptr %557, i64 672
   %559 = load i32, ptr %558, align 8
   %560 = and i32 %559, 8388608
-  %.not391 = icmp eq i32 %560, 0
-  br i1 %.not391, label %process_pending_handles.exit511, label %561
+  %.not387 = icmp eq i32 %560, 0
+  br i1 %.not387, label %process_pending_handles.exit497, label %561
 
 561:                                              ; preds = %556
   %562 = load ptr, ptr %33, align 8
-  %.not.i506 = icmp eq ptr %562, null
-  br i1 %.not.i506, label %process_pending_handles.exit511, label %563
+  %.not.i492 = icmp eq ptr %562, null
+  br i1 %.not.i492, label %process_pending_handles.exit497, label %563
 
 563:                                              ; preds = %561
   %564 = load ptr, ptr %562, align 8
   %565 = getelementptr inbounds i8, ptr %564, i64 16
   store ptr null, ptr %565, align 8
   %566 = load ptr, ptr %34, align 8
-  %.not.i.i507 = icmp eq ptr %566, null
-  br i1 %.not.i.i507, label %571, label %567
+  %.not.i.i493 = icmp eq ptr %566, null
+  br i1 %.not.i.i493, label %571, label %567
 
 567:                                              ; preds = %563
   %568 = load ptr, ptr %35, align 8
@@ -4127,63 +4117,63 @@ multi_do_more.exit:                               ; preds = %533
   store ptr %564, ptr %569, align 8
   %570 = getelementptr inbounds i8, ptr %564, i64 24
   store ptr %568, ptr %570, align 8
-  br label %link_easy.exit.i508
+  br label %link_easy.exit.i494
 
 571:                                              ; preds = %563
   %572 = getelementptr inbounds i8, ptr %564, i64 24
   store ptr null, ptr %572, align 8
   store ptr %564, ptr %34, align 8
-  br label %link_easy.exit.i508
+  br label %link_easy.exit.i494
 
-link_easy.exit.i508:                              ; preds = %571, %567
+link_easy.exit.i494:                              ; preds = %571, %567
   store ptr %564, ptr %35, align 8
   %573 = getelementptr inbounds i8, ptr %564, i64 88
   %574 = load i32, ptr %573, align 8
   %575 = icmp eq i32 %574, 2
-  br i1 %575, label %mstate.exit.i510, label %576
+  br i1 %575, label %mstate.exit.i496, label %576
 
-576:                                              ; preds = %link_easy.exit.i508
+576:                                              ; preds = %link_easy.exit.i494
   store i32 2, ptr %573, align 8
   call void @Curl_init_CONNECT(ptr noundef nonnull %564) #19
-  br label %mstate.exit.i510
+  br label %mstate.exit.i496
 
-mstate.exit.i510:                                 ; preds = %576, %link_easy.exit.i508
+mstate.exit.i496:                                 ; preds = %576, %link_easy.exit.i494
   call void @Curl_llist_remove(ptr noundef nonnull %33, ptr noundef nonnull %562, ptr noundef null) #19
   call void @Curl_expire(ptr noundef nonnull %564, i64 noundef 0, i32 noundef 8)
   %577 = getelementptr inbounds i8, ptr %564, i64 4940
   %578 = load i32, ptr %577, align 4
   %579 = or i32 %578, 4096
   store i32 %579, ptr %577, align 4
-  %.pre614 = load ptr, ptr %37, align 8
-  br label %process_pending_handles.exit511
+  %.pre598 = load ptr, ptr %37, align 8
+  br label %process_pending_handles.exit497
 
-process_pending_handles.exit511:                  ; preds = %mstate.exit.i510, %561, %556
-  %580 = phi ptr [ %.pre614, %mstate.exit.i510 ], [ %557, %561 ], [ %557, %556 ]
+process_pending_handles.exit497:                  ; preds = %mstate.exit.i496, %561, %556
+  %580 = phi ptr [ %.pre598, %mstate.exit.i496 ], [ %557, %561 ], [ %557, %556 ]
   %581 = getelementptr inbounds i8, ptr %580, i64 712
   %582 = load i32, ptr %581, align 8
-  %.not392 = icmp eq i32 %582, -1
-  br i1 %.not392, label %583, label %586
+  %.not388 = icmp eq i32 %582, -1
+  br i1 %.not388, label %583, label %586
 
-583:                                              ; preds = %process_pending_handles.exit511
+583:                                              ; preds = %process_pending_handles.exit497
   %584 = getelementptr inbounds i8, ptr %580, i64 716
   %585 = load i32, ptr %584, align 4
-  %.not393 = icmp eq i32 %585, -1
-  br i1 %.not393, label %590, label %586
+  %.not389 = icmp eq i32 %585, -1
+  br i1 %.not389, label %590, label %586
 
-586:                                              ; preds = %583, %process_pending_handles.exit511
+586:                                              ; preds = %583, %process_pending_handles.exit497
   %587 = load i32, ptr %36, align 8
   %588 = icmp eq i32 %587, 12
-  br i1 %588, label %mstate.exit463, label %589
+  br i1 %588, label %mstate.exit449, label %589
 
 589:                                              ; preds = %586
   store i32 12, ptr %36, align 8
-  br label %mstate.exit463
+  br label %mstate.exit449
 
 590:                                              ; preds = %583
   %591 = load i32, ptr %38, align 4
   %592 = and i32 %591, 64
-  %.not394 = icmp eq i32 %592, 0
-  br i1 %.not394, label %603, label %593
+  %.not390 = icmp eq i32 %592, 0
+  br i1 %.not390, label %603, label %593
 
 593:                                              ; preds = %590
   %594 = getelementptr inbounds i8, ptr %580, i64 680
@@ -4203,18 +4193,18 @@ process_pending_handles.exit511:                  ; preds = %mstate.exit.i510, %
 603:                                              ; preds = %600, %593, %590
   %604 = load i32, ptr %36, align 8
   %605 = icmp eq i32 %604, 14
-  br i1 %605, label %mstate.exit463, label %606
+  br i1 %605, label %mstate.exit449, label %606
 
 606:                                              ; preds = %603
   store i32 14, ptr %36, align 8
-  br label %mstate.exit463
+  br label %mstate.exit449
 
 607:                                              ; preds = %._crit_edge
   %608 = call i32 @Curl_pgrsUpdate(ptr noundef nonnull %2) #19
-  %.not386 = icmp eq i32 %608, 0
-  br i1 %.not386, label %609, label %.thread568
+  %.not382 = icmp eq i32 %608, 0
+  br i1 %.not382, label %609, label %.thread554
 
-.thread568:                                       ; preds = %607
+.thread554:                                       ; preds = %607
   store i32 42, ptr %9, align 4
   br label %613
 
@@ -4223,11 +4213,11 @@ process_pending_handles.exit511:                  ; preds = %mstate.exit.i510, %
   %611 = load i32, ptr %57, align 8
   %612 = call i32 @Curl_speedcheck(ptr noundef nonnull %2, i64 %610, i32 %611) #19
   store i32 %612, ptr %9, align 4
-  %.not387 = icmp eq i32 %612, 0
-  br i1 %.not387, label %626, label %613
+  %.not383 = icmp eq i32 %612, 0
+  br i1 %.not383, label %626, label %613
 
-613:                                              ; preds = %.thread568, %609
-  %storemerge571 = phi i32 [ 42, %.thread568 ], [ %612, %609 ]
+613:                                              ; preds = %.thread554, %609
+  %storemerge557 = phi i32 [ 42, %.thread554 ], [ %612, %609 ]
   %614 = load ptr, ptr %37, align 8
   %615 = getelementptr inbounds i8, ptr %614, i64 680
   %616 = load ptr, ptr %615, align 8
@@ -4235,7 +4225,7 @@ process_pending_handles.exit511:                  ; preds = %mstate.exit.i510, %
   %618 = load i32, ptr %617, align 4
   %619 = and i32 %618, 2
   %620 = icmp eq i32 %619, 0
-  %621 = icmp ne i32 %storemerge571, 92
+  %621 = icmp ne i32 %storemerge557, 92
   %or.cond5 = and i1 %621, %620
   br i1 %or.cond5, label %622, label %623
 
@@ -4245,13 +4235,13 @@ process_pending_handles.exit511:                  ; preds = %mstate.exit.i510, %
 
 623:                                              ; preds = %622, %613
   %624 = call i32 @Curl_posttransfer(ptr noundef nonnull %2) #19
-  %625 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef %storemerge571, i1 noundef zeroext true)
-  br label %mstate.exit463thread-pre-split
+  %625 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef %storemerge557, i1 noundef zeroext true)
+  br label %mstate.exit449thread-pre-split
 
 626:                                              ; preds = %609
   %627 = load i64, ptr %41, align 8
-  %.not388 = icmp eq i64 %627, 0
-  br i1 %.not388, label %634, label %628
+  %.not384 = icmp eq i64 %627, 0
+  br i1 %.not384, label %634, label %628
 
 628:                                              ; preds = %626
   %629 = load i64, ptr %42, align 8
@@ -4264,8 +4254,8 @@ process_pending_handles.exit511:                  ; preds = %mstate.exit.i510, %
 634:                                              ; preds = %628, %626
   %.0327 = phi i64 [ %633, %628 ], [ 0, %626 ]
   %635 = load i64, ptr %46, align 8
-  %.not389 = icmp eq i64 %635, 0
-  br i1 %.not389, label %642, label %636
+  %.not385 = icmp eq i64 %635, 0
+  br i1 %.not385, label %642, label %636
 
 636:                                              ; preds = %634
   %637 = load i64, ptr %47, align 8
@@ -4285,29 +4275,29 @@ process_pending_handles.exit511:                  ; preds = %mstate.exit.i510, %
 645:                                              ; preds = %642
   %646 = load i32, ptr %36, align 8
   %647 = icmp eq i32 %646, 12
-  br i1 %647, label %mstate.exit514, label %648
+  br i1 %647, label %mstate.exit500, label %648
 
 648:                                              ; preds = %645
   store i32 12, ptr %36, align 8
-  br label %mstate.exit514
+  br label %mstate.exit500
 
-mstate.exit514:                                   ; preds = %645, %648
+mstate.exit500:                                   ; preds = %645, %648
   %649 = load i64, ptr %1, align 8
   %650 = load i32, ptr %57, align 8
   call void @Curl_ratelimit(ptr noundef nonnull %2, i64 %649, i32 %650) #19
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 651:                                              ; preds = %642
-  %.not390 = icmp slt i64 %.0327, %.0325
-  br i1 %.not390, label %653, label %652
+  %.not386 = icmp slt i64 %.0327, %.0325
+  br i1 %.not386, label %653, label %652
 
 652:                                              ; preds = %651
   call void @Curl_expire(ptr noundef nonnull %2, i64 noundef %.0327, i32 noundef 11)
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 653:                                              ; preds = %651
   call void @Curl_expire(ptr noundef nonnull %2, i64 noundef %.0325, i32 noundef 11)
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 654:                                              ; preds = %._crit_edge
   store ptr null, ptr %14, align 8
@@ -4350,620 +4340,619 @@ mstate.exit514:                                   ; preds = %645, %648
   call void @Curl_ratelimit(ptr noundef nonnull %2, i64 %674, i32 %675) #19
   %676 = load i32, ptr %36, align 8
   %677 = icmp eq i32 %676, 13
-  br i1 %677, label %mstate.exit515, label %678
+  br i1 %677, label %mstate.exit501, label %678
 
 678:                                              ; preds = %673
   store i32 13, ptr %36, align 8
-  br label %mstate.exit515
+  br label %mstate.exit501
 
-mstate.exit515:                                   ; preds = %673, %678
-  %.not385 = icmp slt i64 %.1328, %.1326
-  br i1 %.not385, label %680, label %679
+mstate.exit501:                                   ; preds = %673, %678
+  %.not381 = icmp slt i64 %.1328, %.1326
+  br i1 %.not381, label %680, label %679
 
-679:                                              ; preds = %mstate.exit515
+679:                                              ; preds = %mstate.exit501
   call void @Curl_expire(ptr noundef nonnull %2, i64 noundef %.1328, i32 noundef 11)
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
-680:                                              ; preds = %mstate.exit515
+680:                                              ; preds = %mstate.exit501
   call void @Curl_expire(ptr noundef nonnull %2, i64 noundef %.1326, i32 noundef 11)
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
 681:                                              ; preds = %670
   %682 = call i32 @Curl_readwrite(ptr noundef nonnull %2, ptr noundef nonnull %8) #19
   store i32 %682, ptr %9, align 4
   %683 = load i8, ptr %8, align 1
-  %684 = and i8 %683, 1
-  %685 = icmp ne i8 %684, 0
-  %686 = icmp eq i32 %682, 56
-  %or.cond11 = select i1 %685, i1 true, i1 %686
-  br i1 %or.cond11, label %687, label %693
+  %684 = trunc i8 %683 to i1
+  %685 = icmp eq i32 %682, 56
+  %or.cond11 = select i1 %684, i1 true, i1 %685
+  br i1 %or.cond11, label %686, label %692
 
-687:                                              ; preds = %681
-  %688 = call i32 @Curl_retry_request(ptr noundef nonnull %2, ptr noundef nonnull %14) #19
-  %.not372 = icmp eq i32 %688, 0
-  br i1 %.not372, label %690, label %689
+686:                                              ; preds = %681
+  %687 = call i32 @Curl_retry_request(ptr noundef nonnull %2, ptr noundef nonnull %14) #19
+  %.not372 = icmp eq i32 %687, 0
+  br i1 %.not372, label %689, label %688
 
-689:                                              ; preds = %687
+688:                                              ; preds = %686
   %.not373 = icmp eq i32 %682, 0
-  br i1 %.not373, label %.thread572.thread, label %.thread572.thread644
+  br i1 %.not373, label %.thread558.thread, label %.thread558.thread628
 
-.thread572.thread:                                ; preds = %689
-  store i32 %688, ptr %9, align 4
-  br label %.thread572.thread644
+.thread558.thread:                                ; preds = %688
+  store i32 %687, ptr %9, align 4
+  br label %.thread558.thread628
 
-690:                                              ; preds = %687
-  %691 = load ptr, ptr %14, align 8
-  %.not603 = icmp eq ptr %691, null
-  br i1 %.not603, label %.thread572, label %692
+689:                                              ; preds = %686
+  %690 = load ptr, ptr %14, align 8
+  %.not652 = icmp eq ptr %690, null
+  br i1 %.not652, label %.thread558, label %691
 
-692:                                              ; preds = %690
+691:                                              ; preds = %689
   store i32 0, ptr %9, align 4
   store i8 1, ptr %8, align 1
-  br label %.thread579.thread
+  br label %.thread564.thread
 
-693:                                              ; preds = %681
-  switch i32 %682, label %.thread572.thread644 [
-    i32 92, label %694
-    i32 0, label %.thread579
+692:                                              ; preds = %681
+  switch i32 %682, label %.thread558.thread628 [
+    i32 92, label %693
+    i32 0, label %.thread564
   ]
 
-694:                                              ; preds = %693
-  %695 = call zeroext i1 @Curl_h2_http_1_1_error(ptr noundef nonnull %2) #19
-  br i1 %695, label %696, label %.thread572.thread644
+693:                                              ; preds = %692
+  %694 = call zeroext i1 @Curl_h2_http_1_1_error(ptr noundef nonnull %2) #19
+  br i1 %694, label %695, label %.thread558.thread628
 
-696:                                              ; preds = %694
-  %697 = call i32 @Curl_retry_request(ptr noundef nonnull %2, ptr noundef nonnull %14) #19
-  %.not369 = icmp eq i32 %697, 0
-  br i1 %.not369, label %698, label %.thread583
+695:                                              ; preds = %693
+  %696 = call i32 @Curl_retry_request(ptr noundef nonnull %2, ptr noundef nonnull %14) #19
+  %.not369 = icmp eq i32 %696, 0
+  br i1 %.not369, label %697, label %.thread568
 
-698:                                              ; preds = %696
-  %699 = load i64, ptr %51, align 2
-  %700 = and i64 %699, 268435456
-  %.not370 = icmp eq i64 %700, 0
-  br i1 %.not370, label %702, label %701
+697:                                              ; preds = %695
+  %698 = load i64, ptr %51, align 2
+  %699 = and i64 %698, 268435456
+  %.not370 = icmp eq i64 %699, 0
+  br i1 %.not370, label %701, label %700
 
-701:                                              ; preds = %698
+700:                                              ; preds = %697
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %2, ptr noundef nonnull @.str.8) #19
-  br label %702
+  br label %701
 
-702:                                              ; preds = %698, %701
-  %703 = load ptr, ptr %37, align 8
-  call void @Curl_conncontrol(ptr noundef %703, i32 noundef 2) #19
+701:                                              ; preds = %697, %700
+  %702 = load ptr, ptr %37, align 8
+  call void @Curl_conncontrol(ptr noundef %702, i32 noundef 2) #19
   store i8 2, ptr %52, align 8
-  %704 = load i32, ptr %38, align 4
-  %705 = and i32 %704, -9
-  store i32 %705, ptr %38, align 4
-  %706 = load ptr, ptr %14, align 8
-  %.not371 = icmp eq ptr %706, null
-  br i1 %.not371, label %707, label %711
+  %703 = load i32, ptr %38, align 4
+  %704 = and i32 %703, -9
+  store i32 %704, ptr %38, align 4
+  %705 = load ptr, ptr %14, align 8
+  %.not371 = icmp eq ptr %705, null
+  br i1 %.not371, label %706, label %710
 
-707:                                              ; preds = %702
-  %708 = load ptr, ptr @Curl_cstrdup, align 8
-  %709 = load ptr, ptr %53, align 8
-  %710 = call ptr %708(ptr noundef %709) #19
-  store ptr %710, ptr %14, align 8
-  br label %711
+706:                                              ; preds = %701
+  %707 = load ptr, ptr @Curl_cstrdup, align 8
+  %708 = load ptr, ptr %53, align 8
+  %709 = call ptr %707(ptr noundef %708) #19
+  store ptr %709, ptr %14, align 8
+  br label %710
 
-711:                                              ; preds = %707, %702
+710:                                              ; preds = %706, %701
   store i32 0, ptr %9, align 4
   store i8 1, ptr %8, align 1
-  br label %.thread579.thread
+  br label %.thread564.thread
 
-.thread583:                                       ; preds = %696
-  store i32 %697, ptr %9, align 4
-  br label %.thread572.thread644
+.thread568:                                       ; preds = %695
+  store i32 %696, ptr %9, align 4
+  br label %.thread558.thread628
 
-.thread572:                                       ; preds = %690
-  %.not375 = icmp eq i32 %682, 0
-  br i1 %.not375, label %.thread579, label %.thread572.thread644
+.thread558:                                       ; preds = %689
+  %.not374 = icmp eq i32 %682, 0
+  br i1 %.not374, label %.thread564, label %.thread558.thread628
 
-.thread572.thread644:                             ; preds = %693, %694, %689, %.thread572.thread, %.thread583, %.thread572
-  %712 = phi i32 [ %697, %.thread583 ], [ %682, %.thread572 ], [ %688, %.thread572.thread ], [ %682, %689 ], [ 92, %694 ], [ %682, %693 ]
-  %713 = load ptr, ptr %37, align 8
-  %714 = getelementptr inbounds i8, ptr %713, i64 680
-  %715 = load ptr, ptr %714, align 8
-  %716 = getelementptr inbounds i8, ptr %715, i64 140
-  %717 = load i32, ptr %716, align 4
-  %718 = and i32 %717, 2
-  %719 = icmp eq i32 %718, 0
-  %720 = icmp ne i32 %712, 92
-  %or.cond13 = and i1 %720, %719
-  br i1 %or.cond13, label %721, label %722
+.thread558.thread628:                             ; preds = %692, %693, %688, %.thread558.thread, %.thread568, %.thread558
+  %711 = phi i32 [ %696, %.thread568 ], [ %682, %.thread558 ], [ %687, %.thread558.thread ], [ %682, %688 ], [ 92, %693 ], [ %682, %692 ]
+  %712 = load ptr, ptr %37, align 8
+  %713 = getelementptr inbounds i8, ptr %712, i64 680
+  %714 = load ptr, ptr %713, align 8
+  %715 = getelementptr inbounds i8, ptr %714, i64 140
+  %716 = load i32, ptr %715, align 4
+  %717 = and i32 %716, 2
+  %718 = icmp eq i32 %717, 0
+  %719 = icmp ne i32 %711, 92
+  %or.cond13 = and i1 %719, %718
+  br i1 %or.cond13, label %720, label %721
 
-721:                                              ; preds = %.thread572.thread644
-  call void @Curl_conncontrol(ptr noundef nonnull %713, i32 noundef 2) #19
-  br label %722
+720:                                              ; preds = %.thread558.thread628
+  call void @Curl_conncontrol(ptr noundef nonnull %712, i32 noundef 2) #19
+  br label %721
 
-722:                                              ; preds = %721, %.thread572.thread644
-  %723 = call i32 @Curl_posttransfer(ptr noundef nonnull %2) #19
-  %724 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef %712, i1 noundef zeroext true)
-  br label %mstate.exit463thread-pre-split
+721:                                              ; preds = %720, %.thread558.thread628
+  %722 = call i32 @Curl_posttransfer(ptr noundef nonnull %2) #19
+  %723 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef %711, i1 noundef zeroext true)
+  br label %mstate.exit449thread-pre-split
 
-.thread579:                                       ; preds = %693, %.thread572
-  %.pre612 = load i8, ptr %8, align 1
-  %725 = and i8 %.pre612, 1
-  %.not376 = icmp eq i8 %725, 0
-  br i1 %.not376, label %756, label %.thread579.thread
+.thread564:                                       ; preds = %692, %.thread558
+  %.pre596 = load i8, ptr %8, align 1
+  %724 = trunc i8 %.pre596 to i1
+  br i1 %724, label %.thread564.thread, label %755
 
-.thread579.thread:                                ; preds = %692, %711, %.thread579
-  %.not379648 = phi i1 [ true, %.thread579 ], [ false, %711 ], [ false, %692 ]
-  %726 = call i32 @Curl_posttransfer(ptr noundef nonnull %2) #19
-  %727 = load ptr, ptr %54, align 8
-  %.not378 = icmp eq ptr %727, null
-  %or.cond452 = and i1 %.not379648, %.not378
-  br i1 %or.cond452, label %743, label %728
+.thread564.thread:                                ; preds = %691, %710, %.thread564
+  %.1330567632 = phi i1 [ false, %.thread564 ], [ true, %691 ], [ true, %710 ]
+  %725 = call i32 @Curl_posttransfer(ptr noundef nonnull %2) #19
+  %726 = load ptr, ptr %55, align 8
+  %.not376 = icmp eq ptr %726, null
+  br i1 %.not376, label %727, label %728
 
-728:                                              ; preds = %.thread579.thread
-  br i1 %.not379648, label %729, label %733
+727:                                              ; preds = %.thread564.thread
+  br i1 %.1330567632, label %.thread633, label %742
+
+728:                                              ; preds = %.thread564.thread
+  br i1 %.1330567632, label %.thread633, label %729
 
 729:                                              ; preds = %728
   %730 = load ptr, ptr @Curl_cfree, align 8
   %731 = load ptr, ptr %14, align 8
   call void %730(ptr noundef %731) #19
-  %732 = load ptr, ptr %54, align 8
+  %732 = load ptr, ptr %55, align 8
   store ptr %732, ptr %14, align 8
-  store ptr null, ptr %54, align 8
-  br label %733
+  store ptr null, ptr %55, align 8
+  br label %.thread633
 
-733:                                              ; preds = %728, %729
-  %.0324 = phi i32 [ 3, %729 ], [ 2, %728 ]
-  %734 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef 0, i1 noundef zeroext false)
-  %735 = load ptr, ptr %14, align 8
-  %736 = call i32 @Curl_follow(ptr noundef nonnull %2, ptr noundef %735, i32 noundef %.0324) #19
-  store i32 %736, ptr %9, align 4
-  %.not384 = icmp eq i32 %736, 0
-  br i1 %.not384, label %737, label %mstate.exit516
+.thread633:                                       ; preds = %727, %728, %729
+  %.0324 = phi i32 [ 3, %729 ], [ 2, %728 ], [ 2, %727 ]
+  %733 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef 0, i1 noundef zeroext false)
+  %734 = load ptr, ptr %14, align 8
+  %735 = call i32 @Curl_follow(ptr noundef nonnull %2, ptr noundef %734, i32 noundef %.0324) #19
+  store i32 %735, ptr %9, align 4
+  %.not380 = icmp eq i32 %735, 0
+  br i1 %.not380, label %736, label %mstate.exit502
 
-737:                                              ; preds = %733
-  %738 = load i32, ptr %36, align 8
-  %739 = icmp eq i32 %738, 2
-  br i1 %739, label %mstate.exit516, label %740
+736:                                              ; preds = %.thread633
+  %737 = load i32, ptr %36, align 8
+  %738 = icmp eq i32 %737, 2
+  br i1 %738, label %mstate.exit502, label %739
 
-740:                                              ; preds = %737
+739:                                              ; preds = %736
   store i32 2, ptr %36, align 8
   call void @Curl_init_CONNECT(ptr noundef nonnull %2) #19
-  br label %mstate.exit516
+  br label %mstate.exit502
 
-mstate.exit516:                                   ; preds = %740, %737, %733
-  %.2 = phi i32 [ 0, %733 ], [ -1, %737 ], [ -1, %740 ]
-  %741 = load ptr, ptr @Curl_cfree, align 8
-  %742 = load ptr, ptr %14, align 8
-  call void %741(ptr noundef %742) #19
-  br label %mstate.exit463thread-pre-split
+mstate.exit502:                                   ; preds = %739, %736, %.thread633
+  %.2 = phi i32 [ 0, %.thread633 ], [ -1, %736 ], [ -1, %739 ]
+  %740 = load ptr, ptr @Curl_cfree, align 8
+  %741 = load ptr, ptr %14, align 8
+  call void %740(ptr noundef %741) #19
+  br label %mstate.exit449thread-pre-split
 
-743:                                              ; preds = %.thread579.thread
-  %744 = load ptr, ptr %55, align 8
-  %.not380 = icmp eq ptr %744, null
-  br i1 %.not380, label %.thread588, label %745
+742:                                              ; preds = %727
+  %743 = load ptr, ptr %56, align 8
+  %.not377 = icmp eq ptr %743, null
+  br i1 %.not377, label %.thread573, label %744
 
-745:                                              ; preds = %743
-  %746 = load ptr, ptr @Curl_cfree, align 8
-  %747 = load ptr, ptr %14, align 8
-  call void %746(ptr noundef %747) #19
-  %748 = load ptr, ptr %55, align 8
-  store ptr %748, ptr %14, align 8
-  store ptr null, ptr %55, align 8
-  %749 = call i32 @Curl_follow(ptr noundef nonnull %2, ptr noundef %748, i32 noundef 1) #19
-  store i32 %749, ptr %9, align 4
-  %750 = load ptr, ptr @Curl_cfree, align 8
-  %751 = load ptr, ptr %14, align 8
-  call void %750(ptr noundef %751) #19
-  %.not381 = icmp eq i32 %749, 0
-  br i1 %.not381, label %.thread588, label %thread-pre-split586
+744:                                              ; preds = %742
+  %745 = load ptr, ptr @Curl_cfree, align 8
+  %746 = load ptr, ptr %14, align 8
+  call void %745(ptr noundef %746) #19
+  %747 = load ptr, ptr %56, align 8
+  store ptr %747, ptr %14, align 8
+  store ptr null, ptr %56, align 8
+  %748 = call i32 @Curl_follow(ptr noundef nonnull %2, ptr noundef %747, i32 noundef 1) #19
+  store i32 %748, ptr %9, align 4
+  %749 = load ptr, ptr @Curl_cfree, align 8
+  %750 = load ptr, ptr %14, align 8
+  call void %749(ptr noundef %750) #19
+  %.not378 = icmp eq i32 %748, 0
+  br i1 %.not378, label %.thread573, label %thread-pre-split571
 
-thread-pre-split586:                              ; preds = %745
+thread-pre-split571:                              ; preds = %744
   store i8 1, ptr %11, align 1
-  %752 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef %749, i1 noundef zeroext true)
-  store i32 %752, ptr %9, align 4
-  %.not382 = icmp eq i32 %752, 0
-  br i1 %.not382, label %.thread588, label %mstate.exit463thread-pre-split
+  %751 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef %748, i1 noundef zeroext true)
+  store i32 %751, ptr %9, align 4
+  %.not379 = icmp eq i32 %751, 0
+  br i1 %.not379, label %.thread573, label %mstate.exit449thread-pre-split
 
-.thread588:                                       ; preds = %743, %745, %thread-pre-split586
-  %753 = load i32, ptr %36, align 8
-  %754 = icmp eq i32 %753, 14
-  br i1 %754, label %mstate.exit463, label %755
+.thread573:                                       ; preds = %742, %744, %thread-pre-split571
+  %752 = load i32, ptr %36, align 8
+  %753 = icmp eq i32 %752, 14
+  br i1 %753, label %mstate.exit449, label %754
 
-755:                                              ; preds = %.thread588
+754:                                              ; preds = %.thread573
   store i32 14, ptr %36, align 8
-  br label %mstate.exit463
+  br label %mstate.exit449
 
-756:                                              ; preds = %.thread579
-  %757 = load i8, ptr %56, align 1
-  %.not377 = icmp eq i8 %757, 0
-  br i1 %.not377, label %mstate.exit463thread-pre-split, label %758
+755:                                              ; preds = %.thread564
+  %756 = load i8, ptr %54, align 1
+  %.not375 = icmp eq i8 %756, 0
+  br i1 %.not375, label %mstate.exit449thread-pre-split, label %757
 
-758:                                              ; preds = %756
+757:                                              ; preds = %755
   call void @Curl_expire(ptr noundef nonnull %2, i64 noundef 0, i32 noundef 8)
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
-759:                                              ; preds = %._crit_edge
-  %760 = load ptr, ptr %37, align 8
-  %.not362 = icmp eq ptr %760, null
-  br i1 %.not362, label %787, label %761
+758:                                              ; preds = %._crit_edge
+  %759 = load ptr, ptr %37, align 8
+  %.not362 = icmp eq ptr %759, null
+  br i1 %.not362, label %786, label %760
 
-761:                                              ; preds = %759
-  %762 = getelementptr inbounds i8, ptr %760, i64 672
-  %763 = load i32, ptr %762, align 8
-  %764 = and i32 %763, 8388608
-  %.not363 = icmp eq i32 %764, 0
-  br i1 %.not363, label %process_pending_handles.exit523, label %765
+760:                                              ; preds = %758
+  %761 = getelementptr inbounds i8, ptr %759, i64 672
+  %762 = load i32, ptr %761, align 8
+  %763 = and i32 %762, 8388608
+  %.not363 = icmp eq i32 %763, 0
+  br i1 %.not363, label %process_pending_handles.exit509, label %764
 
-765:                                              ; preds = %761
-  %766 = load ptr, ptr %33, align 8
-  %.not.i518 = icmp eq ptr %766, null
-  br i1 %.not.i518, label %process_pending_handles.exit523, label %767
+764:                                              ; preds = %760
+  %765 = load ptr, ptr %33, align 8
+  %.not.i504 = icmp eq ptr %765, null
+  br i1 %.not.i504, label %process_pending_handles.exit509, label %766
 
-767:                                              ; preds = %765
-  %768 = load ptr, ptr %766, align 8
-  %769 = getelementptr inbounds i8, ptr %768, i64 16
-  store ptr null, ptr %769, align 8
-  %770 = load ptr, ptr %34, align 8
-  %.not.i.i519 = icmp eq ptr %770, null
-  br i1 %.not.i.i519, label %775, label %771
+766:                                              ; preds = %764
+  %767 = load ptr, ptr %765, align 8
+  %768 = getelementptr inbounds i8, ptr %767, i64 16
+  store ptr null, ptr %768, align 8
+  %769 = load ptr, ptr %34, align 8
+  %.not.i.i505 = icmp eq ptr %769, null
+  br i1 %.not.i.i505, label %774, label %770
 
-771:                                              ; preds = %767
-  %772 = load ptr, ptr %35, align 8
-  %773 = getelementptr inbounds i8, ptr %772, i64 16
-  store ptr %768, ptr %773, align 8
-  %774 = getelementptr inbounds i8, ptr %768, i64 24
-  store ptr %772, ptr %774, align 8
-  br label %link_easy.exit.i520
+770:                                              ; preds = %766
+  %771 = load ptr, ptr %35, align 8
+  %772 = getelementptr inbounds i8, ptr %771, i64 16
+  store ptr %767, ptr %772, align 8
+  %773 = getelementptr inbounds i8, ptr %767, i64 24
+  store ptr %771, ptr %773, align 8
+  br label %link_easy.exit.i506
 
-775:                                              ; preds = %767
-  %776 = getelementptr inbounds i8, ptr %768, i64 24
-  store ptr null, ptr %776, align 8
-  store ptr %768, ptr %34, align 8
-  br label %link_easy.exit.i520
+774:                                              ; preds = %766
+  %775 = getelementptr inbounds i8, ptr %767, i64 24
+  store ptr null, ptr %775, align 8
+  store ptr %767, ptr %34, align 8
+  br label %link_easy.exit.i506
 
-link_easy.exit.i520:                              ; preds = %775, %771
-  store ptr %768, ptr %35, align 8
-  %777 = getelementptr inbounds i8, ptr %768, i64 88
-  %778 = load i32, ptr %777, align 8
-  %779 = icmp eq i32 %778, 2
-  br i1 %779, label %mstate.exit.i522, label %780
+link_easy.exit.i506:                              ; preds = %774, %770
+  store ptr %767, ptr %35, align 8
+  %776 = getelementptr inbounds i8, ptr %767, i64 88
+  %777 = load i32, ptr %776, align 8
+  %778 = icmp eq i32 %777, 2
+  br i1 %778, label %mstate.exit.i508, label %779
 
-780:                                              ; preds = %link_easy.exit.i520
-  store i32 2, ptr %777, align 8
-  call void @Curl_init_CONNECT(ptr noundef nonnull %768) #19
-  br label %mstate.exit.i522
+779:                                              ; preds = %link_easy.exit.i506
+  store i32 2, ptr %776, align 8
+  call void @Curl_init_CONNECT(ptr noundef nonnull %767) #19
+  br label %mstate.exit.i508
 
-mstate.exit.i522:                                 ; preds = %780, %link_easy.exit.i520
-  call void @Curl_llist_remove(ptr noundef nonnull %33, ptr noundef nonnull %766, ptr noundef null) #19
-  call void @Curl_expire(ptr noundef nonnull %768, i64 noundef 0, i32 noundef 8)
-  %781 = getelementptr inbounds i8, ptr %768, i64 4940
-  %782 = load i32, ptr %781, align 4
-  %783 = or i32 %782, 4096
-  store i32 %783, ptr %781, align 4
-  br label %process_pending_handles.exit523
+mstate.exit.i508:                                 ; preds = %779, %link_easy.exit.i506
+  call void @Curl_llist_remove(ptr noundef nonnull %33, ptr noundef nonnull %765, ptr noundef null) #19
+  call void @Curl_expire(ptr noundef nonnull %767, i64 noundef 0, i32 noundef 8)
+  %780 = getelementptr inbounds i8, ptr %767, i64 4940
+  %781 = load i32, ptr %780, align 4
+  %782 = or i32 %781, 4096
+  store i32 %782, ptr %780, align 4
+  br label %process_pending_handles.exit509
 
-process_pending_handles.exit523:                  ; preds = %mstate.exit.i522, %765, %761
-  %784 = load i32, ptr %9, align 4
-  %785 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef %784, i1 noundef zeroext false)
-  %.not364 = icmp eq i32 %784, 0
-  br i1 %.not364, label %786, label %787
+process_pending_handles.exit509:                  ; preds = %mstate.exit.i508, %764, %760
+  %783 = load i32, ptr %9, align 4
+  %784 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef %783, i1 noundef zeroext false)
+  %.not364 = icmp eq i32 %783, 0
+  br i1 %.not364, label %785, label %786
 
-786:                                              ; preds = %process_pending_handles.exit523
-  store i32 %785, ptr %9, align 4
-  br label %787
+785:                                              ; preds = %process_pending_handles.exit509
+  store i32 %784, ptr %9, align 4
+  br label %786
 
-787:                                              ; preds = %process_pending_handles.exit523, %786, %759
-  %788 = load i32, ptr %38, align 4
-  %789 = and i32 %788, 64
-  %.not365 = icmp eq i32 %789, 0
-  br i1 %.not365, label %._crit_edge609, label %790
+786:                                              ; preds = %process_pending_handles.exit509, %785, %758
+  %787 = load i32, ptr %38, align 4
+  %788 = and i32 %787, 64
+  %.not365 = icmp eq i32 %788, 0
+  br i1 %.not365, label %._crit_edge593, label %789
 
-._crit_edge609:                                   ; preds = %787
-  %.pre610 = load i32, ptr %36, align 8
-  br label %796
+._crit_edge593:                                   ; preds = %786
+  %.pre594 = load i32, ptr %36, align 8
+  br label %795
 
-790:                                              ; preds = %787
-  %791 = load ptr, ptr %39, align 8
-  %792 = getelementptr inbounds i8, ptr %791, i64 64
-  %793 = load i8, ptr %792, align 8
-  %.not366 = icmp eq i8 %793, 7
-  %.pre611 = load i32, ptr %36, align 8
-  br i1 %.not366, label %796, label %794
+789:                                              ; preds = %786
+  %790 = load ptr, ptr %39, align 8
+  %791 = getelementptr inbounds i8, ptr %790, i64 64
+  %792 = load i8, ptr %791, align 8
+  %.not366 = icmp eq i8 %792, 7
+  %.pre595 = load i32, ptr %36, align 8
+  br i1 %.not366, label %795, label %793
 
-794:                                              ; preds = %790
-  %795 = icmp eq i32 %.pre611, 0
-  br i1 %795, label %mstate.exit463, label %mstate.exit463.thread
+793:                                              ; preds = %789
+  %794 = icmp eq i32 %.pre595, 0
+  br i1 %794, label %mstate.exit449, label %mstate.exit449.thread
 
-796:                                              ; preds = %._crit_edge609, %790
-  %797 = phi i32 [ %.pre610, %._crit_edge609 ], [ %.pre611, %790 ]
-  %798 = icmp eq i32 %797, 15
-  br i1 %798, label %mstate.exit463thread-pre-split, label %799
+795:                                              ; preds = %._crit_edge593, %789
+  %796 = phi i32 [ %.pre594, %._crit_edge593 ], [ %.pre595, %789 ]
+  %797 = icmp eq i32 %796, 15
+  br i1 %797, label %mstate.exit449thread-pre-split, label %798
 
-799:                                              ; preds = %796
+798:                                              ; preds = %795
   store i32 15, ptr %36, align 8
-  %800 = load ptr, ptr %40, align 8
-  %801 = getelementptr inbounds i8, ptr %800, i64 28
-  %802 = load i32, ptr %801, align 4
-  %803 = add i32 %802, -1
-  store i32 %803, ptr %801, align 4
+  %799 = load ptr, ptr %40, align 8
+  %800 = getelementptr inbounds i8, ptr %799, i64 28
+  %801 = load i32, ptr %800, align 4
+  %802 = add i32 %801, -1
+  store i32 %802, ptr %800, align 4
   call void @init_completed(ptr noundef nonnull %2) #19
-  br label %mstate.exit463thread-pre-split
+  br label %mstate.exit449thread-pre-split
 
-mstate.exit463thread-pre-split:                   ; preds = %232, %234, %235, %237, %mstate.exit455, %238, %266, %423, %450, %mstate.exit453, %116, %process_pending_handles.exit462, %mstate.exit466, %255, %265, %thread-pre-split551.thread, %399, %504, %496, %mstate.exit491, %513, %530, %540, %553, %mstate.exit514, %653, %652, %623, %680, %679, %thread-pre-split586, %mstate.exit516, %758, %756, %722, %._crit_edge, %._crit_edge, %._crit_edge, %Curl_preconnect.exit, %249, %469, %527, %550, %796, %799, %393, %.thread642
-  %.3.ph = phi i32 [ 0, %.thread642 ], [ 0, %393 ], [ -1, %799 ], [ -1, %796 ], [ -1, %550 ], [ -1, %527 ], [ -1, %469 ], [ -1, %249 ], [ -1, %mstate.exit453 ], [ 0, %116 ], [ 0, %process_pending_handles.exit462 ], [ 0, %mstate.exit455 ], [ 0, %Curl_preconnect.exit ], [ 0, %mstate.exit466 ], [ 0, %238 ], [ 0, %255 ], [ 0, %265 ], [ 0, %266 ], [ 0, %thread-pre-split551.thread ], [ 0, %399 ], [ -1, %450 ], [ 0, %504 ], [ %.1, %496 ], [ -1, %mstate.exit491 ], [ 0, %423 ], [ 0, %513 ], [ 0, %530 ], [ 0, %540 ], [ 0, %553 ], [ 0, %mstate.exit514 ], [ 0, %653 ], [ 0, %652 ], [ 0, %623 ], [ 0, %756 ], [ 0, %758 ], [ 0, %thread-pre-split586 ], [ %.2, %mstate.exit516 ], [ 0, %722 ], [ 0, %680 ], [ 0, %679 ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ -1, %237 ], [ -1, %235 ], [ -1, %234 ], [ -1, %232 ]
-  %.pr591.pre624.pr = load i32, ptr %36, align 8
-  br label %mstate.exit463
+mstate.exit449thread-pre-split:                   ; preds = %232, %234, %235, %237, %mstate.exit441, %238, %266, %423, %450, %mstate.exit439, %116, %process_pending_handles.exit448, %mstate.exit452, %255, %265, %thread-pre-split537.thread, %399, %504, %496, %mstate.exit477, %513, %530, %540, %553, %mstate.exit500, %653, %652, %623, %680, %679, %thread-pre-split571, %mstate.exit502, %757, %755, %721, %._crit_edge, %._crit_edge, %._crit_edge, %Curl_preconnect.exit, %249, %469, %527, %550, %795, %798, %393, %.thread626
+  %.3.ph = phi i32 [ 0, %.thread626 ], [ 0, %393 ], [ -1, %798 ], [ -1, %795 ], [ -1, %550 ], [ -1, %527 ], [ -1, %469 ], [ -1, %249 ], [ -1, %mstate.exit439 ], [ 0, %116 ], [ 0, %process_pending_handles.exit448 ], [ 0, %mstate.exit441 ], [ 0, %Curl_preconnect.exit ], [ 0, %mstate.exit452 ], [ 0, %238 ], [ 0, %255 ], [ 0, %265 ], [ 0, %266 ], [ 0, %thread-pre-split537.thread ], [ 0, %399 ], [ -1, %450 ], [ 0, %504 ], [ %.1, %496 ], [ -1, %mstate.exit477 ], [ 0, %423 ], [ 0, %513 ], [ 0, %530 ], [ 0, %540 ], [ 0, %553 ], [ 0, %mstate.exit500 ], [ 0, %653 ], [ 0, %652 ], [ 0, %623 ], [ 0, %755 ], [ 0, %757 ], [ 0, %thread-pre-split571 ], [ %.2, %mstate.exit502 ], [ 0, %721 ], [ 0, %680 ], [ 0, %679 ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ -1, %237 ], [ -1, %235 ], [ -1, %234 ], [ -1, %232 ]
+  %.pr576.pre608.pr = load i32, ptr %36, align 8
+  br label %mstate.exit449
 
-mstate.exit463:                                   ; preds = %mstate.exit463thread-pre-split, %794, %755, %.thread588, %606, %603, %589, %586, %546, %541, %523, %515, %467, %466, %464, %457, %454, %398, %395, %381, %379, %378, %376, %351, %348, %264, %261, %254, %251, %245, %207, %205, %204, %202, %197, %194
-  %.pr591.pre624 = phi i32 [ %.pr591.pre624.pr, %mstate.exit463thread-pre-split ], [ 0, %794 ], [ 14, %755 ], [ 14, %.thread588 ], [ 14, %606 ], [ 14, %603 ], [ 12, %589 ], [ 12, %586 ], [ %543, %546 ], [ %544, %541 ], [ %520, %523 ], [ %521, %515 ], [ 11, %467 ], [ 10, %466 ], [ 10, %464 ], [ 9, %457 ], [ 9, %454 ], [ 8, %398 ], [ 8, %395 ], [ 8, %381 ], [ 8, %379 ], [ 7, %378 ], [ 7, %376 ], [ 8, %351 ], [ 8, %348 ], [ 6, %264 ], [ 6, %261 ], [ 6, %254 ], [ 6, %251 ], [ 2, %245 ], [ 4, %207 ], [ 4, %205 ], [ 6, %204 ], [ 6, %202 ], [ 3, %197 ], [ 3, %194 ]
-  %.3 = phi i32 [ %.3.ph, %mstate.exit463thread-pre-split ], [ -1, %794 ], [ -1, %755 ], [ -1, %.thread588 ], [ -1, %606 ], [ -1, %603 ], [ -1, %589 ], [ -1, %586 ], [ -1, %546 ], [ -1, %541 ], [ -1, %523 ], [ -1, %515 ], [ -1, %467 ], [ -1, %466 ], [ -1, %464 ], [ -1, %457 ], [ -1, %454 ], [ -1, %398 ], [ -1, %395 ], [ -1, %381 ], [ -1, %379 ], [ -1, %378 ], [ -1, %376 ], [ -1, %351 ], [ -1, %348 ], [ -1, %264 ], [ -1, %261 ], [ -1, %254 ], [ -1, %251 ], [ -1, %245 ], [ -1, %207 ], [ -1, %205 ], [ -1, %204 ], [ -1, %202 ], [ 0, %197 ], [ 0, %194 ]
-  %804 = load ptr, ptr %37, align 8
-  %.not443 = icmp eq ptr %804, null
-  br i1 %.not443, label %815, label %805
+mstate.exit449:                                   ; preds = %mstate.exit449thread-pre-split, %793, %754, %.thread573, %606, %603, %589, %586, %546, %541, %523, %515, %467, %466, %464, %457, %454, %398, %395, %381, %379, %378, %376, %351, %348, %264, %261, %254, %251, %245, %207, %205, %204, %202, %197, %194
+  %.pr576.pre608 = phi i32 [ %.pr576.pre608.pr, %mstate.exit449thread-pre-split ], [ 0, %793 ], [ 14, %754 ], [ 14, %.thread573 ], [ 14, %606 ], [ 14, %603 ], [ 12, %589 ], [ 12, %586 ], [ %543, %546 ], [ %544, %541 ], [ %520, %523 ], [ %521, %515 ], [ 11, %467 ], [ 10, %466 ], [ 10, %464 ], [ 9, %457 ], [ 9, %454 ], [ 8, %398 ], [ 8, %395 ], [ 8, %381 ], [ 8, %379 ], [ 7, %378 ], [ 7, %376 ], [ 8, %351 ], [ 8, %348 ], [ 6, %264 ], [ 6, %261 ], [ 6, %254 ], [ 6, %251 ], [ 2, %245 ], [ 4, %207 ], [ 4, %205 ], [ 6, %204 ], [ 6, %202 ], [ 3, %197 ], [ 3, %194 ]
+  %.3 = phi i32 [ %.3.ph, %mstate.exit449thread-pre-split ], [ -1, %793 ], [ -1, %754 ], [ -1, %.thread573 ], [ -1, %606 ], [ -1, %603 ], [ -1, %589 ], [ -1, %586 ], [ -1, %546 ], [ -1, %541 ], [ -1, %523 ], [ -1, %515 ], [ -1, %467 ], [ -1, %466 ], [ -1, %464 ], [ -1, %457 ], [ -1, %454 ], [ -1, %398 ], [ -1, %395 ], [ -1, %381 ], [ -1, %379 ], [ -1, %378 ], [ -1, %376 ], [ -1, %351 ], [ -1, %348 ], [ -1, %264 ], [ -1, %261 ], [ -1, %254 ], [ -1, %251 ], [ -1, %245 ], [ -1, %207 ], [ -1, %205 ], [ -1, %204 ], [ -1, %202 ], [ 0, %197 ], [ 0, %194 ]
+  %803 = load ptr, ptr %37, align 8
+  %.not432 = icmp eq ptr %803, null
+  br i1 %.not432, label %814, label %804
 
-mstate.exit463.thread:                            ; preds = %794
+mstate.exit449.thread:                            ; preds = %793
   store i32 0, ptr %36, align 8
-  br label %.thread592
+  br label %.thread577
 
-805:                                              ; preds = %mstate.exit463
-  %806 = icmp ugt i32 %.pr591.pre624, 1
-  br i1 %806, label %807, label %.thread592
+804:                                              ; preds = %mstate.exit449
+  %805 = icmp ugt i32 %.pr576.pre608, 1
+  br i1 %805, label %806, label %.thread577
 
-807:                                              ; preds = %805
-  %808 = icmp ult i32 %.pr591.pre624, 8
-  %809 = icmp ne i32 %.3, -1
-  %or.cond15 = and i1 %809, %808
-  br i1 %or.cond15, label %810, label %815
+806:                                              ; preds = %804
+  %807 = icmp ult i32 %.pr576.pre608, 8
+  %808 = icmp ne i32 %.3, -1
+  %or.cond15 = and i1 %808, %807
+  br i1 %or.cond15, label %809, label %814
 
-810:                                              ; preds = %807
-  %811 = load i8, ptr %18, align 1
-  %812 = and i8 %811, 2
-  %.not604 = icmp eq i8 %812, 0
-  br i1 %.not604, label %813, label %.thread592
+809:                                              ; preds = %806
+  %810 = load i8, ptr %18, align 1
+  %811 = and i8 %810, 2
+  %.not588 = icmp eq i8 %811, 0
+  br i1 %.not588, label %812, label %.thread577
 
-813:                                              ; preds = %810
-  %814 = call fastcc zeroext i1 @multi_handle_timeout(ptr noundef nonnull %2, ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %9, i1 noundef zeroext true)
-  %.pr591.pre = load i32, ptr %36, align 8
-  br label %815
+812:                                              ; preds = %809
+  %813 = call fastcc zeroext i1 @multi_handle_timeout(ptr noundef nonnull %2, ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %9, i1 noundef zeroext true)
+  %.pr576.pre = load i32, ptr %36, align 8
+  br label %814
 
-815:                                              ; preds = %mstate.exit463, %807, %813, %113
-  %.pr591 = phi i32 [ %.pr591.pre624, %mstate.exit463 ], [ %.pr591.pre624, %807 ], [ %.pr591.pre, %813 ], [ %.pr591.pre625, %113 ]
-  %.4.ph = phi i32 [ %.3, %mstate.exit463 ], [ %.3, %807 ], [ 0, %813 ], [ 0, %113 ]
-  %816 = icmp ult i32 %.pr591, 15
-  br i1 %816, label %.thread592, label %mstate.exit533
+814:                                              ; preds = %mstate.exit449, %806, %812, %113
+  %.pr576 = phi i32 [ %.pr576.pre608, %mstate.exit449 ], [ %.pr576.pre608, %806 ], [ %.pr576.pre, %812 ], [ %.pr576.pre609, %113 ]
+  %.4.ph = phi i32 [ %.3, %mstate.exit449 ], [ %.3, %806 ], [ 0, %812 ], [ 0, %113 ]
+  %815 = icmp ult i32 %.pr576, 15
+  br i1 %815, label %.thread577, label %mstate.exit519
 
-.thread592:                                       ; preds = %mstate.exit463.thread, %810, %805, %815
-  %.4594 = phi i32 [ %.4.ph, %815 ], [ %.3, %805 ], [ -1, %mstate.exit463.thread ], [ 0, %810 ]
-  %817 = load i32, ptr %9, align 4
-  %.not444 = icmp eq i32 %817, 0
-  br i1 %.not444, label %856, label %818
+.thread577:                                       ; preds = %mstate.exit449.thread, %809, %804, %814
+  %.4579 = phi i32 [ %.4.ph, %814 ], [ %.3, %804 ], [ -1, %mstate.exit449.thread ], [ 0, %809 ]
+  %816 = load i32, ptr %9, align 4
+  %.not433 = icmp eq i32 %816, 0
+  br i1 %.not433, label %855, label %817
 
-818:                                              ; preds = %.thread592
-  %819 = load ptr, ptr %33, align 8
-  %.not.i526 = icmp eq ptr %819, null
-  br i1 %.not.i526, label %process_pending_handles.exit531, label %820
+817:                                              ; preds = %.thread577
+  %818 = load ptr, ptr %33, align 8
+  %.not.i512 = icmp eq ptr %818, null
+  br i1 %.not.i512, label %process_pending_handles.exit517, label %819
 
-820:                                              ; preds = %818
-  %821 = load ptr, ptr %819, align 8
-  %822 = getelementptr inbounds i8, ptr %821, i64 16
-  store ptr null, ptr %822, align 8
-  %823 = load ptr, ptr %34, align 8
-  %.not.i.i527 = icmp eq ptr %823, null
-  br i1 %.not.i.i527, label %828, label %824
+819:                                              ; preds = %817
+  %820 = load ptr, ptr %818, align 8
+  %821 = getelementptr inbounds i8, ptr %820, i64 16
+  store ptr null, ptr %821, align 8
+  %822 = load ptr, ptr %34, align 8
+  %.not.i.i513 = icmp eq ptr %822, null
+  br i1 %.not.i.i513, label %827, label %823
 
-824:                                              ; preds = %820
-  %825 = load ptr, ptr %35, align 8
-  %826 = getelementptr inbounds i8, ptr %825, i64 16
-  store ptr %821, ptr %826, align 8
-  %827 = getelementptr inbounds i8, ptr %821, i64 24
-  store ptr %825, ptr %827, align 8
-  br label %link_easy.exit.i528
+823:                                              ; preds = %819
+  %824 = load ptr, ptr %35, align 8
+  %825 = getelementptr inbounds i8, ptr %824, i64 16
+  store ptr %820, ptr %825, align 8
+  %826 = getelementptr inbounds i8, ptr %820, i64 24
+  store ptr %824, ptr %826, align 8
+  br label %link_easy.exit.i514
 
-828:                                              ; preds = %820
-  %829 = getelementptr inbounds i8, ptr %821, i64 24
-  store ptr null, ptr %829, align 8
-  store ptr %821, ptr %34, align 8
-  br label %link_easy.exit.i528
+827:                                              ; preds = %819
+  %828 = getelementptr inbounds i8, ptr %820, i64 24
+  store ptr null, ptr %828, align 8
+  store ptr %820, ptr %34, align 8
+  br label %link_easy.exit.i514
 
-link_easy.exit.i528:                              ; preds = %828, %824
-  store ptr %821, ptr %35, align 8
-  %830 = getelementptr inbounds i8, ptr %821, i64 88
-  %831 = load i32, ptr %830, align 8
-  %832 = icmp eq i32 %831, 2
-  br i1 %832, label %mstate.exit.i530, label %833
+link_easy.exit.i514:                              ; preds = %827, %823
+  store ptr %820, ptr %35, align 8
+  %829 = getelementptr inbounds i8, ptr %820, i64 88
+  %830 = load i32, ptr %829, align 8
+  %831 = icmp eq i32 %830, 2
+  br i1 %831, label %mstate.exit.i516, label %832
 
-833:                                              ; preds = %link_easy.exit.i528
-  store i32 2, ptr %830, align 8
-  call void @Curl_init_CONNECT(ptr noundef nonnull %821) #19
-  br label %mstate.exit.i530
+832:                                              ; preds = %link_easy.exit.i514
+  store i32 2, ptr %829, align 8
+  call void @Curl_init_CONNECT(ptr noundef nonnull %820) #19
+  br label %mstate.exit.i516
 
-mstate.exit.i530:                                 ; preds = %833, %link_easy.exit.i528
-  call void @Curl_llist_remove(ptr noundef nonnull %33, ptr noundef nonnull %819, ptr noundef null) #19
-  call void @Curl_expire(ptr noundef nonnull %821, i64 noundef 0, i32 noundef 8)
-  %834 = getelementptr inbounds i8, ptr %821, i64 4940
-  %835 = load i32, ptr %834, align 4
-  %836 = or i32 %835, 4096
-  store i32 %836, ptr %834, align 4
-  br label %process_pending_handles.exit531
+mstate.exit.i516:                                 ; preds = %832, %link_easy.exit.i514
+  call void @Curl_llist_remove(ptr noundef nonnull %33, ptr noundef nonnull %818, ptr noundef null) #19
+  call void @Curl_expire(ptr noundef nonnull %820, i64 noundef 0, i32 noundef 8)
+  %833 = getelementptr inbounds i8, ptr %820, i64 4940
+  %834 = load i32, ptr %833, align 4
+  %835 = or i32 %834, 4096
+  store i32 %835, ptr %833, align 4
+  br label %process_pending_handles.exit517
 
-process_pending_handles.exit531:                  ; preds = %818, %mstate.exit.i530
-  %837 = load ptr, ptr %37, align 8
-  %.not447 = icmp eq ptr %837, null
-  br i1 %.not447, label %843, label %838
+process_pending_handles.exit517:                  ; preds = %817, %mstate.exit.i516
+  %836 = load ptr, ptr %37, align 8
+  %.not436 = icmp eq ptr %836, null
+  br i1 %.not436, label %842, label %837
 
-838:                                              ; preds = %process_pending_handles.exit531
-  %839 = load i8, ptr %11, align 1
-  %840 = and i8 %839, 1
-  %.not448 = icmp eq i8 %840, 0
-  br i1 %.not448, label %thread-pre-split595, label %Curl_detach_connection.exit
+837:                                              ; preds = %process_pending_handles.exit517
+  %838 = load i8, ptr %11, align 1
+  %839 = trunc i8 %838 to i1
+  br i1 %839, label %Curl_detach_connection.exit, label %thread-pre-split580
 
-Curl_detach_connection.exit:                      ; preds = %838
-  %841 = icmp eq i32 %817, 28
-  call void @Curl_conn_ev_data_detach(ptr noundef nonnull %837, ptr noundef nonnull %2) #19
-  %842 = getelementptr inbounds i8, ptr %837, i64 720
-  call void @Curl_llist_remove(ptr noundef nonnull %842, ptr noundef nonnull %86, ptr noundef null) #19
+Curl_detach_connection.exit:                      ; preds = %837
+  %840 = icmp eq i32 %816, 28
+  call void @Curl_conn_ev_data_detach(ptr noundef nonnull %836, ptr noundef nonnull %2) #19
+  %841 = getelementptr inbounds i8, ptr %836, i64 720
+  call void @Curl_llist_remove(ptr noundef nonnull %841, ptr noundef nonnull %86, ptr noundef null) #19
   store ptr null, ptr %37, align 8
-  call void @Curl_conncache_remove_conn(ptr noundef nonnull %2, ptr noundef nonnull %837, i1 noundef zeroext true) #19
-  call void @Curl_disconnect(ptr noundef nonnull %2, ptr noundef nonnull %837, i1 noundef zeroext %841) #19
-  br label %thread-pre-split595
+  call void @Curl_conncache_remove_conn(ptr noundef nonnull %2, ptr noundef nonnull %836, i1 noundef zeroext true) #19
+  call void @Curl_disconnect(ptr noundef nonnull %2, ptr noundef nonnull %836, i1 noundef zeroext %840) #19
+  br label %thread-pre-split580
 
-843:                                              ; preds = %process_pending_handles.exit531
-  %844 = load i32, ptr %36, align 8
-  %845 = icmp eq i32 %844, 2
-  br i1 %845, label %846, label %848
+842:                                              ; preds = %process_pending_handles.exit517
+  %843 = load i32, ptr %36, align 8
+  %844 = icmp eq i32 %843, 2
+  br i1 %844, label %845, label %847
 
-846:                                              ; preds = %843
-  %847 = call i32 @Curl_posttransfer(ptr noundef nonnull %2) #19
-  br label %thread-pre-split595
+845:                                              ; preds = %842
+  %846 = call i32 @Curl_posttransfer(ptr noundef nonnull %2) #19
+  br label %thread-pre-split580
 
-thread-pre-split595:                              ; preds = %Curl_detach_connection.exit, %838, %846
-  %.pr596 = load i32, ptr %36, align 8
-  br label %848
+thread-pre-split580:                              ; preds = %Curl_detach_connection.exit, %837, %845
+  %.pr581 = load i32, ptr %36, align 8
+  br label %847
 
-848:                                              ; preds = %thread-pre-split595, %843
-  %849 = phi i32 [ %.pr596, %thread-pre-split595 ], [ %844, %843 ]
-  %850 = icmp eq i32 %849, 15
-  br i1 %850, label %mstate.exit533thread-pre-split, label %851
+847:                                              ; preds = %thread-pre-split580, %842
+  %848 = phi i32 [ %.pr581, %thread-pre-split580 ], [ %843, %842 ]
+  %849 = icmp eq i32 %848, 15
+  br i1 %849, label %mstate.exit519thread-pre-split, label %850
 
-851:                                              ; preds = %848
+850:                                              ; preds = %847
   store i32 15, ptr %36, align 8
-  %852 = load ptr, ptr %40, align 8
-  %853 = getelementptr inbounds i8, ptr %852, i64 28
-  %854 = load i32, ptr %853, align 4
-  %855 = add i32 %854, -1
-  store i32 %855, ptr %853, align 4
+  %851 = load ptr, ptr %40, align 8
+  %852 = getelementptr inbounds i8, ptr %851, i64 28
+  %853 = load i32, ptr %852, align 4
+  %854 = add i32 %853, -1
+  store i32 %854, ptr %852, align 4
   call void @init_completed(ptr noundef nonnull %2) #19
-  br label %mstate.exit533thread-pre-split
+  br label %mstate.exit519thread-pre-split
 
-856:                                              ; preds = %.thread592
-  %857 = load ptr, ptr %37, align 8
-  %.not445 = icmp eq ptr %857, null
-  br i1 %.not445, label %mstate.exit533thread-pre-split, label %858
+855:                                              ; preds = %.thread577
+  %856 = load ptr, ptr %37, align 8
+  %.not434 = icmp eq ptr %856, null
+  br i1 %.not434, label %mstate.exit519thread-pre-split, label %857
 
-858:                                              ; preds = %856
-  %859 = call i32 @Curl_pgrsUpdate(ptr noundef nonnull %2) #19
-  %.not446 = icmp eq i32 %859, 0
-  br i1 %.not446, label %mstate.exit533thread-pre-split, label %860
+857:                                              ; preds = %855
+  %858 = call i32 @Curl_pgrsUpdate(ptr noundef nonnull %2) #19
+  %.not435 = icmp eq i32 %858, 0
+  br i1 %.not435, label %mstate.exit519thread-pre-split, label %859
 
-860:                                              ; preds = %858
+859:                                              ; preds = %857
   store i32 42, ptr %9, align 4
-  %861 = load ptr, ptr %37, align 8
-  call void @Curl_conncontrol(ptr noundef %861, i32 noundef 2) #19
-  %862 = load i32, ptr %36, align 8
-  %863 = icmp ugt i32 %862, 13
-  %864 = select i1 %863, i32 15, i32 14
-  %865 = icmp eq i32 %862, %864
-  br i1 %865, label %mstate.exit533.thread, label %866
+  %860 = load ptr, ptr %37, align 8
+  call void @Curl_conncontrol(ptr noundef %860, i32 noundef 2) #19
+  %861 = load i32, ptr %36, align 8
+  %862 = icmp ugt i32 %861, 13
+  %863 = select i1 %862, i32 15, i32 14
+  %864 = icmp eq i32 %861, %863
+  br i1 %864, label %mstate.exit519.thread, label %865
 
-866:                                              ; preds = %860
-  store i32 %864, ptr %36, align 8
-  br i1 %863, label %867, label %872
+865:                                              ; preds = %859
+  store i32 %863, ptr %36, align 8
+  br i1 %862, label %866, label %871
 
-867:                                              ; preds = %866
-  %868 = load ptr, ptr %40, align 8
-  %869 = getelementptr inbounds i8, ptr %868, i64 28
-  %870 = load i32, ptr %869, align 4
-  %871 = add i32 %870, -1
-  store i32 %871, ptr %869, align 4
-  br label %872
+866:                                              ; preds = %865
+  %867 = load ptr, ptr %40, align 8
+  %868 = getelementptr inbounds i8, ptr %867, i64 28
+  %869 = load i32, ptr %868, align 4
+  %870 = add i32 %869, -1
+  store i32 %870, ptr %868, align 4
+  br label %871
 
-872:                                              ; preds = %867, %866
-  %873 = zext nneg i32 %864 to i64
-  %874 = lshr i64 96251, %873
-  %875 = and i64 %874, 1
-  %.not.not.i534 = icmp eq i64 %875, 0
-  br i1 %.not.not.i534, label %876, label %mstate.exit533thread-pre-split
+871:                                              ; preds = %866, %865
+  %872 = zext nneg i32 %863 to i64
+  %873 = lshr i64 96251, %872
+  %874 = and i64 %873, 1
+  %.not.not.i520 = icmp eq i64 %874, 0
+  br i1 %.not.not.i520, label %875, label %mstate.exit519thread-pre-split
 
-876:                                              ; preds = %872
-  %877 = getelementptr inbounds [17 x ptr], ptr @mstate.finit, i64 0, i64 %873
-  %878 = load ptr, ptr %877, align 8
-  call void %878(ptr noundef nonnull %2) #19
-  br label %mstate.exit533thread-pre-split
+875:                                              ; preds = %871
+  %876 = getelementptr inbounds [17 x ptr], ptr @mstate.finit, i64 0, i64 %872
+  %877 = load ptr, ptr %876, align 8
+  call void %877(ptr noundef nonnull %2) #19
+  br label %mstate.exit519thread-pre-split
 
-mstate.exit533thread-pre-split:                   ; preds = %856, %858, %848, %851, %872, %876
-  %.5.ph = phi i32 [ -1, %876 ], [ -1, %872 ], [ -1, %851 ], [ -1, %848 ], [ %.4594, %856 ], [ %.4594, %858 ]
-  %.pr597 = load i32, ptr %36, align 8
-  br label %mstate.exit533
+mstate.exit519thread-pre-split:                   ; preds = %855, %857, %847, %850, %871, %875
+  %.5.ph = phi i32 [ -1, %875 ], [ -1, %871 ], [ -1, %850 ], [ -1, %847 ], [ %.4579, %855 ], [ %.4579, %857 ]
+  %.pr582 = load i32, ptr %36, align 8
+  br label %mstate.exit519
 
-mstate.exit533:                                   ; preds = %mstate.exit533thread-pre-split, %815
-  %879 = phi i32 [ %.pr597, %mstate.exit533thread-pre-split ], [ %.pr591, %815 ]
-  %.5 = phi i32 [ %.5.ph, %mstate.exit533thread-pre-split ], [ %.4.ph, %815 ]
-  %880 = icmp eq i32 %879, 15
-  br i1 %880, label %882, label %909
+mstate.exit519:                                   ; preds = %mstate.exit519thread-pre-split, %814
+  %878 = phi i32 [ %.pr582, %mstate.exit519thread-pre-split ], [ %.pr576, %814 ]
+  %.5 = phi i32 [ %.5.ph, %mstate.exit519thread-pre-split ], [ %.4.ph, %814 ]
+  %879 = icmp eq i32 %878, 15
+  br i1 %879, label %881, label %908
 
-mstate.exit533.thread:                            ; preds = %860
-  %881 = icmp eq i32 %862, 15
-  br i1 %881, label %882, label %.critedge.backedge
+mstate.exit519.thread:                            ; preds = %859
+  %880 = icmp eq i32 %861, 15
+  br i1 %880, label %881, label %.critedge.backedge
 
-.critedge.backedge:                               ; preds = %mstate.exit533.thread, %911, %909
+.critedge.backedge:                               ; preds = %mstate.exit519.thread, %910, %908
   br label %.critedge, !llvm.loop !27
 
-882:                                              ; preds = %mstate.exit533.thread, %mstate.exit533
-  %883 = getelementptr inbounds i8, ptr %2, i64 2592
-  %884 = load ptr, ptr %883, align 8
-  %.not449 = icmp eq ptr %884, null
-  br i1 %.not449, label %888, label %885
+881:                                              ; preds = %mstate.exit519.thread, %mstate.exit519
+  %882 = getelementptr inbounds i8, ptr %2, i64 2592
+  %883 = load ptr, ptr %882, align 8
+  %.not437 = icmp eq ptr %883, null
+  br i1 %.not437, label %887, label %884
 
-885:                                              ; preds = %882
-  %886 = load i32, ptr %9, align 4
-  %887 = call i32 %884(ptr noundef nonnull %2, i32 noundef %886) #19
-  br label %897
+884:                                              ; preds = %881
+  %885 = load i32, ptr %9, align 4
+  %886 = call i32 %883(ptr noundef nonnull %2, i32 noundef %885) #19
+  br label %896
 
-888:                                              ; preds = %882
-  %889 = getelementptr inbounds i8, ptr %2, i64 96
-  %890 = getelementptr inbounds i8, ptr %2, i64 120
-  store i32 1, ptr %890, align 8
-  %891 = getelementptr inbounds i8, ptr %2, i64 128
-  store ptr %2, ptr %891, align 8
-  %892 = load i32, ptr %9, align 4
-  %893 = getelementptr inbounds i8, ptr %2, i64 136
-  store i32 %892, ptr %893, align 8
-  %894 = getelementptr inbounds i8, ptr %0, i64 32
-  %895 = getelementptr inbounds i8, ptr %0, i64 40
-  %896 = load ptr, ptr %895, align 8
-  call void @Curl_llist_insert_next(ptr noundef nonnull %894, ptr noundef %896, ptr noundef nonnull %889, ptr noundef nonnull %889) #19
-  br label %897
+887:                                              ; preds = %881
+  %888 = getelementptr inbounds i8, ptr %2, i64 96
+  %889 = getelementptr inbounds i8, ptr %2, i64 120
+  store i32 1, ptr %889, align 8
+  %890 = getelementptr inbounds i8, ptr %2, i64 128
+  store ptr %2, ptr %890, align 8
+  %891 = load i32, ptr %9, align 4
+  %892 = getelementptr inbounds i8, ptr %2, i64 136
+  store i32 %891, ptr %892, align 8
+  %893 = getelementptr inbounds i8, ptr %0, i64 32
+  %894 = getelementptr inbounds i8, ptr %0, i64 40
+  %895 = load ptr, ptr %894, align 8
+  call void @Curl_llist_insert_next(ptr noundef nonnull %893, ptr noundef %895, ptr noundef nonnull %888, ptr noundef nonnull %888) #19
+  br label %896
 
-897:                                              ; preds = %888, %885
-  %898 = load i32, ptr %36, align 8
-  %899 = icmp eq i32 %898, 16
-  br i1 %899, label %mstate.exit536, label %900
+896:                                              ; preds = %887, %884
+  %897 = load i32, ptr %36, align 8
+  %898 = icmp eq i32 %897, 16
+  br i1 %898, label %mstate.exit522, label %899
 
-900:                                              ; preds = %897
+899:                                              ; preds = %896
   store i32 16, ptr %36, align 8
-  br label %mstate.exit536
+  br label %mstate.exit522
 
-mstate.exit536:                                   ; preds = %897, %900
-  %901 = getelementptr inbounds i8, ptr %0, i64 96
-  %902 = getelementptr inbounds i8, ptr %0, i64 104
-  %903 = load ptr, ptr %902, align 8
-  call void @Curl_llist_insert_next(ptr noundef nonnull %901, ptr noundef %903, ptr noundef nonnull %2, ptr noundef nonnull %83) #19
-  %904 = load ptr, ptr %84, align 8
-  %.not.i537 = icmp eq ptr %904, null
-  %905 = load ptr, ptr %85, align 8
-  %906 = getelementptr inbounds i8, ptr %904, i64 16
-  %.sink.i538 = select i1 %.not.i537, ptr %34, ptr %906
-  store ptr %905, ptr %.sink.i538, align 8
-  %.not13.i539 = icmp eq ptr %905, null
-  %907 = load ptr, ptr %84, align 8
-  %908 = getelementptr inbounds i8, ptr %905, i64 24
-  %.sink14.i540 = select i1 %.not13.i539, ptr %35, ptr %908
-  store ptr %907, ptr %.sink14.i540, align 8
+mstate.exit522:                                   ; preds = %896, %899
+  %900 = getelementptr inbounds i8, ptr %0, i64 96
+  %901 = getelementptr inbounds i8, ptr %0, i64 104
+  %902 = load ptr, ptr %901, align 8
+  call void @Curl_llist_insert_next(ptr noundef nonnull %900, ptr noundef %902, ptr noundef nonnull %2, ptr noundef nonnull %83) #19
+  %903 = load ptr, ptr %84, align 8
+  %.not.i523 = icmp eq ptr %903, null
+  %904 = load ptr, ptr %85, align 8
+  %905 = getelementptr inbounds i8, ptr %903, i64 16
+  %.sink.i524 = select i1 %.not.i523, ptr %34, ptr %905
+  store ptr %904, ptr %.sink.i524, align 8
+  %.not13.i525 = icmp eq ptr %904, null
+  %906 = load ptr, ptr %84, align 8
+  %907 = getelementptr inbounds i8, ptr %904, i64 24
+  %.sink14.i526 = select i1 %.not13.i525, ptr %35, ptr %907
+  store ptr %906, ptr %.sink14.i526, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false)
   br label %.loopexit
 
-909:                                              ; preds = %mstate.exit533
-  %910 = icmp eq i32 %.5, -1
-  br i1 %910, label %.critedge.backedge, label %911
+908:                                              ; preds = %mstate.exit519
+  %909 = icmp eq i32 %.5, -1
+  br i1 %909, label %.critedge.backedge, label %910
 
-911:                                              ; preds = %909
-  %912 = load i8, ptr %18, align 1
-  %913 = and i8 %912, 2
-  %.not605 = icmp eq i8 %913, 0
-  br i1 %.not605, label %914, label %.critedge.backedge
+910:                                              ; preds = %908
+  %911 = load i8, ptr %18, align 1
+  %912 = and i8 %911, 2
+  %.not589 = icmp eq i8 %912, 0
+  br i1 %.not589, label %913, label %.critedge.backedge
 
-914:                                              ; preds = %911
-  %915 = load i32, ptr %9, align 4
-  %916 = getelementptr inbounds i8, ptr %2, i64 92
-  store i32 %915, ptr %916, align 4
+913:                                              ; preds = %910
+  %914 = load i32, ptr %9, align 4
+  %915 = getelementptr inbounds i8, ptr %2, i64 92
+  store i32 %914, ptr %915, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge, %.thread627, %process_pending_handles.exit, %3, %914, %mstate.exit536
-  %.0 = phi i32 [ 0, %mstate.exit536 ], [ 0, %914 ], [ 2, %3 ], [ 4, %._crit_edge ], [ %223, %.thread627 ], [ 4, %process_pending_handles.exit ]
+.loopexit:                                        ; preds = %._crit_edge, %.thread613, %process_pending_handles.exit, %3, %913, %mstate.exit522
+  %.0 = phi i32 [ 0, %mstate.exit522 ], [ 0, %913 ], [ 2, %3 ], [ 4, %._crit_edge ], [ %223, %.thread613 ], [ 4, %process_pending_handles.exit ]
   ret i32 %.0
 }
 
@@ -5298,7 +5287,7 @@ define dso_local noundef i32 @curl_multi_setopt(ptr noundef %0, i32 noundef %1, 
   br i1 %.not36, label %11, label %212
 
 11:                                               ; preds = %7
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   switch i32 %1, label %210 [
     i32 20001, label %12
     i32 10002, label %29
@@ -5645,19 +5634,13 @@ define dso_local noundef i32 @curl_multi_setopt(ptr noundef %0, i32 noundef %1, 
 
 211:                                              ; preds = %11, %11, %11, %11, %11, %149, %153, %210, %203, %186, %169, %132, %115, %93, %76, %59, %42, %25
   %.022 = phi i32 [ 6, %210 ], [ 0, %203 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ], [ 0, %186 ], [ 0, %169 ], [ 0, %153 ], [ 0, %149 ], [ 0, %132 ], [ 0, %115 ], [ 0, %93 ], [ 0, %76 ], [ 0, %59 ], [ 0, %42 ], [ 0, %25 ]
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %212
 
 212:                                              ; preds = %7, %2, %4, %211
   %.0 = phi i32 [ %.022, %211 ], [ 1, %4 ], [ 1, %2 ], [ 8, %7 ]
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @curl_multi_socket(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
@@ -5700,26 +5683,26 @@ define internal fastcc i32 @multi_socket(ptr noundef %0, i1 noundef zeroext %1, 
 
 17:                                               ; preds = %5
   %18 = tail call i32 @curl_multi_perform(ptr noundef %0, ptr noundef %4), !range !29
-  %.not78 = icmp eq i32 %18, 1
-  br i1 %.not78, label %.loopexit, label %19
+  %.not76 = icmp eq i32 %18, 1
+  br i1 %.not76, label %.loopexit, label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %.04692 = load ptr, ptr %20, align 8
-  %21 = icmp ne ptr %.04692, null
-  %.not7993 = icmp eq i32 %18, 0
-  %22 = and i1 %.not7993, %21
-  br i1 %22, label %.lr.ph96, label %.loopexit
+  %.04688 = load ptr, ptr %20, align 8
+  %21 = icmp ne ptr %.04688, null
+  %.not7789 = icmp eq i32 %18, 0
+  %22 = and i1 %.not7789, %21
+  br i1 %22, label %.lr.ph92, label %.loopexit
 
-.lr.ph96:                                         ; preds = %19, %.lr.ph96
-  %.04694 = phi ptr [ %.046, %.lr.ph96 ], [ %.04692, %19 ]
-  %23 = tail call fastcc i32 @singlesocket(ptr noundef %0, ptr noundef nonnull %.04694), !range !7
-  %24 = getelementptr inbounds i8, ptr %.04694, i64 16
+.lr.ph92:                                         ; preds = %19, %.lr.ph92
+  %.04690 = phi ptr [ %.046, %.lr.ph92 ], [ %.04688, %19 ]
+  %23 = tail call fastcc i32 @singlesocket(ptr noundef %0, ptr noundef nonnull %.04690), !range !7
+  %24 = getelementptr inbounds i8, ptr %.04690, i64 16
   %.046 = load ptr, ptr %24, align 8
   %25 = icmp ne ptr %.046, null
-  %.not79 = icmp eq i32 %23, 0
-  %26 = and i1 %.not79, %25
-  br i1 %26, label %.lr.ph96, label %.loopexit, !llvm.loop !30
+  %.not77 = icmp eq i32 %23, 0
+  %26 = and i1 %.not77, %25
+  br i1 %26, label %.lr.ph92, label %.loopexit, !llvm.loop !30
 
 27:                                               ; preds = %5
   %.not = icmp eq i32 %2, -1
@@ -5737,21 +5720,21 @@ sh_getentry.exit:                                 ; preds = %27
 30:                                               ; preds = %sh_getentry.exit
   call void @Curl_hash_start_iterate(ptr noundef nonnull %29, ptr noundef nonnull %12) #19
   %31 = call ptr @Curl_hash_next_element(ptr noundef nonnull %12) #19
-  %.not6889 = icmp eq ptr %31, null
-  br i1 %.not6889, label %._crit_edge, label %.lr.ph
+  %.not6885 = icmp eq ptr %31, null
+  br i1 %.not6885, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
   %32 = trunc i32 %3 to i8
   br label %33
 
 33:                                               ; preds = %.lr.ph, %46
-  %.05090 = phi ptr [ %31, %.lr.ph ], [ %47, %46 ]
-  %34 = getelementptr inbounds i8, ptr %.05090, i64 24
+  %.05086 = phi ptr [ %31, %.lr.ph ], [ %47, %46 ]
+  %34 = getelementptr inbounds i8, ptr %.05086, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
-  %.not76 = icmp eq ptr %37, null
-  br i1 %.not76, label %46, label %38
+  %.not74 = icmp eq ptr %37, null
+  br i1 %.not74, label %46, label %38
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds i8, ptr %37, i64 680
@@ -5759,8 +5742,8 @@ sh_getentry.exit:                                 ; preds = %27
   %41 = getelementptr inbounds i8, ptr %40, i64 140
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 8
-  %.not77 = icmp eq i32 %43, 0
-  br i1 %.not77, label %44, label %46
+  %.not75 = icmp eq i32 %43, 0
+  br i1 %.not75, label %44, label %46
 
 44:                                               ; preds = %38
   %45 = getelementptr inbounds i8, ptr %35, i64 4939
@@ -5800,12 +5783,11 @@ sh_getentry.exit:                                 ; preds = %27
   br i1 %.not69, label %91, label %57
 
 57:                                               ; preds = %56
-  %58 = and i8 %.051, 1
-  %.not70 = icmp eq i8 %58, 0
+  %58 = trunc i8 %.051 to i1
   %59 = getelementptr inbounds i8, ptr %.248, i64 2642
   %60 = load i64, ptr %59, align 2
   %61 = lshr i64 %60, 32
-  br i1 %.not70, label %62, label %69
+  br i1 %58, label %69, label %62
 
 62:                                               ; preds = %57
   %63 = trunc i64 %61 to i8
@@ -5813,8 +5795,8 @@ sh_getentry.exit:                                 ; preds = %27
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %7)
   store i8 %64, ptr %54, align 8
   %65 = and i64 %60, 4294967296
-  %.not.i80 = icmp eq i64 %65, 0
-  br i1 %.not.i80, label %66, label %sigpipe_ignore.exit
+  %.not.i78 = icmp eq i64 %65, 0
+  br i1 %.not.i78, label %66, label %sigpipe_ignore.exit
 
 66:                                               ; preds = %62
   %67 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %11) #19
@@ -5832,58 +5814,57 @@ sigpipe_ignore.exit:                              ; preds = %62, %66
   %71 = and i32 %70, 1
   %72 = and i8 %.055, 1
   %73 = zext nneg i8 %72 to i32
-  %.not71 = icmp eq i32 %71, %73
-  br i1 %.not71, label %86, label %74
+  %.not70 = icmp eq i32 %71, %73
+  br i1 %.not70, label %86, label %74
 
 74:                                               ; preds = %69
   %75 = load i8, ptr %54, align 8
-  %76 = and i8 %75, 1
-  %.not.i81 = icmp eq i8 %76, 0
-  br i1 %.not.i81, label %77, label %sigpipe_restore.exit
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %sigpipe_restore.exit, label %77
 
 77:                                               ; preds = %74
   %78 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %11, ptr noundef null) #19
   %.pre = load i64, ptr %59, align 2
-  %.pre99 = lshr i64 %.pre, 32
+  %.pre95 = lshr i64 %.pre, 32
   br label %sigpipe_restore.exit
 
 sigpipe_restore.exit:                             ; preds = %74, %77
-  %.pre-phi = phi i64 [ %61, %74 ], [ %.pre99, %77 ]
+  %.pre-phi = phi i64 [ %61, %74 ], [ %.pre95, %77 ]
   %79 = phi i64 [ %60, %74 ], [ %.pre, %77 ]
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6)
   %80 = trunc i64 %.pre-phi to i8
   %81 = and i8 %80, 1
   store i8 %81, ptr %54, align 8
   %82 = and i64 %79, 4294967296
-  %.not.i82 = icmp eq i64 %82, 0
-  br i1 %.not.i82, label %83, label %sigpipe_ignore.exit83
+  %.not.i79 = icmp eq i64 %82, 0
+  br i1 %.not.i79, label %83, label %sigpipe_ignore.exit80
 
 83:                                               ; preds = %sigpipe_restore.exit
   %84 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %11) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) %11, i64 152, i1 false)
   store ptr inttoptr (i64 1 to ptr), ptr %6, align 8
   %85 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %6, ptr noundef null) #19
-  %.pre98 = load i64, ptr %59, align 2
-  %.pre100 = lshr i64 %.pre98, 32
-  %.pre102 = trunc i64 %.pre100 to i8
-  br label %sigpipe_ignore.exit83
+  %.pre94 = load i64, ptr %59, align 2
+  %.pre96 = lshr i64 %.pre94, 32
+  %.pre98 = trunc i64 %.pre96 to i8
+  br label %sigpipe_ignore.exit80
 
-sigpipe_ignore.exit83:                            ; preds = %sigpipe_restore.exit, %83
-  %.pre-phi105 = phi i8 [ %81, %sigpipe_restore.exit ], [ %.pre102, %83 ]
+sigpipe_ignore.exit80:                            ; preds = %sigpipe_restore.exit, %83
+  %.pre-phi101 = phi i8 [ %81, %sigpipe_restore.exit ], [ %.pre98, %83 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6)
   br label %86
 
-86:                                               ; preds = %69, %sigpipe_ignore.exit83, %sigpipe_ignore.exit
-  %.156 = phi i8 [ %.pre-phi105, %sigpipe_ignore.exit83 ], [ %.055, %69 ], [ %64, %sigpipe_ignore.exit ]
-  %.152 = phi i8 [ %.051, %sigpipe_ignore.exit83 ], [ %.051, %69 ], [ 1, %sigpipe_ignore.exit ]
+86:                                               ; preds = %69, %sigpipe_ignore.exit80, %sigpipe_ignore.exit
+  %.156 = phi i8 [ %.pre-phi101, %sigpipe_ignore.exit80 ], [ %.055, %69 ], [ %64, %sigpipe_ignore.exit ]
+  %.152 = phi i8 [ %.051, %sigpipe_ignore.exit80 ], [ %.051, %69 ], [ 1, %sigpipe_ignore.exit ]
   %87 = call fastcc i32 @multi_runsingle(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %.248), !range !7
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %86
   %90 = call fastcc i32 @singlesocket(ptr noundef %0, ptr noundef nonnull %.248), !range !7
-  %.not72 = icmp eq i32 %90, 0
-  br i1 %.not72, label %91, label %add_next_timeout.exit.thread
+  %.not71 = icmp eq i32 %90, 0
+  br i1 %.not71, label %91, label %add_next_timeout.exit.thread
 
 91:                                               ; preds = %86, %89, %56
   %.257 = phi i8 [ %.156, %89 ], [ %.156, %86 ], [ %.055, %56 ]
@@ -5895,8 +5876,8 @@ sigpipe_ignore.exit83:                            ; preds = %sigpipe_restore.exi
   %95 = call ptr @Curl_splaygetbest(i64 %93, i32 %94, ptr noundef %92, ptr noundef nonnull %9) #19
   store ptr %95, ptr %55, align 8
   %96 = load ptr, ptr %9, align 8
-  %.not73 = icmp eq ptr %96, null
-  br i1 %.not73, label %add_next_timeout.exit.thread, label %97
+  %.not72 = icmp eq ptr %96, null
+  br i1 %.not72, label %add_next_timeout.exit.thread, label %97
 
 97:                                               ; preds = %91
   %98 = getelementptr inbounds i8, ptr %96, i64 48
@@ -5924,8 +5905,8 @@ sigpipe_ignore.exit83:                            ; preds = %sigpipe_restore.exi
 
 114:                                              ; preds = %.lr.ph.i
   call void @Curl_llist_remove(ptr noundef nonnull %103, ptr noundef nonnull %.023.i, ptr noundef null) #19
-  %.not.i84 = icmp eq ptr %106, null
-  br i1 %.not.i84, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
+  %.not.i81 = icmp eq ptr %106, null
+  br i1 %.not.i81, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %114, %.lr.ph.i
   %.pre.i = load ptr, ptr %103, align 8
@@ -5952,34 +5933,32 @@ sigpipe_ignore.exit83:                            ; preds = %sigpipe_restore.exi
 
 add_next_timeout.exit:                            ; preds = %117, %._crit_edge.thread.i
   %.pr = load ptr, ptr %9, align 8
-  %.not74 = icmp eq ptr %.pr, null
-  br i1 %.not74, label %add_next_timeout.exit.thread, label %56, !llvm.loop !32
+  %.not73 = icmp eq ptr %.pr, null
+  br i1 %.not73, label %add_next_timeout.exit.thread, label %56, !llvm.loop !32
 
 add_next_timeout.exit.thread:                     ; preds = %91, %89, %add_next_timeout.exit
   %.354 = phi i8 [ %.152, %89 ], [ %.253, %add_next_timeout.exit ], [ %.253, %91 ]
   %.4 = phi i32 [ %90, %89 ], [ %.3, %add_next_timeout.exit ], [ %.3, %91 ]
-  %125 = and i8 %.354, 1
-  %.not75 = icmp eq i8 %125, 0
-  br i1 %.not75, label %sigpipe_restore.exit86, label %126
+  %125 = trunc i8 %.354 to i1
+  br i1 %125, label %126, label %sigpipe_restore.exit82
 
 126:                                              ; preds = %add_next_timeout.exit.thread
   %127 = load i8, ptr %54, align 8
-  %128 = and i8 %127, 1
-  %.not.i85 = icmp eq i8 %128, 0
-  br i1 %.not.i85, label %129, label %sigpipe_restore.exit86
+  %128 = trunc i8 %127 to i1
+  br i1 %128, label %sigpipe_restore.exit82, label %129
 
 129:                                              ; preds = %126
   %130 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %11, ptr noundef null) #19
-  br label %sigpipe_restore.exit86
+  br label %sigpipe_restore.exit82
 
-sigpipe_restore.exit86:                           ; preds = %129, %126, %add_next_timeout.exit.thread
+sigpipe_restore.exit82:                           ; preds = %129, %126, %add_next_timeout.exit.thread
   %131 = getelementptr inbounds i8, ptr %0, i64 28
   %132 = load i32, ptr %131, align 4
   store i32 %132, ptr %4, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph96, %19, %17, %sigpipe_restore.exit86
-  %.0 = phi i32 [ %.4, %sigpipe_restore.exit86 ], [ 1, %17 ], [ %18, %19 ], [ %23, %.lr.ph96 ]
+.loopexit:                                        ; preds = %.lr.ph92, %19, %17, %sigpipe_restore.exit82
+  %.0 = phi i32 [ %.4, %sigpipe_restore.exit82 ], [ 1, %17 ], [ %18, %19 ], [ %23, %.lr.ph92 ]
   ret i32 %.0
 }
 
@@ -6016,29 +5995,29 @@ define dso_local i32 @curl_multi_socket_all(ptr noundef %0, ptr nocapture nounde
 6:                                                ; preds = %2
   %7 = tail call { i64, i32 } @Curl_now() #19
   %8 = tail call i32 @curl_multi_perform(ptr noundef nonnull %0, ptr noundef %1), !range !29
-  %.not78.i = icmp eq i32 %8, 1
-  br i1 %.not78.i, label %multi_socket.exit.thread, label %9
+  %.not76.i = icmp eq i32 %8, 1
+  br i1 %.not76.i, label %multi_socket.exit.thread, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %.04692.i = load ptr, ptr %10, align 8
-  %11 = icmp ne ptr %.04692.i, null
-  %.not7993.i = icmp eq i32 %8, 0
-  %12 = and i1 %.not7993.i, %11
-  br i1 %12, label %.lr.ph96.i, label %multi_socket.exit
+  %.04688.i = load ptr, ptr %10, align 8
+  %11 = icmp ne ptr %.04688.i, null
+  %.not7789.i = icmp eq i32 %8, 0
+  %12 = and i1 %.not7789.i, %11
+  br i1 %12, label %.lr.ph92.i, label %multi_socket.exit
 
-.lr.ph96.i:                                       ; preds = %9, %.lr.ph96.i
-  %.04694.i = phi ptr [ %.046.i, %.lr.ph96.i ], [ %.04692.i, %9 ]
-  %13 = tail call fastcc i32 @singlesocket(ptr noundef %0, ptr noundef nonnull %.04694.i), !range !7
-  %14 = getelementptr inbounds i8, ptr %.04694.i, i64 16
+.lr.ph92.i:                                       ; preds = %9, %.lr.ph92.i
+  %.04690.i = phi ptr [ %.046.i, %.lr.ph92.i ], [ %.04688.i, %9 ]
+  %13 = tail call fastcc i32 @singlesocket(ptr noundef %0, ptr noundef nonnull %.04690.i), !range !7
+  %14 = getelementptr inbounds i8, ptr %.04690.i, i64 16
   %.046.i = load ptr, ptr %14, align 8
   %15 = icmp ne ptr %.046.i, null
-  %.not79.i = icmp eq i32 %13, 0
-  %16 = and i1 %.not79.i, %15
-  br i1 %16, label %.lr.ph96.i, label %multi_socket.exit, !llvm.loop !30
+  %.not77.i = icmp eq i32 %13, 0
+  %16 = and i1 %.not77.i, %15
+  br i1 %16, label %.lr.ph92.i, label %multi_socket.exit, !llvm.loop !30
 
-multi_socket.exit:                                ; preds = %.lr.ph96.i, %9
-  %.0.i = phi i32 [ %8, %9 ], [ %13, %.lr.ph96.i ]
+multi_socket.exit:                                ; preds = %.lr.ph92.i, %9
+  %.0.i = phi i32 [ %8, %9 ], [ %13, %.lr.ph92.i ]
   %17 = icmp eq i32 %.0.i, 0
   br i1 %17, label %18, label %multi_socket.exit.thread
 
@@ -6114,7 +6093,7 @@ multi_timeout.exit:                               ; preds = %10, %12, %15, %24, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 declare i64 @Curl_timediff(i64, i32, i64, i32) local_unnamed_addr #1
 
@@ -6278,7 +6257,7 @@ process_pending_handles.exit:                     ; preds = %2, %mstate.exit.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @Curl_set_in_callback(ptr noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #12 {
+define dso_local void @Curl_set_in_callback(ptr noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -6309,7 +6288,7 @@ define dso_local void @Curl_set_in_callback(ptr noundef readonly %0, i1 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @Curl_is_in_callback(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define dso_local zeroext i1 @Curl_is_in_callback(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -6549,7 +6528,7 @@ declare void @Curl_pollset_add_socks(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @Curl_resolv_getsock(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @connecting_getsock(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #14 {
+define internal noundef i32 @connecting_getsock(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -6876,10 +6855,10 @@ declare i64 @Curl_timeleft(ptr noundef, ptr noundef, i1 noundef zeroext) local_u
 declare i32 @Curl_mime_rewind(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) #15
+declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #15
+declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #14
 
 declare zeroext i1 @Curl_conn_is_connected(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -6905,7 +6884,7 @@ define internal i64 @trhash_compare(ptr nocapture noundef readonly %0, i64 %1, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @trhash_dtor(ptr nocapture readnone %0) #16 {
+define internal void @trhash_dtor(ptr nocapture readnone %0) #15 {
   ret void
 }
 
@@ -6916,6 +6895,12 @@ declare i64 @Curl_timediff_us(i64, i32, i64, i32) local_unnamed_addr #1
 declare ptr @Curl_splay(i64, i32, ptr noundef) local_unnamed_addr #1
 
 declare i64 @Curl_timediff_ceil(i64, i32, i64, i32) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
@@ -6939,13 +6924,13 @@ attributes #6 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-
 attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nounwind }

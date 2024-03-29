@@ -91,16 +91,14 @@ entry:
   %0 = load ptr, ptr %u, align 8
   %has_append = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i8, ptr %has_append, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %land.lhs.true
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
   %append = getelementptr inbounds i8, ptr %0, i64 33
-  %3 = load i8, ptr %append, align 1
-  %4 = and i8 %3, 1
-  %tobool1.not = icmp eq i8 %4, 0
-  br i1 %tobool1.not, label %if.else, label %if.end
+  %2 = load i8, ptr %append, align 1
+  %tobool1 = trunc i8 %2 to i1
+  br i1 %tobool1, label %if.end, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %entry
   br label %if.end
@@ -108,19 +106,19 @@ if.else:                                          ; preds = %land.lhs.true, %ent
 if.end:                                           ; preds = %land.lhs.true, %if.else
   %flags.0 = phi i32 [ 577, %if.else ], [ 1089, %land.lhs.true ]
   %out3 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = load ptr, ptr %out3, align 8
-  %call = tail call i32 @qmp_chardev_open_file_source(ptr noundef %5, i32 noundef %flags.0, ptr noundef %errp) #3
+  %3 = load ptr, ptr %out3, align 8
+  %call = tail call i32 @qmp_chardev_open_file_source(ptr noundef %3, i32 noundef %flags.0, ptr noundef %errp) #3
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %in6 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = load ptr, ptr %in6, align 8
-  %tobool7.not = icmp eq ptr %6, null
+  %4 = load ptr, ptr %in6, align 8
+  %tobool7.not = icmp eq ptr %4, null
   br i1 %tobool7.not, label %if.end15, label %if.then8
 
 if.then8:                                         ; preds = %if.end5
-  %call10 = tail call i32 @qmp_chardev_open_file_source(ptr noundef nonnull %6, i32 noundef 0, ptr noundef %errp) #3
+  %call10 = tail call i32 @qmp_chardev_open_file_source(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %errp) #3
   %cmp11 = icmp slt i32 %call10, 0
   br i1 %cmp11, label %if.then12, label %if.end15
 

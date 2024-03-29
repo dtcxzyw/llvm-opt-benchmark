@@ -2921,39 +2921,38 @@ ehcleanup20:                                      ; preds = %lpad14, %lpad9
 if.end:                                           ; preds = %invoke.cont17, %invoke.cont4
   %d_parseOnly = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load i8, ptr %d_parseOnly, align 8
-  %8 = and i8 %7, 1
-  %tobool.not = icmp eq i8 %8, 0
-  br i1 %tobool.not, label %if.end38, label %land.lhs.true
+  %tobool = trunc i8 %7 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end38
 
 land.lhs.true:                                    ; preds = %if.end
-  %9 = icmp eq ptr %cmd, null
-  br i1 %9, label %return, label %dynamic_cast.notnull
+  %8 = icmp eq ptr %cmd, null
+  br i1 %8, label %return, label %dynamic_cast.notnull
 
 dynamic_cast.notnull:                             ; preds = %land.lhs.true
-  %10 = call ptr @__dynamic_cast(ptr nonnull %cmd, ptr nonnull @_ZTIN4cvc56parser3CmdE, ptr nonnull @_ZTIN4cvc56parser24SetBenchmarkLogicCommandE, i64 0) #15
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %dynamic_cast.notnull23, label %if.end38
+  %9 = call ptr @__dynamic_cast(ptr nonnull %cmd, ptr nonnull @_ZTIN4cvc56parser3CmdE, ptr nonnull @_ZTIN4cvc56parser24SetBenchmarkLogicCommandE, i64 0) #15
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %dynamic_cast.notnull23, label %if.end38
 
 dynamic_cast.notnull23:                           ; preds = %dynamic_cast.notnull
-  %12 = call ptr @__dynamic_cast(ptr nonnull %cmd, ptr nonnull @_ZTIN4cvc56parser3CmdE, ptr nonnull @_ZTIN4cvc56parser12ResetCommandE, i64 0) #15
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %dynamic_cast.notnull28, label %if.end38
+  %11 = call ptr @__dynamic_cast(ptr nonnull %cmd, ptr nonnull @_ZTIN4cvc56parser3CmdE, ptr nonnull @_ZTIN4cvc56parser12ResetCommandE, i64 0) #15
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %dynamic_cast.notnull28, label %if.end38
 
 dynamic_cast.notnull28:                           ; preds = %dynamic_cast.notnull23
-  %14 = call ptr @__dynamic_cast(ptr nonnull %cmd, ptr nonnull @_ZTIN4cvc56parser3CmdE, ptr nonnull @_ZTIN4cvc56parser28DeclarationDefinitionCommandE, i64 0) #15
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %dynamic_cast.notnull33, label %if.end38
+  %13 = call ptr @__dynamic_cast(ptr nonnull %cmd, ptr nonnull @_ZTIN4cvc56parser3CmdE, ptr nonnull @_ZTIN4cvc56parser28DeclarationDefinitionCommandE, i64 0) #15
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %dynamic_cast.notnull33, label %if.end38
 
 dynamic_cast.notnull33:                           ; preds = %dynamic_cast.notnull28
-  %16 = call ptr @__dynamic_cast(ptr nonnull %cmd, ptr nonnull @_ZTIN4cvc56parser3CmdE, ptr nonnull @_ZTIN4cvc56parser26DatatypeDeclarationCommandE, i64 0) #15
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %return, label %if.end38
+  %15 = call ptr @__dynamic_cast(ptr nonnull %cmd, ptr nonnull @_ZTIN4cvc56parser3CmdE, ptr nonnull @_ZTIN4cvc56parser26DatatypeDeclarationCommandE, i64 0) #15
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %return, label %if.end38
 
 if.end38:                                         ; preds = %dynamic_cast.notnull33, %dynamic_cast.notnull28, %dynamic_cast.notnull23, %dynamic_cast.notnull, %if.end
   %vtable = load ptr, ptr %cmd, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %18 = load ptr, ptr %vfn, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(16) %cmd, ptr noundef nonnull %solver, ptr noundef %sm, ptr noundef nonnull align 8 dereferenceable(8) %out)
+  %17 = load ptr, ptr %vfn, align 8
+  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %cmd, ptr noundef nonnull %solver, ptr noundef %sm, ptr noundef nonnull align 8 dereferenceable(8) %out)
   %call39 = call noundef zeroext i1 @_ZNK4cvc56parser3Cmd4failEv(ptr noundef nonnull align 8 dereferenceable(16) %cmd)
   %lnot = xor i1 %call39, true
   br label %return
@@ -2973,7 +2972,7 @@ declare noundef ptr @_ZN4cvc56parser13SymbolManager12toSymManagerEv(ptr noundef 
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc513DriverOptions3outEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #7
 
 declare void @_ZNK4cvc56parser15CheckSatCommand9getResultEv(ptr sret(%"class.cvc5::Result") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
@@ -3260,7 +3259,7 @@ attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind memory(read) }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -553,12 +553,11 @@ declare void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9StockfishL7on_tuneERKNS_6OptionE(ptr noundef nonnull readnone align 8 dereferenceable(144) %0) #3 {
   %2 = load i8, ptr @_ZN9Stockfish4Tune14update_on_lastE, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
+  %3 = trunc i8 %2 to i1
   %4 = load ptr, ptr @_ZN9Stockfish10LastOptionE, align 8
-  %5 = icmp eq ptr %4, %0
-  %or.cond = select i1 %.not, i1 true, i1 %5
-  br i1 %or.cond, label %6, label %_ZN9Stockfish4Tune12read_optionsEv.exit
+  %5 = icmp ne ptr %4, %0
+  %or.cond.not = select i1 %3, i1 %5, i1 false
+  br i1 %or.cond.not, label %_ZN9Stockfish4Tune12read_optionsEv.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load atomic i8, ptr @_ZGVZN9Stockfish4Tune8instanceEvE1t acquire, align 8

@@ -153,15 +153,14 @@ define linkonce_odr void @_ZN14VrmlTranslator10UTF8BufferD2Ev(ptr noundef nonnul
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.i.i = icmp eq i8 %4, 0
-  br i1 %.not.i.i, label %5, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit.i
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit.i, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  %.not1.i.i = icmp eq ptr %7, null
-  br i1 %.not1.i.i, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit.i, label %8
+  %.not.i.i = icmp eq ptr %7, null
+  br i1 %.not.i.i, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit.i, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i32 @fclose(ptr noundef nonnull %7)
@@ -188,15 +187,14 @@ define linkonce_odr void @_ZN14VrmlTranslator10UTF8BufferD0Ev(ptr noundef nonnul
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.i.i.i = icmp eq i8 %4, 0
-  br i1 %.not.i.i.i, label %5, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit.i.i
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit.i.i, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  %.not1.i.i.i = icmp eq ptr %7, null
-  br i1 %.not1.i.i.i, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit.i.i, label %8
+  %.not.i.i.i = icmp eq ptr %7, null
+  br i1 %.not.i.i.i, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit.i.i, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i32 @fclose(ptr noundef nonnull %7)
@@ -222,15 +220,14 @@ _ZN14VrmlTranslator10UTF8BufferD2Ev.exit:         ; preds = %_ZN14VrmlTranslator
 define void @_ZN14VrmlTranslator6Buffer5CloseEv(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %10
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %10, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  %.not1 = icmp eq ptr %7, null
-  br i1 %.not1, label %10, label %8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i32 @fclose(ptr noundef nonnull %7)
@@ -1401,9 +1398,9 @@ define void @_ZN14VrmlTranslator6BufferC2EPS0_(ptr nocapture noundef nonnull wri
   store ptr null, ptr %21, align 8
   %24 = getelementptr inbounds i8, ptr %1, i64 48
   %25 = load i8, ptr %24, align 8
-  %26 = and i8 %25, 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
-  store i8 %26, ptr %27, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %27 = and i8 %25, 1
+  store i8 %27, ptr %26, align 8
   ret void
 }
 
@@ -1438,15 +1435,14 @@ define void @_ZN14VrmlTranslator6BufferD2Ev(ptr nocapture noundef nonnull align 
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %5, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  %.not1.i = icmp eq ptr %7, null
-  br i1 %.not1.i, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit, label %8
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i32 @fclose(ptr noundef nonnull %7)
@@ -2253,9 +2249,9 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit61:      ; preds = %248, %274, %279
   store ptr null, ptr %308, align 8
   %311 = getelementptr inbounds i8, ptr %288, i64 48
   %312 = load i8, ptr %311, align 8
-  %313 = and i8 %312, 1
-  %314 = getelementptr inbounds i8, ptr %289, i64 48
-  store i8 %313, ptr %314, align 8
+  %313 = getelementptr inbounds i8, ptr %289, i64 48
+  %314 = and i8 %312, 1
+  store i8 %314, ptr %313, align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator10UTF8BufferE, i64 0, i32 0, i64 2), ptr %289, align 8
   store ptr %289, ptr %175, align 8
   store i32 0, ptr %173, align 4

@@ -493,9 +493,8 @@ define dso_local void @_ZN4i18n12phonenumbers46AreaCodeMapTest_TestLookupInvalid
 15:                                               ; preds = %14
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #12
   %16 = load i8, ptr %2, align 8
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %22, label %44
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %44, label %22
 
 18:                                               ; preds = %14, %1
   %19 = landingpad { ptr, i32 }
@@ -660,9 +659,8 @@ define dso_local void @_ZN4i18n12phonenumbers39AreaCodeMapTest_TestLookupNumberN
 15:                                               ; preds = %14
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #12
   %16 = load i8, ptr %2, align 8
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %22, label %44
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %44, label %22
 
 18:                                               ; preds = %14, %1
   %19 = landingpad { ptr, i32 }
@@ -794,9 +792,8 @@ define dso_local void @_ZN4i18n12phonenumbers39AreaCodeMapTest_TestLookupNumberN
 15:                                               ; preds = %14
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #12
   %16 = load i8, ptr %2, align 8
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %22, label %44
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %44, label %22
 
 18:                                               ; preds = %14, %1
   %19 = landingpad { ptr, i32 }
@@ -928,9 +925,8 @@ define dso_local void @_ZN4i18n12phonenumbers40AreaCodeMapTest_TestLookupNumberC
 15:                                               ; preds = %14
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #12
   %16 = load i8, ptr %2, align 8
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %22, label %44
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %44, label %22
 
 18:                                               ; preds = %14, %1
   %19 = landingpad { ptr, i32 }
@@ -1062,9 +1058,8 @@ define dso_local void @_ZN4i18n12phonenumbers40AreaCodeMapTest_TestLookupNumberC
 15:                                               ; preds = %14
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #12
   %16 = load i8, ptr %2, align 8
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %22, label %44
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %44, label %22
 
 18:                                               ; preds = %14, %1
   %19 = landingpad { ptr, i32 }
@@ -1196,9 +1191,8 @@ define dso_local void @_ZN4i18n12phonenumbers39AreaCodeMapTest_TestLookupNumberT
 15:                                               ; preds = %14
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #12
   %16 = load i8, ptr %2, align 8
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %22, label %44
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %44, label %22
 
 18:                                               ; preds = %14, %1
   %19 = landingpad { ptr, i32 }
@@ -1330,9 +1324,8 @@ define dso_local void @_ZN4i18n12phonenumbers47AreaCodeMapTest_TestLookupNumberN
 15:                                               ; preds = %14
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #12
   %16 = load i8, ptr %2, align 8
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %22, label %44
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %44, label %22
 
 18:                                               ; preds = %14, %1
   %19 = landingpad { ptr, i32 }
@@ -1464,9 +1457,8 @@ define dso_local void @_ZN4i18n12phonenumbers39AreaCodeMapTest_TestLookupNumberC
 15:                                               ; preds = %14
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #12
   %16 = load i8, ptr %2, align 8
-  %17 = and i8 %16, 1
-  %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %22, label %44
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %44, label %22
 
 18:                                               ; preds = %14, %1
   %19 = landingpad { ptr, i32 }
@@ -1611,9 +1603,8 @@ define dso_local void @_ZN4i18n12phonenumbers39AreaCodeMapTest_TestLookupNumberI
 
 28:                                               ; preds = %27
   %29 = load i8, ptr %3, align 8
-  %30 = and i8 %29, 1
-  %.not = icmp eq i8 %30, 0
-  br i1 %.not, label %35, label %57
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %57, label %35
 
 31:                                               ; preds = %176, %171, %139, %134, %102, %97, %65, %60, %27, %1
   %32 = landingpad { ptr, i32 }
@@ -1720,9 +1711,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 66:                                               ; preds = %65
   %67 = load i8, ptr %6, align 8
-  %68 = and i8 %67, 1
-  %.not77 = icmp eq i8 %68, 0
-  br i1 %.not77, label %72, label %94
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %94, label %72
 
 69:                                               ; preds = %_ZN7testing7MessageD2Ev.exit31, %33
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit31 ], [ %34, %33 ]
@@ -1829,9 +1819,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 103:                                              ; preds = %102
   %104 = load i8, ptr %9, align 8
-  %105 = and i8 %104, 1
-  %.not78 = icmp eq i8 %105, 0
-  br i1 %.not78, label %109, label %131
+  %105 = trunc i8 %104 to i1
+  br i1 %105, label %131, label %109
 
 106:                                              ; preds = %_ZN7testing7MessageD2Ev.exit40, %70
   %.pn15.pn = phi { ptr, i32 } [ %.pn15, %_ZN7testing7MessageD2Ev.exit40 ], [ %71, %70 ]
@@ -1939,9 +1928,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 140:                                              ; preds = %139
   %141 = load i8, ptr %12, align 8
-  %142 = and i8 %141, 1
-  %.not79 = icmp eq i8 %142, 0
-  br i1 %.not79, label %146, label %168
+  %142 = trunc i8 %141 to i1
+  br i1 %142, label %168, label %146
 
 143:                                              ; preds = %_ZN7testing7MessageD2Ev.exit51, %107
   %.pn18.pn = phi { ptr, i32 } [ %.pn18, %_ZN7testing7MessageD2Ev.exit51 ], [ %108, %107 ]
@@ -2049,9 +2037,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 177:                                              ; preds = %176
   %178 = load i8, ptr %15, align 8
-  %179 = and i8 %178, 1
-  %.not80 = icmp eq i8 %179, 0
-  br i1 %.not80, label %183, label %205
+  %179 = trunc i8 %178 to i1
+  br i1 %179, label %205, label %183
 
 180:                                              ; preds = %_ZN7testing7MessageD2Ev.exit62, %144
   %.pn21.pn = phi { ptr, i32 } [ %.pn21, %_ZN7testing7MessageD2Ev.exit62 ], [ %145, %144 ]

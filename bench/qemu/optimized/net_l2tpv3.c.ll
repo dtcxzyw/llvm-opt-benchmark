@@ -53,35 +53,32 @@ if.end:                                           ; preds = %entry
   %u = getelementptr inbounds i8, ptr %netdev, i64 16
   %has_ipv6 = getelementptr inbounds i8, ptr %netdev, i64 48
   %1 = load i8, ptr %has_ipv6, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else7, label %land.lhs.true
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.else7
 
 land.lhs.true:                                    ; preds = %if.end
   %ipv6 = getelementptr inbounds i8, ptr %netdev, i64 49
-  %3 = load i8, ptr %ipv6, align 1
-  %4 = and i8 %3, 1
-  %tobool2.not = icmp eq i8 %4, 0
-  br i1 %tobool2.not, label %if.else7, label %if.end9
+  %2 = load i8, ptr %ipv6, align 1
+  %tobool2 = trunc i8 %2 to i1
+  br i1 %tobool2, label %if.end9, label %if.else7
 
 if.else7:                                         ; preds = %land.lhs.true, %if.end
   br label %if.end9
 
 if.end9:                                          ; preds = %land.lhs.true, %if.else7
   %.sink119 = phi i8 [ 0, %if.else7 ], [ 1, %land.lhs.true ]
-  %tobool80.not = phi i32 [ 2, %if.else7 ], [ 10, %land.lhs.true ]
+  %tobool80 = phi i32 [ 2, %if.else7 ], [ 10, %land.lhs.true ]
   %ipv68 = getelementptr inbounds i8, ptr %call, i64 490
   store i8 %.sink119, ptr %ipv68, align 2
   %has_offset = getelementptr inbounds i8, ptr %netdev, i64 100
-  %5 = load i8, ptr %has_offset, align 4
-  %6 = and i8 %5, 1
-  %tobool10.not = icmp eq i8 %6, 0
-  br i1 %tobool10.not, label %if.end14, label %land.lhs.true11
+  %3 = load i8, ptr %has_offset, align 4
+  %tobool10 = trunc i8 %3 to i1
+  br i1 %tobool10, label %land.lhs.true11, label %if.end14
 
 land.lhs.true11:                                  ; preds = %if.end9
   %offset = getelementptr inbounds i8, ptr %netdev, i64 104
-  %7 = load i32, ptr %offset, align 8
-  %cmp12 = icmp ugt i32 %7, 256
+  %4 = load i32, ptr %offset, align 8
+  %cmp12 = icmp ugt i32 %4, 256
   br i1 %cmp12, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %land.lhs.true11
@@ -90,20 +87,18 @@ if.then13:                                        ; preds = %land.lhs.true11
 
 if.end14:                                         ; preds = %land.lhs.true11, %if.end9
   %has_rxcookie = getelementptr inbounds i8, ptr %netdev, i64 72
-  %8 = load i8, ptr %has_rxcookie, align 8
-  %9 = and i8 %8, 1
-  %tobool15.not = icmp eq i8 %9, 0
-  %has_txcookie = getelementptr inbounds i8, ptr %netdev, i64 58
-  %10 = load i8, ptr %has_txcookie, align 2
-  %11 = and i8 %10, 1
-  %tobool16.not = icmp eq i8 %11, 0
-  br i1 %tobool15.not, label %lor.lhs.false, label %land.lhs.true20
+  %5 = load i8, ptr %has_rxcookie, align 8
+  %tobool15 = trunc i8 %5 to i1
+  %has_txcookie21 = getelementptr inbounds i8, ptr %netdev, i64 58
+  %6 = load i8, ptr %has_txcookie21, align 2
+  %tobool22 = trunc i8 %6 to i1
+  br i1 %tobool15, label %land.lhs.true20, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end14
-  br i1 %tobool16.not, label %if.end28, label %if.else24
+  br i1 %tobool22, label %if.else24, label %if.end28
 
 land.lhs.true20:                                  ; preds = %if.end14
-  br i1 %tobool16.not, label %if.else24, label %if.end28
+  br i1 %tobool22, label %if.end28, label %if.else24
 
 if.else24:                                        ; preds = %lor.lhs.false, %land.lhs.true20
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 559, ptr noundef nonnull @__func__.net_init_l2tpv3, ptr noundef nonnull @.str.4) #11
@@ -114,50 +109,45 @@ if.end28:                                         ; preds = %lor.lhs.false, %lan
   %cookie27 = getelementptr inbounds i8, ptr %call, i64 494
   store i8 %.sink120, ptr %cookie27, align 2
   %has_cookie64 = getelementptr inbounds i8, ptr %netdev, i64 52
-  %12 = load i8, ptr %has_cookie64, align 4
-  %13 = and i8 %12, 1
-  %tobool29.not = icmp eq i8 %13, 0
-  br i1 %tobool29.not, label %lor.lhs.false30, label %if.end35
+  %7 = load i8, ptr %has_cookie64, align 4
+  %tobool29 = trunc i8 %7 to i1
+  br i1 %tobool29, label %if.end35, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %if.end28
   %cookie64 = getelementptr inbounds i8, ptr %netdev, i64 53
-  %14 = load i8, ptr %cookie64, align 1
-  %15 = and i8 %14, 1
-  %tobool31.not = icmp eq i8 %15, 0
-  %not.tobool31.not = xor i1 %tobool31.not, true
-  %spec.select126 = zext i1 %not.tobool31.not to i8
+  %8 = load i8, ptr %cookie64, align 1
+  %tobool31 = trunc i8 %8 to i1
+  %spec.select126 = and i8 %8, 1
   br label %if.end35
 
 if.end35:                                         ; preds = %lor.lhs.false30, %if.end28
   %.sink121 = phi i8 [ 1, %if.end28 ], [ %spec.select126, %lor.lhs.false30 ]
-  %tobool65.not = phi i1 [ false, %if.end28 ], [ %tobool31.not, %lor.lhs.false30 ]
+  %tobool65 = phi i1 [ true, %if.end28 ], [ %tobool31, %lor.lhs.false30 ]
   %cookie_is_6434 = getelementptr inbounds i8, ptr %call, i64 495
   store i8 %.sink121, ptr %cookie_is_6434, align 1
   %has_udp = getelementptr inbounds i8, ptr %netdev, i64 50
-  %16 = load i8, ptr %has_udp, align 2
-  %17 = and i8 %16, 1
-  %tobool36.not = icmp eq i8 %17, 0
-  br i1 %tobool36.not, label %if.else51, label %land.lhs.true37
+  %9 = load i8, ptr %has_udp, align 2
+  %tobool36 = trunc i8 %9 to i1
+  br i1 %tobool36, label %land.lhs.true37, label %if.else51
 
 land.lhs.true37:                                  ; preds = %if.end35
   %udp = getelementptr inbounds i8, ptr %netdev, i64 51
-  %18 = load i8, ptr %udp, align 1
-  %19 = and i8 %18, 1
-  %tobool38.not = icmp eq i8 %19, 0
-  br i1 %tobool38.not, label %if.else51, label %if.then39
+  %10 = load i8, ptr %udp, align 1
+  %tobool38 = trunc i8 %10 to i1
+  br i1 %tobool38, label %if.then39, label %if.else51
 
 if.then39:                                        ; preds = %land.lhs.true37
   %udp40 = getelementptr inbounds i8, ptr %call, i64 491
   store i8 1, ptr %udp40, align 1
   %srcport41 = getelementptr inbounds i8, ptr %netdev, i64 32
-  %20 = load ptr, ptr %srcport41, align 8
-  %tobool42.not = icmp eq ptr %20, null
+  %11 = load ptr, ptr %srcport41, align 8
+  %tobool42.not = icmp eq ptr %11, null
   br i1 %tobool42.not, label %if.then46, label %land.lhs.true43
 
 land.lhs.true43:                                  ; preds = %if.then39
   %dstport44 = getelementptr inbounds i8, ptr %netdev, i64 40
-  %21 = load ptr, ptr %dstport44, align 8
-  %tobool45.not = icmp eq ptr %21, null
+  %12 = load ptr, ptr %dstport44, align 8
+  %tobool45.not = icmp eq ptr %12, null
   br i1 %tobool45.not, label %if.then46, label %if.end53
 
 if.then46:                                        ; preds = %land.lhs.true43, %if.then39
@@ -170,46 +160,45 @@ if.else51:                                        ; preds = %land.lhs.true37, %i
   br label %if.end53
 
 if.end53:                                         ; preds = %land.lhs.true43, %if.else51
-  %tobool86.not = phi i1 [ true, %if.else51 ], [ false, %land.lhs.true43 ]
-  %dstport.0 = phi ptr [ null, %if.else51 ], [ %21, %land.lhs.true43 ]
-  %srcport.0 = phi ptr [ null, %if.else51 ], [ %20, %land.lhs.true43 ]
+  %tobool86 = phi i1 [ false, %if.else51 ], [ true, %land.lhs.true43 ]
+  %dstport.0 = phi ptr [ null, %if.else51 ], [ %12, %land.lhs.true43 ]
+  %srcport.0 = phi ptr [ null, %if.else51 ], [ %11, %land.lhs.true43 ]
   %offset54 = getelementptr inbounds i8, ptr %call, i64 472
   %session_offset = getelementptr inbounds i8, ptr %call, i64 484
   %cookie_offset = getelementptr inbounds i8, ptr %call, i64 476
   %counter_offset = getelementptr inbounds i8, ptr %call, i64 480
   store <4 x i32> <i32 4, i32 4, i32 4, i32 0>, ptr %offset54, align 8
   %txsession = getelementptr inbounds i8, ptr %netdev, i64 88
-  %22 = load i32, ptr %txsession, align 8
+  %13 = load i32, ptr %txsession, align 8
   %tx_session = getelementptr inbounds i8, ptr %call, i64 444
-  store i32 %22, ptr %tx_session, align 4
+  store i32 %13, ptr %tx_session, align 4
   %has_rxsession = getelementptr inbounds i8, ptr %netdev, i64 92
-  %23 = load i8, ptr %has_rxsession, align 4
-  %24 = and i8 %23, 1
-  %tobool55.not = icmp eq i8 %24, 0
-  br i1 %tobool55.not, label %if.end60, label %if.then56
+  %14 = load i8, ptr %has_rxsession, align 4
+  %tobool55 = trunc i8 %14 to i1
+  br i1 %tobool55, label %if.then56, label %if.end60
 
 if.then56:                                        ; preds = %if.end53
   %rxsession = getelementptr inbounds i8, ptr %netdev, i64 96
-  %25 = load i32, ptr %rxsession, align 8
+  %15 = load i32, ptr %rxsession, align 8
   br label %if.end60
 
 if.end60:                                         ; preds = %if.end53, %if.then56
-  %.sink = phi i32 [ %25, %if.then56 ], [ %22, %if.end53 ]
-  %26 = getelementptr inbounds i8, ptr %call, i64 440
-  store i32 %.sink, ptr %26, align 8
-  br i1 %tobool15.not, label %if.end78, label %if.then63
+  %.sink = phi i32 [ %15, %if.then56 ], [ %13, %if.end53 ]
+  %16 = getelementptr inbounds i8, ptr %call, i64 440
+  store i32 %.sink, ptr %16, align 8
+  br i1 %tobool15, label %if.then63, label %if.end78
 
 if.then63:                                        ; preds = %if.end60
   %rxcookie = getelementptr inbounds i8, ptr %netdev, i64 80
-  %27 = load i64, ptr %rxcookie, align 8
+  %17 = load i64, ptr %rxcookie, align 8
   %rx_cookie = getelementptr inbounds i8, ptr %call, i64 424
-  store i64 %27, ptr %rx_cookie, align 8
+  store i64 %17, ptr %rx_cookie, align 8
   %txcookie = getelementptr inbounds i8, ptr %netdev, i64 64
-  %28 = load i64, ptr %txcookie, align 8
+  %18 = load i64, ptr %txcookie, align 8
   %tx_cookie = getelementptr inbounds i8, ptr %call, i64 432
-  store i64 %28, ptr %tx_cookie, align 8
-  %. = select i1 %tobool65.not, i32 8, i32 12
-  %.125 = select i1 %tobool65.not, i32 12, i32 16
+  store i64 %18, ptr %tx_cookie, align 8
+  %. = select i1 %tobool65, i32 12, i32 8
+  %.125 = select i1 %tobool65, i32 16, i32 12
   store i32 %., ptr %offset54, align 8
   store i32 %., ptr %counter_offset, align 8
   br label %if.end78
@@ -218,10 +207,10 @@ if.end78:                                         ; preds = %if.then63, %if.end6
   %add89 = phi i32 [ 8, %if.end60 ], [ %.125, %if.then63 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hints, i8 0, i64 48, i1 false)
   %ipv679 = getelementptr inbounds i8, ptr %call, i64 490
-  %29 = getelementptr inbounds i8, ptr %hints, i64 4
-  store i32 %tobool80.not, ptr %29, align 4
+  %19 = getelementptr inbounds i8, ptr %hints, i64 4
+  store i32 %tobool80, ptr %19, align 4
   %udp85 = getelementptr inbounds i8, ptr %call, i64 491
-  br i1 %tobool86.not, label %if.end99, label %if.then87
+  br i1 %tobool86, label %if.then87, label %if.end99
 
 if.then87:                                        ; preds = %if.end78
   store i32 %add89, ptr %offset54, align 8
@@ -231,15 +220,15 @@ if.then87:                                        ; preds = %if.end78
   br label %if.end99
 
 if.end99:                                         ; preds = %if.end78, %if.then87
-  %30 = phi <2 x i32> [ <i32 2, i32 0>, %if.then87 ], [ <i32 3, i32 115>, %if.end78 ]
-  %31 = getelementptr inbounds i8, ptr %hints, i64 8
-  %32 = getelementptr inbounds i8, ptr %hints, i64 12
-  store <2 x i32> %30, ptr %31, align 8
-  %33 = load ptr, ptr %u, align 8
-  %call100 = call i32 @getaddrinfo(ptr noundef %33, ptr noundef %srcport.0, ptr noundef nonnull %hints, ptr noundef nonnull %result) #11
+  %20 = phi <2 x i32> [ <i32 2, i32 0>, %if.then87 ], [ <i32 3, i32 115>, %if.end78 ]
+  %21 = getelementptr inbounds i8, ptr %hints, i64 8
+  %22 = getelementptr inbounds i8, ptr %hints, i64 12
+  store <2 x i32> %20, ptr %21, align 8
+  %23 = load ptr, ptr %u, align 8
+  %call100 = call i32 @getaddrinfo(ptr noundef %23, ptr noundef %srcport.0, ptr noundef nonnull %hints, ptr noundef nonnull %result) #11
   %cmp101 = icmp ne i32 %call100, 0
-  %34 = load ptr, ptr %result, align 8
-  %cmp104 = icmp eq ptr %34, null
+  %24 = load ptr, ptr %result, align 8
+  %cmp104 = icmp eq ptr %24, null
   %or.cond = select i1 %cmp101, i1 true, i1 %cmp104
   br i1 %or.cond, label %if.then106, label %if.end108
 
@@ -249,58 +238,60 @@ if.then106:                                       ; preds = %if.end99
   br label %outerr.thread
 
 if.end108:                                        ; preds = %if.end99
-  %ai_family109 = getelementptr inbounds i8, ptr %34, i64 4
-  %35 = load i32, ptr %ai_family109, align 4
-  %ai_socktype110 = getelementptr inbounds i8, ptr %34, i64 8
-  %36 = load i32, ptr %ai_socktype110, align 8
-  %ai_protocol111 = getelementptr inbounds i8, ptr %34, i64 12
-  %37 = load i32, ptr %ai_protocol111, align 4
-  %call112 = call i32 @socket(i32 noundef %35, i32 noundef %36, i32 noundef %37) #11
+  %ai_family109 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = load i32, ptr %ai_family109, align 4
+  %ai_socktype110 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = load i32, ptr %ai_socktype110, align 8
+  %ai_protocol111 = getelementptr inbounds i8, ptr %24, i64 12
+  %27 = load i32, ptr %ai_protocol111, align 4
+  %call112 = call i32 @socket(i32 noundef %25, i32 noundef %26, i32 noundef %27) #11
   %cmp113 = icmp eq i32 %call112, -1
   br i1 %cmp113, label %if.then115, label %if.end118
 
 if.then115:                                       ; preds = %if.end108
   %call116 = tail call ptr @__errno_location() #13
-  %38 = load i32, ptr %call116, align 4
-  %sub = sub i32 0, %38
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 644, ptr noundef nonnull @__func__.net_init_l2tpv3, ptr noundef nonnull @.str.7, i32 noundef %38) #11
+  %28 = load i32, ptr %call116, align 4
+  %sub = sub i32 0, %28
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 644, ptr noundef nonnull @__func__.net_init_l2tpv3, ptr noundef nonnull @.str.7, i32 noundef %28) #11
   br label %outerr
 
 if.end118:                                        ; preds = %if.end108
-  %39 = load ptr, ptr %result, align 8
-  %ai_addr = getelementptr inbounds i8, ptr %39, i64 24
-  %40 = load ptr, ptr %ai_addr, align 8
-  %ai_addrlen = getelementptr inbounds i8, ptr %39, i64 16
-  %41 = load i32, ptr %ai_addrlen, align 8
-  %call119 = call i32 @bind(i32 noundef %call112, ptr %40, i32 noundef %41) #11
+  %29 = load ptr, ptr %result, align 8
+  %ai_addr = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = load ptr, ptr %ai_addr, align 8
+  %ai_addrlen = getelementptr inbounds i8, ptr %29, i64 16
+  %31 = load i32, ptr %ai_addrlen, align 8
+  %call119 = call i32 @bind(i32 noundef %call112, ptr %30, i32 noundef %31) #11
   %tobool120.not = icmp eq i32 %call119, 0
   br i1 %tobool120.not, label %if.end123, label %if.then121
 
 if.then121:                                       ; preds = %if.end118
   %call122 = tail call ptr @__errno_location() #13
-  %42 = load i32, ptr %call122, align 4
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 648, ptr noundef nonnull @__func__.net_init_l2tpv3, ptr noundef nonnull @.str.8, i32 noundef %42) #11
+  %32 = load i32, ptr %call122, align 4
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 648, ptr noundef nonnull @__func__.net_init_l2tpv3, ptr noundef nonnull @.str.8, i32 noundef %32) #11
   br label %outerr
 
 if.end123:                                        ; preds = %if.end118
-  %43 = load ptr, ptr %result, align 8
-  call void @freeaddrinfo(ptr noundef %43) #11
+  %33 = load ptr, ptr %result, align 8
+  call void @freeaddrinfo(ptr noundef %33) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hints, i8 0, i64 48, i1 false)
-  %44 = load <2 x i8>, ptr %ipv679, align 2
-  %45 = and <2 x i8> %44, <i8 1, i8 1>
-  %46 = icmp eq <2 x i8> %45, zeroinitializer
-  %47 = select <2 x i1> %46, <2 x i32> <i32 2, i32 3>, <2 x i32> <i32 10, i32 2>
-  %48 = extractelement <2 x i1> %46, i64 1
-  %.sink116 = select i1 %48, i32 115, i32 0
-  store <2 x i32> %47, ptr %29, align 4
-  store i32 %.sink116, ptr %32, align 4
+  %34 = load i8, ptr %ipv679, align 2
+  %tobool125 = trunc i8 %34 to i1
+  %spec.select = select i1 %tobool125, i32 10, i32 2
+  store i32 %spec.select, ptr %19, align 4
+  %35 = load i8, ptr %udp85, align 1
+  %tobool132 = trunc i8 %35 to i1
+  %.sink117 = select i1 %tobool132, i32 2, i32 3
+  %.sink116 = select i1 %tobool132, i32 0, i32 115
+  store i32 %.sink117, ptr %21, align 8
+  store i32 %.sink116, ptr %22, align 4
   store ptr null, ptr %result, align 8
   %dst = getelementptr inbounds i8, ptr %netdev, i64 24
-  %49 = load ptr, ptr %dst, align 8
-  %call140 = call i32 @getaddrinfo(ptr noundef %49, ptr noundef %dstport.0, ptr noundef nonnull %hints, ptr noundef nonnull %result) #11
+  %36 = load ptr, ptr %dst, align 8
+  %call140 = call i32 @getaddrinfo(ptr noundef %36, ptr noundef %dstport.0, ptr noundef nonnull %hints, ptr noundef nonnull %result) #11
   %cmp141 = icmp ne i32 %call140, 0
-  %50 = load ptr, ptr %result, align 8
-  %cmp144 = icmp eq ptr %50, null
+  %37 = load ptr, ptr %result, align 8
+  %cmp144 = icmp eq ptr %37, null
   %or.cond1 = select i1 %cmp141, i1 true, i1 %cmp144
   br i1 %or.cond1, label %if.then146, label %if.end148
 
@@ -313,35 +304,33 @@ if.end148:                                        ; preds = %if.end123
   %call149 = call noalias dereferenceable_or_null(128) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 128) #14
   %dgram_dst = getelementptr inbounds i8, ptr %call, i64 408
   store ptr %call149, ptr %dgram_dst, align 8
-  %51 = load ptr, ptr %result, align 8
-  %ai_addr151 = getelementptr inbounds i8, ptr %51, i64 24
-  %52 = load ptr, ptr %ai_addr151, align 8
-  %ai_addrlen152 = getelementptr inbounds i8, ptr %51, i64 16
-  %53 = load i32, ptr %ai_addrlen152, align 8
-  %conv153 = zext i32 %53 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call149, ptr align 2 %52, i64 %conv153, i1 false)
-  %54 = load i32, ptr %ai_addrlen152, align 8
+  %38 = load ptr, ptr %result, align 8
+  %ai_addr151 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = load ptr, ptr %ai_addr151, align 8
+  %ai_addrlen152 = getelementptr inbounds i8, ptr %38, i64 16
+  %40 = load i32, ptr %ai_addrlen152, align 8
+  %conv153 = zext i32 %40 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call149, ptr align 2 %39, i64 %conv153, i1 false)
+  %41 = load i32, ptr %ai_addrlen152, align 8
   %dst_size = getelementptr inbounds i8, ptr %call, i64 416
-  store i32 %54, ptr %dst_size, align 8
-  call void @freeaddrinfo(ptr noundef %51) #11
+  store i32 %41, ptr %dst_size, align 8
+  call void @freeaddrinfo(ptr noundef %38) #11
   %has_counter = getelementptr inbounds i8, ptr %netdev, i64 54
-  %55 = load i8, ptr %has_counter, align 2
-  %56 = and i8 %55, 1
-  %tobool155.not = icmp eq i8 %56, 0
-  br i1 %tobool155.not, label %if.else164, label %land.lhs.true157
+  %42 = load i8, ptr %has_counter, align 2
+  %tobool155 = trunc i8 %42 to i1
+  br i1 %tobool155, label %land.lhs.true157, label %if.else164
 
 land.lhs.true157:                                 ; preds = %if.end148
   %counter = getelementptr inbounds i8, ptr %netdev, i64 55
-  %57 = load i8, ptr %counter, align 1
-  %58 = and i8 %57, 1
-  %tobool158.not = icmp eq i8 %58, 0
-  br i1 %tobool158.not, label %if.else164, label %if.then160
+  %43 = load i8, ptr %counter, align 1
+  %tobool158 = trunc i8 %43 to i1
+  br i1 %tobool158, label %if.then160, label %if.else164
 
 if.then160:                                       ; preds = %land.lhs.true157
   %has_counter161 = getelementptr inbounds i8, ptr %call, i64 492
   store i8 1, ptr %has_counter161, align 4
-  %59 = load i32, ptr %offset54, align 8
-  %add163 = add i32 %59, 4
+  %44 = load i32, ptr %offset54, align 8
+  %add163 = add i32 %44, 4
   store i32 %add163, ptr %offset54, align 8
   br label %if.end166
 
@@ -352,17 +341,15 @@ if.else164:                                       ; preds = %land.lhs.true157, %
 
 if.end166:                                        ; preds = %if.else164, %if.then160
   %has_pincounter = getelementptr inbounds i8, ptr %netdev, i64 56
-  %60 = load i8, ptr %has_pincounter, align 8
-  %61 = and i8 %60, 1
-  %tobool167.not = icmp eq i8 %61, 0
-  br i1 %tobool167.not, label %if.end176, label %land.lhs.true169
+  %45 = load i8, ptr %has_pincounter, align 8
+  %tobool167 = trunc i8 %45 to i1
+  br i1 %tobool167, label %land.lhs.true169, label %if.end176
 
 land.lhs.true169:                                 ; preds = %if.end166
   %pincounter = getelementptr inbounds i8, ptr %netdev, i64 57
-  %62 = load i8, ptr %pincounter, align 1
-  %63 = and i8 %62, 1
-  %tobool170.not = icmp eq i8 %63, 0
-  br i1 %tobool170.not, label %if.end176, label %if.then172
+  %46 = load i8, ptr %pincounter, align 1
+  %tobool170 = trunc i8 %46 to i1
+  br i1 %tobool170, label %if.then172, label %if.end176
 
 if.then172:                                       ; preds = %land.lhs.true169
   %has_counter173 = getelementptr inbounds i8, ptr %call, i64 492
@@ -373,36 +360,33 @@ if.end176:                                        ; preds = %if.end166, %land.lh
   %.sink124 = phi i8 [ 1, %if.then172 ], [ 0, %land.lhs.true169 ], [ 0, %if.end166 ]
   %pin_counter175 = getelementptr inbounds i8, ptr %call, i64 493
   store i8 %.sink124, ptr %pin_counter175, align 1
-  %64 = load i8, ptr %has_offset, align 4
-  %65 = and i8 %64, 1
-  %tobool178.not = icmp eq i8 %65, 0
-  br i1 %tobool178.not, label %if.end183, label %if.then179
+  %47 = load i8, ptr %has_offset, align 4
+  %tobool178 = trunc i8 %47 to i1
+  br i1 %tobool178, label %if.then179, label %if.end183
 
 if.then179:                                       ; preds = %if.end176
   %offset180 = getelementptr inbounds i8, ptr %netdev, i64 104
-  %66 = load i32, ptr %offset180, align 8
-  %67 = load i32, ptr %offset54, align 8
-  %add182 = add i32 %67, %66
+  %48 = load i32, ptr %offset180, align 8
+  %49 = load i32, ptr %offset54, align 8
+  %add182 = add i32 %49, %48
   store i32 %add182, ptr %offset54, align 8
   br label %if.end183
 
 if.end183:                                        ; preds = %if.then179, %if.end176
-  %68 = load i8, ptr %ipv679, align 2
-  %69 = and i8 %68, 1
-  %tobool185.not = icmp eq i8 %69, 0
-  br i1 %tobool185.not, label %lor.lhs.false187, label %if.end183.if.then191_crit_edge
+  %50 = load i8, ptr %ipv679, align 2
+  %tobool185 = trunc i8 %50 to i1
+  br i1 %tobool185, label %if.end183.if.then191_crit_edge, label %lor.lhs.false187
 
 if.end183.if.then191_crit_edge:                   ; preds = %if.end183
   %.pre = load i32, ptr %offset54, align 8
   br label %if.end199
 
 lor.lhs.false187:                                 ; preds = %if.end183
-  %70 = load i8, ptr %udp85, align 1
-  %71 = and i8 %70, 1
-  %tobool189.not = icmp eq i8 %71, 0
+  %51 = load i8, ptr %udp85, align 1
+  %tobool189 = trunc i8 %51 to i1
   %.pre118 = load i32, ptr %offset54, align 8
   %add196 = add i32 %.pre118, 20
-  %spec.select128 = select i1 %tobool189.not, i32 %add196, i32 %.pre118
+  %spec.select128 = select i1 %tobool189, i32 %.pre118, i32 %add196
   br label %if.end199
 
 if.end199:                                        ; preds = %lor.lhs.false187, %if.end183.if.then191_crit_edge
@@ -416,8 +400,8 @@ if.end199:                                        ; preds = %lor.lhs.false187, %
   %vec = getelementptr inbounds i8, ptr %call, i64 392
   store ptr %call201, ptr %vec, align 8
   %header_size202 = getelementptr inbounds i8, ptr %call, i64 448
-  %72 = load i32, ptr %header_size202, align 8
-  %conv203 = zext i32 %72 to i64
+  %52 = load i32, ptr %header_size202, align 8
+  %conv203 = zext i32 %52 to i64
   %call204 = call noalias ptr @g_malloc(i64 noundef %conv203) #15
   %header_buf = getelementptr inbounds i8, ptr %call, i64 384
   store ptr %call204, ptr %header_buf, align 8
@@ -445,12 +429,12 @@ if.then210:                                       ; preds = %outerr
   br label %if.end212
 
 if.end212:                                        ; preds = %outerr.thread, %if.then210, %outerr
-  %73 = load ptr, ptr %result, align 8
-  %tobool213.not = icmp eq ptr %73, null
+  %53 = load ptr, ptr %result, align 8
+  %tobool213.not = icmp eq ptr %53, null
   br i1 %tobool213.not, label %return, label %if.then214
 
 if.then214:                                       ; preds = %if.end212
-  call void @freeaddrinfo(ptr noundef nonnull %73) #11
+  call void @freeaddrinfo(ptr noundef nonnull %53) #11
   br label %return
 
 return:                                           ; preds = %if.end212, %if.then214, %if.end199
@@ -547,10 +531,9 @@ define internal fastcc void @l2tpv3_read_poll(ptr noundef %s, i1 noundef zeroext
 entry:
   %read_poll = getelementptr inbounds i8, ptr %s, i64 488
   %0 = load i8, ptr %read_poll, align 8
-  %1 = and i8 %0, 1
-  %2 = icmp eq i8 %1, 0
-  %cmp.not = xor i1 %2, %enable
-  br i1 %cmp.not, label %if.end, label %if.then
+  %1 = trunc i8 %0 to i1
+  %2 = xor i1 %1, %enable
+  br i1 %2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %frombool = zext i1 %enable to i8
@@ -560,9 +543,8 @@ if.then:                                          ; preds = %entry
   %cond.i = select i1 %enable, ptr @net_l2tpv3_send, ptr null
   %write_poll.i = getelementptr inbounds i8, ptr %s, i64 489
   %4 = load i8, ptr %write_poll.i, align 1
-  %5 = and i8 %4, 1
-  %tobool1.not.i = icmp eq i8 %5, 0
-  %cond2.i = select i1 %tobool1.not.i, ptr null, ptr @l2tpv3_writable
+  %tobool1.i = trunc i8 %4 to i1
+  %cond2.i = select i1 %tobool1.i, ptr @l2tpv3_writable, ptr null
   tail call void @qemu_set_fd_handler(i32 noundef %3, ptr noundef %cond.i, ptr noundef %cond2.i, ptr noundef nonnull %s) #11
   br label %if.end
 
@@ -582,76 +564,71 @@ entry:
   %message = alloca %struct.msghdr, align 8
   %udp.i = getelementptr inbounds i8, ptr %nc, i64 491
   %0 = load i8, ptr %udp.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %header_buf.i = getelementptr inbounds i8, ptr %nc, i64 384
-  %2 = load ptr, ptr %header_buf.i, align 8
-  store i32 768, ptr %2, align 1
+  %1 = load ptr, ptr %header_buf.i, align 8
+  store i32 768, ptr %1, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %header_buf1.i = getelementptr inbounds i8, ptr %nc, i64 384
-  %3 = load ptr, ptr %header_buf1.i, align 8
+  %2 = load ptr, ptr %header_buf1.i, align 8
   %session_offset.i = getelementptr inbounds i8, ptr %nc, i64 484
-  %4 = load i32, ptr %session_offset.i, align 4
-  %idx.ext.i = zext i32 %4 to i64
-  %add.ptr.i = getelementptr i8, ptr %3, i64 %idx.ext.i
+  %3 = load i32, ptr %session_offset.i, align 4
+  %idx.ext.i = zext i32 %3 to i64
+  %add.ptr.i = getelementptr i8, ptr %2, i64 %idx.ext.i
   %tx_session.i = getelementptr inbounds i8, ptr %nc, i64 444
-  %5 = load i32, ptr %tx_session.i, align 4
-  %6 = tail call i32 @llvm.bswap.i32(i32 %5)
-  store i32 %6, ptr %add.ptr.i, align 1
+  %4 = load i32, ptr %tx_session.i, align 4
+  %5 = tail call i32 @llvm.bswap.i32(i32 %4)
+  store i32 %5, ptr %add.ptr.i, align 1
   %cookie.i = getelementptr inbounds i8, ptr %nc, i64 494
-  %7 = load i8, ptr %cookie.i, align 2
-  %8 = and i8 %7, 1
-  %tobool2.not.i = icmp eq i8 %8, 0
-  br i1 %tobool2.not.i, label %if.end15.i, label %if.then3.i
+  %6 = load i8, ptr %cookie.i, align 2
+  %tobool2.i = trunc i8 %6 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %if.end15.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %cookie_is_64.i = getelementptr inbounds i8, ptr %nc, i64 495
-  %9 = load i8, ptr %cookie_is_64.i, align 1
-  %10 = and i8 %9, 1
-  %tobool4.not.i = icmp eq i8 %10, 0
-  %11 = load ptr, ptr %header_buf1.i, align 8
-  %cookie_offset10.i = getelementptr inbounds i8, ptr %nc, i64 476
-  %12 = load i32, ptr %cookie_offset10.i, align 4
-  %idx.ext11.i = zext i32 %12 to i64
-  %add.ptr12.i = getelementptr i8, ptr %11, i64 %idx.ext11.i
-  %tx_cookie13.i = getelementptr inbounds i8, ptr %nc, i64 432
-  %13 = load i64, ptr %tx_cookie13.i, align 8
-  br i1 %tobool4.not.i, label %if.else.i, label %if.then5.i
+  %7 = load i8, ptr %cookie_is_64.i, align 1
+  %tobool4.i = trunc i8 %7 to i1
+  %8 = load ptr, ptr %header_buf1.i, align 8
+  %cookie_offset.i = getelementptr inbounds i8, ptr %nc, i64 476
+  %9 = load i32, ptr %cookie_offset.i, align 4
+  %idx.ext7.i = zext i32 %9 to i64
+  %add.ptr8.i = getelementptr i8, ptr %8, i64 %idx.ext7.i
+  %tx_cookie.i = getelementptr inbounds i8, ptr %nc, i64 432
+  %10 = load i64, ptr %tx_cookie.i, align 8
+  br i1 %tobool4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then3.i
-  %14 = tail call i64 @llvm.bswap.i64(i64 %13)
-  store i64 %14, ptr %add.ptr12.i, align 1
+  %11 = tail call i64 @llvm.bswap.i64(i64 %10)
+  store i64 %11, ptr %add.ptr8.i, align 1
   br label %if.end15.i
 
 if.else.i:                                        ; preds = %if.then3.i
-  %conv.i = trunc i64 %13 to i32
-  %15 = tail call i32 @llvm.bswap.i32(i32 %conv.i)
-  store i32 %15, ptr %add.ptr12.i, align 1
+  %conv.i = trunc i64 %10 to i32
+  %12 = tail call i32 @llvm.bswap.i32(i32 %conv.i)
+  store i32 %12, ptr %add.ptr8.i, align 1
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.else.i, %if.then5.i, %if.end.i
   %has_counter.i = getelementptr inbounds i8, ptr %nc, i64 492
-  %16 = load i8, ptr %has_counter.i, align 4
-  %17 = and i8 %16, 1
-  %tobool16.not.i = icmp eq i8 %17, 0
-  br i1 %tobool16.not.i, label %l2tpv3_form_header.exit, label %if.then17.i
+  %13 = load i8, ptr %has_counter.i, align 4
+  %tobool16.i = trunc i8 %13 to i1
+  br i1 %tobool16.i, label %if.then17.i, label %l2tpv3_form_header.exit
 
 if.then17.i:                                      ; preds = %if.end15.i
-  %18 = load ptr, ptr %header_buf1.i, align 8
+  %14 = load ptr, ptr %header_buf1.i, align 8
   %counter_offset.i = getelementptr inbounds i8, ptr %nc, i64 480
-  %19 = load i32, ptr %counter_offset.i, align 8
-  %idx.ext19.i = zext i32 %19 to i64
-  %add.ptr20.i = getelementptr i8, ptr %18, i64 %idx.ext19.i
+  %15 = load i32, ptr %counter_offset.i, align 8
+  %idx.ext19.i = zext i32 %15 to i64
+  %add.ptr20.i = getelementptr i8, ptr %14, i64 %idx.ext19.i
   %pin_counter.i = getelementptr inbounds i8, ptr %nc, i64 493
-  %20 = load i8, ptr %pin_counter.i, align 1
-  %21 = and i8 %20, 1
-  %tobool21.not.i = icmp eq i8 %21, 0
-  br i1 %tobool21.not.i, label %if.else23.i, label %if.then22.i
+  %16 = load i8, ptr %pin_counter.i, align 1
+  %tobool21.i = trunc i8 %16 to i1
+  br i1 %tobool21.i, label %if.then22.i, label %if.else23.i
 
 if.then22.i:                                      ; preds = %if.then17.i
   store i32 0, ptr %add.ptr20.i, align 4
@@ -659,37 +636,37 @@ if.then22.i:                                      ; preds = %if.then17.i
 
 if.else23.i:                                      ; preds = %if.then17.i
   %counter24.i = getelementptr inbounds i8, ptr %nc, i64 452
-  %22 = load i32, ptr %counter24.i, align 4
-  %inc.i = add i32 %22, 1
+  %17 = load i32, ptr %counter24.i, align 4
+  %inc.i = add i32 %17, 1
   store i32 %inc.i, ptr %counter24.i, align 4
-  %23 = tail call i32 @llvm.bswap.i32(i32 %inc.i)
-  store i32 %23, ptr %add.ptr20.i, align 1
+  %18 = tail call i32 @llvm.bswap.i32(i32 %inc.i)
+  store i32 %18, ptr %add.ptr20.i, align 1
   br label %l2tpv3_form_header.exit
 
 l2tpv3_form_header.exit:                          ; preds = %if.end15.i, %if.then22.i, %if.else23.i
   %vec2 = getelementptr inbounds i8, ptr %nc, i64 392
-  %24 = load ptr, ptr %vec2, align 8
-  %25 = load ptr, ptr %header_buf1.i, align 8
-  store ptr %25, ptr %24, align 8
+  %19 = load ptr, ptr %vec2, align 8
+  %20 = load ptr, ptr %header_buf1.i, align 8
+  store ptr %20, ptr %19, align 8
   %offset = getelementptr inbounds i8, ptr %nc, i64 472
-  %26 = load i32, ptr %offset, align 8
-  %conv = zext i32 %26 to i64
-  %iov_len = getelementptr inbounds i8, ptr %24, i64 8
+  %21 = load i32, ptr %offset, align 8
+  %conv = zext i32 %21 to i64
+  %iov_len = getelementptr inbounds i8, ptr %19, i64 8
   store i64 %conv, ptr %iov_len, align 8
-  %incdec.ptr = getelementptr i8, ptr %24, i64 16
+  %incdec.ptr = getelementptr i8, ptr %19, i64 16
   store ptr %buf, ptr %incdec.ptr, align 8
-  %iov_len4 = getelementptr i8, ptr %24, i64 24
+  %iov_len4 = getelementptr i8, ptr %19, i64 24
   store i64 %size, ptr %iov_len4, align 8
   %dgram_dst = getelementptr inbounds i8, ptr %nc, i64 408
-  %27 = load ptr, ptr %dgram_dst, align 8
-  store ptr %27, ptr %message, align 8
+  %22 = load ptr, ptr %dgram_dst, align 8
+  store ptr %22, ptr %message, align 8
   %dst_size = getelementptr inbounds i8, ptr %nc, i64 416
-  %28 = load i32, ptr %dst_size, align 8
+  %23 = load i32, ptr %dst_size, align 8
   %msg_namelen = getelementptr inbounds i8, ptr %message, i64 8
-  store i32 %28, ptr %msg_namelen, align 8
-  %29 = load ptr, ptr %vec2, align 8
+  store i32 %23, ptr %msg_namelen, align 8
+  %24 = load ptr, ptr %vec2, align 8
   %msg_iov = getelementptr inbounds i8, ptr %message, i64 16
-  store ptr %29, ptr %msg_iov, align 8
+  store ptr %24, ptr %msg_iov, align 8
   %msg_iovlen = getelementptr inbounds i8, ptr %message, i64 24
   store i64 2, ptr %msg_iovlen, align 8
   %msg_control = getelementptr inbounds i8, ptr %message, i64 32
@@ -698,15 +675,15 @@ l2tpv3_form_header.exit:                          ; preds = %if.end15.i, %if.the
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %l2tpv3_form_header.exit
-  %30 = load i32, ptr %fd, align 8
-  %call = call i64 @sendmsg(i32 noundef %30, ptr noundef nonnull %message, i32 noundef 0) #11
+  %25 = load i32, ptr %fd, align 8
+  %call = call i64 @sendmsg(i32 noundef %25, ptr noundef nonnull %message, i32 noundef 0) #11
   %cmp = icmp eq i64 %call, -1
   br i1 %cmp, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %do.body
   %call7 = tail call ptr @__errno_location() #13
-  %31 = load i32, ptr %call7, align 4
-  %cmp8 = icmp eq i32 %31, 4
+  %26 = load i32, ptr %call7, align 4
+  %cmp8 = icmp eq i32 %26, 4
   br i1 %cmp8, label %do.body, label %if.else18, !llvm.loop !7
 
 do.end:                                           ; preds = %do.body
@@ -714,8 +691,8 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp11, label %if.then, label %if.else
 
 if.then:                                          ; preds = %do.end
-  %32 = load i32, ptr %offset, align 8
-  %conv14 = zext i32 %32 to i64
+  %27 = load i32, ptr %offset, align 8
+  %conv14 = zext i32 %27 to i64
   %sub = sub nsw i64 %call, %conv14
   br label %if.end28
 
@@ -729,34 +706,32 @@ if.else.if.else18_crit_edge:                      ; preds = %if.else
   br label %if.else18
 
 if.else18:                                        ; preds = %land.rhs, %if.else.if.else18_crit_edge
-  %33 = phi i32 [ %.pr, %if.else.if.else18_crit_edge ], [ %31, %land.rhs ]
-  %sub20 = sub i32 0, %33
+  %28 = phi i32 [ %.pr, %if.else.if.else18_crit_edge ], [ %26, %land.rhs ]
+  %sub20 = sub i32 0, %28
   %conv21 = sext i32 %sub20 to i64
-  switch i32 %33, label %if.end28 [
+  switch i32 %28, label %if.end28 [
     i32 105, label %if.then26
     i32 11, label %if.then26
   ]
 
 if.then26:                                        ; preds = %if.else18, %if.else18
   %write_poll.i = getelementptr inbounds i8, ptr %nc, i64 489
-  %34 = load i8, ptr %write_poll.i, align 1
-  %35 = and i8 %34, 1
-  %.not = icmp eq i8 %35, 0
-  br i1 %.not, label %if.then.i21, label %if.end28
+  %29 = load i8, ptr %write_poll.i, align 1
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %if.end28, label %if.then.i22
 
-if.then.i21:                                      ; preds = %if.then26
+if.then.i22:                                      ; preds = %if.then26
   store i8 1, ptr %write_poll.i, align 1
-  %36 = load i32, ptr %fd, align 8
+  %31 = load i32, ptr %fd, align 8
   %read_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 488
-  %37 = load i8, ptr %read_poll.i.i, align 8
-  %38 = and i8 %37, 1
-  %tobool.not.i.i = icmp eq i8 %38, 0
-  %cond.i.i = select i1 %tobool.not.i.i, ptr null, ptr @net_l2tpv3_send
-  call void @qemu_set_fd_handler(i32 noundef %36, ptr noundef %cond.i.i, ptr noundef nonnull @l2tpv3_writable, ptr noundef nonnull %nc) #11
+  %32 = load i8, ptr %read_poll.i.i, align 8
+  %tobool.i.i = trunc i8 %32 to i1
+  %cond.i.i = select i1 %tobool.i.i, ptr @net_l2tpv3_send, ptr null
+  call void @qemu_set_fd_handler(i32 noundef %31, ptr noundef %cond.i.i, ptr noundef nonnull @l2tpv3_writable, ptr noundef nonnull %nc) #11
   br label %if.end28
 
-if.end28:                                         ; preds = %if.then.i21, %if.then26, %if.else18, %if.else, %if.then
-  %ret.0 = phi i64 [ %sub, %if.then ], [ %conv21, %if.else18 ], [ %size, %if.else ], [ 0, %if.then26 ], [ 0, %if.then.i21 ]
+if.end28:                                         ; preds = %if.then.i22, %if.then26, %if.else18, %if.else, %if.then
+  %ret.0 = phi i64 [ %sub, %if.then ], [ %conv21, %if.else18 ], [ %size, %if.else ], [ 0, %if.then26 ], [ 0, %if.then.i22 ]
   ret i64 %ret.0
 }
 
@@ -774,76 +749,71 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %udp.i = getelementptr inbounds i8, ptr %nc, i64 491
   %0 = load i8, ptr %udp.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
   %header_buf.i = getelementptr inbounds i8, ptr %nc, i64 384
-  %2 = load ptr, ptr %header_buf.i, align 8
-  store i32 768, ptr %2, align 1
+  %1 = load ptr, ptr %header_buf.i, align 8
+  store i32 768, ptr %1, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end
   %header_buf1.i = getelementptr inbounds i8, ptr %nc, i64 384
-  %3 = load ptr, ptr %header_buf1.i, align 8
+  %2 = load ptr, ptr %header_buf1.i, align 8
   %session_offset.i = getelementptr inbounds i8, ptr %nc, i64 484
-  %4 = load i32, ptr %session_offset.i, align 4
-  %idx.ext.i = zext i32 %4 to i64
-  %add.ptr.i = getelementptr i8, ptr %3, i64 %idx.ext.i
+  %3 = load i32, ptr %session_offset.i, align 4
+  %idx.ext.i = zext i32 %3 to i64
+  %add.ptr.i = getelementptr i8, ptr %2, i64 %idx.ext.i
   %tx_session.i = getelementptr inbounds i8, ptr %nc, i64 444
-  %5 = load i32, ptr %tx_session.i, align 4
-  %6 = tail call i32 @llvm.bswap.i32(i32 %5)
-  store i32 %6, ptr %add.ptr.i, align 1
+  %4 = load i32, ptr %tx_session.i, align 4
+  %5 = tail call i32 @llvm.bswap.i32(i32 %4)
+  store i32 %5, ptr %add.ptr.i, align 1
   %cookie.i = getelementptr inbounds i8, ptr %nc, i64 494
-  %7 = load i8, ptr %cookie.i, align 2
-  %8 = and i8 %7, 1
-  %tobool2.not.i = icmp eq i8 %8, 0
-  br i1 %tobool2.not.i, label %if.end15.i, label %if.then3.i
+  %6 = load i8, ptr %cookie.i, align 2
+  %tobool2.i = trunc i8 %6 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %if.end15.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %cookie_is_64.i = getelementptr inbounds i8, ptr %nc, i64 495
-  %9 = load i8, ptr %cookie_is_64.i, align 1
-  %10 = and i8 %9, 1
-  %tobool4.not.i = icmp eq i8 %10, 0
-  %11 = load ptr, ptr %header_buf1.i, align 8
-  %cookie_offset10.i = getelementptr inbounds i8, ptr %nc, i64 476
-  %12 = load i32, ptr %cookie_offset10.i, align 4
-  %idx.ext11.i = zext i32 %12 to i64
-  %add.ptr12.i = getelementptr i8, ptr %11, i64 %idx.ext11.i
-  %tx_cookie13.i = getelementptr inbounds i8, ptr %nc, i64 432
-  %13 = load i64, ptr %tx_cookie13.i, align 8
-  br i1 %tobool4.not.i, label %if.else.i, label %if.then5.i
+  %7 = load i8, ptr %cookie_is_64.i, align 1
+  %tobool4.i = trunc i8 %7 to i1
+  %8 = load ptr, ptr %header_buf1.i, align 8
+  %cookie_offset.i = getelementptr inbounds i8, ptr %nc, i64 476
+  %9 = load i32, ptr %cookie_offset.i, align 4
+  %idx.ext7.i = zext i32 %9 to i64
+  %add.ptr8.i = getelementptr i8, ptr %8, i64 %idx.ext7.i
+  %tx_cookie.i = getelementptr inbounds i8, ptr %nc, i64 432
+  %10 = load i64, ptr %tx_cookie.i, align 8
+  br i1 %tobool4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then3.i
-  %14 = tail call i64 @llvm.bswap.i64(i64 %13)
-  store i64 %14, ptr %add.ptr12.i, align 1
+  %11 = tail call i64 @llvm.bswap.i64(i64 %10)
+  store i64 %11, ptr %add.ptr8.i, align 1
   br label %if.end15.i
 
 if.else.i:                                        ; preds = %if.then3.i
-  %conv.i = trunc i64 %13 to i32
-  %15 = tail call i32 @llvm.bswap.i32(i32 %conv.i)
-  store i32 %15, ptr %add.ptr12.i, align 1
+  %conv.i = trunc i64 %10 to i32
+  %12 = tail call i32 @llvm.bswap.i32(i32 %conv.i)
+  store i32 %12, ptr %add.ptr8.i, align 1
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.else.i, %if.then5.i, %if.end.i
   %has_counter.i = getelementptr inbounds i8, ptr %nc, i64 492
-  %16 = load i8, ptr %has_counter.i, align 4
-  %17 = and i8 %16, 1
-  %tobool16.not.i = icmp eq i8 %17, 0
-  br i1 %tobool16.not.i, label %l2tpv3_form_header.exit, label %if.then17.i
+  %13 = load i8, ptr %has_counter.i, align 4
+  %tobool16.i = trunc i8 %13 to i1
+  br i1 %tobool16.i, label %if.then17.i, label %l2tpv3_form_header.exit
 
 if.then17.i:                                      ; preds = %if.end15.i
-  %18 = load ptr, ptr %header_buf1.i, align 8
+  %14 = load ptr, ptr %header_buf1.i, align 8
   %counter_offset.i = getelementptr inbounds i8, ptr %nc, i64 480
-  %19 = load i32, ptr %counter_offset.i, align 8
-  %idx.ext19.i = zext i32 %19 to i64
-  %add.ptr20.i = getelementptr i8, ptr %18, i64 %idx.ext19.i
+  %15 = load i32, ptr %counter_offset.i, align 8
+  %idx.ext19.i = zext i32 %15 to i64
+  %add.ptr20.i = getelementptr i8, ptr %14, i64 %idx.ext19.i
   %pin_counter.i = getelementptr inbounds i8, ptr %nc, i64 493
-  %20 = load i8, ptr %pin_counter.i, align 1
-  %21 = and i8 %20, 1
-  %tobool21.not.i = icmp eq i8 %21, 0
-  br i1 %tobool21.not.i, label %if.else23.i, label %if.then22.i
+  %16 = load i8, ptr %pin_counter.i, align 1
+  %tobool21.i = trunc i8 %16 to i1
+  br i1 %tobool21.i, label %if.then22.i, label %if.else23.i
 
 if.then22.i:                                      ; preds = %if.then17.i
   store i32 0, ptr %add.ptr20.i, align 4
@@ -851,39 +821,39 @@ if.then22.i:                                      ; preds = %if.then17.i
 
 if.else23.i:                                      ; preds = %if.then17.i
   %counter24.i = getelementptr inbounds i8, ptr %nc, i64 452
-  %22 = load i32, ptr %counter24.i, align 4
-  %inc.i = add i32 %22, 1
+  %17 = load i32, ptr %counter24.i, align 4
+  %inc.i = add i32 %17, 1
   store i32 %inc.i, ptr %counter24.i, align 4
-  %23 = tail call i32 @llvm.bswap.i32(i32 %inc.i)
-  store i32 %23, ptr %add.ptr20.i, align 1
+  %18 = tail call i32 @llvm.bswap.i32(i32 %inc.i)
+  store i32 %18, ptr %add.ptr20.i, align 1
   br label %l2tpv3_form_header.exit
 
 l2tpv3_form_header.exit:                          ; preds = %if.end15.i, %if.then22.i, %if.else23.i
   %vec = getelementptr inbounds i8, ptr %nc, i64 392
-  %24 = load ptr, ptr %vec, align 8
-  %add.ptr2 = getelementptr i8, ptr %24, i64 16
+  %19 = load ptr, ptr %vec, align 8
+  %add.ptr2 = getelementptr i8, ptr %19, i64 16
   %conv = sext i32 %iovcnt to i64
   %mul = shl nsw i64 %conv, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr2, ptr align 8 %iov, i64 %mul, i1 false)
-  %25 = load ptr, ptr %header_buf1.i, align 8
-  %26 = load ptr, ptr %vec, align 8
-  store ptr %25, ptr %26, align 8
+  %20 = load ptr, ptr %header_buf1.i, align 8
+  %21 = load ptr, ptr %vec, align 8
+  store ptr %20, ptr %21, align 8
   %offset = getelementptr inbounds i8, ptr %nc, i64 472
-  %27 = load i32, ptr %offset, align 8
-  %conv4 = zext i32 %27 to i64
-  %28 = load ptr, ptr %vec, align 8
-  %iov_len = getelementptr inbounds i8, ptr %28, i64 8
+  %22 = load i32, ptr %offset, align 8
+  %conv4 = zext i32 %22 to i64
+  %23 = load ptr, ptr %vec, align 8
+  %iov_len = getelementptr inbounds i8, ptr %23, i64 8
   store i64 %conv4, ptr %iov_len, align 8
   %dgram_dst = getelementptr inbounds i8, ptr %nc, i64 408
-  %29 = load ptr, ptr %dgram_dst, align 8
-  store ptr %29, ptr %message, align 8
+  %24 = load ptr, ptr %dgram_dst, align 8
+  store ptr %24, ptr %message, align 8
   %dst_size = getelementptr inbounds i8, ptr %nc, i64 416
-  %30 = load i32, ptr %dst_size, align 8
+  %25 = load i32, ptr %dst_size, align 8
   %msg_namelen = getelementptr inbounds i8, ptr %message, i64 8
-  store i32 %30, ptr %msg_namelen, align 8
-  %31 = load ptr, ptr %vec, align 8
+  store i32 %25, ptr %msg_namelen, align 8
+  %26 = load ptr, ptr %vec, align 8
   %msg_iov = getelementptr inbounds i8, ptr %message, i64 16
-  store ptr %31, ptr %msg_iov, align 8
+  store ptr %26, ptr %msg_iov, align 8
   %add = add nsw i32 %iovcnt, 1
   %conv7 = sext i32 %add to i64
   %msg_iovlen = getelementptr inbounds i8, ptr %message, i64 24
@@ -894,15 +864,15 @@ l2tpv3_form_header.exit:                          ; preds = %if.end15.i, %if.the
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %l2tpv3_form_header.exit
-  %32 = load i32, ptr %fd, align 8
-  %call = call i64 @sendmsg(i32 noundef %32, ptr noundef nonnull %message, i32 noundef 0) #11
+  %27 = load i32, ptr %fd, align 8
+  %call = call i64 @sendmsg(i32 noundef %27, ptr noundef nonnull %message, i32 noundef 0) #11
   %cmp8 = icmp eq i64 %call, -1
   br i1 %cmp8, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %do.body
   %call10 = tail call ptr @__errno_location() #13
-  %33 = load i32, ptr %call10, align 4
-  %cmp11 = icmp eq i32 %33, 4
+  %28 = load i32, ptr %call10, align 4
+  %cmp11 = icmp eq i32 %28, 4
   br i1 %cmp11, label %do.body, label %if.else24, !llvm.loop !8
 
 do.end:                                           ; preds = %do.body
@@ -911,8 +881,8 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp15, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %do.end
-  %34 = load i32, ptr %offset, align 8
-  %sub = sub i32 %conv14, %34
+  %29 = load i32, ptr %offset, align 8
+  %sub = sub i32 %conv14, %29
   br label %if.end34
 
 if.else:                                          ; preds = %do.end
@@ -930,33 +900,31 @@ if.then21:                                        ; preds = %if.else
   br label %if.end34
 
 if.else24:                                        ; preds = %land.rhs, %if.else.if.else24_crit_edge
-  %35 = phi i32 [ %.pr, %if.else.if.else24_crit_edge ], [ %33, %land.rhs ]
-  %sub26 = sub i32 0, %35
-  switch i32 %35, label %if.end34 [
+  %30 = phi i32 [ %.pr, %if.else.if.else24_crit_edge ], [ %28, %land.rhs ]
+  %sub26 = sub i32 0, %30
+  switch i32 %30, label %if.end34 [
     i32 105, label %if.then31
     i32 11, label %if.then31
   ]
 
 if.then31:                                        ; preds = %if.else24, %if.else24
   %write_poll.i = getelementptr inbounds i8, ptr %nc, i64 489
-  %36 = load i8, ptr %write_poll.i, align 1
-  %37 = and i8 %36, 1
-  %.not = icmp eq i8 %37, 0
-  br i1 %.not, label %if.then.i23, label %if.end34
+  %31 = load i8, ptr %write_poll.i, align 1
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %if.end34, label %if.then.i24
 
-if.then.i23:                                      ; preds = %if.then31
+if.then.i24:                                      ; preds = %if.then31
   store i8 1, ptr %write_poll.i, align 1
-  %38 = load i32, ptr %fd, align 8
+  %33 = load i32, ptr %fd, align 8
   %read_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 488
-  %39 = load i8, ptr %read_poll.i.i, align 8
-  %40 = and i8 %39, 1
-  %tobool.not.i.i = icmp eq i8 %40, 0
-  %cond.i.i = select i1 %tobool.not.i.i, ptr null, ptr @net_l2tpv3_send
-  call void @qemu_set_fd_handler(i32 noundef %38, ptr noundef %cond.i.i, ptr noundef nonnull @l2tpv3_writable, ptr noundef nonnull %nc) #11
+  %34 = load i8, ptr %read_poll.i.i, align 8
+  %tobool.i.i = trunc i8 %34 to i1
+  %cond.i.i = select i1 %tobool.i.i, ptr @net_l2tpv3_send, ptr null
+  call void @qemu_set_fd_handler(i32 noundef %33, ptr noundef %cond.i.i, ptr noundef nonnull @l2tpv3_writable, ptr noundef nonnull %nc) #11
   br label %if.end34
 
-if.end34:                                         ; preds = %if.then.i23, %if.then31, %if.else24, %if.then21, %if.then17
-  %ret.0 = phi i32 [ %sub, %if.then17 ], [ %conv23, %if.then21 ], [ %sub26, %if.else24 ], [ 0, %if.then31 ], [ 0, %if.then.i23 ]
+if.end34:                                         ; preds = %if.then.i24, %if.then31, %if.else24, %if.then21, %if.then17
+  %ret.0 = phi i32 [ %sub, %if.then17 ], [ %conv23, %if.then21 ], [ %sub26, %if.else24 ], [ 0, %if.then31 ], [ 0, %if.then.i24 ]
   %conv35 = sext i32 %ret.0 to i64
   br label %return
 
@@ -971,75 +939,71 @@ entry:
   tail call void @qemu_purge_queued_packets(ptr noundef %nc) #11
   %read_poll.i = getelementptr inbounds i8, ptr %nc, i64 488
   %0 = load i8, ptr %read_poll.i, align 8
-  %1 = and i8 %0, 1
-  %2 = icmp eq i8 %1, 0
-  br i1 %2, label %l2tpv3_read_poll.exit, label %if.then.i
+  %1 = trunc i8 %0 to i1
+  br i1 %1, label %if.then.i, label %l2tpv3_read_poll.exit
 
 if.then.i:                                        ; preds = %entry
   store i8 0, ptr %read_poll.i, align 8
   %fd.i.i = getelementptr inbounds i8, ptr %nc, i64 376
-  %3 = load i32, ptr %fd.i.i, align 8
+  %2 = load i32, ptr %fd.i.i, align 8
   %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 489
-  %4 = load i8, ptr %write_poll.i.i, align 1
-  %5 = and i8 %4, 1
-  %tobool1.not.i.i = icmp eq i8 %5, 0
-  %cond2.i.i = select i1 %tobool1.not.i.i, ptr null, ptr @l2tpv3_writable
-  tail call void @qemu_set_fd_handler(i32 noundef %3, ptr noundef null, ptr noundef %cond2.i.i, ptr noundef nonnull %nc) #11
+  %3 = load i8, ptr %write_poll.i.i, align 1
+  %tobool1.i.i = trunc i8 %3 to i1
+  %cond2.i.i = select i1 %tobool1.i.i, ptr @l2tpv3_writable, ptr null
+  tail call void @qemu_set_fd_handler(i32 noundef %2, ptr noundef null, ptr noundef %cond2.i.i, ptr noundef nonnull %nc) #11
   br label %l2tpv3_read_poll.exit
 
 l2tpv3_read_poll.exit:                            ; preds = %entry, %if.then.i
   %write_poll.i = getelementptr inbounds i8, ptr %nc, i64 489
-  %6 = load i8, ptr %write_poll.i, align 1
-  %7 = and i8 %6, 1
-  %8 = icmp eq i8 %7, 0
-  br i1 %8, label %l2tpv3_write_poll.exit, label %if.then.i9
+  %4 = load i8, ptr %write_poll.i, align 1
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %if.then.i9, label %l2tpv3_write_poll.exit
 
 if.then.i9:                                       ; preds = %l2tpv3_read_poll.exit
   store i8 0, ptr %write_poll.i, align 1
   %fd.i.i10 = getelementptr inbounds i8, ptr %nc, i64 376
-  %9 = load i32, ptr %fd.i.i10, align 8
-  %10 = load i8, ptr %read_poll.i, align 8
-  %11 = and i8 %10, 1
-  %tobool.not.i.i = icmp eq i8 %11, 0
-  %cond.i.i = select i1 %tobool.not.i.i, ptr null, ptr @net_l2tpv3_send
-  tail call void @qemu_set_fd_handler(i32 noundef %9, ptr noundef %cond.i.i, ptr noundef null, ptr noundef nonnull %nc) #11
+  %6 = load i32, ptr %fd.i.i10, align 8
+  %7 = load i8, ptr %read_poll.i, align 8
+  %tobool.i.i = trunc i8 %7 to i1
+  %cond.i.i = select i1 %tobool.i.i, ptr @net_l2tpv3_send, ptr null
+  tail call void @qemu_set_fd_handler(i32 noundef %6, ptr noundef %cond.i.i, ptr noundef null, ptr noundef nonnull %nc) #11
   br label %l2tpv3_write_poll.exit
 
 l2tpv3_write_poll.exit:                           ; preds = %l2tpv3_read_poll.exit, %if.then.i9
   %fd = getelementptr inbounds i8, ptr %nc, i64 376
-  %12 = load i32, ptr %fd, align 8
-  %cmp = icmp sgt i32 %12, -1
+  %8 = load i32, ptr %fd, align 8
+  %cmp = icmp sgt i32 %8, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %l2tpv3_write_poll.exit
-  %call = tail call i32 @close(i32 noundef %12) #11
+  %call = tail call i32 @close(i32 noundef %8) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %l2tpv3_write_poll.exit
   %msgvec = getelementptr inbounds i8, ptr %nc, i64 400
-  %13 = load ptr, ptr %msgvec, align 8
-  %tobool.not.i = icmp eq ptr %13, null
+  %9 = load ptr, ptr %msgvec, align 8
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %destroy_vector.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end, %if.end.i
-  %cleanup.012.i = phi ptr [ %incdec.ptr10.i, %if.end.i ], [ %13, %if.end ]
+  %cleanup.012.i = phi ptr [ %incdec.ptr10.i, %if.end.i ], [ %9, %if.end ]
   %i.011.i = phi i32 [ %inc12.i, %if.end.i ], [ 0, %if.end ]
   %msg_iov.i = getelementptr inbounds i8, ptr %cleanup.012.i, i64 16
-  %14 = load ptr, ptr %msg_iov.i, align 8
-  %tobool1.not.i = icmp eq ptr %14, null
+  %10 = load ptr, ptr %msg_iov.i, align 8
+  %tobool1.not.i = icmp eq ptr %10, null
   br i1 %tobool1.not.i, label %if.end.i, label %for.body7.i
 
 for.body7.i:                                      ; preds = %for.body.i, %for.body7.i
-  %iov.010.i = phi ptr [ %incdec.ptr.i, %for.body7.i ], [ %14, %for.body.i ]
+  %iov.010.i = phi ptr [ %incdec.ptr.i, %for.body7.i ], [ %10, %for.body.i ]
   %cmp6.i = phi i1 [ false, %for.body7.i ], [ true, %for.body.i ]
-  %15 = load ptr, ptr %iov.010.i, align 8
-  tail call void @g_free(ptr noundef %15) #11
+  %11 = load ptr, ptr %iov.010.i, align 8
+  tail call void @g_free(ptr noundef %11) #11
   %incdec.ptr.i = getelementptr i8, ptr %iov.010.i, i64 16
   br i1 %cmp6.i, label %for.body7.i, label %for.end.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body7.i
-  %16 = load ptr, ptr %msg_iov.i, align 8
-  tail call void @g_free(ptr noundef %16) #11
+  %12 = load ptr, ptr %msg_iov.i, align 8
+  tail call void @g_free(ptr noundef %12) #11
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.end.i, %for.body.i
@@ -1049,19 +1013,19 @@ if.end.i:                                         ; preds = %for.end.i, %for.bod
   br i1 %exitcond.not.i, label %for.end13.i, label %for.body.i, !llvm.loop !10
 
 for.end13.i:                                      ; preds = %if.end.i
-  tail call void @g_free(ptr noundef nonnull %13) #11
+  tail call void @g_free(ptr noundef nonnull %9) #11
   br label %destroy_vector.exit
 
 destroy_vector.exit:                              ; preds = %if.end, %for.end13.i
   %vec = getelementptr inbounds i8, ptr %nc, i64 392
-  %17 = load ptr, ptr %vec, align 8
-  tail call void @g_free(ptr noundef %17) #11
+  %13 = load ptr, ptr %vec, align 8
+  tail call void @g_free(ptr noundef %13) #11
   %header_buf = getelementptr inbounds i8, ptr %nc, i64 384
-  %18 = load ptr, ptr %header_buf, align 8
-  tail call void @g_free(ptr noundef %18) #11
+  %14 = load ptr, ptr %header_buf, align 8
+  tail call void @g_free(ptr noundef %14) #11
   %dgram_dst = getelementptr inbounds i8, ptr %nc, i64 408
-  %19 = load ptr, ptr %dgram_dst, align 8
-  tail call void @g_free(ptr noundef %19) #11
+  %15 = load ptr, ptr %dgram_dst, align 8
+  tail call void @g_free(ptr noundef %15) #11
   ret void
 }
 
@@ -1070,10 +1034,9 @@ define internal void @l2tpv3_poll(ptr noundef %nc, i1 noundef zeroext %enable) #
 entry:
   %write_poll.i = getelementptr inbounds i8, ptr %nc, i64 489
   %0 = load i8, ptr %write_poll.i, align 1
-  %1 = and i8 %0, 1
-  %2 = icmp eq i8 %1, 0
-  %cmp.not.i = xor i1 %2, %enable
-  br i1 %cmp.not.i, label %l2tpv3_write_poll.exit, label %if.then.i
+  %1 = trunc i8 %0 to i1
+  %2 = xor i1 %1, %enable
+  br i1 %2, label %if.then.i, label %l2tpv3_write_poll.exit
 
 if.then.i:                                        ; preds = %entry
   %frombool.i = zext i1 %enable to i8
@@ -1082,35 +1045,32 @@ if.then.i:                                        ; preds = %entry
   %3 = load i32, ptr %fd.i.i, align 8
   %read_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 488
   %4 = load i8, ptr %read_poll.i.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i.i = icmp eq i8 %5, 0
-  %cond.i.i = select i1 %tobool.not.i.i, ptr null, ptr @net_l2tpv3_send
+  %tobool.i.i = trunc i8 %4 to i1
+  %cond.i.i = select i1 %tobool.i.i, ptr @net_l2tpv3_send, ptr null
   %cond2.i.i = select i1 %enable, ptr @l2tpv3_writable, ptr null
   tail call void @qemu_set_fd_handler(i32 noundef %3, ptr noundef %cond.i.i, ptr noundef %cond2.i.i, ptr noundef nonnull %nc) #11
   br label %l2tpv3_write_poll.exit
 
 l2tpv3_write_poll.exit:                           ; preds = %entry, %if.then.i
   %read_poll.i = getelementptr inbounds i8, ptr %nc, i64 488
-  %6 = load i8, ptr %read_poll.i, align 8
-  %7 = and i8 %6, 1
-  %8 = icmp eq i8 %7, 0
-  %cmp.not.i3 = xor i1 %8, %enable
-  br i1 %cmp.not.i3, label %l2tpv3_read_poll.exit, label %if.then.i4
+  %5 = load i8, ptr %read_poll.i, align 8
+  %6 = trunc i8 %5 to i1
+  %7 = xor i1 %6, %enable
+  br i1 %7, label %if.then.i3, label %l2tpv3_read_poll.exit
 
-if.then.i4:                                       ; preds = %l2tpv3_write_poll.exit
-  %frombool.i5 = zext i1 %enable to i8
-  store i8 %frombool.i5, ptr %read_poll.i, align 8
-  %fd.i.i6 = getelementptr inbounds i8, ptr %nc, i64 376
-  %9 = load i32, ptr %fd.i.i6, align 8
-  %cond.i.i7 = select i1 %enable, ptr @net_l2tpv3_send, ptr null
-  %10 = load i8, ptr %write_poll.i, align 1
-  %11 = and i8 %10, 1
-  %tobool1.not.i.i = icmp eq i8 %11, 0
-  %cond2.i.i8 = select i1 %tobool1.not.i.i, ptr null, ptr @l2tpv3_writable
-  tail call void @qemu_set_fd_handler(i32 noundef %9, ptr noundef %cond.i.i7, ptr noundef %cond2.i.i8, ptr noundef nonnull %nc) #11
+if.then.i3:                                       ; preds = %l2tpv3_write_poll.exit
+  %frombool.i4 = zext i1 %enable to i8
+  store i8 %frombool.i4, ptr %read_poll.i, align 8
+  %fd.i.i5 = getelementptr inbounds i8, ptr %nc, i64 376
+  %8 = load i32, ptr %fd.i.i5, align 8
+  %cond.i.i6 = select i1 %enable, ptr @net_l2tpv3_send, ptr null
+  %9 = load i8, ptr %write_poll.i, align 1
+  %tobool1.i.i = trunc i8 %9 to i1
+  %cond2.i.i7 = select i1 %tobool1.i.i, ptr @l2tpv3_writable, ptr null
+  tail call void @qemu_set_fd_handler(i32 noundef %8, ptr noundef %cond.i.i6, ptr noundef %cond2.i.i7, ptr noundef nonnull %nc) #11
   br label %l2tpv3_read_poll.exit
 
-l2tpv3_read_poll.exit:                            ; preds = %l2tpv3_write_poll.exit, %if.then.i4
+l2tpv3_read_poll.exit:                            ; preds = %l2tpv3_write_poll.exit, %if.then.i3
   ret void
 }
 
@@ -1200,7 +1160,7 @@ do.body.preheader.i:                              ; preds = %if.end22
   %ipv6.i.i = getelementptr inbounds i8, ptr %opaque, i64 490
   %cookie2.i.i = getelementptr inbounds i8, ptr %opaque, i64 494
   %cookie_is_64.i.i = getelementptr inbounds i8, ptr %opaque, i64 495
-  %cookie_offset8.i.i = getelementptr inbounds i8, ptr %opaque, i64 476
+  %cookie_offset.i.i = getelementptr inbounds i8, ptr %opaque, i64 476
   %rx_cookie.i.i = getelementptr inbounds i8, ptr %opaque, i64 424
   %header_mismatch.i.i = getelementptr inbounds i8, ptr %opaque, i64 456
   %session_offset.i.i = getelementptr inbounds i8, ptr %opaque, i64 484
@@ -1232,72 +1192,66 @@ if.then3.i:                                       ; preds = %do.body.i
 land.lhs.true.i:                                  ; preds = %if.then3.i
   %15 = load ptr, ptr %14, align 8
   %16 = load i8, ptr %udp.i.i, align 1
-  %17 = and i8 %16, 1
-  %tobool.not.i.i = icmp eq i8 %17, 0
-  br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %if.end.i.i
+  %tobool.i.i = trunc i8 %16 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %land.lhs.true.i
-  %18 = load i8, ptr %ipv6.i.i, align 2
-  %19 = and i8 %18, 1
-  %tobool1.not.i.i = icmp eq i8 %19, 0
-  %spec.select.idx.i.i = select i1 %tobool1.not.i.i, i64 20, i64 0
+  %17 = load i8, ptr %ipv6.i.i, align 2
+  %tobool1.i.i = trunc i8 %17 to i1
+  %spec.select.idx.i.i = select i1 %tobool1.i.i, i64 0, i64 20
   %spec.select.i.i = getelementptr i8, ptr %15, i64 %spec.select.idx.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %land.lhs.true.i
   %buf.addr.0.i.i = phi ptr [ %15, %land.lhs.true.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
-  %20 = load i8, ptr %cookie2.i.i, align 2
-  %21 = and i8 %20, 1
-  %tobool3.not.i.i = icmp eq i8 %21, 0
-  br i1 %tobool3.not.i.i, label %if.end19.i.i, label %if.then4.i.i
+  %18 = load i8, ptr %cookie2.i.i, align 2
+  %tobool3.i.i = trunc i8 %18 to i1
+  br i1 %tobool3.i.i, label %if.then4.i.i, label %if.end19.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %22 = load i8, ptr %cookie_is_64.i.i, align 1
-  %23 = and i8 %22, 1
-  %tobool5.not.i.i = icmp eq i8 %23, 0
-  %24 = load i32, ptr %cookie_offset8.i.i, align 4
-  %idx.ext9.i.i = zext i32 %24 to i64
-  %add.ptr10.i.i = getelementptr i8, ptr %buf.addr.0.i.i, i64 %idx.ext9.i.i
-  br i1 %tobool5.not.i.i, label %if.else.i.i, label %if.then6.i.i
+  %19 = load i8, ptr %cookie_is_64.i.i, align 1
+  %tobool5.i.i = trunc i8 %19 to i1
+  %20 = load i32, ptr %cookie_offset.i.i, align 4
+  %idx.ext.i.i = zext i32 %20 to i64
+  %add.ptr7.i.i = getelementptr i8, ptr %buf.addr.0.i.i, i64 %idx.ext.i.i
+  br i1 %tobool5.i.i, label %if.then6.i.i, label %if.else.i.i
 
 if.then6.i.i:                                     ; preds = %if.then4.i.i
-  %add.ptr7.val.i.i = load i64, ptr %add.ptr10.i.i, align 1
-  %25 = tail call i64 @llvm.bswap.i64(i64 %add.ptr7.val.i.i)
+  %add.ptr7.val.i.i = load i64, ptr %add.ptr7.i.i, align 1
+  %21 = tail call i64 @llvm.bswap.i64(i64 %add.ptr7.val.i.i)
   br label %if.end12.i.i
 
 if.else.i.i:                                      ; preds = %if.then4.i.i
-  %add.ptr10.val.i.i = load i32, ptr %add.ptr10.i.i, align 1
-  %26 = tail call i32 @llvm.bswap.i32(i32 %add.ptr10.val.i.i)
-  %conv.i.i = zext i32 %26 to i64
+  %add.ptr10.val.i.i = load i32, ptr %add.ptr7.i.i, align 1
+  %22 = tail call i32 @llvm.bswap.i32(i32 %add.ptr10.val.i.i)
+  %conv.i.i = zext i32 %22 to i64
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.else.i.i, %if.then6.i.i
-  %cookie.0.i.i = phi i64 [ %25, %if.then6.i.i ], [ %conv.i.i, %if.else.i.i ]
-  %27 = load i64, ptr %rx_cookie.i.i, align 8
-  %cmp.not.i.i = icmp eq i64 %cookie.0.i.i, %27
+  %cookie.0.i.i = phi i64 [ %21, %if.then6.i.i ], [ %conv.i.i, %if.else.i.i ]
+  %23 = load i64, ptr %rx_cookie.i.i, align 8
+  %cmp.not.i.i = icmp eq i64 %cookie.0.i.i, %23
   br i1 %cmp.not.i.i, label %if.end19.i.i, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %if.end12.i.i
-  %28 = load i8, ptr %header_mismatch.i.i, align 8
-  %29 = and i8 %28, 1
-  %tobool15.not.i.i = icmp eq i8 %29, 0
-  br i1 %tobool15.not.i.i, label %return.sink.split.i.i, label %if.else.i
+  %24 = load i8, ptr %header_mismatch.i.i, align 8
+  %tobool15.i.i = trunc i8 %24 to i1
+  br i1 %tobool15.i.i, label %if.else.i, label %return.sink.split.i.i
 
 if.end19.i.i:                                     ; preds = %if.end12.i.i, %if.end.i.i
-  %30 = load i32, ptr %session_offset.i.i, align 4
-  %idx.ext20.i.i = zext i32 %30 to i64
+  %25 = load i32, ptr %session_offset.i.i, align 4
+  %idx.ext20.i.i = zext i32 %25 to i64
   %add.ptr21.i.i = getelementptr i8, ptr %buf.addr.0.i.i, i64 %idx.ext20.i.i
   %add.ptr21.val.i.i = load i32, ptr %add.ptr21.i.i, align 1
-  %31 = tail call i32 @llvm.bswap.i32(i32 %add.ptr21.val.i.i)
-  %32 = load i32, ptr %rx_session.i.i, align 8
-  %cmp23.not.i.i = icmp eq i32 %31, %32
+  %26 = tail call i32 @llvm.bswap.i32(i32 %add.ptr21.val.i.i)
+  %27 = load i32, ptr %rx_session.i.i, align 8
+  %cmp23.not.i.i = icmp eq i32 %26, %27
   br i1 %cmp23.not.i.i, label %if.then7.i, label %if.then25.i.i
 
 if.then25.i.i:                                    ; preds = %if.end19.i.i
-  %33 = load i8, ptr %header_mismatch.i.i, align 8
-  %34 = and i8 %33, 1
-  %tobool27.not.i.i = icmp eq i8 %34, 0
-  br i1 %tobool27.not.i.i, label %return.sink.split.i.i, label %if.else.i
+  %28 = load i8, ptr %header_mismatch.i.i, align 8
+  %tobool27.i.i = trunc i8 %28 to i1
+  br i1 %tobool27.i.i, label %if.else.i, label %return.sink.split.i.i
 
 return.sink.split.i.i:                            ; preds = %if.then25.i.i, %if.then14.i.i
   %.str.13.sink.i.i = phi ptr [ @.str.12, %if.then14.i.i ], [ @.str.13, %if.then25.i.i ]
@@ -1306,33 +1260,30 @@ return.sink.split.i.i:                            ; preds = %if.then25.i.i, %if.
 
 if.then7.i:                                       ; preds = %if.end19.i.i
   %incdec.ptr.i = getelementptr i8, ptr %14, i64 16
-  %35 = load ptr, ptr %incdec.ptr.i, align 8
-  %call9.i = tail call i64 @qemu_send_packet_async(ptr noundef nonnull %opaque, ptr noundef %35, i32 noundef %sub.i, ptr noundef nonnull @l2tpv3_send_completed) #11
+  %29 = load ptr, ptr %incdec.ptr.i, align 8
+  %call9.i = tail call i64 @qemu_send_packet_async(ptr noundef nonnull %opaque, ptr noundef %29, i32 noundef %sub.i, ptr noundef nonnull @l2tpv3_send_completed) #11
   %conv.i = trunc i64 %call9.i to i32
   %cmp10.i = icmp eq i32 %conv.i, 0
   br i1 %cmp10.i, label %if.then12.i, label %if.end18.i
 
 if.then12.i:                                      ; preds = %if.then7.i
-  %36 = load i8, ptr %read_poll.i.i, align 8
-  %37 = and i8 %36, 1
-  %38 = icmp eq i8 %37, 0
-  br i1 %38, label %if.end18.i, label %if.then.i.i
+  %30 = load i8, ptr %read_poll.i.i, align 8
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %if.then.i.i, label %if.end18.i
 
 if.then.i.i:                                      ; preds = %if.then12.i
   store i8 0, ptr %read_poll.i.i, align 8
-  %39 = load i32, ptr %fd.i.i.i, align 8
-  %40 = load i8, ptr %write_poll.i.i.i, align 1
-  %41 = and i8 %40, 1
-  %tobool1.not.i.i.i = icmp eq i8 %41, 0
-  %cond2.i.i.i = select i1 %tobool1.not.i.i.i, ptr null, ptr @l2tpv3_writable
-  tail call void @qemu_set_fd_handler(i32 noundef %39, ptr noundef null, ptr noundef %cond2.i.i.i, ptr noundef nonnull %opaque) #11
+  %32 = load i32, ptr %fd.i.i.i, align 8
+  %33 = load i8, ptr %write_poll.i.i.i, align 1
+  %tobool1.i.i.i = trunc i8 %33 to i1
+  %cond2.i.i.i = select i1 %tobool1.i.i.i, ptr @l2tpv3_writable, ptr null
+  tail call void @qemu_set_fd_handler(i32 noundef %32, ptr noundef null, ptr noundef %cond2.i.i.i, ptr noundef nonnull %opaque) #11
   br label %if.end18.i
 
 if.else.i:                                        ; preds = %return.sink.split.i.i, %if.then25.i.i, %if.then14.i.i, %if.then3.i
-  %42 = load i8, ptr %header_mismatch.i.i, align 8
-  %43 = and i8 %42, 1
-  %tobool.not.i = icmp eq i8 %43, 0
-  br i1 %tobool.not.i, label %if.then13.i, label %if.end18.i
+  %34 = load i8, ptr %header_mismatch.i.i, align 8
+  %tobool.i = trunc i8 %34 to i1
+  br i1 %tobool.i, label %if.end18.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.else.i
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #11
@@ -1342,12 +1293,12 @@ if.then13.i:                                      ; preds = %if.else.i
 if.end18.i:                                       ; preds = %if.then13.i, %if.else.i, %if.then.i.i, %if.then12.i, %if.then7.i, %do.body.i
   %bad_read.0.i = phi i1 [ true, %if.else.i ], [ true, %if.then13.i ], [ false, %if.then7.i ], [ true, %do.body.i ], [ false, %if.then12.i ], [ false, %if.then.i.i ]
   %size.1.i = phi i32 [ %size.0.i, %if.else.i ], [ %size.0.i, %if.then13.i ], [ %conv.i, %if.then7.i ], [ %size.0.i, %do.body.i ], [ 0, %if.then12.i ], [ 0, %if.then.i.i ]
-  %44 = load i32, ptr %queue_tail.i, align 8
-  %add.i = add i32 %44, 1
+  %35 = load i32, ptr %queue_tail.i, align 8
+  %add.i = add i32 %35, 1
   %rem.i = srem i32 %add.i, 64
   store i32 %rem.i, ptr %queue_tail.i, align 8
-  %45 = load i32, ptr %queue_depth, align 4
-  %dec.i = add i32 %45, -1
+  %36 = load i32, ptr %queue_depth, align 4
+  %dec.i = add i32 %36, -1
   store i32 %dec.i, ptr %queue_depth, align 4
   %cmp23.i = icmp sgt i32 %dec.i, 0
   br i1 %cmp23.i, label %land.lhs.true25.i, label %net_l2tpv3_process_queue.exit
@@ -1356,8 +1307,8 @@ land.lhs.true25.i:                                ; preds = %if.end18.i
   %call27.i = tail call i32 @qemu_can_send_packet(ptr noundef nonnull %opaque) #11
   %tobool28.not.i = icmp ne i32 %call27.i, 0
   %cmp29.i = icmp sgt i32 %size.1.i, 0
-  %46 = or i1 %bad_read.0.i, %cmp29.i
-  %or.cond.i = select i1 %tobool28.not.i, i1 %46, i1 false
+  %37 = or i1 %bad_read.0.i, %cmp29.i
+  %or.cond.i = select i1 %tobool28.not.i, i1 %37, i1 false
   br i1 %or.cond.i, label %do.body.i, label %net_l2tpv3_process_queue.exit, !llvm.loop !12
 
 net_l2tpv3_process_queue.exit:                    ; preds = %if.end18.i, %land.lhs.true25.i, %if.end22
@@ -1369,20 +1320,18 @@ define internal void @l2tpv3_writable(ptr noundef %opaque) #0 {
 entry:
   %write_poll.i = getelementptr inbounds i8, ptr %opaque, i64 489
   %0 = load i8, ptr %write_poll.i, align 1
-  %1 = and i8 %0, 1
-  %2 = icmp eq i8 %1, 0
-  br i1 %2, label %l2tpv3_write_poll.exit, label %if.then.i
+  %1 = trunc i8 %0 to i1
+  br i1 %1, label %if.then.i, label %l2tpv3_write_poll.exit
 
 if.then.i:                                        ; preds = %entry
   store i8 0, ptr %write_poll.i, align 1
   %fd.i.i = getelementptr inbounds i8, ptr %opaque, i64 376
-  %3 = load i32, ptr %fd.i.i, align 8
+  %2 = load i32, ptr %fd.i.i, align 8
   %read_poll.i.i = getelementptr inbounds i8, ptr %opaque, i64 488
-  %4 = load i8, ptr %read_poll.i.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i.i = icmp eq i8 %5, 0
-  %cond.i.i = select i1 %tobool.not.i.i, ptr null, ptr @net_l2tpv3_send
-  tail call void @qemu_set_fd_handler(i32 noundef %3, ptr noundef %cond.i.i, ptr noundef null, ptr noundef nonnull %opaque) #11
+  %3 = load i8, ptr %read_poll.i.i, align 8
+  %tobool.i.i = trunc i8 %3 to i1
+  %cond.i.i = select i1 %tobool.i.i, ptr @net_l2tpv3_send, ptr null
+  tail call void @qemu_set_fd_handler(i32 noundef %2, ptr noundef %cond.i.i, ptr noundef null, ptr noundef nonnull %opaque) #11
   br label %l2tpv3_write_poll.exit
 
 l2tpv3_write_poll.exit:                           ; preds = %entry, %if.then.i
@@ -1399,9 +1348,8 @@ define internal void @l2tpv3_send_completed(ptr noundef %nc, i64 %len) #0 {
 entry:
   %read_poll.i = getelementptr inbounds i8, ptr %nc, i64 488
   %0 = load i8, ptr %read_poll.i, align 8
-  %1 = and i8 %0, 1
-  %.not = icmp eq i8 %1, 0
-  br i1 %.not, label %if.then.i, label %l2tpv3_read_poll.exit
+  %1 = trunc i8 %0 to i1
+  br i1 %1, label %l2tpv3_read_poll.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i8 1, ptr %read_poll.i, align 8
@@ -1409,9 +1357,8 @@ if.then.i:                                        ; preds = %entry
   %2 = load i32, ptr %fd.i.i, align 8
   %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 489
   %3 = load i8, ptr %write_poll.i.i, align 1
-  %4 = and i8 %3, 1
-  %tobool1.not.i.i = icmp eq i8 %4, 0
-  %cond2.i.i = select i1 %tobool1.not.i.i, ptr null, ptr @l2tpv3_writable
+  %tobool1.i.i = trunc i8 %3 to i1
+  %cond2.i.i = select i1 %tobool1.i.i, ptr @l2tpv3_writable, ptr null
   tail call void @qemu_set_fd_handler(i32 noundef %2, ptr noundef nonnull @net_l2tpv3_send, ptr noundef %cond2.i.i, ptr noundef nonnull %nc) #11
   br label %l2tpv3_read_poll.exit
 

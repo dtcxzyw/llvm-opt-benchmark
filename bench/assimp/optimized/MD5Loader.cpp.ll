@@ -301,9 +301,8 @@ lpad3:                                            ; preds = %invoke.cont27.invok
 if.else:                                          ; preds = %invoke.cont
   %mCconfigNoAutoLoad = getelementptr inbounds i8, ptr %this, i64 139
   %2 = load i8, ptr %mCconfigNoAutoLoad, align 1
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then9
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %if.then9, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else
   %call.i8 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %extension, ptr noundef nonnull @.str.3) #20
@@ -325,22 +324,22 @@ invoke.cont14:                                    ; preds = %if.then12
           to label %unreachable unwind label %lpad3
 
 lpad13:                                           ; preds = %if.then12
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
   call void @__cxa_free_exception(ptr %exception) #20
   br label %catch
 
 catch:                                            ; preds = %lpad13, %lpad3
-  %.pn = phi { ptr, i32 } [ %1, %lpad3 ], [ %4, %lpad13 ]
+  %.pn = phi { ptr, i32 } [ %1, %lpad3 ], [ %3, %lpad13 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %5 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #20
+  %4 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #20
   %mBuffer.i = getelementptr inbounds i8, ptr %this, i64 112
-  %6 = load ptr, ptr %mBuffer.i, align 8
-  %isnull.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %mBuffer.i, align 8
+  %isnull.i = icmp eq ptr %5, null
   br i1 %isnull.i, label %_ZN6Assimp11MD5Importer20UnloadFileFromMemoryEv.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %catch
-  call void @_ZdaPv(ptr noundef nonnull %6) #22
+  call void @_ZdaPv(ptr noundef nonnull %5) #22
   br label %_ZN6Assimp11MD5Importer20UnloadFileFromMemoryEv.exit
 
 _ZN6Assimp11MD5Importer20UnloadFileFromMemoryEv.exit: ; preds = %catch, %delete.notnull.i
@@ -373,28 +372,25 @@ invoke.cont27.invoke:                             ; preds = %if.else26, %if.end
           to label %try.cont unwind label %lpad3
 
 lpad31:                                           ; preds = %_ZN6Assimp11MD5Importer20UnloadFileFromMemoryEv.exit
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont27.invoke, %if.then, %if.then22, %if.else19
-  %8 = load i8, ptr %mHadMD5Mesh, align 8
-  %9 = and i8 %8, 1
-  %tobool35.not = icmp eq i8 %9, 0
-  br i1 %tobool35.not, label %land.lhs.true, label %if.end46
+  %7 = load i8, ptr %mHadMD5Mesh, align 8
+  %tobool35 = trunc i8 %7 to i1
+  br i1 %tobool35, label %if.end46, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %try.cont
-  %10 = load i8, ptr %mHadMD5Anim, align 1
-  %11 = and i8 %10, 1
-  %tobool37.not = icmp eq i8 %11, 0
-  br i1 %tobool37.not, label %land.lhs.true38, label %if.end46
+  %8 = load i8, ptr %mHadMD5Anim, align 1
+  %tobool37 = trunc i8 %8 to i1
+  br i1 %tobool37, label %if.end46, label %land.lhs.true38
 
 land.lhs.true38:                                  ; preds = %land.lhs.true
-  %12 = load i8, ptr %mHadMD5Camera, align 2
-  %13 = and i8 %12, 1
-  %tobool40.not = icmp eq i8 %13, 0
-  br i1 %tobool40.not, label %if.then41, label %if.end46
+  %9 = load i8, ptr %mHadMD5Camera, align 2
+  %tobool40 = trunc i8 %9 to i1
+  br i1 %tobool40, label %if.end46, label %if.then41
 
 if.then41:                                        ; preds = %land.lhs.true38
   %exception42 = call ptr @__cxa_allocate_exception(i64 16) #20
@@ -406,50 +402,49 @@ invoke.cont44:                                    ; preds = %if.then41
           to label %unreachable unwind label %lpad45
 
 lpad43:                                           ; preds = %if.then41
-  %14 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception42) #20
   br label %eh.resume
 
 lpad45:                                           ; preds = %invoke.cont44
-  %15 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.end46:                                         ; preds = %land.lhs.true38, %land.lhs.true, %try.cont
-  %16 = load ptr, ptr %mScene, align 8
-  %mRootNode = getelementptr inbounds i8, ptr %16, i64 8
-  %17 = load ptr, ptr %mRootNode, align 8
-  %mTransformation = getelementptr inbounds i8, ptr %17, i64 1028
+  %12 = load ptr, ptr %mScene, align 8
+  %mRootNode = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load ptr, ptr %mRootNode, align 8
+  %mTransformation = getelementptr inbounds i8, ptr %13, i64 1028
   store float 1.000000e+00, ptr %mTransformation, align 4
-  %ref.tmp47.sroa.2.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %17, i64 1032
-  %ref.tmp47.sroa.7.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %17, i64 1052
+  %ref.tmp47.sroa.2.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %13, i64 1032
+  %ref.tmp47.sroa.7.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %13, i64 1052
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp47.sroa.2.0.mTransformation.sroa_idx, i8 0, i64 20, i1 false)
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float -1.000000e+00>, ptr %ref.tmp47.sroa.7.0.mTransformation.sroa_idx, align 4
-  %ref.tmp47.sroa.11.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %17, i64 1068
-  %ref.tmp47.sroa.16.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %17, i64 1088
+  %ref.tmp47.sroa.11.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %13, i64 1068
+  %ref.tmp47.sroa.16.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %13, i64 1088
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp47.sroa.11.0.mTransformation.sroa_idx, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %ref.tmp47.sroa.16.0.mTransformation.sroa_idx, align 4
-  %18 = load i8, ptr %mHadMD5Mesh, align 8
-  %19 = and i8 %18, 1
-  %tobool51.not = icmp eq i8 %19, 0
-  br i1 %tobool51.not, label %if.then52, label %if.end54
+  %14 = load i8, ptr %mHadMD5Mesh, align 8
+  %tobool51 = trunc i8 %14 to i1
+  br i1 %tobool51, label %if.end54, label %if.then52
 
 if.then52:                                        ; preds = %if.end46
-  %20 = load ptr, ptr %mScene, align 8
-  %21 = load i32, ptr %20, align 8
-  %or = or i32 %21, 1
-  store i32 %or, ptr %20, align 8
+  %15 = load ptr, ptr %mScene, align 8
+  %16 = load i32, ptr %15, align 8
+  %or = or i32 %16, 1
+  store i32 %or, ptr %15, align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then52, %if.end46
   %mBuffer.i14 = getelementptr inbounds i8, ptr %this, i64 112
-  %22 = load ptr, ptr %mBuffer.i14, align 8
-  %isnull.i15 = icmp eq ptr %22, null
+  %17 = load ptr, ptr %mBuffer.i14, align 8
+  %isnull.i15 = icmp eq ptr %17, null
   br i1 %isnull.i15, label %_ZN6Assimp11MD5Importer20UnloadFileFromMemoryEv.exit18, label %delete.notnull.i16
 
 delete.notnull.i16:                               ; preds = %if.end54
-  call void @_ZdaPv(ptr noundef nonnull %22) #22
+  call void @_ZdaPv(ptr noundef nonnull %17) #22
   br label %_ZN6Assimp11MD5Importer20UnloadFileFromMemoryEv.exit18
 
 _ZN6Assimp11MD5Importer20UnloadFileFromMemoryEv.exit18: ; preds = %if.end54, %delete.notnull.i16
@@ -461,15 +456,15 @@ _ZN6Assimp11MD5Importer20UnloadFileFromMemoryEv.exit18: ; preds = %if.end54, %de
 
 eh.resume:                                        ; preds = %lpad43, %lpad45, %lpad31, %lpad
   %extension.sink = phi ptr [ %ref.tmp, %lpad ], [ %extension, %lpad31 ], [ %extension, %lpad45 ], [ %extension, %lpad43 ]
-  %.pn5.pn = phi { ptr, i32 } [ %0, %lpad ], [ %7, %lpad31 ], [ %15, %lpad45 ], [ %14, %lpad43 ]
+  %.pn5.pn = phi { ptr, i32 } [ %0, %lpad ], [ %6, %lpad31 ], [ %11, %lpad45 ], [ %10, %lpad43 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %extension.sink) #20
   resume { ptr, i32 } %.pn5.pn
 
 terminate.lpad:                                   ; preds = %lpad31
-  %23 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #23
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #23
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont44, %_ZN6Assimp11MD5Importer20UnloadFileFromMemoryEv.exit, %invoke.cont14

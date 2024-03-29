@@ -54,26 +54,25 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   store i8 0, ptr @get_prompt.destination, align 16
   store ptr %.048, ptr %4, align 8
   %12 = load i8, ptr %.048, align 1
-  %.not101 = icmp eq i8 %12, 0
-  br i1 %.not101, label %.critedge, label %.lr.ph
+  %.not96 = icmp eq i8 %12, 0
+  br i1 %.not96, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
   %13 = getelementptr inbounds i8, ptr %3, i64 1
-  %.not79 = icmp eq ptr %1, null
+  %.not77 = icmp eq ptr %1, null
   br label %14
 
 14:                                               ; preds = %.lr.ph, %171
-  %.0103 = phi i8 [ 0, %.lr.ph ], [ %.199, %171 ]
-  %storemerge102 = phi ptr [ %.048, %.lr.ph ], [ %173, %171 ]
+  %.098 = phi i1 [ false, %.lr.ph ], [ %.195, %171 ]
+  %storemerge97 = phi ptr [ %.048, %.lr.ph ], [ %173, %171 ]
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @get_prompt.destination) #10
   %16 = icmp ult i64 %15, 256
   br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(257) %3, i8 0, i64 257, i1 false)
-  %.not72 = icmp eq i8 %.0103, 0
-  %18 = load i8, ptr %storemerge102, align 1
-  br i1 %.not72, label %165, label %19
+  %18 = load i8, ptr %storemerge97, align 1
+  br i1 %.098, label %19, label %165
 
 19:                                               ; preds = %17
   switch i8 %18, label %164 [
@@ -106,8 +105,8 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 
 20:                                               ; preds = %19
   %21 = load ptr, ptr @pset, align 8
-  %.not93 = icmp eq ptr %21, null
-  br i1 %.not93, label %168, label %22
+  %.not90 = icmp eq ptr %21, null
+  br i1 %.not90, label %168, label %22
 
 22:                                               ; preds = %20
   %23 = call ptr @PQdb(ptr noundef nonnull %21) #11
@@ -116,8 +115,8 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr @pset, align 8
-  %.not91 = icmp eq ptr %26, null
-  br i1 %.not91, label %168, label %27
+  %.not88 = icmp eq ptr %26, null
+  br i1 %.not88, label %168, label %27
 
 27:                                               ; preds = %25
   %28 = call ptr @PQdb(ptr noundef nonnull %26) #11
@@ -129,8 +128,8 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 
 33:                                               ; preds = %27
   %34 = call ptr @getenv(ptr noundef nonnull @.str.1) #11
-  %.not92 = icmp eq ptr %34, null
-  br i1 %.not92, label %41, label %35
+  %.not89 = icmp eq ptr %34, null
+  br i1 %.not89, label %41, label %35
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr @pset, align 8
@@ -151,8 +150,8 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 
 45:                                               ; preds = %19
   %46 = load ptr, ptr @pset, align 8
-  %.not90 = icmp eq ptr %46, null
-  br i1 %.not90, label %168, label %47
+  %.not87 = icmp eq ptr %46, null
+  br i1 %.not87, label %168, label %47
 
 47:                                               ; preds = %45
   %48 = load i64, ptr @get_prompt.last_prompt1_width, align 8
@@ -162,13 +161,13 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 
 50:                                               ; preds = %19, %19
   %51 = load ptr, ptr @pset, align 8
-  %.not87 = icmp eq ptr %51, null
-  br i1 %.not87, label %168, label %52
+  %.not84 = icmp eq ptr %51, null
+  br i1 %.not84, label %168, label %52
 
 52:                                               ; preds = %50
   %53 = call ptr @PQhost(ptr noundef nonnull %51) #11
-  %.not88 = icmp eq ptr %53, null
-  br i1 %.not88, label %.critedge96, label %54
+  %.not85 = icmp eq ptr %53, null
+  br i1 %.not85, label %.critedge92, label %54
 
 54:                                               ; preds = %52
   %55 = load i8, ptr %53, align 1
@@ -180,7 +179,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 
 56:                                               ; preds = %54
   %57 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %53, i64 noundef 257) #11
-  %58 = load i8, ptr %storemerge102, align 1
+  %58 = load i8, ptr %storemerge97, align 1
   %59 = icmp eq i8 %58, 109
   br i1 %59, label %60, label %168
 
@@ -193,14 +192,14 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 63:                                               ; preds = %54, %54, %54
   %64 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(5) @.str.4) #10
   %65 = icmp eq i32 %64, 0
-  br i1 %65, label %.critedge96, label %66
+  br i1 %65, label %.critedge92, label %66
 
 66:                                               ; preds = %63
-  %67 = load i8, ptr %storemerge102, align 1
+  %67 = load i8, ptr %storemerge97, align 1
   %68 = icmp eq i8 %67, 109
-  br i1 %68, label %.critedge96, label %69
+  br i1 %68, label %.critedge92, label %69
 
-.critedge96:                                      ; preds = %52, %66, %63
+.critedge92:                                      ; preds = %52, %66, %63
   store i64 26296338369965147, ptr %3, align 16
   br label %168
 
@@ -210,13 +209,13 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 
 71:                                               ; preds = %19
   %72 = load ptr, ptr @pset, align 8
-  %.not85 = icmp eq ptr %72, null
-  br i1 %.not85, label %168, label %73
+  %.not82 = icmp eq ptr %72, null
+  br i1 %.not82, label %168, label %73
 
 73:                                               ; preds = %71
   %74 = call ptr @PQport(ptr noundef nonnull %72) #11
-  %.not86 = icmp eq ptr %74, null
-  br i1 %.not86, label %168, label %75
+  %.not83 = icmp eq ptr %74, null
+  br i1 %.not83, label %168, label %75
 
 75:                                               ; preds = %73
   %76 = load ptr, ptr @pset, align 8
@@ -226,8 +225,8 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 
 79:                                               ; preds = %19
   %80 = load ptr, ptr @pset, align 8
-  %.not84 = icmp eq ptr %80, null
-  br i1 %.not84, label %168, label %81
+  %.not81 = icmp eq ptr %80, null
+  br i1 %.not81, label %168, label %81
 
 81:                                               ; preds = %79
   %82 = call ptr @session_username() #11
@@ -236,20 +235,20 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 
 84:                                               ; preds = %19
   %85 = load ptr, ptr @pset, align 8
-  %.not82 = icmp eq ptr %85, null
-  br i1 %.not82, label %168, label %86
+  %.not79 = icmp eq ptr %85, null
+  br i1 %.not79, label %168, label %86
 
 86:                                               ; preds = %84
   %87 = call i32 @PQbackendPID(ptr noundef nonnull %85) #11
-  %.not83 = icmp eq i32 %87, 0
-  br i1 %.not83, label %168, label %88
+  %.not80 = icmp eq i32 %87, 0
+  br i1 %.not80, label %168, label %88
 
 88:                                               ; preds = %86
   %89 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 257, ptr noundef nonnull @.str.7, i32 noundef %87) #11
   br label %168
 
 90:                                               ; preds = %19, %19, %19, %19, %19, %19, %19, %19
-  %91 = call i64 @strtol(ptr noundef nonnull %storemerge102, ptr noundef nonnull %4, i32 noundef 8) #11
+  %91 = call i64 @strtol(ptr noundef nonnull %storemerge97, ptr noundef nonnull %4, i32 noundef 8) #11
   %92 = trunc i64 %91 to i8
   store i8 %92, ptr %3, align 16
   %93 = load ptr, ptr %4, align 8
@@ -269,7 +268,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   ]
 
 96:                                               ; preds = %95
-  br i1 %.not79, label %100, label %97
+  br i1 %.not77, label %100, label %97
 
 97:                                               ; preds = %96
   %98 = call zeroext i1 @conditional_active(ptr noundef nonnull %1) #11
@@ -281,8 +280,8 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 
 100:                                              ; preds = %97, %96
   %101 = load ptr, ptr @pset, align 8
-  %.not80 = icmp eq ptr %101, null
-  br i1 %.not80, label %102, label %103
+  %.not78 = icmp eq ptr %101, null
+  br i1 %.not78, label %102, label %103
 
 102:                                              ; preds = %100
   store i8 33, ptr %3, align 16
@@ -290,9 +289,8 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 
 103:                                              ; preds = %100
   %104 = load i8, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 33), align 1
-  %105 = and i8 %104, 1
-  %.not81 = icmp eq i8 %105, 0
-  br i1 %.not81, label %106, label %107
+  %105 = trunc i8 %104 to i1
+  br i1 %105, label %107, label %106
 
 106:                                              ; preds = %103
   store i8 61, ptr %3, align 16
@@ -328,8 +326,8 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 
 114:                                              ; preds = %19
   %115 = load ptr, ptr @pset, align 8
-  %.not78 = icmp eq ptr %115, null
-  br i1 %.not78, label %116, label %117
+  %.not76 = icmp eq ptr %115, null
+  br i1 %.not76, label %116, label %117
 
 116:                                              ; preds = %114
   store i8 63, ptr %3, align 16
@@ -378,15 +376,15 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   br label %168
 
 130:                                              ; preds = %19
-  %131 = getelementptr i8, ptr %storemerge102, i64 1
+  %131 = getelementptr i8, ptr %storemerge97, i64 1
   %132 = call i64 @strcspn(ptr noundef %131, ptr noundef nonnull @.str.9) #10
-  %sext75 = shl i64 %132, 32
-  %133 = ashr exact i64 %sext75, 32
+  %sext73 = shl i64 %132, 32
+  %133 = ashr exact i64 %sext73, 32
   %134 = call ptr @pnstrdup(ptr noundef %131, i64 noundef %133) #11
   %135 = call i32 @fflush(ptr noundef null)
   %136 = call noalias ptr @popen(ptr noundef %134, ptr noundef nonnull @.str.10)
-  %.not76 = icmp eq ptr %136, null
-  br i1 %.not76, label %143, label %137
+  %.not74 = icmp eq ptr %136, null
+  br i1 %.not74, label %143, label %137
 
 137:                                              ; preds = %130
   %138 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 257, ptr noundef nonnull %136)
@@ -405,22 +403,22 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   %144 = call i32 @pg_strip_crlf(ptr noundef nonnull %3) #11
   call void @free(ptr noundef %134) #11
   %145 = load ptr, ptr %4, align 8
-  %sext77 = add i64 %sext75, 4294967296
-  %146 = ashr exact i64 %sext77, 32
+  %sext75 = add i64 %sext73, 4294967296
+  %146 = ashr exact i64 %sext75, 32
   %147 = getelementptr i8, ptr %145, i64 %146
   store ptr %147, ptr %4, align 8
   br label %168
 
 148:                                              ; preds = %19
-  %149 = getelementptr i8, ptr %storemerge102, i64 1
+  %149 = getelementptr i8, ptr %storemerge97, i64 1
   %150 = call i64 @strcspn(ptr noundef %149, ptr noundef nonnull @.str.11) #10
   %sext = shl i64 %150, 32
   %151 = ashr exact i64 %sext, 32
   %152 = call ptr @pnstrdup(ptr noundef %149, i64 noundef %151) #11
   %153 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 28), align 8
   %154 = call ptr @GetVariable(ptr noundef %153, ptr noundef %152) #11
-  %.not73 = icmp eq ptr %154, null
-  br i1 %.not73, label %157, label %155
+  %.not71 = icmp eq ptr %154, null
+  br i1 %.not71, label %157, label %155
 
 155:                                              ; preds = %148
   %156 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %154, i64 noundef 257) #11
@@ -429,8 +427,8 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 157:                                              ; preds = %155, %148
   call void @free(ptr noundef %152) #11
   %158 = load ptr, ptr %4, align 8
-  %sext74 = add i64 %sext, 4294967296
-  %159 = ashr exact i64 %sext74, 32
+  %sext72 = add i64 %sext, 4294967296
+  %159 = ashr exact i64 %sext72, 32
   %160 = getelementptr i8, ptr %158, i64 %159
   store ptr %160, ptr %4, align 8
   br label %168
@@ -456,14 +454,14 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   store i8 0, ptr %13, align 1
   br label %168
 
-168:                                              ; preds = %95, %167, %128, %129, %19, %116, %122, %121, %120, %119, %108, %109, %110, %111, %112, %113, %102, %107, %106, %99, %84, %88, %86, %79, %81, %71, %73, %75, %50, %.critedge96, %69, %56, %60, %45, %47, %25, %41, %40, %20, %22, %164, %161, %157, %143, %123, %90
-  %169 = phi ptr [ %storemerge102, %167 ], [ %storemerge102, %128 ], [ %storemerge102, %129 ], [ %storemerge102, %19 ], [ %storemerge102, %116 ], [ %storemerge102, %122 ], [ %storemerge102, %121 ], [ %storemerge102, %120 ], [ %storemerge102, %119 ], [ %storemerge102, %108 ], [ %storemerge102, %109 ], [ %storemerge102, %110 ], [ %storemerge102, %111 ], [ %storemerge102, %112 ], [ %storemerge102, %113 ], [ %storemerge102, %102 ], [ %storemerge102, %107 ], [ %storemerge102, %106 ], [ %storemerge102, %99 ], [ %storemerge102, %84 ], [ %storemerge102, %88 ], [ %storemerge102, %86 ], [ %storemerge102, %79 ], [ %storemerge102, %81 ], [ %storemerge102, %71 ], [ %storemerge102, %73 ], [ %storemerge102, %75 ], [ %storemerge102, %50 ], [ %storemerge102, %.critedge96 ], [ %storemerge102, %69 ], [ %storemerge102, %56 ], [ %storemerge102, %60 ], [ %storemerge102, %45 ], [ %storemerge102, %47 ], [ %storemerge102, %25 ], [ %storemerge102, %41 ], [ %storemerge102, %40 ], [ %storemerge102, %20 ], [ %storemerge102, %22 ], [ %storemerge102, %164 ], [ %storemerge102, %161 ], [ %160, %157 ], [ %147, %143 ], [ %storemerge102, %123 ], [ %94, %90 ], [ %storemerge102, %95 ]
+168:                                              ; preds = %95, %167, %128, %129, %19, %116, %122, %121, %120, %119, %108, %109, %110, %111, %112, %113, %102, %107, %106, %99, %84, %88, %86, %79, %81, %71, %73, %75, %50, %.critedge92, %69, %56, %60, %45, %47, %25, %41, %40, %20, %22, %164, %161, %157, %143, %123, %90
+  %169 = phi ptr [ %storemerge97, %167 ], [ %storemerge97, %128 ], [ %storemerge97, %129 ], [ %storemerge97, %19 ], [ %storemerge97, %116 ], [ %storemerge97, %122 ], [ %storemerge97, %121 ], [ %storemerge97, %120 ], [ %storemerge97, %119 ], [ %storemerge97, %108 ], [ %storemerge97, %109 ], [ %storemerge97, %110 ], [ %storemerge97, %111 ], [ %storemerge97, %112 ], [ %storemerge97, %113 ], [ %storemerge97, %102 ], [ %storemerge97, %107 ], [ %storemerge97, %106 ], [ %storemerge97, %99 ], [ %storemerge97, %84 ], [ %storemerge97, %88 ], [ %storemerge97, %86 ], [ %storemerge97, %79 ], [ %storemerge97, %81 ], [ %storemerge97, %71 ], [ %storemerge97, %73 ], [ %storemerge97, %75 ], [ %storemerge97, %50 ], [ %storemerge97, %.critedge92 ], [ %storemerge97, %69 ], [ %storemerge97, %56 ], [ %storemerge97, %60 ], [ %storemerge97, %45 ], [ %storemerge97, %47 ], [ %storemerge97, %25 ], [ %storemerge97, %41 ], [ %storemerge97, %40 ], [ %storemerge97, %20 ], [ %storemerge97, %22 ], [ %storemerge97, %164 ], [ %storemerge97, %161 ], [ %160, %157 ], [ %147, %143 ], [ %storemerge97, %123 ], [ %94, %90 ], [ %storemerge97, %95 ]
   %170 = call i64 @strlcat(ptr noundef nonnull @get_prompt.destination, ptr noundef nonnull %3, i64 noundef 257) #11
   br label %171
 
 171:                                              ; preds = %165, %168
-  %172 = phi ptr [ %169, %168 ], [ %storemerge102, %165 ]
-  %.199 = phi i8 [ 0, %168 ], [ 1, %165 ]
+  %172 = phi ptr [ %169, %168 ], [ %storemerge97, %165 ]
+  %.195 = phi i1 [ false, %168 ], [ true, %165 ]
   %173 = getelementptr i8, ptr %172, i64 1
   store ptr %173, ptr %4, align 8
   %174 = load i8, ptr %173, align 1
@@ -479,68 +477,65 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   %178 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @get_prompt.destination) #10
   %179 = getelementptr i8, ptr @get_prompt.destination, i64 %178
   store i64 0, ptr @get_prompt.last_prompt1_width, align 8
-  br label %.outer
-
-.outer:                                           ; preds = %.outer.backedge, %177
-  %.051.ph = phi ptr [ @get_prompt.destination, %177 ], [ %.051.ph.be, %.outer.backedge ]
-  %.049.ph = phi i8 [ 1, %177 ], [ %.049.ph.be, %.outer.backedge ]
-  %.not71 = icmp eq i8 %.049.ph, 0
   br label %180
 
-180:                                              ; preds = %.backedge, %.outer
-  %.051 = phi ptr [ %.051.ph, %.outer ], [ %187, %.backedge ]
+180:                                              ; preds = %.backedge, %177
+  %.051 = phi ptr [ @get_prompt.destination, %177 ], [ %.051.be, %.backedge ]
+  %.049 = phi i1 [ true, %177 ], [ %.049.be, %.backedge ]
   %181 = load i8, ptr %.051, align 1
-  switch i8 %181, label %183 [
+  switch i8 %181, label %186 [
     i8 0, label %.loopexit
-    i8 1, label %.outer.backedge
-    i8 2, label %182
+    i8 1, label %182
+    i8 2, label %184
   ]
 
-.outer.backedge:                                  ; preds = %180, %182
-  %.049.ph.be = phi i8 [ 1, %182 ], [ 0, %180 ]
-  %.051.ph.be = getelementptr i8, ptr %.051, i64 1
-  br label %.outer, !llvm.loop !7
-
 182:                                              ; preds = %180
-  br label %.outer.backedge
+  %183 = getelementptr i8, ptr %.051, i64 1
+  br label %.backedge
 
-183:                                              ; preds = %180
-  %184 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
-  %185 = call i32 @PQmblen(ptr noundef nonnull %.051, i32 noundef %184) #11
-  %186 = sext i32 %185 to i64
-  %187 = getelementptr i8, ptr %.051, i64 %186
-  %188 = icmp ugt ptr %187, %179
-  br i1 %188, label %.loopexit, label %189
+184:                                              ; preds = %180
+  %185 = getelementptr i8, ptr %.051, i64 1
+  br label %.backedge
 
-189:                                              ; preds = %183
-  br i1 %.not71, label %.backedge, label %190
+186:                                              ; preds = %180
+  %187 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %188 = call i32 @PQmblen(ptr noundef nonnull %.051, i32 noundef %187) #11
+  %189 = sext i32 %188 to i64
+  %190 = getelementptr i8, ptr %.051, i64 %189
+  %191 = icmp ugt ptr %190, %179
+  br i1 %191, label %.loopexit, label %192
 
-.backedge:                                        ; preds = %189, %196, %198, %195
+192:                                              ; preds = %186
+  br i1 %.049, label %193, label %.backedge
+
+.backedge:                                        ; preds = %192, %199, %201, %198, %184, %182
+  %.051.be = phi ptr [ %183, %182 ], [ %185, %184 ], [ %190, %198 ], [ %190, %201 ], [ %190, %199 ], [ %190, %192 ]
+  %.049.be = phi i1 [ false, %182 ], [ true, %184 ], [ true, %198 ], [ true, %201 ], [ true, %199 ], [ false, %192 ]
   br label %180, !llvm.loop !7
 
-190:                                              ; preds = %189
-  %191 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
-  %192 = call i32 @PQdsplen(ptr noundef nonnull %.051, i32 noundef %191) #11
-  %193 = load i8, ptr %.051, align 1
-  %194 = icmp eq i8 %193, 10
-  br i1 %194, label %195, label %196
+193:                                              ; preds = %192
+  %194 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 1), align 8
+  %195 = call i32 @PQdsplen(ptr noundef nonnull %.051, i32 noundef %194) #11
+  %196 = load i8, ptr %.051, align 1
+  %197 = icmp eq i8 %196, 10
+  br i1 %197, label %198, label %199
 
-195:                                              ; preds = %190
+198:                                              ; preds = %193
   store i64 0, ptr @get_prompt.last_prompt1_width, align 8
   br label %.backedge
 
-196:                                              ; preds = %190
-  %197 = icmp sgt i32 %192, 0
-  br i1 %197, label %198, label %.backedge
+199:                                              ; preds = %193
+  %200 = icmp sgt i32 %195, 0
+  br i1 %200, label %201, label %.backedge
 
-198:                                              ; preds = %196
-  %199 = zext nneg i32 %192 to i64
-  %200 = load i64, ptr @get_prompt.last_prompt1_width, align 8
-  %201 = add i64 %200, %199
-  store i64 %201, ptr @get_prompt.last_prompt1_width, align 8
+201:                                              ; preds = %199
+  %202 = zext nneg i32 %195 to i64
+  %203 = load i64, ptr @get_prompt.last_prompt1_width, align 8
+  %204 = add i64 %203, %202
+  store i64 %204, ptr @get_prompt.last_prompt1_width, align 8
   br label %.backedge
 
-.loopexit:                                        ; preds = %180, %183, %.critedge
+.loopexit:                                        ; preds = %180, %186, %.critedge
   ret ptr @get_prompt.destination
 }
 

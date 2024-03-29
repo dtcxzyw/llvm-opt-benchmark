@@ -139,19 +139,19 @@ define void @_ZN12grep_printer5jsont4Data10from_bytes17ha252ebe3512ee741E(ptr no
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN4core3str8converts9from_utf817h017986454711f672E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %5 = load i64, ptr %4, align 8, !range !21, !noundef !7
-  %trunc.not = icmp eq i64 %5, 0
+  %trunc = trunc i64 %5 to i1
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !7, !align !22
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load i64, ptr %8, align 8
-  %.sink2 = select i1 %trunc.not, i64 -9223372036854775808, i64 -9223372036854775807
-  %.sink1 = select i1 %trunc.not, ptr %7, ptr %1
-  %.sink = select i1 %trunc.not, i64 %9, i64 %2
-  store i64 %.sink2, ptr %0, align 8
+  %.sink2 = select i1 %trunc, ptr %1, ptr %7
+  %.sink1 = select i1 %trunc, i64 %2, i64 %9
+  %.sink = select i1 %trunc, i64 -9223372036854775807, i64 -9223372036854775808
   %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink1, ptr %10, align 8
+  store ptr %.sink2, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink, ptr %11, align 8
+  store i64 %.sink1, ptr %11, align 8
+  store i64 %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 }
@@ -162,20 +162,20 @@ define void @_ZN12grep_printer5jsont4Data9from_path17hef5432ba15bbeed8E(ptr noal
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN3std3sys6os_str5bytes5Slice6to_str17h328f49daa1d0d44cE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %5 = load i64, ptr %4, align 8, !range !21, !noundef !7
-  %trunc.not.not = icmp eq i64 %5, 0
+  %trunc = trunc i64 %5 to i1
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !7, !align !22
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load i64, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %.sink4 = select i1 %trunc.not.not, i64 -9223372036854775808, i64 -9223372036854775807
-  %.sink3 = select i1 %trunc.not.not, ptr %7, ptr %1
-  %.sink = select i1 %trunc.not.not, i64 %9, i64 %2
-  store i64 %.sink4, ptr %0, align 8
+  %.sink4 = select i1 %trunc, ptr %1, ptr %7
+  %.sink3 = select i1 %trunc, i64 %2, i64 %9
+  %.sink = select i1 %trunc, i64 -9223372036854775807, i64 -9223372036854775808
   %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink3, ptr %10, align 8
+  store ptr %.sink4, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink, ptr %11, align 8
+  store i64 %.sink3, ptr %11, align 8
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 

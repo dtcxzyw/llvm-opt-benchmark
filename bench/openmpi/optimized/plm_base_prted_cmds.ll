@@ -63,29 +63,25 @@ define noundef i32 @prte_plm_base_prted_exit(i8 noundef zeroext %0) local_unname
 
 12:                                               ; preds = %10, %5, %1
   %13 = load i8, ptr @prte_prteds_term_ordered, align 1
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %80
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %80, label %15
 
 15:                                               ; preds = %12
   store i8 1, ptr @prte_prteds_term_ordered, align 1
   store i8 %0, ptr %3, align 1
   %16 = load i8, ptr @prte_abnormal_term_ordered, align 1
-  %17 = and i8 %16, 1
-  %.not33 = icmp eq i8 %17, 0
-  br i1 %.not33, label %18, label %24
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %24, label %18
 
 18:                                               ; preds = %15
   %19 = load i8, ptr @prte_never_launched, align 1
-  %20 = and i8 %19, 1
-  %.not34 = icmp eq i8 %20, 0
-  br i1 %.not34, label %21, label %24
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %24, label %21
 
 21:                                               ; preds = %18
   %22 = load i8, ptr @prte_routing_is_enabled, align 1
-  %23 = and i8 %22, 1
-  %.not35 = icmp eq i8 %23, 0
-  br i1 %.not35, label %24, label %25
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %25, label %24
 
 24:                                               ; preds = %21, %18, %15
   store i8 19, ptr %3, align 1
@@ -204,14 +200,14 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %36, %3
   call void %72(ptr noundef %32) #9
   %73 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %74 = load ptr, ptr %73, align 8
-  %.not.i39 = icmp eq ptr %74, null
-  br i1 %.not.i39, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
+  %.not.i35 = icmp eq ptr %74, null
+  br i1 %.not.i35, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %66
   %75 = getelementptr inbounds i8, ptr %32, i64 96
   %76 = load ptr, ptr %75, align 8
-  %.not37 = icmp eq ptr %76, null
-  br i1 %.not37, label %79, label %77
+  %.not33 = icmp eq ptr %76, null
+  br i1 %.not33, label %79, label %77
 
 77:                                               ; preds = %pmix_obj_run_destructors.exit
   %78 = getelementptr inbounds i8, ptr %32, i64 56

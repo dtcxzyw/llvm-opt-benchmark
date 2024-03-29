@@ -167,28 +167,28 @@ define i32 @prte_hwloc_base_register() local_unnamed_addr #0 {
 29:                                               ; preds = %27
   %30 = tail call i32 @strncasecmp(ptr noundef nonnull %28, ptr noundef nonnull @.str.21, i64 noundef 6) #10
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.sink.split23, label %32
+  br i1 %31, label %.sink.split21, label %32
 
 32:                                               ; preds = %29
   %33 = tail call i32 @strncasecmp(ptr noundef nonnull %28, ptr noundef nonnull @.str.22, i64 noundef 4) #10
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.sink.split23, label %35
+  br i1 %34, label %.sink.split21, label %35
 
 35:                                               ; preds = %32
   %36 = tail call i32 @strncasecmp(ptr noundef nonnull %28, ptr noundef nonnull @.str.23, i64 noundef 5) #10
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.sink.split23, label %38
+  br i1 %37, label %.sink.split21, label %38
 
 38:                                               ; preds = %35
   %39 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 1, ptr noundef nonnull %28) #9
   br label %74
 
-.sink.split23:                                    ; preds = %35, %32, %29
-  %.sink24 = phi i32 [ 0, %29 ], [ 1, %32 ], [ 2, %35 ]
-  store i32 %.sink24, ptr @prte_hwloc_base_mbfa, align 4
+.sink.split21:                                    ; preds = %35, %32, %29
+  %.sink22 = phi i32 [ 0, %29 ], [ 1, %32 ], [ 2, %35 ]
+  store i32 %.sink22, ptr @prte_hwloc_base_mbfa, align 4
   br label %40
 
-40:                                               ; preds = %.sink.split23, %27
+40:                                               ; preds = %.sink.split21, %27
   store ptr null, ptr @prte_hwloc_base_binding_policy, align 8
   %41 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef 5, ptr noundef nonnull @prte_hwloc_base_binding_policy) #9
   %42 = load ptr, ptr @prte_hwloc_base_binding_policy, align 8
@@ -197,32 +197,30 @@ define i32 @prte_hwloc_base_register() local_unnamed_addr #0 {
 
 44:                                               ; preds = %40
   %45 = load i8, ptr @bind_to_core, align 1
-  %46 = and i8 %45, 1
-  %.not19 = icmp eq i8 %46, 0
-  br i1 %.not19, label %47, label %.sink.split25
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %.sink.split23, label %47
 
 47:                                               ; preds = %44
   %48 = load i8, ptr @bind_to_socket, align 1
-  %49 = and i8 %48, 1
-  %.not20 = icmp eq i8 %49, 0
-  br i1 %.not20, label %50, label %.sink.split25
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %.sink.split23, label %50
 
-.sink.split25:                                    ; preds = %47, %44
+.sink.split23:                                    ; preds = %47, %44
   %.str.26.sink = phi ptr [ @.str.26, %44 ], [ @.str.27, %47 ]
   store ptr %.str.26.sink, ptr @prte_hwloc_base_binding_policy, align 8
   br label %50
 
-50:                                               ; preds = %.sink.split25, %47, %40
+50:                                               ; preds = %.sink.split23, %47, %40
   store ptr null, ptr @default_cpu_list, align 8
   %51 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef 5, ptr noundef nonnull @default_cpu_list) #9
   %52 = load ptr, ptr @default_cpu_list, align 8
-  %.not21 = icmp eq ptr %52, null
-  br i1 %.not21, label %70, label %53
+  %.not19 = icmp eq ptr %52, null
+  br i1 %.not19, label %70, label %53
 
 53:                                               ; preds = %50
   %54 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %52, i32 noundef 58) #10
-  %.not22 = icmp eq ptr %54, null
-  br i1 %.not22, label %68, label %55
+  %.not20 = icmp eq ptr %54, null
+  br i1 %.not20, label %68, label %55
 
 55:                                               ; preds = %53
   store i8 0, ptr %54, align 1
@@ -293,9 +291,8 @@ declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define noundef i32 @prte_hwloc_base_open() local_unnamed_addr #0 {
   %1 = load i8, ptr @prte_hwloc_base_inited, align 1
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %3, label %6
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %6, label %3
 
 3:                                                ; preds = %0
   store i8 1, ptr @prte_hwloc_base_inited, align 1
@@ -324,8 +321,8 @@ define noundef i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0, ptr nound
   %8 = getelementptr inbounds i8, ptr %6, i64 1
   %9 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %8, i32 noundef 58) #9
   %10 = load ptr, ptr %9, align 8
-  %.not6571 = icmp eq ptr %10, null
-  br i1 %.not6571, label %._crit_edge, label %.lr.ph
+  %.not6570 = icmp eq ptr %10, null
+  br i1 %.not6570, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %11 = icmp eq ptr %0, null
@@ -333,10 +330,10 @@ define noundef i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0, ptr nound
   br i1 %11, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %32
-  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %32 ], [ 0, %.lr.ph ]
+  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %32 ], [ 0, %.lr.ph ]
   %13 = phi ptr [ %34, %32 ], [ %10, %.lr.ph ]
-  %.05872.us = phi i16 [ %.1.us, %32 ], [ 0, %.lr.ph ]
-  %14 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv80
+  %.05871.us = phi i16 [ %.1.us, %32 ], [ 0, %.lr.ph ]
+  %14 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv79
   %15 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %13, ptr noundef nonnull @.str.50)
   br i1 %15, label %30, label %16
 
@@ -353,25 +350,25 @@ define noundef i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0, ptr nound
 22:                                               ; preds = %19
   %23 = load ptr, ptr %14, align 8
   %24 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %23, ptr noundef nonnull @.str.53)
-  br i1 %24, label %.split75.us, label %.split.us
+  br i1 %24, label %.split74.us, label %.split.us
 
 25:                                               ; preds = %19
-  %26 = and i16 %.05872.us, 24319
+  %26 = and i16 %.05871.us, 24319
   %27 = or disjoint i16 %26, 256
   br label %32
 
 28:                                               ; preds = %16
-  %29 = or i16 %.05872.us, 8448
+  %29 = or i16 %.05871.us, 8448
   br label %32
 
 30:                                               ; preds = %.lr.ph.split.us
-  %31 = or i16 %.05872.us, 4096
+  %31 = or i16 %.05871.us, 4096
   br label %32
 
 32:                                               ; preds = %30, %28, %25
   %.1.us = phi i16 [ %31, %30 ], [ %29, %28 ], [ %27, %25 ]
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %33 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.next81
+  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
+  %33 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.next80
   %34 = load ptr, ptr %33, align 8
   %.not65.us = icmp eq ptr %34, null
   br i1 %.not65.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !5
@@ -379,13 +376,13 @@ define noundef i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0, ptr nound
 .lr.ph.split:                                     ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.lr.ph ]
   %35 = phi ptr [ %61, %59 ], [ %10, %.lr.ph ]
-  %.05872 = phi i16 [ %.1, %59 ], [ 0, %.lr.ph ]
+  %.05871 = phi i16 [ %.1, %59 ], [ 0, %.lr.ph ]
   %36 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %37 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %35, ptr noundef nonnull @.str.50)
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %.lr.ph.split
-  %39 = or i16 %.05872, 4096
+  %39 = or i16 %.05871, 4096
   br label %59
 
 40:                                               ; preds = %.lr.ph.split
@@ -394,7 +391,7 @@ define noundef i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0, ptr nound
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %40
-  %44 = or i16 %.05872, 8448
+  %44 = or i16 %.05871, 8448
   br label %59
 
 45:                                               ; preds = %40
@@ -403,7 +400,7 @@ define noundef i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0, ptr nound
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %45
-  %49 = and i16 %.05872, 24319
+  %49 = and i16 %.05871, 24319
   %50 = or disjoint i16 %49, 256
   br label %59
 
@@ -416,7 +413,7 @@ define noundef i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0, ptr nound
   %55 = tail call i32 @prte_set_attribute(ptr noundef nonnull %12, i16 noundef zeroext 236, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1) #9
   br label %59
 
-.split75.us:                                      ; preds = %22
+.split74.us:                                      ; preds = %22
   %56 = load ptr, ptr %14, align 8
   %57 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, i32 noundef 1, ptr noundef nonnull @.str.56, ptr noundef %56) #9
   tail call void @free(ptr noundef %5) #9
@@ -429,7 +426,7 @@ define noundef i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0, ptr nound
   br label %96
 
 59:                                               ; preds = %38, %48, %54, %43
-  %.1 = phi i16 [ %39, %38 ], [ %44, %43 ], [ %50, %48 ], [ %.05872, %54 ]
+  %.1 = phi i16 [ %39, %38 ], [ %44, %43 ], [ %50, %48 ], [ %.05871, %54 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.next
   %61 = load ptr, ptr %60, align 8
@@ -457,9 +454,8 @@ define noundef i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0, ptr nound
 
 69:                                               ; preds = %67
   %70 = load i8, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 10), align 8
-  %71 = and i8 %70, 1
-  %.not66 = icmp eq i8 %71, 0
-  %. = select i1 %.not66, i16 16391, i16 16392
+  %71 = trunc i8 %70 to i1
+  %. = select i1 %71, i16 16392, i16 16391
   br label %84
 
 72:                                               ; preds = %67
@@ -514,22 +510,21 @@ define noundef i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0, ptr nound
   store i16 %85, ptr %95, align 4
   br label %96
 
-96:                                               ; preds = %87, %94, %2, %92, %82, %.split.us, %.split75.us
-  %.0 = phi i32 [ -43, %.split75.us ], [ -5, %.split.us ], [ -5, %92 ], [ -5, %82 ], [ 0, %2 ], [ 0, %94 ], [ 0, %87 ]
+96:                                               ; preds = %87, %94, %2, %92, %82, %.split.us, %.split74.us
+  %.0 = phi i32 [ -43, %.split74.us ], [ -5, %.split.us ], [ -5, %92 ], [ -5, %82 ], [ 0, %2 ], [ 0, %94 ], [ 0, %87 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define void @prte_hwloc_base_close() local_unnamed_addr #0 {
   %1 = load i8, ptr @prte_hwloc_base_inited, align 1
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %10, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %10
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @prte_hwloc_default_cpu_list, align 8
-  %.not2 = icmp eq ptr %4, null
-  br i1 %.not2, label %6, label %5
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %3
   tail call void @free(ptr noundef nonnull %4) #9
@@ -537,8 +532,8 @@ define void @prte_hwloc_base_close() local_unnamed_addr #0 {
 
 6:                                                ; preds = %5, %3
   %7 = load ptr, ptr @prte_hwloc_topology, align 8
-  %.not3 = icmp eq ptr %7, null
-  br i1 %.not3, label %9, label %8
+  %.not2 = icmp eq ptr %7, null
+  br i1 %.not2, label %9, label %8
 
 8:                                                ; preds = %6
   tail call void @hwloc_topology_destroy(ptr noundef nonnull %7) #9
@@ -567,15 +562,13 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 2
   %7 = load i8, ptr %6, align 2
-  %8 = and i8 %7, 1
-  %.not248 = icmp eq i8 %8, 0
-  br i1 %.not248, label %9, label %12
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %12, label %9
 
 9:                                                ; preds = %5
   %10 = load i8, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 10), align 8
-  %11 = and i8 %10, 1
-  %.not249 = icmp eq i8 %11, 0
-  br i1 %.not249, label %31, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %31
 
 12:                                               ; preds = %9, %5
   %13 = getelementptr inbounds i8, ptr %1, i64 4
@@ -589,8 +582,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds i8, ptr %1, i64 8
   %20 = load i32, ptr %19, align 8
-  %.not252 = icmp slt i32 %18, %20
-  br i1 %.not252, label %22, label %21
+  %.not245 = icmp slt i32 %18, %20
+  br i1 %.not245, label %22, label %21
 
 21:                                               ; preds = %15
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %14, ptr noundef nonnull @.str.40, i32 noundef 295) #9
@@ -602,8 +595,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %25 = getelementptr inbounds i8, ptr %24, i64 140
   %26 = load i16, ptr %25, align 4
   %27 = and i16 %26, 16384
-  %.not253 = icmp eq i16 %27, 0
-  br i1 %.not253, label %28, label %410
+  %.not246 = icmp eq i16 %27, 0
+  br i1 %.not246, label %28, label %410
 
 28:                                               ; preds = %22
   %29 = and i16 %26, -20736
@@ -614,8 +607,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 31:                                               ; preds = %9
   %32 = getelementptr inbounds i8, ptr %1, i64 4
   %33 = load i32, ptr %32, align 4
-  %or.cond256 = icmp ult i32 %33, 64
-  br i1 %or.cond256, label %34, label %41
+  %or.cond249 = icmp ult i32 %33, 64
+  br i1 %or.cond249, label %34, label %41
 
 34:                                               ; preds = %31
   %35 = zext nneg i32 %33 to i64
@@ -623,8 +616,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds i8, ptr %1, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not250 = icmp slt i32 %37, %39
-  br i1 %.not250, label %41, label %40
+  %.not243 = icmp slt i32 %37, %39
+  br i1 %.not243, label %41, label %40
 
 40:                                               ; preds = %34
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %33, ptr noundef nonnull @.str.41, i32 noundef 300) #9
@@ -636,8 +629,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %44 = getelementptr inbounds i8, ptr %43, i64 140
   %45 = load i16, ptr %44, align 4
   %46 = and i16 %45, 16384
-  %.not251 = icmp eq i16 %46, 0
-  br i1 %.not251, label %47, label %410
+  %.not244 = icmp eq i16 %46, 0
+  br i1 %.not244, label %47, label %410
 
 47:                                               ; preds = %41
   %48 = and i16 %45, -20736
@@ -681,8 +674,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 64:                                               ; preds = %61
   %65 = getelementptr inbounds i8, ptr %1, i64 4
   %66 = load i32, ptr %65, align 4
-  %or.cond257 = icmp ult i32 %66, 64
-  br i1 %or.cond257, label %67, label %74
+  %or.cond250 = icmp ult i32 %66, 64
+  br i1 %or.cond250, label %67, label %74
 
 67:                                               ; preds = %64
   %68 = zext nneg i32 %66 to i64
@@ -690,21 +683,21 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %70 = load i32, ptr %69, align 4
   %71 = getelementptr inbounds i8, ptr %1, i64 8
   %72 = load i32, ptr %71, align 8
-  %.not246 = icmp slt i32 %70, %72
-  br i1 %.not246, label %74, label %73
+  %.not241 = icmp slt i32 %70, %72
+  br i1 %.not241, label %74, label %73
 
 73:                                               ; preds = %67
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %66, ptr noundef nonnull @.str.40, i32 noundef 312) #9
-  %.pre282 = load ptr, ptr %54, align 8
+  %.pre275 = load ptr, ptr %54, align 8
   br label %74
 
 74:                                               ; preds = %64, %67, %73
-  %75 = phi ptr [ %55, %64 ], [ %55, %67 ], [ %.pre282, %73 ]
+  %75 = phi ptr [ %55, %64 ], [ %55, %67 ], [ %.pre275, %73 ]
   %76 = getelementptr inbounds i8, ptr %75, i64 140
   %77 = load i16, ptr %76, align 4
   %78 = and i16 %77, 16384
-  %.not247 = icmp eq i16 %78, 0
-  br i1 %.not247, label %79, label %410
+  %.not242 = icmp eq i16 %78, 0
+  br i1 %.not242, label %79, label %410
 
 79:                                               ; preds = %74
   %80 = and i16 %77, -20736
@@ -715,8 +708,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 82:                                               ; preds = %61
   %83 = getelementptr inbounds i8, ptr %1, i64 4
   %84 = load i32, ptr %83, align 4
-  %or.cond258 = icmp ult i32 %84, 64
-  br i1 %or.cond258, label %85, label %92
+  %or.cond251 = icmp ult i32 %84, 64
+  br i1 %or.cond251, label %85, label %92
 
 85:                                               ; preds = %82
   %86 = zext nneg i32 %84 to i64
@@ -724,21 +717,21 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %88 = load i32, ptr %87, align 4
   %89 = getelementptr inbounds i8, ptr %1, i64 8
   %90 = load i32, ptr %89, align 8
-  %.not244 = icmp slt i32 %88, %90
-  br i1 %.not244, label %92, label %91
+  %.not239 = icmp slt i32 %88, %90
+  br i1 %.not239, label %92, label %91
 
 91:                                               ; preds = %85
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %84, ptr noundef nonnull @.str.41, i32 noundef 316) #9
-  %.pre281 = load ptr, ptr %54, align 8
+  %.pre274 = load ptr, ptr %54, align 8
   br label %92
 
 92:                                               ; preds = %82, %85, %91
-  %93 = phi ptr [ %55, %82 ], [ %55, %85 ], [ %.pre281, %91 ]
+  %93 = phi ptr [ %55, %82 ], [ %55, %85 ], [ %.pre274, %91 ]
   %94 = getelementptr inbounds i8, ptr %93, i64 140
   %95 = load i16, ptr %94, align 4
   %96 = and i16 %95, 16384
-  %.not245 = icmp eq i16 %96, 0
-  br i1 %.not245, label %97, label %410
+  %.not240 = icmp eq i16 %96, 0
+  br i1 %.not240, label %97, label %410
 
 97:                                               ; preds = %92
   %98 = and i16 %95, -20736
@@ -749,8 +742,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 100:                                              ; preds = %61
   %101 = getelementptr inbounds i8, ptr %1, i64 4
   %102 = load i32, ptr %101, align 4
-  %or.cond259 = icmp ult i32 %102, 64
-  br i1 %or.cond259, label %103, label %110
+  %or.cond252 = icmp ult i32 %102, 64
+  br i1 %or.cond252, label %103, label %110
 
 103:                                              ; preds = %100
   %104 = zext nneg i32 %102 to i64
@@ -758,21 +751,21 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %106 = load i32, ptr %105, align 4
   %107 = getelementptr inbounds i8, ptr %1, i64 8
   %108 = load i32, ptr %107, align 8
-  %.not242 = icmp slt i32 %106, %108
-  br i1 %.not242, label %110, label %109
+  %.not237 = icmp slt i32 %106, %108
+  br i1 %.not237, label %110, label %109
 
 109:                                              ; preds = %103
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %102, ptr noundef nonnull @.str.42, i32 noundef 320) #9
-  %.pre280 = load ptr, ptr %54, align 8
+  %.pre273 = load ptr, ptr %54, align 8
   br label %110
 
 110:                                              ; preds = %100, %103, %109
-  %111 = phi ptr [ %55, %100 ], [ %55, %103 ], [ %.pre280, %109 ]
+  %111 = phi ptr [ %55, %100 ], [ %55, %103 ], [ %.pre273, %109 ]
   %112 = getelementptr inbounds i8, ptr %111, i64 140
   %113 = load i16, ptr %112, align 4
   %114 = and i16 %113, 16384
-  %.not243 = icmp eq i16 %114, 0
-  br i1 %.not243, label %115, label %410
+  %.not238 = icmp eq i16 %114, 0
+  br i1 %.not238, label %115, label %410
 
 115:                                              ; preds = %110
   %116 = and i16 %113, -20736
@@ -783,8 +776,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 118:                                              ; preds = %61
   %119 = getelementptr inbounds i8, ptr %1, i64 4
   %120 = load i32, ptr %119, align 4
-  %or.cond260 = icmp ult i32 %120, 64
-  br i1 %or.cond260, label %121, label %128
+  %or.cond253 = icmp ult i32 %120, 64
+  br i1 %or.cond253, label %121, label %128
 
 121:                                              ; preds = %118
   %122 = zext nneg i32 %120 to i64
@@ -792,21 +785,21 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %124 = load i32, ptr %123, align 4
   %125 = getelementptr inbounds i8, ptr %1, i64 8
   %126 = load i32, ptr %125, align 8
-  %.not240 = icmp slt i32 %124, %126
-  br i1 %.not240, label %128, label %127
+  %.not235 = icmp slt i32 %124, %126
+  br i1 %.not235, label %128, label %127
 
 127:                                              ; preds = %121
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %120, ptr noundef nonnull @.str.43, i32 noundef 324) #9
-  %.pre279 = load ptr, ptr %54, align 8
+  %.pre272 = load ptr, ptr %54, align 8
   br label %128
 
 128:                                              ; preds = %118, %121, %127
-  %129 = phi ptr [ %55, %118 ], [ %55, %121 ], [ %.pre279, %127 ]
+  %129 = phi ptr [ %55, %118 ], [ %55, %121 ], [ %.pre272, %127 ]
   %130 = getelementptr inbounds i8, ptr %129, i64 140
   %131 = load i16, ptr %130, align 4
   %132 = and i16 %131, 16384
-  %.not241 = icmp eq i16 %132, 0
-  br i1 %.not241, label %133, label %410
+  %.not236 = icmp eq i16 %132, 0
+  br i1 %.not236, label %133, label %410
 
 133:                                              ; preds = %128
   %134 = and i16 %131, -20736
@@ -817,8 +810,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 136:                                              ; preds = %61
   %137 = getelementptr inbounds i8, ptr %1, i64 4
   %138 = load i32, ptr %137, align 4
-  %or.cond261 = icmp ult i32 %138, 64
-  br i1 %or.cond261, label %139, label %146
+  %or.cond254 = icmp ult i32 %138, 64
+  br i1 %or.cond254, label %139, label %146
 
 139:                                              ; preds = %136
   %140 = zext nneg i32 %138 to i64
@@ -826,21 +819,21 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %142 = load i32, ptr %141, align 4
   %143 = getelementptr inbounds i8, ptr %1, i64 8
   %144 = load i32, ptr %143, align 8
-  %.not238 = icmp slt i32 %142, %144
-  br i1 %.not238, label %146, label %145
+  %.not233 = icmp slt i32 %142, %144
+  br i1 %.not233, label %146, label %145
 
 145:                                              ; preds = %139
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %138, ptr noundef nonnull @.str.44, i32 noundef 328) #9
-  %.pre278 = load ptr, ptr %54, align 8
+  %.pre271 = load ptr, ptr %54, align 8
   br label %146
 
 146:                                              ; preds = %136, %139, %145
-  %147 = phi ptr [ %55, %136 ], [ %55, %139 ], [ %.pre278, %145 ]
+  %147 = phi ptr [ %55, %136 ], [ %55, %139 ], [ %.pre271, %145 ]
   %148 = getelementptr inbounds i8, ptr %147, i64 140
   %149 = load i16, ptr %148, align 4
   %150 = and i16 %149, 16384
-  %.not239 = icmp eq i16 %150, 0
-  br i1 %.not239, label %151, label %410
+  %.not234 = icmp eq i16 %150, 0
+  br i1 %.not234, label %151, label %410
 
 151:                                              ; preds = %146
   %152 = and i16 %149, -20736
@@ -851,8 +844,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 154:                                              ; preds = %61
   %155 = getelementptr inbounds i8, ptr %1, i64 4
   %156 = load i32, ptr %155, align 4
-  %or.cond262 = icmp ult i32 %156, 64
-  br i1 %or.cond262, label %157, label %164
+  %or.cond255 = icmp ult i32 %156, 64
+  br i1 %or.cond255, label %157, label %164
 
 157:                                              ; preds = %154
   %158 = zext nneg i32 %156 to i64
@@ -860,21 +853,21 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %160 = load i32, ptr %159, align 4
   %161 = getelementptr inbounds i8, ptr %1, i64 8
   %162 = load i32, ptr %161, align 8
-  %.not236 = icmp slt i32 %160, %162
-  br i1 %.not236, label %164, label %163
+  %.not231 = icmp slt i32 %160, %162
+  br i1 %.not231, label %164, label %163
 
 163:                                              ; preds = %157
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %156, ptr noundef nonnull @.str.45, i32 noundef 333) #9
-  %.pre277 = load ptr, ptr %54, align 8
+  %.pre270 = load ptr, ptr %54, align 8
   br label %164
 
 164:                                              ; preds = %154, %157, %163
-  %165 = phi ptr [ %55, %154 ], [ %55, %157 ], [ %.pre277, %163 ]
+  %165 = phi ptr [ %55, %154 ], [ %55, %157 ], [ %.pre270, %163 ]
   %166 = getelementptr inbounds i8, ptr %165, i64 140
   %167 = load i16, ptr %166, align 4
   %168 = and i16 %167, 16384
-  %.not237 = icmp eq i16 %168, 0
-  br i1 %.not237, label %169, label %410
+  %.not232 = icmp eq i16 %168, 0
+  br i1 %.not232, label %169, label %410
 
 169:                                              ; preds = %164
   %170 = and i16 %167, -20736
@@ -885,8 +878,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 172:                                              ; preds = %61
   %173 = getelementptr inbounds i8, ptr %1, i64 4
   %174 = load i32, ptr %173, align 4
-  %or.cond263 = icmp ult i32 %174, 64
-  br i1 %or.cond263, label %175, label %182
+  %or.cond256 = icmp ult i32 %174, 64
+  br i1 %or.cond256, label %175, label %182
 
 175:                                              ; preds = %172
   %176 = zext nneg i32 %174 to i64
@@ -894,21 +887,21 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %178 = load i32, ptr %177, align 4
   %179 = getelementptr inbounds i8, ptr %1, i64 8
   %180 = load i32, ptr %179, align 8
-  %.not234 = icmp slt i32 %178, %180
-  br i1 %.not234, label %182, label %181
+  %.not229 = icmp slt i32 %178, %180
+  br i1 %.not229, label %182, label %181
 
 181:                                              ; preds = %175
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %174, ptr noundef nonnull @.str.46, i32 noundef 337) #9
-  %.pre276 = load ptr, ptr %54, align 8
+  %.pre269 = load ptr, ptr %54, align 8
   br label %182
 
 182:                                              ; preds = %172, %175, %181
-  %183 = phi ptr [ %55, %172 ], [ %55, %175 ], [ %.pre276, %181 ]
+  %183 = phi ptr [ %55, %172 ], [ %55, %175 ], [ %.pre269, %181 ]
   %184 = getelementptr inbounds i8, ptr %183, i64 140
   %185 = load i16, ptr %184, align 4
   %186 = and i16 %185, 16384
-  %.not235 = icmp eq i16 %186, 0
-  br i1 %.not235, label %187, label %410
+  %.not230 = icmp eq i16 %186, 0
+  br i1 %.not230, label %187, label %410
 
 187:                                              ; preds = %182
   %188 = and i16 %185, -20736
@@ -919,15 +912,14 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 190:                                              ; preds = %61
   %191 = getelementptr inbounds i8, ptr %1, i64 2
   %192 = load i8, ptr %191, align 2
-  %193 = and i8 %192, 1
-  %.not229 = icmp eq i8 %193, 0
+  %193 = trunc i8 %192 to i1
   %194 = getelementptr inbounds i8, ptr %1, i64 4
   %195 = load i32, ptr %194, align 4
-  %or.cond265 = icmp ult i32 %195, 64
-  br i1 %.not229, label %212, label %196
+  %or.cond257 = icmp ult i32 %195, 64
+  br i1 %193, label %196, label %212
 
 196:                                              ; preds = %190
-  br i1 %or.cond265, label %197, label %204
+  br i1 %or.cond257, label %197, label %204
 
 197:                                              ; preds = %196
   %198 = zext nneg i32 %195 to i64
@@ -935,21 +927,21 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %200 = load i32, ptr %199, align 4
   %201 = getelementptr inbounds i8, ptr %1, i64 8
   %202 = load i32, ptr %201, align 8
-  %.not232 = icmp slt i32 %200, %202
-  br i1 %.not232, label %204, label %203
+  %.not227 = icmp slt i32 %200, %202
+  br i1 %.not227, label %204, label %203
 
 203:                                              ; preds = %197
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %195, ptr noundef nonnull @.str.47, i32 noundef 343) #9
-  %.pre274 = load ptr, ptr %54, align 8
+  %.pre268 = load ptr, ptr %54, align 8
   br label %204
 
 204:                                              ; preds = %196, %197, %203
-  %205 = phi ptr [ %55, %196 ], [ %55, %197 ], [ %.pre274, %203 ]
+  %205 = phi ptr [ %55, %196 ], [ %55, %197 ], [ %.pre268, %203 ]
   %206 = getelementptr inbounds i8, ptr %205, i64 140
   %207 = load i16, ptr %206, align 4
   %208 = and i16 %207, 16384
-  %.not233 = icmp eq i16 %208, 0
-  br i1 %.not233, label %209, label %410
+  %.not228 = icmp eq i16 %208, 0
+  br i1 %.not228, label %209, label %410
 
 209:                                              ; preds = %204
   %210 = and i16 %207, -20736
@@ -958,7 +950,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 212:                                              ; preds = %190
-  br i1 %or.cond265, label %213, label %220
+  br i1 %or.cond257, label %213, label %220
 
 213:                                              ; preds = %212
   %214 = zext nneg i32 %195 to i64
@@ -966,21 +958,21 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %216 = load i32, ptr %215, align 4
   %217 = getelementptr inbounds i8, ptr %1, i64 8
   %218 = load i32, ptr %217, align 8
-  %.not230 = icmp slt i32 %216, %218
-  br i1 %.not230, label %220, label %219
+  %.not225 = icmp slt i32 %216, %218
+  br i1 %.not225, label %220, label %219
 
 219:                                              ; preds = %213
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %195, ptr noundef nonnull @.str.48, i32 noundef 349) #9
-  %.pre275 = load ptr, ptr %54, align 8
+  %.pre267 = load ptr, ptr %54, align 8
   br label %220
 
 220:                                              ; preds = %212, %213, %219
-  %221 = phi ptr [ %55, %212 ], [ %55, %213 ], [ %.pre275, %219 ]
+  %221 = phi ptr [ %55, %212 ], [ %55, %213 ], [ %.pre267, %219 ]
   %222 = getelementptr inbounds i8, ptr %221, i64 140
   %223 = load i16, ptr %222, align 4
   %224 = and i16 %223, 16384
-  %.not231 = icmp eq i16 %224, 0
-  br i1 %.not231, label %225, label %410
+  %.not226 = icmp eq i16 %224, 0
+  br i1 %.not226, label %225, label %410
 
 225:                                              ; preds = %220
   %226 = and i16 %223, -20736
@@ -1011,21 +1003,19 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 235:                                              ; preds = %231
   %236 = getelementptr inbounds i8, ptr %1, i64 2
   %237 = load i8, ptr %236, align 2
-  %238 = and i8 %237, 1
-  %.not223 = icmp eq i8 %238, 0
-  br i1 %.not223, label %239, label %242
+  %238 = trunc i8 %237 to i1
+  br i1 %238, label %242, label %239
 
 239:                                              ; preds = %235
   %240 = load i8, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 10), align 8
-  %241 = and i8 %240, 1
-  %.not224 = icmp eq i8 %241, 0
-  br i1 %.not224, label %260, label %242
+  %241 = trunc i8 %240 to i1
+  br i1 %241, label %242, label %260
 
 242:                                              ; preds = %239, %235
   %243 = getelementptr inbounds i8, ptr %1, i64 4
   %244 = load i32, ptr %243, align 4
-  %or.cond266 = icmp ult i32 %244, 64
-  br i1 %or.cond266, label %245, label %252
+  %or.cond259 = icmp ult i32 %244, 64
+  br i1 %or.cond259, label %245, label %252
 
 245:                                              ; preds = %242
   %246 = zext nneg i32 %244 to i64
@@ -1033,21 +1023,21 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %248 = load i32, ptr %247, align 4
   %249 = getelementptr inbounds i8, ptr %1, i64 8
   %250 = load i32, ptr %249, align 8
-  %.not227 = icmp slt i32 %248, %250
-  br i1 %.not227, label %252, label %251
+  %.not223 = icmp slt i32 %248, %250
+  br i1 %.not223, label %252, label %251
 
 251:                                              ; preds = %245
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %244, ptr noundef nonnull @.str.40, i32 noundef 360) #9
-  %.pre272 = load ptr, ptr %54, align 8
+  %.pre266 = load ptr, ptr %54, align 8
   br label %252
 
 252:                                              ; preds = %242, %245, %251
-  %253 = phi ptr [ %55, %242 ], [ %55, %245 ], [ %.pre272, %251 ]
+  %253 = phi ptr [ %55, %242 ], [ %55, %245 ], [ %.pre266, %251 ]
   %254 = getelementptr inbounds i8, ptr %253, i64 140
   %255 = load i16, ptr %254, align 4
   %256 = and i16 %255, 16384
-  %.not228 = icmp eq i16 %256, 0
-  br i1 %.not228, label %257, label %410
+  %.not224 = icmp eq i16 %256, 0
+  br i1 %.not224, label %257, label %410
 
 257:                                              ; preds = %252
   %258 = and i16 %255, -20736
@@ -1058,8 +1048,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 260:                                              ; preds = %239
   %261 = getelementptr inbounds i8, ptr %1, i64 4
   %262 = load i32, ptr %261, align 4
-  %or.cond267 = icmp ult i32 %262, 64
-  br i1 %or.cond267, label %263, label %270
+  %or.cond260 = icmp ult i32 %262, 64
+  br i1 %or.cond260, label %263, label %270
 
 263:                                              ; preds = %260
   %264 = zext nneg i32 %262 to i64
@@ -1067,21 +1057,21 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %266 = load i32, ptr %265, align 4
   %267 = getelementptr inbounds i8, ptr %1, i64 8
   %268 = load i32, ptr %267, align 8
-  %.not225 = icmp slt i32 %266, %268
-  br i1 %.not225, label %270, label %269
+  %.not221 = icmp slt i32 %266, %268
+  br i1 %.not221, label %270, label %269
 
 269:                                              ; preds = %263
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %262, ptr noundef nonnull @.str.41, i32 noundef 366) #9
-  %.pre273 = load ptr, ptr %54, align 8
+  %.pre265 = load ptr, ptr %54, align 8
   br label %270
 
 270:                                              ; preds = %260, %263, %269
-  %271 = phi ptr [ %55, %260 ], [ %55, %263 ], [ %.pre273, %269 ]
+  %271 = phi ptr [ %55, %260 ], [ %55, %263 ], [ %.pre265, %269 ]
   %272 = getelementptr inbounds i8, ptr %271, i64 140
   %273 = load i16, ptr %272, align 4
   %274 = and i16 %273, 16384
-  %.not226 = icmp eq i16 %274, 0
-  br i1 %.not226, label %275, label %410
+  %.not222 = icmp eq i16 %274, 0
+  br i1 %.not222, label %275, label %410
 
 275:                                              ; preds = %270
   %276 = and i16 %273, -20736
@@ -1092,8 +1082,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 278:                                              ; preds = %231
   %279 = getelementptr inbounds i8, ptr %1, i64 4
   %280 = load i32, ptr %279, align 4
-  %or.cond268 = icmp ult i32 %280, 64
-  br i1 %or.cond268, label %281, label %288
+  %or.cond261 = icmp ult i32 %280, 64
+  br i1 %or.cond261, label %281, label %288
 
 281:                                              ; preds = %278
   %282 = zext nneg i32 %280 to i64
@@ -1101,8 +1091,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %284 = load i32, ptr %283, align 4
   %285 = getelementptr inbounds i8, ptr %1, i64 8
   %286 = load i32, ptr %285, align 8
-  %.not221 = icmp slt i32 %284, %286
-  br i1 %.not221, label %288, label %287
+  %.not219 = icmp slt i32 %284, %286
+  br i1 %.not219, label %288, label %287
 
 287:                                              ; preds = %281
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %280, ptr noundef nonnull @.str.45, i32 noundef 373) #9
@@ -1114,8 +1104,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %290 = getelementptr inbounds i8, ptr %289, i64 140
   %291 = load i16, ptr %290, align 4
   %292 = and i16 %291, 16384
-  %.not222 = icmp eq i16 %292, 0
-  br i1 %.not222, label %293, label %410
+  %.not220 = icmp eq i16 %292, 0
+  br i1 %.not220, label %293, label %410
 
 293:                                              ; preds = %288
   %294 = and i16 %291, -20736
@@ -1127,8 +1117,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %297 = getelementptr inbounds i8, ptr %55, i64 140
   %298 = load i16, ptr %297, align 4
   %299 = and i16 %298, 16384
-  %.not220 = icmp eq i16 %299, 0
-  br i1 %.not220, label %300, label %410
+  %.not218 = icmp eq i16 %299, 0
+  br i1 %.not218, label %300, label %410
 
 300:                                              ; preds = %296
   %301 = and i16 %298, -20736
@@ -1140,8 +1130,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %304 = getelementptr inbounds i8, ptr %55, i64 140
   %305 = load i16, ptr %304, align 4
   %306 = and i16 %305, 16384
-  %.not219 = icmp eq i16 %306, 0
-  br i1 %.not219, label %307, label %410
+  %.not217 = icmp eq i16 %306, 0
+  br i1 %.not217, label %307, label %410
 
 307:                                              ; preds = %303
   %308 = and i16 %305, -20736
@@ -1153,8 +1143,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %311 = getelementptr inbounds i8, ptr %55, i64 140
   %312 = load i16, ptr %311, align 4
   %313 = and i16 %312, 16384
-  %.not218 = icmp eq i16 %313, 0
-  br i1 %.not218, label %314, label %410
+  %.not216 = icmp eq i16 %313, 0
+  br i1 %.not216, label %314, label %410
 
 314:                                              ; preds = %310
   %315 = and i16 %312, -20736
@@ -1166,8 +1156,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %318 = getelementptr inbounds i8, ptr %55, i64 140
   %319 = load i16, ptr %318, align 4
   %320 = and i16 %319, 16384
-  %.not217 = icmp eq i16 %320, 0
-  br i1 %.not217, label %321, label %410
+  %.not215 = icmp eq i16 %320, 0
+  br i1 %.not215, label %321, label %410
 
 321:                                              ; preds = %317
   %322 = and i16 %319, -20736
@@ -1179,8 +1169,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %325 = getelementptr inbounds i8, ptr %55, i64 140
   %326 = load i16, ptr %325, align 4
   %327 = and i16 %326, 16384
-  %.not216 = icmp eq i16 %327, 0
-  br i1 %.not216, label %328, label %410
+  %.not214 = icmp eq i16 %327, 0
+  br i1 %.not214, label %328, label %410
 
 328:                                              ; preds = %324
   %329 = and i16 %326, -20736
@@ -1192,8 +1182,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %332 = getelementptr inbounds i8, ptr %55, i64 140
   %333 = load i16, ptr %332, align 4
   %334 = and i16 %333, 16384
-  %.not215 = icmp eq i16 %334, 0
-  br i1 %.not215, label %335, label %410
+  %.not213 = icmp eq i16 %334, 0
+  br i1 %.not213, label %335, label %410
 
 335:                                              ; preds = %331
   %336 = and i16 %333, -20736
@@ -1205,8 +1195,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %339 = getelementptr inbounds i8, ptr %55, i64 140
   %340 = load i16, ptr %339, align 4
   %341 = and i16 %340, 16384
-  %.not214 = icmp eq i16 %341, 0
-  br i1 %.not214, label %342, label %410
+  %.not212 = icmp eq i16 %341, 0
+  br i1 %.not212, label %342, label %410
 
 342:                                              ; preds = %338
   %343 = and i16 %340, -20736
@@ -1223,21 +1213,19 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 349:                                              ; preds = %345
   %350 = getelementptr inbounds i8, ptr %1, i64 2
   %351 = load i8, ptr %350, align 2
-  %352 = and i8 %351, 1
-  %.not208 = icmp eq i8 %352, 0
-  br i1 %.not208, label %353, label %356
+  %352 = trunc i8 %351 to i1
+  br i1 %352, label %356, label %353
 
 353:                                              ; preds = %349
   %354 = load i8, ptr getelementptr inbounds (%struct.prte_rmaps_base_t, ptr @prte_rmaps_base, i64 0, i32 10), align 8
-  %355 = and i8 %354, 1
-  %.not209 = icmp eq i8 %355, 0
-  br i1 %.not209, label %374, label %356
+  %355 = trunc i8 %354 to i1
+  br i1 %355, label %356, label %374
 
 356:                                              ; preds = %353, %349
   %357 = getelementptr inbounds i8, ptr %1, i64 4
   %358 = load i32, ptr %357, align 4
-  %or.cond269 = icmp ult i32 %358, 64
-  br i1 %or.cond269, label %359, label %366
+  %or.cond262 = icmp ult i32 %358, 64
+  br i1 %or.cond262, label %359, label %366
 
 359:                                              ; preds = %356
   %360 = zext nneg i32 %358 to i64
@@ -1245,21 +1233,21 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %362 = load i32, ptr %361, align 4
   %363 = getelementptr inbounds i8, ptr %1, i64 8
   %364 = load i32, ptr %363, align 8
-  %.not212 = icmp slt i32 %362, %364
-  br i1 %.not212, label %366, label %365
+  %.not210 = icmp slt i32 %362, %364
+  br i1 %.not210, label %366, label %365
 
 365:                                              ; preds = %359
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %358, ptr noundef nonnull @.str.40, i32 noundef 408) #9
-  %.pre284 = load ptr, ptr %54, align 8
+  %.pre278 = load ptr, ptr %54, align 8
   br label %366
 
 366:                                              ; preds = %356, %359, %365
-  %367 = phi ptr [ %55, %356 ], [ %55, %359 ], [ %.pre284, %365 ]
+  %367 = phi ptr [ %55, %356 ], [ %55, %359 ], [ %.pre278, %365 ]
   %368 = getelementptr inbounds i8, ptr %367, i64 140
   %369 = load i16, ptr %368, align 4
   %370 = and i16 %369, 16384
-  %.not213 = icmp eq i16 %370, 0
-  br i1 %.not213, label %371, label %410
+  %.not211 = icmp eq i16 %370, 0
+  br i1 %.not211, label %371, label %410
 
 371:                                              ; preds = %366
   %372 = and i16 %369, -20736
@@ -1270,8 +1258,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 374:                                              ; preds = %353
   %375 = getelementptr inbounds i8, ptr %1, i64 4
   %376 = load i32, ptr %375, align 4
-  %or.cond270 = icmp ult i32 %376, 64
-  br i1 %or.cond270, label %377, label %384
+  %or.cond263 = icmp ult i32 %376, 64
+  br i1 %or.cond263, label %377, label %384
 
 377:                                              ; preds = %374
   %378 = zext nneg i32 %376 to i64
@@ -1279,21 +1267,21 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %380 = load i32, ptr %379, align 4
   %381 = getelementptr inbounds i8, ptr %1, i64 8
   %382 = load i32, ptr %381, align 8
-  %.not210 = icmp slt i32 %380, %382
-  br i1 %.not210, label %384, label %383
+  %.not208 = icmp slt i32 %380, %382
+  br i1 %.not208, label %384, label %383
 
 383:                                              ; preds = %377
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %376, ptr noundef nonnull @.str.41, i32 noundef 414) #9
-  %.pre285 = load ptr, ptr %54, align 8
+  %.pre277 = load ptr, ptr %54, align 8
   br label %384
 
 384:                                              ; preds = %374, %377, %383
-  %385 = phi ptr [ %55, %374 ], [ %55, %377 ], [ %.pre285, %383 ]
+  %385 = phi ptr [ %55, %374 ], [ %55, %377 ], [ %.pre277, %383 ]
   %386 = getelementptr inbounds i8, ptr %385, i64 140
   %387 = load i16, ptr %386, align 4
   %388 = and i16 %387, 16384
-  %.not211 = icmp eq i16 %388, 0
-  br i1 %.not211, label %389, label %410
+  %.not209 = icmp eq i16 %388, 0
+  br i1 %.not209, label %389, label %410
 
 389:                                              ; preds = %384
   %390 = and i16 %387, -20736
@@ -1304,8 +1292,8 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 392:                                              ; preds = %345
   %393 = getelementptr inbounds i8, ptr %1, i64 4
   %394 = load i32, ptr %393, align 4
-  %or.cond271 = icmp ult i32 %394, 64
-  br i1 %or.cond271, label %395, label %402
+  %or.cond264 = icmp ult i32 %394, 64
+  br i1 %or.cond264, label %395, label %402
 
 395:                                              ; preds = %392
   %396 = zext nneg i32 %394 to i64
@@ -1318,11 +1306,11 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 401:                                              ; preds = %395
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %394, ptr noundef nonnull @.str.45, i32 noundef 421) #9
-  %.pre283 = load ptr, ptr %54, align 8
+  %.pre276 = load ptr, ptr %54, align 8
   br label %402
 
 402:                                              ; preds = %392, %395, %401
-  %403 = phi ptr [ %55, %392 ], [ %55, %395 ], [ %.pre283, %401 ]
+  %403 = phi ptr [ %55, %392 ], [ %55, %395 ], [ %.pre276, %401 ]
   %404 = getelementptr inbounds i8, ptr %403, i64 140
   %405 = load i16, ptr %404, align 4
   %406 = and i16 %405, 16384
@@ -1341,14 +1329,14 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   %413 = getelementptr inbounds i8, ptr %412, i64 140
   %414 = load i16, ptr %413, align 4
   %415 = and i16 %414, 256
-  %.not254 = icmp eq i16 %415, 0
-  br i1 %.not254, label %416, label %421
+  %.not247 = icmp eq i16 %415, 0
+  br i1 %.not247, label %416, label %421
 
 416:                                              ; preds = %410
   %417 = load i16, ptr @prte_hwloc_default_binding_policy, align 2
   %418 = and i16 %417, 8192
-  %.not255 = icmp eq i16 %418, 0
-  br i1 %.not255, label %421, label %419
+  %.not248 = icmp eq i16 %418, 0
+  br i1 %.not248, label %421, label %419
 
 419:                                              ; preds = %416
   %420 = or i16 %414, 8192

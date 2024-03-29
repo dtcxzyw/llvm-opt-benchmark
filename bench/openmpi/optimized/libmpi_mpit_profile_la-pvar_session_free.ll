@@ -11,8 +11,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef i32 @PMPI_T_pvar_session_free(ptr nocapture noundef %0) #0 {
   %2 = load volatile i32, ptr @ompi_mpit_init_count, align 4
-  %.not12 = icmp eq i32 %2, 0
-  br i1 %.not12, label %29, label %3
+  %.not11 = icmp eq i32 %2, 0
+  br i1 %.not11, label %29, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
@@ -22,9 +22,8 @@ define noundef i32 @PMPI_T_pvar_session_free(ptr nocapture noundef %0) #0 {
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i8, ptr @opal_uses_threads, align 1
-  %9 = and i8 %8, 1
-  %.not.i = icmp eq i8 %9, 0
-  br i1 %.not.i, label %13, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
   %11 = atomicrmw volatile add ptr %7, i32 -1 monotonic, align 4
@@ -58,8 +57,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %10, %13
   tail call void %24(ptr noundef nonnull %19) #2
   %25 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %26 = load ptr, ptr %25, align 8
-  %.not.i11 = icmp eq ptr %26, null
-  br i1 %.not.i11, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %26, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %0, align 8

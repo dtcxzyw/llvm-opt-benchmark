@@ -238,9 +238,8 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %.critedge
   %17 = getelementptr inbounds i8, ptr %0, i64 104
   %18 = getelementptr inbounds i8, ptr %0, i64 168
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not.i2.i = icmp eq i8 %20, 0
-  br i1 %.not.i2.i, label %_ZNSt18condition_variable4waitIZN5ceres8internal15ConcurrentQueueIiE4WaitEPiEUlvE_EEvRSt11unique_lockISt5mutexET_.exit, label %_ZZN5ceres8internal15ConcurrentQueueIiE4WaitEPiENKUlvE_clEv.exit.i
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %_ZZN5ceres8internal15ConcurrentQueueIiE4WaitEPiENKUlvE_clEv.exit.i, label %_ZNSt18condition_variable4waitIZN5ceres8internal15ConcurrentQueueIiE4WaitEPiEUlvE_EEvRSt11unique_lockISt5mutexET_.exit
 
 _ZZN5ceres8internal15ConcurrentQueueIiE4WaitEPiENKUlvE_clEv.exit.i: ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %.noexc
   %21 = load ptr, ptr %16, align 8
@@ -254,9 +253,8 @@ _ZZN5ceres8internal15ConcurrentQueueIiE4WaitEPiENKUlvE_clEv.exit.i: ; preds = %_
 
 .noexc:                                           ; preds = %23
   %24 = load i8, ptr %18, align 8
-  %25 = and i8 %24, 1
-  %.not.i.i = icmp eq i8 %25, 0
-  br i1 %.not.i.i, label %_ZNSt18condition_variable4waitIZN5ceres8internal15ConcurrentQueueIiE4WaitEPiEUlvE_EEvRSt11unique_lockISt5mutexET_.exit, label %_ZZN5ceres8internal15ConcurrentQueueIiE4WaitEPiENKUlvE_clEv.exit.i, !llvm.loop !7
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %_ZZN5ceres8internal15ConcurrentQueueIiE4WaitEPiENKUlvE_clEv.exit.i, label %_ZNSt18condition_variable4waitIZN5ceres8internal15ConcurrentQueueIiE4WaitEPiEUlvE_EEvRSt11unique_lockISt5mutexET_.exit, !llvm.loop !7
 
 _ZNSt18condition_variable4waitIZN5ceres8internal15ConcurrentQueueIiE4WaitEPiEUlvE_EEvRSt11unique_lockISt5mutexET_.exit: ; preds = %.noexc, %_ZZN5ceres8internal15ConcurrentQueueIiE4WaitEPiENKUlvE_clEv.exit.i, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %26 = load ptr, ptr %16, align 8
@@ -299,14 +297,13 @@ _ZNSt5queueIiSt5dequeIiSaIiEEE3popEv.exit.i:      ; preds = %37, %35
 
 _ZN5ceres8internal15ConcurrentQueueIiE11PopUnlockedEPi.exit: ; preds = %_ZNSt5queueIiSt5dequeIiSaIiEEE3popEv.exit.i, %_ZNSt18condition_variable4waitIZN5ceres8internal15ConcurrentQueueIiE4WaitEPiEUlvE_EEvRSt11unique_lockISt5mutexET_.exit
   %45 = load i8, ptr %12, align 8
-  %46 = and i8 %45, 1
-  %.not.i9 = icmp eq i8 %46, 0
-  br i1 %.not.i9, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 47:                                               ; preds = %_ZN5ceres8internal15ConcurrentQueueIiE11PopUnlockedEPi.exit
   %48 = load ptr, ptr %4, align 8
-  %.not1.i.i = icmp eq ptr %48, null
-  br i1 %.not1.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %49
+  %.not.i.i = icmp eq ptr %48, null
+  br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %49
 
 49:                                               ; preds = %47
   %50 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %48) #12
@@ -319,20 +316,19 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZN5ceres8internal1
   %52 = landingpad { ptr, i32 }
           cleanup
   %53 = load i8, ptr %12, align 8
-  %54 = and i8 %53, 1
-  %.not.i10 = icmp eq i8 %54, 0
-  br i1 %.not.i10, label %_ZNSt11unique_lockISt5mutexED2Ev.exit12, label %55
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %_ZNSt11unique_lockISt5mutexED2Ev.exit10
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %4, align 8
-  %.not1.i.i11 = icmp eq ptr %56, null
-  br i1 %.not1.i.i11, label %_ZNSt11unique_lockISt5mutexED2Ev.exit12, label %57
+  %.not.i.i9 = icmp eq ptr %56, null
+  br i1 %.not.i.i9, label %_ZNSt11unique_lockISt5mutexED2Ev.exit10, label %57
 
 57:                                               ; preds = %55
   %58 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %56) #12
-  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit12
+  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit10
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit12:          ; preds = %51, %55, %57
+_ZNSt11unique_lockISt5mutexED2Ev.exit10:          ; preds = %51, %55, %57
   resume { ptr, i32 } %52
 }
 

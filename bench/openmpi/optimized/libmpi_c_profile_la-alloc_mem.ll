@@ -25,9 +25,8 @@ define i32 @PMPI_Alloc_mem(i64 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %5 = alloca i32, align 4
   store ptr null, ptr %4, align 8
   %6 = load i8, ptr @ompi_mpi_param_check, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %25, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %25
 
 8:                                                ; preds = %3
   %9 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -55,9 +54,8 @@ define i32 @PMPI_Alloc_mem(i64 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 20:                                               ; preds = %18
   %21 = getelementptr i8, ptr %1, i64 76
   %.val = load i8, ptr %21, align 4
-  %22 = and i8 %.val, 1
-  %.not24 = icmp eq i8 %22, 0
-  br i1 %.not24, label %25, label %23
+  %22 = trunc i8 %.val to i1
+  br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20, %18
   %24 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 34, ptr noundef nonnull @FUNC_NAME) #3
@@ -72,14 +70,14 @@ define i32 @PMPI_Alloc_mem(i64 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %64
 
 28:                                               ; preds = %25
-  %.not20 = icmp eq ptr %1, @ompi_mpi_info_null
-  br i1 %.not20, label %35, label %29
+  %.not = icmp eq ptr %1, @ompi_mpi_info_null
+  br i1 %.not, label %35, label %29
 
 29:                                               ; preds = %28
   %30 = call i32 @ompi_info_get(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef nonnull %5) #3
   %31 = load i32, ptr %5, align 4
-  %.not21 = icmp eq i32 %31, 0
-  br i1 %.not21, label %35, label %32
+  %.not20 = icmp eq i32 %31, 0
+  br i1 %.not20, label %35, label %32
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %4, align 8
@@ -91,15 +89,14 @@ define i32 @PMPI_Alloc_mem(i64 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %36 = call ptr @mca_mpool_base_alloc(i64 noundef %0, ptr noundef %1, ptr noundef %.0) #3
   store ptr %36, ptr %2, align 8
   %37 = load ptr, ptr %4, align 8
-  %.not22 = icmp eq ptr %37, null
-  br i1 %.not22, label %59, label %38
+  %.not21 = icmp eq ptr %37, null
+  br i1 %.not21, label %59, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %37, i64 8
   %40 = load i8, ptr @opal_uses_threads, align 1
-  %41 = and i8 %40, 1
-  %.not.i = icmp eq i8 %41, 0
-  br i1 %.not.i, label %45, label %42
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
   %43 = atomicrmw volatile add ptr %39, i32 -1 monotonic, align 4
@@ -132,8 +129,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %42, %45
   call void %55(ptr noundef nonnull %37) #3
   %56 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %57 = load ptr, ptr %56, align 8
-  %.not.i23 = icmp eq ptr %57, null
-  br i1 %.not.i23, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %57, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %4, align 8

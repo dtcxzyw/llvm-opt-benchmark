@@ -22,12 +22,11 @@ define noundef i32 @_ZN8facebook5velox6random7getSeedEv() local_unnamed_addr #1 
 entry:
   %ref.tmp.i = alloca %"class.folly::ThreadLocalPRNG", align 1
   %0 = load i8, ptr getelementptr inbounds ({ { { %"struct.std::_Optional_payload_base<unsigned int>::_Empty_byte", [3 x i8] }, i8, [3 x i8] } }, ptr @_ZN8facebook5velox6random12_GLOBAL__N_110customSeedE, i64 0, i32 0, i32 1), align 4
-  %1 = and i8 %0, 1
-  %tobool.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.not, label %cond.false, label %cond.true
+  %tobool.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load i32, ptr @_ZN8facebook5velox6random12_GLOBAL__N_110customSeedE, align 8
+  %1 = load i32, ptr @_ZN8facebook5velox6random12_GLOBAL__N_110customSeedE, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
@@ -37,7 +36,7 @@ cond.false:                                       ; preds = %entry
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %2, %cond.true ], [ %call.i.i, %cond.false ]
+  %cond = phi i32 [ %1, %cond.true ], [ %call.i.i, %cond.false ]
   ret i32 %cond
 }
 

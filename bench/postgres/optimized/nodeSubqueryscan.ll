@@ -35,9 +35,9 @@ define dso_local noundef ptr @ExecInitSubqueryScan(ptr noundef %0, ptr noundef %
   %21 = getelementptr inbounds i8, ptr %4, i64 184
   store ptr %18, ptr %21, align 8
   %22 = load i8, ptr %17, align 8
-  %23 = and i8 %22, 1
-  %24 = getelementptr inbounds i8, ptr %4, i64 195
-  store i8 %23, ptr %24, align 1
+  %23 = getelementptr inbounds i8, ptr %4, i64 195
+  %24 = and i8 %22, 1
+  store i8 %24, ptr %23, align 1
   tail call void @ExecInitResultTypeTL(ptr noundef nonnull %4) #3
   tail call void @ExecAssignScanProjectionInfo(ptr noundef nonnull %4) #3
   %25 = getelementptr inbounds i8, ptr %0, i64 56

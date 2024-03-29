@@ -187,8 +187,8 @@ define i64 @interpt_pp(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %12 = getelementptr inbounds i8, ptr %7, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, -1
-  %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph30, label %.critedge
+  %15 = icmp slt i32 %14, 1
+  br i1 %15, label %.critedge, label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %1
   %16 = getelementptr inbounds i8, ptr %7, i64 16
@@ -210,16 +210,15 @@ define i64 @interpt_pp(ptr nocapture noundef %0) local_unnamed_addr #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %33
-  %.pre-phi = phi i8 [ %61, %.loopexit.loopexit ], [ %46, %33 ]
-  %27 = phi i32 [ %.pre34, %.loopexit.loopexit ], [ %34, %33 ]
-  %28 = phi i32 [ %57, %.loopexit.loopexit ], [ %35, %33 ]
-  %.1.lcssa = phi i8 [ %spec.select, %.loopexit.loopexit ], [ %.029, %33 ]
+  %27 = phi i32 [ %34, %33 ], [ %.pre34, %.loopexit.loopexit ]
+  %28 = phi i32 [ %35, %33 ], [ %56, %.loopexit.loopexit ]
+  %.1.lcssa = phi i8 [ %.029, %33 ], [ %spec.select, %.loopexit.loopexit ]
   %29 = add i32 %27, -1
   %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %indvars.iv.next33, %30
-  %.not = icmp eq i8 %.pre-phi, 0
-  %32 = select i1 %31, i1 %.not, i1 false
-  br i1 %32, label %33, label %._crit_edge, !llvm.loop !4
+  %31 = icmp sge i64 %indvars.iv.next33, %30
+  %32 = trunc i8 %.1.lcssa to i1
+  %.not23 = select i1 %31, i1 true, i1 %32
+  br i1 %.not23, label %._crit_edge, label %33, !llvm.loop !4
 
 33:                                               ; preds = %.lr.ph30, %.loopexit
   %34 = phi i32 [ %13, %.lr.ph30 ], [ %27, %.loopexit ]
@@ -240,54 +239,52 @@ define i64 @interpt_pp(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %43 = load double, ptr %42, align 8
   store double %43, ptr %19, align 8
   %44 = add i32 %35, -1
-  %45 = icmp sgt i32 %44, 0
-  %46 = and i8 %.029, 1
-  %.not2325 = icmp eq i8 %46, 0
-  %47 = select i1 %45, i1 %.not2325, i1 false
-  br i1 %47, label %.lr.ph, label %.loopexit
+  %45 = icmp slt i32 %44, 1
+  %46 = trunc i8 %.029 to i1
+  %.not2425 = select i1 %45, i1 true, i1 %46
+  br i1 %.not2425, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %33 ]
   %.127 = phi i8 [ %spec.select, %.lr.ph ], [ %.029, %33 ]
-  %48 = getelementptr [0 x %struct.Point], ptr %21, i64 0, i64 %indvars.iv
+  %47 = getelementptr [0 x %struct.Point], ptr %21, i64 0, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = getelementptr [0 x %struct.Point], ptr %21, i64 0, i64 %indvars.iv.next
-  %50 = load double, ptr %48, align 8
-  store double %50, ptr %3, align 8
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
-  %52 = load double, ptr %51, align 8
-  store double %52, ptr %22, align 8
-  %53 = load double, ptr %49, align 8
-  store double %53, ptr %23, align 8
-  %54 = getelementptr inbounds i8, ptr %49, i64 8
-  %55 = load double, ptr %54, align 8
-  store double %55, ptr %24, align 8
-  %56 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @lseg_intersect, i32 noundef 0, i64 noundef %25, i64 noundef %26) #18
-  %.not24 = icmp eq i64 %56, 0
-  %spec.select = select i1 %.not24, i8 %.127, i8 1
-  %57 = load i32, ptr %20, align 4
-  %58 = add i32 %57, -1
-  %59 = sext i32 %58 to i64
-  %60 = icmp slt i64 %indvars.iv.next, %59
-  %61 = and i8 %spec.select, 1
-  %.not23 = icmp eq i8 %61, 0
-  %62 = select i1 %60, i1 %.not23, i1 false
-  br i1 %62, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !6
+  %48 = getelementptr [0 x %struct.Point], ptr %21, i64 0, i64 %indvars.iv.next
+  %49 = load double, ptr %47, align 8
+  store double %49, ptr %3, align 8
+  %50 = getelementptr inbounds i8, ptr %47, i64 8
+  %51 = load double, ptr %50, align 8
+  store double %51, ptr %22, align 8
+  %52 = load double, ptr %48, align 8
+  store double %52, ptr %23, align 8
+  %53 = getelementptr inbounds i8, ptr %48, i64 8
+  %54 = load double, ptr %53, align 8
+  store double %54, ptr %24, align 8
+  %55 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @lseg_intersect, i32 noundef 0, i64 noundef %25, i64 noundef %26) #18
+  %.not = icmp eq i64 %55, 0
+  %spec.select = select i1 %.not, i8 %.127, i8 1
+  %56 = load i32, ptr %20, align 4
+  %57 = add i32 %56, -1
+  %58 = sext i32 %57 to i64
+  %59 = icmp sge i64 %indvars.iv.next, %58
+  %60 = trunc i8 %spec.select to i1
+  %.not24 = select i1 %59, i1 true, i1 %60
+  br i1 %.not24, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.loopexit
-  br i1 %.not, label %.critedge, label %64
+  br i1 %32, label %62, label %.critedge
 
 .critedge:                                        ; preds = %1, %._crit_edge
-  %63 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %63, align 4
-  br label %66
+  %61 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %61, align 4
+  br label %64
 
-64:                                               ; preds = %._crit_edge
-  %65 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @lseg_interpt, i32 noundef 0, i64 noundef %25, i64 noundef %26) #18
-  br label %66
+62:                                               ; preds = %._crit_edge
+  %63 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @lseg_interpt, i32 noundef 0, i64 noundef %25, i64 noundef %26) #18
+  br label %64
 
-66:                                               ; preds = %64, %.critedge
-  %.022 = phi i64 [ %65, %64 ], [ 0, %.critedge ]
+64:                                               ; preds = %62, %.critedge
+  %.022 = phi i64 [ %63, %62 ], [ 0, %.critedge ]
   ret i64 %.022
 }
 
@@ -311,9 +308,8 @@ define i64 @overpaid(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #18
   %7 = call i64 @GetAttributeByName(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull %2) #18
   %8 = load i8, ptr %2, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %12, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %12
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 28
@@ -576,7 +572,7 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  %indvars.iv.sroa.gep176 = getelementptr inbounds i8, ptr %2, i64 4
+  %indvars.iv.sroa.gep171 = getelementptr inbounds i8, ptr %2, i64 4
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %1
@@ -648,8 +644,8 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
 
 40:                                               ; preds = %34
   tail call void @pfree(ptr noundef %39) #18
-  %.not148 = icmp eq ptr %.0121, null
-  %41 = select i1 %.not148, ptr %36, ptr %.0121
+  %.not143 = icmp eq ptr %.0121, null
+  %41 = select i1 %.not143, ptr %36, ptr %.0121
   %42 = ptrtoint ptr %41 to i64
   br label %209
 
@@ -683,7 +679,7 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
 
 60:                                               ; preds = %53, %59
   %61 = phi i1 [ true, %53 ], [ false, %59 ]
-  %indvars.iv.sroa.phi = phi ptr [ %2, %53 ], [ %indvars.iv.sroa.gep176, %59 ]
+  %indvars.iv.sroa.phi = phi ptr [ %2, %53 ], [ %indvars.iv.sroa.gep171, %59 ]
   %indvars.iv = phi i64 [ 0, %53 ], [ 1, %59 ]
   %62 = getelementptr ptr, ptr %55, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8
@@ -703,8 +699,8 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
 
 71:                                               ; preds = %60
   %72 = tail call i32 @SPI_gettypeid(ptr noundef nonnull %57, i32 noundef %64) #18
-  %.not147 = icmp eq i32 %72, 23
-  br i1 %.not147, label %59, label %73
+  %.not142 = icmp eq i32 %72, 23
+  br i1 %.not142, label %59, label %73
 
 73:                                               ; preds = %71
   %74 = getelementptr ptr, ptr %55, i64 %indvars.iv
@@ -719,9 +715,8 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %79 = load i32, ptr %2, align 4
   %80 = call i64 @SPI_getbinval(ptr noundef %36, ptr noundef nonnull %57, i32 noundef %79, ptr noundef nonnull %4) #18
   %81 = load i8, ptr %4, align 1
-  %82 = and i8 %81, 1
-  %.not135 = icmp eq i8 %82, 0
-  br i1 %.not135, label %87, label %83
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %87
 
 83:                                               ; preds = %78
   %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -736,9 +731,8 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %89 = load i32, ptr %88, align 4
   %90 = call i64 @SPI_getbinval(ptr noundef %36, ptr noundef nonnull %57, i32 noundef %89, ptr noundef nonnull %4) #18
   %91 = load i8, ptr %4, align 1
-  %92 = and i8 %91, 1
-  %.not136 = icmp eq i8 %92, 0
-  br i1 %.not136, label %98, label %93
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %98
 
 93:                                               ; preds = %87
   %94 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -750,15 +744,14 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   unreachable
 
 98:                                               ; preds = %87
-  %.not137 = icmp eq ptr %.0121, null
-  br i1 %.not137, label %126, label %99
+  %.not135 = icmp eq ptr %.0121, null
+  br i1 %.not135, label %126, label %99
 
 99:                                               ; preds = %98
   %100 = call i64 @SPI_getbinval(ptr noundef nonnull %.0121, ptr noundef nonnull %57, i32 noundef %79, ptr noundef nonnull %4) #18
   %101 = load i8, ptr %4, align 1
-  %102 = and i8 %101, 1
-  %.not139 = icmp eq i8 %102, 0
-  br i1 %.not139, label %107, label %103
+  %102 = trunc i8 %101 to i1
+  br i1 %102, label %103, label %107
 
 103:                                              ; preds = %99
   %104 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -771,9 +764,8 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
 107:                                              ; preds = %99
   %108 = call i64 @SPI_getbinval(ptr noundef nonnull %.0121, ptr noundef nonnull %57, i32 noundef %89, ptr noundef nonnull %4) #18
   %109 = load i8, ptr %4, align 1
-  %110 = and i8 %109, 1
-  %.not140 = icmp eq i8 %110, 0
-  br i1 %.not140, label %116, label %111
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %111, label %116
 
 111:                                              ; preds = %107
   %112 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -785,9 +777,9 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   unreachable
 
 116:                                              ; preds = %107
-  %.not141 = icmp eq i64 %80, %100
-  %.not142 = icmp eq i64 %90, %108
-  %or.cond = select i1 %.not141, i1 %.not142, i1 false
+  %.not137 = icmp eq i64 %80, %100
+  %.not138 = icmp eq i64 %90, %108
+  %or.cond = select i1 %.not137, i1 %.not138, i1 false
   br i1 %or.cond, label %124, label %117
 
 117:                                              ; preds = %116
@@ -802,16 +794,16 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   unreachable
 
 124:                                              ; preds = %116
-  %.not143 = icmp eq i64 %90, 999999
-  br i1 %.not143, label %128, label %125
+  %.not139 = icmp eq i64 %90, 999999
+  br i1 %.not139, label %128, label %125
 
 125:                                              ; preds = %124
   call void @pfree(ptr noundef %39) #18
   br label %209
 
 126:                                              ; preds = %98
-  %.not138 = icmp eq i64 %90, 999999
-  br i1 %.not138, label %128, label %127
+  %.not136 = icmp eq i64 %90, 999999
+  br i1 %.not136, label %128, label %127
 
 127:                                              ; preds = %126
   call void @pfree(ptr noundef %39) #18
@@ -844,28 +836,27 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   br i1 %143, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %138
-  %144 = select i1 %.not137, ptr %36, ptr %.0121
+  %144 = select i1 %.not135, ptr %36, ptr %.0121
   %wide.trip.count = zext nneg i32 %58 to i64
   br label %145
 
 145:                                              ; preds = %.lr.ph, %145
-  %indvars.iv162 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next163, %145 ]
-  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
-  %146 = trunc i64 %indvars.iv.next163 to i32
+  %indvars.iv157 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next158, %145 ]
+  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
+  %146 = trunc i64 %indvars.iv.next158 to i32
   %147 = call i64 @SPI_getbinval(ptr noundef %144, ptr noundef nonnull %57, i32 noundef %146, ptr noundef nonnull %4) #18
-  %148 = getelementptr i64, ptr %141, i64 %indvars.iv162
+  %148 = getelementptr i64, ptr %141, i64 %indvars.iv157
   store i64 %147, ptr %148, align 8
   %149 = load i8, ptr %4, align 1
-  %150 = and i8 %149, 1
-  %.not146 = icmp eq i8 %150, 0
-  %151 = select i1 %.not146, i8 32, i8 110
-  %152 = getelementptr i8, ptr %142, i64 %indvars.iv162
+  %150 = trunc i8 %149 to i1
+  %151 = select i1 %150, i8 110, i8 32
+  %152 = getelementptr i8, ptr %142, i64 %indvars.iv157
   store i8 %151, ptr %152, align 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %145, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %145, %138
-  br i1 %.not137, label %158, label %153
+  br i1 %.not135, label %158, label %153
 
 153:                                              ; preds = %._crit_edge
   %154 = add i32 %79, -1
@@ -896,31 +887,31 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %170 = sext i32 %169 to i64
   %171 = call ptr @palloc(i64 noundef %170) #18
   %172 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %171, ptr noundef nonnull @.str.17, ptr noundef %39) #18
-  %.not144154 = icmp slt i32 %58, 1
-  br i1 %.not144154, label %._crit_edge158, label %.lr.ph157
+  %.not140149 = icmp slt i32 %58, 1
+  br i1 %.not140149, label %._crit_edge153, label %.lr.ph152
 
-.lr.ph157:                                        ; preds = %165, %.lr.ph157
-  %.2155 = phi i32 [ %182, %.lr.ph157 ], [ 1, %165 ]
+.lr.ph152:                                        ; preds = %165, %.lr.ph152
+  %.2150 = phi i32 [ %182, %.lr.ph152 ], [ 1, %165 ]
   %173 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %171) #20
   %174 = getelementptr i8, ptr %171, i64 %173
-  %175 = icmp slt i32 %.2155, %58
+  %175 = icmp slt i32 %.2150, %58
   %176 = select i1 %175, ptr @.str.19, ptr @.str.20
-  %177 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %174, ptr noundef nonnull @.str.18, i32 noundef %.2155, ptr noundef nonnull %176) #18
-  %178 = call i32 @SPI_gettypeid(ptr noundef nonnull %57, i32 noundef %.2155) #18
-  %179 = add i32 %.2155, -1
+  %177 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %174, ptr noundef nonnull @.str.18, i32 noundef %.2150, ptr noundef nonnull %176) #18
+  %178 = call i32 @SPI_gettypeid(ptr noundef nonnull %57, i32 noundef %.2150) #18
+  %179 = add i32 %.2150, -1
   %180 = sext i32 %179 to i64
   %181 = getelementptr i32, ptr %167, i64 %180
   store i32 %178, ptr %181, align 4
-  %182 = add i32 %.2155, 1
-  %.not144 = icmp sgt i32 %182, %58
-  br i1 %.not144, label %._crit_edge158, label %.lr.ph157, !llvm.loop !12
+  %182 = add i32 %.2150, 1
+  %.not140 = icmp sgt i32 %182, %58
+  br i1 %.not140, label %._crit_edge153, label %.lr.ph152, !llvm.loop !12
 
-._crit_edge158:                                   ; preds = %.lr.ph157, %165
+._crit_edge153:                                   ; preds = %.lr.ph152, %165
   %183 = call ptr @SPI_prepare(ptr noundef %171, i32 noundef %58, ptr noundef %167) #18
   %184 = icmp eq ptr %183, null
   br i1 %184, label %185, label %190
 
-185:                                              ; preds = %._crit_edge158
+185:                                              ; preds = %._crit_edge153
   %186 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %186)
   %187 = load i32, ptr @SPI_result, align 4
@@ -929,10 +920,10 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 435, ptr noundef nonnull @__func__.ttdummy) #18
   unreachable
 
-190:                                              ; preds = %._crit_edge158
+190:                                              ; preds = %._crit_edge153
   %191 = call i32 @SPI_keepplan(ptr noundef nonnull %183) #18
-  %.not145 = icmp eq i32 %191, 0
-  br i1 %.not145, label %195, label %192
+  %.not141 = icmp eq i32 %191, 0
+  br i1 %.not141, label %195, label %192
 
 192:                                              ; preds = %190
   %193 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -959,7 +950,7 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   unreachable
 
 203:                                              ; preds = %196
-  br i1 %.not137, label %206, label %204
+  br i1 %.not135, label %206, label %204
 
 204:                                              ; preds = %203
   %205 = call ptr @SPI_modifytuple(ptr noundef %38, ptr noundef %36, i32 noundef 1, ptr noundef nonnull %88, ptr noundef nonnull %3, ptr noundef null) #18
@@ -1181,22 +1172,20 @@ define i64 @make_tuple_indirect(ptr nocapture noundef readonly %0) local_unnamed
   %29 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %27, i64 0, i64 %indvars.iv
   %30 = getelementptr inbounds i8, ptr %29, i64 95
   %31 = load i8, ptr %30, align 1
-  %32 = and i8 %31, 1
-  %.not = icmp eq i8 %32, 0
-  br i1 %.not, label %33, label %98
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %98, label %33
 
 33:                                               ; preds = %28
   %34 = getelementptr i8, ptr %23, i64 %indvars.iv
   %35 = load i8, ptr %34, align 1
-  %36 = and i8 %35, 1
-  %.not66 = icmp eq i8 %36, 0
-  br i1 %.not66, label %37, label %98
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %98, label %37
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %29, i64 72
   %39 = load i16, ptr %38, align 8
-  %.not67 = icmp eq i16 %39, -1
-  br i1 %.not67, label %40, label %98
+  %.not = icmp eq i16 %39, -1
+  br i1 %.not, label %40, label %98
 
 40:                                               ; preds = %37
   %41 = getelementptr i64, ptr %22, i64 %indvars.iv
@@ -1227,8 +1216,8 @@ define i64 @make_tuple_indirect(ptr nocapture noundef readonly %0) local_unnamed
 55:                                               ; preds = %40
   %56 = zext i8 %44 to i32
   %57 = and i32 %56, 1
-  %.not68 = icmp eq i32 %57, 0
-  br i1 %.not68, label %60, label %58
+  %.not66 = icmp eq i32 %57, 0
+  br i1 %.not66, label %60, label %58
 
 58:                                               ; preds = %55
   %59 = lshr i32 %56, 1
@@ -1258,16 +1247,16 @@ define i64 @make_tuple_indirect(ptr nocapture noundef readonly %0) local_unnamed
   %75 = icmp eq i8 %74, 1
   %76 = and i8 %74, -2
   %77 = icmp eq i8 %76, 2
-  %or.cond72 = or i1 %75, %77
+  %or.cond70 = or i1 %75, %77
   %78 = icmp eq i8 %74, 18
   %79 = select i1 %78, i64 18, i64 2
-  %80 = select i1 %or.cond72, i64 10, i64 %79
+  %80 = select i1 %or.cond70, i64 10, i64 %79
   br label %91
 
 81:                                               ; preds = %66
   %82 = and i32 %70, 1
-  %.not69 = icmp eq i32 %82, 0
-  br i1 %.not69, label %85, label %83
+  %.not67 = icmp eq i32 %82, 0
+  br i1 %.not67, label %85, label %83
 
 83:                                               ; preds = %81
   %84 = lshr i32 %70, 1
@@ -2430,15 +2419,14 @@ define noundef i64 @test_support_func(ptr nocapture noundef readonly %0) local_u
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %4, i64 36
   %9 = load i8, ptr %8, align 4
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
+  %10 = trunc i8 %9 to i1
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %4, i64 32
   %16 = load i32, ptr %15, align 8
-  br i1 %.not, label %23, label %17
+  br i1 %10, label %17, label %23
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds i8, ptr %4, i64 44
@@ -2479,8 +2467,8 @@ define noundef i64 @test_support_func(ptr nocapture noundef readonly %0) local_u
 34:                                               ; preds = %29
   %35 = getelementptr inbounds i8, ptr %4, i64 24
   %36 = load ptr, ptr %35, align 8
-  %.not40 = icmp eq ptr %36, null
-  br i1 %.not40, label %70, label %37
+  %.not = icmp eq ptr %36, null
+  br i1 %.not, label %70, label %37
 
 37:                                               ; preds = %34
   %38 = load i32, ptr %36, align 4
@@ -2502,9 +2490,8 @@ define noundef i64 @test_support_func(ptr nocapture noundef readonly %0) local_u
 49:                                               ; preds = %40
   %50 = getelementptr inbounds i8, ptr %44, i64 32
   %51 = load i8, ptr %50, align 8
-  %52 = and i8 %51, 1
-  %.not41 = icmp eq i8 %52, 0
-  br i1 %.not41, label %53, label %70
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %70, label %53
 
 53:                                               ; preds = %49
   %54 = load i32, ptr %46, align 4
@@ -2514,9 +2501,8 @@ define noundef i64 @test_support_func(ptr nocapture noundef readonly %0) local_u
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i8, ptr %46, i64 32
   %58 = load i8, ptr %57, align 8
-  %59 = and i8 %58, 1
-  %.not42 = icmp eq i8 %59, 0
-  br i1 %.not42, label %60, label %70
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %70, label %60
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds i8, ptr %44, i64 24
@@ -2531,9 +2517,9 @@ define noundef i64 @test_support_func(ptr nocapture noundef readonly %0) local_u
   br label %.sink.split
 
 .sink.split:                                      ; preds = %60, %.thread
-  %.sink46 = phi i64 [ 40, %.thread ], [ 32, %60 ]
+  %.sink43 = phi i64 [ 40, %.thread ], [ 32, %60 ]
   %.sink = phi double [ %33, %.thread ], [ %68, %60 ]
-  %69 = getelementptr inbounds i8, ptr %4, i64 %.sink46
+  %69 = getelementptr inbounds i8, ptr %4, i64 %.sink43
   store double %.sink, ptr %69, align 8
   br label %70
 

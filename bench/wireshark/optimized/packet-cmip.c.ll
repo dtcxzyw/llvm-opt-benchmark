@@ -2517,9 +2517,8 @@ define internal i32 @dissect_cmip_T_id(i1 noundef zeroext %0, ptr noundef %1, i3
 define internal i32 @dissect_cmip_T_attributeValueAssertionvalue(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 61
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %18, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %18
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 72
@@ -2564,9 +2563,8 @@ define internal i32 @dissect_cmip_AttributeId(i1 zeroext %0, ptr noundef %1, i32
 define internal i32 @dissect_cmip_AttributeValue(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 61
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %18, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %18
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 72
@@ -2581,9 +2579,8 @@ define internal i32 @dissect_cmip_AttributeValue(i1 zeroext %0, ptr noundef %1, 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds i8, ptr %3, i64 62
   %20 = load i8, ptr %19, align 2
-  %21 = and i8 %20, 1
-  %.not17 = icmp eq i8 %21, 0
-  br i1 %.not17, label %31, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %31
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr @attribute_id_dissector_table, align 8
@@ -2592,8 +2589,8 @@ define internal i32 @dissect_cmip_AttributeValue(i1 zeroext %0, ptr noundef %1, 
   %26 = getelementptr inbounds i8, ptr %3, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @dissector_try_uint(ptr noundef %23, i32 noundef %25, ptr noundef %1, ptr noundef %27, ptr noundef %4) #2
-  %.not18 = icmp eq i32 %28, 0
-  br i1 %.not18, label %31, label %29
+  %.not = icmp eq i32 %28, 0
+  br i1 %.not, label %31, label %29
 
 29:                                               ; preds = %22
   %30 = tail call i32 @tvb_reported_length(ptr noundef %1) #2
@@ -3325,9 +3322,8 @@ define internal i32 @dissect_cmip_T_modificationList_item(i1 noundef zeroext %0,
 define internal i32 @dissect_cmip_T_attributevalue(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 61
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %16, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %16
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 72
@@ -3340,9 +3336,8 @@ define internal i32 @dissect_cmip_T_attributevalue(i1 zeroext %0, ptr noundef %1
 16:                                               ; preds = %6
   %17 = getelementptr inbounds i8, ptr %3, i64 62
   %18 = load i8, ptr %17, align 2
-  %19 = and i8 %18, 1
-  %.not16 = icmp eq i8 %19, 0
-  br i1 %.not16, label %29, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %29
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr @attribute_id_dissector_table, align 8
@@ -3351,8 +3346,8 @@ define internal i32 @dissect_cmip_T_attributevalue(i1 zeroext %0, ptr noundef %1
   %24 = getelementptr inbounds i8, ptr %3, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @dissector_try_uint(ptr noundef %21, i32 noundef %23, ptr noundef %1, ptr noundef %25, ptr noundef %4) #2
-  %.not17 = icmp eq i32 %26, 0
-  br i1 %.not17, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %20
   %28 = tail call i32 @tvb_reported_length(ptr noundef %1) #2
@@ -3388,28 +3383,27 @@ define internal i32 @dissect_cmip_ResultArgument(i1 zeroext %0, ptr noundef %1, 
   %7 = load i32, ptr @opcode, align 4
   %switch.tableidx = add i32 %7, -1
   %8 = icmp ult i32 %switch.tableidx, 9
-  br i1 %8, label %switch.hole_check, label %14
+  br i1 %8, label %switch.hole_check, label %13
 
 switch.hole_check:                                ; preds = %6
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 469, %switch.maskindex
-  %9 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %9, 0
-  br i1 %switch.lobit.not, label %14, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %13
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_cmip_ResultArgument, i64 0, i64 %10
+  %9 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_cmip_ResultArgument, i64 0, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep24 = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_cmip_ResultArgument.1, i64 0, i64 %11
+  %10 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep24 = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_cmip_ResultArgument.1, i64 0, i64 %10
   %switch.load25 = load ptr, ptr %switch.gep24, align 8
-  %12 = load i32, ptr %switch.load, align 4
-  %13 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %switch.load25, i32 noundef -1, i32 noundef %12) #2
-  br label %14
+  %11 = load i32, ptr %switch.load, align 4
+  %12 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %switch.load25, i32 noundef -1, i32 noundef %11) #2
+  br label %13
 
-14:                                               ; preds = %switch.hole_check, %6, %switch.lookup
-  %.0 = phi i32 [ %2, %6 ], [ %13, %switch.lookup ], [ %2, %switch.hole_check ]
+13:                                               ; preds = %switch.hole_check, %6, %switch.lookup
+  %.0 = phi i32 [ %2, %6 ], [ %12, %switch.lookup ], [ %2, %switch.hole_check ]
   ret i32 %.0
 }
 

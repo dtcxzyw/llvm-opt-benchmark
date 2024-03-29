@@ -168,7 +168,7 @@ define internal noundef i64 @dir_read(ptr nocapture noundef %0, ptr noundef %1, 
   %7 = icmp eq ptr %1, null
   %8 = icmp ult i64 %2, 34
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %65, label %9
+  br i1 %or.cond, label %64, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %6, i64 26
@@ -192,7 +192,7 @@ define internal noundef i64 @dir_read(ptr nocapture noundef %0, ptr noundef %1, 
   %23 = getelementptr inbounds i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %32, label %25
+  br i1 %.not.i, label %31, label %25
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds i8, ptr %22, i64 26
@@ -200,91 +200,90 @@ define internal noundef i64 @dir_read(ptr nocapture noundef %0, ptr noundef %1, 
   %28 = and i16 %27, 15
   %switch.tableidx = add nsw i16 %28, -1
   %29 = icmp ult i16 %switch.tableidx, 10
-  br i1 %29, label %switch.hole_check, label %32
+  br i1 %29, label %switch.hole_check, label %31
 
 switch.hole_check:                                ; preds = %25
   %switch.shifted = lshr i16 639, %switch.tableidx
-  %30 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %30, 0
-  br i1 %switch.lobit.not, label %32, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %31
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %31 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @switch.table.dir_read, i64 0, i64 %31
+  %30 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [10 x i8], ptr @switch.table.dir_read, i64 0, i64 %30
   %switch.load = load i8, ptr %switch.gep, align 1
   store i8 %switch.load, ptr %1, align 1
   %.pre = load ptr, ptr %15, align 8
-  br label %32
+  br label %31
 
-32:                                               ; preds = %switch.hole_check, %25, %switch.lookup, %18
-  %33 = phi ptr [ %.pre, %switch.lookup ], [ %22, %25 ], [ %22, %18 ], [ %22, %switch.hole_check ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %.not36.i = icmp eq ptr %35, null
-  br i1 %.not36.i, label %36, label %40
+31:                                               ; preds = %switch.hole_check, %25, %switch.lookup, %18
+  %32 = phi ptr [ %.pre, %switch.lookup ], [ %22, %25 ], [ %22, %18 ], [ %22, %switch.hole_check ]
+  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %.not36.i = icmp eq ptr %34, null
+  br i1 %.not36.i, label %35, label %39
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %33, i64 32
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %41
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds i8, ptr %32, i64 32
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %40
 
-40:                                               ; preds = %36, %32
+39:                                               ; preds = %35, %31
   store i8 4, ptr %1, align 1
-  br label %41
+  br label %40
 
-41:                                               ; preds = %40, %36
-  %42 = tail call i32 @inode_lock() #7
-  %43 = load ptr, ptr %15, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
-  %45 = load ptr, ptr %44, align 8
-  store ptr %45, ptr %15, align 8
-  %.not37.i = icmp eq ptr %45, null
-  br i1 %.not37.i, label %read_pseudodir.exit.thread20, label %46
+40:                                               ; preds = %39, %35
+  %41 = tail call i32 @inode_lock() #7
+  %42 = load ptr, ptr %15, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8
+  store ptr %44, ptr %15, align 8
+  %.not37.i = icmp eq ptr %44, null
+  br i1 %.not37.i, label %read_pseudodir.exit.thread20, label %45
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %45, i64 24
-  %48 = load i16, ptr %47, align 8
-  %49 = add i16 %48, 1
-  store i16 %49, ptr %47, align 8
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds i8, ptr %44, i64 24
+  %47 = load i16, ptr %46, align 8
+  %48 = add i16 %47, 1
+  store i16 %48, ptr %46, align 8
   br label %read_pseudodir.exit.thread20
 
-read_pseudodir.exit.thread20:                     ; preds = %41, %46
+read_pseudodir.exit.thread20:                     ; preds = %40, %45
   tail call void @inode_unlock() #7
-  tail call void @inode_release(ptr noundef nonnull %43) #7
-  br label %61
+  tail call void @inode_release(ptr noundef nonnull %42) #7
+  br label %60
 
 read_pseudodir.exit:                              ; preds = %9
-  %50 = getelementptr inbounds i8, ptr %6, i64 32
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 120
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 %53(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %1) #7
-  %.fr = freeze i32 %54
-  %55 = icmp slt i32 %.fr, 0
-  br i1 %55, label %56, label %61
+  %49 = getelementptr inbounds i8, ptr %6, i64 32
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 120
+  %52 = load ptr, ptr %51, align 8
+  %53 = tail call i32 %52(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %1) #7
+  %.fr = freeze i32 %53
+  %54 = icmp slt i32 %.fr, 0
+  br i1 %54, label %55, label %60
 
-56:                                               ; preds = %read_pseudodir.exit
-  %57 = icmp eq i32 %.fr, -2
-  br i1 %57, label %.thread, label %58
+55:                                               ; preds = %read_pseudodir.exit
+  %56 = icmp eq i32 %.fr, -2
+  br i1 %56, label %.thread, label %57
 
-.thread:                                          ; preds = %14, %56
-  br label %58
+.thread:                                          ; preds = %14, %55
+  br label %57
 
-58:                                               ; preds = %56, %.thread
-  %59 = phi i32 [ 0, %.thread ], [ %.fr, %56 ]
-  %60 = sext i32 %59 to i64
-  br label %65
+57:                                               ; preds = %55, %.thread
+  %58 = phi i32 [ 0, %.thread ], [ %.fr, %55 ]
+  %59 = sext i32 %58 to i64
+  br label %64
 
-61:                                               ; preds = %read_pseudodir.exit.thread20, %read_pseudodir.exit
-  %62 = getelementptr inbounds i8, ptr %0, i64 4
-  %63 = load i32, ptr %62, align 4
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %62, align 4
-  br label %65
+60:                                               ; preds = %read_pseudodir.exit.thread20, %read_pseudodir.exit
+  %61 = getelementptr inbounds i8, ptr %0, i64 4
+  %62 = load i32, ptr %61, align 4
+  %63 = add nsw i32 %62, 1
+  store i32 %63, ptr %61, align 4
+  br label %64
 
-65:                                               ; preds = %3, %61, %58
-  %.016 = phi i64 [ %60, %58 ], [ 34, %61 ], [ -22, %3 ]
+64:                                               ; preds = %3, %60, %57
+  %.016 = phi i64 [ %59, %57 ], [ 34, %60 ], [ -22, %3 ]
   ret i64 %.016
 }
 

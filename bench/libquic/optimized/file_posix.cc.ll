@@ -1169,9 +1169,8 @@ if.end14:                                         ; preds = %invoke.cont6
 invoke.cont15:                                    ; preds = %if.end14
   %async_.i = getelementptr inbounds i8, ptr %this, i64 49
   %4 = load i8, ptr %async_.i, align 1
-  %5 = and i8 %4, 1
-  %tobool.i.not = icmp eq i8 %5, 0
-  br i1 %tobool.i.not, label %cleanup, label %if.then19
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %if.then19, label %cleanup
 
 if.then19:                                        ; preds = %invoke.cont15
   %async_ = getelementptr inbounds i8, ptr %agg.result, i64 49
@@ -1250,13 +1249,12 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 
 switch.hole_check:                                ; preds = %entry
   %switch.shifted = lshr i32 714709011, %switch.tableidx
-  %5 = and i32 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i32 %5, 0
-  br i1 %switch.lobit.not, label %do.body, label %switch.lookup
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %do.body
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [30 x i32], ptr @switch.table._ZN4base4File18OSErrorToFileErrorEi, i64 0, i64 %6
+  %5 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [30 x i32], ptr @switch.table._ZN4base4File18OSErrorToFileErrorEi, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 

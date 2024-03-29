@@ -27,9 +27,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Comm_remote_group(ptr noundef %0, ptr noundef writeonly %1) #0 {
   %3 = load i8, ptr @ompi_mpi_param_check, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %._crit_edge, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 224
@@ -77,17 +76,16 @@ ompi_comm_invalid.exit.thread:                    ; preds = %10, %ompi_comm_inva
 25:                                               ; preds = %._crit_edge, %17
   %26 = phi i32 [ %.pre, %._crit_edge ], [ %14, %17 ]
   %27 = and i32 %26, 1
-  %.not15 = icmp eq i32 %27, 0
-  br i1 %.not15, label %41, label %28
+  %.not14 = icmp eq i32 %27, 0
+  br i1 %.not14, label %41, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %0, i64 256
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
-  %33 = and i8 %32, 1
-  %.not.i = icmp eq i8 %33, 0
-  br i1 %.not.i, label %36, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
 34:                                               ; preds = %28
   %35 = atomicrmw volatile add ptr %31, i32 1 monotonic, align 4

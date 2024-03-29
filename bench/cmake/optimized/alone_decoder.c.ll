@@ -93,15 +93,15 @@ define internal i32 @alone_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   %22 = getelementptr inbounds i8, ptr %10, i64 24
   %.pre = load i32, ptr %13, align 8
   %23 = icmp eq i32 %.pre, 4
-  br i1 %23, label %.critedge2.thread, label %.lr.ph96
+  br i1 %23, label %.critedge2.thread, label %.lr.ph95
 
-.lr.ph96:                                         ; preds = %.lr.ph, %97
+.lr.ph95:                                         ; preds = %.lr.ph, %97
   %24 = phi i32 [ %98, %97 ], [ %.pre, %.lr.ph ]
   %25 = load i64, ptr %3, align 8
   %26 = icmp ult i64 %25, %4
   br i1 %26, label %.critedge2, label %.critedge
 
-.critedge2:                                       ; preds = %.lr.ph96
+.critedge2:                                       ; preds = %.lr.ph95
   switch i32 %24, label %.critedge [
     i32 0, label %27
     i32 1, label %33
@@ -110,7 +110,7 @@ define internal i32 @alone_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   ]
 
 .critedge2._crit_edge:                            ; preds = %.critedge2
-  %.pre95 = load i64, ptr %18, align 8
+  %.pre94 = load i64, ptr %18, align 8
   br label %84
 
 27:                                               ; preds = %.critedge2
@@ -143,11 +143,10 @@ define internal i32 @alone_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
 
 45:                                               ; preds = %33
   %46 = load i8, ptr %16, align 4
-  %47 = and i8 %46, 1
-  %.not77 = icmp eq i8 %47, 0
-  %.not78 = icmp eq i32 %42, -1
-  %or.cond80 = select i1 %.not77, i1 true, i1 %.not78
-  br i1 %or.cond80, label %61, label %48
+  %47 = trunc i8 %46 to i1
+  %.not76 = icmp ne i32 %42, -1
+  %or.cond79.not = select i1 %47, i1 %.not76, i1 false
+  br i1 %or.cond79.not, label %48, label %61
 
 48:                                               ; preds = %45
   %49 = add i32 %42, -1
@@ -162,8 +161,8 @@ define internal i32 @alone_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   %58 = lshr i32 %57, 16
   %59 = or i32 %58, %57
   %60 = add i32 %59, 1
-  %.not79 = icmp eq i32 %60, %42
-  br i1 %.not79, label %61, label %.critedge
+  %.not77 = icmp eq i32 %60, %42
+  br i1 %.not77, label %61, label %.critedge
 
 61:                                               ; preds = %48, %45
   store i64 0, ptr %14, align 8
@@ -195,12 +194,11 @@ define internal i32 @alone_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
 
 77:                                               ; preds = %65
   %78 = load i8, ptr %16, align 4
-  %79 = and i8 %78, 1
-  %.not = icmp ne i8 %79, 0
+  %79 = trunc i8 %78 to i1
   %80 = add i64 %73, -274877906944
   %or.cond = icmp ult i64 %80, -274877906945
-  %or.cond81 = select i1 %.not, i1 %or.cond, i1 false
-  br i1 %or.cond81, label %.critedge, label %81
+  %or.cond80 = select i1 %79, i1 %or.cond, i1 false
+  br i1 %or.cond80, label %.critedge, label %81
 
 81:                                               ; preds = %77
   %82 = call i64 @lzma_lzma_decoder_memusage(ptr noundef nonnull %17) #6
@@ -211,7 +209,7 @@ define internal i32 @alone_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   br label %84
 
 84:                                               ; preds = %.critedge2._crit_edge, %81
-  %85 = phi i64 [ %.pre95, %.critedge2._crit_edge ], [ %83, %81 ]
+  %85 = phi i64 [ %.pre94, %.critedge2._crit_edge ], [ %83, %81 ]
   %86 = load i64, ptr %19, align 8
   %87 = icmp ugt i64 %85, %86
   br i1 %87, label %.critedge, label %88
@@ -222,8 +220,8 @@ define internal i32 @alone_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   store ptr %17, ptr %21, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %89 = call i32 @lzma_next_filter_init(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %10) #6
-  %.not76 = icmp eq i32 %89, 0
-  br i1 %.not76, label %90, label %.critedge
+  %.not75 = icmp eq i32 %89, 0
+  br i1 %.not75, label %90, label %.critedge
 
 90:                                               ; preds = %88
   %91 = load ptr, ptr %0, align 8
@@ -242,10 +240,10 @@ define internal i32 @alone_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
 97:                                               ; preds = %65, %90, %62, %31
   %98 = phi i32 [ 2, %65 ], [ 4, %90 ], [ %63, %62 ], [ 1, %31 ]
   %99 = icmp eq i32 %98, 4
-  br i1 %99, label %.critedge2.thread, label %.lr.ph96
+  br i1 %99, label %.critedge2.thread, label %.lr.ph95
 
-.critedge:                                        ; preds = %27, %48, %84, %88, %.critedge2, %.lr.ph96, %77, %9, %.critedge2.thread
-  %.0 = phi i32 [ %96, %.critedge2.thread ], [ 0, %9 ], [ 7, %77 ], [ 0, %.lr.ph96 ], [ 11, %.critedge2 ], [ %89, %88 ], [ 6, %84 ], [ 7, %48 ], [ 7, %27 ]
+.critedge:                                        ; preds = %27, %48, %84, %88, %.critedge2, %.lr.ph95, %77, %9, %.critedge2.thread
+  %.0 = phi i32 [ %96, %.critedge2.thread ], [ 0, %9 ], [ 7, %77 ], [ 0, %.lr.ph95 ], [ 11, %.critedge2 ], [ %89, %88 ], [ 6, %84 ], [ 7, %48 ], [ 7, %27 ]
   ret i32 %.0
 }
 

@@ -123,7 +123,7 @@ if.end16:                                         ; preds = %if.then13, %if.else
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #4
 
 declare noundef i32 @_ZNK7Imf_3_25Image9levelModeEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #0
@@ -245,9 +245,8 @@ ehcleanup:                                        ; preds = %lpad7, %lpad
 
 if.end:                                           ; preds = %entry
   %2 = load i8, ptr %multiPart, align 1
-  %3 = and i8 %2, 1
-  %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %if.end26, label %do.body10
+  %tobool = trunc i8 %2 to i1
+  br i1 %tobool, label %do.body10, label %if.end26
 
 do.body10:                                        ; preds = %if.end
   call void @_Z13iex_debugTrapv()
@@ -274,18 +273,18 @@ invoke.cont22:                                    ; preds = %invoke.cont18
           to label %unreachable unwind label %lpad13
 
 lpad13:                                           ; preds = %invoke.cont22, %invoke.cont16, %invoke.cont14, %do.body10
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup24
 
 lpad21:                                           ; preds = %invoke.cont18
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception20) #11
   br label %ehcleanup24
 
 ehcleanup24:                                      ; preds = %lpad21, %lpad13
-  %.pn18 = phi { ptr, i32 } [ %4, %lpad13 ], [ %5, %lpad21 ]
+  %.pn18 = phi { ptr, i32 } [ %3, %lpad13 ], [ %4, %lpad21 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s11) #11
   br label %eh.resume
 
@@ -324,14 +323,13 @@ invoke.cont38:                                    ; preds = %invoke.cont36
           to label %land.end unwind label %lpad29
 
 land.end:                                         ; preds = %invoke.cont38, %invoke.cont34, %invoke.cont30
-  %6 = phi i1 [ false, %invoke.cont34 ], [ false, %invoke.cont30 ], [ %call41, %invoke.cont38 ]
-  %frombool = zext i1 %6 to i8
+  %5 = phi i1 [ false, %invoke.cont34 ], [ false, %invoke.cont30 ], [ %call41, %invoke.cont38 ]
+  %frombool = zext i1 %5 to i8
   store i8 %frombool, ptr %tiled, align 1
   call void @_ZN7Imf_3_218MultiPartInputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %mpi) #11
-  %7 = load i8, ptr %deep, align 1
-  %8 = and i8 %7, 1
-  %tobool43.not = icmp eq i8 %8, 0
-  br i1 %tobool43.not, label %if.else56, label %if.then44
+  %6 = load i8, ptr %deep, align 1
+  %tobool43 = trunc i8 %6 to i1
+  br i1 %tobool43, label %if.then44, label %if.else56
 
 if.then44:                                        ; preds = %land.end
   %call47 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #13
@@ -342,23 +340,22 @@ invoke.cont46:                                    ; preds = %if.then44
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %invoke.cont46
-  %9 = load i8, ptr %tiled, align 1
-  %10 = and i8 %9, 1
-  %tobool51.not = icmp eq i8 %10, 0
-  br i1 %tobool51.not, label %if.else, label %if.then52
+  %7 = load i8, ptr %tiled, align 1
+  %tobool51 = trunc i8 %7 to i1
+  br i1 %tobool51, label %if.then52, label %if.else
 
 if.then52:                                        ; preds = %invoke.cont49
   invoke void @_ZN7Imf_3_218loadDeepTiledImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_6HeaderERNS_9DeepImageE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %call47)
           to label %try.cont unwind label %delete.notnull
 
 lpad29:                                           ; preds = %invoke.cont38, %invoke.cont36, %land.rhs, %invoke.cont32, %land.lhs.true, %if.end26
-  %11 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7Imf_3_218MultiPartInputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %mpi) #11
   br label %eh.resume
 
 lpad48:                                           ; preds = %invoke.cont46
-  %12 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch.thread
 
@@ -375,33 +372,32 @@ invoke.cont57:                                    ; preds = %if.else56
           to label %invoke.cont60 unwind label %lpad59
 
 invoke.cont60:                                    ; preds = %invoke.cont57
-  %13 = load i8, ptr %tiled, align 1
-  %14 = and i8 %13, 1
-  %tobool62.not = icmp eq i8 %14, 0
-  br i1 %tobool62.not, label %if.else65, label %if.then63
+  %10 = load i8, ptr %tiled, align 1
+  %tobool62 = trunc i8 %10 to i1
+  br i1 %tobool62, label %if.then63, label %if.else65
 
 if.then63:                                        ; preds = %invoke.cont60
   invoke void @_ZN7Imf_3_218loadFlatTiledImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_6HeaderERNS_9FlatImageE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %call58)
           to label %try.cont unwind label %delete.notnull
 
 lpad59:                                           ; preds = %invoke.cont57
-  %15 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch.thread
 
 catch.thread:                                     ; preds = %lpad48, %lpad59
   %call47.sink = phi ptr [ %call47, %lpad48 ], [ %call58, %lpad59 ]
-  %.pn17.ph = phi { ptr, i32 } [ %12, %lpad48 ], [ %15, %lpad59 ]
+  %.pn17.ph = phi { ptr, i32 } [ %9, %lpad48 ], [ %11, %lpad59 ]
   call void @_ZdlPv(ptr noundef nonnull %call47.sink) #14
   %exn.slot.223 = extractvalue { ptr, i32 } %.pn17.ph, 0
-  %16 = call ptr @__cxa_begin_catch(ptr %exn.slot.223) #11
+  %12 = call ptr @__cxa_begin_catch(ptr %exn.slot.223) #11
   br label %delete.end
 
 catch:                                            ; preds = %if.then44, %if.else56
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           catch ptr null
   %exn.slot.2 = extractvalue { ptr, i32 } %lpad.thr_comm.split-lp, 0
-  %17 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #11
+  %13 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #11
   br label %delete.end
 
 delete.notnull:                                   ; preds = %if.then52, %if.else, %if.then63, %if.else65
@@ -409,11 +405,11 @@ delete.notnull:                                   ; preds = %if.then52, %if.else
   %lpad.thr_comm = landingpad { ptr, i32 }
           catch ptr null
   %exn.slot.229 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
-  %18 = call ptr @__cxa_begin_catch(ptr %exn.slot.229) #11
+  %14 = call ptr @__cxa_begin_catch(ptr %exn.slot.229) #11
   %vtable = load ptr, ptr %img.0.ph, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %19 = load ptr, ptr %vfn, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(104) %img.0.ph) #11
+  %15 = load ptr, ptr %vfn, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(104) %img.0.ph) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %catch, %catch.thread, %delete.notnull
@@ -425,7 +421,7 @@ if.else65:                                        ; preds = %invoke.cont60
           to label %try.cont unwind label %delete.notnull
 
 lpad69:                                           ; preds = %delete.end
-  %20 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -435,14 +431,14 @@ try.cont:                                         ; preds = %if.else, %if.then52
   ret ptr %img.2
 
 eh.resume:                                        ; preds = %lpad69, %lpad29, %ehcleanup24, %ehcleanup
-  %.pn18.pn = phi { ptr, i32 } [ %.pn18, %ehcleanup24 ], [ %20, %lpad69 ], [ %11, %lpad29 ], [ %.pn, %ehcleanup ]
+  %.pn18.pn = phi { ptr, i32 } [ %.pn18, %ehcleanup24 ], [ %16, %lpad69 ], [ %8, %lpad29 ], [ %.pn, %ehcleanup ]
   resume { ptr, i32 } %.pn18.pn
 
 terminate.lpad:                                   ; preds = %lpad69
-  %21 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #15
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #15
   unreachable
 
 unreachable:                                      ; preds = %delete.end, %invoke.cont22, %invoke.cont8
@@ -813,7 +809,7 @@ attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind memory(read) }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

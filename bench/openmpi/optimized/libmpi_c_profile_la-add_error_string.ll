@@ -14,9 +14,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Add_error_string(i32 noundef %0, ptr noundef %1) #0 {
   %3 = load i8, ptr @ompi_mpi_param_check, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %27, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %27
 
 5:                                                ; preds = %2
   %6 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -55,8 +54,8 @@ ompi_mpi_errcode_is_invalid.exit:                 ; preds = %10, %13
 
 ompi_mpi_errcode_is_predefined.exit:              ; preds = %17, %20
   %22 = phi i32 [ %.pre.i, %20 ], [ %18, %17 ]
-  %.not.i9.not = icmp slt i32 %22, %0
-  br i1 %.not.i9.not, label %23, label %.sink.split
+  %.not.i8.not = icmp slt i32 %22, %0
+  br i1 %.not.i8.not, label %23, label %.sink.split
 
 23:                                               ; preds = %ompi_mpi_errcode_is_predefined.exit
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #4
@@ -69,8 +68,8 @@ ompi_mpi_errcode_is_predefined.exit:              ; preds = %17, %20
   %29 = trunc i64 %28 to i32
   %30 = add i32 %29, 1
   %31 = tail call i32 @ompi_mpi_errnum_add_string(i32 noundef %0, ptr noundef %1, i32 noundef %30) #3
-  %.not8 = icmp eq i32 %31, 0
-  br i1 %.not8, label %33, label %.sink.split
+  %.not7 = icmp eq i32 %31, 0
+  br i1 %.not7, label %33, label %.sink.split
 
 .sink.split:                                      ; preds = %27, %23, %ompi_mpi_errcode_is_predefined.exit, %ompi_mpi_errcode_is_invalid.exit
   %.sink = phi i32 [ 13, %ompi_mpi_errcode_is_invalid.exit ], [ 13, %ompi_mpi_errcode_is_predefined.exit ], [ 13, %23 ], [ 17, %27 ]

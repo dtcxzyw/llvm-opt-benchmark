@@ -23,9 +23,8 @@ define noundef i32 @opal_datatype_destroy(ptr nocapture noundef %0) local_unname
 10:                                               ; preds = %1, %6
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = load i8, ptr @opal_uses_threads, align 1
-  %13 = and i8 %12, 1
-  %.not.i = icmp eq i8 %13, 0
-  br i1 %.not.i, label %17, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %17
 
 14:                                               ; preds = %10
   %15 = atomicrmw volatile add ptr %11, i32 -1 monotonic, align 4
@@ -58,8 +57,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %14, %17
   tail call void %27(ptr noundef nonnull %2) #2
   %28 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %29 = load ptr, ptr %28, align 8
-  %.not.i9 = icmp eq ptr %29, null
-  br i1 %.not.i9, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %29, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %22
   tail call void @free(ptr noundef %2) #2

@@ -35,9 +35,9 @@ define dso_local noundef i32 @CheckSASLAuth(ptr nocapture noundef readonly %0, p
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   br label %17
 
-17:                                               ; preds = %63, %4
-  %.025 = phi ptr [ null, %4 ], [ %.126, %63 ]
-  %.024 = phi i8 [ 1, %4 ], [ %.1, %63 ]
+17:                                               ; preds = %62, %4
+  %.025 = phi ptr [ null, %4 ], [ %.126, %62 ]
+  %.024 = phi i1 [ true, %4 ], [ false, %62 ]
   call void @pq_startmsgread() #4
   %18 = call i32 @pq_getbyte() #4
   switch i32 %18, label %19 [
@@ -75,85 +75,81 @@ define dso_local noundef i32 @CheckSASLAuth(ptr nocapture noundef readonly %0, p
   br label %32
 
 32:                                               ; preds = %27, %29
-  %33 = and i8 %.024, 1
-  %.not35 = icmp eq i8 %33, 0
-  br i1 %.not35, label %40, label %34
+  br i1 %.024, label %33, label %39
 
-34:                                               ; preds = %32
-  %35 = call ptr @pq_getmsgrawstring(ptr noundef nonnull %6) #4
-  %36 = load ptr, ptr %15, align 8
-  %37 = call ptr %36(ptr noundef %1, ptr noundef %35, ptr noundef %2) #4
-  %38 = call i32 @pq_getmsgint(ptr noundef nonnull %6, i32 noundef 4) #4
-  %39 = icmp eq i32 %38, -1
-  br i1 %39, label %43, label %.sink.split
+33:                                               ; preds = %32
+  %34 = call ptr @pq_getmsgrawstring(ptr noundef nonnull %6) #4
+  %35 = load ptr, ptr %15, align 8
+  %36 = call ptr %35(ptr noundef %1, ptr noundef %34, ptr noundef %2) #4
+  %37 = call i32 @pq_getmsgint(ptr noundef nonnull %6, i32 noundef 4) #4
+  %38 = icmp eq i32 %37, -1
+  br i1 %38, label %42, label %.sink.split
 
-40:                                               ; preds = %32
-  %41 = load i32, ptr %14, align 8
+39:                                               ; preds = %32
+  %40 = load i32, ptr %14, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %34, %40
-  %.sink = phi i32 [ %41, %40 ], [ %38, %34 ]
-  %.126.ph = phi ptr [ %.025, %40 ], [ %37, %34 ]
-  %.1.ph = phi i8 [ %.024, %40 ], [ 0, %34 ]
-  %42 = call ptr @pq_getmsgbytes(ptr noundef nonnull %6, i32 noundef %.sink) #4
-  br label %43
+.sink.split:                                      ; preds = %33, %39
+  %.sink = phi i32 [ %40, %39 ], [ %37, %33 ]
+  %.126.ph = phi ptr [ %.025, %39 ], [ %36, %33 ]
+  %41 = call ptr @pq_getmsgbytes(ptr noundef nonnull %6, i32 noundef %.sink) #4
+  br label %42
 
-43:                                               ; preds = %.sink.split, %34
-  %.129 = phi ptr [ null, %34 ], [ %42, %.sink.split ]
-  %.027 = phi i32 [ -1, %34 ], [ %.sink, %.sink.split ]
-  %.126 = phi ptr [ %37, %34 ], [ %.126.ph, %.sink.split ]
-  %.1 = phi i8 [ 0, %34 ], [ %.1.ph, %.sink.split ]
+42:                                               ; preds = %.sink.split, %33
+  %.129 = phi ptr [ null, %33 ], [ %41, %.sink.split ]
+  %.027 = phi i32 [ -1, %33 ], [ %.sink, %.sink.split ]
+  %.126 = phi ptr [ %36, %33 ], [ %.126.ph, %.sink.split ]
   call void @pq_getmsgend(ptr noundef nonnull %6) #4
-  %44 = load ptr, ptr %16, align 8
-  %45 = call i32 %44(ptr noundef %.126, ptr noundef %.129, i32 noundef %.027, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %3) #4
-  %46 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %46) #4
-  %47 = load ptr, ptr %7, align 8
-  %.not36 = icmp eq ptr %47, null
-  br i1 %.not36, label %63, label %48
+  %43 = load ptr, ptr %16, align 8
+  %44 = call i32 %43(ptr noundef %.126, ptr noundef %.129, i32 noundef %.027, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %3) #4
+  %45 = load ptr, ptr %6, align 8
+  call void @pfree(ptr noundef %45) #4
+  %46 = load ptr, ptr %7, align 8
+  %.not35 = icmp eq ptr %46, null
+  br i1 %.not35, label %62, label %47
 
-48:                                               ; preds = %43
-  %49 = icmp eq i32 %45, 2
-  br i1 %49, label %50, label %53
+47:                                               ; preds = %42
+  %48 = icmp eq i32 %44, 2
+  br i1 %48, label %49, label %52
 
-50:                                               ; preds = %48
-  %51 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  call void @llvm.assume(i1 %51)
-  %52 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #4
+49:                                               ; preds = %47
+  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  call void @llvm.assume(i1 %50)
+  %51 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #4
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 179, ptr noundef nonnull @__func__.CheckSASLAuth) #4
   unreachable
 
-53:                                               ; preds = %48
-  %54 = call zeroext i1 @errstart(i32 noundef 11, ptr noundef null) #4
-  br i1 %54, label %55, label %58
+52:                                               ; preds = %47
+  %53 = call zeroext i1 @errstart(i32 noundef 11, ptr noundef null) #4
+  br i1 %53, label %54, label %57
 
-55:                                               ; preds = %53
-  %56 = load i32, ptr %8, align 4
-  %57 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %56) #4
+54:                                               ; preds = %52
+  %55 = load i32, ptr %8, align 4
+  %56 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %55) #4
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 184, ptr noundef nonnull @__func__.CheckSASLAuth) #4
-  br label %58
+  br label %57
 
-58:                                               ; preds = %53, %55
-  %59 = icmp eq i32 %45, 1
-  %60 = load ptr, ptr %7, align 8
-  %61 = load i32, ptr %8, align 4
-  %. = select i1 %59, i32 12, i32 11
-  call void @sendAuthRequest(ptr noundef %1, i32 noundef %., ptr noundef %60, i32 noundef %61) #4
-  %62 = load ptr, ptr %7, align 8
-  call void @pfree(ptr noundef %62) #4
-  br label %63
+57:                                               ; preds = %52, %54
+  %58 = icmp eq i32 %44, 1
+  %59 = load ptr, ptr %7, align 8
+  %60 = load i32, ptr %8, align 4
+  %. = select i1 %58, i32 12, i32 11
+  call void @sendAuthRequest(ptr noundef %1, i32 noundef %., ptr noundef %59, i32 noundef %60) #4
+  %61 = load ptr, ptr %7, align 8
+  call void @pfree(ptr noundef %61) #4
+  br label %62
 
-63:                                               ; preds = %43, %58
-  switch i32 %45, label %.loopexit.loopexit [
+62:                                               ; preds = %42, %57
+  switch i32 %44, label %.loopexit.loopexit [
     i32 0, label %17
     i32 1, label %.loopexit
   ]
 
-.loopexit.loopexit:                               ; preds = %63
+.loopexit.loopexit:                               ; preds = %62
   br label %.loopexit
 
-.loopexit:                                        ; preds = %17, %63, %.loopexit.loopexit, %25
-  %.0 = phi i32 [ -1, %25 ], [ 0, %63 ], [ -2, %17 ], [ -1, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %17, %62, %.loopexit.loopexit, %25
+  %.0 = phi i32 [ -1, %25 ], [ 0, %62 ], [ -2, %17 ], [ -1, %.loopexit.loopexit ]
   ret i32 %.0
 }
 

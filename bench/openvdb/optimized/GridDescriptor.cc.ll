@@ -214,19 +214,18 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %gridType, ptr noundef nonnull align 8 dereferenceable(32) %mGridType)
   %mSaveFloatAsHalf = getelementptr inbounds i8, ptr %this, i64 128
   %1 = load i8, ptr %mSaveFloatAsHalf, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gridType, ptr noundef nonnull @.str.11)
           to label %if.end unwind label %lpad
 
 lpad:                                             ; preds = %call1.i15.noexc, %invoke.cont2, %call1.i6.noexc, %if.end, %if.then
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %gridType) #11
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %if.then, %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i3)
@@ -238,8 +237,8 @@ if.end:                                           ; preds = %if.then, %entry
 
 call1.i6.noexc:                                   ; preds = %if.end
   %call2.i7 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %gridType, i64 noundef 0) #11
-  %4 = load i32, ptr %size.i3, align 4
-  %conv3.i8 = zext i32 %4 to i64
+  %3 = load i32, ptr %size.i3, align 4
+  %conv3.i8 = zext i32 %3 to i64
   %call4.i911 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %call2.i7, i64 noundef %conv3.i8)
           to label %invoke.cont2 unwind label %lpad
 
@@ -255,8 +254,8 @@ invoke.cont2:                                     ; preds = %call1.i6.noexc
 
 call1.i15.noexc:                                  ; preds = %invoke.cont2
   %call2.i16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %mInstanceParentName, i64 noundef 0) #11
-  %5 = load i32, ptr %size.i12, align 4
-  %conv3.i17 = zext i32 %5 to i64
+  %4 = load i32, ptr %size.i12, align 4
+  %conv3.i17 = zext i32 %4 to i64
   %call4.i1820 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %call2.i16, i64 noundef %conv3.i17)
           to label %invoke.cont3 unwind label %lpad
 
@@ -488,13 +487,12 @@ if.end44:                                         ; preds = %if.end21
 if.then47:                                        ; preds = %if.end44
   %mSaveFloatAsHalf49 = getelementptr inbounds i8, ptr %this, i64 128
   %16 = load i8, ptr %mSaveFloatAsHalf49, align 8
-  %17 = and i8 %16, 1
-  %tobool = icmp ne i8 %17, 0
+  %tobool = trunc i8 %16 to i1
   invoke void @_ZN7openvdb5v11_08GridBase18setSaveFloatAsHalfEb(ptr noundef nonnull align 8 dereferenceable(72) %15, i1 noundef zeroext %tobool)
           to label %if.end52 unwind label %lpad50
 
 lpad50:                                           ; preds = %invoke.cont55, %invoke.cont53, %if.end52, %if.then47
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #11
   br label %eh.resume
@@ -518,7 +516,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont55
   ret void
 
 eh.resume:                                        ; preds = %lpad50, %lpad41, %ehcleanup
-  %.pn9 = phi { ptr, i32 } [ %18, %lpad50 ], [ %14, %lpad41 ], [ %.pn, %ehcleanup ]
+  %.pn9 = phi { ptr, i32 } [ %17, %lpad50 ], [ %14, %lpad41 ], [ %.pn, %ehcleanup ]
   resume { ptr, i32 } %.pn9
 
 unreachable:                                      ; preds = %try.cont

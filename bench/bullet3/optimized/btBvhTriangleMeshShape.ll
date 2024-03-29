@@ -81,8 +81,7 @@ call.i.noexc:                                     ; preds = %if.end.i
   %m_meshInterface.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_meshInterface.i, align 8
   %1 = load i8, ptr %m_useQuantizedAabbCompression, align 8
-  %2 = and i8 %1, 1
-  %tobool6.i = icmp ne i8 %2, 0
+  %tobool6.i = trunc i8 %1 to i1
   %m_localAabbMin.i = getelementptr inbounds i8, ptr %this, i64 36
   %m_localAabbMax.i = getelementptr inbounds i8, ptr %this, i64 52
   invoke void @_ZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(244) %call.i1, ptr noundef %0, i1 noundef zeroext %tobool6.i, ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMin.i, ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMax.i)
@@ -93,10 +92,10 @@ _ZN22btBvhTriangleMeshShape17buildOptimizedBvhEv.exit: ; preds = %.noexc2
   br label %if.end
 
 lpad:                                             ; preds = %.noexc2, %call.i.noexc, %if.end.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN19btTriangleMeshShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #10
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %_ZN22btBvhTriangleMeshShape17buildOptimizedBvhEv.exit, %entry
   ret void
@@ -109,18 +108,17 @@ define dso_local void @_ZN22btBvhTriangleMeshShape17buildOptimizedBvhEv(ptr noun
 entry:
   %m_ownsBvh = getelementptr inbounds i8, ptr %this, i64 97
   %0 = load i8, ptr %m_ownsBvh, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_bvh = getelementptr inbounds i8, ptr %this, i64 80
-  %2 = load ptr, ptr %m_bvh, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %3 = load ptr, ptr %vtable, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(244) %2) #10
-  %4 = load ptr, ptr %m_bvh, align 8
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef %4)
+  %1 = load ptr, ptr %m_bvh, align 8
+  %vtable = load ptr, ptr %1, align 8
+  %2 = load ptr, ptr %vtable, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(244) %1) #10
+  %3 = load ptr, ptr %m_bvh, align 8
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef %3)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -129,14 +127,13 @@ if.end:                                           ; preds = %if.then, %entry
   %m_bvh4 = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %call, ptr %m_bvh4, align 8
   %m_meshInterface = getelementptr inbounds i8, ptr %this, i64 72
-  %5 = load ptr, ptr %m_meshInterface, align 8
+  %4 = load ptr, ptr %m_meshInterface, align 8
   %m_useQuantizedAabbCompression = getelementptr inbounds i8, ptr %this, i64 96
-  %6 = load i8, ptr %m_useQuantizedAabbCompression, align 8
-  %7 = and i8 %6, 1
-  %tobool6 = icmp ne i8 %7, 0
+  %5 = load i8, ptr %m_useQuantizedAabbCompression, align 8
+  %tobool6 = trunc i8 %5 to i1
   %m_localAabbMin = getelementptr inbounds i8, ptr %this, i64 36
   %m_localAabbMax = getelementptr inbounds i8, ptr %this, i64 52
-  tail call void @_ZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(244) %call, ptr noundef %5, i1 noundef zeroext %tobool6, ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMax)
+  tail call void @_ZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(244) %call, ptr noundef %4, i1 noundef zeroext %tobool6, ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMax)
   store i8 1, ptr %m_ownsBvh, align 1
   ret void
 }
@@ -173,8 +170,7 @@ invoke.cont:                                      ; preds = %if.then
 invoke.cont8:                                     ; preds = %invoke.cont
   store ptr %call, ptr %m_bvh, align 8
   %0 = load i8, ptr %m_useQuantizedAabbCompression, align 8
-  %1 = and i8 %0, 1
-  %tobool12 = icmp ne i8 %1, 0
+  %tobool12 = trunc i8 %0 to i1
   invoke void @_ZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(244) %call, ptr noundef %meshInterface, i1 noundef zeroext %tobool12, ptr noundef nonnull align 4 dereferenceable(16) %bvhAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %bvhAabbMax)
           to label %invoke.cont13 unwind label %lpad
 
@@ -183,12 +179,12 @@ invoke.cont13:                                    ; preds = %invoke.cont8
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont8, %if.then
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -196,7 +192,7 @@ if.end:                                           ; preds = %invoke.cont13, %ent
   ret void
 
 ehcleanup:                                        ; preds = %lpad7, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad7 ]
+  %.pn = phi { ptr, i32 } [ %1, %lpad ], [ %2, %lpad7 ]
   tail call void @_ZN19btTriangleMeshShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #10
   resume { ptr, i32 } %.pn
 }
@@ -336,18 +332,17 @@ entry:
   store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV22btBvhTriangleMeshShape, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ownsBvh = getelementptr inbounds i8, ptr %this, i64 97
   %0 = load i8, ptr %m_ownsBvh, align 1
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_bvh = getelementptr inbounds i8, ptr %this, i64 80
-  %2 = load ptr, ptr %m_bvh, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %3 = load ptr, ptr %vtable, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(244) %2) #10
-  %4 = load ptr, ptr %m_bvh, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %4)
+  %1 = load ptr, ptr %m_bvh, align 8
+  %vtable = load ptr, ptr %1, align 8
+  %2 = load ptr, ptr %vtable, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(244) %1) #10
+  %3 = load ptr, ptr %m_bvh, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %3)
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
@@ -355,10 +350,10 @@ if.end:                                           ; preds = %if.then, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #11
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #11
   unreachable
 }
 
@@ -381,25 +376,24 @@ entry:
   store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV22btBvhTriangleMeshShape, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ownsBvh.i = getelementptr inbounds i8, ptr %this, i64 97
   %0 = load i8, ptr %m_ownsBvh.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %_ZN22btBvhTriangleMeshShapeD2Ev.exit, label %if.then.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN22btBvhTriangleMeshShapeD2Ev.exit
 
 if.then.i:                                        ; preds = %entry
   %m_bvh.i = getelementptr inbounds i8, ptr %this, i64 80
-  %2 = load ptr, ptr %m_bvh.i, align 8
-  %vtable.i = load ptr, ptr %2, align 8
-  %3 = load ptr, ptr %vtable.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(244) %2) #10
-  %4 = load ptr, ptr %m_bvh.i, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %4)
+  %1 = load ptr, ptr %m_bvh.i, align 8
+  %vtable.i = load ptr, ptr %1, align 8
+  %2 = load ptr, ptr %vtable.i, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(244) %1) #10
+  %3 = load ptr, ptr %m_bvh.i, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %3)
           to label %_ZN22btBvhTriangleMeshShapeD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #11
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #11
   unreachable
 
 _ZN22btBvhTriangleMeshShapeD2Ev.exit:             ; preds = %entry, %if.then.i
@@ -408,10 +402,10 @@ _ZN22btBvhTriangleMeshShapeD2Ev.exit:             ; preds = %entry, %if.then.i
           to label %_ZN22btBvhTriangleMeshShapedlEPv.exit unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %_ZN22btBvhTriangleMeshShapeD2Ev.exit
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #11
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #11
   unreachable
 
 _ZN22btBvhTriangleMeshShapedlEPv.exit:            ; preds = %_ZN22btBvhTriangleMeshShapeD2Ev.exit
@@ -525,18 +519,17 @@ if.then:                                          ; preds = %entry
   tail call void @_ZN19btTriangleMeshShape15setLocalScalingERK9btVector3(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 4 dereferenceable(16) %scaling)
   %m_ownsBvh.i = getelementptr inbounds i8, ptr %this, i64 97
   %9 = load i8, ptr %m_ownsBvh.i, align 1
-  %10 = and i8 %9, 1
-  %tobool.not.i = icmp eq i8 %10, 0
-  br i1 %tobool.not.i, label %_ZN22btBvhTriangleMeshShape17buildOptimizedBvhEv.exit, label %if.then.i
+  %tobool.i = trunc i8 %9 to i1
+  br i1 %tobool.i, label %if.then.i, label %_ZN22btBvhTriangleMeshShape17buildOptimizedBvhEv.exit
 
 if.then.i:                                        ; preds = %if.then
   %m_bvh.i = getelementptr inbounds i8, ptr %this, i64 80
-  %11 = load ptr, ptr %m_bvh.i, align 8
-  %vtable.i = load ptr, ptr %11, align 8
-  %12 = load ptr, ptr %vtable.i, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(244) %11) #10
-  %13 = load ptr, ptr %m_bvh.i, align 8
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef %13)
+  %10 = load ptr, ptr %m_bvh.i, align 8
+  %vtable.i = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %vtable.i, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(244) %10) #10
+  %12 = load ptr, ptr %m_bvh.i, align 8
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef %12)
   br label %_ZN22btBvhTriangleMeshShape17buildOptimizedBvhEv.exit
 
 _ZN22btBvhTriangleMeshShape17buildOptimizedBvhEv.exit: ; preds = %if.then, %if.then.i
@@ -545,14 +538,13 @@ _ZN22btBvhTriangleMeshShape17buildOptimizedBvhEv.exit: ; preds = %if.then, %if.t
   %m_bvh4.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %call.i, ptr %m_bvh4.i, align 8
   %m_meshInterface.i = getelementptr inbounds i8, ptr %this, i64 72
-  %14 = load ptr, ptr %m_meshInterface.i, align 8
+  %13 = load ptr, ptr %m_meshInterface.i, align 8
   %m_useQuantizedAabbCompression.i = getelementptr inbounds i8, ptr %this, i64 96
-  %15 = load i8, ptr %m_useQuantizedAabbCompression.i, align 8
-  %16 = and i8 %15, 1
-  %tobool6.i = icmp ne i8 %16, 0
+  %14 = load i8, ptr %m_useQuantizedAabbCompression.i, align 8
+  %tobool6.i = trunc i8 %14 to i1
   %m_localAabbMin.i = getelementptr inbounds i8, ptr %this, i64 36
   %m_localAabbMax.i = getelementptr inbounds i8, ptr %this, i64 52
-  tail call void @_ZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(244) %call.i, ptr noundef %14, i1 noundef zeroext %tobool6.i, ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMin.i, ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMax.i)
+  tail call void @_ZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(244) %call.i, ptr noundef %13, i1 noundef zeroext %tobool6.i, ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMin.i, ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMax.i)
   store i8 1, ptr %m_ownsBvh.i, align 1
   br label %if.end
 

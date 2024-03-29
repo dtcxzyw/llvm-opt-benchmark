@@ -1430,9 +1430,8 @@ sw.bb.i:                                          ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb1.i:                                         ; preds = %for.end
-  %8 = and i64 %and.i, 1
-  %.not3974.i = icmp eq i64 %8, 0
-  %or.i29 = select i1 %.not3974.i, i64 0, i64 3
+  %8 = trunc i64 %and.i to i1
+  %or.i29 = select i1 %8, i64 3, i64 0
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb4.i:                                         ; preds = %for.end
@@ -1440,9 +1439,8 @@ sw.bb4.i:                                         ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb6.i:                                         ; preds = %for.end
-  %9 = and i64 %and.i, 1
-  %.not3973.i = icmp eq i64 %9, 0
-  %or16.i = select i1 %.not3973.i, i64 0, i64 15
+  %9 = trunc i64 %and.i to i1
+  %or16.i = select i1 %9, i64 15, i64 0
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb17.i:                                        ; preds = %for.end
@@ -1466,9 +1464,8 @@ sw.bb34.i:                                        ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb36.i:                                        ; preds = %for.end
-  %13 = and i64 %and.i, 1
-  %.not3972.i = icmp eq i64 %13, 0
-  %or58.i = select i1 %.not3972.i, i64 0, i64 255
+  %13 = trunc i64 %and.i to i1
+  %or58.i = select i1 %13, i64 255, i64 0
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb59.i:                                        ; preds = %for.end
@@ -1494,9 +1491,8 @@ sw.bb95.i:                                        ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb100.i:                                       ; preds = %for.end
-  %17 = and i64 %and.i, 1
-  %.not3971.i = icmp eq i64 %17, 0
-  %or104.i = select i1 %.not3971.i, i64 0, i64 3
+  %17 = trunc i64 %and.i to i1
+  %or104.i = select i1 %17, i64 3, i64 0
   %and111.i = shl i64 %and.i, 3
   %shl112.i = and i64 %and111.i, 16
   %or116.i = mul nuw nsw i64 %shl112.i, 3
@@ -1540,9 +1536,8 @@ sw.bb164.i:                                       ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb166.i:                                       ; preds = %for.end
-  %29 = and i64 %and.i, 1
-  %.not3970.i = icmp eq i64 %29, 0
-  %or212.i = select i1 %.not3970.i, i64 0, i64 65535
+  %29 = trunc i64 %and.i to i1
+  %or212.i = select i1 %29, i64 65535, i64 0
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb213.i:                                       ; preds = %for.end
@@ -1568,9 +1563,8 @@ sw.bb287.i:                                       ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb298.i:                                       ; preds = %for.end
-  %33 = and i64 %and.i, 1
-  %.not3969.i = icmp eq i64 %33, 0
-  %or302.i = select i1 %.not3969.i, i64 0, i64 3
+  %33 = trunc i64 %and.i to i1
+  %or302.i = select i1 %33, i64 3, i64 0
   %and309.i = shl i64 %and.i, 3
   %shl310.i = and i64 %and309.i, 16
   %or314.i = mul nuw nsw i64 %shl310.i, 3
@@ -1619,9 +1613,8 @@ sw.bb429.i:                                       ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb434.i:                                       ; preds = %for.end
-  %45 = and i64 %and.i, 1
-  %.not3968.i = icmp eq i64 %45, 0
-  %or444.i = select i1 %.not3968.i, i64 0, i64 15
+  %45 = trunc i64 %and.i to i1
+  %or444.i = select i1 %45, i64 15, i64 0
   %and457.i = shl i64 %and.i, 7
   %shl458.i = and i64 %and457.i, 256
   %or470.i = mul nuw nsw i64 %shl458.i, 15
@@ -1678,9 +1671,8 @@ sw.bb568.i:                                       ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb580.i:                                       ; preds = %for.end
-  %60 = and i64 %and.i, 1
-  %.not3967.i = icmp eq i64 %60, 0
-  %or584.i = select i1 %.not3967.i, i64 0, i64 3
+  %60 = trunc i64 %and.i to i1
+  %or584.i = select i1 %60, i64 3, i64 0
   %and591.i = shl i64 %and.i, 3
   %shl592.i = and i64 %and591.i, 16
   %or596.i = mul nuw nsw i64 %shl592.i, 3
@@ -1757,9 +1749,8 @@ sw.bb716.i:                                       ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb718.i:                                       ; preds = %for.end
-  %88 = and i64 %and.i, 1
-  %.not3966.i = icmp eq i64 %88, 0
-  %or812.i = select i1 %.not3966.i, i64 0, i64 4294967295
+  %88 = trunc i64 %and.i to i1
+  %or812.i = select i1 %88, i64 4294967295, i64 0
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb813.i:                                       ; preds = %for.end
@@ -1787,9 +1778,8 @@ sw.bb963.i:                                       ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb986.i:                                       ; preds = %for.end
-  %92 = and i64 %and.i, 1
-  %.not3965.i = icmp eq i64 %92, 0
-  %or990.i = select i1 %.not3965.i, i64 0, i64 3
+  %92 = trunc i64 %and.i to i1
+  %or990.i = select i1 %92, i64 3, i64 0
   %and997.i = shl i64 %and.i, 3
   %shl998.i = and i64 %and997.i, 16
   %or1002.i = mul nuw nsw i64 %shl998.i, 3
@@ -1842,9 +1832,8 @@ sw.bb1251.i:                                      ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb1262.i:                                      ; preds = %for.end
-  %104 = and i64 %and.i, 1
-  %.not3964.i = icmp eq i64 %104, 0
-  %or1272.i = select i1 %.not3964.i, i64 0, i64 15
+  %104 = trunc i64 %and.i to i1
+  %or1272.i = select i1 %104, i64 15, i64 0
   %and1285.i = shl i64 %and.i, 7
   %shl1286.i = and i64 %and1285.i, 256
   %or1298.i = mul nuw nsw i64 %shl1286.i, 15
@@ -1906,9 +1895,8 @@ sw.bb1533.i:                                      ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb1558.i:                                      ; preds = %for.end
-  %119 = and i64 %and.i, 1
-  %.not3963.i = icmp eq i64 %119, 0
-  %or1562.i = select i1 %.not3963.i, i64 0, i64 3
+  %119 = trunc i64 %and.i to i1
+  %or1562.i = select i1 %119, i64 3, i64 0
   %and1569.i = shl i64 %and.i, 3
   %shl1570.i = and i64 %and1569.i, 16
   %or1574.i = mul nuw nsw i64 %shl1570.i, 3
@@ -1992,9 +1980,8 @@ sw.bb1833.i:                                      ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb1838.i:                                      ; preds = %for.end
-  %147 = and i64 %and.i, 1
-  %.not3962.i = icmp eq i64 %147, 0
-  %or1860.i = select i1 %.not3962.i, i64 0, i64 255
+  %147 = trunc i64 %and.i to i1
+  %or1860.i = select i1 %147, i64 255, i64 0
   %and1885.i = shl i64 %and.i, 15
   %shl1886.i = and i64 %and1885.i, 65536
   %or1914.i = mul nuw nsw i64 %shl1886.i, 255
@@ -2054,9 +2041,8 @@ sw.bb2112.i:                                      ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb2138.i:                                      ; preds = %for.end
-  %161 = and i64 %and.i, 1
-  %.not3961.i = icmp eq i64 %161, 0
-  %or2142.i = select i1 %.not3961.i, i64 0, i64 3
+  %161 = trunc i64 %and.i to i1
+  %or2142.i = select i1 %161, i64 3, i64 0
   %and2149.i = shl i64 %and.i, 3
   %shl2150.i = and i64 %and2149.i, 16
   %or2154.i = mul nuw nsw i64 %shl2150.i, 3
@@ -2153,9 +2139,8 @@ sw.bb2416.i:                                      ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb2428.i:                                      ; preds = %for.end
-  %192 = and i64 %and.i, 1
-  %.not3960.i = icmp eq i64 %192, 0
-  %or2438.i = select i1 %.not3960.i, i64 0, i64 15
+  %192 = trunc i64 %and.i to i1
+  %or2438.i = select i1 %192, i64 15, i64 0
   %and2451.i = shl i64 %and.i, 7
   %shl2452.i = and i64 %and2451.i, 256
   %or2464.i = mul nuw nsw i64 %shl2452.i, 15
@@ -2259,9 +2244,8 @@ sw.bb2712.i:                                      ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb2738.i:                                      ; preds = %for.end
-  %226 = and i64 %and.i, 1
-  %.not3959.i = icmp eq i64 %226, 0
-  %or2742.i = select i1 %.not3959.i, i64 0, i64 3
+  %226 = trunc i64 %and.i to i1
+  %or2742.i = select i1 %226, i64 3, i64 0
   %and2749.i = shl i64 %and.i, 3
   %shl2750.i = and i64 %and2749.i, 16
   %or2754.i = mul nuw nsw i64 %shl2750.i, 3
@@ -2407,7 +2391,7 @@ sw.bb3018.i:                                      ; preds = %for.end
 
 sw.bb3020.i:                                      ; preds = %for.end
   %286 = and i64 %and.i, 1
-  %sext = sub nsw i64 0, %286
+  %or3210.i = sub nsw i64 0, %286
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb3211.i:                                      ; preds = %for.end
@@ -2437,9 +2421,8 @@ sw.bb3513.i:                                      ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb3560.i:                                      ; preds = %for.end
-  %290 = and i64 %and.i, 1
-  %.not3957.i = icmp eq i64 %290, 0
-  %or3564.i = select i1 %.not3957.i, i64 0, i64 3
+  %290 = trunc i64 %and.i to i1
+  %or3564.i = select i1 %290, i64 3, i64 0
   %and3571.i = shl i64 %and.i, 3
   %shl3572.i = and i64 %and3571.i, 16
   %or3576.i = mul nuw nsw i64 %shl3572.i, 3
@@ -2498,9 +2481,8 @@ sw.bb4093.i:                                      ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb4116.i:                                      ; preds = %for.end
-  %302 = and i64 %and.i, 1
-  %.not3956.i = icmp eq i64 %302, 0
-  %or4126.i = select i1 %.not3956.i, i64 0, i64 15
+  %302 = trunc i64 %and.i to i1
+  %or4126.i = select i1 %302, i64 15, i64 0
   %and4139.i = shl i64 %and.i, 7
   %shl4140.i = and i64 %and4139.i, 256
   %or4152.i = mul nuw nsw i64 %shl4140.i, 15
@@ -2568,9 +2550,8 @@ sw.bb4661.i:                                      ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb4712.i:                                      ; preds = %for.end
-  %317 = and i64 %and.i, 1
-  %.not3955.i = icmp eq i64 %317, 0
-  %or4716.i = select i1 %.not3955.i, i64 0, i64 3
+  %317 = trunc i64 %and.i to i1
+  %or4716.i = select i1 %317, i64 3, i64 0
   %and4723.i = shl i64 %and.i, 3
   %shl4724.i = and i64 %and4723.i, 16
   %or4728.i = mul nuw nsw i64 %shl4724.i, 3
@@ -2660,9 +2641,8 @@ sw.bb5265.i:                                      ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb5276.i:                                      ; preds = %for.end
-  %345 = and i64 %and.i, 1
-  %.not3954.i = icmp eq i64 %345, 0
-  %or5298.i = select i1 %.not3954.i, i64 0, i64 255
+  %345 = trunc i64 %and.i to i1
+  %or5298.i = select i1 %345, i64 255, i64 0
   %and5323.i = shl i64 %and.i, 15
   %shl5324.i = and i64 %and5323.i, 65536
   %or5352.i = mul nuw nsw i64 %shl5324.i, 255
@@ -2727,9 +2707,8 @@ sw.bb5827.i:                                      ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb5880.i:                                      ; preds = %for.end
-  %359 = and i64 %and.i, 1
-  %.not3953.i = icmp eq i64 %359, 0
-  %or5884.i = select i1 %.not3953.i, i64 0, i64 3
+  %359 = trunc i64 %and.i to i1
+  %or5884.i = select i1 %359, i64 3, i64 0
   %and5891.i = shl i64 %and.i, 3
   %shl5892.i = and i64 %and5891.i, 16
   %or5896.i = mul nuw nsw i64 %shl5892.i, 3
@@ -2833,9 +2812,8 @@ sw.bb6439.i:                                      ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb6464.i:                                      ; preds = %for.end
-  %390 = and i64 %and.i, 1
-  %.not3952.i = icmp eq i64 %390, 0
-  %or6474.i = select i1 %.not3952.i, i64 0, i64 15
+  %390 = trunc i64 %and.i to i1
+  %or6474.i = select i1 %390, i64 15, i64 0
   %and6487.i = shl i64 %and.i, 7
   %shl6488.i = and i64 %and6487.i, 256
   %or6500.i = mul nuw nsw i64 %shl6488.i, 15
@@ -2947,9 +2925,8 @@ sw.bb7035.i:                                      ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb7088.i:                                      ; preds = %for.end
-  %424 = and i64 %and.i, 1
-  %.not3951.i = icmp eq i64 %424, 0
-  %or7092.i = select i1 %.not3951.i, i64 0, i64 3
+  %424 = trunc i64 %and.i to i1
+  %or7092.i = select i1 %424, i64 3, i64 0
   %and7099.i = shl i64 %and.i, 3
   %shl7100.i = and i64 %and7099.i, 16
   %or7104.i = mul nuw nsw i64 %shl7100.i, 3
@@ -3101,13 +3078,12 @@ sw.bb7651.i:                                      ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb7656.i:                                      ; preds = %for.end
-  %484 = and i64 %and.i, 1
-  %.not3950.i = icmp eq i64 %484, 0
-  %or7702.i = select i1 %.not3950.i, i64 0, i64 65535
+  %484 = trunc i64 %and.i to i1
+  %or7702.i = select i1 %484, i64 65535, i64 0
   %and7751.i = shl i64 %and.i, 31
   %shl7752.i = and i64 %and7751.i, 4294967296
   %or7812.i = mul nuw nsw i64 %shl7752.i, 65535
-  %shl78753788.i = or disjoint i64 %or7702.i, %or7812.i
+  %shl78753788.i = or disjoint i64 %or7812.i, %or7702.i
   %485 = shl nuw i64 %shl78753788.i, 16
   %486 = or disjoint i64 %485, %or7702.i
   %or7877.i = or disjoint i64 %486, %or7812.i
@@ -3163,9 +3139,8 @@ sw.bb8210.i:                                      ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb8264.i:                                      ; preds = %for.end
-  %498 = and i64 %and.i, 1
-  %.not3949.i = icmp eq i64 %498, 0
-  %or8268.i = select i1 %.not3949.i, i64 0, i64 3
+  %498 = trunc i64 %and.i to i1
+  %or8268.i = select i1 %498, i64 3, i64 0
   %and8275.i = shl i64 %and.i, 3
   %shl8276.i = and i64 %and8275.i, 16
   %or8280.i = mul nuw nsw i64 %shl8276.i, 3
@@ -3272,9 +3247,8 @@ sw.bb8826.i:                                      ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb8852.i:                                      ; preds = %for.end
-  %528 = and i64 %and.i, 1
-  %.not3948.i = icmp eq i64 %528, 0
-  %or8862.i = select i1 %.not3948.i, i64 0, i64 15
+  %528 = trunc i64 %and.i to i1
+  %or8862.i = select i1 %528, i64 15, i64 0
   %and8875.i = shl i64 %and.i, 7
   %shl8876.i = and i64 %and8875.i, 256
   %or8888.i = mul nuw nsw i64 %shl8876.i, 15
@@ -3395,9 +3369,8 @@ sw.bb9426.i:                                      ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb9480.i:                                      ; preds = %for.end
-  %563 = and i64 %and.i, 1
-  %.not3947.i = icmp eq i64 %563, 0
-  %or9484.i = select i1 %.not3947.i, i64 0, i64 3
+  %563 = trunc i64 %and.i to i1
+  %or9484.i = select i1 %563, i64 3, i64 0
   %and9491.i = shl i64 %and.i, 3
   %shl9492.i = and i64 %and9491.i, 16
   %or9496.i = mul nuw nsw i64 %shl9492.i, 3
@@ -3561,9 +3534,8 @@ sw.bb10046.i:                                     ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb10058.i:                                     ; preds = %for.end
-  %626 = and i64 %and.i, 1
-  %.not3946.i = icmp eq i64 %626, 0
-  %or10080.i = select i1 %.not3946.i, i64 0, i64 255
+  %626 = trunc i64 %and.i to i1
+  %or10080.i = select i1 %626, i64 255, i64 0
   %and10105.i = shl i64 %and.i, 15
   %shl10106.i = and i64 %and10105.i, 65536
   %or10134.i = mul nuw nsw i64 %shl10106.i, 255
@@ -3675,9 +3647,8 @@ sw.bb10638.i:                                     ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb10694.i:                                     ; preds = %for.end
-  %660 = and i64 %and.i, 1
-  %.not3945.i = icmp eq i64 %660, 0
-  %or10698.i = select i1 %.not3945.i, i64 0, i64 3
+  %660 = trunc i64 %and.i to i1
+  %or10698.i = select i1 %660, i64 3, i64 0
   %and10705.i = shl i64 %and.i, 3
   %shl10706.i = and i64 %and10705.i, 16
   %or10710.i = mul nuw nsw i64 %shl10706.i, 3
@@ -3861,9 +3832,8 @@ sw.bb11266.i:                                     ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb11292.i:                                     ; preds = %for.end
-  %726 = and i64 %and.i, 1
-  %.not3944.i = icmp eq i64 %726, 0
-  %or11302.i = select i1 %.not3944.i, i64 0, i64 15
+  %726 = trunc i64 %and.i to i1
+  %or11302.i = select i1 %726, i64 15, i64 0
   %and11315.i = shl i64 %and.i, 7
   %shl11316.i = and i64 %and11315.i, 256
   %or11328.i = mul nuw nsw i64 %shl11316.i, 15
@@ -4063,9 +4033,8 @@ sw.bb11876.i:                                     ; preds = %for.end
   br label %_ZL13compute_shiftmj.exit
 
 sw.bb11930.i:                                     ; preds = %for.end
-  %801 = and i64 %and.i, 1
-  %.not.i = icmp eq i64 %801, 0
-  %or11934.i = select i1 %.not.i, i64 0, i64 3
+  %801 = trunc i64 %and.i to i1
+  %or11934.i = select i1 %801, i64 3, i64 0
   %and11941.i = shl i64 %and.i, 3
   %shl11942.i = and i64 %and11941.i, 16
   %or11946.i = mul nuw nsw i64 %shl11942.i, 3
@@ -4347,7 +4316,7 @@ sw.default.i:                                     ; preds = %for.end
   unreachable
 
 _ZL13compute_shiftmj.exit:                        ; preds = %for.end, %sw.bb.i, %sw.bb1.i, %sw.bb4.i, %sw.bb6.i, %sw.bb17.i, %sw.bb22.i, %sw.bb34.i, %sw.bb36.i, %sw.bb59.i, %sw.bb70.i, %sw.bb95.i, %sw.bb100.i, %sw.bb126.i, %sw.bb138.i, %sw.bb164.i, %sw.bb166.i, %sw.bb213.i, %sw.bb236.i, %sw.bb287.i, %sw.bb298.i, %sw.bb351.i, %sw.bb376.i, %sw.bb429.i, %sw.bb434.i, %sw.bb488.i, %sw.bb514.i, %sw.bb568.i, %sw.bb580.i, %sw.bb636.i, %sw.bb662.i, %sw.bb716.i, %sw.bb718.i, %sw.bb813.i, %sw.bb860.i, %sw.bb963.i, %sw.bb986.i, %sw.bb1093.i, %sw.bb1144.i, %sw.bb1251.i, %sw.bb1262.i, %sw.bb1371.i, %sw.bb1424.i, %sw.bb1533.i, %sw.bb1558.i, %sw.bb1671.i, %sw.bb1724.i, %sw.bb1833.i, %sw.bb1838.i, %sw.bb1948.i, %sw.bb2002.i, %sw.bb2112.i, %sw.bb2138.i, %sw.bb2252.i, %sw.bb2306.i, %sw.bb2416.i, %sw.bb2428.i, %sw.bb2544.i, %sw.bb2600.i, %sw.bb2712.i, %sw.bb2738.i, %sw.bb2854.i, %sw.bb2908.i, %sw.bb3018.i, %sw.bb3020.i, %sw.bb3211.i, %sw.bb3306.i, %sw.bb3513.i, %sw.bb3560.i, %sw.bb3775.i, %sw.bb3878.i, %sw.bb4093.i, %sw.bb4116.i, %sw.bb4335.i, %sw.bb4442.i, %sw.bb4661.i, %sw.bb4712.i, %sw.bb4939.i, %sw.bb5046.i, %sw.bb5265.i, %sw.bb5276.i, %sw.bb5497.i, %sw.bb5606.i, %sw.bb5827.i, %sw.bb5880.i, %sw.bb6109.i, %sw.bb6218.i, %sw.bb6439.i, %sw.bb6464.i, %sw.bb6697.i, %sw.bb6810.i, %sw.bb7035.i, %sw.bb7088.i, %sw.bb7321.i, %sw.bb7430.i, %sw.bb7651.i, %sw.bb7656.i, %sw.bb7878.i, %sw.bb7988.i, %sw.bb8210.i, %sw.bb8264.i, %sw.bb8494.i, %sw.bb8604.i, %sw.bb8826.i, %sw.bb8852.i, %sw.bb9086.i, %sw.bb9200.i, %sw.bb9426.i, %sw.bb9480.i, %sw.bb9714.i, %sw.bb9824.i, %sw.bb10046.i, %sw.bb10058.i, %sw.bb10294.i, %sw.bb10410.i, %sw.bb10638.i, %sw.bb10694.i, %sw.bb10930.i, %sw.bb11042.i, %sw.bb11266.i, %sw.bb11292.i, %sw.bb11532.i, %sw.bb11648.i, %sw.bb11876.i, %sw.bb11930.i, %sw.bb12166.i, %sw.bb12276.i
-  %retval.0.i = phi i64 [ %or12497.i, %sw.bb12276.i ], [ %or12275.i, %sw.bb12166.i ], [ %or12165.i, %sw.bb11930.i ], [ %or11929.i, %sw.bb11876.i ], [ %or11875.i, %sw.bb11648.i ], [ %or11647.i, %sw.bb11532.i ], [ %or11531.i, %sw.bb11292.i ], [ %or11291.i, %sw.bb11266.i ], [ %or11265.i, %sw.bb11042.i ], [ %or11041.i, %sw.bb10930.i ], [ %or10929.i, %sw.bb10694.i ], [ %or10693.i, %sw.bb10638.i ], [ %or10637.i, %sw.bb10410.i ], [ %or10409.i, %sw.bb10294.i ], [ %or10293.i, %sw.bb10058.i ], [ %or10057.i, %sw.bb10046.i ], [ %or10045.i, %sw.bb9824.i ], [ %or9823.i, %sw.bb9714.i ], [ %or9713.i, %sw.bb9480.i ], [ %or9479.i, %sw.bb9426.i ], [ %or9425.i, %sw.bb9200.i ], [ %or9199.i, %sw.bb9086.i ], [ %or9085.i, %sw.bb8852.i ], [ %or8851.i, %sw.bb8826.i ], [ %or8825.i, %sw.bb8604.i ], [ %or8603.i, %sw.bb8494.i ], [ %or8493.i, %sw.bb8264.i ], [ %or8263.i, %sw.bb8210.i ], [ %or8209.i, %sw.bb7988.i ], [ %or7987.i, %sw.bb7878.i ], [ %or7877.i, %sw.bb7656.i ], [ %or7655.i, %sw.bb7651.i ], [ %or7650.i, %sw.bb7430.i ], [ %or7429.i, %sw.bb7321.i ], [ %or7320.i, %sw.bb7088.i ], [ %or7087.i, %sw.bb7035.i ], [ %or7034.i, %sw.bb6810.i ], [ %or6809.i, %sw.bb6697.i ], [ %or6696.i, %sw.bb6464.i ], [ %or6463.i, %sw.bb6439.i ], [ %or6438.i, %sw.bb6218.i ], [ %or6217.i, %sw.bb6109.i ], [ %or6108.i, %sw.bb5880.i ], [ %or5879.i, %sw.bb5827.i ], [ %or5826.i, %sw.bb5606.i ], [ %or5605.i, %sw.bb5497.i ], [ %or5496.i, %sw.bb5276.i ], [ %or5275.i, %sw.bb5265.i ], [ %or5264.i, %sw.bb5046.i ], [ %or5045.i, %sw.bb4939.i ], [ %or4938.i, %sw.bb4712.i ], [ %or4711.i, %sw.bb4661.i ], [ %or4660.i, %sw.bb4442.i ], [ %or4441.i, %sw.bb4335.i ], [ %or4334.i, %sw.bb4116.i ], [ %or4115.i, %sw.bb4093.i ], [ %or4092.i, %sw.bb3878.i ], [ %or3877.i, %sw.bb3775.i ], [ %or3774.i, %sw.bb3560.i ], [ %or3559.i, %sw.bb3513.i ], [ %or3512.i, %sw.bb3306.i ], [ %or3305.i, %sw.bb3211.i ], [ %sext, %sw.bb3020.i ], [ %and3019.i, %sw.bb3018.i ], [ %or3017.i, %sw.bb2908.i ], [ %or2907.i, %sw.bb2854.i ], [ %or2853.i, %sw.bb2738.i ], [ %or2737.i, %sw.bb2712.i ], [ %or2711.i, %sw.bb2600.i ], [ %or2599.i, %sw.bb2544.i ], [ %or2543.i, %sw.bb2428.i ], [ %or2427.i, %sw.bb2416.i ], [ %or2415.i, %sw.bb2306.i ], [ %or2305.i, %sw.bb2252.i ], [ %or2251.i, %sw.bb2138.i ], [ %or2137.i, %sw.bb2112.i ], [ %or2111.i, %sw.bb2002.i ], [ %or2001.i, %sw.bb1948.i ], [ %or1947.i, %sw.bb1838.i ], [ %or1837.i, %sw.bb1833.i ], [ %or1832.i, %sw.bb1724.i ], [ %or1723.i, %sw.bb1671.i ], [ %or1670.i, %sw.bb1558.i ], [ %or1557.i, %sw.bb1533.i ], [ %or1532.i, %sw.bb1424.i ], [ %or1423.i, %sw.bb1371.i ], [ %or1370.i, %sw.bb1262.i ], [ %or1261.i, %sw.bb1251.i ], [ %or1250.i, %sw.bb1144.i ], [ %or1143.i, %sw.bb1093.i ], [ %or1092.i, %sw.bb986.i ], [ %or985.i, %sw.bb963.i ], [ %or962.i, %sw.bb860.i ], [ %or859.i, %sw.bb813.i ], [ %or812.i, %sw.bb718.i ], [ %and717.i, %sw.bb716.i ], [ %or715.i, %sw.bb662.i ], [ %or661.i, %sw.bb636.i ], [ %or635.i, %sw.bb580.i ], [ %or579.i, %sw.bb568.i ], [ %or567.i, %sw.bb514.i ], [ %or513.i, %sw.bb488.i ], [ %or487.i, %sw.bb434.i ], [ %or433.i, %sw.bb429.i ], [ %or428.i, %sw.bb376.i ], [ %or375.i, %sw.bb351.i ], [ %or350.i, %sw.bb298.i ], [ %or297.i, %sw.bb287.i ], [ %or286.i, %sw.bb236.i ], [ %or235.i, %sw.bb213.i ], [ %or212.i, %sw.bb166.i ], [ %and165.i, %sw.bb164.i ], [ %or163.i, %sw.bb138.i ], [ %or137.i, %sw.bb126.i ], [ %or125.i, %sw.bb100.i ], [ %or99.i, %sw.bb95.i ], [ %or94.i, %sw.bb70.i ], [ %or69.i, %sw.bb59.i ], [ %or58.i, %sw.bb36.i ], [ %and35.i, %sw.bb34.i ], [ %or33.i, %sw.bb22.i ], [ %or21.i, %sw.bb17.i ], [ %or16.i, %sw.bb6.i ], [ %and5.i, %sw.bb4.i ], [ %or.i29, %sw.bb1.i ], [ %and.i30, %sw.bb.i ], [ %and.i, %for.end ]
+  %retval.0.i = phi i64 [ %or12497.i, %sw.bb12276.i ], [ %or12275.i, %sw.bb12166.i ], [ %or12165.i, %sw.bb11930.i ], [ %or11929.i, %sw.bb11876.i ], [ %or11875.i, %sw.bb11648.i ], [ %or11647.i, %sw.bb11532.i ], [ %or11531.i, %sw.bb11292.i ], [ %or11291.i, %sw.bb11266.i ], [ %or11265.i, %sw.bb11042.i ], [ %or11041.i, %sw.bb10930.i ], [ %or10929.i, %sw.bb10694.i ], [ %or10693.i, %sw.bb10638.i ], [ %or10637.i, %sw.bb10410.i ], [ %or10409.i, %sw.bb10294.i ], [ %or10293.i, %sw.bb10058.i ], [ %or10057.i, %sw.bb10046.i ], [ %or10045.i, %sw.bb9824.i ], [ %or9823.i, %sw.bb9714.i ], [ %or9713.i, %sw.bb9480.i ], [ %or9479.i, %sw.bb9426.i ], [ %or9425.i, %sw.bb9200.i ], [ %or9199.i, %sw.bb9086.i ], [ %or9085.i, %sw.bb8852.i ], [ %or8851.i, %sw.bb8826.i ], [ %or8825.i, %sw.bb8604.i ], [ %or8603.i, %sw.bb8494.i ], [ %or8493.i, %sw.bb8264.i ], [ %or8263.i, %sw.bb8210.i ], [ %or8209.i, %sw.bb7988.i ], [ %or7987.i, %sw.bb7878.i ], [ %or7877.i, %sw.bb7656.i ], [ %or7655.i, %sw.bb7651.i ], [ %or7650.i, %sw.bb7430.i ], [ %or7429.i, %sw.bb7321.i ], [ %or7320.i, %sw.bb7088.i ], [ %or7087.i, %sw.bb7035.i ], [ %or7034.i, %sw.bb6810.i ], [ %or6809.i, %sw.bb6697.i ], [ %or6696.i, %sw.bb6464.i ], [ %or6463.i, %sw.bb6439.i ], [ %or6438.i, %sw.bb6218.i ], [ %or6217.i, %sw.bb6109.i ], [ %or6108.i, %sw.bb5880.i ], [ %or5879.i, %sw.bb5827.i ], [ %or5826.i, %sw.bb5606.i ], [ %or5605.i, %sw.bb5497.i ], [ %or5496.i, %sw.bb5276.i ], [ %or5275.i, %sw.bb5265.i ], [ %or5264.i, %sw.bb5046.i ], [ %or5045.i, %sw.bb4939.i ], [ %or4938.i, %sw.bb4712.i ], [ %or4711.i, %sw.bb4661.i ], [ %or4660.i, %sw.bb4442.i ], [ %or4441.i, %sw.bb4335.i ], [ %or4334.i, %sw.bb4116.i ], [ %or4115.i, %sw.bb4093.i ], [ %or4092.i, %sw.bb3878.i ], [ %or3877.i, %sw.bb3775.i ], [ %or3774.i, %sw.bb3560.i ], [ %or3559.i, %sw.bb3513.i ], [ %or3512.i, %sw.bb3306.i ], [ %or3305.i, %sw.bb3211.i ], [ %or3210.i, %sw.bb3020.i ], [ %and3019.i, %sw.bb3018.i ], [ %or3017.i, %sw.bb2908.i ], [ %or2907.i, %sw.bb2854.i ], [ %or2853.i, %sw.bb2738.i ], [ %or2737.i, %sw.bb2712.i ], [ %or2711.i, %sw.bb2600.i ], [ %or2599.i, %sw.bb2544.i ], [ %or2543.i, %sw.bb2428.i ], [ %or2427.i, %sw.bb2416.i ], [ %or2415.i, %sw.bb2306.i ], [ %or2305.i, %sw.bb2252.i ], [ %or2251.i, %sw.bb2138.i ], [ %or2137.i, %sw.bb2112.i ], [ %or2111.i, %sw.bb2002.i ], [ %or2001.i, %sw.bb1948.i ], [ %or1947.i, %sw.bb1838.i ], [ %or1837.i, %sw.bb1833.i ], [ %or1832.i, %sw.bb1724.i ], [ %or1723.i, %sw.bb1671.i ], [ %or1670.i, %sw.bb1558.i ], [ %or1557.i, %sw.bb1533.i ], [ %or1532.i, %sw.bb1424.i ], [ %or1423.i, %sw.bb1371.i ], [ %or1370.i, %sw.bb1262.i ], [ %or1261.i, %sw.bb1251.i ], [ %or1250.i, %sw.bb1144.i ], [ %or1143.i, %sw.bb1093.i ], [ %or1092.i, %sw.bb986.i ], [ %or985.i, %sw.bb963.i ], [ %or962.i, %sw.bb860.i ], [ %or859.i, %sw.bb813.i ], [ %or812.i, %sw.bb718.i ], [ %and717.i, %sw.bb716.i ], [ %or715.i, %sw.bb662.i ], [ %or661.i, %sw.bb636.i ], [ %or635.i, %sw.bb580.i ], [ %or579.i, %sw.bb568.i ], [ %or567.i, %sw.bb514.i ], [ %or513.i, %sw.bb488.i ], [ %or487.i, %sw.bb434.i ], [ %or433.i, %sw.bb429.i ], [ %or428.i, %sw.bb376.i ], [ %or375.i, %sw.bb351.i ], [ %or350.i, %sw.bb298.i ], [ %or297.i, %sw.bb287.i ], [ %or286.i, %sw.bb236.i ], [ %or235.i, %sw.bb213.i ], [ %or212.i, %sw.bb166.i ], [ %and165.i, %sw.bb164.i ], [ %or163.i, %sw.bb138.i ], [ %or137.i, %sw.bb126.i ], [ %or125.i, %sw.bb100.i ], [ %or99.i, %sw.bb95.i ], [ %or94.i, %sw.bb70.i ], [ %or69.i, %sw.bb59.i ], [ %or58.i, %sw.bb36.i ], [ %and35.i, %sw.bb34.i ], [ %or33.i, %sw.bb22.i ], [ %or21.i, %sw.bb17.i ], [ %or16.i, %sw.bb6.i ], [ %and5.i, %sw.bb4.i ], [ %or.i29, %sw.bb1.i ], [ %and.i30, %sw.bb.i ], [ %and.i, %for.end ]
   ret i64 %retval.0.i
 }
 

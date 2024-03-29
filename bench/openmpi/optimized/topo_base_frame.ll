@@ -39,9 +39,8 @@ define internal void @mca_topo_base_module_destruct(ptr nocapture noundef %0) #1
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i8, ptr @opal_uses_threads, align 1
-  %7 = and i8 %6, 1
-  %.not.i = icmp eq i8 %7, 0
-  br i1 %.not.i, label %11, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %4
   %9 = atomicrmw volatile add ptr %5, i32 -1 monotonic, align 4
@@ -75,8 +74,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %8, %11
   tail call void %22(ptr noundef nonnull %17) #4
   %23 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %24 = load ptr, ptr %23, align 8
-  %.not.i6 = icmp eq ptr %24, null
-  br i1 %.not.i6, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %24, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %2, align 8

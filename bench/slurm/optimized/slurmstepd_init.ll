@@ -135,40 +135,39 @@ define void @pack_slurmd_conf_lite(ptr nocapture noundef readonly %0, ptr nounde
   tail call void @pack32(i32 noundef %69, ptr noundef %1) #3
   %70 = getelementptr inbounds i8, ptr %0, i64 4424
   %71 = load i8, ptr %70, align 8
-  %72 = and i8 %71, 1
-  %73 = icmp ne i8 %72, 0
-  tail call void @packbool(i1 noundef zeroext %73, ptr noundef %1) #3
-  %74 = getelementptr inbounds i8, ptr %0, i64 4280
-  %75 = load ptr, ptr %74, align 8
-  %.not86 = icmp eq ptr %75, null
-  br i1 %.not86, label %80, label %76
+  %72 = trunc i8 %71 to i1
+  tail call void @packbool(i1 noundef zeroext %72, ptr noundef %1) #3
+  %73 = getelementptr inbounds i8, ptr %0, i64 4280
+  %74 = load ptr, ptr %73, align 8
+  %.not86 = icmp eq ptr %74, null
+  br i1 %.not86, label %79, label %75
 
-76:                                               ; preds = %65
-  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #4
-  %78 = trunc i64 %77 to i32
-  %79 = add i32 %78, 1
-  br label %80
+75:                                               ; preds = %65
+  %76 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #4
+  %77 = trunc i64 %76 to i32
+  %78 = add i32 %77, 1
+  br label %79
 
-80:                                               ; preds = %76, %65
-  %.069 = phi i32 [ %79, %76 ], [ 0, %65 ]
-  tail call void @packmem(ptr noundef %75, i32 noundef %.069, ptr noundef %1) #3
-  %81 = getelementptr inbounds i8, ptr %0, i64 4288
-  %82 = load ptr, ptr %81, align 8
-  %.not87 = icmp eq ptr %82, null
-  br i1 %.not87, label %87, label %83
+79:                                               ; preds = %75, %65
+  %.069 = phi i32 [ %78, %75 ], [ 0, %65 ]
+  tail call void @packmem(ptr noundef %74, i32 noundef %.069, ptr noundef %1) #3
+  %80 = getelementptr inbounds i8, ptr %0, i64 4288
+  %81 = load ptr, ptr %80, align 8
+  %.not87 = icmp eq ptr %81, null
+  br i1 %.not87, label %86, label %82
 
-83:                                               ; preds = %80
-  %84 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #4
-  %85 = trunc i64 %84 to i32
-  %86 = add i32 %85, 1
-  br label %87
+82:                                               ; preds = %79
+  %83 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #4
+  %84 = trunc i64 %83 to i32
+  %85 = add i32 %84, 1
+  br label %86
 
-87:                                               ; preds = %83, %80
-  %.0 = phi i32 [ %86, %83 ], [ 0, %80 ]
-  tail call void @packmem(ptr noundef %82, i32 noundef %.0, ptr noundef %1) #3
-  %88 = getelementptr inbounds i8, ptr %0, i64 4376
-  %89 = load i16, ptr %88, align 8
-  tail call void @pack16(i16 noundef zeroext %89, ptr noundef %1) #3
+86:                                               ; preds = %82, %79
+  %.0 = phi i32 [ %85, %82 ], [ 0, %79 ]
+  tail call void @packmem(ptr noundef %81, i32 noundef %.0, ptr noundef %1) #3
+  %87 = getelementptr inbounds i8, ptr %0, i64 4376
+  %88 = load i16, ptr %87, align 8
+  tail call void @pack16(i16 noundef zeroext %88, ptr noundef %1) #3
   ret void
 }
 

@@ -827,9 +827,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 224:                                              ; preds = %224, %222
   %.sroa.0.011.i.i.i.i = phi i64 [ 0, %222 ], [ %spec.select7.i.i.i.i, %224 ]
-  %225 = icmp uge i64 %.sroa.0.011.i.i.i.i, %214
-  %not..i.i.i.i = xor i1 %225, true
-  %226 = zext i1 %not..i.i.i.i to i64
+  %225 = icmp ult i64 %.sroa.0.011.i.i.i.i, %214
+  %226 = zext i1 %225 to i64
   %spec.select7.i.i.i.i = add nuw nsw i64 %.sroa.0.011.i.i.i.i, %226
   %227 = icmp ult i64 %.sroa.0.011.i.i.i.i, 12
   tail call void @llvm.assume(i1 %227)
@@ -839,9 +838,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %230 = trunc i64 %.sroa.0.011.i.i.i.i to i16
   %231 = getelementptr inbounds i8, ptr %229, i64 272
   store i16 %230, ptr %231, align 8, !noalias !125
-  %.not3.i.i.i.i.i.i = icmp ugt i64 %spec.select7.i.i.i.i, %214
-  %or.cond.i.i.i.i = select i1 %225, i1 true, i1 %.not3.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %235, label %224
+  %.not.i.i.i.i.i.i = icmp ule i64 %spec.select7.i.i.i.i, %214
+  %or.cond.i.not.i.i.i = select i1 %225, i1 %.not.i.i.i.i.i.i, i1 false
+  br i1 %or.cond.i.not.i.i.i, label %224, label %235
 
 232:                                              ; preds = %202
   %233 = landingpad { ptr, i32 }

@@ -114,8 +114,8 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hdac8c255ff630aa8E
   %.val = load ptr, ptr %2, align 8, !nonnull !10, !align !11, !noundef !10
   %32 = load i8, ptr %.val, align 1, !range !12, !noundef !10
   store i8 0, ptr %.val, align 1
-  %trunc.not.i = icmp eq i8 %32, 0
-  br i1 %trunc.not.i, label %33, label %34
+  %trunc.i = trunc i8 %32 to i1
+  br i1 %trunc.i, label %34, label %33
 
 33:                                               ; preds = %.split26.us
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.60cc121899ee706997753cd7468a3f18.9, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.60cc121899ee706997753cd7468a3f18.11) #5

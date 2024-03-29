@@ -35,8 +35,7 @@ entry:
 define dso_local noundef zeroext i1 @_ZN2EA4StdC20GetAssertionsEnabledEv() local_unnamed_addr #3 {
 entry:
   %0 = load i8, ptr @_ZN2EA4StdC18gAssertionsEnabledE, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 

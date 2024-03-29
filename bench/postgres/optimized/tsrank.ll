@@ -1222,19 +1222,19 @@ resetQueryRepresentation.exit.i:                  ; preds = %.lr.ph.i.i, %tailre
 
 .lr.ph.i107:                                      ; preds = %241, %.lr.ph.preheader.i
   %183 = phi i64 [ %245, %241 ], [ %181, %.lr.ph.preheader.i ]
-  %.05186.i = phi ptr [ %242, %241 ], [ %182, %.lr.ph.preheader.i ]
-  %184 = getelementptr inbounds i8, ptr %.05186.i, i64 8
+  %.05185.i = phi ptr [ %242, %241 ], [ %182, %.lr.ph.preheader.i ]
+  %184 = getelementptr inbounds i8, ptr %.05185.i, i64 8
   %185 = load i16, ptr %184, align 8
   %186 = icmp sgt i16 %185, 0
   br i1 %186, label %.lr.ph.i56.i, label %fillQueryRepresentationData.exit.i
 
 .lr.ph.i56.i:                                     ; preds = %.lr.ph.i107
-  %187 = getelementptr inbounds i8, ptr %.05186.i, i64 16
+  %187 = getelementptr inbounds i8, ptr %.05185.i, i64 16
   br label %188
 
 188:                                              ; preds = %230, %.lr.ph.i56.i
   %indvars.iv.i57.i = phi i64 [ 0, %.lr.ph.i56.i ], [ %indvars.iv.next.i58.i, %230 ]
-  %189 = load ptr, ptr %.05186.i, align 8
+  %189 = load ptr, ptr %.05185.i, align 8
   %190 = getelementptr ptr, ptr %189, i64 %indvars.iv.i57.i
   %191 = load ptr, ptr %190, align 8
   %192 = load i8, ptr %191, align 4
@@ -1256,14 +1256,13 @@ resetQueryRepresentation.exit.i:                  ; preds = %.lr.ph.i.i, %tailre
   %204 = icmp eq i32 %203, 0
   %205 = getelementptr inbounds i8, ptr %201, i64 1
   %206 = load i8, ptr %205, align 1
-  %207 = and i8 %206, 1
-  %.not32.i.i = icmp eq i8 %207, 0
+  %207 = trunc i8 %206 to i1
   br i1 %204, label %208, label %213
 
 208:                                              ; preds = %193
   %209 = load i16, ptr %187, align 8
   %210 = getelementptr inbounds i8, ptr %201, i64 8
-  %211 = select i1 %.not32.i.i, i64 0, i64 16383
+  %211 = select i1 %207, i64 16383, i64 0
   %212 = getelementptr [16384 x i16], ptr %210, i64 0, i64 %211
   store i16 %209, ptr %212, align 2
   br label %.sink.split.i.i
@@ -1271,7 +1270,7 @@ resetQueryRepresentation.exit.i:                  ; preds = %.lr.ph.i.i, %tailre
 213:                                              ; preds = %193
   %214 = sub i32 16384, %203
   %215 = add i32 %203, -1
-  %216 = select i1 %.not32.i.i, i32 %215, i32 %214
+  %216 = select i1 %207, i32 %214, i32 %215
   %217 = getelementptr inbounds i8, ptr %201, i64 8
   %218 = sext i32 %216 to i64
   %219 = getelementptr [16384 x i16], ptr %217, i64 0, i64 %218
@@ -1279,12 +1278,12 @@ resetQueryRepresentation.exit.i:                  ; preds = %.lr.ph.i.i, %tailre
   %221 = load i16, ptr %187, align 8
   %222 = xor i16 %221, %220
   %223 = and i16 %222, 16383
-  %.not30.i.i = icmp eq i16 %223, 0
-  br i1 %.not30.i.i, label %230, label %224
+  %.not29.i.i = icmp eq i16 %223, 0
+  br i1 %.not29.i.i, label %230, label %224
 
 224:                                              ; preds = %213
   %225 = sub i32 16383, %203
-  %spec.select.i.i = select i1 %.not32.i.i, i32 %203, i32 %225
+  %spec.select.i.i = select i1 %207, i32 %225, i32 %203
   %226 = sext i32 %spec.select.i.i to i64
   %227 = getelementptr [16384 x i16], ptr %217, i64 0, i64 %226
   store i16 %221, ptr %227, align 2
@@ -1311,14 +1310,14 @@ fillQueryRepresentationData.exit.i:               ; preds = %230, %.lr.ph.i107
   br i1 %236, label %237, label %241
 
 237:                                              ; preds = %fillQueryRepresentationData.exit.i
-  %238 = getelementptr inbounds i8, ptr %.05186.i, i64 16
+  %238 = getelementptr inbounds i8, ptr %.05185.i, i64 16
   %239 = load i16, ptr %238, align 8
   %240 = and i16 %239, 16383
   %.not = icmp eq i16 %240, 0
   br i1 %.not, label %.loopexit, label %247
 
 241:                                              ; preds = %fillQueryRepresentationData.exit.i
-  %242 = getelementptr i8, ptr %.05186.i, i64 24
+  %242 = getelementptr i8, ptr %.05185.i, i64 24
   %243 = ptrtoint ptr %242 to i64
   %244 = sub i64 %243, %125
   %245 = sdiv exact i64 %244, 24
@@ -1355,23 +1354,23 @@ resetQueryRepresentation.exit62.i:                ; preds = %.lr.ph.i59.i, %247
   %sext.i = shl i64 %183, 32
   %263 = ashr exact i64 %sext.i, 32
   %264 = getelementptr %struct.DocRepresentation, ptr %.3.i, i64 %263
-  %.not87.i = icmp ult ptr %264, %182
-  br i1 %.not87.i, label %.loopexit.i109.thread, label %.lr.ph89.i
+  %.not86.i = icmp ult ptr %264, %182
+  br i1 %.not86.i, label %.loopexit.i109.thread, label %.lr.ph88.i
 
-.lr.ph89.i:                                       ; preds = %resetQueryRepresentation.exit62.i, %318
-  %.188.i = phi ptr [ %319, %318 ], [ %264, %resetQueryRepresentation.exit62.i ]
-  %265 = getelementptr inbounds i8, ptr %.188.i, i64 8
+.lr.ph88.i:                                       ; preds = %resetQueryRepresentation.exit62.i, %318
+  %.187.i = phi ptr [ %319, %318 ], [ %264, %resetQueryRepresentation.exit62.i ]
+  %265 = getelementptr inbounds i8, ptr %.187.i, i64 8
   %266 = load i16, ptr %265, align 8
   %267 = icmp sgt i16 %266, 0
-  br i1 %267, label %.lr.ph.i63.i, label %fillQueryRepresentationData.exit72.i
+  br i1 %267, label %.lr.ph.i63.i, label %fillQueryRepresentationData.exit71.i
 
-.lr.ph.i63.i:                                     ; preds = %.lr.ph89.i
-  %268 = getelementptr inbounds i8, ptr %.188.i, i64 16
+.lr.ph.i63.i:                                     ; preds = %.lr.ph88.i
+  %268 = getelementptr inbounds i8, ptr %.187.i, i64 16
   br label %269
 
 269:                                              ; preds = %311, %.lr.ph.i63.i
   %indvars.iv.i64.i = phi i64 [ 0, %.lr.ph.i63.i ], [ %indvars.iv.next.i66.i, %311 ]
-  %270 = load ptr, ptr %.188.i, align 8
+  %270 = load ptr, ptr %.187.i, align 8
   %271 = getelementptr ptr, ptr %270, i64 %indvars.iv.i64.i
   %272 = load ptr, ptr %271, align 8
   %273 = load i8, ptr %272, align 4
@@ -1393,22 +1392,21 @@ resetQueryRepresentation.exit62.i:                ; preds = %.lr.ph.i59.i, %247
   %285 = icmp eq i32 %284, 0
   %286 = getelementptr inbounds i8, ptr %282, i64 1
   %287 = load i8, ptr %286, align 1
-  %288 = and i8 %287, 1
-  %.not32.i67.i = icmp eq i8 %288, 0
+  %288 = trunc i8 %287 to i1
   br i1 %285, label %289, label %294
 
 289:                                              ; preds = %274
   %290 = load i16, ptr %268, align 8
   %291 = getelementptr inbounds i8, ptr %282, i64 8
-  %292 = select i1 %.not32.i67.i, i64 0, i64 16383
+  %292 = select i1 %288, i64 16383, i64 0
   %293 = getelementptr [16384 x i16], ptr %291, i64 0, i64 %292
   store i16 %290, ptr %293, align 2
-  br label %.sink.split.i70.i
+  br label %.sink.split.i69.i
 
 294:                                              ; preds = %274
   %295 = sub i32 16384, %284
   %296 = add i32 %284, -1
-  %297 = select i1 %.not32.i67.i, i32 %296, i32 %295
+  %297 = select i1 %288, i32 %295, i32 %296
   %298 = getelementptr inbounds i8, ptr %282, i64 8
   %299 = sext i32 %297 to i64
   %300 = getelementptr [16384 x i16], ptr %298, i64 0, i64 %299
@@ -1416,44 +1414,44 @@ resetQueryRepresentation.exit62.i:                ; preds = %.lr.ph.i59.i, %247
   %302 = load i16, ptr %268, align 8
   %303 = xor i16 %302, %301
   %304 = and i16 %303, 16383
-  %.not30.i68.i = icmp eq i16 %304, 0
-  br i1 %.not30.i68.i, label %311, label %305
+  %.not29.i67.i = icmp eq i16 %304, 0
+  br i1 %.not29.i67.i, label %311, label %305
 
 305:                                              ; preds = %294
   %306 = sub i32 16383, %284
-  %spec.select.i69.i = select i1 %.not32.i67.i, i32 %284, i32 %306
-  %307 = sext i32 %spec.select.i69.i to i64
+  %spec.select.i68.i = select i1 %288, i32 %306, i32 %284
+  %307 = sext i32 %spec.select.i68.i to i64
   %308 = getelementptr [16384 x i16], ptr %298, i64 0, i64 %307
   store i16 %302, ptr %308, align 2
   %309 = load i32, ptr %283, align 4
   %310 = add i32 %309, 1
-  br label %.sink.split.i70.i
+  br label %.sink.split.i69.i
 
-.sink.split.i70.i:                                ; preds = %305, %289
-  %.sink.i71.i = phi i32 [ %310, %305 ], [ 1, %289 ]
-  store i32 %.sink.i71.i, ptr %283, align 4
+.sink.split.i69.i:                                ; preds = %305, %289
+  %.sink.i70.i = phi i32 [ %310, %305 ], [ 1, %289 ]
+  store i32 %.sink.i70.i, ptr %283, align 4
   br label %311
 
-311:                                              ; preds = %.sink.split.i70.i, %294, %269
+311:                                              ; preds = %.sink.split.i69.i, %294, %269
   %indvars.iv.next.i66.i = add nuw nsw i64 %indvars.iv.i64.i, 1
   %312 = load i16, ptr %265, align 8
   %313 = sext i16 %312 to i64
   %314 = icmp slt i64 %indvars.iv.next.i66.i, %313
-  br i1 %314, label %269, label %fillQueryRepresentationData.exit72.i, !llvm.loop !20
+  br i1 %314, label %269, label %fillQueryRepresentationData.exit71.i, !llvm.loop !20
 
-fillQueryRepresentationData.exit72.i:             ; preds = %311, %.lr.ph89.i
+fillQueryRepresentationData.exit71.i:             ; preds = %311, %.lr.ph88.i
   %315 = load ptr, ptr %7, align 8
   %316 = getelementptr i8, ptr %315, i64 8
   %317 = call zeroext i1 @TS_execute(ptr noundef %316, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull @checkcondition_QueryOperand) #11
   br i1 %317, label %.loopexit.i109, label %318
 
-318:                                              ; preds = %fillQueryRepresentationData.exit72.i
-  %319 = getelementptr i8, ptr %.188.i, i64 -24
+318:                                              ; preds = %fillQueryRepresentationData.exit71.i
+  %319 = getelementptr i8, ptr %.187.i, i64 -24
   %.not.i108 = icmp ult ptr %319, %182
-  br i1 %.not.i108, label %.loopexit.i109.thread, label %.lr.ph89.i, !llvm.loop !22
+  br i1 %.not.i108, label %.loopexit.i109.thread, label %.lr.ph88.i, !llvm.loop !22
 
-.loopexit.i109:                                   ; preds = %fillQueryRepresentationData.exit72.i
-  %320 = getelementptr inbounds i8, ptr %.188.i, i64 16
+.loopexit.i109:                                   ; preds = %fillQueryRepresentationData.exit71.i
+  %320 = getelementptr inbounds i8, ptr %.187.i, i64 16
   %321 = load i16, ptr %320, align 8
   %322 = and i16 %321, 16383
   %.not55.i = icmp ugt i16 %322, %240
@@ -1466,16 +1464,16 @@ fillQueryRepresentationData.exit72.i:             ; preds = %311, %.lr.ph89.i
 324:                                              ; preds = %.loopexit.i109
   %325 = zext nneg i16 %240 to i32
   %326 = zext nneg i16 %322 to i32
-  %327 = ptrtoint ptr %.188.i to i64
+  %327 = ptrtoint ptr %.187.i to i64
   %328 = sub i64 %327, %125
   %329 = sdiv exact i64 %328, 24
   %330 = trunc i64 %329 to i32
   %331 = add i32 %330, 1
-  %.not106157 = icmp ugt ptr %.188.i, %.05186.i
+  %.not106157 = icmp ugt ptr %.187.i, %.05185.i
   br i1 %.not106157, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %324, %.lr.ph
-  %.0159 = phi ptr [ %339, %.lr.ph ], [ %.188.i, %324 ]
+  %.0159 = phi ptr [ %339, %.lr.ph ], [ %.187.i, %324 ]
   %.083158 = phi double [ %338, %.lr.ph ], [ 0.000000e+00, %324 ]
   %332 = getelementptr inbounds i8, ptr %.0159, i64 16
   %333 = load i16, ptr %332, align 8
@@ -1485,13 +1483,13 @@ fillQueryRepresentationData.exit72.i:             ; preds = %311, %.lr.ph89.i
   %337 = load double, ptr %336, align 8
   %338 = fadd double %.083158, %337
   %339 = getelementptr i8, ptr %.0159, i64 24
-  %.not106 = icmp ugt ptr %339, %.05186.i
+  %.not106 = icmp ugt ptr %339, %.05185.i
   br i1 %.not106, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %324
   %.083.lcssa = phi double [ 0.000000e+00, %324 ], [ %338, %.lr.ph ]
-  %340 = ptrtoint ptr %.05186.i to i64
-  %341 = ptrtoint ptr %.188.i to i64
+  %340 = ptrtoint ptr %.05185.i to i64
+  %341 = ptrtoint ptr %.187.i to i64
   %342 = sub i64 %340, %341
   %343 = sdiv exact i64 %342, 24
   %344 = add nsw i64 %343, 1
@@ -2086,14 +2084,14 @@ define internal fastcc ptr @find_wordentry(ptr noundef %0, ptr noundef %1, ptr n
   br label %14
 
 14:                                               ; preds = %.lr.ph, %42
-  %.056 = phi ptr [ %5, %.lr.ph ], [ %.1, %42 ]
-  %.04555 = phi ptr [ %9, %.lr.ph ], [ %.146, %42 ]
-  %15 = ptrtoint ptr %.04555 to i64
-  %16 = ptrtoint ptr %.056 to i64
+  %.055 = phi ptr [ %5, %.lr.ph ], [ %.1, %42 ]
+  %.04554 = phi ptr [ %9, %.lr.ph ], [ %.146, %42 ]
+  %15 = ptrtoint ptr %.04554 to i64
+  %16 = ptrtoint ptr %.055 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 2
   %19 = sdiv i64 %18, 2
-  %20 = getelementptr %struct.WordEntry, ptr %.056, i64 %19
+  %20 = getelementptr %struct.WordEntry, ptr %.055, i64 %19
   %21 = load i32, ptr %12, align 4
   %22 = sext i32 %21 to i64
   %23 = mul nsw i64 %22, 12
@@ -2123,24 +2121,23 @@ define internal fastcc ptr @find_wordentry(ptr noundef %0, ptr noundef %1, ptr n
 42:                                               ; preds = %14
   %43 = icmp sgt i32 %39, 0
   %44 = getelementptr i8, ptr %20, i64 4
-  %.146 = select i1 %43, ptr %.04555, ptr %20
-  %.1 = select i1 %43, ptr %44, ptr %.056
+  %.146 = select i1 %43, ptr %.04554, ptr %20
+  %.1 = select i1 %43, ptr %44, ptr %.055
   %45 = icmp ult ptr %.1, %.146
   br i1 %45, label %14, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %42, %4, %41
-  %.052 = phi ptr [ %.056, %41 ], [ %5, %4 ], [ %.1, %42 ]
+  %.051 = phi ptr [ %.055, %41 ], [ %5, %4 ], [ %.1, %42 ]
   %.247 = phi ptr [ %20, %41 ], [ %9, %4 ], [ %.146, %42 ]
   %.144 = phi ptr [ %20, %41 ], [ %9, %4 ], [ %20, %42 ]
   %46 = getelementptr inbounds i8, ptr %2, i64 2
   %47 = load i8, ptr %46, align 2
-  %48 = and i8 %47, 1
-  %.not = icmp eq i8 %48, 0
-  br i1 %.not, label %.critedge, label %49
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %.critedge
 
 49:                                               ; preds = %.loopexit
-  %.not50 = icmp ult ptr %.052, %.247
-  %spec.select = select i1 %.not50, ptr %.144, ptr %.247
+  %.not = icmp ult ptr %.051, %.247
+  %spec.select = select i1 %.not, ptr %.144, ptr %.247
   store i32 0, ptr %3, align 4
   %50 = getelementptr i8, ptr %1, i64 8
   %51 = getelementptr inbounds i8, ptr %1, i64 4
@@ -2148,15 +2145,15 @@ define internal fastcc ptr @find_wordentry(ptr noundef %0, ptr noundef %1, ptr n
   %53 = sext i32 %52 to i64
   %54 = getelementptr [0 x %struct.WordEntry], ptr %5, i64 0, i64 %53
   %55 = icmp ult ptr %spec.select, %54
-  br i1 %55, label %.lr.ph60, label %.critedge
+  br i1 %55, label %.lr.ph59, label %.critedge
 
-.lr.ph60:                                         ; preds = %49
+.lr.ph59:                                         ; preds = %49
   %56 = getelementptr inbounds i8, ptr %2, i64 8
   br label %57
 
-57:                                               ; preds = %.lr.ph60, %77
-  %58 = phi i64 [ %53, %.lr.ph60 ], [ %82, %77 ]
-  %.359 = phi ptr [ %spec.select, %.lr.ph60 ], [ %80, %77 ]
+57:                                               ; preds = %.lr.ph59, %77
+  %58 = phi i64 [ %53, %.lr.ph59 ], [ %82, %77 ]
+  %.358 = phi ptr [ %spec.select, %.lr.ph59 ], [ %80, %77 ]
   %59 = getelementptr [0 x %struct.WordEntry], ptr %5, i64 0, i64 %58
   %60 = load i32, ptr %51, align 4
   %61 = sext i32 %60 to i64
@@ -2167,7 +2164,7 @@ define internal fastcc ptr @find_wordentry(ptr noundef %0, ptr noundef %1, ptr n
   %66 = zext nneg i32 %65 to i64
   %67 = getelementptr i8, ptr %63, i64 %66
   %68 = and i32 %64, 4095
-  %69 = load i32, ptr %.359, align 4
+  %69 = load i32, ptr %.358, align 4
   %70 = lshr i32 %69, 12
   %71 = zext nneg i32 %70 to i64
   %72 = getelementptr i8, ptr %59, i64 %71
@@ -2181,7 +2178,7 @@ define internal fastcc ptr @find_wordentry(ptr noundef %0, ptr noundef %1, ptr n
   %78 = load i32, ptr %3, align 4
   %79 = add i32 %78, 1
   store i32 %79, ptr %3, align 4
-  %80 = getelementptr i8, ptr %.359, i64 4
+  %80 = getelementptr i8, ptr %.358, i64 4
   %81 = load i32, ptr %6, align 4
   %82 = sext i32 %81 to i64
   %83 = getelementptr [0 x %struct.WordEntry], ptr %5, i64 0, i64 %82
@@ -2313,13 +2310,12 @@ define internal noundef i32 @checkcondition_QueryOperand(ptr nocapture noundef r
   %11 = sdiv exact i64 %10, 12
   %12 = getelementptr %struct.QueryRepresentationOperand, ptr %5, i64 %11
   %13 = load i8, ptr %12, align 4
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %29, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %29
 
 15:                                               ; preds = %3
-  %.not14 = icmp eq ptr %2, null
-  br i1 %.not14, label %29, label %16
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %29, label %16
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds i8, ptr %12, i64 4
@@ -2330,9 +2326,8 @@ define internal noundef i32 @checkcondition_QueryOperand(ptr nocapture noundef r
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %12, i64 1
   %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not15 = icmp eq i8 %23, 0
-  br i1 %.not15, label %29, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %29
 
 24:                                               ; preds = %16
   %25 = load i32, ptr %17, align 4

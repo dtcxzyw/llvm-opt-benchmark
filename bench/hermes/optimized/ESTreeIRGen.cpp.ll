@@ -193,16 +193,15 @@ define hidden noundef ptr @_ZN6hermes5irgen24loadGlobalObjectPropertyERNS_9IRBui
 entry:
   %declared_.i = getelementptr inbounds i8, ptr %from, i64 56
   %0 = load i8, ptr %declared_.i, align 8
-  %1 = and i8 %0, 1
-  %tobool.i = icmp ne i8 %1, 0
+  %tobool.i = trunc i8 %0 to i1
   %brmerge = or i1 %tobool.i, %inhibitThrow
   br i1 %brmerge, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call1 = tail call noundef ptr @_ZN6hermes9IRBuilder15getGlobalObjectEv(ptr noundef nonnull align 8 dereferenceable(40) %builder) #15
   %name_.i = getelementptr inbounds i8, ptr %from, i64 48
-  %2 = load ptr, ptr %name_.i, align 8
-  %call3 = tail call noundef ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %call1, ptr noundef %2) #15
+  %1 = load ptr, ptr %name_.i, align 8
+  %call3 = tail call noundef ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %call1, ptr noundef %1) #15
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -305,15 +304,14 @@ if.else.i:                                        ; preds = %sw.bb5
   %Builder10.i = getelementptr inbounds i8, ptr %6, i64 8
   %declared_.i.i.i = getelementptr inbounds i8, ptr %8, i64 56
   %13 = load i8, ptr %declared_.i.i.i, align 8
-  %14 = and i8 %13, 1
-  %tobool.i.i.i.not = icmp eq i8 %14, 0
-  br i1 %tobool.i.i.i.not, label %if.end.i.i, label %if.then.i.i
+  %tobool.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
   %call1.i.i = tail call noundef ptr @_ZN6hermes9IRBuilder15getGlobalObjectEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder10.i) #15
   %name_.i.i.i = getelementptr inbounds i8, ptr %8, i64 48
-  %15 = load ptr, ptr %name_.i.i.i, align 8
-  %call3.i.i = tail call noundef ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder10.i, ptr noundef %call1.i.i, ptr noundef %15) #15
+  %14 = load ptr, ptr %name_.i.i.i, align 8
+  %call3.i.i = tail call noundef ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder10.i, ptr noundef %call1.i.i, ptr noundef %14) #15
   br label %_ZN6hermes5irgen11ESTreeIRGen8emitLoadEPNS_5ValueEb.exit
 
 if.end.i.i:                                       ; preds = %if.else.i
@@ -322,9 +320,9 @@ if.end.i.i:                                       ; preds = %if.else.i
 
 _ZN6hermes5irgen11ESTreeIRGen8emitLoadEPNS_5ValueEb.exit: ; preds = %if.then.i, %if.then4.i, %if.then.i.i, %if.end.i.i
   %retval.0.i = phi ptr [ %call6.i, %if.then4.i ], [ %call2.i, %if.then.i ], [ %call3.i.i, %if.then.i.i ], [ %call4.i.i, %if.end.i.i ]
-  %16 = icmp eq ptr %retval.0.i, null
+  %15 = icmp eq ptr %retval.0.i, null
   %add.ptr9 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
-  %spec.select1 = select i1 %16, ptr null, ptr %add.ptr9
+  %spec.select1 = select i1 %15, ptr null, ptr %add.ptr9
   br label %cleanup
 
 sw.bb12:                                          ; preds = %entry
@@ -379,16 +377,15 @@ if.else:                                          ; preds = %entry
   %Builder10 = getelementptr inbounds i8, ptr %this, i64 8
   %declared_.i.i = getelementptr inbounds i8, ptr %from, i64 56
   %4 = load i8, ptr %declared_.i.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.i.i = icmp ne i8 %5, 0
+  %tobool.i.i = trunc i8 %4 to i1
   %brmerge.i = or i1 %tobool.i.i, %inhibitThrow
   br i1 %brmerge.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.else
   %call1.i = tail call noundef ptr @_ZN6hermes9IRBuilder15getGlobalObjectEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder10) #15
   %name_.i.i = getelementptr inbounds i8, ptr %from, i64 48
-  %6 = load ptr, ptr %name_.i.i, align 8
-  %call3.i = tail call noundef ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder10, ptr noundef %call1.i, ptr noundef %6) #15
+  %5 = load ptr, ptr %name_.i.i, align 8
+  %call3.i = tail call noundef ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder10, ptr noundef %call1.i, ptr noundef %5) #15
   br label %return
 
 if.end.i:                                         ; preds = %if.else
@@ -429,55 +426,53 @@ sw.bb4:                                           ; preds = %entry
   %6 = load ptr, ptr %5, align 8
   %declInit_ = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i8, ptr %declInit_, align 8
-  %8 = and i8 %7, 1
-  %tobool = icmp ne i8 %8, 0
+  %tobool = trunc i8 %7 to i1
   %call6 = tail call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %value, ptr noundef %6, i1 noundef zeroext %tobool)
   br label %return
 
 sw.bb8:                                           ; preds = %entry
   %declInit_10 = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load i8, ptr %declInit_10, align 8
-  %10 = and i8 %9, 1
-  %tobool11 = icmp ne i8 %10, 0
-  %11 = getelementptr inbounds i8, ptr %this, i64 24
-  %12 = load ptr, ptr %11, align 8
+  %8 = load i8, ptr %declInit_10, align 8
+  %tobool11 = trunc i8 %8 to i1
+  %9 = getelementptr inbounds i8, ptr %this, i64 24
+  %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
-  %13 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %13, 92
-  %tobool.not10.i = icmp eq ptr %12, null
+  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %11, 92
+  %tobool.not10.i = icmp eq ptr %10, null
   %tobool.not.i = or i1 %tobool.not10.i, %cmp.i.i.i.i.i.i.i.i
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb8
-  tail call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %0, i1 noundef zeroext %tobool11, ptr noundef nonnull %12, ptr noundef %value)
+  tail call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %0, i1 noundef zeroext %tobool11, ptr noundef nonnull %10, ptr noundef %value)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 if.else.i:                                        ; preds = %sw.bb8
-  %cmp.i.i.i.i.i.i.i8.i = icmp ne i32 %13, 91
+  %cmp.i.i.i.i.i.i.i8.i = icmp ne i32 %11, 91
   %tobool4.not.i = or i1 %tobool.not10.i, %cmp.i.i.i.i.i.i.i8.i
   br i1 %tobool4.not.i, label %if.else7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  tail call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %0, i1 noundef zeroext %tobool11, ptr noundef nonnull %12, ptr noundef %value)
+  tail call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %0, i1 noundef zeroext %tobool11, ptr noundef nonnull %10, ptr noundef %value)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 if.else7.i:                                       ; preds = %if.else.i
-  %14 = load ptr, ptr %0, align 8
-  %Ctx.i.i = getelementptr inbounds i8, ptr %14, i64 40
-  %15 = load ptr, ptr %Ctx.i.i, align 8
-  %sm_.i.i = getelementptr inbounds i8, ptr %15, i64 160
-  %16 = load ptr, ptr %sm_.i.i, align 8
-  %sourceRange_.i.i = getelementptr inbounds i8, ptr %12, i64 24
+  %12 = load ptr, ptr %0, align 8
+  %Ctx.i.i = getelementptr inbounds i8, ptr %12, i64 40
+  %13 = load ptr, ptr %Ctx.i.i, align 8
+  %sm_.i.i = getelementptr inbounds i8, ptr %13, i64 160
+  %14 = load ptr, ptr %sm_.i.i, align 8
+  %sourceRange_.i.i = getelementptr inbounds i8, ptr %10, i64 24
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %sourceRange_.i.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds i8, ptr %12, i64 32
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 32
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i, align 8
   %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 17
   store i8 1, ptr %RHSKind.i.i, align 1
   store ptr @.str.23, ptr %ref.tmp.i, align 8
   store i8 3, ptr %LHSKind.i.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %16, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #15
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %14, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #15
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 _ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit: ; preds = %if.then.i, %if.then5.i, %if.else7.i
@@ -528,27 +523,25 @@ if.then4:                                         ; preds = %land.lhs.true
 if.then9:                                         ; preds = %if.then4
   %strictImmutableBinding_.i = getelementptr inbounds i8, ptr %ptr, i64 64
   %5 = load i8, ptr %strictImmutableBinding_.i, align 8
-  %6 = and i8 %5, 1
-  %tobool.i.not = icmp eq i8 %6, 0
-  br i1 %tobool.i.not, label %land.lhs.true11, label %if.end
+  %tobool.i = trunc i8 %5 to i1
+  br i1 %tobool.i, label %if.end, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %if.then9
   %functionContext_.i = getelementptr inbounds i8, ptr %this, i64 80
-  %7 = load ptr, ptr %functionContext_.i, align 8
-  %function = getelementptr inbounds i8, ptr %7, i64 112
-  %8 = load ptr, ptr %function, align 8
-  %strictMode_.i = getelementptr inbounds i8, ptr %8, i64 188
-  %9 = load i8, ptr %strictMode_.i, align 4
-  %10 = and i8 %9, 1
-  %tobool.i15.not = icmp eq i8 %10, 0
-  br i1 %tobool.i15.not, label %return, label %if.end
+  %6 = load ptr, ptr %functionContext_.i, align 8
+  %function = getelementptr inbounds i8, ptr %6, i64 112
+  %7 = load ptr, ptr %function, align 8
+  %strictMode_.i = getelementptr inbounds i8, ptr %7, i64 188
+  %8 = load i8, ptr %strictMode_.i, align 4
+  %tobool.i15 = trunc i8 %8 to i1
+  br i1 %tobool.i15, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true11, %if.then9
-  %11 = load ptr, ptr %Builder, align 8
-  %Ctx.i = getelementptr inbounds i8, ptr %11, i64 40
-  %12 = load ptr, ptr %Ctx.i, align 8
-  %sm_.i = getelementptr inbounds i8, ptr %12, i64 160
-  %13 = load ptr, ptr %sm_.i, align 8
+  %9 = load ptr, ptr %Builder, align 8
+  %Ctx.i = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = load ptr, ptr %Ctx.i, align 8
+  %sm_.i = getelementptr inbounds i8, ptr %10, i64 160
+  %11 = load ptr, ptr %sm_.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 32
   %retval.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
   %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
@@ -556,66 +549,64 @@ if.end:                                           ; preds = %land.lhs.true11, %i
   store i8 1, ptr %RHSKind.i, align 1
   store ptr @.str.29, ptr %ref.tmp, align 8
   store i8 3, ptr %LHSKind.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %13, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i, ptr null, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, i32 noundef 4, i32 noundef 0) #15
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %11, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i, ptr null, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, i32 noundef 4, i32 noundef 0) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp5.i)
   %call.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %Builder, double noundef 6.000000e+00) #15
   store ptr %call.i, ptr %ref.tmp.i, align 8
   %call2.i = call noundef ptr @_ZN6hermes9IRBuilder21createCallBuiltinInstENS_13BuiltinMethod4EnumEN4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, i8 noundef zeroext 51, ptr nonnull %ref.tmp.i, i64 1) #15
-  %14 = icmp eq ptr %call2.i, null
+  %12 = icmp eq ptr %call2.i, null
   %add.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 16
-  %spec.select.i16 = select i1 %14, ptr null, ptr %add.ptr.i
+  %spec.select.i16 = select i1 %12, ptr null, ptr %add.ptr.i
   %call3.i = call noundef ptr @_ZN6hermes9IRBuilder19getLiteralUndefinedEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder) #15
   %call7.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr nonnull @.str.30, i64 24) #15
   store ptr %call7.i, ptr %ref.tmp5.i, align 8
   %call8.i = call noundef ptr @_ZN6hermes9IRBuilder14createCallInstEPNS_13LiteralStringEPNS_5ValueES4_N4llvh8ArrayRefIS4_EE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef null, ptr noundef %spec.select.i16, ptr noundef %call3.i, ptr nonnull %ref.tmp5.i, i64 1) #15
-  %15 = icmp eq ptr %call8.i, null
+  %13 = icmp eq ptr %call8.i, null
   %add.ptr10.i = getelementptr inbounds i8, ptr %call8.i, i64 16
-  %cast.result12.i = select i1 %15, ptr null, ptr %add.ptr10.i
+  %cast.result12.i = select i1 %13, ptr null, ptr %add.ptr10.i
   %call13.i = call noundef ptr @_ZN6hermes9IRBuilder15createThrowInstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %cast.result12.i) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp5.i)
   %functionContext_.i17 = getelementptr inbounds i8, ptr %this, i64 80
-  %16 = load ptr, ptr %functionContext_.i17, align 8
-  %function27 = getelementptr inbounds i8, ptr %16, i64 112
-  %17 = load ptr, ptr %function27, align 8
-  %call28 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %17) #15
+  %14 = load ptr, ptr %functionContext_.i17, align 8
+  %function27 = getelementptr inbounds i8, ptr %14, i64 112
+  %15 = load ptr, ptr %function27, align 8
+  %call28 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %15) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call28) #15
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then4, %if.end, %land.lhs.true, %if.then
   %Builder32 = getelementptr inbounds i8, ptr %this, i64 8
   %currentIRScope_33 = getelementptr inbounds i8, ptr %this, i64 168
-  %18 = load ptr, ptr %currentIRScope_33, align 8
-  %call34 = call noundef ptr @_ZN6hermes9IRBuilder20createStoreFrameInstEPNS_5ValueEPNS_8VariableEPNS_17ScopeCreationInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder32, ptr noundef %storedValue, ptr noundef nonnull %ptr, ptr noundef %18) #15
+  %16 = load ptr, ptr %currentIRScope_33, align 8
+  %call34 = call noundef ptr @_ZN6hermes9IRBuilder20createStoreFrameInstEPNS_5ValueEPNS_8VariableEPNS_17ScopeCreationInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder32, ptr noundef %storedValue, ptr noundef nonnull %ptr, ptr noundef %16) #15
   br label %return
 
 if.else:                                          ; preds = %entry
   %cmp.i.i.i.i.i.i.i18 = icmp eq i8 %0, 123
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i18)
   %declared_.i = getelementptr inbounds i8, ptr %ptr, i64 56
-  %19 = load i8, ptr %declared_.i, align 8
-  %20 = and i8 %19, 1
-  %tobool.i20.not = icmp eq i8 %20, 0
-  br i1 %tobool.i20.not, label %lor.lhs.false, label %if.then42
+  %17 = load i8, ptr %declared_.i, align 8
+  %tobool.i20 = trunc i8 %17 to i1
+  br i1 %tobool.i20, label %if.then42, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else
   %Block.i = getelementptr inbounds i8, ptr %this, i64 24
-  %21 = load ptr, ptr %Block.i, align 8
-  %Parent.i.i = getelementptr inbounds i8, ptr %21, i64 72
-  %22 = load ptr, ptr %Parent.i.i, align 8
-  %strictMode_.i21 = getelementptr inbounds i8, ptr %22, i64 188
-  %23 = load i8, ptr %strictMode_.i21, align 4
-  %24 = and i8 %23, 1
-  %tobool.i22.not = icmp eq i8 %24, 0
-  br i1 %tobool.i22.not, label %if.then42, label %if.else48
+  %18 = load ptr, ptr %Block.i, align 8
+  %Parent.i.i = getelementptr inbounds i8, ptr %18, i64 72
+  %19 = load ptr, ptr %Parent.i.i, align 8
+  %strictMode_.i21 = getelementptr inbounds i8, ptr %19, i64 188
+  %20 = load i8, ptr %strictMode_.i21, align 4
+  %tobool.i22 = trunc i8 %20 to i1
+  br i1 %tobool.i22, label %if.else48, label %if.then42
 
 if.then42:                                        ; preds = %lor.lhs.false, %if.else
   %Builder43 = getelementptr inbounds i8, ptr %this, i64 8
   %call45 = tail call noundef ptr @_ZN6hermes9IRBuilder15getGlobalObjectEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder43) #15
   %name_.i = getelementptr inbounds i8, ptr %ptr, i64 48
-  %25 = load ptr, ptr %name_.i, align 8
-  %call47 = tail call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder43, ptr noundef %storedValue, ptr noundef %call45, ptr noundef %25) #15
+  %21 = load ptr, ptr %name_.i, align 8
+  %call47 = tail call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder43, ptr noundef %storedValue, ptr noundef %call45, ptr noundef %21) #15
   br label %return
 
 if.else48:                                        ; preds = %lor.lhs.false
@@ -1336,9 +1327,8 @@ _ZN6hermes5irgenL28materializeScopeChainForEvalERNS_9IRBuilderEPNS_6ESTree11Prog
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp5.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %24 = load i8, ptr %hasVal.i.i, align 8
-  %25 = and i8 %24, 1
-  %tobool.not.i.i.i = icmp eq i8 %25, 0
-  br i1 %tobool.not.i.i.i, label %_ZN4llvh8OptionalIN6hermes5irgen15FunctionContextEE7emplaceIJPNS2_11ESTreeIRGenERPNS1_8FunctionEDnEEEvDpOT_.exit, label %if.then.i.i.i30
+  %tobool.i.i.i = trunc i8 %24 to i1
+  br i1 %tobool.i.i.i, label %if.then.i.i.i30, label %_ZN4llvh8OptionalIN6hermes5irgen15FunctionContextEE7emplaceIJPNS2_11ESTreeIRGenERPNS1_8FunctionEDnEEEvDpOT_.exit
 
 if.then.i.i.i30:                                  ; preds = %_ZN6hermes5irgenL28materializeScopeChainForEvalERNS_9IRBuilderEPNS_6ESTree11ProgramNodeERKSt10shared_ptrIKNS_15SerializedScopeEE.exit
   call void @_ZN6hermes5irgen15FunctionContextD1Ev(ptr noundef nonnull align 8 dereferenceable(480) %wrapperFunctionContext) #15
@@ -1386,10 +1376,10 @@ _ZN4llvh8OptionalIN6hermes5irgen15FunctionContextEE7emplaceIJPNS2_11ESTreeIRGenE
   store i8 0, ptr %dynamic_.i.i48, align 8
   %innerScopes_.i49 = getelementptr inbounds i8, ptr %23, i64 48
   %Size.i.i.i50 = getelementptr inbounds i8, ptr %23, i64 56
-  %26 = load i32, ptr %Size.i.i.i50, align 8
+  %25 = load i32, ptr %Size.i.i.i50, align 8
   %Capacity.i.i.i51 = getelementptr inbounds i8, ptr %23, i64 60
-  %27 = load i32, ptr %Capacity.i.i.i51, align 4
-  %cmp.not.i.i52 = icmp ult i32 %26, %27
+  %26 = load i32, ptr %Capacity.i.i.i51, align 4
+  %cmp.not.i.i52 = icmp ult i32 %25, %26
   br i1 %cmp.not.i.i52, label %_ZN6hermes9ScopeDesc16createInnerScopeEv.exit59, label %if.then.i.i53
 
 if.then.i.i53:                                    ; preds = %_ZN4llvh8OptionalIN6hermes5irgen15FunctionContextEE7emplaceIJPNS2_11ESTreeIRGenERPNS1_8FunctionEDnEEEvDpOT_.exit
@@ -1399,69 +1389,68 @@ if.then.i.i53:                                    ; preds = %_ZN4llvh8OptionalIN
   br label %_ZN6hermes9ScopeDesc16createInnerScopeEv.exit59
 
 _ZN6hermes9ScopeDesc16createInnerScopeEv.exit59:  ; preds = %_ZN4llvh8OptionalIN6hermes5irgen15FunctionContextEE7emplaceIJPNS2_11ESTreeIRGenERPNS1_8FunctionEDnEEEvDpOT_.exit, %if.then.i.i53
-  %28 = phi i32 [ %.pre.i.i55, %if.then.i.i53 ], [ %26, %_ZN4llvh8OptionalIN6hermes5irgen15FunctionContextEE7emplaceIJPNS2_11ESTreeIRGenERPNS1_8FunctionEDnEEEvDpOT_.exit ]
-  %29 = load ptr, ptr %innerScopes_.i49, align 8
-  %conv.i3.i.i56 = zext i32 %28 to i64
-  %add.ptr.i.i.i57 = getelementptr inbounds ptr, ptr %29, i64 %conv.i3.i.i56
+  %27 = phi i32 [ %.pre.i.i55, %if.then.i.i53 ], [ %25, %_ZN4llvh8OptionalIN6hermes5irgen15FunctionContextEE7emplaceIJPNS2_11ESTreeIRGenERPNS1_8FunctionEDnEEEvDpOT_.exit ]
+  %28 = load ptr, ptr %innerScopes_.i49, align 8
+  %conv.i3.i.i56 = zext i32 %27 to i64
+  %add.ptr.i.i.i57 = getelementptr inbounds ptr, ptr %28, i64 %conv.i3.i.i56
   store ptr %call.i31, ptr %add.ptr.i.i.i57, align 8
-  %30 = load i32, ptr %Size.i.i.i50, align 8
-  %add.i.i58 = add i32 %30, 1
+  %29 = load i32, ptr %Size.i.i.i50, align 8
+  %add.i.i58 = add i32 %29, 1
   store i32 %add.i.i58, ptr %Size.i.i.i50, align 8
-  %31 = load i32, ptr %strictness.i, align 8
-  %cmp.i60 = icmp eq i32 %31, 2
-  %32 = load i32, ptr %sourceVisibility.i, align 4
-  %33 = load <2 x ptr>, ptr %sourceRange_.i.i, align 8
-  store <2 x ptr> %33, ptr %agg.tmp31, align 16
-  %call33 = call noundef ptr @_ZN6hermes9IRBuilder14createFunctionEPNS_9ScopeDescEN4llvh9StringRefENS_8Function14DefinitionKindEbNS_16SourceVisibilityENS3_7SMRangeEbPS5_(ptr noundef nonnull align 8 dereferenceable(40) %Builder9, ptr noundef nonnull %call.i31, ptr nonnull @.str, i64 4, i32 noundef 0, i1 noundef zeroext %cmp.i60, i32 noundef %32, ptr noundef nonnull byval(%"class.llvh::SMRange") align 8 %agg.tmp31, i1 noundef zeroext false, ptr noundef null) #15
+  %30 = load i32, ptr %strictness.i, align 8
+  %cmp.i60 = icmp eq i32 %30, 2
+  %31 = load i32, ptr %sourceVisibility.i, align 4
+  %32 = load <2 x ptr>, ptr %sourceRange_.i.i, align 8
+  store <2 x ptr> %32, ptr %agg.tmp31, align 16
+  %call33 = call noundef ptr @_ZN6hermes9IRBuilder14createFunctionEPNS_9ScopeDescEN4llvh9StringRefENS_8Function14DefinitionKindEbNS_16SourceVisibilityENS3_7SMRangeEbPS5_(ptr noundef nonnull align 8 dereferenceable(40) %Builder9, ptr noundef nonnull %call.i31, ptr nonnull @.str, i64 4, i32 noundef 0, i1 noundef zeroext %cmp.i60, i32 noundef %31, ptr noundef nonnull byval(%"class.llvh::SMRange") align 8 %agg.tmp31, i1 noundef zeroext false, ptr noundef null) #15
   %function_.i = getelementptr inbounds i8, ptr %23, i64 144
-  %34 = load ptr, ptr %function_.i, align 8
-  %call.i67 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder9, ptr noundef %34) #15
+  %33 = load ptr, ptr %function_.i, align 8
+  %call.i67 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder9, ptr noundef %33) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder9, ptr noundef %call.i67) #15
   %call1.i = call noundef ptr @_ZN6hermes9IRBuilder21createUnreachableInstEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder9) #15
-  %scopeDesc_.i.i = getelementptr inbounds i8, ptr %34, i64 72
-  %35 = load ptr, ptr %scopeDesc_.i.i, align 8
-  %call3.i = call noundef ptr @_ZN6hermes9IRBuilder21createCreateScopeInstEPNS_9ScopeDescE(ptr noundef nonnull align 8 dereferenceable(40) %Builder9, ptr noundef %35) #15
+  %scopeDesc_.i.i = getelementptr inbounds i8, ptr %33, i64 72
+  %34 = load ptr, ptr %scopeDesc_.i.i, align 8
+  %call3.i = call noundef ptr @_ZN6hermes9IRBuilder21createCreateScopeInstEPNS_9ScopeDescE(ptr noundef nonnull align 8 dereferenceable(40) %Builder9, ptr noundef %34) #15
   %call4.i = call noundef ptr @_ZN6hermes9IRBuilder24createCreateFunctionInstEPNS_8FunctionEPNS_17ScopeCreationInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder9, ptr noundef %call33, ptr noundef %call3.i) #15
-  %36 = icmp eq ptr %call4.i, null
+  %35 = icmp eq ptr %call4.i, null
   %add.ptr.i = getelementptr inbounds i8, ptr %call4.i, i64 16
-  %spec.select.i68 = select i1 %36, ptr null, ptr %add.ptr.i
+  %spec.select.i68 = select i1 %35, ptr null, ptr %add.ptr.i
   %call5.i = call noundef ptr @_ZN6hermes9IRBuilder16createReturnInstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %Builder9, ptr noundef %spec.select.i68) #15
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZN6hermes9ScopeDesc16createInnerScopeEv.exit59, %_ZN6hermes9ScopeDesc16createInnerScopeEv.exit
   %topLevelFunction.0 = phi ptr [ %call33, %_ZN6hermes9ScopeDesc16createInnerScopeEv.exit59 ], [ %call16, %_ZN6hermes9ScopeDesc16createInnerScopeEv.exit ]
-  %37 = load ptr, ptr %this, align 8
-  %topLevelFunction_.i = getelementptr inbounds i8, ptr %37, i64 56
+  %36 = load ptr, ptr %this, align 8
+  %topLevelFunction_.i = getelementptr inbounds i8, ptr %36, i64 56
   store ptr %topLevelFunction.0, ptr %topLevelFunction_.i, align 8
   %add.ptr38 = getelementptr inbounds i8, ptr %0, i64 48
-  %38 = load ptr, ptr %add.ptr38, align 8
-  call void @_ZN6hermes5irgen15FunctionContextC1EPNS0_11ESTreeIRGenEPNS_8FunctionEPNS_3sem12FunctionInfoE(ptr noundef nonnull align 8 dereferenceable(480) %topLevelFunctionContext, ptr noundef nonnull %this, ptr noundef %topLevelFunction.0, ptr noundef %38) #15
+  %37 = load ptr, ptr %add.ptr38, align 8
+  call void @_ZN6hermes5irgen15FunctionContextC1EPNS0_11ESTreeIRGenEPNS_8FunctionEPNS_3sem12FunctionInfoE(ptr noundef nonnull align 8 dereferenceable(480) %topLevelFunctionContext, ptr noundef nonnull %this, ptr noundef %topLevelFunction.0, ptr noundef %37) #15
   %topLevelContext = getelementptr inbounds i8, ptr %this, i64 72
-  %39 = load i8, ptr %hasVal.i.i, align 8
-  %40 = and i8 %39, 1
-  %tobool.i.not = icmp eq i8 %40, 0
-  %spec.select82 = select i1 %tobool.i.not, ptr %topLevelFunctionContext, ptr %wrapperFunctionContext
-  %41 = load ptr, ptr %topLevelContext, align 8
+  %38 = load i8, ptr %hasVal.i.i, align 8
+  %tobool.i = trunc i8 %38 to i1
+  %spec.select82 = select i1 %tobool.i, ptr %wrapperFunctionContext, ptr %topLevelFunctionContext
+  %39 = load ptr, ptr %topLevelContext, align 8
   store ptr %spec.select82, ptr %topLevelContext, align 8
-  %42 = load ptr, ptr %lexicalScopeChain, align 8
-  %cmp.i69.not = icmp eq ptr %42, null
+  %40 = load ptr, ptr %lexicalScopeChain, align 8
+  %cmp.i69.not = icmp eq ptr %40, null
   br i1 %cmp.i69.not, label %if.then45, label %if.end53
 
 if.then45:                                        ; preds = %if.end36
   %DeclarationFileList = getelementptr inbounds i8, ptr %this, i64 64
-  %43 = load ptr, ptr %DeclarationFileList, align 8
-  %44 = load ptr, ptr %43, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %43, i64 8
-  %45 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i70.not84 = icmp eq ptr %44, %45
+  %41 = load ptr, ptr %DeclarationFileList, align 8
+  %42 = load ptr, ptr %41, align 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i70.not84 = icmp eq ptr %42, %43
   br i1 %cmp.i70.not84, label %if.end53, label %for.body
 
 for.body:                                         ; preds = %if.then45, %for.body
-  %__begin3.sroa.0.085 = phi ptr [ %incdec.ptr.i, %for.body ], [ %44, %if.then45 ]
-  %46 = load ptr, ptr %__begin3.sroa.0.085, align 8
-  call void @_ZN6hermes5irgen11ESTreeIRGen22processDeclarationFileEPNS_6ESTree11ProgramNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %46)
+  %__begin3.sroa.0.085 = phi ptr [ %incdec.ptr.i, %for.body ], [ %42, %if.then45 ]
+  %44 = load ptr, ptr %__begin3.sroa.0.085, align 8
+  call void @_ZN6hermes5irgen11ESTreeIRGen22processDeclarationFileEPNS_6ESTree11ProgramNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %44)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.085, i64 8
-  %cmp.i70.not = icmp eq ptr %incdec.ptr.i, %45
+  %cmp.i70.not = icmp eq ptr %incdec.ptr.i, %43
   br i1 %cmp.i70.not, label %if.end53, label %for.body
 
 if.end53:                                         ; preds = %for.body, %if.then45, %if.end36
@@ -1471,34 +1460,33 @@ if.end53:                                         ; preds = %for.body, %if.then4
   call void @_ZN6hermes5irgen11ESTreeIRGen29initCaptureStateInES5FunctionEv(ptr noundef nonnull align 8 dereferenceable(200) %this) #15
   call void @_ZN6hermes5irgen11ESTreeIRGen24emitTopLevelDeclarationsEPNS_6ESTree16FunctionLikeNodeEPNS2_4NodeENS1_16DoEmitParametersE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %0, ptr noundef nonnull %0, i32 noundef 1) #15
   %functionContext_.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %47 = load ptr, ptr %functionContext_.i.i, align 8
-  %call2.i = call ptr @_ZN6hermes5irgen15FunctionContext21genAnonymousLabelNameEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(480) %47, ptr nonnull @.str.4, i64 3) #15
+  %45 = load ptr, ptr %functionContext_.i.i, align 8
+  %call2.i = call ptr @_ZN6hermes5irgen15FunctionContext21genAnonymousLabelNameEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(480) %45, ptr nonnull @.str.4, i64 3) #15
   %call62 = call noundef ptr @_ZN6hermes9IRBuilder20createAllocStackInstENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(40) %Builder54, ptr %call2.i) #15
-  %48 = load ptr, ptr %functionContext_.i.i, align 8
-  %globalReturnRegister = getelementptr inbounds i8, ptr %48, i64 144
+  %46 = load ptr, ptr %functionContext_.i.i, align 8
+  %globalReturnRegister = getelementptr inbounds i8, ptr %46, i64 144
   store ptr %call62, ptr %globalReturnRegister, align 8
   %call66 = call noundef ptr @_ZN6hermes9IRBuilder19getLiteralUndefinedEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder54) #15
-  %49 = load ptr, ptr %functionContext_.i.i, align 8
-  %globalReturnRegister68 = getelementptr inbounds i8, ptr %49, i64 144
-  %50 = load ptr, ptr %globalReturnRegister68, align 8
-  %call69 = call noundef ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder54, ptr noundef %call66, ptr noundef %50) #15
+  %47 = load ptr, ptr %functionContext_.i.i, align 8
+  %globalReturnRegister68 = getelementptr inbounds i8, ptr %47, i64 144
+  %48 = load ptr, ptr %globalReturnRegister68, align 8
+  %call69 = call noundef ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder54, ptr noundef %call66, ptr noundef %48) #15
   call void @_ZN6hermes5irgen11ESTreeIRGen20hoistCreateFunctionsEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %0) #15
   %_body = getelementptr inbounds i8, ptr %0, i64 88
   call void @_ZN6hermes5irgen11ESTreeIRGen7genBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %_body) #15
-  %51 = load ptr, ptr %functionContext_.i.i, align 8
-  %globalReturnRegister72 = getelementptr inbounds i8, ptr %51, i64 144
-  %52 = load ptr, ptr %globalReturnRegister72, align 8
-  %call73 = call noundef ptr @_ZN6hermes9IRBuilder19createLoadStackInstEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder54, ptr noundef %52) #15
-  %53 = icmp eq ptr %call73, null
+  %49 = load ptr, ptr %functionContext_.i.i, align 8
+  %globalReturnRegister72 = getelementptr inbounds i8, ptr %49, i64 144
+  %50 = load ptr, ptr %globalReturnRegister72, align 8
+  %call73 = call noundef ptr @_ZN6hermes9IRBuilder19createLoadStackInstEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder54, ptr noundef %50) #15
+  %51 = icmp eq ptr %call73, null
   %add.ptr74 = getelementptr inbounds i8, ptr %call73, i64 16
-  %spec.select = select i1 %53, ptr null, ptr %add.ptr74
+  %spec.select = select i1 %51, ptr null, ptr %add.ptr74
   call void @_ZN6hermes5irgen11ESTreeIRGen20emitFunctionEpilogueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %spec.select) #15
-  store ptr %41, ptr %topLevelContext, align 8
+  store ptr %39, ptr %topLevelContext, align 8
   call void @_ZN6hermes5irgen15FunctionContextD1Ev(ptr noundef nonnull align 8 dereferenceable(480) %topLevelFunctionContext) #15
-  %54 = load i8, ptr %hasVal.i.i, align 8
-  %55 = and i8 %54, 1
-  %tobool.not.i.i.i75 = icmp eq i8 %55, 0
-  br i1 %tobool.not.i.i.i75, label %return, label %if.then.i.i.i76
+  %52 = load i8, ptr %hasVal.i.i, align 8
+  %tobool.i.i.i75 = trunc i8 %52 to i1
+  br i1 %tobool.i.i.i75, label %if.then.i.i.i76, label %return
 
 if.then.i.i.i76:                                  ; preds = %if.end53
   call void @_ZN6hermes5irgen15FunctionContextD1Ev(ptr noundef nonnull align 8 dereferenceable(480) %wrapperFunctionContext) #15
@@ -2414,46 +2402,45 @@ _ZN6hermes5irgenL36materializeScopeChainForLazyFunctionERNS_9IRBuilderEPNS_3hbc1
   store i32 %add.i.i.i, ptr %Size.i.i.i.i, align 8, !noalias !41
   %strictMode.i = getelementptr inbounds i8, ptr %lazyData, i64 76
   %23 = load i8, ptr %strictMode.i, align 4, !noalias !41
-  %24 = and i8 %23, 1
-  %tobool.i = icmp ne i8 %24, 0
+  %tobool.i = trunc i8 %23 to i1
   %call3.i = tail call noundef ptr @_ZN6hermes9IRBuilder22createTopLevelFunctionEPNS_9ScopeDescEbNS_16SourceVisibilityEN4llvh7SMRangeE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef nonnull %call.i.i, i1 noundef zeroext %tobool.i, i32 noundef 0, ptr null, ptr null) #15, !noalias !41
   call fastcc void @_ZN6hermes5irgenL21materializeScopeChainERNS_9IRBuilderEPNS_8FunctionERKSt10shared_ptrIKNS_15SerializedScopeEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call3.i, ptr noundef nonnull align 8 dereferenceable(16) %lexicalScopeChain), !noalias !41
-  %25 = load ptr, ptr %ref.tmp.i, align 8, !noalias !44
+  %24 = load ptr, ptr %ref.tmp.i, align 8, !noalias !44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @_ZN6hermes5irgen15FunctionContextC1EPNS0_11ESTreeIRGenEPNS_8FunctionEPNS_3sem12FunctionInfoE(ptr noundef nonnull align 8 dereferenceable(480) %topLevelFunctionContext, ptr noundef nonnull %this, ptr noundef %call3.i, ptr noundef null) #15
   %currentIRScopeDesc_ = getelementptr inbounds i8, ptr %this, i64 160
-  store ptr %25, ptr %currentIRScopeDesc_, align 8
+  store ptr %24, ptr %currentIRScopeDesc_, align 8
   %topLevelContext = getelementptr inbounds i8, ptr %this, i64 72
-  %26 = load ptr, ptr %topLevelContext, align 8
+  %25 = load ptr, ptr %topLevelContext, align 8
   store ptr %topLevelFunctionContext, ptr %topLevelContext, align 8
   %Root = getelementptr inbounds i8, ptr %this, i64 56
-  %27 = load ptr, ptr %Root, align 8
+  %26 = load ptr, ptr %Root, align 8
   %nameTable_ = getelementptr inbounds i8, ptr %this, i64 88
-  call fastcc void @_ZN6hermes5irgenL17populateNameTableERNS_15ScopedHashTableINS_10IdentifierEPNS_5ValueEEEPNS_9ScopeDescE(ptr noundef nonnull align 8 dereferenceable(32) %nameTable_, ptr noundef %25)
+  call fastcc void @_ZN6hermes5irgenL17populateNameTableERNS_15ScopedHashTableINS_10IdentifierEPNS_5ValueEEEPNS_9ScopeDescE(ptr noundef nonnull align 8 dereferenceable(32) %nameTable_, ptr noundef %24)
   %closureAlias = getelementptr inbounds i8, ptr %lazyData, i64 40
-  %28 = load ptr, ptr %closureAlias, align 8
-  %cmp.i.not = icmp eq ptr %28, null
+  %27 = load ptr, ptr %closureAlias, align 8
+  %cmp.i.not = icmp eq ptr %27, null
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN6hermes5irgenL36materializeScopeChainForLazyFunctionERNS_9IRBuilderEPNS_3hbc19LazyCompilationDataERKSt10shared_ptrIKNS_15SerializedScopeEE.exit
-  %29 = load ptr, ptr %nameTable_, align 8
+  %28 = load ptr, ptr %nameTable_, align 8
   %NumBuckets.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %30 = load i32, ptr %NumBuckets.i.i.i.i.i, align 8
-  %cmp.i.i.i = icmp eq i32 %30, 0
+  %29 = load i32, ptr %NumBuckets.i.i.i.i.i, align 8
+  %cmp.i.i.i = icmp eq i32 %29, 0
   br i1 %cmp.i.i.i, label %if.end.i.i, label %if.end.i.i.i20
 
 if.end.i.i.i20:                                   ; preds = %if.then
-  %31 = ptrtoint ptr %28 to i64
-  %conv.i.i.i.i.i.i = trunc i64 %31 to i32
+  %30 = ptrtoint ptr %27 to i64
+  %conv.i.i.i.i.i.i = trunc i64 %30 to i32
   %shr.i.i.i.i.i.i = lshr i32 %conv.i.i.i.i.i.i, 4
   %shr2.i.i.i.i.i.i = lshr i32 %conv.i.i.i.i.i.i, 9
   %xor.i.i.i.i.i.i = xor i32 %shr.i.i.i.i.i.i, %shr2.i.i.i.i.i.i
-  %sub.i.i.i = add i32 %30, -1
+  %sub.i.i.i = add i32 %29, -1
   %BucketNo.019.i.i.i = and i32 %sub.i.i.i, %xor.i.i.i.i.i.i
   %idx.ext20.i.i.i = zext nneg i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.315", ptr %29, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.315", ptr %28, i64 %idx.ext20.i.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i.i = load ptr, ptr %add.ptr21.i.i.i, align 8
-  %cmp.i.i23.i.i.i = icmp eq ptr %28, %agg.tmp7.sroa.0.0.copyload22.i.i.i
+  %cmp.i.i23.i.i.i = icmp eq ptr %27, %agg.tmp7.sroa.0.0.copyload22.i.i.i
   br i1 %cmp.i.i23.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i, label %if.end13.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %if.end.i.i.i20, %if.end21.i.i.i
@@ -2468,80 +2455,80 @@ if.end21.i.i.i:                                   ; preds = %if.end13.i.i.i
   %add.i.i.i21 = add i32 %ProbeAmt.024.i.i.i, %BucketNo.026.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i21, %sub.i.i.i
   %idx.ext.i.i.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i.i22 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.315", ptr %29, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i22 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.315", ptr %28, i64 %idx.ext.i.i.i
   %agg.tmp7.sroa.0.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i22, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %28, %agg.tmp7.sroa.0.0.copyload.i.i.i
+  %cmp.i.i.i.i.i = icmp eq ptr %27, %agg.tmp7.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i, label %if.end13.i.i.i, !llvm.loop !27
 
 if.end.i.i:                                       ; preds = %if.end13.i.i.i, %if.then
-  %idx.ext.i.i.i.i = zext i32 %30 to i64
-  %add.ptr.i.i.i.i23 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.315", ptr %29, i64 %idx.ext.i.i.i.i
+  %idx.ext.i.i.i.i = zext i32 %29 to i64
+  %add.ptr.i.i.i.i23 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.315", ptr %28, i64 %idx.ext.i.i.i.i
   br label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i
 
 _ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i: ; preds = %if.end21.i.i.i, %if.end.i.i, %if.end.i.i.i20
   %cond.sink.i.ph.pn.i.i = phi ptr [ %add.ptr.i.i.i.i23, %if.end.i.i ], [ %add.ptr21.i.i.i, %if.end.i.i.i20 ], [ %add.ptr.i.i.i22, %if.end21.i.i.i ]
-  %idx.ext.i.i2.i = zext i32 %30 to i64
-  %add.ptr.i.i3.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.315", ptr %29, i64 %idx.ext.i.i2.i
+  %idx.ext.i.i2.i = zext i32 %29 to i64
+  %add.ptr.i.i3.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.315", ptr %28, i64 %idx.ext.i.i2.i
   %cmp.i.i = icmp eq ptr %cond.sink.i.ph.pn.i.i, %add.ptr.i.i3.i
   br i1 %cmp.i.i, label %_ZNK6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE6lookupERKS1_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i
   %second.i = getelementptr inbounds i8, ptr %cond.sink.i.ph.pn.i.i, i64 8
-  %32 = load ptr, ptr %second.i, align 8
-  %value_.i = getelementptr inbounds i8, ptr %32, i64 8
-  %33 = load ptr, ptr %value_.i, align 8
+  %31 = load ptr, ptr %second.i, align 8
+  %value_.i = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = load ptr, ptr %value_.i, align 8
   br label %_ZNK6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE6lookupERKS1_.exit
 
 _ZNK6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE6lookupERKS1_.exit: ; preds = %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i, %if.end.i
-  %retval.0.i = phi ptr [ %33, %if.end.i ], [ null, %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i ]
+  %retval.0.i = phi ptr [ %32, %if.end.i ], [ null, %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i ]
   %originalName = getelementptr inbounds i8, ptr %lazyData, i64 32
   store ptr %retval.0.i, ptr %ref.tmp13, align 8
   %scope_.i = getelementptr inbounds i8, ptr %this, i64 112
-  %34 = load ptr, ptr %scope_.i, align 8
-  call void @_ZN6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE15insertIntoScopeEPNS_20ScopedHashTableScopeIS1_S3_EERKS1_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %nameTable_, ptr noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %originalName, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13)
+  %33 = load ptr, ptr %scope_.i, align 8
+  call void @_ZN6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE15insertIntoScopeEPNS_20ScopedHashTableScopeIS1_S3_EERKS1_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %nameTable_, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %originalName, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13)
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE6lookupERKS1_.exit, %_ZN6hermes5irgenL36materializeScopeChainForLazyFunctionERNS_9IRBuilderEPNS_3hbc19LazyCompilationDataERKSt10shared_ptrIKNS_15SerializedScopeEE.exit
   %parentVar.0 = phi ptr [ %retval.0.i, %_ZNK6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE6lookupERKS1_.exit ], [ null, %_ZN6hermes5irgenL36materializeScopeChainForLazyFunctionERNS_9IRBuilderEPNS_3hbc19LazyCompilationDataERKSt10shared_ptrIKNS_15SerializedScopeEE.exit ]
-  %call14 = call noundef zeroext i1 @_ZN6hermes6ESTree7isAsyncEPNS0_16FunctionLikeNodeE(ptr noundef %27) #15
+  %call14 = call noundef zeroext i1 @_ZN6hermes6ESTree7isAsyncEPNS0_16FunctionLikeNodeE(ptr noundef %26) #15
   br i1 %call14, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
   %originalName15 = getelementptr inbounds i8, ptr %lazyData, i64 32
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %originalName15, align 8
-  %call16 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen16genAsyncFunctionENS_10IdentifierEPNS_8VariableEPNS_6ESTree16FunctionLikeNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr %agg.tmp.sroa.0.0.copyload, ptr noundef %parentVar.0, ptr noundef %27) #15
+  %call16 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen16genAsyncFunctionENS_10IdentifierEPNS_8VariableEPNS_6ESTree16FunctionLikeNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr %agg.tmp.sroa.0.0.copyload, ptr noundef %parentVar.0, ptr noundef %26) #15
   br label %cond.end28
 
 cond.false:                                       ; preds = %if.end
-  %call17 = call noundef zeroext i1 @_ZN6hermes6ESTree11isGeneratorEPNS0_16FunctionLikeNodeE(ptr noundef %27) #15
+  %call17 = call noundef zeroext i1 @_ZN6hermes6ESTree11isGeneratorEPNS0_16FunctionLikeNodeE(ptr noundef %26) #15
   %originalName20 = getelementptr inbounds i8, ptr %lazyData, i64 32
   %agg.tmp19.sroa.0.0.copyload = load ptr, ptr %originalName20, align 8
   br i1 %call17, label %cond.true18, label %cond.false23
 
 cond.true18:                                      ; preds = %cond.false
-  %call22 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen20genGeneratorFunctionENS_10IdentifierEPNS_8VariableEPNS_6ESTree16FunctionLikeNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr %agg.tmp19.sroa.0.0.copyload, ptr noundef %parentVar.0, ptr noundef %27) #15
+  %call22 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen20genGeneratorFunctionENS_10IdentifierEPNS_8VariableEPNS_6ESTree16FunctionLikeNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr %agg.tmp19.sroa.0.0.copyload, ptr noundef %parentVar.0, ptr noundef %26) #15
   br label %cond.end28
 
 cond.false23:                                     ; preds = %cond.false
-  %call27 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen14genES5FunctionENS_10IdentifierEPNS_8VariableEPNS_6ESTree16FunctionLikeNodeEb(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr %agg.tmp19.sroa.0.0.copyload, ptr noundef %parentVar.0, ptr noundef %27, i1 noundef zeroext false) #15
+  %call27 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen14genES5FunctionENS_10IdentifierEPNS_8VariableEPNS_6ESTree16FunctionLikeNodeEb(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr %agg.tmp19.sroa.0.0.copyload, ptr noundef %parentVar.0, ptr noundef %26, i1 noundef zeroext false) #15
   br label %cond.end28
 
 cond.end28:                                       ; preds = %cond.true18, %cond.false23, %cond.true
   %cond29 = phi ptr [ %call16, %cond.true ], [ %call22, %cond.true18 ], [ %call27, %cond.false23 ]
-  %function_.i = getelementptr inbounds i8, ptr %25, i64 144
-  %35 = load ptr, ptr %function_.i, align 8
-  %call.i = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %35) #15
+  %function_.i = getelementptr inbounds i8, ptr %24, i64 144
+  %34 = load ptr, ptr %function_.i, align 8
+  %call.i = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %34) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call.i) #15
   %call1.i = call noundef ptr @_ZN6hermes9IRBuilder21createUnreachableInstEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder) #15
-  %scopeDesc_.i.i = getelementptr inbounds i8, ptr %35, i64 72
-  %36 = load ptr, ptr %scopeDesc_.i.i, align 8
-  %call3.i24 = call noundef ptr @_ZN6hermes9IRBuilder21createCreateScopeInstEPNS_9ScopeDescE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %36) #15
+  %scopeDesc_.i.i = getelementptr inbounds i8, ptr %34, i64 72
+  %35 = load ptr, ptr %scopeDesc_.i.i, align 8
+  %call3.i24 = call noundef ptr @_ZN6hermes9IRBuilder21createCreateScopeInstEPNS_9ScopeDescE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %35) #15
   %call4.i = call noundef ptr @_ZN6hermes9IRBuilder24createCreateFunctionInstEPNS_8FunctionEPNS_17ScopeCreationInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %cond29, ptr noundef %call3.i24) #15
-  %37 = icmp eq ptr %call4.i, null
+  %36 = icmp eq ptr %call4.i, null
   %add.ptr.i = getelementptr inbounds i8, ptr %call4.i, i64 16
-  %spec.select.i = select i1 %37, ptr null, ptr %add.ptr.i
+  %spec.select.i = select i1 %36, ptr null, ptr %add.ptr.i
   %call5.i = call noundef ptr @_ZN6hermes9IRBuilder16createReturnInstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %spec.select.i) #15
-  store ptr %26, ptr %topLevelContext, align 8
+  store ptr %25, ptr %topLevelContext, align 8
   call void @_ZN6hermes5irgen15FunctionContextD1Ev(ptr noundef nonnull align 8 dereferenceable(480) %topLevelFunctionContext) #15
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %cond29, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %call3.i, 1
@@ -2645,12 +2632,11 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   %8 = load ptr, ptr %Ctx.i, align 8
   %enableBlockScoping = getelementptr inbounds i8, ptr %8, i64 249
   %9 = load i8, ptr %enableBlockScoping, align 1
-  %10 = and i8 %9, 1
-  %tobool11.not = icmp eq i8 %10, 0
-  br i1 %tobool11.not, label %return, label %if.end16.thread
+  %tobool11 = trunc i8 %9 to i1
+  br i1 %tobool11, label %if.end16.thread, label %return
 
 if.end16.thread:                                  ; preds = %lor.lhs.false
-  %call1715 = tail call noundef zeroext i1 @_ZNK6hermes9ScopeDesc13isGlobalScopeEv(ptr noundef nonnull align 8 dereferenceable(233) %inScope) #15
+  %call1717 = tail call noundef zeroext i1 @_ZNK6hermes9ScopeDesc13isGlobalScopeEv(ptr noundef nonnull align 8 dereferenceable(233) %inScope) #15
   br label %if.else23
 
 if.end16:                                         ; preds = %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i, %if.then4, %if.else, %_ZNK6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE6lookupERKS1_.exit
@@ -2661,40 +2647,39 @@ if.end16:                                         ; preds = %_ZNK4llvh12DenseMap
 
 if.then20:                                        ; preds = %if.end16
   %topLevelContext = getelementptr inbounds i8, ptr %this, i64 72
-  %11 = load ptr, ptr %topLevelContext, align 8
-  %functionScope = getelementptr inbounds i8, ptr %11, i64 128
-  %12 = load ptr, ptr %functionScope, align 8
+  %10 = load ptr, ptr %topLevelContext, align 8
+  %functionScope = getelementptr inbounds i8, ptr %10, i64 128
+  %11 = load ptr, ptr %functionScope, align 8
   %Builder = getelementptr inbounds i8, ptr %this, i64 8
   %call22 = tail call noundef ptr @_ZN6hermes9IRBuilder26createGlobalObjectPropertyENS_10IdentifierEb(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr %name.coerce, i1 noundef zeroext true) #15
   br label %if.end35
 
 if.else23:                                        ; preds = %if.end16.thread, %if.end16
-  %13 = load ptr, ptr %this, align 8
-  %Ctx.i9 = getelementptr inbounds i8, ptr %13, i64 40
-  %14 = load ptr, ptr %Ctx.i9, align 8
-  %codeGenerationSettings_.i10 = getelementptr inbounds i8, ptr %14, i64 240
-  %15 = load i8, ptr %codeGenerationSettings_.i10, align 8
-  %16 = and i8 %15, 1
-  %tobool27.not = icmp eq i8 %16, 0
-  %spec.select = select i1 %tobool27.not, i8 2, i8 %declKind
+  %12 = load ptr, ptr %this, align 8
+  %Ctx.i10 = getelementptr inbounds i8, ptr %12, i64 40
+  %13 = load ptr, ptr %Ctx.i10, align 8
+  %codeGenerationSettings_.i11 = getelementptr inbounds i8, ptr %13, i64 240
+  %14 = load i8, ptr %codeGenerationSettings_.i11, align 8
+  %tobool27 = trunc i8 %14 to i1
+  %spec.select = select i1 %tobool27, i8 %declKind, i8 2
   %functionContext_.i = getelementptr inbounds i8, ptr %this, i64 80
-  %17 = load ptr, ptr %functionContext_.i, align 8
-  %blockScope = getelementptr inbounds i8, ptr %17, i64 136
-  %18 = load ptr, ptr %blockScope, align 8
+  %15 = load ptr, ptr %functionContext_.i, align 8
+  %blockScope = getelementptr inbounds i8, ptr %15, i64 136
+  %16 = load ptr, ptr %blockScope, align 8
   %Builder31 = getelementptr inbounds i8, ptr %this, i64 8
   %call34 = tail call noundef ptr @_ZN6hermes9IRBuilder14createVariableEPNS_9ScopeDescENS_18JavaScriptDeclKindENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(40) %Builder31, ptr noundef nonnull %inScope, i8 noundef zeroext %spec.select, ptr %name.coerce) #15
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else23, %if.then20
   %storemerge = phi ptr [ %call34, %if.else23 ], [ %call22, %if.then20 ]
-  %nameTableScope.0 = phi ptr [ %18, %if.else23 ], [ %12, %if.then20 ]
+  %nameTableScope.0 = phi ptr [ %16, %if.else23 ], [ %11, %if.then20 ]
   store ptr %storemerge, ptr %res, align 8
   call void @_ZN6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE15insertIntoScopeEPNS_20ScopedHashTableScopeIS1_S3_EERKS1_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %nameTable_, ptr noundef %nameTableScope.0, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef nonnull align 8 dereferenceable(8) %res)
-  %19 = load ptr, ptr %res, align 8
+  %17 = load ptr, ptr %res, align 8
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %lor.lhs.false, %if.then4, %if.end35
-  %retval.sroa.0.0 = phi ptr [ %19, %if.end35 ], [ %4, %if.then4 ], [ %4, %lor.lhs.false ], [ %4, %land.lhs.true ]
+  %retval.sroa.0.0 = phi ptr [ %17, %if.end35 ], [ %4, %if.then4 ], [ %4, %lor.lhs.false ], [ %4, %land.lhs.true ]
   %retval.sroa.4.0 = phi i8 [ 1, %if.end35 ], [ 0, %if.then4 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
@@ -3032,20 +3017,19 @@ if.end:                                           ; preds = %_ZNK4llvh12DenseMap
   %7 = load ptr, ptr %function, align 8
   %strictMode_.i = getelementptr inbounds i8, ptr %7, i64 188
   %8 = load i8, ptr %strictMode_.i, align 4
-  %9 = and i8 %8, 1
-  %tobool.i.not = icmp eq i8 %9, 0
-  br i1 %tobool.i.not, label %if.end29, label %_ZN4llvhplERKNS_5TwineES2_.exit170
+  %tobool.i = trunc i8 %8 to i1
+  br i1 %tobool.i, label %_ZN4llvhplERKNS_5TwineES2_.exit170, label %if.end29
 
 _ZN4llvhplERKNS_5TwineES2_.exit170:               ; preds = %if.end
   %Builder = getelementptr inbounds i8, ptr %this, i64 8
   %call6 = tail call noundef ptr @_ZN6hermes9IRBuilder17getInsertionBlockEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder) #15
   %Parent.i = getelementptr inbounds i8, ptr %call6, i64 72
-  %10 = load ptr, ptr %Parent.i, align 8
-  %11 = load ptr, ptr %Builder, align 8
-  %Ctx.i = getelementptr inbounds i8, ptr %11, i64 40
-  %12 = load ptr, ptr %Ctx.i, align 8
-  %sm_.i = getelementptr inbounds i8, ptr %12, i64 160
-  %13 = load ptr, ptr %sm_.i, align 8
+  %9 = load ptr, ptr %Parent.i, align 8
+  %10 = load ptr, ptr %Builder, align 8
+  %Ctx.i = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = load ptr, ptr %Ctx.i, align 8
+  %sm_.i = getelementptr inbounds i8, ptr %11, i64 160
+  %12 = load ptr, ptr %sm_.i, align 8
   %sourceRange_.i = getelementptr inbounds i8, ptr %id, i64 24
   %retval.sroa.0.0.copyload.i = load ptr, ptr %sourceRange_.i, align 8
   %retval.sroa.2.0.sourceRange_.sroa_idx.i = getelementptr inbounds i8, ptr %id, i64 32
@@ -3064,7 +3048,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit170:               ; preds = %if.end
   store i8 2, ptr %LHSKind5.i.i.i33, align 8, !alias.scope !52
   %RHSKind6.i.i.i34 = getelementptr inbounds i8, ptr %ref.tmp16, i64 17
   store i8 3, ptr %RHSKind6.i.i.i34, align 1, !alias.scope !52
-  call void @_ZNK6hermes8Function31getDescriptiveDefinitionKindStrB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(304) %10) #15
+  call void @_ZNK6hermes8Function31getDescriptiveDefinitionKindStrB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(304) %9) #15
   store ptr %ref.tmp16, ptr %ref.tmp15, align 8, !alias.scope !57
   %RHS4.i.i.i63 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   store ptr %ref.tmp23, ptr %RHS4.i.i.i63, align 8, !alias.scope !57
@@ -3079,14 +3063,14 @@ _ZN4llvhplERKNS_5TwineES2_.exit170:               ; preds = %if.end
   store i8 2, ptr %LHSKind5.i.i.i96, align 8, !alias.scope !62
   %RHSKind6.i.i.i97 = getelementptr inbounds i8, ptr %ref.tmp14, i64 17
   store i8 3, ptr %RHSKind6.i.i.i97, align 1, !alias.scope !62
-  %internalName_.i = getelementptr inbounds i8, ptr %10, i64 216
-  %14 = load ptr, ptr %internalName_.i, align 8
-  %retval.sroa.0.0.copyload.i104 = load ptr, ptr %14, align 8
-  %retval.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 8
+  %internalName_.i = getelementptr inbounds i8, ptr %9, i64 216
+  %13 = load ptr, ptr %internalName_.i, align 8
+  %retval.sroa.0.0.copyload.i104 = load ptr, ptr %13, align 8
+  %retval.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 8
   %retval.sroa.2.0.copyload.i105 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i, align 8
   store ptr %retval.sroa.0.0.copyload.i104, ptr %ref.tmp26, align 8
-  %15 = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
-  store i64 %retval.sroa.2.0.copyload.i105, ptr %15, align 8
+  %14 = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
+  store i64 %retval.sroa.2.0.copyload.i105, ptr %14, align 8
   store ptr %ref.tmp14, ptr %ref.tmp13, align 8, !alias.scope !67
   %RHS4.i.i.i130 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   store ptr %ref.tmp26, ptr %RHS4.i.i.i130, align 8, !alias.scope !67
@@ -3101,7 +3085,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit170:               ; preds = %if.end
   store i8 2, ptr %LHSKind5.i.i.i163, align 8, !alias.scope !72
   %RHSKind6.i.i.i164 = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 3, ptr %RHSKind6.i.i.i164, align 1, !alias.scope !72
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %13, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i, ptr %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, i32 noundef 1, i32 noundef 0) #15
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %12, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i, ptr %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, i32 noundef 1, i32 noundef 0) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23) #15
   br label %if.end29
 
@@ -3732,7 +3716,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %__begin2.sroa.0.0191 = phi ptr [ %__begin2.sroa.0.0188, %for.body.lr.ph ], [ %__begin2.sroa.0.0, %for.inc ]
-  %first.0190 = phi i8 [ 1, %for.body.lr.ph ], [ %first.1, %for.inc ]
+  %first.0190 = phi i1 [ true, %for.body.lr.ph ], [ false, %for.inc ]
   %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0191, i64 16
   %13 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ne i32 %13, 93
@@ -3840,27 +3824,26 @@ if.then44:                                        ; preds = %_ZN6hermes5irgen11E
 
 if.else:                                          ; preds = %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i.i, %_ZNK6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE6lookupERKS1_.exit.i, %if.end42, %_ZN6hermes5irgen11ESTreeIRGen31canCreateLRefWithoutSideEffectsEPNS_6ESTree4NodeE.exit
   %24 = load i8, ptr %hasVal.i.i, align 8
-  %25 = and i8 %24, 1
-  %tobool.i = icmp ne i8 %25, 0
-  %26 = load i32, ptr %lref, align 8
-  %cmp.i58 = icmp eq i32 %26, 2
+  %tobool.i = trunc i8 %24 to i1
+  %25 = load i32, ptr %lref, align 8
+  %cmp.i58 = icmp eq i32 %25, 2
   %or.cond = select i1 %tobool.i, i1 %cmp.i58, i1 false
   br i1 %or.cond, label %_ZNK6hermes5irgen10LReference26canStoreWithoutSideEffectsEv.exit, label %if.end54
 
 _ZNK6hermes5irgen10LReference26canStoreWithoutSideEffectsEv.exit: ; preds = %if.else
-  %27 = load ptr, ptr %12, align 8
-  %28 = load i8, ptr %27, align 8
-  %cmp.i.i.i.i.i.i.i59 = icmp eq i8 %28, 124
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i8, ptr %26, align 8
+  %cmp.i.i.i.i.i.i.i59 = icmp eq i8 %27, 124
   br i1 %cmp.i.i.i.i.i.i.i59, label %if.then50, label %if.end54
 
 if.then50:                                        ; preds = %_ZNK6hermes5irgen10LReference26canStoreWithoutSideEffectsEv.exit
   %call53 = call noundef ptr @_ZN6hermes9IRBuilder19createLoadStackInstEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call16) #15
-  %29 = icmp eq ptr %call53, null
+  %28 = icmp eq ptr %call53, null
   %add.ptr = getelementptr inbounds i8, ptr %call53, i64 16
-  %spec.select = select i1 %29, ptr null, ptr %add.ptr
-  %30 = load ptr, ptr %irgen_.i.i, align 8
-  %31 = load i32, ptr %lref, align 8
-  switch i32 %31, label %sw.epilog.i [
+  %spec.select = select i1 %28, ptr null, ptr %add.ptr
+  %29 = load ptr, ptr %irgen_.i.i, align 8
+  %30 = load i32, ptr %lref, align 8
+  switch i32 %30, label %sw.epilog.i [
     i32 0, label %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit
     i32 1, label %sw.bb2.i
     i32 2, label %sw.bb4.i
@@ -3869,60 +3852,58 @@ if.then50:                                        ; preds = %_ZNK6hermes5irgen10
   ]
 
 sw.bb2.i:                                         ; preds = %if.then50
-  %Builder.i.i = getelementptr inbounds i8, ptr %30, i64 8
-  %32 = load ptr, ptr %12, align 8
-  %33 = load ptr, ptr %property_.i, align 8
-  %call3.i = call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i, ptr noundef %spec.select, ptr noundef %32, ptr noundef %33) #15
+  %Builder.i.i = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = load ptr, ptr %property_.i, align 8
+  %call3.i = call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i, ptr noundef %spec.select, ptr noundef %31, ptr noundef %32) #15
   br label %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit
 
 sw.bb4.i:                                         ; preds = %if.then50
-  %34 = load ptr, ptr %12, align 8
-  %35 = load i8, ptr %declInit_10.i, align 8
-  %36 = and i8 %35, 1
-  %tobool.i60 = icmp ne i8 %36, 0
-  %call6.i = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %30, ptr noundef %spec.select, ptr noundef %34, i1 noundef zeroext %tobool.i60)
+  %33 = load ptr, ptr %12, align 8
+  %34 = load i8, ptr %declInit_10.i, align 8
+  %tobool.i60 = trunc i8 %34 to i1
+  %call6.i = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %29, ptr noundef %spec.select, ptr noundef %33, i1 noundef zeroext %tobool.i60)
   br label %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit
 
 sw.bb8.i:                                         ; preds = %if.then50
-  %37 = load i8, ptr %declInit_10.i, align 8
-  %38 = and i8 %37, 1
-  %tobool11.i = icmp ne i8 %38, 0
-  %39 = load ptr, ptr %12, align 8
+  %35 = load i8, ptr %declInit_10.i, align 8
+  %tobool11.i = trunc i8 %35 to i1
+  %36 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %kind_.i.i.i.i.i.i.i.i.i103 = getelementptr inbounds i8, ptr %39, i64 16
-  %40 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i103, align 8
-  %cmp.i.i.i.i.i.i.i.i104 = icmp ne i32 %40, 92
-  %tobool.not.i105181 = icmp eq ptr %39, null
+  %kind_.i.i.i.i.i.i.i.i.i103 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i103, align 8
+  %cmp.i.i.i.i.i.i.i.i104 = icmp ne i32 %37, 92
+  %tobool.not.i105181 = icmp eq ptr %36, null
   %tobool.not.i105 = or i1 %tobool.not.i105181, %cmp.i.i.i.i.i.i.i.i104
   br i1 %tobool.not.i105, label %if.else.i, label %if.then.i106
 
 if.then.i106:                                     ; preds = %sw.bb8.i
-  call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %30, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %39, ptr noundef %spec.select)
+  call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %29, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %36, ptr noundef %spec.select)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 if.else.i:                                        ; preds = %sw.bb8.i
-  %cmp.i.i.i.i.i.i.i8.i = icmp ne i32 %40, 91
+  %cmp.i.i.i.i.i.i.i8.i = icmp ne i32 %37, 91
   %tobool4.not.i = or i1 %tobool.not.i105181, %cmp.i.i.i.i.i.i.i8.i
   br i1 %tobool4.not.i, label %if.else7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %30, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %39, ptr noundef %spec.select)
+  call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %29, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %36, ptr noundef %spec.select)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 if.else7.i:                                       ; preds = %if.else.i
-  %41 = load ptr, ptr %30, align 8
-  %Ctx.i.i = getelementptr inbounds i8, ptr %41, i64 40
-  %42 = load ptr, ptr %Ctx.i.i, align 8
-  %sm_.i.i = getelementptr inbounds i8, ptr %42, i64 160
-  %43 = load ptr, ptr %sm_.i.i, align 8
-  %sourceRange_.i.i = getelementptr inbounds i8, ptr %39, i64 24
+  %38 = load ptr, ptr %29, align 8
+  %Ctx.i.i = getelementptr inbounds i8, ptr %38, i64 40
+  %39 = load ptr, ptr %Ctx.i.i, align 8
+  %sm_.i.i = getelementptr inbounds i8, ptr %39, i64 160
+  %40 = load ptr, ptr %sm_.i.i, align 8
+  %sourceRange_.i.i = getelementptr inbounds i8, ptr %36, i64 24
   %retval.sroa.0.0.copyload.i.i107 = load ptr, ptr %sourceRange_.i.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds i8, ptr %39, i64 32
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds i8, ptr %36, i64 32
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i, align 8
   store i8 1, ptr %RHSKind.i.i, align 1
   store ptr @.str.23, ptr %ref.tmp.i, align 8
   store i8 3, ptr %LHSKind.i.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %43, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i107, ptr %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #15
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %40, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i107, ptr %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #15
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 _ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit: ; preds = %if.then.i106, %if.then5.i, %if.else7.i
@@ -3937,31 +3918,30 @@ _ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit: ; preds = %if.then50, %
   br label %if.end54
 
 if.end54:                                         ; preds = %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit, %_ZNK6hermes5irgen10LReference26canStoreWithoutSideEffectsEv.exit, %if.else
-  %44 = load ptr, ptr %Block.i, align 8
-  %Parent.i.i.i = getelementptr inbounds i8, ptr %44, i64 72
-  %45 = load ptr, ptr %Parent.i.i.i, align 8
-  %call3.i110 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %45) #15
-  %call5.i111 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %45) #15
-  %call7.i = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %45) #15
+  %41 = load ptr, ptr %Block.i, align 8
+  %Parent.i.i.i = getelementptr inbounds i8, ptr %41, i64 72
+  %42 = load ptr, ptr %Parent.i.i.i, align 8
+  %call3.i110 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %42) #15
+  %call5.i111 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %42) #15
+  %call7.i = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %42) #15
   %call9.i = call noundef ptr @_ZN6hermes9IRBuilder18createTryStartInstEPNS_10BasicBlockES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call7.i, ptr noundef %call3.i110) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call7.i) #15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
-  %46 = load i8, ptr %hasVal.i.i, align 8
-  %47 = and i8 %46, 1
-  %tobool.i136 = icmp eq i8 %47, 0
-  %48 = load i32, ptr %lref, align 8
-  %cmp.i134 = icmp eq i32 %48, 0
-  %or.cond178 = select i1 %tobool.i136, i1 true, i1 %cmp.i134
-  br i1 %or.cond178, label %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueEE3$_1ZNS1_24emitTryWithSharedHandlerIS8_EEvPNS1_22SharedExceptionHandlerET_EUlvE_ZNS9_IS8_EEvSB_SC_EUlPNS_10BasicBlockEE_EESF_SF_SC_T0_T1_.exit", label %if.then.i.i
+  %43 = load i8, ptr %hasVal.i.i, align 8
+  %tobool.i136 = trunc i8 %43 to i1
+  %44 = load i32, ptr %lref, align 8
+  %cmp.i134 = icmp ne i32 %44, 0
+  %or.cond178.not = select i1 %tobool.i136, i1 %cmp.i134, i1 false
+  br i1 %or.cond178.not, label %if.then.i.i, label %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueEE3$_1ZNS1_24emitTryWithSharedHandlerIS8_EEvPNS1_22SharedExceptionHandlerET_EUlvE_ZNS9_IS8_EEvSB_SC_EUlPNS_10BasicBlockEE_EESF_SF_SC_T0_T1_.exit"
 
 if.then.i.i:                                      ; preds = %if.end54
   %call5.i.i = call noundef ptr @_ZN6hermes9IRBuilder19createLoadStackInstEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call16) #15
-  %49 = icmp eq ptr %call5.i.i, null
+  %45 = icmp eq ptr %call5.i.i, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 16
-  %spec.select.i.i116 = select i1 %49, ptr null, ptr %add.ptr.i.i
-  %50 = load ptr, ptr %irgen_.i.i, align 8
-  %51 = load i32, ptr %lref, align 8
-  switch i32 %51, label %sw.epilog.i132 [
+  %spec.select.i.i116 = select i1 %45, ptr null, ptr %add.ptr.i.i
+  %46 = load ptr, ptr %irgen_.i.i, align 8
+  %47 = load i32, ptr %lref, align 8
+  switch i32 %47, label %sw.epilog.i132 [
     i32 0, label %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueEE3$_1ZNS1_24emitTryWithSharedHandlerIS8_EEvPNS1_22SharedExceptionHandlerET_EUlvE_ZNS9_IS8_EEvSB_SC_EUlPNS_10BasicBlockEE_EESF_SF_SC_T0_T1_.exit"
     i32 1, label %sw.bb2.i129
     i32 2, label %sw.bb4.i124
@@ -3970,60 +3950,58 @@ if.then.i.i:                                      ; preds = %if.end54
   ]
 
 sw.bb2.i129:                                      ; preds = %if.then.i.i
-  %Builder.i.i119 = getelementptr inbounds i8, ptr %50, i64 8
-  %52 = load ptr, ptr %12, align 8
-  %53 = load ptr, ptr %property_.i, align 8
-  %call3.i131 = call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i119, ptr noundef %spec.select.i.i116, ptr noundef %52, ptr noundef %53) #15
+  %Builder.i.i119 = getelementptr inbounds i8, ptr %46, i64 8
+  %48 = load ptr, ptr %12, align 8
+  %49 = load ptr, ptr %property_.i, align 8
+  %call3.i131 = call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i119, ptr noundef %spec.select.i.i116, ptr noundef %48, ptr noundef %49) #15
   br label %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueEE3$_1ZNS1_24emitTryWithSharedHandlerIS8_EEvPNS1_22SharedExceptionHandlerET_EUlvE_ZNS9_IS8_EEvSB_SC_EUlPNS_10BasicBlockEE_EESF_SF_SC_T0_T1_.exit"
 
 sw.bb4.i124:                                      ; preds = %if.then.i.i
-  %54 = load ptr, ptr %12, align 8
-  %55 = load i8, ptr %declInit_10.i, align 8
-  %56 = and i8 %55, 1
-  %tobool.i127 = icmp ne i8 %56, 0
-  %call6.i128 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %50, ptr noundef %spec.select.i.i116, ptr noundef %54, i1 noundef zeroext %tobool.i127)
+  %50 = load ptr, ptr %12, align 8
+  %51 = load i8, ptr %declInit_10.i, align 8
+  %tobool.i127 = trunc i8 %51 to i1
+  %call6.i128 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %46, ptr noundef %spec.select.i.i116, ptr noundef %50, i1 noundef zeroext %tobool.i127)
   br label %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueEE3$_1ZNS1_24emitTryWithSharedHandlerIS8_EEvPNS1_22SharedExceptionHandlerET_EUlvE_ZNS9_IS8_EEvSB_SC_EUlPNS_10BasicBlockEE_EESF_SF_SC_T0_T1_.exit"
 
 sw.bb8.i120:                                      ; preds = %if.then.i.i
-  %57 = load i8, ptr %declInit_10.i, align 8
-  %58 = and i8 %57, 1
-  %tobool11.i123 = icmp ne i8 %58, 0
-  %59 = load ptr, ptr %12, align 8
+  %52 = load i8, ptr %declInit_10.i, align 8
+  %tobool11.i123 = trunc i8 %52 to i1
+  %53 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i137)
-  %kind_.i.i.i.i.i.i.i.i.i138 = getelementptr inbounds i8, ptr %59, i64 16
-  %60 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i138, align 8
-  %cmp.i.i.i.i.i.i.i.i139 = icmp ne i32 %60, 92
-  %tobool.not.i141183 = icmp eq ptr %59, null
+  %kind_.i.i.i.i.i.i.i.i.i138 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i138, align 8
+  %cmp.i.i.i.i.i.i.i.i139 = icmp ne i32 %54, 92
+  %tobool.not.i141183 = icmp eq ptr %53, null
   %tobool.not.i141 = or i1 %tobool.not.i141183, %cmp.i.i.i.i.i.i.i.i139
   br i1 %tobool.not.i141, label %if.else.i143, label %if.then.i142
 
 if.then.i142:                                     ; preds = %sw.bb8.i120
-  call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %50, i1 noundef zeroext %tobool11.i123, ptr noundef nonnull %59, ptr noundef %spec.select.i.i116)
+  call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %46, i1 noundef zeroext %tobool11.i123, ptr noundef nonnull %53, ptr noundef %spec.select.i.i116)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit160
 
 if.else.i143:                                     ; preds = %sw.bb8.i120
-  %cmp.i.i.i.i.i.i.i8.i145 = icmp ne i32 %60, 91
+  %cmp.i.i.i.i.i.i.i8.i145 = icmp ne i32 %54, 91
   %tobool4.not.i147 = or i1 %tobool.not.i141183, %cmp.i.i.i.i.i.i.i8.i145
   br i1 %tobool4.not.i147, label %if.else7.i149, label %if.then5.i148
 
 if.then5.i148:                                    ; preds = %if.else.i143
-  call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %50, i1 noundef zeroext %tobool11.i123, ptr noundef nonnull %59, ptr noundef %spec.select.i.i116)
+  call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %46, i1 noundef zeroext %tobool11.i123, ptr noundef nonnull %53, ptr noundef %spec.select.i.i116)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit160
 
 if.else7.i149:                                    ; preds = %if.else.i143
-  %61 = load ptr, ptr %50, align 8
-  %Ctx.i.i150 = getelementptr inbounds i8, ptr %61, i64 40
-  %62 = load ptr, ptr %Ctx.i.i150, align 8
-  %sm_.i.i151 = getelementptr inbounds i8, ptr %62, i64 160
-  %63 = load ptr, ptr %sm_.i.i151, align 8
-  %sourceRange_.i.i152 = getelementptr inbounds i8, ptr %59, i64 24
+  %55 = load ptr, ptr %46, align 8
+  %Ctx.i.i150 = getelementptr inbounds i8, ptr %55, i64 40
+  %56 = load ptr, ptr %Ctx.i.i150, align 8
+  %sm_.i.i151 = getelementptr inbounds i8, ptr %56, i64 160
+  %57 = load ptr, ptr %sm_.i.i151, align 8
+  %sourceRange_.i.i152 = getelementptr inbounds i8, ptr %53, i64 24
   %retval.sroa.0.0.copyload.i.i153 = load ptr, ptr %sourceRange_.i.i152, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i154 = getelementptr inbounds i8, ptr %59, i64 32
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i154 = getelementptr inbounds i8, ptr %53, i64 32
   %retval.sroa.2.0.copyload.i.i155 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i154, align 8
   store i8 1, ptr %RHSKind.i.i159, align 1
   store ptr @.str.23, ptr %ref.tmp.i137, align 8
   store i8 3, ptr %LHSKind.i.i158, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %63, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i153, ptr %retval.sroa.2.0.copyload.i.i155, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i137, i32 noundef 0) #15
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %57, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i153, ptr %retval.sroa.2.0.copyload.i.i155, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i137, i32 noundef 0) #15
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit160
 
 _ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit160: ; preds = %if.then.i142, %if.then5.i148, %if.else7.i149
@@ -4038,50 +4016,50 @@ sw.epilog.i132:                                   ; preds = %if.then.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %lref, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i, i64 48, i1 false)
   store i8 1, ptr %hasVal.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
-  %call12.i = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %45) #15
+  %call12.i = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %42) #15
   %call14.i = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call12.i) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call12.i) #15
   %call17.i112 = call noundef ptr @_ZN6hermes9IRBuilder16createTryEndInstEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i) #15
   %call19.i = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call5.i111) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call3.i110) #15
   %call.i11.i = call noundef ptr @_ZN6hermes9IRBuilder15createCatchInstEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i) #15
-  %64 = icmp eq ptr %call.i11.i, null
+  %58 = icmp eq ptr %call.i11.i, null
   %add.ptr.i12.i = getelementptr inbounds i8, ptr %call.i11.i, i64 16
-  %spec.select.i13.i = select i1 %64, ptr null, ptr %add.ptr.i12.i
-  %65 = load ptr, ptr %handler, align 8
-  %call3.i14.i = call noundef ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %spec.select.i13.i, ptr noundef %65) #15
-  %66 = load ptr, ptr %exceptionBlock, align 8
-  %call5.i15.i = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %66) #15
+  %spec.select.i13.i = select i1 %58, ptr null, ptr %add.ptr.i12.i
+  %59 = load ptr, ptr %handler, align 8
+  %call3.i14.i = call noundef ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %spec.select.i13.i, ptr noundef %59) #15
+  %60 = load ptr, ptr %exceptionBlock, align 8
+  %call5.i15.i = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %60) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call5.i111) #15
   br label %if.end58
 
 if.end58:                                         ; preds = %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueEE3$_1ZNS1_24emitTryWithSharedHandlerIS8_EEvPNS1_22SharedExceptionHandlerET_EUlvE_ZNS9_IS8_EEvSB_SC_EUlPNS_10BasicBlockEE_EESF_SF_SC_T0_T1_.exit", %if.then44
   %emittedTry.sink = phi ptr [ %emittedTry, %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueEE3$_1ZNS1_24emitTryWithSharedHandlerIS8_EEvPNS1_22SharedExceptionHandlerET_EUlvE_ZNS9_IS8_EEvSB_SC_EUlPNS_10BasicBlockEE_EESF_SF_SC_T0_T1_.exit" ], [ %hasVal.i.i, %if.then44 ]
   store i8 1, ptr %emittedTry.sink, align 8
-  %67 = load ptr, ptr %Block.i, align 8
-  %Parent.i.i64 = getelementptr inbounds i8, ptr %67, i64 72
-  %68 = load ptr, ptr %Parent.i.i64, align 8
-  %call62 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %68) #15
-  %69 = load ptr, ptr %Block.i, align 8
-  %Parent.i.i66 = getelementptr inbounds i8, ptr %69, i64 72
-  %70 = load ptr, ptr %Parent.i.i66, align 8
-  %call66 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %70) #15
-  %71 = load ptr, ptr %Block.i, align 8
-  %Parent.i.i68 = getelementptr inbounds i8, ptr %71, i64 72
-  %72 = load ptr, ptr %Parent.i.i68, align 8
-  %call70 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %72) #15
+  %61 = load ptr, ptr %Block.i, align 8
+  %Parent.i.i64 = getelementptr inbounds i8, ptr %61, i64 72
+  %62 = load ptr, ptr %Parent.i.i64, align 8
+  %call62 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %62) #15
+  %63 = load ptr, ptr %Block.i, align 8
+  %Parent.i.i66 = getelementptr inbounds i8, ptr %63, i64 72
+  %64 = load ptr, ptr %Parent.i.i66, align 8
+  %call66 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %64) #15
+  %65 = load ptr, ptr %Block.i, align 8
+  %Parent.i.i68 = getelementptr inbounds i8, ptr %65, i64 72
+  %66 = load ptr, ptr %Parent.i.i68, align 8
+  %call70 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %66) #15
   %tobool71.not = icmp eq ptr %init.0, null
   br i1 %tobool71.not, label %cond.end83, label %cond.true77
 
 cond.true77:                                      ; preds = %if.end58
-  %73 = load ptr, ptr %Block.i, align 8
-  %Parent.i.i70 = getelementptr inbounds i8, ptr %73, i64 72
-  %74 = load ptr, ptr %Parent.i.i70, align 8
-  %call75 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %74) #15
-  %75 = load ptr, ptr %Block.i, align 8
-  %Parent.i.i72 = getelementptr inbounds i8, ptr %75, i64 72
-  %76 = load ptr, ptr %Parent.i.i72, align 8
-  %call81 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %76) #15
+  %67 = load ptr, ptr %Block.i, align 8
+  %Parent.i.i70 = getelementptr inbounds i8, ptr %67, i64 72
+  %68 = load ptr, ptr %Parent.i.i70, align 8
+  %call75 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %68) #15
+  %69 = load ptr, ptr %Block.i, align 8
+  %Parent.i.i72 = getelementptr inbounds i8, ptr %69, i64 72
+  %70 = load ptr, ptr %Parent.i.i72, align 8
+  %call81 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %70) #15
   br label %cond.end83
 
 cond.end83:                                       ; preds = %if.end58, %cond.true77
@@ -4090,9 +4068,7 @@ cond.end83:                                       ; preds = %if.end58, %cond.tru
   %cond84 = phi ptr [ %call81, %cond.true77 ], [ null, %if.end58 ]
   %call87 = call noundef ptr @_ZN6hermes9IRBuilder19getLiteralUndefinedEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i) #15
   %call88 = call noundef ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call87, ptr noundef %call16) #15
-  %77 = and i8 %first.0190, 1
-  %tobool89.not = icmp eq i8 %77, 0
-  br i1 %tobool89.not, label %if.else93, label %if.then90
+  br i1 %first.0190, label %if.then90, label %if.else93
 
 if.then90:                                        ; preds = %cond.end83
   %call92 = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call62) #15
@@ -4100,28 +4076,27 @@ if.then90:                                        ; preds = %cond.end83
 
 if.else93:                                        ; preds = %cond.end83
   %call96 = call noundef ptr @_ZN6hermes9IRBuilder19createLoadStackInstEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call5) #15
-  %78 = icmp eq ptr %call96, null
+  %71 = icmp eq ptr %call96, null
   %add.ptr98 = getelementptr inbounds i8, ptr %call96, i64 16
-  %spec.select1 = select i1 %78, ptr null, ptr %add.ptr98
+  %spec.select1 = select i1 %71, ptr null, ptr %add.ptr98
   %call101 = call noundef ptr @_ZN6hermes9IRBuilder20createCondBranchInstEPNS_5ValueEPNS_10BasicBlockES4_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %spec.select1, ptr noundef %call70, ptr noundef %call62) #15
   br label %if.end102
 
 if.end102:                                        ; preds = %if.else93, %if.then90
-  %first.1 = phi i8 [ 0, %if.then90 ], [ %first.0190, %if.else93 ]
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call62) #15
   %call.i74 = call noundef ptr @_ZN6hermes9IRBuilder22createIteratorNextInstEPNS_14AllocStackInstES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call4.i, ptr noundef %call11.i) #15
-  %79 = icmp eq ptr %call.i74, null
+  %72 = icmp eq ptr %call.i74, null
   %add.ptr.i75 = getelementptr inbounds i8, ptr %call.i74, i64 16
-  %spec.select.i76 = select i1 %79, ptr null, ptr %add.ptr.i75
+  %spec.select.i76 = select i1 %72, ptr null, ptr %add.ptr.i75
   %call.i78 = call noundef ptr @_ZN6hermes9IRBuilder19createLoadStackInstEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call4.i) #15
-  %80 = icmp eq ptr %call.i78, null
+  %73 = icmp eq ptr %call.i78, null
   %add.ptr.i79 = getelementptr inbounds i8, ptr %call.i78, i64 16
-  %spec.select.i80 = select i1 %80, ptr null, ptr %add.ptr.i79
+  %spec.select.i80 = select i1 %73, ptr null, ptr %add.ptr.i79
   %call4.i81 = call noundef ptr @_ZN6hermes9IRBuilder19getLiteralUndefinedEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i) #15
   %call5.i = call noundef ptr @_ZN6hermes9IRBuilder24createBinaryOperatorInstEPNS_5ValueES2_NS_18BinaryOperatorInst6OpKindE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %spec.select.i80, ptr noundef %call4.i81, i32 noundef 3) #15
-  %81 = icmp eq ptr %call5.i, null
+  %74 = icmp eq ptr %call5.i, null
   %add.ptr7.i = getelementptr inbounds i8, ptr %call5.i, i64 16
-  %cast.result9.i = select i1 %81, ptr null, ptr %add.ptr7.i
+  %cast.result9.i = select i1 %74, ptr null, ptr %add.ptr7.i
   %call109 = call noundef ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %cast.result9.i, ptr noundef %call5) #15
   %call116 = call noundef ptr @_ZN6hermes9IRBuilder20createCondBranchInstEPNS_5ValueEPNS_10BasicBlockES4_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %cast.result9.i, ptr noundef %cond115176, ptr noundef %call66) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call66) #15
@@ -4132,26 +4107,26 @@ if.end102:                                        ; preds = %if.else93, %if.then
 
 if.then124:                                       ; preds = %if.end102
   %call128 = call noundef ptr @_ZN6hermes9IRBuilder19createLoadStackInstEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call16) #15
-  %82 = icmp eq ptr %call128, null
+  %75 = icmp eq ptr %call128, null
   %add.ptr130 = getelementptr inbounds i8, ptr %call128, i64 16
-  %spec.select2 = select i1 %82, ptr null, ptr %add.ptr130
+  %spec.select2 = select i1 %75, ptr null, ptr %add.ptr130
   %call134 = call noundef ptr @_ZN6hermes9IRBuilder19getLiteralUndefinedEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i) #15
   %call135 = call noundef ptr @_ZN6hermes9IRBuilder24createBinaryOperatorInstEPNS_5ValueES2_NS_18BinaryOperatorInst6OpKindE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %spec.select2, ptr noundef %call134, i32 noundef 4) #15
-  %83 = icmp eq ptr %call135, null
+  %76 = icmp eq ptr %call135, null
   %add.ptr137 = getelementptr inbounds i8, ptr %call135, i64 16
-  %cast.result139 = select i1 %83, ptr null, ptr %add.ptr137
+  %cast.result139 = select i1 %76, ptr null, ptr %add.ptr137
   %call140 = call noundef ptr @_ZN6hermes9IRBuilder20createCondBranchInstEPNS_5ValueEPNS_10BasicBlockES4_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %cast.result139, ptr noundef %cond84, ptr noundef %cond177) #15
-  %84 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i82 = icmp eq i32 %84, 63
+  %77 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i82 = icmp eq i32 %77, 63
   br i1 %cmp.i.i.i.i.i.i82, label %cond.true142, label %cond.end146
 
 cond.true142:                                     ; preds = %if.then124
   %_name.i = getelementptr inbounds i8, ptr %target.0, i64 48
-  %85 = load ptr, ptr %_name.i, align 8
+  %78 = load ptr, ptr %_name.i, align 8
   br label %cond.end146
 
 cond.end146:                                      ; preds = %if.then124, %cond.true142
-  %nameHint.sroa.0.0 = phi ptr [ %85, %cond.true142 ], [ null, %if.then124 ]
+  %nameHint.sroa.0.0 = phi ptr [ %78, %cond.true142 ], [ null, %if.then124 ]
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %cond177) #15
   %call151 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen13genExpressionEPNS_6ESTree4NodeENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %init.0, ptr %nameHint.sroa.0.0) #15
   %call152 = call noundef ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call151, ptr noundef %call16) #15
@@ -4167,18 +4142,18 @@ for.inc:                                          ; preds = %if.end102, %cond.en
 
 if.then159:                                       ; preds = %for.inc, %entry
   call fastcc void @"_ZZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueEENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(32) %storePreviousValue)
-  %86 = load ptr, ptr %Block.i, align 8
-  %Parent.i.i84 = getelementptr inbounds i8, ptr %86, i64 72
-  %87 = load ptr, ptr %Parent.i.i84, align 8
-  %call164 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %87) #15
-  %88 = load ptr, ptr %Block.i, align 8
-  %Parent.i.i86 = getelementptr inbounds i8, ptr %88, i64 72
-  %89 = load ptr, ptr %Parent.i.i86, align 8
-  %call168 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %89) #15
+  %79 = load ptr, ptr %Block.i, align 8
+  %Parent.i.i84 = getelementptr inbounds i8, ptr %79, i64 72
+  %80 = load ptr, ptr %Parent.i.i84, align 8
+  %call164 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %80) #15
+  %81 = load ptr, ptr %Block.i, align 8
+  %Parent.i.i86 = getelementptr inbounds i8, ptr %81, i64 72
+  %82 = load ptr, ptr %Parent.i.i86, align 8
+  %call168 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %82) #15
   %call171 = call noundef ptr @_ZN6hermes9IRBuilder19createLoadStackInstEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call5) #15
-  %90 = icmp eq ptr %call171, null
+  %83 = icmp eq ptr %call171, null
   %add.ptr173 = getelementptr inbounds i8, ptr %call171, i64 16
-  %spec.select3 = select i1 %90, ptr null, ptr %add.ptr173
+  %spec.select3 = select i1 %83, ptr null, ptr %add.ptr173
   %call176 = call noundef ptr @_ZN6hermes9IRBuilder20createCondBranchInstEPNS_5ValueEPNS_10BasicBlockES4_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %spec.select3, ptr noundef %call168, ptr noundef %call164) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call164) #15
   %call.i88 = call noundef ptr @_ZN6hermes9IRBuilder23createIteratorCloseInstEPNS_14AllocStackInstEb(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call4.i, i1 noundef zeroext false) #15
@@ -4187,50 +4162,49 @@ if.then159:                                       ; preds = %for.inc, %entry
   br label %if.end183
 
 if.end183:                                        ; preds = %if.then, %if.then159
-  %91 = load i8, ptr %emittedTry, align 8
-  %92 = and i8 %91, 1
-  %tobool185.not = icmp eq i8 %92, 0
-  br i1 %tobool185.not, label %if.else223, label %if.then186
+  %84 = load i8, ptr %emittedTry, align 8
+  %tobool185 = trunc i8 %84 to i1
+  br i1 %tobool185, label %if.then186, label %if.else223
 
 if.then186:                                       ; preds = %if.end183
   %call.i91 = call noundef ptr @_ZN6hermes9IRBuilder17getInsertionBlockEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i) #15
   %Location.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %Location.i.i, align 8
   store i64 0, ptr %Location.i.i, align 8
-  %93 = load ptr, ptr %exceptionBlock, align 8
-  call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %93) #15
-  %94 = load ptr, ptr %Block.i, align 8
-  %Parent.i.i93 = getelementptr inbounds i8, ptr %94, i64 72
-  %95 = load ptr, ptr %Parent.i.i93, align 8
-  %call194 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %95) #15
-  %96 = load ptr, ptr %Block.i, align 8
-  %Parent.i.i95 = getelementptr inbounds i8, ptr %96, i64 72
-  %97 = load ptr, ptr %Parent.i.i95, align 8
-  %call199 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %97) #15
+  %85 = load ptr, ptr %exceptionBlock, align 8
+  call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %85) #15
+  %86 = load ptr, ptr %Block.i, align 8
+  %Parent.i.i93 = getelementptr inbounds i8, ptr %86, i64 72
+  %87 = load ptr, ptr %Parent.i.i93, align 8
+  %call194 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %87) #15
+  %88 = load ptr, ptr %Block.i, align 8
+  %Parent.i.i95 = getelementptr inbounds i8, ptr %88, i64 72
+  %89 = load ptr, ptr %Parent.i.i95, align 8
+  %call199 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %89) #15
   %call202 = call noundef ptr @_ZN6hermes9IRBuilder19createLoadStackInstEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call5) #15
-  %98 = icmp eq ptr %call202, null
+  %90 = icmp eq ptr %call202, null
   %add.ptr204 = getelementptr inbounds i8, ptr %call202, i64 16
-  %spec.select4 = select i1 %98, ptr null, ptr %add.ptr204
+  %spec.select4 = select i1 %90, ptr null, ptr %add.ptr204
   %call207 = call noundef ptr @_ZN6hermes9IRBuilder20createCondBranchInstEPNS_5ValueEPNS_10BasicBlockES4_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %spec.select4, ptr noundef %call199, ptr noundef %call194) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call194) #15
   %call.i97 = call noundef ptr @_ZN6hermes9IRBuilder23createIteratorCloseInstEPNS_14AllocStackInstEb(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call4.i, i1 noundef zeroext true) #15
   %call212 = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call199) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call199) #15
-  %99 = load ptr, ptr %handler, align 8
-  %call217 = call noundef ptr @_ZN6hermes9IRBuilder19createLoadStackInstEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %99) #15
-  %100 = icmp eq ptr %call217, null
+  %91 = load ptr, ptr %handler, align 8
+  %call217 = call noundef ptr @_ZN6hermes9IRBuilder19createLoadStackInstEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %91) #15
+  %92 = icmp eq ptr %call217, null
   %add.ptr219 = getelementptr inbounds i8, ptr %call217, i64 16
-  %cast.result221 = select i1 %100, ptr null, ptr %add.ptr219
+  %cast.result221 = select i1 %92, ptr null, ptr %add.ptr219
   %call222 = call noundef ptr @_ZN6hermes9IRBuilder15createThrowInstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %cast.result221) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call.i91) #15
   store ptr %retval.sroa.0.0.copyload.i.i, ptr %Location.i.i, align 8
   br label %if.end226
 
 if.else223:                                       ; preds = %if.end183
-  %101 = load ptr, ptr %exceptionBlock, align 8
-  call void @_ZN6hermes10BasicBlock15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(80) %101) #15
-  %102 = load ptr, ptr %handler, align 8
-  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %102) #15
+  %93 = load ptr, ptr %exceptionBlock, align 8
+  call void @_ZN6hermes10BasicBlock15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(80) %93) #15
+  %94 = load ptr, ptr %handler, align 8
+  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %94) #15
   br label %if.end226
 
 if.end226:                                        ; preds = %if.else223, %if.then186
@@ -4301,19 +4275,19 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
   br i1 %cmp.i28.not104, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %Builder78 = getelementptr inbounds i8, ptr %this, i64 8
-  %irgen_.i.i46 = getelementptr inbounds i8, ptr %lref75, i64 8
-  %declInit_10.i50 = getelementptr inbounds i8, ptr %lref75, i64 16
-  %8 = getelementptr inbounds i8, ptr %lref75, i64 24
-  %LHSKind.i.i85 = getelementptr inbounds i8, ptr %ref.tmp.i64, i64 16
-  %RHSKind.i.i86 = getelementptr inbounds i8, ptr %ref.tmp.i64, i64 17
-  %property_.i58 = getelementptr inbounds i8, ptr %lref75, i64 32
+  %Builder54 = getelementptr inbounds i8, ptr %this, i64 8
   %irgen_.i.i = getelementptr inbounds i8, ptr %lref, i64 8
   %declInit_10.i = getelementptr inbounds i8, ptr %lref, i64 16
-  %9 = getelementptr inbounds i8, ptr %lref, i64 24
+  %8 = getelementptr inbounds i8, ptr %lref, i64 24
   %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 17
   %property_.i = getelementptr inbounds i8, ptr %lref, i64 32
+  %irgen_.i.i46 = getelementptr inbounds i8, ptr %lref75, i64 8
+  %declInit_10.i50 = getelementptr inbounds i8, ptr %lref75, i64 16
+  %9 = getelementptr inbounds i8, ptr %lref75, i64 24
+  %LHSKind.i.i85 = getelementptr inbounds i8, ptr %ref.tmp.i64, i64 16
+  %RHSKind.i.i86 = getelementptr inbounds i8, ptr %ref.tmp.i64, i64 17
+  %property_.i58 = getelementptr inbounds i8, ptr %lref75, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -4372,17 +4346,16 @@ cond.end:                                         ; preds = %if.end43, %cond.tru
 land.lhs.true:                                    ; preds = %cond.end
   %_computed = getelementptr inbounds i8, ptr %__begin2.sroa.0.0105, i64 72
   %19 = load i8, ptr %_computed, align 8
-  %20 = and i8 %19, 1
-  %tobool48.not = icmp eq i8 %20, 0
-  br i1 %tobool48.not, label %if.then49, label %if.else
+  %tobool48 = trunc i8 %19 to i1
+  br i1 %tobool48, label %if.else, label %if.then49
 
 if.then49:                                        ; preds = %land.lhs.true
   %_name.i35 = getelementptr inbounds i8, ptr %17, i64 48
-  %21 = load ptr, ptr %_name.i35, align 8
-  %call57 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(40) %Builder78, ptr %21) #15
-  %22 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %23 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
-  %cmp.not.i = icmp ult i32 %22, %23
+  %20 = load ptr, ptr %_name.i35, align 8
+  %call57 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(40) %Builder54, ptr %20) #15
+  %21 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %22 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
+  %cmp.not.i = icmp ult i32 %21, %22
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then49
@@ -4391,24 +4364,24 @@ if.then.i:                                        ; preds = %if.then49
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit: ; preds = %if.then49, %if.then.i
-  %24 = phi i32 [ %.pre.i, %if.then.i ], [ %22, %if.then49 ]
-  %25 = load ptr, ptr %excludedItems, align 8
-  %conv.i3.i = zext i32 %24 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %25, i64 %conv.i3.i
-  %26 = ptrtoint ptr %call57 to i64
-  store i64 %26, ptr %add.ptr.i.i, align 1
-  %27 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %add.i = add i32 %27, 1
+  %23 = phi i32 [ %.pre.i, %if.then.i ], [ %21, %if.then49 ]
+  %24 = load ptr, ptr %excludedItems, align 8
+  %conv.i3.i = zext i32 %23 to i64
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %24, i64 %conv.i3.i
+  %25 = ptrtoint ptr %call57 to i64
+  store i64 %25, ptr %add.ptr.i.i, align 1
+  %26 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %add.i = add i32 %26, 1
   store i32 %add.i, ptr %Size.i.i.i.i.i, align 8
   call void @_ZN6hermes5irgen11ESTreeIRGen10createLRefEPNS_6ESTree4NodeEb(ptr nonnull sret(%"class.hermes::irgen::LReference") align 8 %lref, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %valueNode.0, i1 noundef zeroext %declInit)
-  %call62 = call noundef ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(40) %Builder78, ptr noundef %source, ptr %21) #15
-  %28 = icmp eq ptr %call62, null
+  %call62 = call noundef ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(40) %Builder54, ptr noundef %source, ptr %20) #15
+  %27 = icmp eq ptr %call62, null
   %add.ptr64 = getelementptr inbounds i8, ptr %call62, i64 16
-  %spec.select1 = select i1 %28, ptr null, ptr %add.ptr64
+  %spec.select1 = select i1 %27, ptr null, ptr %add.ptr64
   %call69 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen26emitOptionalInitializationEPNS_5ValueEPNS_6ESTree4NodeENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %spec.select1, ptr noundef %init.0, ptr %nameHint.sroa.0.0)
-  %29 = load ptr, ptr %irgen_.i.i, align 8
-  %30 = load i32, ptr %lref, align 8
-  switch i32 %30, label %sw.epilog.i [
+  %28 = load ptr, ptr %irgen_.i.i, align 8
+  %29 = load i32, ptr %lref, align 8
+  switch i32 %29, label %sw.epilog.i [
     i32 0, label %for.inc
     i32 1, label %sw.bb2.i
     i32 2, label %sw.bb4.i
@@ -4417,60 +4390,58 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit: ; 
   ]
 
 sw.bb2.i:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit
-  %Builder.i.i = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = load ptr, ptr %9, align 8
-  %32 = load ptr, ptr %property_.i, align 8
-  %call3.i = call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i, ptr noundef %call69, ptr noundef %31, ptr noundef %32) #15
+  %Builder.i.i = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = load ptr, ptr %property_.i, align 8
+  %call3.i = call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i, ptr noundef %call69, ptr noundef %30, ptr noundef %31) #15
   br label %for.inc
 
 sw.bb4.i:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit
-  %33 = load ptr, ptr %9, align 8
-  %34 = load i8, ptr %declInit_10.i, align 8
-  %35 = and i8 %34, 1
-  %tobool.i = icmp ne i8 %35, 0
-  %call6.i = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %29, ptr noundef %call69, ptr noundef %33, i1 noundef zeroext %tobool.i)
+  %32 = load ptr, ptr %8, align 8
+  %33 = load i8, ptr %declInit_10.i, align 8
+  %tobool.i = trunc i8 %33 to i1
+  %call6.i = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %28, ptr noundef %call69, ptr noundef %32, i1 noundef zeroext %tobool.i)
   br label %for.inc
 
 sw.bb8.i:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit
-  %36 = load i8, ptr %declInit_10.i, align 8
-  %37 = and i8 %36, 1
-  %tobool11.i = icmp ne i8 %37, 0
-  %38 = load ptr, ptr %9, align 8
+  %34 = load i8, ptr %declInit_10.i, align 8
+  %tobool11.i = trunc i8 %34 to i1
+  %35 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 16
-  %39 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %39, 92
-  %tobool.not.i98 = icmp eq ptr %38, null
-  %tobool.not.i = or i1 %tobool.not.i98, %cmp.i.i.i.i.i.i.i.i
+  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %36, 92
+  %tobool.not.i96 = icmp eq ptr %35, null
+  %tobool.not.i = or i1 %tobool.not.i96, %cmp.i.i.i.i.i.i.i.i
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i63
 
 if.then.i63:                                      ; preds = %sw.bb8.i
-  call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %29, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %38, ptr noundef %call69)
+  call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %28, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %35, ptr noundef %call69)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 if.else.i:                                        ; preds = %sw.bb8.i
-  %cmp.i.i.i.i.i.i.i8.i = icmp ne i32 %39, 91
-  %tobool4.not.i = or i1 %tobool.not.i98, %cmp.i.i.i.i.i.i.i8.i
+  %cmp.i.i.i.i.i.i.i8.i = icmp ne i32 %36, 91
+  %tobool4.not.i = or i1 %tobool.not.i96, %cmp.i.i.i.i.i.i.i8.i
   br i1 %tobool4.not.i, label %if.else7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %29, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %38, ptr noundef %call69)
+  call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %28, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %35, ptr noundef %call69)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 if.else7.i:                                       ; preds = %if.else.i
-  %40 = load ptr, ptr %29, align 8
-  %Ctx.i.i = getelementptr inbounds i8, ptr %40, i64 40
-  %41 = load ptr, ptr %Ctx.i.i, align 8
-  %sm_.i.i = getelementptr inbounds i8, ptr %41, i64 160
-  %42 = load ptr, ptr %sm_.i.i, align 8
-  %sourceRange_.i.i = getelementptr inbounds i8, ptr %38, i64 24
+  %37 = load ptr, ptr %28, align 8
+  %Ctx.i.i = getelementptr inbounds i8, ptr %37, i64 40
+  %38 = load ptr, ptr %Ctx.i.i, align 8
+  %sm_.i.i = getelementptr inbounds i8, ptr %38, i64 160
+  %39 = load ptr, ptr %sm_.i.i, align 8
+  %sourceRange_.i.i = getelementptr inbounds i8, ptr %35, i64 24
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %sourceRange_.i.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds i8, ptr %38, i64 32
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds i8, ptr %35, i64 32
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i, align 8
   store i8 1, ptr %RHSKind.i.i, align 1
   store ptr @.str.23, ptr %ref.tmp.i, align 8
   store i8 3, ptr %LHSKind.i.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %42, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #15
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %39, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #15
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 _ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit: ; preds = %if.then.i63, %if.then5.i, %if.else7.i
@@ -4482,9 +4453,9 @@ sw.epilog.i:                                      ; preds = %_ZN4llvh23SmallVect
 
 if.else:                                          ; preds = %land.lhs.true, %cond.end
   %call74 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen13genExpressionEPNS_6ESTree4NodeENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %17, ptr null) #15
-  %43 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %44 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
-  %cmp.not.i38 = icmp ult i32 %43, %44
+  %40 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %41 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
+  %cmp.not.i38 = icmp ult i32 %40, %41
   br i1 %cmp.not.i38, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit45, label %if.then.i39
 
 if.then.i39:                                      ; preds = %if.else
@@ -4493,24 +4464,24 @@ if.then.i39:                                      ; preds = %if.else
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit45
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit45: ; preds = %if.else, %if.then.i39
-  %45 = phi i32 [ %.pre.i41, %if.then.i39 ], [ %43, %if.else ]
-  %46 = load ptr, ptr %excludedItems, align 8
-  %conv.i3.i42 = zext i32 %45 to i64
-  %add.ptr.i.i43 = getelementptr inbounds ptr, ptr %46, i64 %conv.i3.i42
-  %47 = ptrtoint ptr %call74 to i64
-  store i64 %47, ptr %add.ptr.i.i43, align 1
-  %48 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %add.i44 = add i32 %48, 1
+  %42 = phi i32 [ %.pre.i41, %if.then.i39 ], [ %40, %if.else ]
+  %43 = load ptr, ptr %excludedItems, align 8
+  %conv.i3.i42 = zext i32 %42 to i64
+  %add.ptr.i.i43 = getelementptr inbounds ptr, ptr %43, i64 %conv.i3.i42
+  %44 = ptrtoint ptr %call74 to i64
+  store i64 %44, ptr %add.ptr.i.i43, align 1
+  %45 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %add.i44 = add i32 %45, 1
   store i32 %add.i44, ptr %Size.i.i.i.i.i, align 8
   call void @_ZN6hermes5irgen11ESTreeIRGen10createLRefEPNS_6ESTree4NodeEb(ptr nonnull sret(%"class.hermes::irgen::LReference") align 8 %lref75, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %valueNode.0, i1 noundef zeroext %declInit)
-  %call79 = call noundef ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder78, ptr noundef %source, ptr noundef %call74) #15
-  %49 = icmp eq ptr %call79, null
+  %call79 = call noundef ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder54, ptr noundef %source, ptr noundef %call74) #15
+  %46 = icmp eq ptr %call79, null
   %add.ptr81 = getelementptr inbounds i8, ptr %call79, i64 16
-  %spec.select2 = select i1 %49, ptr null, ptr %add.ptr81
+  %spec.select2 = select i1 %46, ptr null, ptr %add.ptr81
   %call87 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen26emitOptionalInitializationEPNS_5ValueEPNS_6ESTree4NodeENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %spec.select2, ptr noundef %init.0, ptr %nameHint.sroa.0.0)
-  %50 = load ptr, ptr %irgen_.i.i46, align 8
-  %51 = load i32, ptr %lref75, align 8
-  switch i32 %51, label %sw.epilog.i60 [
+  %47 = load ptr, ptr %irgen_.i.i46, align 8
+  %48 = load i32, ptr %lref75, align 8
+  switch i32 %48, label %sw.epilog.i60 [
     i32 0, label %for.inc
     i32 1, label %sw.bb2.i57
     i32 2, label %sw.bb4.i52
@@ -4519,60 +4490,58 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit45: 
   ]
 
 sw.bb2.i57:                                       ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit45
-  %Builder.i.i47 = getelementptr inbounds i8, ptr %50, i64 8
-  %52 = load ptr, ptr %8, align 8
-  %53 = load ptr, ptr %property_.i58, align 8
-  %call3.i59 = call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i47, ptr noundef %call87, ptr noundef %52, ptr noundef %53) #15
+  %Builder.i.i47 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = load ptr, ptr %9, align 8
+  %50 = load ptr, ptr %property_.i58, align 8
+  %call3.i59 = call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i47, ptr noundef %call87, ptr noundef %49, ptr noundef %50) #15
   br label %for.inc
 
 sw.bb4.i52:                                       ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit45
-  %54 = load ptr, ptr %8, align 8
-  %55 = load i8, ptr %declInit_10.i50, align 8
-  %56 = and i8 %55, 1
-  %tobool.i55 = icmp ne i8 %56, 0
-  %call6.i56 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %50, ptr noundef %call87, ptr noundef %54, i1 noundef zeroext %tobool.i55)
+  %51 = load ptr, ptr %9, align 8
+  %52 = load i8, ptr %declInit_10.i50, align 8
+  %tobool.i55 = trunc i8 %52 to i1
+  %call6.i56 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %47, ptr noundef %call87, ptr noundef %51, i1 noundef zeroext %tobool.i55)
   br label %for.inc
 
 sw.bb8.i48:                                       ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit45
-  %57 = load i8, ptr %declInit_10.i50, align 8
-  %58 = and i8 %57, 1
-  %tobool11.i51 = icmp ne i8 %58, 0
-  %59 = load ptr, ptr %8, align 8
+  %53 = load i8, ptr %declInit_10.i50, align 8
+  %tobool11.i51 = trunc i8 %53 to i1
+  %54 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i64)
-  %kind_.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %59, i64 16
-  %60 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i65, align 8
-  %cmp.i.i.i.i.i.i.i.i66 = icmp ne i32 %60, 92
-  %tobool.not.i6896 = icmp eq ptr %59, null
-  %tobool.not.i68 = or i1 %tobool.not.i6896, %cmp.i.i.i.i.i.i.i.i66
+  %kind_.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i65, align 8
+  %cmp.i.i.i.i.i.i.i.i66 = icmp ne i32 %55, 92
+  %tobool.not.i6898 = icmp eq ptr %54, null
+  %tobool.not.i68 = or i1 %tobool.not.i6898, %cmp.i.i.i.i.i.i.i.i66
   br i1 %tobool.not.i68, label %if.else.i70, label %if.then.i69
 
 if.then.i69:                                      ; preds = %sw.bb8.i48
-  call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %50, i1 noundef zeroext %tobool11.i51, ptr noundef nonnull %59, ptr noundef %call87)
+  call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %47, i1 noundef zeroext %tobool11.i51, ptr noundef nonnull %54, ptr noundef %call87)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit87
 
 if.else.i70:                                      ; preds = %sw.bb8.i48
-  %cmp.i.i.i.i.i.i.i8.i72 = icmp ne i32 %60, 91
-  %tobool4.not.i74 = or i1 %tobool.not.i6896, %cmp.i.i.i.i.i.i.i8.i72
+  %cmp.i.i.i.i.i.i.i8.i72 = icmp ne i32 %55, 91
+  %tobool4.not.i74 = or i1 %tobool.not.i6898, %cmp.i.i.i.i.i.i.i8.i72
   br i1 %tobool4.not.i74, label %if.else7.i76, label %if.then5.i75
 
 if.then5.i75:                                     ; preds = %if.else.i70
-  call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %50, i1 noundef zeroext %tobool11.i51, ptr noundef nonnull %59, ptr noundef %call87)
+  call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %47, i1 noundef zeroext %tobool11.i51, ptr noundef nonnull %54, ptr noundef %call87)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit87
 
 if.else7.i76:                                     ; preds = %if.else.i70
-  %61 = load ptr, ptr %50, align 8
-  %Ctx.i.i77 = getelementptr inbounds i8, ptr %61, i64 40
-  %62 = load ptr, ptr %Ctx.i.i77, align 8
-  %sm_.i.i78 = getelementptr inbounds i8, ptr %62, i64 160
-  %63 = load ptr, ptr %sm_.i.i78, align 8
-  %sourceRange_.i.i79 = getelementptr inbounds i8, ptr %59, i64 24
+  %56 = load ptr, ptr %47, align 8
+  %Ctx.i.i77 = getelementptr inbounds i8, ptr %56, i64 40
+  %57 = load ptr, ptr %Ctx.i.i77, align 8
+  %sm_.i.i78 = getelementptr inbounds i8, ptr %57, i64 160
+  %58 = load ptr, ptr %sm_.i.i78, align 8
+  %sourceRange_.i.i79 = getelementptr inbounds i8, ptr %54, i64 24
   %retval.sroa.0.0.copyload.i.i80 = load ptr, ptr %sourceRange_.i.i79, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i81 = getelementptr inbounds i8, ptr %59, i64 32
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i81 = getelementptr inbounds i8, ptr %54, i64 32
   %retval.sroa.2.0.copyload.i.i82 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i81, align 8
   store i8 1, ptr %RHSKind.i.i86, align 1
   store ptr @.str.23, ptr %ref.tmp.i64, align 8
   store i8 3, ptr %LHSKind.i.i85, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %63, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i80, ptr %retval.sroa.2.0.copyload.i.i82, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i64, i32 noundef 0) #15
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %58, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i80, ptr %retval.sroa.2.0.copyload.i.i82, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i64, i32 noundef 0) #15
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit87
 
 _ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit87: ; preds = %if.then.i69, %if.then5.i75, %if.else7.i76
@@ -4589,12 +4558,12 @@ for.inc:                                          ; preds = %_ZN6hermes5irgen11E
   br i1 %cmp.i28.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.end, %if.then36
-  %64 = load ptr, ptr %excludedItems, align 8
-  %cmp.i.i.i = icmp eq ptr %64, %add.ptr.i.i.i.i.i
+  %59 = load ptr, ptr %excludedItems, align 8
+  %cmp.i.i.i = icmp eq ptr %59, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIPN6hermes5ValueELj4EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end
-  call void @free(ptr noundef %64) #15
+  call void @free(ptr noundef %59) #15
   br label %_ZN4llvh11SmallVectorIPN6hermes5ValueELj4EED2Ev.exit
 
 _ZN4llvh11SmallVectorIPN6hermes5ValueELj4EED2Ev.exit: ; preds = %for.end, %if.then.i.i
@@ -4611,36 +4580,35 @@ entry:
   %2 = load ptr, ptr %this, align 8
   %hasVal.i = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load i8, ptr %hasVal.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.i.not = icmp eq i8 %4, 0
-  br i1 %tobool.i.not, label %if.end9, label %land.lhs.true
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %land.lhs.true, label %if.end9
 
 land.lhs.true:                                    ; preds = %entry
-  %5 = load i32, ptr %2, align 8
-  switch i32 %5, label %if.else [
+  %4 = load i32, ptr %2, align 8
+  switch i32 %4, label %if.else [
     i32 0, label %if.end9
     i32 2, label %_ZNK6hermes5irgen10LReference26canStoreWithoutSideEffectsEv.exit
   ]
 
 _ZNK6hermes5irgen10LReference26canStoreWithoutSideEffectsEv.exit: ; preds = %land.lhs.true
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i8, ptr %7, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i8 %8, 124
+  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i8, ptr %6, align 8
+  %cmp.i.i.i.i.i.i.i = icmp eq i8 %7, 124
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %_ZNK6hermes5irgen10LReference26canStoreWithoutSideEffectsEv.exit
   %Builder = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %call8 = tail call noundef ptr @_ZN6hermes9IRBuilder19createLoadStackInstEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %10) #15
-  %11 = icmp eq ptr %call8, null
+  %8 = getelementptr inbounds i8, ptr %this, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %call8 = tail call noundef ptr @_ZN6hermes9IRBuilder19createLoadStackInstEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %9) #15
+  %10 = icmp eq ptr %call8, null
   %add.ptr = getelementptr inbounds i8, ptr %call8, i64 16
-  %spec.select = select i1 %11, ptr null, ptr %add.ptr
+  %spec.select = select i1 %10, ptr null, ptr %add.ptr
   %irgen_.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %12 = load ptr, ptr %irgen_.i.i, align 8
-  %13 = load i32, ptr %2, align 8
-  switch i32 %13, label %sw.epilog.i [
+  %11 = load ptr, ptr %irgen_.i.i, align 8
+  %12 = load i32, ptr %2, align 8
+  switch i32 %12, label %sw.epilog.i [
     i32 0, label %if.end
     i32 1, label %sw.bb2.i
     i32 2, label %sw.bb4.i
@@ -4649,65 +4617,63 @@ if.then6:                                         ; preds = %_ZNK6hermes5irgen10
   ]
 
 sw.bb2.i:                                         ; preds = %if.then6
-  %Builder.i.i = getelementptr inbounds i8, ptr %12, i64 8
-  %14 = load ptr, ptr %6, align 8
+  %Builder.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = load ptr, ptr %5, align 8
   %property_.i = getelementptr inbounds i8, ptr %2, i64 32
-  %15 = load ptr, ptr %property_.i, align 8
-  %call3.i = tail call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i, ptr noundef %spec.select, ptr noundef %14, ptr noundef %15) #15
+  %14 = load ptr, ptr %property_.i, align 8
+  %call3.i = tail call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i, ptr noundef %spec.select, ptr noundef %13, ptr noundef %14) #15
   br label %if.end
 
 sw.bb4.i:                                         ; preds = %if.then6
-  %16 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %5, align 8
   %declInit_.i = getelementptr inbounds i8, ptr %2, i64 16
-  %17 = load i8, ptr %declInit_.i, align 8
-  %18 = and i8 %17, 1
-  %tobool.i2 = icmp ne i8 %18, 0
-  %call6.i = tail call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %12, ptr noundef %spec.select, ptr noundef %16, i1 noundef zeroext %tobool.i2)
+  %16 = load i8, ptr %declInit_.i, align 8
+  %tobool.i2 = trunc i8 %16 to i1
+  %call6.i = tail call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %11, ptr noundef %spec.select, ptr noundef %15, i1 noundef zeroext %tobool.i2)
   br label %if.end
 
 sw.bb8.i:                                         ; preds = %if.then6
   %declInit_10.i = getelementptr inbounds i8, ptr %2, i64 16
-  %19 = load i8, ptr %declInit_10.i, align 8
-  %20 = and i8 %19, 1
-  %tobool11.i = icmp ne i8 %20, 0
-  %21 = load ptr, ptr %6, align 8
+  %17 = load i8, ptr %declInit_10.i, align 8
+  %tobool11.i = trunc i8 %17 to i1
+  %18 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %22, 92
-  %tobool.not.i49 = icmp eq ptr %21, null
+  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %19, 92
+  %tobool.not.i49 = icmp eq ptr %18, null
   %tobool.not.i = or i1 %tobool.not.i49, %cmp.i.i.i.i.i.i.i.i
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb8.i
-  tail call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %12, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %21, ptr noundef %spec.select)
+  tail call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %11, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %18, ptr noundef %spec.select)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 if.else.i:                                        ; preds = %sw.bb8.i
-  %cmp.i.i.i.i.i.i.i8.i = icmp ne i32 %22, 91
+  %cmp.i.i.i.i.i.i.i8.i = icmp ne i32 %19, 91
   %tobool4.not.i = or i1 %tobool.not.i49, %cmp.i.i.i.i.i.i.i8.i
   br i1 %tobool4.not.i, label %if.else7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  tail call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %12, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %21, ptr noundef %spec.select)
+  tail call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %11, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %18, ptr noundef %spec.select)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 if.else7.i:                                       ; preds = %if.else.i
-  %23 = load ptr, ptr %12, align 8
-  %Ctx.i.i = getelementptr inbounds i8, ptr %23, i64 40
-  %24 = load ptr, ptr %Ctx.i.i, align 8
-  %sm_.i.i = getelementptr inbounds i8, ptr %24, i64 160
-  %25 = load ptr, ptr %sm_.i.i, align 8
-  %sourceRange_.i.i = getelementptr inbounds i8, ptr %21, i64 24
+  %20 = load ptr, ptr %11, align 8
+  %Ctx.i.i = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = load ptr, ptr %Ctx.i.i, align 8
+  %sm_.i.i = getelementptr inbounds i8, ptr %21, i64 160
+  %22 = load ptr, ptr %sm_.i.i, align 8
+  %sourceRange_.i.i = getelementptr inbounds i8, ptr %18, i64 24
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %sourceRange_.i.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds i8, ptr %21, i64 32
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds i8, ptr %18, i64 32
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i, align 8
   %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 17
   store i8 1, ptr %RHSKind.i.i, align 1
   store ptr @.str.23, ptr %ref.tmp.i, align 8
   store i8 3, ptr %LHSKind.i.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %25, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #15
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %22, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #15
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 _ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit: ; preds = %if.then.i, %if.then5.i, %if.else7.i
@@ -4718,28 +4684,28 @@ sw.epilog.i:                                      ; preds = %if.then6
   unreachable
 
 if.else:                                          ; preds = %land.lhs.true, %_ZNK6hermes5irgen10LReference26canStoreWithoutSideEffectsEv.exit
-  %26 = getelementptr inbounds i8, ptr %this, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %this, i64 24
-  %29 = load ptr, ptr %28, align 8
+  %23 = getelementptr inbounds i8, ptr %this, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %this, i64 24
+  %26 = load ptr, ptr %25, align 8
   %Builder.i = getelementptr inbounds i8, ptr %1, i64 8
   %Block.i.i = getelementptr inbounds i8, ptr %1, i64 24
-  %30 = load ptr, ptr %Block.i.i, align 8
-  %Parent.i.i.i = getelementptr inbounds i8, ptr %30, i64 72
-  %31 = load ptr, ptr %Parent.i.i.i, align 8
-  %call3.i5 = tail call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %31) #15
-  %call5.i = tail call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %31) #15
-  %call7.i = tail call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %31) #15
+  %27 = load ptr, ptr %Block.i.i, align 8
+  %Parent.i.i.i = getelementptr inbounds i8, ptr %27, i64 72
+  %28 = load ptr, ptr %Parent.i.i.i, align 8
+  %call3.i5 = tail call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %28) #15
+  %call5.i = tail call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %28) #15
+  %call7.i = tail call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %28) #15
   %call9.i = tail call noundef ptr @_ZN6hermes9IRBuilder18createTryStartInstEPNS_10BasicBlockES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call7.i, ptr noundef %call3.i5) #15
   tail call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call7.i) #15
-  %call2.i.i = tail call noundef ptr @_ZN6hermes9IRBuilder19createLoadStackInstEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %29) #15
-  %32 = icmp eq ptr %call2.i.i, null
+  %call2.i.i = tail call noundef ptr @_ZN6hermes9IRBuilder19createLoadStackInstEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %26) #15
+  %29 = icmp eq ptr %call2.i.i, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 16
-  %spec.select.i.i7 = select i1 %32, ptr null, ptr %add.ptr.i.i
+  %spec.select.i.i7 = select i1 %29, ptr null, ptr %add.ptr.i.i
   %irgen_.i.i8 = getelementptr inbounds i8, ptr %2, i64 8
-  %33 = load ptr, ptr %irgen_.i.i8, align 8
-  %34 = load i32, ptr %2, align 8
-  switch i32 %34, label %sw.epilog.i22 [
+  %30 = load ptr, ptr %irgen_.i.i8, align 8
+  %31 = load i32, ptr %2, align 8
+  switch i32 %31, label %sw.epilog.i22 [
     i32 0, label %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit23
     i32 1, label %sw.bb2.i19
     i32 2, label %sw.bb4.i14
@@ -4748,68 +4714,66 @@ if.else:                                          ; preds = %land.lhs.true, %_ZN
   ]
 
 sw.bb2.i19:                                       ; preds = %if.else
-  %Builder.i.i9 = getelementptr inbounds i8, ptr %33, i64 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 24
-  %36 = load ptr, ptr %35, align 8
+  %Builder.i.i9 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = getelementptr inbounds i8, ptr %2, i64 24
+  %33 = load ptr, ptr %32, align 8
   %property_.i20 = getelementptr inbounds i8, ptr %2, i64 32
-  %37 = load ptr, ptr %property_.i20, align 8
-  %call3.i21 = tail call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i9, ptr noundef %spec.select.i.i7, ptr noundef %36, ptr noundef %37) #15
+  %34 = load ptr, ptr %property_.i20, align 8
+  %call3.i21 = tail call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i9, ptr noundef %spec.select.i.i7, ptr noundef %33, ptr noundef %34) #15
   br label %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit23
 
 sw.bb4.i14:                                       ; preds = %if.else
-  %38 = getelementptr inbounds i8, ptr %2, i64 24
-  %39 = load ptr, ptr %38, align 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 24
+  %36 = load ptr, ptr %35, align 8
   %declInit_.i16 = getelementptr inbounds i8, ptr %2, i64 16
-  %40 = load i8, ptr %declInit_.i16, align 8
-  %41 = and i8 %40, 1
-  %tobool.i17 = icmp ne i8 %41, 0
-  %call6.i18 = tail call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %33, ptr noundef %spec.select.i.i7, ptr noundef %39, i1 noundef zeroext %tobool.i17)
+  %37 = load i8, ptr %declInit_.i16, align 8
+  %tobool.i17 = trunc i8 %37 to i1
+  %call6.i18 = tail call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %30, ptr noundef %spec.select.i.i7, ptr noundef %36, i1 noundef zeroext %tobool.i17)
   br label %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit23
 
 sw.bb8.i10:                                       ; preds = %if.else
   %declInit_10.i12 = getelementptr inbounds i8, ptr %2, i64 16
-  %42 = load i8, ptr %declInit_10.i12, align 8
-  %43 = and i8 %42, 1
-  %tobool11.i13 = icmp ne i8 %43, 0
-  %44 = getelementptr inbounds i8, ptr %2, i64 24
-  %45 = load ptr, ptr %44, align 8
+  %38 = load i8, ptr %declInit_10.i12, align 8
+  %tobool11.i13 = trunc i8 %38 to i1
+  %39 = getelementptr inbounds i8, ptr %2, i64 24
+  %40 = load ptr, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i24)
-  %kind_.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %45, i64 16
-  %46 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i25, align 8
-  %cmp.i.i.i.i.i.i.i.i26 = icmp ne i32 %46, 92
-  %tobool.not.i2851 = icmp eq ptr %45, null
+  %kind_.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i25, align 8
+  %cmp.i.i.i.i.i.i.i.i26 = icmp ne i32 %41, 92
+  %tobool.not.i2851 = icmp eq ptr %40, null
   %tobool.not.i28 = or i1 %tobool.not.i2851, %cmp.i.i.i.i.i.i.i.i26
   br i1 %tobool.not.i28, label %if.else.i30, label %if.then.i29
 
 if.then.i29:                                      ; preds = %sw.bb8.i10
-  tail call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %33, i1 noundef zeroext %tobool11.i13, ptr noundef nonnull %45, ptr noundef %spec.select.i.i7)
+  tail call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %30, i1 noundef zeroext %tobool11.i13, ptr noundef nonnull %40, ptr noundef %spec.select.i.i7)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit47
 
 if.else.i30:                                      ; preds = %sw.bb8.i10
-  %cmp.i.i.i.i.i.i.i8.i32 = icmp ne i32 %46, 91
+  %cmp.i.i.i.i.i.i.i8.i32 = icmp ne i32 %41, 91
   %tobool4.not.i34 = or i1 %tobool.not.i2851, %cmp.i.i.i.i.i.i.i8.i32
   br i1 %tobool4.not.i34, label %if.else7.i36, label %if.then5.i35
 
 if.then5.i35:                                     ; preds = %if.else.i30
-  tail call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %33, i1 noundef zeroext %tobool11.i13, ptr noundef nonnull %45, ptr noundef %spec.select.i.i7)
+  tail call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %30, i1 noundef zeroext %tobool11.i13, ptr noundef nonnull %40, ptr noundef %spec.select.i.i7)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit47
 
 if.else7.i36:                                     ; preds = %if.else.i30
-  %47 = load ptr, ptr %33, align 8
-  %Ctx.i.i37 = getelementptr inbounds i8, ptr %47, i64 40
-  %48 = load ptr, ptr %Ctx.i.i37, align 8
-  %sm_.i.i38 = getelementptr inbounds i8, ptr %48, i64 160
-  %49 = load ptr, ptr %sm_.i.i38, align 8
-  %sourceRange_.i.i39 = getelementptr inbounds i8, ptr %45, i64 24
+  %42 = load ptr, ptr %30, align 8
+  %Ctx.i.i37 = getelementptr inbounds i8, ptr %42, i64 40
+  %43 = load ptr, ptr %Ctx.i.i37, align 8
+  %sm_.i.i38 = getelementptr inbounds i8, ptr %43, i64 160
+  %44 = load ptr, ptr %sm_.i.i38, align 8
+  %sourceRange_.i.i39 = getelementptr inbounds i8, ptr %40, i64 24
   %retval.sroa.0.0.copyload.i.i40 = load ptr, ptr %sourceRange_.i.i39, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i41 = getelementptr inbounds i8, ptr %45, i64 32
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i41 = getelementptr inbounds i8, ptr %40, i64 32
   %retval.sroa.2.0.copyload.i.i42 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i41, align 8
   %LHSKind.i.i45 = getelementptr inbounds i8, ptr %ref.tmp.i24, i64 16
   %RHSKind.i.i46 = getelementptr inbounds i8, ptr %ref.tmp.i24, i64 17
   store i8 1, ptr %RHSKind.i.i46, align 1
   store ptr @.str.23, ptr %ref.tmp.i24, align 8
   store i8 3, ptr %LHSKind.i.i45, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %49, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i40, ptr %retval.sroa.2.0.copyload.i.i42, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i24, i32 noundef 0) #15
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %44, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i40, ptr %retval.sroa.2.0.copyload.i.i42, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i24, i32 noundef 0) #15
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit47
 
 _ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit47: ; preds = %if.then.i29, %if.then5.i35, %if.else7.i36
@@ -4820,29 +4784,29 @@ sw.epilog.i22:                                    ; preds = %if.else
   unreachable
 
 _ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit23: ; preds = %if.else, %if.else, %sw.bb2.i19, %sw.bb4.i14, %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit47
-  %call12.i = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %31) #15
+  %call12.i = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %28) #15
   %call14.i = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call12.i) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call12.i) #15
   %call17.i = call noundef ptr @_ZN6hermes9IRBuilder16createTryEndInstEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i) #15
   %call19.i = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call5.i) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call3.i5) #15
   %call.i11.i = call noundef ptr @_ZN6hermes9IRBuilder15createCatchInstEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i) #15
-  %50 = icmp eq ptr %call.i11.i, null
+  %45 = icmp eq ptr %call.i11.i, null
   %add.ptr.i12.i = getelementptr inbounds i8, ptr %call.i11.i, i64 16
-  %spec.select.i13.i = select i1 %50, ptr null, ptr %add.ptr.i12.i
-  %51 = load ptr, ptr %27, align 8
-  %call3.i.i = call noundef ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %spec.select.i13.i, ptr noundef %51) #15
-  %exceptionBlock.i.i = getelementptr inbounds i8, ptr %27, i64 8
-  %52 = load ptr, ptr %exceptionBlock.i.i, align 8
-  %call5.i.i = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %52) #15
+  %spec.select.i13.i = select i1 %45, ptr null, ptr %add.ptr.i12.i
+  %46 = load ptr, ptr %24, align 8
+  %call3.i.i = call noundef ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %spec.select.i13.i, ptr noundef %46) #15
+  %exceptionBlock.i.i = getelementptr inbounds i8, ptr %24, i64 8
+  %47 = load ptr, ptr %exceptionBlock.i.i, align 8
+  %call5.i.i = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %47) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call5.i) #15
-  %emittedTry.i = getelementptr inbounds i8, ptr %27, i64 16
+  %emittedTry.i = getelementptr inbounds i8, ptr %24, i64 16
   store i8 1, ptr %emittedTry.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit, %sw.bb4.i, %sw.bb2.i, %if.then6, %if.then6, %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit23
-  %53 = load ptr, ptr %this, align 8
-  %hasVal.i.i = getelementptr inbounds i8, ptr %53, i64 48
+  %48 = load ptr, ptr %this, align 8
+  %hasVal.i.i = getelementptr inbounds i8, ptr %48, i64 48
   store i8 0, ptr %hasVal.i.i, align 8
   br label %if.end9
 
@@ -5106,18 +5070,17 @@ _ZNK6hermes5irgen10LReference26canStoreWithoutSideEffectsEv.exit: ; preds = %_ZN
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit, label %if.else78
 
 _ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit: ; preds = %_ZNK6hermes5irgen10LReference26canStoreWithoutSideEffectsEv.exit
-  %36 = and i8 %lref.sroa.11.0, 1
-  %tobool.i = icmp ne i8 %36, 0
+  %tobool.i = trunc i8 %lref.sroa.11.0 to i1
   %call6.i = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %lref.sroa.5122.0, ptr noundef %spec.select.i.i.i52, ptr noundef nonnull %lref.sroa.15133.0, i1 noundef zeroext %tobool.i)
   br label %if.end80
 
 if.else78:                                        ; preds = %_ZN4llvh11SmallVectorIPN6hermes5ValueELj4EED2Ev.exit, %_ZNK6hermes5irgen10LReference26canStoreWithoutSideEffectsEv.exit
-  %37 = load ptr, ptr %Block.i, align 8
-  %Parent.i.i.i = getelementptr inbounds i8, ptr %37, i64 72
-  %38 = load ptr, ptr %Parent.i.i.i, align 8
-  %call3.i71 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %38) #15
-  %call5.i72 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %38) #15
-  %call7.i = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %38) #15
+  %36 = load ptr, ptr %Block.i, align 8
+  %Parent.i.i.i = getelementptr inbounds i8, ptr %36, i64 72
+  %37 = load ptr, ptr %Parent.i.i.i, align 8
+  %call3.i71 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %37) #15
+  %call5.i72 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %37) #15
+  %call7.i = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %37) #15
   %call9.i = call noundef ptr @_ZN6hermes9IRBuilder18createTryStartInstEPNS_10BasicBlockES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call7.i, ptr noundef %call3.i71) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call7.i) #15
   switch i32 %lref.sroa.0.0, label %sw.epilog.i91 [
@@ -5134,18 +5097,16 @@ sw.bb2.i88:                                       ; preds = %if.else78
   br label %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit92
 
 sw.bb4.i83:                                       ; preds = %if.else78
-  %39 = and i8 %lref.sroa.11.0, 1
-  %tobool.i86 = icmp ne i8 %39, 0
+  %tobool.i86 = trunc i8 %lref.sroa.11.0 to i1
   %call6.i87 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %lref.sroa.5122.0, ptr noundef %spec.select.i.i.i52, ptr noundef %lref.sroa.15133.0, i1 noundef zeroext %tobool.i86)
   br label %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit92
 
 sw.bb8.i79:                                       ; preds = %if.else78
-  %40 = and i8 %lref.sroa.11.0, 1
-  %tobool11.i82 = icmp ne i8 %40, 0
+  %tobool11.i82 = trunc i8 %lref.sroa.11.0 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i93)
   %kind_.i.i.i.i.i.i.i.i.i94 = getelementptr inbounds i8, ptr %lref.sroa.15133.0, i64 16
-  %41 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i94, align 8
-  %cmp.i.i.i.i.i.i.i.i95 = icmp ne i32 %41, 92
+  %38 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i94, align 8
+  %cmp.i.i.i.i.i.i.i.i95 = icmp ne i32 %38, 92
   %tobool.not.i97145 = icmp eq ptr %lref.sroa.15133.0, null
   %tobool.not.i97 = select i1 %cmp.i.i.i.i.i.i.i.i95, i1 true, i1 %tobool.not.i97145
   br i1 %tobool.not.i97, label %if.else.i99, label %if.then.i98
@@ -5155,7 +5116,7 @@ if.then.i98:                                      ; preds = %sw.bb8.i79
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit116
 
 if.else.i99:                                      ; preds = %sw.bb8.i79
-  %cmp.i.i.i.i.i.i.i8.i101 = icmp ne i32 %41, 91
+  %cmp.i.i.i.i.i.i.i8.i101 = icmp ne i32 %38, 91
   %tobool4.not.i103 = select i1 %cmp.i.i.i.i.i.i.i8.i101, i1 true, i1 %tobool.not.i97145
   br i1 %tobool4.not.i103, label %if.else7.i105, label %if.then5.i104
 
@@ -5164,11 +5125,11 @@ if.then5.i104:                                    ; preds = %if.else.i99
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit116
 
 if.else7.i105:                                    ; preds = %if.else.i99
-  %42 = load ptr, ptr %lref.sroa.5122.0, align 8
-  %Ctx.i.i106 = getelementptr inbounds i8, ptr %42, i64 40
-  %43 = load ptr, ptr %Ctx.i.i106, align 8
-  %sm_.i.i107 = getelementptr inbounds i8, ptr %43, i64 160
-  %44 = load ptr, ptr %sm_.i.i107, align 8
+  %39 = load ptr, ptr %lref.sroa.5122.0, align 8
+  %Ctx.i.i106 = getelementptr inbounds i8, ptr %39, i64 40
+  %40 = load ptr, ptr %Ctx.i.i106, align 8
+  %sm_.i.i107 = getelementptr inbounds i8, ptr %40, i64 160
+  %41 = load ptr, ptr %sm_.i.i107, align 8
   %sourceRange_.i.i108 = getelementptr inbounds i8, ptr %lref.sroa.15133.0, i64 24
   %retval.sroa.0.0.copyload.i.i109 = load ptr, ptr %sourceRange_.i.i108, align 8
   %retval.sroa.2.0.sourceRange_.sroa_idx.i.i110 = getelementptr inbounds i8, ptr %lref.sroa.15133.0, i64 32
@@ -5178,7 +5139,7 @@ if.else7.i105:                                    ; preds = %if.else.i99
   store i8 1, ptr %RHSKind.i.i115, align 1
   store ptr @.str.23, ptr %ref.tmp.i93, align 8
   store i8 3, ptr %LHSKind.i.i114, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %44, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i109, ptr %retval.sroa.2.0.copyload.i.i111, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i93, i32 noundef 0) #15
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %41, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i109, ptr %retval.sroa.2.0.copyload.i.i111, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i93, i32 noundef 0) #15
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit116
 
 _ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit116: ; preds = %if.then.i98, %if.then5.i104, %if.else7.i105
@@ -5189,20 +5150,20 @@ sw.epilog.i91:                                    ; preds = %if.else78
   unreachable
 
 _ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit92: ; preds = %if.else78, %if.else78, %sw.bb2.i88, %sw.bb4.i83, %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit116
-  %call12.i = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %38) #15
+  %call12.i = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %37) #15
   %call14.i = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call12.i) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call12.i) #15
   %call17.i = call noundef ptr @_ZN6hermes9IRBuilder16createTryEndInstEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder) #15
   %call19.i = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call5.i72) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call3.i71) #15
   %call.i10.i = call noundef ptr @_ZN6hermes9IRBuilder15createCatchInstEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder) #15
-  %45 = icmp eq ptr %call.i10.i, null
+  %42 = icmp eq ptr %call.i10.i, null
   %add.ptr.i11.i = getelementptr inbounds i8, ptr %call.i10.i, i64 16
-  %spec.select.i12.i = select i1 %45, ptr null, ptr %add.ptr.i11.i
-  %46 = load ptr, ptr %handler, align 8
-  %call3.i.i75 = call noundef ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %spec.select.i12.i, ptr noundef %46) #15
-  %47 = load ptr, ptr %exceptionBlock.i.i.i59, align 8
-  %call5.i.i76 = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %47) #15
+  %spec.select.i12.i = select i1 %42, ptr null, ptr %add.ptr.i11.i
+  %43 = load ptr, ptr %handler, align 8
+  %call3.i.i75 = call noundef ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %spec.select.i12.i, ptr noundef %43) #15
+  %44 = load ptr, ptr %exceptionBlock.i.i.i59, align 8
+  %call5.i.i76 = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %44) #15
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call5.i72) #15
   store i8 1, ptr %emittedTry.i61, align 8
   br label %if.end80
@@ -5392,55 +5353,53 @@ sw.bb4.i:                                         ; preds = %if.end45
   %31 = load ptr, ptr %30, align 8
   %declInit_.i = getelementptr inbounds i8, ptr %lref, i64 16
   %32 = load i8, ptr %declInit_.i, align 8
-  %33 = and i8 %32, 1
-  %tobool.i = icmp ne i8 %33, 0
+  %tobool.i = trunc i8 %32 to i1
   %call6.i = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %25, ptr noundef %spec.select.i25, ptr noundef %31, i1 noundef zeroext %tobool.i)
   br label %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit
 
 sw.bb8.i:                                         ; preds = %if.end45
   %declInit_10.i = getelementptr inbounds i8, ptr %lref, i64 16
-  %34 = load i8, ptr %declInit_10.i, align 8
-  %35 = and i8 %34, 1
-  %tobool11.i = icmp ne i8 %35, 0
-  %36 = getelementptr inbounds i8, ptr %lref, i64 24
-  %37 = load ptr, ptr %36, align 8
+  %33 = load i8, ptr %declInit_10.i, align 8
+  %tobool11.i = trunc i8 %33 to i1
+  %34 = getelementptr inbounds i8, ptr %lref, i64 24
+  %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 16
-  %38 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %38, 92
-  %tobool.not.i2834 = icmp eq ptr %37, null
+  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %36, 92
+  %tobool.not.i2834 = icmp eq ptr %35, null
   %tobool.not.i28 = or i1 %tobool.not.i2834, %cmp.i.i.i.i.i.i.i.i
   br i1 %tobool.not.i28, label %if.else.i, label %if.then.i29
 
 if.then.i29:                                      ; preds = %sw.bb8.i
-  call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %25, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %37, ptr noundef %spec.select.i25)
+  call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %25, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %35, ptr noundef %spec.select.i25)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 if.else.i:                                        ; preds = %sw.bb8.i
-  %cmp.i.i.i.i.i.i.i8.i = icmp ne i32 %38, 91
+  %cmp.i.i.i.i.i.i.i8.i = icmp ne i32 %36, 91
   %tobool4.not.i = or i1 %tobool.not.i2834, %cmp.i.i.i.i.i.i.i8.i
   br i1 %tobool4.not.i, label %if.else7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %25, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %37, ptr noundef %spec.select.i25)
+  call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %25, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %35, ptr noundef %spec.select.i25)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 if.else7.i:                                       ; preds = %if.else.i
-  %39 = load ptr, ptr %25, align 8
-  %Ctx.i.i = getelementptr inbounds i8, ptr %39, i64 40
-  %40 = load ptr, ptr %Ctx.i.i, align 8
-  %sm_.i.i = getelementptr inbounds i8, ptr %40, i64 160
-  %41 = load ptr, ptr %sm_.i.i, align 8
-  %sourceRange_.i.i = getelementptr inbounds i8, ptr %37, i64 24
+  %37 = load ptr, ptr %25, align 8
+  %Ctx.i.i = getelementptr inbounds i8, ptr %37, i64 40
+  %38 = load ptr, ptr %Ctx.i.i, align 8
+  %sm_.i.i = getelementptr inbounds i8, ptr %38, i64 160
+  %39 = load ptr, ptr %sm_.i.i, align 8
+  %sourceRange_.i.i = getelementptr inbounds i8, ptr %35, i64 24
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %sourceRange_.i.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds i8, ptr %37, i64 32
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds i8, ptr %35, i64 32
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i, align 8
   %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 17
   store i8 1, ptr %RHSKind.i.i, align 1
   store ptr @.str.23, ptr %ref.tmp.i, align 8
   store i8 3, ptr %LHSKind.i.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %41, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #15
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %39, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #15
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 _ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit: ; preds = %if.then.i29, %if.then5.i, %if.else7.i
@@ -5451,23 +5410,23 @@ sw.epilog.i:                                      ; preds = %if.end45
   unreachable
 
 _ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit: ; preds = %if.end45, %if.end45, %sw.bb2.i, %sw.bb4.i, %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
-  %42 = load ptr, ptr %vector_.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %42, null
+  %40 = load ptr, ptr %vector_.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4llvh9SetVectorIPN6hermes7LiteralESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_EEEEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit
-  call void @_ZdlPv(ptr noundef nonnull %42) #19
+  call void @_ZdlPv(ptr noundef nonnull %40) #19
   br label %_ZN4llvh9SetVectorIPN6hermes7LiteralESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_EEEEED2Ev.exit
 
 _ZN4llvh9SetVectorIPN6hermes7LiteralESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_EEEEED2Ev.exit: ; preds = %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit, %if.then.i.i.i.i
-  %43 = load ptr, ptr %literalExcludedItems, align 8
-  call void @_ZdlPv(ptr noundef %43) #15
-  %44 = load ptr, ptr %computedExcludedItems, align 8
-  %cmp.i.i.i = icmp eq ptr %44, %add.ptr.i.i.i.i.i
+  %41 = load ptr, ptr %literalExcludedItems, align 8
+  call void @_ZdlPv(ptr noundef %41) #15
+  %42 = load ptr, ptr %computedExcludedItems, align 8
+  %cmp.i.i.i = icmp eq ptr %42, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIPN6hermes5ValueELj4EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4llvh9SetVectorIPN6hermes7LiteralESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_EEEEED2Ev.exit
-  call void @free(ptr noundef %44) #15
+  call void @free(ptr noundef %42) #15
   br label %_ZN4llvh11SmallVectorIPN6hermes5ValueELj4EED2Ev.exit
 
 _ZN4llvh11SmallVectorIPN6hermes5ValueELj4EED2Ev.exit: ; preds = %_ZN4llvh9SetVectorIPN6hermes7LiteralESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_EEEEED2Ev.exit, %if.then.i.i
@@ -5887,9 +5846,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %28 = load i8, ptr %declKind.i, align 8
   %strictImmutableBinding_.i = getelementptr inbounds i8, ptr %27, i64 64
   %29 = load i8, ptr %strictImmutableBinding_.i, align 8
-  %30 = and i8 %29, 1
-  %31 = load i32, ptr %Capacity2.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %cmp.not.i = icmp ult i32 %26, %31
+  %frombool28 = and i8 %29, 1
+  %30 = load i32, ptr %Capacity2.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
+  %cmp.not.i = icmp ult i32 %26, %30
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes15SerializedScope11DeclarationELb1EE9push_backERKS3_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
@@ -5898,173 +5857,173 @@ if.then.i:                                        ; preds = %for.body
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes15SerializedScope11DeclarationELb1EE9push_backERKS3_.exit
 
 _ZN4llvh23SmallVectorTemplateBaseIN6hermes15SerializedScope11DeclarationELb1EE9push_backERKS3_.exit: ; preds = %for.body, %if.then.i
-  %32 = phi i32 [ %.pre.i, %if.then.i ], [ %26, %for.body ]
-  %33 = load ptr, ptr %variables.i.i.i.i.i.i.i.i, align 8
-  %conv.i3.i = zext i32 %32 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.hermes::SerializedScope::Declaration", ptr %33, i64 %conv.i3.i
+  %31 = phi i32 [ %.pre.i, %if.then.i ], [ %26, %for.body ]
+  %32 = load ptr, ptr %variables.i.i.i.i.i.i.i.i, align 8
+  %conv.i3.i = zext i32 %31 to i64
+  %add.ptr.i.i = getelementptr inbounds %"struct.hermes::SerializedScope::Declaration", ptr %32, i64 %conv.i3.i
   store ptr %retval.sroa.0.0.copyload.i31, ptr %add.ptr.i.i, align 1
   %ref.tmp23.sroa.2.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 %28, ptr %ref.tmp23.sroa.2.0.add.ptr.i.i.sroa_idx, align 1
   %ref.tmp23.sroa.3.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 9
-  store i8 %30, ptr %ref.tmp23.sroa.3.0.add.ptr.i.i.sroa_idx, align 1
-  %34 = load i32, ptr %Size.i.i, align 8
-  %add.i = add i32 %34, 1
+  store i8 %frombool28, ptr %ref.tmp23.sroa.3.0.add.ptr.i.i.sroa_idx, align 1
+  %33 = load i32, ptr %Size.i.i, align 8
+  %add.i = add i32 %33, 1
   store i32 %add.i, ptr %Size.i.i, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0116, i64 8
   %cmp21.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp21.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN4llvh23SmallVectorTemplateBaseIN6hermes15SerializedScope11DeclarationELb1EE9push_backERKS3_.exit, %if.end17
-  %35 = load ptr, ptr %parent_.i, align 8
-  call void @_ZN6hermes5irgen11ESTreeIRGen14serializeScopeEPNS_9ScopeDescEb(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp29, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %35, i1 zeroext poison)
+  %34 = load ptr, ptr %parent_.i, align 8
+  call void @_ZN6hermes5irgen11ESTreeIRGen14serializeScopeEPNS_9ScopeDescEb(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp29, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %34, i1 zeroext poison)
   %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
   %_M_refcount3.i.i.i33 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 24
-  %36 = load <2 x ptr>, ptr %ref.tmp29, align 16
+  %35 = load <2 x ptr>, ptr %ref.tmp29, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp29, i8 0, i64 16, i1 false)
-  %37 = load ptr, ptr %_M_refcount3.i.i.i33, align 8
-  store <2 x ptr> %36, ptr %_M_impl.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i34 = icmp eq ptr %37, null
+  %36 = load ptr, ptr %_M_refcount3.i.i.i33, align 8
+  store <2 x ptr> %35, ptr %_M_impl.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i34 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i.i34, label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEaSEOS3_.exit, label %if.then.i.i.i.i35
 
 if.then.i.i.i.i35:                                ; preds = %for.end
-  %_M_use_count.i.i.i.i.i36 = getelementptr inbounds i8, ptr %37, i64 8
-  %38 = load atomic i64, ptr %_M_use_count.i.i.i.i.i36 acquire, align 8
-  %cmp.i.i.i.i.i = icmp eq i64 %38, 4294967297
-  %39 = trunc i64 %38 to i32
+  %_M_use_count.i.i.i.i.i36 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = load atomic i64, ptr %_M_use_count.i.i.i.i.i36 acquire, align 8
+  %cmp.i.i.i.i.i = icmp eq i64 %37, 4294967297
+  %38 = trunc i64 %37 to i32
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i40, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i40:                              ; preds = %if.then.i.i.i.i35
   store i32 0, ptr %_M_use_count.i.i.i.i.i36, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 12
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
-  %vtable.i.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %36, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
-  %40 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %37) #15
+  %39 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #15
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i35
-  %41 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %41, 0
+  %40 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %40, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i39, label %if.then.i.i.i.i.i.i37
 
 if.then.i.i.i.i.i.i37:                            ; preds = %if.end.i.i.i.i.i
-  %add.i.i.i.i.i.i38 = add nsw i32 %39, -1
+  %add.i.i.i.i.i.i38 = add nsw i32 %38, -1
   store i32 %add.i.i.i.i.i.i38, ptr %_M_use_count.i.i.i.i.i36, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 if.else.i.i.i.i.i.i39:                            ; preds = %if.end.i.i.i.i.i
-  %42 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i36, i32 -1 acq_rel, align 4
+  %41 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i36, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i39, %if.then.i.i.i.i.i.i37
-  %retval.i.0.i.i.i.i.i = phi i32 [ %39, %if.then.i.i.i.i.i.i37 ], [ %42, %if.else.i.i.i.i.i.i39 ]
+  %retval.i.0.i.i.i.i.i = phi i32 [ %38, %if.then.i.i.i.i.i.i37 ], [ %41, %if.else.i.i.i.i.i.i39 ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEaSEOS3_.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %36, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
-  %43 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  tail call void %43(ptr noundef nonnull align 8 dereferenceable(16) %37) #15
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 12
-  %44 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %44, 0
+  %42 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
+  tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #15
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 12
+  %43 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
-  %45 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i.i = add nsw i32 %45, -1
+  %44 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i.i = add nsw i32 %44, -1
   store i32 %add.i.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
-  %46 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %45 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %45, %if.then.i.i.i.i.i.i.i.i ], [ %46, %if.else.i.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %44, %if.then.i.i.i.i.i.i.i.i ], [ %45, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEaSEOS3_.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i40
-  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %36, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
-  %47 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  tail call void %47(ptr noundef nonnull align 8 dereferenceable(16) %37) #15
+  %46 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #15
   br label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEaSEOS3_.exit
 
 _ZNSt10shared_ptrIKN6hermes15SerializedScopeEEaSEOS3_.exit: ; preds = %for.end, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %48 = load ptr, ptr %_M_refcount4.i.i.i, align 8
-  %cmp.not.i.i.i42 = icmp eq ptr %48, null
+  %47 = load ptr, ptr %_M_refcount4.i.i.i, align 8
+  %cmp.not.i.i.i42 = icmp eq ptr %47, null
   br i1 %cmp.not.i.i.i42, label %_ZNSt10shared_ptrIN6hermes15SerializedScopeEED2Ev.exit, label %if.then.i.i.i43
 
 if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEaSEOS3_.exit
-  %_M_use_count.i.i.i.i44 = getelementptr inbounds i8, ptr %48, i64 8
-  %49 = load atomic i64, ptr %_M_use_count.i.i.i.i44 acquire, align 8
-  %cmp.i.i.i.i45 = icmp eq i64 %49, 4294967297
-  %50 = trunc i64 %49 to i32
+  %_M_use_count.i.i.i.i44 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = load atomic i64, ptr %_M_use_count.i.i.i.i44 acquire, align 8
+  %cmp.i.i.i.i45 = icmp eq i64 %48, 4294967297
+  %49 = trunc i64 %48 to i32
   br i1 %cmp.i.i.i.i45, label %if.then.i.i.i.i68, label %if.end.i.i.i.i46
 
 if.then.i.i.i.i68:                                ; preds = %if.then.i.i.i43
   store i32 0, ptr %_M_use_count.i.i.i.i44, align 8
-  %_M_weak_count.i.i.i.i69 = getelementptr inbounds i8, ptr %48, i64 12
+  %_M_weak_count.i.i.i.i69 = getelementptr inbounds i8, ptr %47, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i69, align 4
-  %vtable.i.i.i.i70 = load ptr, ptr %48, align 8
+  %vtable.i.i.i.i70 = load ptr, ptr %47, align 8
   %vfn.i.i.i.i71 = getelementptr inbounds i8, ptr %vtable.i.i.i.i70, i64 16
-  %51 = load ptr, ptr %vfn.i.i.i.i71, align 8
-  tail call void %51(ptr noundef nonnull align 8 dereferenceable(16) %48) #15
+  %50 = load ptr, ptr %vfn.i.i.i.i71, align 8
+  tail call void %50(ptr noundef nonnull align 8 dereferenceable(16) %47) #15
   br label %if.end8.sink.split.i.i.i.i63
 
 if.end.i.i.i.i46:                                 ; preds = %if.then.i.i.i43
-  %52 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i47 = icmp eq i8 %52, 0
+  %51 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i47 = icmp eq i8 %51, 0
   br i1 %tobool.i.i.not.i.i.i.i47, label %if.else.i.i.i.i.i67, label %if.then.i.i.i.i.i48
 
 if.then.i.i.i.i.i48:                              ; preds = %if.end.i.i.i.i46
-  %add.i.i.i.i.i49 = add nsw i32 %50, -1
+  %add.i.i.i.i.i49 = add nsw i32 %49, -1
   store i32 %add.i.i.i.i.i49, ptr %_M_use_count.i.i.i.i44, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50
 
 if.else.i.i.i.i.i67:                              ; preds = %if.end.i.i.i.i46
-  %53 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i44, i32 -1 acq_rel, align 4
+  %52 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i44, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50: ; preds = %if.else.i.i.i.i.i67, %if.then.i.i.i.i.i48
-  %retval.i.0.i.i.i.i51 = phi i32 [ %50, %if.then.i.i.i.i.i48 ], [ %53, %if.else.i.i.i.i.i67 ]
+  %retval.i.0.i.i.i.i51 = phi i32 [ %49, %if.then.i.i.i.i.i48 ], [ %52, %if.else.i.i.i.i.i67 ]
   %cmp6.i.i.i.i52 = icmp eq i32 %retval.i.0.i.i.i.i51, 1
   br i1 %cmp6.i.i.i.i52, label %if.then7.i.i.i.i53, label %_ZNSt10shared_ptrIN6hermes15SerializedScopeEED2Ev.exit
 
 if.then7.i.i.i.i53:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50
-  %vtable.i.i.i.i.i.i54 = load ptr, ptr %48, align 8
+  %vtable.i.i.i.i.i.i54 = load ptr, ptr %47, align 8
   %vfn.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i54, i64 16
-  %54 = load ptr, ptr %vfn.i.i.i.i.i.i55, align 8
-  tail call void %54(ptr noundef nonnull align 8 dereferenceable(16) %48) #15
-  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %48, i64 12
-  %55 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i57 = icmp eq i8 %55, 0
+  %53 = load ptr, ptr %vfn.i.i.i.i.i.i55, align 8
+  tail call void %53(ptr noundef nonnull align 8 dereferenceable(16) %47) #15
+  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %47, i64 12
+  %54 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i57 = icmp eq i8 %54, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i57, label %if.else.i.i.i.i.i.i.i66, label %if.then.i.i.i.i.i.i.i58
 
 if.then.i.i.i.i.i.i.i58:                          ; preds = %if.then7.i.i.i.i53
-  %56 = load i32, ptr %_M_weak_count.i.i.i.i.i.i56, align 4
-  %add.i.i.i.i.i.i.i59 = add nsw i32 %56, -1
+  %55 = load i32, ptr %_M_weak_count.i.i.i.i.i.i56, align 4
+  %add.i.i.i.i.i.i.i59 = add nsw i32 %55, -1
   store i32 %add.i.i.i.i.i.i.i59, ptr %_M_weak_count.i.i.i.i.i.i56, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60
 
 if.else.i.i.i.i.i.i.i66:                          ; preds = %if.then7.i.i.i.i53
-  %57 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i56, i32 -1 acq_rel, align 4
+  %56 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i56, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60: ; preds = %if.else.i.i.i.i.i.i.i66, %if.then.i.i.i.i.i.i.i58
-  %retval.i.0.i.i.i.i.i.i61 = phi i32 [ %56, %if.then.i.i.i.i.i.i.i58 ], [ %57, %if.else.i.i.i.i.i.i.i66 ]
+  %retval.i.0.i.i.i.i.i.i61 = phi i32 [ %55, %if.then.i.i.i.i.i.i.i58 ], [ %56, %if.else.i.i.i.i.i.i.i66 ]
   %cmp.i.i.i.i.i.i62 = icmp eq i32 %retval.i.0.i.i.i.i.i.i61, 1
   br i1 %cmp.i.i.i.i.i.i62, label %if.end8.sink.split.i.i.i.i63, label %_ZNSt10shared_ptrIN6hermes15SerializedScopeEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i63:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60, %if.then.i.i.i.i68
-  %vtable2.i.i.i.i.i.i64 = load ptr, ptr %48, align 8
+  %vtable2.i.i.i.i.i.i64 = load ptr, ptr %47, align 8
   %vfn3.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i64, i64 24
-  %58 = load ptr, ptr %vfn3.i.i.i.i.i.i65, align 8
-  tail call void %58(ptr noundef nonnull align 8 dereferenceable(16) %48) #15
+  %57 = load ptr, ptr %vfn3.i.i.i.i.i.i65, align 8
+  tail call void %57(ptr noundef nonnull align 8 dereferenceable(16) %47) #15
   br label %_ZNSt10shared_ptrIN6hermes15SerializedScopeEED2Ev.exit
 
 _ZNSt10shared_ptrIN6hermes15SerializedScopeEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i63, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50, %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEaSEOS3_.exit
@@ -6358,9 +6317,9 @@ for.body.i:                                       ; preds = %if.then4, %for.inc.
 if.then.i:                                        ; preds = %for.body.i
   %strictImmutableBinding.i = getelementptr inbounds i8, ptr %__begin2.02.i, i64 9
   %25 = load i8, ptr %strictImmutableBinding.i, align 1
-  %26 = and i8 %25, 1
+  %frombool.i.i = and i8 %25, 1
   %strictImmutableBinding_.i.i = getelementptr inbounds i8, ptr %call2.i, i64 64
-  store i8 %26, ptr %strictImmutableBinding_.i.i, align 8
+  store i8 %frombool.i.i, ptr %strictImmutableBinding_.i.i, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
@@ -6369,119 +6328,119 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   br i1 %cmp.not.i, label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit.loopexit, label %for.body.i
 
 _ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit.loopexit: ; preds = %for.inc.i
-  %.pre224 = load ptr, ptr %chain, align 8
+  %.pre225 = load ptr, ptr %chain, align 8
   br label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit
 
 _ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit: ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit.loopexit, %if.then4
-  %27 = phi ptr [ %.pre224, %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit.loopexit ], [ %1, %if.then4 ]
+  %26 = phi ptr [ %.pre225, %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit.loopexit ], [ %1, %if.then4 ]
   %_M_refcount3.i.i41 = getelementptr inbounds i8, ptr %chain, i64 8
-  %28 = load ptr, ptr %_M_refcount3.i.i41, align 8
-  %cmp.not.i.i.i42 = icmp eq ptr %28, null
+  %27 = load ptr, ptr %_M_refcount3.i.i41, align 8
+  %cmp.not.i.i.i42 = icmp eq ptr %27, null
   br i1 %cmp.not.i.i.i42, label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit49, label %if.then.i.i.i43
 
 if.then.i.i.i43:                                  ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit
-  %_M_use_count.i.i.i.i44 = getelementptr inbounds i8, ptr %28, i64 8
-  %29 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i45 = icmp eq i8 %29, 0
+  %_M_use_count.i.i.i.i44 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i45 = icmp eq i8 %28, 0
   br i1 %tobool.i.not.i.i.i.i45, label %if.else.i.i.i.i.i48, label %if.then.i.i.i.i.i46
 
 if.then.i.i.i.i.i46:                              ; preds = %if.then.i.i.i43
-  %30 = load i32, ptr %_M_use_count.i.i.i.i44, align 4
-  %add.i.i.i.i.i47 = add nsw i32 %30, 1
+  %29 = load i32, ptr %_M_use_count.i.i.i.i44, align 4
+  %add.i.i.i.i.i47 = add nsw i32 %29, 1
   store i32 %add.i.i.i.i.i47, ptr %_M_use_count.i.i.i.i44, align 4
   br label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit49
 
 if.else.i.i.i.i.i48:                              ; preds = %if.then.i.i.i43
-  %31 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i44, i32 1 acq_rel, align 4
+  %30 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i44, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit49
 
 _ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit49: ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit, %if.then.i.i.i.i.i46, %if.else.i.i.i.i.i48
   %serializedScope_.i50 = getelementptr inbounds i8, ptr %20, i64 128
-  store ptr %27, ptr %serializedScope_.i50, align 8
+  store ptr %26, ptr %serializedScope_.i50, align 8
   %_M_refcount3.i.i.i.i52 = getelementptr inbounds i8, ptr %20, i64 136
-  %32 = load ptr, ptr %_M_refcount3.i.i.i.i52, align 8
-  store ptr %28, ptr %_M_refcount3.i.i.i.i52, align 8
-  %cmp.not.i.i.i.i.i53 = icmp eq ptr %32, null
+  %31 = load ptr, ptr %_M_refcount3.i.i.i.i52, align 8
+  store ptr %27, ptr %_M_refcount3.i.i.i.i52, align 8
+  %cmp.not.i.i.i.i.i53 = icmp eq ptr %31, null
   br i1 %cmp.not.i.i.i.i.i53, label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit115, label %if.then.i.i.i.i.i54
 
 if.then.i.i.i.i.i54:                              ; preds = %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit49
-  %_M_use_count.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %32, i64 8
-  %33 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i55 acquire, align 8
-  %cmp.i.i.i.i.i.i56 = icmp eq i64 %33, 4294967297
-  %34 = trunc i64 %33 to i32
+  %_M_use_count.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i55 acquire, align 8
+  %cmp.i.i.i.i.i.i56 = icmp eq i64 %32, 4294967297
+  %33 = trunc i64 %32 to i32
   br i1 %cmp.i.i.i.i.i.i56, label %if.then.i.i.i.i.i.i79, label %if.end.i.i.i.i.i.i57
 
 if.then.i.i.i.i.i.i79:                            ; preds = %if.then.i.i.i.i.i54
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i55, align 8
-  %_M_weak_count.i.i.i.i.i.i80 = getelementptr inbounds i8, ptr %32, i64 12
+  %_M_weak_count.i.i.i.i.i.i80 = getelementptr inbounds i8, ptr %31, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i80, align 4
-  %vtable.i.i.i.i.i.i81 = load ptr, ptr %32, align 8
+  %vtable.i.i.i.i.i.i81 = load ptr, ptr %31, align 8
   %vfn.i.i.i.i.i.i82 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i81, i64 16
-  %35 = load ptr, ptr %vfn.i.i.i.i.i.i82, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %32) #15
+  %34 = load ptr, ptr %vfn.i.i.i.i.i.i82, align 8
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %31) #15
   br label %if.end8.sink.split.i.i.i.i.i.i74
 
 if.end.i.i.i.i.i.i57:                             ; preds = %if.then.i.i.i.i.i54
-  %36 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i58 = icmp eq i8 %36, 0
+  %35 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i58 = icmp eq i8 %35, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i58, label %if.else.i.i.i.i.i.i.i78, label %if.then.i.i.i.i.i.i.i59
 
 if.then.i.i.i.i.i.i.i59:                          ; preds = %if.end.i.i.i.i.i.i57
-  %add.i.i.i.i.i.i.i60 = add nsw i32 %34, -1
+  %add.i.i.i.i.i.i.i60 = add nsw i32 %33, -1
   store i32 %add.i.i.i.i.i.i.i60, ptr %_M_use_count.i.i.i.i.i.i55, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i61
 
 if.else.i.i.i.i.i.i.i78:                          ; preds = %if.end.i.i.i.i.i.i57
-  %37 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i55, i32 -1 acq_rel, align 4
+  %36 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i55, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i61
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i61: ; preds = %if.else.i.i.i.i.i.i.i78, %if.then.i.i.i.i.i.i.i59
-  %retval.i.0.i.i.i.i.i.i62 = phi i32 [ %34, %if.then.i.i.i.i.i.i.i59 ], [ %37, %if.else.i.i.i.i.i.i.i78 ]
+  %retval.i.0.i.i.i.i.i.i62 = phi i32 [ %33, %if.then.i.i.i.i.i.i.i59 ], [ %36, %if.else.i.i.i.i.i.i.i78 ]
   %cmp6.i.i.i.i.i.i63 = icmp eq i32 %retval.i.0.i.i.i.i.i.i62, 1
   br i1 %cmp6.i.i.i.i.i.i63, label %if.then7.i.i.i.i.i.i64, label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit115
 
 if.then7.i.i.i.i.i.i64:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i61
-  %vtable.i.i.i.i.i.i.i.i65 = load ptr, ptr %32, align 8
+  %vtable.i.i.i.i.i.i.i.i65 = load ptr, ptr %31, align 8
   %vfn.i.i.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i65, i64 16
-  %38 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i66, align 8
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %32) #15
-  %_M_weak_count.i.i.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %32, i64 12
-  %39 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i.i.i68 = icmp eq i8 %39, 0
+  %37 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i66, align 8
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %31) #15
+  %_M_weak_count.i.i.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %31, i64 12
+  %38 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i.i.i68 = icmp eq i8 %38, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i68, label %if.else.i.i.i.i.i.i.i.i.i77, label %if.then.i.i.i.i.i.i.i.i.i69
 
 if.then.i.i.i.i.i.i.i.i.i69:                      ; preds = %if.then7.i.i.i.i.i.i64
-  %40 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i.i67, align 4
-  %add.i.i.i.i.i.i.i.i.i70 = add nsw i32 %40, -1
+  %39 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i.i67, align 4
+  %add.i.i.i.i.i.i.i.i.i70 = add nsw i32 %39, -1
   store i32 %add.i.i.i.i.i.i.i.i.i70, ptr %_M_weak_count.i.i.i.i.i.i.i.i67, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i71
 
 if.else.i.i.i.i.i.i.i.i.i77:                      ; preds = %if.then7.i.i.i.i.i.i64
-  %41 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i.i67, i32 -1 acq_rel, align 4
+  %40 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i.i67, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i71
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i71: ; preds = %if.else.i.i.i.i.i.i.i.i.i77, %if.then.i.i.i.i.i.i.i.i.i69
-  %retval.i.0.i.i.i.i.i.i.i.i72 = phi i32 [ %40, %if.then.i.i.i.i.i.i.i.i.i69 ], [ %41, %if.else.i.i.i.i.i.i.i.i.i77 ]
+  %retval.i.0.i.i.i.i.i.i.i.i72 = phi i32 [ %39, %if.then.i.i.i.i.i.i.i.i.i69 ], [ %40, %if.else.i.i.i.i.i.i.i.i.i77 ]
   %cmp.i.i.i.i.i.i.i.i73 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i72, 1
   br i1 %cmp.i.i.i.i.i.i.i.i73, label %if.end8.sink.split.i.i.i.i.i.i74, label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit115
 
 if.end8.sink.split.i.i.i.i.i.i74:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i71, %if.then.i.i.i.i.i.i79
-  %vtable2.i.i.i.i.i.i.i.i75 = load ptr, ptr %32, align 8
+  %vtable2.i.i.i.i.i.i.i.i75 = load ptr, ptr %31, align 8
   %vfn3.i.i.i.i.i.i.i.i76 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i75, i64 24
-  %42 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i76, align 8
-  tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %32) #15
+  %41 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i76, align 8
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %31) #15
   br label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit115
 
 _ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit115: ; preds = %if.end8.sink.split.i.i.i.i.i.i74, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i71, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i61, %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit49
   store ptr %20, ptr %agg.result, align 8, !alias.scope !98
-  %43 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %outmostFunction, ptr %43, align 8, !alias.scope !98
+  %42 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %outmostFunction, ptr %42, align 8, !alias.scope !98
   br label %return
 
 if.end9:                                          ; preds = %if.end
   call fastcc void @_ZN6hermes5irgenL21materializeScopeChainERNS_9IRBuilderEPNS_8FunctionERKSt10shared_ptrIKNS_15SerializedScopeEE(ptr noalias nonnull align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %outmostFunction, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %44 = load ptr, ptr %0, align 8
+  %43 = load ptr, ptr %0, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 2
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -6496,7 +6455,7 @@ if.end9:                                          ; preds = %if.end
   store i32 2, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
   store i8 120, ptr %call.i, align 8
   %parent_.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  store ptr %44, ptr %parent_.i.i, align 8
+  store ptr %43, ptr %parent_.i.i, align 8
   %innerScopes_.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %innerScopes_.i.i, align 8
@@ -6515,206 +6474,206 @@ if.end9:                                          ; preds = %if.end
   store i32 8, ptr %Capacity2.i.i.i.i.i3.i.i, align 4
   %dynamic_.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   store i8 0, ptr %dynamic_.i.i, align 8
-  %innerScopes_.i = getelementptr inbounds i8, ptr %44, i64 48
-  %Size.i.i.i = getelementptr inbounds i8, ptr %44, i64 56
-  %45 = load i32, ptr %Size.i.i.i, align 8
-  %Capacity.i.i.i = getelementptr inbounds i8, ptr %44, i64 60
-  %46 = load i32, ptr %Capacity.i.i.i, align 4
-  %cmp.not.i.i = icmp ult i32 %45, %46
+  %innerScopes_.i = getelementptr inbounds i8, ptr %43, i64 48
+  %Size.i.i.i = getelementptr inbounds i8, ptr %43, i64 56
+  %44 = load i32, ptr %Size.i.i.i, align 8
+  %Capacity.i.i.i = getelementptr inbounds i8, ptr %43, i64 60
+  %45 = load i32, ptr %Capacity.i.i.i, align 4
+  %cmp.not.i.i = icmp ult i32 %44, %45
   br i1 %cmp.not.i.i, label %_ZN6hermes9ScopeDesc16createInnerScopeEv.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end9
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %44, i64 64
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 64
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %innerScopes_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i = load i32, ptr %Size.i.i.i, align 8
   br label %_ZN6hermes9ScopeDesc16createInnerScopeEv.exit
 
 _ZN6hermes9ScopeDesc16createInnerScopeEv.exit:    ; preds = %if.end9, %if.then.i.i
-  %47 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %45, %if.end9 ]
-  %48 = load ptr, ptr %innerScopes_.i, align 8
-  %conv.i3.i.i = zext i32 %47 to i64
-  %add.ptr.i.i.i116 = getelementptr inbounds ptr, ptr %48, i64 %conv.i3.i.i
+  %46 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %44, %if.end9 ]
+  %47 = load ptr, ptr %innerScopes_.i, align 8
+  %conv.i3.i.i = zext i32 %46 to i64
+  %add.ptr.i.i.i116 = getelementptr inbounds ptr, ptr %47, i64 %conv.i3.i.i
   store ptr %call.i, ptr %add.ptr.i.i.i116, align 8
-  %49 = load i32, ptr %Size.i.i.i, align 8
-  %add.i.i = add i32 %49, 1
+  %48 = load i32, ptr %Size.i.i.i, align 8
+  %add.i.i = add i32 %48, 1
   store i32 %add.i.i, ptr %Size.i.i.i, align 8
-  %50 = load ptr, ptr %chain, align 8
-  %originalName = getelementptr inbounds i8, ptr %50, i64 16
-  %51 = load ptr, ptr %originalName, align 8
-  %cmp.i117.not = icmp eq ptr %51, null
+  %49 = load ptr, ptr %chain, align 8
+  %originalName = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = load ptr, ptr %originalName, align 8
+  %cmp.i117.not = icmp eq ptr %50, null
   br i1 %cmp.i117.not, label %if.then18, label %if.else
 
 if.then18:                                        ; preds = %_ZN6hermes9ScopeDesc16createInnerScopeEv.exit
-  %52 = load ptr, ptr %add.ptr.i.i.i, align 8
+  %51 = load ptr, ptr %add.ptr.i.i.i, align 8
   %function_.i = getelementptr inbounds i8, ptr %call.i, i64 144
-  store ptr %52, ptr %function_.i, align 8
+  store ptr %51, ptr %function_.i, align 8
   br label %if.end24
 
 if.else:                                          ; preds = %_ZN6hermes9ScopeDesc16createInnerScopeEv.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp22, i8 0, i64 16, i1 false)
-  %call23 = tail call noundef ptr @_ZN6hermes9IRBuilder14createFunctionEPNS_9ScopeDescENS_10IdentifierENS_8Function14DefinitionKindEbNS_16SourceVisibilityEN4llvh7SMRangeEbPS4_(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %call.i, ptr nonnull %51, i32 noundef 0, i1 noundef zeroext false, i32 noundef 3, ptr noundef nonnull byval(%"class.llvh::SMRange") align 8 %agg.tmp22, i1 noundef zeroext false, ptr noundef null) #15
-  %53 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %call.i118 = tail call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %53) #15
+  %call23 = tail call noundef ptr @_ZN6hermes9IRBuilder14createFunctionEPNS_9ScopeDescENS_10IdentifierENS_8Function14DefinitionKindEbNS_16SourceVisibilityEN4llvh7SMRangeEbPS4_(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %call.i, ptr nonnull %50, i32 noundef 0, i1 noundef zeroext false, i32 noundef 3, ptr noundef nonnull byval(%"class.llvh::SMRange") align 8 %agg.tmp22, i1 noundef zeroext false, ptr noundef null) #15
+  %52 = load ptr, ptr %add.ptr.i.i.i, align 8
+  %call.i118 = tail call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %52) #15
   tail call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %call.i118) #15
   %call1.i = tail call noundef ptr @_ZN6hermes9IRBuilder21createUnreachableInstEv(ptr noundef nonnull align 8 dereferenceable(40) %builder) #15
-  %scopeDesc_.i.i = getelementptr inbounds i8, ptr %53, i64 72
-  %54 = load ptr, ptr %scopeDesc_.i.i, align 8
-  %call3.i = tail call noundef ptr @_ZN6hermes9IRBuilder21createCreateScopeInstEPNS_9ScopeDescE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %54) #15
+  %scopeDesc_.i.i = getelementptr inbounds i8, ptr %52, i64 72
+  %53 = load ptr, ptr %scopeDesc_.i.i, align 8
+  %call3.i = tail call noundef ptr @_ZN6hermes9IRBuilder21createCreateScopeInstEPNS_9ScopeDescE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %53) #15
   %call4.i = tail call noundef ptr @_ZN6hermes9IRBuilder24createCreateFunctionInstEPNS_8FunctionEPNS_17ScopeCreationInstE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %call23, ptr noundef %call3.i) #15
-  %55 = icmp eq ptr %call4.i, null
+  %54 = icmp eq ptr %call4.i, null
   %add.ptr.i = getelementptr inbounds i8, ptr %call4.i, i64 16
-  %spec.select.i = select i1 %55, ptr null, ptr %add.ptr.i
+  %spec.select.i = select i1 %54, ptr null, ptr %add.ptr.i
   %call5.i = tail call noundef ptr @_ZN6hermes9IRBuilder16createReturnInstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %spec.select.i) #15
   store ptr %call23, ptr %add.ptr.i.i.i, align 8
   %.pre = load ptr, ptr %chain, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else, %if.then18
-  %56 = phi ptr [ %.pre, %if.else ], [ %50, %if.then18 ]
-  %57 = getelementptr i8, ptr %56, i64 32
-  %call25.val = load ptr, ptr %57, align 8
-  %58 = getelementptr i8, ptr %56, i64 40
-  %call25.val19 = load i32, ptr %58, align 8
+  %55 = phi ptr [ %.pre, %if.else ], [ %49, %if.then18 ]
+  %56 = getelementptr i8, ptr %55, i64 32
+  %call25.val = load ptr, ptr %56, align 8
+  %57 = getelementptr i8, ptr %55, i64 40
+  %call25.val19 = load i32, ptr %57, align 8
   %conv.i.i119 = zext i32 %call25.val19 to i64
   %add.ptr.i.i120 = getelementptr inbounds %"struct.hermes::SerializedScope::Declaration", ptr %call25.val, i64 %conv.i.i119
   %cmp.not1.i121 = icmp eq i32 %call25.val19, 0
-  br i1 %cmp.not1.i121, label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit134, label %for.body.i122
+  br i1 %cmp.not1.i121, label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135, label %for.body.i122
 
 for.body.i122:                                    ; preds = %if.end24, %for.inc.i128
   %__begin2.02.i123 = phi ptr [ %incdec.ptr.i129, %for.inc.i128 ], [ %call25.val, %if.end24 ]
   %declKind.i124 = getelementptr inbounds i8, ptr %__begin2.02.i123, i64 8
-  %59 = load i8, ptr %declKind.i124, align 8
+  %58 = load i8, ptr %declKind.i124, align 8
   %agg.tmp.sroa.0.0.copyload.i125 = load ptr, ptr %__begin2.02.i123, align 8
-  %call2.i126 = tail call noundef ptr @_ZN6hermes9IRBuilder14createVariableEPNS_9ScopeDescENS_18JavaScriptDeclKindENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %call.i, i8 noundef zeroext %59, ptr %agg.tmp.sroa.0.0.copyload.i125) #15
-  %60 = load i8, ptr %declKind.i124, align 8
-  %cmp4.i127 = icmp eq i8 %60, 0
+  %call2.i126 = tail call noundef ptr @_ZN6hermes9IRBuilder14createVariableEPNS_9ScopeDescENS_18JavaScriptDeclKindENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %call.i, i8 noundef zeroext %58, ptr %agg.tmp.sroa.0.0.copyload.i125) #15
+  %59 = load i8, ptr %declKind.i124, align 8
+  %cmp4.i127 = icmp eq i8 %59, 0
   br i1 %cmp4.i127, label %if.then.i131, label %for.inc.i128
 
 if.then.i131:                                     ; preds = %for.body.i122
   %strictImmutableBinding.i132 = getelementptr inbounds i8, ptr %__begin2.02.i123, i64 9
-  %61 = load i8, ptr %strictImmutableBinding.i132, align 1
-  %62 = and i8 %61, 1
-  %strictImmutableBinding_.i.i133 = getelementptr inbounds i8, ptr %call2.i126, i64 64
-  store i8 %62, ptr %strictImmutableBinding_.i.i133, align 8
+  %60 = load i8, ptr %strictImmutableBinding.i132, align 1
+  %frombool.i.i133 = and i8 %60, 1
+  %strictImmutableBinding_.i.i134 = getelementptr inbounds i8, ptr %call2.i126, i64 64
+  store i8 %frombool.i.i133, ptr %strictImmutableBinding_.i.i134, align 8
   br label %for.inc.i128
 
 for.inc.i128:                                     ; preds = %if.then.i131, %for.body.i122
   %incdec.ptr.i129 = getelementptr inbounds i8, ptr %__begin2.02.i123, i64 16
   %cmp.not.i130 = icmp eq ptr %incdec.ptr.i129, %add.ptr.i.i120
-  br i1 %cmp.not.i130, label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit134.loopexit, label %for.body.i122
+  br i1 %cmp.not.i130, label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135.loopexit, label %for.body.i122
 
-_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit134.loopexit: ; preds = %for.inc.i128
-  %.pre223 = load ptr, ptr %chain, align 8
-  br label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit134
+_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135.loopexit: ; preds = %for.inc.i128
+  %.pre224 = load ptr, ptr %chain, align 8
+  br label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135
 
-_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit134: ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit134.loopexit, %if.end24
-  %63 = phi ptr [ %.pre223, %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit134.loopexit ], [ %56, %if.end24 ]
-  %_M_refcount3.i.i136 = getelementptr inbounds i8, ptr %chain, i64 8
-  %64 = load ptr, ptr %_M_refcount3.i.i136, align 8
-  %cmp.not.i.i.i137 = icmp eq ptr %64, null
-  br i1 %cmp.not.i.i.i137, label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit144, label %if.then.i.i.i138
+_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135: ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135.loopexit, %if.end24
+  %61 = phi ptr [ %.pre224, %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135.loopexit ], [ %55, %if.end24 ]
+  %_M_refcount3.i.i137 = getelementptr inbounds i8, ptr %chain, i64 8
+  %62 = load ptr, ptr %_M_refcount3.i.i137, align 8
+  %cmp.not.i.i.i138 = icmp eq ptr %62, null
+  br i1 %cmp.not.i.i.i138, label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit145, label %if.then.i.i.i139
 
-if.then.i.i.i138:                                 ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit134
-  %_M_use_count.i.i.i.i139 = getelementptr inbounds i8, ptr %64, i64 8
-  %65 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i140 = icmp eq i8 %65, 0
-  br i1 %tobool.i.not.i.i.i.i140, label %if.else.i.i.i.i.i143, label %if.then.i.i.i.i.i141
+if.then.i.i.i139:                                 ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135
+  %_M_use_count.i.i.i.i140 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i141 = icmp eq i8 %63, 0
+  br i1 %tobool.i.not.i.i.i.i141, label %if.else.i.i.i.i.i144, label %if.then.i.i.i.i.i142
 
-if.then.i.i.i.i.i141:                             ; preds = %if.then.i.i.i138
-  %66 = load i32, ptr %_M_use_count.i.i.i.i139, align 4
-  %add.i.i.i.i.i142 = add nsw i32 %66, 1
-  store i32 %add.i.i.i.i.i142, ptr %_M_use_count.i.i.i.i139, align 4
-  br label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit144
+if.then.i.i.i.i.i142:                             ; preds = %if.then.i.i.i139
+  %64 = load i32, ptr %_M_use_count.i.i.i.i140, align 4
+  %add.i.i.i.i.i143 = add nsw i32 %64, 1
+  store i32 %add.i.i.i.i.i143, ptr %_M_use_count.i.i.i.i140, align 4
+  br label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit145
 
-if.else.i.i.i.i.i143:                             ; preds = %if.then.i.i.i138
-  %67 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i139, i32 1 acq_rel, align 4
-  br label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit144
+if.else.i.i.i.i.i144:                             ; preds = %if.then.i.i.i139
+  %65 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i140, i32 1 acq_rel, align 4
+  br label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit145
 
-_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit144: ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit134, %if.then.i.i.i.i.i141, %if.else.i.i.i.i.i143
-  store ptr %63, ptr %serializedScope_.i.i, align 8
-  %_M_refcount3.i.i.i.i147 = getelementptr inbounds i8, ptr %call.i, i64 136
-  %68 = load ptr, ptr %_M_refcount3.i.i.i.i147, align 8
-  store ptr %64, ptr %_M_refcount3.i.i.i.i147, align 8
-  %cmp.not.i.i.i.i.i148 = icmp eq ptr %68, null
-  br i1 %cmp.not.i.i.i.i.i148, label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit210, label %if.then.i.i.i.i.i149
+_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit145: ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135, %if.then.i.i.i.i.i142, %if.else.i.i.i.i.i144
+  store ptr %61, ptr %serializedScope_.i.i, align 8
+  %_M_refcount3.i.i.i.i148 = getelementptr inbounds i8, ptr %call.i, i64 136
+  %66 = load ptr, ptr %_M_refcount3.i.i.i.i148, align 8
+  store ptr %62, ptr %_M_refcount3.i.i.i.i148, align 8
+  %cmp.not.i.i.i.i.i149 = icmp eq ptr %66, null
+  br i1 %cmp.not.i.i.i.i.i149, label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit211, label %if.then.i.i.i.i.i150
 
-if.then.i.i.i.i.i149:                             ; preds = %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit144
-  %_M_use_count.i.i.i.i.i.i150 = getelementptr inbounds i8, ptr %68, i64 8
-  %69 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i150 acquire, align 8
-  %cmp.i.i.i.i.i.i151 = icmp eq i64 %69, 4294967297
-  %70 = trunc i64 %69 to i32
-  br i1 %cmp.i.i.i.i.i.i151, label %if.then.i.i.i.i.i.i174, label %if.end.i.i.i.i.i.i152
+if.then.i.i.i.i.i150:                             ; preds = %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit145
+  %_M_use_count.i.i.i.i.i.i151 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i151 acquire, align 8
+  %cmp.i.i.i.i.i.i152 = icmp eq i64 %67, 4294967297
+  %68 = trunc i64 %67 to i32
+  br i1 %cmp.i.i.i.i.i.i152, label %if.then.i.i.i.i.i.i175, label %if.end.i.i.i.i.i.i153
 
-if.then.i.i.i.i.i.i174:                           ; preds = %if.then.i.i.i.i.i149
-  store i32 0, ptr %_M_use_count.i.i.i.i.i.i150, align 8
-  %_M_weak_count.i.i.i.i.i.i175 = getelementptr inbounds i8, ptr %68, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i.i.i.i175, align 4
-  %vtable.i.i.i.i.i.i176 = load ptr, ptr %68, align 8
-  %vfn.i.i.i.i.i.i177 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i176, i64 16
-  %71 = load ptr, ptr %vfn.i.i.i.i.i.i177, align 8
-  tail call void %71(ptr noundef nonnull align 8 dereferenceable(16) %68) #15
-  br label %if.end8.sink.split.i.i.i.i.i.i169
+if.then.i.i.i.i.i.i175:                           ; preds = %if.then.i.i.i.i.i150
+  store i32 0, ptr %_M_use_count.i.i.i.i.i.i151, align 8
+  %_M_weak_count.i.i.i.i.i.i176 = getelementptr inbounds i8, ptr %66, i64 12
+  store i32 0, ptr %_M_weak_count.i.i.i.i.i.i176, align 4
+  %vtable.i.i.i.i.i.i177 = load ptr, ptr %66, align 8
+  %vfn.i.i.i.i.i.i178 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i177, i64 16
+  %69 = load ptr, ptr %vfn.i.i.i.i.i.i178, align 8
+  tail call void %69(ptr noundef nonnull align 8 dereferenceable(16) %66) #15
+  br label %if.end8.sink.split.i.i.i.i.i.i170
 
-if.end.i.i.i.i.i.i152:                            ; preds = %if.then.i.i.i.i.i149
-  %72 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i153 = icmp eq i8 %72, 0
-  br i1 %tobool.i.i.not.i.i.i.i.i.i153, label %if.else.i.i.i.i.i.i.i173, label %if.then.i.i.i.i.i.i.i154
+if.end.i.i.i.i.i.i153:                            ; preds = %if.then.i.i.i.i.i150
+  %70 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i154 = icmp eq i8 %70, 0
+  br i1 %tobool.i.i.not.i.i.i.i.i.i154, label %if.else.i.i.i.i.i.i.i174, label %if.then.i.i.i.i.i.i.i155
 
-if.then.i.i.i.i.i.i.i154:                         ; preds = %if.end.i.i.i.i.i.i152
-  %add.i.i.i.i.i.i.i155 = add nsw i32 %70, -1
-  store i32 %add.i.i.i.i.i.i.i155, ptr %_M_use_count.i.i.i.i.i.i150, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i156
+if.then.i.i.i.i.i.i.i155:                         ; preds = %if.end.i.i.i.i.i.i153
+  %add.i.i.i.i.i.i.i156 = add nsw i32 %68, -1
+  store i32 %add.i.i.i.i.i.i.i156, ptr %_M_use_count.i.i.i.i.i.i151, align 4
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i157
 
-if.else.i.i.i.i.i.i.i173:                         ; preds = %if.end.i.i.i.i.i.i152
-  %73 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i150, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i156
+if.else.i.i.i.i.i.i.i174:                         ; preds = %if.end.i.i.i.i.i.i153
+  %71 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i151, i32 -1 acq_rel, align 4
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i157
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i156: ; preds = %if.else.i.i.i.i.i.i.i173, %if.then.i.i.i.i.i.i.i154
-  %retval.i.0.i.i.i.i.i.i157 = phi i32 [ %70, %if.then.i.i.i.i.i.i.i154 ], [ %73, %if.else.i.i.i.i.i.i.i173 ]
-  %cmp6.i.i.i.i.i.i158 = icmp eq i32 %retval.i.0.i.i.i.i.i.i157, 1
-  br i1 %cmp6.i.i.i.i.i.i158, label %if.then7.i.i.i.i.i.i159, label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit210
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i157: ; preds = %if.else.i.i.i.i.i.i.i174, %if.then.i.i.i.i.i.i.i155
+  %retval.i.0.i.i.i.i.i.i158 = phi i32 [ %68, %if.then.i.i.i.i.i.i.i155 ], [ %71, %if.else.i.i.i.i.i.i.i174 ]
+  %cmp6.i.i.i.i.i.i159 = icmp eq i32 %retval.i.0.i.i.i.i.i.i158, 1
+  br i1 %cmp6.i.i.i.i.i.i159, label %if.then7.i.i.i.i.i.i160, label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit211
 
-if.then7.i.i.i.i.i.i159:                          ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i156
-  %vtable.i.i.i.i.i.i.i.i160 = load ptr, ptr %68, align 8
-  %vfn.i.i.i.i.i.i.i.i161 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i160, i64 16
-  %74 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i161, align 8
-  tail call void %74(ptr noundef nonnull align 8 dereferenceable(16) %68) #15
-  %_M_weak_count.i.i.i.i.i.i.i.i162 = getelementptr inbounds i8, ptr %68, i64 12
-  %75 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i.i.i163 = icmp eq i8 %75, 0
-  br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i163, label %if.else.i.i.i.i.i.i.i.i.i172, label %if.then.i.i.i.i.i.i.i.i.i164
+if.then7.i.i.i.i.i.i160:                          ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i157
+  %vtable.i.i.i.i.i.i.i.i161 = load ptr, ptr %66, align 8
+  %vfn.i.i.i.i.i.i.i.i162 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i161, i64 16
+  %72 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i162, align 8
+  tail call void %72(ptr noundef nonnull align 8 dereferenceable(16) %66) #15
+  %_M_weak_count.i.i.i.i.i.i.i.i163 = getelementptr inbounds i8, ptr %66, i64 12
+  %73 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i.i.i164 = icmp eq i8 %73, 0
+  br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i164, label %if.else.i.i.i.i.i.i.i.i.i173, label %if.then.i.i.i.i.i.i.i.i.i165
 
-if.then.i.i.i.i.i.i.i.i.i164:                     ; preds = %if.then7.i.i.i.i.i.i159
-  %76 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i.i162, align 4
-  %add.i.i.i.i.i.i.i.i.i165 = add nsw i32 %76, -1
-  store i32 %add.i.i.i.i.i.i.i.i.i165, ptr %_M_weak_count.i.i.i.i.i.i.i.i162, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i166
+if.then.i.i.i.i.i.i.i.i.i165:                     ; preds = %if.then7.i.i.i.i.i.i160
+  %74 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i.i163, align 4
+  %add.i.i.i.i.i.i.i.i.i166 = add nsw i32 %74, -1
+  store i32 %add.i.i.i.i.i.i.i.i.i166, ptr %_M_weak_count.i.i.i.i.i.i.i.i163, align 4
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i167
 
-if.else.i.i.i.i.i.i.i.i.i172:                     ; preds = %if.then7.i.i.i.i.i.i159
-  %77 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i.i162, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i166
+if.else.i.i.i.i.i.i.i.i.i173:                     ; preds = %if.then7.i.i.i.i.i.i160
+  %75 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i.i163, i32 -1 acq_rel, align 4
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i167
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i166: ; preds = %if.else.i.i.i.i.i.i.i.i.i172, %if.then.i.i.i.i.i.i.i.i.i164
-  %retval.i.0.i.i.i.i.i.i.i.i167 = phi i32 [ %76, %if.then.i.i.i.i.i.i.i.i.i164 ], [ %77, %if.else.i.i.i.i.i.i.i.i.i172 ]
-  %cmp.i.i.i.i.i.i.i.i168 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i167, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i168, label %if.end8.sink.split.i.i.i.i.i.i169, label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit210
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i167: ; preds = %if.else.i.i.i.i.i.i.i.i.i173, %if.then.i.i.i.i.i.i.i.i.i165
+  %retval.i.0.i.i.i.i.i.i.i.i168 = phi i32 [ %74, %if.then.i.i.i.i.i.i.i.i.i165 ], [ %75, %if.else.i.i.i.i.i.i.i.i.i173 ]
+  %cmp.i.i.i.i.i.i.i.i169 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i168, 1
+  br i1 %cmp.i.i.i.i.i.i.i.i169, label %if.end8.sink.split.i.i.i.i.i.i170, label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit211
 
-if.end8.sink.split.i.i.i.i.i.i169:                ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i166, %if.then.i.i.i.i.i.i174
-  %vtable2.i.i.i.i.i.i.i.i170 = load ptr, ptr %68, align 8
-  %vfn3.i.i.i.i.i.i.i.i171 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i170, i64 24
-  %78 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i171, align 8
-  tail call void %78(ptr noundef nonnull align 8 dereferenceable(16) %68) #15
-  br label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit210
+if.end8.sink.split.i.i.i.i.i.i170:                ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i167, %if.then.i.i.i.i.i.i175
+  %vtable2.i.i.i.i.i.i.i.i171 = load ptr, ptr %66, align 8
+  %vfn3.i.i.i.i.i.i.i.i172 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i171, i64 24
+  %76 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i172, align 8
+  tail call void %76(ptr noundef nonnull align 8 dereferenceable(16) %66) #15
+  br label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit211
 
-_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit210: ; preds = %if.end8.sink.split.i.i.i.i.i.i169, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i166, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i156, %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit144
+_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit211: ; preds = %if.end8.sink.split.i.i.i.i.i.i170, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i167, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i157, %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit145
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
   store ptr %call.i, ptr %agg.result, align 8, !alias.scope !101
-  %79 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %80 = load ptr, ptr %add.ptr.i.i.i, align 8, !noalias !101
-  store ptr %80, ptr %79, align 8, !alias.scope !101
+  %77 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %78 = load ptr, ptr %add.ptr.i.i.i, align 8, !noalias !101
+  store ptr %78, ptr %77, align 8, !alias.scope !101
   br label %return
 
-return:                                           ; preds = %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit210, %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit115, %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit
+return:                                           ; preds = %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit211, %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit115, %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit
   ret void
 }
 

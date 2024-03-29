@@ -11338,9 +11338,8 @@ define internal i32 @dissect_gsm_map_T_extType(i1 zeroext %0, ptr noundef %1, i3
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.4328) #5
   %9 = getelementptr inbounds i8, ptr %3, i64 61
   %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %18, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %18
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %3, i64 72

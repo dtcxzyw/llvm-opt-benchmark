@@ -122,9 +122,8 @@ declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmo
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12cmCursesForm8DebugEndEv() local_unnamed_addr #8 align 2 {
   %1 = load i8, ptr @_ZN12cmCursesForm5DebugE, align 1
-  %2 = and i8 %1, 1
-  %.not = icmp eq i8 %2, 0
-  br i1 %.not, label %4, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %4
 
 3:                                                ; preds = %0
   store i8 0, ptr @_ZN12cmCursesForm5DebugE, align 1
@@ -140,9 +139,8 @@ declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12cmCursesForm10LogMessageEPKc(ptr noundef %0) local_unnamed_addr #8 align 2 {
   %2 = load i8, ptr @_ZN12cmCursesForm5DebugE, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %7, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZN12cmCursesForm9DebugFileE, ptr noundef %0)

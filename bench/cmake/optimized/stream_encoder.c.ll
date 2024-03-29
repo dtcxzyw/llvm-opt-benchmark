@@ -178,7 +178,7 @@ define internal i32 @stream_encode(ptr noundef %0, ptr noundef %1, ptr noalias n
   %28 = getelementptr inbounds i8, ptr %0, i64 4
   %29 = getelementptr inbounds i8, ptr %0, i64 96
   %30 = getelementptr inbounds i8, ptr %0, i64 84
-  %.not82 = icmp eq i32 %8, 3
+  %.not81 = icmp eq i32 %8, 3
   %31 = getelementptr inbounds i8, ptr %0, i64 448
   %.pre = load i32, ptr %0, align 8
   br label %32
@@ -218,7 +218,7 @@ define internal i32 @stream_encode(ptr noundef %0, ptr noundef %1, ptr noalias n
   br i1 %47, label %48, label %55
 
 48:                                               ; preds = %45
-  br i1 %.not82, label %52, label %49
+  br i1 %.not81, label %52, label %49
 
 49:                                               ; preds = %48
   %50 = icmp ne i32 %8, 0
@@ -228,14 +228,13 @@ define internal i32 @stream_encode(ptr noundef %0, ptr noundef %1, ptr noalias n
 52:                                               ; preds = %48
   %53 = load ptr, ptr %16, align 8
   %54 = call i32 @lzma_index_encoder_init(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %53) #5
-  %.not83 = icmp eq i32 %54, 0
-  br i1 %.not83, label %87, label %block_encoder_init.exit.thread
+  %.not82 = icmp eq i32 %54, 0
+  br i1 %.not82, label %87, label %block_encoder_init.exit.thread
 
 55:                                               ; preds = %45
   %56 = load i8, ptr %28, align 4
-  %57 = and i8 %56, 1
-  %.not79 = icmp eq i8 %57, 0
-  br i1 %.not79, label %58, label %61
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %61, label %58
 
 58:                                               ; preds = %55
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 -1, i64 16, i1 false)
@@ -245,14 +244,14 @@ define internal i32 @stream_encode(ptr noundef %0, ptr noundef %1, ptr noalias n
 
 block_encoder_init.exit:                          ; preds = %58
   %60 = call i32 @lzma_block_encoder_init(ptr noundef nonnull %21, ptr noundef %1, ptr noundef nonnull %26) #5
-  %.not80 = icmp eq i32 %60, 0
-  br i1 %.not80, label %61, label %block_encoder_init.exit.thread
+  %.not79 = icmp eq i32 %60, 0
+  br i1 %.not79, label %61, label %block_encoder_init.exit.thread
 
 61:                                               ; preds = %block_encoder_init.exit, %55
   store i8 0, ptr %28, align 4
   %62 = call i32 @lzma_block_header_encode(ptr noundef nonnull %26, ptr noundef nonnull %19) #5
-  %.not81 = icmp eq i32 %62, 0
-  br i1 %.not81, label %63, label %block_encoder_init.exit.thread
+  %.not80 = icmp eq i32 %62, 0
+  br i1 %.not80, label %63, label %block_encoder_init.exit.thread
 
 63:                                               ; preds = %61
   %64 = load i32, ptr %30, align 4

@@ -195,9 +195,8 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @gdb_init_gdbserver_state() local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr @gdbserver_state, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %do.end, label %if.else
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.else, label %do.end
 
 if.else:                                          ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 60, ptr noundef nonnull @__func__.gdb_init_gdbserver_state, ptr noundef nonnull @.str.1) #16
@@ -498,16 +497,15 @@ land.lhs.true5.i.i.i:                             ; preds = %if.then38.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %8 = load i8, ptr @message_with_timestamp, align 1
-  %9 = and i8 %8, 1
-  %tobool7.not.i.i.i = icmp eq i8 %9, 0
-  br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
+  %tobool7.i.i.i = trunc i8 %8 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
   %call10.i.i.i = call i32 @qemu_get_thread_id() #17
-  %10 = load i64, ptr %_now.i.i.i, align 8
-  %11 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, i64 noundef %and39.i, ptr noundef nonnull %line_buffer.i) #17
+  %9 = load i64, ptr %_now.i.i.i, align 8
+  %10 = load i64, ptr %tv_usec.i.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i, i64 noundef %9, i64 noundef %10, i64 noundef %and39.i, ptr noundef nonnull %line_buffer.i) #17
   br label %trace_gdbstub_io_binaryreply.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -523,8 +521,8 @@ for.inc.i:                                        ; preds = %trace_gdbstub_io_bi
   %cmp.i = icmp ult i64 %inc.i, %conv.i
   %and.i = and i64 %inc.i, 15
   %tobool.i = icmp ne i64 %and.i, 0
-  %12 = or i1 %cmp.i, %tobool.i
-  br i1 %12, label %for.body.i, label %hexdump.exit, !llvm.loop !8
+  %11 = or i1 %cmp.i, %tobool.i
+  br i1 %11, label %for.body.i, label %hexdump.exit, !llvm.loop !8
 
 hexdump.exit:                                     ; preds = %for.inc.i, %if.then
   call void @llvm.lifetime.end.p0(i64 69, ptr nonnull %line_buffer.i)
@@ -541,20 +539,20 @@ for.cond.us.preheader:                            ; preds = %if.end
   br label %for.cond.us
 
 for.cond.us:                                      ; preds = %for.cond.us.preheader, %for.cond9.for.end_crit_edge.us
+  %12 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 9), align 8
+  %call.us = call ptr @g_byte_array_set_size(ptr noundef %12, i32 noundef 0) #17
   %13 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 9), align 8
-  %call.us = call ptr @g_byte_array_set_size(ptr noundef %13, i32 noundef 0) #17
+  %call7.us = call ptr @g_byte_array_append(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 1) #17
   %14 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 9), align 8
-  %call7.us = call ptr @g_byte_array_append(ptr noundef %14, ptr noundef nonnull @.str.2, i32 noundef 1) #17
-  %15 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 9), align 8
-  %call8.us = call ptr @g_byte_array_append(ptr noundef %15, ptr noundef %buf, i32 noundef %len) #17
+  %call8.us = call ptr @g_byte_array_append(ptr noundef %14, ptr noundef %buf, i32 noundef %len) #17
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.cond.us, %for.body.us
   %indvars.iv = phi i64 [ 0, %for.cond.us ], [ %indvars.iv.next, %for.body.us ]
   %csum.014.us = phi i32 [ 0, %for.cond.us ], [ %add.us, %for.body.us ]
   %arrayidx.us = getelementptr i8, ptr %buf, i64 %indvars.iv
-  %16 = load i8, ptr %arrayidx.us, align 1
-  %conv11.us18 = zext i8 %16 to i32
+  %15 = load i8, ptr %arrayidx.us, align 1
+  %conv11.us18 = zext i8 %15 to i32
   %add.us = add i32 %csum.014.us, %conv11.us18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -575,33 +573,33 @@ for.cond9.for.end_crit_edge.us:                   ; preds = %for.body.us
   %retval.0.i12.us = add nuw nsw i32 %retval.0.v.i11.us, %and16.us
   %conv18.us = trunc i32 %retval.0.i12.us to i8
   store i8 %conv18.us, ptr %arrayidx19, align 1
+  %16 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 9), align 8
+  %call20.us = call ptr @g_byte_array_append(ptr noundef %16, ptr noundef nonnull %footer, i32 noundef 3) #17
   %17 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 9), align 8
-  %call20.us = call ptr @g_byte_array_append(ptr noundef %17, ptr noundef nonnull %footer, i32 noundef 3) #17
-  %18 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 9), align 8
-  %19 = load ptr, ptr %18, align 8
-  %len21.us = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = load i32, ptr %len21.us, align 8
-  call void @gdb_put_buffer(ptr noundef %19, i32 noundef %20) #17
+  %18 = load ptr, ptr %17, align 8
+  %len21.us = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = load i32, ptr %len21.us, align 8
+  call void @gdb_put_buffer(ptr noundef %18, i32 noundef %19) #17
   %call22.us = call zeroext i1 @gdb_got_immediate_ack() #17
   br i1 %call22.us, label %for.end25, label %for.cond.us
 
 for.cond:                                         ; preds = %if.end, %for.cond
+  %20 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 9), align 8
+  %call = call ptr @g_byte_array_set_size(ptr noundef %20, i32 noundef 0) #17
   %21 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 9), align 8
-  %call = call ptr @g_byte_array_set_size(ptr noundef %21, i32 noundef 0) #17
+  %call7 = call ptr @g_byte_array_append(ptr noundef %21, ptr noundef nonnull @.str.2, i32 noundef 1) #17
   %22 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 9), align 8
-  %call7 = call ptr @g_byte_array_append(ptr noundef %22, ptr noundef nonnull @.str.2, i32 noundef 1) #17
-  %23 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 9), align 8
-  %call8 = call ptr @g_byte_array_append(ptr noundef %23, ptr noundef %buf, i32 noundef %len) #17
+  %call8 = call ptr @g_byte_array_append(ptr noundef %22, ptr noundef %buf, i32 noundef %len) #17
   store i8 35, ptr %footer, align 1
   store i8 48, ptr %arrayidx15, align 1
   store i8 48, ptr %arrayidx19, align 1
+  %23 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 9), align 8
+  %call20 = call ptr @g_byte_array_append(ptr noundef %23, ptr noundef nonnull %footer, i32 noundef 3) #17
   %24 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 9), align 8
-  %call20 = call ptr @g_byte_array_append(ptr noundef %24, ptr noundef nonnull %footer, i32 noundef 3) #17
-  %25 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 9), align 8
-  %26 = load ptr, ptr %25, align 8
-  %len21 = getelementptr inbounds i8, ptr %25, i64 8
-  %27 = load i32, ptr %len21, align 8
-  call void @gdb_put_buffer(ptr noundef %26, i32 noundef %27) #17
+  %25 = load ptr, ptr %24, align 8
+  %len21 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = load i32, ptr %len21, align 8
+  call void @gdb_put_buffer(ptr noundef %25, i32 noundef %26) #17
   %call22 = call zeroext i1 @gdb_got_immediate_ack() #17
   br i1 %call22, label %for.end25, label %for.cond
 
@@ -635,17 +633,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %buf) #17
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %buf) #17
   br label %trace_gdbstub_io_reply.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -874,16 +871,15 @@ gdb_get_cpu_process.exit:                         ; preds = %for.cond.i.i, %for.
   %retval.0.i.i = phi ptr [ %5, %if.then.i.i ], [ %3, %for.cond.preheader.i.i ], [ %arrayidx1.i.i, %for.cond.i.i ]
   %attached = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4
   %7 = load i8, ptr %attached, align 4
-  %8 = and i8 %7, 1
-  %tobool.not = icmp eq i8 %8, 0
-  br i1 %tobool.not, label %if.then, label %return
+  %tobool = trunc i8 %7 to i1
+  br i1 %tobool, label %return, label %if.then
 
 if.then:                                          ; preds = %gdb_get_cpu_process.exit
   %node.i = getelementptr inbounds i8, ptr %1, i64 568
-  %9 = load atomic i64, ptr %node.i monotonic, align 8
+  %8 = load atomic i64, ptr %node.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
-  %cpu.addr.07.i = inttoptr i64 %9 to ptr
-  %tobool.not8.i = icmp eq i64 %9, 0
+  %cpu.addr.07.i = inttoptr i64 %8 to ptr
+  %tobool.not8.i = icmp eq i64 %8, 0
   br i1 %tobool.not8.i, label %return, label %while.body2.i
 
 while.body2.i:                                    ; preds = %if.then, %while.end8.i
@@ -893,17 +889,17 @@ while.body2.i:                                    ; preds = %if.then, %while.end
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %while.body2.i
-  %10 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
-  %cmp5.i.i.i = icmp sgt i32 %10, 0
+  %9 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp5.i.i.i = icmp sgt i32 %9, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i)
-  %11 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
-  %wide.trip.count.i.i.i = zext nneg i32 %10 to i64
-  %12 = load i32, ptr %11, align 8
-  %cmp3.i.i5.i = icmp eq i32 %12, %call.i.i.i
+  %10 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %wide.trip.count.i.i.i = zext nneg i32 %9 to i64
+  %11 = load i32, ptr %10, align 8
+  %cmp3.i.i5.i = icmp eq i32 %11, %call.i.i.i
   br i1 %cmp3.i.i5.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body2.i
-  %13 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %12 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
   br label %gdb_get_cpu_process.exit.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.cond.i.i.i
@@ -911,25 +907,24 @@ for.cond.i.i.i:                                   ; preds = %for.cond.preheader.
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i6.i, 1
   %exitcond.not.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   tail call void @llvm.assume(i1 %exitcond.not.i.i.i)
-  %arrayidx1.i.i.i = getelementptr %struct.GDBProcess, ptr %11, i64 %indvars.iv.next.i.i.i
-  %14 = load i32, ptr %arrayidx1.i.i.i, align 8
-  %cmp3.i.i.i = icmp eq i32 %14, %call.i.i.i
+  %arrayidx1.i.i.i = getelementptr %struct.GDBProcess, ptr %10, i64 %indvars.iv.next.i.i.i
+  %13 = load i32, ptr %arrayidx1.i.i.i, align 8
+  %cmp3.i.i.i = icmp eq i32 %13, %call.i.i.i
   br i1 %cmp3.i.i.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
 
 gdb_get_cpu_process.exit.i:                       ; preds = %for.cond.i.i.i, %if.then.i.i.i, %for.cond.preheader.i.i.i
-  %retval.0.i.i.i = phi ptr [ %13, %if.then.i.i.i ], [ %11, %for.cond.preheader.i.i.i ], [ %arrayidx1.i.i.i, %for.cond.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %12, %if.then.i.i.i ], [ %10, %for.cond.preheader.i.i.i ], [ %arrayidx1.i.i.i, %for.cond.i.i.i ]
   %attached.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 4
-  %15 = load i8, ptr %attached.i, align 4
-  %16 = and i8 %15, 1
-  %tobool3.not.i = icmp eq i8 %16, 0
-  br i1 %tobool3.not.i, label %while.end8.i, label %return
+  %14 = load i8, ptr %attached.i, align 4
+  %tobool3.i = trunc i8 %14 to i1
+  br i1 %tobool3.i, label %return, label %while.end8.i
 
 while.end8.i:                                     ; preds = %gdb_get_cpu_process.exit.i
   %node9.i = getelementptr inbounds i8, ptr %cpu.addr.09.i, i64 568
-  %17 = load atomic i64, ptr %node9.i monotonic, align 8
+  %15 = load atomic i64, ptr %node9.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
-  %cpu.addr.0.i = inttoptr i64 %17 to ptr
-  %tobool.not.i = icmp eq i64 %17, 0
+  %cpu.addr.0.i = inttoptr i64 %15 to ptr
+  %tobool.not.i = icmp eq i64 %15, 0
   br i1 %tobool.not.i, label %return, label %while.body2.i, !llvm.loop !18
 
 return:                                           ; preds = %while.end8.i, %gdb_get_cpu_process.exit.i, %if.then, %gdb_get_cpu_process.exit
@@ -964,22 +959,16 @@ declare void @g_ptr_array_add(ptr noundef, ptr noundef) local_unnamed_addr #3
 define dso_local void @gdb_feature_builder_append_tag(ptr nocapture noundef readonly %builder, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %xml = getelementptr inbounds i8, ptr %builder, i64 8
   %0 = load ptr, ptr %xml, align 8
   %call = call ptr @g_markup_vprintf_escaped(ptr noundef %format, ptr noundef nonnull %ap) #17
   call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call) #17
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 declare ptr @g_markup_vprintf_escaped(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_feature_builder_append_reg(ptr nocapture noundef readonly %builder, ptr noundef %name, i32 noundef %bitsize, i32 noundef %regnum, ptr noundef %type, ptr noundef %group) local_unnamed_addr #0 {
@@ -1183,9 +1172,8 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 define dso_local void @gdb_append_thread_id(ptr noundef %cpu, ptr noundef %buf) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 11), align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %call.i = tail call i32 @getpid() #17
@@ -1241,9 +1229,8 @@ gdb_get_cpu_process.exit:                         ; preds = %for.cond.i.i, %for.
   %retval.0.i.i = phi ptr [ %3, %if.then.i.i ], [ %1, %for.cond.preheader.i.i ], [ %arrayidx1.i.i, %for.cond.i.i ]
   %attached = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4
   %5 = load i8, ptr %attached, align 4
-  %6 = and i8 %5, 1
-  %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %5 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %gdb_get_cpu_process.exit
   store ptr %cpu, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
@@ -1307,18 +1294,17 @@ land.lhs.true5.i.i:                               ; preds = %if.else6
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
+  %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %ch to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv11.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i.i) #17
   br label %trace_gdbstub_err_garbage.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1340,15 +1326,15 @@ sw.bb8:                                           ; preds = %entry
 
 if.then12:                                        ; preds = %sw.bb8
   store i32 3, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 4), align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 7), align 8
-  %add = add i32 %8, 125
+  %7 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 7), align 8
+  %add = add i32 %7, 125
   store i32 %add, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 7), align 8
   br label %sw.epilog
 
 if.then18:                                        ; preds = %sw.bb8
   store i32 4, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 4), align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 7), align 8
-  %add20 = add i32 %9, 42
+  %8 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 7), align 8
+  %add20 = add i32 %8, 42
   store i32 %add20, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 7), align 8
   br label %sw.epilog
 
@@ -1357,57 +1343,56 @@ if.then25:                                        ; preds = %sw.bb8
   br label %sw.epilog
 
 if.else26:                                        ; preds = %sw.bb8
-  %10 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 6), align 4
-  %cmp28 = icmp ugt i32 %10, 4094
+  %9 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 6), align 4
+  %cmp28 = icmp ugt i32 %9, 4094
   br i1 %cmp28, label %if.then30, label %if.else31
 
 if.then30:                                        ; preds = %if.else26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i30)
-  %11 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i31 = icmp ne i32 %11, 0
-  %12 = load i16, ptr @_TRACE_GDBSTUB_ERR_OVERRUN_DSTATE, align 2
-  %tobool4.i.i32 = icmp ne i16 %12, 0
+  %10 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i31 = icmp ne i32 %10, 0
+  %11 = load i16, ptr @_TRACE_GDBSTUB_ERR_OVERRUN_DSTATE, align 2
+  %tobool4.i.i32 = icmp ne i16 %11, 0
   %or.cond.i.i33 = select i1 %tobool.i.i31, i1 %tobool4.i.i32, i1 false
   br i1 %or.cond.i.i33, label %land.lhs.true5.i.i34, label %trace_gdbstub_err_overrun.exit
 
 land.lhs.true5.i.i34:                             ; preds = %if.then30
-  %13 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i35 = and i32 %13, 32768
+  %12 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i35 = and i32 %12, 32768
   %cmp.i.not.i.i36 = icmp eq i32 %and.i.i.i35, 0
   br i1 %cmp.i.not.i.i36, label %trace_gdbstub_err_overrun.exit, label %if.then.i.i37
 
 if.then.i.i37:                                    ; preds = %land.lhs.true5.i.i34
-  %14 = load i8, ptr @message_with_timestamp, align 1
-  %15 = and i8 %14, 1
-  %tobool7.not.i.i38 = icmp eq i8 %15, 0
-  br i1 %tobool7.not.i.i38, label %if.else.i.i43, label %if.then8.i.i39
+  %13 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i38 = trunc i8 %13 to i1
+  br i1 %tobool7.i.i38, label %if.then8.i.i40, label %if.else.i.i39
 
-if.then8.i.i39:                                   ; preds = %if.then.i.i37
-  %call9.i.i40 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i30, ptr noundef null) #17
-  %call10.i.i41 = tail call i32 @qemu_get_thread_id() #17
-  %16 = load i64, ptr %_now.i.i30, align 8
-  %tv_usec.i.i42 = getelementptr inbounds i8, ptr %_now.i.i30, i64 8
-  %17 = load i64, ptr %tv_usec.i.i42, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i41, i64 noundef %16, i64 noundef %17) #17
+if.then8.i.i40:                                   ; preds = %if.then.i.i37
+  %call9.i.i41 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i30, ptr noundef null) #17
+  %call10.i.i42 = tail call i32 @qemu_get_thread_id() #17
+  %14 = load i64, ptr %_now.i.i30, align 8
+  %tv_usec.i.i43 = getelementptr inbounds i8, ptr %_now.i.i30, i64 8
+  %15 = load i64, ptr %tv_usec.i.i43, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i42, i64 noundef %14, i64 noundef %15) #17
   br label %trace_gdbstub_err_overrun.exit
 
-if.else.i.i43:                                    ; preds = %if.then.i.i37
+if.else.i.i39:                                    ; preds = %if.then.i.i37
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18) #17
   br label %trace_gdbstub_err_overrun.exit
 
-trace_gdbstub_err_overrun.exit:                   ; preds = %if.then30, %land.lhs.true5.i.i34, %if.then8.i.i39, %if.else.i.i43
+trace_gdbstub_err_overrun.exit:                   ; preds = %if.then30, %land.lhs.true5.i.i34, %if.then8.i.i40, %if.else.i.i39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i30)
   store i32 1, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 4), align 8
   br label %sw.epilog
 
 if.else31:                                        ; preds = %if.else26
-  %conv27 = zext nneg i32 %10 to i64
-  %inc = add nuw nsw i32 %10, 1
+  %conv27 = zext nneg i32 %9 to i64
+  %inc = add nuw nsw i32 %9, 1
   store i32 %inc, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 6), align 4
   %arrayidx = getelementptr %struct.GDBState, ptr @gdbserver_state, i64 0, i32 5, i64 %conv27
   store i8 %ch, ptr %arrayidx, align 1
-  %18 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 7), align 8
-  %add33 = add i32 %18, %conv9
+  %16 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 7), align 8
+  %add33 = add i32 %16, %conv9
   store i32 %add33, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 7), align 8
   br label %sw.epilog
 
@@ -1421,158 +1406,155 @@ if.then42:                                        ; preds = %sw.bb38
   br label %sw.epilog
 
 if.else43:                                        ; preds = %sw.bb38
-  %19 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 6), align 4
-  %cmp45 = icmp ugt i32 %19, 4094
+  %17 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 6), align 4
+  %cmp45 = icmp ugt i32 %17, 4094
   br i1 %cmp45, label %if.then47, label %if.else48
 
 if.then47:                                        ; preds = %if.else43
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i44)
-  %20 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i45 = icmp ne i32 %20, 0
-  %21 = load i16, ptr @_TRACE_GDBSTUB_ERR_OVERRUN_DSTATE, align 2
-  %tobool4.i.i46 = icmp ne i16 %21, 0
+  %18 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i45 = icmp ne i32 %18, 0
+  %19 = load i16, ptr @_TRACE_GDBSTUB_ERR_OVERRUN_DSTATE, align 2
+  %tobool4.i.i46 = icmp ne i16 %19, 0
   %or.cond.i.i47 = select i1 %tobool.i.i45, i1 %tobool4.i.i46, i1 false
   br i1 %or.cond.i.i47, label %land.lhs.true5.i.i48, label %trace_gdbstub_err_overrun.exit58
 
 land.lhs.true5.i.i48:                             ; preds = %if.then47
-  %22 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i49 = and i32 %22, 32768
+  %20 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i49 = and i32 %20, 32768
   %cmp.i.not.i.i50 = icmp eq i32 %and.i.i.i49, 0
   br i1 %cmp.i.not.i.i50, label %trace_gdbstub_err_overrun.exit58, label %if.then.i.i51
 
 if.then.i.i51:                                    ; preds = %land.lhs.true5.i.i48
-  %23 = load i8, ptr @message_with_timestamp, align 1
-  %24 = and i8 %23, 1
-  %tobool7.not.i.i52 = icmp eq i8 %24, 0
-  br i1 %tobool7.not.i.i52, label %if.else.i.i57, label %if.then8.i.i53
+  %21 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i52 = trunc i8 %21 to i1
+  br i1 %tobool7.i.i52, label %if.then8.i.i54, label %if.else.i.i53
 
-if.then8.i.i53:                                   ; preds = %if.then.i.i51
-  %call9.i.i54 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i44, ptr noundef null) #17
-  %call10.i.i55 = tail call i32 @qemu_get_thread_id() #17
-  %25 = load i64, ptr %_now.i.i44, align 8
-  %tv_usec.i.i56 = getelementptr inbounds i8, ptr %_now.i.i44, i64 8
-  %26 = load i64, ptr %tv_usec.i.i56, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i55, i64 noundef %25, i64 noundef %26) #17
+if.then8.i.i54:                                   ; preds = %if.then.i.i51
+  %call9.i.i55 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i44, ptr noundef null) #17
+  %call10.i.i56 = tail call i32 @qemu_get_thread_id() #17
+  %22 = load i64, ptr %_now.i.i44, align 8
+  %tv_usec.i.i57 = getelementptr inbounds i8, ptr %_now.i.i44, i64 8
+  %23 = load i64, ptr %tv_usec.i.i57, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i56, i64 noundef %22, i64 noundef %23) #17
   br label %trace_gdbstub_err_overrun.exit58
 
-if.else.i.i57:                                    ; preds = %if.then.i.i51
+if.else.i.i53:                                    ; preds = %if.then.i.i51
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18) #17
   br label %trace_gdbstub_err_overrun.exit58
 
-trace_gdbstub_err_overrun.exit58:                 ; preds = %if.then47, %land.lhs.true5.i.i48, %if.then8.i.i53, %if.else.i.i57
+trace_gdbstub_err_overrun.exit58:                 ; preds = %if.then47, %land.lhs.true5.i.i48, %if.then8.i.i54, %if.else.i.i53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i44)
   store i32 1, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 4), align 8
   br label %sw.epilog
 
 if.else48:                                        ; preds = %if.else43
-  %conv44 = zext nneg i32 %19 to i64
+  %conv44 = zext nneg i32 %17 to i64
   %xor = xor i8 %ch, 32
-  %inc51 = add nuw nsw i32 %19, 1
+  %inc51 = add nuw nsw i32 %17, 1
   store i32 %inc51, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 6), align 4
   %arrayidx53 = getelementptr %struct.GDBState, ptr @gdbserver_state, i64 0, i32 5, i64 %conv44
   store i8 %xor, ptr %arrayidx53, align 1
-  %27 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 7), align 8
-  %add55 = add i32 %27, %conv39
+  %24 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 7), align 8
+  %add55 = add i32 %24, %conv39
   store i32 %add55, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 7), align 8
   store i32 2, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 4), align 8
   br label %sw.epilog
 
 sw.bb58:                                          ; preds = %entry
   %conv59 = zext i8 %ch to i32
-  %28 = add i8 %ch, -35
-  %29 = icmp ult i8 %28, 2
-  %30 = add i8 %ch, -127
-  %31 = icmp ult i8 %30, -95
-  %or.cond2 = or i1 %31, %29
+  %25 = add i8 %ch, -35
+  %26 = icmp ult i8 %25, 2
+  %27 = add i8 %ch, -127
+  %28 = icmp ult i8 %27, -95
+  %or.cond2 = or i1 %28, %26
   br i1 %or.cond2, label %if.then73, label %if.else74
 
 if.then73:                                        ; preds = %sw.bb58
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i59)
-  %32 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i60 = icmp ne i32 %32, 0
-  %33 = load i16, ptr @_TRACE_GDBSTUB_ERR_INVALID_REPEAT_DSTATE, align 2
-  %tobool4.i.i61 = icmp ne i16 %33, 0
+  %29 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i60 = icmp ne i32 %29, 0
+  %30 = load i16, ptr @_TRACE_GDBSTUB_ERR_INVALID_REPEAT_DSTATE, align 2
+  %tobool4.i.i61 = icmp ne i16 %30, 0
   %or.cond.i.i62 = select i1 %tobool.i.i60, i1 %tobool4.i.i61, i1 false
   br i1 %or.cond.i.i62, label %land.lhs.true5.i.i63, label %trace_gdbstub_err_invalid_repeat.exit
 
 land.lhs.true5.i.i63:                             ; preds = %if.then73
-  %34 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i64 = and i32 %34, 32768
+  %31 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i64 = and i32 %31, 32768
   %cmp.i.not.i.i65 = icmp eq i32 %and.i.i.i64, 0
   br i1 %cmp.i.not.i.i65, label %trace_gdbstub_err_invalid_repeat.exit, label %if.then.i.i66
 
 if.then.i.i66:                                    ; preds = %land.lhs.true5.i.i63
-  %35 = load i8, ptr @message_with_timestamp, align 1
-  %36 = and i8 %35, 1
-  %tobool7.not.i.i67 = icmp eq i8 %36, 0
-  br i1 %tobool7.not.i.i67, label %if.else.i.i73, label %if.then8.i.i68
+  %32 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i67 = trunc i8 %32 to i1
+  br i1 %tobool7.i.i67, label %if.then8.i.i70, label %if.else.i.i68
 
-if.then8.i.i68:                                   ; preds = %if.then.i.i66
-  %call9.i.i69 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i59, ptr noundef null) #17
-  %call10.i.i70 = tail call i32 @qemu_get_thread_id() #17
-  %37 = load i64, ptr %_now.i.i59, align 8
-  %tv_usec.i.i71 = getelementptr inbounds i8, ptr %_now.i.i59, i64 8
-  %38 = load i64, ptr %tv_usec.i.i71, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i70, i64 noundef %37, i64 noundef %38, i32 noundef %conv59) #17
+if.then8.i.i70:                                   ; preds = %if.then.i.i66
+  %call9.i.i71 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i59, ptr noundef null) #17
+  %call10.i.i72 = tail call i32 @qemu_get_thread_id() #17
+  %33 = load i64, ptr %_now.i.i59, align 8
+  %tv_usec.i.i73 = getelementptr inbounds i8, ptr %_now.i.i59, i64 8
+  %34 = load i64, ptr %tv_usec.i.i73, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i72, i64 noundef %33, i64 noundef %34, i32 noundef %conv59) #17
   br label %trace_gdbstub_err_invalid_repeat.exit
 
-if.else.i.i73:                                    ; preds = %if.then.i.i66
+if.else.i.i68:                                    ; preds = %if.then.i.i66
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %conv59) #17
   br label %trace_gdbstub_err_invalid_repeat.exit
 
-trace_gdbstub_err_invalid_repeat.exit:            ; preds = %if.then73, %land.lhs.true5.i.i63, %if.then8.i.i68, %if.else.i.i73
+trace_gdbstub_err_invalid_repeat.exit:            ; preds = %if.then73, %land.lhs.true5.i.i63, %if.then8.i.i70, %if.else.i.i68
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i59)
   store i32 2, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 4), align 8
   br label %sw.epilog
 
 if.else74:                                        ; preds = %sw.bb58
   %add76 = add nsw i32 %conv59, -29
-  %39 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 6), align 4
-  %add77 = add i32 %39, %add76
+  %35 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 6), align 4
+  %add77 = add i32 %35, %add76
   %cmp79 = icmp ugt i32 %add77, 4094
   br i1 %cmp79, label %if.then81, label %if.else82
 
 if.then81:                                        ; preds = %if.else74
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i75)
-  %40 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i76 = icmp ne i32 %40, 0
-  %41 = load i16, ptr @_TRACE_GDBSTUB_ERR_OVERRUN_DSTATE, align 2
-  %tobool4.i.i77 = icmp ne i16 %41, 0
+  %36 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i76 = icmp ne i32 %36, 0
+  %37 = load i16, ptr @_TRACE_GDBSTUB_ERR_OVERRUN_DSTATE, align 2
+  %tobool4.i.i77 = icmp ne i16 %37, 0
   %or.cond.i.i78 = select i1 %tobool.i.i76, i1 %tobool4.i.i77, i1 false
   br i1 %or.cond.i.i78, label %land.lhs.true5.i.i79, label %trace_gdbstub_err_overrun.exit89
 
 land.lhs.true5.i.i79:                             ; preds = %if.then81
-  %42 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i80 = and i32 %42, 32768
+  %38 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i80 = and i32 %38, 32768
   %cmp.i.not.i.i81 = icmp eq i32 %and.i.i.i80, 0
   br i1 %cmp.i.not.i.i81, label %trace_gdbstub_err_overrun.exit89, label %if.then.i.i82
 
 if.then.i.i82:                                    ; preds = %land.lhs.true5.i.i79
-  %43 = load i8, ptr @message_with_timestamp, align 1
-  %44 = and i8 %43, 1
-  %tobool7.not.i.i83 = icmp eq i8 %44, 0
-  br i1 %tobool7.not.i.i83, label %if.else.i.i88, label %if.then8.i.i84
+  %39 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i83 = trunc i8 %39 to i1
+  br i1 %tobool7.i.i83, label %if.then8.i.i85, label %if.else.i.i84
 
-if.then8.i.i84:                                   ; preds = %if.then.i.i82
-  %call9.i.i85 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i75, ptr noundef null) #17
-  %call10.i.i86 = tail call i32 @qemu_get_thread_id() #17
-  %45 = load i64, ptr %_now.i.i75, align 8
-  %tv_usec.i.i87 = getelementptr inbounds i8, ptr %_now.i.i75, i64 8
-  %46 = load i64, ptr %tv_usec.i.i87, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i86, i64 noundef %45, i64 noundef %46) #17
+if.then8.i.i85:                                   ; preds = %if.then.i.i82
+  %call9.i.i86 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i75, ptr noundef null) #17
+  %call10.i.i87 = tail call i32 @qemu_get_thread_id() #17
+  %40 = load i64, ptr %_now.i.i75, align 8
+  %tv_usec.i.i88 = getelementptr inbounds i8, ptr %_now.i.i75, i64 8
+  %41 = load i64, ptr %tv_usec.i.i88, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i87, i64 noundef %40, i64 noundef %41) #17
   br label %trace_gdbstub_err_overrun.exit89
 
-if.else.i.i88:                                    ; preds = %if.then.i.i82
+if.else.i.i84:                                    ; preds = %if.then.i.i82
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18) #17
   br label %trace_gdbstub_err_overrun.exit89
 
-trace_gdbstub_err_overrun.exit89:                 ; preds = %if.then81, %land.lhs.true5.i.i79, %if.then8.i.i84, %if.else.i.i88
+trace_gdbstub_err_overrun.exit89:                 ; preds = %if.then81, %land.lhs.true5.i.i79, %if.then8.i.i85, %if.else.i.i84
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i75)
   store i32 1, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 4), align 8
   br label %sw.epilog
 
 if.else82:                                        ; preds = %if.else74
-  %cmp83 = icmp slt i32 %39, 1
+  %cmp83 = icmp slt i32 %35, 1
   br i1 %cmp83, label %if.then85, label %if.else86
 
 if.then85:                                        ; preds = %if.else82
@@ -1581,87 +1563,86 @@ if.then85:                                        ; preds = %if.else82
   br label %sw.epilog
 
 if.else86:                                        ; preds = %if.else82
-  %idx.ext = zext nneg i32 %39 to i64
+  %idx.ext = zext nneg i32 %35 to i64
   %add.ptr = getelementptr i8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 5), i64 %idx.ext
-  %sub87 = add nsw i32 %39, -1
+  %sub87 = add nsw i32 %35, -1
   %idxprom88 = zext nneg i32 %sub87 to i64
   %arrayidx89 = getelementptr %struct.GDBState, ptr @gdbserver_state, i64 0, i32 5, i64 %idxprom88
-  %47 = load i8, ptr %arrayidx89, align 1
+  %42 = load i8, ptr %arrayidx89, align 1
   %conv91 = zext nneg i32 %add76 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 %47, i64 %conv91, i1 false)
-  %48 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 6), align 4
-  %add92 = add i32 %48, %add76
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 %42, i64 %conv91, i1 false)
+  %43 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 6), align 4
+  %add92 = add i32 %43, %add76
   store i32 %add92, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 6), align 4
-  %49 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 7), align 8
-  %add94 = add i32 %49, %conv59
+  %44 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 7), align 8
+  %add94 = add i32 %44, %conv59
   store i32 %add94, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 7), align 8
   store i32 2, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 4), align 8
   br label %sw.epilog
 
 sw.bb98:                                          ; preds = %entry
   %call = tail call ptr @__ctype_b_loc() #19
-  %50 = load ptr, ptr %call, align 8
+  %45 = load ptr, ptr %call, align 8
   %idxprom100 = zext i8 %ch to i64
-  %arrayidx101 = getelementptr i16, ptr %50, i64 %idxprom100
-  %51 = load i16, ptr %arrayidx101, align 2
-  %52 = and i16 %51, 4096
-  %tobool.not = icmp eq i16 %52, 0
+  %arrayidx101 = getelementptr i16, ptr %45, i64 %idxprom100
+  %46 = load i16, ptr %arrayidx101, align 2
+  %47 = and i16 %46, 4096
+  %tobool.not = icmp eq i16 %47, 0
   br i1 %tobool.not, label %if.then103, label %if.end104
 
 if.then103:                                       ; preds = %sw.bb98
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i90)
-  %53 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i91 = icmp ne i32 %53, 0
-  %54 = load i16, ptr @_TRACE_GDBSTUB_ERR_CHECKSUM_INVALID_DSTATE, align 2
-  %tobool4.i.i92 = icmp ne i16 %54, 0
+  %48 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i91 = icmp ne i32 %48, 0
+  %49 = load i16, ptr @_TRACE_GDBSTUB_ERR_CHECKSUM_INVALID_DSTATE, align 2
+  %tobool4.i.i92 = icmp ne i16 %49, 0
   %or.cond.i.i93 = select i1 %tobool.i.i91, i1 %tobool4.i.i92, i1 false
   br i1 %or.cond.i.i93, label %land.lhs.true5.i.i94, label %trace_gdbstub_err_checksum_invalid.exit
 
 land.lhs.true5.i.i94:                             ; preds = %if.then103
-  %55 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i95 = and i32 %55, 32768
+  %50 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i95 = and i32 %50, 32768
   %cmp.i.not.i.i96 = icmp eq i32 %and.i.i.i95, 0
   br i1 %cmp.i.not.i.i96, label %trace_gdbstub_err_checksum_invalid.exit, label %if.then.i.i97
 
 if.then.i.i97:                                    ; preds = %land.lhs.true5.i.i94
-  %56 = load i8, ptr @message_with_timestamp, align 1
-  %57 = and i8 %56, 1
-  %tobool7.not.i.i98 = icmp eq i8 %57, 0
-  br i1 %tobool7.not.i.i98, label %if.else.i.i104, label %if.then8.i.i99
+  %51 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i98 = trunc i8 %51 to i1
+  br i1 %tobool7.i.i98, label %if.then8.i.i101, label %if.else.i.i99
 
-if.then8.i.i99:                                   ; preds = %if.then.i.i97
-  %call9.i.i100 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i90, ptr noundef null) #17
-  %call10.i.i101 = tail call i32 @qemu_get_thread_id() #17
-  %58 = load i64, ptr %_now.i.i90, align 8
-  %tv_usec.i.i102 = getelementptr inbounds i8, ptr %_now.i.i90, i64 8
-  %59 = load i64, ptr %tv_usec.i.i102, align 8
-  %conv11.i.i103 = zext i8 %ch to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i101, i64 noundef %58, i64 noundef %59, i32 noundef %conv11.i.i103) #17
+if.then8.i.i101:                                  ; preds = %if.then.i.i97
+  %call9.i.i102 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i90, ptr noundef null) #17
+  %call10.i.i103 = tail call i32 @qemu_get_thread_id() #17
+  %52 = load i64, ptr %_now.i.i90, align 8
+  %tv_usec.i.i104 = getelementptr inbounds i8, ptr %_now.i.i90, i64 8
+  %53 = load i64, ptr %tv_usec.i.i104, align 8
+  %conv11.i.i105 = zext i8 %ch to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i103, i64 noundef %52, i64 noundef %53, i32 noundef %conv11.i.i105) #17
   br label %trace_gdbstub_err_checksum_invalid.exit
 
-if.else.i.i104:                                   ; preds = %if.then.i.i97
-  %conv12.i.i105 = zext i8 %ch to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %conv12.i.i105) #17
+if.else.i.i99:                                    ; preds = %if.then.i.i97
+  %conv12.i.i100 = zext i8 %ch to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %conv12.i.i100) #17
   br label %trace_gdbstub_err_checksum_invalid.exit
 
-trace_gdbstub_err_checksum_invalid.exit:          ; preds = %if.then103, %land.lhs.true5.i.i94, %if.then8.i.i99, %if.else.i.i104
+trace_gdbstub_err_checksum_invalid.exit:          ; preds = %if.then103, %land.lhs.true5.i.i94, %if.then8.i.i101, %if.else.i.i99
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i90)
   store i32 2, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 4), align 8
   br label %sw.epilog
 
 if.end104:                                        ; preds = %sw.bb98
   %conv99 = zext i8 %ch to i32
-  %60 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 6), align 4
-  %idxprom105 = sext i32 %60 to i64
+  %54 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 6), align 4
+  %idxprom105 = sext i32 %54 to i64
   %arrayidx106 = getelementptr %struct.GDBState, ptr @gdbserver_state, i64 0, i32 5, i64 %idxprom105
   store i8 0, ptr %arrayidx106, align 1
-  %61 = add nsw i32 %conv99, -48
-  %or.cond.i = icmp ult i32 %61, 10
+  %55 = add nsw i32 %conv99, -48
+  %or.cond.i = icmp ult i32 %55, 10
   br i1 %or.cond.i, label %fromhex.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end104
-  %62 = add nsw i32 %conv99, -65
-  %or.cond1.i = icmp ult i32 %62, 6
+  %56 = add nsw i32 %conv99, -65
+  %or.cond1.i = icmp ult i32 %56, 6
   br i1 %or.cond1.i, label %if.then5.i, label %if.else7.i
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -1669,14 +1650,14 @@ if.then5.i:                                       ; preds = %if.else.i
   br label %fromhex.exit
 
 if.else7.i:                                       ; preds = %if.else.i
-  %63 = add nsw i32 %conv99, -97
-  %or.cond2.i = icmp ult i32 %63, 6
+  %57 = add nsw i32 %conv99, -97
+  %or.cond2.i = icmp ult i32 %57, 6
   %add13.i = add nsw i32 %conv99, -87
   %spec.select.i = select i1 %or.cond2.i, i32 %add13.i, i32 0
   br label %fromhex.exit
 
 fromhex.exit:                                     ; preds = %if.end104, %if.then5.i, %if.else7.i
-  %retval.0.i = phi i32 [ %add.i, %if.then5.i ], [ %spec.select.i, %if.else7.i ], [ %61, %if.end104 ]
+  %retval.0.i = phi i32 [ %add.i, %if.then5.i ], [ %spec.select.i, %if.else7.i ], [ %55, %if.end104 ]
   %shl = shl nuw nsw i32 %retval.0.i, 4
   store i32 %shl, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 8), align 4
   store i32 6, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 4), align 8
@@ -1684,64 +1665,63 @@ fromhex.exit:                                     ; preds = %if.end104, %if.then
 
 sw.bb109:                                         ; preds = %entry
   %call110 = tail call ptr @__ctype_b_loc() #19
-  %64 = load ptr, ptr %call110, align 8
+  %58 = load ptr, ptr %call110, align 8
   %idxprom112 = zext i8 %ch to i64
-  %arrayidx113 = getelementptr i16, ptr %64, i64 %idxprom112
-  %65 = load i16, ptr %arrayidx113, align 2
-  %66 = and i16 %65, 4096
-  %tobool116.not = icmp eq i16 %66, 0
+  %arrayidx113 = getelementptr i16, ptr %58, i64 %idxprom112
+  %59 = load i16, ptr %arrayidx113, align 2
+  %60 = and i16 %59, 4096
+  %tobool116.not = icmp eq i16 %60, 0
   br i1 %tobool116.not, label %if.then117, label %if.end118
 
 if.then117:                                       ; preds = %sw.bb109
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i106)
-  %67 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i107 = icmp ne i32 %67, 0
-  %68 = load i16, ptr @_TRACE_GDBSTUB_ERR_CHECKSUM_INVALID_DSTATE, align 2
-  %tobool4.i.i108 = icmp ne i16 %68, 0
+  %61 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i107 = icmp ne i32 %61, 0
+  %62 = load i16, ptr @_TRACE_GDBSTUB_ERR_CHECKSUM_INVALID_DSTATE, align 2
+  %tobool4.i.i108 = icmp ne i16 %62, 0
   %or.cond.i.i109 = select i1 %tobool.i.i107, i1 %tobool4.i.i108, i1 false
   br i1 %or.cond.i.i109, label %land.lhs.true5.i.i110, label %trace_gdbstub_err_checksum_invalid.exit122
 
 land.lhs.true5.i.i110:                            ; preds = %if.then117
-  %69 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i111 = and i32 %69, 32768
+  %63 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i111 = and i32 %63, 32768
   %cmp.i.not.i.i112 = icmp eq i32 %and.i.i.i111, 0
   br i1 %cmp.i.not.i.i112, label %trace_gdbstub_err_checksum_invalid.exit122, label %if.then.i.i113
 
 if.then.i.i113:                                   ; preds = %land.lhs.true5.i.i110
-  %70 = load i8, ptr @message_with_timestamp, align 1
-  %71 = and i8 %70, 1
-  %tobool7.not.i.i114 = icmp eq i8 %71, 0
-  br i1 %tobool7.not.i.i114, label %if.else.i.i120, label %if.then8.i.i115
+  %64 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i114 = trunc i8 %64 to i1
+  br i1 %tobool7.i.i114, label %if.then8.i.i117, label %if.else.i.i115
 
-if.then8.i.i115:                                  ; preds = %if.then.i.i113
-  %call9.i.i116 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i106, ptr noundef null) #17
-  %call10.i.i117 = tail call i32 @qemu_get_thread_id() #17
-  %72 = load i64, ptr %_now.i.i106, align 8
-  %tv_usec.i.i118 = getelementptr inbounds i8, ptr %_now.i.i106, i64 8
-  %73 = load i64, ptr %tv_usec.i.i118, align 8
-  %conv11.i.i119 = zext i8 %ch to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i117, i64 noundef %72, i64 noundef %73, i32 noundef %conv11.i.i119) #17
+if.then8.i.i117:                                  ; preds = %if.then.i.i113
+  %call9.i.i118 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i106, ptr noundef null) #17
+  %call10.i.i119 = tail call i32 @qemu_get_thread_id() #17
+  %65 = load i64, ptr %_now.i.i106, align 8
+  %tv_usec.i.i120 = getelementptr inbounds i8, ptr %_now.i.i106, i64 8
+  %66 = load i64, ptr %tv_usec.i.i120, align 8
+  %conv11.i.i121 = zext i8 %ch to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i119, i64 noundef %65, i64 noundef %66, i32 noundef %conv11.i.i121) #17
   br label %trace_gdbstub_err_checksum_invalid.exit122
 
-if.else.i.i120:                                   ; preds = %if.then.i.i113
-  %conv12.i.i121 = zext i8 %ch to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %conv12.i.i121) #17
+if.else.i.i115:                                   ; preds = %if.then.i.i113
+  %conv12.i.i116 = zext i8 %ch to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %conv12.i.i116) #17
   br label %trace_gdbstub_err_checksum_invalid.exit122
 
-trace_gdbstub_err_checksum_invalid.exit122:       ; preds = %if.then117, %land.lhs.true5.i.i110, %if.then8.i.i115, %if.else.i.i120
+trace_gdbstub_err_checksum_invalid.exit122:       ; preds = %if.then117, %land.lhs.true5.i.i110, %if.then8.i.i117, %if.else.i.i115
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i106)
   store i32 2, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 4), align 8
   br label %sw.epilog
 
 if.end118:                                        ; preds = %sw.bb109
   %conv111 = zext i8 %ch to i32
-  %74 = add nsw i32 %conv111, -48
-  %or.cond.i123 = icmp ult i32 %74, 10
+  %67 = add nsw i32 %conv111, -48
+  %or.cond.i123 = icmp ult i32 %67, 10
   br i1 %or.cond.i123, label %fromhex.exit133, label %if.else.i124
 
 if.else.i124:                                     ; preds = %if.end118
-  %75 = add nsw i32 %conv111, -65
-  %or.cond1.i125 = icmp ult i32 %75, 6
+  %68 = add nsw i32 %conv111, -65
+  %or.cond1.i125 = icmp ult i32 %68, 6
   br i1 %or.cond1.i125, label %if.then5.i131, label %if.else7.i126
 
 if.then5.i131:                                    ; preds = %if.else.i124
@@ -1749,59 +1729,58 @@ if.then5.i131:                                    ; preds = %if.else.i124
   br label %fromhex.exit133
 
 if.else7.i126:                                    ; preds = %if.else.i124
-  %76 = add nsw i32 %conv111, -97
-  %or.cond2.i127 = icmp ult i32 %76, 6
+  %69 = add nsw i32 %conv111, -97
+  %or.cond2.i127 = icmp ult i32 %69, 6
   %add13.i128 = add nsw i32 %conv111, -87
   %spec.select.i129 = select i1 %or.cond2.i127, i32 %add13.i128, i32 0
   br label %fromhex.exit133
 
 fromhex.exit133:                                  ; preds = %if.end118, %if.then5.i131, %if.else7.i126
-  %retval.0.i130 = phi i32 [ %add.i132, %if.then5.i131 ], [ %spec.select.i129, %if.else7.i126 ], [ %74, %if.end118 ]
-  %77 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 8), align 4
-  %or = or i32 %77, %retval.0.i130
+  %retval.0.i130 = phi i32 [ %add.i132, %if.then5.i131 ], [ %spec.select.i129, %if.else7.i126 ], [ %67, %if.end118 ]
+  %70 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 8), align 4
+  %or = or i32 %70, %retval.0.i130
   store i32 %or, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 8), align 4
-  %78 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 7), align 8
-  %and121 = and i32 %78, 255
+  %71 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 7), align 8
+  %and121 = and i32 %71, 255
   %cmp122.not = icmp eq i32 %or, %and121
   br i1 %cmp122.not, label %if.else127, label %if.then124
 
 if.then124:                                       ; preds = %fromhex.exit133
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i134)
-  %79 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i135 = icmp ne i32 %79, 0
-  %80 = load i16, ptr @_TRACE_GDBSTUB_ERR_CHECKSUM_INCORRECT_DSTATE, align 2
-  %tobool4.i.i136 = icmp ne i16 %80, 0
+  %72 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i135 = icmp ne i32 %72, 0
+  %73 = load i16, ptr @_TRACE_GDBSTUB_ERR_CHECKSUM_INCORRECT_DSTATE, align 2
+  %tobool4.i.i136 = icmp ne i16 %73, 0
   %or.cond.i.i137 = select i1 %tobool.i.i135, i1 %tobool4.i.i136, i1 false
   br i1 %or.cond.i.i137, label %land.lhs.true5.i.i138, label %trace_gdbstub_err_checksum_incorrect.exit
 
 land.lhs.true5.i.i138:                            ; preds = %if.then124
-  %81 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i139 = and i32 %81, 32768
+  %74 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i139 = and i32 %74, 32768
   %cmp.i.not.i.i140 = icmp eq i32 %and.i.i.i139, 0
   br i1 %cmp.i.not.i.i140, label %trace_gdbstub_err_checksum_incorrect.exit, label %if.then.i.i141
 
 if.then.i.i141:                                   ; preds = %land.lhs.true5.i.i138
-  %82 = load i8, ptr @message_with_timestamp, align 1
-  %83 = and i8 %82, 1
-  %tobool7.not.i.i142 = icmp eq i8 %83, 0
-  br i1 %tobool7.not.i.i142, label %if.else.i.i149, label %if.then8.i.i143
+  %75 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i142 = trunc i8 %75 to i1
+  br i1 %tobool7.i.i142, label %if.then8.i.i144, label %if.else.i.i143
 
-if.then8.i.i143:                                  ; preds = %if.then.i.i141
-  %call9.i.i144 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i134, ptr noundef null) #17
-  %call10.i.i145 = tail call i32 @qemu_get_thread_id() #17
-  %84 = load i64, ptr %_now.i.i134, align 8
-  %tv_usec.i.i146 = getelementptr inbounds i8, ptr %_now.i.i134, i64 8
-  %85 = load i64, ptr %tv_usec.i.i146, align 8
-  %conv12.i.i148 = and i32 %or, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i145, i64 noundef %84, i64 noundef %85, i32 noundef %and121, i32 noundef %conv12.i.i148) #17
+if.then8.i.i144:                                  ; preds = %if.then.i.i141
+  %call9.i.i145 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i134, ptr noundef null) #17
+  %call10.i.i146 = tail call i32 @qemu_get_thread_id() #17
+  %76 = load i64, ptr %_now.i.i134, align 8
+  %tv_usec.i.i147 = getelementptr inbounds i8, ptr %_now.i.i134, i64 8
+  %77 = load i64, ptr %tv_usec.i.i147, align 8
+  %conv12.i.i149 = and i32 %or, 255
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i146, i64 noundef %76, i64 noundef %77, i32 noundef %and121, i32 noundef %conv12.i.i149) #17
   br label %trace_gdbstub_err_checksum_incorrect.exit
 
-if.else.i.i149:                                   ; preds = %if.then.i.i141
+if.else.i.i143:                                   ; preds = %if.then.i.i141
   %conv14.i.i = and i32 %or, 255
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %and121, i32 noundef %conv14.i.i) #17
   br label %trace_gdbstub_err_checksum_incorrect.exit
 
-trace_gdbstub_err_checksum_incorrect.exit:        ; preds = %if.then124, %land.lhs.true5.i.i138, %if.then8.i.i143, %if.else.i.i149
+trace_gdbstub_err_checksum_incorrect.exit:        ; preds = %if.then124, %land.lhs.true5.i.i138, %if.then8.i.i144, %if.else.i.i143
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i134)
   store i8 45, ptr %reply, align 1
   call void @gdb_put_buffer(ptr noundef nonnull %reply, i32 noundef 1) #17
@@ -1812,32 +1791,31 @@ if.else127:                                       ; preds = %fromhex.exit133
   store i8 43, ptr %reply, align 1
   call void @gdb_put_buffer(ptr noundef nonnull %reply, i32 noundef 1) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %86 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i = icmp ne i32 %86, 0
-  %87 = load i16, ptr @_TRACE_GDBSTUB_IO_COMMAND_DSTATE, align 2
-  %tobool4.i.i.i = icmp ne i16 %87, 0
+  %78 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %78, 0
+  %79 = load i16, ptr @_TRACE_GDBSTUB_IO_COMMAND_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %79, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %trace_gdbstub_io_command.exit.i
 
 land.lhs.true5.i.i.i:                             ; preds = %if.else127
-  %88 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i = and i32 %88, 32768
+  %80 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %80, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %trace_gdbstub_io_command.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
-  %89 = load i8, ptr @message_with_timestamp, align 1
-  %90 = and i8 %89, 1
-  %tobool7.not.i.i.i = icmp eq i8 %90, 0
-  br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
+  %81 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i = trunc i8 %81 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
   %call10.i.i.i = call i32 @qemu_get_thread_id() #17
-  %91 = load i64, ptr %_now.i.i.i, align 8
+  %82 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %92 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i.i, i64 noundef %91, i64 noundef %92, ptr noundef nonnull getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 5)) #17
+  %83 = load i64, ptr %tv_usec.i.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i.i, i64 noundef %82, i64 noundef %83, ptr noundef nonnull getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 5)) #17
   br label %trace_gdbstub_io_command.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -1846,8 +1824,8 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 trace_gdbstub_io_command.exit.i:                  ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.else127
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %93 = load i8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 5), align 4
-  switch i8 %93, label %sw.default.i [
+  %84 = load i8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 5), align 4
+  switch i8 %84, label %sw.default.i [
     i8 33, label %sw.bb.i
     i8 63, label %if.then.i
     i8 99, label %sw.bb2.i
@@ -1945,10 +1923,10 @@ sw.default.i:                                     ; preds = %trace_gdbstub_io_co
 
 if.then.i:                                        ; preds = %sw.bb21.i, %sw.bb20.i, %sw.bb19.i, %sw.bb18.i, %sw.bb17.i, %sw.bb16.i, %sw.bb15.i, %sw.bb14.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %trace_gdbstub_io_command.exit.i
   %cmd_parser.0.ph.i = phi ptr [ @gdb_handle_packet.target_halted_cmd_desc, %trace_gdbstub_io_command.exit.i ], [ @gdb_handle_packet.continue_cmd_desc, %sw.bb2.i ], [ @gdb_handle_packet.cont_with_sig_cmd_desc, %sw.bb3.i ], [ @gdb_handle_packet.v_cmd_desc, %sw.bb4.i ], [ @gdb_handle_packet.detach_cmd_desc, %sw.bb6.i ], [ @gdb_handle_packet.step_cmd_desc, %sw.bb7.i ], [ @gdb_handle_packet.backward_cmd_desc, %sw.bb8.i ], [ @gdb_handle_packet.file_io_cmd_desc, %sw.bb9.i ], [ @gdb_handle_packet.read_all_regs_cmd_desc, %sw.bb10.i ], [ @gdb_handle_packet.write_all_regs_cmd_desc, %sw.bb11.i ], [ @gdb_handle_packet.read_mem_cmd_desc, %sw.bb12.i ], [ @gdb_handle_packet.write_mem_cmd_desc, %sw.bb13.i ], [ @gdb_handle_packet.get_reg_cmd_desc, %sw.bb14.i ], [ @gdb_handle_packet.set_reg_cmd_desc, %sw.bb15.i ], [ @gdb_handle_packet.insert_bp_cmd_desc, %sw.bb16.i ], [ @gdb_handle_packet.remove_bp_cmd_desc, %sw.bb17.i ], [ @gdb_handle_packet.set_thread_cmd_desc, %sw.bb18.i ], [ @gdb_handle_packet.thread_alive_cmd_desc, %sw.bb19.i ], [ @gdb_handle_packet.gen_query_cmd_desc, %sw.bb20.i ], [ @gdb_handle_packet.gen_set_cmd_desc, %sw.bb21.i ]
-  %94 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  %call.i.i = call ptr @g_string_set_size(ptr noundef %94, i64 noundef 0) #17
-  %95 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
-  %call1.i.i = call ptr @g_byte_array_set_size(ptr noundef %95, i32 noundef 0) #17
+  %85 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %call.i.i = call ptr @g_string_set_size(ptr noundef %85, i64 noundef 0) #17
+  %86 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
+  %call1.i.i = call ptr @g_byte_array_set_size(ptr noundef %86, i32 noundef 0) #17
   %call2.i.i = call fastcc i32 @process_string_cmd(ptr noundef nonnull getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 5), ptr noundef nonnull %cmd_parser.0.ph.i, i32 noundef 1), !range !22
   %tobool3.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.not.i.i, label %gdb_handle_packet.exit, label %if.then4.i.i
@@ -1989,17 +1967,16 @@ land.lhs.true5.i:                                 ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true5.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i, label %if.else.i, label %if.then8.i
+  %tobool7.i = trunc i8 %3 to i1
+  br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
   %call10.i = tail call i32 @qemu_get_thread_id() #17
-  %5 = load i64, ptr %_now.i, align 8
+  %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
-  %6 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6) #17
+  %5 = load i64, ptr %tv_usec.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #17
   br label %_nocheck__trace_gdbstub_err_invalid_rle.exit
 
 if.else.i:                                        ; preds = %if.then.i
@@ -2012,10 +1989,10 @@ _nocheck__trace_gdbstub_err_invalid_rle.exit:     ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #7
+declare ptr @__ctype_b_loc() local_unnamed_addr #6
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #8
+declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_create_default_process(ptr nocapture noundef %s) local_unnamed_addr #0 {
@@ -2052,17 +2029,17 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #9
+declare i32 @getpid() local_unnamed_addr #8
 
 declare ptr @g_realloc_n(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
@@ -2072,66 +2049,64 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #3
 define internal void @handle_target_halt(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
   %0 = load i8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 18), align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %2, ptr noundef nonnull @.str.64, i32 noundef 5) #17
-  %3 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  %5 = load i8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 11), align 4
-  %6 = and i8 %5, 1
-  %tobool.not.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %1 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %1, ptr noundef nonnull @.str.64, i32 noundef 5) #17
+  %2 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
+  %3 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %4 = load i8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 11), align 4
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
   %call.i.i = tail call i32 @getpid() #17
-  %call1.i = tail call i32 @gdb_get_cpu_index(ptr noundef %3) #17
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %4, ptr noundef nonnull @.str.8, i32 noundef %call.i.i, i32 noundef %call1.i) #17
+  %call1.i = tail call i32 @gdb_get_cpu_index(ptr noundef %2) #17
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %3, ptr noundef nonnull @.str.8, i32 noundef %call.i.i, i32 noundef %call1.i) #17
   br label %gdb_append_thread_id.exit
 
 if.else.i:                                        ; preds = %if.then
-  %call2.i = tail call i32 @gdb_get_cpu_index(ptr noundef %3) #17
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %4, ptr noundef nonnull @.str.9, i32 noundef %call2.i) #17
+  %call2.i = tail call i32 @gdb_get_cpu_index(ptr noundef %2) #17
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %3, ptr noundef nonnull @.str.9, i32 noundef %call2.i) #17
   br label %gdb_append_thread_id.exit
 
 gdb_append_thread_id.exit:                        ; preds = %if.then.i, %if.else.i
-  %7 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  %len.i = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load i64, ptr %len.i, align 8
-  %add.i = add i64 %8, 1
-  %allocated_len.i = getelementptr inbounds i8, ptr %7, i64 16
-  %9 = load i64, ptr %allocated_len.i, align 8
-  %cmp.i = icmp ult i64 %add.i, %9
+  %5 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %len.i = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load i64, ptr %len.i, align 8
+  %add.i = add i64 %6, 1
+  %allocated_len.i = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = load i64, ptr %allocated_len.i, align 8
+  %cmp.i = icmp ult i64 %add.i, %7
   br i1 %cmp.i, label %if.then.i2, label %if.else.i1
 
 if.then.i2:                                       ; preds = %gdb_append_thread_id.exit
-  %10 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %5, align 8
   store i64 %add.i, ptr %len.i, align 8
-  %arrayidx.i = getelementptr i8, ptr %10, i64 %8
+  %arrayidx.i = getelementptr i8, ptr %8, i64 %6
   store i8 59, ptr %arrayidx.i, align 1
-  %11 = load ptr, ptr %7, align 8
-  %12 = load i64, ptr %len.i, align 8
-  %arrayidx4.i = getelementptr i8, ptr %11, i64 %12
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i64, ptr %len.i, align 8
+  %arrayidx4.i = getelementptr i8, ptr %9, i64 %10
   store i8 0, ptr %arrayidx4.i, align 1
   br label %g_string_append_c_inline.exit
 
 if.else.i1:                                       ; preds = %gdb_append_thread_id.exit
-  %call.i = tail call ptr @g_string_insert_c(ptr noundef nonnull %7, i64 noundef -1, i8 noundef signext 59) #17
+  %call.i = tail call ptr @g_string_insert_c(ptr noundef nonnull %5, i64 noundef -1, i8 noundef signext 59) #17
   br label %g_string_append_c_inline.exit
 
 g_string_append_c_inline.exit:                    ; preds = %if.then.i2, %if.else.i1
-  %13 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  %14 = load ptr, ptr %13, align 8
-  %call.i3 = tail call i32 @gdb_put_packet(ptr noundef %14)
+  %11 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %12 = load ptr, ptr %11, align 8
+  %call.i3 = tail call i32 @gdb_put_packet(ptr noundef %12)
   store i8 0, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 18), align 8
   br label %if.end
 
 if.end:                                           ; preds = %g_string_append_c_inline.exit, %entry
-  %15 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
-  tail call void @gdb_breakpoint_remove_all(ptr noundef %15) #17
+  %13 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
+  tail call void @gdb_breakpoint_remove_all(ptr noundef %13) #17
   ret void
 }
 
@@ -2216,36 +2191,35 @@ declare void @gdb_qemu_exit(i32 noundef) local_unnamed_addr #3
 define internal void @handle_detach(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
   %0 = load i8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 11), align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %for.cond.preheader.i, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %for.cond.preheader.i
 
 if.then:                                          ; preds = %entry
   %len = getelementptr inbounds i8, ptr %params, i64 8
-  %2 = load i32, ptr %len, align 8
-  %tobool1.not = icmp eq i32 %2, 0
+  %1 = load i32, ptr %len, align 8
+  %tobool1.not = icmp eq i32 %1, 0
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.then
-  %3 = load ptr, ptr %params, align 8
-  %4 = load i64, ptr %3, align 8
-  %conv = trunc i64 %4 to i32
+  %2 = load ptr, ptr %params, align 8
+  %3 = load i64, ptr %2, align 8
+  %conv = trunc i64 %3 to i32
   %tobool.not.i = icmp eq i32 %conv, 0
   br i1 %tobool.not.i, label %if.then.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry, %if.end3
-  %pid.010 = phi i32 [ %conv, %if.end3 ], [ 1, %entry ]
-  %5 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
-  %cmp5.i = icmp sgt i32 %5, 0
+  %pid.068 = phi i32 [ %conv, %if.end3 ], [ 1, %entry ]
+  %4 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp5.i = icmp sgt i32 %4, 0
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %gdb_get_process.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %6 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
-  %wide.trip.count.i = zext nneg i32 %5 to i64
+  %5 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %wide.trip.count.i = zext nneg i32 %4 to i64
   br label %for.body.i
 
 if.then.i:                                        ; preds = %if.end3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %6 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
   br label %gdb_get_process.exit
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -2255,32 +2229,32 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx1.i = getelementptr %struct.GDBProcess, ptr %6, i64 %indvars.iv.i
-  %8 = load i32, ptr %arrayidx1.i, align 8
-  %cmp3.i = icmp eq i32 %8, %pid.010
+  %arrayidx1.i = getelementptr %struct.GDBProcess, ptr %5, i64 %indvars.iv.i
+  %7 = load i32, ptr %arrayidx1.i, align 8
+  %cmp3.i = icmp eq i32 %7, %pid.068
   br i1 %cmp3.i, label %gdb_get_process.exit, label %for.cond.i
 
 gdb_get_process.exit:                             ; preds = %for.cond.i, %for.body.i, %for.cond.preheader.i, %if.then.i
-  %pid.09 = phi i32 [ 0, %if.then.i ], [ %pid.010, %for.cond.preheader.i ], [ %pid.010, %for.body.i ], [ %pid.010, %for.cond.i ]
-  %retval.0.i = phi ptr [ %7, %if.then.i ], [ null, %for.cond.preheader.i ], [ null, %for.cond.i ], [ %arrayidx1.i, %for.body.i ]
-  %9 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %pid.067 = phi i32 [ 0, %if.then.i ], [ %pid.068, %for.cond.preheader.i ], [ %pid.068, %for.body.i ], [ %pid.068, %for.cond.i ]
+  %retval.0.i = phi ptr [ %6, %if.then.i ], [ null, %for.cond.preheader.i ], [ null, %for.cond.i ], [ %arrayidx1.i, %for.body.i ]
+  %8 = load atomic i64, ptr @cpus_queue monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !12
-  %tobool.not5.i.i = icmp eq i64 %9, 0
+  %tobool.not5.i.i = icmp eq i64 %8, 0
   br i1 %tobool.not5.i.i, label %gdb_process_breakpoint_remove_all.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %gdb_get_process.exit, %while.end5.i.i
-  %cpu.06.in.i.i = phi i64 [ %11, %while.end5.i.i ], [ %9, %gdb_get_process.exit ]
+  %cpu.06.in.i.i = phi i64 [ %10, %while.end5.i.i ], [ %8, %gdb_get_process.exit ]
   %cpu.06.i.i = inttoptr i64 %cpu.06.in.i.i to ptr
   %call.i.i.i = tail call i32 @getpid() #17
-  %10 = load i32, ptr %retval.0.i, align 8
-  %cmp.i.i = icmp eq i32 %call.i.i.i, %10
+  %9 = load i32, ptr %retval.0.i, align 8
+  %cmp.i.i = icmp eq i32 %call.i.i.i, %9
   br i1 %cmp.i.i, label %while.body.i, label %while.end5.i.i
 
 while.end5.i.i:                                   ; preds = %for.body.i.i
   %node.i.i = getelementptr inbounds i8, ptr %cpu.06.i.i, i64 568
-  %11 = load atomic i64, ptr %node.i.i monotonic, align 8
+  %10 = load atomic i64, ptr %node.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
-  %tobool.not.i.i = icmp eq i64 %11, 0
+  %tobool.not.i.i = icmp eq i64 %10, 0
   br i1 %tobool.not.i.i, label %gdb_process_breakpoint_remove_all.exit, label %for.body.i.i, !llvm.loop !14
 
 while.body.i:                                     ; preds = %for.body.i.i, %gdb_next_cpu_in_process.exit.i
@@ -2288,10 +2262,10 @@ while.body.i:                                     ; preds = %for.body.i.i, %gdb_
   tail call void @gdb_breakpoint_remove_all(ptr noundef nonnull %cpu.08.i) #17
   %call.i.i3.i = tail call i32 @getpid() #17
   %node.i4.i = getelementptr inbounds i8, ptr %cpu.08.i, i64 568
-  %12 = load atomic i64, ptr %node.i4.i monotonic, align 8
+  %11 = load atomic i64, ptr %node.i4.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !23
-  %cpu.addr.07.i.i = inttoptr i64 %12 to ptr
-  %tobool.not8.i.i = icmp eq i64 %12, 0
+  %cpu.addr.07.i.i = inttoptr i64 %11 to ptr
+  %tobool.not8.i.i = icmp eq i64 %11, 0
   br i1 %tobool.not8.i.i, label %gdb_next_cpu_in_process.exit.i, label %while.body2.i.i
 
 while.body2.i.i:                                  ; preds = %while.body.i, %while.end8.i.i
@@ -2302,10 +2276,10 @@ while.body2.i.i:                                  ; preds = %while.body.i, %whil
 
 while.end8.i.i:                                   ; preds = %while.body2.i.i
   %node9.i.i = getelementptr inbounds i8, ptr %cpu.addr.09.i.i, i64 568
-  %13 = load atomic i64, ptr %node9.i.i monotonic, align 8
+  %12 = load atomic i64, ptr %node9.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !24
-  %cpu.addr.0.i.i = inttoptr i64 %13 to ptr
-  %tobool.not.i6.i = icmp eq i64 %13, 0
+  %cpu.addr.0.i.i = inttoptr i64 %12 to ptr
+  %tobool.not.i6.i = icmp eq i64 %12, 0
   br i1 %tobool.not.i6.i, label %gdb_next_cpu_in_process.exit.i, label %while.body2.i.i, !llvm.loop !25
 
 gdb_next_cpu_in_process.exit.i:                   ; preds = %while.end8.i.i, %while.body2.i.i, %while.body.i
@@ -2317,27 +2291,211 @@ gdb_process_breakpoint_remove_all.exit:           ; preds = %while.end5.i.i, %gd
   %attached = getelementptr inbounds i8, ptr %retval.0.i, i64 4
   store i8 0, ptr %attached, align 4
   %call.i = tail call i32 @getpid() #17
-  %cmp = icmp eq i32 %pid.09, %call.i
+  %cmp = icmp eq i32 %pid.067, %call.i
   br i1 %cmp, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %gdb_process_breakpoint_remove_all.exit
-  %call8 = tail call ptr @gdb_first_attached_cpu()
-  store ptr %call8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
+  %13 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %14 = inttoptr i64 %13 to ptr
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
+  %call.i.i.i6 = tail call i32 @getpid() #17
+  %tobool.not.i.i.i = icmp eq i32 %call.i.i.i6, 0
+  br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %for.cond.preheader.i.i.i
+
+for.cond.preheader.i.i.i:                         ; preds = %if.then7
+  %15 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp5.i.i.i = icmp sgt i32 %15, 0
+  tail call void @llvm.assume(i1 %cmp5.i.i.i)
+  %16 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %wide.trip.count.i.i.i = zext nneg i32 %15 to i64
+  %17 = load i32, ptr %16, align 8
+  %cmp3.i.i3.i = icmp eq i32 %17, %call.i.i.i6
+  br i1 %cmp3.i.i3.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
+
+if.then.i.i.i:                                    ; preds = %if.then7
+  %18 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  br label %gdb_get_cpu_process.exit.i
+
+for.cond.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.cond.i.i.i
+  %indvars.iv.i.i4.i = phi i64 [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i4.i, 1
+  %exitcond.not.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
+  tail call void @llvm.assume(i1 %exitcond.not.i.i.i)
+  %arrayidx1.i.i.i = getelementptr %struct.GDBProcess, ptr %16, i64 %indvars.iv.next.i.i.i
+  %19 = load i32, ptr %arrayidx1.i.i.i, align 8
+  %cmp3.i.i.i = icmp eq i32 %19, %call.i.i.i6
+  br i1 %cmp3.i.i.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
+
+gdb_get_cpu_process.exit.i:                       ; preds = %for.cond.i.i.i, %if.then.i.i.i, %for.cond.preheader.i.i.i
+  %retval.0.i.i.i = phi ptr [ %18, %if.then.i.i.i ], [ %16, %for.cond.preheader.i.i.i ], [ %arrayidx1.i.i.i, %for.cond.i.i.i ]
+  %attached.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 4
+  %20 = load i8, ptr %attached.i, align 4
+  %tobool.i = trunc i8 %20 to i1
+  br i1 %tobool.i, label %gdb_first_attached_cpu.exit, label %if.then.i7
+
+if.then.i7:                                       ; preds = %gdb_get_cpu_process.exit.i
+  %node.i.i8 = getelementptr inbounds i8, ptr %14, i64 568
+  %21 = load atomic i64, ptr %node.i.i8 monotonic, align 8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
+  %cpu.addr.07.i.i9 = inttoptr i64 %21 to ptr
+  %tobool.not8.i.i10 = icmp eq i64 %21, 0
+  br i1 %tobool.not8.i.i10, label %gdb_first_attached_cpu.exit, label %while.body2.i.i11
+
+while.body2.i.i11:                                ; preds = %if.then.i7, %while.end8.i.i13
+  %cpu.addr.09.i.i12 = phi ptr [ %cpu.addr.0.i.i15, %while.end8.i.i13 ], [ %cpu.addr.07.i.i9, %if.then.i7 ]
+  %call.i.i.i.i = tail call i32 @getpid() #17
+  %tobool.not.i.i.i.i = icmp eq i32 %call.i.i.i.i, 0
+  br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i, label %for.cond.preheader.i.i.i.i
+
+for.cond.preheader.i.i.i.i:                       ; preds = %while.body2.i.i11
+  %22 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp5.i.i.i.i = icmp sgt i32 %22, 0
+  tail call void @llvm.assume(i1 %cmp5.i.i.i.i)
+  %23 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %wide.trip.count.i.i.i.i = zext nneg i32 %22 to i64
+  %24 = load i32, ptr %23, align 8
+  %cmp3.i.i5.i.i = icmp eq i32 %24, %call.i.i.i.i
+  br i1 %cmp3.i.i5.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
+
+if.then.i.i.i.i:                                  ; preds = %while.body2.i.i11
+  %25 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  br label %gdb_get_cpu_process.exit.i.i
+
+for.cond.i.i.i.i:                                 ; preds = %for.cond.preheader.i.i.i.i, %for.cond.i.i.i.i
+  %indvars.iv.i.i6.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.cond.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
+  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i6.i.i, 1
+  %exitcond.not.i.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
+  tail call void @llvm.assume(i1 %exitcond.not.i.i.i.i)
+  %arrayidx1.i.i.i.i = getelementptr %struct.GDBProcess, ptr %23, i64 %indvars.iv.next.i.i.i.i
+  %26 = load i32, ptr %arrayidx1.i.i.i.i, align 8
+  %cmp3.i.i.i.i = icmp eq i32 %26, %call.i.i.i.i
+  br i1 %cmp3.i.i.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
+
+gdb_get_cpu_process.exit.i.i:                     ; preds = %for.cond.i.i.i.i, %if.then.i.i.i.i, %for.cond.preheader.i.i.i.i
+  %retval.0.i.i.i.i = phi ptr [ %25, %if.then.i.i.i.i ], [ %23, %for.cond.preheader.i.i.i.i ], [ %arrayidx1.i.i.i.i, %for.cond.i.i.i.i ]
+  %attached.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 4
+  %27 = load i8, ptr %attached.i.i, align 4
+  %tobool3.i.i = trunc i8 %27 to i1
+  br i1 %tobool3.i.i, label %gdb_first_attached_cpu.exit, label %while.end8.i.i13
+
+while.end8.i.i13:                                 ; preds = %gdb_get_cpu_process.exit.i.i
+  %node9.i.i14 = getelementptr inbounds i8, ptr %cpu.addr.09.i.i12, i64 568
+  %28 = load atomic i64, ptr %node9.i.i14 monotonic, align 8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
+  %cpu.addr.0.i.i15 = inttoptr i64 %28 to ptr
+  %tobool.not.i.i16 = icmp eq i64 %28, 0
+  br i1 %tobool.not.i.i16, label %gdb_first_attached_cpu.exit, label %while.body2.i.i11, !llvm.loop !18
+
+gdb_first_attached_cpu.exit:                      ; preds = %gdb_get_cpu_process.exit.i.i, %while.end8.i.i13, %gdb_get_cpu_process.exit.i, %if.then.i7
+  %retval.0.i17 = phi ptr [ %14, %gdb_get_cpu_process.exit.i ], [ %cpu.addr.07.i.i9, %if.then.i7 ], [ %cpu.addr.09.i.i12, %gdb_get_cpu_process.exit.i.i ], [ %cpu.addr.0.i.i15, %while.end8.i.i13 ]
+  store ptr %retval.0.i17, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
   br label %if.end9
 
-if.end9:                                          ; preds = %if.then7, %gdb_process_breakpoint_remove_all.exit
-  %call.i6 = tail call i32 @getpid() #17
-  %cmp11 = icmp eq i32 %pid.09, %call.i6
+if.end9:                                          ; preds = %gdb_first_attached_cpu.exit, %gdb_process_breakpoint_remove_all.exit
+  %call.i18 = tail call i32 @getpid() #17
+  %cmp11 = icmp eq i32 %pid.067, %call.i18
   br i1 %cmp11, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %if.end9
-  %call14 = tail call ptr @gdb_first_attached_cpu()
-  store ptr %call14, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 2), align 8
+  %29 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %30 = inttoptr i64 %29 to ptr
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
+  %call.i.i.i19 = tail call i32 @getpid() #17
+  %tobool.not.i.i.i20 = icmp eq i32 %call.i.i.i19, 0
+  br i1 %tobool.not.i.i.i20, label %if.then.i.i.i63, label %for.cond.preheader.i.i.i21
+
+for.cond.preheader.i.i.i21:                       ; preds = %if.then13
+  %31 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp5.i.i.i22 = icmp sgt i32 %31, 0
+  tail call void @llvm.assume(i1 %cmp5.i.i.i22)
+  %32 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %wide.trip.count.i.i.i23 = zext nneg i32 %31 to i64
+  %33 = load i32, ptr %32, align 8
+  %cmp3.i.i3.i24 = icmp eq i32 %33, %call.i.i.i19
+  br i1 %cmp3.i.i3.i24, label %gdb_get_cpu_process.exit.i31, label %for.cond.i.i.i25
+
+if.then.i.i.i63:                                  ; preds = %if.then13
+  %34 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  br label %gdb_get_cpu_process.exit.i31
+
+for.cond.i.i.i25:                                 ; preds = %for.cond.preheader.i.i.i21, %for.cond.i.i.i25
+  %indvars.iv.i.i4.i26 = phi i64 [ %indvars.iv.next.i.i.i27, %for.cond.i.i.i25 ], [ 0, %for.cond.preheader.i.i.i21 ]
+  %indvars.iv.next.i.i.i27 = add nuw nsw i64 %indvars.iv.i.i4.i26, 1
+  %exitcond.not.i.i.i28 = icmp ne i64 %indvars.iv.next.i.i.i27, %wide.trip.count.i.i.i23
+  tail call void @llvm.assume(i1 %exitcond.not.i.i.i28)
+  %arrayidx1.i.i.i29 = getelementptr %struct.GDBProcess, ptr %32, i64 %indvars.iv.next.i.i.i27
+  %35 = load i32, ptr %arrayidx1.i.i.i29, align 8
+  %cmp3.i.i.i30 = icmp eq i32 %35, %call.i.i.i19
+  br i1 %cmp3.i.i.i30, label %gdb_get_cpu_process.exit.i31, label %for.cond.i.i.i25
+
+gdb_get_cpu_process.exit.i31:                     ; preds = %for.cond.i.i.i25, %if.then.i.i.i63, %for.cond.preheader.i.i.i21
+  %retval.0.i.i.i32 = phi ptr [ %34, %if.then.i.i.i63 ], [ %32, %for.cond.preheader.i.i.i21 ], [ %arrayidx1.i.i.i29, %for.cond.i.i.i25 ]
+  %attached.i33 = getelementptr inbounds i8, ptr %retval.0.i.i.i32, i64 4
+  %36 = load i8, ptr %attached.i33, align 4
+  %tobool.i34 = trunc i8 %36 to i1
+  br i1 %tobool.i34, label %gdb_first_attached_cpu.exit64, label %if.then.i35
+
+if.then.i35:                                      ; preds = %gdb_get_cpu_process.exit.i31
+  %node.i.i36 = getelementptr inbounds i8, ptr %30, i64 568
+  %37 = load atomic i64, ptr %node.i.i36 monotonic, align 8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
+  %cpu.addr.07.i.i37 = inttoptr i64 %37 to ptr
+  %tobool.not8.i.i38 = icmp eq i64 %37, 0
+  br i1 %tobool.not8.i.i38, label %gdb_first_attached_cpu.exit64, label %while.body2.i.i39
+
+while.body2.i.i39:                                ; preds = %if.then.i35, %while.end8.i.i57
+  %cpu.addr.09.i.i40 = phi ptr [ %cpu.addr.0.i.i59, %while.end8.i.i57 ], [ %cpu.addr.07.i.i37, %if.then.i35 ]
+  %call.i.i.i.i41 = tail call i32 @getpid() #17
+  %tobool.not.i.i.i.i42 = icmp eq i32 %call.i.i.i.i41, 0
+  br i1 %tobool.not.i.i.i.i42, label %if.then.i.i.i.i62, label %for.cond.preheader.i.i.i.i43
+
+for.cond.preheader.i.i.i.i43:                     ; preds = %while.body2.i.i39
+  %38 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp5.i.i.i.i44 = icmp sgt i32 %38, 0
+  tail call void @llvm.assume(i1 %cmp5.i.i.i.i44)
+  %39 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %wide.trip.count.i.i.i.i45 = zext nneg i32 %38 to i64
+  %40 = load i32, ptr %39, align 8
+  %cmp3.i.i5.i.i46 = icmp eq i32 %40, %call.i.i.i.i41
+  br i1 %cmp3.i.i5.i.i46, label %gdb_get_cpu_process.exit.i.i53, label %for.cond.i.i.i.i47
+
+if.then.i.i.i.i62:                                ; preds = %while.body2.i.i39
+  %41 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  br label %gdb_get_cpu_process.exit.i.i53
+
+for.cond.i.i.i.i47:                               ; preds = %for.cond.preheader.i.i.i.i43, %for.cond.i.i.i.i47
+  %indvars.iv.i.i6.i.i48 = phi i64 [ %indvars.iv.next.i.i.i.i49, %for.cond.i.i.i.i47 ], [ 0, %for.cond.preheader.i.i.i.i43 ]
+  %indvars.iv.next.i.i.i.i49 = add nuw nsw i64 %indvars.iv.i.i6.i.i48, 1
+  %exitcond.not.i.i.i.i50 = icmp ne i64 %indvars.iv.next.i.i.i.i49, %wide.trip.count.i.i.i.i45
+  tail call void @llvm.assume(i1 %exitcond.not.i.i.i.i50)
+  %arrayidx1.i.i.i.i51 = getelementptr %struct.GDBProcess, ptr %39, i64 %indvars.iv.next.i.i.i.i49
+  %42 = load i32, ptr %arrayidx1.i.i.i.i51, align 8
+  %cmp3.i.i.i.i52 = icmp eq i32 %42, %call.i.i.i.i41
+  br i1 %cmp3.i.i.i.i52, label %gdb_get_cpu_process.exit.i.i53, label %for.cond.i.i.i.i47
+
+gdb_get_cpu_process.exit.i.i53:                   ; preds = %for.cond.i.i.i.i47, %if.then.i.i.i.i62, %for.cond.preheader.i.i.i.i43
+  %retval.0.i.i.i.i54 = phi ptr [ %41, %if.then.i.i.i.i62 ], [ %39, %for.cond.preheader.i.i.i.i43 ], [ %arrayidx1.i.i.i.i51, %for.cond.i.i.i.i47 ]
+  %attached.i.i55 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i54, i64 4
+  %43 = load i8, ptr %attached.i.i55, align 4
+  %tobool3.i.i56 = trunc i8 %43 to i1
+  br i1 %tobool3.i.i56, label %gdb_first_attached_cpu.exit64, label %while.end8.i.i57
+
+while.end8.i.i57:                                 ; preds = %gdb_get_cpu_process.exit.i.i53
+  %node9.i.i58 = getelementptr inbounds i8, ptr %cpu.addr.09.i.i40, i64 568
+  %44 = load atomic i64, ptr %node9.i.i58 monotonic, align 8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
+  %cpu.addr.0.i.i59 = inttoptr i64 %44 to ptr
+  %tobool.not.i.i60 = icmp eq i64 %44, 0
+  br i1 %tobool.not.i.i60, label %gdb_first_attached_cpu.exit64, label %while.body2.i.i39, !llvm.loop !18
+
+gdb_first_attached_cpu.exit64:                    ; preds = %gdb_get_cpu_process.exit.i.i53, %while.end8.i.i57, %gdb_get_cpu_process.exit.i31, %if.then.i35
+  %retval.0.i61 = phi ptr [ %30, %gdb_get_cpu_process.exit.i31 ], [ %cpu.addr.07.i.i37, %if.then.i35 ], [ %cpu.addr.09.i.i40, %gdb_get_cpu_process.exit.i.i53 ], [ %cpu.addr.0.i.i59, %while.end8.i.i57 ]
+  store ptr %retval.0.i61, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 2), align 8
   br label %if.end15
 
-if.end15:                                         ; preds = %if.then13, %if.end9
-  %14 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
-  %tobool16.not = icmp eq ptr %14, null
+if.end15:                                         ; preds = %gdb_first_attached_cpu.exit64, %if.end9
+  %45 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
+  %tobool16.not = icmp eq ptr %45, null
   br i1 %tobool16.not, label %if.then17, label %return
 
 if.then17:                                        ; preds = %if.end15
@@ -3447,9 +3605,8 @@ if.else:                                          ; preds = %land.lhs.true, %for
 do.end:                                           ; preds = %land.lhs.true
   %cmd_startswith = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %2 = load i8, ptr %cmd_startswith, align 8
-  %3 = and i8 %2, 1
-  %tobool6.not = icmp eq i8 %3, 0
-  br i1 %tobool6.not, label %land.lhs.true13, label %land.lhs.true7
+  %tobool6 = trunc i8 %2 to i1
+  br i1 %tobool6, label %land.lhs.true7, label %land.lhs.true13
 
 land.lhs.true7:                                   ; preds = %do.end
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
@@ -3464,8 +3621,8 @@ land.lhs.true13:                                  ; preds = %do.end
 
 if.end18:                                         ; preds = %land.lhs.true7, %land.lhs.true13
   %schema = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  %4 = load ptr, ptr %schema, align 8
-  %tobool19.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %schema, align 8
+  %tobool19.not = icmp eq ptr %3, null
   br i1 %tobool19.not, label %if.end29, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
@@ -3473,8 +3630,8 @@ if.then20:                                        ; preds = %if.end18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %curr_data.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %this_param.i)
   %len.i = getelementptr inbounds i8, ptr %call, i64 8
-  %5 = load i32, ptr %len.i, align 8
-  %cmp.i = icmp eq i32 %5, 0
+  %4 = load i32, ptr %len.i, align 8
+  %cmp.i = icmp eq i32 %4, 0
   br i1 %cmp.i, label %do.end5.i, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.then20
@@ -3484,8 +3641,8 @@ if.else3.i:                                       ; preds = %if.then20
 do.end5.i:                                        ; preds = %if.then20
   %arrayidx23 = getelementptr i8, ptr %data, i64 %call22
   store ptr %arrayidx23, ptr %curr_data.i, align 8
-  %6 = load i8, ptr %4, align 1
-  %tobool6.not108.i = icmp eq i8 %6, 0
+  %5 = load i8, ptr %3, align 1
+  %tobool6.not108.i = icmp eq i8 %5, 0
   br i1 %tobool6.not108.i, label %cmd_parse_params.exit.thread, label %land.lhs.true.lr.ph.i
 
 land.lhs.true.lr.ph.i:                            ; preds = %do.end5.i
@@ -3494,21 +3651,21 @@ land.lhs.true.lr.ph.i:                            ; preds = %do.end5.i
   br label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %sw.epilog.i, %land.lhs.true.lr.ph.i
-  %7 = phi i8 [ %6, %land.lhs.true.lr.ph.i ], [ %34, %sw.epilog.i ]
-  %curr_schema.0109.i = phi ptr [ %4, %land.lhs.true.lr.ph.i ], [ %add.ptr.i, %sw.epilog.i ]
+  %6 = phi i8 [ %5, %land.lhs.true.lr.ph.i ], [ %33, %sw.epilog.i ]
+  %curr_schema.0109.i = phi ptr [ %3, %land.lhs.true.lr.ph.i ], [ %add.ptr.i, %sw.epilog.i ]
   %arrayidx7.i = getelementptr i8, ptr %curr_schema.0109.i, i64 1
-  %8 = load i8, ptr %arrayidx7.i, align 1
-  %tobool9.not.i = icmp eq i8 %8, 0
+  %7 = load i8, ptr %arrayidx7.i, align 1
+  %tobool9.not.i = icmp eq i8 %7, 0
   br i1 %tobool9.not.i, label %cmd_parse_params.exit.thread, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %9 = load ptr, ptr %curr_data.i, align 8
-  %10 = load i8, ptr %9, align 1
-  %tobool11.not.i = icmp eq i8 %10, 0
+  %8 = load ptr, ptr %curr_data.i, align 8
+  %9 = load i8, ptr %8, align 1
+  %tobool11.not.i = icmp eq i8 %9, 0
   br i1 %tobool11.not.i, label %cmd_parse_params.exit.thread, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
-  switch i8 %7, label %cmd_parse_params.exit [
+  switch i8 %6, label %cmd_parse_params.exit [
     i8 108, label %sw.bb.i
     i8 76, label %sw.bb20.i
     i8 115, label %sw.bb28.i
@@ -3518,45 +3675,45 @@ while.body.i:                                     ; preds = %land.rhs.i
   ]
 
 sw.bb.i:                                          ; preds = %while.body.i
-  %call.i17 = call i32 @qemu_strtoul(ptr noundef nonnull %9, ptr noundef nonnull %curr_data.i, i32 noundef 16, ptr noundef nonnull %this_param.i) #17
+  %call.i17 = call i32 @qemu_strtoul(ptr noundef nonnull %8, ptr noundef nonnull %curr_data.i, i32 noundef 16, ptr noundef nonnull %this_param.i) #17
   %tobool14.not.i = icmp eq i32 %call.i17, 0
   br i1 %tobool14.not.i, label %if.end16.i, label %cmd_parse_params.exit
 
 if.end16.i:                                       ; preds = %sw.bb.i
-  %11 = load ptr, ptr %curr_data.i, align 8
-  %12 = load i8, ptr %arrayidx7.i, align 1
+  %10 = load ptr, ptr %curr_data.i, align 8
+  %11 = load i8, ptr %arrayidx7.i, align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %curr_delimiters.i.i)
   store i16 0, ptr %curr_delimiters.i.i, align 2
-  switch i8 %12, label %if.else12.i.i [
+  switch i8 %11, label %if.else12.i.i [
     i8 63, label %if.end14.i.i
     i8 48, label %if.then5.i.i
     i8 46, label %land.lhs.true.i.i
   ]
 
 if.then5.i.i:                                     ; preds = %if.end16.i
-  %strlen.i.i = call i64 @strlen(ptr nonnull dereferenceable(1) %11)
-  %strchr.i.i = getelementptr inbounds i8, ptr %11, i64 %strlen.i.i
+  %strlen.i.i = call i64 @strlen(ptr nonnull dereferenceable(1) %10)
+  %strchr.i.i = getelementptr inbounds i8, ptr %10, i64 %strlen.i.i
   br label %cmd_next_param.exit.i
 
 land.lhs.true.i.i:                                ; preds = %if.end16.i
-  %13 = load i8, ptr %11, align 1
-  %tobool.not.i.i = icmp eq i8 %13, 0
+  %12 = load i8, ptr %10, align 1
+  %tobool.not.i.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i.i, label %if.else12.i.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %land.lhs.true.i.i
-  %add.ptr.i.i = getelementptr i8, ptr %11, i64 1
+  %add.ptr.i.i = getelementptr i8, ptr %10, i64 1
   br label %cmd_next_param.exit.i
 
 if.else12.i.i:                                    ; preds = %land.lhs.true.i.i, %if.end16.i
-  store i8 %12, ptr %curr_delimiters.i.i, align 2
+  store i8 %11, ptr %curr_delimiters.i.i, align 2
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.else12.i.i, %if.end16.i
   %delimiters.0.i.i = phi ptr [ %curr_delimiters.i.i, %if.else12.i.i ], [ @cmd_next_param.all_delimiters, %if.end16.i ]
-  %call15.i.i = call i64 @strcspn(ptr noundef %11, ptr noundef nonnull %delimiters.0.i.i) #18
-  %add.ptr16.i.i = getelementptr i8, ptr %11, i64 %call15.i.i
-  %14 = load i8, ptr %add.ptr16.i.i, align 1
-  %tobool17.not.i.i = icmp ne i8 %14, 0
+  %call15.i.i = call i64 @strcspn(ptr noundef %10, ptr noundef nonnull %delimiters.0.i.i) #18
+  %add.ptr16.i.i = getelementptr i8, ptr %10, i64 %call15.i.i
+  %13 = load i8, ptr %add.ptr16.i.i, align 1
+  %tobool17.not.i.i = icmp ne i8 %13, 0
   %spec.select.idx.i.i = zext i1 %tobool17.not.i.i to i64
   %spec.select.i.i = getelementptr i8, ptr %add.ptr16.i.i, i64 %spec.select.idx.i.i
   br label %cmd_next_param.exit.i
@@ -3569,45 +3726,45 @@ cmd_next_param.exit.i:                            ; preds = %if.end14.i.i, %if.t
   br label %sw.epilog.i
 
 sw.bb20.i:                                        ; preds = %while.body.i
-  %call21.i = call i32 @qemu_strtou64(ptr noundef nonnull %9, ptr noundef nonnull %curr_data.i, i32 noundef 16, ptr noundef nonnull %this_param.i) #17
+  %call21.i = call i32 @qemu_strtou64(ptr noundef nonnull %8, ptr noundef nonnull %curr_data.i, i32 noundef 16, ptr noundef nonnull %this_param.i) #17
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool22.not.i, label %if.end24.i, label %cmd_parse_params.exit
 
 if.end24.i:                                       ; preds = %sw.bb20.i
-  %15 = load ptr, ptr %curr_data.i, align 8
-  %16 = load i8, ptr %arrayidx7.i, align 1
+  %14 = load ptr, ptr %curr_data.i, align 8
+  %15 = load i8, ptr %arrayidx7.i, align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %curr_delimiters.i16.i)
   store i16 0, ptr %curr_delimiters.i16.i, align 2
-  switch i8 %16, label %if.else12.i22.i [
+  switch i8 %15, label %if.else12.i22.i [
     i8 63, label %if.end14.i23.i
     i8 48, label %if.then5.i30.i
     i8 46, label %land.lhs.true.i17.i
   ]
 
 if.then5.i30.i:                                   ; preds = %if.end24.i
-  %strlen.i31.i = call i64 @strlen(ptr nonnull dereferenceable(1) %15)
-  %strchr.i32.i = getelementptr inbounds i8, ptr %15, i64 %strlen.i31.i
+  %strlen.i31.i = call i64 @strlen(ptr nonnull dereferenceable(1) %14)
+  %strchr.i32.i = getelementptr inbounds i8, ptr %14, i64 %strlen.i31.i
   br label %cmd_next_param.exit33.i
 
 land.lhs.true.i17.i:                              ; preds = %if.end24.i
-  %17 = load i8, ptr %15, align 1
-  %tobool.not.i18.i = icmp eq i8 %17, 0
+  %16 = load i8, ptr %14, align 1
+  %tobool.not.i18.i = icmp eq i8 %16, 0
   br i1 %tobool.not.i18.i, label %if.else12.i22.i, label %if.then11.i19.i
 
 if.then11.i19.i:                                  ; preds = %land.lhs.true.i17.i
-  %add.ptr.i20.i = getelementptr i8, ptr %15, i64 1
+  %add.ptr.i20.i = getelementptr i8, ptr %14, i64 1
   br label %cmd_next_param.exit33.i
 
 if.else12.i22.i:                                  ; preds = %land.lhs.true.i17.i, %if.end24.i
-  store i8 %16, ptr %curr_delimiters.i16.i, align 2
+  store i8 %15, ptr %curr_delimiters.i16.i, align 2
   br label %if.end14.i23.i
 
 if.end14.i23.i:                                   ; preds = %if.else12.i22.i, %if.end24.i
   %delimiters.0.i24.i = phi ptr [ %curr_delimiters.i16.i, %if.else12.i22.i ], [ @cmd_next_param.all_delimiters, %if.end24.i ]
-  %call15.i25.i = call i64 @strcspn(ptr noundef %15, ptr noundef nonnull %delimiters.0.i24.i) #18
-  %add.ptr16.i26.i = getelementptr i8, ptr %15, i64 %call15.i25.i
-  %18 = load i8, ptr %add.ptr16.i26.i, align 1
-  %tobool17.not.i27.i = icmp ne i8 %18, 0
+  %call15.i25.i = call i64 @strcspn(ptr noundef %14, ptr noundef nonnull %delimiters.0.i24.i) #18
+  %add.ptr16.i26.i = getelementptr i8, ptr %14, i64 %call15.i25.i
+  %17 = load i8, ptr %add.ptr16.i26.i, align 1
+  %tobool17.not.i27.i = icmp ne i8 %17, 0
   %spec.select.idx.i28.i = zext i1 %tobool17.not.i27.i to i64
   %spec.select.i29.i = getelementptr i8, ptr %add.ptr16.i26.i, i64 %spec.select.idx.i28.i
   br label %cmd_next_param.exit33.i
@@ -3620,39 +3777,39 @@ cmd_next_param.exit33.i:                          ; preds = %if.end14.i23.i, %if
   br label %sw.epilog.i
 
 sw.bb28.i:                                        ; preds = %while.body.i
-  store ptr %9, ptr %this_param.i, align 8
+  store ptr %8, ptr %this_param.i, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %curr_delimiters.i34.i)
   store i16 0, ptr %curr_delimiters.i34.i, align 2
-  switch i8 %8, label %if.else12.i40.i [
+  switch i8 %7, label %if.else12.i40.i [
     i8 63, label %if.end14.i41.i
     i8 48, label %if.then5.i48.i
     i8 46, label %land.lhs.true.i35.i
   ]
 
 if.then5.i48.i:                                   ; preds = %sw.bb28.i
-  %strlen.i49.i = call i64 @strlen(ptr nonnull dereferenceable(1) %9)
-  %strchr.i50.i = getelementptr inbounds i8, ptr %9, i64 %strlen.i49.i
+  %strlen.i49.i = call i64 @strlen(ptr nonnull dereferenceable(1) %8)
+  %strchr.i50.i = getelementptr inbounds i8, ptr %8, i64 %strlen.i49.i
   br label %cmd_next_param.exit51.i
 
 land.lhs.true.i35.i:                              ; preds = %sw.bb28.i
-  %19 = load i8, ptr %9, align 1
-  %tobool.not.i36.i = icmp eq i8 %19, 0
+  %18 = load i8, ptr %8, align 1
+  %tobool.not.i36.i = icmp eq i8 %18, 0
   br i1 %tobool.not.i36.i, label %if.else12.i40.i, label %if.then11.i37.i
 
 if.then11.i37.i:                                  ; preds = %land.lhs.true.i35.i
-  %add.ptr.i38.i = getelementptr i8, ptr %9, i64 1
+  %add.ptr.i38.i = getelementptr i8, ptr %8, i64 1
   br label %cmd_next_param.exit51.i
 
 if.else12.i40.i:                                  ; preds = %land.lhs.true.i35.i, %sw.bb28.i
-  store i8 %8, ptr %curr_delimiters.i34.i, align 2
+  store i8 %7, ptr %curr_delimiters.i34.i, align 2
   br label %if.end14.i41.i
 
 if.end14.i41.i:                                   ; preds = %if.else12.i40.i, %sw.bb28.i
   %delimiters.0.i42.i = phi ptr [ %curr_delimiters.i34.i, %if.else12.i40.i ], [ @cmd_next_param.all_delimiters, %sw.bb28.i ]
-  %call15.i43.i = call i64 @strcspn(ptr noundef nonnull %9, ptr noundef nonnull %delimiters.0.i42.i) #18
-  %add.ptr16.i44.i = getelementptr i8, ptr %9, i64 %call15.i43.i
-  %20 = load i8, ptr %add.ptr16.i44.i, align 1
-  %tobool17.not.i45.i = icmp ne i8 %20, 0
+  %call15.i43.i = call i64 @strcspn(ptr noundef nonnull %8, ptr noundef nonnull %delimiters.0.i42.i) #18
+  %add.ptr16.i44.i = getelementptr i8, ptr %8, i64 %call15.i43.i
+  %19 = load i8, ptr %add.ptr16.i44.i, align 1
+  %tobool17.not.i45.i = icmp ne i8 %19, 0
   %spec.select.idx.i46.i = zext i1 %tobool17.not.i45.i to i64
   %spec.select.i47.i = getelementptr i8, ptr %add.ptr16.i44.i, i64 %spec.select.idx.i46.i
   br label %cmd_next_param.exit51.i
@@ -3665,39 +3822,39 @@ cmd_next_param.exit51.i:                          ; preds = %if.end14.i41.i, %if
   br label %sw.epilog.i
 
 sw.bb32.i:                                        ; preds = %while.body.i
-  store i8 %10, ptr %this_param.i, align 8
+  store i8 %9, ptr %this_param.i, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %curr_delimiters.i52.i)
   store i16 0, ptr %curr_delimiters.i52.i, align 2
-  switch i8 %8, label %if.else12.i58.i [
+  switch i8 %7, label %if.else12.i58.i [
     i8 63, label %if.end14.i59.i
     i8 48, label %if.then5.i66.i
     i8 46, label %land.lhs.true.i53.i
   ]
 
 if.then5.i66.i:                                   ; preds = %sw.bb32.i
-  %strlen.i67.i = call i64 @strlen(ptr nonnull dereferenceable(1) %9)
-  %strchr.i68.i = getelementptr inbounds i8, ptr %9, i64 %strlen.i67.i
+  %strlen.i67.i = call i64 @strlen(ptr nonnull dereferenceable(1) %8)
+  %strchr.i68.i = getelementptr inbounds i8, ptr %8, i64 %strlen.i67.i
   br label %cmd_next_param.exit69.i
 
 land.lhs.true.i53.i:                              ; preds = %sw.bb32.i
-  %21 = load i8, ptr %9, align 1
-  %tobool.not.i54.i = icmp eq i8 %21, 0
+  %20 = load i8, ptr %8, align 1
+  %tobool.not.i54.i = icmp eq i8 %20, 0
   br i1 %tobool.not.i54.i, label %if.else12.i58.i, label %if.then11.i55.i
 
 if.then11.i55.i:                                  ; preds = %land.lhs.true.i53.i
-  %add.ptr.i56.i = getelementptr i8, ptr %9, i64 1
+  %add.ptr.i56.i = getelementptr i8, ptr %8, i64 1
   br label %cmd_next_param.exit69.i
 
 if.else12.i58.i:                                  ; preds = %land.lhs.true.i53.i, %sw.bb32.i
-  store i8 %8, ptr %curr_delimiters.i52.i, align 2
+  store i8 %7, ptr %curr_delimiters.i52.i, align 2
   br label %if.end14.i59.i
 
 if.end14.i59.i:                                   ; preds = %if.else12.i58.i, %sw.bb32.i
   %delimiters.0.i60.i = phi ptr [ %curr_delimiters.i52.i, %if.else12.i58.i ], [ @cmd_next_param.all_delimiters, %sw.bb32.i ]
-  %call15.i61.i = call i64 @strcspn(ptr noundef nonnull %9, ptr noundef nonnull %delimiters.0.i60.i) #18
-  %add.ptr16.i62.i = getelementptr i8, ptr %9, i64 %call15.i61.i
-  %22 = load i8, ptr %add.ptr16.i62.i, align 1
-  %tobool17.not.i63.i = icmp ne i8 %22, 0
+  %call15.i61.i = call i64 @strcspn(ptr noundef nonnull %8, ptr noundef nonnull %delimiters.0.i60.i) #18
+  %add.ptr16.i62.i = getelementptr i8, ptr %8, i64 %call15.i61.i
+  %21 = load i8, ptr %add.ptr16.i62.i, align 1
+  %tobool17.not.i63.i = icmp ne i8 %21, 0
   %spec.select.idx.i64.i = zext i1 %tobool17.not.i63.i to i64
   %spec.select.i65.i = getelementptr i8, ptr %add.ptr16.i62.i, i64 %spec.select.idx.i64.i
   br label %cmd_next_param.exit69.i
@@ -3713,21 +3870,21 @@ sw.bb36.i:                                        ; preds = %while.body.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.addr.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %t.i.i)
-  store ptr %9, ptr %buf.addr.i.i, align 8
-  %23 = load i8, ptr %9, align 1
-  %cmp.i.i = icmp eq i8 %23, 112
+  store ptr %8, ptr %buf.addr.i.i, align 8
+  %22 = load i8, ptr %8, align 1
+  %cmp.i.i = icmp eq i8 %22, 112
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb36.i
-  %incdec.ptr.i.i = getelementptr i8, ptr %9, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %8, i64 1
   store ptr %incdec.ptr.i.i, ptr %buf.addr.i.i, align 8
   %call.i.i = call i32 @qemu_strtoul(ptr noundef %incdec.ptr.i.i, ptr noundef nonnull %buf.addr.i.i, i32 noundef 16, ptr noundef nonnull %p.i.i) #17
   %tobool.not.i71.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i71.i, label %if.end.i.i, label %read_thread_id.exit.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %24 = load ptr, ptr %buf.addr.i.i, align 8
-  %incdec.ptr3.i.i = getelementptr i8, ptr %24, i64 1
+  %23 = load ptr, ptr %buf.addr.i.i, align 8
+  %incdec.ptr3.i.i = getelementptr i8, ptr %23, i64 1
   store ptr %incdec.ptr3.i.i, ptr %buf.addr.i.i, align 8
   br label %if.end4.i.i
 
@@ -3736,27 +3893,27 @@ if.else.i.i:                                      ; preds = %sw.bb36.i
   br label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.else.i.i, %if.end.i.i
-  %25 = phi ptr [ %9, %if.else.i.i ], [ %incdec.ptr3.i.i, %if.end.i.i ]
-  %call5.i.i = call i32 @qemu_strtoul(ptr noundef %25, ptr noundef nonnull %buf.addr.i.i, i32 noundef 16, ptr noundef nonnull %t.i.i) #17
+  %24 = phi ptr [ %8, %if.else.i.i ], [ %incdec.ptr3.i.i, %if.end.i.i ]
+  %call5.i.i = call i32 @qemu_strtoul(ptr noundef %24, ptr noundef nonnull %buf.addr.i.i, i32 noundef 16, ptr noundef nonnull %t.i.i) #17
   %tobool6.not.i.i = icmp eq i32 %call5.i.i, 0
   br i1 %tobool6.not.i.i, label %if.end8.i.i, label %read_thread_id.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end4.i.i
-  %26 = load ptr, ptr %buf.addr.i.i, align 8
-  store ptr %26, ptr %curr_data.i, align 8
-  %27 = load i64, ptr %p.i.i, align 8
-  %cmp9.i.i = icmp eq i64 %27, -1
+  %25 = load ptr, ptr %buf.addr.i.i, align 8
+  store ptr %25, ptr %curr_data.i, align 8
+  %26 = load i64, ptr %p.i.i, align 8
+  %cmp9.i.i = icmp eq i64 %26, -1
   br i1 %cmp9.i.i, label %read_thread_id.exit.i, label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.end8.i.i
-  %conv15.i.i = trunc i64 %27 to i32
+  %conv15.i.i = trunc i64 %26 to i32
   store i32 %conv15.i.i, ptr %pid.i, align 4
-  %28 = load i64, ptr %t.i.i, align 8
-  %cmp17.i.i = icmp eq i64 %28, -1
+  %27 = load i64, ptr %t.i.i, align 8
+  %cmp17.i.i = icmp eq i64 %27, -1
   br i1 %cmp17.i.i, label %read_thread_id.exit.i, label %if.end20.i.i
 
 if.end20.i.i:                                     ; preds = %if.end12.i.i
-  %conv23.i.i = trunc i64 %28 to i32
+  %conv23.i.i = trunc i64 %27 to i32
   store i32 %conv23.i.i, ptr %tid.i, align 8
   br label %read_thread_id.exit.i
 
@@ -3766,40 +3923,40 @@ read_thread_id.exit.i:                            ; preds = %if.end20.i.i, %if.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i.i)
   store i32 %retval.0.i70.i, ptr %this_param.i, align 8
-  %29 = load ptr, ptr %curr_data.i, align 8
-  %30 = load i8, ptr %arrayidx7.i, align 1
+  %28 = load ptr, ptr %curr_data.i, align 8
+  %29 = load i8, ptr %arrayidx7.i, align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %curr_delimiters.i72.i)
   store i16 0, ptr %curr_delimiters.i72.i, align 2
-  switch i8 %30, label %if.else12.i78.i [
+  switch i8 %29, label %if.else12.i78.i [
     i8 63, label %if.end14.i79.i
     i8 48, label %if.then5.i86.i
     i8 46, label %land.lhs.true.i73.i
   ]
 
 if.then5.i86.i:                                   ; preds = %read_thread_id.exit.i
-  %strlen.i87.i = call i64 @strlen(ptr nonnull dereferenceable(1) %29)
-  %strchr.i88.i = getelementptr inbounds i8, ptr %29, i64 %strlen.i87.i
+  %strlen.i87.i = call i64 @strlen(ptr nonnull dereferenceable(1) %28)
+  %strchr.i88.i = getelementptr inbounds i8, ptr %28, i64 %strlen.i87.i
   br label %cmd_next_param.exit89.i
 
 land.lhs.true.i73.i:                              ; preds = %read_thread_id.exit.i
-  %31 = load i8, ptr %29, align 1
-  %tobool.not.i74.i = icmp eq i8 %31, 0
+  %30 = load i8, ptr %28, align 1
+  %tobool.not.i74.i = icmp eq i8 %30, 0
   br i1 %tobool.not.i74.i, label %if.else12.i78.i, label %if.then11.i75.i
 
 if.then11.i75.i:                                  ; preds = %land.lhs.true.i73.i
-  %add.ptr.i76.i = getelementptr i8, ptr %29, i64 1
+  %add.ptr.i76.i = getelementptr i8, ptr %28, i64 1
   br label %cmd_next_param.exit89.i
 
 if.else12.i78.i:                                  ; preds = %land.lhs.true.i73.i, %read_thread_id.exit.i
-  store i8 %30, ptr %curr_delimiters.i72.i, align 2
+  store i8 %29, ptr %curr_delimiters.i72.i, align 2
   br label %if.end14.i79.i
 
 if.end14.i79.i:                                   ; preds = %if.else12.i78.i, %read_thread_id.exit.i
   %delimiters.0.i80.i = phi ptr [ %curr_delimiters.i72.i, %if.else12.i78.i ], [ @cmd_next_param.all_delimiters, %read_thread_id.exit.i ]
-  %call15.i81.i = call i64 @strcspn(ptr noundef %29, ptr noundef nonnull %delimiters.0.i80.i) #18
-  %add.ptr16.i82.i = getelementptr i8, ptr %29, i64 %call15.i81.i
-  %32 = load i8, ptr %add.ptr16.i82.i, align 1
-  %tobool17.not.i83.i = icmp ne i8 %32, 0
+  %call15.i81.i = call i64 @strcspn(ptr noundef %28, ptr noundef nonnull %delimiters.0.i80.i) #18
+  %add.ptr16.i82.i = getelementptr i8, ptr %28, i64 %call15.i81.i
+  %31 = load i8, ptr %add.ptr16.i82.i, align 1
+  %tobool17.not.i83.i = icmp ne i8 %31, 0
   %spec.select.idx.i84.i = zext i1 %tobool17.not.i83.i to i64
   %spec.select.i85.i = getelementptr i8, ptr %add.ptr16.i82.i, i64 %spec.select.idx.i84.i
   br label %cmd_next_param.exit89.i
@@ -3814,31 +3971,31 @@ cmd_next_param.exit89.i:                          ; preds = %if.end14.i79.i, %if
 sw.bb41.i:                                        ; preds = %while.body.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %curr_delimiters.i90.i)
   store i16 0, ptr %curr_delimiters.i90.i, align 2
-  switch i8 %8, label %if.else12.i96.i [
+  switch i8 %7, label %if.else12.i96.i [
     i8 63, label %if.end14.i97.i
     i8 48, label %if.then5.i104.i
     i8 46, label %if.then11.i93.i
   ]
 
 if.then5.i104.i:                                  ; preds = %sw.bb41.i
-  %strlen.i105.i = call i64 @strlen(ptr nonnull dereferenceable(1) %9)
-  %strchr.i106.i = getelementptr inbounds i8, ptr %9, i64 %strlen.i105.i
+  %strlen.i105.i = call i64 @strlen(ptr nonnull dereferenceable(1) %8)
+  %strchr.i106.i = getelementptr inbounds i8, ptr %8, i64 %strlen.i105.i
   br label %cmd_next_param.exit107.i
 
 if.then11.i93.i:                                  ; preds = %sw.bb41.i
-  %add.ptr.i94.i = getelementptr i8, ptr %9, i64 1
+  %add.ptr.i94.i = getelementptr i8, ptr %8, i64 1
   br label %cmd_next_param.exit107.i
 
 if.else12.i96.i:                                  ; preds = %sw.bb41.i
-  store i8 %8, ptr %curr_delimiters.i90.i, align 2
+  store i8 %7, ptr %curr_delimiters.i90.i, align 2
   br label %if.end14.i97.i
 
 if.end14.i97.i:                                   ; preds = %if.else12.i96.i, %sw.bb41.i
   %delimiters.0.i98.i = phi ptr [ %curr_delimiters.i90.i, %if.else12.i96.i ], [ @cmd_next_param.all_delimiters, %sw.bb41.i ]
-  %call15.i99.i = call i64 @strcspn(ptr noundef nonnull %9, ptr noundef nonnull %delimiters.0.i98.i) #18
-  %add.ptr16.i100.i = getelementptr i8, ptr %9, i64 %call15.i99.i
-  %33 = load i8, ptr %add.ptr16.i100.i, align 1
-  %tobool17.not.i101.i = icmp ne i8 %33, 0
+  %call15.i99.i = call i64 @strcspn(ptr noundef nonnull %8, ptr noundef nonnull %delimiters.0.i98.i) #18
+  %add.ptr16.i100.i = getelementptr i8, ptr %8, i64 %call15.i99.i
+  %32 = load i8, ptr %add.ptr16.i100.i, align 1
+  %tobool17.not.i101.i = icmp ne i8 %32, 0
   %spec.select.idx.i102.i = zext i1 %tobool17.not.i101.i to i64
   %spec.select.i103.i = getelementptr i8, ptr %add.ptr16.i100.i, i64 %spec.select.idx.i102.i
   br label %cmd_next_param.exit107.i
@@ -3851,8 +4008,8 @@ cmd_next_param.exit107.i:                         ; preds = %if.end14.i97.i, %if
 
 sw.epilog.i:                                      ; preds = %cmd_next_param.exit107.i, %cmd_next_param.exit89.i, %cmd_next_param.exit69.i, %cmd_next_param.exit51.i, %cmd_next_param.exit33.i, %cmd_next_param.exit.i
   %add.ptr.i = getelementptr i8, ptr %curr_schema.0109.i, i64 2
-  %34 = load i8, ptr %add.ptr.i, align 1
-  %tobool6.not.i = icmp eq i8 %34, 0
+  %33 = load i8, ptr %add.ptr.i, align 1
+  %tobool6.not.i = icmp eq i8 %33, 0
   br i1 %tobool6.not.i, label %cmd_parse_params.exit.thread, label %land.lhs.true.i, !llvm.loop !31
 
 cmd_parse_params.exit.thread:                     ; preds = %land.rhs.i, %sw.epilog.i, %land.lhs.true.i, %do.end5.i
@@ -3867,11 +4024,11 @@ cmd_parse_params.exit:                            ; preds = %while.body.i, %sw.b
 
 if.end29:                                         ; preds = %cmd_parse_params.exit.thread, %if.end18
   %allow_stop_reply = getelementptr inbounds i8, ptr %arrayidx, i64 32
-  %35 = load i8, ptr %allow_stop_reply, align 8
-  %36 = and i8 %35, 1
-  store i8 %36, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 18), align 8
-  %37 = load ptr, ptr %arrayidx, align 8
-  call void %37(ptr noundef %call, ptr noundef null) #17
+  %34 = load i8, ptr %allow_stop_reply, align 8
+  %frombool = and i8 %34, 1
+  store i8 %frombool, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 18), align 8
+  %35 = load ptr, ptr %arrayidx, align 8
+  call void %35(ptr noundef %call, ptr noundef null) #17
   br label %cleanup
 
 for.inc:                                          ; preds = %land.lhs.true7, %land.lhs.true13
@@ -3940,17 +4097,17 @@ if.end:                                           ; preds = %entry
   %call1.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv.i, i64 noundef 1) #20
   %3 = load atomic i64, ptr @cpus_queue monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !33
-  %tobool.not86.i = icmp eq i64 %3, 0
-  br i1 %tobool.not86.i, label %while.cond10.preheader.i, label %for.body.i
+  %tobool.not102.i = icmp eq i64 %3, 0
+  br i1 %tobool.not102.i, label %while.cond10.preheader.i, label %for.body.i
 
 while.cond10.preheader.i:                         ; preds = %for.body.i, %if.end
   %4 = load i8, ptr %2, align 1
-  %tobool11.not99.i = icmp eq i8 %4, 0
-  br i1 %tobool11.not99.i, label %gdb_handle_vcont.exit.thread8, label %while.body12.i
+  %tobool11.not115.i = icmp eq i8 %4, 0
+  br i1 %tobool11.not115.i, label %gdb_handle_vcont.exit.thread8, label %while.body12.i
 
 for.body.i:                                       ; preds = %if.end, %for.body.i
-  %cpu.0.in87.i = phi i64 [ %6, %for.body.i ], [ %3, %if.end ]
-  %cpu.0.i = inttoptr i64 %cpu.0.in87.i to ptr
+  %cpu.0.in103.i = phi i64 [ %6, %for.body.i ], [ %3, %if.end ]
+  %cpu.0.i = inttoptr i64 %cpu.0.in103.i to ptr
   %cpu_index.i = getelementptr inbounds i8, ptr %cpu.0.i, i64 712
   %5 = load i32, ptr %cpu_index.i, align 8
   %idxprom.i = sext i32 %5 to i64
@@ -3963,10 +4120,10 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   br i1 %tobool.not.i, label %while.cond10.preheader.i, label %for.body.i, !llvm.loop !35
 
 while.body12.i:                                   ; preds = %while.cond10.preheader.i, %sw.epilog.i
-  %7 = phi ptr [ %47, %sw.epilog.i ], [ %2, %while.cond10.preheader.i ]
-  %last_target.0103.i = phi ptr [ %last_target.5.i, %sw.epilog.i ], [ null, %while.cond10.preheader.i ]
-  %target_count.0102.i = phi i32 [ %target_count.5.i, %sw.epilog.i ], [ 0, %while.cond10.preheader.i ]
-  %signal.0101.i = phi i32 [ %signal.1.i, %sw.epilog.i ], [ 0, %while.cond10.preheader.i ]
+  %7 = phi ptr [ %61, %sw.epilog.i ], [ %2, %while.cond10.preheader.i ]
+  %last_target.0119.i = phi ptr [ %last_target.5.i, %sw.epilog.i ], [ null, %while.cond10.preheader.i ]
+  %target_count.0118.i = phi i32 [ %target_count.5.i, %sw.epilog.i ], [ 0, %while.cond10.preheader.i ]
+  %signal.0117.i = phi i32 [ %signal.1.i, %sw.epilog.i ], [ 0, %while.cond10.preheader.i ]
   %incdec.ptr.i = getelementptr i8, ptr %7, i64 1
   store ptr %incdec.ptr.i, ptr %p.addr.i, align 8
   %8 = load i8, ptr %7, align 1
@@ -4001,7 +4158,7 @@ if.end29.i:                                       ; preds = %if.then22.i
 if.end40.i:                                       ; preds = %if.end29.i, %if.end.i
   %12 = phi ptr [ %.pre.i, %if.end29.i ], [ %incdec.ptr15.i, %if.end.i ]
   %cur_action.0.i = phi i8 [ %conv25.i, %if.end29.i ], [ %9, %if.end.i ]
-  %signal.1.i = phi i32 [ %call31.i, %if.end29.i ], [ %signal.0101.i, %if.end.i ]
+  %signal.1.i = phi i32 [ %call31.i, %if.end29.i ], [ %signal.0117.i, %if.end.i ]
   %13 = load i8, ptr %12, align 1
   switch i8 %13, label %if.else49.i [
     i8 0, label %sw.bb59.i
@@ -4029,7 +4186,7 @@ if.then.i.i:                                      ; preds = %if.then54.i
   store ptr %incdec.ptr.i.i, ptr %buf.addr.i.i, align 8
   %call.i.i = call i32 @qemu_strtoul(ptr noundef %incdec.ptr.i.i, ptr noundef nonnull %buf.addr.i.i, i32 noundef 16, ptr noundef nonnull %p.i.i) #17
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.end58.thread65.i
+  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.end58.thread81.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
   %16 = load ptr, ptr %buf.addr.i.i, align 8
@@ -4045,16 +4202,16 @@ if.end4.i.i:                                      ; preds = %if.else.i.i, %if.en
   %17 = phi ptr [ %incdec.ptr50.i, %if.else.i.i ], [ %incdec.ptr3.i.i, %if.end.i.i ]
   %call5.i.i = call i32 @qemu_strtoul(ptr noundef %17, ptr noundef nonnull %buf.addr.i.i, i32 noundef 16, ptr noundef nonnull %t.i.i) #17
   %tobool6.not.i.i = icmp eq i32 %call5.i.i, 0
-  br i1 %tobool6.not.i.i, label %if.end8.i.i, label %if.end58.thread65.i
+  br i1 %tobool6.not.i.i, label %if.end8.i.i, label %if.end58.thread81.i
 
 if.end8.i.i:                                      ; preds = %if.end4.i.i
   %18 = load ptr, ptr %buf.addr.i.i, align 8
   store ptr %18, ptr %p.addr.i, align 8
   %19 = load i64, ptr %p.i.i, align 8
   %cmp9.i.i = icmp eq i64 %19, -1
-  br i1 %cmp9.i.i, label %if.end58.thread69.i, label %if.end12.i.i
+  br i1 %cmp9.i.i, label %if.end58.thread85.i, label %if.end12.i.i
 
-if.end58.thread69.i:                              ; preds = %if.end8.i.i
+if.end58.thread85.i:                              ; preds = %if.end8.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i.i)
@@ -4066,92 +4223,183 @@ if.end12.i.i:                                     ; preds = %if.end8.i.i
   %cmp17.i.i = icmp eq i64 %20, -1
   br i1 %cmp17.i.i, label %sw.bb77.i, label %sw.bb100.i
 
-if.end58.thread65.i:                              ; preds = %if.end4.i.i, %if.then.i.i
+if.end58.thread81.i:                              ; preds = %if.end4.i.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i.i)
   br label %gdb_handle_vcont.exit.thread6
 
-sw.bb59.i:                                        ; preds = %if.end58.thread69.i, %if.end40.i, %if.end40.i
-  %call60.i = call ptr @gdb_first_attached_cpu()
-  %tobool62.not93.i = icmp eq ptr %call60.i, null
-  br i1 %tobool62.not93.i, label %sw.epilog.i, label %while.body63.i
-
-while.body63.i:                                   ; preds = %sw.bb59.i, %gdb_next_attached_cpu.exit.i
-  %last_target.196.i = phi ptr [ %last_target.2.i, %gdb_next_attached_cpu.exit.i ], [ %last_target.0103.i, %sw.bb59.i ]
-  %target_count.195.i = phi i32 [ %target_count.2.i, %gdb_next_attached_cpu.exit.i ], [ %target_count.0102.i, %sw.bb59.i ]
-  %cpu.194.i = phi ptr [ %cpu.addr.0.lcssa.i.i, %gdb_next_attached_cpu.exit.i ], [ %call60.i, %sw.bb59.i ]
-  %cpu_index64.i = getelementptr inbounds i8, ptr %cpu.194.i, i64 712
-  %21 = load i32, ptr %cpu_index64.i, align 8
-  %idxprom65.i = sext i32 %21 to i64
-  %arrayidx66.i = getelementptr i8, ptr %call1.i, i64 %idxprom65.i
-  %22 = load i8, ptr %arrayidx66.i, align 1
-  %cmp68.i = icmp eq i8 %22, 1
-  br i1 %cmp68.i, label %if.then70.i, label %if.end74.i
-
-if.then70.i:                                      ; preds = %while.body63.i
-  store i8 %cur_action.0.i, ptr %arrayidx66.i, align 1
-  %inc.i = add i32 %target_count.195.i, 1
-  br label %if.end74.i
-
-if.end74.i:                                       ; preds = %if.then70.i, %while.body63.i
-  %target_count.2.i = phi i32 [ %inc.i, %if.then70.i ], [ %target_count.195.i, %while.body63.i ]
-  %last_target.2.i = phi ptr [ %cpu.194.i, %if.then70.i ], [ %last_target.196.i, %while.body63.i ]
-  %node.i.i = getelementptr inbounds i8, ptr %cpu.194.i, i64 568
-  %23 = load atomic i64, ptr %node.i.i monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
-  %cpu.addr.07.i.i = inttoptr i64 %23 to ptr
-  %tobool.not8.i.i = icmp eq i64 %23, 0
-  br i1 %tobool.not8.i.i, label %gdb_next_attached_cpu.exit.i, label %while.body2.i.i
-
-while.body2.i.i:                                  ; preds = %if.end74.i, %while.end8.i.i
-  %cpu.addr.09.i.i = phi ptr [ %cpu.addr.0.i.i, %while.end8.i.i ], [ %cpu.addr.07.i.i, %if.end74.i ]
+sw.bb59.i:                                        ; preds = %if.end58.thread85.i, %if.end40.i, %if.end40.i
+  %21 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %22 = inttoptr i64 %21 to ptr
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   %call.i.i.i.i = call i32 @getpid() #17
   %tobool.not.i.i.i.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i, label %for.cond.preheader.i.i.i.i
 
-for.cond.preheader.i.i.i.i:                       ; preds = %while.body2.i.i
-  %24 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
-  %cmp5.i.i.i.i = icmp sgt i32 %24, 0
+for.cond.preheader.i.i.i.i:                       ; preds = %sw.bb59.i
+  %23 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp5.i.i.i.i = icmp sgt i32 %23, 0
   call void @llvm.assume(i1 %cmp5.i.i.i.i)
-  %25 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
-  %wide.trip.count.i.i.i.i = zext nneg i32 %24 to i64
-  %26 = load i32, ptr %25, align 8
-  %cmp3.i.i5.i.i = icmp eq i32 %26, %call.i.i.i.i
-  br i1 %cmp3.i.i5.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
+  %24 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %wide.trip.count.i.i.i.i = zext nneg i32 %23 to i64
+  %25 = load i32, ptr %24, align 8
+  %cmp3.i.i3.i.i = icmp eq i32 %25, %call.i.i.i.i
+  br i1 %cmp3.i.i3.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %while.body2.i.i
-  %27 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+if.then.i.i.i.i:                                  ; preds = %sw.bb59.i
+  %26 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
   br label %gdb_get_cpu_process.exit.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.cond.preheader.i.i.i.i, %for.cond.i.i.i.i
-  %indvars.iv.i.i6.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.cond.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
-  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i6.i.i, 1
+  %indvars.iv.i.i4.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.cond.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
+  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i4.i.i, 1
   %exitcond.not.i.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
   call void @llvm.assume(i1 %exitcond.not.i.i.i.i)
-  %arrayidx1.i.i.i.i = getelementptr %struct.GDBProcess, ptr %25, i64 %indvars.iv.next.i.i.i.i
-  %28 = load i32, ptr %arrayidx1.i.i.i.i, align 8
-  %cmp3.i.i.i.i = icmp eq i32 %28, %call.i.i.i.i
+  %arrayidx1.i.i.i.i = getelementptr %struct.GDBProcess, ptr %24, i64 %indvars.iv.next.i.i.i.i
+  %27 = load i32, ptr %arrayidx1.i.i.i.i, align 8
+  %cmp3.i.i.i.i = icmp eq i32 %27, %call.i.i.i.i
   br i1 %cmp3.i.i.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
 
 gdb_get_cpu_process.exit.i.i:                     ; preds = %for.cond.i.i.i.i, %if.then.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %27, %if.then.i.i.i.i ], [ %25, %for.cond.preheader.i.i.i.i ], [ %arrayidx1.i.i.i.i, %for.cond.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %26, %if.then.i.i.i.i ], [ %24, %for.cond.preheader.i.i.i.i ], [ %arrayidx1.i.i.i.i, %for.cond.i.i.i.i ]
   %attached.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 4
-  %29 = load i8, ptr %attached.i.i, align 4
-  %30 = and i8 %29, 1
-  %tobool3.not.i.i = icmp eq i8 %30, 0
-  br i1 %tobool3.not.i.i, label %while.end8.i.i, label %gdb_next_attached_cpu.exit.i
+  %28 = load i8, ptr %attached.i.i, align 4
+  %tobool.i.i = trunc i8 %28 to i1
+  br i1 %tobool.i.i, label %gdb_first_attached_cpu.exit.i, label %if.then.i31.i
 
-while.end8.i.i:                                   ; preds = %gdb_get_cpu_process.exit.i.i
-  %node9.i.i = getelementptr inbounds i8, ptr %cpu.addr.09.i.i, i64 568
-  %31 = load atomic i64, ptr %node9.i.i monotonic, align 8
+if.then.i31.i:                                    ; preds = %gdb_get_cpu_process.exit.i.i
+  %node.i.i.i = getelementptr inbounds i8, ptr %22, i64 568
+  %29 = load atomic i64, ptr %node.i.i.i monotonic, align 8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
+  %cpu.addr.07.i.i.i = inttoptr i64 %29 to ptr
+  %tobool.not8.i.i.i = icmp eq i64 %29, 0
+  br i1 %tobool.not8.i.i.i, label %gdb_first_attached_cpu.exit.i, label %while.body2.i.i.i
+
+while.body2.i.i.i:                                ; preds = %if.then.i31.i, %while.end8.i.i.i
+  %cpu.addr.09.i.i.i = phi ptr [ %cpu.addr.0.i.i.i, %while.end8.i.i.i ], [ %cpu.addr.07.i.i.i, %if.then.i31.i ]
+  %call.i.i.i.i.i = call i32 @getpid() #17
+  %tobool.not.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, 0
+  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.cond.preheader.i.i.i.i.i
+
+for.cond.preheader.i.i.i.i.i:                     ; preds = %while.body2.i.i.i
+  %30 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp5.i.i.i.i.i = icmp sgt i32 %30, 0
+  call void @llvm.assume(i1 %cmp5.i.i.i.i.i)
+  %31 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %wide.trip.count.i.i.i.i.i = zext nneg i32 %30 to i64
+  %32 = load i32, ptr %31, align 8
+  %cmp3.i.i5.i.i.i = icmp eq i32 %32, %call.i.i.i.i.i
+  br i1 %cmp3.i.i5.i.i.i, label %gdb_get_cpu_process.exit.i.i.i, label %for.cond.i.i.i.i.i
+
+if.then.i.i.i.i.i:                                ; preds = %while.body2.i.i.i
+  %33 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  br label %gdb_get_cpu_process.exit.i.i.i
+
+for.cond.i.i.i.i.i:                               ; preds = %for.cond.preheader.i.i.i.i.i, %for.cond.i.i.i.i.i
+  %indvars.iv.i.i6.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %for.cond.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i ]
+  %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i6.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
+  call void @llvm.assume(i1 %exitcond.not.i.i.i.i.i)
+  %arrayidx1.i.i.i.i.i = getelementptr %struct.GDBProcess, ptr %31, i64 %indvars.iv.next.i.i.i.i.i
+  %34 = load i32, ptr %arrayidx1.i.i.i.i.i, align 8
+  %cmp3.i.i.i.i.i = icmp eq i32 %34, %call.i.i.i.i.i
+  br i1 %cmp3.i.i.i.i.i, label %gdb_get_cpu_process.exit.i.i.i, label %for.cond.i.i.i.i.i
+
+gdb_get_cpu_process.exit.i.i.i:                   ; preds = %for.cond.i.i.i.i.i, %if.then.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i
+  %retval.0.i.i.i.i.i = phi ptr [ %33, %if.then.i.i.i.i.i ], [ %31, %for.cond.preheader.i.i.i.i.i ], [ %arrayidx1.i.i.i.i.i, %for.cond.i.i.i.i.i ]
+  %attached.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 4
+  %35 = load i8, ptr %attached.i.i.i, align 4
+  %tobool3.i.i.i = trunc i8 %35 to i1
+  br i1 %tobool3.i.i.i, label %gdb_first_attached_cpu.exit.i, label %while.end8.i.i.i
+
+while.end8.i.i.i:                                 ; preds = %gdb_get_cpu_process.exit.i.i.i
+  %node9.i.i.i = getelementptr inbounds i8, ptr %cpu.addr.09.i.i.i, i64 568
+  %36 = load atomic i64, ptr %node9.i.i.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
-  %cpu.addr.0.i.i = inttoptr i64 %31 to ptr
-  %tobool.not.i31.i = icmp eq i64 %31, 0
-  br i1 %tobool.not.i31.i, label %gdb_next_attached_cpu.exit.i, label %while.body2.i.i, !llvm.loop !18
+  %cpu.addr.0.i.i.i = inttoptr i64 %36 to ptr
+  %tobool.not.i.i.i = icmp eq i64 %36, 0
+  br i1 %tobool.not.i.i.i, label %gdb_first_attached_cpu.exit.i, label %while.body2.i.i.i, !llvm.loop !18
 
-gdb_next_attached_cpu.exit.i:                     ; preds = %while.end8.i.i, %gdb_get_cpu_process.exit.i.i, %if.end74.i
-  %cpu.addr.0.lcssa.i.i = phi ptr [ %cpu.addr.07.i.i, %if.end74.i ], [ %cpu.addr.09.i.i, %gdb_get_cpu_process.exit.i.i ], [ %cpu.addr.0.i.i, %while.end8.i.i ]
+gdb_first_attached_cpu.exit.i:                    ; preds = %while.end8.i.i.i, %gdb_get_cpu_process.exit.i.i.i, %if.then.i31.i, %gdb_get_cpu_process.exit.i.i
+  %retval.0.i32.i = phi ptr [ %22, %gdb_get_cpu_process.exit.i.i ], [ %cpu.addr.07.i.i.i, %if.then.i31.i ], [ %cpu.addr.0.i.i.i, %while.end8.i.i.i ], [ %cpu.addr.09.i.i.i, %gdb_get_cpu_process.exit.i.i.i ]
+  %tobool62.not109.i = icmp eq ptr %retval.0.i32.i, null
+  br i1 %tobool62.not109.i, label %sw.epilog.i, label %while.body63.i
+
+while.body63.i:                                   ; preds = %gdb_first_attached_cpu.exit.i, %gdb_next_attached_cpu.exit.i
+  %last_target.1112.i = phi ptr [ %last_target.2.i, %gdb_next_attached_cpu.exit.i ], [ %last_target.0119.i, %gdb_first_attached_cpu.exit.i ]
+  %target_count.1111.i = phi i32 [ %target_count.2.i, %gdb_next_attached_cpu.exit.i ], [ %target_count.0118.i, %gdb_first_attached_cpu.exit.i ]
+  %cpu.1110.i = phi ptr [ %cpu.addr.0.lcssa.i.i, %gdb_next_attached_cpu.exit.i ], [ %retval.0.i32.i, %gdb_first_attached_cpu.exit.i ]
+  %cpu_index64.i = getelementptr inbounds i8, ptr %cpu.1110.i, i64 712
+  %37 = load i32, ptr %cpu_index64.i, align 8
+  %idxprom65.i = sext i32 %37 to i64
+  %arrayidx66.i = getelementptr i8, ptr %call1.i, i64 %idxprom65.i
+  %38 = load i8, ptr %arrayidx66.i, align 1
+  %cmp68.i = icmp eq i8 %38, 1
+  br i1 %cmp68.i, label %if.then70.i, label %if.end74.i
+
+if.then70.i:                                      ; preds = %while.body63.i
+  store i8 %cur_action.0.i, ptr %arrayidx66.i, align 1
+  %inc.i = add i32 %target_count.1111.i, 1
+  br label %if.end74.i
+
+if.end74.i:                                       ; preds = %if.then70.i, %while.body63.i
+  %target_count.2.i = phi i32 [ %inc.i, %if.then70.i ], [ %target_count.1111.i, %while.body63.i ]
+  %last_target.2.i = phi ptr [ %cpu.1110.i, %if.then70.i ], [ %last_target.1112.i, %while.body63.i ]
+  %node.i.i = getelementptr inbounds i8, ptr %cpu.1110.i, i64 568
+  %39 = load atomic i64, ptr %node.i.i monotonic, align 8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
+  %cpu.addr.07.i.i = inttoptr i64 %39 to ptr
+  %tobool.not8.i.i = icmp eq i64 %39, 0
+  br i1 %tobool.not8.i.i, label %gdb_next_attached_cpu.exit.i, label %while.body2.i.i
+
+while.body2.i.i:                                  ; preds = %if.end74.i, %while.end8.i.i
+  %cpu.addr.09.i.i = phi ptr [ %cpu.addr.0.i.i, %while.end8.i.i ], [ %cpu.addr.07.i.i, %if.end74.i ]
+  %call.i.i.i33.i = call i32 @getpid() #17
+  %tobool.not.i.i.i34.i = icmp eq i32 %call.i.i.i33.i, 0
+  br i1 %tobool.not.i.i.i34.i, label %if.then.i.i.i47.i, label %for.cond.preheader.i.i.i35.i
+
+for.cond.preheader.i.i.i35.i:                     ; preds = %while.body2.i.i
+  %40 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp5.i.i.i36.i = icmp sgt i32 %40, 0
+  call void @llvm.assume(i1 %cmp5.i.i.i36.i)
+  %41 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %wide.trip.count.i.i.i37.i = zext nneg i32 %40 to i64
+  %42 = load i32, ptr %41, align 8
+  %cmp3.i.i5.i.i = icmp eq i32 %42, %call.i.i.i33.i
+  br i1 %cmp3.i.i5.i.i, label %gdb_get_cpu_process.exit.i43.i, label %for.cond.i.i.i38.i
+
+if.then.i.i.i47.i:                                ; preds = %while.body2.i.i
+  %43 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  br label %gdb_get_cpu_process.exit.i43.i
+
+for.cond.i.i.i38.i:                               ; preds = %for.cond.preheader.i.i.i35.i, %for.cond.i.i.i38.i
+  %indvars.iv.i.i6.i.i = phi i64 [ %indvars.iv.next.i.i.i39.i, %for.cond.i.i.i38.i ], [ 0, %for.cond.preheader.i.i.i35.i ]
+  %indvars.iv.next.i.i.i39.i = add nuw nsw i64 %indvars.iv.i.i6.i.i, 1
+  %exitcond.not.i.i.i40.i = icmp ne i64 %indvars.iv.next.i.i.i39.i, %wide.trip.count.i.i.i37.i
+  call void @llvm.assume(i1 %exitcond.not.i.i.i40.i)
+  %arrayidx1.i.i.i41.i = getelementptr %struct.GDBProcess, ptr %41, i64 %indvars.iv.next.i.i.i39.i
+  %44 = load i32, ptr %arrayidx1.i.i.i41.i, align 8
+  %cmp3.i.i.i42.i = icmp eq i32 %44, %call.i.i.i33.i
+  br i1 %cmp3.i.i.i42.i, label %gdb_get_cpu_process.exit.i43.i, label %for.cond.i.i.i38.i
+
+gdb_get_cpu_process.exit.i43.i:                   ; preds = %for.cond.i.i.i38.i, %if.then.i.i.i47.i, %for.cond.preheader.i.i.i35.i
+  %retval.0.i.i.i44.i = phi ptr [ %43, %if.then.i.i.i47.i ], [ %41, %for.cond.preheader.i.i.i35.i ], [ %arrayidx1.i.i.i41.i, %for.cond.i.i.i38.i ]
+  %attached.i45.i = getelementptr inbounds i8, ptr %retval.0.i.i.i44.i, i64 4
+  %45 = load i8, ptr %attached.i45.i, align 4
+  %tobool3.i.i = trunc i8 %45 to i1
+  br i1 %tobool3.i.i, label %gdb_next_attached_cpu.exit.i, label %while.end8.i.i
+
+while.end8.i.i:                                   ; preds = %gdb_get_cpu_process.exit.i43.i
+  %node9.i.i = getelementptr inbounds i8, ptr %cpu.addr.09.i.i, i64 568
+  %46 = load atomic i64, ptr %node9.i.i monotonic, align 8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
+  %cpu.addr.0.i.i = inttoptr i64 %46 to ptr
+  %tobool.not.i46.i = icmp eq i64 %46, 0
+  br i1 %tobool.not.i46.i, label %gdb_next_attached_cpu.exit.i, label %while.body2.i.i, !llvm.loop !18
+
+gdb_next_attached_cpu.exit.i:                     ; preds = %while.end8.i.i, %gdb_get_cpu_process.exit.i43.i, %if.end74.i
+  %cpu.addr.0.lcssa.i.i = phi ptr [ %cpu.addr.07.i.i, %if.end74.i ], [ %cpu.addr.09.i.i, %gdb_get_cpu_process.exit.i43.i ], [ %cpu.addr.0.i.i, %while.end8.i.i ]
   %tobool62.not.i = icmp eq ptr %cpu.addr.0.lcssa.i.i, null
   br i1 %tobool62.not.i, label %sw.epilog.i, label %while.body63.i, !llvm.loop !36
 
@@ -4159,21 +4407,21 @@ sw.bb77.i:                                        ; preds = %if.end12.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i.i)
-  %tobool.not.i32.i = icmp eq i32 %conv15.i.i, 0
-  br i1 %tobool.not.i32.i, label %if.then.i34.i, label %for.cond.preheader.i.i
+  %tobool.not.i48.i = icmp eq i32 %conv15.i.i, 0
+  br i1 %tobool.not.i48.i, label %if.then.i50.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %sw.bb77.i
-  %32 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
-  %cmp5.i.i = icmp sgt i32 %32, 0
+  %47 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp5.i.i = icmp sgt i32 %47, 0
   br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %gdb_get_process.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %33 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
-  %wide.trip.count.i.i = zext nneg i32 %32 to i64
+  %48 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %wide.trip.count.i.i = zext nneg i32 %47 to i64
   br label %for.body.i.i
 
-if.then.i34.i:                                    ; preds = %sw.bb77.i
-  %34 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+if.then.i50.i:                                    ; preds = %sw.bb77.i
+  %49 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
   br label %gdb_get_process.exit.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
@@ -4183,85 +4431,84 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
-  %arrayidx1.i.i = getelementptr %struct.GDBProcess, ptr %33, i64 %indvars.iv.i.i
-  %35 = load i32, ptr %arrayidx1.i.i, align 8
-  %cmp3.i.i = icmp eq i32 %35, %conv15.i.i
+  %arrayidx1.i.i = getelementptr %struct.GDBProcess, ptr %48, i64 %indvars.iv.i.i
+  %50 = load i32, ptr %arrayidx1.i.i, align 8
+  %cmp3.i.i = icmp eq i32 %50, %conv15.i.i
   br i1 %cmp3.i.i, label %gdb_get_process.exit.i, label %for.cond.i.i
 
-gdb_get_process.exit.i:                           ; preds = %for.body.i.i, %for.cond.i.i, %if.then.i34.i, %for.cond.preheader.i.i
-  %retval.0.i33.i = phi ptr [ %34, %if.then.i34.i ], [ null, %for.cond.preheader.i.i ], [ %arrayidx1.i.i, %for.body.i.i ], [ null, %for.cond.i.i ]
-  %attached.i = getelementptr inbounds i8, ptr %retval.0.i33.i, i64 4
-  %36 = load i8, ptr %attached.i, align 4
-  %37 = and i8 %36, 1
-  %tobool79.not.i = icmp eq i8 %37, 0
-  br i1 %tobool79.not.i, label %gdb_handle_vcont.exit.thread6, label %if.end81.i
+gdb_get_process.exit.i:                           ; preds = %for.body.i.i, %for.cond.i.i, %if.then.i50.i, %for.cond.preheader.i.i
+  %retval.0.i49.i = phi ptr [ %49, %if.then.i50.i ], [ null, %for.cond.preheader.i.i ], [ %arrayidx1.i.i, %for.body.i.i ], [ null, %for.cond.i.i ]
+  %attached.i = getelementptr inbounds i8, ptr %retval.0.i49.i, i64 4
+  %51 = load i8, ptr %attached.i, align 4
+  %tobool79.i = trunc i8 %51 to i1
+  br i1 %tobool79.i, label %if.end81.i, label %gdb_handle_vcont.exit.thread6
 
 if.end81.i:                                       ; preds = %gdb_get_process.exit.i
-  %38 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %52 = load atomic i64, ptr @cpus_queue monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !12
-  %tobool.not5.i.i = icmp eq i64 %38, 0
-  br i1 %tobool.not5.i.i, label %sw.epilog.i, label %for.body.i35.i
+  %tobool.not5.i.i = icmp eq i64 %52, 0
+  br i1 %tobool.not5.i.i, label %sw.epilog.i, label %for.body.i51.i
 
-for.body.i35.i:                                   ; preds = %if.end81.i, %while.end5.i.i
-  %cpu.06.in.i.i = phi i64 [ %40, %while.end5.i.i ], [ %38, %if.end81.i ]
+for.body.i51.i:                                   ; preds = %if.end81.i, %while.end5.i.i
+  %cpu.06.in.i.i = phi i64 [ %54, %while.end5.i.i ], [ %52, %if.end81.i ]
   %cpu.06.i.i = inttoptr i64 %cpu.06.in.i.i to ptr
   %call.i.i.i = call i32 @getpid() #17
-  %39 = load i32, ptr %retval.0.i33.i, align 8
-  %cmp.i36.i = icmp eq i32 %call.i.i.i, %39
-  br i1 %cmp.i36.i, label %while.body85.i, label %while.end5.i.i
+  %53 = load i32, ptr %retval.0.i49.i, align 8
+  %cmp.i52.i = icmp eq i32 %call.i.i.i, %53
+  br i1 %cmp.i52.i, label %while.body85.i, label %while.end5.i.i
 
-while.end5.i.i:                                   ; preds = %for.body.i35.i
-  %node.i37.i = getelementptr inbounds i8, ptr %cpu.06.i.i, i64 568
-  %40 = load atomic i64, ptr %node.i37.i monotonic, align 8
+while.end5.i.i:                                   ; preds = %for.body.i51.i
+  %node.i53.i = getelementptr inbounds i8, ptr %cpu.06.i.i, i64 568
+  %54 = load atomic i64, ptr %node.i53.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
-  %tobool.not.i38.i = icmp eq i64 %40, 0
-  br i1 %tobool.not.i38.i, label %sw.epilog.i, label %for.body.i35.i, !llvm.loop !14
+  %tobool.not.i54.i = icmp eq i64 %54, 0
+  br i1 %tobool.not.i54.i, label %sw.epilog.i, label %for.body.i51.i, !llvm.loop !14
 
-while.body85.i:                                   ; preds = %for.body.i35.i, %gdb_next_cpu_in_process.exit.i
-  %last_target.391.i = phi ptr [ %last_target.4.i, %gdb_next_cpu_in_process.exit.i ], [ %last_target.0103.i, %for.body.i35.i ]
-  %target_count.390.i = phi i32 [ %target_count.4.i, %gdb_next_cpu_in_process.exit.i ], [ %target_count.0102.i, %for.body.i35.i ]
-  %cpu.289.i = phi ptr [ %cpu.addr.0.lcssa.i51.i, %gdb_next_cpu_in_process.exit.i ], [ %cpu.06.i.i, %for.body.i35.i ]
-  %cpu_index86.i = getelementptr inbounds i8, ptr %cpu.289.i, i64 712
-  %41 = load i32, ptr %cpu_index86.i, align 8
-  %idxprom87.i = sext i32 %41 to i64
+while.body85.i:                                   ; preds = %for.body.i51.i, %gdb_next_cpu_in_process.exit.i
+  %last_target.3107.i = phi ptr [ %last_target.4.i, %gdb_next_cpu_in_process.exit.i ], [ %last_target.0119.i, %for.body.i51.i ]
+  %target_count.3106.i = phi i32 [ %target_count.4.i, %gdb_next_cpu_in_process.exit.i ], [ %target_count.0118.i, %for.body.i51.i ]
+  %cpu.2105.i = phi ptr [ %cpu.addr.0.lcssa.i67.i, %gdb_next_cpu_in_process.exit.i ], [ %cpu.06.i.i, %for.body.i51.i ]
+  %cpu_index86.i = getelementptr inbounds i8, ptr %cpu.2105.i, i64 712
+  %55 = load i32, ptr %cpu_index86.i, align 8
+  %idxprom87.i = sext i32 %55 to i64
   %arrayidx88.i = getelementptr i8, ptr %call1.i, i64 %idxprom87.i
-  %42 = load i8, ptr %arrayidx88.i, align 1
-  %cmp90.i = icmp eq i8 %42, 1
+  %56 = load i8, ptr %arrayidx88.i, align 1
+  %cmp90.i = icmp eq i8 %56, 1
   br i1 %cmp90.i, label %if.then92.i, label %if.end97.i
 
 if.then92.i:                                      ; preds = %while.body85.i
   store i8 %cur_action.0.i, ptr %arrayidx88.i, align 1
-  %inc96.i = add i32 %target_count.390.i, 1
+  %inc96.i = add i32 %target_count.3106.i, 1
   br label %if.end97.i
 
 if.end97.i:                                       ; preds = %if.then92.i, %while.body85.i
-  %target_count.4.i = phi i32 [ %inc96.i, %if.then92.i ], [ %target_count.390.i, %while.body85.i ]
-  %last_target.4.i = phi ptr [ %cpu.289.i, %if.then92.i ], [ %last_target.391.i, %while.body85.i ]
-  %call.i.i40.i = call i32 @getpid() #17
-  %node.i41.i = getelementptr inbounds i8, ptr %cpu.289.i, i64 568
-  %43 = load atomic i64, ptr %node.i41.i monotonic, align 8
+  %target_count.4.i = phi i32 [ %inc96.i, %if.then92.i ], [ %target_count.3106.i, %while.body85.i ]
+  %last_target.4.i = phi ptr [ %cpu.2105.i, %if.then92.i ], [ %last_target.3107.i, %while.body85.i ]
+  %call.i.i56.i = call i32 @getpid() #17
+  %node.i57.i = getelementptr inbounds i8, ptr %cpu.2105.i, i64 568
+  %57 = load atomic i64, ptr %node.i57.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !23
-  %cpu.addr.07.i42.i = inttoptr i64 %43 to ptr
-  %tobool.not8.i43.i = icmp eq i64 %43, 0
-  br i1 %tobool.not8.i43.i, label %gdb_next_cpu_in_process.exit.i, label %while.body2.i44.i
+  %cpu.addr.07.i58.i = inttoptr i64 %57 to ptr
+  %tobool.not8.i59.i = icmp eq i64 %57, 0
+  br i1 %tobool.not8.i59.i, label %gdb_next_cpu_in_process.exit.i, label %while.body2.i60.i
 
-while.body2.i44.i:                                ; preds = %if.end97.i, %while.end8.i47.i
-  %cpu.addr.09.i45.i = phi ptr [ %cpu.addr.0.i49.i, %while.end8.i47.i ], [ %cpu.addr.07.i42.i, %if.end97.i ]
+while.body2.i60.i:                                ; preds = %if.end97.i, %while.end8.i63.i
+  %cpu.addr.09.i61.i = phi ptr [ %cpu.addr.0.i65.i, %while.end8.i63.i ], [ %cpu.addr.07.i58.i, %if.end97.i ]
   %call.i6.i.i = call i32 @getpid() #17
-  %cmp.i46.i = icmp eq i32 %call.i6.i.i, %call.i.i40.i
-  br i1 %cmp.i46.i, label %gdb_next_cpu_in_process.exit.i, label %while.end8.i47.i
+  %cmp.i62.i = icmp eq i32 %call.i6.i.i, %call.i.i56.i
+  br i1 %cmp.i62.i, label %gdb_next_cpu_in_process.exit.i, label %while.end8.i63.i
 
-while.end8.i47.i:                                 ; preds = %while.body2.i44.i
-  %node9.i48.i = getelementptr inbounds i8, ptr %cpu.addr.09.i45.i, i64 568
-  %44 = load atomic i64, ptr %node9.i48.i monotonic, align 8
+while.end8.i63.i:                                 ; preds = %while.body2.i60.i
+  %node9.i64.i = getelementptr inbounds i8, ptr %cpu.addr.09.i61.i, i64 568
+  %58 = load atomic i64, ptr %node9.i64.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !24
-  %cpu.addr.0.i49.i = inttoptr i64 %44 to ptr
-  %tobool.not.i50.i = icmp eq i64 %44, 0
-  br i1 %tobool.not.i50.i, label %gdb_next_cpu_in_process.exit.i, label %while.body2.i44.i, !llvm.loop !25
+  %cpu.addr.0.i65.i = inttoptr i64 %58 to ptr
+  %tobool.not.i66.i = icmp eq i64 %58, 0
+  br i1 %tobool.not.i66.i, label %gdb_next_cpu_in_process.exit.i, label %while.body2.i60.i, !llvm.loop !25
 
-gdb_next_cpu_in_process.exit.i:                   ; preds = %while.end8.i47.i, %while.body2.i44.i, %if.end97.i
-  %cpu.addr.0.lcssa.i51.i = phi ptr [ %cpu.addr.07.i42.i, %if.end97.i ], [ %cpu.addr.09.i45.i, %while.body2.i44.i ], [ %cpu.addr.0.i49.i, %while.end8.i47.i ]
-  %tobool84.not.i = icmp eq ptr %cpu.addr.0.lcssa.i51.i, null
+gdb_next_cpu_in_process.exit.i:                   ; preds = %while.end8.i63.i, %while.body2.i60.i, %if.end97.i
+  %cpu.addr.0.lcssa.i67.i = phi ptr [ %cpu.addr.07.i58.i, %if.end97.i ], [ %cpu.addr.09.i61.i, %while.body2.i60.i ], [ %cpu.addr.0.i65.i, %while.end8.i63.i ]
+  %tobool84.not.i = icmp eq ptr %cpu.addr.0.lcssa.i67.i, null
   br i1 %tobool84.not.i, label %sw.epilog.i, label %while.body85.i, !llvm.loop !37
 
 sw.bb100.i:                                       ; preds = %if.end12.i.i
@@ -4275,37 +4522,37 @@ sw.bb100.i:                                       ; preds = %if.end12.i.i
 
 if.end104.i:                                      ; preds = %sw.bb100.i
   %cpu_index105.i = getelementptr inbounds i8, ptr %call101.i, i64 712
-  %45 = load i32, ptr %cpu_index105.i, align 8
-  %idxprom106.i = sext i32 %45 to i64
+  %59 = load i32, ptr %cpu_index105.i, align 8
+  %idxprom106.i = sext i32 %59 to i64
   %arrayidx107.i = getelementptr i8, ptr %call1.i, i64 %idxprom106.i
-  %46 = load i8, ptr %arrayidx107.i, align 1
-  %cmp109.i = icmp eq i8 %46, 1
+  %60 = load i8, ptr %arrayidx107.i, align 1
+  %cmp109.i = icmp eq i8 %60, 1
   br i1 %cmp109.i, label %if.then111.i, label %sw.epilog.i
 
 if.then111.i:                                     ; preds = %if.end104.i
   store i8 %cur_action.0.i, ptr %arrayidx107.i, align 1
-  %inc115.i = add i32 %target_count.0102.i, 1
+  %inc115.i = add i32 %target_count.0118.i, 1
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %while.end5.i.i, %gdb_next_cpu_in_process.exit.i, %gdb_next_attached_cpu.exit.i, %if.then111.i, %if.end104.i, %if.end81.i, %sw.bb59.i
-  %target_count.5.i = phi i32 [ %inc115.i, %if.then111.i ], [ %target_count.0102.i, %if.end104.i ], [ %target_count.0102.i, %sw.bb59.i ], [ %target_count.0102.i, %if.end81.i ], [ %target_count.2.i, %gdb_next_attached_cpu.exit.i ], [ %target_count.4.i, %gdb_next_cpu_in_process.exit.i ], [ %target_count.0102.i, %while.end5.i.i ]
-  %last_target.5.i = phi ptr [ %call101.i, %if.then111.i ], [ %last_target.0103.i, %if.end104.i ], [ %last_target.0103.i, %sw.bb59.i ], [ %last_target.0103.i, %if.end81.i ], [ %last_target.2.i, %gdb_next_attached_cpu.exit.i ], [ %last_target.4.i, %gdb_next_cpu_in_process.exit.i ], [ %last_target.0103.i, %while.end5.i.i ]
-  %47 = load ptr, ptr %p.addr.i, align 8
-  %48 = load i8, ptr %47, align 1
-  %tobool11.not.i = icmp eq i8 %48, 0
+sw.epilog.i:                                      ; preds = %while.end5.i.i, %gdb_next_cpu_in_process.exit.i, %gdb_next_attached_cpu.exit.i, %if.then111.i, %if.end104.i, %if.end81.i, %gdb_first_attached_cpu.exit.i
+  %target_count.5.i = phi i32 [ %inc115.i, %if.then111.i ], [ %target_count.0118.i, %if.end104.i ], [ %target_count.0118.i, %gdb_first_attached_cpu.exit.i ], [ %target_count.0118.i, %if.end81.i ], [ %target_count.2.i, %gdb_next_attached_cpu.exit.i ], [ %target_count.4.i, %gdb_next_cpu_in_process.exit.i ], [ %target_count.0118.i, %while.end5.i.i ]
+  %last_target.5.i = phi ptr [ %call101.i, %if.then111.i ], [ %last_target.0119.i, %if.end104.i ], [ %last_target.0119.i, %gdb_first_attached_cpu.exit.i ], [ %last_target.0119.i, %if.end81.i ], [ %last_target.2.i, %gdb_next_attached_cpu.exit.i ], [ %last_target.4.i, %gdb_next_cpu_in_process.exit.i ], [ %last_target.0119.i, %while.end5.i.i ]
+  %61 = load ptr, ptr %p.addr.i, align 8
+  %62 = load i8, ptr %61, align 1
+  %tobool11.not.i = icmp eq i8 %62, 0
   br i1 %tobool11.not.i, label %while.end117.i, label %while.body12.i, !llvm.loop !38
 
 while.end117.i:                                   ; preds = %sw.epilog.i
-  %49 = icmp sgt i32 %target_count.5.i, 0
-  br i1 %49, label %if.then120.i, label %gdb_handle_vcont.exit.thread8
+  %63 = icmp sgt i32 %target_count.5.i, 0
+  br i1 %63, label %if.then120.i, label %gdb_handle_vcont.exit.thread8
 
 if.then120.i:                                     ; preds = %while.end117.i
   store ptr %last_target.5.i, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
   br label %gdb_handle_vcont.exit.thread8
 
 gdb_handle_vcont.exit.thread8:                    ; preds = %while.cond10.preheader.i, %while.end117.i, %if.then120.i
-  %signal.0.lcssa114.i = phi i32 [ %signal.1.i, %if.then120.i ], [ %signal.1.i, %while.end117.i ], [ 0, %while.cond10.preheader.i ]
-  store i32 %signal.0.lcssa114.i, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 10), align 8
+  %signal.0.lcssa130.i = phi i32 [ %signal.1.i, %if.then120.i ], [ %signal.1.i, %while.end117.i ], [ 0, %while.cond10.preheader.i ]
+  store i32 %signal.0.lcssa130.i, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 10), align 8
   %call122.i = call i32 @gdb_continue_partial(ptr noundef %call1.i) #17
   call void @g_free(ptr noundef %call1.i) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.addr.i)
@@ -4318,7 +4565,7 @@ gdb_handle_vcont.exit.thread:                     ; preds = %if.end.i, %if.else4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i)
   br label %if.then5
 
-gdb_handle_vcont.exit.thread6:                    ; preds = %sw.bb100.i, %gdb_get_process.exit.i, %if.end58.thread65.i
+gdb_handle_vcont.exit.thread6:                    ; preds = %sw.bb100.i, %gdb_get_process.exit.i, %if.end58.thread81.i
   call void @g_free(ptr noundef %call1.i) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i)
@@ -4420,63 +4667,61 @@ if.end8:                                          ; preds = %for.body.i7
   store ptr %cpu.06.i, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 2), align 8
   store ptr %cpu.06.i, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
   %11 = load i8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 18), align 8
-  %12 = and i8 %11, 1
-  %tobool9.not = icmp eq i8 %12, 0
-  br i1 %tobool9.not, label %if.end12, label %if.then10
+  %tobool9 = trunc i8 %11 to i1
+  br i1 %tobool9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.end8
+  %12 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %12, ptr noundef nonnull @.str.64, i32 noundef 5) #17
   %13 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %13, ptr noundef nonnull @.str.64, i32 noundef 5) #17
-  %14 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  %15 = load i8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 11), align 4
-  %16 = and i8 %15, 1
-  %tobool.not.i10 = icmp eq i8 %16, 0
-  br i1 %tobool.not.i10, label %if.else.i, label %if.then.i11
+  %14 = load i8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 11), align 4
+  %tobool.i = trunc i8 %14 to i1
+  br i1 %tobool.i, label %if.then.i10, label %if.else.i
 
-if.then.i11:                                      ; preds = %if.then10
-  %call.i.i12 = tail call i32 @getpid() #17
+if.then.i10:                                      ; preds = %if.then10
+  %call.i.i11 = tail call i32 @getpid() #17
   %call1.i = tail call i32 @gdb_get_cpu_index(ptr noundef nonnull %cpu.06.i) #17
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %14, ptr noundef nonnull @.str.8, i32 noundef %call.i.i12, i32 noundef %call1.i) #17
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %13, ptr noundef nonnull @.str.8, i32 noundef %call.i.i11, i32 noundef %call1.i) #17
   br label %gdb_append_thread_id.exit
 
 if.else.i:                                        ; preds = %if.then10
   %call2.i = tail call i32 @gdb_get_cpu_index(ptr noundef nonnull %cpu.06.i) #17
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %14, ptr noundef nonnull @.str.9, i32 noundef %call2.i) #17
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %13, ptr noundef nonnull @.str.9, i32 noundef %call2.i) #17
   br label %gdb_append_thread_id.exit
 
-gdb_append_thread_id.exit:                        ; preds = %if.then.i11, %if.else.i
-  %17 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  %len.i = getelementptr inbounds i8, ptr %17, i64 8
-  %18 = load i64, ptr %len.i, align 8
-  %add.i = add i64 %18, 1
-  %allocated_len.i = getelementptr inbounds i8, ptr %17, i64 16
-  %19 = load i64, ptr %allocated_len.i, align 8
-  %cmp.i13 = icmp ult i64 %add.i, %19
-  br i1 %cmp.i13, label %if.then.i15, label %if.else.i14
+gdb_append_thread_id.exit:                        ; preds = %if.then.i10, %if.else.i
+  %15 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %len.i = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load i64, ptr %len.i, align 8
+  %add.i = add i64 %16, 1
+  %allocated_len.i = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = load i64, ptr %allocated_len.i, align 8
+  %cmp.i12 = icmp ult i64 %add.i, %17
+  br i1 %cmp.i12, label %if.then.i14, label %if.else.i13
 
-if.then.i15:                                      ; preds = %gdb_append_thread_id.exit
-  %20 = load ptr, ptr %17, align 8
+if.then.i14:                                      ; preds = %gdb_append_thread_id.exit
+  %18 = load ptr, ptr %15, align 8
   store i64 %add.i, ptr %len.i, align 8
-  %arrayidx.i = getelementptr i8, ptr %20, i64 %18
+  %arrayidx.i = getelementptr i8, ptr %18, i64 %16
   store i8 59, ptr %arrayidx.i, align 1
-  %21 = load ptr, ptr %17, align 8
-  %22 = load i64, ptr %len.i, align 8
-  %arrayidx4.i = getelementptr i8, ptr %21, i64 %22
+  %19 = load ptr, ptr %15, align 8
+  %20 = load i64, ptr %len.i, align 8
+  %arrayidx4.i = getelementptr i8, ptr %19, i64 %20
   store i8 0, ptr %arrayidx4.i, align 1
   br label %g_string_append_c_inline.exit
 
-if.else.i14:                                      ; preds = %gdb_append_thread_id.exit
-  %call.i = tail call ptr @g_string_insert_c(ptr noundef nonnull %17, i64 noundef -1, i8 noundef signext 59) #17
+if.else.i13:                                      ; preds = %gdb_append_thread_id.exit
+  %call.i = tail call ptr @g_string_insert_c(ptr noundef nonnull %15, i64 noundef -1, i8 noundef signext 59) #17
   br label %g_string_append_c_inline.exit
 
-g_string_append_c_inline.exit:                    ; preds = %if.then.i15, %if.else.i14
+g_string_append_c_inline.exit:                    ; preds = %if.then.i14, %if.else.i13
   store i8 0, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 18), align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %for.cond.i, %while.end5.i, %if.end4, %for.cond.preheader.i, %gdb_get_process.exit, %entry, %g_string_append_c_inline.exit
-  %23 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  %24 = load ptr, ptr %23, align 8
-  %call.i16 = tail call i32 @gdb_put_packet(ptr noundef %24)
+  %21 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %22 = load ptr, ptr %21, align 8
+  %call.i15 = tail call i32 @gdb_put_packet(ptr noundef %22)
   br label %if.end12
 
 if.end12:                                         ; preds = %cleanup, %if.end8
@@ -4504,10 +4749,10 @@ declare void @gdb_handle_v_file_readlink(ptr noundef, ptr noundef) #3
 declare i32 @gdb_get_max_cpus() local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #11
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @tolower(i32 noundef) local_unnamed_addr #12
+declare i32 @tolower(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @gdb_get_cpu(i32 noundef %pid, i32 noundef %tid) unnamed_addr #0 {
@@ -4518,8 +4763,96 @@ entry:
   br i1 %or.cond.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @gdb_first_attached_cpu()
-  br label %return
+  %1 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %2 = inttoptr i64 %1 to ptr
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
+  %call.i.i.i = tail call i32 @getpid() #17
+  %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
+  br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %for.cond.preheader.i.i.i
+
+for.cond.preheader.i.i.i:                         ; preds = %if.then
+  %3 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp5.i.i.i = icmp sgt i32 %3, 0
+  tail call void @llvm.assume(i1 %cmp5.i.i.i)
+  %4 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %wide.trip.count.i.i.i = zext nneg i32 %3 to i64
+  %5 = load i32, ptr %4, align 8
+  %cmp3.i.i3.i = icmp eq i32 %5, %call.i.i.i
+  br i1 %cmp3.i.i3.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
+
+if.then.i.i.i:                                    ; preds = %if.then
+  %6 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  br label %gdb_get_cpu_process.exit.i
+
+for.cond.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.cond.i.i.i
+  %indvars.iv.i.i4.i = phi i64 [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i4.i, 1
+  %exitcond.not.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
+  tail call void @llvm.assume(i1 %exitcond.not.i.i.i)
+  %arrayidx1.i.i.i = getelementptr %struct.GDBProcess, ptr %4, i64 %indvars.iv.next.i.i.i
+  %7 = load i32, ptr %arrayidx1.i.i.i, align 8
+  %cmp3.i.i.i = icmp eq i32 %7, %call.i.i.i
+  br i1 %cmp3.i.i.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
+
+gdb_get_cpu_process.exit.i:                       ; preds = %for.cond.i.i.i, %if.then.i.i.i, %for.cond.preheader.i.i.i
+  %retval.0.i.i.i = phi ptr [ %6, %if.then.i.i.i ], [ %4, %for.cond.preheader.i.i.i ], [ %arrayidx1.i.i.i, %for.cond.i.i.i ]
+  %attached.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 4
+  %8 = load i8, ptr %attached.i, align 4
+  %tobool.i = trunc i8 %8 to i1
+  br i1 %tobool.i, label %return, label %if.then.i
+
+if.then.i:                                        ; preds = %gdb_get_cpu_process.exit.i
+  %node.i.i = getelementptr inbounds i8, ptr %2, i64 568
+  %9 = load atomic i64, ptr %node.i.i monotonic, align 8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
+  %cpu.addr.07.i.i = inttoptr i64 %9 to ptr
+  %tobool.not8.i.i = icmp eq i64 %9, 0
+  br i1 %tobool.not8.i.i, label %return, label %while.body2.i.i
+
+while.body2.i.i:                                  ; preds = %if.then.i, %while.end8.i.i
+  %cpu.addr.09.i.i = phi ptr [ %cpu.addr.0.i.i, %while.end8.i.i ], [ %cpu.addr.07.i.i, %if.then.i ]
+  %call.i.i.i.i = tail call i32 @getpid() #17
+  %tobool.not.i.i.i.i = icmp eq i32 %call.i.i.i.i, 0
+  br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i, label %for.cond.preheader.i.i.i.i
+
+for.cond.preheader.i.i.i.i:                       ; preds = %while.body2.i.i
+  %10 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp5.i.i.i.i = icmp sgt i32 %10, 0
+  tail call void @llvm.assume(i1 %cmp5.i.i.i.i)
+  %11 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %wide.trip.count.i.i.i.i = zext nneg i32 %10 to i64
+  %12 = load i32, ptr %11, align 8
+  %cmp3.i.i5.i.i = icmp eq i32 %12, %call.i.i.i.i
+  br i1 %cmp3.i.i5.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
+
+if.then.i.i.i.i:                                  ; preds = %while.body2.i.i
+  %13 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  br label %gdb_get_cpu_process.exit.i.i
+
+for.cond.i.i.i.i:                                 ; preds = %for.cond.preheader.i.i.i.i, %for.cond.i.i.i.i
+  %indvars.iv.i.i6.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.cond.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
+  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i6.i.i, 1
+  %exitcond.not.i.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
+  tail call void @llvm.assume(i1 %exitcond.not.i.i.i.i)
+  %arrayidx1.i.i.i.i = getelementptr %struct.GDBProcess, ptr %11, i64 %indvars.iv.next.i.i.i.i
+  %14 = load i32, ptr %arrayidx1.i.i.i.i, align 8
+  %cmp3.i.i.i.i = icmp eq i32 %14, %call.i.i.i.i
+  br i1 %cmp3.i.i.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
+
+gdb_get_cpu_process.exit.i.i:                     ; preds = %for.cond.i.i.i.i, %if.then.i.i.i.i, %for.cond.preheader.i.i.i.i
+  %retval.0.i.i.i.i = phi ptr [ %13, %if.then.i.i.i.i ], [ %11, %for.cond.preheader.i.i.i.i ], [ %arrayidx1.i.i.i.i, %for.cond.i.i.i.i ]
+  %attached.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 4
+  %15 = load i8, ptr %attached.i.i, align 4
+  %tobool3.i.i = trunc i8 %15 to i1
+  br i1 %tobool3.i.i, label %return, label %while.end8.i.i
+
+while.end8.i.i:                                   ; preds = %gdb_get_cpu_process.exit.i.i
+  %node9.i.i = getelementptr inbounds i8, ptr %cpu.addr.09.i.i, i64 568
+  %16 = load atomic i64, ptr %node9.i.i monotonic, align 8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
+  %cpu.addr.0.i.i = inttoptr i64 %16 to ptr
+  %tobool.not.i.i = icmp eq i64 %16, 0
+  br i1 %tobool.not.i.i, label %return, label %while.body2.i.i, !llvm.loop !18
 
 if.else:                                          ; preds = %entry
   %tobool1 = icmp ne i32 %tid, 0
@@ -4527,13 +4860,13 @@ if.else:                                          ; preds = %entry
   br i1 %or.cond1, label %if.else12, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.else
-  %1 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
-  %cmp5.i = icmp sgt i32 %1, 0
+  %17 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp5.i = icmp sgt i32 %17, 0
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %return
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %2 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
-  %wide.trip.count.i = zext nneg i32 %1 to i64
+  %18 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %wide.trip.count.i = zext nneg i32 %17 to i64
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -4543,76 +4876,75 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx1.i = getelementptr %struct.GDBProcess, ptr %2, i64 %indvars.iv.i
-  %3 = load i32, ptr %arrayidx1.i, align 8
-  %cmp3.i = icmp eq i32 %3, %pid
+  %arrayidx1.i = getelementptr %struct.GDBProcess, ptr %18, i64 %indvars.iv.i
+  %19 = load i32, ptr %arrayidx1.i, align 8
+  %cmp3.i = icmp eq i32 %19, %pid
   br i1 %cmp3.i, label %if.end, label %for.cond.i
 
 if.end:                                           ; preds = %for.body.i
   %attached = getelementptr inbounds i8, ptr %arrayidx1.i, i64 4
-  %4 = load i8, ptr %attached, align 4
-  %5 = and i8 %4, 1
-  %tobool8.not = icmp eq i8 %5, 0
-  br i1 %tobool8.not, label %return, label %if.end10
+  %20 = load i8, ptr %attached, align 4
+  %tobool8 = trunc i8 %20 to i1
+  br i1 %tobool8, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end
-  %6 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %21 = load atomic i64, ptr @cpus_queue monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !12
-  %tobool.not5.i = icmp eq i64 %6, 0
-  br i1 %tobool.not5.i, label %return, label %for.body.i14
+  %tobool.not5.i = icmp eq i64 %21, 0
+  br i1 %tobool.not5.i, label %return, label %for.body.i16
 
-for.body.i14:                                     ; preds = %if.end10, %while.end5.i
-  %cpu.06.in.i = phi i64 [ %8, %while.end5.i ], [ %6, %if.end10 ]
+for.body.i16:                                     ; preds = %if.end10, %while.end5.i
+  %cpu.06.in.i = phi i64 [ %23, %while.end5.i ], [ %21, %if.end10 ]
   %cpu.06.i = inttoptr i64 %cpu.06.in.i to ptr
   %call.i.i = tail call i32 @getpid() #17
-  %7 = load i32, ptr %arrayidx1.i, align 8
-  %cmp.i = icmp eq i32 %call.i.i, %7
+  %22 = load i32, ptr %arrayidx1.i, align 8
+  %cmp.i = icmp eq i32 %call.i.i, %22
   br i1 %cmp.i, label %return, label %while.end5.i
 
-while.end5.i:                                     ; preds = %for.body.i14
+while.end5.i:                                     ; preds = %for.body.i16
   %node.i = getelementptr inbounds i8, ptr %cpu.06.i, i64 568
-  %8 = load atomic i64, ptr %node.i monotonic, align 8
+  %23 = load atomic i64, ptr %node.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
-  %tobool.not.i15 = icmp eq i64 %8, 0
-  br i1 %tobool.not.i15, label %return, label %for.body.i14, !llvm.loop !14
+  %tobool.not.i17 = icmp eq i64 %23, 0
+  br i1 %tobool.not.i17, label %return, label %for.body.i16, !llvm.loop !14
 
 if.else12:                                        ; preds = %if.else
-  %9 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %24 = load atomic i64, ptr @cpus_queue monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !39
-  %tobool.not5.i17 = icmp eq i64 %9, 0
-  br i1 %tobool.not5.i17, label %return, label %for.body.i18
+  %tobool.not5.i19 = icmp eq i64 %24, 0
+  br i1 %tobool.not5.i19, label %return, label %for.body.i20
 
-for.body.i18:                                     ; preds = %if.else12, %while.end5.i22
-  %cpu.06.in.i19 = phi i64 [ %10, %while.end5.i22 ], [ %9, %if.else12 ]
-  %cpu.06.i20 = inttoptr i64 %cpu.06.in.i19 to ptr
-  %call.i = tail call i32 @gdb_get_cpu_index(ptr noundef nonnull %cpu.06.i20) #17
-  %cmp.i21 = icmp eq i32 %call.i, %tid
-  br i1 %cmp.i21, label %if.end16, label %while.end5.i22
+for.body.i20:                                     ; preds = %if.else12, %while.end5.i24
+  %cpu.06.in.i21 = phi i64 [ %25, %while.end5.i24 ], [ %24, %if.else12 ]
+  %cpu.06.i22 = inttoptr i64 %cpu.06.in.i21 to ptr
+  %call.i = tail call i32 @gdb_get_cpu_index(ptr noundef nonnull %cpu.06.i22) #17
+  %cmp.i23 = icmp eq i32 %call.i, %tid
+  br i1 %cmp.i23, label %if.end16, label %while.end5.i24
 
-while.end5.i22:                                   ; preds = %for.body.i18
-  %node.i23 = getelementptr inbounds i8, ptr %cpu.06.i20, i64 568
-  %10 = load atomic i64, ptr %node.i23 monotonic, align 8
+while.end5.i24:                                   ; preds = %for.body.i20
+  %node.i25 = getelementptr inbounds i8, ptr %cpu.06.i22, i64 568
+  %25 = load atomic i64, ptr %node.i25 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !40
-  %tobool.not.i24 = icmp eq i64 %10, 0
-  br i1 %tobool.not.i24, label %return, label %for.body.i18, !llvm.loop !41
+  %tobool.not.i26 = icmp eq i64 %25, 0
+  br i1 %tobool.not.i26, label %return, label %for.body.i20, !llvm.loop !41
 
-if.end16:                                         ; preds = %for.body.i18
-  %call.i.i26 = tail call i32 @getpid() #17
-  %tobool.not.i.i = icmp eq i32 %call.i.i26, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %for.cond.preheader.i.i
+if.end16:                                         ; preds = %for.body.i20
+  %call.i.i28 = tail call i32 @getpid() #17
+  %tobool.not.i.i29 = icmp eq i32 %call.i.i28, 0
+  br i1 %tobool.not.i.i29, label %if.then.i.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.end16
-  %11 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
-  %cmp5.i.i = icmp sgt i32 %11, 0
+  %26 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp5.i.i = icmp sgt i32 %26, 0
   br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %gdb_get_cpu_process.exit
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %12 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
-  %wide.trip.count.i.i = zext nneg i32 %11 to i64
+  %27 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %wide.trip.count.i.i = zext nneg i32 %26 to i64
   br label %for.body.i.i
 
 if.then.i.i:                                      ; preds = %if.end16
-  %13 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %28 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
   br label %gdb_get_cpu_process.exit
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
@@ -4622,30 +4954,29 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
-  %arrayidx1.i.i = getelementptr %struct.GDBProcess, ptr %12, i64 %indvars.iv.i.i
-  %14 = load i32, ptr %arrayidx1.i.i, align 8
-  %cmp3.i.i = icmp eq i32 %14, %call.i.i26
+  %arrayidx1.i.i = getelementptr %struct.GDBProcess, ptr %27, i64 %indvars.iv.i.i
+  %29 = load i32, ptr %arrayidx1.i.i, align 8
+  %cmp3.i.i = icmp eq i32 %29, %call.i.i28
   br i1 %cmp3.i.i, label %gdb_get_cpu_process.exit, label %for.cond.i.i
 
 gdb_get_cpu_process.exit:                         ; preds = %for.cond.i.i, %for.body.i.i, %for.cond.preheader.i.i, %if.then.i.i
-  %retval.0.i.i = phi ptr [ %13, %if.then.i.i ], [ null, %for.cond.preheader.i.i ], [ %arrayidx1.i.i, %for.body.i.i ], [ null, %for.cond.i.i ]
+  %retval.0.i.i = phi ptr [ %28, %if.then.i.i ], [ null, %for.cond.preheader.i.i ], [ %arrayidx1.i.i, %for.body.i.i ], [ null, %for.cond.i.i ]
   br i1 %tobool.not, label %if.end23, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %gdb_get_cpu_process.exit
-  %15 = load i32, ptr %retval.0.i.i, align 8
-  %cmp21.not = icmp eq i32 %15, %pid
+  %30 = load i32, ptr %retval.0.i.i, align 8
+  %cmp21.not = icmp eq i32 %30, %pid
   br i1 %cmp21.not, label %if.end23, label %return
 
 if.end23:                                         ; preds = %land.lhs.true19, %gdb_get_cpu_process.exit
   %attached24 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4
-  %16 = load i8, ptr %attached24, align 4
-  %17 = and i8 %16, 1
-  %tobool25.not = icmp eq i8 %17, 0
-  %.call13 = select i1 %tobool25.not, ptr null, ptr %cpu.06.i20
+  %31 = load i8, ptr %attached24, align 4
+  %tobool25 = trunc i8 %31 to i1
+  %call13. = select i1 %tobool25, ptr %cpu.06.i22, ptr null
   br label %return
 
-return:                                           ; preds = %for.cond.i, %while.end5.i, %for.body.i14, %while.end5.i22, %if.else12, %for.cond.preheader.i, %if.end10, %if.end23, %land.lhs.true19, %if.end, %if.then
-  %retval.0 = phi ptr [ %call, %if.then ], [ null, %if.end ], [ null, %land.lhs.true19 ], [ %.call13, %if.end23 ], [ null, %if.end10 ], [ null, %for.cond.preheader.i ], [ null, %if.else12 ], [ null, %while.end5.i22 ], [ %cpu.06.i, %for.body.i14 ], [ null, %while.end5.i ], [ null, %for.cond.i ]
+return:                                           ; preds = %for.cond.i, %while.end5.i, %for.body.i16, %while.end5.i24, %while.end8.i.i, %gdb_get_cpu_process.exit.i.i, %if.else12, %for.cond.preheader.i, %if.end10, %if.then.i, %gdb_get_cpu_process.exit.i, %if.end23, %land.lhs.true19, %if.end
+  %retval.0 = phi ptr [ null, %if.end ], [ null, %land.lhs.true19 ], [ %call13., %if.end23 ], [ %2, %gdb_get_cpu_process.exit.i ], [ %cpu.addr.07.i.i, %if.then.i ], [ null, %if.end10 ], [ null, %for.cond.preheader.i ], [ null, %if.else12 ], [ %cpu.addr.09.i.i, %gdb_get_cpu_process.exit.i.i ], [ %cpu.addr.0.i.i, %while.end8.i.i ], [ null, %while.end5.i24 ], [ %cpu.06.i, %for.body.i16 ], [ null, %while.end5.i ], [ null, %for.cond.i ]
   ret ptr %retval.0
 }
 
@@ -4807,14 +5138,13 @@ gdb_get_first_cpu_in_process.exit:                ; preds = %for.body.i, %while.
   %call2 = tail call ptr @g_string_assign(ptr noundef %7, ptr noundef nonnull @.str.106) #17
   %8 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
   %9 = load i8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 11), align 4
-  %10 = and i8 %9, 1
-  %tobool.not.i2 = icmp eq i8 %10, 0
-  br i1 %tobool.not.i2, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %9 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %gdb_get_first_cpu_in_process.exit
-  %call.i.i3 = tail call i32 @getpid() #17
+  %call.i.i2 = tail call i32 @getpid() #17
   %call1.i = tail call i32 @gdb_get_cpu_index(ptr noundef %retval.0.i) #17
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %8, ptr noundef nonnull @.str.8, i32 noundef %call.i.i3, i32 noundef %call1.i) #17
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %8, ptr noundef nonnull @.str.8, i32 noundef %call.i.i2, i32 noundef %call1.i) #17
   br label %gdb_append_thread_id.exit
 
 if.else.i:                                        ; preds = %gdb_get_first_cpu_in_process.exit
@@ -4823,9 +5153,9 @@ if.else.i:                                        ; preds = %gdb_get_first_cpu_i
   br label %gdb_append_thread_id.exit
 
 gdb_append_thread_id.exit:                        ; preds = %if.then.i, %if.else.i
-  %11 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  %12 = load ptr, ptr %11, align 8
-  %call.i = tail call i32 @gdb_put_packet(ptr noundef %12)
+  %10 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %11 = load ptr, ptr %10, align 8
+  %call.i = tail call i32 @gdb_put_packet(ptr noundef %11)
   ret void
 }
 
@@ -4846,9 +5176,8 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 3), align 8
   %3 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
   %4 = load i8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 11), align 4
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
   %call.i.i = tail call i32 @getpid() #17
@@ -4862,15 +5191,15 @@ if.else.i:                                        ; preds = %if.end
   br label %gdb_append_thread_id.exit
 
 gdb_append_thread_id.exit:                        ; preds = %if.then.i, %if.else.i
-  %6 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  %7 = load ptr, ptr %6, align 8
-  %call.i = tail call i32 @gdb_put_packet(ptr noundef %7)
-  %8 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 3), align 8
-  %node.i = getelementptr inbounds i8, ptr %8, i64 568
-  %9 = load atomic i64, ptr %node.i monotonic, align 8
+  %5 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %6 = load ptr, ptr %5, align 8
+  %call.i = tail call i32 @gdb_put_packet(ptr noundef %6)
+  %7 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 3), align 8
+  %node.i = getelementptr inbounds i8, ptr %7, i64 568
+  %8 = load atomic i64, ptr %node.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
-  %cpu.addr.07.i = inttoptr i64 %9 to ptr
-  %tobool.not8.i = icmp eq i64 %9, 0
+  %cpu.addr.07.i = inttoptr i64 %8 to ptr
+  %tobool.not8.i = icmp eq i64 %8, 0
   br i1 %tobool.not8.i, label %gdb_next_attached_cpu.exit, label %while.body2.i
 
 while.body2.i:                                    ; preds = %gdb_append_thread_id.exit, %while.end8.i
@@ -4880,17 +5209,17 @@ while.body2.i:                                    ; preds = %gdb_append_thread_i
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %while.body2.i
-  %10 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
-  %cmp5.i.i.i = icmp sgt i32 %10, 0
+  %9 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp5.i.i.i = icmp sgt i32 %9, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i)
-  %11 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
-  %wide.trip.count.i.i.i = zext nneg i32 %10 to i64
-  %12 = load i32, ptr %11, align 8
-  %cmp3.i.i5.i = icmp eq i32 %12, %call.i.i.i
+  %10 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %wide.trip.count.i.i.i = zext nneg i32 %9 to i64
+  %11 = load i32, ptr %10, align 8
+  %cmp3.i.i5.i = icmp eq i32 %11, %call.i.i.i
   br i1 %cmp3.i.i5.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body2.i
-  %13 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %12 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
   br label %gdb_get_cpu_process.exit.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.cond.i.i.i
@@ -4898,26 +5227,25 @@ for.cond.i.i.i:                                   ; preds = %for.cond.preheader.
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i6.i, 1
   %exitcond.not.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   tail call void @llvm.assume(i1 %exitcond.not.i.i.i)
-  %arrayidx1.i.i.i = getelementptr %struct.GDBProcess, ptr %11, i64 %indvars.iv.next.i.i.i
-  %14 = load i32, ptr %arrayidx1.i.i.i, align 8
-  %cmp3.i.i.i = icmp eq i32 %14, %call.i.i.i
+  %arrayidx1.i.i.i = getelementptr %struct.GDBProcess, ptr %10, i64 %indvars.iv.next.i.i.i
+  %13 = load i32, ptr %arrayidx1.i.i.i, align 8
+  %cmp3.i.i.i = icmp eq i32 %13, %call.i.i.i
   br i1 %cmp3.i.i.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
 
 gdb_get_cpu_process.exit.i:                       ; preds = %for.cond.i.i.i, %if.then.i.i.i, %for.cond.preheader.i.i.i
-  %retval.0.i.i.i = phi ptr [ %13, %if.then.i.i.i ], [ %11, %for.cond.preheader.i.i.i ], [ %arrayidx1.i.i.i, %for.cond.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %12, %if.then.i.i.i ], [ %10, %for.cond.preheader.i.i.i ], [ %arrayidx1.i.i.i, %for.cond.i.i.i ]
   %attached.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 4
-  %15 = load i8, ptr %attached.i, align 4
-  %16 = and i8 %15, 1
-  %tobool3.not.i = icmp eq i8 %16, 0
-  br i1 %tobool3.not.i, label %while.end8.i, label %gdb_next_attached_cpu.exit
+  %14 = load i8, ptr %attached.i, align 4
+  %tobool3.i = trunc i8 %14 to i1
+  br i1 %tobool3.i, label %gdb_next_attached_cpu.exit, label %while.end8.i
 
 while.end8.i:                                     ; preds = %gdb_get_cpu_process.exit.i
   %node9.i = getelementptr inbounds i8, ptr %cpu.addr.09.i, i64 568
-  %17 = load atomic i64, ptr %node9.i monotonic, align 8
+  %15 = load atomic i64, ptr %node9.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
-  %cpu.addr.0.i = inttoptr i64 %17 to ptr
-  %tobool.not.i1 = icmp eq i64 %17, 0
-  br i1 %tobool.not.i1, label %gdb_next_attached_cpu.exit, label %while.body2.i, !llvm.loop !18
+  %cpu.addr.0.i = inttoptr i64 %15 to ptr
+  %tobool.not.i = icmp eq i64 %15, 0
+  br i1 %tobool.not.i, label %gdb_next_attached_cpu.exit, label %while.body2.i, !llvm.loop !18
 
 gdb_next_attached_cpu.exit:                       ; preds = %gdb_get_cpu_process.exit.i, %while.end8.i, %gdb_append_thread_id.exit
   %cpu.addr.0.lcssa.i = phi ptr [ %cpu.addr.07.i, %gdb_append_thread_id.exit ], [ %cpu.addr.0.i, %while.end8.i ], [ %cpu.addr.09.i, %gdb_get_cpu_process.exit.i ]
@@ -4931,8 +5259,100 @@ return:                                           ; preds = %gdb_next_attached_c
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_query_first_threads(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %call = tail call ptr @gdb_first_attached_cpu()
-  store ptr %call, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 3), align 8
+  %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %1 = inttoptr i64 %0 to ptr
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
+  %call.i.i.i = tail call i32 @getpid() #17
+  %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
+  br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %for.cond.preheader.i.i.i
+
+for.cond.preheader.i.i.i:                         ; preds = %entry
+  %2 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp5.i.i.i = icmp sgt i32 %2, 0
+  tail call void @llvm.assume(i1 %cmp5.i.i.i)
+  %3 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %wide.trip.count.i.i.i = zext nneg i32 %2 to i64
+  %4 = load i32, ptr %3, align 8
+  %cmp3.i.i3.i = icmp eq i32 %4, %call.i.i.i
+  br i1 %cmp3.i.i3.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
+
+if.then.i.i.i:                                    ; preds = %entry
+  %5 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  br label %gdb_get_cpu_process.exit.i
+
+for.cond.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.cond.i.i.i
+  %indvars.iv.i.i4.i = phi i64 [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i4.i, 1
+  %exitcond.not.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
+  tail call void @llvm.assume(i1 %exitcond.not.i.i.i)
+  %arrayidx1.i.i.i = getelementptr %struct.GDBProcess, ptr %3, i64 %indvars.iv.next.i.i.i
+  %6 = load i32, ptr %arrayidx1.i.i.i, align 8
+  %cmp3.i.i.i = icmp eq i32 %6, %call.i.i.i
+  br i1 %cmp3.i.i.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
+
+gdb_get_cpu_process.exit.i:                       ; preds = %for.cond.i.i.i, %if.then.i.i.i, %for.cond.preheader.i.i.i
+  %retval.0.i.i.i = phi ptr [ %5, %if.then.i.i.i ], [ %3, %for.cond.preheader.i.i.i ], [ %arrayidx1.i.i.i, %for.cond.i.i.i ]
+  %attached.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 4
+  %7 = load i8, ptr %attached.i, align 4
+  %tobool.i = trunc i8 %7 to i1
+  br i1 %tobool.i, label %gdb_first_attached_cpu.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %gdb_get_cpu_process.exit.i
+  %node.i.i = getelementptr inbounds i8, ptr %1, i64 568
+  %8 = load atomic i64, ptr %node.i.i monotonic, align 8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
+  %cpu.addr.07.i.i = inttoptr i64 %8 to ptr
+  %tobool.not8.i.i = icmp eq i64 %8, 0
+  br i1 %tobool.not8.i.i, label %gdb_first_attached_cpu.exit, label %while.body2.i.i
+
+while.body2.i.i:                                  ; preds = %if.then.i, %while.end8.i.i
+  %cpu.addr.09.i.i = phi ptr [ %cpu.addr.0.i.i, %while.end8.i.i ], [ %cpu.addr.07.i.i, %if.then.i ]
+  %call.i.i.i.i = tail call i32 @getpid() #17
+  %tobool.not.i.i.i.i = icmp eq i32 %call.i.i.i.i, 0
+  br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i, label %for.cond.preheader.i.i.i.i
+
+for.cond.preheader.i.i.i.i:                       ; preds = %while.body2.i.i
+  %9 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp5.i.i.i.i = icmp sgt i32 %9, 0
+  tail call void @llvm.assume(i1 %cmp5.i.i.i.i)
+  %10 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  %wide.trip.count.i.i.i.i = zext nneg i32 %9 to i64
+  %11 = load i32, ptr %10, align 8
+  %cmp3.i.i5.i.i = icmp eq i32 %11, %call.i.i.i.i
+  br i1 %cmp3.i.i5.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
+
+if.then.i.i.i.i:                                  ; preds = %while.body2.i.i
+  %12 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
+  br label %gdb_get_cpu_process.exit.i.i
+
+for.cond.i.i.i.i:                                 ; preds = %for.cond.preheader.i.i.i.i, %for.cond.i.i.i.i
+  %indvars.iv.i.i6.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.cond.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
+  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i6.i.i, 1
+  %exitcond.not.i.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
+  tail call void @llvm.assume(i1 %exitcond.not.i.i.i.i)
+  %arrayidx1.i.i.i.i = getelementptr %struct.GDBProcess, ptr %10, i64 %indvars.iv.next.i.i.i.i
+  %13 = load i32, ptr %arrayidx1.i.i.i.i, align 8
+  %cmp3.i.i.i.i = icmp eq i32 %13, %call.i.i.i.i
+  br i1 %cmp3.i.i.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
+
+gdb_get_cpu_process.exit.i.i:                     ; preds = %for.cond.i.i.i.i, %if.then.i.i.i.i, %for.cond.preheader.i.i.i.i
+  %retval.0.i.i.i.i = phi ptr [ %12, %if.then.i.i.i.i ], [ %10, %for.cond.preheader.i.i.i.i ], [ %arrayidx1.i.i.i.i, %for.cond.i.i.i.i ]
+  %attached.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 4
+  %14 = load i8, ptr %attached.i.i, align 4
+  %tobool3.i.i = trunc i8 %14 to i1
+  br i1 %tobool3.i.i, label %gdb_first_attached_cpu.exit, label %while.end8.i.i
+
+while.end8.i.i:                                   ; preds = %gdb_get_cpu_process.exit.i.i
+  %node9.i.i = getelementptr inbounds i8, ptr %cpu.addr.09.i.i, i64 568
+  %15 = load atomic i64, ptr %node9.i.i monotonic, align 8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
+  %cpu.addr.0.i.i = inttoptr i64 %15 to ptr
+  %tobool.not.i.i = icmp eq i64 %15, 0
+  br i1 %tobool.not.i.i, label %gdb_first_attached_cpu.exit, label %while.body2.i.i, !llvm.loop !18
+
+gdb_first_attached_cpu.exit:                      ; preds = %gdb_get_cpu_process.exit.i.i, %while.end8.i.i, %gdb_get_cpu_process.exit.i, %if.then.i
+  %retval.0.i = phi ptr [ %1, %gdb_get_cpu_process.exit.i ], [ %cpu.addr.07.i.i, %if.then.i ], [ %cpu.addr.09.i.i, %gdb_get_cpu_process.exit.i.i ], [ %cpu.addr.0.i.i, %while.end8.i.i ]
+  store ptr %retval.0.i, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 3), align 8
   tail call void @handle_query_threads(ptr poison, ptr poison)
   ret void
 }
@@ -4969,10 +5389,9 @@ if.end:                                           ; preds = %lor.lhs.false
 if.end9:                                          ; preds = %if.end
   tail call void @cpu_synchronize_state(ptr noundef nonnull %call6) #17
   %5 = load i8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 11), align 4
-  %6 = and i8 %5, 1
-  %tobool10 = icmp ne i8 %6, 0
-  %7 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
-  %cmp11 = icmp sgt i32 %7, 1
+  %tobool10 = trunc i8 %5 to i1
+  %6 = load i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 13), align 8
+  %cmp11 = icmp sgt i32 %6, 1
   %or.cond = select i1 %tobool10, i1 %cmp11, i1 false
   br i1 %or.cond, label %if.then12, label %if.else
 
@@ -4981,68 +5400,67 @@ if.then12:                                        ; preds = %if.end9
   %call14 = tail call ptr @object_class_get_name(ptr noundef %call13) #17
   %call15 = tail call ptr @object_get_canonical_path_component(ptr noundef nonnull %call6) #17
   %halted = getelementptr inbounds i8, ptr %call6, i64 724
-  %8 = load i32, ptr %halted, align 4
-  %tobool16.not = icmp eq i32 %8, 0
+  %7 = load i32, ptr %halted, align 4
+  %tobool16.not = icmp eq i32 %7, 0
   %cond = select i1 %tobool16.not, ptr @.str.110, ptr @.str.109
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call, ptr noundef nonnull @.str.108, ptr noundef %call14, ptr noundef %call15, ptr noundef nonnull %cond) #17
   br label %if.end20
 
 if.else:                                          ; preds = %if.end9
   %cpu_index = getelementptr inbounds i8, ptr %call6, i64 712
-  %9 = load i32, ptr %cpu_index, align 8
+  %8 = load i32, ptr %cpu_index, align 8
   %halted17 = getelementptr inbounds i8, ptr %call6, i64 724
-  %10 = load i32, ptr %halted17, align 4
-  %tobool18.not = icmp eq i32 %10, 0
+  %9 = load i32, ptr %halted17, align 4
+  %tobool18.not = icmp eq i32 %9, 0
   %cond19 = select i1 %tobool18.not, ptr @.str.110, ptr @.str.109
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call, ptr noundef nonnull @.str.111, i32 noundef %9, ptr noundef nonnull %cond19) #17
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call, ptr noundef nonnull @.str.111, i32 noundef %8, ptr noundef nonnull %cond19) #17
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else, %if.then12
-  %11 = load ptr, ptr %call, align 8
+  %10 = load ptr, ptr %call, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %12 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %12, 0
-  %13 = load i16, ptr @_TRACE_GDBSTUB_OP_EXTRA_INFO_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %13, 0
+  %11 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %11, 0
+  %12 = load i16, ptr @_TRACE_GDBSTUB_OP_EXTRA_INFO_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %12, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %cleanup.thread
 
 land.lhs.true5.i.i:                               ; preds = %if.end20
-  %14 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %14, 32768
+  %13 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %13, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %cleanup.thread, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %15 = load i8, ptr @message_with_timestamp, align 1
-  %16 = and i8 %15, 1
-  %tobool7.not.i.i = icmp eq i8 %16, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %14 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %14 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
-  %17 = load i64, ptr %_now.i.i, align 8
+  %15 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %18 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.112, i32 noundef %call10.i.i, i64 noundef %17, i64 noundef %18, ptr noundef %11) #17
+  %16 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.112, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef %10) #17
   br label %cleanup.thread
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.113, ptr noundef %11) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.113, ptr noundef %10) #17
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.else.i.i, %if.then8.i.i, %land.lhs.true5.i.i, %if.end20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %19 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  %20 = load ptr, ptr %call, align 8
+  %17 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %18 = load ptr, ptr %call, align 8
   %len22 = getelementptr inbounds i8, ptr %call, i64 8
-  %21 = load i64, ptr %len22, align 8
-  %conv = trunc i64 %21 to i32
-  tail call void @gdb_memtohex(ptr noundef %19, ptr noundef %20, i32 noundef %conv)
-  %22 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  %23 = load ptr, ptr %22, align 8
-  %call.i = tail call i32 @gdb_put_packet(ptr noundef %23)
+  %19 = load i64, ptr %len22, align 8
+  %conv = trunc i64 %19 to i32
+  tail call void @gdb_memtohex(ptr noundef %17, ptr noundef %18, i32 noundef %conv)
+  %20 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
+  %21 = load ptr, ptr %20, align 8
+  %call.i = tail call i32 @gdb_put_packet(ptr noundef %21)
   br label %if.then.i.i10
 
 cleanup:                                          ; preds = %if.end, %if.then
@@ -5414,6 +5832,12 @@ declare void @g_ptr_array_unref(ptr noundef) local_unnamed_addr #3
 
 declare ptr @g_string_set_size(ptr noundef, i64 noundef) local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
 
@@ -5432,13 +5856,13 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

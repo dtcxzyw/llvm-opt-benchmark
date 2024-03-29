@@ -327,13 +327,12 @@ if.end3.i:                                        ; preds = %qtx_add_to_pending.
 
 switch.hole_check:                                ; preds = %if.end
   %switch.shifted = lshr i8 23, %switch.tableidx
-  %16 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %16, 0
-  br i1 %switch.lobit.not, label %ossl_quic_pkt_type_to_enc_level.exit, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %ossl_quic_pkt_type_to_enc_level.exit
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %17 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.ossl_qtx_write_pkt, i64 0, i64 %17
+  %16 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.ossl_qtx_write_pkt, i64 0, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   %el_set = getelementptr inbounds i8, ptr %qtx, i64 16
   %call11 = tail call i32 @ossl_qrl_enc_level_set_have_el(ptr noundef nonnull %el_set, i32 noundef %switch.load) #11
@@ -353,24 +352,24 @@ if.end16:                                         ; preds = %switch.lookup
 
 land.end:                                         ; preds = %if.end16
   %data_len = getelementptr inbounds i8, ptr %.pre, i64 16
-  %18 = load i64, ptr %data_len, align 8
-  %cmp20.not = icmp eq i64 %18, 0
+  %17 = load i64, ptr %data_len, align 8
+  %cmp20.not = icmp eq i64 %17, 0
   br i1 %cmp20.not, label %if.end35, label %if.then23
 
 if.then23:                                        ; preds = %land.end
   %peer = getelementptr inbounds i8, ptr %.pre, i64 32
   %peer25 = getelementptr inbounds i8, ptr %pkt, i64 24
-  %19 = load ptr, ptr %peer25, align 8
+  %18 = load ptr, ptr %peer25, align 8
   %call.i = tail call i32 @BIO_ADDR_family(ptr noundef nonnull %peer) #11
   %cmp1.i39 = icmp eq i32 %call.i, 0
-  %cmp2.i = icmp eq ptr %19, null
+  %cmp2.i = icmp eq ptr %18, null
   br i1 %cmp1.i39, label %land.lhs.true.i, label %lor.rhs.i
 
 land.lhs.true.i:                                  ; preds = %if.then23
   br i1 %cmp2.i, label %lor.lhs.false28, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %land.lhs.true.i
-  %call4.i = tail call i32 @BIO_ADDR_family(ptr noundef nonnull %19) #11
+  %call4.i = tail call i32 @BIO_ADDR_family(ptr noundef nonnull %18) #11
   %cmp5.i = icmp eq i32 %call4.i, 0
   br i1 %cmp5.i, label %lor.lhs.false28, label %addr_eq.exit
 
@@ -378,25 +377,25 @@ lor.rhs.i:                                        ; preds = %if.then23
   br i1 %cmp2.i, label %if.then33, label %addr_eq.exit
 
 addr_eq.exit:                                     ; preds = %lor.lhs.false3.i, %lor.rhs.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(112) %peer, ptr noundef nonnull dereferenceable(112) %19, i64 112)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(112) %peer, ptr noundef nonnull dereferenceable(112) %18, i64 112)
   %cmp10.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %cmp10.i.not, label %lor.lhs.false28, label %if.then33
 
 lor.lhs.false28:                                  ; preds = %land.lhs.true.i, %lor.lhs.false3.i, %addr_eq.exit
-  %20 = load ptr, ptr %cons, align 8
-  %local = getelementptr inbounds i8, ptr %20, i64 144
+  %19 = load ptr, ptr %cons, align 8
+  %local = getelementptr inbounds i8, ptr %19, i64 144
   %local30 = getelementptr inbounds i8, ptr %pkt, i64 32
-  %21 = load ptr, ptr %local30, align 8
+  %20 = load ptr, ptr %local30, align 8
   %call.i40 = tail call i32 @BIO_ADDR_family(ptr noundef nonnull %local) #11
   %cmp1.i41 = icmp eq i32 %call.i40, 0
-  %cmp2.i49 = icmp eq ptr %21, null
+  %cmp2.i49 = icmp eq ptr %20, null
   br i1 %cmp1.i41, label %land.lhs.true.i48, label %lor.rhs.i42
 
 land.lhs.true.i48:                                ; preds = %lor.lhs.false28
   br i1 %cmp2.i49, label %if.end35, label %lor.lhs.false3.i50
 
 lor.lhs.false3.i50:                               ; preds = %land.lhs.true.i48
-  %call4.i51 = tail call i32 @BIO_ADDR_family(ptr noundef nonnull %21) #11
+  %call4.i51 = tail call i32 @BIO_ADDR_family(ptr noundef nonnull %20) #11
   %cmp5.i52 = icmp eq i32 %call4.i51, 0
   br i1 %cmp5.i52, label %if.end35, label %addr_eq.exit53
 
@@ -404,87 +403,87 @@ lor.rhs.i42:                                      ; preds = %lor.lhs.false28
   br i1 %cmp2.i49, label %if.then33, label %addr_eq.exit53
 
 addr_eq.exit53:                                   ; preds = %lor.lhs.false3.i50, %lor.rhs.i42
-  %bcmp.i46 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(112) %local, ptr noundef nonnull dereferenceable(112) %21, i64 112)
+  %bcmp.i46 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(112) %local, ptr noundef nonnull dereferenceable(112) %20, i64 112)
   %cmp10.i47.not = icmp eq i32 %bcmp.i46, 0
   br i1 %cmp10.i47.not, label %if.end35, label %if.then33
 
 if.then33:                                        ; preds = %lor.rhs.i42, %lor.rhs.i, %addr_eq.exit53, %addr_eq.exit
-  %22 = load ptr, ptr %cons, align 8
-  %cmp.i55 = icmp eq ptr %22, null
+  %21 = load ptr, ptr %cons, align 8
+  %cmp.i55 = icmp eq ptr %21, null
   br i1 %cmp.i55, label %if.end35, label %if.end.i56
 
 if.end.i56:                                       ; preds = %if.then33
-  %data_len.i57 = getelementptr inbounds i8, ptr %22, i64 16
-  %23 = load i64, ptr %data_len.i57, align 8
-  %cmp1.i58 = icmp eq i64 %23, 0
+  %data_len.i57 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = load i64, ptr %data_len.i57, align 8
+  %cmp1.i58 = icmp eq i64 %22, 0
   br i1 %cmp1.i58, label %if.then2.i79, label %if.else.i59
 
 if.then2.i79:                                     ; preds = %if.end.i56
   %free.i80 = getelementptr inbounds i8, ptr %qtx, i64 864
   %omega.i.i81 = getelementptr inbounds i8, ptr %qtx, i64 872
-  %24 = load ptr, ptr %omega.i.i81, align 8
-  %cmp.not.i.i82 = icmp eq ptr %24, null
+  %23 = load ptr, ptr %omega.i.i81, align 8
+  %cmp.not.i.i82 = icmp eq ptr %23, null
   br i1 %cmp.not.i.i82, label %if.end.i.i85, label %if.then.i.i83
 
 if.then.i.i83:                                    ; preds = %if.then2.i79
-  store ptr %22, ptr %24, align 8
+  store ptr %21, ptr %23, align 8
   %.pre.i.i84 = load ptr, ptr %omega.i.i81, align 8
   br label %if.end.i.i85
 
 if.end.i.i85:                                     ; preds = %if.then.i.i83, %if.then2.i79
-  %25 = phi ptr [ %.pre.i.i84, %if.then.i.i83 ], [ null, %if.then2.i79 ]
-  %prev.i.i86 = getelementptr inbounds i8, ptr %22, i64 8
-  store ptr %25, ptr %prev.i.i86, align 8
-  store ptr null, ptr %22, align 8
-  store ptr %22, ptr %omega.i.i81, align 8
-  %26 = load ptr, ptr %free.i80, align 8
-  %cmp7.i.i87 = icmp eq ptr %26, null
+  %24 = phi ptr [ %.pre.i.i84, %if.then.i.i83 ], [ null, %if.then2.i79 ]
+  %prev.i.i86 = getelementptr inbounds i8, ptr %21, i64 8
+  store ptr %24, ptr %prev.i.i86, align 8
+  store ptr null, ptr %21, align 8
+  store ptr %21, ptr %omega.i.i81, align 8
+  %25 = load ptr, ptr %free.i80, align 8
+  %cmp7.i.i87 = icmp eq ptr %25, null
   br i1 %cmp7.i.i87, label %if.then8.i.i88, label %if.end3.i73
 
 if.then8.i.i88:                                   ; preds = %if.end.i.i85
-  store ptr %22, ptr %free.i80, align 8
+  store ptr %21, ptr %free.i80, align 8
   br label %if.end3.i73
 
 if.else.i59:                                      ; preds = %if.end.i56
   %pending.i.i60 = getelementptr inbounds i8, ptr %qtx, i64 888
   %omega.i.i.i61 = getelementptr inbounds i8, ptr %qtx, i64 896
-  %27 = load ptr, ptr %omega.i.i.i61, align 8
-  %cmp.not.i.i.i62 = icmp eq ptr %27, null
+  %26 = load ptr, ptr %omega.i.i.i61, align 8
+  %cmp.not.i.i.i62 = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i62, label %if.end.i.i.i65, label %if.then.i.i.i63
 
 if.then.i.i.i63:                                  ; preds = %if.else.i59
-  store ptr %22, ptr %27, align 8
+  store ptr %21, ptr %26, align 8
   %.pre.i.i.i64 = load ptr, ptr %omega.i.i.i61, align 8
   br label %if.end.i.i.i65
 
 if.end.i.i.i65:                                   ; preds = %if.then.i.i.i63, %if.else.i59
-  %28 = phi ptr [ %.pre.i.i.i64, %if.then.i.i.i63 ], [ null, %if.else.i59 ]
-  %prev.i.i.i66 = getelementptr inbounds i8, ptr %22, i64 8
-  store ptr %28, ptr %prev.i.i.i66, align 8
-  store ptr null, ptr %22, align 8
-  store ptr %22, ptr %omega.i.i.i61, align 8
-  %29 = load ptr, ptr %pending.i.i60, align 8
-  %cmp7.i.i.i67 = icmp eq ptr %29, null
+  %27 = phi ptr [ %.pre.i.i.i64, %if.then.i.i.i63 ], [ null, %if.else.i59 ]
+  %prev.i.i.i66 = getelementptr inbounds i8, ptr %21, i64 8
+  store ptr %27, ptr %prev.i.i.i66, align 8
+  store ptr null, ptr %21, align 8
+  store ptr %21, ptr %omega.i.i.i61, align 8
+  %28 = load ptr, ptr %pending.i.i60, align 8
+  %cmp7.i.i.i67 = icmp eq ptr %28, null
   br i1 %cmp7.i.i.i67, label %if.then8.i.i.i78, label %qtx_add_to_pending.exit.i68
 
 if.then8.i.i.i78:                                 ; preds = %if.end.i.i.i65
-  store ptr %22, ptr %pending.i.i60, align 8
+  store ptr %21, ptr %pending.i.i60, align 8
   br label %qtx_add_to_pending.exit.i68
 
 qtx_add_to_pending.exit.i68:                      ; preds = %if.then8.i.i.i78, %if.end.i.i.i65
   %num_elems.i.i.i69 = getelementptr inbounds i8, ptr %qtx, i64 904
-  %30 = load <2 x i64>, ptr %num_elems.i.i.i69, align 8
-  %31 = add <2 x i64> %30, <i64 1, i64 1>
-  store <2 x i64> %31, ptr %num_elems.i.i.i69, align 8
-  %32 = load i64, ptr %data_len.i57, align 8
+  %29 = load <2 x i64>, ptr %num_elems.i.i.i69, align 8
+  %30 = add <2 x i64> %29, <i64 1, i64 1>
+  store <2 x i64> %30, ptr %num_elems.i.i.i69, align 8
+  %31 = load i64, ptr %data_len.i57, align 8
   br label %if.end3.i73
 
 if.end3.i73:                                      ; preds = %qtx_add_to_pending.exit.i68, %if.then8.i.i88, %if.end.i.i85
   %.sink.i74 = phi i64 [ 920, %qtx_add_to_pending.exit.i68 ], [ 880, %if.end.i.i85 ], [ 880, %if.then8.i.i88 ]
-  %.sink9.i75 = phi i64 [ %32, %qtx_add_to_pending.exit.i68 ], [ 1, %if.end.i.i85 ], [ 1, %if.then8.i.i88 ]
+  %.sink9.i75 = phi i64 [ %31, %qtx_add_to_pending.exit.i68 ], [ 1, %if.end.i.i85 ], [ 1, %if.then8.i.i88 ]
   %pending_bytes.i.i76 = getelementptr inbounds i8, ptr %qtx, i64 %.sink.i74
-  %33 = load i64, ptr %pending_bytes.i.i76, align 8
-  %add.i.i77 = add i64 %33, %.sink9.i75
+  %32 = load i64, ptr %pending_bytes.i.i76, align 8
+  %add.i.i77 = add i64 %32, %.sink9.i75
   store i64 %add.i.i77, ptr %pending_bytes.i.i76, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cons, i8 0, i64 16, i1 false)
   br label %if.end35
@@ -492,7 +491,7 @@ if.end3.i73:                                      ; preds = %qtx_add_to_pending.
 if.end35:                                         ; preds = %if.end16.thread, %land.lhs.true.i48, %lor.lhs.false3.i50, %if.end16, %if.end3.i73, %if.then33, %addr_eq.exit53, %land.end
   %cons236 = phi ptr [ %cons, %addr_eq.exit53 ], [ %cons, %land.end ], [ %cons, %if.then33 ], [ %cons, %if.end3.i73 ], [ %cons, %if.end16 ], [ %cons, %lor.lhs.false3.i50 ], [ %cons, %land.lhs.true.i48 ], [ %cons233, %if.end16.thread ]
   %retval.0.i201235 = phi i32 [ %switch.load, %addr_eq.exit53 ], [ %switch.load, %land.end ], [ %switch.load, %if.then33 ], [ %switch.load, %if.end3.i73 ], [ %switch.load, %if.end16 ], [ %switch.load, %lor.lhs.false3.i50 ], [ %switch.load, %land.lhs.true.i48 ], [ 4, %if.end16.thread ]
-  %was_coalescing.0.shrunk = phi i1 [ false, %addr_eq.exit53 ], [ true, %land.end ], [ true, %if.then33 ], [ true, %if.end3.i73 ], [ true, %if.end16 ], [ false, %lor.lhs.false3.i50 ], [ false, %land.lhs.true.i48 ], [ true, %if.end16.thread ]
+  %33 = phi i1 [ false, %addr_eq.exit53 ], [ true, %land.end ], [ true, %if.then33 ], [ true, %if.end3.i73 ], [ true, %if.end16 ], [ false, %lor.lhs.false3.i50 ], [ false, %land.lhs.true.i48 ], [ true, %if.end16.thread ]
   %mdpl.i = getelementptr inbounds i8, ptr %qtx, i64 856
   %free.i.i = getelementptr inbounds i8, ptr %qtx, i64 864
   %omega.i.i.i100 = getelementptr inbounds i8, ptr %qtx, i64 872
@@ -521,7 +520,7 @@ if.end35:                                         ; preds = %if.end16.thread, %l
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.end35
   %34 = phi ptr [ %.pre226, %if.end35 ], [ null, %for.cond.backedge ]
-  %was_coalescing.1 = phi i1 [ %was_coalescing.0.shrunk, %if.end35 ], [ true, %for.cond.backedge ]
+  %was_coalescing.1 = phi i1 [ %33, %if.end35 ], [ true, %for.cond.backedge ]
   %cmp.not.i = icmp eq ptr %34, null
   br i1 %cmp.not.i, label %if.end.i92, label %if.end40
 

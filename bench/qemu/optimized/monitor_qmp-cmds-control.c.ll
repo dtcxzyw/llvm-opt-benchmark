@@ -38,9 +38,8 @@ entry:
   %call = tail call ptr @monitor_cur() #8
   %0 = getelementptr i8, ptr %call, i64 60
   %call.val = load i8, ptr %0, align 4
-  %1 = and i8 %call.val, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.else, label %if.end
+  %tobool.i = trunc i8 %call.val to i1
+  br i1 %tobool.i, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 78, ptr noundef nonnull @__PRETTY_FUNCTION__.qmp_qmp_capabilities) #9
@@ -48,8 +47,8 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %commands = getelementptr inbounds i8, ptr %call, i64 264
-  %2 = load ptr, ptr %commands, align 8
-  %cmp = icmp eq ptr %2, @qmp_commands
+  %1 = load ptr, ptr %commands, align 8
+  %cmp = icmp eq ptr %1, @qmp_commands
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
@@ -66,19 +65,18 @@ for.body.lr.ph.i:                                 ; preds = %if.end3
 
 for.body.i:                                       ; preds = %if.end8.i, %for.body.lr.ph.i
   %unavailable.013.i = phi ptr [ null, %for.body.lr.ph.i ], [ %unavailable.1.i, %if.end8.i ]
-  %list.addr.012.i = phi ptr [ %enable, %for.body.lr.ph.i ], [ %6, %if.end8.i ]
+  %list.addr.012.i = phi ptr [ %enable, %for.body.lr.ph.i ], [ %4, %if.end8.i ]
   %value.i = getelementptr inbounds i8, ptr %list.addr.012.i, i64 8
-  %3 = load i32, ptr %value.i, align 8
-  %idxprom.i = zext i32 %3 to i64
+  %2 = load i32, ptr %value.i, align 8
+  %idxprom.i = zext i32 %2 to i64
   %arrayidx.i = getelementptr [1 x i8], ptr %capab_offered.i, i64 0, i64 %idxprom.i
-  %4 = load i8, ptr %arrayidx.i, align 1
-  %5 = and i8 %4, 1
-  %tobool1.not.i = icmp eq i8 %5, 0
-  br i1 %tobool1.not.i, label %if.then.i, label %if.end8.i
+  %3 = load i8, ptr %arrayidx.i, align 1
+  %tobool1.i = trunc i8 %3 to i1
+  br i1 %tobool1.i, label %if.end8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
   %tobool2.not.i = icmp eq ptr %unavailable.013.i, null
-  %call.i = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @QMPCapability_lookup, i32 noundef %3) #8
+  %call.i = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @QMPCapability_lookup, i32 noundef %2) #8
   br i1 %tobool2.not.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.then.i
@@ -91,8 +89,8 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.end8.i:                                        ; preds = %if.else.i, %if.then3.i, %for.body.i
   %unavailable.1.i = phi ptr [ %unavailable.013.i, %for.body.i ], [ %unavailable.013.i, %if.else.i ], [ %call5.i, %if.then3.i ]
-  %6 = load ptr, ptr %list.addr.012.i, align 8
-  %tobool.not.i = icmp eq ptr %6, null
+  %4 = load ptr, ptr %list.addr.012.i, align 8
+  %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %if.end8.i
@@ -100,8 +98,8 @@ for.end.i:                                        ; preds = %if.end8.i
   br i1 %tobool12.not.i, label %if.end6, label %qmp_caps_accept.exit
 
 qmp_caps_accept.exit:                             ; preds = %for.end.i
-  %7 = load ptr, ptr %unavailable.1.i, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 63, ptr noundef nonnull @__func__.qmp_caps_accept, ptr noundef nonnull @.str.6, ptr noundef %7) #8
+  %5 = load ptr, ptr %unavailable.1.i, align 8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 63, ptr noundef nonnull @__func__.qmp_caps_accept, ptr noundef nonnull @.str.6, ptr noundef %5) #8
   %call14.i = tail call ptr @g_string_free(ptr noundef nonnull %unavailable.1.i, i32 noundef 1) #8
   br label %return
 
@@ -153,9 +151,8 @@ entry:
   %call = tail call ptr @monitor_cur() #8
   %0 = getelementptr i8, ptr %call, i64 60
   %call.val = load i8, ptr %0, align 4
-  %1 = and i8 %call.val, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.else, label %if.end
+  %tobool.i = trunc i8 %call.val to i1
+  br i1 %tobool.i, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 128, ptr noundef nonnull @__PRETTY_FUNCTION__.qmp_query_commands) #9
@@ -163,10 +160,10 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %commands = getelementptr inbounds i8, ptr %call, i64 264
-  %2 = load ptr, ptr %commands, align 8
-  call void @qmp_for_each_command(ptr noundef %2, ptr noundef nonnull @query_commands_cb, ptr noundef nonnull %list) #8
-  %3 = load ptr, ptr %list, align 8
-  ret ptr %3
+  %1 = load ptr, ptr %commands, align 8
+  call void @qmp_for_each_command(ptr noundef %1, ptr noundef nonnull @query_commands_cb, ptr noundef nonnull %list) #8
+  %2 = load ptr, ptr %list, align 8
+  ret ptr %2
 }
 
 declare void @qmp_for_each_command(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -176,20 +173,19 @@ define internal void @query_commands_cb(ptr nocapture noundef readonly %cmd, ptr
 entry:
   %enabled = getelementptr inbounds i8, ptr %cmd, i64 40
   %0 = load i8, ptr %enabled, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %do.end, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %do.end
 
 if.end:                                           ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #11
-  %2 = load ptr, ptr %cmd, align 8
-  %call1 = tail call noalias ptr @g_strdup(ptr noundef %2) #8
+  %1 = load ptr, ptr %cmd, align 8
+  %call1 = tail call noalias ptr @g_strdup(ptr noundef %1) #8
   store ptr %call1, ptr %call, align 8
   %call3 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #11
   %value = getelementptr inbounds i8, ptr %call3, i64 8
   store ptr %call, ptr %value, align 8
-  %3 = load ptr, ptr %opaque, align 8
-  store ptr %3, ptr %call3, align 8
+  %2 = load ptr, ptr %opaque, align 8
+  store ptr %2, ptr %call3, align 8
   store ptr %call3, ptr %opaque, align 8
   br label %do.end
 

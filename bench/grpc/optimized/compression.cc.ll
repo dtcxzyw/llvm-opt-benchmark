@@ -74,9 +74,8 @@ declare i64 @_ZN9grpc_core25ParseCompressionAlgorithmESt17basic_string_viewIcSt1
 define noundef i32 @grpc_compression_algorithm_name(i32 noundef %algorithm, ptr noundef %name) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_api_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
-  %1 = and i8 %0, 1
-  %tobool.i.i.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.i.i.not, label %if.end, label %if.then
+  %tobool.i.i.i = trunc i8 %0 to i1
+  br i1 %tobool.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 59, i32 noundef 1, ptr noundef nonnull @.str.1, i32 noundef %algorithm, ptr noundef %name)

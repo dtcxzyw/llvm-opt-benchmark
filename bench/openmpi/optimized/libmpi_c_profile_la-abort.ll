@@ -21,9 +21,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Abort(ptr noundef %0, i32 noundef %1) #0 {
   %3 = load i8, ptr @ompi_mpi_param_check, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %10, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -41,8 +40,8 @@ define i32 @PMPI_Abort(ptr noundef %0, i32 noundef %1) #0 {
   %13 = getelementptr inbounds i8, ptr %0, i64 160
   %14 = load ptr, ptr %13, align 8
   %15 = load i8, ptr %14, align 1
-  %.not5 = icmp eq i8 %15, 0
-  %spec.select = select i1 %.not5, ptr @.str.2, ptr %14
+  %.not = icmp eq i8 %15, 0
+  %spec.select = select i1 %.not, ptr @.str.2, ptr %14
   %16 = tail call ptr @ompi_pmix_print_name(ptr noundef nonnull @opal_process_info) #2
   %17 = tail call i32 (ptr, ptr, i32, ...) %11(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, i32 noundef %.val, ptr noundef nonnull %spec.select, ptr noundef %16, i32 noundef %1) #2
   %18 = tail call i32 @ompi_mpi_abort(ptr noundef %0, i32 noundef %1) #2

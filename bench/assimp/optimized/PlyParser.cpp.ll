@@ -5592,18 +5592,17 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
 if.end:                                           ; preds = %switch.hole_check, %while.end.i.i
   %bIsList = getelementptr inbounds i8, ptr %prop, i64 40
   %4 = load i8, ptr %bIsList, align 8
-  %5 = and i8 %4, 1
-  %tobool.not = icmp eq i8 %5, 0
-  br i1 %tobool.not, label %if.else, label %if.then1
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %if.end
   %eFirstType = getelementptr inbounds i8, ptr %prop, i64 44
-  %6 = load i32, ptr %eFirstType, align 4
-  %call2 = call noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance10ParseValueERPKcNS0_9EDataTypeEPNS1_10ValueUnionE(ptr noundef nonnull align 8 dereferenceable(8) %pCur, i32 noundef %6, ptr noundef nonnull %v)
+  %5 = load i32, ptr %eFirstType, align 4
+  %call2 = call noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance10ParseValueERPKcNS0_9EDataTypeEPNS1_10ValueUnionE(ptr noundef nonnull align 8 dereferenceable(8) %pCur, i32 noundef %5, ptr noundef nonnull %v)
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %v, align 8
-  %7 = load i32, ptr %eFirstType, align 4
+  %6 = load i32, ptr %eFirstType, align 4
   %v.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp.sroa.0.0.copyload to i32
-  switch i32 %7, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit [
+  switch i32 %6, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit [
     i32 6, label %sw.bb.i
     i32 7, label %sw.bb1.i
     i32 5, label %sw.bb3.i
@@ -5615,13 +5614,13 @@ if.then1:                                         ; preds = %if.end
   ]
 
 sw.bb.i:                                          ; preds = %if.then1
-  %8 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i to float
-  %conv.i = fptoui float %8 to i32
+  %7 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i to float
+  %conv.i = fptoui float %7 to i32
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
 sw.bb1.i:                                         ; preds = %if.then1
-  %9 = bitcast i64 %agg.tmp.sroa.0.0.copyload to double
-  %conv2.i = fptoui double %9 to i32
+  %8 = bitcast i64 %agg.tmp.sroa.0.0.copyload to double
+  %conv2.i = fptoui double %8 to i32
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
 sw.bb3.i:                                         ; preds = %if.then1, %if.then1, %if.then1
@@ -5634,10 +5633,10 @@ _ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE
   %retval.0.i = phi i32 [ %v.sroa.0.sroa.0.0.extract.trunc.i, %sw.bb4.i ], [ %v.sroa.0.sroa.0.0.extract.trunc.i, %sw.bb3.i ], [ %conv2.i, %sw.bb1.i ], [ %conv.i, %sw.bb.i ], [ 0, %if.then1 ]
   %conv = zext i32 %retval.0.i to i64
   %_M_finish.i.i = getelementptr inbounds i8, ptr %p_pcOut, i64 8
-  %10 = load ptr, ptr %_M_finish.i.i, align 8
-  %11 = load ptr, ptr %p_pcOut, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
+  %9 = load ptr, ptr %_M_finish.i.i, align 8
+  %10 = load ptr, ptr %p_pcOut, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %conv
@@ -5653,8 +5652,8 @@ if.else.i:                                        ; preds = %_ZN6Assimp3PLY16Pro
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds %"union.Assimp::PLY::PropertyInstance::ValueUnion", ptr %11, i64 %conv
-  %tobool.not.i.i = icmp eq ptr %10, %add.ptr.i
+  %add.ptr.i = getelementptr inbounds %"union.Assimp::PLY::PropertyInstance::ValueUnion", ptr %10, i64 %conv
+  %tobool.not.i.i = icmp eq ptr %9, %add.ptr.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE6resizeEm.exit, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
@@ -5667,13 +5666,13 @@ _ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE6resizeEm.exit: 
 
 for.body:                                         ; preds = %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE6resizeEm.exit, %if.end7
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end7 ], [ 0, %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE6resizeEm.exit ]
-  %12 = load ptr, ptr %pCur, align 8
+  %11 = load ptr, ptr %pCur, align 8
   br label %while.cond.i.i15
 
 while.cond.i.i15:                                 ; preds = %while.body.i.i17, %for.body
-  %in.addr.0.i.i16 = phi ptr [ %12, %for.body ], [ %incdec.ptr.i.i18, %while.body.i.i17 ]
-  %13 = load i8, ptr %in.addr.0.i.i16, align 1
-  switch i8 %13, label %while.end.i.i19 [
+  %in.addr.0.i.i16 = phi ptr [ %11, %for.body ], [ %incdec.ptr.i.i18, %while.body.i.i17 ]
+  %12 = load i8, ptr %in.addr.0.i.i16, align 1
+  switch i8 %12, label %while.end.i.i19 [
     i8 32, label %while.body.i.i17
     i8 9, label %while.body.i.i17
   ]
@@ -5684,41 +5683,41 @@ while.body.i.i17:                                 ; preds = %while.cond.i.i15, %
 
 while.end.i.i19:                                  ; preds = %while.cond.i.i15
   store ptr %in.addr.0.i.i16, ptr %pCur, align 8
-  %14 = load i8, ptr %in.addr.0.i.i16, align 1
-  %15 = icmp ult i8 %14, 14
-  br i1 %15, label %switch.hole_check37, label %if.end7
+  %13 = load i8, ptr %in.addr.0.i.i16, align 1
+  %14 = icmp ult i8 %13, 14
+  br i1 %14, label %switch.hole_check37, label %if.end7
 
 if.end7:                                          ; preds = %switch.hole_check37, %while.end.i.i19
-  %16 = load i32, ptr %prop, align 8
-  %17 = load ptr, ptr %p_pcOut, align 8
-  %add.ptr.i23 = getelementptr inbounds %"union.Assimp::PLY::PropertyInstance::ValueUnion", ptr %17, i64 %indvars.iv
-  %call11 = tail call noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance10ParseValueERPKcNS0_9EDataTypeEPNS1_10ValueUnionE(ptr noundef nonnull align 8 dereferenceable(8) %pCur, i32 noundef %16, ptr noundef nonnull %add.ptr.i23)
+  %15 = load i32, ptr %prop, align 8
+  %16 = load ptr, ptr %p_pcOut, align 8
+  %add.ptr.i23 = getelementptr inbounds %"union.Assimp::PLY::PropertyInstance::ValueUnion", ptr %16, i64 %indvars.iv
+  %call11 = tail call noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance10ParseValueERPKcNS0_9EDataTypeEPNS1_10ValueUnionE(ptr noundef nonnull align 8 dereferenceable(8) %pCur, i32 noundef %15, ptr noundef nonnull %add.ptr.i23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %if.end16, label %for.body, !llvm.loop !29
 
 if.else:                                          ; preds = %if.end
-  %18 = load i32, ptr %prop, align 8
-  %call14 = call noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance10ParseValueERPKcNS0_9EDataTypeEPNS1_10ValueUnionE(ptr noundef nonnull align 8 dereferenceable(8) %pCur, i32 noundef %18, ptr noundef nonnull %v12)
+  %17 = load i32, ptr %prop, align 8
+  %call14 = call noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance10ParseValueERPKcNS0_9EDataTypeEPNS1_10ValueUnionE(ptr noundef nonnull align 8 dereferenceable(8) %pCur, i32 noundef %17, ptr noundef nonnull %v12)
   %_M_finish.i = getelementptr inbounds i8, ptr %p_pcOut, i64 8
-  %19 = load ptr, ptr %_M_finish.i, align 8
+  %18 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %p_pcOut, i64 16
-  %20 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i = icmp eq ptr %19, %20
+  %19 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i = icmp eq ptr %18, %19
   br i1 %cmp.not.i, label %if.else.i25, label %if.then.i24
 
 if.then.i24:                                      ; preds = %if.else
-  %21 = load i64, ptr %v12, align 8
-  store i64 %21, ptr %19, align 8
-  %22 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %22, i64 8
+  %20 = load i64, ptr %v12, align 8
+  store i64 %20, ptr %18, align 8
+  %21 = load ptr, ptr %_M_finish.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %if.end16
 
 if.else.i25:                                      ; preds = %if.else
-  %23 = load ptr, ptr %p_pcOut, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %23 to i64
+  %22 = load ptr, ptr %p_pcOut, align 8
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE12_M_check_lenEmPKc.exit.i.i
@@ -5732,8 +5731,8 @@ _ZNKSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE12_M_check_lenE
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %24 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %24
+  %23 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %23
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -5745,23 +5744,23 @@ cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN6Ass
 _ZNSt12_Vector_baseIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"union.Assimp::PLY::PropertyInstance::ValueUnion", ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
-  %25 = load i64, ptr %v12, align 8
-  store i64 %25, ptr %add.ptr.i.i, align 8
+  %24 = load i64, ptr %v12, align 8
+  store i64 %24, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %23, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %22, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
 _ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i26 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i = icmp eq ptr %23, null
+  %tobool.not.i.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %23) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %22) #22
   br label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
@@ -5772,13 +5771,13 @@ _ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE17_M_realloc_ins
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end7, %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE6resizeEm.exit, %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i24
-  %26 = load ptr, ptr %pCur, align 8
+  %25 = load ptr, ptr %pCur, align 8
   br label %while.cond.i.i27
 
 while.cond.i.i27:                                 ; preds = %while.body.i.i29, %if.end16
-  %in.addr.0.i.i28 = phi ptr [ %26, %if.end16 ], [ %incdec.ptr.i.i30, %while.body.i.i29 ]
-  %27 = load i8, ptr %in.addr.0.i.i28, align 1
-  switch i8 %27, label %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_.exit [
+  %in.addr.0.i.i28 = phi ptr [ %25, %if.end16 ], [ %incdec.ptr.i.i30, %while.body.i.i29 ]
+  %26 = load i8, ptr %in.addr.0.i.i28, align 1
+  switch i8 %26, label %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_.exit [
     i8 32, label %while.body.i.i29
     i8 9, label %while.body.i.i29
     i8 13, label %while.body.i.i29
@@ -5796,16 +5795,14 @@ _ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_.exit:  ; preds = %while.cond.i.i27
 switch.hole_check:                                ; preds = %while.end.i.i
   %switch.maskindex = zext nneg i8 %2 to i16
   %switch.shifted = lshr i16 13313, %switch.maskindex
-  %28 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %28, 0
-  br i1 %switch.lobit.not, label %if.end, label %return
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %return, label %if.end
 
 switch.hole_check37:                              ; preds = %while.end.i.i19
-  %switch.maskindex39 = zext nneg i8 %14 to i16
+  %switch.maskindex39 = zext nneg i8 %13 to i16
   %switch.shifted40 = lshr i16 13313, %switch.maskindex39
-  %29 = and i16 %switch.shifted40, 1
-  %switch.lobit41.not = icmp eq i16 %29, 0
-  br i1 %switch.lobit41.not, label %if.end7, label %return
+  %switch.lobit41 = trunc i16 %switch.shifted40 to i1
+  br i1 %switch.lobit41, label %return, label %if.end7
 
 return:                                           ; preds = %switch.hole_check37, %switch.hole_check, %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_.exit
   %retval.0 = phi i1 [ true, %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_.exit ], [ false, %switch.hole_check ], [ false, %switch.hole_check37 ]
@@ -5847,18 +5844,17 @@ entry:
   %v9 = alloca %"union.Assimp::PLY::PropertyInstance::ValueUnion", align 8
   %bIsList = getelementptr inbounds i8, ptr %prop, i64 40
   %0 = load i8, ptr %bIsList, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %eFirstType = getelementptr inbounds i8, ptr %prop, i64 44
-  %2 = load i32, ptr %eFirstType, align 4
-  %call = call noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance16ParseValueBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjNS0_9EDataTypeEPNS1_10ValueUnionEb(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef nonnull align 8 dereferenceable(8) %pCur, ptr noundef nonnull align 4 dereferenceable(4) %bufferSize, i32 noundef %2, ptr noundef nonnull %v, i1 noundef zeroext %p_bBE)
+  %1 = load i32, ptr %eFirstType, align 4
+  %call = call noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance16ParseValueBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjNS0_9EDataTypeEPNS1_10ValueUnionEb(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef nonnull align 8 dereferenceable(8) %pCur, ptr noundef nonnull align 4 dereferenceable(4) %bufferSize, i32 noundef %1, ptr noundef nonnull %v, i1 noundef zeroext %p_bBE)
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %v, align 8
-  %3 = load i32, ptr %eFirstType, align 4
+  %2 = load i32, ptr %eFirstType, align 4
   %v.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp.sroa.0.0.copyload to i32
-  switch i32 %3, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit [
+  switch i32 %2, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit [
     i32 6, label %sw.bb.i
     i32 7, label %sw.bb1.i
     i32 5, label %sw.bb3.i
@@ -5870,13 +5866,13 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb.i:                                          ; preds = %if.then
-  %4 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i to float
-  %conv.i = fptoui float %4 to i32
+  %3 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i to float
+  %conv.i = fptoui float %3 to i32
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
 sw.bb1.i:                                         ; preds = %if.then
-  %5 = bitcast i64 %agg.tmp.sroa.0.0.copyload to double
-  %conv2.i = fptoui double %5 to i32
+  %4 = bitcast i64 %agg.tmp.sroa.0.0.copyload to double
+  %conv2.i = fptoui double %4 to i32
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
 sw.bb3.i:                                         ; preds = %if.then, %if.then, %if.then
@@ -5889,10 +5885,10 @@ _ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE
   %retval.0.i = phi i32 [ %v.sroa.0.sroa.0.0.extract.trunc.i, %sw.bb4.i ], [ %v.sroa.0.sroa.0.0.extract.trunc.i, %sw.bb3.i ], [ %conv2.i, %sw.bb1.i ], [ %conv.i, %sw.bb.i ], [ 0, %if.then ]
   %conv = zext i32 %retval.0.i to i64
   %_M_finish.i.i = getelementptr inbounds i8, ptr %p_pcOut, i64 8
-  %6 = load ptr, ptr %_M_finish.i.i, align 8
-  %7 = load ptr, ptr %p_pcOut, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %7 to i64
+  %5 = load ptr, ptr %_M_finish.i.i, align 8
+  %6 = load ptr, ptr %p_pcOut, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %conv
@@ -5908,8 +5904,8 @@ if.else.i:                                        ; preds = %_ZN6Assimp3PLY16Pro
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds %"union.Assimp::PLY::PropertyInstance::ValueUnion", ptr %7, i64 %conv
-  %tobool.not.i.i = icmp eq ptr %6, %add.ptr.i
+  %add.ptr.i = getelementptr inbounds %"union.Assimp::PLY::PropertyInstance::ValueUnion", ptr %6, i64 %conv
+  %tobool.not.i.i = icmp eq ptr %5, %add.ptr.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE6resizeEm.exit, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5.i
@@ -5922,36 +5918,36 @@ _ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE6resizeEm.exit: 
 
 for.body:                                         ; preds = %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE6resizeEm.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE6resizeEm.exit ]
-  %8 = load i32, ptr %prop, align 8
-  %9 = load ptr, ptr %p_pcOut, align 8
-  %add.ptr.i20 = getelementptr inbounds %"union.Assimp::PLY::PropertyInstance::ValueUnion", ptr %9, i64 %indvars.iv
-  %call8 = tail call noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance16ParseValueBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjNS0_9EDataTypeEPNS1_10ValueUnionEb(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef nonnull align 8 dereferenceable(8) %pCur, ptr noundef nonnull align 4 dereferenceable(4) %bufferSize, i32 noundef %8, ptr noundef nonnull %add.ptr.i20, i1 noundef zeroext %p_bBE)
+  %7 = load i32, ptr %prop, align 8
+  %8 = load ptr, ptr %p_pcOut, align 8
+  %add.ptr.i20 = getelementptr inbounds %"union.Assimp::PLY::PropertyInstance::ValueUnion", ptr %8, i64 %indvars.iv
+  %call8 = tail call noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance16ParseValueBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjNS0_9EDataTypeEPNS1_10ValueUnionEb(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef nonnull align 8 dereferenceable(8) %pCur, ptr noundef nonnull align 4 dereferenceable(4) %bufferSize, i32 noundef %7, ptr noundef nonnull %add.ptr.i20, i1 noundef zeroext %p_bBE)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !30
 
 if.else:                                          ; preds = %entry
-  %10 = load i32, ptr %prop, align 8
-  %call12 = call noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance16ParseValueBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjNS0_9EDataTypeEPNS1_10ValueUnionEb(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef nonnull align 8 dereferenceable(8) %pCur, ptr noundef nonnull align 4 dereferenceable(4) %bufferSize, i32 noundef %10, ptr noundef nonnull %v9, i1 noundef zeroext %p_bBE)
+  %9 = load i32, ptr %prop, align 8
+  %call12 = call noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance16ParseValueBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjNS0_9EDataTypeEPNS1_10ValueUnionEb(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef nonnull align 8 dereferenceable(8) %pCur, ptr noundef nonnull align 4 dereferenceable(4) %bufferSize, i32 noundef %9, ptr noundef nonnull %v9, i1 noundef zeroext %p_bBE)
   %_M_finish.i = getelementptr inbounds i8, ptr %p_pcOut, i64 8
-  %11 = load ptr, ptr %_M_finish.i, align 8
+  %10 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %p_pcOut, i64 16
-  %12 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i = icmp eq ptr %11, %12
+  %11 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i = icmp eq ptr %10, %11
   br i1 %cmp.not.i, label %if.else.i22, label %if.then.i21
 
 if.then.i21:                                      ; preds = %if.else
-  %13 = load i64, ptr %v9, align 8
-  store i64 %13, ptr %11, align 8
-  %14 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %14, i64 8
+  %12 = load i64, ptr %v9, align 8
+  store i64 %12, ptr %10, align 8
+  %13 = load ptr, ptr %_M_finish.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %if.end
 
 if.else.i22:                                      ; preds = %if.else
-  %15 = load ptr, ptr %p_pcOut, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %15 to i64
+  %14 = load ptr, ptr %p_pcOut, align 8
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE12_M_check_lenEmPKc.exit.i.i
@@ -5965,8 +5961,8 @@ _ZNKSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE12_M_check_lenE
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %16 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %16
+  %15 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %15
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -5978,23 +5974,23 @@ cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN6Ass
 _ZNSt12_Vector_baseIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"union.Assimp::PLY::PropertyInstance::ValueUnion", ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
-  %17 = load i64, ptr %v9, align 8
-  store i64 %17, ptr %add.ptr.i.i, align 8
+  %16 = load i64, ptr %v9, align 8
+  store i64 %16, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %15, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %14, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
 _ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i = icmp eq ptr %15, null
+  %tobool.not.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %15) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #22
   br label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIN6Assimp3PLY16PropertyInstance10ValueUnionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i

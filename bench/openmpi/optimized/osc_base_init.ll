@@ -23,30 +23,30 @@ define i32 @ompi_osc_base_select(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br i1 %9, label %._crit_edge.thread, label %.preheader
 
 .preheader:                                       ; preds = %7
-  %.03138 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
-  %.not39 = icmp eq ptr %.03138, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 12, i32 1)
-  br i1 %.not39, label %._crit_edge.thread, label %.lr.ph
+  %.03137 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
+  %.not38 = icmp eq ptr %.03137, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 12, i32 1)
+  br i1 %.not38, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %10 = getelementptr inbounds i8, ptr %0, i64 88
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
-  %.03142 = phi ptr [ %.03138, %.lr.ph ], [ %.031, %11 ]
-  %.03241 = phi ptr [ null, %.lr.ph ], [ %.1, %11 ]
-  %.03340 = phi i32 [ -1, %.lr.ph ], [ %.134, %11 ]
-  %12 = getelementptr inbounds i8, ptr %.03142, i64 40
+  %.03141 = phi ptr [ %.03137, %.lr.ph ], [ %.031, %11 ]
+  %.03240 = phi ptr [ null, %.lr.ph ], [ %.1, %11 ]
+  %.03339 = phi i32 [ -1, %.lr.ph ], [ %.134, %11 ]
+  %12 = getelementptr inbounds i8, ptr %.03141, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 272
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %10, align 8
   %17 = tail call i32 %15(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %16, i32 noundef %5) #2
   %18 = icmp sgt i32 %17, -1
-  %19 = icmp sgt i32 %17, %.03340
+  %19 = icmp sgt i32 %17, %.03339
   %or.cond = select i1 %18, i1 %19, i1 false
-  %.134 = select i1 %or.cond, i32 %17, i32 %.03340
-  %.1 = select i1 %or.cond, ptr %13, ptr %.03241
-  %20 = getelementptr inbounds i8, ptr %.03142, i64 16
+  %.134 = select i1 %or.cond, i32 %17, i32 %.03339
+  %.1 = select i1 %or.cond, ptr %13, ptr %.03240
+  %20 = getelementptr inbounds i8, ptr %.03141, i64 16
   %.031 = load volatile ptr, ptr %20, align 8
   %.not = icmp eq ptr %.031, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i64 0, i32 12, i32 1)
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !4
@@ -57,9 +57,8 @@ define i32 @ompi_osc_base_select(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 22:                                               ; preds = %._crit_edge
   %23 = load i8, ptr @ompi_ftmpi_enabled, align 1
-  %24 = and i8 %23, 1
-  %.not36 = icmp eq i8 %24, 0
-  br i1 %.not36, label %30, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %30
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr @opal_show_help, align 8

@@ -1968,8 +1968,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7rocksdb17VolatileCacheTier12IsCompre
 entry:
   %is_compressed_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %is_compressed_, align 8
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
+  %tobool = trunc i8 %0 to i1
   ret i1 %tobool
 }
 
@@ -3202,8 +3201,8 @@ if.end:                                           ; preds = %for.inc.i, %entry, 
   br label %return
 
 return:                                           ; preds = %_ZN7rocksdb9HashTableIPNS_17VolatileCacheTier9CacheDataENS1_13CacheDataHashENS1_14CacheDataEqualEE4FindEPNSt7__cxx114listIS3_SaIS3_EEERKS3_.exit, %if.end
-  %cmp.i7 = phi i1 [ false, %_ZN7rocksdb9HashTableIPNS_17VolatileCacheTier9CacheDataENS1_13CacheDataHashENS1_14CacheDataEqualEE4FindEPNSt7__cxx114listIS3_SaIS3_EEERKS3_.exit ], [ true, %if.end ]
-  ret i1 %cmp.i7
+  %retval.0 = phi i1 [ false, %_ZN7rocksdb9HashTableIPNS_17VolatileCacheTier9CacheDataENS1_13CacheDataHashENS1_14CacheDataEqualEE4FindEPNSt7__cxx114listIS3_SaIS3_EEERKS3_.exit ], [ true, %if.end ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind

@@ -83,17 +83,16 @@ land.lhs.true5.i.i:                               ; preds = %if.end5
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %4 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %div) #9
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %div) #9
   br label %trace_migration_pagecache_init.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -356,17 +355,16 @@ land.lhs.true5.i.i:                               ; preds = %if.then10
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %9 = load i8, ptr @message_with_timestamp, align 1
-  %10 = and i8 %9, 1
-  %tobool7.not.i.i = icmp eq i8 %10, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i15, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %9 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i15
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
-  %11 = load i64, ptr %_now.i.i, align 8
+  %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %12 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12) #9
+  %11 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11) #9
   br label %trace_migration_pagecache_insert.exit
 
 if.else.i.i15:                                    ; preds = %if.then.i.i
@@ -379,17 +377,17 @@ trace_migration_pagecache_insert.exit:            ; preds = %if.then10, %land.lh
 
 if.end11:                                         ; preds = %if.then5
   %num_items = getelementptr inbounds i8, ptr %cache, i64 24
-  %13 = load i64, ptr %num_items, align 8
-  %inc = add i64 %13, 1
+  %12 = load i64, ptr %num_items, align 8
+  %inc = add i64 %12, 1
   store i64 %inc, ptr %num_items, align 8
   %.pre = load ptr, ptr %it_data, align 8
   %.pre16 = load i64, ptr %page_size.i.i, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %land.lhs.true, %land.lhs.true1, %if.end11
-  %14 = phi i64 [ %2, %land.lhs.true ], [ %2, %land.lhs.true1 ], [ %.pre16, %if.end11 ]
-  %15 = phi ptr [ %3, %land.lhs.true ], [ %3, %land.lhs.true1 ], [ %.pre, %if.end11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %pdata, i64 %14, i1 false)
+  %13 = phi i64 [ %2, %land.lhs.true ], [ %2, %land.lhs.true1 ], [ %.pre16, %if.end11 ]
+  %14 = phi ptr [ %3, %land.lhs.true ], [ %3, %land.lhs.true1 ], [ %.pre, %if.end11 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %pdata, i64 %13, i1 false)
   %it_age15 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i64 %current_age, ptr %it_age15, align 8
   store i64 %addr, ptr %arrayidx.i, align 8

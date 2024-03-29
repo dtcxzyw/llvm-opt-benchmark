@@ -477,53 +477,52 @@ entry:
   %0 = load ptr, ptr %pdev, align 8
   %msix_enabled = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %msix_enabled, align 4
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %msix_entry = getelementptr inbounds i8, ptr %vq, i64 56
-  %3 = load i16, ptr %msix_entry, align 8
+  %2 = load i16, ptr %msix_entry, align 8
   %msix_addr = getelementptr inbounds i8, ptr %vq, i64 64
-  %4 = load i64, ptr %msix_addr, align 8
+  %3 = load i64, ptr %msix_addr, align 8
   %msix_data = getelementptr inbounds i8, ptr %vq, i64 72
-  %5 = load i32, ptr %msix_data, align 8
-  %call.i = tail call zeroext i1 @qpci_msix_masked(ptr noundef nonnull %0, i16 noundef zeroext %3) #3
-  %6 = load ptr, ptr %pdev, align 8
+  %4 = load i32, ptr %msix_data, align 8
+  %call.i = tail call zeroext i1 @qpci_msix_masked(ptr noundef nonnull %0, i16 noundef zeroext %2) #3
+  %5 = load ptr, ptr %pdev, align 8
   br i1 %call.i, label %if.then5.i, label %if.end9.i
 
 if.then5.i:                                       ; preds = %if.then
-  %call8.i = tail call zeroext i1 @qpci_msix_pending(ptr noundef %6, i16 noundef zeroext %3) #3
+  %call8.i = tail call zeroext i1 @qpci_msix_pending(ptr noundef %5, i16 noundef zeroext %2) #3
   br label %return
 
 if.end9.i:                                        ; preds = %if.then
-  %7 = load ptr, ptr %6, align 8
-  %qts.i = getelementptr inbounds i8, ptr %7, i64 128
-  %8 = load ptr, ptr %qts.i, align 8
-  %conv11.i = and i64 %4, 4294967295
-  %call12.i = tail call i32 @qtest_readl(ptr noundef %8, i64 noundef %conv11.i) #3
-  %cmp13.i = icmp eq i32 %call12.i, %5
+  %6 = load ptr, ptr %5, align 8
+  %qts.i = getelementptr inbounds i8, ptr %6, i64 128
+  %7 = load ptr, ptr %qts.i, align 8
+  %conv11.i = and i64 %3, 4294967295
+  %call12.i = tail call i32 @qtest_readl(ptr noundef %7, i64 noundef %conv11.i) #3
+  %cmp13.i = icmp eq i32 %call12.i, %4
   br i1 %cmp13.i, label %if.then15.i, label %return
 
 if.then15.i:                                      ; preds = %if.end9.i
-  %9 = load ptr, ptr %pdev, align 8
-  %10 = load ptr, ptr %9, align 8
-  %qts18.i = getelementptr inbounds i8, ptr %10, i64 128
-  %11 = load ptr, ptr %qts18.i, align 8
-  tail call void @qtest_writel(ptr noundef %11, i64 noundef %conv11.i, i32 noundef 0) #3
+  %8 = load ptr, ptr %pdev, align 8
+  %9 = load ptr, ptr %8, align 8
+  %qts18.i = getelementptr inbounds i8, ptr %9, i64 128
+  %10 = load ptr, ptr %qts18.i, align 8
+  tail call void @qtest_writel(ptr noundef %10, i64 noundef %conv11.i, i32 noundef 0) #3
   br label %return
 
 if.end:                                           ; preds = %entry
   %bar = getelementptr i8, ptr %d, i64 40
   %isr_cfg_offset = getelementptr i8, ptr %d, i64 100
-  %12 = load i32, ptr %isr_cfg_offset, align 4
-  %conv6 = zext i32 %12 to i64
-  %13 = load i64, ptr %bar, align 8
-  %14 = getelementptr i8, ptr %d, i64 48
-  %15 = load i8, ptr %14, align 8
-  %call7 = tail call zeroext i8 @qpci_io_readb(ptr noundef nonnull %0, i64 %13, i8 %15, i64 noundef %conv6) #3
-  %16 = and i8 %call7, 1
-  %tobool9 = icmp ne i8 %16, 0
+  %11 = load i32, ptr %isr_cfg_offset, align 4
+  %conv6 = zext i32 %11 to i64
+  %12 = load i64, ptr %bar, align 8
+  %13 = getelementptr i8, ptr %d, i64 48
+  %14 = load i8, ptr %13, align 8
+  %call7 = tail call zeroext i8 @qpci_io_readb(ptr noundef nonnull %0, i64 %12, i8 %14, i64 noundef %conv6) #3
+  %15 = and i8 %call7, 1
+  %tobool9 = icmp ne i8 %15, 0
   br label %return
 
 return:                                           ; preds = %if.then15.i, %if.end9.i, %if.then5.i, %if.end
@@ -542,12 +541,12 @@ entry:
 
 do.end.lr.ph:                                     ; preds = %entry
   %pdev = getelementptr i8, ptr %d, i64 32
-  %config_msix_entry.i = getelementptr i8, ptr %d, i64 64
-  %config_msix_addr.i = getelementptr i8, ptr %d, i64 72
-  %config_msix_data.i = getelementptr i8, ptr %d, i64 80
   %bar.i = getelementptr i8, ptr %d, i64 40
   %isr_cfg_offset.i = getelementptr i8, ptr %d, i64 100
   %0 = getelementptr i8, ptr %d, i64 48
+  %config_msix_entry.i = getelementptr i8, ptr %d, i64 64
+  %config_msix_addr.i = getelementptr i8, ptr %d, i64 72
+  %config_msix_data.i = getelementptr i8, ptr %d, i64 80
   br label %do.end
 
 if.else:                                          ; preds = %do.body.backedge, %entry
@@ -563,47 +562,46 @@ do.end:                                           ; preds = %do.end.lr.ph, %do.b
   %4 = load ptr, ptr %pdev, align 8
   %msix_enabled.i = getelementptr inbounds i8, ptr %4, i64 12
   %5 = load i8, ptr %msix_enabled.i, align 4
-  %6 = and i8 %5, 1
-  %tobool.not.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %tobool.i = trunc i8 %5 to i1
+  br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %do.end
-  %7 = load i16, ptr %config_msix_entry.i, align 8
-  %8 = load i64, ptr %config_msix_addr.i, align 8
-  %9 = load i32, ptr %config_msix_data.i, align 8
-  %call.i.i = tail call zeroext i1 @qpci_msix_masked(ptr noundef nonnull %4, i16 noundef zeroext %7) #3
-  %10 = load ptr, ptr %pdev, align 8
+  %6 = load i16, ptr %config_msix_entry.i, align 8
+  %7 = load i64, ptr %config_msix_addr.i, align 8
+  %8 = load i32, ptr %config_msix_data.i, align 8
+  %call.i.i = tail call zeroext i1 @qpci_msix_masked(ptr noundef nonnull %4, i16 noundef zeroext %6) #3
+  %9 = load ptr, ptr %pdev, align 8
   br i1 %call.i.i, label %if.then5.i.i, label %if.end9.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i
-  %call8.i.i = tail call zeroext i1 @qpci_msix_pending(ptr noundef %10, i16 noundef zeroext %7) #3
+  %call8.i.i = tail call zeroext i1 @qpci_msix_pending(ptr noundef %9, i16 noundef zeroext %6) #3
   br i1 %call8.i.i, label %do.end5, label %do.body.backedge
 
 if.end9.i.i:                                      ; preds = %if.then.i
-  %11 = load ptr, ptr %10, align 8
-  %qts.i.i = getelementptr inbounds i8, ptr %11, i64 128
-  %12 = load ptr, ptr %qts.i.i, align 8
-  %conv11.i.i = and i64 %8, 4294967295
-  %call12.i.i = tail call i32 @qtest_readl(ptr noundef %12, i64 noundef %conv11.i.i) #3
-  %cmp13.i.i = icmp eq i32 %call12.i.i, %9
+  %10 = load ptr, ptr %9, align 8
+  %qts.i.i = getelementptr inbounds i8, ptr %10, i64 128
+  %11 = load ptr, ptr %qts.i.i, align 8
+  %conv11.i.i = and i64 %7, 4294967295
+  %call12.i.i = tail call i32 @qtest_readl(ptr noundef %11, i64 noundef %conv11.i.i) #3
+  %cmp13.i.i = icmp eq i32 %call12.i.i, %8
   br i1 %cmp13.i.i, label %get_config_isr_status.exit.thread, label %do.body.backedge
 
 get_config_isr_status.exit.thread:                ; preds = %if.end9.i.i
-  %13 = load ptr, ptr %pdev, align 8
-  %14 = load ptr, ptr %13, align 8
-  %qts18.i.i = getelementptr inbounds i8, ptr %14, i64 128
-  %15 = load ptr, ptr %qts18.i.i, align 8
-  tail call void @qtest_writel(ptr noundef %15, i64 noundef %conv11.i.i, i32 noundef 0) #3
+  %12 = load ptr, ptr %pdev, align 8
+  %13 = load ptr, ptr %12, align 8
+  %qts18.i.i = getelementptr inbounds i8, ptr %13, i64 128
+  %14 = load ptr, ptr %qts18.i.i, align 8
+  tail call void @qtest_writel(ptr noundef %14, i64 noundef %conv11.i.i, i32 noundef 0) #3
   br label %do.end5
 
 if.end.i:                                         ; preds = %do.end
-  %16 = load i32, ptr %isr_cfg_offset.i, align 4
-  %conv3.i = zext i32 %16 to i64
-  %17 = load i64, ptr %bar.i, align 8
-  %18 = load i8, ptr %0, align 8
-  %call4.i = tail call zeroext i8 @qpci_io_readb(ptr noundef nonnull %4, i64 %17, i8 %18, i64 noundef %conv3.i) #3
-  %19 = and i8 %call4.i, 2
-  %tobool6.i.not = icmp eq i8 %19, 0
+  %15 = load i32, ptr %isr_cfg_offset.i, align 4
+  %conv3.i = zext i32 %15 to i64
+  %16 = load i64, ptr %bar.i, align 8
+  %17 = load i8, ptr %0, align 8
+  %call4.i = tail call zeroext i8 @qpci_io_readb(ptr noundef nonnull %4, i64 %16, i8 %17, i64 noundef %conv3.i) #3
+  %18 = and i8 %call4.i, 2
+  %tobool6.i.not = icmp eq i8 %18, 0
   br i1 %tobool6.i.not, label %do.body.backedge, label %do.end5
 
 do.body.backedge:                                 ; preds = %if.end.i, %if.then5.i.i, %if.end9.i.i

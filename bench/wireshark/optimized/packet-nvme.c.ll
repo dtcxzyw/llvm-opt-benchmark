@@ -9390,13 +9390,12 @@ define hidden noundef i32 @nvme_is_io_queue_opcode(i8 noundef zeroext %0) local_
 switch.hole_check:                                ; preds = %1
   %switch.maskindex = zext nneg i8 %0 to i32
   %switch.shifted = lshr i32 156471, %switch.maskindex
-  %6 = and i32 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i32 %6, 0
-  br i1 %switch.lobit.not, label %3, label %switch.lookup
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %3
 
 switch.lookup:                                    ; preds = %switch.hole_check, %3
-  %7 = phi i32 [ %5, %3 ], [ 1, %switch.hole_check ]
-  ret i32 %7
+  %6 = phi i32 [ %5, %3 ], [ 1, %switch.hole_check ]
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9519,7 +9518,7 @@ nvme_publish_cmd_latency.exit:                    ; preds = %nvme_publish_to_cmd
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %68 = getelementptr inbounds i8, ptr %4, i64 160
   %69 = load i8, ptr %68, align 8
-  switch i8 %69, label %140 [
+  switch i8 %69, label %139 [
     i8 9, label %70
     i8 10, label %86
     i8 12, label %118
@@ -9715,38 +9714,37 @@ nvme_publish_cmd_latency.exit:                    ; preds = %nvme_publish_to_cmd
   %129 = and i8 %128, 7
   %130 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #10
   %.not30 = icmp eq i8 %129, 7
-  br i1 %.not30, label %135, label %switch.hole_check
+  br i1 %.not30, label %134, label %switch.hole_check
 
 switch.hole_check:                                ; preds = %127
   %switch.shifted = lshr i8 71, %129
-  %131 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %131, 0
-  br i1 %switch.lobit.not, label %135, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %134
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %132 = zext nneg i8 %129 to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.dissect_nvme_cqe, i64 0, i64 %132
+  %131 = zext nneg i8 %129 to i64
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.dissect_nvme_cqe, i64 0, i64 %131
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %133 = zext i8 %130 to i32
-  %134 = call ptr @val_to_str_const(i32 noundef %133, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.10) #10
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %126, ptr noundef nonnull @.str.1811, ptr noundef %134) #10
-  br label %135
+  %132 = zext i8 %130 to i32
+  %133 = call ptr @val_to_str_const(i32 noundef %132, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.10) #10
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %126, ptr noundef nonnull @.str.1811, ptr noundef %133) #10
+  br label %134
 
-135:                                              ; preds = %switch.hole_check, %127, %switch.lookup
-  %136 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @hf_nvme_cqe_aev_dword0, i64 0, i64 4), align 16
-  %137 = call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %136, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #10
-  %138 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @hf_nvme_cqe_aev_dword0, i64 0, i64 5), align 4
-  %139 = call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %138, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #10
+134:                                              ; preds = %switch.hole_check, %127, %switch.lookup
+  %135 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @hf_nvme_cqe_aev_dword0, i64 0, i64 4), align 16
+  %136 = call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %135, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #10
+  %137 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @hf_nvme_cqe_aev_dword0, i64 0, i64 5), align 4
+  %138 = call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %137, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #10
   br label %decode_dword0_cqe.exit
 
-140:                                              ; preds = %nvme_publish_cmd_latency.exit
-  %141 = load i32, ptr @hf_nvme_cqe_dword0, align 4
-  %142 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %141, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #10
+139:                                              ; preds = %nvme_publish_cmd_latency.exit
+  %140 = load i32, ptr @hf_nvme_cqe_dword0, align 4
+  %141 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %140, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #10
   br label %decode_dword0_cqe.exit
 
-decode_dword0_cqe.exit:                           ; preds = %.lr.ph.i.i, %83, %89, %90, %91, %92, %93, %94, %95, %96, %97, %98, %99, %100, %101, %102, %103, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113, %114, %115, %135, %140
-  %143 = load i32, ptr @hf_nvme_cqe_dword1, align 4
-  %144 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %143, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #10
+decode_dword0_cqe.exit:                           ; preds = %.lr.ph.i.i, %83, %89, %90, %91, %92, %93, %94, %95, %96, %97, %98, %99, %100, %101, %102, %103, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113, %114, %115, %134, %139
+  %142 = load i32, ptr @hf_nvme_cqe_dword1, align 4
+  %143 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %142, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #10
   call fastcc void @dissect_nvme_cqe_common(ptr noundef %0, ptr noundef %45, i32 noundef 0, i32 noundef 0)
   ret void
 }

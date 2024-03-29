@@ -6716,7 +6716,7 @@ define internal fastcc void @php_html_entities(ptr noundef %0, ptr nocapture nou
   %.0174221 = phi ptr [ %33, %38 ], [ %23, %28 ], [ %13, %18 ], [ null, %11 ], [ %46, %45 ]
   %.0175220 = phi i32 [ 3, %38 ], [ 2, %28 ], [ 1, %18 ], [ 0, %11 ], [ 4, %45 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0171223, i32 noundef %.0175220, ptr noundef null, i32 noundef %.0173222, ptr noundef %.0174221) #20
-  br label %66
+  br label %65
 
 .thread207:                                       ; preds = %..thread207_crit_edge, %.thread203, %40, %30, %20
   %48 = phi i8 [ %.pre, %..thread207_crit_edge ], [ %storemerge182, %.thread203 ], [ 1, %40 ], [ 1, %30 ], [ 1, %20 ]
@@ -6730,20 +6730,19 @@ define internal fastcc void @php_html_entities(ptr noundef %0, ptr nocapture nou
   %.not184 = icmp eq ptr %55, null
   %56 = getelementptr inbounds i8, ptr %55, i64 24
   %57 = select i1 %.not184, ptr null, ptr %56
-  %58 = and i8 %48, 1
-  %59 = icmp ne i8 %58, 0
-  %60 = call ptr @php_escape_html_entities_ex(ptr noundef nonnull %50, i64 noundef %52, i32 noundef %2, i32 noundef %54, ptr noundef %57, i1 noundef zeroext %59, i1 noundef zeroext false)
-  store ptr %60, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 4
-  %62 = load i32, ptr %61, align 4
-  %63 = and i32 %62, 64
-  %.not185 = icmp eq i32 %63, 0
-  %64 = select i1 %.not185, i32 262, i32 6
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %64, ptr %65, align 8
-  br label %66
+  %58 = trunc i8 %48 to i1
+  %59 = call ptr @php_escape_html_entities_ex(ptr noundef nonnull %50, i64 noundef %52, i32 noundef %2, i32 noundef %54, ptr noundef %57, i1 noundef zeroext %58, i1 noundef zeroext false)
+  store ptr %59, ptr %1, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 4
+  %61 = load i32, ptr %60, align 4
+  %62 = and i32 %61, 64
+  %.not185 = icmp eq i32 %62, 0
+  %63 = select i1 %.not185, i32 262, i32 6
+  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %63, ptr %64, align 8
+  br label %65
 
-66:                                               ; preds = %.thread207, %.thread214
+65:                                               ; preds = %.thread207, %.thread214
   ret void
 }
 

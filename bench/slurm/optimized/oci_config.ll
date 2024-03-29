@@ -244,34 +244,34 @@ define i32 @get_oci_conf(ptr nocapture noundef %0) local_unnamed_addr #0 {
   store ptr %106, ptr %107, align 8
   %108 = load ptr, ptr %4, align 8
   %109 = call ptr @strtok_r(ptr noundef %108, ptr noundef nonnull @.str.26, ptr noundef nonnull %14) #5
-  %.not128180 = icmp eq ptr %109, null
-  br i1 %.not128180, label %._crit_edge, label %.lr.ph183
+  %.not128178 = icmp eq ptr %109, null
+  br i1 %.not128178, label %._crit_edge, label %.lr.ph181
 
-.lr.ph183:                                        ; preds = %105, %121
-  %indvars.iv185 = phi i64 [ %indvars.iv.next186, %121 ], [ 0, %105 ]
-  %.0105181 = phi ptr [ %122, %121 ], [ %109, %105 ]
-  %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
-  %110 = add nuw nsw i64 %indvars.iv185, 2
+.lr.ph181:                                        ; preds = %105, %121
+  %indvars.iv183 = phi i64 [ %indvars.iv.next184, %121 ], [ 0, %105 ]
+  %.0105179 = phi ptr [ %122, %121 ], [ %109, %105 ]
+  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
+  %110 = add nuw nsw i64 %indvars.iv183, 2
   %111 = call ptr @slurm_xrecalloc(ptr noundef nonnull %107, i64 noundef %110, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 167, ptr noundef nonnull @__func__.get_oci_conf) #5
-  %112 = call ptr @xstrdup(ptr noundef nonnull %.0105181) #5
+  %112 = call ptr @xstrdup(ptr noundef nonnull %.0105179) #5
   %113 = load ptr, ptr %107, align 8
-  %114 = getelementptr inbounds ptr, ptr %113, i64 %indvars.iv.next186
+  %114 = getelementptr inbounds ptr, ptr %113, i64 %indvars.iv.next184
   store ptr %112, ptr %114, align 8
   %115 = call i32 @get_log_level() #5
   %116 = icmp sgt i32 %115, 4
   br i1 %116, label %117, label %121
 
-117:                                              ; preds = %.lr.ph183
+117:                                              ; preds = %.lr.ph181
   %118 = load ptr, ptr %107, align 8
-  %119 = getelementptr inbounds ptr, ptr %118, i64 %indvars.iv.next186
+  %119 = getelementptr inbounds ptr, ptr %118, i64 %indvars.iv.next184
   %120 = load ptr, ptr %119, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__.get_oci_conf, ptr noundef %120) #5
   br label %121
 
-121:                                              ; preds = %117, %.lr.ph183
+121:                                              ; preds = %117, %.lr.ph181
   %122 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.26, ptr noundef nonnull %14) #5
   %.not128 = icmp eq ptr %122, null
-  br i1 %.not128, label %._crit_edge, label %.lr.ph183, !llvm.loop !8
+  br i1 %.not128, label %._crit_edge, label %.lr.ph181, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %121, %105
   call void @slurm_xfree(ptr noundef nonnull %4) #5
@@ -279,9 +279,8 @@ define i32 @get_oci_conf(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 123:                                              ; preds = %._crit_edge, %.loopexit
   %124 = load i8, ptr %34, align 8
-  %125 = and i8 %124, 1
-  %.not129 = icmp eq i8 %125, 0
-  br i1 %.not129, label %130, label %126
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %126, label %130
 
 126:                                              ; preds = %123
   %127 = call i32 @get_log_level() #5
@@ -294,60 +293,60 @@ define i32 @get_oci_conf(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 130:                                              ; preds = %123
   %131 = load ptr, ptr %39, align 8
-  %.not130 = icmp eq ptr %131, null
+  %.not129 = icmp eq ptr %131, null
   %132 = load ptr, ptr %41, align 8
-  %.not131 = icmp eq ptr %132, null
-  br i1 %.not130, label %133, label %143
+  %.not130 = icmp eq ptr %132, null
+  br i1 %.not129, label %133, label %143
 
 133:                                              ; preds = %130
   %.pre = load ptr, ptr %43, align 8
-  %.not132 = icmp eq ptr %.pre, null
-  br i1 %.not131, label %134, label %.thread169
+  %.not131 = icmp eq ptr %.pre, null
+  br i1 %.not130, label %134, label %.thread167
 
 134:                                              ; preds = %133
-  br i1 %.not132, label %135, label %.thread167
+  br i1 %.not131, label %135, label %.thread165
 
 135:                                              ; preds = %134
   %136 = load ptr, ptr %46, align 8
-  %.not133 = icmp eq ptr %136, null
-  br i1 %.not133, label %137, label %.thread167
+  %.not132 = icmp eq ptr %136, null
+  br i1 %.not132, label %137, label %.thread165
 
 137:                                              ; preds = %135
   %138 = load ptr, ptr %48, align 8
-  %.not134 = icmp eq ptr %138, null
-  br i1 %.not134, label %139, label %.thread167
+  %.not133 = icmp eq ptr %138, null
+  br i1 %.not133, label %139, label %.thread165
 
 139:                                              ; preds = %137
   %140 = load ptr, ptr %50, align 8
-  %.not135 = icmp eq ptr %140, null
-  br i1 %.not135, label %141, label %.thread167
+  %.not134 = icmp eq ptr %140, null
+  br i1 %.not134, label %141, label %.thread165
 
 141:                                              ; preds = %139
   %142 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.29) #5
   br label %165
 
 143:                                              ; preds = %130
-  br i1 %.not131, label %.thread167, label %144
+  br i1 %.not130, label %.thread165, label %144
 
 144:                                              ; preds = %143
   %145 = load ptr, ptr %43, align 8
-  %.not138 = icmp eq ptr %145, null
-  br i1 %.not138, label %.thread167, label %146
+  %.not137 = icmp eq ptr %145, null
+  br i1 %.not137, label %.thread165, label %146
 
 146:                                              ; preds = %144
   %147 = load ptr, ptr %46, align 8
-  %.not139 = icmp eq ptr %147, null
-  br i1 %.not139, label %.thread167, label %148
+  %.not138 = icmp eq ptr %147, null
+  br i1 %.not138, label %.thread165, label %148
 
 148:                                              ; preds = %146
   %149 = load ptr, ptr %48, align 8
-  %.not140 = icmp eq ptr %149, null
-  br i1 %.not140, label %150, label %.thread167
+  %.not139 = icmp eq ptr %149, null
+  br i1 %.not139, label %150, label %.thread165
 
 150:                                              ; preds = %148
   %151 = load ptr, ptr %50, align 8
-  %.not141 = icmp eq ptr %151, null
-  br i1 %.not141, label %.thread167, label %152
+  %.not140 = icmp eq ptr %151, null
+  br i1 %.not140, label %.thread165, label %152
 
 152:                                              ; preds = %150
   %153 = call i32 @get_log_level() #5
@@ -358,18 +357,18 @@ define i32 @get_oci_conf(ptr nocapture noundef %0) local_unnamed_addr #0 {
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.30) #5
   br label %165
 
-.thread169:                                       ; preds = %133
-  br i1 %.not132, label %.thread167, label %156
+.thread167:                                       ; preds = %133
+  br i1 %.not131, label %.thread165, label %156
 
-156:                                              ; preds = %.thread169
+156:                                              ; preds = %.thread167
   %157 = load ptr, ptr %48, align 8
-  %.not145 = icmp eq ptr %157, null
-  br i1 %.not145, label %.thread167, label %158
+  %.not144 = icmp eq ptr %157, null
+  br i1 %.not144, label %.thread165, label %158
 
 158:                                              ; preds = %156
   %159 = load ptr, ptr %50, align 8
-  %.not146 = icmp eq ptr %159, null
-  br i1 %.not146, label %160, label %.thread167
+  %.not145 = icmp eq ptr %159, null
+  br i1 %.not145, label %160, label %.thread165
 
 160:                                              ; preds = %158
   %161 = call i32 @get_log_level() #5
@@ -380,40 +379,40 @@ define i32 @get_oci_conf(ptr nocapture noundef %0) local_unnamed_addr #0 {
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.31) #5
   br label %165
 
-.thread167:                                       ; preds = %139, %137, %135, %143, %144, %146, %148, %150, %134, %158, %156, %.thread169
+.thread165:                                       ; preds = %139, %137, %135, %143, %144, %146, %148, %150, %134, %158, %156, %.thread167
   %164 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32) #5
   br label %165
 
-165:                                              ; preds = %141, %.thread167, %163, %160, %152, %155, %126, %129
-  %.0108 = phi i32 [ 0, %129 ], [ 0, %126 ], [ -1, %.thread167 ], [ 0, %163 ], [ 0, %160 ], [ 0, %155 ], [ 0, %152 ], [ 22, %141 ]
+165:                                              ; preds = %141, %.thread165, %163, %160, %152, %155, %126, %129
+  %.0108 = phi i32 [ 0, %129 ], [ 0, %126 ], [ -1, %.thread165 ], [ 0, %163 ], [ 0, %160 ], [ 0, %155 ], [ 0, %152 ], [ 22, %141 ]
   %166 = load ptr, ptr %11, align 8
   %167 = call i32 @xstrcasecmp(ptr noundef %166, ptr noundef nonnull @.str.33) #5
-  %.not147 = icmp eq i32 %167, 0
-  br i1 %.not147, label %180, label %168
+  %.not146 = icmp eq i32 %167, 0
+  br i1 %.not146, label %180, label %168
 
 168:                                              ; preds = %165
   %169 = load ptr, ptr %11, align 8
   %170 = call i32 @xstrcasecmp(ptr noundef %169, ptr noundef nonnull @.str.34) #5
-  %.not148 = icmp eq i32 %170, 0
-  br i1 %.not148, label %180, label %171
+  %.not147 = icmp eq i32 %170, 0
+  br i1 %.not147, label %180, label %171
 
 171:                                              ; preds = %168
   %172 = load ptr, ptr %11, align 8
   %173 = call i32 @xstrcasecmp(ptr noundef %172, ptr noundef nonnull @.str.35) #5
-  %.not149 = icmp eq i32 %173, 0
-  br i1 %.not149, label %180, label %174
+  %.not148 = icmp eq i32 %173, 0
+  br i1 %.not148, label %180, label %174
 
 174:                                              ; preds = %171
   %175 = load ptr, ptr %11, align 8
   %176 = call i32 @xstrcasecmp(ptr noundef %175, ptr noundef nonnull @.str.36) #5
-  %.not150 = icmp eq i32 %176, 0
-  br i1 %.not150, label %180, label %177
+  %.not149 = icmp eq i32 %176, 0
+  br i1 %.not149, label %180, label %177
 
 177:                                              ; preds = %174
   %178 = load ptr, ptr %11, align 8
   %179 = call i32 @xstrcasecmp(ptr noundef %178, ptr noundef nonnull @.str.37) #5
-  %.not151 = icmp eq i32 %179, 0
-  br i1 %.not151, label %180, label %182
+  %.not150 = icmp eq i32 %179, 0
+  br i1 %.not150, label %180, label %182
 
 180:                                              ; preds = %177, %174, %171, %168, %165
   %181 = getelementptr inbounds i8, ptr %21, i64 8
@@ -423,8 +422,8 @@ define i32 @get_oci_conf(ptr nocapture noundef %0) local_unnamed_addr #0 {
 182:                                              ; preds = %177
   %183 = load ptr, ptr %11, align 8
   %184 = call i32 @xstrcasecmp(ptr noundef %183, ptr noundef nonnull @.str.38) #5
-  %.not152 = icmp eq i32 %184, 0
-  br i1 %.not152, label %185, label %187
+  %.not151 = icmp eq i32 %184, 0
+  br i1 %.not151, label %185, label %187
 
 185:                                              ; preds = %182
   %186 = getelementptr inbounds i8, ptr %21, i64 8
@@ -433,37 +432,37 @@ define i32 @get_oci_conf(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 187:                                              ; preds = %182
   %188 = load ptr, ptr %11, align 8
-  %.not153 = icmp eq ptr %188, null
-  br i1 %.not153, label %203, label %189
+  %.not152 = icmp eq ptr %188, null
+  br i1 %.not152, label %203, label %189
 
 189:                                              ; preds = %187
   %190 = call i32 @xstrcasecmp(ptr noundef nonnull %188, ptr noundef nonnull @.str.39) #5
-  %.not154 = icmp eq i32 %190, 0
-  br i1 %.not154, label %203, label %191
+  %.not153 = icmp eq i32 %190, 0
+  br i1 %.not153, label %203, label %191
 
 191:                                              ; preds = %189
   %192 = load ptr, ptr %11, align 8
   %193 = call i32 @xstrcasecmp(ptr noundef %192, ptr noundef nonnull @.str.40) #5
-  %.not155 = icmp eq i32 %193, 0
-  br i1 %.not155, label %203, label %194
+  %.not154 = icmp eq i32 %193, 0
+  br i1 %.not154, label %203, label %194
 
 194:                                              ; preds = %191
   %195 = load ptr, ptr %11, align 8
   %196 = call i32 @xstrcasecmp(ptr noundef %195, ptr noundef nonnull @.str.41) #5
-  %.not156 = icmp eq i32 %196, 0
-  br i1 %.not156, label %203, label %197
+  %.not155 = icmp eq i32 %196, 0
+  br i1 %.not155, label %203, label %197
 
 197:                                              ; preds = %194
   %198 = load ptr, ptr %11, align 8
   %199 = call i32 @xstrcasecmp(ptr noundef %198, ptr noundef nonnull @.str.42) #5
-  %.not157 = icmp eq i32 %199, 0
-  br i1 %.not157, label %203, label %200
+  %.not156 = icmp eq i32 %199, 0
+  br i1 %.not156, label %203, label %200
 
 200:                                              ; preds = %197
   %201 = load ptr, ptr %11, align 8
   %202 = call i32 @xstrcasecmp(ptr noundef %201, ptr noundef nonnull @.str.43) #5
-  %.not158 = icmp eq i32 %202, 0
-  br i1 %.not158, label %203, label %205
+  %.not157 = icmp eq i32 %202, 0
+  br i1 %.not157, label %203, label %205
 
 203:                                              ; preds = %200, %197, %194, %191, %189, %187
   %204 = getelementptr inbounds i8, ptr %21, i64 8
@@ -489,8 +488,8 @@ define i32 @get_oci_conf(ptr nocapture noundef %0) local_unnamed_addr #0 {
 212:                                              ; preds = %208
   %213 = getelementptr inbounds i8, ptr %21, i64 24
   %214 = call i32 @regcomp(ptr noundef nonnull %213, ptr noundef nonnull %210, i32 noundef 1) #5
-  %.not159 = icmp eq i32 %214, 0
-  br i1 %.not159, label %217, label %215
+  %.not158 = icmp eq i32 %214, 0
+  br i1 %.not158, label %217, label %215
 
 215:                                              ; preds = %212
   %216 = load ptr, ptr %13, align 8
@@ -514,16 +513,16 @@ define i32 @get_oci_conf(ptr nocapture noundef %0) local_unnamed_addr #0 {
 223:                                              ; preds = %219
   %224 = getelementptr inbounds i8, ptr %21, i64 128
   %225 = call i32 @regcomp(ptr noundef nonnull %224, ptr noundef nonnull %221, i32 noundef 1) #5
-  %.not160 = icmp eq i32 %225, 0
-  br i1 %.not160, label %.thread171, label %.thread175
+  %.not159 = icmp eq i32 %225, 0
+  br i1 %.not159, label %.thread169, label %.thread173
 
-.thread175:                                       ; preds = %223
+.thread173:                                       ; preds = %223
   %226 = load ptr, ptr %12, align 8
   call void (i32, ptr, ptr, ...) @dump_regex_error(i32 noundef %225, ptr noundef nonnull %224, ptr noundef nonnull @.str.45, ptr noundef %226) #5
   call void @slurm_xfree(ptr noundef nonnull %12) #5
   br label %246
 
-.thread171:                                       ; preds = %223
+.thread169:                                       ; preds = %223
   %227 = getelementptr inbounds i8, ptr %21, i64 192
   store i8 1, ptr %227, align 8
   call void @slurm_xfree(ptr noundef nonnull %12) #5
@@ -533,7 +532,7 @@ define i32 @get_oci_conf(ptr nocapture noundef %0) local_unnamed_addr #0 {
   call void @slurm_xfree(ptr noundef nonnull %12) #5
   br i1 %220, label %229, label %246
 
-229:                                              ; preds = %.thread171, %228
+229:                                              ; preds = %.thread169, %228
   %230 = load ptr, ptr %0, align 8
   call void @free_oci_conf(ptr noundef %230)
   store ptr %21, ptr %0, align 8
@@ -544,10 +543,10 @@ define i32 @get_oci_conf(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %234, label %235, label %247
 
 235:                                              ; preds = %229
-  %switch.selectcmp163 = icmp eq i32 %232, 1
+  %switch.selectcmp161 = icmp eq i32 %232, 1
   %switch.selectcmp = icmp eq i32 %232, 2
   %switch.select = select i1 %switch.selectcmp, ptr @.str.38, ptr @.str.40
-  %switch.select164 = select i1 %switch.selectcmp163, ptr @.str.33, ptr %switch.select
+  %switch.select162 = select i1 %switch.selectcmp161, ptr @.str.33, ptr %switch.select
   %236 = load ptr, ptr %21, align 8
   %237 = load ptr, ptr %39, align 8
   %238 = load ptr, ptr %41, align 8
@@ -556,19 +555,18 @@ define i32 @get_oci_conf(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %241 = load ptr, ptr %48, align 8
   %242 = load ptr, ptr %50, align 8
   %243 = load i8, ptr %34, align 8
-  %244 = and i8 %243, 1
-  %.not162 = icmp eq i8 %244, 0
-  %245 = select i1 %.not162, i32 70, i32 84
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.get_oci_conf, ptr noundef %236, ptr noundef nonnull %switch.select164, ptr noundef %237, ptr noundef %238, ptr noundef %239, ptr noundef %240, ptr noundef %241, ptr noundef %242, i32 noundef %245) #5
+  %244 = trunc i8 %243 to i1
+  %245 = select i1 %244, i32 84, i32 70
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.get_oci_conf, ptr noundef %236, ptr noundef nonnull %switch.select162, ptr noundef %237, ptr noundef %238, ptr noundef %239, ptr noundef %240, ptr noundef %241, ptr noundef %242, i32 noundef %245) #5
   br label %247
 
-246:                                              ; preds = %.thread175, %228
-  %.3178 = phi i32 [ %225, %.thread175 ], [ %.2, %228 ]
+246:                                              ; preds = %.thread173, %228
+  %.3176 = phi i32 [ %225, %.thread173 ], [ %.2, %228 ]
   call void @free_oci_conf(ptr noundef nonnull %21)
   br label %247
 
 247:                                              ; preds = %246, %235, %229, %18
-  %.0107 = phi i32 [ 2, %18 ], [ 0, %229 ], [ 0, %235 ], [ %.3178, %246 ]
+  %.0107 = phi i32 [ 2, %18 ], [ 0, %229 ], [ 0, %235 ], [ %.3176, %246 ]
   ret i32 %.0107
 }
 

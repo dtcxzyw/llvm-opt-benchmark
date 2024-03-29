@@ -126,9 +126,8 @@ define internal noundef i32 @mca_mpool_base_close() #0 {
 17:                                               ; preds = %.lr.ph, %16
   %18 = getelementptr inbounds i8, ptr %5, i64 8
   %19 = load i8, ptr @opal_uses_threads, align 1
-  %20 = and i8 %19, 1
-  %.not.i = icmp eq i8 %20, 0
-  br i1 %.not.i, label %24, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %17
   %22 = atomicrmw volatile add ptr %18, i32 -1 monotonic, align 4
@@ -161,8 +160,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %21, %24
   tail call void %34(ptr noundef nonnull %5) #3
   %35 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %36 = load ptr, ptr %35, align 8
-  %.not.i11 = icmp eq ptr %36, null
-  br i1 %.not.i11, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
+  %.not.i = icmp eq ptr %36, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %29
   tail call void @free(ptr noundef %5) #3

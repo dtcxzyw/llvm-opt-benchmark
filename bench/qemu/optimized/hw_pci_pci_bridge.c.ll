@@ -652,14 +652,13 @@ if.end39:                                         ; preds = %if.then33, %if.end
 land.lhs.true49:                                  ; preds = %if.end39
   %pcie_writeable_slt_bug = getelementptr inbounds i8, ptr %call.i, i64 7120
   %13 = load i8, ptr %pcie_writeable_slt_bug, align 16
-  %14 = and i8 %13, 1
-  %tobool50.not = icmp eq i8 %14, 0
-  br i1 %tobool50.not, label %if.then51, label %if.end53
+  %tobool50 = trunc i8 %13 to i1
+  br i1 %tobool50, label %if.end53, label %if.then51
 
 if.then51:                                        ; preds = %land.lhs.true49
   %wmask = getelementptr inbounds i8, ptr %dev, i64 184
-  %15 = load ptr, ptr %wmask, align 8
-  %arrayidx52 = getelementptr i8, ptr %15, i64 27
+  %14 = load ptr, ptr %wmask, align 8
+  %arrayidx52 = getelementptr i8, ptr %14, i64 27
   store i8 0, ptr %arrayidx52, align 1
   br label %if.end53
 

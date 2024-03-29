@@ -1038,13 +1038,12 @@ land.rhs:                                         ; preds = %entry
   %0 = load ptr, ptr %d_conclusion, align 8
   %call.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %1 = load i8, ptr %call.i, align 1
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %tobool = trunc i8 %1 to i1
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %3 = phi i1 [ false, %entry ], [ %tobool, %land.rhs ]
-  ret i1 %3
+  %2 = phi i1 [ false, %entry ], [ %tobool, %land.rhs ]
+  ret i1 %2
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
@@ -1060,13 +1059,13 @@ land.rhs:                                         ; preds = %entry
   %0 = load ptr, ptr %d_conclusion, align 8
   %call.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %1 = load i8, ptr %call.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
+  %tobool = trunc i8 %1 to i1
+  %lnot = xor i1 %tobool, true
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %3 = phi i1 [ false, %entry ], [ %tobool.not, %land.rhs ]
-  ret i1 %3
+  %2 = phi i1 [ false, %entry ], [ %lnot, %land.rhs ]
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress uwtable

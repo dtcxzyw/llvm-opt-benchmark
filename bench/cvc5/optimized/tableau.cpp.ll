@@ -634,7 +634,7 @@ for.body.lr.ph:                                   ; preds = %while.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %24 = phi ptr [ %.pre325, %for.body.lr.ph ], [ %36, %for.inc ]
+  %24 = phi ptr [ %.pre325, %for.body.lr.ph ], [ %35, %for.inc ]
   %i.sroa.0.1324 = phi i32 [ %i.sroa.0.1322, %for.body.lr.ph ], [ %i.sroa.0.1, %for.inc ]
   %conv.i.i255 = zext i32 %i.sroa.0.1324 to i64
   %add.ptr.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %24, i64 %conv.i.i255
@@ -644,9 +644,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %26 = load ptr, ptr %d_image.i257, align 8
   %second54 = getelementptr inbounds %"struct.std::pair", ptr %26, i64 %conv.i258, i32 1
   %27 = load i8, ptr %second54, align 4
-  %28 = and i8 %27, 1
-  %tobool.not = icmp eq i8 %28, 0
-  br i1 %tobool.not, label %if.else, label %if.then55
+  %tobool = trunc i8 %27 to i1
+  br i1 %tobool, label %if.then55, label %if.else
 
 if.then55:                                        ; preds = %for.body
   store i8 0, ptr %second54, align 4
@@ -659,15 +658,15 @@ if.else:                                          ; preds = %for.body
           to label %invoke.cont62 unwind label %lpad60
 
 invoke.cont62:                                    ; preds = %if.else
-  %29 = load i32, ptr %_mp_size.i264, align 4
-  %cmp6.i265 = icmp ne i32 %29, 0
+  %28 = load i32, ptr %_mp_size.i264, align 4
+  %cmp6.i265 = icmp ne i32 %28, 0
   %conv.i266 = zext i1 %cmp6.i265 to i32
-  %cmp.inv.i267 = icmp sgt i32 %29, -1
+  %cmp.inv.i267 = icmp sgt i32 %28, -1
   %cond.i268 = select i1 %cmp.inv.i267, i32 %conv.i266, i32 -1
   %vtable64 = load ptr, ptr %cb, align 8
   %vfn65 = getelementptr inbounds i8, ptr %vtable64, i64 16
-  %30 = load ptr, ptr %vfn65, align 8
-  invoke void %30(ptr noundef nonnull align 8 dereferenceable(8) %cb, i32 noundef %to, i32 noundef %25, i32 noundef 0, i32 noundef %cond.i268)
+  %29 = load ptr, ptr %vfn65, align 8
+  invoke void %29(ptr noundef nonnull align 8 dereferenceable(8) %cb, i32 noundef %to, i32 noundef %25, i32 noundef 0, i32 noundef %cond.i268)
           to label %invoke.cont66 unwind label %lpad60
 
 invoke.cont66:                                    ; preds = %invoke.cont62
@@ -675,28 +674,28 @@ invoke.cont66:                                    ; preds = %invoke.cont62
           to label %for.inc unwind label %terminate.lpad.i.i269
 
 terminate.lpad.i.i269:                            ; preds = %invoke.cont66
-  %31 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #15
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #15
   unreachable
 
 lpad60:                                           ; preds = %invoke.cont62, %if.else
-  %33 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull %newCoeff)
           to label %eh.resume unwind label %terminate.lpad.i.i271
 
 terminate.lpad.i.i271:                            ; preds = %lpad60
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #15
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #15
   unreachable
 
 for.inc:                                          ; preds = %invoke.cont66, %if.then55
-  %36 = load ptr, ptr %23, align 8
-  %d_nextRow.i.i275 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %36, i64 %conv.i.i255, i32 2
+  %35 = load ptr, ptr %23, align 8
+  %d_nextRow.i.i275 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %35, i64 %conv.i.i255, i32 2
   %i.sroa.0.1 = load i32, ptr %d_nextRow.i.i275, align 8
   %cmp.i249.not = icmp eq i32 %i.sroa.0.1, -1
   br i1 %cmp.i249.not, label %if.end92, label %for.body, !llvm.loop !11
@@ -705,7 +704,7 @@ if.end92:                                         ; preds = %for.inc, %while.end
   ret void
 
 eh.resume:                                        ; preds = %lpad60, %lpad
-  %.pn21 = phi { ptr, i32 } [ %18, %lpad ], [ %33, %lpad60 ]
+  %.pn21 = phi { ptr, i32 } [ %18, %lpad ], [ %32, %lpad60 ]
   resume { ptr, i32 } %.pn21
 }
 
@@ -830,7 +829,7 @@ for.body.lr.ph:                                   ; preds = %while.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %22 = phi ptr [ %.pre307, %for.body.lr.ph ], [ %32, %for.inc ]
+  %22 = phi ptr [ %.pre307, %for.body.lr.ph ], [ %31, %for.inc ]
   %i.sroa.0.1306 = phi i32 [ %i.sroa.0.1304, %for.body.lr.ph ], [ %i.sroa.0.1, %for.inc ]
   %conv.i.i243 = zext i32 %i.sroa.0.1306 to i64
   %add.ptr.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %22, i64 %conv.i.i243
@@ -840,9 +839,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %24 = load ptr, ptr %d_image.i245, align 8
   %second50 = getelementptr inbounds %"struct.std::pair", ptr %24, i64 %conv.i246, i32 1
   %25 = load i8, ptr %second50, align 4
-  %26 = and i8 %25, 1
-  %tobool.not = icmp eq i8 %26, 0
-  br i1 %tobool.not, label %if.else, label %if.then51
+  %tobool = trunc i8 %25 to i1
+  br i1 %tobool, label %if.then51, label %if.else
 
 if.then51:                                        ; preds = %for.body
   store i8 0, ptr %second50, align 4
@@ -859,28 +857,28 @@ invoke.cont57:                                    ; preds = %if.else
           to label %for.inc unwind label %terminate.lpad.i.i252
 
 terminate.lpad.i.i252:                            ; preds = %invoke.cont57
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #15
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #15
   unreachable
 
 lpad56:                                           ; preds = %if.else
-  %29 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull %newCoeff)
           to label %eh.resume unwind label %terminate.lpad.i.i254
 
 terminate.lpad.i.i254:                            ; preds = %lpad56
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #15
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #15
   unreachable
 
 for.inc:                                          ; preds = %invoke.cont57, %if.then51
-  %32 = load ptr, ptr %21, align 8
-  %d_nextRow.i.i258 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %32, i64 %conv.i.i243, i32 2
+  %31 = load ptr, ptr %21, align 8
+  %d_nextRow.i.i258 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %31, i64 %conv.i.i243, i32 2
   %i.sroa.0.1 = load i32, ptr %d_nextRow.i.i258, align 8
   %cmp.i237.not = icmp eq i32 %i.sroa.0.1, -1
   br i1 %cmp.i237.not, label %if.end83, label %for.body, !llvm.loop !13
@@ -889,7 +887,7 @@ if.end83:                                         ; preds = %for.inc, %while.end
   ret void
 
 eh.resume:                                        ; preds = %lpad56, %lpad
-  %.pn14 = phi { ptr, i32 } [ %16, %lpad ], [ %29, %lpad56 ]
+  %.pn14 = phi { ptr, i32 } [ %16, %lpad ], [ %28, %lpad56 ]
   resume { ptr, i32 } %.pn14
 }
 
@@ -2822,9 +2820,9 @@ if.end8:                                          ; preds = %_ZNSt6vectorIjSaIjE
   store i32 %14, ptr %add.ptr.i18, align 4
   %second.i = getelementptr inbounds i8, ptr %value, i64 4
   %15 = load i8, ptr %second.i, align 4
-  %16 = and i8 %15, 1
   %second3.i = getelementptr inbounds i8, ptr %add.ptr.i18, i64 4
-  store i8 %16, ptr %second3.i, align 4
+  %frombool.i = and i8 %15, 1
+  store i8 %frombool.i, ptr %second3.i, align 4
   ret void
 }
 

@@ -643,9 +643,8 @@ define void @_ZN20EditPickPointsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(pt
 25:                                               ; preds = %21, %18
   %26 = getelementptr inbounds i8, ptr %0, i64 41
   %27 = load i8, ptr %26, align 1
-  %28 = and i8 %27, 1
-  %.not28 = icmp eq i8 %28, 0
-  br i1 %.not28, label %37, label %29
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %37
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %0, i64 32
@@ -667,9 +666,8 @@ define void @_ZN20EditPickPointsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(pt
 37:                                               ; preds = %25
   %38 = getelementptr inbounds i8, ptr %0, i64 40
   %39 = load i8, ptr %38, align 8
-  %40 = and i8 %39, 1
-  %.not29 = icmp eq i8 %40, 0
-  br i1 %.not29, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit, label %41
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds i8, ptr %0, i64 32
@@ -749,14 +747,14 @@ define void @_ZN20EditPickPointsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(pt
 73:                                               ; preds = %64, %62
   %.pn = phi { ptr, i32 } [ %65, %64 ], [ %63, %62 ]
   %74 = load ptr, ptr %10, align 8
-  %.not.i.i.i33 = icmp eq ptr %74, null
-  br i1 %.not.i.i.i33, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit34, label %75
+  %.not.i.i.i31 = icmp eq ptr %74, null
+  br i1 %.not.i.i.i31, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit32, label %75
 
 75:                                               ; preds = %73
   call void @_ZdlPv(ptr noundef nonnull %74) #22
-  br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit34
+  br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit32
 
-_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit34:         ; preds = %73, %75
+_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit32:         ; preds = %73, %75
   resume { ptr, i32 } %.pn
 
 _ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit:           ; preds = %72, %70, %37, %29
@@ -876,8 +874,8 @@ define linkonce_odr noundef i32 @_ZN3vcg9GLPickTriI6CMeshOE15PickVisibleFaceEiiR
 
 44:                                               ; preds = %.lr.ph, %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit
   %45 = phi ptr [ %35, %.lr.ph ], [ %165, %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit ]
-  %.053 = phi i64 [ 0, %.lr.ph ], [ %163, %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit ]
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %.053
+  %.056 = phi i64 [ 0, %.lr.ph ], [ %163, %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit ]
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %.056
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
@@ -1058,17 +1056,17 @@ _ZNSt6vectorIP6CFaceOSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal
   br i1 %.not.i.i.i33, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit, label %161
 
 161:                                              ; preds = %.thread, %160
-  %lpad.phi56 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %lpad.loopexit.split-lp, %160 ]
+  %lpad.phi59 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %lpad.loopexit.split-lp, %160 ]
   %162 = phi ptr [ %45, %.thread ], [ %.pre, %160 ]
   call void @_ZdlPv(ptr noundef nonnull %162) #22
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit:           ; preds = %160, %161
-  %lpad.phi57 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %160 ], [ %lpad.phi56, %161 ]
-  resume { ptr, i32 } %lpad.phi57
+  %lpad.phi60 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %160 ], [ %lpad.phi59, %161 ]
+  resume { ptr, i32 } %lpad.phi60
 
 _ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6CFaceOSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %132, %44, %113
-  %163 = add nuw i64 %.053, 1
+  %163 = add nuw i64 %.056, 1
   %164 = load ptr, ptr %33, align 8
   %165 = load ptr, ptr %10, align 8
   %166 = ptrtoint ptr %164 to i64
@@ -1146,9 +1144,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %10, %_ZN9QtPrivate8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 32
   %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %.not.i3 = icmp eq i8 %18, 0
-  br i1 %.not.i3, label %_ZN6QDebug10maybeSpaceEv.exit, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %_ZN6QDebug10maybeSpaceEv.exit
 
 19:                                               ; preds = %_ZN7QStringD2Ev.exit
   %20 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 noundef signext 32)
@@ -4317,9 +4314,8 @@ _ZN3vcg7glLabel7enter2DEP8QPainter.exit:          ; preds = %.noexc26
   %68 = sdiv i32 %66, 2
   %69 = getelementptr inbounds i8, ptr %3, i64 4
   %70 = load i8, ptr %69, align 4
-  %71 = and i8 %70, 1
-  %.not = icmp eq i8 %71, 0
-  br i1 %.not, label %78, label %72
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %72, label %78
 
 72:                                               ; preds = %67
   %73 = invoke noundef i32 @_ZNK12QFontMetrics8maxWidthEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -4339,7 +4335,7 @@ _ZN3vcg7glLabel7enter2DEP8QPainter.exit:          ; preds = %.noexc26
   resume { ptr, i32 } %77
 
 78:                                               ; preds = %74, %67
-  %.sroa.0.0 = phi double [ 0.000000e+00, %67 ], [ %75, %74 ]
+  %.sroa.0.0 = phi double [ %75, %74 ], [ 0.000000e+00, %67 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store double %.sroa.0.0, ptr %5, align 8
   %79 = getelementptr inbounds i8, ptr %5, i64 8

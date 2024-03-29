@@ -18,9 +18,8 @@ define i32 @pthread_rwlock_tryrdlock(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %.not5.i = icmp eq i8 %9, 0
-  br i1 %.not5.i, label %10, label %tryrdlock.exit
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %tryrdlock.exit, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 88
@@ -67,9 +66,8 @@ define i32 @pthread_rwlock_clockrdlock(ptr noundef %0, i32 noundef %1, ptr nound
 
 9:                                                ; preds = %.preheader.split.us
   %10 = load i8, ptr %6, align 8
-  %11 = and i8 %10, 1
-  %.not5.i.us = icmp eq i8 %11, 0
-  br i1 %.not5.i.us, label %.split.us, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %.split.us
 
 12:                                               ; preds = %9, %.preheader.split.us
   %13 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %7, ptr noundef nonnull %0) #2
@@ -83,9 +81,8 @@ define i32 @pthread_rwlock_clockrdlock(ptr noundef %0, i32 noundef %1, ptr nound
 
 15:                                               ; preds = %.preheader.split
   %16 = load i8, ptr %6, align 8
-  %17 = and i8 %16, 1
-  %.not5.i = icmp eq i8 %17, 0
-  br i1 %.not5.i, label %.split.us, label %23
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %23, label %.split.us
 
 .split.us:                                        ; preds = %15, %9
   %18 = getelementptr inbounds i8, ptr %0, i64 88
@@ -121,57 +118,114 @@ declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @pthread_rwlock_timedrdlock(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @pthread_rwlock_clockrdlock(ptr noundef %0, i32 noundef 0, ptr noundef %1)
-  ret i32 %3
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #2
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %.preheader.i, label %pthread_rwlock_clockrdlock.exit
+
+.preheader.i:                                     ; preds = %2
+  %4 = getelementptr inbounds i8, ptr %0, i64 92
+  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %.not18.i = icmp eq ptr %1, null
+  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  br i1 %.not18.i, label %.preheader.split.us.i, label %.preheader.split.i
+
+.preheader.split.us.i:                            ; preds = %.preheader.i, %11
+  %7 = load i32, ptr %4, align 4
+  %.not.i.us.i = icmp eq i32 %7, 0
+  br i1 %.not.i.us.i, label %8, label %11
+
+8:                                                ; preds = %.preheader.split.us.i
+  %9 = load i8, ptr %5, align 8
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %.split.us.i
+
+11:                                               ; preds = %8, %.preheader.split.us.i
+  %12 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %6, ptr noundef nonnull %0) #2
+  %.not19.us.i = icmp eq i32 %12, 0
+  br i1 %.not19.us.i, label %.preheader.split.us.i, label %tryrdlock.exit.i, !llvm.loop !6
+
+.preheader.split.i:                               ; preds = %.preheader.i, %22
+  %13 = load i32, ptr %4, align 4
+  %.not.i.i = icmp eq i32 %13, 0
+  br i1 %.not.i.i, label %14, label %22
+
+14:                                               ; preds = %.preheader.split.i
+  %15 = load i8, ptr %5, align 8
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %22, label %.split.us.i
+
+.split.us.i:                                      ; preds = %14, %8
+  %17 = getelementptr inbounds i8, ptr %0, i64 88
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp eq i32 %18, -1
+  br i1 %19, label %tryrdlock.exit.i, label %20
+
+20:                                               ; preds = %.split.us.i
+  %21 = add nuw i32 %18, 1
+  store i32 %21, ptr %17, align 8
+  br label %tryrdlock.exit.i
+
+22:                                               ; preds = %14, %.preheader.split.i
+  %23 = tail call i32 @pthread_cond_clockwait(ptr noundef nonnull %6, ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %1) #2
+  %.not19.i = icmp eq i32 %23, 0
+  br i1 %.not19.i, label %.preheader.split.i, label %tryrdlock.exit.i, !llvm.loop !6
+
+tryrdlock.exit.i:                                 ; preds = %22, %11, %20, %.split.us.i
+  %.1.i = phi i32 [ 0, %20 ], [ 11, %.split.us.i ], [ %12, %11 ], [ %23, %22 ]
+  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #2
+  br label %pthread_rwlock_clockrdlock.exit
+
+pthread_rwlock_clockrdlock.exit:                  ; preds = %2, %tryrdlock.exit.i
+  %.014.i = phi i32 [ %.1.i, %tryrdlock.exit.i ], [ %3, %2 ]
+  ret i32 %.014.i
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @pthread_rwlock_rdlock(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #2
-  %.not.i = icmp eq i32 %2, 0
-  br i1 %.not.i, label %.preheader.i, label %pthread_rwlock_clockrdlock.exit
+  %.not.i.i = icmp eq i32 %2, 0
+  br i1 %.not.i.i, label %.preheader.i.i, label %pthread_rwlock_timedrdlock.exit
 
-.preheader.i:                                     ; preds = %1
+.preheader.i.i:                                   ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 92
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = getelementptr inbounds i8, ptr %0, i64 48
-  br label %.preheader.split.us.i
+  br label %.preheader.split.us.i.i
 
-.preheader.split.us.i:                            ; preds = %10, %.preheader.i
+.preheader.split.us.i.i:                          ; preds = %10, %.preheader.i.i
   %6 = load i32, ptr %3, align 4
-  %.not.i.us.i = icmp eq i32 %6, 0
-  br i1 %.not.i.us.i, label %7, label %10
+  %.not.i.us.i.i = icmp eq i32 %6, 0
+  br i1 %.not.i.us.i.i, label %7, label %10
 
-7:                                                ; preds = %.preheader.split.us.i
+7:                                                ; preds = %.preheader.split.us.i.i
   %8 = load i8, ptr %4, align 8
-  %9 = and i8 %8, 1
-  %.not5.i.us.i = icmp eq i8 %9, 0
-  br i1 %.not5.i.us.i, label %.split.us.i, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %.split.us.i.i
 
-10:                                               ; preds = %7, %.preheader.split.us.i
+10:                                               ; preds = %7, %.preheader.split.us.i.i
   %11 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %5, ptr noundef nonnull %0) #2
-  %.not19.us.i = icmp eq i32 %11, 0
-  br i1 %.not19.us.i, label %.preheader.split.us.i, label %tryrdlock.exit.i, !llvm.loop !6
+  %.not19.us.i.i = icmp eq i32 %11, 0
+  br i1 %.not19.us.i.i, label %.preheader.split.us.i.i, label %tryrdlock.exit.i.i, !llvm.loop !6
 
-.split.us.i:                                      ; preds = %7
+.split.us.i.i:                                    ; preds = %7
   %12 = getelementptr inbounds i8, ptr %0, i64 88
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -1
-  br i1 %14, label %tryrdlock.exit.i, label %15
+  br i1 %14, label %tryrdlock.exit.i.i, label %15
 
-15:                                               ; preds = %.split.us.i
+15:                                               ; preds = %.split.us.i.i
   %16 = add nuw i32 %13, 1
   store i32 %16, ptr %12, align 8
-  br label %tryrdlock.exit.i
+  br label %tryrdlock.exit.i.i
 
-tryrdlock.exit.i:                                 ; preds = %10, %15, %.split.us.i
-  %.1.i = phi i32 [ 0, %15 ], [ 11, %.split.us.i ], [ %11, %10 ]
+tryrdlock.exit.i.i:                               ; preds = %10, %15, %.split.us.i.i
+  %.1.i.i = phi i32 [ 0, %15 ], [ 11, %.split.us.i.i ], [ %11, %10 ]
   %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #2
-  br label %pthread_rwlock_clockrdlock.exit
+  br label %pthread_rwlock_timedrdlock.exit
 
-pthread_rwlock_clockrdlock.exit:                  ; preds = %1, %tryrdlock.exit.i
-  %.014.i = phi i32 [ %.1.i, %tryrdlock.exit.i ], [ %2, %1 ]
-  ret i32 %.014.i
+pthread_rwlock_timedrdlock.exit:                  ; preds = %1, %tryrdlock.exit.i.i
+  %.014.i.i = phi i32 [ %.1.i.i, %tryrdlock.exit.i.i ], [ %2, %1 ]
+  ret i32 %.014.i.i
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

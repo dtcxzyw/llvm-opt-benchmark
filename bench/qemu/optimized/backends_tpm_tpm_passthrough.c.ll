@@ -158,28 +158,27 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %tb, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 38, ptr noundef nonnull @__func__.TPM_PASSTHROUGH) #11
   %tpm_executing = getelementptr inbounds i8, ptr %call.i, i64 108
   %0 = load i8, ptr %tpm_executing, align 4
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end10, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %entry
   %cancel_fd = getelementptr inbounds i8, ptr %call.i, i64 112
-  %2 = load i32, ptr %cancel_fd, align 8
-  %cmp = icmp sgt i32 %2, -1
+  %1 = load i32, ptr %cancel_fd, align 8
+  %cmp = icmp sgt i32 %1, -1
   br i1 %cmp, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %if.then
   %tpm_op_canceled = getelementptr inbounds i8, ptr %call.i, i64 109
   store i8 1, ptr %tpm_op_canceled, align 1
-  %call3 = tail call i64 @write(i32 noundef %2, ptr noundef nonnull @.str.3, i64 noundef 1) #11
-  %3 = and i64 %call3, 4294967295
-  %cmp4.not = icmp eq i64 %3, 1
+  %call3 = tail call i64 @write(i32 noundef %1, ptr noundef nonnull @.str.3, i64 noundef 1) #11
+  %2 = and i64 %call3, 4294967295
+  %cmp4.not = icmp eq i64 %2, 1
   br i1 %cmp4.not, label %if.end10, label %if.then6
 
 if.then6:                                         ; preds = %if.then1
   %call7 = tail call ptr @__errno_location() #13
-  %4 = load i32, ptr %call7, align 4
-  %call8 = tail call ptr @strerror(i32 noundef %4) #11
+  %3 = load i32, ptr %call7, align 4
+  %call8 = tail call ptr @strerror(i32 noundef %3) #11
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, ptr noundef %call8) #11
   br label %if.end10
 
@@ -396,17 +395,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #11
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #11
   br label %trace_tpm_passthrough_reset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -501,17 +499,16 @@ land.lhs.true5.i.i:                               ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
-  %4 = and i8 %3, 1
-  %tobool7.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
+  %tobool7.i.i = trunc i8 %3 to i1
+  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
-  %5 = load i64, ptr %_now.i.i, align 8
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %cmd) #11
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %cmd) #11
   br label %trace_tpm_passthrough_handle_request.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -521,35 +518,34 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_tpm_passthrough_handle_request.exit:        ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %in = getelementptr inbounds i8, ptr %cmd, i64 8
-  %7 = load ptr, ptr %in, align 8
+  %6 = load ptr, ptr %in, align 8
   %in_len = getelementptr inbounds i8, ptr %cmd, i64 16
-  %8 = load i32, ptr %in_len, align 8
+  %7 = load i32, ptr %in_len, align 8
   %out = getelementptr inbounds i8, ptr %cmd, i64 24
-  %9 = load ptr, ptr %out, align 8
+  %8 = load ptr, ptr %out, align 8
   %out_len = getelementptr inbounds i8, ptr %cmd, i64 32
-  %10 = load i32, ptr %out_len, align 8
+  %9 = load i32, ptr %out_len, align 8
   %selftest_done = getelementptr inbounds i8, ptr %cmd, i64 36
   %tpm_op_canceled.i = getelementptr inbounds i8, ptr %call.i, i64 109
   store i8 0, ptr %tpm_op_canceled.i, align 1
   %tpm_executing.i = getelementptr inbounds i8, ptr %call.i, i64 108
   store i8 1, ptr %tpm_executing.i, align 4
   store i8 0, ptr %selftest_done, align 1
-  %call.i6 = tail call zeroext i1 @tpm_util_is_selftest(ptr noundef %7, i32 noundef %8) #11
+  %call.i6 = tail call zeroext i1 @tpm_util_is_selftest(ptr noundef %6, i32 noundef %7) #11
   %tpm_fd.i = getelementptr inbounds i8, ptr %call.i, i64 104
-  %11 = load i32, ptr %tpm_fd.i, align 8
-  %conv.i = zext i32 %8 to i64
-  %call1.i = tail call i64 @qemu_write_full(i32 noundef %11, ptr noundef %7, i64 noundef %conv.i) #11
+  %10 = load i32, ptr %tpm_fd.i, align 8
+  %conv.i = zext i32 %7 to i64
+  %call1.i = tail call i64 @qemu_write_full(i32 noundef %10, ptr noundef %6, i64 noundef %conv.i) #11
   %cmp.not.i = icmp eq i64 %call1.i, %conv.i
   br i1 %cmp.not.i, label %if.end10.i, label %if.then.i
 
 if.then.i:                                        ; preds = %trace_tpm_passthrough_handle_request.exit
-  %12 = load i8, ptr %tpm_op_canceled.i, align 1
-  %13 = and i8 %12, 1
-  %tobool.not.i = icmp ne i8 %13, 0
-  %.pre.i = tail call ptr @__errno_location() #13
-  %.pre = load i32, ptr %.pre.i, align 4
+  %11 = load i8, ptr %tpm_op_canceled.i, align 1
+  %tobool.i = trunc i8 %11 to i1
+  %call5.i = tail call ptr @__errno_location() #13
+  %.pre = load i32, ptr %call5.i, align 4
   %cmp6.not.i = icmp eq i32 %.pre, 125
-  %or.cond = select i1 %tobool.not.i, i1 %cmp6.not.i, i1 false
+  %or.cond = select i1 %tobool.i, i1 %cmp6.not.i, i1 false
   br i1 %or.cond, label %err_exit.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then.i
@@ -558,9 +554,9 @@ if.then8.i:                                       ; preds = %if.then.i
 
 if.end10.i:                                       ; preds = %trace_tpm_passthrough_handle_request.exit
   store i8 0, ptr %tpm_executing.i, align 4
-  %14 = load i32, ptr %tpm_fd.i, align 8
-  %conv.i.i = zext i32 %10 to i64
-  %call2.i.i = tail call i64 @read(i32 noundef %14, ptr noundef %9, i64 noundef %conv.i.i) #11
+  %12 = load i32, ptr %tpm_fd.i, align 8
+  %conv.i.i = zext i32 %9 to i64
+  %call2.i.i = tail call i64 @read(i32 noundef %12, ptr noundef %8, i64 noundef %conv.i.i) #11
   %conv13.i.i = trunc i64 %call2.i.i to i32
   %cmp4.i.i = icmp slt i32 %conv13.i.i, 0
   br i1 %cmp4.i.i, label %if.then.lr.ph.i.i, label %if.else.i
@@ -570,28 +566,27 @@ if.then.lr.ph.i.i:                                ; preds = %if.end10.i
   br label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %if.end.i.i, %if.then.lr.ph.i.i
-  %15 = load i32, ptr %call3.i.i, align 4
-  switch i32 %15, label %if.then17.i [
+  %13 = load i32, ptr %call3.i.i, align 4
+  switch i32 %13, label %if.then17.i [
     i32 4, label %if.end.i.i
     i32 11, label %if.end.i.i
   ]
 
 if.end.i.i:                                       ; preds = %if.then.i.i7, %if.then.i.i7
-  %call.i.i = tail call i64 @read(i32 noundef %14, ptr noundef %9, i64 noundef %conv.i.i) #11
+  %call.i.i = tail call i64 @read(i32 noundef %12, ptr noundef %8, i64 noundef %conv.i.i) #11
   %conv1.i.i = trunc i64 %call.i.i to i32
   %cmp.i.i = icmp slt i32 %conv1.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i7, label %if.else.i
 
 if.then17.i:                                      ; preds = %if.then.i.i7
-  %16 = load i8, ptr %tpm_op_canceled.i, align 1
-  %17 = and i8 %16, 1
-  %tobool19.not.i = icmp ne i8 %17, 0
-  %cmp22.not.i = icmp eq i32 %15, 125
-  %or.cond.i = and i1 %cmp22.not.i, %tobool19.not.i
+  %14 = load i8, ptr %tpm_op_canceled.i, align 1
+  %tobool19.i = trunc i8 %14 to i1
+  %cmp22.not.i = icmp eq i32 %13, 125
+  %or.cond.i = and i1 %cmp22.not.i, %tobool19.i
   br i1 %or.cond.i, label %if.end37.i, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.then17.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 106, ptr noundef nonnull @__func__.tpm_passthrough_unix_tx_bufs, i32 noundef %15, ptr noundef nonnull @.str.28) #11
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 106, ptr noundef nonnull @__func__.tpm_passthrough_unix_tx_bufs, i32 noundef %13, ptr noundef nonnull @.str.28) #11
   br label %if.end37.i
 
 if.else.i:                                        ; preds = %if.end.i.i, %if.end10.i
@@ -601,16 +596,16 @@ if.else.i:                                        ; preds = %if.end.i.i, %if.end
 
 lor.lhs.false29.i:                                ; preds = %if.else.i
   %conv1425.i = zext nneg i32 %retval.0.i.ph.i to i64
-  %18 = getelementptr i8, ptr %9, i64 2
-  %out.val.i = load i32, ptr %18, align 1
-  %19 = tail call i32 @llvm.bswap.i32(i32 %out.val.i)
-  %cmp32.not.i = icmp eq i32 %19, %retval.0.i.ph.i
+  %15 = getelementptr i8, ptr %8, i64 2
+  %out.val.i = load i32, ptr %15, align 1
+  %16 = tail call i32 @llvm.bswap.i32(i32 %out.val.i)
+  %cmp32.not.i = icmp eq i32 %16, %retval.0.i.ph.i
   br i1 %cmp32.not.i, label %if.end37.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %lor.lhs.false29.i, %if.else.i
   %call35.i = tail call ptr @__errno_location() #13
-  %20 = load i32, ptr %call35.i, align 4
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 112, ptr noundef nonnull @__func__.tpm_passthrough_unix_tx_bufs, i32 noundef %20, ptr noundef nonnull @.str.29) #11
+  %17 = load i32, ptr %call35.i, align 4
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 112, ptr noundef nonnull @__func__.tpm_passthrough_unix_tx_bufs, i32 noundef %17, ptr noundef nonnull @.str.29) #11
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then34.i, %lor.lhs.false29.i, %if.then24.i, %if.then17.i
@@ -618,8 +613,8 @@ if.end37.i:                                       ; preds = %if.then34.i, %lor.l
   br i1 %call.i6, label %if.then42.i, label %err_exit.i
 
 if.then42.i:                                      ; preds = %if.end37.i
-  %21 = getelementptr i8, ptr %9, i64 6
-  %out.val23.i = load i32, ptr %21, align 1
+  %18 = getelementptr i8, ptr %8, i64 6
+  %out.val23.i = load i32, ptr %18, align 1
   %cmp44.i = icmp eq i32 %out.val23.i, 0
   %frombool46.i = zext i1 %cmp44.i to i8
   store i8 %frombool46.i, ptr %selftest_done, align 1
@@ -631,7 +626,7 @@ err_exit.i:                                       ; preds = %if.then.i, %if.then
   br i1 %cmp48.i, label %if.then50.i, label %tpm_passthrough_unix_tx_bufs.exit
 
 if.then50.i:                                      ; preds = %err_exit.i
-  tail call void @tpm_util_write_fatal_error_response(ptr noundef %9, i32 noundef %10) #11
+  tail call void @tpm_util_write_fatal_error_response(ptr noundef %8, i32 noundef %9) #11
   br label %tpm_passthrough_unix_tx_bufs.exit
 
 tpm_passthrough_unix_tx_bufs.exit:                ; preds = %err_exit.i, %if.then50.i

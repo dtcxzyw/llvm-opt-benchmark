@@ -418,9 +418,8 @@ define dso_local void @dsm_shmem_init() local_unnamed_addr #0 {
   %7 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.5, i64 noundef %4, ptr noundef nonnull %1) #12
   store ptr %7, ptr @dsm_main_space_begin, align 8
   %8 = load i8, ptr %1, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %.preheader.preheader, label %12
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %12, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %6
   call void @FreePageManagerInitialize(ptr noundef %7, ptr noundef %7) #12
@@ -1166,9 +1165,8 @@ define dso_local void @dsm_pin_segment(ptr nocapture noundef readonly %0) local_
   %10 = zext i32 %9 to i64
   %11 = getelementptr [0 x %struct.dsm_control_item], ptr %7, i64 0, i64 %10, i32 5
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %17, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %17
 
 14:                                               ; preds = %1
   %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1181,20 +1179,20 @@ define dso_local void @dsm_pin_segment(ptr nocapture noundef readonly %0) local_
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 1
-  %.not7 = icmp eq i32 %20, 0
-  br i1 %.not7, label %21, label %24
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %21, label %24
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
   call void @dsm_impl_pin_segment(i32 noundef %19, ptr noundef %23, ptr noundef nonnull %2) #12
   %.pre = load ptr, ptr @dsm_control, align 8
-  %.pre8 = load i32, ptr %8, align 4
-  %.pre9 = zext i32 %.pre8 to i64
+  %.pre7 = load i32, ptr %8, align 4
+  %.pre8 = zext i32 %.pre7 to i64
   br label %24
 
 24:                                               ; preds = %21, %17
-  %.pre-phi = phi i64 [ %.pre9, %21 ], [ %10, %17 ]
+  %.pre-phi = phi i64 [ %.pre8, %21 ], [ %10, %17 ]
   %25 = phi ptr [ %.pre, %21 ], [ %6, %17 ]
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = getelementptr [0 x %struct.dsm_control_item], ptr %26, i64 0, i64 %.pre-phi, i32 5
@@ -1229,8 +1227,8 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
   %8 = load ptr, ptr @dsm_control, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
-  %.not28 = icmp eq i32 %10, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not27 = icmp eq i32 %10, 0
+  br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %11 = getelementptr inbounds i8, ptr %8, i64 16
@@ -1266,9 +1264,8 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
   %24 = and i64 %indvars.iv, 4294967295
   %25 = getelementptr [0 x %struct.dsm_control_item], ptr %11, i64 0, i64 %24, i32 5
   %26 = load i8, ptr %25, align 8
-  %27 = and i8 %26, 1
-  %.not = icmp eq i8 %27, 0
-  br i1 %.not, label %28, label %31
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %31, label %28
 
 28:                                               ; preds = %23
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1279,8 +1276,8 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
 
 31:                                               ; preds = %23
   %32 = and i32 %0, 1
-  %.not24 = icmp eq i32 %32, 0
-  br i1 %.not24, label %33, label %35
+  %.not = icmp eq i32 %32, 0
+  br i1 %.not, label %33, label %35
 
 33:                                               ; preds = %31
   %34 = getelementptr [0 x %struct.dsm_control_item], ptr %11, i64 0, i64 %24, i32 4
@@ -1307,7 +1304,7 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
   store i64 0, ptr %4, align 8
-  br i1 %.not24, label %46, label %52
+  br i1 %.not, label %46, label %52
 
 46:                                               ; preds = %45
   %47 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %0, i64 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 19) #12

@@ -27,9 +27,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = load i8, ptr @ompi_mpi_param_check, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %72, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %72
 
 7:                                                ; preds = %4
   %8 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -50,7 +49,7 @@ define i32 @PMPI_Group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 16:                                               ; preds = %12
   %17 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 9, ptr noundef nonnull @FUNC_NAME) #6
-  br label %106
+  br label %105
 
 18:                                               ; preds = %12
   %19 = getelementptr i8, ptr %0, i64 16
@@ -60,52 +59,52 @@ define i32 @PMPI_Group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %22 = shl nsw i64 %21, 2
   %23 = tail call noalias ptr @malloc(i64 noundef %22) #7
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %28, label %.preheader109
+  br i1 %24, label %28, label %.preheader108
 
-.preheader109:                                    ; preds = %18
+.preheader108:                                    ; preds = %18
   %25 = icmp sgt i32 %.val, 0
-  br i1 %25, label %.lr.ph.preheader, label %.preheader107
+  br i1 %25, label %.lr.ph.preheader, label %.preheader106
 
-.lr.ph.preheader:                                 ; preds = %.preheader109
+.lr.ph.preheader:                                 ; preds = %.preheader108
   %26 = zext nneg i32 %.val to i64
   %27 = shl nuw nsw i64 %26, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %23, i8 -1, i64 %27, i1 false)
-  br label %.preheader107
+  br label %.preheader106
 
 28:                                               ; preds = %18
   %29 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 16, ptr noundef nonnull @FUNC_NAME) #6
-  br label %106
+  br label %105
 
-.preheader107:                                    ; preds = %.lr.ph.preheader, %.preheader109
+.preheader106:                                    ; preds = %.lr.ph.preheader, %.preheader108
   %30 = icmp sgt i32 %1, 0
-  br i1 %30, label %.lr.ph120.preheader, label %._crit_edge
+  br i1 %30, label %.lr.ph119.preheader, label %._crit_edge
 
-.lr.ph120.preheader:                              ; preds = %.preheader107
+.lr.ph119.preheader:                              ; preds = %.preheader106
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %.lr.ph120
+  br label %.lr.ph119
 
-.lr.ph120:                                        ; preds = %.lr.ph120.preheader, %.loopexit
-  %indvars.iv130 = phi i64 [ 0, %.lr.ph120.preheader ], [ %indvars.iv.next131, %.loopexit ]
-  %31 = getelementptr inbounds [3 x i32], ptr %2, i64 %indvars.iv130
+.lr.ph119:                                        ; preds = %.lr.ph119.preheader, %.loopexit
+  %indvars.iv129 = phi i64 [ 0, %.lr.ph119.preheader ], [ %indvars.iv.next130, %.loopexit ]
+  %31 = getelementptr inbounds [3 x i32], ptr %2, i64 %indvars.iv129
   %32 = load i32, ptr %31, align 4
   %33 = icmp slt i32 %32, 0
   %34 = icmp sgt i32 %32, %.val
-  %or.cond100 = or i1 %33, %34
-  br i1 %or.cond100, label %.loopexit103, label %35
+  %or.cond99 = or i1 %33, %34
+  br i1 %or.cond99, label %.loopexit102, label %35
 
-35:                                               ; preds = %.lr.ph120
+35:                                               ; preds = %.lr.ph119
   %36 = getelementptr inbounds i8, ptr %31, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = icmp slt i32 %37, 0
   %39 = icmp sgt i32 %37, %.val
-  %or.cond101 = or i1 %38, %39
-  br i1 %or.cond101, label %.loopexit103, label %40
+  %or.cond100 = or i1 %38, %39
+  br i1 %or.cond100, label %.loopexit102, label %40
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds i8, ptr %31, i64 8
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %.loopexit103, label %44
+  br i1 %43, label %.loopexit102, label %44
 
 44:                                               ; preds = %40
   %45 = icmp ult i32 %32, %37
@@ -113,31 +112,31 @@ define i32 @PMPI_Group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 46:                                               ; preds = %44
   %47 = icmp slt i32 %42, 0
-  br i1 %47, label %.loopexit103, label %.preheader
+  br i1 %47, label %.loopexit102, label %.preheader
 
 .preheader:                                       ; preds = %46
-  %.not98115 = icmp ugt i32 %32, %37
-  br i1 %.not98115, label %.loopexit, label %.lr.ph117.preheader
+  %.not97114 = icmp ugt i32 %32, %37
+  br i1 %.not97114, label %.loopexit, label %.lr.ph116.preheader
 
-.lr.ph117.preheader:                              ; preds = %.preheader
+.lr.ph116.preheader:                              ; preds = %.preheader
   %48 = zext nneg i32 %32 to i64
   %49 = zext nneg i32 %42 to i64
-  %50 = trunc i64 %indvars.iv130 to i32
-  br label %.lr.ph117
+  %50 = trunc i64 %indvars.iv129 to i32
+  br label %.lr.ph116
 
-.lr.ph117:                                        ; preds = %.lr.ph117.preheader, %53
-  %indvars.iv127 = phi i64 [ %48, %.lr.ph117.preheader ], [ %indvars.iv.next128, %53 ]
-  %51 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv127
+.lr.ph116:                                        ; preds = %.lr.ph116.preheader, %53
+  %indvars.iv126 = phi i64 [ %48, %.lr.ph116.preheader ], [ %indvars.iv.next127, %53 ]
+  %51 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv126
   %52 = load i32, ptr %51, align 4
-  %.not99 = icmp eq i32 %52, -1
-  br i1 %.not99, label %53, label %.loopexit103
+  %.not98 = icmp eq i32 %52, -1
+  br i1 %.not98, label %53, label %.loopexit102
 
-53:                                               ; preds = %.lr.ph117
+53:                                               ; preds = %.lr.ph116
   store i32 %50, ptr %51, align 4
-  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, %49
-  %54 = trunc i64 %indvars.iv.next128 to i32
-  %.not98 = icmp slt i32 %37, %54
-  br i1 %.not98, label %.loopexit, label %.lr.ph117, !llvm.loop !4
+  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, %49
+  %54 = trunc i64 %indvars.iv.next127 to i32
+  %.not97 = icmp slt i32 %37, %54
+  br i1 %.not97, label %.loopexit, label %.lr.ph116, !llvm.loop !4
 
 55:                                               ; preds = %44
   %56 = icmp ugt i32 %32, %37
@@ -145,57 +144,57 @@ define i32 @PMPI_Group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 57:                                               ; preds = %55
   %58 = icmp sgt i32 %42, 0
-  br i1 %58, label %.loopexit103, label %.preheader104
+  br i1 %58, label %.loopexit102, label %.preheader103
 
-.preheader104:                                    ; preds = %57
-  %.not96112 = icmp ult i32 %32, %37
-  br i1 %.not96112, label %.loopexit, label %.lr.ph114.preheader
+.preheader103:                                    ; preds = %57
+  %.not95111 = icmp ult i32 %32, %37
+  br i1 %.not95111, label %.loopexit, label %.lr.ph113.preheader
 
-.lr.ph114.preheader:                              ; preds = %.preheader104
+.lr.ph113.preheader:                              ; preds = %.preheader103
   %59 = zext nneg i32 %32 to i64
   %60 = sext i32 %42 to i64
   %61 = zext nneg i32 %37 to i64
-  %62 = trunc i64 %indvars.iv130 to i32
-  br label %.lr.ph114
+  %62 = trunc i64 %indvars.iv129 to i32
+  br label %.lr.ph113
 
-.lr.ph114:                                        ; preds = %.lr.ph114.preheader, %65
-  %indvars.iv = phi i64 [ %59, %.lr.ph114.preheader ], [ %indvars.iv.next, %65 ]
+.lr.ph113:                                        ; preds = %.lr.ph113.preheader, %65
+  %indvars.iv = phi i64 [ %59, %.lr.ph113.preheader ], [ %indvars.iv.next, %65 ]
   %63 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4
-  %.not97 = icmp eq i32 %64, -1
-  br i1 %.not97, label %65, label %.loopexit103
+  %.not96 = icmp eq i32 %64, -1
+  br i1 %.not96, label %65, label %.loopexit102
 
-65:                                               ; preds = %.lr.ph114
+65:                                               ; preds = %.lr.ph113
   store i32 %62, ptr %63, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, %60
-  %.not96 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %.not96, label %.loopexit, label %.lr.ph114, !llvm.loop !6
+  %.not95 = icmp slt i64 %indvars.iv.next, %61
+  br i1 %.not95, label %.loopexit, label %.lr.ph113, !llvm.loop !6
 
 66:                                               ; preds = %55
   %67 = zext nneg i32 %32 to i64
   %68 = getelementptr inbounds i32, ptr %23, i64 %67
   %69 = load i32, ptr %68, align 4
-  %.not95 = icmp eq i32 %69, -1
-  br i1 %.not95, label %70, label %.loopexit103
+  %.not94 = icmp eq i32 %69, -1
+  br i1 %.not94, label %70, label %.loopexit102
 
 70:                                               ; preds = %66
-  %71 = trunc i64 %indvars.iv130 to i32
+  %71 = trunc i64 %indvars.iv129 to i32
   store i32 %71, ptr %68, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %65, %53, %.preheader104, %.preheader, %70
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph120, !llvm.loop !7
+.loopexit:                                        ; preds = %65, %53, %.preheader103, %.preheader, %70
+  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph119, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %.loopexit, %.preheader107
+._crit_edge:                                      ; preds = %.loopexit, %.preheader106
   tail call void @free(ptr noundef %23) #6
   br label %72
 
 72:                                               ; preds = %._crit_edge, %4
   %73 = tail call i32 @ompi_group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
-  %.not94 = icmp eq i32 %73, 0
-  br i1 %.not94, label %106, label %74
+  %.not = icmp eq i32 %73, 0
+  br i1 %.not, label %105, label %74
 
 74:                                               ; preds = %72
   %75 = icmp sgt i32 %73, -1
@@ -222,54 +221,50 @@ define i32 @PMPI_Group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 84:                                               ; preds = %.lr.ph.i
   %85 = load i8, ptr @opal_uses_threads, align 1
-  %86 = and i8 %85, 1
-  %.not.i.i = icmp eq i8 %86, 0
-  br i1 %.not.i.i, label %.thread.i.i, label %90
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %87, label %89
 
-.thread.i.i:                                      ; preds = %84
-  %87 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 8), align 8
-  %88 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv.i
-  %89 = load ptr, ptr %88, align 8
-  br label %opal_pointer_array_get_item.exit.i
-
-90:                                               ; preds = %84
-  %91 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #6
+87:                                               ; preds = %84
+  %88 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #6
   %.pre.i.i = load i8, ptr @opal_uses_threads, align 1
-  %.pre1.i.i = and i8 %.pre.i.i, 1
-  %92 = icmp eq i8 %.pre1.i.i, 0
-  %93 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 8), align 8
-  %94 = getelementptr inbounds ptr, ptr %93, i64 %indvars.iv.i
-  %95 = load ptr, ptr %94, align 8
-  br i1 %92, label %opal_pointer_array_get_item.exit.i, label %96
+  br label %89
 
-96:                                               ; preds = %90
-  %97 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #6
+89:                                               ; preds = %87, %84
+  %90 = phi i8 [ %85, %84 ], [ %.pre.i.i, %87 ]
+  %91 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 8), align 8
+  %92 = getelementptr inbounds ptr, ptr %91, i64 %indvars.iv.i
+  %93 = load ptr, ptr %92, align 8
+  %94 = trunc i8 %90 to i1
+  br i1 %94, label %95, label %opal_pointer_array_get_item.exit.i
+
+95:                                               ; preds = %89
+  %96 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #6
   br label %opal_pointer_array_get_item.exit.i
 
-opal_pointer_array_get_item.exit.i:               ; preds = %96, %90, %.thread.i.i, %.lr.ph.i
-  %.0.i.i = phi ptr [ null, %.lr.ph.i ], [ %95, %90 ], [ %95, %96 ], [ %89, %.thread.i.i ]
-  %98 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
-  %99 = load i32, ptr %98, align 8
-  %100 = icmp eq i32 %99, %73
-  br i1 %100, label %101, label %78
+opal_pointer_array_get_item.exit.i:               ; preds = %95, %89, %.lr.ph.i
+  %.0.i.i = phi ptr [ null, %.lr.ph.i ], [ %93, %89 ], [ %93, %95 ]
+  %97 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %98 = load i32, ptr %97, align 8
+  %99 = icmp eq i32 %98, %73
+  br i1 %99, label %100, label %78
 
-101:                                              ; preds = %opal_pointer_array_get_item.exit.i
-  %102 = getelementptr inbounds i8, ptr %.0.i.i, i64 20
-  %103 = load i32, ptr %102, align 4
+100:                                              ; preds = %opal_pointer_array_get_item.exit.i
+  %101 = getelementptr inbounds i8, ptr %.0.i.i, i64 20
+  %102 = load i32, ptr %101, align 4
   br label %ompi_errcode_get_mpi_code.exit
 
-ompi_errcode_get_mpi_code.exit:                   ; preds = %78, %74, %.preheader.i, %101
-  %.0.i = phi i32 [ %73, %74 ], [ %103, %101 ], [ 14, %.preheader.i ], [ 14, %78 ]
-  %104 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.0.i, ptr noundef nonnull @FUNC_NAME) #6
-  br label %106
+ompi_errcode_get_mpi_code.exit:                   ; preds = %78, %74, %.preheader.i, %100
+  %.0.i = phi i32 [ %73, %74 ], [ %102, %100 ], [ 14, %.preheader.i ], [ 14, %78 ]
+  %103 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.0.i, ptr noundef nonnull @FUNC_NAME) #6
+  br label %105
 
-.loopexit103:                                     ; preds = %66, %57, %46, %40, %35, %.lr.ph120, %.lr.ph114, %.lr.ph117
+.loopexit102:                                     ; preds = %66, %57, %46, %40, %35, %.lr.ph119, %.lr.ph113, %.lr.ph116
   tail call void @free(ptr noundef %23) #6
-  %105 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 6, ptr noundef nonnull @FUNC_NAME) #6
-  br label %106
+  %104 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 6, ptr noundef nonnull @FUNC_NAME) #6
+  br label %105
 
-106:                                              ; preds = %72, %.loopexit103, %ompi_errcode_get_mpi_code.exit, %28, %16
-  %.0 = phi i32 [ %17, %16 ], [ %29, %28 ], [ %105, %.loopexit103 ], [ %.0.i, %ompi_errcode_get_mpi_code.exit ], [ 0, %72 ]
+105:                                              ; preds = %72, %.loopexit102, %ompi_errcode_get_mpi_code.exit, %28, %16
+  %.0 = phi i32 [ %17, %16 ], [ %29, %28 ], [ %104, %.loopexit102 ], [ %.0.i, %ompi_errcode_get_mpi_code.exit ], [ 0, %72 ]
   ret i32 %.0
 }
 

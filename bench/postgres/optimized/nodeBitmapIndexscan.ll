@@ -27,112 +27,109 @@ define dso_local ptr @MultiExecBitmapIndexScan(ptr noundef %0) local_unnamed_add
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 276
   %9 = load i8, ptr %8, align 4
-  %10 = and i8 %9, 1
-  %.not31 = icmp eq i8 %10, 0
-  br i1 %.not31, label %11, label %21
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %20, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 256
   %13 = load i32, ptr %12, align 8
-  %.not32 = icmp eq i32 %13, 0
-  br i1 %.not32, label %14, label %17
+  %.not31 = icmp eq i32 %13, 0
+  br i1 %.not31, label %14, label %17
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %0, i64 272
   %16 = load i32, ptr %15, align 8
-  %.not33 = icmp eq i32 %16, 0
-  br i1 %.not33, label %21, label %17
+  %.not32 = icmp eq i32 %16, 0
+  br i1 %.not32, label %20, label %17
 
 17:                                               ; preds = %14, %11
   tail call void @ExecReScan(ptr noundef nonnull %0) #6
   %18 = load i8, ptr %8, align 4
-  %19 = and i8 %18, 1
-  %20 = icmp ne i8 %19, 0
-  br label %21
+  %19 = trunc i8 %18 to i1
+  br label %20
 
-21:                                               ; preds = %5, %14, %17
-  %.0 = phi i1 [ %20, %17 ], [ true, %14 ], [ true, %5 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 224
-  %23 = load ptr, ptr %22, align 8
-  %.not34 = icmp eq ptr %23, null
-  br i1 %.not34, label %25, label %24
+20:                                               ; preds = %5, %14, %17
+  %.0 = phi i1 [ %19, %17 ], [ true, %14 ], [ true, %5 ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 224
+  %22 = load ptr, ptr %21, align 8
+  %.not33 = icmp eq ptr %22, null
+  br i1 %.not33, label %24, label %23
 
-24:                                               ; preds = %21
-  store ptr null, ptr %22, align 8
-  br label %42
+23:                                               ; preds = %20
+  store ptr null, ptr %21, align 8
+  br label %41
 
-25:                                               ; preds = %21
-  %26 = load i32, ptr @work_mem, align 4
-  %27 = sext i32 %26 to i64
-  %28 = shl nsw i64 %27, 10
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 116
-  %32 = load i8, ptr %31, align 4
-  %33 = and i8 %32, 1
-  %.not35 = icmp eq i8 %33, 0
-  br i1 %.not35, label %39, label %34
+24:                                               ; preds = %20
+  %25 = load i32, ptr @work_mem, align 4
+  %26 = sext i32 %25 to i64
+  %27 = shl nsw i64 %26, 10
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 116
+  %31 = load i8, ptr %30, align 4
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %38
 
-34:                                               ; preds = %25
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 256
-  %38 = load ptr, ptr %37, align 8
-  br label %39
+33:                                               ; preds = %24
+  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 256
+  %37 = load ptr, ptr %36, align 8
+  br label %38
 
-39:                                               ; preds = %25, %34
-  %40 = phi ptr [ %38, %34 ], [ null, %25 ]
-  %41 = tail call ptr @tbm_create(i64 noundef %28, ptr noundef %40) #6
-  br label %42
+38:                                               ; preds = %24, %33
+  %39 = phi ptr [ %37, %33 ], [ null, %24 ]
+  %40 = tail call ptr @tbm_create(i64 noundef %27, ptr noundef %39) #6
+  br label %41
 
-42:                                               ; preds = %39, %24
-  %.027 = phi ptr [ %23, %24 ], [ %41, %39 ]
+41:                                               ; preds = %38, %23
+  %.027 = phi ptr [ %22, %23 ], [ %40, %38 ]
   br i1 %.0, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %42
-  %43 = getelementptr inbounds i8, ptr %0, i64 264
-  %44 = getelementptr inbounds i8, ptr %0, i64 272
-  %45 = getelementptr inbounds i8, ptr %0, i64 232
-  %46 = getelementptr inbounds i8, ptr %0, i64 240
-  br label %47
+.lr.ph:                                           ; preds = %41
+  %42 = getelementptr inbounds i8, ptr %0, i64 264
+  %43 = getelementptr inbounds i8, ptr %0, i64 272
+  %44 = getelementptr inbounds i8, ptr %0, i64 232
+  %45 = getelementptr inbounds i8, ptr %0, i64 240
+  br label %46
 
-47:                                               ; preds = %57, %.lr.ph
-  %.02638 = phi double [ 0.000000e+00, %.lr.ph ], [ %50, %57 ]
-  %48 = tail call i64 @index_getbitmap(ptr noundef %7, ptr noundef %.027) #6
-  %49 = sitofp i64 %48 to double
-  %50 = fadd double %.02638, %49
-  %51 = load volatile i32, ptr @InterruptPending, align 4
-  %.not37 = icmp eq i32 %51, 0
-  br i1 %.not37, label %53, label %52
+46:                                               ; preds = %56, %.lr.ph
+  %.02636 = phi double [ 0.000000e+00, %.lr.ph ], [ %49, %56 ]
+  %47 = tail call i64 @index_getbitmap(ptr noundef %7, ptr noundef %.027) #6
+  %48 = sitofp i64 %47 to double
+  %49 = fadd double %.02636, %48
+  %50 = load volatile i32, ptr @InterruptPending, align 4
+  %.not35 = icmp eq i32 %50, 0
+  br i1 %.not35, label %52, label %51
 
-52:                                               ; preds = %47
+51:                                               ; preds = %46
   tail call void @ProcessInterrupts() #6
-  br label %53
+  br label %52
 
-53:                                               ; preds = %47, %52
-  %54 = load ptr, ptr %43, align 8
-  %55 = load i32, ptr %44, align 8
-  %56 = tail call zeroext i1 @ExecIndexAdvanceArrayKeys(ptr noundef %54, i32 noundef %55) #6
-  br i1 %56, label %57, label %._crit_edge
+52:                                               ; preds = %46, %51
+  %53 = load ptr, ptr %42, align 8
+  %54 = load i32, ptr %43, align 8
+  %55 = tail call zeroext i1 @ExecIndexAdvanceArrayKeys(ptr noundef %53, i32 noundef %54) #6
+  br i1 %55, label %56, label %._crit_edge
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr %6, align 8
-  %59 = load ptr, ptr %45, align 8
-  %60 = load i32, ptr %46, align 8
-  tail call void @index_rescan(ptr noundef %58, ptr noundef %59, i32 noundef %60, ptr noundef null, i32 noundef 0) #6
-  br label %47, !llvm.loop !5
+56:                                               ; preds = %52
+  %57 = load ptr, ptr %6, align 8
+  %58 = load ptr, ptr %44, align 8
+  %59 = load i32, ptr %45, align 8
+  tail call void @index_rescan(ptr noundef %57, ptr noundef %58, i32 noundef %59, ptr noundef null, i32 noundef 0) #6
+  br label %46, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %53, %42
-  %.026.lcssa = phi double [ 0.000000e+00, %42 ], [ %50, %53 ]
-  %61 = load ptr, ptr %2, align 8
-  %.not36 = icmp eq ptr %61, null
-  br i1 %.not36, label %63, label %62
+._crit_edge:                                      ; preds = %52, %41
+  %.026.lcssa = phi double [ 0.000000e+00, %41 ], [ %49, %52 ]
+  %60 = load ptr, ptr %2, align 8
+  %.not34 = icmp eq ptr %60, null
+  br i1 %.not34, label %62, label %61
 
-62:                                               ; preds = %._crit_edge
-  tail call void @InstrStopNode(ptr noundef nonnull %61, double noundef %.026.lcssa) #6
-  br label %63
+61:                                               ; preds = %._crit_edge
+  tail call void @InstrStopNode(ptr noundef nonnull %60, double noundef %.026.lcssa) #6
+  br label %62
 
-63:                                               ; preds = %62, %._crit_edge
+62:                                               ; preds = %61, %._crit_edge
   ret ptr %.027
 }
 

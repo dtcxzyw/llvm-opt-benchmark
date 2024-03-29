@@ -190,8 +190,8 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @newIng(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %.not.not.i = icmp eq ptr %0, null
-  br i1 %.not.not.i, label %4, label %9
+  %.not.i = icmp eq ptr %0, null
+  br i1 %.not.i, label %4, label %9
 
 4:                                                ; preds = %3
   %5 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #10
@@ -204,27 +204,27 @@ define noundef ptr @newIng(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   br label %new_ing.exit
 
 9:                                                ; preds = %4, %3
-  %.sink32.i = phi ptr [ %5, %4 ], [ %0, %3 ]
-  %.sink30.i = phi i8 [ 1, %4 ], [ 0, %3 ]
-  %10 = getelementptr inbounds i8, ptr %.sink32.i, i64 32
-  store i8 %.sink30.i, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %.sink32.i, i64 12
+  %.sink31.i = phi ptr [ %5, %4 ], [ %0, %3 ]
+  %.sink29.i = phi i8 [ 1, %4 ], [ 0, %3 ]
+  %10 = getelementptr inbounds i8, ptr %.sink31.i, i64 32
+  store i8 %.sink29.i, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %.sink31.i, i64 12
   store i32 0, ptr %11, align 4
-  store ptr %1, ptr %.sink32.i, align 8
-  %12 = getelementptr inbounds i8, ptr %.sink32.i, i64 8
+  store ptr %1, ptr %.sink31.i, align 8
+  %12 = getelementptr inbounds i8, ptr %.sink31.i, i64 8
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %.sink32.i, i64 36
+  %13 = getelementptr inbounds i8, ptr %.sink31.i, i64 36
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %.sink32.i, i64 16
+  %14 = getelementptr inbounds i8, ptr %.sink31.i, i64 16
   store ptr null, ptr %14, align 8
   %.not28.i = icmp eq ptr %2, null
   br i1 %.not28.i, label %15, label %20
 
 15:                                               ; preds = %9
-  br i1 %.not.not.i, label %16, label %17
+  br i1 %.not.i, label %16, label %17
 
 16:                                               ; preds = %15
-  tail call void @free(ptr noundef nonnull %.sink32.i) #8
+  tail call void @free(ptr noundef nonnull %.sink31.i) #8
   br label %17
 
 17:                                               ; preds = %16, %15
@@ -233,19 +233,19 @@ define noundef ptr @newIng(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   br label %new_ing.exit
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %.sink32.i, i64 24
+  %21 = getelementptr inbounds i8, ptr %.sink31.i, i64 24
   store ptr %2, ptr %21, align 8
   br label %new_ing.exit
 
 new_ing.exit:                                     ; preds = %6, %17, %20
-  %.0.i = phi ptr [ %.sink32.i, %20 ], [ null, %17 ], [ null, %6 ]
+  %.0.i = phi ptr [ %.sink31.i, %20 ], [ null, %17 ], [ null, %6 ]
   ret ptr %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @newIngGraphs(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %.not.not.i = icmp eq ptr %0, null
-  br i1 %.not.not.i, label %4, label %9
+  %.not.i = icmp eq ptr %0, null
+  br i1 %.not.i, label %4, label %9
 
 4:                                                ; preds = %3
   %5 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #10
@@ -258,29 +258,29 @@ define noundef ptr @newIngGraphs(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %new_ing.exit
 
 9:                                                ; preds = %4, %3
-  %.sink32.i = phi ptr [ %5, %4 ], [ %0, %3 ]
-  %.sink30.i = phi i8 [ 1, %4 ], [ 0, %3 ]
-  %10 = getelementptr inbounds i8, ptr %.sink32.i, i64 32
-  store i8 %.sink30.i, ptr %10, align 8
+  %.sink31.i = phi ptr [ %5, %4 ], [ %0, %3 ]
+  %.sink29.i = phi i8 [ 1, %4 ], [ 0, %3 ]
+  %10 = getelementptr inbounds i8, ptr %.sink31.i, i64 32
+  store i8 %.sink29.i, ptr %10, align 8
   %.not27.i = icmp ne ptr %1, null
   %.sink.i = zext i1 %.not27.i to i32
-  %11 = getelementptr inbounds i8, ptr %.sink32.i, i64 12
+  %11 = getelementptr inbounds i8, ptr %.sink31.i, i64 12
   store i32 %.sink.i, ptr %11, align 4
-  store ptr %1, ptr %.sink32.i, align 8
-  %12 = getelementptr inbounds i8, ptr %.sink32.i, i64 8
+  store ptr %1, ptr %.sink31.i, align 8
+  %12 = getelementptr inbounds i8, ptr %.sink31.i, i64 8
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %.sink32.i, i64 36
+  %13 = getelementptr inbounds i8, ptr %.sink31.i, i64 36
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %.sink32.i, i64 16
+  %14 = getelementptr inbounds i8, ptr %.sink31.i, i64 16
   store ptr null, ptr %14, align 8
   %.not28.i = icmp eq ptr %2, null
   br i1 %.not28.i, label %15, label %20
 
 15:                                               ; preds = %9
-  br i1 %.not.not.i, label %16, label %17
+  br i1 %.not.i, label %16, label %17
 
 16:                                               ; preds = %15
-  tail call void @free(ptr noundef nonnull %.sink32.i) #8
+  tail call void @free(ptr noundef nonnull %.sink31.i) #8
   br label %17
 
 17:                                               ; preds = %16, %15
@@ -289,19 +289,19 @@ define noundef ptr @newIngGraphs(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %new_ing.exit
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %.sink32.i, i64 24
+  %21 = getelementptr inbounds i8, ptr %.sink31.i, i64 24
   store ptr %2, ptr %21, align 8
   br label %new_ing.exit
 
 new_ing.exit:                                     ; preds = %6, %17, %20
-  %.0.i = phi ptr [ %.sink32.i, %20 ], [ null, %17 ], [ null, %6 ]
+  %.0.i = phi ptr [ %.sink31.i, %20 ], [ null, %17 ], [ null, %6 ]
   ret ptr %.0.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define noundef ptr @newIngraph(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
-  %.not.not.i.i = icmp eq ptr %0, null
-  br i1 %.not.not.i.i, label %3, label %8
+  %.not.i.i = icmp eq ptr %0, null
+  br i1 %.not.i.i, label %3, label %8
 
 3:                                                ; preds = %2
   %4 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #10
@@ -314,25 +314,25 @@ define noundef ptr @newIngraph(ptr noundef writeonly %0, ptr noundef %1) local_u
   br label %newIng.exit
 
 8:                                                ; preds = %3, %2
-  %.sink32.i.i = phi ptr [ %4, %3 ], [ %0, %2 ]
-  %.sink30.i.i = phi i8 [ 1, %3 ], [ 0, %2 ]
-  %9 = getelementptr inbounds i8, ptr %.sink32.i.i, i64 32
-  store i8 %.sink30.i.i, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %.sink32.i.i, i64 12
+  %.sink31.i.i = phi ptr [ %4, %3 ], [ %0, %2 ]
+  %.sink29.i.i = phi i8 [ 1, %3 ], [ 0, %2 ]
+  %9 = getelementptr inbounds i8, ptr %.sink31.i.i, i64 32
+  store i8 %.sink29.i.i, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %.sink31.i.i, i64 12
   store i32 0, ptr %10, align 4
-  store ptr %1, ptr %.sink32.i.i, align 8
-  %11 = getelementptr inbounds i8, ptr %.sink32.i.i, i64 8
+  store ptr %1, ptr %.sink31.i.i, align 8
+  %11 = getelementptr inbounds i8, ptr %.sink31.i.i, i64 8
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %.sink32.i.i, i64 36
+  %12 = getelementptr inbounds i8, ptr %.sink31.i.i, i64 36
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %.sink32.i.i, i64 16
+  %13 = getelementptr inbounds i8, ptr %.sink31.i.i, i64 16
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %.sink32.i.i, i64 24
+  %14 = getelementptr inbounds i8, ptr %.sink31.i.i, i64 24
   store ptr @dflt_read, ptr %14, align 8
   br label %newIng.exit
 
 newIng.exit:                                      ; preds = %5, %8
-  %.0.i.i = phi ptr [ %.sink32.i.i, %8 ], [ null, %5 ]
+  %.0.i.i = phi ptr [ %.sink31.i.i, %8 ], [ null, %5 ]
   ret ptr %.0.i.i
 }
 
@@ -367,9 +367,8 @@ define void @closeIngraph(ptr nocapture noundef %0) local_unnamed_addr #0 {
 11:                                               ; preds = %9, %6, %4, %1
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not8 = icmp eq i8 %14, 0
-  br i1 %.not8, label %16, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
   tail call void @free(ptr noundef nonnull %0) #8

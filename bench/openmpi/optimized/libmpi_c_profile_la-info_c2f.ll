@@ -10,9 +10,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @PMPI_Info_c2f(ptr noundef readonly %0) #0 {
   %2 = load i8, ptr @ompi_mpi_param_check, align 1
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %9, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
   %5 = icmp eq ptr %0, null
@@ -21,9 +20,8 @@ define i32 @PMPI_Info_c2f(ptr noundef readonly %0) #0 {
 6:                                                ; preds = %4
   %7 = getelementptr i8, ptr %0, i64 76
   %.val = load i8, ptr %7, align 4
-  %8 = and i8 %.val, 1
-  %.not4 = icmp eq i8 %8, 0
-  br i1 %.not4, label %9, label %12
+  %8 = trunc i8 %.val to i1
+  br i1 %8, label %12, label %9
 
 9:                                                ; preds = %6, %1
   %10 = getelementptr inbounds i8, ptr %0, i64 72

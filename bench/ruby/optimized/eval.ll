@@ -1377,8 +1377,8 @@ rb_ec_ractor_ptr.exit.i.i.i:                      ; preds = %49, %41
 
 rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %56, %rb_ec_ractor_ptr.exit.i.i.i
   %.0.i.i.i = phi i32 [ %58, %56 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i ]
-  %.not.i.i28 = icmp eq i32 %.0.i.i.i, %47
-  br i1 %.not.i.i28, label %60, label %59
+  %.not.i.i27 = icmp eq i32 %.0.i.i.i, %47
+  br i1 %.not.i.i27, label %60, label %59
 
 59:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i
   call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.2, i32 noundef %47, i32 noundef %.0.i.i.i) #9
@@ -1408,9 +1408,8 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %56, %rb_ec_ractor_p
 
 68:                                               ; preds = %66, %64
   %.0..0..0..0.11 = load volatile i8, ptr %6, align 1
-  %69 = and i8 %.0..0..0..0.11, 1
-  %.not27 = icmp eq i8 %69, 0
-  br i1 %.not27, label %70, label %71
+  %69 = trunc i8 %.0..0..0..0.11 to i1
+  br i1 %69, label %71, label %70
 
 70:                                               ; preds = %68
   store volatile i8 1, ptr %6, align 1
@@ -3226,9 +3225,8 @@ define internal fastcc void @Check_Type(i64 noundef %0, i32 noundef %1) unnamed_
 switch.hole_check:                                ; preds = %12
   %switch.maskindex = trunc i64 %13 to i16
   %switch.shifted = lshr i16 547, %switch.maskindex
-  %20 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %20, 0
-  br i1 %switch.lobit.not, label %15, label %switch.lookup
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %15
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.Check_Type, i64 0, i64 %13
@@ -3907,14 +3905,11 @@ declare void @rb_vm_localjump_error(ptr noundef, i64 noundef, i32 noundef) local
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_rescue2(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ...) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = call i64 @rb_vrescue2(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %5)
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   ret i64 %6
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_vrescue2(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -4066,7 +4061,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %55, %rb_ec_ractor_p
 
 69:                                               ; preds = %67
   store volatile i64 4, ptr %8, align 8
-  call void @llvm.va_copy(ptr nonnull %12, ptr %4)
+  call void @llvm.va_copy.p0(ptr nonnull %12, ptr %4)
   %70 = getelementptr inbounds i8, ptr %12, i64 8
   %71 = getelementptr inbounds i8, ptr %12, i64 16
   br label %72
@@ -4105,7 +4100,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %55, %rb_ec_ractor_p
   br i1 %.not37, label %72, label %90, !llvm.loop !26
 
 90:                                               ; preds = %86
-  call void @llvm.va_end(ptr nonnull %12)
+  call void @llvm.va_end.p0(ptr nonnull %12)
   %.not39 = icmp eq ptr %2, null
   br i1 %.not39, label %95, label %91
 
@@ -4125,7 +4120,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %55, %rb_ec_ractor_p
   br label %105
 
 .critedge:                                        ; preds = %83
-  call void @llvm.va_end(ptr nonnull %12)
+  call void @llvm.va_end.p0(ptr nonnull %12)
   br label %97
 
 97:                                               ; preds = %63, %67, %.critedge
@@ -4153,13 +4148,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %55, %rb_ec_ractor_p
   ret i64 %.0..0..0..0.8
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
-
 declare void @rb_vm_rewind_cfp(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #8
 
 declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -8156,6 +8145,15 @@ declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #24
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #25

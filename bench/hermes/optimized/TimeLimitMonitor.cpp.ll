@@ -372,9 +372,8 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
   store i8 1, ptr %_M_owns.i, align 8
   %enabled_ = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load i8, ptr %enabled_, align 8
-  %1 = and i8 %0, 1
-  %tobool.not19 = icmp eq i8 %1, 0
-  br i1 %tobool.not19, label %if.else.i.i, label %while.body.lr.ph
+  %tobool19 = trunc i8 %0 to i1
+  br i1 %tobool19, label %while.body.lr.ph, label %if.else.i.i
 
 while.body.lr.ph:                                 ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %watchedRuntimes_ = getelementptr inbounds i8, ptr %this, i64 96
@@ -386,22 +385,22 @@ while.body.lr.ph:                                 ; preds = %_ZNSt11unique_lockI
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end20
   %call = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #13
-  %2 = load i32, ptr %NumEntries.i.i.i.i, align 8
-  %cmp.i.i = icmp eq i32 %2, 0
-  %3 = load ptr, ptr %watchedRuntimes_, align 8
-  %4 = load i32, ptr %NumBuckets.i.i.i.i.i, align 8
-  %idx.ext.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %3, i64 %idx.ext.i.i.i
+  %1 = load i32, ptr %NumEntries.i.i.i.i, align 8
+  %cmp.i.i = icmp eq i32 %1, 0
+  %2 = load ptr, ptr %watchedRuntimes_, align 8
+  %3 = load i32, ptr %NumBuckets.i.i.i.i.i, align 8
+  %idx.ext.i.i.i = zext i32 %3 to i64
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %2, i64 %idx.ext.i.i.i
   br i1 %cmp.i.i, label %if.else18, label %if.end8.i
 
 if.end8.i:                                        ; preds = %while.body
-  %cmp.not3.i3.i7.i5.i = icmp eq i32 %4, 0
+  %cmp.not3.i3.i7.i5.i = icmp eq i32 %3, 0
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm7RuntimeENSt6chrono10time_pointINS6_3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 
 land.rhs.i4.i9.i6.i:                              ; preds = %if.end8.i, %while.body.i6.i12.i9.i
-  %retval.sroa.0.2.i7.i = phi ptr [ %incdec.ptr.i.i13.i10.i, %while.body.i6.i12.i9.i ], [ %3, %if.end8.i ]
-  %5 = load ptr, ptr %retval.sroa.0.2.i7.i, align 8
-  %magicptr.i5.i11.i8.i = ptrtoint ptr %5 to i64
+  %retval.sroa.0.2.i7.i = phi ptr [ %incdec.ptr.i.i13.i10.i, %while.body.i6.i12.i9.i ], [ %2, %if.end8.i ]
+  %4 = load ptr, ptr %retval.sroa.0.2.i7.i, align 8
+  %magicptr.i5.i11.i8.i = ptrtoint ptr %4 to i64
   switch i64 %magicptr.i5.i11.i8.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm7RuntimeENSt6chrono10time_pointINS6_3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E5beginEv.exit [
     i64 -8, label %while.body.i6.i12.i9.i
     i64 -16, label %while.body.i6.i12.i9.i
@@ -413,7 +412,7 @@ while.body.i6.i12.i9.i:                           ; preds = %land.rhs.i4.i9.i6.i
   br i1 %cmp.not.i7.i14.i11.i, label %if.else18, label %land.rhs.i4.i9.i6.i, !llvm.loop !13
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm7RuntimeENSt6chrono10time_pointINS6_3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E5beginEv.exit: ; preds = %land.rhs.i4.i9.i6.i, %if.end8.i
-  %add.ptr.i.i.pn16.i = phi ptr [ %3, %if.end8.i ], [ %retval.sroa.0.2.i7.i, %land.rhs.i4.i9.i6.i ]
+  %add.ptr.i.i.pn16.i = phi ptr [ %2, %if.end8.i ], [ %retval.sroa.0.2.i7.i, %land.rhs.i4.i9.i6.i ]
   %cmp.i.i1.not16 = icmp eq ptr %add.ptr.i.i.pn16.i, %add.ptr.i.i.i
   br i1 %cmp.i.i1.not16, label %if.else18, label %for.body
 
@@ -426,8 +425,8 @@ for.body:                                         ; preds = %_ZN4llvh12DenseMapB
 
 land.rhs.i4.i.i:                                  ; preds = %for.body, %while.body.i6.i.i
   %it.sroa.0.1 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i6.i.i ], [ %incdec.ptr3.i.i, %for.body ]
-  %6 = load ptr, ptr %it.sroa.0.1, align 8
-  %magicptr.i5.i.i = ptrtoint ptr %6 to i64
+  %5 = load ptr, ptr %it.sroa.0.1, align 8
+  %magicptr.i5.i.i = ptrtoint ptr %5 to i64
   switch i64 %magicptr.i5.i.i, label %_ZN4llvh16DenseMapIteratorIPN6hermes2vm7RuntimeENSt6chrono10time_pointINS5_3_V212steady_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SD_EELb0EEppEi.exit [
     i64 -8, label %while.body.i6.i.i
     i64 -16, label %while.body.i6.i.i
@@ -446,13 +445,13 @@ _ZN4llvh16DenseMapIteratorIPN6hermes2vm7RuntimeENSt6chrono10time_pointINS5_3_V21
   br i1 %cmp.i.i.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZN4llvh16DenseMapIteratorIPN6hermes2vm7RuntimeENSt6chrono10time_pointINS5_3_V212steady_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SD_EELb0EEppEi.exit
-  %7 = load ptr, ptr %it.sroa.0.017, align 8
-  %asyncBreakRequestFlag_.i.i = getelementptr inbounds i8, ptr %7, i64 9760
-  %8 = atomicrmw or ptr %asyncBreakRequestFlag_.i.i, i8 4 monotonic, align 1
+  %6 = load ptr, ptr %it.sroa.0.017, align 8
+  %asyncBreakRequestFlag_.i.i = getelementptr inbounds i8, ptr %6, i64 9760
+  %7 = atomicrmw or ptr %asyncBreakRequestFlag_.i.i, i8 4 monotonic, align 1
   store ptr inttoptr (i64 -16 to ptr), ptr %it.sroa.0.017, align 8
-  %9 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
-  %10 = add <2 x i32> %9, <i32 -1, i32 1>
-  store <2 x i32> %10, ptr %NumEntries.i.i.i.i, align 8
+  %8 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
+  %9 = add <2 x i32> %8, <i32 -1, i32 1>
+  store <2 x i32> %9, ptr %NumEntries.i.i.i.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %_ZN4llvh16DenseMapIteratorIPN6hermes2vm7RuntimeENSt6chrono10time_pointINS5_3_V212steady_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SD_EELb0EEppEi.exit
@@ -475,8 +474,8 @@ if.then16:                                        ; preds = %for.end
   %sub.i.i.i.i = add i64 %mul.i.i.i.neg.i.i.i.i, %nextDeadline.sroa.0.1
   store i64 %div.i.i.i.i.i, ptr %__ts.i.i, align 8
   store i64 %sub.i.i.i.i, ptr %tv_nsec.i.i, align 8
-  %11 = load ptr, ptr %lockGuard, align 8
-  %call2.i.i.i = call i32 @pthread_cond_clockwait(ptr noundef nonnull %timerLoopCond_, ptr noundef nonnull %11, i32 noundef 1, ptr noundef nonnull %__ts.i.i) #13
+  %10 = load ptr, ptr %lockGuard, align 8
+  %call2.i.i.i = call i32 @pthread_cond_clockwait(ptr noundef nonnull %timerLoopCond_, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %__ts.i.i) #13
   %call14.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i)
   br label %if.end20
@@ -486,24 +485,22 @@ if.else18:                                        ; preds = %while.body.i6.i12.i
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else18, %if.then16
-  %12 = load i8, ptr %enabled_, align 8
-  %13 = and i8 %12, 1
-  %tobool.not = icmp eq i8 %13, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !15
+  %11 = load i8, ptr %enabled_, align 8
+  %tobool = trunc i8 %11 to i1
+  br i1 %tobool, label %while.body, label %while.end, !llvm.loop !15
 
 while.end:                                        ; preds = %if.end20
   %.pre = load i8, ptr %_M_owns.i, align 8
-  %14 = and i8 %.pre, 1
-  %15 = icmp eq i8 %14, 0
-  br i1 %15, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.else.i.i
+  %12 = trunc i8 %.pre to i1
+  br i1 %12, label %if.else.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 if.else.i.i:                                      ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %while.end
-  %16 = load ptr, ptr %lockGuard, align 8
-  %tobool2.not.i.i = icmp eq ptr %16, null
+  %13 = load ptr, ptr %lockGuard, align 8
+  %tobool2.not.i.i = icmp eq ptr %13, null
   br i1 %tobool2.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  %call1.i.i.i.i9 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #13
+  %call1.i.i.i.i9 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #13
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %while.end, %if.else.i.i, %if.then3.i.i

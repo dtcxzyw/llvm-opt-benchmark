@@ -318,9 +318,8 @@ _ZN4YAML12EmitterState13SetNullFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exi
 switch.hole_check:                                ; preds = %_ZN4YAML12EmitterState16SetOutputCharsetENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit
   %switch.maskindex = trunc i32 %value to i16
   %switch.shifted = lshr i16 449, %switch.maskindex
-  %1 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %1, 0
-  br i1 %switch.lobit.not, label %_ZN4YAML12EmitterState15SetStringFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit, label %_ZN4YAML12EmitterState12SetIntFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit.sink.split
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %_ZN4YAML12EmitterState12SetIntFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit.sink.split, label %_ZN4YAML12EmitterState15SetStringFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit
 
 _ZN4YAML12EmitterState12SetIntFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit.sink.split: ; preds = %switch.hole_check, %_ZN4YAML12EmitterState13SetNullFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit, %_ZN4YAML12EmitterState19SetBoolLengthFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit, %_ZN4YAML12EmitterState17SetBoolCaseFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit, %_ZN4YAML12EmitterState13SetBoolFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit, %_ZN4YAML12EmitterState15SetStringFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit
   %.sink = phi i64 [ 48, %_ZN4YAML12EmitterState15SetStringFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit ], [ 56, %_ZN4YAML12EmitterState13SetBoolFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit ], [ 52, %_ZN4YAML12EmitterState17SetBoolCaseFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit ], [ 60, %_ZN4YAML12EmitterState19SetBoolLengthFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit ], [ 64, %_ZN4YAML12EmitterState13SetNullFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit ], [ 44, %switch.hole_check ]
@@ -329,8 +328,8 @@ _ZN4YAML12EmitterState12SetIntFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit
   br label %_ZN4YAML12EmitterState12SetIntFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit
 
 _ZN4YAML12EmitterState12SetIntFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit: ; preds = %_ZN4YAML12EmitterState12SetIntFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit.sink.split, %_ZN4YAML12EmitterState13SetNullFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit
-  %2 = and i32 %value, -2
-  %switch.i26 = icmp eq i32 %2, 28
+  %1 = and i32 %value, -2
+  %switch.i26 = icmp eq i32 %1, 28
   br i1 %switch.i26, label %sw.bb.i29, label %_ZN4YAML12EmitterState11SetFlowTypeENS_9GroupType5valueENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit31
 
 sw.bb.i29:                                        ; preds = %_ZN4YAML12EmitterState12SetIntFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit
@@ -1223,9 +1222,8 @@ ehcleanup13:                                      ; preds = %lpad10, %lpad8
 if.end14:                                         ; preds = %entry
   %m_hasTag = getelementptr inbounds i8, ptr %this, i64 210
   %6 = load i8, ptr %m_hasTag, align 2
-  %7 = and i8 %6, 1
-  %tobool.not = icmp eq i8 %7, 0
-  br i1 %tobool.not, label %if.end24, label %if.then15
+  %tobool = trunc i8 %6 to i1
+  br i1 %tobool, label %if.then15, label %if.end24
 
 if.then15:                                        ; preds = %if.end14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #14
@@ -1244,27 +1242,26 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   br label %if.end24
 
 lpad18:                                           ; preds = %if.then15
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup23
 
 lpad20:                                           ; preds = %invoke.cont19
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #14
   br label %ehcleanup23
 
 ehcleanup23:                                      ; preds = %lpad20, %lpad18
-  %.pn = phi { ptr, i32 } [ %9, %lpad20 ], [ %8, %lpad18 ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad20 ], [ %7, %lpad18 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #14
   br label %eh.resume
 
 if.end24:                                         ; preds = %invoke.cont21, %if.end14
   %m_hasAnchor = getelementptr inbounds i8, ptr %this, i64 208
-  %10 = load i8, ptr %m_hasAnchor, align 8
-  %11 = and i8 %10, 1
-  %tobool25.not = icmp eq i8 %11, 0
-  br i1 %tobool25.not, label %if.end35, label %if.then26
+  %9 = load i8, ptr %m_hasAnchor, align 8
+  %tobool25 = trunc i8 %9 to i1
+  br i1 %tobool25, label %if.then26, label %if.end35
 
 if.then26:                                        ; preds = %if.end24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #14
@@ -1283,45 +1280,45 @@ invoke.cont32:                                    ; preds = %invoke.cont30
   br label %if.end35
 
 lpad29:                                           ; preds = %if.then26
-  %12 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup34
 
 lpad31:                                           ; preds = %invoke.cont30
-  %13 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #14
   br label %ehcleanup34
 
 ehcleanup34:                                      ; preds = %lpad31, %lpad29
-  %.pn3 = phi { ptr, i32 } [ %13, %lpad31 ], [ %12, %lpad29 ]
+  %.pn3 = phi { ptr, i32 } [ %11, %lpad31 ], [ %10, %lpad29 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #14
   br label %eh.resume
 
 if.end35:                                         ; preds = %invoke.cont32, %if.end24
-  %14 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 -8
-  %15 = load i64, ptr %add.ptr.i.i, align 8
-  store i64 %15, ptr %pFinishedGroup, align 8
+  %12 = load ptr, ptr %_M_finish.i.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 -8
+  %13 = load i64, ptr %add.ptr.i.i, align 8
+  store i64 %13, ptr %pFinishedGroup, align 8
   store ptr null, ptr %add.ptr.i.i, align 8
-  %16 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %16, i64 -8
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %14, i64 -8
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
-  %17 = load ptr, ptr %incdec.ptr.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %17, null
-  %18 = inttoptr i64 %15 to ptr
+  %15 = load ptr, ptr %incdec.ptr.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %15, null
+  %16 = inttoptr i64 %13 to ptr
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE8pop_backEv.exit, label %_ZNKSt14default_deleteIN4YAML12EmitterState5GroupEEclEPS2_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN4YAML12EmitterState5GroupEEclEPS2_.exit.i.i.i.i: ; preds = %if.end35
-  %modifiedSettings.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 32
+  %modifiedSettings.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 32
   call void @_ZN4YAML14SettingChangesD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %modifiedSettings.i.i.i.i.i.i) #14
-  call void @_ZdlPv(ptr noundef nonnull %17) #16
+  call void @_ZdlPv(ptr noundef nonnull %15) #16
   br label %_ZNSt6vectorISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE8pop_backEv.exit
 
 _ZNSt6vectorISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE8pop_backEv.exit: ; preds = %if.end35, %_ZNKSt14default_deleteIN4YAML12EmitterState5GroupEEclEPS2_.exit.i.i.i.i
   store ptr null, ptr %incdec.ptr.i, align 8
-  %19 = load i32, ptr %18, align 8
-  %cmp41.not.not = icmp eq i32 %19, %type
+  %17 = load i32, ptr %16, align 8
+  %cmp41.not.not = icmp eq i32 %17, %type
   br i1 %cmp41.not.not, label %cleanup.cont, label %if.then42
 
 if.then42:                                        ; preds = %_ZNSt6vectorISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE8pop_backEv.exit
@@ -1336,18 +1333,18 @@ invoke.cont46:                                    ; preds = %if.then42
           to label %_ZNSt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS2_EED2Ev.exit unwind label %lpad47
 
 lpad45:                                           ; preds = %if.then42
-  %20 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup50
 
 lpad47:                                           ; preds = %invoke.cont46
-  %21 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #14
   br label %ehcleanup50
 
 ehcleanup50:                                      ; preds = %lpad47, %lpad45
-  %.pn5 = phi { ptr, i32 } [ %21, %lpad47 ], [ %20, %lpad45 ]
+  %.pn5 = phi { ptr, i32 } [ %19, %lpad47 ], [ %18, %lpad45 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #14
   call void @_ZNSt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pFinishedGroup) #14
   br label %eh.resume
@@ -1355,89 +1352,89 @@ ehcleanup50:                                      ; preds = %lpad47, %lpad45
 _ZNSt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont46
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #14
-  %modifiedSettings.i.i.i = getelementptr inbounds i8, ptr %18, i64 32
+  %modifiedSettings.i.i.i = getelementptr inbounds i8, ptr %16, i64 32
   call void @_ZN4YAML14SettingChangesD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %modifiedSettings.i.i.i) #14
-  call void @_ZdlPv(ptr noundef nonnull %18) #16
+  call void @_ZdlPv(ptr noundef nonnull %16) #16
   br label %return
 
 cleanup.cont:                                     ; preds = %_ZNSt6vectorISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE8pop_backEv.exit
-  %modifiedSettings.i.i.i.c = getelementptr inbounds i8, ptr %18, i64 32
+  %modifiedSettings.i.i.i.c = getelementptr inbounds i8, ptr %16, i64 32
   call void @_ZN4YAML14SettingChangesD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %modifiedSettings.i.i.i.c) #14
-  call void @_ZdlPv(ptr noundef nonnull %18) #16
+  call void @_ZdlPv(ptr noundef nonnull %16) #16
   store ptr null, ptr %pFinishedGroup, align 8
-  %22 = load ptr, ptr %m_groups, align 8
-  %23 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.i27 = icmp eq ptr %22, %23
+  %20 = load ptr, ptr %m_groups, align 8
+  %21 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.i27 = icmp eq ptr %20, %21
   br i1 %cmp.i.i27, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %cleanup.cont
-  %add.ptr.i.i29 = getelementptr inbounds i8, ptr %23, i64 -8
-  %24 = load ptr, ptr %add.ptr.i.i29, align 8
-  %indent = getelementptr inbounds i8, ptr %24, i64 8
-  %25 = load i64, ptr %indent, align 8
+  %add.ptr.i.i29 = getelementptr inbounds i8, ptr %21, i64 -8
+  %22 = load ptr, ptr %add.ptr.i.i29, align 8
+  %indent = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = load i64, ptr %indent, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cleanup.cont, %cond.false
-  %cond = phi i64 [ %25, %cond.false ], [ 0, %cleanup.cont ]
+  %cond = phi i64 [ %23, %cond.false ], [ 0, %cleanup.cont ]
   %m_curIndent = getelementptr inbounds i8, ptr %this, i64 200
-  %26 = load i64, ptr %m_curIndent, align 8
-  %sub = sub i64 %26, %cond
+  %24 = load i64, ptr %m_curIndent, align 8
+  %sub = sub i64 %24, %cond
   store i64 %sub, ptr %m_curIndent, align 8
   %m_globalModifiedSettings = getelementptr inbounds i8, ptr %this, i64 152
-  %27 = load ptr, ptr %m_globalModifiedSettings, align 8
+  %25 = load ptr, ptr %m_globalModifiedSettings, align 8
   %_M_finish.i.i30 = getelementptr inbounds i8, ptr %this, i64 160
-  %28 = load ptr, ptr %_M_finish.i.i30, align 8
-  %cmp.i.not4.i = icmp eq ptr %27, %28
+  %26 = load ptr, ptr %_M_finish.i.i30, align 8
+  %cmp.i.not4.i = icmp eq ptr %25, %26
   br i1 %cmp.i.not4.i, label %_ZN4YAML14SettingChanges7restoreEv.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %cond.end, %for.inc.i
-  %__begin2.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %27, %cond.end ]
-  %29 = load ptr, ptr %__begin2.sroa.0.05.i, align 8
-  %vtable.i = load ptr, ptr %29, align 8
+  %__begin2.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %25, %cond.end ]
+  %27 = load ptr, ptr %__begin2.sroa.0.05.i, align 8
+  %vtable.i = load ptr, ptr %27, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %30 = load ptr, ptr %vfn.i, align 8
-  invoke void %30(ptr noundef nonnull align 8 dereferenceable(8) %29)
+  %28 = load ptr, ptr %vfn.i, align 8
+  invoke void %28(ptr noundef nonnull align 8 dereferenceable(8) %27)
           to label %for.inc.i unwind label %terminate.lpad.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05.i, i64 8
-  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %28
+  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %26
   br i1 %cmp.i.not.i, label %_ZN4YAML14SettingChanges7restoreEv.exit, label %for.body.i
 
 terminate.lpad.i:                                 ; preds = %for.body.i
-  %31 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #15
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #15
   unreachable
 
 _ZN4YAML14SettingChanges7restoreEv.exit:          ; preds = %for.inc.i, %cond.end
   %m_modifiedSettings.i = getelementptr inbounds i8, ptr %this, i64 128
-  %33 = load ptr, ptr %m_modifiedSettings.i, align 8
+  %31 = load ptr, ptr %m_modifiedSettings.i, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
-  %34 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %cmp.i.not4.i.i.i = icmp eq ptr %33, %34
+  %32 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %cmp.i.not4.i.i.i = icmp eq ptr %31, %32
   br i1 %cmp.i.not4.i.i.i, label %_ZN4YAML12EmitterState21ClearModifiedSettingsEv.exit, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN4YAML14SettingChanges7restoreEv.exit, %for.inc.i.i.i
-  %__begin2.sroa.0.05.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc.i.i.i ], [ %33, %_ZN4YAML14SettingChanges7restoreEv.exit ]
-  %35 = load ptr, ptr %__begin2.sroa.0.05.i.i.i, align 8
-  %vtable.i.i.i = load ptr, ptr %35, align 8
+  %__begin2.sroa.0.05.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc.i.i.i ], [ %31, %_ZN4YAML14SettingChanges7restoreEv.exit ]
+  %33 = load ptr, ptr %__begin2.sroa.0.05.i.i.i, align 8
+  %vtable.i.i.i = load ptr, ptr %33, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
-  %36 = load ptr, ptr %vfn.i.i.i, align 8
-  invoke void %36(ptr noundef nonnull align 8 dereferenceable(8) %35)
+  %34 = load ptr, ptr %vfn.i.i.i, align 8
+  invoke void %34(ptr noundef nonnull align 8 dereferenceable(8) %33)
           to label %for.inc.i.i.i unwind label %terminate.lpad.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05.i.i.i, i64 8
-  %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %34
+  %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %32
   br i1 %cmp.i.not.i.i.i, label %_ZN4YAML14SettingChanges7restoreEv.exit.i.i, label %for.body.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %for.body.i.i.i
-  %37 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #15
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #15
   unreachable
 
 _ZN4YAML14SettingChanges7restoreEv.exit.i.i:      ; preds = %for.inc.i.i.i
@@ -1448,15 +1445,15 @@ _ZN4YAML14SettingChanges7restoreEv.exit.i.i:      ; preds = %for.inc.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %_ZN4YAML14SettingChanges7restoreEv.exit.i.i, %_ZSt8_DestroyISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %_ZSt8_DestroyISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i ], [ %.pre.i.i, %_ZN4YAML14SettingChanges7restoreEv.exit.i.i ]
-  %39 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %39, null
+  %37 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %37, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4YAML17SettingChangeBaseEEclEPS1_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4YAML17SettingChangeBaseEEclEPS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %39, align 8
+  %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %37, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 8
-  %40 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(8) %39) #14
+  %38 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %37) #14
   br label %_ZSt8_DestroyISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4YAML17SettingChangeBaseEEclEPS1_.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
@@ -1626,8 +1623,7 @@ cond.false:                                       ; preds = %entry
   %2 = load ptr, ptr %add.ptr.i.i, align 8
   %longKey = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load i8, ptr %longKey, align 8
-  %4 = and i8 %3, 1
-  %tobool = icmp ne i8 %4, 0
+  %tobool = trunc i8 %3 to i1
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.false

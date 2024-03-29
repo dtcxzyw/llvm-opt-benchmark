@@ -123,52 +123,48 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %2 = and i32 %env1.val, 4393
-  %or.cond417.not = icmp eq i32 %2, 4393
-  br i1 %or.cond417.not, label %land.lhs.true16, label %if.then
+  %or.cond418.not = icmp eq i32 %2, 4393
+  br i1 %or.cond418.not, label %land.lhs.true16, label %if.then
 
 land.lhs.true16:                                  ; preds = %land.lhs.true
   %ext_zicsr = getelementptr inbounds i8, ptr %cpu, i64 15338
   %3 = load i8, ptr %ext_zicsr, align 2
-  %4 = and i8 %3, 1
-  %tobool17.not = icmp eq i8 %4, 0
-  br i1 %tobool17.not, label %if.then, label %land.lhs.true18
+  %tobool17 = trunc i8 %3 to i1
+  br i1 %tobool17, label %land.lhs.true18, label %if.then
 
 land.lhs.true18:                                  ; preds = %land.lhs.true16
   %ext_zifencei = getelementptr inbounds i8, ptr %cpu, i64 15336
-  %5 = load i8, ptr %ext_zifencei, align 8
-  %6 = and i8 %5, 1
-  %tobool20.not = icmp eq i8 %6, 0
-  br i1 %tobool20.not, label %if.then, label %if.end38
+  %4 = load i8, ptr %ext_zifencei, align 8
+  %tobool20 = trunc i8 %4 to i1
+  br i1 %tobool20, label %if.end38, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true18, %land.lhs.true16, %land.lhs.true
-  %7 = load ptr, ptr @multi_ext_user_opts, align 8
-  %call.i = tail call i32 @g_hash_table_contains(ptr noundef %7, ptr noundef nonnull inttoptr (i64 26 to ptr)) #11
+  %5 = load ptr, ptr @multi_ext_user_opts, align 8
+  %call.i = tail call i32 @g_hash_table_contains(ptr noundef %5, ptr noundef nonnull inttoptr (i64 26 to ptr)) #11
   %tobool.i.not = icmp eq i32 %call.i, 0
   br i1 %tobool.i.not, label %if.end, label %land.lhs.true22
 
 land.lhs.true22:                                  ; preds = %if.then
   %ext_zicsr24 = getelementptr inbounds i8, ptr %cpu, i64 15338
-  %8 = load i8, ptr %ext_zicsr24, align 2
-  %9 = and i8 %8, 1
-  %tobool25.not = icmp eq i8 %9, 0
-  br i1 %tobool25.not, label %if.then26, label %if.end
+  %6 = load i8, ptr %ext_zicsr24, align 2
+  %tobool25 = trunc i8 %6 to i1
+  br i1 %tobool25, label %if.end, label %if.then26
 
 if.then26:                                        ; preds = %land.lhs.true22
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 294, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.1) #11
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true22, %if.then
-  %10 = load ptr, ptr @multi_ext_user_opts, align 8
-  %call.i251 = tail call i32 @g_hash_table_contains(ptr noundef %10, ptr noundef nonnull inttoptr (i64 24 to ptr)) #11
+  %7 = load ptr, ptr @multi_ext_user_opts, align 8
+  %call.i251 = tail call i32 @g_hash_table_contains(ptr noundef %7, ptr noundef nonnull inttoptr (i64 24 to ptr)) #11
   %tobool.i252.not = icmp eq i32 %call.i251, 0
   br i1 %tobool.i252.not, label %if.end33, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %if.end
   %ext_zifencei30 = getelementptr inbounds i8, ptr %cpu, i64 15336
-  %11 = load i8, ptr %ext_zifencei30, align 8
-  %12 = and i8 %11, 1
-  %tobool31.not = icmp eq i8 %12, 0
-  br i1 %tobool31.not, label %if.then32, label %if.end33
+  %8 = load i8, ptr %ext_zifencei30, align 8
+  %tobool31 = trunc i8 %8 to i1
+  br i1 %tobool31, label %if.end33, label %if.then32
 
 if.then32:                                        ; preds = %land.lhs.true28
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 301, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.2) #11
@@ -179,27 +175,27 @@ if.end33:                                         ; preds = %land.lhs.true28, %i
   br i1 %call.i253, label %cpu_cfg_ext_auto_update.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end33
-  %13 = load ptr, ptr @multi_ext_user_opts, align 8
-  %call.i.i = tail call i32 @g_hash_table_contains(ptr noundef %13, ptr noundef nonnull inttoptr (i64 26 to ptr)) #11
+  %9 = load ptr, ptr @multi_ext_user_opts, align 8
+  %call.i.i = tail call i32 @g_hash_table_contains(ptr noundef %9, ptr noundef nonnull inttoptr (i64 26 to ptr)) #11
   %tobool.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.i.not.i, label %land.lhs.true.i, label %cpu_cfg_ext_auto_update.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %priv_ver.i = getelementptr inbounds i8, ptr %cpu, i64 15160
-  %14 = load i64, ptr %priv_ver.i, align 8
-  %cmp11.not.i = icmp eq i64 %14, 2
+  %10 = load i64, ptr %priv_ver.i, align 8
+  %cmp11.not.i = icmp eq i64 %10, 2
   br i1 %cmp11.not.i, label %if.end21.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %land.lhs.true.i, %for.inc.i.i
   %edata.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @isa_edata_arr, %land.lhs.true.i ]
-  %15 = load ptr, ptr %edata.06.i.i, align 8
-  %tobool1.not.i.i = icmp eq ptr %15, null
+  %11 = load ptr, ptr %edata.06.i.i, align 8
+  %tobool1.not.i.i = icmp eq ptr %11, null
   br i1 %tobool1.not.i.i, label %do.body.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %land.rhs.i.i
   %ext_enable_offset.i.i = getelementptr inbounds i8, ptr %edata.06.i.i, i64 12
-  %16 = load i32, ptr %ext_enable_offset.i.i, align 4
-  %cmp.not.i.i = icmp eq i32 %16, 26
+  %12 = load i32, ptr %ext_enable_offset.i.i, align 4
+  %cmp.not.i.i = icmp eq i32 %12, 26
   br i1 %cmp.not.i.i, label %cpu_cfg_ext_get_min_version.exit.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
@@ -213,9 +209,9 @@ do.body.i.i:                                      ; preds = %for.inc.i.i, %land.
 
 cpu_cfg_ext_get_min_version.exit.i:               ; preds = %for.body.i.i
   %min_version.i.i = getelementptr inbounds i8, ptr %edata.06.i.i, i64 8
-  %17 = load i32, ptr %min_version.i.i, align 8
-  %conv16.i = sext i32 %17 to i64
-  %cmp17.i = icmp ult i64 %14, %conv16.i
+  %13 = load i32, ptr %min_version.i.i, align 8
+  %conv16.i = sext i32 %13 to i64
+  %cmp17.i = icmp ult i64 %10, %conv16.i
   br i1 %cmp17.i, label %cpu_cfg_ext_auto_update.exit, label %if.end21.i
 
 if.end21.i:                                       ; preds = %cpu_cfg_ext_get_min_version.exit.i, %land.lhs.true.i
@@ -227,27 +223,27 @@ cpu_cfg_ext_auto_update.exit:                     ; preds = %if.end33, %if.end.i
   br i1 %call.i254, label %cpu_cfg_ext_auto_update.exit276, label %if.end.i255
 
 if.end.i255:                                      ; preds = %cpu_cfg_ext_auto_update.exit
-  %18 = load ptr, ptr @multi_ext_user_opts, align 8
-  %call.i.i256 = tail call i32 @g_hash_table_contains(ptr noundef %18, ptr noundef nonnull inttoptr (i64 24 to ptr)) #11
+  %14 = load ptr, ptr @multi_ext_user_opts, align 8
+  %call.i.i256 = tail call i32 @g_hash_table_contains(ptr noundef %14, ptr noundef nonnull inttoptr (i64 24 to ptr)) #11
   %tobool.i.not.i257 = icmp eq i32 %call.i.i256, 0
   br i1 %tobool.i.not.i257, label %land.lhs.true.i258, label %cpu_cfg_ext_auto_update.exit276
 
 land.lhs.true.i258:                               ; preds = %if.end.i255
   %priv_ver.i259 = getelementptr inbounds i8, ptr %cpu, i64 15160
-  %19 = load i64, ptr %priv_ver.i259, align 8
-  %cmp11.not.i260 = icmp eq i64 %19, 2
+  %15 = load i64, ptr %priv_ver.i259, align 8
+  %cmp11.not.i260 = icmp eq i64 %15, 2
   br i1 %cmp11.not.i260, label %if.end21.i275, label %land.rhs.i.i261
 
 land.rhs.i.i261:                                  ; preds = %land.lhs.true.i258, %for.inc.i.i267
   %edata.06.i.i262 = phi ptr [ %incdec.ptr.i.i268, %for.inc.i.i267 ], [ @isa_edata_arr, %land.lhs.true.i258 ]
-  %20 = load ptr, ptr %edata.06.i.i262, align 8
-  %tobool1.not.i.i263 = icmp eq ptr %20, null
+  %16 = load ptr, ptr %edata.06.i.i262, align 8
+  %tobool1.not.i.i263 = icmp eq ptr %16, null
   br i1 %tobool1.not.i.i263, label %do.body.i.i270, label %for.body.i.i264
 
 for.body.i.i264:                                  ; preds = %land.rhs.i.i261
   %ext_enable_offset.i.i265 = getelementptr inbounds i8, ptr %edata.06.i.i262, i64 12
-  %21 = load i32, ptr %ext_enable_offset.i.i265, align 4
-  %cmp.not.i.i266 = icmp eq i32 %21, 24
+  %17 = load i32, ptr %ext_enable_offset.i.i265, align 4
+  %cmp.not.i.i266 = icmp eq i32 %17, 24
   br i1 %cmp.not.i.i266, label %cpu_cfg_ext_get_min_version.exit.i271, label %for.inc.i.i267
 
 for.inc.i.i267:                                   ; preds = %for.body.i.i264
@@ -261,9 +257,9 @@ do.body.i.i270:                                   ; preds = %for.inc.i.i267, %la
 
 cpu_cfg_ext_get_min_version.exit.i271:            ; preds = %for.body.i.i264
   %min_version.i.i272 = getelementptr inbounds i8, ptr %edata.06.i.i262, i64 8
-  %22 = load i32, ptr %min_version.i.i272, align 8
-  %conv16.i273 = sext i32 %22 to i64
-  %cmp17.i274 = icmp ult i64 %19, %conv16.i273
+  %18 = load i32, ptr %min_version.i.i272, align 8
+  %conv16.i273 = sext i32 %18 to i64
+  %cmp17.i274 = icmp ult i64 %15, %conv16.i273
   br i1 %cmp17.i274, label %cpu_cfg_ext_auto_update.exit276, label %if.end21.i275
 
 if.end21.i275:                                    ; preds = %cpu_cfg_ext_get_min_version.exit.i271, %land.lhs.true.i258
@@ -271,18 +267,18 @@ if.end21.i275:                                    ; preds = %cpu_cfg_ext_get_min
   br label %cpu_cfg_ext_auto_update.exit276
 
 cpu_cfg_ext_auto_update.exit276:                  ; preds = %cpu_cfg_ext_auto_update.exit, %if.end.i255, %cpu_cfg_ext_get_min_version.exit.i271, %if.end21.i275
-  %23 = load <2 x i32>, ptr %0, align 8
-  %24 = or <2 x i32> %23, <i32 4393, i32 4393>
-  store <2 x i32> %24, ptr %0, align 8
-  %25 = extractelement <2 x i32> %24, i64 0
+  %19 = load <2 x i32>, ptr %0, align 8
+  %20 = or <2 x i32> %19, <i32 4393, i32 4393>
+  store <2 x i32> %20, ptr %0, align 8
+  %21 = extractelement <2 x i32> %20, i64 0
   br label %if.end38
 
 if.end38:                                         ; preds = %cpu_cfg_ext_auto_update.exit276, %land.lhs.true18, %entry
-  %env1.val204 = phi i32 [ %25, %cpu_cfg_ext_auto_update.exit276 ], [ %env1.val, %land.lhs.true18 ], [ %env1.val, %entry ]
-  %26 = and i32 %env1.val204, 256
-  %tobool40.not = icmp eq i32 %26, 0
-  %27 = and i32 %env1.val204, 16
-  %tobool50.not = icmp eq i32 %27, 0
+  %env1.val204 = phi i32 [ %21, %cpu_cfg_ext_auto_update.exit276 ], [ %env1.val, %land.lhs.true18 ], [ %env1.val, %entry ]
+  %22 = and i32 %env1.val204, 256
+  %tobool40.not = icmp eq i32 %22, 0
+  %23 = and i32 %env1.val204, 16
+  %tobool50.not = icmp eq i32 %23, 0
   br i1 %tobool40.not, label %land.lhs.true48, label %land.lhs.true41
 
 land.lhs.true41:                                  ; preds = %if.end38
@@ -300,19 +296,19 @@ if.then51:                                        ; preds = %land.lhs.true48
   br label %return
 
 if.end52:                                         ; preds = %land.lhs.true41, %land.lhs.true48
-  %28 = and i32 %env1.val204, 262144
-  %tobool54.not.not = icmp eq i32 %28, 0
-  %29 = and i32 %env1.val204, 1310720
-  %or.cond418 = icmp eq i32 %29, 262144
-  br i1 %or.cond418, label %if.then58, label %if.end59
+  %24 = and i32 %env1.val204, 262144
+  %tobool54.not.not = icmp eq i32 %24, 0
+  %25 = and i32 %env1.val204, 1310720
+  %or.cond419 = icmp eq i32 %25, 262144
+  br i1 %or.cond419, label %if.then58, label %if.end59
 
 if.then58:                                        ; preds = %if.end52
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 326, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.5) #11
   br label %return
 
 if.end59:                                         ; preds = %if.end52
-  %30 = and i32 %env1.val204, 128
-  %tobool61.not = icmp eq i32 %30, 0
+  %26 = and i32 %env1.val204, 128
+  %tobool61.not = icmp eq i32 %26, 0
   br i1 %tobool61.not, label %if.end73, label %land.lhs.true62
 
 land.lhs.true62:                                  ; preds = %if.end59
@@ -330,16 +326,15 @@ if.then72:                                        ; preds = %land.lhs.true69
   br label %return
 
 if.end73:                                         ; preds = %if.end59, %land.lhs.true69
-  %31 = and i32 %env1.val204, 32
-  %tobool75.not = icmp ne i32 %31, 0
-  br i1 %tobool75.not, label %land.lhs.true76, label %if.end81
+  %27 = and i32 %env1.val204, 32
+  %tobool75.not = icmp eq i32 %27, 0
+  br i1 %tobool75.not, label %if.end81, label %land.lhs.true76
 
 land.lhs.true76:                                  ; preds = %if.end73
   %ext_zicsr78 = getelementptr inbounds i8, ptr %cpu, i64 15338
-  %32 = load i8, ptr %ext_zicsr78, align 2
-  %33 = and i8 %32, 1
-  %tobool79.not = icmp eq i8 %33, 0
-  br i1 %tobool79.not, label %if.then80, label %if.end81
+  %28 = load i8, ptr %ext_zicsr78, align 2
+  %tobool79 = trunc i8 %28 to i1
+  br i1 %tobool79, label %if.end81, label %if.then80
 
 if.then80:                                        ; preds = %land.lhs.true76
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.8) #11
@@ -347,13 +342,12 @@ if.then80:                                        ; preds = %land.lhs.true76
 
 if.end81:                                         ; preds = %land.lhs.true76, %if.end73
   %ext_zawrs = getelementptr inbounds i8, ptr %cpu, i64 15352
-  %34 = load i8, ptr %ext_zawrs, align 8
-  %35 = and i8 %34, 1
-  %tobool83.not = icmp ne i8 %35, 0
-  %36 = and i32 %env1.val204, 1
-  %tobool87.not = icmp eq i32 %36, 0
-  %or.cond419 = and i1 %tobool87.not, %tobool83.not
-  br i1 %or.cond419, label %if.then88, label %if.end89
+  %29 = load i8, ptr %ext_zawrs, align 8
+  %tobool83 = trunc i8 %29 to i1
+  %30 = and i32 %env1.val204, 1
+  %tobool87.not = icmp eq i32 %30, 0
+  %or.cond420 = and i1 %tobool87.not, %tobool83
+  br i1 %or.cond420, label %if.then88, label %if.end89
 
 if.then88:                                        ; preds = %if.end81
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 347, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.9) #11
@@ -361,11 +355,10 @@ if.then88:                                        ; preds = %if.end81
 
 if.end89:                                         ; preds = %if.end81
   %ext_zfa = getelementptr inbounds i8, ptr %cpu, i64 15353
-  %37 = load i8, ptr %ext_zfa, align 1
-  %38 = and i8 %37, 1
-  %tobool91.not = icmp eq i8 %38, 0
-  %brmerge = or i1 %tobool75.not, %tobool91.not
-  br i1 %brmerge, label %if.end97, label %if.then96
+  %31 = load i8, ptr %ext_zfa, align 1
+  %tobool91 = trunc i8 %31 to i1
+  %brmerge.not = and i1 %tobool75.not, %tobool91
+  br i1 %brmerge.not, label %if.then96, label %if.end97
 
 if.then96:                                        ; preds = %if.end89
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 352, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.10) #11
@@ -373,37 +366,36 @@ if.then96:                                        ; preds = %if.end89
 
 if.end97:                                         ; preds = %if.end89
   %ext_zfh = getelementptr inbounds i8, ptr %cpu, i64 15355
-  %39 = load i8, ptr %ext_zfh, align 1
-  %40 = and i8 %39, 1
-  %tobool99.not = icmp eq i8 %40, 0
-  br i1 %tobool99.not, label %if.end101, label %if.then100
+  %32 = load i8, ptr %ext_zfh, align 1
+  %tobool99 = trunc i8 %32 to i1
+  br i1 %tobool99, label %if.then100, label %if.end101
 
 if.then100:                                       ; preds = %if.end97
   %call.i329 = tail call zeroext i1 @isa_ext_is_enabled(ptr noundef nonnull %cpu, i32 noundef 44) #11
   br i1 %call.i329, label %if.end101, label %if.end.i330
 
 if.end.i330:                                      ; preds = %if.then100
-  %41 = load ptr, ptr @multi_ext_user_opts, align 8
-  %call.i.i331 = tail call i32 @g_hash_table_contains(ptr noundef %41, ptr noundef nonnull inttoptr (i64 44 to ptr)) #11
+  %33 = load ptr, ptr @multi_ext_user_opts, align 8
+  %call.i.i331 = tail call i32 @g_hash_table_contains(ptr noundef %33, ptr noundef nonnull inttoptr (i64 44 to ptr)) #11
   %tobool.i.not.i332 = icmp eq i32 %call.i.i331, 0
   br i1 %tobool.i.not.i332, label %land.lhs.true.i333, label %if.end101
 
 land.lhs.true.i333:                               ; preds = %if.end.i330
   %priv_ver.i334 = getelementptr inbounds i8, ptr %cpu, i64 15160
-  %42 = load i64, ptr %priv_ver.i334, align 8
-  %cmp11.not.i335 = icmp eq i64 %42, 2
+  %34 = load i64, ptr %priv_ver.i334, align 8
+  %cmp11.not.i335 = icmp eq i64 %34, 2
   br i1 %cmp11.not.i335, label %if.end21.i350, label %land.rhs.i.i336
 
 land.rhs.i.i336:                                  ; preds = %land.lhs.true.i333, %for.inc.i.i342
   %edata.06.i.i337 = phi ptr [ %incdec.ptr.i.i343, %for.inc.i.i342 ], [ @isa_edata_arr, %land.lhs.true.i333 ]
-  %43 = load ptr, ptr %edata.06.i.i337, align 8
-  %tobool1.not.i.i338 = icmp eq ptr %43, null
+  %35 = load ptr, ptr %edata.06.i.i337, align 8
+  %tobool1.not.i.i338 = icmp eq ptr %35, null
   br i1 %tobool1.not.i.i338, label %do.body.i.i345, label %for.body.i.i339
 
 for.body.i.i339:                                  ; preds = %land.rhs.i.i336
   %ext_enable_offset.i.i340 = getelementptr inbounds i8, ptr %edata.06.i.i337, i64 12
-  %44 = load i32, ptr %ext_enable_offset.i.i340, align 4
-  %cmp.not.i.i341 = icmp eq i32 %44, 44
+  %36 = load i32, ptr %ext_enable_offset.i.i340, align 4
+  %cmp.not.i.i341 = icmp eq i32 %36, 44
   br i1 %cmp.not.i.i341, label %cpu_cfg_ext_get_min_version.exit.i346, label %for.inc.i.i342
 
 for.inc.i.i342:                                   ; preds = %for.body.i.i339
@@ -417,9 +409,9 @@ do.body.i.i345:                                   ; preds = %for.inc.i.i342, %la
 
 cpu_cfg_ext_get_min_version.exit.i346:            ; preds = %for.body.i.i339
   %min_version.i.i347 = getelementptr inbounds i8, ptr %edata.06.i.i337, i64 8
-  %45 = load i32, ptr %min_version.i.i347, align 8
-  %conv16.i348 = sext i32 %45 to i64
-  %cmp17.i349 = icmp ult i64 %42, %conv16.i348
+  %37 = load i32, ptr %min_version.i.i347, align 8
+  %conv16.i348 = sext i32 %37 to i64
+  %cmp17.i349 = icmp ult i64 %34, %conv16.i348
   br i1 %cmp17.i349, label %if.end101, label %if.end21.i350
 
 if.end21.i350:                                    ; preds = %cpu_cfg_ext_get_min_version.exit.i346, %land.lhs.true.i333
@@ -428,13 +420,12 @@ if.end21.i350:                                    ; preds = %cpu_cfg_ext_get_min
 
 if.end101:                                        ; preds = %if.end21.i350, %cpu_cfg_ext_get_min_version.exit.i346, %if.end.i330, %if.then100, %if.end97
   %ext_zfhmin = getelementptr inbounds i8, ptr %cpu, i64 15356
-  %46 = load i8, ptr %ext_zfhmin, align 4
-  %47 = and i8 %46, 1
-  %tobool103.not = icmp ne i8 %47, 0
+  %38 = load i8, ptr %ext_zfhmin, align 4
+  %tobool103 = trunc i8 %38 to i1
   %env1.val219.pre.pre = load i32, ptr %0, align 8
-  %48 = and i32 %env1.val219.pre.pre, 32
-  %tobool107.not = icmp eq i32 %48, 0
-  %or.cond = select i1 %tobool103.not, i1 %tobool107.not, i1 false
+  %39 = and i32 %env1.val219.pre.pre, 32
+  %tobool107.not = icmp eq i32 %39, 0
+  %or.cond = select i1 %tobool103, i1 %tobool107.not, i1 false
   br i1 %or.cond, label %if.then108, label %if.end109
 
 if.then108:                                       ; preds = %if.end101
@@ -443,37 +434,36 @@ if.then108:                                       ; preds = %if.end101
 
 if.end109:                                        ; preds = %if.end101
   %ext_zfbfmin = getelementptr inbounds i8, ptr %cpu, i64 15354
-  %49 = load i8, ptr %ext_zfbfmin, align 2
-  %50 = and i8 %49, 1
-  %tobool111.not = icmp ne i8 %50, 0
-  %51 = and i32 %env1.val219.pre.pre, 32
-  %tobool115.not = icmp eq i32 %51, 0
-  %or.cond442 = select i1 %tobool111.not, i1 %tobool115.not, i1 false
-  br i1 %or.cond442, label %if.then116, label %if.end117
+  %40 = load i8, ptr %ext_zfbfmin, align 2
+  %tobool111 = trunc i8 %40 to i1
+  %41 = and i32 %env1.val219.pre.pre, 32
+  %tobool115.not = icmp eq i32 %41, 0
+  %or.cond436 = select i1 %tobool111, i1 %tobool115.not, i1 false
+  br i1 %or.cond436, label %if.then116, label %if.end117
 
 if.then116:                                       ; preds = %if.end109
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 366, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.12) #11
   br label %return
 
 if.end117:                                        ; preds = %if.end109
-  %52 = and i32 %env1.val219.pre.pre, 40
-  %or.cond420 = icmp eq i32 %52, 8
-  br i1 %or.cond420, label %if.then123, label %if.end124
+  %42 = and i32 %env1.val219.pre.pre, 40
+  %or.cond421 = icmp eq i32 %42, 8
+  br i1 %or.cond421, label %if.then123, label %if.end124
 
 if.then123:                                       ; preds = %if.end117
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 371, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.13) #11
   br label %return
 
 if.end124:                                        ; preds = %if.end117
-  %53 = and i32 %env1.val219.pre.pre, 2097152
-  %tobool126.not = icmp eq i32 %53, 0
+  %43 = and i32 %env1.val219.pre.pre, 2097152
+  %tobool126.not = icmp eq i32 %43, 0
   br i1 %tobool126.not, label %if.end132, label %if.then127
 
 if.then127:                                       ; preds = %if.end124
   %vlen.i = getelementptr inbounds i8, ptr %cpu, i64 15464
-  %54 = load i16, ptr %vlen.i, align 8
-  %55 = tail call i16 @llvm.ctpop.i16(i16 %54), !range !7
-  %or.cond23.i = icmp eq i16 %55, 1
+  %44 = load i16, ptr %vlen.i, align 8
+  %45 = tail call i16 @llvm.ctpop.i16(i16 %44), !range !7
+  %or.cond23.i = icmp eq i16 %45, 1
   br i1 %or.cond23.i, label %if.end.i372, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then127
@@ -481,8 +471,8 @@ if.then.i:                                        ; preds = %if.then127
   br label %riscv_cpu_validate_v.exit
 
 if.end.i372:                                      ; preds = %if.then127
-  %56 = add i16 %54, -1025
-  %or.cond.i = icmp ult i16 %56, -897
+  %46 = add i16 %44, -1025
+  %or.cond.i = icmp ult i16 %46, -897
   br i1 %or.cond.i, label %if.then8.i, label %if.end9.i
 
 if.then8.i:                                       ; preds = %if.end.i372
@@ -491,9 +481,9 @@ if.then8.i:                                       ; preds = %if.end.i372
 
 if.end9.i:                                        ; preds = %if.end.i372
   %elen.i = getelementptr inbounds i8, ptr %cpu, i64 15466
-  %57 = load i16, ptr %elen.i, align 2
-  %58 = tail call i16 @llvm.ctpop.i16(i16 %57), !range !7
-  %or.cond24.i = icmp eq i16 %58, 1
+  %47 = load i16, ptr %elen.i, align 2
+  %48 = tail call i16 @llvm.ctpop.i16(i16 %47), !range !7
+  %or.cond24.i = icmp eq i16 %48, 1
   br i1 %or.cond24.i, label %if.end13.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end9.i
@@ -501,8 +491,8 @@ if.then12.i:                                      ; preds = %if.end9.i
   br label %riscv_cpu_validate_v.exit
 
 if.end13.i:                                       ; preds = %if.end9.i
-  %59 = add i16 %57, -65
-  %or.cond15.i = icmp ult i16 %59, -57
+  %49 = add i16 %47, -65
+  %or.cond15.i = icmp ult i16 %49, -57
   br i1 %or.cond15.i, label %if.then23.i, label %if.end24.i
 
 if.then23.i:                                      ; preds = %if.end13.i
@@ -511,12 +501,12 @@ if.then23.i:                                      ; preds = %if.end13.i
 
 if.end24.i:                                       ; preds = %if.end13.i
   %vext_spec.i = getelementptr inbounds i8, ptr %cpu, i64 15456
-  %60 = load ptr, ptr %vext_spec.i, align 8
-  %tobool.not.i = icmp eq ptr %60, null
+  %50 = load ptr, ptr %vext_spec.i, align 8
+  %tobool.not.i = icmp eq ptr %50, null
   br i1 %tobool.not.i, label %if.else32.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.end24.i
-  %call27.i = tail call i32 @g_strcmp0(ptr noundef nonnull %60, ptr noundef nonnull @.str.40) #11
+  %call27.i = tail call i32 @g_strcmp0(ptr noundef nonnull %50, ptr noundef nonnull @.str.40) #11
   %tobool28.not.i = icmp eq i32 %call27.i, 0
   br i1 %tobool28.not.i, label %if.then29.i, label %if.else.i
 
@@ -526,14 +516,14 @@ if.then29.i:                                      ; preds = %if.then25.i
   br label %riscv_cpu_validate_v.exit
 
 if.else.i:                                        ; preds = %if.then25.i
-  %61 = load ptr, ptr %vext_spec.i, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str, i32 noundef 233, ptr noundef nonnull @__func__.riscv_cpu_validate_v, ptr noundef nonnull @.str.41, ptr noundef %61) #11
+  %51 = load ptr, ptr %vext_spec.i, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str, i32 noundef 233, ptr noundef nonnull @__func__.riscv_cpu_validate_v, ptr noundef nonnull @.str.41, ptr noundef %51) #11
   br label %riscv_cpu_validate_v.exit
 
 if.else32.i:                                      ; preds = %if.end24.i
   %vext_ver33.i = getelementptr inbounds i8, ptr %cpu, i64 15176
-  %62 = load i64, ptr %vext_ver33.i, align 8
-  %cmp34.i = icmp eq i64 %62, 0
+  %52 = load i64, ptr %vext_ver33.i, align 8
+  %cmp34.i = icmp eq i64 %52, 0
   br i1 %cmp34.i, label %if.then36.i, label %riscv_cpu_validate_v.exit
 
 if.then36.i:                                      ; preds = %if.else32.i
@@ -542,12 +532,12 @@ if.then36.i:                                      ; preds = %if.else32.i
   br label %riscv_cpu_validate_v.exit
 
 riscv_cpu_validate_v.exit:                        ; preds = %if.then.i, %if.then8.i, %if.then12.i, %if.then23.i, %if.then29.i, %if.else.i, %if.else32.i, %if.then36.i
-  %63 = load ptr, ptr %local_err, align 8
-  %cmp.not = icmp eq ptr %63, null
+  %53 = load ptr, ptr %local_err, align 8
+  %cmp.not = icmp eq ptr %53, null
   br i1 %cmp.not, label %if.end131, label %if.then130
 
 if.then130:                                       ; preds = %riscv_cpu_validate_v.exit
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %63) #11
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %53) #11
   br label %return
 
 if.end131:                                        ; preds = %riscv_cpu_validate_v.exit
@@ -556,10 +546,9 @@ if.end131:                                        ; preds = %riscv_cpu_validate_
 
 if.end132:                                        ; preds = %if.end131, %if.end124
   %ext_zve64d = getelementptr inbounds i8, ptr %cpu, i64 15362
-  %64 = load i8, ptr %ext_zve64d, align 2
-  %65 = and i8 %64, 1
-  %tobool134.not = icmp eq i8 %65, 0
-  br i1 %tobool134.not, label %if.end136, label %if.then135
+  %54 = load i8, ptr %ext_zve64d, align 2
+  %tobool134 = trunc i8 %54 to i1
+  br i1 %tobool134, label %if.then135, label %if.end136
 
 if.then135:                                       ; preds = %if.end132
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 49)
@@ -567,25 +556,23 @@ if.then135:                                       ; preds = %if.end132
 
 if.end136:                                        ; preds = %if.then135, %if.end132
   %ext_zve64f = getelementptr inbounds i8, ptr %cpu, i64 15361
-  %66 = load i8, ptr %ext_zve64f, align 1
-  %67 = and i8 %66, 1
-  %tobool138.not = icmp eq i8 %67, 0
-  br i1 %tobool138.not, label %if.end140, label %if.then139
+  %55 = load i8, ptr %ext_zve64f, align 1
+  %tobool138 = trunc i8 %55 to i1
+  br i1 %tobool138, label %if.then139, label %if.end140
 
 if.then139:                                       ; preds = %if.end136
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 48)
   br label %if.end140
 
 if.end140:                                        ; preds = %if.then139, %if.end136
-  %68 = load i8, ptr %ext_zve64d, align 2
-  %69 = and i8 %68, 1
-  %tobool143.not = icmp eq i8 %69, 0
-  br i1 %tobool143.not, label %if.end149, label %land.lhs.true145
+  %56 = load i8, ptr %ext_zve64d, align 2
+  %tobool143 = trunc i8 %56 to i1
+  br i1 %tobool143, label %land.lhs.true145, label %if.end149
 
 land.lhs.true145:                                 ; preds = %if.end140
   %env1.val222 = load i32, ptr %0, align 8
-  %70 = and i32 %env1.val222, 8
-  %tobool147.not = icmp eq i32 %70, 0
+  %57 = and i32 %env1.val222, 8
+  %tobool147.not = icmp eq i32 %57, 0
   br i1 %tobool147.not, label %if.then148, label %if.end149
 
 if.then148:                                       ; preds = %land.lhs.true145
@@ -594,15 +581,14 @@ if.then148:                                       ; preds = %land.lhs.true145
 
 if.end149:                                        ; preds = %land.lhs.true145, %if.end140
   %ext_zve32f = getelementptr inbounds i8, ptr %cpu, i64 15360
-  %71 = load i8, ptr %ext_zve32f, align 16
-  %72 = and i8 %71, 1
-  %tobool151.not = icmp eq i8 %72, 0
-  br i1 %tobool151.not, label %if.end157, label %land.lhs.true153
+  %58 = load i8, ptr %ext_zve32f, align 16
+  %tobool151 = trunc i8 %58 to i1
+  br i1 %tobool151, label %land.lhs.true153, label %if.end157
 
 land.lhs.true153:                                 ; preds = %if.end149
   %env1.val223 = load i32, ptr %0, align 8
-  %73 = and i32 %env1.val223, 32
-  %tobool155.not = icmp eq i32 %73, 0
+  %59 = and i32 %env1.val223, 32
+  %tobool155.not = icmp eq i32 %59, 0
   br i1 %tobool155.not, label %if.then156, label %if.end157
 
 if.then156:                                       ; preds = %land.lhs.true153
@@ -611,10 +597,9 @@ if.then156:                                       ; preds = %land.lhs.true153
 
 if.end157:                                        ; preds = %land.lhs.true153, %if.end149
   %ext_zvfh = getelementptr inbounds i8, ptr %cpu, i64 15382
-  %74 = load i8, ptr %ext_zvfh, align 2
-  %75 = and i8 %74, 1
-  %tobool159.not = icmp eq i8 %75, 0
-  br i1 %tobool159.not, label %if.end161, label %if.then160
+  %60 = load i8, ptr %ext_zvfh, align 2
+  %tobool159 = trunc i8 %60 to i1
+  br i1 %tobool159, label %if.then160, label %if.end161
 
 if.then160:                                       ; preds = %if.end157
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 71)
@@ -622,32 +607,28 @@ if.then160:                                       ; preds = %if.end157
 
 if.end161:                                        ; preds = %if.then160, %if.end157
   %ext_zvfhmin = getelementptr inbounds i8, ptr %cpu, i64 15383
-  %76 = load i8, ptr %ext_zvfhmin, align 1
-  %77 = and i8 %76, 1
-  %tobool163.not = icmp eq i8 %77, 0
-  br i1 %tobool163.not, label %if.end170, label %land.lhs.true165
+  %61 = load i8, ptr %ext_zvfhmin, align 1
+  %tobool163 = trunc i8 %61 to i1
+  br i1 %tobool163, label %land.lhs.true165, label %if.end170
 
 land.lhs.true165:                                 ; preds = %if.end161
-  %78 = load i8, ptr %ext_zve32f, align 16
-  %79 = and i8 %78, 1
-  %tobool168.not = icmp eq i8 %79, 0
-  br i1 %tobool168.not, label %if.then169, label %if.end170
+  %62 = load i8, ptr %ext_zve32f, align 16
+  %tobool168 = trunc i8 %62 to i1
+  br i1 %tobool168, label %if.end170, label %if.then169
 
 if.then169:                                       ; preds = %land.lhs.true165
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 411, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.16) #11
   br label %return
 
 if.end170:                                        ; preds = %land.lhs.true165, %if.end161
-  %80 = load i8, ptr %ext_zvfh, align 2
-  %81 = and i8 %80, 1
-  %tobool173.not = icmp eq i8 %81, 0
-  br i1 %tobool173.not, label %if.end180, label %land.lhs.true175
+  %63 = load i8, ptr %ext_zvfh, align 2
+  %tobool173 = trunc i8 %63 to i1
+  br i1 %tobool173, label %land.lhs.true175, label %if.end180
 
 land.lhs.true175:                                 ; preds = %if.end170
-  %82 = load i8, ptr %ext_zfhmin, align 4
-  %83 = and i8 %82, 1
-  %tobool178.not = icmp eq i8 %83, 0
-  br i1 %tobool178.not, label %if.then179, label %if.end180
+  %64 = load i8, ptr %ext_zfhmin, align 4
+  %tobool178 = trunc i8 %64 to i1
+  br i1 %tobool178, label %if.end180, label %if.then179
 
 if.then179:                                       ; preds = %land.lhs.true175
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 416, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.17) #11
@@ -655,48 +636,43 @@ if.then179:                                       ; preds = %land.lhs.true175
 
 if.end180:                                        ; preds = %land.lhs.true175, %if.end170
   %ext_zvfbfmin = getelementptr inbounds i8, ptr %cpu, i64 15380
-  %84 = load i8, ptr %ext_zvfbfmin, align 4
-  %85 = and i8 %84, 1
-  %tobool182.not = icmp eq i8 %85, 0
-  br i1 %tobool182.not, label %if.end199, label %land.lhs.true184
+  %65 = load i8, ptr %ext_zvfbfmin, align 4
+  %tobool182 = trunc i8 %65 to i1
+  br i1 %tobool182, label %land.lhs.true184, label %if.end199.thread
 
 land.lhs.true184:                                 ; preds = %if.end180
-  %86 = load i8, ptr %ext_zfbfmin, align 2
-  %87 = and i8 %86, 1
-  %tobool187.not = icmp eq i8 %87, 0
-  br i1 %tobool187.not, label %if.then188, label %land.lhs.true194
+  %66 = load i8, ptr %ext_zfbfmin, align 2
+  %tobool187 = trunc i8 %66 to i1
+  br i1 %tobool187, label %land.lhs.true194, label %if.then188
 
 if.then188:                                       ; preds = %land.lhs.true184
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 421, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.18) #11
   br label %return
 
 land.lhs.true194:                                 ; preds = %land.lhs.true184
-  %88 = load i8, ptr %ext_zve32f, align 16
-  %89 = and i8 %88, 1
-  %tobool197.not = icmp eq i8 %89, 0
-  br i1 %tobool197.not, label %if.then198, label %if.end208
+  %67 = load i8, ptr %ext_zve32f, align 16
+  %tobool197 = trunc i8 %67 to i1
+  br i1 %tobool197, label %if.end208, label %if.then198
 
 if.then198:                                       ; preds = %land.lhs.true194
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 426, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.19) #11
   br label %return
 
-if.end199:                                        ; preds = %if.end180
-  %ext_zvfbfwma = getelementptr inbounds i8, ptr %cpu, i64 15381
-  %90 = load i8, ptr %ext_zvfbfwma, align 1
-  %91 = and i8 %90, 1
-  %tobool201.not = icmp eq i8 %91, 0
-  br i1 %tobool201.not, label %if.end208, label %if.then207
+if.end199.thread:                                 ; preds = %if.end180
+  %ext_zvfbfwma413 = getelementptr inbounds i8, ptr %cpu, i64 15381
+  %68 = load i8, ptr %ext_zvfbfwma413, align 1
+  %tobool201414 = trunc i8 %68 to i1
+  br i1 %tobool201414, label %if.then207, label %if.end208
 
-if.then207:                                       ; preds = %if.end199
+if.then207:                                       ; preds = %if.end199.thread
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 431, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.20) #11
   br label %return
 
-if.end208:                                        ; preds = %land.lhs.true194, %if.end199
+if.end208:                                        ; preds = %land.lhs.true194, %if.end199.thread
   %ext_zhinx = getelementptr inbounds i8, ptr %cpu, i64 15358
-  %92 = load i8, ptr %ext_zhinx, align 2
-  %93 = and i8 %92, 1
-  %tobool210.not = icmp eq i8 %93, 0
-  br i1 %tobool210.not, label %if.end212, label %if.then211
+  %69 = load i8, ptr %ext_zhinx, align 2
+  %tobool210 = trunc i8 %69 to i1
+  br i1 %tobool210, label %if.then211, label %if.end212
 
 if.then211:                                       ; preds = %if.end208
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 7)
@@ -704,42 +680,41 @@ if.then211:                                       ; preds = %if.end208
 
 if.end212:                                        ; preds = %if.then211, %if.end208
   %ext_zdinx = getelementptr inbounds i8, ptr %cpu, i64 15351
-  %94 = load i8, ptr %ext_zdinx, align 1
-  %95 = and i8 %94, 1
-  %tobool214.not = icmp eq i8 %95, 0
-  br i1 %tobool214.not, label %lor.lhs.false, label %land.lhs.true219
+  %70 = load i8, ptr %ext_zdinx, align 1
+  %tobool214 = trunc i8 %70 to i1
+  br i1 %tobool214, label %land.lhs.true219, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end212
   %ext_zhinxmin = getelementptr inbounds i8, ptr %cpu, i64 15359
-  %96 = load i8, ptr %ext_zhinxmin, align 1
-  %97 = and i8 %96, 1
-  %tobool217.not = icmp eq i8 %97, 0
-  br i1 %tobool217.not, label %if.end223, label %land.lhs.true219
+  %71 = load i8, ptr %ext_zhinxmin, align 1
+  %tobool217 = trunc i8 %71 to i1
+  br i1 %tobool217, label %land.lhs.true219, label %lor.lhs.false.if.end223_crit_edge
+
+lor.lhs.false.if.end223_crit_edge:                ; preds = %lor.lhs.false
+  %ext_zfinx225.phi.trans.insert = getelementptr inbounds i8, ptr %cpu, i64 15357
+  %.pre = load i8, ptr %ext_zfinx225.phi.trans.insert, align 1
+  br label %if.end223
 
 land.lhs.true219:                                 ; preds = %lor.lhs.false, %if.end212
   %ext_zfinx = getelementptr inbounds i8, ptr %cpu, i64 15357
-  %98 = load i8, ptr %ext_zfinx, align 1
-  %99 = and i8 %98, 1
-  %tobool221.not = icmp eq i8 %99, 0
-  br i1 %tobool221.not, label %if.then222, label %if.then227
+  %72 = load i8, ptr %ext_zfinx, align 1
+  %tobool221 = trunc i8 %72 to i1
+  br i1 %tobool221, label %if.end223, label %if.then222
 
 if.then222:                                       ; preds = %land.lhs.true219
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 441, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.21) #11
   br label %return
 
-if.end223:                                        ; preds = %lor.lhs.false
-  %ext_zfinx225.phi.trans.insert = getelementptr inbounds i8, ptr %cpu, i64 15357
-  %.pre = load i8, ptr %ext_zfinx225.phi.trans.insert, align 1
-  %.pre431 = and i8 %.pre, 1
-  %tobool226.not = icmp eq i8 %.pre431, 0
-  br i1 %tobool226.not, label %if.end237, label %if.then227
+if.end223:                                        ; preds = %lor.lhs.false.if.end223_crit_edge, %land.lhs.true219
+  %73 = phi i8 [ %.pre, %lor.lhs.false.if.end223_crit_edge ], [ %72, %land.lhs.true219 ]
+  %tobool226 = trunc i8 %73 to i1
+  br i1 %tobool226, label %if.then227, label %if.end237
 
-if.then227:                                       ; preds = %land.lhs.true219, %if.end223
+if.then227:                                       ; preds = %if.end223
   %ext_zicsr229 = getelementptr inbounds i8, ptr %cpu, i64 15338
-  %100 = load i8, ptr %ext_zicsr229, align 2
-  %101 = and i8 %100, 1
-  %tobool230.not = icmp eq i8 %101, 0
-  br i1 %tobool230.not, label %if.then231, label %if.end232
+  %74 = load i8, ptr %ext_zicsr229, align 2
+  %tobool230 = trunc i8 %74 to i1
+  br i1 %tobool230, label %if.end232, label %if.then231
 
 if.then231:                                       ; preds = %if.then227
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 447, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.22) #11
@@ -747,8 +722,8 @@ if.then231:                                       ; preds = %if.then227
 
 if.end232:                                        ; preds = %if.then227
   %env1.val224 = load i32, ptr %0, align 8
-  %102 = and i32 %env1.val224, 32
-  %tobool234.not = icmp eq i32 %102, 0
+  %75 = and i32 %env1.val224, 32
+  %tobool234.not = icmp eq i32 %75, 0
   br i1 %tobool234.not, label %if.end237, label %if.then235
 
 if.then235:                                       ; preds = %if.end232
@@ -757,10 +732,9 @@ if.then235:                                       ; preds = %if.end232
 
 if.end237:                                        ; preds = %if.end232, %if.end223
   %ext_zce = getelementptr inbounds i8, ptr %cpu, i64 15322
-  %103 = load i8, ptr %ext_zce, align 2
-  %104 = and i8 %103, 1
-  %tobool239.not = icmp eq i8 %104, 0
-  br i1 %tobool239.not, label %if.end248, label %if.then240
+  %76 = load i8, ptr %ext_zce, align 2
+  %tobool239 = trunc i8 %76 to i1
+  br i1 %tobool239, label %if.then240, label %if.end248
 
 if.then240:                                       ; preds = %if.end237
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 7)
@@ -768,14 +742,14 @@ if.then240:                                       ; preds = %if.end237
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 12)
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 13)
   %env1.val225 = load i32, ptr %0, align 8
-  %105 = and i32 %env1.val225, 32
-  %tobool242.not = icmp eq i32 %105, 0
+  %77 = and i32 %env1.val225, 32
+  %tobool242.not = icmp eq i32 %77, 0
   br i1 %tobool242.not, label %if.end248, label %land.lhs.true243
 
 land.lhs.true243:                                 ; preds = %if.then240
   %misa_mxl_max = getelementptr inbounds i8, ptr %cpu, i64 15188
-  %106 = load i32, ptr %misa_mxl_max, align 4
-  %cmp244 = icmp eq i32 %106, 1
+  %78 = load i32, ptr %misa_mxl_max, align 4
+  %cmp244 = icmp eq i32 %78, 1
   br i1 %cmp244, label %if.then246, label %if.end248
 
 if.then246:                                       ; preds = %land.lhs.true243
@@ -784,27 +758,27 @@ if.then246:                                       ; preds = %land.lhs.true243
 
 if.end248:                                        ; preds = %if.then240, %land.lhs.true243, %if.then246, %if.end237
   %env1.val226 = load i32, ptr %0, align 8
-  %107 = and i32 %env1.val226, 4
-  %tobool250.not = icmp eq i32 %107, 0
+  %79 = and i32 %env1.val226, 4
+  %tobool250.not = icmp eq i32 %79, 0
   br i1 %tobool250.not, label %if.end267, label %land.lhs.true251
 
 land.lhs.true251:                                 ; preds = %if.end248
   %priv_ver = getelementptr inbounds i8, ptr %cpu, i64 15160
-  %108 = load i64, ptr %priv_ver, align 8
-  %cmp252 = icmp ugt i64 %108, 1
+  %80 = load i64, ptr %priv_ver, align 8
+  %cmp252 = icmp ugt i64 %80, 1
   br i1 %cmp252, label %if.then254, label %if.end267
 
 if.then254:                                       ; preds = %land.lhs.true251
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 7)
   %env1.val227 = load i32, ptr %0, align 8
-  %109 = and i32 %env1.val227, 32
-  %tobool256.not = icmp eq i32 %109, 0
+  %81 = and i32 %env1.val227, 32
+  %tobool256.not = icmp eq i32 %81, 0
   br i1 %tobool256.not, label %if.end262, label %land.lhs.true257
 
 land.lhs.true257:                                 ; preds = %if.then254
   %misa_mxl_max258 = getelementptr inbounds i8, ptr %cpu, i64 15188
-  %110 = load i32, ptr %misa_mxl_max258, align 4
-  %cmp259 = icmp eq i32 %110, 1
+  %82 = load i32, ptr %misa_mxl_max258, align 4
+  %cmp259 = icmp eq i32 %82, 1
   br i1 %cmp259, label %if.then261, label %if.end262
 
 if.then261:                                       ; preds = %land.lhs.true257
@@ -814,8 +788,8 @@ if.then261:                                       ; preds = %land.lhs.true257
 
 if.end262:                                        ; preds = %if.then261, %land.lhs.true257, %if.then254
   %env1.val228 = phi i32 [ %env1.val228.pre, %if.then261 ], [ %env1.val227, %land.lhs.true257 ], [ %env1.val227, %if.then254 ]
-  %111 = and i32 %env1.val228, 8
-  %tobool264.not = icmp eq i32 %111, 0
+  %83 = and i32 %env1.val228, 8
+  %tobool264.not = icmp eq i32 %83, 0
   br i1 %tobool264.not, label %if.end267, label %if.then265
 
 if.then265:                                       ; preds = %if.end262
@@ -824,16 +798,15 @@ if.then265:                                       ; preds = %if.end262
 
 if.end267:                                        ; preds = %if.end262, %if.then265, %land.lhs.true251, %if.end248
   %misa_mxl_max268 = getelementptr inbounds i8, ptr %cpu, i64 15188
-  %112 = load i32, ptr %misa_mxl_max268, align 4
-  %cmp269.not = icmp eq i32 %112, 1
+  %84 = load i32, ptr %misa_mxl_max268, align 4
+  %cmp269.not = icmp eq i32 %84, 1
   br i1 %cmp269.not, label %if.end276, label %land.lhs.true271
 
 land.lhs.true271:                                 ; preds = %if.end267
   %ext_zcf = getelementptr inbounds i8, ptr %cpu, i64 15323
-  %113 = load i8, ptr %ext_zcf, align 1
-  %114 = and i8 %113, 1
-  %tobool273.not = icmp eq i8 %114, 0
-  br i1 %tobool273.not, label %if.end276, label %if.then275
+  %85 = load i8, ptr %ext_zcf, align 1
+  %tobool273 = trunc i8 %85 to i1
+  br i1 %tobool273, label %if.then275, label %if.end276
 
 if.then275:                                       ; preds = %land.lhs.true271
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 479, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.24) #11
@@ -841,32 +814,30 @@ if.then275:                                       ; preds = %land.lhs.true271
 
 if.end276:                                        ; preds = %land.lhs.true271, %if.end267
   %env1.val229 = load i32, ptr %0, align 8
-  %115 = and i32 %env1.val229, 32
-  %tobool278.not = icmp eq i32 %115, 0
+  %86 = and i32 %env1.val229, 32
+  %tobool278.not = icmp eq i32 %86, 0
   br i1 %tobool278.not, label %land.lhs.true279, label %if.end285
 
 land.lhs.true279:                                 ; preds = %if.end276
   %ext_zcf281 = getelementptr inbounds i8, ptr %cpu, i64 15323
-  %116 = load i8, ptr %ext_zcf281, align 1
-  %117 = and i8 %116, 1
-  %tobool282.not = icmp eq i8 %117, 0
-  br i1 %tobool282.not, label %if.end285, label %if.then284
+  %87 = load i8, ptr %ext_zcf281, align 1
+  %tobool282 = trunc i8 %87 to i1
+  br i1 %tobool282, label %if.then284, label %if.end285
 
 if.then284:                                       ; preds = %land.lhs.true279
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 484, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.25) #11
   br label %return
 
 if.end285:                                        ; preds = %land.lhs.true279, %if.end276
-  %118 = and i32 %env1.val229, 8
-  %tobool287.not = icmp eq i32 %118, 0
+  %88 = and i32 %env1.val229, 8
+  %tobool287.not = icmp eq i32 %88, 0
   br i1 %tobool287.not, label %land.lhs.true288, label %if.end293
 
 land.lhs.true288:                                 ; preds = %if.end285
   %ext_zcd = getelementptr inbounds i8, ptr %cpu, i64 15321
-  %119 = load i8, ptr %ext_zcd, align 1
-  %120 = and i8 %119, 1
-  %tobool290.not = icmp eq i8 %120, 0
-  br i1 %tobool290.not, label %if.end293, label %if.then292
+  %89 = load i8, ptr %ext_zcd, align 1
+  %tobool290 = trunc i8 %89 to i1
+  br i1 %tobool290, label %if.then292, label %if.end293
 
 if.then292:                                       ; preds = %land.lhs.true288
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 489, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.26) #11
@@ -874,49 +845,43 @@ if.then292:                                       ; preds = %land.lhs.true288
 
 if.end293:                                        ; preds = %land.lhs.true288, %if.end285
   %ext_zcf295 = getelementptr inbounds i8, ptr %cpu, i64 15323
-  %121 = load i8, ptr %ext_zcf295, align 1
-  %122 = and i8 %121, 1
-  %tobool296.not = icmp eq i8 %122, 0
-  br i1 %tobool296.not, label %lor.lhs.false298, label %land.lhs.true315
+  %90 = load i8, ptr %ext_zcf295, align 1
+  %tobool296 = trunc i8 %90 to i1
+  br i1 %tobool296, label %land.lhs.true315, label %lor.lhs.false298
 
 lor.lhs.false298:                                 ; preds = %if.end293
   %ext_zcd300 = getelementptr inbounds i8, ptr %cpu, i64 15321
-  %123 = load i8, ptr %ext_zcd300, align 1
-  %124 = and i8 %123, 1
-  %tobool301.not = icmp eq i8 %124, 0
-  br i1 %tobool301.not, label %lor.lhs.false303, label %land.lhs.true315
+  %91 = load i8, ptr %ext_zcd300, align 1
+  %tobool301 = trunc i8 %91 to i1
+  br i1 %tobool301, label %land.lhs.true315, label %lor.lhs.false303
 
 lor.lhs.false303:                                 ; preds = %lor.lhs.false298
   %ext_zcb = getelementptr inbounds i8, ptr %cpu, i64 15320
-  %125 = load i8, ptr %ext_zcb, align 8
-  %126 = and i8 %125, 1
-  %tobool305.not = icmp eq i8 %126, 0
-  br i1 %tobool305.not, label %lor.lhs.false307, label %land.lhs.true315
+  %92 = load i8, ptr %ext_zcb, align 8
+  %tobool305 = trunc i8 %92 to i1
+  br i1 %tobool305, label %land.lhs.true315, label %lor.lhs.false307
 
 lor.lhs.false307:                                 ; preds = %lor.lhs.false303
   %ext_zcmp = getelementptr inbounds i8, ptr %cpu, i64 15324
-  %127 = load i8, ptr %ext_zcmp, align 4
-  %128 = and i8 %127, 1
-  %tobool309.not = icmp eq i8 %128, 0
-  br i1 %tobool309.not, label %lor.lhs.false311, label %land.lhs.true315
+  %93 = load i8, ptr %ext_zcmp, align 4
+  %tobool309 = trunc i8 %93 to i1
+  br i1 %tobool309, label %land.lhs.true315, label %lor.lhs.false311
 
 lor.lhs.false311:                                 ; preds = %lor.lhs.false307
   %ext_zcmt = getelementptr inbounds i8, ptr %cpu, i64 15325
-  %129 = load i8, ptr %ext_zcmt, align 1
-  %130 = and i8 %129, 1
-  %tobool313.not = icmp eq i8 %130, 0
-  br i1 %tobool313.not, label %if.end319, label %land.lhs.true315
+  %94 = load i8, ptr %ext_zcmt, align 1
+  %tobool313 = trunc i8 %94 to i1
+  br i1 %tobool313, label %land.lhs.true315, label %if.end319
 
 land.lhs.true315:                                 ; preds = %lor.lhs.false311, %lor.lhs.false307, %lor.lhs.false303, %lor.lhs.false298, %if.end293
   %ext_zca = getelementptr inbounds i8, ptr %cpu, i64 15319
-  %131 = load i8, ptr %ext_zca, align 1
-  %132 = and i8 %131, 1
-  %tobool317.not = icmp eq i8 %132, 0
-  br i1 %tobool317.not, label %if.then318, label %land.lhs.true315.if.end319_crit_edge
+  %95 = load i8, ptr %ext_zca, align 1
+  %tobool317 = trunc i8 %95 to i1
+  br i1 %tobool317, label %land.lhs.true315.if.end319_crit_edge, label %if.then318
 
 land.lhs.true315.if.end319_crit_edge:             ; preds = %land.lhs.true315
   %ext_zcd321.phi.trans.insert = getelementptr inbounds i8, ptr %cpu, i64 15321
-  %.pre429 = load i8, ptr %ext_zcd321.phi.trans.insert, align 1
+  %.pre430 = load i8, ptr %ext_zcd321.phi.trans.insert, align 1
   br label %if.end319
 
 if.then318:                                       ; preds = %land.lhs.true315
@@ -924,53 +889,51 @@ if.then318:                                       ; preds = %land.lhs.true315
   br label %return
 
 if.end319:                                        ; preds = %land.lhs.true315.if.end319_crit_edge, %lor.lhs.false311
-  %133 = phi i8 [ %.pre429, %land.lhs.true315.if.end319_crit_edge ], [ %123, %lor.lhs.false311 ]
-  %134 = and i8 %133, 1
-  %tobool322.not = icmp eq i8 %134, 0
-  br i1 %tobool322.not, label %if.end335, label %land.lhs.true324
+  %96 = phi i8 [ %.pre430, %land.lhs.true315.if.end319_crit_edge ], [ %91, %lor.lhs.false311 ]
+  %tobool322 = trunc i8 %96 to i1
+  br i1 %tobool322, label %land.lhs.true324, label %if.end319.if.end335_crit_edge
+
+if.end319.if.end335_crit_edge:                    ; preds = %if.end319
+  %ext_zcmt337.phi.trans.insert = getelementptr inbounds i8, ptr %cpu, i64 15325
+  %.pre431 = load i8, ptr %ext_zcmt337.phi.trans.insert, align 1
+  br label %if.end335
 
 land.lhs.true324:                                 ; preds = %if.end319
   %ext_zcmp326 = getelementptr inbounds i8, ptr %cpu, i64 15324
-  %135 = load i8, ptr %ext_zcmp326, align 4
-  %136 = and i8 %135, 1
-  %tobool327.not = icmp eq i8 %136, 0
-  br i1 %tobool327.not, label %lor.lhs.false329, label %if.then334
+  %97 = load i8, ptr %ext_zcmp326, align 4
+  %tobool327 = trunc i8 %97 to i1
+  br i1 %tobool327, label %if.then334, label %lor.lhs.false329
 
 lor.lhs.false329:                                 ; preds = %land.lhs.true324
   %ext_zcmt331 = getelementptr inbounds i8, ptr %cpu, i64 15325
-  %137 = load i8, ptr %ext_zcmt331, align 1
-  %138 = and i8 %137, 1
-  %tobool332.not = icmp eq i8 %138, 0
-  br i1 %tobool332.not, label %if.end345, label %if.then334
+  %98 = load i8, ptr %ext_zcmt331, align 1
+  %tobool332 = trunc i8 %98 to i1
+  br i1 %tobool332, label %if.then334, label %if.end335
 
 if.then334:                                       ; preds = %lor.lhs.false329, %land.lhs.true324
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 502, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.28) #11
   br label %return
 
-if.end335:                                        ; preds = %if.end319
-  %ext_zcmt337.phi.trans.insert = getelementptr inbounds i8, ptr %cpu, i64 15325
-  %.pre430 = load i8, ptr %ext_zcmt337.phi.trans.insert, align 1
-  %.pre432 = and i8 %.pre430, 1
-  %tobool338.not = icmp eq i8 %.pre432, 0
-  br i1 %tobool338.not, label %if.end345, label %land.lhs.true340
+if.end335:                                        ; preds = %if.end319.if.end335_crit_edge, %lor.lhs.false329
+  %99 = phi i8 [ %.pre431, %if.end319.if.end335_crit_edge ], [ %98, %lor.lhs.false329 ]
+  %tobool338 = trunc i8 %99 to i1
+  br i1 %tobool338, label %land.lhs.true340, label %if.end345
 
 land.lhs.true340:                                 ; preds = %if.end335
   %ext_zicsr342 = getelementptr inbounds i8, ptr %cpu, i64 15338
-  %139 = load i8, ptr %ext_zicsr342, align 2
-  %140 = and i8 %139, 1
-  %tobool343.not = icmp eq i8 %140, 0
-  br i1 %tobool343.not, label %if.then344, label %if.end345
+  %100 = load i8, ptr %ext_zicsr342, align 2
+  %tobool343 = trunc i8 %100 to i1
+  br i1 %tobool343, label %if.end345, label %if.then344
 
 if.then344:                                       ; preds = %land.lhs.true340
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 507, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.29) #11
   br label %return
 
-if.end345:                                        ; preds = %lor.lhs.false329, %land.lhs.true340, %if.end335
+if.end345:                                        ; preds = %land.lhs.true340, %if.end335
   %ext_zvknc = getelementptr inbounds i8, ptr %cpu, i64 15374
-  %141 = load i8, ptr %ext_zvknc, align 2
-  %142 = and i8 %141, 1
-  %tobool347.not = icmp eq i8 %142, 0
-  br i1 %tobool347.not, label %if.end349, label %if.then348
+  %101 = load i8, ptr %ext_zvknc, align 2
+  %tobool347 = trunc i8 %101 to i1
+  br i1 %tobool347, label %if.then348, label %if.end349
 
 if.then348:                                       ; preds = %if.end345
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 61)
@@ -979,10 +942,9 @@ if.then348:                                       ; preds = %if.end345
 
 if.end349:                                        ; preds = %if.then348, %if.end345
   %ext_zvkng = getelementptr inbounds i8, ptr %cpu, i64 15375
-  %143 = load i8, ptr %ext_zvkng, align 1
-  %144 = and i8 %143, 1
-  %tobool351.not = icmp eq i8 %144, 0
-  br i1 %tobool351.not, label %if.end353, label %if.then352
+  %102 = load i8, ptr %ext_zvkng, align 1
+  %tobool351 = trunc i8 %102 to i1
+  br i1 %tobool351, label %if.then352, label %if.end353
 
 if.then352:                                       ; preds = %if.end349
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 61)
@@ -991,10 +953,9 @@ if.then352:                                       ; preds = %if.end349
 
 if.end353:                                        ; preds = %if.then352, %if.end349
   %ext_zvkn = getelementptr inbounds i8, ptr %cpu, i64 15373
-  %145 = load i8, ptr %ext_zvkn, align 1
-  %146 = and i8 %145, 1
-  %tobool355.not = icmp eq i8 %146, 0
-  br i1 %tobool355.not, label %if.end357, label %if.then356
+  %103 = load i8, ptr %ext_zvkn, align 1
+  %tobool355 = trunc i8 %103 to i1
+  br i1 %tobool355, label %if.then356, label %if.end357
 
 if.then356:                                       ; preds = %if.end353
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 55)
@@ -1005,10 +966,9 @@ if.then356:                                       ; preds = %if.end353
 
 if.end357:                                        ; preds = %if.then356, %if.end353
   %ext_zvksc = getelementptr inbounds i8, ptr %cpu, i64 15377
-  %147 = load i8, ptr %ext_zvksc, align 1
-  %148 = and i8 %147, 1
-  %tobool359.not = icmp eq i8 %148, 0
-  br i1 %tobool359.not, label %if.end361, label %if.then360
+  %104 = load i8, ptr %ext_zvksc, align 1
+  %tobool359 = trunc i8 %104 to i1
+  br i1 %tobool359, label %if.then360, label %if.end361
 
 if.then360:                                       ; preds = %if.end357
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 64)
@@ -1017,10 +977,9 @@ if.then360:                                       ; preds = %if.end357
 
 if.end361:                                        ; preds = %if.then360, %if.end357
   %ext_zvksg = getelementptr inbounds i8, ptr %cpu, i64 15378
-  %149 = load i8, ptr %ext_zvksg, align 2
-  %150 = and i8 %149, 1
-  %tobool363.not = icmp eq i8 %150, 0
-  br i1 %tobool363.not, label %if.end365, label %if.then364
+  %105 = load i8, ptr %ext_zvksg, align 2
+  %tobool363 = trunc i8 %105 to i1
+  br i1 %tobool363, label %if.then364, label %if.end365
 
 if.then364:                                       ; preds = %if.end361
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 64)
@@ -1029,10 +988,9 @@ if.then364:                                       ; preds = %if.end361
 
 if.end365:                                        ; preds = %if.then364, %if.end361
   %ext_zvks = getelementptr inbounds i8, ptr %cpu, i64 15376
-  %151 = load i8, ptr %ext_zvks, align 16
-  %152 = and i8 %151, 1
-  %tobool367.not = icmp eq i8 %152, 0
-  br i1 %tobool367.not, label %if.end369, label %if.then368
+  %106 = load i8, ptr %ext_zvks, align 16
+  %tobool367 = trunc i8 %106 to i1
+  br i1 %tobool367, label %if.then368, label %if.end369
 
 if.then368:                                       ; preds = %if.end365
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 58)
@@ -1043,10 +1001,9 @@ if.then368:                                       ; preds = %if.end365
 
 if.end369:                                        ; preds = %if.then368, %if.end365
   %ext_zvkt = getelementptr inbounds i8, ptr %cpu, i64 15372
-  %153 = load i8, ptr %ext_zvkt, align 4
-  %154 = and i8 %153, 1
-  %tobool371.not = icmp eq i8 %154, 0
-  br i1 %tobool371.not, label %if.end373, label %if.then372
+  %107 = load i8, ptr %ext_zvkt, align 4
+  %tobool371 = trunc i8 %107 to i1
+  br i1 %tobool371, label %if.then372, label %if.end373
 
 if.then372:                                       ; preds = %if.end369
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 51)
@@ -1055,58 +1012,50 @@ if.then372:                                       ; preds = %if.end369
 
 if.end373:                                        ; preds = %if.then372, %if.end369
   %ext_zvbb = getelementptr inbounds i8, ptr %cpu, i64 15363
-  %155 = load i8, ptr %ext_zvbb, align 1
-  %156 = and i8 %155, 1
-  %tobool375.not = icmp eq i8 %156, 0
-  br i1 %tobool375.not, label %lor.lhs.false377, label %land.lhs.true401
+  %108 = load i8, ptr %ext_zvbb, align 1
+  %tobool375 = trunc i8 %108 to i1
+  br i1 %tobool375, label %land.lhs.true401, label %lor.lhs.false377
 
 lor.lhs.false377:                                 ; preds = %if.end373
   %ext_zvkb = getelementptr inbounds i8, ptr %cpu, i64 15365
-  %157 = load i8, ptr %ext_zvkb, align 1
-  %158 = and i8 %157, 1
-  %tobool379.not = icmp eq i8 %158, 0
-  br i1 %tobool379.not, label %lor.lhs.false381, label %land.lhs.true401
+  %109 = load i8, ptr %ext_zvkb, align 1
+  %tobool379 = trunc i8 %109 to i1
+  br i1 %tobool379, label %land.lhs.true401, label %lor.lhs.false381
 
 lor.lhs.false381:                                 ; preds = %lor.lhs.false377
   %ext_zvkg = getelementptr inbounds i8, ptr %cpu, i64 15366
-  %159 = load i8, ptr %ext_zvkg, align 2
-  %160 = and i8 %159, 1
-  %tobool383.not = icmp eq i8 %160, 0
-  br i1 %tobool383.not, label %lor.lhs.false385, label %land.lhs.true401
+  %110 = load i8, ptr %ext_zvkg, align 2
+  %tobool383 = trunc i8 %110 to i1
+  br i1 %tobool383, label %land.lhs.true401, label %lor.lhs.false385
 
 lor.lhs.false385:                                 ; preds = %lor.lhs.false381
   %ext_zvkned = getelementptr inbounds i8, ptr %cpu, i64 15367
-  %161 = load i8, ptr %ext_zvkned, align 1
-  %162 = and i8 %161, 1
-  %tobool387.not = icmp eq i8 %162, 0
-  br i1 %tobool387.not, label %lor.lhs.false389, label %land.lhs.true401
+  %111 = load i8, ptr %ext_zvkned, align 1
+  %tobool387 = trunc i8 %111 to i1
+  br i1 %tobool387, label %land.lhs.true401, label %lor.lhs.false389
 
 lor.lhs.false389:                                 ; preds = %lor.lhs.false385
   %ext_zvknha = getelementptr inbounds i8, ptr %cpu, i64 15368
-  %163 = load i8, ptr %ext_zvknha, align 8
-  %164 = and i8 %163, 1
-  %tobool391.not = icmp eq i8 %164, 0
-  br i1 %tobool391.not, label %lor.lhs.false393, label %land.lhs.true401
+  %112 = load i8, ptr %ext_zvknha, align 8
+  %tobool391 = trunc i8 %112 to i1
+  br i1 %tobool391, label %land.lhs.true401, label %lor.lhs.false393
 
 lor.lhs.false393:                                 ; preds = %lor.lhs.false389
   %ext_zvksed = getelementptr inbounds i8, ptr %cpu, i64 15370
-  %165 = load i8, ptr %ext_zvksed, align 2
-  %166 = and i8 %165, 1
-  %tobool395.not = icmp eq i8 %166, 0
-  br i1 %tobool395.not, label %lor.lhs.false397, label %land.lhs.true401
+  %113 = load i8, ptr %ext_zvksed, align 2
+  %tobool395 = trunc i8 %113 to i1
+  br i1 %tobool395, label %land.lhs.true401, label %lor.lhs.false397
 
 lor.lhs.false397:                                 ; preds = %lor.lhs.false393
   %ext_zvksh = getelementptr inbounds i8, ptr %cpu, i64 15371
-  %167 = load i8, ptr %ext_zvksh, align 1
-  %168 = and i8 %167, 1
-  %tobool399.not = icmp eq i8 %168, 0
-  br i1 %tobool399.not, label %if.end406, label %land.lhs.true401
+  %114 = load i8, ptr %ext_zvksh, align 1
+  %tobool399 = trunc i8 %114 to i1
+  br i1 %tobool399, label %land.lhs.true401, label %if.end406
 
 land.lhs.true401:                                 ; preds = %lor.lhs.false397, %lor.lhs.false393, %lor.lhs.false389, %lor.lhs.false385, %lor.lhs.false381, %lor.lhs.false377, %if.end373
-  %169 = load i8, ptr %ext_zve32f, align 16
-  %170 = and i8 %169, 1
-  %tobool404.not = icmp eq i8 %170, 0
-  br i1 %tobool404.not, label %if.then405, label %if.end406
+  %115 = load i8, ptr %ext_zve32f, align 16
+  %tobool404 = trunc i8 %115 to i1
+  br i1 %tobool404, label %if.end406, label %if.then405
 
 if.then405:                                       ; preds = %land.lhs.true401
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 561, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.30) #11
@@ -1114,23 +1063,20 @@ if.then405:                                       ; preds = %land.lhs.true401
 
 if.end406:                                        ; preds = %land.lhs.true401, %lor.lhs.false397
   %ext_zvbc = getelementptr inbounds i8, ptr %cpu, i64 15364
-  %171 = load i8, ptr %ext_zvbc, align 4
-  %172 = and i8 %171, 1
-  %tobool408.not = icmp eq i8 %172, 0
-  br i1 %tobool408.not, label %lor.lhs.false410, label %land.lhs.true414
+  %116 = load i8, ptr %ext_zvbc, align 4
+  %tobool408 = trunc i8 %116 to i1
+  br i1 %tobool408, label %land.lhs.true414, label %lor.lhs.false410
 
 lor.lhs.false410:                                 ; preds = %if.end406
   %ext_zvknhb = getelementptr inbounds i8, ptr %cpu, i64 15369
-  %173 = load i8, ptr %ext_zvknhb, align 1
-  %174 = and i8 %173, 1
-  %tobool412.not = icmp eq i8 %174, 0
-  br i1 %tobool412.not, label %if.end419, label %land.lhs.true414
+  %117 = load i8, ptr %ext_zvknhb, align 1
+  %tobool412 = trunc i8 %117 to i1
+  br i1 %tobool412, label %land.lhs.true414, label %if.end419
 
 land.lhs.true414:                                 ; preds = %lor.lhs.false410, %if.end406
-  %175 = load i8, ptr %ext_zve64f, align 1
-  %176 = and i8 %175, 1
-  %tobool417.not = icmp eq i8 %176, 0
-  br i1 %tobool417.not, label %if.then418, label %if.end419
+  %118 = load i8, ptr %ext_zve64f, align 1
+  %tobool417 = trunc i8 %118 to i1
+  br i1 %tobool417, label %if.end419, label %if.then418
 
 if.then418:                                       ; preds = %land.lhs.true414
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 568, ptr noundef nonnull @__func__.riscv_cpu_validate_set_extensions, ptr noundef nonnull @.str.31) #11
@@ -1138,10 +1084,9 @@ if.then418:                                       ; preds = %land.lhs.true414
 
 if.end419:                                        ; preds = %land.lhs.true414, %lor.lhs.false410
   %ext_zk = getelementptr inbounds i8, ptr %cpu, i64 15326
-  %177 = load i8, ptr %ext_zk, align 2
-  %178 = and i8 %177, 1
-  %tobool421.not = icmp eq i8 %178, 0
-  br i1 %tobool421.not, label %if.end423, label %if.then422
+  %119 = load i8, ptr %ext_zk, align 2
+  %tobool421 = trunc i8 %119 to i1
+  br i1 %tobool421, label %if.then422, label %if.end423
 
 if.then422:                                       ; preds = %if.end419
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 15)
@@ -1151,10 +1096,9 @@ if.then422:                                       ; preds = %if.end419
 
 if.end423:                                        ; preds = %if.then422, %if.end419
   %ext_zkn = getelementptr inbounds i8, ptr %cpu, i64 15327
-  %179 = load i8, ptr %ext_zkn, align 1
-  %180 = and i8 %179, 1
-  %tobool425.not = icmp eq i8 %180, 0
-  br i1 %tobool425.not, label %if.end427, label %if.then426
+  %120 = load i8, ptr %ext_zkn, align 1
+  %tobool425 = trunc i8 %120 to i1
+  br i1 %tobool425, label %if.then426, label %if.end427
 
 if.then426:                                       ; preds = %if.end423
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 3)
@@ -1167,10 +1111,9 @@ if.then426:                                       ; preds = %if.end423
 
 if.end427:                                        ; preds = %if.then426, %if.end423
   %ext_zks = getelementptr inbounds i8, ptr %cpu, i64 15332
-  %181 = load i8, ptr %ext_zks, align 4
-  %182 = and i8 %181, 1
-  %tobool429.not = icmp eq i8 %182, 0
-  br i1 %tobool429.not, label %if.end431, label %if.then430
+  %121 = load i8, ptr %ext_zks, align 4
+  %tobool429 = trunc i8 %121 to i1
+  br i1 %tobool429, label %if.then430, label %if.end431
 
 if.then430:                                       ; preds = %if.end427
   call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 3)
@@ -1182,21 +1125,19 @@ if.then430:                                       ; preds = %if.end427
 
 if.end431:                                        ; preds = %if.then430, %if.end427
   %ext_zicntr = getelementptr inbounds i8, ptr %cpu, i64 15337
-  %183 = load i8, ptr %ext_zicntr, align 1
-  %184 = and i8 %183, 1
-  %tobool433.not = icmp eq i8 %184, 0
-  br i1 %tobool433.not, label %if.end445, label %land.lhs.true435
+  %122 = load i8, ptr %ext_zicntr, align 1
+  %tobool433 = trunc i8 %122 to i1
+  br i1 %tobool433, label %land.lhs.true435, label %if.end445
 
 land.lhs.true435:                                 ; preds = %if.end431
   %ext_zicsr437 = getelementptr inbounds i8, ptr %cpu, i64 15338
-  %185 = load i8, ptr %ext_zicsr437, align 2
-  %186 = and i8 %185, 1
-  %tobool438.not = icmp eq i8 %186, 0
-  br i1 %tobool438.not, label %if.then439, label %if.end445
+  %123 = load i8, ptr %ext_zicsr437, align 2
+  %tobool438 = trunc i8 %123 to i1
+  br i1 %tobool438, label %if.end445, label %if.then439
 
 if.then439:                                       ; preds = %land.lhs.true435
-  %187 = load ptr, ptr @multi_ext_user_opts, align 8
-  %call.i409 = call i32 @g_hash_table_contains(ptr noundef %187, ptr noundef nonnull inttoptr (i64 25 to ptr)) #11
+  %124 = load ptr, ptr @multi_ext_user_opts, align 8
+  %call.i409 = call i32 @g_hash_table_contains(ptr noundef %124, ptr noundef nonnull inttoptr (i64 25 to ptr)) #11
   %tobool.i410.not = icmp eq i32 %call.i409, 0
   br i1 %tobool.i410.not, label %if.end442, label %if.then441
 
@@ -1210,21 +1151,19 @@ if.end442:                                        ; preds = %if.then439
 
 if.end445:                                        ; preds = %if.end442, %land.lhs.true435, %if.end431
   %ext_zihpm = getelementptr inbounds i8, ptr %cpu, i64 15344
-  %188 = load i8, ptr %ext_zihpm, align 16
-  %189 = and i8 %188, 1
-  %tobool447.not = icmp eq i8 %189, 0
-  br i1 %tobool447.not, label %if.end459, label %land.lhs.true449
+  %125 = load i8, ptr %ext_zihpm, align 16
+  %tobool447 = trunc i8 %125 to i1
+  br i1 %tobool447, label %land.lhs.true449, label %if.end459
 
 land.lhs.true449:                                 ; preds = %if.end445
   %ext_zicsr451 = getelementptr inbounds i8, ptr %cpu, i64 15338
-  %190 = load i8, ptr %ext_zicsr451, align 2
-  %191 = and i8 %190, 1
-  %tobool452.not = icmp eq i8 %191, 0
-  br i1 %tobool452.not, label %if.then453, label %if.end459
+  %126 = load i8, ptr %ext_zicsr451, align 2
+  %tobool452 = trunc i8 %126 to i1
+  br i1 %tobool452, label %if.end459, label %if.then453
 
 if.then453:                                       ; preds = %land.lhs.true449
-  %192 = load ptr, ptr @multi_ext_user_opts, align 8
-  %call.i411 = call i32 @g_hash_table_contains(ptr noundef %192, ptr noundef nonnull inttoptr (i64 32 to ptr)) #11
+  %127 = load ptr, ptr @multi_ext_user_opts, align 8
+  %call.i411 = call i32 @g_hash_table_contains(ptr noundef %127, ptr noundef nonnull inttoptr (i64 32 to ptr)) #11
   %tobool.i412.not = icmp eq i32 %call.i411, 0
   br i1 %tobool.i412.not, label %if.end459.thread, label %if.then455
 
@@ -1237,9 +1176,8 @@ if.end459.thread:                                 ; preds = %if.then453
   br label %if.then463
 
 if.end459:                                        ; preds = %land.lhs.true449, %if.end445
-  %193 = and i8 %188, 1
-  %tobool462.not = icmp eq i8 %193, 0
-  br i1 %tobool462.not, label %if.then463, label %if.end465
+  %tobool462 = trunc i8 %125 to i1
+  br i1 %tobool462, label %if.end465, label %if.then463
 
 if.then463:                                       ; preds = %if.end459.thread, %if.end459
   %pmu_mask = getelementptr inbounds i8, ptr %cpu, i64 15428
@@ -1436,16 +1374,14 @@ if.then3:                                         ; preds = %riscv_cpu_validate_
 if.end4:                                          ; preds = %land.lhs.true.i, %if.end, %riscv_cpu_validate_misa_priv.exit
   %ext_smepmp = getelementptr inbounds i8, ptr %cpu, i64 15387
   %7 = load i8, ptr %ext_smepmp, align 1
-  %8 = and i8 %7, 1
-  %tobool.not = icmp eq i8 %8, 0
-  br i1 %tobool.not, label %if.end8, label %land.lhs.true
+  %tobool = trunc i8 %7 to i1
+  br i1 %tobool, label %land.lhs.true, label %if.end8
 
 land.lhs.true:                                    ; preds = %if.end4
   %pmp = getelementptr inbounds i8, ptr %cpu, i64 15473
-  %9 = load i8, ptr %pmp, align 1
-  %10 = and i8 %9, 1
-  %tobool6.not = icmp eq i8 %10, 0
-  br i1 %tobool6.not, label %if.then7, label %if.end8
+  %8 = load i8, ptr %pmp, align 1
+  %tobool6 = trunc i8 %8 to i1
+  br i1 %tobool6, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %land.lhs.true
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 645, ptr noundef nonnull @__func__.riscv_tcg_cpu_finalize_features, ptr noundef nonnull @.str.34) #11
@@ -1453,12 +1389,12 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end8:                                          ; preds = %land.lhs.true, %if.end4
   call void @riscv_cpu_validate_set_extensions(ptr noundef nonnull %cpu, ptr noundef nonnull %local_err)
-  %11 = load ptr, ptr %local_err, align 8
-  %cmp9.not = icmp eq ptr %11, null
+  %9 = load ptr, ptr %local_err, align 8
+  %cmp9.not = icmp eq ptr %9, null
   br i1 %cmp9.not, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %11) #11
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %9) #11
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %if.end8, %if.then7, %if.then3, %if.then
@@ -1580,8 +1516,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   tail call void @object_property_set_description(ptr noundef %call.i, ptr noundef %call3.i.i, ptr noundef %call4.i.i) #11
   %enabled.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %2 = load i8, ptr %enabled.i.i, align 8
-  %3 = and i8 %2, 1
-  %tobool9.i.i = icmp ne i8 %3, 0
+  %tobool9.i.i = trunc i8 %2 to i1
   %call10.i.i = tail call zeroext i1 @object_property_set_bool(ptr noundef %call.i, ptr noundef %call3.i.i, i1 noundef zeroext %tobool9.i.i, ptr noundef null) #11
   br label %for.inc.i.i
 
@@ -1599,8 +1534,8 @@ riscv_cpu_add_misa_properties.exit.i:             ; preds = %for.inc.i.i, %for.i
 
 land.rhs.i:                                       ; preds = %for.body.i, %riscv_cpu_add_misa_properties.exit.i
   %prop.010.i = phi ptr [ @riscv_cpu_options, %riscv_cpu_add_misa_properties.exit.i ], [ %incdec.ptr.i, %for.body.i ]
-  %4 = load ptr, ptr %prop.010.i, align 8
-  %tobool1.not.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %prop.010.i, align 8
+  %tobool1.not.i = icmp eq ptr %3, null
   br i1 %tobool1.not.i, label %riscv_cpu_add_user_properties.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %land.rhs.i
@@ -1619,23 +1554,23 @@ if.then:                                          ; preds = %riscv_cpu_add_user_
   %call.i.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #11
   %env1.i = getelementptr inbounds i8, ptr %call.i.i4, i64 10176
   %misa_mxl.i = getelementptr inbounds i8, ptr %call.i.i4, i64 15184
-  %5 = load i32, ptr %misa_mxl.i, align 16
+  %4 = load i32, ptr %misa_mxl.i, align 16
   %misa_ext.i = getelementptr inbounds i8, ptr %call.i.i4, i64 15192
-  %6 = load i32, ptr %misa_ext.i, align 8
-  %7 = or i32 %6, 2097728
-  tail call void @riscv_cpu_set_misa(ptr noundef nonnull %env1.i, i32 noundef %5, i32 noundef %7) #11
+  %5 = load i32, ptr %misa_ext.i, align 8
+  %6 = or i32 %5, 2097728
+  tail call void @riscv_cpu_set_misa(ptr noundef nonnull %env1.i, i32 noundef %4, i32 noundef %6) #11
   br label %land.rhs.i5
 
 land.rhs.i5:                                      ; preds = %for.body.i6, %if.then
   %prop.017.i = phi ptr [ @riscv_cpu_extensions, %if.then ], [ %incdec.ptr.i7, %for.body.i6 ]
-  %8 = load ptr, ptr %prop.017.i, align 8
-  %tobool5.not.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %prop.017.i, align 8
+  %tobool5.not.i = icmp eq ptr %7, null
   br i1 %tobool5.not.i, label %for.end.i, label %for.body.i6
 
 for.body.i6:                                      ; preds = %land.rhs.i5
   %offset.i = getelementptr inbounds i8, ptr %prop.017.i, i64 8
-  %9 = load i32, ptr %offset.i, align 8
-  tail call void @isa_ext_update_enabled(ptr noundef %call.i.i4, i32 noundef %9, i1 noundef zeroext true) #11
+  %8 = load i32, ptr %offset.i, align 8
+  tail call void @isa_ext_update_enabled(ptr noundef %call.i.i4, i32 noundef %8, i1 noundef zeroext true) #11
   %incdec.ptr.i7 = getelementptr i8, ptr %prop.017.i, i64 16
   %tobool.not.i8 = icmp eq ptr %incdec.ptr.i7, null
   br i1 %tobool.not.i8, label %for.end.i, label %land.rhs.i5, !llvm.loop !11
@@ -1650,8 +1585,8 @@ for.end.i:                                        ; preds = %for.body.i6, %land.
   tail call void @isa_ext_update_enabled(ptr noundef %call.i.i4, i32 noundef 10, i1 noundef zeroext false) #11
   tail call void @isa_ext_update_enabled(ptr noundef %call.i.i4, i32 noundef 12, i1 noundef zeroext false) #11
   tail call void @isa_ext_update_enabled(ptr noundef %call.i.i4, i32 noundef 13, i1 noundef zeroext false) #11
-  %10 = load i32, ptr %misa_mxl.i, align 16
-  %cmp.not.i = icmp eq i32 %10, 1
+  %9 = load i32, ptr %misa_mxl.i, align 16
+  %cmp.not.i = icmp eq i32 %9, 1
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end.i
@@ -1848,8 +1783,7 @@ if.end.i:                                         ; preds = %for.body
   %5 = load i32, ptr %offset.i, align 8
   %enabled.i = getelementptr inbounds i8, ptr %prop.05, i64 12
   %6 = load i8, ptr %enabled.i, align 4
-  %7 = and i8 %6, 1
-  %tobool7.i = icmp ne i8 %7, 0
+  %tobool7.i = trunc i8 %6 to i1
   tail call void @isa_ext_update_enabled(ptr noundef %call.i8.i, i32 noundef %5, i1 noundef zeroext %tobool7.i) #11
   br label %cpu_add_multi_ext_prop.exit
 
@@ -1905,15 +1839,14 @@ if.end:                                           ; preds = %entry
   %1 = load i32, ptr %misa_ext, align 8
   %conv = zext i32 %1 to i64
   %and = and i64 %0, %conv
-  %tobool = icmp ne i64 %and, 0
   %2 = load i8, ptr %value, align 1
-  %3 = and i8 %2, 1
-  %4 = icmp eq i8 %3, 0
-  %cmp = xor i1 %tobool, %4
+  %3 = trunc i8 %2 to i1
+  %4 = icmp eq i64 %and, 0
+  %cmp = xor i1 %4, %3
   br i1 %cmp, label %if.end34, label %if.end12
 
 if.end12:                                         ; preds = %if.end
-  br i1 %4, label %if.else, label %if.then14
+  br i1 %3, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %if.end12
   br i1 %cmp.i.not, label %if.then16, label %if.end18
@@ -1979,7 +1912,7 @@ entry:
   %value = alloca i8, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #11
   %call.i10 = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str.60) #11
-  %cmp.i = icmp ne ptr %call.i10, null
+  %cmp.i = icmp eq ptr %call.i10, null
   %call2 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #11
   br i1 %call2, label %if.end, label %return
 
@@ -2024,14 +1957,13 @@ if.end9:                                          ; preds = %if.then5, %if.end
   %12 = load i32, ptr %offset, align 8
   %call13 = call zeroext i1 @isa_ext_is_enabled(ptr noundef %call.i, i32 noundef %12) #11
   %13 = load i8, ptr %value, align 1
-  %14 = and i8 %13, 1
-  %15 = icmp eq i8 %14, 0
-  %cmp = xor i1 %call13, %15
-  br i1 %cmp, label %return, label %if.end21
+  %14 = trunc i8 %13 to i1
+  %15 = xor i1 %call13, %14
+  br i1 %15, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.end9
-  %brmerge = select i1 %15, i1 true, i1 %cmp.i
-  br i1 %brmerge, label %if.end27, label %if.then25
+  %brmerge.not = select i1 %14, i1 %cmp.i, i1 false
+  br i1 %brmerge.not, label %if.then25, label %if.end27
 
 if.then25:                                        ; preds = %if.end21
   %call26 = call ptr @riscv_cpu_get_name(ptr noundef %call.i) #11
@@ -2041,8 +1973,7 @@ if.then25:                                        ; preds = %if.end21
 
 if.end27:                                         ; preds = %if.end21
   %16 = load i32, ptr %offset, align 8
-  %tobool29 = icmp ne i8 %14, 0
-  call void @isa_ext_update_enabled(ptr noundef %call.i, i32 noundef %16, i1 noundef zeroext %tobool29) #11
+  call void @isa_ext_update_enabled(ptr noundef %call.i, i32 noundef %16, i1 noundef zeroext %14) #11
   br label %return
 
 return:                                           ; preds = %if.end9, %entry, %if.end27, %if.then25

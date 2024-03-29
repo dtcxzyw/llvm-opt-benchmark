@@ -579,7 +579,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK4absl12lts_2023
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit
   %8 = phi i32 [ %5, %for.body.lr.ph ], [ %38, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ]
-  %errors_found.056 = phi i8 [ 0, %for.body.lr.ph ], [ %errors_found.2, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ]
+  %errors_found.056 = phi i1 [ false, %for.body.lr.ph ], [ %errors_found.2, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ]
   %ith_path.sroa.0.0.copyload = load i64, ptr %curr_.i.i, align 8
   %ith_path.sroa.3.0.copyload = load ptr, ptr %ith_path.sroa.3.0.curr_.i.sroa_idx, align 8
   %cmp.i = icmp eq i64 %ith_path.sroa.0.0.copyload, 0
@@ -687,8 +687,9 @@ invoke.cont34:                                    ; preds = %invoke.cont32
           to label %invoke.cont36 unwind label %lpad31
 
 invoke.cont36:                                    ; preds = %invoke.cont34
+  %call37.not = xor i1 %call37, true
   %brmerge.not = and i1 %cmp.not, %call37
-  %.mux = select i1 %call37, i8 %errors_found.056, i8 1
+  %.mux = select i1 %call37.not, i1 true, i1 %errors_found.056
   %.mux58 = select i1 %call37, i32 0, i32 2
   br i1 %brmerge.not, label %if.then40, label %cleanup
 
@@ -772,7 +773,7 @@ lpad43:                                           ; preds = %if.else.i, %if.then
   br label %ehcleanup48
 
 cleanup:                                          ; preds = %invoke.cont36, %invoke.cont44
-  %errors_found.1.ph = phi i8 [ %errors_found.056, %invoke.cont44 ], [ %.mux, %invoke.cont36 ]
+  %errors_found.1.ph = phi i1 [ %errors_found.056, %invoke.cont44 ], [ %.mux, %invoke.cont36 ]
   %cleanup.dest.slot.0.ph = phi i32 [ 0, %invoke.cont44 ], [ %.mux58, %invoke.cont36 ]
   %.pr = load i64, ptr %ith_uri, align 8
   %cmp.i.i.i.i40 = icmp eq i64 %.pr, 0
@@ -784,7 +785,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup
 
 if.else.i.i:                                      ; preds = %invoke.cont32, %cleanup
   %cleanup.dest.slot.052 = phi i32 [ %cleanup.dest.slot.0.ph, %cleanup ], [ 2, %invoke.cont32 ]
-  %errors_found.150 = phi i8 [ %errors_found.1.ph, %cleanup ], [ 1, %invoke.cont32 ]
+  %errors_found.150 = phi i1 [ %errors_found.1.ph, %cleanup ], [ true, %invoke.cont32 ]
   %28 = phi i64 [ %.pr, %cleanup ], [ %18, %invoke.cont32 ]
   %and.i.i.i1.i.i = and i64 %28, 1
   %cmp.i.i.i2.i.i = icmp eq i64 %and.i.i.i1.i.i, 0
@@ -803,7 +804,7 @@ terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i3.i.i
 
 _ZN4absl12lts_202308028StatusOrIN9grpc_core3URIEED2Ev.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, %if.else.i.i, %if.then.i.i3.i.i
   %cleanup.dest.slot.051 = phi i32 [ %cleanup.dest.slot.0.ph, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i ], [ %cleanup.dest.slot.052, %if.else.i.i ], [ %cleanup.dest.slot.052, %if.then.i.i3.i.i ]
-  %errors_found.149 = phi i8 [ %errors_found.1.ph, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i ], [ %errors_found.150, %if.else.i.i ], [ %errors_found.150, %if.then.i.i3.i.i ]
+  %errors_found.149 = phi i1 [ %errors_found.1.ph, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i ], [ %errors_found.150, %if.else.i.i ], [ %errors_found.150, %if.then.i.i3.i.i ]
   %switch = icmp eq i32 %cleanup.dest.slot.051, 0
   br i1 %switch, label %_ZN4absl12lts_202308028StatusOrIN9grpc_core3URIEED2Ev.exit.for.inc_crit_edge, label %for.end.loopexit
 
@@ -813,7 +814,7 @@ _ZN4absl12lts_202308028StatusOrIN9grpc_core3URIEED2Ev.exit.for.inc_crit_edge: ; 
 
 for.inc:                                          ; preds = %_ZN4absl12lts_202308028StatusOrIN9grpc_core3URIEED2Ev.exit.for.inc_crit_edge, %for.body
   %31 = phi i32 [ %8, %for.body ], [ %.pre60, %_ZN4absl12lts_202308028StatusOrIN9grpc_core3URIEED2Ev.exit.for.inc_crit_edge ]
-  %errors_found.2 = phi i8 [ %errors_found.056, %for.body ], [ %errors_found.149, %_ZN4absl12lts_202308028StatusOrIN9grpc_core3URIEED2Ev.exit.for.inc_crit_edge ]
+  %errors_found.2 = phi i1 [ %errors_found.056, %for.body ], [ %errors_found.149, %_ZN4absl12lts_202308028StatusOrIN9grpc_core3URIEED2Ev.exit.for.inc_crit_edge ]
   %cmp.i41 = icmp eq i32 %31, 1
   br i1 %cmp.i41, label %if.then.i45, label %if.end.i
 
@@ -877,13 +878,12 @@ ehcleanup48:                                      ; preds = %lpad43, %lpad31
   br label %eh.resume
 
 for.end.loopexit:                                 ; preds = %_ZN4absl12lts_202308028StatusOrIN9grpc_core3URIEED2Ev.exit, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit
-  %errors_found.3.ph = phi i8 [ %errors_found.2, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %errors_found.149, %_ZN4absl12lts_202308028StatusOrIN9grpc_core3URIEED2Ev.exit ]
-  %39 = and i8 %errors_found.3.ph, 1
-  %40 = icmp eq i8 %39, 0
+  %errors_found.3.ph = phi i1 [ %errors_found.2, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %errors_found.149, %_ZN4absl12lts_202308028StatusOrIN9grpc_core3URIEED2Ev.exit ]
+  %39 = xor i1 %errors_found.3.ph, true
   br label %return
 
 return:                                           ; preds = %_ZNK4absl12lts_2023080216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit, %for.end.loopexit, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ true, %_ZNK4absl12lts_2023080216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit ], [ %40, %for.end.loopexit ]
+  %retval.0 = phi i1 [ false, %if.then ], [ true, %_ZNK4absl12lts_2023080216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit ], [ %39, %for.end.loopexit ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup48, %ehcleanup29

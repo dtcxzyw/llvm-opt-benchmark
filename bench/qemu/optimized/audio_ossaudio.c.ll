@@ -88,9 +88,8 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %u, align 8
   %has_try_poll.i = getelementptr inbounds i8, ptr %1, i64 64
   %2 = load i8, ptr %has_try_poll.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %if.then.i, label %oss_init_per_direction.exit
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %oss_init_per_direction.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %try_poll.i = getelementptr inbounds i8, ptr %1, i64 65
@@ -100,59 +99,58 @@ if.then.i:                                        ; preds = %if.end
 
 oss_init_per_direction.exit:                      ; preds = %if.end, %if.then.i
   %out = getelementptr inbounds i8, ptr %dev, i64 32
-  %4 = load ptr, ptr %out, align 8
-  %has_try_poll.i12 = getelementptr inbounds i8, ptr %4, i64 64
-  %5 = load i8, ptr %has_try_poll.i12, align 8
-  %6 = and i8 %5, 1
-  %tobool.not.i13 = icmp eq i8 %6, 0
-  br i1 %tobool.not.i13, label %if.then.i14, label %oss_init_per_direction.exit16
+  %3 = load ptr, ptr %out, align 8
+  %has_try_poll.i12 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = load i8, ptr %has_try_poll.i12, align 8
+  %tobool.i13 = trunc i8 %4 to i1
+  br i1 %tobool.i13, label %oss_init_per_direction.exit16, label %if.then.i14
 
 if.then.i14:                                      ; preds = %oss_init_per_direction.exit
-  %try_poll.i15 = getelementptr inbounds i8, ptr %4, i64 65
+  %try_poll.i15 = getelementptr inbounds i8, ptr %3, i64 65
   store i8 1, ptr %try_poll.i15, align 1
   store i8 1, ptr %has_try_poll.i12, align 8
   br label %oss_init_per_direction.exit16
 
 oss_init_per_direction.exit16:                    ; preds = %oss_init_per_direction.exit, %if.then.i14
-  %7 = load ptr, ptr %u, align 8
-  %dev2 = getelementptr inbounds i8, ptr %7, i64 48
-  %8 = load ptr, ptr %dev2, align 8
-  %tobool.not = icmp eq ptr %8, null
-  %..str.4 = select i1 %tobool.not, ptr @.str.4, ptr %8
+  %5 = load ptr, ptr %u, align 8
+  %dev2 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = load ptr, ptr %dev2, align 8
+  %tobool.not = icmp eq ptr %6, null
+  %..str.4 = select i1 %tobool.not, ptr @.str.4, ptr %6
   %call = tail call i32 @access(ptr noundef nonnull %..str.4, i32 noundef 6) #13
   %cmp3 = icmp slt i32 %call, 0
   br i1 %cmp3, label %if.then4, label %if.end13
 
 if.then4:                                         ; preds = %oss_init_per_direction.exit16
   %call5 = tail call ptr @__errno_location() #15
-  %9 = load i32, ptr %call5, align 4
-  %10 = load ptr, ptr %u, align 8
-  %dev7 = getelementptr inbounds i8, ptr %10, i64 48
-  %11 = load ptr, ptr %dev7, align 8
-  %tobool8.not = icmp eq ptr %11, null
-  %..str.41 = select i1 %tobool8.not, ptr @.str.4, ptr %11
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 749, ptr noundef nonnull @__func__.oss_audio_init, i32 noundef %9, ptr noundef nonnull @.str.5, ptr noundef nonnull %..str.41) #13
+  %7 = load i32, ptr %call5, align 4
+  %8 = load ptr, ptr %u, align 8
+  %dev7 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = load ptr, ptr %dev7, align 8
+  %tobool8.not = icmp eq ptr %9, null
+  %..str.41 = select i1 %tobool8.not, ptr @.str.4, ptr %9
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 749, ptr noundef nonnull @__func__.oss_audio_init, i32 noundef %7, ptr noundef nonnull @.str.5, ptr noundef nonnull %..str.41) #13
   br label %return
 
 if.end13:                                         ; preds = %oss_init_per_direction.exit16
-  %12 = load ptr, ptr %out, align 8
-  %dev15 = getelementptr inbounds i8, ptr %12, i64 48
-  %13 = load ptr, ptr %dev15, align 8
-  %tobool16.not = icmp eq ptr %13, null
-  %..str.42 = select i1 %tobool16.not, ptr @.str.4, ptr %13
+  %10 = load ptr, ptr %out, align 8
+  %dev15 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = load ptr, ptr %dev15, align 8
+  %tobool16.not = icmp eq ptr %11, null
+  %..str.42 = select i1 %tobool16.not, ptr @.str.4, ptr %11
   %call21 = tail call i32 @access(ptr noundef nonnull %..str.42, i32 noundef 6) #13
   %cmp22 = icmp slt i32 %call21, 0
   br i1 %cmp22, label %if.then23, label %return
 
 if.then23:                                        ; preds = %if.end13
   %call24 = tail call ptr @__errno_location() #15
-  %14 = load i32, ptr %call24, align 4
-  %15 = load ptr, ptr %out, align 8
-  %dev26 = getelementptr inbounds i8, ptr %15, i64 48
-  %16 = load ptr, ptr %dev26, align 8
-  %tobool27.not = icmp eq ptr %16, null
-  %..str.43 = select i1 %tobool27.not, ptr @.str.4, ptr %16
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 753, ptr noundef nonnull @__func__.oss_audio_init, i32 noundef %14, ptr noundef nonnull @.str.5, ptr noundef nonnull %..str.43) #13
+  %12 = load i32, ptr %call24, align 4
+  %13 = load ptr, ptr %out, align 8
+  %dev26 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = load ptr, ptr %dev26, align 8
+  %tobool27.not = icmp eq ptr %14, null
+  %..str.43 = select i1 %tobool27.not, ptr @.str.4, ptr %14
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 753, ptr noundef nonnull @__func__.oss_audio_init, i32 noundef %12, ptr noundef nonnull @.str.5, ptr noundef nonnull %..str.43) #13
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then23, %if.then4
@@ -312,9 +310,8 @@ if.end30:                                         ; preds = %if.then24, %if.end1
   store i32 0, ptr %mmapped, align 4
   %has_try_mmap = getelementptr inbounds i8, ptr %drv_opaque, i64 40
   %14 = load i8, ptr %has_try_mmap, align 8
-  %15 = and i8 %14, 1
-  %tobool36.not = icmp eq i8 %15, 0
-  br i1 %tobool36.not, label %if.end30.if.end84_crit_edge, label %land.lhs.true
+  %tobool36 = trunc i8 %14 to i1
+  br i1 %tobool36, label %land.lhs.true, label %if.end30.if.end84_crit_edge
 
 if.end30.if.end84_crit_edge:                      ; preds = %if.end30
   %.pre47 = load i32, ptr %fd, align 4
@@ -322,11 +319,10 @@ if.end30.if.end84_crit_edge:                      ; preds = %if.end30
 
 land.lhs.true:                                    ; preds = %if.end30
   %try_mmap = getelementptr inbounds i8, ptr %drv_opaque, i64 41
-  %16 = load i8, ptr %try_mmap, align 1
-  %17 = and i8 %16, 1
-  %tobool38.not = icmp eq i8 %17, 0
+  %15 = load i8, ptr %try_mmap, align 1
+  %tobool38 = trunc i8 %15 to i1
   %.pre48 = load i32, ptr %fd, align 4
-  br i1 %tobool38.not, label %if.end84, label %if.then40
+  br i1 %tobool38, label %if.then40, label %if.end84
 
 if.then40:                                        ; preds = %land.lhs.true
   %conv44 = sext i32 %13 to i64
@@ -341,9 +337,9 @@ if.then40:                                        ; preds = %land.lhs.true
 
 if.then50:                                        ; preds = %if.then40
   %call51 = tail call ptr @__errno_location() #15
-  %18 = load i32, ptr %call51, align 4
-  %19 = load i64, ptr %size_emul, align 8
-  call void (i32, ptr, ...) @oss_logerr(i32 noundef %18, ptr noundef nonnull @.str.7, i64 noundef %19)
+  %16 = load i32, ptr %call51, align 4
+  %17 = load i64, ptr %size_emul, align 8
+  call void (i32, ptr, ...) @oss_logerr(i32 noundef %16, ptr noundef nonnull @.str.7, i64 noundef %17)
   store ptr null, ptr %buf_emul, align 8
   br label %if.end84
 
@@ -366,25 +362,25 @@ if.end68.thread:                                  ; preds = %if.else59
 if.end68:                                         ; preds = %if.else59, %if.else
   %.str.9.sink = phi ptr [ @.str.8, %if.else ], [ @.str.9, %if.else59 ]
   %call64 = tail call ptr @__errno_location() #15
-  %20 = load i32, ptr %call64, align 4
-  call void (i32, ptr, ...) @oss_logerr(i32 noundef %20, ptr noundef nonnull %.str.9.sink)
+  %18 = load i32, ptr %call64, align 4
+  call void (i32, ptr, ...) @oss_logerr(i32 noundef %18, ptr noundef nonnull %.str.9.sink)
   %.pr = load i32, ptr %mmapped, align 4
   %tobool70.not = icmp eq i32 %.pr, 0
   br i1 %tobool70.not, label %if.then71, label %if.end84
 
 if.then71:                                        ; preds = %if.end68
-  %21 = load ptr, ptr %buf_emul, align 8
-  %22 = load i64, ptr %size_emul, align 8
-  %call74 = call i32 @munmap(ptr noundef %21, i64 noundef %22) #13
+  %19 = load ptr, ptr %buf_emul, align 8
+  %20 = load i64, ptr %size_emul, align 8
+  %call74 = call i32 @munmap(ptr noundef %19, i64 noundef %20) #13
   %tobool75.not = icmp eq i32 %call74, 0
   br i1 %tobool75.not, label %if.end80, label %if.then76
 
 if.then76:                                        ; preds = %if.then71
   %call77 = tail call ptr @__errno_location() #15
-  %23 = load i32, ptr %call77, align 4
-  %24 = load ptr, ptr %buf_emul, align 8
-  %25 = load i64, ptr %size_emul, align 8
-  call void (i32, ptr, ...) @oss_logerr(i32 noundef %23, ptr noundef nonnull @.str.10, ptr noundef %24, i64 noundef %25)
+  %21 = load i32, ptr %call77, align 4
+  %22 = load ptr, ptr %buf_emul, align 8
+  %23 = load i64, ptr %size_emul, align 8
+  call void (i32, ptr, ...) @oss_logerr(i32 noundef %21, ptr noundef nonnull @.str.10, ptr noundef %22, i64 noundef %23)
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then76, %if.then71
@@ -392,8 +388,8 @@ if.end80:                                         ; preds = %if.then76, %if.then
   br label %if.end84
 
 if.end84:                                         ; preds = %if.end30.if.end84_crit_edge, %if.end68.thread, %if.then50, %if.end80, %if.end68, %land.lhs.true
-  %26 = phi i32 [ %.pre47, %if.end30.if.end84_crit_edge ], [ %.pre48, %if.end68.thread ], [ %.pre48, %if.then50 ], [ %.pre48, %if.end80 ], [ %.pre48, %if.end68 ], [ %.pre48, %land.lhs.true ]
-  store i32 %26, ptr %fd1, align 8
+  %24 = phi i32 [ %.pre47, %if.end30.if.end84_crit_edge ], [ %.pre48, %if.end68.thread ], [ %.pre48, %if.then50 ], [ %.pre48, %if.end80 ], [ %.pre48, %if.end68 ], [ %.pre48, %land.lhs.true ]
+  store i32 %24, ptr %fd1, align 8
   %dev86 = getelementptr inbounds i8, ptr %hw, i64 184
   store ptr %drv_opaque, ptr %dev86, align 8
   br label %return
@@ -723,73 +719,73 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %out, align 8
   %try_poll = getelementptr inbounds i8, ptr %1, i64 65
   %2 = load i8, ptr %try_poll, align 1
-  %3 = and i8 %2, 1
-  %tobool1.not = icmp eq i8 %3, 0
-  %conv = zext nneg i8 %3 to i32
+  %tobool1 = trunc i8 %2 to i1
+  %tobool1.mask = and i8 %2, 1
+  %conv = zext nneg i8 %tobool1.mask to i32
   %poll_mode = getelementptr inbounds i8, ptr %hw, i64 12
   store i32 %conv, ptr %poll_mode, align 4
-  br i1 %tobool1.not, label %if.end, label %if.then4
+  br i1 %tobool1, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
   %hw.val = load ptr, ptr %hw, align 8
-  %4 = getelementptr i8, ptr %hw, i64 168
-  %hw.val14 = load i32, ptr %4, align 8
+  %3 = getelementptr i8, ptr %hw, i64 168
+  %hw.val14 = load i32, ptr %3, align 8
   tail call void @qemu_set_fd_handler(i32 noundef %hw.val14, ptr noundef null, ptr noundef nonnull @oss_helper_poll_out, ptr noundef %hw.val) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
   %mmapped = getelementptr inbounds i8, ptr %hw, i64 180
-  %5 = load i32, ptr %mmapped, align 4
-  %tobool5.not = icmp eq i32 %5, 0
+  %4 = load i32, ptr %mmapped, align 4
+  %tobool5.not = icmp eq i32 %4, 0
   br i1 %tobool5.not, label %if.end30, label %if.end7
 
 if.end7:                                          ; preds = %if.end
   %info = getelementptr inbounds i8, ptr %hw, i64 20
   %buf_emul = getelementptr inbounds i8, ptr %hw, i64 88
-  %6 = load ptr, ptr %buf_emul, align 8
+  %5 = load ptr, ptr %buf_emul, align 8
   %samples = getelementptr inbounds i8, ptr %hw, i64 120
-  %7 = load i64, ptr %samples, align 8
-  %conv8 = trunc i64 %7 to i32
-  tail call void @audio_pcm_info_clear_buf(ptr noundef nonnull %info, ptr noundef %6, i32 noundef %conv8) #13
+  %6 = load i64, ptr %samples, align 8
+  %conv8 = trunc i64 %6 to i32
+  tail call void @audio_pcm_info_clear_buf(ptr noundef nonnull %info, ptr noundef %5, i32 noundef %conv8) #13
   store i32 2, ptr %trig, align 4
   %fd = getelementptr inbounds i8, ptr %hw, i64 168
-  %8 = load i32, ptr %fd, align 8
-  %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %8, i64 noundef 1074024464, ptr noundef nonnull %trig) #13
+  %7 = load i32, ptr %fd, align 8
+  %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %7, i64 noundef 1074024464, ptr noundef nonnull %trig) #13
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.end30.sink.split, label %if.end30
 
 if.else:                                          ; preds = %entry
   %poll_mode13 = getelementptr inbounds i8, ptr %hw, i64 12
-  %9 = load i32, ptr %poll_mode13, align 4
-  %tobool14.not = icmp eq i32 %9, 0
+  %8 = load i32, ptr %poll_mode13, align 4
+  %tobool14.not = icmp eq i32 %8, 0
   br i1 %tobool14.not, label %if.end18, label %if.then15
 
 if.then15:                                        ; preds = %if.else
   %fd16 = getelementptr inbounds i8, ptr %hw, i64 168
-  %10 = load i32, ptr %fd16, align 8
-  tail call void @qemu_set_fd_handler(i32 noundef %10, ptr noundef null, ptr noundef null, ptr noundef null) #13
+  %9 = load i32, ptr %fd16, align 8
+  tail call void @qemu_set_fd_handler(i32 noundef %9, ptr noundef null, ptr noundef null, ptr noundef null) #13
   store i32 0, ptr %poll_mode13, align 4
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then15, %if.else
   %mmapped19 = getelementptr inbounds i8, ptr %hw, i64 180
-  %11 = load i32, ptr %mmapped19, align 4
-  %tobool20.not = icmp eq i32 %11, 0
+  %10 = load i32, ptr %mmapped19, align 4
+  %tobool20.not = icmp eq i32 %10, 0
   br i1 %tobool20.not, label %if.end30, label %if.end22
 
 if.end22:                                         ; preds = %if.end18
   store i32 0, ptr %trig, align 4
   %fd23 = getelementptr inbounds i8, ptr %hw, i64 168
-  %12 = load i32, ptr %fd23, align 8
-  %call24 = call i32 (i32, i64, ...) @ioctl(i32 noundef %12, i64 noundef 1074024464, ptr noundef nonnull %trig) #13
+  %11 = load i32, ptr %fd23, align 8
+  %call24 = call i32 (i32, i64, ...) @ioctl(i32 noundef %11, i64 noundef 1074024464, ptr noundef nonnull %trig) #13
   %cmp25 = icmp slt i32 %call24, 0
   br i1 %cmp25, label %if.end30.sink.split, label %if.end30
 
 if.end30.sink.split:                              ; preds = %if.end22, %if.end7
   %.str.8.sink = phi ptr [ @.str.9, %if.end7 ], [ @.str.8, %if.end22 ]
   %call28 = tail call ptr @__errno_location() #15
-  %13 = load i32, ptr %call28, align 4
-  call void (i32, ptr, ...) @oss_logerr(i32 noundef %13, ptr noundef nonnull %.str.8.sink)
+  %12 = load i32, ptr %call28, align 4
+  call void (i32, ptr, ...) @oss_logerr(i32 noundef %12, ptr noundef nonnull %.str.8.sink)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end30.sink.split, %if.end22, %if.end18, %if.end7, %if.end
@@ -1018,30 +1014,30 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %out, align 8
   %try_poll = getelementptr inbounds i8, ptr %1, i64 65
   %2 = load i8, ptr %try_poll, align 1
-  %3 = and i8 %2, 1
-  %tobool1.not = icmp eq i8 %3, 0
-  %conv = zext nneg i8 %3 to i32
+  %tobool1 = trunc i8 %2 to i1
+  %tobool1.mask = and i8 %2, 1
+  %conv = zext nneg i8 %tobool1.mask to i32
   %poll_mode = getelementptr inbounds i8, ptr %hw, i64 12
   store i32 %conv, ptr %poll_mode, align 4
-  br i1 %tobool1.not, label %if.end10, label %if.then4
+  br i1 %tobool1, label %if.then4, label %if.end10
 
 if.then4:                                         ; preds = %if.then
   %hw.val = load ptr, ptr %hw, align 8
-  %4 = getelementptr i8, ptr %hw, i64 168
-  %hw.val7 = load i32, ptr %4, align 8
+  %3 = getelementptr i8, ptr %hw, i64 168
+  %hw.val7 = load i32, ptr %3, align 8
   tail call void @qemu_set_fd_handler(i32 noundef %hw.val7, ptr noundef nonnull @oss_helper_poll_in, ptr noundef null, ptr noundef %hw.val) #13
   br label %if.end10
 
 if.else:                                          ; preds = %entry
   %poll_mode5 = getelementptr inbounds i8, ptr %hw, i64 12
-  %5 = load i32, ptr %poll_mode5, align 4
-  %tobool6.not = icmp eq i32 %5, 0
+  %4 = load i32, ptr %poll_mode5, align 4
+  %tobool6.not = icmp eq i32 %4, 0
   br i1 %tobool6.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.else
   %fd = getelementptr inbounds i8, ptr %hw, i64 168
-  %6 = load i32, ptr %fd, align 8
-  tail call void @qemu_set_fd_handler(i32 noundef %6, ptr noundef null, ptr noundef null, ptr noundef null) #13
+  %5 = load i32, ptr %fd, align 8
+  tail call void @qemu_set_fd_handler(i32 noundef %5, ptr noundef null, ptr noundef null, ptr noundef null) #13
   store i32 0, ptr %poll_mode5, align 4
   br label %if.end10
 
@@ -1063,37 +1059,33 @@ entry:
   %cond = load ptr, ptr %cond.in, align 8
   %has_exclusive = getelementptr inbounds i8, ptr %dev, i64 42
   %0 = load i8, ptr %has_exclusive, align 2
-  %1 = and i8 %0, 1
-  %tobool2.not = icmp eq i8 %1, 0
-  br i1 %tobool2.not, label %land.end, label %land.rhs
+  %tobool2 = trunc i8 %0 to i1
+  br i1 %tobool2, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
   %exclusive = getelementptr inbounds i8, ptr %dev, i64 43
-  %2 = load i8, ptr %exclusive, align 1
-  %3 = shl i8 %2, 7
-  %4 = zext i8 %3 to i32
-  %5 = or disjoint i32 %4, 2048
+  %1 = load i8, ptr %exclusive, align 1
+  %tobool3 = trunc i8 %1 to i1
+  %2 = select i1 %tobool3, i32 2176, i32 2048
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %cond4 = phi i32 [ 2048, %entry ], [ %5, %land.rhs ]
+  %cond4 = phi i32 [ 2048, %entry ], [ %2, %land.rhs ]
   %dev5 = getelementptr inbounds i8, ptr %cond, i64 48
-  %6 = load ptr, ptr %dev5, align 8
-  %tobool6.not = icmp eq ptr %6, null
-  %..str.4 = select i1 %tobool6.not, ptr @.str.4, ptr %6
+  %3 = load ptr, ptr %dev5, align 8
+  %tobool6.not = icmp eq ptr %3, null
+  %..str.4 = select i1 %tobool6.not, ptr @.str.4, ptr %3
   %cond12 = select i1 %tobool.not, ptr @.str.13, ptr @.str.12
   %has_try_mmap = getelementptr inbounds i8, ptr %dev, i64 40
-  %7 = load i8, ptr %has_try_mmap, align 8
-  %8 = and i8 %7, 1
-  %tobool13.not = icmp eq i8 %8, 0
-  br i1 %tobool13.not, label %cond.false16, label %land.lhs.true
+  %4 = load i8, ptr %has_try_mmap, align 8
+  %tobool13 = trunc i8 %4 to i1
+  br i1 %tobool13, label %land.lhs.true, label %cond.false16
 
 land.lhs.true:                                    ; preds = %land.end
   %try_mmap = getelementptr inbounds i8, ptr %dev, i64 41
-  %9 = load i8, ptr %try_mmap, align 1
-  %10 = and i8 %9, 1
-  %tobool14.not = icmp eq i8 %10, 0
-  br i1 %tobool14.not, label %cond.false16, label %cond.end19
+  %5 = load i8, ptr %try_mmap, align 1
+  %tobool14 = trunc i8 %5 to i1
+  br i1 %tobool14, label %cond.end19, label %cond.false16
 
 cond.false16:                                     ; preds = %land.lhs.true, %land.end
   %cond18 = zext i1 %tobool.not to i32
@@ -1101,39 +1093,38 @@ cond.false16:                                     ; preds = %land.lhs.true, %lan
 
 cond.end19:                                       ; preds = %land.lhs.true, %cond.false16
   %cond20 = phi i32 [ %cond18, %cond.false16 ], [ 2, %land.lhs.true ]
-  %or21 = or i32 %cond4, %cond20
+  %or21 = or disjoint i32 %cond4, %cond20
   %call = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %..str.4, i32 noundef %or21) #13
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end19
   %call22 = tail call ptr @__errno_location() #15
-  %11 = load i32, ptr %call22, align 4
-  tail call void (i32, ptr, ptr, ...) @oss_logerr2(i32 noundef %11, ptr noundef nonnull %cond12, ptr noundef nonnull @.str.14, ptr noundef nonnull %..str.4)
+  %6 = load i32, ptr %call22, align 4
+  tail call void (i32, ptr, ptr, ...) @oss_logerr2(i32 noundef %6, ptr noundef nonnull %cond12, ptr noundef nonnull @.str.14, ptr noundef nonnull %..str.4)
   br label %return
 
 if.end:                                           ; preds = %cond.end19
-  %12 = load i32, ptr %req, align 4
-  store i32 %12, ptr %freq, align 4
+  %7 = load i32, ptr %req, align 4
+  store i32 %7, ptr %freq, align 4
   %nchannels24 = getelementptr inbounds i8, ptr %req, i64 8
-  %13 = load i32, ptr %nchannels24, align 4
-  store i32 %13, ptr %nchannels, align 4
+  %8 = load i32, ptr %nchannels24, align 4
+  store i32 %8, ptr %nchannels, align 4
   %fmt25 = getelementptr inbounds i8, ptr %req, i64 4
-  %14 = load i32, ptr %fmt25, align 4
-  store i32 %14, ptr %fmt, align 4
+  %9 = load i32, ptr %fmt25, align 4
+  store i32 %9, ptr %fmt, align 4
   %has_buffer_count = getelementptr inbounds i8, ptr %cond, i64 56
-  %15 = load i8, ptr %has_buffer_count, align 8
-  %16 = and i8 %15, 1
-  %tobool26.not = icmp eq i8 %16, 0
-  br i1 %tobool26.not, label %cond.end29, label %cond.true27
+  %10 = load i8, ptr %has_buffer_count, align 8
+  %tobool26 = trunc i8 %10 to i1
+  br i1 %tobool26, label %cond.true27, label %cond.end29
 
 cond.true27:                                      ; preds = %if.end
   %buffer_count = getelementptr inbounds i8, ptr %cond, i64 60
-  %17 = load i32, ptr %buffer_count, align 4
+  %11 = load i32, ptr %buffer_count, align 4
   br label %cond.end29
 
 cond.end29:                                       ; preds = %if.end, %cond.true27
-  %cond30 = phi i32 [ %17, %cond.true27 ], [ 4, %if.end ]
+  %cond30 = phi i32 [ %11, %cond.true27 ], [ 4, %if.end ]
   %nfrags = getelementptr inbounds i8, ptr %req, i64 12
   store i32 %cond30, ptr %nfrags, align 4
   %call32 = tail call i32 @audio_buffer_bytes(ptr noundef nonnull %cond, ptr noundef %as, i32 noundef 23220) #13
@@ -1145,9 +1136,9 @@ cond.end29:                                       ; preds = %if.end, %cond.true2
 
 if.then35:                                        ; preds = %cond.end29
   %call36 = tail call ptr @__errno_location() #15
-  %18 = load i32, ptr %call36, align 4
-  %19 = load i32, ptr %fmt25, align 4
-  call void (i32, ptr, ptr, ...) @oss_logerr2(i32 noundef %18, ptr noundef nonnull %cond12, ptr noundef nonnull @.str.15, i32 noundef %19)
+  %12 = load i32, ptr %call36, align 4
+  %13 = load i32, ptr %fmt25, align 4
+  call void (i32, ptr, ptr, ...) @oss_logerr2(i32 noundef %12, ptr noundef nonnull %cond12, ptr noundef nonnull @.str.15, i32 noundef %13)
   br label %err
 
 if.end38:                                         ; preds = %cond.end29
@@ -1157,9 +1148,9 @@ if.end38:                                         ; preds = %cond.end29
 
 if.then41:                                        ; preds = %if.end38
   %call42 = tail call ptr @__errno_location() #15
-  %20 = load i32, ptr %call42, align 4
-  %21 = load i32, ptr %nchannels24, align 4
-  call void (i32, ptr, ptr, ...) @oss_logerr2(i32 noundef %20, ptr noundef nonnull %cond12, ptr noundef nonnull @.str.16, i32 noundef %21)
+  %14 = load i32, ptr %call42, align 4
+  %15 = load i32, ptr %nchannels24, align 4
+  call void (i32, ptr, ptr, ...) @oss_logerr2(i32 noundef %14, ptr noundef nonnull %cond12, ptr noundef nonnull @.str.16, i32 noundef %15)
   br label %err
 
 if.end44:                                         ; preds = %if.end38
@@ -1169,9 +1160,9 @@ if.end44:                                         ; preds = %if.end38
 
 if.then47:                                        ; preds = %if.end44
   %call48 = tail call ptr @__errno_location() #15
-  %22 = load i32, ptr %call48, align 4
-  %23 = load i32, ptr %req, align 4
-  call void (i32, ptr, ptr, ...) @oss_logerr2(i32 noundef %22, ptr noundef nonnull %cond12, ptr noundef nonnull @.str.17, i32 noundef %23)
+  %16 = load i32, ptr %call48, align 4
+  %17 = load i32, ptr %req, align 4
+  call void (i32, ptr, ptr, ...) @oss_logerr2(i32 noundef %16, ptr noundef nonnull %cond12, ptr noundef nonnull @.str.17, i32 noundef %17)
   br label %err
 
 if.end50:                                         ; preds = %if.end44
@@ -1181,16 +1172,16 @@ if.end50:                                         ; preds = %if.end44
 
 if.then53:                                        ; preds = %if.end50
   %call54 = tail call ptr @__errno_location() #15
-  %24 = load i32, ptr %call54, align 4
-  call void (i32, ptr, ptr, ...) @oss_logerr2(i32 noundef %24, ptr noundef nonnull %cond12, ptr noundef nonnull @.str.18)
+  %18 = load i32, ptr %call54, align 4
+  call void (i32, ptr, ptr, ...) @oss_logerr2(i32 noundef %18, ptr noundef nonnull %cond12, ptr noundef nonnull @.str.18)
   br label %err
 
 if.then57:                                        ; preds = %if.end50
-  %25 = load i32, ptr %nfrags, align 4
-  %shl = shl i32 %25, 16
-  %26 = load i32, ptr %fragsize, align 4
-  %27 = call i32 @llvm.cttz.i32(i32 %26, i1 false), !range !10
-  %or61 = or disjoint i32 %27, %shl
+  %19 = load i32, ptr %nfrags, align 4
+  %shl = shl i32 %19, 16
+  %20 = load i32, ptr %fragsize, align 4
+  %21 = call i32 @llvm.cttz.i32(i32 %20, i1 false), !range !10
+  %or61 = or disjoint i32 %21, %shl
   store i32 %or61, ptr %mmmmssss, align 4
   %call62 = call i32 (i32, i64, ...) @ioctl(i32 noundef %call, i64 noundef 3221508106, ptr noundef nonnull %mmmmssss) #13
   %tobool63.not = icmp eq i32 %call62, 0
@@ -1198,10 +1189,10 @@ if.then57:                                        ; preds = %if.end50
 
 if.then64:                                        ; preds = %if.then57
   %call65 = tail call ptr @__errno_location() #15
-  %28 = load i32, ptr %call65, align 4
-  %29 = load i32, ptr %nfrags, align 4
-  %30 = load i32, ptr %fragsize, align 4
-  call void (i32, ptr, ptr, ...) @oss_logerr2(i32 noundef %28, ptr noundef nonnull %cond12, ptr noundef nonnull @.str.19, i32 noundef %29, i32 noundef %30)
+  %22 = load i32, ptr %call65, align 4
+  %23 = load i32, ptr %nfrags, align 4
+  %24 = load i32, ptr %fragsize, align 4
+  call void (i32, ptr, ptr, ...) @oss_logerr2(i32 noundef %22, ptr noundef nonnull %cond12, ptr noundef nonnull @.str.19, i32 noundef %23, i32 noundef %24)
   br label %err
 
 if.end69:                                         ; preds = %if.then57
@@ -1212,37 +1203,37 @@ if.end69:                                         ; preds = %if.then57
 
 if.then74:                                        ; preds = %if.end69
   %call75 = tail call ptr @__errno_location() #15
-  %31 = load i32, ptr %call75, align 4
-  call void (i32, ptr, ptr, ...) @oss_logerr2(i32 noundef %31, ptr noundef nonnull %cond12, ptr noundef nonnull @.str.20)
+  %25 = load i32, ptr %call75, align 4
+  call void (i32, ptr, ptr, ...) @oss_logerr2(i32 noundef %25, ptr noundef nonnull %cond12, ptr noundef nonnull @.str.20)
   br label %err
 
 if.end76:                                         ; preds = %if.end69
   %fragstotal = getelementptr inbounds i8, ptr %abinfo, i64 4
-  %32 = load i32, ptr %fragstotal, align 4
-  %tobool77 = icmp ne i32 %32, 0
+  %26 = load i32, ptr %fragstotal, align 4
+  %tobool77 = icmp ne i32 %26, 0
   %fragsize78 = getelementptr inbounds i8, ptr %abinfo, i64 8
-  %33 = load i32, ptr %fragsize78, align 4
-  %tobool79 = icmp ne i32 %33, 0
+  %27 = load i32, ptr %fragsize78, align 4
+  %tobool79 = icmp ne i32 %27, 0
   %or.cond = select i1 %tobool77, i1 %tobool79, i1 false
   br i1 %or.cond, label %if.end83, label %if.then80
 
 if.then80:                                        ; preds = %if.end76
-  call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.21, i32 noundef %32, i32 noundef %33, ptr noundef nonnull %cond12) #13
+  call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.21, i32 noundef %26, i32 noundef %27, ptr noundef nonnull %cond12) #13
   br label %err
 
 if.end83:                                         ; preds = %if.end76
-  %34 = load i32, ptr %fmt, align 4
+  %28 = load i32, ptr %fmt, align 4
   %fmt84 = getelementptr inbounds i8, ptr %obt, i64 4
-  store i32 %34, ptr %fmt84, align 4
-  %35 = load i32, ptr %nchannels, align 4
+  store i32 %28, ptr %fmt84, align 4
+  %29 = load i32, ptr %nchannels, align 4
   %nchannels85 = getelementptr inbounds i8, ptr %obt, i64 8
-  store i32 %35, ptr %nchannels85, align 4
-  %36 = load i32, ptr %freq, align 4
-  store i32 %36, ptr %obt, align 4
+  store i32 %29, ptr %nchannels85, align 4
+  %30 = load i32, ptr %freq, align 4
+  store i32 %30, ptr %obt, align 4
   %nfrags88 = getelementptr inbounds i8, ptr %obt, i64 12
-  store i32 %32, ptr %nfrags88, align 4
+  store i32 %26, ptr %nfrags88, align 4
   %fragsize90 = getelementptr inbounds i8, ptr %obt, i64 16
-  store i32 %33, ptr %fragsize90, align 4
+  store i32 %27, ptr %fragsize90, align 4
   store i32 %call, ptr %pfd, align 4
   br label %return
 
@@ -1254,8 +1245,8 @@ err:                                              ; preds = %if.then80, %if.then
 
 if.then.i:                                        ; preds = %err
   %call1.i = tail call ptr @__errno_location() #15
-  %37 = load i32, ptr %call1.i, align 4
-  call void (i32, ptr, ...) @oss_logerr(i32 noundef %37, ptr noundef nonnull @.str.25, i32 noundef %call)
+  %31 = load i32, ptr %call1.i, align 4
+  call void (i32, ptr, ...) @oss_logerr(i32 noundef %31, ptr noundef nonnull @.str.25, i32 noundef %call)
   br label %return
 
 return:                                           ; preds = %if.then.i, %err, %if.end83, %if.then
@@ -1274,9 +1265,9 @@ declare ptr @mmap64(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noun
 define internal void @oss_logerr(i32 noundef %err, ptr noundef %fmt, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @AUD_vlog(ptr noundef nonnull @.str, ptr noundef %fmt, ptr noundef nonnull %ap) #13
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %call = call ptr @strerror(i32 noundef %err) #13
   call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.23, ptr noundef %call) #13
   ret void
@@ -1296,9 +1287,9 @@ define internal void @oss_logerr2(i32 noundef %err, ptr noundef %typ, ptr nounde
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.22, ptr noundef %typ) #13
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @AUD_vlog(ptr noundef nonnull @.str, ptr noundef %fmt, ptr noundef nonnull %ap) #13
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %call = call ptr @strerror(i32 noundef %err) #13
   call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.23, ptr noundef %call) #13
   ret void
@@ -1306,26 +1297,20 @@ entry:
 
 declare i32 @audio_buffer_bytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 declare void @AUD_vlog(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
 
 declare void @qemu_set_fd_handler(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nofree
 declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
@@ -1359,6 +1344,12 @@ entry:
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
 
@@ -1376,9 +1367,9 @@ attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nounwind }

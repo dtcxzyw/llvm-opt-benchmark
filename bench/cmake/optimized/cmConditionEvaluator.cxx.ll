@@ -653,9 +653,9 @@ _ZNSt6vectorI25cmExpandedCommandArgumentSaIS0_EEC2ISt14_List_iteratorIS0_EvEET_S
 .preheader.i.i.i38:                               ; preds = %35
   %36 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   %37 = load i8, ptr %8, align 8
-  %38 = and i8 %37, 1
-  %39 = getelementptr inbounds i8, ptr %.sroa.053.071, i64 48
-  store i8 %38, ptr %39, align 8
+  %38 = getelementptr inbounds i8, ptr %.sroa.053.071, i64 48
+  %39 = and i8 %37, 1
+  store i8 %39, ptr %38, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %40 = load ptr, ptr %.sroa.053.071, align 8
@@ -2769,9 +2769,9 @@ define linkonce_odr dso_local void @_ZN20cmConditionEvaluator14cmArgumentList12R
   %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   %10 = getelementptr inbounds i8, ptr %5, i64 32
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %13 = getelementptr inbounds i8, ptr %2, i64 48
-  store i8 %12, ptr %13, align 8
+  %12 = getelementptr inbounds i8, ptr %2, i64 48
+  %13 = and i8 %11, 1
+  store i8 %13, ptr %12, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   %14 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2909,9 +2909,9 @@ define linkonce_odr dso_local void @_ZN20cmConditionEvaluator14cmArgumentList12R
   %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   %10 = getelementptr inbounds i8, ptr %4, i64 32
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %13 = getelementptr inbounds i8, ptr %7, i64 48
-  store i8 %12, ptr %13, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 48
+  %13 = and i8 %11, 1
+  store i8 %13, ptr %12, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   %14 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2953,9 +2953,9 @@ define linkonce_odr dso_local void @_ZN20cmConditionEvaluator14cmArgumentList13R
   %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   %10 = getelementptr inbounds i8, ptr %4, i64 32
   %11 = load i8, ptr %10, align 8
-  %12 = and i8 %11, 1
-  %13 = getelementptr inbounds i8, ptr %7, i64 48
-  store i8 %12, ptr %13, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 48
+  %13 = and i8 %11, 1
+  store i8 %13, ptr %12, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   %14 = getelementptr inbounds i8, ptr %2, i64 16

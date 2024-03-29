@@ -27,9 +27,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PMPI_Win_set_errhandler(ptr noundef %0, ptr noundef %1) #0 {
   %3 = load i8, ptr @ompi_mpi_param_check, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %29, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %29
 
 5:                                                ; preds = %2
   %6 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -55,7 +54,7 @@ ompi_win_invalid.exit:                            ; preds = %10
 
 ompi_win_invalid.exit.thread:                     ; preds = %10, %ompi_win_invalid.exit
   %16 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 53, ptr noundef nonnull @FUNC_NAME) #4
-  br label %66
+  br label %68
 
 17:                                               ; preds = %ompi_win_invalid.exit
   %18 = icmp eq ptr %1, null
@@ -77,16 +76,15 @@ ompi_win_invalid.exit.thread:                     ; preds = %10, %ompi_win_inval
   %26 = getelementptr inbounds i8, ptr %0, i64 264
   %27 = load i32, ptr %26, align 8
   %28 = tail call i32 @ompi_errhandler_invoke(ptr noundef %25, ptr noundef nonnull %0, i32 noundef %27, i32 noundef 13, ptr noundef nonnull @FUNC_NAME) #4
-  br label %66
+  br label %68
 
 29:                                               ; preds = %20, %20, %2
   %30 = getelementptr inbounds i8, ptr %1, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
-  %32 = and i8 %31, 1
-  %.not.i = icmp eq i8 %32, 0
-  br i1 %.not.i, label %opal_thread_add_fetch_32.exit.thread, label %36
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %36, label %opal_thread_add_fetch_32.exit
 
-opal_thread_add_fetch_32.exit.thread:             ; preds = %29
+opal_thread_add_fetch_32.exit:                    ; preds = %29
   %33 = load volatile i32, ptr %30, align 4
   %34 = add nsw i32 %33, 1
   store volatile i32 %34, ptr %30, align 4
@@ -100,34 +98,33 @@ opal_thread_add_fetch_32.exit.thread:             ; preds = %29
   %.pre = load i8, ptr @opal_uses_threads, align 1
   br label %40
 
-40:                                               ; preds = %opal_thread_add_fetch_32.exit.thread, %36
-  %41 = phi i8 [ %31, %opal_thread_add_fetch_32.exit.thread ], [ %.pre, %36 ]
+40:                                               ; preds = %opal_thread_add_fetch_32.exit, %36
+  %41 = phi i8 [ %31, %opal_thread_add_fetch_32.exit ], [ %.pre, %36 ]
   %42 = getelementptr inbounds i8, ptr %0, i64 256
   %43 = load ptr, ptr %42, align 8
   store ptr %1, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 8
-  %45 = and i8 %41, 1
-  %.not.i30 = icmp eq i8 %45, 0
-  br i1 %.not.i30, label %49, label %46
+  %45 = trunc i8 %41 to i1
+  br i1 %45, label %46, label %49
 
 46:                                               ; preds = %40
   %47 = atomicrmw volatile add ptr %44, i32 -1 monotonic, align 4
   %48 = add i32 %47, -1
-  br label %opal_thread_add_fetch_32.exit32
+  br label %opal_thread_add_fetch_32.exit28
 
 49:                                               ; preds = %40
   %50 = load volatile i32, ptr %44, align 4
   %51 = add nsw i32 %50, -1
   store volatile i32 %51, ptr %44, align 4
   %52 = load volatile i32, ptr %44, align 4
-  br label %opal_thread_add_fetch_32.exit32
+  br label %opal_thread_add_fetch_32.exit28
 
-opal_thread_add_fetch_32.exit32:                  ; preds = %46, %49
-  %.0.i31 = phi i32 [ %48, %46 ], [ %52, %49 ]
-  %53 = icmp eq i32 %.0.i31, 0
+opal_thread_add_fetch_32.exit28:                  ; preds = %46, %49
+  %.0.i27 = phi i32 [ %48, %46 ], [ %52, %49 ]
+  %53 = icmp eq i32 %.0.i27, 0
   br i1 %53, label %54, label %62
 
-54:                                               ; preds = %opal_thread_add_fetch_32.exit32
+54:                                               ; preds = %opal_thread_add_fetch_32.exit28
   %55 = load ptr, ptr %43, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 48
   %57 = load ptr, ptr %56, align 8
@@ -141,27 +138,26 @@ opal_thread_add_fetch_32.exit32:                  ; preds = %46, %49
   tail call void %59(ptr noundef nonnull %43) #4
   %60 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %61 = load ptr, ptr %60, align 8
-  %.not.i33 = icmp eq ptr %61, null
-  br i1 %.not.i33, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
+  %.not.i = icmp eq ptr %61, null
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %54
   tail call void @free(ptr noundef %43) #4
-  %.pre36 = load i8, ptr @opal_uses_threads, align 1
-  %.pre37 = and i8 %.pre36, 1
+  %.pre31 = load i8, ptr @opal_uses_threads, align 1
   br label %62
 
-62:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit32
-  %.pre-phi = phi i8 [ %.pre37, %opal_obj_run_destructors.exit ], [ %45, %opal_thread_add_fetch_32.exit32 ]
-  %.not28 = icmp eq i8 %.pre-phi, 0
-  br i1 %.not28, label %66, label %63
+62:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit28
+  %63 = phi i8 [ %.pre31, %opal_obj_run_destructors.exit ], [ %41, %opal_thread_add_fetch_32.exit28 ]
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %65, label %68
 
-63:                                               ; preds = %62
-  %64 = getelementptr inbounds i8, ptr %0, i64 112
-  %65 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %64) #4
-  br label %66
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds i8, ptr %0, i64 112
+  %67 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %66) #4
+  br label %68
 
-66:                                               ; preds = %63, %62, %23, %ompi_win_invalid.exit.thread
-  %.0 = phi i32 [ %16, %ompi_win_invalid.exit.thread ], [ %28, %23 ], [ 0, %62 ], [ 0, %63 ]
+68:                                               ; preds = %65, %62, %23, %ompi_win_invalid.exit.thread
+  %.0 = phi i32 [ %16, %ompi_win_invalid.exit.thread ], [ %28, %23 ], [ 0, %62 ], [ 0, %65 ]
   ret i32 %.0
 }
 

@@ -122,9 +122,8 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef re
 61:                                               ; preds = %38
   %62 = getelementptr inbounds i8, ptr %0, i64 4
   %63 = load i8, ptr %62, align 4
-  %64 = and i8 %63, 1
-  %.not56 = icmp eq i8 %64, 0
-  br i1 %.not56, label %65, label %69
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %69, label %65
 
 65:                                               ; preds = %61
   %66 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -184,8 +183,8 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef re
   %94 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 0, ptr %94, align 4
   call void @add_exact_object_address(ptr noundef nonnull %8, ptr noundef %92) #5
-  %.not57 = icmp eq i32 %.0, 0
-  br i1 %.not57, label %96, label %95
+  %.not56 = icmp eq i32 %.0, 0
+  br i1 %.not56, label %96, label %95
 
 95:                                               ; preds = %89
   store i32 1255, ptr %8, align 4
@@ -195,8 +194,8 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef re
   br label %96
 
 96:                                               ; preds = %95, %89
-  %.not58 = icmp eq i32 %.049, 0
-  br i1 %.not58, label %98, label %97
+  %.not57 = icmp eq i32 %.049, 0
+  br i1 %.not57, label %98, label %97
 
 97:                                               ; preds = %96
   store i32 1255, ptr %8, align 4
@@ -209,8 +208,8 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef re
   call void @record_object_address_dependencies(ptr noundef nonnull %2, ptr noundef %92, i32 noundef 110) #5
   call void @free_object_addresses(ptr noundef %92) #5
   %99 = load ptr, ptr @object_access_hook, align 8
-  %.not59 = icmp eq ptr %99, null
-  br i1 %.not59, label %102, label %100
+  %.not58 = icmp eq ptr %99, null
+  br i1 %.not58, label %102, label %100
 
 100:                                              ; preds = %98
   %101 = load i32, ptr %91, align 4

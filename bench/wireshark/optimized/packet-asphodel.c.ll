@@ -654,204 +654,203 @@ define internal i32 @dissect_asphodel_tcp_pdu(ptr noundef %0, ptr noundef %1, pt
   %17 = getelementptr inbounds i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.210) #4
-  br label %124
+  br label %123
 
 19:                                               ; preds = %4
   %20 = load i32, ptr @hf_asphodel_type, align 4
   %21 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %20, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #4
   %22 = load i32, ptr %6, align 4
   %23 = icmp ult i32 %22, 7
-  br i1 %23, label %switch.hole_check, label %26
+  br i1 %23, label %switch.hole_check, label %25
 
 switch.hole_check:                                ; preds = %19
   %switch.maskindex = trunc i32 %22 to i8
   %switch.shifted = lshr i8 79, %switch.maskindex
-  %24 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %24, 0
-  br i1 %switch.lobit.not, label %26, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %25
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %25 = zext nneg i32 %22 to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.dissect_asphodel_tcp_pdu, i64 0, i64 %25
+  %24 = zext nneg i32 %22 to i64
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.dissect_asphodel_tcp_pdu, i64 0, i64 %24
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %9, ptr noundef nonnull %switch.load) #4
   %.pr = load i32, ptr %6, align 4
-  br label %26
+  br label %25
 
-26:                                               ; preds = %switch.hole_check, %19, %switch.lookup
-  %27 = phi i32 [ %.pr, %switch.lookup ], [ %22, %19 ], [ %22, %switch.hole_check ]
-  switch i32 %27, label %119 [
-    i32 0, label %28
-    i32 2, label %28
-    i32 1, label %63
-    i32 3, label %63
-    i32 6, label %75
+25:                                               ; preds = %switch.hole_check, %19, %switch.lookup
+  %26 = phi i32 [ %.pr, %switch.lookup ], [ %22, %19 ], [ %22, %switch.hole_check ]
+  switch i32 %26, label %118 [
+    i32 0, label %27
+    i32 2, label %27
+    i32 1, label %62
+    i32 3, label %62
+    i32 6, label %74
   ]
 
-28:                                               ; preds = %26, %26
-  %29 = load i32, ptr %5, align 4
-  %30 = icmp ugt i32 %29, 2
-  br i1 %30, label %31, label %61
+27:                                               ; preds = %25, %25
+  %28 = load i32, ptr %5, align 4
+  %29 = icmp ugt i32 %28, 2
+  br i1 %29, label %30, label %60
 
-31:                                               ; preds = %28
-  %32 = load i32, ptr @hf_asphodel_seq, align 4
-  %33 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %32, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
-  %34 = load i32, ptr @hf_asphodel_cmd, align 4
-  %35 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %34, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #4
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = load i32, ptr %7, align 4
-  %39 = call ptr @val_to_str(i32 noundef %38, ptr noundef nonnull @asphodel_cmd_vals, ptr noundef nonnull @.str.217) #4
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %37, i32 noundef 25, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.216, ptr noundef %39) #4
-  %40 = load i32, ptr %7, align 4
-  %41 = icmp eq i32 %40, 255
-  %42 = load i32, ptr %5, align 4
-  %43 = icmp ugt i32 %42, 3
-  br i1 %41, label %44, label %57
+30:                                               ; preds = %27
+  %31 = load i32, ptr @hf_asphodel_seq, align 4
+  %32 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %31, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
+  %33 = load i32, ptr @hf_asphodel_cmd, align 4
+  %34 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %33, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #4
+  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = load i32, ptr %7, align 4
+  %38 = call ptr @val_to_str(i32 noundef %37, ptr noundef nonnull @asphodel_cmd_vals, ptr noundef nonnull @.str.217) #4
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.216, ptr noundef %38) #4
+  %39 = load i32, ptr %7, align 4
+  %40 = icmp eq i32 %39, 255
+  %41 = load i32, ptr %5, align 4
+  %42 = icmp ugt i32 %41, 3
+  br i1 %40, label %43, label %56
 
-44:                                               ; preds = %31
-  br i1 %43, label %45, label %53
+43:                                               ; preds = %30
+  br i1 %42, label %44, label %52
 
-45:                                               ; preds = %44
-  %46 = load i32, ptr @hf_asphodel_err_code, align 4
-  %47 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %46, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
-  %48 = load i32, ptr %5, align 4
-  %49 = icmp ugt i32 %48, 4
-  br i1 %49, label %50, label %55
+44:                                               ; preds = %43
+  %45 = load i32, ptr @hf_asphodel_err_code, align 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %45, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
+  %47 = load i32, ptr %5, align 4
+  %48 = icmp ugt i32 %47, 4
+  br i1 %48, label %49, label %54
 
-50:                                               ; preds = %45
-  %51 = load i32, ptr @hf_asphodel_params, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %51, ptr noundef %0, i32 noundef 6, i32 noundef -1, i32 noundef 0) #4
-  br label %55
+49:                                               ; preds = %44
+  %50 = load i32, ptr @hf_asphodel_params, align 4
+  %51 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %50, ptr noundef %0, i32 noundef 6, i32 noundef -1, i32 noundef 0) #4
+  br label %54
 
-53:                                               ; preds = %44
-  %54 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %9, ptr noundef nonnull @ei_asphodel_bad_length) #4
-  br label %55
+52:                                               ; preds = %43
+  %53 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %9, ptr noundef nonnull @ei_asphodel_bad_length) #4
+  br label %54
 
-55:                                               ; preds = %45, %50, %53
-  %56 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %9, ptr noundef nonnull @ei_asphodel_cmd_error) #4
-  br label %124
+54:                                               ; preds = %44, %49, %52
+  %55 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %9, ptr noundef nonnull @ei_asphodel_cmd_error) #4
+  br label %123
 
-57:                                               ; preds = %31
-  br i1 %43, label %58, label %124
+56:                                               ; preds = %30
+  br i1 %42, label %57, label %123
 
-58:                                               ; preds = %57
-  %59 = load i32, ptr @hf_asphodel_params, align 4
-  %60 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %59, ptr noundef %0, i32 noundef 5, i32 noundef -1, i32 noundef 0) #4
-  br label %124
+57:                                               ; preds = %56
+  %58 = load i32, ptr @hf_asphodel_params, align 4
+  %59 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %58, ptr noundef %0, i32 noundef 5, i32 noundef -1, i32 noundef 0) #4
+  br label %123
 
-61:                                               ; preds = %28
-  %62 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @ei_asphodel_bad_length) #4
-  br label %124
+60:                                               ; preds = %27
+  %61 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @ei_asphodel_bad_length) #4
+  br label %123
 
-63:                                               ; preds = %26, %26
-  %64 = load i32, ptr %5, align 4
-  %65 = icmp ugt i32 %64, 1
-  br i1 %65, label %66, label %73
+62:                                               ; preds = %25, %25
+  %63 = load i32, ptr %5, align 4
+  %64 = icmp ugt i32 %63, 1
+  br i1 %64, label %65, label %72
 
-66:                                               ; preds = %63
-  %67 = load i32, ptr @hf_asphodel_stream_data, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %67, ptr noundef %0, i32 noundef 3, i32 noundef -1, i32 noundef 0) #4
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = load i32, ptr %5, align 4
-  %72 = add i32 %71, -1
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %70, i32 noundef 25, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.218, i32 noundef %72) #4
-  br label %124
+65:                                               ; preds = %62
+  %66 = load i32, ptr @hf_asphodel_stream_data, align 4
+  %67 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %66, ptr noundef %0, i32 noundef 3, i32 noundef -1, i32 noundef 0) #4
+  %68 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = load i32, ptr %5, align 4
+  %71 = add i32 %70, -1
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.218, i32 noundef %71) #4
+  br label %123
 
-73:                                               ; preds = %63
-  %74 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @ei_asphodel_bad_length) #4
-  br label %124
+72:                                               ; preds = %62
+  %73 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @ei_asphodel_bad_length) #4
+  br label %123
 
-75:                                               ; preds = %26
-  %76 = load i32, ptr %5, align 4
-  switch i32 %76, label %115 [
-    i32 1, label %77
-    i32 6, label %89
+74:                                               ; preds = %25
+  %75 = load i32, ptr %5, align 4
+  switch i32 %75, label %114 [
+    i32 1, label %76
+    i32 6, label %88
   ]
 
-77:                                               ; preds = %75
-  %78 = load i32, ptr @hf_asphodel_notify, align 4
-  %79 = call ptr @proto_tree_add_boolean(ptr noundef %11, i32 noundef %78, ptr noundef %0, i32 noundef 2, i32 noundef 1, i64 noundef 0) #4
-  %.not.i = icmp eq ptr %79, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %80
+76:                                               ; preds = %74
+  %77 = load i32, ptr @hf_asphodel_notify, align 4
+  %78 = call ptr @proto_tree_add_boolean(ptr noundef %11, i32 noundef %77, ptr noundef %0, i32 noundef 2, i32 noundef 1, i64 noundef 0) #4
+  %.not.i = icmp eq ptr %78, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %79
 
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %79, i64 32
-  %82 = load ptr, ptr %81, align 8
-  %.not5.i = icmp eq ptr %82, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %83
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds i8, ptr %78, i64 32
+  %81 = load ptr, ptr %80, align 8
+  %.not5.i = icmp eq ptr %81, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %82
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %82, i64 28
-  %85 = load i32, ptr %84, align 4
-  %86 = or i32 %85, 2
-  store i32 %86, ptr %84, align 4
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds i8, ptr %81, i64 28
+  %84 = load i32, ptr %83, align 4
+  %85 = or i32 %84, 2
+  store i32 %85, ptr %83, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %77, %80, %83
-  %87 = getelementptr inbounds i8, ptr %1, i64 8
-  %88 = load ptr, ptr %87, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %88, i32 noundef 25, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.219) #4
-  br label %124
+proto_item_set_generated.exit:                    ; preds = %76, %79, %82
+  %86 = getelementptr inbounds i8, ptr %1, i64 8
+  %87 = load ptr, ptr %86, align 8
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %87, i32 noundef 25, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.219) #4
+  br label %123
 
-89:                                               ; preds = %75
-  %90 = load i32, ptr @hf_asphodel_notify, align 4
-  %91 = call ptr @proto_tree_add_boolean(ptr noundef %11, i32 noundef %90, ptr noundef %0, i32 noundef 2, i32 noundef 1, i64 noundef 1) #4
-  %.not.i64 = icmp eq ptr %91, null
-  br i1 %.not.i64, label %proto_item_set_generated.exit66, label %92
+88:                                               ; preds = %74
+  %89 = load i32, ptr @hf_asphodel_notify, align 4
+  %90 = call ptr @proto_tree_add_boolean(ptr noundef %11, i32 noundef %89, ptr noundef %0, i32 noundef 2, i32 noundef 1, i64 noundef 1) #4
+  %.not.i64 = icmp eq ptr %90, null
+  br i1 %.not.i64, label %proto_item_set_generated.exit66, label %91
 
-92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %91, i64 32
-  %94 = load ptr, ptr %93, align 8
-  %.not5.i65 = icmp eq ptr %94, null
-  br i1 %.not5.i65, label %proto_item_set_generated.exit66, label %95
+91:                                               ; preds = %88
+  %92 = getelementptr inbounds i8, ptr %90, i64 32
+  %93 = load ptr, ptr %92, align 8
+  %.not5.i65 = icmp eq ptr %93, null
+  br i1 %.not5.i65, label %proto_item_set_generated.exit66, label %94
 
-95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %94, i64 28
-  %97 = load i32, ptr %96, align 4
-  %98 = or i32 %97, 2
-  store i32 %98, ptr %96, align 4
+94:                                               ; preds = %91
+  %95 = getelementptr inbounds i8, ptr %93, i64 28
+  %96 = load i32, ptr %95, align 4
+  %97 = or i32 %96, 2
+  store i32 %97, ptr %95, align 4
   br label %proto_item_set_generated.exit66
 
-proto_item_set_generated.exit66:                  ; preds = %89, %92, %95
-  %99 = getelementptr inbounds i8, ptr %1, i64 8
-  %100 = load ptr, ptr %99, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %100, i32 noundef 25, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.220) #4
-  %101 = load i32, ptr @hf_asphodel_notify_serial, align 4
-  %102 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %101, ptr noundef %0, i32 noundef 3, i32 noundef 4, i32 noundef 0) #4
-  %103 = load i32, ptr @hf_asphodel_protocol_type, align 4
-  %104 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %103, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #4
-  %105 = load i32, ptr @ett_asphodel_protocol_type, align 4
-  %106 = call ptr @proto_item_add_subtree(ptr noundef %104, i32 noundef %105) #4
-  %107 = load i32, ptr @hf_asphodel_protocol_type_rf_power, align 4
-  %108 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %107, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #4
-  %109 = load i32, ptr @hf_asphodel_protocol_type_radio, align 4
-  %110 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %109, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #4
-  %111 = load i32, ptr @hf_asphodel_protocol_type_remote, align 4
-  %112 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %111, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #4
-  %113 = load i32, ptr @hf_asphodel_protocol_type_bootloader, align 4
-  %114 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %113, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #4
-  br label %124
+proto_item_set_generated.exit66:                  ; preds = %88, %91, %94
+  %98 = getelementptr inbounds i8, ptr %1, i64 8
+  %99 = load ptr, ptr %98, align 8
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %99, i32 noundef 25, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.220) #4
+  %100 = load i32, ptr @hf_asphodel_notify_serial, align 4
+  %101 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %100, ptr noundef %0, i32 noundef 3, i32 noundef 4, i32 noundef 0) #4
+  %102 = load i32, ptr @hf_asphodel_protocol_type, align 4
+  %103 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %102, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #4
+  %104 = load i32, ptr @ett_asphodel_protocol_type, align 4
+  %105 = call ptr @proto_item_add_subtree(ptr noundef %103, i32 noundef %104) #4
+  %106 = load i32, ptr @hf_asphodel_protocol_type_rf_power, align 4
+  %107 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %106, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #4
+  %108 = load i32, ptr @hf_asphodel_protocol_type_radio, align 4
+  %109 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %108, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #4
+  %110 = load i32, ptr @hf_asphodel_protocol_type_remote, align 4
+  %111 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %110, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #4
+  %112 = load i32, ptr @hf_asphodel_protocol_type_bootloader, align 4
+  %113 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %112, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #4
+  br label %123
 
-115:                                              ; preds = %75
-  %116 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @ei_asphodel_bad_length) #4
-  %117 = getelementptr inbounds i8, ptr %1, i64 8
-  %118 = load ptr, ptr %117, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %118, i32 noundef 25, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.58) #4
-  br label %124
+114:                                              ; preds = %74
+  %115 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @ei_asphodel_bad_length) #4
+  %116 = getelementptr inbounds i8, ptr %1, i64 8
+  %117 = load ptr, ptr %116, align 8
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %117, i32 noundef 25, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.58) #4
+  br label %123
 
-119:                                              ; preds = %26
-  %120 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @ei_asphodel_unknown_type) #4
-  %121 = getelementptr inbounds i8, ptr %1, i64 8
-  %122 = load ptr, ptr %121, align 8
-  %123 = load i32, ptr %6, align 4
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %122, i32 noundef 25, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.221, i32 noundef %123) #4
-  br label %124
+118:                                              ; preds = %25
+  %119 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @ei_asphodel_unknown_type) #4
+  %120 = getelementptr inbounds i8, ptr %1, i64 8
+  %121 = load ptr, ptr %120, align 8
+  %122 = load i32, ptr %6, align 4
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %121, i32 noundef 25, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.221, i32 noundef %122) #4
+  br label %123
 
-124:                                              ; preds = %119, %55, %58, %57, %61, %73, %66, %proto_item_set_generated.exit66, %115, %proto_item_set_generated.exit, %16
-  %125 = call i32 @tvb_captured_length(ptr noundef %0) #4
-  ret i32 %125
+123:                                              ; preds = %118, %54, %57, %56, %60, %72, %65, %proto_item_set_generated.exit66, %114, %proto_item_set_generated.exit, %16
+  %124 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  ret i32 %124
 }
 
 declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2

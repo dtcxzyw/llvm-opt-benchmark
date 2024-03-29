@@ -2026,8 +2026,8 @@ define internal fastcc void @"_ZN73_$LT$schemars..schema..SchemaObject$u20$as$u2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store i64 -9223372036854775808, ptr %3, align 8
   %8 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !430, !noalias !431, !noundef !18
-  %trunc.not.i.i.i = icmp eq i64 %8, 0
-  br i1 %trunc.not.i.i.i, label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i, label %14
+  %trunc.i.i.i = trunc i64 %8 to i1
+  br i1 %trunc.i.i.i, label %14, label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i
 
 _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i: ; preds = %1
   %9 = invoke noundef align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17ha7b3bc048202941eE.llvm.11910201967833005677"(ptr noundef nonnull align 8 @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, ptr noalias noundef align 8 dereferenceable_or_null(24) null)
@@ -2051,7 +2051,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i: ; 
 .noexc6:                                          ; preds = %13
   unreachable
 
-14:                                               ; preds = %1, %.noexc
+14:                                               ; preds = %.noexc, %1
   %.0.i.i2.i = phi ptr [ %9, %.noexc ], [ getelementptr inbounds ({ { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 0, i32 0, i32 0, i32 0, i32 1, i64 0), %1 ]
   %15 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr null, ptr %15, align 8

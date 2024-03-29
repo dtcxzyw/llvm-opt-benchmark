@@ -255,19 +255,18 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load i8, ptr %string, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  %3 = getelementptr inbounds i8, ptr %string, i64 16
-  %4 = load ptr, ptr %3, align 8
-  %conv8 = trunc i64 %0 to i32
-  br i1 %tobool.i.not, label %if.end5, label %if.then2
+  %tobool.i = trunc i8 %1 to i1
+  %2 = getelementptr inbounds i8, ptr %string, i64 16
+  %3 = load ptr, ptr %2, align 8
+  %conv = trunc i64 %0 to i32
+  br i1 %tobool.i, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %if.end
-  tail call void @_ZN4node9inspector8protocol19parseJSONCharactersEPKhj(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %4, i32 noundef %conv8) #8
+  tail call void @_ZN4node9inspector8protocol19parseJSONCharactersEPKhj(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %3, i32 noundef %conv) #8
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  tail call void @_ZN4node9inspector8protocol19parseJSONCharactersEPKtj(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %4, i32 noundef %conv8) #8
+  tail call void @_ZN4node9inspector8protocol19parseJSONCharactersEPKtj(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %3, i32 noundef %conv) #8
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then2, %if.then
@@ -298,20 +297,19 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load i8, ptr %view, align 8
-  %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  %3 = getelementptr inbounds i8, ptr %view, i64 16
-  %4 = load ptr, ptr %3, align 8
-  br i1 %tobool.i.not, label %if.end6, label %if.then2
+  %tobool.i = trunc i8 %1 to i1
+  %2 = getelementptr inbounds i8, ptr %view, i64 16
+  %3 = load ptr, ptr %2, align 8
+  br i1 %tobool.i, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %4, i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %3, i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #8
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %call9 = tail call noundef i64 @_ZN7simdutf22utf8_length_from_utf16EPKDsm(ptr noundef %4, i64 noundef %0) #8
+  %call9 = tail call noundef i64 @_ZN7simdutf22utf8_length_from_utf16EPKDsm(ptr noundef %3, i64 noundef %0) #8
   store i64 0, ptr %buffer, align 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %buf_st_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
@@ -320,8 +318,8 @@ if.end6:                                          ; preds = %if.end
   store ptr %buf_st_.i.i, ptr %buf_.i.i, align 8
   store i8 0, ptr %buf_st_.i.i, align 8
   call void @_ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm(ptr noundef nonnull align 8 dereferenceable(1048) %buffer, i64 noundef %call9)
-  %5 = load ptr, ptr %buf_.i.i, align 8
-  %call12 = call noundef i64 @_ZN7simdutf21convert_utf16_to_utf8EPKDsmPc(ptr noundef %4, i64 noundef %0, ptr noundef %5) #8
+  %4 = load ptr, ptr %buf_.i.i, align 8
+  %call12 = call noundef i64 @_ZN7simdutf21convert_utf16_to_utf8EPKDsmPc(ptr noundef %3, i64 noundef %0, ptr noundef %4) #8
   %cmp13 = icmp ne i64 %call12, 0
   %cmp14 = icmp ne i64 %call12, %call9
   %.not = and i1 %cmp13, %cmp14
@@ -333,18 +331,18 @@ do.body18:                                        ; preds = %if.end6
   unreachable
 
 do.end21:                                         ; preds = %if.end6
-  %6 = load ptr, ptr %buf_.i.i, align 8
+  %5 = load ptr, ptr %buf_.i.i, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %6, i64 noundef %call12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %5, i64 noundef %call12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #8
-  %7 = load ptr, ptr %buf_.i.i, align 8
-  %cmp.i.i.i = icmp ne ptr %7, null
-  %cmp.i.i = icmp ne ptr %7, %buf_st_.i.i
-  %8 = and i1 %cmp.i.i.i, %cmp.i.i
-  br i1 %8, label %if.then.i, label %return
+  %6 = load ptr, ptr %buf_.i.i, align 8
+  %cmp.i.i.i = icmp ne ptr %6, null
+  %cmp.i.i = icmp ne ptr %6, %buf_st_.i.i
+  %7 = and i1 %cmp.i.i.i, %cmp.i.i
+  br i1 %7, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %do.end21
-  call void @free(ptr noundef nonnull %7) #8
+  call void @free(ptr noundef nonnull %6) #8
   br label %return
 
 return:                                           ; preds = %if.then.i, %do.end21, %if.then2, %if.then

@@ -596,46 +596,41 @@ invoke.cont204:                                   ; preds = %for.end167
   store <2 x float> %retval.sroa.3.12.vec.insert.i310, ptr %ref.tmp202.sroa.2.0.m_cachedSeparatingAxis.i.sroa_idx, align 8
   call void @_ZN17btGjkPairDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull align 8 dereferenceable(100) %gjkdet, ptr noundef nonnull align 4 dereferenceable(132) %input, ptr noundef nonnull align 8 dereferenceable(8) %res, ptr noundef %debugDraw, i1 noundef zeroext false)
   %269 = load i8, ptr %m_hasResult.i, align 4
-  %270 = and i8 %269, 1
-  %tobool211.not = icmp eq i8 %270, 0
-  br i1 %tobool211.not, label %if.end222, label %invoke.cont218
+  %tobool211 = trunc i8 %269 to i1
+  br i1 %tobool211, label %invoke.cont218, label %return
 
 invoke.cont218:                                   ; preds = %invoke.cont204
   %m_depth = getelementptr inbounds i8, ptr %res, i64 40
-  %271 = load float, ptr %m_depth, align 8
-  %sub = fsub float %add186, %271
+  %270 = load float, ptr %m_depth, align 8
+  %sub = fsub float %add186, %270
   %m_pointInWorld = getelementptr inbounds i8, ptr %res, i64 24
   %mul8.i320 = fmul float %minNorm.sroa.19.0.lcssa, %sub
-  %272 = insertelement <2 x float> poison, float %sub, i64 0
-  %273 = shufflevector <2 x float> %272, <2 x float> poison, <2 x i32> zeroinitializer
-  %274 = fmul <2 x float> %261, %273
-  %275 = load <2 x float>, ptr %m_pointInWorld, align 8
-  %276 = fsub <2 x float> %275, %274
+  %271 = insertelement <2 x float> poison, float %sub, i64 0
+  %272 = shufflevector <2 x float> %271, <2 x float> poison, <2 x i32> zeroinitializer
+  %273 = fmul <2 x float> %261, %272
+  %274 = load <2 x float>, ptr %m_pointInWorld, align 8
+  %275 = fsub <2 x float> %274, %273
   %arrayidx11.i330 = getelementptr inbounds i8, ptr %res, i64 32
-  %277 = load float, ptr %arrayidx11.i330, align 8
-  %sub14.i332 = fsub float %277, %mul8.i320
+  %276 = load float, ptr %arrayidx11.i330, align 8
+  %sub14.i332 = fsub float %276, %mul8.i320
   %retval.sroa.3.12.vec.insert.i335 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i332, i64 0
-  store <2 x float> %276, ptr %pa, align 4
+  store <2 x float> %275, ptr %pa, align 4
   %ref.tmp213.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %pa, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i335, ptr %ref.tmp213.sroa.2.0..sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pb, ptr noundef nonnull align 8 dereferenceable(16) %m_pointInWorld, i64 16, i1 false)
-  %278 = extractelement <2 x float> %261, i64 0
-  store float %278, ptr %v, align 4
+  %277 = extractelement <2 x float> %261, i64 0
+  store float %277, ptr %v, align 4
   %minNorm.sroa.10.0.v.sroa_idx = getelementptr inbounds i8, ptr %v, i64 4
-  %279 = extractelement <2 x float> %261, i64 1
-  store float %279, ptr %minNorm.sroa.10.0.v.sroa_idx, align 4
+  %278 = extractelement <2 x float> %261, i64 1
+  store float %278, ptr %minNorm.sroa.10.0.v.sroa_idx, align 4
   %minNorm.sroa.19.0.v.sroa_idx = getelementptr inbounds i8, ptr %v, i64 8
   store float %minNorm.sroa.19.0.lcssa, ptr %minNorm.sroa.19.0.v.sroa_idx, align 4
   %minNorm.sroa.28.0.v.sroa_idx = getelementptr inbounds i8, ptr %v, i64 12
   store float %minNorm.sroa.28.0.lcssa, ptr %minNorm.sroa.28.0.v.sroa_idx, align 4
-  br label %if.end222
-
-if.end222:                                        ; preds = %invoke.cont218, %invoke.cont204
-  %tobool224 = icmp ne i8 %270, 0
   br label %return
 
-return:                                           ; preds = %for.end167, %if.end222
-  %retval.0 = phi i1 [ %tobool224, %if.end222 ], [ false, %for.end167 ]
+return:                                           ; preds = %invoke.cont204, %invoke.cont218, %for.end167
+  %retval.0 = phi i1 [ false, %for.end167 ], [ true, %invoke.cont218 ], [ false, %invoke.cont204 ]
   ret i1 %retval.0
 }
 

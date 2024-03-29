@@ -1351,37 +1351,34 @@ if.end73.i:                                       ; preds = %_ZN4node21FIXED_ONE
   %15 = load ptr, ptr %errno_string_.i.i.i, align 8
   %call88.i = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %call3.i, i32 noundef %conv) #24
   %call104.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call65.i, ptr nonnull %call2.i, ptr %15, ptr %call88.i) #24
-  %16 = and i16 %call104.i, 1
-  %tobool.i224.not.i = icmp eq i16 %16, 0
-  br i1 %tobool.i224.not.i, label %do.body30, label %lor.lhs.false.i
+  %tobool.i224.i = trunc i16 %call104.i to i1
+  br i1 %tobool.i224.i, label %lor.lhs.false.i, label %do.body30
 
 lor.lhs.false.i:                                  ; preds = %if.end73.i
-  %17 = load ptr, ptr %isolate_data_.i.i.i, align 8
-  %code_string_.i.i.i = getelementptr inbounds i8, ptr %17, i64 488
-  %18 = load ptr, ptr %code_string_.i.i.i, align 8
-  %call132.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call65.i, ptr nonnull %call2.i, ptr %18, ptr %call.i.i) #24
-  %19 = and i16 %call132.i, 1
-  %tobool.i220.not.i = icmp eq i16 %19, 0
-  br i1 %tobool.i220.not.i, label %do.body30, label %lor.rhs.i
+  %16 = load ptr, ptr %isolate_data_.i.i.i, align 8
+  %code_string_.i.i.i = getelementptr inbounds i8, ptr %16, i64 488
+  %17 = load ptr, ptr %code_string_.i.i.i, align 8
+  %call132.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call65.i, ptr nonnull %call2.i, ptr %17, ptr %call.i.i) #24
+  %tobool.i220.i = trunc i16 %call132.i to i1
+  br i1 %tobool.i220.i, label %lor.rhs.i, label %do.body30
 
 lor.rhs.i:                                        ; preds = %lor.lhs.false.i
-  %20 = load ptr, ptr %isolate_data_.i.i.i, align 8
-  %syscall_string_.i.i.i = getelementptr inbounds i8, ptr %20, i64 2280
-  %21 = load ptr, ptr %syscall_string_.i.i.i, align 8
-  %call160.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call65.i, ptr nonnull %call2.i, ptr %21, ptr %call.i15.i) #24
-  %22 = and i16 %call160.i, 1
-  %tobool.i.not.i = icmp eq i16 %22, 0
-  br i1 %tobool.i.not.i, label %do.body30, label %do.end31
+  %18 = load ptr, ptr %isolate_data_.i.i.i, align 8
+  %syscall_string_.i.i.i = getelementptr inbounds i8, ptr %18, i64 2280
+  %19 = load ptr, ptr %syscall_string_.i.i.i, align 8
+  %call160.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call65.i, ptr nonnull %call2.i, ptr %19, ptr %call.i15.i) #24
+  %tobool.i.i = trunc i16 %call160.i to i1
+  br i1 %tobool.i.i, label %do.end31, label %do.body30
 
-do.body30:                                        ; preds = %lor.rhs.i, %_ZN4node21FIXED_ONE_BYTE_STRINGILi3EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit.i, %lor.lhs.false.i, %if.end73.i
+do.body30:                                        ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi3EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit.i, %lor.lhs.false.i, %if.end73.i, %lor.rhs.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4wasi4WASIC1EPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEP16uvwasi_options_sE4args) #24
   tail call void @abort() #25
   unreachable
 
 do.end31:                                         ; preds = %lor.rhs.i
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
-  %23 = load ptr, ptr %isolate_.i, align 8
-  %call37 = tail call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr nonnull %call65.i) #24
+  %20 = load ptr, ptr %isolate_.i, align 8
+  %call37 = tail call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr nonnull %call65.i) #24
   br label %if.end41
 
 if.end41:                                         ; preds = %do.end31, %entry
@@ -1928,9 +1925,8 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit816: ; preds = %if.then.i81
   %call135 = call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %call121, ptr %call2.i) #24
   %ref.tmp114.sroa.275.0.extract.shift = lshr i64 %call135, 32
   %ref.tmp114.sroa.275.0.extract.trunc = trunc i64 %ref.tmp114.sroa.275.0.extract.shift to i32
-  %54 = and i64 %call135, 1
-  %tobool.i.not = icmp eq i64 %54, 0
-  br i1 %tobool.i.not, label %if.then.i839, label %_ZNO2v85MaybeIiE8FromJustEv.exit840
+  %tobool.i = trunc i64 %call135 to i1
+  br i1 %tobool.i, label %_ZNO2v85MaybeIiE8FromJustEv.exit840, label %if.then.i839
 
 if.then.i839:                                     ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit816
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
@@ -1951,9 +1947,8 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit808: ; preds = %if.then.i80
   %call159 = call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %call145, ptr %call2.i) #24
   %ref.tmp137.sroa.276.0.extract.shift = lshr i64 %call159, 32
   %ref.tmp137.sroa.276.0.extract.trunc = trunc i64 %ref.tmp137.sroa.276.0.extract.shift to i32
-  %55 = and i64 %call159, 1
-  %tobool.i1619.not = icmp eq i64 %55, 0
-  br i1 %tobool.i1619.not, label %if.then.i830, label %_ZNO2v85MaybeIiE8FromJustEv.exit831
+  %tobool.i1619 = trunc i64 %call159 to i1
+  br i1 %tobool.i1619, label %_ZNO2v85MaybeIiE8FromJustEv.exit831, label %if.then.i830
 
 if.then.i830:                                     ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit808
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
@@ -1974,9 +1969,8 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit800: ; preds = %if.then.i79
   %call183 = call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %call169, ptr %call2.i) #24
   %ref.tmp161.sroa.277.0.extract.shift = lshr i64 %call183, 32
   %ref.tmp161.sroa.277.0.extract.trunc = trunc i64 %ref.tmp161.sroa.277.0.extract.shift to i32
-  %56 = and i64 %call183, 1
-  %tobool.i1622.not = icmp eq i64 %56, 0
-  br i1 %tobool.i1622.not, label %if.then.i822, label %_ZNO2v85MaybeIiE8FromJustEv.exit
+  %tobool.i1622 = trunc i64 %call183 to i1
+  br i1 %tobool.i1622, label %_ZNO2v85MaybeIiE8FromJustEv.exit, label %if.then.i822
 
 if.then.i822:                                     ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit800
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
@@ -1998,8 +1992,8 @@ cond.end.thread:                                  ; preds = %_ZNO2v85MaybeIiE8Fr
 
 for.body.lr.ph:                                   ; preds = %_ZNO2v85MaybeIiE8FromJustEv.exit
   %conv = zext i32 %call92 to i64
-  %57 = shl nuw nsw i64 %conv, 3
-  %call187 = call noalias noundef nonnull ptr @_Znam(i64 noundef %57) #27
+  %54 = shl nuw nsw i64 %conv, 3
+  %call187 = call noalias noundef nonnull ptr @_Znam(i64 noundef %54) #27
   %argv188 = getelementptr inbounds i8, ptr %options, i64 40
   store ptr %call187, ptr %argv188, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
@@ -2010,8 +2004,8 @@ for.body.lr.ph:                                   ; preds = %_ZNO2v85MaybeIiE8Fr
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4node9Utf8ValueD2Ev.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN4node9Utf8ValueD2Ev.exit ]
-  %58 = trunc i64 %indvars.iv to i32
-  %call196 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %retval.i577.sroa.0.0, ptr %call2.i, i32 noundef %58) #24
+  %55 = trunc i64 %indvars.iv to i32
+  %call196 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %retval.i577.sroa.0.0, ptr %call2.i, i32 noundef %55) #24
   %cmp.i.i1008 = icmp eq ptr %call196, null
   br i1 %cmp.i.i1008, label %if.then.i791, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit792
 
@@ -2020,19 +2014,19 @@ if.then.i791:                                     ; preds = %for.body
   br label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit792
 
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit792: ; preds = %if.then.i791, %for.body
-  %59 = load i64, ptr %call196, align 8
-  %and.i935 = and i64 %59, 3
+  %56 = load i64, ptr %call196, align 8
+  %and.i935 = and i64 %56, 3
   %cmp.i936 = icmp eq i64 %and.i935, 1
   br i1 %cmp.i936, label %if.end.i887, label %do.body213
 
 if.end.i887:                                      ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit792
-  %sub.i.i970 = add nsw i64 %59, -1
-  %60 = inttoptr i64 %sub.i.i970 to ptr
-  %61 = load i64, ptr %60, align 8
-  %sub.i = add i64 %61, 11
-  %62 = inttoptr i64 %sub.i to ptr
-  %63 = load i16, ptr %62, align 2
-  %cmp.i889 = icmp ult i16 %63, 128
+  %sub.i.i970 = add nsw i64 %56, -1
+  %57 = inttoptr i64 %sub.i.i970 to ptr
+  %58 = load i64, ptr %57, align 8
+  %sub.i = add i64 %58, 11
+  %59 = inttoptr i64 %sub.i to ptr
+  %60 = load i16, ptr %59, align 2
+  %cmp.i889 = icmp ult i16 %60, 128
   br i1 %cmp.i889, label %do.end216, label %do.body213
 
 do.body213:                                       ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit792, %if.end.i887
@@ -2041,17 +2035,17 @@ do.body213:                                       ; preds = %_ZN2v810MaybeLocalI
   unreachable
 
 do.end216:                                        ; preds = %if.end.i887
-  %64 = load ptr, ptr %isolate_.i, align 8
-  call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %str, ptr noundef %64, ptr nonnull %call196) #24
-  %65 = load ptr, ptr %buf_.i, align 8
-  %call223 = call noalias ptr @strdup(ptr noundef %65) #24
-  %66 = load ptr, ptr %argv188, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %66, i64 %indvars.iv
+  %61 = load ptr, ptr %isolate_.i, align 8
+  call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %str, ptr noundef %61, ptr nonnull %call196) #24
+  %62 = load ptr, ptr %buf_.i, align 8
+  %call223 = call noalias ptr @strdup(ptr noundef %62) #24
+  %63 = load ptr, ptr %argv188, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %63, i64 %indvars.iv
   store ptr %call223, ptr %arrayidx, align 8
-  %67 = load ptr, ptr %argv188, align 8
-  %arrayidx228 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv
-  %68 = load ptr, ptr %arrayidx228, align 8
-  %cmp229.not = icmp eq ptr %68, null
+  %64 = load ptr, ptr %argv188, align 8
+  %arrayidx228 = getelementptr inbounds ptr, ptr %64, i64 %indvars.iv
+  %65 = load ptr, ptr %arrayidx228, align 8
+  %cmp229.not = icmp eq ptr %65, null
   br i1 %cmp229.not, label %do.body235, label %do.end239
 
 do.body235:                                       ; preds = %do.end216
@@ -2060,14 +2054,14 @@ do.body235:                                       ; preds = %do.end216
   unreachable
 
 do.end239:                                        ; preds = %do.end216
-  %69 = load ptr, ptr %buf_.i, align 8
-  %cmp.i.i.i.i91 = icmp ne ptr %69, null
-  %cmp.i.i.i92 = icmp ne ptr %69, %buf_st_.i.i.i
-  %70 = select i1 %cmp.i.i.i.i91, i1 %cmp.i.i.i92, i1 false
-  br i1 %70, label %if.then.i.i, label %_ZN4node9Utf8ValueD2Ev.exit
+  %66 = load ptr, ptr %buf_.i, align 8
+  %cmp.i.i.i.i91 = icmp ne ptr %66, null
+  %cmp.i.i.i92 = icmp ne ptr %66, %buf_st_.i.i.i
+  %67 = select i1 %cmp.i.i.i.i91, i1 %cmp.i.i.i92, i1 false
+  br i1 %67, label %if.then.i.i, label %_ZN4node9Utf8ValueD2Ev.exit
 
 if.then.i.i:                                      ; preds = %do.end239
-  call void @free(ptr noundef nonnull %69) #24
+  call void @free(ptr noundef nonnull %66) #24
   br label %_ZN4node9Utf8ValueD2Ev.exit
 
 _ZN4node9Utf8ValueD2Ev.exit:                      ; preds = %do.end239, %if.then.i.i
@@ -2077,31 +2071,31 @@ _ZN4node9Utf8ValueD2Ev.exit:                      ; preds = %do.end239, %if.then
 
 lor.lhs.false.i547:                               ; preds = %_ZN4node9Utf8ValueD2Ev.exit, %cond.end.thread
   %argv188155 = phi ptr [ %argv188154, %cond.end.thread ], [ %argv188, %_ZN4node9Utf8ValueD2Ev.exit ]
-  %71 = load i32, ptr %length_.i, align 8
-  %cmp2.i549 = icmp slt i32 %71, 2
+  %68 = load i32, ptr %length_.i, align 8
+  %cmp2.i549 = icmp slt i32 %68, 2
   br i1 %cmp2.i549, label %if.then.i555, label %if.end.i550
 
 if.then.i555:                                     ; preds = %lor.lhs.false.i547
-  %72 = load ptr, ptr %args, align 8
-  %arrayidx.i878 = getelementptr inbounds i8, ptr %72, i64 8
-  %73 = load ptr, ptr %arrayidx.i878, align 8
-  %74 = ptrtoint ptr %73 to i64
-  %add1.i.i1092 = add i64 %74, 608
-  %75 = inttoptr i64 %add1.i.i1092 to ptr
+  %69 = load ptr, ptr %args, align 8
+  %arrayidx.i878 = getelementptr inbounds i8, ptr %69, i64 8
+  %70 = load ptr, ptr %arrayidx.i878, align 8
+  %71 = ptrtoint ptr %70 to i64
+  %add1.i.i1092 = add i64 %71, 608
+  %72 = inttoptr i64 %add1.i.i1092 to ptr
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit558
 
 if.end.i550:                                      ; preds = %lor.lhs.false.i547
-  %76 = load ptr, ptr %values_.i659, align 8
-  %add.ptr.i553 = getelementptr inbounds i8, ptr %76, i64 8
+  %73 = load ptr, ptr %values_.i659, align 8
+  %add.ptr.i553 = getelementptr inbounds i8, ptr %73, i64 8
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit558
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit558: ; preds = %if.end.i550, %if.then.i555
-  %retval.i541.sroa.0.0 = phi ptr [ %75, %if.then.i555 ], [ %add.ptr.i553, %if.end.i550 ]
+  %retval.i541.sroa.0.0 = phi ptr [ %72, %if.then.i555 ], [ %add.ptr.i553, %if.end.i550 ]
   %call250 = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i541.sroa.0.0) #24
   %add = add i32 %call250, 1
   %conv251 = zext i32 %add to i64
-  %77 = shl nuw nsw i64 %conv251, 3
-  %call252 = call noalias noundef nonnull ptr @_Znam(i64 noundef %77) #27
+  %74 = shl nuw nsw i64 %conv251, 3
+  %call252 = call noalias noundef nonnull ptr @_Znam(i64 noundef %74) #27
   %envp = getelementptr inbounds i8, ptr %options, i64 48
   store ptr %call252, ptr %envp, align 8
   %cmp255120.not = icmp eq i32 %call250, 0
@@ -2116,8 +2110,8 @@ for.body256.lr.ph:                                ; preds = %_ZNK2v820FunctionCa
 
 for.body256:                                      ; preds = %for.body256.lr.ph, %_ZN4node9Utf8ValueD2Ev.exit100
   %indvars.iv134 = phi i64 [ 0, %for.body256.lr.ph ], [ %indvars.iv.next135, %_ZN4node9Utf8ValueD2Ev.exit100 ]
-  %78 = trunc i64 %indvars.iv134 to i32
-  %call263 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %retval.i541.sroa.0.0, ptr %call2.i, i32 noundef %78) #24
+  %75 = trunc i64 %indvars.iv134 to i32
+  %call263 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %retval.i541.sroa.0.0, ptr %call2.i, i32 noundef %75) #24
   %cmp.i.i1013 = icmp eq ptr %call263, null
   br i1 %cmp.i.i1013, label %if.then.i783, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit784
 
@@ -2126,19 +2120,19 @@ if.then.i783:                                     ; preds = %for.body256
   br label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit784
 
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit784: ; preds = %if.then.i783, %for.body256
-  %79 = load i64, ptr %call263, align 8
-  %and.i932 = and i64 %79, 3
+  %76 = load i64, ptr %call263, align 8
+  %and.i932 = and i64 %76, 3
   %cmp.i933 = icmp eq i64 %and.i932, 1
   br i1 %cmp.i933, label %if.end.i897, label %do.body280
 
 if.end.i897:                                      ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit784
-  %sub.i.i958 = add nsw i64 %79, -1
-  %80 = inttoptr i64 %sub.i.i958 to ptr
-  %81 = load i64, ptr %80, align 8
-  %sub.i979 = add i64 %81, 11
-  %82 = inttoptr i64 %sub.i979 to ptr
-  %83 = load i16, ptr %82, align 2
-  %cmp.i899 = icmp ult i16 %83, 128
+  %sub.i.i958 = add nsw i64 %76, -1
+  %77 = inttoptr i64 %sub.i.i958 to ptr
+  %78 = load i64, ptr %77, align 8
+  %sub.i979 = add i64 %78, 11
+  %79 = inttoptr i64 %sub.i979 to ptr
+  %80 = load i16, ptr %79, align 2
+  %cmp.i899 = icmp ult i16 %80, 128
   br i1 %cmp.i899, label %do.end285, label %do.body280
 
 do.body280:                                       ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit784, %if.end.i897
@@ -2147,17 +2141,17 @@ do.body280:                                       ; preds = %_ZN2v810MaybeLocalI
   unreachable
 
 do.end285:                                        ; preds = %if.end.i897
-  %84 = load ptr, ptr %isolate_.i93, align 8
-  call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %str286, ptr noundef %84, ptr nonnull %call263) #24
-  %85 = load ptr, ptr %buf_.i94, align 8
-  %call293 = call noalias ptr @strdup(ptr noundef %85) #24
-  %86 = load ptr, ptr %envp, align 8
-  %arrayidx296 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv134
+  %81 = load ptr, ptr %isolate_.i93, align 8
+  call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %str286, ptr noundef %81, ptr nonnull %call263) #24
+  %82 = load ptr, ptr %buf_.i94, align 8
+  %call293 = call noalias ptr @strdup(ptr noundef %82) #24
+  %83 = load ptr, ptr %envp, align 8
+  %arrayidx296 = getelementptr inbounds ptr, ptr %83, i64 %indvars.iv134
   store ptr %call293, ptr %arrayidx296, align 8
-  %87 = load ptr, ptr %envp, align 8
-  %arrayidx300 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv134
-  %88 = load ptr, ptr %arrayidx300, align 8
-  %cmp301.not = icmp eq ptr %88, null
+  %84 = load ptr, ptr %envp, align 8
+  %arrayidx300 = getelementptr inbounds ptr, ptr %84, i64 %indvars.iv134
+  %85 = load ptr, ptr %arrayidx300, align 8
+  %cmp301.not = icmp eq ptr %85, null
   br i1 %cmp301.not, label %do.body307, label %do.end312
 
 do.body307:                                       ; preds = %do.end285
@@ -2166,14 +2160,14 @@ do.body307:                                       ; preds = %do.end285
   unreachable
 
 do.end312:                                        ; preds = %do.end285
-  %89 = load ptr, ptr %buf_.i94, align 8
-  %cmp.i.i.i.i96 = icmp ne ptr %89, null
-  %cmp.i.i.i98 = icmp ne ptr %89, %buf_st_.i.i.i97
-  %90 = select i1 %cmp.i.i.i.i96, i1 %cmp.i.i.i98, i1 false
-  br i1 %90, label %if.then.i.i99, label %_ZN4node9Utf8ValueD2Ev.exit100
+  %86 = load ptr, ptr %buf_.i94, align 8
+  %cmp.i.i.i.i96 = icmp ne ptr %86, null
+  %cmp.i.i.i98 = icmp ne ptr %86, %buf_st_.i.i.i97
+  %87 = select i1 %cmp.i.i.i.i96, i1 %cmp.i.i.i98, i1 false
+  br i1 %87, label %if.then.i.i99, label %_ZN4node9Utf8ValueD2Ev.exit100
 
 if.then.i.i99:                                    ; preds = %do.end312
-  call void @free(ptr noundef nonnull %89) #24
+  call void @free(ptr noundef nonnull %86) #24
   br label %_ZN4node9Utf8ValueD2Ev.exit100
 
 _ZN4node9Utf8ValueD2Ev.exit100:                   ; preds = %do.end312, %if.then.i.i99
@@ -2187,29 +2181,29 @@ for.end315.loopexit:                              ; preds = %_ZN4node9Utf8ValueD
 
 for.end315:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit558, %for.end315.loopexit
   %idxprom317.pre-phi = phi i64 [ %wide.trip.count137, %for.end315.loopexit ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit558 ]
-  %91 = phi ptr [ %.pre, %for.end315.loopexit ], [ %call252, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit558 ]
-  %arrayidx318 = getelementptr inbounds ptr, ptr %91, i64 %idxprom317.pre-phi
+  %88 = phi ptr [ %.pre, %for.end315.loopexit ], [ %call252, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit558 ]
+  %arrayidx318 = getelementptr inbounds ptr, ptr %88, i64 %idxprom317.pre-phi
   store ptr null, ptr %arrayidx318, align 8
-  %92 = load i32, ptr %length_.i, align 8
-  %cmp2.i = icmp slt i32 %92, 3
+  %89 = load i32, ptr %length_.i, align 8
+  %cmp2.i = icmp slt i32 %89, 3
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.end315
-  %93 = load ptr, ptr %args, align 8
-  %arrayidx.i881 = getelementptr inbounds i8, ptr %93, i64 8
-  %94 = load ptr, ptr %arrayidx.i881, align 8
-  %95 = ptrtoint ptr %94 to i64
-  %add1.i.i1103 = add i64 %95, 608
-  %96 = inttoptr i64 %add1.i.i1103 to ptr
+  %90 = load ptr, ptr %args, align 8
+  %arrayidx.i881 = getelementptr inbounds i8, ptr %90, i64 8
+  %91 = load ptr, ptr %arrayidx.i881, align 8
+  %92 = ptrtoint ptr %91 to i64
+  %add1.i.i1103 = add i64 %92, 608
+  %93 = inttoptr i64 %add1.i.i1103 to ptr
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 if.end.i:                                         ; preds = %for.end315
-  %97 = load ptr, ptr %values_.i659, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %97, i64 16
+  %94 = load ptr, ptr %values_.i659, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %94, i64 16
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i
-  %retval.i.sroa.0.0 = phi ptr [ %96, %if.then.i ], [ %add.ptr.i, %if.end.i ]
+  %retval.i.sroa.0.0 = phi ptr [ %93, %if.then.i ], [ %add.ptr.i, %if.end.i ]
   %call330 = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0) #24
   %rem = and i32 %call330, 1
   %cmp331.not = icmp eq i32 %rem, 0
@@ -2277,19 +2271,19 @@ if.then.i768:                                     ; preds = %_ZN2v810MaybeLocalI
   br label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %if.then.i768, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit776
-  %98 = load i64, ptr %call361, align 8
-  %and.i929 = and i64 %98, 3
+  %95 = load i64, ptr %call361, align 8
+  %and.i929 = and i64 %95, 3
   %cmp.i930 = icmp eq i64 %and.i929, 1
   br i1 %cmp.i930, label %if.end.i908, label %do.body394
 
 if.end.i908:                                      ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
-  %sub.i.i946 = add nsw i64 %98, -1
-  %99 = inttoptr i64 %sub.i.i946 to ptr
-  %100 = load i64, ptr %99, align 8
-  %sub.i985 = add i64 %100, 11
-  %101 = inttoptr i64 %sub.i985 to ptr
-  %102 = load i16, ptr %101, align 2
-  %cmp.i910 = icmp ult i16 %102, 128
+  %sub.i.i946 = add nsw i64 %95, -1
+  %96 = inttoptr i64 %sub.i.i946 to ptr
+  %97 = load i64, ptr %96, align 8
+  %sub.i985 = add i64 %97, 11
+  %98 = inttoptr i64 %sub.i985 to ptr
+  %99 = load i16, ptr %98, align 2
+  %cmp.i910 = icmp ult i16 %99, 128
   br i1 %cmp.i910, label %do.body400, label %do.body394
 
 do.body394:                                       ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %if.end.i908
@@ -2298,19 +2292,19 @@ do.body394:                                       ; preds = %_ZN2v810MaybeLocalI
   unreachable
 
 do.body400:                                       ; preds = %if.end.i908
-  %103 = load i64, ptr %call377, align 8
-  %and.i = and i64 %103, 3
+  %100 = load i64, ptr %call377, align 8
+  %and.i = and i64 %100, 3
   %cmp.i927 = icmp eq i64 %and.i, 1
   br i1 %cmp.i927, label %if.end.i919, label %do.body408
 
 if.end.i919:                                      ; preds = %do.body400
-  %sub.i.i = add nsw i64 %103, -1
-  %104 = inttoptr i64 %sub.i.i to ptr
-  %105 = load i64, ptr %104, align 8
-  %sub.i991 = add i64 %105, 11
-  %106 = inttoptr i64 %sub.i991 to ptr
-  %107 = load i16, ptr %106, align 2
-  %cmp.i921 = icmp ult i16 %107, 128
+  %sub.i.i = add nsw i64 %100, -1
+  %101 = inttoptr i64 %sub.i.i to ptr
+  %102 = load i64, ptr %101, align 8
+  %sub.i991 = add i64 %102, 11
+  %103 = inttoptr i64 %sub.i991 to ptr
+  %104 = load i16, ptr %103, align 2
+  %cmp.i921 = icmp ult i16 %104, 128
   br i1 %cmp.i921, label %do.end413, label %do.body408
 
 do.body408:                                       ; preds = %do.body400, %if.end.i919
@@ -2319,19 +2313,19 @@ do.body408:                                       ; preds = %do.body400, %if.end
   unreachable
 
 do.end413:                                        ; preds = %if.end.i919
-  %108 = load ptr, ptr %isolate_.i102, align 8
-  call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %mapped_path, ptr noundef %108, ptr nonnull %call361) #24
-  %109 = load ptr, ptr %isolate_.i102, align 8
-  call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %real_path, ptr noundef %109, ptr nonnull %call377) #24
-  %110 = load ptr, ptr %buf_.i104, align 8
-  %call425 = call noalias ptr @strdup(ptr noundef %110) #24
-  %111 = load ptr, ptr %preopens348, align 8
-  %arrayidx428 = getelementptr inbounds %struct.uvwasi_preopen_s, ptr %111, i64 %indvars.iv139
+  %105 = load ptr, ptr %isolate_.i102, align 8
+  call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %mapped_path, ptr noundef %105, ptr nonnull %call361) #24
+  %106 = load ptr, ptr %isolate_.i102, align 8
+  call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %real_path, ptr noundef %106, ptr nonnull %call377) #24
+  %107 = load ptr, ptr %buf_.i104, align 8
+  %call425 = call noalias ptr @strdup(ptr noundef %107) #24
+  %108 = load ptr, ptr %preopens348, align 8
+  %arrayidx428 = getelementptr inbounds %struct.uvwasi_preopen_s, ptr %108, i64 %indvars.iv139
   store ptr %call425, ptr %arrayidx428, align 8
-  %112 = load ptr, ptr %preopens348, align 8
-  %arrayidx433 = getelementptr inbounds %struct.uvwasi_preopen_s, ptr %112, i64 %indvars.iv139
-  %113 = load ptr, ptr %arrayidx433, align 8
-  %cmp435.not = icmp eq ptr %113, null
+  %109 = load ptr, ptr %preopens348, align 8
+  %arrayidx433 = getelementptr inbounds %struct.uvwasi_preopen_s, ptr %109, i64 %indvars.iv139
+  %110 = load ptr, ptr %arrayidx433, align 8
+  %cmp435.not = icmp eq ptr %110, null
   br i1 %cmp435.not, label %do.body441, label %do.end446
 
 do.body441:                                       ; preds = %do.end413
@@ -2340,14 +2334,14 @@ do.body441:                                       ; preds = %do.end413
   unreachable
 
 do.end446:                                        ; preds = %do.end413
-  %114 = load ptr, ptr %buf_.i105, align 8
-  %call448 = call noalias ptr @strdup(ptr noundef %114) #24
-  %real_path452 = getelementptr inbounds %struct.uvwasi_preopen_s, ptr %112, i64 %indvars.iv139, i32 1
+  %111 = load ptr, ptr %buf_.i105, align 8
+  %call448 = call noalias ptr @strdup(ptr noundef %111) #24
+  %real_path452 = getelementptr inbounds %struct.uvwasi_preopen_s, ptr %109, i64 %indvars.iv139, i32 1
   store ptr %call448, ptr %real_path452, align 8
-  %115 = load ptr, ptr %preopens348, align 8
-  %real_path457 = getelementptr inbounds %struct.uvwasi_preopen_s, ptr %115, i64 %indvars.iv139, i32 1
-  %116 = load ptr, ptr %real_path457, align 8
-  %cmp458.not = icmp eq ptr %116, null
+  %112 = load ptr, ptr %preopens348, align 8
+  %real_path457 = getelementptr inbounds %struct.uvwasi_preopen_s, ptr %112, i64 %indvars.iv139, i32 1
+  %113 = load ptr, ptr %real_path457, align 8
+  %cmp458.not = icmp eq ptr %113, null
   br i1 %cmp458.not, label %do.body464, label %do.end469
 
 do.body464:                                       ; preds = %do.end446
@@ -2356,26 +2350,26 @@ do.body464:                                       ; preds = %do.end446
   unreachable
 
 do.end469:                                        ; preds = %do.end446
-  %indvars.iv.next140 = add nuw i64 %indvars.iv139, 1
-  %117 = load ptr, ptr %buf_.i105, align 8
-  %cmp.i.i.i.i107 = icmp ne ptr %117, null
-  %cmp.i.i.i109 = icmp ne ptr %117, %buf_st_.i.i.i108
-  %118 = select i1 %cmp.i.i.i.i107, i1 %cmp.i.i.i109, i1 false
-  br i1 %118, label %if.then.i.i110, label %_ZN4node9Utf8ValueD2Ev.exit111
+  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
+  %114 = load ptr, ptr %buf_.i105, align 8
+  %cmp.i.i.i.i107 = icmp ne ptr %114, null
+  %cmp.i.i.i109 = icmp ne ptr %114, %buf_st_.i.i.i108
+  %115 = select i1 %cmp.i.i.i.i107, i1 %cmp.i.i.i109, i1 false
+  br i1 %115, label %if.then.i.i110, label %_ZN4node9Utf8ValueD2Ev.exit111
 
 if.then.i.i110:                                   ; preds = %do.end469
-  call void @free(ptr noundef nonnull %117) #24
+  call void @free(ptr noundef nonnull %114) #24
   br label %_ZN4node9Utf8ValueD2Ev.exit111
 
 _ZN4node9Utf8ValueD2Ev.exit111:                   ; preds = %do.end469, %if.then.i.i110
-  %119 = load ptr, ptr %buf_.i104, align 8
-  %cmp.i.i.i.i113 = icmp ne ptr %119, null
-  %cmp.i.i.i115 = icmp ne ptr %119, %buf_st_.i.i.i114
-  %120 = select i1 %cmp.i.i.i.i113, i1 %cmp.i.i.i115, i1 false
-  br i1 %120, label %if.then.i.i116, label %_ZN4node9Utf8ValueD2Ev.exit117
+  %116 = load ptr, ptr %buf_.i104, align 8
+  %cmp.i.i.i.i113 = icmp ne ptr %116, null
+  %cmp.i.i.i115 = icmp ne ptr %116, %buf_st_.i.i.i114
+  %117 = select i1 %cmp.i.i.i.i113, i1 %cmp.i.i.i115, i1 false
+  br i1 %117, label %if.then.i.i116, label %_ZN4node9Utf8ValueD2Ev.exit117
 
 if.then.i.i116:                                   ; preds = %_ZN4node9Utf8ValueD2Ev.exit111
-  call void @free(ptr noundef nonnull %119) #24
+  call void @free(ptr noundef nonnull %116) #24
   br label %_ZN4node9Utf8ValueD2Ev.exit117
 
 _ZN4node9Utf8ValueD2Ev.exit117:                   ; preds = %_ZN4node9Utf8ValueD2Ev.exit111, %if.then.i.i116
@@ -2386,11 +2380,11 @@ _ZN4node9Utf8ValueD2Ev.exit117:                   ; preds = %_ZN4node9Utf8ValueD
 
 for.end473:                                       ; preds = %_ZN4node9Utf8ValueD2Ev.exit117, %_ZN4node6CallocI16uvwasi_preopen_sEEPT_m.exit
   %call474 = call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #27
-  %121 = load ptr, ptr %values_.i659, align 8
-  %add.ptr.i857 = getelementptr inbounds i8, ptr %121, i64 -8
+  %118 = load ptr, ptr %values_.i659, align 8
+  %add.ptr.i857 = getelementptr inbounds i8, ptr %118, i64 -8
   call void @_ZN4node4wasi4WASIC2EPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEP16uvwasi_options_s(ptr noundef nonnull align 8 dereferenceable(176) %call474, ptr noundef nonnull %retval.0.i.i, ptr nonnull %add.ptr.i857, ptr noundef nonnull %options)
-  %122 = load ptr, ptr %argv188155, align 8
-  %cmp484.not = icmp eq ptr %122, null
+  %119 = load ptr, ptr %argv188155, align 8
+  %cmp484.not = icmp eq ptr %119, null
   br i1 %cmp484.not, label %if.end497, label %for.cond487.preheader
 
 for.cond487.preheader:                            ; preds = %for.end473
@@ -2402,10 +2396,10 @@ for.body489.preheader:                            ; preds = %for.cond487.prehead
 
 for.body489:                                      ; preds = %for.body489.preheader, %for.body489
   %indvars.iv142 = phi i64 [ 0, %for.body489.preheader ], [ %indvars.iv.next143, %for.body489 ]
-  %123 = load ptr, ptr %argv188155, align 8
-  %arrayidx492 = getelementptr inbounds ptr, ptr %123, i64 %indvars.iv142
-  %124 = load ptr, ptr %arrayidx492, align 8
-  call void @free(ptr noundef %124) #24
+  %120 = load ptr, ptr %argv188155, align 8
+  %arrayidx492 = getelementptr inbounds ptr, ptr %120, i64 %indvars.iv142
+  %121 = load ptr, ptr %arrayidx492, align 8
+  call void @free(ptr noundef %121) #24
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
   br i1 %exitcond146.not, label %for.end495, label %for.body489, !llvm.loop !13
@@ -2416,54 +2410,54 @@ for.end495:                                       ; preds = %for.body489
   br i1 %isnull, label %if.end497, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.cond487.preheader, %for.end495
-  %125 = phi ptr [ %.pre150, %for.end495 ], [ %122, %for.cond487.preheader ]
-  call void @_ZdaPv(ptr noundef nonnull %125) #26
+  %122 = phi ptr [ %.pre150, %for.end495 ], [ %119, %for.cond487.preheader ]
+  call void @_ZdaPv(ptr noundef nonnull %122) #26
   br label %if.end497
 
 if.end497:                                        ; preds = %for.end495, %delete.notnull, %for.end473
-  %126 = load ptr, ptr %envp, align 8
-  %127 = load ptr, ptr %126, align 8
-  %tobool.not128 = icmp eq ptr %127, null
+  %123 = load ptr, ptr %envp, align 8
+  %124 = load ptr, ptr %123, align 8
+  %tobool.not128 = icmp eq ptr %124, null
   br i1 %tobool.not128, label %delete.end513, label %for.body503
 
 for.body503:                                      ; preds = %if.end497, %for.body503
-  %128 = phi ptr [ %130, %for.body503 ], [ %127, %if.end497 ]
+  %125 = phi ptr [ %127, %for.body503 ], [ %124, %if.end497 ]
   %i498.0129 = phi i32 [ %inc508, %for.body503 ], [ 0, %if.end497 ]
-  call void @free(ptr noundef nonnull %128) #24
+  call void @free(ptr noundef nonnull %125) #24
   %inc508 = add i32 %i498.0129, 1
-  %129 = load ptr, ptr %envp, align 8
+  %126 = load ptr, ptr %envp, align 8
   %idxprom501 = zext i32 %inc508 to i64
-  %arrayidx502 = getelementptr inbounds ptr, ptr %129, i64 %idxprom501
-  %130 = load ptr, ptr %arrayidx502, align 8
-  %tobool.not = icmp eq ptr %130, null
+  %arrayidx502 = getelementptr inbounds ptr, ptr %126, i64 %idxprom501
+  %127 = load ptr, ptr %arrayidx502, align 8
+  %tobool.not = icmp eq ptr %127, null
   br i1 %tobool.not, label %delete.end513, label %for.body503, !llvm.loop !14
 
 delete.end513:                                    ; preds = %for.body503, %if.end497
-  %.lcssa = phi ptr [ %126, %if.end497 ], [ %129, %for.body503 ]
+  %.lcssa = phi ptr [ %123, %if.end497 ], [ %126, %for.body503 ]
   call void @_ZdaPv(ptr noundef nonnull %.lcssa) #26
-  %131 = load ptr, ptr %preopens348, align 8
-  %cmp515.not = icmp eq ptr %131, null
+  %128 = load ptr, ptr %preopens348, align 8
+  %cmp515.not = icmp eq ptr %128, null
   br i1 %cmp515.not, label %if.end534, label %for.cond518.preheader
 
 for.cond518.preheader:                            ; preds = %delete.end513
-  %132 = load i32, ptr %preopenc, align 4
-  %cmp520130.not = icmp eq i32 %132, 0
+  %129 = load i32, ptr %preopenc, align 4
+  %cmp520130.not = icmp eq i32 %129, 0
   br i1 %cmp520130.not, label %for.end532, label %for.body521
 
 for.body521:                                      ; preds = %for.cond518.preheader, %for.body521
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %for.body521 ], [ 0, %for.cond518.preheader ]
-  %133 = load ptr, ptr %preopens348, align 8
-  %arrayidx524 = getelementptr inbounds %struct.uvwasi_preopen_s, ptr %133, i64 %indvars.iv147
-  %134 = load ptr, ptr %arrayidx524, align 8
-  call void @free(ptr noundef %134) #24
-  %135 = load ptr, ptr %preopens348, align 8
-  %real_path529 = getelementptr inbounds %struct.uvwasi_preopen_s, ptr %135, i64 %indvars.iv147, i32 1
-  %136 = load ptr, ptr %real_path529, align 8
-  call void @free(ptr noundef %136) #24
+  %130 = load ptr, ptr %preopens348, align 8
+  %arrayidx524 = getelementptr inbounds %struct.uvwasi_preopen_s, ptr %130, i64 %indvars.iv147
+  %131 = load ptr, ptr %arrayidx524, align 8
+  call void @free(ptr noundef %131) #24
+  %132 = load ptr, ptr %preopens348, align 8
+  %real_path529 = getelementptr inbounds %struct.uvwasi_preopen_s, ptr %132, i64 %indvars.iv147, i32 1
+  %133 = load ptr, ptr %real_path529, align 8
+  call void @free(ptr noundef %133) #24
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %137 = load i32, ptr %preopenc, align 4
-  %138 = zext i32 %137 to i64
-  %cmp520 = icmp ult i64 %indvars.iv.next148, %138
+  %134 = load i32, ptr %preopenc, align 4
+  %135 = zext i32 %134 to i64
+  %cmp520 = icmp ult i64 %indvars.iv.next148, %135
   br i1 %cmp520, label %for.body521, label %for.end532.loopexit, !llvm.loop !15
 
 for.end532.loopexit:                              ; preds = %for.body521
@@ -2471,8 +2465,8 @@ for.end532.loopexit:                              ; preds = %for.body521
   br label %for.end532
 
 for.end532:                                       ; preds = %for.end532.loopexit, %for.cond518.preheader
-  %139 = phi ptr [ %.pre151, %for.end532.loopexit ], [ %131, %for.cond518.preheader ]
-  call void @free(ptr noundef %139) #24
+  %136 = phi ptr [ %.pre151, %for.end532.loopexit ], [ %128, %for.cond518.preheader ]
+  call void @free(ptr noundef %136) #24
   br label %if.end534
 
 if.end534:                                        ; preds = %for.end532, %delete.end513
@@ -2522,88 +2516,87 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.not.i, label %_ZN4node4wasi5DebugIJRA18_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA18_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.45, ptr noundef nonnull align 4 dereferenceable(4) %argv_offset.addr, ptr noundef nonnull align 4 dereferenceable(4) %argv_buf_offset.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.45, ptr noundef nonnull align 4 dereferenceable(4) %argv_offset.addr, ptr noundef nonnull align 4 dereferenceable(4) %argv_buf_offset.addr) #29
   %.pre = load i32, ptr %argv_buf_offset.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA18_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA18_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %argv_buf_offset, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %5 to i64
+  %4 = phi i32 [ %argv_buf_offset, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %4 to i64
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
   %argv_buf_size = getelementptr inbounds i8, ptr %wasi, i64 72
-  %6 = load i32, ptr %argv_buf_size, align 8
-  %conv1 = zext i32 %6 to i64
+  %5 = load i32, ptr %argv_buf_size, align 8
+  %conv1 = zext i32 %5 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body2
 
 do.body2:                                         ; preds = %_ZN4node4wasi5DebugIJRA18_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
-  %7 = load i32, ptr %argv_offset.addr, align 4
-  %conv3 = zext i32 %7 to i64
+  %6 = load i32, ptr %argv_offset.addr, align 4
+  %conv3 = zext i32 %6 to i64
   %argc = getelementptr inbounds i8, ptr %wasi, i64 48
-  %8 = load i32, ptr %argc, align 8
-  %conv6 = zext i32 %8 to i64
+  %7 = load i32, ptr %argc, align 8
+  %conv6 = zext i32 %7 to i64
   %mul = shl nuw nsw i64 %conv6, 2
   %call7 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv3, i64 noundef %memory.coerce1, i64 noundef %mul) #24
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %do.end11
 
 do.end11:                                         ; preds = %do.body2
-  %9 = load i32, ptr %argc, align 8
-  %cmp.not.i.i.i.i = icmp eq i32 %9, 0
+  %8 = load i32, ptr %argc, align 8
+  %cmp.not.i.i.i.i = icmp eq i32 %8, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %do.end11
-  %conv14 = zext i32 %9 to i64
+  %conv14 = zext i32 %8 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv14, 3
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #27
   store ptr null, ptr %call5.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %9, 1
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %8, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i.i.i, i64 8
-  %10 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %10, i1 false)
+  %9 = add nsw i64 %mul.i.i.i.i.i.i, -8
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %9, i1 false)
   br label %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit
 
 _ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit:            ; preds = %do.end11, %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
   %argv.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %do.end11 ]
-  %11 = load i32, ptr %argv_buf_offset.addr, align 4
-  %idxprom = zext i32 %11 to i64
+  %10 = load i32, ptr %argv_buf_offset.addr, align 4
+  %idxprom = zext i32 %10 to i64
   %arrayidx = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom
   %call17 = call zeroext i16 @uvwasi_args_get(ptr noundef nonnull %uvw_, ptr noundef %argv.sroa.0.0, ptr noundef %arrayidx) #24
   %cmp = icmp eq i16 %call17, 0
-  %12 = load i32, ptr %argc, align 8
-  %cmp2316 = icmp ne i32 %12, 0
+  %11 = load i32, ptr %argc, align 8
+  %cmp2316 = icmp ne i32 %11, 0
   %or.cond = select i1 %cmp, i1 %cmp2316, i1 false
   br i1 %or.cond, label %for.body, label %if.end32
 
 for.body:                                         ; preds = %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit, %for.body
   %i.017 = phi i64 [ %inc, %for.body ], [ 0, %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit ]
-  %13 = load i32, ptr %argv_buf_offset.addr, align 4
+  %12 = load i32, ptr %argv_buf_offset.addr, align 4
   %add.ptr.i = getelementptr inbounds ptr, ptr %argv.sroa.0.0, i64 %i.017
-  %14 = load ptr, ptr %add.ptr.i, align 8
-  %15 = load ptr, ptr %argv.sroa.0.0, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %add.ptr.i, align 8
+  %14 = load ptr, ptr %argv.sroa.0.0, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %14 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %16 = trunc i64 %sub.ptr.sub to i32
-  %conv27 = add i32 %13, %16
-  %17 = load i32, ptr %argv_offset.addr, align 4
-  %conv29 = zext i32 %17 to i64
+  %15 = trunc i64 %sub.ptr.sub to i32
+  %conv27 = add i32 %12, %15
+  %16 = load i32, ptr %argv_offset.addr, align 4
+  %conv29 = zext i32 %16 to i64
   %mul30 = shl nuw nsw i64 %i.017, 2
   %add31 = add nuw nsw i64 %mul30, %conv29
   call void @uvwasi_serdes_write_uint32_t(ptr noundef %memory.coerce0, i64 noundef %add31, i32 noundef %conv27) #24
   %inc = add nuw nsw i64 %i.017, 1
-  %18 = load i32, ptr %argc, align 8
-  %conv22 = zext i32 %18 to i64
+  %17 = load i32, ptr %argc, align 8
+  %conv22 = zext i32 %17 to i64
   %cmp23 = icmp ult i64 %inc, %conv22
   br i1 %cmp23, label %for.body, label %if.then.i.i.i, !llvm.loop !16
 
@@ -2642,26 +2635,25 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.not.i, label %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.46, ptr noundef nonnull align 4 dereferenceable(4) %argc_offset.addr, ptr noundef nonnull align 4 dereferenceable(4) %argv_buf_offset.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.46, ptr noundef nonnull align 4 dereferenceable(4) %argc_offset.addr, ptr noundef nonnull align 4 dereferenceable(4) %argv_buf_offset.addr) #29
   %.pre = load i32, ptr %argc_offset.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %argc_offset, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %5 to i64
+  %4 = phi i32 [ %argc_offset, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef 4) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body1
 
 do.body1:                                         ; preds = %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
-  %6 = load i32, ptr %argv_buf_offset.addr, align 4
-  %conv2 = zext i32 %6 to i64
+  %5 = load i32, ptr %argv_buf_offset.addr, align 4
+  %conv2 = zext i32 %5 to i64
   %call4 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv2, i64 noundef %memory.coerce1, i64 noundef 4) #24
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %do.end8
@@ -2674,14 +2666,14 @@ do.end8:                                          ; preds = %do.body1
   br i1 %cmp, label %if.then11, label %return
 
 if.then11:                                        ; preds = %do.end8
-  %7 = load i32, ptr %argc_offset.addr, align 4
-  %conv12 = zext i32 %7 to i64
-  %8 = load i32, ptr %argc, align 4
-  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv12, i32 noundef %8) #24
-  %9 = load i32, ptr %argv_buf_offset.addr, align 4
-  %conv14 = zext i32 %9 to i64
-  %10 = load i32, ptr %argv_buf_size, align 4
-  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv14, i32 noundef %10) #24
+  %6 = load i32, ptr %argc_offset.addr, align 4
+  %conv12 = zext i32 %6 to i64
+  %7 = load i32, ptr %argc, align 4
+  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv12, i32 noundef %7) #24
+  %8 = load i32, ptr %argv_buf_offset.addr, align 4
+  %conv14 = zext i32 %8 to i64
+  %9 = load i32, ptr %argv_buf_size, align 4
+  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv14, i32 noundef %9) #24
   br label %return
 
 return:                                           ; preds = %do.end8, %if.then11, %do.body1, %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
@@ -2707,36 +2699,35 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.not.i, label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.47, ptr noundef nonnull align 4 dereferenceable(4) %clock_id.addr, ptr noundef nonnull align 4 dereferenceable(4) %resolution_ptr.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.47, ptr noundef nonnull align 4 dereferenceable(4) %clock_id.addr, ptr noundef nonnull align 4 dereferenceable(4) %resolution_ptr.addr) #29
   %.pre = load i32, ptr %resolution_ptr.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %resolution_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %5 to i64
+  %4 = phi i32 [ %resolution_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef 8) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.end
 
 do.end:                                           ; preds = %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %6 = load i32, ptr %clock_id.addr, align 4
-  %call1 = call zeroext i16 @uvwasi_clock_res_get(ptr noundef nonnull %uvw_, i32 noundef %6, ptr noundef nonnull %resolution) #24
+  %5 = load i32, ptr %clock_id.addr, align 4
+  %call1 = call zeroext i16 @uvwasi_clock_res_get(ptr noundef nonnull %uvw_, i32 noundef %5, ptr noundef nonnull %resolution) #24
   %conv2 = zext i16 %call1 to i32
   %cmp = icmp eq i16 %call1, 0
   br i1 %cmp, label %if.then3, label %return
 
 if.then3:                                         ; preds = %do.end
-  %7 = load i32, ptr %resolution_ptr.addr, align 4
-  %conv4 = zext i32 %7 to i64
-  %8 = load i64, ptr %resolution, align 8
-  call void @uvwasi_serdes_write_timestamp_t(ptr noundef %memory.coerce0, i64 noundef %conv4, i64 noundef %8) #24
+  %6 = load i32, ptr %resolution_ptr.addr, align 4
+  %conv4 = zext i32 %6 to i64
+  %7 = load i64, ptr %resolution, align 8
+  call void @uvwasi_serdes_write_timestamp_t(ptr noundef %memory.coerce0, i64 noundef %conv4, i64 noundef %7) #24
   br label %return
 
 return:                                           ; preds = %do.end, %if.then3, %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
@@ -2764,37 +2755,36 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjRmS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.48, ptr noundef nonnull align 4 dereferenceable(4) %clock_id.addr, ptr noundef nonnull align 8 dereferenceable(8) %precision.addr, ptr noundef nonnull align 4 dereferenceable(4) %time_ptr.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.48, ptr noundef nonnull align 4 dereferenceable(4) %clock_id.addr, ptr noundef nonnull align 8 dereferenceable(8) %precision.addr, ptr noundef nonnull align 4 dereferenceable(4) %time_ptr.addr) #29
   %.pre = load i32, ptr %time_ptr.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %time_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %5 to i64
+  %4 = phi i32 [ %time_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef 8) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.end
 
 do.end:                                           ; preds = %_ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %6 = load i32, ptr %clock_id.addr, align 4
-  %7 = load i64, ptr %precision.addr, align 8
-  %call1 = call zeroext i16 @uvwasi_clock_time_get(ptr noundef nonnull %uvw_, i32 noundef %6, i64 noundef %7, ptr noundef nonnull %time) #24
+  %5 = load i32, ptr %clock_id.addr, align 4
+  %6 = load i64, ptr %precision.addr, align 8
+  %call1 = call zeroext i16 @uvwasi_clock_time_get(ptr noundef nonnull %uvw_, i32 noundef %5, i64 noundef %6, ptr noundef nonnull %time) #24
   %conv2 = zext i16 %call1 to i32
   %cmp = icmp eq i16 %call1, 0
   br i1 %cmp, label %if.then3, label %return
 
 if.then3:                                         ; preds = %do.end
-  %8 = load i32, ptr %time_ptr.addr, align 4
-  %conv4 = zext i32 %8 to i64
-  %9 = load i64, ptr %time, align 8
-  call void @uvwasi_serdes_write_timestamp_t(ptr noundef %memory.coerce0, i64 noundef %conv4, i64 noundef %9) #24
+  %7 = load i32, ptr %time_ptr.addr, align 4
+  %conv4 = zext i32 %7 to i64
+  %8 = load i64, ptr %time, align 8
+  call void @uvwasi_serdes_write_timestamp_t(ptr noundef %memory.coerce0, i64 noundef %conv4, i64 noundef %8) #24
   br label %return
 
 return:                                           ; preds = %do.end, %if.then3, %_ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit
@@ -2817,88 +2807,87 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.not.i, label %_ZN4node4wasi5DebugIJRA21_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA21_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.49, ptr noundef nonnull align 4 dereferenceable(4) %environ_offset.addr, ptr noundef nonnull align 4 dereferenceable(4) %environ_buf_offset.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.49, ptr noundef nonnull align 4 dereferenceable(4) %environ_offset.addr, ptr noundef nonnull align 4 dereferenceable(4) %environ_buf_offset.addr) #29
   %.pre = load i32, ptr %environ_buf_offset.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA21_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA21_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %environ_buf_offset, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %5 to i64
+  %4 = phi i32 [ %environ_buf_offset, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %4 to i64
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
   %env_buf_size = getelementptr inbounds i8, ptr %wasi, i64 96
-  %6 = load i32, ptr %env_buf_size, align 8
-  %conv1 = zext i32 %6 to i64
+  %5 = load i32, ptr %env_buf_size, align 8
+  %conv1 = zext i32 %5 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body2
 
 do.body2:                                         ; preds = %_ZN4node4wasi5DebugIJRA21_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
-  %7 = load i32, ptr %environ_offset.addr, align 4
-  %conv3 = zext i32 %7 to i64
+  %6 = load i32, ptr %environ_offset.addr, align 4
+  %conv3 = zext i32 %6 to i64
   %envc = getelementptr inbounds i8, ptr %wasi, i64 76
-  %8 = load i32, ptr %envc, align 4
-  %conv6 = zext i32 %8 to i64
+  %7 = load i32, ptr %envc, align 4
+  %conv6 = zext i32 %7 to i64
   %mul = shl nuw nsw i64 %conv6, 2
   %call7 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv3, i64 noundef %memory.coerce1, i64 noundef %mul) #24
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %do.end11
 
 do.end11:                                         ; preds = %do.body2
-  %9 = load i32, ptr %envc, align 4
-  %cmp.not.i.i.i.i = icmp eq i32 %9, 0
+  %8 = load i32, ptr %envc, align 4
+  %cmp.not.i.i.i.i = icmp eq i32 %8, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %do.end11
-  %conv14 = zext i32 %9 to i64
+  %conv14 = zext i32 %8 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv14, 3
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #27
   store ptr null, ptr %call5.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %9, 1
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %8, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i.i.i, i64 8
-  %10 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %10, i1 false)
+  %9 = add nsw i64 %mul.i.i.i.i.i.i, -8
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %9, i1 false)
   br label %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit
 
 _ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit:            ; preds = %do.end11, %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
   %environment.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %do.end11 ]
-  %11 = load i32, ptr %environ_buf_offset.addr, align 4
-  %idxprom = zext i32 %11 to i64
+  %10 = load i32, ptr %environ_buf_offset.addr, align 4
+  %idxprom = zext i32 %10 to i64
   %arrayidx = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom
   %call17 = call zeroext i16 @uvwasi_environ_get(ptr noundef nonnull %uvw_, ptr noundef %environment.sroa.0.0, ptr noundef %arrayidx) #24
   %cmp = icmp eq i16 %call17, 0
-  %12 = load i32, ptr %envc, align 4
-  %cmp2316 = icmp ne i32 %12, 0
+  %11 = load i32, ptr %envc, align 4
+  %cmp2316 = icmp ne i32 %11, 0
   %or.cond = select i1 %cmp, i1 %cmp2316, i1 false
   br i1 %or.cond, label %for.body, label %if.end32
 
 for.body:                                         ; preds = %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit, %for.body
   %i.017 = phi i64 [ %inc, %for.body ], [ 0, %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit ]
-  %13 = load i32, ptr %environ_buf_offset.addr, align 4
+  %12 = load i32, ptr %environ_buf_offset.addr, align 4
   %add.ptr.i = getelementptr inbounds ptr, ptr %environment.sroa.0.0, i64 %i.017
-  %14 = load ptr, ptr %add.ptr.i, align 8
-  %15 = load ptr, ptr %environment.sroa.0.0, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %add.ptr.i, align 8
+  %14 = load ptr, ptr %environment.sroa.0.0, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %14 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %16 = trunc i64 %sub.ptr.sub to i32
-  %conv27 = add i32 %13, %16
-  %17 = load i32, ptr %environ_offset.addr, align 4
-  %conv29 = zext i32 %17 to i64
+  %15 = trunc i64 %sub.ptr.sub to i32
+  %conv27 = add i32 %12, %15
+  %16 = load i32, ptr %environ_offset.addr, align 4
+  %conv29 = zext i32 %16 to i64
   %mul30 = shl nuw nsw i64 %i.017, 2
   %add31 = add nuw nsw i64 %mul30, %conv29
   call void @uvwasi_serdes_write_uint32_t(ptr noundef %memory.coerce0, i64 noundef %add31, i32 noundef %conv27) #24
   %inc = add nuw nsw i64 %i.017, 1
-  %18 = load i32, ptr %envc, align 4
-  %conv22 = zext i32 %18 to i64
+  %17 = load i32, ptr %envc, align 4
+  %conv22 = zext i32 %17 to i64
   %cmp23 = icmp ult i64 %inc, %conv22
   br i1 %cmp23, label %for.body, label %if.then.i.i.i, !llvm.loop !17
 
@@ -2933,26 +2922,25 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.not.i, label %_ZN4node4wasi5DebugIJRA27_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA27_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.50, ptr noundef nonnull align 4 dereferenceable(4) %envc_offset.addr, ptr noundef nonnull align 4 dereferenceable(4) %env_buf_offset.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.50, ptr noundef nonnull align 4 dereferenceable(4) %envc_offset.addr, ptr noundef nonnull align 4 dereferenceable(4) %env_buf_offset.addr) #29
   %.pre = load i32, ptr %envc_offset.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA27_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA27_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %envc_offset, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %5 to i64
+  %4 = phi i32 [ %envc_offset, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef 4) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body1
 
 do.body1:                                         ; preds = %_ZN4node4wasi5DebugIJRA27_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
-  %6 = load i32, ptr %env_buf_offset.addr, align 4
-  %conv2 = zext i32 %6 to i64
+  %5 = load i32, ptr %env_buf_offset.addr, align 4
+  %conv2 = zext i32 %5 to i64
   %call4 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv2, i64 noundef %memory.coerce1, i64 noundef 4) #24
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %do.end8
@@ -2965,14 +2953,14 @@ do.end8:                                          ; preds = %do.body1
   br i1 %cmp, label %if.then11, label %return
 
 if.then11:                                        ; preds = %do.end8
-  %7 = load i32, ptr %envc_offset.addr, align 4
-  %conv12 = zext i32 %7 to i64
-  %8 = load i32, ptr %envc, align 4
-  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv12, i32 noundef %8) #24
-  %9 = load i32, ptr %env_buf_offset.addr, align 4
-  %conv14 = zext i32 %9 to i64
-  %10 = load i32, ptr %env_buf_size, align 4
-  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv14, i32 noundef %10) #24
+  %6 = load i32, ptr %envc_offset.addr, align 4
+  %conv12 = zext i32 %6 to i64
+  %7 = load i32, ptr %envc, align 4
+  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv12, i32 noundef %7) #24
+  %8 = load i32, ptr %env_buf_offset.addr, align 4
+  %conv14 = zext i32 %8 to i64
+  %9 = load i32, ptr %env_buf_size, align 4
+  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv14, i32 noundef %9) #24
   br label %return
 
 return:                                           ; preds = %do.end8, %if.then11, %do.body1, %_ZN4node4wasi5DebugIJRA27_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
@@ -2999,13 +2987,12 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA27_KcRjRmS6_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA27_KcRjRmS6_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjRmS2_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.51, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr, ptr noundef nonnull align 8 dereferenceable(8) %len.addr, ptr noundef nonnull align 4 dereferenceable(4) %advice.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmS2_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.51, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr, ptr noundef nonnull align 8 dereferenceable(8) %len.addr, ptr noundef nonnull align 4 dereferenceable(4) %advice.addr) #29
   %.pre = load i32, ptr %fd.addr, align 4
   %.pre2 = load i64, ptr %offset.addr, align 8
   %.pre3 = load i64, ptr %len.addr, align 8
@@ -3013,13 +3000,13 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZN4node4wasi5DebugIJRA27_KcRjRmS6_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA27_KcRjRmS6_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %advice, %entry ], [ %.pre4, %if.end.i.i ]
-  %6 = phi i64 [ %len, %entry ], [ %.pre3, %if.end.i.i ]
-  %7 = phi i64 [ %offset, %entry ], [ %.pre2, %if.end.i.i ]
-  %8 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
+  %4 = phi i32 [ %advice, %entry ], [ %.pre4, %if.end.i.i ]
+  %5 = phi i64 [ %len, %entry ], [ %.pre3, %if.end.i.i ]
+  %6 = phi i64 [ %offset, %entry ], [ %.pre2, %if.end.i.i ]
+  %7 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %conv = trunc i32 %5 to i8
-  %call = call zeroext i16 @uvwasi_fd_advise(ptr noundef nonnull %uvw_, i32 noundef %8, i64 noundef %7, i64 noundef %6, i8 noundef zeroext %conv) #24
+  %conv = trunc i32 %4 to i8
+  %call = call zeroext i16 @uvwasi_fd_advise(ptr noundef nonnull %uvw_, i32 noundef %7, i64 noundef %6, i64 noundef %5, i8 noundef zeroext %conv) #24
   %conv1 = zext i16 %call to i32
   ret i32 %conv1
 }
@@ -3041,24 +3028,23 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA25_KcRjRmS6_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA25_KcRjRmS6_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjRmS2_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.52, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr, ptr noundef nonnull align 8 dereferenceable(8) %len.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmS2_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.52, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr, ptr noundef nonnull align 8 dereferenceable(8) %len.addr) #29
   %.pre = load i32, ptr %fd.addr, align 4
   %.pre2 = load i64, ptr %offset.addr, align 8
   %.pre3 = load i64, ptr %len.addr, align 8
   br label %_ZN4node4wasi5DebugIJRA25_KcRjRmS6_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA25_KcRjRmS6_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i64 [ %len, %entry ], [ %.pre3, %if.end.i.i ]
-  %6 = phi i64 [ %offset, %entry ], [ %.pre2, %if.end.i.i ]
-  %7 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
+  %4 = phi i64 [ %len, %entry ], [ %.pre3, %if.end.i.i ]
+  %5 = phi i64 [ %offset, %entry ], [ %.pre2, %if.end.i.i ]
+  %6 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %call = call zeroext i16 @uvwasi_fd_allocate(ptr noundef nonnull %uvw_, i32 noundef %7, i64 noundef %6, i64 noundef %5) #24
+  %call = call zeroext i16 @uvwasi_fd_allocate(ptr noundef nonnull %uvw_, i32 noundef %6, i64 noundef %5, i64 noundef %4) #24
   %conv = zext i16 %call to i32
   ret i32 %conv
 }
@@ -3076,20 +3062,19 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA14_KcRjEEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA14_KcRjEEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.53, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.53, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr) #29
   %.pre = load i32, ptr %fd.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA14_KcRjEEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA14_KcRjEEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
+  %4 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %call = call zeroext i16 @uvwasi_fd_close(ptr noundef nonnull %uvw_, i32 noundef %5) #24
+  %call = call zeroext i16 @uvwasi_fd_close(ptr noundef nonnull %uvw_, i32 noundef %4) #24
   %conv = zext i16 %call to i32
   ret i32 %conv
 }
@@ -3107,20 +3092,19 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA17_KcRjEEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA17_KcRjEEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.54, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.54, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr) #29
   %.pre = load i32, ptr %fd.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA17_KcRjEEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA17_KcRjEEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
+  %4 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %call = call zeroext i16 @uvwasi_fd_datasync(ptr noundef nonnull %uvw_, i32 noundef %5) #24
+  %call = call zeroext i16 @uvwasi_fd_datasync(ptr noundef nonnull %uvw_, i32 noundef %4) #24
   %conv = zext i16 %call to i32
   ret i32 %conv
 }
@@ -3141,34 +3125,33 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.not.i, label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.55, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.55, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr) #29
   %.pre = load i32, ptr %buf.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %buf, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %5 to i64
+  %4 = phi i32 [ %buf, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef 24) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.end
 
 do.end:                                           ; preds = %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %6 = load i32, ptr %fd.addr, align 4
-  %call1 = call zeroext i16 @uvwasi_fd_fdstat_get(ptr noundef nonnull %uvw_, i32 noundef %6, ptr noundef nonnull %stats) #24
+  %5 = load i32, ptr %fd.addr, align 4
+  %call1 = call zeroext i16 @uvwasi_fd_fdstat_get(ptr noundef nonnull %uvw_, i32 noundef %5, ptr noundef nonnull %stats) #24
   %conv2 = zext i16 %call1 to i32
   %cmp = icmp eq i16 %call1, 0
   br i1 %cmp, label %if.then3, label %return
 
 if.then3:                                         ; preds = %do.end
-  %7 = load i32, ptr %buf.addr, align 4
-  %conv4 = zext i32 %7 to i64
+  %6 = load i32, ptr %buf.addr, align 4
+  %conv4 = zext i32 %6 to i64
   call void @uvwasi_serdes_write_fdstat_t(ptr noundef %memory.coerce0, i64 noundef %conv4, ptr noundef nonnull %stats) #24
   br label %return
 
@@ -3194,23 +3177,22 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.not.i, label %_ZN4node4wasi5DebugIJRA29_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA29_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.56, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %flags.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.56, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %flags.addr) #29
   %.pre = load i32, ptr %fd.addr, align 4
   %.pre2 = load i32, ptr %flags.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA29_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA29_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %flags, %entry ], [ %.pre2, %if.end.i.i ]
-  %6 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
+  %4 = phi i32 [ %flags, %entry ], [ %.pre2, %if.end.i.i ]
+  %5 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %conv = trunc i32 %5 to i16
-  %call = call zeroext i16 @uvwasi_fd_fdstat_set_flags(ptr noundef nonnull %uvw_, i32 noundef %6, i16 noundef zeroext %conv) #24
+  %conv = trunc i32 %4 to i16
+  %call = call zeroext i16 @uvwasi_fd_fdstat_set_flags(ptr noundef nonnull %uvw_, i32 noundef %5, i16 noundef zeroext %conv) #24
   %conv1 = zext i16 %call to i32
   ret i32 %conv1
 }
@@ -3232,24 +3214,23 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA34_KcRjRmS6_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA34_KcRjRmS6_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjRmS2_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.57, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 8 dereferenceable(8) %fs_rights_base.addr, ptr noundef nonnull align 8 dereferenceable(8) %fs_rights_inheriting.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmS2_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.57, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 8 dereferenceable(8) %fs_rights_base.addr, ptr noundef nonnull align 8 dereferenceable(8) %fs_rights_inheriting.addr) #29
   %.pre = load i32, ptr %fd.addr, align 4
   %.pre2 = load i64, ptr %fs_rights_base.addr, align 8
   %.pre3 = load i64, ptr %fs_rights_inheriting.addr, align 8
   br label %_ZN4node4wasi5DebugIJRA34_KcRjRmS6_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA34_KcRjRmS6_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i64 [ %fs_rights_inheriting, %entry ], [ %.pre3, %if.end.i.i ]
-  %6 = phi i64 [ %fs_rights_base, %entry ], [ %.pre2, %if.end.i.i ]
-  %7 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
+  %4 = phi i64 [ %fs_rights_inheriting, %entry ], [ %.pre3, %if.end.i.i ]
+  %5 = phi i64 [ %fs_rights_base, %entry ], [ %.pre2, %if.end.i.i ]
+  %6 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %call = call zeroext i16 @uvwasi_fd_fdstat_set_rights(ptr noundef nonnull %uvw_, i32 noundef %7, i64 noundef %6, i64 noundef %5) #24
+  %call = call zeroext i16 @uvwasi_fd_fdstat_set_rights(ptr noundef nonnull %uvw_, i32 noundef %6, i64 noundef %5, i64 noundef %4) #24
   %conv = zext i16 %call to i32
   ret i32 %conv
 }
@@ -3270,34 +3251,33 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.not.i, label %_ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.58, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.58, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr) #29
   %.pre = load i32, ptr %buf.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %buf, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %5 to i64
+  %4 = phi i32 [ %buf, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef 64) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.end
 
 do.end:                                           ; preds = %_ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %6 = load i32, ptr %fd.addr, align 4
-  %call1 = call zeroext i16 @uvwasi_fd_filestat_get(ptr noundef nonnull %uvw_, i32 noundef %6, ptr noundef nonnull %stats) #24
+  %5 = load i32, ptr %fd.addr, align 4
+  %call1 = call zeroext i16 @uvwasi_fd_filestat_get(ptr noundef nonnull %uvw_, i32 noundef %5, ptr noundef nonnull %stats) #24
   %conv2 = zext i16 %call1 to i32
   %cmp = icmp eq i16 %call1, 0
   br i1 %cmp, label %if.then3, label %return
 
 if.then3:                                         ; preds = %do.end
-  %7 = load i32, ptr %buf.addr, align 4
-  %conv4 = zext i32 %7 to i64
+  %6 = load i32, ptr %buf.addr, align 4
+  %conv4 = zext i32 %6 to i64
   call void @uvwasi_serdes_write_filestat_t(ptr noundef %memory.coerce0, i64 noundef %conv4, ptr noundef nonnull %stats) #24
   br label %return
 
@@ -3323,22 +3303,21 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA30_KcRjRmEEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA30_KcRjRmEEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjRmEEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.59, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 8 dereferenceable(8) %st_size.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmEEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.59, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 8 dereferenceable(8) %st_size.addr) #29
   %.pre = load i32, ptr %fd.addr, align 4
   %.pre2 = load i64, ptr %st_size.addr, align 8
   br label %_ZN4node4wasi5DebugIJRA30_KcRjRmEEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA30_KcRjRmEEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i64 [ %st_size, %entry ], [ %.pre2, %if.end.i.i ]
-  %6 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
+  %4 = phi i64 [ %st_size, %entry ], [ %.pre2, %if.end.i.i ]
+  %5 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %call = call zeroext i16 @uvwasi_fd_filestat_set_size(ptr noundef nonnull %uvw_, i32 noundef %6, i64 noundef %5) #24
+  %call = call zeroext i16 @uvwasi_fd_filestat_set_size(ptr noundef nonnull %uvw_, i32 noundef %5, i64 noundef %4) #24
   %conv = zext i16 %call to i32
   ret i32 %conv
 }
@@ -3362,13 +3341,12 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA39_KcRjRmS6_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA39_KcRjRmS6_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjRmS2_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.60, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 8 dereferenceable(8) %st_atim.addr, ptr noundef nonnull align 8 dereferenceable(8) %st_mtim.addr, ptr noundef nonnull align 4 dereferenceable(4) %fst_flags.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmS2_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.60, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 8 dereferenceable(8) %st_atim.addr, ptr noundef nonnull align 8 dereferenceable(8) %st_mtim.addr, ptr noundef nonnull align 4 dereferenceable(4) %fst_flags.addr) #29
   %.pre = load i32, ptr %fd.addr, align 4
   %.pre2 = load i64, ptr %st_atim.addr, align 8
   %.pre3 = load i64, ptr %st_mtim.addr, align 8
@@ -3376,13 +3354,13 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZN4node4wasi5DebugIJRA39_KcRjRmS6_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA39_KcRjRmS6_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %fst_flags, %entry ], [ %.pre4, %if.end.i.i ]
-  %6 = phi i64 [ %st_mtim, %entry ], [ %.pre3, %if.end.i.i ]
-  %7 = phi i64 [ %st_atim, %entry ], [ %.pre2, %if.end.i.i ]
-  %8 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
+  %4 = phi i32 [ %fst_flags, %entry ], [ %.pre4, %if.end.i.i ]
+  %5 = phi i64 [ %st_mtim, %entry ], [ %.pre3, %if.end.i.i ]
+  %6 = phi i64 [ %st_atim, %entry ], [ %.pre2, %if.end.i.i ]
+  %7 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %conv = trunc i32 %5 to i16
-  %call = call zeroext i16 @uvwasi_fd_filestat_set_times(ptr noundef nonnull %uvw_, i32 noundef %8, i64 noundef %7, i64 noundef %6, i16 noundef zeroext %conv) #24
+  %conv = trunc i32 %4 to i16
+  %call = call zeroext i16 @uvwasi_fd_filestat_set_times(ptr noundef nonnull %uvw_, i32 noundef %7, i64 noundef %6, i64 noundef %5, i16 noundef zeroext %conv) #24
   %conv1 = zext i16 %call to i32
   ret i32 %conv1
 }
@@ -3409,41 +3387,40 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA37_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA37_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_RmS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.61, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %iovs_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %iovs_len.addr, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr, ptr noundef nonnull align 4 dereferenceable(4) %nread_ptr.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_RmS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.61, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %iovs_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %iovs_len.addr, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr, ptr noundef nonnull align 4 dereferenceable(4) %nread_ptr.addr) #29
   %.pre = load i32, ptr %iovs_ptr.addr, align 4
   %.pre10 = load i32, ptr %iovs_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA37_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA37_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %iovs_len, %entry ], [ %.pre10, %if.end.i.i ]
-  %6 = phi i32 [ %iovs_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %mul = shl i32 %5, 3
+  %4 = phi i32 [ %iovs_len, %entry ], [ %.pre10, %if.end.i.i ]
+  %5 = phi i32 [ %iovs_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %mul = shl i32 %4, 3
   %conv1 = zext i32 %mul to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body2
 
 do.body2:                                         ; preds = %_ZN4node4wasi5DebugIJRA37_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit
-  %7 = load i32, ptr %nread_ptr.addr, align 4
-  %conv3 = zext i32 %7 to i64
+  %6 = load i32, ptr %nread_ptr.addr, align 4
+  %conv3 = zext i32 %6 to i64
   %call5 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv3, i64 noundef %memory.coerce1, i64 noundef 4) #24
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %do.end9
 
 do.end9:                                          ; preds = %do.body2
-  %8 = load i32, ptr %iovs_len.addr, align 4
-  %cmp.not.i.i.i.i = icmp eq i32 %8, 0
+  %7 = load i32, ptr %iovs_len.addr, align 4
+  %cmp.not.i.i.i.i = icmp eq i32 %7, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %do.end9
-  %conv10 = zext i32 %8 to i64
+  %conv10 = zext i32 %7 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv10, 4
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -3465,26 +3442,26 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
 
 _ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
   %iovs.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
-  %9 = load i32, ptr %iovs_ptr.addr, align 4
-  %conv12 = zext i32 %9 to i64
-  %call14 = call zeroext i16 @uvwasi_serdes_readv_iovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %iovs.sroa.0.0, i32 noundef %8) #24
+  %8 = load i32, ptr %iovs_ptr.addr, align 4
+  %conv12 = zext i32 %8 to i64
+  %call14 = call zeroext i16 @uvwasi_serdes_readv_iovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %iovs.sroa.0.0, i32 noundef %7) #24
   %cmp.not = icmp eq i16 %call14, 0
   br i1 %cmp.not, label %if.end18, label %cleanup
 
 if.end18:                                         ; preds = %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %10 = load i32, ptr %fd.addr, align 4
-  %11 = load i32, ptr %iovs_len.addr, align 4
-  %12 = load i64, ptr %offset.addr, align 8
-  %call20 = call zeroext i16 @uvwasi_fd_pread(ptr noundef nonnull %uvw_, i32 noundef %10, ptr noundef %iovs.sroa.0.0, i32 noundef %11, i64 noundef %12, ptr noundef nonnull %nread) #24
+  %9 = load i32, ptr %fd.addr, align 4
+  %10 = load i32, ptr %iovs_len.addr, align 4
+  %11 = load i64, ptr %offset.addr, align 8
+  %call20 = call zeroext i16 @uvwasi_fd_pread(ptr noundef nonnull %uvw_, i32 noundef %9, ptr noundef %iovs.sroa.0.0, i32 noundef %10, i64 noundef %11, ptr noundef nonnull %nread) #24
   %cmp22 = icmp eq i16 %call20, 0
   br i1 %cmp22, label %if.then23, label %cleanup
 
 if.then23:                                        ; preds = %if.end18
-  %13 = load i32, ptr %nread_ptr.addr, align 4
-  %conv25 = zext i32 %13 to i64
-  %14 = load i32, ptr %nread, align 4
-  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv25, i32 noundef %14) #24
+  %12 = load i32, ptr %nread_ptr.addr, align 4
+  %conv25 = zext i32 %12 to i64
+  %13 = load i32, ptr %nread, align 4
+  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv25, i32 noundef %13) #24
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end18, %if.then23, %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit
@@ -3520,34 +3497,33 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.not.i, label %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.62, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.62, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr) #29
   %.pre = load i32, ptr %buf.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %buf, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %5 to i64
+  %4 = phi i32 [ %buf, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef 8) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.end
 
 do.end:                                           ; preds = %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %6 = load i32, ptr %fd.addr, align 4
-  %call1 = call zeroext i16 @uvwasi_fd_prestat_get(ptr noundef nonnull %uvw_, i32 noundef %6, ptr noundef nonnull %prestat) #24
+  %5 = load i32, ptr %fd.addr, align 4
+  %call1 = call zeroext i16 @uvwasi_fd_prestat_get(ptr noundef nonnull %uvw_, i32 noundef %5, ptr noundef nonnull %prestat) #24
   %conv2 = zext i16 %call1 to i32
   %cmp = icmp eq i16 %call1, 0
   br i1 %cmp, label %if.then3, label %return
 
 if.then3:                                         ; preds = %do.end
-  %7 = load i32, ptr %buf.addr, align 4
-  %conv4 = zext i32 %7 to i64
+  %6 = load i32, ptr %buf.addr, align 4
+  %conv4 = zext i32 %6 to i64
   call void @uvwasi_serdes_write_prestat_t(ptr noundef %memory.coerce0, i64 noundef %conv4, ptr noundef nonnull %prestat) #24
   br label %return
 
@@ -3575,34 +3551,33 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.63, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.63, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr) #29
   %.pre = load i32, ptr %path_ptr.addr, align 4
   %.pre2 = load i32, ptr %path_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %path_len, %entry ], [ %.pre2, %if.end.i.i ]
-  %6 = phi i32 [ %path_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %conv1 = zext i32 %5 to i64
+  %4 = phi i32 [ %path_len, %entry ], [ %.pre2, %if.end.i.i ]
+  %5 = phi i32 [ %path_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %conv1 = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.end
 
 do.end:                                           ; preds = %_ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %7 = load i32, ptr %fd.addr, align 4
-  %8 = load i32, ptr %path_ptr.addr, align 4
-  %idxprom = zext i32 %8 to i64
+  %6 = load i32, ptr %fd.addr, align 4
+  %7 = load i32, ptr %path_ptr.addr, align 4
+  %idxprom = zext i32 %7 to i64
   %arrayidx = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom
-  %9 = load i32, ptr %path_len.addr, align 4
-  %call2 = call zeroext i16 @uvwasi_fd_prestat_dir_name(ptr noundef nonnull %uvw_, i32 noundef %7, ptr noundef %arrayidx, i32 noundef %9) #24
+  %8 = load i32, ptr %path_len.addr, align 4
+  %call2 = call zeroext i16 @uvwasi_fd_prestat_dir_name(ptr noundef nonnull %uvw_, i32 noundef %6, ptr noundef %arrayidx, i32 noundef %8) #24
   %conv3 = zext i16 %call2 to i32
   br label %return
 
@@ -3633,41 +3608,40 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA38_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA38_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_RmS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.64, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %iovs_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %iovs_len.addr, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr, ptr noundef nonnull align 4 dereferenceable(4) %nwritten_ptr.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_RmS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.64, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %iovs_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %iovs_len.addr, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr, ptr noundef nonnull align 4 dereferenceable(4) %nwritten_ptr.addr) #29
   %.pre = load i32, ptr %iovs_ptr.addr, align 4
   %.pre10 = load i32, ptr %iovs_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA38_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA38_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %iovs_len, %entry ], [ %.pre10, %if.end.i.i ]
-  %6 = phi i32 [ %iovs_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %mul = shl i32 %5, 3
+  %4 = phi i32 [ %iovs_len, %entry ], [ %.pre10, %if.end.i.i ]
+  %5 = phi i32 [ %iovs_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %mul = shl i32 %4, 3
   %conv1 = zext i32 %mul to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body2
 
 do.body2:                                         ; preds = %_ZN4node4wasi5DebugIJRA38_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit
-  %7 = load i32, ptr %nwritten_ptr.addr, align 4
-  %conv3 = zext i32 %7 to i64
+  %6 = load i32, ptr %nwritten_ptr.addr, align 4
+  %conv3 = zext i32 %6 to i64
   %call5 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv3, i64 noundef %memory.coerce1, i64 noundef 4) #24
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %do.end9
 
 do.end9:                                          ; preds = %do.body2
-  %8 = load i32, ptr %iovs_len.addr, align 4
-  %cmp.not.i.i.i.i = icmp eq i32 %8, 0
+  %7 = load i32, ptr %iovs_len.addr, align 4
+  %cmp.not.i.i.i.i = icmp eq i32 %7, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %do.end9
-  %conv10 = zext i32 %8 to i64
+  %conv10 = zext i32 %7 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv10, 4
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -3689,26 +3663,26 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
 
 _ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
   %iovs.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
-  %9 = load i32, ptr %iovs_ptr.addr, align 4
-  %conv12 = zext i32 %9 to i64
-  %call14 = call zeroext i16 @uvwasi_serdes_readv_ciovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %iovs.sroa.0.0, i32 noundef %8) #24
+  %8 = load i32, ptr %iovs_ptr.addr, align 4
+  %conv12 = zext i32 %8 to i64
+  %call14 = call zeroext i16 @uvwasi_serdes_readv_ciovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %iovs.sroa.0.0, i32 noundef %7) #24
   %cmp.not = icmp eq i16 %call14, 0
   br i1 %cmp.not, label %if.end18, label %cleanup
 
 if.end18:                                         ; preds = %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %10 = load i32, ptr %fd.addr, align 4
-  %11 = load i32, ptr %iovs_len.addr, align 4
-  %12 = load i64, ptr %offset.addr, align 8
-  %call20 = call zeroext i16 @uvwasi_fd_pwrite(ptr noundef nonnull %uvw_, i32 noundef %10, ptr noundef %iovs.sroa.0.0, i32 noundef %11, i64 noundef %12, ptr noundef nonnull %nwritten) #24
+  %9 = load i32, ptr %fd.addr, align 4
+  %10 = load i32, ptr %iovs_len.addr, align 4
+  %11 = load i64, ptr %offset.addr, align 8
+  %call20 = call zeroext i16 @uvwasi_fd_pwrite(ptr noundef nonnull %uvw_, i32 noundef %9, ptr noundef %iovs.sroa.0.0, i32 noundef %10, i64 noundef %11, ptr noundef nonnull %nwritten) #24
   %cmp22 = icmp eq i16 %call20, 0
   br i1 %cmp22, label %if.then23, label %cleanup
 
 if.then23:                                        ; preds = %if.end18
-  %13 = load i32, ptr %nwritten_ptr.addr, align 4
-  %conv25 = zext i32 %13 to i64
-  %14 = load i32, ptr %nwritten, align 4
-  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv25, i32 noundef %14) #24
+  %12 = load i32, ptr %nwritten_ptr.addr, align 4
+  %conv25 = zext i32 %12 to i64
+  %13 = load i32, ptr %nwritten, align 4
+  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv25, i32 noundef %13) #24
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end18, %if.then23, %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit
@@ -3748,41 +3722,40 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.65, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %iovs_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %iovs_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %nread_ptr.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.65, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %iovs_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %iovs_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %nread_ptr.addr) #29
   %.pre = load i32, ptr %iovs_ptr.addr, align 4
   %.pre10 = load i32, ptr %iovs_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA25_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %iovs_len, %entry ], [ %.pre10, %if.end.i.i ]
-  %6 = phi i32 [ %iovs_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %mul = shl i32 %5, 3
+  %4 = phi i32 [ %iovs_len, %entry ], [ %.pre10, %if.end.i.i ]
+  %5 = phi i32 [ %iovs_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %mul = shl i32 %4, 3
   %conv1 = zext i32 %mul to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body2
 
 do.body2:                                         ; preds = %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %7 = load i32, ptr %nread_ptr.addr, align 4
-  %conv3 = zext i32 %7 to i64
+  %6 = load i32, ptr %nread_ptr.addr, align 4
+  %conv3 = zext i32 %6 to i64
   %call5 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv3, i64 noundef %memory.coerce1, i64 noundef 4) #24
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %do.end9
 
 do.end9:                                          ; preds = %do.body2
-  %8 = load i32, ptr %iovs_len.addr, align 4
-  %cmp.not.i.i.i.i = icmp eq i32 %8, 0
+  %7 = load i32, ptr %iovs_len.addr, align 4
+  %cmp.not.i.i.i.i = icmp eq i32 %7, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %do.end9
-  %conv10 = zext i32 %8 to i64
+  %conv10 = zext i32 %7 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv10, 4
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -3804,25 +3777,25 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
 
 _ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
   %iovs.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
-  %9 = load i32, ptr %iovs_ptr.addr, align 4
-  %conv12 = zext i32 %9 to i64
-  %call14 = call zeroext i16 @uvwasi_serdes_readv_iovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %iovs.sroa.0.0, i32 noundef %8) #24
+  %8 = load i32, ptr %iovs_ptr.addr, align 4
+  %conv12 = zext i32 %8 to i64
+  %call14 = call zeroext i16 @uvwasi_serdes_readv_iovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %iovs.sroa.0.0, i32 noundef %7) #24
   %cmp.not = icmp eq i16 %call14, 0
   br i1 %cmp.not, label %if.end18, label %cleanup
 
 if.end18:                                         ; preds = %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %10 = load i32, ptr %fd.addr, align 4
-  %11 = load i32, ptr %iovs_len.addr, align 4
-  %call20 = call zeroext i16 @uvwasi_fd_read(ptr noundef nonnull %uvw_, i32 noundef %10, ptr noundef %iovs.sroa.0.0, i32 noundef %11, ptr noundef nonnull %nread) #24
+  %9 = load i32, ptr %fd.addr, align 4
+  %10 = load i32, ptr %iovs_len.addr, align 4
+  %call20 = call zeroext i16 @uvwasi_fd_read(ptr noundef nonnull %uvw_, i32 noundef %9, ptr noundef %iovs.sroa.0.0, i32 noundef %10, ptr noundef nonnull %nread) #24
   %cmp22 = icmp eq i16 %call20, 0
   br i1 %cmp22, label %if.then23, label %cleanup
 
 if.then23:                                        ; preds = %if.end18
-  %12 = load i32, ptr %nread_ptr.addr, align 4
-  %conv25 = zext i32 %12 to i64
-  %13 = load i32, ptr %nread, align 4
-  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv25, i32 noundef %13) #24
+  %11 = load i32, ptr %nread_ptr.addr, align 4
+  %conv25 = zext i32 %11 to i64
+  %12 = load i32, ptr %nread, align 4
+  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv25, i32 noundef %12) #24
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end18, %if.then23, %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit
@@ -3862,51 +3835,50 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_RmS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.66, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %buf_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %buf_len.addr, ptr noundef nonnull align 8 dereferenceable(8) %cookie.addr, ptr noundef nonnull align 4 dereferenceable(4) %bufused_ptr.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_RmS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.66, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %buf_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %buf_len.addr, ptr noundef nonnull align 8 dereferenceable(8) %cookie.addr, ptr noundef nonnull align 4 dereferenceable(4) %bufused_ptr.addr) #29
   %.pre = load i32, ptr %buf_ptr.addr, align 4
   %.pre5 = load i32, ptr %buf_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA39_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %buf_len, %entry ], [ %.pre5, %if.end.i.i ]
-  %6 = phi i32 [ %buf_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %conv1 = zext i32 %5 to i64
+  %4 = phi i32 [ %buf_len, %entry ], [ %.pre5, %if.end.i.i ]
+  %5 = phi i32 [ %buf_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %conv1 = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body2
 
 do.body2:                                         ; preds = %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit
-  %7 = load i32, ptr %bufused_ptr.addr, align 4
-  %conv3 = zext i32 %7 to i64
+  %6 = load i32, ptr %bufused_ptr.addr, align 4
+  %conv3 = zext i32 %6 to i64
   %call5 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv3, i64 noundef %memory.coerce1, i64 noundef 4) #24
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %do.end9
 
 do.end9:                                          ; preds = %do.body2
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %8 = load i32, ptr %fd.addr, align 4
-  %9 = load i32, ptr %buf_ptr.addr, align 4
-  %idxprom = zext i32 %9 to i64
+  %7 = load i32, ptr %fd.addr, align 4
+  %8 = load i32, ptr %buf_ptr.addr, align 4
+  %idxprom = zext i32 %8 to i64
   %arrayidx = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom
-  %10 = load i32, ptr %buf_len.addr, align 4
-  %11 = load i64, ptr %cookie.addr, align 8
-  %call10 = call zeroext i16 @uvwasi_fd_readdir(ptr noundef nonnull %uvw_, i32 noundef %8, ptr noundef %arrayidx, i32 noundef %10, i64 noundef %11, ptr noundef nonnull %bufused) #24
+  %9 = load i32, ptr %buf_len.addr, align 4
+  %10 = load i64, ptr %cookie.addr, align 8
+  %call10 = call zeroext i16 @uvwasi_fd_readdir(ptr noundef nonnull %uvw_, i32 noundef %7, ptr noundef %arrayidx, i32 noundef %9, i64 noundef %10, ptr noundef nonnull %bufused) #24
   %conv11 = zext i16 %call10 to i32
   %cmp = icmp eq i16 %call10, 0
   br i1 %cmp, label %if.then12, label %return
 
 if.then12:                                        ; preds = %do.end9
-  %12 = load i32, ptr %bufused_ptr.addr, align 4
-  %conv14 = zext i32 %12 to i64
-  %13 = load i32, ptr %bufused, align 4
-  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv14, i32 noundef %13) #24
+  %11 = load i32, ptr %bufused_ptr.addr, align 4
+  %conv14 = zext i32 %11 to i64
+  %12 = load i32, ptr %bufused, align 4
+  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv14, i32 noundef %12) #24
   br label %return
 
 return:                                           ; preds = %do.end9, %if.then12, %do.body2, %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit
@@ -3929,22 +3901,21 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.not.i, label %_ZN4node4wasi5DebugIJRA21_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA21_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.67, ptr noundef nonnull align 4 dereferenceable(4) %from.addr, ptr noundef nonnull align 4 dereferenceable(4) %to.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.67, ptr noundef nonnull align 4 dereferenceable(4) %from.addr, ptr noundef nonnull align 4 dereferenceable(4) %to.addr) #29
   %.pre = load i32, ptr %from.addr, align 4
   %.pre2 = load i32, ptr %to.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA21_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA21_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %to, %entry ], [ %.pre2, %if.end.i.i ]
-  %6 = phi i32 [ %from, %entry ], [ %.pre, %if.end.i.i ]
+  %4 = phi i32 [ %to, %entry ], [ %.pre2, %if.end.i.i ]
+  %5 = phi i32 [ %from, %entry ], [ %.pre, %if.end.i.i ]
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %call = call zeroext i16 @uvwasi_fd_renumber(ptr noundef nonnull %uvw_, i32 noundef %6, i32 noundef %5) #24
+  %call = call zeroext i16 @uvwasi_fd_renumber(ptr noundef nonnull %uvw_, i32 noundef %5, i32 noundef %4) #24
   %conv = zext i16 %call to i32
   ret i32 %conv
 }
@@ -3969,39 +3940,38 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA25_KcRjRlS5_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA25_KcRjRlS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjRlS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.68, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr, ptr noundef nonnull align 4 dereferenceable(4) %whence.addr, ptr noundef nonnull align 4 dereferenceable(4) %newoffset_ptr.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRlS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.68, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr, ptr noundef nonnull align 4 dereferenceable(4) %whence.addr, ptr noundef nonnull align 4 dereferenceable(4) %newoffset_ptr.addr) #29
   %.pre = load i32, ptr %newoffset_ptr.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA25_KcRjRlS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA25_KcRjRlS5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %newoffset_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %5 to i64
+  %4 = phi i32 [ %newoffset_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef 8) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.end
 
 do.end:                                           ; preds = %_ZN4node4wasi5DebugIJRA25_KcRjRlS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %6 = load i32, ptr %fd.addr, align 4
-  %7 = load i64, ptr %offset.addr, align 8
-  %8 = load i32, ptr %whence.addr, align 4
-  %conv1 = trunc i32 %8 to i8
-  %call2 = call zeroext i16 @uvwasi_fd_seek(ptr noundef nonnull %uvw_, i32 noundef %6, i64 noundef %7, i8 noundef zeroext %conv1, ptr noundef nonnull %newoffset) #24
+  %5 = load i32, ptr %fd.addr, align 4
+  %6 = load i64, ptr %offset.addr, align 8
+  %7 = load i32, ptr %whence.addr, align 4
+  %conv1 = trunc i32 %7 to i8
+  %call2 = call zeroext i16 @uvwasi_fd_seek(ptr noundef nonnull %uvw_, i32 noundef %5, i64 noundef %6, i8 noundef zeroext %conv1, ptr noundef nonnull %newoffset) #24
   %conv3 = zext i16 %call2 to i32
   %cmp = icmp eq i16 %call2, 0
   br i1 %cmp, label %if.then4, label %return
 
 if.then4:                                         ; preds = %do.end
-  %9 = load i32, ptr %newoffset_ptr.addr, align 4
-  %conv5 = zext i32 %9 to i64
-  %10 = load i64, ptr %newoffset, align 8
-  call void @uvwasi_serdes_write_filesize_t(ptr noundef %memory.coerce0, i64 noundef %conv5, i64 noundef %10) #24
+  %8 = load i32, ptr %newoffset_ptr.addr, align 4
+  %conv5 = zext i32 %8 to i64
+  %9 = load i64, ptr %newoffset, align 8
+  call void @uvwasi_serdes_write_filesize_t(ptr noundef %memory.coerce0, i64 noundef %conv5, i64 noundef %9) #24
   br label %return
 
 return:                                           ; preds = %do.end, %if.then4, %_ZN4node4wasi5DebugIJRA25_KcRjRlS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
@@ -4024,20 +3994,19 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA13_KcRjEEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA13_KcRjEEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.69, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.69, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr) #29
   %.pre = load i32, ptr %fd.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA13_KcRjEEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA13_KcRjEEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
+  %4 = phi i32 [ %fd, %entry ], [ %.pre, %if.end.i.i ]
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %call = call zeroext i16 @uvwasi_fd_sync(ptr noundef nonnull %uvw_, i32 noundef %5) #24
+  %call = call zeroext i16 @uvwasi_fd_sync(ptr noundef nonnull %uvw_, i32 noundef %4) #24
   %conv = zext i16 %call to i32
   ret i32 %conv
 }
@@ -4058,36 +4027,35 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.not.i, label %_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.70, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %offset_ptr.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.70, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %offset_ptr.addr) #29
   %.pre = load i32, ptr %offset_ptr.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %offset_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %5 to i64
+  %4 = phi i32 [ %offset_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef 8) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.end
 
 do.end:                                           ; preds = %_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %6 = load i32, ptr %fd.addr, align 4
-  %call1 = call zeroext i16 @uvwasi_fd_tell(ptr noundef nonnull %uvw_, i32 noundef %6, ptr noundef nonnull %offset) #24
+  %5 = load i32, ptr %fd.addr, align 4
+  %call1 = call zeroext i16 @uvwasi_fd_tell(ptr noundef nonnull %uvw_, i32 noundef %5, ptr noundef nonnull %offset) #24
   %conv2 = zext i16 %call1 to i32
   %cmp = icmp eq i16 %call1, 0
   br i1 %cmp, label %if.then3, label %return
 
 if.then3:                                         ; preds = %do.end
-  %7 = load i32, ptr %offset_ptr.addr, align 4
-  %conv4 = zext i32 %7 to i64
-  %8 = load i64, ptr %offset, align 8
-  call void @uvwasi_serdes_write_filesize_t(ptr noundef %memory.coerce0, i64 noundef %conv4, i64 noundef %8) #24
+  %6 = load i32, ptr %offset_ptr.addr, align 4
+  %conv4 = zext i32 %6 to i64
+  %7 = load i64, ptr %offset, align 8
+  call void @uvwasi_serdes_write_filesize_t(ptr noundef %memory.coerce0, i64 noundef %conv4, i64 noundef %7) #24
   br label %return
 
 return:                                           ; preds = %do.end, %if.then3, %_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
@@ -4115,41 +4083,40 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA26_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA26_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.71, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %iovs_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %iovs_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %nwritten_ptr.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.71, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %iovs_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %iovs_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %nwritten_ptr.addr) #29
   %.pre = load i32, ptr %iovs_ptr.addr, align 4
   %.pre10 = load i32, ptr %iovs_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA26_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA26_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %iovs_len, %entry ], [ %.pre10, %if.end.i.i ]
-  %6 = phi i32 [ %iovs_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %mul = shl i32 %5, 3
+  %4 = phi i32 [ %iovs_len, %entry ], [ %.pre10, %if.end.i.i ]
+  %5 = phi i32 [ %iovs_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %mul = shl i32 %4, 3
   %conv1 = zext i32 %mul to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body2
 
 do.body2:                                         ; preds = %_ZN4node4wasi5DebugIJRA26_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %7 = load i32, ptr %nwritten_ptr.addr, align 4
-  %conv3 = zext i32 %7 to i64
+  %6 = load i32, ptr %nwritten_ptr.addr, align 4
+  %conv3 = zext i32 %6 to i64
   %call5 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv3, i64 noundef %memory.coerce1, i64 noundef 4) #24
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %do.end9
 
 do.end9:                                          ; preds = %do.body2
-  %8 = load i32, ptr %iovs_len.addr, align 4
-  %cmp.not.i.i.i.i = icmp eq i32 %8, 0
+  %7 = load i32, ptr %iovs_len.addr, align 4
+  %cmp.not.i.i.i.i = icmp eq i32 %7, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %do.end9
-  %conv10 = zext i32 %8 to i64
+  %conv10 = zext i32 %7 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv10, 4
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -4171,25 +4138,25 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
 
 _ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
   %iovs.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
-  %9 = load i32, ptr %iovs_ptr.addr, align 4
-  %conv12 = zext i32 %9 to i64
-  %call14 = call zeroext i16 @uvwasi_serdes_readv_ciovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %iovs.sroa.0.0, i32 noundef %8) #24
+  %8 = load i32, ptr %iovs_ptr.addr, align 4
+  %conv12 = zext i32 %8 to i64
+  %call14 = call zeroext i16 @uvwasi_serdes_readv_ciovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %iovs.sroa.0.0, i32 noundef %7) #24
   %cmp.not = icmp eq i16 %call14, 0
   br i1 %cmp.not, label %if.end18, label %cleanup
 
 if.end18:                                         ; preds = %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %10 = load i32, ptr %fd.addr, align 4
-  %11 = load i32, ptr %iovs_len.addr, align 4
-  %call20 = call zeroext i16 @uvwasi_fd_write(ptr noundef nonnull %uvw_, i32 noundef %10, ptr noundef %iovs.sroa.0.0, i32 noundef %11, ptr noundef nonnull %nwritten) #24
+  %9 = load i32, ptr %fd.addr, align 4
+  %10 = load i32, ptr %iovs_len.addr, align 4
+  %call20 = call zeroext i16 @uvwasi_fd_write(ptr noundef nonnull %uvw_, i32 noundef %9, ptr noundef %iovs.sroa.0.0, i32 noundef %10, ptr noundef nonnull %nwritten) #24
   %cmp22 = icmp eq i16 %call20, 0
   br i1 %cmp22, label %if.then23, label %cleanup
 
 if.then23:                                        ; preds = %if.end18
-  %12 = load i32, ptr %nwritten_ptr.addr, align 4
-  %conv25 = zext i32 %12 to i64
-  %13 = load i32, ptr %nwritten, align 4
-  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv25, i32 noundef %13) #24
+  %11 = load i32, ptr %nwritten_ptr.addr, align 4
+  %conv25 = zext i32 %11 to i64
+  %12 = load i32, ptr %nwritten, align 4
+  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv25, i32 noundef %12) #24
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end18, %if.then23, %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit
@@ -4224,34 +4191,33 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.72, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.72, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr) #29
   %.pre = load i32, ptr %path_ptr.addr, align 4
   %.pre2 = load i32, ptr %path_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %path_len, %entry ], [ %.pre2, %if.end.i.i ]
-  %6 = phi i32 [ %path_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %conv1 = zext i32 %5 to i64
+  %4 = phi i32 [ %path_len, %entry ], [ %.pre2, %if.end.i.i ]
+  %5 = phi i32 [ %path_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %conv1 = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.end
 
 do.end:                                           ; preds = %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %7 = load i32, ptr %fd.addr, align 4
-  %8 = load i32, ptr %path_ptr.addr, align 4
-  %idxprom = zext i32 %8 to i64
+  %6 = load i32, ptr %fd.addr, align 4
+  %7 = load i32, ptr %path_ptr.addr, align 4
+  %idxprom = zext i32 %7 to i64
   %arrayidx = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom
-  %9 = load i32, ptr %path_len.addr, align 4
-  %call2 = call zeroext i16 @uvwasi_path_create_directory(ptr noundef nonnull %uvw_, i32 noundef %7, ptr noundef %arrayidx, i32 noundef %9) #24
+  %8 = load i32, ptr %path_len.addr, align 4
+  %call2 = call zeroext i16 @uvwasi_path_create_directory(ptr noundef nonnull %uvw_, i32 noundef %6, ptr noundef %arrayidx, i32 noundef %8) #24
   %conv3 = zext i16 %call2 to i32
   br label %return
 
@@ -4278,22 +4244,21 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA31_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA31_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.73, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.73, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr) #29
   %.pre = load i32, ptr %path_ptr.addr, align 4
   %.pre6 = load i32, ptr %path_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA31_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA31_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %path_len, %entry ], [ %.pre6, %if.end.i.i ]
-  %6 = phi i32 [ %path_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %conv1 = zext i32 %5 to i64
+  %4 = phi i32 [ %path_len, %entry ], [ %.pre6, %if.end.i.i ]
+  %5 = phi i32 [ %path_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %conv1 = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body2
@@ -4306,12 +4271,12 @@ do.body2:                                         ; preds = %_ZN4node4wasi5Debug
 
 do.end9:                                          ; preds = %do.body2
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %7 = load i32, ptr %fd.addr, align 4
-  %8 = load i32, ptr %path_ptr.addr, align 4
-  %idxprom = zext i32 %8 to i64
+  %6 = load i32, ptr %fd.addr, align 4
+  %7 = load i32, ptr %path_ptr.addr, align 4
+  %idxprom = zext i32 %7 to i64
   %arrayidx = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom
-  %9 = load i32, ptr %path_len.addr, align 4
-  %call10 = call zeroext i16 @uvwasi_path_filestat_get(ptr noundef nonnull %uvw_, i32 noundef %7, i32 noundef %flags, ptr noundef %arrayidx, i32 noundef %9, ptr noundef nonnull %stats) #24
+  %8 = load i32, ptr %path_len.addr, align 4
+  %call10 = call zeroext i16 @uvwasi_path_filestat_get(ptr noundef nonnull %uvw_, i32 noundef %6, i32 noundef %flags, ptr noundef %arrayidx, i32 noundef %8, ptr noundef nonnull %stats) #24
   %conv11 = zext i16 %call10 to i32
   %cmp = icmp eq i16 %call10, 0
   br i1 %cmp, label %if.then12, label %return
@@ -4350,39 +4315,38 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA53_KcRjS5_S5_S5_RmS6_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA53_KcRjS5_S5_S5_RmS6_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_S1_RmS2_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.74, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %flags.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr, ptr noundef nonnull align 8 dereferenceable(8) %st_atim.addr, ptr noundef nonnull align 8 dereferenceable(8) %st_mtim.addr, ptr noundef nonnull align 4 dereferenceable(4) %fst_flags.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_S1_RmS2_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.74, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %flags.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr, ptr noundef nonnull align 8 dereferenceable(8) %st_atim.addr, ptr noundef nonnull align 8 dereferenceable(8) %st_mtim.addr, ptr noundef nonnull align 4 dereferenceable(4) %fst_flags.addr) #29
   %.pre = load i32, ptr %path_ptr.addr, align 4
   %.pre2 = load i32, ptr %path_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA53_KcRjS5_S5_S5_RmS6_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA53_KcRjS5_S5_S5_RmS6_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %path_len, %entry ], [ %.pre2, %if.end.i.i ]
-  %6 = phi i32 [ %path_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %conv1 = zext i32 %5 to i64
+  %4 = phi i32 [ %path_len, %entry ], [ %.pre2, %if.end.i.i ]
+  %5 = phi i32 [ %path_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %conv1 = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.end
 
 do.end:                                           ; preds = %_ZN4node4wasi5DebugIJRA53_KcRjS5_S5_S5_RmS6_S5_EEEvRKNS0_4WASIEDpOT_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %7 = load i32, ptr %fd.addr, align 4
-  %8 = load i32, ptr %flags.addr, align 4
-  %9 = load i32, ptr %path_ptr.addr, align 4
-  %idxprom = zext i32 %9 to i64
+  %6 = load i32, ptr %fd.addr, align 4
+  %7 = load i32, ptr %flags.addr, align 4
+  %8 = load i32, ptr %path_ptr.addr, align 4
+  %idxprom = zext i32 %8 to i64
   %arrayidx = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom
-  %10 = load i32, ptr %path_len.addr, align 4
-  %11 = load i64, ptr %st_atim.addr, align 8
-  %12 = load i64, ptr %st_mtim.addr, align 8
-  %13 = load i32, ptr %fst_flags.addr, align 4
-  %conv2 = trunc i32 %13 to i16
-  %call3 = call zeroext i16 @uvwasi_path_filestat_set_times(ptr noundef nonnull %uvw_, i32 noundef %7, i32 noundef %8, ptr noundef %arrayidx, i32 noundef %10, i64 noundef %11, i64 noundef %12, i16 noundef zeroext %conv2) #24
+  %9 = load i32, ptr %path_len.addr, align 4
+  %10 = load i64, ptr %st_atim.addr, align 8
+  %11 = load i64, ptr %st_mtim.addr, align 8
+  %12 = load i32, ptr %fst_flags.addr, align 4
+  %conv2 = trunc i32 %12 to i16
+  %call3 = call zeroext i16 @uvwasi_path_filestat_set_times(ptr noundef nonnull %uvw_, i32 noundef %6, i32 noundef %7, ptr noundef %arrayidx, i32 noundef %9, i64 noundef %10, i64 noundef %11, i16 noundef zeroext %conv2) #24
   %conv4 = zext i16 %call3 to i32
   br label %return
 
@@ -4416,49 +4380,48 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_S1_S1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.75, ptr noundef nonnull align 4 dereferenceable(4) %old_fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %old_flags.addr, ptr noundef nonnull align 4 dereferenceable(4) %old_path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %old_path_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %new_fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %new_path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %new_path_len.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_S1_S1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.75, ptr noundef nonnull align 4 dereferenceable(4) %old_fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %old_flags.addr, ptr noundef nonnull align 4 dereferenceable(4) %old_path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %old_path_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %new_fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %new_path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %new_path_len.addr) #29
   %.pre = load i32, ptr %old_path_ptr.addr, align 4
   %.pre4 = load i32, ptr %old_path_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA39_KcRjS5_S5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %old_path_len, %entry ], [ %.pre4, %if.end.i.i ]
-  %6 = phi i32 [ %old_path_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %conv1 = zext i32 %5 to i64
+  %4 = phi i32 [ %old_path_len, %entry ], [ %.pre4, %if.end.i.i ]
+  %5 = phi i32 [ %old_path_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %conv1 = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body2
 
 do.body2:                                         ; preds = %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %7 = load i32, ptr %new_path_ptr.addr, align 4
-  %conv3 = zext i32 %7 to i64
-  %8 = load i32, ptr %new_path_len.addr, align 4
-  %conv5 = zext i32 %8 to i64
+  %6 = load i32, ptr %new_path_ptr.addr, align 4
+  %conv3 = zext i32 %6 to i64
+  %7 = load i32, ptr %new_path_len.addr, align 4
+  %conv5 = zext i32 %7 to i64
   %call6 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv3, i64 noundef %memory.coerce1, i64 noundef %conv5) #24
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %do.end10
 
 do.end10:                                         ; preds = %do.body2
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %9 = load i32, ptr %old_fd.addr, align 4
-  %10 = load i32, ptr %old_flags.addr, align 4
-  %11 = load i32, ptr %old_path_ptr.addr, align 4
-  %idxprom = zext i32 %11 to i64
+  %8 = load i32, ptr %old_fd.addr, align 4
+  %9 = load i32, ptr %old_flags.addr, align 4
+  %10 = load i32, ptr %old_path_ptr.addr, align 4
+  %idxprom = zext i32 %10 to i64
   %arrayidx = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom
-  %12 = load i32, ptr %old_path_len.addr, align 4
-  %13 = load i32, ptr %new_fd.addr, align 4
-  %14 = load i32, ptr %new_path_ptr.addr, align 4
-  %idxprom12 = zext i32 %14 to i64
+  %11 = load i32, ptr %old_path_len.addr, align 4
+  %12 = load i32, ptr %new_fd.addr, align 4
+  %13 = load i32, ptr %new_path_ptr.addr, align 4
+  %idxprom12 = zext i32 %13 to i64
   %arrayidx13 = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom12
-  %15 = load i32, ptr %new_path_len.addr, align 4
-  %call14 = call zeroext i16 @uvwasi_path_link(ptr noundef nonnull %uvw_, i32 noundef %9, i32 noundef %10, ptr noundef %arrayidx, i32 noundef %12, i32 noundef %13, ptr noundef %arrayidx13, i32 noundef %15) #24
+  %14 = load i32, ptr %new_path_len.addr, align 4
+  %call14 = call zeroext i16 @uvwasi_path_link(ptr noundef nonnull %uvw_, i32 noundef %8, i32 noundef %9, ptr noundef %arrayidx, i32 noundef %11, i32 noundef %12, ptr noundef %arrayidx13, i32 noundef %14) #24
   %conv15 = zext i16 %call14 to i32
   br label %return
 
@@ -4497,57 +4460,56 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA47_KcRjS5_S5_S5_S5_RmS6_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA47_KcRjS5_S5_S5_S5_RmS6_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_S1_S1_RmS2_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.76, ptr noundef nonnull align 4 dereferenceable(4) %dirfd.addr, ptr noundef nonnull align 4 dereferenceable(4) %dirflags.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %o_flags.addr, ptr noundef nonnull align 8 dereferenceable(8) %fs_rights_base.addr, ptr noundef nonnull align 8 dereferenceable(8) %fs_rights_inheriting.addr, ptr noundef nonnull align 4 dereferenceable(4) %fs_flags.addr, ptr noundef nonnull align 4 dereferenceable(4) %fd_ptr.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_S1_S1_RmS2_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.76, ptr noundef nonnull align 4 dereferenceable(4) %dirfd.addr, ptr noundef nonnull align 4 dereferenceable(4) %dirflags.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %o_flags.addr, ptr noundef nonnull align 8 dereferenceable(8) %fs_rights_base.addr, ptr noundef nonnull align 8 dereferenceable(8) %fs_rights_inheriting.addr, ptr noundef nonnull align 4 dereferenceable(4) %fs_flags.addr, ptr noundef nonnull align 4 dereferenceable(4) %fd_ptr.addr) #29
   %.pre = load i32, ptr %path_ptr.addr, align 4
   %.pre5 = load i32, ptr %path_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA47_KcRjS5_S5_S5_S5_RmS6_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA47_KcRjS5_S5_S5_S5_RmS6_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %path_len, %entry ], [ %.pre5, %if.end.i.i ]
-  %6 = phi i32 [ %path_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %conv1 = zext i32 %5 to i64
+  %4 = phi i32 [ %path_len, %entry ], [ %.pre5, %if.end.i.i ]
+  %5 = phi i32 [ %path_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %conv1 = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body2
 
 do.body2:                                         ; preds = %_ZN4node4wasi5DebugIJRA47_KcRjS5_S5_S5_S5_RmS6_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %7 = load i32, ptr %fd_ptr.addr, align 4
-  %conv3 = zext i32 %7 to i64
+  %6 = load i32, ptr %fd_ptr.addr, align 4
+  %conv3 = zext i32 %6 to i64
   %call5 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv3, i64 noundef %memory.coerce1, i64 noundef 4) #24
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %do.end9
 
 do.end9:                                          ; preds = %do.body2
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %8 = load i32, ptr %dirfd.addr, align 4
-  %9 = load i32, ptr %dirflags.addr, align 4
-  %10 = load i32, ptr %path_ptr.addr, align 4
-  %idxprom = zext i32 %10 to i64
+  %7 = load i32, ptr %dirfd.addr, align 4
+  %8 = load i32, ptr %dirflags.addr, align 4
+  %9 = load i32, ptr %path_ptr.addr, align 4
+  %idxprom = zext i32 %9 to i64
   %arrayidx = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom
-  %11 = load i32, ptr %path_len.addr, align 4
-  %12 = load i32, ptr %o_flags.addr, align 4
-  %conv10 = trunc i32 %12 to i16
-  %13 = load i64, ptr %fs_rights_base.addr, align 8
-  %14 = load i64, ptr %fs_rights_inheriting.addr, align 8
-  %15 = load i32, ptr %fs_flags.addr, align 4
-  %conv11 = trunc i32 %15 to i16
-  %call12 = call zeroext i16 @uvwasi_path_open(ptr noundef nonnull %uvw_, i32 noundef %8, i32 noundef %9, ptr noundef %arrayidx, i32 noundef %11, i16 noundef zeroext %conv10, i64 noundef %13, i64 noundef %14, i16 noundef zeroext %conv11, ptr noundef nonnull %fd) #24
+  %10 = load i32, ptr %path_len.addr, align 4
+  %11 = load i32, ptr %o_flags.addr, align 4
+  %conv10 = trunc i32 %11 to i16
+  %12 = load i64, ptr %fs_rights_base.addr, align 8
+  %13 = load i64, ptr %fs_rights_inheriting.addr, align 8
+  %14 = load i32, ptr %fs_flags.addr, align 4
+  %conv11 = trunc i32 %14 to i16
+  %call12 = call zeroext i16 @uvwasi_path_open(ptr noundef nonnull %uvw_, i32 noundef %7, i32 noundef %8, ptr noundef %arrayidx, i32 noundef %10, i16 noundef zeroext %conv10, i64 noundef %12, i64 noundef %13, i16 noundef zeroext %conv11, ptr noundef nonnull %fd) #24
   %conv13 = zext i16 %call12 to i32
   %cmp = icmp eq i16 %call12, 0
   br i1 %cmp, label %if.then14, label %return
 
 if.then14:                                        ; preds = %do.end9
-  %16 = load i32, ptr %fd_ptr.addr, align 4
-  %conv16 = zext i32 %16 to i64
-  %17 = load i32, ptr %fd, align 4
-  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv16, i32 noundef %17) #24
+  %15 = load i32, ptr %fd_ptr.addr, align 4
+  %conv16 = zext i32 %15 to i64
+  %16 = load i32, ptr %fd, align 4
+  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv16, i32 noundef %16) #24
   br label %return
 
 return:                                           ; preds = %do.end9, %if.then14, %do.body2, %_ZN4node4wasi5DebugIJRA47_KcRjS5_S5_S5_S5_RmS6_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
@@ -4579,63 +4541,62 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_S1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.77, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %buf_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %buf_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %bufused_ptr.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_S1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.77, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %buf_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %buf_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %bufused_ptr.addr) #29
   %.pre = load i32, ptr %path_ptr.addr, align 4
   %.pre7 = load i32, ptr %path_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA39_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %path_len, %entry ], [ %.pre7, %if.end.i.i ]
-  %6 = phi i32 [ %path_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %conv1 = zext i32 %5 to i64
+  %4 = phi i32 [ %path_len, %entry ], [ %.pre7, %if.end.i.i ]
+  %5 = phi i32 [ %path_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %conv1 = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body2
 
 do.body2:                                         ; preds = %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %7 = load i32, ptr %buf_ptr.addr, align 4
-  %conv3 = zext i32 %7 to i64
-  %8 = load i32, ptr %buf_len.addr, align 4
-  %conv5 = zext i32 %8 to i64
+  %6 = load i32, ptr %buf_ptr.addr, align 4
+  %conv3 = zext i32 %6 to i64
+  %7 = load i32, ptr %buf_len.addr, align 4
+  %conv5 = zext i32 %7 to i64
   %call6 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv3, i64 noundef %memory.coerce1, i64 noundef %conv5) #24
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %do.body11
 
 do.body11:                                        ; preds = %do.body2
-  %9 = load i32, ptr %bufused_ptr.addr, align 4
-  %conv12 = zext i32 %9 to i64
+  %8 = load i32, ptr %bufused_ptr.addr, align 4
+  %conv12 = zext i32 %8 to i64
   %call14 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv12, i64 noundef %memory.coerce1, i64 noundef 4) #24
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return, label %do.end18
 
 do.end18:                                         ; preds = %do.body11
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %10 = load i32, ptr %fd.addr, align 4
-  %11 = load i32, ptr %path_ptr.addr, align 4
-  %idxprom = zext i32 %11 to i64
+  %9 = load i32, ptr %fd.addr, align 4
+  %10 = load i32, ptr %path_ptr.addr, align 4
+  %idxprom = zext i32 %10 to i64
   %arrayidx = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom
-  %12 = load i32, ptr %path_len.addr, align 4
-  %13 = load i32, ptr %buf_ptr.addr, align 4
-  %idxprom20 = zext i32 %13 to i64
+  %11 = load i32, ptr %path_len.addr, align 4
+  %12 = load i32, ptr %buf_ptr.addr, align 4
+  %idxprom20 = zext i32 %12 to i64
   %arrayidx21 = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom20
-  %14 = load i32, ptr %buf_len.addr, align 4
-  %call22 = call zeroext i16 @uvwasi_path_readlink(ptr noundef nonnull %uvw_, i32 noundef %10, ptr noundef %arrayidx, i32 noundef %12, ptr noundef %arrayidx21, i32 noundef %14, ptr noundef nonnull %bufused) #24
+  %13 = load i32, ptr %buf_len.addr, align 4
+  %call22 = call zeroext i16 @uvwasi_path_readlink(ptr noundef nonnull %uvw_, i32 noundef %9, ptr noundef %arrayidx, i32 noundef %11, ptr noundef %arrayidx21, i32 noundef %13, ptr noundef nonnull %bufused) #24
   %conv23 = zext i16 %call22 to i32
   %cmp = icmp eq i16 %call22, 0
   br i1 %cmp, label %if.then24, label %return
 
 if.then24:                                        ; preds = %do.end18
-  %15 = load i32, ptr %bufused_ptr.addr, align 4
-  %conv26 = zext i32 %15 to i64
-  %16 = load i32, ptr %bufused, align 4
-  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv26, i32 noundef %16) #24
+  %14 = load i32, ptr %bufused_ptr.addr, align 4
+  %conv26 = zext i32 %14 to i64
+  %15 = load i32, ptr %bufused, align 4
+  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv26, i32 noundef %15) #24
   br label %return
 
 return:                                           ; preds = %do.end18, %if.then24, %do.body11, %do.body2, %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
@@ -4660,34 +4621,33 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.78, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.78, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr) #29
   %.pre = load i32, ptr %path_ptr.addr, align 4
   %.pre2 = load i32, ptr %path_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %path_len, %entry ], [ %.pre2, %if.end.i.i ]
-  %6 = phi i32 [ %path_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %conv1 = zext i32 %5 to i64
+  %4 = phi i32 [ %path_len, %entry ], [ %.pre2, %if.end.i.i ]
+  %5 = phi i32 [ %path_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %conv1 = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.end
 
 do.end:                                           ; preds = %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %7 = load i32, ptr %fd.addr, align 4
-  %8 = load i32, ptr %path_ptr.addr, align 4
-  %idxprom = zext i32 %8 to i64
+  %6 = load i32, ptr %fd.addr, align 4
+  %7 = load i32, ptr %path_ptr.addr, align 4
+  %idxprom = zext i32 %7 to i64
   %arrayidx = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom
-  %9 = load i32, ptr %path_len.addr, align 4
-  %call2 = call zeroext i16 @uvwasi_path_remove_directory(ptr noundef nonnull %uvw_, i32 noundef %7, ptr noundef %arrayidx, i32 noundef %9) #24
+  %8 = load i32, ptr %path_len.addr, align 4
+  %call2 = call zeroext i16 @uvwasi_path_remove_directory(ptr noundef nonnull %uvw_, i32 noundef %6, ptr noundef %arrayidx, i32 noundef %8) #24
   %conv3 = zext i16 %call2 to i32
   br label %return
 
@@ -4719,48 +4679,47 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA37_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA37_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_S1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.79, ptr noundef nonnull align 4 dereferenceable(4) %old_fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %old_path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %old_path_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %new_fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %new_path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %new_path_len.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_S1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.79, ptr noundef nonnull align 4 dereferenceable(4) %old_fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %old_path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %old_path_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %new_fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %new_path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %new_path_len.addr) #29
   %.pre = load i32, ptr %old_path_ptr.addr, align 4
   %.pre4 = load i32, ptr %old_path_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA37_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA37_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %old_path_len, %entry ], [ %.pre4, %if.end.i.i ]
-  %6 = phi i32 [ %old_path_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %conv1 = zext i32 %5 to i64
+  %4 = phi i32 [ %old_path_len, %entry ], [ %.pre4, %if.end.i.i ]
+  %5 = phi i32 [ %old_path_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %conv1 = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body2
 
 do.body2:                                         ; preds = %_ZN4node4wasi5DebugIJRA37_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %7 = load i32, ptr %new_path_ptr.addr, align 4
-  %conv3 = zext i32 %7 to i64
-  %8 = load i32, ptr %new_path_len.addr, align 4
-  %conv5 = zext i32 %8 to i64
+  %6 = load i32, ptr %new_path_ptr.addr, align 4
+  %conv3 = zext i32 %6 to i64
+  %7 = load i32, ptr %new_path_len.addr, align 4
+  %conv5 = zext i32 %7 to i64
   %call6 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv3, i64 noundef %memory.coerce1, i64 noundef %conv5) #24
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %do.end10
 
 do.end10:                                         ; preds = %do.body2
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %9 = load i32, ptr %old_fd.addr, align 4
-  %10 = load i32, ptr %old_path_ptr.addr, align 4
-  %idxprom = zext i32 %10 to i64
+  %8 = load i32, ptr %old_fd.addr, align 4
+  %9 = load i32, ptr %old_path_ptr.addr, align 4
+  %idxprom = zext i32 %9 to i64
   %arrayidx = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom
-  %11 = load i32, ptr %old_path_len.addr, align 4
-  %12 = load i32, ptr %new_fd.addr, align 4
-  %13 = load i32, ptr %new_path_ptr.addr, align 4
-  %idxprom12 = zext i32 %13 to i64
+  %10 = load i32, ptr %old_path_len.addr, align 4
+  %11 = load i32, ptr %new_fd.addr, align 4
+  %12 = load i32, ptr %new_path_ptr.addr, align 4
+  %idxprom12 = zext i32 %12 to i64
   %arrayidx13 = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom12
-  %14 = load i32, ptr %new_path_len.addr, align 4
-  %call14 = call zeroext i16 @uvwasi_path_rename(ptr noundef nonnull %uvw_, i32 noundef %9, ptr noundef %arrayidx, i32 noundef %11, i32 noundef %12, ptr noundef %arrayidx13, i32 noundef %14) #24
+  %13 = load i32, ptr %new_path_len.addr, align 4
+  %call14 = call zeroext i16 @uvwasi_path_rename(ptr noundef nonnull %uvw_, i32 noundef %8, ptr noundef %arrayidx, i32 noundef %10, i32 noundef %11, ptr noundef %arrayidx13, i32 noundef %13) #24
   %conv15 = zext i16 %call14 to i32
   br label %return
 
@@ -4790,47 +4749,46 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA34_KcRjS5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA34_KcRjS5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.80, ptr noundef nonnull align 4 dereferenceable(4) %old_path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %old_path_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %new_path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %new_path_len.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.80, ptr noundef nonnull align 4 dereferenceable(4) %old_path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %old_path_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %new_path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %new_path_len.addr) #29
   %.pre = load i32, ptr %old_path_ptr.addr, align 4
   %.pre4 = load i32, ptr %old_path_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA34_KcRjS5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA34_KcRjS5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %old_path_len, %entry ], [ %.pre4, %if.end.i.i ]
-  %6 = phi i32 [ %old_path_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %conv1 = zext i32 %5 to i64
+  %4 = phi i32 [ %old_path_len, %entry ], [ %.pre4, %if.end.i.i ]
+  %5 = phi i32 [ %old_path_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %conv1 = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body2
 
 do.body2:                                         ; preds = %_ZN4node4wasi5DebugIJRA34_KcRjS5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %7 = load i32, ptr %new_path_ptr.addr, align 4
-  %conv3 = zext i32 %7 to i64
-  %8 = load i32, ptr %new_path_len.addr, align 4
-  %conv5 = zext i32 %8 to i64
+  %6 = load i32, ptr %new_path_ptr.addr, align 4
+  %conv3 = zext i32 %6 to i64
+  %7 = load i32, ptr %new_path_len.addr, align 4
+  %conv5 = zext i32 %7 to i64
   %call6 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv3, i64 noundef %memory.coerce1, i64 noundef %conv5) #24
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %do.end10
 
 do.end10:                                         ; preds = %do.body2
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %9 = load i32, ptr %old_path_ptr.addr, align 4
-  %idxprom = zext i32 %9 to i64
+  %8 = load i32, ptr %old_path_ptr.addr, align 4
+  %idxprom = zext i32 %8 to i64
   %arrayidx = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom
-  %10 = load i32, ptr %old_path_len.addr, align 4
-  %11 = load i32, ptr %fd.addr, align 4
-  %12 = load i32, ptr %new_path_ptr.addr, align 4
-  %idxprom12 = zext i32 %12 to i64
+  %9 = load i32, ptr %old_path_len.addr, align 4
+  %10 = load i32, ptr %fd.addr, align 4
+  %11 = load i32, ptr %new_path_ptr.addr, align 4
+  %idxprom12 = zext i32 %11 to i64
   %arrayidx13 = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom12
-  %13 = load i32, ptr %new_path_len.addr, align 4
-  %call14 = call zeroext i16 @uvwasi_path_symlink(ptr noundef nonnull %uvw_, ptr noundef %arrayidx, i32 noundef %10, i32 noundef %11, ptr noundef %arrayidx13, i32 noundef %13) #24
+  %12 = load i32, ptr %new_path_len.addr, align 4
+  %call14 = call zeroext i16 @uvwasi_path_symlink(ptr noundef nonnull %uvw_, ptr noundef %arrayidx, i32 noundef %9, i32 noundef %10, ptr noundef %arrayidx13, i32 noundef %12) #24
   %conv15 = zext i16 %call14 to i32
   br label %return
 
@@ -4856,34 +4814,33 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.81, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.81, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr) #29
   %.pre = load i32, ptr %path_ptr.addr, align 4
   %.pre2 = load i32, ptr %path_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %path_len, %entry ], [ %.pre2, %if.end.i.i ]
-  %6 = phi i32 [ %path_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %conv1 = zext i32 %5 to i64
+  %4 = phi i32 [ %path_len, %entry ], [ %.pre2, %if.end.i.i ]
+  %5 = phi i32 [ %path_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %conv1 = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.end
 
 do.end:                                           ; preds = %_ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %7 = load i32, ptr %fd.addr, align 4
-  %8 = load i32, ptr %path_ptr.addr, align 4
-  %idxprom = zext i32 %8 to i64
+  %6 = load i32, ptr %fd.addr, align 4
+  %7 = load i32, ptr %path_ptr.addr, align 4
+  %idxprom = zext i32 %7 to i64
   %arrayidx = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom
-  %9 = load i32, ptr %path_len.addr, align 4
-  %call2 = call zeroext i16 @uvwasi_path_unlink_file(ptr noundef nonnull %uvw_, i32 noundef %7, ptr noundef %arrayidx, i32 noundef %9) #24
+  %8 = load i32, ptr %path_len.addr, align 4
+  %call2 = call zeroext i16 @uvwasi_path_unlink_file(ptr noundef nonnull %uvw_, i32 noundef %6, ptr noundef %arrayidx, i32 noundef %8) #24
   %conv3 = zext i16 %call2 to i32
   br label %return
 
@@ -4912,48 +4869,47 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA29_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA29_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.82, ptr noundef nonnull align 4 dereferenceable(4) %in_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %out_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %nsubscriptions.addr, ptr noundef nonnull align 4 dereferenceable(4) %nevents_ptr.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.82, ptr noundef nonnull align 4 dereferenceable(4) %in_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %out_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %nsubscriptions.addr, ptr noundef nonnull align 4 dereferenceable(4) %nevents_ptr.addr) #29
   %.pre = load i32, ptr %in_ptr.addr, align 4
   %.pre50 = load i32, ptr %nsubscriptions.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA29_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA29_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %nsubscriptions, %entry ], [ %.pre50, %if.end.i.i ]
-  %6 = phi i32 [ %in_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %mul = mul i32 %5, 48
+  %4 = phi i32 [ %nsubscriptions, %entry ], [ %.pre50, %if.end.i.i ]
+  %5 = phi i32 [ %in_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %mul = mul i32 %4, 48
   %conv1 = zext i32 %mul to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body2
 
 do.body2:                                         ; preds = %_ZN4node4wasi5DebugIJRA29_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %7 = load i32, ptr %out_ptr.addr, align 4
-  %conv3 = zext i32 %7 to i64
-  %8 = load i32, ptr %nsubscriptions.addr, align 4
-  %mul5 = shl i32 %8, 5
+  %6 = load i32, ptr %out_ptr.addr, align 4
+  %conv3 = zext i32 %6 to i64
+  %7 = load i32, ptr %nsubscriptions.addr, align 4
+  %mul5 = shl i32 %7, 5
   %conv6 = zext i32 %mul5 to i64
   %call7 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv3, i64 noundef %memory.coerce1, i64 noundef %conv6) #24
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %do.body12
 
 do.body12:                                        ; preds = %do.body2
-  %9 = load i32, ptr %nevents_ptr.addr, align 4
-  %conv13 = zext i32 %9 to i64
+  %8 = load i32, ptr %nevents_ptr.addr, align 4
+  %conv13 = zext i32 %8 to i64
   %call15 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv13, i64 noundef %memory.coerce1, i64 noundef 4) #24
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %return, label %do.end19
 
 do.end19:                                         ; preds = %do.body12
-  %10 = load i32, ptr %nsubscriptions.addr, align 4
-  %conv20 = zext i32 %10 to i64
-  %cmp.not.i.i.i.i = icmp eq i32 %10, 0
+  %9 = load i32, ptr %nsubscriptions.addr, align 4
+  %conv20 = zext i32 %9 to i64
+  %cmp.not.i.i.i.i = icmp eq i32 %9, 0
   br i1 %cmp.not.i.i.i.i, label %for.end, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %do.end19
@@ -5002,36 +4958,36 @@ for.body.preheader:                               ; preds = %_ZNSt6vectorI14uvwa
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %11 = phi i32 [ %.pre51, %for.body.preheader ], [ %add, %for.body ]
+  %10 = phi i32 [ %.pre51, %for.body.preheader ], [ %add, %for.body ]
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %conv23 = zext i32 %11 to i64
+  %conv23 = zext i32 %10 to i64
   %add.ptr.i = getelementptr inbounds %struct.uvwasi_subscription_s, ptr %call5.i.i.i.i.i.i, i64 %indvars.iv
   call void @uvwasi_serdes_read_subscription_t(ptr noundef %memory.coerce0, i64 noundef %conv23, ptr noundef nonnull %add.ptr.i) #24
-  %12 = load i32, ptr %in_ptr.addr, align 4
-  %add = add i32 %12, 48
+  %11 = load i32, ptr %in_ptr.addr, align 4
+  %add = add i32 %11, 48
   store i32 %add, ptr %in_ptr.addr, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = load i32, ptr %nsubscriptions.addr, align 4
-  %14 = zext i32 %13 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %14
+  %12 = load i32, ptr %nsubscriptions.addr, align 4
+  %13 = zext i32 %12 to i64
+  %cmp = icmp ult i64 %indvars.iv.next, %13
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
 
 for.end:                                          ; preds = %for.body, %do.end19, %_ZNSt6vectorI14uvwasi_event_sSaIS0_EEC2EmRKS1_.exit
   %out.sroa.0.056 = phi ptr [ %call5.i.i.i.i.i.i14, %_ZNSt6vectorI14uvwasi_event_sSaIS0_EEC2EmRKS1_.exit ], [ null, %do.end19 ], [ %call5.i.i.i.i.i.i14, %for.body ]
   %in.sroa.0.03655 = phi ptr [ %call5.i.i.i.i.i.i, %_ZNSt6vectorI14uvwasi_event_sSaIS0_EEC2EmRKS1_.exit ], [ null, %do.end19 ], [ %call5.i.i.i.i.i.i, %for.body ]
-  %.lcssa = phi i32 [ 0, %_ZNSt6vectorI14uvwasi_event_sSaIS0_EEC2EmRKS1_.exit ], [ 0, %do.end19 ], [ %13, %for.body ]
+  %.lcssa = phi i32 [ 0, %_ZNSt6vectorI14uvwasi_event_sSaIS0_EEC2EmRKS1_.exit ], [ 0, %do.end19 ], [ %12, %for.body ]
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
   %call28 = call zeroext i16 @uvwasi_poll_oneoff(ptr noundef nonnull %uvw_, ptr noundef %in.sroa.0.03655, ptr noundef %out.sroa.0.056, i32 noundef %.lcssa, ptr noundef nonnull %nevents) #24
   %cmp30 = icmp eq i16 %call28, 0
   br i1 %cmp30, label %if.then31, label %if.end46
 
 if.then31:                                        ; preds = %for.end
-  %15 = load i32, ptr %nevents_ptr.addr, align 4
-  %conv33 = zext i32 %15 to i64
-  %16 = load i32, ptr %nevents, align 4
-  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv33, i32 noundef %16) #24
-  %17 = load i32, ptr %nsubscriptions.addr, align 4
-  %cmp3643.not = icmp eq i32 %17, 0
+  %14 = load i32, ptr %nevents_ptr.addr, align 4
+  %conv33 = zext i32 %14 to i64
+  %15 = load i32, ptr %nevents, align 4
+  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv33, i32 noundef %15) #24
+  %16 = load i32, ptr %nsubscriptions.addr, align 4
+  %cmp3643.not = icmp eq i32 %16, 0
   br i1 %cmp3643.not, label %if.end46, label %for.body37.preheader
 
 for.body37.preheader:                             ; preds = %if.then31
@@ -5039,18 +4995,18 @@ for.body37.preheader:                             ; preds = %if.then31
   br label %for.body37
 
 for.body37:                                       ; preds = %for.body37.preheader, %for.body37
-  %18 = phi i32 [ %.pre52, %for.body37.preheader ], [ %add42, %for.body37 ]
+  %17 = phi i32 [ %.pre52, %for.body37.preheader ], [ %add42, %for.body37 ]
   %indvars.iv47 = phi i64 [ 0, %for.body37.preheader ], [ %indvars.iv.next48, %for.body37 ]
-  %conv39 = zext i32 %18 to i64
+  %conv39 = zext i32 %17 to i64
   %add.ptr.i28 = getelementptr inbounds %struct.uvwasi_event_s, ptr %out.sroa.0.056, i64 %indvars.iv47
   call void @uvwasi_serdes_write_event_t(ptr noundef %memory.coerce0, i64 noundef %conv39, ptr noundef nonnull %add.ptr.i28) #24
-  %19 = load i32, ptr %out_ptr.addr, align 4
-  %add42 = add i32 %19, 32
+  %18 = load i32, ptr %out_ptr.addr, align 4
+  %add42 = add i32 %18, 32
   store i32 %add42, ptr %out_ptr.addr, align 4
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %20 = load i32, ptr %nsubscriptions.addr, align 4
-  %21 = zext i32 %20 to i64
-  %cmp36 = icmp ult i64 %indvars.iv.next48, %21
+  %19 = load i32, ptr %nsubscriptions.addr, align 4
+  %20 = zext i32 %19 to i64
+  %cmp36 = icmp ult i64 %indvars.iv.next48, %20
   br i1 %cmp36, label %for.body37, label %if.end46, !llvm.loop !23
 
 if.end46:                                         ; preds = %for.body37, %if.then31, %for.end
@@ -5092,20 +5048,19 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA15_KcRjEEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA15_KcRjEEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.83, ptr noundef nonnull align 4 dereferenceable(4) %code.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.83, ptr noundef nonnull align 4 dereferenceable(4) %code.addr) #29
   %.pre = load i32, ptr %code.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA15_KcRjEEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA15_KcRjEEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %code, %entry ], [ %.pre, %if.end.i.i ]
+  %4 = phi i32 [ %code, %entry ], [ %.pre, %if.end.i.i ]
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %call = call zeroext i16 @uvwasi_proc_exit(ptr noundef nonnull %uvw_, i32 noundef %5) #24
+  %call = call zeroext i16 @uvwasi_proc_exit(ptr noundef nonnull %uvw_, i32 noundef %4) #24
   ret void
 }
 
@@ -5122,20 +5077,19 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA16_KcRjEEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA16_KcRjEEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.84, ptr noundef nonnull align 4 dereferenceable(4) %sig.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.84, ptr noundef nonnull align 4 dereferenceable(4) %sig.addr) #29
   %.pre = load i32, ptr %sig.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA16_KcRjEEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA16_KcRjEEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %sig, %entry ], [ %.pre, %if.end.i.i ]
+  %4 = phi i32 [ %sig, %entry ], [ %.pre, %if.end.i.i ]
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %conv = trunc i32 %5 to i8
+  %conv = trunc i32 %4 to i8
   %call = call zeroext i16 @uvwasi_proc_raise(ptr noundef nonnull %uvw_, i8 noundef zeroext %conv) #24
   %conv1 = zext i16 %call to i32
   ret i32 %conv1
@@ -5156,33 +5110,32 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.not.i, label %_ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.85, ptr noundef nonnull align 4 dereferenceable(4) %buf_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %buf_len.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.85, ptr noundef nonnull align 4 dereferenceable(4) %buf_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %buf_len.addr) #29
   %.pre = load i32, ptr %buf_ptr.addr, align 4
   %.pre2 = load i32, ptr %buf_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %buf_len, %entry ], [ %.pre2, %if.end.i.i ]
-  %6 = phi i32 [ %buf_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %conv1 = zext i32 %5 to i64
+  %4 = phi i32 [ %buf_len, %entry ], [ %.pre2, %if.end.i.i ]
+  %5 = phi i32 [ %buf_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %conv1 = zext i32 %4 to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.end
 
 do.end:                                           ; preds = %_ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %7 = load i32, ptr %buf_ptr.addr, align 4
-  %idxprom = zext i32 %7 to i64
+  %6 = load i32, ptr %buf_ptr.addr, align 4
+  %idxprom = zext i32 %6 to i64
   %arrayidx = getelementptr inbounds i8, ptr %memory.coerce0, i64 %idxprom
-  %8 = load i32, ptr %buf_len.addr, align 4
-  %call2 = call zeroext i16 @uvwasi_random_get(ptr noundef nonnull %uvw_, ptr noundef %arrayidx, i32 noundef %8) #24
+  %7 = load i32, ptr %buf_len.addr, align 4
+  %call2 = call zeroext i16 @uvwasi_random_get(ptr noundef nonnull %uvw_, ptr noundef %arrayidx, i32 noundef %7) #24
   %conv3 = zext i16 %call2 to i32
   br label %return
 
@@ -5205,13 +5158,12 @@ entry:
   store ptr @.str.86, ptr %message.addr.i2.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA15_KcEEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA15_KcEEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %4, ptr noundef nonnull @.str.310, ptr noundef nonnull align 8 dereferenceable(8) %message.addr.i2.i) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %3, ptr noundef nonnull @.str.310, ptr noundef nonnull align 8 dereferenceable(8) %message.addr.i2.i) #29
   br label %_ZN4node4wasi5DebugIJRA15_KcEEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA15_KcEEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
@@ -5240,31 +5192,30 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.87, ptr noundef nonnull align 4 dereferenceable(4) %sock.addr, ptr noundef nonnull align 4 dereferenceable(4) %flags.addr, ptr noundef nonnull align 4 dereferenceable(4) %fd_ptr.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.87, ptr noundef nonnull align 4 dereferenceable(4) %sock.addr, ptr noundef nonnull align 4 dereferenceable(4) %flags.addr, ptr noundef nonnull align 4 dereferenceable(4) %fd_ptr.addr) #29
   %.pre = load i32, ptr %sock.addr, align 4
   %.pre3 = load i32, ptr %flags.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %flags, %entry ], [ %.pre3, %if.end.i.i ]
-  %6 = phi i32 [ %sock, %entry ], [ %.pre, %if.end.i.i ]
+  %4 = phi i32 [ %flags, %entry ], [ %.pre3, %if.end.i.i ]
+  %5 = phi i32 [ %sock, %entry ], [ %.pre, %if.end.i.i ]
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %conv = trunc i32 %5 to i16
-  %call = call zeroext i16 @uvwasi_sock_accept(ptr noundef nonnull %uvw_, i32 noundef %6, i16 noundef zeroext %conv, ptr noundef nonnull %fd) #24
+  %conv = trunc i32 %4 to i16
+  %call = call zeroext i16 @uvwasi_sock_accept(ptr noundef nonnull %uvw_, i32 noundef %5, i16 noundef zeroext %conv, ptr noundef nonnull %fd) #24
   %cmp = icmp eq i16 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %7 = load i32, ptr %fd_ptr.addr, align 4
-  %conv2 = zext i32 %7 to i64
-  %8 = load i32, ptr %fd, align 4
-  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv2, i32 noundef %8) #24
+  %6 = load i32, ptr %fd_ptr.addr, align 4
+  %conv2 = zext i32 %6 to i64
+  %7 = load i32, ptr %fd, align 4
+  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv2, i32 noundef %7) #24
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
@@ -5297,48 +5248,47 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_S1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.88, ptr noundef nonnull align 4 dereferenceable(4) %sock.addr, ptr noundef nonnull align 4 dereferenceable(4) %ri_data_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %ri_data_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %ri_flags.addr, ptr noundef nonnull align 4 dereferenceable(4) %ro_datalen_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %ro_flags_ptr.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_S1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.88, ptr noundef nonnull align 4 dereferenceable(4) %sock.addr, ptr noundef nonnull align 4 dereferenceable(4) %ri_data_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %ri_data_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %ri_flags.addr, ptr noundef nonnull align 4 dereferenceable(4) %ro_datalen_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %ro_flags_ptr.addr) #29
   %.pre = load i32, ptr %ri_data_ptr.addr, align 4
   %.pre12 = load i32, ptr %ri_data_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA35_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %ri_data_len, %entry ], [ %.pre12, %if.end.i.i ]
-  %6 = phi i32 [ %ri_data_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %mul = shl i32 %5, 3
+  %4 = phi i32 [ %ri_data_len, %entry ], [ %.pre12, %if.end.i.i ]
+  %5 = phi i32 [ %ri_data_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %mul = shl i32 %4, 3
   %conv1 = zext i32 %mul to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body2
 
 do.body2:                                         ; preds = %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %7 = load i32, ptr %ro_datalen_ptr.addr, align 4
-  %conv3 = zext i32 %7 to i64
+  %6 = load i32, ptr %ro_datalen_ptr.addr, align 4
+  %conv3 = zext i32 %6 to i64
   %call5 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv3, i64 noundef %memory.coerce1, i64 noundef 4) #24
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %do.body10
 
 do.body10:                                        ; preds = %do.body2
-  %8 = load i32, ptr %ro_flags_ptr.addr, align 4
-  %conv11 = zext i32 %8 to i64
+  %7 = load i32, ptr %ro_flags_ptr.addr, align 4
+  %conv11 = zext i32 %7 to i64
   %call13 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv11, i64 noundef %memory.coerce1, i64 noundef 4) #24
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %return, label %do.end17
 
 do.end17:                                         ; preds = %do.body10
-  %9 = load i32, ptr %ri_data_len.addr, align 4
-  %cmp.not.i.i.i.i = icmp eq i32 %9, 0
+  %8 = load i32, ptr %ri_data_len.addr, align 4
+  %cmp.not.i.i.i.i = icmp eq i32 %8, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %do.end17
-  %conv18 = zext i32 %9 to i64
+  %conv18 = zext i32 %8 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv18, 4
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -5360,31 +5310,31 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
 
 _ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end17, %if.then.i.i.i.i.i
   %ri_data.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end17 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
-  %10 = load i32, ptr %ri_data_ptr.addr, align 4
-  %conv20 = zext i32 %10 to i64
-  %call22 = call zeroext i16 @uvwasi_serdes_readv_iovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv20, ptr noundef %ri_data.sroa.0.0, i32 noundef %9) #24
+  %9 = load i32, ptr %ri_data_ptr.addr, align 4
+  %conv20 = zext i32 %9 to i64
+  %call22 = call zeroext i16 @uvwasi_serdes_readv_iovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv20, ptr noundef %ri_data.sroa.0.0, i32 noundef %8) #24
   %cmp.not = icmp eq i16 %call22, 0
   br i1 %cmp.not, label %if.end26, label %cleanup
 
 if.end26:                                         ; preds = %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %11 = load i32, ptr %sock.addr, align 4
-  %12 = load i32, ptr %ri_data_len.addr, align 4
-  %13 = load i32, ptr %ri_flags.addr, align 4
-  %conv28 = trunc i32 %13 to i16
-  %call29 = call zeroext i16 @uvwasi_sock_recv(ptr noundef nonnull %uvw_, i32 noundef %11, ptr noundef %ri_data.sroa.0.0, i32 noundef %12, i16 noundef zeroext %conv28, ptr noundef nonnull %ro_datalen, ptr noundef nonnull %ro_flags) #24
+  %10 = load i32, ptr %sock.addr, align 4
+  %11 = load i32, ptr %ri_data_len.addr, align 4
+  %12 = load i32, ptr %ri_flags.addr, align 4
+  %conv28 = trunc i32 %12 to i16
+  %call29 = call zeroext i16 @uvwasi_sock_recv(ptr noundef nonnull %uvw_, i32 noundef %10, ptr noundef %ri_data.sroa.0.0, i32 noundef %11, i16 noundef zeroext %conv28, ptr noundef nonnull %ro_datalen, ptr noundef nonnull %ro_flags) #24
   %cmp31 = icmp eq i16 %call29, 0
   br i1 %cmp31, label %if.then32, label %cleanup
 
 if.then32:                                        ; preds = %if.end26
-  %14 = load i32, ptr %ro_datalen_ptr.addr, align 4
-  %conv34 = zext i32 %14 to i64
-  %15 = load i32, ptr %ro_datalen, align 4
-  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv34, i32 noundef %15) #24
-  %16 = load i32, ptr %ro_flags_ptr.addr, align 4
-  %conv36 = zext i32 %16 to i64
-  %17 = load i16, ptr %ro_flags, align 2
-  call void @uvwasi_serdes_write_roflags_t(ptr noundef %memory.coerce0, i64 noundef %conv36, i16 noundef zeroext %17) #24
+  %13 = load i32, ptr %ro_datalen_ptr.addr, align 4
+  %conv34 = zext i32 %13 to i64
+  %14 = load i32, ptr %ro_datalen, align 4
+  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv34, i32 noundef %14) #24
+  %15 = load i32, ptr %ro_flags_ptr.addr, align 4
+  %conv36 = zext i32 %15 to i64
+  %16 = load i16, ptr %ro_flags, align 2
+  call void @uvwasi_serdes_write_roflags_t(ptr noundef %memory.coerce0, i64 noundef %conv36, i16 noundef zeroext %16) #24
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end26, %if.then32, %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit
@@ -5426,41 +5376,40 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node4wasi5DebugIJRA31_KcRjS5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA31_KcRjS5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.89, ptr noundef nonnull align 4 dereferenceable(4) %sock.addr, ptr noundef nonnull align 4 dereferenceable(4) %si_data_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %si_data_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %si_flags.addr, ptr noundef nonnull align 4 dereferenceable(4) %so_datalen_ptr.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.89, ptr noundef nonnull align 4 dereferenceable(4) %sock.addr, ptr noundef nonnull align 4 dereferenceable(4) %si_data_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %si_data_len.addr, ptr noundef nonnull align 4 dereferenceable(4) %si_flags.addr, ptr noundef nonnull align 4 dereferenceable(4) %so_datalen_ptr.addr) #29
   %.pre = load i32, ptr %si_data_ptr.addr, align 4
   %.pre10 = load i32, ptr %si_data_len.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA31_KcRjS5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA31_KcRjS5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %si_data_len, %entry ], [ %.pre10, %if.end.i.i ]
-  %6 = phi i32 [ %si_data_ptr, %entry ], [ %.pre, %if.end.i.i ]
-  %conv = zext i32 %6 to i64
-  %mul = shl i32 %5, 3
+  %4 = phi i32 [ %si_data_len, %entry ], [ %.pre10, %if.end.i.i ]
+  %5 = phi i32 [ %si_data_ptr, %entry ], [ %.pre, %if.end.i.i ]
+  %conv = zext i32 %5 to i64
+  %mul = shl i32 %4, 3
   %conv1 = zext i32 %mul to i64
   %call = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv, i64 noundef %memory.coerce1, i64 noundef %conv1) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %do.body2
 
 do.body2:                                         ; preds = %_ZN4node4wasi5DebugIJRA31_KcRjS5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %7 = load i32, ptr %so_datalen_ptr.addr, align 4
-  %conv3 = zext i32 %7 to i64
+  %6 = load i32, ptr %so_datalen_ptr.addr, align 4
+  %conv3 = zext i32 %6 to i64
   %call5 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv3, i64 noundef %memory.coerce1, i64 noundef 4) #24
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %do.end9
 
 do.end9:                                          ; preds = %do.body2
-  %8 = load i32, ptr %si_data_len.addr, align 4
-  %cmp.not.i.i.i.i = icmp eq i32 %8, 0
+  %7 = load i32, ptr %si_data_len.addr, align 4
+  %cmp.not.i.i.i.i = icmp eq i32 %7, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %do.end9
-  %conv10 = zext i32 %8 to i64
+  %conv10 = zext i32 %7 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv10, 4
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -5482,27 +5431,27 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
 
 _ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
   %si_data.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
-  %9 = load i32, ptr %si_data_ptr.addr, align 4
-  %conv12 = zext i32 %9 to i64
-  %call14 = call zeroext i16 @uvwasi_serdes_readv_ciovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %si_data.sroa.0.0, i32 noundef %8) #24
+  %8 = load i32, ptr %si_data_ptr.addr, align 4
+  %conv12 = zext i32 %8 to i64
+  %call14 = call zeroext i16 @uvwasi_serdes_readv_ciovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %si_data.sroa.0.0, i32 noundef %7) #24
   %cmp.not = icmp eq i16 %call14, 0
   br i1 %cmp.not, label %if.end18, label %cleanup
 
 if.end18:                                         ; preds = %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %10 = load i32, ptr %sock.addr, align 4
-  %11 = load i32, ptr %si_data_len.addr, align 4
-  %12 = load i32, ptr %si_flags.addr, align 4
-  %conv20 = trunc i32 %12 to i16
-  %call21 = call zeroext i16 @uvwasi_sock_send(ptr noundef nonnull %uvw_, i32 noundef %10, ptr noundef %si_data.sroa.0.0, i32 noundef %11, i16 noundef zeroext %conv20, ptr noundef nonnull %so_datalen) #24
+  %9 = load i32, ptr %sock.addr, align 4
+  %10 = load i32, ptr %si_data_len.addr, align 4
+  %11 = load i32, ptr %si_flags.addr, align 4
+  %conv20 = trunc i32 %11 to i16
+  %call21 = call zeroext i16 @uvwasi_sock_send(ptr noundef nonnull %uvw_, i32 noundef %9, ptr noundef %si_data.sroa.0.0, i32 noundef %10, i16 noundef zeroext %conv20, ptr noundef nonnull %so_datalen) #24
   %cmp23 = icmp eq i16 %call21, 0
   br i1 %cmp23, label %if.then24, label %cleanup
 
 if.then24:                                        ; preds = %if.end18
-  %13 = load i32, ptr %so_datalen_ptr.addr, align 4
-  %conv26 = zext i32 %13 to i64
-  %14 = load i32, ptr %so_datalen, align 4
-  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv26, i32 noundef %14) #24
+  %12 = load i32, ptr %so_datalen_ptr.addr, align 4
+  %conv26 = zext i32 %12 to i64
+  %13 = load i32, ptr %so_datalen, align 4
+  call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv26, i32 noundef %13) #24
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end18, %if.then24, %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit
@@ -5535,23 +5484,22 @@ entry:
   %1 = load ptr, ptr %env_.i.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 2311
   %2 = load i8, ptr %arrayidx.i.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.not.i, label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit, label %if.end.i.i
+  %tobool.i.i = trunc i8 %2 to i1
+  br i1 %tobool.i.i, label %if.end.i.i, label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %4, ptr noundef nonnull @.str.90, ptr noundef nonnull align 4 dereferenceable(4) %sock.addr, ptr noundef nonnull align 4 dereferenceable(4) %how.addr) #29
+  %3 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.90, ptr noundef nonnull align 4 dereferenceable(4) %sock.addr, ptr noundef nonnull align 4 dereferenceable(4) %how.addr) #29
   %.pre = load i32, ptr %sock.addr, align 4
   %.pre2 = load i32, ptr %how.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %5 = phi i32 [ %how, %entry ], [ %.pre2, %if.end.i.i ]
-  %6 = phi i32 [ %sock, %entry ], [ %.pre, %if.end.i.i ]
+  %4 = phi i32 [ %how, %entry ], [ %.pre2, %if.end.i.i ]
+  %5 = phi i32 [ %sock, %entry ], [ %.pre, %if.end.i.i ]
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
-  %conv = trunc i32 %5 to i8
-  %call = call zeroext i16 @uvwasi_sock_shutdown(ptr noundef nonnull %uvw_, i32 noundef %6, i8 noundef zeroext %conv) #24
+  %conv = trunc i32 %4 to i8
+  %call = call zeroext i16 @uvwasi_sock_shutdown(ptr noundef nonnull %uvw_, i32 noundef %5, i8 noundef zeroext %conv) #24
   %conv1 = zext i16 %call to i32
   ret i32 %conv1
 }
@@ -5723,24 +5671,22 @@ if.end4.i:                                        ; preds = %if.end.i
   %call5.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #24
   %wants_weak_jsobj.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %4 = load i8, ptr %wants_weak_jsobj.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit:   ; preds = %if.end4.i
   %is_detached.i = getelementptr inbounds i8, ptr %call5.i, i64 9
-  %6 = load i8, ptr %is_detached.i, align 1
-  %.fr6 = freeze i8 %6
-  %7 = and i8 %.fr6, 1
-  %tobool6.i.not = icmp eq i8 %7, 0
-  br i1 %tobool6.i.not, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
+  %5 = load i8, ptr %is_detached.i, align 1
+  %.fr = freeze i8 %5
+  %tobool6.i = trunc i8 %.fr to i1
+  br i1 %tobool6.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread: ; preds = %if.end4.i, %if.end.i.i, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
   br label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3: ; preds = %if.end.i, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
-  %8 = phi i8 [ 2, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread ], [ 0, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit ], [ 0, %if.end.i ]
-  ret i8 %8
+  %6 = phi i8 [ 2, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread ], [ 0, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit ], [ 0, %if.end.i ]
+  ret i8 %6
 }
 
 declare noundef zeroext i1 @_ZNK4node10BaseObject18IsDoneInitializingEv(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
@@ -5873,8 +5819,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %is_root_node_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i8, ptr %is_root_node_, align 8
-  %3 = and i8 %2, 1
-  %tobool = icmp ne i8 %3, 0
+  %tobool = trunc i8 %2 to i1
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -6400,9 +6345,8 @@ if.then.i.i12:                                    ; preds = %_ZN2v810MaybeLocalI
 
 _ZN4node13OneByteStringEPN2v87IsolateEPKci.exit13: ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %if.then.i.i12
   %call65 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call26, ptr %call38, ptr %call.i10, ptr %call.i) #24
-  %0 = and i16 %call65, 1
-  %tobool.i.not = icmp eq i16 %0, 0
-  br i1 %tobool.i.not, label %if.then.i98, label %_ZNK2v85MaybeIbE5CheckEv.exit
+  %tobool.i = trunc i16 %call65 to i1
+  br i1 %tobool.i, label %_ZNK2v85MaybeIbE5CheckEv.exit, label %if.then.i98
 
 if.then.i98:                                      ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit13
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
@@ -7012,36 +6956,35 @@ do.end31:                                         ; preds = %lor.rhs
   %14 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %14, i64 2311
   %15 = load i8, ptr %arrayidx.i.i.i, align 1
-  %16 = and i8 %15, 1
-  %tobool.i.not.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.i.not.i.i, label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i, label %if.end.i.i.i
+  %tobool.i.i.i = trunc i8 %15 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 if.end.i.i.i:                                     ; preds = %do.end31
-  %17 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %17, ptr noundef nonnull @.str.47, ptr noundef nonnull align 4 dereferenceable(4) %clock_id.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %resolution_ptr.addr.i) #29
+  %16 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %16, ptr noundef nonnull @.str.47, ptr noundef nonnull align 4 dereferenceable(4) %clock_id.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %resolution_ptr.addr.i) #29
   %.pre.i = load i32, ptr %resolution_ptr.addr.i, align 4
   br label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 _ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i: ; preds = %if.end.i.i.i, %do.end31
-  %18 = phi i32 [ %args3, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
-  %conv.i = zext i32 %18 to i64
+  %17 = phi i32 [ %args3, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
+  %conv.i = zext i32 %17 to i64
   %call.i = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i, i64 noundef %12, i64 noundef 8) #24
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ZN4node4wasi4WASI11ClockResGetERS1_NS0_10WasmMemoryEjj.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %19 = load i32, ptr %clock_id.addr.i, align 4
-  %call1.i = call zeroext i16 @uvwasi_clock_res_get(ptr noundef nonnull %uvw_.i, i32 noundef %19, ptr noundef nonnull %resolution.i) #24
+  %18 = load i32, ptr %clock_id.addr.i, align 4
+  %call1.i = call zeroext i16 @uvwasi_clock_res_get(ptr noundef nonnull %uvw_.i, i32 noundef %18, ptr noundef nonnull %resolution.i) #24
   %conv2.i = zext i16 %call1.i to i32
   %cmp.i6 = icmp eq i16 %call1.i, 0
   br i1 %cmp.i6, label %if.then3.i, label %_ZN4node4wasi4WASI11ClockResGetERS1_NS0_10WasmMemoryEjj.exit
 
 if.then3.i:                                       ; preds = %do.end.i
-  %20 = load i32, ptr %resolution_ptr.addr.i, align 4
-  %conv4.i = zext i32 %20 to i64
-  %21 = load i64, ptr %resolution.i, align 8
-  call void @uvwasi_serdes_write_timestamp_t(ptr noundef %11, i64 noundef %conv4.i, i64 noundef %21) #24
+  %19 = load i32, ptr %resolution_ptr.addr.i, align 4
+  %conv4.i = zext i32 %19 to i64
+  %20 = load i64, ptr %resolution.i, align 8
+  call void @uvwasi_serdes_write_timestamp_t(ptr noundef %11, i64 noundef %conv4.i, i64 noundef %20) #24
   br label %_ZN4node4wasi4WASI11ClockResGetERS1_NS0_10WasmMemoryEjj.exit
 
 _ZN4node4wasi4WASI11ClockResGetERS1_NS0_10WasmMemoryEjj.exit: ; preds = %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i, %do.end.i, %if.then3.i
@@ -7244,45 +7187,44 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i34, %
   %47 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i35 = getelementptr inbounds i8, ptr %47, i64 2311
   %48 = load i8, ptr %arrayidx.i.i.i.i35, align 1
-  %49 = and i8 %48, 1
-  %tobool.i.not.i.i.i = icmp eq i8 %49, 0
-  br i1 %tobool.i.not.i.i.i, label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, label %if.end.i.i.i.i36
+  %tobool.i.i.i.i = trunc i8 %48 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i.i39, label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-if.end.i.i.i.i36:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %50 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %50, ptr noundef nonnull @.str.47, ptr noundef nonnull align 4 dereferenceable(4) %clock_id.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %resolution_ptr.addr.i.i) #29
+if.end.i.i.i.i39:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %49 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %49, ptr noundef nonnull @.str.47, ptr noundef nonnull align 4 dereferenceable(4) %clock_id.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %resolution_ptr.addr.i.i) #29
   %.pre.i.i = load i32, ptr %resolution_ptr.addr.i.i, align 4
   br label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i36, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %51 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i36 ]
-  %conv.i.i = zext i32 %51 to i64
-  %call.i.i37 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef 8) #24
-  %tobool.not.i.i = icmp eq i32 %call.i.i37, 0
+_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i39, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %50 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i39 ]
+  %conv.i.i = zext i32 %50 to i64
+  %call.i.i36 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef 8) #24
+  %tobool.not.i.i = icmp eq i32 %call.i.i36, 0
   br i1 %tobool.not.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_11ClockResGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %52 = load i32, ptr %clock_id.addr.i.i, align 4
-  %call1.i.i = call zeroext i16 @uvwasi_clock_res_get(ptr noundef nonnull %uvw_.i.i, i32 noundef %52, ptr noundef nonnull %resolution.i.i) #24
+  %51 = load i32, ptr %clock_id.addr.i.i, align 4
+  %call1.i.i = call zeroext i16 @uvwasi_clock_res_get(ptr noundef nonnull %uvw_.i.i, i32 noundef %51, ptr noundef nonnull %resolution.i.i) #24
   %conv2.i.i = zext i16 %call1.i.i to i64
-  %cmp.i.i38 = icmp eq i16 %call1.i.i, 0
-  br i1 %cmp.i.i38, label %if.then3.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_11ClockResGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
+  %cmp.i.i37 = icmp eq i16 %call1.i.i, 0
+  br i1 %cmp.i.i37, label %if.then3.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_11ClockResGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.then3.i.i:                                     ; preds = %do.end.i.i
-  %53 = load i32, ptr %resolution_ptr.addr.i.i, align 4
-  %conv4.i.i = zext i32 %53 to i64
-  %54 = load i64, ptr %resolution.i.i, align 8
-  call void @uvwasi_serdes_write_timestamp_t(ptr noundef nonnull %call40, i64 noundef %conv4.i.i, i64 noundef %54) #24
+  %52 = load i32, ptr %resolution_ptr.addr.i.i, align 4
+  %conv4.i.i = zext i32 %52 to i64
+  %53 = load i64, ptr %resolution.i.i, align 8
+  call void @uvwasi_serdes_write_timestamp_t(ptr noundef nonnull %call40, i64 noundef %conv4.i.i, i64 noundef %53) #24
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_11ClockResGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_11ClockResGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, %do.end.i.i, %if.then3.i.i
-  %retval.0.i.i39 = phi i64 [ 61, %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ], [ 0, %if.then3.i.i ], [ %conv2.i.i, %do.end.i.i ]
+  %retval.0.i.i38 = phi i64 [ 61, %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ], [ 0, %if.then3.i.i ], [ %conv2.i.i, %do.end.i.i ]
   %arrayidx.i46.i = getelementptr inbounds i8, ptr %34, i64 24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clock_id.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %resolution_ptr.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resolution.i.i)
-  %shl.i.i.i = shl nuw nsw i64 %retval.0.i.i39, 32
+  %shl.i.i.i = shl nuw nsw i64 %retval.0.i.i38, 32
   store i64 %shl.i.i.i, ptr %arrayidx.i46.i, align 8
   br label %return
 
@@ -7337,6 +7279,10 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %if.then.i, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmjEXadL_ZNS1_12ClockTimeGetES3_S4_jmjEEjJjmjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjmjRNS8_22FastApiCallbackOptionsE(ptr %receiver.coerce, i32 noundef %args, i64 noundef %args3, i32 noundef %args5, ptr noundef nonnull align 8 dereferenceable(24) %options) #3 comdat align 2 {
 entry:
+  %clock_id.addr.i = alloca i32, align 4
+  %precision.addr.i = alloca i64, align 8
+  %time_ptr.addr.i = alloca i32, align 4
+  %time.i = alloca i64, align 8
   %0 = load i64, ptr %receiver.coerce, align 8
   %sub.i.i.i.i = add i64 %0, -1
   %1 = inttoptr i64 %sub.i.i.i.i to ptr
@@ -7387,17 +7333,71 @@ do.end33:                                         ; preds = %lor.rhs
   %data_.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %data_.i, align 8
   %12 = load i64, ptr %9, align 8
-  %call37 = tail call noundef i32 @_ZN4node4wasi4WASI12ClockTimeGetERS1_NS0_10WasmMemoryEjmj(ptr noundef nonnull align 8 dereferenceable(176) %retval.i12.0.i, ptr %11, i64 %12, i32 noundef %args, i64 noundef %args3, i32 noundef %args5), !range !25
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clock_id.addr.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %precision.addr.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %time_ptr.addr.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %time.i)
+  store i32 %args, ptr %clock_id.addr.i, align 4
+  store i64 %args3, ptr %precision.addr.i, align 8
+  store i32 %args5, ptr %time_ptr.addr.i, align 4
+  %realm_.i.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 16
+  %13 = load ptr, ptr %realm_.i.i.i, align 8
+  %env_.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 176
+  %14 = load ptr, ptr %env_.i.i.i.i, align 8
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 2311
+  %15 = load i8, ptr %arrayidx.i.i.i.i, align 1
+  %tobool.i.i.i.i = trunc i8 %15 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit.i
+
+if.end.i.i.i:                                     ; preds = %do.end33
+  %16 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %16, ptr noundef nonnull @.str.48, ptr noundef nonnull align 4 dereferenceable(4) %clock_id.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %precision.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %time_ptr.addr.i) #29
+  %.pre.i = load i32, ptr %time_ptr.addr.i, align 4
+  br label %_ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit.i
+
+_ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit.i: ; preds = %if.end.i.i.i, %do.end33
+  %17 = phi i32 [ %args5, %do.end33 ], [ %.pre.i, %if.end.i.i.i ]
+  %conv.i = zext i32 %17 to i64
+  %call.i = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i, i64 noundef %12, i64 noundef 8) #24
+  %tobool.not.i = icmp eq i32 %call.i, 0
+  br i1 %tobool.not.i, label %_ZN4node4wasi4WASI12ClockTimeGetERS1_NS0_10WasmMemoryEjmj.exit, label %do.end.i
+
+do.end.i:                                         ; preds = %_ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit.i
+  %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
+  %18 = load i32, ptr %clock_id.addr.i, align 4
+  %19 = load i64, ptr %precision.addr.i, align 8
+  %call1.i = call zeroext i16 @uvwasi_clock_time_get(ptr noundef nonnull %uvw_.i, i32 noundef %18, i64 noundef %19, ptr noundef nonnull %time.i) #24
+  %conv2.i = zext i16 %call1.i to i32
+  %cmp.i6 = icmp eq i16 %call1.i, 0
+  br i1 %cmp.i6, label %if.then3.i, label %_ZN4node4wasi4WASI12ClockTimeGetERS1_NS0_10WasmMemoryEjmj.exit
+
+if.then3.i:                                       ; preds = %do.end.i
+  %20 = load i32, ptr %time_ptr.addr.i, align 4
+  %conv4.i = zext i32 %20 to i64
+  %21 = load i64, ptr %time.i, align 8
+  call void @uvwasi_serdes_write_timestamp_t(ptr noundef %11, i64 noundef %conv4.i, i64 noundef %21) #24
+  br label %_ZN4node4wasi4WASI12ClockTimeGetERS1_NS0_10WasmMemoryEjmj.exit
+
+_ZN4node4wasi4WASI12ClockTimeGetERS1_NS0_10WasmMemoryEjmj.exit: ; preds = %_ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit.i, %do.end.i, %if.then3.i
+  %retval.0.i = phi i32 [ 61, %_ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit.i ], [ 0, %if.then3.i ], [ %conv2.i, %do.end.i ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clock_id.addr.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %precision.addr.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %time_ptr.addr.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %time.i)
   br label %return
 
-return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end33, %if.then20
-  %retval.0 = phi i32 [ 28, %if.then20 ], [ %call37, %do.end33 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI12ClockTimeGetERS1_NS0_10WasmMemoryEjmj.exit, %if.then20
+  %retval.0 = phi i32 [ 28, %if.then20 ], [ %retval.0.i, %_ZN4node4wasi4WASI12ClockTimeGetERS1_NS0_10WasmMemoryEjmj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmjEXadL_ZNS1_12ClockTimeGetES3_S4_jmjEEjJjmjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(20) %args) #3 comdat align 2 {
 entry:
+  %clock_id.addr.i.i = alloca i32, align 4
+  %precision.addr.i.i = alloca i64, align 8
+  %time_ptr.addr.i.i = alloca i32, align 4
+  %time.i.i = alloca i64, align 8
   %lossless.i.i = alloca i8, align 1
   %length_.i = getelementptr inbounds i8, ptr %args, i64 16
   %0 = load i32, ptr %length_.i, align 8
@@ -7559,8 +7559,8 @@ do.end50:                                         ; preds = %if.end26
   br i1 %cmp2.i55.i, label %if.then.i61.i, label %if.end.i56.i
 
 if.then.i61.i:                                    ; preds = %do.end50
-  %arrayidx.i.i37 = getelementptr inbounds i8, ptr %40, i64 8
-  %42 = load ptr, ptr %arrayidx.i.i37, align 8
+  %arrayidx.i.i42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = load ptr, ptr %arrayidx.i.i42, align 8
   %43 = ptrtoint ptr %42 to i64
   %add1.i.i94.i = add i64 %43, 608
   %44 = inttoptr i64 %add1.i.i94.i to ptr
@@ -7598,29 +7598,78 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit46.i: ; preds = %if.end.i38.i,
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %lossless.i.i)
   %52 = load i32, ptr %length_.i, align 8
   %cmp2.i.i = icmp slt i32 %52, 3
-  br i1 %cmp2.i.i, label %if.then.i.i36, label %if.end.i.i35
+  br i1 %cmp2.i.i, label %if.then.i.i41, label %if.end.i.i35
 
-if.then.i.i36:                                    ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit46.i
+if.then.i.i41:                                    ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit46.i
   %53 = load ptr, ptr %args, align 8
   %arrayidx.i72.i = getelementptr inbounds i8, ptr %53, i64 8
   %54 = load ptr, ptr %arrayidx.i72.i, align 8
   %55 = ptrtoint ptr %54 to i64
   %add1.i.i115.i = add i64 %55, 608
   %56 = inttoptr i64 %add1.i.i115.i to ptr
-  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmjETnT_XadL_ZNS3_12ClockTimeGetES4_S5_jmjEEjJjmjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
+  br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
 
 if.end.i.i35:                                     ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit46.i
   %57 = load ptr, ptr %values_.i.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %57, i64 16
+  br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+
+_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i35, %if.then.i.i41
+  %retval.i.sroa.0.0.i = phi ptr [ %56, %if.then.i.i41 ], [ %add.ptr.i.i, %if.end.i.i35 ]
+  %call7.i29.i = call noundef i32 @_ZNK2v86Uint325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0.i) #24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %clock_id.addr.i.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %precision.addr.i.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %time_ptr.addr.i.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %time.i.i)
+  store i32 %call7.i.i34, ptr %clock_id.addr.i.i, align 4
+  store i64 %call7.i28.i, ptr %precision.addr.i.i, align 8
+  store i32 %call7.i29.i, ptr %time_ptr.addr.i.i, align 4
+  %realm_.i.i.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 16
+  %58 = load ptr, ptr %realm_.i.i.i.i, align 8
+  %env_.i.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 176
+  %59 = load ptr, ptr %env_.i.i.i.i.i, align 8
+  %arrayidx.i.i.i.i.i36 = getelementptr inbounds i8, ptr %59, i64 2311
+  %60 = load i8, ptr %arrayidx.i.i.i.i.i36, align 1
+  %tobool.i.i.i.i.i = trunc i8 %60 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i40, label %_ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
+
+if.end.i.i.i.i40:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %61 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %61, ptr noundef nonnull @.str.48, ptr noundef nonnull align 4 dereferenceable(4) %clock_id.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %precision.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %time_ptr.addr.i.i) #29
+  %.pre.i.i = load i32, ptr %time_ptr.addr.i.i, align 4
+  br label %_ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
+
+_ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i40, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %62 = phi i32 [ %call7.i29.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i40 ]
+  %conv.i.i = zext i32 %62 to i64
+  %call.i.i37 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef 8) #24
+  %tobool.not.i.i = icmp eq i32 %call.i.i37, 0
+  br i1 %tobool.not.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmjETnT_XadL_ZNS3_12ClockTimeGetES4_S5_jmjEEjJjmjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %do.end.i.i
+
+do.end.i.i:                                       ; preds = %_ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
+  %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
+  %63 = load i32, ptr %clock_id.addr.i.i, align 4
+  %64 = load i64, ptr %precision.addr.i.i, align 8
+  %call1.i.i = call zeroext i16 @uvwasi_clock_time_get(ptr noundef nonnull %uvw_.i.i, i32 noundef %63, i64 noundef %64, ptr noundef nonnull %time.i.i) #24
+  %conv2.i.i = zext i16 %call1.i.i to i64
+  %cmp.i.i38 = icmp eq i16 %call1.i.i, 0
+  br i1 %cmp.i.i38, label %if.then3.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmjETnT_XadL_ZNS3_12ClockTimeGetES4_S5_jmjEEjJjmjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
+
+if.then3.i.i:                                     ; preds = %do.end.i.i
+  %65 = load i32, ptr %time_ptr.addr.i.i, align 4
+  %conv4.i.i = zext i32 %65 to i64
+  %66 = load i64, ptr %time.i.i, align 8
+  call void @uvwasi_serdes_write_timestamp_t(ptr noundef nonnull %call40, i64 noundef %conv4.i.i, i64 noundef %66) #24
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmjETnT_XadL_ZNS3_12ClockTimeGetES4_S5_jmjEEjJjmjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmjETnT_XadL_ZNS3_12ClockTimeGetES4_S5_jmjEEjJjmjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %if.then.i.i36, %if.end.i.i35
-  %retval.i.sroa.0.0.i = phi ptr [ %56, %if.then.i.i36 ], [ %add.ptr.i.i, %if.end.i.i35 ]
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmjETnT_XadL_ZNS3_12ClockTimeGetES4_S5_jmjEEjJjmjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, %do.end.i.i, %if.then3.i.i
+  %retval.0.i.i39 = phi i64 [ 61, %_ZN4node4wasi5DebugIJRA28_KcRjRmS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ], [ 0, %if.then3.i.i ], [ %conv2.i.i, %do.end.i.i ]
   %arrayidx.i76.i = getelementptr inbounds i8, ptr %40, i64 24
-  %call7.i29.i = call noundef i32 @_ZNK2v86Uint325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0.i) #24
-  %call28.i = call noundef i32 @_ZN4node4wasi4WASI12ClockTimeGetERS1_NS0_10WasmMemoryEjmj(ptr noundef nonnull align 8 dereferenceable(176) %retval.i12.0.i, ptr nonnull %call40, i64 %call38, i32 noundef %call7.i.i34, i64 noundef %call7.i28.i, i32 noundef %call7.i29.i), !range !25
-  %conv.i.i.i = zext nneg i32 %call28.i to i64
-  %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 32
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %clock_id.addr.i.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %precision.addr.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %time_ptr.addr.i.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %time.i.i)
+  %shl.i.i.i = shl nuw nsw i64 %retval.0.i.i39, 32
   store i64 %shl.i.i.i, ptr %arrayidx.i76.i, align 8
   br label %return
 
@@ -8348,13 +8397,12 @@ do.end35:                                         ; preds = %lor.rhs
   %12 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 2311
   %13 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %14 = and i8 %13, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4node4wasi4WASI8FdAdviseERS1_NS0_10WasmMemoryEjmmj.exit, label %if.end.i.i.i
+  %tobool.i.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi4WASI8FdAdviseERS1_NS0_10WasmMemoryEjmmj.exit
 
 if.end.i.i.i:                                     ; preds = %do.end35
-  %15 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjRmS2_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %15, ptr noundef nonnull @.str.51, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %len.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %advice.addr.i) #29
+  %14 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmS2_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %14, ptr noundef nonnull @.str.51, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %len.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %advice.addr.i) #29
   %.pre.i = load i32, ptr %fd.addr.i, align 4
   %.pre2.i = load i64, ptr %offset.addr.i, align 8
   %.pre3.i = load i64, ptr %len.addr.i, align 8
@@ -8362,13 +8410,13 @@ if.end.i.i.i:                                     ; preds = %do.end35
   br label %_ZN4node4wasi4WASI8FdAdviseERS1_NS0_10WasmMemoryEjmmj.exit
 
 _ZN4node4wasi4WASI8FdAdviseERS1_NS0_10WasmMemoryEjmmj.exit: ; preds = %do.end35, %if.end.i.i.i
-  %16 = phi i32 [ %args7, %do.end35 ], [ %.pre4.i, %if.end.i.i.i ]
-  %17 = phi i64 [ %args5, %do.end35 ], [ %.pre3.i, %if.end.i.i.i ]
-  %18 = phi i64 [ %args3, %do.end35 ], [ %.pre2.i, %if.end.i.i.i ]
-  %19 = phi i32 [ %args, %do.end35 ], [ %.pre.i, %if.end.i.i.i ]
+  %15 = phi i32 [ %args7, %do.end35 ], [ %.pre4.i, %if.end.i.i.i ]
+  %16 = phi i64 [ %args5, %do.end35 ], [ %.pre3.i, %if.end.i.i.i ]
+  %17 = phi i64 [ %args3, %do.end35 ], [ %.pre2.i, %if.end.i.i.i ]
+  %18 = phi i32 [ %args, %do.end35 ], [ %.pre.i, %if.end.i.i.i ]
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %conv.i = trunc i32 %16 to i8
-  %call.i = call zeroext i16 @uvwasi_fd_advise(ptr noundef nonnull %uvw_.i, i32 noundef %19, i64 noundef %18, i64 noundef %17, i8 noundef zeroext %conv.i) #24
+  %conv.i = trunc i32 %15 to i8
+  %call.i = call zeroext i16 @uvwasi_fd_advise(ptr noundef nonnull %uvw_.i, i32 noundef %18, i64 noundef %17, i64 noundef %16, i8 noundef zeroext %conv.i) #24
   %conv1.i = zext i16 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset.addr.i)
@@ -8596,13 +8644,12 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i32, %
   %52 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 2311
   %53 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %54 = and i8 %53, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %54, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_8FdAdviseES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %if.end.i.i.i.i
+  %tobool.i.i.i.i.i = trunc i8 %53 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_8FdAdviseES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %55 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjRmS2_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %55, ptr noundef nonnull @.str.51, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %len.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %advice.addr.i.i) #29
+  %54 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmS2_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %54, ptr noundef nonnull @.str.51, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %len.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %advice.addr.i.i) #29
   %.pre.i.i = load i32, ptr %fd.addr.i.i, align 4
   %.pre2.i.i = load i64, ptr %offset.addr.i.i, align 8
   %.pre3.i.i = load i64, ptr %len.addr.i.i, align 8
@@ -8610,14 +8657,14 @@ if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCa
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_8FdAdviseES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_8FdAdviseES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
-  %56 = phi i32 [ %call7.i35.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre4.i.i, %if.end.i.i.i.i ]
-  %57 = phi i64 [ %call7.i34.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre3.i.i, %if.end.i.i.i.i ]
-  %58 = phi i64 [ %call7.i32.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i ]
-  %59 = phi i32 [ %call7.i.i31, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
+  %55 = phi i32 [ %call7.i35.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre4.i.i, %if.end.i.i.i.i ]
+  %56 = phi i64 [ %call7.i34.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre3.i.i, %if.end.i.i.i.i ]
+  %57 = phi i64 [ %call7.i32.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i ]
+  %58 = phi i32 [ %call7.i.i31, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
   %arrayidx.i106.i = getelementptr inbounds i8, ptr %27, i64 24
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %conv.i.i = trunc i32 %56 to i8
-  %call.i.i33 = call zeroext i16 @uvwasi_fd_advise(ptr noundef nonnull %uvw_.i.i, i32 noundef %59, i64 noundef %58, i64 noundef %57, i8 noundef zeroext %conv.i.i) #24
+  %conv.i.i = trunc i32 %55 to i8
+  %call.i.i33 = call zeroext i16 @uvwasi_fd_advise(ptr noundef nonnull %uvw_.i.i, i32 noundef %58, i64 noundef %57, i64 noundef %56, i8 noundef zeroext %conv.i.i) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.addr.i.i)
@@ -8847,24 +8894,23 @@ do.end33:                                         ; preds = %lor.rhs
   %12 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 2311
   %13 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %14 = and i8 %13, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4node4wasi4WASI10FdAllocateERS1_NS0_10WasmMemoryEjmm.exit, label %if.end.i.i.i
+  %tobool.i.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi4WASI10FdAllocateERS1_NS0_10WasmMemoryEjmm.exit
 
 if.end.i.i.i:                                     ; preds = %do.end33
-  %15 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjRmS2_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %15, ptr noundef nonnull @.str.52, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %len.addr.i) #29
+  %14 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmS2_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %14, ptr noundef nonnull @.str.52, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %len.addr.i) #29
   %.pre.i = load i32, ptr %fd.addr.i, align 4
   %.pre2.i = load i64, ptr %offset.addr.i, align 8
   %.pre3.i = load i64, ptr %len.addr.i, align 8
   br label %_ZN4node4wasi4WASI10FdAllocateERS1_NS0_10WasmMemoryEjmm.exit
 
 _ZN4node4wasi4WASI10FdAllocateERS1_NS0_10WasmMemoryEjmm.exit: ; preds = %do.end33, %if.end.i.i.i
-  %16 = phi i64 [ %args5, %do.end33 ], [ %.pre3.i, %if.end.i.i.i ]
-  %17 = phi i64 [ %args3, %do.end33 ], [ %.pre2.i, %if.end.i.i.i ]
-  %18 = phi i32 [ %args, %do.end33 ], [ %.pre.i, %if.end.i.i.i ]
+  %15 = phi i64 [ %args5, %do.end33 ], [ %.pre3.i, %if.end.i.i.i ]
+  %16 = phi i64 [ %args3, %do.end33 ], [ %.pre2.i, %if.end.i.i.i ]
+  %17 = phi i32 [ %args, %do.end33 ], [ %.pre.i, %if.end.i.i.i ]
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %call.i = call zeroext i16 @uvwasi_fd_allocate(ptr noundef nonnull %uvw_.i, i32 noundef %18, i64 noundef %17, i64 noundef %16) #24
+  %call.i = call zeroext i16 @uvwasi_fd_allocate(ptr noundef nonnull %uvw_.i, i32 noundef %17, i64 noundef %16, i64 noundef %15) #24
   %conv.i = zext i16 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset.addr.i)
@@ -9116,29 +9162,28 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i35, %
   %59 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i36 = getelementptr inbounds i8, ptr %59, i64 2311
   %60 = load i8, ptr %arrayidx.i.i.i.i.i36, align 1
-  %61 = and i8 %60, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %61, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_10FdAllocateES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %if.end.i.i.i.i37
+  %tobool.i.i.i.i.i = trunc i8 %60 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i38, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_10FdAllocateES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-if.end.i.i.i.i37:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %62 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjRmS2_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %62, ptr noundef nonnull @.str.52, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %len.addr.i.i) #29
+if.end.i.i.i.i38:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %61 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmS2_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %61, ptr noundef nonnull @.str.52, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %len.addr.i.i) #29
   %.pre.i.i = load i32, ptr %fd.addr.i.i, align 4
   %.pre2.i.i = load i64, ptr %offset.addr.i.i, align 8
   %.pre3.i.i = load i64, ptr %len.addr.i.i, align 8
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_10FdAllocateES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_10FdAllocateES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i37
-  %63 = phi i64 [ %call7.i30.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre3.i.i, %if.end.i.i.i.i37 ]
-  %64 = phi i64 [ %call7.i28.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i37 ]
-  %65 = phi i32 [ %call7.i.i34, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i37 ]
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_10FdAllocateES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i38
+  %62 = phi i64 [ %call7.i30.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre3.i.i, %if.end.i.i.i.i38 ]
+  %63 = phi i64 [ %call7.i28.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i38 ]
+  %64 = phi i32 [ %call7.i.i34, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i38 ]
   %arrayidx.i76.i = getelementptr inbounds i8, ptr %40, i64 24
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %call.i.i38 = call zeroext i16 @uvwasi_fd_allocate(ptr noundef nonnull %uvw_.i.i, i32 noundef %65, i64 noundef %64, i64 noundef %63) #24
+  %call.i.i37 = call zeroext i16 @uvwasi_fd_allocate(ptr noundef nonnull %uvw_.i.i, i32 noundef %64, i64 noundef %63, i64 noundef %62) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.addr.i.i)
-  %conv.i.i.i = zext i16 %call.i.i38 to i64
+  %conv.i.i.i = zext i16 %call.i.i37 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 32
   store i64 %shl.i.i.i, ptr %arrayidx.i76.i, align 8
   br label %return
@@ -9269,20 +9314,19 @@ do.end29:                                         ; preds = %lor.rhs
   %12 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 2311
   %13 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %14 = and i8 %13, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4node4wasi4WASI7FdCloseERS1_NS0_10WasmMemoryEj.exit, label %if.end.i.i.i
+  %tobool.i.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi4WASI7FdCloseERS1_NS0_10WasmMemoryEj.exit
 
 if.end.i.i.i:                                     ; preds = %do.end29
-  %15 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %15, ptr noundef nonnull @.str.53, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i) #29
+  %14 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %14, ptr noundef nonnull @.str.53, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i) #29
   %.pre.i = load i32, ptr %fd.addr.i, align 4
   br label %_ZN4node4wasi4WASI7FdCloseERS1_NS0_10WasmMemoryEj.exit
 
 _ZN4node4wasi4WASI7FdCloseERS1_NS0_10WasmMemoryEj.exit: ; preds = %do.end29, %if.end.i.i.i
-  %16 = phi i32 [ %args, %do.end29 ], [ %.pre.i, %if.end.i.i.i ]
+  %15 = phi i32 [ %args, %do.end29 ], [ %.pre.i, %if.end.i.i.i ]
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %call.i = call zeroext i16 @uvwasi_fd_close(ptr noundef nonnull %uvw_.i, i32 noundef %16) #24
+  %call.i = call zeroext i16 @uvwasi_fd_close(ptr noundef nonnull %uvw_.i, i32 noundef %15) #24
   %conv.i = zext i16 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i)
   br label %return
@@ -9430,21 +9474,20 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i32, %
   %35 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 2311
   %36 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %37 = and i8 %36, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %37, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_7FdCloseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %if.end.i.i.i.i
+  %tobool.i.i.i.i.i = trunc i8 %36 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_7FdCloseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %38 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %38, ptr noundef nonnull @.str.53, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i) #29
+  %37 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %37, ptr noundef nonnull @.str.53, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i) #29
   %.pre.i.i = load i32, ptr %fd.addr.i.i, align 4
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_7FdCloseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_7FdCloseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
-  %39 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
+  %38 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
   %arrayidx.i16.i = getelementptr inbounds i8, ptr %28, i64 24
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %call.i.i34 = call zeroext i16 @uvwasi_fd_close(ptr noundef nonnull %uvw_.i.i, i32 noundef %39) #24
+  %call.i.i34 = call zeroext i16 @uvwasi_fd_close(ptr noundef nonnull %uvw_.i.i, i32 noundef %38) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i.i)
   %conv.i.i.i = zext i16 %call.i.i34 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 32
@@ -9573,20 +9616,19 @@ do.end29:                                         ; preds = %lor.rhs
   %12 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 2311
   %13 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %14 = and i8 %13, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4node4wasi4WASI10FdDatasyncERS1_NS0_10WasmMemoryEj.exit, label %if.end.i.i.i
+  %tobool.i.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi4WASI10FdDatasyncERS1_NS0_10WasmMemoryEj.exit
 
 if.end.i.i.i:                                     ; preds = %do.end29
-  %15 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %15, ptr noundef nonnull @.str.54, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i) #29
+  %14 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %14, ptr noundef nonnull @.str.54, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i) #29
   %.pre.i = load i32, ptr %fd.addr.i, align 4
   br label %_ZN4node4wasi4WASI10FdDatasyncERS1_NS0_10WasmMemoryEj.exit
 
 _ZN4node4wasi4WASI10FdDatasyncERS1_NS0_10WasmMemoryEj.exit: ; preds = %do.end29, %if.end.i.i.i
-  %16 = phi i32 [ %args, %do.end29 ], [ %.pre.i, %if.end.i.i.i ]
+  %15 = phi i32 [ %args, %do.end29 ], [ %.pre.i, %if.end.i.i.i ]
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %call.i = call zeroext i16 @uvwasi_fd_datasync(ptr noundef nonnull %uvw_.i, i32 noundef %16) #24
+  %call.i = call zeroext i16 @uvwasi_fd_datasync(ptr noundef nonnull %uvw_.i, i32 noundef %15) #24
   %conv.i = zext i16 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i)
   br label %return
@@ -9734,21 +9776,20 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i32, %
   %35 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 2311
   %36 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %37 = and i8 %36, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %37, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_10FdDatasyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %if.end.i.i.i.i
+  %tobool.i.i.i.i.i = trunc i8 %36 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_10FdDatasyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %38 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %38, ptr noundef nonnull @.str.54, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i) #29
+  %37 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %37, ptr noundef nonnull @.str.54, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i) #29
   %.pre.i.i = load i32, ptr %fd.addr.i.i, align 4
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_10FdDatasyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_10FdDatasyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
-  %39 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
+  %38 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
   %arrayidx.i16.i = getelementptr inbounds i8, ptr %28, i64 24
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %call.i.i34 = call zeroext i16 @uvwasi_fd_datasync(ptr noundef nonnull %uvw_.i.i, i32 noundef %39) #24
+  %call.i.i34 = call zeroext i16 @uvwasi_fd_datasync(ptr noundef nonnull %uvw_.i.i, i32 noundef %38) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i.i)
   %conv.i.i.i = zext i16 %call.i.i34 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 32
@@ -9870,34 +9911,33 @@ do.end31:                                         ; preds = %lor.rhs
   %14 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %14, i64 2311
   %15 = load i8, ptr %arrayidx.i.i.i, align 1
-  %16 = and i8 %15, 1
-  %tobool.i.not.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.i.not.i.i, label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i, label %if.end.i.i.i
+  %tobool.i.i.i = trunc i8 %15 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 if.end.i.i.i:                                     ; preds = %do.end31
-  %17 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %17, ptr noundef nonnull @.str.55, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr.i) #29
+  %16 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %16, ptr noundef nonnull @.str.55, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr.i) #29
   %.pre.i = load i32, ptr %buf.addr.i, align 4
   br label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 _ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i: ; preds = %if.end.i.i.i, %do.end31
-  %18 = phi i32 [ %args3, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
-  %conv.i = zext i32 %18 to i64
+  %17 = phi i32 [ %args3, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
+  %conv.i = zext i32 %17 to i64
   %call.i = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i, i64 noundef %12, i64 noundef 24) #24
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ZN4node4wasi4WASI11FdFdstatGetERS1_NS0_10WasmMemoryEjj.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %19 = load i32, ptr %fd.addr.i, align 4
-  %call1.i = call zeroext i16 @uvwasi_fd_fdstat_get(ptr noundef nonnull %uvw_.i, i32 noundef %19, ptr noundef nonnull %stats.i) #24
+  %18 = load i32, ptr %fd.addr.i, align 4
+  %call1.i = call zeroext i16 @uvwasi_fd_fdstat_get(ptr noundef nonnull %uvw_.i, i32 noundef %18, ptr noundef nonnull %stats.i) #24
   %conv2.i = zext i16 %call1.i to i32
   %cmp.i6 = icmp eq i16 %call1.i, 0
   br i1 %cmp.i6, label %if.then3.i, label %_ZN4node4wasi4WASI11FdFdstatGetERS1_NS0_10WasmMemoryEjj.exit
 
 if.then3.i:                                       ; preds = %do.end.i
-  %20 = load i32, ptr %buf.addr.i, align 4
-  %conv4.i = zext i32 %20 to i64
+  %19 = load i32, ptr %buf.addr.i, align 4
+  %conv4.i = zext i32 %19 to i64
   call void @uvwasi_serdes_write_fdstat_t(ptr noundef %11, i64 noundef %conv4.i, ptr noundef nonnull %stats.i) #24
   br label %_ZN4node4wasi4WASI11FdFdstatGetERS1_NS0_10WasmMemoryEjj.exit
 
@@ -10101,44 +10141,43 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i34, %
   %47 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i35 = getelementptr inbounds i8, ptr %47, i64 2311
   %48 = load i8, ptr %arrayidx.i.i.i.i35, align 1
-  %49 = and i8 %48, 1
-  %tobool.i.not.i.i.i = icmp eq i8 %49, 0
-  br i1 %tobool.i.not.i.i.i, label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, label %if.end.i.i.i.i36
+  %tobool.i.i.i.i = trunc i8 %48 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i.i39, label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-if.end.i.i.i.i36:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %50 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %50, ptr noundef nonnull @.str.55, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr.i.i) #29
+if.end.i.i.i.i39:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %49 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %49, ptr noundef nonnull @.str.55, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr.i.i) #29
   %.pre.i.i = load i32, ptr %buf.addr.i.i, align 4
   br label %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i36, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %51 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i36 ]
-  %conv.i.i = zext i32 %51 to i64
-  %call.i.i37 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef 24) #24
-  %tobool.not.i.i = icmp eq i32 %call.i.i37, 0
+_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i39, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %50 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i39 ]
+  %conv.i.i = zext i32 %50 to i64
+  %call.i.i36 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef 24) #24
+  %tobool.not.i.i = icmp eq i32 %call.i.i36, 0
   br i1 %tobool.not.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_11FdFdstatGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %52 = load i32, ptr %fd.addr.i.i, align 4
-  %call1.i.i = call zeroext i16 @uvwasi_fd_fdstat_get(ptr noundef nonnull %uvw_.i.i, i32 noundef %52, ptr noundef nonnull %stats.i.i) #24
+  %51 = load i32, ptr %fd.addr.i.i, align 4
+  %call1.i.i = call zeroext i16 @uvwasi_fd_fdstat_get(ptr noundef nonnull %uvw_.i.i, i32 noundef %51, ptr noundef nonnull %stats.i.i) #24
   %conv2.i.i = zext i16 %call1.i.i to i64
-  %cmp.i.i38 = icmp eq i16 %call1.i.i, 0
-  br i1 %cmp.i.i38, label %if.then3.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_11FdFdstatGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
+  %cmp.i.i37 = icmp eq i16 %call1.i.i, 0
+  br i1 %cmp.i.i37, label %if.then3.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_11FdFdstatGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.then3.i.i:                                     ; preds = %do.end.i.i
-  %53 = load i32, ptr %buf.addr.i.i, align 4
-  %conv4.i.i = zext i32 %53 to i64
+  %52 = load i32, ptr %buf.addr.i.i, align 4
+  %conv4.i.i = zext i32 %52 to i64
   call void @uvwasi_serdes_write_fdstat_t(ptr noundef nonnull %call40, i64 noundef %conv4.i.i, ptr noundef nonnull %stats.i.i) #24
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_11FdFdstatGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_11FdFdstatGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, %do.end.i.i, %if.then3.i.i
-  %retval.0.i.i39 = phi i64 [ 61, %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ], [ 0, %if.then3.i.i ], [ %conv2.i.i, %do.end.i.i ]
+  %retval.0.i.i38 = phi i64 [ 61, %_ZN4node4wasi5DebugIJRA23_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ], [ 0, %if.then3.i.i ], [ %conv2.i.i, %do.end.i.i ]
   %arrayidx.i46.i = getelementptr inbounds i8, ptr %34, i64 24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %stats.i.i)
-  %shl.i.i.i = shl nuw nsw i64 %retval.0.i.i39, 32
+  %shl.i.i.i = shl nuw nsw i64 %retval.0.i.i38, 32
   store i64 %shl.i.i.i, ptr %arrayidx.i46.i, align 8
   br label %return
 
@@ -10252,23 +10291,22 @@ do.end31:                                         ; preds = %lor.rhs
   %12 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %12, i64 2311
   %13 = load i8, ptr %arrayidx.i.i.i, align 1
-  %14 = and i8 %13, 1
-  %tobool.i.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.i.not.i.i, label %_ZN4node4wasi4WASI16FdFdstatSetFlagsERS1_NS0_10WasmMemoryEjj.exit, label %if.end.i.i.i
+  %tobool.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi4WASI16FdFdstatSetFlagsERS1_NS0_10WasmMemoryEjj.exit
 
 if.end.i.i.i:                                     ; preds = %do.end31
-  %15 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %15, ptr noundef nonnull @.str.56, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %flags.addr.i) #29
+  %14 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %14, ptr noundef nonnull @.str.56, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %flags.addr.i) #29
   %.pre.i = load i32, ptr %fd.addr.i, align 4
   %.pre2.i = load i32, ptr %flags.addr.i, align 4
   br label %_ZN4node4wasi4WASI16FdFdstatSetFlagsERS1_NS0_10WasmMemoryEjj.exit
 
 _ZN4node4wasi4WASI16FdFdstatSetFlagsERS1_NS0_10WasmMemoryEjj.exit: ; preds = %do.end31, %if.end.i.i.i
-  %16 = phi i32 [ %args3, %do.end31 ], [ %.pre2.i, %if.end.i.i.i ]
-  %17 = phi i32 [ %args, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
+  %15 = phi i32 [ %args3, %do.end31 ], [ %.pre2.i, %if.end.i.i.i ]
+  %16 = phi i32 [ %args, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %conv.i = trunc i32 %16 to i16
-  %call.i = call zeroext i16 @uvwasi_fd_fdstat_set_flags(ptr noundef nonnull %uvw_.i, i32 noundef %17, i16 noundef zeroext %conv.i) #24
+  %conv.i = trunc i32 %15 to i16
+  %call.i = call zeroext i16 @uvwasi_fd_fdstat_set_flags(ptr noundef nonnull %uvw_.i, i32 noundef %16, i16 noundef zeroext %conv.i) #24
   %conv1.i = zext i16 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.addr.i)
@@ -10465,27 +10503,26 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i34, %
   %47 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i35 = getelementptr inbounds i8, ptr %47, i64 2311
   %48 = load i8, ptr %arrayidx.i.i.i.i35, align 1
-  %49 = and i8 %48, 1
-  %tobool.i.not.i.i.i = icmp eq i8 %49, 0
-  br i1 %tobool.i.not.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_16FdFdstatSetFlagsES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %if.end.i.i.i.i36
+  %tobool.i.i.i.i = trunc i8 %48 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i.i37, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_16FdFdstatSetFlagsES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-if.end.i.i.i.i36:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %50 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %50, ptr noundef nonnull @.str.56, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %flags.addr.i.i) #29
+if.end.i.i.i.i37:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %49 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %49, ptr noundef nonnull @.str.56, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %flags.addr.i.i) #29
   %.pre.i.i = load i32, ptr %fd.addr.i.i, align 4
   %.pre2.i.i = load i32, ptr %flags.addr.i.i, align 4
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_16FdFdstatSetFlagsES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_16FdFdstatSetFlagsES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i36
-  %51 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i36 ]
-  %52 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i36 ]
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_16FdFdstatSetFlagsES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i37
+  %50 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i37 ]
+  %51 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i37 ]
   %arrayidx.i46.i = getelementptr inbounds i8, ptr %34, i64 24
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %conv.i.i = trunc i32 %51 to i16
-  %call.i.i37 = call zeroext i16 @uvwasi_fd_fdstat_set_flags(ptr noundef nonnull %uvw_.i.i, i32 noundef %52, i16 noundef zeroext %conv.i.i) #24
+  %conv.i.i = trunc i32 %50 to i16
+  %call.i.i36 = call zeroext i16 @uvwasi_fd_fdstat_set_flags(ptr noundef nonnull %uvw_.i.i, i32 noundef %51, i16 noundef zeroext %conv.i.i) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.addr.i.i)
-  %conv.i.i.i = zext i16 %call.i.i37 to i64
+  %conv.i.i.i = zext i16 %call.i.i36 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 32
   store i64 %shl.i.i.i, ptr %arrayidx.i46.i, align 8
   br label %return
@@ -10603,24 +10640,23 @@ do.end33:                                         ; preds = %lor.rhs
   %12 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 2311
   %13 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %14 = and i8 %13, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4node4wasi4WASI17FdFdstatSetRightsERS1_NS0_10WasmMemoryEjmm.exit, label %if.end.i.i.i
+  %tobool.i.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi4WASI17FdFdstatSetRightsERS1_NS0_10WasmMemoryEjmm.exit
 
 if.end.i.i.i:                                     ; preds = %do.end33
-  %15 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjRmS2_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %15, ptr noundef nonnull @.str.57, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %fs_rights_base.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %fs_rights_inheriting.addr.i) #29
+  %14 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmS2_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %14, ptr noundef nonnull @.str.57, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %fs_rights_base.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %fs_rights_inheriting.addr.i) #29
   %.pre.i = load i32, ptr %fd.addr.i, align 4
   %.pre2.i = load i64, ptr %fs_rights_base.addr.i, align 8
   %.pre3.i = load i64, ptr %fs_rights_inheriting.addr.i, align 8
   br label %_ZN4node4wasi4WASI17FdFdstatSetRightsERS1_NS0_10WasmMemoryEjmm.exit
 
 _ZN4node4wasi4WASI17FdFdstatSetRightsERS1_NS0_10WasmMemoryEjmm.exit: ; preds = %do.end33, %if.end.i.i.i
-  %16 = phi i64 [ %args5, %do.end33 ], [ %.pre3.i, %if.end.i.i.i ]
-  %17 = phi i64 [ %args3, %do.end33 ], [ %.pre2.i, %if.end.i.i.i ]
-  %18 = phi i32 [ %args, %do.end33 ], [ %.pre.i, %if.end.i.i.i ]
+  %15 = phi i64 [ %args5, %do.end33 ], [ %.pre3.i, %if.end.i.i.i ]
+  %16 = phi i64 [ %args3, %do.end33 ], [ %.pre2.i, %if.end.i.i.i ]
+  %17 = phi i32 [ %args, %do.end33 ], [ %.pre.i, %if.end.i.i.i ]
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %call.i = call zeroext i16 @uvwasi_fd_fdstat_set_rights(ptr noundef nonnull %uvw_.i, i32 noundef %18, i64 noundef %17, i64 noundef %16) #24
+  %call.i = call zeroext i16 @uvwasi_fd_fdstat_set_rights(ptr noundef nonnull %uvw_.i, i32 noundef %17, i64 noundef %16, i64 noundef %15) #24
   %conv.i = zext i16 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %fs_rights_base.addr.i)
@@ -10872,29 +10908,28 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i35, %
   %59 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i36 = getelementptr inbounds i8, ptr %59, i64 2311
   %60 = load i8, ptr %arrayidx.i.i.i.i.i36, align 1
-  %61 = and i8 %60, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %61, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_17FdFdstatSetRightsES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %if.end.i.i.i.i37
+  %tobool.i.i.i.i.i = trunc i8 %60 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i38, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_17FdFdstatSetRightsES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-if.end.i.i.i.i37:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %62 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjRmS2_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %62, ptr noundef nonnull @.str.57, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %fs_rights_base.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %fs_rights_inheriting.addr.i.i) #29
+if.end.i.i.i.i38:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %61 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmS2_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %61, ptr noundef nonnull @.str.57, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %fs_rights_base.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %fs_rights_inheriting.addr.i.i) #29
   %.pre.i.i = load i32, ptr %fd.addr.i.i, align 4
   %.pre2.i.i = load i64, ptr %fs_rights_base.addr.i.i, align 8
   %.pre3.i.i = load i64, ptr %fs_rights_inheriting.addr.i.i, align 8
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_17FdFdstatSetRightsES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_17FdFdstatSetRightsES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i37
-  %63 = phi i64 [ %call7.i30.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre3.i.i, %if.end.i.i.i.i37 ]
-  %64 = phi i64 [ %call7.i28.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i37 ]
-  %65 = phi i32 [ %call7.i.i34, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i37 ]
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_17FdFdstatSetRightsES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i38
+  %62 = phi i64 [ %call7.i30.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre3.i.i, %if.end.i.i.i.i38 ]
+  %63 = phi i64 [ %call7.i28.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i38 ]
+  %64 = phi i32 [ %call7.i.i34, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i38 ]
   %arrayidx.i76.i = getelementptr inbounds i8, ptr %40, i64 24
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %call.i.i38 = call zeroext i16 @uvwasi_fd_fdstat_set_rights(ptr noundef nonnull %uvw_.i.i, i32 noundef %65, i64 noundef %64, i64 noundef %63) #24
+  %call.i.i37 = call zeroext i16 @uvwasi_fd_fdstat_set_rights(ptr noundef nonnull %uvw_.i.i, i32 noundef %64, i64 noundef %63, i64 noundef %62) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %fs_rights_base.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %fs_rights_inheriting.addr.i.i)
-  %conv.i.i.i = zext i16 %call.i.i38 to i64
+  %conv.i.i.i = zext i16 %call.i.i37 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 32
   store i64 %shl.i.i.i, ptr %arrayidx.i76.i, align 8
   br label %return
@@ -11014,34 +11049,33 @@ do.end31:                                         ; preds = %lor.rhs
   %14 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %14, i64 2311
   %15 = load i8, ptr %arrayidx.i.i.i, align 1
-  %16 = and i8 %15, 1
-  %tobool.i.not.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.i.not.i.i, label %_ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i, label %if.end.i.i.i
+  %tobool.i.i.i = trunc i8 %15 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 if.end.i.i.i:                                     ; preds = %do.end31
-  %17 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %17, ptr noundef nonnull @.str.58, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr.i) #29
+  %16 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %16, ptr noundef nonnull @.str.58, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr.i) #29
   %.pre.i = load i32, ptr %buf.addr.i, align 4
   br label %_ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 _ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i: ; preds = %if.end.i.i.i, %do.end31
-  %18 = phi i32 [ %args3, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
-  %conv.i = zext i32 %18 to i64
+  %17 = phi i32 [ %args3, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
+  %conv.i = zext i32 %17 to i64
   %call.i = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i, i64 noundef %12, i64 noundef 64) #24
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ZN4node4wasi4WASI13FdFilestatGetERS1_NS0_10WasmMemoryEjj.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %_ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %19 = load i32, ptr %fd.addr.i, align 4
-  %call1.i = call zeroext i16 @uvwasi_fd_filestat_get(ptr noundef nonnull %uvw_.i, i32 noundef %19, ptr noundef nonnull %stats.i) #24
+  %18 = load i32, ptr %fd.addr.i, align 4
+  %call1.i = call zeroext i16 @uvwasi_fd_filestat_get(ptr noundef nonnull %uvw_.i, i32 noundef %18, ptr noundef nonnull %stats.i) #24
   %conv2.i = zext i16 %call1.i to i32
   %cmp.i6 = icmp eq i16 %call1.i, 0
   br i1 %cmp.i6, label %if.then3.i, label %_ZN4node4wasi4WASI13FdFilestatGetERS1_NS0_10WasmMemoryEjj.exit
 
 if.then3.i:                                       ; preds = %do.end.i
-  %20 = load i32, ptr %buf.addr.i, align 4
-  %conv4.i = zext i32 %20 to i64
+  %19 = load i32, ptr %buf.addr.i, align 4
+  %conv4.i = zext i32 %19 to i64
   call void @uvwasi_serdes_write_filestat_t(ptr noundef %11, i64 noundef %conv4.i, ptr noundef nonnull %stats.i) #24
   br label %_ZN4node4wasi4WASI13FdFilestatGetERS1_NS0_10WasmMemoryEjj.exit
 
@@ -11245,44 +11279,43 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i34, %
   %47 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i35 = getelementptr inbounds i8, ptr %47, i64 2311
   %48 = load i8, ptr %arrayidx.i.i.i.i35, align 1
-  %49 = and i8 %48, 1
-  %tobool.i.not.i.i.i = icmp eq i8 %49, 0
-  br i1 %tobool.i.not.i.i.i, label %_ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, label %if.end.i.i.i.i36
+  %tobool.i.i.i.i = trunc i8 %48 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i.i39, label %_ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-if.end.i.i.i.i36:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %50 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %50, ptr noundef nonnull @.str.58, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr.i.i) #29
+if.end.i.i.i.i39:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %49 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %49, ptr noundef nonnull @.str.58, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr.i.i) #29
   %.pre.i.i = load i32, ptr %buf.addr.i.i, align 4
   br label %_ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-_ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i36, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %51 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i36 ]
-  %conv.i.i = zext i32 %51 to i64
-  %call.i.i37 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef 64) #24
-  %tobool.not.i.i = icmp eq i32 %call.i.i37, 0
+_ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i39, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %50 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i39 ]
+  %conv.i.i = zext i32 %50 to i64
+  %call.i.i36 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef 64) #24
+  %tobool.not.i.i = icmp eq i32 %call.i.i36, 0
   br i1 %tobool.not.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_13FdFilestatGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %_ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %52 = load i32, ptr %fd.addr.i.i, align 4
-  %call1.i.i = call zeroext i16 @uvwasi_fd_filestat_get(ptr noundef nonnull %uvw_.i.i, i32 noundef %52, ptr noundef nonnull %stats.i.i) #24
+  %51 = load i32, ptr %fd.addr.i.i, align 4
+  %call1.i.i = call zeroext i16 @uvwasi_fd_filestat_get(ptr noundef nonnull %uvw_.i.i, i32 noundef %51, ptr noundef nonnull %stats.i.i) #24
   %conv2.i.i = zext i16 %call1.i.i to i64
-  %cmp.i.i38 = icmp eq i16 %call1.i.i, 0
-  br i1 %cmp.i.i38, label %if.then3.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_13FdFilestatGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
+  %cmp.i.i37 = icmp eq i16 %call1.i.i, 0
+  br i1 %cmp.i.i37, label %if.then3.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_13FdFilestatGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.then3.i.i:                                     ; preds = %do.end.i.i
-  %53 = load i32, ptr %buf.addr.i.i, align 4
-  %conv4.i.i = zext i32 %53 to i64
+  %52 = load i32, ptr %buf.addr.i.i, align 4
+  %conv4.i.i = zext i32 %52 to i64
   call void @uvwasi_serdes_write_filestat_t(ptr noundef nonnull %call40, i64 noundef %conv4.i.i, ptr noundef nonnull %stats.i.i) #24
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_13FdFilestatGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_13FdFilestatGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, %do.end.i.i, %if.then3.i.i
-  %retval.0.i.i39 = phi i64 [ 61, %_ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ], [ 0, %if.then3.i.i ], [ %conv2.i.i, %do.end.i.i ]
+  %retval.0.i.i38 = phi i64 [ 61, %_ZN4node4wasi5DebugIJRA25_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ], [ 0, %if.then3.i.i ], [ %conv2.i.i, %do.end.i.i ]
   %arrayidx.i46.i = getelementptr inbounds i8, ptr %34, i64 24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %stats.i.i)
-  %shl.i.i.i = shl nuw nsw i64 %retval.0.i.i39, 32
+  %shl.i.i.i = shl nuw nsw i64 %retval.0.i.i38, 32
   store i64 %shl.i.i.i, ptr %arrayidx.i46.i, align 8
   br label %return
 
@@ -11396,22 +11429,21 @@ do.end31:                                         ; preds = %lor.rhs
   %12 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 2311
   %13 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %14 = and i8 %13, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4node4wasi4WASI17FdFilestatSetSizeERS1_NS0_10WasmMemoryEjm.exit, label %if.end.i.i.i
+  %tobool.i.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi4WASI17FdFilestatSetSizeERS1_NS0_10WasmMemoryEjm.exit
 
 if.end.i.i.i:                                     ; preds = %do.end31
-  %15 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjRmEEEvP8_IO_FILEPKcDpOT_(ptr noundef %15, ptr noundef nonnull @.str.59, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %st_size.addr.i) #29
+  %14 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmEEEvP8_IO_FILEPKcDpOT_(ptr noundef %14, ptr noundef nonnull @.str.59, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %st_size.addr.i) #29
   %.pre.i = load i32, ptr %fd.addr.i, align 4
   %.pre2.i = load i64, ptr %st_size.addr.i, align 8
   br label %_ZN4node4wasi4WASI17FdFilestatSetSizeERS1_NS0_10WasmMemoryEjm.exit
 
 _ZN4node4wasi4WASI17FdFilestatSetSizeERS1_NS0_10WasmMemoryEjm.exit: ; preds = %do.end31, %if.end.i.i.i
-  %16 = phi i64 [ %args3, %do.end31 ], [ %.pre2.i, %if.end.i.i.i ]
-  %17 = phi i32 [ %args, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
+  %15 = phi i64 [ %args3, %do.end31 ], [ %.pre2.i, %if.end.i.i.i ]
+  %16 = phi i32 [ %args, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %call.i = call zeroext i16 @uvwasi_fd_filestat_set_size(ptr noundef nonnull %uvw_.i, i32 noundef %17, i64 noundef %16) #24
+  %call.i = call zeroext i16 @uvwasi_fd_filestat_set_size(ptr noundef nonnull %uvw_.i, i32 noundef %16, i64 noundef %15) #24
   %conv.i = zext i16 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %st_size.addr.i)
@@ -11611,26 +11643,25 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i34, %
   %47 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %47, i64 2311
   %48 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %49 = and i8 %48, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %49, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmETnT_XadL_ZNS3_17FdFilestatSetSizeES4_S5_jmEEjJjmEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %if.end.i.i.i.i35
+  %tobool.i.i.i.i.i = trunc i8 %48 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i36, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmETnT_XadL_ZNS3_17FdFilestatSetSizeES4_S5_jmEEjJjmEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-if.end.i.i.i.i35:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %50 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjRmEEEvP8_IO_FILEPKcDpOT_(ptr noundef %50, ptr noundef nonnull @.str.59, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %st_size.addr.i.i) #29
+if.end.i.i.i.i36:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %49 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmEEEvP8_IO_FILEPKcDpOT_(ptr noundef %49, ptr noundef nonnull @.str.59, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %st_size.addr.i.i) #29
   %.pre.i.i = load i32, ptr %fd.addr.i.i, align 4
   %.pre2.i.i = load i64, ptr %st_size.addr.i.i, align 8
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmETnT_XadL_ZNS3_17FdFilestatSetSizeES4_S5_jmEEjJjmEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmETnT_XadL_ZNS3_17FdFilestatSetSizeES4_S5_jmEEjJjmEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i35
-  %51 = phi i64 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i35 ]
-  %52 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i35 ]
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmETnT_XadL_ZNS3_17FdFilestatSetSizeES4_S5_jmEEjJjmEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i36
+  %50 = phi i64 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i36 ]
+  %51 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i36 ]
   %arrayidx.i46.i = getelementptr inbounds i8, ptr %34, i64 24
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %call.i.i36 = call zeroext i16 @uvwasi_fd_filestat_set_size(ptr noundef nonnull %uvw_.i.i, i32 noundef %52, i64 noundef %51) #24
+  %call.i.i35 = call zeroext i16 @uvwasi_fd_filestat_set_size(ptr noundef nonnull %uvw_.i.i, i32 noundef %51, i64 noundef %50) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %st_size.addr.i.i)
-  %conv.i.i.i = zext i16 %call.i.i36 to i64
+  %conv.i.i.i = zext i16 %call.i.i35 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 32
   store i64 %shl.i.i.i, ptr %arrayidx.i46.i, align 8
   br label %return
@@ -11773,13 +11804,12 @@ do.end35:                                         ; preds = %lor.rhs
   %12 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 2311
   %13 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %14 = and i8 %13, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4node4wasi4WASI18FdFilestatSetTimesERS1_NS0_10WasmMemoryEjmmj.exit, label %if.end.i.i.i
+  %tobool.i.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi4WASI18FdFilestatSetTimesERS1_NS0_10WasmMemoryEjmmj.exit
 
 if.end.i.i.i:                                     ; preds = %do.end35
-  %15 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjRmS2_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %15, ptr noundef nonnull @.str.60, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %st_atim.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %st_mtim.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %fst_flags.addr.i) #29
+  %14 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmS2_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %14, ptr noundef nonnull @.str.60, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %st_atim.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %st_mtim.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %fst_flags.addr.i) #29
   %.pre.i = load i32, ptr %fd.addr.i, align 4
   %.pre2.i = load i64, ptr %st_atim.addr.i, align 8
   %.pre3.i = load i64, ptr %st_mtim.addr.i, align 8
@@ -11787,13 +11817,13 @@ if.end.i.i.i:                                     ; preds = %do.end35
   br label %_ZN4node4wasi4WASI18FdFilestatSetTimesERS1_NS0_10WasmMemoryEjmmj.exit
 
 _ZN4node4wasi4WASI18FdFilestatSetTimesERS1_NS0_10WasmMemoryEjmmj.exit: ; preds = %do.end35, %if.end.i.i.i
-  %16 = phi i32 [ %args7, %do.end35 ], [ %.pre4.i, %if.end.i.i.i ]
-  %17 = phi i64 [ %args5, %do.end35 ], [ %.pre3.i, %if.end.i.i.i ]
-  %18 = phi i64 [ %args3, %do.end35 ], [ %.pre2.i, %if.end.i.i.i ]
-  %19 = phi i32 [ %args, %do.end35 ], [ %.pre.i, %if.end.i.i.i ]
+  %15 = phi i32 [ %args7, %do.end35 ], [ %.pre4.i, %if.end.i.i.i ]
+  %16 = phi i64 [ %args5, %do.end35 ], [ %.pre3.i, %if.end.i.i.i ]
+  %17 = phi i64 [ %args3, %do.end35 ], [ %.pre2.i, %if.end.i.i.i ]
+  %18 = phi i32 [ %args, %do.end35 ], [ %.pre.i, %if.end.i.i.i ]
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %conv.i = trunc i32 %16 to i16
-  %call.i = call zeroext i16 @uvwasi_fd_filestat_set_times(ptr noundef nonnull %uvw_.i, i32 noundef %19, i64 noundef %18, i64 noundef %17, i16 noundef zeroext %conv.i) #24
+  %conv.i = trunc i32 %15 to i16
+  %call.i = call zeroext i16 @uvwasi_fd_filestat_set_times(ptr noundef nonnull %uvw_.i, i32 noundef %18, i64 noundef %17, i64 noundef %16, i16 noundef zeroext %conv.i) #24
   %conv1.i = zext i16 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %st_atim.addr.i)
@@ -12021,13 +12051,12 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i32, %
   %52 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 2311
   %53 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %54 = and i8 %53, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %54, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_18FdFilestatSetTimesES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %if.end.i.i.i.i
+  %tobool.i.i.i.i.i = trunc i8 %53 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_18FdFilestatSetTimesES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %55 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjRmS2_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %55, ptr noundef nonnull @.str.60, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %st_atim.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %st_mtim.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %fst_flags.addr.i.i) #29
+  %54 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjRmS2_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %54, ptr noundef nonnull @.str.60, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %st_atim.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %st_mtim.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %fst_flags.addr.i.i) #29
   %.pre.i.i = load i32, ptr %fd.addr.i.i, align 4
   %.pre2.i.i = load i64, ptr %st_atim.addr.i.i, align 8
   %.pre3.i.i = load i64, ptr %st_mtim.addr.i.i, align 8
@@ -12035,14 +12064,14 @@ if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCa
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_18FdFilestatSetTimesES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_18FdFilestatSetTimesES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
-  %56 = phi i32 [ %call7.i35.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre4.i.i, %if.end.i.i.i.i ]
-  %57 = phi i64 [ %call7.i34.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre3.i.i, %if.end.i.i.i.i ]
-  %58 = phi i64 [ %call7.i32.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i ]
-  %59 = phi i32 [ %call7.i.i31, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
+  %55 = phi i32 [ %call7.i35.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre4.i.i, %if.end.i.i.i.i ]
+  %56 = phi i64 [ %call7.i34.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre3.i.i, %if.end.i.i.i.i ]
+  %57 = phi i64 [ %call7.i32.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i ]
+  %58 = phi i32 [ %call7.i.i31, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
   %arrayidx.i106.i = getelementptr inbounds i8, ptr %27, i64 24
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %conv.i.i = trunc i32 %56 to i16
-  %call.i.i33 = call zeroext i16 @uvwasi_fd_filestat_set_times(ptr noundef nonnull %uvw_.i.i, i32 noundef %59, i64 noundef %58, i64 noundef %57, i16 noundef zeroext %conv.i.i) #24
+  %conv.i.i = trunc i32 %55 to i16
+  %call.i.i33 = call zeroext i16 @uvwasi_fd_filestat_set_times(ptr noundef nonnull %uvw_.i.i, i32 noundef %58, i64 noundef %57, i64 noundef %56, i16 noundef zeroext %conv.i.i) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %st_atim.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %st_mtim.addr.i.i)
@@ -12635,34 +12664,33 @@ do.end31:                                         ; preds = %lor.rhs
   %14 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %14, i64 2311
   %15 = load i8, ptr %arrayidx.i.i.i, align 1
-  %16 = and i8 %15, 1
-  %tobool.i.not.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.i.not.i.i, label %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i, label %if.end.i.i.i
+  %tobool.i.i.i = trunc i8 %15 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 if.end.i.i.i:                                     ; preds = %do.end31
-  %17 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %17, ptr noundef nonnull @.str.62, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr.i) #29
+  %16 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %16, ptr noundef nonnull @.str.62, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr.i) #29
   %.pre.i = load i32, ptr %buf.addr.i, align 4
   br label %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 _ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i: ; preds = %if.end.i.i.i, %do.end31
-  %18 = phi i32 [ %args3, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
-  %conv.i = zext i32 %18 to i64
+  %17 = phi i32 [ %args3, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
+  %conv.i = zext i32 %17 to i64
   %call.i = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i, i64 noundef %12, i64 noundef 8) #24
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ZN4node4wasi4WASI12FdPrestatGetERS1_NS0_10WasmMemoryEjj.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %19 = load i32, ptr %fd.addr.i, align 4
-  %call1.i = call zeroext i16 @uvwasi_fd_prestat_get(ptr noundef nonnull %uvw_.i, i32 noundef %19, ptr noundef nonnull %prestat.i) #24
+  %18 = load i32, ptr %fd.addr.i, align 4
+  %call1.i = call zeroext i16 @uvwasi_fd_prestat_get(ptr noundef nonnull %uvw_.i, i32 noundef %18, ptr noundef nonnull %prestat.i) #24
   %conv2.i = zext i16 %call1.i to i32
   %cmp.i6 = icmp eq i16 %call1.i, 0
   br i1 %cmp.i6, label %if.then3.i, label %_ZN4node4wasi4WASI12FdPrestatGetERS1_NS0_10WasmMemoryEjj.exit
 
 if.then3.i:                                       ; preds = %do.end.i
-  %20 = load i32, ptr %buf.addr.i, align 4
-  %conv4.i = zext i32 %20 to i64
+  %19 = load i32, ptr %buf.addr.i, align 4
+  %conv4.i = zext i32 %19 to i64
   call void @uvwasi_serdes_write_prestat_t(ptr noundef %11, i64 noundef %conv4.i, ptr noundef nonnull %prestat.i) #24
   br label %_ZN4node4wasi4WASI12FdPrestatGetERS1_NS0_10WasmMemoryEjj.exit
 
@@ -12866,44 +12894,43 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i34, %
   %47 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i35 = getelementptr inbounds i8, ptr %47, i64 2311
   %48 = load i8, ptr %arrayidx.i.i.i.i35, align 1
-  %49 = and i8 %48, 1
-  %tobool.i.not.i.i.i = icmp eq i8 %49, 0
-  br i1 %tobool.i.not.i.i.i, label %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, label %if.end.i.i.i.i36
+  %tobool.i.i.i.i = trunc i8 %48 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i.i39, label %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-if.end.i.i.i.i36:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %50 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %50, ptr noundef nonnull @.str.62, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr.i.i) #29
+if.end.i.i.i.i39:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %49 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %49, ptr noundef nonnull @.str.62, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %buf.addr.i.i) #29
   %.pre.i.i = load i32, ptr %buf.addr.i.i, align 4
   br label %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i36, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %51 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i36 ]
-  %conv.i.i = zext i32 %51 to i64
-  %call.i.i37 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef 8) #24
-  %tobool.not.i.i = icmp eq i32 %call.i.i37, 0
+_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i39, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %50 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i39 ]
+  %conv.i.i = zext i32 %50 to i64
+  %call.i.i36 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef 8) #24
+  %tobool.not.i.i = icmp eq i32 %call.i.i36, 0
   br i1 %tobool.not.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12FdPrestatGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %52 = load i32, ptr %fd.addr.i.i, align 4
-  %call1.i.i = call zeroext i16 @uvwasi_fd_prestat_get(ptr noundef nonnull %uvw_.i.i, i32 noundef %52, ptr noundef nonnull %prestat.i.i) #24
+  %51 = load i32, ptr %fd.addr.i.i, align 4
+  %call1.i.i = call zeroext i16 @uvwasi_fd_prestat_get(ptr noundef nonnull %uvw_.i.i, i32 noundef %51, ptr noundef nonnull %prestat.i.i) #24
   %conv2.i.i = zext i16 %call1.i.i to i64
-  %cmp.i.i38 = icmp eq i16 %call1.i.i, 0
-  br i1 %cmp.i.i38, label %if.then3.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12FdPrestatGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
+  %cmp.i.i37 = icmp eq i16 %call1.i.i, 0
+  br i1 %cmp.i.i37, label %if.then3.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12FdPrestatGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.then3.i.i:                                     ; preds = %do.end.i.i
-  %53 = load i32, ptr %buf.addr.i.i, align 4
-  %conv4.i.i = zext i32 %53 to i64
+  %52 = load i32, ptr %buf.addr.i.i, align 4
+  %conv4.i.i = zext i32 %52 to i64
   call void @uvwasi_serdes_write_prestat_t(ptr noundef nonnull %call40, i64 noundef %conv4.i.i, ptr noundef nonnull %prestat.i.i) #24
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12FdPrestatGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12FdPrestatGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, %do.end.i.i, %if.then3.i.i
-  %retval.0.i.i39 = phi i64 [ 61, %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ], [ 0, %if.then3.i.i ], [ %conv2.i.i, %do.end.i.i ]
+  %retval.0.i.i38 = phi i64 [ 61, %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ], [ 0, %if.then3.i.i ], [ %conv2.i.i, %do.end.i.i ]
   %arrayidx.i46.i = getelementptr inbounds i8, ptr %34, i64 24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %prestat.i.i)
-  %shl.i.i.i = shl nuw nsw i64 %retval.0.i.i39, 32
+  %shl.i.i.i = shl nuw nsw i64 %retval.0.i.i38, 32
   store i64 %shl.i.i.i, ptr %arrayidx.i46.i, align 8
   br label %return
 
@@ -13023,34 +13050,33 @@ do.end33:                                         ; preds = %lor.rhs
   %14 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 2311
   %15 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %16 = and i8 %15, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i, label %if.end.i.i.i
+  %tobool.i.i.i.i = trunc i8 %15 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 if.end.i.i.i:                                     ; preds = %do.end33
-  %17 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %17, ptr noundef nonnull @.str.63, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr.i) #29
+  %16 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %16, ptr noundef nonnull @.str.63, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr.i) #29
   %.pre.i = load i32, ptr %path_ptr.addr.i, align 4
   %.pre2.i = load i32, ptr %path_len.addr.i, align 4
   br label %_ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 _ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i: ; preds = %if.end.i.i.i, %do.end33
-  %18 = phi i32 [ %args5, %do.end33 ], [ %.pre2.i, %if.end.i.i.i ]
-  %19 = phi i32 [ %args3, %do.end33 ], [ %.pre.i, %if.end.i.i.i ]
-  %conv.i = zext i32 %19 to i64
-  %conv1.i = zext i32 %18 to i64
+  %17 = phi i32 [ %args5, %do.end33 ], [ %.pre2.i, %if.end.i.i.i ]
+  %18 = phi i32 [ %args3, %do.end33 ], [ %.pre.i, %if.end.i.i.i ]
+  %conv.i = zext i32 %18 to i64
+  %conv1.i = zext i32 %17 to i64
   %call.i = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i, i64 noundef %12, i64 noundef %conv1.i) #24
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ZN4node4wasi4WASI16FdPrestatDirNameERS1_NS0_10WasmMemoryEjjj.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %_ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %20 = load i32, ptr %fd.addr.i, align 4
-  %21 = load i32, ptr %path_ptr.addr.i, align 4
-  %idxprom.i = zext i32 %21 to i64
+  %19 = load i32, ptr %fd.addr.i, align 4
+  %20 = load i32, ptr %path_ptr.addr.i, align 4
+  %idxprom.i = zext i32 %20 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %11, i64 %idxprom.i
-  %22 = load i32, ptr %path_len.addr.i, align 4
-  %call2.i = call zeroext i16 @uvwasi_fd_prestat_dir_name(ptr noundef nonnull %uvw_.i, i32 noundef %20, ptr noundef %arrayidx.i, i32 noundef %22) #24
+  %21 = load i32, ptr %path_len.addr.i, align 4
+  %call2.i = call zeroext i16 @uvwasi_fd_prestat_dir_name(ptr noundef nonnull %uvw_.i, i32 noundef %19, ptr noundef %arrayidx.i, i32 noundef %21) #24
   %conv3.i = zext i16 %call2.i to i32
   br label %_ZN4node4wasi4WASI16FdPrestatDirNameERS1_NS0_10WasmMemoryEjjj.exit
 
@@ -13300,45 +13326,44 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i35, %
   %59 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i36 = getelementptr inbounds i8, ptr %59, i64 2311
   %60 = load i8, ptr %arrayidx.i.i.i.i.i36, align 1
-  %61 = and i8 %60, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %61, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, label %if.end.i.i.i.i37
+  %tobool.i.i.i.i.i = trunc i8 %60 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i39, label %_ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-if.end.i.i.i.i37:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %62 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %62, ptr noundef nonnull @.str.63, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr.i.i) #29
+if.end.i.i.i.i39:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %61 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %61, ptr noundef nonnull @.str.63, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr.i.i) #29
   %.pre.i.i = load i32, ptr %path_ptr.addr.i.i, align 4
   %.pre2.i.i = load i32, ptr %path_len.addr.i.i, align 4
   br label %_ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-_ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i37, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %63 = phi i32 [ %call7.i29.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i37 ]
-  %64 = phi i32 [ %call7.i28.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i37 ]
-  %conv.i.i = zext i32 %64 to i64
-  %conv1.i.i = zext i32 %63 to i64
-  %call.i.i38 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef %conv1.i.i) #24
-  %tobool.not.i.i = icmp eq i32 %call.i.i38, 0
+_ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i39, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %62 = phi i32 [ %call7.i29.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i39 ]
+  %63 = phi i32 [ %call7.i28.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i39 ]
+  %conv.i.i = zext i32 %63 to i64
+  %conv1.i.i = zext i32 %62 to i64
+  %call.i.i37 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef %conv1.i.i) #24
+  %tobool.not.i.i = icmp eq i32 %call.i.i37, 0
   br i1 %tobool.not.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_16FdPrestatDirNameES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %_ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %65 = load i32, ptr %fd.addr.i.i, align 4
-  %66 = load i32, ptr %path_ptr.addr.i.i, align 4
-  %idxprom.i.i = zext i32 %66 to i64
+  %64 = load i32, ptr %fd.addr.i.i, align 4
+  %65 = load i32, ptr %path_ptr.addr.i.i, align 4
+  %idxprom.i.i = zext i32 %65 to i64
   %arrayidx.i30.i = getelementptr inbounds i8, ptr %call40, i64 %idxprom.i.i
-  %67 = load i32, ptr %path_len.addr.i.i, align 4
-  %call2.i.i = call zeroext i16 @uvwasi_fd_prestat_dir_name(ptr noundef nonnull %uvw_.i.i, i32 noundef %65, ptr noundef nonnull %arrayidx.i30.i, i32 noundef %67) #24
-  %68 = zext i16 %call2.i.i to i64
-  %69 = shl nuw nsw i64 %68, 32
+  %66 = load i32, ptr %path_len.addr.i.i, align 4
+  %call2.i.i = call zeroext i16 @uvwasi_fd_prestat_dir_name(ptr noundef nonnull %uvw_.i.i, i32 noundef %64, ptr noundef nonnull %arrayidx.i30.i, i32 noundef %66) #24
+  %67 = zext i16 %call2.i.i to i64
+  %68 = shl nuw nsw i64 %67, 32
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_16FdPrestatDirNameES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_16FdPrestatDirNameES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, %do.end.i.i
-  %retval.0.i.i39 = phi i64 [ %69, %do.end.i.i ], [ 261993005056, %_ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ]
+  %retval.0.i.i38 = phi i64 [ %68, %do.end.i.i ], [ 261993005056, %_ZN4node4wasi5DebugIJRA33_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ]
   %arrayidx.i76.i = getelementptr inbounds i8, ptr %40, i64 24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %path_ptr.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %path_len.addr.i.i)
-  store i64 %retval.0.i.i39, ptr %arrayidx.i76.i, align 8
+  store i64 %retval.0.i.i38, ptr %arrayidx.i76.i, align 8
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_16FdPrestatDirNameES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
@@ -14561,22 +14586,21 @@ do.end31:                                         ; preds = %lor.rhs
   %12 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %12, i64 2311
   %13 = load i8, ptr %arrayidx.i.i.i, align 1
-  %14 = and i8 %13, 1
-  %tobool.i.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.i.not.i.i, label %_ZN4node4wasi4WASI10FdRenumberERS1_NS0_10WasmMemoryEjj.exit, label %if.end.i.i.i
+  %tobool.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi4WASI10FdRenumberERS1_NS0_10WasmMemoryEjj.exit
 
 if.end.i.i.i:                                     ; preds = %do.end31
-  %15 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %15, ptr noundef nonnull @.str.67, ptr noundef nonnull align 4 dereferenceable(4) %from.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %to.addr.i) #29
+  %14 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %14, ptr noundef nonnull @.str.67, ptr noundef nonnull align 4 dereferenceable(4) %from.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %to.addr.i) #29
   %.pre.i = load i32, ptr %from.addr.i, align 4
   %.pre2.i = load i32, ptr %to.addr.i, align 4
   br label %_ZN4node4wasi4WASI10FdRenumberERS1_NS0_10WasmMemoryEjj.exit
 
 _ZN4node4wasi4WASI10FdRenumberERS1_NS0_10WasmMemoryEjj.exit: ; preds = %do.end31, %if.end.i.i.i
-  %16 = phi i32 [ %args3, %do.end31 ], [ %.pre2.i, %if.end.i.i.i ]
-  %17 = phi i32 [ %args, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
+  %15 = phi i32 [ %args3, %do.end31 ], [ %.pre2.i, %if.end.i.i.i ]
+  %16 = phi i32 [ %args, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %call.i = call zeroext i16 @uvwasi_fd_renumber(ptr noundef nonnull %uvw_.i, i32 noundef %17, i32 noundef %16) #24
+  %call.i = call zeroext i16 @uvwasi_fd_renumber(ptr noundef nonnull %uvw_.i, i32 noundef %16, i32 noundef %15) #24
   %conv.i = zext i16 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %from.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %to.addr.i)
@@ -14773,26 +14797,25 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i34, %
   %47 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i35 = getelementptr inbounds i8, ptr %47, i64 2311
   %48 = load i8, ptr %arrayidx.i.i.i.i35, align 1
-  %49 = and i8 %48, 1
-  %tobool.i.not.i.i.i = icmp eq i8 %49, 0
-  br i1 %tobool.i.not.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_10FdRenumberES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %if.end.i.i.i.i36
+  %tobool.i.i.i.i = trunc i8 %48 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i.i37, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_10FdRenumberES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-if.end.i.i.i.i36:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %50 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %50, ptr noundef nonnull @.str.67, ptr noundef nonnull align 4 dereferenceable(4) %from.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %to.addr.i.i) #29
+if.end.i.i.i.i37:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %49 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %49, ptr noundef nonnull @.str.67, ptr noundef nonnull align 4 dereferenceable(4) %from.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %to.addr.i.i) #29
   %.pre.i.i = load i32, ptr %from.addr.i.i, align 4
   %.pre2.i.i = load i32, ptr %to.addr.i.i, align 4
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_10FdRenumberES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_10FdRenumberES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i36
-  %51 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i36 ]
-  %52 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i36 ]
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_10FdRenumberES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i37
+  %50 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i37 ]
+  %51 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i37 ]
   %arrayidx.i46.i = getelementptr inbounds i8, ptr %34, i64 24
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %call.i.i37 = call zeroext i16 @uvwasi_fd_renumber(ptr noundef nonnull %uvw_.i.i, i32 noundef %52, i32 noundef %51) #24
+  %call.i.i36 = call zeroext i16 @uvwasi_fd_renumber(ptr noundef nonnull %uvw_.i.i, i32 noundef %51, i32 noundef %50) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %from.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %to.addr.i.i)
-  %conv.i.i.i = zext i16 %call.i.i37 to i64
+  %conv.i.i.i = zext i16 %call.i.i36 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 32
   store i64 %shl.i.i.i, ptr %arrayidx.i46.i, align 8
   br label %return
@@ -15294,20 +15317,19 @@ do.end29:                                         ; preds = %lor.rhs
   %12 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 2311
   %13 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %14 = and i8 %13, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4node4wasi4WASI6FdSyncERS1_NS0_10WasmMemoryEj.exit, label %if.end.i.i.i
+  %tobool.i.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi4WASI6FdSyncERS1_NS0_10WasmMemoryEj.exit
 
 if.end.i.i.i:                                     ; preds = %do.end29
-  %15 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %15, ptr noundef nonnull @.str.69, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i) #29
+  %14 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %14, ptr noundef nonnull @.str.69, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i) #29
   %.pre.i = load i32, ptr %fd.addr.i, align 4
   br label %_ZN4node4wasi4WASI6FdSyncERS1_NS0_10WasmMemoryEj.exit
 
 _ZN4node4wasi4WASI6FdSyncERS1_NS0_10WasmMemoryEj.exit: ; preds = %do.end29, %if.end.i.i.i
-  %16 = phi i32 [ %args, %do.end29 ], [ %.pre.i, %if.end.i.i.i ]
+  %15 = phi i32 [ %args, %do.end29 ], [ %.pre.i, %if.end.i.i.i ]
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %call.i = call zeroext i16 @uvwasi_fd_sync(ptr noundef nonnull %uvw_.i, i32 noundef %16) #24
+  %call.i = call zeroext i16 @uvwasi_fd_sync(ptr noundef nonnull %uvw_.i, i32 noundef %15) #24
   %conv.i = zext i16 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i)
   br label %return
@@ -15455,21 +15477,20 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i32, %
   %35 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 2311
   %36 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %37 = and i8 %36, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %37, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_6FdSyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %if.end.i.i.i.i
+  %tobool.i.i.i.i.i = trunc i8 %36 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_6FdSyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %38 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %38, ptr noundef nonnull @.str.69, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i) #29
+  %37 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %37, ptr noundef nonnull @.str.69, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i) #29
   %.pre.i.i = load i32, ptr %fd.addr.i.i, align 4
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_6FdSyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_6FdSyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
-  %39 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
+  %38 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
   %arrayidx.i16.i = getelementptr inbounds i8, ptr %28, i64 24
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %call.i.i34 = call zeroext i16 @uvwasi_fd_sync(ptr noundef nonnull %uvw_.i.i, i32 noundef %39) #24
+  %call.i.i34 = call zeroext i16 @uvwasi_fd_sync(ptr noundef nonnull %uvw_.i.i, i32 noundef %38) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i.i)
   %conv.i.i.i = zext i16 %call.i.i34 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 32
@@ -15591,36 +15612,35 @@ do.end31:                                         ; preds = %lor.rhs
   %14 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %14, i64 2311
   %15 = load i8, ptr %arrayidx.i.i.i, align 1
-  %16 = and i8 %15, 1
-  %tobool.i.not.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.i.not.i.i, label %_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i, label %if.end.i.i.i
+  %tobool.i.i.i = trunc i8 %15 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 if.end.i.i.i:                                     ; preds = %do.end31
-  %17 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %17, ptr noundef nonnull @.str.70, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %offset_ptr.addr.i) #29
+  %16 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %16, ptr noundef nonnull @.str.70, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %offset_ptr.addr.i) #29
   %.pre.i = load i32, ptr %offset_ptr.addr.i, align 4
   br label %_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 _ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i: ; preds = %if.end.i.i.i, %do.end31
-  %18 = phi i32 [ %args3, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
-  %conv.i = zext i32 %18 to i64
+  %17 = phi i32 [ %args3, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
+  %conv.i = zext i32 %17 to i64
   %call.i = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i, i64 noundef %12, i64 noundef 8) #24
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ZN4node4wasi4WASI6FdTellERS1_NS0_10WasmMemoryEjj.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %19 = load i32, ptr %fd.addr.i, align 4
-  %call1.i = call zeroext i16 @uvwasi_fd_tell(ptr noundef nonnull %uvw_.i, i32 noundef %19, ptr noundef nonnull %offset.i) #24
+  %18 = load i32, ptr %fd.addr.i, align 4
+  %call1.i = call zeroext i16 @uvwasi_fd_tell(ptr noundef nonnull %uvw_.i, i32 noundef %18, ptr noundef nonnull %offset.i) #24
   %conv2.i = zext i16 %call1.i to i32
   %cmp.i6 = icmp eq i16 %call1.i, 0
   br i1 %cmp.i6, label %if.then3.i, label %_ZN4node4wasi4WASI6FdTellERS1_NS0_10WasmMemoryEjj.exit
 
 if.then3.i:                                       ; preds = %do.end.i
-  %20 = load i32, ptr %offset_ptr.addr.i, align 4
-  %conv4.i = zext i32 %20 to i64
-  %21 = load i64, ptr %offset.i, align 8
-  call void @uvwasi_serdes_write_filesize_t(ptr noundef %11, i64 noundef %conv4.i, i64 noundef %21) #24
+  %19 = load i32, ptr %offset_ptr.addr.i, align 4
+  %conv4.i = zext i32 %19 to i64
+  %20 = load i64, ptr %offset.i, align 8
+  call void @uvwasi_serdes_write_filesize_t(ptr noundef %11, i64 noundef %conv4.i, i64 noundef %20) #24
   br label %_ZN4node4wasi4WASI6FdTellERS1_NS0_10WasmMemoryEjj.exit
 
 _ZN4node4wasi4WASI6FdTellERS1_NS0_10WasmMemoryEjj.exit: ; preds = %_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i, %do.end.i, %if.then3.i
@@ -15823,45 +15843,44 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i34, %
   %47 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i35 = getelementptr inbounds i8, ptr %47, i64 2311
   %48 = load i8, ptr %arrayidx.i.i.i.i35, align 1
-  %49 = and i8 %48, 1
-  %tobool.i.not.i.i.i = icmp eq i8 %49, 0
-  br i1 %tobool.i.not.i.i.i, label %_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, label %if.end.i.i.i.i36
+  %tobool.i.i.i.i = trunc i8 %48 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i.i39, label %_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-if.end.i.i.i.i36:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %50 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %50, ptr noundef nonnull @.str.70, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %offset_ptr.addr.i.i) #29
+if.end.i.i.i.i39:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %49 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %49, ptr noundef nonnull @.str.70, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %offset_ptr.addr.i.i) #29
   %.pre.i.i = load i32, ptr %offset_ptr.addr.i.i, align 4
   br label %_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i36, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %51 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i36 ]
-  %conv.i.i = zext i32 %51 to i64
-  %call.i.i37 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef 8) #24
-  %tobool.not.i.i = icmp eq i32 %call.i.i37, 0
+_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i39, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %50 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i39 ]
+  %conv.i.i = zext i32 %50 to i64
+  %call.i.i36 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef 8) #24
+  %tobool.not.i.i = icmp eq i32 %call.i.i36, 0
   br i1 %tobool.not.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_6FdTellES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %52 = load i32, ptr %fd.addr.i.i, align 4
-  %call1.i.i = call zeroext i16 @uvwasi_fd_tell(ptr noundef nonnull %uvw_.i.i, i32 noundef %52, ptr noundef nonnull %offset.i.i) #24
+  %51 = load i32, ptr %fd.addr.i.i, align 4
+  %call1.i.i = call zeroext i16 @uvwasi_fd_tell(ptr noundef nonnull %uvw_.i.i, i32 noundef %51, ptr noundef nonnull %offset.i.i) #24
   %conv2.i.i = zext i16 %call1.i.i to i64
-  %cmp.i.i38 = icmp eq i16 %call1.i.i, 0
-  br i1 %cmp.i.i38, label %if.then3.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_6FdTellES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
+  %cmp.i.i37 = icmp eq i16 %call1.i.i, 0
+  br i1 %cmp.i.i37, label %if.then3.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_6FdTellES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.then3.i.i:                                     ; preds = %do.end.i.i
-  %53 = load i32, ptr %offset_ptr.addr.i.i, align 4
-  %conv4.i.i = zext i32 %53 to i64
-  %54 = load i64, ptr %offset.i.i, align 8
-  call void @uvwasi_serdes_write_filesize_t(ptr noundef nonnull %call40, i64 noundef %conv4.i.i, i64 noundef %54) #24
+  %52 = load i32, ptr %offset_ptr.addr.i.i, align 4
+  %conv4.i.i = zext i32 %52 to i64
+  %53 = load i64, ptr %offset.i.i, align 8
+  call void @uvwasi_serdes_write_filesize_t(ptr noundef nonnull %call40, i64 noundef %conv4.i.i, i64 noundef %53) #24
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_6FdTellES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_6FdTellES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, %do.end.i.i, %if.then3.i.i
-  %retval.0.i.i39 = phi i64 [ 61, %_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ], [ 0, %if.then3.i.i ], [ %conv2.i.i, %do.end.i.i ]
+  %retval.0.i.i38 = phi i64 [ 61, %_ZN4node4wasi5DebugIJRA17_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ], [ 0, %if.then3.i.i ], [ %conv2.i.i, %do.end.i.i ]
   %arrayidx.i46.i = getelementptr inbounds i8, ptr %34, i64 24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %offset_ptr.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset.i.i)
-  %shl.i.i.i = shl nuw nsw i64 %retval.0.i.i39, 32
+  %shl.i.i.i = shl nuw nsw i64 %retval.0.i.i38, 32
   store i64 %shl.i.i.i, ptr %arrayidx.i46.i, align 8
   br label %return
 
@@ -16293,34 +16312,33 @@ do.end33:                                         ; preds = %lor.rhs
   %14 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 2311
   %15 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %16 = and i8 %15, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i, label %if.end.i.i.i
+  %tobool.i.i.i.i = trunc i8 %15 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 if.end.i.i.i:                                     ; preds = %do.end33
-  %17 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %17, ptr noundef nonnull @.str.72, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr.i) #29
+  %16 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %16, ptr noundef nonnull @.str.72, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr.i) #29
   %.pre.i = load i32, ptr %path_ptr.addr.i, align 4
   %.pre2.i = load i32, ptr %path_len.addr.i, align 4
   br label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 _ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i: ; preds = %if.end.i.i.i, %do.end33
-  %18 = phi i32 [ %args5, %do.end33 ], [ %.pre2.i, %if.end.i.i.i ]
-  %19 = phi i32 [ %args3, %do.end33 ], [ %.pre.i, %if.end.i.i.i ]
-  %conv.i = zext i32 %19 to i64
-  %conv1.i = zext i32 %18 to i64
+  %17 = phi i32 [ %args5, %do.end33 ], [ %.pre2.i, %if.end.i.i.i ]
+  %18 = phi i32 [ %args3, %do.end33 ], [ %.pre.i, %if.end.i.i.i ]
+  %conv.i = zext i32 %18 to i64
+  %conv1.i = zext i32 %17 to i64
   %call.i = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i, i64 noundef %12, i64 noundef %conv1.i) #24
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ZN4node4wasi4WASI19PathCreateDirectoryERS1_NS0_10WasmMemoryEjjj.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %20 = load i32, ptr %fd.addr.i, align 4
-  %21 = load i32, ptr %path_ptr.addr.i, align 4
-  %idxprom.i = zext i32 %21 to i64
+  %19 = load i32, ptr %fd.addr.i, align 4
+  %20 = load i32, ptr %path_ptr.addr.i, align 4
+  %idxprom.i = zext i32 %20 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %11, i64 %idxprom.i
-  %22 = load i32, ptr %path_len.addr.i, align 4
-  %call2.i = call zeroext i16 @uvwasi_path_create_directory(ptr noundef nonnull %uvw_.i, i32 noundef %20, ptr noundef %arrayidx.i, i32 noundef %22) #24
+  %21 = load i32, ptr %path_len.addr.i, align 4
+  %call2.i = call zeroext i16 @uvwasi_path_create_directory(ptr noundef nonnull %uvw_.i, i32 noundef %19, ptr noundef %arrayidx.i, i32 noundef %21) #24
   %conv3.i = zext i16 %call2.i to i32
   br label %_ZN4node4wasi4WASI19PathCreateDirectoryERS1_NS0_10WasmMemoryEjjj.exit
 
@@ -16570,45 +16588,44 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i35, %
   %59 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i36 = getelementptr inbounds i8, ptr %59, i64 2311
   %60 = load i8, ptr %arrayidx.i.i.i.i.i36, align 1
-  %61 = and i8 %60, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %61, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, label %if.end.i.i.i.i37
+  %tobool.i.i.i.i.i = trunc i8 %60 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i39, label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-if.end.i.i.i.i37:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %62 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %62, ptr noundef nonnull @.str.72, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr.i.i) #29
+if.end.i.i.i.i39:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %61 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %61, ptr noundef nonnull @.str.72, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr.i.i) #29
   %.pre.i.i = load i32, ptr %path_ptr.addr.i.i, align 4
   %.pre2.i.i = load i32, ptr %path_len.addr.i.i, align 4
   br label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i37, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %63 = phi i32 [ %call7.i29.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i37 ]
-  %64 = phi i32 [ %call7.i28.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i37 ]
-  %conv.i.i = zext i32 %64 to i64
-  %conv1.i.i = zext i32 %63 to i64
-  %call.i.i38 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef %conv1.i.i) #24
-  %tobool.not.i.i = icmp eq i32 %call.i.i38, 0
+_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i39, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %62 = phi i32 [ %call7.i29.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i39 ]
+  %63 = phi i32 [ %call7.i28.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i39 ]
+  %conv.i.i = zext i32 %63 to i64
+  %conv1.i.i = zext i32 %62 to i64
+  %call.i.i37 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef %conv1.i.i) #24
+  %tobool.not.i.i = icmp eq i32 %call.i.i37, 0
   br i1 %tobool.not.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_19PathCreateDirectoryES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %65 = load i32, ptr %fd.addr.i.i, align 4
-  %66 = load i32, ptr %path_ptr.addr.i.i, align 4
-  %idxprom.i.i = zext i32 %66 to i64
+  %64 = load i32, ptr %fd.addr.i.i, align 4
+  %65 = load i32, ptr %path_ptr.addr.i.i, align 4
+  %idxprom.i.i = zext i32 %65 to i64
   %arrayidx.i30.i = getelementptr inbounds i8, ptr %call40, i64 %idxprom.i.i
-  %67 = load i32, ptr %path_len.addr.i.i, align 4
-  %call2.i.i = call zeroext i16 @uvwasi_path_create_directory(ptr noundef nonnull %uvw_.i.i, i32 noundef %65, ptr noundef nonnull %arrayidx.i30.i, i32 noundef %67) #24
-  %68 = zext i16 %call2.i.i to i64
-  %69 = shl nuw nsw i64 %68, 32
+  %66 = load i32, ptr %path_len.addr.i.i, align 4
+  %call2.i.i = call zeroext i16 @uvwasi_path_create_directory(ptr noundef nonnull %uvw_.i.i, i32 noundef %64, ptr noundef nonnull %arrayidx.i30.i, i32 noundef %66) #24
+  %67 = zext i16 %call2.i.i to i64
+  %68 = shl nuw nsw i64 %67, 32
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_19PathCreateDirectoryES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_19PathCreateDirectoryES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, %do.end.i.i
-  %retval.0.i.i39 = phi i64 [ %69, %do.end.i.i ], [ 261993005056, %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ]
+  %retval.0.i.i38 = phi i64 [ %68, %do.end.i.i ], [ 261993005056, %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ]
   %arrayidx.i76.i = getelementptr inbounds i8, ptr %40, i64 24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %path_ptr.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %path_len.addr.i.i)
-  store i64 %retval.0.i.i39, ptr %arrayidx.i76.i, align 8
+  store i64 %retval.0.i.i38, ptr %arrayidx.i76.i, align 8
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_19PathCreateDirectoryES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
@@ -19107,34 +19124,33 @@ do.end33:                                         ; preds = %lor.rhs
   %14 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 2311
   %15 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %16 = and i8 %15, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i, label %if.end.i.i.i
+  %tobool.i.i.i.i = trunc i8 %15 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 if.end.i.i.i:                                     ; preds = %do.end33
-  %17 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %17, ptr noundef nonnull @.str.78, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr.i) #29
+  %16 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %16, ptr noundef nonnull @.str.78, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr.i) #29
   %.pre.i = load i32, ptr %path_ptr.addr.i, align 4
   %.pre2.i = load i32, ptr %path_len.addr.i, align 4
   br label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 _ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i: ; preds = %if.end.i.i.i, %do.end33
-  %18 = phi i32 [ %args5, %do.end33 ], [ %.pre2.i, %if.end.i.i.i ]
-  %19 = phi i32 [ %args3, %do.end33 ], [ %.pre.i, %if.end.i.i.i ]
-  %conv.i = zext i32 %19 to i64
-  %conv1.i = zext i32 %18 to i64
+  %17 = phi i32 [ %args5, %do.end33 ], [ %.pre2.i, %if.end.i.i.i ]
+  %18 = phi i32 [ %args3, %do.end33 ], [ %.pre.i, %if.end.i.i.i ]
+  %conv.i = zext i32 %18 to i64
+  %conv1.i = zext i32 %17 to i64
   %call.i = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i, i64 noundef %12, i64 noundef %conv1.i) #24
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ZN4node4wasi4WASI19PathRemoveDirectoryERS1_NS0_10WasmMemoryEjjj.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %20 = load i32, ptr %fd.addr.i, align 4
-  %21 = load i32, ptr %path_ptr.addr.i, align 4
-  %idxprom.i = zext i32 %21 to i64
+  %19 = load i32, ptr %fd.addr.i, align 4
+  %20 = load i32, ptr %path_ptr.addr.i, align 4
+  %idxprom.i = zext i32 %20 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %11, i64 %idxprom.i
-  %22 = load i32, ptr %path_len.addr.i, align 4
-  %call2.i = call zeroext i16 @uvwasi_path_remove_directory(ptr noundef nonnull %uvw_.i, i32 noundef %20, ptr noundef %arrayidx.i, i32 noundef %22) #24
+  %21 = load i32, ptr %path_len.addr.i, align 4
+  %call2.i = call zeroext i16 @uvwasi_path_remove_directory(ptr noundef nonnull %uvw_.i, i32 noundef %19, ptr noundef %arrayidx.i, i32 noundef %21) #24
   %conv3.i = zext i16 %call2.i to i32
   br label %_ZN4node4wasi4WASI19PathRemoveDirectoryERS1_NS0_10WasmMemoryEjjj.exit
 
@@ -19384,45 +19400,44 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i35, %
   %59 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i36 = getelementptr inbounds i8, ptr %59, i64 2311
   %60 = load i8, ptr %arrayidx.i.i.i.i.i36, align 1
-  %61 = and i8 %60, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %61, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, label %if.end.i.i.i.i37
+  %tobool.i.i.i.i.i = trunc i8 %60 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i39, label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-if.end.i.i.i.i37:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %62 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %62, ptr noundef nonnull @.str.78, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr.i.i) #29
+if.end.i.i.i.i39:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %61 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %61, ptr noundef nonnull @.str.78, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr.i.i) #29
   %.pre.i.i = load i32, ptr %path_ptr.addr.i.i, align 4
   %.pre2.i.i = load i32, ptr %path_len.addr.i.i, align 4
   br label %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i37, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %63 = phi i32 [ %call7.i29.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i37 ]
-  %64 = phi i32 [ %call7.i28.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i37 ]
-  %conv.i.i = zext i32 %64 to i64
-  %conv1.i.i = zext i32 %63 to i64
-  %call.i.i38 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef %conv1.i.i) #24
-  %tobool.not.i.i = icmp eq i32 %call.i.i38, 0
+_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i39, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %62 = phi i32 [ %call7.i29.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i39 ]
+  %63 = phi i32 [ %call7.i28.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i39 ]
+  %conv.i.i = zext i32 %63 to i64
+  %conv1.i.i = zext i32 %62 to i64
+  %call.i.i37 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef %conv1.i.i) #24
+  %tobool.not.i.i = icmp eq i32 %call.i.i37, 0
   br i1 %tobool.not.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_19PathRemoveDirectoryES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %65 = load i32, ptr %fd.addr.i.i, align 4
-  %66 = load i32, ptr %path_ptr.addr.i.i, align 4
-  %idxprom.i.i = zext i32 %66 to i64
+  %64 = load i32, ptr %fd.addr.i.i, align 4
+  %65 = load i32, ptr %path_ptr.addr.i.i, align 4
+  %idxprom.i.i = zext i32 %65 to i64
   %arrayidx.i30.i = getelementptr inbounds i8, ptr %call40, i64 %idxprom.i.i
-  %67 = load i32, ptr %path_len.addr.i.i, align 4
-  %call2.i.i = call zeroext i16 @uvwasi_path_remove_directory(ptr noundef nonnull %uvw_.i.i, i32 noundef %65, ptr noundef nonnull %arrayidx.i30.i, i32 noundef %67) #24
-  %68 = zext i16 %call2.i.i to i64
-  %69 = shl nuw nsw i64 %68, 32
+  %66 = load i32, ptr %path_len.addr.i.i, align 4
+  %call2.i.i = call zeroext i16 @uvwasi_path_remove_directory(ptr noundef nonnull %uvw_.i.i, i32 noundef %64, ptr noundef nonnull %arrayidx.i30.i, i32 noundef %66) #24
+  %67 = zext i16 %call2.i.i to i64
+  %68 = shl nuw nsw i64 %67, 32
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_19PathRemoveDirectoryES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_19PathRemoveDirectoryES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, %do.end.i.i
-  %retval.0.i.i39 = phi i64 [ %69, %do.end.i.i ], [ 261993005056, %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ]
+  %retval.0.i.i38 = phi i64 [ %68, %do.end.i.i ], [ 261993005056, %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ]
   %arrayidx.i76.i = getelementptr inbounds i8, ptr %40, i64 24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %path_ptr.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %path_len.addr.i.i)
-  store i64 %retval.0.i.i39, ptr %arrayidx.i76.i, align 8
+  store i64 %retval.0.i.i38, ptr %arrayidx.i76.i, align 8
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_19PathRemoveDirectoryES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
@@ -20233,34 +20248,33 @@ do.end33:                                         ; preds = %lor.rhs
   %14 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 2311
   %15 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %16 = and i8 %15, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i, label %if.end.i.i.i
+  %tobool.i.i.i.i = trunc i8 %15 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 if.end.i.i.i:                                     ; preds = %do.end33
-  %17 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %17, ptr noundef nonnull @.str.81, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr.i) #29
+  %16 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %16, ptr noundef nonnull @.str.81, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr.i) #29
   %.pre.i = load i32, ptr %path_ptr.addr.i, align 4
   %.pre2.i = load i32, ptr %path_len.addr.i, align 4
   br label %_ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 _ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i: ; preds = %if.end.i.i.i, %do.end33
-  %18 = phi i32 [ %args5, %do.end33 ], [ %.pre2.i, %if.end.i.i.i ]
-  %19 = phi i32 [ %args3, %do.end33 ], [ %.pre.i, %if.end.i.i.i ]
-  %conv.i = zext i32 %19 to i64
-  %conv1.i = zext i32 %18 to i64
+  %17 = phi i32 [ %args5, %do.end33 ], [ %.pre2.i, %if.end.i.i.i ]
+  %18 = phi i32 [ %args3, %do.end33 ], [ %.pre.i, %if.end.i.i.i ]
+  %conv.i = zext i32 %18 to i64
+  %conv1.i = zext i32 %17 to i64
   %call.i = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i, i64 noundef %12, i64 noundef %conv1.i) #24
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ZN4node4wasi4WASI14PathUnlinkFileERS1_NS0_10WasmMemoryEjjj.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %_ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %20 = load i32, ptr %fd.addr.i, align 4
-  %21 = load i32, ptr %path_ptr.addr.i, align 4
-  %idxprom.i = zext i32 %21 to i64
+  %19 = load i32, ptr %fd.addr.i, align 4
+  %20 = load i32, ptr %path_ptr.addr.i, align 4
+  %idxprom.i = zext i32 %20 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %11, i64 %idxprom.i
-  %22 = load i32, ptr %path_len.addr.i, align 4
-  %call2.i = call zeroext i16 @uvwasi_path_unlink_file(ptr noundef nonnull %uvw_.i, i32 noundef %20, ptr noundef %arrayidx.i, i32 noundef %22) #24
+  %21 = load i32, ptr %path_len.addr.i, align 4
+  %call2.i = call zeroext i16 @uvwasi_path_unlink_file(ptr noundef nonnull %uvw_.i, i32 noundef %19, ptr noundef %arrayidx.i, i32 noundef %21) #24
   %conv3.i = zext i16 %call2.i to i32
   br label %_ZN4node4wasi4WASI14PathUnlinkFileERS1_NS0_10WasmMemoryEjjj.exit
 
@@ -20510,45 +20524,44 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i35, %
   %59 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i36 = getelementptr inbounds i8, ptr %59, i64 2311
   %60 = load i8, ptr %arrayidx.i.i.i.i.i36, align 1
-  %61 = and i8 %60, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %61, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, label %if.end.i.i.i.i37
+  %tobool.i.i.i.i.i = trunc i8 %60 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i39, label %_ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-if.end.i.i.i.i37:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %62 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %62, ptr noundef nonnull @.str.81, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr.i.i) #29
+if.end.i.i.i.i39:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %61 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %61, ptr noundef nonnull @.str.81, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %path_ptr.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %path_len.addr.i.i) #29
   %.pre.i.i = load i32, ptr %path_ptr.addr.i.i, align 4
   %.pre2.i.i = load i32, ptr %path_len.addr.i.i, align 4
   br label %_ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-_ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i37, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %63 = phi i32 [ %call7.i29.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i37 ]
-  %64 = phi i32 [ %call7.i28.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i37 ]
-  %conv.i.i = zext i32 %64 to i64
-  %conv1.i.i = zext i32 %63 to i64
-  %call.i.i38 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef %conv1.i.i) #24
-  %tobool.not.i.i = icmp eq i32 %call.i.i38, 0
+_ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i39, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %62 = phi i32 [ %call7.i29.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i39 ]
+  %63 = phi i32 [ %call7.i28.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i39 ]
+  %conv.i.i = zext i32 %63 to i64
+  %conv1.i.i = zext i32 %62 to i64
+  %call.i.i37 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef %conv1.i.i) #24
+  %tobool.not.i.i = icmp eq i32 %call.i.i37, 0
   br i1 %tobool.not.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_14PathUnlinkFileES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %_ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %65 = load i32, ptr %fd.addr.i.i, align 4
-  %66 = load i32, ptr %path_ptr.addr.i.i, align 4
-  %idxprom.i.i = zext i32 %66 to i64
+  %64 = load i32, ptr %fd.addr.i.i, align 4
+  %65 = load i32, ptr %path_ptr.addr.i.i, align 4
+  %idxprom.i.i = zext i32 %65 to i64
   %arrayidx.i30.i = getelementptr inbounds i8, ptr %call40, i64 %idxprom.i.i
-  %67 = load i32, ptr %path_len.addr.i.i, align 4
-  %call2.i.i = call zeroext i16 @uvwasi_path_unlink_file(ptr noundef nonnull %uvw_.i.i, i32 noundef %65, ptr noundef nonnull %arrayidx.i30.i, i32 noundef %67) #24
-  %68 = zext i16 %call2.i.i to i64
-  %69 = shl nuw nsw i64 %68, 32
+  %66 = load i32, ptr %path_len.addr.i.i, align 4
+  %call2.i.i = call zeroext i16 @uvwasi_path_unlink_file(ptr noundef nonnull %uvw_.i.i, i32 noundef %64, ptr noundef nonnull %arrayidx.i30.i, i32 noundef %66) #24
+  %67 = zext i16 %call2.i.i to i64
+  %68 = shl nuw nsw i64 %67, 32
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_14PathUnlinkFileES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_14PathUnlinkFileES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, %do.end.i.i
-  %retval.0.i.i39 = phi i64 [ %69, %do.end.i.i ], [ 261993005056, %_ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ]
+  %retval.0.i.i38 = phi i64 [ %68, %do.end.i.i ], [ 261993005056, %_ZN4node4wasi5DebugIJRA30_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ]
   %arrayidx.i76.i = getelementptr inbounds i8, ptr %40, i64 24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %path_ptr.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %path_len.addr.i.i)
-  store i64 %retval.0.i.i39, ptr %arrayidx.i76.i, align 8
+  store i64 %retval.0.i.i38, ptr %arrayidx.i76.i, align 8
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_14PathUnlinkFileES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
@@ -20970,20 +20983,19 @@ do.end27:                                         ; preds = %lor.rhs
   %12 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 2311
   %13 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %14 = and i8 %13, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4node4wasi4WASI8ProcExitERS1_NS0_10WasmMemoryEj.exit, label %if.end.i.i.i
+  %tobool.i.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi4WASI8ProcExitERS1_NS0_10WasmMemoryEj.exit
 
 if.end.i.i.i:                                     ; preds = %do.end27
-  %15 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %15, ptr noundef nonnull @.str.83, ptr noundef nonnull align 4 dereferenceable(4) %code.addr.i) #29
+  %14 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %14, ptr noundef nonnull @.str.83, ptr noundef nonnull align 4 dereferenceable(4) %code.addr.i) #29
   %.pre.i = load i32, ptr %code.addr.i, align 4
   br label %_ZN4node4wasi4WASI8ProcExitERS1_NS0_10WasmMemoryEj.exit
 
 _ZN4node4wasi4WASI8ProcExitERS1_NS0_10WasmMemoryEj.exit: ; preds = %do.end27, %if.end.i.i.i
-  %16 = phi i32 [ %args, %do.end27 ], [ %.pre.i, %if.end.i.i.i ]
+  %15 = phi i32 [ %args, %do.end27 ], [ %.pre.i, %if.end.i.i.i ]
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %call.i = call zeroext i16 @uvwasi_proc_exit(ptr noundef nonnull %uvw_.i, i32 noundef %16) #24
+  %call.i = call zeroext i16 @uvwasi_proc_exit(ptr noundef nonnull %uvw_.i, i32 noundef %15) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %code.addr.i)
   br label %return
 
@@ -21129,20 +21141,19 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i32, %
   %35 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 2311
   %36 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %37 = and i8 %36, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %37, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFvRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_8ProcExitES4_S5_jEEvJjEJLm0EETnNSt9enable_ifIXsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %if.end.i.i.i.i
+  %tobool.i.i.i.i.i = trunc i8 %36 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFvRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_8ProcExitES4_S5_jEEvJjEJLm0EETnNSt9enable_ifIXsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %38 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %38, ptr noundef nonnull @.str.83, ptr noundef nonnull align 4 dereferenceable(4) %code.addr.i.i) #29
+  %37 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %37, ptr noundef nonnull @.str.83, ptr noundef nonnull align 4 dereferenceable(4) %code.addr.i.i) #29
   %.pre.i.i = load i32, ptr %code.addr.i.i, align 4
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFvRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_8ProcExitES4_S5_jEEvJjEJLm0EETnNSt9enable_ifIXsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFvRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_8ProcExitES4_S5_jEEvJjEJLm0EETnNSt9enable_ifIXsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
-  %39 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
+  %38 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %call.i.i34 = call zeroext i16 @uvwasi_proc_exit(ptr noundef nonnull %uvw_.i.i, i32 noundef %39) #24
+  %call.i.i34 = call zeroext i16 @uvwasi_proc_exit(ptr noundef nonnull %uvw_.i.i, i32 noundef %38) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %code.addr.i.i)
   br label %return
 
@@ -21268,20 +21279,19 @@ do.end29:                                         ; preds = %lor.rhs
   %12 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 2311
   %13 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %14 = and i8 %13, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4node4wasi4WASI9ProcRaiseERS1_NS0_10WasmMemoryEj.exit, label %if.end.i.i.i
+  %tobool.i.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi4WASI9ProcRaiseERS1_NS0_10WasmMemoryEj.exit
 
 if.end.i.i.i:                                     ; preds = %do.end29
-  %15 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %15, ptr noundef nonnull @.str.84, ptr noundef nonnull align 4 dereferenceable(4) %sig.addr.i) #29
+  %14 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %14, ptr noundef nonnull @.str.84, ptr noundef nonnull align 4 dereferenceable(4) %sig.addr.i) #29
   %.pre.i = load i32, ptr %sig.addr.i, align 4
   br label %_ZN4node4wasi4WASI9ProcRaiseERS1_NS0_10WasmMemoryEj.exit
 
 _ZN4node4wasi4WASI9ProcRaiseERS1_NS0_10WasmMemoryEj.exit: ; preds = %do.end29, %if.end.i.i.i
-  %16 = phi i32 [ %args, %do.end29 ], [ %.pre.i, %if.end.i.i.i ]
+  %15 = phi i32 [ %args, %do.end29 ], [ %.pre.i, %if.end.i.i.i ]
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %conv.i = trunc i32 %16 to i8
+  %conv.i = trunc i32 %15 to i8
   %call.i = call zeroext i16 @uvwasi_proc_raise(ptr noundef nonnull %uvw_.i, i8 noundef zeroext %conv.i) #24
   %conv1.i = zext i16 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sig.addr.i)
@@ -21430,21 +21440,20 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i32, %
   %35 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 2311
   %36 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %37 = and i8 %36, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %37, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_9ProcRaiseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %if.end.i.i.i.i
+  %tobool.i.i.i.i.i = trunc i8 %36 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_9ProcRaiseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %38 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %38, ptr noundef nonnull @.str.84, ptr noundef nonnull align 4 dereferenceable(4) %sig.addr.i.i) #29
+  %37 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %37, ptr noundef nonnull @.str.84, ptr noundef nonnull align 4 dereferenceable(4) %sig.addr.i.i) #29
   %.pre.i.i = load i32, ptr %sig.addr.i.i, align 4
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_9ProcRaiseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_9ProcRaiseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
-  %39 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
+  %38 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
   %arrayidx.i16.i = getelementptr inbounds i8, ptr %28, i64 24
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %conv.i.i = trunc i32 %39 to i8
+  %conv.i.i = trunc i32 %38 to i8
   %call.i.i34 = call zeroext i16 @uvwasi_proc_raise(ptr noundef nonnull %uvw_.i.i, i8 noundef zeroext %conv.i.i) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sig.addr.i.i)
   %conv.i.i.i = zext i16 %call.i.i34 to i64
@@ -21565,33 +21574,32 @@ do.end31:                                         ; preds = %lor.rhs
   %14 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %14, i64 2311
   %15 = load i8, ptr %arrayidx.i.i.i, align 1
-  %16 = and i8 %15, 1
-  %tobool.i.not.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.i.not.i.i, label %_ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i, label %if.end.i.i.i
+  %tobool.i.i.i = trunc i8 %15 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 if.end.i.i.i:                                     ; preds = %do.end31
-  %17 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %17, ptr noundef nonnull @.str.85, ptr noundef nonnull align 4 dereferenceable(4) %buf_ptr.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %buf_len.addr.i) #29
+  %16 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %16, ptr noundef nonnull @.str.85, ptr noundef nonnull align 4 dereferenceable(4) %buf_ptr.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %buf_len.addr.i) #29
   %.pre.i = load i32, ptr %buf_ptr.addr.i, align 4
   %.pre2.i = load i32, ptr %buf_len.addr.i, align 4
   br label %_ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 _ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i: ; preds = %if.end.i.i.i, %do.end31
-  %18 = phi i32 [ %args3, %do.end31 ], [ %.pre2.i, %if.end.i.i.i ]
-  %19 = phi i32 [ %args, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
-  %conv.i = zext i32 %19 to i64
-  %conv1.i = zext i32 %18 to i64
+  %17 = phi i32 [ %args3, %do.end31 ], [ %.pre2.i, %if.end.i.i.i ]
+  %18 = phi i32 [ %args, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
+  %conv.i = zext i32 %18 to i64
+  %conv1.i = zext i32 %17 to i64
   %call.i = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i, i64 noundef %12, i64 noundef %conv1.i) #24
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ZN4node4wasi4WASI9RandomGetERS1_NS0_10WasmMemoryEjj.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %_ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %20 = load i32, ptr %buf_ptr.addr.i, align 4
-  %idxprom.i = zext i32 %20 to i64
+  %19 = load i32, ptr %buf_ptr.addr.i, align 4
+  %idxprom.i = zext i32 %19 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %11, i64 %idxprom.i
-  %21 = load i32, ptr %buf_len.addr.i, align 4
-  %call2.i = call zeroext i16 @uvwasi_random_get(ptr noundef nonnull %uvw_.i, ptr noundef %arrayidx.i, i32 noundef %21) #24
+  %20 = load i32, ptr %buf_len.addr.i, align 4
+  %call2.i = call zeroext i16 @uvwasi_random_get(ptr noundef nonnull %uvw_.i, ptr noundef %arrayidx.i, i32 noundef %20) #24
   %conv3.i = zext i16 %call2.i to i32
   br label %_ZN4node4wasi4WASI9RandomGetERS1_NS0_10WasmMemoryEjj.exit
 
@@ -21792,43 +21800,42 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i34, %
   %47 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i35 = getelementptr inbounds i8, ptr %47, i64 2311
   %48 = load i8, ptr %arrayidx.i.i.i.i35, align 1
-  %49 = and i8 %48, 1
-  %tobool.i.not.i.i.i = icmp eq i8 %49, 0
-  br i1 %tobool.i.not.i.i.i, label %_ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, label %if.end.i.i.i.i36
+  %tobool.i.i.i.i = trunc i8 %48 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i.i38, label %_ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-if.end.i.i.i.i36:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %50 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %50, ptr noundef nonnull @.str.85, ptr noundef nonnull align 4 dereferenceable(4) %buf_ptr.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %buf_len.addr.i.i) #29
+if.end.i.i.i.i38:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %49 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %49, ptr noundef nonnull @.str.85, ptr noundef nonnull align 4 dereferenceable(4) %buf_ptr.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %buf_len.addr.i.i) #29
   %.pre.i.i = load i32, ptr %buf_ptr.addr.i.i, align 4
   %.pre2.i.i = load i32, ptr %buf_len.addr.i.i, align 4
   br label %_ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-_ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i36, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %51 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i36 ]
-  %52 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i36 ]
-  %conv.i.i = zext i32 %52 to i64
-  %conv1.i.i = zext i32 %51 to i64
-  %call.i.i37 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef %conv1.i.i) #24
-  %tobool.not.i.i = icmp eq i32 %call.i.i37, 0
+_ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i38, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %50 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i38 ]
+  %51 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i38 ]
+  %conv.i.i = zext i32 %51 to i64
+  %conv1.i.i = zext i32 %50 to i64
+  %call.i.i36 = call i32 @uvwasi_serdes_check_bounds(i64 noundef %conv.i.i, i64 noundef %call38, i64 noundef %conv1.i.i) #24
+  %tobool.not.i.i = icmp eq i32 %call.i.i36, 0
   br i1 %tobool.not.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_9RandomGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %_ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %53 = load i32, ptr %buf_ptr.addr.i.i, align 4
-  %idxprom.i.i = zext i32 %53 to i64
+  %52 = load i32, ptr %buf_ptr.addr.i.i, align 4
+  %idxprom.i.i = zext i32 %52 to i64
   %arrayidx.i25.i = getelementptr inbounds i8, ptr %call40, i64 %idxprom.i.i
-  %54 = load i32, ptr %buf_len.addr.i.i, align 4
-  %call2.i.i = call zeroext i16 @uvwasi_random_get(ptr noundef nonnull %uvw_.i.i, ptr noundef nonnull %arrayidx.i25.i, i32 noundef %54) #24
-  %55 = zext i16 %call2.i.i to i64
-  %56 = shl nuw nsw i64 %55, 32
+  %53 = load i32, ptr %buf_len.addr.i.i, align 4
+  %call2.i.i = call zeroext i16 @uvwasi_random_get(ptr noundef nonnull %uvw_.i.i, ptr noundef nonnull %arrayidx.i25.i, i32 noundef %53) #24
+  %54 = zext i16 %call2.i.i to i64
+  %55 = shl nuw nsw i64 %54, 32
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_9RandomGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_9RandomGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, %do.end.i.i
-  %retval.0.i.i38 = phi i64 [ %56, %do.end.i.i ], [ 261993005056, %_ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ]
+  %retval.0.i.i37 = phi i64 [ %55, %do.end.i.i ], [ 261993005056, %_ZN4node4wasi5DebugIJRA20_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit.i.i ]
   %arrayidx.i46.i = getelementptr inbounds i8, ptr %34, i64 24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf_ptr.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf_len.addr.i.i)
-  store i64 %retval.0.i.i38, ptr %arrayidx.i46.i, align 8
+  store i64 %retval.0.i.i37, ptr %arrayidx.i46.i, align 8
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_9RandomGetES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
@@ -21944,13 +21951,12 @@ do.end29:                                         ; preds = %lor.rhs
   store ptr @.str.86, ptr %message.addr.i2.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 2311
   %13 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %14 = and i8 %13, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4node4wasi4WASI10SchedYieldERS1_NS0_10WasmMemoryE.exit, label %if.end.i.i.i
+  %tobool.i.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi4WASI10SchedYieldERS1_NS0_10WasmMemoryE.exit
 
 if.end.i.i.i:                                     ; preds = %do.end29
-  %15 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %15, ptr noundef nonnull @.str.310, ptr noundef nonnull align 8 dereferenceable(8) %message.addr.i2.i.i) #29
+  %14 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %14, ptr noundef nonnull @.str.310, ptr noundef nonnull align 8 dereferenceable(8) %message.addr.i2.i.i) #29
   br label %_ZN4node4wasi4WASI10SchedYieldERS1_NS0_10WasmMemoryE.exit
 
 _ZN4node4wasi4WASI10SchedYieldERS1_NS0_10WasmMemoryE.exit: ; preds = %do.end29, %if.end.i.i.i
@@ -22073,13 +22079,12 @@ do.end50:                                         ; preds = %if.end26
   store ptr @.str.86, ptr %message.addr.i2.i.i.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 2311
   %28 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %29 = and i8 %28, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %29, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEETnT_XadL_ZNS3_10SchedYieldES4_S5_EEjJETpTnmJETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %if.end.i.i.i.i
+  %tobool.i.i.i.i.i = trunc i8 %28 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEETnT_XadL_ZNS3_10SchedYieldES4_S5_EEjJETpTnmJETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i:                                   ; preds = %do.end50
-  %30 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %30, ptr noundef nonnull @.str.310, ptr noundef nonnull align 8 dereferenceable(8) %message.addr.i2.i.i.i) #29
+  %29 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %29, ptr noundef nonnull @.str.310, ptr noundef nonnull align 8 dereferenceable(8) %message.addr.i2.i.i.i) #29
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEETnT_XadL_ZNS3_10SchedYieldES4_S5_EEjJETpTnmJETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEETnT_XadL_ZNS3_10SchedYieldES4_S5_EEjJETpTnmJETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %do.end50, %if.end.i.i.i.i
@@ -22209,31 +22214,30 @@ do.end33:                                         ; preds = %lor.rhs
   %13 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 2311
   %14 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %15 = and i8 %14, 1
-  %tobool.i.i.not.i.i = icmp eq i8 %15, 0
-  br i1 %tobool.i.i.not.i.i, label %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i, label %if.end.i.i.i
+  %tobool.i.i.i.i = trunc i8 %14 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 if.end.i.i.i:                                     ; preds = %do.end33
-  %16 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %16, ptr noundef nonnull @.str.87, ptr noundef nonnull align 4 dereferenceable(4) %sock.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %flags.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %fd_ptr.addr.i) #29
+  %15 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %15, ptr noundef nonnull @.str.87, ptr noundef nonnull align 4 dereferenceable(4) %sock.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %flags.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %fd_ptr.addr.i) #29
   %.pre.i = load i32, ptr %sock.addr.i, align 4
   %.pre3.i = load i32, ptr %flags.addr.i, align 4
   br label %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i
 
 _ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i: ; preds = %if.end.i.i.i, %do.end33
-  %17 = phi i32 [ %args3, %do.end33 ], [ %.pre3.i, %if.end.i.i.i ]
-  %18 = phi i32 [ %args, %do.end33 ], [ %.pre.i, %if.end.i.i.i ]
+  %16 = phi i32 [ %args3, %do.end33 ], [ %.pre3.i, %if.end.i.i.i ]
+  %17 = phi i32 [ %args, %do.end33 ], [ %.pre.i, %if.end.i.i.i ]
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %conv.i = trunc i32 %17 to i16
-  %call.i = call zeroext i16 @uvwasi_sock_accept(ptr noundef nonnull %uvw_.i, i32 noundef %18, i16 noundef zeroext %conv.i, ptr noundef nonnull %fd.i) #24
+  %conv.i = trunc i32 %16 to i16
+  %call.i = call zeroext i16 @uvwasi_sock_accept(ptr noundef nonnull %uvw_.i, i32 noundef %17, i16 noundef zeroext %conv.i, ptr noundef nonnull %fd.i) #24
   %cmp.i6 = icmp eq i16 %call.i, 0
   br i1 %cmp.i6, label %if.then.i, label %_ZN4node4wasi4WASI10SockAcceptERS1_NS0_10WasmMemoryEjjj.exit
 
 if.then.i:                                        ; preds = %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i
-  %19 = load i32, ptr %fd_ptr.addr.i, align 4
-  %conv2.i = zext i32 %19 to i64
-  %20 = load i32, ptr %fd.i, align 4
-  call void @uvwasi_serdes_write_size_t(ptr noundef %11, i64 noundef %conv2.i, i32 noundef %20) #24
+  %18 = load i32, ptr %fd_ptr.addr.i, align 4
+  %conv2.i = zext i32 %18 to i64
+  %19 = load i32, ptr %fd.i, align 4
+  call void @uvwasi_serdes_write_size_t(ptr noundef %11, i64 noundef %conv2.i, i32 noundef %19) #24
   br label %_ZN4node4wasi4WASI10SockAcceptERS1_NS0_10WasmMemoryEjjj.exit
 
 _ZN4node4wasi4WASI10SockAcceptERS1_NS0_10WasmMemoryEjjj.exit: ; preds = %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i, %if.then.i
@@ -22485,31 +22489,30 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i35, %
   %59 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i36 = getelementptr inbounds i8, ptr %59, i64 2311
   %60 = load i8, ptr %arrayidx.i.i.i.i.i36, align 1
-  %61 = and i8 %60, 1
-  %tobool.i.i.not.i.i.i = icmp eq i8 %61, 0
-  br i1 %tobool.i.i.not.i.i.i, label %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, label %if.end.i.i.i.i37
+  %tobool.i.i.i.i.i = trunc i8 %60 to i1
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i39, label %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-if.end.i.i.i.i37:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %62 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %62, ptr noundef nonnull @.str.87, ptr noundef nonnull align 4 dereferenceable(4) %sock.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %flags.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %fd_ptr.addr.i.i) #29
+if.end.i.i.i.i39:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %61 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %61, ptr noundef nonnull @.str.87, ptr noundef nonnull align 4 dereferenceable(4) %sock.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %flags.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %fd_ptr.addr.i.i) #29
   %.pre.i.i = load i32, ptr %sock.addr.i.i, align 4
   %.pre3.i.i = load i32, ptr %flags.addr.i.i, align 4
   br label %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
 
-_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i37, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %63 = phi i32 [ %call7.i28.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre3.i.i, %if.end.i.i.i.i37 ]
-  %64 = phi i32 [ %call7.i.i34, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i37 ]
+_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i: ; preds = %if.end.i.i.i.i39, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %62 = phi i32 [ %call7.i28.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre3.i.i, %if.end.i.i.i.i39 ]
+  %63 = phi i32 [ %call7.i.i34, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i39 ]
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %conv.i.i = trunc i32 %63 to i16
-  %call.i.i38 = call zeroext i16 @uvwasi_sock_accept(ptr noundef nonnull %uvw_.i.i, i32 noundef %64, i16 noundef zeroext %conv.i.i, ptr noundef nonnull %fd.i.i) #24
-  %cmp.i.i39 = icmp eq i16 %call.i.i38, 0
-  br i1 %cmp.i.i39, label %if.then.i31.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_10SockAcceptES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
+  %conv.i.i = trunc i32 %62 to i16
+  %call.i.i37 = call zeroext i16 @uvwasi_sock_accept(ptr noundef nonnull %uvw_.i.i, i32 noundef %63, i16 noundef zeroext %conv.i.i, ptr noundef nonnull %fd.i.i) #24
+  %cmp.i.i38 = icmp eq i16 %call.i.i37, 0
+  br i1 %cmp.i.i38, label %if.then.i31.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_10SockAcceptES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.then.i31.i:                                    ; preds = %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i
-  %65 = load i32, ptr %fd_ptr.addr.i.i, align 4
-  %conv2.i.i = zext i32 %65 to i64
-  %66 = load i32, ptr %fd.i.i, align 4
-  call void @uvwasi_serdes_write_size_t(ptr noundef nonnull %call40, i64 noundef %conv2.i.i, i32 noundef %66) #24
+  %64 = load i32, ptr %fd_ptr.addr.i.i, align 4
+  %conv2.i.i = zext i32 %64 to i64
+  %65 = load i32, ptr %fd.i.i, align 4
+  call void @uvwasi_serdes_write_size_t(ptr noundef nonnull %call40, i64 noundef %conv2.i.i, i32 noundef %65) #24
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_10SockAcceptES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjjETnT_XadL_ZNS3_10SockAcceptES4_S5_jjjEEjJjjjEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit.i.i, %if.then.i31.i
@@ -22518,7 +22521,7 @@ _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjj
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd_ptr.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.i.i)
-  %conv.i.i.i = zext i16 %call.i.i38 to i64
+  %conv.i.i.i = zext i16 %call.i.i37 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 32
   store i64 %shl.i.i.i, ptr %arrayidx.i76.i, align 8
   br label %return
@@ -23325,23 +23328,22 @@ do.end31:                                         ; preds = %lor.rhs
   %12 = load ptr, ptr %env_.i.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %12, i64 2311
   %13 = load i8, ptr %arrayidx.i.i.i, align 1
-  %14 = and i8 %13, 1
-  %tobool.i.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.i.not.i.i, label %_ZN4node4wasi4WASI12SockShutdownERS1_NS0_10WasmMemoryEjj.exit, label %if.end.i.i.i
+  %tobool.i.i.i = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i, label %if.end.i.i.i, label %_ZN4node4wasi4WASI12SockShutdownERS1_NS0_10WasmMemoryEjj.exit
 
 if.end.i.i.i:                                     ; preds = %do.end31
-  %15 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %15, ptr noundef nonnull @.str.90, ptr noundef nonnull align 4 dereferenceable(4) %sock.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %how.addr.i) #29
+  %14 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %14, ptr noundef nonnull @.str.90, ptr noundef nonnull align 4 dereferenceable(4) %sock.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %how.addr.i) #29
   %.pre.i = load i32, ptr %sock.addr.i, align 4
   %.pre2.i = load i32, ptr %how.addr.i, align 4
   br label %_ZN4node4wasi4WASI12SockShutdownERS1_NS0_10WasmMemoryEjj.exit
 
 _ZN4node4wasi4WASI12SockShutdownERS1_NS0_10WasmMemoryEjj.exit: ; preds = %do.end31, %if.end.i.i.i
-  %16 = phi i32 [ %args3, %do.end31 ], [ %.pre2.i, %if.end.i.i.i ]
-  %17 = phi i32 [ %args, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
+  %15 = phi i32 [ %args3, %do.end31 ], [ %.pre2.i, %if.end.i.i.i ]
+  %16 = phi i32 [ %args, %do.end31 ], [ %.pre.i, %if.end.i.i.i ]
   %uvw_.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %conv.i = trunc i32 %16 to i8
-  %call.i = call zeroext i16 @uvwasi_sock_shutdown(ptr noundef nonnull %uvw_.i, i32 noundef %17, i8 noundef zeroext %conv.i) #24
+  %conv.i = trunc i32 %15 to i8
+  %call.i = call zeroext i16 @uvwasi_sock_shutdown(ptr noundef nonnull %uvw_.i, i32 noundef %16, i8 noundef zeroext %conv.i) #24
   %conv1.i = zext i16 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sock.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %how.addr.i)
@@ -23538,27 +23540,26 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i34, %
   %47 = load ptr, ptr %env_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i35 = getelementptr inbounds i8, ptr %47, i64 2311
   %48 = load i8, ptr %arrayidx.i.i.i.i35, align 1
-  %49 = and i8 %48, 1
-  %tobool.i.not.i.i.i = icmp eq i8 %49, 0
-  br i1 %tobool.i.not.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12SockShutdownES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, label %if.end.i.i.i.i36
+  %tobool.i.i.i.i = trunc i8 %48 to i1
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i.i37, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12SockShutdownES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-if.end.i.i.i.i36:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
-  %50 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %50, ptr noundef nonnull @.str.90, ptr noundef nonnull align 4 dereferenceable(4) %sock.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %how.addr.i.i) #29
+if.end.i.i.i.i37:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
+  %49 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %49, ptr noundef nonnull @.str.90, ptr noundef nonnull align 4 dereferenceable(4) %sock.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %how.addr.i.i) #29
   %.pre.i.i = load i32, ptr %sock.addr.i.i, align 4
   %.pre2.i.i = load i32, ptr %how.addr.i.i, align 4
   br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12SockShutdownES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12SockShutdownES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i36
-  %51 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i36 ]
-  %52 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i36 ]
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12SockShutdownES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i37
+  %50 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i37 ]
+  %51 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i37 ]
   %arrayidx.i46.i = getelementptr inbounds i8, ptr %34, i64 24
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
-  %conv.i.i = trunc i32 %51 to i8
-  %call.i.i37 = call zeroext i16 @uvwasi_sock_shutdown(ptr noundef nonnull %uvw_.i.i, i32 noundef %52, i8 noundef zeroext %conv.i.i) #24
+  %conv.i.i = trunc i32 %50 to i8
+  %call.i.i36 = call zeroext i16 @uvwasi_sock_shutdown(ptr noundef nonnull %uvw_.i.i, i32 noundef %51, i8 noundef zeroext %conv.i.i) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sock.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %how.addr.i.i)
-  %conv.i.i.i = zext i16 %call.i.i37 to i64
+  %conv.i.i.i = zext i16 %call.i.i36 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 32
   store i64 %shl.i.i.i, ptr %arrayidx.i46.i, align 8
   br label %return
@@ -31801,9 +31802,8 @@ if.then.i.i12:                                    ; preds = %_ZN2v810MaybeLocalI
 
 _ZN4node13OneByteStringEPN2v87IsolateEPKci.exit13: ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %if.then.i.i12
   %call65 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call26, ptr %call38, ptr %call.i10, ptr %call.i) #24
-  %0 = and i16 %call65, 1
-  %tobool.i.not = icmp eq i16 %0, 0
-  br i1 %tobool.i.not, label %if.then.i98, label %_ZNK2v85MaybeIbE5CheckEv.exit
+  %tobool.i = trunc i16 %call65 to i1
+  br i1 %tobool.i, label %_ZNK2v85MaybeIbE5CheckEv.exit, label %if.then.i98
 
 if.then.i98:                                      ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit13
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #24

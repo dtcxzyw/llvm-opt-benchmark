@@ -72,9 +72,8 @@ define ptr @ws_mempbrk_exec(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %2, i64 256
   %8 = load i8, ptr %7, align 16
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %12, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %12
 
 10:                                               ; preds = %6
   %11 = tail call ptr @ws_mempbrk_sse42_exec(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr noundef %3) #4

@@ -459,12 +459,12 @@ if.then57:                                        ; preds = %if.then54
 if.else:                                          ; preds = %do.end
   %remote_window_.i = getelementptr inbounds i8, ptr %t, i64 2832
   %24 = load i64, ptr %remote_window_.i, align 8
+  %cmp.i = icmp sgt i64 %24, 0
   %conv.i32 = zext nneg i32 %and to i64
   %add.i34 = add nsw i64 %24, %conv.i32
   store i64 %add.i34, ptr %remote_window_.i, align 8
   %cmp.i36 = icmp slt i64 %add.i34, 1
-  %25 = icmp sgt i64 %24, 0
-  %cmp62.not = or i1 %25, %cmp.i36
+  %cmp62.not = or i1 %cmp.i, %cmp.i36
   br i1 %cmp62.not, label %if.end66, label %if.end66.sink.split
 
 if.end66.sink.split:                              ; preds = %if.else, %if.then57

@@ -2101,14 +2101,13 @@ define linkonce_odr noundef double @_ZNSt19normal_distributionIdEclISt26linear_c
 entry:
   %_M_saved_available = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %_M_saved_available, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %do.body, label %if.then
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %_M_saved_available, align 8
   %_M_saved = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load double, ptr %_M_saved, align 8
+  %1 = load double, ptr %_M_saved, align 8
   br label %if.end
 
 do.body:                                          ; preds = %entry, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit39
@@ -2125,13 +2124,13 @@ do.body:                                          ; preds = %entry, %_ZNSt8__det
 for.body.i.i:                                     ; preds = %for.body.i.i, %do.body
   %__k.015.i.i = phi i64 [ %spec.select.i.i, %do.body ], [ %dec.i.i, %for.body.i.i ]
   %__tmp.014.i.i = phi double [ 1.000000e+00, %do.body ], [ %conv16.i.i, %for.body.i.i ]
-  %__sum.013.i.i = phi double [ 0.000000e+00, %do.body ], [ %3, %for.body.i.i ]
+  %__sum.013.i.i = phi double [ 0.000000e+00, %do.body ], [ %2, %for.body.i.i ]
   %rem.i.i.i1112.i.i = phi i64 [ %__urng.promoted.i.i, %do.body ], [ %rem.i.i.i.i.i, %for.body.i.i ]
   %mul.i.i.i.i.i = mul i64 %rem.i.i.i1112.i.i, 16807
   %rem.i.i.i.i.i = urem i64 %mul.i.i.i.i.i, 2147483647
   %sub13.i.i = add nsw i64 %rem.i.i.i.i.i, -1
   %conv14.i.i = uitofp i64 %sub13.i.i to double
-  %3 = tail call double @llvm.fmuladd.f64(double %conv14.i.i, double %__tmp.014.i.i, double %__sum.013.i.i)
+  %2 = tail call double @llvm.fmuladd.f64(double %conv14.i.i, double %__tmp.014.i.i, double %__sum.013.i.i)
   %conv15.i.i = fpext double %__tmp.014.i.i to x86_fp80
   %mul.i.i = fmul x86_fp80 %conv15.i.i, 0xK401DFFFFFFFC00000000
   %conv16.i.i = fptrunc x86_fp80 %mul.i.i to double
@@ -2141,7 +2140,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %do.b
 
 for.end.i.i:                                      ; preds = %for.body.i.i
   store i64 %rem.i.i.i.i.i, ptr %__urng, align 8
-  %div17.i.i = fdiv double %3, %conv16.i.i
+  %div17.i.i = fdiv double %2, %conv16.i.i
   %cmp18.i.i = fcmp ult double %div17.i.i, 1.000000e+00
   br i1 %cmp18.i.i, label %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit, label %if.then.i.i
 
@@ -2164,13 +2163,13 @@ _ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647
 for.body.i.i19:                                   ; preds = %for.body.i.i19, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit
   %__k.015.i.i20 = phi i64 [ %spec.select.i.i17, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %dec.i.i31, %for.body.i.i19 ]
   %__tmp.014.i.i21 = phi double [ 1.000000e+00, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %conv16.i.i30, %for.body.i.i19 ]
-  %__sum.013.i.i22 = phi double [ 0.000000e+00, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %4, %for.body.i.i19 ]
+  %__sum.013.i.i22 = phi double [ 0.000000e+00, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %3, %for.body.i.i19 ]
   %rem.i.i.i1112.i.i23 = phi i64 [ %__urng.promoted.i.i18, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %rem.i.i.i.i.i25, %for.body.i.i19 ]
   %mul.i.i.i.i.i24 = mul i64 %rem.i.i.i1112.i.i23, 16807
   %rem.i.i.i.i.i25 = urem i64 %mul.i.i.i.i.i24, 2147483647
   %sub13.i.i26 = add nsw i64 %rem.i.i.i.i.i25, -1
   %conv14.i.i27 = uitofp i64 %sub13.i.i26 to double
-  %4 = tail call double @llvm.fmuladd.f64(double %conv14.i.i27, double %__tmp.014.i.i21, double %__sum.013.i.i22)
+  %3 = tail call double @llvm.fmuladd.f64(double %conv14.i.i27, double %__tmp.014.i.i21, double %__sum.013.i.i22)
   %conv15.i.i28 = fpext double %__tmp.014.i.i21 to x86_fp80
   %mul.i.i29 = fmul x86_fp80 %conv15.i.i28, 0xK401DFFFFFFFC00000000
   %conv16.i.i30 = fptrunc x86_fp80 %mul.i.i29 to double
@@ -2179,9 +2178,9 @@ for.body.i.i19:                                   ; preds = %for.body.i.i19, %_Z
   br i1 %cmp.not.i.i32, label %for.end.i.i33, label %for.body.i.i19, !llvm.loop !45
 
 for.end.i.i33:                                    ; preds = %for.body.i.i19
-  %5 = tail call double @llvm.fmuladd.f64(double %__ret.0.i.i, double 2.000000e+00, double -1.000000e+00)
+  %4 = tail call double @llvm.fmuladd.f64(double %__ret.0.i.i, double 2.000000e+00, double -1.000000e+00)
   store i64 %rem.i.i.i.i.i25, ptr %__urng, align 8
-  %div17.i.i34 = fdiv double %4, %conv16.i.i30
+  %div17.i.i34 = fdiv double %3, %conv16.i.i30
   %cmp18.i.i35 = fcmp ult double %div17.i.i34, 1.000000e+00
   br i1 %cmp18.i.i35, label %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit39, label %if.then.i.i36
 
@@ -2191,33 +2190,33 @@ if.then.i.i36:                                    ; preds = %for.end.i.i33
 
 _ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit39: ; preds = %for.end.i.i33, %if.then.i.i36
   %__ret.0.i.i38 = phi double [ %call20.i.i37, %if.then.i.i36 ], [ %div17.i.i34, %for.end.i.i33 ]
-  %6 = tail call double @llvm.fmuladd.f64(double %__ret.0.i.i38, double 2.000000e+00, double -1.000000e+00)
-  %mul4 = fmul double %6, %6
-  %7 = tail call double @llvm.fmuladd.f64(double %5, double %5, double %mul4)
-  %cmp = fcmp ogt double %7, 1.000000e+00
-  %cmp5 = fcmp oeq double %7, 0.000000e+00
-  %8 = or i1 %cmp, %cmp5
-  br i1 %8, label %do.body, label %do.end, !llvm.loop !46
+  %5 = tail call double @llvm.fmuladd.f64(double %__ret.0.i.i38, double 2.000000e+00, double -1.000000e+00)
+  %mul4 = fmul double %5, %5
+  %6 = tail call double @llvm.fmuladd.f64(double %4, double %4, double %mul4)
+  %cmp = fcmp ogt double %6, 1.000000e+00
+  %cmp5 = fcmp oeq double %6, 0.000000e+00
+  %7 = or i1 %cmp, %cmp5
+  br i1 %7, label %do.body, label %do.end, !llvm.loop !46
 
 do.end:                                           ; preds = %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit39
-  %call6 = tail call double @log(double noundef %7) #23
+  %call6 = tail call double @log(double noundef %6) #23
   %mul = fmul double %call6, -2.000000e+00
-  %div = fdiv double %mul, %7
+  %div = fdiv double %mul, %6
   %call7 = tail call double @sqrt(double noundef %div) #23
-  %mul8 = fmul double %5, %call7
+  %mul8 = fmul double %4, %call7
   %_M_saved9 = getelementptr inbounds i8, ptr %this, i64 16
   store double %mul8, ptr %_M_saved9, align 8
   store i8 1, ptr %_M_saved_available, align 8
-  %mul11 = fmul double %6, %call7
+  %mul11 = fmul double %5, %call7
   br label %if.end
 
 if.end:                                           ; preds = %do.end, %if.then
-  %__ret.0 = phi double [ %2, %if.then ], [ %mul11, %do.end ]
+  %__ret.0 = phi double [ %1, %if.then ], [ %mul11, %do.end ]
   %_M_stddev.i = getelementptr inbounds i8, ptr %__param, i64 8
-  %9 = load double, ptr %_M_stddev.i, align 8
-  %10 = load double, ptr %__param, align 8
-  %11 = tail call double @llvm.fmuladd.f64(double %__ret.0, double %9, double %10)
-  ret double %11
+  %8 = load double, ptr %_M_stddev.i, align 8
+  %9 = load double, ptr %__param, align 8
+  %10 = tail call double @llvm.fmuladd.f64(double %__ret.0, double %8, double %9)
+  ret double %10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

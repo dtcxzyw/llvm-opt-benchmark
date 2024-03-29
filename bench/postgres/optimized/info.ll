@@ -91,22 +91,22 @@ define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr no
 
 .outer:                                           ; preds = %create_rel_filename_map.exit, %5
   %.062.ph = phi i32 [ %91, %create_rel_filename_map.exit ], [ 0, %5 ]
-  %.061.ph = phi i8 [ %.061, %create_rel_filename_map.exit ], [ 1, %5 ]
+  %.061.ph = phi i1 [ %.061, %create_rel_filename_map.exit ], [ true, %5 ]
   %.060.ph = phi i64 [ %93, %create_rel_filename_map.exit ], [ 0, %5 ]
   %.0.ph = phi i32 [ %92, %create_rel_filename_map.exit ], [ 0, %5 ]
   %sext = shl i64 %.060.ph, 32
   %15 = ashr exact i64 %sext, 32
-  br label %.outer74
+  br label %.outer73
 
-.outer74:                                         ; preds = %.outer74.backedge, %.outer
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.outer74.backedge ], [ %15, %.outer ]
-  %.061.ph75 = phi i8 [ %.061.ph75.be, %.outer74.backedge ], [ %.061.ph, %.outer ]
-  %.0.ph77 = phi i32 [ %.0.ph77.be, %.outer74.backedge ], [ %.0.ph, %.outer ]
+.outer73:                                         ; preds = %.outer73.backedge, %.outer
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.outer73.backedge ], [ %15, %.outer ]
+  %.061.ph74 = phi i1 [ %.061.ph74.be, %.outer73.backedge ], [ %.061.ph, %.outer ]
+  %.0.ph76 = phi i32 [ %.0.ph76.be, %.outer73.backedge ], [ %.0.ph, %.outer ]
   br label %16
 
-16:                                               ; preds = %.backedge, %.outer74
-  %.061 = phi i8 [ %.061.ph75, %.outer74 ], [ 0, %.backedge ]
-  %.0 = phi i32 [ %.0.ph77, %.outer74 ], [ %.0.be, %.backedge ]
+16:                                               ; preds = %.backedge, %.outer73
+  %.061 = phi i1 [ %.061.ph74, %.outer73 ], [ false, %.backedge ]
+  %.0 = phi i32 [ %.0.ph76, %.outer73 ], [ %.0.be, %.backedge ]
   %17 = load i32, ptr %7, align 8
   %18 = icmp slt i32 %.0, %17
   br i1 %18, label %23, label %19
@@ -122,11 +122,11 @@ define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr no
   %25 = sext i32 %.0 to i64
   %26 = getelementptr %struct.RelInfo, ptr %24, i64 %25
   %.pre = load i32, ptr %12, align 8
-  %.pre102 = sext i32 %.pre to i64
+  %.pre101 = sext i32 %.pre to i64
   br label %.critedge
 
 .critedge:                                        ; preds = %19, %23
-  %.pre-phi = phi i64 [ %21, %19 ], [ %.pre102, %23 ]
+  %.pre-phi = phi i64 [ %21, %19 ], [ %.pre101, %23 ]
   %27 = phi ptr [ null, %19 ], [ %26, %23 ]
   %28 = icmp slt i64 %indvars.iv, %.pre-phi
   br i1 %28, label %29, label %.thread
@@ -134,8 +134,8 @@ define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr no
 29:                                               ; preds = %.critedge
   %30 = load ptr, ptr %13, align 8
   %31 = getelementptr %struct.RelInfo, ptr %30, i64 %indvars.iv
-  %.not67 = icmp eq ptr %31, null
-  br i1 %.not67, label %.thread, label %32
+  %.not = icmp eq ptr %31, null
+  br i1 %.not, label %.thread, label %32
 
 .thread:                                          ; preds = %.critedge, %29
   tail call fastcc void @report_unmatched_relation(ptr noundef %27, ptr noundef nonnull %0, i1 noundef zeroext false)
@@ -146,18 +146,18 @@ define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr no
   br label %16, !llvm.loop !5
 
 32:                                               ; preds = %29
-  %.not68 = icmp eq ptr %27, null
-  br i1 %.not68, label %33, label %37
+  %.not67 = icmp eq ptr %27, null
+  br i1 %.not67, label %33, label %37
 
 33:                                               ; preds = %32
   %34 = load ptr, ptr %31, align 8
   %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(9) @.str) #9
-  %.not69 = icmp eq i32 %35, 0
-  br i1 %.not69, label %.outer74.backedge, label %36
+  %.not68 = icmp eq i32 %35, 0
+  br i1 %.not68, label %.outer73.backedge, label %36
 
 36:                                               ; preds = %33
   tail call fastcc void @report_unmatched_relation(ptr noundef nonnull %31, ptr noundef nonnull %1, i1 noundef zeroext true)
-  br label %.outer74.backedge
+  br label %.outer73.backedge
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds i8, ptr %27, i64 16
@@ -178,40 +178,40 @@ define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr no
 46:                                               ; preds = %44
   %47 = load ptr, ptr %31, align 8
   %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(9) @.str) #9
-  %.not72 = icmp eq i32 %48, 0
-  br i1 %.not72, label %.outer74.backedge, label %49
+  %.not71 = icmp eq i32 %48, 0
+  br i1 %.not71, label %.outer73.backedge, label %49
 
 49:                                               ; preds = %46
   tail call fastcc void @report_unmatched_relation(ptr noundef nonnull %31, ptr noundef nonnull %1, i1 noundef zeroext true)
-  br label %.outer74.backedge
+  br label %.outer73.backedge
 
-.outer74.backedge:                                ; preds = %46, %49, %33, %36, %._crit_edge
-  %.061.ph75.be = phi i8 [ 0, %._crit_edge ], [ 0, %36 ], [ %.061, %33 ], [ 0, %49 ], [ %.061, %46 ]
-  %.0.ph77.be = phi i32 [ %61, %._crit_edge ], [ %.0, %36 ], [ %.0, %33 ], [ %.0, %49 ], [ %.0, %46 ]
+.outer73.backedge:                                ; preds = %46, %49, %33, %36, %._crit_edge
+  %.061.ph74.be = phi i1 [ false, %._crit_edge ], [ false, %36 ], [ %.061, %33 ], [ false, %49 ], [ %.061, %46 ]
+  %.0.ph76.be = phi i32 [ %61, %._crit_edge ], [ %.0, %36 ], [ %.0, %33 ], [ %.0, %49 ], [ %.0, %46 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br label %.outer74, !llvm.loop !5
+  br label %.outer73, !llvm.loop !5
 
 50:                                               ; preds = %44
   %51 = load ptr, ptr %27, align 8
   %52 = load ptr, ptr %31, align 8
   %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) %52) #9
-  %.not70 = icmp eq i32 %53, 0
+  %.not69 = icmp eq i32 %53, 0
   %54 = getelementptr inbounds i8, ptr %27, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %31, i64 8
   %57 = load ptr, ptr %56, align 8
-  br i1 %.not70, label %58, label %._crit_edge
+  br i1 %.not69, label %58, label %._crit_edge
 
 58:                                               ; preds = %50
   %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %57) #9
-  %.not71 = icmp eq i32 %59, 0
-  br i1 %.not71, label %62, label %._crit_edge
+  %.not70 = icmp eq i32 %59, 0
+  br i1 %.not70, label %62, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %50, %58
   %60 = load ptr, ptr %14, align 8
   tail call void (i32, ptr, ...) @pg_log(i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %39, ptr noundef %60, ptr noundef %51, ptr noundef %55, ptr noundef %52, ptr noundef %57) #8
   %61 = add i32 %.0, 1
-  br label %.outer74.backedge
+  br label %.outer73.backedge
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds i8, ptr %27, i64 8
@@ -275,16 +275,14 @@ create_rel_filename_map.exit:                     ; preds = %78, %79
   br label %.outer, !llvm.loop !5
 
 94:                                               ; preds = %19
-  %95 = and i8 %.061, 1
-  %.not = icmp eq i8 %95, 0
-  br i1 %.not, label %96, label %98
+  br i1 %.061, label %97, label %95
 
-96:                                               ; preds = %94
-  %97 = load ptr, ptr %14, align 8
-  tail call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.2, ptr noundef %97) #10
+95:                                               ; preds = %94
+  %96 = load ptr, ptr %14, align 8
+  tail call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.2, ptr noundef %96) #10
   unreachable
 
-98:                                               ; preds = %94
+97:                                               ; preds = %94
   store i32 %.062.ph, ptr %2, align 4
   ret ptr %11
 }
@@ -463,9 +461,8 @@ define dso_local void @get_db_rel_and_slot_infos(ptr noundef %0, i1 noundef zero
   %17 = getelementptr %struct.RelInfo, ptr %16, i64 %indvars.iv.i.i
   %18 = getelementptr inbounds i8, ptr %17, i64 40
   %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, 1
-  %.not.i.i = icmp eq i8 %20, 0
-  br i1 %.not.i.i, label %23, label %21
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %.lr.ph.i.i
   %22 = load ptr, ptr %17, align 8
@@ -482,9 +479,8 @@ define dso_local void @get_db_rel_and_slot_infos(ptr noundef %0, i1 noundef zero
   %28 = getelementptr %struct.RelInfo, ptr %27, i64 %indvars.iv.i.i
   %29 = getelementptr inbounds i8, ptr %28, i64 41
   %30 = load i8, ptr %29, align 1
-  %31 = and i8 %30, 1
-  %.not14.i.i = icmp eq i8 %31, 0
-  br i1 %.not14.i.i, label %35, label %32
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %35
 
 32:                                               ; preds = %23
   %33 = getelementptr inbounds i8, ptr %28, i64 32
@@ -605,15 +601,15 @@ get_template0_info.exit:                          ; preds = %55, %74
 
 .lr.ph.preheader.i:                               ; preds = %get_template0_info.exit
   %wide.trip.count.i = zext nneg i32 %95 to i64
-  br label %.lr.ph.i17
+  br label %.lr.ph.i16
 
-.lr.ph.i17:                                       ; preds = %.lr.ph.i17, %.lr.ph.preheader.i
-  %indvars.iv.i18 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i19, %.lr.ph.i17 ]
-  %100 = trunc i64 %indvars.iv.i18 to i32
+.lr.ph.i16:                                       ; preds = %.lr.ph.i16, %.lr.ph.preheader.i
+  %indvars.iv.i17 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i18, %.lr.ph.i16 ]
+  %100 = trunc i64 %indvars.iv.i17 to i32
   %101 = call ptr @PQgetvalue(ptr noundef %91, i32 noundef %100, i32 noundef %92) #8
   %102 = call i64 @strtoul(ptr nocapture noundef %101, ptr noundef null, i32 noundef 10) #8
   %103 = trunc i64 %102 to i32
-  %104 = getelementptr %struct.DbInfo, ptr %98, i64 %indvars.iv.i18
+  %104 = getelementptr %struct.DbInfo, ptr %98, i64 %indvars.iv.i17
   store i32 %103, ptr %104, align 8
   %105 = call ptr @PQgetvalue(ptr noundef %91, i32 noundef %100, i32 noundef %93) #8
   %106 = call ptr @pg_strdup(ptr noundef %105) #8
@@ -622,11 +618,11 @@ get_template0_info.exit:                          ; preds = %55, %74
   %108 = getelementptr inbounds i8, ptr %104, i64 16
   %109 = call ptr @PQgetvalue(ptr noundef %91, i32 noundef %100, i32 noundef %94) #8
   %110 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %108, i64 noundef 1024, ptr noundef nonnull @.str.26, ptr noundef %109) #8
-  %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i19, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %get_db_infos.exit, label %.lr.ph.i17, !llvm.loop !11
+  %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i18, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %get_db_infos.exit, label %.lr.ph.i16, !llvm.loop !11
 
-get_db_infos.exit:                                ; preds = %.lr.ph.i17, %get_template0_info.exit
+get_db_infos.exit:                                ; preds = %.lr.ph.i16, %get_template0_info.exit
   call void @PQclear(ptr noundef %91) #8
   call void @PQfinish(ptr noundef %79) #8
   store ptr %98, ptr %5, align 8
@@ -679,20 +675,20 @@ get_db_infos.exit:                                ; preds = %.lr.ph.i17, %get_te
   %147 = call i32 @PQfnumber(ptr noundef %136, ptr noundef nonnull @.str.40) #8
   %148 = call i32 @PQfnumber(ptr noundef %136, ptr noundef nonnull @.str.29) #8
   %149 = icmp sgt i32 %137, 0
-  br i1 %149, label %.lr.ph.i20, label %get_rel_infos.exit
+  br i1 %149, label %.lr.ph.i19, label %get_rel_infos.exit
 
-.lr.ph.i20:                                       ; preds = %114
+.lr.ph.i19:                                       ; preds = %114
   %150 = getelementptr inbounds i8, ptr %116, i64 16
-  %wide.trip.count.i21 = zext nneg i32 %137 to i64
+  %wide.trip.count.i20 = zext nneg i32 %137 to i64
   br label %151
 
-151:                                              ; preds = %197, %.lr.ph.i20
-  %indvars.iv.i22 = phi i64 [ 0, %.lr.ph.i20 ], [ %indvars.iv.next.i23, %197 ]
-  %.07381.i = phi ptr [ null, %.lr.ph.i20 ], [ %.1.i, %197 ]
-  %.07480.i = phi ptr [ null, %.lr.ph.i20 ], [ %.175.i, %197 ]
-  %indvars83.i = trunc i64 %indvars.iv.i22 to i32
-  %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i22, 1
-  %152 = getelementptr %struct.RelInfo, ptr %140, i64 %indvars.iv.i22
+151:                                              ; preds = %197, %.lr.ph.i19
+  %indvars.iv.i21 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i22, %197 ]
+  %.07381.i = phi ptr [ null, %.lr.ph.i19 ], [ %.1.i, %197 ]
+  %.07480.i = phi ptr [ null, %.lr.ph.i19 ], [ %.175.i, %197 ]
+  %indvars83.i = trunc i64 %indvars.iv.i21 to i32
+  %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
+  %152 = getelementptr %struct.RelInfo, ptr %140, i64 %indvars.iv.i21
   %153 = call ptr @PQgetvalue(ptr noundef %136, i32 noundef %indvars83.i, i32 noundef %141) #8
   %154 = call i64 @strtoul(ptr nocapture noundef %153, ptr noundef null, i32 noundef 10) #8
   %155 = trunc i64 %154 to i32
@@ -711,8 +707,8 @@ get_db_infos.exit:                                ; preds = %.lr.ph.i17, %get_te
   %165 = call ptr @PQgetvalue(ptr noundef %136, i32 noundef %indvars83.i, i32 noundef %144) #8
   %166 = getelementptr inbounds i8, ptr %152, i64 40
   store i8 0, ptr %166, align 8
-  %.not.i24 = icmp eq ptr %.07480.i, null
-  br i1 %.not.i24, label %171, label %167
+  %.not.i23 = icmp eq ptr %.07480.i, null
+  br i1 %.not.i23, label %171, label %167
 
 167:                                              ; preds = %151
   %168 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %165, ptr noundef nonnull dereferenceable(1) %.07480.i) #9
@@ -777,8 +773,8 @@ get_db_infos.exit:                                ; preds = %.lr.ph.i17, %get_te
 
 197:                                              ; preds = %195, %192, %190
   %.1.i = phi ptr [ %.07381.i, %190 ], [ %193, %192 ], [ %.07381.i, %195 ]
-  %exitcond.not.i25 = icmp eq i64 %indvars.iv.next.i23, %wide.trip.count.i21
-  br i1 %exitcond.not.i25, label %get_rel_infos.exit, label %151, !llvm.loop !12
+  %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i20
+  br i1 %exitcond.not.i24, label %get_rel_infos.exit, label %151, !llvm.loop !12
 
 get_rel_infos.exit:                               ; preds = %197, %114
   %.076.lcssa.i = phi i32 [ 0, %114 ], [ %137, %197 ]
@@ -799,8 +795,8 @@ get_rel_infos.exit:                               ; preds = %197, %114
   %204 = call ptr @connectToServer(ptr noundef nonnull @old_cluster, ptr noundef %203) #8
   %205 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %204, ptr noundef nonnull @.str.41, ptr noundef nonnull %113) #8
   %206 = call i32 @PQntuples(ptr noundef %205) #8
-  %.not.i26 = icmp eq i32 %206, 0
-  br i1 %.not.i26, label %get_old_cluster_logical_slot_infos.exit, label %207
+  %.not.i25 = icmp eq i32 %206, 0
+  br i1 %.not.i25, label %get_old_cluster_logical_slot_infos.exit, label %207
 
 207:                                              ; preds = %202
   %208 = sext i32 %206 to i64
@@ -813,16 +809,16 @@ get_rel_infos.exit:                               ; preds = %197, %114
   %215 = call i32 @PQfnumber(ptr noundef %205, ptr noundef nonnull @.str.48) #8
   %216 = call i32 @PQfnumber(ptr noundef %205, ptr noundef nonnull @.str.49) #8
   %217 = icmp sgt i32 %206, 0
-  br i1 %217, label %.lr.ph.preheader.i27, label %get_old_cluster_logical_slot_infos.exit
+  br i1 %217, label %.lr.ph.preheader.i26, label %get_old_cluster_logical_slot_infos.exit
 
-.lr.ph.preheader.i27:                             ; preds = %207
-  %wide.trip.count.i28 = zext nneg i32 %206 to i64
-  br label %.lr.ph.i29
+.lr.ph.preheader.i26:                             ; preds = %207
+  %wide.trip.count.i27 = zext nneg i32 %206 to i64
+  br label %.lr.ph.i28
 
-.lr.ph.i29:                                       ; preds = %.lr.ph.i29, %.lr.ph.preheader.i27
-  %indvars.iv.i30 = phi i64 [ 0, %.lr.ph.preheader.i27 ], [ %indvars.iv.next.i31, %.lr.ph.i29 ]
-  %218 = getelementptr %struct.LogicalSlotInfo, ptr %210, i64 %indvars.iv.i30
-  %219 = trunc i64 %indvars.iv.i30 to i32
+.lr.ph.i28:                                       ; preds = %.lr.ph.i28, %.lr.ph.preheader.i26
+  %indvars.iv.i29 = phi i64 [ 0, %.lr.ph.preheader.i26 ], [ %indvars.iv.next.i30, %.lr.ph.i28 ]
+  %218 = getelementptr %struct.LogicalSlotInfo, ptr %210, i64 %indvars.iv.i29
+  %219 = trunc i64 %indvars.iv.i29 to i32
   %220 = call ptr @PQgetvalue(ptr noundef %205, i32 noundef %219, i32 noundef %211) #8
   %221 = call ptr @pg_strdup(ptr noundef %220) #8
   store ptr %221, ptr %218, align 8
@@ -854,12 +850,12 @@ get_rel_infos.exit:                               ; preds = %197, %114
   %243 = getelementptr inbounds i8, ptr %218, i64 18
   %244 = zext i1 %242 to i8
   store i8 %244, ptr %243, align 2
-  %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
-  %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, %wide.trip.count.i28
-  br i1 %exitcond.not.i32, label %get_old_cluster_logical_slot_infos.exit, label %.lr.ph.i29, !llvm.loop !13
+  %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
+  %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i27
+  br i1 %exitcond.not.i31, label %get_old_cluster_logical_slot_infos.exit, label %.lr.ph.i28, !llvm.loop !13
 
-get_old_cluster_logical_slot_infos.exit:          ; preds = %.lr.ph.i29, %202, %207
-  %.0.i = phi ptr [ null, %202 ], [ %210, %207 ], [ %210, %.lr.ph.i29 ]
+get_old_cluster_logical_slot_infos.exit:          ; preds = %.lr.ph.i28, %202, %207
+  %.0.i = phi ptr [ null, %202 ], [ %210, %207 ], [ %210, %.lr.ph.i28 ]
   call void @PQclear(ptr noundef %205) #8
   call void @PQfinish(ptr noundef %204) #8
   %245 = getelementptr inbounds i8, ptr %116, i64 1056
@@ -895,19 +891,18 @@ get_db_subscription_count.exit:                   ; preds = %248, %get_old_clust
   %.str.3..str.4 = select i1 %259, ptr @.str.3, ptr @.str.4
   call void (i32, ptr, ...) @pg_log(i32 noundef 0, ptr noundef nonnull %.str.3..str.4) #8
   %260 = load i8, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i64 0, i32 1), align 8
-  %261 = and i8 %260, 1
-  %.not16 = icmp eq i8 %261, 0
-  br i1 %.not16, label %print_db_infos.exit, label %262
+  %261 = trunc i8 %260 to i1
+  br i1 %261, label %262, label %print_db_infos.exit
 
 262:                                              ; preds = %._crit_edge
   %263 = load i32, ptr %111, align 8
   %264 = icmp sgt i32 %263, 0
-  br i1 %264, label %.lr.ph.i33, label %print_db_infos.exit
+  br i1 %264, label %.lr.ph.i32, label %print_db_infos.exit
 
-.lr.ph.i33:                                       ; preds = %262, %print_slot_infos.exit.i
-  %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i35, %print_slot_infos.exit.i ], [ 0, %262 ]
+.lr.ph.i32:                                       ; preds = %262, %print_slot_infos.exit.i
+  %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i34, %print_slot_infos.exit.i ], [ 0, %262 ]
   %265 = load ptr, ptr %5, align 8
-  %266 = getelementptr %struct.DbInfo, ptr %265, i64 %indvars.iv.i34
+  %266 = getelementptr %struct.DbInfo, ptr %265, i64 %indvars.iv.i33
   %267 = getelementptr inbounds i8, ptr %266, i64 8
   %268 = load ptr, ptr %267, align 8
   call void (i32, ptr, ...) @pg_log(i32 noundef 0, ptr noundef nonnull @.str.52, ptr noundef %268) #8
@@ -915,12 +910,12 @@ get_db_subscription_count.exit:                   ; preds = %248, %get_old_clust
   %270 = getelementptr inbounds i8, ptr %266, i64 1048
   %271 = load i32, ptr %270, align 8
   %272 = icmp sgt i32 %271, 0
-  br i1 %272, label %.lr.ph.i.i37, label %print_rel_infos.exit.i
+  br i1 %272, label %.lr.ph.i.i35, label %print_rel_infos.exit.i
 
-.lr.ph.i.i37:                                     ; preds = %.lr.ph.i33, %.lr.ph.i.i37
-  %indvars.iv.i.i38 = phi i64 [ %indvars.iv.next.i.i39, %.lr.ph.i.i37 ], [ 0, %.lr.ph.i33 ]
+.lr.ph.i.i35:                                     ; preds = %.lr.ph.i32, %.lr.ph.i.i35
+  %indvars.iv.i.i36 = phi i64 [ %indvars.iv.next.i.i37, %.lr.ph.i.i35 ], [ 0, %.lr.ph.i32 ]
   %273 = load ptr, ptr %269, align 8
-  %274 = getelementptr %struct.RelInfo, ptr %273, i64 %indvars.iv.i.i38
+  %274 = getelementptr %struct.RelInfo, ptr %273, i64 %indvars.iv.i.i36
   %275 = load ptr, ptr %274, align 8
   %276 = getelementptr inbounds i8, ptr %274, i64 8
   %277 = load ptr, ptr %276, align 8
@@ -929,13 +924,13 @@ get_db_subscription_count.exit:                   ; preds = %248, %get_old_clust
   %280 = getelementptr inbounds i8, ptr %274, i64 32
   %281 = load ptr, ptr %280, align 8
   call void (i32, ptr, ...) @pg_log(i32 noundef 0, ptr noundef nonnull @.str.53, ptr noundef %275, ptr noundef %277, i32 noundef %279, ptr noundef %281) #8
-  %indvars.iv.next.i.i39 = add nuw nsw i64 %indvars.iv.i.i38, 1
+  %indvars.iv.next.i.i37 = add nuw nsw i64 %indvars.iv.i.i36, 1
   %282 = load i32, ptr %270, align 8
   %283 = sext i32 %282 to i64
-  %284 = icmp slt i64 %indvars.iv.next.i.i39, %283
-  br i1 %284, label %.lr.ph.i.i37, label %print_rel_infos.exit.i, !llvm.loop !15
+  %284 = icmp slt i64 %indvars.iv.next.i.i37, %283
+  br i1 %284, label %.lr.ph.i.i35, label %print_rel_infos.exit.i, !llvm.loop !15
 
-print_rel_infos.exit.i:                           ; preds = %.lr.ph.i.i37, %.lr.ph.i33
+print_rel_infos.exit.i:                           ; preds = %.lr.ph.i.i35, %.lr.ph.i32
   %285 = getelementptr inbounds i8, ptr %266, i64 1056
   %286 = load i32, ptr %285, align 8
   %287 = icmp eq i32 %286, 0
@@ -960,9 +955,8 @@ print_rel_infos.exit.i:                           ; preds = %.lr.ph.i.i37, %.lr.
   %297 = load ptr, ptr %296, align 8
   %298 = getelementptr inbounds i8, ptr %294, i64 16
   %299 = load i8, ptr %298, align 8
-  %300 = and i8 %299, 1
-  %.not.i.i36 = icmp eq i8 %300, 0
-  %301 = select i1 %.not.i.i36, ptr @.str.57, ptr @.str.56
+  %300 = trunc i8 %299 to i1
+  %301 = select i1 %300, ptr @.str.56, ptr @.str.57
   call void (i32, ptr, ...) @pg_log(i32 noundef 0, ptr noundef nonnull @.str.55, ptr noundef %295, ptr noundef %297, ptr noundef nonnull %301) #8
   %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i8.i, 1
   %302 = load i32, ptr %285, align 8
@@ -971,11 +965,11 @@ print_rel_infos.exit.i:                           ; preds = %.lr.ph.i.i37, %.lr.
   br i1 %304, label %292, label %print_slot_infos.exit.i, !llvm.loop !16
 
 print_slot_infos.exit.i:                          ; preds = %292, %288, %print_rel_infos.exit.i
-  %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
+  %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %305 = load i32, ptr %111, align 8
   %306 = sext i32 %305 to i64
-  %307 = icmp slt i64 %indvars.iv.next.i35, %306
-  br i1 %307, label %.lr.ph.i33, label %print_db_infos.exit, !llvm.loop !17
+  %307 = icmp slt i64 %indvars.iv.next.i34, %306
+  br i1 %307, label %.lr.ph.i32, label %print_db_infos.exit, !llvm.loop !17
 
 print_db_infos.exit:                              ; preds = %print_slot_infos.exit.i, %262, %._crit_edge
   ret void

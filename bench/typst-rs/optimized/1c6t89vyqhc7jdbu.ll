@@ -20,119 +20,119 @@ define void @_ZN12typst_timing8Recorder3new17h3940f356cbe7d6c7E(ptr noalias noca
 define void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias nocapture noundef writeonly sret({ ptr, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = load i8, ptr @_ZN12typst_timing7ENABLED17h0f4108ab70122e5dE, align 1, !range !4, !noundef !5
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %4
+8:                                                ; preds = %4
   store ptr null, ptr %0, align 8
   br label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit6"
 
-8:                                                ; preds = %4
-  %9 = tail call { i64, i32 } @_ZN3std4time10SystemTime3now17h7abd419117abb24dE()
-  %10 = extractvalue { i64, i32 } %9, 0
-  %11 = extractvalue { i64, i32 } %9, 1
+9:                                                ; preds = %4
+  %10 = tail call { i64, i32 } @_ZN3std4time10SystemTime3now17h7abd419117abb24dE()
+  %11 = extractvalue { i64, i32 } %10, 0
+  %12 = extractvalue { i64, i32 } %10, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %12 = tail call noundef nonnull ptr @_ZN3std6thread7current17h580cbb69a134ac8aE()
-  store ptr %12, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
-  %14 = load i64, ptr %13, align 8, !range !6, !noundef !5
-  %15 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !7
-  %16 = icmp eq i64 %15, 1
-  br i1 %16, label %17, label %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hde273738ae2a6ee0E.exit"
+  %13 = tail call noundef nonnull ptr @_ZN3std6thread7current17h580cbb69a134ac8aE()
+  store ptr %13, ptr %5, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = load i64, ptr %14, align 8, !range !6, !noundef !5
+  %16 = atomicrmw sub ptr %13, i64 1 release, align 8, !noalias !7
+  %17 = icmp eq i64 %16, 1
+  br i1 %17, label %18, label %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hde273738ae2a6ee0E.exit"
 
-17:                                               ; preds = %8
+18:                                               ; preds = %9
   tail call void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.7582899215610987004(i8 noundef 2), !noalias !7
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3f52a86abd221b0fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   br label %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hde273738ae2a6ee0E.exit"
 
-"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hde273738ae2a6ee0E.exit": ; preds = %8, %17
+"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hde273738ae2a6ee0E.exit": ; preds = %9, %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %18 = cmpxchg weak ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 0, i8 1 acquire monotonic, align 1
-  %19 = extractvalue { i8, i1 } %18, 1
-  br i1 %19, label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit", label %20
+  %19 = cmpxchg weak ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 0, i8 1 acquire monotonic, align 1
+  %20 = extractvalue { i8, i1 } %19, 1
+  br i1 %20, label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit", label %21
 
-20:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hde273738ae2a6ee0E.exit"
-  %21 = call noundef zeroext i1 @_ZN11parking_lot9raw_mutex8RawMutex9lock_slow17hab3c003b90560b92E(ptr noundef nonnull align 1 @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 undef, i32 noundef 1000000000)
+21:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hde273738ae2a6ee0E.exit"
+  %22 = call noundef zeroext i1 @_ZN11parking_lot9raw_mutex8RawMutex9lock_slow17hab3c003b90560b92E(ptr noundef nonnull align 1 @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 undef, i32 noundef 1000000000)
   br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
 
-"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit": ; preds = %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hde273738ae2a6ee0E.exit", %20
-  %22 = load i64, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 24), align 8, !noundef !5
-  %23 = add i64 %22, 1
-  store i64 %23, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 24), align 8
-  %24 = load i64, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 16), align 8, !alias.scope !16, !noalias !19, !noundef !5
-  %25 = load i64, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 0), align 8, !alias.scope !16, !noalias !19, !noundef !5
-  %26 = icmp eq i64 %24, %25
-  br i1 %26, label %27, label %33
+"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit": ; preds = %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hde273738ae2a6ee0E.exit", %21
+  %23 = load i64, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 24), align 8, !noundef !5
+  %24 = add i64 %23, 1
+  store i64 %24, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 24), align 8
+  %25 = load i64, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 16), align 8, !alias.scope !16, !noalias !19, !noundef !5
+  %26 = load i64, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 0), align 8, !alias.scope !16, !noalias !19, !noundef !5
+  %27 = icmp eq i64 %25, %26
+  br i1 %27, label %28, label %34
 
-27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb25d327088fa66b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 0), i64 noundef %24)
-          to label %.noexc unwind label %28
+28:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb25d327088fa66b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 0), i64 noundef %25)
+          to label %.noexc unwind label %29
 
-.noexc:                                           ; preds = %27
+.noexc:                                           ; preds = %28
   %.pre.i = load i64, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 16), align 8, !alias.scope !16, !noalias !19
-  br label %33
+  br label %34
 
-"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit6": ; preds = %41, %33, %7
+"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit6": ; preds = %42, %34, %8
   ret void
 
-28:                                               ; preds = %27
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %28
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = cmpxchg ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 1, i8 0 release monotonic, align 1
-  %31 = extractvalue { i8, i1 } %30, 1
-  br i1 %31, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit", label %32
+  %31 = cmpxchg ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 1, i8 0 release monotonic, align 1
+  %32 = extractvalue { i8, i1 } %31, 1
+  br i1 %32, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit", label %33
 
-32:                                               ; preds = %28
+33:                                               ; preds = %29
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h8341eb7c85773489E(ptr noundef nonnull align 1 @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit" unwind label %42
+          to label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit" unwind label %43
 
-33:                                               ; preds = %.noexc, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
-  %34 = phi i64 [ %.pre.i, %.noexc ], [ %24, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit" ]
-  %35 = load ptr, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 8), align 8, !alias.scope !16, !noalias !19, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds { { { { i64, i32, [1 x i32] } } }, { ptr, i64 }, i64, i64, i64, i8, [7 x i8] }, ptr %35, i64 %34
-  store i64 %10, ptr %36, align 8
-  %.sroa.4.0..sroa_idx7 = getelementptr inbounds i8, ptr %36, i64 8
-  store i32 %11, ptr %.sroa.4.0..sroa_idx7, align 8
-  %.sroa.59.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 16
+34:                                               ; preds = %.noexc, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
+  %35 = phi i64 [ %.pre.i, %.noexc ], [ %25, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit" ]
+  %36 = load ptr, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 8), align 8, !alias.scope !16, !noalias !19, !nonnull !5, !noundef !5
+  %37 = getelementptr inbounds { { { { i64, i32, [1 x i32] } } }, { ptr, i64 }, i64, i64, i64, i8, [7 x i8] }, ptr %36, i64 %35
+  store i64 %11, ptr %37, align 8
+  %.sroa.4.0..sroa_idx7 = getelementptr inbounds i8, ptr %37, i64 8
+  store i32 %12, ptr %.sroa.4.0..sroa_idx7, align 8
+  %.sroa.59.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 16
   store ptr %1, ptr %.sroa.59.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx10 = getelementptr inbounds i8, ptr %36, i64 24
+  %.sroa.6.0..sroa_idx10 = getelementptr inbounds i8, ptr %37, i64 24
   store i64 %2, ptr %.sroa.6.0..sroa_idx10, align 8
-  %.sroa.7.0..sroa_idx11 = getelementptr inbounds i8, ptr %36, i64 32
-  store i64 %14, ptr %.sroa.7.0..sroa_idx11, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 40
-  store i64 %22, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 48
+  %.sroa.7.0..sroa_idx11 = getelementptr inbounds i8, ptr %37, i64 32
+  store i64 %15, ptr %.sroa.7.0..sroa_idx11, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 40
+  store i64 %23, ptr %.sroa.8.0..sroa_idx, align 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 48
   store i64 %3, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 56
+  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 56
   store i8 0, ptr %.sroa.10.0..sroa_idx, align 8
-  %37 = load i64, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 16), align 8, !alias.scope !16, !noalias !19, !noundef !5
-  %38 = add i64 %37, 1
-  store i64 %38, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 16), align 8, !alias.scope !16, !noalias !19
+  %38 = load i64, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 16), align 8, !alias.scope !16, !noalias !19, !noundef !5
+  %39 = add i64 %38, 1
+  store i64 %39, ptr getelementptr inbounds (<{ [1 x i8], [7 x i8], [32 x i8] }>, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 0, i32 2, i64 16), align 8, !alias.scope !16, !noalias !19
   store ptr %1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %14, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %15, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %3, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %22, ptr %.sroa.7.0..sroa_idx, align 8
-  %39 = cmpxchg ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 1, i8 0 release monotonic, align 1
-  %40 = extractvalue { i8, i1 } %39, 1
-  br i1 %40, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit6", label %41
+  store i64 %23, ptr %.sroa.7.0..sroa_idx, align 8
+  %40 = cmpxchg ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 1, i8 0 release monotonic, align 1
+  %41 = extractvalue { i8, i1 } %40, 1
+  br i1 %41, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit6", label %42
 
-41:                                               ; preds = %33
+42:                                               ; preds = %34
   call void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h8341eb7c85773489E(ptr noundef nonnull align 1 @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i1 noundef zeroext false)
   br label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit6"
 
-42:                                               ; preds = %32
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %33
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #7
   unreachable
 
-"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit": ; preds = %28, %32
-  resume { ptr, i32 } %29
+"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit": ; preds = %29, %33
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -1942,9 +1942,8 @@ _ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE21current_x_is_fea
 land.lhs.true:                                    ; preds = %_ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE21current_x_is_feasibleEv.exit
   %m_look_for_feasible_solution_only = getelementptr inbounds i8, ptr %this, i64 544
   %3 = load i8, ptr %m_look_for_feasible_solution_only, align 8
-  %4 = and i8 %3, 1
-  %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %tobool = trunc i8 %3 to i1
+  br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   %m_status.i = getelementptr inbounds i8, ptr %this, i64 376
@@ -1953,16 +1952,15 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %entry, %land.lhs.true, %_ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE21current_x_is_feasibleEv.exit
   %m_settings = getelementptr inbounds i8, ptr %this, i64 464
-  %5 = load ptr, ptr %m_settings, align 8
-  %m_need_to_solve_inf = getelementptr inbounds i8, ptr %5, i64 84
-  %6 = load i32, ptr %m_need_to_solve_inf, align 4
-  %inc = add i32 %6, 1
+  %4 = load ptr, ptr %m_settings, align 8
+  %m_need_to_solve_inf = getelementptr inbounds i8, ptr %4, i64 84
+  %5 = load i32, ptr %m_need_to_solve_inf, align 4
+  %inc = add i32 %5, 1
   store i32 %inc, ptr %m_need_to_solve_inf, align 4
   %m_look_for_feasible_solution_only7 = getelementptr inbounds i8, ptr %this, i64 544
-  %7 = load i8, ptr %m_look_for_feasible_solution_only7, align 8
-  %8 = and i8 %7, 1
-  %tobool8.not = icmp eq i8 %8, 0
-  br i1 %tobool8.not, label %if.else, label %if.then9
+  %6 = load i8, ptr %m_look_for_feasible_solution_only7, align 8
+  %tobool8 = trunc i8 %6 to i1
+  br i1 %tobool8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end
   tail call void @_ZN2lp21lp_primal_core_solverI8rationalNS_12numeric_pairIS1_EEE22find_feasible_solutionEv(ptr noundef nonnull align 8 dereferenceable(272) %m_r_solver)
@@ -1974,8 +1972,8 @@ if.else:                                          ; preds = %if.end
 
 if.end13:                                         ; preds = %if.else, %if.then9
   %m_status.i1 = getelementptr inbounds i8, ptr %this, i64 376
-  %9 = load i32, ptr %m_status.i1, align 8
-  switch i32 %9, label %sw.default [
+  %7 = load i32, ptr %m_status.i1, align 8
+  switch i32 %7, label %sw.default [
     i32 1, label %sw.bb
     i32 11, label %sw.epilog
     i32 3, label %sw.epilog

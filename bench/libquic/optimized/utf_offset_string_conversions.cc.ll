@@ -607,11 +607,11 @@ for.body.us.preheader:                            ; preds = %if.end.thread, %for
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.body.us
-  %success.016.us = phi i8 [ %success.1.us, %for.body.us ], [ 1, %for.body.us.preheader ]
+  %success.016.us = phi i1 [ %success.1.us, %for.body.us ], [ true, %for.body.us.preheader ]
   %call.us = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKciPiPj(ptr noundef %src, i32 noundef %conv2226, ptr noundef nonnull %i, ptr noundef nonnull %code_point)
   %2 = load i32, ptr %code_point, align 4
   %.sink = select i1 %call.us, i32 %2, i32 65533
-  %success.1.us = select i1 %call.us, i8 %success.016.us, i8 0
+  %success.1.us = select i1 %call.us, i1 %success.016.us, i1 false
   %call3.us = call noundef i64 @_ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(i32 noundef %.sink, ptr noundef %output)
   %3 = load i32, ptr %i, align 4
   %inc.us = add nsw i32 %3, 1
@@ -620,13 +620,13 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !20
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %success.016 = phi i8 [ %success.1, %for.inc ], [ 1, %for.body.lr.ph ]
+  %success.016 = phi i1 [ %success.1, %for.inc ], [ true, %for.body.lr.ph ]
   %storemerge15 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
   %conv1 = sext i32 %storemerge15 to i64
   %call = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKciPiPj(ptr noundef %src, i32 noundef %conv, ptr noundef nonnull %i, ptr noundef nonnull %code_point)
   %4 = load i32, ptr %code_point, align 4
   %.sink29 = select i1 %call, i32 %4, i32 65533
-  %success.1 = select i1 %call, i8 %success.016, i8 0
+  %success.1 = select i1 %call, i1 %success.016, i1 false
   %call4 = call noundef i64 @_ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(i32 noundef %.sink29, ptr noundef %output)
   %5 = load i32, ptr %i, align 4
   %conv7 = sext i32 %5 to i64
@@ -726,10 +726,8 @@ for.inc:                                          ; preds = %_ZNSt6vectorIN4base
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !20
 
 for.end:                                          ; preds = %for.inc, %for.body.us, %if.end.thread, %if.end
-  %success.0.lcssa = phi i8 [ 1, %if.end ], [ 1, %if.end.thread ], [ %success.1.us, %for.body.us ], [ %success.1, %for.inc ]
-  %12 = and i8 %success.0.lcssa, 1
-  %tobool14 = icmp ne i8 %12, 0
-  ret i1 %tobool14
+  %success.0.lcssa = phi i1 [ true, %if.end ], [ true, %if.end.thread ], [ %success.1.us, %for.body.us ], [ %success.1, %for.inc ]
+  ret i1 %success.0.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1131,11 +1129,11 @@ for.body.us.preheader:                            ; preds = %if.end.thread, %for
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.body.us
-  %success.016.us = phi i8 [ %success.1.us, %for.body.us ], [ 1, %for.body.us.preheader ]
+  %success.016.us = phi i1 [ %success.1.us, %for.body.us ], [ true, %for.body.us.preheader ]
   %call.us = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef %src, i32 noundef %conv2226, ptr noundef nonnull %i, ptr noundef nonnull %code_point)
   %2 = load i32, ptr %code_point, align 4
   %.sink = select i1 %call.us, i32 %2, i32 65533
-  %success.1.us = select i1 %call.us, i8 %success.016.us, i8 0
+  %success.1.us = select i1 %call.us, i1 %success.016.us, i1 false
   %call3.us = call noundef i64 @_ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %.sink, ptr noundef %output)
   %3 = load i32, ptr %i, align 4
   %inc.us = add nsw i32 %3, 1
@@ -1144,13 +1142,13 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !27
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %success.016 = phi i8 [ %success.1, %for.inc ], [ 1, %for.body.lr.ph ]
+  %success.016 = phi i1 [ %success.1, %for.inc ], [ true, %for.body.lr.ph ]
   %storemerge15 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
   %conv1 = sext i32 %storemerge15 to i64
   %call = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef %src, i32 noundef %conv, ptr noundef nonnull %i, ptr noundef nonnull %code_point)
   %4 = load i32, ptr %code_point, align 4
   %.sink29 = select i1 %call, i32 %4, i32 65533
-  %success.1 = select i1 %call, i8 %success.016, i8 0
+  %success.1 = select i1 %call, i1 %success.016, i1 false
   %call4 = call noundef i64 @_ZN4base21WriteUnicodeCharacterEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %.sink29, ptr noundef %output)
   %5 = load i32, ptr %i, align 4
   %conv7 = sext i32 %5 to i64
@@ -1250,10 +1248,8 @@ for.inc:                                          ; preds = %_ZNSt6vectorIN4base
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !27
 
 for.end:                                          ; preds = %for.inc, %for.body.us, %if.end.thread, %if.end
-  %success.0.lcssa = phi i8 [ 1, %if.end ], [ 1, %if.end.thread ], [ %success.1.us, %for.body.us ], [ %success.1, %for.inc ]
-  %12 = and i8 %success.0.lcssa, 1
-  %tobool14 = icmp ne i8 %12, 0
-  ret i1 %tobool14
+  %success.0.lcssa = phi i1 [ true, %if.end ], [ true, %if.end.thread ], [ %success.1.us, %for.body.us ], [ %success.1, %for.inc ]
+  ret i1 %success.0.lcssa
 }
 
 ; Function Attrs: nounwind

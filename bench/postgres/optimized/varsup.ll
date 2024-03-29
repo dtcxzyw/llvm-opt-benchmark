@@ -44,9 +44,8 @@ define dso_local void @VarsupShmemInit() local_unnamed_addr #1 {
   %2 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef 72, ptr noundef nonnull %1) #7
   store ptr %2, ptr @TransamVariables, align 8
   %3 = load i8, ptr @IsUnderPostmaster, align 1
-  %4 = and i8 %3, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %6
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %6, label %5
 
 5:                                                ; preds = %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
@@ -90,7 +89,7 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
   %17 = sext i32 %16 to i64
   %18 = getelementptr i32, ptr %14, i64 %17
   store i32 1, ptr %18, align 4
-  br label %131
+  br label %133
 
 19:                                               ; preds = %6
   %20 = tail call zeroext i1 @RecoveryInProgress() #7
@@ -130,169 +129,167 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
   %45 = getelementptr i8, ptr %44, i64 384
   tail call void @LWLockRelease(ptr noundef %45) #7
   %46 = load i8, ptr @IsUnderPostmaster, align 1
-  %47 = and i8 %46, 1
-  %.not = icmp ne i8 %47, 0
+  %47 = trunc i8 %46 to i1
   %48 = and i32 %30, 65535
   %49 = icmp eq i32 %48, 0
-  %or.cond = and i1 %49, %.not
+  %or.cond = and i1 %49, %47
   br i1 %or.cond, label %50, label %51
 
 50:                                               ; preds = %34
   tail call void @SendPostmasterSignal(i32 noundef 3) #7
   %.pre = load i8, ptr @IsUnderPostmaster, align 1
-  %.pre40 = and i8 %.pre, 1
   br label %51
 
 51:                                               ; preds = %50, %34
-  %.pre-phi = phi i8 [ %.pre40, %50 ], [ %47, %34 ]
-  %.not36 = icmp eq i8 %.pre-phi, 0
-  br i1 %.not36, label %64, label %52
+  %52 = phi i8 [ %.pre, %50 ], [ %46, %34 ]
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %66
 
-52:                                               ; preds = %51
-  %53 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %30, i32 noundef %39) #7
-  br i1 %53, label %54, label %64
+54:                                               ; preds = %51
+  %55 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %30, i32 noundef %39) #7
+  br i1 %55, label %56, label %66
 
-54:                                               ; preds = %52
-  %55 = tail call ptr @get_database_name(i32 noundef %43) #7
-  %.not38 = icmp eq ptr %55, null
-  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %56)
-  %57 = tail call i32 @errcode(i32 noundef 261) #7
-  br i1 %.not38, label %61, label %58
+56:                                               ; preds = %54
+  %57 = tail call ptr @get_database_name(i32 noundef %43) #7
+  %.not36 = icmp eq ptr %57, null
+  %58 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %58)
+  %59 = tail call i32 @errcode(i32 noundef 261) #7
+  br i1 %.not36, label %63, label %60
 
-58:                                               ; preds = %54
-  %59 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %55) #7
-  %60 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #7
+60:                                               ; preds = %56
+  %61 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %57) #7
+  %62 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #7
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 159, ptr noundef nonnull @__func__.GetNewTransactionId) #7
   unreachable
 
-61:                                               ; preds = %54
-  %62 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %43) #7
-  %63 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #7
+63:                                               ; preds = %56
+  %64 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %43) #7
+  %65 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #7
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 166, ptr noundef nonnull @__func__.GetNewTransactionId) #7
   unreachable
 
-64:                                               ; preds = %52, %51
-  %65 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %30, i32 noundef %37) #7
-  br i1 %65, label %66, label %78
+66:                                               ; preds = %54, %51
+  %67 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %30, i32 noundef %37) #7
+  br i1 %67, label %68, label %80
 
-66:                                               ; preds = %64
-  %67 = tail call ptr @get_database_name(i32 noundef %43) #7
-  %.not37 = icmp eq ptr %67, null
-  %68 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #7
-  br i1 %.not37, label %73, label %69
+68:                                               ; preds = %66
+  %69 = tail call ptr @get_database_name(i32 noundef %43) #7
+  %.not = icmp eq ptr %69, null
+  %70 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #7
+  br i1 %.not, label %75, label %71
 
-69:                                               ; preds = %66
-  br i1 %68, label %70, label %78
+71:                                               ; preds = %68
+  br i1 %70, label %72, label %80
 
-70:                                               ; preds = %69
-  %71 = sub i32 %41, %30
-  %72 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %67, i32 noundef %71) #7
+72:                                               ; preds = %71
+  %73 = sub i32 %41, %30
+  %74 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %69, i32 noundef %73) #7
   br label %.sink.split
 
-73:                                               ; preds = %66
-  br i1 %68, label %74, label %78
+75:                                               ; preds = %68
+  br i1 %70, label %76, label %80
 
-74:                                               ; preds = %73
-  %75 = sub i32 %41, %30
-  %76 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %43, i32 noundef %75) #7
+76:                                               ; preds = %75
+  %77 = sub i32 %41, %30
+  %78 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %43, i32 noundef %77) #7
   br label %.sink.split
 
-.sink.split:                                      ; preds = %70, %74
-  %.sink = phi i32 [ 186, %74 ], [ 179, %70 ]
-  %77 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.8) #7
+.sink.split:                                      ; preds = %72, %76
+  %.sink = phi i32 [ 186, %76 ], [ 179, %72 ]
+  %79 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.8) #7
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.GetNewTransactionId) #7
-  br label %78
+  br label %80
 
-78:                                               ; preds = %.sink.split, %64, %73, %69
-  %79 = load ptr, ptr @MainLWLockArray, align 8
-  %80 = getelementptr i8, ptr %79, i64 384
-  %81 = tail call zeroext i1 @LWLockAcquire(ptr noundef %80, i32 noundef 0) #7
-  %82 = load ptr, ptr @TransamVariables, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
-  %.sroa.0.0.copyload28 = load i64, ptr %83, align 8
-  %84 = trunc i64 %.sroa.0.0.copyload28 to i32
+80:                                               ; preds = %.sink.split, %66, %75, %71
+  %81 = load ptr, ptr @MainLWLockArray, align 8
+  %82 = getelementptr i8, ptr %81, i64 384
+  %83 = tail call zeroext i1 @LWLockAcquire(ptr noundef %82, i32 noundef 0) #7
+  %84 = load ptr, ptr @TransamVariables, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 8
+  %.sroa.0.0.copyload28 = load i64, ptr %85, align 8
+  %86 = trunc i64 %.sroa.0.0.copyload28 to i32
   br label %FullTransactionIdAdvance.exit
 
-FullTransactionIdAdvance.exit:                    ; preds = %78, %24
-  %.0 = phi i32 [ %84, %78 ], [ %30, %24 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload28, %78 ], [ %.sroa.0.0.copyload, %24 ]
+FullTransactionIdAdvance.exit:                    ; preds = %80, %24
+  %.0 = phi i32 [ %86, %80 ], [ %30, %24 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload28, %80 ], [ %.sroa.0.0.copyload, %24 ]
   tail call void @ExtendCLOG(i32 noundef %.0) #7
   tail call void @ExtendCommitTs(i32 noundef %.0) #7
   tail call void @ExtendSUBTRANS(i32 noundef %.0) #7
-  %85 = load ptr, ptr @TransamVariables, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
-  %87 = load i64, ptr %86, align 8
-  %88 = add i64 %87, 1
-  %89 = icmp ugt i64 %88, 2
-  %90 = trunc i64 %88 to i32
-  %91 = icmp ult i32 %90, 3
-  %or.cond.i = and i1 %89, %91
-  %92 = sub i64 1, %87
-  %93 = and i64 %92, 4294967295
-  %94 = add i64 %87, 2
-  %95 = add i64 %94, %93
-  %storemerge.i = select i1 %or.cond.i, i64 %95, i64 %88
-  store i64 %storemerge.i, ptr %86, align 8
-  br i1 %0, label %106, label %96
+  %87 = load ptr, ptr @TransamVariables, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %89 = load i64, ptr %88, align 8
+  %90 = add i64 %89, 1
+  %91 = icmp ugt i64 %90, 2
+  %92 = trunc i64 %90 to i32
+  %93 = icmp ult i32 %92, 3
+  %or.cond.i = and i1 %91, %93
+  %94 = sub i64 1, %89
+  %95 = and i64 %94, 4294967295
+  %96 = add i64 %89, 2
+  %97 = add i64 %96, %95
+  %storemerge.i = select i1 %or.cond.i, i64 %97, i64 %90
+  store i64 %storemerge.i, ptr %88, align 8
+  br i1 %0, label %108, label %98
 
-96:                                               ; preds = %FullTransactionIdAdvance.exit
-  %97 = load ptr, ptr @MyProc, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 52
-  store i32 %.0, ptr %98, align 4
-  %99 = load ptr, ptr @ProcGlobal, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 8
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %97, i64 64
-  %103 = load i32, ptr %102, align 8
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr i32, ptr %101, i64 %104
-  store i32 %.0, ptr %105, align 4
-  br label %128
+98:                                               ; preds = %FullTransactionIdAdvance.exit
+  %99 = load ptr, ptr @MyProc, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 52
+  store i32 %.0, ptr %100, align 4
+  %101 = load ptr, ptr @ProcGlobal, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %99, i64 64
+  %105 = load i32, ptr %104, align 8
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr i32, ptr %103, i64 %106
+  store i32 %.0, ptr %107, align 4
+  br label %130
 
-106:                                              ; preds = %FullTransactionIdAdvance.exit
-  %107 = load ptr, ptr @ProcGlobal, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
-  %109 = load ptr, ptr %108, align 8
-  %110 = load ptr, ptr @MyProc, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 64
-  %112 = load i32, ptr %111, align 8
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr %struct.XidCacheStatus, ptr %109, i64 %113
-  %115 = getelementptr inbounds i8, ptr %110, i64 440
-  %116 = load i8, ptr %115, align 8
-  %117 = icmp ult i8 %116, 64
-  br i1 %117, label %118, label %124
+108:                                              ; preds = %FullTransactionIdAdvance.exit
+  %109 = load ptr, ptr @ProcGlobal, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 16
+  %111 = load ptr, ptr %110, align 8
+  %112 = load ptr, ptr @MyProc, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 64
+  %114 = load i32, ptr %113, align 8
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr %struct.XidCacheStatus, ptr %111, i64 %115
+  %117 = getelementptr inbounds i8, ptr %112, i64 440
+  %118 = load i8, ptr %117, align 8
+  %119 = icmp ult i8 %118, 64
+  br i1 %119, label %120, label %126
 
-118:                                              ; preds = %106
-  %119 = getelementptr inbounds i8, ptr %110, i64 444
-  %120 = zext nneg i8 %116 to i64
-  %121 = getelementptr [64 x i32], ptr %119, i64 0, i64 %120
-  store i32 %.0, ptr %121, align 4
+120:                                              ; preds = %108
+  %121 = getelementptr inbounds i8, ptr %112, i64 444
+  %122 = zext nneg i8 %118 to i64
+  %123 = getelementptr [64 x i32], ptr %121, i64 0, i64 %122
+  store i32 %.0, ptr %123, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !5
-  %narrow = add nuw nsw i8 %116, 1
-  store i8 %narrow, ptr %114, align 1
-  %122 = load ptr, ptr @MyProc, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 440
-  store i8 %narrow, ptr %123, align 8
-  br label %128
+  %narrow = add nuw nsw i8 %118, 1
+  store i8 %narrow, ptr %116, align 1
+  %124 = load ptr, ptr @MyProc, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 440
+  store i8 %narrow, ptr %125, align 8
+  br label %130
 
-124:                                              ; preds = %106
-  %125 = getelementptr inbounds i8, ptr %114, i64 1
-  store i8 1, ptr %125, align 1
-  %126 = load ptr, ptr @MyProc, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 441
+126:                                              ; preds = %108
+  %127 = getelementptr inbounds i8, ptr %116, i64 1
   store i8 1, ptr %127, align 1
-  br label %128
+  %128 = load ptr, ptr @MyProc, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 441
+  store i8 1, ptr %129, align 1
+  br label %130
 
-128:                                              ; preds = %118, %124, %96
-  %129 = load ptr, ptr @MainLWLockArray, align 8
-  %130 = getelementptr i8, ptr %129, i64 384
-  tail call void @LWLockRelease(ptr noundef %130) #7
-  br label %131
+130:                                              ; preds = %120, %126, %98
+  %131 = load ptr, ptr @MainLWLockArray, align 8
+  %132 = getelementptr i8, ptr %131, i64 384
+  tail call void @LWLockRelease(ptr noundef %132) #7
+  br label %133
 
-131:                                              ; preds = %128, %9
-  %.sroa.032.0 = phi i64 [ 1, %9 ], [ %.sroa.0.0, %128 ]
+133:                                              ; preds = %130, %9
+  %.sroa.032.0 = phi i64 [ 1, %9 ], [ %.sroa.0.0, %130 ]
   ret i64 %.sroa.032.0
 }
 
@@ -462,15 +459,13 @@ define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) loc
 
 36:                                               ; preds = %34
   %37 = load i8, ptr @IsUnderPostmaster, align 1
-  %38 = and i8 %37, 1
-  %.not = icmp eq i8 %38, 0
-  br i1 %.not, label %43, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %43
 
 39:                                               ; preds = %36
   %40 = load i8, ptr @InRecovery, align 1
-  %41 = and i8 %40, 1
-  %.not42 = icmp eq i8 %41, 0
-  br i1 %.not42, label %42, label %43
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %43, label %42
 
 42:                                               ; preds = %39
   tail call void @SendPostmasterSignal(i32 noundef 3) #7
@@ -482,9 +477,8 @@ define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) loc
 
 45:                                               ; preds = %43
   %46 = load i8, ptr @InRecovery, align 1
-  %47 = and i8 %46, 1
-  %.not43 = icmp eq i8 %47, 0
-  br i1 %.not43, label %48, label %62
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %62, label %48
 
 48:                                               ; preds = %45
   %49 = tail call zeroext i1 @IsTransactionState() #7
@@ -492,8 +486,8 @@ define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) loc
 
 50:                                               ; preds = %48
   %51 = tail call ptr @get_database_name(i32 noundef %1) #7
-  %.not44 = icmp eq ptr %51, null
-  br i1 %.not44, label %.thread, label %52
+  %.not = icmp eq ptr %51, null
+  br i1 %.not, label %.thread, label %52
 
 52:                                               ; preds = %50
   %53 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #7
@@ -588,10 +582,9 @@ define dso_local i32 @GetNewObjectId() local_unnamed_addr #1 {
 
 12:                                               ; preds = %5
   %13 = load i8, ptr @IsPostmasterEnvironment, align 1
-  %14 = and i8 %13, 1
-  %.not = icmp ne i8 %14, 0
+  %14 = trunc i8 %13 to i1
   %15 = icmp ult i32 %10, 10000
-  %or.cond = or i1 %.not, %15
+  %or.cond = or i1 %15, %14
   br i1 %or.cond, label %.sink.split, label %18
 
 .sink.split:                                      ; preds = %12
@@ -639,9 +632,8 @@ declare void @XLogPutNextOid(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @StopGeneratingPinnedObjectIds() local_unnamed_addr #1 {
   %1 = load i8, ptr @IsPostmasterEnvironment, align 1
-  %2 = and i8 %1, 1
-  %.not.i = icmp eq i8 %2, 0
-  br i1 %.not.i, label %6, label %3
+  %2 = trunc i8 %1 to i1
+  br i1 %2, label %3, label %6
 
 3:                                                ; preds = %0
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8

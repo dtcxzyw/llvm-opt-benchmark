@@ -53,12 +53,12 @@ define dso_local zeroext i1 @IsValidJsonNumber(ptr noundef %0, i32 noundef %1) l
   store i32 %.sink, ptr %11, align 8
   %12 = call fastcc i32 @json_lex_number(ptr noundef nonnull %5, ptr noundef %.sink7, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !5
   %13 = load i8, ptr %3, align 1
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
+  %14 = trunc i8 %13 to i1
   %15 = load i32, ptr %4, align 4
   %16 = load i32, ptr %11, align 8
   %17 = icmp eq i32 %15, %16
-  %18 = select i1 %.not, i1 %17, i1 false
+  %not. = xor i1 %14, true
+  %18 = select i1 %not., i1 %17, i1 false
   br label %19
 
 19:                                               ; preds = %2, %7
@@ -102,7 +102,7 @@ define internal fastcc noundef i32 @json_lex_number(ptr nocapture noundef %0, pt
   %.0 = phi i32 [ %24, %23 ], [ %9, %.preheader137.preheader ]
   %22 = getelementptr i8, ptr %.090, i64 1
   %exitcond.not = icmp eq i32 %.0, %21
-  br i1 %exitcond.not, label %.critedge4.thread, label %23
+  br i1 %exitcond.not, label %.critedge6, label %23
 
 23:                                               ; preds = %.preheader137
   %24 = add nsw i32 %.0, 1
@@ -113,7 +113,7 @@ define internal fastcc noundef i32 @json_lex_number(ptr nocapture noundef %0, pt
 
 .critedge:                                        ; preds = %23, %4, %19, %16
   %.191 = phi ptr [ %17, %16 ], [ %1, %19 ], [ %1, %4 ], [ %22, %23 ]
-  %.085 = phi i8 [ 0, %16 ], [ 1, %19 ], [ 1, %4 ], [ 0, %23 ]
+  %.085 = phi i1 [ false, %16 ], [ true, %19 ], [ true, %4 ], [ false, %23 ]
   %.1 = phi i32 [ %18, %16 ], [ %9, %19 ], [ %9, %4 ], [ %24, %23 ]
   %27 = icmp slt i32 %.1, %11
   br i1 %27, label %28, label %.critedge2
@@ -127,7 +127,7 @@ define internal fastcc noundef i32 @json_lex_number(ptr nocapture noundef %0, pt
   %32 = getelementptr i8, ptr %.191, i64 1
   %33 = add nsw i32 %.1, 1
   %34 = icmp eq i32 %33, %11
-  br i1 %34, label %.critedge4.thread, label %35
+  br i1 %34, label %.critedge6, label %35
 
 35:                                               ; preds = %31
   %36 = load i8, ptr %32, align 1
@@ -146,7 +146,7 @@ define internal fastcc noundef i32 @json_lex_number(ptr nocapture noundef %0, pt
   %39 = getelementptr i8, ptr %.292, i64 1
   %40 = add i32 %.2, 1
   %41 = icmp slt i32 %40, %11
-  br i1 %41, label %42, label %.critedge4.thread
+  br i1 %41, label %42, label %.critedge6
 
 42:                                               ; preds = %.preheader136
   %43 = load i8, ptr %39, align 1
@@ -156,7 +156,7 @@ define internal fastcc noundef i32 @json_lex_number(ptr nocapture noundef %0, pt
 
 .critedge2:                                       ; preds = %42, %35, %28, %.critedge
   %.393 = phi ptr [ %.191, %28 ], [ %.191, %.critedge ], [ %32, %35 ], [ %39, %42 ]
-  %.186 = phi i8 [ %.085, %28 ], [ %.085, %.critedge ], [ 1, %35 ], [ %.085, %42 ]
+  %.186 = phi i1 [ %.085, %28 ], [ %.085, %.critedge ], [ true, %35 ], [ %.085, %42 ]
   %.3 = phi i32 [ %.1, %28 ], [ %.1, %.critedge ], [ %33, %35 ], [ %40, %42 ]
   %45 = icmp slt i32 %.3, %11
   br i1 %45, label %46, label %.critedge4
@@ -190,7 +190,7 @@ define internal fastcc noundef i32 @json_lex_number(ptr nocapture noundef %0, pt
   %.494 = phi ptr [ %55, %54 ], [ %49, %48 ], [ %49, %52 ]
   %.4 = phi i32 [ %56, %54 ], [ %50, %48 ], [ %50, %52 ]
   %58 = icmp eq i32 %.4, %11
-  br i1 %58, label %.critedge4.thread, label %59
+  br i1 %58, label %.critedge6, label %59
 
 59:                                               ; preds = %57
   %60 = load i8, ptr %.494, align 1
@@ -209,7 +209,7 @@ define internal fastcc noundef i32 @json_lex_number(ptr nocapture noundef %0, pt
   %63 = getelementptr i8, ptr %.595, i64 1
   %64 = add i32 %.5, 1
   %65 = icmp slt i32 %64, %11
-  br i1 %65, label %66, label %.critedge4.thread
+  br i1 %65, label %66, label %.critedge6
 
 66:                                               ; preds = %.preheader
   %67 = load i8, ptr %63, align 1
@@ -217,81 +217,71 @@ define internal fastcc noundef i32 @json_lex_number(ptr nocapture noundef %0, pt
   %or.cond129 = icmp ult i8 %68, 10
   br i1 %or.cond129, label %.preheader, label %.critedge4, !llvm.loop !9
 
-.critedge4.thread:                                ; preds = %.preheader137, %.preheader136, %.preheader, %57, %31
-  %.696.ph = phi ptr [ %.494, %57 ], [ %32, %31 ], [ %63, %.preheader ], [ %39, %.preheader136 ], [ %22, %.preheader137 ]
-  %.287.ph = phi i8 [ 1, %57 ], [ 1, %31 ], [ %.186, %.preheader ], [ %.085, %.preheader136 ], [ 0, %.preheader137 ]
-  %.6.ph = phi i32 [ %11, %57 ], [ %11, %31 ], [ %smax157, %.preheader ], [ %smax, %.preheader136 ], [ %11, %.preheader137 ]
-  %69 = and i8 %.287.ph, 1
-  %70 = icmp ne i8 %69, 0
-  br label %.critedge6
-
 .critedge4:                                       ; preds = %66, %59, %46, %.critedge2
   %.696 = phi ptr [ %.393, %.critedge2 ], [ %.393, %46 ], [ %.494, %59 ], [ %63, %66 ]
-  %.287 = phi i8 [ %.186, %.critedge2 ], [ %.186, %46 ], [ 1, %59 ], [ %.186, %66 ]
+  %.287 = phi i1 [ %.186, %.critedge2 ], [ %.186, %46 ], [ true, %59 ], [ %.186, %66 ]
   %.6 = phi i32 [ %.3, %.critedge2 ], [ %.3, %46 ], [ %.4, %59 ], [ %64, %66 ]
-  %71 = and i8 %.287, 1
-  %72 = icmp ne i8 %71, 0
-  %73 = icmp slt i32 %.6, %11
-  br i1 %73, label %.lr.ph, label %.critedge6
+  %69 = icmp slt i32 %.6, %11
+  br i1 %69, label %.lr.ph, label %.critedge6
 
 .lr.ph:                                           ; preds = %.critedge4, %.critedge8
-  %.7145 = phi i32 [ %81, %.critedge8 ], [ %.6, %.critedge4 ]
-  %.388144 = phi i1 [ true, %.critedge8 ], [ %72, %.critedge4 ]
-  %.797143 = phi ptr [ %80, %.critedge8 ], [ %.696, %.critedge4 ]
-  %74 = load i8, ptr %.797143, align 1
-  %75 = and i8 %74, -33
-  %76 = add i8 %75, -65
-  %or.cond134 = icmp ult i8 %76, 26
-  %77 = add i8 %74, -48
-  %or.cond132 = icmp ult i8 %77, 10
+  %.7145 = phi i32 [ %77, %.critedge8 ], [ %.6, %.critedge4 ]
+  %.388144 = phi i1 [ true, %.critedge8 ], [ %.287, %.critedge4 ]
+  %.797143 = phi ptr [ %76, %.critedge8 ], [ %.696, %.critedge4 ]
+  %70 = load i8, ptr %.797143, align 1
+  %71 = and i8 %70, -33
+  %72 = add i8 %71, -65
+  %or.cond134 = icmp ult i8 %72, 26
+  %73 = add i8 %70, -48
+  %or.cond132 = icmp ult i8 %73, 10
   %or.cond135 = or i1 %or.cond132, %or.cond134
-  br i1 %or.cond135, label %.critedge8, label %78
+  br i1 %or.cond135, label %.critedge8, label %74
 
-78:                                               ; preds = %.lr.ph
-  %79 = icmp ne i8 %74, 95
-  %.not = icmp sgt i8 %74, -1
-  %or.cond133 = and i1 %79, %.not
+74:                                               ; preds = %.lr.ph
+  %75 = icmp ne i8 %70, 95
+  %.not = icmp sgt i8 %70, -1
+  %or.cond133 = and i1 %75, %.not
   br i1 %or.cond133, label %.critedge6, label %.critedge8
 
-.critedge8:                                       ; preds = %.lr.ph, %78
-  %80 = getelementptr i8, ptr %.797143, i64 1
-  %81 = add i32 %.7145, 1
-  %exitcond158.not = icmp eq i32 %81, %11
+.critedge8:                                       ; preds = %.lr.ph, %74
+  %76 = getelementptr i8, ptr %.797143, i64 1
+  %77 = add i32 %.7145, 1
+  %exitcond158.not = icmp eq i32 %77, %11
   br i1 %exitcond158.not, label %.critedge6, label %.lr.ph, !llvm.loop !10
 
-.critedge6:                                       ; preds = %.critedge8, %78, %.critedge4.thread, %.critedge4
-  %.797.lcssa = phi ptr [ %.696, %.critedge4 ], [ %.696.ph, %.critedge4.thread ], [ %.797143, %78 ], [ %80, %.critedge8 ]
-  %.388.lcssa = phi i1 [ %72, %.critedge4 ], [ %70, %.critedge4.thread ], [ %.388144, %78 ], [ true, %.critedge8 ]
-  %.7.lcssa = phi i32 [ %.6, %.critedge4 ], [ %.6.ph, %.critedge4.thread ], [ %.7145, %78 ], [ %11, %.critedge8 ]
+.critedge6:                                       ; preds = %.preheader137, %.preheader136, %.preheader, %.critedge8, %74, %31, %57, %.critedge4
+  %.797.lcssa = phi ptr [ %.696, %.critedge4 ], [ %.494, %57 ], [ %32, %31 ], [ %.797143, %74 ], [ %76, %.critedge8 ], [ %63, %.preheader ], [ %39, %.preheader136 ], [ %22, %.preheader137 ]
+  %.388.lcssa = phi i1 [ %.287, %.critedge4 ], [ true, %57 ], [ true, %31 ], [ %.388144, %74 ], [ true, %.critedge8 ], [ %.186, %.preheader ], [ %.085, %.preheader136 ], [ false, %.preheader137 ]
+  %.7.lcssa = phi i32 [ %.6, %.critedge4 ], [ %11, %57 ], [ %11, %31 ], [ %.7145, %74 ], [ %11, %.critedge8 ], [ %smax157, %.preheader ], [ %smax, %.preheader136 ], [ %11, %.preheader137 ]
   %.not123 = icmp eq ptr %3, null
-  br i1 %.not123, label %83, label %82
+  br i1 %.not123, label %79, label %78
 
-82:                                               ; preds = %.critedge6
+78:                                               ; preds = %.critedge6
   store i32 %.7.lcssa, ptr %3, align 4
-  br label %83
+  br label %79
 
-83:                                               ; preds = %82, %.critedge6
+79:                                               ; preds = %78, %.critedge6
   %.not124 = icmp eq ptr %2, null
-  br i1 %.not124, label %86, label %84
+  br i1 %.not124, label %82, label %80
 
-84:                                               ; preds = %83
-  %85 = zext i1 %.388.lcssa to i8
-  store i8 %85, ptr %2, align 1
-  br label %90
+80:                                               ; preds = %79
+  %81 = zext i1 %.388.lcssa to i8
+  store i8 %81, ptr %2, align 1
+  br label %86
 
-86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %0, i64 24
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %88, ptr %89, align 8
-  store ptr %.797.lcssa, ptr %87, align 8
-  br i1 %.388.lcssa, label %91, label %90
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds i8, ptr %0, i64 24
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %84, ptr %85, align 8
+  store ptr %.797.lcssa, ptr %83, align 8
+  br i1 %.388.lcssa, label %87, label %86
 
-90:                                               ; preds = %86, %84
-  br label %91
+86:                                               ; preds = %82, %80
+  br label %87
 
-91:                                               ; preds = %86, %90
-  %.089 = phi i32 [ 0, %90 ], [ 12, %86 ]
+87:                                               ; preds = %82, %86
+  %.089 = phi i32 [ 0, %86 ], [ 12, %82 ]
   ret i32 %.089
 }
 

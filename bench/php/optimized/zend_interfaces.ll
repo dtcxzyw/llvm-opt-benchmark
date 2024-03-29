@@ -878,9 +878,8 @@ define hidden void @zim_InternalIterator_current(ptr nocapture noundef readonly 
 zend_internal_iterator_fetch.exit:                ; preds = %6
   %13 = getelementptr inbounds i8, ptr %.val, i64 64
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not.i33 = icmp eq i8 %15, 0
-  br i1 %.not.i33, label %16, label %zend_internal_iterator_ensure_rewound.exit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %zend_internal_iterator_ensure_rewound.exit, label %16
 
 16:                                               ; preds = %zend_internal_iterator_fetch.exit
   store i8 1, ptr %13, align 8
@@ -888,14 +887,14 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
-  %.not7.i = icmp eq ptr %20, null
-  br i1 %.not7.i, label %zend_internal_iterator_ensure_rewound.exit, label %21
+  %.not.i33 = icmp eq ptr %20, null
+  br i1 %.not.i33, label %zend_internal_iterator_ensure_rewound.exit, label %21
 
 21:                                               ; preds = %16
   tail call void %20(ptr noundef nonnull %9) #9
   %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %.not8.i = icmp eq ptr %22, null
-  br i1 %.not8.i, label %.zend_internal_iterator_ensure_rewound.exit_crit_edge, label %52
+  %.not7.i = icmp eq ptr %22, null
+  br i1 %.not7.i, label %.zend_internal_iterator_ensure_rewound.exit_crit_edge, label %52
 
 .zend_internal_iterator_ensure_rewound.exit_crit_edge: ; preds = %21
   %.pre = load ptr, ptr %8, align 8
@@ -989,9 +988,8 @@ define hidden void @zim_InternalIterator_key(ptr nocapture noundef readonly %0, 
 zend_internal_iterator_fetch.exit:                ; preds = %6
   %13 = getelementptr inbounds i8, ptr %.val, i64 64
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not.i15 = icmp eq i8 %15, 0
-  br i1 %.not.i15, label %16, label %zend_internal_iterator_ensure_rewound.exit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %zend_internal_iterator_ensure_rewound.exit, label %16
 
 16:                                               ; preds = %zend_internal_iterator_fetch.exit
   store i8 1, ptr %13, align 8
@@ -999,14 +997,14 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
-  %.not7.i = icmp eq ptr %20, null
-  br i1 %.not7.i, label %zend_internal_iterator_ensure_rewound.exit, label %21
+  %.not.i15 = icmp eq ptr %20, null
+  br i1 %.not.i15, label %zend_internal_iterator_ensure_rewound.exit, label %21
 
 21:                                               ; preds = %16
   tail call void %20(ptr noundef nonnull %9) #9
   %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %.not8.i = icmp eq ptr %22, null
-  br i1 %.not8.i, label %.zend_internal_iterator_ensure_rewound.exit_crit_edge, label %33
+  %.not7.i = icmp eq ptr %22, null
+  br i1 %.not7.i, label %.zend_internal_iterator_ensure_rewound.exit_crit_edge, label %33
 
 .zend_internal_iterator_ensure_rewound.exit_crit_edge: ; preds = %21
   %.pre = load ptr, ptr %8, align 8
@@ -1066,9 +1064,8 @@ define hidden void @zim_InternalIterator_next(ptr nocapture noundef readonly %0,
 zend_internal_iterator_fetch.exit:                ; preds = %6
   %13 = getelementptr inbounds i8, ptr %.val, i64 64
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not.i8 = icmp eq i8 %15, 0
-  br i1 %.not.i8, label %16, label %zend_internal_iterator_ensure_rewound.exit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %zend_internal_iterator_ensure_rewound.exit, label %16
 
 16:                                               ; preds = %zend_internal_iterator_fetch.exit
   store i8 1, ptr %13, align 8
@@ -1076,14 +1073,14 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
-  %.not7.i = icmp eq ptr %20, null
-  br i1 %.not7.i, label %zend_internal_iterator_ensure_rewound.exit, label %21
+  %.not.i8 = icmp eq ptr %20, null
+  br i1 %.not.i8, label %zend_internal_iterator_ensure_rewound.exit, label %21
 
 21:                                               ; preds = %16
   tail call void %20(ptr noundef nonnull %9) #9
   %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %.not8.i = icmp eq ptr %22, null
-  br i1 %.not8.i, label %.zend_internal_iterator_ensure_rewound.exit_crit_edge, label %32
+  %.not7.i = icmp eq ptr %22, null
+  br i1 %.not7.i, label %.zend_internal_iterator_ensure_rewound.exit_crit_edge, label %32
 
 .zend_internal_iterator_ensure_rewound.exit_crit_edge: ; preds = %21
   %.pre = load ptr, ptr %8, align 8
@@ -1136,9 +1133,8 @@ define hidden void @zim_InternalIterator_valid(ptr nocapture noundef readonly %0
 zend_internal_iterator_fetch.exit:                ; preds = %6
   %13 = getelementptr inbounds i8, ptr %.val, i64 64
   %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 1
-  %.not.i8 = icmp eq i8 %15, 0
-  br i1 %.not.i8, label %16, label %zend_internal_iterator_ensure_rewound.exit
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %zend_internal_iterator_ensure_rewound.exit, label %16
 
 16:                                               ; preds = %zend_internal_iterator_fetch.exit
   store i8 1, ptr %13, align 8
@@ -1146,14 +1142,14 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
-  %.not7.i = icmp eq ptr %20, null
-  br i1 %.not7.i, label %zend_internal_iterator_ensure_rewound.exit, label %21
+  %.not.i8 = icmp eq ptr %20, null
+  br i1 %.not.i8, label %zend_internal_iterator_ensure_rewound.exit, label %21
 
 21:                                               ; preds = %16
   tail call void %20(ptr noundef nonnull %9) #9
   %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %.not8.i = icmp eq ptr %22, null
-  br i1 %.not8.i, label %.zend_internal_iterator_ensure_rewound.exit_crit_edge, label %32
+  %.not7.i = icmp eq ptr %22, null
+  br i1 %.not7.i, label %.zend_internal_iterator_ensure_rewound.exit_crit_edge, label %32
 
 .zend_internal_iterator_ensure_rewound.exit_crit_edge: ; preds = %21
   %.pre = load ptr, ptr %8, align 8

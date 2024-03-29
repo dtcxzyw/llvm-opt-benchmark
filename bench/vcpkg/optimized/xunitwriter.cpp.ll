@@ -652,8 +652,8 @@ define dso_local void @_ZNK5vcpkg11XunitWriter9build_xmlB5cxx11ENS_7TripletE(ptr
   %42 = getelementptr inbounds i8, ptr %14, i64 8
   br label %43
 
-43:                                               ; preds = %.lr.ph159, %197
-  %.sroa.0133.0157 = phi ptr [ %37, %.lr.ph159 ], [ %198, %197 ]
+43:                                               ; preds = %.lr.ph159, %196
+  %.sroa.0133.0157 = phi ptr [ %37, %.lr.ph159 ], [ %197, %196 ]
   %44 = getelementptr inbounds i8, ptr %.sroa.0133.0157, i64 32
   %45 = getelementptr inbounds i8, ptr %.sroa.0133.0157, i64 64
   %46 = load ptr, ptr %45, align 8
@@ -675,12 +675,12 @@ define dso_local void @_ZNK5vcpkg11XunitWriter9build_xmlB5cxx11ENS_7TripletE(ptr
 .loopexit140:                                     ; preds = %._crit_edge
   %lpad.loopexit142 = landingpad { ptr, i32 }
           cleanup
-  br label %203
+  br label %202
 
-.loopexit.split-lp141:                            ; preds = %3, %31, %33, %._crit_edge160, %200
+.loopexit.split-lp141:                            ; preds = %3, %31, %33, %._crit_edge160, %199
   %lpad.loopexit.split-lp143 = landingpad { ptr, i32 }
           cleanup
-  br label %203
+  br label %202
 
 ._crit_edge:                                      ; preds = %.lr.ph, %43
   %.sroa.0130.0.lcssa = phi i64 [ 0, %43 ], [ %51, %.lr.ph ]
@@ -725,39 +725,38 @@ define dso_local void @_ZNK5vcpkg11XunitWriter9build_xmlB5cxx11ENS_7TripletE(ptr
   store i32 137, ptr %26, align 8
   store ptr @.str.4, ptr %39, align 8
   %68 = load i8, ptr %25, align 8
-  %69 = and i8 %68, 1
-  %70 = icmp ne i8 %69, 0
-  invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEbNS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(16) %26, i1 noundef zeroext %70, ptr nonnull @.str.30, i64 14)
-          to label %_ZNO5vcpkg8OptionalI2tmE13value_or_exitERKNS_8LineInfoE.exit unwind label %71
+  %69 = trunc i8 %68 to i1
+  invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEbNS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(16) %26, i1 noundef zeroext %69, ptr nonnull @.str.30, i64 14)
+          to label %_ZNO5vcpkg8OptionalI2tmE13value_or_exitERKNS_8LineInfoE.exit unwind label %70
 
-71:                                               ; preds = %67
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %67
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #15
+  %72 = extractvalue { ptr, i32 } %71, 0
+  call void @__clang_call_terminate(ptr %72) #15
   unreachable
 
 _ZNO5vcpkg8OptionalI2tmE13value_or_exitERKNS_8LineInfoE.exit: ; preds = %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %40, i64 56, i1 false)
-  %74 = call i64 @strftime(ptr noundef nonnull %27, i64 noundef 80, ptr noundef nonnull @.str.5, ptr noundef nonnull %24) #16
-  %75 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer22start_complex_open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.6, i64 8)
-          to label %76 unwind label %.loopexit.split-lp.loopexit
+  %73 = call i64 @strftime(ptr noundef nonnull %27, i64 noundef 80, ptr noundef nonnull @.str.5, ptr noundef nonnull %24) #16
+  %74 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer22start_complex_open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.6, i64 8)
+          to label %75 unwind label %.loopexit.split-lp.loopexit
 
-76:                                               ; preds = %_ZNO5vcpkg8OptionalI2tmE13value_or_exitERKNS_8LineInfoE.exit
+75:                                               ; preds = %_ZNO5vcpkg8OptionalI2tmE13value_or_exitERKNS_8LineInfoE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(32) %44) #16
   %.fca.0.load.i.i = load ptr, ptr %18, align 8
   %.fca.1.load.i.i = load i64, ptr %.fca.1.gep.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
-  %77 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %75, ptr nonnull @.str.7, i64 4, ptr %.fca.0.load.i.i, i64 %.fca.1.load.i.i)
+  %76 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %74, ptr nonnull @.str.7, i64 4, ptr %.fca.0.load.i.i, i64 %.fca.1.load.i.i)
           to label %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit unwind label %.loopexit.split-lp.loopexit
 
-_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit: ; preds = %76
-  %78 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %77, ptr nonnull @.str.8, i64 8, ptr nonnull %27, i64 10)
+_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit: ; preds = %75
+  %77 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %76, ptr nonnull @.str.8, i64 8, ptr nonnull %27, i64 10)
           to label %_ZN5vcpkg13XmlSerializer4attrINS_10StringViewEEERS0_NS_13StringLiteralERKT_.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZN5vcpkg13XmlSerializer4attrINS_10StringViewEEERS0_NS_13StringLiteralERKT_.exit: ; preds = %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit
-  %79 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %78, ptr nonnull @.str.9, i64 8, ptr nonnull %41, i64 8)
+  %78 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %77, ptr nonnull @.str.9, i64 8, ptr nonnull %41, i64 8)
           to label %_ZN5vcpkg13XmlSerializer4attrINS_10StringViewEEERS0_NS_13StringLiteralERKT_.exit45 unwind label %.loopexit.split-lp.loopexit
 
 _ZN5vcpkg13XmlSerializer4attrINS_10StringViewEEERS0_NS_13StringLiteralERKT_.exit45: ; preds = %_ZN5vcpkg13XmlSerializer4attrINS_10StringViewEEERS0_NS_13StringLiteralERKT_.exit
@@ -766,32 +765,32 @@ _ZN5vcpkg13XmlSerializer4attrINS_10StringViewEEERS0_NS_13StringLiteralERKT_.exit
   %.fca.0.load.i.i46 = load ptr, ptr %17, align 8
   %.fca.1.load.i.i48 = load i64, ptr %.fca.1.gep.i.i47, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
-  %80 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %79, ptr nonnull @.str.10, i64 4, ptr %.fca.0.load.i.i46, i64 %.fca.1.load.i.i48)
+  %79 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %78, ptr nonnull @.str.10, i64 4, ptr %.fca.0.load.i.i46, i64 %.fca.1.load.i.i48)
           to label %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit49 unwind label %.loopexit.split-lp.loopexit
 
 _ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit49: ; preds = %_ZN5vcpkg13XmlSerializer4attrINS_10StringViewEEERS0_NS_13StringLiteralERKT_.exit45
-  %81 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer23finish_complex_open_tagEv(ptr noundef nonnull align 8 dereferenceable(37) %80)
-          to label %82 unwind label %.loopexit.split-lp.loopexit
+  %80 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer23finish_complex_open_tagEv(ptr noundef nonnull align 8 dereferenceable(37) %79)
+          to label %81 unwind label %.loopexit.split-lp.loopexit
 
-82:                                               ; preds = %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit49
-  %83 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %81)
-          to label %84 unwind label %.loopexit.split-lp.loopexit
+81:                                               ; preds = %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit49
+  %82 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %80)
+          to label %83 unwind label %.loopexit.split-lp.loopexit
 
-84:                                               ; preds = %82
-  %85 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer22start_complex_open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.11, i64 10)
-          to label %86 unwind label %.loopexit.split-lp.loopexit
+83:                                               ; preds = %81
+  %84 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer22start_complex_open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.11, i64 10)
+          to label %85 unwind label %.loopexit.split-lp.loopexit
 
-86:                                               ; preds = %84
+85:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
-  %87 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5vcpkg7Triplet14canonical_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %20)
+  %86 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5vcpkg7Triplet14canonical_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %20)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
-.noexc:                                           ; preds = %86
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(32) %87) #16
+.noexc:                                           ; preds = %85
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(32) %86) #16
   %.fca.0.load.i.i.i = load ptr, ptr %16, align 8
   %.fca.1.load.i.i.i = load i64, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  %88 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %85, ptr nonnull @.str.7, i64 4, ptr %.fca.0.load.i.i.i, i64 %.fca.1.load.i.i.i)
+  %87 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %84, ptr nonnull @.str.7, i64 4, ptr %.fca.0.load.i.i.i, i64 %.fca.1.load.i.i.i)
           to label %_ZN5vcpkg13XmlSerializer4attrINS_7TripletEEERS0_NS_13StringLiteralERKT_.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZN5vcpkg13XmlSerializer4attrINS_7TripletEEERS0_NS_13StringLiteralERKT_.exit: ; preds = %.noexc
@@ -800,50 +799,50 @@ _ZN5vcpkg13XmlSerializer4attrINS_7TripletEEERS0_NS_13StringLiteralERKT_.exit: ; 
   %.fca.0.load.i.i51 = load ptr, ptr %15, align 8
   %.fca.1.load.i.i53 = load i64, ptr %.fca.1.gep.i.i52, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
-  %89 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %88, ptr nonnull @.str.10, i64 4, ptr %.fca.0.load.i.i51, i64 %.fca.1.load.i.i53)
+  %88 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %87, ptr nonnull @.str.10, i64 4, ptr %.fca.0.load.i.i51, i64 %.fca.1.load.i.i53)
           to label %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit55 unwind label %.loopexit.split-lp.loopexit
 
 _ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit55: ; preds = %_ZN5vcpkg13XmlSerializer4attrINS_7TripletEEERS0_NS_13StringLiteralERKT_.exit
-  %90 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer23finish_complex_open_tagEv(ptr noundef nonnull align 8 dereferenceable(37) %89)
-          to label %91 unwind label %.loopexit.split-lp.loopexit
+  %89 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer23finish_complex_open_tagEv(ptr noundef nonnull align 8 dereferenceable(37) %88)
+          to label %90 unwind label %.loopexit.split-lp.loopexit
 
-91:                                               ; preds = %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit55
-  %92 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %90)
-          to label %93 unwind label %.loopexit.split-lp.loopexit
+90:                                               ; preds = %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit55
+  %91 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %89)
+          to label %92 unwind label %.loopexit.split-lp.loopexit
 
-93:                                               ; preds = %91
-  %94 = load ptr, ptr %45, align 8
-  %95 = load ptr, ptr %47, align 8
-  %.not139151 = icmp eq ptr %94, %95
+92:                                               ; preds = %90
+  %93 = load ptr, ptr %45, align 8
+  %94 = load ptr, ptr %47, align 8
+  %.not139151 = icmp eq ptr %93, %94
   br i1 %.not139151, label %._crit_edge155, label %.lr.ph154
 
-.lr.ph154:                                        ; preds = %93, %188
-  %.sroa.0100.0152 = phi ptr [ %189, %188 ], [ %94, %93 ]
+.lr.ph154:                                        ; preds = %92, %187
+  %.sroa.0100.0152 = phi ptr [ %188, %187 ], [ %93, %92 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  %96 = getelementptr inbounds i8, ptr %.sroa.0100.0152, i64 96
-  %97 = load i32, ptr %96, align 8
-  %98 = icmp ult i32 %97, 6
-  br i1 %98, label %switch.lookup, label %99
+  %95 = getelementptr inbounds i8, ptr %.sroa.0100.0152, i64 96
+  %96 = load i32, ptr %95, align 8
+  %97 = icmp ult i32 %96, 6
+  br i1 %97, label %switch.lookup, label %98
 
-99:                                               ; preds = %.lr.ph154
+98:                                               ; preds = %.lr.ph154
   store i32 34, ptr %11, align 8
-  %100 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr @.str.4, ptr %100, align 8
+  %99 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr @.str.4, ptr %99, align 8
   invoke void @_ZN5vcpkg6Checks11unreachableERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11) #18
           to label %.noexc59 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc59:                                         ; preds = %99
+.noexc59:                                         ; preds = %98
   unreachable
 
 switch.lookup:                                    ; preds = %.lr.ph154
-  %101 = zext nneg i32 %97 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5vcpkg11XunitWriter9build_xmlB5cxx11ENS_7TripletE, i64 0, i64 %101
+  %100 = zext nneg i32 %96 to i64
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5vcpkg11XunitWriter9build_xmlB5cxx11ENS_7TripletE, i64 0, i64 %100
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %102 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer22start_complex_open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.16, i64 4)
+  %101 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer22start_complex_open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.16, i64 4)
           to label %.noexc60 unwind label %.loopexit
 
 .noexc60:                                         ; preds = %switch.lookup
@@ -852,24 +851,24 @@ switch.lookup:                                    ; preds = %.lr.ph154
   %.fca.0.load.i.i.i56 = load ptr, ptr %9, align 8
   %.fca.1.load.i.i.i58 = load i64, ptr %.fca.1.gep.i.i.i57, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %103 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %102, ptr nonnull @.str.7, i64 4, ptr %.fca.0.load.i.i.i56, i64 %.fca.1.load.i.i.i58)
+  %102 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %101, ptr nonnull @.str.7, i64 4, ptr %.fca.0.load.i.i.i56, i64 %.fca.1.load.i.i.i58)
           to label %.noexc61 unwind label %.loopexit
 
 .noexc61:                                         ; preds = %.noexc60
-  %104 = getelementptr inbounds i8, ptr %.sroa.0100.0152, i64 32
+  %103 = getelementptr inbounds i8, ptr %.sroa.0100.0152, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %104) #16
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %103) #16
   %.fca.0.load.i.i57.i = load ptr, ptr %8, align 8
   %.fca.1.load.i.i59.i = load i64, ptr %.fca.1.gep.i.i58.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %105 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %103, ptr nonnull @.str.17, i64 6, ptr %.fca.0.load.i.i57.i, i64 %.fca.1.load.i.i59.i)
+  %104 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %102, ptr nonnull @.str.17, i64 6, ptr %.fca.0.load.i.i57.i, i64 %.fca.1.load.i.i59.i)
           to label %.noexc62 unwind label %.loopexit
 
 .noexc62:                                         ; preds = %.noexc61
-  %106 = getelementptr inbounds i8, ptr %.sroa.0100.0152, i64 104
-  %107 = load i64, ptr %106, align 8
-  %108 = sdiv i64 %107, 1000000000
-  store i64 %108, ptr %10, align 16, !noalias !17
+  %105 = getelementptr inbounds i8, ptr %.sroa.0100.0152, i64 104
+  %106 = load i64, ptr %105, align 8
+  %107 = sdiv i64 %106, 1000000000
+  store i64 %107, ptr %10, align 16, !noalias !17
   invoke void @_ZN3fmt3v107vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr nonnull @.str.3, i64 2, i64 3, ptr nonnull %10)
           to label %.noexc63 unwind label %.loopexit
 
@@ -879,112 +878,112 @@ switch.lookup:                                    ; preds = %.lr.ph154
   %.fca.0.load.i.i60.i = load ptr, ptr %7, align 8
   %.fca.1.load.i.i62.i = load i64, ptr %.fca.1.gep.i.i61.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %109 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %105, ptr nonnull @.str.10, i64 4, ptr %.fca.0.load.i.i60.i, i64 %.fca.1.load.i.i62.i)
-          to label %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit.i unwind label %125
+  %108 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %104, ptr nonnull @.str.10, i64 4, ptr %.fca.0.load.i.i60.i, i64 %.fca.1.load.i.i62.i)
+          to label %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit.i unwind label %124
 
 _ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit.i: ; preds = %.noexc63
-  %110 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %109, ptr nonnull @.str.18, i64 6, ptr nonnull %switch.load, i64 4)
-          to label %_ZN5vcpkg13XmlSerializer4attrINS_13StringLiteralEEERS0_S2_RKT_.exit.i unwind label %125
+  %109 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %108, ptr nonnull @.str.18, i64 6, ptr nonnull %switch.load, i64 4)
+          to label %_ZN5vcpkg13XmlSerializer4attrINS_13StringLiteralEEERS0_S2_RKT_.exit.i unwind label %124
 
 _ZN5vcpkg13XmlSerializer4attrINS_13StringLiteralEEERS0_S2_RKT_.exit.i: ; preds = %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit.i
-  %111 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer23finish_complex_open_tagEv(ptr noundef nonnull align 8 dereferenceable(37) %110)
-          to label %112 unwind label %125
+  %110 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer23finish_complex_open_tagEv(ptr noundef nonnull align 8 dereferenceable(37) %109)
+          to label %111 unwind label %124
 
-112:                                              ; preds = %_ZN5vcpkg13XmlSerializer4attrINS_13StringLiteralEEERS0_S2_RKT_.exit.i
-  %113 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %111)
-          to label %114 unwind label %125
+111:                                              ; preds = %_ZN5vcpkg13XmlSerializer4attrINS_13StringLiteralEEERS0_S2_RKT_.exit.i
+  %112 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %110)
+          to label %113 unwind label %124
 
-114:                                              ; preds = %112
+113:                                              ; preds = %111
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
-  %115 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer8open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.19, i64 6)
+  %114 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer8open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.19, i64 6)
           to label %.noexc64 unwind label %.loopexit
 
-.noexc64:                                         ; preds = %114
-  %116 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %115)
+.noexc64:                                         ; preds = %113
+  %115 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %114)
           to label %.noexc65 unwind label %.loopexit
 
 .noexc65:                                         ; preds = %.noexc64
-  %117 = getelementptr inbounds i8, ptr %.sroa.0100.0152, i64 120
-  %118 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %117) #16
-  br i1 %118, label %.noexc70, label %119
+  %116 = getelementptr inbounds i8, ptr %.sroa.0100.0152, i64 120
+  %117 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %116) #16
+  br i1 %117, label %.noexc70, label %118
 
-119:                                              ; preds = %.noexc65
-  %120 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer22start_complex_open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.20, i64 5)
+118:                                              ; preds = %.noexc65
+  %119 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer22start_complex_open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.20, i64 5)
           to label %.noexc66 unwind label %.loopexit
 
-.noexc66:                                         ; preds = %119
-  %121 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %120, ptr nonnull @.str.7, i64 4, ptr nonnull @.str.21, i64 7)
+.noexc66:                                         ; preds = %118
+  %120 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %119, ptr nonnull @.str.7, i64 4, ptr nonnull @.str.21, i64 7)
           to label %.noexc67 unwind label %.loopexit
 
 .noexc67:                                         ; preds = %.noexc66
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %117) #16
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %116) #16
   %.fca.0.load.i.i63.i = load ptr, ptr %6, align 8
   %.fca.1.load.i.i65.i = load i64, ptr %.fca.1.gep.i.i64.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %122 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %121, ptr nonnull @.str.22, i64 5, ptr %.fca.0.load.i.i63.i, i64 %.fca.1.load.i.i65.i)
+  %121 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %120, ptr nonnull @.str.22, i64 5, ptr %.fca.0.load.i.i63.i, i64 %.fca.1.load.i.i65.i)
           to label %.noexc68 unwind label %.loopexit
 
 .noexc68:                                         ; preds = %.noexc67
-  %123 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer31finish_self_closing_complex_tagEv(ptr noundef nonnull align 8 dereferenceable(37) %122)
+  %122 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer31finish_self_closing_complex_tagEv(ptr noundef nonnull align 8 dereferenceable(37) %121)
           to label %.noexc69 unwind label %.loopexit
 
 .noexc69:                                         ; preds = %.noexc68
-  %124 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %123)
+  %123 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %122)
           to label %.noexc70 unwind label %.loopexit
 
-125:                                              ; preds = %112, %_ZN5vcpkg13XmlSerializer4attrINS_13StringLiteralEEERS0_S2_RKT_.exit.i, %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit.i, %.noexc63
-  %126 = landingpad { ptr, i32 }
+124:                                              ; preds = %111, %_ZN5vcpkg13XmlSerializer4attrINS_13StringLiteralEEERS0_S2_RKT_.exit.i, %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit.i, %.noexc63
+  %125 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
 .noexc70:                                         ; preds = %.noexc69, %.noexc65
-  %127 = getelementptr inbounds i8, ptr %.sroa.0100.0152, i64 152
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %.sroa.0100.0152, i64 160
-  %130 = load ptr, ptr %129, align 8
-  %131 = icmp eq ptr %128, %130
-  br i1 %131, label %151, label %132
+  %126 = getelementptr inbounds i8, ptr %.sroa.0100.0152, i64 152
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds i8, ptr %.sroa.0100.0152, i64 160
+  %129 = load ptr, ptr %128, align 8
+  %130 = icmp eq ptr %127, %129
+  br i1 %130, label %150, label %131
 
-132:                                              ; preds = %.noexc70
-  %133 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer22start_complex_open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.20, i64 5)
+131:                                              ; preds = %.noexc70
+  %132 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer22start_complex_open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.20, i64 5)
           to label %.noexc71 unwind label %.loopexit
 
-.noexc71:                                         ; preds = %132
-  %134 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %133, ptr nonnull @.str.7, i64 4, ptr nonnull @.str.23, i64 8)
+.noexc71:                                         ; preds = %131
+  %133 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %132, ptr nonnull @.str.7, i64 4, ptr nonnull @.str.23, i64 8)
           to label %.noexc72 unwind label %.loopexit
 
 .noexc72:                                         ; preds = %.noexc71
-  %135 = load ptr, ptr %127, align 8, !noalias !20
-  %136 = load ptr, ptr %129, align 8, !noalias !20
+  %134 = load ptr, ptr %126, align 8, !noalias !20
+  %135 = load ptr, ptr %128, align 8, !noalias !20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #16
-  %137 = icmp eq ptr %135, %136
-  br i1 %137, label %_ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEES8_NS_13StringLiteralERKT_.exit.i, label %.preheader.i.i.i
+  %136 = icmp eq ptr %134, %135
+  br i1 %136, label %_ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEES8_NS_13StringLiteralERKT_.exit.i, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %.noexc72, %142
-  %.sroa.03.0.i.i.i = phi ptr [ %138, %142 ], [ %135, %.noexc72 ]
+.preheader.i.i.i:                                 ; preds = %.noexc72, %141
+  %.sroa.03.0.i.i.i = phi ptr [ %137, %141 ], [ %134, %.noexc72 ]
   invoke void @_ZN5vcpkg7Strings7details15append_internalERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0.i.i.i)
-          to label %_ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS7_S8_DpRKT_.exit.i.i.i unwind label %140
+          to label %_ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS7_S8_DpRKT_.exit.i.i.i unwind label %139
 
 _ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS7_S8_DpRKT_.exit.i.i.i: ; preds = %.preheader.i.i.i
-  %138 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i, i64 32
-  %139 = icmp eq ptr %138, %136
-  br i1 %139, label %_ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEES8_NS_13StringLiteralERKT_.exit.i, label %142
+  %137 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i, i64 32
+  %138 = icmp eq ptr %137, %135
+  br i1 %138, label %_ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEES8_NS_13StringLiteralERKT_.exit.i, label %141
 
-common.resume.i:                                  ; preds = %149, %140, %125
-  %.sink.i = phi ptr [ %12, %125 ], [ %13, %149 ], [ %13, %140 ]
-  %common.resume.op.i = phi { ptr, i32 } [ %126, %125 ], [ %150, %149 ], [ %141, %140 ]
+common.resume.i:                                  ; preds = %148, %139, %124
+  %.sink.i = phi ptr [ %12, %124 ], [ %13, %148 ], [ %13, %139 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %125, %124 ], [ %149, %148 ], [ %140, %139 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #16
   br label %.body
 
-140:                                              ; preds = %142, %.preheader.i.i.i
-  %141 = landingpad { ptr, i32 }
+139:                                              ; preds = %141, %.preheader.i.i.i
+  %140 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
-142:                                              ; preds = %_ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS7_S8_DpRKT_.exit.i.i.i
-  %143 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.24, i64 noundef 2)
-          to label %.preheader.i.i.i unwind label %140, !llvm.loop !8
+141:                                              ; preds = %_ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS7_S8_DpRKT_.exit.i.i.i
+  %142 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.24, i64 noundef 2)
+          to label %.preheader.i.i.i unwind label %139, !llvm.loop !8
 
 _ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEES8_NS_13StringLiteralERKT_.exit.i: ; preds = %_ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS7_S8_DpRKT_.exit.i.i.i, %.noexc72
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -992,153 +991,153 @@ _ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %.fca.0.load.i.i66.i = load ptr, ptr %5, align 8
   %.fca.1.load.i.i68.i = load i64, ptr %.fca.1.gep.i.i67.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %144 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %134, ptr nonnull @.str.22, i64 5, ptr %.fca.0.load.i.i66.i, i64 %.fca.1.load.i.i68.i)
-          to label %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit69.i unwind label %149
+  %143 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %133, ptr nonnull @.str.22, i64 5, ptr %.fca.0.load.i.i66.i, i64 %.fca.1.load.i.i68.i)
+          to label %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit69.i unwind label %148
 
 _ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit69.i: ; preds = %_ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEES8_NS_13StringLiteralERKT_.exit.i
-  %145 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer31finish_self_closing_complex_tagEv(ptr noundef nonnull align 8 dereferenceable(37) %144)
-          to label %146 unwind label %149
+  %144 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer31finish_self_closing_complex_tagEv(ptr noundef nonnull align 8 dereferenceable(37) %143)
+          to label %145 unwind label %148
 
-146:                                              ; preds = %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit69.i
-  %147 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %145)
-          to label %148 unwind label %149
+145:                                              ; preds = %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit69.i
+  %146 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %144)
+          to label %147 unwind label %148
 
-148:                                              ; preds = %146
+147:                                              ; preds = %145
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #16
-  br label %151
+  br label %150
 
-149:                                              ; preds = %146, %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit69.i, %_ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEES8_NS_13StringLiteralERKT_.exit.i
-  %150 = landingpad { ptr, i32 }
+148:                                              ; preds = %145, %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit69.i, %_ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEES8_NS_13StringLiteralERKT_.exit.i
+  %149 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
-151:                                              ; preds = %148, %.noexc70
-  %152 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer22start_complex_open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.20, i64 5)
+150:                                              ; preds = %147, %.noexc70
+  %151 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer22start_complex_open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.20, i64 5)
           to label %.noexc73 unwind label %.loopexit
 
-.noexc73:                                         ; preds = %151
-  %153 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %152, ptr nonnull @.str.7, i64 4, ptr nonnull @.str.25, i64 5)
+.noexc73:                                         ; preds = %150
+  %152 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %151, ptr nonnull @.str.7, i64 4, ptr nonnull @.str.25, i64 5)
           to label %.noexc74 unwind label %.loopexit
 
 .noexc74:                                         ; preds = %.noexc73
-  %154 = getelementptr inbounds i8, ptr %.sroa.0100.0152, i64 64
+  %153 = getelementptr inbounds i8, ptr %.sroa.0100.0152, i64 64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %154) #16
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %153) #16
   %.fca.0.load.i.i70.i = load ptr, ptr %4, align 8
   %.fca.1.load.i.i72.i = load i64, ptr %.fca.1.gep.i.i71.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %155 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %153, ptr nonnull @.str.22, i64 5, ptr %.fca.0.load.i.i70.i, i64 %.fca.1.load.i.i72.i)
+  %154 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %152, ptr nonnull @.str.22, i64 5, ptr %.fca.0.load.i.i70.i, i64 %.fca.1.load.i.i72.i)
           to label %.noexc75 unwind label %.loopexit
 
 .noexc75:                                         ; preds = %.noexc74
-  %156 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer31finish_self_closing_complex_tagEv(ptr noundef nonnull align 8 dereferenceable(37) %155)
+  %155 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer31finish_self_closing_complex_tagEv(ptr noundef nonnull align 8 dereferenceable(37) %154)
           to label %.noexc76 unwind label %.loopexit
 
 .noexc76:                                         ; preds = %.noexc75
-  %157 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %156)
+  %156 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %155)
           to label %.noexc77 unwind label %.loopexit
 
 .noexc77:                                         ; preds = %.noexc76
-  %158 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9close_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.19, i64 6)
+  %157 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9close_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.19, i64 6)
           to label %.noexc78 unwind label %.loopexit
 
 .noexc78:                                         ; preds = %.noexc77
-  %159 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %158)
+  %158 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %157)
           to label %.noexc79 unwind label %.loopexit
 
 .noexc79:                                         ; preds = %.noexc78
-  %160 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr nonnull %switch.load, i64 4, ptr nonnull @.str.13, i64 4) #16
-  br i1 %160, label %161, label %175
+  %159 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr nonnull %switch.load, i64 4, ptr nonnull @.str.13, i64 4) #16
+  br i1 %159, label %160, label %174
 
-161:                                              ; preds = %.noexc79
-  %162 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer8open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.26, i64 7)
+160:                                              ; preds = %.noexc79
+  %161 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer8open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.26, i64 7)
           to label %.noexc80 unwind label %.loopexit
 
-.noexc80:                                         ; preds = %161
-  %163 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer8open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %162, ptr nonnull @.str.27, i64 7)
+.noexc80:                                         ; preds = %160
+  %162 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer8open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %161, ptr nonnull @.str.27, i64 7)
           to label %.noexc81 unwind label %.loopexit
 
 .noexc81:                                         ; preds = %.noexc80
-  %164 = load i32, ptr %96, align 8
-  %165 = invoke { ptr, i64 } @_ZN5vcpkg26to_string_locale_invariantENS_11BuildResultE(i32 noundef %164)
+  %163 = load i32, ptr %95, align 8
+  %164 = invoke { ptr, i64 } @_ZN5vcpkg26to_string_locale_invariantENS_11BuildResultE(i32 noundef %163)
           to label %.noexc82 unwind label %.loopexit
 
 .noexc82:                                         ; preds = %.noexc81
-  %166 = extractvalue { ptr, i64 } %165, 0
-  %167 = extractvalue { ptr, i64 } %165, 1
-  %168 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer5cdataENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %163, ptr %166, i64 %167)
+  %165 = extractvalue { ptr, i64 } %164, 0
+  %166 = extractvalue { ptr, i64 } %164, 1
+  %167 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer5cdataENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %162, ptr %165, i64 %166)
           to label %.noexc83 unwind label %.loopexit
 
 .noexc83:                                         ; preds = %.noexc82
-  %169 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9close_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %168, ptr nonnull @.str.27, i64 7)
+  %168 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9close_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %167, ptr nonnull @.str.27, i64 7)
           to label %.noexc84.invoke unwind label %.loopexit
 
 .noexc84.invoke:                                  ; preds = %.noexc88, %.noexc83
-  %170 = phi ptr [ %169, %.noexc83 ], [ %183, %.noexc88 ]
-  %171 = phi ptr [ @.str.26, %.noexc83 ], [ @.str.28, %.noexc88 ]
-  %172 = phi i64 [ 7, %.noexc83 ], [ 6, %.noexc88 ]
-  %173 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9close_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %170, ptr nonnull %171, i64 %172)
+  %169 = phi ptr [ %168, %.noexc83 ], [ %182, %.noexc88 ]
+  %170 = phi ptr [ @.str.26, %.noexc83 ], [ @.str.28, %.noexc88 ]
+  %171 = phi i64 [ 7, %.noexc83 ], [ 6, %.noexc88 ]
+  %172 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9close_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %169, ptr nonnull %170, i64 %171)
           to label %.noexc85.invoke unwind label %.loopexit
 
 .noexc85.invoke:                                  ; preds = %.noexc84.invoke
-  %174 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %173)
+  %173 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %172)
           to label %.noexc86 unwind label %.loopexit
 
-175:                                              ; preds = %.noexc79
-  %176 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr nonnull %switch.load, i64 4, ptr nonnull @.str.14, i64 4) #16
-  br i1 %176, label %177, label %184
+174:                                              ; preds = %.noexc79
+  %175 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr nonnull %switch.load, i64 4, ptr nonnull @.str.14, i64 4) #16
+  br i1 %175, label %176, label %183
 
-177:                                              ; preds = %175
-  %178 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer8open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.28, i64 6)
+176:                                              ; preds = %174
+  %177 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer8open_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.28, i64 6)
           to label %.noexc87 unwind label %.loopexit
 
-.noexc87:                                         ; preds = %177
-  %179 = load i32, ptr %96, align 8
-  %180 = invoke { ptr, i64 } @_ZN5vcpkg26to_string_locale_invariantENS_11BuildResultE(i32 noundef %179)
+.noexc87:                                         ; preds = %176
+  %178 = load i32, ptr %95, align 8
+  %179 = invoke { ptr, i64 } @_ZN5vcpkg26to_string_locale_invariantENS_11BuildResultE(i32 noundef %178)
           to label %.noexc88 unwind label %.loopexit
 
 .noexc88:                                         ; preds = %.noexc87
-  %181 = extractvalue { ptr, i64 } %180, 0
-  %182 = extractvalue { ptr, i64 } %180, 1
-  %183 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer5cdataENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %178, ptr %181, i64 %182)
+  %180 = extractvalue { ptr, i64 } %179, 0
+  %181 = extractvalue { ptr, i64 } %179, 1
+  %182 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer5cdataENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(37) %177, ptr %180, i64 %181)
           to label %.noexc84.invoke unwind label %.loopexit
 
-184:                                              ; preds = %175
+183:                                              ; preds = %174
   store i32 85, ptr %14, align 8
   store ptr @.str.4, ptr %42, align 8
-  %185 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr nonnull %switch.load, i64 4, ptr nonnull @.str.15, i64 4) #16
-  invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %14, i1 noundef zeroext %185)
+  %184 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr nonnull %switch.load, i64 4, ptr nonnull @.str.15, i64 4) #16
+  invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %14, i1 noundef zeroext %184)
           to label %.noexc86 unwind label %.loopexit
 
-.noexc86:                                         ; preds = %.noexc85.invoke, %184
-  %186 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9close_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.16, i64 4)
+.noexc86:                                         ; preds = %.noexc85.invoke, %183
+  %185 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9close_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.16, i64 4)
           to label %.noexc93 unwind label %.loopexit
 
 .noexc93:                                         ; preds = %.noexc86
-  %187 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %186)
-          to label %188 unwind label %.loopexit
+  %186 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %185)
+          to label %187 unwind label %.loopexit
 
-188:                                              ; preds = %.noexc93
+187:                                              ; preds = %.noexc93
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  %189 = getelementptr inbounds i8, ptr %.sroa.0100.0152, i64 176
-  %.not139 = icmp eq ptr %189, %95
+  %188 = getelementptr inbounds i8, ptr %.sroa.0100.0152, i64 176
+  %.not139 = icmp eq ptr %188, %94
   br i1 %.not139, label %._crit_edge155, label %.lr.ph154
 
-.loopexit:                                        ; preds = %.noexc84.invoke, %.noexc85.invoke, %switch.lookup, %.noexc60, %.noexc61, %.noexc62, %114, %.noexc64, %119, %.noexc66, %.noexc67, %.noexc68, %.noexc69, %132, %.noexc71, %151, %.noexc73, %.noexc74, %.noexc75, %.noexc76, %.noexc77, %.noexc78, %161, %.noexc80, %.noexc81, %.noexc82, %.noexc83, %177, %.noexc87, %.noexc88, %184, %.noexc86, %.noexc93
+.loopexit:                                        ; preds = %.noexc84.invoke, %.noexc85.invoke, %switch.lookup, %.noexc60, %.noexc61, %.noexc62, %113, %.noexc64, %118, %.noexc66, %.noexc67, %.noexc68, %.noexc69, %131, %.noexc71, %150, %.noexc73, %.noexc74, %.noexc75, %.noexc76, %.noexc77, %.noexc78, %160, %.noexc80, %.noexc81, %.noexc82, %.noexc83, %176, %.noexc87, %.noexc88, %183, %.noexc86, %.noexc93
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit:                      ; preds = %_ZN5vcpkg13XmlSerializer4attrINS_7TripletEEERS0_NS_13StringLiteralERKT_.exit, %.noexc, %86, %_ZN5vcpkg13XmlSerializer4attrINS_10StringViewEEERS0_NS_13StringLiteralERKT_.exit45, %_ZN5vcpkg13XmlSerializer4attrINS_10StringViewEEERS0_NS_13StringLiteralERKT_.exit, %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit, %76, %195, %193, %191, %._crit_edge155, %91, %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit55, %84, %82, %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit49, %_ZNO5vcpkg8OptionalI2tmE13value_or_exitERKNS_8LineInfoE.exit, %"_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg9XunitTestESt6vectorIS3_SaIS3_EEEEZNKS2_11XunitWriter9build_xmlB5cxx11ENS2_7TripletEE3$_0ET_SD_SD_T0_.exit"
+.loopexit.split-lp.loopexit:                      ; preds = %_ZN5vcpkg13XmlSerializer4attrINS_7TripletEEERS0_NS_13StringLiteralERKT_.exit, %.noexc, %85, %_ZN5vcpkg13XmlSerializer4attrINS_10StringViewEEERS0_NS_13StringLiteralERKT_.exit45, %_ZN5vcpkg13XmlSerializer4attrINS_10StringViewEEERS0_NS_13StringLiteralERKT_.exit, %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit, %75, %194, %192, %190, %._crit_edge155, %90, %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit55, %83, %81, %_ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_NS_13StringLiteralERKT_.exit49, %_ZNO5vcpkg8OptionalI2tmE13value_or_exitERKNS_8LineInfoE.exit, %"_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg9XunitTestESt6vectorIS3_SaIS3_EEEEZNKS2_11XunitWriter9build_xmlB5cxx11ENS2_7TripletEE3$_0ET_SD_SD_T0_.exit"
   %lpad.loopexit145 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %99
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %98
   %lpad.loopexit.split-lp146 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1146,44 +1145,44 @@ _ZN5vcpkg13XmlSerializer4attrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %common.resume.i
   %eh.lpad-body = phi { ptr, i32 } [ %common.resume.op.i, %common.resume.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit145, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp146, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #16
-  br label %203
+  br label %202
 
-._crit_edge155:                                   ; preds = %188, %93
-  %190 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9close_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.11, i64 10)
-          to label %191 unwind label %.loopexit.split-lp.loopexit
+._crit_edge155:                                   ; preds = %187, %92
+  %189 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9close_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.11, i64 10)
+          to label %190 unwind label %.loopexit.split-lp.loopexit
 
-191:                                              ; preds = %._crit_edge155
-  %192 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %190)
-          to label %193 unwind label %.loopexit.split-lp.loopexit
+190:                                              ; preds = %._crit_edge155
+  %191 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %189)
+          to label %192 unwind label %.loopexit.split-lp.loopexit
 
-193:                                              ; preds = %191
-  %194 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9close_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.6, i64 8)
-          to label %195 unwind label %.loopexit.split-lp.loopexit
+192:                                              ; preds = %190
+  %193 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9close_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.6, i64 8)
+          to label %194 unwind label %.loopexit.split-lp.loopexit
 
-195:                                              ; preds = %193
-  %196 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %194)
-          to label %197 unwind label %.loopexit.split-lp.loopexit
+194:                                              ; preds = %192
+  %195 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %193)
+          to label %196 unwind label %.loopexit.split-lp.loopexit
 
-197:                                              ; preds = %195
+196:                                              ; preds = %194
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #16
-  %198 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0133.0157) #20
-  %.not = icmp eq ptr %198, %38
+  %197 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0133.0157) #20
+  %.not = icmp eq ptr %197, %38
   br i1 %.not, label %._crit_edge160, label %43
 
-._crit_edge160:                                   ; preds = %197, %35
-  %199 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9close_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.2, i64 10)
-          to label %200 unwind label %.loopexit.split-lp141
+._crit_edge160:                                   ; preds = %196, %35
+  %198 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9close_tagENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(37) %21, ptr nonnull @.str.2, i64 10)
+          to label %199 unwind label %.loopexit.split-lp141
 
-200:                                              ; preds = %._crit_edge160
-  %201 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %199)
-          to label %202 unwind label %.loopexit.split-lp141
+199:                                              ; preds = %._crit_edge160
+  %200 = invoke noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10line_breakEv(ptr noundef nonnull align 8 dereferenceable(37) %198)
+          to label %201 unwind label %.loopexit.split-lp141
 
-202:                                              ; preds = %200
+201:                                              ; preds = %199
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %21) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #16
   ret void
 
-203:                                              ; preds = %.loopexit140, %.loopexit.split-lp141, %.body
+202:                                              ; preds = %.loopexit140, %.loopexit.split-lp141, %.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %lpad.loopexit142, %.loopexit140 ], [ %lpad.loopexit.split-lp143, %.loopexit.split-lp141 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #16
   resume { ptr, i32 } %.pn

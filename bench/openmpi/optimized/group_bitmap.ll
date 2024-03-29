@@ -256,9 +256,8 @@ define noundef i32 @ompi_group_incl_bmap(ptr noundef %0, i32 noundef %1, ptr noc
 7:                                                ; preds = %4
   store ptr @ompi_mpi_group_empty, ptr %3, align 8
   %8 = load i8, ptr @opal_uses_threads, align 1
-  %9 = and i8 %8, 1
-  %.not.i = icmp eq i8 %9, 0
-  br i1 %.not.i, label %12, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
   %11 = atomicrmw volatile add ptr getelementptr inbounds (%struct.ompi_predefined_group_t, ptr @ompi_mpi_group_empty, i64 0, i32 0, i32 0, i32 1), i32 1 monotonic, align 4
@@ -274,25 +273,25 @@ define noundef i32 @ompi_group_incl_bmap(ptr noundef %0, i32 noundef %1, ptr noc
 16:                                               ; preds = %4
   %17 = tail call ptr @ompi_group_allocate_bmap(ptr noundef %0, i32 noundef %1) #5
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %opal_thread_add_fetch_32.exit, label %.preheader41
+  br i1 %18, label %opal_thread_add_fetch_32.exit, label %.preheader40
 
-.preheader41:                                     ; preds = %16
+.preheader40:                                     ; preds = %16
   %19 = getelementptr inbounds i8, ptr %17, i64 56
   %20 = getelementptr inbounds i8, ptr %17, i64 64
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %.preheader41
+.preheader:                                       ; preds = %.lr.ph, %.preheader40
   %23 = icmp sgt i32 %1, 0
-  br i1 %23, label %.lr.ph44.preheader, label %._crit_edge
+  br i1 %23, label %.lr.ph43.preheader, label %._crit_edge
 
-.lr.ph44.preheader:                               ; preds = %.preheader
+.lr.ph43.preheader:                               ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %.lr.ph44
+  br label %.lr.ph43
 
-.lr.ph:                                           ; preds = %.preheader41, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader41 ]
+.lr.ph:                                           ; preds = %.preheader40, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader40 ]
   %24 = load ptr, ptr %19, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv
   store i8 0, ptr %25, align 1
@@ -302,9 +301,9 @@ define noundef i32 @ompi_group_incl_bmap(ptr noundef %0, i32 noundef %1, ptr noc
   %28 = icmp slt i64 %indvars.iv.next, %27
   br i1 %28, label %.lr.ph, label %.preheader, !llvm.loop !12
 
-.lr.ph44:                                         ; preds = %.lr.ph44.preheader, %.lr.ph44
-  %indvars.iv46 = phi i64 [ 0, %.lr.ph44.preheader ], [ %indvars.iv.next47, %.lr.ph44 ]
-  %29 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv46
+.lr.ph43:                                         ; preds = %.lr.ph43.preheader, %.lr.ph43
+  %indvars.iv45 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next46, %.lr.ph43 ]
+  %29 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv45
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 7
   %32 = shl nuw nsw i32 1, %31
@@ -316,31 +315,30 @@ define noundef i32 @ompi_group_incl_bmap(ptr noundef %0, i32 noundef %1, ptr noc
   %38 = trunc i32 %32 to i8
   %39 = or i8 %37, %38
   store i8 %39, ptr %36, align 1
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph44, !llvm.loop !13
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph43, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.lr.ph44, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph43, %.preheader
   %40 = getelementptr inbounds i8, ptr %17, i64 48
   store ptr %0, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   %42 = load i8, ptr @opal_uses_threads, align 1
-  %43 = and i8 %42, 1
-  %.not.i38 = icmp eq i8 %43, 0
-  br i1 %.not.i38, label %46, label %44
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %46
 
 44:                                               ; preds = %._crit_edge
   %45 = atomicrmw volatile add ptr %41, i32 1 monotonic, align 4
-  br label %opal_thread_add_fetch_32.exit40
+  br label %opal_thread_add_fetch_32.exit39
 
 46:                                               ; preds = %._crit_edge
   %47 = load volatile i32, ptr %41, align 4
   %48 = add nsw i32 %47, 1
   store volatile i32 %48, ptr %41, align 4
   %49 = load volatile i32, ptr %41, align 4
-  br label %opal_thread_add_fetch_32.exit40
+  br label %opal_thread_add_fetch_32.exit39
 
-opal_thread_add_fetch_32.exit40:                  ; preds = %44, %46
+opal_thread_add_fetch_32.exit39:                  ; preds = %44, %46
   %50 = load ptr, ptr %40, align 8
   tail call void @ompi_group_increment_proc_count(ptr noundef %50) #5
   tail call void @ompi_group_increment_proc_count(ptr noundef nonnull %17) #5
@@ -352,8 +350,8 @@ opal_thread_add_fetch_32.exit40:                  ; preds = %44, %46
   store ptr %17, ptr %3, align 8
   br label %opal_thread_add_fetch_32.exit
 
-opal_thread_add_fetch_32.exit:                    ; preds = %12, %10, %16, %opal_thread_add_fetch_32.exit40
-  %.0 = phi i32 [ 0, %opal_thread_add_fetch_32.exit40 ], [ 9, %16 ], [ 0, %10 ], [ 0, %12 ]
+opal_thread_add_fetch_32.exit:                    ; preds = %12, %10, %16, %opal_thread_add_fetch_32.exit39
+  %.0 = phi i32 [ 0, %opal_thread_add_fetch_32.exit39 ], [ 9, %16 ], [ 0, %10 ], [ 0, %12 ]
   ret i32 %.0
 }
 

@@ -82,9 +82,8 @@ define i32 @mca_io_ompio_file_preallocate(ptr noundef %0, i64 noundef %1) local_
   %7 = getelementptr inbounds i8, ptr %0, i64 952
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr @opal_uses_threads, align 1
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %14, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %0, i64 160
@@ -102,14 +101,13 @@ define i32 @mca_io_ompio_file_preallocate(ptr noundef %0, i64 noundef %1) local_
   %21 = getelementptr inbounds i8, ptr %18, i64 120
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 %20(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef 0, ptr noundef %16, ptr noundef %22) #9
-  %.not79 = icmp eq i32 %23, 0
-  br i1 %.not79, label %30, label %24
+  %.not = icmp eq i32 %23, 0
+  br i1 %.not, label %30, label %24
 
 24:                                               ; preds = %14
   %25 = load i8, ptr @opal_uses_threads, align 1
-  %26 = and i8 %25, 1
-  %.not89 = icmp eq i8 %26, 0
-  br i1 %.not89, label %121, label %27
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %121
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %0, i64 160
@@ -118,14 +116,13 @@ define i32 @mca_io_ompio_file_preallocate(ptr noundef %0, i64 noundef %1) local_
 
 30:                                               ; preds = %14
   %31 = load i64, ptr %4, align 8
-  %.not80 = icmp eq i64 %31, %1
-  br i1 %.not80, label %38, label %32
+  %.not79 = icmp eq i64 %31, %1
+  br i1 %.not79, label %38, label %32
 
 32:                                               ; preds = %30
   %33 = load i8, ptr @opal_uses_threads, align 1
-  %34 = and i8 %33, 1
-  %.not88 = icmp eq i8 %34, 0
-  br i1 %.not88, label %121, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %121
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds i8, ptr %0, i64 160
@@ -139,14 +136,13 @@ define i32 @mca_io_ompio_file_preallocate(ptr noundef %0, i64 noundef %1) local_
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 %42(ptr noundef nonnull %8, ptr noundef nonnull %5) #9
   store i32 %43, ptr %3, align 4
-  %.not81 = icmp eq i32 %43, 0
-  br i1 %.not81, label %50, label %44
+  %.not80 = icmp eq i32 %43, 0
+  br i1 %.not80, label %50, label %44
 
 44:                                               ; preds = %38
   %45 = load i8, ptr @opal_uses_threads, align 1
-  %46 = and i8 %45, 1
-  %.not87 = icmp eq i8 %46, 0
-  br i1 %.not87, label %121, label %47
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %121
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds i8, ptr %0, i64 160
@@ -160,9 +156,8 @@ define i32 @mca_io_ompio_file_preallocate(ptr noundef %0, i64 noundef %1) local_
 
 53:                                               ; preds = %50
   %54 = load i8, ptr @opal_uses_threads, align 1
-  %55 = and i8 %54, 1
-  %.not86 = icmp eq i8 %55, 0
-  br i1 %.not86, label %121, label %56
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %121
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i8, ptr %0, i64 160
@@ -173,7 +168,7 @@ define i32 @mca_io_ompio_file_preallocate(ptr noundef %0, i64 noundef %1) local_
   %60 = getelementptr inbounds i8, ptr %8, i64 20
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %.loopexit92
+  br i1 %62, label %63, label %.loopexit86
 
 63:                                               ; preds = %59
   %64 = call i32 @mca_common_ompio_file_get_position(ptr noundef nonnull %8, ptr noundef nonnull %6) #9
@@ -193,28 +188,28 @@ define i32 @mca_io_ompio_file_preallocate(ptr noundef %0, i64 noundef %1) local_
 72:                                               ; preds = %63
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str) #9
   store i32 -2, ptr %3, align 4
-  br label %.loopexit92
+  br label %.loopexit86
 
 .lr.ph:                                           ; preds = %.preheader, %78
-  %.06896 = phi i64 [ %79, %78 ], [ 0, %.preheader ]
-  %.07195 = phi i32 [ %80, %78 ], [ 0, %.preheader ]
-  %73 = sub nsw i64 %spec.select, %.06896
-  %spec.select90 = call i64 @llvm.smin.i64(i64 %73, i64 33554432)
-  %74 = trunc i64 %spec.select90 to i32
+  %.06890 = phi i64 [ %79, %78 ], [ 0, %.preheader ]
+  %.07189 = phi i32 [ %80, %78 ], [ 0, %.preheader ]
+  %73 = sub nsw i64 %spec.select, %.06890
+  %spec.select84 = call i64 @llvm.smin.i64(i64 %73, i64 33554432)
+  %74 = trunc i64 %spec.select84 to i32
   %75 = call i32 @mca_common_ompio_file_read(ptr noundef %8, ptr noundef nonnull %69, i32 noundef %74, ptr noundef nonnull @ompi_mpi_byte, ptr noundef null) #9
   store i32 %75, ptr %3, align 4
-  %.not83 = icmp eq i32 %75, 0
-  br i1 %.not83, label %76, label %.loopexit92
+  %.not82 = icmp eq i32 %75, 0
+  br i1 %.not82, label %76, label %.loopexit86
 
 76:                                               ; preds = %.lr.ph
   %77 = call i32 @mca_common_ompio_file_write(ptr noundef %8, ptr noundef nonnull %69, i32 noundef %74, ptr noundef nonnull @ompi_mpi_byte, ptr noundef null) #9
   store i32 %77, ptr %3, align 4
-  %.not84 = icmp eq i32 %77, 0
-  br i1 %.not84, label %78, label %.loopexit92
+  %.not83 = icmp eq i32 %77, 0
+  br i1 %.not83, label %78, label %.loopexit86
 
 78:                                               ; preds = %76
-  %79 = add nsw i64 %spec.select90, %.06896
-  %80 = add nuw nsw i32 %.07195, 1
+  %79 = add nsw i64 %spec.select84, %.06890
+  %80 = add nuw nsw i32 %.07189, 1
   %exitcond.not = icmp eq i32 %80, %68
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
@@ -235,32 +230,32 @@ define i32 @mca_io_ompio_file_preallocate(ptr noundef %0, i64 noundef %1) local_
   %86 = sdiv i64 %85, 33554432
   %87 = trunc i64 %86 to i32
   %88 = icmp sgt i32 %87, 0
-  br i1 %88, label %.lr.ph100, label %.loopexit
+  br i1 %88, label %.lr.ph94, label %.loopexit
 
-.lr.ph100:                                        ; preds = %83, %92
-  %.16998 = phi i64 [ %93, %92 ], [ %.068.lcssa, %83 ]
-  %.17297 = phi i32 [ %94, %92 ], [ 0, %83 ]
-  %89 = sub nsw i64 %1, %.16998
-  %spec.select91 = call i64 @llvm.smin.i64(i64 %89, i64 33554432)
-  %90 = trunc i64 %spec.select91 to i32
+.lr.ph94:                                         ; preds = %83, %92
+  %.16992 = phi i64 [ %93, %92 ], [ %.068.lcssa, %83 ]
+  %.17291 = phi i32 [ %94, %92 ], [ 0, %83 ]
+  %89 = sub nsw i64 %1, %.16992
+  %spec.select85 = call i64 @llvm.smin.i64(i64 %89, i64 33554432)
+  %90 = trunc i64 %spec.select85 to i32
   %91 = call i32 @mca_common_ompio_file_write(ptr noundef %8, ptr noundef nonnull %69, i32 noundef %90, ptr noundef nonnull @ompi_mpi_byte, ptr noundef null) #9
   store i32 %91, ptr %3, align 4
-  %.not82 = icmp eq i32 %91, 0
-  br i1 %.not82, label %92, label %.loopexit92
+  %.not81 = icmp eq i32 %91, 0
+  br i1 %.not81, label %92, label %.loopexit86
 
-92:                                               ; preds = %.lr.ph100
-  %93 = add nsw i64 %spec.select91, %.16998
-  %94 = add nuw nsw i32 %.17297, 1
-  %exitcond102.not = icmp eq i32 %94, %87
-  br i1 %exitcond102.not, label %.loopexit, label %.lr.ph100, !llvm.loop !6
+92:                                               ; preds = %.lr.ph94
+  %93 = add nsw i64 %spec.select85, %.16992
+  %94 = add nuw nsw i32 %.17291, 1
+  %exitcond96.not = icmp eq i32 %94, %87
+  br i1 %exitcond96.not, label %.loopexit, label %.lr.ph94, !llvm.loop !6
 
 .loopexit:                                        ; preds = %92, %83, %._crit_edge
   %95 = load i64, ptr %6, align 8
   %96 = call i32 @mca_common_ompio_set_explicit_offset(ptr noundef %8, i64 noundef %95) #9
-  br label %.loopexit92
+  br label %.loopexit86
 
-.loopexit92:                                      ; preds = %76, %.lr.ph, %.lr.ph100, %59, %.loopexit, %72
-  %.066 = phi ptr [ null, %72 ], [ %69, %.loopexit ], [ null, %59 ], [ %69, %.lr.ph100 ], [ %69, %.lr.ph ], [ %69, %76 ]
+.loopexit86:                                      ; preds = %76, %.lr.ph, %.lr.ph94, %59, %.loopexit, %72
+  %.066 = phi ptr [ null, %72 ], [ %69, %.loopexit ], [ null, %59 ], [ %69, %.lr.ph94 ], [ %69, %.lr.ph ], [ %69, %76 ]
   call void @free(ptr noundef %.066) #9
   %97 = getelementptr inbounds i8, ptr %0, i64 96
   %98 = load ptr, ptr %97, align 8
@@ -275,18 +270,17 @@ define i32 @mca_io_ompio_file_preallocate(ptr noundef %0, i64 noundef %1) local_
   %107 = icmp slt i64 %106, %1
   br i1 %107, label %108, label %113
 
-108:                                              ; preds = %.loopexit92
+108:                                              ; preds = %.loopexit86
   %109 = load ptr, ptr %39, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 40
   %111 = load ptr, ptr %110, align 8
   %112 = call i32 %111(ptr noundef %8, i64 noundef %1) #9
   br label %113
 
-113:                                              ; preds = %.loopexit92, %108
+113:                                              ; preds = %.loopexit86, %108
   %114 = load i8, ptr @opal_uses_threads, align 1
-  %115 = and i8 %114, 1
-  %.not85 = icmp eq i8 %115, 0
-  br i1 %.not85, label %119, label %116
+  %115 = trunc i8 %114 to i1
+  br i1 %115, label %116, label %119
 
 116:                                              ; preds = %113
   %117 = getelementptr inbounds i8, ptr %0, i64 160
@@ -325,9 +319,8 @@ define i32 @mca_io_ompio_file_set_size(ptr noundef %0, i64 noundef %1) local_unn
   %5 = load ptr, ptr %4, align 8
   store i64 %1, ptr %3, align 8
   %6 = load i8, ptr @opal_uses_threads, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %11, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 160
@@ -344,26 +337,24 @@ define i32 @mca_io_ompio_file_set_size(ptr noundef %0, i64 noundef %1) local_unn
   %18 = getelementptr inbounds i8, ptr %15, i64 120
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 %17(ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef 0, ptr noundef %13, ptr noundef %19) #9
-  %.not29 = icmp eq i32 %20, 0
-  br i1 %.not29, label %24, label %21
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %24, label %21
 
 21:                                               ; preds = %11
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.1) #9
   %22 = load i8, ptr @opal_uses_threads, align 1
-  %23 = and i8 %22, 1
-  %.not37 = icmp eq i8 %23, 0
-  br i1 %.not37, label %55, label %.sink.split
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %.sink.split, label %55
 
 24:                                               ; preds = %11
   %25 = load i64, ptr %3, align 8
-  %.not30 = icmp eq i64 %25, %1
-  br i1 %.not30, label %29, label %26
+  %.not29 = icmp eq i64 %25, %1
+  br i1 %.not29, label %29, label %26
 
 26:                                               ; preds = %24
   %27 = load i8, ptr @opal_uses_threads, align 1
-  %28 = and i8 %27, 1
-  %.not36 = icmp eq i8 %28, 0
-  br i1 %.not36, label %55, label %.sink.split
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %.sink.split, label %55
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds i8, ptr %5, i64 344
@@ -371,15 +362,14 @@ define i32 @mca_io_ompio_file_set_size(ptr noundef %0, i64 noundef %1) local_unn
   %32 = getelementptr inbounds i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8
   %34 = call i32 %33(ptr noundef nonnull %5, i64 noundef %1) #9
-  %.not31 = icmp eq i32 %34, 0
-  br i1 %.not31, label %38, label %35
+  %.not30 = icmp eq i32 %34, 0
+  br i1 %.not30, label %38, label %35
 
 35:                                               ; preds = %29
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.2) #9
   %36 = load i8, ptr @opal_uses_threads, align 1
-  %37 = and i8 %36, 1
-  %.not35 = icmp eq i8 %37, 0
-  br i1 %.not35, label %55, label %.sink.split
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %.sink.split, label %55
 
 38:                                               ; preds = %29
   %39 = load ptr, ptr %12, align 8
@@ -390,21 +380,19 @@ define i32 @mca_io_ompio_file_set_size(ptr noundef %0, i64 noundef %1) local_unn
   %44 = getelementptr inbounds i8, ptr %41, i64 104
   %45 = load ptr, ptr %44, align 8
   %46 = call i32 %43(ptr noundef %39, ptr noundef %45) #9
-  %.not32 = icmp eq i32 %46, 0
-  br i1 %.not32, label %50, label %47
+  %.not31 = icmp eq i32 %46, 0
+  br i1 %.not31, label %50, label %47
 
 47:                                               ; preds = %38
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.3) #9
   %48 = load i8, ptr @opal_uses_threads, align 1
-  %49 = and i8 %48, 1
-  %.not34 = icmp eq i8 %49, 0
-  br i1 %.not34, label %55, label %.sink.split
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %.sink.split, label %55
 
 50:                                               ; preds = %38
   %51 = load i8, ptr @opal_uses_threads, align 1
-  %52 = and i8 %51, 1
-  %.not33 = icmp eq i8 %52, 0
-  br i1 %.not33, label %55, label %.sink.split
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %.sink.split, label %55
 
 .sink.split:                                      ; preds = %50, %47, %35, %26, %21
   %.0.ph = phi i32 [ %20, %21 ], [ -1, %26 ], [ %34, %35 ], [ %46, %47 ], [ 0, %50 ]
@@ -422,9 +410,8 @@ define i32 @mca_io_ompio_file_get_size(ptr noundef %0, ptr noundef %1) local_unn
   %3 = getelementptr inbounds i8, ptr %0, i64 952
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr @opal_uses_threads, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %10, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 160
@@ -434,9 +421,8 @@ define i32 @mca_io_ompio_file_get_size(ptr noundef %0, ptr noundef %1) local_unn
 10:                                               ; preds = %2, %7
   %11 = tail call i32 @mca_common_ompio_file_get_size(ptr noundef %4, ptr noundef %1) #9
   %12 = load i8, ptr @opal_uses_threads, align 1
-  %13 = and i8 %12, 1
-  %.not5 = icmp eq i8 %13, 0
-  br i1 %.not5, label %17, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %17
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 160
@@ -476,9 +462,8 @@ define noundef i32 @mca_io_ompio_file_set_atomicity(ptr noundef %0, i32 noundef 
   %4 = getelementptr inbounds i8, ptr %0, i64 952
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr @opal_uses_threads, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %11, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 160
@@ -486,8 +471,8 @@ define noundef i32 @mca_io_ompio_file_set_atomicity(ptr noundef %0, i32 noundef 
   br label %11
 
 11:                                               ; preds = %2, %8
-  %.not20 = icmp ne i32 %1, 0
-  %spec.store.select = zext i1 %.not20 to i32
+  %.not = icmp ne i32 %1, 0
+  %spec.store.select = zext i1 %.not to i32
   store i32 %spec.store.select, ptr %3, align 4
   %12 = getelementptr inbounds i8, ptr %5, i64 40
   %13 = load ptr, ptr %12, align 8
@@ -499,17 +484,16 @@ define noundef i32 @mca_io_ompio_file_set_atomicity(ptr noundef %0, i32 noundef 
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 %17(ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, ptr noundef %13, ptr noundef %19) #9
   %21 = load i32, ptr %3, align 4
-  %.not21 = icmp eq i32 %21, %spec.store.select
-  br i1 %.not21, label %25, label %22
+  %.not20 = icmp eq i32 %21, %spec.store.select
+  br i1 %.not20, label %25, label %22
 
 22:                                               ; preds = %11
   %23 = load i8, ptr @opal_uses_threads, align 1
-  %24 = and i8 %23, 1
-  %.not23 = icmp eq i8 %24, 0
-  br i1 %.not23, label %38, label %.sink.split24
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %.sink.split21, label %38
 
 25:                                               ; preds = %11
-  br i1 %.not20, label %26, label %.sink.split
+  br i1 %.not, label %26, label %.sink.split
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds i8, ptr %5, i64 360
@@ -527,18 +511,17 @@ define noundef i32 @mca_io_ompio_file_set_atomicity(ptr noundef %0, i32 noundef 
 33:                                               ; preds = %.sink.split, %26
   %.019 = phi i32 [ 35, %26 ], [ 0, %.sink.split ]
   %34 = load i8, ptr @opal_uses_threads, align 1
-  %35 = and i8 %34, 1
-  %.not22 = icmp eq i8 %35, 0
-  br i1 %.not22, label %38, label %.sink.split24
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %.sink.split21, label %38
 
-.sink.split24:                                    ; preds = %33, %22
+.sink.split21:                                    ; preds = %33, %22
   %.0.ph = phi i32 [ -1, %22 ], [ %.019, %33 ]
   %36 = getelementptr inbounds i8, ptr %0, i64 160
   %37 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #9
   br label %38
 
-38:                                               ; preds = %.sink.split24, %33, %22
-  %.0 = phi i32 [ -1, %22 ], [ %.019, %33 ], [ %.0.ph, %.sink.split24 ]
+38:                                               ; preds = %.sink.split21, %33, %22
+  %.0 = phi i32 [ -1, %22 ], [ %.019, %33 ], [ %.0.ph, %.sink.split21 ]
   ret i32 %.0
 }
 
@@ -547,9 +530,8 @@ define noundef i32 @mca_io_ompio_file_get_atomicity(ptr noundef %0, ptr nocaptur
   %3 = getelementptr inbounds i8, ptr %0, i64 952
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr @opal_uses_threads, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %10, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 160
@@ -561,9 +543,8 @@ define noundef i32 @mca_io_ompio_file_get_atomicity(ptr noundef %0, ptr nocaptur
   %12 = load i32, ptr %11, align 4
   store i32 %12, ptr %1, align 4
   %13 = load i8, ptr @opal_uses_threads, align 1
-  %14 = and i8 %13, 1
-  %.not5 = icmp eq i8 %14, 0
-  br i1 %.not5, label %18, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %18
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %0, i64 160
@@ -579,9 +560,8 @@ define i32 @mca_io_ompio_file_sync(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 952
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr @opal_uses_threads, align 1
-  %5 = and i8 %4, 1
-  %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %9, label %6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 160
@@ -595,22 +575,20 @@ define i32 @mca_io_ompio_file_sync(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %9
   %13 = load i8, ptr @opal_uses_threads, align 1
-  %14 = and i8 %13, 1
-  %.not16 = icmp eq i8 %14, 0
-  br i1 %.not16, label %45, label %.sink.split
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %.sink.split, label %45
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %3, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 2
-  %.not17 = icmp eq i32 %18, 0
-  br i1 %.not17, label %22, label %19
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %22, label %19
 
 19:                                               ; preds = %15
   %20 = load i8, ptr @opal_uses_threads, align 1
-  %21 = and i8 %20, 1
-  %.not21 = icmp eq i8 %21, 0
-  br i1 %.not21, label %45, label %.sink.split
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %.sink.split, label %45
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds i8, ptr %3, i64 40
@@ -622,14 +600,13 @@ define i32 @mca_io_ompio_file_sync(ptr noundef %0) local_unnamed_addr #0 {
   %29 = getelementptr inbounds i8, ptr %26, i64 104
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 %28(ptr noundef %24, ptr noundef %30) #9
-  %.not18 = icmp eq i32 %31, 0
-  br i1 %.not18, label %35, label %32
+  %.not16 = icmp eq i32 %31, 0
+  br i1 %.not16, label %35, label %32
 
 32:                                               ; preds = %22
   %33 = load i8, ptr @opal_uses_threads, align 1
-  %34 = and i8 %33, 1
-  %.not20 = icmp eq i8 %34, 0
-  br i1 %.not20, label %45, label %.sink.split
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %.sink.split, label %45
 
 35:                                               ; preds = %22
   %36 = getelementptr inbounds i8, ptr %3, i64 344
@@ -638,9 +615,8 @@ define i32 @mca_io_ompio_file_sync(ptr noundef %0) local_unnamed_addr #0 {
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 %39(ptr noundef nonnull %3) #9
   %41 = load i8, ptr @opal_uses_threads, align 1
-  %42 = and i8 %41, 1
-  %.not19 = icmp eq i8 %42, 0
-  br i1 %.not19, label %45, label %.sink.split
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %.sink.split, label %45
 
 .sink.split:                                      ; preds = %35, %32, %19, %12
   %.0.ph = phi i32 [ 16, %12 ], [ 20, %19 ], [ %31, %32 ], [ %40, %35 ]
@@ -661,9 +637,8 @@ define i32 @mca_io_ompio_file_seek(ptr noundef %0, i64 noundef %1, i32 noundef %
   %6 = getelementptr inbounds i8, ptr %0, i64 952
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr @opal_uses_threads, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %13, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %13
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %0, i64 160
@@ -686,9 +661,8 @@ define i32 @mca_io_ompio_file_seek(ptr noundef %0, i64 noundef %1, i32 noundef %
 
 19:                                               ; preds = %17
   %20 = load i8, ptr @opal_uses_threads, align 1
-  %21 = and i8 %20, 1
-  %.not33 = icmp eq i8 %21, 0
-  br i1 %.not33, label %107, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %107
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %0, i64 160
@@ -706,9 +680,8 @@ define i32 @mca_io_ompio_file_seek(ptr noundef %0, i64 noundef %1, i32 noundef %
 
 32:                                               ; preds = %25
   %33 = load i8, ptr @opal_uses_threads, align 1
-  %34 = and i8 %33, 1
-  %.not31 = icmp eq i8 %34, 0
-  br i1 %.not31, label %107, label %35
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %107
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds i8, ptr %0, i64 160
@@ -741,8 +714,8 @@ define i32 @mca_io_ompio_file_seek(ptr noundef %0, i64 noundef %1, i32 noundef %
   %54 = getelementptr inbounds i8, ptr %7, i64 208
   %55 = load i32, ptr %54, align 8
   %56 = zext i32 %55 to i64
-  %exitcond.not.i35 = icmp eq i32 %55, 0
-  br i1 %exitcond.not.i35, label %.critedge.i, label %.lr.ph
+  %exitcond.not.i30 = icmp eq i32 %55, 0
+  br i1 %exitcond.not.i30, label %.critedge.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i
   %57 = getelementptr inbounds i8, ptr %7, i64 200
@@ -750,28 +723,28 @@ define i32 @mca_io_ompio_file_seek(ptr noundef %0, i64 noundef %1, i32 noundef %
   %59 = load ptr, ptr %58, align 8
   %60 = ptrtoint ptr %59 to i64
   %61 = add nsw i64 %53, %60
-  %.not30.i42 = icmp sgt i64 %61, %47
-  br i1 %.not30.i42, label %.critedge.i, label %.lr.ph44, !llvm.loop !7
+  %.not30.i37 = icmp sgt i64 %61, %47
+  br i1 %.not30.i37, label %.critedge.i, label %.lr.ph39, !llvm.loop !7
 
-.lr.ph44:                                         ; preds = %.lr.ph, %64
+.lr.ph39:                                         ; preds = %.lr.ph, %64
   %62 = phi i64 [ %69, %64 ], [ %61, %.lr.ph ]
   %63 = phi i64 [ %65, %64 ], [ 1, %.lr.ph ]
-  %.02832.i3743 = phi i64 [ %62, %64 ], [ 0, %.lr.ph ]
+  %.02832.i3238 = phi i64 [ %62, %64 ], [ 0, %.lr.ph ]
   %exitcond.not.i = icmp eq i64 %63, %56
   br i1 %exitcond.not.i, label %.critedge.i, label %64, !llvm.loop !7
 
-64:                                               ; preds = %.lr.ph44
+64:                                               ; preds = %.lr.ph39
   %65 = add nuw nsw i64 %63, 1
   %66 = getelementptr inbounds %struct.iovec, ptr %58, i64 %63
   %67 = load ptr, ptr %66, align 8
   %68 = ptrtoint ptr %67 to i64
   %69 = add nsw i64 %53, %68
   %.not30.i = icmp sgt i64 %69, %47
-  br i1 %.not30.i, label %.critedge.i, label %.lr.ph44, !llvm.loop !7
+  br i1 %.not30.i, label %.critedge.i, label %.lr.ph39, !llvm.loop !7
 
-.critedge.i:                                      ; preds = %64, %.lr.ph44, %.lr.ph, %.lr.ph.i, %50
-  %.027.lcssa.i = phi i64 [ 0, %50 ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph ], [ %.02832.i3743, %.lr.ph44 ], [ %62, %64 ]
-  %.0.lcssa.i = phi i64 [ 0, %50 ], [ 0, %.lr.ph.i ], [ 1, %.lr.ph ], [ %56, %.lr.ph44 ], [ %65, %64 ]
+.critedge.i:                                      ; preds = %64, %.lr.ph39, %.lr.ph, %.lr.ph.i, %50
+  %.027.lcssa.i = phi i64 [ 0, %50 ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph ], [ %.02832.i3238, %.lr.ph39 ], [ %62, %64 ]
+  %.0.lcssa.i = phi i64 [ 0, %50 ], [ 0, %.lr.ph.i ], [ 1, %.lr.ph ], [ %56, %.lr.ph39 ], [ %65, %64 ]
   %70 = getelementptr inbounds i8, ptr %7, i64 200
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr %struct.iovec, ptr %71, i64 %.0.lcssa.i
@@ -813,9 +786,8 @@ mca_io_ompio_file_get_eof_offset.exit._crit_edge: ; preds = %mca_io_ompio_file_g
 
 86:                                               ; preds = %mca_io_ompio_file_get_eof_offset.exit
   %87 = load i8, ptr @opal_uses_threads, align 1
-  %88 = and i8 %87, 1
-  %.not30 = icmp eq i8 %88, 0
-  br i1 %.not30, label %107, label %89
+  %88 = trunc i8 %87 to i1
+  br i1 %88, label %89, label %107
 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds i8, ptr %0, i64 160
@@ -824,9 +796,8 @@ mca_io_ompio_file_get_eof_offset.exit._crit_edge: ; preds = %mca_io_ompio_file_g
 
 92:                                               ; preds = %13
   %93 = load i8, ptr @opal_uses_threads, align 1
-  %94 = and i8 %93, 1
-  %.not34 = icmp eq i8 %94, 0
-  br i1 %.not34, label %107, label %95
+  %94 = trunc i8 %93 to i1
+  br i1 %94, label %95, label %107
 
 95:                                               ; preds = %92
   %96 = getelementptr inbounds i8, ptr %0, i64 160
@@ -839,9 +810,8 @@ mca_io_ompio_file_get_eof_offset.exit._crit_edge: ; preds = %mca_io_ompio_file_g
   %100 = udiv i64 %.0, %99
   %101 = call i32 @mca_common_ompio_set_explicit_offset(ptr noundef nonnull %7, i64 noundef %100) #9
   %102 = load i8, ptr @opal_uses_threads, align 1
-  %103 = and i8 %102, 1
-  %.not32 = icmp eq i8 %103, 0
-  br i1 %.not32, label %107, label %104
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %104, label %107
 
 104:                                              ; preds = %98
   %105 = getelementptr inbounds i8, ptr %0, i64 160
@@ -858,9 +828,8 @@ define i32 @mca_io_ompio_file_get_position(ptr noundef %0, ptr noundef %1) local
   %3 = getelementptr inbounds i8, ptr %0, i64 952
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr @opal_uses_threads, align 1
-  %6 = and i8 %5, 1
-  %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %10, label %7
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 160
@@ -870,9 +839,8 @@ define i32 @mca_io_ompio_file_get_position(ptr noundef %0, ptr noundef %1) local
 10:                                               ; preds = %2, %7
   %11 = tail call i32 @mca_common_ompio_file_get_position(ptr noundef %4, ptr noundef %1) #9
   %12 = load i8, ptr @opal_uses_threads, align 1
-  %13 = and i8 %12, 1
-  %.not6 = icmp eq i8 %13, 0
-  br i1 %.not6, label %17, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %17
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 160
@@ -888,9 +856,8 @@ define noundef i32 @mca_io_ompio_file_get_byte_offset(ptr noundef %0, i64 nounde
   %4 = getelementptr inbounds i8, ptr %0, i64 952
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr @opal_uses_threads, align 1
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %11, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 160
@@ -906,9 +873,8 @@ define noundef i32 @mca_io_ompio_file_get_byte_offset(ptr noundef %0, i64 nounde
 15:                                               ; preds = %11
   store i64 0, ptr %2, align 8
   %16 = load i8, ptr @opal_uses_threads, align 1
-  %17 = and i8 %16, 1
-  %.not40 = icmp eq i8 %17, 0
-  br i1 %.not40, label %57, label %.sink.split
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %.sink.split, label %57
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds i8, ptr %5, i64 240
@@ -924,9 +890,8 @@ define noundef i32 @mca_io_ompio_file_get_byte_offset(ptr noundef %0, i64 nounde
 
 28:                                               ; preds = %18
   %29 = load i8, ptr @opal_uses_threads, align 1
-  %30 = and i8 %29, 1
-  %.not39 = icmp eq i8 %30, 0
-  br i1 %.not39, label %57, label %.sink.split
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %.sink.split, label %57
 
 31:                                               ; preds = %18
   %32 = trunc i64 %25 to i32
@@ -940,8 +905,8 @@ define noundef i32 @mca_io_ompio_file_get_byte_offset(ptr noundef %0, i64 nounde
   %36 = getelementptr inbounds %struct.iovec, ptr %34, i64 %indvars.iv, i32 1
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  %.not37 = icmp slt i32 %.032, %38
-  br i1 %.not37, label %42, label %39
+  %.not = icmp slt i32 %.032, %38
+  br i1 %.not, label %42, label %39
 
 39:                                               ; preds = %35
   %40 = sub nsw i32 %.032, %38
@@ -968,9 +933,8 @@ define noundef i32 @mca_io_ompio_file_get_byte_offset(ptr noundef %0, i64 nounde
   %52 = add i64 %51, %49
   store i64 %52, ptr %2, align 8
   %53 = load i8, ptr @opal_uses_threads, align 1
-  %54 = and i8 %53, 1
-  %.not38 = icmp eq i8 %54, 0
-  br i1 %.not38, label %57, label %.sink.split
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %.sink.split, label %57
 
 .sink.split:                                      ; preds = %.loopexit, %28, %15
   %.0.ph = phi i32 [ 0, %15 ], [ 13, %28 ], [ 0, %.loopexit ]
@@ -998,9 +962,8 @@ define i32 @mca_io_ompio_file_seek_shared(ptr noundef %0, i64 noundef %1, i32 no
 
 10:                                               ; preds = %3
   %11 = load i8, ptr @opal_uses_threads, align 1
-  %12 = and i8 %11, 1
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %16, label %13
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %16
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 160
@@ -1012,9 +975,8 @@ define i32 @mca_io_ompio_file_seek_shared(ptr noundef %0, i64 noundef %1, i32 no
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(ptr noundef nonnull %5, i64 noundef %1, i32 noundef %2) #9
   %20 = load i8, ptr @opal_uses_threads, align 1
-  %21 = and i8 %20, 1
-  %.not12 = icmp eq i8 %21, 0
-  br i1 %.not12, label %25, label %22
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %25
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds i8, ptr %0, i64 160
@@ -1041,9 +1003,8 @@ define i32 @mca_io_ompio_file_get_position_shared(ptr noundef %0, ptr noundef %1
 
 9:                                                ; preds = %2
   %10 = load i8, ptr @opal_uses_threads, align 1
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %15, label %12
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %15
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 160
@@ -1060,9 +1021,8 @@ define i32 @mca_io_ompio_file_get_position_shared(ptr noundef %0, ptr noundef %1
   %22 = udiv i64 %19, %21
   store i64 %22, ptr %1, align 8
   %23 = load i8, ptr @opal_uses_threads, align 1
-  %24 = and i8 %23, 1
-  %.not14 = icmp eq i8 %24, 0
-  br i1 %.not14, label %28, label %25
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %28
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds i8, ptr %0, i64 160

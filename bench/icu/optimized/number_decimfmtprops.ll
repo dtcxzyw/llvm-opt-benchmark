@@ -191,185 +191,176 @@ declare void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 
 define noundef zeroext i1 @_ZNK6icu_756number4impl23DecimalFormatProperties7_equalsERKS2_b(ptr noundef nonnull align 8 dereferenceable(757) %this, ptr noundef nonnull align 8 dereferenceable(757) %other, i1 noundef zeroext %ignoreForFastFormat) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  %2 = load i8, ptr %other, align 8
-  %3 = and i8 %2, 1
-  %tobool5.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
+  %tobool.i = trunc i8 %0 to i1
+  %1 = load i8, ptr %other, align 8
+  %tobool3.i = trunc i8 %1 to i1
+  %brmerge.i = select i1 %tobool.i, i1 true, i1 %tobool3.i
+  br i1 %brmerge.i, label %_ZNK6icu_756number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit, label %cond.false7.i
 
-cond.true.i:                                      ; preds = %entry
-  br i1 %tobool5.not.i, label %land.end173, label %land.rhs5
-
-cond.false.i:                                     ; preds = %entry
-  br i1 %tobool5.not.i, label %_ZNK6icu_756number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit, label %land.end173
-
-_ZNK6icu_756number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit: ; preds = %cond.false.i
+cond.false7.i:                                    ; preds = %entry
   %fValue.i = getelementptr inbounds i8, ptr %this, i64 4
-  %4 = load i32, ptr %fValue.i, align 4
+  %2 = load i32, ptr %fValue.i, align 4
   %fValue8.i = getelementptr inbounds i8, ptr %other, i64 4
-  %5 = load i32, ptr %fValue8.i, align 4
-  %cmp.i = icmp eq i32 %4, %5
+  %3 = load i32, ptr %fValue8.i, align 4
+  %cmp.i = icmp eq i32 %2, %3
   br i1 %cmp.i, label %land.rhs5, label %land.end173
 
-land.rhs5:                                        ; preds = %cond.true.i, %_ZNK6icu_756number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit
+_ZNK6icu_756number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit: ; preds = %entry
+  %tobool3.mux.i = select i1 %tobool.i, i1 %tobool3.i, i1 false
+  br i1 %tobool3.mux.i, label %land.rhs5, label %land.end173
+
+land.rhs5:                                        ; preds = %cond.false7.i, %_ZNK6icu_756number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit
   %currency = getelementptr inbounds i8, ptr %this, i64 8
   %currency6 = getelementptr inbounds i8, ptr %other, i64 8
-  %6 = load i8, ptr %currency, align 8
-  %7 = and i8 %6, 1
-  %tobool.not.i87 = icmp eq i8 %7, 0
-  %8 = load i8, ptr %currency6, align 8
-  %9 = and i8 %8, 1
-  %tobool5.not.i92 = icmp eq i8 %9, 0
-  br i1 %tobool.not.i87, label %cond.false.i91, label %cond.true.i88
+  %4 = load i8, ptr %currency, align 8
+  %tobool.i87 = trunc i8 %4 to i1
+  %5 = load i8, ptr %currency6, align 8
+  %tobool3.i88 = trunc i8 %5 to i1
+  %brmerge.i89 = select i1 %tobool.i87, i1 true, i1 %tobool3.i88
+  br i1 %brmerge.i89, label %_ZNK6icu_756number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit, label %cond.false7.i91
 
-cond.true.i88:                                    ; preds = %land.rhs5
-  br i1 %tobool5.not.i92, label %land.end173, label %land.rhs11
-
-cond.false.i91:                                   ; preds = %land.rhs5
-  br i1 %tobool5.not.i92, label %_ZNK6icu_756number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit, label %land.end173
-
-_ZNK6icu_756number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit: ; preds = %cond.false.i91
-  %fValue.i94 = getelementptr inbounds i8, ptr %this, i64 16
-  %fValue8.i95 = getelementptr inbounds i8, ptr %other, i64 16
-  %call.i = tail call noundef zeroext i1 @_ZNK6icu_7511MeasureUniteqERKNS_7UObjectE(ptr noundef nonnull align 8 dereferenceable(19) %fValue.i94, ptr noundef nonnull align 8 dereferenceable(8) %fValue8.i95)
+cond.false7.i91:                                  ; preds = %land.rhs5
+  %fValue.i92 = getelementptr inbounds i8, ptr %this, i64 16
+  %fValue8.i93 = getelementptr inbounds i8, ptr %other, i64 16
+  %call.i = tail call noundef zeroext i1 @_ZNK6icu_7511MeasureUniteqERKNS_7UObjectE(ptr noundef nonnull align 8 dereferenceable(19) %fValue.i92, ptr noundef nonnull align 8 dereferenceable(8) %fValue8.i93)
   br i1 %call.i, label %land.rhs11, label %land.end173
 
-land.rhs11:                                       ; preds = %cond.true.i88, %_ZNK6icu_756number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit
+_ZNK6icu_756number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit: ; preds = %land.rhs5
+  %tobool3.mux.i90 = select i1 %tobool.i87, i1 %tobool3.i88, i1 false
+  br i1 %tobool3.mux.i90, label %land.rhs11, label %land.end173
+
+land.rhs11:                                       ; preds = %cond.false7.i91, %_ZNK6icu_756number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit
   %currencyPluralInfo = getelementptr inbounds i8, ptr %this, i64 48
-  %10 = load ptr, ptr %currencyPluralInfo, align 8
+  %6 = load ptr, ptr %currencyPluralInfo, align 8
   %currencyPluralInfo13 = getelementptr inbounds i8, ptr %other, i64 48
-  %11 = load ptr, ptr %currencyPluralInfo13, align 8
-  %cmp = icmp eq ptr %10, %11
+  %7 = load ptr, ptr %currencyPluralInfo13, align 8
+  %cmp = icmp eq ptr %6, %7
   br i1 %cmp, label %land.rhs19, label %land.end173
 
 land.rhs19:                                       ; preds = %land.rhs11
   %currencyUsage = getelementptr inbounds i8, ptr %this, i64 56
   %currencyUsage20 = getelementptr inbounds i8, ptr %other, i64 56
-  %12 = load i8, ptr %currencyUsage, align 8
-  %13 = and i8 %12, 1
-  %tobool.not.i96 = icmp eq i8 %13, 0
-  %14 = load i8, ptr %currencyUsage20, align 8
-  %15 = and i8 %14, 1
-  %tobool5.not.i101 = icmp eq i8 %15, 0
-  br i1 %tobool.not.i96, label %cond.false.i100, label %cond.true.i97
+  %8 = load i8, ptr %currencyUsage, align 8
+  %tobool.i95 = trunc i8 %8 to i1
+  %9 = load i8, ptr %currencyUsage20, align 8
+  %tobool3.i96 = trunc i8 %9 to i1
+  %brmerge.i97 = select i1 %tobool.i95, i1 true, i1 %tobool3.i96
+  br i1 %brmerge.i97, label %_ZNK6icu_756number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit, label %cond.false7.i99
 
-cond.true.i97:                                    ; preds = %land.rhs19
-  br i1 %tobool5.not.i101, label %land.end173, label %land.rhs25
+cond.false7.i99:                                  ; preds = %land.rhs19
+  %fValue.i100 = getelementptr inbounds i8, ptr %this, i64 60
+  %10 = load i32, ptr %fValue.i100, align 4
+  %fValue8.i101 = getelementptr inbounds i8, ptr %other, i64 60
+  %11 = load i32, ptr %fValue8.i101, align 4
+  %cmp.i102 = icmp eq i32 %10, %11
+  br i1 %cmp.i102, label %land.rhs25, label %land.end173
 
-cond.false.i100:                                  ; preds = %land.rhs19
-  br i1 %tobool5.not.i101, label %_ZNK6icu_756number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit, label %land.end173
+_ZNK6icu_756number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit: ; preds = %land.rhs19
+  %tobool3.mux.i98 = select i1 %tobool.i95, i1 %tobool3.i96, i1 false
+  br i1 %tobool3.mux.i98, label %land.rhs25, label %land.end173
 
-_ZNK6icu_756number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit: ; preds = %cond.false.i100
-  %fValue.i103 = getelementptr inbounds i8, ptr %this, i64 60
-  %16 = load i32, ptr %fValue.i103, align 4
-  %fValue8.i104 = getelementptr inbounds i8, ptr %other, i64 60
-  %17 = load i32, ptr %fValue8.i104, align 4
-  %cmp.i105 = icmp eq i32 %16, %17
-  br i1 %cmp.i105, label %land.rhs25, label %land.end173
-
-land.rhs25:                                       ; preds = %cond.true.i97, %_ZNK6icu_756number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit
+land.rhs25:                                       ; preds = %cond.false7.i99, %_ZNK6icu_756number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit
   %decimalSeparatorAlwaysShown = getelementptr inbounds i8, ptr %this, i64 65
-  %18 = load i8, ptr %decimalSeparatorAlwaysShown, align 1
+  %12 = load i8, ptr %decimalSeparatorAlwaysShown, align 1
   %decimalSeparatorAlwaysShown27 = getelementptr inbounds i8, ptr %other, i64 65
-  %19 = load i8, ptr %decimalSeparatorAlwaysShown27, align 1
-  %20 = xor i8 %19, %18
-  %21 = and i8 %20, 1
-  %cmp30 = icmp eq i8 %21, 0
+  %13 = load i8, ptr %decimalSeparatorAlwaysShown27, align 1
+  %14 = xor i8 %13, %12
+  %15 = and i8 %14, 1
+  %cmp30 = icmp eq i8 %15, 0
   br i1 %cmp30, label %land.rhs34, label %land.end173
 
 land.rhs34:                                       ; preds = %land.rhs25
   %exponentSignAlwaysShown = getelementptr inbounds i8, ptr %this, i64 66
-  %22 = load i8, ptr %exponentSignAlwaysShown, align 2
+  %16 = load i8, ptr %exponentSignAlwaysShown, align 2
   %exponentSignAlwaysShown37 = getelementptr inbounds i8, ptr %other, i64 66
-  %23 = load i8, ptr %exponentSignAlwaysShown37, align 2
-  %24 = xor i8 %23, %22
-  %25 = and i8 %24, 1
-  %cmp40 = icmp eq i8 %25, 0
+  %17 = load i8, ptr %exponentSignAlwaysShown37, align 2
+  %18 = xor i8 %17, %16
+  %19 = and i8 %18, 1
+  %cmp40 = icmp eq i8 %19, 0
   br i1 %cmp40, label %land.rhs44, label %land.end173
 
 land.rhs44:                                       ; preds = %land.rhs34
   %currencyAsDecimal = getelementptr inbounds i8, ptr %this, i64 67
-  %26 = load i8, ptr %currencyAsDecimal, align 1
+  %20 = load i8, ptr %currencyAsDecimal, align 1
   %currencyAsDecimal47 = getelementptr inbounds i8, ptr %other, i64 67
-  %27 = load i8, ptr %currencyAsDecimal47, align 1
-  %28 = xor i8 %27, %26
-  %29 = and i8 %28, 1
-  %cmp50 = icmp eq i8 %29, 0
+  %21 = load i8, ptr %currencyAsDecimal47, align 1
+  %22 = xor i8 %21, %20
+  %23 = and i8 %22, 1
+  %cmp50 = icmp eq i8 %23, 0
   br i1 %cmp50, label %land.rhs54, label %land.end173
 
 land.rhs54:                                       ; preds = %land.rhs44
   %formatFailIfMoreThanMaxDigits = getelementptr inbounds i8, ptr %this, i64 68
-  %30 = load i8, ptr %formatFailIfMoreThanMaxDigits, align 4
+  %24 = load i8, ptr %formatFailIfMoreThanMaxDigits, align 4
   %formatFailIfMoreThanMaxDigits57 = getelementptr inbounds i8, ptr %other, i64 68
-  %31 = load i8, ptr %formatFailIfMoreThanMaxDigits57, align 4
-  %32 = xor i8 %31, %30
-  %33 = and i8 %32, 1
-  %cmp60 = icmp eq i8 %33, 0
+  %25 = load i8, ptr %formatFailIfMoreThanMaxDigits57, align 4
+  %26 = xor i8 %25, %24
+  %27 = and i8 %26, 1
+  %cmp60 = icmp eq i8 %27, 0
   br i1 %cmp60, label %land.rhs64, label %land.end173
 
 land.rhs64:                                       ; preds = %land.rhs54
   %formatWidth = getelementptr inbounds i8, ptr %this, i64 72
-  %34 = load i32, ptr %formatWidth, align 8
+  %28 = load i32, ptr %formatWidth, align 8
   %formatWidth65 = getelementptr inbounds i8, ptr %other, i64 72
-  %35 = load i32, ptr %formatWidth65, align 8
-  %cmp66 = icmp eq i32 %34, %35
+  %29 = load i32, ptr %formatWidth65, align 8
+  %cmp66 = icmp eq i32 %28, %29
   br i1 %cmp66, label %land.rhs70, label %land.end173
 
 land.rhs70:                                       ; preds = %land.rhs64
   %magnitudeMultiplier = getelementptr inbounds i8, ptr %this, i64 84
-  %36 = load i32, ptr %magnitudeMultiplier, align 4
+  %30 = load i32, ptr %magnitudeMultiplier, align 4
   %magnitudeMultiplier71 = getelementptr inbounds i8, ptr %other, i64 84
-  %37 = load i32, ptr %magnitudeMultiplier71, align 4
-  %cmp72 = icmp eq i32 %36, %37
+  %31 = load i32, ptr %magnitudeMultiplier71, align 4
+  %cmp72 = icmp eq i32 %30, %31
   br i1 %cmp72, label %land.rhs76, label %land.end173
 
 land.rhs76:                                       ; preds = %land.rhs70
   %maximumSignificantDigits = getelementptr inbounds i8, ptr %this, i64 96
-  %38 = load i32, ptr %maximumSignificantDigits, align 8
+  %32 = load i32, ptr %maximumSignificantDigits, align 8
   %maximumSignificantDigits77 = getelementptr inbounds i8, ptr %other, i64 96
-  %39 = load i32, ptr %maximumSignificantDigits77, align 8
-  %cmp78 = icmp eq i32 %38, %39
+  %33 = load i32, ptr %maximumSignificantDigits77, align 8
+  %cmp78 = icmp eq i32 %32, %33
   br i1 %cmp78, label %land.rhs82, label %land.end173
 
 land.rhs82:                                       ; preds = %land.rhs76
   %minimumExponentDigits = getelementptr inbounds i8, ptr %this, i64 100
-  %40 = load i32, ptr %minimumExponentDigits, align 4
+  %34 = load i32, ptr %minimumExponentDigits, align 4
   %minimumExponentDigits83 = getelementptr inbounds i8, ptr %other, i64 100
-  %41 = load i32, ptr %minimumExponentDigits83, align 4
-  %cmp84 = icmp eq i32 %40, %41
+  %35 = load i32, ptr %minimumExponentDigits83, align 4
+  %cmp84 = icmp eq i32 %34, %35
   br i1 %cmp84, label %land.rhs88, label %land.end173
 
 land.rhs88:                                       ; preds = %land.rhs82
   %minimumGroupingDigits = getelementptr inbounds i8, ptr %this, i64 108
-  %42 = load i32, ptr %minimumGroupingDigits, align 4
+  %36 = load i32, ptr %minimumGroupingDigits, align 4
   %minimumGroupingDigits89 = getelementptr inbounds i8, ptr %other, i64 108
-  %43 = load i32, ptr %minimumGroupingDigits89, align 4
-  %cmp90 = icmp eq i32 %42, %43
+  %37 = load i32, ptr %minimumGroupingDigits89, align 4
+  %cmp90 = icmp eq i32 %36, %37
   br i1 %cmp90, label %land.rhs94, label %land.end173
 
 land.rhs94:                                       ; preds = %land.rhs88
   %minimumSignificantDigits = getelementptr inbounds i8, ptr %this, i64 116
-  %44 = load i32, ptr %minimumSignificantDigits, align 4
+  %38 = load i32, ptr %minimumSignificantDigits, align 4
   %minimumSignificantDigits95 = getelementptr inbounds i8, ptr %other, i64 116
-  %45 = load i32, ptr %minimumSignificantDigits95, align 4
-  %cmp96 = icmp eq i32 %44, %45
+  %39 = load i32, ptr %minimumSignificantDigits95, align 4
+  %cmp96 = icmp eq i32 %38, %39
   br i1 %cmp96, label %land.rhs100, label %land.end173
 
 land.rhs100:                                      ; preds = %land.rhs94
   %multiplier = getelementptr inbounds i8, ptr %this, i64 120
-  %46 = load i32, ptr %multiplier, align 8
+  %40 = load i32, ptr %multiplier, align 8
   %multiplier101 = getelementptr inbounds i8, ptr %other, i64 120
-  %47 = load i32, ptr %multiplier101, align 8
-  %cmp102 = icmp eq i32 %46, %47
+  %41 = load i32, ptr %multiplier101, align 8
+  %cmp102 = icmp eq i32 %40, %41
   br i1 %cmp102, label %land.rhs106, label %land.end173
 
 land.rhs106:                                      ; preds = %land.rhs100
   %multiplierScale = getelementptr inbounds i8, ptr %this, i64 124
-  %48 = load i32, ptr %multiplierScale, align 4
+  %42 = load i32, ptr %multiplierScale, align 4
   %multiplierScale107 = getelementptr inbounds i8, ptr %other, i64 124
-  %49 = load i32, ptr %multiplierScale107, align 4
-  %cmp108 = icmp eq i32 %48, %49
+  %43 = load i32, ptr %multiplierScale107, align 4
+  %cmp108 = icmp eq i32 %42, %43
   br i1 %cmp108, label %land.rhs112, label %land.end173
 
 land.rhs112:                                      ; preds = %land.rhs106
@@ -387,29 +378,26 @@ land.rhs118:                                      ; preds = %land.rhs112
 land.rhs124:                                      ; preds = %land.rhs118
   %padPosition = getelementptr inbounds i8, ptr %this, i64 384
   %padPosition125 = getelementptr inbounds i8, ptr %other, i64 384
-  %50 = load i8, ptr %padPosition, align 8
-  %51 = and i8 %50, 1
-  %tobool.not.i106 = icmp eq i8 %51, 0
-  %52 = load i8, ptr %padPosition125, align 8
-  %53 = and i8 %52, 1
-  %tobool5.not.i111 = icmp eq i8 %53, 0
-  br i1 %tobool.not.i106, label %cond.false.i110, label %cond.true.i107
+  %44 = load i8, ptr %padPosition, align 8
+  %tobool.i104 = trunc i8 %44 to i1
+  %45 = load i8, ptr %padPosition125, align 8
+  %tobool3.i105 = trunc i8 %45 to i1
+  %brmerge.i106 = select i1 %tobool.i104, i1 true, i1 %tobool3.i105
+  br i1 %brmerge.i106, label %_ZNK6icu_756number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit, label %cond.false7.i108
 
-cond.true.i107:                                   ; preds = %land.rhs124
-  br i1 %tobool5.not.i111, label %land.end173, label %land.rhs130
+cond.false7.i108:                                 ; preds = %land.rhs124
+  %fValue.i109 = getelementptr inbounds i8, ptr %this, i64 388
+  %46 = load i32, ptr %fValue.i109, align 4
+  %fValue8.i110 = getelementptr inbounds i8, ptr %other, i64 388
+  %47 = load i32, ptr %fValue8.i110, align 4
+  %cmp.i111 = icmp eq i32 %46, %47
+  br i1 %cmp.i111, label %land.rhs130, label %land.end173
 
-cond.false.i110:                                  ; preds = %land.rhs124
-  br i1 %tobool5.not.i111, label %_ZNK6icu_756number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit, label %land.end173
+_ZNK6icu_756number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit: ; preds = %land.rhs124
+  %tobool3.mux.i107 = select i1 %tobool.i104, i1 %tobool3.i105, i1 false
+  br i1 %tobool3.mux.i107, label %land.rhs130, label %land.end173
 
-_ZNK6icu_756number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit: ; preds = %cond.false.i110
-  %fValue.i113 = getelementptr inbounds i8, ptr %this, i64 388
-  %54 = load i32, ptr %fValue.i113, align 4
-  %fValue8.i114 = getelementptr inbounds i8, ptr %other, i64 388
-  %55 = load i32, ptr %fValue8.i114, align 4
-  %cmp.i115 = icmp eq i32 %54, %55
-  br i1 %cmp.i115, label %land.rhs130, label %land.end173
-
-land.rhs130:                                      ; preds = %cond.true.i107, %_ZNK6icu_756number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit
+land.rhs130:                                      ; preds = %cond.false7.i108, %_ZNK6icu_756number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit
   %padString = getelementptr inbounds i8, ptr %this, i64 392
   %padString131 = getelementptr inbounds i8, ptr %other, i64 392
   %call132 = tail call noundef zeroext i1 @_ZNK6icu_7513UnicodeStringeqERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %padString, ptr noundef nonnull align 8 dereferenceable(64) %padString131)
@@ -429,108 +417,105 @@ land.rhs142:                                      ; preds = %land.rhs136
 
 land.rhs148:                                      ; preds = %land.rhs142
   %roundingIncrement = getelementptr inbounds i8, ptr %this, i64 736
-  %56 = load double, ptr %roundingIncrement, align 8
+  %48 = load double, ptr %roundingIncrement, align 8
   %roundingIncrement149 = getelementptr inbounds i8, ptr %other, i64 736
-  %57 = load double, ptr %roundingIncrement149, align 8
-  %cmp150 = fcmp oeq double %56, %57
+  %49 = load double, ptr %roundingIncrement149, align 8
+  %cmp150 = fcmp oeq double %48, %49
   br i1 %cmp150, label %land.rhs154, label %land.end173
 
 land.rhs154:                                      ; preds = %land.rhs148
   %roundingMode = getelementptr inbounds i8, ptr %this, i64 744
   %roundingMode155 = getelementptr inbounds i8, ptr %other, i64 744
-  %58 = load i8, ptr %roundingMode, align 8
-  %59 = and i8 %58, 1
-  %tobool.not.i116 = icmp eq i8 %59, 0
-  %60 = load i8, ptr %roundingMode155, align 8
-  %61 = and i8 %60, 1
-  %tobool5.not.i121 = icmp eq i8 %61, 0
-  br i1 %tobool.not.i116, label %cond.false.i120, label %cond.true.i117
+  %50 = load i8, ptr %roundingMode, align 8
+  %tobool.i113 = trunc i8 %50 to i1
+  %51 = load i8, ptr %roundingMode155, align 8
+  %tobool3.i114 = trunc i8 %51 to i1
+  %brmerge.i115 = select i1 %tobool.i113, i1 true, i1 %tobool3.i114
+  br i1 %brmerge.i115, label %_ZNK6icu_756number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit, label %cond.false7.i117
 
-cond.true.i117:                                   ; preds = %land.rhs154
-  br i1 %tobool5.not.i121, label %land.end173, label %land.rhs160
+cond.false7.i117:                                 ; preds = %land.rhs154
+  %fValue.i118 = getelementptr inbounds i8, ptr %this, i64 748
+  %52 = load i32, ptr %fValue.i118, align 4
+  %fValue8.i119 = getelementptr inbounds i8, ptr %other, i64 748
+  %53 = load i32, ptr %fValue8.i119, align 4
+  %cmp.i120 = icmp eq i32 %52, %53
+  br i1 %cmp.i120, label %land.rhs160, label %land.end173
 
-cond.false.i120:                                  ; preds = %land.rhs154
-  br i1 %tobool5.not.i121, label %_ZNK6icu_756number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit, label %land.end173
+_ZNK6icu_756number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit: ; preds = %land.rhs154
+  %tobool3.mux.i116 = select i1 %tobool.i113, i1 %tobool3.i114, i1 false
+  br i1 %tobool3.mux.i116, label %land.rhs160, label %land.end173
 
-_ZNK6icu_756number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit: ; preds = %cond.false.i120
-  %fValue.i123 = getelementptr inbounds i8, ptr %this, i64 748
-  %62 = load i32, ptr %fValue.i123, align 4
-  %fValue8.i124 = getelementptr inbounds i8, ptr %other, i64 748
-  %63 = load i32, ptr %fValue8.i124, align 4
-  %cmp.i125 = icmp eq i32 %62, %63
-  br i1 %cmp.i125, label %land.rhs160, label %land.end173
-
-land.rhs160:                                      ; preds = %cond.true.i117, %_ZNK6icu_756number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit
+land.rhs160:                                      ; preds = %cond.false7.i117, %_ZNK6icu_756number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit
   %secondaryGroupingSize = getelementptr inbounds i8, ptr %this, i64 752
-  %64 = load i32, ptr %secondaryGroupingSize, align 8
+  %54 = load i32, ptr %secondaryGroupingSize, align 8
   %secondaryGroupingSize161 = getelementptr inbounds i8, ptr %other, i64 752
-  %65 = load i32, ptr %secondaryGroupingSize161, align 8
-  %cmp162 = icmp eq i32 %64, %65
+  %55 = load i32, ptr %secondaryGroupingSize161, align 8
+  %cmp162 = icmp eq i32 %54, %55
   br i1 %cmp162, label %land.rhs166, label %land.end173
 
 land.rhs166:                                      ; preds = %land.rhs160
   %signAlwaysShown = getelementptr inbounds i8, ptr %this, i64 756
-  %66 = load i8, ptr %signAlwaysShown, align 4
+  %56 = load i8, ptr %signAlwaysShown, align 4
   %signAlwaysShown169 = getelementptr inbounds i8, ptr %other, i64 756
-  %67 = load i8, ptr %signAlwaysShown169, align 4
-  %68 = xor i8 %67, %66
-  %69 = and i8 %68, 1
-  %cmp172 = icmp eq i8 %69, 0
+  %57 = load i8, ptr %signAlwaysShown169, align 4
+  %58 = xor i8 %57, %56
+  %59 = and i8 %58, 1
+  %cmp172 = icmp eq i8 %59, 0
   br label %land.end173
 
-land.end173:                                      ; preds = %cond.false.i120, %cond.false.i110, %cond.false.i100, %cond.false.i91, %cond.false.i, %cond.true.i117, %cond.true.i107, %cond.true.i97, %cond.true.i88, %cond.true.i, %_ZNK6icu_756number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit, %land.rhs142, %land.rhs130, %land.rhs118, %land.rhs106, %land.rhs94, %land.rhs82, %land.rhs70, %land.rhs54, %land.rhs34, %_ZNK6icu_756number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit, %_ZNK6icu_756number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit, %_ZNK6icu_756number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit, %land.rhs11, %land.rhs25, %land.rhs44, %land.rhs64, %land.rhs76, %land.rhs88, %land.rhs100, %land.rhs112, %_ZNK6icu_756number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit, %land.rhs136, %land.rhs148, %land.rhs166, %land.rhs160
-  %70 = phi i1 [ false, %land.rhs160 ], [ %cmp172, %land.rhs166 ], [ false, %land.rhs148 ], [ false, %land.rhs136 ], [ false, %_ZNK6icu_756number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit ], [ false, %land.rhs112 ], [ false, %land.rhs100 ], [ false, %land.rhs88 ], [ false, %land.rhs76 ], [ false, %land.rhs64 ], [ false, %land.rhs44 ], [ false, %land.rhs25 ], [ false, %land.rhs11 ], [ false, %_ZNK6icu_756number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit ], [ false, %_ZNK6icu_756number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit ], [ false, %_ZNK6icu_756number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit ], [ false, %land.rhs34 ], [ false, %land.rhs54 ], [ false, %land.rhs70 ], [ false, %land.rhs82 ], [ false, %land.rhs94 ], [ false, %land.rhs106 ], [ false, %land.rhs118 ], [ false, %land.rhs130 ], [ false, %land.rhs142 ], [ false, %_ZNK6icu_756number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit ], [ false, %cond.true.i ], [ false, %cond.true.i88 ], [ false, %cond.true.i97 ], [ false, %cond.true.i107 ], [ false, %cond.true.i117 ], [ false, %cond.false.i ], [ false, %cond.false.i91 ], [ false, %cond.false.i100 ], [ false, %cond.false.i110 ], [ false, %cond.false.i120 ]
+land.end173:                                      ; preds = %cond.false7.i117, %cond.false7.i108, %cond.false7.i99, %cond.false7.i91, %cond.false7.i, %_ZNK6icu_756number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit, %land.rhs142, %land.rhs130, %land.rhs118, %land.rhs106, %land.rhs94, %land.rhs82, %land.rhs70, %land.rhs54, %land.rhs34, %_ZNK6icu_756number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit, %_ZNK6icu_756number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit, %_ZNK6icu_756number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit, %land.rhs11, %land.rhs25, %land.rhs44, %land.rhs64, %land.rhs76, %land.rhs88, %land.rhs100, %land.rhs112, %_ZNK6icu_756number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit, %land.rhs136, %land.rhs148, %land.rhs166, %land.rhs160
+  %60 = phi i1 [ false, %land.rhs160 ], [ %cmp172, %land.rhs166 ], [ false, %land.rhs148 ], [ false, %land.rhs136 ], [ false, %_ZNK6icu_756number4impl13NullableValueI24UNumberFormatPadPositionEeqERKS4_.exit ], [ false, %land.rhs112 ], [ false, %land.rhs100 ], [ false, %land.rhs88 ], [ false, %land.rhs76 ], [ false, %land.rhs64 ], [ false, %land.rhs44 ], [ false, %land.rhs25 ], [ false, %land.rhs11 ], [ false, %_ZNK6icu_756number4impl13NullableValueI19UNumberCompactStyleEeqERKS4_.exit ], [ false, %_ZNK6icu_756number4impl13NullableValueINS_12CurrencyUnitEEeqERKS4_.exit ], [ false, %_ZNK6icu_756number4impl13NullableValueI14UCurrencyUsageEeqERKS4_.exit ], [ false, %land.rhs34 ], [ false, %land.rhs54 ], [ false, %land.rhs70 ], [ false, %land.rhs82 ], [ false, %land.rhs94 ], [ false, %land.rhs106 ], [ false, %land.rhs118 ], [ false, %land.rhs130 ], [ false, %land.rhs142 ], [ false, %_ZNK6icu_756number4impl13NullableValueI25UNumberFormatRoundingModeEeqERKS4_.exit ], [ false, %cond.false7.i ], [ false, %cond.false7.i91 ], [ false, %cond.false7.i99 ], [ false, %cond.false7.i108 ], [ false, %cond.false7.i117 ]
   br i1 %ignoreForFastFormat, label %return, label %if.end
 
 if.end:                                           ; preds = %land.end173
   %groupingSize = getelementptr inbounds i8, ptr %this, i64 76
-  %71 = load i32, ptr %groupingSize, align 4
+  %61 = load i32, ptr %groupingSize, align 4
   %groupingSize179 = getelementptr inbounds i8, ptr %other, i64 76
-  %72 = load i32, ptr %groupingSize179, align 4
-  %cmp180 = icmp eq i32 %71, %72
-  %73 = select i1 %70, i1 %cmp180, i1 false
-  br i1 %73, label %land.rhs184, label %return
+  %62 = load i32, ptr %groupingSize179, align 4
+  %cmp180 = icmp eq i32 %61, %62
+  %63 = select i1 %60, i1 %cmp180, i1 false
+  br i1 %63, label %land.rhs184, label %return
 
 land.rhs184:                                      ; preds = %if.end
   %groupingUsed = getelementptr inbounds i8, ptr %this, i64 80
-  %74 = load i8, ptr %groupingUsed, align 8
+  %64 = load i8, ptr %groupingUsed, align 8
   %groupingUsed187 = getelementptr inbounds i8, ptr %other, i64 80
-  %75 = load i8, ptr %groupingUsed187, align 8
-  %76 = xor i8 %75, %74
-  %77 = and i8 %76, 1
-  %cmp190 = icmp eq i8 %77, 0
+  %65 = load i8, ptr %groupingUsed187, align 8
+  %66 = xor i8 %65, %64
+  %67 = and i8 %66, 1
+  %cmp190 = icmp eq i8 %67, 0
   br i1 %cmp190, label %land.rhs194, label %return
 
 land.rhs194:                                      ; preds = %land.rhs184
   %minimumFractionDigits = getelementptr inbounds i8, ptr %this, i64 104
-  %78 = load i32, ptr %minimumFractionDigits, align 8
+  %68 = load i32, ptr %minimumFractionDigits, align 8
   %minimumFractionDigits195 = getelementptr inbounds i8, ptr %other, i64 104
-  %79 = load i32, ptr %minimumFractionDigits195, align 8
-  %cmp196 = icmp eq i32 %78, %79
+  %69 = load i32, ptr %minimumFractionDigits195, align 8
+  %cmp196 = icmp eq i32 %68, %69
   br i1 %cmp196, label %land.rhs200, label %return
 
 land.rhs200:                                      ; preds = %land.rhs194
   %maximumFractionDigits = getelementptr inbounds i8, ptr %this, i64 88
-  %80 = load i32, ptr %maximumFractionDigits, align 8
+  %70 = load i32, ptr %maximumFractionDigits, align 8
   %maximumFractionDigits201 = getelementptr inbounds i8, ptr %other, i64 88
-  %81 = load i32, ptr %maximumFractionDigits201, align 8
-  %cmp202 = icmp eq i32 %80, %81
+  %71 = load i32, ptr %maximumFractionDigits201, align 8
+  %cmp202 = icmp eq i32 %70, %71
   br i1 %cmp202, label %land.rhs206, label %return
 
 land.rhs206:                                      ; preds = %land.rhs200
   %maximumIntegerDigits = getelementptr inbounds i8, ptr %this, i64 92
-  %82 = load i32, ptr %maximumIntegerDigits, align 4
+  %72 = load i32, ptr %maximumIntegerDigits, align 4
   %maximumIntegerDigits207 = getelementptr inbounds i8, ptr %other, i64 92
-  %83 = load i32, ptr %maximumIntegerDigits207, align 4
-  %cmp208 = icmp eq i32 %82, %83
+  %73 = load i32, ptr %maximumIntegerDigits207, align 4
+  %cmp208 = icmp eq i32 %72, %73
   br i1 %cmp208, label %land.rhs212, label %return
 
 land.rhs212:                                      ; preds = %land.rhs206
   %minimumIntegerDigits = getelementptr inbounds i8, ptr %this, i64 112
-  %84 = load i32, ptr %minimumIntegerDigits, align 8
+  %74 = load i32, ptr %minimumIntegerDigits, align 8
   %minimumIntegerDigits213 = getelementptr inbounds i8, ptr %other, i64 112
-  %85 = load i32, ptr %minimumIntegerDigits213, align 8
-  %cmp214 = icmp eq i32 %84, %85
+  %75 = load i32, ptr %minimumIntegerDigits213, align 8
+  %cmp214 = icmp eq i32 %74, %75
   br i1 %cmp214, label %land.rhs218, label %return
 
 land.rhs218:                                      ; preds = %land.rhs212
@@ -559,89 +544,86 @@ land.rhs236:                                      ; preds = %land.rhs230
 
 land.rhs242:                                      ; preds = %land.rhs236
   %decimalPatternMatchRequired = getelementptr inbounds i8, ptr %this, i64 64
-  %86 = load i8, ptr %decimalPatternMatchRequired, align 8
+  %76 = load i8, ptr %decimalPatternMatchRequired, align 8
   %decimalPatternMatchRequired245 = getelementptr inbounds i8, ptr %other, i64 64
-  %87 = load i8, ptr %decimalPatternMatchRequired245, align 8
-  %88 = xor i8 %87, %86
-  %89 = and i8 %88, 1
-  %cmp248 = icmp eq i8 %89, 0
+  %77 = load i8, ptr %decimalPatternMatchRequired245, align 8
+  %78 = xor i8 %77, %76
+  %79 = and i8 %78, 1
+  %cmp248 = icmp eq i8 %79, 0
   br i1 %cmp248, label %land.rhs252, label %return
 
 land.rhs252:                                      ; preds = %land.rhs242
   %parseCaseSensitive = getelementptr inbounds i8, ptr %this, i64 456
-  %90 = load i8, ptr %parseCaseSensitive, align 8
+  %80 = load i8, ptr %parseCaseSensitive, align 8
   %parseCaseSensitive255 = getelementptr inbounds i8, ptr %other, i64 456
-  %91 = load i8, ptr %parseCaseSensitive255, align 8
-  %92 = xor i8 %91, %90
-  %93 = and i8 %92, 1
-  %cmp258 = icmp eq i8 %93, 0
+  %81 = load i8, ptr %parseCaseSensitive255, align 8
+  %82 = xor i8 %81, %80
+  %83 = and i8 %82, 1
+  %cmp258 = icmp eq i8 %83, 0
   br i1 %cmp258, label %land.rhs262, label %return
 
 land.rhs262:                                      ; preds = %land.rhs252
   %parseIntegerOnly = getelementptr inbounds i8, ptr %this, i64 457
-  %94 = load i8, ptr %parseIntegerOnly, align 1
+  %84 = load i8, ptr %parseIntegerOnly, align 1
   %parseIntegerOnly265 = getelementptr inbounds i8, ptr %other, i64 457
-  %95 = load i8, ptr %parseIntegerOnly265, align 1
-  %96 = xor i8 %95, %94
-  %97 = and i8 %96, 1
-  %cmp268 = icmp eq i8 %97, 0
+  %85 = load i8, ptr %parseIntegerOnly265, align 1
+  %86 = xor i8 %85, %84
+  %87 = and i8 %86, 1
+  %cmp268 = icmp eq i8 %87, 0
   br i1 %cmp268, label %land.rhs272, label %return
 
 land.rhs272:                                      ; preds = %land.rhs262
   %parseMode = getelementptr inbounds i8, ptr %this, i64 460
   %parseMode273 = getelementptr inbounds i8, ptr %other, i64 460
-  %98 = load i8, ptr %parseMode, align 4
-  %99 = and i8 %98, 1
-  %tobool.not.i126 = icmp eq i8 %99, 0
-  %100 = load i8, ptr %parseMode273, align 4
-  %101 = and i8 %100, 1
-  %tobool5.not.i131 = icmp eq i8 %101, 0
-  br i1 %tobool.not.i126, label %cond.false.i130, label %cond.true.i127
+  %88 = load i8, ptr %parseMode, align 4
+  %tobool.i122 = trunc i8 %88 to i1
+  %89 = load i8, ptr %parseMode273, align 4
+  %tobool3.i123 = trunc i8 %89 to i1
+  %brmerge.i124 = select i1 %tobool.i122, i1 true, i1 %tobool3.i123
+  br i1 %brmerge.i124, label %_ZNK6icu_756number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit, label %cond.false7.i126
 
-cond.true.i127:                                   ; preds = %land.rhs272
-  br i1 %tobool5.not.i131, label %return, label %land.rhs278
+cond.false7.i126:                                 ; preds = %land.rhs272
+  %fValue.i127 = getelementptr inbounds i8, ptr %this, i64 464
+  %90 = load i32, ptr %fValue.i127, align 8
+  %fValue8.i128 = getelementptr inbounds i8, ptr %other, i64 464
+  %91 = load i32, ptr %fValue8.i128, align 8
+  %cmp.i129 = icmp eq i32 %90, %91
+  br i1 %cmp.i129, label %land.rhs278, label %return
 
-cond.false.i130:                                  ; preds = %land.rhs272
-  br i1 %tobool5.not.i131, label %_ZNK6icu_756number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit, label %return
+_ZNK6icu_756number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit: ; preds = %land.rhs272
+  %tobool3.mux.i125 = select i1 %tobool.i122, i1 %tobool3.i123, i1 false
+  br i1 %tobool3.mux.i125, label %land.rhs278, label %return
 
-_ZNK6icu_756number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit: ; preds = %cond.false.i130
-  %fValue.i133 = getelementptr inbounds i8, ptr %this, i64 464
-  %102 = load i32, ptr %fValue.i133, align 8
-  %fValue8.i134 = getelementptr inbounds i8, ptr %other, i64 464
-  %103 = load i32, ptr %fValue8.i134, align 8
-  %cmp.i135 = icmp eq i32 %102, %103
-  br i1 %cmp.i135, label %land.rhs278, label %return
-
-land.rhs278:                                      ; preds = %cond.true.i127, %_ZNK6icu_756number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit
+land.rhs278:                                      ; preds = %cond.false7.i126, %_ZNK6icu_756number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit
   %parseNoExponent = getelementptr inbounds i8, ptr %this, i64 468
-  %104 = load i8, ptr %parseNoExponent, align 4
+  %92 = load i8, ptr %parseNoExponent, align 4
   %parseNoExponent281 = getelementptr inbounds i8, ptr %other, i64 468
-  %105 = load i8, ptr %parseNoExponent281, align 4
-  %106 = xor i8 %105, %104
-  %107 = and i8 %106, 1
-  %cmp284 = icmp eq i8 %107, 0
+  %93 = load i8, ptr %parseNoExponent281, align 4
+  %94 = xor i8 %93, %92
+  %95 = and i8 %94, 1
+  %cmp284 = icmp eq i8 %95, 0
   br i1 %cmp284, label %land.rhs288, label %return
 
 land.rhs288:                                      ; preds = %land.rhs278
   %parseToBigDecimal = getelementptr inbounds i8, ptr %this, i64 469
-  %108 = load i8, ptr %parseToBigDecimal, align 1
+  %96 = load i8, ptr %parseToBigDecimal, align 1
   %parseToBigDecimal291 = getelementptr inbounds i8, ptr %other, i64 469
-  %109 = load i8, ptr %parseToBigDecimal291, align 1
-  %110 = xor i8 %109, %108
-  %111 = and i8 %110, 1
-  %cmp294 = icmp eq i8 %111, 0
+  %97 = load i8, ptr %parseToBigDecimal291, align 1
+  %98 = xor i8 %97, %96
+  %99 = and i8 %98, 1
+  %cmp294 = icmp eq i8 %99, 0
   br i1 %cmp294, label %land.rhs298, label %return
 
 land.rhs298:                                      ; preds = %land.rhs288
   %parseAllInput = getelementptr inbounds i8, ptr %this, i64 472
-  %112 = load i32, ptr %parseAllInput, align 8
+  %100 = load i32, ptr %parseAllInput, align 8
   %parseAllInput299 = getelementptr inbounds i8, ptr %other, i64 472
-  %113 = load i32, ptr %parseAllInput299, align 8
-  %cmp300 = icmp eq i32 %112, %113
+  %101 = load i32, ptr %parseAllInput299, align 8
+  %cmp300 = icmp eq i32 %100, %101
   br label %return
 
-return:                                           ; preds = %cond.false.i130, %cond.true.i127, %land.rhs288, %land.rhs298, %_ZNK6icu_756number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit, %land.rhs252, %land.rhs236, %land.rhs224, %land.rhs212, %land.rhs200, %land.rhs184, %if.end, %land.rhs194, %land.rhs206, %land.rhs218, %land.rhs230, %land.rhs242, %land.rhs262, %land.rhs278, %land.end173
-  %retval.0 = phi i1 [ %70, %land.end173 ], [ false, %land.rhs288 ], [ %cmp300, %land.rhs298 ], [ false, %_ZNK6icu_756number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit ], [ false, %land.rhs252 ], [ false, %land.rhs236 ], [ false, %land.rhs224 ], [ false, %land.rhs212 ], [ false, %land.rhs200 ], [ false, %land.rhs184 ], [ false, %if.end ], [ false, %land.rhs194 ], [ false, %land.rhs206 ], [ false, %land.rhs218 ], [ false, %land.rhs230 ], [ false, %land.rhs242 ], [ false, %land.rhs262 ], [ false, %land.rhs278 ], [ false, %cond.true.i127 ], [ false, %cond.false.i130 ]
+return:                                           ; preds = %cond.false7.i126, %land.rhs288, %land.rhs298, %_ZNK6icu_756number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit, %land.rhs252, %land.rhs236, %land.rhs224, %land.rhs212, %land.rhs200, %land.rhs184, %if.end, %land.rhs194, %land.rhs206, %land.rhs218, %land.rhs230, %land.rhs242, %land.rhs262, %land.rhs278, %land.end173
+  %retval.0 = phi i1 [ %60, %land.end173 ], [ false, %land.rhs288 ], [ %cmp300, %land.rhs298 ], [ false, %_ZNK6icu_756number4impl13NullableValueINS1_9ParseModeEEeqERKS4_.exit ], [ false, %land.rhs252 ], [ false, %land.rhs236 ], [ false, %land.rhs224 ], [ false, %land.rhs212 ], [ false, %land.rhs200 ], [ false, %land.rhs184 ], [ false, %if.end ], [ false, %land.rhs194 ], [ false, %land.rhs206 ], [ false, %land.rhs218 ], [ false, %land.rhs230 ], [ false, %land.rhs242 ], [ false, %land.rhs262 ], [ false, %land.rhs278 ], [ false, %cond.false7.i126 ]
   ret i1 %retval.0
 }
 

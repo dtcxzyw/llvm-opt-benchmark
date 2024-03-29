@@ -69,6 +69,26 @@ $_ZN13b3OpenCLArrayI6b3AabbED2Ev = comdat any
 
 $_ZN13b3OpenCLArrayI6b3Int4ED2Ev = comdat any
 
+$_ZN13b3OpenCLArrayI9b3SapAabbE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb = comdat any
+
+$_ZN13b3OpenCLArrayI15b3GpuChildShapeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb = comdat any
+
+$_ZN13b3OpenCLArrayI9b3GpuFaceE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb = comdat any
+
+$_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb = comdat any
+
+$_ZN13b3OpenCLArrayI9b3Vector3E12copyFromHostERK20b3AlignedObjectArrayIS0_Eb = comdat any
+
+$_ZN13b3OpenCLArrayIiE12copyFromHostERK20b3AlignedObjectArrayIiEb = comdat any
+
+$_ZN13b3OpenCLArrayI9b3BvhInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb = comdat any
+
+$_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb = comdat any
+
+$_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb = comdat any
+
+$_ZN13b3OpenCLArrayI12b3CollidableE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb = comdat any
+
 $_ZN20b3AlignedObjectArrayI13b3IndexedMeshE7reserveEi = comdat any
 
 $_ZN13b3OpenCLArrayI6b3Int4E7reserveEmb = comdat any
@@ -143,19 +163,13 @@ $_ZN13b3OpenCLArrayIiED0Ev = comdat any
 
 $_ZN20b3AlignedObjectArrayIP15b3ConvexUtilityE7reserveEi = comdat any
 
-$_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb = comdat any
-
 $_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoED2Ev = comdat any
 
 $_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoED0Ev = comdat any
 
-$_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb = comdat any
-
 $_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeED2Ev = comdat any
 
 $_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeED0Ev = comdat any
-
-$_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb = comdat any
 
 $_ZN13b3OpenCLArrayI9b3BvhInfoED2Ev = comdat any
 
@@ -358,12 +372,12 @@ invoke.cont:
   store ptr %device, ptr %m_device, align 8
   %m_queue = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %queue, ptr %m_queue, align 8
-  %call = tail call noalias noundef nonnull dereferenceable(664) ptr @_Znwm(i64 noundef 664) #13
+  %call = tail call noalias noundef nonnull dereferenceable(664) ptr @_Znwm(i64 noundef 664) #14
   %m_config.i = getelementptr inbounds i8, ptr %call, i64 616
   store ptr %call, ptr %m_data, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(616) %call, i8 0, i64 616, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_config.i, ptr noundef nonnull align 4 dereferenceable(48) %config, i64 48, i1 false)
-  %call6 = tail call noalias noundef nonnull dereferenceable(864) ptr @_Znwm(i64 noundef 864) #13
+  %call6 = tail call noalias noundef nonnull dereferenceable(864) ptr @_Znwm(i64 noundef 864) #14
   invoke void @_ZN15GpuSatCollisionC1EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr noundef nonnull align 8 dereferenceable(864) %call6, ptr noundef %ctx, ptr noundef %device, ptr noundef %queue)
           to label %invoke.cont8 unwind label %lpad7
 
@@ -371,7 +385,7 @@ invoke.cont8:                                     ; preds = %invoke.cont
   %0 = load ptr, ptr %m_data, align 8
   %m_gpuSatCollision = getelementptr inbounds i8, ptr %0, i64 288
   store ptr %call6, ptr %m_gpuSatCollision, align 8
-  %call10 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call10 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %1 = load ptr, ptr %m_context, align 8
   %2 = load ptr, ptr %m_queue, align 8
   %m_maxTriConvexPairCapacity = getelementptr inbounds i8, ptr %config, i64 44
@@ -400,7 +414,7 @@ invoke.cont18:                                    ; preds = %if.then.i, %invoke.
   %4 = load ptr, ptr %m_data, align 8
   %m_triangleConvexPairs = getelementptr inbounds i8, ptr %4, i64 296
   store ptr %call10, ptr %m_triangleConvexPairs, align 8
-  %call16 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
+  %call16 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %call16, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds i8, ptr %call16, i64 16
@@ -440,7 +454,7 @@ for.body9.i:                                      ; preds = %for.body9.i, %for.b
 
 invoke.cont24:                                    ; preds = %for.body9.i, %invoke.cont18
   store i32 %8, ptr %m_size.i.i74, align 4
-  %call22 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
+  %call22 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
   %m_ownsMemory.i.i75 = getelementptr inbounds i8, ptr %call22, i64 24
   store i8 1, ptr %m_ownsMemory.i.i75, align 8
   %m_data.i.i76 = getelementptr inbounds i8, ptr %call22, i64 16
@@ -479,7 +493,7 @@ for.body9.i84:                                    ; preds = %for.body9.i84, %for
 
 invoke.cont31:                                    ; preds = %for.body9.i84, %invoke.cont24
   store i32 %15, ptr %m_size.i.i79, align 4
-  %call29 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
+  %call29 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
   %m_ownsMemory.i.i89 = getelementptr inbounds i8, ptr %call29, i64 24
   store i8 1, ptr %m_ownsMemory.i.i89, align 8
   %m_data.i.i90 = getelementptr inbounds i8, ptr %call29, i64 16
@@ -534,7 +548,7 @@ for.body9.i98:                                    ; preds = %for.body9.i98, %for
 
 _ZN20b3AlignedObjectArrayI13b3InertiaDataE6resizeEiRKS0_.exit: ; preds = %for.body9.i98, %invoke.cont31
   store i32 %22, ptr %m_size.i.i93, align 4
-  %call37 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call37 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %m_maxContactCapacity = getelementptr inbounds i8, ptr %config, i64 12
   %26 = load i32, ptr %m_maxContactCapacity, align 4
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3Contact4E, i64 0, i32 0, i64 2), ptr %call37, align 8
@@ -561,7 +575,7 @@ invoke.cont40:                                    ; preds = %_ZN20b3AlignedObjec
   %27 = load ptr, ptr %m_data, align 8
   %m_pBufContactBuffersGPU = getelementptr inbounds i8, ptr %27, i64 304
   store ptr %call37, ptr %m_pBufContactBuffersGPU, align 8
-  %call42 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call42 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %28 = load i32, ptr %m_maxContactCapacity, align 4
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3Contact4E, i64 0, i32 0, i64 2), ptr %call42, align 8
   %m_size.i112 = getelementptr inbounds i8, ptr %call42, i64 8
@@ -587,7 +601,7 @@ invoke.cont46:                                    ; preds = %invoke.cont40, %if.
   %29 = load ptr, ptr %m_data, align 8
   %arrayidx49 = getelementptr inbounds i8, ptr %29, i64 312
   store ptr %call42, ptr %arrayidx49, align 8
-  %call50 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call50 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %30 = load i32, ptr %config, align 4
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI13b3InertiaDataE, i64 0, i32 0, i64 2), ptr %call50, align 8
   %m_size.i122 = getelementptr inbounds i8, ptr %call50, i64 8
@@ -613,7 +627,7 @@ invoke.cont54:                                    ; preds = %invoke.cont46, %if.
   %31 = load ptr, ptr %m_data, align 8
   %m_inertiaBufferGPU = getelementptr inbounds i8, ptr %31, i64 360
   store ptr %call50, ptr %m_inertiaBufferGPU, align 8
-  %call56 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call56 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %m_maxConvexShapes = getelementptr inbounds i8, ptr %config, i64 4
   %32 = load i32, ptr %m_maxConvexShapes, align 4
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI12b3CollidableE, i64 0, i32 0, i64 2), ptr %call56, align 8
@@ -644,7 +658,7 @@ invoke.cont65:                                    ; preds = %if.then.i137, %invo
   %m_collidablesCPU = getelementptr inbounds i8, ptr %34, i64 376
   %35 = load i32, ptr %m_maxConvexShapes, align 4
   tail call void @_ZN20b3AlignedObjectArrayI12b3CollidableE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_collidablesCPU, i32 noundef %35)
-  %call63 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
+  %call63 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
   %m_ownsMemory.i.i140 = getelementptr inbounds i8, ptr %call63, i64 24
   store i8 1, ptr %m_ownsMemory.i.i140, align 8
   %m_data.i.i141 = getelementptr inbounds i8, ptr %call63, i64 16
@@ -656,7 +670,7 @@ invoke.cont65:                                    ; preds = %if.then.i137, %invo
   %36 = load ptr, ptr %m_data, align 8
   %m_localShapeAABBCPU = getelementptr inbounds i8, ptr %36, i64 424
   store ptr %call63, ptr %m_localShapeAABBCPU, align 8
-  %call67 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call67 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %37 = load i32, ptr %m_maxConvexShapes, align 4
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3SapAabbE, i64 0, i32 0, i64 2), ptr %call67, align 8
   %m_size.i144 = getelementptr inbounds i8, ptr %call67, i64 8
@@ -682,7 +696,7 @@ invoke.cont71:                                    ; preds = %invoke.cont65, %if.
   %38 = load ptr, ptr %m_data, align 8
   %m_localShapeAABBGPU = getelementptr inbounds i8, ptr %38, i64 416
   store ptr %call67, ptr %m_localShapeAABBGPU, align 8
-  %call73 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call73 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %39 = load i32, ptr %config, align 4
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI15b3RigidBodyDataE, i64 0, i32 0, i64 2), ptr %call73, align 8
   %m_size.i153 = getelementptr inbounds i8, ptr %call73, i64 8
@@ -708,7 +722,7 @@ invoke.cont77:                                    ; preds = %invoke.cont71, %if.
   %40 = load ptr, ptr %m_data, align 8
   %m_bodyBufferGPU = getelementptr inbounds i8, ptr %40, i64 344
   store ptr %call73, ptr %m_bodyBufferGPU, align 8
-  %call79 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call79 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %41 = load i32, ptr %m_maxConvexShapes, align 4
   %m_maxFacesPerShape = getelementptr inbounds i8, ptr %config, i64 24
   %42 = load i32, ptr %m_maxFacesPerShape, align 4
@@ -743,7 +757,7 @@ invoke.cont83:                                    ; preds = %invoke.cont77, %if.
   %46 = load i32, ptr %m_maxFacesPerShape, align 4
   %mul88 = mul nsw i32 %46, %45
   tail call void @_ZN20b3AlignedObjectArrayI9b3GpuFaceE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_convexFaces, i32 noundef %mul88)
-  %call89 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call89 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %m_maxCompoundChildShapes = getelementptr inbounds i8, ptr %config, i64 40
   %47 = load i32, ptr %m_maxCompoundChildShapes, align 4
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI15b3GpuChildShapeE, i64 0, i32 0, i64 2), ptr %call89, align 8
@@ -770,7 +784,7 @@ invoke.cont92:                                    ; preds = %invoke.cont83, %if.
   %48 = load ptr, ptr %m_data, align 8
   %m_gpuChildShapes = getelementptr inbounds i8, ptr %48, i64 240
   store ptr %call89, ptr %m_gpuChildShapes, align 8
-  %call94 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call94 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %49 = load i32, ptr %m_maxConvexShapes, align 4
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI22b3ConvexPolyhedronDataE, i64 0, i32 0, i64 2), ptr %call94, align 8
   %m_size.i180 = getelementptr inbounds i8, ptr %call94, i64 8
@@ -800,7 +814,7 @@ invoke.cont98:                                    ; preds = %invoke.cont92, %if.
   %m_convexPolyhedra = getelementptr inbounds i8, ptr %51, i64 8
   %52 = load i32, ptr %m_maxConvexShapes, align 4
   tail call void @_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_convexPolyhedra, i32 noundef %52)
-  %call102 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call102 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %m_maxConvexUniqueEdges = getelementptr inbounds i8, ptr %config, i64 36
   %53 = load i32, ptr %m_maxConvexUniqueEdges, align 4
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 0, i32 0, i64 2), ptr %call102, align 8
@@ -831,7 +845,7 @@ invoke.cont105:                                   ; preds = %invoke.cont98, %if.
   %m_uniqueEdges = getelementptr inbounds i8, ptr %55, i64 40
   %56 = load i32, ptr %m_maxConvexUniqueEdges, align 4
   tail call void @_ZN20b3AlignedObjectArrayI9b3Vector3E7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_uniqueEdges, i32 noundef %56)
-  %call109 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call109 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %m_maxConvexVertices = getelementptr inbounds i8, ptr %config, i64 28
   %57 = load i32, ptr %m_maxConvexVertices, align 4
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 0, i32 0, i64 2), ptr %call109, align 8
@@ -862,7 +876,7 @@ invoke.cont112:                                   ; preds = %invoke.cont105, %if
   %m_convexVertices = getelementptr inbounds i8, ptr %59, i64 72
   %60 = load i32, ptr %m_maxConvexVertices, align 4
   tail call void @_ZN20b3AlignedObjectArrayI9b3Vector3E7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_convexVertices, i32 noundef %60)
-  %call116 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call116 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %m_maxConvexIndices = getelementptr inbounds i8, ptr %config, i64 32
   %61 = load i32, ptr %m_maxConvexIndices, align 4
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, i32 0, i64 2), ptr %call116, align 8
@@ -893,7 +907,7 @@ invoke.cont119:                                   ; preds = %invoke.cont112, %if
   %m_convexIndices = getelementptr inbounds i8, ptr %63, i64 104
   %64 = load i32, ptr %m_maxConvexIndices, align 4
   tail call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_convexIndices, i32 noundef %64)
-  %call123 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call123 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %65 = load i32, ptr %config, align 4
   %m_maxVerticesPerFace = getelementptr inbounds i8, ptr %config, i64 20
   %66 = load i32, ptr %m_maxVerticesPerFace, align 4
@@ -922,7 +936,7 @@ invoke.cont128:                                   ; preds = %invoke.cont119, %if
   %67 = load ptr, ptr %m_data, align 8
   %m_worldVertsB1GPU = getelementptr inbounds i8, ptr %67, i64 168
   store ptr %call123, ptr %m_worldVertsB1GPU, align 8
-  %call130 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call130 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %68 = load i32, ptr %config, align 4
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 0, i32 0, i64 2), ptr %call130, align 8
   %m_size.i227 = getelementptr inbounds i8, ptr %call130, i64 8
@@ -948,7 +962,7 @@ invoke.cont134:                                   ; preds = %invoke.cont128, %if
   %69 = load ptr, ptr %m_data, align 8
   %m_clippingFacesOutGPU = getelementptr inbounds i8, ptr %69, i64 176
   store ptr %call130, ptr %m_clippingFacesOutGPU, align 8
-  %call136 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call136 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %70 = load i32, ptr %config, align 4
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i64 0, i32 0, i64 2), ptr %call136, align 8
   %m_size.i237 = getelementptr inbounds i8, ptr %call136, i64 8
@@ -974,7 +988,7 @@ invoke.cont140:                                   ; preds = %invoke.cont134, %if
   %71 = load ptr, ptr %m_data, align 8
   %m_worldNormalsAGPU = getelementptr inbounds i8, ptr %71, i64 184
   store ptr %call136, ptr %m_worldNormalsAGPU, align 8
-  %call142 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call142 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %72 = load i32, ptr %config, align 4
   %73 = load i32, ptr %m_maxVerticesPerFace, align 4
   %mul145 = mul nsw i32 %73, %72
@@ -1002,7 +1016,7 @@ invoke.cont148:                                   ; preds = %invoke.cont140, %if
   %74 = load ptr, ptr %m_data, align 8
   %m_worldVertsA1GPU = getelementptr inbounds i8, ptr %74, i64 192
   store ptr %call142, ptr %m_worldVertsA1GPU, align 8
-  %call150 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call150 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %75 = load i32, ptr %config, align 4
   %76 = load i32, ptr %m_maxVerticesPerFace, align 4
   %mul153 = mul nsw i32 %76, %75
@@ -1030,7 +1044,7 @@ invoke.cont160:                                   ; preds = %if.then.i263, %invo
   %77 = load ptr, ptr %m_data, align 8
   %m_worldVertsB2GPU = getelementptr inbounds i8, ptr %77, i64 200
   store ptr %call150, ptr %m_worldVertsB2GPU, align 8
-  %call158 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
+  %call158 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
   %m_ownsMemory.i.i267 = getelementptr inbounds i8, ptr %call158, i64 24
   store i8 1, ptr %m_ownsMemory.i.i267, align 8
   %m_data.i.i268 = getelementptr inbounds i8, ptr %call158, i64 16
@@ -1099,7 +1113,7 @@ invoke.cont188:                                   ; preds = %for.body9.i286, %_Z
   %91 = load ptr, ptr %m_data, align 8
   %m_numAcceleratedRigidBodies = getelementptr inbounds i8, ptr %91, i64 372
   store i32 0, ptr %m_numAcceleratedRigidBodies, align 4
-  %call172 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call172 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %92 = load ptr, ptr %m_context, align 8
   %93 = load ptr, ptr %m_queue, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI16b3BvhSubtreeInfoE, i64 0, i32 0, i64 2), ptr %call172, align 8
@@ -1116,7 +1130,7 @@ invoke.cont188:                                   ; preds = %for.body9.i286, %_Z
   %94 = load ptr, ptr %m_data, align 8
   %m_subTreesGPU = getelementptr inbounds i8, ptr %94, i64 608
   store ptr %call172, ptr %m_subTreesGPU, align 8
-  %call178 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call178 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %95 = load ptr, ptr %m_context, align 8
   %96 = load ptr, ptr %m_queue, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI18b3QuantizedBvhNodeE, i64 0, i32 0, i64 2), ptr %call178, align 8
@@ -1133,7 +1147,7 @@ invoke.cont188:                                   ; preds = %for.body9.i286, %_Z
   %97 = load ptr, ptr %m_data, align 8
   %m_treeNodesGPU = getelementptr inbounds i8, ptr %97, i64 600
   store ptr %call178, ptr %m_treeNodesGPU, align 8
-  %call184 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call184 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %98 = load ptr, ptr %m_context, align 8
   %99 = load ptr, ptr %m_queue, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3BvhInfoE, i64 0, i32 0, i64 2), ptr %call184, align 8
@@ -1250,7 +1264,7 @@ lpad155:                                          ; preds = %if.then.i263
 eh.resume:                                        ; preds = %lpad155, %lpad147, %lpad139, %lpad133, %lpad127, %lpad118, %lpad111, %lpad104, %lpad97, %lpad91, %lpad82, %lpad76, %lpad70, %lpad58, %lpad53, %lpad45, %lpad39, %lpad13, %lpad7
   %call150.sink = phi ptr [ %call150, %lpad155 ], [ %call142, %lpad147 ], [ %call136, %lpad139 ], [ %call130, %lpad133 ], [ %call123, %lpad127 ], [ %call116, %lpad118 ], [ %call109, %lpad111 ], [ %call102, %lpad104 ], [ %call94, %lpad97 ], [ %call89, %lpad91 ], [ %call79, %lpad82 ], [ %call73, %lpad76 ], [ %call67, %lpad70 ], [ %call56, %lpad58 ], [ %call50, %lpad53 ], [ %call42, %lpad45 ], [ %call37, %lpad39 ], [ %call10, %lpad13 ], [ %call6, %lpad7 ]
   %.pn = phi { ptr, i32 } [ %119, %lpad155 ], [ %118, %lpad147 ], [ %117, %lpad139 ], [ %116, %lpad133 ], [ %115, %lpad127 ], [ %114, %lpad118 ], [ %113, %lpad111 ], [ %112, %lpad104 ], [ %111, %lpad97 ], [ %110, %lpad91 ], [ %109, %lpad82 ], [ %108, %lpad76 ], [ %107, %lpad70 ], [ %106, %lpad58 ], [ %105, %lpad53 ], [ %104, %lpad45 ], [ %103, %lpad39 ], [ %102, %lpad13 ], [ %101, %lpad7 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call150.sink) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %call150.sink) #15
   resume { ptr, i32 } %.pn
 }
 
@@ -1328,9 +1342,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i22:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
-  %5 = and i8 %4, 1
-  %tobool2.not.i = icmp eq i8 %5, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayI12b3CollidableE10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayI12b3CollidableE10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i22
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %3)
@@ -1405,9 +1418,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i22:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
-  %5 = and i8 %4, 1
-  %tobool2.not.i = icmp eq i8 %5, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayI9b3GpuFaceE10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayI9b3GpuFaceE10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i22
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %3)
@@ -1482,9 +1494,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i22:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
-  %5 = and i8 %4, 1
-  %tobool2.not.i = icmp eq i8 %5, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i22
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %3)
@@ -1559,9 +1570,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i22:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
-  %5 = and i8 %4, 1
-  %tobool2.not.i = icmp eq i8 %5, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i22
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %3)
@@ -1637,9 +1647,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i22:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.not.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %5 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i22
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %4)
@@ -1671,7 +1680,7 @@ delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(864) %1) #15
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(864) %1) #16
   %.pre = load ptr, ptr %m_data, align 8
   br label %delete.end
 
@@ -1686,7 +1695,7 @@ delete.notnull4:                                  ; preds = %delete.end
   %vtable5 = load ptr, ptr %4, align 8
   %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 8
   %5 = load ptr, ptr %vfn6, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(50) %4) #15
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(50) %4) #16
   %.pre100 = load ptr, ptr %m_data, align 8
   br label %delete.end7
 
@@ -1706,489 +1715,484 @@ delete.notnull10:                                 ; preds = %delete.end7
 if.then.i.i.i:                                    ; preds = %delete.notnull10
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %10 = and i8 %9, 1
-  %tobool2.not.i.i.i = icmp eq i8 %10, 0
-  br i1 %tobool2.not.i.i.i, label %_ZN20b3AlignedObjectArrayI10b3Contact4ED2Ev.exit, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %9 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20b3AlignedObjectArrayI10b3Contact4ED2Ev.exit
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %8)
           to label %_ZN20b3AlignedObjectArrayI10b3Contact4ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #16
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #17
   unreachable
 
 _ZN20b3AlignedObjectArrayI10b3Contact4ED2Ev.exit: ; preds = %delete.notnull10, %if.then.i.i.i, %if.then3.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #15
   %.pre101 = load ptr, ptr %m_data, align 8
   br label %delete.end11
 
 delete.end11:                                     ; preds = %_ZN20b3AlignedObjectArrayI10b3Contact4ED2Ev.exit, %delete.end7
-  %13 = phi ptr [ %.pre101, %_ZN20b3AlignedObjectArrayI10b3Contact4ED2Ev.exit ], [ %6, %delete.end7 ]
-  %m_bodyBufferCPU = getelementptr inbounds i8, ptr %13, i64 336
-  %14 = load ptr, ptr %m_bodyBufferCPU, align 8
-  %isnull13 = icmp eq ptr %14, null
+  %12 = phi ptr [ %.pre101, %_ZN20b3AlignedObjectArrayI10b3Contact4ED2Ev.exit ], [ %6, %delete.end7 ]
+  %m_bodyBufferCPU = getelementptr inbounds i8, ptr %12, i64 336
+  %13 = load ptr, ptr %m_bodyBufferCPU, align 8
+  %isnull13 = icmp eq ptr %13, null
   br i1 %isnull13, label %delete.end15, label %delete.notnull14
 
 delete.notnull14:                                 ; preds = %delete.end11
-  %m_data.i.i.i34 = getelementptr inbounds i8, ptr %14, i64 16
-  %15 = load ptr, ptr %m_data.i.i.i34, align 8
-  %tobool.not.i.i.i35 = icmp eq ptr %15, null
+  %m_data.i.i.i34 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = load ptr, ptr %m_data.i.i.i34, align 8
+  %tobool.not.i.i.i35 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i35, label %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataED2Ev.exit, label %if.then.i.i.i36
 
 if.then.i.i.i36:                                  ; preds = %delete.notnull14
-  %m_ownsMemory.i.i.i37 = getelementptr inbounds i8, ptr %14, i64 24
-  %16 = load i8, ptr %m_ownsMemory.i.i.i37, align 8
-  %17 = and i8 %16, 1
-  %tobool2.not.i.i.i38 = icmp eq i8 %17, 0
-  br i1 %tobool2.not.i.i.i38, label %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataED2Ev.exit, label %if.then3.i.i.i39
+  %m_ownsMemory.i.i.i37 = getelementptr inbounds i8, ptr %13, i64 24
+  %15 = load i8, ptr %m_ownsMemory.i.i.i37, align 8
+  %tobool2.i.i.i38 = trunc i8 %15 to i1
+  br i1 %tobool2.i.i.i38, label %if.then3.i.i.i42, label %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataED2Ev.exit
 
-if.then3.i.i.i39:                                 ; preds = %if.then.i.i.i36
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %15)
-          to label %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataED2Ev.exit unwind label %terminate.lpad.i40
+if.then3.i.i.i42:                                 ; preds = %if.then.i.i.i36
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %14)
+          to label %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataED2Ev.exit unwind label %terminate.lpad.i43
 
-terminate.lpad.i40:                               ; preds = %if.then3.i.i.i39
-  %18 = landingpad { ptr, i32 }
+terminate.lpad.i43:                               ; preds = %if.then3.i.i.i42
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #16
+  %17 = extractvalue { ptr, i32 } %16, 0
+  tail call void @__clang_call_terminate(ptr %17) #17
   unreachable
 
-_ZN20b3AlignedObjectArrayI15b3RigidBodyDataED2Ev.exit: ; preds = %delete.notnull14, %if.then.i.i.i36, %if.then3.i.i.i39
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #14
+_ZN20b3AlignedObjectArrayI15b3RigidBodyDataED2Ev.exit: ; preds = %delete.notnull14, %if.then.i.i.i36, %if.then3.i.i.i42
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #15
   %.pre102 = load ptr, ptr %m_data, align 8
   br label %delete.end15
 
 delete.end15:                                     ; preds = %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataED2Ev.exit, %delete.end11
-  %20 = phi ptr [ %.pre102, %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataED2Ev.exit ], [ %13, %delete.end11 ]
-  %m_inertiaBufferCPU = getelementptr inbounds i8, ptr %20, i64 352
-  %21 = load ptr, ptr %m_inertiaBufferCPU, align 8
-  %isnull17 = icmp eq ptr %21, null
+  %18 = phi ptr [ %.pre102, %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataED2Ev.exit ], [ %12, %delete.end11 ]
+  %m_inertiaBufferCPU = getelementptr inbounds i8, ptr %18, i64 352
+  %19 = load ptr, ptr %m_inertiaBufferCPU, align 8
+  %isnull17 = icmp eq ptr %19, null
   br i1 %isnull17, label %delete.end19, label %delete.notnull18
 
 delete.notnull18:                                 ; preds = %delete.end15
-  %m_data.i.i.i44 = getelementptr inbounds i8, ptr %21, i64 16
-  %22 = load ptr, ptr %m_data.i.i.i44, align 8
-  %tobool.not.i.i.i45 = icmp eq ptr %22, null
+  %m_data.i.i.i44 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = load ptr, ptr %m_data.i.i.i44, align 8
+  %tobool.not.i.i.i45 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i45, label %_ZN20b3AlignedObjectArrayI13b3InertiaDataED2Ev.exit, label %if.then.i.i.i46
 
 if.then.i.i.i46:                                  ; preds = %delete.notnull18
-  %m_ownsMemory.i.i.i47 = getelementptr inbounds i8, ptr %21, i64 24
-  %23 = load i8, ptr %m_ownsMemory.i.i.i47, align 8
-  %24 = and i8 %23, 1
-  %tobool2.not.i.i.i48 = icmp eq i8 %24, 0
-  br i1 %tobool2.not.i.i.i48, label %_ZN20b3AlignedObjectArrayI13b3InertiaDataED2Ev.exit, label %if.then3.i.i.i49
+  %m_ownsMemory.i.i.i47 = getelementptr inbounds i8, ptr %19, i64 24
+  %21 = load i8, ptr %m_ownsMemory.i.i.i47, align 8
+  %tobool2.i.i.i48 = trunc i8 %21 to i1
+  br i1 %tobool2.i.i.i48, label %if.then3.i.i.i52, label %_ZN20b3AlignedObjectArrayI13b3InertiaDataED2Ev.exit
 
-if.then3.i.i.i49:                                 ; preds = %if.then.i.i.i46
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %22)
-          to label %_ZN20b3AlignedObjectArrayI13b3InertiaDataED2Ev.exit unwind label %terminate.lpad.i50
+if.then3.i.i.i52:                                 ; preds = %if.then.i.i.i46
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %20)
+          to label %_ZN20b3AlignedObjectArrayI13b3InertiaDataED2Ev.exit unwind label %terminate.lpad.i53
 
-terminate.lpad.i50:                               ; preds = %if.then3.i.i.i49
-  %25 = landingpad { ptr, i32 }
+terminate.lpad.i53:                               ; preds = %if.then3.i.i.i52
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #16
+  %23 = extractvalue { ptr, i32 } %22, 0
+  tail call void @__clang_call_terminate(ptr %23) #17
   unreachable
 
-_ZN20b3AlignedObjectArrayI13b3InertiaDataED2Ev.exit: ; preds = %delete.notnull18, %if.then.i.i.i46, %if.then3.i.i.i49
-  tail call void @_ZdlPv(ptr noundef nonnull %21) #14
+_ZN20b3AlignedObjectArrayI13b3InertiaDataED2Ev.exit: ; preds = %delete.notnull18, %if.then.i.i.i46, %if.then3.i.i.i52
+  tail call void @_ZdlPv(ptr noundef nonnull %19) #15
   %.pre103 = load ptr, ptr %m_data, align 8
   br label %delete.end19
 
 delete.end19:                                     ; preds = %_ZN20b3AlignedObjectArrayI13b3InertiaDataED2Ev.exit, %delete.end15
-  %27 = phi ptr [ %.pre103, %_ZN20b3AlignedObjectArrayI13b3InertiaDataED2Ev.exit ], [ %20, %delete.end15 ]
-  %m_pBufContactBuffersGPU = getelementptr inbounds i8, ptr %27, i64 304
-  %28 = load ptr, ptr %m_pBufContactBuffersGPU, align 8
-  %isnull21 = icmp eq ptr %28, null
+  %24 = phi ptr [ %.pre103, %_ZN20b3AlignedObjectArrayI13b3InertiaDataED2Ev.exit ], [ %18, %delete.end15 ]
+  %m_pBufContactBuffersGPU = getelementptr inbounds i8, ptr %24, i64 304
+  %25 = load ptr, ptr %m_pBufContactBuffersGPU, align 8
+  %isnull21 = icmp eq ptr %25, null
   br i1 %isnull21, label %delete.end25, label %delete.notnull22
 
 delete.notnull22:                                 ; preds = %delete.end19
-  %vtable23 = load ptr, ptr %28, align 8
+  %vtable23 = load ptr, ptr %25, align 8
   %vfn24 = getelementptr inbounds i8, ptr %vtable23, i64 8
-  %29 = load ptr, ptr %vfn24, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(50) %28) #15
+  %26 = load ptr, ptr %vfn24, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(50) %25) #16
   %.pre104 = load ptr, ptr %m_data, align 8
   br label %delete.end25
 
 delete.end25:                                     ; preds = %delete.notnull22, %delete.end19
-  %30 = phi ptr [ %.pre104, %delete.notnull22 ], [ %27, %delete.end19 ]
-  %arrayidx28 = getelementptr inbounds i8, ptr %30, i64 312
-  %31 = load ptr, ptr %arrayidx28, align 8
-  %isnull29 = icmp eq ptr %31, null
+  %27 = phi ptr [ %.pre104, %delete.notnull22 ], [ %24, %delete.end19 ]
+  %arrayidx28 = getelementptr inbounds i8, ptr %27, i64 312
+  %28 = load ptr, ptr %arrayidx28, align 8
+  %isnull29 = icmp eq ptr %28, null
   br i1 %isnull29, label %delete.end33, label %delete.notnull30
 
 delete.notnull30:                                 ; preds = %delete.end25
-  %vtable31 = load ptr, ptr %31, align 8
+  %vtable31 = load ptr, ptr %28, align 8
   %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 8
-  %32 = load ptr, ptr %vfn32, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(50) %31) #15
+  %29 = load ptr, ptr %vfn32, align 8
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(50) %28) #16
   %.pre105 = load ptr, ptr %m_data, align 8
   br label %delete.end33
 
 delete.end33:                                     ; preds = %delete.notnull30, %delete.end25
-  %33 = phi ptr [ %.pre105, %delete.notnull30 ], [ %30, %delete.end25 ]
-  %m_inertiaBufferGPU = getelementptr inbounds i8, ptr %33, i64 360
-  %34 = load ptr, ptr %m_inertiaBufferGPU, align 8
-  %isnull35 = icmp eq ptr %34, null
+  %30 = phi ptr [ %.pre105, %delete.notnull30 ], [ %27, %delete.end25 ]
+  %m_inertiaBufferGPU = getelementptr inbounds i8, ptr %30, i64 360
+  %31 = load ptr, ptr %m_inertiaBufferGPU, align 8
+  %isnull35 = icmp eq ptr %31, null
   br i1 %isnull35, label %delete.end39, label %delete.notnull36
 
 delete.notnull36:                                 ; preds = %delete.end33
-  %vtable37 = load ptr, ptr %34, align 8
+  %vtable37 = load ptr, ptr %31, align 8
   %vfn38 = getelementptr inbounds i8, ptr %vtable37, i64 8
-  %35 = load ptr, ptr %vfn38, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(50) %34) #15
+  %32 = load ptr, ptr %vfn38, align 8
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(50) %31) #16
   %.pre106 = load ptr, ptr %m_data, align 8
   br label %delete.end39
 
 delete.end39:                                     ; preds = %delete.notnull36, %delete.end33
-  %36 = phi ptr [ %.pre106, %delete.notnull36 ], [ %33, %delete.end33 ]
-  %m_collidablesGPU = getelementptr inbounds i8, ptr %36, i64 408
-  %37 = load ptr, ptr %m_collidablesGPU, align 8
-  %isnull41 = icmp eq ptr %37, null
+  %33 = phi ptr [ %.pre106, %delete.notnull36 ], [ %30, %delete.end33 ]
+  %m_collidablesGPU = getelementptr inbounds i8, ptr %33, i64 408
+  %34 = load ptr, ptr %m_collidablesGPU, align 8
+  %isnull41 = icmp eq ptr %34, null
   br i1 %isnull41, label %delete.end45, label %delete.notnull42
 
 delete.notnull42:                                 ; preds = %delete.end39
-  %vtable43 = load ptr, ptr %37, align 8
+  %vtable43 = load ptr, ptr %34, align 8
   %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 8
-  %38 = load ptr, ptr %vfn44, align 8
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(50) %37) #15
+  %35 = load ptr, ptr %vfn44, align 8
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(50) %34) #16
   %.pre107 = load ptr, ptr %m_data, align 8
   br label %delete.end45
 
 delete.end45:                                     ; preds = %delete.notnull42, %delete.end39
-  %39 = phi ptr [ %.pre107, %delete.notnull42 ], [ %36, %delete.end39 ]
-  %m_localShapeAABBCPU = getelementptr inbounds i8, ptr %39, i64 424
-  %40 = load ptr, ptr %m_localShapeAABBCPU, align 8
-  %isnull47 = icmp eq ptr %40, null
+  %36 = phi ptr [ %.pre107, %delete.notnull42 ], [ %33, %delete.end39 ]
+  %m_localShapeAABBCPU = getelementptr inbounds i8, ptr %36, i64 424
+  %37 = load ptr, ptr %m_localShapeAABBCPU, align 8
+  %isnull47 = icmp eq ptr %37, null
   br i1 %isnull47, label %delete.end49, label %delete.notnull48
 
 delete.notnull48:                                 ; preds = %delete.end45
-  %m_data.i.i.i54 = getelementptr inbounds i8, ptr %40, i64 16
-  %41 = load ptr, ptr %m_data.i.i.i54, align 8
-  %tobool.not.i.i.i55 = icmp eq ptr %41, null
+  %m_data.i.i.i54 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = load ptr, ptr %m_data.i.i.i54, align 8
+  %tobool.not.i.i.i55 = icmp eq ptr %38, null
   br i1 %tobool.not.i.i.i55, label %_ZN20b3AlignedObjectArrayI9b3SapAabbED2Ev.exit, label %if.then.i.i.i56
 
 if.then.i.i.i56:                                  ; preds = %delete.notnull48
-  %m_ownsMemory.i.i.i57 = getelementptr inbounds i8, ptr %40, i64 24
-  %42 = load i8, ptr %m_ownsMemory.i.i.i57, align 8
-  %43 = and i8 %42, 1
-  %tobool2.not.i.i.i58 = icmp eq i8 %43, 0
-  br i1 %tobool2.not.i.i.i58, label %_ZN20b3AlignedObjectArrayI9b3SapAabbED2Ev.exit, label %if.then3.i.i.i59
+  %m_ownsMemory.i.i.i57 = getelementptr inbounds i8, ptr %37, i64 24
+  %39 = load i8, ptr %m_ownsMemory.i.i.i57, align 8
+  %tobool2.i.i.i58 = trunc i8 %39 to i1
+  br i1 %tobool2.i.i.i58, label %if.then3.i.i.i62, label %_ZN20b3AlignedObjectArrayI9b3SapAabbED2Ev.exit
 
-if.then3.i.i.i59:                                 ; preds = %if.then.i.i.i56
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %41)
-          to label %_ZN20b3AlignedObjectArrayI9b3SapAabbED2Ev.exit unwind label %terminate.lpad.i60
+if.then3.i.i.i62:                                 ; preds = %if.then.i.i.i56
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %38)
+          to label %_ZN20b3AlignedObjectArrayI9b3SapAabbED2Ev.exit unwind label %terminate.lpad.i63
 
-terminate.lpad.i60:                               ; preds = %if.then3.i.i.i59
-  %44 = landingpad { ptr, i32 }
+terminate.lpad.i63:                               ; preds = %if.then3.i.i.i62
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #16
+  %41 = extractvalue { ptr, i32 } %40, 0
+  tail call void @__clang_call_terminate(ptr %41) #17
   unreachable
 
-_ZN20b3AlignedObjectArrayI9b3SapAabbED2Ev.exit:   ; preds = %delete.notnull48, %if.then.i.i.i56, %if.then3.i.i.i59
-  tail call void @_ZdlPv(ptr noundef nonnull %40) #14
+_ZN20b3AlignedObjectArrayI9b3SapAabbED2Ev.exit:   ; preds = %delete.notnull48, %if.then.i.i.i56, %if.then3.i.i.i62
+  tail call void @_ZdlPv(ptr noundef nonnull %37) #15
   %.pre108 = load ptr, ptr %m_data, align 8
   br label %delete.end49
 
 delete.end49:                                     ; preds = %_ZN20b3AlignedObjectArrayI9b3SapAabbED2Ev.exit, %delete.end45
-  %46 = phi ptr [ %.pre108, %_ZN20b3AlignedObjectArrayI9b3SapAabbED2Ev.exit ], [ %39, %delete.end45 ]
-  %m_localShapeAABBGPU = getelementptr inbounds i8, ptr %46, i64 416
-  %47 = load ptr, ptr %m_localShapeAABBGPU, align 8
-  %isnull51 = icmp eq ptr %47, null
+  %42 = phi ptr [ %.pre108, %_ZN20b3AlignedObjectArrayI9b3SapAabbED2Ev.exit ], [ %36, %delete.end45 ]
+  %m_localShapeAABBGPU = getelementptr inbounds i8, ptr %42, i64 416
+  %43 = load ptr, ptr %m_localShapeAABBGPU, align 8
+  %isnull51 = icmp eq ptr %43, null
   br i1 %isnull51, label %delete.end55, label %delete.notnull52
 
 delete.notnull52:                                 ; preds = %delete.end49
-  %vtable53 = load ptr, ptr %47, align 8
+  %vtable53 = load ptr, ptr %43, align 8
   %vfn54 = getelementptr inbounds i8, ptr %vtable53, i64 8
-  %48 = load ptr, ptr %vfn54, align 8
-  tail call void %48(ptr noundef nonnull align 8 dereferenceable(50) %47) #15
+  %44 = load ptr, ptr %vfn54, align 8
+  tail call void %44(ptr noundef nonnull align 8 dereferenceable(50) %43) #16
   %.pre109 = load ptr, ptr %m_data, align 8
   br label %delete.end55
 
 delete.end55:                                     ; preds = %delete.notnull52, %delete.end49
-  %49 = phi ptr [ %.pre109, %delete.notnull52 ], [ %46, %delete.end49 ]
-  %m_bodyBufferGPU = getelementptr inbounds i8, ptr %49, i64 344
-  %50 = load ptr, ptr %m_bodyBufferGPU, align 8
-  %isnull57 = icmp eq ptr %50, null
+  %45 = phi ptr [ %.pre109, %delete.notnull52 ], [ %42, %delete.end49 ]
+  %m_bodyBufferGPU = getelementptr inbounds i8, ptr %45, i64 344
+  %46 = load ptr, ptr %m_bodyBufferGPU, align 8
+  %isnull57 = icmp eq ptr %46, null
   br i1 %isnull57, label %delete.end61, label %delete.notnull58
 
 delete.notnull58:                                 ; preds = %delete.end55
-  %vtable59 = load ptr, ptr %50, align 8
+  %vtable59 = load ptr, ptr %46, align 8
   %vfn60 = getelementptr inbounds i8, ptr %vtable59, i64 8
-  %51 = load ptr, ptr %vfn60, align 8
-  tail call void %51(ptr noundef nonnull align 8 dereferenceable(50) %50) #15
+  %47 = load ptr, ptr %vfn60, align 8
+  tail call void %47(ptr noundef nonnull align 8 dereferenceable(50) %46) #16
   %.pre110 = load ptr, ptr %m_data, align 8
   br label %delete.end61
 
 delete.end61:                                     ; preds = %delete.notnull58, %delete.end55
-  %52 = phi ptr [ %.pre110, %delete.notnull58 ], [ %49, %delete.end55 ]
-  %m_convexFacesGPU = getelementptr inbounds i8, ptr %52, i64 280
-  %53 = load ptr, ptr %m_convexFacesGPU, align 8
-  %isnull63 = icmp eq ptr %53, null
+  %48 = phi ptr [ %.pre110, %delete.notnull58 ], [ %45, %delete.end55 ]
+  %m_convexFacesGPU = getelementptr inbounds i8, ptr %48, i64 280
+  %49 = load ptr, ptr %m_convexFacesGPU, align 8
+  %isnull63 = icmp eq ptr %49, null
   br i1 %isnull63, label %delete.end67, label %delete.notnull64
 
 delete.notnull64:                                 ; preds = %delete.end61
-  %vtable65 = load ptr, ptr %53, align 8
+  %vtable65 = load ptr, ptr %49, align 8
   %vfn66 = getelementptr inbounds i8, ptr %vtable65, i64 8
-  %54 = load ptr, ptr %vfn66, align 8
-  tail call void %54(ptr noundef nonnull align 8 dereferenceable(50) %53) #15
+  %50 = load ptr, ptr %vfn66, align 8
+  tail call void %50(ptr noundef nonnull align 8 dereferenceable(50) %49) #16
   %.pre111 = load ptr, ptr %m_data, align 8
   br label %delete.end67
 
 delete.end67:                                     ; preds = %delete.notnull64, %delete.end61
-  %55 = phi ptr [ %.pre111, %delete.notnull64 ], [ %52, %delete.end61 ]
-  %m_gpuChildShapes = getelementptr inbounds i8, ptr %55, i64 240
-  %56 = load ptr, ptr %m_gpuChildShapes, align 8
-  %isnull69 = icmp eq ptr %56, null
+  %51 = phi ptr [ %.pre111, %delete.notnull64 ], [ %48, %delete.end61 ]
+  %m_gpuChildShapes = getelementptr inbounds i8, ptr %51, i64 240
+  %52 = load ptr, ptr %m_gpuChildShapes, align 8
+  %isnull69 = icmp eq ptr %52, null
   br i1 %isnull69, label %delete.end73, label %delete.notnull70
 
 delete.notnull70:                                 ; preds = %delete.end67
-  %vtable71 = load ptr, ptr %56, align 8
+  %vtable71 = load ptr, ptr %52, align 8
   %vfn72 = getelementptr inbounds i8, ptr %vtable71, i64 8
-  %57 = load ptr, ptr %vfn72, align 8
-  tail call void %57(ptr noundef nonnull align 8 dereferenceable(50) %56) #15
+  %53 = load ptr, ptr %vfn72, align 8
+  tail call void %53(ptr noundef nonnull align 8 dereferenceable(50) %52) #16
   %.pre112 = load ptr, ptr %m_data, align 8
   br label %delete.end73
 
 delete.end73:                                     ; preds = %delete.notnull70, %delete.end67
-  %58 = phi ptr [ %.pre112, %delete.notnull70 ], [ %55, %delete.end67 ]
-  %m_convexPolyhedraGPU = getelementptr inbounds i8, ptr %58, i64 136
-  %59 = load ptr, ptr %m_convexPolyhedraGPU, align 8
-  %isnull75 = icmp eq ptr %59, null
+  %54 = phi ptr [ %.pre112, %delete.notnull70 ], [ %51, %delete.end67 ]
+  %m_convexPolyhedraGPU = getelementptr inbounds i8, ptr %54, i64 136
+  %55 = load ptr, ptr %m_convexPolyhedraGPU, align 8
+  %isnull75 = icmp eq ptr %55, null
   br i1 %isnull75, label %delete.end79, label %delete.notnull76
 
 delete.notnull76:                                 ; preds = %delete.end73
-  %vtable77 = load ptr, ptr %59, align 8
+  %vtable77 = load ptr, ptr %55, align 8
   %vfn78 = getelementptr inbounds i8, ptr %vtable77, i64 8
-  %60 = load ptr, ptr %vfn78, align 8
-  tail call void %60(ptr noundef nonnull align 8 dereferenceable(50) %59) #15
+  %56 = load ptr, ptr %vfn78, align 8
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(50) %55) #16
   %.pre113 = load ptr, ptr %m_data, align 8
   br label %delete.end79
 
 delete.end79:                                     ; preds = %delete.notnull76, %delete.end73
-  %61 = phi ptr [ %.pre113, %delete.notnull76 ], [ %58, %delete.end73 ]
-  %m_uniqueEdgesGPU = getelementptr inbounds i8, ptr %61, i64 144
-  %62 = load ptr, ptr %m_uniqueEdgesGPU, align 8
-  %isnull81 = icmp eq ptr %62, null
+  %57 = phi ptr [ %.pre113, %delete.notnull76 ], [ %54, %delete.end73 ]
+  %m_uniqueEdgesGPU = getelementptr inbounds i8, ptr %57, i64 144
+  %58 = load ptr, ptr %m_uniqueEdgesGPU, align 8
+  %isnull81 = icmp eq ptr %58, null
   br i1 %isnull81, label %delete.end85, label %delete.notnull82
 
 delete.notnull82:                                 ; preds = %delete.end79
-  %vtable83 = load ptr, ptr %62, align 8
+  %vtable83 = load ptr, ptr %58, align 8
   %vfn84 = getelementptr inbounds i8, ptr %vtable83, i64 8
-  %63 = load ptr, ptr %vfn84, align 8
-  tail call void %63(ptr noundef nonnull align 8 dereferenceable(50) %62) #15
+  %59 = load ptr, ptr %vfn84, align 8
+  tail call void %59(ptr noundef nonnull align 8 dereferenceable(50) %58) #16
   %.pre114 = load ptr, ptr %m_data, align 8
   br label %delete.end85
 
 delete.end85:                                     ; preds = %delete.notnull82, %delete.end79
-  %64 = phi ptr [ %.pre114, %delete.notnull82 ], [ %61, %delete.end79 ]
-  %m_convexVerticesGPU = getelementptr inbounds i8, ptr %64, i64 152
-  %65 = load ptr, ptr %m_convexVerticesGPU, align 8
-  %isnull87 = icmp eq ptr %65, null
+  %60 = phi ptr [ %.pre114, %delete.notnull82 ], [ %57, %delete.end79 ]
+  %m_convexVerticesGPU = getelementptr inbounds i8, ptr %60, i64 152
+  %61 = load ptr, ptr %m_convexVerticesGPU, align 8
+  %isnull87 = icmp eq ptr %61, null
   br i1 %isnull87, label %delete.end91, label %delete.notnull88
 
 delete.notnull88:                                 ; preds = %delete.end85
-  %vtable89 = load ptr, ptr %65, align 8
+  %vtable89 = load ptr, ptr %61, align 8
   %vfn90 = getelementptr inbounds i8, ptr %vtable89, i64 8
-  %66 = load ptr, ptr %vfn90, align 8
-  tail call void %66(ptr noundef nonnull align 8 dereferenceable(50) %65) #15
+  %62 = load ptr, ptr %vfn90, align 8
+  tail call void %62(ptr noundef nonnull align 8 dereferenceable(50) %61) #16
   %.pre115 = load ptr, ptr %m_data, align 8
   br label %delete.end91
 
 delete.end91:                                     ; preds = %delete.notnull88, %delete.end85
-  %67 = phi ptr [ %.pre115, %delete.notnull88 ], [ %64, %delete.end85 ]
-  %m_convexIndicesGPU = getelementptr inbounds i8, ptr %67, i64 160
-  %68 = load ptr, ptr %m_convexIndicesGPU, align 8
-  %isnull93 = icmp eq ptr %68, null
+  %63 = phi ptr [ %.pre115, %delete.notnull88 ], [ %60, %delete.end85 ]
+  %m_convexIndicesGPU = getelementptr inbounds i8, ptr %63, i64 160
+  %64 = load ptr, ptr %m_convexIndicesGPU, align 8
+  %isnull93 = icmp eq ptr %64, null
   br i1 %isnull93, label %delete.end97, label %delete.notnull94
 
 delete.notnull94:                                 ; preds = %delete.end91
-  %vtable95 = load ptr, ptr %68, align 8
+  %vtable95 = load ptr, ptr %64, align 8
   %vfn96 = getelementptr inbounds i8, ptr %vtable95, i64 8
-  %69 = load ptr, ptr %vfn96, align 8
-  tail call void %69(ptr noundef nonnull align 8 dereferenceable(50) %68) #15
+  %65 = load ptr, ptr %vfn96, align 8
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(50) %64) #16
   %.pre116 = load ptr, ptr %m_data, align 8
   br label %delete.end97
 
 delete.end97:                                     ; preds = %delete.notnull94, %delete.end91
-  %70 = phi ptr [ %.pre116, %delete.notnull94 ], [ %67, %delete.end91 ]
-  %m_worldVertsB1GPU = getelementptr inbounds i8, ptr %70, i64 168
-  %71 = load ptr, ptr %m_worldVertsB1GPU, align 8
-  %isnull99 = icmp eq ptr %71, null
+  %66 = phi ptr [ %.pre116, %delete.notnull94 ], [ %63, %delete.end91 ]
+  %m_worldVertsB1GPU = getelementptr inbounds i8, ptr %66, i64 168
+  %67 = load ptr, ptr %m_worldVertsB1GPU, align 8
+  %isnull99 = icmp eq ptr %67, null
   br i1 %isnull99, label %delete.end103, label %delete.notnull100
 
 delete.notnull100:                                ; preds = %delete.end97
-  %vtable101 = load ptr, ptr %71, align 8
+  %vtable101 = load ptr, ptr %67, align 8
   %vfn102 = getelementptr inbounds i8, ptr %vtable101, i64 8
-  %72 = load ptr, ptr %vfn102, align 8
-  tail call void %72(ptr noundef nonnull align 8 dereferenceable(50) %71) #15
+  %68 = load ptr, ptr %vfn102, align 8
+  tail call void %68(ptr noundef nonnull align 8 dereferenceable(50) %67) #16
   %.pre117 = load ptr, ptr %m_data, align 8
   br label %delete.end103
 
 delete.end103:                                    ; preds = %delete.notnull100, %delete.end97
-  %73 = phi ptr [ %.pre117, %delete.notnull100 ], [ %70, %delete.end97 ]
-  %m_clippingFacesOutGPU = getelementptr inbounds i8, ptr %73, i64 176
-  %74 = load ptr, ptr %m_clippingFacesOutGPU, align 8
-  %isnull105 = icmp eq ptr %74, null
+  %69 = phi ptr [ %.pre117, %delete.notnull100 ], [ %66, %delete.end97 ]
+  %m_clippingFacesOutGPU = getelementptr inbounds i8, ptr %69, i64 176
+  %70 = load ptr, ptr %m_clippingFacesOutGPU, align 8
+  %isnull105 = icmp eq ptr %70, null
   br i1 %isnull105, label %delete.end109, label %delete.notnull106
 
 delete.notnull106:                                ; preds = %delete.end103
-  %vtable107 = load ptr, ptr %74, align 8
+  %vtable107 = load ptr, ptr %70, align 8
   %vfn108 = getelementptr inbounds i8, ptr %vtable107, i64 8
-  %75 = load ptr, ptr %vfn108, align 8
-  tail call void %75(ptr noundef nonnull align 8 dereferenceable(50) %74) #15
+  %71 = load ptr, ptr %vfn108, align 8
+  tail call void %71(ptr noundef nonnull align 8 dereferenceable(50) %70) #16
   %.pre118 = load ptr, ptr %m_data, align 8
   br label %delete.end109
 
 delete.end109:                                    ; preds = %delete.notnull106, %delete.end103
-  %76 = phi ptr [ %.pre118, %delete.notnull106 ], [ %73, %delete.end103 ]
-  %m_worldNormalsAGPU = getelementptr inbounds i8, ptr %76, i64 184
-  %77 = load ptr, ptr %m_worldNormalsAGPU, align 8
-  %isnull111 = icmp eq ptr %77, null
+  %72 = phi ptr [ %.pre118, %delete.notnull106 ], [ %69, %delete.end103 ]
+  %m_worldNormalsAGPU = getelementptr inbounds i8, ptr %72, i64 184
+  %73 = load ptr, ptr %m_worldNormalsAGPU, align 8
+  %isnull111 = icmp eq ptr %73, null
   br i1 %isnull111, label %delete.end115, label %delete.notnull112
 
 delete.notnull112:                                ; preds = %delete.end109
-  %vtable113 = load ptr, ptr %77, align 8
+  %vtable113 = load ptr, ptr %73, align 8
   %vfn114 = getelementptr inbounds i8, ptr %vtable113, i64 8
-  %78 = load ptr, ptr %vfn114, align 8
-  tail call void %78(ptr noundef nonnull align 8 dereferenceable(50) %77) #15
+  %74 = load ptr, ptr %vfn114, align 8
+  tail call void %74(ptr noundef nonnull align 8 dereferenceable(50) %73) #16
   %.pre119 = load ptr, ptr %m_data, align 8
   br label %delete.end115
 
 delete.end115:                                    ; preds = %delete.notnull112, %delete.end109
-  %79 = phi ptr [ %.pre119, %delete.notnull112 ], [ %76, %delete.end109 ]
-  %m_worldVertsA1GPU = getelementptr inbounds i8, ptr %79, i64 192
-  %80 = load ptr, ptr %m_worldVertsA1GPU, align 8
-  %isnull117 = icmp eq ptr %80, null
+  %75 = phi ptr [ %.pre119, %delete.notnull112 ], [ %72, %delete.end109 ]
+  %m_worldVertsA1GPU = getelementptr inbounds i8, ptr %75, i64 192
+  %76 = load ptr, ptr %m_worldVertsA1GPU, align 8
+  %isnull117 = icmp eq ptr %76, null
   br i1 %isnull117, label %delete.end121, label %delete.notnull118
 
 delete.notnull118:                                ; preds = %delete.end115
-  %vtable119 = load ptr, ptr %80, align 8
+  %vtable119 = load ptr, ptr %76, align 8
   %vfn120 = getelementptr inbounds i8, ptr %vtable119, i64 8
-  %81 = load ptr, ptr %vfn120, align 8
-  tail call void %81(ptr noundef nonnull align 8 dereferenceable(50) %80) #15
+  %77 = load ptr, ptr %vfn120, align 8
+  tail call void %77(ptr noundef nonnull align 8 dereferenceable(50) %76) #16
   %.pre120 = load ptr, ptr %m_data, align 8
   br label %delete.end121
 
 delete.end121:                                    ; preds = %delete.notnull118, %delete.end115
-  %82 = phi ptr [ %.pre120, %delete.notnull118 ], [ %79, %delete.end115 ]
-  %m_worldVertsB2GPU = getelementptr inbounds i8, ptr %82, i64 200
-  %83 = load ptr, ptr %m_worldVertsB2GPU, align 8
-  %isnull123 = icmp eq ptr %83, null
+  %78 = phi ptr [ %.pre120, %delete.notnull118 ], [ %75, %delete.end115 ]
+  %m_worldVertsB2GPU = getelementptr inbounds i8, ptr %78, i64 200
+  %79 = load ptr, ptr %m_worldVertsB2GPU, align 8
+  %isnull123 = icmp eq ptr %79, null
   br i1 %isnull123, label %delete.end127, label %delete.notnull124
 
 delete.notnull124:                                ; preds = %delete.end121
-  %vtable125 = load ptr, ptr %83, align 8
+  %vtable125 = load ptr, ptr %79, align 8
   %vfn126 = getelementptr inbounds i8, ptr %vtable125, i64 8
-  %84 = load ptr, ptr %vfn126, align 8
-  tail call void %84(ptr noundef nonnull align 8 dereferenceable(50) %83) #15
+  %80 = load ptr, ptr %vfn126, align 8
+  tail call void %80(ptr noundef nonnull align 8 dereferenceable(50) %79) #16
   %.pre121 = load ptr, ptr %m_data, align 8
   br label %delete.end127
 
 delete.end127:                                    ; preds = %delete.notnull124, %delete.end121
-  %85 = phi ptr [ %.pre121, %delete.notnull124 ], [ %82, %delete.end121 ]
-  %m_bvhInfoGPU = getelementptr inbounds i8, ptr %85, i64 592
-  %86 = load ptr, ptr %m_bvhInfoGPU, align 8
-  %isnull129 = icmp eq ptr %86, null
+  %81 = phi ptr [ %.pre121, %delete.notnull124 ], [ %78, %delete.end121 ]
+  %m_bvhInfoGPU = getelementptr inbounds i8, ptr %81, i64 592
+  %82 = load ptr, ptr %m_bvhInfoGPU, align 8
+  %isnull129 = icmp eq ptr %82, null
   br i1 %isnull129, label %delete.end133, label %delete.notnull130
 
 delete.notnull130:                                ; preds = %delete.end127
-  %vtable131 = load ptr, ptr %86, align 8
+  %vtable131 = load ptr, ptr %82, align 8
   %vfn132 = getelementptr inbounds i8, ptr %vtable131, i64 8
-  %87 = load ptr, ptr %vfn132, align 8
-  tail call void %87(ptr noundef nonnull align 8 dereferenceable(50) %86) #15
+  %83 = load ptr, ptr %vfn132, align 8
+  tail call void %83(ptr noundef nonnull align 8 dereferenceable(50) %82) #16
   %.pre122 = load ptr, ptr %m_data, align 8
   br label %delete.end133
 
 delete.end133:                                    ; preds = %delete.notnull130, %delete.end127
-  %88 = phi ptr [ %.pre122, %delete.notnull130 ], [ %85, %delete.end127 ]
-  %m_size.i88 = getelementptr inbounds i8, ptr %88, i64 436
-  %89 = load i32, ptr %m_size.i88, align 4
-  %cmp89 = icmp sgt i32 %89, 0
+  %84 = phi ptr [ %.pre122, %delete.notnull130 ], [ %81, %delete.end127 ]
+  %m_size.i88 = getelementptr inbounds i8, ptr %84, i64 436
+  %85 = load i32, ptr %m_size.i88, align 4
+  %cmp89 = icmp sgt i32 %85, 0
   br i1 %cmp89, label %for.body, label %for.cond145.preheader
 
 for.cond145.preheader:                            ; preds = %for.inc, %delete.end133
-  %90 = phi ptr [ %88, %delete.end133 ], [ %96, %for.inc ]
-  %m_size.i6492 = getelementptr inbounds i8, ptr %90, i64 468
-  %91 = load i32, ptr %m_size.i6492, align 4
-  %cmp14993 = icmp sgt i32 %91, 0
+  %86 = phi ptr [ %84, %delete.end133 ], [ %92, %for.inc ]
+  %m_size.i6492 = getelementptr inbounds i8, ptr %86, i64 468
+  %87 = load i32, ptr %m_size.i6492, align 4
+  %cmp14993 = icmp sgt i32 %87, 0
   br i1 %cmp14993, label %for.body150, label %for.end162
 
 for.body:                                         ; preds = %delete.end133, %for.inc
-  %92 = phi ptr [ %96, %for.inc ], [ %88, %delete.end133 ]
+  %88 = phi ptr [ %92, %for.inc ], [ %84, %delete.end133 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %delete.end133 ]
-  %m_data.i = getelementptr inbounds i8, ptr %92, i64 448
-  %93 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %93, i64 %indvars.iv
-  %94 = load ptr, ptr %arrayidx.i, align 8
-  %isnull139 = icmp eq ptr %94, null
+  %m_data.i = getelementptr inbounds i8, ptr %88, i64 448
+  %89 = load ptr, ptr %m_data.i, align 8
+  %arrayidx.i = getelementptr inbounds ptr, ptr %89, i64 %indvars.iv
+  %90 = load ptr, ptr %arrayidx.i, align 8
+  %isnull139 = icmp eq ptr %90, null
   br i1 %isnull139, label %for.inc, label %delete.notnull140
 
 delete.notnull140:                                ; preds = %for.body
-  %vtable141 = load ptr, ptr %94, align 16
+  %vtable141 = load ptr, ptr %90, align 16
   %vfn142 = getelementptr inbounds i8, ptr %vtable141, i64 8
-  %95 = load ptr, ptr %vfn142, align 8
-  tail call void %95(ptr noundef nonnull align 16 dereferenceable(252) %94) #15
+  %91 = load ptr, ptr %vfn142, align 8
+  tail call void %91(ptr noundef nonnull align 16 dereferenceable(252) %90) #16
   %.pre123 = load ptr, ptr %m_data, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %delete.notnull140
-  %96 = phi ptr [ %92, %for.body ], [ %.pre123, %delete.notnull140 ]
+  %92 = phi ptr [ %88, %for.body ], [ %.pre123, %delete.notnull140 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %m_size.i = getelementptr inbounds i8, ptr %96, i64 436
-  %97 = load i32, ptr %m_size.i, align 4
-  %98 = sext i32 %97 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %98
+  %m_size.i = getelementptr inbounds i8, ptr %92, i64 436
+  %93 = load i32, ptr %m_size.i, align 4
+  %94 = sext i32 %93 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %94
   br i1 %cmp, label %for.body, label %for.cond145.preheader, !llvm.loop !16
 
 for.body150:                                      ; preds = %for.cond145.preheader, %for.inc160
-  %99 = phi ptr [ %103, %for.inc160 ], [ %90, %for.cond145.preheader ]
+  %95 = phi ptr [ %99, %for.inc160 ], [ %86, %for.cond145.preheader ]
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %for.inc160 ], [ 0, %for.cond145.preheader ]
-  %m_data.i65 = getelementptr inbounds i8, ptr %99, i64 480
-  %100 = load ptr, ptr %m_data.i65, align 8
-  %arrayidx.i67 = getelementptr inbounds ptr, ptr %100, i64 %indvars.iv97
-  %101 = load ptr, ptr %arrayidx.i67, align 8
-  %isnull155 = icmp eq ptr %101, null
+  %m_data.i65 = getelementptr inbounds i8, ptr %95, i64 480
+  %96 = load ptr, ptr %m_data.i65, align 8
+  %arrayidx.i67 = getelementptr inbounds ptr, ptr %96, i64 %indvars.iv97
+  %97 = load ptr, ptr %arrayidx.i67, align 8
+  %isnull155 = icmp eq ptr %97, null
   br i1 %isnull155, label %for.inc160, label %delete.notnull156
 
 delete.notnull156:                                ; preds = %for.body150
-  %vtable157 = load ptr, ptr %101, align 16
+  %vtable157 = load ptr, ptr %97, align 16
   %vfn158 = getelementptr inbounds i8, ptr %vtable157, i64 8
-  %102 = load ptr, ptr %vfn158, align 8
-  tail call void %102(ptr noundef nonnull align 16 dereferenceable(112) %101) #15
+  %98 = load ptr, ptr %vfn158, align 8
+  tail call void %98(ptr noundef nonnull align 16 dereferenceable(112) %97) #16
   %.pre124 = load ptr, ptr %m_data, align 8
   br label %for.inc160
 
 for.inc160:                                       ; preds = %for.body150, %delete.notnull156
-  %103 = phi ptr [ %99, %for.body150 ], [ %.pre124, %delete.notnull156 ]
+  %99 = phi ptr [ %95, %for.body150 ], [ %.pre124, %delete.notnull156 ]
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %m_size.i64 = getelementptr inbounds i8, ptr %103, i64 468
-  %104 = load i32, ptr %m_size.i64, align 4
-  %105 = sext i32 %104 to i64
-  %cmp149 = icmp slt i64 %indvars.iv.next98, %105
+  %m_size.i64 = getelementptr inbounds i8, ptr %99, i64 468
+  %100 = load i32, ptr %m_size.i64, align 4
+  %101 = sext i32 %100 to i64
+  %cmp149 = icmp slt i64 %indvars.iv.next98, %101
   br i1 %cmp149, label %for.body150, label %for.end162, !llvm.loop !17
 
 for.end162:                                       ; preds = %for.inc160, %for.cond145.preheader
-  %.lcssa91 = phi ptr [ %90, %for.cond145.preheader ], [ %103, %for.inc160 ]
+  %.lcssa91 = phi ptr [ %86, %for.cond145.preheader ], [ %99, %for.inc160 ]
   %m_size.i64.le = getelementptr inbounds i8, ptr %.lcssa91, i64 468
   %m_data.i.i = getelementptr inbounds i8, ptr %.lcssa91, i64 480
-  %106 = load ptr, ptr %m_data.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %106, null
+  %102 = load ptr, ptr %m_data.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %102, null
   br i1 %tobool.not.i.i, label %invoke.cont165, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end162
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %.lcssa91, i64 488
-  %107 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %108 = and i8 %107, 1
-  %tobool2.not.i.i = icmp eq i8 %108, 0
-  br i1 %tobool2.not.i.i, label %invoke.cont165, label %if.then3.i.i
+  %103 = load i8, ptr %m_ownsMemory.i.i, align 8
+  %tobool2.i.i = trunc i8 %103 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %invoke.cont165
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %106)
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %102)
           to label %invoke.cont165 unwind label %terminate.lpad
 
 invoke.cont165:                                   ; preds = %if.then.i.i, %for.end162, %if.then3.i.i
@@ -2198,117 +2202,115 @@ invoke.cont165:                                   ; preds = %if.then.i.i, %for.e
   store i32 0, ptr %m_size.i64.le, align 4
   %m_capacity.i.i = getelementptr inbounds i8, ptr %.lcssa91, i64 472
   store i32 0, ptr %m_capacity.i.i, align 8
-  %109 = load ptr, ptr %m_data, align 8
-  %m_data.i.i68 = getelementptr inbounds i8, ptr %109, i64 448
-  %110 = load ptr, ptr %m_data.i.i68, align 8
-  %tobool.not.i.i69 = icmp eq ptr %110, null
+  %104 = load ptr, ptr %m_data, align 8
+  %m_data.i.i68 = getelementptr inbounds i8, ptr %104, i64 448
+  %105 = load ptr, ptr %m_data.i.i68, align 8
+  %tobool.not.i.i69 = icmp eq ptr %105, null
   br i1 %tobool.not.i.i69, label %invoke.cont168, label %if.then.i.i70
 
 if.then.i.i70:                                    ; preds = %invoke.cont165
-  %m_ownsMemory.i.i71 = getelementptr inbounds i8, ptr %109, i64 456
-  %111 = load i8, ptr %m_ownsMemory.i.i71, align 8
-  %112 = and i8 %111, 1
-  %tobool2.not.i.i72 = icmp eq i8 %112, 0
-  br i1 %tobool2.not.i.i72, label %invoke.cont168, label %if.then3.i.i73
+  %m_ownsMemory.i.i71 = getelementptr inbounds i8, ptr %104, i64 456
+  %106 = load i8, ptr %m_ownsMemory.i.i71, align 8
+  %tobool2.i.i72 = trunc i8 %106 to i1
+  br i1 %tobool2.i.i72, label %if.then3.i.i76, label %invoke.cont168
 
-if.then3.i.i73:                                   ; preds = %if.then.i.i70
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %110)
+if.then3.i.i76:                                   ; preds = %if.then.i.i70
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %105)
           to label %invoke.cont168 unwind label %terminate.lpad
 
-invoke.cont168:                                   ; preds = %if.then.i.i70, %invoke.cont165, %if.then3.i.i73
-  %m_size.i.i74 = getelementptr inbounds i8, ptr %109, i64 436
-  %m_ownsMemory.i1.i75 = getelementptr inbounds i8, ptr %109, i64 456
-  store i8 1, ptr %m_ownsMemory.i1.i75, align 8
+invoke.cont168:                                   ; preds = %if.then.i.i70, %invoke.cont165, %if.then3.i.i76
+  %m_size.i.i73 = getelementptr inbounds i8, ptr %104, i64 436
+  %m_ownsMemory.i1.i74 = getelementptr inbounds i8, ptr %104, i64 456
+  store i8 1, ptr %m_ownsMemory.i1.i74, align 8
   store ptr null, ptr %m_data.i.i68, align 8
-  store i32 0, ptr %m_size.i.i74, align 4
-  %m_capacity.i.i76 = getelementptr inbounds i8, ptr %109, i64 440
-  store i32 0, ptr %m_capacity.i.i76, align 8
-  %113 = load ptr, ptr %m_data, align 8
-  %m_treeNodesGPU = getelementptr inbounds i8, ptr %113, i64 600
-  %114 = load ptr, ptr %m_treeNodesGPU, align 8
-  %isnull170 = icmp eq ptr %114, null
+  store i32 0, ptr %m_size.i.i73, align 4
+  %m_capacity.i.i75 = getelementptr inbounds i8, ptr %104, i64 440
+  store i32 0, ptr %m_capacity.i.i75, align 8
+  %107 = load ptr, ptr %m_data, align 8
+  %m_treeNodesGPU = getelementptr inbounds i8, ptr %107, i64 600
+  %108 = load ptr, ptr %m_treeNodesGPU, align 8
+  %isnull170 = icmp eq ptr %108, null
   br i1 %isnull170, label %delete.end174, label %delete.notnull171
 
 delete.notnull171:                                ; preds = %invoke.cont168
-  %vtable172 = load ptr, ptr %114, align 8
+  %vtable172 = load ptr, ptr %108, align 8
   %vfn173 = getelementptr inbounds i8, ptr %vtable172, i64 8
-  %115 = load ptr, ptr %vfn173, align 8
-  tail call void %115(ptr noundef nonnull align 8 dereferenceable(50) %114) #15
+  %109 = load ptr, ptr %vfn173, align 8
+  tail call void %109(ptr noundef nonnull align 8 dereferenceable(50) %108) #16
   %.pre125 = load ptr, ptr %m_data, align 8
   br label %delete.end174
 
 delete.end174:                                    ; preds = %delete.notnull171, %invoke.cont168
-  %116 = phi ptr [ %.pre125, %delete.notnull171 ], [ %113, %invoke.cont168 ]
-  %m_subTreesGPU = getelementptr inbounds i8, ptr %116, i64 608
-  %117 = load ptr, ptr %m_subTreesGPU, align 8
-  %isnull176 = icmp eq ptr %117, null
+  %110 = phi ptr [ %.pre125, %delete.notnull171 ], [ %107, %invoke.cont168 ]
+  %m_subTreesGPU = getelementptr inbounds i8, ptr %110, i64 608
+  %111 = load ptr, ptr %m_subTreesGPU, align 8
+  %isnull176 = icmp eq ptr %111, null
   br i1 %isnull176, label %delete.end180, label %delete.notnull177
 
 delete.notnull177:                                ; preds = %delete.end174
-  %vtable178 = load ptr, ptr %117, align 8
+  %vtable178 = load ptr, ptr %111, align 8
   %vfn179 = getelementptr inbounds i8, ptr %vtable178, i64 8
-  %118 = load ptr, ptr %vfn179, align 8
-  tail call void %118(ptr noundef nonnull align 8 dereferenceable(50) %117) #15
+  %112 = load ptr, ptr %vfn179, align 8
+  tail call void %112(ptr noundef nonnull align 8 dereferenceable(50) %111) #16
   %.pre126 = load ptr, ptr %m_data, align 8
   br label %delete.end180
 
 delete.end180:                                    ; preds = %delete.notnull177, %delete.end174
-  %119 = phi ptr [ %.pre126, %delete.notnull177 ], [ %116, %delete.end174 ]
-  %120 = load ptr, ptr %119, align 8
-  %isnull182 = icmp eq ptr %120, null
+  %113 = phi ptr [ %.pre126, %delete.notnull177 ], [ %110, %delete.end174 ]
+  %114 = load ptr, ptr %113, align 8
+  %isnull182 = icmp eq ptr %114, null
   br i1 %isnull182, label %delete.notnull187, label %delete.notnull183
 
 delete.notnull183:                                ; preds = %delete.end180
-  %m_data.i.i.i78 = getelementptr inbounds i8, ptr %120, i64 16
-  %121 = load ptr, ptr %m_data.i.i.i78, align 8
-  %tobool.not.i.i.i79 = icmp eq ptr %121, null
+  %m_data.i.i.i78 = getelementptr inbounds i8, ptr %114, i64 16
+  %115 = load ptr, ptr %m_data.i.i.i78, align 8
+  %tobool.not.i.i.i79 = icmp eq ptr %115, null
   br i1 %tobool.not.i.i.i79, label %delete.end184, label %if.then.i.i.i80
 
 if.then.i.i.i80:                                  ; preds = %delete.notnull183
-  %m_ownsMemory.i.i.i81 = getelementptr inbounds i8, ptr %120, i64 24
-  %122 = load i8, ptr %m_ownsMemory.i.i.i81, align 8
-  %123 = and i8 %122, 1
-  %tobool2.not.i.i.i82 = icmp eq i8 %123, 0
-  br i1 %tobool2.not.i.i.i82, label %delete.end184, label %if.then3.i.i.i83
+  %m_ownsMemory.i.i.i81 = getelementptr inbounds i8, ptr %114, i64 24
+  %116 = load i8, ptr %m_ownsMemory.i.i.i81, align 8
+  %tobool2.i.i.i82 = trunc i8 %116 to i1
+  br i1 %tobool2.i.i.i82, label %if.then3.i.i.i86, label %delete.end184
 
-if.then3.i.i.i83:                                 ; preds = %if.then.i.i.i80
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %121)
-          to label %delete.end184 unwind label %terminate.lpad.i84
+if.then3.i.i.i86:                                 ; preds = %if.then.i.i.i80
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %115)
+          to label %delete.end184 unwind label %terminate.lpad.i87
 
-terminate.lpad.i84:                               ; preds = %if.then3.i.i.i83
-  %124 = landingpad { ptr, i32 }
+terminate.lpad.i87:                               ; preds = %if.then3.i.i.i86
+  %117 = landingpad { ptr, i32 }
           catch ptr null
-  %125 = extractvalue { ptr, i32 } %124, 0
-  tail call void @__clang_call_terminate(ptr %125) #16
+  %118 = extractvalue { ptr, i32 } %117, 0
+  tail call void @__clang_call_terminate(ptr %118) #17
   unreachable
 
-delete.end184:                                    ; preds = %if.then3.i.i.i83, %if.then.i.i.i80, %delete.notnull183
-  tail call void @_ZdlPv(ptr noundef nonnull %120) #14
+delete.end184:                                    ; preds = %if.then3.i.i.i86, %if.then.i.i.i80, %delete.notnull183
+  tail call void @_ZdlPv(ptr noundef nonnull %114) #15
   %.pr = load ptr, ptr %m_data, align 8
   %isnull186 = icmp eq ptr %.pr, null
   br i1 %isnull186, label %delete.end188, label %delete.notnull187
 
 delete.notnull187:                                ; preds = %delete.end180, %delete.end184
-  %126 = phi ptr [ %.pr, %delete.end184 ], [ %119, %delete.end180 ]
-  tail call void @_ZN28b3GpuNarrowPhaseInternalDataD2Ev(ptr noundef nonnull align 8 dereferenceable(664) %126) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %126) #14
+  %119 = phi ptr [ %.pr, %delete.end184 ], [ %113, %delete.end180 ]
+  tail call void @_ZN28b3GpuNarrowPhaseInternalDataD2Ev(ptr noundef nonnull align 8 dereferenceable(664) %119) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %119) #15
   br label %delete.end188
 
 delete.end188:                                    ; preds = %delete.notnull187, %delete.end184
   ret void
 
-terminate.lpad:                                   ; preds = %if.then3.i.i73, %if.then3.i.i
-  %127 = landingpad { ptr, i32 }
+terminate.lpad:                                   ; preds = %if.then3.i.i76, %if.then3.i.i
+  %120 = landingpad { ptr, i32 }
           catch ptr null
-  %128 = extractvalue { ptr, i32 } %127, 0
-  tail call void @__clang_call_terminate(ptr %128) #16
+  %121 = extractvalue { ptr, i32 } %120, 0
+  tail call void @__clang_call_terminate(ptr %121) #17
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
@@ -2327,19 +2329,18 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 584
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i.i, label %_ZN20b3AlignedObjectArrayI9b3BvhInfoED2Ev.exit, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20b3AlignedObjectArrayI9b3BvhInfoED2Ev.exit
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %0)
           to label %_ZN20b3AlignedObjectArrayI9b3BvhInfoED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #16
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #17
   unreachable
 
 _ZN20b3AlignedObjectArrayI9b3BvhInfoED2Ev.exit:   ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
@@ -2351,354 +2352,343 @@ _ZN20b3AlignedObjectArrayI9b3BvhInfoED2Ev.exit:   ; preds = %entry, %if.then.i.i
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 568
   store i32 0, ptr %m_capacity.i.i.i, align 8
   %m_data.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 544
-  %5 = load ptr, ptr %m_data.i.i.i1, align 8
-  %tobool.not.i.i.i2 = icmp eq ptr %5, null
+  %4 = load ptr, ptr %m_data.i.i.i1, align 8
+  %tobool.not.i.i.i2 = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i2, label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZN20b3AlignedObjectArrayI9b3BvhInfoED2Ev.exit
   %m_ownsMemory.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 552
-  %6 = load i8, ptr %m_ownsMemory.i.i.i4, align 8
-  %7 = and i8 %6, 1
-  %tobool2.not.i.i.i5 = icmp eq i8 %7, 0
-  br i1 %tobool2.not.i.i.i5, label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoED2Ev.exit, label %if.then3.i.i.i6
+  %5 = load i8, ptr %m_ownsMemory.i.i.i4, align 8
+  %tobool2.i.i.i5 = trunc i8 %5 to i1
+  br i1 %tobool2.i.i.i5, label %if.then3.i.i.i9, label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoED2Ev.exit
 
-if.then3.i.i.i6:                                  ; preds = %if.then.i.i.i3
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %5)
-          to label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoED2Ev.exit unwind label %terminate.lpad.i7
+if.then3.i.i.i9:                                  ; preds = %if.then.i.i.i3
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %4)
+          to label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoED2Ev.exit unwind label %terminate.lpad.i10
 
-terminate.lpad.i7:                                ; preds = %if.then3.i.i.i6
-  %8 = landingpad { ptr, i32 }
+terminate.lpad.i10:                               ; preds = %if.then3.i.i.i9
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #16
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #17
   unreachable
 
-_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI9b3BvhInfoED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i6
-  %m_size.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 532
-  %m_ownsMemory.i1.i.i9 = getelementptr inbounds i8, ptr %this, i64 552
-  store i8 1, ptr %m_ownsMemory.i1.i.i9, align 8
+_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI9b3BvhInfoED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i9
+  %m_size.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 532
+  %m_ownsMemory.i1.i.i7 = getelementptr inbounds i8, ptr %this, i64 552
+  store i8 1, ptr %m_ownsMemory.i1.i.i7, align 8
   store ptr null, ptr %m_data.i.i.i1, align 8
-  store i32 0, ptr %m_size.i.i.i8, align 4
-  %m_capacity.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 536
-  store i32 0, ptr %m_capacity.i.i.i10, align 8
+  store i32 0, ptr %m_size.i.i.i6, align 4
+  %m_capacity.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 536
+  store i32 0, ptr %m_capacity.i.i.i8, align 8
   %m_data.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 512
-  %10 = load ptr, ptr %m_data.i.i.i11, align 8
-  %tobool.not.i.i.i12 = icmp eq ptr %10, null
+  %8 = load ptr, ptr %m_data.i.i.i11, align 8
+  %tobool.not.i.i.i12 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i12, label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev.exit, label %if.then.i.i.i13
 
 if.then.i.i.i13:                                  ; preds = %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoED2Ev.exit
   %m_ownsMemory.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 520
-  %11 = load i8, ptr %m_ownsMemory.i.i.i14, align 8
-  %12 = and i8 %11, 1
-  %tobool2.not.i.i.i15 = icmp eq i8 %12, 0
-  br i1 %tobool2.not.i.i.i15, label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev.exit, label %if.then3.i.i.i16
+  %9 = load i8, ptr %m_ownsMemory.i.i.i14, align 8
+  %tobool2.i.i.i15 = trunc i8 %9 to i1
+  br i1 %tobool2.i.i.i15, label %if.then3.i.i.i19, label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev.exit
 
-if.then3.i.i.i16:                                 ; preds = %if.then.i.i.i13
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %10)
-          to label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev.exit unwind label %terminate.lpad.i17
+if.then3.i.i.i19:                                 ; preds = %if.then.i.i.i13
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %8)
+          to label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev.exit unwind label %terminate.lpad.i20
 
-terminate.lpad.i17:                               ; preds = %if.then3.i.i.i16
-  %13 = landingpad { ptr, i32 }
+terminate.lpad.i20:                               ; preds = %if.then3.i.i.i19
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #16
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #17
   unreachable
 
-_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoED2Ev.exit, %if.then.i.i.i13, %if.then3.i.i.i16
-  %m_size.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 500
-  %m_ownsMemory.i1.i.i19 = getelementptr inbounds i8, ptr %this, i64 520
-  store i8 1, ptr %m_ownsMemory.i1.i.i19, align 8
+_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoED2Ev.exit, %if.then.i.i.i13, %if.then3.i.i.i19
+  %m_size.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 500
+  %m_ownsMemory.i1.i.i17 = getelementptr inbounds i8, ptr %this, i64 520
+  store i8 1, ptr %m_ownsMemory.i1.i.i17, align 8
   store ptr null, ptr %m_data.i.i.i11, align 8
-  store i32 0, ptr %m_size.i.i.i18, align 4
-  %m_capacity.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 504
-  store i32 0, ptr %m_capacity.i.i.i20, align 8
+  store i32 0, ptr %m_size.i.i.i16, align 4
+  %m_capacity.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 504
+  store i32 0, ptr %m_capacity.i.i.i18, align 8
   %m_data.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 480
-  %15 = load ptr, ptr %m_data.i.i.i21, align 8
-  %tobool.not.i.i.i22 = icmp eq ptr %15, null
+  %12 = load ptr, ptr %m_data.i.i.i21, align 8
+  %tobool.not.i.i.i22 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i22, label %_ZN20b3AlignedObjectArrayIP26b3TriangleIndexVertexArrayED2Ev.exit, label %if.then.i.i.i23
 
 if.then.i.i.i23:                                  ; preds = %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev.exit
   %m_ownsMemory.i.i.i24 = getelementptr inbounds i8, ptr %this, i64 488
-  %16 = load i8, ptr %m_ownsMemory.i.i.i24, align 8
-  %17 = and i8 %16, 1
-  %tobool2.not.i.i.i25 = icmp eq i8 %17, 0
-  br i1 %tobool2.not.i.i.i25, label %_ZN20b3AlignedObjectArrayIP26b3TriangleIndexVertexArrayED2Ev.exit, label %if.then3.i.i.i26
+  %13 = load i8, ptr %m_ownsMemory.i.i.i24, align 8
+  %tobool2.i.i.i25 = trunc i8 %13 to i1
+  br i1 %tobool2.i.i.i25, label %if.then3.i.i.i29, label %_ZN20b3AlignedObjectArrayIP26b3TriangleIndexVertexArrayED2Ev.exit
 
-if.then3.i.i.i26:                                 ; preds = %if.then.i.i.i23
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %15)
-          to label %_ZN20b3AlignedObjectArrayIP26b3TriangleIndexVertexArrayED2Ev.exit unwind label %terminate.lpad.i27
+if.then3.i.i.i29:                                 ; preds = %if.then.i.i.i23
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %12)
+          to label %_ZN20b3AlignedObjectArrayIP26b3TriangleIndexVertexArrayED2Ev.exit unwind label %terminate.lpad.i30
 
-terminate.lpad.i27:                               ; preds = %if.then3.i.i.i26
-  %18 = landingpad { ptr, i32 }
+terminate.lpad.i30:                               ; preds = %if.then3.i.i.i29
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #16
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #17
   unreachable
 
-_ZN20b3AlignedObjectArrayIP26b3TriangleIndexVertexArrayED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev.exit, %if.then.i.i.i23, %if.then3.i.i.i26
-  %m_size.i.i.i28 = getelementptr inbounds i8, ptr %this, i64 468
-  %m_ownsMemory.i1.i.i29 = getelementptr inbounds i8, ptr %this, i64 488
-  store i8 1, ptr %m_ownsMemory.i1.i.i29, align 8
+_ZN20b3AlignedObjectArrayIP26b3TriangleIndexVertexArrayED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev.exit, %if.then.i.i.i23, %if.then3.i.i.i29
+  %m_size.i.i.i26 = getelementptr inbounds i8, ptr %this, i64 468
+  %m_ownsMemory.i1.i.i27 = getelementptr inbounds i8, ptr %this, i64 488
+  store i8 1, ptr %m_ownsMemory.i1.i.i27, align 8
   store ptr null, ptr %m_data.i.i.i21, align 8
-  store i32 0, ptr %m_size.i.i.i28, align 4
-  %m_capacity.i.i.i30 = getelementptr inbounds i8, ptr %this, i64 472
-  store i32 0, ptr %m_capacity.i.i.i30, align 8
+  store i32 0, ptr %m_size.i.i.i26, align 4
+  %m_capacity.i.i.i28 = getelementptr inbounds i8, ptr %this, i64 472
+  store i32 0, ptr %m_capacity.i.i.i28, align 8
   %m_data.i.i.i31 = getelementptr inbounds i8, ptr %this, i64 448
-  %20 = load ptr, ptr %m_data.i.i.i31, align 8
-  %tobool.not.i.i.i32 = icmp eq ptr %20, null
+  %16 = load ptr, ptr %m_data.i.i.i31, align 8
+  %tobool.not.i.i.i32 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i32, label %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhED2Ev.exit, label %if.then.i.i.i33
 
 if.then.i.i.i33:                                  ; preds = %_ZN20b3AlignedObjectArrayIP26b3TriangleIndexVertexArrayED2Ev.exit
   %m_ownsMemory.i.i.i34 = getelementptr inbounds i8, ptr %this, i64 456
-  %21 = load i8, ptr %m_ownsMemory.i.i.i34, align 8
-  %22 = and i8 %21, 1
-  %tobool2.not.i.i.i35 = icmp eq i8 %22, 0
-  br i1 %tobool2.not.i.i.i35, label %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhED2Ev.exit, label %if.then3.i.i.i36
+  %17 = load i8, ptr %m_ownsMemory.i.i.i34, align 8
+  %tobool2.i.i.i35 = trunc i8 %17 to i1
+  br i1 %tobool2.i.i.i35, label %if.then3.i.i.i39, label %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhED2Ev.exit
 
-if.then3.i.i.i36:                                 ; preds = %if.then.i.i.i33
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %20)
-          to label %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhED2Ev.exit unwind label %terminate.lpad.i37
+if.then3.i.i.i39:                                 ; preds = %if.then.i.i.i33
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %16)
+          to label %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhED2Ev.exit unwind label %terminate.lpad.i40
 
-terminate.lpad.i37:                               ; preds = %if.then3.i.i.i36
-  %23 = landingpad { ptr, i32 }
+terminate.lpad.i40:                               ; preds = %if.then3.i.i.i39
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #16
+  %19 = extractvalue { ptr, i32 } %18, 0
+  tail call void @__clang_call_terminate(ptr %19) #17
   unreachable
 
-_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayIP26b3TriangleIndexVertexArrayED2Ev.exit, %if.then.i.i.i33, %if.then3.i.i.i36
-  %m_size.i.i.i38 = getelementptr inbounds i8, ptr %this, i64 436
-  %m_ownsMemory.i1.i.i39 = getelementptr inbounds i8, ptr %this, i64 456
-  store i8 1, ptr %m_ownsMemory.i1.i.i39, align 8
+_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayIP26b3TriangleIndexVertexArrayED2Ev.exit, %if.then.i.i.i33, %if.then3.i.i.i39
+  %m_size.i.i.i36 = getelementptr inbounds i8, ptr %this, i64 436
+  %m_ownsMemory.i1.i.i37 = getelementptr inbounds i8, ptr %this, i64 456
+  store i8 1, ptr %m_ownsMemory.i1.i.i37, align 8
   store ptr null, ptr %m_data.i.i.i31, align 8
-  store i32 0, ptr %m_size.i.i.i38, align 4
-  %m_capacity.i.i.i40 = getelementptr inbounds i8, ptr %this, i64 440
-  store i32 0, ptr %m_capacity.i.i.i40, align 8
+  store i32 0, ptr %m_size.i.i.i36, align 4
+  %m_capacity.i.i.i38 = getelementptr inbounds i8, ptr %this, i64 440
+  store i32 0, ptr %m_capacity.i.i.i38, align 8
   %m_data.i.i.i41 = getelementptr inbounds i8, ptr %this, i64 392
-  %25 = load ptr, ptr %m_data.i.i.i41, align 8
-  %tobool.not.i.i.i42 = icmp eq ptr %25, null
+  %20 = load ptr, ptr %m_data.i.i.i41, align 8
+  %tobool.not.i.i.i42 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i42, label %_ZN20b3AlignedObjectArrayI12b3CollidableED2Ev.exit, label %if.then.i.i.i43
 
 if.then.i.i.i43:                                  ; preds = %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhED2Ev.exit
   %m_ownsMemory.i.i.i44 = getelementptr inbounds i8, ptr %this, i64 400
-  %26 = load i8, ptr %m_ownsMemory.i.i.i44, align 8
-  %27 = and i8 %26, 1
-  %tobool2.not.i.i.i45 = icmp eq i8 %27, 0
-  br i1 %tobool2.not.i.i.i45, label %_ZN20b3AlignedObjectArrayI12b3CollidableED2Ev.exit, label %if.then3.i.i.i46
+  %21 = load i8, ptr %m_ownsMemory.i.i.i44, align 8
+  %tobool2.i.i.i45 = trunc i8 %21 to i1
+  br i1 %tobool2.i.i.i45, label %if.then3.i.i.i49, label %_ZN20b3AlignedObjectArrayI12b3CollidableED2Ev.exit
 
-if.then3.i.i.i46:                                 ; preds = %if.then.i.i.i43
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %25)
-          to label %_ZN20b3AlignedObjectArrayI12b3CollidableED2Ev.exit unwind label %terminate.lpad.i47
+if.then3.i.i.i49:                                 ; preds = %if.then.i.i.i43
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %20)
+          to label %_ZN20b3AlignedObjectArrayI12b3CollidableED2Ev.exit unwind label %terminate.lpad.i50
 
-terminate.lpad.i47:                               ; preds = %if.then3.i.i.i46
-  %28 = landingpad { ptr, i32 }
+terminate.lpad.i50:                               ; preds = %if.then3.i.i.i49
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #16
+  %23 = extractvalue { ptr, i32 } %22, 0
+  tail call void @__clang_call_terminate(ptr %23) #17
   unreachable
 
-_ZN20b3AlignedObjectArrayI12b3CollidableED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhED2Ev.exit, %if.then.i.i.i43, %if.then3.i.i.i46
-  %m_size.i.i.i48 = getelementptr inbounds i8, ptr %this, i64 380
-  %m_ownsMemory.i1.i.i49 = getelementptr inbounds i8, ptr %this, i64 400
-  store i8 1, ptr %m_ownsMemory.i1.i.i49, align 8
+_ZN20b3AlignedObjectArrayI12b3CollidableED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhED2Ev.exit, %if.then.i.i.i43, %if.then3.i.i.i49
+  %m_size.i.i.i46 = getelementptr inbounds i8, ptr %this, i64 380
+  %m_ownsMemory.i1.i.i47 = getelementptr inbounds i8, ptr %this, i64 400
+  store i8 1, ptr %m_ownsMemory.i1.i.i47, align 8
   store ptr null, ptr %m_data.i.i.i41, align 8
-  store i32 0, ptr %m_size.i.i.i48, align 4
-  %m_capacity.i.i.i50 = getelementptr inbounds i8, ptr %this, i64 384
-  store i32 0, ptr %m_capacity.i.i.i50, align 8
+  store i32 0, ptr %m_size.i.i.i46, align 4
+  %m_capacity.i.i.i48 = getelementptr inbounds i8, ptr %this, i64 384
+  store i32 0, ptr %m_capacity.i.i.i48, align 8
   %m_data.i.i.i51 = getelementptr inbounds i8, ptr %this, i64 264
-  %30 = load ptr, ptr %m_data.i.i.i51, align 8
-  %tobool.not.i.i.i52 = icmp eq ptr %30, null
+  %24 = load ptr, ptr %m_data.i.i.i51, align 8
+  %tobool.not.i.i.i52 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i52, label %_ZN20b3AlignedObjectArrayI9b3GpuFaceED2Ev.exit, label %if.then.i.i.i53
 
 if.then.i.i.i53:                                  ; preds = %_ZN20b3AlignedObjectArrayI12b3CollidableED2Ev.exit
   %m_ownsMemory.i.i.i54 = getelementptr inbounds i8, ptr %this, i64 272
-  %31 = load i8, ptr %m_ownsMemory.i.i.i54, align 8
-  %32 = and i8 %31, 1
-  %tobool2.not.i.i.i55 = icmp eq i8 %32, 0
-  br i1 %tobool2.not.i.i.i55, label %_ZN20b3AlignedObjectArrayI9b3GpuFaceED2Ev.exit, label %if.then3.i.i.i56
+  %25 = load i8, ptr %m_ownsMemory.i.i.i54, align 8
+  %tobool2.i.i.i55 = trunc i8 %25 to i1
+  br i1 %tobool2.i.i.i55, label %if.then3.i.i.i59, label %_ZN20b3AlignedObjectArrayI9b3GpuFaceED2Ev.exit
 
-if.then3.i.i.i56:                                 ; preds = %if.then.i.i.i53
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %30)
-          to label %_ZN20b3AlignedObjectArrayI9b3GpuFaceED2Ev.exit unwind label %terminate.lpad.i57
+if.then3.i.i.i59:                                 ; preds = %if.then.i.i.i53
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %24)
+          to label %_ZN20b3AlignedObjectArrayI9b3GpuFaceED2Ev.exit unwind label %terminate.lpad.i60
 
-terminate.lpad.i57:                               ; preds = %if.then3.i.i.i56
-  %33 = landingpad { ptr, i32 }
+terminate.lpad.i60:                               ; preds = %if.then3.i.i.i59
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #16
+  %27 = extractvalue { ptr, i32 } %26, 0
+  tail call void @__clang_call_terminate(ptr %27) #17
   unreachable
 
-_ZN20b3AlignedObjectArrayI9b3GpuFaceED2Ev.exit:   ; preds = %_ZN20b3AlignedObjectArrayI12b3CollidableED2Ev.exit, %if.then.i.i.i53, %if.then3.i.i.i56
-  %m_size.i.i.i58 = getelementptr inbounds i8, ptr %this, i64 252
-  %m_ownsMemory.i1.i.i59 = getelementptr inbounds i8, ptr %this, i64 272
-  store i8 1, ptr %m_ownsMemory.i1.i.i59, align 8
+_ZN20b3AlignedObjectArrayI9b3GpuFaceED2Ev.exit:   ; preds = %_ZN20b3AlignedObjectArrayI12b3CollidableED2Ev.exit, %if.then.i.i.i53, %if.then3.i.i.i59
+  %m_size.i.i.i56 = getelementptr inbounds i8, ptr %this, i64 252
+  %m_ownsMemory.i1.i.i57 = getelementptr inbounds i8, ptr %this, i64 272
+  store i8 1, ptr %m_ownsMemory.i1.i.i57, align 8
   store ptr null, ptr %m_data.i.i.i51, align 8
-  store i32 0, ptr %m_size.i.i.i58, align 4
-  %m_capacity.i.i.i60 = getelementptr inbounds i8, ptr %this, i64 256
-  store i32 0, ptr %m_capacity.i.i.i60, align 8
+  store i32 0, ptr %m_size.i.i.i56, align 4
+  %m_capacity.i.i.i58 = getelementptr inbounds i8, ptr %this, i64 256
+  store i32 0, ptr %m_capacity.i.i.i58, align 8
   %m_data.i.i.i61 = getelementptr inbounds i8, ptr %this, i64 224
-  %35 = load ptr, ptr %m_data.i.i.i61, align 8
-  %tobool.not.i.i.i62 = icmp eq ptr %35, null
+  %28 = load ptr, ptr %m_data.i.i.i61, align 8
+  %tobool.not.i.i.i62 = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i62, label %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeED2Ev.exit, label %if.then.i.i.i63
 
 if.then.i.i.i63:                                  ; preds = %_ZN20b3AlignedObjectArrayI9b3GpuFaceED2Ev.exit
   %m_ownsMemory.i.i.i64 = getelementptr inbounds i8, ptr %this, i64 232
-  %36 = load i8, ptr %m_ownsMemory.i.i.i64, align 8
-  %37 = and i8 %36, 1
-  %tobool2.not.i.i.i65 = icmp eq i8 %37, 0
-  br i1 %tobool2.not.i.i.i65, label %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeED2Ev.exit, label %if.then3.i.i.i66
+  %29 = load i8, ptr %m_ownsMemory.i.i.i64, align 8
+  %tobool2.i.i.i65 = trunc i8 %29 to i1
+  br i1 %tobool2.i.i.i65, label %if.then3.i.i.i69, label %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeED2Ev.exit
 
-if.then3.i.i.i66:                                 ; preds = %if.then.i.i.i63
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %35)
-          to label %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeED2Ev.exit unwind label %terminate.lpad.i67
+if.then3.i.i.i69:                                 ; preds = %if.then.i.i.i63
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %28)
+          to label %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeED2Ev.exit unwind label %terminate.lpad.i70
 
-terminate.lpad.i67:                               ; preds = %if.then3.i.i.i66
-  %38 = landingpad { ptr, i32 }
+terminate.lpad.i70:                               ; preds = %if.then3.i.i.i69
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #16
+  %31 = extractvalue { ptr, i32 } %30, 0
+  tail call void @__clang_call_terminate(ptr %31) #17
   unreachable
 
-_ZN20b3AlignedObjectArrayI15b3GpuChildShapeED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI9b3GpuFaceED2Ev.exit, %if.then.i.i.i63, %if.then3.i.i.i66
-  %m_size.i.i.i68 = getelementptr inbounds i8, ptr %this, i64 212
-  %m_ownsMemory.i1.i.i69 = getelementptr inbounds i8, ptr %this, i64 232
-  store i8 1, ptr %m_ownsMemory.i1.i.i69, align 8
+_ZN20b3AlignedObjectArrayI15b3GpuChildShapeED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI9b3GpuFaceED2Ev.exit, %if.then.i.i.i63, %if.then3.i.i.i69
+  %m_size.i.i.i66 = getelementptr inbounds i8, ptr %this, i64 212
+  %m_ownsMemory.i1.i.i67 = getelementptr inbounds i8, ptr %this, i64 232
+  store i8 1, ptr %m_ownsMemory.i1.i.i67, align 8
   store ptr null, ptr %m_data.i.i.i61, align 8
-  store i32 0, ptr %m_size.i.i.i68, align 4
-  %m_capacity.i.i.i70 = getelementptr inbounds i8, ptr %this, i64 216
-  store i32 0, ptr %m_capacity.i.i.i70, align 8
+  store i32 0, ptr %m_size.i.i.i66, align 4
+  %m_capacity.i.i.i68 = getelementptr inbounds i8, ptr %this, i64 216
+  store i32 0, ptr %m_capacity.i.i.i68, align 8
   %m_data.i.i.i71 = getelementptr inbounds i8, ptr %this, i64 120
-  %40 = load ptr, ptr %m_data.i.i.i71, align 8
-  %tobool.not.i.i.i72 = icmp eq ptr %40, null
+  %32 = load ptr, ptr %m_data.i.i.i71, align 8
+  %tobool.not.i.i.i72 = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.i72, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit, label %if.then.i.i.i73
 
 if.then.i.i.i73:                                  ; preds = %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeED2Ev.exit
   %m_ownsMemory.i.i.i74 = getelementptr inbounds i8, ptr %this, i64 128
-  %41 = load i8, ptr %m_ownsMemory.i.i.i74, align 8
-  %42 = and i8 %41, 1
-  %tobool2.not.i.i.i75 = icmp eq i8 %42, 0
-  br i1 %tobool2.not.i.i.i75, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit, label %if.then3.i.i.i76
+  %33 = load i8, ptr %m_ownsMemory.i.i.i74, align 8
+  %tobool2.i.i.i75 = trunc i8 %33 to i1
+  br i1 %tobool2.i.i.i75, label %if.then3.i.i.i79, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit
 
-if.then3.i.i.i76:                                 ; preds = %if.then.i.i.i73
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %40)
-          to label %_ZN20b3AlignedObjectArrayIiED2Ev.exit unwind label %terminate.lpad.i77
+if.then3.i.i.i79:                                 ; preds = %if.then.i.i.i73
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %32)
+          to label %_ZN20b3AlignedObjectArrayIiED2Ev.exit unwind label %terminate.lpad.i80
 
-terminate.lpad.i77:                               ; preds = %if.then3.i.i.i76
-  %43 = landingpad { ptr, i32 }
+terminate.lpad.i80:                               ; preds = %if.then3.i.i.i79
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #16
+  %35 = extractvalue { ptr, i32 } %34, 0
+  tail call void @__clang_call_terminate(ptr %35) #17
   unreachable
 
-_ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeED2Ev.exit, %if.then.i.i.i73, %if.then3.i.i.i76
-  %m_size.i.i.i78 = getelementptr inbounds i8, ptr %this, i64 108
-  %m_ownsMemory.i1.i.i79 = getelementptr inbounds i8, ptr %this, i64 128
-  store i8 1, ptr %m_ownsMemory.i1.i.i79, align 8
+_ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeED2Ev.exit, %if.then.i.i.i73, %if.then3.i.i.i79
+  %m_size.i.i.i76 = getelementptr inbounds i8, ptr %this, i64 108
+  %m_ownsMemory.i1.i.i77 = getelementptr inbounds i8, ptr %this, i64 128
+  store i8 1, ptr %m_ownsMemory.i1.i.i77, align 8
   store ptr null, ptr %m_data.i.i.i71, align 8
-  store i32 0, ptr %m_size.i.i.i78, align 4
-  %m_capacity.i.i.i80 = getelementptr inbounds i8, ptr %this, i64 112
-  store i32 0, ptr %m_capacity.i.i.i80, align 8
+  store i32 0, ptr %m_size.i.i.i76, align 4
+  %m_capacity.i.i.i78 = getelementptr inbounds i8, ptr %this, i64 112
+  store i32 0, ptr %m_capacity.i.i.i78, align 8
   %m_data.i.i.i81 = getelementptr inbounds i8, ptr %this, i64 88
-  %45 = load ptr, ptr %m_data.i.i.i81, align 8
-  %tobool.not.i.i.i82 = icmp eq ptr %45, null
+  %36 = load ptr, ptr %m_data.i.i.i81, align 8
+  %tobool.not.i.i.i82 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i82, label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit, label %if.then.i.i.i83
 
 if.then.i.i.i83:                                  ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit
   %m_ownsMemory.i.i.i84 = getelementptr inbounds i8, ptr %this, i64 96
-  %46 = load i8, ptr %m_ownsMemory.i.i.i84, align 8
-  %47 = and i8 %46, 1
-  %tobool2.not.i.i.i85 = icmp eq i8 %47, 0
-  br i1 %tobool2.not.i.i.i85, label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit, label %if.then3.i.i.i86
+  %37 = load i8, ptr %m_ownsMemory.i.i.i84, align 8
+  %tobool2.i.i.i85 = trunc i8 %37 to i1
+  br i1 %tobool2.i.i.i85, label %if.then3.i.i.i89, label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit
 
-if.then3.i.i.i86:                                 ; preds = %if.then.i.i.i83
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %45)
-          to label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit unwind label %terminate.lpad.i87
+if.then3.i.i.i89:                                 ; preds = %if.then.i.i.i83
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %36)
+          to label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit unwind label %terminate.lpad.i90
 
-terminate.lpad.i87:                               ; preds = %if.then3.i.i.i86
-  %48 = landingpad { ptr, i32 }
+terminate.lpad.i90:                               ; preds = %if.then3.i.i.i89
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  tail call void @__clang_call_terminate(ptr %49) #16
+  %39 = extractvalue { ptr, i32 } %38, 0
+  tail call void @__clang_call_terminate(ptr %39) #17
   unreachable
 
-_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit:   ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit, %if.then.i.i.i83, %if.then3.i.i.i86
-  %m_size.i.i.i88 = getelementptr inbounds i8, ptr %this, i64 76
-  %m_ownsMemory.i1.i.i89 = getelementptr inbounds i8, ptr %this, i64 96
-  store i8 1, ptr %m_ownsMemory.i1.i.i89, align 8
+_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit:   ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit, %if.then.i.i.i83, %if.then3.i.i.i89
+  %m_size.i.i.i86 = getelementptr inbounds i8, ptr %this, i64 76
+  %m_ownsMemory.i1.i.i87 = getelementptr inbounds i8, ptr %this, i64 96
+  store i8 1, ptr %m_ownsMemory.i1.i.i87, align 8
   store ptr null, ptr %m_data.i.i.i81, align 8
-  store i32 0, ptr %m_size.i.i.i88, align 4
-  %m_capacity.i.i.i90 = getelementptr inbounds i8, ptr %this, i64 80
-  store i32 0, ptr %m_capacity.i.i.i90, align 8
+  store i32 0, ptr %m_size.i.i.i86, align 4
+  %m_capacity.i.i.i88 = getelementptr inbounds i8, ptr %this, i64 80
+  store i32 0, ptr %m_capacity.i.i.i88, align 8
   %m_data.i.i.i91 = getelementptr inbounds i8, ptr %this, i64 56
-  %50 = load ptr, ptr %m_data.i.i.i91, align 8
-  %tobool.not.i.i.i92 = icmp eq ptr %50, null
+  %40 = load ptr, ptr %m_data.i.i.i91, align 8
+  %tobool.not.i.i.i92 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i92, label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit101, label %if.then.i.i.i93
 
 if.then.i.i.i93:                                  ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit
   %m_ownsMemory.i.i.i94 = getelementptr inbounds i8, ptr %this, i64 64
-  %51 = load i8, ptr %m_ownsMemory.i.i.i94, align 8
-  %52 = and i8 %51, 1
-  %tobool2.not.i.i.i95 = icmp eq i8 %52, 0
-  br i1 %tobool2.not.i.i.i95, label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit101, label %if.then3.i.i.i96
+  %41 = load i8, ptr %m_ownsMemory.i.i.i94, align 8
+  %tobool2.i.i.i95 = trunc i8 %41 to i1
+  br i1 %tobool2.i.i.i95, label %if.then3.i.i.i99, label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit101
 
-if.then3.i.i.i96:                                 ; preds = %if.then.i.i.i93
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %50)
-          to label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit101 unwind label %terminate.lpad.i97
+if.then3.i.i.i99:                                 ; preds = %if.then.i.i.i93
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %40)
+          to label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit101 unwind label %terminate.lpad.i100
 
-terminate.lpad.i97:                               ; preds = %if.then3.i.i.i96
-  %53 = landingpad { ptr, i32 }
+terminate.lpad.i100:                              ; preds = %if.then3.i.i.i99
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  tail call void @__clang_call_terminate(ptr %54) #16
+  %43 = extractvalue { ptr, i32 } %42, 0
+  tail call void @__clang_call_terminate(ptr %43) #17
   unreachable
 
-_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit101: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit, %if.then.i.i.i93, %if.then3.i.i.i96
-  %m_size.i.i.i98 = getelementptr inbounds i8, ptr %this, i64 44
-  %m_ownsMemory.i1.i.i99 = getelementptr inbounds i8, ptr %this, i64 64
-  store i8 1, ptr %m_ownsMemory.i1.i.i99, align 8
+_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit101: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit, %if.then.i.i.i93, %if.then3.i.i.i99
+  %m_size.i.i.i96 = getelementptr inbounds i8, ptr %this, i64 44
+  %m_ownsMemory.i1.i.i97 = getelementptr inbounds i8, ptr %this, i64 64
+  store i8 1, ptr %m_ownsMemory.i1.i.i97, align 8
   store ptr null, ptr %m_data.i.i.i91, align 8
-  store i32 0, ptr %m_size.i.i.i98, align 4
-  %m_capacity.i.i.i100 = getelementptr inbounds i8, ptr %this, i64 48
-  store i32 0, ptr %m_capacity.i.i.i100, align 8
+  store i32 0, ptr %m_size.i.i.i96, align 4
+  %m_capacity.i.i.i98 = getelementptr inbounds i8, ptr %this, i64 48
+  store i32 0, ptr %m_capacity.i.i.i98, align 8
   %m_data.i.i.i102 = getelementptr inbounds i8, ptr %this, i64 24
-  %55 = load ptr, ptr %m_data.i.i.i102, align 8
-  %tobool.not.i.i.i103 = icmp eq ptr %55, null
+  %44 = load ptr, ptr %m_data.i.i.i102, align 8
+  %tobool.not.i.i.i103 = icmp eq ptr %44, null
   br i1 %tobool.not.i.i.i103, label %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataED2Ev.exit, label %if.then.i.i.i104
 
 if.then.i.i.i104:                                 ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit101
   %m_ownsMemory.i.i.i105 = getelementptr inbounds i8, ptr %this, i64 32
-  %56 = load i8, ptr %m_ownsMemory.i.i.i105, align 8
-  %57 = and i8 %56, 1
-  %tobool2.not.i.i.i106 = icmp eq i8 %57, 0
-  br i1 %tobool2.not.i.i.i106, label %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataED2Ev.exit, label %if.then3.i.i.i107
+  %45 = load i8, ptr %m_ownsMemory.i.i.i105, align 8
+  %tobool2.i.i.i106 = trunc i8 %45 to i1
+  br i1 %tobool2.i.i.i106, label %if.then3.i.i.i110, label %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataED2Ev.exit
 
-if.then3.i.i.i107:                                ; preds = %if.then.i.i.i104
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %55)
-          to label %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataED2Ev.exit unwind label %terminate.lpad.i108
+if.then3.i.i.i110:                                ; preds = %if.then.i.i.i104
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %44)
+          to label %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataED2Ev.exit unwind label %terminate.lpad.i111
 
-terminate.lpad.i108:                              ; preds = %if.then3.i.i.i107
-  %58 = landingpad { ptr, i32 }
+terminate.lpad.i111:                              ; preds = %if.then3.i.i.i110
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  tail call void @__clang_call_terminate(ptr %59) #16
+  %47 = extractvalue { ptr, i32 } %46, 0
+  tail call void @__clang_call_terminate(ptr %47) #17
   unreachable
 
-_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit101, %if.then.i.i.i104, %if.then3.i.i.i107
-  %m_size.i.i.i109 = getelementptr inbounds i8, ptr %this, i64 12
-  %m_ownsMemory.i1.i.i110 = getelementptr inbounds i8, ptr %this, i64 32
-  store i8 1, ptr %m_ownsMemory.i1.i.i110, align 8
+_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit101, %if.then.i.i.i104, %if.then3.i.i.i110
+  %m_size.i.i.i107 = getelementptr inbounds i8, ptr %this, i64 12
+  %m_ownsMemory.i1.i.i108 = getelementptr inbounds i8, ptr %this, i64 32
+  store i8 1, ptr %m_ownsMemory.i1.i.i108, align 8
   store ptr null, ptr %m_data.i.i.i102, align 8
-  store i32 0, ptr %m_size.i.i.i109, align 4
-  %m_capacity.i.i.i111 = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 0, ptr %m_capacity.i.i.i111, align 8
+  store i32 0, ptr %m_size.i.i.i107, align 4
+  %m_capacity.i.i.i109 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 0, ptr %m_capacity.i.i.i109, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16b3GpuNarrowPhaseD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 {
 entry:
-  tail call void @_ZN16b3GpuNarrowPhaseD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZN16b3GpuNarrowPhaseD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -3573,7 +3563,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.then, %if.end, %
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit32, %lpad.loopexit ], [ %lpad.loopexit.split-lp33, %lpad.loopexit.split-lp ]
-  call void @_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %verts) #15
+  call void @_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %verts) #16
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -3623,26 +3613,25 @@ delete.notnull:                                   ; preds = %if.end
   %vtable = load ptr, ptr %call.i13, align 16
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %16 = load ptr, ptr %vfn, align 8
-  tail call void %16(ptr noundef nonnull align 16 dereferenceable(184) %call.i13) #15
+  tail call void %16(ptr noundef nonnull align 16 dereferenceable(184) %call.i13) #16
   %17 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i, label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %delete.notnull
   %18 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %19 = and i8 %18, 1
-  %tobool2.not.i.i.i = icmp eq i8 %19, 0
-  br i1 %tobool2.not.i.i.i, label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %18 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %17)
-          to label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit unwind label %terminate.lpad.i17
+          to label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit unwind label %terminate.lpad.i19
 
-terminate.lpad.i17:                               ; preds = %if.then3.i.i.i
-  %20 = landingpad { ptr, i32 }
+terminate.lpad.i19:                               ; preds = %if.then3.i.i.i
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #16
+  %20 = extractvalue { ptr, i32 } %19, 0
+  tail call void @__clang_call_terminate(ptr %20) #17
   unreachable
 
 _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit:   ; preds = %delete.notnull, %if.then.i.i.i, %if.then3.i.i.i
@@ -3879,9 +3868,8 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %invoke.cont, label %if.then3.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %invoke.cont
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %0)
@@ -3898,10 +3886,10 @@ invoke.cont:                                      ; preds = %if.then.i.i, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then3.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #16
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #17
   unreachable
 }
 
@@ -4503,7 +4491,7 @@ terminate.lpad.i:                                 ; preds = %lpad131
   %176 = landingpad { ptr, i32 }
           catch ptr null
   %177 = extractvalue { ptr, i32 } %176, 0
-  tail call void @__clang_call_terminate(ptr %177) #16
+  tail call void @__clang_call_terminate(ptr %177) #17
   unreachable
 
 for.end153:                                       ; preds = %for.inc151, %invoke.cont133
@@ -4796,24 +4784,23 @@ invoke.cont305:                                   ; preds = %for.end304
 
 if.then.i.i.i:                                    ; preds = %invoke.cont305
   %240 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %241 = and i8 %240, 1
-  %tobool2.not.i.i.i = icmp eq i8 %241, 0
-  br i1 %tobool2.not.i.i.i, label %return, label %if.then3.i.i.i
+  %tobool2.i.i.i = trunc i8 %240 to i1
+  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %return
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %239)
-          to label %return unwind label %terminate.lpad.i345
+          to label %return unwind label %terminate.lpad.i346
 
-terminate.lpad.i345:                              ; preds = %if.then3.i.i.i
-  %242 = landingpad { ptr, i32 }
+terminate.lpad.i346:                              ; preds = %if.then3.i.i.i
+  %241 = landingpad { ptr, i32 }
           catch ptr null
-  %243 = extractvalue { ptr, i32 } %242, 0
-  call void @__clang_call_terminate(ptr %243) #16
+  %242 = extractvalue { ptr, i32 } %241, 0
+  call void @__clang_call_terminate(ptr %242) #17
   unreachable
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad131
   %.pn = phi { ptr, i32 } [ %175, %lpad131 ], [ %lpad.loopexit377, %lpad.loopexit ], [ %lpad.loopexit379, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit382, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp383, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN20b3AlignedObjectArrayI6b3AabbED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %childLocalAabbs) #15
+  call void @_ZN20b3AlignedObjectArrayI6b3AabbED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %childLocalAabbs) #16
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.then3.i.i.i, %if.then.i.i.i, %invoke.cont305, %_ZN16b3GpuNarrowPhase18allocateCollidableEv.exit.thread, %_ZN16b3GpuNarrowPhase18allocateCollidableEv.exit
@@ -4888,9 +4875,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i22:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
-  %5 = and i8 %4, 1
-  %tobool2.not.i = icmp eq i8 %5, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i22
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %3)
@@ -4918,9 +4904,8 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %invoke.cont, label %if.then3.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %invoke.cont
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %0)
@@ -4937,10 +4922,10 @@ invoke.cont:                                      ; preds = %if.then.i.i, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then3.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #16
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #17
   unreachable
 }
 
@@ -5362,7 +5347,7 @@ terminate.lpad.i:                                 ; preds = %lpad
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  tail call void @__clang_call_terminate(ptr %76) #16
+  tail call void @__clang_call_terminate(ptr %76) #17
   unreachable
 
 for.end80:                                        ; preds = %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE9push_backERKS0_.exit, %_ZN20b3AlignedObjectArrayI9b3BvhInfoE9push_backERKS0_.exit
@@ -6120,12 +6105,12 @@ invoke.cont17:
   %m_allowGrowingCapacity.i14 = getelementptr inbounds i8, ptr %clAabbArrayWorldSpace, i64 49
   %conv9 = sext i32 %numObjects to i64
   %m_clBuffer.i.i15 = getelementptr inbounds i8, ptr %clAabbArrayWorldSpace, i64 24
-  %m_capacity.i.i21 = getelementptr inbounds i8, ptr %clAabbArrayWorldSpace, i64 16
+  %m_capacity.i.i20 = getelementptr inbounds i8, ptr %clAabbArrayWorldSpace, i64 16
   store i8 0, ptr %m_ownsMemory.i13, align 8
   store i8 0, ptr %m_allowGrowingCapacity.i14, align 1
   store ptr %aabbsWorldSpace, ptr %m_clBuffer.i.i15, align 8
   store i64 %conv9, ptr %m_size.i10, align 8
-  store i64 %conv9, ptr %m_capacity.i.i21, align 8
+  store i64 %conv9, ptr %m_capacity.i.i20, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI6b3AabbE, i64 0, i32 0, i64 2), ptr %clAabbArrayLocalSpace, align 8
   %m_size.i27 = getelementptr inbounds i8, ptr %clAabbArrayLocalSpace, i64 8
   %m_clContext.i28 = getelementptr inbounds i8, ptr %clAabbArrayLocalSpace, i64 32
@@ -6136,65 +6121,65 @@ invoke.cont17:
   %m_allowGrowingCapacity.i31 = getelementptr inbounds i8, ptr %clAabbArrayLocalSpace, i64 49
   %m_clBuffer.i.i32 = getelementptr inbounds i8, ptr %clAabbArrayLocalSpace, i64 24
   %m_triangleConvexPairs.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 296
-  %.pre92 = load ptr, ptr %m_triangleConvexPairs.phi.trans.insert, align 8
+  %.pre122 = load ptr, ptr %m_triangleConvexPairs.phi.trans.insert, align 8
   %m_bvhInfoGPU.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 592
-  %.pre91 = load ptr, ptr %m_bvhInfoGPU.phi.trans.insert, align 8
+  %.pre121 = load ptr, ptr %m_bvhInfoGPU.phi.trans.insert, align 8
   %m_subTreesGPU.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 608
-  %.pre90 = load ptr, ptr %m_subTreesGPU.phi.trans.insert, align 8
+  %.pre120 = load ptr, ptr %m_subTreesGPU.phi.trans.insert, align 8
   %m_treeNodesGPU.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 600
-  %.pre89 = load ptr, ptr %m_treeNodesGPU.phi.trans.insert, align 8
+  %.pre119 = load ptr, ptr %m_treeNodesGPU.phi.trans.insert, align 8
   %m_worldVertsB2GPU.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 200
-  %.pre88 = load ptr, ptr %m_worldVertsB2GPU.phi.trans.insert, align 8
+  %.pre118 = load ptr, ptr %m_worldVertsB2GPU.phi.trans.insert, align 8
   %m_worldVertsA1GPU.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 192
-  %.pre87 = load ptr, ptr %m_worldVertsA1GPU.phi.trans.insert, align 8
+  %.pre117 = load ptr, ptr %m_worldVertsA1GPU.phi.trans.insert, align 8
   %m_worldNormalsAGPU.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 184
-  %.pre86 = load ptr, ptr %m_worldNormalsAGPU.phi.trans.insert, align 8
+  %.pre116 = load ptr, ptr %m_worldNormalsAGPU.phi.trans.insert, align 8
   %m_clippingFacesOutGPU.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 176
-  %.pre85 = load ptr, ptr %m_clippingFacesOutGPU.phi.trans.insert, align 8
+  %.pre115 = load ptr, ptr %m_clippingFacesOutGPU.phi.trans.insert, align 8
   %m_worldVertsB1GPU.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 168
-  %.pre84 = load ptr, ptr %m_worldVertsB1GPU.phi.trans.insert, align 8
+  %.pre114 = load ptr, ptr %m_worldVertsB1GPU.phi.trans.insert, align 8
   %m_gpuChildShapes.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 240
-  %.pre83 = load ptr, ptr %m_gpuChildShapes.phi.trans.insert, align 8
+  %.pre113 = load ptr, ptr %m_gpuChildShapes.phi.trans.insert, align 8
   %m_collidablesGPU.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 408
-  %.pre82 = load ptr, ptr %m_collidablesGPU.phi.trans.insert, align 8
+  %.pre112 = load ptr, ptr %m_collidablesGPU.phi.trans.insert, align 8
   %m_convexIndicesGPU.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 160
-  %.pre81 = load ptr, ptr %m_convexIndicesGPU.phi.trans.insert, align 8
+  %.pre111 = load ptr, ptr %m_convexIndicesGPU.phi.trans.insert, align 8
   %m_convexFacesGPU.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 280
-  %.pre80 = load ptr, ptr %m_convexFacesGPU.phi.trans.insert, align 8
+  %.pre110 = load ptr, ptr %m_convexFacesGPU.phi.trans.insert, align 8
   %m_uniqueEdgesGPU.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 144
-  %.pre79 = load ptr, ptr %m_uniqueEdgesGPU.phi.trans.insert, align 8
+  %.pre109 = load ptr, ptr %m_uniqueEdgesGPU.phi.trans.insert, align 8
   %m_convexVerticesGPU.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 152
-  %.pre78 = load ptr, ptr %m_convexVerticesGPU.phi.trans.insert, align 8
+  %.pre108 = load ptr, ptr %m_convexVerticesGPU.phi.trans.insert, align 8
   %m_convexPolyhedraGPU.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 136
-  %.pre77 = load ptr, ptr %m_convexPolyhedraGPU.phi.trans.insert, align 8
+  %.pre107 = load ptr, ptr %m_convexPolyhedraGPU.phi.trans.insert, align 8
   %m_compoundPairCapacity.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 632
-  %.pre76 = load i32, ptr %m_compoundPairCapacity.phi.trans.insert, align 8
+  %.pre106 = load i32, ptr %m_compoundPairCapacity.phi.trans.insert, align 8
   %m_maxContactCapacity.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 628
-  %.pre75 = load i32, ptr %m_maxContactCapacity.phi.trans.insert, align 4
+  %.pre105 = load i32, ptr %m_maxContactCapacity.phi.trans.insert, align 4
   %m_pBufContactBuffersGPU.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 304
   %m_currentContactBuffer22.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 320
-  %.pre72 = load i32, ptr %m_currentContactBuffer22.phi.trans.insert, align 8
-  %idxprom.phi.trans.insert = sext i32 %.pre72 to i64
+  %.pre102 = load i32, ptr %m_currentContactBuffer22.phi.trans.insert, align 8
+  %idxprom.phi.trans.insert = sext i32 %.pre102 to i64
   %arrayidx.phi.trans.insert = getelementptr inbounds [2 x ptr], ptr %m_pBufContactBuffersGPU.phi.trans.insert, i64 0, i64 %idxprom.phi.trans.insert
-  %.pre73 = load ptr, ptr %arrayidx.phi.trans.insert, align 8
+  %.pre103 = load ptr, ptr %arrayidx.phi.trans.insert, align 8
   %m_bodyBufferGPU.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 344
-  %.pre71 = load ptr, ptr %m_bodyBufferGPU.phi.trans.insert, align 8
+  %.pre101 = load ptr, ptr %m_bodyBufferGPU.phi.trans.insert, align 8
   %m_gpuSatCollision.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 288
   %.pre = load ptr, ptr %m_gpuSatCollision.phi.trans.insert, align 8
-  %m_capacity.i.i38 = getelementptr inbounds i8, ptr %clAabbArrayLocalSpace, i64 16
+  %m_capacity.i.i37 = getelementptr inbounds i8, ptr %clAabbArrayLocalSpace, i64 16
   store i8 0, ptr %m_ownsMemory.i30, align 8
   store i8 0, ptr %m_allowGrowingCapacity.i31, align 1
   store ptr %2, ptr %m_clBuffer.i.i32, align 8
   store i64 %conv9, ptr %m_size.i27, align 8
-  store i64 %conv9, ptr %m_capacity.i.i38, align 8
+  store i64 %conv9, ptr %m_capacity.i.i37, align 8
   %m_pBufContactBuffersGPU = getelementptr inbounds i8, ptr %4, i64 304
-  %sub27 = sub nsw i32 1, %.pre72
+  %sub27 = sub nsw i32 1, %.pre102
   %idxprom28 = sext i32 %sub27 to i64
   %arrayidx29 = getelementptr inbounds [2 x ptr], ptr %m_pBufContactBuffersGPU, i64 0, i64 %idxprom28
   %8 = load ptr, ptr %arrayidx29, align 8
   %m_bvhData = getelementptr inbounds i8, ptr %4, i64 432
-  invoke void @_ZN15GpuSatCollision33computeConvexConvexContactsGPUSATEP13b3OpenCLArrayI6b3Int4EiPKS0_I15b3RigidBodyDataEPS0_I10b3Contact4ERiPKS9_iiRKS0_I22b3ConvexPolyhedronDataERKS0_I9b3Vector3ESL_RKS0_I9b3GpuFaceERKS0_IiERKS0_I12b3CollidableERKS0_I15b3GpuChildShapeERKS0_I6b3AabbES14_RSJ_RS2_S15_S15_S15_R20b3AlignedObjectArrayIP14b3OptimizedBvhEPS0_I18b3QuantizedBvhNodeEPS0_I16b3BvhSubtreeInfoEPS0_I9b3BvhInfoEiiS16_SB_(ptr noundef nonnull align 8 dereferenceable(864) %.pre, ptr noundef nonnull %broadphasePairsGPU, i32 noundef %numBroadphasePairs, ptr noundef %.pre71, ptr noundef %.pre73, ptr noundef nonnull align 4 dereferenceable(4) %nContactOut, ptr noundef %8, i32 noundef %.pre75, i32 noundef %.pre76, ptr noundef nonnull align 8 dereferenceable(50) %.pre77, ptr noundef nonnull align 8 dereferenceable(50) %.pre78, ptr noundef nonnull align 8 dereferenceable(50) %.pre79, ptr noundef nonnull align 8 dereferenceable(50) %.pre80, ptr noundef nonnull align 8 dereferenceable(50) %.pre81, ptr noundef nonnull align 8 dereferenceable(50) %.pre82, ptr noundef nonnull align 8 dereferenceable(50) %.pre83, ptr noundef nonnull align 8 dereferenceable(50) %clAabbArrayWorldSpace, ptr noundef nonnull align 8 dereferenceable(50) %clAabbArrayLocalSpace, ptr noundef nonnull align 8 dereferenceable(50) %.pre84, ptr noundef nonnull align 8 dereferenceable(50) %.pre85, ptr noundef nonnull align 8 dereferenceable(50) %.pre86, ptr noundef nonnull align 8 dereferenceable(50) %.pre87, ptr noundef nonnull align 8 dereferenceable(50) %.pre88, ptr noundef nonnull align 8 dereferenceable(25) %m_bvhData, ptr noundef %.pre89, ptr noundef %.pre90, ptr noundef %.pre91, i32 noundef %numObjects, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(50) %.pre92, ptr noundef nonnull align 4 dereferenceable(4) %numTriConvexPairsOut)
-          to label %invoke.cont51 unwind label %ehcleanup52
+  invoke void @_ZN15GpuSatCollision33computeConvexConvexContactsGPUSATEP13b3OpenCLArrayI6b3Int4EiPKS0_I15b3RigidBodyDataEPS0_I10b3Contact4ERiPKS9_iiRKS0_I22b3ConvexPolyhedronDataERKS0_I9b3Vector3ESL_RKS0_I9b3GpuFaceERKS0_IiERKS0_I12b3CollidableERKS0_I15b3GpuChildShapeERKS0_I6b3AabbES14_RSJ_RS2_S15_S15_S15_R20b3AlignedObjectArrayIP14b3OptimizedBvhEPS0_I18b3QuantizedBvhNodeEPS0_I16b3BvhSubtreeInfoEPS0_I9b3BvhInfoEiiS16_SB_(ptr noundef nonnull align 8 dereferenceable(864) %.pre, ptr noundef nonnull %broadphasePairsGPU, i32 noundef %numBroadphasePairs, ptr noundef %.pre101, ptr noundef %.pre103, ptr noundef nonnull align 4 dereferenceable(4) %nContactOut, ptr noundef %8, i32 noundef %.pre105, i32 noundef %.pre106, ptr noundef nonnull align 8 dereferenceable(50) %.pre107, ptr noundef nonnull align 8 dereferenceable(50) %.pre108, ptr noundef nonnull align 8 dereferenceable(50) %.pre109, ptr noundef nonnull align 8 dereferenceable(50) %.pre110, ptr noundef nonnull align 8 dereferenceable(50) %.pre111, ptr noundef nonnull align 8 dereferenceable(50) %.pre112, ptr noundef nonnull align 8 dereferenceable(50) %.pre113, ptr noundef nonnull align 8 dereferenceable(50) %clAabbArrayWorldSpace, ptr noundef nonnull align 8 dereferenceable(50) %clAabbArrayLocalSpace, ptr noundef nonnull align 8 dereferenceable(50) %.pre114, ptr noundef nonnull align 8 dereferenceable(50) %.pre115, ptr noundef nonnull align 8 dereferenceable(50) %.pre116, ptr noundef nonnull align 8 dereferenceable(50) %.pre117, ptr noundef nonnull align 8 dereferenceable(50) %.pre118, ptr noundef nonnull align 8 dereferenceable(25) %m_bvhData, ptr noundef %.pre119, ptr noundef %.pre120, ptr noundef %.pre121, i32 noundef %numObjects, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(50) %.pre122, ptr noundef nonnull align 4 dereferenceable(4) %numTriConvexPairsOut)
+          to label %invoke.cont51 unwind label %lpad16
 
 invoke.cont51:                                    ; preds = %invoke.cont17
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI6b3AabbE, i64 0, i32 0, i64 2), ptr %clAabbArrayLocalSpace, align 8
@@ -6204,82 +6189,147 @@ invoke.cont51:                                    ; preds = %invoke.cont17
 
 land.lhs.true.i.i47:                              ; preds = %invoke.cont51
   %10 = load i8, ptr %m_ownsMemory.i30, align 8
-  %11 = and i8 %10, 1
-  %tobool2.not.i.i49 = icmp eq i8 %11, 0
-  br i1 %tobool2.not.i.i49, label %_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit, label %if.then.i.i50
+  %tobool2.i.i49 = trunc i8 %10 to i1
+  br i1 %tobool2.i.i49, label %if.then.i.i51, label %_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit
 
-if.then.i.i50:                                    ; preds = %land.lhs.true.i.i47
-  %12 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i = invoke i32 %12(ptr noundef nonnull %9)
+if.then.i.i51:                                    ; preds = %land.lhs.true.i.i47
+  %11 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i = invoke i32 %11(ptr noundef nonnull %9)
           to label %_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %if.then.i.i50
-  %13 = landingpad { ptr, i32 }
+terminate.lpad.i:                                 ; preds = %if.then.i.i51
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #16
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #17
   unreachable
 
-_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit:             ; preds = %invoke.cont51, %land.lhs.true.i.i47, %if.then.i.i50
+_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit:             ; preds = %invoke.cont51, %land.lhs.true.i.i47, %if.then.i.i51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i27, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI6b3AabbE, i64 0, i32 0, i64 2), ptr %clAabbArrayWorldSpace, align 8
-  %15 = load ptr, ptr %m_clBuffer.i.i15, align 8
-  %tobool.not.i.i53 = icmp eq ptr %15, null
+  %14 = load ptr, ptr %m_clBuffer.i.i15, align 8
+  %tobool.not.i.i53 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i53, label %_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit61, label %land.lhs.true.i.i54
 
 land.lhs.true.i.i54:                              ; preds = %_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit
-  %16 = load i8, ptr %m_ownsMemory.i13, align 8
-  %17 = and i8 %16, 1
-  %tobool2.not.i.i56 = icmp eq i8 %17, 0
-  br i1 %tobool2.not.i.i56, label %_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit61, label %if.then.i.i57
+  %15 = load i8, ptr %m_ownsMemory.i13, align 8
+  %tobool2.i.i56 = trunc i8 %15 to i1
+  br i1 %tobool2.i.i56, label %if.then.i.i58, label %_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit61
 
-if.then.i.i57:                                    ; preds = %land.lhs.true.i.i54
-  %18 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i58 = invoke i32 %18(ptr noundef nonnull %15)
-          to label %_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit61 unwind label %terminate.lpad.i59
+if.then.i.i58:                                    ; preds = %land.lhs.true.i.i54
+  %16 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i59 = invoke i32 %16(ptr noundef nonnull %14)
+          to label %_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit61 unwind label %terminate.lpad.i60
 
-terminate.lpad.i59:                               ; preds = %if.then.i.i57
-  %19 = landingpad { ptr, i32 }
+terminate.lpad.i60:                               ; preds = %if.then.i.i58
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #16
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit61:           ; preds = %_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit, %land.lhs.true.i.i54, %if.then.i.i57
+_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit61:           ; preds = %_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit, %land.lhs.true.i.i54, %if.then.i.i58
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i10, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 0, i32 0, i64 2), ptr %broadphasePairsGPU, align 8
-  %21 = load ptr, ptr %m_clBuffer.i.i, align 8
-  %tobool.not.i.i63 = icmp eq ptr %21, null
+  %19 = load ptr, ptr %m_clBuffer.i.i, align 8
+  %tobool.not.i.i63 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i63, label %_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit, label %land.lhs.true.i.i64
 
 land.lhs.true.i.i64:                              ; preds = %_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit61
-  %22 = load i8, ptr %m_ownsMemory.i, align 8
-  %23 = and i8 %22, 1
-  %tobool2.not.i.i66 = icmp eq i8 %23, 0
-  br i1 %tobool2.not.i.i66, label %_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit, label %if.then.i.i67
+  %20 = load i8, ptr %m_ownsMemory.i, align 8
+  %tobool2.i.i66 = trunc i8 %20 to i1
+  br i1 %tobool2.i.i66, label %if.then.i.i68, label %_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit
 
-if.then.i.i67:                                    ; preds = %land.lhs.true.i.i64
-  %24 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i68 = invoke i32 %24(ptr noundef nonnull %21)
-          to label %_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit unwind label %terminate.lpad.i69
+if.then.i.i68:                                    ; preds = %land.lhs.true.i.i64
+  %21 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i69 = invoke i32 %21(ptr noundef nonnull %19)
+          to label %_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit unwind label %terminate.lpad.i70
 
-terminate.lpad.i69:                               ; preds = %if.then.i.i67
-  %25 = landingpad { ptr, i32 }
+terminate.lpad.i70:                               ; preds = %if.then.i.i68
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #16
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #17
   unreachable
 
-_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit:             ; preds = %_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit61, %land.lhs.true.i.i64, %if.then.i.i67
+_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit:             ; preds = %_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit61, %land.lhs.true.i.i64, %if.then.i.i68
   ret void
 
-ehcleanup52:                                      ; preds = %invoke.cont17
-  %27 = landingpad { ptr, i32 }
+lpad16:                                           ; preds = %invoke.cont17
+  %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13b3OpenCLArrayI6b3AabbED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %clAabbArrayLocalSpace) #15
-  call void @_ZN13b3OpenCLArrayI6b3AabbED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %clAabbArrayWorldSpace) #15
-  call void @_ZN13b3OpenCLArrayI6b3Int4ED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %broadphasePairsGPU) #15
-  resume { ptr, i32 } %27
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI6b3AabbE, i64 0, i32 0, i64 2), ptr %clAabbArrayLocalSpace, align 8
+  %25 = load ptr, ptr %m_clBuffer.i.i32, align 8
+  %tobool.not.i.i72 = icmp eq ptr %25, null
+  br i1 %tobool.not.i.i72, label %ehcleanup, label %land.lhs.true.i.i73
+
+land.lhs.true.i.i73:                              ; preds = %lpad16
+  %26 = load i8, ptr %m_ownsMemory.i30, align 8
+  %tobool2.i.i75 = trunc i8 %26 to i1
+  br i1 %tobool2.i.i75, label %if.then.i.i77, label %ehcleanup
+
+if.then.i.i77:                                    ; preds = %land.lhs.true.i.i73
+  %27 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i78 = invoke i32 %27(ptr noundef nonnull %25)
+          to label %ehcleanup unwind label %terminate.lpad.i79
+
+terminate.lpad.i79:                               ; preds = %if.then.i.i77
+  %28 = landingpad { ptr, i32 }
+          catch ptr null
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #17
+  unreachable
+
+ehcleanup:                                        ; preds = %if.then.i.i77, %land.lhs.true.i.i73, %lpad16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i27, i8 0, i64 24, i1 false)
+  %.pre123 = load ptr, ptr %m_clBuffer.i.i15, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI6b3AabbE, i64 0, i32 0, i64 2), ptr %clAabbArrayWorldSpace, align 8
+  %tobool.not.i.i82 = icmp eq ptr %.pre123, null
+  br i1 %tobool.not.i.i82, label %ehcleanup52, label %land.lhs.true.i.i83
+
+land.lhs.true.i.i83:                              ; preds = %ehcleanup
+  %30 = load i8, ptr %m_ownsMemory.i13, align 8
+  %tobool2.i.i85 = trunc i8 %30 to i1
+  br i1 %tobool2.i.i85, label %if.then.i.i87, label %ehcleanup52
+
+if.then.i.i87:                                    ; preds = %land.lhs.true.i.i83
+  %31 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i88 = invoke i32 %31(ptr noundef nonnull %.pre123)
+          to label %ehcleanup52 unwind label %terminate.lpad.i89
+
+terminate.lpad.i89:                               ; preds = %if.then.i.i87
+  %32 = landingpad { ptr, i32 }
+          catch ptr null
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #17
+  unreachable
+
+ehcleanup52:                                      ; preds = %if.then.i.i87, %land.lhs.true.i.i83, %ehcleanup
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i10, i8 0, i64 24, i1 false)
+  %.pre124 = load ptr, ptr %m_clBuffer.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 0, i32 0, i64 2), ptr %broadphasePairsGPU, align 8
+  %tobool.not.i.i92 = icmp eq ptr %.pre124, null
+  br i1 %tobool.not.i.i92, label %_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit100, label %land.lhs.true.i.i93
+
+land.lhs.true.i.i93:                              ; preds = %ehcleanup52
+  %34 = load i8, ptr %m_ownsMemory.i, align 8
+  %tobool2.i.i95 = trunc i8 %34 to i1
+  br i1 %tobool2.i.i95, label %if.then.i.i97, label %_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit100
+
+if.then.i.i97:                                    ; preds = %land.lhs.true.i.i93
+  %35 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i98 = invoke i32 %35(ptr noundef nonnull %.pre124)
+          to label %_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit100 unwind label %terminate.lpad.i99
+
+terminate.lpad.i99:                               ; preds = %if.then.i.i97
+  %36 = landingpad { ptr, i32 }
+          catch ptr null
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #17
+  unreachable
+
+_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit100:          ; preds = %ehcleanup52, %land.lhs.true.i.i93, %if.then.i.i97
+  resume { ptr, i32 } %24
 }
 
 declare void @_ZN15GpuSatCollision33computeConvexConvexContactsGPUSATEP13b3OpenCLArrayI6b3Int4EiPKS0_I15b3RigidBodyDataEPS0_I10b3Contact4ERiPKS9_iiRKS0_I22b3ConvexPolyhedronDataERKS0_I9b3Vector3ESL_RKS0_I9b3GpuFaceERKS0_IiERKS0_I12b3CollidableERKS0_I15b3GpuChildShapeERKS0_I6b3AabbES14_RSJ_RS2_S15_S15_S15_R20b3AlignedObjectArrayIP14b3OptimizedBvhEPS0_I18b3QuantizedBvhNodeEPS0_I16b3BvhSubtreeInfoEPS0_I9b3BvhInfoEiiS16_SB_(ptr noundef nonnull align 8 dereferenceable(864), ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 8 dereferenceable(25), ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
@@ -6296,13 +6346,12 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i, label %invoke.cont, label %if.then.i
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1 = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1 = invoke i32 %2(ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
@@ -6311,10 +6360,10 @@ invoke.cont:                                      ; preds = %land.lhs.true.i, %e
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 }
 
@@ -6330,13 +6379,12 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i, label %invoke.cont, label %if.then.i
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1 = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1 = invoke i32 %2(ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
@@ -6345,10 +6393,10 @@ invoke.cont:                                      ; preds = %land.lhs.true.i, %e
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 }
 
@@ -6732,510 +6780,1374 @@ entry:
 if.then:                                          ; preds = %entry
   %m_localShapeAABBGPU = getelementptr inbounds i8, ptr %0, i64 416
   %3 = load ptr, ptr %m_localShapeAABBGPU, align 8
-  %conv.i = sext i32 %2 to i64
-  %m_size.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = load i64, ptr %m_size.i.i.i, align 8
-  %cmp3.i.i = icmp ult i64 %4, %conv.i
-  br i1 %cmp3.i.i, label %if.end7.i.i, label %_ZN13b3OpenCLArrayI9b3SapAabbE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-
-if.end7.i.i:                                      ; preds = %if.then
-  %call5.i.i = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %3, i64 noundef %conv.i, i1 noundef zeroext false)
-  %spec.select.i.i = select i1 %call5.i.i, i64 %conv.i, i64 0
-  br label %_ZN13b3OpenCLArrayI9b3SapAabbE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-
-_ZN13b3OpenCLArrayI9b3SapAabbE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit: ; preds = %if.end7.i.i, %if.then
-  %storemerge.i.i = phi i64 [ %conv.i, %if.then ], [ %spec.select.i.i, %if.end7.i.i ]
-  store i64 %storemerge.i.i, ptr %m_size.i.i.i, align 8
-  %m_data.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = load ptr, ptr %m_data.i.i, align 8
-  %mul.i.i = shl nsw i64 %conv.i, 5
-  %6 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
-  %m_commandQueue.i.i = getelementptr inbounds i8, ptr %3, i64 40
-  %7 = load ptr, ptr %m_commandQueue.i.i, align 8
-  %m_clBuffer.i.i = getelementptr inbounds i8, ptr %3, i64 24
-  %8 = load ptr, ptr %m_clBuffer.i.i, align 8
-  %call.i.i = tail call i32 %6(ptr noundef %7, ptr noundef %8, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i.i, ptr noundef %5, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %9 = load ptr, ptr @__clewFinish, align 8
-  %10 = load ptr, ptr %m_commandQueue.i.i, align 8
-  %call6.i.i = tail call i32 %9(ptr noundef %10)
+  tail call void @_ZN13b3OpenCLArrayI9b3SapAabbE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %3, ptr noundef nonnull align 8 dereferenceable(25) %1, i1 noundef zeroext true)
   %.pre = load ptr, ptr %m_data, align 8
   br label %if.end
 
-if.end:                                           ; preds = %_ZN13b3OpenCLArrayI9b3SapAabbE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit, %entry
-  %11 = phi ptr [ %.pre, %_ZN13b3OpenCLArrayI9b3SapAabbE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit ], [ %0, %entry ]
-  %m_gpuChildShapes = getelementptr inbounds i8, ptr %11, i64 240
-  %12 = load ptr, ptr %m_gpuChildShapes, align 8
-  %m_size.i.i1 = getelementptr inbounds i8, ptr %11, i64 212
-  %13 = load i32, ptr %m_size.i.i1, align 4
-  %conv.i2 = sext i32 %13 to i64
-  %m_size.i.i.i3 = getelementptr inbounds i8, ptr %12, i64 8
-  %14 = load i64, ptr %m_size.i.i.i3, align 8
-  %cmp3.i.i4 = icmp ult i64 %14, %conv.i2
-  br i1 %cmp3.i.i4, label %if.end7.i.i14, label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE6resizeEmb.exit.i
-
-if.end7.i.i14:                                    ; preds = %if.end
-  %call5.i.i15 = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayI15b3GpuChildShapeE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %12, i64 noundef %conv.i2, i1 noundef zeroext false)
-  %spec.select.i.i16 = select i1 %call5.i.i15, i64 %conv.i2, i64 0
-  br label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE6resizeEmb.exit.i
-
-_ZN13b3OpenCLArrayI15b3GpuChildShapeE6resizeEmb.exit.i: ; preds = %if.end7.i.i14, %if.end
-  %storemerge.i.i5 = phi i64 [ %conv.i2, %if.end ], [ %spec.select.i.i16, %if.end7.i.i14 ]
-  store i64 %storemerge.i.i5, ptr %m_size.i.i.i3, align 8
-  %tobool3.not.i6 = icmp eq i32 %13, 0
-  br i1 %tobool3.not.i6, label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit, label %if.then.i.i7
-
-if.then.i.i7:                                     ; preds = %_ZN13b3OpenCLArrayI15b3GpuChildShapeE6resizeEmb.exit.i
-  %m_data.i.i8 = getelementptr inbounds i8, ptr %11, i64 224
-  %15 = load ptr, ptr %m_data.i.i8, align 8
-  %mul.i.i9 = mul nsw i64 %conv.i2, 48
-  %16 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
-  %m_commandQueue.i.i10 = getelementptr inbounds i8, ptr %12, i64 40
-  %17 = load ptr, ptr %m_commandQueue.i.i10, align 8
-  %m_clBuffer.i.i11 = getelementptr inbounds i8, ptr %12, i64 24
-  %18 = load ptr, ptr %m_clBuffer.i.i11, align 8
-  %call.i.i12 = tail call i32 %16(ptr noundef %17, ptr noundef %18, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i.i9, ptr noundef %15, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %19 = load ptr, ptr @__clewFinish, align 8
-  %20 = load ptr, ptr %m_commandQueue.i.i10, align 8
-  %call6.i.i13 = tail call i32 %19(ptr noundef %20)
-  br label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-
-_ZN13b3OpenCLArrayI15b3GpuChildShapeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit: ; preds = %_ZN13b3OpenCLArrayI15b3GpuChildShapeE6resizeEmb.exit.i, %if.then.i.i7
-  %21 = load ptr, ptr %m_data, align 8
-  %m_convexFacesGPU = getelementptr inbounds i8, ptr %21, i64 280
-  %22 = load ptr, ptr %m_convexFacesGPU, align 8
-  %m_size.i.i17 = getelementptr inbounds i8, ptr %21, i64 252
-  %23 = load i32, ptr %m_size.i.i17, align 4
-  %conv.i18 = sext i32 %23 to i64
-  %m_size.i.i.i19 = getelementptr inbounds i8, ptr %22, i64 8
-  %24 = load i64, ptr %m_size.i.i.i19, align 8
-  %cmp3.i.i20 = icmp ult i64 %24, %conv.i18
-  br i1 %cmp3.i.i20, label %if.end7.i.i30, label %_ZN13b3OpenCLArrayI9b3GpuFaceE6resizeEmb.exit.i
-
-if.end7.i.i30:                                    ; preds = %_ZN13b3OpenCLArrayI15b3GpuChildShapeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-  %call5.i.i31 = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayI9b3GpuFaceE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %22, i64 noundef %conv.i18, i1 noundef zeroext false)
-  %spec.select.i.i32 = select i1 %call5.i.i31, i64 %conv.i18, i64 0
-  br label %_ZN13b3OpenCLArrayI9b3GpuFaceE6resizeEmb.exit.i
-
-_ZN13b3OpenCLArrayI9b3GpuFaceE6resizeEmb.exit.i:  ; preds = %if.end7.i.i30, %_ZN13b3OpenCLArrayI15b3GpuChildShapeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-  %storemerge.i.i21 = phi i64 [ %conv.i18, %_ZN13b3OpenCLArrayI15b3GpuChildShapeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit ], [ %spec.select.i.i32, %if.end7.i.i30 ]
-  store i64 %storemerge.i.i21, ptr %m_size.i.i.i19, align 8
-  %tobool3.not.i22 = icmp eq i32 %23, 0
-  br i1 %tobool3.not.i22, label %_ZN13b3OpenCLArrayI9b3GpuFaceE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit, label %if.then.i.i23
-
-if.then.i.i23:                                    ; preds = %_ZN13b3OpenCLArrayI9b3GpuFaceE6resizeEmb.exit.i
-  %m_data.i.i24 = getelementptr inbounds i8, ptr %21, i64 264
-  %25 = load ptr, ptr %m_data.i.i24, align 8
-  %mul.i.i25 = shl nsw i64 %conv.i18, 5
-  %26 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
-  %m_commandQueue.i.i26 = getelementptr inbounds i8, ptr %22, i64 40
-  %27 = load ptr, ptr %m_commandQueue.i.i26, align 8
-  %m_clBuffer.i.i27 = getelementptr inbounds i8, ptr %22, i64 24
-  %28 = load ptr, ptr %m_clBuffer.i.i27, align 8
-  %call.i.i28 = tail call i32 %26(ptr noundef %27, ptr noundef %28, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i.i25, ptr noundef %25, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %29 = load ptr, ptr @__clewFinish, align 8
-  %30 = load ptr, ptr %m_commandQueue.i.i26, align 8
-  %call6.i.i29 = tail call i32 %29(ptr noundef %30)
-  br label %_ZN13b3OpenCLArrayI9b3GpuFaceE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-
-_ZN13b3OpenCLArrayI9b3GpuFaceE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit: ; preds = %_ZN13b3OpenCLArrayI9b3GpuFaceE6resizeEmb.exit.i, %if.then.i.i23
-  %31 = load ptr, ptr %m_data, align 8
-  %m_convexPolyhedraGPU = getelementptr inbounds i8, ptr %31, i64 136
-  %32 = load ptr, ptr %m_convexPolyhedraGPU, align 8
-  %m_size.i.i33 = getelementptr inbounds i8, ptr %31, i64 12
-  %33 = load i32, ptr %m_size.i.i33, align 4
-  %conv.i34 = sext i32 %33 to i64
-  %m_size.i.i.i35 = getelementptr inbounds i8, ptr %32, i64 8
-  %34 = load i64, ptr %m_size.i.i.i35, align 8
-  %cmp3.i.i36 = icmp ult i64 %34, %conv.i34
-  br i1 %cmp3.i.i36, label %if.end7.i.i46, label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE6resizeEmb.exit.i
-
-if.end7.i.i46:                                    ; preds = %_ZN13b3OpenCLArrayI9b3GpuFaceE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-  %call5.i.i47 = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %32, i64 noundef %conv.i34, i1 noundef zeroext false)
-  %spec.select.i.i48 = select i1 %call5.i.i47, i64 %conv.i34, i64 0
-  br label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE6resizeEmb.exit.i
-
-_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE6resizeEmb.exit.i: ; preds = %if.end7.i.i46, %_ZN13b3OpenCLArrayI9b3GpuFaceE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-  %storemerge.i.i37 = phi i64 [ %conv.i34, %_ZN13b3OpenCLArrayI9b3GpuFaceE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit ], [ %spec.select.i.i48, %if.end7.i.i46 ]
-  store i64 %storemerge.i.i37, ptr %m_size.i.i.i35, align 8
-  %tobool3.not.i38 = icmp eq i32 %33, 0
-  br i1 %tobool3.not.i38, label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit, label %if.then.i.i39
-
-if.then.i.i39:                                    ; preds = %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE6resizeEmb.exit.i
-  %m_data.i.i40 = getelementptr inbounds i8, ptr %31, i64 24
-  %35 = load ptr, ptr %m_data.i.i40, align 8
-  %mul.i.i41 = mul nsw i64 %conv.i34, 96
-  %36 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
-  %m_commandQueue.i.i42 = getelementptr inbounds i8, ptr %32, i64 40
-  %37 = load ptr, ptr %m_commandQueue.i.i42, align 8
-  %m_clBuffer.i.i43 = getelementptr inbounds i8, ptr %32, i64 24
-  %38 = load ptr, ptr %m_clBuffer.i.i43, align 8
-  %call.i.i44 = tail call i32 %36(ptr noundef %37, ptr noundef %38, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i.i41, ptr noundef %35, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %39 = load ptr, ptr @__clewFinish, align 8
-  %40 = load ptr, ptr %m_commandQueue.i.i42, align 8
-  %call6.i.i45 = tail call i32 %39(ptr noundef %40)
-  br label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-
-_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit: ; preds = %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE6resizeEmb.exit.i, %if.then.i.i39
-  %41 = load ptr, ptr %m_data, align 8
-  %m_uniqueEdgesGPU = getelementptr inbounds i8, ptr %41, i64 144
-  %42 = load ptr, ptr %m_uniqueEdgesGPU, align 8
-  %m_size.i.i49 = getelementptr inbounds i8, ptr %41, i64 44
-  %43 = load i32, ptr %m_size.i.i49, align 4
-  %conv.i50 = sext i32 %43 to i64
-  %m_size.i.i.i51 = getelementptr inbounds i8, ptr %42, i64 8
-  %44 = load i64, ptr %m_size.i.i.i51, align 8
-  %cmp3.i.i52 = icmp ult i64 %44, %conv.i50
-  br i1 %cmp3.i.i52, label %if.end7.i.i62, label %_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit.i
-
-if.end7.i.i62:                                    ; preds = %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-  %call5.i.i63 = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %42, i64 noundef %conv.i50, i1 noundef zeroext false)
-  %spec.select.i.i64 = select i1 %call5.i.i63, i64 %conv.i50, i64 0
-  br label %_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit.i
-
-_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit.i:  ; preds = %if.end7.i.i62, %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-  %storemerge.i.i53 = phi i64 [ %conv.i50, %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit ], [ %spec.select.i.i64, %if.end7.i.i62 ]
-  store i64 %storemerge.i.i53, ptr %m_size.i.i.i51, align 8
-  %tobool3.not.i54 = icmp eq i32 %43, 0
-  br i1 %tobool3.not.i54, label %_ZN13b3OpenCLArrayI9b3Vector3E12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit, label %if.then.i.i55
-
-if.then.i.i55:                                    ; preds = %_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit.i
-  %m_data.i.i56 = getelementptr inbounds i8, ptr %41, i64 56
-  %45 = load ptr, ptr %m_data.i.i56, align 8
-  %mul.i.i57 = shl nsw i64 %conv.i50, 4
-  %46 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
-  %m_commandQueue.i.i58 = getelementptr inbounds i8, ptr %42, i64 40
-  %47 = load ptr, ptr %m_commandQueue.i.i58, align 8
-  %m_clBuffer.i.i59 = getelementptr inbounds i8, ptr %42, i64 24
-  %48 = load ptr, ptr %m_clBuffer.i.i59, align 8
-  %call.i.i60 = tail call i32 %46(ptr noundef %47, ptr noundef %48, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i.i57, ptr noundef %45, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %49 = load ptr, ptr @__clewFinish, align 8
-  %50 = load ptr, ptr %m_commandQueue.i.i58, align 8
-  %call6.i.i61 = tail call i32 %49(ptr noundef %50)
-  br label %_ZN13b3OpenCLArrayI9b3Vector3E12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-
-_ZN13b3OpenCLArrayI9b3Vector3E12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit: ; preds = %_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit.i, %if.then.i.i55
-  %51 = load ptr, ptr %m_data, align 8
-  %m_convexVerticesGPU = getelementptr inbounds i8, ptr %51, i64 152
-  %52 = load ptr, ptr %m_convexVerticesGPU, align 8
-  %m_size.i.i65 = getelementptr inbounds i8, ptr %51, i64 76
-  %53 = load i32, ptr %m_size.i.i65, align 4
-  %conv.i66 = sext i32 %53 to i64
-  %m_size.i.i.i67 = getelementptr inbounds i8, ptr %52, i64 8
-  %54 = load i64, ptr %m_size.i.i.i67, align 8
-  %cmp3.i.i68 = icmp ult i64 %54, %conv.i66
-  br i1 %cmp3.i.i68, label %if.end7.i.i79, label %_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit.i69
-
-if.end7.i.i79:                                    ; preds = %_ZN13b3OpenCLArrayI9b3Vector3E12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-  %call5.i.i80 = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %52, i64 noundef %conv.i66, i1 noundef zeroext false)
-  %spec.select.i.i81 = select i1 %call5.i.i80, i64 %conv.i66, i64 0
-  br label %_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit.i69
-
-_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit.i69: ; preds = %if.end7.i.i79, %_ZN13b3OpenCLArrayI9b3Vector3E12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-  %storemerge.i.i70 = phi i64 [ %conv.i66, %_ZN13b3OpenCLArrayI9b3Vector3E12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit ], [ %spec.select.i.i81, %if.end7.i.i79 ]
-  store i64 %storemerge.i.i70, ptr %m_size.i.i.i67, align 8
-  %tobool3.not.i71 = icmp eq i32 %53, 0
-  br i1 %tobool3.not.i71, label %_ZN13b3OpenCLArrayI9b3Vector3E12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit82, label %if.then.i.i72
-
-if.then.i.i72:                                    ; preds = %_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit.i69
-  %m_data.i.i73 = getelementptr inbounds i8, ptr %51, i64 88
-  %55 = load ptr, ptr %m_data.i.i73, align 8
-  %mul.i.i74 = shl nsw i64 %conv.i66, 4
-  %56 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
-  %m_commandQueue.i.i75 = getelementptr inbounds i8, ptr %52, i64 40
-  %57 = load ptr, ptr %m_commandQueue.i.i75, align 8
-  %m_clBuffer.i.i76 = getelementptr inbounds i8, ptr %52, i64 24
-  %58 = load ptr, ptr %m_clBuffer.i.i76, align 8
-  %call.i.i77 = tail call i32 %56(ptr noundef %57, ptr noundef %58, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i.i74, ptr noundef %55, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %59 = load ptr, ptr @__clewFinish, align 8
-  %60 = load ptr, ptr %m_commandQueue.i.i75, align 8
-  %call6.i.i78 = tail call i32 %59(ptr noundef %60)
-  br label %_ZN13b3OpenCLArrayI9b3Vector3E12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit82
-
-_ZN13b3OpenCLArrayI9b3Vector3E12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit82: ; preds = %_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit.i69, %if.then.i.i72
-  %61 = load ptr, ptr %m_data, align 8
-  %m_convexIndicesGPU = getelementptr inbounds i8, ptr %61, i64 160
-  %62 = load ptr, ptr %m_convexIndicesGPU, align 8
-  %m_size.i.i83 = getelementptr inbounds i8, ptr %61, i64 108
-  %63 = load i32, ptr %m_size.i.i83, align 4
-  %conv.i84 = sext i32 %63 to i64
-  %m_size.i.i.i85 = getelementptr inbounds i8, ptr %62, i64 8
-  %64 = load i64, ptr %m_size.i.i.i85, align 8
-  %cmp3.i.i86 = icmp ult i64 %64, %conv.i84
-  br i1 %cmp3.i.i86, label %if.end7.i.i96, label %_ZN13b3OpenCLArrayIiE6resizeEmb.exit.i
-
-if.end7.i.i96:                                    ; preds = %_ZN13b3OpenCLArrayI9b3Vector3E12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit82
-  %call5.i.i97 = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayIiE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %62, i64 noundef %conv.i84, i1 noundef zeroext false)
-  %spec.select.i.i98 = select i1 %call5.i.i97, i64 %conv.i84, i64 0
-  br label %_ZN13b3OpenCLArrayIiE6resizeEmb.exit.i
-
-_ZN13b3OpenCLArrayIiE6resizeEmb.exit.i:           ; preds = %if.end7.i.i96, %_ZN13b3OpenCLArrayI9b3Vector3E12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit82
-  %storemerge.i.i87 = phi i64 [ %conv.i84, %_ZN13b3OpenCLArrayI9b3Vector3E12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit82 ], [ %spec.select.i.i98, %if.end7.i.i96 ]
-  store i64 %storemerge.i.i87, ptr %m_size.i.i.i85, align 8
-  %tobool3.not.i88 = icmp eq i32 %63, 0
-  br i1 %tobool3.not.i88, label %_ZN13b3OpenCLArrayIiE12copyFromHostERK20b3AlignedObjectArrayIiEb.exit, label %if.then.i.i89
-
-if.then.i.i89:                                    ; preds = %_ZN13b3OpenCLArrayIiE6resizeEmb.exit.i
-  %m_data.i.i90 = getelementptr inbounds i8, ptr %61, i64 120
-  %65 = load ptr, ptr %m_data.i.i90, align 8
-  %mul.i.i91 = shl nsw i64 %conv.i84, 2
-  %66 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
-  %m_commandQueue.i.i92 = getelementptr inbounds i8, ptr %62, i64 40
-  %67 = load ptr, ptr %m_commandQueue.i.i92, align 8
-  %m_clBuffer.i.i93 = getelementptr inbounds i8, ptr %62, i64 24
-  %68 = load ptr, ptr %m_clBuffer.i.i93, align 8
-  %call.i.i94 = tail call i32 %66(ptr noundef %67, ptr noundef %68, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i.i91, ptr noundef %65, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %69 = load ptr, ptr @__clewFinish, align 8
-  %70 = load ptr, ptr %m_commandQueue.i.i92, align 8
-  %call6.i.i95 = tail call i32 %69(ptr noundef %70)
-  br label %_ZN13b3OpenCLArrayIiE12copyFromHostERK20b3AlignedObjectArrayIiEb.exit
-
-_ZN13b3OpenCLArrayIiE12copyFromHostERK20b3AlignedObjectArrayIiEb.exit: ; preds = %_ZN13b3OpenCLArrayIiE6resizeEmb.exit.i, %if.then.i.i89
-  %71 = load ptr, ptr %m_data, align 8
-  %m_bvhInfoGPU = getelementptr inbounds i8, ptr %71, i64 592
-  %72 = load ptr, ptr %m_bvhInfoGPU, align 8
-  %m_size.i.i99 = getelementptr inbounds i8, ptr %71, i64 564
-  %73 = load i32, ptr %m_size.i.i99, align 4
-  %conv.i100 = sext i32 %73 to i64
-  %m_size.i.i.i101 = getelementptr inbounds i8, ptr %72, i64 8
-  %74 = load i64, ptr %m_size.i.i.i101, align 8
-  %cmp3.i.i102 = icmp ult i64 %74, %conv.i100
-  br i1 %cmp3.i.i102, label %if.end7.i.i112, label %_ZN13b3OpenCLArrayI9b3BvhInfoE6resizeEmb.exit.i
-
-if.end7.i.i112:                                   ; preds = %_ZN13b3OpenCLArrayIiE12copyFromHostERK20b3AlignedObjectArrayIiEb.exit
-  %call5.i.i113 = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %72, i64 noundef %conv.i100, i1 noundef zeroext false)
-  %spec.select.i.i114 = select i1 %call5.i.i113, i64 %conv.i100, i64 0
-  br label %_ZN13b3OpenCLArrayI9b3BvhInfoE6resizeEmb.exit.i
-
-_ZN13b3OpenCLArrayI9b3BvhInfoE6resizeEmb.exit.i:  ; preds = %if.end7.i.i112, %_ZN13b3OpenCLArrayIiE12copyFromHostERK20b3AlignedObjectArrayIiEb.exit
-  %storemerge.i.i103 = phi i64 [ %conv.i100, %_ZN13b3OpenCLArrayIiE12copyFromHostERK20b3AlignedObjectArrayIiEb.exit ], [ %spec.select.i.i114, %if.end7.i.i112 ]
-  store i64 %storemerge.i.i103, ptr %m_size.i.i.i101, align 8
-  %tobool3.not.i104 = icmp eq i32 %73, 0
-  br i1 %tobool3.not.i104, label %_ZN13b3OpenCLArrayI9b3BvhInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit, label %if.then.i.i105
-
-if.then.i.i105:                                   ; preds = %_ZN13b3OpenCLArrayI9b3BvhInfoE6resizeEmb.exit.i
-  %m_data.i.i106 = getelementptr inbounds i8, ptr %71, i64 576
-  %75 = load ptr, ptr %m_data.i.i106, align 8
-  %mul.i.i107 = shl nsw i64 %conv.i100, 6
-  %76 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
-  %m_commandQueue.i.i108 = getelementptr inbounds i8, ptr %72, i64 40
-  %77 = load ptr, ptr %m_commandQueue.i.i108, align 8
-  %m_clBuffer.i.i109 = getelementptr inbounds i8, ptr %72, i64 24
-  %78 = load ptr, ptr %m_clBuffer.i.i109, align 8
-  %call.i.i110 = tail call i32 %76(ptr noundef %77, ptr noundef %78, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i.i107, ptr noundef %75, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %79 = load ptr, ptr @__clewFinish, align 8
-  %80 = load ptr, ptr %m_commandQueue.i.i108, align 8
-  %call6.i.i111 = tail call i32 %79(ptr noundef %80)
-  br label %_ZN13b3OpenCLArrayI9b3BvhInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-
-_ZN13b3OpenCLArrayI9b3BvhInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit: ; preds = %_ZN13b3OpenCLArrayI9b3BvhInfoE6resizeEmb.exit.i, %if.then.i.i105
-  %81 = load ptr, ptr %m_data, align 8
-  %m_treeNodesGPU = getelementptr inbounds i8, ptr %81, i64 600
-  %82 = load ptr, ptr %m_treeNodesGPU, align 8
-  %m_size.i.i115 = getelementptr inbounds i8, ptr %81, i64 500
-  %83 = load i32, ptr %m_size.i.i115, align 4
-  %conv.i116 = sext i32 %83 to i64
-  %m_size.i.i.i117 = getelementptr inbounds i8, ptr %82, i64 8
-  %84 = load i64, ptr %m_size.i.i.i117, align 8
-  %cmp3.i.i118 = icmp ult i64 %84, %conv.i116
-  br i1 %cmp3.i.i118, label %if.end7.i.i128, label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE6resizeEmb.exit.i
-
-if.end7.i.i128:                                   ; preds = %_ZN13b3OpenCLArrayI9b3BvhInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-  %call5.i.i129 = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %82, i64 noundef %conv.i116, i1 noundef zeroext false)
-  %spec.select.i.i130 = select i1 %call5.i.i129, i64 %conv.i116, i64 0
-  br label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE6resizeEmb.exit.i
-
-_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE6resizeEmb.exit.i: ; preds = %if.end7.i.i128, %_ZN13b3OpenCLArrayI9b3BvhInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-  %storemerge.i.i119 = phi i64 [ %conv.i116, %_ZN13b3OpenCLArrayI9b3BvhInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit ], [ %spec.select.i.i130, %if.end7.i.i128 ]
-  store i64 %storemerge.i.i119, ptr %m_size.i.i.i117, align 8
-  %tobool3.not.i120 = icmp eq i32 %83, 0
-  br i1 %tobool3.not.i120, label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit, label %if.then.i.i121
-
-if.then.i.i121:                                   ; preds = %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE6resizeEmb.exit.i
-  %m_data.i.i122 = getelementptr inbounds i8, ptr %81, i64 512
-  %85 = load ptr, ptr %m_data.i.i122, align 8
-  %mul.i.i123 = shl nsw i64 %conv.i116, 4
-  %86 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
-  %m_commandQueue.i.i124 = getelementptr inbounds i8, ptr %82, i64 40
-  %87 = load ptr, ptr %m_commandQueue.i.i124, align 8
-  %m_clBuffer.i.i125 = getelementptr inbounds i8, ptr %82, i64 24
-  %88 = load ptr, ptr %m_clBuffer.i.i125, align 8
-  %call.i.i126 = tail call i32 %86(ptr noundef %87, ptr noundef %88, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i.i123, ptr noundef %85, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %89 = load ptr, ptr @__clewFinish, align 8
-  %90 = load ptr, ptr %m_commandQueue.i.i124, align 8
-  %call6.i.i127 = tail call i32 %89(ptr noundef %90)
-  br label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-
-_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit: ; preds = %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE6resizeEmb.exit.i, %if.then.i.i121
-  %91 = load ptr, ptr %m_data, align 8
-  %m_subTreesGPU = getelementptr inbounds i8, ptr %91, i64 608
-  %92 = load ptr, ptr %m_subTreesGPU, align 8
-  %m_size.i.i131 = getelementptr inbounds i8, ptr %91, i64 532
-  %93 = load i32, ptr %m_size.i.i131, align 4
-  %conv.i132 = sext i32 %93 to i64
-  %m_size.i.i.i133 = getelementptr inbounds i8, ptr %92, i64 8
-  %94 = load i64, ptr %m_size.i.i.i133, align 8
-  %cmp3.i.i134 = icmp ult i64 %94, %conv.i132
-  br i1 %cmp3.i.i134, label %if.end7.i.i144, label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE6resizeEmb.exit.i
-
-if.end7.i.i144:                                   ; preds = %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-  %call5.i.i145 = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %92, i64 noundef %conv.i132, i1 noundef zeroext false)
-  %spec.select.i.i146 = select i1 %call5.i.i145, i64 %conv.i132, i64 0
-  br label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE6resizeEmb.exit.i
-
-_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE6resizeEmb.exit.i: ; preds = %if.end7.i.i144, %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-  %storemerge.i.i135 = phi i64 [ %conv.i132, %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit ], [ %spec.select.i.i146, %if.end7.i.i144 ]
-  store i64 %storemerge.i.i135, ptr %m_size.i.i.i133, align 8
-  %tobool3.not.i136 = icmp eq i32 %93, 0
-  br i1 %tobool3.not.i136, label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit, label %if.then.i.i137
-
-if.then.i.i137:                                   ; preds = %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE6resizeEmb.exit.i
-  %m_data.i.i138 = getelementptr inbounds i8, ptr %91, i64 544
-  %95 = load ptr, ptr %m_data.i.i138, align 8
-  %mul.i.i139 = shl nsw i64 %conv.i132, 5
-  %96 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
-  %m_commandQueue.i.i140 = getelementptr inbounds i8, ptr %92, i64 40
-  %97 = load ptr, ptr %m_commandQueue.i.i140, align 8
-  %m_clBuffer.i.i141 = getelementptr inbounds i8, ptr %92, i64 24
-  %98 = load ptr, ptr %m_clBuffer.i.i141, align 8
-  %call.i.i142 = tail call i32 %96(ptr noundef %97, ptr noundef %98, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i.i139, ptr noundef %95, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %99 = load ptr, ptr @__clewFinish, align 8
-  %100 = load ptr, ptr %m_commandQueue.i.i140, align 8
-  %call6.i.i143 = tail call i32 %99(ptr noundef %100)
-  br label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-
-_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit: ; preds = %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE6resizeEmb.exit.i, %if.then.i.i137
-  %101 = load ptr, ptr %m_data, align 8
-  %m_bodyBufferGPU = getelementptr inbounds i8, ptr %101, i64 344
-  %102 = load ptr, ptr %m_bodyBufferGPU, align 8
-  %m_numAcceleratedRigidBodies = getelementptr inbounds i8, ptr %101, i64 372
-  %103 = load i32, ptr %m_numAcceleratedRigidBodies, align 4
-  %conv = sext i32 %103 to i64
-  %m_size.i.i147 = getelementptr inbounds i8, ptr %102, i64 8
-  %104 = load i64, ptr %m_size.i.i147, align 8
-  %cmp3.i = icmp ult i64 %104, %conv
+if.end:                                           ; preds = %if.then, %entry
+  %4 = phi ptr [ %.pre, %if.then ], [ %0, %entry ]
+  %m_gpuChildShapes = getelementptr inbounds i8, ptr %4, i64 240
+  %5 = load ptr, ptr %m_gpuChildShapes, align 8
+  %m_cpuChildShapes = getelementptr inbounds i8, ptr %4, i64 208
+  tail call void @_ZN13b3OpenCLArrayI15b3GpuChildShapeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %5, ptr noundef nonnull align 8 dereferenceable(25) %m_cpuChildShapes, i1 noundef zeroext true)
+  %6 = load ptr, ptr %m_data, align 8
+  %m_convexFacesGPU = getelementptr inbounds i8, ptr %6, i64 280
+  %7 = load ptr, ptr %m_convexFacesGPU, align 8
+  %m_convexFaces = getelementptr inbounds i8, ptr %6, i64 248
+  tail call void @_ZN13b3OpenCLArrayI9b3GpuFaceE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %7, ptr noundef nonnull align 8 dereferenceable(25) %m_convexFaces, i1 noundef zeroext true)
+  %8 = load ptr, ptr %m_data, align 8
+  %m_convexPolyhedraGPU = getelementptr inbounds i8, ptr %8, i64 136
+  %9 = load ptr, ptr %m_convexPolyhedraGPU, align 8
+  %m_convexPolyhedra = getelementptr inbounds i8, ptr %8, i64 8
+  tail call void @_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %9, ptr noundef nonnull align 8 dereferenceable(25) %m_convexPolyhedra, i1 noundef zeroext true)
+  %10 = load ptr, ptr %m_data, align 8
+  %m_uniqueEdgesGPU = getelementptr inbounds i8, ptr %10, i64 144
+  %11 = load ptr, ptr %m_uniqueEdgesGPU, align 8
+  %m_uniqueEdges = getelementptr inbounds i8, ptr %10, i64 40
+  tail call void @_ZN13b3OpenCLArrayI9b3Vector3E12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %11, ptr noundef nonnull align 8 dereferenceable(25) %m_uniqueEdges, i1 noundef zeroext true)
+  %12 = load ptr, ptr %m_data, align 8
+  %m_convexVerticesGPU = getelementptr inbounds i8, ptr %12, i64 152
+  %13 = load ptr, ptr %m_convexVerticesGPU, align 8
+  %m_convexVertices = getelementptr inbounds i8, ptr %12, i64 72
+  tail call void @_ZN13b3OpenCLArrayI9b3Vector3E12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %13, ptr noundef nonnull align 8 dereferenceable(25) %m_convexVertices, i1 noundef zeroext true)
+  %14 = load ptr, ptr %m_data, align 8
+  %m_convexIndicesGPU = getelementptr inbounds i8, ptr %14, i64 160
+  %15 = load ptr, ptr %m_convexIndicesGPU, align 8
+  %m_convexIndices = getelementptr inbounds i8, ptr %14, i64 104
+  tail call void @_ZN13b3OpenCLArrayIiE12copyFromHostERK20b3AlignedObjectArrayIiEb(ptr noundef nonnull align 8 dereferenceable(50) %15, ptr noundef nonnull align 8 dereferenceable(25) %m_convexIndices, i1 noundef zeroext true)
+  %16 = load ptr, ptr %m_data, align 8
+  %m_bvhInfoGPU = getelementptr inbounds i8, ptr %16, i64 592
+  %17 = load ptr, ptr %m_bvhInfoGPU, align 8
+  %m_bvhInfoCPU = getelementptr inbounds i8, ptr %16, i64 560
+  tail call void @_ZN13b3OpenCLArrayI9b3BvhInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %17, ptr noundef nonnull align 8 dereferenceable(25) %m_bvhInfoCPU, i1 noundef zeroext true)
+  %18 = load ptr, ptr %m_data, align 8
+  %m_treeNodesGPU = getelementptr inbounds i8, ptr %18, i64 600
+  %19 = load ptr, ptr %m_treeNodesGPU, align 8
+  %m_treeNodesCPU = getelementptr inbounds i8, ptr %18, i64 496
+  tail call void @_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %19, ptr noundef nonnull align 8 dereferenceable(25) %m_treeNodesCPU, i1 noundef zeroext true)
+  %20 = load ptr, ptr %m_data, align 8
+  %m_subTreesGPU = getelementptr inbounds i8, ptr %20, i64 608
+  %21 = load ptr, ptr %m_subTreesGPU, align 8
+  %m_subTreesCPU = getelementptr inbounds i8, ptr %20, i64 528
+  tail call void @_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %21, ptr noundef nonnull align 8 dereferenceable(25) %m_subTreesCPU, i1 noundef zeroext true)
+  %22 = load ptr, ptr %m_data, align 8
+  %m_bodyBufferGPU = getelementptr inbounds i8, ptr %22, i64 344
+  %23 = load ptr, ptr %m_bodyBufferGPU, align 8
+  %m_numAcceleratedRigidBodies = getelementptr inbounds i8, ptr %22, i64 372
+  %24 = load i32, ptr %m_numAcceleratedRigidBodies, align 4
+  %conv = sext i32 %24 to i64
+  %m_size.i.i = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = load i64, ptr %m_size.i.i, align 8
+  %cmp3.i = icmp ult i64 %25, %conv
   br i1 %cmp3.i, label %if.end7.i, label %_ZN13b3OpenCLArrayI15b3RigidBodyDataE6resizeEmb.exit
 
-if.end7.i:                                        ; preds = %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-  %call5.i = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %102, i64 noundef %conv, i1 noundef zeroext true)
+if.end7.i:                                        ; preds = %if.end
+  %call5.i = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %23, i64 noundef %conv, i1 noundef zeroext true)
   %spec.select.i = select i1 %call5.i, i64 %conv, i64 0
   br label %_ZN13b3OpenCLArrayI15b3RigidBodyDataE6resizeEmb.exit
 
-_ZN13b3OpenCLArrayI15b3RigidBodyDataE6resizeEmb.exit: ; preds = %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit, %if.end7.i
-  %storemerge.i = phi i64 [ %conv, %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit ], [ %spec.select.i, %if.end7.i ]
-  store i64 %storemerge.i, ptr %m_size.i.i147, align 8
-  %105 = load ptr, ptr %m_data, align 8
-  %m_inertiaBufferGPU = getelementptr inbounds i8, ptr %105, i64 360
-  %106 = load ptr, ptr %m_inertiaBufferGPU, align 8
-  %m_numAcceleratedRigidBodies28 = getelementptr inbounds i8, ptr %105, i64 372
-  %107 = load i32, ptr %m_numAcceleratedRigidBodies28, align 4
-  %conv29 = sext i32 %107 to i64
-  %m_size.i.i148 = getelementptr inbounds i8, ptr %106, i64 8
-  %108 = load i64, ptr %m_size.i.i148, align 8
-  %cmp3.i149 = icmp ult i64 %108, %conv29
-  br i1 %cmp3.i149, label %if.end7.i152, label %_ZN13b3OpenCLArrayI13b3InertiaDataE6resizeEmb.exit
+_ZN13b3OpenCLArrayI15b3RigidBodyDataE6resizeEmb.exit: ; preds = %if.end, %if.end7.i
+  %storemerge.i = phi i64 [ %conv, %if.end ], [ %spec.select.i, %if.end7.i ]
+  store i64 %storemerge.i, ptr %m_size.i.i, align 8
+  %26 = load ptr, ptr %m_data, align 8
+  %m_inertiaBufferGPU = getelementptr inbounds i8, ptr %26, i64 360
+  %27 = load ptr, ptr %m_inertiaBufferGPU, align 8
+  %m_numAcceleratedRigidBodies28 = getelementptr inbounds i8, ptr %26, i64 372
+  %28 = load i32, ptr %m_numAcceleratedRigidBodies28, align 4
+  %conv29 = sext i32 %28 to i64
+  %m_size.i.i1 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = load i64, ptr %m_size.i.i1, align 8
+  %cmp3.i2 = icmp ult i64 %29, %conv29
+  br i1 %cmp3.i2, label %if.end7.i5, label %_ZN13b3OpenCLArrayI13b3InertiaDataE6resizeEmb.exit
 
-if.end7.i152:                                     ; preds = %_ZN13b3OpenCLArrayI15b3RigidBodyDataE6resizeEmb.exit
-  %call5.i153 = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %106, i64 noundef %conv29, i1 noundef zeroext true)
-  %spec.select.i154 = select i1 %call5.i153, i64 %conv29, i64 0
+if.end7.i5:                                       ; preds = %_ZN13b3OpenCLArrayI15b3RigidBodyDataE6resizeEmb.exit
+  %call5.i6 = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %27, i64 noundef %conv29, i1 noundef zeroext true)
+  %spec.select.i7 = select i1 %call5.i6, i64 %conv29, i64 0
   br label %_ZN13b3OpenCLArrayI13b3InertiaDataE6resizeEmb.exit
 
-_ZN13b3OpenCLArrayI13b3InertiaDataE6resizeEmb.exit: ; preds = %_ZN13b3OpenCLArrayI15b3RigidBodyDataE6resizeEmb.exit, %if.end7.i152
-  %storemerge.i150 = phi i64 [ %conv29, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE6resizeEmb.exit ], [ %spec.select.i154, %if.end7.i152 ]
-  store i64 %storemerge.i150, ptr %m_size.i.i148, align 8
-  %109 = load ptr, ptr %m_data, align 8
-  %m_numAcceleratedRigidBodies32 = getelementptr inbounds i8, ptr %109, i64 372
-  %110 = load i32, ptr %m_numAcceleratedRigidBodies32, align 4
-  %tobool33.not = icmp eq i32 %110, 0
+_ZN13b3OpenCLArrayI13b3InertiaDataE6resizeEmb.exit: ; preds = %_ZN13b3OpenCLArrayI15b3RigidBodyDataE6resizeEmb.exit, %if.end7.i5
+  %storemerge.i3 = phi i64 [ %conv29, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE6resizeEmb.exit ], [ %spec.select.i7, %if.end7.i5 ]
+  store i64 %storemerge.i3, ptr %m_size.i.i1, align 8
+  %30 = load ptr, ptr %m_data, align 8
+  %m_numAcceleratedRigidBodies32 = getelementptr inbounds i8, ptr %30, i64 372
+  %31 = load i32, ptr %m_numAcceleratedRigidBodies32, align 4
+  %tobool33.not = icmp eq i32 %31, 0
   br i1 %tobool33.not, label %if.end49, label %_ZN13b3OpenCLArrayI15b3RigidBodyDataE19copyFromHostPointerEPKS0_mmb.exit
 
 _ZN13b3OpenCLArrayI15b3RigidBodyDataE19copyFromHostPointerEPKS0_mmb.exit: ; preds = %_ZN13b3OpenCLArrayI13b3InertiaDataE6resizeEmb.exit
-  %m_bodyBufferGPU36 = getelementptr inbounds i8, ptr %109, i64 344
-  %111 = load ptr, ptr %m_bodyBufferGPU36, align 8
-  %m_bodyBufferCPU = getelementptr inbounds i8, ptr %109, i64 336
-  %112 = load ptr, ptr %m_bodyBufferCPU, align 8
-  %m_data.i = getelementptr inbounds i8, ptr %112, i64 16
-  %113 = load ptr, ptr %m_data.i, align 8
-  %conv41 = sext i32 %110 to i64
+  %m_bodyBufferGPU36 = getelementptr inbounds i8, ptr %30, i64 344
+  %32 = load ptr, ptr %m_bodyBufferGPU36, align 8
+  %m_bodyBufferCPU = getelementptr inbounds i8, ptr %30, i64 336
+  %33 = load ptr, ptr %m_bodyBufferCPU, align 8
+  %m_data.i = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = load ptr, ptr %m_data.i, align 8
+  %conv41 = sext i32 %31 to i64
   %mul.i = mul nsw i64 %conv41, 80
-  %114 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
-  %m_commandQueue.i = getelementptr inbounds i8, ptr %111, i64 40
-  %115 = load ptr, ptr %m_commandQueue.i, align 8
-  %m_clBuffer.i = getelementptr inbounds i8, ptr %111, i64 24
-  %116 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = tail call i32 %114(ptr noundef %115, ptr noundef %116, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %113, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %117 = load ptr, ptr @__clewFinish, align 8
-  %118 = load ptr, ptr %m_commandQueue.i, align 8
-  %call6.i = tail call i32 %117(ptr noundef %118)
-  %119 = load ptr, ptr %m_data, align 8
-  %m_numAcceleratedRigidBodies47 = getelementptr inbounds i8, ptr %119, i64 372
-  %120 = load i32, ptr %m_numAcceleratedRigidBodies47, align 4
-  %tobool.not.i157 = icmp eq i32 %120, 0
-  br i1 %tobool.not.i157, label %do.body.i165, label %if.then.i158
+  %35 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
+  %m_commandQueue.i = getelementptr inbounds i8, ptr %32, i64 40
+  %36 = load ptr, ptr %m_commandQueue.i, align 8
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %32, i64 24
+  %37 = load ptr, ptr %m_clBuffer.i, align 8
+  %call.i = tail call i32 %35(ptr noundef %36, ptr noundef %37, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %34, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %38 = load ptr, ptr @__clewFinish, align 8
+  %39 = load ptr, ptr %m_commandQueue.i, align 8
+  %call6.i = tail call i32 %38(ptr noundef %39)
+  %40 = load ptr, ptr %m_data, align 8
+  %m_numAcceleratedRigidBodies47 = getelementptr inbounds i8, ptr %40, i64 372
+  %41 = load i32, ptr %m_numAcceleratedRigidBodies47, align 4
+  %tobool.not.i10 = icmp eq i32 %41, 0
+  br i1 %tobool.not.i10, label %do.body.i18, label %if.then.i11
 
-if.then.i158:                                     ; preds = %_ZN13b3OpenCLArrayI15b3RigidBodyDataE19copyFromHostPointerEPKS0_mmb.exit
-  %conv48 = sext i32 %120 to i64
-  %m_inertiaBufferCPU = getelementptr inbounds i8, ptr %119, i64 352
-  %121 = load ptr, ptr %m_inertiaBufferCPU, align 8
-  %m_data.i156 = getelementptr inbounds i8, ptr %121, i64 16
-  %122 = load ptr, ptr %m_data.i156, align 8
-  %m_inertiaBufferGPU43 = getelementptr inbounds i8, ptr %119, i64 360
-  %123 = load ptr, ptr %m_inertiaBufferGPU43, align 8
-  %mul.i159 = mul nsw i64 %conv48, 96
-  %124 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
-  %m_commandQueue.i160 = getelementptr inbounds i8, ptr %123, i64 40
-  %125 = load ptr, ptr %m_commandQueue.i160, align 8
-  %m_clBuffer.i161 = getelementptr inbounds i8, ptr %123, i64 24
-  %126 = load ptr, ptr %m_clBuffer.i161, align 8
-  %call.i162 = tail call i32 %124(ptr noundef %125, ptr noundef %126, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i159, ptr noundef %122, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %127 = load ptr, ptr @__clewFinish, align 8
-  %128 = load ptr, ptr %m_commandQueue.i160, align 8
-  %call6.i163 = tail call i32 %127(ptr noundef %128)
+if.then.i11:                                      ; preds = %_ZN13b3OpenCLArrayI15b3RigidBodyDataE19copyFromHostPointerEPKS0_mmb.exit
+  %conv48 = sext i32 %41 to i64
+  %m_inertiaBufferCPU = getelementptr inbounds i8, ptr %40, i64 352
+  %42 = load ptr, ptr %m_inertiaBufferCPU, align 8
+  %m_data.i9 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = load ptr, ptr %m_data.i9, align 8
+  %m_inertiaBufferGPU43 = getelementptr inbounds i8, ptr %40, i64 360
+  %44 = load ptr, ptr %m_inertiaBufferGPU43, align 8
+  %mul.i12 = mul nsw i64 %conv48, 96
+  %45 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
+  %m_commandQueue.i13 = getelementptr inbounds i8, ptr %44, i64 40
+  %46 = load ptr, ptr %m_commandQueue.i13, align 8
+  %m_clBuffer.i14 = getelementptr inbounds i8, ptr %44, i64 24
+  %47 = load ptr, ptr %m_clBuffer.i14, align 8
+  %call.i15 = tail call i32 %45(ptr noundef %46, ptr noundef %47, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i12, ptr noundef %43, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %48 = load ptr, ptr @__clewFinish, align 8
+  %49 = load ptr, ptr %m_commandQueue.i13, align 8
+  %call6.i16 = tail call i32 %48(ptr noundef %49)
   br label %if.end49
 
-do.body.i165:                                     ; preds = %_ZN13b3OpenCLArrayI15b3RigidBodyDataE19copyFromHostPointerEPKS0_mmb.exit
+do.body.i18:                                      ; preds = %_ZN13b3OpenCLArrayI15b3RigidBodyDataE19copyFromHostPointerEPKS0_mmb.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 258)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.14)
   br label %if.end49
 
-if.end49:                                         ; preds = %do.body.i165, %if.then.i158, %_ZN13b3OpenCLArrayI13b3InertiaDataE6resizeEmb.exit
-  %129 = load ptr, ptr %m_data, align 8
-  %m_size.i166 = getelementptr inbounds i8, ptr %129, i64 380
-  %130 = load i32, ptr %m_size.i166, align 4
-  %tobool52.not = icmp eq i32 %130, 0
+if.end49:                                         ; preds = %do.body.i18, %if.then.i11, %_ZN13b3OpenCLArrayI13b3InertiaDataE6resizeEmb.exit
+  %50 = load ptr, ptr %m_data, align 8
+  %m_size.i19 = getelementptr inbounds i8, ptr %50, i64 380
+  %51 = load i32, ptr %m_size.i19, align 4
+  %tobool52.not = icmp eq i32 %51, 0
   br i1 %tobool52.not, label %if.end57, label %if.then53
 
 if.then53:                                        ; preds = %if.end49
-  %m_collidablesGPU = getelementptr inbounds i8, ptr %129, i64 408
-  %131 = load ptr, ptr %m_collidablesGPU, align 8
-  %conv.i168 = sext i32 %130 to i64
-  %m_size.i.i.i169 = getelementptr inbounds i8, ptr %131, i64 8
-  %132 = load i64, ptr %m_size.i.i.i169, align 8
-  %cmp3.i.i170 = icmp ult i64 %132, %conv.i168
-  br i1 %cmp3.i.i170, label %if.end7.i.i180, label %_ZN13b3OpenCLArrayI12b3CollidableE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-
-if.end7.i.i180:                                   ; preds = %if.then53
-  %call5.i.i181 = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayI12b3CollidableE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %131, i64 noundef %conv.i168, i1 noundef zeroext false)
-  %spec.select.i.i182 = select i1 %call5.i.i181, i64 %conv.i168, i64 0
-  br label %_ZN13b3OpenCLArrayI12b3CollidableE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-
-_ZN13b3OpenCLArrayI12b3CollidableE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit: ; preds = %if.end7.i.i180, %if.then53
-  %storemerge.i.i171 = phi i64 [ %conv.i168, %if.then53 ], [ %spec.select.i.i182, %if.end7.i.i180 ]
-  store i64 %storemerge.i.i171, ptr %m_size.i.i.i169, align 8
-  %m_data.i.i174 = getelementptr inbounds i8, ptr %129, i64 392
-  %133 = load ptr, ptr %m_data.i.i174, align 8
-  %mul.i.i175 = shl nsw i64 %conv.i168, 4
-  %134 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
-  %m_commandQueue.i.i176 = getelementptr inbounds i8, ptr %131, i64 40
-  %135 = load ptr, ptr %m_commandQueue.i.i176, align 8
-  %m_clBuffer.i.i177 = getelementptr inbounds i8, ptr %131, i64 24
-  %136 = load ptr, ptr %m_clBuffer.i.i177, align 8
-  %call.i.i178 = tail call i32 %134(ptr noundef %135, ptr noundef %136, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i.i175, ptr noundef %133, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %137 = load ptr, ptr @__clewFinish, align 8
-  %138 = load ptr, ptr %m_commandQueue.i.i176, align 8
-  %call6.i.i179 = tail call i32 %137(ptr noundef %138)
+  %m_collidablesCPU = getelementptr inbounds i8, ptr %50, i64 376
+  %m_collidablesGPU = getelementptr inbounds i8, ptr %50, i64 408
+  %52 = load ptr, ptr %m_collidablesGPU, align 8
+  tail call void @_ZN13b3OpenCLArrayI12b3CollidableE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %52, ptr noundef nonnull align 8 dereferenceable(25) %m_collidablesCPU, i1 noundef zeroext true)
   br label %if.end57
 
-if.end57:                                         ; preds = %_ZN13b3OpenCLArrayI12b3CollidableE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit, %if.end49
+if.end57:                                         ; preds = %if.then53, %if.end49
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI9b3SapAabbE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(25) %srcArray, i1 noundef zeroext %waitForCompletion) local_unnamed_addr #0 comdat align 2 {
+entry:
+  %ciErrNum.i = alloca i32, align 4
+  %m_size.i = getelementptr inbounds i8, ptr %srcArray, i64 4
+  %0 = load i32, ptr %m_size.i, align 4
+  %conv = sext i32 %0 to i64
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load i64, ptr %m_size.i.i, align 8
+  %cmp3.i = icmp ult i64 %1, %conv
+  br i1 %cmp3.i, label %if.end7.i, label %_ZN13b3OpenCLArrayI9b3SapAabbE6resizeEmb.exit
+
+if.end7.i:                                        ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ciErrNum.i)
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load i64, ptr %m_capacity.i.i, align 8
+  %cmp.i = icmp ult i64 %2, %conv
+  br i1 %cmp.i, label %if.then.i5, label %_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb.exit.thread
+
+_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb.exit.thread: ; preds = %if.end7.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %13
+
+if.then.i5:                                       ; preds = %if.end7.i
+  %m_allowGrowingCapacity.i = getelementptr inbounds i8, ptr %this, i64 49
+  %3 = load i8, ptr %m_allowGrowingCapacity.i, align 1
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then2.i, label %if.else.i
+
+if.then2.i:                                       ; preds = %if.then.i5
+  %mul.i6 = shl nsw i64 %conv, 5
+  %4 = load ptr, ptr @__clewCreateBuffer, align 8
+  %m_clContext.i = getelementptr inbounds i8, ptr %this, i64 32
+  %5 = load ptr, ptr %m_clContext.i, align 8
+  %call3.i = call ptr %4(ptr noundef %5, i64 noundef 1, i64 noundef %mul.i6, ptr noundef null, ptr noundef nonnull %ciErrNum.i)
+  %6 = load i32, ptr %ciErrNum.i, align 4
+  %cmp4.not.i = icmp eq i32 %6, 0
+  br i1 %cmp4.not.i, label %if.end12.i, label %if.end.thread.i
+
+if.end.thread.i:                                  ; preds = %if.then2.i
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.12)
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.then2.i, %if.end.thread.i
+  %_Count.addr.023.i = phi i64 [ 0, %if.end.thread.i ], [ %conv, %if.then2.i ]
+  %m_clBuffer.i5.i = getelementptr inbounds i8, ptr %this, i64 24
+  %7 = load ptr, ptr %m_clBuffer.i5.i, align 8
+  %tobool.not.i.i = icmp eq ptr %7, null
+  br i1 %tobool.not.i.i, label %_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb.exit, label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %if.end12.i
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %8 = load i8, ptr %m_ownsMemory.i.i, align 8
+  %tobool2.i.i = trunc i8 %8 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb.exit
+
+if.then.i.i:                                      ; preds = %land.lhs.true.i.i
+  %9 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8.i = call i32 %9(ptr noundef nonnull %7)
+  br label %_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb.exit
+
+if.else.i:                                        ; preds = %if.then.i5
+  %m_clBuffer.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %10 = load ptr, ptr %m_clBuffer.i9.i, align 8
+  %tobool.not.i10.i = icmp eq ptr %10, null
+  br i1 %tobool.not.i10.i, label %_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb.exit.thread8, label %land.lhs.true.i11.i
+
+land.lhs.true.i11.i:                              ; preds = %if.else.i
+  %m_ownsMemory.i12.i = getelementptr inbounds i8, ptr %this, i64 48
+  %11 = load i8, ptr %m_ownsMemory.i12.i, align 8
+  %tobool2.i13.i = trunc i8 %11 to i1
+  br i1 %tobool2.i13.i, label %if.then.i16.i, label %_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb.exit.thread8
+
+if.then.i16.i:                                    ; preds = %land.lhs.true.i11.i
+  %12 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17.i = tail call i32 %12(ptr noundef nonnull %10)
+  br label %_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb.exit.thread8
+
+_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb.exit.thread8: ; preds = %if.else.i, %land.lhs.true.i11.i, %if.then.i16.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %_ZN13b3OpenCLArrayI9b3SapAabbE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb.exit:   ; preds = %if.end12.i, %land.lhs.true.i.i, %if.then.i.i
+  store ptr %call3.i, ptr %m_clBuffer.i5.i, align 8
+  store i64 %_Count.addr.023.i, ptr %m_capacity.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br i1 %cmp4.not.i, label %13, label %_ZN13b3OpenCLArrayI9b3SapAabbE6resizeEmb.exit
+
+13:                                               ; preds = %_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb.exit.thread, %_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb.exit
+  br label %_ZN13b3OpenCLArrayI9b3SapAabbE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI9b3SapAabbE6resizeEmb.exit:    ; preds = %13, %_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb.exit, %_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb.exit.thread8, %entry
+  %storemerge.i = phi i64 [ %conv, %entry ], [ %conv, %13 ], [ 0, %_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb.exit ], [ 0, %_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb.exit.thread8 ]
+  store i64 %storemerge.i, ptr %m_size.i.i, align 8
+  %tobool3.not = icmp eq i32 %0, 0
+  br i1 %tobool3.not, label %if.end, label %if.then.i
+
+if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI9b3SapAabbE6resizeEmb.exit
+  %m_data.i = getelementptr inbounds i8, ptr %srcArray, i64 16
+  %14 = load ptr, ptr %m_data.i, align 8
+  %mul.i = shl nsw i64 %conv, 5
+  %15 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
+  %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
+  %16 = load ptr, ptr %m_commandQueue.i, align 8
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
+  %17 = load ptr, ptr %m_clBuffer.i, align 8
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  br i1 %waitForCompletion, label %if.then4.i, label %if.end
+
+if.then4.i:                                       ; preds = %if.then.i
+  %18 = load ptr, ptr @__clewFinish, align 8
+  %19 = load ptr, ptr %m_commandQueue.i, align 8
+  %call6.i = call i32 %18(ptr noundef %19)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then4.i, %if.then.i, %_ZN13b3OpenCLArrayI9b3SapAabbE6resizeEmb.exit
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI15b3GpuChildShapeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(25) %srcArray, i1 noundef zeroext %waitForCompletion) local_unnamed_addr #0 comdat align 2 {
+entry:
+  %ciErrNum.i = alloca i32, align 4
+  %m_size.i = getelementptr inbounds i8, ptr %srcArray, i64 4
+  %0 = load i32, ptr %m_size.i, align 4
+  %conv = sext i32 %0 to i64
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load i64, ptr %m_size.i.i, align 8
+  %cmp3.i = icmp ult i64 %1, %conv
+  br i1 %cmp3.i, label %if.end7.i, label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE6resizeEmb.exit
+
+if.end7.i:                                        ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ciErrNum.i)
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load i64, ptr %m_capacity.i.i, align 8
+  %cmp.i = icmp ult i64 %2, %conv
+  br i1 %cmp.i, label %if.then.i5, label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE7reserveEmb.exit.thread
+
+_ZN13b3OpenCLArrayI15b3GpuChildShapeE7reserveEmb.exit.thread: ; preds = %if.end7.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %13
+
+if.then.i5:                                       ; preds = %if.end7.i
+  %m_allowGrowingCapacity.i = getelementptr inbounds i8, ptr %this, i64 49
+  %3 = load i8, ptr %m_allowGrowingCapacity.i, align 1
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then2.i, label %if.else.i
+
+if.then2.i:                                       ; preds = %if.then.i5
+  %mul.i6 = mul nsw i64 %conv, 48
+  %4 = load ptr, ptr @__clewCreateBuffer, align 8
+  %m_clContext.i = getelementptr inbounds i8, ptr %this, i64 32
+  %5 = load ptr, ptr %m_clContext.i, align 8
+  %call3.i = call ptr %4(ptr noundef %5, i64 noundef 1, i64 noundef %mul.i6, ptr noundef null, ptr noundef nonnull %ciErrNum.i)
+  %6 = load i32, ptr %ciErrNum.i, align 4
+  %cmp4.not.i = icmp eq i32 %6, 0
+  br i1 %cmp4.not.i, label %if.end12.i, label %if.end.thread.i
+
+if.end.thread.i:                                  ; preds = %if.then2.i
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.12)
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.then2.i, %if.end.thread.i
+  %_Count.addr.023.i = phi i64 [ 0, %if.end.thread.i ], [ %conv, %if.then2.i ]
+  %m_clBuffer.i5.i = getelementptr inbounds i8, ptr %this, i64 24
+  %7 = load ptr, ptr %m_clBuffer.i5.i, align 8
+  %tobool.not.i.i = icmp eq ptr %7, null
+  br i1 %tobool.not.i.i, label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE7reserveEmb.exit, label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %if.end12.i
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %8 = load i8, ptr %m_ownsMemory.i.i, align 8
+  %tobool2.i.i = trunc i8 %8 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE7reserveEmb.exit
+
+if.then.i.i:                                      ; preds = %land.lhs.true.i.i
+  %9 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8.i = call i32 %9(ptr noundef nonnull %7)
+  br label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE7reserveEmb.exit
+
+if.else.i:                                        ; preds = %if.then.i5
+  %m_clBuffer.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %10 = load ptr, ptr %m_clBuffer.i9.i, align 8
+  %tobool.not.i10.i = icmp eq ptr %10, null
+  br i1 %tobool.not.i10.i, label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE7reserveEmb.exit.thread8, label %land.lhs.true.i11.i
+
+land.lhs.true.i11.i:                              ; preds = %if.else.i
+  %m_ownsMemory.i12.i = getelementptr inbounds i8, ptr %this, i64 48
+  %11 = load i8, ptr %m_ownsMemory.i12.i, align 8
+  %tobool2.i13.i = trunc i8 %11 to i1
+  br i1 %tobool2.i13.i, label %if.then.i16.i, label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE7reserveEmb.exit.thread8
+
+if.then.i16.i:                                    ; preds = %land.lhs.true.i11.i
+  %12 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17.i = tail call i32 %12(ptr noundef nonnull %10)
+  br label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE7reserveEmb.exit.thread8
+
+_ZN13b3OpenCLArrayI15b3GpuChildShapeE7reserveEmb.exit.thread8: ; preds = %if.else.i, %land.lhs.true.i11.i, %if.then.i16.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI15b3GpuChildShapeE7reserveEmb.exit: ; preds = %if.end12.i, %land.lhs.true.i.i, %if.then.i.i
+  store ptr %call3.i, ptr %m_clBuffer.i5.i, align 8
+  store i64 %_Count.addr.023.i, ptr %m_capacity.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br i1 %cmp4.not.i, label %13, label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE6resizeEmb.exit
+
+13:                                               ; preds = %_ZN13b3OpenCLArrayI15b3GpuChildShapeE7reserveEmb.exit.thread, %_ZN13b3OpenCLArrayI15b3GpuChildShapeE7reserveEmb.exit
+  br label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI15b3GpuChildShapeE6resizeEmb.exit: ; preds = %13, %_ZN13b3OpenCLArrayI15b3GpuChildShapeE7reserveEmb.exit, %_ZN13b3OpenCLArrayI15b3GpuChildShapeE7reserveEmb.exit.thread8, %entry
+  %storemerge.i = phi i64 [ %conv, %entry ], [ %conv, %13 ], [ 0, %_ZN13b3OpenCLArrayI15b3GpuChildShapeE7reserveEmb.exit ], [ 0, %_ZN13b3OpenCLArrayI15b3GpuChildShapeE7reserveEmb.exit.thread8 ]
+  store i64 %storemerge.i, ptr %m_size.i.i, align 8
+  %tobool3.not = icmp eq i32 %0, 0
+  br i1 %tobool3.not, label %if.end, label %if.then.i
+
+if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI15b3GpuChildShapeE6resizeEmb.exit
+  %m_data.i = getelementptr inbounds i8, ptr %srcArray, i64 16
+  %14 = load ptr, ptr %m_data.i, align 8
+  %mul.i = mul nsw i64 %conv, 48
+  %15 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
+  %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
+  %16 = load ptr, ptr %m_commandQueue.i, align 8
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
+  %17 = load ptr, ptr %m_clBuffer.i, align 8
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  br i1 %waitForCompletion, label %if.then4.i, label %if.end
+
+if.then4.i:                                       ; preds = %if.then.i
+  %18 = load ptr, ptr @__clewFinish, align 8
+  %19 = load ptr, ptr %m_commandQueue.i, align 8
+  %call6.i = call i32 %18(ptr noundef %19)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then4.i, %if.then.i, %_ZN13b3OpenCLArrayI15b3GpuChildShapeE6resizeEmb.exit
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI9b3GpuFaceE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(25) %srcArray, i1 noundef zeroext %waitForCompletion) local_unnamed_addr #0 comdat align 2 {
+entry:
+  %ciErrNum.i = alloca i32, align 4
+  %m_size.i = getelementptr inbounds i8, ptr %srcArray, i64 4
+  %0 = load i32, ptr %m_size.i, align 4
+  %conv = sext i32 %0 to i64
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load i64, ptr %m_size.i.i, align 8
+  %cmp3.i = icmp ult i64 %1, %conv
+  br i1 %cmp3.i, label %if.end7.i, label %_ZN13b3OpenCLArrayI9b3GpuFaceE6resizeEmb.exit
+
+if.end7.i:                                        ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ciErrNum.i)
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load i64, ptr %m_capacity.i.i, align 8
+  %cmp.i = icmp ult i64 %2, %conv
+  br i1 %cmp.i, label %if.then.i5, label %_ZN13b3OpenCLArrayI9b3GpuFaceE7reserveEmb.exit.thread
+
+_ZN13b3OpenCLArrayI9b3GpuFaceE7reserveEmb.exit.thread: ; preds = %if.end7.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %13
+
+if.then.i5:                                       ; preds = %if.end7.i
+  %m_allowGrowingCapacity.i = getelementptr inbounds i8, ptr %this, i64 49
+  %3 = load i8, ptr %m_allowGrowingCapacity.i, align 1
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then2.i, label %if.else.i
+
+if.then2.i:                                       ; preds = %if.then.i5
+  %mul.i6 = shl nsw i64 %conv, 5
+  %4 = load ptr, ptr @__clewCreateBuffer, align 8
+  %m_clContext.i = getelementptr inbounds i8, ptr %this, i64 32
+  %5 = load ptr, ptr %m_clContext.i, align 8
+  %call3.i = call ptr %4(ptr noundef %5, i64 noundef 1, i64 noundef %mul.i6, ptr noundef null, ptr noundef nonnull %ciErrNum.i)
+  %6 = load i32, ptr %ciErrNum.i, align 4
+  %cmp4.not.i = icmp eq i32 %6, 0
+  br i1 %cmp4.not.i, label %if.end12.i, label %if.end.thread.i
+
+if.end.thread.i:                                  ; preds = %if.then2.i
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.12)
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.then2.i, %if.end.thread.i
+  %_Count.addr.023.i = phi i64 [ 0, %if.end.thread.i ], [ %conv, %if.then2.i ]
+  %m_clBuffer.i5.i = getelementptr inbounds i8, ptr %this, i64 24
+  %7 = load ptr, ptr %m_clBuffer.i5.i, align 8
+  %tobool.not.i.i = icmp eq ptr %7, null
+  br i1 %tobool.not.i.i, label %_ZN13b3OpenCLArrayI9b3GpuFaceE7reserveEmb.exit, label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %if.end12.i
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %8 = load i8, ptr %m_ownsMemory.i.i, align 8
+  %tobool2.i.i = trunc i8 %8 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI9b3GpuFaceE7reserveEmb.exit
+
+if.then.i.i:                                      ; preds = %land.lhs.true.i.i
+  %9 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8.i = call i32 %9(ptr noundef nonnull %7)
+  br label %_ZN13b3OpenCLArrayI9b3GpuFaceE7reserveEmb.exit
+
+if.else.i:                                        ; preds = %if.then.i5
+  %m_clBuffer.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %10 = load ptr, ptr %m_clBuffer.i9.i, align 8
+  %tobool.not.i10.i = icmp eq ptr %10, null
+  br i1 %tobool.not.i10.i, label %_ZN13b3OpenCLArrayI9b3GpuFaceE7reserveEmb.exit.thread8, label %land.lhs.true.i11.i
+
+land.lhs.true.i11.i:                              ; preds = %if.else.i
+  %m_ownsMemory.i12.i = getelementptr inbounds i8, ptr %this, i64 48
+  %11 = load i8, ptr %m_ownsMemory.i12.i, align 8
+  %tobool2.i13.i = trunc i8 %11 to i1
+  br i1 %tobool2.i13.i, label %if.then.i16.i, label %_ZN13b3OpenCLArrayI9b3GpuFaceE7reserveEmb.exit.thread8
+
+if.then.i16.i:                                    ; preds = %land.lhs.true.i11.i
+  %12 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17.i = tail call i32 %12(ptr noundef nonnull %10)
+  br label %_ZN13b3OpenCLArrayI9b3GpuFaceE7reserveEmb.exit.thread8
+
+_ZN13b3OpenCLArrayI9b3GpuFaceE7reserveEmb.exit.thread8: ; preds = %if.else.i, %land.lhs.true.i11.i, %if.then.i16.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %_ZN13b3OpenCLArrayI9b3GpuFaceE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI9b3GpuFaceE7reserveEmb.exit:   ; preds = %if.end12.i, %land.lhs.true.i.i, %if.then.i.i
+  store ptr %call3.i, ptr %m_clBuffer.i5.i, align 8
+  store i64 %_Count.addr.023.i, ptr %m_capacity.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br i1 %cmp4.not.i, label %13, label %_ZN13b3OpenCLArrayI9b3GpuFaceE6resizeEmb.exit
+
+13:                                               ; preds = %_ZN13b3OpenCLArrayI9b3GpuFaceE7reserveEmb.exit.thread, %_ZN13b3OpenCLArrayI9b3GpuFaceE7reserveEmb.exit
+  br label %_ZN13b3OpenCLArrayI9b3GpuFaceE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI9b3GpuFaceE6resizeEmb.exit:    ; preds = %13, %_ZN13b3OpenCLArrayI9b3GpuFaceE7reserveEmb.exit, %_ZN13b3OpenCLArrayI9b3GpuFaceE7reserveEmb.exit.thread8, %entry
+  %storemerge.i = phi i64 [ %conv, %entry ], [ %conv, %13 ], [ 0, %_ZN13b3OpenCLArrayI9b3GpuFaceE7reserveEmb.exit ], [ 0, %_ZN13b3OpenCLArrayI9b3GpuFaceE7reserveEmb.exit.thread8 ]
+  store i64 %storemerge.i, ptr %m_size.i.i, align 8
+  %tobool3.not = icmp eq i32 %0, 0
+  br i1 %tobool3.not, label %if.end, label %if.then.i
+
+if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI9b3GpuFaceE6resizeEmb.exit
+  %m_data.i = getelementptr inbounds i8, ptr %srcArray, i64 16
+  %14 = load ptr, ptr %m_data.i, align 8
+  %mul.i = shl nsw i64 %conv, 5
+  %15 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
+  %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
+  %16 = load ptr, ptr %m_commandQueue.i, align 8
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
+  %17 = load ptr, ptr %m_clBuffer.i, align 8
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  br i1 %waitForCompletion, label %if.then4.i, label %if.end
+
+if.then4.i:                                       ; preds = %if.then.i
+  %18 = load ptr, ptr @__clewFinish, align 8
+  %19 = load ptr, ptr %m_commandQueue.i, align 8
+  %call6.i = call i32 %18(ptr noundef %19)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then4.i, %if.then.i, %_ZN13b3OpenCLArrayI9b3GpuFaceE6resizeEmb.exit
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(25) %srcArray, i1 noundef zeroext %waitForCompletion) local_unnamed_addr #0 comdat align 2 {
+entry:
+  %ciErrNum.i = alloca i32, align 4
+  %m_size.i = getelementptr inbounds i8, ptr %srcArray, i64 4
+  %0 = load i32, ptr %m_size.i, align 4
+  %conv = sext i32 %0 to i64
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load i64, ptr %m_size.i.i, align 8
+  %cmp3.i = icmp ult i64 %1, %conv
+  br i1 %cmp3.i, label %if.end7.i, label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE6resizeEmb.exit
+
+if.end7.i:                                        ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ciErrNum.i)
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load i64, ptr %m_capacity.i.i, align 8
+  %cmp.i = icmp ult i64 %2, %conv
+  br i1 %cmp.i, label %if.then.i5, label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE7reserveEmb.exit.thread
+
+_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE7reserveEmb.exit.thread: ; preds = %if.end7.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %13
+
+if.then.i5:                                       ; preds = %if.end7.i
+  %m_allowGrowingCapacity.i = getelementptr inbounds i8, ptr %this, i64 49
+  %3 = load i8, ptr %m_allowGrowingCapacity.i, align 1
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then2.i, label %if.else.i
+
+if.then2.i:                                       ; preds = %if.then.i5
+  %mul.i6 = mul nsw i64 %conv, 96
+  %4 = load ptr, ptr @__clewCreateBuffer, align 8
+  %m_clContext.i = getelementptr inbounds i8, ptr %this, i64 32
+  %5 = load ptr, ptr %m_clContext.i, align 8
+  %call3.i = call ptr %4(ptr noundef %5, i64 noundef 1, i64 noundef %mul.i6, ptr noundef null, ptr noundef nonnull %ciErrNum.i)
+  %6 = load i32, ptr %ciErrNum.i, align 4
+  %cmp4.not.i = icmp eq i32 %6, 0
+  br i1 %cmp4.not.i, label %if.end12.i, label %if.end.thread.i
+
+if.end.thread.i:                                  ; preds = %if.then2.i
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.12)
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.then2.i, %if.end.thread.i
+  %_Count.addr.023.i = phi i64 [ 0, %if.end.thread.i ], [ %conv, %if.then2.i ]
+  %m_clBuffer.i5.i = getelementptr inbounds i8, ptr %this, i64 24
+  %7 = load ptr, ptr %m_clBuffer.i5.i, align 8
+  %tobool.not.i.i = icmp eq ptr %7, null
+  br i1 %tobool.not.i.i, label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE7reserveEmb.exit, label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %if.end12.i
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %8 = load i8, ptr %m_ownsMemory.i.i, align 8
+  %tobool2.i.i = trunc i8 %8 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE7reserveEmb.exit
+
+if.then.i.i:                                      ; preds = %land.lhs.true.i.i
+  %9 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8.i = call i32 %9(ptr noundef nonnull %7)
+  br label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE7reserveEmb.exit
+
+if.else.i:                                        ; preds = %if.then.i5
+  %m_clBuffer.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %10 = load ptr, ptr %m_clBuffer.i9.i, align 8
+  %tobool.not.i10.i = icmp eq ptr %10, null
+  br i1 %tobool.not.i10.i, label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE7reserveEmb.exit.thread8, label %land.lhs.true.i11.i
+
+land.lhs.true.i11.i:                              ; preds = %if.else.i
+  %m_ownsMemory.i12.i = getelementptr inbounds i8, ptr %this, i64 48
+  %11 = load i8, ptr %m_ownsMemory.i12.i, align 8
+  %tobool2.i13.i = trunc i8 %11 to i1
+  br i1 %tobool2.i13.i, label %if.then.i16.i, label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE7reserveEmb.exit.thread8
+
+if.then.i16.i:                                    ; preds = %land.lhs.true.i11.i
+  %12 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17.i = tail call i32 %12(ptr noundef nonnull %10)
+  br label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE7reserveEmb.exit.thread8
+
+_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE7reserveEmb.exit.thread8: ; preds = %if.else.i, %land.lhs.true.i11.i, %if.then.i16.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE7reserveEmb.exit: ; preds = %if.end12.i, %land.lhs.true.i.i, %if.then.i.i
+  store ptr %call3.i, ptr %m_clBuffer.i5.i, align 8
+  store i64 %_Count.addr.023.i, ptr %m_capacity.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br i1 %cmp4.not.i, label %13, label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE6resizeEmb.exit
+
+13:                                               ; preds = %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE7reserveEmb.exit.thread, %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE7reserveEmb.exit
+  br label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE6resizeEmb.exit: ; preds = %13, %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE7reserveEmb.exit, %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE7reserveEmb.exit.thread8, %entry
+  %storemerge.i = phi i64 [ %conv, %entry ], [ %conv, %13 ], [ 0, %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE7reserveEmb.exit ], [ 0, %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE7reserveEmb.exit.thread8 ]
+  store i64 %storemerge.i, ptr %m_size.i.i, align 8
+  %tobool3.not = icmp eq i32 %0, 0
+  br i1 %tobool3.not, label %if.end, label %if.then.i
+
+if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE6resizeEmb.exit
+  %m_data.i = getelementptr inbounds i8, ptr %srcArray, i64 16
+  %14 = load ptr, ptr %m_data.i, align 8
+  %mul.i = mul nsw i64 %conv, 96
+  %15 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
+  %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
+  %16 = load ptr, ptr %m_commandQueue.i, align 8
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
+  %17 = load ptr, ptr %m_clBuffer.i, align 8
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  br i1 %waitForCompletion, label %if.then4.i, label %if.end
+
+if.then4.i:                                       ; preds = %if.then.i
+  %18 = load ptr, ptr @__clewFinish, align 8
+  %19 = load ptr, ptr %m_commandQueue.i, align 8
+  %call6.i = call i32 %18(ptr noundef %19)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then4.i, %if.then.i, %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE6resizeEmb.exit
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI9b3Vector3E12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(25) %srcArray, i1 noundef zeroext %waitForCompletion) local_unnamed_addr #0 comdat align 2 {
+entry:
+  %ciErrNum.i = alloca i32, align 4
+  %m_size.i = getelementptr inbounds i8, ptr %srcArray, i64 4
+  %0 = load i32, ptr %m_size.i, align 4
+  %conv = sext i32 %0 to i64
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load i64, ptr %m_size.i.i, align 8
+  %cmp3.i = icmp ult i64 %1, %conv
+  br i1 %cmp3.i, label %if.end7.i, label %_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit
+
+if.end7.i:                                        ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ciErrNum.i)
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load i64, ptr %m_capacity.i.i, align 8
+  %cmp.i = icmp ult i64 %2, %conv
+  br i1 %cmp.i, label %if.then.i5, label %_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb.exit.thread
+
+_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb.exit.thread: ; preds = %if.end7.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %13
+
+if.then.i5:                                       ; preds = %if.end7.i
+  %m_allowGrowingCapacity.i = getelementptr inbounds i8, ptr %this, i64 49
+  %3 = load i8, ptr %m_allowGrowingCapacity.i, align 1
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then2.i, label %if.else.i
+
+if.then2.i:                                       ; preds = %if.then.i5
+  %mul.i6 = shl nsw i64 %conv, 4
+  %4 = load ptr, ptr @__clewCreateBuffer, align 8
+  %m_clContext.i = getelementptr inbounds i8, ptr %this, i64 32
+  %5 = load ptr, ptr %m_clContext.i, align 8
+  %call3.i = call ptr %4(ptr noundef %5, i64 noundef 1, i64 noundef %mul.i6, ptr noundef null, ptr noundef nonnull %ciErrNum.i)
+  %6 = load i32, ptr %ciErrNum.i, align 4
+  %cmp4.not.i = icmp eq i32 %6, 0
+  br i1 %cmp4.not.i, label %if.end12.i, label %if.end.thread.i
+
+if.end.thread.i:                                  ; preds = %if.then2.i
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.12)
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.then2.i, %if.end.thread.i
+  %_Count.addr.023.i = phi i64 [ 0, %if.end.thread.i ], [ %conv, %if.then2.i ]
+  %m_clBuffer.i5.i = getelementptr inbounds i8, ptr %this, i64 24
+  %7 = load ptr, ptr %m_clBuffer.i5.i, align 8
+  %tobool.not.i.i = icmp eq ptr %7, null
+  br i1 %tobool.not.i.i, label %_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb.exit, label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %if.end12.i
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %8 = load i8, ptr %m_ownsMemory.i.i, align 8
+  %tobool2.i.i = trunc i8 %8 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb.exit
+
+if.then.i.i:                                      ; preds = %land.lhs.true.i.i
+  %9 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8.i = call i32 %9(ptr noundef nonnull %7)
+  br label %_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb.exit
+
+if.else.i:                                        ; preds = %if.then.i5
+  %m_clBuffer.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %10 = load ptr, ptr %m_clBuffer.i9.i, align 8
+  %tobool.not.i10.i = icmp eq ptr %10, null
+  br i1 %tobool.not.i10.i, label %_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb.exit.thread8, label %land.lhs.true.i11.i
+
+land.lhs.true.i11.i:                              ; preds = %if.else.i
+  %m_ownsMemory.i12.i = getelementptr inbounds i8, ptr %this, i64 48
+  %11 = load i8, ptr %m_ownsMemory.i12.i, align 8
+  %tobool2.i13.i = trunc i8 %11 to i1
+  br i1 %tobool2.i13.i, label %if.then.i16.i, label %_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb.exit.thread8
+
+if.then.i16.i:                                    ; preds = %land.lhs.true.i11.i
+  %12 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17.i = tail call i32 %12(ptr noundef nonnull %10)
+  br label %_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb.exit.thread8
+
+_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb.exit.thread8: ; preds = %if.else.i, %land.lhs.true.i11.i, %if.then.i16.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb.exit:   ; preds = %if.end12.i, %land.lhs.true.i.i, %if.then.i.i
+  store ptr %call3.i, ptr %m_clBuffer.i5.i, align 8
+  store i64 %_Count.addr.023.i, ptr %m_capacity.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br i1 %cmp4.not.i, label %13, label %_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit
+
+13:                                               ; preds = %_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb.exit.thread, %_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb.exit
+  br label %_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit:    ; preds = %13, %_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb.exit, %_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb.exit.thread8, %entry
+  %storemerge.i = phi i64 [ %conv, %entry ], [ %conv, %13 ], [ 0, %_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb.exit ], [ 0, %_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb.exit.thread8 ]
+  store i64 %storemerge.i, ptr %m_size.i.i, align 8
+  %tobool3.not = icmp eq i32 %0, 0
+  br i1 %tobool3.not, label %if.end, label %if.then.i
+
+if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit
+  %m_data.i = getelementptr inbounds i8, ptr %srcArray, i64 16
+  %14 = load ptr, ptr %m_data.i, align 8
+  %mul.i = shl nsw i64 %conv, 4
+  %15 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
+  %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
+  %16 = load ptr, ptr %m_commandQueue.i, align 8
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
+  %17 = load ptr, ptr %m_clBuffer.i, align 8
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  br i1 %waitForCompletion, label %if.then4.i, label %if.end
+
+if.then4.i:                                       ; preds = %if.then.i
+  %18 = load ptr, ptr @__clewFinish, align 8
+  %19 = load ptr, ptr %m_commandQueue.i, align 8
+  %call6.i = call i32 %18(ptr noundef %19)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then4.i, %if.then.i, %_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIiE12copyFromHostERK20b3AlignedObjectArrayIiEb(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(25) %srcArray, i1 noundef zeroext %waitForCompletion) local_unnamed_addr #0 comdat align 2 {
+entry:
+  %ciErrNum.i = alloca i32, align 4
+  %m_size.i = getelementptr inbounds i8, ptr %srcArray, i64 4
+  %0 = load i32, ptr %m_size.i, align 4
+  %conv = sext i32 %0 to i64
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load i64, ptr %m_size.i.i, align 8
+  %cmp3.i = icmp ult i64 %1, %conv
+  br i1 %cmp3.i, label %if.end7.i, label %_ZN13b3OpenCLArrayIiE6resizeEmb.exit
+
+if.end7.i:                                        ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ciErrNum.i)
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load i64, ptr %m_capacity.i.i, align 8
+  %cmp.i = icmp ult i64 %2, %conv
+  br i1 %cmp.i, label %if.then.i5, label %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread
+
+_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread:     ; preds = %if.end7.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %13
+
+if.then.i5:                                       ; preds = %if.end7.i
+  %m_allowGrowingCapacity.i = getelementptr inbounds i8, ptr %this, i64 49
+  %3 = load i8, ptr %m_allowGrowingCapacity.i, align 1
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then2.i, label %if.else.i
+
+if.then2.i:                                       ; preds = %if.then.i5
+  %mul.i6 = shl nsw i64 %conv, 2
+  %4 = load ptr, ptr @__clewCreateBuffer, align 8
+  %m_clContext.i = getelementptr inbounds i8, ptr %this, i64 32
+  %5 = load ptr, ptr %m_clContext.i, align 8
+  %call3.i = call ptr %4(ptr noundef %5, i64 noundef 1, i64 noundef %mul.i6, ptr noundef null, ptr noundef nonnull %ciErrNum.i)
+  %6 = load i32, ptr %ciErrNum.i, align 4
+  %cmp4.not.i = icmp eq i32 %6, 0
+  br i1 %cmp4.not.i, label %if.end12.i, label %if.end.thread.i
+
+if.end.thread.i:                                  ; preds = %if.then2.i
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.12)
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.then2.i, %if.end.thread.i
+  %_Count.addr.023.i = phi i64 [ 0, %if.end.thread.i ], [ %conv, %if.then2.i ]
+  %m_clBuffer.i5.i = getelementptr inbounds i8, ptr %this, i64 24
+  %7 = load ptr, ptr %m_clBuffer.i5.i, align 8
+  %tobool.not.i.i = icmp eq ptr %7, null
+  br i1 %tobool.not.i.i, label %_ZN13b3OpenCLArrayIiE7reserveEmb.exit, label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %if.end12.i
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %8 = load i8, ptr %m_ownsMemory.i.i, align 8
+  %tobool2.i.i = trunc i8 %8 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayIiE7reserveEmb.exit
+
+if.then.i.i:                                      ; preds = %land.lhs.true.i.i
+  %9 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8.i = call i32 %9(ptr noundef nonnull %7)
+  br label %_ZN13b3OpenCLArrayIiE7reserveEmb.exit
+
+if.else.i:                                        ; preds = %if.then.i5
+  %m_clBuffer.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %10 = load ptr, ptr %m_clBuffer.i9.i, align 8
+  %tobool.not.i10.i = icmp eq ptr %10, null
+  br i1 %tobool.not.i10.i, label %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread8, label %land.lhs.true.i11.i
+
+land.lhs.true.i11.i:                              ; preds = %if.else.i
+  %m_ownsMemory.i12.i = getelementptr inbounds i8, ptr %this, i64 48
+  %11 = load i8, ptr %m_ownsMemory.i12.i, align 8
+  %tobool2.i13.i = trunc i8 %11 to i1
+  br i1 %tobool2.i13.i, label %if.then.i16.i, label %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread8
+
+if.then.i16.i:                                    ; preds = %land.lhs.true.i11.i
+  %12 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17.i = tail call i32 %12(ptr noundef nonnull %10)
+  br label %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread8
+
+_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread8:    ; preds = %if.else.i, %land.lhs.true.i11.i, %if.then.i16.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %_ZN13b3OpenCLArrayIiE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayIiE7reserveEmb.exit:            ; preds = %if.end12.i, %land.lhs.true.i.i, %if.then.i.i
+  store ptr %call3.i, ptr %m_clBuffer.i5.i, align 8
+  store i64 %_Count.addr.023.i, ptr %m_capacity.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br i1 %cmp4.not.i, label %13, label %_ZN13b3OpenCLArrayIiE6resizeEmb.exit
+
+13:                                               ; preds = %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit
+  br label %_ZN13b3OpenCLArrayIiE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayIiE6resizeEmb.exit:             ; preds = %13, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread8, %entry
+  %storemerge.i = phi i64 [ %conv, %entry ], [ %conv, %13 ], [ 0, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit ], [ 0, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread8 ]
+  store i64 %storemerge.i, ptr %m_size.i.i, align 8
+  %tobool3.not = icmp eq i32 %0, 0
+  br i1 %tobool3.not, label %if.end, label %if.then.i
+
+if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayIiE6resizeEmb.exit
+  %m_data.i = getelementptr inbounds i8, ptr %srcArray, i64 16
+  %14 = load ptr, ptr %m_data.i, align 8
+  %mul.i = shl nsw i64 %conv, 2
+  %15 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
+  %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
+  %16 = load ptr, ptr %m_commandQueue.i, align 8
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
+  %17 = load ptr, ptr %m_clBuffer.i, align 8
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  br i1 %waitForCompletion, label %if.then4.i, label %if.end
+
+if.then4.i:                                       ; preds = %if.then.i
+  %18 = load ptr, ptr @__clewFinish, align 8
+  %19 = load ptr, ptr %m_commandQueue.i, align 8
+  %call6.i = call i32 %18(ptr noundef %19)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then4.i, %if.then.i, %_ZN13b3OpenCLArrayIiE6resizeEmb.exit
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI9b3BvhInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(25) %srcArray, i1 noundef zeroext %waitForCompletion) local_unnamed_addr #0 comdat align 2 {
+entry:
+  %ciErrNum.i = alloca i32, align 4
+  %m_size.i = getelementptr inbounds i8, ptr %srcArray, i64 4
+  %0 = load i32, ptr %m_size.i, align 4
+  %conv = sext i32 %0 to i64
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load i64, ptr %m_size.i.i, align 8
+  %cmp3.i = icmp ult i64 %1, %conv
+  br i1 %cmp3.i, label %if.end7.i, label %_ZN13b3OpenCLArrayI9b3BvhInfoE6resizeEmb.exit
+
+if.end7.i:                                        ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ciErrNum.i)
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load i64, ptr %m_capacity.i.i, align 8
+  %cmp.i = icmp ult i64 %2, %conv
+  br i1 %cmp.i, label %if.then.i5, label %_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb.exit.thread
+
+_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb.exit.thread: ; preds = %if.end7.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %13
+
+if.then.i5:                                       ; preds = %if.end7.i
+  %m_allowGrowingCapacity.i = getelementptr inbounds i8, ptr %this, i64 49
+  %3 = load i8, ptr %m_allowGrowingCapacity.i, align 1
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then2.i, label %if.else.i
+
+if.then2.i:                                       ; preds = %if.then.i5
+  %mul.i6 = shl nsw i64 %conv, 6
+  %4 = load ptr, ptr @__clewCreateBuffer, align 8
+  %m_clContext.i = getelementptr inbounds i8, ptr %this, i64 32
+  %5 = load ptr, ptr %m_clContext.i, align 8
+  %call3.i = call ptr %4(ptr noundef %5, i64 noundef 1, i64 noundef %mul.i6, ptr noundef null, ptr noundef nonnull %ciErrNum.i)
+  %6 = load i32, ptr %ciErrNum.i, align 4
+  %cmp4.not.i = icmp eq i32 %6, 0
+  br i1 %cmp4.not.i, label %if.end12.i, label %if.end.thread.i
+
+if.end.thread.i:                                  ; preds = %if.then2.i
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.12)
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.then2.i, %if.end.thread.i
+  %_Count.addr.023.i = phi i64 [ 0, %if.end.thread.i ], [ %conv, %if.then2.i ]
+  %m_clBuffer.i5.i = getelementptr inbounds i8, ptr %this, i64 24
+  %7 = load ptr, ptr %m_clBuffer.i5.i, align 8
+  %tobool.not.i.i = icmp eq ptr %7, null
+  br i1 %tobool.not.i.i, label %_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb.exit, label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %if.end12.i
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %8 = load i8, ptr %m_ownsMemory.i.i, align 8
+  %tobool2.i.i = trunc i8 %8 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb.exit
+
+if.then.i.i:                                      ; preds = %land.lhs.true.i.i
+  %9 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8.i = call i32 %9(ptr noundef nonnull %7)
+  br label %_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb.exit
+
+if.else.i:                                        ; preds = %if.then.i5
+  %m_clBuffer.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %10 = load ptr, ptr %m_clBuffer.i9.i, align 8
+  %tobool.not.i10.i = icmp eq ptr %10, null
+  br i1 %tobool.not.i10.i, label %_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb.exit.thread8, label %land.lhs.true.i11.i
+
+land.lhs.true.i11.i:                              ; preds = %if.else.i
+  %m_ownsMemory.i12.i = getelementptr inbounds i8, ptr %this, i64 48
+  %11 = load i8, ptr %m_ownsMemory.i12.i, align 8
+  %tobool2.i13.i = trunc i8 %11 to i1
+  br i1 %tobool2.i13.i, label %if.then.i16.i, label %_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb.exit.thread8
+
+if.then.i16.i:                                    ; preds = %land.lhs.true.i11.i
+  %12 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17.i = tail call i32 %12(ptr noundef nonnull %10)
+  br label %_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb.exit.thread8
+
+_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb.exit.thread8: ; preds = %if.else.i, %land.lhs.true.i11.i, %if.then.i16.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %_ZN13b3OpenCLArrayI9b3BvhInfoE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb.exit:   ; preds = %if.end12.i, %land.lhs.true.i.i, %if.then.i.i
+  store ptr %call3.i, ptr %m_clBuffer.i5.i, align 8
+  store i64 %_Count.addr.023.i, ptr %m_capacity.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br i1 %cmp4.not.i, label %13, label %_ZN13b3OpenCLArrayI9b3BvhInfoE6resizeEmb.exit
+
+13:                                               ; preds = %_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb.exit.thread, %_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb.exit
+  br label %_ZN13b3OpenCLArrayI9b3BvhInfoE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI9b3BvhInfoE6resizeEmb.exit:    ; preds = %13, %_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb.exit, %_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb.exit.thread8, %entry
+  %storemerge.i = phi i64 [ %conv, %entry ], [ %conv, %13 ], [ 0, %_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb.exit ], [ 0, %_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb.exit.thread8 ]
+  store i64 %storemerge.i, ptr %m_size.i.i, align 8
+  %tobool3.not = icmp eq i32 %0, 0
+  br i1 %tobool3.not, label %if.end, label %if.then.i
+
+if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI9b3BvhInfoE6resizeEmb.exit
+  %m_data.i = getelementptr inbounds i8, ptr %srcArray, i64 16
+  %14 = load ptr, ptr %m_data.i, align 8
+  %mul.i = shl nsw i64 %conv, 6
+  %15 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
+  %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
+  %16 = load ptr, ptr %m_commandQueue.i, align 8
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
+  %17 = load ptr, ptr %m_clBuffer.i, align 8
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  br i1 %waitForCompletion, label %if.then4.i, label %if.end
+
+if.then4.i:                                       ; preds = %if.then.i
+  %18 = load ptr, ptr @__clewFinish, align 8
+  %19 = load ptr, ptr %m_commandQueue.i, align 8
+  %call6.i = call i32 %18(ptr noundef %19)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then4.i, %if.then.i, %_ZN13b3OpenCLArrayI9b3BvhInfoE6resizeEmb.exit
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(25) %srcArray, i1 noundef zeroext %waitForCompletion) local_unnamed_addr #0 comdat align 2 {
+entry:
+  %ciErrNum.i = alloca i32, align 4
+  %m_size.i = getelementptr inbounds i8, ptr %srcArray, i64 4
+  %0 = load i32, ptr %m_size.i, align 4
+  %conv = sext i32 %0 to i64
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load i64, ptr %m_size.i.i, align 8
+  %cmp3.i = icmp ult i64 %1, %conv
+  br i1 %cmp3.i, label %if.end7.i, label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE6resizeEmb.exit
+
+if.end7.i:                                        ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ciErrNum.i)
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load i64, ptr %m_capacity.i.i, align 8
+  %cmp.i = icmp ult i64 %2, %conv
+  br i1 %cmp.i, label %if.then.i5, label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb.exit.thread
+
+_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb.exit.thread: ; preds = %if.end7.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %13
+
+if.then.i5:                                       ; preds = %if.end7.i
+  %m_allowGrowingCapacity.i = getelementptr inbounds i8, ptr %this, i64 49
+  %3 = load i8, ptr %m_allowGrowingCapacity.i, align 1
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then2.i, label %if.else.i
+
+if.then2.i:                                       ; preds = %if.then.i5
+  %mul.i6 = shl nsw i64 %conv, 4
+  %4 = load ptr, ptr @__clewCreateBuffer, align 8
+  %m_clContext.i = getelementptr inbounds i8, ptr %this, i64 32
+  %5 = load ptr, ptr %m_clContext.i, align 8
+  %call3.i = call ptr %4(ptr noundef %5, i64 noundef 1, i64 noundef %mul.i6, ptr noundef null, ptr noundef nonnull %ciErrNum.i)
+  %6 = load i32, ptr %ciErrNum.i, align 4
+  %cmp4.not.i = icmp eq i32 %6, 0
+  br i1 %cmp4.not.i, label %if.end12.i, label %if.end.thread.i
+
+if.end.thread.i:                                  ; preds = %if.then2.i
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.12)
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.then2.i, %if.end.thread.i
+  %_Count.addr.023.i = phi i64 [ 0, %if.end.thread.i ], [ %conv, %if.then2.i ]
+  %m_clBuffer.i5.i = getelementptr inbounds i8, ptr %this, i64 24
+  %7 = load ptr, ptr %m_clBuffer.i5.i, align 8
+  %tobool.not.i.i = icmp eq ptr %7, null
+  br i1 %tobool.not.i.i, label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb.exit, label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %if.end12.i
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %8 = load i8, ptr %m_ownsMemory.i.i, align 8
+  %tobool2.i.i = trunc i8 %8 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb.exit
+
+if.then.i.i:                                      ; preds = %land.lhs.true.i.i
+  %9 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8.i = call i32 %9(ptr noundef nonnull %7)
+  br label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb.exit
+
+if.else.i:                                        ; preds = %if.then.i5
+  %m_clBuffer.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %10 = load ptr, ptr %m_clBuffer.i9.i, align 8
+  %tobool.not.i10.i = icmp eq ptr %10, null
+  br i1 %tobool.not.i10.i, label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb.exit.thread8, label %land.lhs.true.i11.i
+
+land.lhs.true.i11.i:                              ; preds = %if.else.i
+  %m_ownsMemory.i12.i = getelementptr inbounds i8, ptr %this, i64 48
+  %11 = load i8, ptr %m_ownsMemory.i12.i, align 8
+  %tobool2.i13.i = trunc i8 %11 to i1
+  br i1 %tobool2.i13.i, label %if.then.i16.i, label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb.exit.thread8
+
+if.then.i16.i:                                    ; preds = %land.lhs.true.i11.i
+  %12 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17.i = tail call i32 %12(ptr noundef nonnull %10)
+  br label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb.exit.thread8
+
+_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb.exit.thread8: ; preds = %if.else.i, %land.lhs.true.i11.i, %if.then.i16.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb.exit: ; preds = %if.end12.i, %land.lhs.true.i.i, %if.then.i.i
+  store ptr %call3.i, ptr %m_clBuffer.i5.i, align 8
+  store i64 %_Count.addr.023.i, ptr %m_capacity.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br i1 %cmp4.not.i, label %13, label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE6resizeEmb.exit
+
+13:                                               ; preds = %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb.exit.thread, %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb.exit
+  br label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE6resizeEmb.exit: ; preds = %13, %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb.exit, %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb.exit.thread8, %entry
+  %storemerge.i = phi i64 [ %conv, %entry ], [ %conv, %13 ], [ 0, %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb.exit ], [ 0, %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb.exit.thread8 ]
+  store i64 %storemerge.i, ptr %m_size.i.i, align 8
+  %tobool3.not = icmp eq i32 %0, 0
+  br i1 %tobool3.not, label %if.end, label %if.then.i
+
+if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE6resizeEmb.exit
+  %m_data.i = getelementptr inbounds i8, ptr %srcArray, i64 16
+  %14 = load ptr, ptr %m_data.i, align 8
+  %mul.i = shl nsw i64 %conv, 4
+  %15 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
+  %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
+  %16 = load ptr, ptr %m_commandQueue.i, align 8
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
+  %17 = load ptr, ptr %m_clBuffer.i, align 8
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  br i1 %waitForCompletion, label %if.then4.i, label %if.end
+
+if.then4.i:                                       ; preds = %if.then.i
+  %18 = load ptr, ptr @__clewFinish, align 8
+  %19 = load ptr, ptr %m_commandQueue.i, align 8
+  %call6.i = call i32 %18(ptr noundef %19)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then4.i, %if.then.i, %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE6resizeEmb.exit
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(25) %srcArray, i1 noundef zeroext %waitForCompletion) local_unnamed_addr #0 comdat align 2 {
+entry:
+  %ciErrNum.i = alloca i32, align 4
+  %m_size.i = getelementptr inbounds i8, ptr %srcArray, i64 4
+  %0 = load i32, ptr %m_size.i, align 4
+  %conv = sext i32 %0 to i64
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load i64, ptr %m_size.i.i, align 8
+  %cmp3.i = icmp ult i64 %1, %conv
+  br i1 %cmp3.i, label %if.end7.i, label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE6resizeEmb.exit
+
+if.end7.i:                                        ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ciErrNum.i)
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load i64, ptr %m_capacity.i.i, align 8
+  %cmp.i = icmp ult i64 %2, %conv
+  br i1 %cmp.i, label %if.then.i5, label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb.exit.thread
+
+_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb.exit.thread: ; preds = %if.end7.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %13
+
+if.then.i5:                                       ; preds = %if.end7.i
+  %m_allowGrowingCapacity.i = getelementptr inbounds i8, ptr %this, i64 49
+  %3 = load i8, ptr %m_allowGrowingCapacity.i, align 1
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then2.i, label %if.else.i
+
+if.then2.i:                                       ; preds = %if.then.i5
+  %mul.i6 = shl nsw i64 %conv, 5
+  %4 = load ptr, ptr @__clewCreateBuffer, align 8
+  %m_clContext.i = getelementptr inbounds i8, ptr %this, i64 32
+  %5 = load ptr, ptr %m_clContext.i, align 8
+  %call3.i = call ptr %4(ptr noundef %5, i64 noundef 1, i64 noundef %mul.i6, ptr noundef null, ptr noundef nonnull %ciErrNum.i)
+  %6 = load i32, ptr %ciErrNum.i, align 4
+  %cmp4.not.i = icmp eq i32 %6, 0
+  br i1 %cmp4.not.i, label %if.end12.i, label %if.end.thread.i
+
+if.end.thread.i:                                  ; preds = %if.then2.i
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.12)
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.then2.i, %if.end.thread.i
+  %_Count.addr.023.i = phi i64 [ 0, %if.end.thread.i ], [ %conv, %if.then2.i ]
+  %m_clBuffer.i5.i = getelementptr inbounds i8, ptr %this, i64 24
+  %7 = load ptr, ptr %m_clBuffer.i5.i, align 8
+  %tobool.not.i.i = icmp eq ptr %7, null
+  br i1 %tobool.not.i.i, label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb.exit, label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %if.end12.i
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %8 = load i8, ptr %m_ownsMemory.i.i, align 8
+  %tobool2.i.i = trunc i8 %8 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb.exit
+
+if.then.i.i:                                      ; preds = %land.lhs.true.i.i
+  %9 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8.i = call i32 %9(ptr noundef nonnull %7)
+  br label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb.exit
+
+if.else.i:                                        ; preds = %if.then.i5
+  %m_clBuffer.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %10 = load ptr, ptr %m_clBuffer.i9.i, align 8
+  %tobool.not.i10.i = icmp eq ptr %10, null
+  br i1 %tobool.not.i10.i, label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb.exit.thread8, label %land.lhs.true.i11.i
+
+land.lhs.true.i11.i:                              ; preds = %if.else.i
+  %m_ownsMemory.i12.i = getelementptr inbounds i8, ptr %this, i64 48
+  %11 = load i8, ptr %m_ownsMemory.i12.i, align 8
+  %tobool2.i13.i = trunc i8 %11 to i1
+  br i1 %tobool2.i13.i, label %if.then.i16.i, label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb.exit.thread8
+
+if.then.i16.i:                                    ; preds = %land.lhs.true.i11.i
+  %12 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17.i = tail call i32 %12(ptr noundef nonnull %10)
+  br label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb.exit.thread8
+
+_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb.exit.thread8: ; preds = %if.else.i, %land.lhs.true.i11.i, %if.then.i16.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb.exit: ; preds = %if.end12.i, %land.lhs.true.i.i, %if.then.i.i
+  store ptr %call3.i, ptr %m_clBuffer.i5.i, align 8
+  store i64 %_Count.addr.023.i, ptr %m_capacity.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br i1 %cmp4.not.i, label %13, label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE6resizeEmb.exit
+
+13:                                               ; preds = %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb.exit.thread, %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb.exit
+  br label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE6resizeEmb.exit: ; preds = %13, %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb.exit, %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb.exit.thread8, %entry
+  %storemerge.i = phi i64 [ %conv, %entry ], [ %conv, %13 ], [ 0, %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb.exit ], [ 0, %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb.exit.thread8 ]
+  store i64 %storemerge.i, ptr %m_size.i.i, align 8
+  %tobool3.not = icmp eq i32 %0, 0
+  br i1 %tobool3.not, label %if.end, label %if.then.i
+
+if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE6resizeEmb.exit
+  %m_data.i = getelementptr inbounds i8, ptr %srcArray, i64 16
+  %14 = load ptr, ptr %m_data.i, align 8
+  %mul.i = shl nsw i64 %conv, 5
+  %15 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
+  %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
+  %16 = load ptr, ptr %m_commandQueue.i, align 8
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
+  %17 = load ptr, ptr %m_clBuffer.i, align 8
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  br i1 %waitForCompletion, label %if.then4.i, label %if.end
+
+if.then4.i:                                       ; preds = %if.then.i
+  %18 = load ptr, ptr @__clewFinish, align 8
+  %19 = load ptr, ptr %m_commandQueue.i, align 8
+  %call6.i = call i32 %18(ptr noundef %19)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then4.i, %if.then.i, %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE6resizeEmb.exit
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI12b3CollidableE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(25) %srcArray, i1 noundef zeroext %waitForCompletion) local_unnamed_addr #0 comdat align 2 {
+entry:
+  %ciErrNum.i = alloca i32, align 4
+  %m_size.i = getelementptr inbounds i8, ptr %srcArray, i64 4
+  %0 = load i32, ptr %m_size.i, align 4
+  %conv = sext i32 %0 to i64
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load i64, ptr %m_size.i.i, align 8
+  %cmp3.i = icmp ult i64 %1, %conv
+  br i1 %cmp3.i, label %if.end7.i, label %_ZN13b3OpenCLArrayI12b3CollidableE6resizeEmb.exit
+
+if.end7.i:                                        ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ciErrNum.i)
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load i64, ptr %m_capacity.i.i, align 8
+  %cmp.i = icmp ult i64 %2, %conv
+  br i1 %cmp.i, label %if.then.i5, label %_ZN13b3OpenCLArrayI12b3CollidableE7reserveEmb.exit.thread
+
+_ZN13b3OpenCLArrayI12b3CollidableE7reserveEmb.exit.thread: ; preds = %if.end7.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %13
+
+if.then.i5:                                       ; preds = %if.end7.i
+  %m_allowGrowingCapacity.i = getelementptr inbounds i8, ptr %this, i64 49
+  %3 = load i8, ptr %m_allowGrowingCapacity.i, align 1
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then2.i, label %if.else.i
+
+if.then2.i:                                       ; preds = %if.then.i5
+  %mul.i6 = shl nsw i64 %conv, 4
+  %4 = load ptr, ptr @__clewCreateBuffer, align 8
+  %m_clContext.i = getelementptr inbounds i8, ptr %this, i64 32
+  %5 = load ptr, ptr %m_clContext.i, align 8
+  %call3.i = call ptr %4(ptr noundef %5, i64 noundef 1, i64 noundef %mul.i6, ptr noundef null, ptr noundef nonnull %ciErrNum.i)
+  %6 = load i32, ptr %ciErrNum.i, align 4
+  %cmp4.not.i = icmp eq i32 %6, 0
+  br i1 %cmp4.not.i, label %if.end12.i, label %if.end.thread.i
+
+if.end.thread.i:                                  ; preds = %if.then2.i
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.12)
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.then2.i, %if.end.thread.i
+  %_Count.addr.023.i = phi i64 [ 0, %if.end.thread.i ], [ %conv, %if.then2.i ]
+  %m_clBuffer.i5.i = getelementptr inbounds i8, ptr %this, i64 24
+  %7 = load ptr, ptr %m_clBuffer.i5.i, align 8
+  %tobool.not.i.i = icmp eq ptr %7, null
+  br i1 %tobool.not.i.i, label %_ZN13b3OpenCLArrayI12b3CollidableE7reserveEmb.exit, label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %if.end12.i
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %8 = load i8, ptr %m_ownsMemory.i.i, align 8
+  %tobool2.i.i = trunc i8 %8 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI12b3CollidableE7reserveEmb.exit
+
+if.then.i.i:                                      ; preds = %land.lhs.true.i.i
+  %9 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8.i = call i32 %9(ptr noundef nonnull %7)
+  br label %_ZN13b3OpenCLArrayI12b3CollidableE7reserveEmb.exit
+
+if.else.i:                                        ; preds = %if.then.i5
+  %m_clBuffer.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %10 = load ptr, ptr %m_clBuffer.i9.i, align 8
+  %tobool.not.i10.i = icmp eq ptr %10, null
+  br i1 %tobool.not.i10.i, label %_ZN13b3OpenCLArrayI12b3CollidableE7reserveEmb.exit.thread8, label %land.lhs.true.i11.i
+
+land.lhs.true.i11.i:                              ; preds = %if.else.i
+  %m_ownsMemory.i12.i = getelementptr inbounds i8, ptr %this, i64 48
+  %11 = load i8, ptr %m_ownsMemory.i12.i, align 8
+  %tobool2.i13.i = trunc i8 %11 to i1
+  br i1 %tobool2.i13.i, label %if.then.i16.i, label %_ZN13b3OpenCLArrayI12b3CollidableE7reserveEmb.exit.thread8
+
+if.then.i16.i:                                    ; preds = %land.lhs.true.i11.i
+  %12 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17.i = tail call i32 %12(ptr noundef nonnull %10)
+  br label %_ZN13b3OpenCLArrayI12b3CollidableE7reserveEmb.exit.thread8
+
+_ZN13b3OpenCLArrayI12b3CollidableE7reserveEmb.exit.thread8: ; preds = %if.else.i, %land.lhs.true.i11.i, %if.then.i16.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br label %_ZN13b3OpenCLArrayI12b3CollidableE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI12b3CollidableE7reserveEmb.exit: ; preds = %if.end12.i, %land.lhs.true.i.i, %if.then.i.i
+  store ptr %call3.i, ptr %m_clBuffer.i5.i, align 8
+  store i64 %_Count.addr.023.i, ptr %m_capacity.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
+  br i1 %cmp4.not.i, label %13, label %_ZN13b3OpenCLArrayI12b3CollidableE6resizeEmb.exit
+
+13:                                               ; preds = %_ZN13b3OpenCLArrayI12b3CollidableE7reserveEmb.exit.thread, %_ZN13b3OpenCLArrayI12b3CollidableE7reserveEmb.exit
+  br label %_ZN13b3OpenCLArrayI12b3CollidableE6resizeEmb.exit
+
+_ZN13b3OpenCLArrayI12b3CollidableE6resizeEmb.exit: ; preds = %13, %_ZN13b3OpenCLArrayI12b3CollidableE7reserveEmb.exit, %_ZN13b3OpenCLArrayI12b3CollidableE7reserveEmb.exit.thread8, %entry
+  %storemerge.i = phi i64 [ %conv, %entry ], [ %conv, %13 ], [ 0, %_ZN13b3OpenCLArrayI12b3CollidableE7reserveEmb.exit ], [ 0, %_ZN13b3OpenCLArrayI12b3CollidableE7reserveEmb.exit.thread8 ]
+  store i64 %storemerge.i, ptr %m_size.i.i, align 8
+  %tobool3.not = icmp eq i32 %0, 0
+  br i1 %tobool3.not, label %if.end, label %if.then.i
+
+if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI12b3CollidableE6resizeEmb.exit
+  %m_data.i = getelementptr inbounds i8, ptr %srcArray, i64 16
+  %14 = load ptr, ptr %m_data.i, align 8
+  %mul.i = shl nsw i64 %conv, 4
+  %15 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
+  %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
+  %16 = load ptr, ptr %m_commandQueue.i, align 8
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
+  %17 = load ptr, ptr %m_clBuffer.i, align 8
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  br i1 %waitForCompletion, label %if.then4.i, label %if.end
+
+if.then4.i:                                       ; preds = %if.then.i
+  %18 = load ptr, ptr @__clewFinish, align 8
+  %19 = load ptr, ptr %m_commandQueue.i, align 8
+  %call6.i = call i32 %18(ptr noundef %19)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then4.i, %if.then.i, %_ZN13b3OpenCLArrayI12b3CollidableE6resizeEmb.exit
   ret void
 }
 
@@ -7275,9 +8187,8 @@ if.then.i:                                        ; preds = %for.body9.lr.ph.i
 if.then.i22.i:                                    ; preds = %if.then.i
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %7 = and i8 %6, 1
-  %tobool2.not.i.i = icmp eq i8 %7, 0
-  br i1 %tobool2.not.i.i, label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i, label %if.then3.i.i
+  %tobool2.i.i = trunc i8 %6 to i1
+  br i1 %tobool2.i.i, label %if.then3.i.i, label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i
 
 if.then3.i.i:                                     ; preds = %if.then.i22.i
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %5)
@@ -7292,13 +8203,13 @@ _ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i: ; preds = %if.then3.
 
 _ZN20b3AlignedObjectArrayI9b3Vector3E7reserveEi.exit: ; preds = %for.body9.lr.ph.i, %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i
   %m_data10.i = getelementptr inbounds i8, ptr %2, i64 56
-  %8 = sext i32 %3 to i64
+  %7 = sext i32 %3 to i64
   br label %for.body9.i
 
 for.body9.i:                                      ; preds = %for.body9.i, %_ZN20b3AlignedObjectArrayI9b3Vector3E7reserveEi.exit
-  %indvars.iv.i = phi i64 [ %8, %_ZN20b3AlignedObjectArrayI9b3Vector3E7reserveEi.exit ], [ %indvars.iv.next.i, %for.body9.i ]
-  %9 = load ptr, ptr %m_data10.i, align 8
-  %arrayidx12.i = getelementptr inbounds %class.b3Vector3, ptr %9, i64 %indvars.iv.i
+  %indvars.iv.i = phi i64 [ %7, %_ZN20b3AlignedObjectArrayI9b3Vector3E7reserveEi.exit ], [ %indvars.iv.next.i, %for.body9.i ]
+  %8 = load ptr, ptr %m_data10.i, align 8
+  %arrayidx12.i = getelementptr inbounds %class.b3Vector3, ptr %8, i64 %indvars.iv.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx12.i, i8 0, i64 16, i1 false)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 0
@@ -7306,54 +8217,53 @@ for.body9.i:                                      ; preds = %for.body9.i, %_ZN20
 
 _ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit: ; preds = %for.body9.i, %entry
   store i32 0, ptr %m_size.i.i, align 4
-  %10 = load ptr, ptr %m_data, align 8
-  %m_size.i.i1 = getelementptr inbounds i8, ptr %10, i64 76
-  %11 = load i32, ptr %m_size.i.i1, align 4
-  %cmp4.i2 = icmp slt i32 %11, 0
+  %9 = load ptr, ptr %m_data, align 8
+  %m_size.i.i1 = getelementptr inbounds i8, ptr %9, i64 76
+  %10 = load i32, ptr %m_size.i.i1, align 4
+  %cmp4.i2 = icmp slt i32 %10, 0
   br i1 %cmp4.i2, label %for.body9.lr.ph.i3, label %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit10
 
 for.body9.lr.ph.i3:                               ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit
-  %m_capacity.i.i102 = getelementptr inbounds i8, ptr %10, i64 80
-  %12 = load i32, ptr %m_capacity.i.i102, align 8
-  %cmp.i103 = icmp slt i32 %12, 0
+  %m_capacity.i.i102 = getelementptr inbounds i8, ptr %9, i64 80
+  %11 = load i32, ptr %m_capacity.i.i102, align 8
+  %cmp.i103 = icmp slt i32 %11, 0
   br i1 %cmp.i103, label %if.then.i104, label %_ZN20b3AlignedObjectArrayI9b3Vector3E7reserveEi.exit114
 
 if.then.i104:                                     ; preds = %for.body9.lr.ph.i3
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.10)
   store i32 0, ptr %m_size.i.i1, align 4
-  %m_data.i20.i106 = getelementptr inbounds i8, ptr %10, i64 88
-  %13 = load ptr, ptr %m_data.i20.i106, align 8
-  %tobool.not.i21.i107 = icmp eq ptr %13, null
-  br i1 %tobool.not.i21.i107, label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i112, label %if.then.i22.i108
+  %m_data.i20.i106 = getelementptr inbounds i8, ptr %9, i64 88
+  %12 = load ptr, ptr %m_data.i20.i106, align 8
+  %tobool.not.i21.i107 = icmp eq ptr %12, null
+  br i1 %tobool.not.i21.i107, label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i111, label %if.then.i22.i108
 
 if.then.i22.i108:                                 ; preds = %if.then.i104
-  %m_ownsMemory.i.i109 = getelementptr inbounds i8, ptr %10, i64 96
-  %14 = load i8, ptr %m_ownsMemory.i.i109, align 8
-  %15 = and i8 %14, 1
-  %tobool2.not.i.i110 = icmp eq i8 %15, 0
-  br i1 %tobool2.not.i.i110, label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i112, label %if.then3.i.i111
+  %m_ownsMemory.i.i109 = getelementptr inbounds i8, ptr %9, i64 96
+  %13 = load i8, ptr %m_ownsMemory.i.i109, align 8
+  %tobool2.i.i110 = trunc i8 %13 to i1
+  br i1 %tobool2.i.i110, label %if.then3.i.i113, label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i111
 
-if.then3.i.i111:                                  ; preds = %if.then.i22.i108
-  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %13)
-  br label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i112
+if.then3.i.i113:                                  ; preds = %if.then.i22.i108
+  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %12)
+  br label %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i111
 
-_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i112: ; preds = %if.then3.i.i111, %if.then.i22.i108, %if.then.i104
-  %m_ownsMemory.i113 = getelementptr inbounds i8, ptr %10, i64 96
-  store i8 1, ptr %m_ownsMemory.i113, align 8
+_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i111: ; preds = %if.then3.i.i113, %if.then.i22.i108, %if.then.i104
+  %m_ownsMemory.i112 = getelementptr inbounds i8, ptr %9, i64 96
+  store i8 1, ptr %m_ownsMemory.i112, align 8
   store ptr null, ptr %m_data.i20.i106, align 8
   store i32 0, ptr %m_capacity.i.i102, align 8
   br label %_ZN20b3AlignedObjectArrayI9b3Vector3E7reserveEi.exit114
 
-_ZN20b3AlignedObjectArrayI9b3Vector3E7reserveEi.exit114: ; preds = %for.body9.lr.ph.i3, %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i112
-  %m_data10.i4 = getelementptr inbounds i8, ptr %10, i64 88
-  %16 = sext i32 %11 to i64
+_ZN20b3AlignedObjectArrayI9b3Vector3E7reserveEi.exit114: ; preds = %for.body9.lr.ph.i3, %_ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i111
+  %m_data10.i4 = getelementptr inbounds i8, ptr %9, i64 88
+  %14 = sext i32 %10 to i64
   br label %for.body9.i5
 
 for.body9.i5:                                     ; preds = %for.body9.i5, %_ZN20b3AlignedObjectArrayI9b3Vector3E7reserveEi.exit114
-  %indvars.iv.i6 = phi i64 [ %16, %_ZN20b3AlignedObjectArrayI9b3Vector3E7reserveEi.exit114 ], [ %indvars.iv.next.i8, %for.body9.i5 ]
-  %17 = load ptr, ptr %m_data10.i4, align 8
-  %arrayidx12.i7 = getelementptr inbounds %class.b3Vector3, ptr %17, i64 %indvars.iv.i6
+  %indvars.iv.i6 = phi i64 [ %14, %_ZN20b3AlignedObjectArrayI9b3Vector3E7reserveEi.exit114 ], [ %indvars.iv.next.i8, %for.body9.i5 ]
+  %15 = load ptr, ptr %m_data10.i4, align 8
+  %arrayidx12.i7 = getelementptr inbounds %class.b3Vector3, ptr %15, i64 %indvars.iv.i6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx12.i7, i8 0, i64 16, i1 false)
   %indvars.iv.next.i8 = add nsw i64 %indvars.iv.i6, 1
   %exitcond.not.i9 = icmp eq i64 %indvars.iv.next.i8, 0
@@ -7361,54 +8271,53 @@ for.body9.i5:                                     ; preds = %for.body9.i5, %_ZN2
 
 _ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit10: ; preds = %for.body9.i5, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit
   store i32 0, ptr %m_size.i.i1, align 4
-  %18 = load ptr, ptr %m_data, align 8
-  %m_size.i.i11 = getelementptr inbounds i8, ptr %18, i64 12
-  %19 = load i32, ptr %m_size.i.i11, align 4
-  %cmp4.i12 = icmp slt i32 %19, 0
+  %16 = load ptr, ptr %m_data, align 8
+  %m_size.i.i11 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = load i32, ptr %m_size.i.i11, align 4
+  %cmp4.i12 = icmp slt i32 %17, 0
   br i1 %cmp4.i12, label %for.body9.lr.ph.i13, label %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i13:                              ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit10
-  %m_capacity.i.i115 = getelementptr inbounds i8, ptr %18, i64 16
-  %20 = load i32, ptr %m_capacity.i.i115, align 8
-  %cmp.i116 = icmp slt i32 %20, 0
+  %m_capacity.i.i115 = getelementptr inbounds i8, ptr %16, i64 16
+  %18 = load i32, ptr %m_capacity.i.i115, align 8
+  %cmp.i116 = icmp slt i32 %18, 0
   br i1 %cmp.i116, label %if.then.i117, label %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE7reserveEi.exit
 
 if.then.i117:                                     ; preds = %for.body9.lr.ph.i13
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.10)
   store i32 0, ptr %m_size.i.i11, align 4
-  %m_data.i20.i119 = getelementptr inbounds i8, ptr %18, i64 24
-  %21 = load ptr, ptr %m_data.i20.i119, align 8
-  %tobool.not.i21.i120 = icmp eq ptr %21, null
+  %m_data.i20.i119 = getelementptr inbounds i8, ptr %16, i64 24
+  %19 = load ptr, ptr %m_data.i20.i119, align 8
+  %tobool.not.i21.i120 = icmp eq ptr %19, null
   br i1 %tobool.not.i21.i120, label %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit.i, label %if.then.i22.i121
 
 if.then.i22.i121:                                 ; preds = %if.then.i117
-  %m_ownsMemory.i.i122 = getelementptr inbounds i8, ptr %18, i64 32
-  %22 = load i8, ptr %m_ownsMemory.i.i122, align 8
-  %23 = and i8 %22, 1
-  %tobool2.not.i.i123 = icmp eq i8 %23, 0
-  br i1 %tobool2.not.i.i123, label %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit.i, label %if.then3.i.i124
+  %m_ownsMemory.i.i122 = getelementptr inbounds i8, ptr %16, i64 32
+  %20 = load i8, ptr %m_ownsMemory.i.i122, align 8
+  %tobool2.i.i123 = trunc i8 %20 to i1
+  br i1 %tobool2.i.i123, label %if.then3.i.i125, label %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit.i
 
-if.then3.i.i124:                                  ; preds = %if.then.i22.i121
-  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %21)
+if.then3.i.i125:                                  ; preds = %if.then.i22.i121
+  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %19)
   br label %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit.i
 
-_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit.i: ; preds = %if.then3.i.i124, %if.then.i22.i121, %if.then.i117
-  %m_ownsMemory.i125 = getelementptr inbounds i8, ptr %18, i64 32
-  store i8 1, ptr %m_ownsMemory.i125, align 8
+_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit.i: ; preds = %if.then3.i.i125, %if.then.i22.i121, %if.then.i117
+  %m_ownsMemory.i124 = getelementptr inbounds i8, ptr %16, i64 32
+  store i8 1, ptr %m_ownsMemory.i124, align 8
   store ptr null, ptr %m_data.i20.i119, align 8
   store i32 0, ptr %m_capacity.i.i115, align 8
   br label %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE7reserveEi.exit
 
 _ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE7reserveEi.exit: ; preds = %for.body9.lr.ph.i13, %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit.i
-  %m_data10.i14 = getelementptr inbounds i8, ptr %18, i64 24
-  %24 = sext i32 %19 to i64
+  %m_data10.i14 = getelementptr inbounds i8, ptr %16, i64 24
+  %21 = sext i32 %17 to i64
   br label %for.body9.i15
 
 for.body9.i15:                                    ; preds = %for.body9.i15, %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE7reserveEi.exit
-  %indvars.iv.i16 = phi i64 [ %24, %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE7reserveEi.exit ], [ %indvars.iv.next.i18, %for.body9.i15 ]
-  %25 = load ptr, ptr %m_data10.i14, align 8
-  %arrayidx12.i17 = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %25, i64 %indvars.iv.i16
+  %indvars.iv.i16 = phi i64 [ %21, %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE7reserveEi.exit ], [ %indvars.iv.next.i18, %for.body9.i15 ]
+  %22 = load ptr, ptr %m_data10.i14, align 8
+  %arrayidx12.i17 = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %22, i64 %indvars.iv.i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %arrayidx12.i17, i8 0, i64 96, i1 false)
   %indvars.iv.next.i18 = add nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, 0
@@ -7416,54 +8325,53 @@ for.body9.i15:                                    ; preds = %for.body9.i15, %_ZN
 
 _ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE6resizeEiRKS0_.exit: ; preds = %for.body9.i15, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit10
   store i32 0, ptr %m_size.i.i11, align 4
-  %26 = load ptr, ptr %m_data, align 8
-  %m_size.i.i20 = getelementptr inbounds i8, ptr %26, i64 108
-  %27 = load i32, ptr %m_size.i.i20, align 4
-  %cmp4.i21 = icmp slt i32 %27, 0
+  %23 = load ptr, ptr %m_data, align 8
+  %m_size.i.i20 = getelementptr inbounds i8, ptr %23, i64 108
+  %24 = load i32, ptr %m_size.i.i20, align 4
+  %cmp4.i21 = icmp slt i32 %24, 0
   br i1 %cmp4.i21, label %for.body9.lr.ph.i22, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit
 
 for.body9.lr.ph.i22:                              ; preds = %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE6resizeEiRKS0_.exit
-  %m_capacity.i.i126 = getelementptr inbounds i8, ptr %26, i64 112
-  %28 = load i32, ptr %m_capacity.i.i126, align 8
-  %cmp.i127 = icmp slt i32 %28, 0
+  %m_capacity.i.i126 = getelementptr inbounds i8, ptr %23, i64 112
+  %25 = load i32, ptr %m_capacity.i.i126, align 8
+  %cmp.i127 = icmp slt i32 %25, 0
   br i1 %cmp.i127, label %if.then.i128, label %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit
 
 if.then.i128:                                     ; preds = %for.body9.lr.ph.i22
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.10)
   store i32 0, ptr %m_size.i.i20, align 4
-  %m_data.i20.i130 = getelementptr inbounds i8, ptr %26, i64 120
-  %29 = load ptr, ptr %m_data.i20.i130, align 8
-  %tobool.not.i21.i131 = icmp eq ptr %29, null
+  %m_data.i20.i130 = getelementptr inbounds i8, ptr %23, i64 120
+  %26 = load ptr, ptr %m_data.i20.i130, align 8
+  %tobool.not.i21.i131 = icmp eq ptr %26, null
   br i1 %tobool.not.i21.i131, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i, label %if.then.i22.i132
 
 if.then.i22.i132:                                 ; preds = %if.then.i128
-  %m_ownsMemory.i.i133 = getelementptr inbounds i8, ptr %26, i64 128
-  %30 = load i8, ptr %m_ownsMemory.i.i133, align 8
-  %31 = and i8 %30, 1
-  %tobool2.not.i.i134 = icmp eq i8 %31, 0
-  br i1 %tobool2.not.i.i134, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i, label %if.then3.i.i135
+  %m_ownsMemory.i.i133 = getelementptr inbounds i8, ptr %23, i64 128
+  %27 = load i8, ptr %m_ownsMemory.i.i133, align 8
+  %tobool2.i.i134 = trunc i8 %27 to i1
+  br i1 %tobool2.i.i134, label %if.then3.i.i136, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i
 
-if.then3.i.i135:                                  ; preds = %if.then.i22.i132
-  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %29)
+if.then3.i.i136:                                  ; preds = %if.then.i22.i132
+  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %26)
   br label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i
 
-_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i: ; preds = %if.then3.i.i135, %if.then.i22.i132, %if.then.i128
-  %m_ownsMemory.i136 = getelementptr inbounds i8, ptr %26, i64 128
-  store i8 1, ptr %m_ownsMemory.i136, align 8
+_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i: ; preds = %if.then3.i.i136, %if.then.i22.i132, %if.then.i128
+  %m_ownsMemory.i135 = getelementptr inbounds i8, ptr %23, i64 128
+  store i8 1, ptr %m_ownsMemory.i135, align 8
   store ptr null, ptr %m_data.i20.i130, align 8
   store i32 0, ptr %m_capacity.i.i126, align 8
   br label %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit
 
 _ZN20b3AlignedObjectArrayIiE7reserveEi.exit:      ; preds = %for.body9.lr.ph.i22, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i
-  %m_data10.i23 = getelementptr inbounds i8, ptr %26, i64 120
-  %32 = sext i32 %27 to i64
+  %m_data10.i23 = getelementptr inbounds i8, ptr %23, i64 120
+  %28 = sext i32 %24 to i64
   br label %for.body9.i24
 
 for.body9.i24:                                    ; preds = %for.body9.i24, %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit
-  %indvars.iv.i25 = phi i64 [ %32, %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit ], [ %indvars.iv.next.i27, %for.body9.i24 ]
-  %33 = load ptr, ptr %m_data10.i23, align 8
-  %arrayidx12.i26 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv.i25
+  %indvars.iv.i25 = phi i64 [ %28, %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit ], [ %indvars.iv.next.i27, %for.body9.i24 ]
+  %29 = load ptr, ptr %m_data10.i23, align 8
+  %arrayidx12.i26 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv.i25
   store i32 0, ptr %arrayidx12.i26, align 4
   %indvars.iv.next.i27 = add nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, 0
@@ -7471,54 +8379,53 @@ for.body9.i24:                                    ; preds = %for.body9.i24, %_ZN
 
 _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body9.i24, %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE6resizeEiRKS0_.exit
   store i32 0, ptr %m_size.i.i20, align 4
-  %34 = load ptr, ptr %m_data, align 8
-  %m_size.i.i29 = getelementptr inbounds i8, ptr %34, i64 212
-  %35 = load i32, ptr %m_size.i.i29, align 4
-  %cmp4.i30 = icmp slt i32 %35, 0
+  %30 = load ptr, ptr %m_data, align 8
+  %m_size.i.i29 = getelementptr inbounds i8, ptr %30, i64 212
+  %31 = load i32, ptr %m_size.i.i29, align 4
+  %cmp4.i30 = icmp slt i32 %31, 0
   br i1 %cmp4.i30, label %for.body9.lr.ph.i31, label %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeE6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i31:                              ; preds = %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit
-  %m_capacity.i.i137 = getelementptr inbounds i8, ptr %34, i64 216
-  %36 = load i32, ptr %m_capacity.i.i137, align 8
-  %cmp.i138 = icmp slt i32 %36, 0
+  %m_capacity.i.i137 = getelementptr inbounds i8, ptr %30, i64 216
+  %32 = load i32, ptr %m_capacity.i.i137, align 8
+  %cmp.i138 = icmp slt i32 %32, 0
   br i1 %cmp.i138, label %if.then.i139, label %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeE7reserveEi.exit
 
 if.then.i139:                                     ; preds = %for.body9.lr.ph.i31
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.10)
   store i32 0, ptr %m_size.i.i29, align 4
-  %m_data.i20.i141 = getelementptr inbounds i8, ptr %34, i64 224
-  %37 = load ptr, ptr %m_data.i20.i141, align 8
-  %tobool.not.i21.i142 = icmp eq ptr %37, null
+  %m_data.i20.i141 = getelementptr inbounds i8, ptr %30, i64 224
+  %33 = load ptr, ptr %m_data.i20.i141, align 8
+  %tobool.not.i21.i142 = icmp eq ptr %33, null
   br i1 %tobool.not.i21.i142, label %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeE10deallocateEv.exit.i, label %if.then.i22.i143
 
 if.then.i22.i143:                                 ; preds = %if.then.i139
-  %m_ownsMemory.i.i144 = getelementptr inbounds i8, ptr %34, i64 232
-  %38 = load i8, ptr %m_ownsMemory.i.i144, align 8
-  %39 = and i8 %38, 1
-  %tobool2.not.i.i145 = icmp eq i8 %39, 0
-  br i1 %tobool2.not.i.i145, label %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeE10deallocateEv.exit.i, label %if.then3.i.i146
+  %m_ownsMemory.i.i144 = getelementptr inbounds i8, ptr %30, i64 232
+  %34 = load i8, ptr %m_ownsMemory.i.i144, align 8
+  %tobool2.i.i145 = trunc i8 %34 to i1
+  br i1 %tobool2.i.i145, label %if.then3.i.i147, label %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeE10deallocateEv.exit.i
 
-if.then3.i.i146:                                  ; preds = %if.then.i22.i143
-  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %37)
+if.then3.i.i147:                                  ; preds = %if.then.i22.i143
+  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %33)
   br label %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeE10deallocateEv.exit.i
 
-_ZN20b3AlignedObjectArrayI15b3GpuChildShapeE10deallocateEv.exit.i: ; preds = %if.then3.i.i146, %if.then.i22.i143, %if.then.i139
-  %m_ownsMemory.i147 = getelementptr inbounds i8, ptr %34, i64 232
-  store i8 1, ptr %m_ownsMemory.i147, align 8
+_ZN20b3AlignedObjectArrayI15b3GpuChildShapeE10deallocateEv.exit.i: ; preds = %if.then3.i.i147, %if.then.i22.i143, %if.then.i139
+  %m_ownsMemory.i146 = getelementptr inbounds i8, ptr %30, i64 232
+  store i8 1, ptr %m_ownsMemory.i146, align 8
   store ptr null, ptr %m_data.i20.i141, align 8
   store i32 0, ptr %m_capacity.i.i137, align 8
   br label %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeE7reserveEi.exit
 
 _ZN20b3AlignedObjectArrayI15b3GpuChildShapeE7reserveEi.exit: ; preds = %for.body9.lr.ph.i31, %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeE10deallocateEv.exit.i
-  %m_data10.i32 = getelementptr inbounds i8, ptr %34, i64 224
-  %40 = sext i32 %35 to i64
+  %m_data10.i32 = getelementptr inbounds i8, ptr %30, i64 224
+  %35 = sext i32 %31 to i64
   br label %for.body9.i33
 
 for.body9.i33:                                    ; preds = %for.body9.i33, %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeE7reserveEi.exit
-  %indvars.iv.i34 = phi i64 [ %40, %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeE7reserveEi.exit ], [ %indvars.iv.next.i36, %for.body9.i33 ]
-  %41 = load ptr, ptr %m_data10.i32, align 8
-  %arrayidx12.i35 = getelementptr inbounds %struct.b3GpuChildShape, ptr %41, i64 %indvars.iv.i34
+  %indvars.iv.i34 = phi i64 [ %35, %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeE7reserveEi.exit ], [ %indvars.iv.next.i36, %for.body9.i33 ]
+  %36 = load ptr, ptr %m_data10.i32, align 8
+  %arrayidx12.i35 = getelementptr inbounds %struct.b3GpuChildShape, ptr %36, i64 %indvars.iv.i34
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %arrayidx12.i35, i8 0, i64 48, i1 false)
   %indvars.iv.next.i36 = add nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, 0
@@ -7526,54 +8433,53 @@ for.body9.i33:                                    ; preds = %for.body9.i33, %_ZN
 
 _ZN20b3AlignedObjectArrayI15b3GpuChildShapeE6resizeEiRKS0_.exit: ; preds = %for.body9.i33, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit
   store i32 0, ptr %m_size.i.i29, align 4
-  %42 = load ptr, ptr %m_data, align 8
-  %m_size.i.i38 = getelementptr inbounds i8, ptr %42, i64 252
-  %43 = load i32, ptr %m_size.i.i38, align 4
-  %cmp4.i39 = icmp slt i32 %43, 0
+  %37 = load ptr, ptr %m_data, align 8
+  %m_size.i.i38 = getelementptr inbounds i8, ptr %37, i64 252
+  %38 = load i32, ptr %m_size.i.i38, align 4
+  %cmp4.i39 = icmp slt i32 %38, 0
   br i1 %cmp4.i39, label %for.body9.lr.ph.i40, label %_ZN20b3AlignedObjectArrayI9b3GpuFaceE6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i40:                              ; preds = %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeE6resizeEiRKS0_.exit
-  %m_capacity.i.i148 = getelementptr inbounds i8, ptr %42, i64 256
-  %44 = load i32, ptr %m_capacity.i.i148, align 8
-  %cmp.i149 = icmp slt i32 %44, 0
+  %m_capacity.i.i148 = getelementptr inbounds i8, ptr %37, i64 256
+  %39 = load i32, ptr %m_capacity.i.i148, align 8
+  %cmp.i149 = icmp slt i32 %39, 0
   br i1 %cmp.i149, label %if.then.i150, label %_ZN20b3AlignedObjectArrayI9b3GpuFaceE7reserveEi.exit
 
 if.then.i150:                                     ; preds = %for.body9.lr.ph.i40
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.10)
   store i32 0, ptr %m_size.i.i38, align 4
-  %m_data.i20.i152 = getelementptr inbounds i8, ptr %42, i64 264
-  %45 = load ptr, ptr %m_data.i20.i152, align 8
-  %tobool.not.i21.i153 = icmp eq ptr %45, null
+  %m_data.i20.i152 = getelementptr inbounds i8, ptr %37, i64 264
+  %40 = load ptr, ptr %m_data.i20.i152, align 8
+  %tobool.not.i21.i153 = icmp eq ptr %40, null
   br i1 %tobool.not.i21.i153, label %_ZN20b3AlignedObjectArrayI9b3GpuFaceE10deallocateEv.exit.i, label %if.then.i22.i154
 
 if.then.i22.i154:                                 ; preds = %if.then.i150
-  %m_ownsMemory.i.i155 = getelementptr inbounds i8, ptr %42, i64 272
-  %46 = load i8, ptr %m_ownsMemory.i.i155, align 8
-  %47 = and i8 %46, 1
-  %tobool2.not.i.i156 = icmp eq i8 %47, 0
-  br i1 %tobool2.not.i.i156, label %_ZN20b3AlignedObjectArrayI9b3GpuFaceE10deallocateEv.exit.i, label %if.then3.i.i157
+  %m_ownsMemory.i.i155 = getelementptr inbounds i8, ptr %37, i64 272
+  %41 = load i8, ptr %m_ownsMemory.i.i155, align 8
+  %tobool2.i.i156 = trunc i8 %41 to i1
+  br i1 %tobool2.i.i156, label %if.then3.i.i158, label %_ZN20b3AlignedObjectArrayI9b3GpuFaceE10deallocateEv.exit.i
 
-if.then3.i.i157:                                  ; preds = %if.then.i22.i154
-  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %45)
+if.then3.i.i158:                                  ; preds = %if.then.i22.i154
+  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %40)
   br label %_ZN20b3AlignedObjectArrayI9b3GpuFaceE10deallocateEv.exit.i
 
-_ZN20b3AlignedObjectArrayI9b3GpuFaceE10deallocateEv.exit.i: ; preds = %if.then3.i.i157, %if.then.i22.i154, %if.then.i150
-  %m_ownsMemory.i158 = getelementptr inbounds i8, ptr %42, i64 272
-  store i8 1, ptr %m_ownsMemory.i158, align 8
+_ZN20b3AlignedObjectArrayI9b3GpuFaceE10deallocateEv.exit.i: ; preds = %if.then3.i.i158, %if.then.i22.i154, %if.then.i150
+  %m_ownsMemory.i157 = getelementptr inbounds i8, ptr %37, i64 272
+  store i8 1, ptr %m_ownsMemory.i157, align 8
   store ptr null, ptr %m_data.i20.i152, align 8
   store i32 0, ptr %m_capacity.i.i148, align 8
   br label %_ZN20b3AlignedObjectArrayI9b3GpuFaceE7reserveEi.exit
 
 _ZN20b3AlignedObjectArrayI9b3GpuFaceE7reserveEi.exit: ; preds = %for.body9.lr.ph.i40, %_ZN20b3AlignedObjectArrayI9b3GpuFaceE10deallocateEv.exit.i
-  %m_data10.i41 = getelementptr inbounds i8, ptr %42, i64 264
-  %48 = sext i32 %43 to i64
+  %m_data10.i41 = getelementptr inbounds i8, ptr %37, i64 264
+  %42 = sext i32 %38 to i64
   br label %for.body9.i42
 
 for.body9.i42:                                    ; preds = %for.body9.i42, %_ZN20b3AlignedObjectArrayI9b3GpuFaceE7reserveEi.exit
-  %indvars.iv.i43 = phi i64 [ %48, %_ZN20b3AlignedObjectArrayI9b3GpuFaceE7reserveEi.exit ], [ %indvars.iv.next.i45, %for.body9.i42 ]
-  %49 = load ptr, ptr %m_data10.i41, align 8
-  %arrayidx12.i44 = getelementptr inbounds %struct.b3GpuFace, ptr %49, i64 %indvars.iv.i43
+  %indvars.iv.i43 = phi i64 [ %42, %_ZN20b3AlignedObjectArrayI9b3GpuFaceE7reserveEi.exit ], [ %indvars.iv.next.i45, %for.body9.i42 ]
+  %43 = load ptr, ptr %m_data10.i41, align 8
+  %arrayidx12.i44 = getelementptr inbounds %struct.b3GpuFace, ptr %43, i64 %indvars.iv.i43
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %arrayidx12.i44, i8 0, i64 32, i1 false)
   %indvars.iv.next.i45 = add nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, 0
@@ -7581,54 +8487,53 @@ for.body9.i42:                                    ; preds = %for.body9.i42, %_ZN
 
 _ZN20b3AlignedObjectArrayI9b3GpuFaceE6resizeEiRKS0_.exit: ; preds = %for.body9.i42, %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeE6resizeEiRKS0_.exit
   store i32 0, ptr %m_size.i.i38, align 4
-  %50 = load ptr, ptr %m_data, align 8
-  %m_size.i.i47 = getelementptr inbounds i8, ptr %50, i64 380
-  %51 = load i32, ptr %m_size.i.i47, align 4
-  %cmp4.i48 = icmp slt i32 %51, 0
+  %44 = load ptr, ptr %m_data, align 8
+  %m_size.i.i47 = getelementptr inbounds i8, ptr %44, i64 380
+  %45 = load i32, ptr %m_size.i.i47, align 4
+  %cmp4.i48 = icmp slt i32 %45, 0
   br i1 %cmp4.i48, label %for.body9.lr.ph.i49, label %_ZN20b3AlignedObjectArrayI12b3CollidableE6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i49:                              ; preds = %_ZN20b3AlignedObjectArrayI9b3GpuFaceE6resizeEiRKS0_.exit
-  %m_capacity.i.i159 = getelementptr inbounds i8, ptr %50, i64 384
-  %52 = load i32, ptr %m_capacity.i.i159, align 8
-  %cmp.i160 = icmp slt i32 %52, 0
+  %m_capacity.i.i159 = getelementptr inbounds i8, ptr %44, i64 384
+  %46 = load i32, ptr %m_capacity.i.i159, align 8
+  %cmp.i160 = icmp slt i32 %46, 0
   br i1 %cmp.i160, label %if.then.i161, label %_ZN20b3AlignedObjectArrayI12b3CollidableE7reserveEi.exit
 
 if.then.i161:                                     ; preds = %for.body9.lr.ph.i49
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.10)
   store i32 0, ptr %m_size.i.i47, align 4
-  %m_data.i20.i163 = getelementptr inbounds i8, ptr %50, i64 392
-  %53 = load ptr, ptr %m_data.i20.i163, align 8
-  %tobool.not.i21.i164 = icmp eq ptr %53, null
+  %m_data.i20.i163 = getelementptr inbounds i8, ptr %44, i64 392
+  %47 = load ptr, ptr %m_data.i20.i163, align 8
+  %tobool.not.i21.i164 = icmp eq ptr %47, null
   br i1 %tobool.not.i21.i164, label %_ZN20b3AlignedObjectArrayI12b3CollidableE10deallocateEv.exit.i, label %if.then.i22.i165
 
 if.then.i22.i165:                                 ; preds = %if.then.i161
-  %m_ownsMemory.i.i166 = getelementptr inbounds i8, ptr %50, i64 400
-  %54 = load i8, ptr %m_ownsMemory.i.i166, align 8
-  %55 = and i8 %54, 1
-  %tobool2.not.i.i167 = icmp eq i8 %55, 0
-  br i1 %tobool2.not.i.i167, label %_ZN20b3AlignedObjectArrayI12b3CollidableE10deallocateEv.exit.i, label %if.then3.i.i168
+  %m_ownsMemory.i.i166 = getelementptr inbounds i8, ptr %44, i64 400
+  %48 = load i8, ptr %m_ownsMemory.i.i166, align 8
+  %tobool2.i.i167 = trunc i8 %48 to i1
+  br i1 %tobool2.i.i167, label %if.then3.i.i169, label %_ZN20b3AlignedObjectArrayI12b3CollidableE10deallocateEv.exit.i
 
-if.then3.i.i168:                                  ; preds = %if.then.i22.i165
-  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %53)
+if.then3.i.i169:                                  ; preds = %if.then.i22.i165
+  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %47)
   br label %_ZN20b3AlignedObjectArrayI12b3CollidableE10deallocateEv.exit.i
 
-_ZN20b3AlignedObjectArrayI12b3CollidableE10deallocateEv.exit.i: ; preds = %if.then3.i.i168, %if.then.i22.i165, %if.then.i161
-  %m_ownsMemory.i169 = getelementptr inbounds i8, ptr %50, i64 400
-  store i8 1, ptr %m_ownsMemory.i169, align 8
+_ZN20b3AlignedObjectArrayI12b3CollidableE10deallocateEv.exit.i: ; preds = %if.then3.i.i169, %if.then.i22.i165, %if.then.i161
+  %m_ownsMemory.i168 = getelementptr inbounds i8, ptr %44, i64 400
+  store i8 1, ptr %m_ownsMemory.i168, align 8
   store ptr null, ptr %m_data.i20.i163, align 8
   store i32 0, ptr %m_capacity.i.i159, align 8
   br label %_ZN20b3AlignedObjectArrayI12b3CollidableE7reserveEi.exit
 
 _ZN20b3AlignedObjectArrayI12b3CollidableE7reserveEi.exit: ; preds = %for.body9.lr.ph.i49, %_ZN20b3AlignedObjectArrayI12b3CollidableE10deallocateEv.exit.i
-  %m_data10.i50 = getelementptr inbounds i8, ptr %50, i64 392
-  %56 = sext i32 %51 to i64
+  %m_data10.i50 = getelementptr inbounds i8, ptr %44, i64 392
+  %49 = sext i32 %45 to i64
   br label %for.body9.i51
 
 for.body9.i51:                                    ; preds = %for.body9.i51, %_ZN20b3AlignedObjectArrayI12b3CollidableE7reserveEi.exit
-  %indvars.iv.i52 = phi i64 [ %56, %_ZN20b3AlignedObjectArrayI12b3CollidableE7reserveEi.exit ], [ %indvars.iv.next.i54, %for.body9.i51 ]
-  %57 = load ptr, ptr %m_data10.i50, align 8
-  %arrayidx12.i53 = getelementptr inbounds %struct.b3Collidable, ptr %57, i64 %indvars.iv.i52
+  %indvars.iv.i52 = phi i64 [ %49, %_ZN20b3AlignedObjectArrayI12b3CollidableE7reserveEi.exit ], [ %indvars.iv.next.i54, %for.body9.i51 ]
+  %50 = load ptr, ptr %m_data10.i50, align 8
+  %arrayidx12.i53 = getelementptr inbounds %struct.b3Collidable, ptr %50, i64 %indvars.iv.i52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12.i53, i8 0, i64 16, i1 false)
   %indvars.iv.next.i54 = add nsw i64 %indvars.iv.i52, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, 0
@@ -7636,56 +8541,55 @@ for.body9.i51:                                    ; preds = %for.body9.i51, %_ZN
 
 _ZN20b3AlignedObjectArrayI12b3CollidableE6resizeEiRKS0_.exit: ; preds = %for.body9.i51, %_ZN20b3AlignedObjectArrayI9b3GpuFaceE6resizeEiRKS0_.exit
   store i32 0, ptr %m_size.i.i47, align 4
-  %58 = load ptr, ptr %m_data, align 8
-  %m_localShapeAABBCPU = getelementptr inbounds i8, ptr %58, i64 424
-  %59 = load ptr, ptr %m_localShapeAABBCPU, align 8
-  %m_size.i.i56 = getelementptr inbounds i8, ptr %59, i64 4
-  %60 = load i32, ptr %m_size.i.i56, align 4
-  %cmp4.i57 = icmp slt i32 %60, 0
+  %51 = load ptr, ptr %m_data, align 8
+  %m_localShapeAABBCPU = getelementptr inbounds i8, ptr %51, i64 424
+  %52 = load ptr, ptr %m_localShapeAABBCPU, align 8
+  %m_size.i.i56 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = load i32, ptr %m_size.i.i56, align 4
+  %cmp4.i57 = icmp slt i32 %53, 0
   br i1 %cmp4.i57, label %for.body9.lr.ph.i58, label %_ZN20b3AlignedObjectArrayI9b3SapAabbE6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i58:                              ; preds = %_ZN20b3AlignedObjectArrayI12b3CollidableE6resizeEiRKS0_.exit
-  %m_capacity.i.i170 = getelementptr inbounds i8, ptr %59, i64 8
-  %61 = load i32, ptr %m_capacity.i.i170, align 8
-  %cmp.i171 = icmp slt i32 %61, 0
+  %m_capacity.i.i170 = getelementptr inbounds i8, ptr %52, i64 8
+  %54 = load i32, ptr %m_capacity.i.i170, align 8
+  %cmp.i171 = icmp slt i32 %54, 0
   br i1 %cmp.i171, label %if.then.i172, label %_ZN20b3AlignedObjectArrayI9b3SapAabbE7reserveEi.exit
 
 if.then.i172:                                     ; preds = %for.body9.lr.ph.i58
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.10)
   store i32 0, ptr %m_size.i.i56, align 4
-  %m_data.i20.i174 = getelementptr inbounds i8, ptr %59, i64 16
-  %62 = load ptr, ptr %m_data.i20.i174, align 8
-  %tobool.not.i21.i175 = icmp eq ptr %62, null
+  %m_data.i20.i174 = getelementptr inbounds i8, ptr %52, i64 16
+  %55 = load ptr, ptr %m_data.i20.i174, align 8
+  %tobool.not.i21.i175 = icmp eq ptr %55, null
   br i1 %tobool.not.i21.i175, label %_ZN20b3AlignedObjectArrayI9b3SapAabbE10deallocateEv.exit.i, label %if.then.i22.i176
 
 if.then.i22.i176:                                 ; preds = %if.then.i172
-  %m_ownsMemory.i.i177 = getelementptr inbounds i8, ptr %59, i64 24
-  %63 = load i8, ptr %m_ownsMemory.i.i177, align 8
-  %64 = and i8 %63, 1
-  %tobool2.not.i.i178 = icmp eq i8 %64, 0
-  br i1 %tobool2.not.i.i178, label %_ZN20b3AlignedObjectArrayI9b3SapAabbE10deallocateEv.exit.i, label %if.then3.i.i179
+  %m_ownsMemory.i.i177 = getelementptr inbounds i8, ptr %52, i64 24
+  %56 = load i8, ptr %m_ownsMemory.i.i177, align 8
+  %tobool2.i.i178 = trunc i8 %56 to i1
+  br i1 %tobool2.i.i178, label %if.then3.i.i180, label %_ZN20b3AlignedObjectArrayI9b3SapAabbE10deallocateEv.exit.i
 
-if.then3.i.i179:                                  ; preds = %if.then.i22.i176
-  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %62)
+if.then3.i.i180:                                  ; preds = %if.then.i22.i176
+  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %55)
   br label %_ZN20b3AlignedObjectArrayI9b3SapAabbE10deallocateEv.exit.i
 
-_ZN20b3AlignedObjectArrayI9b3SapAabbE10deallocateEv.exit.i: ; preds = %if.then3.i.i179, %if.then.i22.i176, %if.then.i172
-  %m_ownsMemory.i180 = getelementptr inbounds i8, ptr %59, i64 24
-  store i8 1, ptr %m_ownsMemory.i180, align 8
+_ZN20b3AlignedObjectArrayI9b3SapAabbE10deallocateEv.exit.i: ; preds = %if.then3.i.i180, %if.then.i22.i176, %if.then.i172
+  %m_ownsMemory.i179 = getelementptr inbounds i8, ptr %52, i64 24
+  store i8 1, ptr %m_ownsMemory.i179, align 8
   store ptr null, ptr %m_data.i20.i174, align 8
   store i32 0, ptr %m_capacity.i.i170, align 8
   br label %_ZN20b3AlignedObjectArrayI9b3SapAabbE7reserveEi.exit
 
 _ZN20b3AlignedObjectArrayI9b3SapAabbE7reserveEi.exit: ; preds = %for.body9.lr.ph.i58, %_ZN20b3AlignedObjectArrayI9b3SapAabbE10deallocateEv.exit.i
-  %m_data10.i59 = getelementptr inbounds i8, ptr %59, i64 16
-  %65 = sext i32 %60 to i64
+  %m_data10.i59 = getelementptr inbounds i8, ptr %52, i64 16
+  %57 = sext i32 %53 to i64
   br label %for.body9.i60
 
 for.body9.i60:                                    ; preds = %for.body9.i60, %_ZN20b3AlignedObjectArrayI9b3SapAabbE7reserveEi.exit
-  %indvars.iv.i61 = phi i64 [ %65, %_ZN20b3AlignedObjectArrayI9b3SapAabbE7reserveEi.exit ], [ %indvars.iv.next.i63, %for.body9.i60 ]
-  %66 = load ptr, ptr %m_data10.i59, align 8
-  %arrayidx12.i62 = getelementptr inbounds %struct.b3SapAabb, ptr %66, i64 %indvars.iv.i61
+  %indvars.iv.i61 = phi i64 [ %57, %_ZN20b3AlignedObjectArrayI9b3SapAabbE7reserveEi.exit ], [ %indvars.iv.next.i63, %for.body9.i60 ]
+  %58 = load ptr, ptr %m_data10.i59, align 8
+  %arrayidx12.i62 = getelementptr inbounds %struct.b3SapAabb, ptr %58, i64 %indvars.iv.i61
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %arrayidx12.i62, i8 0, i64 32, i1 false)
   %indvars.iv.next.i63 = add nsw i64 %indvars.iv.i61, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, 0
@@ -7693,54 +8597,53 @@ for.body9.i60:                                    ; preds = %for.body9.i60, %_ZN
 
 _ZN20b3AlignedObjectArrayI9b3SapAabbE6resizeEiRKS0_.exit: ; preds = %for.body9.i60, %_ZN20b3AlignedObjectArrayI12b3CollidableE6resizeEiRKS0_.exit
   store i32 0, ptr %m_size.i.i56, align 4
-  %67 = load ptr, ptr %m_data, align 8
-  %m_size.i.i65 = getelementptr inbounds i8, ptr %67, i64 436
-  %68 = load i32, ptr %m_size.i.i65, align 4
-  %cmp4.i66 = icmp slt i32 %68, 0
+  %59 = load ptr, ptr %m_data, align 8
+  %m_size.i.i65 = getelementptr inbounds i8, ptr %59, i64 436
+  %60 = load i32, ptr %m_size.i.i65, align 4
+  %cmp4.i66 = icmp slt i32 %60, 0
   br i1 %cmp4.i66, label %for.body9.lr.ph.i67, label %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE6resizeEiRKS1_.exit
 
 for.body9.lr.ph.i67:                              ; preds = %_ZN20b3AlignedObjectArrayI9b3SapAabbE6resizeEiRKS0_.exit
-  %m_capacity.i.i181 = getelementptr inbounds i8, ptr %67, i64 440
-  %69 = load i32, ptr %m_capacity.i.i181, align 8
-  %cmp.i182 = icmp slt i32 %69, 0
+  %m_capacity.i.i181 = getelementptr inbounds i8, ptr %59, i64 440
+  %61 = load i32, ptr %m_capacity.i.i181, align 8
+  %cmp.i182 = icmp slt i32 %61, 0
   br i1 %cmp.i182, label %if.then.i183, label %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE7reserveEi.exit
 
 if.then.i183:                                     ; preds = %for.body9.lr.ph.i67
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.10)
   store i32 0, ptr %m_size.i.i65, align 4
-  %m_data.i20.i185 = getelementptr inbounds i8, ptr %67, i64 448
-  %70 = load ptr, ptr %m_data.i20.i185, align 8
-  %tobool.not.i21.i186 = icmp eq ptr %70, null
+  %m_data.i20.i185 = getelementptr inbounds i8, ptr %59, i64 448
+  %62 = load ptr, ptr %m_data.i20.i185, align 8
+  %tobool.not.i21.i186 = icmp eq ptr %62, null
   br i1 %tobool.not.i21.i186, label %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE10deallocateEv.exit.i, label %if.then.i22.i187
 
 if.then.i22.i187:                                 ; preds = %if.then.i183
-  %m_ownsMemory.i.i188 = getelementptr inbounds i8, ptr %67, i64 456
-  %71 = load i8, ptr %m_ownsMemory.i.i188, align 8
-  %72 = and i8 %71, 1
-  %tobool2.not.i.i189 = icmp eq i8 %72, 0
-  br i1 %tobool2.not.i.i189, label %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE10deallocateEv.exit.i, label %if.then3.i.i190
+  %m_ownsMemory.i.i188 = getelementptr inbounds i8, ptr %59, i64 456
+  %63 = load i8, ptr %m_ownsMemory.i.i188, align 8
+  %tobool2.i.i189 = trunc i8 %63 to i1
+  br i1 %tobool2.i.i189, label %if.then3.i.i191, label %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE10deallocateEv.exit.i
 
-if.then3.i.i190:                                  ; preds = %if.then.i22.i187
-  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %70)
+if.then3.i.i191:                                  ; preds = %if.then.i22.i187
+  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %62)
   br label %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE10deallocateEv.exit.i
 
-_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE10deallocateEv.exit.i: ; preds = %if.then3.i.i190, %if.then.i22.i187, %if.then.i183
-  %m_ownsMemory.i191 = getelementptr inbounds i8, ptr %67, i64 456
-  store i8 1, ptr %m_ownsMemory.i191, align 8
+_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE10deallocateEv.exit.i: ; preds = %if.then3.i.i191, %if.then.i22.i187, %if.then.i183
+  %m_ownsMemory.i190 = getelementptr inbounds i8, ptr %59, i64 456
+  store i8 1, ptr %m_ownsMemory.i190, align 8
   store ptr null, ptr %m_data.i20.i185, align 8
   store i32 0, ptr %m_capacity.i.i181, align 8
   br label %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE7reserveEi.exit
 
 _ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE7reserveEi.exit: ; preds = %for.body9.lr.ph.i67, %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE10deallocateEv.exit.i
-  %m_data10.i68 = getelementptr inbounds i8, ptr %67, i64 448
-  %73 = sext i32 %68 to i64
+  %m_data10.i68 = getelementptr inbounds i8, ptr %59, i64 448
+  %64 = sext i32 %60 to i64
   br label %for.body9.i70
 
 for.body9.i70:                                    ; preds = %for.body9.i70, %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE7reserveEi.exit
-  %indvars.iv.i71 = phi i64 [ %73, %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE7reserveEi.exit ], [ %indvars.iv.next.i73, %for.body9.i70 ]
-  %74 = load ptr, ptr %m_data10.i68, align 8
-  %arrayidx12.i72 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv.i71
+  %indvars.iv.i71 = phi i64 [ %64, %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE7reserveEi.exit ], [ %indvars.iv.next.i73, %for.body9.i70 ]
+  %65 = load ptr, ptr %m_data10.i68, align 8
+  %arrayidx12.i72 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv.i71
   store ptr null, ptr %arrayidx12.i72, align 8
   %indvars.iv.next.i73 = add nsw i64 %indvars.iv.i71, 1
   %exitcond.not.i74 = icmp eq i64 %indvars.iv.next.i73, 0
@@ -7748,54 +8651,53 @@ for.body9.i70:                                    ; preds = %for.body9.i70, %_ZN
 
 _ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE6resizeEiRKS1_.exit: ; preds = %for.body9.i70, %_ZN20b3AlignedObjectArrayI9b3SapAabbE6resizeEiRKS0_.exit
   store i32 0, ptr %m_size.i.i65, align 4
-  %75 = load ptr, ptr %m_data, align 8
-  %m_size.i.i75 = getelementptr inbounds i8, ptr %75, i64 500
-  %76 = load i32, ptr %m_size.i.i75, align 4
-  %cmp4.i76 = icmp slt i32 %76, 0
+  %66 = load ptr, ptr %m_data, align 8
+  %m_size.i.i75 = getelementptr inbounds i8, ptr %66, i64 500
+  %67 = load i32, ptr %m_size.i.i75, align 4
+  %cmp4.i76 = icmp slt i32 %67, 0
   br i1 %cmp4.i76, label %for.body9.lr.ph.i77, label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i77:                              ; preds = %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE6resizeEiRKS1_.exit
-  %m_capacity.i.i192 = getelementptr inbounds i8, ptr %75, i64 504
-  %77 = load i32, ptr %m_capacity.i.i192, align 8
-  %cmp.i193 = icmp slt i32 %77, 0
+  %m_capacity.i.i192 = getelementptr inbounds i8, ptr %66, i64 504
+  %68 = load i32, ptr %m_capacity.i.i192, align 8
+  %cmp.i193 = icmp slt i32 %68, 0
   br i1 %cmp.i193, label %if.then.i194, label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE7reserveEi.exit
 
 if.then.i194:                                     ; preds = %for.body9.lr.ph.i77
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.10)
   store i32 0, ptr %m_size.i.i75, align 4
-  %m_data.i20.i196 = getelementptr inbounds i8, ptr %75, i64 512
-  %78 = load ptr, ptr %m_data.i20.i196, align 8
-  %tobool.not.i21.i197 = icmp eq ptr %78, null
+  %m_data.i20.i196 = getelementptr inbounds i8, ptr %66, i64 512
+  %69 = load ptr, ptr %m_data.i20.i196, align 8
+  %tobool.not.i21.i197 = icmp eq ptr %69, null
   br i1 %tobool.not.i21.i197, label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE10deallocateEv.exit.i, label %if.then.i22.i198
 
 if.then.i22.i198:                                 ; preds = %if.then.i194
-  %m_ownsMemory.i.i199 = getelementptr inbounds i8, ptr %75, i64 520
-  %79 = load i8, ptr %m_ownsMemory.i.i199, align 8
-  %80 = and i8 %79, 1
-  %tobool2.not.i.i200 = icmp eq i8 %80, 0
-  br i1 %tobool2.not.i.i200, label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE10deallocateEv.exit.i, label %if.then3.i.i201
+  %m_ownsMemory.i.i199 = getelementptr inbounds i8, ptr %66, i64 520
+  %70 = load i8, ptr %m_ownsMemory.i.i199, align 8
+  %tobool2.i.i200 = trunc i8 %70 to i1
+  br i1 %tobool2.i.i200, label %if.then3.i.i202, label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE10deallocateEv.exit.i
 
-if.then3.i.i201:                                  ; preds = %if.then.i22.i198
-  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %78)
+if.then3.i.i202:                                  ; preds = %if.then.i22.i198
+  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %69)
   br label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE10deallocateEv.exit.i
 
-_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE10deallocateEv.exit.i: ; preds = %if.then3.i.i201, %if.then.i22.i198, %if.then.i194
-  %m_ownsMemory.i202 = getelementptr inbounds i8, ptr %75, i64 520
-  store i8 1, ptr %m_ownsMemory.i202, align 8
+_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE10deallocateEv.exit.i: ; preds = %if.then3.i.i202, %if.then.i22.i198, %if.then.i194
+  %m_ownsMemory.i201 = getelementptr inbounds i8, ptr %66, i64 520
+  store i8 1, ptr %m_ownsMemory.i201, align 8
   store ptr null, ptr %m_data.i20.i196, align 8
   store i32 0, ptr %m_capacity.i.i192, align 8
   br label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE7reserveEi.exit
 
 _ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE7reserveEi.exit: ; preds = %for.body9.lr.ph.i77, %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE10deallocateEv.exit.i
-  %m_data10.i78 = getelementptr inbounds i8, ptr %75, i64 512
-  %81 = sext i32 %76 to i64
+  %m_data10.i78 = getelementptr inbounds i8, ptr %66, i64 512
+  %71 = sext i32 %67 to i64
   br label %for.body9.i79
 
 for.body9.i79:                                    ; preds = %for.body9.i79, %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE7reserveEi.exit
-  %indvars.iv.i80 = phi i64 [ %81, %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE7reserveEi.exit ], [ %indvars.iv.next.i82, %for.body9.i79 ]
-  %82 = load ptr, ptr %m_data10.i78, align 8
-  %arrayidx12.i81 = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %82, i64 %indvars.iv.i80
+  %indvars.iv.i80 = phi i64 [ %71, %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE7reserveEi.exit ], [ %indvars.iv.next.i82, %for.body9.i79 ]
+  %72 = load ptr, ptr %m_data10.i78, align 8
+  %arrayidx12.i81 = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %72, i64 %indvars.iv.i80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx12.i81, i8 0, i64 16, i1 false)
   %indvars.iv.next.i82 = add nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i83 = icmp eq i64 %indvars.iv.next.i82, 0
@@ -7803,95 +8705,93 @@ for.body9.i79:                                    ; preds = %for.body9.i79, %_ZN
 
 _ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %for.body9.i79, %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE6resizeEiRKS1_.exit
   store i32 0, ptr %m_size.i.i75, align 4
-  %83 = load ptr, ptr %m_data, align 8
-  %m_size.i.i84 = getelementptr inbounds i8, ptr %83, i64 532
-  %84 = load i32, ptr %m_size.i.i84, align 4
-  %cmp4.i85 = icmp slt i32 %84, 0
+  %73 = load ptr, ptr %m_data, align 8
+  %m_size.i.i84 = getelementptr inbounds i8, ptr %73, i64 532
+  %74 = load i32, ptr %m_size.i.i84, align 4
+  %cmp4.i85 = icmp slt i32 %74, 0
   br i1 %cmp4.i85, label %for.body9.lr.ph.i86, label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i86:                              ; preds = %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE6resizeEiRKS0_.exit
-  %m_capacity.i.i203 = getelementptr inbounds i8, ptr %83, i64 536
-  %85 = load i32, ptr %m_capacity.i.i203, align 8
-  %cmp.i204 = icmp slt i32 %85, 0
+  %m_capacity.i.i203 = getelementptr inbounds i8, ptr %73, i64 536
+  %75 = load i32, ptr %m_capacity.i.i203, align 8
+  %cmp.i204 = icmp slt i32 %75, 0
   br i1 %cmp.i204, label %if.then.i205, label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit
 
 if.then.i205:                                     ; preds = %for.body9.lr.ph.i86
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.10)
   store i32 0, ptr %m_size.i.i84, align 4
-  %m_data.i20.i207 = getelementptr inbounds i8, ptr %83, i64 544
-  %86 = load ptr, ptr %m_data.i20.i207, align 8
-  %tobool.not.i21.i208 = icmp eq ptr %86, null
+  %m_data.i20.i207 = getelementptr inbounds i8, ptr %73, i64 544
+  %76 = load ptr, ptr %m_data.i20.i207, align 8
+  %tobool.not.i21.i208 = icmp eq ptr %76, null
   br i1 %tobool.not.i21.i208, label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i, label %if.then.i22.i209
 
 if.then.i22.i209:                                 ; preds = %if.then.i205
-  %m_ownsMemory.i.i210 = getelementptr inbounds i8, ptr %83, i64 552
-  %87 = load i8, ptr %m_ownsMemory.i.i210, align 8
-  %88 = and i8 %87, 1
-  %tobool2.not.i.i211 = icmp eq i8 %88, 0
-  br i1 %tobool2.not.i.i211, label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i, label %if.then3.i.i212
+  %m_ownsMemory.i.i210 = getelementptr inbounds i8, ptr %73, i64 552
+  %77 = load i8, ptr %m_ownsMemory.i.i210, align 8
+  %tobool2.i.i211 = trunc i8 %77 to i1
+  br i1 %tobool2.i.i211, label %if.then3.i.i213, label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i
 
-if.then3.i.i212:                                  ; preds = %if.then.i22.i209
-  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %86)
+if.then3.i.i213:                                  ; preds = %if.then.i22.i209
+  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %76)
   br label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i
 
-_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i: ; preds = %if.then3.i.i212, %if.then.i22.i209, %if.then.i205
-  %m_ownsMemory.i213 = getelementptr inbounds i8, ptr %83, i64 552
-  store i8 1, ptr %m_ownsMemory.i213, align 8
+_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i: ; preds = %if.then3.i.i213, %if.then.i22.i209, %if.then.i205
+  %m_ownsMemory.i212 = getelementptr inbounds i8, ptr %73, i64 552
+  store i8 1, ptr %m_ownsMemory.i212, align 8
   store ptr null, ptr %m_data.i20.i207, align 8
   store i32 0, ptr %m_capacity.i.i203, align 8
   br label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit
 
 _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit: ; preds = %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i, %for.body9.lr.ph.i86, %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE6resizeEiRKS0_.exit
   store i32 0, ptr %m_size.i.i84, align 4
-  %89 = load ptr, ptr %m_data, align 8
-  %m_size.i.i93 = getelementptr inbounds i8, ptr %89, i64 564
-  %90 = load i32, ptr %m_size.i.i93, align 4
-  %cmp4.i94 = icmp slt i32 %90, 0
+  %78 = load ptr, ptr %m_data, align 8
+  %m_size.i.i93 = getelementptr inbounds i8, ptr %78, i64 564
+  %79 = load i32, ptr %m_size.i.i93, align 4
+  %cmp4.i94 = icmp slt i32 %79, 0
   br i1 %cmp4.i94, label %for.body9.lr.ph.i95, label %_ZN20b3AlignedObjectArrayI9b3BvhInfoE6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i95:                              ; preds = %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit
-  %m_capacity.i.i214 = getelementptr inbounds i8, ptr %89, i64 568
-  %91 = load i32, ptr %m_capacity.i.i214, align 8
-  %cmp.i215 = icmp slt i32 %91, 0
+  %m_capacity.i.i214 = getelementptr inbounds i8, ptr %78, i64 568
+  %80 = load i32, ptr %m_capacity.i.i214, align 8
+  %cmp.i215 = icmp slt i32 %80, 0
   br i1 %cmp.i215, label %if.then.i216, label %_ZN20b3AlignedObjectArrayI9b3BvhInfoE7reserveEi.exit
 
 if.then.i216:                                     ; preds = %for.body9.lr.ph.i95
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.10)
   store i32 0, ptr %m_size.i.i93, align 4
-  %m_data.i20.i218 = getelementptr inbounds i8, ptr %89, i64 576
-  %92 = load ptr, ptr %m_data.i20.i218, align 8
-  %tobool.not.i21.i219 = icmp eq ptr %92, null
+  %m_data.i20.i218 = getelementptr inbounds i8, ptr %78, i64 576
+  %81 = load ptr, ptr %m_data.i20.i218, align 8
+  %tobool.not.i21.i219 = icmp eq ptr %81, null
   br i1 %tobool.not.i21.i219, label %_ZN20b3AlignedObjectArrayI9b3BvhInfoE10deallocateEv.exit.i, label %if.then.i22.i220
 
 if.then.i22.i220:                                 ; preds = %if.then.i216
-  %m_ownsMemory.i.i221 = getelementptr inbounds i8, ptr %89, i64 584
-  %93 = load i8, ptr %m_ownsMemory.i.i221, align 8
-  %94 = and i8 %93, 1
-  %tobool2.not.i.i222 = icmp eq i8 %94, 0
-  br i1 %tobool2.not.i.i222, label %_ZN20b3AlignedObjectArrayI9b3BvhInfoE10deallocateEv.exit.i, label %if.then3.i.i223
+  %m_ownsMemory.i.i221 = getelementptr inbounds i8, ptr %78, i64 584
+  %82 = load i8, ptr %m_ownsMemory.i.i221, align 8
+  %tobool2.i.i222 = trunc i8 %82 to i1
+  br i1 %tobool2.i.i222, label %if.then3.i.i224, label %_ZN20b3AlignedObjectArrayI9b3BvhInfoE10deallocateEv.exit.i
 
-if.then3.i.i223:                                  ; preds = %if.then.i22.i220
-  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %92)
+if.then3.i.i224:                                  ; preds = %if.then.i22.i220
+  tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %81)
   br label %_ZN20b3AlignedObjectArrayI9b3BvhInfoE10deallocateEv.exit.i
 
-_ZN20b3AlignedObjectArrayI9b3BvhInfoE10deallocateEv.exit.i: ; preds = %if.then3.i.i223, %if.then.i22.i220, %if.then.i216
-  %m_ownsMemory.i224 = getelementptr inbounds i8, ptr %89, i64 584
-  store i8 1, ptr %m_ownsMemory.i224, align 8
+_ZN20b3AlignedObjectArrayI9b3BvhInfoE10deallocateEv.exit.i: ; preds = %if.then3.i.i224, %if.then.i22.i220, %if.then.i216
+  %m_ownsMemory.i223 = getelementptr inbounds i8, ptr %78, i64 584
+  store i8 1, ptr %m_ownsMemory.i223, align 8
   store ptr null, ptr %m_data.i20.i218, align 8
   store i32 0, ptr %m_capacity.i.i214, align 8
   br label %_ZN20b3AlignedObjectArrayI9b3BvhInfoE7reserveEi.exit
 
 _ZN20b3AlignedObjectArrayI9b3BvhInfoE7reserveEi.exit: ; preds = %for.body9.lr.ph.i95, %_ZN20b3AlignedObjectArrayI9b3BvhInfoE10deallocateEv.exit.i
-  %m_data10.i96 = getelementptr inbounds i8, ptr %89, i64 576
-  %95 = sext i32 %90 to i64
+  %m_data10.i96 = getelementptr inbounds i8, ptr %78, i64 576
+  %83 = sext i32 %79 to i64
   br label %for.body9.i97
 
 for.body9.i97:                                    ; preds = %for.body9.i97, %_ZN20b3AlignedObjectArrayI9b3BvhInfoE7reserveEi.exit
-  %indvars.iv.i98 = phi i64 [ %95, %_ZN20b3AlignedObjectArrayI9b3BvhInfoE7reserveEi.exit ], [ %indvars.iv.next.i100, %for.body9.i97 ]
-  %96 = load ptr, ptr %m_data10.i96, align 8
-  %arrayidx12.i99 = getelementptr inbounds %struct.b3BvhInfo, ptr %96, i64 %indvars.iv.i98
+  %indvars.iv.i98 = phi i64 [ %83, %_ZN20b3AlignedObjectArrayI9b3BvhInfoE7reserveEi.exit ], [ %indvars.iv.next.i100, %for.body9.i97 ]
+  %84 = load ptr, ptr %m_data10.i96, align 8
+  %arrayidx12.i99 = getelementptr inbounds %struct.b3BvhInfo, ptr %84, i64 %indvars.iv.i98
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %arrayidx12.i99, i8 0, i64 64, i1 false)
   %indvars.iv.next.i100 = add nsw i64 %indvars.iv.i98, 1
   %exitcond.not.i101 = icmp eq i64 %indvars.iv.next.i100, 0
@@ -8213,9 +9113,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i22:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
-  %5 = and i8 %4, 1
-  %tobool2.not.i = icmp eq i8 %5, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayI13b3IndexedMeshE10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayI13b3IndexedMeshE10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i22
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %3)
@@ -8244,19 +9143,18 @@ entry:
 if.then:                                          ; preds = %entry
   %m_allowGrowingCapacity = getelementptr inbounds i8, ptr %this, i64 49
   %1 = load i8, ptr %m_allowGrowingCapacity, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.then2
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
   %mul = shl i64 %_Count, 4
-  %3 = load ptr, ptr @__clewCreateBuffer, align 8
+  %2 = load ptr, ptr @__clewCreateBuffer, align 8
   %m_clContext = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load ptr, ptr %m_clContext, align 8
-  %call3 = call ptr %3(ptr noundef %4, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
-  %5 = load i32, ptr %ciErrNum, align 4
-  %cmp4.not.not = icmp eq i32 %5, 0
-  br i1 %cmp4.not.not, label %if.end, label %if.end.thread
+  %3 = load ptr, ptr %m_clContext, align 8
+  %call3 = call ptr %2(ptr noundef %3, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
+  %4 = load i32, ptr %ciErrNum, align 4
+  %cmp4.not = icmp eq i32 %4, 0
+  br i1 %cmp4.not, label %if.end, label %if.end.thread
 
 if.end.thread:                                    ; preds = %if.then2
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
@@ -8268,37 +9166,36 @@ if.end:                                           ; preds = %if.then2
 
 if.then9:                                         ; preds = %if.end
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i64, ptr %m_size.i, align 8
-  %cmp.i = icmp eq i64 %6, 0
+  %5 = load i64, ptr %m_size.i, align 8
+  %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %if.end12, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
-  %7 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
+  %6 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
   %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
-  %8 = load ptr, ptr %m_commandQueue.i, align 8
+  %7 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %m_clBuffer.i, align 8
-  %mul3.i = shl i64 %6, 4
-  %call.i = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %8 = load ptr, ptr %m_clBuffer.i, align 8
+  %mul3.i = shl i64 %5, 4
+  %call.i = call i32 %6(ptr noundef %7, ptr noundef %8, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end.i, %if.then9, %if.end.thread, %if.end
   %_Count.addr.023 = phi i64 [ 0, %if.end.thread ], [ %_Count, %if.end ], [ %_Count, %if.then9 ], [ %_Count, %if.end.i ]
   %m_clBuffer.i5 = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %m_clBuffer.i5, align 8
-  %tobool.not.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %m_clBuffer.i5, align 8
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end12
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load i8, ptr %m_ownsMemory.i, align 8
-  %12 = and i8 %11, 1
-  %tobool2.not.i = icmp eq i8 %12, 0
-  br i1 %tobool2.not.i, label %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit, label %if.then.i
+  %10 = load i8, ptr %m_ownsMemory.i, align 8
+  %tobool2.i = trunc i8 %10 to i1
+  br i1 %tobool2.i, label %if.then.i, label %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %13 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i6 = call i32 %13(ptr noundef nonnull %10)
+  %11 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8 = call i32 %11(ptr noundef nonnull %9)
   br label %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit
 
 _ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit:   ; preds = %if.end12, %land.lhs.true.i, %if.then.i
@@ -8308,28 +9205,27 @@ _ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit:   ; preds = %if.end12, %land.lhs
 
 if.else:                                          ; preds = %if.then
   %m_clBuffer.i9 = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %m_clBuffer.i9, align 8
-  %tobool.not.i10 = icmp eq ptr %14, null
+  %12 = load ptr, ptr %m_clBuffer.i9, align 8
+  %tobool.not.i10 = icmp eq ptr %12, null
   br i1 %tobool.not.i10, label %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %if.else
   %m_ownsMemory.i12 = getelementptr inbounds i8, ptr %this, i64 48
-  %15 = load i8, ptr %m_ownsMemory.i12, align 8
-  %16 = and i8 %15, 1
-  %tobool2.not.i13 = icmp eq i8 %16, 0
-  br i1 %tobool2.not.i13, label %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18, label %if.then.i14
+  %13 = load i8, ptr %m_ownsMemory.i12, align 8
+  %tobool2.i13 = trunc i8 %13 to i1
+  br i1 %tobool2.i13, label %if.then.i16, label %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18
 
-if.then.i14:                                      ; preds = %land.lhs.true.i11
-  %17 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i15 = tail call i32 %17(ptr noundef nonnull %14)
+if.then.i16:                                      ; preds = %land.lhs.true.i11
+  %14 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17 = tail call i32 %14(ptr noundef nonnull %12)
   br label %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18
 
-_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i14
+_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i, i8 0, i64 16, i1 false)
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit, %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not.not, %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18 ], [ true, %entry ]
+  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18 ], [ true, %entry ]
   ret i1 %result.1
 }
 
@@ -8345,24 +9241,23 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit, label %if.then.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i = invoke i32 %2(ptr noundef nonnull %0)
           to label %_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -8424,9 +9319,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i22:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
-  %5 = and i8 %4, 1
-  %tobool2.not.i = icmp eq i8 %5, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayI10b3Contact4E10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayI10b3Contact4E10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i22
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %3)
@@ -8501,9 +9395,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i22:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
-  %5 = and i8 %4, 1
-  %tobool2.not.i = icmp eq i8 %5, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataE10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataE10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i22
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %3)
@@ -8593,9 +9486,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i32:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
-  %5 = and i8 %4, 1
-  %tobool2.not.i = icmp eq i8 %5, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayI13b3InertiaDataE10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayI13b3InertiaDataE10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i32
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %3)
@@ -8624,19 +9516,18 @@ entry:
 if.then:                                          ; preds = %entry
   %m_allowGrowingCapacity = getelementptr inbounds i8, ptr %this, i64 49
   %1 = load i8, ptr %m_allowGrowingCapacity, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.then2
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
   %mul = mul i64 %_Count, 112
-  %3 = load ptr, ptr @__clewCreateBuffer, align 8
+  %2 = load ptr, ptr @__clewCreateBuffer, align 8
   %m_clContext = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load ptr, ptr %m_clContext, align 8
-  %call3 = call ptr %3(ptr noundef %4, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
-  %5 = load i32, ptr %ciErrNum, align 4
-  %cmp4.not.not = icmp eq i32 %5, 0
-  br i1 %cmp4.not.not, label %if.end, label %if.end.thread
+  %3 = load ptr, ptr %m_clContext, align 8
+  %call3 = call ptr %2(ptr noundef %3, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
+  %4 = load i32, ptr %ciErrNum, align 4
+  %cmp4.not = icmp eq i32 %4, 0
+  br i1 %cmp4.not, label %if.end, label %if.end.thread
 
 if.end.thread:                                    ; preds = %if.then2
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
@@ -8648,37 +9539,36 @@ if.end:                                           ; preds = %if.then2
 
 if.then9:                                         ; preds = %if.end
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i64, ptr %m_size.i, align 8
-  %cmp.i = icmp eq i64 %6, 0
+  %5 = load i64, ptr %m_size.i, align 8
+  %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %if.end12, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
-  %7 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
+  %6 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
   %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
-  %8 = load ptr, ptr %m_commandQueue.i, align 8
+  %7 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %m_clBuffer.i, align 8
-  %mul3.i = mul i64 %6, 112
-  %call.i = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %8 = load ptr, ptr %m_clBuffer.i, align 8
+  %mul3.i = mul i64 %5, 112
+  %call.i = call i32 %6(ptr noundef %7, ptr noundef %8, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end.i, %if.then9, %if.end.thread, %if.end
   %_Count.addr.023 = phi i64 [ 0, %if.end.thread ], [ %_Count, %if.end ], [ %_Count, %if.then9 ], [ %_Count, %if.end.i ]
   %m_clBuffer.i5 = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %m_clBuffer.i5, align 8
-  %tobool.not.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %m_clBuffer.i5, align 8
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end12
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load i8, ptr %m_ownsMemory.i, align 8
-  %12 = and i8 %11, 1
-  %tobool2.not.i = icmp eq i8 %12, 0
-  br i1 %tobool2.not.i, label %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit, label %if.then.i
+  %10 = load i8, ptr %m_ownsMemory.i, align 8
+  %tobool2.i = trunc i8 %10 to i1
+  br i1 %tobool2.i, label %if.then.i, label %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %13 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i6 = call i32 %13(ptr noundef nonnull %10)
+  %11 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8 = call i32 %11(ptr noundef nonnull %9)
   br label %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit
 
 _ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit: ; preds = %if.end12, %land.lhs.true.i, %if.then.i
@@ -8688,28 +9578,27 @@ _ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit: ; preds = %if.end12, %land.
 
 if.else:                                          ; preds = %if.then
   %m_clBuffer.i9 = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %m_clBuffer.i9, align 8
-  %tobool.not.i10 = icmp eq ptr %14, null
+  %12 = load ptr, ptr %m_clBuffer.i9, align 8
+  %tobool.not.i10 = icmp eq ptr %12, null
   br i1 %tobool.not.i10, label %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit18, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %if.else
   %m_ownsMemory.i12 = getelementptr inbounds i8, ptr %this, i64 48
-  %15 = load i8, ptr %m_ownsMemory.i12, align 8
-  %16 = and i8 %15, 1
-  %tobool2.not.i13 = icmp eq i8 %16, 0
-  br i1 %tobool2.not.i13, label %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit18, label %if.then.i14
+  %13 = load i8, ptr %m_ownsMemory.i12, align 8
+  %tobool2.i13 = trunc i8 %13 to i1
+  br i1 %tobool2.i13, label %if.then.i16, label %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit18
 
-if.then.i14:                                      ; preds = %land.lhs.true.i11
-  %17 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i15 = tail call i32 %17(ptr noundef nonnull %14)
+if.then.i16:                                      ; preds = %land.lhs.true.i11
+  %14 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17 = tail call i32 %14(ptr noundef nonnull %12)
   br label %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit18
 
-_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i14
+_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i, i8 0, i64 16, i1 false)
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit, %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not.not, %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit18 ], [ true, %entry ]
+  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit18 ], [ true, %entry ]
   ret i1 %result.1
 }
 
@@ -8725,13 +9614,12 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i, label %invoke.cont, label %if.then.i
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1 = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1 = invoke i32 %2(ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
@@ -8740,10 +9628,10 @@ invoke.cont:                                      ; preds = %land.lhs.true.i, %e
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 }
 
@@ -8759,24 +9647,23 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %_ZN13b3OpenCLArrayI10b3Contact4ED2Ev.exit, label %if.then.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI10b3Contact4ED2Ev.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i = invoke i32 %2(ptr noundef nonnull %0)
           to label %_ZN13b3OpenCLArrayI10b3Contact4ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN13b3OpenCLArrayI10b3Contact4ED2Ev.exit:        ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -8792,19 +9679,18 @@ entry:
 if.then:                                          ; preds = %entry
   %m_allowGrowingCapacity = getelementptr inbounds i8, ptr %this, i64 49
   %1 = load i8, ptr %m_allowGrowingCapacity, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.then2
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
   %mul = mul i64 %_Count, 96
-  %3 = load ptr, ptr @__clewCreateBuffer, align 8
+  %2 = load ptr, ptr @__clewCreateBuffer, align 8
   %m_clContext = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load ptr, ptr %m_clContext, align 8
-  %call3 = call ptr %3(ptr noundef %4, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
-  %5 = load i32, ptr %ciErrNum, align 4
-  %cmp4.not.not = icmp eq i32 %5, 0
-  br i1 %cmp4.not.not, label %if.end, label %if.end.thread
+  %3 = load ptr, ptr %m_clContext, align 8
+  %call3 = call ptr %2(ptr noundef %3, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
+  %4 = load i32, ptr %ciErrNum, align 4
+  %cmp4.not = icmp eq i32 %4, 0
+  br i1 %cmp4.not, label %if.end, label %if.end.thread
 
 if.end.thread:                                    ; preds = %if.then2
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
@@ -8816,37 +9702,36 @@ if.end:                                           ; preds = %if.then2
 
 if.then9:                                         ; preds = %if.end
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i64, ptr %m_size.i, align 8
-  %cmp.i = icmp eq i64 %6, 0
+  %5 = load i64, ptr %m_size.i, align 8
+  %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %if.end12, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
-  %7 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
+  %6 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
   %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
-  %8 = load ptr, ptr %m_commandQueue.i, align 8
+  %7 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %m_clBuffer.i, align 8
-  %mul3.i = mul i64 %6, 96
-  %call.i = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %8 = load ptr, ptr %m_clBuffer.i, align 8
+  %mul3.i = mul i64 %5, 96
+  %call.i = call i32 %6(ptr noundef %7, ptr noundef %8, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end.i, %if.then9, %if.end.thread, %if.end
   %_Count.addr.023 = phi i64 [ 0, %if.end.thread ], [ %_Count, %if.end ], [ %_Count, %if.then9 ], [ %_Count, %if.end.i ]
   %m_clBuffer.i5 = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %m_clBuffer.i5, align 8
-  %tobool.not.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %m_clBuffer.i5, align 8
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %_ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end12
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load i8, ptr %m_ownsMemory.i, align 8
-  %12 = and i8 %11, 1
-  %tobool2.not.i = icmp eq i8 %12, 0
-  br i1 %tobool2.not.i, label %_ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit, label %if.then.i
+  %10 = load i8, ptr %m_ownsMemory.i, align 8
+  %tobool2.i = trunc i8 %10 to i1
+  br i1 %tobool2.i, label %if.then.i, label %_ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %13 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i6 = call i32 %13(ptr noundef nonnull %10)
+  %11 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8 = call i32 %11(ptr noundef nonnull %9)
   br label %_ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit
 
 _ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit: ; preds = %if.end12, %land.lhs.true.i, %if.then.i
@@ -8856,28 +9741,27 @@ _ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit: ; preds = %if.end12, %la
 
 if.else:                                          ; preds = %if.then
   %m_clBuffer.i9 = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %m_clBuffer.i9, align 8
-  %tobool.not.i10 = icmp eq ptr %14, null
+  %12 = load ptr, ptr %m_clBuffer.i9, align 8
+  %tobool.not.i10 = icmp eq ptr %12, null
   br i1 %tobool.not.i10, label %_ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit18, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %if.else
   %m_ownsMemory.i12 = getelementptr inbounds i8, ptr %this, i64 48
-  %15 = load i8, ptr %m_ownsMemory.i12, align 8
-  %16 = and i8 %15, 1
-  %tobool2.not.i13 = icmp eq i8 %16, 0
-  br i1 %tobool2.not.i13, label %_ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit18, label %if.then.i14
+  %13 = load i8, ptr %m_ownsMemory.i12, align 8
+  %tobool2.i13 = trunc i8 %13 to i1
+  br i1 %tobool2.i13, label %if.then.i16, label %_ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit18
 
-if.then.i14:                                      ; preds = %land.lhs.true.i11
-  %17 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i15 = tail call i32 %17(ptr noundef nonnull %14)
+if.then.i16:                                      ; preds = %land.lhs.true.i11
+  %14 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17 = tail call i32 %14(ptr noundef nonnull %12)
   br label %_ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit18
 
-_ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i14
+_ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i, i8 0, i64 16, i1 false)
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit, %_ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not.not, %_ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit18 ], [ true, %entry ]
+  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv.exit18 ], [ true, %entry ]
   ret i1 %result.1
 }
 
@@ -8893,13 +9777,12 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i, label %invoke.cont, label %if.then.i
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1 = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1 = invoke i32 %2(ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
@@ -8908,10 +9791,10 @@ invoke.cont:                                      ; preds = %land.lhs.true.i, %e
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 }
 
@@ -8927,24 +9810,23 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %_ZN13b3OpenCLArrayI13b3InertiaDataED2Ev.exit, label %if.then.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI13b3InertiaDataED2Ev.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i = invoke i32 %2(ptr noundef nonnull %0)
           to label %_ZN13b3OpenCLArrayI13b3InertiaDataED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN13b3OpenCLArrayI13b3InertiaDataED2Ev.exit:     ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -8960,19 +9842,18 @@ entry:
 if.then:                                          ; preds = %entry
   %m_allowGrowingCapacity = getelementptr inbounds i8, ptr %this, i64 49
   %1 = load i8, ptr %m_allowGrowingCapacity, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.then2
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
   %mul = shl i64 %_Count, 4
-  %3 = load ptr, ptr @__clewCreateBuffer, align 8
+  %2 = load ptr, ptr @__clewCreateBuffer, align 8
   %m_clContext = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load ptr, ptr %m_clContext, align 8
-  %call3 = call ptr %3(ptr noundef %4, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
-  %5 = load i32, ptr %ciErrNum, align 4
-  %cmp4.not.not = icmp eq i32 %5, 0
-  br i1 %cmp4.not.not, label %if.end, label %if.end.thread
+  %3 = load ptr, ptr %m_clContext, align 8
+  %call3 = call ptr %2(ptr noundef %3, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
+  %4 = load i32, ptr %ciErrNum, align 4
+  %cmp4.not = icmp eq i32 %4, 0
+  br i1 %cmp4.not, label %if.end, label %if.end.thread
 
 if.end.thread:                                    ; preds = %if.then2
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
@@ -8984,37 +9865,36 @@ if.end:                                           ; preds = %if.then2
 
 if.then9:                                         ; preds = %if.end
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i64, ptr %m_size.i, align 8
-  %cmp.i = icmp eq i64 %6, 0
+  %5 = load i64, ptr %m_size.i, align 8
+  %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %if.end12, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
-  %7 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
+  %6 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
   %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
-  %8 = load ptr, ptr %m_commandQueue.i, align 8
+  %7 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %m_clBuffer.i, align 8
-  %mul3.i = shl i64 %6, 4
-  %call.i = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %8 = load ptr, ptr %m_clBuffer.i, align 8
+  %mul3.i = shl i64 %5, 4
+  %call.i = call i32 %6(ptr noundef %7, ptr noundef %8, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end.i, %if.then9, %if.end.thread, %if.end
   %_Count.addr.023 = phi i64 [ 0, %if.end.thread ], [ %_Count, %if.end ], [ %_Count, %if.then9 ], [ %_Count, %if.end.i ]
   %m_clBuffer.i5 = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %m_clBuffer.i5, align 8
-  %tobool.not.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %m_clBuffer.i5, align 8
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %_ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end12
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load i8, ptr %m_ownsMemory.i, align 8
-  %12 = and i8 %11, 1
-  %tobool2.not.i = icmp eq i8 %12, 0
-  br i1 %tobool2.not.i, label %_ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit, label %if.then.i
+  %10 = load i8, ptr %m_ownsMemory.i, align 8
+  %tobool2.i = trunc i8 %10 to i1
+  br i1 %tobool2.i, label %if.then.i, label %_ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %13 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i6 = call i32 %13(ptr noundef nonnull %10)
+  %11 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8 = call i32 %11(ptr noundef nonnull %9)
   br label %_ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit
 
 _ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit: ; preds = %if.end12, %land.lhs.true.i, %if.then.i
@@ -9024,28 +9904,27 @@ _ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit: ; preds = %if.end12, %lan
 
 if.else:                                          ; preds = %if.then
   %m_clBuffer.i9 = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %m_clBuffer.i9, align 8
-  %tobool.not.i10 = icmp eq ptr %14, null
+  %12 = load ptr, ptr %m_clBuffer.i9, align 8
+  %tobool.not.i10 = icmp eq ptr %12, null
   br i1 %tobool.not.i10, label %_ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit18, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %if.else
   %m_ownsMemory.i12 = getelementptr inbounds i8, ptr %this, i64 48
-  %15 = load i8, ptr %m_ownsMemory.i12, align 8
-  %16 = and i8 %15, 1
-  %tobool2.not.i13 = icmp eq i8 %16, 0
-  br i1 %tobool2.not.i13, label %_ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit18, label %if.then.i14
+  %13 = load i8, ptr %m_ownsMemory.i12, align 8
+  %tobool2.i13 = trunc i8 %13 to i1
+  br i1 %tobool2.i13, label %if.then.i16, label %_ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit18
 
-if.then.i14:                                      ; preds = %land.lhs.true.i11
-  %17 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i15 = tail call i32 %17(ptr noundef nonnull %14)
+if.then.i16:                                      ; preds = %land.lhs.true.i11
+  %14 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17 = tail call i32 %14(ptr noundef nonnull %12)
   br label %_ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit18
 
-_ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i14
+_ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i, i8 0, i64 16, i1 false)
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit, %_ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not.not, %_ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit18 ], [ true, %entry ]
+  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI12b3CollidableE10deallocateEv.exit18 ], [ true, %entry ]
   ret i1 %result.1
 }
 
@@ -9061,13 +9940,12 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i, label %invoke.cont, label %if.then.i
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1 = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1 = invoke i32 %2(ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
@@ -9076,10 +9954,10 @@ invoke.cont:                                      ; preds = %land.lhs.true.i, %e
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 }
 
@@ -9095,24 +9973,23 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %_ZN13b3OpenCLArrayI12b3CollidableED2Ev.exit, label %if.then.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI12b3CollidableED2Ev.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i = invoke i32 %2(ptr noundef nonnull %0)
           to label %_ZN13b3OpenCLArrayI12b3CollidableED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN13b3OpenCLArrayI12b3CollidableED2Ev.exit:      ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -9128,19 +10005,18 @@ entry:
 if.then:                                          ; preds = %entry
   %m_allowGrowingCapacity = getelementptr inbounds i8, ptr %this, i64 49
   %1 = load i8, ptr %m_allowGrowingCapacity, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.then2
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
   %mul = shl i64 %_Count, 5
-  %3 = load ptr, ptr @__clewCreateBuffer, align 8
+  %2 = load ptr, ptr @__clewCreateBuffer, align 8
   %m_clContext = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load ptr, ptr %m_clContext, align 8
-  %call3 = call ptr %3(ptr noundef %4, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
-  %5 = load i32, ptr %ciErrNum, align 4
-  %cmp4.not.not = icmp eq i32 %5, 0
-  br i1 %cmp4.not.not, label %if.end, label %if.end.thread
+  %3 = load ptr, ptr %m_clContext, align 8
+  %call3 = call ptr %2(ptr noundef %3, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
+  %4 = load i32, ptr %ciErrNum, align 4
+  %cmp4.not = icmp eq i32 %4, 0
+  br i1 %cmp4.not, label %if.end, label %if.end.thread
 
 if.end.thread:                                    ; preds = %if.then2
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
@@ -9152,37 +10028,36 @@ if.end:                                           ; preds = %if.then2
 
 if.then9:                                         ; preds = %if.end
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i64, ptr %m_size.i, align 8
-  %cmp.i = icmp eq i64 %6, 0
+  %5 = load i64, ptr %m_size.i, align 8
+  %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %if.end12, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
-  %7 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
+  %6 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
   %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
-  %8 = load ptr, ptr %m_commandQueue.i, align 8
+  %7 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %m_clBuffer.i, align 8
-  %mul3.i = shl i64 %6, 5
-  %call.i = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %8 = load ptr, ptr %m_clBuffer.i, align 8
+  %mul3.i = shl i64 %5, 5
+  %call.i = call i32 %6(ptr noundef %7, ptr noundef %8, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end.i, %if.then9, %if.end.thread, %if.end
   %_Count.addr.023 = phi i64 [ 0, %if.end.thread ], [ %_Count, %if.end ], [ %_Count, %if.then9 ], [ %_Count, %if.end.i ]
   %m_clBuffer.i5 = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %m_clBuffer.i5, align 8
-  %tobool.not.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %m_clBuffer.i5, align 8
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end12
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load i8, ptr %m_ownsMemory.i, align 8
-  %12 = and i8 %11, 1
-  %tobool2.not.i = icmp eq i8 %12, 0
-  br i1 %tobool2.not.i, label %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit, label %if.then.i
+  %10 = load i8, ptr %m_ownsMemory.i, align 8
+  %tobool2.i = trunc i8 %10 to i1
+  br i1 %tobool2.i, label %if.then.i, label %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %13 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i6 = call i32 %13(ptr noundef nonnull %10)
+  %11 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8 = call i32 %11(ptr noundef nonnull %9)
   br label %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit
 
 _ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit: ; preds = %if.end12, %land.lhs.true.i, %if.then.i
@@ -9192,28 +10067,27 @@ _ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit: ; preds = %if.end12, %land.lh
 
 if.else:                                          ; preds = %if.then
   %m_clBuffer.i9 = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %m_clBuffer.i9, align 8
-  %tobool.not.i10 = icmp eq ptr %14, null
+  %12 = load ptr, ptr %m_clBuffer.i9, align 8
+  %tobool.not.i10 = icmp eq ptr %12, null
   br i1 %tobool.not.i10, label %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit18, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %if.else
   %m_ownsMemory.i12 = getelementptr inbounds i8, ptr %this, i64 48
-  %15 = load i8, ptr %m_ownsMemory.i12, align 8
-  %16 = and i8 %15, 1
-  %tobool2.not.i13 = icmp eq i8 %16, 0
-  br i1 %tobool2.not.i13, label %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit18, label %if.then.i14
+  %13 = load i8, ptr %m_ownsMemory.i12, align 8
+  %tobool2.i13 = trunc i8 %13 to i1
+  br i1 %tobool2.i13, label %if.then.i16, label %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit18
 
-if.then.i14:                                      ; preds = %land.lhs.true.i11
-  %17 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i15 = tail call i32 %17(ptr noundef nonnull %14)
+if.then.i16:                                      ; preds = %land.lhs.true.i11
+  %14 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17 = tail call i32 %14(ptr noundef nonnull %12)
   br label %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit18
 
-_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i14
+_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i, i8 0, i64 16, i1 false)
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit, %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not.not, %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit18 ], [ true, %entry ]
+  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit18 ], [ true, %entry ]
   ret i1 %result.1
 }
 
@@ -9229,13 +10103,12 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i, label %invoke.cont, label %if.then.i
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1 = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1 = invoke i32 %2(ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
@@ -9244,10 +10117,10 @@ invoke.cont:                                      ; preds = %land.lhs.true.i, %e
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 }
 
@@ -9263,24 +10136,23 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %_ZN13b3OpenCLArrayI9b3SapAabbED2Ev.exit, label %if.then.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI9b3SapAabbED2Ev.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i = invoke i32 %2(ptr noundef nonnull %0)
           to label %_ZN13b3OpenCLArrayI9b3SapAabbED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN13b3OpenCLArrayI9b3SapAabbED2Ev.exit:          ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -9296,19 +10168,18 @@ entry:
 if.then:                                          ; preds = %entry
   %m_allowGrowingCapacity = getelementptr inbounds i8, ptr %this, i64 49
   %1 = load i8, ptr %m_allowGrowingCapacity, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.then2
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
   %mul = mul i64 %_Count, 80
-  %3 = load ptr, ptr @__clewCreateBuffer, align 8
+  %2 = load ptr, ptr @__clewCreateBuffer, align 8
   %m_clContext = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load ptr, ptr %m_clContext, align 8
-  %call3 = call ptr %3(ptr noundef %4, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
-  %5 = load i32, ptr %ciErrNum, align 4
-  %cmp4.not.not = icmp eq i32 %5, 0
-  br i1 %cmp4.not.not, label %if.end, label %if.end.thread
+  %3 = load ptr, ptr %m_clContext, align 8
+  %call3 = call ptr %2(ptr noundef %3, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
+  %4 = load i32, ptr %ciErrNum, align 4
+  %cmp4.not = icmp eq i32 %4, 0
+  br i1 %cmp4.not, label %if.end, label %if.end.thread
 
 if.end.thread:                                    ; preds = %if.then2
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
@@ -9320,37 +10191,36 @@ if.end:                                           ; preds = %if.then2
 
 if.then9:                                         ; preds = %if.end
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i64, ptr %m_size.i, align 8
-  %cmp.i = icmp eq i64 %6, 0
+  %5 = load i64, ptr %m_size.i, align 8
+  %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %if.end12, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
-  %7 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
+  %6 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
   %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
-  %8 = load ptr, ptr %m_commandQueue.i, align 8
+  %7 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %m_clBuffer.i, align 8
-  %mul3.i = mul i64 %6, 80
-  %call.i = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %8 = load ptr, ptr %m_clBuffer.i, align 8
+  %mul3.i = mul i64 %5, 80
+  %call.i = call i32 %6(ptr noundef %7, ptr noundef %8, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end.i, %if.then9, %if.end.thread, %if.end
   %_Count.addr.023 = phi i64 [ 0, %if.end.thread ], [ %_Count, %if.end ], [ %_Count, %if.then9 ], [ %_Count, %if.end.i ]
   %m_clBuffer.i5 = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %m_clBuffer.i5, align 8
-  %tobool.not.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %m_clBuffer.i5, align 8
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %_ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end12
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load i8, ptr %m_ownsMemory.i, align 8
-  %12 = and i8 %11, 1
-  %tobool2.not.i = icmp eq i8 %12, 0
-  br i1 %tobool2.not.i, label %_ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit, label %if.then.i
+  %10 = load i8, ptr %m_ownsMemory.i, align 8
+  %tobool2.i = trunc i8 %10 to i1
+  br i1 %tobool2.i, label %if.then.i, label %_ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %13 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i6 = call i32 %13(ptr noundef nonnull %10)
+  %11 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8 = call i32 %11(ptr noundef nonnull %9)
   br label %_ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit
 
 _ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit: ; preds = %if.end12, %land.lhs.true.i, %if.then.i
@@ -9360,28 +10230,27 @@ _ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit: ; preds = %if.end12, %
 
 if.else:                                          ; preds = %if.then
   %m_clBuffer.i9 = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %m_clBuffer.i9, align 8
-  %tobool.not.i10 = icmp eq ptr %14, null
+  %12 = load ptr, ptr %m_clBuffer.i9, align 8
+  %tobool.not.i10 = icmp eq ptr %12, null
   br i1 %tobool.not.i10, label %_ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit18, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %if.else
   %m_ownsMemory.i12 = getelementptr inbounds i8, ptr %this, i64 48
-  %15 = load i8, ptr %m_ownsMemory.i12, align 8
-  %16 = and i8 %15, 1
-  %tobool2.not.i13 = icmp eq i8 %16, 0
-  br i1 %tobool2.not.i13, label %_ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit18, label %if.then.i14
+  %13 = load i8, ptr %m_ownsMemory.i12, align 8
+  %tobool2.i13 = trunc i8 %13 to i1
+  br i1 %tobool2.i13, label %if.then.i16, label %_ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit18
 
-if.then.i14:                                      ; preds = %land.lhs.true.i11
-  %17 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i15 = tail call i32 %17(ptr noundef nonnull %14)
+if.then.i16:                                      ; preds = %land.lhs.true.i11
+  %14 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17 = tail call i32 %14(ptr noundef nonnull %12)
   br label %_ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit18
 
-_ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i14
+_ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i, i8 0, i64 16, i1 false)
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not.not, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit18 ], [ true, %entry ]
+  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv.exit18 ], [ true, %entry ]
   ret i1 %result.1
 }
 
@@ -9397,13 +10266,12 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i, label %invoke.cont, label %if.then.i
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1 = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1 = invoke i32 %2(ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
@@ -9412,10 +10280,10 @@ invoke.cont:                                      ; preds = %land.lhs.true.i, %e
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 }
 
@@ -9431,24 +10299,23 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %_ZN13b3OpenCLArrayI15b3RigidBodyDataED2Ev.exit, label %if.then.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI15b3RigidBodyDataED2Ev.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i = invoke i32 %2(ptr noundef nonnull %0)
           to label %_ZN13b3OpenCLArrayI15b3RigidBodyDataED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN13b3OpenCLArrayI15b3RigidBodyDataED2Ev.exit:   ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -9464,19 +10331,18 @@ entry:
 if.then:                                          ; preds = %entry
   %m_allowGrowingCapacity = getelementptr inbounds i8, ptr %this, i64 49
   %1 = load i8, ptr %m_allowGrowingCapacity, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.then2
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
   %mul = shl i64 %_Count, 5
-  %3 = load ptr, ptr @__clewCreateBuffer, align 8
+  %2 = load ptr, ptr @__clewCreateBuffer, align 8
   %m_clContext = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load ptr, ptr %m_clContext, align 8
-  %call3 = call ptr %3(ptr noundef %4, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
-  %5 = load i32, ptr %ciErrNum, align 4
-  %cmp4.not.not = icmp eq i32 %5, 0
-  br i1 %cmp4.not.not, label %if.end, label %if.end.thread
+  %3 = load ptr, ptr %m_clContext, align 8
+  %call3 = call ptr %2(ptr noundef %3, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
+  %4 = load i32, ptr %ciErrNum, align 4
+  %cmp4.not = icmp eq i32 %4, 0
+  br i1 %cmp4.not, label %if.end, label %if.end.thread
 
 if.end.thread:                                    ; preds = %if.then2
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
@@ -9488,37 +10354,36 @@ if.end:                                           ; preds = %if.then2
 
 if.then9:                                         ; preds = %if.end
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i64, ptr %m_size.i, align 8
-  %cmp.i = icmp eq i64 %6, 0
+  %5 = load i64, ptr %m_size.i, align 8
+  %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %if.end12, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
-  %7 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
+  %6 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
   %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
-  %8 = load ptr, ptr %m_commandQueue.i, align 8
+  %7 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %m_clBuffer.i, align 8
-  %mul3.i = shl i64 %6, 5
-  %call.i = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %8 = load ptr, ptr %m_clBuffer.i, align 8
+  %mul3.i = shl i64 %5, 5
+  %call.i = call i32 %6(ptr noundef %7, ptr noundef %8, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end.i, %if.then9, %if.end.thread, %if.end
   %_Count.addr.023 = phi i64 [ 0, %if.end.thread ], [ %_Count, %if.end ], [ %_Count, %if.then9 ], [ %_Count, %if.end.i ]
   %m_clBuffer.i5 = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %m_clBuffer.i5, align 8
-  %tobool.not.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %m_clBuffer.i5, align 8
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %_ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end12
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load i8, ptr %m_ownsMemory.i, align 8
-  %12 = and i8 %11, 1
-  %tobool2.not.i = icmp eq i8 %12, 0
-  br i1 %tobool2.not.i, label %_ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit, label %if.then.i
+  %10 = load i8, ptr %m_ownsMemory.i, align 8
+  %tobool2.i = trunc i8 %10 to i1
+  br i1 %tobool2.i, label %if.then.i, label %_ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %13 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i6 = call i32 %13(ptr noundef nonnull %10)
+  %11 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8 = call i32 %11(ptr noundef nonnull %9)
   br label %_ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit
 
 _ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit: ; preds = %if.end12, %land.lhs.true.i, %if.then.i
@@ -9528,28 +10393,27 @@ _ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit: ; preds = %if.end12, %land.lh
 
 if.else:                                          ; preds = %if.then
   %m_clBuffer.i9 = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %m_clBuffer.i9, align 8
-  %tobool.not.i10 = icmp eq ptr %14, null
+  %12 = load ptr, ptr %m_clBuffer.i9, align 8
+  %tobool.not.i10 = icmp eq ptr %12, null
   br i1 %tobool.not.i10, label %_ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit18, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %if.else
   %m_ownsMemory.i12 = getelementptr inbounds i8, ptr %this, i64 48
-  %15 = load i8, ptr %m_ownsMemory.i12, align 8
-  %16 = and i8 %15, 1
-  %tobool2.not.i13 = icmp eq i8 %16, 0
-  br i1 %tobool2.not.i13, label %_ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit18, label %if.then.i14
+  %13 = load i8, ptr %m_ownsMemory.i12, align 8
+  %tobool2.i13 = trunc i8 %13 to i1
+  br i1 %tobool2.i13, label %if.then.i16, label %_ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit18
 
-if.then.i14:                                      ; preds = %land.lhs.true.i11
-  %17 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i15 = tail call i32 %17(ptr noundef nonnull %14)
+if.then.i16:                                      ; preds = %land.lhs.true.i11
+  %14 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17 = tail call i32 %14(ptr noundef nonnull %12)
   br label %_ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit18
 
-_ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i14
+_ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i, i8 0, i64 16, i1 false)
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit, %_ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not.not, %_ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit18 ], [ true, %entry ]
+  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI9b3GpuFaceE10deallocateEv.exit18 ], [ true, %entry ]
   ret i1 %result.1
 }
 
@@ -9565,13 +10429,12 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i, label %invoke.cont, label %if.then.i
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1 = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1 = invoke i32 %2(ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
@@ -9580,10 +10443,10 @@ invoke.cont:                                      ; preds = %land.lhs.true.i, %e
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 }
 
@@ -9599,24 +10462,23 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %_ZN13b3OpenCLArrayI9b3GpuFaceED2Ev.exit, label %if.then.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI9b3GpuFaceED2Ev.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i = invoke i32 %2(ptr noundef nonnull %0)
           to label %_ZN13b3OpenCLArrayI9b3GpuFaceED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN13b3OpenCLArrayI9b3GpuFaceED2Ev.exit:          ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -9632,19 +10494,18 @@ entry:
 if.then:                                          ; preds = %entry
   %m_allowGrowingCapacity = getelementptr inbounds i8, ptr %this, i64 49
   %1 = load i8, ptr %m_allowGrowingCapacity, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.then2
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
   %mul = mul i64 %_Count, 48
-  %3 = load ptr, ptr @__clewCreateBuffer, align 8
+  %2 = load ptr, ptr @__clewCreateBuffer, align 8
   %m_clContext = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load ptr, ptr %m_clContext, align 8
-  %call3 = call ptr %3(ptr noundef %4, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
-  %5 = load i32, ptr %ciErrNum, align 4
-  %cmp4.not.not = icmp eq i32 %5, 0
-  br i1 %cmp4.not.not, label %if.end, label %if.end.thread
+  %3 = load ptr, ptr %m_clContext, align 8
+  %call3 = call ptr %2(ptr noundef %3, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
+  %4 = load i32, ptr %ciErrNum, align 4
+  %cmp4.not = icmp eq i32 %4, 0
+  br i1 %cmp4.not, label %if.end, label %if.end.thread
 
 if.end.thread:                                    ; preds = %if.then2
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
@@ -9656,37 +10517,36 @@ if.end:                                           ; preds = %if.then2
 
 if.then9:                                         ; preds = %if.end
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i64, ptr %m_size.i, align 8
-  %cmp.i = icmp eq i64 %6, 0
+  %5 = load i64, ptr %m_size.i, align 8
+  %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %if.end12, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
-  %7 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
+  %6 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
   %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
-  %8 = load ptr, ptr %m_commandQueue.i, align 8
+  %7 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %m_clBuffer.i, align 8
-  %mul3.i = mul i64 %6, 48
-  %call.i = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %8 = load ptr, ptr %m_clBuffer.i, align 8
+  %mul3.i = mul i64 %5, 48
+  %call.i = call i32 %6(ptr noundef %7, ptr noundef %8, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end.i, %if.then9, %if.end.thread, %if.end
   %_Count.addr.023 = phi i64 [ 0, %if.end.thread ], [ %_Count, %if.end ], [ %_Count, %if.then9 ], [ %_Count, %if.end.i ]
   %m_clBuffer.i5 = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %m_clBuffer.i5, align 8
-  %tobool.not.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %m_clBuffer.i5, align 8
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end12
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load i8, ptr %m_ownsMemory.i, align 8
-  %12 = and i8 %11, 1
-  %tobool2.not.i = icmp eq i8 %12, 0
-  br i1 %tobool2.not.i, label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit, label %if.then.i
+  %10 = load i8, ptr %m_ownsMemory.i, align 8
+  %tobool2.i = trunc i8 %10 to i1
+  br i1 %tobool2.i, label %if.then.i, label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %13 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i6 = call i32 %13(ptr noundef nonnull %10)
+  %11 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8 = call i32 %11(ptr noundef nonnull %9)
   br label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit
 
 _ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit: ; preds = %if.end12, %land.lhs.true.i, %if.then.i
@@ -9696,28 +10556,27 @@ _ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit: ; preds = %if.end12, %
 
 if.else:                                          ; preds = %if.then
   %m_clBuffer.i9 = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %m_clBuffer.i9, align 8
-  %tobool.not.i10 = icmp eq ptr %14, null
+  %12 = load ptr, ptr %m_clBuffer.i9, align 8
+  %tobool.not.i10 = icmp eq ptr %12, null
   br i1 %tobool.not.i10, label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit18, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %if.else
   %m_ownsMemory.i12 = getelementptr inbounds i8, ptr %this, i64 48
-  %15 = load i8, ptr %m_ownsMemory.i12, align 8
-  %16 = and i8 %15, 1
-  %tobool2.not.i13 = icmp eq i8 %16, 0
-  br i1 %tobool2.not.i13, label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit18, label %if.then.i14
+  %13 = load i8, ptr %m_ownsMemory.i12, align 8
+  %tobool2.i13 = trunc i8 %13 to i1
+  br i1 %tobool2.i13, label %if.then.i16, label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit18
 
-if.then.i14:                                      ; preds = %land.lhs.true.i11
-  %17 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i15 = tail call i32 %17(ptr noundef nonnull %14)
+if.then.i16:                                      ; preds = %land.lhs.true.i11
+  %14 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17 = tail call i32 %14(ptr noundef nonnull %12)
   br label %_ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit18
 
-_ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i14
+_ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i, i8 0, i64 16, i1 false)
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit, %_ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not.not, %_ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit18 ], [ true, %entry ]
+  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI15b3GpuChildShapeE10deallocateEv.exit18 ], [ true, %entry ]
   ret i1 %result.1
 }
 
@@ -9733,13 +10592,12 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i, label %invoke.cont, label %if.then.i
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1 = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1 = invoke i32 %2(ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
@@ -9748,10 +10606,10 @@ invoke.cont:                                      ; preds = %land.lhs.true.i, %e
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 }
 
@@ -9767,24 +10625,23 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %_ZN13b3OpenCLArrayI15b3GpuChildShapeED2Ev.exit, label %if.then.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI15b3GpuChildShapeED2Ev.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i = invoke i32 %2(ptr noundef nonnull %0)
           to label %_ZN13b3OpenCLArrayI15b3GpuChildShapeED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN13b3OpenCLArrayI15b3GpuChildShapeED2Ev.exit:   ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -9800,19 +10657,18 @@ entry:
 if.then:                                          ; preds = %entry
   %m_allowGrowingCapacity = getelementptr inbounds i8, ptr %this, i64 49
   %1 = load i8, ptr %m_allowGrowingCapacity, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.then2
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
   %mul = mul i64 %_Count, 96
-  %3 = load ptr, ptr @__clewCreateBuffer, align 8
+  %2 = load ptr, ptr @__clewCreateBuffer, align 8
   %m_clContext = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load ptr, ptr %m_clContext, align 8
-  %call3 = call ptr %3(ptr noundef %4, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
-  %5 = load i32, ptr %ciErrNum, align 4
-  %cmp4.not.not = icmp eq i32 %5, 0
-  br i1 %cmp4.not.not, label %if.end, label %if.end.thread
+  %3 = load ptr, ptr %m_clContext, align 8
+  %call3 = call ptr %2(ptr noundef %3, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
+  %4 = load i32, ptr %ciErrNum, align 4
+  %cmp4.not = icmp eq i32 %4, 0
+  br i1 %cmp4.not, label %if.end, label %if.end.thread
 
 if.end.thread:                                    ; preds = %if.then2
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
@@ -9824,37 +10680,36 @@ if.end:                                           ; preds = %if.then2
 
 if.then9:                                         ; preds = %if.end
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i64, ptr %m_size.i, align 8
-  %cmp.i = icmp eq i64 %6, 0
+  %5 = load i64, ptr %m_size.i, align 8
+  %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %if.end12, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
-  %7 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
+  %6 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
   %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
-  %8 = load ptr, ptr %m_commandQueue.i, align 8
+  %7 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %m_clBuffer.i, align 8
-  %mul3.i = mul i64 %6, 96
-  %call.i = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %8 = load ptr, ptr %m_clBuffer.i, align 8
+  %mul3.i = mul i64 %5, 96
+  %call.i = call i32 %6(ptr noundef %7, ptr noundef %8, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end.i, %if.then9, %if.end.thread, %if.end
   %_Count.addr.023 = phi i64 [ 0, %if.end.thread ], [ %_Count, %if.end ], [ %_Count, %if.then9 ], [ %_Count, %if.end.i ]
   %m_clBuffer.i5 = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %m_clBuffer.i5, align 8
-  %tobool.not.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %m_clBuffer.i5, align 8
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end12
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load i8, ptr %m_ownsMemory.i, align 8
-  %12 = and i8 %11, 1
-  %tobool2.not.i = icmp eq i8 %12, 0
-  br i1 %tobool2.not.i, label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit, label %if.then.i
+  %10 = load i8, ptr %m_ownsMemory.i, align 8
+  %tobool2.i = trunc i8 %10 to i1
+  br i1 %tobool2.i, label %if.then.i, label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %13 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i6 = call i32 %13(ptr noundef nonnull %10)
+  %11 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8 = call i32 %11(ptr noundef nonnull %9)
   br label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit
 
 _ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit: ; preds = %if.end12, %land.lhs.true.i, %if.then.i
@@ -9864,28 +10719,27 @@ _ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit: ; preds = %if.e
 
 if.else:                                          ; preds = %if.then
   %m_clBuffer.i9 = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %m_clBuffer.i9, align 8
-  %tobool.not.i10 = icmp eq ptr %14, null
+  %12 = load ptr, ptr %m_clBuffer.i9, align 8
+  %tobool.not.i10 = icmp eq ptr %12, null
   br i1 %tobool.not.i10, label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit18, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %if.else
   %m_ownsMemory.i12 = getelementptr inbounds i8, ptr %this, i64 48
-  %15 = load i8, ptr %m_ownsMemory.i12, align 8
-  %16 = and i8 %15, 1
-  %tobool2.not.i13 = icmp eq i8 %16, 0
-  br i1 %tobool2.not.i13, label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit18, label %if.then.i14
+  %13 = load i8, ptr %m_ownsMemory.i12, align 8
+  %tobool2.i13 = trunc i8 %13 to i1
+  br i1 %tobool2.i13, label %if.then.i16, label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit18
 
-if.then.i14:                                      ; preds = %land.lhs.true.i11
-  %17 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i15 = tail call i32 %17(ptr noundef nonnull %14)
+if.then.i16:                                      ; preds = %land.lhs.true.i11
+  %14 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17 = tail call i32 %14(ptr noundef nonnull %12)
   br label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit18
 
-_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i14
+_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i, i8 0, i64 16, i1 false)
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit, %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not.not, %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit18 ], [ true, %entry ]
+  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataE10deallocateEv.exit18 ], [ true, %entry ]
   ret i1 %result.1
 }
 
@@ -9901,13 +10755,12 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i, label %invoke.cont, label %if.then.i
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1 = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1 = invoke i32 %2(ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
@@ -9916,10 +10769,10 @@ invoke.cont:                                      ; preds = %land.lhs.true.i, %e
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 }
 
@@ -9935,24 +10788,23 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataED2Ev.exit, label %if.then.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataED2Ev.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i = invoke i32 %2(ptr noundef nonnull %0)
           to label %_ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN13b3OpenCLArrayI22b3ConvexPolyhedronDataED2Ev.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -9968,19 +10820,18 @@ entry:
 if.then:                                          ; preds = %entry
   %m_allowGrowingCapacity = getelementptr inbounds i8, ptr %this, i64 49
   %1 = load i8, ptr %m_allowGrowingCapacity, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.then2
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
   %mul = shl i64 %_Count, 4
-  %3 = load ptr, ptr @__clewCreateBuffer, align 8
+  %2 = load ptr, ptr @__clewCreateBuffer, align 8
   %m_clContext = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load ptr, ptr %m_clContext, align 8
-  %call3 = call ptr %3(ptr noundef %4, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
-  %5 = load i32, ptr %ciErrNum, align 4
-  %cmp4.not.not = icmp eq i32 %5, 0
-  br i1 %cmp4.not.not, label %if.end, label %if.end.thread
+  %3 = load ptr, ptr %m_clContext, align 8
+  %call3 = call ptr %2(ptr noundef %3, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
+  %4 = load i32, ptr %ciErrNum, align 4
+  %cmp4.not = icmp eq i32 %4, 0
+  br i1 %cmp4.not, label %if.end, label %if.end.thread
 
 if.end.thread:                                    ; preds = %if.then2
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
@@ -9992,37 +10843,36 @@ if.end:                                           ; preds = %if.then2
 
 if.then9:                                         ; preds = %if.end
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i64, ptr %m_size.i, align 8
-  %cmp.i = icmp eq i64 %6, 0
+  %5 = load i64, ptr %m_size.i, align 8
+  %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %if.end12, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
-  %7 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
+  %6 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
   %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
-  %8 = load ptr, ptr %m_commandQueue.i, align 8
+  %7 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %m_clBuffer.i, align 8
-  %mul3.i = shl i64 %6, 4
-  %call.i = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %8 = load ptr, ptr %m_clBuffer.i, align 8
+  %mul3.i = shl i64 %5, 4
+  %call.i = call i32 %6(ptr noundef %7, ptr noundef %8, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end.i, %if.then9, %if.end.thread, %if.end
   %_Count.addr.023 = phi i64 [ 0, %if.end.thread ], [ %_Count, %if.end ], [ %_Count, %if.then9 ], [ %_Count, %if.end.i ]
   %m_clBuffer.i5 = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %m_clBuffer.i5, align 8
-  %tobool.not.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %m_clBuffer.i5, align 8
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end12
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load i8, ptr %m_ownsMemory.i, align 8
-  %12 = and i8 %11, 1
-  %tobool2.not.i = icmp eq i8 %12, 0
-  br i1 %tobool2.not.i, label %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit, label %if.then.i
+  %10 = load i8, ptr %m_ownsMemory.i, align 8
+  %tobool2.i = trunc i8 %10 to i1
+  br i1 %tobool2.i, label %if.then.i, label %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %13 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i6 = call i32 %13(ptr noundef nonnull %10)
+  %11 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8 = call i32 %11(ptr noundef nonnull %9)
   br label %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit
 
 _ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit: ; preds = %if.end12, %land.lhs.true.i, %if.then.i
@@ -10032,28 +10882,27 @@ _ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit: ; preds = %if.end12, %land.lh
 
 if.else:                                          ; preds = %if.then
   %m_clBuffer.i9 = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %m_clBuffer.i9, align 8
-  %tobool.not.i10 = icmp eq ptr %14, null
+  %12 = load ptr, ptr %m_clBuffer.i9, align 8
+  %tobool.not.i10 = icmp eq ptr %12, null
   br i1 %tobool.not.i10, label %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %if.else
   %m_ownsMemory.i12 = getelementptr inbounds i8, ptr %this, i64 48
-  %15 = load i8, ptr %m_ownsMemory.i12, align 8
-  %16 = and i8 %15, 1
-  %tobool2.not.i13 = icmp eq i8 %16, 0
-  br i1 %tobool2.not.i13, label %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18, label %if.then.i14
+  %13 = load i8, ptr %m_ownsMemory.i12, align 8
+  %tobool2.i13 = trunc i8 %13 to i1
+  br i1 %tobool2.i13, label %if.then.i16, label %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18
 
-if.then.i14:                                      ; preds = %land.lhs.true.i11
-  %17 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i15 = tail call i32 %17(ptr noundef nonnull %14)
+if.then.i16:                                      ; preds = %land.lhs.true.i11
+  %14 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17 = tail call i32 %14(ptr noundef nonnull %12)
   br label %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18
 
-_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i14
+_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i, i8 0, i64 16, i1 false)
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not.not, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18 ], [ true, %entry ]
+  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18 ], [ true, %entry ]
   ret i1 %result.1
 }
 
@@ -10069,13 +10918,12 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i, label %invoke.cont, label %if.then.i
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1 = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1 = invoke i32 %2(ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
@@ -10084,10 +10932,10 @@ invoke.cont:                                      ; preds = %land.lhs.true.i, %e
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 }
 
@@ -10103,24 +10951,23 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %_ZN13b3OpenCLArrayI9b3Vector3ED2Ev.exit, label %if.then.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI9b3Vector3ED2Ev.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i = invoke i32 %2(ptr noundef nonnull %0)
           to label %_ZN13b3OpenCLArrayI9b3Vector3ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN13b3OpenCLArrayI9b3Vector3ED2Ev.exit:          ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -10136,19 +10983,18 @@ entry:
 if.then:                                          ; preds = %entry
   %m_allowGrowingCapacity = getelementptr inbounds i8, ptr %this, i64 49
   %1 = load i8, ptr %m_allowGrowingCapacity, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.then2
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
   %mul = shl i64 %_Count, 2
-  %3 = load ptr, ptr @__clewCreateBuffer, align 8
+  %2 = load ptr, ptr @__clewCreateBuffer, align 8
   %m_clContext = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load ptr, ptr %m_clContext, align 8
-  %call3 = call ptr %3(ptr noundef %4, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
-  %5 = load i32, ptr %ciErrNum, align 4
-  %cmp4.not.not = icmp eq i32 %5, 0
-  br i1 %cmp4.not.not, label %if.end, label %if.end.thread
+  %3 = load ptr, ptr %m_clContext, align 8
+  %call3 = call ptr %2(ptr noundef %3, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
+  %4 = load i32, ptr %ciErrNum, align 4
+  %cmp4.not = icmp eq i32 %4, 0
+  br i1 %cmp4.not, label %if.end, label %if.end.thread
 
 if.end.thread:                                    ; preds = %if.then2
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
@@ -10160,37 +11006,36 @@ if.end:                                           ; preds = %if.then2
 
 if.then9:                                         ; preds = %if.end
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i64, ptr %m_size.i, align 8
-  %cmp.i = icmp eq i64 %6, 0
+  %5 = load i64, ptr %m_size.i, align 8
+  %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %if.end12, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
-  %7 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
+  %6 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
   %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
-  %8 = load ptr, ptr %m_commandQueue.i, align 8
+  %7 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %m_clBuffer.i, align 8
-  %mul3.i = shl i64 %6, 2
-  %call.i = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %8 = load ptr, ptr %m_clBuffer.i, align 8
+  %mul3.i = shl i64 %5, 2
+  %call.i = call i32 %6(ptr noundef %7, ptr noundef %8, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end.i, %if.then9, %if.end.thread, %if.end
   %_Count.addr.023 = phi i64 [ 0, %if.end.thread ], [ %_Count, %if.end ], [ %_Count, %if.then9 ], [ %_Count, %if.end.i ]
   %m_clBuffer.i5 = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %m_clBuffer.i5, align 8
-  %tobool.not.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %m_clBuffer.i5, align 8
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %_ZN13b3OpenCLArrayIiE10deallocateEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end12
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load i8, ptr %m_ownsMemory.i, align 8
-  %12 = and i8 %11, 1
-  %tobool2.not.i = icmp eq i8 %12, 0
-  br i1 %tobool2.not.i, label %_ZN13b3OpenCLArrayIiE10deallocateEv.exit, label %if.then.i
+  %10 = load i8, ptr %m_ownsMemory.i, align 8
+  %tobool2.i = trunc i8 %10 to i1
+  br i1 %tobool2.i, label %if.then.i, label %_ZN13b3OpenCLArrayIiE10deallocateEv.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %13 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i6 = call i32 %13(ptr noundef nonnull %10)
+  %11 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i8 = call i32 %11(ptr noundef nonnull %9)
   br label %_ZN13b3OpenCLArrayIiE10deallocateEv.exit
 
 _ZN13b3OpenCLArrayIiE10deallocateEv.exit:         ; preds = %if.end12, %land.lhs.true.i, %if.then.i
@@ -10200,28 +11045,27 @@ _ZN13b3OpenCLArrayIiE10deallocateEv.exit:         ; preds = %if.end12, %land.lhs
 
 if.else:                                          ; preds = %if.then
   %m_clBuffer.i9 = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %m_clBuffer.i9, align 8
-  %tobool.not.i10 = icmp eq ptr %14, null
+  %12 = load ptr, ptr %m_clBuffer.i9, align 8
+  %tobool.not.i10 = icmp eq ptr %12, null
   br i1 %tobool.not.i10, label %_ZN13b3OpenCLArrayIiE10deallocateEv.exit18, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %if.else
   %m_ownsMemory.i12 = getelementptr inbounds i8, ptr %this, i64 48
-  %15 = load i8, ptr %m_ownsMemory.i12, align 8
-  %16 = and i8 %15, 1
-  %tobool2.not.i13 = icmp eq i8 %16, 0
-  br i1 %tobool2.not.i13, label %_ZN13b3OpenCLArrayIiE10deallocateEv.exit18, label %if.then.i14
+  %13 = load i8, ptr %m_ownsMemory.i12, align 8
+  %tobool2.i13 = trunc i8 %13 to i1
+  br i1 %tobool2.i13, label %if.then.i16, label %_ZN13b3OpenCLArrayIiE10deallocateEv.exit18
 
-if.then.i14:                                      ; preds = %land.lhs.true.i11
-  %17 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i15 = tail call i32 %17(ptr noundef nonnull %14)
+if.then.i16:                                      ; preds = %land.lhs.true.i11
+  %14 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i17 = tail call i32 %14(ptr noundef nonnull %12)
   br label %_ZN13b3OpenCLArrayIiE10deallocateEv.exit18
 
-_ZN13b3OpenCLArrayIiE10deallocateEv.exit18:       ; preds = %if.else, %land.lhs.true.i11, %if.then.i14
+_ZN13b3OpenCLArrayIiE10deallocateEv.exit18:       ; preds = %if.else, %land.lhs.true.i11, %if.then.i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i, i8 0, i64 16, i1 false)
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayIiE10deallocateEv.exit, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not.not, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit18 ], [ true, %entry ]
+  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit18 ], [ true, %entry ]
   ret i1 %result.1
 }
 
@@ -10237,13 +11081,12 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i, label %invoke.cont, label %if.then.i
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1 = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1 = invoke i32 %2(ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
@@ -10252,10 +11095,10 @@ invoke.cont:                                      ; preds = %land.lhs.true.i, %e
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 }
 
@@ -10271,24 +11114,23 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %_ZN13b3OpenCLArrayIiED2Ev.exit, label %if.then.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayIiED2Ev.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i = invoke i32 %2(ptr noundef nonnull %0)
           to label %_ZN13b3OpenCLArrayIiED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN13b3OpenCLArrayIiED2Ev.exit:                   ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -10351,9 +11193,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i22:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.not.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayIP15b3ConvexUtilityE10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %5 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayIP15b3ConvexUtilityE10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i22
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %4)
@@ -10370,107 +11211,6 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this, i64 noundef %_Count, i1 noundef zeroext %copyOldContents) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %ciErrNum = alloca i32, align 4
-  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load i64, ptr %m_capacity.i, align 8
-  %cmp = icmp ult i64 %0, %_Count
-  br i1 %cmp, label %if.then, label %if.end14
-
-if.then:                                          ; preds = %entry
-  %m_allowGrowingCapacity = getelementptr inbounds i8, ptr %this, i64 49
-  %1 = load i8, ptr %m_allowGrowingCapacity, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.then2
-
-if.then2:                                         ; preds = %if.then
-  %mul = shl i64 %_Count, 5
-  %3 = load ptr, ptr @__clewCreateBuffer, align 8
-  %m_clContext = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load ptr, ptr %m_clContext, align 8
-  %call3 = call ptr %3(ptr noundef %4, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
-  %5 = load i32, ptr %ciErrNum, align 4
-  %cmp4.not.not = icmp eq i32 %5, 0
-  br i1 %cmp4.not.not, label %if.end, label %if.end.thread
-
-if.end.thread:                                    ; preds = %if.then2
-  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
-  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.12)
-  br label %if.end12
-
-if.end:                                           ; preds = %if.then2
-  br i1 %copyOldContents, label %if.then9, label %if.end12
-
-if.then9:                                         ; preds = %if.end
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i64, ptr %m_size.i, align 8
-  %cmp.i = icmp eq i64 %6, 0
-  br i1 %cmp.i, label %if.end12, label %if.end.i
-
-if.end.i:                                         ; preds = %if.then9
-  %7 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
-  %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
-  %8 = load ptr, ptr %m_commandQueue.i, align 8
-  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %m_clBuffer.i, align 8
-  %mul3.i = shl i64 %6, 5
-  %call.i = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.end.i, %if.then9, %if.end.thread, %if.end
-  %_Count.addr.023 = phi i64 [ 0, %if.end.thread ], [ %_Count, %if.end ], [ %_Count, %if.then9 ], [ %_Count, %if.end.i ]
-  %m_clBuffer.i5 = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %m_clBuffer.i5, align 8
-  %tobool.not.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i, label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE10deallocateEv.exit, label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %if.end12
-  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load i8, ptr %m_ownsMemory.i, align 8
-  %12 = and i8 %11, 1
-  %tobool2.not.i = icmp eq i8 %12, 0
-  br i1 %tobool2.not.i, label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE10deallocateEv.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %land.lhs.true.i
-  %13 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i6 = call i32 %13(ptr noundef nonnull %10)
-  br label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE10deallocateEv.exit
-
-_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE10deallocateEv.exit: ; preds = %if.end12, %land.lhs.true.i, %if.then.i
-  store ptr %call3, ptr %m_clBuffer.i5, align 8
-  store i64 %_Count.addr.023, ptr %m_capacity.i, align 8
-  br label %if.end14
-
-if.else:                                          ; preds = %if.then
-  %m_clBuffer.i9 = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %m_clBuffer.i9, align 8
-  %tobool.not.i10 = icmp eq ptr %14, null
-  br i1 %tobool.not.i10, label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE10deallocateEv.exit18, label %land.lhs.true.i11
-
-land.lhs.true.i11:                                ; preds = %if.else
-  %m_ownsMemory.i12 = getelementptr inbounds i8, ptr %this, i64 48
-  %15 = load i8, ptr %m_ownsMemory.i12, align 8
-  %16 = and i8 %15, 1
-  %tobool2.not.i13 = icmp eq i8 %16, 0
-  br i1 %tobool2.not.i13, label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE10deallocateEv.exit18, label %if.then.i14
-
-if.then.i14:                                      ; preds = %land.lhs.true.i11
-  %17 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i15 = tail call i32 %17(ptr noundef nonnull %14)
-  br label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE10deallocateEv.exit18
-
-_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i, i8 0, i64 16, i1 false)
-  br label %if.end14
-
-if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE10deallocateEv.exit, %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not.not, %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoE10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
-}
-
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
@@ -10483,13 +11223,12 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i, label %invoke.cont, label %if.then.i
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1 = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1 = invoke i32 %2(ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
@@ -10498,10 +11237,10 @@ invoke.cont:                                      ; preds = %land.lhs.true.i, %e
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 }
 
@@ -10517,126 +11256,24 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoED2Ev.exit, label %if.then.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoED2Ev.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i = invoke i32 %2(ptr noundef nonnull %0)
           to label %_ZN13b3OpenCLArrayI16b3BvhSubtreeInfoED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN13b3OpenCLArrayI16b3BvhSubtreeInfoED2Ev.exit:  ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this, i64 noundef %_Count, i1 noundef zeroext %copyOldContents) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %ciErrNum = alloca i32, align 4
-  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load i64, ptr %m_capacity.i, align 8
-  %cmp = icmp ult i64 %0, %_Count
-  br i1 %cmp, label %if.then, label %if.end14
-
-if.then:                                          ; preds = %entry
-  %m_allowGrowingCapacity = getelementptr inbounds i8, ptr %this, i64 49
-  %1 = load i8, ptr %m_allowGrowingCapacity, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.then2
-
-if.then2:                                         ; preds = %if.then
-  %mul = shl i64 %_Count, 4
-  %3 = load ptr, ptr @__clewCreateBuffer, align 8
-  %m_clContext = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load ptr, ptr %m_clContext, align 8
-  %call3 = call ptr %3(ptr noundef %4, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
-  %5 = load i32, ptr %ciErrNum, align 4
-  %cmp4.not.not = icmp eq i32 %5, 0
-  br i1 %cmp4.not.not, label %if.end, label %if.end.thread
-
-if.end.thread:                                    ; preds = %if.then2
-  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
-  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.12)
-  br label %if.end12
-
-if.end:                                           ; preds = %if.then2
-  br i1 %copyOldContents, label %if.then9, label %if.end12
-
-if.then9:                                         ; preds = %if.end
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i64, ptr %m_size.i, align 8
-  %cmp.i = icmp eq i64 %6, 0
-  br i1 %cmp.i, label %if.end12, label %if.end.i
-
-if.end.i:                                         ; preds = %if.then9
-  %7 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
-  %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
-  %8 = load ptr, ptr %m_commandQueue.i, align 8
-  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %m_clBuffer.i, align 8
-  %mul3.i = shl i64 %6, 4
-  %call.i = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.end.i, %if.then9, %if.end.thread, %if.end
-  %_Count.addr.023 = phi i64 [ 0, %if.end.thread ], [ %_Count, %if.end ], [ %_Count, %if.then9 ], [ %_Count, %if.end.i ]
-  %m_clBuffer.i5 = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %m_clBuffer.i5, align 8
-  %tobool.not.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i, label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE10deallocateEv.exit, label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %if.end12
-  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load i8, ptr %m_ownsMemory.i, align 8
-  %12 = and i8 %11, 1
-  %tobool2.not.i = icmp eq i8 %12, 0
-  br i1 %tobool2.not.i, label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE10deallocateEv.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %land.lhs.true.i
-  %13 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i6 = call i32 %13(ptr noundef nonnull %10)
-  br label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE10deallocateEv.exit
-
-_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE10deallocateEv.exit: ; preds = %if.end12, %land.lhs.true.i, %if.then.i
-  store ptr %call3, ptr %m_clBuffer.i5, align 8
-  store i64 %_Count.addr.023, ptr %m_capacity.i, align 8
-  br label %if.end14
-
-if.else:                                          ; preds = %if.then
-  %m_clBuffer.i9 = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %m_clBuffer.i9, align 8
-  %tobool.not.i10 = icmp eq ptr %14, null
-  br i1 %tobool.not.i10, label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE10deallocateEv.exit18, label %land.lhs.true.i11
-
-land.lhs.true.i11:                                ; preds = %if.else
-  %m_ownsMemory.i12 = getelementptr inbounds i8, ptr %this, i64 48
-  %15 = load i8, ptr %m_ownsMemory.i12, align 8
-  %16 = and i8 %15, 1
-  %tobool2.not.i13 = icmp eq i8 %16, 0
-  br i1 %tobool2.not.i13, label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE10deallocateEv.exit18, label %if.then.i14
-
-if.then.i14:                                      ; preds = %land.lhs.true.i11
-  %17 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i15 = tail call i32 %17(ptr noundef nonnull %14)
-  br label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE10deallocateEv.exit18
-
-_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i, i8 0, i64 16, i1 false)
-  br label %if.end14
-
-if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE10deallocateEv.exit, %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not.not, %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeE10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10651,13 +11288,12 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i, label %invoke.cont, label %if.then.i
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1 = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1 = invoke i32 %2(ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
@@ -10666,10 +11302,10 @@ invoke.cont:                                      ; preds = %land.lhs.true.i, %e
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 }
 
@@ -10685,126 +11321,24 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeED2Ev.exit, label %if.then.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeED2Ev.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i = invoke i32 %2(ptr noundef nonnull %0)
           to label %_ZN13b3OpenCLArrayI18b3QuantizedBvhNodeED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN13b3OpenCLArrayI18b3QuantizedBvhNodeED2Ev.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayI9b3BvhInfoE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this, i64 noundef %_Count, i1 noundef zeroext %copyOldContents) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %ciErrNum = alloca i32, align 4
-  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load i64, ptr %m_capacity.i, align 8
-  %cmp = icmp ult i64 %0, %_Count
-  br i1 %cmp, label %if.then, label %if.end14
-
-if.then:                                          ; preds = %entry
-  %m_allowGrowingCapacity = getelementptr inbounds i8, ptr %this, i64 49
-  %1 = load i8, ptr %m_allowGrowingCapacity, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %if.else, label %if.then2
-
-if.then2:                                         ; preds = %if.then
-  %mul = shl i64 %_Count, 6
-  %3 = load ptr, ptr @__clewCreateBuffer, align 8
-  %m_clContext = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load ptr, ptr %m_clContext, align 8
-  %call3 = call ptr %3(ptr noundef %4, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
-  %5 = load i32, ptr %ciErrNum, align 4
-  %cmp4.not.not = icmp eq i32 %5, 0
-  br i1 %cmp4.not.not, label %if.end, label %if.end.thread
-
-if.end.thread:                                    ; preds = %if.then2
-  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 166)
-  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.12)
-  br label %if.end12
-
-if.end:                                           ; preds = %if.then2
-  br i1 %copyOldContents, label %if.then9, label %if.end12
-
-if.then9:                                         ; preds = %if.end
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i64, ptr %m_size.i, align 8
-  %cmp.i = icmp eq i64 %6, 0
-  br i1 %cmp.i, label %if.end12, label %if.end.i
-
-if.end.i:                                         ; preds = %if.then9
-  %7 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
-  %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
-  %8 = load ptr, ptr %m_commandQueue.i, align 8
-  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %m_clBuffer.i, align 8
-  %mul3.i = shl i64 %6, 6
-  %call.i = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.end.i, %if.then9, %if.end.thread, %if.end
-  %_Count.addr.023 = phi i64 [ 0, %if.end.thread ], [ %_Count, %if.end ], [ %_Count, %if.then9 ], [ %_Count, %if.end.i ]
-  %m_clBuffer.i5 = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %m_clBuffer.i5, align 8
-  %tobool.not.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i, label %_ZN13b3OpenCLArrayI9b3BvhInfoE10deallocateEv.exit, label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %if.end12
-  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load i8, ptr %m_ownsMemory.i, align 8
-  %12 = and i8 %11, 1
-  %tobool2.not.i = icmp eq i8 %12, 0
-  br i1 %tobool2.not.i, label %_ZN13b3OpenCLArrayI9b3BvhInfoE10deallocateEv.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %land.lhs.true.i
-  %13 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i6 = call i32 %13(ptr noundef nonnull %10)
-  br label %_ZN13b3OpenCLArrayI9b3BvhInfoE10deallocateEv.exit
-
-_ZN13b3OpenCLArrayI9b3BvhInfoE10deallocateEv.exit: ; preds = %if.end12, %land.lhs.true.i, %if.then.i
-  store ptr %call3, ptr %m_clBuffer.i5, align 8
-  store i64 %_Count.addr.023, ptr %m_capacity.i, align 8
-  br label %if.end14
-
-if.else:                                          ; preds = %if.then
-  %m_clBuffer.i9 = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %m_clBuffer.i9, align 8
-  %tobool.not.i10 = icmp eq ptr %14, null
-  br i1 %tobool.not.i10, label %_ZN13b3OpenCLArrayI9b3BvhInfoE10deallocateEv.exit18, label %land.lhs.true.i11
-
-land.lhs.true.i11:                                ; preds = %if.else
-  %m_ownsMemory.i12 = getelementptr inbounds i8, ptr %this, i64 48
-  %15 = load i8, ptr %m_ownsMemory.i12, align 8
-  %16 = and i8 %15, 1
-  %tobool2.not.i13 = icmp eq i8 %16, 0
-  br i1 %tobool2.not.i13, label %_ZN13b3OpenCLArrayI9b3BvhInfoE10deallocateEv.exit18, label %if.then.i14
-
-if.then.i14:                                      ; preds = %land.lhs.true.i11
-  %17 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i15 = tail call i32 %17(ptr noundef nonnull %14)
-  br label %_ZN13b3OpenCLArrayI9b3BvhInfoE10deallocateEv.exit18
-
-_ZN13b3OpenCLArrayI9b3BvhInfoE10deallocateEv.exit18: ; preds = %if.else, %land.lhs.true.i11, %if.then.i14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_capacity.i, i8 0, i64 16, i1 false)
-  br label %if.end14
-
-if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI9b3BvhInfoE10deallocateEv.exit, %_ZN13b3OpenCLArrayI9b3BvhInfoE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not.not, %_ZN13b3OpenCLArrayI9b3BvhInfoE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI9b3BvhInfoE10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10819,13 +11353,12 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i, label %invoke.cont, label %if.then.i
+  %tobool2.i = trunc i8 %1 to i1
+  br i1 %tobool2.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1 = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1 = invoke i32 %2(ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
@@ -10834,10 +11367,10 @@ invoke.cont:                                      ; preds = %land.lhs.true.i, %e
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 }
 
@@ -10853,24 +11386,23 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %_ZN13b3OpenCLArrayI9b3BvhInfoED2Ev.exit, label %if.then.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI9b3BvhInfoED2Ev.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i = invoke i32 %2(ptr noundef nonnull %0)
           to label %_ZN13b3OpenCLArrayI9b3BvhInfoED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN13b3OpenCLArrayI9b3BvhInfoED2Ev.exit:          ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -10932,9 +11464,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i22:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
-  %5 = and i8 %4, 1
-  %tobool2.not.i = icmp eq i8 %5, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayI9b3SapAabbE10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayI9b3SapAabbE10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i22
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %3)
@@ -11009,9 +11540,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i22:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
-  %5 = and i8 %4, 1
-  %tobool2.not.i = icmp eq i8 %5, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeE10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayI15b3GpuChildShapeE10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i22
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %3)
@@ -11086,9 +11616,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i22:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
-  %5 = and i8 %4, 1
-  %tobool2.not.i = icmp eq i8 %5, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i22
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %3)
@@ -11163,9 +11692,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i22:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
-  %5 = and i8 %4, 1
-  %tobool2.not.i = icmp eq i8 %5, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayI9b3BvhInfoE10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %4 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayI9b3BvhInfoE10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i22
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %3)
@@ -11241,9 +11769,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i22:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.not.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayIP26b3TriangleIndexVertexArrayE10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %5 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayIP26b3TriangleIndexVertexArrayE10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i22
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %4)
@@ -11319,9 +11846,8 @@ if.end:                                           ; preds = %for.body.i, %if.the
 if.then.i22:                                      ; preds = %if.end
   %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.not.i = icmp eq i8 %6, 0
-  br i1 %tobool2.not.i, label %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE10deallocateEv.exit, label %if.then3.i
+  %tobool2.i = trunc i8 %5 to i1
+  br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayIP14b3OptimizedBvhE10deallocateEv.exit
 
 if.then3.i:                                       ; preds = %if.then.i22
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %4)
@@ -11350,29 +11876,34 @@ entry:
 land.lhs.true.i.i:                                ; preds = %entry
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %2 = and i8 %1, 1
-  %tobool2.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool2.not.i.i, label %_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit, label %if.then.i.i
+  %tobool2.i.i = trunc i8 %1 to i1
+  br i1 %tobool2.i.i, label %if.then.i.i, label %_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %3 = load ptr, ptr @__clewReleaseMemObject, align 8
-  %call.i1.i = invoke i32 %3(ptr noundef nonnull %0)
+  %2 = load ptr, ptr @__clewReleaseMemObject, align 8
+  %call.i1.i = invoke i32 %2(ptr noundef nonnull %0)
           to label %_ZN13b3OpenCLArrayI6b3AabbED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN13b3OpenCLArrayI6b3AabbED2Ev.exit:             ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #12
@@ -11393,10 +11924,11 @@ attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { builtin allocsize(0) }
-attributes #14 = { builtin nounwind }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn nounwind }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { builtin nounwind }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

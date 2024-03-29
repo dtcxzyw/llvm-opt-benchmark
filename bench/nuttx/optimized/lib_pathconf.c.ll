@@ -14,22 +14,21 @@ define noundef i64 @fpathconf(i32 noundef %0, i32 noundef %1) local_unnamed_addr
 4:                                                ; preds = %switch.hole_check, %2
   %5 = tail call ptr @__errno() #2
   store i32 38, ptr %5, align 4
-  br label %8
+  br label %7
 
 switch.hole_check:                                ; preds = %2
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 111, %switch.maskindex
-  %6 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %6, 0
-  br i1 %switch.lobit.not, label %4, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x i64], ptr @switch.table.pathconf, i64 0, i64 %7
+  %6 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [7 x i64], ptr @switch.table.pathconf, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
-  br label %8
+  br label %7
 
-8:                                                ; preds = %switch.lookup, %4
+7:                                                ; preds = %switch.lookup, %4
   %.0 = phi i64 [ -1, %4 ], [ %switch.load, %switch.lookup ]
   ret i64 %.0
 }
@@ -50,13 +49,12 @@ define noundef i64 @pathconf(ptr nocapture noundef readnone %0, i32 noundef %1) 
 switch.hole_check:                                ; preds = %2
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 111, %switch.maskindex
-  %6 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %6, 0
-  br i1 %switch.lobit.not, label %4, label %switch.lookup
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x i64], ptr @switch.table.pathconf, i64 0, i64 %7
+  %6 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [7 x i64], ptr @switch.table.pathconf, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %fpathconf.exit
 

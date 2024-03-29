@@ -2444,11 +2444,10 @@ _ZN6Assimp3FBX4Node18DumpChildrenBinaryERNS_12StreamWriterILb0ELb0EEE.exit: ; pr
   %7 = phi ptr [ %.pre13, %_ZN6Assimp3FBX4Node18DumpChildrenBinaryERNS_12StreamWriterILb0ELb0EEE.exit.loopexit ], [ %4, %_ZN6Assimp3FBX4Node20DumpPropertiesBinaryERNS_12StreamWriterILb0ELb0EEE.exit ]
   %force_has_children = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load i8, ptr %force_has_children, align 8
-  %9 = and i8 %8, 1
-  %tobool.not = icmp ne i8 %9, 0
+  %tobool = trunc i8 %8 to i1
   %cmp.i.i = icmp ne ptr %7, %6
-  %10 = select i1 %tobool.not, i1 true, i1 %cmp.i.i
-  tail call void @_ZN6Assimp3FBX4Node9EndBinaryERNS_12StreamWriterILb0ELb0EEEb(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(56) %s, i1 noundef zeroext %10)
+  %9 = select i1 %tobool, i1 true, i1 %cmp.i.i
+  tail call void @_ZN6Assimp3FBX4Node9EndBinaryERNS_12StreamWriterILb0ELb0EEEb(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(56) %s, i1 noundef zeroext %9)
   ret void
 }
 
@@ -2625,16 +2624,15 @@ if.end.i:                                         ; preds = %if.then.i, %for.bod
 _ZN6Assimp3FBX4Node19DumpPropertiesAsciiERSoi.exit: ; preds = %if.end.i, %_ZN6Assimp3FBX4Node10BeginAsciiERSoi.exit
   %force_has_children = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load i8, ptr %force_has_children, align 8
-  %7 = and i8 %6, 1
-  %tobool.not = icmp eq i8 %7, 0
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then
+  %tobool = trunc i8 %6 to i1
+  br i1 %tobool, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZN6Assimp3FBX4Node19DumpPropertiesAsciiERSoi.exit
   %children = getelementptr inbounds i8, ptr %this, i64 56
-  %8 = load ptr, ptr %children, align 8
+  %7 = load ptr, ptr %children, align 8
   %_M_finish.i.i12 = getelementptr inbounds i8, ptr %this, i64 64
-  %9 = load ptr, ptr %_M_finish.i.i12, align 8
-  %cmp.i.i = icmp eq ptr %8, %9
+  %8 = load ptr, ptr %_M_finish.i.i12, align 8
+  %cmp.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %_ZN6Assimp3FBX4Node19DumpPropertiesAsciiERSoi.exit
@@ -2642,45 +2640,44 @@ if.then:                                          ; preds = %lor.lhs.false, %_ZN
   %call.i13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef nonnull @.str.21)
   %children.i = getelementptr inbounds i8, ptr %this, i64 56
   %_M_finish.i35 = getelementptr inbounds i8, ptr %this, i64 64
-  %10 = load ptr, ptr %_M_finish.i35, align 8
-  %11 = load ptr, ptr %children.i, align 8
-  %tobool.not.i = icmp eq ptr %10, %11
+  %9 = load ptr, ptr %_M_finish.i35, align 8
+  %10 = load ptr, ptr %children.i, align 8
+  %tobool.not.i = icmp eq ptr %9, %10
   br i1 %tobool.not.i, label %if.end, label %for.body.i18
 
 for.body.i18:                                     ; preds = %if.then, %for.inc.i
-  %12 = phi ptr [ %15, %for.inc.i ], [ %11, %if.then ]
+  %11 = phi ptr [ %14, %for.inc.i ], [ %10, %if.then ]
   %i.0.i45 = phi i64 [ %inc.i20, %for.inc.i ], [ 0, %if.then ]
-  %add.ptr.i34 = getelementptr inbounds %"class.Assimp::FBX::Node", ptr %12, i64 %i.0.i45
+  %add.ptr.i34 = getelementptr inbounds %"class.Assimp::FBX::Node", ptr %11, i64 %i.0.i45
   %call.i32 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i34, ptr noundef nonnull @.str.22) #17
   %cmp.i33 = icmp eq i32 %call.i32, 0
   br i1 %cmp.i33, label %for.inc.i, label %if.end.i19
 
 if.end.i19:                                       ; preds = %for.body.i18
-  %13 = load ptr, ptr %children.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.Assimp::FBX::Node", ptr %13, i64 %i.0.i45
+  %12 = load ptr, ptr %children.i, align 8
+  %add.ptr.i = getelementptr inbounds %"class.Assimp::FBX::Node", ptr %12, i64 %i.0.i45
   tail call void @_ZN6Assimp3FBX4Node9DumpAsciiERSoi(ptr noundef nonnull align 8 dereferenceable(112) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(8) %s, i32 noundef %add)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i19, %for.body.i18
   %inc.i20 = add nuw i64 %i.0.i45, 1
-  %14 = load ptr, ptr %_M_finish.i35, align 8
-  %15 = load ptr, ptr %children.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i35, align 8
+  %14 = load ptr, ptr %children.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 112
   %cmp.i17 = icmp ult i64 %inc.i20, %sub.ptr.div.i
   br i1 %cmp.i17, label %for.body.i18, label %if.end, !llvm.loop !8
 
 if.end:                                           ; preds = %for.inc.i, %if.then, %lor.lhs.false
-  %16 = phi ptr [ %8, %lor.lhs.false ], [ %10, %if.then ], [ %14, %for.inc.i ]
-  %17 = phi ptr [ %8, %lor.lhs.false ], [ %10, %if.then ], [ %15, %for.inc.i ]
-  %18 = load i8, ptr %force_has_children, align 8
-  %19 = and i8 %18, 1
-  %tobool4.not = icmp eq i8 %19, 0
-  %cmp.i.i22.not = icmp eq ptr %17, %16
-  %or.cond = and i1 %tobool4.not, %cmp.i.i22.not
-  br i1 %or.cond, label %_ZN6Assimp3FBX4Node8EndAsciiERSoib.exit, label %if.end.i23
+  %15 = phi ptr [ %7, %lor.lhs.false ], [ %9, %if.then ], [ %13, %for.inc.i ]
+  %16 = phi ptr [ %7, %lor.lhs.false ], [ %9, %if.then ], [ %14, %for.inc.i ]
+  %17 = load i8, ptr %force_has_children, align 8
+  %tobool4 = trunc i8 %17 to i1
+  %cmp.i.i22.not = icmp ne ptr %16, %15
+  %or.cond.not = or i1 %cmp.i.i22.not, %tobool4
+  br i1 %or.cond.not, label %if.end.i23, label %_ZN6Assimp3FBX4Node8EndAsciiERSoib.exit
 
 if.end.i23:                                       ; preds = %if.end
   %call.i24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %s, i8 noundef signext 10)

@@ -271,17 +271,16 @@ lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
   %2 = load i8, ptr %_M_owns.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i4 = icmp eq i8 %3, 0
-  br i1 %tobool.not.i4, label %_ZNSt11unique_lockISt5mutexED2Ev.exit9, label %if.else.i.i5
+  %tobool.i4 = trunc i8 %2 to i1
+  br i1 %tobool.i4, label %if.else.i.i5, label %_ZNSt11unique_lockISt5mutexED2Ev.exit9
 
 if.else.i.i5:                                     ; preds = %lpad
-  %4 = load ptr, ptr %lock, align 8
-  %tobool2.not.i.i6 = icmp eq ptr %4, null
+  %3 = load ptr, ptr %lock, align 8
+  %tobool2.not.i.i6 = icmp eq ptr %3, null
   br i1 %tobool2.not.i.i6, label %_ZNSt11unique_lockISt5mutexED2Ev.exit9, label %if.then3.i.i7
 
 if.then3.i.i7:                                    ; preds = %if.else.i.i5
-  %call1.i.i.i.i8 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #11
+  %call1.i.i.i.i8 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #11
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit9
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit9:           ; preds = %lpad, %if.else.i.i5, %if.then3.i.i7
@@ -315,17 +314,16 @@ lpad:                                             ; preds = %if.else, %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
   %2 = load i8, ptr %_M_owns.i, align 8
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %if.else.i.i
+  %tobool.i = trunc i8 %2 to i1
+  br i1 %tobool.i, label %if.else.i.i, label %_ZN7rocksdb6StatusD2Ev.exit
 
 if.else.i.i:                                      ; preds = %lpad
-  %4 = load ptr, ptr %lock, align 8
-  %tobool2.not.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %lock, align 8
+  %tobool2.not.i.i = icmp eq ptr %3, null
   br i1 %tobool2.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  %call1.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #11
+  %call1.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #11
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %if.then3.i.i, %if.else.i.i, %lpad

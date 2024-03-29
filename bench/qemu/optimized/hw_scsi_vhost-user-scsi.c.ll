@@ -237,9 +237,8 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end8.i:                                        ; preds = %if.end.i
   %6 = load i8, ptr %connected.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.end35
+  %tobool.i = trunc i8 %6 to i1
+  br i1 %tobool.i, label %if.end35, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end8.i
   call void @__assert_fail(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.22, i32 noundef 245, ptr noundef nonnull @__PRETTY_FUNCTION__.vhost_user_scsi_realize_connect) #7
@@ -256,17 +255,17 @@ if.end35:                                         ; preds = %if.end8.i
   %lun = getelementptr inbounds i8, ptr %call.i35, i64 1332
   store i32 0, ptr %lun, align 4
   %boot_tpgt = getelementptr inbounds i8, ptr %call.i, i64 616
-  %8 = load i32, ptr %boot_tpgt, align 8
+  %7 = load i32, ptr %boot_tpgt, align 8
   %target = getelementptr inbounds i8, ptr %call.i35, i64 1328
-  store i32 %8, ptr %target, align 8
+  store i32 %7, ptr %target, align 8
   br label %cleanup
 
 free_vhost:                                       ; preds = %vhost_user_scsi_realize_connect.exit
-  %9 = load ptr, ptr %vhost_vqs, align 8
-  call void @g_free(ptr noundef %9) #5
+  %8 = load ptr, ptr %vhost_vqs, align 8
+  call void @g_free(ptr noundef %8) #5
   store ptr null, ptr %vhost_vqs, align 8
-  %10 = load ptr, ptr %inflight, align 8
-  call void @g_free(ptr noundef %10) #5
+  %9 = load ptr, ptr %inflight, align 8
+  call void @g_free(ptr noundef %9) #5
   store ptr null, ptr %inflight, align 8
   call void @vhost_user_cleanup(ptr noundef nonnull %vhost_user) #5
   br label %free_virtio
@@ -323,48 +322,40 @@ entry:
   %call.i9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_SCSI_COMMON) #5
   %vm_running.i = getelementptr inbounds i8, ptr %vdev, i64 434
   %0 = load i8, ptr %vm_running.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %virtio_device_should_start.exit, label %if.end.i
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end.i, label %virtio_device_should_start.exit
 
 if.end.i:                                         ; preds = %entry
   %use_started.i.i = getelementptr inbounds i8, ptr %vdev, i64 438
-  %2 = load i8, ptr %use_started.i.i, align 2
-  %3 = and i8 %2, 1
-  %tobool.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
+  %1 = load i8, ptr %use_started.i.i, align 2
+  %tobool.i.i = trunc i8 %1 to i1
+  br i1 %tobool.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %started.i.i = getelementptr inbounds i8, ptr %vdev, i64 439
-  %4 = load i8, ptr %started.i.i, align 1
-  %5 = and i8 %4, 1
-  br label %virtio_device_started.exit.i
-
-if.end.i.i:                                       ; preds = %if.end.i
-  %6 = and i8 %status, 4
-  br label %virtio_device_started.exit.i
-
-virtio_device_started.exit.i:                     ; preds = %if.end.i.i, %if.then.i.i
-  %retval.0.in.i.i = phi i8 [ %5, %if.then.i.i ], [ %6, %if.end.i.i ]
-  %retval.0.i.i = icmp ne i8 %retval.0.in.i.i, 0
+  %2 = load i8, ptr %started.i.i, align 1
+  %tobool1.i.i = trunc i8 %2 to i1
   br label %virtio_device_should_start.exit
 
-virtio_device_should_start.exit:                  ; preds = %entry, %virtio_device_started.exit.i
-  %retval.0.i = phi i1 [ %retval.0.i.i, %virtio_device_started.exit.i ], [ false, %entry ]
+if.end.i.i:                                       ; preds = %if.end.i
+  %3 = and i8 %status, 4
+  %tobool2.i.i = icmp ne i8 %3, 0
+  br label %virtio_device_should_start.exit
+
+virtio_device_should_start.exit:                  ; preds = %entry, %if.then.i.i, %if.end.i.i
+  %retval.0.i = phi i1 [ false, %entry ], [ %tobool1.i.i, %if.then.i.i ], [ %tobool2.i.i, %if.end.i.i ]
   store ptr null, ptr %local_err, align 8
   %connected = getelementptr inbounds i8, ptr %vdev, i64 1360
-  %7 = load i8, ptr %connected, align 8
-  %8 = and i8 %7, 1
-  %tobool.not = icmp eq i8 %8, 0
-  br i1 %tobool.not, label %if.end19, label %if.end
+  %4 = load i8, ptr %connected, align 8
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.end, label %if.end19
 
 if.end:                                           ; preds = %virtio_device_should_start.exit
-  %9 = getelementptr i8, ptr %call.i8, i64 1176
-  %dev4.val = load i8, ptr %9, align 8
-  %10 = and i8 %dev4.val, 1
-  %tobool.i = icmp ne i8 %10, 0
-  %11 = xor i1 %retval.0.i, %tobool.i
-  br i1 %11, label %if.end10, label %if.end19
+  %5 = getelementptr i8, ptr %call.i8, i64 1176
+  %dev4.val = load i8, ptr %5, align 8
+  %tobool.i10 = trunc i8 %dev4.val to i1
+  %6 = xor i1 %retval.0.i, %tobool.i10
+  br i1 %6, label %if.end10, label %if.end19
 
 if.end10:                                         ; preds = %if.end
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #5
@@ -380,27 +371,26 @@ if.then12:                                        ; preds = %if.end10
   br i1 %cmp14, label %if.then16, label %if.end19
 
 if.then16:                                        ; preds = %if.then12
-  %12 = load ptr, ptr %local_err, align 8
+  %7 = load ptr, ptr %local_err, align 8
   %sub = sub i32 0, %call1.i
   %call17 = call ptr @strerror(i32 noundef %sub) #5
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %12, ptr noundef nonnull @.str.31, ptr noundef %call17) #5
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %7, ptr noundef nonnull @.str.31, ptr noundef %call17) #5
   %chardev = getelementptr inbounds i8, ptr %call.i9, i64 560
   call void @qemu_chr_fe_disconnect(ptr noundef nonnull %chardev) #5
   br label %if.end19
 
 if.else:                                          ; preds = %if.end10
-  %started_vu.i11 = getelementptr inbounds i8, ptr %vdev, i64 1361
-  %13 = load i8, ptr %started_vu.i11, align 1
-  %14 = and i8 %13, 1
-  %tobool.not.i12 = icmp eq i8 %14, 0
-  br i1 %tobool.not.i12, label %if.end19, label %if.end.i13
+  %started_vu.i12 = getelementptr inbounds i8, ptr %vdev, i64 1361
+  %8 = load i8, ptr %started_vu.i12, align 1
+  %tobool.i13 = trunc i8 %8 to i1
+  br i1 %tobool.i13, label %if.end.i14, label %if.end19
 
-if.end.i13:                                       ; preds = %if.else
-  store i8 0, ptr %started_vu.i11, align 1
+if.end.i14:                                       ; preds = %if.else
+  store i8 0, ptr %started_vu.i12, align 1
   tail call void @vhost_scsi_common_stop(ptr noundef %call.i.i) #5
   br label %if.end19
 
-if.end19:                                         ; preds = %if.end.i13, %if.else, %if.then12, %if.then16, %if.end, %virtio_device_should_start.exit
+if.end19:                                         ; preds = %if.end.i14, %if.else, %if.then12, %if.then16, %if.end, %virtio_device_should_start.exit
   ret void
 }
 
@@ -441,23 +431,20 @@ entry:
   store ptr null, ptr %local_err, align 8
   %start_on_kick = getelementptr inbounds i8, ptr %vdev, i64 440
   %0 = load i8, ptr %start_on_kick, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %for.end, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
   %connected = getelementptr inbounds i8, ptr %vdev, i64 1360
-  %2 = load i8, ptr %connected, align 8
-  %3 = and i8 %2, 1
-  %tobool3.not = icmp eq i8 %3, 0
-  br i1 %tobool3.not, label %for.end, label %if.end5
+  %1 = load i8, ptr %connected, align 8
+  %tobool3 = trunc i8 %1 to i1
+  br i1 %tobool3, label %if.end5, label %for.end
 
 if.end5:                                          ; preds = %if.end
-  %4 = getelementptr i8, ptr %call.i11, i64 1176
-  %dev6.val = load i8, ptr %4, align 8
-  %5 = and i8 %dev6.val, 1
-  %tobool.i.not = icmp eq i8 %5, 0
-  br i1 %tobool.i.not, label %if.end9, label %for.end
+  %2 = getelementptr i8, ptr %call.i11, i64 1176
+  %dev6.val = load i8, ptr %2, align 8
+  %tobool.i = trunc i8 %dev6.val to i1
+  br i1 %tobool.i, label %for.end, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #5
@@ -471,13 +458,13 @@ if.end9:                                          ; preds = %if.end5
 
 for.cond.preheader:                               ; preds = %if.end9
   %nvqs = getelementptr inbounds i8, ptr %call.i11, i64 1112
-  %6 = load i32, ptr %nvqs, align 8
-  %cmp1413.not = icmp eq i32 %6, 0
+  %3 = load i32, ptr %nvqs, align 8
+  %cmp1413.not = icmp eq i32 %3, 0
   br i1 %cmp1413.not, label %for.end, label %for.body
 
 if.then11:                                        ; preds = %if.end9
-  %7 = load ptr, ptr %local_err, align 8
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %7, ptr noundef nonnull @.str.29) #5
+  %4 = load ptr, ptr %local_err, align 8
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %4, ptr noundef nonnull @.str.29) #5
   %chardev = getelementptr inbounds i8, ptr %call.i12, i64 560
   call void @qemu_chr_fe_disconnect(ptr noundef nonnull %chardev) #5
   br label %for.end
@@ -496,8 +483,8 @@ if.end19:                                         ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.end19
   %inc = add nuw i32 %i.014, 1
-  %8 = load i32, ptr %nvqs, align 8
-  %cmp14 = icmp ult i32 %inc, %8
+  %5 = load i32, ptr %nvqs, align 8
+  %cmp14 = icmp ult i32 %inc, %5
   br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader, %if.end5, %if.end, %entry, %if.then11
@@ -587,23 +574,22 @@ entry:
   %call.i20 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_SCSI_COMMON) #5
   %connected = getelementptr inbounds i8, ptr %call.i18, i64 1360
   %0 = load i8, ptr %connected, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %conf = getelementptr inbounds i8, ptr %call.i20, i64 520
-  %2 = load i32, ptr %conf, align 8
+  %1 = load i32, ptr %conf, align 8
   %dev4 = getelementptr inbounds i8, ptr %call.i19, i64 672
   %num_queues5 = getelementptr inbounds i8, ptr %call.i19, i64 1124
-  store i32 %2, ptr %num_queues5, align 4
-  %add = add i32 %2, 2
+  store i32 %1, ptr %num_queues5, align 4
+  %add = add i32 %1, 2
   %nvqs = getelementptr inbounds i8, ptr %call.i19, i64 1112
   store i32 %add, ptr %nvqs, align 8
   %vhost_vqs = getelementptr inbounds i8, ptr %call.i18, i64 1392
-  %3 = load ptr, ptr %vhost_vqs, align 8
+  %2 = load ptr, ptr %vhost_vqs, align 8
   %vqs = getelementptr inbounds i8, ptr %call.i19, i64 1104
-  store ptr %3, ptr %vqs, align 8
+  store ptr %2, ptr %vqs, align 8
   %vq_index = getelementptr inbounds i8, ptr %call.i19, i64 1116
   store i32 0, ptr %vq_index, align 4
   %backend_features = getelementptr inbounds i8, ptr %call.i19, i64 1144
@@ -616,29 +602,24 @@ if.end:                                           ; preds = %entry
 if.end15:                                         ; preds = %if.end
   store i8 1, ptr %connected, align 8
   %use_started.i = getelementptr inbounds i8, ptr %call.i, i64 438
-  %4 = load i8, ptr %use_started.i, align 2
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  %3 = load i8, ptr %use_started.i, align 2
+  %tobool.i = trunc i8 %3 to i1
+  br i1 %tobool.i, label %if.then.i, label %virtio_device_started.exit
 
 if.then.i:                                        ; preds = %if.end15
   %started.i = getelementptr inbounds i8, ptr %call.i, i64 439
-  %6 = load i8, ptr %started.i, align 1
-  %7 = and i8 %6, 1
-  br label %virtio_device_started.exit
+  %4 = load i8, ptr %started.i, align 1
+  %tobool1.i = trunc i8 %4 to i1
+  br i1 %tobool1.i, label %if.then18, label %return
 
-if.end.i:                                         ; preds = %if.end15
+virtio_device_started.exit:                       ; preds = %if.end15
   %status = getelementptr inbounds i8, ptr %call.i, i64 168
-  %8 = load i8, ptr %status, align 8
-  %9 = and i8 %8, 4
-  br label %virtio_device_started.exit
+  %5 = load i8, ptr %status, align 8
+  %6 = and i8 %5, 4
+  %tobool2.i.not = icmp eq i8 %6, 0
+  br i1 %tobool2.i.not, label %return, label %if.then18
 
-virtio_device_started.exit:                       ; preds = %if.then.i, %if.end.i
-  %retval.0.in.i = phi i8 [ %7, %if.then.i ], [ %9, %if.end.i ]
-  %retval.0.i.not = icmp eq i8 %retval.0.in.i, 0
-  br i1 %retval.0.i.not, label %return, label %if.then18
-
-if.then18:                                        ; preds = %virtio_device_started.exit
+if.then18:                                        ; preds = %if.then.i, %virtio_device_started.exit
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i18, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #5
   %call1.i = tail call i32 @vhost_scsi_common_start(ptr noundef %call.i.i, ptr noundef %errp) #5
   %cmp.i = icmp sgt i32 %call1.i, -1
@@ -647,8 +628,8 @@ if.then18:                                        ; preds = %virtio_device_start
   store i8 %frombool.i, ptr %started_vu.i, align 1
   br label %return
 
-return:                                           ; preds = %virtio_device_started.exit, %if.then18, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call13, %if.end ], [ %call1.i, %if.then18 ], [ %call13, %virtio_device_started.exit ]
+return:                                           ; preds = %if.then.i, %virtio_device_started.exit, %if.then18, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call13, %if.end ], [ %call1.i, %if.then18 ], [ %call13, %virtio_device_started.exit ], [ %call13, %if.then.i ]
   ret i32 %retval.0
 }
 
@@ -665,18 +646,16 @@ entry:
   %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_SCSI_COMMON) #5
   %connected = getelementptr inbounds i8, ptr %call.i6, i64 1360
   %0 = load i8, ptr %connected, align 8
-  %1 = and i8 %0, 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %tobool = trunc i8 %0 to i1
+  br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   store i8 0, ptr %connected, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #5
   %started_vu.i = getelementptr inbounds i8, ptr %call.i6, i64 1361
-  %2 = load i8, ptr %started_vu.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %vhost_user_scsi_stop.exit, label %if.end.i
+  %1 = load i8, ptr %started_vu.i, align 1
+  %tobool.i = trunc i8 %1 to i1
+  br i1 %tobool.i, label %if.end.i, label %vhost_user_scsi_stop.exit
 
 if.end.i:                                         ; preds = %if.end
   store i8 0, ptr %started_vu.i, align 1

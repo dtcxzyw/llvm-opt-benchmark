@@ -292,11 +292,10 @@ lor.rhs:                                          ; preds = %_ZN4node9AsyncWrap1
   %30 = load ptr, ptr %vfn.i14, align 8
   %call2.i15 = call ptr %30(ptr noundef nonnull align 8 dereferenceable(872) %29) #13
   %call42 = call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i, ptr %call2.i15) #13
-  %31 = and i64 %call42, 1
-  %tobool.i98.not = icmp eq i64 %31, 0
+  %tobool.i98 = trunc i64 %call42 to i1
   %ref.tmp30.sroa.32.0.extract.shift = lshr i64 %call42, 32
   %ref.tmp30.sroa.32.0.extract.trunc = trunc i64 %ref.tmp30.sroa.32.0.extract.shift to i32
-  br i1 %tobool.i98.not, label %if.then, label %if.end50
+  br i1 %tobool.i98, label %if.end50, label %if.then
 
 if.then:                                          ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit, %lor.rhs
   %call44 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #13
@@ -307,12 +306,12 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %call45, label %if.end50, label %if.then46
 
 if.then46:                                        ; preds = %land.lhs.true
-  %32 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i17 = getelementptr inbounds i8, ptr %32, i64 176
-  %33 = load ptr, ptr %env_.i.i17, align 8
-  %isolate_.i18 = getelementptr inbounds i8, ptr %33, i64 88
-  %34 = load ptr, ptr %isolate_.i18, align 8
-  call void @_ZN4node6errors24TriggerUncaughtExceptionEPN2v87IsolateERKNS1_8TryCatchE(ptr noundef %34, ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #13
+  %31 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i17 = getelementptr inbounds i8, ptr %31, i64 176
+  %32 = load ptr, ptr %env_.i.i17, align 8
+  %isolate_.i18 = getelementptr inbounds i8, ptr %32, i64 88
+  %33 = load ptr, ptr %isolate_.i18, align 8
+  call void @_ZN4node6errors24TriggerUncaughtExceptionEPN2v87IsolateERKNS1_8TryCatchE(ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #13
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then, %land.lhs.true, %if.then46, %lor.rhs
@@ -449,11 +448,10 @@ lor.rhs:                                          ; preds = %_ZN4node9AsyncWrap1
   %30 = load ptr, ptr %vfn.i14, align 8
   %call2.i15 = call ptr %30(ptr noundef nonnull align 8 dereferenceable(872) %29) #13
   %call42 = call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i, ptr %call2.i15) #13
-  %31 = and i64 %call42, 1
-  %tobool.i98.not = icmp eq i64 %31, 0
+  %tobool.i98 = trunc i64 %call42 to i1
   %ref.tmp30.sroa.32.0.extract.shift = lshr i64 %call42, 32
   %ref.tmp30.sroa.32.0.extract.trunc = trunc i64 %ref.tmp30.sroa.32.0.extract.shift to i32
-  br i1 %tobool.i98.not, label %if.then, label %if.end50
+  br i1 %tobool.i98, label %if.end50, label %if.then
 
 if.then:                                          ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit, %lor.rhs
   %call44 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #13
@@ -464,12 +462,12 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %call45, label %if.end50, label %if.then46
 
 if.then46:                                        ; preds = %land.lhs.true
-  %32 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i17 = getelementptr inbounds i8, ptr %32, i64 176
-  %33 = load ptr, ptr %env_.i.i17, align 8
-  %isolate_.i18 = getelementptr inbounds i8, ptr %33, i64 88
-  %34 = load ptr, ptr %isolate_.i18, align 8
-  call void @_ZN4node6errors24TriggerUncaughtExceptionEPN2v87IsolateERKNS1_8TryCatchE(ptr noundef %34, ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #13
+  %31 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i17 = getelementptr inbounds i8, ptr %31, i64 176
+  %32 = load ptr, ptr %env_.i.i17, align 8
+  %isolate_.i18 = getelementptr inbounds i8, ptr %32, i64 88
+  %33 = load ptr, ptr %isolate_.i18, align 8
+  call void @_ZN4node6errors24TriggerUncaughtExceptionEPN2v87IsolateERKNS1_8TryCatchE(ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #13
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then, %land.lhs.true, %if.then46, %lor.rhs
@@ -718,10 +716,9 @@ lor.rhs:                                          ; preds = %_ZN4node9AsyncWrap1
   %call2.i35 = call ptr %52(ptr noundef nonnull align 8 dereferenceable(872) %51) #13
   %call104 = call { i8, i64 } @_ZNK2v85Value12IntegerValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i29, ptr %call2.i35) #13
   %53 = extractvalue { i8, i64 } %call104, 0
-  %54 = and i8 %53, 1
-  %tobool.i220.not = icmp eq i8 %54, 0
-  %55 = extractvalue { i8, i64 } %call104, 1
-  br i1 %tobool.i220.not, label %if.then107, label %cleanup
+  %tobool.i220 = trunc i8 %53 to i1
+  %54 = extractvalue { i8, i64 } %call104, 1
+  br i1 %tobool.i220, label %cleanup, label %if.then107
 
 if.then107:                                       ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit, %lor.rhs
   %call108 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #13
@@ -732,24 +729,24 @@ land.lhs.true:                                    ; preds = %if.then107
   br i1 %call109, label %cleanup, label %if.then110
 
 if.then110:                                       ; preds = %land.lhs.true
-  %56 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i37 = getelementptr inbounds i8, ptr %56, i64 176
-  %57 = load ptr, ptr %env_.i.i37, align 8
-  %isolate_.i38 = getelementptr inbounds i8, ptr %57, i64 88
-  %58 = load ptr, ptr %isolate_.i38, align 8
-  call void @_ZN4node6errors24TriggerUncaughtExceptionEPN2v87IsolateERKNS1_8TryCatchE(ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #13
+  %55 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i37 = getelementptr inbounds i8, ptr %55, i64 176
+  %56 = load ptr, ptr %env_.i.i37, align 8
+  %isolate_.i38 = getelementptr inbounds i8, ptr %56, i64 88
+  %57 = load ptr, ptr %isolate_.i38, align 8
+  call void @_ZN4node6errors24TriggerUncaughtExceptionEPN2v87IsolateERKNS1_8TryCatchE(ptr noundef %57, ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #13
   br label %cleanup
 
 cleanup:                                          ; preds = %lor.rhs, %if.then110, %land.lhs.true, %if.then107, %for.end
-  %retval.0 = phi i64 [ -71, %for.end ], [ -71, %land.lhs.true ], [ -71, %if.then110 ], [ -71, %if.then107 ], [ %55, %lor.rhs ]
-  %59 = load ptr, ptr %buf_.i.i, align 8
-  %cmp.i.i.i39 = icmp ne ptr %59, null
-  %cmp.i.i40 = icmp ne ptr %59, %buf_st_.ptr.i.i
-  %60 = and i1 %cmp.i.i.i39, %cmp.i.i40
-  br i1 %60, label %if.then.i41, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EED2Ev.exit
+  %retval.0 = phi i64 [ -71, %for.end ], [ -71, %land.lhs.true ], [ -71, %if.then110 ], [ -71, %if.then107 ], [ %54, %lor.rhs ]
+  %58 = load ptr, ptr %buf_.i.i, align 8
+  %cmp.i.i.i39 = icmp ne ptr %58, null
+  %cmp.i.i40 = icmp ne ptr %58, %buf_st_.ptr.i.i
+  %59 = and i1 %cmp.i.i.i39, %cmp.i.i40
+  br i1 %59, label %if.then.i41, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EED2Ev.exit
 
 if.then.i41:                                      ; preds = %cleanup
-  call void @free(ptr noundef nonnull %59) #13
+  call void @free(ptr noundef nonnull %58) #13
   br label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EED2Ev.exit
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EED2Ev.exit: ; preds = %cleanup, %if.then.i41
@@ -1676,24 +1673,22 @@ if.end4.i:                                        ; preds = %if.end.i
   %call5.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   %wants_weak_jsobj.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %4 = load i8, ptr %wants_weak_jsobj.i, align 8
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
+  %tobool.i = trunc i8 %4 to i1
+  br i1 %tobool.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit:   ; preds = %if.end4.i
   %is_detached.i = getelementptr inbounds i8, ptr %call5.i, i64 9
-  %6 = load i8, ptr %is_detached.i, align 1
-  %.fr6 = freeze i8 %6
-  %7 = and i8 %.fr6, 1
-  %tobool6.i.not = icmp eq i8 %7, 0
-  br i1 %tobool6.i.not, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
+  %5 = load i8, ptr %is_detached.i, align 1
+  %.fr = freeze i8 %5
+  %tobool6.i = trunc i8 %.fr to i1
+  br i1 %tobool6.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread: ; preds = %if.end4.i, %if.end.i.i, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
   br label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3: ; preds = %if.end.i, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
-  %8 = phi i8 [ 2, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread ], [ 0, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit ], [ 0, %if.end.i ]
-  ret i8 %8
+  %6 = phi i8 [ 2, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread ], [ 0, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit ], [ 0, %if.end.i ]
+  ret i8 %6
 }
 
 declare noundef zeroext i1 @_ZNK4node9AsyncWrap18IsDoneInitializingEv(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #0
